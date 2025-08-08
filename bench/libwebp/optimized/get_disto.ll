@@ -32,9 +32,9 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly cap
   %4 = alloca %struct.WebPPicture, align 8
   %5 = alloca [5 x float], align 16
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #13
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #13
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = call i32 @WebPPictureInitInternal(ptr noundef nonnull %3, i32 noundef 528) #13
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %11, label %8
@@ -239,7 +239,7 @@ sub_1113:                                         ; preds = %.tail, %sub_1
   br i1 %.not95, label %165, label %100
 
 100:                                              ; preds = %72
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !9
   %101 = load i32, ptr %3, align 8, !tbaa !21
   %102 = load i32, ptr %4, align 8, !tbaa !21
@@ -350,11 +350,11 @@ sub_1113:                                         ; preds = %.tail, %sub_1
 
 .thread108:                                       ; preds = %103, %157, %155, %160
   %.3.ph = phi i32 [ %.2, %155 ], [ %.2, %157 ], [ %.2, %103 ], [ 1, %160 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %165
 
 164:                                              ; preds = %160
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %165
 
 165:                                              ; preds = %72, %164, %.thread108, %60, %69, %59, %40
@@ -365,23 +365,20 @@ sub_1113:                                         ; preds = %.tail, %sub_1
 
 166:                                              ; preds = %165, %11
   %.0 = phi i32 [ %.184, %165 ], [ 1, %11 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: cold nounwind uwtable
-define internal fastcc void @Help() unnamed_addr #4 {
+define internal fastcc void @Help() unnamed_addr #3 {
   %1 = load ptr, ptr @stderr, align 8, !tbaa !4
   %2 = tail call ptr @WebPGetEnabledInputFileFormats() #13
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.19, ptr noundef %2) #16
@@ -392,9 +389,9 @@ define internal fastcc void @Help() unnamed_addr #4 {
 define internal fastcc i64 @ReadPicture(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !27
   %5 = call i32 @ImgIoUtilReadFile(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #13
   %.not = icmp eq i32 %5, 0
@@ -426,17 +423,17 @@ define internal fastcc i64 @ReadPicture(ptr noundef nonnull %0, ptr noundef nonn
 
 21:                                               ; preds = %14, %17
   %22 = phi i64 [ 0, %17 ], [ %16, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %22
 }
 
-declare void @WebPBlendAlpha(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @WebPBlendAlpha(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @WebPPictureDistortion(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @WebPPictureDistortion(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, -2147483648) i32 @SSIMScaleChannel(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
@@ -741,7 +738,7 @@ RescalePlane.exit:                                ; preds = %._crit_edge.us.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 256) i32 @DiffScaleChannel(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #6 {
+define internal fastcc range(i32 0, 256) i32 @DiffScaleChannel(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #5 {
   %8 = icmp sgt i32 %5, 0
   %9 = icmp sgt i32 %4, 0
   %or.cond = and i1 %8, %9
@@ -842,11 +839,8 @@ RescalePlane.exit:                                ; preds = %._crit_edge.us.i, %
   ret i32 %.032.lcssa
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ConvertToGray(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #7 {
+define internal fastcc void @ConvertToGray(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4, !tbaa !20
   %4 = icmp sgt i32 %3, 0
@@ -914,33 +908,39 @@ define internal fastcc void @ConvertToGray(ptr noundef nonnull readonly captures
   ret void
 }
 
-declare i64 @WebPEncodeLosslessBGRA(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare i64 @WebPEncodeLosslessBGRA(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @ImgIoUtilWriteFile(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @ImgIoUtilWriteFile(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare void @WebPFree(ptr noundef) local_unnamed_addr #5
+declare void @WebPFree(ptr noundef) local_unnamed_addr #4
 
-declare void @WebPPictureFree(ptr noundef) local_unnamed_addr #5
+declare void @WebPPictureFree(ptr noundef) local_unnamed_addr #4
 
-declare i32 @WebPPictureInitInternal(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @WebPPictureInitInternal(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @WebPGetEnabledInputFileFormats() local_unnamed_addr #5
+declare ptr @WebPGetEnabledInputFileFormats() local_unnamed_addr #4
 
-declare i32 @ImgIoUtilReadFile(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @ImgIoUtilReadFile(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @WebPGuessImageReader(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare ptr @WebPGuessImageReader(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #10
+declare i32 @llvm.abs.i32(i32, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #10
+declare double @llvm.fmuladd.f64(double, double, double) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
@@ -964,16 +964,16 @@ declare i32 @llvm.umin.i32(i32, i32) #12
 declare i32 @llvm.umax.i32(i32, i32) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nofree nounwind }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nounwind }

@@ -55,18 +55,12 @@ define range(i32 -1, 2) i32 @PaPulseAudio_CheckConnection(ptr noundef readonly c
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @pa_context_get_state(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @pa_context_get_state(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @PaPulseAudio_New() local_unnamed_addr #0 {
   %1 = alloca [1024 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %1) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = tail call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef 82256) #14
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %4
@@ -127,30 +121,30 @@ define ptr @PaPulseAudio_New() local_unnamed_addr #0 {
 
 26:                                               ; preds = %25, %23, %3
   %.0 = phi ptr [ null, %25 ], [ %2, %23 ], [ null, %3 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %1) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef) local_unnamed_addr #2
+declare ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef) local_unnamed_addr #1
 
-declare void @PaUtil_SetLastHostErrorInfo(i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @PaUtil_SetLastHostErrorInfo(i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare ptr @pa_threaded_mainloop_new() local_unnamed_addr #2
+declare ptr @pa_threaded_mainloop_new() local_unnamed_addr #1
 
-declare ptr @pa_threaded_mainloop_get_api(ptr noundef) local_unnamed_addr #2
+declare ptr @pa_threaded_mainloop_get_api(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
-declare ptr @pa_context_new(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @pa_context_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @pa_context_set_state_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @pa_context_set_state_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @PaPulseAudio_CheckContextStateCb(ptr noundef readnone captures(address_is_null) %0, ptr noundef readonly captures(none) %1) #0 {
@@ -168,7 +162,7 @@ define void @PaPulseAudio_CheckContextStateCb(ptr noundef readnone captures(addr
   ret void
 }
 
-declare i32 @pa_threaded_mainloop_start(ptr noundef) local_unnamed_addr #2
+declare i32 @pa_threaded_mainloop_start(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @PaPulseAudio_Free(ptr noundef %0) local_unnamed_addr #0 {
@@ -253,21 +247,21 @@ define void @PaPulseAudio_Free(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @pa_threaded_mainloop_stop(ptr noundef) local_unnamed_addr #2
+declare void @pa_threaded_mainloop_stop(ptr noundef) local_unnamed_addr #1
 
-declare void @pa_context_disconnect(ptr noundef) local_unnamed_addr #2
+declare void @pa_context_disconnect(ptr noundef) local_unnamed_addr #1
 
-declare void @pa_context_unref(ptr noundef) local_unnamed_addr #2
+declare void @pa_context_unref(ptr noundef) local_unnamed_addr #1
 
-declare void @pa_threaded_mainloop_free(ptr noundef) local_unnamed_addr #2
+declare void @pa_threaded_mainloop_free(ptr noundef) local_unnamed_addr #1
 
-declare void @PaUtil_FreeAllAllocations(ptr noundef) local_unnamed_addr #2
+declare void @PaUtil_FreeAllAllocations(ptr noundef) local_unnamed_addr #1
 
-declare void @PaUtil_DestroyAllocationGroup(ptr noundef) local_unnamed_addr #2
+declare void @PaUtil_DestroyAllocationGroup(ptr noundef) local_unnamed_addr #1
 
-declare void @PaUtil_FreeMemory(ptr noundef) local_unnamed_addr #2
+declare void @PaUtil_FreeMemory(ptr noundef) local_unnamed_addr #1
 
-declare void @pa_threaded_mainloop_signal(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @pa_threaded_mainloop_signal(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @PaPulseAudio_ServerInfoCb(ptr noundef readnone captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) %2) #0 {
@@ -376,9 +370,9 @@ define range(i32 -9992, 1) i32 @_PaPulseAudio_AddAudioDevice(ptr noundef capture
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
+declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
-declare ptr @PaUtil_GroupAllocateZeroInitializedMemory(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @PaUtil_GroupAllocateZeroInitializedMemory(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @PaPulseAudio_SinkListCb(ptr noundef readnone captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(none) %3) #0 {
@@ -478,9 +472,9 @@ define void @PaPulseAudio_StreamStateCb(ptr noundef %0, ptr readnone captures(no
   ret void
 }
 
-declare i32 @pa_stream_get_state(ptr noundef) local_unnamed_addr #2
+declare i32 @pa_stream_get_state(ptr noundef) local_unnamed_addr #1
 
-declare ptr @pa_stream_get_buffer_attr(ptr noundef) local_unnamed_addr #2
+declare ptr @pa_stream_get_buffer_attr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @PaPulseAudio_StreamUnderflowCb(ptr noundef %0, ptr noundef captures(none) %1) #0 {
@@ -505,7 +499,7 @@ define void @PaPulseAudio_StreamUnderflowCb(ptr noundef %0, ptr noundef captures
 ; Function Attrs: nounwind uwtable
 define range(i32 -9999, 2) i32 @PaPulseAudio_Initialize(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !76
   %4 = tail call ptr @PaPulseAudio_New()
   %.not = icmp eq ptr %4, null
@@ -689,27 +683,27 @@ PaPulseAudio_CheckConnection.exit:                ; preds = %select.unfold.prehe
 
 .thread98:                                        ; preds = %2, %84, %.loopexit
   %.0 = phi i32 [ 0, %.loopexit ], [ %.07996105, %84 ], [ -9992, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare ptr @PaUtil_CreateAllocationGroup() local_unnamed_addr #2
+declare ptr @PaUtil_CreateAllocationGroup() local_unnamed_addr #1
 
-declare void @PaPulseAudio_Lock(ptr noundef) local_unnamed_addr #2
+declare void @PaPulseAudio_Lock(ptr noundef) local_unnamed_addr #1
 
-declare i32 @pa_context_connect(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @pa_context_connect(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @pa_threaded_mainloop_wait(ptr noundef) local_unnamed_addr #2
+declare void @pa_threaded_mainloop_wait(ptr noundef) local_unnamed_addr #1
 
-declare ptr @pa_context_get_server_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @pa_context_get_server_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @PaPulseAudio_UnLock(ptr noundef) local_unnamed_addr #2
+declare void @PaPulseAudio_UnLock(ptr noundef) local_unnamed_addr #1
 
-declare void @PaPulseAudio_ReleaseOperation(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @PaPulseAudio_ReleaseOperation(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @pa_context_get_sink_info_list(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @pa_context_get_sink_info_list(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @pa_context_get_source_info_list(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @pa_context_get_source_info_list(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @Terminate(ptr noundef %0) #0 {
@@ -1010,7 +1004,7 @@ define i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(none) %1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -9998, 1) i32 @IsFormatSupported(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, double %3) #7 {
+define range(i32 -9998, 1) i32 @IsFormatSupported(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, double %3) #6 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %26, label %5
 
@@ -1088,25 +1082,25 @@ define range(i32 -9998, 1) i32 @IsFormatSupported(ptr noundef readonly captures(
   ret i32 %.0
 }
 
-declare void @PaUtil_InitializeStreamInterface(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @PaUtil_InitializeStreamInterface(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @PaPulseAudio_CloseStreamCb(ptr noundef) #2
+declare i32 @PaPulseAudio_CloseStreamCb(ptr noundef) #1
 
-declare i32 @PaPulseAudio_StartStreamCb(ptr noundef) #2
+declare i32 @PaPulseAudio_StartStreamCb(ptr noundef) #1
 
-declare i32 @PaPulseAudio_StopStreamCb(ptr noundef) #2
+declare i32 @PaPulseAudio_StopStreamCb(ptr noundef) #1
 
-declare i32 @PaPulseAudio_AbortStreamCb(ptr noundef) #2
+declare i32 @PaPulseAudio_AbortStreamCb(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define i32 @IsStreamStopped(ptr noundef %0) #8 {
+define i32 @IsStreamStopped(ptr noundef %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 652
   %3 = load volatile i32, ptr %2, align 4, !tbaa !101
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define i32 @IsStreamActive(ptr noundef %0) #8 {
+define i32 @IsStreamActive(ptr noundef %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %3 = load volatile i32, ptr %2, align 8, !tbaa !100
   ret i32 %3
@@ -1117,7 +1111,7 @@ define double @GetStreamTime(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca %struct.PaStreamCallbackTimeInfo, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 82216
   %6 = load ptr, ptr %5, align 8, !tbaa !21
@@ -1152,7 +1146,7 @@ define double @GetStreamTime(ptr noundef readonly captures(none) %0) #0 {
 
 22:                                               ; preds = %15, %9, %18
   %.0 = phi double [ %21, %18 ], [ 0.000000e+00, %9 ], [ 0.000000e+00, %15 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret double %.0
 }
 
@@ -1163,24 +1157,24 @@ define double @GetStreamCpuLoad(ptr noundef %0) #0 {
   ret double %3
 }
 
-declare i32 @PaUtil_DummyRead(ptr noundef, ptr noundef, i64 noundef) #2
+declare i32 @PaUtil_DummyRead(ptr noundef, ptr noundef, i64 noundef) #1
 
-declare i32 @PaUtil_DummyWrite(ptr noundef, ptr noundef, i64 noundef) #2
+declare i32 @PaUtil_DummyWrite(ptr noundef, ptr noundef, i64 noundef) #1
 
-declare i64 @PaUtil_DummyGetReadAvailable(ptr noundef) #2
+declare i64 @PaUtil_DummyGetReadAvailable(ptr noundef) #1
 
-declare i64 @PaUtil_DummyGetWriteAvailable(ptr noundef) #2
+declare i64 @PaUtil_DummyGetWriteAvailable(ptr noundef) #1
 
-declare double @PaUtil_DummyGetCpuLoad(ptr noundef) #2
+declare double @PaUtil_DummyGetCpuLoad(ptr noundef) #1
 
-declare i32 @PaPulseAudio_ReadStreamBlock(ptr noundef, ptr noundef, i64 noundef) #2
+declare i32 @PaPulseAudio_ReadStreamBlock(ptr noundef, ptr noundef, i64 noundef) #1
 
-declare i32 @PaPulseAudio_WriteStreamBlock(ptr noundef, ptr noundef, i64 noundef) #2
+declare i32 @PaPulseAudio_WriteStreamBlock(ptr noundef, ptr noundef, i64 noundef) #1
 
-declare i64 @PaPulseAudio_GetStreamReadAvailableBlock(ptr noundef) #2
+declare i64 @PaPulseAudio_GetStreamReadAvailableBlock(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -9994, 1) i32 @PaPulseAudio_ConvertPortaudioFormatToPaPulseAudio_(i64 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #9 {
+define range(i32 -9994, 1) i32 @PaPulseAudio_ConvertPortaudioFormatToPaPulseAudio_(i64 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #8 {
   switch i64 %0, label %7 [
     i64 1, label %.sink.split
     i64 2, label %3
@@ -1245,49 +1239,49 @@ define range(i32 -10000, 1) i32 @PaPulseAudio_BlockingInitRingBuffer(ptr noundef
   ret i32 %.0
 }
 
-declare i64 @PaUtil_InitializeRingBuffer(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @PaUtil_InitializeRingBuffer(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
-declare i64 @PaUtil_SelectClosestAvailableFormat(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @PaUtil_SelectClosestAvailableFormat(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @Pa_GetSampleSize(i64 noundef) local_unnamed_addr #2
+declare i32 @Pa_GetSampleSize(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @pa_sample_spec_valid(ptr noundef) local_unnamed_addr #11
+declare i32 @pa_sample_spec_valid(ptr noundef) local_unnamed_addr #10
 
-declare ptr @pa_stream_new(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @pa_stream_new(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @pa_stream_set_state_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @pa_stream_set_state_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @pa_stream_set_started_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @pa_stream_set_started_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @PaPulseAudio_StreamStartedCb(ptr noundef, ptr noundef) #2
+declare void @PaPulseAudio_StreamStartedCb(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #12
+declare double @llvm.fmuladd.f64(double, double, double) #11
 
-declare void @pa_stream_set_underflow_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @pa_stream_set_underflow_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @PaUtil_InitializeStreamRepresentation(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @PaUtil_InitializeStreamRepresentation(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @PaUtil_InitializeCpuLoadMeasurer(ptr noundef, double noundef) local_unnamed_addr #2
+declare void @PaUtil_InitializeCpuLoadMeasurer(ptr noundef, double noundef) local_unnamed_addr #1
 
-declare i32 @PaUtil_InitializeBufferProcessor(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i32 noundef, i64 noundef, i64 noundef, double noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PaUtil_InitializeBufferProcessor(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i32 noundef, i64 noundef, i64 noundef, double noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @PaUtil_GetBufferProcessorInputLatencyFrames(ptr noundef) local_unnamed_addr #2
+declare i64 @PaUtil_GetBufferProcessorInputLatencyFrames(ptr noundef) local_unnamed_addr #1
 
-declare i64 @PaUtil_GetBufferProcessorOutputLatencyFrames(ptr noundef) local_unnamed_addr #2
+declare i64 @PaUtil_GetBufferProcessorOutputLatencyFrames(ptr noundef) local_unnamed_addr #1
 
-declare i32 @PaPulseAudio_updateTimeInfo(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PaPulseAudio_updateTimeInfo(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare double @PaUtil_GetCpuLoad(ptr noundef) local_unnamed_addr #2
+declare double @PaUtil_GetCpuLoad(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -9996, 1) i32 @PaPulseAudio_RenameSource(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %5 = load ptr, ptr %4, align 8, !tbaa !113
   %6 = icmp eq ptr %5, null
@@ -1328,11 +1322,11 @@ define range(i32 -9996, 1) i32 @PaPulseAudio_RenameSource(ptr noundef %0, ptr no
 
 26:                                               ; preds = %13, %15, %2
   %.0 = phi i32 [ -9996, %2 ], [ 0, %15 ], [ -9992, %13 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare ptr @pa_stream_set_name(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @pa_stream_set_name(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @RenameStreamCb(ptr readnone captures(none) %0, i32 %1, ptr noundef readonly captures(none) %2) #0 {
@@ -1345,7 +1339,7 @@ define internal void @RenameStreamCb(ptr readnone captures(none) %0, i32 %1, ptr
 ; Function Attrs: nounwind uwtable
 define range(i32 -9996, 1) i32 @PaPulseAudio_RenameSink(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %5 = load ptr, ptr %4, align 8, !tbaa !121
   %6 = icmp eq ptr %5, null
@@ -1386,26 +1380,32 @@ define range(i32 -9996, 1) i32 @PaPulseAudio_RenameSink(ptr noundef %0, ptr noun
 
 26:                                               ; preds = %13, %15, %2
   %.0 = phi i32 [ -9996, %2 ], [ 0, %15 ], [ -9992, %13 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #13
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #14 = { nounwind }
 attributes #15 = { nounwind willreturn memory(read) }

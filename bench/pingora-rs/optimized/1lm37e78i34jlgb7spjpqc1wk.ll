@@ -34,7 +34,7 @@ define hidden noundef align 8 ptr @"_ZN12thread_local20ThreadLocal$LT$T$GT$10get
   br i1 %13, label %select.unfold, label %"_ZN12thread_local20ThreadLocal$LT$T$GT$9get_inner17h78646bb5db82b688E.exit"
 
 select.unfold:                                    ; preds = %9, %1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !6
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h0f3595561b6eac6eE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, i64 noundef 65536, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1), !noalias !6
   %14 = load i64, ptr %2, align 8, !range !13, !noalias !6, !noundef !14
   %15 = trunc nuw i64 %14 to i1
@@ -56,7 +56,7 @@ select.unfold:                                    ; preds = %9, %1
   %22 = load ptr, ptr %18, align 8, !noalias !6, !nonnull !14, !noundef !14
   %23 = icmp samesign ugt i64 %17, 65535
   tail call void @llvm.assume(i1 %23)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !6
   store i64 0, ptr %3, align 8
   %.sroa.5.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %17, ptr %.sroa.5.sroa.5.0..sroa_idx, align 8
@@ -125,7 +125,7 @@ define hidden noundef align 8 ptr @"_ZN12thread_local20ThreadLocal$LT$T$GT$10get
   br i1 %13, label %select.unfold, label %"_ZN12thread_local20ThreadLocal$LT$T$GT$9get_inner17h78646bb5db82b688E.exit"
 
 select.unfold:                                    ; preds = %9, %1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !27
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !27
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h0f3595561b6eac6eE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, i64 noundef 65536, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1), !noalias !27
   %14 = load i64, ptr %2, align 8, !range !13, !noalias !27, !noundef !14
   %15 = trunc nuw i64 %14 to i1
@@ -147,7 +147,7 @@ select.unfold:                                    ; preds = %9, %1
   %22 = load ptr, ptr %18, align 8, !noalias !27, !nonnull !14, !noundef !14
   %23 = icmp samesign ugt i64 %17, 65535
   tail call void @llvm.assume(i1 %23)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !27
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !27
   store i64 0, ptr %3, align 8
   %.sroa.5.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %17, ptr %.sroa.5.sroa.5.0..sroa_idx, align 8
@@ -585,10 +585,10 @@ declare noundef nonnull ptr @_ZN9zstd_safe4CCtx6create17hea72a9839dcf7f49E() unn
 declare noundef nonnull ptr @_ZN9zstd_safe4DCtx6create17hbb65f92d75cc52fdE() unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

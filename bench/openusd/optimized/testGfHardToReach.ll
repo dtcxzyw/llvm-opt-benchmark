@@ -73,7 +73,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   store double 1.000000e+00, ptr %27, align 8
   %28 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix2d11SetDiagonalEd(ptr noundef nonnull align 8 dereferenceable(32) %19, double noundef 1.000000e+00)
   %29 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix2deqERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   br i1 %29, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit108, label %30
 
 30:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit106
@@ -92,7 +92,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit108: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit106
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   store float 1.000000e+00, ptr %20, align 4
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store float 0.000000e+00, ptr %32, align 4
@@ -102,7 +102,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   store float 1.000000e+00, ptr %34, align 4
   %35 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix2f11SetDiagonalEf(ptr noundef nonnull align 4 dereferenceable(16) %21, float noundef 1.000000e+00)
   %36 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix2feqERKS0_(ptr noundef nonnull align 4 dereferenceable(16) %20, ptr noundef nonnull align 4 dereferenceable(16) %21)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   br i1 %36, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit110, label %37
 
 37:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit108
@@ -121,7 +121,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit110: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit108
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   store double 1.000000e+00, ptr %22, align 8
   %39 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %22, i64 32
@@ -133,7 +133,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   store double 1.000000e+00, ptr %42, align 8
   %43 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3d11SetDiagonalEd(ptr noundef nonnull align 8 dereferenceable(72) %23, double noundef 1.000000e+00)
   %44 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix3deqERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr noundef nonnull align 8 dereferenceable(72) %23)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   br i1 %44, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit112, label %45
 
 45:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit110
@@ -152,7 +152,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit112: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit110
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   store double 1.000000e+00, ptr %24, align 8
   %47 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %48 = getelementptr inbounds nuw i8, ptr %24, i64 40
@@ -168,7 +168,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   store double 1.000000e+00, ptr %52, align 8
   %53 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d11SetDiagonalEd(ptr noundef nonnull align 8 dereferenceable(128) %25, double noundef 1.000000e+00)
   %54 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4deqERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %24, ptr noundef nonnull align 8 dereferenceable(128) %25)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   br i1 %54, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit114, label %55
 
 55:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit112
@@ -187,11 +187,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit114: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit112
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %57 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 126976), align 16
   %58 = call float @llvm.fabs.f32(float %57)
   %59 = fcmp ueq float %58, 0x7FF0000000000000
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   br i1 %59, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit115, label %60
 
 60:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit114
@@ -210,9 +210,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit115: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit114
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %62 = fcmp oeq float %58, 0x7FF0000000000000
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br i1 %62, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit116, label %63
 
 63:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit115
@@ -231,11 +231,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit116: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit115
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %65 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 258048), align 16
   %66 = call float @llvm.fabs.f32(float %65)
   %67 = fcmp ueq float %66, 0x7FF0000000000000
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br i1 %67, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit117, label %68
 
 68:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit116
@@ -254,9 +254,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit117: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit116
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %70 = fcmp oeq float %66, 0x7FF0000000000000
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br i1 %70, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit118, label %71
 
 71:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit117
@@ -275,10 +275,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit118: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit117
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %73 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 131068), align 4
   %74 = fcmp uno float %73, 0.000000e+00
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br i1 %74, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit119, label %75
 
 75:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit118
@@ -297,10 +297,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit119: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit118
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %77 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 129020), align 4
   %78 = fcmp uno float %77, 0.000000e+00
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br i1 %78, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit120, label %79
 
 79:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit119
@@ -319,7 +319,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit120: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit119
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %81 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 254), align 2
   %.not.i = icmp eq i16 %81, 0
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit123, label %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit123.thread
@@ -328,11 +328,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit123: ; preds = %_ZN3
   %82 = call noundef signext i16 @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half7convertEi(i32 noundef 1065353216)
   %83 = call noundef signext i16 @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half7convertEi(i32 noundef 1065353216)
   %84 = icmp eq i16 %82, %83
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br i1 %84, label %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit130, label %85
 
 _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit123.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit120
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__13GfNumericCastIsfEESt8optionalIT_ET0_PNS_24GfNumericCastFailureTypeE.exit180
 
 85:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit123
@@ -351,11 +351,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit123.thread: ; preds 
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit130: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit123
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %87 = call noundef signext i16 @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half7convertEi(i32 noundef 1065353216)
   %88 = call noundef signext i16 @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half7convertEi(i32 noundef 1065353216)
   %89 = icmp eq i16 %87, %88
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br i1 %89, label %_ZN32pxrInternal_v0_24__pxrReserved__13GfNumericCastIsfEESt8optionalIT_ET0_PNS_24GfNumericCastFailureTypeE.exit180, label %90
 
 90:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit130
@@ -374,7 +374,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit130: ; preds = %_ZN3
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__13GfNumericCastIsfEESt8optionalIT_ET0_PNS_24GfNumericCastFailureTypeE.exit180: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit123.thread, %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit130
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %92 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 292), align 4
   %.not.i.i = icmp eq i16 %92, 0
   br i1 %.not.i.i, label %95, label %93
@@ -394,7 +394,7 @@ _ZNOSt8optionalIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEE5valueEv.exit
   %99 = load float, ptr %98, align 4
   %100 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 126976), align 16
   %101 = fcmp oeq float %99, %100
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %101, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit239, label %102
 
 102:                                              ; preds = %_ZNOSt8optionalIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEE5valueEv.exit
@@ -413,7 +413,7 @@ _ZNOSt8optionalIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEE5valueEv.exit
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit239: ; preds = %_ZNOSt8optionalIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEE5valueEv.exit
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %104 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 804), align 4
   %.not.i.i240 = icmp eq i16 %104, 0
   br i1 %.not.i.i240, label %107, label %105
@@ -433,7 +433,7 @@ _ZNOSt8optionalIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEE5valueEv.exit
   %111 = load float, ptr %110, align 4
   %112 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 258048), align 16
   %113 = fcmp oeq float %111, %112
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %113, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit246, label %114
 
 114:                                              ; preds = %_ZNOSt8optionalIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEE5valueEv.exit245
@@ -452,19 +452,19 @@ _ZNOSt8optionalIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEE5valueEv.exit
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit246: ; preds = %_ZNOSt8optionalIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEE5valueEv.exit245
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %116 = call double @nextafter(double noundef 0x47EFFFFFE0000000, double noundef 0x7FF0000000000000) #9
   %117 = fptrunc double %116 to float
   %118 = fcmp oeq float %117, 0x7FF0000000000000
   br i1 %118, label %.thread, label %119
 
 .thread:                                          ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit246
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit250
 
 119:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit246
   %120 = fcmp oeq float %117, 0x47EFFFFFE0000000
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br i1 %120, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit250, label %121
 
 121:                                              ; preds = %119
@@ -483,19 +483,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit250: ; preds = %.thread, %119
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %123 = call double @nextafter(double noundef 0xC7EFFFFFE0000000, double noundef 0xFFF0000000000000) #9
   %124 = fptrunc double %123 to float
   %125 = fcmp oeq float %124, 0xFFF0000000000000
   br i1 %125, label %.thread1125, label %126
 
 .thread1125:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit250
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit269
 
 126:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit250
   %127 = fcmp oeq float %124, 0xC7EFFFFFE0000000
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br i1 %127, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit269, label %128
 
 128:                                              ; preds = %126
@@ -514,7 +514,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit269: ; preds = %.thread1125, %126
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   ret i32 0
 }
@@ -555,10 +555,10 @@ declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_add
 declare float @llvm.fabs.f32(float) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

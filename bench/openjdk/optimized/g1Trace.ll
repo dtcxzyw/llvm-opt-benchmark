@@ -186,7 +186,7 @@ define hidden void @_ZN11G1NewTracer21report_young_gc_pauseE13G1GCPauseType(ptr 
 define hidden void @_ZN11G1NewTracer18report_gc_end_implERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEP14TimePartitions(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %class.EventG1GarbageCollection, align 8
   tail call void @_ZN13YoungGCTracer18report_gc_end_implERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEP14TimePartitions(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2) #11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 17
@@ -225,7 +225,7 @@ define hidden void @_ZN11G1NewTracer18report_gc_end_implERK11TimeInstantI30Compo
   br label %_ZN11G1NewTracer22send_g1_young_gc_eventEv.exit
 
 _ZN11G1NewTracer22send_g1_young_gc_eventEv.exit:  ; preds = %3, %9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -278,7 +278,7 @@ _ZN8JfrEventI24EventG1GarbageCollectionE13should_commitEv.exit: ; preds = %1, %7
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1NewTracer22report_evacuation_infoEP10G1EvacInfo(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.EventEvacuationInformation, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %4, i8 0, i64 11, i1 false)
   %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1265), align 1
@@ -329,7 +329,7 @@ define hidden void @_ZN11G1NewTracer22report_evacuation_infoEP10G1EvacInfo(ptr n
   br label %_ZN11G1NewTracer26send_evacuation_info_eventEP10G1EvacInfo.exit
 
 _ZN11G1NewTracer26send_evacuation_info_eventEP10G1EvacInfo.exit: ; preds = %2, %6
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -392,7 +392,7 @@ _ZN8JfrEventI26EventEvacuationInformationE13should_commitEv.exit: ; preds = %2, 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1NewTracer24report_evacuation_failedER20EvacuationFailedInfo(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.EventEvacuationFailed, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %4, i8 0, i64 11, i1 false)
   %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1505), align 1
@@ -433,7 +433,7 @@ define hidden void @_ZN11G1NewTracer24report_evacuation_failedER20EvacuationFail
   br label %_ZNK11G1NewTracer28send_evacuation_failed_eventERK20EvacuationFailedInfo.exit
 
 _ZNK11G1NewTracer28send_evacuation_failed_eventERK20EvacuationFailedInfo.exit: ; preds = %2, %6
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %25 = load ptr, ptr %1, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
@@ -491,7 +491,7 @@ _ZN8JfrEventI21EventEvacuationFailedE13should_commitEv.exit: ; preds = %2, %6
 define hidden void @_ZNK11G1NewTracer28report_evacuation_statisticsERK13G1EvacSummaryS2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.EventG1EvacuationOldStatistics, align 8
   %5 = alloca %class.EventG1EvacuationYoungStatistics, align 8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %6, i8 0, i64 11, i1 false)
   %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1337), align 1
@@ -555,8 +555,8 @@ define hidden void @_ZNK11G1NewTracer28report_evacuation_statisticsERK13G1EvacSu
   br label %_ZNK11G1NewTracer32send_young_evacuation_statisticsERK13G1EvacSummary.exit
 
 _ZNK11G1NewTracer32send_young_evacuation_statisticsERK13G1EvacSummary.exit: ; preds = %3, %8
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %39, i8 0, i64 11, i1 false)
   %40 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1361), align 1
@@ -620,7 +620,7 @@ _ZNK11G1NewTracer32send_young_evacuation_statisticsERK13G1EvacSummary.exit: ; pr
   br label %_ZNK11G1NewTracer30send_old_evacuation_statisticsERK13G1EvacSummary.exit
 
 _ZNK11G1NewTracer30send_old_evacuation_statisticsERK13G1EvacSummary.exit: ; preds = %_ZNK11G1NewTracer32send_young_evacuation_statisticsERK13G1EvacSummary.exit, %41
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -765,7 +765,7 @@ _ZN8JfrEventI30EventG1EvacuationOldStatisticsE13should_commitEv.exit: ; preds = 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1NewTracer28report_basic_ihop_statisticsEmmmmdd(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, double noundef %5, double noundef %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %class.EventG1BasicIHOP, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %9, i8 0, i64 11, i1 false)
   %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1385), align 1
@@ -816,7 +816,7 @@ define hidden void @_ZN11G1NewTracer28report_basic_ihop_statisticsEmmmmdd(ptr no
   br label %_ZN11G1NewTracer26send_basic_ihop_statisticsEmmmmdd.exit
 
 _ZN11G1NewTracer26send_basic_ihop_statisticsEmmmmdd.exit: ; preds = %7, %11
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -879,7 +879,7 @@ _ZN8JfrEventI16EventG1BasicIHOPE13should_commitEv.exit: ; preds = %7, %11
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1NewTracer31report_adaptive_ihop_statisticsEmmmmddb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, double noundef %5, double noundef %6, i1 noundef zeroext %7) local_unnamed_addr #0 align 2 {
   %9 = alloca %class.EventG1AdaptiveIHOP, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %10, i8 0, i64 11, i1 false)
   %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1409), align 1
@@ -925,7 +925,7 @@ define hidden void @_ZN11G1NewTracer31report_adaptive_ihop_statisticsEmmmmddb(pt
   br label %_ZN11G1NewTracer29send_adaptive_ihop_statisticsEmmmmddb.exit
 
 _ZN11G1NewTracer29send_adaptive_ihop_statisticsEmmmmddb.exit: ; preds = %8, %12
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
@@ -1591,7 +1591,7 @@ define hidden void @_ZN11G1OldTracer12set_gc_causeEN7GCCause5CauseE(ptr noundef 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1MMUTracer10report_mmuEddd(double noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.EventG1MMU, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %5, i8 0, i64 11, i1 false)
   %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1241), align 1
@@ -1624,7 +1624,7 @@ define hidden void @_ZN11G1MMUTracer10report_mmuEddd(double noundef %0, double n
   br label %_ZN11G1MMUTracer17send_g1_mmu_eventEddd.exit
 
 _ZN11G1MMUTracer17send_g1_mmu_eventEddd.exit:     ; preds = %3, %7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1913,7 +1913,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %19 = ptrtoint ptr %18 to i64
   %20 = sub i64 %14, %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
@@ -1921,7 +1921,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %25 = load ptr, ptr %5, align 8
   store ptr %25, ptr %21, align 8
   %.not5.i.i.i = icmp eq ptr %25, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %17
@@ -1974,7 +1974,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %48 = ptrtoint ptr %47 to i64
   %49 = sub i64 %43, %48
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %53 = load ptr, ptr %52, align 8
@@ -1982,7 +1982,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %54 = load ptr, ptr %4, align 8
   store ptr %54, ptr %50, align 8
   %.not5.i.i.i11 = icmp eq ptr %54, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not5.i.i.i11, label %.sink.split.i.i.i13, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i12
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i12: ; preds = %46
@@ -2045,7 +2045,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %82 = ptrtoint ptr %81 to i64
   %83 = sub i64 %77, %82
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %87 = load ptr, ptr %86, align 8
@@ -2053,7 +2053,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %88 = load ptr, ptr %3, align 8
   store ptr %88, ptr %84, align 8
   %.not5.i.i = icmp eq ptr %88, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %80
@@ -2118,7 +2118,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %10, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
@@ -2126,7 +2126,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %21 = load ptr, ptr %3, align 8
   store ptr %21, ptr %17, align 8
   %.not5.i.i = icmp eq ptr %21, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %13
@@ -2364,14 +2364,14 @@ _ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128Enco
   %42 = load ptr, ptr %8, align 8
   %43 = ptrtoint ptr %42 to i64
   %44 = sub i64 %38, %43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %45 = load ptr, ptr %9, align 8
   %46 = load ptr, ptr %10, align 8
   call void @_ZN8JfrFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %45, i64 noundef %44, i64 noundef 9, ptr noundef %46) #11
   %47 = load ptr, ptr %7, align 8
   store ptr %47, ptr %9, align 8
   %.not5.i.i.i = icmp eq ptr %47, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %41
@@ -2462,7 +2462,7 @@ define linkonce_odr hidden void @_ZN15EventWriterHostI11EncoderHostI20BigEndianE
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
@@ -2470,7 +2470,7 @@ define linkonce_odr hidden void @_ZN15EventWriterHostI11EncoderHostI20BigEndianE
   %13 = load ptr, ptr %5, align 8
   store ptr %13, ptr %9, align 8
   %.not1.i.i.i = icmp eq ptr %13, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not1.i.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE5flushEv.exit.i.i, label %14
 
 14:                                               ; preds = %8
@@ -2515,7 +2515,7 @@ _ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128Enco
   %36 = ptrtoint ptr %35 to i64
   %37 = sub i64 %31, %36
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %41 = load ptr, ptr %40, align 8
@@ -2523,7 +2523,7 @@ _ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128Enco
   %42 = load ptr, ptr %4, align 8
   store ptr %42, ptr %38, align 8
   %.not5.i.i = icmp eq ptr %42, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %34
@@ -2578,7 +2578,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %64 = ptrtoint ptr %63 to i64
   %65 = sub i64 %62, %64
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %69 = load ptr, ptr %68, align 8
@@ -2586,7 +2586,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %70 = load ptr, ptr %3, align 8
   store ptr %70, ptr %66, align 8
   %.not5.i.i8 = icmp eq ptr %70, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i8, label %.sink.split.i.i10, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i9
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i9: ; preds = %61
@@ -2652,7 +2652,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %10, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
@@ -2660,7 +2660,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %21 = load ptr, ptr %3, align 8
   store ptr %21, ptr %17, align 8
   %.not5.i.i = icmp eq ptr %21, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %13
@@ -2859,7 +2859,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %10, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
@@ -2867,7 +2867,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %21 = load ptr, ptr %3, align 8
   store ptr %21, ptr %17, align 8
   %.not5.i.i = icmp eq ptr %21, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %13
@@ -3064,14 +3064,14 @@ define linkonce_odr hidden noundef i64 @_ZN15EventWriterHostI11EncoderHostI20Big
   br i1 %11, label %12, label %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertE7releaseEv.exit
 
 12:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   call void @_ZN8JfrFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %13, i64 noundef 0, i64 noundef 0, ptr noundef %15) #11
   %16 = load ptr, ptr %4, align 8
   store ptr %16, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertE7releaseEv.exit
 
 17:                                               ; preds = %2
@@ -3149,14 +3149,14 @@ _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit: ; preds = %_ZN11St
   br i1 %50, label %51, label %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertE7releaseEv.exit15
 
 51:                                               ; preds = %49
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %52 = load ptr, ptr %47, align 8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %54 = load ptr, ptr %53, align 8
   call void @_ZN8JfrFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %52, i64 noundef 0, i64 noundef 0, ptr noundef %54) #11
   %55 = load ptr, ptr %3, align 8
   store ptr %55, ptr %47, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertE7releaseEv.exit15
 
 _ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertE7releaseEv.exit15: ; preds = %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit, %49, %51
@@ -3203,7 +3203,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %10, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
@@ -3211,7 +3211,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %21 = load ptr, ptr %3, align 8
   store ptr %21, ptr %17, align 8
   %.not5.i.i = icmp eq ptr %21, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %13
@@ -3357,7 +3357,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
 
 19:                                               ; preds = %7
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8
@@ -3365,7 +3365,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %24 = load ptr, ptr %4, align 8
   store ptr %24, ptr %20, align 8
   %.not5.i.i.i = icmp eq ptr %24, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %19
@@ -3532,14 +3532,14 @@ _ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128Enco
   %42 = load ptr, ptr %8, align 8
   %43 = ptrtoint ptr %42 to i64
   %44 = sub i64 %38, %43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %45 = load ptr, ptr %9, align 8
   %46 = load ptr, ptr %10, align 8
   call void @_ZN8JfrFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %45, i64 noundef %44, i64 noundef 9, ptr noundef %46) #11
   %47 = load ptr, ptr %7, align 8
   store ptr %47, ptr %9, align 8
   %.not5.i.i.i = icmp eq ptr %47, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %41
@@ -3687,14 +3687,14 @@ _ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128Enco
   %42 = load ptr, ptr %8, align 8
   %43 = ptrtoint ptr %42 to i64
   %44 = sub i64 %38, %43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %45 = load ptr, ptr %9, align 8
   %46 = load ptr, ptr %10, align 8
   call void @_ZN8JfrFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %45, i64 noundef %44, i64 noundef 9, ptr noundef %46) #11
   %47 = load ptr, ptr %7, align 8
   store ptr %47, ptr %9, align 8
   %.not5.i.i.i = icmp eq ptr %47, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %41
@@ -3857,14 +3857,14 @@ _ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128Enco
   %42 = load ptr, ptr %8, align 8
   %43 = ptrtoint ptr %42 to i64
   %44 = sub i64 %38, %43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %45 = load ptr, ptr %9, align 8
   %46 = load ptr, ptr %10, align 8
   call void @_ZN8JfrFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %45, i64 noundef %44, i64 noundef 9, ptr noundef %46) #11
   %47 = load ptr, ptr %7, align 8
   store ptr %47, ptr %9, align 8
   %.not5.i.i.i = icmp eq ptr %47, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %41
@@ -4042,14 +4042,14 @@ _ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128Enco
   %42 = load ptr, ptr %8, align 8
   %43 = ptrtoint ptr %42 to i64
   %44 = sub i64 %38, %43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %45 = load ptr, ptr %9, align 8
   %46 = load ptr, ptr %10, align 8
   call void @_ZN8JfrFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %45, i64 noundef %44, i64 noundef 9, ptr noundef %46) #11
   %47 = load ptr, ptr %7, align 8
   store ptr %47, ptr %9, align 8
   %.not5.i.i.i = icmp eq ptr %47, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %41
@@ -4187,14 +4187,14 @@ _ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128Enco
   %42 = load ptr, ptr %8, align 8
   %43 = ptrtoint ptr %42 to i64
   %44 = sub i64 %38, %43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %45 = load ptr, ptr %9, align 8
   %46 = load ptr, ptr %10, align 8
   call void @_ZN8JfrFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %45, i64 noundef %44, i64 noundef 9, ptr noundef %46) #11
   %47 = load ptr, ptr %7, align 8
   store ptr %47, ptr %9, align 8
   %.not5.i.i.i = icmp eq ptr %47, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %41
@@ -4292,7 +4292,7 @@ define linkonce_odr hidden void @_ZN16EventG1BasicIHOP9writeDataI15EventWriterHo
   %22 = ptrtoint ptr %21 to i64
   %23 = sub i64 %17, %22
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load ptr, ptr %26, align 8
@@ -4300,7 +4300,7 @@ define linkonce_odr hidden void @_ZN16EventG1BasicIHOP9writeDataI15EventWriterHo
   %28 = load ptr, ptr %4, align 8
   store ptr %28, ptr %24, align 8
   %.not5.i.i.i.i = icmp eq ptr %28, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not5.i.i.i.i, label %.sink.split.i.i.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i: ; preds = %20
@@ -4383,7 +4383,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %65 = ptrtoint ptr %64 to i64
   %66 = sub i64 %60, %65
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %70 = load ptr, ptr %69, align 8
@@ -4391,7 +4391,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %71 = load ptr, ptr %3, align 8
   store ptr %71, ptr %67, align 8
   %.not5.i.i.i.i14 = icmp eq ptr %71, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i.i.i14, label %.sink.split.i.i.i.i16, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i15
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i15: ; preds = %63
@@ -4518,14 +4518,14 @@ _ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128Enco
   %42 = load ptr, ptr %8, align 8
   %43 = ptrtoint ptr %42 to i64
   %44 = sub i64 %38, %43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %45 = load ptr, ptr %9, align 8
   %46 = load ptr, ptr %10, align 8
   call void @_ZN8JfrFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %45, i64 noundef %44, i64 noundef 9, ptr noundef %46) #11
   %47 = load ptr, ptr %7, align 8
   store ptr %47, ptr %9, align 8
   %.not5.i.i.i = icmp eq ptr %47, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %41
@@ -4624,7 +4624,7 @@ define linkonce_odr hidden void @_ZN19EventG1AdaptiveIHOP9writeDataI15EventWrite
   %23 = ptrtoint ptr %22 to i64
   %24 = sub i64 %18, %23
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load ptr, ptr %27, align 8
@@ -4632,7 +4632,7 @@ define linkonce_odr hidden void @_ZN19EventG1AdaptiveIHOP9writeDataI15EventWrite
   %29 = load ptr, ptr %5, align 8
   store ptr %29, ptr %25, align 8
   %.not5.i.i.i.i = icmp eq ptr %29, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not5.i.i.i.i, label %.sink.split.i.i.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i: ; preds = %21
@@ -4712,7 +4712,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %64 = ptrtoint ptr %63 to i64
   %65 = sub i64 %59, %64
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %69 = load ptr, ptr %68, align 8
@@ -4720,7 +4720,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %70 = load ptr, ptr %4, align 8
   store ptr %70, ptr %66, align 8
   %.not5.i.i.i.i14 = icmp eq ptr %70, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not5.i.i.i.i14, label %.sink.split.i.i.i.i16, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i15
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i15: ; preds = %62
@@ -4793,7 +4793,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %100 = ptrtoint ptr %99 to i64
   %101 = sub i64 %98, %100
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %105 = load ptr, ptr %104, align 8
@@ -4801,7 +4801,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %106 = load ptr, ptr %3, align 8
   store ptr %106, ptr %102, align 8
   %.not5.i.i.i.i23 = icmp eq ptr %106, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i.i.i23, label %.sink.split.i.i.i.i25, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i24
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i24: ; preds = %97
@@ -4911,14 +4911,14 @@ _ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128Enco
   %42 = load ptr, ptr %8, align 8
   %43 = ptrtoint ptr %42 to i64
   %44 = sub i64 %38, %43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %45 = load ptr, ptr %9, align 8
   %46 = load ptr, ptr %10, align 8
   call void @_ZN8JfrFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %45, i64 noundef %44, i64 noundef 9, ptr noundef %46) #11
   %47 = load ptr, ptr %7, align 8
   store ptr %47, ptr %9, align 8
   %.not5.i.i.i = icmp eq ptr %47, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %41
@@ -5000,10 +5000,10 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

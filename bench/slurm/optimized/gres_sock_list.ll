@@ -74,11 +74,11 @@ define dso_local ptr @gres_sock_list_create(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not128, label %42, label %68
 
 42:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %43 = tail call i32 @gres_get_gpu_plugin_id() #5
   store i32 %43, ptr %23, align 4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %24) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store ptr %4, ptr %24, align 8
   %44 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i16 %6, ptr %44, align 8
@@ -133,9 +133,9 @@ define dso_local ptr @gres_sock_list_create(ptr noundef %0, ptr noundef %1, ptr 
   br label %_gres_limit_reserved_cores.exit
 
 _gres_limit_reserved_cores.exit:                  ; preds = %42, %54, %56, %59, %62, %65
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %24) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %68
 
 68:                                               ; preds = %_gres_limit_reserved_cores.exit, %39
@@ -215,7 +215,7 @@ _gres_limit_reserved_cores.exit:                  ; preds = %42, %54, %56, %59, 
   br i1 %.not133, label %120, label %111
 
 111:                                              ; preds = %106
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %112 = load i32, ptr %101, align 8
   store i32 %112, ptr %25, align 4
   store i32 0, ptr %82, align 4
@@ -235,7 +235,7 @@ _gres_limit_reserved_cores.exit:                  ; preds = %42, %54, %56, %59, 
 119:                                              ; preds = %111, %116
   %storemerge = phi ptr [ %118, %116 ], [ null, %111 ]
   store ptr %storemerge, ptr %.0112, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %120
 
 120:                                              ; preds = %119, %106
@@ -799,7 +799,7 @@ _can_use_gres_exc_topo.exit.thread.i:             ; preds = %.loopexit49.us.i, %
   br i1 %or.cond414.i.reass.reass.reass, label %377, label %428
 
 377:                                              ; preds = %.loopexit46.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %378 = call ptr @slurm_xcalloc(i64 noundef %87, i64 noundef 1, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 390, ptr noundef nonnull @__func__._build_sock_gres_by_topo) #5
   store ptr %378, ptr %20, align 8
   br i1 %.not118.i, label %.thread24.i, label %.split.us.i
@@ -910,7 +910,7 @@ _can_use_gres_exc_topo.exit.thread.i:             ; preds = %.loopexit49.us.i, %
 
 .thread24.i:                                      ; preds = %413, %411, %.preheader42.i, %377
   call void @slurm_xfree(ptr noundef nonnull %20) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %428
 
 428:                                              ; preds = %.thread24.i, %.loopexit46.i
@@ -931,7 +931,7 @@ _can_use_gres_exc_topo.exit.thread.i:             ; preds = %.loopexit49.us.i, %
   br i1 %or.cond17.i, label %438, label %494
 
 438:                                              ; preds = %428
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %439 = call ptr @slurm_xcalloc(i64 noundef %87, i64 noundef 1, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 444, ptr noundef nonnull @__func__._build_sock_gres_by_topo) #5
   store ptr %439, ptr %21, align 8
   br i1 %98, label %._crit_edge109.i, label %.lr.ph97.split.us.i
@@ -1061,7 +1061,7 @@ _can_use_gres_exc_topo.exit.thread.i:             ; preds = %.loopexit49.us.i, %
 
 ._crit_edge109.i:                                 ; preds = %466, %.loopexit.i, %.preheader38.i, %438
   call void @slurm_xfree(ptr noundef nonnull %21) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %_build_sock_gres_by_topo.exit
 
 494:                                              ; preds = %428
@@ -1078,7 +1078,7 @@ _can_use_gres_exc_topo.exit.thread.i:             ; preds = %.loopexit49.us.i, %
   br i1 %.not142, label %609, label %498
 
 498:                                              ; preds = %495
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %499 = getelementptr inbounds nuw i8, ptr %108, i64 32
   %500 = load i64, ptr %499, align 8
   %spec.select.i = call i64 @llvm.umax.i64(i64 %500, i64 1)
@@ -1308,7 +1308,7 @@ _handle_gres_exc_by_type.exit.i:                  ; preds = %591, %588, %581, %5
 
 _build_sock_gres_by_type.exit:                    ; preds = %._crit_edge.i158, %.critedge9.i
   %608 = phi ptr [ %.pre13.i, %.critedge9.i ], [ %505, %._crit_edge.i158 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %_build_sock_gres_by_topo.exit
 
 609:                                              ; preds = %495
@@ -1454,7 +1454,7 @@ _build_sock_gres_by_topo.exit.thread185:          ; preds = %653, %494, %_build_
   br i1 %.not146, label %741, label %667
 
 667:                                              ; preds = %.thread
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %18, i8 0, i64 32, i1 false)
   %.not.i174 = icmp eq ptr %.1, null
   br i1 %.not.i174, label %_sock_gres_log.exit, label %668
@@ -1596,7 +1596,7 @@ _build_sock_gres_by_topo.exit.thread185:          ; preds = %653, %494, %_build_
   br label %_sock_gres_log.exit
 
 _sock_gres_log.exit:                              ; preds = %667, %._crit_edge.i177
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %741
 
 741:                                              ; preds = %.thread, %_sock_gres_log.exit, %38, %34, %37
@@ -1604,50 +1604,44 @@ _sock_gres_log.exit:                              ; preds = %667, %._crit_edge.i
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @slurm_list_count(ptr noundef) local_unnamed_addr #1
 
-declare i32 @slurm_list_count(ptr noundef) local_unnamed_addr #2
+declare void @slurm_bit_and(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @slurm_bit_and(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @gres_init() local_unnamed_addr #1
 
-declare i32 @gres_init() local_unnamed_addr #2
+declare ptr @slurm_list_create(ptr noundef) local_unnamed_addr #1
 
-declare ptr @slurm_list_create(ptr noundef) local_unnamed_addr #2
+declare void @slurm_gres_sock_delete(ptr noundef) #1
 
-declare void @slurm_gres_sock_delete(ptr noundef) #2
+declare ptr @slurm_list_iterator_create(ptr noundef) local_unnamed_addr #1
 
-declare ptr @slurm_list_iterator_create(ptr noundef) local_unnamed_addr #2
+declare ptr @slurm_list_next(ptr noundef) local_unnamed_addr #1
 
-declare ptr @slurm_list_next(ptr noundef) local_unnamed_addr #2
+declare ptr @slurm_list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @slurm_list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @slurm_gres_find_id(ptr noundef, ptr noundef) #1
 
-declare i32 @slurm_gres_find_id(ptr noundef, ptr noundef) #2
+declare void @slurm_list_destroy(ptr noundef) local_unnamed_addr #1
 
-declare void @slurm_list_destroy(ptr noundef) local_unnamed_addr #2
+declare i32 @slurm_gres_find_job_by_key_exact_type(ptr noundef, ptr noundef) #1
 
-declare i32 @slurm_gres_find_job_by_key_exact_type(ptr noundef, ptr noundef) #2
+declare i64 @slurm_bit_ffs(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @slurm_bit_clear_all(ptr noundef) local_unnamed_addr #1
 
-declare i64 @slurm_bit_ffs(ptr noundef) local_unnamed_addr #2
+declare void @slurm_list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @slurm_bit_clear_all(ptr noundef) local_unnamed_addr #2
+declare void @slurm_list_iterator_destroy(ptr noundef) local_unnamed_addr #1
 
-declare void @slurm_list_append(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @slurm_list_iterator_destroy(ptr noundef) local_unnamed_addr #2
-
-declare i32 @gres_get_gpu_plugin_id() local_unnamed_addr #2
+declare i32 @gres_get_gpu_plugin_id() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-declare ptr @slurm_bit_copy(ptr noundef) local_unnamed_addr #2
+declare ptr @slurm_bit_copy(ptr noundef) local_unnamed_addr #1
 
-declare i32 @slurm_list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @slurm_list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_foreach_restricted_gpu(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
@@ -1680,7 +1674,7 @@ define internal noundef i32 @_foreach_restricted_gpu(ptr noundef readonly captur
   %23 = load i16, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %25 = load i32, ptr %24, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %26 = zext i32 %9 to i64
   %27 = tail call ptr @slurm_xcalloc(i64 noundef %26, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 674, ptr noundef nonnull @__func__._pick_restricted_cores) #5
   store ptr %27, ptr %3, align 8
@@ -1894,44 +1888,50 @@ _pick_core_group.exit.us.us.us.i:                 ; preds = %.lr.ph.us.us.i, %10
 
 _pick_restricted_cores.exit:                      ; preds = %..loopexit_crit_edge.us.i, %35, %.lr.ph.i
   call void @slurm_xfree(ptr noundef nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %118
 
 118:                                              ; preds = %2, %7, %_pick_restricted_cores.exit
   ret i32 0
 }
 
-declare void @slurm_bit_free(ptr noundef) local_unnamed_addr #2
+declare void @slurm_bit_free(ptr noundef) local_unnamed_addr #1
 
-declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @slurm_bit_alloc(i64 noundef) local_unnamed_addr #2
+declare ptr @slurm_bit_alloc(i64 noundef) local_unnamed_addr #1
 
-declare i64 @slurm_bit_size(ptr noundef) local_unnamed_addr #2
+declare i64 @slurm_bit_size(ptr noundef) local_unnamed_addr #1
 
-declare void @slurm_bit_set(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @slurm_bit_set(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @slurm_xfree(ptr noundef) local_unnamed_addr #2
+declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
-declare i32 @slurm_bit_test(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @slurm_bit_test(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @gres_use_busy_dev(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @gres_use_busy_dev(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @slurm_bit_overlap(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @slurm_bit_overlap(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @gres_id_shared(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @gres_id_shared(i32 noundef) local_unnamed_addr #1
 
-declare i32 @slurm_error(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @slurm_error(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @slurm_bit_or(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @slurm_bit_or(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @slurm_bit_nclear(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare void @slurm_bit_nclear(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @slurm_get_log_level() local_unnamed_addr #2
+declare i32 @slurm_get_log_level() local_unnamed_addr #1
 
-declare void @slurm_log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @slurm_log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @slurm_bit_fmt(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @slurm_bit_fmt(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #4
@@ -1943,9 +1943,9 @@ declare i64 @llvm.umax.i64(i64, i64) #4
 declare i64 @llvm.usub.sat.i64(i64, i64) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 

@@ -310,14 +310,8 @@ define internal void @call_routine(ptr noundef readonly captures(none) %0, ptr r
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare ptr @g_array_free(ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @set_actual_length(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -445,7 +439,7 @@ define void @add_new_data_source(ptr noundef captures(none) %0, ptr noundef %1, 
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -489,13 +483,13 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define ptr @get_data_source_tvb(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define ptr @get_data_source_tvb(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
 
 ; Function Attrs: nofree norecurse nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
-define ptr @get_data_source_tvb_by_name(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
+define ptr @get_data_source_tvb_by_name(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.01016 = load ptr, ptr %3, align 8
   %.not17 = icmp eq ptr %.01016, null
@@ -530,7 +524,7 @@ define ptr @get_data_source_tvb_by_name(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) #5
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @free_data_sources(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -577,10 +571,10 @@ define void @mark_frame_as_depended_upon(ptr noundef captures(none) %0, i32 noun
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none)
-declare i32 @g_direct_hash(ptr noundef) #7
+declare i32 @g_direct_hash(ptr noundef) #6
 
 ; Function Attrs: mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none)
-declare i32 @g_direct_equal(ptr noundef, ptr noundef) #7
+declare i32 @g_direct_equal(ptr noundef, ptr noundef) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @g_hash_table_add(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -608,8 +602,8 @@ define hidden void @dissect_record(ptr noundef %0, i32 noundef %1, ptr noundef %
   %9 = alloca i32, align 4
   %10 = alloca %struct.except_stacknode, align 8
   %11 = alloca %struct.except_catch, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = load i32, ptr %2, align 8
   switch i32 %12, label %20 [
     i32 0, label %21
@@ -640,7 +634,7 @@ define hidden void @dissect_record(ptr noundef %0, i32 noundef %1, ptr noundef %
   br label %21
 
 20:                                               ; preds = %5
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 562, ptr noundef nonnull @__func__.dissect_record, ptr noundef nonnull @.str.16) #27
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 562, ptr noundef nonnull @__func__.dissect_record, ptr noundef nonnull @.str.16) #26
   unreachable
 
 21:                                               ; preds = %17, %5, %16, %15, %14, %13
@@ -766,14 +760,14 @@ define hidden void @dissect_record(ptr noundef %0, i32 noundef %1, ptr noundef %
   store i32 %1, ptr %7, align 8
   %78 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %0, ptr %78, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store volatile i32 0, ptr %9, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #26
-  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %11) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @except_setup_try(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull @dissect_record.catch_spec, i64 noundef 1)
   %79 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %80 = call i32 @_setjmp(ptr noundef nonnull %79) #28
+  %80 = call i32 @_setjmp(ptr noundef nonnull %79) #27
   %.not98 = icmp eq i32 %80, 0
   %81 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sink107 = select i1 %.not98, ptr null, ptr %81
@@ -835,7 +829,7 @@ define hidden void @dissect_record(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %.not.i.i, label %111, label %call_dissector_only.exit.i
 
 111:                                              ; preds = %90
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 3620, ptr noundef nonnull @.str.41) #27
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 3620, ptr noundef nonnull @.str.41) #26
   unreachable
 
 call_dissector_only.exit.i:                       ; preds = %90
@@ -851,7 +845,7 @@ call_dissector_only.exit.i:                       ; preds = %90
   br i1 %.not.i11.i, label %118, label %call_data_dissector.exit.i
 
 118:                                              ; preds = %114
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 3655, ptr noundef nonnull @.str.42) #27
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 3655, ptr noundef nonnull @.str.42) #26
   unreachable
 
 call_data_dissector.exit.i:                       ; preds = %114
@@ -879,7 +873,7 @@ call_dissector_with_data.exit:                    ; preds = %call_data_dissector
   %.0..0..0..0.6 = load volatile i32, ptr %9, align 4
   %127 = or i32 %.0..0..0..0.6, 1
   store volatile i32 %127, ptr %9, align 4
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 690, ptr noundef nonnull @__func__.dissect_record, ptr noundef nonnull @.str.16) #27
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 690, ptr noundef nonnull @__func__.dissect_record, ptr noundef nonnull @.str.16) #26
   unreachable
 
 128:                                              ; preds = %122, %121, %call_dissector_with_data.exit
@@ -931,7 +925,7 @@ call_dissector_with_data.exit:                    ; preds = %call_data_dissector
 
 149:                                              ; preds = %148
   %.0..0..0..0.17 = load volatile ptr, ptr %8, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.17) #27
+  call void @except_rethrow(ptr noundef %.0..0..0..0.17) #26
   unreachable
 
 150:                                              ; preds = %148, %146
@@ -939,10 +933,10 @@ call_dissector_with_data.exit:                    ; preds = %call_data_dissector
   %152 = load volatile ptr, ptr %151, align 8
   call void @except_free(ptr noundef %152)
   %153 = call ptr @except_pop()
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %11) #26
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %154 = getelementptr inbounds nuw i8, ptr %2, i64 232
   %155 = load ptr, ptr %154, align 8
   call void @wtap_block_unref(ptr noundef %155)
@@ -950,19 +944,19 @@ call_dissector_with_data.exit:                    ; preds = %call_data_dissector
   %156 = load i16, ptr %32, align 1
   %157 = or i16 %156, 8
   store i16 %157, ptr %32, align 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #8
+declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
 declare void @col_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: null_pointer_is_valid
 declare noalias ptr @wmem_list_new(ptr noundef) local_unnamed_addr #1
@@ -980,7 +974,7 @@ declare ptr @epan_get_modified_block(ptr noundef, ptr noundef) local_unnamed_add
 declare void @except_setup_try(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind null_pointer_is_valid returns_twice
-declare i32 @_setjmp(ptr noundef) local_unnamed_addr #10
+declare i32 @_setjmp(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_real_data(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -991,7 +985,7 @@ define i32 @call_dissector_with_data(ptr noundef readonly captures(address_is_nu
   br i1 %.not.i, label %6, label %call_dissector_only.exit
 
 6:                                                ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 3620, ptr noundef nonnull @.str.41) #27
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 3620, ptr noundef nonnull @.str.41) #26
   unreachable
 
 call_dissector_only.exit:                         ; preds = %5
@@ -1007,7 +1001,7 @@ call_dissector_only.exit:                         ; preds = %5
   br i1 %.not.i11, label %13, label %call_data_dissector.exit
 
 13:                                               ; preds = %9
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 3655, ptr noundef nonnull @.str.42) #27
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 3655, ptr noundef nonnull @.str.42) #26
   unreachable
 
 call_data_dissector.exit:                         ; preds = %9
@@ -1023,7 +1017,7 @@ call_data_dissector.exit:                         ; preds = %9
 declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @except_rethrow(ptr noundef) local_unnamed_addr #8
+declare void @except_rethrow(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
 declare void @except_free(ptr noundef) local_unnamed_addr #1
@@ -1041,7 +1035,7 @@ define hidden void @dissect_file(ptr noundef initializes((8, 16), (24, 40), (104
   %7 = alloca i32, align 4
   %8 = alloca %struct.except_stacknode, align 8
   %9 = alloca %struct.except_catch, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %10
 
@@ -1088,14 +1082,14 @@ define hidden void @dissect_file(ptr noundef initializes((8, 16), (24, 40), (104
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @frame_delta_abs_time(ptr noundef %32, ptr noundef %2, i32 noundef 1, ptr noundef nonnull %33)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store volatile i32 0, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #26
-  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %9) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @except_setup_try(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull @dissect_file.catch_spec, i64 noundef 1)
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %35 = call i32 @_setjmp(ptr noundef nonnull %34) #28
+  %35 = call i32 @_setjmp(ptr noundef nonnull %34) #27
   %.not71 = icmp eq i32 %35, 0
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sink = select i1 %.not71, ptr null, ptr %36
@@ -1177,7 +1171,7 @@ define hidden void @dissect_file(ptr noundef initializes((8, 16), (24, 40), (104
   br i1 %.not.i.i, label %77, label %call_dissector_only.exit.i
 
 77:                                               ; preds = %55
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 3620, ptr noundef nonnull @.str.41) #27
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 3620, ptr noundef nonnull @.str.41) #26
   unreachable
 
 call_dissector_only.exit.i:                       ; preds = %55
@@ -1193,7 +1187,7 @@ call_dissector_only.exit.i:                       ; preds = %55
   br i1 %.not.i11.i, label %84, label %call_data_dissector.exit.i
 
 84:                                               ; preds = %80
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 3655, ptr noundef nonnull @.str.42) #27
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 3655, ptr noundef nonnull @.str.42) #26
   unreachable
 
 call_data_dissector.exit.i:                       ; preds = %80
@@ -1221,7 +1215,7 @@ call_dissector_with_data.exit:                    ; preds = %call_data_dissector
   %.0..0..0..0.5 = load volatile i32, ptr %7, align 4
   %93 = or i32 %.0..0..0..0.5, 1
   store volatile i32 %93, ptr %7, align 4
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 764, ptr noundef nonnull @__func__.dissect_file, ptr noundef nonnull @.str.16) #27
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 764, ptr noundef nonnull @__func__.dissect_file, ptr noundef nonnull @.str.16) #26
   unreachable
 
 94:                                               ; preds = %88, %87, %call_dissector_with_data.exit
@@ -1279,7 +1273,7 @@ call_dissector_with_data.exit:                    ; preds = %call_data_dissector
 
 119:                                              ; preds = %118
   %.0..0..0..0.17 = load volatile ptr, ptr %6, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.17) #27
+  call void @except_rethrow(ptr noundef %.0..0..0..0.17) #26
   unreachable
 
 120:                                              ; preds = %118, %116
@@ -1287,10 +1281,10 @@ call_dissector_with_data.exit:                    ; preds = %call_data_dissector
   %122 = load volatile ptr, ptr %121, align 8
   call void @except_free(ptr noundef %122)
   %123 = call ptr @except_pop()
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %9) #26
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %125 = load ptr, ptr %124, align 8
   call void @wtap_block_unref(ptr noundef %125)
@@ -1299,7 +1293,7 @@ call_dissector_with_data.exit:                    ; preds = %call_data_dissector
   %127 = load i16, ptr %126, align 1
   %128 = or i16 %127, 8
   store i16 %128, ptr %126, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -1340,7 +1334,7 @@ declare void @ws_log_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, pt
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @dissector_add_uint(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call fastcc zeroext i1 @dissector_get_table_checked(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4)
   br i1 %5, label %6, label %23
 
@@ -1353,11 +1347,11 @@ define void @dissector_add_uint(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   br i1 %switch, label %12, label %11
 
 11:                                               ; preds = %6
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1261, ptr noundef nonnull @__func__.dissector_add_uint, ptr noundef nonnull @.str.16) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1261, ptr noundef nonnull @__func__.dissector_add_uint, ptr noundef nonnull @.str.16) #26
   unreachable
 
 12:                                               ; preds = %6
-  %13 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #29
+  %13 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #28
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %2, ptr %14, align 8
   store ptr %2, ptr %13, align 8
@@ -1375,7 +1369,7 @@ define void @dissector_add_uint(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   br label %23
 
 23:                                               ; preds = %12, %22, %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1429,10 +1423,10 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #11
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid allocsize(0,1)
-declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #12
+declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1440,7 +1434,7 @@ declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_un
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @dissector_add_for_decode_as(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call fastcc zeroext i1 @dissector_get_table_checked(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
   br i1 %4, label %5, label %86
 
@@ -1654,7 +1648,7 @@ dissector_handle_get_dissector_name.exit69.thread: ; preds = %dissector_handle_g
   br label %86
 
 86:                                               ; preds = %82, %84, %27, %2, %dissector_handle_get_dissector_name.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1686,7 +1680,7 @@ define void @dissector_add_uint_range(ptr noundef %0, ptr noundef readonly captu
 
 ._crit_edge.split.us.us:                          ; preds = %find_dissector_table.exit.i.us.us, %.lr.ph31.split.us
   %.lcssa.us = phi i32 [ %14, %.lr.ph31.split.us ], [ %45, %find_dissector_table.exit.i.us.us ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %16 = call fastcc zeroext i1 @dissector_get_table_checked(ptr noundef %0, ptr noundef null, ptr noundef nonnull %4)
   br i1 %16, label %17, label %dissector_add_uint.exit25.us
 
@@ -1699,7 +1693,7 @@ define void @dissector_add_uint_range(ptr noundef %0, ptr noundef readonly captu
   br i1 %switch.i24.us, label %22, label %.split.us
 
 22:                                               ; preds = %17
-  %23 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #29
+  %23 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #28
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   %24 = load ptr, ptr %18, align 8
   %25 = zext i32 %.lcssa.us to i64
@@ -1715,7 +1709,7 @@ define void @dissector_add_uint_range(ptr noundef %0, ptr noundef readonly captu
   br label %dissector_add_uint.exit25.us
 
 dissector_add_uint.exit25.us:                     ; preds = %31, %22, %._crit_edge.split.us.us
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %32 = load i32, ptr %1, align 4
   %33 = zext i32 %32 to i64
@@ -1836,11 +1830,11 @@ dissector_get_table_checked.exit:                 ; preds = %.lr.ph, %75
   br i1 %switch.i, label %83, label %82
 
 82:                                               ; preds = %dissector_get_table_checked.exit
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1261, ptr noundef nonnull @__func__.dissector_add_uint, ptr noundef nonnull @.str.16) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1261, ptr noundef nonnull @__func__.dissector_add_uint, ptr noundef nonnull @.str.16) #26
   unreachable
 
 83:                                               ; preds = %dissector_get_table_checked.exit
-  %84 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #29
+  %84 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #28
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store ptr %2, ptr %85, align 8
   store ptr %2, ptr %84, align 8
@@ -1865,7 +1859,7 @@ dissector_add_uint.exit:                          ; preds = %76, %83, %92
 
 ._crit_edge.split:                                ; preds = %dissector_add_uint.exit, %.lr.ph31.split
   %.lcssa = phi i32 [ %64, %.lr.ph31.split ], [ %93, %dissector_add_uint.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %96 = call fastcc zeroext i1 @dissector_get_table_checked(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %4)
   br i1 %96, label %97, label %dissector_add_uint.exit25
 
@@ -1878,11 +1872,11 @@ dissector_add_uint.exit:                          ; preds = %76, %83, %92
   br i1 %switch.i24, label %102, label %.split.us
 
 .split.us:                                        ; preds = %97, %17
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1261, ptr noundef nonnull @__func__.dissector_add_uint, ptr noundef nonnull @.str.16) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1261, ptr noundef nonnull @__func__.dissector_add_uint, ptr noundef nonnull @.str.16) #26
   unreachable
 
 102:                                              ; preds = %97
-  %103 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #29
+  %103 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #28
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   store ptr %2, ptr %104, align 8
   store ptr %2, ptr %103, align 8
@@ -1900,7 +1894,7 @@ dissector_add_uint.exit:                          ; preds = %76, %83, %92
   br label %dissector_add_uint.exit25
 
 dissector_add_uint.exit25:                        ; preds = %._crit_edge.split, %102, %112
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %113 = load i32, ptr %1, align 4
   %114 = zext i32 %113 to i64
@@ -1917,7 +1911,7 @@ define void @dissector_add_uint_with_preference(ptr noundef %0, i32 noundef %1, 
   %5 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.23, i32 noundef %1)
   %6 = tail call fastcc ptr @dissector_add_range_preference(ptr noundef %0, ptr noundef %2, ptr noundef %5)
   tail call void @wmem_free(ptr noundef null, ptr noundef %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = call fastcc zeroext i1 @dissector_get_table_checked(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4)
   br i1 %7, label %8, label %dissector_add_uint.exit
 
@@ -1930,11 +1924,11 @@ define void @dissector_add_uint_with_preference(ptr noundef %0, i32 noundef %1, 
   br i1 %switch.i, label %14, label %13
 
 13:                                               ; preds = %8
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1261, ptr noundef nonnull @__func__.dissector_add_uint, ptr noundef nonnull @.str.16) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1261, ptr noundef nonnull @__func__.dissector_add_uint, ptr noundef nonnull @.str.16) #26
   unreachable
 
 14:                                               ; preds = %8
-  %15 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #29
+  %15 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #28
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %2, ptr %16, align 8
   store ptr %2, ptr %15, align 8
@@ -1952,7 +1946,7 @@ define void @dissector_add_uint_with_preference(ptr noundef %0, i32 noundef %1, 
   br label %dissector_add_uint.exit
 
 dissector_add_uint.exit:                          ; preds = %3, %14, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2054,7 +2048,7 @@ dissector_handle_get_description.exit:            ; preds = %32, %33
 
 53:                                               ; preds = %45
   %54 = load ptr, ptr %47, align 8
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1371, ptr noundef nonnull @__func__.dissector_add_range_preference, ptr noundef nonnull @.str.52, ptr noundef %0, ptr noundef %54) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1371, ptr noundef nonnull @__func__.dissector_add_range_preference, ptr noundef nonnull @.str.52, ptr noundef %0, ptr noundef %54) #26
   unreachable
 
 switch.lookup:                                    ; preds = %45
@@ -2117,7 +2111,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   ]
 
 15:                                               ; preds = %find_dissector_table.exit
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1180, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1180, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #26
   unreachable
 
 find_uint_dtbl_entry.exit:                        ; preds = %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit
@@ -2203,7 +2197,7 @@ find_dissector_table.exit.i:                      ; preds = %21, %18, %15, %.lr.
   ]
 
 24:                                               ; preds = %find_dissector_table.exit.i
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1180, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1180, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #26
   unreachable
 
 find_uint_dtbl_entry.exit.i:                      ; preds = %find_dissector_table.exit.i, %find_dissector_table.exit.i, %find_dissector_table.exit.i, %find_dissector_table.exit.i, %find_dissector_table.exit.i
@@ -2388,7 +2382,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   ]
 
 15:                                               ; preds = %find_dissector_table.exit
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1180, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1180, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #26
   unreachable
 
 find_uint_dtbl_entry.exit:                        ; preds = %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit
@@ -2422,7 +2416,7 @@ find_uint_dtbl_entry.exit:                        ; preds = %find_dissector_tabl
   br i1 %20, label %36, label %31
 
 31:                                               ; preds = %30
-  %32 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #29
+  %32 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #28
   store ptr null, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %2, ptr %33, align 8
@@ -2470,7 +2464,7 @@ find_dissector_table.exit:                        ; preds = %2, %5, %8, %11
   ]
 
 14:                                               ; preds = %find_dissector_table.exit
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1180, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1180, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #26
   unreachable
 
 find_uint_dtbl_entry.exit:                        ; preds = %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit
@@ -2517,7 +2511,7 @@ define zeroext i1 @dissector_is_uint_changed(ptr noundef readonly captures(addre
   ]
 
 6:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1180, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1180, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #26
   unreachable
 
 find_uint_dtbl_entry.exit:                        ; preds = %3, %3, %3, %3, %3
@@ -2553,7 +2547,7 @@ define i32 @dissector_try_uint_with_data(ptr noundef readonly captures(none) %0,
   ]
 
 10:                                               ; preds = %7
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1180, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1180, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #26
   unreachable
 
 find_uint_dtbl_entry.exit:                        ; preds = %7, %7, %7, %7, %7
@@ -2620,7 +2614,7 @@ define internal fastcc i32 @call_dissector_work(ptr noundef readonly captures(no
   br i1 %28, label %30, label %29
 
 29:                                               ; preds = %20
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 938, ptr noundef nonnull @.str.38) #27
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 938, ptr noundef nonnull @.str.38) #26
   unreachable
 
 30:                                               ; preds = %20
@@ -2700,7 +2694,7 @@ define internal fastcc i32 @call_dissector_work(ptr noundef readonly captures(no
   br label %call_dissector_through_handle.exit
 
 70:                                               ; preds = %57
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 895, ptr noundef nonnull @__func__.call_dissector_through_handle, ptr noundef nonnull @.str.16) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 895, ptr noundef nonnull @__func__.call_dissector_through_handle, ptr noundef nonnull @.str.16) #26
   unreachable
 
 call_dissector_through_handle.exit:               ; preds = %60, %64
@@ -2786,7 +2780,7 @@ define i32 @dissector_try_uint(ptr noundef readonly captures(none) %0, i32 nound
   ]
 
 8:                                                ; preds = %5
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1180, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1180, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #26
   unreachable
 
 find_uint_dtbl_entry.exit.i:                      ; preds = %5, %5, %5, %5, %5
@@ -2829,7 +2823,7 @@ define ptr @dissector_get_uint_handle(ptr noundef readonly captures(none) %0, i3
   ]
 
 5:                                                ; preds = %2
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1180, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1180, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #26
   unreachable
 
 find_uint_dtbl_entry.exit:                        ; preds = %2, %2, %2, %2, %2
@@ -2886,7 +2880,7 @@ find_dissector_table.exit:                        ; preds = %11, %2
   ]
 
 14:                                               ; preds = %find_dissector_table.exit
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1180, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1180, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #26
   unreachable
 
 find_uint_dtbl_entry.exit:                        ; preds = %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit
@@ -2909,7 +2903,7 @@ find_dissector_table.exit.thread:                 ; preds = %find_uint_dtbl_entr
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @dissector_add_string(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call fastcc zeroext i1 @dissector_get_table_checked(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4)
   br i1 %5, label %6, label %28
 
@@ -2925,11 +2919,11 @@ define void @dissector_add_string(ptr noundef %0, ptr noundef %1, ptr noundef %2
   ]
 
 10:                                               ; preds = %6
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1778, ptr noundef nonnull @__func__.dissector_add_string, ptr noundef nonnull @.str.16) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1778, ptr noundef nonnull @__func__.dissector_add_string, ptr noundef nonnull @.str.16) #26
   unreachable
 
 11:                                               ; preds = %6, %6, %6, %6
-  %12 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #29
+  %12 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #28
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %2, ptr %13, align 8
   store ptr %2, ptr %12, align 8
@@ -2960,7 +2954,7 @@ define void @dissector_add_string(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %28
 
 28:                                               ; preds = %21, %27, %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3005,7 +2999,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   ]
 
 15:                                               ; preds = %find_dissector_table.exit
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1731, ptr noundef nonnull @__func__.find_string_dtbl_entry, ptr noundef nonnull @.str.16) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1731, ptr noundef nonnull @__func__.find_string_dtbl_entry, ptr noundef nonnull @.str.16) #26
   unreachable
 
 16:                                               ; preds = %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit
@@ -3074,7 +3068,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   ]
 
 15:                                               ; preds = %find_dissector_table.exit
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1731, ptr noundef nonnull @__func__.find_string_dtbl_entry, ptr noundef nonnull @.str.16) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1731, ptr noundef nonnull @__func__.find_string_dtbl_entry, ptr noundef nonnull @.str.16) #26
   unreachable
 
 16:                                               ; preds = %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit
@@ -3122,7 +3116,7 @@ find_string_dtbl_entry.exit:                      ; preds = %20, %22
   br i1 %26, label %43, label %37
 
 37:                                               ; preds = %36
-  %38 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #29
+  %38 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #28
   store ptr null, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %2, ptr %39, align 8
@@ -3170,7 +3164,7 @@ find_dissector_table.exit:                        ; preds = %2, %5, %8, %11
   ]
 
 14:                                               ; preds = %find_dissector_table.exit
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1731, ptr noundef nonnull @__func__.find_string_dtbl_entry, ptr noundef nonnull @.str.16) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1731, ptr noundef nonnull @__func__.find_string_dtbl_entry, ptr noundef nonnull @.str.16) #26
   unreachable
 
 15:                                               ; preds = %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit
@@ -3230,7 +3224,7 @@ define zeroext i1 @dissector_is_string_changed(ptr noundef readonly captures(add
   ]
 
 6:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1731, ptr noundef nonnull @__func__.find_string_dtbl_entry, ptr noundef nonnull @.str.16) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1731, ptr noundef nonnull @__func__.find_string_dtbl_entry, ptr noundef nonnull @.str.16) #26
   unreachable
 
 7:                                                ; preds = %3, %3, %3, %3
@@ -3283,7 +3277,7 @@ define i32 @dissector_try_string_with_data(ptr noundef readonly captures(none) %
   ]
 
 11:                                               ; preds = %8
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1731, ptr noundef nonnull @__func__.find_string_dtbl_entry, ptr noundef nonnull @.str.16) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1731, ptr noundef nonnull @__func__.find_string_dtbl_entry, ptr noundef nonnull @.str.16) #26
   unreachable
 
 12:                                               ; preds = %8, %8, %8, %8
@@ -3343,7 +3337,7 @@ define ptr @dissector_get_string_handle(ptr noundef readonly captures(none) %0, 
   ]
 
 6:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1731, ptr noundef nonnull @__func__.find_string_dtbl_entry, ptr noundef nonnull @.str.16) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1731, ptr noundef nonnull @__func__.find_string_dtbl_entry, ptr noundef nonnull @.str.16) #26
   unreachable
 
 7:                                                ; preds = %3, %3, %3, %3
@@ -3417,7 +3411,7 @@ find_dissector_table.exit:                        ; preds = %12, %3
   ]
 
 15:                                               ; preds = %find_dissector_table.exit
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1731, ptr noundef nonnull @__func__.find_string_dtbl_entry, ptr noundef nonnull @.str.16) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1731, ptr noundef nonnull @__func__.find_string_dtbl_entry, ptr noundef nonnull @.str.16) #26
   unreachable
 
 16:                                               ; preds = %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit
@@ -3454,12 +3448,12 @@ find_dissector_table.exit.thread:                 ; preds = %find_string_dtbl_en
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @dissector_add_custom_table_handle(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call fastcc zeroext i1 @dissector_get_table_checked(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4)
   br i1 %5, label %6, label %16
 
 6:                                                ; preds = %3
-  %7 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #29
+  %7 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #28
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %2, ptr %8, align 8
   store ptr %2, ptr %7, align 8
@@ -3476,7 +3470,7 @@ define void @dissector_add_custom_table_handle(ptr noundef %0, ptr noundef %1, p
   br label %16
 
 16:                                               ; preds = %6, %15, %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3500,7 +3494,7 @@ define ptr @dissector_get_custom_table_handle(ptr noundef readonly captures(none
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @dissector_add_guid(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call fastcc zeroext i1 @dissector_get_table_checked(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4)
   br i1 %5, label %6, label %20
 
@@ -3512,11 +3506,11 @@ define void @dissector_add_guid(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br i1 %.not, label %11, label %10
 
 10:                                               ; preds = %6
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 2064, ptr noundef nonnull @__func__.dissector_add_guid, ptr noundef nonnull @.str.16) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 2064, ptr noundef nonnull @__func__.dissector_add_guid, ptr noundef nonnull @.str.16) #26
   unreachable
 
 11:                                               ; preds = %6
-  %12 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #29
+  %12 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #28
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %2, ptr %13, align 8
   store ptr %2, ptr %12, align 8
@@ -3532,7 +3526,7 @@ define void @dissector_add_guid(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br label %20
 
 20:                                               ; preds = %11, %19, %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3588,7 +3582,7 @@ define i32 @dissector_try_payload_with_data(ptr noundef readonly captures(none) 
   ]
 
 9:                                                ; preds = %6
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1180, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1180, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #26
   unreachable
 
 find_uint_dtbl_entry.exit.i:                      ; preds = %6, %6, %6, %6, %6
@@ -3641,7 +3635,7 @@ define ptr @dissector_get_payload_handle(ptr noundef readonly captures(none) %0)
   ]
 
 4:                                                ; preds = %1
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1180, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1180, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #26
   unreachable
 
 find_uint_dtbl_entry.exit.i:                      ; preds = %1, %1, %1, %1, %1
@@ -3661,7 +3655,7 @@ dissector_get_uint_handle.exit:                   ; preds = %find_uint_dtbl_entr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define ptr @dtbl_entry_get_handle(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define ptr @dtbl_entry_get_handle(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -3672,11 +3666,11 @@ define hidden void @packet_all_tables_sort_handles() local_unnamed_addr #0 {
   %1 = alloca %struct._GHashTableIter, align 8
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %4 = load ptr, ptr @dissector_tables, align 8
   call void @g_hash_table_iter_init(ptr noundef nonnull %1, ptr noundef %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %.not2 = icmp eq i32 %5, 0
   br i1 %.not2, label %._crit_edge, label %.lr.ph
@@ -3693,9 +3687,9 @@ define hidden void @packet_all_tables_sort_handles() local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   store i1 true, ptr @all_tables_handles_sorted, align 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #26
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -3739,7 +3733,7 @@ define internal i32 @dissector_compare_filter_name(ptr noundef readonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define ptr @dissector_handle_get_dissector_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define ptr @dissector_handle_get_dissector_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -3772,7 +3766,7 @@ define noundef zeroext i1 @register_depend_dissector(ptr noundef %0, ptr noundef
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %5
-  %10 = tail call noalias dereferenceable_or_null(8) ptr @g_slice_alloc(i64 noundef 8) #29
+  %10 = tail call noalias dereferenceable_or_null(8) ptr @g_slice_alloc(i64 noundef 8) #28
   store ptr null, ptr %10, align 8
   %11 = load ptr, ptr @depend_dissector_lists, align 8
   %12 = tail call noalias ptr @g_strdup(ptr noundef nonnull %0)
@@ -3801,7 +3795,7 @@ define noundef zeroext i1 @register_depend_dissector(ptr noundef %0, ptr noundef
 declare ptr @g_slist_find(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define nonnull ptr @dissector_handle_get_pref_suffix(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define nonnull ptr @dissector_handle_get_pref_suffix(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -3831,13 +3825,13 @@ define void @dissector_add_for_decode_as_with_preference(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define ptr @dtbl_entry_get_initial_handle(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define ptr @dtbl_entry_get_initial_handle(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define ptr @dissector_table_get_dissector_handles(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define ptr @dissector_table_get_dissector_handles(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -3854,7 +3848,7 @@ define ptr @dissector_table_get_dissector_handles(ptr noundef readonly captures(
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @dissector_table_get_dissector_handle(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.lookup_entry, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %4, align 8
@@ -3862,12 +3856,12 @@ define ptr @dissector_table_get_dissector_handle(ptr noundef readonly captures(n
   %6 = load ptr, ptr %5, align 8
   call void @g_slist_foreach(ptr noundef %6, ptr noundef nonnull @find_dissector_in_table, ptr noundef nonnull %3)
   %7 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @find_dissector_in_table(ptr noundef %0, ptr noundef captures(none) %1) #13 {
+define internal void @find_dissector_in_table(ptr noundef %0, ptr noundef captures(none) %1) #12 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %dissector_handle_get_description.exit.thread, label %dissector_handle_get_description.exit
 
@@ -3893,7 +3887,7 @@ dissector_handle_get_description.exit.thread:     ; preds = %2, %10, %6, %dissec
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define i32 @dissector_table_get_type(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define i32 @dissector_table_get_type(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -3908,14 +3902,14 @@ define i32 @dissector_table_get_type(ptr noundef readonly captures(address_is_nu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define void @dissector_table_allow_decode_as(ptr noundef writeonly captures(none) initializes((48, 49)) %0) local_unnamed_addr #14 {
+define void @dissector_table_allow_decode_as(ptr noundef writeonly captures(none) initializes((48, 49)) %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 1, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define zeroext i1 @dissector_table_supports_decode_as(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define zeroext i1 @dissector_table_supports_decode_as(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8, !range !9, !noundef !10
   %4 = trunc nuw i8 %3 to i1
@@ -3925,7 +3919,7 @@ define zeroext i1 @dissector_table_supports_decode_as(ptr noundef readonly captu
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @dissector_table_foreach(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.dissector_foreach_info, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr @dissector_tables, align 8
   %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef %0)
   %.not.i = icmp eq ptr %6, null
@@ -3960,7 +3954,7 @@ find_dissector_table.exit:                        ; preds = %3, %7, %10, %13
   store ptr %2, ptr %4, align 8
   %19 = load ptr, ptr %.0.i, align 8
   call void @g_hash_table_foreach(ptr noundef %19, ptr noundef nonnull @dissector_table_foreach_func, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -4041,7 +4035,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @dissector_all_tables_foreach_changed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.dissector_foreach_info, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %4, align 8
@@ -4049,7 +4043,7 @@ define void @dissector_all_tables_foreach_changed(ptr noundef %0, ptr noundef %1
   store ptr @dissector_table_foreach_changed_func, ptr %5, align 8
   %6 = load ptr, ptr @dissector_tables, align 8
   call void @g_hash_table_foreach(ptr noundef %6, ptr noundef nonnull @dissector_all_tables_foreach_func, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -4121,7 +4115,7 @@ get_dissector_table_selector_type.exit:           ; preds = %7, %10, %find_disse
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @dissector_table_foreach_changed(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.dissector_foreach_info, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr @dissector_tables, align 8
   %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef %0)
   %.not.i = icmp eq ptr %6, null
@@ -4156,14 +4150,14 @@ find_dissector_table.exit:                        ; preds = %3, %7, %10, %13
   store ptr %2, ptr %4, align 8
   %19 = load ptr, ptr %.0.i, align 8
   call void @g_hash_table_foreach(ptr noundef %19, ptr noundef nonnull @dissector_table_foreach_changed_func, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @dissector_all_tables_foreach_table(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.dissector_foreach_table_info, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %5, align 8
@@ -4183,7 +4177,7 @@ define void @dissector_all_tables_foreach_table(ptr noundef %0, ptr noundef %1, 
   br label %11
 
 11:                                               ; preds = %10, %7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -4231,11 +4225,11 @@ define noundef ptr @register_dissector_table(ptr noundef %0, ptr noundef %1, i32
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %5
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 2690, ptr noundef nonnull @__func__.register_dissector_table, ptr noundef nonnull @.str.31, ptr noundef %0, ptr noundef %1) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 2690, ptr noundef nonnull @__func__.register_dissector_table, ptr noundef nonnull @.str.31, ptr noundef %0, ptr noundef %1) #26
   unreachable
 
 9:                                                ; preds = %5
-  %10 = tail call noalias dereferenceable_or_null(56) ptr @g_slice_alloc(i64 noundef 56) #29
+  %10 = tail call noalias dereferenceable_or_null(56) ptr @g_slice_alloc(i64 noundef 56) #28
   switch i32 %3, label %22 [
     i32 4, label %11
     i32 5, label %11
@@ -4272,7 +4266,7 @@ define noundef ptr @register_dissector_table(ptr noundef %0, ptr noundef %1, i32
   br label %23
 
 22:                                               ; preds = %9
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 2742, ptr noundef nonnull @__func__.register_dissector_table, ptr noundef nonnull @.str.32, ptr noundef %0, ptr noundef %1) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 2742, ptr noundef nonnull @__func__.register_dissector_table, ptr noundef nonnull @.str.32, ptr noundef %0, ptr noundef %1) #26
   unreachable
 
 23:                                               ; preds = %19, %17, %14, %11
@@ -4305,16 +4299,16 @@ define noundef ptr @register_dissector_table(ptr noundef %0, ptr noundef %1, i32
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare noalias ptr @g_slice_alloc(i64 noundef) local_unnamed_addr #11
+declare noalias ptr @g_slice_alloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @uuid_hash(ptr noundef readonly captures(none) %0) #4 {
+define internal i32 @uuid_hash(ptr noundef readonly captures(none) %0) #3 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @uuid_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #15 {
+define internal range(i32 0, 2) i32 @uuid_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #14 {
   %bcmp = tail call i32 @bcmp(ptr noundef dereferenceable(16) %0, ptr noundef dereferenceable(16) %1, i64 16)
   %3 = icmp eq i32 %bcmp, 0
   br i1 %3, label %4, label %11
@@ -4344,11 +4338,11 @@ define noundef ptr @register_custom_dissector_table(ptr noundef %0, ptr noundef 
   br i1 %.not, label %10, label %9
 
 9:                                                ; preds = %6
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 2763, ptr noundef nonnull @__func__.register_custom_dissector_table, ptr noundef nonnull @.str.31, ptr noundef %0, ptr noundef %1) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 2763, ptr noundef nonnull @__func__.register_custom_dissector_table, ptr noundef nonnull @.str.31, ptr noundef %0, ptr noundef %1) #26
   unreachable
 
 10:                                               ; preds = %6
-  %11 = tail call noalias dereferenceable_or_null(56) ptr @g_slice_alloc(i64 noundef 56) #29
+  %11 = tail call noalias dereferenceable_or_null(56) ptr @g_slice_alloc(i64 noundef 56) #28
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store ptr %3, ptr %12, align 8
   %13 = tail call ptr @g_hash_table_new_full(ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @g_free)
@@ -4616,7 +4610,7 @@ define void @heur_dissector_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %19, label %20, label %77
 
 20:                                               ; preds = %17
-  tail call void @abort() #30
+  tail call void @abort() #29
   unreachable
 
 21:                                               ; preds = %6
@@ -4658,7 +4652,7 @@ define void @heur_dissector_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %42, label %43, label %77
 
 43:                                               ; preds = %40
-  tail call void @abort() #30
+  tail call void @abort() #29
   unreachable
 
 44:                                               ; preds = %.lr.ph, %30
@@ -4672,7 +4666,7 @@ define void @heur_dissector_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %.not.i, label %check_valid_heur_name_or_fail.exit, label %47
 
 47:                                               ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 2854, ptr noundef nonnull @__func__.check_valid_heur_name_or_fail, ptr noundef nonnull @.str.53, ptr noundef %3) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 2854, ptr noundef nonnull @__func__.check_valid_heur_name_or_fail, ptr noundef nonnull @.str.53, ptr noundef %3) #26
   unreachable
 
 check_valid_heur_name_or_fail.exit:               ; preds = %._crit_edge
@@ -4682,11 +4676,11 @@ check_valid_heur_name_or_fail.exit:               ; preds = %._crit_edge
   br i1 %.not, label %51, label %50
 
 50:                                               ; preds = %check_valid_heur_name_or_fail.exit
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 2926, ptr noundef nonnull @__func__.heur_dissector_add, ptr noundef nonnull @.str.36, ptr noundef %3) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 2926, ptr noundef nonnull @__func__.heur_dissector_add, ptr noundef nonnull @.str.36, ptr noundef %3) #26
   unreachable
 
 51:                                               ; preds = %check_valid_heur_name_or_fail.exit
-  %52 = tail call noalias dereferenceable_or_null(48) ptr @g_slice_alloc(i64 noundef 48) #29
+  %52 = tail call noalias dereferenceable_or_null(48) ptr @g_slice_alloc(i64 noundef 48) #28
   store ptr %1, ptr %52, align 8
   %53 = tail call ptr @find_protocol_by_id(i32 noundef %4)
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -4733,7 +4727,7 @@ check_valid_heur_name_or_fail.exit:               ; preds = %._crit_edge
 declare ptr @proto_get_protocol_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind null_pointer_is_valid
-declare void @abort() local_unnamed_addr #16
+declare void @abort() local_unnamed_addr #15
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @g_slist_length(ptr noundef) local_unnamed_addr #1
@@ -4749,7 +4743,7 @@ define void @heur_dissector_delete(ptr noundef %0, ptr noundef %1, i32 noundef %
   %4 = alloca %struct.heur_dtbl_entry, align 8
   %5 = load ptr, ptr @heur_dissector_lists, align 8
   %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef %0)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8
   %7 = tail call ptr @find_protocol_by_id(i32 noundef %2)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4778,7 +4772,7 @@ define void @heur_dissector_delete(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %23
 
 23:                                               ; preds = %12, %3
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -4786,7 +4780,7 @@ define void @heur_dissector_delete(ptr noundef %0, ptr noundef %1, i32 noundef %
 declare ptr @g_slist_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @find_matching_heur_dissector(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
+define internal range(i32 0, 2) i32 @find_matching_heur_dissector(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %3, %4
@@ -4846,7 +4840,7 @@ define noundef zeroext i1 @dissector_try_heuristic(ptr noundef captures(none) %0
   br i1 %26, label %28, label %27
 
 27:                                               ; preds = %12
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 3029, ptr noundef nonnull @.str.38) #27
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 3029, ptr noundef nonnull @.str.38) #26
   unreachable
 
 28:                                               ; preds = %12
@@ -5071,7 +5065,7 @@ remove_last_layer.exit:                           ; preds = %.critedge, %112
 declare i32 @wmem_list_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #8
+declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i1 @proto_is_protocol_enabled(ptr noundef) local_unnamed_addr #1
@@ -5210,14 +5204,14 @@ declare ptr @g_slist_concat(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @heur_dissector_table_foreach(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.heur_dissector_foreach_info, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr @heur_dissector_lists, align 8
   %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef %0)
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %8
 
 7:                                                ; preds = %3
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 3139, ptr noundef nonnull @.str.39) #27
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 3139, ptr noundef nonnull @.str.39) #26
   unreachable
 
 8:                                                ; preds = %3
@@ -5229,7 +5223,7 @@ define void @heur_dissector_table_foreach(ptr noundef %0, ptr noundef %1, ptr no
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load ptr, ptr %11, align 8
   call void @g_slist_foreach(ptr noundef %12, ptr noundef nonnull @heur_dissector_table_foreach_func, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -5247,7 +5241,7 @@ define internal void @heur_dissector_table_foreach_func(ptr noundef %0, ptr noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @dissector_all_heur_tables_foreach_table(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.heur_dissector_foreach_table_info, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %5, align 8
@@ -5268,7 +5262,7 @@ define void @dissector_all_heur_tables_foreach_table(ptr noundef %0, ptr noundef
   br label %12
 
 12:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -5295,27 +5289,27 @@ define internal void @dissector_all_heur_tables_foreach_table_func(ptr noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @dissector_dump_heur_decodes() local_unnamed_addr #0 {
   %1 = alloca %struct.heur_dissector_foreach_table_info, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @dissector_dump_heur_decodes_display, ptr %2, align 8
   %3 = load ptr, ptr @heur_dissector_lists, align 8
   call void @g_hash_table_foreach(ptr noundef %3, ptr noundef nonnull @dissector_all_heur_tables_foreach_table_func, ptr noundef nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissector_dump_heur_decodes_display(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca %struct.heur_dissector_foreach_info, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr @heur_dissector_lists, align 8
   %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef %0)
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %heur_dissector_table_foreach.exit
 
 7:                                                ; preds = %3
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 3139, ptr noundef nonnull @.str.39) #27
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 3139, ptr noundef nonnull @.str.39) #26
   unreachable
 
 heur_dissector_table_foreach.exit:                ; preds = %3
@@ -5327,7 +5321,7 @@ heur_dissector_table_foreach.exit:                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load ptr, ptr %10, align 8
   call void @g_slist_foreach(ptr noundef %11, ptr noundef nonnull @heur_dissector_table_foreach_func, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -5339,11 +5333,11 @@ define noundef ptr @register_heur_dissector_list_with_description(ptr noundef %0
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3249, ptr noundef nonnull @__func__.register_heur_dissector_list_with_description, ptr noundef nonnull @.str.40, ptr noundef %0) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3249, ptr noundef nonnull @__func__.register_heur_dissector_list_with_description, ptr noundef nonnull @.str.40, ptr noundef %0) #26
   unreachable
 
 7:                                                ; preds = %3
-  %8 = tail call noalias dereferenceable_or_null(24) ptr @g_slice_alloc(i64 noundef 24) #29
+  %8 = tail call noalias dereferenceable_or_null(24) ptr @g_slice_alloc(i64 noundef 24) #28
   %9 = icmp eq i32 %2, -1
   br i1 %9, label %12, label %10
 
@@ -5371,11 +5365,11 @@ define noundef ptr @register_heur_dissector_list(ptr noundef %0, i32 noundef %1)
   br i1 %.not.i, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3249, ptr noundef nonnull @__func__.register_heur_dissector_list_with_description, ptr noundef nonnull @.str.40, ptr noundef %0) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3249, ptr noundef nonnull @__func__.register_heur_dissector_list_with_description, ptr noundef nonnull @.str.40, ptr noundef %0) #26
   unreachable
 
 6:                                                ; preds = %2
-  %7 = tail call noalias dereferenceable_or_null(24) ptr @g_slice_alloc(i64 noundef 24) #29
+  %7 = tail call noalias dereferenceable_or_null(24) ptr @g_slice_alloc(i64 noundef 24) #28
   %8 = icmp eq i32 %1, -1
   br i1 %8, label %register_heur_dissector_list_with_description.exit, label %9
 
@@ -5412,7 +5406,7 @@ define hidden void @deregister_heur_dissector_list(ptr noundef %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define ptr @heur_dissector_list_get_description(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define ptr @heur_dissector_list_get_description(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -5489,7 +5483,7 @@ dissector_handle_get_protocol_short_name.exit:    ; preds = %1, %3, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define ptr @dissector_handle_get_description(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define ptr @dissector_handle_get_description(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -5587,7 +5581,7 @@ define internal fastcc noalias noundef ptr @new_dissector_handle(i32 noundef %0,
   br i1 %.not.i, label %check_valid_dissector_name_or_fail.exit, label %6
 
 6:                                                ; preds = %4
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3407, ptr noundef nonnull @__func__.check_valid_dissector_name_or_fail, ptr noundef nonnull @.str.56, ptr noundef nonnull %1) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3407, ptr noundef nonnull @__func__.check_valid_dissector_name_or_fail, ptr noundef nonnull @.str.56, ptr noundef nonnull %1) #26
   unreachable
 
 check_valid_dissector_name_or_fail.exit:          ; preds = %4, %3
@@ -5731,7 +5725,7 @@ define noundef ptr @register_dissector(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %9, %3
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3528, ptr noundef nonnull @__func__.register_dissector_handle, ptr noundef nonnull @.str.57) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3528, ptr noundef nonnull @__func__.register_dissector_handle, ptr noundef nonnull @.str.57) #26
   unreachable
 
 13:                                               ; preds = %9
@@ -5741,7 +5735,7 @@ define noundef ptr @register_dissector(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %.not.i, label %16, label %register_dissector_handle.exit
 
 16:                                               ; preds = %13
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3534, ptr noundef nonnull @__func__.register_dissector_handle, ptr noundef nonnull @.str.58, ptr noundef nonnull %0) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3534, ptr noundef nonnull @__func__.register_dissector_handle, ptr noundef nonnull @.str.58, ptr noundef nonnull %0) #26
   unreachable
 
 register_dissector_handle.exit:                   ; preds = %13
@@ -5766,7 +5760,7 @@ define noundef ptr @register_dissector_with_description(ptr noundef %0, ptr noun
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %10, %4
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3528, ptr noundef nonnull @__func__.register_dissector_handle, ptr noundef nonnull @.str.57) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3528, ptr noundef nonnull @__func__.register_dissector_handle, ptr noundef nonnull @.str.57) #26
   unreachable
 
 14:                                               ; preds = %10
@@ -5776,7 +5770,7 @@ define noundef ptr @register_dissector_with_description(ptr noundef %0, ptr noun
   br i1 %.not.i, label %17, label %register_dissector_handle.exit
 
 17:                                               ; preds = %14
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3534, ptr noundef nonnull @__func__.register_dissector_handle, ptr noundef nonnull @.str.58, ptr noundef nonnull %0) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3534, ptr noundef nonnull @__func__.register_dissector_handle, ptr noundef nonnull @.str.58, ptr noundef nonnull %0) #26
   unreachable
 
 register_dissector_handle.exit:                   ; preds = %14
@@ -5801,7 +5795,7 @@ define noundef ptr @register_dissector_with_data(ptr noundef %0, ptr noundef %1,
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %10, %4
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3528, ptr noundef nonnull @__func__.register_dissector_handle, ptr noundef nonnull @.str.57) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3528, ptr noundef nonnull @__func__.register_dissector_handle, ptr noundef nonnull @.str.57) #26
   unreachable
 
 14:                                               ; preds = %10
@@ -5811,7 +5805,7 @@ define noundef ptr @register_dissector_with_data(ptr noundef %0, ptr noundef %1,
   br i1 %.not.i, label %17, label %register_dissector_handle.exit
 
 17:                                               ; preds = %14
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3534, ptr noundef nonnull @__func__.register_dissector_handle, ptr noundef nonnull @.str.58, ptr noundef nonnull %0) #27
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3534, ptr noundef nonnull @__func__.register_dissector_handle, ptr noundef nonnull @.str.58, ptr noundef nonnull %0) #26
   unreachable
 
 register_dissector_handle.exit:                   ; preds = %14
@@ -5925,7 +5919,7 @@ define i32 @call_dissector_only(ptr noundef readonly captures(address_is_null) %
   br i1 %.not, label %6, label %7
 
 6:                                                ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 3620, ptr noundef nonnull @.str.41) #27
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 3620, ptr noundef nonnull @.str.41) #26
   unreachable
 
 7:                                                ; preds = %5
@@ -5942,7 +5936,7 @@ define i32 @call_data_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br i1 %.not, label %7, label %8
 
 7:                                                ; preds = %3
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 3655, ptr noundef nonnull @.str.42) #27
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 3655, ptr noundef nonnull @.str.42) #26
   unreachable
 
 8:                                                ; preds = %3
@@ -5956,7 +5950,7 @@ define i32 @call_dissector(ptr noundef readonly captures(address_is_null) %0, pt
   br i1 %.not.i.i, label %5, label %call_dissector_only.exit.i
 
 5:                                                ; preds = %4
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 3620, ptr noundef nonnull @.str.41) #27
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 3620, ptr noundef nonnull @.str.41) #26
   unreachable
 
 call_dissector_only.exit.i:                       ; preds = %4
@@ -5972,7 +5966,7 @@ call_dissector_only.exit.i:                       ; preds = %4
   br i1 %.not.i11.i, label %12, label %call_data_dissector.exit.i
 
 12:                                               ; preds = %8
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 3655, ptr noundef nonnull @.str.42) #27
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 3655, ptr noundef nonnull @.str.42) #26
   unreachable
 
 call_data_dissector.exit.i:                       ; preds = %8
@@ -5990,7 +5984,7 @@ define void @call_heur_dissector_direct(ptr noundef readonly captures(address_is
   br i1 %.not, label %6, label %7
 
 6:                                                ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 3670, ptr noundef nonnull @.str.43) #27
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 3670, ptr noundef nonnull @.str.43) #26
   unreachable
 
 7:                                                ; preds = %5
@@ -6031,7 +6025,7 @@ define void @call_heur_dissector_direct(ptr noundef readonly captures(address_is
   br i1 %.not42, label %31, label %32
 
 31:                                               ; preds = %27
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 3692, ptr noundef nonnull @.str.42) #27
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 3692, ptr noundef nonnull @.str.42) #26
   unreachable
 
 32:                                               ; preds = %27
@@ -6095,7 +6089,7 @@ define ptr @find_depend_dissector_list(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @find_matching_proto_name(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #15 {
+define internal i32 @find_matching_proto_name(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #14 {
   %3 = tail call i32 @strcmp(ptr noundef %0, ptr noundef %1) #25
   ret i32 %3
 }
@@ -6124,7 +6118,7 @@ remove_depend_dissector_from_list.exit:           ; preds = %2, %7
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @dissector_dump_decodes() local_unnamed_addr #0 {
   %1 = alloca %struct.dissector_foreach_table_info, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @dissector_dump_table_decodes, ptr %2, align 8
@@ -6133,7 +6127,7 @@ define void @dissector_dump_decodes() local_unnamed_addr #0 {
   %5 = tail call ptr @g_list_sort(ptr noundef %4, ptr noundef nonnull @strcmp)
   call void @g_list_foreach(ptr noundef %5, ptr noundef nonnull @dissector_all_tables_foreach_list_func, ptr noundef nonnull %1)
   call void @g_list_free(ptr noundef %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -6286,7 +6280,7 @@ define void @dissector_dump_dissector_tables() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @compare_dissector_key_name(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #15 {
+define internal i32 @compare_dissector_key_name(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #14 {
   %3 = tail call i32 @strcmp(ptr noundef %0, ptr noundef %1) #25
   ret i32 %3
 }
@@ -6398,15 +6392,15 @@ define void @dissector_dump_dissectors() local_unnamed_addr #0 {
   %1 = alloca %struct._GHashTableIter, align 8
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr @registered_dissectors, align 8
   call void @g_hash_table_iter_init(ptr noundef nonnull %1, ptr noundef %4)
   %5 = load ptr, ptr @registered_dissectors, align 8
   %6 = call i32 @g_hash_table_size(ptr noundef %5)
   %7 = zext i32 %6 to i64
-  %8 = call noalias ptr @g_malloc_n(i64 noundef %7, i64 noundef 16) #31
+  %8 = call noalias ptr @g_malloc_n(i64 noundef %7, i64 noundef 16) #30
   %9 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %.not28 = icmp eq i32 %9, 0
   br i1 %.not28, label %._crit_edge, label %.lr.ph
@@ -6445,9 +6439,9 @@ define void @dissector_dump_dissectors() local_unnamed_addr #0 {
 
 ._crit_edge33:                                    ; preds = %.lr.ph32, %._crit_edge
   call void @g_free(ptr noundef %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #26
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -6455,10 +6449,10 @@ define void @dissector_dump_dissectors() local_unnamed_addr #0 {
 declare i32 @g_hash_table_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree null_pointer_is_valid
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #17
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @compare_dissector_info_names(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #18 {
+define internal i32 @compare_dissector_info_names(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #17 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 @strcmp(ptr noundef %3, ptr noundef %4) #25
@@ -6471,7 +6465,7 @@ declare i32 @__printf_chk(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @register_postdissector(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.postdissector, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @postdissectors, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -6488,7 +6482,7 @@ define void @register_postdissector(ptr noundef %0) local_unnamed_addr #0 {
   store ptr null, ptr %8, align 8
   %9 = call ptr @g_array_append_vals(ptr noundef %7, ptr noundef nonnull %2, i32 noundef 1)
   store ptr %9, ptr @postdissectors, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -6662,7 +6656,7 @@ define hidden void @call_all_postdissectors(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not.i, label %11, label %call_dissector_only.exit
 
 11:                                               ; preds = %.lr.ph
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 3620, ptr noundef nonnull @.str.41) #27
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 3620, ptr noundef nonnull @.str.41) #26
   unreachable
 
 call_dissector_only.exit:                         ; preds = %.lr.ph
@@ -6811,7 +6805,7 @@ define void @increment_dissection_depth(ptr noundef captures(none) %0) local_unn
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %1
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 4210, ptr noundef nonnull @.str.45) #27
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 4210, ptr noundef nonnull @.str.45) #26
   unreachable
 
 8:                                                ; preds = %1
@@ -6828,7 +6822,7 @@ define void @decrement_dissection_depth(ptr noundef captures(none) %0) local_unn
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %1
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 4216, ptr noundef nonnull @.str.46) #27
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 4216, ptr noundef nonnull @.str.46) #26
   unreachable
 
 7:                                                ; preds = %1
@@ -6854,7 +6848,7 @@ define internal void @destroy_heuristic_dissector_entry(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_epan_scope() local_unnamed_addr #1
@@ -6887,7 +6881,7 @@ define internal fastcc i32 @call_dissector_work_error(ptr noundef readonly captu
   %8 = alloca i32, align 4
   %9 = alloca %struct.except_stacknode, align 8
   %10 = alloca %struct.except_catch, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store volatile i32 0, ptr %6, align 4
   %11 = load ptr, ptr %2, align 8
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 328
@@ -6939,14 +6933,14 @@ define internal fastcc i32 @call_dissector_work_error(ptr noundef readonly captu
   %57 = load i32, ptr %56, align 4
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 288
   %59 = load i32, ptr %58, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store volatile i32 0, ptr %8, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #26
-  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %10) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @except_setup_try(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull @call_dissector_work_error.catch_spec, i64 noundef 1)
   %60 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %61 = call i32 @_setjmp(ptr noundef nonnull %60) #28
+  %61 = call i32 @_setjmp(ptr noundef nonnull %60) #27
   %.not = icmp eq i32 %61, 0
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sink = select i1 %.not, ptr null, ptr %62
@@ -7015,7 +7009,7 @@ define internal fastcc i32 @call_dissector_work_error(ptr noundef readonly captu
   br label %call_dissector_through_handle.exit
 
 93:                                               ; preds = %80
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 895, ptr noundef nonnull @__func__.call_dissector_through_handle, ptr noundef nonnull @.str.16) #27
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 895, ptr noundef nonnull @__func__.call_dissector_through_handle, ptr noundef nonnull @.str.16) #26
   unreachable
 
 call_dissector_through_handle.exit:               ; preds = %83, %87
@@ -7082,7 +7076,7 @@ call_dissector_through_handle.exit:               ; preds = %83, %87
   store i32 %59, ptr %58, align 8
   store ptr %11, ptr %2, align 8
   store i16 %13, ptr %12, align 8
-  call void @__longjmp_chk(ptr noundef nonnull %60, i32 noundef 1) #30
+  call void @__longjmp_chk(ptr noundef nonnull %60, i32 noundef 1) #29
   unreachable
 
 110:                                              ; preds = %97, %96, %94
@@ -7137,7 +7131,7 @@ call_dissector_through_handle.exit:               ; preds = %83, %87
 
 131:                                              ; preds = %130
   %.0..0..0..0.17 = load volatile ptr, ptr %7, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.17) #27
+  call void @except_rethrow(ptr noundef %.0..0..0..0.17) #26
   unreachable
 
 132:                                              ; preds = %130, %128
@@ -7145,10 +7139,10 @@ call_dissector_through_handle.exit:               ; preds = %83, %87
   %134 = load volatile ptr, ptr %133, align 8
   call void @except_free(ptr noundef %134)
   %135 = call ptr @except_pop()
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %10) #26
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %136 = load ptr, ptr %14, align 8
   call void @col_set_writable(ptr noundef %136, i32 noundef -1, i1 noundef zeroext %16)
   store i32 %19, ptr %18, align 8
@@ -7187,7 +7181,7 @@ call_dissector_through_handle.exit:               ; preds = %83, %87
   %143 = getelementptr inbounds nuw i8, ptr %2, i64 340
   store i16 0, ptr %143, align 4
   %.0..0..0..0.25 = load volatile i32, ptr %6, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0..0..0..0.25
 }
 
@@ -7198,7 +7192,7 @@ declare zeroext i1 @col_get_writable(ptr noundef, i32 noundef) local_unnamed_add
 declare void @col_set_writable(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind null_pointer_is_valid
-declare void @__longjmp_chk(ptr noundef, i32 noundef) local_unnamed_addr #19
+declare void @__longjmp_chk(ptr noundef, i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i8 @proto_check_field_name_lower(ptr noundef) local_unnamed_addr #1
@@ -7278,7 +7272,7 @@ declare zeroext i1 @proto_is_protocol_enabled_by_default(ptr noundef) local_unna
 declare ptr @ascii_strdown_inplace(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i8 @proto_check_field_name(ptr noundef) local_unnamed_addr #1
@@ -7298,7 +7292,7 @@ define internal void @dissector_delete_from_table(ptr readnone captures(none) %0
 declare ptr @g_slist_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal range(i32 -1, 2) i32 @compare_ints(ptr noundef %0, ptr noundef %1) #20 {
+define internal range(i32 -1, 2) i32 @compare_ints(ptr noundef %0, ptr noundef %1) #19 {
   %3 = ptrtoint ptr %0 to i64
   %4 = trunc i64 %3 to i32
   %5 = ptrtoint ptr %1 to i64
@@ -7312,6 +7306,12 @@ declare ptr @g_list_first(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @ftype_name(i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21
@@ -7327,36 +7327,35 @@ declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #23
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nounwind null_pointer_is_valid returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { null_pointer_is_valid allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { cold nofree noreturn nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { noreturn nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nounwind null_pointer_is_valid returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { null_pointer_is_valid allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { cold nofree noreturn nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { noreturn nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #21 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #22 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #24 = { allocsize(1) }
 attributes #25 = { nounwind willreturn memory(read) }
-attributes #26 = { nounwind }
-attributes #27 = { noreturn }
-attributes #28 = { nounwind returns_twice }
-attributes #29 = { allocsize(0) }
-attributes #30 = { noreturn nounwind }
-attributes #31 = { allocsize(0,1) }
+attributes #26 = { noreturn }
+attributes #27 = { nounwind returns_twice }
+attributes #28 = { allocsize(0) }
+attributes #29 = { noreturn nounwind }
+attributes #30 = { allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

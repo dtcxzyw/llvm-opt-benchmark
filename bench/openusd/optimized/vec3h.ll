@@ -664,11 +664,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3h9GetLengthEv.exit154: ; preds = %2
 
 328:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3h9GetLengthEv.exit154, %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit52
   %329 = phi i16 [ %96, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3h9GetLengthEv.exit154 ], [ %40, %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit52 ]
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %23, ptr noundef nonnull align 2 dereferenceable(6) %24, i64 6, i1 false)
   %330 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmIERKS0_(ptr noundef nonnull align 2 dereferenceable(6) %23, ptr noundef nonnull align 2 dereferenceable(6) %27)
   %.sroa.0.0.copyload.i.i = load i48, ptr %330, align 2
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %.sroa.2.0.extract.shift.i = lshr i48 %.sroa.0.0.copyload.i.i, 16
   %.sroa.3.0.extract.shift.i = lshr i48 %.sroa.0.0.copyload.i.i, 32
   %.sroa.3.0.extract.trunc.i = zext nneg i48 %.sroa.3.0.extract.shift.i to i64
@@ -723,11 +723,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__9GfIsCloseERKNS_7GfVec3hES2_d.exit: ; preds
   br i1 %367, label %368, label %.loopexit
 
 368:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9GfIsCloseERKNS_7GfVec3hES2_d.exit
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %22, ptr noundef nonnull align 2 dereferenceable(6) %24, i64 6, i1 false)
   %369 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmIERKS0_(ptr noundef nonnull align 2 dereferenceable(6) %22, ptr noundef nonnull align 2 dereferenceable(6) %30)
   %.sroa.0.0.copyload.i.i65 = load i48, ptr %369, align 2
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %.sroa.2.0.extract.shift.i66 = lshr i48 %.sroa.0.0.copyload.i.i65, 16
   %.sroa.3.0.extract.shift.i67 = lshr i48 %.sroa.0.0.copyload.i.i65, 32
   %.sroa.3.0.extract.trunc.i68 = zext nneg i48 %.sroa.3.0.extract.shift.i67 to i64
@@ -781,11 +781,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__9GfIsCloseERKNS_7GfVec3hES2_d.exit71: ; pre
   br i1 %405, label %406, label %.loopexit
 
 406:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9GfIsCloseERKNS_7GfVec3hES2_d.exit71
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %21, ptr noundef nonnull align 2 dereferenceable(6) %27, i64 6, i1 false)
   %407 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmIERKS0_(ptr noundef nonnull align 2 dereferenceable(6) %21, ptr noundef nonnull align 2 dereferenceable(6) %30)
   %.sroa.0.0.copyload.i.i72 = load i48, ptr %407, align 2
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %.sroa.2.0.extract.shift.i73 = lshr i48 %.sroa.0.0.copyload.i.i72, 16
   %.sroa.3.0.extract.shift.i74 = lshr i48 %.sroa.0.0.copyload.i.i72, 32
   %.sroa.3.0.extract.trunc.i75 = zext nneg i48 %.sroa.3.0.extract.shift.i74 to i64
@@ -931,11 +931,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__5GfDotERKNS_7GfVec3hES2_.exit: ; preds = %4
   %513 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %512
   %514 = load float, ptr %513, align 4
   %515 = fpext float %514 to double
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %20, ptr noundef nonnull align 2 dereferenceable(6) %27, i64 6, i1 false)
   %516 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(6) %20, double noundef %515)
   %.sroa.0.0.copyload.i.i79 = load i48, ptr %516, align 2
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   store i48 %.sroa.0.0.copyload.i.i79, ptr %33, align 8
   %517 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmIERKS0_(ptr noundef nonnull align 2 dereferenceable(6) %25, ptr noundef nonnull align 2 dereferenceable(6) %33)
   %518 = load i16, ptr %30, align 2
@@ -1003,11 +1003,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__5GfDotERKNS_7GfVec3hES2_.exit82: ; preds = 
   %567 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %566
   %568 = load float, ptr %567, align 4
   %569 = fpext float %568 to double
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %19, ptr noundef nonnull align 2 dereferenceable(6) %30, i64 6, i1 false)
   %570 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(6) %19, double noundef %569)
   %.sroa.0.0.copyload.i.i83 = load i48, ptr %570, align 2
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   store i48 %.sroa.0.0.copyload.i.i83, ptr %34, align 8
   %571 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmIERKS0_(ptr noundef nonnull align 2 dereferenceable(6) %25, ptr noundef nonnull align 2 dereferenceable(6) %34)
   %572 = load i16, ptr %24, align 2
@@ -1075,11 +1075,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__5GfDotERKNS_7GfVec3hES2_.exit86: ; preds = 
   %621 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %620
   %622 = load float, ptr %621, align 4
   %623 = fpext float %622 to double
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %18, ptr noundef nonnull align 2 dereferenceable(6) %24, i64 6, i1 false)
   %624 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(6) %18, double noundef %623)
   %.sroa.0.0.copyload.i.i87 = load i48, ptr %624, align 2
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   store i48 %.sroa.0.0.copyload.i.i87, ptr %35, align 8
   %625 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmIERKS0_(ptr noundef nonnull align 2 dereferenceable(6) %28, ptr noundef nonnull align 2 dereferenceable(6) %35)
   %626 = load i16, ptr %30, align 2
@@ -1147,11 +1147,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__5GfDotERKNS_7GfVec3hES2_.exit90: ; preds = 
   %675 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %674
   %676 = load float, ptr %675, align 4
   %677 = fpext float %676 to double
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %17, ptr noundef nonnull align 2 dereferenceable(6) %30, i64 6, i1 false)
   %678 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(6) %17, double noundef %677)
   %.sroa.0.0.copyload.i.i91 = load i48, ptr %678, align 2
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   store i48 %.sroa.0.0.copyload.i.i91, ptr %36, align 8
   %679 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmIERKS0_(ptr noundef nonnull align 2 dereferenceable(6) %28, ptr noundef nonnull align 2 dereferenceable(6) %36)
   %680 = load i16, ptr %24, align 2
@@ -1219,11 +1219,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__5GfDotERKNS_7GfVec3hES2_.exit94: ; preds = 
   %729 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %728
   %730 = load float, ptr %729, align 4
   %731 = fpext float %730 to double
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %16, ptr noundef nonnull align 2 dereferenceable(6) %24, i64 6, i1 false)
   %732 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(6) %16, double noundef %731)
   %.sroa.0.0.copyload.i.i95 = load i48, ptr %732, align 2
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   store i48 %.sroa.0.0.copyload.i.i95, ptr %37, align 8
   %733 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmIERKS0_(ptr noundef nonnull align 2 dereferenceable(6) %31, ptr noundef nonnull align 2 dereferenceable(6) %37)
   %734 = load i16, ptr %27, align 2
@@ -1291,45 +1291,45 @@ _ZN32pxrInternal_v0_24__pxrReserved__5GfDotERKNS_7GfVec3hES2_.exit98: ; preds = 
   %783 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %782
   %784 = load float, ptr %783, align 4
   %785 = fpext float %784 to double
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %15, ptr noundef nonnull align 2 dereferenceable(6) %27, i64 6, i1 false)
   %786 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(6) %15, double noundef %785)
   %.sroa.0.0.copyload.i.i99 = load i48, ptr %786, align 2
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   store i48 %.sroa.0.0.copyload.i.i99, ptr %38, align 8
   %787 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmIERKS0_(ptr noundef nonnull align 2 dereferenceable(6) %31, ptr noundef nonnull align 2 dereferenceable(6) %38)
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %14, ptr noundef nonnull align 2 dereferenceable(6) %0, i64 6, i1 false)
   %788 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hpLERKS0_(ptr noundef nonnull align 2 dereferenceable(6) %14, ptr noundef nonnull align 2 dereferenceable(6) %25)
   %.sroa.0.0.copyload.i = load i48, ptr %788, align 2
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i48 %.sroa.0.0.copyload.i, ptr %13, align 8
   %789 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(6) %13, double noundef 5.000000e-01)
   %.sroa.0.0.copyload.i.i100 = load i48, ptr %789, align 2
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   store i48 %.sroa.0.0.copyload.i.i100, ptr %26, align 8
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %12, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
   %790 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hpLERKS0_(ptr noundef nonnull align 2 dereferenceable(6) %12, ptr noundef nonnull align 2 dereferenceable(6) %28)
   %.sroa.0.0.copyload.i101 = load i48, ptr %790, align 2
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i48 %.sroa.0.0.copyload.i101, ptr %11, align 8
   %791 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(6) %11, double noundef 5.000000e-01)
   %.sroa.0.0.copyload.i.i102 = load i48, ptr %791, align 2
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   store i48 %.sroa.0.0.copyload.i.i102, ptr %29, align 8
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %10, ptr noundef nonnull align 2 dereferenceable(6) %2, i64 6, i1 false)
   %792 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hpLERKS0_(ptr noundef nonnull align 2 dereferenceable(6) %10, ptr noundef nonnull align 2 dereferenceable(6) %31)
   %.sroa.0.0.copyload.i103 = load i48, ptr %792, align 2
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i48 %.sroa.0.0.copyload.i103, ptr %9, align 8
   %793 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(6) %9, double noundef 5.000000e-01)
   %.sroa.0.0.copyload.i.i104 = load i48, ptr %793, align 2
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store i48 %.sroa.0.0.copyload.i.i104, ptr %32, align 8
   br i1 %3, label %794, label %1014
 
@@ -1649,27 +1649,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3h9GetLengthEv.exit172: ; preds = %9
   br label %1014
 
 1014:                                             ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3h9GetLengthEv.exit172, %_ZN32pxrInternal_v0_24__pxrReserved__5GfDotERKNS_7GfVec3hES2_.exit98
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %8, ptr noundef nonnull align 2 dereferenceable(6) %0, i64 6, i1 false)
   %1015 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmIERKS0_(ptr noundef nonnull align 2 dereferenceable(6) %8, ptr noundef nonnull align 2 dereferenceable(6) %26)
   %.sroa.0.0.copyload.i117 = load i48, ptr %1015, align 2
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.sroa.3208.0.extract.shift = lshr i48 %.sroa.0.0.copyload.i117, 16
   %.sroa.5210.0.extract.shift = lshr i48 %.sroa.0.0.copyload.i117, 32
   %.sroa.5210.0.extract.trunc = zext nneg i48 %.sroa.5210.0.extract.shift to i64
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %7, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
   %1016 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmIERKS0_(ptr noundef nonnull align 2 dereferenceable(6) %7, ptr noundef nonnull align 2 dereferenceable(6) %29)
   %.sroa.0.0.copyload.i118 = load i48, ptr %1016, align 2
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.3202.0.extract.shift = lshr i48 %.sroa.0.0.copyload.i118, 16
   %.sroa.5204.0.extract.shift = lshr i48 %.sroa.0.0.copyload.i118, 32
   %.sroa.5204.0.extract.trunc = zext nneg i48 %.sroa.5204.0.extract.shift to i64
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %6, ptr noundef nonnull align 2 dereferenceable(6) %2, i64 6, i1 false)
   %1017 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmIERKS0_(ptr noundef nonnull align 2 dereferenceable(6) %6, ptr noundef nonnull align 2 dereferenceable(6) %32)
   %.sroa.0.0.copyload.i119 = load i48, ptr %1017, align 2
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.3.0.extract.shift = lshr i48 %.sroa.0.0.copyload.i119, 16
   %.sroa.5.0.extract.shift = lshr i48 %.sroa.0.0.copyload.i119, 32
   %.sroa.5.0.extract.trunc = zext nneg i48 %.sroa.5.0.extract.shift to i64
@@ -2179,11 +2179,11 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__23GfBuildOrthonormalFrameERKNS
 15:                                               ; preds = %4
   %16 = fpext float %12 to double
   %17 = fdiv double 1.000000e+00, %16
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %5, ptr noundef nonnull align 2 dereferenceable(6) %0, i64 6, i1 false)
   %18 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(6) %5, double noundef %17)
   %.sroa.0.0.copyload.i.i = load i48, ptr %18, align 2
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i48 %.sroa.0.0.copyload.i.i, ptr %6, align 8
   %19 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 254), align 2
   %.not.i.i.i = icmp eq i16 %19, 0
@@ -2770,25 +2770,25 @@ _ZN32pxrInternal_v0_24__pxrReserved__5GfDotERKNS_7GfVec3hES2_.exit: ; preds = %5
   br i1 %78, label %79, label %84
 
 79:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__5GfDotERKNS_7GfVec3hES2_.exit
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %80 = fsub double 1.000000e+00, %0
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %12, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
   %81 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(6) %12, double noundef %80)
   %.sroa.0.0.copyload.i.i.i = load i48, ptr %81, align 2
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %11, ptr noundef nonnull align 2 dereferenceable(6) %2, i64 6, i1 false)
   %82 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(6) %11, double noundef %0)
   %.sroa.0.0.copyload.i.i4.i = load i48, ptr %82, align 2
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   store i48 %.sroa.0.0.copyload.i.i4.i, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i48 %.sroa.0.0.copyload.i.i.i, ptr %10, align 8
   %83 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hpLERKS0_(ptr noundef nonnull align 2 dereferenceable(6) %10, ptr noundef nonnull align 2 dereferenceable(6) %13)
   %.sroa.0.0.copyload.i.i = load i48, ptr %83, align 2
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %112
 
 84:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__5GfDotERKNS_7GfVec3hES2_.exit
@@ -2815,23 +2815,23 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %90, %92
   call void @_ZN32pxrInternal_v0_24__pxrReserved__23GfBuildOrthonormalFrameERKNS_7GfVec3hEPS0_S3_NS_8pxr_half4halfE(ptr noundef nonnull align 2 dereferenceable(6) %1, ptr noundef nonnull %14, ptr noundef nonnull %15, i16 %.sink.i)
   %94 = fmul double %0, 0x400921FB54442D18
   %95 = call double @cos(double noundef %94) #13
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %9, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
   %96 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(6) %9, double noundef %95)
   %.sroa.0.0.copyload.i = load i48, ptr %96, align 2
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %97 = call double @sin(double noundef %94) #13
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %8, ptr noundef nonnull align 2 dereferenceable(6) %14, i64 6, i1 false)
   %98 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(6) %8, double noundef %97)
   %.sroa.0.0.copyload.i21 = load i48, ptr %98, align 2
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store i48 %.sroa.0.0.copyload.i21, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i48 %.sroa.0.0.copyload.i, ptr %7, align 8
   %99 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hpLERKS0_(ptr noundef nonnull align 2 dereferenceable(6) %7, ptr noundef nonnull align 2 dereferenceable(6) %16)
   %.sroa.0.0.copyload.i22 = load i48, ptr %99, align 2
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %112
 
 100:                                              ; preds = %84
@@ -2840,25 +2840,25 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %90, %92
   %103 = fmul double %102, %76
   %104 = tail call double @sin(double noundef %103) #13
   %105 = fmul double %101, %104
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %6, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
   %106 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(6) %6, double noundef %105)
   %.sroa.0.0.copyload.i23 = load i48, ptr %106, align 2
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %107 = fmul double %0, %76
   %108 = call double @sin(double noundef %107) #13
   %109 = fmul double %101, %108
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %5, ptr noundef nonnull align 2 dereferenceable(6) %2, i64 6, i1 false)
   %110 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(6) %5, double noundef %109)
   %.sroa.0.0.copyload.i24 = load i48, ptr %110, align 2
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i48 %.sroa.0.0.copyload.i24, ptr %17, align 8
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i48 %.sroa.0.0.copyload.i23, ptr %4, align 8
   %111 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hpLERKS0_(ptr noundef nonnull align 2 dereferenceable(6) %4, ptr noundef nonnull align 2 dereferenceable(6) %17)
   %.sroa.0.0.copyload.i25 = load i48, ptr %111, align 2
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %112
 
 112:                                              ; preds = %100, %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit, %79
@@ -3260,10 +3260,10 @@ define internal void @_GLOBAL__sub_I_vec3h.cpp() #11 section ".text.startup" {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

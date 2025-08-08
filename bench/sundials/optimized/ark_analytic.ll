@@ -65,21 +65,21 @@ define dso_local range(i32 0, 2) i32 @main() local_unnamed_addr #0 {
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8
   %14 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store double -1.000000e+02, ptr %1, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %15 = call i32 @SUNContext_Create(i32 noundef 0, ptr noundef nonnull %14) #9
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %check_flag.exit, label %19
@@ -372,39 +372,36 @@ check_flag.exit97:                                ; preds = %check_flag.exit95, 
 
 176:                                              ; preds = %check_flag.exit75, %check_flag.exit73, %check_flag.exit71, %check_flag.exit69, %check_flag.exit67, %check_flag.exit65, %check_flag.exit63, %check_flag.exit61, %check_flag.exit59, %check_flag.exit, %check_flag.exit97
   %.043 = phi i32 [ %173, %check_flag.exit97 ], [ 1, %check_flag.exit ], [ 1, %check_flag.exit59 ], [ 1, %check_flag.exit61 ], [ 1, %check_flag.exit63 ], [ 1, %check_flag.exit65 ], [ 1, %check_flag.exit67 ], [ 1, %check_flag.exit69 ], [ 1, %check_flag.exit71 ], [ 1, %check_flag.exit73 ], [ 1, %check_flag.exit75 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.043
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @SUNContext_Create(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNContext_Create(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
-declare ptr @N_VNew_Serial(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @N_VNew_Serial(i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @ARKStepCreate(ptr noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ARKStepCreate(ptr noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @f(double noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) #4 {
+define internal noundef i32 @f(double noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) #3 {
   %5 = load double, ptr %3, align 8, !tbaa !4
   %6 = load ptr, ptr %1, align 8, !tbaa !14
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -423,17 +420,17 @@ define internal noundef i32 @f(double noundef %0, ptr noundef readonly captures(
   ret i32 0
 }
 
-declare i32 @ARKodeSetUserData(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetUserData(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ARKodeSStolerances(ptr noundef, double noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSStolerances(ptr noundef, double noundef, double noundef) local_unnamed_addr #1
 
-declare ptr @SUNDenseMatrix(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SUNDenseMatrix(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @SUNLinSol_Dense(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SUNLinSol_Dense(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ARKodeSetLinearSolver(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetLinearSolver(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ARKodeSetJacFn(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetJacFn(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @Jac(double %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) #0 {
@@ -443,39 +440,39 @@ define internal noundef i32 @Jac(double %0, ptr readnone captures(none) %1, ptr 
   ret i32 0
 }
 
-declare i32 @ARKodeSetLinear(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetLinear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
-declare i32 @ARKodeEvolve(ptr noundef, double noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeEvolve(ptr noundef, double noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
-declare i32 @ARKodeGetNumSteps(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumSteps(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ARKodeGetNumStepAttempts(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumStepAttempts(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ARKodeGetNumRhsEvals(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumRhsEvals(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ARKodeGetNumLinSolvSetups(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumLinSolvSetups(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ARKodeGetNumErrTestFails(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumErrTestFails(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ARKodeGetNumNonlinSolvIters(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumNonlinSolvIters(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ARKodeGetNumNonlinSolvConvFails(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumNonlinSolvConvFails(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ARKodeGetNumJacEvals(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumJacEvals(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ARKodeGetNumLinRhsEvals(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumLinRhsEvals(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @check_ans(double %.0.val.16.val.0.val, double noundef %0) unnamed_addr #5 {
+define internal fastcc range(i32 0, 2) i32 @check_ans(double %.0.val.16.val.0.val, double noundef %0) unnamed_addr #4 {
   %2 = tail call double @atan(double noundef %0) #9, !tbaa !23
   %3 = tail call double @llvm.fabs.f64(double %2)
   %4 = tail call double @llvm.fmuladd.f64(double %3, double 0x3EB0C6F7A0B5ED8D, double 1.000000e-10)
@@ -496,29 +493,32 @@ define internal fastcc range(i32 0, 2) i32 @check_ans(double %.0.val.16.val.0.va
   ret i32 %14
 }
 
-declare void @N_VDestroy(ptr noundef) local_unnamed_addr #2
+declare void @N_VDestroy(ptr noundef) local_unnamed_addr #1
 
-declare void @ARKodeFree(ptr noundef) local_unnamed_addr #2
+declare void @ARKodeFree(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNLinSolFree(ptr noundef) local_unnamed_addr #2
+declare i32 @SUNLinSolFree(ptr noundef) local_unnamed_addr #1
 
-declare void @SUNMatDestroy(ptr noundef) local_unnamed_addr #2
+declare void @SUNMatDestroy(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNContext_Free(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @SUNContext_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #6
+declare double @llvm.fmuladd.f64(double, double, double) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @atan(double noundef) local_unnamed_addr #7
+declare double @atan(double noundef) local_unnamed_addr #6
 
-declare ptr @SUNDenseMatrix_Data(ptr noundef) local_unnamed_addr #2
+declare ptr @SUNDenseMatrix_Data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #6
+declare double @llvm.fabs.f64(double) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #8
@@ -527,13 +527,13 @@ declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_add
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nofree nounwind }
 attributes #9 = { nounwind }
 attributes #10 = { cold nounwind }

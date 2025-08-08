@@ -64,8 +64,8 @@ declare i32 @onigenc_always_true_is_allowed_reverse_match(ptr noundef, ptr nound
 define internal range(i32 -2147483648, 1) i32 @init() #2 {
   %1 = alloca [4 x i32], align 16
   %2 = alloca [4 x %union.OnigValue], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call i32 @onigenc_str_bytelen_null(ptr noundef nonnull @OnigEncodingASCII, ptr noundef nonnull @.str.1) #5
   %4 = sext i32 %3 to i64
   %5 = getelementptr inbounds i8, ptr @.str.1, i64 %4
@@ -137,24 +137,18 @@ define internal range(i32 -2147483648, 1) i32 @init() #2 {
 
 45:                                               ; preds = %39, %33, %27, %21, %14, %8, %0
   %.1 = phi i32 [ %37, %33 ], [ %31, %27 ], [ %25, %21 ], [ %19, %14 ], [ %12, %8 ], [ %6, %0 ], [ %spec.select, %39 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.1
 }
 
 declare i32 @onigenc_always_true_is_valid_mbc_string(ptr noundef, ptr noundef) #0
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @onigenc_str_bytelen_null(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 declare i32 @onig_set_callout_of_name(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 declare i32 @onig_builtin_fail(ptr noundef, ptr noundef) #0
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @onig_builtin_mismatch(ptr noundef, ptr noundef) #0
 
@@ -167,6 +161,12 @@ declare i32 @onig_builtin_count(ptr noundef, ptr noundef) #0
 declare i32 @onig_builtin_total_count(ptr noundef, ptr noundef) #0
 
 declare i32 @onig_builtin_cmp(ptr noundef, ptr noundef) #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #4

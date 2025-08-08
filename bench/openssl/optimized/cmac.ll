@@ -32,17 +32,11 @@ define ptr @CMAC_CTX_new() local_unnamed_addr #0 {
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @EVP_CIPHER_CTX_new() local_unnamed_addr #1
 
-declare ptr @EVP_CIPHER_CTX_new() local_unnamed_addr #2
-
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @CMAC_CTX_cleanup(ptr noundef %0) local_unnamed_addr #0 {
@@ -61,12 +55,12 @@ define void @CMAC_CTX_cleanup(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare i32 @EVP_CIPHER_CTX_reset(ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_CIPHER_CTX_reset(ptr noundef) local_unnamed_addr #1
 
-declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @CMAC_CTX_get0_cipher_ctx(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define ptr @CMAC_CTX_get0_cipher_ctx(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !3
   ret ptr %2
 }
@@ -98,7 +92,7 @@ define void @CMAC_CTX_free(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @EVP_CIPHER_CTX_free(ptr noundef) local_unnamed_addr #2
+declare void @EVP_CIPHER_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @CMAC_CTX_copy(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -144,12 +138,12 @@ define range(i32 0, 2) i32 @CMAC_CTX_copy(ptr noundef captures(none) %0, ptr nou
   ret i32 %.0
 }
 
-declare i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_CIPHER_CTX_copy(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_CIPHER_CTX_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_cmac_init(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
@@ -326,18 +320,18 @@ make_kn.exit77:                                   ; preds = %.lr.ph.i71, %make_k
   ret i32 %.0
 }
 
-declare i32 @EVP_EncryptInit_ex2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_EncryptInit_ex2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare i32 @EVP_EncryptInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_EncryptInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef) local_unnamed_addr #2
+declare ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_CIPHER_CTX_set_key_length(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @EVP_CIPHER_CTX_set_key_length(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @EVP_Cipher(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @EVP_Cipher(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @CMAC_Init(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -348,7 +342,7 @@ define range(i32 0, 2) i32 @CMAC_Init(ptr noundef %0, ptr noundef %1, i64 nounde
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @CMAC_Update(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [2048 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load i32, ptr %5, align 8, !tbaa !10
   %7 = icmp eq i32 %6, -1
@@ -487,7 +481,7 @@ define range(i32 0, 2) i32 @CMAC_Update(ptr noundef %0, ptr noundef %1, i64 noun
 
 .thread:                                          ; preds = %54, %46, %17, %63, %10, %8, %3, %28, %.loopexit
   %.076 = phi i32 [ 1, %.loopexit ], [ 0, %28 ], [ 0, %3 ], [ 1, %8 ], [ 0, %10 ], [ 0, %63 ], [ 1, %17 ], [ 0, %46 ], [ 0, %54 ]
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.076
 }
 
@@ -617,6 +611,12 @@ define i32 @CMAC_resume(ptr noundef %0) local_unnamed_addr #0 {
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.fshl.i8(i8, i8, i8) #6
 
@@ -624,11 +624,11 @@ declare i8 @llvm.fshl.i8(i8, i8, i8) #6
 declare i64 @llvm.umin.i64(i64, i64) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 

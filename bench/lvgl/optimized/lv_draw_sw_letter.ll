@@ -23,7 +23,7 @@ define void @lv_draw_sw_letter(ptr noundef %0, ptr noundef readonly captures(non
   br i1 %8, label %33, label %9
 
 9:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @lv_draw_glyph_dsc_init(ptr noundef nonnull %4) #4
   %10 = load i8, ptr %6, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 43
@@ -62,22 +62,19 @@ define void @lv_draw_sw_letter(ptr noundef %0, ptr noundef readonly captures(non
   br label %32
 
 32:                                               ; preds = %31, %9
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %33
 
 33:                                               ; preds = %3, %32
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @lv_draw_glyph_dsc_init(ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_glyph_dsc_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare void @lv_draw_unit_draw_letter(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_unit_draw_letter(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @draw_letter_cb(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -112,7 +109,7 @@ define internal void @draw_letter_cb(ptr noundef %0, ptr noundef captures(addres
   br i1 %15, label %84, label %16
 
 16:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @lv_draw_border_dsc_init(ptr noundef nonnull %5) #4
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 43
   %18 = load i8, ptr %17, align 1, !tbaa !16
@@ -125,7 +122,7 @@ define internal void @draw_letter_cb(ptr noundef %0, ptr noundef captures(addres
   store i32 1, ptr %22, align 8, !tbaa !35
   %23 = load ptr, ptr %13, align 8, !tbaa !19
   call void @lv_draw_sw_border(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %23) #4
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %84
 
 24:                                               ; preds = %9, %9, %9, %9, %9, %9, %9, %9, %9, %9
@@ -144,7 +141,7 @@ define internal void @draw_letter_cb(ptr noundef %0, ptr noundef captures(addres
   br i1 %or.cond41, label %59, label %34
 
 34:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %36, i64 16, i1 false), !tbaa.struct !39
@@ -155,7 +152,7 @@ define internal void @draw_letter_cb(ptr noundef %0, ptr noundef captures(addres
   %41 = add i32 %40, %39
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %41, ptr %42, align 4, !tbaa !41
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @lv_memset(ptr noundef nonnull %7, i8 noundef zeroext 0, i64 noundef 72) #4
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 33
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -181,12 +178,12 @@ define internal void @draw_letter_cb(ptr noundef %0, ptr noundef captures(addres
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i32 2, ptr %58, align 8, !tbaa !53
   call void @lv_draw_sw_blend(ptr noundef %0, ptr noundef nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %84
 
 59:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @lv_draw_image_dsc_init(ptr noundef nonnull %8) #4
   %60 = load i32, ptr %25, align 4, !tbaa !23
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 68
@@ -222,7 +219,7 @@ define internal void @draw_letter_cb(ptr noundef %0, ptr noundef captures(addres
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %83 = load ptr, ptr %82, align 8, !tbaa !38
   call void @lv_draw_sw_image(ptr noundef %0, ptr noundef nonnull %8, ptr noundef %83) #4
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %84
 
 84:                                               ; preds = %16, %12, %59, %34, %9, %4
@@ -239,10 +236,7 @@ define internal void @draw_letter_cb(ptr noundef %0, ptr noundef captures(addres
   ret void
 }
 
-declare void @lv_draw_buf_destroy(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @lv_draw_buf_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_draw_sw_label(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -259,32 +253,38 @@ define void @lv_draw_sw_label(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   ret void
 }
 
-declare void @lv_draw_label_iterate_characters(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_label_iterate_characters(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_draw_border_dsc_init(ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_border_dsc_init(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_draw_sw_border(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_sw_border(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_font_get_glyph_bitmap(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lv_font_get_glyph_bitmap(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_draw_buf_width_to_stride(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @lv_draw_buf_width_to_stride(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @lv_area_get_width(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_area_get_width(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_draw_sw_blend(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_sw_blend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_draw_image_dsc_init(ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_image_dsc_init(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_draw_sw_image(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_sw_image(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_draw_sw_fill(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_sw_fill(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #2
+declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

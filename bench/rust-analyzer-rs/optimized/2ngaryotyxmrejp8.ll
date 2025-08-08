@@ -63,7 +63,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h2ca55157f5102616E
   ]
 
 .split18.us:                                      ; preds = %.split, %.split.us
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @anon.ed906ffe05b3b1fbdf8d5d90439df393.10, ptr %6, align 8, !alias.scope !6, !noalias !9
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 1, ptr %17, align 8, !alias.scope !6, !noalias !9
@@ -86,7 +86,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h2ca55157f5102616E
   ret void
 
 23:                                               ; preds = %.split
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr @anon.ed906ffe05b3b1fbdf8d5d90439df393.1, ptr %8, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %24, align 8
@@ -100,7 +100,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h2ca55157f5102616E
   unreachable
 
 .split20.us:                                      ; preds = %21, %15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %0, ptr %7, align 8
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 1, ptr %28, align 8
@@ -126,7 +126,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h2ca55157f5102616E
           to label %.noexc10 unwind label %37
 
 .noexc10:                                         ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
   invoke void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17h46d3bf0e28eca5f1E.llvm.12527026600063868487"(ptr noalias noundef nonnull sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 captures(none) dereferenceable(24) %.sroa.0.i.i, i64 noundef 0, i64 noundef %36)
           to label %39 unwind label %37
 
@@ -138,10 +138,10 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h2ca55157f5102616E
 
 39:                                               ; preds = %.noexc10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   store i32 4, ptr %28, align 8
   call void @"_ZN87_$LT$std..sys_common..once..futex..CompletionGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbbee18911096a997E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
 40:                                               ; preds = %37
@@ -187,12 +187,6 @@ declare void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias nou
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
-
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN87_$LT$std..sys_common..once..futex..CompletionGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbbee18911096a997E"(ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #1
 
@@ -201,6 +195,12 @@ declare noundef i64 @_ZN7dashmap20default_shard_amount17h3643e49c6ea168d1E() unn
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17h46d3bf0e28eca5f1E.llvm.12527026600063868487"(ptr noalias noundef sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 captures(none) dereferenceable(24), i64 noundef, i64 noundef) unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #6

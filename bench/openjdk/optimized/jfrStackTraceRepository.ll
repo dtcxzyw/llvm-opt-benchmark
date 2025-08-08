@@ -375,7 +375,7 @@ _ZNK14JfrThreadLocal11stackframesEv.exit:         ; preds = %18
 _ZNK14JfrThreadLocal11stackframesEv.exit.thread:  ; preds = %18, %_ZNK14JfrThreadLocal11stackframesEv.exit
   %23 = phi ptr [ %21, %_ZNK14JfrThreadLocal11stackframesEv.exit ], [ %20, %18 ]
   %24 = tail call noundef i32 @_ZNK14JfrThreadLocal10stackdepthEv(ptr noundef nonnull align 8 dereferenceable(195) %5) #13
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN13JfrStackTraceC1EP13JfrStackFramej(ptr noundef nonnull align 8 dereferenceable(44) %4, ptr noundef nonnull %23, i32 noundef %24) #13
   %25 = call noundef zeroext i1 @_ZN13JfrStackTrace6recordEP10JavaThreadil(ptr noundef nonnull align 8 dereferenceable(44) %4, ptr noundef nonnull %0, i32 noundef %1, i64 noundef %2) #13
   br i1 %25, label %26, label %_ZN23JfrStackTraceRepository6recordEP10JavaThreadilP13JfrStackFramej.exit
@@ -394,7 +394,7 @@ _ZNK14JfrThreadLocal11stackframesEv.exit.thread:  ; preds = %18, %_ZNK14JfrThrea
 _ZN23JfrStackTraceRepository6recordEP10JavaThreadilP13JfrStackFramej.exit: ; preds = %_ZNK14JfrThreadLocal11stackframesEv.exit.thread, %26, %30
   %32 = phi i64 [ 0, %_ZNK14JfrThreadLocal11stackframesEv.exit.thread ], [ %31, %30 ], [ %28, %26 ]
   call void @_ZN13JfrStackTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %4) #13
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %33
 
 33:                                               ; preds = %3, %_ZNK14JfrThreadLocal11stackframesEv.exit, %8, %13, %_ZN23JfrStackTraceRepository6recordEP10JavaThreadilP13JfrStackFramej.exit
@@ -944,7 +944,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %19 = ptrtoint ptr %18 to i64
   %20 = sub i64 %14, %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
@@ -952,7 +952,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %25 = load ptr, ptr %5, align 8
   store ptr %25, ptr %21, align 8
   %.not5.i.i.i = icmp eq ptr %25, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %17
@@ -1005,7 +1005,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %48 = ptrtoint ptr %47 to i64
   %49 = sub i64 %43, %48
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %53 = load ptr, ptr %52, align 8
@@ -1013,7 +1013,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %54 = load ptr, ptr %4, align 8
   store ptr %54, ptr %50, align 8
   %.not5.i.i.i11 = icmp eq ptr %54, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not5.i.i.i11, label %.sink.split.i.i.i13, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i12
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i12: ; preds = %46
@@ -1076,7 +1076,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %82 = ptrtoint ptr %81 to i64
   %83 = sub i64 %77, %82
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %87 = load ptr, ptr %86, align 8
@@ -1084,7 +1084,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %88 = load ptr, ptr %3, align 8
   store ptr %88, ptr %84, align 8
   %.not5.i.i = icmp eq ptr %88, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %80
@@ -1149,7 +1149,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %10, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
@@ -1157,7 +1157,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %21 = load ptr, ptr %3, align 8
   store ptr %21, ptr %17, align 8
   %.not5.i.i = icmp eq ptr %21, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %13
@@ -1297,10 +1297,10 @@ declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

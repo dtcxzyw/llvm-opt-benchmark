@@ -904,9 +904,9 @@ lor.lhs.false46:                                  ; preds = %_ZNK6hermes2vm10Nat
   br i1 %tobool.i41.not, label %if.end61, label %if.then50
 
 if.then50:                                        ; preds = %lor.lhs.false46, %_ZNK6hermes2vm10NativeArgs10dyncastArgINS0_8JSObjectEEENS0_6HandleIT_EEj.exit30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmpSymbolStorage.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %desc.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %desc82.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmpSymbolStorage.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %desc.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %desc82.i)
   %call17.i = call ptr @_ZN6hermes2vm8JSObject18getOwnPropertyKeysENS0_6HandleIS1_EERNS0_7RuntimeENS0_12OwnKeysFlagsE(ptr nonnull %agg.tmp74.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 7) #12
   %cmp.i.i.not.i = icmp eq ptr %call17.i, inttoptr (i64 -1 to ptr)
   br i1 %cmp.i.i.not.i, label %_ZN6hermes2vm12_GLOBAL__N_130copyDataPropertiesSlowPath_RJSERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEES6_S6_.exit, label %if.end.i
@@ -1254,9 +1254,9 @@ cleanup.i:                                        ; preds = %if.then96.i, %if.en
 _ZN6hermes2vm12_GLOBAL__N_130copyDataPropertiesSlowPath_RJSERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEES6_S6_.exit: ; preds = %if.then50, %cleanup.i
   %retval.sroa.0.0.i47 = phi i32 [ %retval.sroa.0.1.i, %cleanup.i ], [ 0, %if.then50 ]
   %retval.sroa.7.0.i = phi i64 [ %retval.sroa.7.1.i, %cleanup.i ], [ undef, %if.then50 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tmpSymbolStorage.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %desc.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %desc82.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmpSymbolStorage.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %desc.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %desc82.i)
   br label %cleanup
 
 if.end61:                                         ; preds = %lor.lhs.false46
@@ -1417,7 +1417,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool.i.not, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %xdesc.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %xdesc.i)
   %15 = and i32 %call1.i16, 2
   %tobool.not.i = icmp eq i32 %15, 0
   br i1 %tobool.not.i, label %"_ZZN6hermes2vm31hermesBuiltinCopyDataPropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clES3_jNS0_26ComputedPropertyDescriptorE.exit.thread", label %if.end.i
@@ -1448,7 +1448,7 @@ if.then6.i:                                       ; preds = %if.end.i
   br i1 %cmp.i.i, label %"_ZZN6hermes2vm31hermesBuiltinCopyDataPropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clES3_jNS0_26ComputedPropertyDescriptorE.exit.thread37", label %if.end16.i
 
 "_ZZN6hermes2vm31hermesBuiltinCopyDataPropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clES3_jNS0_26ComputedPropertyDescriptorE.exit.thread37": ; preds = %if.then6.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %xdesc.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %xdesc.i)
   br label %cleanup
 
 if.end16.i:                                       ; preds = %if.then6.i
@@ -1457,7 +1457,7 @@ if.end16.i:                                       ; preds = %if.then6.i
   br i1 %bf.cast.i.i5.not.i, label %"_ZZN6hermes2vm31hermesBuiltinCopyDataPropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clES3_jNS0_26ComputedPropertyDescriptorE.exit", label %"_ZZN6hermes2vm31hermesBuiltinCopyDataPropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clES3_jNS0_26ComputedPropertyDescriptorE.exit.thread"
 
 "_ZZN6hermes2vm31hermesBuiltinCopyDataPropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clES3_jNS0_26ComputedPropertyDescriptorE.exit.thread": ; preds = %if.end, %if.end16.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %xdesc.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %xdesc.i)
   br label %if.end14
 
 "_ZZN6hermes2vm31hermesBuiltinCopyDataPropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clES3_jNS0_26ComputedPropertyDescriptorE.exit": ; preds = %if.end.i, %if.end16.i
@@ -1486,7 +1486,7 @@ if.end16.i:                                       ; preds = %if.then6.i
   %call46.i = call i32 @_ZN6hermes2vm8JSObject26defineOwnComputedPrimitiveENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEENS0_19DefinePropertyFlagsES7_NS0_11PropOpFlagsE(ptr %agg.tmp31.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %agg.tmp32.sroa.0.0.copyload.i, i32 319, ptr %agg.tmp36.sroa.0.0.copyload.i, i32 0) #12
   %bf.cast.i.i912.mask.i = and i32 %call46.i, 255
   %cmp.i10.i.not = icmp eq i32 %bf.cast.i.i912.mask.i, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %xdesc.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %xdesc.i)
   br i1 %cmp.i10.i.not, label %cleanup, label %if.end14
 
 if.end14:                                         ; preds = %"_ZZN6hermes2vm31hermesBuiltinCopyDataPropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clES3_jNS0_26ComputedPropertyDescriptorE.exit.thread", %"_ZZN6hermes2vm31hermesBuiltinCopyDataPropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clES3_jNS0_26ComputedPropertyDescriptorE.exit"
@@ -2848,8 +2848,8 @@ if.then:                                          ; preds = %_ZNK6hermes2vm10Nat
   %13 = phi ptr [ %.pre, %_ZNK6hermes2vm10NativeArgs10dyncastArgINS0_8CallableEEENS0_6HandleIT_EEj.exit.thread.if.then_crit_edge ], [ %5, %_ZNK6hermes2vm10NativeArgs10dyncastArgINS0_8CallableEEENS0_6HandleIT_EEj.exit ]
   %incdec.ptr.i.i.i22 = getelementptr inbounds i8, ptr %13, i64 -8
   %retval.sroa.0.0.i23 = select i1 %cmp.i.not, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, ptr %incdec.ptr.i.i.i22
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %rightKind_.i3.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   store i32 1, ptr %rightKind_.i3.i.i, align 8
   %leftSize_.i4.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 32
@@ -2866,8 +2866,8 @@ if.then:                                          ; preds = %_ZNK6hermes2vm10Nat
   %15 = getelementptr inbounds nuw i8, ptr %ref.tmp3.i, i64 8
   store i32 3, ptr %15, align 8
   %call.i = call noundef i32 @_ZN6hermes2vm7Runtime22raiseTypeErrorForValueERKNS0_11TwineChar16ENS0_6HandleINS0_11HermesValueEEES4_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr nonnull %retval.sroa.0.0.i23, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3.i) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   br label %cleanup105
 
 if.end:                                           ; preds = %_ZNK6hermes2vm10NativeArgs10dyncastArgINS0_8CallableEEENS0_6HandleIT_EEj.exit
@@ -4419,10 +4419,10 @@ declare void @llvm.assume(i1 noundef) #10
 declare i32 @llvm.umax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

@@ -2230,9 +2230,6 @@ define hidden void @_ZNK3ue222RoseInstrAnchoredDelay5writeEPvRNS_14RoseEngineBlo
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2384,9 +2381,6 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   ret i32 %69
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
-
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK3ue222RoseInstrCheckLitEarly5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1, i8 0, i64 12, i1 false)
@@ -2404,7 +2398,7 @@ define hidden void @_ZNK3ue222RoseInstrCheckLitEarly5writeEPvRNS_14RoseEngineBlo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue220RoseInstrCheckGroups5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue220RoseInstrCheckGroups5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   store i8 3, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2470,9 +2464,9 @@ define hidden void @_ZNK3ue230RoseInstrCheckSingleLookaround5writeEPvRNS_14RoseE
   %7 = load i8, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %7, ptr %8, align 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
+  %10 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26
   store ptr %10, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -2496,7 +2490,7 @@ define hidden void @_ZNK3ue230RoseInstrCheckSingleLookaround5writeEPvRNS_14RoseE
   br label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit:   ; preds = %16, %19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %0, ptr noundef %21)
@@ -2516,14 +2510,14 @@ _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit:   ; preds = %16, %19
   br label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit15
 
 _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit15: ; preds = %27, %24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %25
 }
 
-declare noundef i32 @_ZN3ue215lookaround_info13get_offset_ofERKSt6vectorINS_9CharReachESaIS2_EERNS_14RoseEngineBlobE(ptr noundef nonnull align 8 dereferenceable(168), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(256)) local_unnamed_addr #8
+declare noundef i32 @_ZN3ue215lookaround_info13get_offset_ofERKSt6vectorINS_9CharReachESaIS2_EERNS_14RoseEngineBlobE(ptr noundef nonnull align 8 dereferenceable(168), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(256)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -2533,9 +2527,9 @@ define hidden void @_ZNK3ue224RoseInstrCheckLookaround5writeEPvRNS_14RoseEngineB
   %6 = alloca %"class.std::vector.108", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %1, i8 0, i64 20, i1 false)
   store i8 8, ptr %1, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -2600,7 +2594,7 @@ _ZNKSt6vectorIaSaIaEE12_M_check_lenEmPKc.exit.i.i: ; preds = %26
   br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIaSaIaEE11_M_allocateEm.exit.i.i, label %36
 
 36:                                               ; preds = %_ZNKSt6vectorIaSaIaEE12_M_check_lenEmPKc.exit.i.i
-  %37 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %35) #27
+  %37 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %35) #26
           to label %_ZNSt12_Vector_baseIaSaIaEE11_M_allocateEm.exit.i.i unwind label %.loopexit
 
 _ZNSt12_Vector_baseIaSaIaEE11_M_allocateEm.exit.i.i: ; preds = %36, %_ZNKSt6vectorIaSaIaEE12_M_check_lenEmPKc.exit.i.i
@@ -2663,7 +2657,7 @@ _ZNKSt6vectorIN3ue29CharReachESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %5
   %.not.i.i.i24 = icmp ne i64 %62, 0
   tail call void @llvm.assume(i1 %.not.i.i.i24)
   %63 = shl nuw nsw i64 %62, 5
-  %64 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %63) #27
+  %64 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %63) #26
           to label %.noexc26 unwind label %.loopexit
 
 .noexc26:                                         ; preds = %_ZNKSt6vectorIN3ue29CharReachESaIS1_EE12_M_check_lenEmPKc.exit.i.i
@@ -2734,7 +2728,7 @@ _ZNSt6vectorIN3ue29CharReachESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vec
   br i1 %.not.i.i, label %90, label %85
 
 85:                                               ; preds = %77
-  %86 = call ptr @__cxa_allocate_exception(i64 48) #26
+  %86 = call ptr @__cxa_allocate_exception(i64 48) #27
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %86)
           to label %87 unwind label %88
 
@@ -2748,7 +2742,7 @@ _ZNSt6vectorIN3ue29CharReachESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vec
 88:                                               ; preds = %85
   %89 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %86) #26
+  call void @__cxa_free_exception(ptr nonnull %86) #27
   br label %.body
 
 90:                                               ; preds = %77
@@ -2772,7 +2766,7 @@ _ZNSt6vectorIN3ue29CharReachESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vec
   br label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit:   ; preds = %96, %99
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %100 = load ptr, ptr %5, align 8
   %.not.i.i.i29 = icmp eq ptr %100, null
   br i1 %.not.i.i.i29, label %_ZNSt6vectorIaSaIaEED2Ev.exit, label %101
@@ -2782,7 +2776,7 @@ _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit:   ; preds = %96, %99
   br label %_ZNSt6vectorIaSaIaEED2Ev.exit
 
 _ZNSt6vectorIaSaIaEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit, %101
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 102:                                              ; preds = %87, %90, %74, %._crit_edge
@@ -2801,7 +2795,7 @@ _ZNSt6vectorIaSaIaEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN3ue29
   br label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit31
 
 _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit31: ; preds = %.body, %105
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %106 = load ptr, ptr %5, align 8
   %.not.i.i.i32 = icmp eq ptr %106, null
   br i1 %.not.i.i.i32, label %_ZNSt6vectorIaSaIaEED2Ev.exit33, label %107
@@ -2811,11 +2805,11 @@ _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit31: ; preds = %.body, %105
   br label %_ZNSt6vectorIaSaIaEED2Ev.exit33
 
 _ZNSt6vectorIaSaIaEED2Ev.exit33:                  ; preds = %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit31, %107
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
 }
 
-declare noundef i32 @_ZN3ue215lookaround_info13get_offset_ofERKSt6vectorIaSaIaEERNS_14RoseEngineBlobE(ptr noundef nonnull align 8 dereferenceable(168), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(256)) local_unnamed_addr #8
+declare noundef i32 @_ZN3ue215lookaround_info13get_offset_ofERKSt6vectorIaSaIaEERNS_14RoseEngineBlobE(ptr noundef nonnull align 8 dereferenceable(168), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(256)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK3ue218RoseInstrCheckMask5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef writeonly captures(none) initializes((0, 40)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
@@ -3157,7 +3151,7 @@ define hidden void @_ZNK3ue220RoseInstrCheckPrefix5writeEPvRNS_14RoseEngineBlobE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue220RoseInstrPushDelayed5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue220RoseInstrPushDelayed5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store i64 18, ptr %1, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i8, ptr %5, align 8
@@ -3171,7 +3165,7 @@ define hidden void @_ZNK3ue220RoseInstrPushDelayed5writeEPvRNS_14RoseEngineBlobE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue218RoseInstrSomAdjust5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue218RoseInstrSomAdjust5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store i64 22, ptr %1, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -3181,7 +3175,7 @@ define hidden void @_ZNK3ue218RoseInstrSomAdjust5writeEPvRNS_14RoseEngineBlobERK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue219RoseInstrSomLeftfix5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue219RoseInstrSomLeftfix5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1, i8 0, i64 12, i1 false)
   store i8 23, ptr %1, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3196,7 +3190,7 @@ define hidden void @_ZNK3ue219RoseInstrSomLeftfix5writeEPvRNS_14RoseEngineBlobER
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue222RoseInstrSomFromReport5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef writeonly captures(none) initializes((0, 24)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue222RoseInstrSomFromReport5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef writeonly captures(none) initializes((0, 24)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   store i8 24, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3206,7 +3200,7 @@ define hidden void @_ZNK3ue222RoseInstrSomFromReport5writeEPvRNS_14RoseEngineBlo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue221RoseInstrTriggerInfix5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue221RoseInstrTriggerInfix5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1, i8 0, i64 12, i1 false)
   store i8 26, ptr %1, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3225,7 +3219,7 @@ define hidden void @_ZNK3ue221RoseInstrTriggerInfix5writeEPvRNS_14RoseEngineBlob
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue222RoseInstrTriggerSuffix5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue222RoseInstrTriggerSuffix5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1, i8 0, i64 12, i1 false)
   store i8 27, ptr %1, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3288,7 +3282,7 @@ define hidden void @_ZNK3ue218RoseInstrDedupeSom5writeEPvRNS_14RoseEngineBlobERK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue220RoseInstrReportChain5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue220RoseInstrReportChain5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   store i8 30, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3303,7 +3297,7 @@ define hidden void @_ZNK3ue220RoseInstrReportChain5writeEPvRNS_14RoseEngineBlobE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue221RoseInstrReportSomInt5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef writeonly captures(none) initializes((0, 24)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue221RoseInstrReportSomInt5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef writeonly captures(none) initializes((0, 24)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   store i8 31, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3313,7 +3307,7 @@ define hidden void @_ZNK3ue221RoseInstrReportSomInt5writeEPvRNS_14RoseEngineBlob
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue223RoseInstrReportSomAware5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef writeonly captures(none) initializes((0, 24)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue223RoseInstrReportSomAware5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef writeonly captures(none) initializes((0, 24)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   store i8 32, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3323,7 +3317,7 @@ define hidden void @_ZNK3ue223RoseInstrReportSomAware5writeEPvRNS_14RoseEngineBl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue215RoseInstrReport5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue215RoseInstrReport5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1, i8 0, i64 12, i1 false)
   store i8 33, ptr %1, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3338,7 +3332,7 @@ define hidden void @_ZNK3ue215RoseInstrReport5writeEPvRNS_14RoseEngineBlobERKSt1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue222RoseInstrReportExhaust5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue222RoseInstrReportExhaust5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   store i8 34, ptr %1, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3357,7 +3351,7 @@ define hidden void @_ZNK3ue222RoseInstrReportExhaust5writeEPvRNS_14RoseEngineBlo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue218RoseInstrReportSom5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue218RoseInstrReportSom5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1, i8 0, i64 12, i1 false)
   store i8 35, ptr %1, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3372,7 +3366,7 @@ define hidden void @_ZNK3ue218RoseInstrReportSom5writeEPvRNS_14RoseEngineBlobERK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue225RoseInstrReportSomExhaust5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue225RoseInstrReportSomExhaust5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   store i8 36, ptr %1, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3419,7 +3413,7 @@ define hidden void @_ZNK3ue224RoseInstrDedupeAndReport5writeEPvRNS_14RoseEngineB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue220RoseInstrFinalReport5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue220RoseInstrFinalReport5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1, i8 0, i64 12, i1 false)
   store i8 38, ptr %1, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3470,7 +3464,7 @@ define hidden void @_ZNK3ue223RoseInstrCheckMinLength5writeEPvRNS_14RoseEngineBl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue217RoseInstrSetState5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue217RoseInstrSetState5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store i64 41, ptr %1, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -3480,7 +3474,7 @@ define hidden void @_ZNK3ue217RoseInstrSetState5writeEPvRNS_14RoseEngineBlobERKS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue218RoseInstrSetGroups5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue218RoseInstrSetGroups5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   store i8 42, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3491,7 +3485,7 @@ define hidden void @_ZNK3ue218RoseInstrSetGroups5writeEPvRNS_14RoseEngineBlobERK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue221RoseInstrSquashGroups5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue221RoseInstrSquashGroups5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   store i8 43, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3529,7 +3523,7 @@ define hidden void @_ZNK3ue224RoseInstrSparseIterBegin5writeEPvRNS_14RoseEngineB
   %10 = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %0, ptr noundef %9)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %10, ptr %11, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -3549,7 +3543,7 @@ define hidden void @_ZNK3ue224RoseInstrSparseIterBegin5writeEPvRNS_14RoseEngineB
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIjSaIjEE9push_backERKj.exit38, %4
   %.sroa.9.0.lcssa = phi ptr [ null, %4 ], [ %.sroa.9.1, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit38 ]
   %.sroa.064.0.lcssa = phi ptr [ null, %4 ], [ %.sroa.064.1, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit38 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load i32, ptr %21, align 8
   invoke void @_ZN3ue222mmbBuildSparseIteratorERKSt6vectorIjSaIjEEj(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.210") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef %22)
@@ -3598,7 +3592,7 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i: ; preds = %30
   %.not.i.i.i = icmp ne i64 %40, 0
   tail call void @llvm.assume(i1 %.not.i.i.i)
   %41 = shl nuw nsw i64 %40, 2
-  %42 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %41) #27
+  %42 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %41) #26
           to label %.noexc26 unwind label %.loopexit79
 
 .noexc26:                                         ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
@@ -3720,7 +3714,7 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i30: ; preds = %80
   %.not.i.i.i32 = icmp ne i64 %89, 0
   tail call void @llvm.assume(i1 %.not.i.i.i32)
   %90 = shl nuw nsw i64 %89, 2
-  %91 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %90) #27
+  %91 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %90) #26
           to label %.noexc37 unwind label %.loopexit79
 
 .noexc37:                                         ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i30
@@ -3780,7 +3774,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit38:        ; preds = %_ZNSt6vectorIjSaIjE
   br label %_ZN3ue214RoseEngineBlob12add_iteratorERKSt6vectorI17mmbit_sparse_iterSaIS2_EE.exit
 
 105:                                              ; preds = %.noexc40
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %106 = load ptr, ptr %7, align 8
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %108 = load ptr, ptr %107, align 8
@@ -3814,7 +3808,7 @@ _ZN3ue214RoseEngineBlob3addIN9__gnu_cxx17__normal_iteratorIPK17mmbit_sparse_iter
 
 .noexc43:                                         ; preds = %_ZN3ue214RoseEngineBlob3addIN9__gnu_cxx17__normal_iteratorIPK17mmbit_sparse_iterSt6vectorIS4_SaIS4_EEEEEEjT_RKSB_.exit.i
   %114 = load i32, ptr %5, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN3ue214RoseEngineBlob12add_iteratorERKSt6vectorI17mmbit_sparse_iterSaIS2_EE.exit
 
 _ZN3ue214RoseEngineBlob12add_iteratorERKSt6vectorI17mmbit_sparse_iterSaIS2_EE.exit: ; preds = %.noexc43, %102
@@ -3864,7 +3858,7 @@ _ZN3ue214RoseEngineBlob3addIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEE
   br label %_ZNSt6vectorI17mmbit_sparse_iterSaIS0_EED2Ev.exit
 
 _ZNSt6vectorI17mmbit_sparse_iterSaIS0_EED2Ev.exit: ; preds = %_ZN3ue214RoseEngineBlob3addIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEEEjT_RKS9_.exit, %127
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i.i.i49 = icmp eq ptr %.sroa.064.0.lcssa, null
   br i1 %.not.i.i.i49, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %128
 
@@ -3882,7 +3876,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorI17mmbi
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit51
 
 _ZNSt6vectorIjSaIjEED2Ev.exit51:                  ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit, %130
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 131:                                              ; preds = %._crit_edge
@@ -3922,7 +3916,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit51:                  ; preds = %_ZNSt6vectorIjSaIjE
 
 _ZNSt6vectorI17mmbit_sparse_iterSaIS0_EED2Ev.exit53: ; preds = %135, %133, %131
   %.pn.pn = phi { ptr, i32 } [ %132, %131 ], [ %.pn, %133 ], [ %.pn, %135 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %136
 
 136:                                              ; preds = %.loopexit79, %.loopexit.split-lp80, %_ZNSt6vectorI17mmbit_sparse_iterSaIS0_EED2Ev.exit53
@@ -3945,7 +3939,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit55:                  ; preds = %136, %137
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit57
 
 _ZNSt6vectorIjSaIjEED2Ev.exit57:                  ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit55, %139
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn24
 }
 
@@ -4023,7 +4017,7 @@ _ZNKSt8__detail9_Map_baseIPKN3ue215RoseInstructionESt4pairIKS4_jESaIS7_ENS_10_Se
   ret ptr %35
 }
 
-declare void @_ZN3ue222mmbBuildSparseIteratorERKSt6vectorIjSaIjEEj(ptr dead_on_unwind writable sret(%"class.std::vector.210") align 8, ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #8
+declare void @_ZN3ue222mmbBuildSparseIteratorERKSt6vectorIjSaIjEEj(ptr dead_on_unwind writable sret(%"class.std::vector.210") align 8, ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK3ue223RoseInstrSparseIterNext5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef writeonly captures(none) initializes((0, 20)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
@@ -4063,7 +4057,7 @@ define hidden void @_ZNK3ue222RoseInstrSparseIterAny5writeEPvRNS_14RoseEngineBlo
   %9 = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %0, ptr noundef %8)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %9, ptr %10, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
@@ -4082,7 +4076,7 @@ define hidden void @_ZNK3ue222RoseInstrSparseIterAny5writeEPvRNS_14RoseEngineBlo
   br label %_ZN3ue214RoseEngineBlob12add_iteratorERKSt6vectorI17mmbit_sparse_iterSaIS2_EE.exit
 
 19:                                               ; preds = %.noexc
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %22 = load ptr, ptr %21, align 8
@@ -4116,7 +4110,7 @@ _ZN3ue214RoseEngineBlob3addIN9__gnu_cxx17__normal_iteratorIPK17mmbit_sparse_iter
 
 .noexc12:                                         ; preds = %_ZN3ue214RoseEngineBlob3addIN9__gnu_cxx17__normal_iteratorIPK17mmbit_sparse_iterSt6vectorIS4_SaIS4_EEEEEEjT_RKSB_.exit.i
   %28 = load i32, ptr %5, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN3ue214RoseEngineBlob12add_iteratorERKSt6vectorI17mmbit_sparse_iterSaIS2_EE.exit
 
 _ZN3ue214RoseEngineBlob12add_iteratorERKSt6vectorI17mmbit_sparse_iterSaIS2_EE.exit: ; preds = %.noexc12, %16
@@ -4132,7 +4126,7 @@ _ZN3ue214RoseEngineBlob12add_iteratorERKSt6vectorI17mmbit_sparse_iterSaIS2_EE.ex
   br label %_ZNSt6vectorI17mmbit_sparse_iterSaIS0_EED2Ev.exit
 
 _ZNSt6vectorI17mmbit_sparse_iterSaIS0_EED2Ev.exit: ; preds = %_ZN3ue214RoseEngineBlob12add_iteratorERKSt6vectorI17mmbit_sparse_iterSaIS2_EE.exit, %31
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 .loopexit:                                        ; preds = %.lr.ph.i.i
@@ -4156,12 +4150,12 @@ _ZNSt6vectorI17mmbit_sparse_iterSaIS0_EED2Ev.exit: ; preds = %_ZN3ue214RoseEngin
   br label %_ZNSt6vectorI17mmbit_sparse_iterSaIS0_EED2Ev.exit14
 
 _ZNSt6vectorI17mmbit_sparse_iterSaIS0_EED2Ev.exit14: ; preds = %32, %34
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %lpad.phi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue219RoseInstrEnginesEod5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue219RoseInstrEnginesEod5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store i64 48, ptr %1, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -4219,7 +4213,7 @@ _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i: ; preds = %24, 
   br i1 %.not.i.i6.i, label %_ZN3ue214RoseEngineBlob3addEPKvmm.exit, label %30
 
 30:                                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i
-  %31 = tail call ptr @__cxa_allocate_exception(i64 48) #26
+  %31 = tail call ptr @__cxa_allocate_exception(i64 48) #27
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %31)
           to label %32 unwind label %33
 
@@ -4230,7 +4224,7 @@ _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i: ; preds = %24, 
 common.resume:                                    ; preds = %41, %33
   %.sink = phi ptr [ %39, %41 ], [ %31, %33 ]
   %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %34, %33 ]
-  tail call void @__cxa_free_exception(ptr nonnull %.sink) #26
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #27
   resume { ptr, i32 } %common.resume.op
 
 33:                                               ; preds = %30
@@ -4247,7 +4241,7 @@ _ZN3ue214RoseEngineBlob3addEPKvmm.exit:           ; preds = %_ZNSt6vectorIcN3ue2
   br i1 %.not.i.i, label %_ZN3ue210verify_u32ImEEjT_.exit, label %38
 
 38:                                               ; preds = %_ZN3ue214RoseEngineBlob3addEPKvmm.exit
-  %39 = tail call ptr @__cxa_allocate_exception(i64 48) #26
+  %39 = tail call ptr @__cxa_allocate_exception(i64 48) #27
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %39)
           to label %40 unwind label %41
 
@@ -4354,7 +4348,7 @@ _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit: ; preds = %34, %3
   br i1 %.not.i.i6, label %_ZN3ue210verify_u32ImEEjT_.exit, label %45
 
 45:                                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit
-  %46 = tail call ptr @__cxa_allocate_exception(i64 48) #26
+  %46 = tail call ptr @__cxa_allocate_exception(i64 48) #27
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %46)
           to label %47 unwind label %48
 
@@ -4365,7 +4359,7 @@ _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit: ; preds = %34, %3
 48:                                               ; preds = %45
   %49 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %46) #26
+  tail call void @__cxa_free_exception(ptr nonnull %46) #27
   resume { ptr, i32 } %49
 
 _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit
@@ -4422,7 +4416,7 @@ _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i: ; preds = %24, 
   br i1 %.not.i.i6.i, label %_ZN3ue214RoseEngineBlob3addEPKvmm.exit, label %30
 
 30:                                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i
-  %31 = tail call ptr @__cxa_allocate_exception(i64 48) #26
+  %31 = tail call ptr @__cxa_allocate_exception(i64 48) #27
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %31)
           to label %32 unwind label %33
 
@@ -4433,7 +4427,7 @@ _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i: ; preds = %24, 
 common.resume:                                    ; preds = %41, %33
   %.sink = phi ptr [ %39, %41 ], [ %31, %33 ]
   %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %34, %33 ]
-  tail call void @__cxa_free_exception(ptr nonnull %.sink) #26
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #27
   resume { ptr, i32 } %common.resume.op
 
 33:                                               ; preds = %30
@@ -4450,7 +4444,7 @@ _ZN3ue214RoseEngineBlob3addEPKvmm.exit:           ; preds = %_ZNSt6vectorIcN3ue2
   br i1 %.not.i.i, label %_ZN3ue210verify_u32ImEEjT_.exit, label %38
 
 38:                                               ; preds = %_ZN3ue214RoseEngineBlob3addEPKvmm.exit
-  %39 = tail call ptr @__cxa_allocate_exception(i64 48) #26
+  %39 = tail call ptr @__cxa_allocate_exception(i64 48) #27
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %39)
           to label %40 unwind label %41
 
@@ -4524,7 +4518,7 @@ _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i: ; preds = %24, 
   br i1 %.not.i.i6.i, label %_ZN3ue214RoseEngineBlob3addEPKvmm.exit, label %30
 
 30:                                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i
-  %31 = tail call ptr @__cxa_allocate_exception(i64 48) #26
+  %31 = tail call ptr @__cxa_allocate_exception(i64 48) #27
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %31)
           to label %32 unwind label %33
 
@@ -4535,7 +4529,7 @@ _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i: ; preds = %24, 
 common.resume:                                    ; preds = %41, %33
   %.sink = phi ptr [ %39, %41 ], [ %31, %33 ]
   %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %34, %33 ]
-  tail call void @__cxa_free_exception(ptr nonnull %.sink) #26
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #27
   resume { ptr, i32 } %common.resume.op
 
 33:                                               ; preds = %30
@@ -4552,7 +4546,7 @@ _ZN3ue214RoseEngineBlob3addEPKvmm.exit:           ; preds = %_ZNSt6vectorIcN3ue2
   br i1 %.not.i.i, label %_ZN3ue210verify_u32ImEEjT_.exit, label %38
 
 38:                                               ; preds = %_ZN3ue214RoseEngineBlob3addEPKvmm.exit
-  %39 = tail call ptr @__cxa_allocate_exception(i64 48) #26
+  %39 = tail call ptr @__cxa_allocate_exception(i64 48) #27
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %39)
           to label %40 unwind label %41
 
@@ -4626,7 +4620,7 @@ _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i: ; preds = %24, 
   br i1 %.not.i.i6.i, label %_ZN3ue214RoseEngineBlob3addEPKvmm.exit, label %30
 
 30:                                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i
-  %31 = tail call ptr @__cxa_allocate_exception(i64 48) #26
+  %31 = tail call ptr @__cxa_allocate_exception(i64 48) #27
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %31)
           to label %32 unwind label %33
 
@@ -4637,7 +4631,7 @@ _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i: ; preds = %24, 
 common.resume:                                    ; preds = %41, %33
   %.sink = phi ptr [ %39, %41 ], [ %31, %33 ]
   %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %34, %33 ]
-  tail call void @__cxa_free_exception(ptr nonnull %.sink) #26
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #27
   resume { ptr, i32 } %common.resume.op
 
 33:                                               ; preds = %30
@@ -4654,7 +4648,7 @@ _ZN3ue214RoseEngineBlob3addEPKvmm.exit:           ; preds = %_ZNSt6vectorIcN3ue2
   br i1 %.not.i.i, label %_ZN3ue210verify_u32ImEEjT_.exit, label %38
 
 38:                                               ; preds = %_ZN3ue214RoseEngineBlob3addEPKvmm.exit
-  %39 = tail call ptr @__cxa_allocate_exception(i64 48) #26
+  %39 = tail call ptr @__cxa_allocate_exception(i64 48) #27
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %39)
           to label %40 unwind label %41
 
@@ -4687,9 +4681,9 @@ define hidden void @_ZNK3ue228RoseInstrMultipathLookaround5writeEPvRNS_14RoseEng
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %1, i8 0, i64 40, i1 false)
   store i8 56, ptr %1, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -4714,7 +4708,7 @@ define hidden void @_ZNK3ue228RoseInstrMultipathLookaround5writeEPvRNS_14RoseEng
 20:                                               ; preds = %.lr.ph64, %._crit_edge
   %21 = phi ptr [ null, %.lr.ph64 ], [ %35, %._crit_edge ]
   %.sroa.054.062 = phi ptr [ %10, %.lr.ph64 ], [ %36, %._crit_edge ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %22 = load ptr, ptr %13, align 8
   %23 = load ptr, ptr %14, align 8
@@ -4748,7 +4742,7 @@ _ZNSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EE9push_backEOS3_.exit: ; preds = 
   br label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit:   ; preds = %_ZNSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EE9push_backEOS3_.exit.thread, %_ZNSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EE9push_backEOS3_.exit, %31
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %32 = load ptr, ptr %.sroa.054.062, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.054.062, i64 8
   %34 = load ptr, ptr %33, align 8
@@ -4773,7 +4767,7 @@ _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit:   ; preds = %_ZNSt6vectorIS_IN3u
   br label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit34
 
 _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit34: ; preds = %37, %40
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.body
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit, %_ZNSt6vectorIaSaIaEE9push_backERKa.exit
@@ -4822,7 +4816,7 @@ _ZNKSt6vectorIN3ue29CharReachESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %5
   %.not.i.i.i35 = icmp ne i64 %62, 0
   call void @llvm.assume(i1 %.not.i.i.i35)
   %63 = shl nuw nsw i64 %62, 5
-  %64 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %63) #27
+  %64 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %63) #26
           to label %.noexc37 unwind label %.loopexit
 
 .noexc37:                                         ; preds = %_ZNKSt6vectorIN3ue29CharReachESaIS1_EE12_M_check_lenEmPKc.exit.i.i
@@ -4904,7 +4898,7 @@ _ZNKSt6vectorIaSaIaEE12_M_check_lenEmPKc.exit.i.i: ; preds = %79
   br i1 %.not.i.i.i41, label %_ZNSt12_Vector_baseIaSaIaEE11_M_allocateEm.exit.i.i, label %89
 
 89:                                               ; preds = %_ZNKSt6vectorIaSaIaEE12_M_check_lenEmPKc.exit.i.i
-  %90 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %88) #27
+  %90 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %88) #26
           to label %_ZNSt12_Vector_baseIaSaIaEE11_M_allocateEm.exit.i.i unwind label %.loopexit
 
 _ZNSt12_Vector_baseIaSaIaEE11_M_allocateEm.exit.i.i: ; preds = %89, %_ZNKSt6vectorIaSaIaEE12_M_check_lenEmPKc.exit.i.i
@@ -4971,7 +4965,7 @@ _ZNSt6vectorIaSaIaEE9push_backERKa.exit:          ; preds = %_ZNSt6vectorIaSaIaE
   br i1 %.not.i.i44, label %117, label %112
 
 112:                                              ; preds = %104
-  %113 = call ptr @__cxa_allocate_exception(i64 48) #26
+  %113 = call ptr @__cxa_allocate_exception(i64 48) #27
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %113)
           to label %114 unwind label %115
 
@@ -4985,7 +4979,7 @@ _ZNSt6vectorIaSaIaEE9push_backERKa.exit:          ; preds = %_ZNSt6vectorIaSaIaE
 115:                                              ; preds = %112
   %116 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %113) #26
+  call void @__cxa_free_exception(ptr nonnull %113) #27
   br label %.body
 
 117:                                              ; preds = %104
@@ -5042,7 +5036,7 @@ _ZSt8_DestroyIPSt6vectorIN3ue29CharReachESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i: ; pr
   br label %_ZNSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt6vectorIN3ue29CharReachESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i, %137
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %138 = load ptr, ptr %5, align 8
   %.not.i.i.i47 = icmp eq ptr %138, null
   br i1 %.not.i.i.i47, label %_ZNSt6vectorIaSaIaEED2Ev.exit, label %139
@@ -5052,7 +5046,7 @@ _ZNSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EED2Ev.exit: ; preds = %_ZSt8_Dest
   br label %_ZNSt6vectorIaSaIaEED2Ev.exit
 
 _ZNSt6vectorIaSaIaEED2Ev.exit:                    ; preds = %_ZNSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EED2Ev.exit, %139
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 140:                                              ; preds = %114, %117, %101, %._crit_edge65
@@ -5062,8 +5056,8 @@ _ZNSt6vectorIaSaIaEED2Ev.exit:                    ; preds = %_ZNSt6vectorIS_IN3u
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %140, %115, %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit34
   %.pn.pn = phi { ptr, i32 } [ %38, %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit34 ], [ %141, %140 ], [ %116, %115 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZNSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #26
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #26
+  call void @_ZNSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %142 = load ptr, ptr %5, align 8
   %.not.i.i.i48 = icmp eq ptr %142, null
   br i1 %.not.i.i.i48, label %_ZNSt6vectorIaSaIaEED2Ev.exit49, label %143
@@ -5073,14 +5067,14 @@ _ZNSt6vectorIaSaIaEED2Ev.exit:                    ; preds = %_ZNSt6vectorIS_IN3u
   br label %_ZNSt6vectorIaSaIaEED2Ev.exit49
 
 _ZNSt6vectorIaSaIaEED2Ev.exit49:                  ; preds = %.body, %143
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
-declare noundef i32 @_ZN3ue215lookaround_info13get_offset_ofERKSt6vectorIS1_INS_9CharReachESaIS2_EESaIS4_EERNS_14RoseEngineBlobE(ptr noundef nonnull align 8 dereferenceable(168), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(256)) local_unnamed_addr #8
+declare noundef i32 @_ZN3ue215lookaround_info13get_offset_ofERKSt6vectorIS1_INS_9CharReachESaIS2_EESaIS4_EERNS_14RoseEngineBlobE(ptr noundef nonnull align 8 dereferenceable(168), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(256)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5302,7 +5296,7 @@ define hidden void @_ZNK3ue231RoseInstrCheckMultipathShufti645writeEPvRNS_14Rose
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue221RoseInstrIncludedJump5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue221RoseInstrIncludedJump5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store i64 61, ptr %1, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -5316,7 +5310,7 @@ define hidden void @_ZNK3ue221RoseInstrIncludedJump5writeEPvRNS_14RoseEngineBlob
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue219RoseInstrSetLogical5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue219RoseInstrSetLogical5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1, i8 0, i64 12, i1 false)
   store i8 62, ptr %1, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5331,7 +5325,7 @@ define hidden void @_ZNK3ue219RoseInstrSetLogical5writeEPvRNS_14RoseEngineBlobER
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue223RoseInstrSetCombination5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue223RoseInstrSetCombination5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store i64 63, ptr %1, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -5341,7 +5335,7 @@ define hidden void @_ZNK3ue223RoseInstrSetCombination5writeEPvRNS_14RoseEngineBl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue219RoseInstrSetExhaust5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue219RoseInstrSetExhaust5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store i64 65, ptr %1, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -5353,7 +5347,7 @@ define hidden void @_ZNK3ue219RoseInstrSetExhaust5writeEPvRNS_14RoseEngineBlobER
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue222RoseInstrAnchoredDelayD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue222RoseInstrAnchoredDelayD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -5386,7 +5380,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode1E26ROSE_STRUCT_ANCHORED_DELAYNS_22RoseInstrAnchoredDelayEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode1E26ROSE_STRUCT_ANCHORED_DELAYNS_22RoseInstrAnchoredDelayEEE, ptr nonnull @_ZTIN3ue222RoseInstrAnchoredDelayE, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode1E26ROSE_STRUCT_ANCHORED_DELAYNS_22RoseInstrAnchoredDelayEEE, ptr nonnull @_ZTIN3ue222RoseInstrAnchoredDelayE, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -5402,12 +5396,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode1E26ROSE_STRUCT_ANCHORED_DELAYNS_22RoseInstrAnchoredDelayEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue222RoseInstrAnchoredDelayE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue222RoseInstrAnchoredDelayE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode1E26ROSE_STRUCT_ANCHORED_DELAYNS_22RoseInstrAnchoredDelayEEE, ptr nonnull @_ZTIN3ue222RoseInstrAnchoredDelayE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode1E26ROSE_STRUCT_ANCHORED_DELAYNS_22RoseInstrAnchoredDelayEEE, ptr nonnull @_ZTIN3ue222RoseInstrAnchoredDelayE, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue222RoseInstrAnchoredDelay8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -5417,7 +5411,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue222RoseInstrCheckLitEarlyD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue222RoseInstrCheckLitEarlyD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -5445,7 +5439,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode2E27ROSE_STRUCT_CHECK_LIT_EARLYNS_22RoseInstrCheckLitEarlyEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode2E27ROSE_STRUCT_CHECK_LIT_EARLYNS_22RoseInstrCheckLitEarlyEEE, ptr nonnull @_ZTIN3ue222RoseInstrCheckLitEarlyE, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode2E27ROSE_STRUCT_CHECK_LIT_EARLYNS_22RoseInstrCheckLitEarlyEEE, ptr nonnull @_ZTIN3ue222RoseInstrCheckLitEarlyE, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -5461,12 +5455,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode2E27ROSE_STRUCT_CHECK_LIT_EARLYNS_22RoseInstrCheckLitEarlyEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue222RoseInstrCheckLitEarlyE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue222RoseInstrCheckLitEarlyE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode2E27ROSE_STRUCT_CHECK_LIT_EARLYNS_22RoseInstrCheckLitEarlyEEE, ptr nonnull @_ZTIN3ue222RoseInstrCheckLitEarlyE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode2E27ROSE_STRUCT_CHECK_LIT_EARLYNS_22RoseInstrCheckLitEarlyEEE, ptr nonnull @_ZTIN3ue222RoseInstrCheckLitEarlyE, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue222RoseInstrCheckLitEarly8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -5476,7 +5470,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue220RoseInstrCheckGroupsD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue220RoseInstrCheckGroupsD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -5508,12 +5502,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseNoTargetsIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode3E24ROSE_STRUCT_CHECK_GROUPSNS_20RoseInstrCheckGroupsEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrCheckGroupsE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrCheckGroupsE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %13, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode3E24ROSE_STRUCT_CHECK_GROUPSNS_20RoseInstrCheckGroupsEEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckGroupsE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode3E24ROSE_STRUCT_CHECK_GROUPSNS_20RoseInstrCheckGroupsEEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckGroupsE, i64 0) #27
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -5527,7 +5521,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue221RoseInstrCheckOnlyEodD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue221RoseInstrCheckOnlyEodD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -5549,7 +5543,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode4E26ROSE_STRUCT_CHECK_ONLY_EODNS_21RoseInstrCheckOnlyEodEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode4E26ROSE_STRUCT_CHECK_ONLY_EODNS_21RoseInstrCheckOnlyEodEEE, ptr nonnull @_ZTIN3ue221RoseInstrCheckOnlyEodE, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode4E26ROSE_STRUCT_CHECK_ONLY_EODNS_21RoseInstrCheckOnlyEodEEE, ptr nonnull @_ZTIN3ue221RoseInstrCheckOnlyEodE, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -5565,12 +5559,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode4E26ROSE_STRUCT_CHECK_ONLY_EODNS_21RoseInstrCheckOnlyEodEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue221RoseInstrCheckOnlyEodE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue221RoseInstrCheckOnlyEodE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode4E26ROSE_STRUCT_CHECK_ONLY_EODNS_21RoseInstrCheckOnlyEodEEE, ptr nonnull @_ZTIN3ue221RoseInstrCheckOnlyEodE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode4E26ROSE_STRUCT_CHECK_ONLY_EODNS_21RoseInstrCheckOnlyEodEEE, ptr nonnull @_ZTIN3ue221RoseInstrCheckOnlyEodE, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue221RoseInstrCheckOnlyEod8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -5580,7 +5574,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue220RoseInstrCheckBoundsD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue220RoseInstrCheckBoundsD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -5612,7 +5606,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode5E24ROSE_STRUCT_CHECK_BOUNDSNS_20RoseInstrCheckBoundsEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode5E24ROSE_STRUCT_CHECK_BOUNDSNS_20RoseInstrCheckBoundsEEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckBoundsE, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode5E24ROSE_STRUCT_CHECK_BOUNDSNS_20RoseInstrCheckBoundsEEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckBoundsE, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -5628,12 +5622,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode5E24ROSE_STRUCT_CHECK_BOUNDSNS_20RoseInstrCheckBoundsEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrCheckBoundsE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrCheckBoundsE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode5E24ROSE_STRUCT_CHECK_BOUNDSNS_20RoseInstrCheckBoundsEEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckBoundsE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode5E24ROSE_STRUCT_CHECK_BOUNDSNS_20RoseInstrCheckBoundsEEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckBoundsE, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue220RoseInstrCheckBounds8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -5643,7 +5637,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue224RoseInstrCheckNotHandledD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue224RoseInstrCheckNotHandledD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -5671,7 +5665,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode6E29ROSE_STRUCT_CHECK_NOT_HANDLEDNS_24RoseInstrCheckNotHandledEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode6E29ROSE_STRUCT_CHECK_NOT_HANDLEDNS_24RoseInstrCheckNotHandledEEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckNotHandledE, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode6E29ROSE_STRUCT_CHECK_NOT_HANDLEDNS_24RoseInstrCheckNotHandledEEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckNotHandledE, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -5687,12 +5681,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode6E29ROSE_STRUCT_CHECK_NOT_HANDLEDNS_24RoseInstrCheckNotHandledEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue224RoseInstrCheckNotHandledE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue224RoseInstrCheckNotHandledE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode6E29ROSE_STRUCT_CHECK_NOT_HANDLEDNS_24RoseInstrCheckNotHandledEEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckNotHandledE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode6E29ROSE_STRUCT_CHECK_NOT_HANDLEDNS_24RoseInstrCheckNotHandledEEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckNotHandledE, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue224RoseInstrCheckNotHandled8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -5702,7 +5696,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue230RoseInstrCheckSingleLookaroundD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue230RoseInstrCheckSingleLookaroundD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -5749,7 +5743,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode7E35ROSE_STRUCT_CHECK_SINGLE_LOOKAROUNDNS_30RoseInstrCheckSingleLookaroundEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode7E35ROSE_STRUCT_CHECK_SINGLE_LOOKAROUNDNS_30RoseInstrCheckSingleLookaroundEEE, ptr nonnull @_ZTIN3ue230RoseInstrCheckSingleLookaroundE, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode7E35ROSE_STRUCT_CHECK_SINGLE_LOOKAROUNDNS_30RoseInstrCheckSingleLookaroundEEE, ptr nonnull @_ZTIN3ue230RoseInstrCheckSingleLookaroundE, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -5765,12 +5759,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode7E35ROSE_STRUCT_CHECK_SINGLE_LOOKAROUNDNS_30RoseInstrCheckSingleLookaroundEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue230RoseInstrCheckSingleLookaroundE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue230RoseInstrCheckSingleLookaroundE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode7E35ROSE_STRUCT_CHECK_SINGLE_LOOKAROUNDNS_30RoseInstrCheckSingleLookaroundEEE, ptr nonnull @_ZTIN3ue230RoseInstrCheckSingleLookaroundE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode7E35ROSE_STRUCT_CHECK_SINGLE_LOOKAROUNDNS_30RoseInstrCheckSingleLookaroundEEE, ptr nonnull @_ZTIN3ue230RoseInstrCheckSingleLookaroundE, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue230RoseInstrCheckSingleLookaround8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -5780,7 +5774,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue224RoseInstrCheckLookaroundD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3ue224RoseInstrCheckLookaroundD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN3ue224RoseInstrCheckLookaroundE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -5796,7 +5790,7 @@ _ZNSt6vectorIN3ue29LookEntryESaIS1_EED2Ev.exit:   ; preds = %1, %4
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue224RoseInstrCheckLookaroundD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3ue224RoseInstrCheckLookaroundD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN3ue224RoseInstrCheckLookaroundE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -5877,7 +5871,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode8E28ROSE_STRUCT_CHECK_LOOKAROUNDNS_24RoseInstrCheckLookaroundEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode8E28ROSE_STRUCT_CHECK_LOOKAROUNDNS_24RoseInstrCheckLookaroundEEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckLookaroundE, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode8E28ROSE_STRUCT_CHECK_LOOKAROUNDNS_24RoseInstrCheckLookaroundEEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckLookaroundE, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -5893,12 +5887,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode8E28ROSE_STRUCT_CHECK_LOOKAROUNDNS_24RoseInstrCheckLookaroundEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue224RoseInstrCheckLookaroundE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue224RoseInstrCheckLookaroundE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode8E28ROSE_STRUCT_CHECK_LOOKAROUNDNS_24RoseInstrCheckLookaroundEEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckLookaroundE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode8E28ROSE_STRUCT_CHECK_LOOKAROUNDNS_24RoseInstrCheckLookaroundEEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckLookaroundE, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue224RoseInstrCheckLookaround8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -5908,7 +5902,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue218RoseInstrCheckMaskD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue218RoseInstrCheckMaskD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -5951,7 +5945,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode9E22ROSE_STRUCT_CHECK_MASKNS_18RoseInstrCheckMaskEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode9E22ROSE_STRUCT_CHECK_MASKNS_18RoseInstrCheckMaskEEE, ptr nonnull @_ZTIN3ue218RoseInstrCheckMaskE, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode9E22ROSE_STRUCT_CHECK_MASKNS_18RoseInstrCheckMaskEEE, ptr nonnull @_ZTIN3ue218RoseInstrCheckMaskE, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -5967,12 +5961,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode9E22ROSE_STRUCT_CHECK_MASKNS_18RoseInstrCheckMaskEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue218RoseInstrCheckMaskE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue218RoseInstrCheckMaskE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode9E22ROSE_STRUCT_CHECK_MASKNS_18RoseInstrCheckMaskEEE, ptr nonnull @_ZTIN3ue218RoseInstrCheckMaskE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode9E22ROSE_STRUCT_CHECK_MASKNS_18RoseInstrCheckMaskEEE, ptr nonnull @_ZTIN3ue218RoseInstrCheckMaskE, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue218RoseInstrCheckMask8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -5982,7 +5976,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue220RoseInstrCheckMask32D0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue220RoseInstrCheckMask32D0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -6056,7 +6050,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode10E25ROSE_STRUCT_CHECK_MASK_32NS_20RoseInstrCheckMask32EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode10E25ROSE_STRUCT_CHECK_MASK_32NS_20RoseInstrCheckMask32EEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMask32E, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode10E25ROSE_STRUCT_CHECK_MASK_32NS_20RoseInstrCheckMask32EEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMask32E, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -6072,12 +6066,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode10E25ROSE_STRUCT_CHECK_MASK_32NS_20RoseInstrCheckMask32EE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMask32E, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMask32E, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode10E25ROSE_STRUCT_CHECK_MASK_32NS_20RoseInstrCheckMask32EEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMask32E, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode10E25ROSE_STRUCT_CHECK_MASK_32NS_20RoseInstrCheckMask32EEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMask32E, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue220RoseInstrCheckMask328equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -6087,7 +6081,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue220RoseInstrCheckMask64D0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue220RoseInstrCheckMask64D0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -6160,7 +6154,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode69E25ROSE_STRUCT_CHECK_MASK_64NS_20RoseInstrCheckMask64EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode69E25ROSE_STRUCT_CHECK_MASK_64NS_20RoseInstrCheckMask64EEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMask64E, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode69E25ROSE_STRUCT_CHECK_MASK_64NS_20RoseInstrCheckMask64EEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMask64E, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -6176,12 +6170,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode69E25ROSE_STRUCT_CHECK_MASK_64NS_20RoseInstrCheckMask64EE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMask64E, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMask64E, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode69E25ROSE_STRUCT_CHECK_MASK_64NS_20RoseInstrCheckMask64EEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMask64E, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode69E25ROSE_STRUCT_CHECK_MASK_64NS_20RoseInstrCheckMask64EEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMask64E, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue220RoseInstrCheckMask648equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(160) %7, ptr noundef nonnull align 8 dereferenceable(160) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -6191,7 +6185,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue218RoseInstrCheckByteD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue218RoseInstrCheckByteD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -6237,7 +6231,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode11E22ROSE_STRUCT_CHECK_BYTENS_18RoseInstrCheckByteEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode11E22ROSE_STRUCT_CHECK_BYTENS_18RoseInstrCheckByteEEE, ptr nonnull @_ZTIN3ue218RoseInstrCheckByteE, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode11E22ROSE_STRUCT_CHECK_BYTENS_18RoseInstrCheckByteEEE, ptr nonnull @_ZTIN3ue218RoseInstrCheckByteE, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -6253,12 +6247,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode11E22ROSE_STRUCT_CHECK_BYTENS_18RoseInstrCheckByteEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue218RoseInstrCheckByteE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue218RoseInstrCheckByteE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode11E22ROSE_STRUCT_CHECK_BYTENS_18RoseInstrCheckByteEEE, ptr nonnull @_ZTIN3ue218RoseInstrCheckByteE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode11E22ROSE_STRUCT_CHECK_BYTENS_18RoseInstrCheckByteEEE, ptr nonnull @_ZTIN3ue218RoseInstrCheckByteE, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue218RoseInstrCheckByte8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -6268,7 +6262,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue224RoseInstrCheckShufti16x8D0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue224RoseInstrCheckShufti16x8D0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -6342,7 +6336,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode12E29ROSE_STRUCT_CHECK_SHUFTI_16x8NS_24RoseInstrCheckShufti16x8EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode12E29ROSE_STRUCT_CHECK_SHUFTI_16x8NS_24RoseInstrCheckShufti16x8EEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti16x8E, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode12E29ROSE_STRUCT_CHECK_SHUFTI_16x8NS_24RoseInstrCheckShufti16x8EEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti16x8E, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -6358,12 +6352,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode12E29ROSE_STRUCT_CHECK_SHUFTI_16x8NS_24RoseInstrCheckShufti16x8EE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti16x8E, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti16x8E, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode12E29ROSE_STRUCT_CHECK_SHUFTI_16x8NS_24RoseInstrCheckShufti16x8EEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti16x8E, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode12E29ROSE_STRUCT_CHECK_SHUFTI_16x8NS_24RoseInstrCheckShufti16x8EEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti16x8E, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue224RoseInstrCheckShufti16x88equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -6373,7 +6367,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue224RoseInstrCheckShufti32x8D0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue224RoseInstrCheckShufti32x8D0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -6467,7 +6461,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode13E29ROSE_STRUCT_CHECK_SHUFTI_32x8NS_24RoseInstrCheckShufti32x8EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode13E29ROSE_STRUCT_CHECK_SHUFTI_32x8NS_24RoseInstrCheckShufti32x8EEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti32x8E, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode13E29ROSE_STRUCT_CHECK_SHUFTI_32x8NS_24RoseInstrCheckShufti32x8EEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti32x8E, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -6483,12 +6477,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode13E29ROSE_STRUCT_CHECK_SHUFTI_32x8NS_24RoseInstrCheckShufti32x8EE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti32x8E, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti32x8E, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode13E29ROSE_STRUCT_CHECK_SHUFTI_32x8NS_24RoseInstrCheckShufti32x8EEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti32x8E, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode13E29ROSE_STRUCT_CHECK_SHUFTI_32x8NS_24RoseInstrCheckShufti32x8EEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti32x8E, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue224RoseInstrCheckShufti32x88equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -6498,7 +6492,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue225RoseInstrCheckShufti16x16D0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue225RoseInstrCheckShufti16x16D0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -6592,7 +6586,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode14E30ROSE_STRUCT_CHECK_SHUFTI_16x16NS_25RoseInstrCheckShufti16x16EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode14E30ROSE_STRUCT_CHECK_SHUFTI_16x16NS_25RoseInstrCheckShufti16x16EEE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti16x16E, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode14E30ROSE_STRUCT_CHECK_SHUFTI_16x16NS_25RoseInstrCheckShufti16x16EEE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti16x16E, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -6608,12 +6602,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode14E30ROSE_STRUCT_CHECK_SHUFTI_16x16NS_25RoseInstrCheckShufti16x16EE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti16x16E, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti16x16E, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode14E30ROSE_STRUCT_CHECK_SHUFTI_16x16NS_25RoseInstrCheckShufti16x16EEE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti16x16E, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode14E30ROSE_STRUCT_CHECK_SHUFTI_16x16NS_25RoseInstrCheckShufti16x16EEE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti16x16E, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue225RoseInstrCheckShufti16x168equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(120) %7, ptr noundef nonnull align 8 dereferenceable(120) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -6623,7 +6617,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue225RoseInstrCheckShufti32x16D0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue225RoseInstrCheckShufti32x16D0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -6737,7 +6731,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode15E30ROSE_STRUCT_CHECK_SHUFTI_32x16NS_25RoseInstrCheckShufti32x16EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode15E30ROSE_STRUCT_CHECK_SHUFTI_32x16NS_25RoseInstrCheckShufti32x16EEE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti32x16E, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode15E30ROSE_STRUCT_CHECK_SHUFTI_32x16NS_25RoseInstrCheckShufti32x16EEE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti32x16E, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -6753,12 +6747,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode15E30ROSE_STRUCT_CHECK_SHUFTI_32x16NS_25RoseInstrCheckShufti32x16EE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti32x16E, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti32x16E, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode15E30ROSE_STRUCT_CHECK_SHUFTI_32x16NS_25RoseInstrCheckShufti32x16EEE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti32x16E, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode15E30ROSE_STRUCT_CHECK_SHUFTI_32x16NS_25RoseInstrCheckShufti32x16EEE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti32x16E, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue225RoseInstrCheckShufti32x168equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(152) %7, ptr noundef nonnull align 8 dereferenceable(152) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -6768,7 +6762,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue224RoseInstrCheckShufti64x8D0Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue224RoseInstrCheckShufti64x8D0Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -6861,7 +6855,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode67E29ROSE_STRUCT_CHECK_SHUFTI_64x8NS_24RoseInstrCheckShufti64x8EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode67E29ROSE_STRUCT_CHECK_SHUFTI_64x8NS_24RoseInstrCheckShufti64x8EEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti64x8E, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode67E29ROSE_STRUCT_CHECK_SHUFTI_64x8NS_24RoseInstrCheckShufti64x8EEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti64x8E, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 216
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -6877,12 +6871,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode67E29ROSE_STRUCT_CHECK_SHUFTI_64x8NS_24RoseInstrCheckShufti64x8EE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti64x8E, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti64x8E, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode67E29ROSE_STRUCT_CHECK_SHUFTI_64x8NS_24RoseInstrCheckShufti64x8EEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti64x8E, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode67E29ROSE_STRUCT_CHECK_SHUFTI_64x8NS_24RoseInstrCheckShufti64x8EEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti64x8E, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue224RoseInstrCheckShufti64x88equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(224) %7, ptr noundef nonnull align 8 dereferenceable(224) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -6892,7 +6886,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue225RoseInstrCheckShufti64x16D0Ev(ptr noundef nonnull align 8 dereferenceable(416) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue225RoseInstrCheckShufti64x16D0Ev(ptr noundef nonnull align 8 dereferenceable(416) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -6923,7 +6917,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode68E30ROSE_STRUCT_CHECK_SHUFTI_64x16NS_25RoseInstrCheckShufti64x16EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode68E30ROSE_STRUCT_CHECK_SHUFTI_64x16NS_25RoseInstrCheckShufti64x16EEE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti64x16E, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode68E30ROSE_STRUCT_CHECK_SHUFTI_64x16NS_25RoseInstrCheckShufti64x16EEE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti64x16E, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -6939,12 +6933,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode68E30ROSE_STRUCT_CHECK_SHUFTI_64x16NS_25RoseInstrCheckShufti64x16EE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti64x16E, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti64x16E, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode68E30ROSE_STRUCT_CHECK_SHUFTI_64x16NS_25RoseInstrCheckShufti64x16EEE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti64x16E, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode68E30ROSE_STRUCT_CHECK_SHUFTI_64x16NS_25RoseInstrCheckShufti64x16EEE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti64x16E, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue225RoseInstrCheckShufti64x168equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(416) %7, ptr noundef nonnull align 8 dereferenceable(416) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -6954,7 +6948,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue219RoseInstrCheckInfixD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue219RoseInstrCheckInfixD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -6994,7 +6988,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode16E23ROSE_STRUCT_CHECK_INFIXNS_19RoseInstrCheckInfixEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode16E23ROSE_STRUCT_CHECK_INFIXNS_19RoseInstrCheckInfixEEE, ptr nonnull @_ZTIN3ue219RoseInstrCheckInfixE, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode16E23ROSE_STRUCT_CHECK_INFIXNS_19RoseInstrCheckInfixEEE, ptr nonnull @_ZTIN3ue219RoseInstrCheckInfixE, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -7010,12 +7004,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode16E23ROSE_STRUCT_CHECK_INFIXNS_19RoseInstrCheckInfixEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrCheckInfixE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrCheckInfixE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode16E23ROSE_STRUCT_CHECK_INFIXNS_19RoseInstrCheckInfixEEE, ptr nonnull @_ZTIN3ue219RoseInstrCheckInfixE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode16E23ROSE_STRUCT_CHECK_INFIXNS_19RoseInstrCheckInfixEEE, ptr nonnull @_ZTIN3ue219RoseInstrCheckInfixE, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue219RoseInstrCheckInfix8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -7025,7 +7019,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue220RoseInstrCheckPrefixD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue220RoseInstrCheckPrefixD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -7065,7 +7059,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode17E24ROSE_STRUCT_CHECK_PREFIXNS_20RoseInstrCheckPrefixEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode17E24ROSE_STRUCT_CHECK_PREFIXNS_20RoseInstrCheckPrefixEEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckPrefixE, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode17E24ROSE_STRUCT_CHECK_PREFIXNS_20RoseInstrCheckPrefixEEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckPrefixE, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -7081,12 +7075,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode17E24ROSE_STRUCT_CHECK_PREFIXNS_20RoseInstrCheckPrefixEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrCheckPrefixE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrCheckPrefixE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode17E24ROSE_STRUCT_CHECK_PREFIXNS_20RoseInstrCheckPrefixEEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckPrefixE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode17E24ROSE_STRUCT_CHECK_PREFIXNS_20RoseInstrCheckPrefixEEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckPrefixE, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue220RoseInstrCheckPrefix8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -7096,7 +7090,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue220RoseInstrPushDelayedD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue220RoseInstrPushDelayedD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -7135,12 +7129,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseNoTargetsIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode18E24ROSE_STRUCT_PUSH_DELAYEDNS_20RoseInstrPushDelayedEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrPushDelayedE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrPushDelayedE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %19, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode18E24ROSE_STRUCT_PUSH_DELAYEDNS_20RoseInstrPushDelayedEEE, ptr nonnull @_ZTIN3ue220RoseInstrPushDelayedE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode18E24ROSE_STRUCT_PUSH_DELAYEDNS_20RoseInstrPushDelayedEEE, ptr nonnull @_ZTIN3ue220RoseInstrPushDelayedE, i64 0) #27
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i8, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -7160,7 +7154,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue218RoseInstrSomAdjustD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue218RoseInstrSomAdjustD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -7193,12 +7187,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseNoTargetsIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode22E22ROSE_STRUCT_SOM_ADJUSTNS_18RoseInstrSomAdjustEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue218RoseInstrSomAdjustE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue218RoseInstrSomAdjustE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %13, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode22E22ROSE_STRUCT_SOM_ADJUSTNS_18RoseInstrSomAdjustEEE, ptr nonnull @_ZTIN3ue218RoseInstrSomAdjustE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode22E22ROSE_STRUCT_SOM_ADJUSTNS_18RoseInstrSomAdjustEEE, ptr nonnull @_ZTIN3ue218RoseInstrSomAdjustE, i64 0) #27
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -7212,7 +7206,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue219RoseInstrSomLeftfixD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue219RoseInstrSomLeftfixD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -7251,12 +7245,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseNoTargetsIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode23E23ROSE_STRUCT_SOM_LEFTFIXNS_19RoseInstrSomLeftfixEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrSomLeftfixE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrSomLeftfixE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %19, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode23E23ROSE_STRUCT_SOM_LEFTFIXNS_19RoseInstrSomLeftfixEEE, ptr nonnull @_ZTIN3ue219RoseInstrSomLeftfixE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode23E23ROSE_STRUCT_SOM_LEFTFIXNS_19RoseInstrSomLeftfixEEE, ptr nonnull @_ZTIN3ue219RoseInstrSomLeftfixE, i64 0) #27
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -7276,7 +7270,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue222RoseInstrSomFromReportD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue222RoseInstrSomFromReportD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -7315,12 +7309,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseNoTargetsIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode24E27ROSE_STRUCT_SOM_FROM_REPORTNS_22RoseInstrSomFromReportEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue222RoseInstrSomFromReportE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue222RoseInstrSomFromReportE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode24E27ROSE_STRUCT_SOM_FROM_REPORTNS_22RoseInstrSomFromReportEEE, ptr nonnull @_ZTIN3ue222RoseInstrSomFromReportE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode24E27ROSE_STRUCT_SOM_FROM_REPORTNS_22RoseInstrSomFromReportEEE, ptr nonnull @_ZTIN3ue222RoseInstrSomFromReportE, i64 0) #27
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %8, ptr noundef nonnull dereferenceable(16) %9, i64 16)
@@ -7333,7 +7327,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue221RoseInstrTriggerInfixD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue221RoseInstrTriggerInfixD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -7378,12 +7372,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseNoTargetsIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode26E25ROSE_STRUCT_TRIGGER_INFIXNS_21RoseInstrTriggerInfixEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue221RoseInstrTriggerInfixE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue221RoseInstrTriggerInfixE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %_ZNK3ue221RoseInstrTriggerInfix8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode26E25ROSE_STRUCT_TRIGGER_INFIXNS_21RoseInstrTriggerInfixEEE, ptr nonnull @_ZTIN3ue221RoseInstrTriggerInfixE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode26E25ROSE_STRUCT_TRIGGER_INFIXNS_21RoseInstrTriggerInfixEEE, ptr nonnull @_ZTIN3ue221RoseInstrTriggerInfixE, i64 0) #27
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i8, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -7413,7 +7407,7 @@ _ZNK3ue221RoseInstrTriggerInfix8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseIns
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue222RoseInstrTriggerSuffixD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue222RoseInstrTriggerSuffixD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -7452,12 +7446,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseNoTargetsIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode27E26ROSE_STRUCT_TRIGGER_SUFFIXNS_22RoseInstrTriggerSuffixEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue222RoseInstrTriggerSuffixE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue222RoseInstrTriggerSuffixE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %19, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode27E26ROSE_STRUCT_TRIGGER_SUFFIXNS_22RoseInstrTriggerSuffixEEE, ptr nonnull @_ZTIN3ue222RoseInstrTriggerSuffixE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode27E26ROSE_STRUCT_TRIGGER_SUFFIXNS_22RoseInstrTriggerSuffixEEE, ptr nonnull @_ZTIN3ue222RoseInstrTriggerSuffixE, i64 0) #27
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -7477,7 +7471,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue215RoseInstrDedupeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue215RoseInstrDedupeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -7517,7 +7511,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode28E18ROSE_STRUCT_DEDUPENS_15RoseInstrDedupeEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode28E18ROSE_STRUCT_DEDUPENS_15RoseInstrDedupeEEE, ptr nonnull @_ZTIN3ue215RoseInstrDedupeE, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode28E18ROSE_STRUCT_DEDUPENS_15RoseInstrDedupeEEE, ptr nonnull @_ZTIN3ue215RoseInstrDedupeE, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -7533,12 +7527,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode28E18ROSE_STRUCT_DEDUPENS_15RoseInstrDedupeEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue215RoseInstrDedupeE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue215RoseInstrDedupeE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode28E18ROSE_STRUCT_DEDUPENS_15RoseInstrDedupeEEE, ptr nonnull @_ZTIN3ue215RoseInstrDedupeE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode28E18ROSE_STRUCT_DEDUPENS_15RoseInstrDedupeEEE, ptr nonnull @_ZTIN3ue215RoseInstrDedupeE, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue215RoseInstrDedupe8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -7548,7 +7542,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue218RoseInstrDedupeSomD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue218RoseInstrDedupeSomD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -7588,7 +7582,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode29E22ROSE_STRUCT_DEDUPE_SOMNS_18RoseInstrDedupeSomEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode29E22ROSE_STRUCT_DEDUPE_SOMNS_18RoseInstrDedupeSomEEE, ptr nonnull @_ZTIN3ue218RoseInstrDedupeSomE, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode29E22ROSE_STRUCT_DEDUPE_SOMNS_18RoseInstrDedupeSomEEE, ptr nonnull @_ZTIN3ue218RoseInstrDedupeSomE, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -7604,12 +7598,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode29E22ROSE_STRUCT_DEDUPE_SOMNS_18RoseInstrDedupeSomEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue218RoseInstrDedupeSomE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue218RoseInstrDedupeSomE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode29E22ROSE_STRUCT_DEDUPE_SOMNS_18RoseInstrDedupeSomEEE, ptr nonnull @_ZTIN3ue218RoseInstrDedupeSomE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode29E22ROSE_STRUCT_DEDUPE_SOMNS_18RoseInstrDedupeSomEEE, ptr nonnull @_ZTIN3ue218RoseInstrDedupeSomE, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue218RoseInstrDedupeSom8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -7619,7 +7613,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue220RoseInstrReportChainD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue220RoseInstrReportChainD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -7657,12 +7651,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseNoTargetsIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode30E24ROSE_STRUCT_REPORT_CHAINNS_20RoseInstrReportChainEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrReportChainE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrReportChainE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %19, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode30E24ROSE_STRUCT_REPORT_CHAINNS_20RoseInstrReportChainEEE, ptr nonnull @_ZTIN3ue220RoseInstrReportChainE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode30E24ROSE_STRUCT_REPORT_CHAINNS_20RoseInstrReportChainEEE, ptr nonnull @_ZTIN3ue220RoseInstrReportChainE, i64 0) #27
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -7682,7 +7676,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue221RoseInstrReportSomIntD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue221RoseInstrReportSomIntD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -7721,12 +7715,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseNoTargetsIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode31E26ROSE_STRUCT_REPORT_SOM_INTNS_21RoseInstrReportSomIntEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue221RoseInstrReportSomIntE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue221RoseInstrReportSomIntE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode31E26ROSE_STRUCT_REPORT_SOM_INTNS_21RoseInstrReportSomIntEEE, ptr nonnull @_ZTIN3ue221RoseInstrReportSomIntE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode31E26ROSE_STRUCT_REPORT_SOM_INTNS_21RoseInstrReportSomIntEEE, ptr nonnull @_ZTIN3ue221RoseInstrReportSomIntE, i64 0) #27
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %8, ptr noundef nonnull dereferenceable(16) %9, i64 16)
@@ -7739,7 +7733,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue223RoseInstrReportSomAwareD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue223RoseInstrReportSomAwareD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -7778,12 +7772,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseNoTargetsIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode32E28ROSE_STRUCT_REPORT_SOM_AWARENS_23RoseInstrReportSomAwareEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue223RoseInstrReportSomAwareE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue223RoseInstrReportSomAwareE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode32E28ROSE_STRUCT_REPORT_SOM_AWARENS_23RoseInstrReportSomAwareEEE, ptr nonnull @_ZTIN3ue223RoseInstrReportSomAwareE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode32E28ROSE_STRUCT_REPORT_SOM_AWARENS_23RoseInstrReportSomAwareEEE, ptr nonnull @_ZTIN3ue223RoseInstrReportSomAwareE, i64 0) #27
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %8, ptr noundef nonnull dereferenceable(16) %9, i64 16)
@@ -7796,7 +7790,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue215RoseInstrReportD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue215RoseInstrReportD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -7835,12 +7829,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseNoTargetsIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode33E18ROSE_STRUCT_REPORTNS_15RoseInstrReportEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue215RoseInstrReportE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue215RoseInstrReportE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %19, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode33E18ROSE_STRUCT_REPORTNS_15RoseInstrReportEEE, ptr nonnull @_ZTIN3ue215RoseInstrReportE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode33E18ROSE_STRUCT_REPORTNS_15RoseInstrReportEEE, ptr nonnull @_ZTIN3ue215RoseInstrReportE, i64 0) #27
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -7860,7 +7854,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue222RoseInstrReportExhaustD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue222RoseInstrReportExhaustD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -7905,12 +7899,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseNoTargetsIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode34E26ROSE_STRUCT_REPORT_EXHAUSTNS_22RoseInstrReportExhaustEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue222RoseInstrReportExhaustE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue222RoseInstrReportExhaustE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %_ZNK3ue222RoseInstrReportExhaust8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode34E26ROSE_STRUCT_REPORT_EXHAUSTNS_22RoseInstrReportExhaustEEE, ptr nonnull @_ZTIN3ue222RoseInstrReportExhaustE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode34E26ROSE_STRUCT_REPORT_EXHAUSTNS_22RoseInstrReportExhaustEEE, ptr nonnull @_ZTIN3ue222RoseInstrReportExhaustE, i64 0) #27
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -7940,7 +7934,7 @@ _ZNK3ue222RoseInstrReportExhaust8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue218RoseInstrReportSomD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue218RoseInstrReportSomD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -7979,12 +7973,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseNoTargetsIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode35E22ROSE_STRUCT_REPORT_SOMNS_18RoseInstrReportSomEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue218RoseInstrReportSomE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue218RoseInstrReportSomE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %19, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode35E22ROSE_STRUCT_REPORT_SOMNS_18RoseInstrReportSomEEE, ptr nonnull @_ZTIN3ue218RoseInstrReportSomE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode35E22ROSE_STRUCT_REPORT_SOMNS_18RoseInstrReportSomEEE, ptr nonnull @_ZTIN3ue218RoseInstrReportSomE, i64 0) #27
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -8004,7 +7998,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue225RoseInstrReportSomExhaustD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue225RoseInstrReportSomExhaustD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -8049,12 +8043,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseNoTargetsIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode36E30ROSE_STRUCT_REPORT_SOM_EXHAUSTNS_25RoseInstrReportSomExhaustEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue225RoseInstrReportSomExhaustE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue225RoseInstrReportSomExhaustE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %_ZNK3ue225RoseInstrReportSomExhaust8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode36E30ROSE_STRUCT_REPORT_SOM_EXHAUSTNS_25RoseInstrReportSomExhaustEEE, ptr nonnull @_ZTIN3ue225RoseInstrReportSomExhaustE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode36E30ROSE_STRUCT_REPORT_SOM_EXHAUSTNS_25RoseInstrReportSomExhaustEEE, ptr nonnull @_ZTIN3ue225RoseInstrReportSomExhaustE, i64 0) #27
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -8084,7 +8078,7 @@ _ZNK3ue225RoseInstrReportSomExhaust8equiv_toERKS0_RKSt13unordered_mapIPKNS_15Ros
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue224RoseInstrDedupeAndReportD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue224RoseInstrDedupeAndReportD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -8130,7 +8124,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode37E29ROSE_STRUCT_DEDUPE_AND_REPORTNS_24RoseInstrDedupeAndReportEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode37E29ROSE_STRUCT_DEDUPE_AND_REPORTNS_24RoseInstrDedupeAndReportEEE, ptr nonnull @_ZTIN3ue224RoseInstrDedupeAndReportE, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode37E29ROSE_STRUCT_DEDUPE_AND_REPORTNS_24RoseInstrDedupeAndReportEEE, ptr nonnull @_ZTIN3ue224RoseInstrDedupeAndReportE, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -8146,12 +8140,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode37E29ROSE_STRUCT_DEDUPE_AND_REPORTNS_24RoseInstrDedupeAndReportEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue224RoseInstrDedupeAndReportE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue224RoseInstrDedupeAndReportE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode37E29ROSE_STRUCT_DEDUPE_AND_REPORTNS_24RoseInstrDedupeAndReportEEE, ptr nonnull @_ZTIN3ue224RoseInstrDedupeAndReportE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode37E29ROSE_STRUCT_DEDUPE_AND_REPORTNS_24RoseInstrDedupeAndReportEEE, ptr nonnull @_ZTIN3ue224RoseInstrDedupeAndReportE, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue224RoseInstrDedupeAndReport8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -8161,7 +8155,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue220RoseInstrFinalReportD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue220RoseInstrFinalReportD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -8200,12 +8194,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseNoTargetsIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode38E24ROSE_STRUCT_FINAL_REPORTNS_20RoseInstrFinalReportEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrFinalReportE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrFinalReportE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %19, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode38E24ROSE_STRUCT_FINAL_REPORTNS_20RoseInstrFinalReportEEE, ptr nonnull @_ZTIN3ue220RoseInstrFinalReportE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode38E24ROSE_STRUCT_FINAL_REPORTNS_20RoseInstrFinalReportEEE, ptr nonnull @_ZTIN3ue220RoseInstrFinalReportE, i64 0) #27
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -8225,7 +8219,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue223RoseInstrCheckExhaustedD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue223RoseInstrCheckExhaustedD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -8253,7 +8247,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode39E27ROSE_STRUCT_CHECK_EXHAUSTEDNS_23RoseInstrCheckExhaustedEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode39E27ROSE_STRUCT_CHECK_EXHAUSTEDNS_23RoseInstrCheckExhaustedEEE, ptr nonnull @_ZTIN3ue223RoseInstrCheckExhaustedE, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode39E27ROSE_STRUCT_CHECK_EXHAUSTEDNS_23RoseInstrCheckExhaustedEEE, ptr nonnull @_ZTIN3ue223RoseInstrCheckExhaustedE, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -8269,12 +8263,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode39E27ROSE_STRUCT_CHECK_EXHAUSTEDNS_23RoseInstrCheckExhaustedEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue223RoseInstrCheckExhaustedE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue223RoseInstrCheckExhaustedE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode39E27ROSE_STRUCT_CHECK_EXHAUSTEDNS_23RoseInstrCheckExhaustedEEE, ptr nonnull @_ZTIN3ue223RoseInstrCheckExhaustedE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode39E27ROSE_STRUCT_CHECK_EXHAUSTEDNS_23RoseInstrCheckExhaustedEEE, ptr nonnull @_ZTIN3ue223RoseInstrCheckExhaustedE, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue223RoseInstrCheckExhausted8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -8284,7 +8278,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue223RoseInstrCheckMinLengthD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue223RoseInstrCheckMinLengthD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -8317,7 +8311,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode40E28ROSE_STRUCT_CHECK_MIN_LENGTHNS_23RoseInstrCheckMinLengthEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode40E28ROSE_STRUCT_CHECK_MIN_LENGTHNS_23RoseInstrCheckMinLengthEEE, ptr nonnull @_ZTIN3ue223RoseInstrCheckMinLengthE, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode40E28ROSE_STRUCT_CHECK_MIN_LENGTHNS_23RoseInstrCheckMinLengthEEE, ptr nonnull @_ZTIN3ue223RoseInstrCheckMinLengthE, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -8333,12 +8327,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode40E28ROSE_STRUCT_CHECK_MIN_LENGTHNS_23RoseInstrCheckMinLengthEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue223RoseInstrCheckMinLengthE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue223RoseInstrCheckMinLengthE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode40E28ROSE_STRUCT_CHECK_MIN_LENGTHNS_23RoseInstrCheckMinLengthEEE, ptr nonnull @_ZTIN3ue223RoseInstrCheckMinLengthE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode40E28ROSE_STRUCT_CHECK_MIN_LENGTHNS_23RoseInstrCheckMinLengthEEE, ptr nonnull @_ZTIN3ue223RoseInstrCheckMinLengthE, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue223RoseInstrCheckMinLength8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -8348,7 +8342,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue217RoseInstrSetStateD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue217RoseInstrSetStateD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -8381,12 +8375,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseNoTargetsIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode41E21ROSE_STRUCT_SET_STATENS_17RoseInstrSetStateEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue217RoseInstrSetStateE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue217RoseInstrSetStateE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %13, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode41E21ROSE_STRUCT_SET_STATENS_17RoseInstrSetStateEEE, ptr nonnull @_ZTIN3ue217RoseInstrSetStateE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode41E21ROSE_STRUCT_SET_STATENS_17RoseInstrSetStateEEE, ptr nonnull @_ZTIN3ue217RoseInstrSetStateE, i64 0) #27
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -8400,7 +8394,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue218RoseInstrSetGroupsD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue218RoseInstrSetGroupsD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -8432,12 +8426,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseNoTargetsIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode42E22ROSE_STRUCT_SET_GROUPSNS_18RoseInstrSetGroupsEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue218RoseInstrSetGroupsE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue218RoseInstrSetGroupsE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %13, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode42E22ROSE_STRUCT_SET_GROUPSNS_18RoseInstrSetGroupsEEE, ptr nonnull @_ZTIN3ue218RoseInstrSetGroupsE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode42E22ROSE_STRUCT_SET_GROUPSNS_18RoseInstrSetGroupsEEE, ptr nonnull @_ZTIN3ue218RoseInstrSetGroupsE, i64 0) #27
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -8451,7 +8445,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue221RoseInstrSquashGroupsD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue221RoseInstrSquashGroupsD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -8483,12 +8477,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseNoTargetsIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode43E25ROSE_STRUCT_SQUASH_GROUPSNS_21RoseInstrSquashGroupsEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue221RoseInstrSquashGroupsE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue221RoseInstrSquashGroupsE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %13, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode43E25ROSE_STRUCT_SQUASH_GROUPSNS_21RoseInstrSquashGroupsEEE, ptr nonnull @_ZTIN3ue221RoseInstrSquashGroupsE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode43E25ROSE_STRUCT_SQUASH_GROUPSNS_21RoseInstrSquashGroupsEEE, ptr nonnull @_ZTIN3ue221RoseInstrSquashGroupsE, i64 0) #27
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -8502,7 +8496,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue219RoseInstrCheckStateD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue219RoseInstrCheckStateD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -8530,7 +8524,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode44E23ROSE_STRUCT_CHECK_STATENS_19RoseInstrCheckStateEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode44E23ROSE_STRUCT_CHECK_STATENS_19RoseInstrCheckStateEEE, ptr nonnull @_ZTIN3ue219RoseInstrCheckStateE, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode44E23ROSE_STRUCT_CHECK_STATENS_19RoseInstrCheckStateEEE, ptr nonnull @_ZTIN3ue219RoseInstrCheckStateE, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -8546,12 +8540,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode44E23ROSE_STRUCT_CHECK_STATENS_19RoseInstrCheckStateEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrCheckStateE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrCheckStateE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode44E23ROSE_STRUCT_CHECK_STATENS_19RoseInstrCheckStateEEE, ptr nonnull @_ZTIN3ue219RoseInstrCheckStateE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode44E23ROSE_STRUCT_CHECK_STATENS_19RoseInstrCheckStateEEE, ptr nonnull @_ZTIN3ue219RoseInstrCheckStateE, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue219RoseInstrCheckState8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -8561,7 +8555,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue224RoseInstrSparseIterBeginD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3ue224RoseInstrSparseIterBeginD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN3ue224RoseInstrSparseIterBeginE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -8577,7 +8571,7 @@ _ZNSt6vectorISt4pairIjPKN3ue215RoseInstructionEESaIS5_EED2Ev.exit: ; preds = %1,
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue224RoseInstrSparseIterBeginD0Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3ue224RoseInstrSparseIterBeginD0Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN3ue224RoseInstrSparseIterBeginE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -8676,12 +8670,12 @@ define linkonce_odr hidden void @_ZN3ue224RoseInstrSparseIterBegin13update_targe
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode45E29ROSE_STRUCT_SPARSE_ITER_BEGINNS_24RoseInstrSparseIterBeginEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue224RoseInstrSparseIterBeginE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue224RoseInstrSparseIterBeginE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode45E29ROSE_STRUCT_SPARSE_ITER_BEGINNS_24RoseInstrSparseIterBeginEEE, ptr nonnull @_ZTIN3ue224RoseInstrSparseIterBeginE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode45E29ROSE_STRUCT_SPARSE_ITER_BEGINNS_24RoseInstrSparseIterBeginEEE, ptr nonnull @_ZTIN3ue224RoseInstrSparseIterBeginE, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue224RoseInstrSparseIterBegin8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(60) %7, ptr noundef nonnull align 8 dereferenceable(60) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -8691,7 +8685,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue223RoseInstrSparseIterNextD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue223RoseInstrSparseIterNextD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -8744,12 +8738,12 @@ define linkonce_odr hidden void @_ZN3ue223RoseInstrSparseIterNext13update_target
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode46E28ROSE_STRUCT_SPARSE_ITER_NEXTNS_23RoseInstrSparseIterNextEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue223RoseInstrSparseIterNextE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue223RoseInstrSparseIterNextE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode46E28ROSE_STRUCT_SPARSE_ITER_NEXTNS_23RoseInstrSparseIterNextEEE, ptr nonnull @_ZTIN3ue223RoseInstrSparseIterNextE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode46E28ROSE_STRUCT_SPARSE_ITER_NEXTNS_23RoseInstrSparseIterNextEEE, ptr nonnull @_ZTIN3ue223RoseInstrSparseIterNextE, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue223RoseInstrSparseIterNext8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -8759,7 +8753,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue222RoseInstrSparseIterAnyD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3ue222RoseInstrSparseIterAnyD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN3ue222RoseInstrSparseIterAnyE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -8775,7 +8769,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %1, %4
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue222RoseInstrSparseIterAnyD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3ue222RoseInstrSparseIterAnyD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN3ue222RoseInstrSparseIterAnyE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -8841,7 +8835,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode47E27ROSE_STRUCT_SPARSE_ITER_ANYNS_22RoseInstrSparseIterAnyEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode47E27ROSE_STRUCT_SPARSE_ITER_ANYNS_22RoseInstrSparseIterAnyEEE, ptr nonnull @_ZTIN3ue222RoseInstrSparseIterAnyE, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode47E27ROSE_STRUCT_SPARSE_ITER_ANYNS_22RoseInstrSparseIterAnyEEE, ptr nonnull @_ZTIN3ue222RoseInstrSparseIterAnyE, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -8857,12 +8851,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode47E27ROSE_STRUCT_SPARSE_ITER_ANYNS_22RoseInstrSparseIterAnyEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue222RoseInstrSparseIterAnyE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue222RoseInstrSparseIterAnyE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode47E27ROSE_STRUCT_SPARSE_ITER_ANYNS_22RoseInstrSparseIterAnyEEE, ptr nonnull @_ZTIN3ue222RoseInstrSparseIterAnyE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode47E27ROSE_STRUCT_SPARSE_ITER_ANYNS_22RoseInstrSparseIterAnyEEE, ptr nonnull @_ZTIN3ue222RoseInstrSparseIterAnyE, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue222RoseInstrSparseIterAny8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -8872,7 +8866,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue219RoseInstrEnginesEodD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue219RoseInstrEnginesEodD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -8905,12 +8899,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseNoTargetsIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode48E23ROSE_STRUCT_ENGINES_EODNS_19RoseInstrEnginesEodEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrEnginesEodE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrEnginesEodE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %13, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode48E23ROSE_STRUCT_ENGINES_EODNS_19RoseInstrEnginesEodEEE, ptr nonnull @_ZTIN3ue219RoseInstrEnginesEodE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode48E23ROSE_STRUCT_ENGINES_EODNS_19RoseInstrEnginesEodEEE, ptr nonnull @_ZTIN3ue219RoseInstrEnginesEodE, i64 0) #27
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -8924,7 +8918,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue221RoseInstrCheckLongLitD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3ue221RoseInstrCheckLongLitD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN3ue221RoseInstrCheckLongLitE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -8948,7 +8942,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue221RoseInstrCheckLongLitD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3ue221RoseInstrCheckLongLitD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN3ue221RoseInstrCheckLongLitE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -9007,7 +9001,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode51E26ROSE_STRUCT_CHECK_LONG_LITNS_21RoseInstrCheckLongLitEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode51E26ROSE_STRUCT_CHECK_LONG_LITNS_21RoseInstrCheckLongLitEEE, ptr nonnull @_ZTIN3ue221RoseInstrCheckLongLitE, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode51E26ROSE_STRUCT_CHECK_LONG_LITNS_21RoseInstrCheckLongLitEEE, ptr nonnull @_ZTIN3ue221RoseInstrCheckLongLitE, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -9023,12 +9017,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode51E26ROSE_STRUCT_CHECK_LONG_LITNS_21RoseInstrCheckLongLitEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue221RoseInstrCheckLongLitE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue221RoseInstrCheckLongLitE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode51E26ROSE_STRUCT_CHECK_LONG_LITNS_21RoseInstrCheckLongLitEEE, ptr nonnull @_ZTIN3ue221RoseInstrCheckLongLitE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode51E26ROSE_STRUCT_CHECK_LONG_LITNS_21RoseInstrCheckLongLitEEE, ptr nonnull @_ZTIN3ue221RoseInstrCheckLongLitE, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue221RoseInstrCheckLongLit8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -9038,7 +9032,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue227RoseInstrCheckLongLitNocaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3ue227RoseInstrCheckLongLitNocaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN3ue227RoseInstrCheckLongLitNocaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -9062,7 +9056,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue227RoseInstrCheckLongLitNocaseD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3ue227RoseInstrCheckLongLitNocaseD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN3ue227RoseInstrCheckLongLitNocaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -9121,7 +9115,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode52E33ROSE_STRUCT_CHECK_LONG_LIT_NOCASENS_27RoseInstrCheckLongLitNocaseEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode52E33ROSE_STRUCT_CHECK_LONG_LIT_NOCASENS_27RoseInstrCheckLongLitNocaseEEE, ptr nonnull @_ZTIN3ue227RoseInstrCheckLongLitNocaseE, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode52E33ROSE_STRUCT_CHECK_LONG_LIT_NOCASENS_27RoseInstrCheckLongLitNocaseEEE, ptr nonnull @_ZTIN3ue227RoseInstrCheckLongLitNocaseE, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -9137,12 +9131,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode52E33ROSE_STRUCT_CHECK_LONG_LIT_NOCASENS_27RoseInstrCheckLongLitNocaseEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue227RoseInstrCheckLongLitNocaseE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue227RoseInstrCheckLongLitNocaseE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode52E33ROSE_STRUCT_CHECK_LONG_LIT_NOCASENS_27RoseInstrCheckLongLitNocaseEEE, ptr nonnull @_ZTIN3ue227RoseInstrCheckLongLitNocaseE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode52E33ROSE_STRUCT_CHECK_LONG_LIT_NOCASENS_27RoseInstrCheckLongLitNocaseEEE, ptr nonnull @_ZTIN3ue227RoseInstrCheckLongLitNocaseE, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue227RoseInstrCheckLongLitNocase8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -9152,7 +9146,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue220RoseInstrCheckMedLitD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3ue220RoseInstrCheckMedLitD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN3ue220RoseInstrCheckMedLitE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -9176,7 +9170,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue220RoseInstrCheckMedLitD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3ue220RoseInstrCheckMedLitD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN3ue220RoseInstrCheckMedLitE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -9235,7 +9229,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode53E25ROSE_STRUCT_CHECK_MED_LITNS_20RoseInstrCheckMedLitEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode53E25ROSE_STRUCT_CHECK_MED_LITNS_20RoseInstrCheckMedLitEEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMedLitE, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode53E25ROSE_STRUCT_CHECK_MED_LITNS_20RoseInstrCheckMedLitEEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMedLitE, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -9251,12 +9245,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode53E25ROSE_STRUCT_CHECK_MED_LITNS_20RoseInstrCheckMedLitEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMedLitE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMedLitE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode53E25ROSE_STRUCT_CHECK_MED_LITNS_20RoseInstrCheckMedLitEEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMedLitE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode53E25ROSE_STRUCT_CHECK_MED_LITNS_20RoseInstrCheckMedLitEEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMedLitE, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue220RoseInstrCheckMedLit8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -9266,7 +9260,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue226RoseInstrCheckMedLitNocaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3ue226RoseInstrCheckMedLitNocaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN3ue226RoseInstrCheckMedLitNocaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -9290,7 +9284,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue226RoseInstrCheckMedLitNocaseD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3ue226RoseInstrCheckMedLitNocaseD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN3ue226RoseInstrCheckMedLitNocaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -9349,7 +9343,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode54E32ROSE_STRUCT_CHECK_MED_LIT_NOCASENS_26RoseInstrCheckMedLitNocaseEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode54E32ROSE_STRUCT_CHECK_MED_LIT_NOCASENS_26RoseInstrCheckMedLitNocaseEEE, ptr nonnull @_ZTIN3ue226RoseInstrCheckMedLitNocaseE, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode54E32ROSE_STRUCT_CHECK_MED_LIT_NOCASENS_26RoseInstrCheckMedLitNocaseEEE, ptr nonnull @_ZTIN3ue226RoseInstrCheckMedLitNocaseE, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -9365,12 +9359,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode54E32ROSE_STRUCT_CHECK_MED_LIT_NOCASENS_26RoseInstrCheckMedLitNocaseEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue226RoseInstrCheckMedLitNocaseE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue226RoseInstrCheckMedLitNocaseE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode54E32ROSE_STRUCT_CHECK_MED_LIT_NOCASENS_26RoseInstrCheckMedLitNocaseEEE, ptr nonnull @_ZTIN3ue226RoseInstrCheckMedLitNocaseE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode54E32ROSE_STRUCT_CHECK_MED_LIT_NOCASENS_26RoseInstrCheckMedLitNocaseEEE, ptr nonnull @_ZTIN3ue226RoseInstrCheckMedLitNocaseE, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue226RoseInstrCheckMedLitNocase8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -9380,7 +9374,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue228RoseInstrMultipathLookaroundD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3ue228RoseInstrMultipathLookaroundD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN3ue228RoseInstrMultipathLookaroundE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -9422,7 +9416,7 @@ _ZNSt6vectorIS_IN3ue29LookEntryESaIS1_EESaIS3_EED2Ev.exit: ; preds = %_ZSt8_Dest
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue228RoseInstrMultipathLookaroundD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3ue228RoseInstrMultipathLookaroundD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN3ue228RoseInstrMultipathLookaroundE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -9576,7 +9570,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode56E32ROSE_STRUCT_MULTIPATH_LOOKAROUNDNS_28RoseInstrMultipathLookaroundEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode56E32ROSE_STRUCT_MULTIPATH_LOOKAROUNDNS_28RoseInstrMultipathLookaroundEEE, ptr nonnull @_ZTIN3ue228RoseInstrMultipathLookaroundE, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode56E32ROSE_STRUCT_MULTIPATH_LOOKAROUNDNS_28RoseInstrMultipathLookaroundEEE, ptr nonnull @_ZTIN3ue228RoseInstrMultipathLookaroundE, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -9592,12 +9586,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode56E32ROSE_STRUCT_MULTIPATH_LOOKAROUNDNS_28RoseInstrMultipathLookaroundEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue228RoseInstrMultipathLookaroundE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue228RoseInstrMultipathLookaroundE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode56E32ROSE_STRUCT_MULTIPATH_LOOKAROUNDNS_28RoseInstrMultipathLookaroundEEE, ptr nonnull @_ZTIN3ue228RoseInstrMultipathLookaroundE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode56E32ROSE_STRUCT_MULTIPATH_LOOKAROUNDNS_28RoseInstrMultipathLookaroundEEE, ptr nonnull @_ZTIN3ue228RoseInstrMultipathLookaroundE, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue228RoseInstrMultipathLookaround8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -9607,7 +9601,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue233RoseInstrCheckMultipathShufti16x8D0Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue233RoseInstrCheckMultipathShufti16x8D0Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -9719,7 +9713,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode57E39ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_16x8NS_33RoseInstrCheckMultipathShufti16x8EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode57E39ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_16x8NS_33RoseInstrCheckMultipathShufti16x8EEE, ptr nonnull @_ZTIN3ue233RoseInstrCheckMultipathShufti16x8E, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode57E39ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_16x8NS_33RoseInstrCheckMultipathShufti16x8EEE, ptr nonnull @_ZTIN3ue233RoseInstrCheckMultipathShufti16x8E, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -9735,12 +9729,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode57E39ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_16x8NS_33RoseInstrCheckMultipathShufti16x8EE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue233RoseInstrCheckMultipathShufti16x8E, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue233RoseInstrCheckMultipathShufti16x8E, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode57E39ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_16x8NS_33RoseInstrCheckMultipathShufti16x8EEE, ptr nonnull @_ZTIN3ue233RoseInstrCheckMultipathShufti16x8E, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode57E39ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_16x8NS_33RoseInstrCheckMultipathShufti16x8EEE, ptr nonnull @_ZTIN3ue233RoseInstrCheckMultipathShufti16x8E, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue233RoseInstrCheckMultipathShufti16x88equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(192) %7, ptr noundef nonnull align 8 dereferenceable(192) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -9750,7 +9744,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue233RoseInstrCheckMultipathShufti32x8D0Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue233RoseInstrCheckMultipathShufti32x8D0Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -9882,7 +9876,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode58E39ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x8NS_33RoseInstrCheckMultipathShufti32x8EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode58E39ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x8NS_33RoseInstrCheckMultipathShufti32x8EEE, ptr nonnull @_ZTIN3ue233RoseInstrCheckMultipathShufti32x8E, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode58E39ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x8NS_33RoseInstrCheckMultipathShufti32x8EEE, ptr nonnull @_ZTIN3ue233RoseInstrCheckMultipathShufti32x8E, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -9898,12 +9892,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode58E39ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x8NS_33RoseInstrCheckMultipathShufti32x8EE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue233RoseInstrCheckMultipathShufti32x8E, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue233RoseInstrCheckMultipathShufti32x8E, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode58E39ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x8NS_33RoseInstrCheckMultipathShufti32x8EEE, ptr nonnull @_ZTIN3ue233RoseInstrCheckMultipathShufti32x8E, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode58E39ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x8NS_33RoseInstrCheckMultipathShufti32x8EEE, ptr nonnull @_ZTIN3ue233RoseInstrCheckMultipathShufti32x8E, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue233RoseInstrCheckMultipathShufti32x88equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(232) %7, ptr noundef nonnull align 8 dereferenceable(232) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -9913,7 +9907,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue234RoseInstrCheckMultipathShufti32x16D0Ev(ptr noundef nonnull align 8 dereferenceable(296) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue234RoseInstrCheckMultipathShufti32x16D0Ev(ptr noundef nonnull align 8 dereferenceable(296) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -9946,7 +9940,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode59E40ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x16NS_34RoseInstrCheckMultipathShufti32x16EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode59E40ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x16NS_34RoseInstrCheckMultipathShufti32x16EEE, ptr nonnull @_ZTIN3ue234RoseInstrCheckMultipathShufti32x16E, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode59E40ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x16NS_34RoseInstrCheckMultipathShufti32x16EEE, ptr nonnull @_ZTIN3ue234RoseInstrCheckMultipathShufti32x16E, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 288
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -9962,12 +9956,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode59E40ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x16NS_34RoseInstrCheckMultipathShufti32x16EE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue234RoseInstrCheckMultipathShufti32x16E, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue234RoseInstrCheckMultipathShufti32x16E, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode59E40ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x16NS_34RoseInstrCheckMultipathShufti32x16EEE, ptr nonnull @_ZTIN3ue234RoseInstrCheckMultipathShufti32x16E, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode59E40ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x16NS_34RoseInstrCheckMultipathShufti32x16EEE, ptr nonnull @_ZTIN3ue234RoseInstrCheckMultipathShufti32x16E, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue234RoseInstrCheckMultipathShufti32x168equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(296) %7, ptr noundef nonnull align 8 dereferenceable(296) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -9977,7 +9971,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue231RoseInstrCheckMultipathShufti64D0Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue231RoseInstrCheckMultipathShufti64D0Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -10106,7 +10100,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode60E37ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_64NS_31RoseInstrCheckMultipathShufti64EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode60E37ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_64NS_31RoseInstrCheckMultipathShufti64EEE, ptr nonnull @_ZTIN3ue231RoseInstrCheckMultipathShufti64E, i64 0) #26
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode60E37ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_64NS_31RoseInstrCheckMultipathShufti64EEE, ptr nonnull @_ZTIN3ue231RoseInstrCheckMultipathShufti64E, i64 0) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 232
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -10122,12 +10116,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode60E37ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_64NS_31RoseInstrCheckMultipathShufti64EE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue231RoseInstrCheckMultipathShufti64E, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue231RoseInstrCheckMultipathShufti64E, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode60E37ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_64NS_31RoseInstrCheckMultipathShufti64EEE, ptr nonnull @_ZTIN3ue231RoseInstrCheckMultipathShufti64E, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode60E37ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_64NS_31RoseInstrCheckMultipathShufti64EEE, ptr nonnull @_ZTIN3ue231RoseInstrCheckMultipathShufti64E, i64 0) #27
   %8 = tail call noundef zeroext i1 @_ZNK3ue231RoseInstrCheckMultipathShufti648equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(240) %7, ptr noundef nonnull align 8 dereferenceable(240) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %9
 
@@ -10137,7 +10131,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue221RoseInstrIncludedJumpD0Ev(ptr noundef nonnull align 8 dereferenceable(13) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue221RoseInstrIncludedJumpD0Ev(ptr noundef nonnull align 8 dereferenceable(13) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -10176,12 +10170,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseNoTargetsIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode61E25ROSE_STRUCT_INCLUDED_JUMPNS_21RoseInstrIncludedJumpEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue221RoseInstrIncludedJumpE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue221RoseInstrIncludedJumpE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %19, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode61E25ROSE_STRUCT_INCLUDED_JUMPNS_21RoseInstrIncludedJumpEEE, ptr nonnull @_ZTIN3ue221RoseInstrIncludedJumpE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode61E25ROSE_STRUCT_INCLUDED_JUMPNS_21RoseInstrIncludedJumpEEE, ptr nonnull @_ZTIN3ue221RoseInstrIncludedJumpE, i64 0) #27
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -10201,7 +10195,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue219RoseInstrSetLogicalD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue219RoseInstrSetLogicalD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -10240,12 +10234,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseNoTargetsIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode62E23ROSE_STRUCT_SET_LOGICALNS_19RoseInstrSetLogicalEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrSetLogicalE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrSetLogicalE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %19, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode62E23ROSE_STRUCT_SET_LOGICALNS_19RoseInstrSetLogicalEEE, ptr nonnull @_ZTIN3ue219RoseInstrSetLogicalE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode62E23ROSE_STRUCT_SET_LOGICALNS_19RoseInstrSetLogicalEEE, ptr nonnull @_ZTIN3ue219RoseInstrSetLogicalE, i64 0) #27
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -10265,7 +10259,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue223RoseInstrSetCombinationD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue223RoseInstrSetCombinationD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -10298,12 +10292,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseNoTargetsIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode63E27ROSE_STRUCT_SET_COMBINATIONNS_23RoseInstrSetCombinationEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue223RoseInstrSetCombinationE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue223RoseInstrSetCombinationE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %13, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode63E27ROSE_STRUCT_SET_COMBINATIONNS_23RoseInstrSetCombinationEEE, ptr nonnull @_ZTIN3ue223RoseInstrSetCombinationE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode63E27ROSE_STRUCT_SET_COMBINATIONNS_23RoseInstrSetCombinationEEE, ptr nonnull @_ZTIN3ue223RoseInstrSetCombinationE, i64 0) #27
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -10322,7 +10316,7 @@ define hidden void @_ZN3ue215RoseInstructionD2Ev(ptr nonnull readnone align 8 ca
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue219RoseInstrSetExhaustD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3ue219RoseInstrSetExhaustD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -10355,12 +10349,12 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseNoTargetsIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode65E23ROSE_STRUCT_SET_EXHAUSTNS_19RoseInstrSetExhaustEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrSetExhaustE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrSetExhaustE, i64 0) #27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %13, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode65E23ROSE_STRUCT_SET_EXHAUSTNS_19RoseInstrSetExhaustEEE, ptr nonnull @_ZTIN3ue219RoseInstrSetExhaustE, i64 0) #26
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode65E23ROSE_STRUCT_SET_EXHAUSTNS_19RoseInstrSetExhaustEEE, ptr nonnull @_ZTIN3ue219RoseInstrSetExhaustE, i64 0) #27
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -10401,7 +10395,7 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseNoTargetsIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode20E20ROSE_STRUCT_CATCH_UPNS_16RoseInstrCatchUpEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue216RoseInstrCatchUpE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue216RoseInstrCatchUpE, i64 0) #27
   %.not = icmp ne ptr %5, null
   ret i1 %.not
 }
@@ -10439,7 +10433,7 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseNoTargetsIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode21E24ROSE_STRUCT_CATCH_UP_MPVNS_19RoseInstrCatchUpMpvEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrCatchUpMpvE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrCatchUpMpvE, i64 0) #27
   %.not = icmp ne ptr %5, null
   ret i1 %.not
 }
@@ -10477,7 +10471,7 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseNoTargetsIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode25E20ROSE_STRUCT_SOM_ZERONS_16RoseInstrSomZeroEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue216RoseInstrSomZeroE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue216RoseInstrSomZeroE, i64 0) #27
   %.not = icmp ne ptr %5, null
   ret i1 %.not
 }
@@ -10515,7 +10509,7 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseNoTargetsIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode49E24ROSE_STRUCT_SUFFIXES_EODNS_20RoseInstrSuffixesEodEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrSuffixesEodE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrSuffixesEodE, i64 0) #27
   %.not = icmp ne ptr %5, null
   ret i1 %.not
 }
@@ -10553,7 +10547,7 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseNoTargetsIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode50E23ROSE_STRUCT_MATCHER_EODNS_19RoseInstrMatcherEodEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrMatcherEodE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrMatcherEodE, i64 0) #27
   %.not = icmp ne ptr %5, null
   ret i1 %.not
 }
@@ -10591,7 +10585,7 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseNoTargetsIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode0E15ROSE_STRUCT_ENDNS_12RoseInstrEndEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue212RoseInstrEndE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue212RoseInstrEndE, i64 0) #27
   %.not = icmp ne ptr %5, null
   ret i1 %.not
 }
@@ -10629,7 +10623,7 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseNoTargetsIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode55E27ROSE_STRUCT_CLEAR_WORK_DONENS_22RoseInstrClearWorkDoneEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue222RoseInstrClearWorkDoneE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue222RoseInstrClearWorkDoneE, i64 0) #27
   %.not = icmp ne ptr %5, null
   ret i1 %.not
 }
@@ -10667,7 +10661,7 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseNoTargetsIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode64E29ROSE_STRUCT_FLUSH_COMBINATIONNS_25RoseInstrFlushCombinationEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue225RoseInstrFlushCombinationE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue225RoseInstrFlushCombinationE, i64 0) #27
   %.not = icmp ne ptr %5, null
   ret i1 %.not
 }
@@ -10705,7 +10699,7 @@ define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseNoTargetsIL19RoseInstruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode66E34ROSE_STRUCT_LAST_FLUSH_COMBINATIONNS_29RoseInstrLastFlushCombinationEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #5 comdat align 2 {
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue229RoseInstrLastFlushCombinationE, i64 0) #26
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue229RoseInstrLastFlushCombinationE, i64 0) #27
   %.not = icmp ne ptr %5, null
   ret i1 %.not
 }
@@ -10923,8 +10917,8 @@ _ZNKSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #12 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #26
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #11 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #27
   tail call void @_ZSt9terminatev() #23
   unreachable
 }
@@ -10932,12 +10926,12 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #13
+declare void @_ZSt9terminatev() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRS5_RjEEES4_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::_Hashtable<std::vector<mmbit_sparse_iter>, std::pair<const std::vector<mmbit_sparse_iter>, unsigned int>, std::allocator<std::pair<const std::vector<mmbit_sparse_iter>, unsigned int>>, std::__detail::_Select1st, std::equal_to<std::vector<mmbit_sparse_iter>>, ue2::ue2_hasher, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = tail call noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt6vectorI17mmbit_sparse_iterSaIS4_EEjELb1EEEEE16_M_allocate_nodeIJRS7_RjEEEPS9_DpOT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
@@ -11161,8 +11155,8 @@ _ZNKSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt
 119:                                              ; preds = %.critedge28
   %120 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
+  call void @_ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %120
 
 _ZNKSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.thread40: ; preds = %42, %.lr.ph.split.us, %75, %_ZNKSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit
@@ -11186,7 +11180,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt6vectorI17mmbit_s
 _ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %.critedge28, %_ZNKSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.thread40, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt6vectorI17mmbit_sparse_iterSaIS4_EEjELb1EEEEE18_M_deallocate_nodeEPS9_.exit.i
   %.sroa.4.048 = phi i8 [ 0, %_ZNKSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.thread40 ], [ 0, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt6vectorI17mmbit_sparse_iterSaIS4_EEjELb1EEEEE18_M_deallocate_nodeEPS9_.exit.i ], [ 1, %.critedge28 ]
   %.sroa.037.047 = phi ptr [ %.sroa.037.0.ph, %_ZNKSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.thread40 ], [ %.sroa.037.0.ph, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt6vectorI17mmbit_sparse_iterSaIS4_EEjELb1EEEEE18_M_deallocate_nodeEPS9_.exit.i ], [ %118, %.critedge28 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.037.047, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.4.048, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -11215,7 +11209,7 @@ define linkonce_odr hidden ptr @_ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterS
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #26
+  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #27
   store i64 %8, ptr %7, align 8
   invoke void @__cxa_rethrow() #25
           to label %28 unwind label %22
@@ -11322,7 +11316,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt6vectorI17mmbit_s
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt6vectorI17mmbit_sparse_iterSaIS4_EEjELb1EEEEE16_M_allocate_nodeIJRS7_RjEEEPS9_DpOT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
+  %4 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #26
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -11355,7 +11349,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_1
   unreachable
 
 _ZNSt16allocator_traitsISaI17mmbit_sparse_iterEE8allocateERS1_m.exit.i.i.i.i.i.i.i: ; preds = %15
-  %17 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #27
+  %17 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #26
           to label %18 unwind label %27
 
 18:                                               ; preds = %_ZNSt16allocator_traitsISaI17mmbit_sparse_iterEE8allocateERS1_m.exit.i.i.i.i.i.i.i
@@ -11381,7 +11375,7 @@ _ZNSt16allocator_traitsISaI17mmbit_sparse_iterEE8allocateERS1_m.exit.i.i.i.i.i.i
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  %30 = tail call ptr @__cxa_begin_catch(ptr %29) #26
+  %30 = tail call ptr @__cxa_begin_catch(ptr %29) #27
   tail call void @_ZdlPv(ptr noundef nonnull %4) #24
   invoke void @__cxa_rethrow() #25
           to label %37 unwind label %31
@@ -11411,18 +11405,18 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #14
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #13
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #14
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #13
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #15
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
-declare { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
+declare { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -11452,7 +11446,7 @@ define linkonce_odr hidden void @_ZNSt10_HashtableISt6vectorI17mmbit_sparse_iter
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt6vectorI17mmbit_sparse_iterSaIS4_EEjELb1EEEEE19_M_allocate_bucketsEm.exit.i: ; preds = %6
   %10 = shl nuw nsw i64 %1, 3
-  %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #27
+  %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #26
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %11, i8 0, i64 %10, i1 false)
   br label %_ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
 
@@ -11566,7 +11560,7 @@ _ZNKSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE12_M_check_lenEmPKc.exit: ; pred
   br i1 %.not.i.i.i, label %23, label %_ZSt27__uninitialized_default_n_aIPcmN3ue216AlignedAllocatorIcLm64EEEET_S4_T0_RT1_.exit28
 
 23:                                               ; preds = %_ZNKSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE12_M_check_lenEmPKc.exit
-  %24 = tail call ptr @__cxa_allocate_exception(i64 8) #26
+  %24 = tail call ptr @__cxa_allocate_exception(i64 8) #27
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %24, align 8
   tail call void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #25
   unreachable
@@ -11617,19 +11611,19 @@ _ZNSt12_Vector_baseIcN3ue216AlignedAllocatorIcLm64EEEE13_M_deallocateEPcm.exit: 
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
 
-declare noundef ptr @_ZN3ue223aligned_malloc_internalEmm(i64 noundef, i64 noundef) local_unnamed_addr #8
+declare noundef ptr @_ZN3ue223aligned_malloc_internalEmm(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: nounwind
-declare void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #16
+declare void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #15
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #17
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #16
 
-declare void @_ZN3ue221aligned_free_internalEPv(ptr noundef) local_unnamed_addr #8
+declare void @_ZN3ue221aligned_free_internalEPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZN3ue28hash_allIJRK19RoseInstructionCodeRKSt5arrayIhLm64EES7_S7_S7_S7_S7_RKyRKiEEEmDpOT_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 1 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2, ptr noundef nonnull align 1 dereferenceable(64) %3, ptr noundef nonnull align 1 dereferenceable(64) %4, ptr noundef nonnull align 1 dereferenceable(64) %5, ptr noundef nonnull align 1 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8) local_unnamed_addr #5 comdat {
@@ -11748,7 +11742,7 @@ _ZN3ue211hash_detail10hash_buildISt5arrayIhLm64EEJRKS3_S5_S5_S5_RKyRKiEEEvRmRKT_
   ret i64 %71
 }
 
-declare noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
+declare noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZN3ue28hash_allIJRK19RoseInstructionCodeRKSt5arrayIhLm32EES7_RKS4_IhLm64EESA_SA_RKjSC_SC_RKiSE_EEEmDpOT_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 1 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(32) %2, ptr noundef nonnull align 1 dereferenceable(64) %3, ptr noundef nonnull align 1 dereferenceable(64) %4, ptr noundef nonnull align 1 dereferenceable(64) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10) local_unnamed_addr #5 comdat {
@@ -11867,15 +11861,15 @@ _ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEJRKS2_IhLm64EES6_S6_RKjS8_S8_RK
   ret i64 %81
 }
 
-declare void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #8
+declare void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #7
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: nounwind
-declare void @_ZN3ue218ResourceLimitErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #16
+declare void @_ZN3ue218ResourceLimitErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #15
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #14
+declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -11904,7 +11898,7 @@ _ZNKSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EE12_M_check_lenEmPKc.exit: ; pre
   %.not.i = icmp ne i64 %16, 0
   tail call void @llvm.assume(i1 %.not.i)
   %19 = mul nuw nsw i64 %16, 24
-  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #27
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #26
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %18
   %22 = load ptr, ptr %2, align 8
   store ptr %22, ptr %21, align 8
@@ -11987,7 +11981,7 @@ _ZNSt12_Vector_baseISt6vectorIN3ue29CharReachESaIS2_EESaIS4_EE13_M_deallocateEPS
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #18
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue222RoseInstrAnchoredDelay8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -18228,6 +18222,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue231RoseInstrCheckMultipath
   ret i1 %55
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #19
 
@@ -18249,19 +18249,19 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { inlinehint mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { noinline noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { cold nofree noreturn }
-attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { cold noreturn }
-attributes #18 = { mustprogress nofree nounwind willreturn memory(read) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { inlinehint mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noinline noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { cold nofree noreturn }
+attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { cold noreturn }
+attributes #17 = { mustprogress nofree nounwind willreturn memory(read) }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #20 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
@@ -18269,8 +18269,8 @@ attributes #22 = { nocallback nofree nosync nounwind willreturn memory(inaccessi
 attributes #23 = { noreturn nounwind }
 attributes #24 = { builtin nounwind }
 attributes #25 = { noreturn }
-attributes #26 = { nounwind }
-attributes #27 = { builtin allocsize(0) }
+attributes #26 = { builtin allocsize(0) }
+attributes #27 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

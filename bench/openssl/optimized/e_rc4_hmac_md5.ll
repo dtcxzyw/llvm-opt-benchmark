@@ -153,7 +153,7 @@ define internal range(i32 0, 2) i32 @rc4_hmac_md5_cipher(ptr noundef %0, ptr nou
   br label %119
 
 73:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %74 = icmp ugt i32 %14, %9
   %.1155.v = select i1 %74, i64 128, i64 64
   %.1155 = or disjoint i64 %.1155.v, %10
@@ -229,11 +229,11 @@ define internal range(i32 0, 2) i32 @rc4_hmac_md5_cipher(ptr noundef %0, ptr nou
   br label %.critedge
 
 .critedge:                                        ; preds = %106, %115
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %119
 
 118:                                              ; preds = %106
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %120
 
 119:                                              ; preds = %.critedge, %61, %69
@@ -255,7 +255,7 @@ define internal range(i32 -1, 17) i32 @rc4_hmac_md5_ctrl(ptr noundef %0, i32 nou
   ]
 
 7:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   %8 = icmp sgt i32 %2, 64
   br i1 %8, label %9, label %15
@@ -307,7 +307,7 @@ define internal range(i32 -1, 17) i32 @rc4_hmac_md5_ctrl(ptr noundef %0, i32 nou
   %31 = call i32 @MD5_Init(ptr noundef nonnull %30) #6
   %32 = call i32 @MD5_Update(ptr noundef nonnull %30, ptr noundef nonnull %5, i64 noundef 64) #6
   call void @OPENSSL_cleanse(ptr noundef nonnull %5, i64 noundef 64) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %57
 
 33:                                               ; preds = %4
@@ -356,46 +356,46 @@ define internal range(i32 -1, 17) i32 @rc4_hmac_md5_ctrl(ptr noundef %0, i32 nou
   ret i32 %.042
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef) local_unnamed_addr #2
 
-declare ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_CIPHER_CTX_get_key_length(ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_CIPHER_CTX_get_key_length(ptr noundef) local_unnamed_addr #3
+declare void @RC4_set_key(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @RC4_set_key(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
-
-declare i32 @MD5_Init(ptr noundef) local_unnamed_addr #3
+declare i32 @MD5_Init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef) local_unnamed_addr #3
+declare i32 @MD5_Update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @MD5_Update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @RC4(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @RC4(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @rc4_md5_enc(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @rc4_md5_enc(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @MD5_Final(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @MD5_Final(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

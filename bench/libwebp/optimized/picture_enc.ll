@@ -148,15 +148,9 @@ WebPValidatePicture.exit.thread:                  ; preds = %8, %8, %WebPValidat
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
 declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #3
 
 declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @WebPPictureAllocYUVA(ptr noundef %0) local_unnamed_addr #0 {
@@ -388,7 +382,7 @@ define range(i32 0, 2) i32 @WebPMemoryWrite(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define void @WebPMemoryWriterClear(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -410,9 +404,9 @@ define i64 @WebPEncodeRGB(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   %7 = alloca %struct.WebPPicture, align 8
   %8 = alloca %struct.WebPConfig, align 4
   %9 = alloca %struct.WebPMemoryWriter, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = icmp eq ptr %5, null
   br i1 %10, label %Encode.exit, label %11
 
@@ -489,9 +483,9 @@ define i64 @WebPEncodeRGB(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
 
 Encode.exit:                                      ; preds = %6, %11, %36, %38
   %.0.i = phi i64 [ %41, %38 ], [ 0, %36 ], [ 0, %6 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0.i
 }
 
@@ -502,9 +496,9 @@ define i64 @WebPEncodeRGBA(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %7 = alloca %struct.WebPPicture, align 8
   %8 = alloca %struct.WebPConfig, align 4
   %9 = alloca %struct.WebPMemoryWriter, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = icmp eq ptr %5, null
   br i1 %10, label %Encode.exit, label %11
 
@@ -581,9 +575,9 @@ define i64 @WebPEncodeRGBA(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
 
 Encode.exit:                                      ; preds = %6, %11, %36, %38
   %.0.i = phi i64 [ %41, %38 ], [ 0, %36 ], [ 0, %6 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0.i
 }
 
@@ -594,9 +588,9 @@ define i64 @WebPEncodeBGR(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   %7 = alloca %struct.WebPPicture, align 8
   %8 = alloca %struct.WebPConfig, align 4
   %9 = alloca %struct.WebPMemoryWriter, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = icmp eq ptr %5, null
   br i1 %10, label %Encode.exit, label %11
 
@@ -673,9 +667,9 @@ define i64 @WebPEncodeBGR(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
 
 Encode.exit:                                      ; preds = %6, %11, %36, %38
   %.0.i = phi i64 [ %41, %38 ], [ 0, %36 ], [ 0, %6 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0.i
 }
 
@@ -686,9 +680,9 @@ define i64 @WebPEncodeBGRA(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %7 = alloca %struct.WebPPicture, align 8
   %8 = alloca %struct.WebPConfig, align 4
   %9 = alloca %struct.WebPMemoryWriter, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = icmp eq ptr %5, null
   br i1 %10, label %Encode.exit, label %11
 
@@ -765,9 +759,9 @@ define i64 @WebPEncodeBGRA(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
 
 Encode.exit:                                      ; preds = %6, %11, %36, %38
   %.0.i = phi i64 [ %41, %38 ], [ 0, %36 ], [ 0, %6 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0.i
 }
 
@@ -778,9 +772,9 @@ define i64 @WebPEncodeLosslessRGB(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %6 = alloca %struct.WebPPicture, align 8
   %7 = alloca %struct.WebPConfig, align 4
   %8 = alloca %struct.WebPMemoryWriter, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp eq ptr %4, null
   br i1 %9, label %Encode.exit, label %10
 
@@ -857,9 +851,9 @@ define i64 @WebPEncodeLosslessRGB(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 Encode.exit:                                      ; preds = %5, %10, %35, %37
   %.0.i = phi i64 [ %40, %37 ], [ 0, %35 ], [ 0, %5 ], [ 0, %10 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.0.i
 }
 
@@ -868,9 +862,9 @@ define i64 @WebPEncodeLosslessRGBA(ptr noundef %0, i32 noundef %1, i32 noundef %
   %6 = alloca %struct.WebPPicture, align 8
   %7 = alloca %struct.WebPConfig, align 4
   %8 = alloca %struct.WebPMemoryWriter, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp eq ptr %4, null
   br i1 %9, label %Encode.exit, label %10
 
@@ -947,9 +941,9 @@ define i64 @WebPEncodeLosslessRGBA(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 Encode.exit:                                      ; preds = %5, %10, %35, %37
   %.0.i = phi i64 [ %40, %37 ], [ 0, %35 ], [ 0, %5 ], [ 0, %10 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.0.i
 }
 
@@ -958,9 +952,9 @@ define i64 @WebPEncodeLosslessBGR(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %6 = alloca %struct.WebPPicture, align 8
   %7 = alloca %struct.WebPConfig, align 4
   %8 = alloca %struct.WebPMemoryWriter, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp eq ptr %4, null
   br i1 %9, label %Encode.exit, label %10
 
@@ -1037,9 +1031,9 @@ define i64 @WebPEncodeLosslessBGR(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 Encode.exit:                                      ; preds = %5, %10, %35, %37
   %.0.i = phi i64 [ %40, %37 ], [ 0, %35 ], [ 0, %5 ], [ 0, %10 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.0.i
 }
 
@@ -1048,9 +1042,9 @@ define i64 @WebPEncodeLosslessBGRA(ptr noundef %0, i32 noundef %1, i32 noundef %
   %6 = alloca %struct.WebPPicture, align 8
   %7 = alloca %struct.WebPConfig, align 4
   %8 = alloca %struct.WebPMemoryWriter, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp eq ptr %4, null
   br i1 %9, label %Encode.exit, label %10
 
@@ -1127,15 +1121,21 @@ define i64 @WebPEncodeLosslessBGRA(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 Encode.exit:                                      ; preds = %5, %10, %35, %37
   %.0.i = phi i64 [ %40, %37 ], [ 0, %35 ], [ 0, %5 ], [ 0, %10 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.0.i
 }
 
 declare i32 @WebPEncode(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 declare i32 @WebPConfigInitInternal(ptr noundef, i32 noundef, float noundef, i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #7
@@ -1145,8 +1145,8 @@ attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 

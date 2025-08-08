@@ -1870,7 +1870,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #14
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15findNearestPolyEPKfS1_PK13dtQueryFilterPjPf(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %class.dtFindNearestPolyQuery, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
   %9 = icmp ne ptr %8, null
   %10 = load ptr, ptr %0, align 8
@@ -1938,7 +1938,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15fin
 
 _ZNK14dtNavMeshQuery15findNearestPolyEPKfS1_PK13dtQueryFilterPjPfPb.exit: ; preds = %12, %34
   %.0.i = phi i32 [ %.1.i, %34 ], [ -2147483640, %12 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0.i
 }
 
@@ -2984,8 +2984,8 @@ _Z11dtVisfinitePKf.exit187:                       ; preds = %60
   %194 = load ptr, ptr %12, align 8
   %195 = load ptr, ptr %17, align 8
   %196 = load ptr, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %197 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTilejS2_S5_PfS6_(ptr nonnull readnone align 8 poison, i32 noundef %141, ptr noundef readonly %193, ptr noundef readonly %194, i32 noundef %165, ptr noundef readonly %195, ptr noundef readonly %196, ptr noundef nonnull %10, ptr noundef nonnull %11)
   %198 = icmp slt i32 %197, 0
   br i1 %198, label %_ZNK14dtNavMeshQuery15getEdgeMidPointEjPK6dtPolyPK10dtMeshTilejS2_S5_Pf.exit, label %199
@@ -3011,8 +3011,8 @@ _Z11dtVisfinitePKf.exit187:                       ; preds = %60
   br label %_ZNK14dtNavMeshQuery15getEdgeMidPointEjPK6dtPolyPK10dtMeshTilejS2_S5_Pf.exit
 
 _ZNK14dtNavMeshQuery15getEdgeMidPointEjPK6dtPolyPK10dtMeshTilejS2_S5_Pf.exit: ; preds = %192, %199
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %214
 
 214:                                              ; preds = %_ZNK14dtNavMeshQuery15getEdgeMidPointEjPK6dtPolyPK10dtMeshTilejS2_S5_Pf.exit, %187
@@ -3896,8 +3896,8 @@ define noundef i32 @_ZN14dtNavMeshQuery20updateSlicedFindPathEiPi(ptr noundef no
   %175 = load ptr, ptr %7, align 8
   %176 = load ptr, ptr %12, align 8
   %177 = load ptr, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %178 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTilejS2_S5_PfS6_(ptr nonnull readnone align 8 poison, i32 noundef %63, ptr noundef readonly %174, ptr noundef readonly %175, i32 noundef %140, ptr noundef readonly %176, ptr noundef readonly %177, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %179 = icmp slt i32 %178, 0
   br i1 %179, label %_ZNK14dtNavMeshQuery15getEdgeMidPointEjPK6dtPolyPK10dtMeshTilejS2_S5_Pf.exit, label %180
@@ -3923,8 +3923,8 @@ define noundef i32 @_ZN14dtNavMeshQuery20updateSlicedFindPathEiPi(ptr noundef no
   br label %_ZNK14dtNavMeshQuery15getEdgeMidPointEjPK6dtPolyPK10dtMeshTilejS2_S5_Pf.exit
 
 _ZNK14dtNavMeshQuery15getEdgeMidPointEjPK6dtPolyPK10dtMeshTilejS2_S5_Pf.exit: ; preds = %173, %180
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %195
 
 195:                                              ; preds = %_ZNK14dtNavMeshQuery15getEdgeMidPointEjPK6dtPolyPK10dtMeshTilejS2_S5_Pf.exit, %170
@@ -4884,12 +4884,12 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %37, %46
 82:                                               ; preds = %66
   %83 = load ptr, ptr %62, align 8
   %84 = sub nsw i32 %3, %.1
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %79, ptr %63, align 8
   store i32 %84, ptr %64, align 4
   %85 = call noundef i32 @_ZNK14dtNavMeshQuery7raycastEjPKfS1_PK13dtQueryFilterjP12dtRaycastHitj(ptr noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %77, ptr noundef nonnull %.152, ptr noundef %.0.i76, ptr noundef readonly %83, i32 noundef 0, ptr noundef nonnull %5, i32 noundef 0)
   %86 = load i32, ptr %65, align 8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %87 = add nsw i32 %86, %.1
   %88 = sext i32 %87 to i64
   %89 = getelementptr i32, ptr %1, i64 %88
@@ -5139,12 +5139,12 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %.thread, %55
 93:                                               ; preds = %76
   %94 = load ptr, ptr %72, align 8
   %95 = sub nsw i32 %5, %.1
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %90, ptr %73, align 8
   store i32 %95, ptr %74, align 4
   %96 = call noundef i32 @_ZNK14dtNavMeshQuery7raycastEjPKfS1_PK13dtQueryFilterjP12dtRaycastHitj(ptr noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %88, ptr noundef nonnull %77, ptr noundef %.0.i81, ptr noundef readonly %94, i32 noundef 0, ptr noundef nonnull %7, i32 noundef 0)
   %97 = load i32, ptr %75, align 8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %98 = add nsw i32 %97, %.1
   %99 = sext i32 %98 to i64
   %100 = getelementptr i32, ptr %3, i64 %99
@@ -9167,8 +9167,8 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %45
   %285 = load ptr, ptr %11, align 8
   %286 = load ptr, ptr %19, align 8
   %287 = load ptr, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %288 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTilejS2_S5_PfS6_(ptr nonnull readnone align 8 poison, i32 noundef %116, ptr noundef readonly %284, ptr noundef readonly %285, i32 noundef %229, ptr noundef readonly %286, ptr noundef readonly %287, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %289 = icmp slt i32 %288, 0
   br i1 %289, label %_ZNK14dtNavMeshQuery15getEdgeMidPointEjPK6dtPolyPK10dtMeshTilejS2_S5_Pf.exit, label %290
@@ -9194,8 +9194,8 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %45
   br label %_ZNK14dtNavMeshQuery15getEdgeMidPointEjPK6dtPolyPK10dtMeshTilejS2_S5_Pf.exit
 
 _ZNK14dtNavMeshQuery15getEdgeMidPointEjPK6dtPolyPK10dtMeshTilejS2_S5_Pf.exit: ; preds = %283, %290
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %305
 
 305:                                              ; preds = %_ZNK14dtNavMeshQuery15getEdgeMidPointEjPK6dtPolyPK10dtMeshTilejS2_S5_Pf.exit, %280
@@ -9603,10 +9603,10 @@ declare float @llvm.sqrt.f32(float) #19
 declare void @llvm.assume(i1 noundef) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #19

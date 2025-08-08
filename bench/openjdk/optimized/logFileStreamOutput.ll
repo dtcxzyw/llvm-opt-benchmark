@@ -199,7 +199,7 @@ define hidden noundef i32 @_ZN19LogFileStreamOutput14write_internalERK14LogDecor
   br i1 %7, label %73, label %8
 
 8:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
   br label %11
@@ -224,7 +224,7 @@ define hidden noundef i32 @_ZN19LogFileStreamOutput14write_internalERK14LogDecor
   br i1 %22, label %_ZN19LogFileStreamOutput17write_decorationsERK14LogDecorations.exit.thread, label %23
 
 _ZN19LogFileStreamOutput17write_decorationsERK14LogDecorations.exit.thread: ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %33
 
 23:                                               ; preds = %16
@@ -249,7 +249,7 @@ _ZN19LogFileStreamOutput17write_decorationsERK14LogDecorations.exit.thread: ; pr
   br i1 %exitcond.not.i, label %_ZN19LogFileStreamOutput17write_decorationsERK14LogDecorations.exit, label %11, !llvm.loop !6
 
 _ZN19LogFileStreamOutput17write_decorationsERK14LogDecorations.exit: ; preds = %31
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %32 = icmp slt i32 %.1.i, 0
   br i1 %32, label %33, label %50
 
@@ -630,10 +630,10 @@ declare void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare void @llvm.trap() #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

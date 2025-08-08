@@ -45,12 +45,6 @@ define hidden noundef i32 @_ZN2cv3hal12cpu_baseline11normHammingEPKhi(ptr nounde
   ret i32 %.0.lcssa
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZN2cv3hal12cpu_baseline11normHammingEPKhS3_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp sgt i32 %2, 0
@@ -83,9 +77,9 @@ define hidden noundef i32 @_ZN2cv3hal12cpu_baseline11normHammingEPKhS3_i(ptr nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN2cv3hal11normHammingEPKhi(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN2cv3hal11normHammingEPKhi(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal11normHammingEPKhiE24__cv_trace_location_fn14)
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph.preheader.i, label %_ZN2cv3hal12cpu_baseline11normHammingEPKhi.exit
@@ -123,20 +117,20 @@ _ZN2cv3hal12cpu_baseline11normHammingEPKhi.exit:  ; preds = %.lr.ph.i, %2
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #7
+  call void @__clang_call_terminate(ptr %17) #6
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baseline11normHammingEPKhi.exit, %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0.lcssa.i
 }
 
-declare void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
+declare void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN2cv3hal11normHammingEPKhS2_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN2cv3hal11normHammingEPKhS2_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::utils::trace::details::Region", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal11normHammingEPKhS2_iE24__cv_trace_location_fn22)
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader.i, label %_ZN2cv3hal12cpu_baseline11normHammingEPKhS3_i.exit
@@ -177,38 +171,44 @@ _ZN2cv3hal12cpu_baseline11normHammingEPKhS3_i.exit: ; preds = %.lr.ph.i, %3
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #7
+  call void @__clang_call_terminate(ptr %21) #6
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baseline11normHammingEPKhS3_i.exit, %18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.lcssa.i
 }
 
-declare void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #3
+declare void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #2
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #6
-  tail call void @_ZSt9terminatev() #7
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #7
+  tail call void @_ZSt9terminatev() #6
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #5
+declare void @_ZSt9terminatev() local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #4 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold nofree noreturn }
-attributes #6 = { nounwind }
-attributes #7 = { noreturn nounwind }
+attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #3 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold nofree noreturn }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { noreturn nounwind }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

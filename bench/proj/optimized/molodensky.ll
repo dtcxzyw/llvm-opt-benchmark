@@ -193,11 +193,8 @@ define hidden noundef ptr @_Z39pj_projection_specific_setup_molodenskyP8PJconsts
 
 declare noundef ptr @_Z6pj_newv() local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 declare noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -205,7 +202,7 @@ declare noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef, i32 nound
 define internal void @_ZL24pj_molodensky_forward_4dR8PJ_COORDP8PJconsts(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) #0 {
   %3 = alloca %union.PJ_COORD, align 8
   %4 = alloca %struct.PJ_LPZ, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %6 = load ptr, ptr %5, align 8, !tbaa !40, !noalias !56
@@ -234,14 +231,14 @@ define internal void @_ZL24pj_molodensky_forward_4dR8PJ_COORDP8PJconsts(ptr noun
 
 14:                                               ; preds = %11
   %15 = tail call i32 @proj_errno_set(ptr noundef nonnull %1, i32 noundef 2050), !noalias !56
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #9, !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !56
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %3), !noalias !56
   %.sroa.0.0.copyload3 = load double, ptr %3, align 8, !tbaa !59
   %.sroa.5.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.5.0.copyload5 = load double, ptr %.sroa.5.0..sroa_idx4, align 8, !tbaa !59
   %.sroa.6.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.6.0.copyload7 = load double, ptr %.sroa.6.0..sroa_idx6, align 8, !tbaa !59
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #9, !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !56
   br label %_ZL24pj_molodensky_forward_3d6PJ_LPZP8PJconsts.exit
 
 16:                                               ; preds = %11
@@ -256,7 +253,7 @@ _ZL24pj_molodensky_forward_3d6PJ_LPZP8PJconsts.exit: ; preds = %14, %16
   %.sroa.6.0 = phi double [ %.sroa.6.0.copyload7, %14 ], [ %21, %16 ]
   %.sroa.5.0 = phi double [ %.sroa.5.0.copyload5, %14 ], [ %18, %16 ]
   %.sroa.0.0 = phi double [ %.sroa.0.0.copyload3, %14 ], [ %19, %16 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store double %.sroa.0.0, ptr %0, align 8, !tbaa !59
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %.sroa.5.0, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !59
@@ -277,8 +274,8 @@ define internal void @_ZL24pj_molodensky_reverse_4dR8PJ_COORDP8PJconsts(ptr noun
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !59
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.3.0.copyload = load double, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !59
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %9 = load ptr, ptr %8, align 8, !tbaa !40, !noalias !64
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -287,7 +284,7 @@ define internal void @_ZL24pj_molodensky_reverse_4dR8PJ_COORDP8PJconsts(ptr noun
   br i1 %.not.i, label %13, label %12
 
 12:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9, !noalias !64
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !64
   store double %.sroa.010.0.copyload, ptr %4, align 8, !tbaa !59, !noalias !64
   %.sroa.9.0..sroa_idx11.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %.sroa.2.0.copyload, ptr %.sroa.9.0..sroa_idx11.i, align 8, !tbaa !59, !noalias !64
@@ -299,11 +296,11 @@ define internal void @_ZL24pj_molodensky_reverse_4dR8PJ_COORDP8PJconsts(ptr noun
   %.sroa.6.0.copyload.i = load double, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !59, !noalias !64
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.7.0.copyload.i = load double, ptr %.sroa.7.0..sroa_idx.i, align 8, !tbaa !59, !noalias !64
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9, !noalias !64
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !64
   br label %14
 
 13:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #9, !noalias !64
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !64
   store double %.sroa.010.0.copyload, ptr %6, align 8, !tbaa !59, !noalias !64
   %.sroa.9.0..sroa_idx13.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store double %.sroa.2.0.copyload, ptr %.sroa.9.0..sroa_idx13.i, align 8, !tbaa !59, !noalias !64
@@ -315,7 +312,7 @@ define internal void @_ZL24pj_molodensky_reverse_4dR8PJ_COORDP8PJconsts(ptr noun
   %.sroa.6.0.copyload4.i = load double, ptr %.sroa.6.0..sroa_idx3.i, align 8, !tbaa !59, !noalias !64
   %.sroa.7.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.7.0.copyload6.i = load double, ptr %.sroa.7.0..sroa_idx5.i, align 8, !tbaa !59, !noalias !64
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9, !noalias !64
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !64
   br label %14
 
 14:                                               ; preds = %13, %12
@@ -327,14 +324,14 @@ define internal void @_ZL24pj_molodensky_reverse_4dR8PJ_COORDP8PJconsts(ptr noun
 
 16:                                               ; preds = %14
   %17 = tail call i32 @proj_errno_set(ptr noundef nonnull %1, i32 noundef 2050), !noalias !64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #9, !noalias !64
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !64
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %7), !noalias !64
   %.sroa.0.0.copyload3 = load double, ptr %7, align 8, !tbaa !59
   %.sroa.5.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.5.0.copyload5 = load double, ptr %.sroa.5.0..sroa_idx4, align 8, !tbaa !59
   %.sroa.6.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.6.0.copyload7 = load double, ptr %.sroa.6.0..sroa_idx6, align 8, !tbaa !59
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #9, !noalias !64
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !64
   br label %_ZL24pj_molodensky_reverse_3d6PJ_XYZP8PJconsts.exit
 
 18:                                               ; preds = %14
@@ -347,8 +344,8 @@ _ZL24pj_molodensky_reverse_3d6PJ_XYZP8PJconsts.exit: ; preds = %16, %18
   %.sroa.6.0 = phi double [ %.sroa.6.0.copyload7, %16 ], [ %21, %18 ]
   %.sroa.5.0 = phi double [ %.sroa.5.0.copyload5, %16 ], [ %19, %18 ]
   %.sroa.0.0 = phi double [ %.sroa.0.0.copyload3, %16 ], [ %20, %18 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store double %.sroa.0.0, ptr %0, align 8, !tbaa !59
   store double %.sroa.5.0, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !59
   store double %.sroa.6.0, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !59
@@ -373,17 +370,17 @@ define internal void @_ZL24pj_molodensky_forward_3d6PJ_LPZP8PJconsts(ptr dead_on
   br i1 %.not, label %12, label %11
 
 11:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call fastcc void @_ZL20calc_abridged_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %1, ptr noundef nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !67
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %13
 
 12:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call fastcc void @_ZL20calc_standard_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %1, ptr noundef nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !67
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %13
 
 13:                                               ; preds = %12, %11
@@ -393,10 +390,10 @@ define internal void @_ZL24pj_molodensky_forward_3d6PJ_LPZP8PJconsts(ptr dead_on
 
 16:                                               ; preds = %13
   %17 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 2050)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !67
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %24
 
 18:                                               ; preds = %13
@@ -436,7 +433,7 @@ define internal void @_ZL24pj_molodensky_reverse_3d6PJ_XYZP8PJconsts(ptr dead_on
   br i1 %.not, label %14, label %13
 
 13:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store double %.sroa.07.0.copyload, ptr %5, align 8, !tbaa !59
   %.sroa.9.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double %.sroa.9.0.copyload, ptr %.sroa.9.0..sroa_idx11, align 8, !tbaa !59
@@ -448,11 +445,11 @@ define internal void @_ZL24pj_molodensky_reverse_3d6PJ_XYZP8PJconsts(ptr dead_on
   %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !59
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.7.0.copyload = load double, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !59
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %15
 
 14:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store double %.sroa.07.0.copyload, ptr %7, align 8, !tbaa !59
   %.sroa.9.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %.sroa.9.0.copyload, ptr %.sroa.9.0..sroa_idx13, align 8, !tbaa !59
@@ -464,7 +461,7 @@ define internal void @_ZL24pj_molodensky_reverse_3d6PJ_XYZP8PJconsts(ptr dead_on
   %.sroa.6.0.copyload4 = load double, ptr %.sroa.6.0..sroa_idx3, align 8, !tbaa !59
   %.sroa.7.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.7.0.copyload6 = load double, ptr %.sroa.7.0..sroa_idx5, align 8, !tbaa !59
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %15
 
 15:                                               ; preds = %14, %13
@@ -476,10 +473,10 @@ define internal void @_ZL24pj_molodensky_reverse_3d6PJ_XYZP8PJconsts(ptr dead_on
 
 17:                                               ; preds = %15
   %18 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 2050)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !67
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %23
 
 19:                                               ; preds = %15
@@ -503,7 +500,7 @@ define internal { double, double } @_ZL24pj_molodensky_forward_2d5PJ_LPP8PJconst
   %5 = alloca %struct.PJ_LPZ, align 8
   %6 = alloca %union.PJ_COORD, align 8
   %7 = alloca %struct.PJ_LPZ, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store double %0, ptr %7, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %1, ptr %.sroa.2.0..sroa_idx, align 8
@@ -517,17 +514,17 @@ define internal { double, double } @_ZL24pj_molodensky_forward_2d5PJ_LPP8PJconst
   br i1 %.not.i, label %13, label %12
 
 12:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9, !noalias !68
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !68
   call fastcc void @_ZL20calc_abridged_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %7, ptr noundef nonnull %2), !noalias !68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !67, !noalias !68
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9, !noalias !68
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !68
   br label %14
 
 13:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #9, !noalias !68
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !68
   call fastcc void @_ZL20calc_standard_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %7, ptr noundef nonnull %2), !noalias !68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !67, !noalias !68
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9, !noalias !68
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !68
   br label %14
 
 14:                                               ; preds = %13, %12
@@ -537,12 +534,12 @@ define internal { double, double } @_ZL24pj_molodensky_forward_2d5PJ_LPP8PJconst
 
 17:                                               ; preds = %14
   %18 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 2050), !noalias !68
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #9, !noalias !68
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !68
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %6), !noalias !68
   %.sroa.010.0.copyload = load double, ptr %6, align 8, !tbaa !59
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !59
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #9, !noalias !68
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !68
   br label %_ZL24pj_molodensky_forward_3d6PJ_LPZP8PJconsts.exit
 
 19:                                               ; preds = %14
@@ -554,7 +551,7 @@ define internal { double, double } @_ZL24pj_molodensky_forward_2d5PJ_LPP8PJconst
 _ZL24pj_molodensky_forward_3d6PJ_LPZP8PJconsts.exit: ; preds = %17, %19
   %.sroa.010.0 = phi double [ %.sroa.010.0.copyload, %17 ], [ %22, %19 ]
   %.sroa.5.0 = phi double [ %.sroa.5.0.copyload, %17 ], [ %21, %19 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.010.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.5.0, 1
   ret { double, double } %.fca.1.insert
@@ -567,8 +564,8 @@ define internal { double, double } @_ZL24pj_molodensky_reverse_2d5PJ_XYP8PJconst
   %6 = alloca %struct.PJ_LPZ, align 8
   %7 = alloca %struct.PJ_LPZ, align 8
   %8 = alloca %union.PJ_COORD, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %10 = load ptr, ptr %9, align 8, !tbaa !40, !noalias !71
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -577,7 +574,7 @@ define internal { double, double } @_ZL24pj_molodensky_reverse_2d5PJ_XYP8PJconst
   br i1 %.not.i, label %14, label %13
 
 13:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9, !noalias !71
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !71
   store double %0, ptr %5, align 8, !tbaa !59, !noalias !71
   %.sroa.9.0..sroa_idx11.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double %1, ptr %.sroa.9.0..sroa_idx11.i, align 8, !tbaa !59, !noalias !71
@@ -587,11 +584,11 @@ define internal { double, double } @_ZL24pj_molodensky_reverse_2d5PJ_XYP8PJconst
   %.sroa.0.0.copyload.i = load double, ptr %4, align 8, !tbaa !59, !noalias !71
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.6.0.copyload.i = load double, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !59, !noalias !71
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9, !noalias !71
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !71
   br label %15
 
 14:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #9, !noalias !71
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !71
   store double %0, ptr %7, align 8, !tbaa !59, !noalias !71
   %.sroa.9.0..sroa_idx13.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %1, ptr %.sroa.9.0..sroa_idx13.i, align 8, !tbaa !59, !noalias !71
@@ -601,7 +598,7 @@ define internal { double, double } @_ZL24pj_molodensky_reverse_2d5PJ_XYP8PJconst
   %.sroa.0.0.copyload2.i = load double, ptr %6, align 8, !tbaa !59, !noalias !71
   %.sroa.6.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.6.0.copyload4.i = load double, ptr %.sroa.6.0..sroa_idx3.i, align 8, !tbaa !59, !noalias !71
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #9, !noalias !71
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !71
   br label %15
 
 15:                                               ; preds = %14, %13
@@ -612,12 +609,12 @@ define internal { double, double } @_ZL24pj_molodensky_reverse_2d5PJ_XYP8PJconst
 
 17:                                               ; preds = %15
   %18 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 2050), !noalias !71
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #9, !noalias !71
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !71
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %8), !noalias !71
   %.sroa.011.0.copyload = load double, ptr %8, align 8, !tbaa !59
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !59
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #9, !noalias !71
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !71
   br label %_ZL24pj_molodensky_reverse_3d6PJ_XYZP8PJconsts.exit
 
 19:                                               ; preds = %15
@@ -628,8 +625,8 @@ define internal { double, double } @_ZL24pj_molodensky_reverse_2d5PJ_XYP8PJconst
 _ZL24pj_molodensky_reverse_3d6PJ_XYZP8PJconsts.exit: ; preds = %17, %19
   %.sroa.011.0 = phi double [ %.sroa.011.0.copyload, %17 ], [ %21, %19 ]
   %.sroa.5.0 = phi double [ %.sroa.5.0.copyload, %17 ], [ %20, %19 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.011.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.5.0, 1
   ret { double, double } %.fca.1.insert
@@ -637,16 +634,13 @@ _ZL24pj_molodensky_reverse_3d6PJ_XYZP8PJconsts.exit: ; preds = %17, %19
 
 declare i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare void @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable
-define internal fastcc void @_ZL20calc_abridged_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) initializes((0, 24)) %0, ptr noundef byval(%struct.PJ_LPZ) align 8 captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #5 {
+define internal fastcc void @_ZL20calc_abridged_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) initializes((0, 24)) %0, ptr noundef byval(%struct.PJ_LPZ) align 8 captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8, !tbaa !40
   %6 = load double, ptr %1, align 8, !tbaa !60
@@ -771,7 +765,7 @@ _ZL2RNddd.exit:                                   ; preds = %cdce.call, %_ZL2RMd
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable
-define internal fastcc void @_ZL20calc_standard_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) initializes((0, 24)) %0, ptr noundef byval(%struct.PJ_LPZ) align 8 captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #5 {
+define internal fastcc void @_ZL20calc_standard_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) initializes((0, 24)) %0, ptr noundef byval(%struct.PJ_LPZ) align 8 captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8, !tbaa !40
   %6 = load double, ptr %1, align 8, !tbaa !60
@@ -922,31 +916,37 @@ declare i32 @proj_errno_set(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @_Z16proj_coord_errorv(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sin(double noundef) local_unnamed_addr #6
+declare double @sin(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @cos(double noundef) local_unnamed_addr #6
+declare double @cos(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #7
+declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #7
+declare double @llvm.fabs.f64(double) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #6
+declare double @sqrt(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #6
+declare double @pow(double noundef, double noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind allocsize(0,1) }
 attributes #9 = { nounwind }
 

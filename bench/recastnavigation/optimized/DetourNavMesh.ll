@@ -2290,8 +2290,8 @@ define noundef zeroext i1 @_ZNK9dtNavMesh13getPolyHeightEPK10dtMeshTilePK6dtPoly
   br label %.sink.split
 
 ._crit_edge56:                                    ; preds = %56, %.preheader
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %97 = load ptr, ptr %15, align 8
   %98 = ptrtoint ptr %97 to i64
   %99 = sub i64 %17, %98
@@ -2426,8 +2426,8 @@ _ZN12_GLOBAL__N_125closestPointOnDetailEdgesILb0EEEvPK10dtMeshTilePK6dtPolyPKfPf
   %174 = load float, ptr %173, align 4
   %175 = fsub float %174, %172
   %176 = call float @llvm.fmuladd.f32(float %175, float %.250.i, float %172)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %95, %_ZN12_GLOBAL__N_125closestPointOnDetailEdgesILb0EEEvPK10dtMeshTilePK6dtPolyPKfPf.exit
@@ -2540,8 +2540,8 @@ define void @_ZNK9dtNavMesh18closestPointOnPolyEjPKfPfPb(ptr noundef nonnull rea
   br label %163
 
 71:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %72 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %73 = load ptr, ptr %72, align 8
   %74 = ptrtoint ptr %25 to i64
@@ -2697,8 +2697,8 @@ _ZN12_GLOBAL__N_125closestPointOnDetailEdgesILb1EEEvPK10dtMeshTilePK6dtPolyPKfPf
   %161 = fsub float %160, %158
   %162 = call float @llvm.fmuladd.f32(float %161, float %.146.i, float %158)
   store float %162, ptr %32, align 4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %163
 
 163:                                              ; preds = %34, %35, %_ZN12_GLOBAL__N_125closestPointOnDetailEdgesILb1EEEvPK10dtMeshTilePK6dtPolyPKfPf.exit, %42
@@ -4933,10 +4933,10 @@ declare i32 @llvm.umax.i32(i32, i32) #17
 declare void @llvm.assume(i1 noundef) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #17

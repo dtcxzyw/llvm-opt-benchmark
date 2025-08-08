@@ -443,9 +443,6 @@ define dso_local i32 @nfs4_handle_exception(ptr noundef %0, i32 noundef %1, ptr 
   ret i32 %76
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i32 -1000, -2147483648) i32 @nfs4_do_handle_exception(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %0, align 8
@@ -666,16 +663,13 @@ define internal fastcc range(i32 -1000, -2147483648) i32 @nfs4_do_handle_excepti
   ret i32 %101
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs4_wait_clnt_recover(ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @nfs4_wait_clnt_recover(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -11, 1) i32 @nfs4_async_handle_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.nfs4_exception, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   store ptr %2, ptr %5, align 8
@@ -718,12 +712,12 @@ define dso_local range(i32 -11, 1) i32 @nfs4_async_handle_error(ptr noundef %0, 
 
 29:                                               ; preds = %25, %4
   %30 = phi i32 [ 0, %4 ], [ %28, %25 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i32 -1000, -2147483648) i32 @nfs4_async_handle_exception(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 align 16 {
@@ -821,7 +815,7 @@ define internal fastcc range(i32 -1000, -2147483648) i32 @nfs4_async_handle_exce
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @nfs4_init_sequence(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 align 16 {
+define dso_local void @nfs4_init_sequence(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 16 {
   store ptr null, ptr %0, align 8
   %5 = trunc i32 %2 to i8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1019,22 +1013,22 @@ define dso_local noundef range(i32 -11, 1) i32 @nfs4_setup_sequence(ptr noundef 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @nfs4_alloc_slot(ptr noundef) local_unnamed_addr #2
+declare dso_local ptr @nfs4_alloc_slot(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @rpc_call_start(ptr noundef) local_unnamed_addr #2
+declare dso_local void @rpc_call_start(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @rpc_sleep_on_priority_timeout(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local void @rpc_sleep_on_priority_timeout(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @rpc_sleep_on_timeout(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare dso_local void @rpc_sleep_on_timeout(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @rpc_sleep_on_priority(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local void @rpc_sleep_on_priority(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @rpc_sleep_on(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local void @rpc_sleep_on(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @nfs4_call_sync(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef initializes((0, 8)) %3, ptr noundef initializes((0, 8)) %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
@@ -1055,13 +1049,13 @@ define dso_local i32 @nfs4_call_sync(ptr noundef %0, ptr noundef %1, ptr noundef
   %18 = trunc nuw nsw i32 %17 to i16
   %19 = and i16 %18, 4
   %20 = load ptr, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %1, ptr %7, align 8
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %3, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %4, ptr %22, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 0, i64 72, i1 false)
   store ptr %0, ptr %23, align 8
@@ -1096,8 +1090,8 @@ define dso_local i32 @nfs4_call_sync(ptr noundef %0, ptr noundef %1, ptr noundef
 
 41:                                               ; preds = %38, %35
   %42 = phi i32 [ %37, %35 ], [ %40, %38 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %42
 }
 
@@ -1219,7 +1213,7 @@ define dso_local noundef range(i32 0, 2) i32 @update_open_stateid(ptr noundef %0
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 872
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   %14 = and i32 %3, 3
   tail call void @__rcu_read_lock() #22
@@ -1238,7 +1232,7 @@ define dso_local noundef range(i32 0, 2) i32 @update_open_stateid(ptr noundef %0
   %23 = add i32 %22, 1
   store i32 %23, ptr %20, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !18
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %25 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #23, !srcloc !19
   %26 = inttoptr i64 %25 to ptr
@@ -1401,7 +1395,7 @@ select.unfold:                                    ; preds = %66
   br label %119
 
 119:                                              ; preds = %116, %112
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   switch i32 %14, label %default.unreachable5 [
     i32 1, label %120
     i32 2, label %121
@@ -1578,18 +1572,18 @@ default.unreachable5:                             ; preds = %171, %119
   br label %210
 
 210:                                              ; preds = %200, %196
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %169
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @nfs4_get_valid_delegation(ptr noundef) local_unnamed_addr #2
+declare dso_local ptr @nfs4_get_valid_delegation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs_mark_delegation_referenced(ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs_mark_delegation_referenced(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs4_schedule_state_manager(ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs4_schedule_state_manager(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @nfs4_open_delegation_recall(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
@@ -2010,7 +2004,7 @@ define dso_local i32 @nfs4_do_close(ptr noundef %0, i32 noundef %1, i32 noundef 
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 384), ptr %4, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2019,7 +2013,7 @@ define dso_local i32 @nfs4_do_close(ptr noundef %0, i32 noundef %1, i32 noundef 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
@@ -2155,37 +2149,37 @@ define dso_local i32 @nfs4_do_close(ptr noundef %0, i32 noundef %1, i32 noundef 
 
 97:                                               ; preds = %96, %93, %86
   %98 = phi i32 [ -12, %96 ], [ %88, %86 ], [ %94, %93 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %98
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local zeroext i1 @nfs4_copy_open_stateid(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local zeroext i1 @nfs4_copy_open_stateid(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs_fattr_init(ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs_fattr_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local zeroext i1 @nfs_sb_active(ptr noundef) local_unnamed_addr #2
+declare dso_local zeroext i1 @nfs_sb_active(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @rpc_run_task(ptr noundef) local_unnamed_addr #2
+declare dso_local ptr @rpc_run_task(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @rpc_wait_for_completion_task(ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @rpc_wait_for_completion_task(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @rpc_put_task(ptr noundef) local_unnamed_addr #2
+declare dso_local void @rpc_put_task(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
+declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs4_put_open_state(ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs4_put_open_state(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs4_put_state_owner(ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs4_put_state_owner(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @nfs4_server_capabilities(ptr noundef %0, ptr noundef %1) #0 align 16 {
@@ -2196,7 +2190,7 @@ define dso_local i32 @nfs4_server_capabilities(ptr noundef %0, ptr noundef %1) #
   %7 = alloca %struct.nfs4_server_caps_res, align 8
   %8 = alloca %struct.rpc_message, align 8
   %9 = alloca %struct.nfs4_exception, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 35
   store i8 1, ptr %10, align 1
@@ -2245,18 +2239,18 @@ define dso_local i32 @nfs4_server_capabilities(ptr noundef %0, ptr noundef %1) #
   br label %52
 
 52:                                               ; preds = %.split, %2
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %49, align 4
   %53 = load ptr, ptr %0, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 248
   %55 = load i32, ptr %54, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %50, align 8
   store ptr %1, ptr %11, align 8
   store ptr %5, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %51, i8 0, i64 72, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 1440), ptr %8, align 8
   store ptr %6, ptr %13, align 8
   store ptr %7, ptr %14, align 8
@@ -2278,11 +2272,11 @@ define dso_local i32 @nfs4_server_capabilities(ptr noundef %0, ptr noundef %1) #
   %61 = lshr i32 %60, 29
   %62 = trunc nuw nsw i32 %61 to i16
   %63 = and i16 %62, 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   store ptr %6, ptr %19, align 8
   store ptr %7, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false)
   store ptr %59, ptr %21, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
@@ -2311,8 +2305,8 @@ define dso_local i32 @nfs4_server_capabilities(ptr noundef %0, ptr noundef %1) #
 
 76:                                               ; preds = %73, %70
   %77 = phi i32 [ %72, %70 ], [ %75, %73 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %79, label %.split
 
@@ -2505,10 +2499,10 @@ define dso_local i32 @nfs4_server_capabilities(ptr noundef %0, ptr noundef %1) #
 
 .split:                                           ; preds = %76, %.split2
   %.sink11 = phi i32 [ 0, %.split2 ], [ %77, %76 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %173 = call i32 @nfs4_handle_exception(ptr noundef %0, i32 noundef %.sink11, ptr noundef nonnull %9)
   %174 = load i8, ptr %48, align 2
   %175 = and i8 %174, 8
@@ -2516,12 +2510,12 @@ define dso_local i32 @nfs4_server_capabilities(ptr noundef %0, ptr noundef %1) #
   br i1 %176, label %177, label %52, !llvm.loop !35
 
 177:                                              ; preds = %.split
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %173
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs4_server_set_init_caps(ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs4_server_set_init_caps(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -1000, -2147483648) i32 @nfs4_proc_get_rootfh(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 16 {
@@ -2611,7 +2605,7 @@ define internal fastcc i32 @nfs4_lookup_root(ptr noundef %0, ptr noundef %1, ptr
   %8 = alloca %struct.nfs4_lookup_res, align 8
   %9 = alloca %struct.rpc_message, align 8
   %10 = alloca %struct.nfs4_exception, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 35
   store i8 1, ptr %11, align 1
@@ -2639,17 +2633,17 @@ define internal fastcc i32 @nfs4_lookup_root(ptr noundef %0, ptr noundef %1, ptr
   br label %33
 
 33:                                               ; preds = %79, %3
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #22
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 16, i1 false)
   store ptr %6, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 32, i1 false)
   store ptr %0, ptr %13, align 8
   %34 = load ptr, ptr %2, align 8
   store ptr %34, ptr %14, align 8
   store ptr %1, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 960), ptr %9, align 8
   store ptr %7, ptr %16, align 8
   store ptr %8, ptr %17, align 8
@@ -2669,11 +2663,11 @@ define internal fastcc i32 @nfs4_lookup_root(ptr noundef %0, ptr noundef %1, ptr
   %40 = trunc nuw nsw i32 %39 to i16
   %41 = and i16 %40, 4
   %42 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8
   store ptr %7, ptr %24, align 8
   store ptr %8, ptr %25, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
   store ptr %35, ptr %26, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
@@ -2702,12 +2696,12 @@ define internal fastcc i32 @nfs4_lookup_root(ptr noundef %0, ptr noundef %1, ptr
 
 55:                                               ; preds = %52, %49
   %56 = phi i32 [ %51, %49 ], [ %54, %52 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %57 = load ptr, ptr %2, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_nfs4_lookup_root, i64 8), i32 2) #22
           to label %78 [label %58], !srcloc !10
@@ -2763,7 +2757,7 @@ define internal fastcc i32 @nfs4_lookup_root(ptr noundef %0, ptr noundef %1, ptr
 
 84:                                               ; preds = %79, %78, %78
   %85 = phi i32 [ %80, %79 ], [ %56, %78 ], [ %56, %78 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %85
 }
 
@@ -2775,7 +2769,7 @@ define internal fastcc i32 @nfs4_do_fsinfo(ptr noundef %0, ptr noundef %1, ptr n
   %7 = alloca %struct.nfs4_fsinfo_res, align 8
   %8 = alloca %struct.rpc_message, align 8
   %9 = alloca %struct.nfs4_exception, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 35
   store i8 1, ptr %10, align 1
@@ -2803,14 +2797,14 @@ define internal fastcc i32 @nfs4_do_fsinfo(ptr noundef %0, ptr noundef %1, ptr n
   br label %32
 
 32:                                               ; preds = %82, %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %30, align 8
   store ptr %1, ptr %11, align 8
   store ptr %13, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
   store ptr %2, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 480), ptr %8, align 8
   store ptr %6, ptr %15, align 8
   store ptr %7, ptr %16, align 8
@@ -2824,11 +2818,11 @@ define internal fastcc i32 @nfs4_do_fsinfo(ptr noundef %0, ptr noundef %1, ptr n
   %36 = trunc nuw nsw i32 %35 to i16
   %37 = and i16 %36, 4
   %38 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8
   store ptr %6, ptr %21, align 8
   store ptr %7, ptr %22, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
   store ptr %33, ptr %23, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
@@ -2857,11 +2851,11 @@ define internal fastcc i32 @nfs4_do_fsinfo(ptr noundef %0, ptr noundef %1, ptr n
 
 51:                                               ; preds = %48, %45
   %52 = phi i32 [ %47, %45 ], [ %50, %48 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %53 = load ptr, ptr %2, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_nfs4_fsinfo, i64 8), i32 2) #22
           to label %74 [label %54], !srcloc !10
@@ -2924,7 +2918,7 @@ define internal fastcc i32 @nfs4_do_fsinfo(ptr noundef %0, ptr noundef %1, ptr n
 
 .loopexit:                                        ; preds = %82, %76
   %87 = phi i32 [ 0, %76 ], [ %83, %82 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %87
 }
 
@@ -2937,7 +2931,7 @@ define dso_local i32 @nfs4_proc_getattr(ptr noundef %0, ptr noundef %1, ptr noun
   %9 = alloca %struct.nfs4_getattr_res, align 8
   %10 = alloca %struct.rpc_message, align 8
   %11 = alloca %struct.nfs4_exception, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 40, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 35
   store i8 1, ptr %12, align 1
@@ -2967,16 +2961,16 @@ define dso_local i32 @nfs4_proc_getattr(ptr noundef %0, ptr noundef %1, ptr noun
   br label %36
 
 36:                                               ; preds = %106, %4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #22
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 16, i1 false)
   store ptr %1, ptr %13, align 8
   store ptr %7, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 32, i1 false)
   store ptr %0, ptr %15, align 8
   store ptr %2, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 864), ptr %10, align 8
   store ptr %8, ptr %17, align 8
   store ptr %9, ptr %18, align 8
@@ -3050,11 +3044,11 @@ condstore.split:                                  ; preds = %56, %53
   store ptr null, ptr %9, align 8
   %70 = load ptr, ptr %26, align 8
   %71 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8
   store ptr %8, ptr %27, align 8
   store ptr %9, ptr %28, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 72, i1 false)
   store ptr %70, ptr %29, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
@@ -3083,12 +3077,12 @@ condstore.split:                                  ; preds = %56, %53
 
 84:                                               ; preds = %81, %78
   %85 = phi i32 [ %80, %78 ], [ %83, %81 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_nfs4_getattr, i64 8), i32 2) #22
           to label %106 [label %86], !srcloc !10
 
@@ -3136,14 +3130,14 @@ condstore.split:                                  ; preds = %56, %53
   br i1 %110, label %111, label %36, !llvm.loop !50
 
 111:                                              ; preds = %106
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %107
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @nfs4_proc_lookup_mountpoint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 872
@@ -3176,7 +3170,7 @@ define dso_local ptr @nfs4_proc_lookup_mountpoint(ptr noundef %0, ptr noundef %1
 
 27:                                               ; preds = %25, %17, %14
   %28 = phi ptr [ %16, %14 ], [ %26, %25 ], [ %18, %17 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %28
 }
 
@@ -3188,7 +3182,7 @@ define internal fastcc i32 @nfs4_proc_lookup_common(ptr noundef captures(none) %
   %9 = alloca %struct.nfs4_lookup_res, align 8
   %10 = alloca %struct.rpc_message, align 8
   %11 = alloca %struct.nfs4_exception, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 40, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 35
   store i8 1, ptr %12, align 1
@@ -3227,18 +3221,18 @@ define internal fastcc i32 @nfs4_proc_lookup_common(ptr noundef captures(none) %
   %39 = load ptr, ptr %15, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 872
   %41 = load ptr, ptr %40, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 16, i1 false)
   store ptr %17, ptr %16, align 8
   store ptr %14, ptr %18, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 284
   store ptr %42, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 0, i64 32, i1 false)
   store ptr %41, ptr %20, align 8
   store ptr %4, ptr %21, align 8
   store ptr %3, ptr %22, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 912), ptr %10, align 8
   store ptr %8, ptr %23, align 8
   store ptr %9, ptr %24, align 8
@@ -3283,11 +3277,11 @@ define internal fastcc i32 @nfs4_proc_lookup_common(ptr noundef captures(none) %
   store i8 %66, ptr %28, align 8
   store ptr null, ptr %9, align 8
   %67 = load ptr, ptr %41, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %41, ptr %6, align 8
   store ptr %8, ptr %29, align 8
   store ptr %9, ptr %30, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, i8 0, i64 72, i1 false)
   store ptr %.ph37, ptr %31, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
@@ -3316,11 +3310,11 @@ define internal fastcc i32 @nfs4_proc_lookup_common(ptr noundef captures(none) %
 
 80:                                               ; preds = %77, %74
   %81 = phi i32 [ %76, %74 ], [ %79, %77 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_nfs4_lookup, i64 8), i32 2) #22
           to label %102 [label %82], !srcloc !10
 
@@ -3494,12 +3488,12 @@ define internal fastcc i32 @nfs4_proc_lookup_common(ptr noundef captures(none) %
 
 172:                                              ; preds = %171, %.thread21, %167, %152
   %173 = phi i32 [ %154, %152 ], [ %168, %.thread21 ], [ %168, %171 ], [ 0, %167 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %173
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @rpc_clone_client(ptr noundef) local_unnamed_addr #2
+declare dso_local ptr @rpc_clone_client(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @nfs4_set_rw_stateid(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
@@ -3510,10 +3504,10 @@ define dso_local i32 @nfs4_set_rw_stateid(ptr noundef %0, ptr noundef readonly c
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs4_select_rw_stateid(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @nfs4_select_rw_stateid(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local void @nfs4_bitmask_set(ptr noundef captures(none) initializes((0, 12)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #5 align 16 {
+define dso_local void @nfs4_bitmask_set(ptr noundef captures(none) initializes((0, 12)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #4 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 872
@@ -3648,7 +3642,7 @@ define dso_local void @nfs4_bitmask_set(ptr noundef captures(none) initializes((
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @nfs4_proc_commit(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
@@ -3657,7 +3651,7 @@ define dso_local i32 @nfs4_proc_commit(ptr noundef readonly captures(none) %0, i
   %7 = alloca %struct.rpc_message, align 8
   %8 = alloca %struct.nfs_commitargs, align 8
   %9 = alloca %struct.nfs4_exception, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
   store i64 %1, ptr %10, align 8
@@ -3669,7 +3663,7 @@ define dso_local i32 @nfs4_proc_commit(ptr noundef readonly captures(none) %0, i
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 872
   %17 = load ptr, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -3693,7 +3687,7 @@ define dso_local i32 @nfs4_proc_commit(ptr noundef readonly captures(none) %0, i
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 872
   %37 = load ptr, ptr %36, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 144), ptr %7, align 8
   store ptr %8, ptr %18, align 8
   store ptr %3, ptr %19, align 8
@@ -3714,11 +3708,11 @@ define dso_local i32 @nfs4_proc_commit(ptr noundef readonly captures(none) %0, i
   %47 = trunc nuw nsw i32 %46 to i16
   %48 = and i16 %47, 4
   %49 = load ptr, ptr %37, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %37, ptr %5, align 8
   store ptr %8, ptr %23, align 8
   store ptr %3, ptr %24, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 72, i1 false)
   store ptr %40, ptr %25, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
@@ -3747,9 +3741,9 @@ define dso_local i32 @nfs4_proc_commit(ptr noundef readonly captures(none) %0, i
 
 62:                                               ; preds = %59, %56
   %63 = phi i32 [ %58, %56 ], [ %61, %59 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %64 = call i32 @nfs4_handle_exception(ptr noundef %17, i32 noundef %63, ptr noundef nonnull %9)
   %65 = load i8, ptr %31, align 2
   %66 = and i8 %65, 8
@@ -3757,8 +3751,8 @@ define dso_local i32 @nfs4_proc_commit(ptr noundef readonly captures(none) %0, i
   br i1 %67, label %68, label %32, !llvm.loop !57
 
 68:                                               ; preds = %62
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %64
 }
 
@@ -3818,10 +3812,10 @@ define dso_local i32 @nfs4_buf_to_pages_noslab(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @alloc_pages(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local ptr @alloc_pages(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__free_pages(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local void @__free_pages(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @nfs4_proc_setclientid(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
@@ -3831,9 +3825,9 @@ define dso_local i32 @nfs4_proc_setclientid(ptr noundef %0, i32 noundef %1, i16 
   %9 = alloca %struct.nfs4_setclientid, align 8
   %10 = alloca %struct.rpc_message, align 8
   %11 = alloca %struct.rpc_task_setup, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !annotation !60
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %12, i8 0, i64 96, i1 false)
   store ptr %8, ptr %9, align 8
@@ -3841,7 +3835,7 @@ define dso_local i32 @nfs4_proc_setclientid(ptr noundef %0, i32 noundef %1, i16 
   store i32 %1, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 88
   store ptr %0, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 576), ptr %10, align 8
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %9, ptr %15, align 8
@@ -3849,7 +3843,7 @@ define dso_local i32 @nfs4_proc_setclientid(ptr noundef %0, i32 noundef %1, i16 
   store ptr %4, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %3, ptr %17, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 216
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %11, i8 0, i64 72, i1 false)
@@ -3906,7 +3900,7 @@ define dso_local i32 @nfs4_proc_setclientid(ptr noundef %0, i32 noundef %1, i16 
   br i1 %54, label %89, label %56
 
 56:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, i8 0, i64 64, i1 false), !annotation !60
   %57 = load ptr, ptr %55, align 8
   %58 = icmp eq ptr %57, null
@@ -3956,11 +3950,11 @@ define dso_local i32 @nfs4_proc_setclientid(ptr noundef %0, i32 noundef %1, i16 
 
 87:                                               ; preds = %86, %71, %59, %56
   %88 = phi i32 [ 0, %86 ], [ 0, %56 ], [ -22, %59 ], [ -12, %71 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %121
 
 89:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, i8 0, i64 64, i1 false), !annotation !60
   %90 = load ptr, ptr %55, align 8
   %91 = icmp eq ptr %90, null
@@ -4013,7 +4007,7 @@ define dso_local i32 @nfs4_proc_setclientid(ptr noundef %0, i32 noundef %1, i16 
 
 119:                                              ; preds = %118, %107, %92, %89
   %120 = phi i32 [ 0, %118 ], [ 0, %89 ], [ -22, %92 ], [ -12, %107 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %121
 
 121:                                              ; preds = %119, %87
@@ -4133,26 +4127,26 @@ define dso_local i32 @nfs4_proc_setclientid(ptr noundef %0, i32 noundef %1, i16 
   br label %189
 
 189:                                              ; preds = %186, %182, %169, %167
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %168
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @scnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare dso_local i32 @scnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @rpcauth_stringify_acceptor(ptr noundef) local_unnamed_addr #2
+declare dso_local ptr @rpcauth_stringify_acceptor(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @put_rpccred(ptr noundef) local_unnamed_addr #2
+declare dso_local void @put_rpccred(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @nfs4_proc_setclientid_confirm(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.rpc_message, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 624), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %5, align 8
@@ -4203,12 +4197,12 @@ define dso_local i32 @nfs4_proc_setclientid_confirm(ptr noundef %0, ptr noundef 
   br label %31
 
 31:                                               ; preds = %28, %24, %11, %3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @rpc_call_sync(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @rpc_call_sync(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @nfs4_proc_delegreturn(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
@@ -4219,7 +4213,7 @@ define dso_local i32 @nfs4_proc_delegreturn(ptr noundef %0, ptr noundef %1, ptr 
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 872
   %11 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -4241,11 +4235,11 @@ define dso_local i32 @nfs4_proc_delegreturn(ptr noundef %0, ptr noundef %1, ptr 
   %27 = load ptr, ptr %8, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 872
   %29 = load ptr, ptr %28, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 1488), ptr %5, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   store ptr %1, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 72, i1 false)
   %31 = load ptr, ptr %30, align 8
@@ -4375,8 +4369,8 @@ define dso_local i32 @nfs4_proc_delegreturn(ptr noundef %0, ptr noundef %1, ptr 
 
 97:                                               ; preds = %95, %86, %26
   %98 = phi i32 [ %88, %86 ], [ %96, %95 ], [ -12, %26 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_nfs4_delegreturn, i64 8), i32 2) #22
           to label %119 [label %99], !srcloc !10
 
@@ -4432,7 +4426,7 @@ define dso_local i32 @nfs4_proc_delegreturn(ptr noundef %0, ptr noundef %1, ptr 
 
 125:                                              ; preds = %120, %119, %119, %119
   %126 = phi i32 [ 0, %119 ], [ 0, %119 ], [ 0, %119 ], [ %121, %120 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %126
 }
 
@@ -4510,13 +4504,13 @@ define dso_local i32 @nfs4_lock_delegation_recall(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs4_set_lock_state(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @nfs4_set_lock_state(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @_nfs4_do_setlk(ptr noundef %0, i32 noundef range(i32 6, 5) %1, ptr noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.rpc_message, align 8
   %6 = alloca %struct.rpc_task_setup, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 672), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -4527,7 +4521,7 @@ define internal fastcc i32 @_nfs4_do_setlk(ptr noundef %0, i32 noundef range(i32
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 72, i1 false)
@@ -4795,8 +4789,8 @@ define internal fastcc i32 @_nfs4_do_setlk(ptr noundef %0, i32 noundef range(i32
 
 .thread:                                          ; preds = %4, %74, %174, %114
   %175 = phi i32 [ %116, %114 ], [ %152, %174 ], [ -12, %74 ], [ -12, %4 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %175
 }
 
@@ -4809,7 +4803,7 @@ define dso_local i32 @nfs4_proc_fs_locations(ptr noundef %0, ptr noundef %1, ptr
   %10 = alloca %struct.nfs4_fs_locations_res, align 8
   %11 = alloca %struct.rpc_message, align 8
   %12 = alloca %struct.nfs4_exception, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, i8 0, i64 40, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 35
   store i8 1, ptr %13, align 1
@@ -4844,19 +4838,19 @@ define dso_local i32 @nfs4_proc_fs_locations(ptr noundef %0, ptr noundef %1, ptr
   %40 = load ptr, ptr %14, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 872
   %42 = load ptr, ptr %41, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %38, align 4, !annotation !60
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %9, i8 0, i64 72, i1 false)
   store ptr %16, ptr %15, align 8
   store ptr %2, ptr %17, align 8
   store ptr %4, ptr %18, align 8
   store ptr %8, ptr %19, align 8
   store i8 0, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 48, i1 false)
   store ptr %3, ptr %21, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 1632), ptr %11, align 8
   store ptr %9, ptr %22, align 8
   store ptr %10, ptr %23, align 8
@@ -4893,11 +4887,11 @@ define dso_local i32 @nfs4_proc_fs_locations(ptr noundef %0, ptr noundef %1, ptr
   %56 = trunc nuw nsw i32 %55 to i16
   %57 = and i16 %56, 4
   %58 = load ptr, ptr %42, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %42, ptr %6, align 8
   store ptr %9, ptr %29, align 8
   store ptr %10, ptr %30, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, i8 0, i64 72, i1 false)
   store ptr %0, ptr %31, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
@@ -4926,12 +4920,12 @@ define dso_local i32 @nfs4_proc_fs_locations(ptr noundef %0, ptr noundef %1, ptr
 
 71:                                               ; preds = %68, %65
   %72 = phi i32 [ %67, %65 ], [ %70, %68 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_nfs4_get_fs_locations, i64 8), i32 2) #22
           to label %93 [label %73], !srcloc !10
 
@@ -4982,7 +4976,7 @@ define dso_local i32 @nfs4_proc_fs_locations(ptr noundef %0, ptr noundef %1, ptr
   br i1 %100, label %101, label %39, !llvm.loop !82
 
 101:                                              ; preds = %93
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %97
 }
 
@@ -4994,7 +4988,7 @@ define dso_local i32 @nfs4_proc_get_locations(ptr noundef %0, ptr noundef %1, pt
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %11 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 35
   store i8 1, ptr %12, align 1
@@ -5015,7 +5009,7 @@ define dso_local i32 @nfs4_proc_get_locations(ptr noundef %0, ptr noundef %1, pt
   br i1 %22, label %23, label %14, !llvm.loop !83
 
 23:                                               ; preds = %18, %14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %16
 }
 
@@ -5031,7 +5025,7 @@ define dso_local i32 @nfs4_proc_fsid_present(ptr noundef %0, ptr noundef %1) loc
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %12 = load ptr, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 35
   store i8 1, ptr %13, align 1
@@ -5053,7 +5047,7 @@ define dso_local i32 @nfs4_proc_fsid_present(ptr noundef %0, ptr noundef %1) loc
   br i1 %24, label %25, label %16, !llvm.loop !84
 
 25:                                               ; preds = %20, %16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %18
 }
 
@@ -5065,7 +5059,7 @@ define dso_local i32 @nfs4_proc_secinfo(ptr noundef %0, ptr noundef %1, ptr noun
   %7 = alloca %struct.nfs4_call_sync_data, align 8
   %8 = alloca %struct.rpc_task_setup, align 8
   %9 = alloca %struct.nfs4_exception, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 35
   store i8 1, ptr %10, align 1
@@ -5123,23 +5117,23 @@ define dso_local i32 @nfs4_proc_secinfo(ptr noundef %0, ptr noundef %1, ptr noun
   %48 = phi ptr [ %.pre2, %..thread_crit_edge ], [ %34, %31 ]
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 40
   %50 = load ptr, ptr %49, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %29, align 8
   store ptr %14, ptr %13, align 8
   store ptr %1, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
   store ptr %2, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 1728), ptr %6, align 8
   store ptr %4, ptr %17, align 8
   store ptr %5, ptr %18, align 8
   store ptr null, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %48, ptr %7, align 8
   store ptr %4, ptr %20, align 8
   store ptr %5, ptr %21, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 0, i64 72, i1 false)
   store ptr %50, ptr %22, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
@@ -5171,11 +5165,11 @@ define dso_local i32 @nfs4_proc_secinfo(ptr noundef %0, ptr noundef %1, ptr noun
 
 _nfs4_proc_secinfo.exit:                          ; preds = %57, %60
   %63 = phi i32 [ %59, %57 ], [ %62, %60 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %64
 
 64:                                               ; preds = %_nfs4_proc_secinfo.exit, %44
@@ -5230,7 +5224,7 @@ _nfs4_proc_secinfo.exit:                          ; preds = %57, %60
   br i1 %93, label %94, label %31, !llvm.loop !89
 
 94:                                               ; preds = %86
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %90
 }
 
@@ -5248,18 +5242,18 @@ define internal fastcc i32 @_nfs4_proc_secinfo(ptr noundef %0, ptr noundef %1, p
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = getelementptr i8, ptr %0, i64 -424
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false)
   store ptr %18, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %1, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 32, i1 false)
   store ptr %2, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 1728), ptr %7, align 8
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %5, ptr %21, align 8
@@ -5267,13 +5261,13 @@ define internal fastcc i32 @_nfs4_proc_secinfo(ptr noundef %0, ptr noundef %1, p
   store ptr %6, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr null, ptr %23, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %13, ptr %8, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %5, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %6, ptr %25, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %9, i8 0, i64 72, i1 false)
   store ptr %15, ptr %26, align 8
@@ -5343,11 +5337,11 @@ define internal fastcc i32 @_nfs4_proc_secinfo(ptr noundef %0, ptr noundef %1, p
   br label %61
 
 61:                                               ; preds = %60, %56, %53
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %54
 }
 
@@ -5358,21 +5352,21 @@ define dso_local i32 @nfs4_proc_get_lease_time(ptr noundef %0, ptr noundef %1) l
   %5 = alloca %struct.nfs4_get_lease_time_data, align 8
   %6 = alloca %struct.rpc_message, align 8
   %7 = alloca %struct.rpc_task_setup, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %8, align 8, !annotation !60
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   store ptr %1, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %3, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %4, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %0, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 2016), ptr %6, align 8
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %3, ptr %13, align 8
@@ -5380,7 +5374,7 @@ define dso_local i32 @nfs4_proc_get_lease_time(ptr noundef %0, ptr noundef %1) l
   store ptr %4, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr null, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 216
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, i8 0, i64 72, i1 false)
@@ -5417,11 +5411,11 @@ define dso_local i32 @nfs4_proc_get_lease_time(ptr noundef %0, ptr noundef %1) l
 
 33:                                               ; preds = %30, %27
   %34 = phi i32 [ %29, %27 ], [ %32, %30 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #22
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %34
 }
 
@@ -5469,10 +5463,10 @@ define internal i32 @nfs4_proc_get_root(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs4_submount(ptr noundef, ptr noundef) #2
+declare dso_local i32 @nfs4_submount(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs4_try_get_tree(ptr noundef) #2
+declare dso_local i32 @nfs4_try_get_tree(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_proc_setattr(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
@@ -5542,7 +5536,7 @@ define internal i32 @nfs4_proc_setattr(ptr noundef readonly captures(none) %0, p
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_proc_lookup(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 872
@@ -5572,7 +5566,7 @@ define internal i32 @nfs4_proc_lookup(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %25
 
 25:                                               ; preds = %20, %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %12
 }
 
@@ -5584,7 +5578,7 @@ define internal i32 @nfs4_proc_lookupp(ptr noundef %0, ptr noundef %1, ptr nound
   %7 = alloca %struct.nfs4_lookupp_res, align 8
   %8 = alloca %struct.rpc_message, align 8
   %9 = alloca %struct.nfs4_exception, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 35
   store i8 1, ptr %10, align 1
@@ -5616,16 +5610,16 @@ define internal i32 @nfs4_proc_lookupp(ptr noundef %0, ptr noundef %1, ptr nound
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %36 = load ptr, ptr %35, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 16, i1 false)
   store ptr %13, ptr %12, align 8
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 284
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 32, i1 false)
   store ptr %34, ptr %15, align 8
   store ptr %2, ptr %16, align 8
   store ptr %1, ptr %17, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 2928), ptr %8, align 8
   store ptr %6, ptr %18, align 8
   store ptr %7, ptr %19, align 8
@@ -5643,11 +5637,11 @@ define internal i32 @nfs4_proc_lookupp(ptr noundef %0, ptr noundef %1, ptr nound
   %43 = trunc nuw nsw i32 %42 to i16
   %44 = and i16 %43, 4
   %45 = load ptr, ptr %34, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %34, ptr %4, align 8
   store ptr %6, ptr %22, align 8
   store ptr %7, ptr %23, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
   store ptr %36, ptr %24, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
@@ -5676,11 +5670,11 @@ define internal i32 @nfs4_proc_lookupp(ptr noundef %0, ptr noundef %1, ptr nound
 
 58:                                               ; preds = %55, %52
   %59 = phi i32 [ %54, %52 ], [ %57, %55 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_nfs4_lookupp, i64 8), i32 2) #22
           to label %80 [label %60], !srcloc !10
 
@@ -5731,7 +5725,7 @@ define internal i32 @nfs4_proc_lookupp(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %87, label %88, label %31, !llvm.loop !95
 
 88:                                               ; preds = %80
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %84
 }
 
@@ -5743,7 +5737,7 @@ define internal i32 @nfs4_proc_access(ptr noundef %0, ptr noundef %1, ptr nounde
   %7 = alloca %struct.nfs4_accessres, align 8
   %8 = alloca %struct.rpc_message, align 8
   %9 = alloca %struct.nfs4_exception, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 35
   store i8 1, ptr %10, align 1
@@ -5775,15 +5769,15 @@ define internal i32 @nfs4_proc_access(ptr noundef %0, ptr noundef %1, ptr nounde
   %34 = load ptr, ptr %11, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 872
   %36 = load ptr, ptr %35, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
   store ptr %13, ptr %12, align 8
   %37 = load i32, ptr %16, align 8
   store i32 %37, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   store ptr %36, ptr %17, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 816), ptr %8, align 8
   store ptr %6, ptr %18, align 8
   store ptr %7, ptr %19, align 8
@@ -5817,11 +5811,11 @@ define internal i32 @nfs4_proc_access(ptr noundef %0, ptr noundef %1, ptr nounde
   %53 = trunc nuw nsw i32 %52 to i16
   %54 = and i16 %53, 4
   %55 = load ptr, ptr %36, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %36, ptr %4, align 8
   store ptr %6, ptr %23, align 8
   store ptr %7, ptr %24, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
   store ptr %47, ptr %25, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
@@ -5850,8 +5844,8 @@ define internal i32 @nfs4_proc_access(ptr noundef %0, ptr noundef %1, ptr nounde
 
 68:                                               ; preds = %65, %62
   %69 = phi i32 [ %64, %62 ], [ %67, %65 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %71, label %77
 
@@ -5873,9 +5867,9 @@ define internal i32 @nfs4_proc_access(ptr noundef %0, ptr noundef %1, ptr nounde
 
 79:                                               ; preds = %77, %40
   %80 = phi i32 [ %69, %77 ], [ -12, %40 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_nfs4_access, i64 8), i32 2) #22
           to label %101 [label %81], !srcloc !10
 
@@ -5926,7 +5920,7 @@ define internal i32 @nfs4_proc_access(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %108, label %109, label %33, !llvm.loop !100
 
 109:                                              ; preds = %101
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %105
 }
 
@@ -5939,7 +5933,7 @@ define internal i32 @nfs4_proc_readlink(ptr noundef %0, ptr noundef %1, i32 noun
   %9 = alloca %struct.nfs4_readlink_res, align 8
   %10 = alloca %struct.rpc_message, align 8
   %11 = alloca %struct.nfs4_exception, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 40, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 35
   store i8 1, ptr %12, align 1
@@ -5967,17 +5961,17 @@ define internal i32 @nfs4_proc_readlink(ptr noundef %0, ptr noundef %1, i32 noun
   br label %34
 
 34:                                               ; preds = %80, %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %1, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %32, align 8
   store ptr %14, ptr %13, align 8
   store i32 %2, ptr %15, align 8
   store i32 %3, ptr %16, align 4
   store ptr %7, ptr %17, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false), !annotation !60
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 1344), ptr %10, align 8
   store ptr %8, ptr %18, align 8
   store ptr %9, ptr %19, align 8
@@ -5996,11 +5990,11 @@ define internal i32 @nfs4_proc_readlink(ptr noundef %0, ptr noundef %1, i32 noun
   %43 = trunc nuw nsw i32 %42 to i16
   %44 = and i16 %43, 4
   %45 = load ptr, ptr %37, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %37, ptr %5, align 8
   store ptr %8, ptr %23, align 8
   store ptr %9, ptr %24, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 72, i1 false)
   store ptr %39, ptr %25, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
@@ -6029,12 +6023,12 @@ define internal i32 @nfs4_proc_readlink(ptr noundef %0, ptr noundef %1, i32 noun
 
 58:                                               ; preds = %55, %52
   %59 = phi i32 [ %54, %52 ], [ %57, %55 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_nfs4_readlink, i64 8), i32 2) #22
           to label %80 [label %60], !srcloc !10
 
@@ -6085,7 +6079,7 @@ define internal i32 @nfs4_proc_readlink(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %87, label %88, label %34, !llvm.loop !105
 
 88:                                               ; preds = %80
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %84
 }
 
@@ -6138,7 +6132,7 @@ define internal i32 @nfs4_proc_create(ptr noundef readonly captures(none) %0, pt
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_proc_remove(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.nfs4_exception, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 35
   store i8 1, ptr %4, align 1
@@ -6219,7 +6213,7 @@ define internal i32 @nfs4_proc_remove(ptr noundef %0, ptr noundef %1) #0 align 1
   br i1 %49, label %50, label %20, !llvm.loop !110
 
 50:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %46
 }
 
@@ -6302,7 +6296,7 @@ define internal noundef range(i32 0, 2) i32 @nfs4_proc_unlink_done(ptr noundef %
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 376
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   %20 = load i32, ptr %19, align 4
@@ -6329,11 +6323,11 @@ define internal noundef range(i32 0, 2) i32 @nfs4_proc_unlink_done(ptr noundef %
 31:                                               ; preds = %29, %22
   %32 = and i8 %27, 8
   %33 = icmp eq i8 %32, 0
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %33, label %thread-pre-split, label %45
 
 34:                                               ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %35
 
 thread-pre-split:                                 ; preds = %31
@@ -6449,7 +6443,7 @@ define internal noundef range(i32 0, 2) i32 @nfs4_proc_rename_done(ptr noundef %
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 872
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   %21 = load i32, ptr %20, align 4
@@ -6476,11 +6470,11 @@ define internal noundef range(i32 0, 2) i32 @nfs4_proc_rename_done(ptr noundef %
 32:                                               ; preds = %30, %23
   %33 = and i8 %28, 8
   %34 = icmp eq i8 %33, 0
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %34, label %thread-pre-split, label %61
 
 35:                                               ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %36
 
 thread-pre-split:                                 ; preds = %32
@@ -6544,7 +6538,7 @@ define internal i32 @nfs4_proc_link(ptr noundef %0, ptr noundef %1, ptr noundef 
   %8 = alloca %struct.nfs4_link_res, align 8
   %9 = alloca %struct.rpc_message, align 8
   %10 = alloca %struct.nfs4_exception, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 35
   store i8 1, ptr %11, align 1
@@ -6582,18 +6576,18 @@ define internal i32 @nfs4_proc_link(ptr noundef %0, ptr noundef %1, ptr noundef 
   %41 = load ptr, ptr %12, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 872
   %43 = load ptr, ptr %42, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, i8 0, i64 12, i1 false), !annotation !60
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 16, i1 false)
   store ptr %14, ptr %13, align 8
   store ptr %16, ptr %15, align 8
   store ptr %2, ptr %17, align 8
   store ptr %6, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 0, i64 80, i1 false)
   store ptr %43, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 1104), ptr %9, align 8
   store ptr %7, ptr %20, align 8
   store ptr %8, ptr %21, align 8
@@ -6661,11 +6655,11 @@ condstore.split:                                  ; preds = %58, %52
   %77 = trunc nuw nsw i32 %76 to i16
   %78 = and i16 %77, 4
   %79 = load ptr, ptr %43, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %43, ptr %4, align 8
   store ptr %7, ptr %28, align 8
   store ptr %8, ptr %29, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
   store ptr %70, ptr %30, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
@@ -6694,8 +6688,8 @@ condstore.split:                                  ; preds = %58, %52
 
 92:                                               ; preds = %89, %86
   %93 = phi i32 [ %88, %86 ], [ %91, %89 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %94 = icmp eq i32 %93, 0
   %.pre5 = load ptr, ptr %23, align 8
   br i1 %94, label %95, label %102
@@ -6725,10 +6719,10 @@ condstore.split:                                  ; preds = %58, %52
   %103 = phi ptr [ null, %40 ], [ %.pre5, %92 ], [ %.pre4, %95 ], [ %.pre, %101 ]
   %104 = phi i32 [ -12, %40 ], [ %93, %92 ], [ %99, %95 ], [ 0, %101 ]
   call void @kfree(ptr noundef %103) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %105 = call i32 @nfs4_handle_exception(ptr noundef %43, i32 noundef %104, ptr noundef nonnull %10)
   %106 = load i8, ptr %39, align 2
   %107 = and i8 %106, 8
@@ -6736,7 +6730,7 @@ condstore.split:                                  ; preds = %58, %52
   br i1 %108, label %109, label %40, !llvm.loop !112
 
 109:                                              ; preds = %102
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %105
 }
 
@@ -6744,7 +6738,7 @@ condstore.split:                                  ; preds = %58, %52
 define internal i32 @nfs4_proc_symlink(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 align 16 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.nfs4_exception, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 35
   store i8 1, ptr %8, align 1
@@ -6806,7 +6800,7 @@ define internal i32 @nfs4_proc_symlink(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %41, label %.split4.us, label %.split.us, !llvm.loop !117
 
 .split:                                           ; preds = %5, %95
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %43 = call noalias align 8 dereferenceable_or_null(568) ptr @kmalloc_trace(ptr noundef %42, i32 noundef 3520, i64 noundef 568) #25
@@ -6865,7 +6859,7 @@ define internal i32 @nfs4_proc_symlink(ptr noundef %0, ptr noundef %1, ptr nound
 
 73:                                               ; preds = %45, %.split
   %74 = phi i32 [ %72, %45 ], [ -12, %.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_nfs4_symlink, i64 8), i32 2) #22
           to label %95 [label %75], !srcloc !10
 
@@ -6917,7 +6911,7 @@ define internal i32 @nfs4_proc_symlink(ptr noundef %0, ptr noundef %1, ptr nound
 
 .split4.us:                                       ; preds = %95, %34
   %.us-phi = phi i32 [ %38, %34 ], [ %99, %95 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.us-phi
 }
 
@@ -6928,7 +6922,7 @@ define internal i32 @nfs4_proc_mkdir(ptr noundef %0, ptr noundef %1, ptr noundef
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 872
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 35
   store i8 1, ptr %9, align 1
@@ -7057,14 +7051,14 @@ define internal i32 @nfs4_proc_mkdir(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %84, label %85, label %25, !llvm.loop !124
 
 85:                                               ; preds = %77
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %81
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_proc_rmdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.nfs4_exception, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 35
   store i8 1, ptr %4, align 1
@@ -7124,7 +7118,7 @@ define internal i32 @nfs4_proc_rmdir(ptr noundef %0, ptr noundef %1) #0 align 16
   br i1 %36, label %37, label %7, !llvm.loop !125
 
 37:                                               ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %33
 }
 
@@ -7136,7 +7130,7 @@ define internal i32 @nfs4_proc_readdir(ptr noundef readonly captures(none) %0, p
   %6 = alloca %struct.nfs4_readdir_res, align 8
   %7 = alloca %struct.rpc_message, align 8
   %8 = alloca %struct.nfs4_exception, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 35
   store i8 1, ptr %9, align 1
@@ -7180,7 +7174,7 @@ define internal i32 @nfs4_proc_readdir(ptr noundef readonly captures(none) %0, p
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 872
   %47 = load ptr, ptr %46, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %48 = getelementptr i8, ptr %43, i64 -424
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 80, i1 false)
   store ptr %48, ptr %10, align 8
@@ -7191,9 +7185,9 @@ define internal i32 @nfs4_proc_readdir(ptr noundef readonly captures(none) %0, p
   store ptr %50, ptr %14, align 8
   %51 = load i8, ptr %19, align 4, !range !6, !noundef !7
   store i8 %51, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false), !annotation !60
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 1392), ptr %7, align 8
   store ptr %5, ptr %20, align 8
   store ptr %6, ptr %21, align 8
@@ -7338,11 +7332,11 @@ define internal i32 @nfs4_proc_readdir(ptr noundef readonly captures(none) %0, p
   %136 = trunc nuw nsw i32 %135 to i16
   %137 = and i16 %136, 4
   %138 = load ptr, ptr %47, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %47, ptr %3, align 8
   store ptr %5, ptr %29, align 8
   store ptr %6, ptr %30, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false)
   store ptr %131, ptr %31, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
@@ -7371,8 +7365,8 @@ define internal i32 @nfs4_proc_readdir(ptr noundef readonly captures(none) %0, p
 
 151:                                              ; preds = %148, %145
   %152 = phi i32 [ %147, %145 ], [ %150, %148 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %153 = icmp sgt i32 %152, -1
   br i1 %153, label %154, label %159
 
@@ -7387,9 +7381,9 @@ define internal i32 @nfs4_proc_readdir(ptr noundef readonly captures(none) %0, p
 159:                                              ; preds = %154, %151
   %160 = phi i32 [ %158, %154 ], [ %152, %151 ]
   call void @nfs_invalidate_atime(ptr noundef %43) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %161 = load ptr, ptr %0, align 8
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 48
   %163 = load ptr, ptr %162, align 8
@@ -7447,7 +7441,7 @@ define internal i32 @nfs4_proc_readdir(ptr noundef readonly captures(none) %0, p
   br i1 %195, label %196, label %40, !llvm.loop !135
 
 196:                                              ; preds = %184
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %192
 }
 
@@ -7458,7 +7452,7 @@ define internal i32 @nfs4_proc_mknod(ptr noundef %0, ptr noundef %1, ptr noundef
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 872
   %9 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 35
   store i8 1, ptr %10, align 1
@@ -7624,7 +7618,7 @@ define internal i32 @nfs4_proc_mknod(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %100, label %101, label %29, !llvm.loop !140
 
 101:                                              ; preds = %93
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %97
 }
 
@@ -7636,7 +7630,7 @@ define internal i32 @nfs4_proc_statfs(ptr noundef %0, ptr noundef %1, ptr nounde
   %7 = alloca %struct.nfs4_statfs_res, align 8
   %8 = alloca %struct.rpc_message, align 8
   %9 = alloca %struct.nfs4_exception, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 35
   store i8 1, ptr %10, align 1
@@ -7662,14 +7656,14 @@ define internal i32 @nfs4_proc_statfs(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %30
 
 30:                                               ; preds = %52, %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 16, i1 false)
   store ptr %1, ptr %11, align 8
   store ptr %13, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 32, i1 false)
   store ptr %2, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 1296), ptr %8, align 8
   store ptr %6, ptr %15, align 8
   store ptr %7, ptr %16, align 8
@@ -7687,11 +7681,11 @@ define internal i32 @nfs4_proc_statfs(ptr noundef %0, ptr noundef %1, ptr nounde
   %37 = trunc nuw nsw i32 %36 to i16
   %38 = and i16 %37, 4
   %39 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8
   store ptr %6, ptr %21, align 8
   store ptr %7, ptr %22, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
   store ptr %32, ptr %23, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
@@ -7720,11 +7714,11 @@ define internal i32 @nfs4_proc_statfs(ptr noundef %0, ptr noundef %1, ptr nounde
 
 52:                                               ; preds = %49, %46
   %53 = phi i32 [ %48, %46 ], [ %51, %49 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %54 = call i32 @nfs4_handle_exception(ptr noundef %0, i32 noundef %53, ptr noundef nonnull %9)
   %55 = load i8, ptr %29, align 2
   %56 = and i8 %55, 8
@@ -7732,7 +7726,7 @@ define internal i32 @nfs4_proc_statfs(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %57, label %58, label %30, !llvm.loop !141
 
 58:                                               ; preds = %52
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %54
 }
 
@@ -7763,7 +7757,7 @@ define internal i32 @nfs4_proc_pathconf(ptr noundef %0, ptr noundef %1, ptr noun
   %7 = alloca %struct.nfs4_pathconf_res, align 8
   %8 = alloca %struct.rpc_message, align 8
   %9 = alloca %struct.nfs4_exception, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 35
   store i8 1, ptr %10, align 1
@@ -7789,14 +7783,14 @@ define internal i32 @nfs4_proc_pathconf(ptr noundef %0, ptr noundef %1, ptr noun
   br label %30
 
 30:                                               ; preds = %59, %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 16, i1 false)
   store ptr %1, ptr %11, align 8
   store ptr %13, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 32, i1 false)
   store ptr %2, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 1248), ptr %8, align 8
   store ptr %6, ptr %15, align 8
   store ptr %7, ptr %16, align 8
@@ -7824,11 +7818,11 @@ define internal i32 @nfs4_proc_pathconf(ptr noundef %0, ptr noundef %1, ptr noun
   %42 = trunc nuw nsw i32 %41 to i16
   %43 = and i16 %42, 4
   %44 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8
   store ptr %6, ptr %21, align 8
   store ptr %7, ptr %22, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
   store ptr %37, ptr %23, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
@@ -7857,15 +7851,15 @@ define internal i32 @nfs4_proc_pathconf(ptr noundef %0, ptr noundef %1, ptr noun
 
 57:                                               ; preds = %54, %51
   %58 = phi i32 [ %53, %51 ], [ %56, %54 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %59
 
 59:                                               ; preds = %57, %34
   %60 = phi i32 [ 0, %34 ], [ %58, %57 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %61 = call i32 @nfs4_handle_exception(ptr noundef %0, i32 noundef %60, ptr noundef nonnull %9)
   %62 = load i8, ptr %29, align 2
   %63 = and i8 %62, 8
@@ -7873,12 +7867,12 @@ define internal i32 @nfs4_proc_pathconf(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %64, label %65, label %30, !llvm.loop !142
 
 65:                                               ; preds = %59
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %61
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs4_decode_dirent(ptr noundef, ptr noundef, i1 noundef zeroext) #2
+declare dso_local i32 @nfs4_decode_dirent(ptr noundef, ptr noundef, i1 noundef zeroext) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 -5, 1) i32 @nfs4_proc_pgio_rpc_prepare(ptr noundef %0, ptr noundef %1) #0 align 16 {
@@ -7923,7 +7917,7 @@ define internal range(i32 -5, 1) i32 @nfs4_proc_pgio_rpc_prepare(ptr noundef %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define internal void @nfs4_proc_read_setup(ptr noundef captures(none) initializes((592, 600), (704, 712), (776, 784)) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #7 align 16 {
+define internal void @nfs4_proc_read_setup(ptr noundef captures(none) initializes((592, 600), (704, 712), (776, 784)) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #6 align 16 {
   %3 = load volatile i64, ptr @jiffies, align 64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 776
   store i64 %3, ptr %4, align 8
@@ -7992,7 +7986,7 @@ define internal i32 @nfs4_read_done(ptr noundef %0, ptr noundef %1) #0 align 16 
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 624
   %21 = load ptr, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, i8 0, i64 20, i1 false), !annotation !60
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 96
   %23 = load ptr, ptr %22, align 8
@@ -8011,11 +8005,11 @@ define internal i32 @nfs4_read_done(ptr noundef %0, ptr noundef %1) #0 align 16 
 32:                                               ; preds = %26
   %33 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %17, ptr noundef nonnull dereferenceable(16) %3, i64 16)
   %34 = icmp eq i32 %33, 0
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %34, label %39, label %36
 
 35:                                               ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %36
 
 36:                                               ; preds = %35, %32
@@ -8023,7 +8017,7 @@ define internal i32 @nfs4_read_done(ptr noundef %0, ptr noundef %1) #0 align 16 
   br label %69
 
 38:                                               ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %39
 
 39:                                               ; preds = %38, %32, %13
@@ -8197,7 +8191,7 @@ define internal i32 @nfs4_write_done(ptr noundef %0, ptr noundef %1) #0 align 16
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 624
   %21 = load ptr, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, i8 0, i64 20, i1 false), !annotation !60
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 96
   %23 = load ptr, ptr %22, align 8
@@ -8216,11 +8210,11 @@ define internal i32 @nfs4_write_done(ptr noundef %0, ptr noundef %1) #0 align 16
 32:                                               ; preds = %26
   %33 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %17, ptr noundef nonnull dereferenceable(16) %3, i64 16)
   %34 = icmp eq i32 %33, 0
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %34, label %39, label %36
 
 35:                                               ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %36
 
 36:                                               ; preds = %35, %32
@@ -8228,7 +8222,7 @@ define internal i32 @nfs4_write_done(ptr noundef %0, ptr noundef %1) #0 align 16
   br label %47
 
 38:                                               ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %39
 
 39:                                               ; preds = %38, %32, %13
@@ -8251,7 +8245,7 @@ define internal i32 @nfs4_write_done(ptr noundef %0, ptr noundef %1) #0 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @nfs4_proc_commit_setup(ptr noundef captures(none) initializes((520, 528), (568, 576), (624, 632)) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr readnone captures(none) %2) #8 align 16 {
+define internal void @nfs4_proc_commit_setup(ptr noundef captures(none) initializes((520, 528), (568, 576), (624, 632)) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr readnone captures(none) %2) #7 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -8348,7 +8342,7 @@ define internal i32 @nfs4_proc_lock(ptr noundef readonly captures(none) %0, i32 
   br i1 %16, label %238, label %17
 
 17:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 35
   store i8 1, ptr %18, align 1
@@ -8386,16 +8380,16 @@ define internal i32 @nfs4_proc_lock(ptr noundef readonly captures(none) %0, i32 
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 872
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %49, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %51 = getelementptr i8, ptr %45, i64 -424
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 16, i1 false)
   store ptr %51, ptr %20, align 8
   store ptr %2, ptr %21, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 32, i1 false)
   store ptr %2, ptr %23, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 720), ptr %8, align 8
   store ptr %6, ptr %24, align 8
   store ptr %7, ptr %25, align 8
@@ -8433,11 +8427,11 @@ define internal i32 @nfs4_proc_lock(ptr noundef readonly captures(none) %0, i32 
   %74 = trunc nuw nsw i32 %73 to i16
   %75 = and i16 %74, 4
   %76 = load ptr, ptr %49, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %49, ptr %4, align 8
   store ptr %6, ptr %32, align 8
   store ptr %7, ptr %33, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
   store ptr %67, ptr %34, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
@@ -8466,8 +8460,8 @@ define internal i32 @nfs4_proc_lock(ptr noundef readonly captures(none) %0, i32 
 
 89:                                               ; preds = %86, %83
   %90 = phi i32 [ %85, %83 ], [ %88, %86 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   switch i32 %90, label %93 [
     i32 0, label %91
     i32 -10010, label %92
@@ -8491,9 +8485,9 @@ define internal i32 @nfs4_proc_lock(ptr noundef readonly captures(none) %0, i32 
 
 98:                                               ; preds = %93, %44
   %99 = phi i32 [ %57, %44 ], [ %94, %93 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_nfs4_get_lock, i64 8), i32 2) #22
           to label %120 [label %100], !srcloc !10
 
@@ -8546,7 +8540,7 @@ define internal i32 @nfs4_proc_lock(ptr noundef readonly captures(none) %0, i32 
   br i1 %129, label %130, label %44, !llvm.loop !147
 
 130:                                              ; preds = %120
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %238
 
 131:                                              ; preds = %3
@@ -8787,25 +8781,25 @@ define internal ptr @nfs4_atomic_open(ptr noundef readonly captures(none) %0, pt
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs4_have_delegation(ptr noundef, i32 noundef) #2
+declare dso_local i32 @nfs4_have_delegation(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @nfs4_alloc_client(ptr noundef) #2
+declare dso_local ptr @nfs4_alloc_client(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @nfs4_init_client(ptr noundef, ptr noundef) #2
+declare dso_local ptr @nfs4_init_client(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs4_free_client(ptr noundef) #2
+declare dso_local void @nfs4_free_client(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @nfs4_create_server(ptr noundef) #2
+declare dso_local ptr @nfs4_create_server(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @nfs_clone_server(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare dso_local ptr @nfs_clone_server(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @nfs4_discover_trunking(ptr readonly captures(none) %0, ptr readnone captures(none) %1) #9 align 16 {
+define internal noundef i32 @nfs4_discover_trunking(ptr readonly captures(none) %0, ptr readnone captures(none) %1) #8 align 16 {
   ret i32 0
 }
 
@@ -8836,103 +8830,103 @@ define internal void @nfs4_disable_swap(ptr noundef readonly captures(none) %0) 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs_inode_find_state_and_recover(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs_inode_find_state_and_recover(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs_async_inode_return_delegation(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @nfs_async_inode_return_delegation(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs4_schedule_stateid_recovery(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @nfs4_schedule_stateid_recovery(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs4_schedule_lease_recovery(ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs4_schedule_lease_recovery(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs4_schedule_migration_recovery(ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @nfs4_schedule_migration_recovery(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs4_schedule_lease_moved_recovery(ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs4_schedule_lease_moved_recovery(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #10
+declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @schedule_timeout(i64 noundef) local_unnamed_addr #2
+declare dso_local i64 @schedule_timeout(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #2
+declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
+declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @rpc_delay(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare dso_local void @rpc_delay(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @rpc_wake_up_queued_task(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local void @rpc_wake_up_queued_task(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @rpc_task_release_transport(ptr noundef) local_unnamed_addr #2
+declare dso_local void @rpc_task_release_transport(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local zeroext i1 @nfs41_wake_and_assign_slot(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local zeroext i1 @nfs41_wake_and_assign_slot(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs4_free_slot(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs4_free_slot(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
+declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
+declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_setup_sequence(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_setup_sequence(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(read)
-declare i64 @llvm.read_register.i64(metadata) #12
+declare i64 @llvm.read_register.i64(metadata) #11
 
 ; Function Attrs: nocallback nounwind
-declare void @llvm.write_register.i64(metadata, i64) #13
+declare void @llvm.write_register.i64(metadata, i64) #12
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs_force_lookup_revalidate(ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs_force_lookup_revalidate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @nfs_inc_attr_generation_counter() local_unnamed_addr #2
+declare dso_local i64 @nfs_inc_attr_generation_counter() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs_set_cache_invalid(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare dso_local void @nfs_set_cache_invalid(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__rcu_read_lock() local_unnamed_addr #2
+declare dso_local void @__rcu_read_lock() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @autoremove_wake_function(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #2
+declare dso_local i32 @autoremove_wake_function(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @prepare_to_wait(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local void @prepare_to_wait(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @finish_wait(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local void @finish_wait(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #14
+declare i32 @llvm.bswap.i32(i32) #13
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs4_state_mark_reclaim_nograce(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @nfs4_state_mark_reclaim_nograce(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_open_stateid_update(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_open_stateid_update(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__wake_up(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @__wake_up(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs4_state_set_mode_locked(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local void @nfs4_state_set_mode_locked(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__rcu_read_unlock() local_unnamed_addr #2
+declare dso_local void @__rcu_read_unlock() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef ptr @nfs4_opendata_alloc(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 4) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef range(i32 0, 6) %5, i32 noundef range(i32 3136, 3265) %6) unnamed_addr #0 align 16 {
@@ -9169,22 +9163,22 @@ define internal fastcc noundef ptr @nfs4_opendata_alloc(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @dget_parent(ptr noundef) local_unnamed_addr #2
+declare dso_local ptr @dget_parent(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @current_umask() local_unnamed_addr #2
+declare dso_local i32 @current_umask() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @dput(ptr noundef) local_unnamed_addr #2
+declare dso_local void @dput(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @lockref_get(ptr noundef) local_unnamed_addr #2
+declare dso_local void @lockref_get(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs_fattr_init_names(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs_fattr_init_names(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc ptr @nfs4_opendata_to_nfs4_state(ptr noundef %0) unnamed_addr #0 align 16 {
@@ -9299,7 +9293,7 @@ define internal fastcc ptr @nfs4_opendata_to_nfs4_state(ptr noundef %0) unnamed_
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs4_close_state(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local void @nfs4_close_state(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @nfs4_run_open_task(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1) unnamed_addr #0 align 16 {
@@ -9315,7 +9309,7 @@ define internal fastcc i32 @nfs4_run_open_task(ptr noundef %0, ptr noundef readn
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 192), ptr %3, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %13, ptr %15, align 8
@@ -9327,7 +9321,7 @@ define internal fastcc i32 @nfs4_run_open_task(ptr noundef %0, ptr noundef readn
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %17, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false)
@@ -9427,13 +9421,13 @@ define internal fastcc i32 @nfs4_run_open_task(ptr noundef %0, ptr noundef readn
 
 70:                                               ; preds = %68, %59
   %71 = phi i32 [ %61, %59 ], [ %69, %68 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %71
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs_fattr_map_and_free_names(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs_fattr_map_and_free_names(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @_nfs4_proc_open_confirm(ptr noundef %0) unnamed_addr #0 align 16 {
@@ -9447,7 +9441,7 @@ define internal fastcc i32 @_nfs4_proc_open_confirm(ptr noundef %0) unnamed_addr
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 872
   %11 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 240), ptr %2, align 8
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 496
@@ -9461,7 +9455,7 @@ define internal fastcc i32 @_nfs4_proc_open_confirm(ptr noundef %0) unnamed_addr
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -9545,8 +9539,8 @@ define internal fastcc i32 @_nfs4_proc_open_confirm(ptr noundef %0) unnamed_addr
 
 66:                                               ; preds = %64, %54
   %67 = phi i32 [ %56, %54 ], [ %65, %64 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %67
 }
 
@@ -9948,13 +9942,13 @@ define internal void @nfs4_open_release(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs_wait_on_sequence(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @nfs_wait_on_sequence(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs_release_seqid(ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs_release_seqid(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_cached_open(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_cached_open(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_open_confirm_prepare(ptr noundef %0, ptr noundef %1) #0 align 16 {
@@ -10245,7 +10239,7 @@ define internal fastcc ptr @nfs4_try_open_cached(ptr noundef readonly captures(n
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %10 = load i32, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2, i8 0, i64 20, i1 false), !annotation !60
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %12 = and i32 %6, 640
@@ -10437,12 +10431,12 @@ default.unreachable4:                             ; preds = %27
 
 109:                                              ; preds = %108, %104, %103, %97
   %110 = phi ptr [ %99, %97 ], [ %4, %103 ], [ %4, %104 ], [ %4, %108 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %110
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs_refresh_inode(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @nfs_refresh_inode(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @nfs4_opendata_check_deleg(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 16 {
@@ -10525,37 +10519,37 @@ define internal fastcc void @nfs4_opendata_check_deleg(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs_may_open(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @nfs_may_open(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @___ratelimit(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @___ratelimit(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs_inode_set_delegation(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare dso_local i32 @nfs_inode_set_delegation(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs_inode_reclaim_delegation(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare dso_local void @nfs_inode_reclaim_delegation(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @nfs4_get_open_state(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local ptr @nfs4_get_open_state(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @iput(ptr noundef) local_unnamed_addr #2
+declare dso_local void @iput(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @nfs_fhget(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local ptr @nfs_fhget(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @ihold(ptr noundef) local_unnamed_addr #2
+declare dso_local void @ihold(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs_free_seqid(ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs_free_seqid(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs_sb_deactive(ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs_sb_deactive(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs_fattr_free_names(ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs_fattr_free_names(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_close_prepare(ptr noundef %0, ptr noundef %1) #0 align 16 {
@@ -10871,7 +10865,7 @@ define internal void @nfs4_close_done(ptr noundef %0, ptr noundef %1) #0 align 1
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 872
   %11 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 0, ptr %12, align 8, !annotation !60
   store ptr %6, ptr %4, align 8
@@ -10999,7 +10993,7 @@ define internal void @nfs4_close_done(ptr noundef %0, ptr noundef %1) #0 align 1
 73:                                               ; preds = %51, %51, %51
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %75 = load ptr, ptr %74, align 8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %15, i64 16, i1 false)
   store i32 7, ptr %76, align 4
@@ -11009,7 +11003,7 @@ define internal void @nfs4_close_done(ptr noundef %0, ptr noundef %1) #0 align 1
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %81 = load ptr, ptr %80, align 8
   %82 = call i32 %81(ptr noundef %11, ptr noundef nonnull %3, ptr noundef %75) #22
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %83
 
 83:                                               ; preds = %73, %51
@@ -11246,7 +11240,7 @@ default.unreachable5:                             ; preds = %110
   %204 = load ptr, ptr %1, align 8
   %205 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %206 = call i32 @nfs_refresh_inode(ptr noundef %204, ptr noundef nonnull %205) #22
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 207:                                              ; preds = %87, %71, %69
@@ -11278,7 +11272,7 @@ define internal void @nfs4_free_closedata(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef zeroext i1 @nfs4_refresh_open_old_stateid(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.wait_queue_entry, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #23, !srcloc !19
   %6 = inttoptr i64 %5 to ptr
@@ -11446,48 +11440,48 @@ define internal fastcc noundef zeroext i1 @nfs4_refresh_open_old_stateid(ptr nou
 
 .loopexit3:                                       ; preds = %39, %21, %.thread, %88, %51
   %91 = phi i1 [ true, %51 ], [ true, %88 ], [ false, %.thread ], [ false, %21 ], [ false, %39 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %91
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @rpc_restart_call_prepare(ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @rpc_restart_call_prepare(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_close(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_close(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_close_stateid_update_wait(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_close_stateid_update_wait(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare dso_local noalias ptr @kmalloc_large(i64 noundef, i32 noundef) local_unnamed_addr #15
+declare dso_local noalias ptr @kmalloc_large(i64 noundef, i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
-declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #16
+declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #15
+declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_lookup_root(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_lookup_root(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_getattr(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_getattr(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @nfs4_negotiate_security(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local ptr @nfs4_negotiate_security(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @rpc_shutdown_client(ptr noundef) local_unnamed_addr #2
+declare dso_local void @rpc_shutdown_client(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_lookup(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_lookup(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs4_set_lease_period(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare dso_local void @nfs4_set_lease_period(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_fsinfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_fsinfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_setclientid_done(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
@@ -11554,7 +11548,7 @@ define internal void @nfs4_setclientid_done(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i64 @nfs4_get_uniquifier(ptr %.792.val, ptr noundef initializes((0, 1)) %0) unnamed_addr #0 align 16 {
@@ -11607,19 +11601,19 @@ define internal fastcc i64 @nfs4_get_uniquifier(ptr %.792.val, ptr noundef initi
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @rpc_peeraddr2str(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local ptr @rpc_peeraddr2str(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #17
+declare dso_local ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_setclientid(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_setclientid(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_setclientid_confirm(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_setclientid_confirm(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_delegreturn_prepare(ptr noundef %0, ptr noundef %1) #0 align 16 {
@@ -11653,7 +11647,7 @@ define internal void @nfs4_delegreturn_prepare(ptr noundef %0, ptr noundef %1) #
 define internal void @nfs4_delegreturn_done(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.nfs4_stateid_struct, align 4
   %4 = alloca %struct.nfs4_exception, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 688
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
@@ -11776,7 +11770,7 @@ define internal void @nfs4_delegreturn_done(ptr noundef %0, ptr noundef %1) #0 a
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %69 = load ptr, ptr %68, align 8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef align 4 dereferenceable(16) %67, i64 16, i1 false)
   store i32 7, ptr %70, align 4
@@ -11786,7 +11780,7 @@ define internal void @nfs4_delegreturn_done(ptr noundef %0, ptr noundef %1) #0 a
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 48
   %75 = load ptr, ptr %74, align 8
   %76 = call i32 %75(ptr noundef %65, ptr noundef nonnull %3, ptr noundef %69) #22
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %77
 
 77:                                               ; preds = %63, %48, %48, %48
@@ -11852,7 +11846,7 @@ define internal void @nfs4_delegreturn_done(ptr noundef %0, ptr noundef %1) #0 a
   br label %113
 
 113:                                              ; preds = %111, %102
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -11893,22 +11887,22 @@ define internal void @nfs4_delegreturn_release(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local zeroext i1 @nfs4_refresh_delegation_stateid(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local zeroext i1 @nfs4_refresh_delegation_stateid(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs_delegation_mark_returned(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs_delegation_mark_returned(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_delegreturn_exit(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_delegreturn_exit(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @igrab(ptr noundef) local_unnamed_addr #2
+declare dso_local ptr @igrab(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_delegreturn(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_delegreturn(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @generic_setlease(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @generic_setlease(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_lock_prepare(ptr noundef %0, ptr noundef %1) #0 align 16 {
@@ -12339,13 +12333,13 @@ define internal void @nfs4_lock_release(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @locks_lock_inode_wait(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @locks_lock_inode_wait(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc ptr @nfs4_do_unlck(ptr noundef initializes((84, 85)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.rpc_message, align 8
   %6 = alloca %struct.rpc_task_setup, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 768), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -12354,7 +12348,7 @@ define internal fastcc ptr @nfs4_do_unlck(ptr noundef initializes((84, 85)) %0, 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 72, i1 false)
@@ -12464,19 +12458,19 @@ define internal fastcc ptr @nfs4_do_unlck(ptr noundef initializes((84, 85)) %0, 
 
 77:                                               ; preds = %48, %47
   %78 = phi ptr [ inttoptr (i64 -12 to ptr), %47 ], [ %76, %48 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %78
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @rpc_put_task_async(ptr noundef) local_unnamed_addr #2
+declare dso_local void @rpc_put_task_async(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs4_put_lock_state(ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs4_put_lock_state(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @put_nfs_open_context(ptr noundef) local_unnamed_addr #2
+declare dso_local void @put_nfs_open_context(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_locku_prepare(ptr noundef %0, ptr noundef %1) #0 align 16 {
@@ -12562,7 +12556,7 @@ define internal void @nfs4_locku_prepare(ptr noundef %0, ptr noundef %1) #0 alig
 define internal void @nfs4_locku_done(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.nfs4_stateid_struct, align 4
   %4 = alloca %struct.nfs4_exception, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
@@ -12678,7 +12672,7 @@ define internal void @nfs4_locku_done(ptr noundef %0, ptr noundef %1) #0 align 1
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %74 = load ptr, ptr %73, align 8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %13, i64 16, i1 false)
   store i32 7, ptr %75, align 4
@@ -12688,7 +12682,7 @@ define internal void @nfs4_locku_done(ptr noundef %0, ptr noundef %1) #0 align 1
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 48
   %80 = load ptr, ptr %79, align 8
   %81 = call i32 %80(ptr noundef %72, ptr noundef nonnull %3, ptr noundef %74) #22
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %82
 
 82:                                               ; preds = %70, %25, %25
@@ -12771,7 +12765,7 @@ define internal void @nfs4_locku_done(ptr noundef %0, ptr noundef %1) #0 align 1
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %133 = load ptr, ptr %132, align 8
   call void @nfs_release_seqid(ptr noundef %133) #22
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -12794,43 +12788,43 @@ define internal void @nfs4_locku_release_calldata(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local zeroext i1 @nfs_async_iocounter_wait(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local zeroext i1 @nfs_async_iocounter_wait(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs_put_lock_context(ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs_put_lock_context(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @get_nfs_open_context(ptr noundef) local_unnamed_addr #2
+declare dso_local ptr @get_nfs_open_context(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @nfs_get_lock_context(ptr noundef) local_unnamed_addr #2
+declare dso_local ptr @nfs_get_lock_context(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @locks_init_lock(ptr noundef) local_unnamed_addr #2
+declare dso_local void @locks_init_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @locks_copy_lock(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local void @locks_copy_lock(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @nfs_alloc_seqid(ptr noundef, i32 noundef) #2
+declare dso_local ptr @nfs_alloc_seqid(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_set_lock(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_set_lock(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @msleep(i32 noundef) local_unnamed_addr #2
+declare dso_local void @msleep(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_get_fs_locations(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_get_fs_locations(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @nfs4_get_clid_cred(ptr noundef) local_unnamed_addr #2
+declare dso_local ptr @nfs4_get_clid_cred(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__put_cred(ptr noundef) local_unnamed_addr #2
+declare dso_local void @__put_cred(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_secinfo(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_secinfo(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_get_lease_time_prepare(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
@@ -12890,13 +12884,13 @@ define internal void @nfs4_get_lease_time_done(ptr noundef %0, ptr noundef reado
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs40_init_client(ptr noundef) #2
+declare dso_local i32 @nfs40_init_client(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs40_shutdown_client(ptr noundef) #2
+declare dso_local void @nfs40_shutdown_client(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal zeroext i1 @nfs4_match_stateid(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #18 align 16 {
+define internal zeroext i1 @nfs4_match_stateid(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #17 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -12938,7 +12932,7 @@ define internal noundef range(i32 -12, -13) i32 @nfs4_find_root_sec(ptr noundef 
   %17 = phi i64 [ 0, %9 ], [ %27, %25 ]
   %18 = getelementptr [12 x i32], ptr %10, i64 0, i64 %17
   %19 = load i32, ptr %18, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !60
   store i32 %19, ptr %5, align 8
   store ptr null, ptr %11, align 8
@@ -12948,12 +12942,12 @@ define internal noundef range(i32 -12, -13) i32 @nfs4_find_root_sec(ptr noundef 
   br i1 %22, label %.thread, label %23
 
 .thread:                                          ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %25
 
 23:                                               ; preds = %16
   %24 = call fastcc i32 @nfs4_lookup_root(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   switch i32 %24, label %.loopexit [
     i32 -13, label %25
     i32 -10016, label %25
@@ -12971,7 +12965,7 @@ define internal noundef range(i32 -12, -13) i32 @nfs4_find_root_sec(ptr noundef 
   %32 = phi i64 [ 0, %13 ], [ %42, %40 ]
   %33 = getelementptr [5 x i32], ptr @nfs4_find_root_sec.flav_array, i64 0, i64 %32
   %34 = load i32, ptr %33, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !annotation !60
   store i32 %34, ptr %4, align 8
   store ptr null, ptr %14, align 8
@@ -12981,12 +12975,12 @@ define internal noundef range(i32 -12, -13) i32 @nfs4_find_root_sec(ptr noundef 
   br i1 %37, label %.thread2, label %38
 
 .thread2:                                         ; preds = %31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %40
 
 38:                                               ; preds = %31
   %39 = call fastcc i32 @nfs4_lookup_root(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   switch i32 %39, label %.loopexit [
     i32 -13, label %40
     i32 -10016, label %40
@@ -13008,7 +13002,7 @@ define internal noundef range(i32 -12, -13) i32 @nfs4_find_root_sec(ptr noundef 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_release_lockowner(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.rpc_message, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 1680), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -13061,20 +13055,20 @@ define internal void @nfs4_release_lockowner(ptr noundef %0, ptr noundef %1) #0 
   br label %37
 
 37:                                               ; preds = %16, %12, %2
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @nfs40_test_and_free_expired_stateid(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #9 align 16 {
+define internal noundef i32 @nfs40_test_and_free_expired_stateid(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #8 align 16 {
   ret i32 -10025
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @rpcauth_create(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local ptr @rpcauth_create(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @rpc_call_async(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @rpc_call_async(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_release_lockowner_prepare(ptr noundef %0, ptr noundef %1) #0 align 16 {
@@ -13158,7 +13152,7 @@ define internal void @nfs4_release_lockowner_done(ptr noundef %0, ptr noundef ca
   br label %39
 
 31:                                               ; preds = %15, %15
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   %32 = call fastcc i32 @nfs4_async_handle_exception(ptr noundef %0, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %3)
   store i32 %32, ptr %16, align 4
@@ -13166,7 +13160,7 @@ define internal void @nfs4_release_lockowner_done(ptr noundef %0, ptr noundef ca
   %34 = load i8, ptr %33, align 2
   %35 = and i8 %34, 8
   %36 = icmp eq i8 %35, 0
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %36, label %39, label %37
 
 37:                                               ; preds = %31
@@ -13188,7 +13182,7 @@ define internal void @nfs4_release_lockowner_release(ptr noundef %0) #0 align 16
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs4_free_lock_state(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs4_free_lock_state(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs40_call_sync_prepare(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
@@ -13250,7 +13244,7 @@ define internal i32 @nfs4_open_reclaim(ptr readnone captures(none) %0, ptr nound
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 872
   %13 = load ptr, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -13396,7 +13390,7 @@ define internal i32 @nfs4_open_reclaim(ptr readnone captures(none) %0, ptr nound
   br i1 %92, label %93, label %19, !llvm.loop !186
 
 93:                                               ; preds = %80, %89, %79
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   tail call void @put_nfs_open_context(ptr noundef %4) #22
   br label %94
 
@@ -13414,7 +13408,7 @@ define internal i32 @nfs4_lock_reclaim(ptr noundef %0, ptr noundef %1) #0 align 
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 872
   %9 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   store ptr %5, ptr %10, align 8
@@ -13442,15 +13436,15 @@ define internal i32 @nfs4_lock_reclaim(ptr noundef %0, ptr noundef %1) #0 align 
 
 25:                                               ; preds = %20, %17, %13
   %26 = phi i32 [ 0, %13 ], [ %18, %17 ], [ -10008, %20 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %26
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs4_init_clientid(ptr noundef, ptr noundef) #2
+declare dso_local i32 @nfs4_init_clientid(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs40_discover_server_trunking(ptr noundef, ptr noundef, ptr noundef) #2
+declare dso_local i32 @nfs40_discover_server_trunking(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc ptr @nfs4_state_find_open_context(ptr noundef readonly captures(address) %0) unnamed_addr #0 align 16 {
@@ -13653,7 +13647,7 @@ define internal fastcc i32 @nfs4_open_recover(ptr noundef %0, ptr noundef %1) un
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_open_reclaim(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_open_reclaim(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 -10007, -10008) i32 @nfs40_open_expired(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
@@ -13706,7 +13700,7 @@ define internal range(i32 -10007, -10008) i32 @nfs40_open_expired(ptr readnone c
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 872
   %31 = load ptr, ptr %30, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 72
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -13842,7 +13836,7 @@ define internal range(i32 -10007, -10008) i32 @nfs40_open_expired(ptr readnone c
 
 102:                                              ; preds = %88, %97, %87
   %103 = phi i32 [ %99, %97 ], [ %66, %87 ], [ -22, %88 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   tail call void @put_nfs_open_context(ptr noundef %24) #22
   br label %104
 
@@ -13860,7 +13854,7 @@ define internal i32 @nfs4_lock_expired(ptr noundef %0, ptr noundef %1) #0 align 
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 872
   %9 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   store ptr %5, ptr %10, align 8
@@ -13907,23 +13901,23 @@ define internal i32 @nfs4_lock_expired(ptr noundef %0, ptr noundef %1) #0 align 
 
 .loopexit:                                        ; preds = %29, %27, %23, %19, %2
   %34 = phi i32 [ 0, %19 ], [ %11, %2 ], [ 0, %29 ], [ %28, %27 ], [ 0, %23 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %34
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs_remove_bad_delegation(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs_remove_bad_delegation(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @d_drop(ptr noundef) local_unnamed_addr #2
+declare dso_local void @d_drop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_open_expired(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_open_expired(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs4_proc_async_renew(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = alloca %struct.rpc_message, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 528), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %5, align 8
@@ -13991,17 +13985,17 @@ define internal i32 @nfs4_proc_async_renew(ptr noundef %0, ptr noundef %1, i32 n
 
 38:                                               ; preds = %32, %31, %25, %3
   %39 = phi i32 [ -12, %31 ], [ %37, %32 ], [ 0, %3 ], [ -5, %25 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %39
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @nfs4_get_renew_cred(ptr noundef) #2
+declare dso_local ptr @nfs4_get_renew_cred(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 -2147483648, 1) i32 @nfs4_proc_renew(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.rpc_message, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 528), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %4, align 8
@@ -14035,12 +14029,12 @@ define internal range(i32 -2147483648, 1) i32 @nfs4_proc_renew(ptr noundef %0, p
 
 20:                                               ; preds = %19, %2
   %21 = phi i32 [ 0, %19 ], [ %10, %2 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %21
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs_put_client(ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs_put_client(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs4_renew_done(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
@@ -14157,13 +14151,13 @@ define internal void @nfs4_renew_release(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs4_schedule_path_down_recovery(ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs4_schedule_path_down_recovery(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_renew_async(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_renew_async(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs4_schedule_state_renewal(ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs4_schedule_state_renewal(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @_nfs40_proc_get_locations(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 align 16 {
@@ -14175,11 +14169,11 @@ define internal i32 @_nfs40_proc_get_locations(ptr noundef %0, ptr noundef %1, p
   %11 = alloca %struct.rpc_message, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 16777472, ptr %8, align 4
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 0, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %9, i8 0, i64 72, i1 false)
   store ptr %1, ptr %15, align 8
@@ -14194,13 +14188,13 @@ define internal i32 @_nfs40_proc_get_locations(ptr noundef %0, ptr noundef %1, p
   store i64 %21, ptr %18, align 8
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i8 3, ptr %22, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 48, i1 false)
   store ptr %2, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i8 3, ptr %24, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 1632), ptr %11, align 8
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %9, ptr %25, align 8
@@ -14228,13 +14222,13 @@ define internal i32 @_nfs40_proc_get_locations(ptr noundef %0, ptr noundef %1, p
   %39 = trunc nuw nsw i32 %38 to i16
   %40 = and i16 %39, 4
   %41 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %9, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %10, ptr %43, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, i8 0, i64 72, i1 false)
   store ptr %13, ptr %44, align 8
@@ -14269,8 +14263,8 @@ define internal i32 @_nfs40_proc_get_locations(ptr noundef %0, ptr noundef %1, p
 
 62:                                               ; preds = %59, %56
   %63 = phi i32 [ %58, %56 ], [ %61, %59 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %65, label %74
 
@@ -14293,10 +14287,10 @@ define internal i32 @_nfs40_proc_get_locations(ptr noundef %0, ptr noundef %1, p
   br label %74
 
 74:                                               ; preds = %73, %62
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %63
 }
 
@@ -14314,7 +14308,7 @@ define internal i32 @_nfs40_proc_fsid_present(ptr noundef %0, ptr noundef %1) #0
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %14 = load ptr, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %16 = getelementptr i8, ptr %0, i64 -424
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
@@ -14325,11 +14319,11 @@ define internal i32 @_nfs40_proc_fsid_present(ptr noundef %0, ptr noundef %1) #0
   store i64 %19, ptr %17, align 8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 1, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i8 1, ptr %21, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 1776), ptr %7, align 8
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %5, ptr %22, align 8
@@ -14358,13 +14352,13 @@ define internal i32 @_nfs40_proc_fsid_present(ptr noundef %0, ptr noundef %1) #0
   %37 = trunc nuw nsw i32 %36 to i16
   %38 = and i16 %37, 4
   %39 = load ptr, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %11, ptr %3, align 8
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %5, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %6, ptr %41, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false)
   store ptr %14, ptr %42, align 8
@@ -14399,8 +14393,8 @@ define internal i32 @_nfs40_proc_fsid_present(ptr noundef %0, ptr noundef %1) #0
 
 60:                                               ; preds = %57, %54
   %61 = phi i32 [ %56, %54 ], [ %59, %57 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %62 = load ptr, ptr %27, align 8
   call void @kfree(ptr noundef %62) #22
   %63 = icmp eq i32 %61, 0
@@ -14425,50 +14419,50 @@ define internal i32 @_nfs40_proc_fsid_present(ptr noundef %0, ptr noundef %1) #0
 
 72:                                               ; preds = %71, %60, %2
   %73 = phi i32 [ 0, %71 ], [ -12, %2 ], [ %61, %60 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %73
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @nfs_alloc_fhandle() local_unnamed_addr #2
+declare dso_local ptr @nfs_alloc_fhandle() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @nfs_lookup(ptr noundef, ptr noundef, i32 noundef) #2
+declare dso_local ptr @nfs_lookup(ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs_permission(ptr noundef, ptr noundef, i32 noundef) #2
+declare dso_local i32 @nfs_permission(ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs_create(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext, i1 noundef zeroext) #2
+declare dso_local i32 @nfs_create(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext, i1 noundef zeroext) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs_link(ptr noundef, ptr noundef, ptr noundef) #2
+declare dso_local i32 @nfs_link(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs_unlink(ptr noundef, ptr noundef) #2
+declare dso_local i32 @nfs_unlink(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs_symlink(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare dso_local i32 @nfs_symlink(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs_mkdir(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) #2
+declare dso_local i32 @nfs_mkdir(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs_rmdir(ptr noundef, ptr noundef) #2
+declare dso_local i32 @nfs_rmdir(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs_mknod(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext, i32 noundef) #2
+declare dso_local i32 @nfs_mknod(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext, i32 noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs_rename(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare dso_local i32 @nfs_rename(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs_setattr(ptr noundef, ptr noundef, ptr noundef) #2
+declare dso_local i32 @nfs_setattr(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs_getattr(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
+declare dso_local i32 @nfs_getattr(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @nfs4_listxattr(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
@@ -14477,13 +14471,13 @@ define internal i64 @nfs4_listxattr(ptr noundef %0, ptr noundef %1, i64 noundef 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs_atomic_open(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext) #2
+declare dso_local i32 @nfs_atomic_open(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @generic_listxattr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare dso_local i64 @generic_listxattr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs4_inode_make_writeable(ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @nfs4_inode_make_writeable(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @nfs4_do_setattr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 align 16 {
@@ -14499,7 +14493,7 @@ define internal fastcc i32 @nfs4_do_setattr(ptr noundef %0, ptr noundef %1, ptr 
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 872
   %18 = load ptr, ptr %17, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %19 = icmp eq ptr %4, null
   br i1 %19, label %23, label %20
 
@@ -14511,7 +14505,7 @@ define internal fastcc i32 @nfs4_do_setattr(ptr noundef %0, ptr noundef %1, ptr 
 23:                                               ; preds = %20, %6
   %24 = phi ptr [ %22, %20 ], [ null, %6 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, i8 0, i64 12, i1 false), !annotation !60
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %26 = getelementptr i8, ptr %0, i64 -424
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 48, i1 false)
@@ -14526,13 +14520,13 @@ define internal fastcc i32 @nfs4_do_setattr(ptr noundef %0, ptr noundef %1, ptr 
   store ptr %11, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 72
   store ptr %5, ptr %31, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %32 = getelementptr inbounds nuw i8, ptr %13, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, i8 0, i64 32, i1 false)
   store ptr %2, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store ptr %18, ptr %33, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %34 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i64 0, ptr %34, align 8, !annotation !60
   store ptr %24, ptr %14, align 8
@@ -14621,12 +14615,12 @@ condstore.split:                                  ; preds = %80, %73
   %91 = load ptr, ptr %15, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 872
   %93 = load ptr, ptr %92, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 432), ptr %9, align 8
   store ptr %12, ptr %51, align 8
   store ptr %13, ptr %52, align 8
   store ptr %1, ptr %53, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
   %94 = load volatile i64, ptr @jiffies, align 64
   %95 = load ptr, ptr %32, align 8
@@ -14708,11 +14702,11 @@ condstore.split:                                  ; preds = %80, %73
   %135 = trunc nuw nsw i32 %134 to i16
   %136 = and i16 %135, 4
   %137 = load ptr, ptr %93, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %93, ptr %7, align 8
   store ptr %12, ptr %58, align 8
   store ptr %13, ptr %59, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 0, i64 72, i1 false)
   store ptr %128, ptr %60, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, i8 0, i64 16, i1 false)
@@ -14741,8 +14735,8 @@ condstore.split:                                  ; preds = %80, %73
 
 150:                                              ; preds = %147, %144
   %151 = phi i32 [ %146, %144 ], [ %149, %147 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %152 = load ptr, ptr %10, align 8
   %153 = icmp eq ptr %152, null
   br i1 %153, label %159, label %154
@@ -14822,14 +14816,14 @@ condstore.split:                                  ; preds = %80, %73
   br label %.thread
 
 .thread.thread:                                   ; preds = %119, %108
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %215
 
 .thread:                                          ; preds = %116, %189, %185, %172, %171
   %192 = phi i32 [ %151, %171 ], [ %151, %172 ], [ %151, %185 ], [ %151, %189 ], [ %118, %116 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %193 = icmp eq i32 %192, -10038
   br i1 %193, label %194, label %215
 
@@ -14877,42 +14871,42 @@ condstore.split:                                  ; preds = %80, %73
 
 .loopexit:                                        ; preds = %215, %210
   %221 = phi i32 [ %214, %210 ], [ %217, %215 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13) #22
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #22
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %221
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs_setattr_update_inode(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs_setattr_update_inode(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs_setsecurity(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs_setsecurity(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local zeroext i1 @nfs4_copy_delegation_stateid(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local zeroext i1 @nfs4_copy_delegation_stateid(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_setattr(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_setattr(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_lookupp(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_lookupp(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @nfs_alloc_fattr() local_unnamed_addr #2
+declare dso_local ptr @nfs_alloc_fattr() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs_access_set_mask(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local void @nfs_access_set_mask(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_access(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_access(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_readlink(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_readlink(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @alloc_nfs_open_context(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local ptr @alloc_nfs_open_context(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc ptr @nfs4_do_open(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #0 align 16 {
@@ -14924,11 +14918,11 @@ define internal fastcc ptr @nfs4_do_open(ptr noundef readonly captures(none) %0,
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 872
   %13 = load ptr, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 35
   store i8 1, ptr %14, align 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %9, align 8
   store ptr %3, ptr %15, align 8
@@ -15327,7 +15321,7 @@ define internal fastcc ptr @nfs4_do_open(ptr noundef readonly captures(none) %0,
   %260 = getelementptr inbounds nuw i8, ptr %200, i64 56
   %261 = getelementptr inbounds nuw i8, ptr %91, i64 56
   %262 = load ptr, ptr %261, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %7, i8 0, i64 88, i1 false), !annotation !60
   %263 = getelementptr inbounds nuw i8, ptr %70, i64 476
   %264 = load i32, ptr %263, align 4
@@ -15373,11 +15367,11 @@ define internal fastcc ptr @nfs4_do_open(ptr noundef readonly captures(none) %0,
   br i1 %291, label %select.unfold, label %292
 
 292:                                              ; preds = %283
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread20
 
 select.unfold:                                    ; preds = %283, %259
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %293 = getelementptr inbounds nuw i8, ptr %245, i64 48
   %294 = load ptr, ptr %293, align 8
   %295 = load ptr, ptr %260, align 8
@@ -15455,7 +15449,7 @@ select.unfold:                                    ; preds = %283, %259
   %333 = getelementptr inbounds nuw i8, ptr %70, i64 112
   %334 = load ptr, ptr %333, align 8
   %335 = getelementptr inbounds nuw i8, ptr %334, i64 308
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, i8 0, i64 12, i1 false), !annotation !60
   %336 = getelementptr i8, ptr %70, i64 444
   %337 = icmp eq i32 %330, 3
@@ -15531,7 +15525,7 @@ select.unfold:                                    ; preds = %283, %259
   %378 = and i32 %377, 65536
   %379 = icmp eq i32 %378, 0
   %380 = select i1 %379, ptr null, ptr %44
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %381 = icmp ne i32 %376, 0
   %382 = icmp ne ptr %380, null
   %383 = select i1 %381, i1 true, i1 %382
@@ -15692,37 +15686,37 @@ select.unfold:                                    ; preds = %283, %259
 
 .split.loop.exit31:                               ; preds = %432, %.split.loop.exit
   %460 = phi ptr [ %459, %.split.loop.exit ], [ %411, %432 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %460
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @nfs4_get_state_owner(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local ptr @nfs4_get_state_owner(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs4_client_recover_expired_lease(ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @nfs4_client_recover_expired_lease(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs4_inode_return_delegation(ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @nfs4_inode_return_delegation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @d_exact_alias(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local ptr @d_exact_alias(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @d_splice_alias(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local ptr @d_splice_alias(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs_set_verifier(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare dso_local void @nfs_set_verifier(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs_inode_attach_open_context(ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs_inode_attach_open_context(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs_access_add_cache(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs_access_add_cache(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_open_file(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_open_file(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @_nfs4_proc_remove(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 1, 3) %2) unnamed_addr #0 align 16 {
@@ -15735,7 +15729,7 @@ define internal fastcc i32 @_nfs4_proc_remove(ptr noundef %0, ptr noundef readon
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 872
   %12 = load ptr, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %14 = getelementptr i8, ptr %0, i64 -424
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -15743,12 +15737,12 @@ define internal fastcc i32 @_nfs4_proc_remove(ptr noundef %0, ptr noundef readon
   store ptr %14, ptr %13, align 8
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef align 8 dereferenceable(16) %1, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %18, i8 0, i64 64, i1 false)
   store ptr %12, ptr %17, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 1008), ptr %8, align 8
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %6, ptr %19, align 8
@@ -15769,13 +15763,13 @@ define internal fastcc i32 @_nfs4_proc_remove(ptr noundef %0, ptr noundef readon
   %29 = trunc nuw nsw i32 %28 to i16
   %30 = and i16 %29, 4
   %31 = load ptr, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %12, ptr %4, align 8
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %7, ptr %33, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
   store ptr %24, ptr %34, align 8
@@ -15810,8 +15804,8 @@ define internal fastcc i32 @_nfs4_proc_remove(ptr noundef %0, ptr noundef readon
 
 52:                                               ; preds = %49, %46
   %53 = phi i32 [ %48, %46 ], [ %51, %49 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %55, label %65
 
@@ -15839,29 +15833,29 @@ define internal fastcc i32 @_nfs4_proc_remove(ptr noundef %0, ptr noundef readon
   br label %65
 
 65:                                               ; preds = %63, %52
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %53
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @drop_nlink(ptr noundef) local_unnamed_addr #2
+declare dso_local void @drop_nlink(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_remove(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_remove(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs_d_prune_case_insensitive_aliases(ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs_d_prune_case_insensitive_aliases(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @nfs_alloc_fattr_with_label(ptr noundef) local_unnamed_addr #2
+declare dso_local ptr @nfs_alloc_fattr_with_label(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs_post_op_update_inode(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @nfs_post_op_update_inode(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @inc_nlink(ptr noundef) local_unnamed_addr #2
+declare dso_local void @inc_nlink(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @nfs4_do_create(ptr noundef %0, ptr noundef %1, ptr noundef nonnull initializes((32, 40), (128, 136)) %2) unnamed_addr #0 align 16 {
@@ -15888,13 +15882,13 @@ define internal fastcc i32 @nfs4_do_create(ptr noundef %0, ptr noundef %1, ptr n
   %21 = trunc nuw nsw i32 %20 to i16
   %22 = and i16 %21, 4
   %23 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %9, ptr %4, align 8
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %12, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %13, ptr %25, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
   store ptr %11, ptr %26, align 8
@@ -15929,8 +15923,8 @@ define internal fastcc i32 @nfs4_do_create(ptr noundef %0, ptr noundef %1, ptr n
 
 44:                                               ; preds = %41, %38
   %45 = phi i32 [ %40, %38 ], [ %43, %41 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %47, label %63
 
@@ -15967,25 +15961,25 @@ define internal fastcc i32 @nfs4_do_create(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs_instantiate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @nfs_instantiate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_symlink(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_symlink(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_mkdir(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_mkdir(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs_invalidate_atime(ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs_invalidate_atime(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #14
+declare i64 @llvm.bswap.i64(i64) #13
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_readdir(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_readdir(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_mknod(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_mknod(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -11, 1) i32 @nfs4_read_done_cb(ptr noundef %0, ptr noundef %1) #0 align 16 {
@@ -16042,7 +16036,7 @@ define internal noundef range(i32 -11, 1) i32 @nfs4_read_done_cb(ptr noundef %0,
   br i1 %33, label %34, label %53
 
 34:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 0, ptr %35, align 8, !annotation !60
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 616
@@ -16068,11 +16062,11 @@ define internal noundef range(i32 -11, 1) i32 @nfs4_read_done_cb(ptr noundef %0,
 
 50:                                               ; preds = %34
   %51 = tail call i32 @rpc_restart_call_prepare(ptr noundef %0) #22
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %67
 
 52:                                               ; preds = %34
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %53
 
 53:                                               ; preds = %52, %31
@@ -16106,7 +16100,7 @@ define internal noundef range(i32 -11, 1) i32 @nfs4_read_done_cb(ptr noundef %0,
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -11, 1) i32 @nfs4_write_done_cb(ptr noundef %0, ptr noundef %1) #0 align 16 {
@@ -16159,7 +16153,7 @@ define internal noundef range(i32 -11, 1) i32 @nfs4_write_done_cb(ptr noundef %0
   br i1 %29, label %30, label %.thread
 
 30:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 0, ptr %31, align 8, !annotation !60
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 616
@@ -16189,11 +16183,11 @@ define internal noundef range(i32 -11, 1) i32 @nfs4_write_done_cb(ptr noundef %0
 
 50:                                               ; preds = %30
   %51 = tail call i32 @rpc_restart_call_prepare(ptr noundef %0) #22
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %68
 
 52:                                               ; preds = %30
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %53 = icmp sgt i32 %46, -1
   br i1 %53, label %.thread, label %68
 
@@ -16228,10 +16222,10 @@ define internal noundef range(i32 -11, 1) i32 @nfs4_write_done_cb(ptr noundef %0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs_writeback_update_inode(ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs_writeback_update_inode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -11, 1) i32 @nfs4_commit_done_cb(ptr noundef %0, ptr noundef %1) #0 align 16 {
@@ -16284,7 +16278,7 @@ define internal noundef range(i32 -11, 1) i32 @nfs4_commit_done_cb(ptr noundef %
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 872
   %32 = load ptr, ptr %31, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   %33 = load i32, ptr %6, align 4
   %34 = icmp sgt i32 %33, -1
@@ -16297,7 +16291,7 @@ define internal noundef range(i32 -11, 1) i32 @nfs4_commit_done_cb(ptr noundef %
   %38 = load i8, ptr %37, align 2
   %39 = and i8 %38, 8
   %40 = icmp eq i8 %39, 0
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %40, label %44, label %41
 
 41:                                               ; preds = %35
@@ -16305,7 +16299,7 @@ define internal noundef range(i32 -11, 1) i32 @nfs4_commit_done_cb(ptr noundef %
   br label %44
 
 43:                                               ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %44
 
 44:                                               ; preds = %43, %41, %35
@@ -16314,10 +16308,10 @@ define internal noundef range(i32 -11, 1) i32 @nfs4_commit_done_cb(ptr noundef %
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_commit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_commit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @nfs4_retry_setlk(ptr noundef nonnull %0, i32 noundef range(i32 6, 5) %1, ptr noundef %2) unnamed_addr #19 align 16 {
+define internal fastcc i32 @nfs4_retry_setlk(ptr noundef nonnull %0, i32 noundef range(i32 6, 5) %1, ptr noundef %2) unnamed_addr #18 align 16 {
   %4 = alloca %struct.nfs4_exception, align 8
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #23
   %6 = inttoptr i64 %5 to ptr
@@ -16352,7 +16346,7 @@ define internal fastcc i32 @nfs4_retry_setlk(ptr noundef nonnull %0, i32 noundef
   br i1 %29, label %30, label %.critedge
 
 30:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %22, align 8, !annotation !60
   store ptr %0, ptr %4, align 8
   %31 = load ptr, ptr %8, align 8
@@ -16519,7 +16513,7 @@ nfs4_handle_exception.exit:                       ; preds = %95, %.thread5.i, %1
   br i1 %127, label %128, label %32, !llvm.loop !225
 
 128:                                              ; preds = %nfs4_handle_exception.exit
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %129 = icmp ne i32 %125, -11
   %130 = or i1 %15, %129
   br i1 %130, label %.critedge, label %131
@@ -16540,31 +16534,31 @@ nfs4_handle_exception.exit:                       ; preds = %95, %.thread5.i, %1
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_get_lock(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_get_lock(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
+declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @down_read(ptr noundef) local_unnamed_addr #2
+declare dso_local void @down_read(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @up_read(ptr noundef) local_unnamed_addr #2
+declare dso_local void @up_read(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
+declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_unlock(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_unlock(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs4_close_sync(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local void @nfs4_close_sync(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @wake_up_var(ptr noundef) local_unnamed_addr #2
+declare dso_local void @wake_up_var(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal zeroext i1 @nfs4_xattr_list_nfs4_acl(ptr noundef readonly captures(none) %0) #20 align 16 {
+define internal zeroext i1 @nfs4_xattr_list_nfs4_acl(ptr noundef readonly captures(none) %0) #19 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 872
@@ -16667,7 +16661,7 @@ define internal i32 @nfs4_xattr_get_nfs4_acl(ptr readnone captures(none) %0, ptr
   br i1 %58, label %59, label %235
 
 59:                                               ; preds = %.thread, %52
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, i8 0, i64 40, i1 false)
   %60 = getelementptr inbounds nuw i8, ptr %12, i64 35
   store i8 1, ptr %60, align 1
@@ -16699,17 +16693,17 @@ define internal i32 @nfs4_xattr_get_nfs4_acl(ptr readnone captures(none) %0, ptr
   br label %86
 
 86:                                               ; preds = %224, %59
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 32, i1 false)
   store ptr %62, ptr %61, align 8
   store i32 1, ptr %63, align 8
   store i64 %5, ptr %64, align 8
   store ptr null, ptr %65, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, i8 0, i64 72, i1 false)
   store i32 1, ptr %66, align 8
   store i64 %5, ptr %67, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 1536), ptr %11, align 8
   store ptr %9, ptr %68, align 8
   store ptr %10, ptr %69, align 8
@@ -16782,11 +16776,11 @@ define internal i32 @nfs4_xattr_get_nfs4_acl(ptr readnone captures(none) %0, ptr
   %129 = trunc nuw nsw i32 %128 to i16
   %130 = and i16 %129, 4
   %131 = load ptr, ptr %121, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %121, ptr %7, align 8
   store ptr %9, ptr %74, align 8
   store ptr %10, ptr %75, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 0, i64 72, i1 false)
   store ptr %123, ptr %76, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, i8 0, i64 16, i1 false)
@@ -16815,8 +16809,8 @@ define internal i32 @nfs4_xattr_get_nfs4_acl(ptr readnone captures(none) %0, ptr
 
 144:                                              ; preds = %141, %138
   %145 = phi i32 [ %140, %138 ], [ %143, %141 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %146 = icmp eq i32 %145, 0
   br i1 %146, label %147, label %.loopexit18
 
@@ -16926,9 +16920,9 @@ define internal i32 @nfs4_xattr_get_nfs4_acl(ptr readnone captures(none) %0, ptr
 
 199:                                              ; preds = %197, %94
   %200 = phi i64 [ %198, %197 ], [ -12, %94 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #22
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %201 = trunc nsw i64 %200 to i32
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_nfs4_get_acl, i64 8), i32 2) #22
           to label %222 [label %202], !srcloc !10
@@ -16989,7 +16983,7 @@ define internal i32 @nfs4_xattr_get_nfs4_acl(ptr readnone captures(none) %0, ptr
 
 .loopexit20:                                      ; preds = %222, %232
   %234 = phi i64 [ %233, %232 ], [ %200, %222 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %235
 
 235:                                              ; preds = %.thread17, %.loopexit20, %52, %24, %6
@@ -17007,7 +17001,7 @@ define internal i32 @nfs4_xattr_set_nfs4_acl(ptr readnone captures(none) %0, ptr
   %13 = alloca %struct.nfs_setaclres, align 8
   %14 = alloca %struct.rpc_message, align 8
   %15 = alloca %struct.nfs4_exception, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, i8 0, i64 40, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -17040,17 +17034,17 @@ define internal i32 @nfs4_xattr_set_nfs4_acl(ptr readnone captures(none) %0, ptr
   %42 = load ptr, ptr %16, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 872
   %44 = load ptr, ptr %43, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %11, i8 0, i64 128, i1 false), !annotation !60
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, i8 0, i64 32, i1 false)
   store ptr %18, ptr %17, align 8
   store i32 1, ptr %19, align 8
   store i64 %6, ptr %20, align 8
   store ptr %11, ptr %21, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false), !annotation !60
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 1584), ptr %14, align 8
   store ptr %12, ptr %22, align 8
   store ptr %13, ptr %23, align 8
@@ -17131,11 +17125,11 @@ define internal i32 @nfs4_xattr_set_nfs4_acl(ptr readnone captures(none) %0, ptr
   %95 = trunc nuw nsw i32 %94 to i16
   %96 = and i16 %95, 4
   %97 = load ptr, ptr %44, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %44, ptr %9, align 8
   store ptr %12, ptr %31, align 8
   store ptr %13, ptr %32, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, i8 0, i64 72, i1 false)
   store ptr %88, ptr %33, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
@@ -17164,8 +17158,8 @@ define internal i32 @nfs4_xattr_set_nfs4_acl(ptr readnone captures(none) %0, ptr
 
 110:                                              ; preds = %107, %104
   %111 = phi i32 [ %106, %104 ], [ %109, %107 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %112 = icmp eq i32 %74, 0
   br i1 %112, label %.loopexit, label %113
 
@@ -17245,10 +17239,10 @@ define internal i32 @nfs4_xattr_set_nfs4_acl(ptr readnone captures(none) %0, ptr
 
 .thread:                                          ; preds = %76, %58, %.loopexit, %83, %45, %41
   %154 = phi i32 [ %111, %.loopexit ], [ -22, %41 ], [ %51, %45 ], [ %74, %83 ], [ -12, %58 ], [ -12, %76 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12) #22
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_nfs4_set_acl, i64 8), i32 2) #22
           to label %175 [label %155], !srcloc !10
 
@@ -17306,62 +17300,68 @@ define internal i32 @nfs4_xattr_set_nfs4_acl(ptr readnone captures(none) %0, ptr
 
 184:                                              ; preds = %176, %175, %175
   %185 = phi i32 [ %180, %176 ], [ -22, %175 ], [ -22, %175 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret i32 %185
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @nfs_revalidate_inode(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare dso_local i32 @nfs_revalidate_inode(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs_zap_acl_cache(ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs_zap_acl_cache(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @_copy_from_pages(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare dso_local void @_copy_from_pages(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_get_acl(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_get_acl(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @nfs_access_zap_cache(ptr noundef) local_unnamed_addr #2
+declare dso_local void @nfs_access_zap_cache(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__folio_put(ptr noundef) local_unnamed_addr #2
+declare dso_local void @__folio_put(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_nfs4_set_acl(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i32 @__SCT__tp_func_nfs4_set_acl(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #14
+declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #14
+declare i32 @llvm.umax.i32(i32, i32) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #5 = { fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #8 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #9 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #10 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
-attributes #13 = { nocallback nounwind }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #16 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #18 = { fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #19 = { fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #20 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #4 = { fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #7 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #8 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #9 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
+attributes #12 = { nocallback nounwind }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #15 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #17 = { fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #18 = { fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #19 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #22 = { nounwind }
 attributes #23 = { nounwind memory(none) }
 attributes #24 = { cold nounwind }

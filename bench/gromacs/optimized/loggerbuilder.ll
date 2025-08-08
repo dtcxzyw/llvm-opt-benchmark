@@ -123,12 +123,6 @@ define void @_ZN3gmx11LoggerOwnerC2ESt10unique_ptrINS0_4ImplESt14default_deleteI
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -143,7 +137,7 @@ define void @_ZN3gmx11LoggerOwnerC2EOS0_(ptr noundef nonnull align 8 captures(no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN3gmx11LoggerOwneraSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN3gmx11LoggerOwneraSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !18
   store ptr null, ptr %1, align 8, !tbaa !18
   %4 = load ptr, ptr %0, align 8, !tbaa !18
@@ -164,7 +158,7 @@ _ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EEaSEOS5_.exit: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNKSt14default_deleteIN3gmx11LoggerOwner4ImplEEclEPS2_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNKSt14default_deleteIN3gmx11LoggerOwner4ImplEEclEPS2_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %37, label %4
 
@@ -267,10 +261,10 @@ _ZN3gmx11LoggerOwner4ImplD2Ev.exit:               ; preds = %_ZSt8_DestroyIPSt10
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3gmx11LoggerOwnerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 align 2 {
+define void @_ZN3gmx11LoggerOwnerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !18
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit, label %3
@@ -293,10 +287,10 @@ define void @_ZN3gmx13LoggerBuilderC2Ev(ptr noundef nonnull writeonly align 8 ca
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3gmx13LoggerBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx13LoggerBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !46
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN3gmx13LoggerBuilder4ImplESt14default_deleteIS2_EED2Ev.exit, label %3
@@ -311,7 +305,7 @@ _ZNSt10unique_ptrIN3gmx13LoggerBuilder4ImplESt14default_deleteIS2_EED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNKSt14default_deleteIN3gmx13LoggerBuilder4ImplEEclEPS2_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNKSt14default_deleteIN3gmx13LoggerBuilder4ImplEEclEPS2_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %44, label %.preheader
 
@@ -633,15 +627,15 @@ _ZNSt6vectorIPN3gmx10ILogTargetESaIS2_EE9push_backERKS2_.exit: ; preds = %56, %_
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
 
 declare void @_ZN3gmx10TextWriterC1EPNS_16TextOutputStreamE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare void @_ZN3gmx10ILogTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #9
+declare void @_ZN3gmx10ILogTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx13LoggerBuilder13addTargetFileENS_8MDLogger8LogLevelEP8_IO_FILE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
@@ -764,11 +758,11 @@ define void @_ZN3gmx13LoggerBuilder5buildEv(ptr dead_on_unwind noalias writable 
   %3 = alloca [5 x ptr], align 16
   %4 = alloca %"class.std::unique_ptr.2", align 8
   %5 = alloca %"class.std::unique_ptr.2", align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %8
 
 6:                                                ; preds = %_ZNSt6vectorIPN3gmx10ILogTargetESaIS2_EE5clearEv.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #17
   invoke void @_ZN3gmx8MDLoggerC1EPPNS_10ILogTargetE(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull %3)
           to label %_ZSt8_DestroyIPSt10unique_ptrIN3gmx10ILogTargetESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i unwind label %139
@@ -1119,8 +1113,8 @@ _ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit: ; p
   br label %_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit43
 
 _ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit43: ; preds = %136, %_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit, %138
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 139:                                              ; preds = %6
@@ -1149,12 +1143,12 @@ _ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit45: ;
 
 _ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit47: ; preds = %144, %_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit45, %141, %139
   %.pn = phi { ptr, i32 } [ %140, %139 ], [ %142, %141 ], [ %142, %_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit45 ], [ %142, %144 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNSt10unique_ptrIN3gmx19LogTargetCollectionESt14default_deleteIS1_EED2Ev.exit33
 
 _ZNSt10unique_ptrIN3gmx19LogTargetCollectionESt14default_deleteIS1_EED2Ev.exit33: ; preds = %_ZNKSt14default_deleteIN3gmx19LogTargetCollectionEEclEPS1_.exit.i32, %.thread, %_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit47
   %.pn21.pn = phi { ptr, i32 } [ %.pn, %_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit47 ], [ %lpad.phi69, %.thread ], [ %lpad.phi, %_ZNKSt14default_deleteIN3gmx19LogTargetCollectionEEclEPS1_.exit.i32 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn21.pn
 }
 
@@ -1230,7 +1224,13 @@ define linkonce_odr void @_ZN3gmx19LogTargetCollection10writeEntryERKNS_8LogEntr
 declare void @_ZN3gmx8MDLoggerC1EPPNS_10ILogTargetE(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare void @_ZN3gmx10TextWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #9
+declare void @_ZN3gmx10TextWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
@@ -1251,13 +1251,13 @@ attributes #0 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-wid
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

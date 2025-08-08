@@ -220,21 +220,21 @@ av1_set_ref_frame.exit:                           ; preds = %29
   %.not51 = icmp eq ptr %7, null
   %66 = getelementptr inbounds [2 x %union.int_mv], ptr %7, i64 %62
   %67 = select i1 %.not51, ptr null, ptr %66
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %18)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.064)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.8)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.060)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.064)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.060)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 8308
   %69 = load i8, ptr %68, align 4
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 8309
@@ -1732,21 +1732,21 @@ process_single_ref_mv_candidate.exit540.i:        ; preds = %758
   br i1 %820, label %.lr.ph654.i, label %setup_ref_mv_list.exit, !llvm.loop !36
 
 setup_ref_mv_list.exit:                           ; preds = %.lr.ph654.i, %597, %.preheader593.loopexit.i, %._crit_edge647.i.thread, %.loopexit585.i, %._crit_edge647.i
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.064)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.060)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.064)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.060)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   ret void
 }
 
@@ -5130,10 +5130,10 @@ declare i32 @llvm.umin.i32(i32, i32) #11
 declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

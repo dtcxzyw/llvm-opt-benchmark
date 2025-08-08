@@ -4852,11 +4852,11 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit41:      ; preds = %62, %_ZN26GrowableA
   br i1 %89, label %90, label %93
 
 90:                                               ; preds = %87
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   call void @_ZN12LinkResolver27throw_abstract_method_errorERK12methodHandleS2_P5KlassP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %4, ptr noundef %7)
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %91 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %92 = load ptr, ptr %91, align 8
   %.not48 = icmp eq ptr %92, null
@@ -5421,11 +5421,11 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %_ZN12LinkResolver33
   br i1 %124, label %125, label %128
 
 125:                                              ; preds = %122
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   call void @_ZN12LinkResolver27throw_abstract_method_errorERK12methodHandleS2_P5KlassP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %4, ptr noundef %7)
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %126 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %127 = load ptr, ptr %126, align 8
   %.not = icmp eq ptr %127, null
@@ -6001,7 +6001,7 @@ define hidden void @_ZN12LinkResolver14resolve_invokeER8CallInfo6HandleRK18const
   ]
 
 11:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN8LinkInfoC2ERK18constantPoolHandleiN9Bytecodes4CodeEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(51) %10, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef 184, ptr noundef %5)
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = load ptr, ptr %12, align 8
@@ -6015,11 +6015,11 @@ define hidden void @_ZN12LinkResolver14resolve_invokeER8CallInfo6HandleRK18const
 _ZN12LinkResolver20resolve_invokestaticER8CallInfoRK18constantPoolHandleiP10JavaThread.exit: ; preds = %11, %14
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 32
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #11
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %71
 
 16:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN8LinkInfoC2ERK18constantPoolHandleiN9Bytecodes4CodeEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(51) %9, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef 183, ptr noundef %5)
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = load ptr, ptr %17, align 8
@@ -6033,11 +6033,11 @@ _ZN12LinkResolver20resolve_invokestaticER8CallInfoRK18constantPoolHandleiP10Java
 _ZN12LinkResolver21resolve_invokespecialER8CallInfo6HandleRK18constantPoolHandleiP10JavaThread.exit: ; preds = %16, %19
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 32
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #11
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %71
 
 21:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN8LinkInfoC2ERK18constantPoolHandleiN9Bytecodes4CodeEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(51) %8, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef 182, ptr noundef %5)
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %23 = load ptr, ptr %22, align 8
@@ -6079,7 +6079,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %41, %31, %24
 _ZN12LinkResolver21resolve_invokevirtualER8CallInfo6HandleRK18constantPoolHandleiP10JavaThread.exit: ; preds = %21, %_ZNK7oopDesc5klassEv.exit.i
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 32
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %44) #11
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %71
 
 45:                                               ; preds = %6
@@ -6091,7 +6091,7 @@ _ZN12LinkResolver21resolve_invokevirtualER8CallInfo6HandleRK18constantPoolHandle
   br label %71
 
 47:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN8LinkInfoC2ERK18constantPoolHandleiN9Bytecodes4CodeEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(51) %7, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef 185, ptr noundef %5)
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %49 = load ptr, ptr %48, align 8
@@ -6133,7 +6133,7 @@ _ZNK7oopDesc5klassEv.exit.i36:                    ; preds = %67, %57, %50
 _ZN12LinkResolver23resolve_invokeinterfaceER8CallInfo6HandleRK18constantPoolHandleiP10JavaThread.exit: ; preds = %47, %_ZNK7oopDesc5klassEv.exit.i36
   %70 = getelementptr inbounds nuw i8, ptr %7, i64 32
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %70) #11
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %71
 
 71:                                               ; preds = %_ZN12LinkResolver23resolve_invokeinterfaceER8CallInfo6HandleRK18constantPoolHandleiP10JavaThread.exit, %46, %45, %_ZN12LinkResolver21resolve_invokevirtualER8CallInfo6HandleRK18constantPoolHandleiP10JavaThread.exit, %_ZN12LinkResolver21resolve_invokespecialER8CallInfo6HandleRK18constantPoolHandleiP10JavaThread.exit, %_ZN12LinkResolver20resolve_invokestaticER8CallInfoRK18constantPoolHandleiP10JavaThread.exit, %6
@@ -7844,10 +7844,10 @@ declare i32 @llvm.ctpop.i32(i32) #8
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -135,10 +135,10 @@ define internal fastcc ptr @ComputeKToLstar(ptr noundef %0, i32 noundef %1, i32 
   %12 = alloca [256 x i32], align 16
   %13 = alloca %struct.cmsCIELab, align 8
   %14 = alloca [4 x float], align 16
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %15 = icmp ugt i32 %2, 254
   br i1 %15, label %_cmsChain2Lab.exit.thread, label %16
 
@@ -162,10 +162,10 @@ define internal fastcc ptr @ComputeKToLstar(ptr noundef %0, i32 noundef %1, i32 
   br label %_cmsChain2Lab.exit
 
 _cmsChain2Lab.exit.thread:                        ; preds = %8, %16
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %50
 
 _cmsChain2Lab.exit:                               ; preds = %.preheader.i, %.lr.ph.preheader.i
@@ -181,10 +181,10 @@ _cmsChain2Lab.exit:                               ; preds = %.preheader.i, %.lr.
   %26 = add nuw nsw i32 %2, 1
   %27 = call ptr @cmsCreateExtendedTransform(ptr noundef %0, i32 noundef %26, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef null, i32 noundef 0, i32 noundef 4587556, i32 noundef 4849688, i32 noundef %7) #6
   %28 = call i32 @cmsCloseProfile(ptr noundef nonnull %17) #6
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %29 = icmp eq ptr %27, null
   br i1 %29, label %50, label %30
 
@@ -805,10 +805,10 @@ declare double @llvm.floor.f64(double) #3
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

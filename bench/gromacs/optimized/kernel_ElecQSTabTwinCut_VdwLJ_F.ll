@@ -53,8 +53,8 @@ define weak_odr void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoul
   %12 = load ptr, ptr %11, align 8, !tbaa !10
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %14 = load ptr, ptr %13, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.02272)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.42273)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.02272)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.42273)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %16 = load ptr, ptr %15, align 8, !tbaa !10, !noalias !15
   %.val.i = load <8 x float>, ptr %16, align 32, !tbaa !18
@@ -73,8 +73,8 @@ define weak_odr void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoul
 _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERKNS_16nbnxn_atomdata_t9SimdMasksE.exit: ; preds = %17
   %.sroa.02272.0..sroa.02272.0..sroa.02272.0..sroa.02272.0.copyload302332643567 = load <8 x i32>, ptr %.sroa.02272, align 32
   %.sroa.42273.0..sroa.42273.0..sroa.42273.0..sroa.42273.0.copyload302432653568 = load <8 x i32>, ptr %.sroa.42273, align 32, !tbaa !18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.02272)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.42273)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.02272)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.42273)
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %23 = load ptr, ptr %22, align 8, !tbaa !21
   %.sroa.03518.0.copyload = load <8 x i32>, ptr %23, align 32, !tbaa !18
@@ -238,7 +238,7 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
 ._crit_edge3263:                                  ; preds = %56, %132
   %.sroa.02765.1 = phi <8 x float> [ %138, %132 ], [ %.sroa.02765.03164, %56 ]
   %.sroa.72769.1 = phi <8 x float> [ %144, %132 ], [ %.sroa.72769.03165, %56 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %145 = load i32, ptr %1, align 8, !tbaa !80
   %146 = shl i32 %145, 1
   %invariant.gep = getelementptr i32, ptr %14, i64 %131
@@ -360,10 +360,10 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
   %225 = fmul <8 x float> %28, %223
   %226 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %224)
   %227 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %225)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.03528)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.43529)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.03524)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.43525)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03528)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.43529)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03524)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.43525)
   br label %228
 
 228:                                              ; preds = %.critedge505, %228
@@ -441,10 +441,10 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9
   %280 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %279, <8 x float> %222, <8 x float> %268)
   %281 = fneg <8 x float> %278
   %282 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %281, <8 x float> %223, <8 x float> %270)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.03524)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.43525)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.03528)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.43529)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03524)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.43525)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03528)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.43529)
   %283 = fmul <8 x float> %263, %280
   %284 = fmul <8 x float> %264, %282
   %285 = fcmp olt <8 x float> %202, %40
@@ -624,10 +624,10 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9
   %423 = fmul <8 x float> %28, %421
   %424 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %422)
   %425 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %423)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.03539)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.43540)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.03535)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.43536)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03539)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.43540)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03535)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.43536)
   br label %426
 
 426:                                              ; preds = %.critedge507, %426
@@ -701,10 +701,10 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9
   %474 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %473, <8 x float> %420, <8 x float> %418)
   %475 = fneg <8 x float> %472
   %476 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %475, <8 x float> %421, <8 x float> %419)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.03535)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.43536)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.03539)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.43540)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03535)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.43536)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03539)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.43540)
   %477 = fmul <8 x float> %461, %474
   %478 = fmul <8 x float> %462, %476
   %479 = fcmp olt <8 x float> %404, %40
@@ -906,10 +906,10 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %632 = fmul <8 x float> %28, %630
   %633 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %631)
   %634 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %632)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.03550)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.43551)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.03546)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.43547)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03550)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.43551)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03546)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.43547)
   br label %635
 
 635:                                              ; preds = %_ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_eqT0_LS1_1EESt5arrayINS_9SimdFBoolEXdvclL_ZL15sc_iClusterSizeS1_ET0_ELi2EEEE4typeEiPNS_10SimdFInt32E.exit511.critedge, %635
@@ -968,14 +968,14 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9
   %.sroa.43547.0..sroa.43547.32..sroa.01.0.copyload.i917 = load <8 x float>, ptr %.sroa.43547, align 32, !tbaa !18, !noalias !124
   %.sroa.43551.0..sroa.43551.32..sroa.0.0.copyload.i918 = load <8 x float>, ptr %.sroa.43551, align 32, !tbaa !18, !noalias !124
   %670 = fsub <8 x float> %.sroa.43547.0..sroa.43547.32..sroa.01.0.copyload.i917, %.sroa.43551.0..sroa.43551.32..sroa.0.0.copyload.i918
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.03546)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.43547)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.03550)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.43551)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.03512)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.43513)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.03508)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.43509)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03546)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.43547)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03550)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.43551)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03512)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.43513)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03508)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.43509)
   %671 = getelementptr inbounds i32, ptr %14, i64 %623
   %672 = load i32, ptr %671, align 4, !tbaa !100
   %673 = shl nsw i32 %672, 1
@@ -1036,10 +1036,10 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9
   %722 = fneg <8 x float> %716
   %723 = fmul <8 x float> %.sroa.43513.0..sroa.43513.32..sroa.01.0.copyload.i953, %722
   %724 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %.sroa.43509.0..sroa.43509.32..sroa.04.0.copyload.i951, <8 x float> %718, <8 x float> %723)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.03508)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.43509)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.03512)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.43513)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03508)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.43509)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03512)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.43513)
   %725 = select <8 x i1> %709, <8 x float> %721, <8 x float> zeroinitializer
   %726 = select <8 x i1> %710, <8 x float> %724, <8 x float> zeroinitializer
   %727 = fadd <8 x float> %707, %725
@@ -1207,10 +1207,10 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9
   %846 = fmul <8 x float> %28, %844
   %847 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %845)
   %848 = tail call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %846)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.03561)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.43562)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.03557)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.43558)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03561)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.43562)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03557)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.43558)
   br label %849
 
 849:                                              ; preds = %.lr.ph3115, %849
@@ -1269,14 +1269,14 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9
   %.sroa.43558.0..sroa.43558.32..sroa.01.0.copyload.i1051 = load <8 x float>, ptr %.sroa.43558, align 32, !tbaa !18, !noalias !135
   %.sroa.43562.0..sroa.43562.32..sroa.0.0.copyload.i1052 = load <8 x float>, ptr %.sroa.43562, align 32, !tbaa !18, !noalias !135
   %884 = fsub <8 x float> %.sroa.43558.0..sroa.43558.32..sroa.01.0.copyload.i1051, %.sroa.43562.0..sroa.43562.32..sroa.0.0.copyload.i1052
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.03557)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.43558)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.03561)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.43562)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.03505)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.43506)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.03501)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.43502)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03557)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.43558)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03561)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.43562)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03505)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.43506)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03501)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.43502)
   %885 = getelementptr inbounds i32, ptr %14, i64 %839
   %886 = load i32, ptr %885, align 4, !tbaa !100
   %887 = shl nsw i32 %886, 1
@@ -1331,10 +1331,10 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9
   %930 = fneg <8 x float> %924
   %931 = fmul <8 x float> %.sroa.43506.0..sroa.43506.32..sroa.01.0.copyload.i1083, %930
   %932 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %.sroa.43502.0..sroa.43502.32..sroa.04.0.copyload.i1081, <8 x float> %926, <8 x float> %931)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.03501)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.43502)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.03505)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.43506)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03501)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.43502)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03505)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.43506)
   %933 = select <8 x i1> %919, <8 x float> %929, <8 x float> zeroinitializer
   %934 = select <8 x i1> %920, <8 x float> %932, <8 x float> zeroinitializer
   %935 = fadd <8 x float> %917, %933
@@ -1453,10 +1453,10 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %.val574 = load <4 x float>, ptr %1020, align 1, !tbaa !18
   %1021 = getelementptr i8, ptr %1019, i64 32
   %.val573 = load <4 x float>, ptr %1021, align 1, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.03496)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.43497)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.03492)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.43493)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03496)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.43497)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03492)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.43493)
   %1022 = sext i32 %1016 to i64
   %1023 = getelementptr inbounds i32, ptr %14, i64 %1022
   %1024 = load i32, ptr %1023, align 4, !tbaa !100
@@ -1534,10 +1534,10 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %1088 = fneg <8 x float> %1082
   %1089 = fmul <8 x float> %.sroa.43497.0..sroa.43497.32..sroa.01.0.copyload.i1171, %1088
   %1090 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %.sroa.43493.0..sroa.43493.32..sroa.04.0.copyload.i1169, <8 x float> %1084, <8 x float> %1089)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.03492)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.43493)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.03496)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.43497)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03492)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.43493)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03496)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.43497)
   %1091 = select <8 x i1> %1077, <8 x float> %1087, <8 x float> zeroinitializer
   %1092 = select <8 x i1> %1078, <8 x float> %1090, <8 x float> zeroinitializer
   %1093 = fmul <8 x float> %1075, %1091
@@ -1659,10 +1659,10 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %.val571 = load <4 x float>, ptr %1168, align 1, !tbaa !18
   %1169 = getelementptr i8, ptr %1167, i64 32
   %.val570 = load <4 x float>, ptr %1169, align 1, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.03489)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.43490)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03489)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.43490)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
   %1170 = sext i32 %1164 to i64
   %1171 = getelementptr inbounds i32, ptr %14, i64 %1170
   %1172 = load i32, ptr %1171, align 4, !tbaa !100
@@ -1738,10 +1738,10 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %1236 = fneg <8 x float> %1230
   %1237 = fmul <8 x float> %.sroa.43490.0..sroa.43490.32..sroa.01.0.copyload.i1253, %1236
   %1238 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %.sroa.4.0..sroa.4.32..sroa.04.0.copyload.i1251, <8 x float> %1232, <8 x float> %1237)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.03489)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.43490)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03489)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.43490)
   %1239 = select <8 x i1> %1225, <8 x float> %1235, <8 x float> zeroinitializer
   %1240 = select <8 x i1> %1226, <8 x float> %1238, <8 x float> zeroinitializer
   %1241 = fmul <8 x float> %1223, %1239
@@ -1885,44 +1885,43 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %1350 = load float, ptr %1349, align 4, !tbaa !67
   %1351 = fadd float %1342, %1350
   store float %1351, ptr %1349, align 4, !tbaa !67
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %1352 = getelementptr inbounds nuw i8, ptr %.sroa.01478.03166, i64 16
   %.not3025 = icmp eq ptr %1352, %50
   br i1 %.not3025, label %._crit_edge, label %56
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
+declare <8 x float> @llvm.x86.avx.max.ps.256(<8 x float>, <8 x float>) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x float> @llvm.x86.avx.max.ps.256(<8 x float>, <8 x float>) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float>) #2
+declare <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float>) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x float> @llvm.fma.v8f32(<8 x float>, <8 x float>, <8 x float>) #3
+declare <8 x float> @llvm.fma.v8f32(<8 x float>, <8 x float>, <8 x float>) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float>) #2
+declare <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float>) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x float> @llvm.x86.avx.round.ps.256(<8 x float>, i32 immarg) #2
+declare <8 x float> @llvm.x86.avx.round.ps.256(<8 x float>, i32 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x float> @llvm.x86.avx.hadd.ps.256(<8 x float>, <8 x float>) #2
+declare <8 x float> @llvm.x86.avx.hadd.ps.256(<8 x float>, <8 x float>) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x float> @llvm.x86.sse3.hadd.ps(<4 x float>, <4 x float>) #2
+declare <4 x float> @llvm.x86.sse3.hadd.ps(<4 x float>, <4 x float>) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

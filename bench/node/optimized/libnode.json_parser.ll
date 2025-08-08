@@ -250,14 +250,14 @@ if.then42:                                        ; preds = %lor.rhs, %if.end, %
 
 if.end43:                                         ; preds = %if.end.i
   call void @_ZN4node9Utf8ValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) %utf8_value, ptr noundef nonnull %0, ptr nonnull %call33) #8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %buf_.i.i = getelementptr inbounds nuw i8, ptr %utf8_value, i64 16
   %10 = load ptr, ptr %buf_.i.i, align 8, !noalias !5
   %11 = load i64, ptr %utf8_value, align 8, !noalias !5
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #8, !noalias !5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48, ptr noundef %10, i64 noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48) #8
   %_M_engaged.i.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store i8 1, ptr %_M_engaged.i.i.i.i.i15, align 8
@@ -427,10 +427,10 @@ entry:
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

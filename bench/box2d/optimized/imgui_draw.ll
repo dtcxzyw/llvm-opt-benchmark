@@ -488,16 +488,10 @@ define dso_local void @_ZN5ImGui15StyleColorsDarkEP10ImGuiStyle(ptr noundef %0) 
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare noundef nonnull align 4 dereferenceable(1156) ptr @_ZN5ImGui8GetStyleEv() local_unnamed_addr #2
+declare noundef nonnull align 4 dereferenceable(1156) ptr @_ZN5ImGui8GetStyleEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN5ImGui18StyleColorsClassicEP10ImGuiStyle(ptr noundef %0) local_unnamed_addr #0 {
@@ -1302,7 +1296,7 @@ define dso_local void @_ZN5ImGui16StyleColorsLightEP10ImGuiStyle(ptr noundef %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: write, errnomem: write) uwtable
-define dso_local void @_ZN20ImDrawListSharedDataC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(536) initializes((0, 536)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN20ImDrawListSharedDataC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(536) initializes((0, 536)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %.ptr7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(536) %0, i8 0, i64 536, i1 false)
   br label %4
@@ -1333,16 +1327,16 @@ define dso_local void @_ZN20ImDrawListSharedDataC2Ev(ptr noundef nonnull writeon
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @cosf(float noundef) local_unnamed_addr #6
+declare float @cosf(float noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sinf(float noundef) local_unnamed_addr #6
+declare float @sinf(float noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable
-define dso_local void @_ZN20ImDrawListSharedData29SetCircleTessellationMaxErrorEf(ptr noundef nonnull align 8 captures(none) dereferenceable(536) %0, float noundef %1) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN20ImDrawListSharedData29SetCircleTessellationMaxErrorEf(ptr noundef nonnull align 8 captures(none) dereferenceable(536) %0, float noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load float, ptr %3, align 4, !tbaa !22
   %5 = fcmp oeq float %4, %1
@@ -1396,13 +1390,13 @@ define dso_local void @_ZN20ImDrawListSharedData29SetCircleTessellationMaxErrorE
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @acosf(float noundef) local_unnamed_addr #6
+declare float @acosf(float noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.ceil.f32(float) #8
+declare float @llvm.ceil.f32(float) #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList17_ResetForNewFrameEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList17_ResetForNewFrameEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %4 = load i32, ptr %3, align 4, !tbaa !25
@@ -1662,7 +1656,7 @@ _ZN8ImVectorI9ImDrawCmdE9push_backERKS0_.exit:    ; preds = %._ZN8ImVectorI9ImDr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18ImDrawListSplitter5MergeEP10ImDrawList(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr noundef captures(none) %1) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN18ImDrawListSplitter5MergeEP10ImDrawList(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr noundef captures(none) %1) local_unnamed_addr #8 align 2 {
   %.sroa.0.i106 = alloca %struct.ImVec4, align 8
   %.sroa.0.i = alloca %struct.ImVec4, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -2057,7 +2051,7 @@ thread-pre-split:                                 ; preds = %137, %122
   br i1 %.not99, label %thread-pre-split120, label %205
 
 205:                                              ; preds = %199, %._crit_edge138
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   %206 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(16) %206, i64 16, i1 false), !tbaa.struct !8
   %207 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -2124,7 +2118,7 @@ _ZN10ImDrawList10AddDrawCmdEv.exit:               ; preds = %._ZN8ImVectorI9ImDr
   %235 = load i32, ptr %1, align 8, !tbaa !43
   %236 = add nsw i32 %235, 1
   store i32 %236, ptr %1, align 8, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   %.pre152 = load ptr, ptr %88, align 8, !tbaa !67
   %.pre154 = sext i32 %236 to i64
   br label %thread-pre-split120
@@ -2151,7 +2145,7 @@ thread-pre-split120:                              ; preds = %199, %_ZN10ImDrawLi
   br i1 %.not100, label %276, label %247
 
 247:                                              ; preds = %246
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i106)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i106)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i106, ptr noundef nonnull align 8 dereferenceable(16) %244, i64 16, i1 false), !tbaa.struct !8
   %248 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %249 = load ptr, ptr %248, align 8, !tbaa !84
@@ -2214,7 +2208,7 @@ _ZN10ImDrawList10AddDrawCmdEv.exit118:            ; preds = %247, %271
   %274 = load i32, ptr %1, align 8, !tbaa !43
   %275 = add nsw i32 %274, 1
   store i32 %275, ptr %1, align 8, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i106)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i106)
   br label %276
 
 276:                                              ; preds = %246, %_ZN10ImDrawList10AddDrawCmdEv.exit118, %245
@@ -2226,7 +2220,7 @@ _ZN10ImDrawList10AddDrawCmdEv.exit118:            ; preds = %247, %271
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList16_ClearFreeMemoryEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) initializes((48, 56), (64, 80)) %0) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList16_ClearFreeMemoryEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) initializes((48, 56), (64, 80)) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !42
   %.not.i = icmp eq ptr %3, null
@@ -2328,7 +2322,7 @@ _ZN8ImVectorI6ImVec2E5clearEv.exit:               ; preds = %_ZN8ImVectorIPvE5cl
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18ImDrawListSplitter15ClearFreeMemoryEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN18ImDrawListSplitter15ClearFreeMemoryEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !86
   %4 = icmp sgt i32 %3, 0
@@ -2414,7 +2408,7 @@ _ZN8ImVectorItE5clearEv.exit:                     ; preds = %_ZN8ImVectorI9ImDra
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK10ImDrawList11CloneOutputEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZNK10ImDrawList11CloneOutputEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 _ZN8ImVectorI9ImDrawCmdE5clearEv.exit.i:
   %1 = tail call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef 200)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2613,12 +2607,12 @@ _ZN8ImVectorI10ImDrawVertEaSERKS1_.exit:          ; preds = %_ZN8ImVectorI10ImDr
   ret ptr %1
 }
 
-declare noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList10AddDrawCmdEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList10AddDrawCmdEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0) local_unnamed_addr #8 align 2 {
   %.sroa.0 = alloca %struct.ImVec4, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -2691,12 +2685,12 @@ _ZN8ImVectorI9ImDrawCmdE9push_backERKS0_.exit:    ; preds = %._ZN8ImVectorI9ImDr
   %35 = load i32, ptr %0, align 8, !tbaa !43
   %36 = add nsw i32 %35, 1
   store i32 %36, ptr %0, align 8, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10ImDrawList17_PopUnusedDrawCmdEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN10ImDrawList17_PopUnusedDrawCmdEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0) local_unnamed_addr #9 align 2 {
   %.pr = load i32, ptr %0, align 8, !tbaa !66
   %2 = icmp sgt i32 %.pr, 0
   br i1 %2, label %.lr.ph, label %.thread
@@ -2732,7 +2726,7 @@ define dso_local void @_ZN10ImDrawList17_PopUnusedDrawCmdEv(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList11AddCallbackEPFvPKS_PK9ImDrawCmdEPv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList11AddCallbackEPFvPKS_PK9ImDrawCmdEPv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 align 2 {
   %.sroa.0.i6 = alloca %struct.ImVec4, align 8
   %.sroa.0.i = alloca %struct.ImVec4, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2746,7 +2740,7 @@ define dso_local void @_ZN10ImDrawList11AddCallbackEPFvPKS_PK9ImDrawCmdEPv(ptr n
   br i1 %.not, label %46, label %11
 
 11:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -2812,7 +2806,7 @@ _ZN10ImDrawList10AddDrawCmdEv.exit:               ; preds = %11, %38
   %41 = load i32, ptr %0, align 8, !tbaa !43
   %42 = add nsw i32 %41, 1
   store i32 %42, ptr %0, align 8, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   %43 = load ptr, ptr %4, align 8, !tbaa !67
   %44 = sext i32 %42 to i64
   %45 = getelementptr %struct.ImDrawCmd, ptr %43, i64 %44
@@ -2826,7 +2820,7 @@ _ZN10ImDrawList10AddDrawCmdEv.exit:               ; preds = %11, %38
   store ptr %1, ptr %48, align 8, !tbaa !70
   %49 = getelementptr i8, ptr %.pn, i64 -8
   store ptr %2, ptr %49, align 8, !tbaa !90
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i6)
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i6, ptr noundef nonnull align 8 dereferenceable(16) %50, i64 16, i1 false), !tbaa.struct !8
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -2892,12 +2886,12 @@ _ZN10ImDrawList10AddDrawCmdEv.exit18:             ; preds = %46, %76
   %81 = load i32, ptr %0, align 8, !tbaa !43
   %82 = add nsw i32 %81, 1
   store i32 %82, ptr %0, align 8, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i6)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10ImDrawList17_TryMergeDrawCmdsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN10ImDrawList17_TryMergeDrawCmdsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !67
   %4 = load i32, ptr %0, align 8, !tbaa !66
@@ -2946,7 +2940,7 @@ define dso_local void @_ZN10ImDrawList17_TryMergeDrawCmdsEv(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList18_OnChangedClipRectEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList18_OnChangedClipRectEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0) local_unnamed_addr #8 align 2 {
   %.sroa.0.i = alloca %struct.ImVec4, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !67
@@ -2966,7 +2960,7 @@ define dso_local void @_ZN10ImDrawList18_OnChangedClipRectEv(ptr noundef nonnull
   br i1 %.not11, label %.thread, label %12
 
 12:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %14 = load ptr, ptr %13, align 8, !tbaa !84
@@ -3031,7 +3025,7 @@ _ZN10ImDrawList10AddDrawCmdEv.exit:               ; preds = %12, %38
   %41 = load i32, ptr %0, align 8, !tbaa !43
   %42 = add nsw i32 %41, 1
   store i32 %42, ptr %0, align 8, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   br label %65
 
 43:                                               ; preds = %1
@@ -3077,7 +3071,7 @@ _ZN10ImDrawList10AddDrawCmdEv.exit:               ; preds = %12, %38
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList19_OnChangedTextureIDEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList19_OnChangedTextureIDEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0) local_unnamed_addr #8 align 2 {
   %.sroa.0.i = alloca %struct.ImVec4, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !67
@@ -3098,7 +3092,7 @@ define dso_local void @_ZN10ImDrawList19_OnChangedTextureIDEv(ptr noundef nonnul
   br i1 %.not11, label %.thread, label %14
 
 14:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -3162,7 +3156,7 @@ _ZN10ImDrawList10AddDrawCmdEv.exit:               ; preds = %14, %39
   %42 = load i32, ptr %0, align 8, !tbaa !43
   %43 = add nsw i32 %42, 1
   store i32 %43, ptr %0, align 8, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   br label %68
 
 44:                                               ; preds = %1
@@ -3210,7 +3204,7 @@ _ZN10ImDrawList10AddDrawCmdEv.exit:               ; preds = %14, %39
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList19_OnChangedVtxOffsetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) initializes((52, 56)) %0) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList19_OnChangedVtxOffsetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) initializes((52, 56)) %0) local_unnamed_addr #8 align 2 {
   %.sroa.0.i = alloca %struct.ImVec4, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 0, ptr %2, align 4, !tbaa !53
@@ -3225,7 +3219,7 @@ define dso_local void @_ZN10ImDrawList19_OnChangedVtxOffsetEv(ptr noundef nonnul
   br i1 %.not, label %42, label %10
 
 10:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -3291,7 +3285,7 @@ _ZN10ImDrawList10AddDrawCmdEv.exit:               ; preds = %10, %37
   %40 = load i32, ptr %0, align 8, !tbaa !43
   %41 = add nsw i32 %40, 1
   store i32 %41, ptr %0, align 8, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   br label %46
 
 42:                                               ; preds = %1
@@ -3306,7 +3300,7 @@ _ZN10ImDrawList10AddDrawCmdEv.exit:               ; preds = %10, %37
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, errnomem: readwrite) uwtable
-define dso_local noundef range(i32 0, 513) i32 @_ZNK10ImDrawList27_CalcCircleAutoSegmentCountEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, float noundef %1) local_unnamed_addr #12 align 2 {
+define dso_local noundef range(i32 0, 513) i32 @_ZNK10ImDrawList27_CalcCircleAutoSegmentCountEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, float noundef %1) local_unnamed_addr #11 align 2 {
   %3 = fadd float %1, 0x3FEFFFFDE0000000
   %4 = fptosi float %3 to i32
   %or.cond = icmp ult i32 %4, 64
@@ -3346,7 +3340,7 @@ define dso_local noundef range(i32 0, 513) i32 @_ZNK10ImDrawList27_CalcCircleAut
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList12PushClipRectERK6ImVec2S2_b(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, i1 noundef zeroext %3) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList12PushClipRectERK6ImVec2S2_b(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, i1 noundef zeroext %3) local_unnamed_addr #8 align 2 {
   %5 = load float, ptr %1, align 4, !tbaa !93
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load float, ptr %6, align 4, !tbaa !94
@@ -3461,10 +3455,10 @@ _ZN8ImVectorI6ImVec4E9push_backERKS0_.exit:       ; preds = %._ZN8ImVectorI6ImVe
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList22PushClipRectFullScreenEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList22PushClipRectFullScreenEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0) local_unnamed_addr #8 align 2 {
   %2 = alloca %struct.ImVec2, align 4
   %3 = alloca %struct.ImVec2, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8, !tbaa !50
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -3474,7 +3468,7 @@ define dso_local void @_ZN10ImDrawList22PushClipRectFullScreenEv(ptr noundef non
   store float %7, ptr %2, align 4, !tbaa !93
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store float %9, ptr %10, align 4, !tbaa !94
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %12 = load float, ptr %11, align 8, !tbaa !97
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 44
@@ -3483,13 +3477,13 @@ define dso_local void @_ZN10ImDrawList22PushClipRectFullScreenEv(ptr noundef non
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float %14, ptr %15, align 4, !tbaa !94
   call void @_ZN10ImDrawList12PushClipRectERK6ImVec2S2_b(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %3, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList11PopClipRectEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) initializes((96, 112)) %0) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList11PopClipRectEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) initializes((96, 112)) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load i32, ptr %2, align 8, !tbaa !56
   %4 = add nsw i32 %3, -1
@@ -3511,7 +3505,7 @@ define dso_local void @_ZN10ImDrawList11PopClipRectEv(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList13PushTextureIDEPv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) initializes((112, 120)) %0, ptr noundef %1) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList13PushTextureIDEPv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) initializes((112, 120)) %0, ptr noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load i32, ptr %3, align 8, !tbaa !59
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 172
@@ -3577,7 +3571,7 @@ _ZN8ImVectorIPvE9push_backERKS0_.exit:            ; preds = %._ZN8ImVectorIPvE7r
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList12PopTextureIDEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) initializes((112, 120)) %0) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList12PopTextureIDEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) initializes((112, 120)) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load i32, ptr %2, align 8, !tbaa !59
   %4 = add nsw i32 %3, -1
@@ -3603,7 +3597,7 @@ define dso_local void @_ZN10ImDrawList12PopTextureIDEv(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList13_SetTextureIDEPv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef %1) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList13_SetTextureIDEPv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8, !tbaa !84
   %5 = icmp eq ptr %4, %1
@@ -3619,7 +3613,7 @@ define dso_local void @_ZN10ImDrawList13_SetTextureIDEPv(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList11PrimReserveEii(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList11PrimReserveEii(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %5 = load i32, ptr %4, align 4, !tbaa !53
   %6 = add i32 %5, %2
@@ -3763,7 +3757,7 @@ _ZN8ImVectorItE6resizeEi.exit:                    ; preds = %_ZN8ImVectorI10ImDr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10ImDrawList13PrimUnreserveEii(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN10ImDrawList13PrimUnreserveEii(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !67
   %6 = load i32, ptr %0, align 8, !tbaa !66
@@ -3785,7 +3779,7 @@ define dso_local void @_ZN10ImDrawList13PrimUnreserveEii(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10ImDrawList8PrimRectERK6ImVec2S2_j(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, i32 noundef %3) local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN10ImDrawList8PrimRectERK6ImVec2S2_j(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, i32 noundef %3) local_unnamed_addr #12 align 2 {
   %5 = load i32, ptr %2, align 4, !tbaa !93
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !94
@@ -3865,7 +3859,7 @@ define dso_local void @_ZN10ImDrawList8PrimRectERK6ImVec2S2_j(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10ImDrawList10PrimRectUVERK6ImVec2S2_S2_S2_j(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %4, i32 noundef %5) local_unnamed_addr #14 align 2 {
+define dso_local void @_ZN10ImDrawList10PrimRectUVERK6ImVec2S2_S2_S2_j(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %4, i32 noundef %5) local_unnamed_addr #13 align 2 {
   %7 = load i32, ptr %2, align 4, !tbaa !93
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !94
@@ -3954,7 +3948,7 @@ define dso_local void @_ZN10ImDrawList10PrimRectUVERK6ImVec2S2_S2_S2_j(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10ImDrawList10PrimQuadUVERK6ImVec2S2_S2_S2_S2_S2_S2_S2_j(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %8, i32 noundef %9) local_unnamed_addr #14 align 2 {
+define dso_local void @_ZN10ImDrawList10PrimQuadUVERK6ImVec2S2_S2_S2_S2_S2_S2_S2_j(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %8, i32 noundef %9) local_unnamed_addr #13 align 2 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %12 = load i32, ptr %11, align 4, !tbaa !53
   %13 = trunc i32 %12 to i16
@@ -4027,7 +4021,7 @@ define dso_local void @_ZN10ImDrawList10PrimQuadUVERK6ImVec2S2_S2_S2_S2_S2_S2_S2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList11AddPolylineEPK6ImVec2ijif(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5) local_unnamed_addr #15 align 2 {
+define dso_local void @_ZN10ImDrawList11AddPolylineEPK6ImVec2ijif(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5) local_unnamed_addr #14 align 2 {
   %7 = icmp slt i32 %2, 2
   %8 = icmp ult i32 %3, 16777216
   %or.cond447 = or i1 %7, %8
@@ -4907,7 +4901,7 @@ define dso_local void @_ZN10ImDrawList11AddPolylineEPK6ImVec2ijif(ptr noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList19AddConvexPolyFilledEPK6ImVec2ij(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #15 align 2 {
+define dso_local void @_ZN10ImDrawList19AddConvexPolyFilledEPK6ImVec2ij(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #14 align 2 {
   %5 = icmp slt i32 %2, 3
   %6 = icmp ult i32 %3, 16777216
   %or.cond = or i1 %5, %6
@@ -5207,7 +5201,7 @@ define dso_local void @_ZN10ImDrawList19AddConvexPolyFilledEPK6ImVec2ij(ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList16_PathArcToFastExERK6ImVec2fiii(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, float noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList16_PathArcToFastExERK6ImVec2fiii(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, float noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = fcmp olt float %2, 5.000000e-01
   br i1 %7, label %8, label %39
 
@@ -5507,7 +5501,7 @@ _ZN8ImVectorI6ImVec2E6resizeEi.exit:              ; preds = %._ZN8ImVectorI6ImVe
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList11_PathArcToNERK6ImVec2fffi(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, float noundef %2, float noundef %3, float noundef %4, i32 noundef %5) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList11_PathArcToNERK6ImVec2fffi(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, float noundef %2, float noundef %3, float noundef %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = fcmp olt float %2, 5.000000e-01
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load i32, ptr %8, align 8, !tbaa !62
@@ -5692,7 +5686,7 @@ _ZN8ImVectorI6ImVec2E9push_backERKS0_.exit26:     ; preds = %._ZN8ImVectorI6ImVe
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList13PathArcToFastERK6ImVec2fii(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, float noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList13PathArcToFastERK6ImVec2fii(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, float noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = fcmp olt float %2, 5.000000e-01
   br i1 %6, label %7, label %38
 
@@ -5768,7 +5762,7 @@ _ZN8ImVectorI6ImVec2E9push_backERKS0_.exit:       ; preds = %._ZN8ImVectorI6ImVe
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList9PathArcToERK6ImVec2fffi(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, float noundef %2, float noundef %3, float noundef %4, i32 noundef %5) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList9PathArcToERK6ImVec2fffi(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, float noundef %2, float noundef %3, float noundef %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = fcmp olt float %2, 5.000000e-01
   br i1 %7, label %8, label %39
 
@@ -6146,7 +6140,7 @@ _ZNK10ImDrawList27_CalcCircleAutoSegmentCountEf.exit: ; preds = %200, %206
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList19PathEllipticalArcToERK6ImVec2S2_fffi(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, float noundef %3, float noundef %4, float noundef %5, i32 noundef %6) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList19PathEllipticalArcToERK6ImVec2S2_fffi(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, float noundef %3, float noundef %4, float noundef %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = icmp slt i32 %6, 1
   br i1 %8, label %9, label %_ZNK10ImDrawList27_CalcCircleAutoSegmentCountEf.exit
 
@@ -6319,7 +6313,7 @@ _ZN8ImVectorI6ImVec2E9push_backERKS0_.exit:       ; preds = %._ZN8ImVectorI6ImVe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local <2 x float> @_Z17ImBezierCubicCalcRK6ImVec2S1_S1_S1_f(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, float noundef %4) local_unnamed_addr #16 {
+define dso_local <2 x float> @_Z17ImBezierCubicCalcRK6ImVec2S1_S1_S1_f(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, float noundef %4) local_unnamed_addr #15 {
   %6 = fsub float 1.000000e+00, %4
   %7 = fmul float %6, %6
   %8 = fmul float %6, %7
@@ -6362,7 +6356,7 @@ define dso_local <2 x float> @_Z17ImBezierCubicCalcRK6ImVec2S1_S1_S1_f(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local <2 x float> @_Z21ImBezierQuadraticCalcRK6ImVec2S1_S1_f(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, float noundef %3) local_unnamed_addr #16 {
+define dso_local <2 x float> @_Z21ImBezierQuadraticCalcRK6ImVec2S1_S1_f(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, float noundef %3) local_unnamed_addr #15 {
   %5 = fsub float 1.000000e+00, %3
   %6 = fmul float %5, %5
   %7 = fmul float %5, 2.000000e+00
@@ -6535,7 +6529,7 @@ _ZN8ImVectorI6ImVec2E9push_backERKS0_.exit:       ; preds = %._ZN8ImVectorI6ImVe
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL31PathBezierCubicCurveToCasteljauP8ImVectorI6ImVec2Efffffffffi(ptr noundef nonnull captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, i32 noundef range(i32 0, 11) %10) unnamed_addr #9 {
+define internal fastcc void @_ZL31PathBezierCubicCurveToCasteljauP8ImVectorI6ImVec2Efffffffffi(ptr noundef nonnull captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, i32 noundef range(i32 0, 11) %10) unnamed_addr #8 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %67, %11
@@ -6799,7 +6793,7 @@ _ZN8ImVectorI6ImVec2E9push_backERKS0_.exit:       ; preds = %._ZN8ImVectorI6ImVe
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL35PathBezierQuadraticCurveToCasteljauP8ImVectorI6ImVec2Efffffffi(ptr noundef nonnull captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, i32 noundef range(i32 0, 11) %8) unnamed_addr #9 {
+define internal fastcc void @_ZL35PathBezierQuadraticCurveToCasteljauP8ImVectorI6ImVec2Efffffffi(ptr noundef nonnull captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, i32 noundef range(i32 0, 11) %8) unnamed_addr #8 {
   %10 = fsub float %5, %1
   %11 = fsub float %6, %2
   %12 = fsub float %3, %5
@@ -6922,7 +6916,7 @@ tailrecurse:                                      ; preds = %.lr.ph
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList8PathRectERK6ImVec2S2_fi(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, float noundef %3, i32 noundef %4) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList8PathRectERK6ImVec2S2_fi(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, float noundef %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %struct.ImVec2, align 8
   %7 = alloca %struct.ImVec2, align 8
   %8 = alloca %struct.ImVec2, align 8
@@ -7223,7 +7217,7 @@ _ZN10ImDrawList10PathLineToERK6ImVec2.exit77:     ; preds = %._ZN8ImVectorI6ImVe
   %172 = and i32 %.048, 64
   %.not52 = icmp eq i32 %172, 0
   %173 = select i1 %.not52, float 0.000000e+00, float %.0
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %174 = load float, ptr %1, align 4, !tbaa !93
   %175 = fadd float %167, %174
   %176 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -7301,8 +7295,8 @@ _ZN8ImVectorI6ImVec2E9push_backERKS0_.exit.i:     ; preds = %204, %._ZN8ImVector
   br label %_ZN10ImDrawList13PathArcToFastERK6ImVec2fii.exit
 
 _ZN10ImDrawList13PathArcToFastERK6ImVec2fii.exit: ; preds = %_ZN8ImVectorI6ImVec2E9push_backERKS0_.exit.i, %212
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %213 = load float, ptr %2, align 4, !tbaa !93
   %214 = fsub float %213, %169
   %215 = load float, ptr %176, align 4, !tbaa !94
@@ -7379,8 +7373,8 @@ _ZN8ImVectorI6ImVec2E9push_backERKS0_.exit.i88:   ; preds = %242, %._ZN8ImVector
   br label %_ZN10ImDrawList13PathArcToFastERK6ImVec2fii.exit93
 
 _ZN10ImDrawList13PathArcToFastERK6ImVec2fii.exit93: ; preds = %_ZN8ImVectorI6ImVec2E9push_backERKS0_.exit.i88, %250
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %251 = load float, ptr %2, align 4, !tbaa !93
   %252 = fsub float %251, %171
   %253 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -7458,8 +7452,8 @@ _ZN8ImVectorI6ImVec2E9push_backERKS0_.exit.i97:   ; preds = %281, %._ZN8ImVector
   br label %_ZN10ImDrawList13PathArcToFastERK6ImVec2fii.exit102
 
 _ZN10ImDrawList13PathArcToFastERK6ImVec2fii.exit102: ; preds = %_ZN8ImVectorI6ImVec2E9push_backERKS0_.exit.i97, %289
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %290 = load float, ptr %1, align 4, !tbaa !93
   %291 = fadd float %173, %290
   %292 = load float, ptr %253, align 4, !tbaa !94
@@ -7536,7 +7530,7 @@ _ZN8ImVectorI6ImVec2E9push_backERKS0_.exit.i106:  ; preds = %319, %._ZN8ImVector
   br label %_ZN10ImDrawList13PathArcToFastERK6ImVec2fii.exit111
 
 _ZN10ImDrawList13PathArcToFastERK6ImVec2fii.exit111: ; preds = %_ZN8ImVectorI6ImVec2E9push_backERKS0_.exit.i106, %327
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %328
 
 328:                                              ; preds = %_ZN10ImDrawList13PathArcToFastERK6ImVec2fii.exit111, %_ZN10ImDrawList10PathLineToERK6ImVec2.exit77
@@ -7544,7 +7538,7 @@ _ZN10ImDrawList13PathArcToFastERK6ImVec2fii.exit111: ; preds = %_ZN8ImVectorI6Im
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #8
+declare float @llvm.fabs.f32(float) #7
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN10ImDrawList7AddLineERK6ImVec2S2_jf(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, i32 noundef %3, float noundef %4) local_unnamed_addr #0 align 2 {
@@ -7706,7 +7700,7 @@ define dso_local void @_ZN10ImDrawList7AddRectERK6ImVec2S2_jfif(ptr noundef nonn
   br i1 %.not, label %24, label %19
 
 19:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.val14 = load float, ptr %1, align 4, !tbaa !93
   %.val15 = load float, ptr %17, align 4, !tbaa !94
   %20 = fadd float %.val14, 5.000000e-01
@@ -7714,7 +7708,7 @@ define dso_local void @_ZN10ImDrawList7AddRectERK6ImVec2S2_jfif(ptr noundef nonn
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %20, i64 0
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %21, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.val22 = load float, ptr %2, align 4, !tbaa !93
   %.val23 = load float, ptr %18, align 4, !tbaa !94
   %22 = fadd float %.val22, -5.000000e-01
@@ -7723,12 +7717,12 @@ define dso_local void @_ZN10ImDrawList7AddRectERK6ImVec2S2_jfif(ptr noundef nonn
   %.sroa.0.4.vec.insert.i27 = insertelement <2 x float> %.sroa.0.0.vec.insert.i26, float %23, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i27, ptr %9, align 8
   call void @_ZN10ImDrawList8PathRectERK6ImVec2S2_fi(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %9, float noundef %4, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %29
 
 24:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.val = load float, ptr %1, align 4, !tbaa !93
   %.val11 = load float, ptr %17, align 4, !tbaa !94
   %25 = fadd float %.val, 5.000000e-01
@@ -7736,7 +7730,7 @@ define dso_local void @_ZN10ImDrawList7AddRectERK6ImVec2S2_jfif(ptr noundef nonn
   %.sroa.0.0.vec.insert.i28 = insertelement <2 x float> poison, float %25, i64 0
   %.sroa.0.4.vec.insert.i29 = insertelement <2 x float> %.sroa.0.0.vec.insert.i28, float %26, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i29, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.val18 = load float, ptr %2, align 4, !tbaa !93
   %.val19 = load float, ptr %18, align 4, !tbaa !94
   %27 = fadd float %.val18, 0xBFDF5C2900000000
@@ -7745,8 +7739,8 @@ define dso_local void @_ZN10ImDrawList7AddRectERK6ImVec2S2_jfif(ptr noundef nonn
   %.sroa.0.4.vec.insert.i31 = insertelement <2 x float> %.sroa.0.0.vec.insert.i30, float %28, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i31, ptr %11, align 8
   call void @_ZN10ImDrawList8PathRectERK6ImVec2S2_fi(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(8) %11, float noundef %4, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %29
 
 29:                                               ; preds = %24, %19
@@ -7763,7 +7757,7 @@ define dso_local void @_ZN10ImDrawList7AddRectERK6ImVec2S2_jfif(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, i32 noundef %3, float noundef %4, i32 noundef %5) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, i32 noundef %3, float noundef %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = icmp ult i32 %3, 16777216
   br i1 %7, label %68, label %8
 
@@ -7868,7 +7862,7 @@ define dso_local void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList23AddRectFilledMultiColorERK6ImVec2S2_jjjj(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList23AddRectFilledMultiColorERK6ImVec2S2_jjjj(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = or i32 %4, %3
   %9 = or i32 %8, %5
   %10 = or i32 %9, %6
@@ -7970,7 +7964,7 @@ define dso_local void @_ZN10ImDrawList23AddRectFilledMultiColorERK6ImVec2S2_jjjj
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList7AddQuadERK6ImVec2S2_S2_S2_jf(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %4, i32 noundef %5, float noundef %6) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList7AddQuadERK6ImVec2S2_S2_S2_jf(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %4, i32 noundef %5, float noundef %6) local_unnamed_addr #8 align 2 {
   %8 = icmp ult i32 %5, 16777216
   br i1 %8, label %123, label %9
 
@@ -8209,7 +8203,7 @@ _ZN10ImDrawList10PathLineToERK6ImVec2.exit30:     ; preds = %._ZN8ImVectorI6ImVe
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList13AddQuadFilledERK6ImVec2S2_S2_S2_j(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %4, i32 noundef %5) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList13AddQuadFilledERK6ImVec2S2_S2_S2_j(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = icmp ult i32 %5, 16777216
   br i1 %7, label %122, label %8
 
@@ -8448,7 +8442,7 @@ _ZN10ImDrawList10PathLineToERK6ImVec2.exit29:     ; preds = %._ZN8ImVectorI6ImVe
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList11AddTriangleERK6ImVec2S2_S2_jf(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, i32 noundef %4, float noundef %5) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList11AddTriangleERK6ImVec2S2_S2_jf(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, i32 noundef %4, float noundef %5) local_unnamed_addr #8 align 2 {
   %7 = icmp ult i32 %4, 16777216
   br i1 %7, label %95, label %8
 
@@ -8632,7 +8626,7 @@ _ZN10ImDrawList10PathLineToERK6ImVec2.exit21:     ; preds = %._ZN8ImVectorI6ImVe
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList17AddTriangleFilledERK6ImVec2S2_S2_j(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, i32 noundef %4) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList17AddTriangleFilledERK6ImVec2S2_S2_j(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = icmp ult i32 %4, 16777216
   br i1 %6, label %94, label %7
 
@@ -8816,7 +8810,7 @@ _ZN10ImDrawList10PathLineToERK6ImVec2.exit20:     ; preds = %._ZN8ImVectorI6ImVe
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList9AddCircleERK6ImVec2fjif(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, float noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList9AddCircleERK6ImVec2fjif(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, float noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5) local_unnamed_addr #8 align 2 {
   %7 = icmp ult i32 %3, 16777216
   %8 = fcmp olt float %2, 5.000000e-01
   %or.cond = or i1 %8, %7
@@ -8863,7 +8857,7 @@ define dso_local void @_ZN10ImDrawList9AddCircleERK6ImVec2fjif(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList15AddCircleFilledERK6ImVec2fji(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, float noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList15AddCircleFilledERK6ImVec2fji(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, float noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = icmp ult i32 %3, 16777216
   %7 = fcmp olt float %2, 5.000000e-01
   %or.cond = or i1 %7, %6
@@ -8908,7 +8902,7 @@ define dso_local void @_ZN10ImDrawList15AddCircleFilledERK6ImVec2fji(ptr noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList7AddNgonERK6ImVec2fjif(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, float noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList7AddNgonERK6ImVec2fjif(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, float noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5) local_unnamed_addr #8 align 2 {
   %7 = icmp ult i32 %3, 16777216
   %8 = icmp slt i32 %4, 3
   %or.cond = or i1 %7, %8
@@ -8935,7 +8929,7 @@ define dso_local void @_ZN10ImDrawList7AddNgonERK6ImVec2fjif(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList13AddNgonFilledERK6ImVec2fji(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, float noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList13AddNgonFilledERK6ImVec2fji(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, float noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = icmp ult i32 %3, 16777216
   %7 = icmp slt i32 %4, 3
   %or.cond = or i1 %6, %7
@@ -8961,7 +8955,7 @@ define dso_local void @_ZN10ImDrawList13AddNgonFilledERK6ImVec2fji(ptr noundef n
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList10AddEllipseERK6ImVec2S2_jfif(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, i32 noundef %3, float noundef %4, i32 noundef %5, float noundef %6) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList10AddEllipseERK6ImVec2S2_jfif(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, i32 noundef %3, float noundef %4, i32 noundef %5, float noundef %6) local_unnamed_addr #8 align 2 {
   %8 = icmp ult i32 %3, 16777216
   br i1 %8, label %52, label %9
 
@@ -9029,7 +9023,7 @@ _ZNK10ImDrawList27_CalcCircleAutoSegmentCountEf.exit: ; preds = %27, %21, %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList16AddEllipseFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, i32 noundef %3, float noundef %4, i32 noundef %5) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList16AddEllipseFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, i32 noundef %3, float noundef %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = icmp ult i32 %3, 16777216
   br i1 %7, label %51, label %8
 
@@ -9097,7 +9091,7 @@ _ZNK10ImDrawList27_CalcCircleAutoSegmentCountEf.exit: ; preds = %26, %20, %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList14AddBezierCubicERK6ImVec2S2_S2_S2_jfi(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %4, i32 noundef %5, float noundef %6, i32 noundef %7) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList14AddBezierCubicERK6ImVec2S2_S2_S2_jfi(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %4, i32 noundef %5, float noundef %6, i32 noundef %7) local_unnamed_addr #8 align 2 {
   %9 = icmp ult i32 %5, 16777216
   br i1 %9, label %44, label %10
 
@@ -9173,7 +9167,7 @@ _ZN10ImDrawList10PathLineToERK6ImVec2.exit:       ; preds = %._ZN8ImVectorI6ImVe
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList18AddBezierQuadraticERK6ImVec2S2_S2_jfi(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, i32 noundef %4, float noundef %5, i32 noundef %6) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList18AddBezierQuadraticERK6ImVec2S2_S2_jfi(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, i32 noundef %4, float noundef %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = icmp ult i32 %4, 16777216
   br i1 %8, label %43, label %9
 
@@ -9249,7 +9243,7 @@ _ZN10ImDrawList10PathLineToERK6ImVec2.exit:       ; preds = %._ZN8ImVectorI6ImVe
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList7AddTextEPK6ImFontfRK6ImVec2jPKcS7_fPK6ImVec4(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef readonly captures(address_is_null) %1, float noundef %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef readonly captures(address_is_null) %8) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList7AddTextEPK6ImFontfRK6ImVec2jPKcS7_fPK6ImVec4(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef readonly captures(address_is_null) %1, float noundef %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef readonly captures(address_is_null) %8) local_unnamed_addr #8 align 2 {
   %10 = alloca %struct.ImVec4, align 4
   %11 = icmp ult i32 %4, 16777216
   %12 = icmp eq ptr %5, %6
@@ -9296,7 +9290,7 @@ define dso_local void @_ZN10ImDrawList7AddTextEPK6ImFontfRK6ImVec2jPKcS7_fPK6ImV
 
 35:                                               ; preds = %30, %28
   %.022 = phi float [ %34, %30 ], [ %2, %28 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false), !tbaa.struct !8
   %37 = icmp ne ptr %8, null
@@ -9333,7 +9327,7 @@ define dso_local void @_ZN10ImDrawList7AddTextEPK6ImFontfRK6ImVec2jPKcS7_fPK6ImV
 
 61:                                               ; preds = %38, %35
   call void @_ZNK6ImFont10RenderTextEP10ImDrawListfRK6ImVec2jRK6ImVec4PKcS9_fb(ptr noundef nonnull align 8 dereferenceable(118) %.0, ptr noundef nonnull %0, float noundef %.022, ptr noundef nonnull align 4 dereferenceable(8) %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull %5, ptr noundef nonnull %.023, float noundef %7, i1 noundef zeroext %37)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %62
 
 62:                                               ; preds = %13, %9, %61
@@ -9341,10 +9335,10 @@ define dso_local void @_ZN10ImDrawList7AddTextEPK6ImFontfRK6ImVec2jPKcS7_fPK6ImV
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK6ImFont10RenderTextEP10ImDrawListfRK6ImVec2jRK6ImVec4PKcS9_fb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(118) %0, ptr noundef captures(none) %1, float noundef %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, i32 noundef %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %5, ptr noundef %6, ptr noundef %7, float noundef %8, i1 noundef zeroext %9) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZNK6ImFont10RenderTextEP10ImDrawListfRK6ImVec2jRK6ImVec4PKcS9_fb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(118) %0, ptr noundef captures(none) %1, float noundef %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, i32 noundef %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %5, ptr noundef %6, ptr noundef %7, float noundef %8, i1 noundef zeroext %9) local_unnamed_addr #8 align 2 {
   %11 = alloca i32, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %12, label %15
@@ -9588,7 +9582,7 @@ _ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us: ; preds = %.lr.ph.i344.us, %._
   %.us-phi406 = phi float [ %.2269.ph, %.lr.ph394 ], [ %.2269392.us, %110 ]
   %.us-phi407 = phi float [ %.0265.ph, %.lr.ph394 ], [ %.0265393.us, %110 ]
   %.us-phi408 = phi ptr [ %.0271.ph, %.lr.ph394 ], [ %.2273.us, %110 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %123 = load i8, ptr %.us-phi405, align 1, !tbaa !23
   %124 = sext i8 %123 to i32
   store i32 %124, ptr %11, align 4, !tbaa !19
@@ -9622,7 +9616,7 @@ _ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us: ; preds = %.lr.ph.i344.us, %._
   %137 = fadd float %30, %.us-phi406
   %138 = load float, ptr %23, align 4, !tbaa !138
   %139 = fcmp ogt float %137, %138
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %139, label %.loopexit, label %.outer
 
 140:                                              ; preds = %135, %132
@@ -9854,7 +9848,7 @@ _ZNK6ImFont9FindGlyphEt.exit:                     ; preds = %143, %145
   %.2289 = phi ptr [ %.0287.ph.ph, %_ZNK6ImFont9FindGlyphEt.exit ], [ %.4291, %.thread362 ], [ %.0287.ph.ph, %269 ], [ %.0287.ph.ph, %135 ]
   %.2281 = phi i32 [ %.0279.ph.ph, %_ZNK6ImFont9FindGlyphEt.exit ], [ %.4283, %.thread362 ], [ %.0279.ph.ph, %269 ], [ %.0279.ph.ph, %135 ]
   %.1266 = phi float [ %.us-phi407, %_ZNK6ImFont9FindGlyphEt.exit ], [ %271, %.thread362 ], [ %270, %269 ], [ %.us-phi407, %135 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.outer.outer
 
 .loopexit:                                        ; preds = %.outer, %136, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us, %111
@@ -9896,7 +9890,7 @@ _ZNK6ImFont9FindGlyphEt.exit:                     ; preds = %143, %145
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList7AddTextERK6ImVec2jPKcS4_(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList7AddTextERK6ImVec2jPKcS4_(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %struct.ImVec4, align 4
   %7 = icmp ult i32 %2, 16777216
   %8 = icmp eq ptr %3, %4
@@ -9925,11 +9919,11 @@ define dso_local void @_ZN10ImDrawList7AddTextERK6ImVec2jPKcS4_(ptr noundef nonn
   %21 = load ptr, ptr %20, align 8, !tbaa !133
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %23 = load float, ptr %22, align 8, !tbaa !134
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false), !tbaa.struct !8
   call void @_ZNK6ImFont10RenderTextEP10ImDrawListfRK6ImVec2jRK6ImVec4PKcS9_fb(ptr noundef nonnull align 8 dereferenceable(118) %21, ptr noundef nonnull align 8 dereferenceable(200) %0, float noundef %23, ptr noundef nonnull readonly align 4 dereferenceable(8) %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull %3, ptr noundef nonnull %.023.i, float noundef 0.000000e+00, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN10ImDrawList7AddTextEPK6ImFontfRK6ImVec2jPKcS7_fPK6ImVec4.exit
 
 _ZN10ImDrawList7AddTextEPK6ImFontfRK6ImVec2jPKcS7_fPK6ImVec4.exit: ; preds = %5, %9, %17
@@ -9937,7 +9931,7 @@ _ZN10ImDrawList7AddTextEPK6ImFontfRK6ImVec2jPKcS7_fPK6ImVec4.exit: ; preds = %5,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList8AddImageEPvRK6ImVec2S3_S3_S3_j(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %5, i32 noundef %6) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList8AddImageEPvRK6ImVec2S3_S3_S3_j(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = icmp ult i32 %6, 16777216
   br i1 %8, label %164, label %9
 
@@ -10207,7 +10201,7 @@ _ZN10ImDrawList12PopTextureIDEv.exit:             ; preds = %_ZN10ImDrawList13Pu
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList12AddImageQuadEPvRK6ImVec2S3_S3_S3_S3_S3_S3_S3_j(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %9, i32 noundef %10) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawList12AddImageQuadEPvRK6ImVec2S3_S3_S3_S3_S3_S3_S3_j(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %9, i32 noundef %10) local_unnamed_addr #8 align 2 {
   %12 = icmp ult i32 %10, 16777216
   br i1 %12, label %152, label %13
 
@@ -10725,7 +10719,7 @@ _ZN5ImGui18ShadeVertsLinearUVEP10ImDrawListiiRK6ImVec2S4_S4_S4_b.exit49: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5ImGui18ShadeVertsLinearUVEP10ImDrawListiiRK6ImVec2S4_S4_S4_b(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %6, i1 noundef zeroext %7) local_unnamed_addr #18 {
+define dso_local void @_ZN5ImGui18ShadeVertsLinearUVEP10ImDrawListiiRK6ImVec2S4_S4_S4_b(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %6, i1 noundef zeroext %7) local_unnamed_addr #17 {
   %.val57 = load float, ptr %4, align 4, !tbaa !93
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.val58 = load float, ptr %9, align 4, !tbaa !94
@@ -10831,7 +10825,7 @@ define dso_local void @_ZN5ImGui18ShadeVertsLinearUVEP10ImDrawListiiRK6ImVec2S4_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14ImTriangulator4InitEPK6ImVec2iPv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((0, 4), (8, 24), (32, 40)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN14ImTriangulator4InitEPK6ImVec2iPv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((0, 4), (8, 24), (32, 40)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #8 align 2 {
   %5 = tail call i32 @llvm.smax.i32(i32 %2, i32 2)
   %6 = add nsw i32 %5, -2
   store i32 %6, ptr %0, align 8, !tbaa !172
@@ -11025,7 +11019,7 @@ _ZN14ImTriangulator9BuildEarsEv.exit:             ; preds = %_ZNK14ImTriangulato
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN14ImTriangulator10BuildNodesEPK6ImVec2i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #19 align 2 {
+define dso_local void @_ZN14ImTriangulator10BuildNodesEPK6ImVec2i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #18 align 2 {
   %4 = icmp sgt i32 %2, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %4, label %.lr.ph, label %.._crit_edge_crit_edge
@@ -11076,7 +11070,7 @@ define dso_local void @_ZN14ImTriangulator10BuildNodesEPK6ImVec2i(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN14ImTriangulator13BuildReflexesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #20 align 2 {
+define dso_local void @_ZN14ImTriangulator13BuildReflexesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #19 align 2 {
   %2 = load i32, ptr %0, align 8, !tbaa !172
   %3 = icmp sgt i32 %2, -1
   br i1 %3, label %.lr.ph, label %._crit_edge
@@ -11139,7 +11133,7 @@ define dso_local void @_ZN14ImTriangulator13BuildReflexesEv(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14ImTriangulator9BuildEarsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN14ImTriangulator9BuildEarsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #8 align 2 {
   %2 = load i32, ptr %0, align 8, !tbaa !172
   %3 = icmp sgt i32 %2, -1
   br i1 %3, label %.lr.ph, label %._crit_edge
@@ -11226,7 +11220,7 @@ _ZNK14ImTriangulator5IsEarEiiiRK6ImVec2S2_S2_.exit: ; preds = %32, %9, %.loopexi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK14ImTriangulator5IsEarEiiiRK6ImVec2S2_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(8) %6) local_unnamed_addr #9 align 2 {
+define dso_local noundef zeroext i1 @_ZNK14ImTriangulator5IsEarEiiiRK6ImVec2S2_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(8) %6) local_unnamed_addr #8 align 2 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !179
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -11265,7 +11259,7 @@ define dso_local noundef zeroext i1 @_ZNK14ImTriangulator5IsEarEiiiRK6ImVec2S2_S
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14ImTriangulator15GetNextTriangleEPj(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN14ImTriangulator15GetNextTriangleEPj(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8, !tbaa !194
@@ -11498,7 +11492,7 @@ _ZN14ImTriangulator9BuildEarsEv.exit:             ; preds = %_ZNK14ImTriangulato
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN14ImTriangulator12FlipNodeListEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #20 align 2 {
+define dso_local void @_ZN14ImTriangulator12FlipNodeListEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !177
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -11530,7 +11524,7 @@ define dso_local void @_ZN14ImTriangulator12FlipNodeListEv(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14ImTriangulator14ReclassifyNodeEP18ImTriangulatorNode(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN14ImTriangulator14ReclassifyNodeEP18ImTriangulatorNode(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !180
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -11706,10 +11700,10 @@ _ZN22ImTriangulatorNodeSpan19find_erase_unsortedEi.exit: ; preds = %83, %58, %93
   ret void
 }
 
-declare noundef zeroext i1 @_Z23ImTriangleContainsPointRK6ImVec2S1_S1_S1_(ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #2
+declare noundef zeroext i1 @_Z23ImTriangleContainsPointRK6ImVec2S1_S1_S1_(ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawList20AddConcavePolyFilledEPK6ImVec2ij(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #15 align 2 {
+define dso_local void @_ZN10ImDrawList20AddConcavePolyFilledEPK6ImVec2ij(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #14 align 2 {
   %5 = alloca %struct.ImTriangulator, align 8
   %6 = alloca [3 x i32], align 4
   %7 = icmp slt i32 %2, 3
@@ -11721,7 +11715,7 @@ define dso_local void @_ZN10ImDrawList20AddConcavePolyFilledEPK6ImVec2ij(ptr nou
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8, !tbaa !50
   %12 = load i64, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 8, !tbaa !172
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -11729,7 +11723,7 @@ define dso_local void @_ZN10ImDrawList20AddConcavePolyFilledEPK6ImVec2ij(ptr nou
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 0, ptr %15, align 8, !tbaa !188
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %13, i8 0, i64 20, i1 false)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load i32, ptr %16, align 8, !tbaa !52
   %18 = and i32 %17, 4
@@ -12109,8 +12103,8 @@ _ZN8ImVectorI6ImVec2E15reserve_discardEi.exit129.._crit_edge144_crit_edge: ; pre
   br label %237
 
 237:                                              ; preds = %._crit_edge144, %._crit_edge138
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #42
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %238
 
 238:                                              ; preds = %4, %237
@@ -12118,7 +12112,7 @@ _ZN8ImVectorI6ImVec2E15reserve_discardEi.exit129.._crit_edge144_crit_edge: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18ImDrawListSplitter5SplitEP10ImDrawListi(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((4, 8)) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18ImDrawListSplitter5SplitEP10ImDrawListi(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((4, 8)) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !86
   %6 = icmp slt i32 %5, %2
@@ -12254,7 +12248,7 @@ _ZN8ImVectorItE6resizeEi.exit:                    ; preds = %_ZN8ImVectorI9ImDra
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18ImDrawListSplitter17SetCurrentChannelEP10ImDrawListi(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN18ImDrawListSplitter17SetCurrentChannelEP10ImDrawListi(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %.sroa.0.i25 = alloca %struct.ImVec4, align 8
   %.sroa.0.i = alloca %struct.ImVec4, align 8
   %4 = load i32, ptr %0, align 8, !tbaa !63
@@ -12302,7 +12296,7 @@ define dso_local void @_ZN18ImDrawListSplitter17SetCurrentChannelEP10ImDrawListi
   br i1 %35, label %.thread, label %68
 
 .thread:                                          ; preds = %6, %29
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false), !tbaa.struct !8
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -12371,7 +12365,7 @@ _ZN10ImDrawList10AddDrawCmdEv.exit:               ; preds = %._ZN8ImVectorI9ImDr
   %66 = load i32, ptr %1, align 8, !tbaa !43
   %67 = add nsw i32 %66, 1
   store i32 %67, ptr %1, align 8, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   br label %100
 
 68:                                               ; preds = %29
@@ -12391,7 +12385,7 @@ _ZN10ImDrawList10AddDrawCmdEv.exit:               ; preds = %._ZN8ImVectorI9ImDr
   br i1 %.not, label %100, label %75
 
 75:                                               ; preds = %74
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i25)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i25, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false), !tbaa.struct !8
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %77 = load ptr, ptr %76, align 8, !tbaa !84
@@ -12445,7 +12439,7 @@ _ZN10ImDrawList10AddDrawCmdEv.exit37:             ; preds = %75, %95
   %98 = load i32, ptr %1, align 8, !tbaa !43
   %99 = add nsw i32 %98, 1
   store i32 %99, ptr %1, align 8, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i25)
   br label %100
 
 100:                                              ; preds = %_ZN10ImDrawList10AddDrawCmdEv.exit, %74, %_ZN10ImDrawList10AddDrawCmdEv.exit37, %73, %3
@@ -12453,7 +12447,7 @@ _ZN10ImDrawList10AddDrawCmdEv.exit37:             ; preds = %75, %95
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawData5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 1), (4, 16), (32, 64)) %0) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawData5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 1), (4, 16), (32, 64)) %0) local_unnamed_addr #8 align 2 {
   store i8 0, ptr %0, align 8, !tbaa !205
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %2, align 4, !tbaa !210
@@ -12496,7 +12490,7 @@ _ZN8ImVectorIP10ImDrawListE6resizeEi.exit:        ; preds = %1, %18
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5ImGui23AddDrawListToDrawDataExEP10ImDrawDataP8ImVectorIP10ImDrawListES4_(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #9 {
+define dso_local void @_ZN5ImGui23AddDrawListToDrawDataExEP10ImDrawDataP8ImVectorIP10ImDrawListES4_(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #8 {
   %4 = load i32, ptr %2, align 8, !tbaa !66
   switch i32 %4, label %15 [
     i32 0, label %58
@@ -12598,7 +12592,7 @@ _ZN8ImVectorIP10ImDrawListE9push_backERKS1_.exit: ; preds = %._ZN8ImVectorIP10Im
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawData11AddDrawListEP10ImDrawList(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ImDrawData11AddDrawListEP10ImDrawList(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #8 align 2 {
   %.pr.i = load i32, ptr %1, align 8, !tbaa !66
   %3 = icmp sgt i32 %.pr.i, 0
   br i1 %3, label %.lr.ph.i, label %_ZN10ImDrawList17_PopUnusedDrawCmdEv.exit
@@ -12636,9 +12630,9 @@ _ZN10ImDrawList17_PopUnusedDrawCmdEv.exit:        ; preds = %6, %12, %15, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ImDrawData17DeIndexAllBuffersEv(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %0) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10ImDrawData17DeIndexAllBuffersEv(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %struct.ImVector.2, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8, !tbaa !211
@@ -12671,7 +12665,7 @@ define dso_local void @_ZN10ImDrawData17DeIndexAllBuffersEv(ptr noundef nonnull 
   unreachable
 
 _ZN8ImVectorI10ImDrawVertED2Ev.exit:              ; preds = %1, %._crit_edge27, %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 15:                                               ; preds = %.lr.ph26, %81
@@ -12692,7 +12686,7 @@ _ZN8ImVectorI10ImDrawVertED2Ev.exit:              ; preds = %1, %._crit_edge27, 
   %27 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8ImVectorI10ImDrawVertED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %27
 
 28:                                               ; preds = %15
@@ -12823,7 +12817,7 @@ _ZN8ImVectorI10ImDrawVertE6resizeEi.exit:         ; preds = %28, %.noexc18
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN8ImVectorI10ImDrawVertED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN8ImVectorI10ImDrawVertED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !48
   %.not = icmp eq ptr %3, null
@@ -12845,7 +12839,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI10ImDrawVertED2Ev(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10ImDrawData14ScaleClipRectsERK6ImVec2(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #20 align 2 {
+define dso_local void @_ZN10ImDrawData14ScaleClipRectsERK6ImVec2(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #19 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !214
@@ -12905,7 +12899,7 @@ define dso_local void @_ZN10ImDrawData14ScaleClipRectsERK6ImVec2(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5ImGui38ShadeVertsLinearColorGradientKeepAlphaEP10ImDrawListii6ImVec2S2_jj(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, <2 x float> %3, <2 x float> %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #18 {
+define dso_local void @_ZN5ImGui38ShadeVertsLinearColorGradientKeepAlphaEP10ImDrawListii6ImVec2S2_jj(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, <2 x float> %3, <2 x float> %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #17 {
   %.sroa.053.0.vec.extract55 = extractelement <2 x float> %3, i64 0
   %.sroa.053.4.vec.extract57 = extractelement <2 x float> %3, i64 1
   %8 = fsub <2 x float> %4, %3
@@ -12990,7 +12984,7 @@ define dso_local void @_ZN5ImGui38ShadeVertsLinearColorGradientKeepAlphaEP10ImDr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5ImGui22ShadeVertsTransformPosEP10ImDrawListiiRK6ImVec2ffS4_(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, float noundef %4, float noundef %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %6) local_unnamed_addr #18 {
+define dso_local void @_ZN5ImGui22ShadeVertsTransformPosEP10ImDrawListiiRK6ImVec2ffS4_(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, float noundef %4, float noundef %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %6) local_unnamed_addr #17 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8, !tbaa !102
   %10 = sext i32 %2 to i64
@@ -13036,7 +13030,7 @@ define dso_local void @_ZN5ImGui22ShadeVertsTransformPosEP10ImDrawListiiRK6ImVec
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN12ImFontConfigC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(144) initializes((0, 144)) %0) unnamed_addr #22 align 2 {
+define dso_local void @_ZN12ImFontConfigC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(144) initializes((0, 144)) %0) unnamed_addr #21 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %0, i8 0, i64 144, i1 false)
   store i8 1, ptr %2, align 4, !tbaa !227
@@ -13056,7 +13050,7 @@ define dso_local void @_ZN12ImFontConfigC2Ev(ptr noundef nonnull writeonly align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN11ImFontAtlasC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1180) initializes((0, 1184)) %0) unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11ImFontAtlasC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1180) initializes((0, 1184)) %0) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1184) %0, i8 0, i64 1184, i1 false)
   store i32 1, ptr %2, align 4, !tbaa !235
@@ -13068,7 +13062,7 @@ define dso_local void @_ZN11ImFontAtlasC2Ev(ptr noundef nonnull writeonly align 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN11ImFontAtlasD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %0) unnamed_addr #23 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11ImFontAtlasD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %0) unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN11ImFontAtlas5ClearEv(ptr noundef nonnull align 8 dereferenceable(1180) %0)
           to label %2 unwind label %21
 
@@ -13135,7 +13129,7 @@ _ZN8ImVectorIP6ImFontED2Ev.exit:                  ; preds = %_ZN8ImVectorI21ImFo
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11ImFontAtlas5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %0) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN11ImFontAtlas5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %0) local_unnamed_addr #8 align 2 {
   tail call void @_ZN11ImFontAtlas14ClearInputDataEv(ptr noundef nonnull align 8 dereferenceable(1180) %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !249
@@ -13212,7 +13206,7 @@ _ZN11ImFontAtlas10ClearFontsEv.exit:              ; preds = %._crit_edge.i.i, %1
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #24 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #23 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #42
   tail call void @_ZSt9terminatev() #44
   unreachable
@@ -13221,10 +13215,10 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #25
+declare void @_ZSt9terminatev() local_unnamed_addr #24
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11ImFontAtlas14ClearInputDataEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %0) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN11ImFontAtlas14ClearInputDataEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8, !tbaa !246
@@ -13335,10 +13329,10 @@ _ZN8ImVectorI21ImFontAtlasCustomRectE5clearEv.exit: ; preds = %_ZN8ImVectorI12Im
   br i1 %.not25, label %._crit_edge35, label %34
 }
 
-declare void @_ZN5ImGui7MemFreeEPv(ptr noundef) local_unnamed_addr #2
+declare void @_ZN5ImGui7MemFreeEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11ImFontAtlas12ClearTexDataEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) initializes((41, 42)) %0) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN11ImFontAtlas12ClearTexDataEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) initializes((41, 42)) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !249
   %.not = icmp eq ptr %3, null
@@ -13366,7 +13360,7 @@ define dso_local void @_ZN11ImFontAtlas12ClearTexDataEv(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11ImFontAtlas10ClearFontsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %0) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN11ImFontAtlas10ClearFontsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8, !tbaa !252
   %4 = icmp sgt i32 %3, 0
@@ -13419,7 +13413,7 @@ _ZN8ImVectorIP6ImFontE12clear_deleteEv.exit:      ; preds = %._crit_edge.i, %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11ImFontAtlas18GetTexDataAsAlpha8EPPhPiS2_S2_(ptr noundef nonnull align 8 dereferenceable(1180) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN11ImFontAtlas18GetTexDataAsAlpha8EPPhPiS2_S2_(ptr noundef nonnull align 8 dereferenceable(1180) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %struct.ImFontConfig, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !249
@@ -13433,7 +13427,7 @@ define dso_local void @_ZN11ImFontAtlas18GetTexDataAsAlpha8EPPhPiS2_S2_(ptr noun
   br i1 %13, label %_ZN11ImFontAtlas14AddFontDefaultEPK12ImFontConfig.exit.i, label %30
 
 _ZN11ImFontAtlas14AddFontDefaultEPK12ImFontConfig.exit.i: ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6, i8 0, i64 144, i1 false)
   store i8 1, ptr %14, align 4, !tbaa !227
@@ -13467,7 +13461,7 @@ _ZN11ImFontAtlas14AddFontDefaultEPK12ImFontConfig.exit.i: ; preds = %10
   %.not8.i.i = icmp eq ptr %.pre.i, null
   %spec.select.i.i = select i1 %.not8.i.i, ptr @_ZZN11ImFontAtlas21GetGlyphRangesDefaultEvE6ranges, ptr %.pre.i
   %29 = call noundef ptr @_ZN11ImFontAtlas36AddFontFromMemoryCompressedBase85TTFEPKcfPK12ImFontConfigPKt(ptr noundef nonnull align 8 dereferenceable(1180) %0, ptr noundef nonnull @_ZL39proggy_clean_ttf_compressed_data_base85, float noundef %.pre9.i.i, ptr noundef nonnull %6, ptr noundef nonnull %spec.select.i.i)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %30
 
 30:                                               ; preds = %_ZN11ImFontAtlas14AddFontDefaultEPK12ImFontConfig.exit.i, %10
@@ -13525,7 +13519,7 @@ _ZN11ImFontAtlas5BuildEv.exit:                    ; preds = %._crit_edge.i, %34
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN11ImFontAtlas5BuildEv(ptr noundef nonnull align 8 dereferenceable(1180) %0) local_unnamed_addr #9 align 2 {
+define dso_local noundef zeroext i1 @_ZN11ImFontAtlas5BuildEv(ptr noundef nonnull align 8 dereferenceable(1180) %0) local_unnamed_addr #8 align 2 {
   %2 = alloca %struct.ImFontConfig, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i32, ptr %3, align 8, !tbaa !266
@@ -13533,7 +13527,7 @@ define dso_local noundef zeroext i1 @_ZN11ImFontAtlas5BuildEv(ptr noundef nonnul
   br i1 %5, label %_ZN11ImFontAtlas14AddFontDefaultEPK12ImFontConfig.exit, label %22
 
 _ZN11ImFontAtlas14AddFontDefaultEPK12ImFontConfig.exit: ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 0, i64 144, i1 false)
   store i8 1, ptr %6, align 4, !tbaa !227
@@ -13567,7 +13561,7 @@ _ZN11ImFontAtlas14AddFontDefaultEPK12ImFontConfig.exit: ; preds = %1
   %.not8.i = icmp eq ptr %.pre, null
   %spec.select.i = select i1 %.not8.i, ptr @_ZZN11ImFontAtlas21GetGlyphRangesDefaultEvE6ranges, ptr %.pre
   %21 = call noundef ptr @_ZN11ImFontAtlas36AddFontFromMemoryCompressedBase85TTFEPKcfPK12ImFontConfigPKt(ptr noundef nonnull align 8 dereferenceable(1180) %0, ptr noundef nonnull @_ZL39proggy_clean_ttf_compressed_data_base85, float noundef %.pre9.i, ptr noundef nonnull %2, ptr noundef nonnull %spec.select.i)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %22
 
 22:                                               ; preds = %_ZN11ImFontAtlas14AddFontDefaultEPK12ImFontConfig.exit, %1
@@ -13591,7 +13585,7 @@ _ZN11ImFontAtlas14AddFontDefaultEPK12ImFontConfig.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11ImFontAtlas18GetTexDataAsRGBA32EPPhPiS2_S2_(ptr noundef nonnull align 8 dereferenceable(1180) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN11ImFontAtlas18GetTexDataAsRGBA32EPPhPiS2_S2_(ptr noundef nonnull align 8 dereferenceable(1180) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %struct.ImFontConfig, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8, !tbaa !250
@@ -13611,7 +13605,7 @@ define dso_local void @_ZN11ImFontAtlas18GetTexDataAsRGBA32EPPhPiS2_S2_(ptr noun
   br i1 %16, label %_ZN11ImFontAtlas14AddFontDefaultEPK12ImFontConfig.exit.i.i, label %33
 
 _ZN11ImFontAtlas14AddFontDefaultEPK12ImFontConfig.exit.i.i: ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6, i8 0, i64 144, i1 false)
   store i8 1, ptr %17, align 4, !tbaa !227
@@ -13645,7 +13639,7 @@ _ZN11ImFontAtlas14AddFontDefaultEPK12ImFontConfig.exit.i.i: ; preds = %13
   %.not8.i.i.i = icmp eq ptr %.pre.i.i, null
   %spec.select.i.i.i = select i1 %.not8.i.i.i, ptr @_ZZN11ImFontAtlas21GetGlyphRangesDefaultEvE6ranges, ptr %.pre.i.i
   %32 = call noundef ptr @_ZN11ImFontAtlas36AddFontFromMemoryCompressedBase85TTFEPKcfPK12ImFontConfigPKt(ptr noundef nonnull align 8 dereferenceable(1180) %0, ptr noundef nonnull @_ZL39proggy_clean_ttf_compressed_data_base85, float noundef %.pre9.i.i.i, ptr noundef nonnull %6, ptr noundef nonnull %spec.select.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %33
 
 33:                                               ; preds = %_ZN11ImFontAtlas14AddFontDefaultEPK12ImFontConfig.exit.i.i, %13
@@ -13741,7 +13735,7 @@ _ZN11ImFontAtlas18GetTexDataAsAlpha8EPPhPiS2_S2_.exit.thread: ; preds = %9, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN11ImFontAtlas7AddFontEPK12ImFontConfig(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN11ImFontAtlas7AddFontEPK12ImFontConfig(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load i8, ptr %3, align 8, !tbaa !278, !range !259, !noundef !260
   %5 = trunc nuw i8 %4 to i1
@@ -14004,7 +13998,7 @@ _ZN11ImFontAtlas12ClearTexDataEv.exit:            ; preds = %133, %136
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_Z35ImFontAtlasUpdateConfigDataPointersP11ImFontAtlas(ptr noundef readonly captures(none) %0) local_unnamed_addr #20 {
+define dso_local void @_Z35ImFontAtlasUpdateConfigDataPointersP11ImFontAtlas(ptr noundef readonly captures(none) %0) local_unnamed_addr #19 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8, !tbaa !246
@@ -14048,9 +14042,9 @@ define dso_local void @_Z35ImFontAtlasUpdateConfigDataPointersP11ImFontAtlas(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN11ImFontAtlas14AddFontDefaultEPK12ImFontConfig(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #9 align 2 {
+define dso_local noundef ptr @_ZN11ImFontAtlas14AddFontDefaultEPK12ImFontConfig(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #8 align 2 {
   %3 = alloca %struct.ImFontConfig, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread, label %13
 
@@ -14116,19 +14110,19 @@ define dso_local noundef ptr @_ZN11ImFontAtlas14AddFontDefaultEPK12ImFontConfig(
   %.not8 = icmp eq ptr %34, null
   %spec.select = select i1 %.not8, ptr @_ZZN11ImFontAtlas21GetGlyphRangesDefaultEvE6ranges, ptr %34
   %35 = call noundef ptr @_ZN11ImFontAtlas36AddFontFromMemoryCompressedBase85TTFEPKcfPK12ImFontConfigPKt(ptr noundef nonnull align 8 dereferenceable(1180) %0, ptr noundef nonnull @_ZL39proggy_clean_ttf_compressed_data_base85, float noundef %27, ptr noundef nonnull %3, ptr noundef nonnull %spec.select)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %35
 }
 
-declare noundef i32 @_Z14ImFormatStringPcmPKcz(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare noundef i32 @_Z14ImFormatStringPcmPKcz(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @_ZN11ImFontAtlas21GetGlyphRangesDefaultEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1180) %0) local_unnamed_addr #26 align 2 {
+define dso_local noundef nonnull ptr @_ZN11ImFontAtlas21GetGlyphRangesDefaultEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1180) %0) local_unnamed_addr #25 align 2 {
   ret ptr @_ZZN11ImFontAtlas21GetGlyphRangesDefaultEvE6ranges
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN11ImFontAtlas36AddFontFromMemoryCompressedBase85TTFEPKcfPK12ImFontConfigPKt(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %0, ptr noundef readonly captures(none) %1, float noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #9 align 2 {
+define dso_local noundef ptr @_ZN11ImFontAtlas36AddFontFromMemoryCompressedBase85TTFEPKcfPK12ImFontConfigPKt(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %0, ptr noundef readonly captures(none) %1, float noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #8 align 2 {
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #43
   %7 = trunc i64 %6 to i32
   %8 = add nsw i32 %7, 4
@@ -14194,11 +14188,11 @@ _ZL8Decode85PKhPh.exit:                           ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN11ImFontAtlas18AddFontFromFileTTFEPKcfPK12ImFontConfigPKt(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %0, ptr noundef %1, float noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #9 align 2 {
+define dso_local noundef ptr @_ZN11ImFontAtlas18AddFontFromFileTTFEPKcfPK12ImFontConfigPKt(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %0, ptr noundef %1, float noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %struct.ImFontConfig, align 8
   %7 = alloca i64, align 8
   %8 = alloca %struct.ImFontConfig, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !288
   %9 = call noundef ptr @_Z18ImFileLoadToMemoryPKcS0_Pmi(ptr noundef %1, ptr noundef nonnull @.str.1, ptr noundef nonnull %7, i32 noundef 0)
   %.not = icmp eq ptr %9, null
@@ -14209,7 +14203,7 @@ define dso_local noundef ptr @_ZN11ImFontAtlas18AddFontFromFileTTFEPKcfPK12ImFon
   br label %44
 
 12:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not22 = icmp eq ptr %3, null
   br i1 %.not22, label %.thread, label %21
 
@@ -14267,7 +14261,7 @@ define dso_local noundef ptr @_ZN11ImFontAtlas18AddFontFromFileTTFEPKcfPK12ImFon
 35:                                               ; preds = %.critedge, %21
   %36 = load i64, ptr %7, align 8, !tbaa !288
   %37 = trunc i64 %36 to i32
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull readonly align 8 dereferenceable(144) %8, i64 144, i1 false), !tbaa.struct !284
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %6, i64 20
   %.pre.i = load float, ptr %.phi.trans.insert.i, align 4
@@ -14287,24 +14281,24 @@ define dso_local noundef ptr @_ZN11ImFontAtlas18AddFontFromFileTTFEPKcfPK12ImFon
 
 _ZN11ImFontAtlas20AddFontFromMemoryTTFEPvifPK12ImFontConfigPKt.exit: ; preds = %35, %41
   %43 = call noundef ptr @_ZN11ImFontAtlas7AddFontEPK12ImFontConfig(ptr noundef nonnull align 8 dereferenceable(1180) %0, ptr noundef nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #42
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %44
 
 44:                                               ; preds = %_ZN11ImFontAtlas20AddFontFromMemoryTTFEPvifPK12ImFontConfigPKt.exit, %10
   %.018 = phi ptr [ %43, %_ZN11ImFontAtlas20AddFontFromMemoryTTFEPvifPK12ImFontConfigPKt.exit ], [ null, %10 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.018
 }
 
-declare noundef ptr @_Z18ImFileLoadToMemoryPKcS0_Pmi(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noundef ptr @_Z18ImFileLoadToMemoryPKcS0_Pmi(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare noundef zeroext i1 @_ZN5ImGui8ErrorLogEPKc(ptr noundef) local_unnamed_addr #2
+declare noundef zeroext i1 @_ZN5ImGui8ErrorLogEPKc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN11ImFontAtlas20AddFontFromMemoryTTFEPvifPK12ImFontConfigPKt(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %0, ptr noundef %1, i32 noundef %2, float noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #9 align 2 {
+define dso_local noundef ptr @_ZN11ImFontAtlas20AddFontFromMemoryTTFEPvifPK12ImFontConfigPKt(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %0, ptr noundef %1, i32 noundef %2, float noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %struct.ImFontConfig, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %8
 
@@ -14352,12 +14346,12 @@ define dso_local noundef ptr @_ZN11ImFontAtlas20AddFontFromMemoryTTFEPvifPK12ImF
 
 26:                                               ; preds = %24, %18
   %27 = call noundef ptr @_ZN11ImFontAtlas7AddFontEPK12ImFontConfig(ptr noundef nonnull align 8 dereferenceable(1180) %0, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %27
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN11ImFontAtlas30AddFontFromMemoryCompressedTTFEPKvifPK12ImFontConfigPKt(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %0, ptr noundef %1, i32 %2, float noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #9 align 2 {
+define dso_local noundef ptr @_ZN11ImFontAtlas30AddFontFromMemoryCompressedTTFEPKvifPK12ImFontConfigPKt(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %0, ptr noundef %1, i32 %2, float noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %struct.ImFontConfig, align 8
   %.sroa.7 = alloca [11 x i8], align 1
   %.sroa.9 = alloca [36 x i8], align 8
@@ -14832,9 +14826,9 @@ _ZL20stb_decompress_tokenPKh.exit.thread.i:       ; preds = %_ZL20stb_decompress
   br i1 %.not49.i, label %_ZL14stb_decompressPhPKhj.exit, label %76, !llvm.loop !292
 
 _ZL14stb_decompressPhPKhj.exit:                   ; preds = %_ZL20stb_decompress_tokenPKh.exit.thread.i, %_ZL20stb_decompress_tokenPKh.exit.i, %230, %6, %45
-  call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %.sroa.9)
-  call void @llvm.lifetime.start.p0(i64 54, ptr nonnull %.sroa.13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.13)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %319, label %317
 
@@ -14875,7 +14869,7 @@ _ZL14stb_decompressPhPKhj.exit:                   ; preds = %_ZL20stb_decompress
   %.sroa.1026.0 = phi float [ 1.000000e+00, %319 ], [ %.sroa.1026.0.copyload, %317 ]
   %.sroa.11.0 = phi float [ 1.000000e+00, %319 ], [ %.sroa.11.0.copyload, %317 ]
   %.sroa.12.0 = phi i16 [ -1, %319 ], [ %.sroa.12.0.copyload, %317 ]
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.sroa.5.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i8 1, ptr %.sroa.5.0..sroa_idx13, align 4, !tbaa !285
   %.sroa.7.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %7, i64 13
@@ -14916,15 +14910,15 @@ _ZL14stb_decompressPhPKhj.exit:                   ; preds = %_ZL20stb_decompress
 
 _ZN11ImFontAtlas20AddFontFromMemoryTTFEPvifPK12ImFontConfigPKt.exit: ; preds = %320, %324
   %326 = call noundef ptr @_ZN11ImFontAtlas7AddFontEPK12ImFontConfig(ptr noundef nonnull align 8 dereferenceable(1180) %0, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #42
-  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %.sroa.9)
-  call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13)
   ret ptr %326
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -2147483648, 2147483647) i32 @_ZN11ImFontAtlas20AddCustomRectRegularEii(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #9 align 2 {
+define dso_local noundef range(i32 -2147483648, 2147483647) i32 @_ZN11ImFontAtlas20AddCustomRectRegularEii(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i32, ptr %4, align 8, !tbaa !263
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 108
@@ -14996,7 +14990,7 @@ _ZN8ImVectorI21ImFontAtlasCustomRectE9push_backERKS0_.exit: ; preds = %._ZN8ImVe
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -2147483648, 2147483647) i32 @_ZN11ImFontAtlas22AddCustomRectFontGlyphEP6ImFonttiifRK6ImVec2(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef %3, i32 noundef %4, float noundef %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %6) local_unnamed_addr #9 align 2 {
+define dso_local noundef range(i32 -2147483648, 2147483647) i32 @_ZN11ImFontAtlas22AddCustomRectFontGlyphEP6ImFonttiifRK6ImVec2(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef %3, i32 noundef %4, float noundef %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %6) local_unnamed_addr #8 align 2 {
   %8 = load i64, ptr %6, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = load i32, ptr %9, align 8, !tbaa !263
@@ -15076,7 +15070,7 @@ _ZN8ImVectorI21ImFontAtlasCustomRectE9push_backERKS0_.exit: ; preds = %._ZN8ImVe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK11ImFontAtlas16CalcCustomRectUVEPK21ImFontAtlasCustomRectP6ImVec2S4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1180) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #27 align 2 {
+define dso_local void @_ZNK11ImFontAtlas16CalcCustomRectUVEPK21ImFontAtlasCustomRectP6ImVec2S4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1180) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #26 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i16, ptr %5, align 4, !tbaa !296
   %7 = uitofp i16 %6 to float
@@ -15116,7 +15110,7 @@ define dso_local void @_ZNK11ImFontAtlas16CalcCustomRectUVEPK21ImFontAtlasCustom
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN11ImFontAtlas21GetMouseCursorTexDataEiP6ImVec2S1_S1_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1180) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #28 align 2 {
+define dso_local noundef zeroext i1 @_ZN11ImFontAtlas21GetMouseCursorTexDataEiP6ImVec2S1_S1_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1180) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #27 align 2 {
   %or.cond = icmp ugt i32 %1, 8
   br i1 %or.cond, label %50, label %7
 
@@ -15199,13 +15193,13 @@ define dso_local noundef zeroext i1 @_ZN11ImFontAtlas21GetMouseCursorTexDataEiP6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull ptr @_Z35ImFontAtlasGetBuilderForStbTruetypev() local_unnamed_addr #29 {
+define dso_local noundef nonnull ptr @_Z35ImFontAtlasGetBuilderForStbTruetypev() local_unnamed_addr #28 {
   store ptr @_ZL31ImFontAtlasBuildWithStbTruetypeP11ImFontAtlas, ptr @_ZZ35ImFontAtlasGetBuilderForStbTruetypevE2io, align 8, !tbaa !272
   ret ptr @_ZZ35ImFontAtlasGetBuilderForStbTruetypevE2io
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define dso_local void @_Z39ImFontAtlasBuildMultiplyCalcLookupTablePhf(ptr noundef writeonly captures(none) %0, float noundef %1) local_unnamed_addr #30 {
+define dso_local void @_Z39ImFontAtlasBuildMultiplyCalcLookupTablePhf(ptr noundef writeonly captures(none) %0, float noundef %1) local_unnamed_addr #29 {
   br label %4
 
 3:                                                ; preds = %4
@@ -15227,7 +15221,7 @@ define dso_local void @_Z39ImFontAtlasBuildMultiplyCalcLookupTablePhf(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_Z34ImFontAtlasBuildMultiplyRectAlpha8PKhPhiiiii(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #31 {
+define dso_local void @_Z34ImFontAtlasBuildMultiplyRectAlpha8PKhPhiiiii(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #30 {
   %8 = icmp sgt i32 %5, 0
   br i1 %8, label %.preheader.lr.ph, label %._crit_edge22
 
@@ -15274,7 +15268,7 @@ define dso_local void @_Z34ImFontAtlasBuildMultiplyRectAlpha8PKhPhiiiii(ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZL31ImFontAtlasBuildWithStbTruetypeP11ImFontAtlas(ptr noundef %0) #9 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZL31ImFontAtlasBuildWithStbTruetypeP11ImFontAtlas(ptr noundef %0) #8 personality ptr @__gxx_personality_v0 {
   %2 = alloca %struct.stbtt__csctx, align 8
   %3 = alloca [8 x i8], align 8
   %4 = alloca [8 x i8], align 8
@@ -15333,9 +15327,9 @@ _ZN11ImFontAtlas12ClearTexDataEv.exit:            ; preds = %35, %38
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 41
   store i8 0, ptr %39, align 1, !tbaa !251
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %41 = load i32, ptr %40, align 8, !tbaa !266
@@ -16251,15 +16245,15 @@ _ZL17stbtt__find_tablePhjPKc.exit213.i.i:         ; preds = %586, %567, %_ZL17st
   br i1 %.not125.i.i, label %.critedge348, label %978
 
 590:                                              ; preds = %588
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #42
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 2, ptr %15, align 4, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 0, ptr %16, align 4, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 0, ptr %17, align 4, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr %18, align 4, !tbaa !19
   %.val.i214.i.i = load i8, ptr %237, align 1, !tbaa !23
   %.val25.i215.i.i = load i8, ptr %238, align 1, !tbaa !23
@@ -17085,21 +17079,21 @@ _ZL20stbtt__cff_get_indexP10stbtt__buf.exit:      ; preds = %_ZL14stbtt__buf_get
   store ptr %.sroa.0.0.i.i, ptr %977, align 8, !tbaa !274
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %81, i64 88
   store i64 %.sroa.5.0.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %978
 
 _ZL17stbtt__find_tablePhjPKc.exit224.thread.i.i:  ; preds = %909, %_ZL20stbtt__cff_get_indexP10stbtt__buf.exit336.i.i, %_ZL17stbtt__find_tablePhjPKc.exit224.i.i, %590, %614
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.critedge348
 
 978:                                              ; preds = %_ZL20stbtt__cff_get_indexP10stbtt__buf.exit, %589
@@ -17807,9 +17801,9 @@ _ZN11ImBitVector5ClearEv.exit398:                 ; preds = %.noexc397, %.lr.ph6
   br label %3717
 
 _ZN8ImVectorI18ImFontBuildDstDataE5clearEv.exit:  ; preds = %.noexc395, %._crit_edge673
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   %1308 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %1309 = icmp sgt i32 %1230, 0
@@ -18014,10 +18008,10 @@ _ZNK8ImVectorI16stbtt_packedcharE14_grow_capacityEi.exit.i: ; preds = %_ZNK8ImVe
   %1430 = phi i32 [ %1376, %.lr.ph677 ], [ %1441, %1428 ]
   %indvars.iv797 = phi i64 [ 0, %.lr.ph677 ], [ %indvars.iv.next798, %1428 ]
   %.2305675 = phi i32 [ %.0303682, %.lr.ph677 ], [ %1455, %1428 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #42
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #42
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #42
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %1431 = load ptr, ptr %1369, align 8, !tbaa !366
   %1432 = getelementptr inbounds nuw i32, ptr %1431, i64 %indvars.iv797
   %1433 = load i32, ptr %1432, align 4, !tbaa !19
@@ -18048,10 +18042,10 @@ _ZNK8ImVectorI16stbtt_packedcharE14_grow_capacityEi.exit.i: ; preds = %_ZNK8ImVe
   store i32 %1452, ptr %1453, align 4, !tbaa !394
   %1454 = mul nsw i32 %1452, %1444
   %1455 = add nsw i32 %1454, %.2305675
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %indvars.iv.next798 = add nuw nsw i64 %indvars.iv797, 1
   %1456 = load i32, ptr %1368, align 8, !tbaa !387
   %1457 = sext i32 %1456 to i64
@@ -18471,10 +18465,10 @@ _ZL23stbtt__oversample_shifti.exit.i:             ; preds = %1617, %1597
 1669:                                             ; preds = %1668
   %1670 = load ptr, ptr %1583, align 8, !tbaa !420
   %1671 = getelementptr inbounds nuw %struct.stbtt_packedchar, ptr %1670, i64 %indvars.iv.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #42
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #42
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #42
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %1672 = load ptr, ptr %1584, align 8, !tbaa !421
   %1673 = icmp eq ptr %1672, null
   br i1 %1673, label %1674, label %1678
@@ -18553,7 +18547,7 @@ _ZL22stbtt_GetGlyphHMetricsPK14stbtt_fontinfoiPiS2_.exit.i: ; preds = %1678, %16
   %1727 = load i32, ptr %1665, align 4, !tbaa !394
   %1728 = sub i32 %1727, %1634
   %1729 = add i32 %1728, 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %1730 = invoke fastcc noundef i32 @_ZL19stbtt_GetGlyphShapePK14stbtt_fontinfoiPP12stbtt_vertex(ptr noundef nonnull readonly %1572, i32 noundef %1682, ptr noundef %8)
           to label %.noexc444 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -18563,7 +18557,7 @@ _ZL22stbtt_GetGlyphHMetricsPK14stbtt_fontinfoiPiS2_.exit.i: ; preds = %1678, %16
   br i1 %.not.i.i.i425, label %1738, label %1732
 
 1732:                                             ; preds = %.noexc444
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
   store i32 1, ptr %2, align 8
   %1733 = call fastcc noundef i32 @_ZL21stbtt__run_charstringPK14stbtt_fontinfoiP12stbtt__csctx(ptr noundef nonnull readonly %1572, i32 noundef %1682, ptr noundef %2)
@@ -18572,7 +18566,7 @@ _ZL22stbtt_GetGlyphHMetricsPK14stbtt_fontinfoiPiS2_.exit.i: ; preds = %1678, %16
   %1735 = select i1 %.not.i.i.i.i426, i32 0, i32 %1734
   %1736 = load i32, ptr %1565, align 4
   %1737 = select i1 %.not.i.i.i.i426, i32 0, i32 %1736
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZL17stbtt_GetGlyphBoxPK14stbtt_fontinfoiPiS2_S2_S2_.exit.i.i
 
 1738:                                             ; preds = %.noexc444
@@ -18729,7 +18723,7 @@ _ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fontinfoiffffPiS2_S2_S2_.exit.i: ;
 
 1850:                                             ; preds = %_ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fontinfoiffffPiS2_S2_S2_.exit.i
   %1851 = load ptr, ptr %8, align 8, !tbaa !100
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %1852 = icmp sgt i32 %1730, 0
   br i1 %1852, label %.lr.ph.preheader.i.i.i.i, label %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.thread.i.i.i
 
@@ -18923,11 +18917,11 @@ _ZL16stbtt__add_pointP12stbtt__pointiff.exit.us.i.i.i.i: ; preds = %1939, %1931,
           to label %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.thread.i.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.thread.i.i.i: ; preds = %.noexc447, %.noexc445, %._crit_edge.i.i.i.i, %1850
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZL29stbtt_MakeGlyphBitmapSubpixelPK14stbtt_fontinfoPhiiiffffi.exit.i
 
 _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.i.i.i: ; preds = %._crit_edge17.us.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not.i108.us.i.i.i.i, label %_ZL29stbtt_MakeGlyphBitmapSubpixelPK14stbtt_fontinfoPhiiiffffi.exit.i, label %.lr.ph.i22.i.i.i
 
 .lr.ph.i22.i.i.i:                                 ; preds = %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.i.i.i, %.lr.ph.i22.i.i.i
@@ -19049,7 +19043,7 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.i.i.i: ; preds = %._crit_
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %2016, %.lr.ph.preheader.i.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i = phi i64 [ 1, %.lr.ph.preheader.i.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i, %2016 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.5.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i.i.i.i.i.i)
   %2002 = getelementptr inbounds nuw %struct.stbtt__edge, ptr %1953, i64 %indvars.iv.i.i.i.i.i.i
   %.sroa.0.0.copyload.i.i.i.i.i.i = load float, ptr %2002, align 4, !tbaa !4
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2002, i64 4
@@ -19094,15 +19088,15 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.i.i.i: ; preds = %._crit_
   br label %2016
 
 2016:                                             ; preds = %2013, %.thread.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.5.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i.i.i.i.i.i)
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, %wide.trip.count.i.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i, label %_ZL17stbtt__sort_edgesP11stbtt__edgei.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !449
 
 _ZL17stbtt__sort_edgesP11stbtt__edgei.exit.i.i.i.i: ; preds = %2016, %._crit_edge17.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !450
-  call void @llvm.lifetime.start.p0(i64 516, ptr nonnull %6) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %2017 = icmp sgt i32 %1726, 64
   br i1 %2017, label %2018, label %.noexc450
 
@@ -21060,8 +21054,8 @@ _ZL20stbtt__hheap_cleanupP12stbtt__hheapPv.exit.i.i.i.i.i: ; preds = %.noexc452,
           to label %_ZL29stbtt__rasterize_sorted_edgesP13stbtt__bitmapP11stbtt__edgeiiiiPv.exit.i.i.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZL29stbtt__rasterize_sorted_edgesP13stbtt__bitmapP11stbtt__edgeiiiiPv.exit.i.i.i.i: ; preds = %3141, %_ZL20stbtt__hheap_cleanupP12stbtt__hheapPv.exit.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 516, ptr nonnull %6) #42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %1953)
           to label %_ZL16stbtt__rasterizeP13stbtt__bitmapP12stbtt__pointPiiffffiiiPv.exit.i.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -21079,7 +21073,7 @@ _ZL29stbtt_MakeGlyphBitmapSubpixelPK14stbtt_fontinfoPhiiiffffi.exit.i: ; preds =
           to label %.noexc457 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc457:                                        ; preds = %_ZL29stbtt_MakeGlyphBitmapSubpixelPK14stbtt_fontinfoPhiiiffffi.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre244.pre251.i = load i32, ptr %1683, align 4, !tbaa !423
   %.pre246.pre253.i = load i32, ptr %1686, align 4, !tbaa !413
   %.pre248.pre255.i = load i32, ptr %1663, align 4, !tbaa !392
@@ -21087,7 +21081,7 @@ _ZL29stbtt_MakeGlyphBitmapSubpixelPK14stbtt_fontinfoPhiiiffffi.exit.i: ; preds =
   br i1 %1655, label %3143, label %3238
 
 3143:                                             ; preds = %.noexc457
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %3144 = icmp sgt i32 %.pre250.pre257.i, 0
   br i1 %3144, label %.lr.ph148.i.i, label %_ZL18stbtt__h_prefilterPhiiij.exit.i
@@ -21291,7 +21285,7 @@ _ZL18stbtt__h_prefilterPhiiij.exit.i:             ; preds = %_ZL18stbtt__h_prefi
   %.pre248.pre.i = phi i32 [ %.pre248.pre.pre.i, %_ZL18stbtt__h_prefilterPhiiij.exit.loopexit.i ], [ %.pre248.pre255.i, %3143 ]
   %.pre246.pre.i = phi i32 [ %.pre246.pre.pre.i, %_ZL18stbtt__h_prefilterPhiiij.exit.loopexit.i ], [ %.pre246.pre253.i, %3143 ]
   %.pre244.pre.i = phi i32 [ %.pre244.pre.pre.i, %_ZL18stbtt__h_prefilterPhiiij.exit.loopexit.i ], [ %.pre244.pre251.i, %3143 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %3238
 
 3238:                                             ; preds = %_ZL18stbtt__h_prefilterPhiiij.exit.i, %.noexc457
@@ -21302,7 +21296,7 @@ _ZL18stbtt__h_prefilterPhiiij.exit.i:             ; preds = %_ZL18stbtt__h_prefi
   br i1 %1657, label %3239, label %3338
 
 3239:                                             ; preds = %3238
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
   %3240 = icmp sgt i32 %.pre248.i, 0
   br i1 %3240, label %.lr.ph163.i.i, label %_ZL18stbtt__v_prefilterPhiiij.exit.i
@@ -21512,7 +21506,7 @@ _ZL18stbtt__v_prefilterPhiiij.exit.i:             ; preds = %_ZL18stbtt__v_prefi
   %.pre247.i = phi i32 [ %.pre247.pre.i, %_ZL18stbtt__v_prefilterPhiiij.exit.loopexit.i ], [ %.pre248.i, %3239 ]
   %.pre245.i = phi i32 [ %.pre245.pre.i, %_ZL18stbtt__v_prefilterPhiiij.exit.loopexit.i ], [ %.pre246.i, %3239 ]
   %.pre.i430 = phi i32 [ %.pre.pre.i, %_ZL18stbtt__v_prefilterPhiiij.exit.loopexit.i ], [ %.pre244.i, %3239 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %3338
 
 3338:                                             ; preds = %_ZL18stbtt__v_prefilterPhiiij.exit.i, %3238
@@ -21564,10 +21558,10 @@ _ZL18stbtt__v_prefilterPhiiij.exit.i:             ; preds = %_ZL18stbtt__v_prefi
   %3375 = icmp eq i32 %1682, 0
   %3376 = trunc nuw nsw i64 %indvars.iv.i to i32
   %spec.select.i = select i1 %3375, i32 %3376, i32 %.1142211.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread187.i
 
 3377:                                             ; preds = %1662
@@ -21598,7 +21592,7 @@ _ZL35stbtt_PackFontRangesRenderIntoRectsP18stbtt_pack_contextPK14stbtt_fontinfoP
   br i1 %3389, label %3390, label %3440
 
 3390:                                             ; preds = %_ZL35stbtt_PackFontRangesRenderIntoRectsP18stbtt_pack_contextPK14stbtt_fontinfoP16stbtt_pack_rangeiP10stbrp_rect.exit
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %27) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   br label %3391
 
 3391:                                             ; preds = %3391, %3390
@@ -21625,7 +21619,7 @@ _Z39ImFontAtlasBuildMultiplyCalcLookupTablePhf.exit: ; preds = %3391
   br label %.lr.ph694
 
 ._crit_edge695:                                   ; preds = %_Z34ImFontAtlasBuildMultiplyRectAlpha8PKhPhiiiii.exit, %_Z39ImFontAtlasBuildMultiplyCalcLookupTablePhf.exit
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %27) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %3440
 
 .lr.ph694:                                        ; preds = %.lr.ph694.preheader, %_Z34ImFontAtlasBuildMultiplyRectAlpha8PKhPhiiiii.exit
@@ -22187,16 +22181,16 @@ _ZN8ImVectorI18ImFontBuildSrcDataE14clear_destructEv.exit: ; preds = %.noexc469,
   unreachable
 
 _ZN8ImVectorI10stbrp_rectED2Ev.exit:              ; preds = %3703, %3701
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %.critedge348
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %1507, %1513, %3699, %3561, %1343
   %.pn336.pn = phi { ptr, i32 } [ %1344, %1343 ], [ %1514, %1513 ], [ %1508, %1507 ], [ %3700, %3699 ], [ %3562, %3561 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit548, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit551, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN8ImVectorI16stbtt_packedcharED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @_ZN8ImVectorI10stbrp_rectED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %3717
 
 .critedge348:                                     ; preds = %79, %_ZL17stbtt__find_tablePhjPKc.exit350.thread.i.i, %._crit_edge.i.i, %589, %_ZL17stbtt__find_tablePhjPKc.exit213.i.i, %.critedge, %_ZL17stbtt__find_tablePhjPKc.exit224.thread.i.i, %_ZN8ImVectorI10stbrp_rectED2Ev.exit
@@ -22217,7 +22211,7 @@ _ZN8ImVectorI10stbrp_rectED2Ev.exit:              ; preds = %3703, %3701
   unreachable
 
 _ZN8ImVectorI18ImFontBuildDstDataED2Ev.exit:      ; preds = %.critedge348, %3708
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %3712 = load ptr, ptr %62, align 8, !tbaa !308
   %.not.i490 = icmp eq ptr %3712, null
   br i1 %.not.i490, label %_ZN8ImVectorI18ImFontBuildSrcDataED2Ev.exit, label %3713
@@ -22234,20 +22228,20 @@ _ZN8ImVectorI18ImFontBuildDstDataED2Ev.exit:      ; preds = %.critedge348, %3708
   unreachable
 
 _ZN8ImVectorI18ImFontBuildSrcDataED2Ev.exit:      ; preds = %_ZN8ImVectorI18ImFontBuildDstDataED2Ev.exit, %3713
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   ret i1 %.not329633
 
 3717:                                             ; preds = %.loopexit557, %.loopexit.split-lp558, %1306, %1341, %.loopexit.split-lp, %1183, %77
   %.pn343.pn.pn = phi { ptr, i32 } [ %78, %77 ], [ %1307, %1306 ], [ %.pn336.pn, %.loopexit.split-lp ], [ %1342, %1341 ], [ %1184, %1183 ], [ %lpad.loopexit559, %.loopexit557 ], [ %lpad.loopexit.split-lp560, %.loopexit.split-lp558 ]
   call void @_ZN8ImVectorI18ImFontBuildDstDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @_ZN8ImVectorI18ImFontBuildSrcDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   resume { ptr, i32 } %.pn343.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z25ImFontAtlasBuildSetupFontP11ImFontAtlasP6ImFontP12ImFontConfigff(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, float noundef %3, float noundef %4) local_unnamed_addr #9 {
+define dso_local void @_Z25ImFontAtlasBuildSetupFontP11ImFontAtlasP6ImFontP12ImFontConfigff(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, float noundef %3, float noundef %4) local_unnamed_addr #8 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %7 = load i8, ptr %6, align 8, !tbaa !278, !range !259, !noundef !260
   %8 = trunc nuw i8 %7 to i1
@@ -22324,7 +22318,7 @@ _ZN6ImFont15ClearOutputDataEv.exit:               ; preds = %_ZN8ImVectorIfE5cle
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6ImFont15ClearOutputDataEv(ptr noundef nonnull align 8 captures(none) dereferenceable(118) initializes((16, 24), (56, 72), (96, 97), (104, 116)) %0) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN6ImFont15ClearOutputDataEv(ptr noundef nonnull align 8 captures(none) dereferenceable(118) initializes((16, 24), (56, 72), (96, 97), (104, 116)) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float 0.000000e+00, ptr %2, align 4, !tbaa !139
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -22387,14 +22381,14 @@ _ZN8ImVectorItE5clearEv.exit:                     ; preds = %_ZN8ImVectorIfE5cle
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z31ImFontAtlasBuildPackCustomRectsP11ImFontAtlasPv(ptr noundef captures(none) %0, ptr noundef captures(address) %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z31ImFontAtlasBuildPackCustomRectsP11ImFontAtlasPv(ptr noundef captures(none) %0, ptr noundef captures(address) %1) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 _ZNK8ImVectorI10stbrp_rectE14_grow_capacityEi.exit.i:
   %2 = alloca %struct.ImVector.12, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load i32, ptr %3, align 8, !tbaa !263
   %5 = icmp sgt i32 %4, 0
   tail call void @llvm.assume(i1 %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %6 = tail call i32 @llvm.umax.i32(i32 %4, i32 8)
   %7 = zext nneg i32 %6 to i64
@@ -22435,7 +22429,7 @@ _ZNK8ImVectorI10stbrp_rectE14_grow_capacityEi.exit.i:
   %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8ImVectorI10stbrp_rectED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %21
 
 22:                                               ; preds = %.lr.ph, %22
@@ -22467,7 +22461,7 @@ _ZNK8ImVectorI10stbrp_rectE14_grow_capacityEi.exit.i:
   unreachable
 
 _ZN8ImVectorI10stbrp_rectED2Ev.exit:              ; preds = %._crit_edge33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 35:                                               ; preds = %.lr.ph32, %55
@@ -22506,7 +22500,7 @@ _ZN8ImVectorI10stbrp_rectED2Ev.exit:              ; preds = %._crit_edge33
 }
 
 ; Function Attrs: mustprogress nofree uwtable
-define internal fastcc void @_ZL16stbrp_pack_rectsP13stbrp_contextP10stbrp_recti(ptr noundef captures(address) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #32 {
+define internal fastcc void @_ZL16stbrp_pack_rectsP13stbrp_contextP10stbrp_recti(ptr noundef captures(address) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #31 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -22974,7 +22968,7 @@ _ZL7ImQsortPvmmPFiPKvS1_E.exit50:                 ; preds = %._crit_edge59, %181
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN8ImVectorI10stbrp_rectED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN8ImVectorI10stbrp_rectED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !374
   %.not = icmp eq ptr %3, null
@@ -22996,7 +22990,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI10stbrp_rectED2Ev(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_Z40ImFontAtlasBuildRender8bppRectFromStringP11ImFontAtlasiiiiPKcch(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, i8 noundef signext %6, i8 noundef zeroext %7) local_unnamed_addr #19 {
+define dso_local void @_Z40ImFontAtlasBuildRender8bppRectFromStringP11ImFontAtlasiiiiPKcch(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, i8 noundef signext %6, i8 noundef zeroext %7) local_unnamed_addr #18 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = icmp sgt i32 %4, 0
   br i1 %10, label %.preheader.lr.ph, label %._crit_edge27
@@ -23050,7 +23044,7 @@ define dso_local void @_Z40ImFontAtlasBuildRender8bppRectFromStringP11ImFontAtla
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_Z41ImFontAtlasBuildRender32bppRectFromStringP11ImFontAtlasiiiiPKccj(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, i8 noundef signext %6, i32 noundef %7) local_unnamed_addr #19 {
+define dso_local void @_Z41ImFontAtlasBuildRender32bppRectFromStringP11ImFontAtlasiiiiPKccj(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, i8 noundef signext %6, i32 noundef %7) local_unnamed_addr #18 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = icmp sgt i32 %4, 0
   br i1 %10, label %.preheader.lr.ph, label %._crit_edge27
@@ -23104,7 +23098,7 @@ define dso_local void @_Z41ImFontAtlasBuildRender32bppRectFromStringP11ImFontAtl
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z20ImFontAtlasBuildInitP11ImFontAtlas(ptr noundef captures(none) %0) local_unnamed_addr #9 {
+define dso_local void @_Z20ImFontAtlasBuildInitP11ImFontAtlas(ptr noundef captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8, !tbaa !246
@@ -23851,7 +23845,7 @@ _ZL34ImFontAtlasBuildRenderLinesTexDataP11ImFontAtlas.exit: ; preds = %.loopexit
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6ImFont8AddGlyphEPK12ImFontConfigtfffffffff(ptr noundef nonnull align 8 captures(none) dereferenceable(118) initializes((96, 97)) %0, ptr noundef readonly captures(address_is_null) %1, i16 noundef zeroext %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN6ImFont8AddGlyphEPK12ImFontConfigtfffffffff(ptr noundef nonnull align 8 captures(none) dereferenceable(118) initializes((96, 97)) %0, ptr noundef readonly captures(address_is_null) %1, i16 noundef zeroext %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11) local_unnamed_addr #8 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %40, label %13
 
@@ -24006,7 +24000,7 @@ _ZN8ImVectorI11ImFontGlyphE6resizeEi.exit:        ; preds = %._ZN8ImVectorI11ImF
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6ImFont16BuildLookupTableEv(ptr noundef nonnull align 8 dereferenceable(118) %0) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN6ImFont16BuildLookupTableEv(ptr noundef nonnull align 8 dereferenceable(118) %0) local_unnamed_addr #8 align 2 {
   %2 = alloca [2 x i16], align 4
   %3 = alloca [2 x i16], align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -24421,9 +24415,9 @@ _ZNK6ImFont19FindGlyphNoFallbackEt.exit61.thread: ; preds = %191, %_ZL22FindFirs
   br label %218
 
 212:                                              ; preds = %223
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 8724518, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 -15859666, ptr %3, align 4
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %214 = load i16, ptr %213, align 4, !tbaa !280
@@ -24564,28 +24558,28 @@ _ZNK6ImFont9FindGlyphEt.exit87:                   ; preds = %253
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %_ZL22FindFirstExistingGlyphP6ImFontPKti.exit79.thread, %253
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @_ZN11ImFontAtlas19GetGlyphRangesGreekEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1180) %0) local_unnamed_addr #26 align 2 {
+define dso_local noundef nonnull ptr @_ZN11ImFontAtlas19GetGlyphRangesGreekEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1180) %0) local_unnamed_addr #25 align 2 {
   ret ptr @_ZZN11ImFontAtlas19GetGlyphRangesGreekEvE6ranges
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @_ZN11ImFontAtlas20GetGlyphRangesKoreanEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1180) %0) local_unnamed_addr #26 align 2 {
+define dso_local noundef nonnull ptr @_ZN11ImFontAtlas20GetGlyphRangesKoreanEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1180) %0) local_unnamed_addr #25 align 2 {
   ret ptr @_ZZN11ImFontAtlas20GetGlyphRangesKoreanEvE6ranges
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @_ZN11ImFontAtlas25GetGlyphRangesChineseFullEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1180) %0) local_unnamed_addr #26 align 2 {
+define dso_local noundef nonnull ptr @_ZN11ImFontAtlas25GetGlyphRangesChineseFullEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1180) %0) local_unnamed_addr #25 align 2 {
   ret ptr @_ZZN11ImFontAtlas25GetGlyphRangesChineseFullEvE6ranges
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull ptr @_ZN11ImFontAtlas37GetGlyphRangesChineseSimplifiedCommonEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1180) %0) local_unnamed_addr #33 align 2 {
+define dso_local noundef nonnull ptr @_ZN11ImFontAtlas37GetGlyphRangesChineseSimplifiedCommonEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1180) %0) local_unnamed_addr #32 align 2 {
   %2 = load i16, ptr @_ZZN11ImFontAtlas37GetGlyphRangesChineseSimplifiedCommonEvE11full_ranges, align 16, !tbaa !104
   %.not = icmp eq i16 %2, 0
   br i1 %.not, label %3, label %10
@@ -24618,7 +24612,7 @@ _ZL35UnpackAccumulativeOffsetsIntoRangesiPKsiPt.exit: ; preds = %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull ptr @_ZN11ImFontAtlas22GetGlyphRangesJapaneseEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1180) %0) local_unnamed_addr #33 align 2 {
+define dso_local noundef nonnull ptr @_ZN11ImFontAtlas22GetGlyphRangesJapaneseEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1180) %0) local_unnamed_addr #32 align 2 {
   %2 = load i16, ptr @_ZZN11ImFontAtlas22GetGlyphRangesJapaneseEvE11full_ranges, align 16, !tbaa !104
   %.not = icmp eq i16 %2, 0
   br i1 %.not, label %3, label %10
@@ -24651,22 +24645,22 @@ _ZL35UnpackAccumulativeOffsetsIntoRangesiPKsiPt.exit: ; preds = %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @_ZN11ImFontAtlas22GetGlyphRangesCyrillicEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1180) %0) local_unnamed_addr #26 align 2 {
+define dso_local noundef nonnull ptr @_ZN11ImFontAtlas22GetGlyphRangesCyrillicEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1180) %0) local_unnamed_addr #25 align 2 {
   ret ptr @_ZZN11ImFontAtlas22GetGlyphRangesCyrillicEvE6ranges
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @_ZN11ImFontAtlas18GetGlyphRangesThaiEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1180) %0) local_unnamed_addr #26 align 2 {
+define dso_local noundef nonnull ptr @_ZN11ImFontAtlas18GetGlyphRangesThaiEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1180) %0) local_unnamed_addr #25 align 2 {
   ret ptr @_ZZN11ImFontAtlas18GetGlyphRangesThaiEvE6ranges
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @_ZN11ImFontAtlas24GetGlyphRangesVietnameseEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1180) %0) local_unnamed_addr #26 align 2 {
+define dso_local noundef nonnull ptr @_ZN11ImFontAtlas24GetGlyphRangesVietnameseEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1180) %0) local_unnamed_addr #25 align 2 {
   ret ptr @_ZZN11ImFontAtlas24GetGlyphRangesVietnameseEvE6ranges
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN24ImFontGlyphRangesBuilder7AddTextEPKcS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN24ImFontGlyphRangesBuilder7AddTextEPKcS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 align 2 {
   %4 = alloca i32, align 4
   %.not = icmp eq ptr %2, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -24679,7 +24673,7 @@ define dso_local void @_ZN24ImFontGlyphRangesBuilder7AddTextEPKcS1_(ptr noundef 
 
 .lr.ph19:                                         ; preds = %.split.us, %10
   %.010.us18 = phi ptr [ %12, %10 ], [ %1, %.split.us ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !19
   %8 = call noundef i32 @_Z18ImTextCharFromUtf8PjPKcS1_(ptr noundef nonnull %4, ptr noundef nonnull %.010.us18, ptr noundef null)
   %9 = icmp eq i32 %8, 0
@@ -24699,7 +24693,7 @@ define dso_local void @_ZN24ImFontGlyphRangesBuilder7AddTextEPKcS1_(ptr noundef 
   %21 = load i32, ptr %20, align 4, !tbaa !19
   %22 = or i32 %21, %15
   store i32 %22, ptr %20, align 4, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %23 = load i8, ptr %12, align 1, !tbaa !23
   %24 = icmp eq i8 %23, 0
   br i1 %24, label %.loopexit, label %.lr.ph19, !llvm.loop !554
@@ -24710,14 +24704,14 @@ define dso_local void @_ZN24ImFontGlyphRangesBuilder7AddTextEPKcS1_(ptr noundef 
 
 .lr.ph:                                           ; preds = %.split, %27
   %.01017 = phi ptr [ %29, %27 ], [ %1, %.split ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !19
   %25 = call noundef i32 @_Z18ImTextCharFromUtf8PjPKcS1_(ptr noundef nonnull %4, ptr noundef %.01017, ptr noundef nonnull %2)
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %.thread, label %27
 
 .thread:                                          ; preds = %.lr.ph, %.lr.ph19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 27:                                               ; preds = %.lr.ph
@@ -24734,7 +24728,7 @@ define dso_local void @_ZN24ImFontGlyphRangesBuilder7AddTextEPKcS1_(ptr noundef 
   %38 = load i32, ptr %37, align 4, !tbaa !19
   %39 = or i32 %38, %32
   store i32 %39, ptr %37, align 4, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not15 = icmp ult ptr %29, %2
   br i1 %.not15, label %.lr.ph, label %.loopexit
 
@@ -24742,10 +24736,10 @@ define dso_local void @_ZN24ImFontGlyphRangesBuilder7AddTextEPKcS1_(ptr noundef 
   ret void
 }
 
-declare noundef i32 @_Z18ImTextCharFromUtf8PjPKcS1_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare noundef i32 @_Z18ImTextCharFromUtf8PjPKcS1_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN24ImFontGlyphRangesBuilder9AddRangesEPKt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #20 align 2 {
+define dso_local void @_ZN24ImFontGlyphRangesBuilder9AddRangesEPKt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #19 align 2 {
   %3 = load i16, ptr %1, align 2, !tbaa !104
   %.not11 = icmp eq i16 %3, 0
   br i1 %.not11, label %._crit_edge15, label %.lr.ph14
@@ -24793,7 +24787,7 @@ define dso_local void @_ZN24ImFontGlyphRangesBuilder9AddRangesEPKt(ptr noundef n
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN24ImFontGlyphRangesBuilder11BuildRangesEP8ImVectorItE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(none) %1) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN24ImFontGlyphRangesBuilder11BuildRangesEP8ImVectorItE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(none) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.phi.trans.insert.i12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -25007,7 +25001,7 @@ _ZN8ImVectorItE9push_backERKt.exit26:             ; preds = %._ZN8ImVectorItE7re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN6ImFontC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(118) initializes((0, 97), (100, 118)) %0) unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6ImFontC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(118) initializes((0, 97), (100, 118)) %0) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 82
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   store i16 -1, ptr %2, align 2, !tbaa !279
@@ -25025,7 +25019,7 @@ define dso_local void @_ZN6ImFontC2Ev(ptr noundef nonnull writeonly align 8 capt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN6ImFontD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(118) initializes((16, 24)) %0) unnamed_addr #23 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6ImFontD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(118) initializes((16, 24)) %0) unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float 0.000000e+00, ptr %2, align 4, !tbaa !139
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -25152,7 +25146,7 @@ _ZN8ImVectorIfED2Ev.exit:                         ; preds = %_ZN8ImVectorItED2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6ImFont9GrowIndexEi(ptr noundef nonnull align 8 captures(none) dereferenceable(118) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN6ImFont9GrowIndexEi(ptr noundef nonnull align 8 captures(none) dereferenceable(118) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !155
   %.not = icmp sgt i32 %1, %4
@@ -25288,7 +25282,7 @@ _ZN8ImVectorItE6resizeEiRKt.exit:                 ; preds = %57, %_ZN8ImVectorIt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK6ImFont9FindGlyphEt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(118) %0, i16 noundef zeroext %1) local_unnamed_addr #34 align 2 {
+define dso_local noundef ptr @_ZNK6ImFont9FindGlyphEt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(118) %0, i16 noundef zeroext %1) local_unnamed_addr #33 align 2 {
   %3 = zext i16 %1 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8, !tbaa !155
@@ -25322,7 +25316,7 @@ define dso_local noundef ptr @_ZNK6ImFont9FindGlyphEt(ptr noundef nonnull readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN6ImFont15SetGlyphVisibleEtb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(118) %0, i16 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN6ImFont15SetGlyphVisibleEtb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(118) %0, i16 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #12 align 2 {
   %4 = zext i16 %1 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8, !tbaa !155
@@ -25368,7 +25362,7 @@ _ZNK6ImFont9FindGlyphEt.exit:                     ; preds = %8, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK6ImFont19FindGlyphNoFallbackEt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(118) %0, i16 noundef zeroext %1) local_unnamed_addr #34 align 2 {
+define dso_local noundef ptr @_ZNK6ImFont19FindGlyphNoFallbackEt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(118) %0, i16 noundef zeroext %1) local_unnamed_addr #33 align 2 {
   %3 = zext i16 %1 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8, !tbaa !155
@@ -25395,7 +25389,7 @@ define dso_local noundef ptr @_ZNK6ImFont19FindGlyphNoFallbackEt(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN6ImFont18IsGlyphRangeUnusedEjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(118) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #35 align 2 {
+define dso_local noundef zeroext i1 @_ZN6ImFont18IsGlyphRangeUnusedEjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(118) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #34 align 2 {
   %4 = lshr i32 %1, 12
   %5 = lshr i32 %2, 12
   %.not15 = icmp samesign ugt i32 %4, %5
@@ -25433,7 +25427,7 @@ define dso_local noundef zeroext i1 @_ZN6ImFont18IsGlyphRangeUnusedEjj(ptr nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6ImFont12AddRemapCharEttb(ptr noundef nonnull align 8 captures(none) dereferenceable(118) %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN6ImFont12AddRemapCharEttb(ptr noundef nonnull align 8 captures(none) dereferenceable(118) %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #8 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8, !tbaa !155
   %7 = zext i16 %1 to i32
@@ -25504,7 +25498,7 @@ define dso_local void @_ZN6ImFont12AddRemapCharEttb(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK6ImFont21CalcWordWrapPositionAEfPKcS1_f(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(118) %0, float noundef %1, ptr noundef %2, ptr noundef %3, float noundef %4) local_unnamed_addr #9 align 2 {
+define dso_local noundef ptr @_ZNK6ImFont21CalcWordWrapPositionAEfPKcS1_f(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(118) %0, float noundef %1, ptr noundef %2, ptr noundef %3, float noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca i32, align 4
   %7 = fdiv float %4, %1
   %8 = icmp ult ptr %2, %3
@@ -25523,7 +25517,7 @@ define dso_local noundef ptr @_ZNK6ImFont21CalcWordWrapPositionAEfPKcS1_f(ptr no
   %.067100 = phi float [ 0.000000e+00, %.lr.ph ], [ %.168, %51 ]
   %.07299 = phi float [ 0.000000e+00, %.lr.ph ], [ %.173, %51 ]
   %.07698 = phi float [ 0.000000e+00, %.lr.ph ], [ %.177, %51 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = load i8, ptr %.053104, align 1, !tbaa !23
   %13 = sext i8 %12 to i32
   store i32 %13, ptr %6, align 4, !tbaa !19
@@ -25624,7 +25618,7 @@ _ZL14ImCharIsBlankWj.exit:                        ; preds = %26
   %.not = icmp eq ptr %.260, null
   %50 = select i1 %.not, ptr %.365, ptr %.260
   %.3 = select i1 %49, ptr %50, ptr %.053104
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
 51:                                               ; preds = %46, %24, %25
@@ -25634,7 +25628,7 @@ _ZL14ImCharIsBlankWj.exit:                        ; preds = %26
   %.163 = phi ptr [ %.062101, %25 ], [ %.062101, %24 ], [ %.365, %46 ]
   %.159 = phi ptr [ %.058102, %25 ], [ %.058102, %24 ], [ %.260, %46 ]
   %.156 = phi i8 [ %.055103, %25 ], [ 1, %24 ], [ %.257, %46 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %52 = icmp ult ptr %.052, %3
   br i1 %52, label %11, label %.loopexit
 
@@ -25730,7 +25724,7 @@ _ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us:    ; preds = %.lr.ph.i.us, %._ZL2
   br label %.backedge.us
 
 34:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %35 = load i8, ptr %.05192.us, align 1, !tbaa !23
   %36 = sext i8 %35 to i32
   store i32 %36, ptr %8, align 4, !tbaa !19
@@ -25773,7 +25767,7 @@ _ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us:    ; preds = %.lr.ph.i.us, %._ZL2
 .thread:                                          ; preds = %48, %47
   %.sroa.0.3.us.ph = phi <2 x float> [ %.sroa.0.090.us, %47 ], [ %.sroa.0.4.vec.insert.us, %48 ]
   %.2.us.ph = phi float [ %.04993.us, %47 ], [ 0.000000e+00, %48 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.backedge.us
 
 52:                                               ; preds = %44, %47
@@ -25787,7 +25781,7 @@ _ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us:    ; preds = %.lr.ph.i.us, %._ZL2
   %59 = fmul float %15, %58
   %60 = fadd float %.04993.us, %59
   %61 = fcmp ult float %60, %2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %61, label %.backedge.us, label %._crit_edge
 
 .backedge.us:                                     ; preds = %.thread, %52, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us
@@ -25802,7 +25796,7 @@ _ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us:    ; preds = %.lr.ph.i.us, %._ZL2
   %.04993 = phi float [ %.2, %90 ], [ 0.000000e+00, %.lr.ph ]
   %.05192 = phi ptr [ %.354, %90 ], [ %4, %.lr.ph ]
   %.sroa.0.090 = phi <2 x float> [ %.sroa.0.3, %90 ], [ zeroinitializer, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %63 = load i8, ptr %.05192, align 1, !tbaa !23
   %64 = sext i8 %63 to i32
   store i32 %64, ptr %8, align 4, !tbaa !19
@@ -25862,7 +25856,7 @@ _ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us:    ; preds = %.lr.ph.i.us, %._ZL2
   %.354 = phi ptr [ %.4, %80 ], [ %.253, %76 ], [ %.253, %75 ]
   %.2 = phi float [ %.3, %80 ], [ 0.000000e+00, %76 ], [ %.04993, %75 ]
   %.048 = phi i1 [ %89, %80 ], [ true, %76 ], [ true, %75 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %91 = icmp ult ptr %.354, %.0
   %or.cond105 = select i1 %.048, i1 %91, i1 false
   br i1 %or.cond105, label %.lr.ph.split, label %._crit_edge, !llvm.loop !565
@@ -25894,7 +25888,7 @@ _ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us:    ; preds = %.lr.ph.i.us, %._ZL2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK6ImFont10RenderCharEP10ImDrawListfRK6ImVec2jt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(118) %0, ptr noundef captures(none) %1, float noundef %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, i32 noundef %4, i16 noundef zeroext %5) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZNK6ImFont10RenderCharEP10ImDrawListfRK6ImVec2jt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(118) %0, ptr noundef captures(none) %1, float noundef %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, i32 noundef %4, i16 noundef zeroext %5) local_unnamed_addr #8 align 2 {
   %7 = zext i16 %5 to i64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8, !tbaa !155
@@ -26058,7 +26052,7 @@ _ZNK6ImFont9FindGlyphEt.exit:                     ; preds = %11, %14
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #17
+declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN5ImGui11RenderArrowEP10ImDrawList6ImVec2j8ImGuiDirf(ptr noundef captures(none) %0, <2 x float> %1, i32 noundef %2, i32 noundef %3, float noundef %4) local_unnamed_addr #0 {
@@ -26125,7 +26119,7 @@ define dso_local void @_ZN5ImGui11RenderArrowEP10ImDrawList6ImVec2j8ImGuiDirf(pt
   %34 = fadd float %.sroa.098.4.vec.extract, %33
   %.sroa.098.0.vec.extract = extractelement <2 x float> %1, i64 0
   %35 = fadd float %.sroa.098.0.vec.extract, %32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.sroa.084.0.vec.extract = extractelement <2 x float> %.sroa.084.0, i64 0
   %.sroa.084.4.vec.extract = extractelement <2 x float> %.sroa.084.0, i64 1
   %36 = fadd float %35, %.sroa.084.0.vec.extract
@@ -26133,7 +26127,7 @@ define dso_local void @_ZN5ImGui11RenderArrowEP10ImDrawList6ImVec2j8ImGuiDirf(pt
   %.sroa.0.0.vec.insert.i62 = insertelement <2 x float> poison, float %36, i64 0
   %.sroa.0.4.vec.insert.i63 = insertelement <2 x float> %.sroa.0.0.vec.insert.i62, float %37, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i63, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.sroa.081.0.vec.extract = extractelement <2 x float> %.sroa.081.0, i64 0
   %.sroa.081.4.vec.extract = extractelement <2 x float> %.sroa.081.0, i64 1
   %38 = fadd float %35, %.sroa.081.0.vec.extract
@@ -26141,7 +26135,7 @@ define dso_local void @_ZN5ImGui11RenderArrowEP10ImDrawList6ImVec2j8ImGuiDirf(pt
   %.sroa.0.0.vec.insert.i64 = insertelement <2 x float> poison, float %38, i64 0
   %.sroa.0.4.vec.insert.i65 = insertelement <2 x float> %.sroa.0.0.vec.insert.i64, float %39, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i65, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.sroa.078.0.vec.extract = extractelement <2 x float> %.sroa.078.0, i64 0
   %.sroa.078.4.vec.extract = extractelement <2 x float> %.sroa.078.0, i64 1
   %40 = fadd float %35, %.sroa.078.0.vec.extract
@@ -26150,9 +26144,9 @@ define dso_local void @_ZN5ImGui11RenderArrowEP10ImDrawList6ImVec2j8ImGuiDirf(pt
   %.sroa.0.4.vec.insert.i67 = insertelement <2 x float> %.sroa.0.0.vec.insert.i66, float %41, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i67, ptr %8, align 8
   call void @_ZN10ImDrawList17AddTriangleFilledERK6ImVec2S2_S2_j(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 4 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(8) %8, i32 noundef %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -26405,7 +26399,7 @@ define dso_local void @_ZN5ImGui21RenderArrowPointingAtEP10ImDrawList6ImVec2S2_8
   ]
 
 16:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = fadd <2 x float> %2, %1
   %18 = extractelement <2 x float> %17, i64 0
   %.sroa.0.4.vec.extract = extractelement <2 x float> %2, i64 1
@@ -26413,18 +26407,18 @@ define dso_local void @_ZN5ImGui21RenderArrowPointingAtEP10ImDrawList6ImVec2S2_8
   store float %18, ptr %7, align 4, !tbaa !93
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store float %19, ptr %20, align 4, !tbaa !94
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %21 = fadd float %.sroa.0.4.vec.extract, %15
   store float %18, ptr %8, align 4, !tbaa !93
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store float %21, ptr %22, align 4, !tbaa !94
   call void @_ZN10ImDrawList17AddTriangleFilledERK6ImVec2S2_S2_j(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %6, i32 noundef %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %48
 
 23:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %24 = fsub <2 x float> %1, %2
   %25 = extractelement <2 x float> %24, i64 0
   %.sroa.0.4.vec.extract25 = extractelement <2 x float> %2, i64 1
@@ -26432,18 +26426,18 @@ define dso_local void @_ZN5ImGui21RenderArrowPointingAtEP10ImDrawList6ImVec2S2_8
   store float %25, ptr %9, align 4, !tbaa !93
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store float %26, ptr %27, align 4, !tbaa !94
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %28 = fsub float %15, %.sroa.0.4.vec.extract25
   store float %25, ptr %10, align 4, !tbaa !93
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store float %28, ptr %29, align 4, !tbaa !94
   call void @_ZN10ImDrawList17AddTriangleFilledERK6ImVec2S2_S2_j(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 4 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(8) %6, i32 noundef %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %48
 
 30:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %31 = fadd <2 x float> %2, %1
   %32 = extractelement <2 x float> %31, i64 0
   %33 = fadd <2 x float> %2, %1
@@ -26451,19 +26445,19 @@ define dso_local void @_ZN5ImGui21RenderArrowPointingAtEP10ImDrawList6ImVec2S2_8
   store float %32, ptr %11, align 4, !tbaa !93
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store float %34, ptr %35, align 4, !tbaa !94
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %36 = fsub <2 x float> %1, %2
   %37 = extractelement <2 x float> %36, i64 0
   store float %37, ptr %12, align 4, !tbaa !93
   %38 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store float %34, ptr %38, align 4, !tbaa !94
   call void @_ZN10ImDrawList17AddTriangleFilledERK6ImVec2S2_S2_j(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 4 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %6, i32 noundef %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %48
 
 39:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %40 = fsub <2 x float> %1, %2
   %41 = extractelement <2 x float> %40, i64 0
   %42 = fsub <2 x float> %1, %2
@@ -26471,15 +26465,15 @@ define dso_local void @_ZN5ImGui21RenderArrowPointingAtEP10ImDrawList6ImVec2S2_8
   store float %41, ptr %13, align 4, !tbaa !93
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store float %43, ptr %44, align 4, !tbaa !94
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %45 = fadd <2 x float> %2, %1
   %46 = extractelement <2 x float> %45, i64 0
   store float %46, ptr %14, align 4, !tbaa !93
   %47 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store float %43, ptr %47, align 4, !tbaa !94
   call void @_ZN10ImDrawList17AddTriangleFilledERK6ImVec2S2_S2_j(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 4 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(8) %6, i32 noundef %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %48
 
 48:                                               ; preds = %39, %30, %23, %16, %5
@@ -26487,7 +26481,7 @@ define dso_local void @_ZN5ImGui21RenderArrowPointingAtEP10ImDrawList6ImVec2S2_8
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5ImGui22RenderRectFilledRangeHEP10ImDrawListRK6ImRectjfff(ptr noundef %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i32 noundef %2, float noundef %3, float noundef %4, float noundef %5) local_unnamed_addr #9 {
+define dso_local void @_ZN5ImGui22RenderRectFilledRangeHEP10ImDrawListRK6ImRectjfff(ptr noundef %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i32 noundef %2, float noundef %3, float noundef %4, float noundef %5) local_unnamed_addr #8 {
   %7 = alloca %struct.ImVec2, align 8
   %8 = alloca %struct.ImVec2, align 8
   %9 = alloca %struct.ImVec2, align 4
@@ -26773,7 +26767,7 @@ _ZN10ImDrawList10PathLineToERK6ImVec2.exit105:    ; preds = %._ZN8ImVectorI6ImVe
   br i1 %or.cond, label %168, label %235
 
 168:                                              ; preds = %164
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store float %106, ptr %7, align 8, !tbaa !93
   %169 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store float %167, ptr %169, align 4, !tbaa !94
@@ -26839,8 +26833,8 @@ _ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit.i.i110: ; preds = %179, %177
   %201 = load i32, ptr %172, align 8, !tbaa !62
   %202 = add nsw i32 %201, 1
   store i32 %202, ptr %172, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %203 = fadd float %25, %86
   store float %106, ptr %8, align 8, !tbaa !93
   %204 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -26904,8 +26898,8 @@ _ZN8ImVectorI6ImVec2E9push_backERKS0_.exit.i116:  ; preds = %224, %._ZN8ImVector
 
 232:                                              ; preds = %168
   call void @_ZN10ImDrawList16_PathArcToFastExERK6ImVec2fiii(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull readonly align 4 dereferenceable(8) %7, float noundef %86, i32 noundef 12, i32 noundef 24, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %233 = fadd float %25, %86
   store float %106, ptr %8, align 8, !tbaa !93
   %234 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -26914,19 +26908,19 @@ _ZN8ImVectorI6ImVec2E9push_backERKS0_.exit.i116:  ; preds = %224, %._ZN8ImVector
   br label %_ZN10ImDrawList13PathArcToFastERK6ImVec2fii.exit121
 
 _ZN10ImDrawList13PathArcToFastERK6ImVec2fii.exit121: ; preds = %_ZN8ImVectorI6ImVec2E9push_backERKS0_.exit.i116, %232
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %243
 
 235:                                              ; preds = %164
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store float %106, ptr %9, align 4, !tbaa !93
   %236 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store float %167, ptr %236, align 4, !tbaa !94
   %237 = fsub float 0x400921FB60000000, %.0.i96
   %238 = fsub float 0x400921FB60000000, %.0.i
   call void @_ZN10ImDrawList9PathArcToERK6ImVec2fffi(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 4 dereferenceable(8) %9, float noundef %86, float noundef %237, float noundef %238, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %239 = fadd float %25, %86
   store float %106, ptr %10, align 4, !tbaa !93
   %240 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -26934,7 +26928,7 @@ _ZN10ImDrawList13PathArcToFastERK6ImVec2fii.exit121: ; preds = %_ZN8ImVectorI6Im
   %241 = fadd float %.0.i, 0x400921FB60000000
   %242 = fadd float %.0.i96, 0x400921FB60000000
   call void @_ZN10ImDrawList9PathArcToERK6ImVec2fffi(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 4 dereferenceable(8) %10, float noundef %86, float noundef %241, float noundef %242, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %243
 
 243:                                              ; preds = %_ZN10ImDrawList13PathArcToFastERK6ImVec2fii.exit121, %235, %_ZN10ImDrawList10PathLineToERK6ImVec2.exit105
@@ -27109,37 +27103,37 @@ _ZN10ImDrawList10PathLineToERK6ImVec2.exit143:    ; preds = %._ZN8ImVectorI6ImVe
   br i1 %or.cond3, label %329, label %333
 
 329:                                              ; preds = %325
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store float %267, ptr %11, align 4, !tbaa !93
   %330 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store float %328, ptr %330, align 4, !tbaa !94
   call void @_ZN10ImDrawList13PathArcToFastERK6ImVec2fii(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 4 dereferenceable(8) %11, float noundef %86, i32 noundef 9, i32 noundef 12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %331 = fsub float %29, %86
   store float %267, ptr %12, align 4, !tbaa !93
   %332 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store float %331, ptr %332, align 4, !tbaa !94
   call void @_ZN10ImDrawList13PathArcToFastERK6ImVec2fii(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 4 dereferenceable(8) %12, float noundef %86, i32 noundef 0, i32 noundef 3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %339
 
 333:                                              ; preds = %325
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store float %267, ptr %13, align 4, !tbaa !93
   %334 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store float %328, ptr %334, align 4, !tbaa !94
   %335 = fneg float %.0.i124
   %336 = fneg float %.0.i122
   call void @_ZN10ImDrawList9PathArcToERK6ImVec2fffi(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 4 dereferenceable(8) %13, float noundef %86, float noundef %335, float noundef %336, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %337 = fsub float %29, %86
   store float %267, ptr %14, align 4, !tbaa !93
   %338 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store float %337, ptr %338, align 4, !tbaa !94
   call void @_ZN10ImDrawList9PathArcToERK6ImVec2fffi(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 4 dereferenceable(8) %14, float noundef %86, float noundef %.0.i122, float noundef %.0.i124, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %339
 
 339:                                              ; preds = %_ZN10ImDrawList10PathLineToERK6ImVec2.exit143, %333, %329, %243
@@ -27156,7 +27150,7 @@ _ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi.exit: ; preds = %339, %31, %33, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5ImGui24RenderRectFilledWithHoleEP10ImDrawListRK6ImRectS4_jf(ptr noundef %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2, i32 noundef %3, float noundef %4) local_unnamed_addr #9 {
+define dso_local void @_ZN5ImGui24RenderRectFilledWithHoleEP10ImDrawListRK6ImRectS4_jf(ptr noundef %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2, i32 noundef %3, float noundef %4) local_unnamed_addr #8 {
   %6 = alloca %struct.ImVec2, align 4
   %7 = alloca %struct.ImVec2, align 4
   %8 = alloca %struct.ImVec2, align 4
@@ -27194,11 +27188,11 @@ define dso_local void @_ZN5ImGui24RenderRectFilledWithHoleEP10ImDrawListRK6ImRec
   br i1 %24, label %40, label %46
 
 40:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store float %23, ptr %6, align 4, !tbaa !93
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store float %31, ptr %41, align 4, !tbaa !94
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store float %22, ptr %7, align 4, !tbaa !93
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store float %36, ptr %42, align 4, !tbaa !94
@@ -27206,21 +27200,21 @@ define dso_local void @_ZN5ImGui24RenderRectFilledWithHoleEP10ImDrawListRK6ImRec
   %44 = select i1 %39, i32 0, i32 64
   %45 = or disjoint i32 %44, %43
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 4 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %7, i32 noundef %3, float noundef %4, i32 noundef %45)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %46
 
 46:                                               ; preds = %40, %5
   br i1 %29, label %47, label %57
 
 47:                                               ; preds = %46
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %48 = load float, ptr %25, align 4, !tbaa !569
   %49 = load float, ptr %30, align 4, !tbaa !570
   store float %48, ptr %8, align 4, !tbaa !93
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store float %49, ptr %50, align 4, !tbaa !94
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %51 = load float, ptr %27, align 4, !tbaa !569
   %52 = load float, ptr %35, align 4, !tbaa !571
   store float %51, ptr %9, align 4, !tbaa !93
@@ -27230,21 +27224,21 @@ define dso_local void @_ZN5ImGui24RenderRectFilledWithHoleEP10ImDrawListRK6ImRec
   %55 = select i1 %39, i32 0, i32 128
   %56 = or disjoint i32 %55, %54
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %9, i32 noundef %3, float noundef %4, i32 noundef %56)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %57
 
 57:                                               ; preds = %47, %46
   br i1 %34, label %58, label %68
 
 58:                                               ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %59 = load float, ptr %2, align 4, !tbaa !567
   %60 = load float, ptr %32, align 4, !tbaa !570
   store float %59, ptr %10, align 4, !tbaa !93
   %61 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store float %60, ptr %61, align 4, !tbaa !94
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %62 = load float, ptr %25, align 4, !tbaa !569
   %63 = load float, ptr %30, align 4, !tbaa !570
   store float %62, ptr %11, align 4, !tbaa !93
@@ -27254,21 +27248,21 @@ define dso_local void @_ZN5ImGui24RenderRectFilledWithHoleEP10ImDrawListRK6ImRec
   %66 = select i1 %29, i32 0, i32 32
   %67 = or disjoint i32 %66, %65
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(8) %11, i32 noundef %3, float noundef %4, i32 noundef %67)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %68
 
 68:                                               ; preds = %58, %57
   br i1 %39, label %69, label %79
 
 69:                                               ; preds = %68
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %70 = load float, ptr %2, align 4, !tbaa !567
   %71 = load float, ptr %35, align 4, !tbaa !571
   store float %70, ptr %12, align 4, !tbaa !93
   %72 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store float %71, ptr %72, align 4, !tbaa !94
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %73 = load float, ptr %25, align 4, !tbaa !569
   %74 = load float, ptr %37, align 4, !tbaa !571
   store float %73, ptr %13, align 4, !tbaa !93
@@ -27278,8 +27272,8 @@ define dso_local void @_ZN5ImGui24RenderRectFilledWithHoleEP10ImDrawListRK6ImRec
   %77 = select i1 %29, i32 0, i32 128
   %78 = or disjoint i32 %77, %76
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %13, i32 noundef %3, float noundef %4, i32 noundef %78)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %79
 
 79:                                               ; preds = %69, %68
@@ -27287,21 +27281,21 @@ define dso_local void @_ZN5ImGui24RenderRectFilledWithHoleEP10ImDrawListRK6ImRec
   br i1 %or.cond, label %80, label %87
 
 80:                                               ; preds = %79
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %81 = load float, ptr %1, align 4, !tbaa !567
   %82 = load float, ptr %32, align 4, !tbaa !570
   store float %81, ptr %14, align 4, !tbaa !93
   %83 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store float %82, ptr %83, align 4, !tbaa !94
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %84 = load float, ptr %2, align 4, !tbaa !567
   %85 = load float, ptr %30, align 4, !tbaa !570
   store float %84, ptr %15, align 4, !tbaa !93
   %86 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store float %85, ptr %86, align 4, !tbaa !94
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 4 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(8) %15, i32 noundef %3, float noundef %4, i32 noundef 16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %87
 
 87:                                               ; preds = %80, %79
@@ -27309,21 +27303,21 @@ define dso_local void @_ZN5ImGui24RenderRectFilledWithHoleEP10ImDrawListRK6ImRec
   br i1 %or.cond3, label %88, label %95
 
 88:                                               ; preds = %87
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %89 = load float, ptr %25, align 4, !tbaa !569
   %90 = load float, ptr %32, align 4, !tbaa !570
   store float %89, ptr %16, align 4, !tbaa !93
   %91 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store float %90, ptr %91, align 4, !tbaa !94
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %92 = load float, ptr %27, align 4, !tbaa !569
   %93 = load float, ptr %30, align 4, !tbaa !570
   store float %92, ptr %17, align 4, !tbaa !93
   %94 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store float %93, ptr %94, align 4, !tbaa !94
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 4 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(8) %17, i32 noundef %3, float noundef %4, i32 noundef 32)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %95
 
 95:                                               ; preds = %88, %87
@@ -27331,21 +27325,21 @@ define dso_local void @_ZN5ImGui24RenderRectFilledWithHoleEP10ImDrawListRK6ImRec
   br i1 %or.cond5, label %96, label %103
 
 96:                                               ; preds = %95
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %97 = load float, ptr %1, align 4, !tbaa !567
   %98 = load float, ptr %35, align 4, !tbaa !571
   store float %97, ptr %18, align 4, !tbaa !93
   %99 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store float %98, ptr %99, align 4, !tbaa !94
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %100 = load float, ptr %2, align 4, !tbaa !567
   %101 = load float, ptr %37, align 4, !tbaa !571
   store float %100, ptr %19, align 4, !tbaa !93
   %102 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store float %101, ptr %102, align 4, !tbaa !94
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 4 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(8) %19, i32 noundef %3, float noundef %4, i32 noundef 64)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %103
 
 103:                                              ; preds = %96, %95
@@ -27353,21 +27347,21 @@ define dso_local void @_ZN5ImGui24RenderRectFilledWithHoleEP10ImDrawListRK6ImRec
   br i1 %or.cond7, label %104, label %111
 
 104:                                              ; preds = %103
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %105 = load float, ptr %25, align 4, !tbaa !569
   %106 = load float, ptr %35, align 4, !tbaa !571
   store float %105, ptr %20, align 4, !tbaa !93
   %107 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store float %106, ptr %107, align 4, !tbaa !94
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %108 = load float, ptr %27, align 4, !tbaa !569
   %109 = load float, ptr %37, align 4, !tbaa !571
   store float %108, ptr %21, align 4, !tbaa !93
   %110 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store float %109, ptr %110, align 4, !tbaa !94
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 4 dereferenceable(8) %20, ptr noundef nonnull align 4 dereferenceable(8) %21, i32 noundef %3, float noundef %4, i32 noundef 128)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %111
 
 111:                                              ; preds = %104, %103
@@ -27492,10 +27486,10 @@ define dso_local void @_ZN5ImGui36RenderColorRectWithAlphaCheckerboardEP10ImDraw
   %or.cond = select i1 %29, i1 true, i1 %80
   %81 = and i32 %.2, %spec.store.select
   %82 = select i1 %or.cond, i32 256, i32 %81
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store float %61, ptr %11, align 8, !tbaa !93
   store float %44, ptr %30, align 4, !tbaa !94
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store float %64, ptr %12, align 8, !tbaa !93
   store float %47, ptr %31, align 4, !tbaa !94
   %83 = and i32 %82, 496
@@ -27581,8 +27575,8 @@ define dso_local void @_ZN5ImGui36RenderColorRectWithAlphaCheckerboardEP10ImDraw
   br label %_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi.exit
 
 _ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi.exit: ; preds = %85, %126
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %129
 
 129:                                              ; preds = %57, %_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi.exit
@@ -27602,15 +27596,15 @@ _ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi.exit: ; preds = %85, %126
   ret void
 }
 
-declare noundef i32 @_ZN5ImGui11GetColorU32Ejf(i32 noundef, float noundef) local_unnamed_addr #2
+declare noundef i32 @_ZN5ImGui11GetColorU32Ejf(i32 noundef, float noundef) local_unnamed_addr #1
 
-declare noundef i32 @_Z18ImAlphaBlendColorsjj(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare noundef i32 @_Z18ImAlphaBlendColorsjj(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x float> @llvm.x86.sse.rsqrt.ss(<4 x float>) #36
+declare <4 x float> @llvm.x86.sse.rsqrt.ss(<4 x float>) #35
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef i32 @_ZL20stbtt_FindGlyphIndexPK14stbtt_fontinfoi(ptr readonly %.8.val, i32 %.56.val, i32 noundef %0) unnamed_addr #35 {
+define internal fastcc noundef i32 @_ZL20stbtt_FindGlyphIndexPK14stbtt_fontinfoi(ptr readonly %.8.val, i32 %.56.val, i32 noundef %0) unnamed_addr #34 {
   %2 = zext i32 %.56.val to i64
   %3 = getelementptr inbounds nuw i8, ptr %.8.val, i64 %2
   %.val = load i8, ptr %3, align 1, !tbaa !23
@@ -27988,7 +27982,7 @@ define internal fastcc noundef i32 @_ZL20stbtt_FindGlyphIndexPK14stbtt_fontinfoi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fontinfoiffffPiS2_S2_S2_(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %4, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) unnamed_addr #20 {
+define internal fastcc void @_ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fontinfoiffffPiS2_S2_S2_(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %4, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) unnamed_addr #19 {
   %9 = alloca %struct.stbtt__csctx, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %11 = load i32, ptr %10, align 4, !tbaa !424
@@ -27996,7 +27990,7 @@ define internal fastcc void @_ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fonti
   br i1 %.not.i, label %26, label %12
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 0, i64 56, i1 false)
   store i32 1, ptr %9, align 8
   %13 = call fastcc noundef i32 @_ZL21stbtt__run_charstringPK14stbtt_fontinfoiP12stbtt__csctx(ptr noundef nonnull readonly %0, i32 noundef %1, ptr noundef %9)
@@ -28013,7 +28007,7 @@ define internal fastcc void @_ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fonti
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 36
   %24 = load i32, ptr %23, align 4
   %25 = select i1 %.not.i.i, i32 0, i32 %24
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZL17stbtt_GetGlyphBoxPK14stbtt_fontinfoiPiS2_S2_S2_.exit
 
 26:                                               ; preds = %8
@@ -28235,10 +28229,10 @@ _ZL17stbtt_GetGlyphBoxPK14stbtt_fontinfoiPiS2_S2_S2_.exit: ; preds = %102, %12
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #6
+declare float @sqrtf(float noundef) local_unnamed_addr #5
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN8ImVectorI16stbtt_packedcharED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN8ImVectorI16stbtt_packedcharED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !376
   %.not = icmp eq ptr %3, null
@@ -28260,7 +28254,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI16stbtt_packedcharED2Ev(ptr nou
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN8ImVectorI18ImFontBuildDstDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN8ImVectorI18ImFontBuildDstDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !314
   %.not = icmp eq ptr %3, null
@@ -28282,7 +28276,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI18ImFontBuildDstDataED2Ev(ptr n
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN8ImVectorI18ImFontBuildSrcDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN8ImVectorI18ImFontBuildSrcDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !308
   %.not = icmp eq ptr %3, null
@@ -28304,7 +28298,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI18ImFontBuildSrcDataED2Ev(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc { ptr, i64 } @_ZL20stbtt__cff_get_indexP10stbtt__buf(ptr noundef nonnull captures(none) %0) unnamed_addr #10 {
+define internal fastcc { ptr, i64 } @_ZL20stbtt__cff_get_indexP10stbtt__buf(ptr noundef nonnull captures(none) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !341
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -28436,7 +28430,7 @@ _ZL16stbtt__buf_rangePK10stbtt__bufii.exit:       ; preds = %49, %53, %56
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc { ptr, i64 } @_ZL20stbtt__cff_index_get10stbtt__bufi(ptr %0, i64 %1, i32 noundef %2) unnamed_addr #35 {
+define internal fastcc { ptr, i64 } @_ZL20stbtt__cff_index_get10stbtt__bufi(ptr %0, i64 %1, i32 noundef %2) unnamed_addr #34 {
   %.sroa.18.8.extract.shift = lshr i64 %1, 32
   %.sroa.18.8.extract.trunc = trunc nuw i64 %.sroa.18.8.extract.shift to i32
   %4 = tail call i32 @llvm.smin.i32(i32 %.sroa.18.8.extract.trunc, i32 0)
@@ -28575,7 +28569,7 @@ _ZL16stbtt__buf_rangePK10stbtt__bufii.exit:       ; preds = %_ZL14stbtt__buf_get
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL20stbtt__dict_get_intsP10stbtt__bufiiPj(ptr noundef nonnull captures(none) initializes((8, 12)) %0, i32 noundef range(i32 17, 294) %1, i32 noundef range(i32 1, 3) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #10 {
+define internal fastcc void @_ZL20stbtt__dict_get_intsP10stbtt__bufiiPj(ptr noundef nonnull captures(none) initializes((8, 12)) %0, i32 noundef range(i32 17, 294) %1, i32 noundef range(i32 1, 3) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #9 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4, !tbaa !342
   %7 = tail call i32 @llvm.smin.i32(i32 %6, i32 0)
@@ -28919,7 +28913,7 @@ _ZL14stbtt__cff_intP10stbtt__buf.exit:            ; preds = %_ZL15stbtt__buf_get
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc { ptr, i64 } @_ZL16stbtt__get_subrs10stbtt__bufS_(ptr %0, i64 %1, ptr %2, i64 %3) unnamed_addr #34 {
+define internal fastcc { ptr, i64 } @_ZL16stbtt__get_subrs10stbtt__bufS_(ptr %0, i64 %1, ptr %2, i64 %3) unnamed_addr #33 {
   %5 = alloca %struct.stbtt__buf, align 8
   %6 = alloca i32, align 4
   %7 = alloca [2 x i32], align 8
@@ -28929,11 +28923,11 @@ define internal fastcc { ptr, i64 } @_ZL16stbtt__get_subrs10stbtt__bufS_(ptr %0,
   store ptr %2, ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %3, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call fastcc void @_ZL20stbtt__dict_get_intsP10stbtt__bufiiPj(ptr noundef %5, i32 noundef 18, i32 noundef 2, ptr noundef %7)
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !19
@@ -29087,20 +29081,20 @@ _ZL20stbtt__cff_get_indexP10stbtt__buf.exit:      ; preds = %_ZL14stbtt__buf_get
 
 79:                                               ; preds = %_ZL16stbtt__buf_rangePK10stbtt__bufii.exit, %4, %_ZL20stbtt__cff_get_indexP10stbtt__buf.exit
   %.pn = phi { ptr, i64 } [ %.fca.1.insert.i.i, %_ZL20stbtt__cff_get_indexP10stbtt__buf.exit ], [ zeroinitializer, %4 ], [ zeroinitializer, %_ZL16stbtt__buf_rangePK10stbtt__bufii.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret { ptr, i64 } %.pn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL21stbtt__run_charstringPK14stbtt_fontinfoiP12stbtt__csctx(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #20 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL21stbtt__run_charstringPK14stbtt_fontinfoiP12stbtt__csctx(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #19 {
   %4 = alloca [48 x float], align 16
   %5 = alloca [10 x %struct.stbtt__buf], align 16
   %.sroa.5 = alloca { i32, i32 }, align 8
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %4) #42
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %5) #42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %.sroa.073.0.copyload = load ptr, ptr %6, align 8, !tbaa !274
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -30778,14 +30772,14 @@ _ZL14stbtt__cff_intP10stbtt__buf.exit:            ; preds = %_ZL15stbtt__buf_get
 
 .critedge:                                        ; preds = %54, %65, %72, %79, %132, %134, %234, %236, %288, %309, %._crit_edge469, %382, %._crit_edge, %460, %554, %556, %_ZL15stbtt__get_subr10stbtt__bufi.exit, %591, %717, %797, %.thread, %_ZL15stbtt__buf_get8P10stbtt__buf.exit329, %690, %675, %660, %649, %644, %3, %_ZL14stbtt__csctx_vP12stbtt__csctxhiiiiii.exit.i, %602
   %.2 = phi i32 [ 1, %602 ], [ 1, %_ZL14stbtt__csctx_vP12stbtt__csctxhiiiiii.exit.i ], [ 0, %3 ], [ 0, %644 ], [ 0, %649 ], [ 0, %660 ], [ 0, %675 ], [ 0, %690 ], [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit329 ], [ 0, %.thread ], [ 0, %797 ], [ 0, %717 ], [ 0, %591 ], [ 0, %_ZL15stbtt__get_subr10stbtt__bufi.exit ], [ 0, %556 ], [ 0, %554 ], [ 0, %460 ], [ 0, %._crit_edge ], [ 0, %382 ], [ 0, %._crit_edge469 ], [ 0, %309 ], [ 0, %288 ], [ 0, %236 ], [ 0, %234 ], [ 0, %134 ], [ 0, %132 ], [ 0, %79 ], [ 0, %72 ], [ 0, %65 ], [ 0, %54 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5) #42
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %4) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL21stbtt__csctx_rmove_toP12stbtt__csctxff(ptr noundef nonnull captures(none) %0, float noundef %1, float noundef %2) unnamed_addr #14 {
+define internal fastcc void @_ZL21stbtt__csctx_rmove_toP12stbtt__csctxff(ptr noundef nonnull captures(none) %0, float noundef %1, float noundef %2) unnamed_addr #13 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load float, ptr %4, align 8, !tbaa !600
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -31022,7 +31016,7 @@ _ZL14stbtt__csctx_vP12stbtt__csctxhiiiiii.exit:   ; preds = %_ZL19stbtt__track_v
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef nonnull captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) unnamed_addr #14 {
+define internal fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef nonnull captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) unnamed_addr #13 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load float, ptr %8, align 8, !tbaa !580
   %10 = fadd float %1, %9
@@ -31226,7 +31220,7 @@ _ZL14stbtt__csctx_vP12stbtt__csctxhiiiiii.exit:   ; preds = %_ZL19stbtt__track_v
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL19stbtt_GetGlyphShapePK14stbtt_fontinfoiPP12stbtt_vertex(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %2) unnamed_addr #9 {
+define internal fastcc noundef i32 @_ZL19stbtt_GetGlyphShapePK14stbtt_fontinfoiPP12stbtt_vertex(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %2) unnamed_addr #8 {
   %4 = alloca %struct.stbtt__csctx, align 8
   %5 = alloca %struct.stbtt__csctx, align 8
   %6 = alloca ptr, align 8
@@ -31891,7 +31885,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit17: ; preds = %216, %233, %2
   %.1273.i39 = phi ptr [ null, %366 ], [ %.2274.i, %533 ]
   %.7.i38 = phi i32 [ 0, %366 ], [ %.8.i, %533 ]
   %.0296.i37 = phi ptr [ %367, %366 ], [ %.2298.i, %533 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !100
   %369 = getelementptr i8, ptr %.0296.i37, i64 1
   %.0296.val392.i = load i8, ptr %369, align 1, !tbaa !23
@@ -32157,13 +32151,13 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit17: ; preds = %216, %233, %2
   %.8.i = phi i32 [ %515, %532 ], [ %.7.i38, %467 ]
   %.2274.i = phi ptr [ %518, %532 ], [ %.1273.i39, %467 ]
   %534 = and i32 %370, 32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i = icmp eq i32 %534, 0
   br i1 %.not.i, label %.thread29, label %368, !llvm.loop !608
 
 535:                                              ; preds = %520, %519
   tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %476)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZL22stbtt__GetGlyphShapeTTPK14stbtt_fontinfoiPP12stbtt_vertex.exit
 
 .thread29:                                        ; preds = %533, %361, %364
@@ -32173,10 +32167,10 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit17: ; preds = %216, %233, %2
   br label %_ZL22stbtt__GetGlyphShapeTTPK14stbtt_fontinfoiPP12stbtt_vertex.exit
 
 536:                                              ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   store i32 1, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %537 = call fastcc noundef i32 @_ZL21stbtt__run_charstringPK14stbtt_fontinfoiP12stbtt__csctx(ptr noundef nonnull readonly %0, i32 noundef %1, ptr noundef %4)
   %.not.i7 = icmp eq i32 %537, 0
@@ -32206,8 +32200,8 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit17: ; preds = %216, %233, %2
 
 _ZL22stbtt__GetGlyphShapeT2PK14stbtt_fontinfoiPP12stbtt_vertex.exit: ; preds = %546, %549
   %.0.i8 = phi i32 [ %548, %546 ], [ 0, %549 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #42
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZL22stbtt__GetGlyphShapeTTPK14stbtt_fontinfoiPP12stbtt_vertex.exit
 
 _ZL22stbtt__GetGlyphShapeTTPK14stbtt_fontinfoiPP12stbtt_vertex.exit: ; preds = %535, %94, %.thread29, %_ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit, %_ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit.thread, %_ZL22stbtt__GetGlyphShapeT2PK14stbtt_fontinfoiPP12stbtt_vertex.exit
@@ -32216,7 +32210,7 @@ _ZL22stbtt__GetGlyphShapeTTPK14stbtt_fontinfoiPP12stbtt_vertex.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL22stbtt__tesselate_curveP12stbtt__pointPifffffffi(ptr noundef writeonly captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) unnamed_addr #37 {
+define internal fastcc void @_ZL22stbtt__tesselate_curveP12stbtt__pointPifffffffi(ptr noundef writeonly captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) unnamed_addr #36 {
   %11 = icmp sgt i32 %9, 16
   br i1 %11, label %.loopexit, label %.lr.ph.preheader
 
@@ -32292,7 +32286,7 @@ _ZL16stbtt__add_pointP12stbtt__pointiff.exit:     ; preds = %41, %43
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL22stbtt__tesselate_cubicP12stbtt__pointPifffffffffi(ptr noundef writeonly captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, i32 noundef %11) unnamed_addr #37 {
+define internal fastcc void @_ZL22stbtt__tesselate_cubicP12stbtt__pointPifffffffffi(ptr noundef writeonly captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, i32 noundef %11) unnamed_addr #36 {
   %smax = tail call i32 @llvm.smax.i32(i32 %11, i32 17)
   %exitcond107 = icmp sgt i32 %11, 16
   br i1 %exitcond107, label %.loopexit, label %.lr.ph
@@ -32390,7 +32384,7 @@ _ZL16stbtt__add_pointP12stbtt__pointiff.exit:     ; preds = %64, %66
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL27stbtt__sort_edges_quicksortP11stbtt__edgei(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #37 {
+define internal fastcc void @_ZL27stbtt__sort_edges_quicksortP11stbtt__edgei(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #36 {
   %3 = alloca %struct.stbtt__edge, align 4
   %4 = icmp sgt i32 %1, 12
   br i1 %4, label %.lr.ph, label %._crit_edge
@@ -32398,7 +32392,7 @@ define internal fastcc void @_ZL27stbtt__sort_edges_quicksortP11stbtt__edgei(ptr
 .lr.ph:                                           ; preds = %2, %49
   %.078 = phi ptr [ %.1, %49 ], [ %0, %2 ]
   %.06977 = phi i32 [ %.170, %49 ], [ %1, %2 ]
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = lshr i32 %.06977, 1
   %6 = getelementptr inbounds nuw i8, ptr %.078, i64 4
   %7 = load float, ptr %6, align 4, !tbaa !443
@@ -32491,7 +32485,7 @@ define internal fastcc void @_ZL27stbtt__sort_edges_quicksortP11stbtt__edgei(ptr
 49:                                               ; preds = %48, %47
   %.170 = phi i32 [ %45, %47 ], [ %39, %48 ]
   %.1 = phi ptr [ %28, %47 ], [ %.078, %48 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %50 = icmp sgt i32 %.170, 12
   br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !612
 
@@ -32500,7 +32494,7 @@ define internal fastcc void @_ZL27stbtt__sort_edges_quicksortP11stbtt__edgei(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZL19rect_height_comparePKvS0_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #35 {
+define internal noundef range(i32 -1, 2) i32 @_ZL19rect_height_comparePKvS0_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #34 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 4, !tbaa !394
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -32526,7 +32520,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL19rect_height_comparePKvS0_(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZL19rect_original_orderPKvS0_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #35 {
+define internal noundef range(i32 -1, 2) i32 @_ZL19rect_original_orderPKvS0_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #34 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !412
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -32536,10 +32530,16 @@ define internal noundef range(i32 -1, 2) i32 @_ZL19rect_original_orderPKvS0_(ptr
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #38
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #37
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #38
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #38
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #39
@@ -32569,44 +32569,44 @@ declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #40
 declare float @llvm.sqrt.f32(float) #40
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nounwind memory(argmem: write, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, errnomem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { cold nofree noreturn }
-attributes #26 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #29 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #30 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #31 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #32 = { mustprogress nofree uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #33 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #34 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #35 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #36 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #37 = { mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #38 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree norecurse nounwind memory(argmem: write, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, errnomem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { cold nofree noreturn }
+attributes #25 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #30 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #31 = { mustprogress nofree uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #32 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #33 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #34 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #35 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #36 = { mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #37 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #38 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #39 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #40 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #41 = { nocallback nofree nounwind willreturn memory(argmem: read) }

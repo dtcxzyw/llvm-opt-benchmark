@@ -59,12 +59,9 @@ define void @X509_policy_tree_free(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
 
-declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #2
-
-declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @exnode_free(ptr noundef %0) #0 {
@@ -86,21 +83,18 @@ define internal void @exnode_free(ptr noundef %0) #0 {
   ret void
 }
 
-declare void @X509_free(ptr noundef) local_unnamed_addr #2
+declare void @X509_free(ptr noundef) local_unnamed_addr #1
 
-declare void @ossl_policy_node_free(ptr noundef) #2
+declare void @ossl_policy_node_free(ptr noundef) #1
 
-declare void @ossl_policy_data_free(ptr noundef) #2
+declare void @ossl_policy_data_free(ptr noundef) #1
 
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2, 2) i32 @X509_policy_check(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !33
   store ptr null, ptr %0, align 8, !tbaa !34
   store i32 0, ptr %1, align 4, !tbaa !36
@@ -1034,55 +1028,61 @@ tree_evaluate.exit.thread:                        ; preds = %248, %165, %193, %1
 
 tree_init.exit.thread:                            ; preds = %.lr.ph.i, %28, %56, %5, %123, %66, %453, %tree_evaluate.exit, %128, %tree_evaluate.exit.thread, %457, %.thread57
   %.0 = phi i32 [ 1, %.thread57 ], [ 0, %tree_evaluate.exit.thread ], [ 1, %457 ], [ -2, %128 ], [ %., %tree_evaluate.exit ], [ -2, %453 ], [ 0, %56 ], [ 0, %5 ], [ 0, %123 ], [ 0, %66 ], [ -1, %28 ], [ 0, %.lr.ph.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-declare void @OPENSSL_sk_sort(ptr noundef) local_unnamed_addr #2
+declare void @OPENSSL_sk_sort(ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_policy_tree_get0_user_policies(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_policy_tree_get0_user_policies(ptr noundef) local_unnamed_addr #1
 
-declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
+declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #1
 
-declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @X509_check_purpose(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @X509_check_purpose(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @ossl_policy_cache_set(ptr noundef) local_unnamed_addr #2
+declare ptr @ossl_policy_cache_set(ptr noundef) local_unnamed_addr #1
 
-declare i32 @X509_get_extension_flags(ptr noundef) local_unnamed_addr #2
+declare i32 @X509_get_extension_flags(ptr noundef) local_unnamed_addr #1
 
-declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @ossl_policy_data_new(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @ossl_policy_data_new(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #2
+declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #1
 
-declare ptr @ossl_policy_level_add_node(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @ossl_policy_level_add_node(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @X509_up_ref(ptr noundef) local_unnamed_addr #2
+declare i32 @X509_up_ref(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_policy_node_match(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_policy_node_match(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @ossl_policy_level_find_node(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ossl_policy_level_find_node(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @OPENSSL_sk_delete(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @OPENSSL_sk_delete(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @ossl_policy_node_cmp_new() local_unnamed_addr #2
+declare ptr @ossl_policy_node_cmp_new() local_unnamed_addr #1
 
-declare i32 @OPENSSL_sk_find(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @OPENSSL_sk_find(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #2
+declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #1
 
-declare ptr @ossl_policy_tree_find_sk(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ossl_policy_tree_find_sk(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #2
+declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

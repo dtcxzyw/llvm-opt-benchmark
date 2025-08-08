@@ -1584,8 +1584,8 @@ has_bottom_left.exit:                             ; preds = %has_top_right.exit,
   br i1 %.not197, label %928, label %308
 
 308:                                              ; preds = %has_bottom_left.exit
-  call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %24)
-  call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %309 = ptrtoint ptr %11 to i64
   %310 = shl i64 %309, 1
   %311 = inttoptr i64 %310 to ptr
@@ -1879,7 +1879,7 @@ has_bottom_left.exit:                             ; preds = %has_top_right.exit,
 
 470:                                              ; preds = %467
   %471 = load i32, ptr %330, align 16
-  call void @llvm.lifetime.start.p0(i64 2178, ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %smax.i.i = call i32 @llvm.smax.i32(i32 %33, i32 1)
   %wide.trip.count.i.i = zext nneg i32 %smax.i.i to i64
   br label %.lr.ph.i.i
@@ -2044,7 +2044,7 @@ clip_pixel_highbd.exit.i.i:                       ; preds = %562, %560, %558
   br i1 %exitcond103.not.i.i, label %highbd_filter_intra_predictor.exit.i, label %571, !llvm.loop !46
 
 highbd_filter_intra_predictor.exit.i:             ; preds = %571
-  call void @llvm.lifetime.end.p0(i64 2178, ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %build_intra_predictors_high.exit
 
 .thread.i:                                        ; preds = %467, %449
@@ -2231,7 +2231,7 @@ av1_use_intra_edge_upsample.exit.i:               ; preds = %660
   %667 = select i1 %576, i32 %33, i32 0
   %668 = add nsw i32 %667, %31
   %669 = load i32, ptr %330, align 16
-  call void @llvm.lifetime.start.p0(i64 38, ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %670 = getelementptr inbounds nuw i8, ptr %25, i64 30
   %671 = load i16, ptr %670, align 2
   store i16 %671, ptr %22, align 16
@@ -2317,7 +2317,7 @@ clip_pixel_highbd.exit.i289.i:                    ; preds = %706, %704, %702
   br i1 %exitcond.not.i292.i, label %av1_upsample_intra_edge_high_c.exit.i, label %.lr.ph34.i.i, !llvm.loop !34
 
 av1_upsample_intra_edge_high_c.exit.i:            ; preds = %clip_pixel_highbd.exit.i289.i, %._crit_edge.i.i
-  call void @llvm.lifetime.end.p0(i64 38, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %av1_use_intra_edge_upsample.exit.thread.i
 
 av1_use_intra_edge_upsample.exit.thread.i:        ; preds = %av1_upsample_intra_edge_high_c.exit.i, %av1_use_intra_edge_upsample.exit.i, %660
@@ -2340,7 +2340,7 @@ av1_use_intra_edge_upsample.exit298.i:            ; preds = %av1_use_intra_edge_
   %716 = select i1 %577, i32 %31, i32 0
   %717 = add nsw i32 %716, %33
   %718 = load i32, ptr %330, align 16
-  call void @llvm.lifetime.start.p0(i64 38, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %719 = getelementptr inbounds nuw i8, ptr %24, i64 30
   %720 = load i16, ptr %719, align 2
   store i16 %720, ptr %21, align 16
@@ -2426,7 +2426,7 @@ clip_pixel_highbd.exit.i309.i:                    ; preds = %755, %753, %751
   br i1 %exitcond.not.i313.i, label %av1_upsample_intra_edge_high_c.exit316.i, label %.lr.ph34.i305.i, !llvm.loop !34
 
 av1_upsample_intra_edge_high_c.exit316.i:         ; preds = %clip_pixel_highbd.exit.i309.i, %._crit_edge.i299.i
-  call void @llvm.lifetime.end.p0(i64 38, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %av1_use_intra_edge_upsample.exit298.thread.i
 
 av1_use_intra_edge_upsample.exit298.thread.i:     ; preds = %av1_upsample_intra_edge_high_c.exit316.i, %av1_use_intra_edge_upsample.exit298.i, %av1_use_intra_edge_upsample.exit.thread.i, %574
@@ -2753,13 +2753,13 @@ av1_highbd_dr_prediction_z1_c.exit.sink.split.i.i: ; preds = %906, %905
   br label %build_intra_predictors_high.exit
 
 build_intra_predictors_high.exit:                 ; preds = %.loopexit.us.i.i.i, %._crit_edge.us.i71.i.i, %._crit_edge.us.i.i.i, %809, %362, %highbd_filter_intra_predictor.exit.i, %.preheader.i.i.i, %905, %av1_highbd_dr_prediction_z1_c.exit.sink.split.i.i, %911, %922
-  call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %.loopexit
 
 928:                                              ; preds = %has_bottom_left.exit
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %929 = sext i32 %10 to i64
   %930 = sub nsw i64 0, %929
   %931 = getelementptr inbounds i8, ptr %9, i64 %930
@@ -3212,7 +3212,7 @@ av1_use_intra_edge_upsample.exit.i290:            ; preds = %1147
 1154:                                             ; preds = %av1_use_intra_edge_upsample.exit.i290
   %1155 = select i1 %1063, i32 %33, i32 0
   %1156 = add nsw i32 %1155, %31
-  call void @llvm.lifetime.start.p0(i64 19, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %1157 = getelementptr inbounds nuw i8, ptr %20, i64 15
   %1158 = load i8, ptr %1157, align 1
   store i8 %1158, ptr %18, align 16
@@ -3279,7 +3279,7 @@ av1_use_intra_edge_upsample.exit.i290:            ; preds = %1147
   br i1 %exitcond.not.i.i301, label %av1_upsample_intra_edge_c.exit.i, label %.lr.ph32.i.i, !llvm.loop !33
 
 av1_upsample_intra_edge_c.exit.i:                 ; preds = %.lr.ph32.i.i, %._crit_edge.i.i296
-  call void @llvm.lifetime.end.p0(i64 19, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %av1_use_intra_edge_upsample.exit.thread.i294
 
 av1_use_intra_edge_upsample.exit.thread.i294:     ; preds = %av1_upsample_intra_edge_c.exit.i, %av1_use_intra_edge_upsample.exit.i290, %1147
@@ -3302,7 +3302,7 @@ av1_use_intra_edge_upsample.exit275.i:            ; preds = %av1_use_intra_edge_
 1199:                                             ; preds = %av1_use_intra_edge_upsample.exit275.i
   %1200 = select i1 %1064, i32 %31, i32 0
   %1201 = add nsw i32 %1200, %33
-  call void @llvm.lifetime.start.p0(i64 19, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %1202 = getelementptr inbounds nuw i8, ptr %19, i64 15
   %1203 = load i8, ptr %1202, align 1
   store i8 %1203, ptr %17, align 16
@@ -3369,7 +3369,7 @@ av1_use_intra_edge_upsample.exit275.i:            ; preds = %av1_use_intra_edge_
   br i1 %exitcond.not.i286.i, label %av1_upsample_intra_edge_c.exit289.i, label %.lr.ph32.i282.i, !llvm.loop !33
 
 av1_upsample_intra_edge_c.exit289.i:              ; preds = %.lr.ph32.i282.i, %._crit_edge.i276.i
-  call void @llvm.lifetime.end.p0(i64 19, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %av1_use_intra_edge_upsample.exit275.thread.i
 
 av1_use_intra_edge_upsample.exit275.thread.i:     ; preds = %av1_upsample_intra_edge_c.exit289.i, %av1_use_intra_edge_upsample.exit275.i, %av1_use_intra_edge_upsample.exit.thread.i294, %1061
@@ -3690,8 +3690,8 @@ av1_dr_prediction_z1_c.exit.sink.split.i.i:       ; preds = %1382, %1381
   br label %build_intra_predictors.exit
 
 build_intra_predictors.exit:                      ; preds = %.loopexit.us.i.i.i234, %._crit_edge.us.i66.i.i, %._crit_edge.us.i.i.i277, %1288, %967, %1059, %.preheader.i.i.i265, %1381, %av1_dr_prediction_z1_c.exit.sink.split.i.i, %1387, %1397
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us370, %build_intra_predictors.exit, %build_intra_predictors_high.exit
@@ -5100,10 +5100,10 @@ declare i32 @llvm.umax.i32(i32, i32) #9
 declare i32 @llvm.umin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

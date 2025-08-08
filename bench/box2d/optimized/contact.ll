@@ -606,18 +606,12 @@ b2ContactSimArray_Add.exit:                       ; preds = %.b2ContactSimArray_
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
 declare i32 @b2AllocId(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 declare zeroext i1 @b2AddKey(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define hidden void @b2DestroyContact(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
@@ -928,7 +922,7 @@ declare void @b2FreeId(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare zeroext i1 @b2WakeBody(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @b2GetContactSim(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
+define hidden ptr @b2GetContactSim(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = load i32, ptr %1, align 4, !tbaa !83
   %4 = icmp eq i32 %3, 2
   br i1 %4, label %5, label %12
@@ -964,7 +958,7 @@ define hidden ptr @b2GetContactSim(ptr noundef readonly captures(none) %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden zeroext i1 @b2ShouldShapesCollide(ptr noundef readonly byval(%struct.b2Filter) align 8 captures(none) %0, ptr noundef readonly byval(%struct.b2Filter) align 8 captures(none) %1) local_unnamed_addr #8 {
+define hidden zeroext i1 @b2ShouldShapesCollide(ptr noundef readonly byval(%struct.b2Filter) align 8 captures(none) %0, ptr noundef readonly byval(%struct.b2Filter) align 8 captures(none) %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !144
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1001,7 +995,7 @@ define hidden zeroext i1 @b2ShouldShapesCollide(ptr noundef readonly byval(%stru
 define hidden noundef zeroext i1 @b2UpdateContact(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, <2 x float> %3, <2 x float> %4, <2 x float> %5, ptr noundef %6, <2 x float> %7, <2 x float> %8, <2 x float> %9) local_unnamed_addr #4 {
   %11 = alloca %struct.b2Manifold, align 4
   %12 = alloca %struct.b2Manifold, align 4
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %11, ptr noundef nonnull align 4 dereferenceable(112) %13, i64 112, i1 false), !tbaa.struct !147
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -1013,11 +1007,11 @@ define hidden noundef zeroext i1 @b2UpdateContact(ptr noundef readonly captures(
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds nuw [5 x %struct.b2ContactRegister], ptr %17, i64 0, i64 %20
   %22 = load ptr, ptr %21, align 16, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 168
   call void %22(ptr dead_on_unwind nonnull writable sret(%struct.b2Manifold) align 4 %12, ptr noundef %2, <2 x float> %3, <2 x float> %4, ptr noundef %6, <2 x float> %7, <2 x float> %8, ptr noundef nonnull %23) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %13, ptr noundef nonnull align 4 dereferenceable(112) %12, i64 112, i1 false), !tbaa.struct !147
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %12) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1576
   %25 = load ptr, ptr %24, align 8, !tbaa !119
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -1303,7 +1297,7 @@ b2GetShapeRadius.exit123:                         ; preds = %b2GetShapeRadius.ex
   %masksel = select i1 %.0111.in133138, i32 65536, i32 0
   %.sink163 = or disjoint i32 %168, %masksel
   store i32 %.sink163, ptr %166, align 4, !tbaa !127
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %11) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i1 %.0111.in133138
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit
@@ -1338,10 +1332,10 @@ define hidden void @b2ComputeManifold(ptr dead_on_unwind noalias writable sret(%
   %15 = zext i32 %14 to i64
   %16 = getelementptr inbounds nuw [5 x %struct.b2ContactRegister], ptr %12, i64 0, i64 %15
   %17 = load ptr, ptr %16, align 16, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8
   call void %17(ptr dead_on_unwind writable sret(%struct.b2Manifold) align 4 %0, ptr noundef %1, <2 x float> %2, <2 x float> %3, ptr noundef %4, <2 x float> %5, <2 x float> %6, ptr noundef nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -1371,15 +1365,21 @@ declare void @b2CollideChainSegmentAndPolygon(ptr dead_on_unwind writable sret(%
 
 declare void @b2ContactEndTouchEventArray_Reserve(ptr noundef, i32 noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

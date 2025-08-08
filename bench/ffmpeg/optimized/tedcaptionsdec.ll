@@ -114,18 +114,18 @@ select.unfold.preheader:                          ; preds = %1
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8, !tbaa !30
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #7
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %22) #7
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %23) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @av_bprint_init(ptr noundef nonnull %23, i32 noundef 0, i32 noundef -1) #7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %20) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %30 = call i32 @avio_read(ptr noundef %28, ptr noundef nonnull %20, i32 noundef 1) #7
   %31 = icmp sgt i32 %30, 0
   %32 = load i8, ptr %20, align 1
   %33 = zext i8 %32 to i32
   %34 = icmp eq i32 %30, 0
   %35 = select i1 %34, i32 -541478725, i32 %30
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %spec.select = select i1 %31, i32 %33, i32 %35
   br label %select.unfold
 
@@ -140,19 +140,19 @@ select.unfold:                                    ; preds = %.critedge.i.i.i, %s
   ]
 
 .critedge.i.i.i:                                  ; preds = %select.unfold, %select.unfold, %select.unfold, %select.unfold
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %19) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %37 = call i32 @avio_read(ptr noundef %28, ptr noundef nonnull %19, i32 noundef 1) #7
   %38 = icmp sgt i32 %37, 0
   %39 = load i8, ptr %19, align 1
   %40 = zext i8 %39 to i32
   %41 = icmp eq i32 %37, 0
   %42 = select i1 %41, i32 -541478725, i32 %37
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %.be172 = select i1 %38, i32 %40, i32 %42
   br label %select.unfold
 
 43:                                               ; preds = %select.unfold
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %18) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %44 = call i32 @avio_read(ptr noundef %28, ptr noundef nonnull %18, i32 noundef 1) #7
   %45 = icmp sgt i32 %44, 0
   %46 = load i8, ptr %18, align 1
@@ -161,7 +161,7 @@ select.unfold:                                    ; preds = %.critedge.i.i.i, %s
   %49 = select i1 %48, i32 -541478725, i32 %44
   %50 = select i1 %45, i32 %47, i32 %49
   store i32 %50, ptr %21, align 4, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %51 = call fastcc i32 @parse_label(ptr noundef %28, ptr noundef %21, ptr noundef %22)
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %.sink.split, label %53
@@ -187,19 +187,19 @@ select.unfold35:                                  ; preds = %.critedge.i.i62.i, 
   ]
 
 .critedge.i.i62.i:                                ; preds = %select.unfold35, %select.unfold35, %select.unfold35, %select.unfold35
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %58 = call i32 @avio_read(ptr noundef %28, ptr noundef nonnull %17, i32 noundef 1) #7
   %59 = icmp sgt i32 %58, 0
   %60 = load i8, ptr %17, align 1
   %61 = zext i8 %60 to i32
   %62 = icmp eq i32 %58, 0
   %63 = select i1 %62, i32 -541478725, i32 %58
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.be170 = select i1 %59, i32 %61, i32 %63
   br label %select.unfold35
 
 expect_byte.exit67.i:                             ; preds = %select.unfold35
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %64 = call i32 @avio_read(ptr noundef %28, ptr noundef nonnull %16, i32 noundef 1) #7
   %65 = icmp sgt i32 %64, 0
   %66 = load i8, ptr %16, align 1
@@ -207,7 +207,7 @@ expect_byte.exit67.i:                             ; preds = %select.unfold35
   %68 = icmp eq i32 %64, 0
   %69 = select i1 %68, i32 -541478725, i32 %64
   %70 = select i1 %65, i32 %67, i32 %69
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %71 = getelementptr inbounds nuw i8, ptr %23, i64 12
   br label %select.unfold36
 
@@ -222,14 +222,14 @@ select.unfold36:                                  ; preds = %select.unfold36.bac
   ]
 
 .critedge.i.i69.i:                                ; preds = %select.unfold36, %select.unfold36, %select.unfold36, %select.unfold36
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %73 = call i32 @avio_read(ptr noundef %28, ptr noundef nonnull %15, i32 noundef 1) #7
   %74 = icmp sgt i32 %73, 0
   %75 = load i8, ptr %15, align 1
   %76 = zext i8 %75 to i32
   %77 = icmp eq i32 %73, 0
   %78 = select i1 %77, i32 -541478725, i32 %73
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.be167 = select i1 %74, i32 %76, i32 %78
   br label %select.unfold36.backedge
 
@@ -242,7 +242,7 @@ select.unfold36.backedge:                         ; preds = %.critedge.i.i69.i, 
   br i1 %80, label %select.unfold45, label %.thread53
 
 81:                                               ; preds = %select.unfold36
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %82 = call i32 @avio_read(ptr noundef %28, ptr noundef nonnull %14, i32 noundef 1) #7
   %83 = icmp sgt i32 %82, 0
   %84 = load i8, ptr %14, align 1
@@ -251,7 +251,7 @@ select.unfold36.backedge:                         ; preds = %.critedge.i.i69.i, 
   %87 = select i1 %86, i32 -541478725, i32 %82
   %88 = select i1 %83, i32 %85, i32 %87
   store i32 %88, ptr %21, align 4, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %89 = call i64 @avio_seek(ptr noundef %28, i64 noundef 0, i32 noundef 1) #7
   %90 = add nsw i64 %89, -1
   %91 = call fastcc i32 @parse_label(ptr noundef %28, ptr noundef %21, ptr noundef %22)
@@ -280,14 +280,14 @@ select.unfold37:                                  ; preds = %.critedge.i.i76.i, 
   ]
 
 .critedge.i.i76.i:                                ; preds = %select.unfold37, %select.unfold37, %select.unfold37, %select.unfold37
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %96 = call i32 @avio_read(ptr noundef %28, ptr noundef nonnull %13, i32 noundef 1) #7
   %97 = icmp sgt i32 %96, 0
   %98 = load i8, ptr %13, align 1
   %99 = zext i8 %98 to i32
   %100 = icmp eq i32 %96, 0
   %101 = select i1 %100, i32 -541478725, i32 %96
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.promoted168.i.be = select i1 %97, i32 %99, i32 %101
   br label %select.unfold37
 
@@ -313,7 +313,7 @@ skip_spaces.exit.preheader.i.i:                   ; preds = %select.unfold37, %s
 .lr.ph.i:                                         ; preds = %.preheader.i.i, %.lr.ph.i.i
   %.01626.i172.i = phi ptr [ %108, %.lr.ph.i.i ], [ %104, %.preheader.i.i ]
   %108 = getelementptr inbounds nuw i8, ptr %.01626.i172.i, i64 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %109 = call i32 @avio_read(ptr noundef %28, ptr noundef nonnull %12, i32 noundef 1) #7
   %110 = icmp sgt i32 %109, 0
   %111 = load i8, ptr %12, align 1
@@ -321,7 +321,7 @@ skip_spaces.exit.preheader.i.i:                   ; preds = %select.unfold37, %s
   %113 = icmp eq i32 %109, 0
   %114 = select i1 %113, i32 -541478725, i32 %109
   %115 = select i1 %110, i32 %112, i32 %114
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.pr.i.i = load i8, ptr %108, align 1, !tbaa !11
   %.not19.i.i = icmp eq i8 %.pr.i.i, 0
   br i1 %.not19.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !34
@@ -369,14 +369,14 @@ select.unfold38:                                  ; preds = %.critedge.i.i80.i, 
   ]
 
 .critedge.i.i80.i:                                ; preds = %select.unfold38, %select.unfold38, %select.unfold38, %select.unfold38
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %129 = call i32 @avio_read(ptr noundef %28, ptr noundef nonnull %11, i32 noundef 1) #7
   %130 = icmp sgt i32 %129, 0
   %131 = load i8, ptr %11, align 1
   %132 = zext i8 %131 to i32
   %133 = icmp eq i32 %129, 0
   %134 = select i1 %133, i32 -541478725, i32 %129
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.be = select i1 %130, i32 %132, i32 %134
   br label %select.unfold38
 
@@ -401,7 +401,7 @@ skip_spaces.exit.i81.i:                           ; preds = %select.unfold38
   %143 = mul nsw i64 %.015.i165.i, 10
   %144 = zext nneg i32 %142 to i64
   %145 = add nsw i64 %143, %144
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %146 = call i32 @avio_read(ptr noundef %28, ptr noundef nonnull %10, i32 noundef 1) #7
   %147 = icmp sgt i32 %146, 0
   %148 = load i8, ptr %10, align 1
@@ -409,7 +409,7 @@ skip_spaces.exit.i81.i:                           ; preds = %select.unfold38
   %150 = icmp eq i32 %146, 0
   %151 = select i1 %150, i32 -541478725, i32 %146
   %152 = select i1 %147, i32 %149, i32 %151
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %153 = add nsw i32 %152, -48
   %154 = icmp ult i32 %153, 10
   br i1 %154, label %.lr.ph.i82.i, label %parse_boolean.exit.i, !llvm.loop !36
@@ -433,14 +433,14 @@ select.unfold39:                                  ; preds = %.critedge.i.i85.i, 
   ]
 
 .critedge.i.i85.i:                                ; preds = %select.unfold39, %select.unfold39, %select.unfold39, %select.unfold39
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %159 = call i32 @avio_read(ptr noundef %28, ptr noundef nonnull %9, i32 noundef 1) #7
   %160 = icmp sgt i32 %159, 0
   %161 = load i8, ptr %9, align 1
   %162 = zext i8 %161 to i32
   %163 = icmp eq i32 %159, 0
   %164 = select i1 %163, i32 -541478725, i32 %159
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.be163 = select i1 %160, i32 %162, i32 %164
   br label %select.unfold39
 
@@ -465,7 +465,7 @@ skip_spaces.exit.i86.i:                           ; preds = %select.unfold39
   %173 = mul nsw i64 %.015.i89159.i, 10
   %174 = zext nneg i32 %172 to i64
   %175 = add nsw i64 %173, %174
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %176 = call i32 @avio_read(ptr noundef %28, ptr noundef nonnull %8, i32 noundef 1) #7
   %177 = icmp sgt i32 %176, 0
   %178 = load i8, ptr %8, align 1
@@ -473,7 +473,7 @@ skip_spaces.exit.i86.i:                           ; preds = %select.unfold39
   %180 = icmp eq i32 %176, 0
   %181 = select i1 %180, i32 -541478725, i32 %176
   %182 = select i1 %177, i32 %179, i32 %181
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %183 = add nsw i32 %182, -48
   %184 = icmp ult i32 %183, 10
   br i1 %184, label %.lr.ph.i88.i, label %parse_boolean.exit.i, !llvm.loop !36
@@ -495,19 +495,19 @@ select.unfold40:                                  ; preds = %.critedge.i.i, %par
   ]
 
 .critedge.i.i:                                    ; preds = %select.unfold40, %select.unfold40, %select.unfold40, %select.unfold40
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %185 = call i32 @avio_read(ptr noundef %28, ptr noundef nonnull %7, i32 noundef 1) #7
   %186 = icmp sgt i32 %185, 0
   %187 = load i8, ptr %7, align 1
   %188 = zext i8 %187 to i32
   %189 = icmp eq i32 %185, 0
   %190 = select i1 %189, i32 -541478725, i32 %185
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.promoted189.i.be = select i1 %186, i32 %188, i32 %190
   br label %select.unfold40
 
 191:                                              ; preds = %select.unfold40
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %192 = call i32 @avio_read(ptr noundef %28, ptr noundef nonnull %6, i32 noundef 1) #7
   %193 = icmp sgt i32 %192, 0
   %194 = load i8, ptr %6, align 1
@@ -516,7 +516,7 @@ select.unfold40:                                  ; preds = %.critedge.i.i, %par
   %197 = select i1 %196, i32 -541478725, i32 %192
   %198 = select i1 %193, i32 %195, i32 %197
   store i32 %198, ptr %21, align 4, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %199 = call fastcc i32 @parse_label(ptr noundef %28, ptr noundef %21, ptr noundef %22)
   %200 = icmp slt i32 %199, 0
   br i1 %200, label %select.unfold45, label %.lr.ph178.i
@@ -532,14 +532,14 @@ select.unfold40:                                  ; preds = %.critedge.i.i, %par
   ]
 
 .critedge.i.i95.i:                                ; preds = %.preheader.i, %.preheader.i, %.preheader.i, %.preheader.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %202 = call i32 @avio_read(ptr noundef %28, ptr noundef nonnull %5, i32 noundef 1) #7
   %203 = icmp sgt i32 %202, 0
   %204 = load i8, ptr %5, align 1
   %205 = zext i8 %204 to i32
   %206 = icmp eq i32 %202, 0
   %207 = select i1 %206, i32 -541478725, i32 %202
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.be165 = select i1 %203, i32 %205, i32 %207
   br label %.preheader.i
 
@@ -548,7 +548,7 @@ select.unfold40:                                  ; preds = %.critedge.i.i, %par
   br i1 %209, label %select.unfold45, label %.thread53
 
 210:                                              ; preds = %.preheader.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %211 = call i32 @avio_read(ptr noundef %28, ptr noundef nonnull %4, i32 noundef 1) #7
   %212 = icmp sgt i32 %211, 0
   %213 = load i8, ptr %4, align 1
@@ -556,7 +556,7 @@ select.unfold40:                                  ; preds = %.critedge.i.i, %par
   %215 = icmp eq i32 %211, 0
   %216 = select i1 %215, i32 -541478725, i32 %211
   %217 = select i1 %212, i32 %214, i32 %216
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %218 = load i32, ptr %71, align 4, !tbaa !37
   %219 = icmp eq i32 %218, 0
   %220 = icmp eq i64 %.1109.i, -9223372036854775808
@@ -572,9 +572,9 @@ select.unfold40:                                  ; preds = %.critedge.i.i, %par
 
 .thread55:                                        ; preds = %222
   %224 = call i32 @av_bprint_finalize(ptr noundef nonnull %23, ptr noundef null) #7
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %23) #7
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %22) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %289
 
 225:                                              ; preds = %222
@@ -597,14 +597,14 @@ select.unfold42:                                  ; preds = %.critedge.i102.i, %
   ]
 
 .critedge.i102.i:                                 ; preds = %select.unfold42, %select.unfold42, %select.unfold42, %select.unfold42
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %230 = call i32 @avio_read(ptr noundef %28, ptr noundef nonnull %3, i32 noundef 1) #7
   %231 = icmp sgt i32 %230, 0
   %232 = load i8, ptr %3, align 1
   %233 = zext i8 %232 to i32
   %234 = icmp eq i32 %230, 0
   %235 = select i1 %234, i32 -541478725, i32 %230
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.be164 = select i1 %231, i32 %233, i32 %235
   br label %select.unfold42
 
@@ -614,7 +614,7 @@ skip_spaces.exit103.i:                            ; preds = %select.unfold42
   br i1 %.not59.i, label %236, label %244
 
 236:                                              ; preds = %skip_spaces.exit103.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %237 = call i32 @avio_read(ptr noundef %28, ptr noundef nonnull %2, i32 noundef 1) #7
   %238 = icmp sgt i32 %237, 0
   %239 = load i8, ptr %2, align 1
@@ -623,7 +623,7 @@ skip_spaces.exit103.i:                            ; preds = %select.unfold42
   %242 = select i1 %241, i32 -541478725, i32 %237
   %243 = select i1 %238, i32 %240, i32 %242
   store i32 %243, ptr %21, align 4, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %select.unfold36.backedge
 
 244:                                              ; preds = %skip_spaces.exit103.i
@@ -653,16 +653,16 @@ skip_spaces.exit103.i:                            ; preds = %select.unfold42
 select.unfold45:                                  ; preds = %81, %191, %122, %208, %79, %252, %244, %247
   %.041.i.ph = phi i32 [ %248, %247 ], [ %245, %244 ], [ %251, %252 ], [ %72, %79 ], [ %201, %208 ], [ %199, %191 ], [ %123, %122 ], [ %91, %81 ]
   %255 = call i32 @av_bprint_finalize(ptr noundef nonnull %23, ptr noundef null) #7
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %23) #7
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %22) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %256 = icmp eq i32 %.041.i.ph, -1094995529
   br i1 %256, label %257, label %289
 
 .sink.split:                                      ; preds = %select.unfold, %select.unfold35, %53, %43, %.thread53
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %23) #7
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %22) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %257
 
 257:                                              ; preds = %.sink.split, %select.unfold45
@@ -673,9 +673,9 @@ select.unfold45:                                  ; preds = %81, %191, %122, %20
 
 260:                                              ; preds = %250
   %261 = call i32 @av_bprint_finalize(ptr noundef nonnull %23, ptr noundef null) #7
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %23) #7
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %22) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @ff_subtitles_queue_finalize(ptr noundef %0, ptr noundef nonnull %29) #7
   %262 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %263 = load i32, ptr %262, align 8, !tbaa !45
@@ -761,20 +761,14 @@ define internal i32 @tedcaptions_read_seek(ptr noundef %0, i32 noundef %1, i64 n
 
 declare ptr @av_default_item_name(ptr noundef) #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @avformat_new_stream(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -803,7 +797,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @expect_byte(ptr noundef %0
   ]
 
 .critedge.i:                                      ; preds = %6, %6, %6, %6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = call i32 @avio_read(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 1) #7
   %9 = icmp sgt i32 %8, 0
   %10 = load i8, ptr %5, align 1
@@ -812,7 +806,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @expect_byte(ptr noundef %0
   %13 = select i1 %12, i32 -541478725, i32 %8
   %14 = select i1 %9, i32 %11, i32 %13
   store i32 %14, ptr %1, align 4, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %6, !llvm.loop !76
 
 skip_spaces.exit:                                 ; preds = %6
@@ -826,7 +820,7 @@ skip_spaces.exit:                                 ; preds = %6
   br label %26
 
 18:                                               ; preds = %skip_spaces.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %19 = call i32 @avio_read(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 1) #7
   %20 = icmp sgt i32 %19, 0
   %21 = load i8, ptr %4, align 1
@@ -835,7 +829,7 @@ skip_spaces.exit:                                 ; preds = %6
   %24 = select i1 %23, i32 -541478725, i32 %19
   %25 = select i1 %20, i32 %22, i32 %24
   store i32 %25, ptr %1, align 4, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %26
 
 26:                                               ; preds = %18, %16
@@ -867,7 +861,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_label(ptr noundef %0
   ]
 
 .critedge.i.i:                                    ; preds = %9, %9, %9, %9
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = call i32 @avio_read(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 1) #7
   %12 = icmp sgt i32 %11, 0
   %13 = load i8, ptr %5, align 1
@@ -876,7 +870,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_label(ptr noundef %0
   %16 = select i1 %15, i32 -541478725, i32 %11
   %17 = select i1 %12, i32 %14, i32 %16
   store i32 %17, ptr %1, align 4, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %9, !llvm.loop !76
 
 18:                                               ; preds = %9
@@ -885,7 +879,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_label(ptr noundef %0
   br label %select.unfold
 
 expect_byte.exit:                                 ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %20 = call i32 @avio_read(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 1) #7
   %21 = icmp sgt i32 %20, 0
   %22 = load i8, ptr %4, align 1
@@ -894,7 +888,7 @@ expect_byte.exit:                                 ; preds = %9
   %25 = select i1 %24, i32 -541478725, i32 %20
   %26 = select i1 %21, i32 %23, i32 %25
   store i32 %26, ptr %1, align 4, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %select.unfold
 
 select.unfold:                                    ; preds = %18, %expect_byte.exit, %3
@@ -903,7 +897,7 @@ select.unfold:                                    ; preds = %18, %expect_byte.ex
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 58, 48) i32 @parse_string(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #2 {
@@ -928,7 +922,7 @@ define internal fastcc range(i32 58, 48) i32 @parse_string(ptr noundef %0, ptr n
   ]
 
 .critedge.i.i:                                    ; preds = %12, %12, %12, %12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %14 = call i32 @avio_read(ptr noundef %0, ptr noundef nonnull %11, i32 noundef 1) #7
   %15 = icmp sgt i32 %14, 0
   %16 = load i8, ptr %11, align 1
@@ -937,7 +931,7 @@ define internal fastcc range(i32 58, 48) i32 @parse_string(ptr noundef %0, ptr n
   %19 = select i1 %18, i32 -541478725, i32 %14
   %20 = select i1 %15, i32 %17, i32 %19
   store i32 %20, ptr %1, align 4, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %12, !llvm.loop !76
 
 21:                                               ; preds = %12
@@ -946,7 +940,7 @@ define internal fastcc range(i32 58, 48) i32 @parse_string(ptr noundef %0, ptr n
   br label %expect_byte.exit.thread
 
 expect_byte.exit:                                 ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %23 = call i32 @avio_read(ptr noundef %0, ptr noundef nonnull %10, i32 noundef 1) #7
   %24 = icmp sgt i32 %23, 0
   %25 = load i8, ptr %10, align 1
@@ -955,7 +949,7 @@ expect_byte.exit:                                 ; preds = %12
   %28 = select i1 %27, i32 -541478725, i32 %23
   %29 = select i1 %24, i32 %26, i32 %28
   store i32 %29, ptr %1, align 4, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %30 = icmp slt i32 %29, 1
   %.not76 = icmp eq i32 %29, 34
   %or.cond77 = or i1 %30, %.not76
@@ -967,7 +961,7 @@ expect_byte.exit:                                 ; preds = %12
   br i1 %32, label %33, label %av_bprint_utf8.exit.thread.sink.split
 
 33:                                               ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %34 = call i32 @avio_read(ptr noundef %0, ptr noundef nonnull %9, i32 noundef 1) #7
   %35 = icmp sgt i32 %34, 0
   %36 = load i8, ptr %9, align 1
@@ -976,7 +970,7 @@ expect_byte.exit:                                 ; preds = %12
   %39 = select i1 %38, i32 -541478725, i32 %34
   %40 = select i1 %35, i32 %37, i32 %39
   store i32 %40, ptr %1, align 4, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %41 = icmp slt i32 %40, 0
   br i1 %41, label %expect_byte.exit.thread, label %42
 
@@ -988,7 +982,7 @@ expect_byte.exit:                                 ; preds = %12
 .preheader:                                       ; preds = %42, %.preheader._crit_edge
   %.075 = phi i32 [ %63, %.preheader._crit_edge ], [ 0, %42 ]
   %.03874 = phi i32 [ %62, %.preheader._crit_edge ], [ 0, %42 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %45 = call i32 @avio_read(ptr noundef %0, ptr noundef nonnull %8, i32 noundef 1) #7
   %46 = icmp sgt i32 %45, 0
   %47 = load i8, ptr %8, align 1
@@ -997,7 +991,7 @@ expect_byte.exit:                                 ; preds = %12
   %50 = select i1 %49, i32 -541478725, i32 %45
   %51 = select i1 %46, i32 %48, i32 %50
   store i32 %51, ptr %1, align 4, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %52 = add nsw i32 %51, -48
   %53 = icmp ult i32 %52, 10
   br i1 %53, label %.preheader._crit_edge, label %54
@@ -1074,7 +1068,7 @@ av_bprint_utf8.exit.thread.sink.split:            ; preds = %.lr.ph, %42, %64
   br label %av_bprint_utf8.exit.thread
 
 av_bprint_utf8.exit.thread:                       ; preds = %.lr.ph.i, %av_bprint_utf8.exit.thread.sink.split, %66
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %90 = call i32 @avio_read(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 1) #7
   %91 = icmp sgt i32 %90, 0
   %92 = load i8, ptr %7, align 1
@@ -1083,7 +1077,7 @@ av_bprint_utf8.exit.thread:                       ; preds = %.lr.ph.i, %av_bprin
   %95 = select i1 %94, i32 -541478725, i32 %90
   %96 = select i1 %91, i32 %93, i32 %95
   store i32 %96, ptr %1, align 4, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %97 = icmp slt i32 %96, 1
   %.not = icmp eq i32 %96, 34
   %or.cond = or i1 %97, %.not
@@ -1104,7 +1098,7 @@ av_bprint_utf8.exit.thread:                       ; preds = %.lr.ph.i, %av_bprin
   ]
 
 .critedge.i.i53:                                  ; preds = %.critedge, %.critedge, %.critedge, %.critedge
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %99 = call i32 @avio_read(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 1) #7
   %100 = icmp sgt i32 %99, 0
   %101 = load i8, ptr %6, align 1
@@ -1113,7 +1107,7 @@ av_bprint_utf8.exit.thread:                       ; preds = %.lr.ph.i, %av_bprin
   %104 = select i1 %103, i32 -541478725, i32 %99
   %105 = select i1 %100, i32 %102, i32 %104
   store i32 %105, ptr %1, align 4, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge, !llvm.loop !76
 
 106:                                              ; preds = %.critedge
@@ -1122,7 +1116,7 @@ av_bprint_utf8.exit.thread:                       ; preds = %.lr.ph.i, %av_bprin
   br label %expect_byte.exit.thread
 
 108:                                              ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %109 = call i32 @avio_read(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 1) #7
   %110 = icmp sgt i32 %109, 0
   %111 = load i8, ptr %5, align 1
@@ -1131,7 +1125,7 @@ av_bprint_utf8.exit.thread:                       ; preds = %.lr.ph.i, %av_bprin
   %114 = select i1 %113, i32 -541478725, i32 %109
   %115 = select i1 %110, i32 %112, i32 %114
   store i32 %115, ptr %1, align 4, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not48 = icmp eq i32 %3, 0
   br i1 %.not48, label %119, label %116
 
@@ -1167,7 +1161,7 @@ define internal fastcc void @skip_spaces(ptr noundef %0, ptr noundef nonnull cap
   ]
 
 .critedge:                                        ; preds = %4, %4, %4, %4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = call i32 @avio_read(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 1) #7
   %7 = icmp sgt i32 %6, 0
   %8 = load i8, ptr %3, align 1
@@ -1176,7 +1170,7 @@ define internal fastcc void @skip_spaces(ptr noundef %0, ptr noundef nonnull cap
   %11 = select i1 %10, i32 -541478725, i32 %6
   %12 = select i1 %7, i32 %9, i32 %11
   store i32 %12, ptr %1, align 4, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %4, !llvm.loop !76
 
 13:                                               ; preds = %4
@@ -1201,12 +1195,18 @@ declare void @ff_subtitles_queue_clean(ptr noundef) local_unnamed_addr #3
 
 declare i32 @ff_subtitles_queue_seek(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 attributes #0 = { cold nofree norecurse nounwind optsize memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind willreturn memory(read) }
 attributes #7 = { nounwind }
 

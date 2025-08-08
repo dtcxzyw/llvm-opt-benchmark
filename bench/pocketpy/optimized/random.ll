@@ -2092,8 +2092,8 @@ define linkonce_odr void @_ZNK4pkpy7StrName6escapeEv(ptr dead_on_unwind noalias 
   %4 = alloca %"class.std::tuple.50", align 1
   %5 = alloca %"struct.pkpy::Str", align 8
   %6 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4pkpy7StrName11_r_internedB5cxx11Ev()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2136,8 +2136,8 @@ _ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4p
 _ZNK4pkpy7StrName2svEv.exit:                      ; preds = %16, %.critedge.i.i
   %.sroa.05.0.i.i = phi ptr [ %20, %.critedge.i.i ], [ %.19.i.i.i.i.i, %16 ]
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i.i, i64 40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #22
   %23 = extractvalue { i64, ptr } %22, 0
   %24 = extractvalue { i64, ptr } %22, 1
@@ -2924,7 +2924,7 @@ _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit:          ; preds = %.noexc
 _ZN7mt199377randintEll.exit:                      ; preds = %25, %29
   %.pn.i = phi i64 [ %28, %25 ], [ %35, %29 ]
   %.0.i = add i64 %.pn.i, %10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.0.i, ptr %5, align 8
   %or.cond.i = icmp ult i64 %.0.i, 1152921504606846976
   br i1 %or.cond.i, label %36, label %40
@@ -2942,7 +2942,7 @@ _ZN7mt199377randintEll.exit:                      ; preds = %25, %29
 
 _ZN4pkpy6py_varIlEEPNS_8PyObjectEPNS_2VMEOT_.exit: ; preds = %36, %40
   %.0.i11 = phi ptr [ %39, %36 ], [ %42, %40 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0.i11
 }
 
@@ -3220,12 +3220,12 @@ define linkonce_odr noundef ptr @_ZZN4pkpy6Random9_registerEPNS_2VMEPNS_8PyObjec
   %8 = uitofp i32 %7 to double
   %9 = fmul double %8, 0x3DF0000000000000
   %10 = fptrunc double %9 to float
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = fpext float %10 to double
   store double %11, ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIdJRdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %12, i16 3, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %13
 }
 
@@ -3355,12 +3355,12 @@ define linkonce_odr noundef ptr @_ZZN4pkpy6Random9_registerEPNS_2VMEPNS_8PyObjec
   %19 = fptrunc double %18 to float
   %20 = fsub float %15, %14
   %21 = tail call noundef float @llvm.fmuladd.f32(float %19, float %20, float %14)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = fpext float %21 to double
   store double %22, ptr %4, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIdJRdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %23, i16 3, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %24
 }
 
@@ -3845,7 +3845,7 @@ _ZN4pkpy2VM10IndexErrorERKNS_3StrE.exit:          ; preds = %.noexc
   br i1 %.not, label %70, label %50
 
 50:                                               ; preds = %42
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 8, !noalias !27
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 64, ptr %51, align 4, !noalias !27
@@ -3886,7 +3886,7 @@ _ZN4pkpy2VM10IndexErrorERKNS_3StrE.exit:          ; preds = %.noexc
   br label %.body
 
 66:                                               ; preds = %61, %59
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %67 = invoke i16 @_ZN4pkpy7StrName3getESt17basic_string_viewIcSt11char_traitsIcEE(i64 10, ptr nonnull @.str.18)
           to label %.noexc36 unwind label %68
 
@@ -4983,10 +4983,10 @@ declare i64 @llvm.umax.i64(i64, i64) #19
 declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #19

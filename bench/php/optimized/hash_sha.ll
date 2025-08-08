@@ -106,11 +106,11 @@ define dso_local void @PHP_SHA256Update(ptr noundef %0, ptr noundef %1, i64 noun
   br label %SHA256Transform.exit
 
 31:                                               ; preds = %28, %23
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 256
   call void @SHA256_Transform_sse2(ptr noundef nonnull %0, ptr noundef nonnull %24, ptr noundef nonnull %4, ptr noundef nonnull %32) #8
   call void @explicit_bzero(ptr noundef nonnull %4, i64 noundef 288) #8
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %SHA256Transform.exit
 
 SHA256Transform.exit:                             ; preds = %30, %31
@@ -139,10 +139,10 @@ SHA256Transform.exit:                             ; preds = %30, %31
   br label %SHA256Transform.exit33
 
 42:                                               ; preds = %39, %36
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @SHA256_Transform_sse2(ptr noundef %0, ptr noundef nonnull %37, ptr noundef nonnull %3, ptr noundef nonnull %35) #8
   call void @explicit_bzero(ptr noundef nonnull %3, i64 noundef 288) #8
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %SHA256Transform.exit33
 
 SHA256Transform.exit33:                           ; preds = %41, %42
@@ -169,7 +169,7 @@ SHA256Transform.exit33:                           ; preds = %41, %42
 ; Function Attrs: nounwind uwtable
 define dso_local void @PHP_SHA256Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) #2 {
   %3 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load i32, ptr %4, align 4, !tbaa !4
   %6 = trunc i32 %5 to i8
@@ -243,7 +243,7 @@ define dso_local void @PHP_SHA256Final(ptr noundef writeonly captures(none) %0, 
 
 SHAEncode32.exit:                                 ; preds = %34
   call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 104) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -318,11 +318,11 @@ define dso_local void @PHP_SHA224Update(ptr noundef %0, ptr noundef %1, i64 noun
   br label %SHA256Transform.exit
 
 31:                                               ; preds = %28, %23
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 256
   call void @SHA256_Transform_sse2(ptr noundef nonnull %0, ptr noundef nonnull %24, ptr noundef nonnull %4, ptr noundef nonnull %32) #8
   call void @explicit_bzero(ptr noundef nonnull %4, i64 noundef 288) #8
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %SHA256Transform.exit
 
 SHA256Transform.exit:                             ; preds = %30, %31
@@ -351,10 +351,10 @@ SHA256Transform.exit:                             ; preds = %30, %31
   br label %SHA256Transform.exit33
 
 42:                                               ; preds = %39, %36
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @SHA256_Transform_sse2(ptr noundef %0, ptr noundef nonnull %37, ptr noundef nonnull %3, ptr noundef nonnull %35) #8
   call void @explicit_bzero(ptr noundef nonnull %3, i64 noundef 288) #8
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %SHA256Transform.exit33
 
 SHA256Transform.exit33:                           ; preds = %41, %42
@@ -381,7 +381,7 @@ SHA256Transform.exit33:                           ; preds = %41, %42
 ; Function Attrs: nounwind uwtable
 define dso_local void @PHP_SHA224Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) #2 {
   %3 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load i32, ptr %4, align 4, !tbaa !4
   %6 = trunc i32 %5 to i8
@@ -455,21 +455,15 @@ define dso_local void @PHP_SHA224Final(ptr noundef writeonly captures(none) %0, 
 
 SHAEncode32.exit:                                 ; preds = %34
   call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 104) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind
-declare void @explicit_bzero(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @explicit_bzero(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @PHP_SHA384InitArgs(ptr noundef writeonly captures(none) initializes((0, 80)) %0, ptr readnone captures(none) %1) #1 {
@@ -568,8 +562,8 @@ define internal fastcc void @SHA512Transform(ptr noundef captures(none) %0, ptr 
   %17 = load i64, ptr %16, align 8, !tbaa !9
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = load i64, ptr %18, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 640, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %20
 
 20:                                               ; preds = %20, %2
@@ -717,15 +711,15 @@ SHADecode64.exit.preheader:                       ; preds = %20
   %121 = add i64 %.08395, %19
   store i64 %121, ptr %18, align 8, !tbaa !9
   call void @explicit_bzero(ptr noundef nonnull %3, i64 noundef 128) #8
-  call void @llvm.lifetime.end.p0(i64 640, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PHP_SHA384Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) #2 {
   %3 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %5 = load i64, ptr %4, align 8, !tbaa !9
   %6 = trunc i64 %5 to i8
@@ -921,7 +915,7 @@ PHP_SHA384Update.exit30:                          ; preds = %PHP_SHA384Update.ex
 
 SHAEncode64.exit:                                 ; preds = %99
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 208) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1053,7 +1047,7 @@ define dso_local void @PHP_SHA512Update(ptr noundef captures(none) %0, ptr nound
 ; Function Attrs: nounwind uwtable
 define dso_local void @PHP_SHA512Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) #2 {
   %3 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %5 = load i64, ptr %4, align 8, !tbaa !9
   %6 = trunc i64 %5 to i8
@@ -1255,27 +1249,27 @@ PHP_SHA512Update.exit30:                          ; preds = %96, %91
 
 SHAEncode64.exit:                                 ; preds = %101
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 208) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PHP_SHA512_256Final(ptr noundef writeonly captures(none) initializes((0, 32)) %0, ptr noundef %1) #2 {
   %3 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @PHP_SHA512Final(ptr noundef nonnull %3, ptr noundef %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PHP_SHA512_224Final(ptr noundef writeonly captures(none) initializes((0, 28)) %0, ptr noundef %1) #2 {
   %3 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @PHP_SHA512Final(ptr noundef nonnull %3, ptr noundef %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %0, ptr noundef nonnull align 16 dereferenceable(28) %3, i64 28, i1 false)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1284,6 +1278,12 @@ declare i32 @zend_cpu_supports(i32 noundef) local_unnamed_addr #0
 declare void @SHA256_Transform_shani(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 declare void @SHA256_Transform_sse2(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #6
@@ -1294,9 +1294,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nounwind }

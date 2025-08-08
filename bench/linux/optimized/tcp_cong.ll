@@ -150,17 +150,11 @@ define dso_local ptr @tcp_ca_find(ptr noundef readonly captures(none) %0) local_
   ret ptr %12
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcp_set_ca_state(ptr noundef %0, i8 noundef zeroext %1) local_unnamed_addr #3 align 16 {
+define dso_local void @tcp_set_ca_state(ptr noundef %0, i8 noundef zeroext %1) local_unnamed_addr #2 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_tcp_cong_state_set, i64 8), i32 2) #15
           to label %23 [label %3], !srcloc !9
 
@@ -248,7 +242,7 @@ define dso_local ptr @tcp_ca_find_key(i32 noundef %0) local_unnamed_addr #0 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @tcp_validate_congestion_control(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @tcp_validate_congestion_control(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr %0, align 64
   %3 = icmp eq ptr %2, null
   br i1 %3, label %16, label %4
@@ -282,10 +276,10 @@ define dso_local noundef range(i32 -22, 1) i32 @tcp_validate_congestion_control(
 }
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
+declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @tcp_register_congestion_control(ptr noundef %0) #3 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @tcp_register_congestion_control(ptr noundef %0) #2 align 16 {
   %2 = load ptr, ptr %0, align 64
   %3 = icmp eq ptr %2, null
   br i1 %3, label %16, label %4
@@ -423,10 +417,10 @@ define dso_local noundef range(i32 -22, 1) i32 @tcp_register_congestion_control(
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcp_unregister_congestion_control(ptr noundef captures(none) %0) #3 align 16 {
+define dso_local void @tcp_unregister_congestion_control(ptr noundef captures(none) %0) #2 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @tcp_cong_list_lock) #15
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -442,10 +436,10 @@ define dso_local void @tcp_unregister_congestion_control(ptr noundef captures(no
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @synchronize_rcu() local_unnamed_addr #5
+declare dso_local void @synchronize_rcu() local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @tcp_update_congestion_control(ptr noundef %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @tcp_update_congestion_control(ptr noundef %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #2 align 16 {
   %3 = load ptr, ptr %0, align 64
   %4 = icmp eq ptr %3, null
   br i1 %4, label %17, label %5
@@ -608,7 +602,7 @@ define dso_local noundef range(i32 -22, 1) i32 @tcp_update_congestion_control(pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tcp_ca_get_key_by_name(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @tcp_ca_get_key_by_name(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 align 16 {
   %4 = tail call i32 @__SCT__might_resched() #15
   tail call void @__rcu_read_lock() #15
   %5 = tail call fastcc ptr @tcp_ca_find_autoload(ptr noundef %1)
@@ -633,7 +627,7 @@ define dso_local i32 @tcp_ca_get_key_by_name(ptr noundef readnone captures(none)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @tcp_ca_find_autoload(ptr noundef %0) unnamed_addr #3 align 16 {
+define internal fastcc ptr @tcp_ca_find_autoload(ptr noundef %0) unnamed_addr #2 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -685,7 +679,7 @@ define internal fastcc ptr @tcp_ca_find_autoload(ptr noundef %0) unnamed_addr #3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @tcp_ca_get_name_by_key(i32 noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local noundef ptr @tcp_ca_get_name_by_key(i32 noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   tail call void @__rcu_read_lock() #15
   br label %3
 
@@ -718,10 +712,10 @@ define dso_local noundef ptr @tcp_ca_get_name_by_key(i32 noundef %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-declare dso_local ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
+declare dso_local ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcp_assign_congestion_control(ptr noundef initializes((1160, 1168), (1264, 1368)) %0) local_unnamed_addr #3 align 16 {
+define dso_local void @tcp_assign_congestion_control(ptr noundef initializes((1160, 1168), (1264, 1368)) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   tail call void @__rcu_read_lock() #15
@@ -814,10 +808,10 @@ define dso_local void @tcp_assign_congestion_control(ptr noundef initializes((11
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcp_init_congestion_control(ptr noundef initializes((2140, 2144)) %0) local_unnamed_addr #3 align 16 {
+define dso_local void @tcp_init_congestion_control(ptr noundef initializes((2140, 2144)) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2140
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1160
@@ -910,7 +904,7 @@ define dso_local void @tcp_init_congestion_control(ptr noundef initializes((2140
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcp_cleanup_congestion_control(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local void @tcp_cleanup_congestion_control(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 144
@@ -932,7 +926,7 @@ define dso_local void @tcp_cleanup_congestion_control(ptr noundef %0) local_unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -16, 1) i32 @tcp_set_default_congestion_control(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -16, 1) i32 @tcp_set_default_congestion_control(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   tail call void @__rcu_read_lock() #15
   %3 = tail call fastcc ptr @tcp_ca_find_autoload(ptr noundef %1)
   %4 = icmp eq ptr %3, null
@@ -981,13 +975,13 @@ define dso_local noundef range(i32 -16, 1) i32 @tcp_set_default_congestion_contr
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef range(i32 -16, 1) i32 @tcp_congestion_default() #8 section ".init.text" align 16 {
+define internal noundef range(i32 -16, 1) i32 @tcp_congestion_default() #7 section ".init.text" align 16 {
   %1 = tail call i32 @tcp_set_default_congestion_control(ptr noundef nonnull @init_net, ptr noundef nonnull @.str.10), !range !21
   ret i32 %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcp_get_available_congestion_control(ptr noundef writeonly captures(none) %0, i64 noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local void @tcp_get_available_congestion_control(ptr noundef writeonly captures(none) %0, i64 noundef %1) local_unnamed_addr #2 align 16 {
   tail call void @__rcu_read_lock() #15
   br label %3
 
@@ -1022,10 +1016,10 @@ define dso_local void @tcp_get_available_congestion_control(ptr noundef writeonl
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #9
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcp_get_default_congestion_control(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local void @tcp_get_default_congestion_control(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   tail call void @__rcu_read_lock() #15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %4 = load volatile ptr, ptr %3, align 8
@@ -1036,7 +1030,7 @@ define dso_local void @tcp_get_default_congestion_control(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcp_get_allowed_congestion_control(ptr noundef writeonly captures(none) initializes((0, 1)) %0, i64 noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local void @tcp_get_allowed_congestion_control(ptr noundef writeonly captures(none) initializes((0, 1)) %0, i64 noundef %1) local_unnamed_addr #2 align 16 {
   store i8 0, ptr %0, align 1
   tail call void @__rcu_read_lock() #15
   %3 = load volatile ptr, ptr @tcp_cong_list, align 8
@@ -1082,11 +1076,11 @@ define dso_local void @tcp_get_allowed_congestion_control(ptr noundef writeonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @tcp_set_allowed_congestion_control(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @tcp_set_allowed_congestion_control(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call noalias ptr @kstrdup(ptr noundef %0, i32 noundef 1051840) #15
   store ptr %4, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1192,21 +1186,21 @@ define dso_local noundef range(i32 -12, 1) i32 @tcp_set_allowed_congestion_contr
 
 55:                                               ; preds = %.critedge, %1
   %56 = phi i32 [ %54, %.critedge ], [ -12, %1 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %56
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local noalias ptr @kstrdup(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare dso_local noalias ptr @kstrdup(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @strsep(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare dso_local ptr @strsep(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @kfree(ptr noundef) local_unnamed_addr #5
+declare dso_local void @kfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -16, 1) i32 @tcp_set_congestion_control(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -16, 1) i32 @tcp_set_congestion_control(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   %6 = load i8, ptr %5, align 8
   %7 = icmp sgt i8 %6, -1
@@ -1463,7 +1457,7 @@ define dso_local noundef range(i32 -16, 1) i32 @tcp_set_congestion_control(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tcp_slow_start(ptr noundef captures(none) %0, i32 noundef %1) #3 align 16 {
+define dso_local i32 @tcp_slow_start(ptr noundef captures(none) %0, i32 noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1420
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, %1
@@ -1489,7 +1483,7 @@ define dso_local i32 @tcp_slow_start(ptr noundef captures(none) %0, i32 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcp_cong_avoid_ai(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) #3 align 16 {
+define dso_local void @tcp_cong_avoid_ai(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %5 = load i32, ptr %4, align 16
   %6 = icmp ult i32 %5, %1
@@ -1568,7 +1562,7 @@ define dso_local void @tcp_cong_avoid_ai(ptr noundef captures(none) %0, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcp_reno_cong_avoid(ptr noundef captures(none) %0, i32 %1, i32 noundef %2) #3 align 16 {
+define dso_local void @tcp_reno_cong_avoid(ptr noundef captures(none) %0, i32 %1, i32 noundef %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1439
   %5 = load i8, ptr %4, align 1
   %6 = and i8 %5, 32
@@ -1691,7 +1685,7 @@ tcp_cong_avoid_ai.exit:                           ; preds = %._crit_edge.i, %58
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local range(i32 2, -2147483648) i32 @tcp_reno_ssthresh(ptr noundef readonly captures(none) %0) #10 align 16 {
+define dso_local range(i32 2, -2147483648) i32 @tcp_reno_ssthresh(ptr noundef readonly captures(none) %0) #9 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1420
   %3 = load i32, ptr %2, align 4
   %4 = lshr i32 %3, 1
@@ -1700,7 +1694,7 @@ define dso_local range(i32 2, -2147483648) i32 @tcp_reno_ssthresh(ptr noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @tcp_reno_undo_cwnd(ptr noundef readonly captures(none) %0) #10 align 16 {
+define dso_local i32 @tcp_reno_undo_cwnd(ptr noundef readonly captures(none) %0) #9 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1420
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1920
@@ -1710,68 +1704,74 @@ define dso_local i32 @tcp_reno_undo_cwnd(ptr noundef readonly captures(none) %0)
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__tp_func_tcp_cong_state_set(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #5
+declare dso_local i32 @__SCT__tp_func_tcp_cong_state_set(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(read)
-declare i64 @llvm.read_register.i64(metadata) #11
+declare i64 @llvm.read_register.i64(metadata) #10
 
 ; Function Attrs: nocallback nounwind
-declare void @llvm.write_register.i64(metadata, i64) #12
+declare void @llvm.write_register.i64(metadata, i64) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #13
+declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #5 section ".spinlock.text"
+declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #4 section ".spinlock.text"
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #5 section ".spinlock.text"
+declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #4 section ".spinlock.text"
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #5
+declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__rcu_read_lock() local_unnamed_addr #5
+declare dso_local void @__rcu_read_lock() local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local zeroext i1 @capable(i32 noundef) local_unnamed_addr #5
+declare dso_local zeroext i1 @capable(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__request_module(i1 noundef zeroext, ptr noundef, ...) local_unnamed_addr #5
+declare dso_local i32 @__request_module(i1 noundef zeroext, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__rcu_read_unlock() local_unnamed_addr #5
+declare dso_local void @__rcu_read_unlock() local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local zeroext i1 @try_module_get(ptr noundef) local_unnamed_addr #5
+declare dso_local zeroext i1 @try_module_get(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @module_put(ptr noundef) local_unnamed_addr #5
+declare dso_local void @module_put(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #14
+declare i32 @llvm.umin.i32(i32, i32) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #14
+declare i32 @llvm.umax.i32(i32, i32) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #14
+declare i32 @llvm.fshl.i32(i32, i32, i32) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #3 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #4 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #5 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #10 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
-attributes #12 = { nocallback nounwind }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #2 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #3 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #4 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #9 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
+attributes #11 = { nocallback nounwind }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nounwind }
 attributes #16 = { cold nounwind }
 

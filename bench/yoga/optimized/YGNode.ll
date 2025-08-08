@@ -57,13 +57,13 @@ define noundef nonnull ptr @YGNodeNew() local_unnamed_addr #0 personality ptr @_
 YGNodeNewWithConfig.exit:                         ; preds = %0
   %7 = icmp ne ptr %3, null
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext %7, ptr noundef nonnull @.str)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr %2, ptr %1, align 8, !tbaa !10
   call void @_ZN8facebook4yoga5Event7publishEPK6YGNodeNS1_4TypeERKNS1_4DataE(ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %4
 }
 
@@ -78,13 +78,13 @@ define noundef nonnull ptr @YGNodeNewWithConfig(ptr noundef %0) local_unnamed_ad
 5:                                                ; preds = %1
   %6 = icmp ne ptr %0, null
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext %6, ptr noundef nonnull @.str)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8, !tbaa !10
   call void @_ZN8facebook4yoga5Event7publishEPK6YGNodeNS1_4TypeERKNS1_4DataE(ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %4
 
 7:                                                ; preds = %1
@@ -96,23 +96,17 @@ define noundef nonnull ptr @YGNodeNewWithConfig(ptr noundef %0) local_unnamed_ad
 
 declare ptr @YGConfigGetDefault() local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 
 declare i32 @__gxx_personality_v0(...)
 
 declare void @_ZN8facebook4yoga4NodeC1EPKNS0_6ConfigE(ptr noundef nonnull align 8 dereferenceable(584), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 declare void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull ptr @YGNodeClone(ptr noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -123,15 +117,15 @@ define noundef nonnull ptr @YGNodeClone(ptr noundef %0) local_unnamed_addr #0 pe
           to label %5 unwind label %9
 
 5:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 560
   %7 = load ptr, ptr %6, align 8, !tbaa !12
   store ptr %7, ptr %3, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8, !tbaa !10
   call void @_ZN8facebook4yoga5Event7publishEPK6YGNodeNS1_4TypeERKNS1_4DataE(ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 528
   store ptr null, ptr %8, align 8, !tbaa !62
   ret ptr %4
@@ -277,15 +271,15 @@ _ZNK8facebook4yoga4Node8getChildEm.exit:          ; preds = %_ZNK8facebook4yoga4
 
 ._crit_edge:                                      ; preds = %_ZNK8facebook4yoga4Node8getChildEm.exit, %8
   tail call void @_ZN8facebook4yoga4Node13clearChildrenEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %22 = load ptr, ptr %21, align 8, !tbaa !12
   store ptr %22, ptr %3, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8, !tbaa !10
   call void @_ZN8facebook4yoga5Event7publishEPK6YGNodeNS1_4TypeERKNS1_4DataE(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %23 = load ptr, ptr %9, align 8, !tbaa !65
   %.not.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit.i, label %24
@@ -359,7 +353,7 @@ declare noundef zeroext i1 @_ZN8facebook4yoga4Node11removeChildEPS1_(ptr noundef
 declare void @_ZN8facebook4yoga4Node13clearChildrenEv(ptr noundef nonnull align 8 dereferenceable(584)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @YGNodeGetConfig(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define ptr @YGNodeGetConfig(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %3 = load ptr, ptr %2, align 8, !tbaa !12
   ret ptr %3
@@ -417,7 +411,7 @@ _ZNK8facebook4yoga4Node8getChildEm.exit:          ; preds = %_ZNK8facebook4yoga4
   br i1 %33, label %34, label %YGNodeRemoveChild.exit
 
 34:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 324, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(324) %2, i8 0, i64 324, i1 false)
   store float 0x7FF8000000000000, ptr %7, align 4, !tbaa !85
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %8, i8 0, i64 9, i1 false)
@@ -459,7 +453,7 @@ _ZNK8facebook4yoga4Node8getChildEm.exit:          ; preds = %_ZNK8facebook4yoga4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %21, i8 0, i64 64, i1 false)
   %45 = getelementptr inbounds nuw i8, ptr %25, i64 184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(324) %45, ptr noundef nonnull align 4 dereferenceable(324) %2, i64 324, i1 false), !tbaa.struct !93
-  call void @llvm.lifetime.end.p0(i64 324, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr null, ptr %26, align 8, !tbaa !62
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %YGNodeRemoveChild.exit
@@ -507,7 +501,7 @@ define void @YGNodeRemoveChild(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %14, label %15, label %41
 
 15:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 324, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(324) %3, i8 0, i64 324, i1 false)
   store float 0x7FF8000000000000, ptr %16, align 4, !tbaa !85
@@ -564,7 +558,7 @@ _ZN8facebook4yoga13LayoutResultsC2Ev.exit:        ; preds = %19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %39, i8 0, i64 64, i1 false)
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(324) %40, ptr noundef nonnull align 4 dereferenceable(324) %3, i64 324, i1 false), !tbaa.struct !93
-  call void @llvm.lifetime.end.p0(i64 324, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr null, ptr %10, align 8, !tbaa !62
   br label %41
 
@@ -580,15 +574,15 @@ _ZN8facebook4yoga13LayoutResultsC2Ev.exit:        ; preds = %19
 define void @YGNodeFinalize(ptr noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.facebook::yoga::Event::Data", align 8
   %3 = alloca %"struct.facebook::yoga::Event::TypedData.10", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %5 = load ptr, ptr %4, align 8, !tbaa !12
   store ptr %5, ptr %3, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8, !tbaa !10
   call void @_ZN8facebook4yoga5Event7publishEPK6YGNodeNS1_4TypeERKNS1_4DataE(ptr noundef %0, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %7 = load ptr, ptr %6, align 8, !tbaa !65
   %.not.i.i.i.i = icmp eq ptr %7, null
@@ -676,14 +670,14 @@ define void @YGNodeCalculateLayout(ptr noundef %0, float noundef %1, float nound
 declare void @_ZN8facebook4yoga15calculateLayoutEPNS0_4NodeEffNS0_9DirectionE(ptr noundef, float noundef, float noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @YGNodeGetHasNewLayout(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define zeroext i1 @YGNodeGetHasNewLayout(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load i8, ptr %0, align 8
   %3 = trunc i8 %2 to i1
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @YGNodeSetHasNewLayout(ptr noundef captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #6 {
+define void @YGNodeSetHasNewLayout(ptr noundef captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #5 {
   %3 = zext i1 %1 to i8
   %4 = load i8, ptr %0, align 8
   %5 = and i8 %4, -2
@@ -693,7 +687,7 @@ define void @YGNodeSetHasNewLayout(ptr noundef captures(none) %0, i1 noundef zer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @YGNodeIsDirty(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define zeroext i1 @YGNodeIsDirty(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load i8, ptr %0, align 8
   %3 = and i8 %2, 4
   %4 = icmp ne i8 %3, 0
@@ -715,14 +709,14 @@ declare void @_ZN8facebook4yoga19assertFatalWithNodeEPKNS0_4NodeEbPKc(ptr nounde
 declare void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @YGNodeSetDirtiedFunc(ptr noundef writeonly captures(none) initializes((32, 40)) %0, ptr noundef %1) local_unnamed_addr #7 {
+define void @YGNodeSetDirtiedFunc(ptr noundef writeonly captures(none) initializes((32, 40)) %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %3, align 8, !tbaa !100
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @YGNodeGetDirtiedFunc(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define ptr @YGNodeGetDirtiedFunc(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !100
   ret ptr %3
@@ -757,7 +751,7 @@ define void @YGNodeSwapChild(ptr noundef nonnull %0, ptr noundef %1, i64 noundef
 declare void @_ZN8facebook4yoga4Node12replaceChildEPS1_m(ptr noundef nonnull align 8 dereferenceable(584), ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeRemoveAllChildren(ptr noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -822,7 +816,7 @@ _ZNK8facebook4yoga4Node8getChildEm.exit:          ; preds = %1
 _ZNK8facebook4yoga4Node8getChildEm.exit21:        ; preds = %32
   %40 = getelementptr inbounds nuw ptr, ptr %34, i64 %.026
   %41 = load ptr, ptr %40, align 8, !tbaa !69
-  call void @llvm.lifetime.start.p0(i64 324, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(324) %2, i8 0, i64 324, i1 false)
   store float 0x7FF8000000000000, ptr %17, align 4, !tbaa !85
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %18, i8 0, i64 9, i1 false)
@@ -864,7 +858,7 @@ _ZN8facebook4yoga13LayoutResultsC2Ev.exit:        ; preds = %42
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %31, i8 0, i64 64, i1 false)
   %51 = getelementptr inbounds nuw i8, ptr %41, i64 184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(324) %51, ptr noundef nonnull align 4 dereferenceable(324) %2, i64 324, i1 false), !tbaa.struct !93
-  call void @llvm.lifetime.end.p0(i64 324, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %52 = getelementptr inbounds nuw i8, ptr %41, i64 528
   store ptr null, ptr %52, align 8, !tbaa !62
   %53 = add nuw i64 %.026, 1
@@ -872,7 +866,7 @@ _ZN8facebook4yoga13LayoutResultsC2Ev.exit:        ; preds = %42
   br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !101
 
 54:                                               ; preds = %_ZNK8facebook4yoga4Node8getChildEm.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %55 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN8facebook4yoga4Node11setChildrenERKSt6vectorIPS1_SaIS3_EE.exit unwind label %64
@@ -892,7 +886,7 @@ _ZN8facebook4yoga4Node11setChildrenERKSt6vectorIPS1_SaIS3_EE.exit: ; preds = %54
   br label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit: ; preds = %_ZN8facebook4yoga4Node11setChildrenERKSt6vectorIPS1_SaIS3_EE.exit, %57
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %63
 
@@ -916,7 +910,7 @@ _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit: ; preds = %_ZN8facebook4yo
   br label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit24
 
 _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit24: ; preds = %64, %67
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %65
 }
 
@@ -930,7 +924,7 @@ define void @YGNodeSetChildren(ptr noundef %0, ptr noundef readonly captures(non
   br i1 %8, label %161, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
 
 _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i: ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %.idx = shl nuw nsw i64 %2, 3
   %.not.i.i.i = icmp eq i64 %2, 0
@@ -986,7 +980,7 @@ _ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.thread.i.
   br label %42
 
 ._crit_edge81:                                    ; preds = %_ZN8facebook4yoga13LayoutResultsC2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %39 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %_ZN8facebook4yoga4Node11setChildrenERKSt6vectorIPS1_SaIS3_EE.exit unwind label %64
@@ -1000,7 +994,7 @@ _ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.thread.i.
 42:                                               ; preds = %.lr.ph80, %_ZN8facebook4yoga13LayoutResultsC2Ev.exit
   %.sroa.061.078 = phi ptr [ %22, %.lr.ph80 ], [ %55, %_ZN8facebook4yoga13LayoutResultsC2Ev.exit ]
   %43 = load ptr, ptr %.sroa.061.078, align 8, !tbaa !69
-  call void @llvm.lifetime.start.p0(i64 324, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(324) %5, i8 0, i64 324, i1 false)
   store float 0x7FF8000000000000, ptr %24, align 4, !tbaa !85
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %25, i8 0, i64 9, i1 false)
@@ -1042,7 +1036,7 @@ _ZN8facebook4yoga13LayoutResultsC2Ev.exit:        ; preds = %44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %38, i8 0, i64 64, i1 false)
   %53 = getelementptr inbounds nuw i8, ptr %43, i64 184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(324) %53, ptr noundef nonnull align 4 dereferenceable(324) %5, i64 324, i1 false), !tbaa.struct !93
-  call void @llvm.lifetime.end.p0(i64 324, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %43, i64 528
   store ptr null, ptr %54, align 8, !tbaa !62
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.061.078, i64 8
@@ -1064,7 +1058,7 @@ _ZN8facebook4yoga4Node11setChildrenERKSt6vectorIPS1_SaIS3_EE.exit: ; preds = %._
   br label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit: ; preds = %_ZN8facebook4yoga4Node11setChildrenERKSt6vectorIPS1_SaIS3_EE.exit, %58
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   invoke void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
           to label %153 unwind label %40
 
@@ -1085,7 +1079,7 @@ _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit: ; preds = %_ZN8facebook4yo
   br label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit36
 
 _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit36: ; preds = %64, %67
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %162
 
 73:                                               ; preds = %14
@@ -1208,7 +1202,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_Sa
   br i1 %130, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.thread, label %142
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.thread: ; preds = %._crit_edge.i.i.i, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit
-  call void @llvm.lifetime.start.p0(i64 324, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(324) %7, i8 0, i64 324, i1 false)
   store float 0x7FF8000000000000, ptr %80, align 4, !tbaa !85
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %81, i8 0, i64 9, i1 false)
@@ -1250,7 +1244,7 @@ _ZN8facebook4yoga13LayoutResultsC2Ev.exit40:      ; preds = %131
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %94, i8 0, i64 64, i1 false)
   %140 = getelementptr inbounds nuw i8, ptr %96, i64 184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(324) %140, ptr noundef nonnull align 4 dereferenceable(324) %7, i64 324, i1 false), !tbaa.struct !93
-  call void @llvm.lifetime.end.p0(i64 324, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %141 = getelementptr inbounds nuw i8, ptr %96, i64 528
   store ptr null, ptr %141, align 8, !tbaa !62
   br label %142
@@ -1302,7 +1296,7 @@ _ZN8facebook4yoga4Node11setChildrenERKSt6vectorIPS1_SaIS3_EE.exit41: ; preds = %
   br label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit44
 
 _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit44: ; preds = %153, %155
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %161
 
 161:                                              ; preds = %3, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit44
@@ -1324,12 +1318,12 @@ _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit44: ; preds = %153, %155
   br label %.body
 
 .body:                                            ; preds = %164, %162
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @YGNodeGetChild(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #9 {
+define ptr @YGNodeGetChild(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %5 = load ptr, ptr %4, align 8, !tbaa !64
@@ -1352,7 +1346,7 @@ _ZNK8facebook4yoga4Node8getChildEm.exit:          ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i64 -1152921504606846976, 1152921504606846976) i64 @YGNodeGetChildCount(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define range(i64 -1152921504606846976, 1152921504606846976) i64 @YGNodeGetChildCount(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %4 = load ptr, ptr %3, align 8, !tbaa !64
@@ -1365,14 +1359,14 @@ define range(i64 -1152921504606846976, 1152921504606846976) i64 @YGNodeGetChildC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @YGNodeGetOwner(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define ptr @YGNodeGetOwner(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %3 = load ptr, ptr %2, align 8, !tbaa !62
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @YGNodeGetParent(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define ptr @YGNodeGetParent(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %3 = load ptr, ptr %2, align 8, !tbaa !62
   ret ptr %3
@@ -1387,14 +1381,14 @@ define void @YGNodeSetConfig(ptr noundef nonnull %0, ptr noundef %1) local_unnam
 declare void @_ZN8facebook4yoga4Node9setConfigEPNS0_6ConfigE(ptr noundef nonnull align 8 dereferenceable(584), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @YGNodeSetContext(ptr noundef writeonly captures(none) initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #7 {
+define void @YGNodeSetContext(ptr noundef writeonly captures(none) initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8, !tbaa !103
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @YGNodeGetContext(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define ptr @YGNodeGetContext(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !103
   ret ptr %3
@@ -1409,7 +1403,7 @@ define void @YGNodeSetMeasureFunc(ptr noundef nonnull %0, ptr noundef %1) local_
 declare void @_ZN8facebook4yoga4Node14setMeasureFuncEPF6YGSizePK6YGNodef13YGMeasureModefS6_E(ptr noundef nonnull align 8 dereferenceable(584), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @YGNodeHasMeasureFunc(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define zeroext i1 @YGNodeHasMeasureFunc(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !99
   %4 = icmp ne ptr %3, null
@@ -1417,14 +1411,14 @@ define zeroext i1 @YGNodeHasMeasureFunc(ptr noundef readonly captures(none) %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @YGNodeSetBaselineFunc(ptr noundef writeonly captures(none) initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #7 {
+define void @YGNodeSetBaselineFunc(ptr noundef writeonly captures(none) initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8, !tbaa !104
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @YGNodeHasBaselineFunc(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define zeroext i1 @YGNodeHasBaselineFunc(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !104
   %4 = icmp ne ptr %3, null
@@ -1452,7 +1446,7 @@ define void @YGNodeSetIsReferenceBaseline(ptr noundef %0, i1 noundef zeroext %1)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @YGNodeIsReferenceBaseline(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define zeroext i1 @YGNodeIsReferenceBaseline(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load i8, ptr %0, align 8
   %3 = and i8 %2, 2
   %4 = icmp ne i8 %3, 0
@@ -1460,7 +1454,7 @@ define zeroext i1 @YGNodeIsReferenceBaseline(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @YGNodeSetNodeType(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @YGNodeSetNodeType(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = trunc i32 %1 to i8
   %4 = load i8, ptr %0, align 8
   %5 = shl i8 %3, 4
@@ -1472,7 +1466,7 @@ define void @YGNodeSetNodeType(ptr noundef captures(none) %0, i32 noundef %1) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @YGNodeGetNodeType(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @YGNodeGetNodeType(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load i8, ptr %0, align 8
   %3 = lshr i8 %2, 4
   %4 = and i8 %3, 1
@@ -1481,7 +1475,7 @@ define range(i32 0, 2) i32 @YGNodeGetNodeType(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @YGNodeSetAlwaysFormsContainingBlock(ptr noundef captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #6 {
+define void @YGNodeSetAlwaysFormsContainingBlock(ptr noundef captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #5 {
   %3 = load i8, ptr %0, align 8
   %4 = select i1 %1, i8 8, i8 0
   %5 = and i8 %3, -9
@@ -1491,7 +1485,7 @@ define void @YGNodeSetAlwaysFormsContainingBlock(ptr noundef captures(none) %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @YGNodeGetAlwaysFormsContainingBlock(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define zeroext i1 @YGNodeGetAlwaysFormsContainingBlock(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load i8, ptr %0, align 8
   %3 = and i8 %2, 8
   %4 = icmp ne i8 %3, 0
@@ -1559,10 +1553,10 @@ switch.lookup24:                                  ; preds = %switch.lookup18
 declare noundef zeroext i1 @_ZN8facebook4yoga23canUseCachedMeasurementENS0_10SizingModeEfS1_fS1_fS1_fffffPKNS0_6ConfigE(i32 noundef, float noundef, i32 noundef, float noundef, i32 noundef, float noundef, i32 noundef, float noundef, float noundef, float noundef, float noundef, float noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN8facebook4yoga5StyleD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN8facebook4yoga5StyleD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8, !tbaa !74
   %.not.i.i.i = icmp eq ptr %3, null
@@ -1770,7 +1764,7 @@ _ZNSt10unique_ptrIN8facebook4yoga16SmallValueBufferILm4EE8OverflowESt14default_d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrIN8facebook4yoga16SmallValueBufferILm4EE8OverflowESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt10unique_ptrIN8facebook4yoga16SmallValueBufferILm4EE8OverflowESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !74
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %22, label %3
@@ -1956,13 +1950,13 @@ _ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i:       ; preds = %47, %44
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #13
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !75
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit, label %3
@@ -1992,7 +1986,7 @@ _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %3, %1
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #13
+declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2105,24 +2099,30 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_Sa
 }
 
 ; Function Attrs: noreturn
-declare void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef) local_unnamed_addr #13
+declare void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef) local_unnamed_addr #12
 
 declare void @_ZN8facebook4yoga5Event7publishEPK6YGNodeNS1_4TypeERKNS1_4DataE(ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { inlinehint mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { inlinehint mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { builtin allocsize(0) }
 attributes #15 = { builtin nounwind }
 attributes #16 = { nounwind }

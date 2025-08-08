@@ -3370,7 +3370,7 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit79:           ; preds = %.noexc78
 
 _ZN4absl7debian28AlphaNumC2EPKc.exit81:           ; preds = %.noexc80
   store i64 %416, ptr %398, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr @.str.21, ptr %8, align 8
   store i64 1, ptr %399, align 8
   %.sroa.0.0.copyload.i6.i = load ptr, ptr %25, align 8
@@ -3387,7 +3387,7 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit81:           ; preds = %.noexc80
           to label %419 unwind label %.loopexit
 
 419:                                              ; preds = %_ZN4absl7debian28AlphaNumC2EPKc.exit81
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %420 = getelementptr inbounds nuw i8, ptr %.sroa.0157.0233, i64 16
   %.not174 = icmp eq ptr %420, %393
   br i1 %.not174, label %._crit_edge234, label %_ZN4absl7debian28AlphaNumC2EPKc.exit
@@ -4858,7 +4858,7 @@ define linkonce_odr void @_ZN4absl7debian27StrJoinISt6vectorIlSaIlEEEENSt7__cxx1
           to label %14 unwind label %22
 
 14:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !41
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !41
   %15 = load i64, ptr %.sroa.0.012.i.i.i, align 8, !noalias !46
   %16 = invoke noundef ptr @_ZN4absl7debian216numbers_internal15FastIntToBufferElPc(i64 noundef %15, ptr noundef nonnull %9)
           to label %.noexc.i.i.i unwind label %22
@@ -4880,7 +4880,7 @@ _ZN4absl7debian28AlphaNumC2El.exit.i.i.i.i:       ; preds = %.noexc.i.i.i
           to label %_ZN4absl7debian211string_viewC2EPKc.exit.i.i.i unwind label %22
 
 _ZN4absl7debian211string_viewC2EPKc.exit.i.i.i:   ; preds = %_ZN4absl7debian28AlphaNumC2El.exit.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !41
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !41
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.012.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %21, %8
   br i1 %.not.i.i.i, label %_ZN4absl7debian216strings_internal9JoinRangeISt6vectorIlSaIlEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_NS0_11string_viewE.exit, label %12, !llvm.loop !47
@@ -8932,10 +8932,10 @@ declare x86_fp80 @llvm.log.f80(x86_fp80) #17
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

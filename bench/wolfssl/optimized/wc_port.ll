@@ -19,12 +19,6 @@ define noundef i32 @wolfCrypt_Init() local_unnamed_addr #0 {
   ret i32 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, argmem: none) uwtable
 define noundef i32 @wolfCrypt_Cleanup() local_unnamed_addr #0 {
   %1 = load volatile i32, ptr @initRefCount, align 4, !tbaa !3
@@ -44,7 +38,7 @@ define noundef i32 @wolfCrypt_Cleanup() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -244, 1) i32 @wc_FileLoad(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
+define range(i32 -244, 1) i32 @wc_FileLoad(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #1 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
@@ -104,26 +98,26 @@ define range(i32 -244, 1) i32 @wc_FileLoad(ptr noundef readonly captures(address
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #3
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #2
 
-declare ptr @wolfSSL_Malloc(i64 noundef) local_unnamed_addr #4
+declare ptr @wolfSSL_Malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -244, 1) i32 @wc_FileExists(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define range(i32 -244, 1) i32 @wc_FileExists(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = alloca %struct.ReadDirCtx, align 8
-  call void @llvm.lifetime.start.p0(i64 424, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %2, i8 0, i64 424, i1 false)
   %3 = icmp eq ptr %0, null
   br i1 %3, label %12, label %4
@@ -144,18 +138,18 @@ define range(i32 -244, 1) i32 @wc_FileExists(ptr noundef readonly captures(addre
 
 12:                                               ; preds = %7, %4, %1
   %.0 = phi i32 [ 0, %1 ], [ -244, %4 ], [ %., %7 ]
-  call void @llvm.lifetime.end.p0(i64 424, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -244, 1) i32 @wc_ReadDirFirst(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
+define range(i32 -244, 1) i32 @wc_ReadDirFirst(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = alloca %struct.ReadDirCtx, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %5
@@ -223,21 +217,21 @@ define range(i32 -244, 1) i32 @wc_ReadDirFirst(ptr noundef %0, ptr noundef reado
   %36 = ashr exact i64 %sext43.us, 32
   %37 = add nsw i64 %36, 1
   %38 = tail call ptr @strncpy(ptr noundef nonnull %20, ptr noundef nonnull %35, i64 noundef %37) #16
-  call void @llvm.lifetime.start.p0(i64 424, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %4, i8 0, i64 424, i1 false)
   %39 = call i32 @stat(ptr noundef nonnull readonly %16, ptr noundef nonnull %21) #16
   %.not.i.us = icmp eq i32 %39, 0
   br i1 %.not.i.us, label %40, label %.thread65
 
 .thread65:                                        ; preds = %32
-  call void @llvm.lifetime.end.p0(i64 424, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %29
 
 40:                                               ; preds = %32
   %41 = load i32, ptr %22, align 8, !tbaa !12
   %42 = and i32 %41, 61440
   %.not72 = icmp eq i32 %42, 32768
-  call void @llvm.lifetime.end.p0(i64 424, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not72, label %wc_ReadDirClose.exit, label %29
 
 43:                                               ; preds = %wc_FileExists.exit, %wc_FileExists.exit.thread
@@ -266,21 +260,21 @@ define range(i32 -244, 1) i32 @wc_ReadDirFirst(ptr noundef %0, ptr noundef reado
   %56 = ashr exact i64 %sext43, 32
   %57 = add nsw i64 %56, 1
   %58 = tail call ptr @strncpy(ptr noundef nonnull %20, ptr noundef nonnull %55, i64 noundef %57) #16
-  call void @llvm.lifetime.start.p0(i64 424, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %4, i8 0, i64 424, i1 false)
   %59 = call i32 @stat(ptr noundef nonnull readonly %16, ptr noundef nonnull %21) #16
   %.not.i = icmp eq i32 %59, 0
   br i1 %.not.i, label %wc_FileExists.exit, label %wc_FileExists.exit.thread
 
 wc_FileExists.exit.thread:                        ; preds = %52
-  call void @llvm.lifetime.end.p0(i64 424, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %43
 
 wc_FileExists.exit:                               ; preds = %52
   %60 = load i32, ptr %22, align 8, !tbaa !12
   %61 = and i32 %60, 61440
   %.not71 = icmp eq i32 %61, 32768
-  call void @llvm.lifetime.end.p0(i64 424, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not71, label %.thread, label %43
 
 .thread:                                          ; preds = %wc_FileExists.exit
@@ -304,18 +298,18 @@ wc_ReadDirClose.exit:                             ; preds = %40, %63, %.thread54
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #3
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
-declare ptr @readdir(ptr noundef) local_unnamed_addr #4
+declare ptr @readdir(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #8
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define void @wc_ReadDirClose(ptr noundef captures(address_is_null) %0) local_unnamed_addr #5 {
+define void @wc_ReadDirClose(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 
@@ -335,7 +329,7 @@ define void @wc_ReadDirClose(ptr noundef captures(address_is_null) %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -244, 1) i32 @wc_ReadDirNext(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
+define range(i32 -244, 1) i32 @wc_ReadDirNext(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = alloca %struct.ReadDirCtx, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %5
@@ -398,21 +392,21 @@ define range(i32 -244, 1) i32 @wc_ReadDirNext(ptr noundef %0, ptr noundef readon
   %35 = ashr exact i64 %sext40.us, 32
   %36 = add nsw i64 %35, 1
   %37 = tail call ptr @strncpy(ptr noundef nonnull %19, ptr noundef nonnull %34, i64 noundef %36) #16
-  call void @llvm.lifetime.start.p0(i64 424, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %4, i8 0, i64 424, i1 false)
   %38 = call i32 @stat(ptr noundef nonnull readonly %10, ptr noundef nonnull %20) #16
   %.not.i.us = icmp eq i32 %38, 0
   br i1 %.not.i.us, label %39, label %.thread63
 
 .thread63:                                        ; preds = %31
-  call void @llvm.lifetime.end.p0(i64 424, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %28
 
 39:                                               ; preds = %31
   %40 = load i32, ptr %21, align 8, !tbaa !12
   %41 = and i32 %40, 61440
   %.not70 = icmp eq i32 %41, 32768
-  call void @llvm.lifetime.end.p0(i64 424, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not70, label %wc_ReadDirClose.exit, label %28
 
 42:                                               ; preds = %wc_FileExists.exit, %wc_FileExists.exit.thread
@@ -441,21 +435,21 @@ define range(i32 -244, 1) i32 @wc_ReadDirNext(ptr noundef %0, ptr noundef readon
   %55 = ashr exact i64 %sext40, 32
   %56 = add nsw i64 %55, 1
   %57 = tail call ptr @strncpy(ptr noundef nonnull %19, ptr noundef nonnull %54, i64 noundef %56) #16
-  call void @llvm.lifetime.start.p0(i64 424, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %4, i8 0, i64 424, i1 false)
   %58 = call i32 @stat(ptr noundef nonnull readonly %10, ptr noundef nonnull %20) #16
   %.not.i = icmp eq i32 %58, 0
   br i1 %.not.i, label %wc_FileExists.exit, label %wc_FileExists.exit.thread
 
 wc_FileExists.exit.thread:                        ; preds = %51
-  call void @llvm.lifetime.end.p0(i64 424, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %42
 
 wc_FileExists.exit:                               ; preds = %51
   %59 = load i32, ptr %21, align 8, !tbaa !12
   %60 = and i32 %59, 61440
   %.not69 = icmp eq i32 %60, 32768
-  call void @llvm.lifetime.end.p0(i64 424, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not69, label %.thread, label %42
 
 .thread:                                          ; preds = %wc_FileExists.exit
@@ -479,10 +473,10 @@ wc_ReadDirClose.exit:                             ; preds = %39, %62, %.thread51
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @wc_InitAndAllocMutex() local_unnamed_addr #2 {
+define ptr @wc_InitAndAllocMutex() local_unnamed_addr #1 {
   %1 = tail call ptr @wolfSSL_Malloc(i64 noundef 40) #16
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %2
@@ -502,17 +496,17 @@ define ptr @wc_InitAndAllocMutex() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -106, 1) i32 @wc_InitMutex(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 -106, 1) i32 @wc_InitMutex(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call i32 @pthread_mutex_init(ptr noundef %0, ptr noundef null) #16
   %3 = icmp eq i32 %2, 0
   %. = select i1 %3, i32 0, i32 -106
   ret i32 %.
 }
 
-declare void @wolfSSL_Free(ptr noundef) local_unnamed_addr #4
+declare void @wolfSSL_Free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @wc_strtok(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #9 {
+define ptr @wc_strtok(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #8 {
   %4 = icmp eq ptr %0, null
   %5 = icmp ne ptr %2, null
   %or.cond = and i1 %4, %5
@@ -620,7 +614,7 @@ define ptr @wc_strtok(ptr noundef %0, ptr noundef readonly captures(none) %1, pt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @wc_strsep(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
+define ptr @wc_strsep(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %20, label %4
 
@@ -678,7 +672,7 @@ define ptr @wc_strsep(ptr noundef captures(address_is_null) %0, ptr noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i64 @wc_strlcpy(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #10 {
+define i64 @wc_strlcpy(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #9 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %10, label %.preheader
 
@@ -715,7 +709,7 @@ define i64 @wc_strlcpy(ptr noundef writeonly captures(none) %0, ptr noundef read
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define i64 @wc_strlcat(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #11 {
+define i64 @wc_strlcat(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #10 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %20, label %4
 
@@ -773,7 +767,7 @@ wc_strlcpy.exit:                                  ; preds = %10, %.critedge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @wc_strdup_ex(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #2 {
+define ptr @wc_strdup_ex(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %3
 
@@ -795,10 +789,10 @@ define ptr @wc_strdup_ex(ptr noundef readonly captures(address_is_null) %0, i32 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
-define void @wolfSSL_RefWithMutexInit(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #2 {
+define void @wolfSSL_RefWithMutexInit(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #1 {
   %3 = tail call i32 @pthread_mutex_init(ptr noundef %0, ptr noundef null) #16
   %4 = icmp eq i32 %3, 0
   %..i = select i1 %4, i32 0, i32 -106
@@ -809,13 +803,13 @@ define void @wolfSSL_RefWithMutexInit(ptr noundef %0, ptr noundef writeonly capt
 }
 
 ; Function Attrs: nounwind uwtable
-define void @wolfSSL_RefWithMutexFree(ptr noundef %0) local_unnamed_addr #2 {
+define void @wolfSSL_RefWithMutexFree(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call i32 @pthread_mutex_destroy(ptr noundef %0) #16
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -106, 1) i32 @wc_FreeMutex(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 -106, 1) i32 @wc_FreeMutex(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call i32 @pthread_mutex_destroy(ptr noundef %0) #16
   %3 = icmp eq i32 %2, 0
   %. = select i1 %3, i32 0, i32 -106
@@ -823,7 +817,7 @@ define range(i32 -106, 1) i32 @wc_FreeMutex(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define void @wolfSSL_RefWithMutexInc(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #2 {
+define void @wolfSSL_RefWithMutexInc(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #1 {
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #16
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %10
@@ -843,7 +837,7 @@ define void @wolfSSL_RefWithMutexInc(ptr noundef %0, ptr noundef writeonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -106, 1) i32 @wc_LockMutex(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 -106, 1) i32 @wc_LockMutex(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #16
   %3 = icmp eq i32 %2, 0
   %. = select i1 %3, i32 0, i32 -106
@@ -851,7 +845,7 @@ define range(i32 -106, 1) i32 @wc_LockMutex(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -106, 1) i32 @wc_UnLockMutex(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 -106, 1) i32 @wc_UnLockMutex(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #16
   %3 = icmp eq i32 %2, 0
   %. = select i1 %3, i32 0, i32 -106
@@ -859,7 +853,7 @@ define range(i32 -106, 1) i32 @wc_UnLockMutex(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -106, 1) i32 @wolfSSL_RefWithMutexLock(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 -106, 1) i32 @wolfSSL_RefWithMutexLock(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #16
   %3 = icmp eq i32 %2, 0
   %..i = select i1 %3, i32 0, i32 -106
@@ -867,7 +861,7 @@ define range(i32 -106, 1) i32 @wolfSSL_RefWithMutexLock(ptr noundef %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -106, 1) i32 @wolfSSL_RefWithMutexUnlock(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 -106, 1) i32 @wolfSSL_RefWithMutexUnlock(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #16
   %3 = icmp eq i32 %2, 0
   %..i = select i1 %3, i32 0, i32 -106
@@ -875,7 +869,7 @@ define range(i32 -106, 1) i32 @wolfSSL_RefWithMutexUnlock(ptr noundef %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @wolfSSL_RefWithMutexDec(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #2 {
+define void @wolfSSL_RefWithMutexDec(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #1 {
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #16
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %7, label %6
@@ -910,19 +904,19 @@ define void @wolfSSL_RefWithMutexDec(ptr noundef %0, ptr noundef writeonly captu
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #13
+declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #13
+declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #13
+declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #13
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -106, 1) i32 @wc_InitRwLock(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 -106, 1) i32 @wc_InitRwLock(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call i32 @pthread_mutex_init(ptr noundef %0, ptr noundef null) #16
   %3 = icmp eq i32 %2, 0
   %..i = select i1 %3, i32 0, i32 -106
@@ -930,7 +924,7 @@ define range(i32 -106, 1) i32 @wc_InitRwLock(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -106, 1) i32 @wc_FreeRwLock(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 -106, 1) i32 @wc_FreeRwLock(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call i32 @pthread_mutex_destroy(ptr noundef %0) #16
   %3 = icmp eq i32 %2, 0
   %..i = select i1 %3, i32 0, i32 -106
@@ -938,7 +932,7 @@ define range(i32 -106, 1) i32 @wc_FreeRwLock(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -106, 1) i32 @wc_LockRwLock_Wr(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 -106, 1) i32 @wc_LockRwLock_Wr(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #16
   %3 = icmp eq i32 %2, 0
   %..i = select i1 %3, i32 0, i32 -106
@@ -946,7 +940,7 @@ define range(i32 -106, 1) i32 @wc_LockRwLock_Wr(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -106, 1) i32 @wc_LockRwLock_Rd(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 -106, 1) i32 @wc_LockRwLock_Rd(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #16
   %3 = icmp eq i32 %2, 0
   %..i = select i1 %3, i32 0, i32 -106
@@ -954,7 +948,7 @@ define range(i32 -106, 1) i32 @wc_LockRwLock_Rd(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -106, 1) i32 @wc_UnLockRwLock(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 -106, 1) i32 @wc_UnLockRwLock(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #16
   %3 = icmp eq i32 %2, 0
   %..i = select i1 %3, i32 0, i32 -106
@@ -962,7 +956,7 @@ define range(i32 -106, 1) i32 @wc_UnLockRwLock(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: read) uwtable
-define noundef ptr @mystrnstr(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #14 {
+define noundef ptr @mystrnstr(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #13 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   %5 = trunc i64 %4 to i32
   %6 = icmp eq i32 %5, 0
@@ -1002,7 +996,7 @@ define noundef ptr @mystrnstr(ptr noundef readonly captures(ret: address, proven
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -173, 1) i32 @wolfSSL_NewThread(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wolfSSL_NewThread(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -1020,12 +1014,12 @@ define range(i32 -173, 1) i32 @wolfSSL_NewThread(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #13
+declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define i32 @wolfSSL_NewThreadNoJoin(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define i32 @wolfSSL_NewThreadNoJoin(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wolfSSL_NewThread.exit.thread, label %5
@@ -1042,15 +1036,15 @@ wolfSSL_NewThread.exit:                           ; preds = %5
 
 wolfSSL_NewThread.exit.thread:                    ; preds = %5, %2, %wolfSSL_NewThread.exit
   %.0 = phi i32 [ %8, %wolfSSL_NewThread.exit ], [ -125, %5 ], [ -173, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_detach(i64 noundef) local_unnamed_addr #13
+declare i32 @pthread_detach(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -173, 1) i32 @wolfSSL_JoinThread(i64 noundef %0) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wolfSSL_JoinThread(i64 noundef %0) local_unnamed_addr #1 {
   %2 = icmp eq i64 %0, -1
   br i1 %2, label %5, label %3
 
@@ -1065,10 +1059,10 @@ define range(i32 -173, 1) i32 @wolfSSL_JoinThread(i64 noundef %0) local_unnamed_
   ret i32 %.0
 }
 
-declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -173, 1) i32 @wolfSSL_CondInit(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wolfSSL_CondInit(ptr noundef %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 
@@ -1093,10 +1087,10 @@ define range(i32 -173, 1) i32 @wolfSSL_CondInit(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_cond_init(ptr noundef, ptr noundef) local_unnamed_addr #13
+declare i32 @pthread_cond_init(ptr noundef, ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -173, 1) i32 @wolfSSL_CondFree(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wolfSSL_CondFree(ptr noundef %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 
@@ -1116,10 +1110,10 @@ define range(i32 -173, 1) i32 @wolfSSL_CondFree(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_cond_destroy(ptr noundef) local_unnamed_addr #13
+declare i32 @pthread_cond_destroy(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -173, 1) i32 @wolfSSL_CondStart(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wolfSSL_CondStart(ptr noundef %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -1135,7 +1129,7 @@ define range(i32 -173, 1) i32 @wolfSSL_CondStart(ptr noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -173, 1) i32 @wolfSSL_CondSignal(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wolfSSL_CondSignal(ptr noundef %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -1152,10 +1146,10 @@ define range(i32 -173, 1) i32 @wolfSSL_CondSignal(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #13
+declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -173, 1) i32 @wolfSSL_CondWait(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wolfSSL_CondWait(ptr noundef %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -1171,10 +1165,10 @@ define range(i32 -173, 1) i32 @wolfSSL_CondWait(ptr noundef %0) local_unnamed_ad
   ret i32 %.0
 }
 
-declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -173, 1) i32 @wolfSSL_CondEnd(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wolfSSL_CondEnd(ptr noundef %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -1189,24 +1183,30 @@ define range(i32 -173, 1) i32 @wolfSSL_CondEnd(ptr noundef %0) local_unnamed_add
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 attributes #0 = { nofree norecurse nounwind memory(readwrite, argmem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree norecurse nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree norecurse nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree norecurse nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree norecurse nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #16 = { nounwind }
 attributes #17 = { nounwind willreturn memory(read) }

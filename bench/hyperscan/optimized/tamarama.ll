@@ -74,18 +74,12 @@ loadActiveIdx.exit:                               ; preds = %6, %10, %12, %20, %
   ret i8 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare signext i8 @nfaCheckFinalState(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare signext i8 @nfaCheckFinalState(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden signext i8 @nfaExecTamarama_QR(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.mq, align 8
-  call void @llvm.lifetime.start.p0(i64 344, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -118,7 +112,7 @@ define hidden signext i8 @nfaExecTamarama_QR(ptr noundef %0, ptr noundef capture
 
 ._crit_edge.thread:                               ; preds = %3, %._crit_edge, %17
   %.0 = phi i8 [ %19, %17 ], [ 0, %._crit_edge ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 344, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i8 %.0
 }
 
@@ -402,7 +396,7 @@ initSubQueue.exit:                                ; preds = %158, %156, %151, %1
   ret void
 }
 
-declare signext i8 @nfaQueueExecRose(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare signext i8 @nfaQueueExecRose(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden signext i8 @nfaExecTamarama_reportCurrent(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
@@ -459,7 +453,7 @@ loadActiveIdx.exit:                               ; preds = %2, %9, %11, %19, %2
   %34 = load i32, ptr %33, align 4
   %35 = zext i32 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 %35
-  call void @llvm.lifetime.start.p0(i64 344, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -521,7 +515,7 @@ loadActiveIdx.exit:                               ; preds = %2, %9, %11, %19, %2
   call fastcc void @copyQueueItems(ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %36, ptr noundef nonnull %1, ptr noundef nonnull %3, i32 noundef %.0.i.i)
   store i32 %71, ptr %70, align 8
   %80 = call signext i8 @nfaReportCurrentMatches(ptr noundef nonnull %36, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 344, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %81
 
 81:                                               ; preds = %loadActiveIdx.exit, %27
@@ -529,7 +523,7 @@ loadActiveIdx.exit:                               ; preds = %2, %9, %11, %19, %2
   ret i8 %.0
 }
 
-declare signext i8 @nfaReportCurrentMatches(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare signext i8 @nfaReportCurrentMatches(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden signext i8 @nfaExecTamarama_inAccept(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
@@ -586,7 +580,7 @@ loadActiveIdx.exit:                               ; preds = %3, %10, %12, %20, %
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 %36
-  call void @llvm.lifetime.start.p0(i64 344, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -648,7 +642,7 @@ loadActiveIdx.exit:                               ; preds = %3, %10, %12, %20, %
   call fastcc void @copyQueueItems(ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %37, ptr noundef nonnull %2, ptr noundef nonnull %4, i32 noundef %.0.i.i)
   store i32 %72, ptr %71, align 8
   %81 = call signext i8 @nfaInAcceptState(ptr noundef nonnull %37, i32 noundef %1, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 344, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %82
 
 82:                                               ; preds = %loadActiveIdx.exit, %28
@@ -656,7 +650,7 @@ loadActiveIdx.exit:                               ; preds = %3, %10, %12, %20, %
   ret i8 %.0
 }
 
-declare signext i8 @nfaInAcceptState(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare signext i8 @nfaInAcceptState(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden signext i8 @nfaExecTamarama_inAnyAccept(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
@@ -713,7 +707,7 @@ loadActiveIdx.exit:                               ; preds = %2, %9, %11, %19, %2
   %34 = load i32, ptr %33, align 4
   %35 = zext i32 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 %35
-  call void @llvm.lifetime.start.p0(i64 344, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -775,7 +769,7 @@ loadActiveIdx.exit:                               ; preds = %2, %9, %11, %19, %2
   call fastcc void @copyQueueItems(ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %36, ptr noundef nonnull %1, ptr noundef nonnull %3, i32 noundef %.0.i.i)
   store i32 %71, ptr %70, align 8
   %80 = call signext i8 @nfaInAnyAcceptState(ptr noundef nonnull %36, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 344, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %81
 
 81:                                               ; preds = %loadActiveIdx.exit, %27
@@ -783,10 +777,10 @@ loadActiveIdx.exit:                               ; preds = %2, %9, %11, %19, %2
   ret i8 %.0
 }
 
-declare signext i8 @nfaInAnyAcceptState(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare signext i8 @nfaInAnyAcceptState(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @nfaExecTamarama_queueInitState(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
+define hidden noundef signext i8 @nfaExecTamarama_queueInitState(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -882,7 +876,7 @@ loadActiveIdx.exit:                               ; preds = %3, %10, %12, %20, %
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 %36
-  call void @llvm.lifetime.start.p0(i64 344, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -928,7 +922,7 @@ loadActiveIdx.exit:                               ; preds = %3, %10, %12, %20, %
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store i8 %69, ptr %70, align 8
   %71 = call signext i8 @nfaQueueCompressState(ptr noundef nonnull %37, ptr noundef nonnull %4, i64 noundef %2) #7
-  call void @llvm.lifetime.end.p0(i64 344, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %72
 
 72:                                               ; preds = %loadActiveIdx.exit, %28
@@ -936,7 +930,7 @@ loadActiveIdx.exit:                               ; preds = %3, %10, %12, %20, %
   ret i8 %.0
 }
 
-declare signext i8 @nfaQueueCompressState(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare signext i8 @nfaQueueCompressState(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden signext i8 @nfaExecTamarama_expandState(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
@@ -1000,7 +994,7 @@ loadActiveIdx.exit:                               ; preds = %5, %9, %11, %19, %2
   ret i8 %.0
 }
 
-declare signext i8 @nfaExpandState(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare signext i8 @nfaExpandState(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @nfaExecTamarama_zombie_status(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -1057,7 +1051,7 @@ loadActiveIdx.exit:                               ; preds = %3, %10, %12, %20, %
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 %36
-  call void @llvm.lifetime.start.p0(i64 344, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1119,7 +1113,7 @@ loadActiveIdx.exit:                               ; preds = %3, %10, %12, %20, %
   call fastcc void @copyQueueItems(ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %37, ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef %.0.i.i)
   store i32 %72, ptr %71, align 8
   %81 = call i32 @nfaGetZombieStatus(ptr noundef nonnull %37, ptr noundef nonnull %4, i64 noundef %2) #7
-  call void @llvm.lifetime.end.p0(i64 344, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %82
 
 82:                                               ; preds = %loadActiveIdx.exit, %28
@@ -1127,12 +1121,12 @@ loadActiveIdx.exit:                               ; preds = %3, %10, %12, %20, %
   ret i32 %.0
 }
 
-declare i32 @nfaGetZombieStatus(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @nfaGetZombieStatus(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden signext i8 @nfaExecTamarama_Q(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.mq, align 8
-  call void @llvm.lifetime.start.p0(i64 344, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -1191,14 +1185,14 @@ define hidden signext i8 @nfaExecTamarama_Q(ptr noundef %0, ptr noundef captures
 
 .critedge.thread31:                               ; preds = %3, %.critedge.thread, %.critedge
   %.122 = phi i8 [ %.121, %.critedge.thread ], [ %.026.lcssa, %.critedge ], [ 1, %3 ]
-  call void @llvm.lifetime.end.p0(i64 344, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i8 %.122
 }
 
-declare signext i8 @nfaQueueExec_raw(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare signext i8 @nfaQueueExec_raw(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @copyBack(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((80, 81)) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #4 {
+define internal fastcc void @copyBack(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((80, 81)) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %5 = load i8, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -1386,7 +1380,7 @@ isMultiTopType.exit.thread:                       ; preds = %53, %53, %53, %53, 
 ; Function Attrs: nounwind uwtable
 define hidden signext i8 @nfaExecTamarama_Q2(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.mq, align 8
-  call void @llvm.lifetime.start.p0(i64 344, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -1447,16 +1441,16 @@ define hidden signext i8 @nfaExecTamarama_Q2(ptr noundef %0, ptr noundef capture
 
 .critedge.thread33:                               ; preds = %3, %.critedge.thread, %.critedge
   %.124 = phi i8 [ %.123, %.critedge.thread ], [ %.028.lcssa, %.critedge ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 344, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i8 %.124
 }
 
-declare signext i8 @nfaQueueExec2_raw(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare signext i8 @nfaQueueExec2_raw(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare signext i8 @nfaQueueInitState(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare signext i8 @nfaQueueInitState(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @copyQueueItems(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef nonnull captures(none) %3, i32 noundef %4) unnamed_addr #5 {
+define internal fastcc void @copyQueueItems(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef nonnull captures(none) %3, i32 noundef %4) unnamed_addr #4 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = zext i32 %4 to i64
   %8 = getelementptr inbounds nuw i32, ptr %6, i64 %7
@@ -1644,15 +1638,21 @@ isMultiTopType.exit:                              ; preds = %23, %18, %18, %25
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #4 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

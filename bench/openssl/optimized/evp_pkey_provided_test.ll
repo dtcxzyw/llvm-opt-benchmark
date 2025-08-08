@@ -414,35 +414,35 @@ define internal range(i32 0, 2) i32 @test_evp_pkey_ctx_dup_kdf() #0 {
   %5 = alloca %struct.ossl_param_st, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !9
   %8 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 200, ptr noundef nonnull @.str, i32 noundef 2139) #6
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %1, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.17, i64 noundef 0) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !tbaa.struct !11
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.19, i64 noundef 4) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false), !tbaa.struct !11
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 120
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.18, i64 noundef 6) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !11
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 160
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i64 noundef 0) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !11
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !11
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %13 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 2162, ptr noundef nonnull @.str.16, ptr noundef nonnull %8) #6
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %35, label %14
@@ -497,8 +497,8 @@ define internal range(i32 0, 2) i32 @test_evp_pkey_ctx_dup_kdf() #0 {
   call void @CRYPTO_free(ptr noundef nonnull %8, ptr noundef nonnull @.str, i32 noundef 2177) #6
   call void @EVP_PKEY_CTX_free(ptr noundef %.0) #6
   call void @EVP_PKEY_CTX_free(ptr noundef %.08) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.09
 }
 
@@ -506,9 +506,9 @@ define internal range(i32 0, 2) i32 @test_evp_pkey_ctx_dup_kdf() #0 {
 define internal range(i32 0, 2) i32 @test_evp_pkey_get_bn_param_large() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2050) @test_evp_pkey_get_bn_param_large.n_data, i8 -50, i64 2050, i1 false)
   %3 = tail call ptr @OSSL_PARAM_BLD_new() #6
@@ -625,8 +625,8 @@ define internal range(i32 0, 2) i32 @test_evp_pkey_get_bn_param_large() #0 {
   call void @EVP_PKEY_CTX_free(ptr noundef %.022) #6
   call void @OSSL_PARAM_free(ptr noundef %.020) #6
   call void @OSSL_PARAM_BLD_free(ptr noundef %3) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.023
 }
 
@@ -635,11 +635,11 @@ define internal range(i32 0, 2) i32 @test_fromdata_rsa() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca [9 x %struct.ossl_param_st], align 16
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 360, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(360) %2, ptr noundef nonnull align 16 dereferenceable(360) @__const.test_fromdata_rsa.fromdata_params, i64 360, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call ptr @BN_new() #6
   store ptr %4, ptr %3, align 8, !tbaa !17
   %5 = tail call ptr @BN_new() #6
@@ -858,16 +858,16 @@ define internal range(i32 0, 2) i32 @test_fromdata_rsa() #0 {
   call void @EVP_PKEY_free(ptr noundef %.027) #6
   call void @EVP_PKEY_CTX_free(ptr noundef %.029) #6
   call void @EVP_PKEY_CTX_free(ptr noundef %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.1.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_fromdata_rsa_derive_from_pq_sp800() #0 {
   %1 = alloca [4 x %struct.check_data], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = tail call ptr @OSSL_PARAM_BLD_new() #6
   %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 593, ptr noundef nonnull @.str.34, ptr noundef %2) #6
   %.not = icmp eq i32 %3, 0
@@ -1011,14 +1011,14 @@ define internal range(i32 0, 2) i32 @test_fromdata_rsa_derive_from_pq_sp800() #0
   tail call void @BN_free(ptr noundef %.026) #6
   tail call void @BN_free(ptr noundef %.025) #6
   tail call void @OSSL_PARAM_BLD_free(ptr noundef %2) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_fromdata_rsa_derive_from_pq_multiprime() #0 {
   %1 = alloca [12 x %struct.check_data], align 16
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = tail call ptr @OSSL_PARAM_BLD_new() #6
   %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 775, ptr noundef nonnull @.str.34, ptr noundef %2) #6
   %.not = icmp eq i32 %3, 0
@@ -1226,7 +1226,7 @@ define internal range(i32 0, 2) i32 @test_fromdata_rsa_derive_from_pq_multiprime
   tail call void @BN_free(ptr noundef %.039) #6
   tail call void @BN_free(ptr noundef %.038) #6
   tail call void @OSSL_PARAM_BLD_free(ptr noundef %2) #6
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -1245,29 +1245,29 @@ define internal range(i32 0, 2) i32 @test_fromdata_dh_fips186_4() #0 {
   %11 = alloca ptr, align 8
   %12 = alloca [80 x i8], align 16
   %13 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 0, ptr %1, align 4, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %14 = tail call ptr @OSSL_PARAM_BLD_new() #6
   %15 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1166, ptr noundef nonnull @.str.34, ptr noundef %14) #6
   %.not = icmp eq i32 %15, 0
@@ -1666,19 +1666,19 @@ define internal range(i32 0, 2) i32 @test_fromdata_dh_fips186_4() #0 {
   call void @EVP_PKEY_CTX_free(ptr noundef %.033) #6
   call void @OSSL_PARAM_free(ptr noundef %.0) #6
   call void @OSSL_PARAM_BLD_free(ptr noundef %14) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.035.shrunk
 }
 
@@ -1697,29 +1697,29 @@ define internal range(i32 0, 2) i32 @test_fromdata_dh_named_group() #0 {
   %11 = alloca ptr, align 8
   %12 = alloca [80 x i8], align 16
   %13 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 0, ptr %1, align 4, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %14 = tail call ptr @OSSL_PARAM_BLD_new() #6
   %15 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 951, ptr noundef nonnull @.str.34, ptr noundef %14) #6
   %.not = icmp eq i32 %15, 0
@@ -2185,19 +2185,19 @@ define internal range(i32 0, 2) i32 @test_fromdata_dh_named_group() #0 {
   call void @EVP_PKEY_CTX_free(ptr noundef %.037) #6
   call void @OSSL_PARAM_free(ptr noundef %.0) #6
   call void @OSSL_PARAM_BLD_free(ptr noundef %14) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.040.shrunk
 }
 
@@ -2254,29 +2254,29 @@ define internal range(i32 0, 2) i32 @test_fromdata_dsa_fips186_4() #0 {
   %11 = alloca [80 x i8], align 16
   %12 = alloca [32 x i8], align 16
   %13 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %14 = tail call ptr @OSSL_PARAM_BLD_new() #6
   %15 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1965, ptr noundef nonnull @.str.34, ptr noundef %14) #6
   %.not = icmp eq i32 %15, 0
@@ -2745,19 +2745,19 @@ define internal range(i32 0, 2) i32 @test_fromdata_dsa_fips186_4() #0 {
   call void @EVP_PKEY_free(ptr noundef %.054) #6
   call void @EVP_PKEY_CTX_free(ptr noundef %.046) #6
   call void @EVP_PKEY_CTX_free(ptr noundef %.055) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0.shrunk
 }
 
@@ -2774,20 +2774,20 @@ define internal range(i32 0, 2) i32 @test_fromdata_ecx(i32 noundef %0) #0 {
   %8 = alloca [3 x %struct.ossl_param_st], align 16
   %9 = alloca [3 x %struct.ossl_param_st], align 16
   %10 = alloca [3 x %struct.ossl_param_st], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 57, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 57, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %6, i8 0, i64 120, i1 false)
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %7, ptr noundef nonnull align 16 dereferenceable(120) @__const.test_fromdata_ecx.x25519_fromdata_params, i64 120, i1 false)
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %8, ptr noundef nonnull align 16 dereferenceable(120) @__const.test_fromdata_ecx.x448_fromdata_params, i64 120, i1 false)
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %9, ptr noundef nonnull align 16 dereferenceable(120) @__const.test_fromdata_ecx.ed25519_fromdata_params, i64 120, i1 false)
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %10, ptr noundef nonnull align 16 dereferenceable(120) @__const.test_fromdata_ecx.ed448_fromdata_params, i64 120, i1 false)
   %11 = and i32 %0, 3
   %.048.sroa.gep85 = getelementptr inbounds nuw i8, ptr %7, i64 80
@@ -3098,15 +3098,15 @@ test_print_key_using_encoder_public.exit.thread:  ; preds = %test_print_key_usin
   call void @EVP_PKEY_free(ptr noundef %.051) #6
   call void @EVP_PKEY_CTX_free(ptr noundef %16) #6
   call void @EVP_PKEY_CTX_free(ptr noundef %.053) #6
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 57, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 57, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.055
 }
 
@@ -3123,22 +3123,22 @@ define internal range(i32 0, 2) i32 @test_fromdata_ec() #0 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca %struct.ossl_param_st, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %3, ptr noundef nonnull align 16 dereferenceable(18) @__const.test_fromdata_ec.bad_curve, i64 18, i1 false)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %4, i8 0, i64 80, i1 false)
-  call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8, !tbaa !17
   %12 = tail call ptr @OSSL_PARAM_BLD_new() #6
   %13 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1630, ptr noundef nonnull @.str.34, ptr noundef %12) #6
@@ -3179,10 +3179,10 @@ define internal range(i32 0, 2) i32 @test_fromdata_ec() #0 {
   br i1 %.not66, label %.thread, label %32
 
 32:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %11, ptr noundef nonnull @.str.164, ptr noundef nonnull %3, i64 noundef 18) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !tbaa.struct !11
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %33 = call i32 @EVP_PKEY_fromdata_init(ptr noundef %30) #6
   %34 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 1663, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.23, i32 noundef %33, i32 noundef 1) #6
   %.not67 = icmp eq i32 %34, 0
@@ -3509,16 +3509,16 @@ define internal range(i32 0, 2) i32 @test_fromdata_ec() #0 {
   call void @EVP_PKEY_free(ptr noundef %188) #6
   call void @EVP_PKEY_free(ptr noundef %.061) #6
   call void @EVP_PKEY_CTX_free(ptr noundef %.057) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.056.shrunk
 }
 
@@ -3526,9 +3526,9 @@ define internal range(i32 0, 2) i32 @test_fromdata_ec() #0 {
 define internal range(i32 0, 2) i32 @test_ec_dup_no_operation() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !15
   %3 = tail call ptr @EVP_PKEY_CTX_new_id(i32 noundef 408, ptr noundef null) #6
   %4 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1786, ptr noundef nonnull @.str.286, ptr noundef %3) #6
@@ -3599,15 +3599,15 @@ define internal range(i32 0, 2) i32 @test_ec_dup_no_operation() #0 {
   call void @EVP_PKEY_CTX_free(ptr noundef %.010) #6
   call void @EVP_PKEY_CTX_free(ptr noundef %.0) #6
   call void @EVP_PKEY_CTX_free(ptr noundef %.011) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.012
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_ec_dup_keygen_operation() #0 {
   %1 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8, !tbaa !15
   %2 = tail call ptr @EVP_PKEY_CTX_new_id(i32 noundef 408, ptr noundef null) #6
   %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1819, ptr noundef nonnull @.str.286, ptr noundef %2) #6
@@ -3670,12 +3670,9 @@ define internal range(i32 0, 2) i32 @test_ec_dup_keygen_operation() #0 {
   call void @EVP_PKEY_CTX_free(ptr noundef %.011) #6
   call void @EVP_PKEY_CTX_free(ptr noundef %.010) #6
   call void @EVP_PKEY_CTX_free(ptr noundef %.012) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @EVP_PKEY_CTX_new_from_name(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3693,22 +3690,19 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 
 declare void @EVP_PKEY_CTX_free(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare void @OSSL_PARAM_construct_end(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @OSSL_PARAM_BLD_new() local_unnamed_addr #1
 
@@ -3938,12 +3932,12 @@ declare ptr @EVP_aes_256_cbc() local_unnamed_addr #1
 declare i32 @PEM_write_bio_PKCS8PrivateKey(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @pass_cb(ptr readnone captures(none) %0, i32 %1, i32 %2, ptr readnone captures(none) %3) #5 {
+define internal noundef i32 @pass_cb(ptr readnone captures(none) %0, i32 %1, i32 %2, ptr readnone captures(none) %3) #4 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @pass_cb_error(ptr readnone captures(none) %0, i32 %1, i32 %2, ptr readnone captures(none) %3) #5 {
+define internal noundef i32 @pass_cb_error(ptr readnone captures(none) %0, i32 %1, i32 %2, ptr readnone captures(none) %3) #4 {
   ret i32 -1
 }
 
@@ -3957,10 +3951,10 @@ define internal fastcc range(i32 0, 2) i32 @compare_with_file(ptr noundef %0, i3
   %5 = alloca [4096 x i8], align 16
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp ult i32 %1, 6
   br i1 %8, label %switch.lookup, label %9
 
@@ -4119,10 +4113,10 @@ stripcr.exit34:                                   ; preds = %61, %stripcr.exit, 
   call void @CRYPTO_free(ptr noundef %.019, ptr noundef nonnull @.str, i32 noundef 125) #6
   %68 = call i64 @BIO_ctrl(ptr noundef %2, i32 noundef 1, i64 noundef 0, ptr noundef null) #6
   %69 = call i32 @BIO_free(ptr noundef %.0) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.017
 }
 
@@ -4304,11 +4298,11 @@ define internal fastcc range(i32 0, 2) i32 @do_fromdata_rsa_derive(ptr noundef %
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !34
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !15
   %9 = tail call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef null, ptr noundef nonnull @.str.46, ptr noundef null) #6
   %10 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 468, ptr noundef nonnull @.str.45, ptr noundef %9) #6
@@ -4501,9 +4495,9 @@ define internal fastcc range(i32 0, 2) i32 @do_fromdata_rsa_derive(ptr noundef %
   call void @OSSL_PARAM_free(ptr noundef %0) #6
   %98 = load ptr, ptr %7, align 8, !tbaa !34
   call void @OSSL_PARAM_free(ptr noundef %98) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -4555,12 +4549,18 @@ declare i32 @EVP_PKEY_keygen_init(ptr noundef) local_unnamed_addr #1
 
 declare i32 @EVP_PKEY_keygen(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

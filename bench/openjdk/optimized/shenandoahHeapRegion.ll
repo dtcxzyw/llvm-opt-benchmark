@@ -749,7 +749,7 @@ define hidden void @_ZN20ShenandoahHeapRegion23make_regular_allocationEv(ptr nou
   br label %7
 
 7:                                                ; preds = %6, %1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %8, i8 0, i64 11, i1 false)
   %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3737), align 1
@@ -789,11 +789,11 @@ define hidden void @_ZN20ShenandoahHeapRegion23make_regular_allocationEv(ptr nou
 
 _ZN20ShenandoahHeapRegion9set_stateENS_11RegionStateE.exit: ; preds = %7, %10
   store i32 2, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %36
 
 30:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %2, i64 noundef 0) #18
   %31 = load i32, ptr %4, align 8
   %32 = call noundef ptr @_ZN20ShenandoahHeapRegion22region_state_to_stringENS_11RegionStateE(i32 noundef %31)
@@ -929,7 +929,7 @@ define hidden void @_ZN20ShenandoahHeapRegion19make_regular_bypassEv(ptr noundef
   br label %8
 
 8:                                                ; preds = %7, %1, %1, %1, %1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %9, i8 0, i64 11, i1 false)
   %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3737), align 1
@@ -969,11 +969,11 @@ define hidden void @_ZN20ShenandoahHeapRegion19make_regular_bypassEv(ptr noundef
 
 _ZN20ShenandoahHeapRegion9set_stateENS_11RegionStateE.exit: ; preds = %8, %11
   store i32 2, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %60
 
 31:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %32, i8 0, i64 11, i1 false)
   %33 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3737), align 1
@@ -1013,11 +1013,11 @@ _ZN20ShenandoahHeapRegion9set_stateENS_11RegionStateE.exit: ; preds = %8, %11
 
 _ZN20ShenandoahHeapRegion9set_stateENS_11RegionStateE.exit2: ; preds = %31, %34
   store i32 7, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %60
 
 54:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %2, i64 noundef 0) #18
   %55 = load i32, ptr %5, align 8
   %56 = call noundef ptr @_ZN20ShenandoahHeapRegion22region_state_to_stringENS_11RegionStateE(i32 noundef %55)
@@ -1050,7 +1050,7 @@ define hidden void @_ZN20ShenandoahHeapRegion20make_humongous_startEv(ptr nounde
   br label %7
 
 7:                                                ; preds = %6, %1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %8, i8 0, i64 11, i1 false)
   %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3737), align 1
@@ -1090,11 +1090,11 @@ define hidden void @_ZN20ShenandoahHeapRegion20make_humongous_startEv(ptr nounde
 
 _ZN20ShenandoahHeapRegion9set_stateENS_11RegionStateE.exit: ; preds = %7, %10
   store i32 3, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 30:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %2, i64 noundef 0) #18
   %31 = load i32, ptr %4, align 8
   %32 = call noundef ptr @_ZN20ShenandoahHeapRegion22region_state_to_stringENS_11RegionStateE(i32 noundef %31)
@@ -1119,7 +1119,7 @@ define hidden void @_ZN20ShenandoahHeapRegion27make_humongous_start_bypassEv(ptr
   br i1 %switch, label %6, label %29
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %7, i8 0, i64 11, i1 false)
   %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3737), align 1
@@ -1159,11 +1159,11 @@ define hidden void @_ZN20ShenandoahHeapRegion27make_humongous_start_bypassEv(ptr
 
 _ZN20ShenandoahHeapRegion9set_stateENS_11RegionStateE.exit: ; preds = %6, %9
   store i32 3, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 29:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %2, i64 noundef 0) #18
   %30 = load i32, ptr %4, align 8
   %31 = call noundef ptr @_ZN20ShenandoahHeapRegion22region_state_to_stringENS_11RegionStateE(i32 noundef %30)
@@ -1193,7 +1193,7 @@ define hidden void @_ZN20ShenandoahHeapRegion19make_humongous_contEv(ptr noundef
   br label %7
 
 7:                                                ; preds = %6, %1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %8, i8 0, i64 11, i1 false)
   %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3737), align 1
@@ -1233,11 +1233,11 @@ define hidden void @_ZN20ShenandoahHeapRegion19make_humongous_contEv(ptr noundef
 
 _ZN20ShenandoahHeapRegion9set_stateENS_11RegionStateE.exit: ; preds = %7, %10
   store i32 4, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 30:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %2, i64 noundef 0) #18
   %31 = load i32, ptr %4, align 8
   %32 = call noundef ptr @_ZN20ShenandoahHeapRegion22region_state_to_stringENS_11RegionStateE(i32 noundef %31)
@@ -1262,7 +1262,7 @@ define hidden void @_ZN20ShenandoahHeapRegion26make_humongous_cont_bypassEv(ptr 
   br i1 %switch, label %6, label %29
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %7, i8 0, i64 11, i1 false)
   %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3737), align 1
@@ -1302,11 +1302,11 @@ define hidden void @_ZN20ShenandoahHeapRegion26make_humongous_cont_bypassEv(ptr 
 
 _ZN20ShenandoahHeapRegion9set_stateENS_11RegionStateE.exit: ; preds = %6, %9
   store i32 4, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 29:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %2, i64 noundef 0) #18
   %30 = load i32, ptr %4, align 8
   %31 = call noundef ptr @_ZN20ShenandoahHeapRegion22region_state_to_stringENS_11RegionStateE(i32 noundef %30)
@@ -1337,7 +1337,7 @@ define hidden void @_ZN20ShenandoahHeapRegion11make_pinnedEv(ptr noundef nonnull
   ]
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %8, i8 0, i64 11, i1 false)
   %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3737), align 1
@@ -1377,11 +1377,11 @@ define hidden void @_ZN20ShenandoahHeapRegion11make_pinnedEv(ptr noundef nonnull
 
 _ZN20ShenandoahHeapRegion9set_stateENS_11RegionStateE.exit: ; preds = %7, %10
   store i32 7, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %60
 
 30:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %31, i8 0, i64 11, i1 false)
   %32 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3737), align 1
@@ -1421,7 +1421,7 @@ _ZN20ShenandoahHeapRegion9set_stateENS_11RegionStateE.exit: ; preds = %7, %10
 
 _ZN20ShenandoahHeapRegion9set_stateENS_11RegionStateE.exit2: ; preds = %30, %33
   store i32 5, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %60
 
 53:                                               ; preds = %1
@@ -1429,7 +1429,7 @@ _ZN20ShenandoahHeapRegion9set_stateENS_11RegionStateE.exit2: ; preds = %30, %33
   br label %60
 
 54:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %2, i64 noundef 0) #18
   %55 = load i32, ptr %5, align 8
   %56 = call noundef ptr @_ZN20ShenandoahHeapRegion22region_state_to_stringENS_11RegionStateE(i32 noundef %55)
@@ -1463,7 +1463,7 @@ define hidden void @_ZN20ShenandoahHeapRegion13make_unpinnedEv(ptr noundef nonnu
   ]
 
 8:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %9, i8 0, i64 11, i1 false)
   %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3737), align 1
@@ -1503,11 +1503,11 @@ define hidden void @_ZN20ShenandoahHeapRegion13make_unpinnedEv(ptr noundef nonnu
 
 _ZN20ShenandoahHeapRegion9set_stateENS_11RegionStateE.exit: ; preds = %8, %11
   store i32 2, ptr %6, align 8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %83
 
 31:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %32, i8 0, i64 11, i1 false)
   %33 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3737), align 1
@@ -1547,11 +1547,11 @@ _ZN20ShenandoahHeapRegion9set_stateENS_11RegionStateE.exit: ; preds = %8, %11
 
 _ZN20ShenandoahHeapRegion9set_stateENS_11RegionStateE.exit2: ; preds = %31, %34
   store i32 6, ptr %6, align 8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %83
 
 54:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %55, i8 0, i64 11, i1 false)
   %56 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3737), align 1
@@ -1591,11 +1591,11 @@ _ZN20ShenandoahHeapRegion9set_stateENS_11RegionStateE.exit2: ; preds = %31, %34
 
 _ZN20ShenandoahHeapRegion9set_stateENS_11RegionStateE.exit4: ; preds = %54, %57
   store i32 3, ptr %6, align 8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %83
 
 77:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %2, i64 noundef 0) #18
   %78 = load i32, ptr %6, align 8
   %79 = call noundef ptr @_ZN20ShenandoahHeapRegion22region_state_to_stringENS_11RegionStateE(i32 noundef %78)
@@ -1624,7 +1624,7 @@ define hidden void @_ZN20ShenandoahHeapRegion9make_csetEv(ptr noundef nonnull al
   ]
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %7, i8 0, i64 11, i1 false)
   %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3737), align 1
@@ -1664,11 +1664,11 @@ define hidden void @_ZN20ShenandoahHeapRegion9make_csetEv(ptr noundef nonnull al
 
 _ZN20ShenandoahHeapRegion9set_stateENS_11RegionStateE.exit: ; preds = %6, %9
   store i32 6, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %35
 
 29:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %2, i64 noundef 0) #18
   %30 = load i32, ptr %4, align 8
   %31 = call noundef ptr @_ZN20ShenandoahHeapRegion22region_state_to_stringENS_11RegionStateE(i32 noundef %30)
@@ -1699,7 +1699,7 @@ define hidden void @_ZN20ShenandoahHeapRegion10make_trashEv(ptr noundef nonnull 
   ]
 
 6:                                                ; preds = %1, %1, %1, %1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %7, i8 0, i64 11, i1 false)
   %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3737), align 1
@@ -1739,11 +1739,11 @@ define hidden void @_ZN20ShenandoahHeapRegion10make_trashEv(ptr noundef nonnull 
 
 _ZN20ShenandoahHeapRegion9set_stateENS_11RegionStateE.exit: ; preds = %6, %9
   store i32 9, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 29:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %2, i64 noundef 0) #18
   %30 = load i32, ptr %4, align 8
   %31 = call noundef ptr @_ZN20ShenandoahHeapRegion22region_state_to_stringENS_11RegionStateE(i32 noundef %30)
@@ -1783,7 +1783,7 @@ define hidden void @_ZN20ShenandoahHeapRegion10make_emptyEv(ptr noundef nonnull 
   br i1 %cond, label %6, label %31
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %7, i8 0, i64 11, i1 false)
   %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3737), align 1
@@ -1823,14 +1823,14 @@ define hidden void @_ZN20ShenandoahHeapRegion10make_emptyEv(ptr noundef nonnull 
 
 _ZN20ShenandoahHeapRegion9set_stateENS_11RegionStateE.exit: ; preds = %6, %9
   store i32 1, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %29 = call noundef double @_ZN2os11elapsedTimeEv() #18
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %29, ptr %30, align 8
   ret void
 
 31:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %2, i64 noundef 0) #18
   %32 = load i32, ptr %4, align 8
   %33 = call noundef ptr @_ZN20ShenandoahHeapRegion22region_state_to_stringENS_11RegionStateE(i32 noundef %32)
@@ -1882,7 +1882,7 @@ define hidden void @_ZN20ShenandoahHeapRegion16make_uncommittedEv(ptr noundef no
 _ZN20ShenandoahHeapRegion11do_uncommitEv.exit:    ; preds = %17, %19
   %20 = load i64, ptr @_ZN20ShenandoahHeapRegion15RegionSizeBytesE, align 8
   tail call void @_ZN14ShenandoahHeap18decrease_committedEm(ptr noundef nonnull align 8 dereferenceable(2657) %7, i64 noundef %20) #18
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %21, i8 0, i64 11, i1 false)
   %22 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3737), align 1
@@ -1922,11 +1922,11 @@ _ZN20ShenandoahHeapRegion11do_uncommitEv.exit:    ; preds = %17, %19
 
 _ZN20ShenandoahHeapRegion9set_stateENS_11RegionStateE.exit: ; preds = %_ZN20ShenandoahHeapRegion11do_uncommitEv.exit, %23
   store i32 0, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 43:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %2, i64 noundef 0) #18
   %44 = load i32, ptr %4, align 8
   %45 = call noundef ptr @_ZN20ShenandoahHeapRegion22region_state_to_stringENS_11RegionStateE(i32 noundef %44)
@@ -1984,7 +1984,7 @@ define hidden void @_ZN20ShenandoahHeapRegion21make_committed_bypassEv(ptr nound
 
 6:                                                ; preds = %1
   tail call void @_ZN20ShenandoahHeapRegion9do_commitEv(ptr noundef nonnull align 8 dereferenceable(96) %0)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %7, i8 0, i64 11, i1 false)
   %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3737), align 1
@@ -2024,11 +2024,11 @@ define hidden void @_ZN20ShenandoahHeapRegion21make_committed_bypassEv(ptr nound
 
 _ZN20ShenandoahHeapRegion9set_stateENS_11RegionStateE.exit: ; preds = %6, %9
   store i32 1, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 29:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %2, i64 noundef 0) #18
   %30 = load i32, ptr %4, align 8
   %31 = call noundef ptr @_ZN20ShenandoahHeapRegion22region_state_to_stringENS_11RegionStateE(i32 noundef %30)
@@ -3715,14 +3715,14 @@ _ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128Enco
   %42 = load ptr, ptr %8, align 8
   %43 = ptrtoint ptr %42 to i64
   %44 = sub i64 %38, %43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %45 = load ptr, ptr %9, align 8
   %46 = load ptr, ptr %10, align 8
   call void @_ZN8JfrFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %45, i64 noundef %44, i64 noundef 9, ptr noundef %46) #18
   %47 = load ptr, ptr %7, align 8
   store ptr %47, ptr %9, align 8
   %.not5.i.i.i = icmp eq ptr %47, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %41
@@ -3819,7 +3819,7 @@ define linkonce_odr hidden void @_ZN15EventWriterHostI11EncoderHostI20BigEndianE
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
@@ -3827,7 +3827,7 @@ define linkonce_odr hidden void @_ZN15EventWriterHostI11EncoderHostI20BigEndianE
   %13 = load ptr, ptr %5, align 8
   store ptr %13, ptr %9, align 8
   %.not1.i.i.i = icmp eq ptr %13, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not1.i.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE5flushEv.exit.i.i, label %14
 
 14:                                               ; preds = %8
@@ -3872,7 +3872,7 @@ _ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128Enco
   %36 = ptrtoint ptr %35 to i64
   %37 = sub i64 %31, %36
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %41 = load ptr, ptr %40, align 8
@@ -3880,7 +3880,7 @@ _ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128Enco
   %42 = load ptr, ptr %4, align 8
   store ptr %42, ptr %38, align 8
   %.not5.i.i = icmp eq ptr %42, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %34
@@ -3935,7 +3935,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %64 = ptrtoint ptr %63 to i64
   %65 = sub i64 %62, %64
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %69 = load ptr, ptr %68, align 8
@@ -3943,7 +3943,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %70 = load ptr, ptr %3, align 8
   store ptr %70, ptr %66, align 8
   %.not5.i.i8 = icmp eq ptr %70, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i8, label %.sink.split.i.i10, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i9
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i9: ; preds = %61
@@ -4009,7 +4009,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %10, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
@@ -4017,7 +4017,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %21 = load ptr, ptr %3, align 8
   store ptr %21, ptr %17, align 8
   %.not5.i.i = icmp eq ptr %21, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %13
@@ -4216,7 +4216,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %10, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
@@ -4224,7 +4224,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %21 = load ptr, ptr %3, align 8
   store ptr %21, ptr %17, align 8
   %.not5.i.i = icmp eq ptr %21, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %13
@@ -4421,14 +4421,14 @@ define linkonce_odr hidden noundef i64 @_ZN15EventWriterHostI11EncoderHostI20Big
   br i1 %11, label %12, label %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertE7releaseEv.exit
 
 12:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   call void @_ZN8JfrFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %13, i64 noundef 0, i64 noundef 0, ptr noundef %15) #18
   %16 = load ptr, ptr %4, align 8
   store ptr %16, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertE7releaseEv.exit
 
 17:                                               ; preds = %2
@@ -4506,14 +4506,14 @@ _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit: ; preds = %_ZN11St
   br i1 %50, label %51, label %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertE7releaseEv.exit15
 
 51:                                               ; preds = %49
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %52 = load ptr, ptr %47, align 8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %54 = load ptr, ptr %53, align 8
   call void @_ZN8JfrFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %52, i64 noundef 0, i64 noundef 0, ptr noundef %54) #18
   %55 = load ptr, ptr %3, align 8
   store ptr %55, ptr %47, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertE7releaseEv.exit15
 
 _ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertE7releaseEv.exit15: ; preds = %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit, %49, %51
@@ -4560,7 +4560,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %10, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
@@ -4568,7 +4568,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %21 = load ptr, ptr %3, align 8
   store ptr %21, ptr %17, align 8
   %.not5.i.i = icmp eq ptr %21, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %13
@@ -4717,7 +4717,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
 
 19:                                               ; preds = %7
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8
@@ -4725,7 +4725,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %24 = load ptr, ptr %4, align 8
   store ptr %24, ptr %20, align 8
   %.not5.i.i.i = icmp eq ptr %24, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %19
@@ -5049,9 +5049,9 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI17OopIterateClosureE
   br i1 %43, label %28, label %_ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop17OopIterateClosureEEvP7oopDescPT0_.exit, !llvm.loop !18
 
 _ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop17OopIterateClosureEEvP7oopDescPT0_.exit: ; preds = %._crit_edge.i, %13
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop17OopIterateClosure14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -5122,9 +5122,9 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI17OopIterateClosureE
   br i1 %42, label %28, label %_ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc17OopIterateClosureEEvS2_PT0_.exit, !llvm.loop !20
 
 _ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc17OopIterateClosureEEvS2_PT0_.exit: ; preds = %._crit_edge.i, %13
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc17OopIterateClosure14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -8268,12 +8268,12 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI17OopIterateC
   br i1 %53, label %35, label %_ZN16InstanceRefKlass23oop_oop_iterate_boundedI9narrowOop17OopIterateClosureEEvP7oopDescPT0_9MemRegion.exit, !llvm.loop !52
 
 _ZN16InstanceRefKlass23oop_oop_iterate_boundedI9narrowOop17OopIterateClosureEEvP7oopDescPT0_9MemRegion.exit: ; preds = %._crit_edge.i, %19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %4, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop17OopIterateClosureK10MrContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -8355,12 +8355,12 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI17OopIterateC
   br i1 %52, label %35, label %_ZN16InstanceRefKlass23oop_oop_iterate_boundedIP7oopDesc17OopIterateClosureEEvS2_PT0_9MemRegion.exit, !llvm.loop !54
 
 _ZN16InstanceRefKlass23oop_oop_iterate_boundedIP7oopDesc17OopIterateClosureEEvS2_PT0_9MemRegion.exit: ; preds = %._crit_edge.i, %19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %4, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc17OopIterateClosureK10MrContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -9633,10 +9633,10 @@ declare i64 @llvm.umax.i64(i64, i64) #15
 declare i64 @llvm.umin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #17

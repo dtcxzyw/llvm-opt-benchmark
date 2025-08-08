@@ -42,7 +42,7 @@ declare void @_Z12lua_setfieldP9lua_StateiPKc(ptr noundef, i32 noundef, ptr noun
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL10byteoffsetP9lua_State(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call noundef ptr @_Z17luaL_checklstringP9lua_StateiPm(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %4 = call noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef %0, i32 noundef 2)
   %5 = icmp sgt i32 %4, -1
@@ -79,7 +79,7 @@ _ZL10u_posrelatim.exit:                           ; preds = %1, %17
   br i1 %.not, label %_ZL10u_posrelatim.exit.thread, label %25
 
 _ZL10u_posrelatim.exit.thread:                    ; preds = %13, %22, %_ZL10u_posrelatim.exit
-  call void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str.8) #5
+  call void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str.8) #4
   unreachable
 
 25:                                               ; preds = %22
@@ -111,7 +111,7 @@ _ZL10u_posrelatim.exit.thread:                    ; preds = %13, %22, %_ZL10u_po
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %34
-  call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.9) #5
+  call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.9) #4
   unreachable
 
 40:                                               ; preds = %34
@@ -199,14 +199,14 @@ _ZL10u_posrelatim.exit.thread:                    ; preds = %13, %22, %_ZL10u_po
   br label %69
 
 69:                                               ; preds = %.critedge.thread77, %.critedge.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 1
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL9codepointP9lua_State(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call noundef ptr @_Z17luaL_checklstringP9lua_StateiPm(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %4 = call noundef i32 @_Z15luaL_optintegerP9lua_Stateii(ptr noundef %0, i32 noundef 2, i32 noundef 1)
   %5 = load i64, ptr %2, align 8, !tbaa !4
@@ -250,7 +250,7 @@ _ZL10u_posrelatim.exit36:                         ; preds = %_ZL10u_posrelatim.e
   br i1 %26, label %28, label %27
 
 27:                                               ; preds = %_ZL10u_posrelatim.exit36
-  call void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.10) #5
+  call void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.10) #4
   unreachable
 
 28:                                               ; preds = %_ZL10u_posrelatim.exit36
@@ -259,7 +259,7 @@ _ZL10u_posrelatim.exit36:                         ; preds = %_ZL10u_posrelatim.e
   br i1 %.not, label %30, label %31
 
 30:                                               ; preds = %28
-  call void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str.10) #5
+  call void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str.10) #4
   unreachable
 
 31:                                               ; preds = %28
@@ -332,7 +332,7 @@ _ZL10u_posrelatim.exit36:                         ; preds = %_ZL10u_posrelatim.e
   br label %69
 
 .loopexit:                                        ; preds = %54, %62, %45
-  call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.12) #5
+  call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.12) #4
   unreachable
 
 69:                                               ; preds = %67, %.lr.ph
@@ -346,7 +346,7 @@ _ZL10u_posrelatim.exit36:                         ; preds = %_ZL10u_posrelatim.e
 
 .loopexit40:                                      ; preds = %69, %33, %31
   %.0 = phi i32 [ 0, %31 ], [ 0, %33 ], [ %71, %69 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -354,7 +354,7 @@ _ZL10u_posrelatim.exit36:                         ; preds = %_ZL10u_posrelatim.e
 define internal noundef i32 @_ZL7utfcharP9lua_State(ptr noundef %0) #0 {
   %2 = alloca [8 x i8], align 1
   %3 = alloca %struct.luaL_Strbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = tail call noundef i32 @_Z10lua_gettopP9lua_State(ptr noundef %0)
   %5 = icmp eq i32 %4, 1
   br i1 %5, label %6, label %34
@@ -365,7 +365,7 @@ define internal noundef i32 @_ZL7utfcharP9lua_State(ptr noundef %0) #0 {
   br i1 %or.cond.i, label %9, label %8
 
 8:                                                ; preds = %6
-  tail call void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.13) #5
+  tail call void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.13) #4
   unreachable
 
 9:                                                ; preds = %6
@@ -417,7 +417,7 @@ _ZL11buffutfcharP9lua_StateiPcPPKc.exit:          ; preds = %9, %21
   br label %64
 
 34:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 544, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_Z13luaL_buffinitP9lua_StateP11luaL_Strbuf(ptr noundef %0, ptr noundef nonnull %3)
   %.not30 = icmp slt i32 %4, 1
   br i1 %.not30, label %._crit_edge, label %.lr.ph
@@ -428,7 +428,7 @@ _ZL11buffutfcharP9lua_StateiPcPPKc.exit:          ; preds = %9, %21
 
 ._crit_edge:                                      ; preds = %_ZL11buffutfcharP9lua_StateiPcPPKc.exit24, %34
   call void @_Z15luaL_pushresultP11luaL_Strbuf(ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 544, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %64
 
 36:                                               ; preds = %.lr.ph, %_ZL11buffutfcharP9lua_StateiPcPPKc.exit24
@@ -438,7 +438,7 @@ _ZL11buffutfcharP9lua_StateiPcPPKc.exit:          ; preds = %9, %21
   br i1 %or.cond.i12, label %39, label %38
 
 38:                                               ; preds = %36
-  call void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef %.031, ptr noundef nonnull @.str.13) #5
+  call void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef %.031, ptr noundef nonnull @.str.13) #4
   unreachable
 
 39:                                               ; preds = %36
@@ -491,14 +491,14 @@ _ZL11buffutfcharP9lua_StateiPcPPKc.exit24:        ; preds = %39, %51
   br i1 %exitcond.not, label %._crit_edge, label %36, !llvm.loop !20
 
 64:                                               ; preds = %._crit_edge, %_ZL11buffutfcharP9lua_StateiPcPPKc.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 1
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef range(i32 1, 3) i32 @_ZL6utflenP9lua_State(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call noundef ptr @_Z17luaL_checklstringP9lua_StateiPm(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %4 = call noundef i32 @_Z15luaL_optintegerP9lua_Stateii(ptr noundef %0, i32 noundef 2, i32 noundef 1)
   %5 = load i64, ptr %2, align 8, !tbaa !4
@@ -548,7 +548,7 @@ _ZL10u_posrelatim.exit35:                         ; preds = %_ZL10u_posrelatim.e
   br i1 %.not, label %30, label %31
 
 30:                                               ; preds = %27, %_ZL10u_posrelatim.exit35
-  call void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.14) #5
+  call void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.14) #4
   unreachable
 
 31:                                               ; preds = %27
@@ -564,7 +564,7 @@ _ZL10u_posrelatim.exit35:                         ; preds = %_ZL10u_posrelatim.e
   br label %34
 
 33:                                               ; preds = %31
-  call void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str.15) #5
+  call void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str.15) #4
   unreachable
 
 34:                                               ; preds = %.lr.ph, %66
@@ -644,7 +644,7 @@ _ZL10u_posrelatim.exit35:                         ; preds = %_ZL10u_posrelatim.e
   %.sink = phi i32 [ %65, %.thread ], [ 0, %.preheader ], [ %71, %66 ]
   %.2 = phi i32 [ 2, %.thread ], [ 1, %.preheader ], [ 1, %66 ]
   call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %.sink)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.2
 }
 
@@ -657,9 +657,6 @@ define internal noundef i32 @_ZL10iter_codesP9lua_State(ptr noundef %0) #0 {
   ret i32 3
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare noundef ptr @_Z17luaL_checklstringP9lua_StateiPm(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 declare noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -667,17 +664,14 @@ declare noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef, i32 noundef)
 declare noundef i32 @_Z15luaL_optintegerP9lua_Stateii(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 declare void @_Z15lua_pushintegerP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @_Z11lua_pushnilP9lua_State(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @_Z15luaL_checkstackP9lua_StateiPKc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -694,7 +688,7 @@ declare void @_Z17lua_pushcclosurekP9lua_StatePFiS0_EPKciPFiS0_iE(ptr noundef, p
 ; Function Attrs: mustprogress uwtable
 define internal noundef range(i32 0, 3) i32 @_ZL8iter_auxP9lua_State(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call noundef ptr @_Z17luaL_checklstringP9lua_StateiPm(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %4 = call noundef i32 @_Z14lua_tointegerxP9lua_StateiPi(ptr noundef %0, i32 noundef 2, ptr noundef null)
   %5 = icmp slt i32 %4, 1
@@ -795,7 +789,7 @@ define internal noundef range(i32 0, 3) i32 @_ZL8iter_auxP9lua_State(ptr noundef
   br i1 %48, label %_ZL11utf8_decodePKcPi.exit.thread, label %49
 
 _ZL11utf8_decodePKcPi.exit.thread:                ; preds = %21, %38, %30, %45
-  call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.12) #5
+  call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.12) #4
   unreachable
 
 49:                                               ; preds = %45
@@ -806,7 +800,7 @@ _ZL11utf8_decodePKcPi.exit.thread:                ; preds = %21, %38, %30, %45
 
 51:                                               ; preds = %.loopexit, %49
   %.0 = phi i32 [ 2, %49 ], [ 0, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -814,12 +808,17 @@ declare void @_Z13lua_pushvalueP9lua_Statei(ptr noundef, i32 noundef) local_unna
 
 declare noundef i32 @_Z14lua_tointegerxP9lua_StateiPi(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { noreturn }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

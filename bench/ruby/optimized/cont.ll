@@ -117,7 +117,7 @@ define hidden void @rb_free_shared_fiber_pool() local_unnamed_addr #0 {
   %.05 = phi ptr [ %3, %.lr.ph ], [ %1, %0 ]
   %2 = getelementptr inbounds nuw i8, ptr %.05, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !16
-  tail call void @ruby_xfree(ptr noundef nonnull %.05) #10
+  tail call void @ruby_xfree(ptr noundef nonnull %.05) #9
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
@@ -125,16 +125,10 @@ define hidden void @rb_free_shared_fiber_pool() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @ruby_xfree(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @ruby_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden ptr @rb_fiber_threadptr(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define hidden ptr @rb_fiber_threadptr(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8, !tbaa !21
   ret ptr %3
@@ -148,22 +142,22 @@ define hidden void @rb_fiber_update_self(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i64 @rb_gc_location(i64 noundef %3) #10
+  %5 = tail call i64 @rb_gc_location(i64 noundef %3) #9
   store i64 %5, ptr %2, align 8, !tbaa !38
   br label %8
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  tail call void @rb_execution_context_update(ptr noundef nonnull %7) #10
+  tail call void @rb_execution_context_update(ptr noundef nonnull %7) #9
   br label %8
 
 8:                                                ; preds = %6, %4
   ret void
 }
 
-declare i64 @rb_gc_location(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_gc_location(i64 noundef) local_unnamed_addr #1
 
-declare void @rb_execution_context_update(ptr noundef) local_unnamed_addr #2
+declare void @rb_execution_context_update(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_fiber_mark_self(ptr noundef %0) local_unnamed_addr #0 {
@@ -173,31 +167,31 @@ define hidden void @rb_fiber_mark_self(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @rb_gc_mark_movable(i64 noundef %3) #10
+  tail call void @rb_gc_mark_movable(i64 noundef %3) #9
   br label %7
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  tail call void @rb_execution_context_mark(ptr noundef nonnull %6) #10
+  tail call void @rb_execution_context_mark(ptr noundef nonnull %6) #9
   br label %7
 
 7:                                                ; preds = %5, %4
   ret void
 }
 
-declare void @rb_gc_mark_movable(i64 noundef) local_unnamed_addr #2
+declare void @rb_gc_mark_movable(i64 noundef) local_unnamed_addr #1
 
-declare void @rb_execution_context_mark(ptr noundef) local_unnamed_addr #2
+declare void @rb_execution_context_mark(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i64 0, 21) i64 @rb_obj_is_fiber(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @rb_typeddata_is_kind_of(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #10
+  %2 = tail call i32 @rb_typeddata_is_kind_of(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #9
   %.not = icmp eq i32 %2, 0
   %3 = select i1 %.not, i64 0, i64 20
   ret i64 %3
 }
 
-declare i32 @rb_typeddata_is_kind_of(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @rb_typeddata_is_kind_of(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_jit_cont_each_iseq(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -242,7 +236,7 @@ define hidden void @rb_jit_cont_each_iseq(ptr noundef readonly captures(none) %0
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %16
-  tail call void %0(ptr noundef nonnull %15, ptr noundef %1) #10
+  tail call void %0(ptr noundef nonnull %15, ptr noundef %1) #9
   %.pre = load ptr, ptr %.01326, align 8, !tbaa !40
   %.val.pre = load ptr, ptr %.pre, align 8, !tbaa !43
   br label %21
@@ -268,7 +262,7 @@ define hidden void @rb_jit_cont_each_iseq(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @rb_yjit_cancel_jit_return(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #4 {
+define hidden void @rb_yjit_cancel_jit_return(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #3 {
   %.01221 = load ptr, ptr @first_jit_cont, align 8, !tbaa !39
   %.not22 = icmp eq ptr %.01221, null
   br i1 %.not22, label %._crit_edge, label %.lr.ph24
@@ -327,35 +321,35 @@ define hidden void @rb_jit_cont_finish() local_unnamed_addr #0 {
   %.05 = phi ptr [ %3, %.lr.ph ], [ %1, %0 ]
   %2 = getelementptr inbounds nuw i8, ptr %.05, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !57
-  tail call void @free(ptr noundef nonnull %.05) #10
+  tail call void @free(ptr noundef nonnull %.05) #9
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
-  tail call void @rb_native_mutex_destroy(ptr noundef nonnull @jit_cont_lock) #10
+  tail call void @rb_native_mutex_destroy(ptr noundef nonnull @jit_cont_lock) #9
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
-declare void @rb_native_mutex_destroy(ptr noundef) local_unnamed_addr #2
+declare void @rb_native_mutex_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define hidden nonnull ptr @rb_fiberptr_get_ec(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #6 {
+define hidden nonnull ptr @rb_fiberptr_get_ec(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden i64 @rb_fiberptr_self(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define hidden i64 @rb_fiberptr_self(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !tbaa !38
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @rb_fiberptr_blocking(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @rb_fiberptr_blocking(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %3 = load i8, ptr %2, align 8
   %4 = lshr i8 %3, 3
@@ -366,29 +360,29 @@ define hidden range(i32 0, 2) i32 @rb_fiberptr_blocking(ptr noundef readonly cap
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_jit_cont_init() local_unnamed_addr #0 {
-  tail call void @rb_native_mutex_initialize(ptr noundef nonnull @jit_cont_lock) #10
+  tail call void @rb_native_mutex_initialize(ptr noundef nonnull @jit_cont_lock) #9
   ret void
 }
 
-declare void @rb_native_mutex_initialize(ptr noundef) local_unnamed_addr #2
+declare void @rb_native_mutex_initialize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i64 @rb_fiber_inherit_storage(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((160, 168)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8, !tbaa !59
-  %5 = tail call i64 @rb_obj_dup(i64 noundef %4) #10
+  %5 = tail call i64 @rb_obj_dup(i64 noundef %4) #9
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store i64 %5, ptr %6, align 8, !tbaa !60
   ret i64 %5
 }
 
-declare i64 @rb_obj_dup(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_obj_dup(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_fiber_new_storage(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  %5 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %4, ptr noundef null, ptr noundef nonnull @fiber_data_type) #10
-  %6 = tail call i64 @rb_proc_new(ptr noundef %0, i64 noundef %1) #10
+  %5 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %4, ptr noundef null, ptr noundef nonnull @fiber_data_type) #9
+  %6 = tail call i64 @rb_proc_new(ptr noundef %0, i64 noundef %1) #9
   %7 = tail call fastcc i64 @fiber_initialize(i64 noundef %5, i64 noundef %6, i32 noundef 0, i64 noundef %2)
   ret i64 %5
 }
@@ -406,7 +400,7 @@ define internal fastcc noundef i64 @fiber_initialize(i64 noundef returned %0, i6
   %7 = load ptr, ptr %6, align 8, !tbaa !62
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %9 = load i64, ptr %8, align 8, !tbaa !59
-  %10 = tail call i64 @rb_obj_dup(i64 noundef %9) #10
+  %10 = tail call i64 @rb_obj_dup(i64 noundef %9) #9
   br label %25
 
 11:                                               ; preds = %4
@@ -425,7 +419,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %11
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i, %11
   %20 = load i64, ptr @rb_eTypeError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %20, ptr noundef nonnull @.str.37) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %20, ptr noundef nonnull @.str.37) #26
   unreachable
 
 RB_FL_ABLE.exit.i.i:                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
@@ -435,15 +429,15 @@ RB_FL_ABLE.exit.i.i:                              ; preds = %rbimpl_RB_TYPE_P_fa
 
 RB_OBJ_FROZEN.exit.thread.i:                      ; preds = %RB_FL_ABLE.exit.i.i
   %22 = load i64, ptr @rb_eFrozenError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %22, ptr noundef nonnull @.str.38) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %22, ptr noundef nonnull @.str.38) #26
   unreachable
 
 23:                                               ; preds = %RB_FL_ABLE.exit.i.i
-  tail call void @rb_hash_foreach(i64 noundef %3, ptr noundef nonnull @fiber_storage_validate_each, i64 noundef 36) #10
+  tail call void @rb_hash_foreach(i64 noundef %3, ptr noundef nonnull @fiber_storage_validate_each, i64 noundef 36) #9
   br label %fiber_storage_validate.exit
 
 fiber_storage_validate.exit:                      ; preds = %4, %23
-  %24 = tail call i64 @rb_obj_dup(i64 noundef %3) #10
+  %24 = tail call i64 @rb_obj_dup(i64 noundef %3) #9
   %.pre = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   br label %25
 
@@ -461,7 +455,7 @@ fiber_storage_validate.exit:                      ; preds = %4, %23
 
 31:                                               ; preds = %25
   %32 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %32, ptr noundef nonnull @.str.39) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %32, ptr noundef nonnull @.str.39) #26
   unreachable
 
 33:                                               ; preds = %25
@@ -474,7 +468,7 @@ fiber_storage_validate.exit:                      ; preds = %4, %23
 
 38:                                               ; preds = %33
   %39 = load i64, ptr @rb_eThreadError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %39, ptr noundef nonnull @.str.40) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %39, ptr noundef nonnull @.str.40) #26
   unreachable
 
 40:                                               ; preds = %33
@@ -512,7 +506,7 @@ fiber_storage_validate.exit:                      ; preds = %4, %23
 
 58:                                               ; preds = %40
   store ptr %49, ptr %55, align 8, !tbaa !40
-  tail call void @rb_native_mutex_lock(ptr noundef nonnull @jit_cont_lock) #10
+  tail call void @rb_native_mutex_lock(ptr noundef nonnull @jit_cont_lock) #9
   %59 = load ptr, ptr @first_jit_cont, align 8, !tbaa !39
   %60 = icmp eq ptr %59, null
   br i1 %60, label %fiber_t_alloc.exit, label %61
@@ -526,12 +520,12 @@ fiber_t_alloc.exit:                               ; preds = %58, %61
   %63 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store ptr %59, ptr %63, align 8, !tbaa !57
   store ptr %55, ptr @first_jit_cont, align 8, !tbaa !39
-  tail call void @rb_native_mutex_unlock(ptr noundef nonnull @jit_cont_lock) #10
+  tail call void @rb_native_mutex_unlock(ptr noundef nonnull @jit_cont_lock) #9
   %64 = getelementptr inbounds nuw i8, ptr %41, i64 488
   store ptr %55, ptr %64, align 8, !tbaa !103
   %65 = getelementptr inbounds nuw i8, ptr %41, i64 120
   store ptr %41, ptr %65, align 8, !tbaa !104
-  tail call void @rb_ec_clear_vm_stack(ptr noundef nonnull %49) #10
+  tail call void @rb_ec_clear_vm_stack(ptr noundef nonnull %49) #9
   %66 = getelementptr inbounds nuw i8, ptr %41, i64 504
   store ptr null, ptr %66, align 8, !tbaa !105
   store ptr %41, ptr %29, align 8, !tbaa !64
@@ -548,23 +542,23 @@ fiber_t_alloc.exit:                               ; preds = %58, %61
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @fiber_alloc(i64 noundef %0) #0 {
-  %2 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %0, ptr noundef null, ptr noundef nonnull @fiber_data_type) #10
+  %2 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %0, ptr noundef null, ptr noundef nonnull @fiber_data_type) #9
   ret i64 %2
 }
 
-declare i64 @rb_proc_new(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_proc_new(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_fiber_new(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  %4 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %3, ptr noundef null, ptr noundef nonnull @fiber_data_type) #10
-  %5 = tail call i64 @rb_proc_new(ptr noundef %0, i64 noundef %1) #10
+  %4 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %3, ptr noundef null, ptr noundef nonnull @fiber_data_type) #9
+  %5 = tail call i64 @rb_proc_new(ptr noundef %0, i64 noundef %1) #9
   %6 = tail call fastcc i64 @fiber_initialize(i64 noundef %4, i64 noundef %5, i32 noundef 0, i64 noundef 20)
   ret i64 %4
 }
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define hidden void @rb_fiber_start(ptr noundef %0) local_unnamed_addr #7 {
+define hidden void @rb_fiber_start(ptr noundef %0) local_unnamed_addr #6 {
   %2 = alloca %struct.rb_trace_arg_struct, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -572,7 +566,7 @@ define hidden void @rb_fiber_start(ptr noundef %0) local_unnamed_addr #7 {
   %6 = alloca %struct.rb_vm_tag, align 8
   %7 = alloca i64, align 8
   store ptr %0, ptr %3, align 8, !tbaa !92
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %9 = load ptr, ptr %8, align 8, !tbaa !21
   store volatile ptr %9, ptr %4, align 8, !tbaa !93
@@ -591,12 +585,12 @@ define hidden void @rb_fiber_start(ptr noundef %0) local_unnamed_addr #7 {
   br label %17
 
 17:                                               ; preds = %1, %13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.0..0..0..0.25 = load volatile ptr, ptr %4, align 8, !tbaa !93
   %18 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.25, i64 48
   %19 = load ptr, ptr %18, align 8, !tbaa !66
   store ptr %19, ptr %5, align 8, !tbaa !62
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i32 0, ptr %20, align 8, !tbaa !110
   store i64 36, ptr %6, align 8, !tbaa !112
@@ -647,7 +641,7 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.ex
 41:                                               ; preds = %rb_ec_vm_lock_rec.exit
   store ptr %6, ptr %21, align 8, !tbaa !85
   %.0..0..0..0.37 = load volatile ptr, ptr %3, align 8, !tbaa !92
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %42 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.37, i64 24
   %43 = load i64, ptr %42, align 8, !tbaa !135
   store i64 %43, ptr %7, align 8, !tbaa !61
@@ -685,7 +679,7 @@ rb_array_const_ptr.exit:                          ; preds = %58, %56, %41
   %63 = load ptr, ptr %62, align 8, !tbaa !66
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 112
   store i64 4, ptr %64, align 8, !tbaa !137
-  %65 = call ptr @rb_vm_proc_local_ep(i64 noundef %45) #10
+  %65 = call ptr @rb_vm_proc_local_ep(i64 noundef %45) #9
   %.0..0..0..0.27 = load volatile ptr, ptr %4, align 8, !tbaa !93
   %66 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.27, i64 48
   %67 = load ptr, ptr %66, align 8, !tbaa !66
@@ -717,7 +711,7 @@ rb_array_const_ptr.exit:                          ; preds = %58, %56, %41
   %.0..0..0..0.31 = load volatile ptr, ptr %4, align 8, !tbaa !93
   %84 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.31, i64 16
   %85 = load i64, ptr %84, align 8, !tbaa !144
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 4096, ptr %2, align 8, !tbaa !145
   %86 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %83, ptr %86, align 8, !tbaa !147
@@ -735,8 +729,8 @@ rb_array_const_ptr.exit:                          ; preds = %58, %56, %41
   store i64 36, ptr %93, align 8, !tbaa !151
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 0, ptr %94, align 8, !tbaa !152
-  call void @rb_exec_event_hooks(ptr noundef nonnull %2, ptr noundef nonnull %81, i32 noundef 0) #10
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #10
+  call void @rb_exec_event_hooks(ptr noundef nonnull %2, ptr noundef nonnull %81, i32 noundef 0) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread50
 
 .thread50:                                        ; preds = %rb_array_const_ptr.exit, %80
@@ -745,13 +739,13 @@ rb_array_const_ptr.exit:                          ; preds = %58, %56, %41
   %96 = load ptr, ptr %95, align 8, !tbaa !66
   %97 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.37, i64 8
   %98 = load i32, ptr %97, align 8, !tbaa !153
-  %99 = call i64 @rb_vm_invoke_proc(ptr noundef %96, ptr noundef %48, i32 noundef %50, ptr noundef %61, i32 noundef %98, i64 noundef 0) #10
+  %99 = call i64 @rb_vm_invoke_proc(ptr noundef %96, ptr noundef %48, i32 noundef %50, ptr noundef %61, i32 noundef %98, i64 noundef 0) #9
   store i64 %99, ptr %42, align 8, !tbaa !135
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %100 = load ptr, ptr %23, align 8, !tbaa !113
   store ptr %100, ptr %21, align 8, !tbaa !85
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.0..0..0..0.40.pre = load ptr, ptr %3, align 8, !tbaa !92
   br label %113
 
@@ -762,8 +756,8 @@ rb_array_const_ptr.exit:                          ; preds = %58, %56, %41
   %.0..0..0..0.17 = load ptr, ptr %5, align 8, !tbaa !62
   %104 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.17, i64 24
   store ptr %103, ptr %104, align 8, !tbaa !85
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.0..0..0..0.33 = load volatile ptr, ptr %4, align 8, !tbaa !93
   %105 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.33, i64 48
   %106 = load ptr, ptr %105, align 8, !tbaa !66
@@ -780,11 +774,11 @@ rb_array_const_ptr.exit:                          ; preds = %58, %56, %41
 
 111:                                              ; preds = %109
   %.0..0..0..0.34 = load volatile ptr, ptr %4, align 8, !tbaa !93
-  call void @rb_threadptr_pending_interrupt_enque(ptr noundef %.0..0..0..0.34, i64 noundef %108) #10
+  call void @rb_threadptr_pending_interrupt_enque(ptr noundef %.0..0..0..0.34, i64 noundef %108) #9
   br label %113
 
 .critedge:                                        ; preds = %101
-  %112 = call i64 @rb_vm_make_jump_tag_but_local_jump(i32 noundef %102, i64 noundef %108) #10
+  %112 = call i64 @rb_vm_make_jump_tag_but_local_jump(i32 noundef %102, i64 noundef %108) #9
   br label %113
 
 113:                                              ; preds = %101, %.thread50, %109, %111, %.critedge
@@ -796,16 +790,16 @@ rb_array_const_ptr.exit:                          ; preds = %58, %56, %41
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare ptr @llvm.frameaddress.p0(i32 immarg) #8
+declare ptr @llvm.frameaddress.p0(i32 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare ptr @llvm.stacksave.p0() #9
+declare ptr @llvm.stacksave.p0() #8
 
 ; Function Attrs: nounwind
-declare i32 @llvm.eh.sjlj.setjmp(ptr) #10
+declare i32 @llvm.eh.sjlj.setjmp(ptr) #9
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal fastcc range(i32 1, 9) i32 @rb_ec_tag_state(ptr noundef %0) unnamed_addr #11 {
+define internal fastcc range(i32 1, 9) i32 @rb_ec_tag_state(ptr noundef %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !85
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -845,7 +839,7 @@ rb_ec_vm_lock_rec.exit.i:                         ; preds = %16, %rb_ec_ractor_p
   br i1 %.not.i, label %rb_ec_vm_lock_rec_check.exit, label %19
 
 19:                                               ; preds = %rb_ec_vm_lock_rec.exit.i
-  tail call void @rb_ec_vm_lock_rec_release(ptr noundef nonnull %0, i32 noundef %7, i32 noundef %.0.i.i) #10
+  tail call void @rb_ec_vm_lock_rec_release(ptr noundef nonnull %0, i32 noundef %7, i32 noundef %.0.i.i) #9
   br label %rb_ec_vm_lock_rec_check.exit
 
 rb_ec_vm_lock_rec_check.exit:                     ; preds = %rb_ec_vm_lock_rec.exit.i, %19
@@ -856,20 +850,20 @@ rb_ec_vm_lock_rec_check.exit:                     ; preds = %rb_ec_vm_lock_rec.e
   ret i32 %5
 }
 
-declare ptr @rb_vm_proc_local_ep(i64 noundef) local_unnamed_addr #2
+declare ptr @rb_vm_proc_local_ep(i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_vm_invoke_proc(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_vm_invoke_proc(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @rb_threadptr_pending_interrupt_enque(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @rb_threadptr_pending_interrupt_enque(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_vm_make_jump_tag_but_local_jump(i32 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_vm_make_jump_tag_but_local_jump(i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal fastcc void @rb_fiber_terminate(ptr noundef captures(none) initializes((56, 64), (72, 80)) %0, i32 noundef range(i32 0, 2) %1, i64 noundef %2) unnamed_addr #7 {
+define internal fastcc void @rb_fiber_terminate(ptr noundef captures(none) initializes((56, 64), (72, 80)) %0, i32 noundef range(i32 0, 2) %1, i64 noundef %2) unnamed_addr #6 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   store i64 %2, ptr %4, align 8, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8, !tbaa !154
   store i64 %7, ptr %5, align 8, !tbaa !61
@@ -894,7 +888,7 @@ define internal fastcc void @rb_fiber_terminate(ptr noundef captures(none) initi
   %21 = getelementptr i8, ptr %14, i64 48
   %.val.i.i = load ptr, ptr %21, align 8, !tbaa !63
   %22 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  %23 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %22, ptr noundef null, ptr noundef nonnull @fiber_data_type) #10
+  %23 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %22, ptr noundef null, ptr noundef nonnull @fiber_data_type) #9
   %24 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 48
   %25 = load ptr, ptr %24, align 8, !tbaa !66
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
@@ -957,20 +951,20 @@ return_fiber.exit:                                ; preds = %43, %36
   %. = select i1 %.not7, ptr %5, ptr %4
   %.9 = select i1 %.not7, i32 1, i32 -1
   %52 = call fastcc i64 @fiber_switch(ptr noundef nonnull %.0.i, i32 noundef %.9, ptr noundef nonnull %., i32 noundef 0, ptr noundef null, i1 noundef zeroext false)
-  call void @ruby_stop(i32 noundef 0) #27
+  call void @ruby_stop(i32 noundef 0) #26
   unreachable
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_threadptr_root_fiber_setup(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noalias ptr @ruby_mimcalloc(i64 noundef 1, i64 noundef 592) #10
+  %2 = tail call noalias ptr @ruby_mimcalloc(i64 noundef 1, i64 noundef 592) #9
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %7
 
 3:                                                ; preds = %1
-  %4 = tail call ptr @rb_errno_ptr() #10
+  %4 = tail call ptr @rb_errno_ptr() #9
   %5 = load i32, ptr %4, align 4, !tbaa !91
-  %6 = tail call ptr @strerror(i32 noundef %5) #10
+  %6 = tail call ptr @strerror(i32 noundef %5) #9
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str, ptr noundef %6) #36
   unreachable
 
@@ -998,7 +992,7 @@ define hidden void @rb_threadptr_root_fiber_setup(ptr noundef %0) local_unnamed_
 
 19:                                               ; preds = %7
   store ptr %8, ptr %16, align 8, !tbaa !40
-  tail call void @rb_native_mutex_lock(ptr noundef nonnull @jit_cont_lock) #10
+  tail call void @rb_native_mutex_lock(ptr noundef nonnull @jit_cont_lock) #9
   %20 = load ptr, ptr @first_jit_cont, align 8, !tbaa !39
   %21 = icmp eq ptr %20, null
   br i1 %21, label %cont_init_jit_cont.exit, label %22
@@ -1012,21 +1006,21 @@ cont_init_jit_cont.exit:                          ; preds = %19, %22
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %20, ptr %24, align 8, !tbaa !57
   store ptr %16, ptr @first_jit_cont, align 8, !tbaa !39
-  tail call void @rb_native_mutex_unlock(ptr noundef nonnull @jit_cont_lock) #10
+  tail call void @rb_native_mutex_unlock(ptr noundef nonnull @jit_cont_lock) #9
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 488
   store ptr %16, ptr %25, align 8, !tbaa !103
   ret void
 }
 
-declare noalias ptr @ruby_mimcalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare noalias ptr @ruby_mimcalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn
-declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #12
+declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #13
+declare ptr @strerror(i32 noundef) local_unnamed_addr #12
 
-declare ptr @rb_errno_ptr() local_unnamed_addr #2
+declare ptr @rb_errno_ptr() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_threadptr_root_fiber_release(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -1050,7 +1044,7 @@ define hidden void @rb_threadptr_root_fiber_release(ptr noundef captures(none) %
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !115
-  tail call void @rb_current_ec_set(ptr noundef null) #10
+  tail call void @rb_current_ec_set(ptr noundef null) #9
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 384
   store ptr null, ptr %14, align 8, !tbaa !162
   br label %15
@@ -1066,7 +1060,7 @@ define hidden void @rb_threadptr_root_fiber_release(ptr noundef captures(none) %
   br i1 %.not.i, label %fiber_free.exit, label %22
 
 22:                                               ; preds = %15
-  tail call void @rb_id_table_free(ptr noundef nonnull %21) #10
+  tail call void @rb_id_table_free(ptr noundef nonnull %21) #9
   br label %fiber_free.exit
 
 fiber_free.exit:                                  ; preds = %15, %22
@@ -1086,7 +1080,7 @@ define internal void @fiber_free(ptr noundef %0) #0 {
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @rb_id_table_free(ptr noundef nonnull %3) #10
+  tail call void @rb_id_table_free(ptr noundef nonnull %3) #9
   br label %5
 
 5:                                                ; preds = %4, %1
@@ -1105,11 +1099,11 @@ define hidden void @rb_threadptr_root_fiber_terminate(ptr noundef readonly captu
   %8 = or i8 %7, 3
   store i8 %8, ptr %6, align 8
   %9 = load ptr, ptr %2, align 8, !tbaa !66
-  tail call void @rb_ec_clear_vm_stack(ptr noundef %9) #10
+  tail call void @rb_ec_clear_vm_stack(ptr noundef %9) #9
   ret void
 }
 
-declare void @rb_ec_clear_vm_stack(ptr noundef) local_unnamed_addr #2
+declare void @rb_ec_clear_vm_stack(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_fiber_current() local_unnamed_addr #0 {
@@ -1126,7 +1120,7 @@ define dso_local i64 @rb_fiber_current() local_unnamed_addr #0 {
   %9 = getelementptr i8, ptr %2, i64 48
   %.val.i = load ptr, ptr %9, align 8, !tbaa !63
   %10 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  %11 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %10, ptr noundef null, ptr noundef nonnull @fiber_data_type) #10
+  %11 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %10, ptr noundef null, ptr noundef nonnull @fiber_data_type) #9
   %12 = getelementptr inbounds nuw i8, ptr %.val.i, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !66
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -1152,13 +1146,13 @@ fiber_current.exit:                               ; preds = %0, %8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_fiber_transfer(i64 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #10
+  %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #9
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %5, label %fiber_ptr.exit
 
 5:                                                ; preds = %3
   %6 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %6, ptr noundef nonnull @.str.47) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %6, ptr noundef nonnull @.str.47) #26
   unreachable
 
 fiber_ptr.exit:                                   ; preds = %3
@@ -1167,7 +1161,7 @@ fiber_ptr.exit:                                   ; preds = %3
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal fastcc i64 @fiber_switch(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #11 {
+define internal fastcc i64 @fiber_switch(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #10 {
   %7 = alloca %struct.rb_trace_arg_struct, align 8
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %9 = load ptr, ptr %8, align 8, !tbaa !62
@@ -1187,7 +1181,7 @@ define internal fastcc i64 @fiber_switch(ptr noundef %0, i32 noundef %1, ptr nou
 
 14:                                               ; preds = %6
   %15 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  %16 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %15, ptr noundef null, ptr noundef nonnull @fiber_data_type) #10
+  %16 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %15, ptr noundef null, ptr noundef nonnull @fiber_data_type) #9
   %17 = getelementptr inbounds nuw i8, ptr %.val.i, i64 48
   %18 = load ptr, ptr %17, align 8, !tbaa !66
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
@@ -1225,7 +1219,7 @@ define internal fastcc i64 @fiber_switch(ptr noundef %0, i32 noundef %1, ptr nou
 
 34:                                               ; preds = %29
   %35 = sext i32 %1 to i64
-  %36 = tail call i64 @rb_ary_new_from_values(i64 noundef %35, ptr noundef %2) #10
+  %36 = tail call i64 @rb_ary_new_from_values(i64 noundef %35, ptr noundef %2) #9
   br label %make_passing_arg.exit
 
 37:                                               ; preds = %25
@@ -1240,7 +1234,7 @@ define internal fastcc i64 @fiber_switch(ptr noundef %0, i32 noundef %1, ptr nou
 
 42:                                               ; preds = %37
   %43 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %43, ptr noundef nonnull @.str.41) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %43, ptr noundef nonnull @.str.41) #26
   unreachable
 
 44:                                               ; preds = %37
@@ -1252,7 +1246,7 @@ define internal fastcc i64 @fiber_switch(ptr noundef %0, i32 noundef %1, ptr nou
 
 49:                                               ; preds = %44
   %50 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  %51 = tail call i64 @rb_exc_new(i64 noundef %50, ptr noundef nonnull @.str.42, i64 noundef 17) #10
+  %51 = tail call i64 @rb_exc_new(i64 noundef %50, ptr noundef nonnull @.str.42, i64 noundef 17) #9
   %52 = load ptr, ptr %27, align 8, !tbaa !66
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 40
   %54 = load ptr, ptr %53, align 8, !tbaa !157
@@ -1263,7 +1257,7 @@ define internal fastcc i64 @fiber_switch(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %58, label %60, label %59
 
 59:                                               ; preds = %49
-  tail call void @rb_exc_raise(i64 noundef %51) #27
+  tail call void @rb_exc_raise(i64 noundef %51) #26
   unreachable
 
 60:                                               ; preds = %49
@@ -1288,7 +1282,7 @@ define internal fastcc i64 @fiber_switch(ptr noundef %0, i32 noundef %1, ptr nou
   %72 = getelementptr i8, ptr %65, i64 48
   %.val.i59 = load ptr, ptr %72, align 8, !tbaa !63
   %73 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  %74 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %73, ptr noundef null, ptr noundef nonnull @fiber_data_type) #10
+  %74 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %73, ptr noundef null, ptr noundef nonnull @fiber_data_type) #9
   %75 = getelementptr inbounds nuw i8, ptr %.val.i59, i64 48
   %76 = load ptr, ptr %75, align 8, !tbaa !66
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
@@ -1325,7 +1319,7 @@ fiber_current.exit:                               ; preds = %64, %71
   %94 = getelementptr i8, ptr %87, i64 48
   %.val.i60 = load ptr, ptr %94, align 8, !tbaa !63
   %95 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  %96 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %95, ptr noundef null, ptr noundef nonnull @fiber_data_type) #10
+  %96 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %95, ptr noundef null, ptr noundef nonnull @fiber_data_type) #9
   %97 = getelementptr inbounds nuw i8, ptr %.val.i60, i64 48
   %98 = load ptr, ptr %97, align 8, !tbaa !66
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 40
@@ -1395,7 +1389,7 @@ fiber_current.exit62:                             ; preds = %85, %93
 
 128:                                              ; preds = %121
   %129 = sext i32 %1 to i64
-  %130 = tail call i64 @rb_ary_new_from_values(i64 noundef %129, ptr noundef %2) #10
+  %130 = tail call i64 @rb_ary_new_from_values(i64 noundef %129, ptr noundef %2) #9
   br label %make_passing_arg.exit64
 
 make_passing_arg.exit64:                          ; preds = %121, %124, %126, %128
@@ -1410,7 +1404,7 @@ make_passing_arg.exit64:                          ; preds = %121, %124, %126, %1
 
 135:                                              ; preds = %make_passing_arg.exit64
   %136 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  %137 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %136, ptr noundef null, ptr noundef nonnull @fiber_data_type) #10
+  %137 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %136, ptr noundef null, ptr noundef nonnull @fiber_data_type) #9
   %138 = load ptr, ptr %27, align 8, !tbaa !66
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 40
   %140 = load ptr, ptr %139, align 8, !tbaa !157
@@ -1495,7 +1489,7 @@ fiber_prepare_stack.exit.i:                       ; preds = %154, %149
   %187 = load ptr, ptr %180, align 8, !tbaa !159
   %188 = getelementptr i8, ptr %187, i64 -48
   store ptr %188, ptr %180, align 8, !tbaa !159
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %188, i8 noundef 0, i64 noundef 48, i1 noundef false) #10
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %188, i8 noundef 0, i64 noundef 48, i1 noundef false) #9
   %189 = load ptr, ptr %173, align 8, !tbaa !188
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr %189, ptr %190, align 8, !tbaa !189
@@ -1507,7 +1501,7 @@ fiber_prepare_stack.exit.i:                       ; preds = %154, %149
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %194, align 8, !tbaa !193
   %195 = lshr i64 %172, 3
-  tail call void @rb_ec_initialize_vm_stack(ptr noundef nonnull %160, ptr noundef %176, i64 noundef %195) #10
+  tail call void @rb_ec_initialize_vm_stack(ptr noundef nonnull %160, ptr noundef %176, i64 noundef %195) #9
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr null, ptr %196, align 8, !tbaa !85
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -1596,7 +1590,7 @@ fiber_store.exit:                                 ; preds = %200, %205
   %251 = ashr i32 %250, 1
   %.not.i.i.i = icmp ult i32 %250, 2
   %spec.store.select.i.i.i = select i1 %.not.i.i.i, i32 8, i32 %251
-  %252 = tail call i32 @madvise(ptr noundef %246, i64 noundef %234, i32 noundef %spec.store.select.i.i.i) #10
+  %252 = tail call i32 @madvise(ptr noundef %246, i64 noundef %234, i32 noundef %spec.store.select.i.i.i) #9
   br label %fiber_pool_stack_release.exit.i
 
 fiber_pool_stack_release.exit.i:                  ; preds = %244, %218
@@ -1605,7 +1599,7 @@ fiber_pool_stack_release.exit.i:                  ; preds = %244, %218
 
 fiber_stack_release.exit:                         ; preds = %215, %fiber_pool_stack_release.exit.i
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  tail call void @rb_ec_clear_vm_stack(ptr noundef nonnull %253) #10
+  tail call void @rb_ec_clear_vm_stack(ptr noundef nonnull %253) #9
   br label %254
 
 254:                                              ; preds = %fiber_stack_release.exit, %211, %fiber_store.exit
@@ -1621,7 +1615,7 @@ fiber_stack_release.exit:                         ; preds = %215, %fiber_pool_st
   %262 = getelementptr i8, ptr %255, i64 48
   %.val.i67 = load ptr, ptr %262, align 8, !tbaa !63
   %263 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  %264 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %263, ptr noundef null, ptr noundef nonnull @fiber_data_type) #10
+  %264 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %263, ptr noundef null, ptr noundef nonnull @fiber_data_type) #9
   %265 = getelementptr inbounds nuw i8, ptr %.val.i67, i64 48
   %266 = load ptr, ptr %265, align 8, !tbaa !66
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 40
@@ -1667,7 +1661,7 @@ fiber_current.exit69:                             ; preds = %254, %261
 288:                                              ; preds = %282
   %289 = getelementptr i8, ptr %283, i64 48
   %.val.i71 = load ptr, ptr %289, align 8, !tbaa !63
-  %290 = tail call i32 @rb_threadptr_execute_interrupts(ptr noundef %.val.i71, i32 noundef 0) #10
+  %290 = tail call i32 @rb_threadptr_execute_interrupts(ptr noundef %.val.i71, i32 noundef 0) #9
   %.pre80 = load ptr, ptr %27, align 8, !tbaa !66
   br label %rb_vm_check_ints.exit
 
@@ -1686,7 +1680,7 @@ rb_vm_check_ints.exit:                            ; preds = %282, %288
 298:                                              ; preds = %rb_vm_check_ints.exit
   %299 = getelementptr inbounds nuw i8, ptr %294, i64 16
   %300 = load i64, ptr %40, align 8, !tbaa !144
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 4096, ptr %7, align 8, !tbaa !145
   %301 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %291, ptr %301, align 8, !tbaa !147
@@ -1704,8 +1698,8 @@ rb_vm_check_ints.exit:                            ; preds = %282, %288
   store i64 36, ptr %308, align 8, !tbaa !151
   %309 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i32 0, ptr %309, align 8, !tbaa !152
-  call void @rb_exec_event_hooks(ptr noundef nonnull %7, ptr noundef nonnull %299, i32 noundef 0) #10
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #10
+  call void @rb_exec_event_hooks(ptr noundef nonnull %7, ptr noundef nonnull %299, i32 noundef 0) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre81 = load ptr, ptr %27, align 8, !tbaa !66
   br label %310
 
@@ -1743,7 +1737,7 @@ fiber_check_killed.exit:                          ; preds = %310
   br i1 %330, label %331, label %make_passing_arg.exit
 
 331:                                              ; preds = %fiber_check_killed.exit
-  call void @rb_exc_raise(i64 noundef %315) #27
+  call void @rb_exc_raise(i64 noundef %315) #26
   unreachable
 
 make_passing_arg.exit:                            ; preds = %34, %32, %30, %29, %fiber_check_killed.exit
@@ -1753,13 +1747,13 @@ make_passing_arg.exit:                            ; preds = %34, %32, %30, %29, 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden range(i64 0, 21) i64 @rb_fiber_blocking_p(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #10
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #9
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %3, label %fiber_ptr.exit
 
 3:                                                ; preds = %1
   %4 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.47) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.47) #26
   unreachable
 
 fiber_ptr.exit:                                   ; preds = %1
@@ -1786,7 +1780,7 @@ define hidden i64 @rb_fiber_blocking(i64 %0) #0 {
   %10 = getelementptr i8, ptr %3, i64 48
   %.val.i.i = load ptr, ptr %10, align 8, !tbaa !63
   %11 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  %12 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %11, ptr noundef null, ptr noundef nonnull @fiber_data_type) #10
+  %12 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %11, ptr noundef null, ptr noundef nonnull @fiber_data_type) #9
   %13 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 48
   %14 = load ptr, ptr %13, align 8, !tbaa !66
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -1807,13 +1801,13 @@ define hidden i64 @rb_fiber_blocking(i64 %0) #0 {
 
 rb_fiber_current.exit:                            ; preds = %1, %9
   %22 = phi i64 [ %.pre.i, %9 ], [ %7, %1 ]
-  %23 = tail call ptr @rb_check_typeddata(i64 noundef %22, ptr noundef nonnull @fiber_data_type) #10
+  %23 = tail call ptr @rb_check_typeddata(i64 noundef %22, ptr noundef nonnull @fiber_data_type) #9
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %24, label %fiber_ptr.exit
 
 24:                                               ; preds = %rb_fiber_current.exit
   %25 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %25, ptr noundef nonnull @.str.47) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %25, ptr noundef nonnull @.str.47) #26
   unreachable
 
 fiber_ptr.exit:                                   ; preds = %rb_fiber_current.exit
@@ -1824,11 +1818,11 @@ fiber_ptr.exit:                                   ; preds = %rb_fiber_current.ex
   br i1 %.not, label %31, label %29
 
 29:                                               ; preds = %fiber_ptr.exit
-  %30 = tail call i64 @rb_yield(i64 noundef %22) #10
+  %30 = tail call i64 @rb_yield(i64 noundef %22) #9
   br label %33
 
 31:                                               ; preds = %fiber_ptr.exit
-  %32 = tail call i64 @rb_ensure(ptr noundef nonnull @fiber_blocking_yield, i64 noundef %22, ptr noundef nonnull @fiber_blocking_ensure, i64 noundef %22) #10
+  %32 = tail call i64 @rb_ensure(ptr noundef nonnull @fiber_blocking_yield, i64 noundef %22, ptr noundef nonnull @fiber_blocking_ensure, i64 noundef %22) #9
   br label %33
 
 33:                                               ; preds = %31, %29
@@ -1836,24 +1830,24 @@ fiber_ptr.exit:                                   ; preds = %rb_fiber_current.ex
   ret i64 %.0
 }
 
-declare i64 @rb_yield(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_yield(i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_ensure(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_ensure(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @fiber_blocking_yield(i64 noundef %0) #0 {
   %2 = alloca ptr, align 8
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #10
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #9
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %4, label %fiber_ptr.exit
 
 4:                                                ; preds = %1
   %5 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %5, ptr noundef nonnull @.str.47) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %5, ptr noundef nonnull @.str.47) #26
   unreachable
 
 fiber_ptr.exit:                                   ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %7 = load ptr, ptr %6, align 8, !tbaa !21
   store volatile ptr %7, ptr %2, align 8, !tbaa !93
@@ -1866,25 +1860,25 @@ fiber_ptr.exit:                                   ; preds = %1
   %12 = load i32, ptr %11, align 8, !tbaa !109
   %13 = add i32 %12, 1
   store i32 %13, ptr %11, align 8, !tbaa !109
-  %14 = tail call i64 @rb_yield(i64 noundef %0) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  %14 = tail call i64 @rb_yield(i64 noundef %0) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %14
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @fiber_blocking_ensure(i64 noundef %0) #0 {
   %2 = alloca ptr, align 8
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #10
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #9
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %4, label %fiber_ptr.exit
 
 4:                                                ; preds = %1
   %5 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %5, ptr noundef nonnull @.str.47) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %5, ptr noundef nonnull @.str.47) #26
   unreachable
 
 fiber_ptr.exit:                                   ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %7 = load ptr, ptr %6, align 8, !tbaa !21
   store volatile ptr %7, ptr %2, align 8, !tbaa !93
@@ -1897,12 +1891,12 @@ fiber_ptr.exit:                                   ; preds = %1
   %12 = load i32, ptr %11, align 8, !tbaa !109
   %13 = add i32 %12, -1
   store i32 %13, ptr %11, align 8, !tbaa !109
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define hidden void @rb_fiber_close(ptr noundef captures(none) %0) local_unnamed_addr #14 {
+define hidden void @rb_fiber_close(ptr noundef captures(none) %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %3 = load i8, ptr %2, align 8
   %4 = or i8 %3, 3
@@ -1912,13 +1906,13 @@ define hidden void @rb_fiber_close(ptr noundef captures(none) %0) local_unnamed_
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_fiber_resume_kw(i64 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #10
+  %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #9
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %6, label %fiber_ptr.exit
 
 6:                                                ; preds = %4
   %7 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %7, ptr noundef nonnull @.str.47) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %7, ptr noundef nonnull @.str.47) #26
   unreachable
 
 fiber_ptr.exit:                                   ; preds = %4
@@ -1941,7 +1935,7 @@ define internal fastcc i64 @fiber_resume_kw(ptr noundef nonnull %0, i32 noundef 
   %13 = getelementptr i8, ptr %6, i64 48
   %.val.i = load ptr, ptr %13, align 8, !tbaa !63
   %14 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  %15 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %14, ptr noundef null, ptr noundef nonnull @fiber_data_type) #10
+  %15 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %14, ptr noundef null, ptr noundef nonnull @fiber_data_type) #9
   %16 = getelementptr inbounds nuw i8, ptr %.val.i, i64 48
   %17 = load ptr, ptr %16, align 8, !tbaa !66
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -1970,7 +1964,7 @@ fiber_current.exit:                               ; preds = %4, %12
 
 31:                                               ; preds = %fiber_current.exit
   %32 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %32, ptr noundef nonnull @.str.48) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %32, ptr noundef nonnull @.str.48) #26
   unreachable
 
 fiber_current.exit._crit_edge:                    ; preds = %fiber_current.exit
@@ -1980,7 +1974,7 @@ fiber_current.exit._crit_edge:                    ; preds = %fiber_current.exit
 
 35:                                               ; preds = %fiber_current.exit._crit_edge
   %36 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %36, ptr noundef nonnull @.str.49) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %36, ptr noundef nonnull @.str.49) #26
   unreachable
 
 37:                                               ; preds = %fiber_current.exit._crit_edge
@@ -1989,7 +1983,7 @@ fiber_current.exit._crit_edge:                    ; preds = %fiber_current.exit
 
 39:                                               ; preds = %37
   %40 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %40, ptr noundef nonnull @.str.50) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %40, ptr noundef nonnull @.str.50) #26
   unreachable
 
 41:                                               ; preds = %37
@@ -2000,7 +1994,7 @@ fiber_current.exit._crit_edge:                    ; preds = %fiber_current.exit
 
 44:                                               ; preds = %41
   %45 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %45, ptr noundef nonnull @.str.51) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %45, ptr noundef nonnull @.str.51) #26
   unreachable
 
 46:                                               ; preds = %41
@@ -2011,7 +2005,7 @@ fiber_current.exit._crit_edge:                    ; preds = %fiber_current.exit
 
 49:                                               ; preds = %46
   %50 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %50, ptr noundef nonnull @.str.52) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %50, ptr noundef nonnull @.str.52) #26
   unreachable
 
 51:                                               ; preds = %46
@@ -2023,7 +2017,7 @@ fiber_current.exit._crit_edge:                    ; preds = %fiber_current.exit
 
 53:                                               ; preds = %51
   %54 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %54, ptr noundef nonnull @.str.53) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %54, ptr noundef nonnull @.str.53) #26
   unreachable
 
 55:                                               ; preds = %51
@@ -2033,13 +2027,13 @@ fiber_current.exit._crit_edge:                    ; preds = %fiber_current.exit
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_fiber_resume(i64 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #10
+  %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #9
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %5, label %fiber_ptr.exit
 
 5:                                                ; preds = %3
   %6 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %6, ptr noundef nonnull @.str.47) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %6, ptr noundef nonnull @.str.47) #26
   unreachable
 
 fiber_ptr.exit:                                   ; preds = %3
@@ -2062,7 +2056,7 @@ define dso_local i64 @rb_fiber_yield_kw(i32 noundef %0, ptr noundef %1, i32 noun
   %12 = getelementptr i8, ptr %5, i64 48
   %.val.i.i = load ptr, ptr %12, align 8, !tbaa !63
   %13 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  %14 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %13, ptr noundef null, ptr noundef nonnull @fiber_data_type) #10
+  %14 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %13, ptr noundef null, ptr noundef nonnull @fiber_data_type) #9
   %15 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 48
   %16 = load ptr, ptr %15, align 8, !tbaa !66
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -2088,7 +2082,7 @@ fiber_current.exit.i:                             ; preds = %11, %3
 
 27:                                               ; preds = %fiber_current.exit.i
   %28 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %28, ptr noundef nonnull @.str.54) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %28, ptr noundef nonnull @.str.54) #26
   unreachable
 
 return_fiber.exit:                                ; preds = %fiber_current.exit.i
@@ -2114,7 +2108,7 @@ define dso_local i64 @rb_fiber_yield(i32 noundef %0, ptr noundef %1) local_unnam
   %11 = getelementptr i8, ptr %4, i64 48
   %.val.i.i = load ptr, ptr %11, align 8, !tbaa !63
   %12 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  %13 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %12, ptr noundef null, ptr noundef nonnull @fiber_data_type) #10
+  %13 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %12, ptr noundef null, ptr noundef nonnull @fiber_data_type) #9
   %14 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 48
   %15 = load ptr, ptr %14, align 8, !tbaa !66
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -2140,7 +2134,7 @@ fiber_current.exit.i:                             ; preds = %10, %2
 
 26:                                               ; preds = %fiber_current.exit.i
   %27 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %27, ptr noundef nonnull @.str.54) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %27, ptr noundef nonnull @.str.54) #26
   unreachable
 
 return_fiber.exit:                                ; preds = %fiber_current.exit.i
@@ -2152,7 +2146,7 @@ return_fiber.exit:                                ; preds = %fiber_current.exit.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @rb_fiber_reset_root_local_storage(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 {
+define hidden void @rb_fiber_reset_root_local_storage(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %3 = load ptr, ptr %2, align 8, !tbaa !158
   %.not = icmp eq ptr %3, null
@@ -2179,13 +2173,13 @@ define hidden void @rb_fiber_reset_root_local_storage(ptr noundef readonly captu
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i64 0, 21) i64 @rb_fiber_alive_p(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #10
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #9
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %3, label %fiber_ptr.exit
 
 3:                                                ; preds = %1
   %4 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.47) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.47) #26
   unreachable
 
 fiber_ptr.exit:                                   ; preds = %1
@@ -2199,13 +2193,13 @@ fiber_ptr.exit:                                   ; preds = %1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_fiber_transfer_kw(i64 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #10
+  %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #9
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %6, label %fiber_ptr.exit
 
 6:                                                ; preds = %4
   %7 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %7, ptr noundef nonnull @.str.47) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %7, ptr noundef nonnull @.str.47) #26
   unreachable
 
 fiber_ptr.exit:                                   ; preds = %4
@@ -2216,7 +2210,7 @@ fiber_ptr.exit:                                   ; preds = %4
 
 10:                                               ; preds = %fiber_ptr.exit
   %11 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %11, ptr noundef nonnull @.str.55) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %11, ptr noundef nonnull @.str.55) #26
   unreachable
 
 12:                                               ; preds = %fiber_ptr.exit
@@ -2228,7 +2222,7 @@ fiber_ptr.exit:                                   ; preds = %4
 
 16:                                               ; preds = %12
   %17 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %17, ptr noundef nonnull @.str.56) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %17, ptr noundef nonnull @.str.56) #26
   unreachable
 
 fiber_transfer_kw.exit:                           ; preds = %12
@@ -2238,14 +2232,14 @@ fiber_transfer_kw.exit:                           ; preds = %12
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_fiber_raise(i64 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i64 @rb_make_exception(i32 noundef %1, ptr noundef %2) #10
-  %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #10
+  %4 = tail call i64 @rb_make_exception(i32 noundef %1, ptr noundef %2) #9
+  %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #9
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %6, label %fiber_ptr.exit
 
 6:                                                ; preds = %3
   %7 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %7, ptr noundef nonnull @.str.47) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %7, ptr noundef nonnull @.str.47) #26
   unreachable
 
 fiber_ptr.exit:                                   ; preds = %3
@@ -2253,7 +2247,7 @@ fiber_ptr.exit:                                   ; preds = %3
   ret i64 %8
 }
 
-declare i64 @rb_make_exception(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @rb_make_exception(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @fiber_raise(ptr noundef nonnull %0, i64 noundef %1) unnamed_addr #0 {
@@ -2292,7 +2286,7 @@ tailrecurse:                                      ; preds = %2, %36
   %22 = getelementptr i8, ptr %15, i64 48
   %.val.i = load ptr, ptr %22, align 8, !tbaa !63
   %23 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  %24 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %23, ptr noundef null, ptr noundef nonnull @fiber_data_type) #10
+  %24 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %23, ptr noundef null, ptr noundef nonnull @fiber_data_type) #9
   %25 = getelementptr inbounds nuw i8, ptr %.val.i, i64 48
   %26 = load ptr, ptr %25, align 8, !tbaa !66
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
@@ -2315,7 +2309,7 @@ fiber_current.exit:                               ; preds = %tailrecurse, %21
   br i1 %35, label %.split14.us, label %36
 
 .split14.us:                                      ; preds = %tailrecurse.us, %fiber_current.exit
-  tail call void @rb_exc_raise(i64 noundef %1) #27
+  tail call void @rb_exc_raise(i64 noundef %1) #26
   unreachable
 
 36:                                               ; preds = %fiber_current.exit
@@ -2347,7 +2341,7 @@ fiber_transfer_kw.exit:                           ; preds = %.split16.us
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @rb_fiber_atfork(ptr noundef captures(none) %0) local_unnamed_addr #15 {
+define hidden void @rb_fiber_atfork(ptr noundef captures(none) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %3 = load ptr, ptr %2, align 8, !tbaa !158
   %.not = icmp eq ptr %3, null
@@ -2389,12 +2383,12 @@ define hidden void @Init_Cont() local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 9592
   %9 = load i64, ptr %8, align 8, !tbaa !210
   %10 = add i64 %9, %7
-  %11 = tail call i64 @sysconf(i32 noundef 30) #10
+  %11 = tail call i64 @sysconf(i32 noundef 30) #9
   store i64 %11, ptr @pagesize, align 8, !tbaa !61
   %12 = getelementptr inbounds nuw i8, ptr %.val.i, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !66
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 152
-  %15 = tail call ptr asm sideeffect "movq\09%rsp, $0", "=r,~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !211
+  %15 = tail call ptr asm sideeffect "movq\09%rsp, $0", "=r,~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !211
   store ptr %15, ptr %14, align 8, !tbaa !97
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @shared_fiber_pool, i8 0, i64 16, i1 false)
   %16 = load i64, ptr @pagesize, align 8, !tbaa !61
@@ -2408,18 +2402,18 @@ define hidden void @Init_Cont() local_unnamed_addr #0 {
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @shared_fiber_pool, i64 48), align 8, !tbaa !181
   store i64 %7, ptr getelementptr inbounds nuw (i8, ptr @shared_fiber_pool, i64 56), align 8, !tbaa !186
   tail call fastcc void @fiber_pool_expand(ptr noundef nonnull @shared_fiber_pool, i64 noundef 32)
-  %20 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.2, i64 noundef 8) #10
+  %20 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.2, i64 noundef 8) #9
   store i64 %20, ptr @fiber_initialize_keywords, align 16, !tbaa !61
-  %21 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.3, i64 noundef 4) #10
+  %21 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.3, i64 noundef 4) #9
   store i64 %21, ptr getelementptr inbounds nuw (i8, ptr @fiber_initialize_keywords, i64 8), align 8, !tbaa !61
-  %22 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.4, i64 noundef 7) #10
+  %22 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.4, i64 noundef 7) #9
   store i64 %22, ptr getelementptr inbounds nuw (i8, ptr @fiber_initialize_keywords, i64 16), align 16, !tbaa !61
-  %23 = tail call ptr @getenv(ptr noundef nonnull @.str.5) #10
+  %23 = tail call ptr @getenv(ptr noundef nonnull @.str.5) #9
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %31, label %24
 
 24:                                               ; preds = %0
-  %25 = tail call i64 @strtol(ptr noundef nonnull captures(none) %23, ptr noundef null, i32 noundef 10) #10
+  %25 = tail call i64 @strtol(ptr noundef nonnull captures(none) %23, ptr noundef null, i32 noundef 10) #9
   %26 = trunc i64 %25 to i32
   store i32 %26, ptr getelementptr inbounds nuw (i8, ptr @shared_fiber_pool, i64 40), align 8, !tbaa !201
   %27 = icmp slt i32 %26, 0
@@ -2440,80 +2434,80 @@ define hidden void @Init_Cont() local_unnamed_addr #0 {
 
 31:                                               ; preds = %.thread, %28, %30, %0
   %32 = load i64, ptr @rb_cObject, align 8, !tbaa !61
-  %33 = tail call i64 @rb_define_class(ptr noundef nonnull @.str.8, i64 noundef %32) #10
+  %33 = tail call i64 @rb_define_class(ptr noundef nonnull @.str.8, i64 noundef %32) #9
   store i64 %33, ptr @rb_cFiber, align 8, !tbaa !61
-  tail call void @rb_define_alloc_func(i64 noundef %33, ptr noundef nonnull @fiber_alloc) #10
+  tail call void @rb_define_alloc_func(i64 noundef %33, ptr noundef nonnull @fiber_alloc) #9
   %34 = load i64, ptr @rb_eStandardError, align 8, !tbaa !61
-  %35 = tail call i64 @rb_define_class(ptr noundef nonnull @.str.9, i64 noundef %34) #10
+  %35 = tail call i64 @rb_define_class(ptr noundef nonnull @.str.9, i64 noundef %34) #9
   store i64 %35, ptr @rb_eFiberError, align 8, !tbaa !61
   %36 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  tail call void @rb_define_singleton_method(i64 noundef %36, ptr noundef nonnull @.str.10, ptr noundef nonnull @rb_fiber_s_yield, i32 noundef -1) #10
+  tail call void @rb_define_singleton_method(i64 noundef %36, ptr noundef nonnull @.str.10, ptr noundef nonnull @rb_fiber_s_yield, i32 noundef -1) #9
   %37 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  tail call void @rb_define_singleton_method(i64 noundef %37, ptr noundef nonnull @.str.11, ptr noundef nonnull @rb_fiber_s_current, i32 noundef 0) #10
+  tail call void @rb_define_singleton_method(i64 noundef %37, ptr noundef nonnull @.str.11, ptr noundef nonnull @rb_fiber_s_current, i32 noundef 0) #9
   %38 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  tail call void @rb_define_singleton_method(i64 noundef %38, ptr noundef nonnull @.str.2, ptr noundef nonnull @rb_fiber_blocking, i32 noundef 0) #10
+  tail call void @rb_define_singleton_method(i64 noundef %38, ptr noundef nonnull @.str.2, ptr noundef nonnull @rb_fiber_blocking, i32 noundef 0) #9
   %39 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  tail call void @rb_define_singleton_method(i64 noundef %39, ptr noundef nonnull @.str.12, ptr noundef nonnull @rb_fiber_storage_aref, i32 noundef 1) #10
+  tail call void @rb_define_singleton_method(i64 noundef %39, ptr noundef nonnull @.str.12, ptr noundef nonnull @rb_fiber_storage_aref, i32 noundef 1) #9
   %40 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  tail call void @rb_define_singleton_method(i64 noundef %40, ptr noundef nonnull @.str.13, ptr noundef nonnull @rb_fiber_storage_aset, i32 noundef 2) #10
+  tail call void @rb_define_singleton_method(i64 noundef %40, ptr noundef nonnull @.str.13, ptr noundef nonnull @rb_fiber_storage_aset, i32 noundef 2) #9
   %41 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  tail call void @rb_define_method(i64 noundef %41, ptr noundef nonnull @.str.14, ptr noundef nonnull @rb_fiber_initialize, i32 noundef -1) #10
+  tail call void @rb_define_method(i64 noundef %41, ptr noundef nonnull @.str.14, ptr noundef nonnull @rb_fiber_initialize, i32 noundef -1) #9
   %42 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  tail call void @rb_define_method(i64 noundef %42, ptr noundef nonnull @.str.15, ptr noundef nonnull @rb_fiber_blocking_p, i32 noundef 0) #10
+  tail call void @rb_define_method(i64 noundef %42, ptr noundef nonnull @.str.15, ptr noundef nonnull @rb_fiber_blocking_p, i32 noundef 0) #9
   %43 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  tail call void @rb_define_method(i64 noundef %43, ptr noundef nonnull @.str.4, ptr noundef nonnull @rb_fiber_storage_get, i32 noundef 0) #10
+  tail call void @rb_define_method(i64 noundef %43, ptr noundef nonnull @.str.4, ptr noundef nonnull @rb_fiber_storage_get, i32 noundef 0) #9
   %44 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  tail call void @rb_define_method(i64 noundef %44, ptr noundef nonnull @.str.16, ptr noundef nonnull @rb_fiber_storage_set, i32 noundef 1) #10
+  tail call void @rb_define_method(i64 noundef %44, ptr noundef nonnull @.str.16, ptr noundef nonnull @rb_fiber_storage_set, i32 noundef 1) #9
   %45 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  tail call void @rb_define_method(i64 noundef %45, ptr noundef nonnull @.str.17, ptr noundef nonnull @rb_fiber_m_resume, i32 noundef -1) #10
+  tail call void @rb_define_method(i64 noundef %45, ptr noundef nonnull @.str.17, ptr noundef nonnull @rb_fiber_m_resume, i32 noundef -1) #9
   %46 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  tail call void @rb_define_method(i64 noundef %46, ptr noundef nonnull @.str.18, ptr noundef nonnull @rb_fiber_m_raise, i32 noundef -1) #10
+  tail call void @rb_define_method(i64 noundef %46, ptr noundef nonnull @.str.18, ptr noundef nonnull @rb_fiber_m_raise, i32 noundef -1) #9
   %47 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  tail call void @rb_define_method(i64 noundef %47, ptr noundef nonnull @.str.19, ptr noundef nonnull @rb_fiber_m_kill, i32 noundef 0) #10
+  tail call void @rb_define_method(i64 noundef %47, ptr noundef nonnull @.str.19, ptr noundef nonnull @rb_fiber_m_kill, i32 noundef 0) #9
   %48 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  tail call void @rb_define_method(i64 noundef %48, ptr noundef nonnull @.str.20, ptr noundef nonnull @rb_fiber_backtrace, i32 noundef -1) #10
+  tail call void @rb_define_method(i64 noundef %48, ptr noundef nonnull @.str.20, ptr noundef nonnull @rb_fiber_backtrace, i32 noundef -1) #9
   %49 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  tail call void @rb_define_method(i64 noundef %49, ptr noundef nonnull @.str.21, ptr noundef nonnull @rb_fiber_backtrace_locations, i32 noundef -1) #10
+  tail call void @rb_define_method(i64 noundef %49, ptr noundef nonnull @.str.21, ptr noundef nonnull @rb_fiber_backtrace_locations, i32 noundef -1) #9
   %50 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  tail call void @rb_define_method(i64 noundef %50, ptr noundef nonnull @.str.22, ptr noundef nonnull @fiber_to_s, i32 noundef 0) #10
+  tail call void @rb_define_method(i64 noundef %50, ptr noundef nonnull @.str.22, ptr noundef nonnull @fiber_to_s, i32 noundef 0) #9
   %51 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  tail call void @rb_define_alias(i64 noundef %51, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.22) #10
+  tail call void @rb_define_alias(i64 noundef %51, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.22) #9
   %52 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  tail call void @rb_define_method(i64 noundef %52, ptr noundef nonnull @.str.24, ptr noundef nonnull @rb_fiber_m_transfer, i32 noundef -1) #10
+  tail call void @rb_define_method(i64 noundef %52, ptr noundef nonnull @.str.24, ptr noundef nonnull @rb_fiber_m_transfer, i32 noundef -1) #9
   %53 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  tail call void @rb_define_method(i64 noundef %53, ptr noundef nonnull @.str.25, ptr noundef nonnull @rb_fiber_alive_p, i32 noundef 0) #10
+  tail call void @rb_define_method(i64 noundef %53, ptr noundef nonnull @.str.25, ptr noundef nonnull @rb_fiber_alive_p, i32 noundef 0) #9
   %54 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  tail call void @rb_define_singleton_method(i64 noundef %54, ptr noundef nonnull @.str.15, ptr noundef nonnull @rb_fiber_s_blocking_p, i32 noundef 0) #10
+  tail call void @rb_define_singleton_method(i64 noundef %54, ptr noundef nonnull @.str.15, ptr noundef nonnull @rb_fiber_s_blocking_p, i32 noundef 0) #9
   %55 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  tail call void @rb_define_singleton_method(i64 noundef %55, ptr noundef nonnull @.str.26, ptr noundef nonnull @rb_fiber_s_scheduler, i32 noundef 0) #10
+  tail call void @rb_define_singleton_method(i64 noundef %55, ptr noundef nonnull @.str.26, ptr noundef nonnull @rb_fiber_s_scheduler, i32 noundef 0) #9
   %56 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  tail call void @rb_define_singleton_method(i64 noundef %56, ptr noundef nonnull @.str.27, ptr noundef nonnull @rb_fiber_set_scheduler, i32 noundef 1) #10
+  tail call void @rb_define_singleton_method(i64 noundef %56, ptr noundef nonnull @.str.27, ptr noundef nonnull @rb_fiber_set_scheduler, i32 noundef 1) #9
   %57 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  tail call void @rb_define_singleton_method(i64 noundef %57, ptr noundef nonnull @.str.28, ptr noundef nonnull @rb_fiber_current_scheduler, i32 noundef 0) #10
+  tail call void @rb_define_singleton_method(i64 noundef %57, ptr noundef nonnull @.str.28, ptr noundef nonnull @rb_fiber_current_scheduler, i32 noundef 0) #9
   %58 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  tail call void @rb_define_singleton_method(i64 noundef %58, ptr noundef nonnull @.str.29, ptr noundef nonnull @rb_fiber_s_schedule, i32 noundef -1) #10
-  tail call void @rb_provide(ptr noundef nonnull @.str.30) #10
+  tail call void @rb_define_singleton_method(i64 noundef %58, ptr noundef nonnull @.str.29, ptr noundef nonnull @rb_fiber_s_schedule, i32 noundef -1) #9
+  tail call void @rb_provide(ptr noundef nonnull @.str.30) #9
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i64 @sysconf(i32 noundef) local_unnamed_addr #13
+declare i64 @sysconf(i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #16
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: cold
-declare void @rb_warn(ptr noundef, ...) local_unnamed_addr #17
+declare void @rb_warn(ptr noundef, ...) local_unnamed_addr #16
 
-declare i64 @rb_define_class(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_define_class(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @rb_define_alloc_func(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @rb_define_alloc_func(i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_fiber_s_yield(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
-  %4 = tail call i32 @rb_keyword_given_p() #10
+  %4 = tail call i32 @rb_keyword_given_p() #9
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %6 = load ptr, ptr %5, align 8, !tbaa !62
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -2527,7 +2521,7 @@ define internal i64 @rb_fiber_s_yield(i32 noundef %0, ptr noundef %1, i64 %2) #0
   %13 = getelementptr i8, ptr %6, i64 48
   %.val.i.i.i = load ptr, ptr %13, align 8, !tbaa !63
   %14 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  %15 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %14, ptr noundef null, ptr noundef nonnull @fiber_data_type) #10
+  %15 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %14, ptr noundef null, ptr noundef nonnull @fiber_data_type) #9
   %16 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 48
   %17 = load ptr, ptr %16, align 8, !tbaa !66
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -2553,7 +2547,7 @@ fiber_current.exit.i.i:                           ; preds = %12, %3
 
 28:                                               ; preds = %fiber_current.exit.i.i
   %29 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %29, ptr noundef nonnull @.str.54) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %29, ptr noundef nonnull @.str.54) #26
   unreachable
 
 rb_fiber_yield_kw.exit:                           ; preds = %fiber_current.exit.i.i
@@ -2579,7 +2573,7 @@ define internal i64 @rb_fiber_s_current(i64 %0) #0 {
   %10 = getelementptr i8, ptr %3, i64 48
   %.val.i.i = load ptr, ptr %10, align 8, !tbaa !63
   %11 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  %12 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %11, ptr noundef null, ptr noundef nonnull @fiber_data_type) #10
+  %12 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %11, ptr noundef null, ptr noundef nonnull @fiber_data_type) #9
   %13 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 48
   %14 = load ptr, ptr %13, align 8, !tbaa !66
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -2605,7 +2599,7 @@ rb_fiber_current.exit:                            ; preds = %1, %9
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_fiber_storage_aref(i64 %0, i64 noundef %1) #0 {
-  %3 = tail call i64 @rb_to_symbol(i64 noundef %1) #10
+  %3 = tail call i64 @rb_to_symbol(i64 noundef %1) #9
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %5 = load ptr, ptr %4, align 8, !tbaa !62
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -2619,7 +2613,7 @@ define internal i64 @rb_fiber_storage_aref(i64 %0, i64 noundef %1) #0 {
   %12 = getelementptr i8, ptr %5, i64 48
   %.val.i = load ptr, ptr %12, align 8, !tbaa !63
   %13 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  %14 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %13, ptr noundef null, ptr noundef nonnull @fiber_data_type) #10
+  %14 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %13, ptr noundef null, ptr noundef nonnull @fiber_data_type) #9
   %15 = getelementptr inbounds nuw i8, ptr %.val.i, i64 48
   %16 = load ptr, ptr %15, align 8, !tbaa !66
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -2644,7 +2638,7 @@ fiber_current.exit:                               ; preds = %2, %11
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %fiber_current.exit
-  %29 = tail call i64 @rb_hash_aref(i64 noundef %26, i64 noundef %3) #10
+  %29 = tail call i64 @rb_hash_aref(i64 noundef %26, i64 noundef %3) #9
   br label %30
 
 30:                                               ; preds = %fiber_current.exit, %28
@@ -2654,7 +2648,7 @@ fiber_current.exit:                               ; preds = %2, %11
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_fiber_storage_aset(i64 %0, i64 noundef %1, i64 noundef %2) #0 {
-  %4 = tail call i64 @rb_to_symbol(i64 noundef %1) #10
+  %4 = tail call i64 @rb_to_symbol(i64 noundef %1) #9
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %6 = load ptr, ptr %5, align 8, !tbaa !62
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -2668,7 +2662,7 @@ define internal i64 @rb_fiber_storage_aset(i64 %0, i64 noundef %1, i64 noundef %
   %13 = getelementptr i8, ptr %6, i64 48
   %.val.i = load ptr, ptr %13, align 8, !tbaa !63
   %14 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  %15 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %14, ptr noundef null, ptr noundef nonnull @fiber_data_type) #10
+  %15 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %14, ptr noundef null, ptr noundef nonnull @fiber_data_type) #9
   %16 = getelementptr inbounds nuw i8, ptr %.val.i, i64 48
   %17 = load ptr, ptr %16, align 8, !tbaa !66
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -2695,7 +2689,7 @@ fiber_current.exit:                               ; preds = %3, %12
   br i1 %or.cond.i, label %30, label %fiber_storage_get.exit
 
 30:                                               ; preds = %fiber_current.exit
-  %31 = tail call i64 @rb_hash_new() #10
+  %31 = tail call i64 @rb_hash_new() #9
   store i64 %31, ptr %27, align 8, !tbaa !60
   br label %fiber_storage_get.exit
 
@@ -2709,11 +2703,11 @@ fiber_storage_get.exit:                           ; preds = %fiber_current.exit,
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %33
-  %36 = tail call i64 @rb_hash_delete(i64 noundef %.0.i, i64 noundef %4) #10
+  %36 = tail call i64 @rb_hash_delete(i64 noundef %.0.i, i64 noundef %4) #9
   br label %39
 
 37:                                               ; preds = %33
-  %38 = tail call i64 @rb_hash_aset(i64 noundef %.0.i, i64 noundef %4, i64 noundef %2) #10
+  %38 = tail call i64 @rb_hash_aset(i64 noundef %.0.i, i64 noundef %4, i64 noundef %2) #9
   br label %39
 
 39:                                               ; preds = %fiber_storage_get.exit, %37, %35
@@ -2721,17 +2715,17 @@ fiber_storage_get.exit:                           ; preds = %fiber_current.exit,
   ret i64 %.0
 }
 
-declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @rb_fiber_initialize(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef returned %2) #0 {
   %4 = alloca [3 x i64], align 16
-  %5 = tail call i32 @rb_keyword_given_p() #10
+  %5 = tail call i32 @rb_keyword_given_p() #9
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %rb_fiber_initialize_kw.exit, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, ptr noundef nonnull align 16 dereferenceable(24) @__const.rb_fiber_initialize_kw.arguments, i64 24, i1 false)
   %7 = icmp sgt i32 %0, 0
   br i1 %7, label %8, label %22
@@ -2765,24 +2759,24 @@ rb_scan_args_keyword_p.exit.i:                    ; preds = %13
   br i1 %23, label %.thread24.i, label %rb_scan_args_set.exit.i
 
 rb_scan_args_keyword_p.exit.thread13.i:           ; preds = %rb_scan_args_keyword_p.exit.i, %8
-  %24 = tail call i64 @rb_hash_dup(i64 noundef %12) #10
+  %24 = tail call i64 @rb_hash_dup(i64 noundef %12) #9
   %25 = add nsw i32 %0, -1
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %rb_scan_args_set.exit.i, label %.thread24.i
 
 .thread24.i:                                      ; preds = %rb_scan_args_keyword_p.exit.thread13.i, %22, %rb_scan_args_keyword_p.exit.i, %13, %8
   %.0.i19.i = phi i32 [ %25, %rb_scan_args_keyword_p.exit.thread13.i ], [ %0, %22 ], [ %0, %rb_scan_args_keyword_p.exit.i ], [ %0, %13 ], [ %0, %8 ]
-  tail call void @rb_error_arity(i32 noundef %.0.i19.i, i32 noundef 0, i32 noundef 0) #27
+  tail call void @rb_error_arity(i32 noundef %.0.i19.i, i32 noundef 0, i32 noundef 0) #26
   unreachable
 
 rb_scan_args_set.exit.i:                          ; preds = %rb_scan_args_keyword_p.exit.thread13.i, %22
   %.027.i = phi i64 [ %24, %rb_scan_args_keyword_p.exit.thread13.i ], [ 4, %22 ]
-  %27 = call i32 @rb_get_kwargs(i64 noundef %.027.i, ptr noundef nonnull @fiber_initialize_keywords, i32 noundef 0, i32 noundef 3, ptr noundef nonnull %4) #10
+  %27 = call i32 @rb_get_kwargs(i64 noundef %.027.i, ptr noundef nonnull @fiber_initialize_keywords, i32 noundef 0, i32 noundef 3, ptr noundef nonnull %4) #9
   %28 = load i64, ptr %4, align 16, !tbaa !61
   %29 = icmp ne i64 %28, 36
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %31 = load i64, ptr %30, align 16, !tbaa !61
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %32 = and i64 %28, -5
   %33 = icmp ne i64 %32, 0
   %34 = and i1 %29, %33
@@ -2792,20 +2786,20 @@ rb_scan_args_set.exit.i:                          ; preds = %rb_scan_args_keywor
 rb_fiber_initialize_kw.exit:                      ; preds = %3, %rb_scan_args_set.exit.i
   %.07.i = phi i32 [ %35, %rb_scan_args_set.exit.i ], [ 0, %3 ]
   %.0.i = phi i64 [ %31, %rb_scan_args_set.exit.i ], [ 36, %3 ]
-  %36 = call i64 @rb_block_proc() #10
+  %36 = call i64 @rb_block_proc() #9
   %37 = call fastcc i64 @fiber_initialize(i64 noundef %2, i64 noundef %36, i32 noundef %.07.i, i64 noundef %.0.i)
   ret i64 %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_fiber_storage_get(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #10
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #9
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %3, label %fiber_ptr.exit.i
 
 3:                                                ; preds = %1
   %4 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.47) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.47) #26
   unreachable
 
 fiber_ptr.exit.i:                                 ; preds = %1
@@ -2822,7 +2816,7 @@ fiber_ptr.exit.i:                                 ; preds = %1
   %13 = getelementptr i8, ptr %6, i64 48
   %.val.i.i = load ptr, ptr %13, align 8, !tbaa !63
   %14 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  %15 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %14, ptr noundef null, ptr noundef nonnull @fiber_data_type) #10
+  %15 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %14, ptr noundef null, ptr noundef nonnull @fiber_data_type) #9
   %16 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 48
   %17 = load ptr, ptr %16, align 8, !tbaa !66
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -2846,17 +2840,17 @@ fiber_current.exit.i:                             ; preds = %12, %fiber_ptr.exit
 
 26:                                               ; preds = %fiber_current.exit.i
   %27 = load i64, ptr @rb_eArgError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %27, ptr noundef nonnull @.str.58) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %27, ptr noundef nonnull @.str.58) #26
   unreachable
 
 storage_access_must_be_from_same_fiber.exit:      ; preds = %fiber_current.exit.i
-  %28 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #10
+  %28 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #9
   %.not.i6 = icmp eq ptr %28, null
   br i1 %.not.i6, label %29, label %fiber_ptr.exit
 
 29:                                               ; preds = %storage_access_must_be_from_same_fiber.exit
   %30 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %30, ptr noundef nonnull @.str.47) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %30, ptr noundef nonnull @.str.47) #26
   unreachable
 
 fiber_ptr.exit:                                   ; preds = %storage_access_must_be_from_same_fiber.exit
@@ -2866,7 +2860,7 @@ fiber_ptr.exit:                                   ; preds = %storage_access_must
   br i1 %33, label %36, label %34
 
 34:                                               ; preds = %fiber_ptr.exit
-  %35 = tail call i64 @rb_obj_dup(i64 noundef %32) #10
+  %35 = tail call i64 @rb_obj_dup(i64 noundef %32) #9
   br label %36
 
 36:                                               ; preds = %fiber_ptr.exit, %34
@@ -2876,7 +2870,7 @@ fiber_ptr.exit:                                   ; preds = %storage_access_must
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, -7) i64 @rb_fiber_storage_set(i64 noundef %0, i64 noundef returned %1) #0 {
-  %3 = tail call zeroext i1 @rb_warning_category_enabled_p(i32 noundef 2) #10
+  %3 = tail call zeroext i1 @rb_warning_category_enabled_p(i32 noundef 2) #9
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
@@ -2884,13 +2878,13 @@ define internal range(i64 1, -7) i64 @rb_fiber_storage_set(i64 noundef %0, i64 n
   br label %5
 
 5:                                                ; preds = %4, %2
-  %6 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #10
+  %6 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #9
   %.not.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i, label %7, label %fiber_ptr.exit.i
 
 7:                                                ; preds = %5
   %8 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.47) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.47) #26
   unreachable
 
 fiber_ptr.exit.i:                                 ; preds = %5
@@ -2907,7 +2901,7 @@ fiber_ptr.exit.i:                                 ; preds = %5
   %17 = getelementptr i8, ptr %10, i64 48
   %.val.i.i = load ptr, ptr %17, align 8, !tbaa !63
   %18 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  %19 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %18, ptr noundef null, ptr noundef nonnull @fiber_data_type) #10
+  %19 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %18, ptr noundef null, ptr noundef nonnull @fiber_data_type) #9
   %20 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 48
   %21 = load ptr, ptr %20, align 8, !tbaa !66
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
@@ -2931,7 +2925,7 @@ fiber_current.exit.i:                             ; preds = %16, %fiber_ptr.exit
 
 30:                                               ; preds = %fiber_current.exit.i
   %31 = load i64, ptr @rb_eArgError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %31, ptr noundef nonnull @.str.58) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %31, ptr noundef nonnull @.str.58) #26
   unreachable
 
 storage_access_must_be_from_same_fiber.exit:      ; preds = %fiber_current.exit.i
@@ -2954,7 +2948,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %33
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i, %33
   %42 = load i64, ptr @rb_eTypeError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %42, ptr noundef nonnull @.str.37) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %42, ptr noundef nonnull @.str.37) #26
   unreachable
 
 RB_FL_ABLE.exit.i.i:                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
@@ -2964,22 +2958,22 @@ RB_FL_ABLE.exit.i.i:                              ; preds = %rbimpl_RB_TYPE_P_fa
 
 RB_OBJ_FROZEN.exit.thread.i:                      ; preds = %RB_FL_ABLE.exit.i.i
   %44 = load i64, ptr @rb_eFrozenError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %44, ptr noundef nonnull @.str.38) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %44, ptr noundef nonnull @.str.38) #26
   unreachable
 
 45:                                               ; preds = %RB_FL_ABLE.exit.i.i
-  tail call void @rb_hash_foreach(i64 noundef %1, ptr noundef nonnull @fiber_storage_validate_each, i64 noundef 36) #10
+  tail call void @rb_hash_foreach(i64 noundef %1, ptr noundef nonnull @fiber_storage_validate_each, i64 noundef 36) #9
   br label %fiber_storage_validate.exit
 
 fiber_storage_validate.exit:                      ; preds = %storage_access_must_be_from_same_fiber.exit, %45
-  %46 = tail call i64 @rb_obj_dup(i64 noundef %1) #10
-  %47 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #10
+  %46 = tail call i64 @rb_obj_dup(i64 noundef %1) #9
+  %47 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #9
   %.not.i6 = icmp eq ptr %47, null
   br i1 %.not.i6, label %48, label %fiber_ptr.exit
 
 48:                                               ; preds = %fiber_storage_validate.exit
   %49 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %49, ptr noundef nonnull @.str.47) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %49, ptr noundef nonnull @.str.47) #26
   unreachable
 
 fiber_ptr.exit:                                   ; preds = %fiber_storage_validate.exit
@@ -2990,14 +2984,14 @@ fiber_ptr.exit:                                   ; preds = %fiber_storage_valid
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_fiber_m_resume(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = tail call i32 @rb_keyword_given_p() #10
-  %5 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @fiber_data_type) #10
+  %4 = tail call i32 @rb_keyword_given_p() #9
+  %5 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @fiber_data_type) #9
   %.not.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i, label %6, label %rb_fiber_resume_kw.exit
 
 6:                                                ; preds = %3
   %7 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %7, ptr noundef nonnull @.str.47) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %7, ptr noundef nonnull @.str.47) #26
   unreachable
 
 rb_fiber_resume_kw.exit:                          ; preds = %3
@@ -3007,14 +3001,14 @@ rb_fiber_resume_kw.exit:                          ; preds = %3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_fiber_m_raise(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = tail call i64 @rb_make_exception(i32 noundef %0, ptr noundef %1) #10
-  %5 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @fiber_data_type) #10
+  %4 = tail call i64 @rb_make_exception(i32 noundef %0, ptr noundef %1) #9
+  %5 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @fiber_data_type) #9
   %.not.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i, label %6, label %rb_fiber_raise.exit
 
 6:                                                ; preds = %3
   %7 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %7, ptr noundef nonnull @.str.47) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %7, ptr noundef nonnull @.str.47) #26
   unreachable
 
 rb_fiber_raise.exit:                              ; preds = %3
@@ -3024,13 +3018,13 @@ rb_fiber_raise.exit:                              ; preds = %3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @rb_fiber_m_kill(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #10
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #9
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %3, label %fiber_ptr.exit
 
 3:                                                ; preds = %1
   %4 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.47) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.47) #26
   unreachable
 
 fiber_ptr.exit:                                   ; preds = %1
@@ -3068,7 +3062,7 @@ fiber_ptr.exit:                                   ; preds = %1
   %22 = getelementptr i8, ptr %15, i64 48
   %.val.i = load ptr, ptr %22, align 8, !tbaa !63
   %23 = load i64, ptr @rb_cFiber, align 8, !tbaa !61
-  %24 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %23, ptr noundef null, ptr noundef nonnull @fiber_data_type) #10
+  %24 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %23, ptr noundef null, ptr noundef nonnull @fiber_data_type) #9
   %25 = getelementptr inbounds nuw i8, ptr %.val.i, i64 48
   %26 = load ptr, ptr %25, align 8, !tbaa !66
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
@@ -3112,13 +3106,13 @@ fiber_current.exit:                               ; preds = %13, %21
   unreachable
 
 48:                                               ; preds = %fiber_current.exit
-  %49 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #10
+  %49 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #9
   %.not.i15 = icmp eq ptr %49, null
   br i1 %.not.i15, label %50, label %fiber_ptr.exit16
 
 50:                                               ; preds = %48
   %51 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %51, ptr noundef nonnull @.str.47) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %51, ptr noundef nonnull @.str.47) #26
   unreachable
 
 fiber_ptr.exit16:                                 ; preds = %48
@@ -3132,52 +3126,52 @@ fiber_check_killed.exit:                          ; preds = %36, %11, %fiber_ptr
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_fiber_backtrace(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @fiber_data_type) #10
+  %4 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @fiber_data_type) #9
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %5, label %fiber_ptr.exit
 
 5:                                                ; preds = %3
   %6 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %6, ptr noundef nonnull @.str.47) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %6, ptr noundef nonnull @.str.47) #26
   unreachable
 
 fiber_ptr.exit:                                   ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %8 = tail call i64 @rb_vm_backtrace(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %7) #10
+  %8 = tail call i64 @rb_vm_backtrace(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %7) #9
   ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_fiber_backtrace_locations(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @fiber_data_type) #10
+  %4 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @fiber_data_type) #9
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %5, label %fiber_ptr.exit
 
 5:                                                ; preds = %3
   %6 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %6, ptr noundef nonnull @.str.47) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %6, ptr noundef nonnull @.str.47) #26
   unreachable
 
 fiber_ptr.exit:                                   ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %8 = tail call i64 @rb_vm_backtrace_locations(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %7) #10
+  %8 = tail call i64 @rb_vm_backtrace_locations(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %7) #9
   ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @fiber_to_s(i64 noundef %0) #0 {
   %2 = alloca [32 x i8], align 16
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #10
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiber_data_type) #9
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %4, label %fiber_ptr.exit
 
 4:                                                ; preds = %1
   %5 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %5, ptr noundef nonnull @.str.47) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %5, ptr noundef nonnull @.str.47) #26
   unreachable
 
 fiber_ptr.exit:                                   ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 512
   %7 = load ptr, ptr %6, align 8, !tbaa !160
   %.not = icmp eq ptr %7, null
@@ -3189,22 +3183,22 @@ fiber_ptr.exit:                                   ; preds = %1
   %11 = zext nneg i8 %10 to i64
   %switch.gep18 = getelementptr inbounds nuw [4 x ptr], ptr %switch.table.fiber_to_s.25.switch.table.fiber_to_s, i64 0, i64 %11
   %switch.load19 = load ptr, ptr %switch.gep18, align 8
-  %12 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull %2, i64 noundef 32, ptr noundef nonnull %.str.61..str.60, ptr noundef nonnull %switch.load19) #10
+  %12 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull %2, i64 noundef 32, ptr noundef nonnull %.str.61..str.60, ptr noundef nonnull %switch.load19) #9
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
   %14 = load i64, ptr %13, align 8, !tbaa !106
-  %15 = call i64 @rb_obj_is_proc(i64 noundef %14) #10
+  %15 = call i64 @rb_obj_is_proc(i64 noundef %14) #9
   %.not13 = icmp eq i64 %15, 0
   br i1 %.not13, label %16, label %24
 
 16:                                               ; preds = %fiber_ptr.exit
-  %17 = call i64 @rb_any_to_s(i64 noundef %0) #10
-  %18 = call i64 @strlcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.62, i64 noundef 32) #10
+  %17 = call i64 @rb_any_to_s(i64 noundef %0) #9
+  %18 = call i64 @strlcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.62, i64 noundef 32) #9
   %19 = inttoptr i64 %17 to ptr
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i64, ptr %20, align 8, !tbaa !213
   %22 = add i64 %21, -1
-  call void @rb_str_set_len(i64 noundef %17, i64 noundef %22) #10
-  %23 = call i64 @rb_str_cat_cstr(i64 noundef %17, ptr noundef nonnull %2) #10
+  call void @rb_str_set_len(i64 noundef %17, i64 noundef %22) #9
+  %23 = call i64 @rb_str_cat_cstr(i64 noundef %17, ptr noundef nonnull %2) #9
   br label %30
 
 24:                                               ; preds = %fiber_ptr.exit
@@ -3212,27 +3206,27 @@ fiber_ptr.exit:                                   ; preds = %1
   %26 = inttoptr i64 %25 to ptr
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %28 = load ptr, ptr %27, align 8, !tbaa !64
-  %29 = call i64 @rb_block_to_s(i64 noundef %0, ptr noundef %28, ptr noundef nonnull %2) #10
+  %29 = call i64 @rb_block_to_s(i64 noundef %0, ptr noundef %28, ptr noundef nonnull %2) #9
   br label %30
 
 30:                                               ; preds = %24, %16
   %.0 = phi i64 [ %29, %24 ], [ %17, %16 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
-declare void @rb_define_alias(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @rb_define_alias(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_fiber_m_transfer(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = tail call i32 @rb_keyword_given_p() #10
-  %5 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @fiber_data_type) #10
+  %4 = tail call i32 @rb_keyword_given_p() #9
+  %5 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @fiber_data_type) #9
   %.not.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i, label %6, label %fiber_ptr.exit.i
 
 6:                                                ; preds = %3
   %7 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %7, ptr noundef nonnull @.str.47) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %7, ptr noundef nonnull @.str.47) #26
   unreachable
 
 fiber_ptr.exit.i:                                 ; preds = %3
@@ -3243,7 +3237,7 @@ fiber_ptr.exit.i:                                 ; preds = %3
 
 10:                                               ; preds = %fiber_ptr.exit.i
   %11 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %11, ptr noundef nonnull @.str.55) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %11, ptr noundef nonnull @.str.55) #26
   unreachable
 
 12:                                               ; preds = %fiber_ptr.exit.i
@@ -3255,7 +3249,7 @@ fiber_ptr.exit.i:                                 ; preds = %3
 
 16:                                               ; preds = %12
   %17 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %17, ptr noundef nonnull @.str.56) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %17, ptr noundef nonnull @.str.56) #26
   unreachable
 
 rb_fiber_transfer_kw.exit:                        ; preds = %12
@@ -3264,7 +3258,7 @@ rb_fiber_transfer_kw.exit:                        ; preds = %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @rb_fiber_s_blocking_p(i64 %0) #18 {
+define internal i64 @rb_fiber_s_blocking_p(i64 %0) #17 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %3 = load ptr, ptr %2, align 8, !tbaa !62
   %4 = getelementptr i8, ptr %3, i64 48
@@ -3281,25 +3275,25 @@ define internal i64 @rb_fiber_s_blocking_p(i64 %0) #18 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_fiber_s_scheduler(i64 %0) #0 {
-  %2 = tail call i64 @rb_fiber_scheduler_get() #10
+  %2 = tail call i64 @rb_fiber_scheduler_get() #9
   ret i64 %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_fiber_set_scheduler(i64 %0, i64 noundef %1) #0 {
-  %3 = tail call i64 @rb_fiber_scheduler_set(i64 noundef %1) #10
+  %3 = tail call i64 @rb_fiber_scheduler_set(i64 noundef %1) #9
   ret i64 %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_fiber_current_scheduler(i64 %0) #0 {
-  %2 = tail call i64 @rb_fiber_scheduler_current() #10
+  %2 = tail call i64 @rb_fiber_scheduler_current() #9
   ret i64 %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_fiber_s_schedule(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
-  %4 = tail call i32 @rb_keyword_given_p() #10
+  %4 = tail call i32 @rb_keyword_given_p() #9
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %6 = load ptr, ptr %5, align 8, !tbaa !62
   %7 = getelementptr i8, ptr %6, i64 48
@@ -3311,22 +3305,22 @@ define internal i64 @rb_fiber_s_schedule(i32 noundef %0, ptr noundef %1, i64 %2)
 
 10:                                               ; preds = %3
   %11 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %11, ptr noundef nonnull @.str.67) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %11, ptr noundef nonnull @.str.67) #26
   unreachable
 
 rb_fiber_s_schedule_kw.exit:                      ; preds = %3
-  %12 = tail call i64 @rb_fiber_scheduler_fiber(i64 noundef %9, i32 noundef %0, ptr noundef %1, i32 noundef %4) #10
+  %12 = tail call i64 @rb_fiber_scheduler_fiber(i64 noundef %9, i32 noundef %0, ptr noundef %1, i32 noundef %4) #9
   ret i64 %12
 }
 
-declare void @rb_provide(ptr noundef) local_unnamed_addr #2
+declare void @rb_provide(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ruby_Init_Continuation_body() local_unnamed_addr #0 {
   %1 = load i64, ptr @rb_cObject, align 8, !tbaa !61
-  %2 = tail call i64 @rb_define_class(ptr noundef nonnull @.str.31, i64 noundef %1) #10
+  %2 = tail call i64 @rb_define_class(ptr noundef nonnull @.str.31, i64 noundef %1) #9
   store i64 %2, ptr @rb_cContinuation, align 8, !tbaa !61
-  tail call void @rb_undef_alloc_func(i64 noundef %2) #10
+  tail call void @rb_undef_alloc_func(i64 noundef %2) #9
   %3 = load i64, ptr @rb_cContinuation, align 8, !tbaa !61
   %4 = icmp eq i64 %3, 0
   %5 = and i64 %3, 7
@@ -3366,22 +3360,22 @@ define dso_local void @ruby_Init_Continuation_body() local_unnamed_addr #0 {
 rb_class_of.exit:                                 ; preds = %8, %11, %12, %13, %14, %16
   %.0.in.i = phi ptr [ @rb_cNilClass, %12 ], [ @rb_cTrueClass, %13 ], [ %10, %8 ], [ @rb_cFalseClass, %11 ], [ @rb_cInteger, %14 ], [ %spec.select.i, %16 ]
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !61
-  tail call void @rb_undef_method(i64 noundef %.0.i, ptr noundef nonnull @.str.32) #10
+  tail call void @rb_undef_method(i64 noundef %.0.i, ptr noundef nonnull @.str.32) #9
   %19 = load i64, ptr @rb_cContinuation, align 8, !tbaa !61
-  tail call void @rb_define_method(i64 noundef %19, ptr noundef nonnull @.str.33, ptr noundef nonnull @rb_cont_call, i32 noundef -1) #10
+  tail call void @rb_define_method(i64 noundef %19, ptr noundef nonnull @.str.33, ptr noundef nonnull @rb_cont_call, i32 noundef -1) #9
   %20 = load i64, ptr @rb_cContinuation, align 8, !tbaa !61
-  tail call void @rb_define_method(i64 noundef %20, ptr noundef nonnull @.str.12, ptr noundef nonnull @rb_cont_call, i32 noundef -1) #10
-  tail call void @rb_define_global_function(ptr noundef nonnull @.str.34, ptr noundef nonnull @rb_callcc, i32 noundef 0) #10
+  tail call void @rb_define_method(i64 noundef %20, ptr noundef nonnull @.str.12, ptr noundef nonnull @rb_cont_call, i32 noundef -1) #9
+  tail call void @rb_define_global_function(ptr noundef nonnull @.str.34, ptr noundef nonnull @rb_callcc, i32 noundef 0) #9
   ret void
 }
 
-declare void @rb_undef_alloc_func(i64 noundef) local_unnamed_addr #2
+declare void @rb_undef_alloc_func(i64 noundef) local_unnamed_addr #1
 
-declare void @rb_undef_method(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @rb_undef_method(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal noundef i64 @rb_cont_call(i32 noundef %0, ptr noundef %1, i64 noundef %2) #7 {
-  %4 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @cont_data_type) #10
+define internal noundef i64 @rb_cont_call(i32 noundef %0, ptr noundef %1, i64 noundef %2) #6 {
+  %4 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @cont_data_type) #9
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %6 = load ptr, ptr %5, align 8, !tbaa !62
   %7 = getelementptr i8, ptr %6, i64 48
@@ -3397,7 +3391,7 @@ define internal noundef i64 @rb_cont_call(i32 noundef %0, ptr noundef %1, i64 no
 
 12:                                               ; preds = %3
   %13 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %13, ptr noundef nonnull @.str.68) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %13, ptr noundef nonnull @.str.68) #26
   unreachable
 
 14:                                               ; preds = %3
@@ -3416,7 +3410,7 @@ define internal noundef i64 @rb_cont_call(i32 noundef %0, ptr noundef %1, i64 no
 
 22:                                               ; preds = %17
   %23 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %23, ptr noundef nonnull @.str.69) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %23, ptr noundef nonnull @.str.69) #26
   unreachable
 
 24:                                               ; preds = %17, %14
@@ -3429,14 +3423,14 @@ define internal noundef i64 @rb_cont_call(i32 noundef %0, ptr noundef %1, i64 no
   unreachable
 }
 
-declare extern_weak void @rb_define_global_function(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare extern_weak void @rb_define_global_function(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_callcc(i64 %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call fastcc i64 @cont_capture(ptr noundef %2)
   store volatile i64 %4, ptr %3, align 8, !tbaa !61
   %5 = load volatile i32, ptr %2, align 4, !tbaa !91
@@ -3445,13 +3439,13 @@ define internal i64 @rb_callcc(i64 %0) #0 {
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %1
-  %7 = call i64 @rb_yield(i64 noundef %.0..0..0..0.1) #10
+  %7 = call i64 @rb_yield(i64 noundef %.0..0..0..0.1) #9
   br label %8
 
 8:                                                ; preds = %1, %6
   %.0 = phi i64 [ %7, %6 ], [ %.0..0..0..0.1, %1 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -3459,7 +3453,7 @@ define internal i64 @rb_callcc(i64 %0) #0 {
 define internal void @fiber_mark(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %3 = load i64, ptr %2, align 8, !tbaa !106
-  tail call void @rb_gc_mark_movable(i64 noundef %3) #10
+  tail call void @rb_gc_mark_movable(i64 noundef %3) #9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %5 = load ptr, ptr %4, align 8, !tbaa !105
   %.not = icmp eq ptr %5, null
@@ -3472,12 +3466,12 @@ define internal void @fiber_mark(ptr noundef %0) #0 {
   br i1 %.not.i, label %10, label %9
 
 9:                                                ; preds = %6
-  tail call void @rb_gc_mark_movable(i64 noundef %8) #10
+  tail call void @rb_gc_mark_movable(i64 noundef %8) #9
   br label %rb_fiber_mark_self.exit
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  tail call void @rb_execution_context_mark(ptr noundef nonnull %11) #10
+  tail call void @rb_execution_context_mark(ptr noundef nonnull %11) #9
   br label %rb_fiber_mark_self.exit
 
 rb_fiber_mark_self.exit:                          ; preds = %10, %9, %1
@@ -3501,11 +3495,11 @@ define internal i64 @fiber_memsize(ptr noundef readonly captures(address) %0) #0
   br i1 %.not13, label %15, label %8
 
 8:                                                ; preds = %4
-  %9 = tail call i64 @rb_id_table_memsize(ptr noundef nonnull %3) #10
+  %9 = tail call i64 @rb_id_table_memsize(ptr noundef nonnull %3) #9
   %10 = add i64 %9, 592
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %12 = load i64, ptr %11, align 8, !tbaa !59
-  %13 = tail call i64 @rb_obj_memsize_of(i64 noundef %12) #10
+  %13 = tail call i64 @rb_obj_memsize_of(i64 noundef %12) #9
   %14 = add i64 %10, %13
   br label %15
 
@@ -3550,7 +3544,7 @@ cont_memsize.exit:                                ; preds = %26, %29
 define internal void @fiber_compact(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %3 = load i64, ptr %2, align 8, !tbaa !106
-  %4 = tail call i64 @rb_gc_location(i64 noundef %3) #10
+  %4 = tail call i64 @rb_gc_location(i64 noundef %3) #9
   store i64 %4, ptr %2, align 8, !tbaa !106
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %6 = load ptr, ptr %5, align 8, !tbaa !105
@@ -3564,13 +3558,13 @@ define internal void @fiber_compact(ptr noundef %0) #0 {
   br i1 %.not.i, label %12, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call i64 @rb_gc_location(i64 noundef %9) #10
+  %11 = tail call i64 @rb_gc_location(i64 noundef %9) #9
   store i64 %11, ptr %8, align 8, !tbaa !38
   br label %rb_fiber_update_self.exit
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  tail call void @rb_execution_context_update(ptr noundef nonnull %13) #10
+  tail call void @rb_execution_context_update(ptr noundef nonnull %13) #9
   br label %rb_fiber_update_self.exit
 
 rb_fiber_update_self.exit:                        ; preds = %12, %10, %1
@@ -3580,17 +3574,17 @@ rb_fiber_update_self.exit:                        ; preds = %12, %10, %1
   br i1 %.not.i7, label %cont_compact.exit, label %16
 
 16:                                               ; preds = %rb_fiber_update_self.exit
-  %17 = tail call i64 @rb_gc_location(i64 noundef %15) #10
+  %17 = tail call i64 @rb_gc_location(i64 noundef %15) #9
   store i64 %17, ptr %14, align 8, !tbaa !221
   br label %cont_compact.exit
 
 cont_compact.exit:                                ; preds = %rb_fiber_update_self.exit, %16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i64, ptr %18, align 8, !tbaa !135
-  %20 = tail call i64 @rb_gc_location(i64 noundef %19) #10
+  %20 = tail call i64 @rb_gc_location(i64 noundef %19) #9
   store i64 %20, ptr %18, align 8, !tbaa !135
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  tail call void @rb_execution_context_update(ptr noundef nonnull %21) #10
+  tail call void @rb_execution_context_update(ptr noundef nonnull %21) #9
   ret void
 }
 
@@ -3602,20 +3596,20 @@ define internal void @cont_mark(ptr noundef %0) #0 {
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @rb_gc_mark_movable(i64 noundef %3) #10
+  tail call void @rb_gc_mark_movable(i64 noundef %3) #9
   br label %5
 
 5:                                                ; preds = %4, %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8, !tbaa !135
-  tail call void @rb_gc_mark_movable(i64 noundef %7) #10
+  tail call void @rb_gc_mark_movable(i64 noundef %7) #9
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  tail call void @rb_execution_context_mark(ptr noundef nonnull %8) #10
+  tail call void @rb_execution_context_mark(ptr noundef nonnull %8) #9
   %9 = getelementptr i8, ptr %0, i64 128
   %.val = load ptr, ptr %9, align 8, !tbaa !98
   %10 = getelementptr i8, ptr %.val, i64 16
   %.val.val = load i64, ptr %10, align 8, !tbaa !144
-  tail call void @rb_gc_mark(i64 noundef %.val.val) #10
+  tail call void @rb_gc_mark(i64 noundef %.val.val) #9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !193
   %.not18 = icmp eq ptr %12, null
@@ -3628,7 +3622,7 @@ define internal void @cont_mark(ptr noundef %0) #0 {
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load i64, ptr %17, align 8, !tbaa !218
   %19 = getelementptr i64, ptr %16, i64 %18
-  tail call void @rb_gc_mark_locations(ptr noundef nonnull %12, ptr noundef %19) #10
+  tail call void @rb_gc_mark_locations(ptr noundef nonnull %12, ptr noundef %19) #9
   br label %20
 
 20:                                               ; preds = %13, %5
@@ -3646,23 +3640,23 @@ define internal void @cont_mark(ptr noundef %0) #0 {
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %28 = load i64, ptr %27, align 8, !tbaa !220
   %29 = getelementptr i64, ptr %22, i64 %28
-  tail call void @rb_gc_mark_locations(ptr noundef nonnull %22, ptr noundef %29) #10
+  tail call void @rb_gc_mark_locations(ptr noundef nonnull %22, ptr noundef %29) #9
   br label %30
 
 30:                                               ; preds = %26, %23, %20
   ret void
 }
 
-declare void @rb_gc_mark(i64 noundef) local_unnamed_addr #2
+declare void @rb_gc_mark(i64 noundef) local_unnamed_addr #1
 
-declare void @rb_gc_mark_locations(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @rb_gc_mark_locations(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @rb_id_table_memsize(ptr noundef) local_unnamed_addr #2
+declare i64 @rb_id_table_memsize(ptr noundef) local_unnamed_addr #1
 
-declare i64 @rb_obj_memsize_of(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_obj_memsize_of(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i64 @cont_memsize(ptr noundef readonly captures(none) %0) #3 {
+define internal i64 @cont_memsize(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !193
   %.not = icmp eq ptr %3, null
@@ -3705,24 +3699,24 @@ define internal void @cont_compact(ptr noundef %0) #0 {
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i64 @rb_gc_location(i64 noundef %3) #10
+  %5 = tail call i64 @rb_gc_location(i64 noundef %3) #9
   store i64 %5, ptr %2, align 8, !tbaa !221
   br label %6
 
 6:                                                ; preds = %4, %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8, !tbaa !135
-  %9 = tail call i64 @rb_gc_location(i64 noundef %8) #10
+  %9 = tail call i64 @rb_gc_location(i64 noundef %8) #9
   store i64 %9, ptr %7, align 8, !tbaa !135
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  tail call void @rb_execution_context_update(ptr noundef nonnull %10) #10
+  tail call void @rb_execution_context_update(ptr noundef nonnull %10) #9
   ret void
 }
 
 ; Function Attrs: noreturn
-declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #19
+declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #18
 
-declare void @rb_hash_foreach(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @rb_hash_foreach(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @fiber_storage_validate_each(i64 noundef %0, i64 %1, i64 %2) #0 {
@@ -3753,39 +3747,39 @@ Check_Type.exit:                                  ; preds = %3, %RB_SYMBOL_P.exi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #20
+declare void @llvm.assume(i1 noundef) #19
 
 ; Function Attrs: cold noreturn
-declare void @rb_unexpected_type(i64 noundef, i32 noundef) local_unnamed_addr #12
+declare void @rb_unexpected_type(i64 noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: allocsize(0,1)
-declare noalias nonnull ptr @ruby_xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #21
+declare noalias nonnull ptr @ruby_xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #22
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #21
 
-declare i64 @rb_data_typed_object_wrap(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @rb_data_typed_object_wrap(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @rb_ec_vm_lock_rec_release(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @rb_ec_vm_lock_rec_release(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @rb_exec_event_hooks(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @rb_exec_event_hooks(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #23
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #22
 
 ; Function Attrs: cold noreturn
-declare void @rb_memerror() local_unnamed_addr #12
+declare void @rb_memerror() local_unnamed_addr #11
 
-declare void @rb_native_mutex_lock(ptr noundef) local_unnamed_addr #2
+declare void @rb_native_mutex_lock(ptr noundef) local_unnamed_addr #1
 
-declare void @rb_native_mutex_unlock(ptr noundef) local_unnamed_addr #2
+declare void @rb_native_mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #24
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #23
 
-declare void @rb_current_ec_set(ptr noundef) local_unnamed_addr #2
+declare void @rb_current_ec_set(ptr noundef) local_unnamed_addr #1
 
-declare void @rb_id_table_free(ptr noundef) local_unnamed_addr #2
+declare void @rb_id_table_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @cont_free(ptr noundef %0) #0 {
@@ -3796,14 +3790,14 @@ define internal void @cont_free(ptr noundef %0) #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8, !tbaa !225
-  tail call void @ruby_xfree(ptr noundef %6) #10
+  tail call void @ruby_xfree(ptr noundef %6) #9
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8, !tbaa !219
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %50, label %9
 
 9:                                                ; preds = %4
-  tail call void @ruby_xfree(ptr noundef nonnull %8) #10
+  tail call void @ruby_xfree(ptr noundef nonnull %8) #9
   store ptr null, ptr %7, align 8, !tbaa !219
   br label %50
 
@@ -3860,7 +3854,7 @@ define internal void @cont_free(ptr noundef %0) #0 {
   %47 = ashr i32 %46, 1
   %.not.i.i.i = icmp ult i32 %46, 2
   %spec.store.select.i.i.i = select i1 %.not.i.i.i, i32 8, i32 %47
-  %48 = tail call i32 @madvise(ptr noundef %42, i64 noundef %30, i32 noundef %spec.store.select.i.i.i) #10
+  %48 = tail call i32 @madvise(ptr noundef %42, i64 noundef %30, i32 noundef %spec.store.select.i.i.i) #9
   br label %fiber_pool_stack_release.exit.i
 
 fiber_pool_stack_release.exit.i:                  ; preds = %40, %14
@@ -3869,7 +3863,7 @@ fiber_pool_stack_release.exit.i:                  ; preds = %40, %14
 
 fiber_stack_release.exit:                         ; preds = %10, %fiber_pool_stack_release.exit.i
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  tail call void @rb_ec_clear_vm_stack(ptr noundef nonnull %49) #10
+  tail call void @rb_ec_clear_vm_stack(ptr noundef nonnull %49) #9
   br label %50
 
 50:                                               ; preds = %4, %9, %fiber_stack_release.exit
@@ -3879,7 +3873,7 @@ fiber_stack_release.exit:                         ; preds = %10, %fiber_pool_sta
   br i1 %.not15, label %54, label %53
 
 53:                                               ; preds = %50
-  tail call void @ruby_xfree(ptr noundef nonnull %52) #10
+  tail call void @ruby_xfree(ptr noundef nonnull %52) #9
   store ptr null, ptr %51, align 8, !tbaa !193
   br label %54
 
@@ -3890,7 +3884,7 @@ fiber_stack_release.exit:                         ; preds = %10, %fiber_pool_sta
   br i1 %.not.i16, label %jit_cont_free.exit, label %57
 
 57:                                               ; preds = %54
-  tail call void @rb_native_mutex_lock(ptr noundef nonnull @jit_cont_lock) #10
+  tail call void @rb_native_mutex_lock(ptr noundef nonnull @jit_cont_lock) #9
   %58 = load ptr, ptr @first_jit_cont, align 8, !tbaa !39
   %59 = icmp eq ptr %56, %58
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 16
@@ -3917,17 +3911,17 @@ fiber_stack_release.exit:                         ; preds = %10, %fiber_pool_sta
   br label %68
 
 68:                                               ; preds = %.sink.split.i, %63, %62
-  tail call void @rb_native_mutex_unlock(ptr noundef nonnull @jit_cont_lock) #10
-  tail call void @free(ptr noundef nonnull %56) #10
+  tail call void @rb_native_mutex_unlock(ptr noundef nonnull @jit_cont_lock) #9
+  tail call void @free(ptr noundef nonnull %56) #9
   br label %jit_cont_free.exit
 
 jit_cont_free.exit:                               ; preds = %54, %68
-  tail call void @ruby_xfree(ptr noundef nonnull %0) #10
+  tail call void @ruby_xfree(ptr noundef nonnull %0) #9
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #13
+declare i32 @madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @make_passing_arg(i32 noundef %0, ptr noundef %1) unnamed_addr #0 {
@@ -3947,7 +3941,7 @@ define internal fastcc i64 @make_passing_arg(i32 noundef %0, ptr noundef %1) unn
 
 7:                                                ; preds = %2
   %8 = sext i32 %0 to i64
-  %9 = tail call i64 @rb_ary_new_from_values(i64 noundef %8, ptr noundef %1) #10
+  %9 = tail call i64 @rb_ary_new_from_values(i64 noundef %8, ptr noundef %1) #9
   br label %10
 
 10:                                               ; preds = %2, %7, %5, %3
@@ -3956,10 +3950,10 @@ define internal fastcc i64 @make_passing_arg(i32 noundef %0, ptr noundef %1) unn
 }
 
 ; Function Attrs: noreturn
-declare void @rb_exc_raise(i64 noundef) local_unnamed_addr #19
+declare void @rb_exc_raise(i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: noinline nounwind sspstrong uwtable
-define internal fastcc void @fiber_setcontext(ptr noundef %0, ptr noundef initializes((224, 240)) %1) unnamed_addr #25 {
+define internal fastcc void @fiber_setcontext(ptr noundef %0, ptr noundef initializes((224, 240)) %1) unnamed_addr #24 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %4 = load ptr, ptr %3, align 8, !tbaa !62
   %5 = getelementptr i8, ptr %4, i64 48
@@ -3981,7 +3975,7 @@ define internal fastcc void @fiber_setcontext(ptr noundef %0, ptr noundef initia
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %.pre, i64 152
-  %13 = tail call ptr asm sideeffect "movq\09%rsp, $0", "=r,~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !227
+  %13 = tail call ptr asm sideeffect "movq\09%rsp, $0", "=r,~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !227
   store ptr %13, ptr %12, align 8, !tbaa !97
   %14 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !66
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 144
@@ -4014,14 +4008,14 @@ define internal fastcc void @fiber_setcontext(ptr noundef %0, ptr noundef initia
   store ptr %31, ptr %32, align 8, !tbaa !228
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 528
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %35 = tail call ptr @coroutine_transfer(ptr noundef nonnull %33, ptr noundef nonnull %34) #10
+  %35 = tail call ptr @coroutine_transfer(ptr noundef nonnull %33, ptr noundef nonnull %34) #9
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %30
-  %38 = tail call ptr @rb_errno_ptr() #10
+  %38 = tail call ptr @rb_errno_ptr() #9
   %39 = load i32, ptr %38, align 4, !tbaa !91
-  tail call void @rb_syserr_fail(i32 noundef %39, ptr noundef nonnull @.str.43) #27
+  tail call void @rb_syserr_fail(i32 noundef %39, ptr noundef nonnull @.str.43) #26
   unreachable
 
 40:                                               ; preds = %30
@@ -4030,7 +4024,7 @@ define internal fastcc void @fiber_setcontext(ptr noundef %0, ptr noundef initia
   %43 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
   %44 = load ptr, ptr %43, align 8, !tbaa !115
   store ptr %42, ptr %41, align 8, !tbaa !66
-  tail call void @rb_current_ec_set(ptr noundef nonnull %42) #10
+  tail call void @rb_current_ec_set(ptr noundef nonnull %42) #9
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 384
   store ptr %42, ptr %45, align 8, !tbaa !162
   %46 = getelementptr inbounds nuw i8, ptr %.val.i, i64 32
@@ -4041,7 +4035,7 @@ define internal fastcc void @fiber_setcontext(ptr noundef %0, ptr noundef initia
   br i1 %50, label %51, label %fiber_restore_thread.exit
 
 51:                                               ; preds = %40
-  %52 = tail call i32 @rb_signal_buff_size() #10
+  %52 = tail call i32 @rb_signal_buff_size() #9
   %53 = icmp sgt i32 %52, 0
   br i1 %53, label %54, label %fiber_restore_thread.exit
 
@@ -4054,23 +4048,23 @@ fiber_restore_thread.exit:                        ; preds = %40, %51, %54
   ret void
 }
 
-declare i64 @rb_ary_new_from_values(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @rb_ary_new_from_values(i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @rb_exc_new(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_exc_new(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @coroutine_transfer(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @coroutine_transfer(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @rb_syserr_fail(i32 noundef, ptr noundef) local_unnamed_addr #19
+declare void @rb_syserr_fail(i32 noundef, ptr noundef) local_unnamed_addr #18
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal fastcc void @fiber_restore_thread(ptr noundef captures(address) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #11 {
+define internal fastcc void @fiber_restore_thread(ptr noundef captures(address) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !115
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %3, ptr %6, align 8, !tbaa !66
-  tail call void @rb_current_ec_set(ptr noundef nonnull %3) #10
+  tail call void @rb_current_ec_set(ptr noundef nonnull %3) #9
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 384
   store ptr %3, ptr %7, align 8, !tbaa !162
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4081,7 +4075,7 @@ define internal fastcc void @fiber_restore_thread(ptr noundef captures(address) 
   br i1 %12, label %13, label %ec_switch.exit
 
 13:                                               ; preds = %2
-  %14 = tail call i32 @rb_signal_buff_size() #10
+  %14 = tail call i32 @rb_signal_buff_size() #9
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %16, label %ec_switch.exit
 
@@ -4094,12 +4088,12 @@ ec_switch.exit:                                   ; preds = %2, %13, %16
   ret void
 }
 
-declare i32 @rb_signal_buff_size() local_unnamed_addr #2
+declare i32 @rb_signal_buff_size() local_unnamed_addr #1
 
-declare void @rb_ec_initialize_vm_stack(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @rb_ec_initialize_vm_stack(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal void @fiber_entry(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
+define internal void @fiber_entry(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !230
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
@@ -4120,10 +4114,10 @@ define internal fastcc void @fiber_pool_expand(ptr noundef %0, i64 noundef %1) u
 
 .lr.ph.i:                                         ; preds = %2, %11
   %.044 = phi i64 [ %12, %11 ], [ %1, %2 ]
-  %8 = tail call ptr @rb_errno_ptr() #10
+  %8 = tail call ptr @rb_errno_ptr() #9
   store i32 0, ptr %8, align 4, !tbaa !91
   %9 = mul i64 %.044, %6
-  %10 = tail call ptr @mmap(ptr noundef null, i64 noundef %9, i32 noundef 3, i32 noundef 131106, i32 noundef -1, i64 noundef 0) #10
+  %10 = tail call ptr @mmap(ptr noundef null, i64 noundef %9, i32 noundef 3, i32 noundef 131106, i32 noundef -1, i64 noundef 0) #9
   %.not.i = icmp eq ptr %10, inttoptr (i64 -1 to ptr)
   br i1 %.not.i, label %11, label %fiber_pool_allocate_memory.exit
 
@@ -4133,17 +4127,17 @@ define internal fastcc void @fiber_pool_expand(ptr noundef %0, i64 noundef %1) u
   br i1 %13, label %.lr.ph.i, label %fiber_pool_allocate_memory.exit.thread
 
 fiber_pool_allocate_memory.exit:                  ; preds = %.lr.ph.i
-  tail call void @ruby_annotate_mmap(ptr noundef %10, i64 noundef %9, ptr noundef nonnull @.str.46) #10
+  tail call void @ruby_annotate_mmap(ptr noundef %10, i64 noundef %9, ptr noundef nonnull @.str.46) #9
   %14 = icmp eq ptr %10, null
   br i1 %14, label %fiber_pool_allocate_memory.exit.thread, label %19
 
 fiber_pool_allocate_memory.exit.thread:           ; preds = %11, %2, %fiber_pool_allocate_memory.exit
   %.147 = phi i64 [ %.044, %fiber_pool_allocate_memory.exit ], [ %1, %2 ], [ %12, %11 ]
   %15 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  %16 = tail call ptr @rb_errno_ptr() #10
+  %16 = tail call ptr @rb_errno_ptr() #9
   %17 = load i32, ptr %16, align 4, !tbaa !91
-  %18 = tail call ptr @strerror(i32 noundef %17) #10
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %15, ptr noundef nonnull @.str.44, i64 noundef %.147, i64 noundef %4, ptr noundef %18) #27
+  %18 = tail call ptr @strerror(i32 noundef %17) #9
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %15, ptr noundef nonnull @.str.44, i64 noundef %.147, i64 noundef %4, ptr noundef %18) #26
   unreachable
 
 19:                                               ; preds = %fiber_pool_allocate_memory.exit
@@ -4185,17 +4179,17 @@ fiber_pool_allocate_memory.exit.thread:           ; preds = %11, %2, %fiber_pool
   %.03554 = phi i64 [ %56, %43 ], [ 0, %.lr.ph.preheader ]
   %33 = mul i64 %.03554, %6
   %34 = getelementptr i8, ptr %10, i64 %33
-  %35 = tail call i32 @mprotect(ptr noundef %34, i64 noundef %32, i32 noundef 0) #10
+  %35 = tail call i32 @mprotect(ptr noundef %34, i64 noundef %32, i32 noundef 0) #9
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %37, label %43
 
 37:                                               ; preds = %.lr.ph
-  %38 = tail call i32 @munmap(ptr noundef nonnull %10, i64 noundef %9) #10
+  %38 = tail call i32 @munmap(ptr noundef nonnull %10, i64 noundef %9) #9
   %39 = load i64, ptr @rb_eFiberError, align 8, !tbaa !61
-  %40 = tail call ptr @rb_errno_ptr() #10
+  %40 = tail call ptr @rb_errno_ptr() #9
   %41 = load i32, ptr %40, align 4, !tbaa !91
-  %42 = tail call ptr @strerror(i32 noundef %41) #10
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %39, ptr noundef nonnull @.str.45, ptr noundef %42) #27
+  %42 = tail call ptr @strerror(i32 noundef %41) #9
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %39, ptr noundef nonnull @.str.45, ptr noundef %42) #26
   unreachable
 
 43:                                               ; preds = %.lr.ph
@@ -4223,89 +4217,89 @@ fiber_pool_allocate_memory.exit.thread:           ; preds = %11, %2, %fiber_pool
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias nonnull ptr @ruby_xmalloc(i64 noundef) local_unnamed_addr #26
+declare noalias nonnull ptr @ruby_xmalloc(i64 noundef) local_unnamed_addr #25
 
 ; Function Attrs: nounwind
-declare i32 @mprotect(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #13
+declare i32 @mprotect(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
-declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #13
+declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
-declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #13
+declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #12
 
-declare void @ruby_annotate_mmap(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ruby_annotate_mmap(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @rb_threadptr_execute_interrupts(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @rb_threadptr_execute_interrupts(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind
-declare void @llvm.eh.sjlj.longjmp(ptr) #27
+declare void @llvm.eh.sjlj.longjmp(ptr) #26
 
-declare ptr @rb_check_typeddata(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @rb_check_typeddata(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @ruby_stop(i32 noundef) local_unnamed_addr #19
+declare void @ruby_stop(i32 noundef) local_unnamed_addr #18
 
-declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #28
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #27
 
-declare i32 @rb_keyword_given_p() local_unnamed_addr #2
+declare i32 @rb_keyword_given_p() local_unnamed_addr #1
 
-declare i64 @rb_to_symbol(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_to_symbol(i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_hash_aref(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_hash_aref(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_hash_new() local_unnamed_addr #2
+declare i64 @rb_hash_new() local_unnamed_addr #1
 
-declare i64 @rb_hash_delete(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_hash_delete(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_hash_aset(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_hash_aset(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @rb_get_kwargs(i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @rb_get_kwargs(i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @rb_block_proc() local_unnamed_addr #2
+declare i64 @rb_block_proc() local_unnamed_addr #1
 
-declare i64 @rb_hash_dup(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_hash_dup(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @rb_error_arity(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #19
+declare void @rb_error_arity(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #18
 
-declare zeroext i1 @rb_warning_category_enabled_p(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @rb_warning_category_enabled_p(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare void @rb_category_warn(i32 noundef, ptr noundef, ...) local_unnamed_addr #17
+declare void @rb_category_warn(i32 noundef, ptr noundef, ...) local_unnamed_addr #16
 
-declare i64 @rb_vm_backtrace(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @rb_vm_backtrace(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @rb_vm_backtrace_locations(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @rb_vm_backtrace_locations(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ruby_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @ruby_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i64 @rb_obj_is_proc(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_obj_is_proc(i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_any_to_s(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_any_to_s(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare i64 @strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #29
+declare i64 @strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #28
 
-declare void @rb_str_set_len(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare void @rb_str_set_len(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_str_cat_cstr(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @rb_str_cat_cstr(i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @rb_block_to_s(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @rb_block_to_s(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @rb_fiber_scheduler_get() local_unnamed_addr #2
+declare i64 @rb_fiber_scheduler_get() local_unnamed_addr #1
 
-declare i64 @rb_fiber_scheduler_set(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_fiber_scheduler_set(i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_fiber_scheduler_current() local_unnamed_addr #2
+declare i64 @rb_fiber_scheduler_current() local_unnamed_addr #1
 
-declare i64 @rb_fiber_scheduler_fiber(i64 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @rb_fiber_scheduler_fiber(i64 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noinline noreturn nounwind sspstrong uwtable
-define internal fastcc void @cont_restore_0(ptr noundef %0) unnamed_addr #30 {
+define internal fastcc void @cont_restore_0(ptr noundef %0) unnamed_addr #29 {
   %2 = alloca [1 x i64], align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8, !tbaa !240
@@ -4313,7 +4307,7 @@ define internal fastcc void @cont_restore_0(ptr noundef %0) unnamed_addr #30 {
   br i1 %.not, label %17, label %5
 
 5:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = icmp ugt ptr %2, %4
   br i1 %6, label %7, label %16
 
@@ -4326,7 +4320,7 @@ define internal fastcc void @cont_restore_0(ptr noundef %0) unnamed_addr #30 {
   br i1 %12, label %13, label %rbimpl_size_mul_or_raise.exit, !prof !241
 
 13:                                               ; preds = %7
-  call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %11) #27
+  call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %11) #26
   unreachable
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %7
@@ -4336,7 +4330,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %7
   br label %16
 
 16:                                               ; preds = %rbimpl_size_mul_or_raise.exit, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %17
 
 17:                                               ; preds = %16, %1
@@ -4345,7 +4339,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %7
 }
 
 ; Function Attrs: noinline noreturn nounwind sspstrong uwtable
-define internal fastcc void @cont_restore_1(ptr noundef %0) unnamed_addr #30 {
+define internal fastcc void @cont_restore_1(ptr noundef %0) unnamed_addr #29 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %3 = load ptr, ptr %2, align 8, !tbaa !62
   %4 = getelementptr i8, ptr %3, i64 48
@@ -4378,7 +4372,7 @@ define internal fastcc void @cont_restore_1(ptr noundef %0) unnamed_addr #30 {
   %17 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !115
   store ptr %15, ptr %13, align 8, !tbaa !66
-  tail call void @rb_current_ec_set(ptr noundef nonnull %15) #10
+  tail call void @rb_current_ec_set(ptr noundef nonnull %15) #9
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 384
   store ptr %15, ptr %19, align 8, !tbaa !162
   %20 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 32
@@ -4389,7 +4383,7 @@ define internal fastcc void @cont_restore_1(ptr noundef %0) unnamed_addr #30 {
   br i1 %24, label %25, label %ec_switch.exit.i
 
 25:                                               ; preds = %16
-  %26 = tail call i32 @rb_signal_buff_size() #10
+  %26 = tail call i32 @rb_signal_buff_size() #9
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %28, label %ec_switch.exit.i
 
@@ -4410,7 +4404,7 @@ ec_switch.exit.i:                                 ; preds = %28, %25, %16, %.thr
 
 37:                                               ; preds = %ec_switch.exit.i
   %38 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %38, ptr noundef nonnull @.str.71) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %38, ptr noundef nonnull @.str.71) #26
   unreachable
 
 39:                                               ; preds = %ec_switch.exit.i
@@ -4423,7 +4417,7 @@ ec_switch.exit.i:                                 ; preds = %28, %25, %16, %.thr
   br i1 %45, label %46, label %rbimpl_size_mul_or_raise.exit.i, !prof !241
 
 46:                                               ; preds = %39
-  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %44) #27
+  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %44) #26
   unreachable
 
 rbimpl_size_mul_or_raise.exit.i:                  ; preds = %39
@@ -4432,7 +4426,7 @@ rbimpl_size_mul_or_raise.exit.i:                  ; preds = %39
 
 47:                                               ; preds = %rbimpl_size_mul_or_raise.exit.i
   %48 = shl nuw i64 %44, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %40, ptr noundef nonnull readonly align 1 %42, i64 noundef range(i64 1, 0) %48, i1 noundef false) #10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %40, ptr noundef nonnull readonly align 1 %42, i64 noundef range(i64 1, 0) %48, i1 noundef false) #9
   %.pre.i = load ptr, ptr %31, align 8, !tbaa !66
   %.pre49.i = load ptr, ptr %.pre.i, align 8, !tbaa !43
   %.pre50.i = load ptr, ptr %41, align 8, !tbaa !193
@@ -4456,7 +4450,7 @@ ruby_nonempty_memcpy.exit.i:                      ; preds = %47, %rbimpl_size_mu
   br i1 %61, label %62, label %rbimpl_size_mul_or_raise.exit42.i, !prof !241
 
 62:                                               ; preds = %ruby_nonempty_memcpy.exit.i
-  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %57) #27
+  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %57) #26
   unreachable
 
 rbimpl_size_mul_or_raise.exit42.i:                ; preds = %ruby_nonempty_memcpy.exit.i
@@ -4465,7 +4459,7 @@ rbimpl_size_mul_or_raise.exit42.i:                ; preds = %ruby_nonempty_memcp
 
 63:                                               ; preds = %rbimpl_size_mul_or_raise.exit42.i
   %64 = shl nuw i64 %57, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %59, ptr noundef nonnull readonly align 1 %60, i64 noundef range(i64 1, 0) %64, i1 noundef false) #10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %59, ptr noundef nonnull readonly align 1 %60, i64 noundef range(i64 1, 0) %64, i1 noundef false) #9
   %.pre52.i = load ptr, ptr %31, align 8, !tbaa !66
   br label %ruby_nonempty_memcpy.exit45.i
 
@@ -4503,7 +4497,7 @@ ruby_nonempty_memcpy.exit45.i:                    ; preds = %63, %rbimpl_size_mu
   %87 = load ptr, ptr %86, align 8, !tbaa !115
   %88 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 48
   store ptr %85, ptr %88, align 8, !tbaa !66
-  tail call void @rb_current_ec_set(ptr noundef nonnull %85) #10
+  tail call void @rb_current_ec_set(ptr noundef nonnull %85) #9
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 384
   store ptr %85, ptr %89, align 8, !tbaa !162
   %90 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 32
@@ -4514,7 +4508,7 @@ ruby_nonempty_memcpy.exit45.i:                    ; preds = %63, %rbimpl_size_mu
   br i1 %94, label %95, label %cont_restore_thread.exit
 
 95:                                               ; preds = %84
-  %96 = tail call i32 @rb_signal_buff_size() #10
+  %96 = tail call i32 @rb_signal_buff_size() #9
   %97 = icmp sgt i32 %96, 0
   br i1 %97, label %98, label %cont_restore_thread.exit
 
@@ -4538,7 +4532,7 @@ cont_restore_thread.exit:                         ; preds = %ruby_nonempty_memcp
   br i1 %108, label %109, label %rbimpl_size_mul_or_raise.exit, !prof !241
 
 109:                                              ; preds = %103
-  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %107) #27
+  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %107) #26
   unreachable
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %103
@@ -4547,7 +4541,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %103
 
 110:                                              ; preds = %rbimpl_size_mul_or_raise.exit
   %111 = shl nuw i64 %107, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %102, ptr noundef nonnull readonly align 1 %105, i64 noundef range(i64 1, 0) %111, i1 noundef false) #10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %102, ptr noundef nonnull readonly align 1 %105, i64 noundef range(i64 1, 0) %111, i1 noundef false) #9
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %110, %rbimpl_size_mul_or_raise.exit, %cont_restore_thread.exit
@@ -4557,24 +4551,24 @@ ruby_nonempty_memcpy.exit:                        ; preds = %110, %rbimpl_size_m
 }
 
 ; Function Attrs: noreturn
-declare void @ruby_malloc_size_overflow(i64 noundef, i64 noundef) local_unnamed_addr #19
+declare void @ruby_malloc_size_overflow(i64 noundef, i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #31
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #30
 
 ; Function Attrs: noinline nounwind sspstrong uwtable
-define internal fastcc i64 @cont_capture(ptr noundef nonnull %0) unnamed_addr #25 {
+define internal fastcc i64 @cont_capture(ptr noundef nonnull %0) unnamed_addr #24 {
   %2 = alloca i64, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   store volatile ptr %0, ptr %3, align 8, !tbaa !244
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %7 = load ptr, ptr %6, align 8, !tbaa !62
   %8 = getelementptr i8, ptr %7, i64 48
   %.val.i = load ptr, ptr %8, align 8, !tbaa !63
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = getelementptr inbounds nuw i8, ptr %.val.i, i64 48
   %10 = load ptr, ptr %9, align 8, !tbaa !66
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -4584,13 +4578,13 @@ define internal fastcc i64 @cont_capture(ptr noundef nonnull %0) unnamed_addr #2
 
 13:                                               ; preds = %1
   %14 = load i64, ptr @rb_eThreadError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %14, ptr noundef nonnull @.str.40) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %14, ptr noundef nonnull @.str.40) #26
   unreachable
 
 15:                                               ; preds = %1
-  tail call void @rb_vm_stack_to_heap(ptr noundef nonnull %10) #10
+  tail call void @rb_vm_stack_to_heap(ptr noundef nonnull %10) #9
   %16 = load i64, ptr @rb_cContinuation, align 8, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %17 = load ptr, ptr %6, align 8, !tbaa !62
   %18 = getelementptr i8, ptr %17, i64 48
   %.val.i.i = load ptr, ptr %18, align 8, !tbaa !63
@@ -4603,11 +4597,11 @@ define internal fastcc i64 @cont_capture(ptr noundef nonnull %0) unnamed_addr #2
 
 23:                                               ; preds = %15
   %24 = load i64, ptr @rb_eThreadError, align 8, !tbaa !61
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %24, ptr noundef nonnull @.str.40) #27
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %24, ptr noundef nonnull @.str.40) #26
   unreachable
 
 25:                                               ; preds = %15
-  %26 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %16, i64 noundef 496, ptr noundef nonnull @cont_data_type) #10
+  %26 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %16, i64 noundef 496, ptr noundef nonnull @cont_data_type) #9
   %27 = inttoptr i64 %26 to ptr
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load i64, ptr %28, align 8, !tbaa !246
@@ -4649,7 +4643,7 @@ RTYPEDDATA_GET_DATA.exit.i:                       ; preds = %32, %25
 
 45:                                               ; preds = %RTYPEDDATA_GET_DATA.exit.i
   store ptr %36, ptr %42, align 8, !tbaa !40
-  tail call void @rb_native_mutex_lock(ptr noundef nonnull @jit_cont_lock) #10
+  tail call void @rb_native_mutex_lock(ptr noundef nonnull @jit_cont_lock) #9
   %46 = load ptr, ptr @first_jit_cont, align 8, !tbaa !39
   %47 = icmp eq ptr %46, null
   br i1 %47, label %cont_new.exit, label %48
@@ -4663,10 +4657,10 @@ cont_new.exit:                                    ; preds = %45, %48
   %50 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %46, ptr %50, align 8, !tbaa !57
   store ptr %42, ptr @first_jit_cont, align 8, !tbaa !39
-  tail call void @rb_native_mutex_unlock(ptr noundef nonnull @jit_cont_lock) #10
+  tail call void @rb_native_mutex_unlock(ptr noundef nonnull @jit_cont_lock) #9
   %51 = getelementptr inbounds nuw i8, ptr %34, i64 488
   store ptr %42, ptr %51, align 8, !tbaa !103
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store volatile ptr %34, ptr %4, align 8, !tbaa !250
   %.0..0..0..0.13 = load volatile ptr, ptr %4, align 8, !tbaa !250
   %52 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 16
@@ -4716,7 +4710,7 @@ cont_new.exit:                                    ; preds = %45, %48
   br i1 %84, label %85, label %rbimpl_size_mul_or_raise.exit, !prof !241
 
 85:                                               ; preds = %cont_new.exit
-  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %83) #27
+  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %83) #26
   unreachable
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %cont_new.exit
@@ -4725,7 +4719,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %cont_new.exit
 
 86:                                               ; preds = %rbimpl_size_mul_or_raise.exit
   %87 = shl nuw i64 %83, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %80, ptr noundef nonnull readonly align 1 %81, i64 noundef range(i64 1, 0) %87, i1 noundef false) #10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %80, ptr noundef nonnull readonly align 1 %81, i64 noundef range(i64 1, 0) %87, i1 noundef false) #9
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit, %86
@@ -4744,7 +4738,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
   br i1 %96, label %97, label %rbimpl_size_mul_or_raise.exit36, !prof !241
 
 97:                                               ; preds = %ruby_nonempty_memcpy.exit
-  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %95) #27
+  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %95) #26
   unreachable
 
 rbimpl_size_mul_or_raise.exit36:                  ; preds = %ruby_nonempty_memcpy.exit
@@ -4753,17 +4747,17 @@ rbimpl_size_mul_or_raise.exit36:                  ; preds = %ruby_nonempty_memcp
 
 98:                                               ; preds = %rbimpl_size_mul_or_raise.exit36
   %99 = shl nuw i64 %95, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %92, ptr noundef nonnull readonly align 1 %93, i64 noundef range(i64 1, 0) %99, i1 noundef false) #10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %92, ptr noundef nonnull readonly align 1 %93, i64 noundef range(i64 1, 0) %99, i1 noundef false) #9
   br label %ruby_nonempty_memcpy.exit39
 
 ruby_nonempty_memcpy.exit39:                      ; preds = %rbimpl_size_mul_or_raise.exit36, %98
   %.0..0..0..0.24 = load volatile ptr, ptr %4, align 8, !tbaa !250
   %100 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.24, i64 80
-  tail call void @rb_ec_set_vm_stack(ptr noundef nonnull %100, ptr noundef null, i64 noundef 0) #10
+  tail call void @rb_ec_set_vm_stack(ptr noundef nonnull %100, ptr noundef null, i64 noundef 0) #9
   %.0..0..0..0.25 = load volatile ptr, ptr %4, align 8, !tbaa !250
   %101 = load ptr, ptr %9, align 8, !tbaa !66
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 152
-  %103 = tail call ptr asm sideeffect "movq\09%rsp, $0", "=r,~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !253
+  %103 = tail call ptr asm sideeffect "movq\09%rsp, $0", "=r,~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !253
   store ptr %103, ptr %102, align 8, !tbaa !97
   %104 = load ptr, ptr %9, align 8, !tbaa !66
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 144
@@ -4802,7 +4796,7 @@ ruby_nonempty_memcpy.exit39:                      ; preds = %rbimpl_size_mul_or_
   br i1 %123, label %124, label %rbimpl_size_mul_or_raise.exit.i, !prof !241
 
 124:                                              ; preds = %121
-  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %.sink27.i) #27
+  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %.sink27.i) #26
   unreachable
 
 rbimpl_size_mul_or_raise.exit.i:                  ; preds = %121
@@ -4810,7 +4804,7 @@ rbimpl_size_mul_or_raise.exit.i:                  ; preds = %121
   br i1 %.not.i.i41, label %cont_save_machine_stack.exit, label %125
 
 125:                                              ; preds = %rbimpl_size_mul_or_raise.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %storemerge.i, ptr noundef nonnull readonly align 1 %122, i64 noundef range(i64 1, 0) %112, i1 noundef false) #10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %storemerge.i, ptr noundef nonnull readonly align 1 %122, i64 noundef range(i64 1, 0) %112, i1 noundef false) #9
   br label %cont_save_machine_stack.exit
 
 cont_save_machine_stack.exit:                     ; preds = %rbimpl_size_mul_or_raise.exit.i, %125
@@ -4838,7 +4832,7 @@ cont_save_machine_stack.exit:                     ; preds = %rbimpl_size_mul_or_
   br i1 %136, label %137, label %138
 
 137:                                              ; preds = %131
-  tail call void @rb_exc_raise(i64 noundef %133) #27
+  tail call void @rb_exc_raise(i64 noundef %133) #26
   unreachable
 
 138:                                              ; preds = %131
@@ -4857,22 +4851,28 @@ cont_save_machine_stack.exit:                     ; preds = %rbimpl_size_mul_or_
 
 141:                                              ; preds = %140, %138
   %.0 = phi i64 [ %133, %138 ], [ %.0..0..0..0.8, %140 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 }
 
-declare void @rb_vm_stack_to_heap(ptr noundef) local_unnamed_addr #2
+declare void @rb_vm_stack_to_heap(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0,1)
-declare noalias nonnull ptr @ruby_xmalloc2(i64 noundef, i64 noundef) local_unnamed_addr #21
+declare noalias nonnull ptr @ruby_xmalloc2(i64 noundef, i64 noundef) local_unnamed_addr #20
 
-declare void @rb_ec_set_vm_stack(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @rb_ec_set_vm_stack(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_data_typed_object_zalloc(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @rb_data_typed_object_zalloc(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(1,2)
-declare nonnull ptr @ruby_xrealloc2(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #32
+declare nonnull ptr @ruby_xrealloc2(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #31
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #32
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #33
@@ -4884,38 +4884,38 @@ declare i64 @llvm.umax.i64(i64, i64) #33
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #34
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #10 = { nounwind }
-attributes #11 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #21 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #23 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #25 = { noinline nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { noreturn nounwind }
-attributes #28 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #29 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #30 = { noinline noreturn nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #31 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #32 = { allocsize(1,2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #9 = { nounwind }
+attributes #10 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #20 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #22 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #24 = { noinline nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { noreturn nounwind }
+attributes #27 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { noinline noreturn nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #30 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #31 = { allocsize(1,2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #32 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #33 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #34 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #35 = { nounwind allocsize(0,1) }

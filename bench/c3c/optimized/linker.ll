@@ -4783,7 +4783,7 @@ expand_.exit367.i:                                ; preds = %1757, %1753
   br i1 %.not305.i, label %linker_setup_windows.exit, label %2029
 
 2029:                                             ; preds = %2027
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %2030 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 408), align 8
   %.not.i371.i = icmp eq ptr %2030, null
   br i1 %.not.i371.i, label %2031, label %find_linux_crt_begin.exit.i
@@ -4830,8 +4830,8 @@ expand_.exit367.i:                                ; preds = %1757, %1753
 
 find_linux_crt_begin.exit.i:                      ; preds = %2052, %2049, %2045, %2029
   %.0.i372.i = phi ptr [ %2048, %2045 ], [ %2030, %2029 ], [ null, %2052 ], [ null, %2049 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %2055 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 400), align 8
   %.not.i373.i = icmp eq ptr %2055, null
   br i1 %.not.i373.i, label %2056, label %find_linux_crt.exit.i
@@ -4878,7 +4878,7 @@ find_linux_crt_begin.exit.i:                      ; preds = %2052, %2049, %2045,
 
 find_linux_crt.exit.i:                            ; preds = %2077, %2074, %2070, %find_linux_crt_begin.exit.i
   %.0.i374.i = phi ptr [ %2073, %2070 ], [ %2055, %find_linux_crt_begin.exit.i ], [ null, %2077 ], [ null, %2074 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %2080 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 212), align 4
   %2081 = icmp ne i32 %2080, 0
   %2082 = load i32, ptr @active_target, align 8
@@ -7271,8 +7271,8 @@ declare zeroext i1 @llvm_ar(ptr noundef, ptr noundef, i64 noundef, i32 noundef) 
 define dso_local noundef zeroext i1 @linker(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i8, ptr @debug_log, align 1
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %11
@@ -7426,8 +7426,8 @@ define dso_local noundef zeroext i1 @linker(ptr noundef %0, ptr noundef readonly
   br label %link_exe.exit
 
 link_exe.exit:                                    ; preds = %66, %69
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 true
 }
 
@@ -7814,10 +7814,10 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #8
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

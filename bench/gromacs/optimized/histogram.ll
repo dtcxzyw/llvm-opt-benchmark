@@ -819,7 +819,7 @@ define noundef i32 @_ZNK3gmx33AnalysisDataSimpleHistogramModule5flagsEv(ptr nonn
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN3gmx33AnalysisDataSimpleHistogramModule19parallelDataStartedEPNS_20AbstractAnalysisDataERKNS_27AnalysisDataParallelOptionsE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr.99", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !68
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -905,7 +905,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %41, %39
   br label %_ZNSt12__shared_ptrIN3gmx19IAnalysisDataModuleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN3gmx19IAnalysisDataModuleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %22, %29, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %44
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = call noundef i32 @_ZNK3gmx20AbstractAnalysisData12dataSetCountEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %46 = load ptr, ptr %5, align 8, !tbaa !68
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
@@ -1027,7 +1027,7 @@ _ZN3gmx26AnalysisDataFrameLocalDataIlE14setColumnCountEii.exit.us: ; preds = %84
   %103 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt12__shared_ptrIN3gmx19IAnalysisDataModuleELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %103
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -1556,7 +1556,7 @@ define noundef i32 @_ZNK3gmx35AnalysisDataWeightedHistogramModule5flagsEv(ptr no
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN3gmx35AnalysisDataWeightedHistogramModule19parallelDataStartedEPNS_20AbstractAnalysisDataERKNS_27AnalysisDataParallelOptionsE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr.99", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !115
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -1642,7 +1642,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %41, %39
   br label %_ZNSt12__shared_ptrIN3gmx19IAnalysisDataModuleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN3gmx19IAnalysisDataModuleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %22, %29, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %44
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = call noundef i32 @_ZNK3gmx20AbstractAnalysisData12dataSetCountEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %46 = load ptr, ptr %5, align 8, !tbaa !115
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
@@ -1764,7 +1764,7 @@ _ZN3gmx26AnalysisDataFrameLocalDataIdE14setColumnCountEii.exit.us: ; preds = %84
   %103 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt12__shared_ptrIN3gmx19IAnalysisDataModuleELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %103
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -1860,7 +1860,7 @@ define void @_ZN3gmx35AnalysisDataWeightedHistogramModule11pointsAddedERKNS_23An
 
 18:                                               ; preds = %8, %2
   %19 = tail call ptr @__cxa_allocate_exception(i64 24) #32
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.35)
           to label %20 unwind label %.thread
 
@@ -1870,7 +1870,7 @@ define void @_ZN3gmx35AnalysisDataWeightedHistogramModule11pointsAddedERKNS_23An
 
 21:                                               ; preds = %20
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %3, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %5, align 8, !tbaa !33
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx35AnalysisDataWeightedHistogramModule11pointsAddedERKNS_23AnalysisDataPointSetRefE, ptr %22, align 8, !tbaa !127
@@ -1901,15 +1901,15 @@ define void @_ZN3gmx35AnalysisDataWeightedHistogramModule11pointsAddedERKNS_23An
   %27 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #32
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #32
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.016, label %28, label %88
 
 .sink.split:                                      ; preds = %.thread, %.thread31
   %.pn.pn30.ph = phi { ptr, i32 } [ %25, %.thread31 ], [ %24, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %28
 
 28:                                               ; preds = %.sink.split, %26
@@ -2340,7 +2340,7 @@ define void @_ZN3gmx28AnalysisDataBinAverageModule11pointsAddedERKNS_23AnalysisD
 
 18:                                               ; preds = %8, %2
   %19 = tail call ptr @__cxa_allocate_exception(i64 24) #32
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.35)
           to label %20 unwind label %.thread
 
@@ -2350,7 +2350,7 @@ define void @_ZN3gmx28AnalysisDataBinAverageModule11pointsAddedERKNS_23AnalysisD
 
 21:                                               ; preds = %20
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %3, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %5, align 8, !tbaa !33
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx28AnalysisDataBinAverageModule11pointsAddedERKNS_23AnalysisDataPointSetRefE, ptr %22, align 8, !tbaa !127
@@ -2381,15 +2381,15 @@ define void @_ZN3gmx28AnalysisDataBinAverageModule11pointsAddedERKNS_23AnalysisD
   %27 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #32
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #32
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.018, label %28, label %67
 
 .sink.split:                                      ; preds = %.thread, %.thread29
   %.pn.pn28.ph = phi { ptr, i32 } [ %25, %.thread29 ], [ %24, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %28
 
 28:                                               ; preds = %.sink.split, %26
@@ -2872,32 +2872,26 @@ define void @_ZN3gmx25AnalysisHistogramSettingsC2ERKNS_36AnalysisHistogramSettin
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #13
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #13
+declare float @llvm.fmuladd.f32(float, float, float) #12
 
 ; Function Attrs: noreturn
-declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #14
+declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.floor.f32(float) #13
+declare float @llvm.floor.f32(float) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.ceil.f32(float) #13
+declare float @llvm.ceil.f32(float) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.rint.f32(float) #13
+declare float @llvm.rint.f32(float) #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3gmx25AnalysisHistogramSettings7findBinEf(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(21) %0, float noundef %1) local_unnamed_addr #15 align 2 {
+define noundef i32 @_ZNK3gmx25AnalysisHistogramSettings7findBinEf(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(21) %0, float noundef %1) local_unnamed_addr #14 align 2 {
   %3 = load float, ptr %0, align 4, !tbaa !104
   %4 = fcmp olt float %1, %3
   br i1 %4, label %5, label %11
@@ -2955,7 +2949,7 @@ declare void @_ZN3gmx25AbstractAnalysisArrayDataC2Ev(ptr noundef nonnull align 8
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nounwind
-declare void @_ZN3gmx25AbstractAnalysisArrayDataD2Ev(ptr noundef nonnull align 8 dereferenceable(98)) unnamed_addr #16
+declare void @_ZN3gmx25AbstractAnalysisArrayDataD2Ev(ptr noundef nonnull align 8 dereferenceable(98)) unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx24AbstractAverageHistogramC2ERKNS_25AnalysisHistogramSettingsE(ptr noundef nonnull align 8 dereferenceable(124) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(21) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
@@ -2990,14 +2984,14 @@ define void @_ZN3gmx24AbstractAverageHistogramC2ERKNS_25AnalysisHistogramSetting
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
 declare void @_ZN3gmx25AbstractAnalysisArrayData11setRowCountEi(ptr noundef nonnull align 8 dereferenceable(98), i32 noundef) local_unnamed_addr #1
 
 declare void @_ZN3gmx25AbstractAnalysisArrayData8setXAxisEff(ptr noundef nonnull align 8 dereferenceable(98), float noundef, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #18
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx24AbstractAverageHistogram4initERKNS_25AnalysisHistogramSettingsE(ptr noundef nonnull align 8 dereferenceable(124) initializes((100, 121)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(21) %1) local_unnamed_addr #4 align 2 {
@@ -3028,13 +3022,13 @@ define void @_ZNK3gmx24AbstractAverageHistogram22resampleDoubleBinWidthEb(ptr de
   %.in = add nsw i32 %8, %9
   %10 = sdiv i32 %.in, 2
   %11 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #35
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #32
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %13 = load float, ptr %12, align 4, !tbaa !104
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %15 = load float, ptr %14, align 4, !tbaa !154
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #32, !noalias !155
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !155
   invoke void @_ZN3gmx36AnalysisHistogramSettingsInitializerC1Ev(ptr noundef nonnull align 4 dereferenceable(19) %4)
           to label %16 unwind label %43
 
@@ -3046,7 +3040,7 @@ define void @_ZNK3gmx24AbstractAverageHistogram22resampleDoubleBinWidthEb(ptr de
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store float %17, ptr %19, align 4, !tbaa !144, !noalias !155
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false), !tbaa.struct !158
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #32, !noalias !155
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !155
   %20 = zext i1 %2 to i8
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i8 %20, ptr %21, align 4, !tbaa !148
@@ -3086,8 +3080,8 @@ define void @_ZNK3gmx24AbstractAverageHistogram22resampleDoubleBinWidthEb(ptr de
 36:                                               ; preds = %26
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_122StaticAverageHistogramE, i64 16), ptr %11, align 8, !tbaa !33
   store ptr %11, ptr %0, align 8, !tbaa !159
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %37 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %38 unwind label %45
 
@@ -3115,8 +3109,8 @@ define void @_ZNK3gmx24AbstractAverageHistogram22resampleDoubleBinWidthEb(ptr de
 
 .body:                                            ; preds = %34, %43
   %eh.lpad-body = phi { ptr, i32 } [ %44, %43 ], [ %35, %34 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef 128) #33
   br label %140
 
@@ -3320,7 +3314,7 @@ _ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.e
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #19
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #18
 
 declare void @_ZN3gmx25AbstractAnalysisArrayData14setColumnCountEi(ptr noundef nonnull align 8 dereferenceable(98), i32 noundef) local_unnamed_addr #1
 
@@ -3342,7 +3336,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_122StaticAverageHistogramD0Ev(ptr noun
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #20 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #19 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #32
   tail call void @_ZSt9terminatev() #36
   unreachable
@@ -3351,10 +3345,10 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #21
+declare void @_ZSt9terminatev() local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #22
+declare float @sqrtf(float noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK3gmx24AbstractAverageHistogram5cloneEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.59") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(124) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
@@ -3901,7 +3895,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
 
 declare void @_ZN3gmx25AnalysisDataFrameAverager9addPointsERKNS_23AnalysisDataPointSetRefE(ptr noundef nonnull align 8 dereferenceable(25), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
@@ -3991,7 +3985,7 @@ define void @_ZN3gmx8internal18BasicHistogramImplC2Ev(ptr noundef nonnull align 
 declare void @_ZN3gmx19AnalysisDataStorageC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZN3gmx19AnalysisDataStorageD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #16
+declare void @_ZN3gmx19AnalysisDataStorageD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
@@ -4170,7 +4164,7 @@ _ZNSt12__shared_ptrIN3gmx8internal27BasicAverageHistogramModuleELN9__gnu_cxx12_L
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !33
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -4307,7 +4301,7 @@ define void @_ZN3gmx33AnalysisDataSimpleHistogramModuleC2Ev(ptr noundef nonnull 
 declare void @_ZN3gmx20AbstractAnalysisDataC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZN3gmx20AbstractAnalysisDataD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #16
+declare void @_ZN3gmx20AbstractAnalysisDataD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #15
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx33AnalysisDataSimpleHistogramModule4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4588,7 +4582,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36: ; preds = %_ZNSt6vectorIi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #17
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx33AnalysisDataSimpleHistogramModuleC2ERKNS_25AnalysisHistogramSettingsE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(21) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
@@ -4714,7 +4708,7 @@ define void @_ZN3gmx33AnalysisDataSimpleHistogramModule4initERKNS_25AnalysisHist
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(124) ptr @_ZN3gmx33AnalysisDataSimpleHistogramModule8averagerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #24 align 2 {
+define noundef nonnull align 8 dereferenceable(124) ptr @_ZN3gmx33AnalysisDataSimpleHistogramModule8averagerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #23 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !68
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -4723,7 +4717,7 @@ define noundef nonnull align 8 dereferenceable(124) ptr @_ZN3gmx33AnalysisDataSi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 4 dereferenceable(21) ptr @_ZNK3gmx33AnalysisDataSimpleHistogramModule8settingsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #15 align 2 {
+define noundef nonnull align 4 dereferenceable(21) ptr @_ZNK3gmx33AnalysisDataSimpleHistogramModule8settingsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !68
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -4997,7 +4991,7 @@ _ZNSt12_Vector_baseISt6vectorIlSaIlEESaIS2_EE13_M_deallocateEPS2_m.exit37: ; pre
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #25
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #24
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5491,7 +5485,7 @@ define void @_ZN3gmx35AnalysisDataWeightedHistogramModule4initERKNS_25AnalysisHi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(124) ptr @_ZN3gmx35AnalysisDataWeightedHistogramModule8averagerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #24 align 2 {
+define noundef nonnull align 8 dereferenceable(124) ptr @_ZN3gmx35AnalysisDataWeightedHistogramModule8averagerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #23 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !115
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -5500,7 +5494,7 @@ define noundef nonnull align 8 dereferenceable(124) ptr @_ZN3gmx35AnalysisDataWe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 4 dereferenceable(21) ptr @_ZNK3gmx35AnalysisDataWeightedHistogramModule8settingsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #15 align 2 {
+define noundef nonnull align 4 dereferenceable(21) ptr @_ZNK3gmx35AnalysisDataWeightedHistogramModule8settingsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !115
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -5810,23 +5804,23 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36: ; preds = %_ZNSt6vectorId
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr void @_ZN3gmxlsINS_8APIErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind noalias writable sret(%"class.gmx::APIError") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #26 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3gmxlsINS_8APIErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind noalias writable sret(%"class.gmx::APIError") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #25 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::unique_ptr.164", align 8
   %5 = alloca %"struct.std::type_index", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #35
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8, !tbaa !33
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !214
   store ptr %6, ptr %4, align 8, !tbaa !215
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @_ZTIN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, ptr %5, align 8, !tbaa !217
   invoke void @_ZN3gmx16GromacsException7setInfoERKSt10type_indexOSt10unique_ptrINS_8internal14IExceptionInfoESt14default_deleteIS6_EE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %9 unwind label %14
 
 9:                                                ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %10 = load ptr, ptr %4, align 8, !tbaa !215
   %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %_ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEEvRKNS_13ExceptionInfoIT_T0_EE.exit, label %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i
@@ -5841,7 +5835,7 @@ _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i: ; preds
 14:                                               ; preds = %3
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %16 = load ptr, ptr %4, align 8, !tbaa !215
   %.not.i3.i = icmp eq ptr %16, null
   br i1 %.not.i3.i, label %_ZNSt10unique_ptrIN3gmx8internal14IExceptionInfoESt14default_deleteIS2_EED2Ev.exit5.i, label %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i
@@ -5854,11 +5848,11 @@ _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i: ; pred
   br label %_ZNSt10unique_ptrIN3gmx8internal14IExceptionInfoESt14default_deleteIS2_EED2Ev.exit5.i
 
 _ZNSt10unique_ptrIN3gmx8internal14IExceptionInfoESt14default_deleteIS2_EED2Ev.exit5.i: ; preds = %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i, %14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %15
 
 _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEEvRKNS_13ExceptionInfoIT_T0_EE.exit: ; preds = %9, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !220
@@ -5887,7 +5881,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
 
 6:                                                ; preds = %2
   %7 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %7, ptr %3, align 8, !tbaa !100
   %8 = icmp ugt i64 %7, 15
   br i1 %8, label %.noexc.i, label %._crit_edge.i.i
@@ -5922,7 +5916,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
   %18 = load ptr, ptr %0, align 8, !tbaa !225
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
   store i8 0, ptr %19, align 1, !tbaa !79
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
   ret void
@@ -5986,10 +5980,10 @@ _ZNSt12__shared_ptrIN3gmx8internal13ExceptionDataELN9__gnu_cxx12_Lock_policyE2EE
 }
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #27
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #26
 
 ; Function Attrs: nounwind
-declare void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #16
+declare void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #15
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -6068,20 +6062,20 @@ define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #14
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #28
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #27
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #1
 
 declare void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #16
+declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #15
 
 ; Function Attrs: nounwind
-declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #16
+declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx28AnalysisDataBinAverageModuleC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
@@ -6328,7 +6322,7 @@ define void @_ZN3gmx28AnalysisDataBinAverageModule4initERKNS_25AnalysisHistogram
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 4 dereferenceable(21) ptr @_ZNK3gmx28AnalysisDataBinAverageModule8settingsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) local_unnamed_addr #15 align 2 {
+define noundef nonnull align 4 dereferenceable(21) ptr @_ZNK3gmx28AnalysisDataBinAverageModule8settingsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8, !tbaa !135
   ret ptr %3
@@ -6337,6 +6331,12 @@ define noundef nonnull align 4 dereferenceable(21) ptr @_ZNK3gmx28AnalysisDataBi
 declare void @_ZN3gmx25AnalysisDataFrameAverager8addValueEif(ptr noundef nonnull align 8 dereferenceable(25), i32 noundef, float noundef) local_unnamed_addr #1
 
 declare void @_ZN3gmx25AbstractAnalysisArrayData11valuesReadyEv(ptr noundef nonnull align 8 dereferenceable(98)) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #28
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #29
@@ -6365,23 +6365,23 @@ attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(readwrite
 attributes #9 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #10 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #16 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #19 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #20 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #21 = { cold nofree noreturn }
-attributes #22 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #23 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #26 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #27 = { cold noreturn }
-attributes #28 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #15 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #18 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #19 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #20 = { cold nofree noreturn }
+attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #22 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #25 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #26 = { cold noreturn }
+attributes #27 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #28 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #29 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #30 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #31 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

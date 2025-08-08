@@ -350,7 +350,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mac_mgmt_msg_rep_req_decoder(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct.tlv_info_t, align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %7 = load i32, ptr @proto_mac_mgmt_msg_rep_decoder, align 4
   %8 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.193)
@@ -584,14 +584,14 @@ define internal i32 @dissect_mac_mgmt_msg_rep_req_decoder(ptr noundef %0, ptr no
 
 .loopexit263:                                     ; preds = %.loopexit, %4, %19
   %174 = call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %174
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct.tlv_info_t, align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %7 = load i32, ptr @proto_mac_mgmt_msg_rep_decoder, align 4
   %8 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.196)
@@ -1325,7 +1325,7 @@ switch.lookup:                                    ; preds = %137
 
 .loopexit673:                                     ; preds = %.loopexit, %4, %19
   %503 = call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %503
 }
 
@@ -1340,9 +1340,6 @@ define hidden void @proto_reg_handoff_mac_mgmt_msg_rep() local_unnamed_addr #0 {
 
 ; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
@@ -1377,14 +1374,17 @@ declare ptr @add_tlv_subtree(ptr noundef, ptr noundef, i32 noundef, ptr noundef,
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #3
@@ -1393,7 +1393,6 @@ attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-widt
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

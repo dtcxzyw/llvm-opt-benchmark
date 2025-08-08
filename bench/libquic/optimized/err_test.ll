@@ -84,14 +84,14 @@ _ZL12TestPutErrorv.exit.thread:                   ; preds = %_ZL12TestOverflowv.
 32:                                               ; preds = %_ZL12TestOverflowv.exit
   tail call void @ERR_put_error(i32 noundef 1, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str.1, i32 noundef 4)
   tail call void (i32, ...) @ERR_add_error_data(i32 noundef 1, ptr noundef nonnull @.str.5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %33 = call i32 @ERR_peek_error_line_data(ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef nonnull %10, ptr noundef nonnull %6)
   %34 = call i32 @ERR_get_error_line_data(ptr noundef nonnull %9, ptr noundef nonnull %5, ptr noundef nonnull %11, ptr noundef nonnull %7)
   %.not9.i = icmp eq i32 %33, %34
@@ -121,7 +121,7 @@ _ZL12TestPutErrorv.exit.thread:                   ; preds = %_ZL12TestOverflowv.
   br label %_ZL12TestPutErrorv.exit.thread8
 
 47:                                               ; preds = %41
-  %48 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(5) @.str.1) #9
+  %48 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(5) @.str.1) #8
   %49 = icmp eq i32 %48, 0
   %50 = load i32, ptr %5, align 4
   %51 = icmp eq i32 %50, 4
@@ -135,7 +135,7 @@ _ZL12TestPutErrorv.exit.thread:                   ; preds = %_ZL12TestOverflowv.
   br i1 %or.cond19.i, label %56, label %58
 
 56:                                               ; preds = %47
-  %57 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(8) @.str.5) #9
+  %57 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(8) @.str.5) #8
   %.not15.i = icmp eq i32 %57, 0
   br i1 %.not15.i, label %61, label %58
 
@@ -145,25 +145,25 @@ _ZL12TestPutErrorv.exit.thread:                   ; preds = %_ZL12TestOverflowv.
   br label %_ZL12TestPutErrorv.exit.thread8
 
 _ZL12TestPutErrorv.exit.thread8:                  ; preds = %44, %58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZL12TestOverflowv.exit.thread
 
 61:                                               ; preds = %56
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %62 = call i32 @ERR_get_error()
   %.not.i2 = icmp eq i32 %62, 0
   br i1 %.not.i2, label %66, label %63
@@ -189,7 +189,7 @@ _ZL14TestClearErrorv.exit:                        ; preds = %66
   call void @ERR_put_error(i32 noundef 1, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str.1, i32 noundef 4)
   call void (i32, ...) @ERR_add_error_data(i32 noundef 1, ptr noundef nonnull @.str.5)
   %71 = call i32 @ERR_get_error()
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %72
 
 72:                                               ; preds = %72, %_ZL14TestClearErrorv.exit
@@ -200,22 +200,22 @@ _ZL14TestClearErrorv.exit:                        ; preds = %66
   br i1 %exitcond.not.i4, label %_ZL9TestPrintv.exit, label %72, !llvm.loop !18
 
 _ZL9TestPrintv.exit:                              ; preds = %72
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @ERR_put_error(i32 noundef 1, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str.1, i32 noundef 4)
   call void @ERR_remove_thread_state(ptr noundef null)
   call void @ERR_put_error(i32 noundef 32, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str.9, i32 noundef 131)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %74 = call i32 @ERR_get_error_line(ptr noundef nonnull %2, ptr noundef nonnull %1)
   %75 = load ptr, ptr %2, align 8, !tbaa !14
-  %76 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %75) #9
+  %76 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %75) #8
   %77 = icmp ult i64 %76, 11
   br i1 %77, label %_ZL12TestPutMacrov.exit, label %_ZL9HasSuffixPKcS0_.exit.i
 
 _ZL9HasSuffixPKcS0_.exit.i:                       ; preds = %_ZL9TestPrintv.exit
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 %76
   %79 = getelementptr inbounds i8, ptr %78, i64 -11
-  %80 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %79, ptr noundef nonnull dereferenceable(12) @.str.10) #9
+  %80 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %79, ptr noundef nonnull dereferenceable(12) @.str.10) #8
   %81 = icmp eq i32 %80, 0
   %82 = load i32, ptr %1, align 4
   %.not.i5 = icmp eq i32 %82, 131
@@ -228,13 +228,13 @@ _ZL9HasSuffixPKcS0_.exit.i:                       ; preds = %_ZL9TestPrintv.exit
 _ZL12TestPutMacrov.exit:                          ; preds = %_ZL9TestPrintv.exit, %_ZL9HasSuffixPKcS0_.exit.i
   %85 = load ptr, ptr @stderr, align 8, !tbaa !9
   %86 = call i64 @fwrite(ptr nonnull @.str.7, i64 25, i64 1, ptr %85) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %_ZL12TestOverflowv.exit.thread
 
 87:                                               ; preds = %_ZL9HasSuffixPKcS0_.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %_ZL12TestOverflowv.exit.thread
 
@@ -245,18 +245,12 @@ _ZL12TestOverflowv.exit.thread:                   ; preds = %68, %63, %21, %26, 
 
 declare void @CRYPTO_library_init() local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @ERR_get_error() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare void @ERR_add_error_data(i32 noundef, ...) local_unnamed_addr #1
 
@@ -265,7 +259,7 @@ declare i32 @ERR_peek_error_line_data(ptr noundef, ptr noundef, ptr noundef, ptr
 declare i32 @ERR_get_error_line_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @ERR_clear_error() local_unnamed_addr #1
 
@@ -276,7 +270,13 @@ declare void @ERR_remove_thread_state(ptr noundef) local_unnamed_addr #1
 declare i32 @ERR_get_error_line(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #5
@@ -286,14 +286,13 @@ declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i6
 
 attributes #0 = { mustprogress norecurse uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nofree nounwind }
 attributes #6 = { cold nounwind }
 attributes #7 = { cold }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind willreturn memory(read) }
+attributes #8 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

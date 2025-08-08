@@ -8482,7 +8482,7 @@ define hidden void @_ZN5Parse21sharpen_type_after_ifEN8BoolTest4maskEP4NodePK4Ty
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, 2047
@@ -8550,7 +8550,7 @@ define hidden void @_ZN5Parse21sharpen_type_after_ifEN8BoolTest4maskEP4NodePK4Ty
 
 _ZL27extract_obj_from_klass_loadP8PhaseGVNP4Node.exit: ; preds = %55, %20, %32, %36, %44
   %.0.i = phi ptr [ null, %20 ], [ null, %32 ], [ null, %36 ], [ null, %44 ], [ %spec.select, %55 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %58 = load ptr, ptr %3, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 296
   %60 = load ptr, ptr %59, align 8
@@ -15624,10 +15624,10 @@ declare i32 @llvm.ctpop.i32(i32) #11
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -247,8 +247,8 @@ define void @_ZN2cv4cuda8GpuMatNDC2ESt6vectorIiSaIiEEiPvS2_ImSaImEE(ptr noundef 
   br i1 %44, label %._crit_edge, label %45
 
 45:                                               ; preds = %32, %30
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #18
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %46 unwind label %48
 
@@ -285,8 +285,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %48
   %.pn = phi { ptr, i32 } [ %49, %48 ], [ %51, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %51, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit15
 
 ._crit_edge:                                      ; preds = %5, %19, %32
@@ -379,16 +379,10 @@ _ZNSt6vectorIiSaIiEED2Ev.exit19:                  ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: noreturn
 declare void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress uwtable
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1 align 2
 
 declare i32 @__gxx_personality_v0(...)
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv4cuda8GpuMatND9setFieldsESt6vectorIiSaIiEEiS2_ImSaImEE(ptr noundef nonnull align 8 captures(none) dereferenceable(88) initializes((0, 8), (16, 32)) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
@@ -662,8 +656,8 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %_ZNSt6vectorImSaImE
   br i1 %144, label %158, label %145
 
 145:                                              ; preds = %130
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #18
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %146 unwind label %148
 
@@ -700,8 +694,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %148
   %.pn = phi { ptr, i32 } [ %149, %148 ], [ %151, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %151, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %185
 
 158:                                              ; preds = %130
@@ -720,8 +714,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %170, label %184, label %171
 
 171:                                              ; preds = %158
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #18
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %172 unwind label %174
 
@@ -758,8 +752,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i24, %174
   %.pn15 = phi { ptr, i32 } [ %175, %174 ], [ %177, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i24 ], [ %177, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %185
 
 184:                                              ; preds = %158
@@ -800,8 +794,8 @@ define void @_ZNK2cv4cuda8GpuMatNDclERKSt6vectorINS_5RangeESaIS3_EE(ptr dead_on_
   br label %43
 
 22:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #18
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %23 unwind label %25
 
@@ -838,8 +832,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %25
   %.pn = phi { ptr, i32 } [ %26, %25 ], [ %28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %99
 
 ._crit_edge:                                      ; preds = %.critedge32, %.preheader
@@ -890,8 +884,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %.not, label %.critedge34, label %.critedge32
 
 .critedge34:                                      ; preds = %49, %52
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #18
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %55 unwind label %57
 
@@ -928,8 +922,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i46
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i46, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i47, %57
   %.pn28 = phi { ptr, i32 } [ %58, %57 ], [ %60, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i47 ], [ %60, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i46 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %99
 
 .critedge32:                                      ; preds = %43, %52
@@ -1007,7 +1001,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv4cuda8GpuMatNDC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1158,7 +1152,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %66, %69
   resume { ptr, i32 } %67
 }
 
-declare noundef i32 @_ZN2cv20updateContinuityFlagEiiPKiPKm(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare noundef i32 @_ZN2cv20updateContinuityFlagEiiPKiPKm(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK2cv4cuda8GpuMatND18createGpuMatHeaderESt6vectorIiSaIiEENS_5RangeES5_(ptr dead_on_unwind noalias writable sret(%"class.cv::cuda::GpuMat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef readonly captures(none) %2, i64 %3, i64 %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
@@ -1181,8 +1175,8 @@ define void @_ZNK2cv4cuda8GpuMatND18createGpuMatHeaderESt6vectorIiSaIiEENS_5Rang
   br i1 %21, label %35, label %22
 
 22:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #18
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %23 unwind label %25
 
@@ -1219,12 +1213,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %25
   %.pn = phi { ptr, i32 } [ %26, %25 ], [ %28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %140
 
 35:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %.not61 = icmp eq ptr %12, %11
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1490,7 +1484,7 @@ _ZNSt6vectorIN2cv5RangeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__nor
   br label %_ZNSt6vectorIN2cv5RangeESaIS1_EE9push_backERKS1_.exit42
 
 _ZNSt6vectorIN2cv5RangeESaIS1_EE9push_backERKS1_.exit42: ; preds = %_ZNSt6vectorIN2cv5RangeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i39, %102
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %9) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZNK2cv4cuda8GpuMatNDclERKSt6vectorINS_5RangeESaIS3_EE(ptr dead_on_unwind nonnull writable sret(%"class.cv::cuda::GpuMatND") align 8 %9, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(24) %8)
           to label %125 unwind label %132
 
@@ -1500,7 +1494,7 @@ _ZNSt6vectorIN2cv5RangeESaIS1_EE9push_backERKS1_.exit42: ; preds = %_ZNSt6vector
 
 126:                                              ; preds = %125
   call void @_ZN2cv4cuda8GpuMatNDD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %9) #18
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %127 = load ptr, ptr %8, align 8, !tbaa !55
   %.not.i.i.i43 = icmp eq ptr %127, null
   br i1 %.not.i.i.i43, label %_ZNSt6vectorIN2cv5RangeESaIS1_EED2Ev.exit, label %128
@@ -1510,7 +1504,7 @@ _ZNSt6vectorIN2cv5RangeESaIS1_EE9push_backERKS1_.exit42: ; preds = %_ZNSt6vector
   br label %_ZNSt6vectorIN2cv5RangeESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN2cv5RangeESaIS1_EED2Ev.exit:        ; preds = %126, %128
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 
 129:                                              ; preds = %_ZNKSt6vectorIN2cv5RangeESaIS1_EE12_M_check_lenEmPKc.exit.i.i28, %110, %_ZNKSt6vectorIN2cv5RangeESaIS1_EE12_M_check_lenEmPKc.exit.i.i, %50
@@ -1532,7 +1526,7 @@ _ZNSt6vectorIN2cv5RangeESaIS1_EED2Ev.exit:        ; preds = %126, %128
 
 136:                                              ; preds = %134, %132
   %.pn9 = phi { ptr, i32 } [ %135, %134 ], [ %133, %132 ]
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.pre71 = load ptr, ptr %8, align 8, !tbaa !55
   br label %137
 
@@ -1547,7 +1541,7 @@ _ZNSt6vectorIN2cv5RangeESaIS1_EED2Ev.exit:        ; preds = %126, %128
   br label %_ZNSt6vectorIN2cv5RangeESaIS1_EED2Ev.exit45
 
 _ZNSt6vectorIN2cv5RangeESaIS1_EED2Ev.exit45:      ; preds = %137, %139
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %140
 
 140:                                              ; preds = %_ZNSt6vectorIN2cv5RangeESaIS1_EED2Ev.exit45, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -1587,8 +1581,8 @@ define void @_ZNK2cv4cuda8GpuMatND18createGpuMatHeaderEv(ptr dead_on_unwind noal
 
 14:                                               ; preds = %.lr.ph.i
   call void @_ZN2cv4cuda8GpuMatNDD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %3) #18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #18
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %5)
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @__func__._ZNK2cv4cuda8GpuMatND18createGpuMatHeaderESt6vectorIiSaIiEENS_5RangeES5_, ptr noundef nonnull @.str.1, i32 noundef 71) #20
           to label %15 unwind label %16
@@ -1616,8 +1610,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %17
 
 .loopexit:                                        ; preds = %10, %2
@@ -1649,14 +1643,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   ret void
 }
 
-declare void @_ZN2cv4cuda6GpuMatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) unnamed_addr #5
+declare void @_ZN2cv4cuda6GpuMatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK2cv4cuda8GpuMatNDclESt6vectorIiSaIiEENS_5RangeES5_(ptr dead_on_unwind noalias writable sret(%"class.cv::cuda::GpuMat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef readonly captures(none) %2, i64 %3, i64 %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.cv::_OutputArray", align 8
   %7 = alloca %"class.cv::cuda::GpuMat", align 8
   %8 = alloca %"class.std::vector", align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !39
   %11 = load ptr, ptr %2, align 8, !tbaa !21
@@ -1717,7 +1711,7 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %.thread, %20
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %32, i8 0, i64 40, i1 false), !alias.scope !81
   store ptr %29, ptr %33, align 8, !tbaa !89, !alias.scope !81
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #18, !noalias !81
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !81
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %35, align 8, !noalias !81
@@ -1740,7 +1734,7 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %.thread, %20
   unreachable
 
 41:                                               ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #18, !noalias !81
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !81
   invoke void @_ZN2cv4cuda6GpuMat7releaseEv(ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %_ZN2cv4cuda6GpuMatD2Ev.exit unwind label %42
 
@@ -1760,7 +1754,7 @@ _ZN2cv4cuda6GpuMatD2Ev.exit:                      ; preds = %41
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZN2cv4cuda6GpuMatD2Ev.exit, %45
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 46:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
@@ -1795,7 +1789,7 @@ _ZN2cv4cuda6GpuMatD2Ev.exit7:                     ; preds = %.body, %46
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit9
 
 _ZNSt6vectorIiSaIiEED2Ev.exit9:                   ; preds = %_ZN2cv4cuda6GpuMatD2Ev.exit7, %53
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn
 }
 
@@ -1803,7 +1797,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit9:                   ; preds = %_ZN2cv4cuda6GpuMatD
 define void @_ZNK2cv4cuda8GpuMatNDcvNS0_6GpuMatEEv(ptr dead_on_unwind noalias writable sret(%"class.cv::cuda::GpuMat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::_OutputArray", align 8
   %4 = alloca %"class.cv::cuda::GpuMat", align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK2cv4cuda8GpuMatND18createGpuMatHeaderEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::cuda::GpuMat") align 8 %4, ptr noundef nonnull align 8 dereferenceable(88) %1)
   call void @llvm.experimental.noalias.scope.decl(metadata !94)
   %5 = invoke noundef ptr @_ZN2cv4cuda6GpuMat16defaultAllocatorEv()
@@ -1819,7 +1813,7 @@ define void @_ZNK2cv4cuda8GpuMatNDcvNS0_6GpuMatEEv(ptr dead_on_unwind noalias wr
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false), !alias.scope !94
   store ptr %5, ptr %9, align 8, !tbaa !89, !alias.scope !94
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #18, !noalias !94
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !94
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %11, align 8, !noalias !94
@@ -1842,7 +1836,7 @@ define void @_ZNK2cv4cuda8GpuMatNDcvNS0_6GpuMatEEv(ptr dead_on_unwind noalias wr
   unreachable
 
 17:                                               ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #18, !noalias !94
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !94
   invoke void @_ZN2cv4cuda6GpuMat7releaseEv(ptr noundef nonnull align 8 dereferenceable(64) %4)
           to label %_ZN2cv4cuda6GpuMatD2Ev.exit unwind label %18
 
@@ -1854,7 +1848,7 @@ define void @_ZNK2cv4cuda8GpuMatNDcvNS0_6GpuMatEEv(ptr dead_on_unwind noalias wr
   unreachable
 
 _ZN2cv4cuda6GpuMatD2Ev.exit:                      ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 21:                                               ; preds = %2
@@ -1875,26 +1869,26 @@ _ZN2cv4cuda6GpuMatD2Ev.exit:                      ; preds = %17
   unreachable
 
 _ZN2cv4cuda6GpuMatD2Ev.exit2:                     ; preds = %.body
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %eh.lpad-body
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN2cv4cuda7GpuDataC2Em(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, i64 %1) unnamed_addr #6 align 2 {
+define void @_ZN2cv4cuda7GpuDataC2Em(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, i64 %1) unnamed_addr #5 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   tail call fastcc void @_ZL13throw_no_cudav() #20
   unreachable
 }
 
 ; Function Attrs: inlinehint mustprogress noreturn uwtable
-define internal fastcc void @_ZL13throw_no_cudav() unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL13throw_no_cudav() unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 .noexc.i:
   %0 = alloca i64, align 8
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %2, ptr %1, align 8, !tbaa !97
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %0) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %0)
   store i64 44, ptr %0, align 8, !tbaa !40
   %3 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 0)
   store ptr %3, ptr %1, align 8, !tbaa !41
@@ -1905,7 +1899,7 @@ define internal fastcc void @_ZL13throw_no_cudav() unnamed_addr #7 personality p
   store i64 %4, ptr %5, align 8, !tbaa !44
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 %4
   store i8 0, ptr %6, align 1, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %0) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %0)
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -216, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @__func__._ZL13throw_no_cudav, ptr noundef nonnull @.str.9, i32 noundef 106) #20
           to label %7 unwind label %8
 
@@ -1930,65 +1924,65 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN2cv4cuda7GpuDataD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
+define void @_ZN2cv4cuda7GpuDataD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN2cv4cuda8GpuMatND6createESt6vectorIiSaIiEEi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
+define void @_ZN2cv4cuda8GpuMatND6createESt6vectorIiSaIiEEi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
   tail call fastcc void @_ZL13throw_no_cudav() #20
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN2cv4cuda8GpuMatND7releaseEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) local_unnamed_addr #6 align 2 {
+define void @_ZN2cv4cuda8GpuMatND7releaseEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) local_unnamed_addr #5 align 2 {
   tail call fastcc void @_ZL13throw_no_cudav() #20
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZNK2cv4cuda8GpuMatND5cloneEv(ptr dead_on_unwind noalias readnone sret(%"class.cv::cuda::GpuMatND") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %1) local_unnamed_addr #6 align 2 {
+define void @_ZNK2cv4cuda8GpuMatND5cloneEv(ptr dead_on_unwind noalias readnone sret(%"class.cv::cuda::GpuMatND") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %1) local_unnamed_addr #5 align 2 {
   tail call fastcc void @_ZL13throw_no_cudav() #20
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZNK2cv4cuda8GpuMatND5cloneERNS0_6StreamE(ptr dead_on_unwind noalias readnone sret(%"class.cv::cuda::GpuMatND") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %2) local_unnamed_addr #6 align 2 {
+define void @_ZNK2cv4cuda8GpuMatND5cloneERNS0_6StreamE(ptr dead_on_unwind noalias readnone sret(%"class.cv::cuda::GpuMatND") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %2) local_unnamed_addr #5 align 2 {
   tail call fastcc void @_ZL13throw_no_cudav() #20
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN2cv4cuda8GpuMatND6uploadERKNS_11_InputArrayE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #6 align 2 {
+define void @_ZN2cv4cuda8GpuMatND6uploadERKNS_11_InputArrayE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #5 align 2 {
   tail call fastcc void @_ZL13throw_no_cudav() #20
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN2cv4cuda8GpuMatND6uploadERKNS_11_InputArrayERNS0_6StreamE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %2) local_unnamed_addr #6 align 2 {
+define void @_ZN2cv4cuda8GpuMatND6uploadERKNS_11_InputArrayERNS0_6StreamE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %2) local_unnamed_addr #5 align 2 {
   tail call fastcc void @_ZL13throw_no_cudav() #20
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZNK2cv4cuda8GpuMatND8downloadERKNS_12_OutputArrayE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #6 align 2 {
+define void @_ZNK2cv4cuda8GpuMatND8downloadERKNS_12_OutputArrayE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #5 align 2 {
   tail call fastcc void @_ZL13throw_no_cudav() #20
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZNK2cv4cuda8GpuMatND8downloadERKNS_12_OutputArrayERNS0_6StreamE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %2) local_unnamed_addr #6 align 2 {
+define void @_ZNK2cv4cuda8GpuMatND8downloadERKNS_12_OutputArrayERNS0_6StreamE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %2) local_unnamed_addr #5 align 2 {
   tail call fastcc void @_ZL13throw_no_cudav() #20
   unreachable
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
   tail call void @_ZSt9terminatev() #22
   unreachable
@@ -1997,10 +1991,10 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #10
+declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !13
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -2040,24 +2034,30 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #2
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 
-declare noundef ptr @_ZN2cv4cuda6GpuMat16defaultAllocatorEv() local_unnamed_addr #5
+declare noundef ptr @_ZN2cv4cuda6GpuMat16defaultAllocatorEv() local_unnamed_addr #4
 
-declare void @_ZNK2cv4cuda6GpuMat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #5
+declare void @_ZNK2cv4cuda6GpuMat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #4
 
-declare void @_ZN2cv4cuda6GpuMat7releaseEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #5
+declare void @_ZN2cv4cuda6GpuMat7releaseEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #4
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #5
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #14
@@ -2077,17 +2077,17 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #7 = { inlinehint mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #9 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #10 = { cold nofree noreturn }
-attributes #11 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #12 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #13 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #8 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #9 = { cold nofree noreturn }
+attributes #10 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #11 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #12 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

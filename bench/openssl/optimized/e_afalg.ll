@@ -94,9 +94,9 @@ define range(i32 0, 2) i32 @bind_engine(ptr noundef %0, ptr noundef readonly cap
   br i1 %.not5.i, label %21, label %bind_helper.exit
 
 21:                                               ; preds = %19, %18
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 -1, i64 12, i1 false)
-  call void @llvm.lifetime.start.p0(i64 390, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %22 = call i32 @uname(ptr noundef nonnull %5) #13
   %.not.i.i = icmp eq i32 %22, 0
   br i1 %.not.i.i, label %29, label %23
@@ -205,14 +205,14 @@ ERR_AFALG_error.exit12.i.i:                       ; preds = %64, %61
   br label %afalg_chk_platform.exit.thread.i
 
 afalg_chk_platform.exit.thread.i:                 ; preds = %ERR_AFALG_error.exit12.i.i, %ERR_AFALG_error.exit11.i.i, %ERR_AFALG_error.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 390, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %bind_helper.exit
 
 67:                                               ; preds = %58
   %68 = call i32 @close(i32 noundef %59) #13
-  call void @llvm.lifetime.end.p0(i64 390, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %69 = load i32, ptr @lib_code, align 4, !tbaa !12
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %71, label %73
@@ -380,14 +380,11 @@ free_cbc.exit:                                    ; preds = %ERR_unload_AFALG_st
   ret i32 1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @uname(ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i32 @uname(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ERR_AFALG_error(i32 noundef range(i32 100, 113) %0, i32 noundef range(i32 211, 884) %1) unnamed_addr #1 {
@@ -410,18 +407,15 @@ define internal fastcc void @ERR_AFALG_error(i32 noundef range(i32 100, 113) %0,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #7
+declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 declare i32 @close(i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 declare i32 @ERR_get_next_error_library() local_unnamed_addr #2
 
@@ -432,7 +426,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #7
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 declare i32 @ENGINE_set_id(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -604,7 +598,7 @@ define internal range(i32 0, 2) i32 @afalg_cipher_init(ptr noundef %0, ptr nound
   br i1 %.not, label %18, label %83
 
 18:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 -1, ptr %19, align 4, !tbaa !27
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -691,11 +685,11 @@ ERR_AFALG_error.exit.i:                           ; preds = %ERR_AFALG_error.exi
 afalg_create_sk.exit.thread:                      ; preds = %55, %58
   store i32 -1, ptr %19, align 4, !tbaa !27
   store i32 -1, ptr %20, align 8, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %83
 
 60:                                               ; preds = %40
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %61 = call i32 @EVP_CIPHER_CTX_get_key_length(ptr noundef nonnull %0) #13
   %62 = icmp slt i32 %61, 1
   br i1 %62, label %78, label %63
@@ -763,7 +757,7 @@ define internal range(i32 0, 2) i32 @afalg_do_cipher(ptr noundef %0, ptr noundef
   %12 = alloca %struct.iovec, align 8
   %13 = alloca [64 x i8], align 16
   %14 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %15 = icmp eq ptr %0, null
   %16 = icmp eq ptr %1, null
@@ -796,9 +790,9 @@ define internal range(i32 0, 2) i32 @afalg_do_cipher(ptr noundef %0, ptr noundef
 29:                                               ; preds = %26, %23
   %30 = tail call ptr @EVP_CIPHER_CTX_iv(ptr noundef nonnull %0) #13
   %31 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef nonnull %0) #13
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11) #13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #13
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, i8 0, i64 56, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %13, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %32, i8 0, i64 48, i1 false)
@@ -841,25 +835,25 @@ afalg_start_cipher_sk.exit.thread:                ; preds = %29
   %50 = load ptr, ptr @stderr, align 8, !tbaa !16
   %51 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.1, i32 noundef 560) #15
   call void @perror(ptr noundef null) #16
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %171
 
 afalg_start_cipher_sk.exit:                       ; preds = %29
   %.not.i.not = icmp eq i64 %48, %3
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.not.i.not, label %52, label %171
 
 52:                                               ; preds = %afalg_start_cipher_sk.exit
   %53 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %54 = load i32, ptr %46, align 4, !tbaa !27
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #13
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8, !tbaa !40
   %55 = getelementptr inbounds nuw i8, ptr %19, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
@@ -868,7 +862,7 @@ afalg_start_cipher_sk.exit:                       ; preds = %29
   br i1 %57, label %58, label %94
 
 58:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !50
   %59 = call ptr @ASYNC_get_current_job() #13
   %.not.i.i = icmp eq ptr %59, null
@@ -942,13 +936,13 @@ ERR_AFALG_error.exit.i.i:                         ; preds = %91, %86
   br label %afalg_setup_async_event_notification.exit.thread.i
 
 afalg_setup_async_event_notification.exit.thread.i: ; preds = %ERR_AFALG_error.exit.i.i, %78, %70, %60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %afalg_fin_cipher_aio.exit.thread
 
 afalg_setup_async_event_notification.exit.i:      ; preds = %82, %80, %63
   %storemerge.i = phi i32 [ 2, %80 ], [ 2, %63 ], [ 1, %82 ]
   store i32 %storemerge.i, ptr %55, align 4, !tbaa !49
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %94
 
 94:                                               ; preds = %afalg_setup_async_event_notification.exit.i, %52
@@ -1048,7 +1042,7 @@ afalg_setup_async_event_notification.exit.i:      ; preds = %82, %80, %63
   br label %afalg_fin_cipher_aio.exit.thread
 
 145:                                              ; preds = %134
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %146 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %10, i64 noundef 32, ptr noundef nonnull @.str.32, i64 noundef %132) #13
   %147 = load i64, ptr %108, align 16, !tbaa !63
   %cond.i = icmp eq i64 %147, -12
@@ -1091,7 +1085,7 @@ ERR_AFALG_error.exit31.i:                         ; preds = %155, %154
   br label %158
 
 158:                                              ; preds = %ERR_AFALG_error.exit31.i, %ERR_AFALG_error.exit.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %afalg_fin_cipher_aio.exit.thread
 
 159:                                              ; preds = %126
@@ -1108,17 +1102,17 @@ ERR_AFALG_error.exit31.i:                         ; preds = %155, %154
   br label %afalg_fin_cipher_aio.exit.thread
 
 afalg_fin_cipher_aio.exit.thread:                 ; preds = %109, %121, %142, %158, %161, %afalg_setup_async_event_notification.exit.thread.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %171
 
 164:                                              ; preds = %131
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %165 = call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef nonnull %0) #13
   %.not34 = icmp eq i32 %165, 0
   %166 = call ptr @EVP_CIPHER_CTX_iv_noconst(ptr noundef nonnull %0) #13
@@ -1136,7 +1130,7 @@ afalg_fin_cipher_aio.exit.thread:                 ; preds = %109, %121, %142, %1
 
 171:                                              ; preds = %afalg_fin_cipher_aio.exit.thread, %afalg_start_cipher_sk.exit.thread, %167, %170, %afalg_start_cipher_sk.exit, %18, %21, %4
   %.0 = phi i32 [ 0, %4 ], [ 0, %21 ], [ 0, %18 ], [ 0, %afalg_start_cipher_sk.exit ], [ 1, %170 ], [ 1, %167 ], [ 0, %afalg_start_cipher_sk.exit.thread ], [ 0, %afalg_fin_cipher_aio.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.0
 }
 
@@ -1244,23 +1238,23 @@ ERR_AFALG_error.exit:                             ; preds = %5, %10
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare i64 @OPENSSL_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #6
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @bind(i32 noundef, ptr, i32 noundef) local_unnamed_addr #8
+declare i32 @bind(i32 noundef, ptr, i32 noundef) local_unnamed_addr #7
 
 declare i32 @accept(i32 noundef, ptr, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #8
+declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #7
 
 declare i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef) local_unnamed_addr #2
 
@@ -1273,10 +1267,10 @@ declare i64 @sendmsg(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 declare i32 @ASYNC_pause_job() local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #11
+declare ptr @__errno_location() local_unnamed_addr #10
 
 declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -1300,6 +1294,12 @@ declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #2
 
 declare i32 @ERR_unload_strings(i32 noundef, ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #12
 
@@ -1307,14 +1307,14 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nounwind }
 attributes #14 = { nounwind willreturn memory(read) }

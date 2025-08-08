@@ -582,7 +582,7 @@ define hidden void @_ZN3ue210aliasRolesERNS_13RoseBuildImplEb(ptr noundef nonnul
   br i1 %17, label %18, label %178
 
 18:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %19, ptr %6, align 8
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -627,7 +627,7 @@ define hidden void @_ZN3ue210aliasRolesERNS_13RoseBuildImplEb(ptr noundef nonnul
 
 40:                                               ; preds = %65, %.lr.ph.i
   %.sroa.034.041.i = phi ptr [ %.sroa.034.039.i, %.lr.ph.i ], [ %.sroa.034.0.i, %65 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.034.041.i, i64 312
   %42 = load i64, ptr %41, align 8
   store ptr %.sroa.034.041.i, ptr %4, align 8
@@ -640,7 +640,7 @@ define hidden void @_ZN3ue210aliasRolesERNS_13RoseBuildImplEb(ptr noundef nonnul
   br i1 %44, label %46, label %65
 
 46:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.sroa.06.0.copyload.i = load ptr, ptr %4, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.copyload.i, i64 120
   %48 = load ptr, ptr %47, align 8
@@ -668,7 +668,7 @@ _ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorI
           to label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit.i unwind label %63
 
 _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit.i: ; preds = %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixEOS1_.exit.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %65
 
 61:                                               ; preds = %40
@@ -679,18 +679,18 @@ _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphEN
 63:                                               ; preds = %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixEOS1_.exit.i, %46
   %64 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %66
 
 65:                                               ; preds = %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit.i, %45
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.sroa.034.0.i = load ptr, ptr %.sroa.034.041.i, align 8
   %.not.i = icmp eq ptr %.sroa.034.0.i, %30
   br i1 %.not.i, label %._crit_edge.i, label %40
 
 66:                                               ; preds = %63, %61
   %.pn.i = phi { ptr, i32 } [ %64, %63 ], [ %62, %61 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %74
 
 .lr.ph45.i:                                       ; preds = %._crit_edge.i, %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit29.i
@@ -705,7 +705,7 @@ _ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9
           to label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit29.i unwind label %72
 
 _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit29.i: ; preds = %_ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt3setIS8_St4lessIS8_ESaIS8_EESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SD_EEEixERSJ_.exit.i
-  %71 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.030.043.i) #28
+  %71 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.030.043.i) #27
   %.not38.i = icmp eq ptr %71, %39
   br i1 %.not38.i, label %_ZN3ue212_GLOBAL__N_116RoseAliasingInfoC2ERKNS_13RoseBuildImplE.exit, label %.lr.ph45.i
 
@@ -720,8 +720,8 @@ common.resume:                                    ; preds = %183, %74
 
 74:                                               ; preds = %72, %66
   %.pn24.pn.pn.pn.i = phi { ptr, i32 } [ %73, %72 ], [ %.pn.i, %66 ]
-  call void @_ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt3setIS8_St4lessIS8_ESaIS8_EESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SD_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %24) #27
-  call void @_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %6) #27
+  call void @_ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt3setIS8_St4lessIS8_ESaIS8_EESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SD_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %24) #28
+  call void @_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %6) #28
   br label %common.resume
 
 _ZN3ue212_GLOBAL__N_116RoseAliasingInfoC2ERKNS_13RoseBuildImplE.exit: ; preds = %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit29.i, %._crit_edge.i
@@ -732,7 +732,7 @@ _ZN3ue212_GLOBAL__N_116RoseAliasingInfoC2ERKNS_13RoseBuildImplE.exit: ; preds = 
   %79 = and i8 %78, %76
   %80 = icmp ne i8 %79, 0
   %81 = and i1 %1, %80
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %7) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %82 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -758,7 +758,7 @@ _ZN3ue212_GLOBAL__N_116RoseAliasingInfoC2ERKNS_13RoseBuildImplE.exit: ; preds = 
           to label %93 unwind label %179
 
 93:                                               ; preds = %_ZN3ue212_GLOBAL__N_116RoseAliasingInfoC2ERKNS_13RoseBuildImplE.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %94 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %95
@@ -925,7 +925,7 @@ _ZN3ue2L20hasNoDiamondSiblingsERKNS_9RoseGraphENS_12graph_detail17vertex_descrip
   %.sroa.14.2.i = phi ptr [ %150, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i ], [ %.sroa.14.025.i, %130 ], [ %.sroa.14.025.i, %124 ]
   %.sroa.9.2.i = phi ptr [ %148, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i ], [ %131, %130 ], [ %.sroa.9.027.i, %124 ]
   %.sroa.08.2.i = phi ptr [ %144, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i ], [ %.sroa.08.028.i, %130 ], [ %.sroa.08.028.i, %124 ]
-  %151 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.05.026.i) #28
+  %151 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.05.026.i) #27
   %.not.i21 = icmp eq ptr %151, %82
   br i1 %.not.i21, label %.preheader.i, label %.lr.ph.i20
 
@@ -942,7 +942,7 @@ _ZN3ue2L20hasNoDiamondSiblingsERKNS_9RoseGraphENS_12graph_detail17vertex_descrip
   %.sroa.0.0.copyload.i = load ptr, ptr %.sroa.01.031.i, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.01.031.i, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %.sroa.0.0.copyload.i, ptr %3, align 8
   store i64 %.sroa.2.0.copyload.i, ptr %109, align 8
   %154 = invoke noundef i64 @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE5eraseERKS8_(ptr noundef nonnull align 8 dereferenceable(104) %7, ptr noundef nonnull align 8 dereferenceable(16) %3)
@@ -953,7 +953,7 @@ _ZN3ue2L20hasNoDiamondSiblingsERKNS_9RoseGraphENS_12graph_detail17vertex_descrip
           to label %156 unwind label %158
 
 156:                                              ; preds = %.noexc18.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %157 = getelementptr inbounds nuw i8, ptr %.sroa.01.031.i, i64 16
   %.not15.i = icmp eq ptr %157, %.sroa.9.2.i
   br i1 %.not15.i, label %._crit_edge.i23, label %153
@@ -991,7 +991,7 @@ _ZN3ue2L23filterDiamondCandidatesERNS_9RoseGraphERNS_12_GLOBAL__N_112CandidateSe
   br label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit
 
 _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit: ; preds = %163, %165
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %166 = load ptr, ptr %90, align 8
   %.not5.i.i.i.i.i = icmp eq ptr %166, null
   br i1 %.not5.i.i.i.i.i, label %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES8_SaIS8_ENSt8__detail9_IdentityESt8equal_toIS8_ESt4hashIS8_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i
@@ -1030,9 +1030,9 @@ _ZNSt13unordered_setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9
   unreachable
 
 _ZN3ue212_GLOBAL__N_112CandidateSetD2Ev.exit:     ; preds = %_ZNSt13unordered_setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4hashIS8_ESt8equal_toIS8_ESaIS8_EED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %7) #27
-  call fastcc void @_ZN3ue212_GLOBAL__N_116RoseAliasingInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %6) #27
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call fastcc void @_ZN3ue212_GLOBAL__N_116RoseAliasingInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %178
 
 178:                                              ; preds = %2, %14, %_ZN3ue212_GLOBAL__N_112CandidateSetD2Ev.exit
@@ -1064,23 +1064,20 @@ _ZN3ue212_GLOBAL__N_112CandidateSetD2Ev.exit:     ; preds = %_ZNSt13unordered_se
   br label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit25
 
 _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit25: ; preds = %.body, %182
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %183
 
 183:                                              ; preds = %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit25, %179
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit25 ], [ %180, %179 ]
-  call fastcc void @_ZN3ue212_GLOBAL__N_112CandidateSetD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %7) #27
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %7) #27
-  call fastcc void @_ZN3ue212_GLOBAL__N_116RoseAliasingInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %6) #27
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #27
+  call fastcc void @_ZN3ue212_GLOBAL__N_112CandidateSetD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %7) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call fastcc void @_ZN3ue212_GLOBAL__N_116RoseAliasingInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN3ue2L14findCandidatesERKNS_13RoseBuildImplEPNS_12_GLOBAL__N_112CandidateSetE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(780) %0, ptr noundef nonnull %1) unnamed_addr #2 {
+define internal fastcc void @_ZN3ue2L14findCandidatesERKNS_13RoseBuildImplEPNS_12_GLOBAL__N_112CandidateSetE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(780) %0, ptr noundef nonnull %1) unnamed_addr #1 {
   %3 = alloca %"struct.std::__detail::_AllocNode", align 8
   %4 = alloca %"class.ue2::graph_detail::vertex_descriptor", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1106,15 +1103,15 @@ define internal fastcc void @_ZN3ue2L14findCandidatesERKNS_13RoseBuildImplEPNS_1
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.09.015, i64 312
   %12 = load i64, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.sroa.09.015, ptr %4, align 8
   store i64 %12, ptr %6, align 8
   %13 = call { ptr, i8 } @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE16_M_insert_uniqueIRKS8_EESt4pairISt17_Rb_tree_iteratorIS8_EbEOT_(ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %7, ptr %3, align 8
   %14 = call { ptr, i8 } @_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES8_SaIS8_ENSt8__detail9_IdentityESt8equal_toIS8_ESt4hashIS8_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIRKS8_SO_NSA_10_AllocNodeISaINSA_10_Hash_nodeIS8_Lb1EEEEEEEESt4pairINSA_14_Node_iteratorIS8_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %15
 
 15:                                               ; preds = %10, %8
@@ -1126,13 +1123,13 @@ define internal fastcc void @_ZN3ue2L14findCandidatesERKNS_13RoseBuildImplEPNS_1
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN3ue2L13leftMergePassERNS_12_GLOBAL__N_112CandidateSetERNS_13RoseBuildImplEPSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISD_EERNS0_16RoseAliasingInfoE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(780) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull align 8 dereferenceable(112) %3) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L13leftMergePassERNS_12_GLOBAL__N_112CandidateSetERNS_13RoseBuildImplEPSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISD_EERNS0_16RoseAliasingInfoE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(780) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull align 8 dereferenceable(112) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::adjacency_iterator", align 8
   %6 = alloca %"class.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::adjacency_iterator", align 8
   %7 = alloca %"class.ue2::flat_detail::iter_wrapper.323", align 8
   %8 = alloca %"class.ue2::flat_detail::iter_wrapper.323", align 8
   %9 = alloca %"class.std::vector.127", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load ptr, ptr %10, align 8
@@ -1167,7 +1164,7 @@ define internal fastcc void @_ZN3ue2L13leftMergePassERNS_12_GLOBAL__N_112Candida
   %.sroa.085.0.copyload = load ptr, ptr %31, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.096.0151, i64 40
   %.sroa.10.0.copyload = load i64, ptr %.sroa.10.0..sroa_idx, align 8
-  %32 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.096.0151) #28
+  %32 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.096.0151) #27
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.085.0.copyload, i64 24
   %34 = load ptr, ptr %33, align 8, !noalias !15
   %35 = load i32, ptr %34, align 4
@@ -1201,7 +1198,7 @@ define internal fastcc void @_ZN3ue2L13leftMergePassERNS_12_GLOBAL__N_112Candida
 
 60:                                               ; preds = %30
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %62 = call noundef i64 @_ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %61) #27
+  %62 = call noundef i64 @_ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %61) #28
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %36, i64 noundef %62) #29
           to label %.noexc unwind label %.loopexit.split-lp119
 
@@ -1307,31 +1304,31 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGrap
   %110 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i.i.i, i64 40
   %111 = load i64, ptr %110, align 8, !noalias !40
   %112 = getelementptr inbounds nuw %"class.ue2::graph_detail::vertex_descriptor", ptr %109, i64 %111
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %109, ptr %7, align 8
   store ptr %112, ptr %8, align 8
   invoke void @_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE15_M_range_insertINS0_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPS8_Lb1EEEKS8_EEEEvN9__gnu_cxx17__normal_iteratorISH_SA_EET_SO_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr %95, ptr noundef nonnull %7, ptr noundef nonnull %8)
           to label %.noexc36 unwind label %.loopexit118
 
 .noexc36:                                         ; preds = %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN3ue2L20getLeftMergeSiblingsERKNS_13RoseBuildImplENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEERSt6vectorISA_SaISA_EE.exit
 
 113:                                              ; preds = %103
   %114 = getelementptr inbounds nuw i8, ptr %.sroa.03.1.i.i, i64 352
   %115 = load ptr, ptr %114, align 8, !noalias !47
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %115, ptr %5, align 8
   store ptr %114, ptr %6, align 8
   invoke void @_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE15_M_range_insertINS7_18adjacency_iteratorEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EET_SH_St18input_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr %95, ptr noundef nonnull %5, ptr noundef nonnull %6)
           to label %.noexc37 unwind label %.loopexit118
 
 .noexc37:                                         ; preds = %113
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN3ue2L20getLeftMergeSiblingsERKNS_13RoseBuildImplENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEERSt6vectorISA_SaISA_EE.exit
 
 _ZN3ue2L20getLeftMergeSiblingsERKNS_13RoseBuildImplENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEERSt6vectorISA_SaISA_EE.exit: ; preds = %.noexc37, %.noexc36
@@ -1904,7 +1901,7 @@ _ZNK3ue214RoseSuffixInfocvbEv.exit.i46:           ; preds = %_ZN3ue26insertINS_8
   br i1 %.not.i47, label %368, label %_ZNK3ue214RoseSuffixInfocvbEv.exit.thread.i48
 
 368:                                              ; preds = %_ZNK3ue214RoseSuffixInfocvbEv.exit.i46
-  %369 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN3ue214RoseSuffixInfoaSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %353, ptr noundef nonnull align 8 dereferenceable(96) %121) #27
+  %369 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN3ue214RoseSuffixInfoaSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %353, ptr noundef nonnull align 8 dereferenceable(96) %121) #28
   br label %_ZNK3ue214RoseSuffixInfocvbEv.exit.thread.i48
 
 _ZNK3ue214RoseSuffixInfocvbEv.exit.thread.i48:    ; preds = %368, %_ZNK3ue214RoseSuffixInfocvbEv.exit.i46, %_ZN3ue26insertINS_8flat_setIjSt4lessIjESaIjEEES5_EEvPT_RKT0_.exit.i
@@ -1995,7 +1992,7 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGrap
 _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE9push_backERKS8_.exit: ; preds = %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i, %372
   %.sroa.0100.0.copyload = load ptr, ptr %31, align 8
   %.sroa.5.0.copyload = load i64, ptr %.sroa.10.0..sroa_idx, align 8
-  %395 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.sroa.096.0151, ptr noundef nonnull align 8 dereferenceable(32) %11) #27
+  %395 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.sroa.096.0151, ptr noundef nonnull align 8 dereferenceable(32) %11) #28
   call void @_ZdlPv(ptr noundef nonnull %395) #31
   %396 = load i64, ptr %29, align 8
   %397 = add i64 %396, -1
@@ -2205,7 +2202,7 @@ _ZN3ue212_GLOBAL__N_112CandidateSet5eraseESt23_Rb_tree_const_iteratorINS_12graph
   br label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit
 
 _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit: ; preds = %.loopexit.split-lp, %471
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %.pn.pn
 
 ._crit_edge:                                      ; preds = %_ZN3ue212_GLOBAL__N_112CandidateSet5eraseESt23_Rb_tree_const_iteratorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEEE.exit.thread
@@ -2218,12 +2215,12 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGrap
   br label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit61
 
 _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit61: ; preds = %4, %._crit_edge, %472
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN3ue2L14rightMergePassERNS_12_GLOBAL__N_112CandidateSetERNS_13RoseBuildImplEPSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISD_EEbRNS0_16RoseAliasingInfoE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(780) %1, ptr noundef nonnull captures(none) %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(112) %4) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L14rightMergePassERNS_12_GLOBAL__N_112CandidateSetERNS_13RoseBuildImplEPSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISD_EEbRNS0_16RoseAliasingInfoE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(780) %1, ptr noundef nonnull captures(none) %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(112) %4) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.ue2::graph_detail::vertex_descriptor", align 8
   %7 = alloca %"class.std::vector.664", align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2232,7 +2229,7 @@ define internal fastcc void @_ZN3ue2L14rightMergePassERNS_12_GLOBAL__N_112Candid
   br i1 %9, label %218, label %10
 
 10:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call fastcc void @_ZN3ue2L22splitRightMergeBucketsERKNS_12_GLOBAL__N_112CandidateSetERKNS_13RoseBuildImplE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(780) %1)
   %11 = load ptr, ptr %7, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2288,7 +2285,7 @@ _ZSt8_DestroyIPSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphIN
   br label %_ZNSt6vectorIS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EESaISA_EED2Ev.exit
 
 _ZNSt6vectorIS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EESaISA_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaIS9_EESB_EvT_SD_RSaIT0_E.exit.i, %28
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %218
 
 29:                                               ; preds = %.lr.ph126, %._crit_edge
@@ -2664,7 +2661,7 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGrap
   br label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE9push_backERKS8_.exit
 
 _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE9push_backERKS8_.exit: ; preds = %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i, %154
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %.sroa.0.0.copyload.i.fr.i.i, ptr %6, align 8
   store i64 %.sroa.10.0.copyload, ptr %18, align 8
   %.059.i = load ptr, ptr %19, align 8
@@ -2793,8 +2790,8 @@ _ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGr
 
 .lr.ph.i.i:                                       ; preds = %.critedge.i.i, %.lr.ph.i.i
   %.sroa.06.09.i.i = phi ptr [ %210, %.lr.ph.i.i ], [ %.sroa.053.0.i, %.critedge.i.i ]
-  %210 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.06.09.i.i) #28
-  %211 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.sroa.06.09.i.i, ptr noundef nonnull align 8 dereferenceable(32) %20) #27
+  %210 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.06.09.i.i) #27
+  %211 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.sroa.06.09.i.i, ptr noundef nonnull align 8 dereferenceable(32) %20) #28
   call void @_ZdlPv(ptr noundef nonnull %211) #31
   %212 = load i64, ptr %8, align 8
   %213 = add i64 %212, -1
@@ -2827,7 +2824,7 @@ _ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGr
   br label %.loopexit.split-lp
 
 215:                                              ; preds = %.noexc49
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre = load ptr, ptr %31, align 8
   br label %.loopexit100
 
@@ -2839,8 +2836,8 @@ _ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGr
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %44
   %.pn = phi { ptr, i32 } [ %45, %44 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit101, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit104, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZNSt6vectorIS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EESaISA_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #27
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #27
+  call void @_ZNSt6vectorIS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EESaISA_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn
 
 218:                                              ; preds = %5, %_ZNSt6vectorIS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EESaISA_EED2Ev.exit
@@ -2848,7 +2845,7 @@ _ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGr
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN3ue2L16diamondMergePassERNS_12_GLOBAL__N_112CandidateSetERNS_13RoseBuildImplEPSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISD_EEbRNS0_16RoseAliasingInfoE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(780) %1, ptr noundef nonnull captures(none) %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(112) %4) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L16diamondMergePassERNS_12_GLOBAL__N_112CandidateSetERNS_13RoseBuildImplEPSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISD_EEbRNS0_16RoseAliasingInfoE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(780) %1, ptr noundef nonnull captures(none) %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(112) %4) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.ue2::graph_detail::vertex_descriptor", align 8
   %7 = alloca %"class.std::unordered_map.757", align 8
   %8 = alloca %"class.std::unordered_map.742", align 8
@@ -2859,7 +2856,7 @@ define internal fastcc void @_ZN3ue2L16diamondMergePassERNS_12_GLOBAL__N_112Cand
   br i1 %11, label %585, label %12
 
 12:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !176)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30, !noalias !176
@@ -2914,7 +2911,7 @@ _ZN3ue26insertISt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9
   br label %.body.i
 
 33:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #27, !noalias !176
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !176
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %34, ptr %7, align 8, !noalias !176
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -3049,7 +3046,7 @@ _ZNSt13unordered_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEE5clearEv.exit.i.
 
 110:                                              ; preds = %.lr.ph.i.i.i
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %112 = call noundef i64 @_ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(136) %111) #27, !noalias !176
+  %112 = call noundef i64 @_ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(136) %111) #28, !noalias !176
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %86, i64 noundef %112) #29
           to label %.noexc.i.i.i unwind label %271, !noalias !176
 
@@ -3292,7 +3289,7 @@ _ZNSt10_HashtableIjSt4pairIKjmESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4
 209:                                              ; preds = %.loopexit.split-lp.i.i.i, %.loopexit25.i.i.i
   %lpad.phi.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i, %.loopexit25.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.loopexit.split-lp.i.i.i ]
   %210 = extractvalue { ptr, i32 } %lpad.phi.i.i.i, 0
-  %211 = call ptr @__cxa_begin_catch(ptr %210) #27, !noalias !176
+  %211 = call ptr @__cxa_begin_catch(ptr %210) #28, !noalias !176
   store i64 %175, ptr %38, align 8, !noalias !176
   invoke void @__cxa_rethrow() #29
           to label %217 unwind label %212, !noalias !176
@@ -3632,7 +3629,7 @@ _ZNSt10_HashtableIjSt4pairIKjmESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4
   br label %_ZNSt13unordered_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEED2Ev.exit.i.i.i
 
 _ZNSt13unordered_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEED2Ev.exit.i.i.i: ; preds = %320, %_ZNSt10_HashtableIjSt4pairIKjmESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #27, !noalias !176
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !176
   %.not4.i.i.i.i.i.i.i = icmp eq ptr %.pr.i.i.i.i, %.sroa.11.6.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaIS9_EESB_EvT_SD_RSaIT0_E.exit.i.i.i.i, label %.lr.ph.i.i.i.i33.i.i.i
 
@@ -3689,7 +3686,7 @@ _ZNSt10_HashtableIjSt4pairIKjmESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4
   br label %_ZNSt13unordered_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEED2Ev.exit.i.i
 
 _ZNSt13unordered_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEED2Ev.exit.i.i: ; preds = %332, %_ZNSt10_HashtableIjSt4pairIKjmESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #27, !noalias !176
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !176
   %.not4.i.i.i.i.i.i = icmp eq ptr %.sroa.011.0.i.i, %.sroa.11.0.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaIS9_EESB_EvT_SD_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i4.i.i
 
@@ -3723,7 +3720,7 @@ _ZN3ue2L19splitByLiteralTableERKNS_13RoseBuildImplERSt6vectorIS3_INS_12graph_det
   br i1 %339, label %_ZSt8_DestroyIPSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaIS9_EESB_EvT_SD_RSaIT0_E.exit.i, label %340
 
 340:                                              ; preds = %_ZN3ue2L19splitByLiteralTableERKNS_13RoseBuildImplERSt6vectorIS3_INS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISB_EESaISD_EE.exit.i
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #27, !noalias !176
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !176
   %341 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %341, ptr %8, align 8, !noalias !176
   %342 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -3750,8 +3747,8 @@ _ZN3ue2L19splitByLiteralTableERKNS_13RoseBuildImplERSt6vectorIS3_INS_12graph_det
 351:                                              ; preds = %353, %346, %340
   %352 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEmSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_mEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #27
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #27, !noalias !176
+  call void @_ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEmSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_mEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !176
   br label %.body.i
 
 353:                                              ; preds = %347
@@ -3790,11 +3787,11 @@ common.resume:                                    ; preds = %_ZNSt6vectorIS_IN3u
 
 .body.i:                                          ; preds = %351, %336, %_ZSt8_DestroyIPSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaIS9_EESB_EvT_SD_RSaIT0_E.exit.i.i.i, %31
   %.pn.i = phi { ptr, i32 } [ %352, %351 ], [ %32, %31 ], [ %.pn20.pn.i.i.i, %336 ], [ %.pn20.pn.i.i.i, %_ZSt8_DestroyIPSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaIS9_EESB_EvT_SD_RSaIT0_E.exit.i.i.i ]
-  call void @_ZNSt6vectorIS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EESaISA_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #27
+  call void @_ZNSt6vectorIS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EESaISA_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #28
   br label %common.resume
 
 _ZN3ue2L24splitDiamondMergeBucketsERNS_12_GLOBAL__N_112CandidateSetERKNS_13RoseBuildImplE.exit: ; preds = %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_mESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i, %362
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #27, !noalias !176
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !176
   %.pre = load ptr, ptr %9, align 8
   %.pre300 = load ptr, ptr %16, align 8
   %.not214 = icmp eq ptr %.pre, %.pre300
@@ -3855,7 +3852,7 @@ _ZSt8_DestroyIPSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphIN
   br label %_ZNSt6vectorIS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EESaISA_EED2Ev.exit
 
 _ZNSt6vectorIS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EESaISA_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaIS9_EESB_EvT_SD_RSaIT0_E.exit.i, %381
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %585
 
 382:                                              ; preds = %.lr.ph216, %._crit_edge
@@ -3953,7 +3950,7 @@ _ZSt8_DestroyIPSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphIN
   br label %_ZNSt6vectorIS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EESaISA_EED2Ev.exit73
 
 _ZNSt6vectorIS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EESaISA_EED2Ev.exit73: ; preds = %_ZSt8_DestroyIPSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaIS9_EESB_EvT_SD_RSaIT0_E.exit.i71, %405
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 406:                                              ; preds = %398
@@ -4172,7 +4169,7 @@ _ZNK3ue214RoseLiteralMap2atEj.exit.i:             ; preds = %496, %490
 .invoke:                                          ; preds = %483, %510
   %513 = phi i64 [ %512, %510 ], [ %485, %483 ]
   %514 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %515 = call noundef i64 @_ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(136) %514) #27
+  %515 = call noundef i64 @_ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(136) %514) #28
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %513, i64 noundef %515) #29
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -4328,7 +4325,7 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGrap
   br label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE9push_backERKS8_.exit
 
 _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE9push_backERKS8_.exit: ; preds = %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i, %557
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %.sroa.098.0.copyload, ptr %6, align 8
   store i64 %.sroa.14.0.copyload, ptr %373, align 8
   %580 = invoke noundef i64 @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE5eraseERKS8_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(16) %6)
@@ -4339,7 +4336,7 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGrap
           to label %_ZN3ue212_GLOBAL__N_112CandidateSet5eraseENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit unwind label %.loopexit.split-lp.loopexit
 
 _ZN3ue212_GLOBAL__N_112CandidateSet5eraseENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit: ; preds = %.noexc93
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre301 = load ptr, ptr %384, align 8
   br label %.loopexit125
 
@@ -4358,13 +4355,10 @@ _ZN3ue212_GLOBAL__N_112CandidateSet5eraseENS_12graph_detail17vertex_descriptorIN
   ret void
 }
 
-declare void @_ZN3ue213RoseBuildImpl14removeVerticesERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(780), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @_ZN3ue213RoseBuildImpl14removeVerticesERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(780), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZN3ue212_GLOBAL__N_112CandidateSetD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue212_GLOBAL__N_112CandidateSetD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
@@ -4412,7 +4406,7 @@ _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphEN
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZN3ue212_GLOBAL__N_116RoseAliasingInfoD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(112) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue212_GLOBAL__N_116RoseAliasingInfoD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(112) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
@@ -4519,7 +4513,7 @@ define hidden void @_ZN3ue215mergeDupeLeavesERNS_13RoseBuildImplE(ptr noundef no
   %13 = alloca %"struct.ue2::(anonymous namespace)::DupeLeafKey", align 8
   %14 = alloca %"struct.std::pair.162", align 8
   %15 = alloca %"struct.std::pair.181", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -4610,7 +4604,7 @@ define hidden void @_ZN3ue215mergeDupeLeavesERNS_13RoseBuildImplE(ptr noundef no
   %.sroa.0295.0572 = phi ptr [ null, %.lr.ph576 ], [ %.sroa.0295.1, %539 ]
   %.sroa.10300.0571 = phi ptr [ null, %.lr.ph576 ], [ %.sroa.10300.1, %539 ]
   %.sroa.15.0570 = phi ptr [ null, %.lr.ph576 ], [ %.sroa.15.1, %539 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %83 = getelementptr inbounds nuw i8, ptr %.sroa.0290.0574, i64 312
   %84 = load i64, ptr %83, align 8
   store ptr %.sroa.0290.0574, ptr %12, align 8
@@ -4645,11 +4639,11 @@ define hidden void @_ZN3ue215mergeDupeLeavesERNS_13RoseBuildImplE(ptr noundef no
   br i1 %98, label %539, label %100
 
 100:                                              ; preds = %99
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %13) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %.sroa.065.0.copyload = load ptr, ptr %12, align 8
   %101 = getelementptr inbounds nuw i8, ptr %.sroa.065.0.copyload, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %24, ptr %13, align 8
   store i64 0, ptr %25, align 8
   store i64 2, ptr %26, align 8
@@ -4681,11 +4675,11 @@ common.resume.sink.split.i:                       ; preds = %.body.i, %106
   br label %.body
 
 _ZN3ue28flat_setIjSt4lessIjESaIjEEC2ERKS4_.exit.i: ; preds = %100
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %111 = getelementptr inbounds nuw i8, ptr %.sroa.065.0.copyload, i64 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %28, ptr %27, align 8
   store i64 0, ptr %29, align 8
   store i64 2, ptr %30, align 8
@@ -4717,8 +4711,8 @@ _ZN3ue28flat_setIjSt4lessIjESaIjEEC2ERKS4_.exit.i: ; preds = %100
   br label %.body.i
 
 123:                                              ; preds = %_ZN3ue28flat_setIjSt4lessIjESaIjEEC2ERKS4_.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %124 = getelementptr inbounds nuw i8, ptr %.sroa.065.0.copyload, i64 56
   %125 = load i8, ptr %124, align 8, !range !5, !noundef !6
   store i8 %125, ptr %31, align 8
@@ -4919,10 +4913,10 @@ _ZNSt3mapIN3ue212_GLOBAL__N_111DupeLeafKeyENS0_12graph_detail17vertex_descriptor
   br i1 %211, label %_ZNSt3mapIN3ue212_GLOBAL__N_111DupeLeafKeyENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS2_ESaISt4pairIKS2_SA_EEE4findERSE_.exit.thread, label %383
 
 _ZNSt3mapIN3ue212_GLOBAL__N_111DupeLeafKeyENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS2_ESaISt4pairIKS2_SA_EEE4findERSE_.exit.thread: ; preds = %203, %_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111DupeLeafKeyESt4pairIKS2_NS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEESt10_Select1stISD_ESt4lessIS2_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS4_.exit.i.i, %_ZNSt3mapIN3ue212_GLOBAL__N_111DupeLeafKeyENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS2_ESaISt4pairIKS2_SA_EEE4findERSE_.exit
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %14) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.experimental.noalias.scope.decl(metadata !267)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !267
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !267
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !267
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !267
   store ptr %52, ptr %14, align 8, !alias.scope !267
   store i64 0, ptr %53, align 8, !alias.scope !267
   store i64 2, ptr %54, align 8, !alias.scope !267
@@ -4953,10 +4947,10 @@ common.resume.sink.split.i.i.i:                   ; preds = %.body.i.i.i, %215
   br label %.body161
 
 _ZN3ue28flat_setIjSt4lessIjESaIjEEC2ERKS4_.exit.i.i.i: ; preds = %_ZNSt3mapIN3ue212_GLOBAL__N_111DupeLeafKeyENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS2_ESaISt4pairIKS2_SA_EEE4findERSE_.exit.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !267
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !267
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !267
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !267
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !267
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !267
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !267
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !267
   store ptr %56, ptr %55, align 8, !alias.scope !267
   store i64 0, ptr %57, align 8, !alias.scope !267
   store i64 2, ptr %58, align 8, !alias.scope !267
@@ -4987,8 +4981,8 @@ _ZN3ue28flat_setIjSt4lessIjESaIjEEC2ERKS4_.exit.i.i.i: ; preds = %_ZNSt3mapIN3ue
   br label %.body.i.i.i
 
 230:                                              ; preds = %_ZN3ue28flat_setIjSt4lessIjESaIjEEC2ERKS4_.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !267
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !267
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !267
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !267
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %59, ptr noundef nonnull readonly align 8 dereferenceable(56) %31, i64 56, i1 false)
   %231 = load ptr, ptr %39, align 8, !noalias !267
   store ptr %231, ptr %60, align 8, !alias.scope !267
@@ -5278,7 +5272,7 @@ _ZN3ue28flat_setIjSt4lessIjESaIjEEC2EOS4_.exit.i.i.i.i.i.i.i.i.i: ; preds = %.no
   br i1 %343, label %select.unfold.i.i, label %344
 
 344:                                              ; preds = %._crit_edge.thread.i.i.i
-  %345 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.023.lcssa32.i.i.i) #28
+  %345 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.023.lcssa32.i.i.i) #27
   br label %346
 
 346:                                              ; preds = %344, %._crit_edge.i.i.i
@@ -5303,7 +5297,7 @@ select.unfold.i.i:                                ; preds = %.noexc13.i.i, %._cr
 
 .thread27.i.i:                                    ; preds = %350, %select.unfold.i.i
   %353 = phi i1 [ true, %select.unfold.i.i ], [ %352, %350 ]
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %353, ptr noundef nonnull %286, ptr noundef nonnull %.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) %16) #27
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %353, ptr noundef nonnull %286, ptr noundef nonnull %.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) %16) #28
   %354 = load i64, ptr %20, align 8
   %355 = add i64 %354, 1
   store i64 %355, ptr %20, align 8
@@ -5325,7 +5319,7 @@ select.unfold.i.i:                                ; preds = %.noexc13.i.i, %._cr
   br label %369
 
 358:                                              ; preds = %.noexc13.i.i
-  call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %317) #27
+  call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %317) #28
   %359 = load i64, ptr %304, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %359, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit.i.i.i.i.i.i.i.i.i, label %360
@@ -5359,11 +5353,11 @@ _ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111DupeLeafKeyESt4pairIKS2_NS0_12graph_detail17
 
 369:                                              ; preds = %356, %.loopexit.split-lp.i.i, %.loopexit.i.i
   %.pn.i.i = phi { ptr, i32 } [ %357, %356 ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
-  call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111DupeLeafKeyESt4pairIKS2_NS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEESt10_Select1stISD_ESt4lessIS2_ESaISD_EE10_Auto_nodeD2Ev(ptr nonnull %286) #27
+  call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111DupeLeafKeyESt4pairIKS2_NS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEESt10_Select1stISD_ESt4lessIS2_ESaISD_EE10_Auto_nodeD2Ev(ptr nonnull %286) #28
   br label %.body166
 
 370:                                              ; preds = %_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111DupeLeafKeyESt4pairIKS2_NS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEESt10_Select1stISD_ESt4lessIS2_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit.i.i.i, %.thread27.i.i
-  call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %60) #27
+  call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %60) #28
   %371 = load i64, ptr %58, align 8
   %.not.i.i.i.i.i.i168 = icmp eq i64 %371, 0
   br i1 %.not.i.i.i.i.i.i168, label %_ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit.i.i, label %372
@@ -5392,7 +5386,7 @@ _ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit.i.i: ; preds = %375, %
   br label %_ZNSt4pairIN3ue212_GLOBAL__N_111DupeLeafKeyENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEED2Ev.exit
 
 _ZNSt4pairIN3ue212_GLOBAL__N_111DupeLeafKeyENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEED2Ev.exit: ; preds = %_ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit.i.i, %377, %380
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %14) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit
 
 .loopexit327:                                     ; preds = %.lr.ph.i.i.i
@@ -5412,12 +5406,12 @@ _ZNSt4pairIN3ue212_GLOBAL__N_111DupeLeafKeyENS0_12graph_detail17vertex_descripto
 
 .body166:                                         ; preds = %369, %381
   %eh.lpad-body167 = phi { ptr, i32 } [ %382, %381 ], [ %.pn.i.i, %369 ]
-  call fastcc void @_ZNSt4pairIN3ue212_GLOBAL__N_111DupeLeafKeyENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(240) %14) #27
+  call fastcc void @_ZNSt4pairIN3ue212_GLOBAL__N_111DupeLeafKeyENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(240) %14) #28
   br label %.body161
 
 .body161:                                         ; preds = %.body.i.i.i, %common.resume.sink.split.i.i.i, %215, %.body166
   %.pn146 = phi { ptr, i32 } [ %eh.lpad-body167, %.body166 ], [ %216, %215 ], [ %224, %.body.i.i.i ], [ %common.resume.op.ph.i.i.i, %common.resume.sink.split.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %14) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit228
 
 383:                                              ; preds = %_ZNSt3mapIN3ue212_GLOBAL__N_111DupeLeafKeyENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS2_ESaISt4pairIKS2_SA_EEE4findERSE_.exit
@@ -5632,7 +5626,7 @@ _ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_9RoseGraphE
   br label %540
 
 _ZN3ue24edgeINS_9RoseGraphEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit: ; preds = %.critedge24.i.i, %.critedge.i.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   invoke void @_ZN3ue29ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEE13add_edge_implENS_12graph_detail17vertex_descriptorIS4_EES7_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.181") align 8 %15, ptr noundef nonnull align 8 dereferenceable(56) %21, ptr %400, i64 %402, ptr %.sroa.058.0.copyload, i64 %.sroa.10.0.copyload)
           to label %449 unwind label %473
 
@@ -5643,7 +5637,7 @@ _ZN3ue24edgeINS_9RoseGraphEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairI
   %452 = load i64, ptr %451, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %451, ptr noundef nonnull align 8 dereferenceable(28) %450, i64 28, i1 false)
   store i64 %452, ptr %451, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.not.i196 = icmp eq ptr %.sroa.12279.3563, %.sroa.22.3562
   br i1 %.not.i196, label %455, label %453
 
@@ -5708,7 +5702,7 @@ _ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_9RoseGraphE
 473:                                              ; preds = %_ZN3ue24edgeINS_9RoseGraphEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit
   %474 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %540
 
 _ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE9push_backERKS8_.exit: ; preds = %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i208, %453, %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i, %429, %.loopexit, %423
@@ -5863,7 +5857,7 @@ _ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_9RoseGraphE
   %.sroa.15.2 = phi ptr [ %.sroa.15.0570, %_ZNSt4pairIN3ue212_GLOBAL__N_111DupeLeafKeyENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEED2Ev.exit ], [ %.sroa.15.3, %527 ], [ %.sroa.15.3, %528 ], [ %.sroa.15.0570, %389 ]
   %.sroa.10300.2 = phi ptr [ %.sroa.10300.0571, %_ZNSt4pairIN3ue212_GLOBAL__N_111DupeLeafKeyENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEED2Ev.exit ], [ %.sroa.10300.3, %527 ], [ %.sroa.10300.3, %528 ], [ %.sroa.10300.0571, %389 ]
   %.sroa.0295.2 = phi ptr [ %.sroa.0295.0572, %_ZNSt4pairIN3ue212_GLOBAL__N_111DupeLeafKeyENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEED2Ev.exit ], [ %.sroa.0295.3, %527 ], [ %.sroa.0295.3, %528 ], [ %.sroa.0295.0572, %389 ]
-  call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #27
+  call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #28
   %529 = load i64, ptr %30, align 8
   %.not.i.i.i.i.i226 = icmp eq i64 %529, 0
   br i1 %.not.i.i.i.i.i226, label %_ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit.i, label %530
@@ -5892,14 +5886,14 @@ _ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit.i: ; preds = %533, %53
   br label %_ZN3ue212_GLOBAL__N_111DupeLeafKeyD2Ev.exit
 
 _ZN3ue212_GLOBAL__N_111DupeLeafKeyD2Ev.exit:      ; preds = %_ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit.i, %535, %538
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %13) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %539
 
 539:                                              ; preds = %99, %90, %93, %82, %_ZN3ue212_GLOBAL__N_111DupeLeafKeyD2Ev.exit
   %.sroa.15.1 = phi ptr [ %.sroa.15.0570, %82 ], [ %.sroa.15.0570, %90 ], [ %.sroa.15.0570, %99 ], [ %.sroa.15.2, %_ZN3ue212_GLOBAL__N_111DupeLeafKeyD2Ev.exit ], [ %.sroa.15.0570, %93 ]
   %.sroa.10300.1 = phi ptr [ %.sroa.10300.0571, %82 ], [ %.sroa.10300.0571, %90 ], [ %.sroa.10300.0571, %99 ], [ %.sroa.10300.2, %_ZN3ue212_GLOBAL__N_111DupeLeafKeyD2Ev.exit ], [ %.sroa.10300.0571, %93 ]
   %.sroa.0295.1 = phi ptr [ %.sroa.0295.0572, %82 ], [ %.sroa.0295.0572, %90 ], [ %.sroa.0295.0572, %99 ], [ %.sroa.0295.2, %_ZN3ue212_GLOBAL__N_111DupeLeafKeyD2Ev.exit ], [ %.sroa.0295.0572, %93 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.sroa.0290.0 = load ptr, ptr %.sroa.0290.0574, align 8
   %.not313 = icmp eq ptr %.sroa.0290.0, %22
   br i1 %.not313, label %.preheader, label %82
@@ -5916,17 +5910,17 @@ _ZN3ue212_GLOBAL__N_111DupeLeafKeyD2Ev.exit:      ; preds = %_ZN3ue211flat_detai
 
 _ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit228: ; preds = %.loopexit322, %.loopexit.split-lp323, %.loopexit327, %.loopexit.split-lp328, %541, %540, %.body161
   %.pn146.pn = phi { ptr, i32 } [ %.pn146, %.body161 ], [ %.pn140.pn.pn.pn, %540 ], [ %.pn140.pn.pn.pn, %541 ], [ %lpad.loopexit329, %.loopexit327 ], [ %lpad.loopexit.split-lp330, %.loopexit.split-lp328 ], [ %lpad.loopexit324, %.loopexit322 ], [ %lpad.loopexit.split-lp325, %.loopexit.split-lp323 ]
-  call fastcc void @_ZN3ue212_GLOBAL__N_111DupeLeafKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(220) %13) #27
+  call fastcc void @_ZN3ue212_GLOBAL__N_111DupeLeafKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(220) %13) #28
   br label %.body
 
 .body:                                            ; preds = %.body.i, %common.resume.sink.split.i, %106, %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit228
   %.pn146.pn.pn = phi { ptr, i32 } [ %.pn146.pn, %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit228 ], [ %107, %106 ], [ %117, %.body.i ], [ %common.resume.op.ph.i, %common.resume.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %13) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %542
 
 542:                                              ; preds = %.body, %88
   %.pn146.pn.pn.pn = phi { ptr, i32 } [ %.pn146.pn.pn, %.body ], [ %89, %88 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.not.i.i.i235 = icmp eq ptr %.sroa.0295.0572, null
   br i1 %.not.i.i.i235, label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit236, label %639
 
@@ -6098,7 +6092,7 @@ _ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGrap
   br i1 %.not314, label %_ZNK3ue213RoseBuildImpl15isVirtualVertexERKNS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit.thread, label %.lr.ph582
 
 _ZNK3ue213RoseBuildImpl15isVirtualVertexERKNS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit.thread: ; preds = %_ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE5eraseERKS8_.exit, %556, %549, %_ZNK3ue213RoseBuildImpl15isVirtualVertexERKNS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2), !noalias !360
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !360
   %624 = load ptr, ptr %.sroa.0240.0.copyload, align 8, !noalias !363
   %625 = getelementptr inbounds nuw i8, ptr %.sroa.0240.0.copyload, i64 8
   %626 = load ptr, ptr %625, align 8, !noalias !363
@@ -6110,7 +6104,7 @@ _ZNK3ue213RoseBuildImpl15isVirtualVertexERKNS_12graph_detail17vertex_descriptorI
   store i64 %629, ptr %21, align 8, !noalias !363
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0240.0.copyload, i8 0, i64 16, i1 false), !noalias !363
   call void @_ZNK3ue29ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEE15delete_disposerclINS4_11vertex_nodeEEEvPKT_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull %.sroa.0240.0.copyload), !noalias !363
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2), !noalias !360
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !360
   %630 = add i64 %.0126584, 1
   br label %631
 
@@ -6149,7 +6143,7 @@ _ZN3ue217renumber_verticesINS_9RoseGraphEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5
 _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit: ; preds = %1, %_ZN3ue217renumber_verticesINS_9RoseGraphEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueEvE4typeERS3_.exit, %638
   %.val158 = load ptr, ptr %17, align 8
   call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111DupeLeafKeyESt4pairIKS2_NS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEESt10_Select1stISD_ESt4lessIS2_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef %.val158)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 639:                                              ; preds = %542
@@ -6159,19 +6153,19 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGrap
 _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit236: ; preds = %542, %639
   %.val159 = load ptr, ptr %17, align 8
   call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111DupeLeafKeyESt4pairIKS2_NS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEESt10_Select1stISD_ESt4lessIS2_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef %.val159)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %.pn146.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare noundef zeroext i1 @_ZNK3ue213RoseBuildImpl15isRootSuccessorERKNS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(780), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZNK3ue213RoseBuildImpl15isRootSuccessorERKNS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(780), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt4pairIN3ue212_GLOBAL__N_111DupeLeafKeyENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt4pairIN3ue212_GLOBAL__N_111DupeLeafKeyENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  tail call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #27
+  tail call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq i64 %4, 0
@@ -6209,9 +6203,9 @@ _ZN3ue212_GLOBAL__N_111DupeLeafKeyD2Ev.exit:      ; preds = %_ZN3ue211flat_detai
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZN3ue212_GLOBAL__N_111DupeLeafKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(220) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue212_GLOBAL__N_111DupeLeafKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(220) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  tail call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #27
+  tail call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %.not.i.i.i.i = icmp eq i64 %4, 0
@@ -6264,7 +6258,7 @@ define hidden void @_ZN3ue212uncalcLeavesERNS_13RoseBuildImplE(ptr noundef nonnu
   %13 = alloca %"class.std::map.204", align 8
   %14 = alloca %"class.std::deque.210", align 8
   %15 = alloca %"class.std::vector.127", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -6275,7 +6269,7 @@ define hidden void @_ZN3ue212uncalcLeavesERNS_13RoseBuildImplE(ptr noundef nonnu
   store ptr %16, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i64 0, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %14) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 8, ptr %21, align 8
   %22 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #30
@@ -6290,7 +6284,7 @@ _ZNSt11_Deque_baseIN3ue212_GLOBAL__N_113UncalcLeafKeyESaIS2_EE16_M_destroy_nodes
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  %26 = call ptr @__cxa_begin_catch(ptr %25) #27
+  %26 = call ptr @__cxa_begin_catch(ptr %25) #28
   invoke void @__cxa_rethrow() #29
           to label %32 unwind label %27
 
@@ -6312,7 +6306,7 @@ _ZNSt11_Deque_baseIN3ue212_GLOBAL__N_113UncalcLeafKeyESaIS2_EE16_M_destroy_nodes
 
 .body.i.i.i:                                      ; preds = %27
   %33 = extractvalue { ptr, i32 } %28, 0
-  %34 = call ptr @__cxa_begin_catch(ptr %33) #27
+  %34 = call ptr @__cxa_begin_catch(ptr %33) #28
   call void @_ZdlPv(ptr noundef nonnull %22) #31
   invoke void @__cxa_rethrow() #29
           to label %40 unwind label %35
@@ -6353,7 +6347,7 @@ _ZNSt11_Deque_baseIN3ue212_GLOBAL__N_113UncalcLeafKeyESaIS2_EE16_M_destroy_nodes
   store ptr %45, ptr %50, align 8
   store ptr %23, ptr %42, align 8
   store ptr %23, ptr %47, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %51 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store ptr %51, ptr %11, align 8
   %52 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -6599,7 +6593,7 @@ _ZNSt10_HashtableIPKN3ue28NGHolderESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1st
   br label %_ZNSt13unordered_mapIPKN3ue28NGHolderEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEED2Ev.exit.i
 
 _ZNSt13unordered_mapIPKN3ue28NGHolderEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEED2Ev.exit.i: ; preds = %143, %_ZNSt10_HashtableIPKN3ue28NGHolderESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not.i.i.i52.i = icmp eq ptr %.sroa.0126.0.lcssa225.i, null
   br i1 %.not.i.i.i52.i, label %_ZN3ue2L26findUncalcLeavesCandidatesERNS_13RoseBuildImplERSt3mapINS_12_GLOBAL__N_113UncalcLeafKeyESt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISD_EESt4lessIS4_ESaISt4pairIKS4_SF_EEERSt5dequeIS4_SaIS4_EE.exit, label %144
 
@@ -6697,10 +6691,10 @@ _ZNSt10_HashtableIPKN3ue28NGHolderESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1st
   br label %.body.i
 
 185:                                              ; preds = %.loopexit.i
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %12) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload101.i, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %57, ptr %12, align 8
   store i64 0, ptr %58, align 8
   store i64 2, ptr %59, align 8
@@ -6732,16 +6726,16 @@ common.resume.sink.split.i.i:                     ; preds = %_ZN3ue211flat_detai
   br label %.body69.i
 
 _ZN3ue28flat_setIjSt4lessIjESaIjEEC2ERKS4_.exit.i.i: ; preds = %185
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #27
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN3ue211flat_detail9flat_baseISt4pairINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES8_ESt4lessISB_ESaISB_EEC2ERKSD_RKSE_(ptr noundef nonnull align 8 dereferenceable(72) %60, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %196 unwind label %260
 
 196:                                              ; preds = %_ZN3ue28flat_setIjSt4lessIjESaIjEEC2ERKS4_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #27
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %197 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload101.i, i64 120
   %198 = load ptr, ptr %197, align 8
   store ptr %198, ptr %61, align 8
@@ -6882,8 +6876,8 @@ _ZNSt10shared_ptrIN3ue211raw_som_dfaEEC2ERKS2_.exit.i.i.i: ; preds = %243, %240,
 260:                                              ; preds = %_ZN3ue28flat_setIjSt4lessIjESaIjEEC2ERKS4_.exit.i.i
   %261 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #27
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN3ue211flat_detail9flat_baseISt4pairINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES8_ESt4lessISB_ESaISB_EED2Ev.exit.i.i
 
 .lr.ph.i.i:                                       ; preds = %257, %267
@@ -6892,18 +6886,18 @@ _ZNSt10shared_ptrIN3ue211raw_som_dfaEEC2ERKS2_.exit.i.i.i: ; preds = %243, %240,
   %263 = load ptr, ptr %262, align 8
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 312
   %265 = load i64, ptr %264, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %266 = getelementptr inbounds nuw i8, ptr %.sroa.02.010.i.i, i64 40
   store ptr %263, ptr %9, align 8
   store i64 %265, ptr %.sroa.5.0..sroa_idx.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %72, ptr noundef nonnull align 8 dereferenceable(32) %266, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN3ue28flat_setISt4pairINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES7_ESt4lessISA_ESaISA_EE6insertEOSA_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.871") align 8 %10, ptr noundef nonnull align 8 dereferenceable(72) %60, ptr noundef nonnull align 8 dereferenceable(48) %9)
           to label %267 unwind label %268
 
 267:                                              ; preds = %.lr.ph.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #27
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.sroa.02.0.i.i = load ptr, ptr %.sroa.02.010.i.i, align 8
   %.not.i68.i = icmp eq ptr %.sroa.02.0.i.i, %259
   br i1 %.not.i68.i, label %_ZN3ue212_GLOBAL__N_113UncalcLeafKeyC2ERKNS_9RoseGraphENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS2_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit.i, label %.lr.ph.i.i
@@ -6911,9 +6905,9 @@ _ZNSt10shared_ptrIN3ue211raw_som_dfaEEC2ERKS2_.exit.i.i.i: ; preds = %243, %240,
 268:                                              ; preds = %.lr.ph.i.i
   %269 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #27
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #27
-  call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %61) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %61) #28
   %270 = load i64, ptr %73, align 8
   %.not.i.i.i.i35.i.i = icmp eq i64 %270, 0
   br i1 %.not.i.i.i.i35.i.i, label %_ZN3ue211flat_detail9flat_baseISt4pairINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES8_ESt4lessISB_ESaISB_EED2Ev.exit.i.i, label %271
@@ -7122,7 +7116,7 @@ _ZNSt5dequeIN3ue212_GLOBAL__N_113UncalcLeafKeyESaIS2_EE22_M_reserve_map_at_backE
   %366 = landingpad { ptr, i32 }
           catch ptr null
   %367 = extractvalue { ptr, i32 } %366, 0
-  %368 = call ptr @__cxa_begin_catch(ptr %367) #27
+  %368 = call ptr @__cxa_begin_catch(ptr %367) #28
   %369 = getelementptr inbounds nuw i8, ptr %362, i64 8
   %370 = load ptr, ptr %369, align 8
   call void @_ZdlPv(ptr noundef %370) #31
@@ -7179,7 +7173,7 @@ _ZNSt5dequeIN3ue212_GLOBAL__N_113UncalcLeafKeyESaIS2_EE9push_backERKS2_.exit.i: 
 
 .body79.i:                                        ; preds = %.loopexit.split-lp.i, %.loopexit137.i, %371
   %eh.lpad-body80.i = phi { ptr, i32 } [ %372, %371 ], [ %lpad.loopexit.i, %.loopexit137.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
-  call fastcc void @_ZN3ue212_GLOBAL__N_113UncalcLeafKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %12) #27
+  call fastcc void @_ZN3ue212_GLOBAL__N_113UncalcLeafKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %12) #28
   br label %.body69.i
 
 385:                                              ; preds = %_ZNSt5dequeIN3ue212_GLOBAL__N_113UncalcLeafKeyESaIS2_EE9push_backERKS2_.exit.i, %279
@@ -7262,7 +7256,7 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGrap
   br label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE9push_backERKS8_.exit96.i
 
 _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE9push_backERKS8_.exit96.i: ; preds = %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i93.i, %395
-  call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %61) #27
+  call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %61) #28
   %417 = load i64, ptr %73, align 8
   %.not.i.i.i.i.i97.i = icmp eq i64 %417, 0
   br i1 %.not.i.i.i.i.i97.i, label %_ZN3ue211flat_detail9flat_baseISt4pairINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES8_ESt4lessISB_ESaISB_EED2Ev.exit.i98.i, label %418
@@ -7291,7 +7285,7 @@ _ZN3ue211flat_detail9flat_baseISt4pairINS_12graph_detail17vertex_descriptorINS_9
   br label %_ZN3ue212_GLOBAL__N_113UncalcLeafKeyD2Ev.exit.i
 
 _ZN3ue212_GLOBAL__N_113UncalcLeafKeyD2Ev.exit.i:  ; preds = %426, %423, %_ZN3ue211flat_detail9flat_baseISt4pairINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES8_ESt4lessISB_ESaISB_EED2Ev.exit.i98.i
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %12) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %427
 
 427:                                              ; preds = %_ZN3ue212_GLOBAL__N_113UncalcLeafKeyD2Ev.exit.i, %.loopexit.i, %145
@@ -7309,14 +7303,14 @@ _ZN3ue212_GLOBAL__N_113UncalcLeafKeyD2Ev.exit.i:  ; preds = %426, %423, %_ZN3ue2
 
 .body69.i:                                        ; preds = %.body79.i, %_ZN3ue211flat_detail9flat_baseISt4pairINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES8_ESt4lessISB_ESaISB_EED2Ev.exit.i.i, %common.resume.sink.split.i.i, %191
   %.pn.i = phi { ptr, i32 } [ %eh.lpad-body80.i, %.body79.i ], [ %192, %191 ], [ %.pn29.pn.pn.pn.pn.i.i, %_ZN3ue211flat_detail9flat_baseISt4pairINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES8_ESt4lessISB_ESaISB_EED2Ev.exit.i.i ], [ %common.resume.op.ph.i.i, %common.resume.sink.split.i.i ]
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %12) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.body.i
 
 .body.i:                                          ; preds = %.body69.i, %183, %_ZNSt10_HashtableIPKN3ue28NGHolderESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i60.i, %110, %_ZNSt10_HashtableIPKN3ue28NGHolderESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i.i, %.loopexit.split-lp140.i, %.loopexit139.i
   %.sroa.0126.0189.i = phi ptr [ %.sroa.0126.0203.i, %110 ], [ %.sroa.0126.0203.i, %_ZNSt10_HashtableIPKN3ue28NGHolderESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i.i ], [ %.sroa.0126.1.i, %.body69.i ], [ %.sroa.0126.1.i, %183 ], [ %.sroa.0126.1.i, %_ZNSt10_HashtableIPKN3ue28NGHolderESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i60.i ], [ %.sroa.0126.0203.i, %.loopexit139.i ], [ %.sroa.0126.0203.i, %.loopexit.split-lp140.i ]
   %.pn43.pn.pn.pn.i = phi { ptr, i32 } [ %111, %110 ], [ %104, %_ZNSt10_HashtableIPKN3ue28NGHolderESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i.i ], [ %.pn.i, %.body69.i ], [ %184, %183 ], [ %181, %_ZNSt10_HashtableIPKN3ue28NGHolderESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i60.i ], [ %lpad.loopexit141.i, %.loopexit139.i ], [ %lpad.loopexit.split-lp142.i, %.loopexit.split-lp140.i ]
-  call void @_ZNSt13unordered_mapIPKN3ue28NGHolderEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #27
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11) #27
+  call void @_ZNSt13unordered_mapIPKN3ue28NGHolderEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not.i.i.i99.i = icmp eq ptr %.sroa.0126.0189.i, null
   br i1 %.not.i.i.i99.i, label %.body19, label %435
 
@@ -7325,7 +7319,7 @@ _ZN3ue212_GLOBAL__N_113UncalcLeafKeyD2Ev.exit.i:  ; preds = %426, %423, %_ZN3ue2
   br label %.body19
 
 _ZN3ue2L26findUncalcLeavesCandidatesERNS_13RoseBuildImplERSt3mapINS_12_GLOBAL__N_113UncalcLeafKeyESt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISD_EESt4lessIS4_ESaISt4pairIKS4_SF_EEERSt5dequeIS4_SaIS4_EE.exit: ; preds = %144, %_ZNSt13unordered_mapIPKN3ue28NGHolderEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEED2Ev.exit.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   %.not306 = icmp eq ptr %23, %134
   br i1 %.not306, label %._crit_edge, label %.lr.ph
@@ -7379,9 +7373,9 @@ _ZN3ue2L26findUncalcLeavesCandidatesERNS_13RoseBuildImplERSt3mapINS_12_GLOBAL__N
 
 .lr.ph.preheader.i:                               ; preds = %455, %_ZNSt6vectorIPN3ue28NGHolderESaIS2_EED2Ev.exit.i
   %.sroa.024.059.i = phi ptr [ %.sroa.021.0.lcssa.ph.i, %_ZNSt6vectorIPN3ue28NGHolderESaIS2_EED2Ev.exit.i ], [ %459, %455 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %438, align 8
   store ptr null, ptr %439, align 8
   store ptr %438, ptr %440, align 8
@@ -7482,7 +7476,7 @@ _ZNSt3mapIPN3ue28NGHolderENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphIN
   br i1 %497, label %.thread, label %498
 
 498:                                              ; preds = %._crit_edge.thread.i.i177
-  %499 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i178) #28
+  %499 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i178) #27
   %.phi.trans.insert80.i179 = getelementptr inbounds nuw i8, ptr %499, i64 32
   %.pre81.i180 = load ptr, ptr %.phi.trans.insert80.i179, align 8
   br label %500
@@ -7506,7 +7500,7 @@ _ZNSt3mapIPN3ue28NGHolderENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphIN
   br i1 %509, label %554, label %510
 
 510:                                              ; preds = %507
-  %511 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.08.lcssa.i.i.i14.i.i) #28
+  %511 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.08.lcssa.i.i.i14.i.i) #27
   %512 = getelementptr inbounds nuw i8, ptr %511, i64 32
   %513 = load ptr, ptr %512, align 8
   %514 = icmp ult ptr %513, %472
@@ -7543,7 +7537,7 @@ _ZNSt3mapIPN3ue28NGHolderENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphIN
   br i1 %523, label %.thread, label %524
 
 524:                                              ; preds = %._crit_edge.thread.i27.i157
-  %525 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28.i158) #28
+  %525 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28.i158) #27
   %.phi.trans.insert78.i159 = getelementptr inbounds nuw i8, ptr %525, i64 32
   %.pre79.i160 = load ptr, ptr %.phi.trans.insert78.i159, align 8
   br label %526
@@ -7565,7 +7559,7 @@ _ZNSt3mapIPN3ue28NGHolderENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphIN
   br i1 %533, label %554, label %534
 
 534:                                              ; preds = %531
-  %535 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.08.lcssa.i.i.i14.i.i) #28
+  %535 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.08.lcssa.i.i.i14.i.i) #27
   %536 = getelementptr inbounds nuw i8, ptr %535, i64 32
   %537 = load ptr, ptr %536, align 8
   %538 = icmp ult ptr %472, %537
@@ -7603,7 +7597,7 @@ _ZNSt3mapIPN3ue28NGHolderENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphIN
   br i1 %548, label %.thread, label %549
 
 549:                                              ; preds = %._crit_edge.thread.i47.i138
-  %550 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48.i139) #28
+  %550 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48.i139) #27
   %.phi.trans.insert.i140 = getelementptr inbounds nuw i8, ptr %550, i64 32
   %.pre.i141 = load ptr, ptr %.phi.trans.insert.i140, align 8
   br label %551
@@ -7637,7 +7631,7 @@ _ZNSt3mapIPN3ue28NGHolderENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphIN
 
 .thread.i.i.i:                                    ; preds = %556, %.thread
   %560 = phi i1 [ true, %.thread ], [ %559, %556 ]
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %560, ptr noundef nonnull %481, ptr noundef nonnull %.sroa.12.0.i122192, ptr noundef nonnull align 8 dereferenceable(32) %438) #27
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %560, ptr noundef nonnull %481, ptr noundef nonnull %.sroa.12.0.i122192, ptr noundef nonnull align 8 dereferenceable(32) %438) #28
   %561 = load i64, ptr %442, align 8
   %562 = add i64 %561, 1
   store i64 %562, ptr %442, align 8
@@ -7739,7 +7733,7 @@ _ZNSt6vectorIPN3ue28NGHolderESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_ZNSt6v
 
 .critedge.i:                                      ; preds = %_ZNSt6vectorIPN3ue28NGHolderESaIS2_EE9push_backERKS2_.exit.i, %.lr.ph.i21
   %.sroa.021.0.lcssa.ph.i = phi ptr [ %.sroa.021.052.i, %.lr.ph.i21 ], [ %591, %_ZNSt6vectorIPN3ue28NGHolderESaIS2_EE9push_backERKS2_.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN3ue215mergeNfaClusterERKSt6vectorIPNS_8NGHolderESaIS2_EEPKNS_13ReportManagerERKNS_14CompileContextE(ptr dead_on_unwind nonnull writable sret(%"class.std::map.899") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 1 %453, ptr noundef nonnull align 8 dereferenceable(320) %456)
           to label %593 unwind label %606
 
@@ -7761,7 +7755,7 @@ _ZNSt6vectorIPN3ue28NGHolderESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_ZNSt6v
   unreachable
 
 _ZNSt3mapIPN3ue28NGHolderES2_St4lessIS2_ESaISt4pairIKS2_S2_EEED2Ev.exit.i: ; preds = %._crit_edge.i24
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %599 = load ptr, ptr %439, align 8
   invoke void @_ZNSt8_Rb_treeIPN3ue28NGHolderESt4pairIKS2_NS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEESt10_Select1stISD_ESt4lessIS2_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %599)
           to label %_ZNSt3mapIPN3ue28NGHolderENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS2_ESaISt4pairIKS2_SA_EEED2Ev.exit.i unwind label %600
@@ -7774,7 +7768,7 @@ _ZNSt3mapIPN3ue28NGHolderES2_St4lessIS2_ESaISt4pairIKS2_S2_EEED2Ev.exit.i: ; pre
   unreachable
 
 _ZNSt3mapIPN3ue28NGHolderENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS2_ESaISt4pairIKS2_SA_EEED2Ev.exit.i: ; preds = %_ZNSt3mapIPN3ue28NGHolderES2_St4lessIS2_ESaISt4pairIKS2_S2_EEED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %603 = load ptr, ptr %2, align 8
   %.not.i.i.i72.i = icmp eq ptr %603, null
   br i1 %.not.i.i.i72.i, label %_ZNSt6vectorIPN3ue28NGHolderESaIS2_EED2Ev.exit.i, label %604
@@ -7784,7 +7778,7 @@ _ZNSt3mapIPN3ue28NGHolderENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphIN
   br label %_ZNSt6vectorIPN3ue28NGHolderESaIS2_EED2Ev.exit.i
 
 _ZNSt6vectorIPN3ue28NGHolderESaIS2_EED2Ev.exit.i: ; preds = %604, %_ZNSt3mapIPN3ue28NGHolderENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS2_ESaISt4pairIKS2_SA_EEED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %605 = load ptr, ptr %457, align 8
   %.not.i25 = icmp eq ptr %.sroa.021.0.lcssa.ph.i, %605
   br i1 %.not.i25, label %_ZN3ue2L12mergeClusterERNS_9RoseGraphERKNS_13ReportManagerERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISC_EERSE_RKNS_14CompileContextE.exit, label %.lr.ph.preheader.i, !llvm.loop !387
@@ -7877,7 +7871,7 @@ _ZNSt3mapIPN3ue28NGHolderENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphIN
   br i1 %636, label %.thread206, label %637
 
 637:                                              ; preds = %._crit_edge.thread.i.i115
-  %638 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i116) #28
+  %638 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i116) #27
   %.phi.trans.insert80.i117 = getelementptr inbounds nuw i8, ptr %638, i64 32
   %.pre81.i118 = load ptr, ptr %.phi.trans.insert80.i117, align 8
   br label %639
@@ -7901,7 +7895,7 @@ _ZNSt3mapIPN3ue28NGHolderENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphIN
   br i1 %648, label %693, label %649
 
 649:                                              ; preds = %646
-  %650 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.08.lcssa.i.i.i14.i86.i) #28
+  %650 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.08.lcssa.i.i.i14.i86.i) #27
   %651 = getelementptr inbounds nuw i8, ptr %650, i64 32
   %652 = load ptr, ptr %651, align 8
   %653 = icmp ult ptr %652, %609
@@ -7938,7 +7932,7 @@ _ZNSt3mapIPN3ue28NGHolderENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphIN
   br i1 %662, label %.thread206, label %663
 
 663:                                              ; preds = %._crit_edge.thread.i27.i95
-  %664 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28.i96) #28
+  %664 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28.i96) #27
   %.phi.trans.insert78.i97 = getelementptr inbounds nuw i8, ptr %664, i64 32
   %.pre79.i98 = load ptr, ptr %.phi.trans.insert78.i97, align 8
   br label %665
@@ -7960,7 +7954,7 @@ _ZNSt3mapIPN3ue28NGHolderENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphIN
   br i1 %672, label %693, label %673
 
 673:                                              ; preds = %670
-  %674 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.08.lcssa.i.i.i14.i86.i) #28
+  %674 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.08.lcssa.i.i.i14.i86.i) #27
   %675 = getelementptr inbounds nuw i8, ptr %674, i64 32
   %676 = load ptr, ptr %675, align 8
   %677 = icmp ult ptr %609, %676
@@ -7998,7 +7992,7 @@ _ZNSt3mapIPN3ue28NGHolderENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphIN
   br i1 %687, label %.thread206, label %688
 
 688:                                              ; preds = %._crit_edge.thread.i47.i76
-  %689 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48.i77) #28
+  %689 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48.i77) #27
   %.phi.trans.insert.i78 = getelementptr inbounds nuw i8, ptr %689, i64 32
   %.pre.i79 = load ptr, ptr %.phi.trans.insert.i78, align 8
   br label %690
@@ -8032,7 +8026,7 @@ _ZNSt3mapIPN3ue28NGHolderENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphIN
 
 .thread.i.i91.i:                                  ; preds = %695, %.thread206
   %699 = phi i1 [ true, %.thread206 ], [ %698, %695 ]
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %699, ptr noundef nonnull %620, ptr noundef nonnull %.sroa.12.0.i60213, ptr noundef nonnull align 8 dereferenceable(32) %438) #27
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %699, ptr noundef nonnull %620, ptr noundef nonnull %.sroa.12.0.i60213, ptr noundef nonnull align 8 dereferenceable(32) %438) #28
   %700 = load i64, ptr %442, align 8
   %701 = add i64 %700, 1
   store i64 %701, ptr %442, align 8
@@ -8126,7 +8120,7 @@ _ZNSt3mapIPN3ue28NGHolderENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphIN
   br i1 %728, label %.thread227, label %729
 
 729:                                              ; preds = %._crit_edge.thread.i.i
-  %730 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #28
+  %730 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #27
   %.phi.trans.insert80.i = getelementptr inbounds nuw i8, ptr %730, i64 32
   %.pre81.i = load ptr, ptr %.phi.trans.insert80.i, align 8
   br label %731
@@ -8150,7 +8144,7 @@ _ZNSt3mapIPN3ue28NGHolderENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphIN
   br i1 %740, label %785, label %741
 
 741:                                              ; preds = %738
-  %742 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.08.lcssa.i.i.i14.i109.i) #28
+  %742 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.08.lcssa.i.i.i14.i109.i) #27
   %743 = getelementptr inbounds nuw i8, ptr %742, i64 32
   %744 = load ptr, ptr %743, align 8
   %745 = icmp ult ptr %744, %611
@@ -8187,7 +8181,7 @@ _ZNSt3mapIPN3ue28NGHolderENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphIN
   br i1 %754, label %.thread227, label %755
 
 755:                                              ; preds = %._crit_edge.thread.i27.i
-  %756 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28.i) #28
+  %756 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28.i) #27
   %.phi.trans.insert78.i = getelementptr inbounds nuw i8, ptr %756, i64 32
   %.pre79.i = load ptr, ptr %.phi.trans.insert78.i, align 8
   br label %757
@@ -8209,7 +8203,7 @@ _ZNSt3mapIPN3ue28NGHolderENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphIN
   br i1 %764, label %785, label %765
 
 765:                                              ; preds = %762
-  %766 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.08.lcssa.i.i.i14.i109.i) #28
+  %766 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.08.lcssa.i.i.i14.i109.i) #27
   %767 = getelementptr inbounds nuw i8, ptr %766, i64 32
   %768 = load ptr, ptr %767, align 8
   %769 = icmp ult ptr %611, %768
@@ -8247,7 +8241,7 @@ _ZNSt3mapIPN3ue28NGHolderENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphIN
   br i1 %779, label %.thread227, label %780
 
 780:                                              ; preds = %._crit_edge.thread.i47.i
-  %781 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48.i) #28
+  %781 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48.i) #27
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %781, i64 32
   %.pre.i54 = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %782
@@ -8281,7 +8275,7 @@ _ZNSt3mapIPN3ue28NGHolderENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphIN
 
 .thread.i.i114.i:                                 ; preds = %787, %.thread227
   %791 = phi i1 [ true, %.thread227 ], [ %790, %787 ]
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %791, ptr noundef nonnull %712, ptr noundef nonnull %.sroa.12.0.i234, ptr noundef nonnull align 8 dereferenceable(32) %438) #27
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %791, ptr noundef nonnull %712, ptr noundef nonnull %.sroa.12.0.i234, ptr noundef nonnull align 8 dereferenceable(32) %438) #28
   %792 = load i64, ptr %442, align 8
   %793 = add i64 %792, 1
   store i64 %793, ptr %442, align 8
@@ -8611,7 +8605,7 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGrap
   br label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE9push_backERKS8_.exit.i23
 
 _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE9push_backERKS8_.exit.i23: ; preds = %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i35, %905
-  %927 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.015.056.i) #28
+  %927 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.015.056.i) #27
   %.not29.i = icmp eq ptr %927, %446
   br i1 %.not29.i, label %._crit_edge.i24, label %.lr.ph57.i
 
@@ -8650,7 +8644,7 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGrap
 
 _ZNSt3mapIPN3ue28NGHolderES2_St4lessIS2_ESaISt4pairIKS2_S2_EEED2Ev.exit: ; preds = %.body93.i, %606
   %.pn65.pn.i = phi { ptr, i32 } [ %607, %606 ], [ %.pn65.i, %.body93.i ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.body.i22
 
 .body.i22:                                        ; preds = %_ZNSt3mapIPN3ue28NGHolderES2_St4lessIS2_ESaISt4pairIKS2_S2_EEED2Ev.exit, %.loopexit.split-lp34.i, %.loopexit33.i
@@ -8667,7 +8661,7 @@ _ZNSt3mapIPN3ue28NGHolderES2_St4lessIS2_ESaISt4pairIKS2_S2_EEED2Ev.exit: ; preds
   unreachable
 
 _ZNSt3mapIPN3ue28NGHolderENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS2_ESaISt4pairIKS2_SA_EEED2Ev.exit: ; preds = %.body.i22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %938 = load ptr, ptr %2, align 8
   %.not.i.i.i126.i = icmp eq ptr %938, null
   br i1 %.not.i.i.i126.i, label %_ZNSt6vectorIPN3ue28NGHolderESaIS2_EED2Ev.exit127.i, label %939
@@ -8677,7 +8671,7 @@ _ZNSt3mapIPN3ue28NGHolderENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphIN
   br label %_ZNSt6vectorIPN3ue28NGHolderESaIS2_EED2Ev.exit127.i
 
 _ZNSt6vectorIPN3ue28NGHolderESaIS2_EED2Ev.exit127.i: ; preds = %939, %_ZNSt3mapIPN3ue28NGHolderENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS2_ESaISt4pairIKS2_SA_EEED2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.body49
 
 _ZN3ue2L12mergeClusterERNS_9RoseGraphERKNS_13ReportManagerERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISC_EERSE_RKNS_14CompileContextE.exit: ; preds = %_ZNSt6vectorIPN3ue28NGHolderESaIS2_EED2Ev.exit.i, %455
@@ -8713,12 +8707,12 @@ _ZNSt15_Deque_iteratorIN3ue212_GLOBAL__N_113UncalcLeafKeyERS2_PS2_EppEv.exit: ; 
   br label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit
 
 _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit: ; preds = %948, %950
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #27
-  call fastcc void @_ZNSt5dequeIN3ue212_GLOBAL__N_113UncalcLeafKeyESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %14) #27
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call fastcc void @_ZNSt5dequeIN3ue212_GLOBAL__N_113UncalcLeafKeyESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %14) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.val17 = load ptr, ptr %17, align 8
   call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_113UncalcLeafKeyESt4pairIKS2_St6vectorINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaISD_EEESt10_Select1stISG_ESt4lessIS2_ESaISG_EE8_M_eraseEPSt13_Rb_tree_nodeISG_E(ptr noundef %.val17)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 
 951:                                              ; preds = %._crit_edge
@@ -8737,20 +8731,20 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGrap
   br label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit53
 
 _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit53: ; preds = %.body49, %954
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.body19
 
 .body19:                                          ; preds = %435, %.body.i, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit53
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit53 ], [ %.pn43.pn.pn.pn.i, %435 ], [ %.pn43.pn.pn.pn.i, %.body.i ]
-  call fastcc void @_ZNSt5dequeIN3ue212_GLOBAL__N_113UncalcLeafKeyESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %14) #27
+  call fastcc void @_ZNSt5dequeIN3ue212_GLOBAL__N_113UncalcLeafKeyESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %14) #28
   br label %.body
 
 .body:                                            ; preds = %450, %35, %.body19
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body19 ], [ %451, %450 ], [ %36, %35 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.val18 = load ptr, ptr %17, align 8
   call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_113UncalcLeafKeyESt4pairIKS2_St6vectorINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaISD_EEESt10_Select1stISG_ESt4lessIS2_ESaISG_EE8_M_eraseEPSt13_Rb_tree_nodeISG_E(ptr noundef %.val18)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -8795,7 +8789,7 @@ _ZNSt3mapIN3ue212_GLOBAL__N_113UncalcLeafKeyESt6vectorINS0_12graph_detail17verte
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  %17 = tail call ptr @__cxa_begin_catch(ptr %16) #27
+  %17 = tail call ptr @__cxa_begin_catch(ptr %16) #28
   tail call void @_ZdlPv(ptr noundef nonnull %12) #31
   invoke void @__cxa_rethrow() #29
           to label %23 unwind label %18
@@ -8874,7 +8868,7 @@ common.resume.i:                                  ; preds = %.loopexit.split-lp.
   br i1 %39, label %.thread.i, label %40
 
 40:                                               ; preds = %._crit_edge.thread.i.i.i
-  %41 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.023.lcssa32.i.i.i) #28
+  %41 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.023.lcssa32.i.i.i) #27
   br label %42
 
 42:                                               ; preds = %40, %._crit_edge.i.i.i
@@ -8902,7 +8896,7 @@ common.resume.i:                                  ; preds = %.loopexit.split-lp.
   br i1 %51, label %91, label %52
 
 52:                                               ; preds = %48
-  %53 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.08.lcssa.i.i.i17) #28
+  %53 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.08.lcssa.i.i.i17) #27
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %55 = invoke fastcc noundef zeroext i1 @_ZNKSt4lessIN3ue212_GLOBAL__N_113UncalcLeafKeyEEclERKS2_S5_(ptr noundef nonnull align 8 dereferenceable(200) %54, ptr noundef nonnull readonly align 8 dereferenceable(200) %13)
           to label %.noexc14.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
@@ -8946,7 +8940,7 @@ common.resume.i:                                  ; preds = %.loopexit.split-lp.
   br i1 %62, label %.thread.i, label %63
 
 63:                                               ; preds = %._crit_edge.thread.i30.i.i
-  %64 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.023.lcssa32.i31.i.i) #28
+  %64 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.023.lcssa32.i31.i.i) #27
   br label %65
 
 65:                                               ; preds = %63, %._crit_edge.i21.i.i
@@ -8973,7 +8967,7 @@ common.resume.i:                                  ; preds = %.loopexit.split-lp.
   br i1 %73, label %91, label %74
 
 74:                                               ; preds = %70
-  %75 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.08.lcssa.i.i.i17) #28
+  %75 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.08.lcssa.i.i.i17) #27
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 32
   %77 = invoke fastcc noundef zeroext i1 @_ZNKSt4lessIN3ue212_GLOBAL__N_113UncalcLeafKeyEEclERKS2_S5_(ptr noundef nonnull readonly align 8 dereferenceable(200) %13, ptr noundef nonnull align 8 dereferenceable(200) %76)
           to label %.noexc18.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
@@ -9018,7 +9012,7 @@ common.resume.i:                                  ; preds = %.loopexit.split-lp.
   br i1 %85, label %.thread.i, label %86
 
 86:                                               ; preds = %._crit_edge.thread.i51.i.i
-  %87 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.023.lcssa32.i52.i.i) #28
+  %87 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.023.lcssa32.i52.i.i) #27
   br label %88
 
 88:                                               ; preds = %86, %._crit_edge.i42.i.i
@@ -9072,12 +9066,12 @@ common.resume.i:                                  ; preds = %.loopexit.split-lp.
 
 .loopexit.split-lp.i:                             ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit28.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit31.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
-  tail call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_113UncalcLeafKeyESt4pairIKS2_St6vectorINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaISD_EEESt10_Select1stISG_ESt4lessIS2_ESaISG_EE10_Auto_nodeD2Ev(ptr nonnull %12) #27
+  tail call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_113UncalcLeafKeyESt4pairIKS2_St6vectorINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaISD_EEESt10_Select1stISG_ESt4lessIS2_ESaISG_EE10_Auto_nodeD2Ev(ptr nonnull %12) #28
   br label %common.resume.i
 
 96:                                               ; preds = %93, %.thread.i
   %97 = phi i1 [ true, %.thread.i ], [ %95, %93 ]
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %97, ptr noundef nonnull %12, ptr noundef nonnull %.sroa.12.0.i10.i, ptr noundef nonnull align 8 dereferenceable(32) %4) #27
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %97, ptr noundef nonnull %12, ptr noundef nonnull %.sroa.12.0.i10.i, ptr noundef nonnull align 8 dereferenceable(32) %4) #28
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %99 = load i64, ptr %98, align 8
   %100 = add i64 %99, 1
@@ -9096,7 +9090,7 @@ common.resume.i:                                  ; preds = %.loopexit.split-lp.
 
 _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit.i.i.i.i.i.i.i: ; preds = %102, %.thread13.i
   %103 = getelementptr inbounds nuw i8, ptr %12, i64 136
-  tail call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %103) #27
+  tail call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %103) #28
   %104 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %105 = load i64, ptr %104, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %105, 0
@@ -9140,7 +9134,7 @@ _ZNSt8_Rb_treeIN3ue212_GLOBAL__N_113UncalcLeafKeyESt4pairIKS2_St6vectorINS0_12gr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt5dequeIN3ue212_GLOBAL__N_113UncalcLeafKeyESaIS2_EED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt5dequeIN3ue212_GLOBAL__N_113UncalcLeafKeyESaIS2_EED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !noalias !436
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -9170,7 +9164,7 @@ define internal fastcc void @_ZNSt5dequeIN3ue212_GLOBAL__N_113UncalcLeafKeyESaIS
   %.05.i.i.i.idx.i.i = phi i64 [ %.05.i.i.i.add.i.i, %_ZSt8_DestroyIN3ue212_GLOBAL__N_113UncalcLeafKeyEEvPT_.exit.i.i.i.i.i ], [ 0, %.lr.ph.i.i ]
   %.05.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %15, i64 %.05.i.i.i.idx.i.i
   %16 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.ptr.i.i, i64 104
-  tail call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #27
+  tail call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #28
   %17 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.ptr.i.i, i64 48
   %18 = load i64, ptr %17, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %18, 0
@@ -9220,7 +9214,7 @@ _ZSt8_DestroyIPN3ue212_GLOBAL__N_113UncalcLeafKeyES2_EvT_S4_RSaIT0_E.exit.i.i: ;
 .lr.ph.i.i.i6.i.i:                                ; preds = %33, %_ZSt8_DestroyIN3ue212_GLOBAL__N_113UncalcLeafKeyEEvPT_.exit.i.i.i11.i.i
   %.05.i.i.i7.i.i = phi ptr [ %50, %_ZSt8_DestroyIN3ue212_GLOBAL__N_113UncalcLeafKeyEEvPT_.exit.i.i.i11.i.i ], [ %3, %33 ]
   %34 = getelementptr inbounds nuw i8, ptr %.05.i.i.i7.i.i, i64 104
-  tail call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %34) #27
+  tail call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %34) #28
   %35 = getelementptr inbounds nuw i8, ptr %.05.i.i.i7.i.i, i64 48
   %36 = load i64, ptr %35, align 8
   %.not.i.i.i.i.i.i.i.i.i8.i.i = icmp eq i64 %36, 0
@@ -9265,7 +9259,7 @@ _ZSt8_DestroyIPN3ue212_GLOBAL__N_113UncalcLeafKeyES2_EvT_S4_RSaIT0_E.exit13.i.i:
 .lr.ph.i.i.i15.i.i:                               ; preds = %_ZSt8_DestroyIPN3ue212_GLOBAL__N_113UncalcLeafKeyES2_EvT_S4_RSaIT0_E.exit13.i.i, %_ZSt8_DestroyIN3ue212_GLOBAL__N_113UncalcLeafKeyEEvPT_.exit.i.i.i20.i.i
   %.05.i.i.i16.i.i = phi ptr [ %67, %_ZSt8_DestroyIN3ue212_GLOBAL__N_113UncalcLeafKeyEEvPT_.exit.i.i.i20.i.i ], [ %11, %_ZSt8_DestroyIPN3ue212_GLOBAL__N_113UncalcLeafKeyES2_EvT_S4_RSaIT0_E.exit13.i.i ]
   %51 = getelementptr inbounds nuw i8, ptr %.05.i.i.i16.i.i, i64 104
-  tail call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %51) #27
+  tail call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %51) #28
   %52 = getelementptr inbounds nuw i8, ptr %.05.i.i.i16.i.i, i64 48
   %53 = load i64, ptr %52, align 8
   %.not.i.i.i.i.i.i.i.i.i17.i.i = icmp eq i64 %53, 0
@@ -9310,7 +9304,7 @@ _ZSt8_DestroyIN3ue212_GLOBAL__N_113UncalcLeafKeyEEvPT_.exit.i.i.i20.i.i: ; preds
 .lr.ph.i.i.i24.i.i:                               ; preds = %68, %_ZSt8_DestroyIN3ue212_GLOBAL__N_113UncalcLeafKeyEEvPT_.exit.i.i.i29.i.i
   %.05.i.i.i25.i.i = phi ptr [ %85, %_ZSt8_DestroyIN3ue212_GLOBAL__N_113UncalcLeafKeyEEvPT_.exit.i.i.i29.i.i ], [ %3, %68 ]
   %69 = getelementptr inbounds nuw i8, ptr %.05.i.i.i25.i.i, i64 104
-  tail call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %69) #27
+  tail call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %69) #28
   %70 = getelementptr inbounds nuw i8, ptr %.05.i.i.i25.i.i, i64 48
   %71 = load i64, ptr %70, align 8
   %.not.i.i.i.i.i.i.i.i.i26.i.i = icmp eq i64 %71, 0
@@ -9381,10 +9375,10 @@ _ZNSt11_Deque_baseIN3ue212_GLOBAL__N_113UncalcLeafKeyESaIS2_EED2Ev.exit: ; preds
   ret void
 }
 
-declare noundef zeroext i1 @_ZNK3ue211LeftEngInfocvbEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZNK3ue211LeftEngInfocvbEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt3setIS8_St4lessIS8_ESaIS8_EESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SD_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt3setIS8_St4lessIS8_ESaIS8_EESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SD_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not5.i.i.i = icmp eq ptr %3, null
@@ -9432,7 +9426,7 @@ _ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9Ros
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not5.i.i.i = icmp eq ptr %3, null
@@ -9548,7 +9542,7 @@ _ZNKSt8__detail15_Hashtable_baseIN3ue27left_idESt4pairIKS2_St3setINS1_12graph_de
   br i1 %.not19.i.i, label %20, label %.loopexit28, !llvm.loop !445
 
 .loopexit28:                                      ; preds = %_ZNKSt8__detail15_Hashtable_baseIN3ue27left_idESt4pairIKS2_St3setINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESt4lessISD_ESaISD_EEENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueISI_Lb1EEE.exit.thread.i.i, %40, %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %45 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #30
@@ -9569,14 +9563,14 @@ _ZNKSt8__detail15_Hashtable_baseIN3ue27left_idESt4pairIKS2_St3setINS1_12graph_de
           to label %_ZNSt10_HashtableIN3ue27left_idESt4pairIKS1_St3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISC_ESaISC_EEESaISH_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSJ_18_Mod_range_hashingENSJ_20_Default_ranged_hashENSJ_20_Prime_rehash_policyENSJ_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %53
 
 _ZNSt10_HashtableIN3ue27left_idESt4pairIKS1_St3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISC_ESaISC_EEESaISH_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSJ_18_Mod_range_hashingENSJ_20_Default_ranged_hashENSJ_20_Prime_rehash_policyENSJ_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %.loopexit28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
 53:                                               ; preds = %.loopexit28
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10_HashtableIN3ue27left_idESt4pairIKS1_St3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISC_ESaISC_EEESaISH_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSJ_18_Mod_range_hashingENSJ_20_Default_ranged_hashENSJ_20_Prime_rehash_policyENSJ_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #27
+  call void @_ZNSt10_HashtableIN3ue27left_idESt4pairIKS1_St3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISC_ESaISC_EEESaISH_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSJ_18_Mod_range_hashingENSJ_20_Default_ranged_hashENSJ_20_Prime_rehash_policyENSJ_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %54
 
 .loopexit:                                        ; preds = %_ZNKSt8__detail15_Hashtable_baseIN3ue27left_idESt4pairIKS2_St3setINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESt4lessISD_ESaISD_EEENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueISI_Lb1EEE.exit.i.i, %_ZNSt10_HashtableIN3ue27left_idESt4pairIKS1_St3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISC_ESaISC_EEESaISH_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSJ_18_Mod_range_hashingENSJ_20_Default_ranged_hashENSJ_20_Prime_rehash_policyENSJ_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
@@ -9608,7 +9602,7 @@ define linkonce_odr hidden ptr @_ZNSt10_HashtableIN3ue27left_idESt4pairIKS1_St3s
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #27
+  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #28
   store i64 %8, ptr %7, align 8
   invoke void @__cxa_rethrow() #29
           to label %28 unwind label %22
@@ -9689,7 +9683,7 @@ _ZNSt10_HashtableIN3ue27left_idESt4pairIKS1_St3setINS0_12graph_detail17vertex_de
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10_HashtableIN3ue27left_idESt4pairIKS1_St3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISC_ESaISC_EEESaISH_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSJ_18_Mod_range_hashingENSJ_20_Default_ranged_hashENSJ_20_Prime_rehash_policyENSJ_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt10_HashtableIN3ue27left_idESt4pairIKS1_St3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISC_ESaISC_EEESaISH_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSJ_18_Mod_range_hashingENSJ_20_Default_ranged_hashENSJ_20_Prime_rehash_policyENSJ_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -9717,11 +9711,11 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN3ue27left_idESt3se
   ret void
 }
 
-declare noundef i64 @_ZNK3ue27left_id4hashEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
+declare noundef i64 @_ZNK3ue27left_id4hashEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #2
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #27
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #28
   tail call void @_ZSt9terminatev() #32
   unreachable
 }
@@ -9729,28 +9723,28 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #8
+declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 declare void @__cxa_rethrow() local_unnamed_addr
 
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #9
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #8
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #9
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #8
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 
-declare { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt10_HashtableIN3ue27left_idESt4pairIKS1_St3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISC_ESaISC_EEESaISH_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSJ_18_Mod_range_hashingENSJ_20_Default_ranged_hashENSJ_20_Prime_rehash_policyENSJ_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -9848,7 +9842,7 @@ _ZNSt10_HashtableIN3ue27left_idESt4pairIKS1_St3setINS0_12graph_detail17vertex_de
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   invoke void @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
@@ -9949,7 +9943,7 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraph
   br i1 %17, label %30, label %18
 
 18:                                               ; preds = %._crit_edge.thread.i
-  %19 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.025.lcssa42.i) #28
+  %19 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.025.lcssa42.i) #27
   %.sroa.0.0.copyload.i5.i.pre = load ptr, ptr %1, align 8
   br label %20
 
@@ -10007,7 +10001,7 @@ _ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGr
   %44 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #30
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %43, ptr noundef nonnull %44, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %4) #27
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %43, ptr noundef nonnull %44, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %4) #28
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %47 = load i64, ptr %46, align 8
   %48 = add i64 %47, 1
@@ -10023,10 +10017,10 @@ _ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #13
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
-declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #14
+declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8__detail9_Map_baseIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESt4pairIKS9_St3setIS9_St4lessIS9_ESaIS9_EEESaISH_ENS_10_Select1stESt8equal_toIS9_ESt4hashIS9_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERSB_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -10079,7 +10073,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZNS
   br label %.loopexit, !llvm.loop !451
 
 .loopexit:                                        ; preds = %.lr.ph.i.i, %2, %..loopexit_crit_edge22.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %32 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #30
@@ -10100,14 +10094,14 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZNS
           to label %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_St3setIS8_St4lessIS8_ESaIS8_EEESaISG_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %40
 
 _ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_St3setIS8_St4lessIS8_ESaIS8_EEESaISG_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %.loopexit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit28
 
 40:                                               ; preds = %.loopexit
   %41 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_St3setIS8_St4lessIS8_ESaIS8_EEESaISG_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #27
+  call void @_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_St3setIS8_St4lessIS8_ESaIS8_EEESaISG_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %41
 
 .loopexit28:                                      ; preds = %21, %12, %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_St3setIS8_St4lessIS8_ESaIS8_EEESaISG_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
@@ -10139,7 +10133,7 @@ define linkonce_odr hidden ptr @_ZNSt10_HashtableIN3ue212graph_detail17vertex_de
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #27
+  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #28
   store i64 %8, ptr %7, align 8
   invoke void @__cxa_rethrow() #29
           to label %28 unwind label %22
@@ -10220,7 +10214,7 @@ _ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9Ros
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_St3setIS8_St4lessIS8_ESaIS8_EEESaISG_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_St3setIS8_St4lessIS8_ESaIS8_EEESaISG_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -10344,7 +10338,7 @@ _ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9Ros
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #13
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES8_SaIS8_ENSt8__detail9_IdentityESt8equal_toIS8_ESt4hashIS8_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIRKS8_SO_NSA_10_AllocNodeISaINSA_10_Hash_nodeIS8_Lb1EEEEEEEESt4pairINSA_14_Node_iteratorIS8_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -10473,7 +10467,7 @@ define linkonce_odr hidden ptr @_ZNSt10_HashtableIN3ue212graph_detail17vertex_de
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #27
+  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #28
   store i64 %8, ptr %7, align 8
   invoke void @__cxa_rethrow() #29
           to label %28 unwind label %22
@@ -10717,7 +10711,7 @@ _ZNK3ue211LeftEngInfoeqERKS0_.exit:               ; preds = %40
 _ZNK3ue211LeftEngInfoeqERKS0_.exit.thread:        ; preds = %._ZNK3ue211LeftEngInfoeqERKS0_.exit.thread_crit_edge, %16, %22, %28, %34, %40, %_ZNK3ue211LeftEngInfoeqERKS0_.exit
   %51 = phi ptr [ %.pre52, %._ZNK3ue211LeftEngInfoeqERKS0_.exit.thread_crit_edge ], [ %19, %16 ], [ %19, %22 ], [ %19, %28 ], [ %19, %34 ], [ %19, %40 ], [ %19, %_ZNK3ue211LeftEngInfoeqERKS0_.exit ]
   %52 = phi ptr [ %.pre, %._ZNK3ue211LeftEngInfoeqERKS0_.exit.thread_crit_edge ], [ %20, %16 ], [ %20, %22 ], [ %20, %28 ], [ %20, %34 ], [ %20, %40 ], [ %20, %_ZNK3ue211LeftEngInfoeqERKS0_.exit ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %14, ptr %9, align 8
   %53 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %52, ptr %53, align 8
@@ -10737,7 +10731,7 @@ _ZNK3ue211LeftEngInfoeqERKS0_.exit.thread:        ; preds = %._ZNK3ue211LeftEngI
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 212
   %65 = load i32, ptr %64, align 4
   store i32 %65, ptr %63, align 4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %13, ptr %10, align 8
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %51, ptr %66, align 8
@@ -10811,8 +10805,8 @@ _ZNK3ue211LeftEngInfoeqERKS0_.exit.thread:        ; preds = %._ZNK3ue211LeftEngI
 
 99:                                               ; preds = %94, %84, %79, %82, %_ZNK3ue211LeftEngInfoeqERKS0_.exit.thread, %97, %92
   %.1 = phi i1 [ %93, %92 ], [ %98, %97 ], [ false, %_ZNK3ue211LeftEngInfoeqERKS0_.exit.thread ], [ false, %82 ], [ false, %79 ], [ false, %84 ], [ false, %94 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #27
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %100
 
 100:                                              ; preds = %_ZNK3ue211LeftEngInfoeqERKS0_.exit, %99
@@ -10821,7 +10815,7 @@ _ZNK3ue211LeftEngInfoeqERKS0_.exit.thread:        ; preds = %._ZNK3ue211LeftEngI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i64 @_ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef i64 @_ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -10856,7 +10850,7 @@ define linkonce_odr hidden noundef i64 @_ZNKSt5dequeIN3ue217rose_literal_infoESa
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #9
+declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE15_M_range_insertINS0_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPS8_Lb1EEEKS8_EEEEvN9__gnu_cxx17__normal_iteratorISH_SA_EET_SO_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -11097,10 +11091,10 @@ _ZSt4copyIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPNS0_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE15_M_range_insertINS7_18adjacency_iteratorEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EET_SH_St18input_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -11126,7 +11120,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN3ue212graph_detail17vertex_descri
 15:                                               ; preds = %.lr.ph, %15
   %16 = phi ptr [ %12, %.lr.ph ], [ %24, %15 ]
   %17 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 312
@@ -11134,7 +11128,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN3ue212graph_detail17vertex_descri
   store ptr %19, ptr %7, align 8
   store i64 %21, ptr %14, align 8
   %22 = call ptr @_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE14_M_insert_rvalEN9__gnu_cxx17__normal_iteratorIPKS8_SA_EEOS8_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %17, ptr noundef nonnull align 8 dereferenceable(16) %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %23 = load ptr, ptr %2, align 8
   %24 = load ptr, ptr %23, align 8
   store ptr %24, ptr %2, align 8
@@ -11146,9 +11140,9 @@ define linkonce_odr hidden void @_ZNSt6vectorIN3ue212graph_detail17vertex_descri
   br i1 %.not1920, label %.loopexit, label %27
 
 27:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #27
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   store ptr %12, ptr %5, align 8
   store ptr %13, ptr %6, align 8
@@ -11171,8 +11165,8 @@ common.resume:                                    ; preds = %28, %31, %_ZNSt6vec
   resume { ptr, i32 } %common.resume.op
 
 32:                                               ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %33 = load ptr, ptr %8, align 8
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %35 = load ptr, ptr %34, align 8
@@ -11194,7 +11188,7 @@ common.resume:                                    ; preds = %28, %31, %_ZNSt6vec
   br label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit
 
 _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit: ; preds = %41, %43
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
 44:                                               ; preds = %32
@@ -11209,7 +11203,7 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGrap
   br label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit11
 
 _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit11: ; preds = %44, %47
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 .loopexit:                                        ; preds = %15, %.preheader, %26, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit
@@ -11452,7 +11446,7 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGrap
 42:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.0 = extractvalue { ptr, i32 } %lpad.phi, 0
-  %43 = tail call ptr @__cxa_begin_catch(ptr %.0) #27
+  %43 = tail call ptr @__cxa_begin_catch(ptr %.0) #28
   %44 = load ptr, ptr %0, align 8
   %45 = load ptr, ptr %6, align 8
   %.not.i.i = icmp eq ptr %45, %44
@@ -12433,7 +12427,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L16samePredecessorsENS_12graph
   br i1 %.not, label %11, label %115
 
 11:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -12444,7 +12438,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L16samePredecessorsENS_12graph
   store ptr %12, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 0, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -12468,7 +12462,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L16samePredecessorsENS_12graph
 
 25:                                               ; preds = %.lr.ph, %31
   %.sroa.018.048 = phi ptr [ %.sroa.018.046, %.lr.ph ], [ %.sroa.018.0, %31 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.018.048, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 312
@@ -12482,7 +12476,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L16samePredecessorsENS_12graph
           to label %31 unwind label %32
 
 31:                                               ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.018.0 = load ptr, ptr %.sroa.018.048, align 8
   %.not37 = icmp eq ptr %.sroa.018.0, %22
   br i1 %.not37, label %._crit_edge, label %25
@@ -12490,7 +12484,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L16samePredecessorsENS_12graph
 32:                                               ; preds = %25
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %114
 
 ._crit_edge:                                      ; preds = %31, %11
@@ -12535,14 +12529,14 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L16samePredecessorsENS_12graph
   br i1 %44, label %45, label %_ZN3ue24edgeINS_9RoseGraphEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit
 
 45:                                               ; preds = %.noexc
-  %46 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.05.07.i.i.i.i.i.i.i) #28
-  %47 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0.08.i.i.i.i.i.i.i) #28
+  %46 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.05.07.i.i.i.i.i.i.i) #27
+  %47 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0.08.i.i.i.i.i.i.i) #27
   %.not.i.i.i.i.i.i.i = icmp eq ptr %46, %12
   br i1 %.not.i.i.i.i.i.i.i, label %_ZStneIN3ue212_GLOBAL__N_111AliasInEdgeESt4lessIS2_ESaIS2_EEbRKSt3setIT_T0_T1_ESC_.exit.thread31, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !482
 
 48:                                               ; preds = %.lr.ph53, %54
   %.sroa.010.051 = phi ptr [ %.sroa.010.049, %.lr.ph53 ], [ %.sroa.010.0, %54 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.010.051, i64 16
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 312
@@ -12556,7 +12550,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L16samePredecessorsENS_12graph
           to label %54 unwind label %55
 
 54:                                               ; preds = %48
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.010.0 = load ptr, ptr %.sroa.010.051, align 8
   %.not38 = icmp eq ptr %.sroa.010.0, %34
   br i1 %.not38, label %._crit_edge54, label %48
@@ -12564,7 +12558,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L16samePredecessorsENS_12graph
 55:                                               ; preds = %48
   %56 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %114
 
 .loopexit42:                                      ; preds = %.lr.ph.i.i.i.i.i.i.i
@@ -12710,20 +12704,20 @@ _ZN3ue24edgeINS_9RoseGraphEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairI
   %.1 = phi i1 [ false, %_ZN3ue2L17hasEqualLeftfixesENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES7_RKS3_.exit ], [ true, %63 ], [ false, %._crit_edge54 ], [ false, %.noexc116 ], [ false, %.noexc115 ], [ false, %83 ], [ false, %81 ], [ false, %.critedge.i.i ], [ false, %.critedge24.i.i ], [ %.not39, %.loopexit ], [ %.not39, %.critedge ], [ false, %.noexc ]
   %.val107 = load ptr, ptr %18, align 8
   call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111AliasInEdgeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %.val107)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.val108 = load ptr, ptr %13, align 8
   call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111AliasInEdgeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %.val108)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %115
 
 114:                                              ; preds = %.loopexit42, %.loopexit.split-lp, %55, %32
   %.pn95.pn.pn.pn = phi { ptr, i32 } [ %33, %32 ], [ %56, %55 ], [ %lpad.loopexit, %.loopexit42 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.val109 = load ptr, ptr %18, align 8
   call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111AliasInEdgeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %.val109)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.val110 = load ptr, ptr %13, align 8
   call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111AliasInEdgeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %.val110)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn95.pn.pn.pn
 
 115:                                              ; preds = %2, %_ZN3ue24edgeINS_9RoseGraphEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit
@@ -12731,10 +12725,10 @@ _ZN3ue24edgeINS_9RoseGraphEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairI
   ret i1 %.0
 }
 
-declare noundef zeroext i1 @_ZN3ue222hasLastByteHistorySuccERKNS_9RoseGraphENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(56), ptr, i64) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZN3ue222hasLastByteHistorySuccERKNS_9RoseGraphENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(56), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #9
+declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZNSt3setIN3ue212_GLOBAL__N_111AliasInEdgeESt4lessIS2_ESaIS2_EE6insertEOS2_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -12768,7 +12762,7 @@ define internal fastcc void @_ZNSt3setIN3ue212_GLOBAL__N_111AliasInEdgeESt4lessI
   br i1 %11, label %select.unfold.i, label %12
 
 12:                                               ; preds = %._crit_edge.thread.i.i
-  %13 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.023.lcssa32.i.i) #28
+  %13 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.023.lcssa32.i.i) #27
   br label %14
 
 14:                                               ; preds = %12, %._crit_edge.i.i
@@ -12802,7 +12796,7 @@ _ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111AliasInEdgeES2_St9_IdentityIS2_ESt4lessIS2_E
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull readonly align 8 dereferenceable(24) %31, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3ue212_GLOBAL__N_111AliasInEdgeE, i64 16), ptr %29, align 8
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %27, ptr noundef nonnull %28, ptr noundef nonnull %.sroa.4.0.i.ph.i, ptr noundef nonnull align 8 dereferenceable(32) %4) #27
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %27, ptr noundef nonnull %28, ptr noundef nonnull %.sroa.4.0.i.ph.i, ptr noundef nonnull align 8 dereferenceable(32) %4) #28
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %33, 1
@@ -12814,13 +12808,13 @@ _ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111AliasInEdgeES2_St9_IdentityIS2_ESt4lessIS2_E
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN3ue212_GLOBAL__N_111AliasInEdgeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN3ue212_GLOBAL__N_111AliasInEdgeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @_ZNK3ue212_GLOBAL__N_113EdgeAndVertexltERKS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #15 align 2 {
+define internal noundef zeroext i1 @_ZNK3ue212_GLOBAL__N_113EdgeAndVertexltERKS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i = load ptr, ptr %4, align 8
@@ -12900,7 +12894,7 @@ _ZNK3ue212graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseV
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @_ZNK3ue212_GLOBAL__N_113EdgeAndVertexeqERKS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #15 align 2 {
+define internal noundef zeroext i1 @_ZNK3ue212_GLOBAL__N_113EdgeAndVertexeqERKS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload = load ptr, ptr %4, align 8
@@ -12949,12 +12943,12 @@ define internal noundef zeroext i1 @_ZNK3ue212_GLOBAL__N_113EdgeAndVertexeqERKS1
   ret i1 %36
 }
 
-declare noundef zeroext i1 @_ZN3ue28is_equalERKNS_11CastleProtoEjS2_j(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef, ptr noundef nonnull align 8 dereferenceable(112), i32 noundef) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZN3ue28is_equalERKNS_11CastleProtoEjS2_j(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef, ptr noundef nonnull align 8 dereferenceable(112), i32 noundef) local_unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN3ue28is_equalERKNS_8NGHolderEjS2_j(ptr noundef nonnull align 8 dereferenceable(136), i32 noundef, ptr noundef nonnull align 8 dereferenceable(136), i32 noundef) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZN3ue28is_equalERKNS_8NGHolderEjS2_j(ptr noundef nonnull align 8 dereferenceable(136), i32 noundef, ptr noundef nonnull align 8 dereferenceable(136), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111AliasInEdgeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111AliasInEdgeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %.not1 = icmp eq ptr %0, null
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
@@ -12968,7 +12962,7 @@ define internal fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111AliasInEdgeES2_
   %4 = getelementptr inbounds nuw i8, ptr %.02, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
   tail call void @_ZdlPv(ptr noundef nonnull %.02) #31
   %.not = icmp eq ptr %.0.val, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !489
@@ -12977,7 +12971,7 @@ define internal fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111AliasInEdgeES2_
   ret void
 }
 
-declare noundef zeroext i1 @_ZNK3ue214RoseSuffixInfoeqERKS0_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZNK3ue214RoseSuffixInfoeqERKS0_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext i1 @_ZN3ue2L21attemptRoseGraphMergeERNS_13RoseBuildImplEbNS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES9_bRNS_12_GLOBAL__N_116RoseAliasingInfoE(ptr noundef nonnull align 8 dereferenceable(780) %0, i1 noundef zeroext %1, ptr %2, i64 %3, ptr %4, i64 %5, i1 noundef zeroext %6, ptr noundef nonnull align 8 dereferenceable(112) %7) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -13017,7 +13011,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L21attemptRoseGraphMergeERNS_1
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 120
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %41 = load ptr, ptr %39, align 8
   store ptr %41, ptr %15, align 8
   %42 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -13040,7 +13034,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L21attemptRoseGraphMergeERNS_1
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 212
   %56 = load i32, ptr %55, align 4
   store i32 %56, ptr %54, align 4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %57 = load ptr, ptr %40, align 8
   store ptr %57, ptr %16, align 8
   %58 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -13063,7 +13057,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L21attemptRoseGraphMergeERNS_1
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 212
   %72 = load i32, ptr %71, align 4
   store i32 %72, ptr %70, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %41, ptr %17, align 8
   %73 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 128
@@ -13089,7 +13083,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L21attemptRoseGraphMergeERNS_1
   br label %_ZNSt10shared_ptrIN3ue28NGHolderEEC2ERKS2_.exit
 
 _ZNSt10shared_ptrIN3ue28NGHolderEEC2ERKS2_.exit:  ; preds = %8, %79, %82
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %84 = load ptr, ptr %40, align 8
   store ptr %84, ptr %18, align 8
   %85 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -13199,11 +13193,11 @@ _ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorI
   %136 = load ptr, ptr %128, align 8
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %138 = load ptr, ptr %137, align 8
-  call void %138(ptr noundef nonnull align 8 dereferenceable(16) %128) #27
+  call void %138(ptr noundef nonnull align 8 dereferenceable(16) %128) #28
   %139 = load ptr, ptr %128, align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 24
   %141 = load ptr, ptr %140, align 8
-  call void %141(ptr noundef nonnull align 8 dereferenceable(16) %128) #27
+  call void %141(ptr noundef nonnull align 8 dereferenceable(16) %128) #28
   br label %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 142:                                              ; preds = %129
@@ -13226,7 +13220,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %146, %144
   br i1 %148, label %149, label %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !111
 
 149:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %128) #27
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %128) #28
   br label %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %127, %134, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %149
@@ -13281,11 +13275,11 @@ _ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorI
   %171 = load ptr, ptr %163, align 8
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 16
   %173 = load ptr, ptr %172, align 8
-  call void %173(ptr noundef nonnull align 8 dereferenceable(16) %163) #27
+  call void %173(ptr noundef nonnull align 8 dereferenceable(16) %163) #28
   %174 = load ptr, ptr %163, align 8
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 24
   %176 = load ptr, ptr %175, align 8
-  call void %176(ptr noundef nonnull align 8 dereferenceable(16) %163) #27
+  call void %176(ptr noundef nonnull align 8 dereferenceable(16) %163) #28
   br label %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit267
 
 177:                                              ; preds = %164
@@ -13308,7 +13302,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i265: ; preds = %181, %1
   br i1 %183, label %184, label %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit267, !prof !111
 
 184:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i265
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %163) #27
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %163) #28
   br label %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit267
 
 _ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit267: ; preds = %162, %169, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i265, %184
@@ -13328,13 +13322,13 @@ _ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorI
 189:                                              ; preds = %_ZNSt10shared_ptrIN3ue28NGHolderEEC2ERKS2_.exit257, %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixERSK_.exit
   %190 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #27
+  call void @_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #28
   br label %764
 
 191:                                              ; preds = %_ZNSt10shared_ptrIN3ue28NGHolderEEC2ERKS2_.exit261, %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixERSK_.exit262
   %192 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #27
+  call void @_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #28
   br label %764
 
 193:                                              ; preds = %_ZNSt10shared_ptrIN3ue28NGHolderEEC2ERKS2_.exit254
@@ -13421,11 +13415,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
   %226 = load ptr, ptr %218, align 8
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 16
   %228 = load ptr, ptr %227, align 8
-  call void %228(ptr noundef nonnull align 8 dereferenceable(16) %218) #27
+  call void %228(ptr noundef nonnull align 8 dereferenceable(16) %218) #28
   %229 = load ptr, ptr %218, align 8
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 24
   %231 = load ptr, ptr %230, align 8
-  call void %231(ptr noundef nonnull align 8 dereferenceable(16) %218) #27
+  call void %231(ptr noundef nonnull align 8 dereferenceable(16) %218) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i
 
 232:                                              ; preds = %219
@@ -13448,7 +13442,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %236, %23
   br i1 %238, label %239, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i, !prof !111
 
 239:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %218) #27
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %218) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i: ; preds = %239, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %224, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i
@@ -13544,11 +13538,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
   %275 = load ptr, ptr %267, align 8
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 16
   %277 = load ptr, ptr %276, align 8
-  call void %277(ptr noundef nonnull align 8 dereferenceable(16) %267) #27
+  call void %277(ptr noundef nonnull align 8 dereferenceable(16) %267) #28
   %278 = load ptr, ptr %267, align 8
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 24
   %280 = load ptr, ptr %279, align 8
-  call void %280(ptr noundef nonnull align 8 dereferenceable(16) %267) #27
+  call void %280(ptr noundef nonnull align 8 dereferenceable(16) %267) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i290
 
 281:                                              ; preds = %268
@@ -13571,7 +13565,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i288: ; preds = %285, 
   br i1 %287, label %288, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i290, !prof !111
 
 288:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i288
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %267) #27
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %267) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i290
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i290: ; preds = %288, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i288, %273, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i285
@@ -13624,7 +13618,7 @@ _ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorI
   br label %764
 
 305:                                              ; preds = %302
-  %306 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0434.0456) #28
+  %306 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0434.0456) #27
   %.not442 = icmp eq ptr %306, %297
   br i1 %.not442, label %.thread, label %.lr.ph457
 
@@ -13645,7 +13639,7 @@ _ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorI
           to label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit297 unwind label %243
 
 _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit297: ; preds = %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixERSK_.exit296
-  %311 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3ue28NGHolderEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %18) #27
+  %311 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3ue28NGHolderEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %18) #28
   %312 = load i32, ptr %101, align 4
   store i32 %312, ptr %99, align 4
   %313 = load ptr, ptr %17, align 8
@@ -13688,7 +13682,7 @@ _ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorI
   br label %764
 
 327:                                              ; preds = %324
-  %328 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0430.0459) #28
+  %328 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0430.0459) #27
   %.not443 = icmp eq ptr %328, %319
   br i1 %.not443, label %.thread438, label %.lr.ph460
 
@@ -13709,7 +13703,7 @@ _ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorI
           to label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit303 unwind label %243
 
 _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit303: ; preds = %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixERSK_.exit302
-  %333 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3ue28NGHolderEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %17) #27
+  %333 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3ue28NGHolderEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %17) #28
   %334 = load i32, ptr %99, align 4
   store i32 %334, ptr %101, align 4
   %335 = load ptr, ptr %18, align 8
@@ -13730,8 +13724,8 @@ _ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorI
           to label %343 unwind label %360
 
 343:                                              ; preds = %.loopexit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #27
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %344 = load ptr, ptr %18, align 8
   invoke void @_ZN3ue211cloneHolderERKNS_8NGHolderE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.411") align 8 %22, ptr noundef nonnull align 8 dereferenceable(136) %344)
           to label %345 unwind label %362
@@ -13749,11 +13743,11 @@ _ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i: ; preds = %_ZNSt10shared_
   %347 = load ptr, ptr %346, align 8
   %348 = getelementptr inbounds nuw i8, ptr %347, i64 8
   %349 = load ptr, ptr %348, align 8
-  call void %349(ptr noundef nonnull align 8 dereferenceable(136) %346) #27
+  call void %349(ptr noundef nonnull align 8 dereferenceable(136) %346) #28
   br label %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN3ue28NGHolderEEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E.exit, %_ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %350 = load ptr, ptr %21, align 8
   %351 = load i32, ptr %101, align 4
   invoke void @_ZN3ue215duplicateReportERNS_8NGHolderEjj(ptr noundef nonnull align 8 dereferenceable(136) %350, i32 noundef %351, i32 noundef %342)
@@ -13796,12 +13790,12 @@ _ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i306: ; preds = %364
   %367 = load ptr, ptr %366, align 8
   %368 = getelementptr inbounds nuw i8, ptr %367, i64 8
   %369 = load ptr, ptr %368, align 8
-  call void %369(ptr noundef nonnull align 8 dereferenceable(136) %366) #27
+  call void %369(ptr noundef nonnull align 8 dereferenceable(136) %366) #28
   br label %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit307
 
 _ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit307: ; preds = %_ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i306, %364, %362
   %.pn242 = phi { ptr, i32 } [ %363, %362 ], [ %365, %364 ], [ %365, %_ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i306 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %523
 
 370:                                              ; preds = %379, %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE5eraseERKS8_.exit311, %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixERSK_.exit310, %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE5eraseERKS8_.exit309, %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixERSK_.exit308, %372, %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixERSK_.exit313, %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixERSK_.exit312, %354, %352, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit
@@ -13897,11 +13891,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
   %404 = load ptr, ptr %396, align 8
   %405 = getelementptr inbounds nuw i8, ptr %404, i64 16
   %406 = load ptr, ptr %405, align 8
-  call void %406(ptr noundef nonnull align 8 dereferenceable(16) %396) #27
+  call void %406(ptr noundef nonnull align 8 dereferenceable(16) %396) #28
   %407 = load ptr, ptr %396, align 8
   %408 = getelementptr inbounds nuw i8, ptr %407, i64 24
   %409 = load ptr, ptr %408, align 8
-  call void %409(ptr noundef nonnull align 8 dereferenceable(16) %396) #27
+  call void %409(ptr noundef nonnull align 8 dereferenceable(16) %396) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i324
 
 410:                                              ; preds = %397
@@ -13924,7 +13918,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i322: ; preds = %414, 
   br i1 %416, label %417, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i324, !prof !111
 
 417:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i322
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %396) #27
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %396) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i324
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i324: ; preds = %417, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i322, %402, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i319
@@ -13984,11 +13978,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
   %438 = load ptr, ptr %430, align 8
   %439 = getelementptr inbounds nuw i8, ptr %438, i64 16
   %440 = load ptr, ptr %439, align 8
-  call void %440(ptr noundef nonnull align 8 dereferenceable(16) %430) #27
+  call void %440(ptr noundef nonnull align 8 dereferenceable(16) %430) #28
   %441 = load ptr, ptr %430, align 8
   %442 = getelementptr inbounds nuw i8, ptr %441, i64 24
   %443 = load ptr, ptr %442, align 8
-  call void %443(ptr noundef nonnull align 8 dereferenceable(16) %430) #27
+  call void %443(ptr noundef nonnull align 8 dereferenceable(16) %430) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i336
 
 444:                                              ; preds = %431
@@ -14011,7 +14005,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i334: ; preds = %448, 
   br i1 %450, label %451, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i336, !prof !111
 
 451:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i334
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %430) #27
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %430) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i336
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i336: ; preds = %451, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i334, %436, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i331
@@ -14019,7 +14013,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i3
   br label %_ZNSt10shared_ptrIN3ue28NGHolderEEaSERKS2_.exit337
 
 _ZNSt10shared_ptrIN3ue28NGHolderEEaSERKS2_.exit337: ; preds = %_ZNSt10shared_ptrIN3ue28NGHolderEEaSERKS2_.exit325, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i336
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %23) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %452 = load ptr, ptr %39, align 8
   store ptr %452, ptr %23, align 8
   %453 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -14045,8 +14039,8 @@ _ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorI
           to label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit338 unwind label %492
 
 _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit338: ; preds = %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixEOS1_.exit
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23) #27
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %24) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %465 = load ptr, ptr %39, align 8
   store ptr %465, ptr %24, align 8
   %466 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -14072,9 +14066,9 @@ _ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorI
           to label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit340 unwind label %494
 
 _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit340: ; preds = %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixEOS1_.exit339
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %24) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %478 = load ptr, ptr %21, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %25) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %479 = load ptr, ptr %39, align 8
   store ptr %479, ptr %25, align 8
   %480 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -14100,25 +14094,25 @@ _ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorI
           to label %491 unwind label %496
 
 491:                                              ; preds = %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixEOS1_.exit341
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %25) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %498
 
 492:                                              ; preds = %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixEOS1_.exit, %_ZNSt10shared_ptrIN3ue28NGHolderEEaSERKS2_.exit337
   %493 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %522
 
 494:                                              ; preds = %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixEOS1_.exit339, %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit338
   %495 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %24) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %522
 
 496:                                              ; preds = %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit340, %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixEOS1_.exit341
   %497 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %25) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %522
 
 498:                                              ; preds = %359, %491
@@ -14141,11 +14135,11 @@ _ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorI
   %508 = load ptr, ptr %500, align 8
   %509 = getelementptr inbounds nuw i8, ptr %508, i64 16
   %510 = load ptr, ptr %509, align 8
-  call void %510(ptr noundef nonnull align 8 dereferenceable(16) %500) #27
+  call void %510(ptr noundef nonnull align 8 dereferenceable(16) %500) #28
   %511 = load ptr, ptr %500, align 8
   %512 = getelementptr inbounds nuw i8, ptr %511, i64 24
   %513 = load ptr, ptr %512, align 8
-  call void %513(ptr noundef nonnull align 8 dereferenceable(16) %500) #27
+  call void %513(ptr noundef nonnull align 8 dereferenceable(16) %500) #28
   br label %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit346
 
 514:                                              ; preds = %501
@@ -14168,21 +14162,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i344: ; preds = %518, %5
   br i1 %520, label %521, label %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit346, !prof !111
 
 521:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i344
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %500) #27
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %500) #28
   br label %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit346
 
 _ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit346: ; preds = %498, %506, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i344, %521
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %719
 
 522:                                              ; preds = %496, %494, %492, %370
   %.pn244 = phi { ptr, i32 } [ %497, %496 ], [ %495, %494 ], [ %493, %492 ], [ %371, %370 ]
-  call void @_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #27
+  call void @_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #28
   br label %523
 
 523:                                              ; preds = %522, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit307
   %.pn244.pn = phi { ptr, i32 } [ %.pn244, %522 ], [ %.pn242, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit307 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %764
 
 524:                                              ; preds = %195
@@ -14203,7 +14197,7 @@ _ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit346: ;
   br i1 %529, label %531, label %719
 
 531:                                              ; preds = %530
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %26) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %532 = load ptr, ptr %40, align 8
   store ptr %532, ptr %26, align 8
   %533 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -14225,8 +14219,8 @@ _ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit346: ;
           to label %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixEOS1_.exit347 unwind label %552
 
 _ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixEOS1_.exit347: ; preds = %531
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %26) #27
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %27) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %544 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 0, ptr %544, align 8
   %545 = getelementptr inbounds nuw i8, ptr %27, i64 16
@@ -14250,7 +14244,7 @@ _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphEN
 552:                                              ; preds = %531
   %553 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %26) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %764
 
 554:                                              ; preds = %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixEOS1_.exit347, %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit348
@@ -14316,8 +14310,8 @@ _ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorI
           to label %585 unwind label %601
 
 585:                                              ; preds = %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixERSK_.exit352
-  call void @_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %28) #27
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %29) #27
+  call void @_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %28) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   invoke void @_ZN3ue28NGHolderC2ENS_8nfa_kindE(ptr noundef nonnull align 8 dereferenceable(136) %29, i32 noundef 3)
           to label %_ZN3ue28NGHolderC2Ev.exit unwind label %603
 
@@ -14336,7 +14330,7 @@ _ZN3ue28NGHolderC2Ev.exit:                        ; preds = %585
           to label %590 unwind label %605
 
 590:                                              ; preds = %589
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %30) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %591 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 0, ptr %591, align 8
   %592 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -14359,8 +14353,8 @@ _ZN3ue28NGHolderC2Ev.exit:                        ; preds = %585
 
 ._crit_edge:                                      ; preds = %631, %590
   %598 = load ptr, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %32) #27
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %33) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   invoke void @_ZNSt5dequeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EEC2EmRKS8_RKS9_(ptr noundef nonnull align 8 dereferenceable(80) %32, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 1 dereferenceable(1) %33)
           to label %635 unwind label %638
 
@@ -14372,7 +14366,7 @@ _ZN3ue28NGHolderC2Ev.exit:                        ; preds = %585
 601:                                              ; preds = %_ZNSt10shared_ptrIN3ue28NGHolderEEC2ERKS2_.exit351, %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixERSK_.exit352
   %602 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %28) #27
+  call void @_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %28) #28
   br label %718
 
 603:                                              ; preds = %585
@@ -14388,7 +14382,7 @@ _ZN3ue28NGHolderC2Ev.exit:                        ; preds = %585
 607:                                              ; preds = %.lr.ph, %631
   %.sroa.0424.0449 = phi ptr [ %.sroa.0424.0447, %.lr.ph ], [ %.sroa.0424.0, %631 ]
   %608 = getelementptr inbounds nuw i8, ptr %.sroa.0424.0449, i64 40
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %609 = getelementptr inbounds nuw i8, ptr %.sroa.0424.0449, i64 16
   %610 = load ptr, ptr %609, align 8
   %.sroa.0.0.copyload.i.fr.i.i.i.i = freeze ptr %610
@@ -14449,22 +14443,22 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraph
 
 .critedge.i:                                      ; preds = %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEEclERKS8_SB_.exit.i, %627, %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES6_St4lessIS8_ESaISt4pairIKS8_S6_EEE11lower_boundERSC_.exit.i, %607
   %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEEclERKS8_SB_.exit.i ], [ %.19.i.i.i.i, %627 ], [ %.19.i.i.i.i, %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES6_St4lessIS8_ESaISt4pairIKS8_S6_EEE11lower_boundERSC_.exit.i ], [ %591, %607 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %31, ptr %11, align 8, !alias.scope !494
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %630 = invoke ptr @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_S6_ESt10_Select1stISB_ESt4lessIS8_ESaISB_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS8_EESM_IJEEEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr %.08.lcssa.i.i.i11.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
           to label %.noexc unwind label %633
 
 .noexc:                                           ; preds = %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %631
 
 631:                                              ; preds = %.noexc, %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEEclERKS8_SB_.exit.i, %627
   %.sroa.06.0.i = phi ptr [ %630, %.noexc ], [ %.19.i.i.i.i, %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEEclERKS8_SB_.exit.i ], [ %.19.i.i.i.i, %627 ]
   %632 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %632, ptr noundef nonnull align 8 dereferenceable(28) %608, i64 28, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   %.sroa.0424.0 = load ptr, ptr %.sroa.0424.0449, align 8
   %.not440 = icmp eq ptr %.sroa.0424.0, %596
   br i1 %.not440, label %._crit_edge, label %607
@@ -14472,7 +14466,7 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraph
 633:                                              ; preds = %.critedge.i
   %634 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %710
 
 635:                                              ; preds = %._crit_edge
@@ -14480,9 +14474,9 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraph
           to label %637 unwind label %640
 
 637:                                              ; preds = %635
-  call void @_ZNSt5dequeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %32) #27
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %33) #27
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %32) #27
+  call void @_ZNSt5dequeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %32) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br i1 %636, label %643, label %.loopexit445
 
 638:                                              ; preds = %._crit_edge
@@ -14493,13 +14487,13 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraph
 640:                                              ; preds = %635
   %641 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt5dequeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %32) #27
+  call void @_ZNSt5dequeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %32) #28
   br label %642
 
 642:                                              ; preds = %640, %638
   %.pn = phi { ptr, i32 } [ %641, %640 ], [ %639, %638 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %33) #27
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %32) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %710
 
 643:                                              ; preds = %637
@@ -14529,7 +14523,7 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraph
 
 653:                                              ; preds = %.lr.ph454, %676
   %.sroa.0419.0452 = phi ptr [ %.sroa.0419.0450, %.lr.ph454 ], [ %.sroa.0419.0, %676 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %654 = getelementptr inbounds nuw i8, ptr %.sroa.0419.0452, i64 16
   %655 = load ptr, ptr %654, align 8
   %.sroa.0.0.copyload.i.fr.i.i.i.i362 = freeze ptr %655
@@ -14590,15 +14584,15 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraph
 
 .critedge.i380:                                   ; preds = %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEEclERKS8_SB_.exit.i378, %672, %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES6_St4lessIS8_ESaISt4pairIKS8_S6_EEE11lower_boundERSC_.exit.i374, %653
   %.08.lcssa.i.i.i11.i381 = phi ptr [ %.19.i.i.i.i371, %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEEclERKS8_SB_.exit.i378 ], [ %.19.i.i.i.i371, %672 ], [ %.19.i.i.i.i371, %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES6_St4lessIS8_ESaISt4pairIKS8_S6_EEE11lower_boundERSC_.exit.i374 ], [ %591, %653 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %34, ptr %9, align 8, !alias.scope !500
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %675 = invoke ptr @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_S6_ESt10_Select1stISB_ESt4lessIS8_ESaISB_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS8_EESM_IJEEEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr %.08.lcssa.i.i.i11.i381, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %.noexc390 unwind label %679
 
 .noexc390:                                        ; preds = %.critedge.i380
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %676
 
 676:                                              ; preds = %.noexc390, %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEEclERKS8_SB_.exit.i378, %672
@@ -14606,7 +14600,7 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraph
   %677 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i379, i64 48
   %678 = getelementptr inbounds nuw i8, ptr %.sroa.0419.0452, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %678, ptr noundef nonnull align 8 dereferenceable(28) %677, i64 28, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %.sroa.0419.0 = load ptr, ptr %.sroa.0419.0452, align 8
   %.not441 = icmp eq ptr %.sroa.0419.0, %649
   br i1 %.not441, label %.loopexit445, label %653
@@ -14614,11 +14608,11 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraph
 679:                                              ; preds = %.critedge.i380
   %680 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %710
 
 681:                                              ; preds = %647
-  %682 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3ue28NGHolderEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %18) #27
+  %682 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3ue28NGHolderEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %18) #28
   store i32 %568, ptr %99, align 4
   %683 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8__detail9_Map_baseIN3ue27left_idESt4pairIKS2_St3setINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESt4lessISD_ESaISD_EEESaISI_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(40) %15)
           to label %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixERSK_.exit393 unwind label %651
@@ -14687,7 +14681,7 @@ _ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorI
           to label %705 unwind label %708
 
 705:                                              ; preds = %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixERSK_.exit408
-  call void @_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %35) #27
+  call void @_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %35) #28
   %706 = load ptr, ptr %18, align 8
   %707 = load ptr, ptr %557, align 8
   invoke void @_ZN3ue224reduceImplementableGraphERNS_8NGHolderENS_8som_typeEPKNS_13ReportManagerERKNS_14CompileContextE(ptr noundef nonnull align 8 dereferenceable(136) %706, i32 noundef 0, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(320) %707)
@@ -14696,31 +14690,31 @@ _ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorI
 708:                                              ; preds = %_ZNSt10shared_ptrIN3ue28NGHolderEEC2ERKS2_.exit406, %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixERSK_.exit408
   %709 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %35) #27
+  call void @_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %35) #28
   br label %710
 
 .loopexit445:                                     ; preds = %676, %648, %705, %637
   %.3 = phi i1 [ false, %637 ], [ true, %705 ], [ false, %648 ], [ false, %676 ]
-  call void @_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES6_St4lessIS8_ESaISt4pairIKS8_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %30) #27
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %30) #27
-  call void @_ZN3ue28NGHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %29) #27
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %29) #27
+  call void @_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES6_St4lessIS8_ESaISt4pairIKS8_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %30) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @_ZN3ue28NGHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %29) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %713
 
 710:                                              ; preds = %679, %633, %708, %651, %642
   %.pn228.pn.pn.pn = phi { ptr, i32 } [ %652, %651 ], [ %709, %708 ], [ %.pn, %642 ], [ %634, %633 ], [ %680, %679 ]
-  call void @_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES6_St4lessIS8_ESaISt4pairIKS8_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %30) #27
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %30) #27
+  call void @_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES6_St4lessIS8_ESaISt4pairIKS8_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %30) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %711
 
 711:                                              ; preds = %710, %605
   %.pn228.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn228.pn.pn.pn, %710 ], [ %606, %605 ]
-  call void @_ZN3ue28NGHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %29) #27
+  call void @_ZN3ue28NGHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %29) #28
   br label %712
 
 712:                                              ; preds = %711, %603
   %.pn228.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn228.pn.pn.pn.pn, %711 ], [ %604, %603 ]
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %29) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %718
 
 713:                                              ; preds = %556, %551, %.loopexit445
@@ -14737,13 +14731,13 @@ _ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorI
   unreachable
 
 _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev.exit: ; preds = %713
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %27) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %719
 
 718:                                              ; preds = %599, %601, %712, %554
   %.pn228.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %555, %554 ], [ %.pn228.pn.pn.pn.pn.pn, %712 ], [ %602, %601 ], [ %600, %599 ]
-  call void @_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %27) #27
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %27) #27
+  call void @_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %27) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %764
 
 719:                                              ; preds = %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixERSK_.exit304.invoke, %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixERSK_.exit268, %527, %530, %524, %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev.exit, %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit346
@@ -14766,11 +14760,11 @@ _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphEN
   %728 = load ptr, ptr %720, align 8
   %729 = getelementptr inbounds nuw i8, ptr %728, i64 16
   %730 = load ptr, ptr %729, align 8
-  call void %730(ptr noundef nonnull align 8 dereferenceable(16) %720) #27
+  call void %730(ptr noundef nonnull align 8 dereferenceable(16) %720) #28
   %731 = load ptr, ptr %720, align 8
   %732 = getelementptr inbounds nuw i8, ptr %731, i64 24
   %733 = load ptr, ptr %732, align 8
-  call void %733(ptr noundef nonnull align 8 dereferenceable(16) %720) #27
+  call void %733(ptr noundef nonnull align 8 dereferenceable(16) %720) #28
   br label %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit413
 
 734:                                              ; preds = %721
@@ -14793,11 +14787,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i411: ; preds = %738, %7
   br i1 %740, label %741, label %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit413, !prof !111
 
 741:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i411
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %720) #27
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %720) #28
   br label %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit413
 
 _ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit413: ; preds = %719, %726, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i411, %741
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %742 = load ptr, ptr %73, align 8
   %.not.i.i414 = icmp eq ptr %742, null
   br i1 %.not.i.i414, label %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit418, label %743
@@ -14816,11 +14810,11 @@ _ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit413: ;
   %750 = load ptr, ptr %742, align 8
   %751 = getelementptr inbounds nuw i8, ptr %750, i64 16
   %752 = load ptr, ptr %751, align 8
-  call void %752(ptr noundef nonnull align 8 dereferenceable(16) %742) #27
+  call void %752(ptr noundef nonnull align 8 dereferenceable(16) %742) #28
   %753 = load ptr, ptr %742, align 8
   %754 = getelementptr inbounds nuw i8, ptr %753, i64 24
   %755 = load ptr, ptr %754, align 8
-  call void %755(ptr noundef nonnull align 8 dereferenceable(16) %742) #27
+  call void %755(ptr noundef nonnull align 8 dereferenceable(16) %742) #28
   br label %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit418
 
 756:                                              ; preds = %743
@@ -14843,23 +14837,23 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i416: ; preds = %760, %7
   br i1 %762, label %763, label %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit418, !prof !111
 
 763:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i416
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %742) #27
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %742) #28
   br label %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit418
 
 _ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit418: ; preds = %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit413, %748, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i416, %763
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #27
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16) #27
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret i1 %.0
 
 764:                                              ; preds = %552, %718, %360, %523, %320, %325, %298, %303, %187, %189, %191, %243
   %.pn248.pn = phi { ptr, i32 } [ %244, %243 ], [ %188, %187 ], [ %192, %191 ], [ %190, %189 ], [ %304, %303 ], [ %299, %298 ], [ %326, %325 ], [ %321, %320 ], [ %.pn244.pn, %523 ], [ %361, %360 ], [ %.pn228.pn.pn.pn.pn.pn.pn.pn, %718 ], [ %553, %552 ]
-  call void @_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #27
-  call void @_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #27
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16) #27
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15) #27
+  call void @_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   resume { ptr, i32 } %.pn248.pn
 }
 
@@ -14913,7 +14907,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L22attemptRoseCastleMergeERNS_
   store i64 %5, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 120
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %32) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %53 = load ptr, ptr %51, align 8
   store ptr %53, ptr %32, align 8
   %54 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -14936,7 +14930,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L22attemptRoseCastleMergeERNS_
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 212
   %68 = load i32, ptr %67, align 4
   store i32 %68, ptr %66, align 4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %33) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %69 = load ptr, ptr %52, align 8
   store ptr %69, ptr %33, align 8
   %70 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -14970,7 +14964,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L22attemptRoseCastleMergeERNS_
   br i1 %88, label %89, label %341
 
 89:                                               ; preds = %87
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %4, ptr %18, align 8
   %90 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %5, ptr %90, align 8
@@ -15078,18 +15072,18 @@ _ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit77.i
 
 _ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit77.thread.i: ; preds = %137, %_ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit77.i, %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb1EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i68.i
   %.1.i = phi i32 [ %138, %137 ], [ %.052183.i, %_ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit77.i ], [ %.052183.i, %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb1EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i68.i ]
-  %139 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0144.0182.i) #28
+  %139 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0144.0182.i) #27
   %.not.i = icmp eq ptr %139, %94
   br i1 %.not.i, label %._crit_edge.loopexit.i, label %102
 
 140:                                              ; preds = %._crit_edge.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %141 = load ptr, ptr %0, align 8
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 120
   %143 = load ptr, ptr %142, align 8
   %144 = tail call noundef i32 %143(ptr noundef nonnull align 8 dereferenceable(780) %0)
   store i32 %144, ptr %19, align 4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %20) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %145 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 0, ptr %145, align 8
   %146 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -15100,7 +15094,7 @@ _ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit77.t
   store ptr %145, ptr %148, align 8
   %149 = getelementptr inbounds nuw i8, ptr %20, i64 40
   store i64 0, ptr %149, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %21) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %150 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 0, ptr %150, align 8
   %151 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -15129,7 +15123,7 @@ _ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit77.t
   br label %178
 
 ._crit_edge188.i:                                 ; preds = %_ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit99.thread.i, %140
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %27) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %166 = load ptr, ptr %52, align 8
   store ptr %166, ptr %27, align 8
   %167 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -15153,7 +15147,7 @@ _ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit77.t
 178:                                              ; preds = %_ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit99.thread.i, %.lr.ph187.i
   %.sroa.0134.0185.i = phi ptr [ %155, %.lr.ph187.i ], [ %266, %_ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit99.thread.i ]
   %179 = getelementptr inbounds nuw i8, ptr %.sroa.0134.0185.i, i64 32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %180 = load i32, ptr %179, align 8
   store i32 %180, ptr %22, align 4
   %181 = getelementptr inbounds nuw i8, ptr %.sroa.0134.0185.i, i64 40
@@ -15196,10 +15190,10 @@ _ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit87.i
   br i1 %.not152.i, label %_ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit87.thread.i, label %202
 
 202:                                              ; preds = %_ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit87.i
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %23) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr noundef nonnull align 8 dereferenceable(72) %181, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %158, ptr %157, align 8
   store i64 0, ptr %159, align 8
   store i64 2, ptr %160, align 8
@@ -15219,15 +15213,15 @@ _ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit87.i
   br i1 %or.cond.i, label %.body.i, label %.body.sink.split.i
 
 208:                                              ; preds = %202
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   store i64 0, ptr %159, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   invoke void @_ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.431") align 8 %24, ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef nonnull align 4 dereferenceable(4) %19)
           to label %209 unwind label %219
 
 209:                                              ; preds = %208
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %210 = invoke noundef i32 @_ZN3ue211CastleProto5mergeERKNS_10PureRepeatE(ptr noundef nonnull align 8 dereferenceable(112) %91, ptr noundef nonnull align 8 dereferenceable(72) %23)
           to label %211 unwind label %221
 
@@ -15251,13 +15245,13 @@ _ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit87.i
   br label %_ZN3ue210PureRepeatD2Ev.exit.i
 
 _ZN3ue210PureRepeatD2Ev.exit.i:                   ; preds = %218, %215, %213
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %23) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %_ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit99.thread.i
 
 219:                                              ; preds = %208
   %220 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %223
 
 221:                                              ; preds = %211, %209
@@ -15282,7 +15276,7 @@ _ZN3ue210PureRepeatD2Ev.exit.i:                   ; preds = %218, %215, %213
 
 .body.i:                                          ; preds = %.body.sink.split.i, %223, %203
   %.pn63.pn.i = phi { ptr, i32 } [ %204, %203 ], [ %.pn63.i, %223 ], [ %.pn63.pn.ph.i, %.body.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %23) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %267
 
 _ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit87.thread.i: ; preds = %_ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit87.i, %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb1EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i78.i
@@ -15319,10 +15313,10 @@ _ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit99.i
   br i1 %.not153.i, label %_ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit99.thread.i, label %241
 
 241:                                              ; preds = %_ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit99.i
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %25) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %25, ptr noundef nonnull align 8 dereferenceable(72) %181, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %163, ptr %162, align 8
   store i64 0, ptr %164, align 8
   store i64 2, ptr %165, align 8
@@ -15342,15 +15336,15 @@ _ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit99.i
   br i1 %or.cond216.i, label %.body102.i, label %.body102.sink.split.i
 
 247:                                              ; preds = %241
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   store i64 0, ptr %164, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   invoke void @_ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.431") align 8 %26, ptr noundef nonnull align 8 dereferenceable(32) %162, ptr noundef nonnull align 4 dereferenceable(4) %19)
           to label %248 unwind label %258
 
 248:                                              ; preds = %247
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %249 = invoke noundef i32 @_ZN3ue211CastleProto5mergeERKNS_10PureRepeatE(ptr noundef nonnull align 8 dereferenceable(112) %91, ptr noundef nonnull align 8 dereferenceable(72) %25)
           to label %250 unwind label %260
 
@@ -15374,13 +15368,13 @@ _ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit99.i
   br label %_ZN3ue210PureRepeatD2Ev.exit106.i
 
 _ZN3ue210PureRepeatD2Ev.exit106.i:                ; preds = %257, %254, %252
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %25) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %_ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit99.thread.i
 
 258:                                              ; preds = %247
   %259 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %262
 
 260:                                              ; preds = %250, %248
@@ -15405,18 +15399,18 @@ _ZN3ue210PureRepeatD2Ev.exit106.i:                ; preds = %257, %254, %252
 
 .body102.i:                                       ; preds = %.body102.sink.split.i, %262, %242
   %.pn.pn.i = phi { ptr, i32 } [ %243, %242 ], [ %.pn.i, %262 ], [ %.pn.pn.ph.i, %.body102.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %25) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %267
 
 _ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit99.thread.i: ; preds = %_ZN3ue210PureRepeatD2Ev.exit106.i, %_ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit99.i, %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb1EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i90.i, %_ZN3ue210PureRepeatD2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #27
-  %266 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0134.0185.i) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  %266 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0134.0185.i) #27
   %.not151.i = icmp eq ptr %266, %94
   br i1 %.not151.i, label %._crit_edge188.i, label %178
 
 267:                                              ; preds = %.body102.i, %.body.i
   %.pn63.pn.pn.i = phi { ptr, i32 } [ %.pn63.pn.i, %.body.i ], [ %.pn.pn.i, %.body102.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %340
 
 _ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixEOS1_.exit.i: ; preds = %._crit_edge188.i
@@ -15424,8 +15418,8 @@ _ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorI
           to label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE5eraseERKS8_.exit.i unwind label %332
 
 _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE5eraseERKS8_.exit.i: ; preds = %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixEOS1_.exit.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %27) #27
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %28) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %269 = load ptr, ptr %51, align 8
   store ptr %269, ptr %28, align 8
   %270 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -15451,7 +15445,7 @@ _ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorI
           to label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit.i unwind label %334
 
 _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit.i: ; preds = %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixEOS1_.exit109.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %28) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %282 = load i32, ptr %19, align 4
   %283 = getelementptr inbounds nuw i8, ptr %2, i64 204
   store i32 %282, ptr %283, align 4
@@ -15565,7 +15559,7 @@ _ZNKSt3mapIjjSt4lessIjESaISt4pairIKjjEEE2atERS3_.exit.i125.i: ; preds = %307
   br i1 %.not.i127.i, label %_ZN3ue2L14updateEdgeTopsERNS_9RoseGraphENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEERKSt3mapIjjSt4lessIjESaISt4pairIKjjEEE.exit130.i, label %.lr.ph.i113.i
 
 _ZN3ue2L14updateEdgeTopsERNS_9RoseGraphENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEERKSt3mapIjjSt4lessIjESaISt4pairIKjjEEE.exit130.i: ; preds = %_ZNKSt3mapIjjSt4lessIjESaISt4pairIKjjEEE2atERS3_.exit.i125.i, %_ZN3ue2L14updateEdgeTopsERNS_9RoseGraphENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEERKSt3mapIjjSt4lessIjESaISt4pairIKjjEEE.exit.i
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %29) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %311 = load ptr, ptr %51, align 8
   store ptr %311, ptr %29, align 8
   %312 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -15591,7 +15585,7 @@ _ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorI
           to label %323 unwind label %338
 
 323:                                              ; preds = %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixEOS1_.exit132.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %29) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %324 = load ptr, ptr %151, align 8
   invoke void @_ZNSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef %324)
           to label %_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev.exit.i unwind label %325
@@ -15604,7 +15598,7 @@ _ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorI
   unreachable
 
 _ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev.exit.i: ; preds = %323
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %21) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %328 = load ptr, ptr %146, align 8
   invoke void @_ZNSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef %328)
           to label %_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev.exit133.i unwind label %329
@@ -15617,20 +15611,20 @@ _ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev.exit.i: ; preds = %323
   unreachable
 
 _ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev.exit133.i: ; preds = %_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %20) #27
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %_ZN3ue2L15mergeSameCastleERNS_13RoseBuildImplENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES9_RNS_12_GLOBAL__N_116RoseAliasingInfoE.exit
 
 332:                                              ; preds = %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixEOS1_.exit.i, %._crit_edge188.i
   %333 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %27) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %340
 
 334:                                              ; preds = %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixEOS1_.exit109.i, %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE5eraseERKS8_.exit.i
   %335 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %28) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %340
 
 336:                                              ; preds = %.critedge.i.i128.split.invoke.i
@@ -15641,7 +15635,7 @@ _ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev.exit133.i: ; preds = %_ZNSt3mapIjjSt
 338:                                              ; preds = %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixEOS1_.exit132.i, %_ZN3ue2L14updateEdgeTopsERNS_9RoseGraphENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEERKSt3mapIjjSt4lessIjESaISt4pairIKjjEEE.exit130.i
   %339 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %29) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %340
 
 common.resume:                                    ; preds = %856, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3ue211CastleProtoESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, %340
@@ -15650,15 +15644,15 @@ common.resume:                                    ; preds = %856, %_ZNSt15__allo
 
 340:                                              ; preds = %338, %336, %334, %332, %267
   %.pn63.pn.pn.pn.i = phi { ptr, i32 } [ %.pn63.pn.pn.i, %267 ], [ %339, %338 ], [ %337, %336 ], [ %335, %334 ], [ %333, %332 ]
-  call void @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %21) #27
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %21) #27
-  call void @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %20) #27
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %20) #27
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #27
+  call void @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %21) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %20) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %common.resume
 
 _ZN3ue2L15mergeSameCastleERNS_13RoseBuildImplENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES9_RNS_12_GLOBAL__N_116RoseAliasingInfoE.exit: ; preds = %._crit_edge.i, %_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev.exit133.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %855
 
 341:                                              ; preds = %87
@@ -15735,11 +15729,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
   %380 = load ptr, ptr %372, align 8
   %381 = getelementptr inbounds nuw i8, ptr %380, i64 16
   %382 = load ptr, ptr %381, align 8
-  call void %382(ptr noundef nonnull align 8 dereferenceable(16) %372) #27
+  call void %382(ptr noundef nonnull align 8 dereferenceable(16) %372) #28
   %383 = load ptr, ptr %372, align 8
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 24
   %385 = load ptr, ptr %384, align 8
-  call void %385(ptr noundef nonnull align 8 dereferenceable(16) %372) #27
+  call void %385(ptr noundef nonnull align 8 dereferenceable(16) %372) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i
 
 386:                                              ; preds = %373
@@ -15762,7 +15756,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %390, %38
   br i1 %392, label %393, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i, !prof !111
 
 393:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %372) #27
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %372) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i: ; preds = %393, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %378, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i
@@ -15839,11 +15833,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
   %427 = load ptr, ptr %419, align 8
   %428 = getelementptr inbounds nuw i8, ptr %427, i64 16
   %429 = load ptr, ptr %428, align 8
-  call void %429(ptr noundef nonnull align 8 dereferenceable(16) %419) #27
+  call void %429(ptr noundef nonnull align 8 dereferenceable(16) %419) #28
   %430 = load ptr, ptr %419, align 8
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 24
   %432 = load ptr, ptr %431, align 8
-  call void %432(ptr noundef nonnull align 8 dereferenceable(16) %419) #27
+  call void %432(ptr noundef nonnull align 8 dereferenceable(16) %419) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i268
 
 433:                                              ; preds = %420
@@ -15866,7 +15860,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i266: ; preds = %437, 
   br i1 %439, label %440, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i268, !prof !111
 
 440:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i266
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %419) #27
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %419) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i268
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i268: ; preds = %440, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i266, %425, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i263
@@ -15901,7 +15895,7 @@ _ZNSt10shared_ptrIN3ue211CastleProtoEEaSERKS2_.exit269: ; preds = %399, %_ZNSt16
   br i1 %449, label %450, label %452
 
 450:                                              ; preds = %.lr.ph411
-  %451 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0347.0410) #28
+  %451 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0347.0410) #27
   %.not365 = icmp eq ptr %451, %447
   br i1 %.not365, label %.thread, label %.lr.ph411
 
@@ -15920,7 +15914,7 @@ _ZNSt10shared_ptrIN3ue211CastleProtoEEaSERKS2_.exit269: ; preds = %399, %_ZNSt16
   %460 = call { ptr, i8 } @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE16_M_insert_uniqueIRKS8_EESt4pairISt17_Rb_tree_iteratorIS8_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %459, ptr noundef nonnull align 8 dereferenceable(16) %30)
   %461 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8__detail9_Map_baseIN3ue27left_idESt4pairIKS2_St3setINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESt4lessISD_ESaISD_EEESaISI_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(40) %32)
   call fastcc void @_ZN3ue2L15pruneUnusedTopsERNS_11CastleProtoERKNS_9RoseGraphERKSt3setINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS2_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESt4lessISC_ESaISC_EE(ptr noundef nonnull align 8 dereferenceable(112) %56, ptr noundef nonnull align 8 dereferenceable(48) %461)
-  %462 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3ue211CastleProtoEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %71) #27
+  %462 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3ue211CastleProtoEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %71) #28
   %463 = load i32, ptr %344, align 4
   store i32 %463, ptr %342, align 4
   br label %855
@@ -15937,7 +15931,7 @@ _ZNSt10shared_ptrIN3ue211CastleProtoEEaSERKS2_.exit269: ; preds = %399, %_ZNSt16
   br i1 %465, label %466, label %.loopexit
 
 466:                                              ; preds = %.lr.ph414
-  %467 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0343.0413) #28
+  %467 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0343.0413) #27
   %.not366 = icmp eq ptr %467, %456
   br i1 %.not366, label %.thread357, label %.lr.ph414
 
@@ -15948,7 +15942,7 @@ _ZNSt10shared_ptrIN3ue211CastleProtoEEaSERKS2_.exit269: ; preds = %399, %_ZNSt16
   %471 = call { ptr, i8 } @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE16_M_insert_uniqueIRKS8_EESt4pairISt17_Rb_tree_iteratorIS8_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %470, ptr noundef nonnull align 8 dereferenceable(16) %31)
   %472 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8__detail9_Map_baseIN3ue27left_idESt4pairIKS2_St3setINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESt4lessISD_ESaISD_EEESaISI_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(40) %33)
   call fastcc void @_ZN3ue2L15pruneUnusedTopsERNS_11CastleProtoERKNS_9RoseGraphERKSt3setINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS2_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESt4lessISC_ESaISC_EE(ptr noundef nonnull align 8 dereferenceable(112) %72, ptr noundef nonnull align 8 dereferenceable(48) %472)
-  %473 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3ue211CastleProtoEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull align 8 dereferenceable(16) %55) #27
+  %473 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3ue211CastleProtoEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull align 8 dereferenceable(16) %55) #28
   %474 = load i32, ptr %342, align 4
   store i32 %474, ptr %344, align 4
   br label %855
@@ -15958,10 +15952,10 @@ _ZNSt10shared_ptrIN3ue211CastleProtoEEaSERKS2_.exit269: ; preds = %399, %_ZNSt16
   %476 = getelementptr inbounds nuw i8, ptr %475, i64 120
   %477 = load ptr, ptr %476, align 8
   %478 = call noundef i32 %477(ptr noundef nonnull align 8 dereferenceable(780) %0)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   call void @llvm.experimental.noalias.scope.decl(metadata !565)
   %479 = call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #30, !noalias !565
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13), !noalias !565
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !565
   %480 = getelementptr inbounds nuw i8, ptr %479, i64 8
   store i32 1, ptr %480, align 8, !noalias !565
   %481 = getelementptr inbounds nuw i8, ptr %479, i64 12
@@ -15979,7 +15973,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3ue211CastleProtoESaIvELN
 
 _ZSt11make_sharedIN3ue211CastleProtoEJRS1_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_.exit: ; preds = %.loopexit
   %484 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13), !noalias !565
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !565
   store ptr %479, ptr %484, align 8, !alias.scope !565
   store ptr %482, ptr %34, align 8, !alias.scope !565
   %485 = load i32, ptr %342, align 4
@@ -16068,11 +16062,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
   %514 = load ptr, ptr %.pr.i.i.i278, align 8
   %515 = getelementptr inbounds nuw i8, ptr %514, i64 16
   %516 = load ptr, ptr %515, align 8
-  call void %516(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i278) #27
+  call void %516(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i278) #28
   %517 = load ptr, ptr %.pr.i.i.i278, align 8
   %518 = getelementptr inbounds nuw i8, ptr %517, i64 24
   %519 = load ptr, ptr %518, align 8
-  call void %519(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i278) #27
+  call void %519(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i278) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i284
 
 520:                                              ; preds = %507
@@ -16095,7 +16089,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i282: ; preds = %524, 
   br i1 %526, label %527, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i284, !prof !111
 
 527:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i282
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i278) #27
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i278) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i284
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i284: ; preds = %527, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i282, %512, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i279
@@ -16156,11 +16150,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
   %549 = load ptr, ptr %541, align 8
   %550 = getelementptr inbounds nuw i8, ptr %549, i64 16
   %551 = load ptr, ptr %550, align 8
-  call void %551(ptr noundef nonnull align 8 dereferenceable(16) %541) #27
+  call void %551(ptr noundef nonnull align 8 dereferenceable(16) %541) #28
   %552 = load ptr, ptr %541, align 8
   %553 = getelementptr inbounds nuw i8, ptr %552, i64 24
   %554 = load ptr, ptr %553, align 8
-  call void %554(ptr noundef nonnull align 8 dereferenceable(16) %541) #27
+  call void %554(ptr noundef nonnull align 8 dereferenceable(16) %541) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i296
 
 555:                                              ; preds = %542
@@ -16183,7 +16177,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i294: ; preds = %559, 
   br i1 %561, label %562, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i296, !prof !111
 
 562:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i294
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %541) #27
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %541) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i296
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i296: ; preds = %562, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i294, %547, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i291
@@ -16191,7 +16185,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i2
   br label %_ZNSt10shared_ptrIN3ue211CastleProtoEEaSERKS2_.exit297
 
 _ZNSt10shared_ptrIN3ue211CastleProtoEEaSERKS2_.exit297: ; preds = %_ZNSt10shared_ptrIN3ue211CastleProtoEEaSERKS2_.exit285, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i296
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %35) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %563 = load ptr, ptr %51, align 8
   store ptr %563, ptr %35, align 8
   %564 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -16217,8 +16211,8 @@ _ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorI
           to label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit unwind label %627
 
 _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit: ; preds = %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixEOS1_.exit
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %35) #27
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %36) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %576 = load ptr, ptr %51, align 8
   store ptr %576, ptr %36, align 8
   %577 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -16244,9 +16238,9 @@ _ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorI
           to label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit299 unwind label %629
 
 _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit299: ; preds = %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixEOS1_.exit298
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %36) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %589 = load ptr, ptr %34, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %37) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %590 = load ptr, ptr %51, align 8
   store ptr %590, ptr %37, align 8
   %591 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -16272,7 +16266,7 @@ _ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorI
           to label %602 unwind label %631
 
 602:                                              ; preds = %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixEOS1_.exit300
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %37) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   %603 = load ptr, ptr %484, align 8
   %.not.i.i301 = icmp eq ptr %603, null
   br i1 %.not.i.i301, label %_ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %604
@@ -16291,11 +16285,11 @@ _ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorI
   %611 = load ptr, ptr %603, align 8
   %612 = getelementptr inbounds nuw i8, ptr %611, i64 16
   %613 = load ptr, ptr %612, align 8
-  call void %613(ptr noundef nonnull align 8 dereferenceable(16) %603) #27
+  call void %613(ptr noundef nonnull align 8 dereferenceable(16) %603) #28
   %614 = load ptr, ptr %603, align 8
   %615 = getelementptr inbounds nuw i8, ptr %614, i64 24
   %616 = load ptr, ptr %615, align 8
-  call void %616(ptr noundef nonnull align 8 dereferenceable(16) %603) #27
+  call void %616(ptr noundef nonnull align 8 dereferenceable(16) %603) #28
   br label %_ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 617:                                              ; preds = %604
@@ -16318,11 +16312,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %621, %619
   br i1 %623, label %624, label %_ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !111
 
 624:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %603) #27
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %603) #28
   br label %_ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %602, %609, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %624
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %855
 
 625:                                              ; preds = %494, %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE5eraseERKS8_.exit271, %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixERSK_.exit270, %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE5eraseERKS8_.exit, %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixERSK_.exit, %487, %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixERSK_.exit273, %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixERSK_.exit272, %486, %_ZSt11make_sharedIN3ue211CastleProtoEJRS1_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_.exit
@@ -16333,25 +16327,25 @@ _ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: 
 627:                                              ; preds = %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixEOS1_.exit, %_ZNSt10shared_ptrIN3ue211CastleProtoEEaSERKS2_.exit297
   %628 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %35) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %633
 
 629:                                              ; preds = %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixEOS1_.exit298, %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit
   %630 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %36) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %633
 
 631:                                              ; preds = %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit299, %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixEOS1_.exit300
   %632 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %37) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %633
 
 633:                                              ; preds = %631, %629, %627, %625
   %.pn244 = phi { ptr, i32 } [ %632, %631 ], [ %630, %629 ], [ %628, %627 ], [ %626, %625 ]
-  call void @_ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %34) #27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34) #27
+  call void @_ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %34) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %856
 
 634:                                              ; preds = %341
@@ -16367,7 +16361,7 @@ _ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: 
 
 639:                                              ; preds = %637
   %640 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8__detail9_Map_baseIN3ue27left_idESt4pairIKS2_St3setINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESt4lessISD_ESaISD_EEESaISI_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(40) %33)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %38) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %641 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i32 0, ptr %641, align 8
   %642 = getelementptr inbounds nuw i8, ptr %38, i64 16
@@ -16408,7 +16402,7 @@ _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphEN
   br i1 %660, label %661, label %853
 
 661:                                              ; preds = %657
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %39) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %662 = load ptr, ptr %0, align 8
   %663 = getelementptr inbounds nuw i8, ptr %662, i64 120
   %664 = load ptr, ptr %663, align 8
@@ -16417,7 +16411,7 @@ _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphEN
 
 666:                                              ; preds = %661
   store i32 %665, ptr %39, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   invoke void @_ZSt11make_sharedIN3ue211CastleProtoEJRS1_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.149") align 8 %40, ptr noundef nonnull align 8 dereferenceable(112) %56)
           to label %667 unwind label %688
 
@@ -16434,7 +16428,7 @@ _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphEN
           to label %673 unwind label %690
 
 673:                                              ; preds = %670
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %41) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %674 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i32 0, ptr %674, align 8
   %675 = getelementptr inbounds nuw i8, ptr %41, i64 16
@@ -16477,11 +16471,11 @@ _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphEN
 
 692:                                              ; preds = %.lr.ph, %773
   %.sroa.0338.0407 = phi ptr [ %.sroa.0338.0405, %.lr.ph ], [ %.sroa.0338.0, %773 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %42) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   %693 = getelementptr inbounds nuw i8, ptr %.sroa.0338.0407, i64 56
   %694 = load i32, ptr %693, align 8
   store i32 %694, ptr %42, align 4
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %43) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %695 = load ptr, ptr %680, align 8
   %.not10.i.i.i.i = icmp eq ptr %695, null
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
@@ -16511,15 +16505,15 @@ _ZNSt3mapIjN3ue210PureRepeatESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exi
 
 .critedge.i:                                      ; preds = %700, %_ZNSt3mapIjN3ue210PureRepeatESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i, %692
   %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %700 ], [ %.19.i.i.i.i, %_ZNSt3mapIjN3ue210PureRepeatESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i ], [ %681, %692 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %42, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %704 = invoke ptr @_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt10_Select1stIS4_ESt4lessIjESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %72, ptr %.08.lcssa.i.i.i11.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
           to label %.noexc unwind label %748
 
 .noexc:                                           ; preds = %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %705
 
 705:                                              ; preds = %.noexc, %700
@@ -16527,8 +16521,8 @@ _ZNSt3mapIjN3ue210PureRepeatESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exi
   %706 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %43, ptr noundef nonnull align 8 dereferenceable(72) %706, i64 40, i1 false)
   %707 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %683, ptr %682, align 8
   store i64 0, ptr %684, align 8
   store i64 2, ptr %685, align 8
@@ -16560,15 +16554,15 @@ _ZNSt3mapIjN3ue210PureRepeatESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exi
   br label %.body
 
 719:                                              ; preds = %705
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   store i64 0, ptr %684, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   invoke void @_ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.431") align 8 %44, ptr noundef nonnull align 8 dereferenceable(32) %682, ptr noundef nonnull align 4 dereferenceable(4) %39)
           to label %720 unwind label %750
 
 720:                                              ; preds = %719
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   %721 = getelementptr inbounds nuw i8, ptr %.sroa.0338.0407, i64 16
   %722 = load ptr, ptr %721, align 8
   %.sroa.013.0.copyload = load ptr, ptr %30, align 8
@@ -16617,7 +16611,7 @@ _ZNSt3mapIjN3ue210PureRepeatESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exi
 
 .loopexit369:                                     ; preds = %738, %734
   %.sroa.0.1.ph = phi ptr [ %735, %734 ], [ %.sroa.035.0.i.i, %738 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %45) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   %742 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.ph, i64 72
   %743 = load i32, ptr %742, align 8
   store i32 %743, ptr %45, align 4
@@ -16637,17 +16631,17 @@ _ZNSt3mapIjN3ue210PureRepeatESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exi
 750:                                              ; preds = %719
   %751 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %774
 
 752:                                              ; preds = %746, %.loopexit369
   %753 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %774
 
 754:                                              ; preds = %746
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br i1 %747, label %.critedge249, label %.critedge
 
 .critedge:                                        ; preds = %.critedge24.i.i, %.critedge.i.i, %754
@@ -16670,8 +16664,8 @@ _ZNSt3mapIjN3ue210PureRepeatESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exi
   br label %_ZN3ue210PureRepeatD2Ev.exit
 
 _ZN3ue210PureRepeatD2Ev.exit:                     ; preds = %.critedge249, %758, %761
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %43) #27
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %42) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %848
 
 762:                                              ; preds = %.critedge
@@ -16703,8 +16697,8 @@ _ZN3ue210PureRepeatD2Ev.exit:                     ; preds = %.critedge249, %758,
   br label %773
 
 773:                                              ; preds = %772, %769, %767
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %43) #27
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %42) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   %.sroa.0338.0 = load ptr, ptr %.sroa.0338.0407, align 8
   %.not = icmp eq ptr %.sroa.0338.0, %679
   br i1 %.not, label %.critedge253.loopexit, label %692
@@ -16726,8 +16720,8 @@ _ZN3ue210PureRepeatD2Ev.exit:                     ; preds = %.critedge249, %758,
 
 .body:                                            ; preds = %779, %776, %774, %748, %718, %715, %712
   %.pn231.pn = phi { ptr, i32 } [ %749, %748 ], [ %713, %718 ], [ %713, %715 ], [ %713, %712 ], [ %.pn231, %774 ], [ %.pn231, %776 ], [ %.pn231, %779 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %43) #27
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %42) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %849
 
 .critedge251:                                     ; preds = %762
@@ -16745,8 +16739,8 @@ _ZN3ue210PureRepeatD2Ev.exit:                     ; preds = %.critedge249, %758,
   br label %_ZN3ue210PureRepeatD2Ev.exit312
 
 _ZN3ue210PureRepeatD2Ev.exit312:                  ; preds = %.critedge251, %781, %784
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %43) #27
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %42) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %848
 
 .critedge253.loopexit:                            ; preds = %773
@@ -16793,13 +16787,13 @@ _ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorI
           to label %795 unwind label %840
 
 795:                                              ; preds = %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixERSK_.exit324
-  %796 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3ue211CastleProtoEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %40) #27
+  %796 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3ue211CastleProtoEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %40) #28
   %797 = load i32, ptr %39, align 4
   store i32 %797, ptr %342, align 4
-  %798 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3ue211CastleProtoEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull align 8 dereferenceable(16) %40) #27
+  %798 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3ue211CastleProtoEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull align 8 dereferenceable(16) %40) #28
   %799 = load i32, ptr %39, align 4
   store i32 %799, ptr %344, align 4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %46) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   %800 = load ptr, ptr %51, align 8
   store ptr %800, ptr %46, align 8
   %801 = getelementptr inbounds nuw i8, ptr %46, i64 8
@@ -16825,8 +16819,8 @@ _ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorI
           to label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit328 unwind label %842
 
 _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit328: ; preds = %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixEOS1_.exit326
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %46) #27
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %47) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   %813 = load ptr, ptr %51, align 8
   store ptr %813, ptr %47, align 8
   %814 = getelementptr inbounds nuw i8, ptr %47, i64 8
@@ -16852,9 +16846,9 @@ _ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorI
           to label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit332 unwind label %844
 
 _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit332: ; preds = %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixEOS1_.exit330
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %47) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %826 = load ptr, ptr %40, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %48) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   %827 = load ptr, ptr %51, align 8
   store ptr %827, ptr %48, align 8
   %828 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -16880,7 +16874,7 @@ _ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorI
           to label %839 unwind label %846
 
 839:                                              ; preds = %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixEOS1_.exit334
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %48) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %848
 
 840:                                              ; preds = %.critedge253, %792, %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE5eraseERKS8_.exit320, %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixERSK_.exit318, %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE5eraseERKS8_.exit316, %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixERSK_.exit314, %785, %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixERSK_.exit324, %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixERSK_.exit322
@@ -16891,73 +16885,73 @@ _ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorI
 842:                                              ; preds = %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixEOS1_.exit326, %795
   %843 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %46) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %849
 
 844:                                              ; preds = %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixEOS1_.exit330, %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit328
   %845 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %47) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %849
 
 846:                                              ; preds = %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit332, %_ZNSt13unordered_mapIN3ue27left_idESt3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISA_ESaISA_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_SE_EEEixEOS1_.exit334
   %847 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %48) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %849
 
 848:                                              ; preds = %_ZN3ue210PureRepeatD2Ev.exit, %_ZN3ue210PureRepeatD2Ev.exit312, %839
   %.not386 = phi i1 [ false, %_ZN3ue210PureRepeatD2Ev.exit ], [ false, %_ZN3ue210PureRepeatD2Ev.exit312 ], [ true, %839 ]
-  call void @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %41) #27
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %41) #27
-  call void @_ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %40) #27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40) #27
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39) #27
+  call void @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %41) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @_ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %40) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %853
 
 849:                                              ; preds = %.body, %846, %844, %842, %840
   %.pn235.pn.pn.pn = phi { ptr, i32 } [ %847, %846 ], [ %845, %844 ], [ %843, %842 ], [ %841, %840 ], [ %.pn231.pn, %.body ]
-  call void @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %41) #27
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %41) #27
+  call void @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %41) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %850
 
 850:                                              ; preds = %849, %690
   %.pn235.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn235.pn.pn.pn, %849 ], [ %691, %690 ]
-  call void @_ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %40) #27
+  call void @_ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %40) #28
   br label %851
 
 851:                                              ; preds = %850, %688
   %.pn235.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn235.pn.pn.pn.pn, %850 ], [ %689, %688 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %852
 
 852:                                              ; preds = %851, %686
   %.pn235.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn235.pn.pn.pn.pn.pn, %851 ], [ %687, %686 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %854
 
 853:                                              ; preds = %651, %657, %648, %848
   %.1 = phi i1 [ %.not386, %848 ], [ false, %648 ], [ false, %657 ], [ false, %651 ]
-  call void @_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %38) #27
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %38) #27
+  call void @_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %38) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %855
 
 854:                                              ; preds = %852, %649
   %.pn235.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn235.pn.pn.pn.pn.pn.pn, %852 ], [ %650, %649 ]
-  call void @_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %38) #27
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %38) #27
+  call void @_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %38) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %856
 
 855:                                              ; preds = %635, %637, %634, %8, %853, %_ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %.thread357, %.thread, %_ZNSt10shared_ptrIN3ue211CastleProtoEEaSERKS2_.exit269, %_ZNSt10shared_ptrIN3ue211CastleProtoEEaSERKS2_.exit, %_ZN3ue2L15mergeSameCastleERNS_13RoseBuildImplENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES9_RNS_12_GLOBAL__N_116RoseAliasingInfoE.exit
   %.0 = phi i1 [ %101, %_ZN3ue2L15mergeSameCastleERNS_13RoseBuildImplENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES9_RNS_12_GLOBAL__N_116RoseAliasingInfoE.exit ], [ true, %_ZNSt10shared_ptrIN3ue211CastleProtoEEaSERKS2_.exit ], [ true, %_ZNSt10shared_ptrIN3ue211CastleProtoEEaSERKS2_.exit269 ], [ true, %.thread ], [ true, %.thread357 ], [ true, %_ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %.1, %853 ], [ false, %8 ], [ false, %634 ], [ false, %637 ], [ false, %635 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %33) #27
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %32) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   ret i1 %.0
 
 856:                                              ; preds = %854, %633
   %.pn244.pn = phi { ptr, i32 } [ %.pn244, %633 ], [ %.pn235.pn.pn.pn.pn.pn.pn.pn, %854 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %33) #27
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %32) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %common.resume
 }
 
@@ -17085,7 +17079,7 @@ _ZNKSt10_HashtableIN3ue27left_idES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1
   ret ptr %.sroa.06.1
 }
 
-declare void @_ZN3ue215duplicateReportERNS_8NGHolderEjj(ptr noundef nonnull align 8 dereferenceable(136), i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @_ZN3ue215duplicateReportERNS_8NGHolderEjj(ptr noundef nonnull align 8 dereferenceable(136), i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN3ue2L19pruneReportIfUnusedERKNS_13RoseBuildImplESt10shared_ptrINS_8NGHolderEERKSt3setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESt4lessISE_ESaISE_EEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(780) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %2, i32 noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -17116,7 +17110,7 @@ define internal fastcc void @_ZN3ue2L19pruneReportIfUnusedERKNS_13RoseBuildImplE
   br i1 %18, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %15, %10
-  %19 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.019.027) #28
+  %19 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.019.027) #27
   %.not25 = icmp eq ptr %19, %8
   br i1 %.not25, label %._crit_edge, label %10
 
@@ -17127,7 +17121,7 @@ define internal fastcc void @_ZN3ue2L19pruneReportIfUnusedERKNS_13RoseBuildImplE
   br i1 %22, label %.loopexit, label %23
 
 23:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %24 = load ptr, ptr %1, align 8
   call void @_ZN3ue211cloneHolderERKNS_8NGHolderE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.411") align 8 %5, ptr noundef nonnull align 8 dereferenceable(136) %24)
   %25 = load ptr, ptr %5, align 8
@@ -17167,11 +17161,11 @@ _ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i: ; preds = %37
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
-  call void %42(ptr noundef nonnull align 8 dereferenceable(136) %39) #27
+  call void %42(ptr noundef nonnull align 8 dereferenceable(136) %39) #28
   br label %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit: ; preds = %37, %_ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %38
 
 43:                                               ; preds = %31, %34
@@ -17183,11 +17177,11 @@ _ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i17: ; preds = %43
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
-  call void %47(ptr noundef nonnull align 8 dereferenceable(136) %44) #27
+  call void %47(ptr noundef nonnull align 8 dereferenceable(136) %44) #28
   br label %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit18
 
 _ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit18: ; preds = %43, %_ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit18, %._crit_edge
@@ -17195,7 +17189,7 @@ _ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit18: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -17215,11 +17209,11 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx
   %11 = load ptr, ptr %3, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #28
   %14 = load ptr, ptr %3, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #28
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 17:                                               ; preds = %4
@@ -17242,7 +17236,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %21, %19
   br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !111
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #28
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i, %24
@@ -17265,7 +17259,7 @@ define internal fastcc void @_ZN3ue2L15pruneUnusedTopsERNS_8NGHolderERKNS_9RoseG
   ]
 
 8:                                                ; preds = %2, %2, %2
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %9, ptr %4, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -17288,7 +17282,7 @@ define internal fastcc void @_ZN3ue2L15pruneUnusedTopsERNS_8NGHolderERKNS_9RoseG
   br i1 %.not6088, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj.exit, %.lr.ph93
-  %17 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.051.091) #28
+  %17 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.051.091) #27
   %.not = icmp eq ptr %17, %14
   br i1 %.not, label %._crit_edge94, label %.lr.ph93
 
@@ -17530,7 +17524,7 @@ _ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj.exit: ; preds = %81, %_ZN5boost9co
   br i1 %109, label %176, label %110
 
 110:                                              ; preds = %104
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %100, ptr %5, align 8
   store i64 2, ptr %102, align 8
   store i64 0, ptr %101, align 8
@@ -17543,8 +17537,8 @@ _ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj.exit: ; preds = %81, %_ZN5boost9co
   %116 = load ptr, ptr %4, align 8, !noalias !622
   %117 = load i64, ptr %10, align 8, !noalias !627
   %118 = getelementptr inbounds nuw i32, ptr %116, i64 %117
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.07.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.03.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.07.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03.i)
   store ptr %112, ptr %.sroa.07.i, align 8, !noalias !632
   store ptr %116, ptr %.sroa.03.i, align 8, !noalias !632
   %.not5.i.i = icmp eq i64 %114, 0
@@ -17567,12 +17561,12 @@ _ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj.exit: ; preds = %81, %_ZN5boost9co
   br i1 %124, label %127, label %125
 
 125:                                              ; preds = %123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #27, !noalias !638
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !638
   invoke void @_ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.431") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.07.0..sroa.07.0..sroa.07.0.8.i)
           to label %.noexc79 unwind label %169
 
 .noexc79:                                         ; preds = %125
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #27, !noalias !638
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !638
   %126 = getelementptr inbounds nuw i8, ptr %.sroa.07.0..sroa.07.0..sroa.07.0.8.i, i64 4
   store ptr %126, ptr %.sroa.07.i, align 8, !noalias !635
   br label %127
@@ -17587,8 +17581,8 @@ _ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj.exit: ; preds = %81, %_ZN5boost9co
   br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !641
 
 .loopexit:                                        ; preds = %127, %.lr.ph.i.i, %110
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.07.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.03.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.07.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03.i)
   %.not.i.i.i.i.i.i.i = icmp eq ptr %5, %111
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN3ue28flat_setIjSt4lessIjESaIjEEaSEOS4_.exitthread-pre-split, label %129, !prof !111
 
@@ -17750,7 +17744,7 @@ _ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderEN
   br label %_ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit
 
 _ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit: ; preds = %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE9push_backERKS8_.exit, %172, %175
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %176
 
 176:                                              ; preds = %104, %_ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit
@@ -17777,7 +17771,7 @@ _ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit: ; preds = %_ZNSt6vect
   br label %_ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit87
 
 _ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit87: ; preds = %182, %179, %177
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %194
 
 183:                                              ; preds = %._crit_edge103
@@ -17815,7 +17809,7 @@ _ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderEN
   br label %_ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit91
 
 _ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit91: ; preds = %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit, %188, %191
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN3ue212is_triggeredERKNS_8NGHolderE.exit
 
 _ZN3ue212is_triggeredERKNS_8NGHolderE.exit:       ; preds = %2, %_ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit91
@@ -17852,12 +17846,12 @@ _ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderEN
   br label %_ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit95
 
 _ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit95: ; preds = %200, %197, %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit93
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn70.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3ue28NGHolderEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3ue28NGHolderEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -17910,11 +17904,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
   %25 = load ptr, ptr %17, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %17) #27
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %17) #28
   %28 = load ptr, ptr %17, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load ptr, ptr %29, align 8
-  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %17) #27
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %17) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i
 
 31:                                               ; preds = %18
@@ -17937,7 +17931,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %35, %33
   br i1 %37, label %38, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i, !prof !111
 
 38:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #27
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i: ; preds = %38, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %23, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i
@@ -17948,21 +17942,21 @@ _ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EEaSERKS4_.exit: 
   ret ptr %0
 }
 
-declare noundef zeroext i1 @_ZN3ue221mergeableRoseVerticesERKNS_13RoseBuildImplENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESA_(ptr noundef nonnull align 8 dereferenceable(780), ptr, i64, ptr, i64) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZN3ue221mergeableRoseVerticesERKNS_13RoseBuildImplENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESA_(ptr noundef nonnull align 8 dereferenceable(780), ptr, i64, ptr, i64) local_unnamed_addr #2
 
-declare void @_ZN3ue211cloneHolderERKNS_8NGHolderE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.411") align 8, ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #3
+declare void @_ZN3ue211cloneHolderERKNS_8NGHolderE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.411") align 8, ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #2
 
-declare void @_ZN3ue220pruneAllOtherReportsERNS_8NGHolderEj(ptr noundef nonnull align 8 dereferenceable(136), i32 noundef) local_unnamed_addr #3
+declare void @_ZN3ue220pruneAllOtherReportsERNS_8NGHolderEj(ptr noundef nonnull align 8 dereferenceable(136), i32 noundef) local_unnamed_addr #2
 
-declare noundef i32 @_ZN3ue218isImplementableNFAERKNS_8NGHolderEPKNS_13ReportManagerERKNS_14CompileContextE(ptr noundef nonnull align 8 dereferenceable(136), ptr noundef, ptr noundef nonnull align 8 dereferenceable(320)) local_unnamed_addr #3
+declare noundef i32 @_ZN3ue218isImplementableNFAERKNS_8NGHolderEPKNS_13ReportManagerERKNS_14CompileContextE(ptr noundef nonnull align 8 dereferenceable(136), ptr noundef, ptr noundef nonnull align 8 dereferenceable(320)) local_unnamed_addr #2
 
-declare noundef zeroext i1 @_ZNK3ue213RoseBuildImpl18isNonRootSuccessorERKNS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(780), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZNK3ue213RoseBuildImpl18isNonRootSuccessorERKNS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(780), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN3ue221mergeableRoseVerticesERKNS_13RoseBuildImplERKSt3setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESt4lessISB_ESaISB_EESH_(ptr noundef nonnull align 8 dereferenceable(780), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZN3ue221mergeableRoseVerticesERKNS_13RoseBuildImplERKSt3setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESt4lessISB_ESaISB_EESH_(ptr noundef nonnull align 8 dereferenceable(780), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2
 
-declare void @_ZN3ue211cloneHolderERNS_8NGHolderERKS0_(ptr noundef nonnull align 8 dereferenceable(136), ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #3
+declare void @_ZN3ue211cloneHolderERNS_8NGHolderERKS0_(ptr noundef nonnull align 8 dereferenceable(136), ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN3ue219setDistinctRoseTopsERNS_9RoseGraphERNS_8NGHolderERKS2_RKSt5dequeINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISD_EE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(136), ptr noundef nonnull align 8 dereferenceable(136), ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZN3ue219setDistinctRoseTopsERNS_9RoseGraphERNS_8NGHolderERKS2_RKSt5dequeINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISD_EE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(136), ptr noundef nonnull align 8 dereferenceable(136), ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt5dequeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EEC2EmRKS8_RKS9_(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -18022,7 +18016,7 @@ _ZNSt5dequeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraph
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt5dequeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt5dequeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZNSt11_Deque_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit, label %3
@@ -18057,12 +18051,12 @@ _ZNSt11_Deque_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9Ro
   ret void
 }
 
-declare noundef zeroext i1 @_ZN3ue212mergeNfaPairERKNS_8NGHolderERS0_PKNS_13ReportManagerERKNS_14CompileContextE(ptr noundef nonnull align 8 dereferenceable(136), ptr noundef nonnull align 8 dereferenceable(136), ptr noundef, ptr noundef nonnull align 8 dereferenceable(320)) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZN3ue212mergeNfaPairERKNS_8NGHolderERS0_PKNS_13ReportManagerERKNS_14CompileContextE(ptr noundef nonnull align 8 dereferenceable(136), ptr noundef nonnull align 8 dereferenceable(136), ptr noundef, ptr noundef nonnull align 8 dereferenceable(320)) local_unnamed_addr #2
 
-declare void @_ZN3ue224reduceImplementableGraphERNS_8NGHolderENS_8som_typeEPKNS_13ReportManagerERKNS_14CompileContextE(ptr noundef nonnull align 8 dereferenceable(136), i32 noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(320)) local_unnamed_addr #3
+declare void @_ZN3ue224reduceImplementableGraphERNS_8NGHolderENS_8som_typeEPKNS_13ReportManagerERKNS_14CompileContextE(ptr noundef nonnull align 8 dereferenceable(136), i32 noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(320)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES6_St4lessIS8_ESaISt4pairIKS8_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES6_St4lessIS8_ESaISt4pairIKS8_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   invoke void @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_S6_ESt10_Select1stISB_ESt4lessIS8_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
@@ -18080,11 +18074,11 @@ _ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGr
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN3ue28NGHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(136)) unnamed_addr #14
+declare void @_ZN3ue28NGHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(136)) unnamed_addr #13
 
-declare void @_ZN3ue211pruneReportERNS_8NGHolderEj(ptr noundef nonnull align 8 dereferenceable(136), i32 noundef) local_unnamed_addr #3
+declare void @_ZN3ue211pruneReportERNS_8NGHolderEj(ptr noundef nonnull align 8 dereferenceable(136), i32 noundef) local_unnamed_addr #2
 
-declare void @_ZN3ue211clear_graphERNS_8NGHolderE(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #3
+declare void @_ZN3ue211clear_graphERNS_8NGHolderE(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8__detail9_Map_baseIN3ue27left_idESt4pairIKS2_St3setINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESt4lessISD_ESaISD_EEESaISI_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -18155,7 +18149,7 @@ _ZNKSt8__detail15_Hashtable_baseIN3ue27left_idESt4pairIKS2_St3setINS1_12graph_de
   br i1 %.not19.i.i, label %20, label %.loopexit28, !llvm.loop !445
 
 .loopexit28:                                      ; preds = %_ZNKSt8__detail15_Hashtable_baseIN3ue27left_idESt4pairIKS2_St3setINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESt4lessISD_ESaISD_EEENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueISI_Lb1EEE.exit.thread.i.i, %40, %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %45 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #30
@@ -18176,14 +18170,14 @@ _ZNKSt8__detail15_Hashtable_baseIN3ue27left_idESt4pairIKS2_St3setINS1_12graph_de
           to label %_ZNSt10_HashtableIN3ue27left_idESt4pairIKS1_St3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISC_ESaISC_EEESaISH_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSJ_18_Mod_range_hashingENSJ_20_Default_ranged_hashENSJ_20_Prime_rehash_policyENSJ_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %53
 
 _ZNSt10_HashtableIN3ue27left_idESt4pairIKS1_St3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISC_ESaISC_EEESaISH_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSJ_18_Mod_range_hashingENSJ_20_Default_ranged_hashENSJ_20_Prime_rehash_policyENSJ_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %.loopexit28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
 53:                                               ; preds = %.loopexit28
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10_HashtableIN3ue27left_idESt4pairIKS1_St3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISC_ESaISC_EEESaISH_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSJ_18_Mod_range_hashingENSJ_20_Default_ranged_hashENSJ_20_Prime_rehash_policyENSJ_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #27
+  call void @_ZNSt10_HashtableIN3ue27left_idESt4pairIKS1_St3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISC_ESaISC_EEESaISH_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSJ_18_Mod_range_hashingENSJ_20_Default_ranged_hashENSJ_20_Prime_rehash_policyENSJ_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %54
 
 .loopexit:                                        ; preds = %_ZNKSt8__detail15_Hashtable_baseIN3ue27left_idESt4pairIKS2_St3setINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESt4lessISD_ESaISD_EEENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueISI_Lb1EEE.exit.i.i, %_ZNSt10_HashtableIN3ue27left_idESt4pairIKS1_St3setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessISC_ESaISC_EEESaISH_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENSJ_18_Mod_range_hashingENSJ_20_Default_ranged_hashENSJ_20_Prime_rehash_policyENSJ_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
@@ -18193,7 +18187,7 @@ _ZNSt10_HashtableIN3ue27left_idESt4pairIKS1_St3setINS0_12graph_detail17vertex_de
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit, label %3
@@ -18212,11 +18206,11 @@ define linkonce_odr dso_local void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_po
   %10 = load ptr, ptr %2, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %2) #28
   %13 = load ptr, ptr %2, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %2) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit
 
 16:                                               ; preds = %3
@@ -18239,7 +18233,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i: ; preds = %20, %18
   br i1 %22, label %23, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit, !prof !111
 
 23:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit: ; preds = %23, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i, %8, %1
@@ -18247,11 +18241,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit: ; pre
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #27
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i = icmp eq i8 %6, 0
@@ -18276,7 +18270,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i: ; preds = %10, %7
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %0) #27
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i, %13
@@ -18402,9 +18396,9 @@ _ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6insertENS0_
   ret void
 }
 
-declare void @_ZN3ue212pruneUselessERNS_8NGHolderEb(ptr noundef nonnull align 8 dereferenceable(136), i1 noundef zeroext) local_unnamed_addr #3
+declare void @_ZN3ue212pruneUselessERNS_8NGHolderEb(ptr noundef nonnull align 8 dereferenceable(136), i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @_ZN3ue212clearReportsERNS_8NGHolderE(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #3
+declare void @_ZN3ue212clearReportsERNS_8NGHolderE(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignINS_13move_iteratorIPjEEEEvT_SA_PNS_11move_detail13disable_if_orIvNSB_7is_sameINSB_17integral_constantIjLj1EEENSE_IjLj0EEEEENSB_14is_convertibleISA_mEENS0_3dtl17is_input_iteratorISA_Xsr21has_iterator_categoryISA_EE5valueEEENSB_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr %2, ptr noundef %3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -18509,8 +18503,8 @@ _ZN5boost9container25copy_assign_range_alloc_nINS0_22small_vector_allocatorIjSaI
 }
 
 ; Function Attrs: inlinehint mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZN5boost9container18throw_length_errorEPKc(ptr noundef %0) local_unnamed_addr #17 comdat personality ptr @__gxx_personality_v0 {
-  %2 = tail call ptr @__cxa_allocate_exception(i64 16) #27
+define linkonce_odr hidden void @_ZN5boost9container18throw_length_errorEPKc(ptr noundef %0) local_unnamed_addr #16 comdat personality ptr @__gxx_personality_v0 {
+  %2 = tail call ptr @__cxa_allocate_exception(i64 16) #28
   invoke void @_ZNSt12length_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %0)
           to label %3 unwind label %4
 
@@ -18521,21 +18515,21 @@ define linkonce_odr hidden void @_ZN5boost9container18throw_length_errorEPKc(ptr
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %2) #27
+  tail call void @__cxa_free_exception(ptr nonnull %2) #28
   resume { ptr, i32 } %5
 }
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
-declare void @_ZNSt12length_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #3
+declare void @_ZNSt12length_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #2
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: nounwind
-declare void @_ZNSt12length_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #14
+declare void @_ZNSt12length_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #13
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #18
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_copy_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind noalias writable sret(%"class.boost::container::vec_iterator") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %3, ptr %4) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -18841,8 +18835,8 @@ _ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGr
 
 22:                                               ; preds = %22, %.lr.ph.i
   %.sroa.06.09.i = phi ptr [ %4, %.lr.ph.i ], [ %23, %22 ]
-  %23 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.06.09.i) #28
-  %24 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.sroa.06.09.i, ptr noundef nonnull align 8 dereferenceable(32) %21) #27
+  %23 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.06.09.i) #27
+  %24 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.sroa.06.09.i, ptr noundef nonnull align 8 dereferenceable(32) %21) #28
   tail call void @_ZdlPv(ptr noundef nonnull %24) #31
   %25 = load i64, ptr %6, align 8
   %26 = add i64 %25, -1
@@ -19027,7 +19021,7 @@ _ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGr
 }
 
 ; Function Attrs: nounwind
-declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #14
+declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -19089,11 +19083,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
   %24 = load ptr, ptr %.pr.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
-  tail call void %26(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i) #27
+  tail call void %26(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i) #28
   %27 = load ptr, ptr %.pr.i, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load ptr, ptr %28, align 8
-  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i) #27
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i) #28
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEaSERKS2_.exit
 
 30:                                               ; preds = %17
@@ -19116,7 +19110,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %34, %32
   br i1 %36, label %37, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEaSERKS2_.exit, !prof !111
 
 37:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i) #27
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i) #28
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEaSERKS2_.exit
 
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEaSERKS2_.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i, %22, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i, %37
@@ -19137,11 +19131,11 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEaSERKS2_.exit.thread21: ; pr
   %44 = load ptr, ptr %7, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  tail call void %46(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  tail call void %46(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   %47 = load ptr, ptr %7, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
-  tail call void %49(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  tail call void %49(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 50:                                               ; preds = %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEaSERKS2_.exit.thread21
@@ -19164,7 +19158,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i8: ; preds = %54, %52
   br i1 %56, label %57, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !111
 
 57:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i8
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %2, %42, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i8, %57
@@ -19173,18 +19167,18 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %2, %42
 58:                                               ; preds = %_ZNSt16allocator_traitsISaISt19_Sp_counted_deleterIPN3ue28NGHolderESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEE8allocateERSA_m.exit.i
   %59 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #27
+  tail call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #28
   resume { ptr, i32 } %59
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN3ue28NGHolderESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN3ue28NGHolderESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN3ue28NGHolderESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN3ue28NGHolderESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -19194,7 +19188,7 @@ define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN3ue28NGHolderESt14
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(136) %3) #27
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(136) %3) #28
   br label %_ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit
 
 _ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit: ; preds = %1, %5
@@ -19202,14 +19196,14 @@ _ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit: ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN3ue28NGHolderESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN3ue28NGHolderESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN3ue28NGHolderESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt19_Sp_counted_deleterIPN3ue28NGHolderESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef ptr @_ZNSt19_Sp_counted_deleterIPN3ue28NGHolderESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, @_ZTSSt14default_deleteIN3ue28NGHolderEE
@@ -19221,7 +19215,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt19_Sp_counted_deleterIPN3ue28NGHold
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread3, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %6
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(36) @_ZTSSt14default_deleteIN3ue28NGHolderEE) #27
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(36) @_ZTSSt14default_deleteIN3ue28NGHolderEE) #28
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.thread3
 
@@ -19235,9 +19229,9 @@ _ZNKSt9type_infoeqERKS_.exit.thread3:             ; preds = %6, %_ZNKSt9type_inf
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #19
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #18
 
-declare void @_ZN3ue28NGHolderC2ENS_8nfa_kindE(ptr noundef nonnull align 8 dereferenceable(136), i32 noundef) unnamed_addr #3
+declare void @_ZN3ue28NGHolderC2ENS_8nfa_kindE(ptr noundef nonnull align 8 dereferenceable(136), i32 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_S6_ESt10_Select1stISB_ESt4lessIS8_ESaISB_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS8_EESM_IJEEEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -19293,7 +19287,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descr
 
 .thread:                                          ; preds = %18, %26, %30
   %32 = phi i1 [ true, %18 ], [ %29, %26 ], [ %31, %30 ]
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %32, ptr noundef nonnull %6, ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(32) %19) #27
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %32, ptr noundef nonnull %6, ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(32) %19) #28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %34 = load i64, ptr %33, align 8
   %35 = add i64 %34, 1
@@ -19412,7 +19406,7 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraph
   br i1 %35, label %_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_S6_ESt10_Select1stISB_ESt4lessIS8_ESaISB_EE24_M_get_insert_unique_posERSA_.exit, label %36
 
 36:                                               ; preds = %._crit_edge.thread.i
-  %37 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.025.lcssa42.i) #28
+  %37 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.025.lcssa42.i) #27
   %.sroa.0.0.copyload.i5.i.pre = load ptr, ptr %2, align 8
   br label %38
 
@@ -19471,7 +19465,7 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraph
   br i1 %62, label %_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_S6_ESt10_Select1stISB_ESt4lessIS8_ESaISB_EE24_M_get_insert_unique_posERSA_.exit, label %63
 
 63:                                               ; preds = %59
-  %64 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #28
+  %64 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #27
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %66 = load ptr, ptr %65, align 8
   %67 = icmp ne ptr %66, null
@@ -19556,7 +19550,7 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraph
   br i1 %88, label %_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_S6_ESt10_Select1stISB_ESt4lessIS8_ESaISB_EE24_M_get_insert_unique_posERSA_.exit, label %89
 
 89:                                               ; preds = %._crit_edge.thread.i52
-  %90 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.025.lcssa42.i53) #28
+  %90 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.025.lcssa42.i53) #27
   br label %91
 
 91:                                               ; preds = %89, %._crit_edge.i38
@@ -19606,7 +19600,7 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraph
   br i1 %110, label %_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_S6_ESt10_Select1stISB_ESt4lessIS8_ESaISB_EE24_M_get_insert_unique_posERSA_.exit, label %111
 
 111:                                              ; preds = %107
-  %112 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #28
+  %112 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #27
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 32
   %.sroa.0.0.copyload.i68 = load ptr, ptr %113, align 8
   %114 = icmp ne ptr %.sroa.0.0.copyload.i68, null
@@ -19693,7 +19687,7 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraph
   br i1 %137, label %_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_S6_ESt10_Select1stISB_ESt4lessIS8_ESaISB_EE24_M_get_insert_unique_posERSA_.exit, label %138
 
 138:                                              ; preds = %._crit_edge.thread.i104
-  %139 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.025.lcssa42.i105) #28
+  %139 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.025.lcssa42.i105) #27
   br label %140
 
 140:                                              ; preds = %138, %._crit_edge.i90
@@ -19729,7 +19723,7 @@ _ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #13
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt11_Deque_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -19765,7 +19759,7 @@ _ZNSt11_Deque_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9Ro
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  %18 = tail call ptr @__cxa_begin_catch(ptr %17) #27
+  %18 = tail call ptr @__cxa_begin_catch(ptr %17) #28
   %19 = icmp ult ptr %10, %.011.i
   br i1 %19, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE16_M_destroy_nodesEPPS8_SC_.exit.i
 
@@ -19799,7 +19793,7 @@ _ZNSt11_Deque_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9Ro
 
 .body:                                            ; preds = %23
   %29 = extractvalue { ptr, i32 } %24, 0
-  %30 = tail call ptr @__cxa_begin_catch(ptr %29) #27
+  %30 = tail call ptr @__cxa_begin_catch(ptr %29) #28
   %31 = load ptr, ptr %0, align 8
   tail call void @_ZdlPv(ptr noundef %31) #31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
@@ -19872,13 +19866,13 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_desc
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3ue211CastleProto5reachEv(ptr noundef nonnull align 8 dereferenceable(112)) local_unnamed_addr #3
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3ue211CastleProto5reachEv(ptr noundef nonnull align 8 dereferenceable(112)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN3ue2L15pruneUnusedTopsERNS_11CastleProtoERKNS_9RoseGraphERKSt3setINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS2_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESt4lessISC_ESaISC_EE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unordered_set.550", align 8
   %4 = alloca %"class.std::set.569", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %5, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -19900,7 +19894,7 @@ define internal fastcc void @_ZN3ue2L15pruneUnusedTopsERNS_11CastleProtoERKNS_9R
   br label %14
 
 ._crit_edge36:                                    ; preds = %._crit_edge, %2
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN3ue210assoc_keysISt3mapIjNS_10PureRepeatESt4lessIjESaISt4pairIKjS2_EEEEESt3setINT_8key_typeES3_ISC_ESaISC_EERKSB_(ptr dead_on_unwind nonnull writable sret(%"class.std::set.569") align 8 %4, ptr noundef nonnull align 8 dereferenceable(48) %0)
           to label %56 unwind label %74
 
@@ -19914,7 +19908,7 @@ define internal fastcc void @_ZN3ue2L15pruneUnusedTopsERNS_11CastleProtoERKNS_9R
   br i1 %.not2230, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.loopexit27, %14
-  %17 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.016.033) #28
+  %17 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.016.033) #27
   %.not = icmp eq ptr %17, %12
   br i1 %.not, label %._crit_edge36, label %14
 
@@ -20036,7 +20030,7 @@ _ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_M
   unreachable
 
 _ZNSt3setIjSt4lessIjESaIjEED2Ev.exit:             ; preds = %._crit_edge41
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %66 = load ptr, ptr %7, align 8
   %.not5.i.i.i.i = icmp eq ptr %66, null
   br i1 %.not5.i.i.i.i, label %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i
@@ -20063,7 +20057,7 @@ _ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_M
   br label %_ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEED2Ev.exit
 
 _ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEED2Ev.exit: ; preds = %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, %73
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 74:                                               ; preds = %._crit_edge36
@@ -20136,24 +20130,24 @@ _ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEED2Ev.exit: ; preds = %_ZNSt1
 104:                                              ; preds = %.loopexit
   %105 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt3setIjSt4lessIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #27
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #27
+  call void @_ZNSt3setIjSt4lessIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.body
 
 .loopexit23:                                      ; preds = %96, %80, %91, %.loopexit
-  %106 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.03.038) #28
+  %106 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.03.038) #27
   %.not21 = icmp eq ptr %106, %59
   br i1 %.not21, label %._crit_edge41, label %76
 
 .body:                                            ; preds = %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit20.i, %54, %74, %104
   %.pn23.pn.pn.pn = phi { ptr, i32 } [ %105, %104 ], [ %75, %74 ], [ %55, %54 ], [ %53, %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit20.i ]
-  call void @_ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #27
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #27
+  call void @_ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn23.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3ue211CastleProtoEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3ue211CastleProtoEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -20206,11 +20200,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
   %25 = load ptr, ptr %17, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %17) #27
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %17) #28
   %28 = load ptr, ptr %17, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load ptr, ptr %29, align 8
-  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %17) #27
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %17) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i
 
 31:                                               ; preds = %18
@@ -20233,7 +20227,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %35, %33
   br i1 %37, label %38, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i, !prof !111
 
 38:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #27
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i: ; preds = %38, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %23, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i
@@ -20245,11 +20239,11 @@ _ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu_cxx12_Lock_policyE2EEaSERKS4_.ex
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZSt11make_sharedIN3ue211CastleProtoEJRS1_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.149") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %1) local_unnamed_addr #20 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZSt11make_sharedIN3ue211CastleProtoEJRS1_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.149") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %1) local_unnamed_addr #19 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator.523", align 1
   store ptr null, ptr %0, align 8
   %4 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #30
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -20267,7 +20261,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3ue211CastleProtoESaIvELN
 
 _ZNSt10shared_ptrIN3ue211CastleProtoEEC2ISaIvEJRS1_EEESt20_Sp_alloc_shared_tagIT_EDpOT0_.exit: ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %4, ptr %9, align 8
   store ptr %7, ptr %0, align 8
   ret void
@@ -20277,7 +20271,7 @@ _ZNSt10shared_ptrIN3ue211CastleProtoEEC2ISaIvEJRS1_EEESt20_Sp_alloc_shared_tagIT
 define internal fastcc void @_ZN3ue2L11pruneCastleERNS_11CastleProtoEj(ptr noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::__detail::_AllocNode.575", align 8
   %4 = alloca %"class.std::unordered_set.550", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %5, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -20336,13 +20330,13 @@ _ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit: ; 
   br i1 %.not22, label %_ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit.thread, label %35
 
 _ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit.thread: ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb1EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i, %_ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   %32 = invoke { ptr, i8 } @_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKjSF_NS1_10_AllocNodeISaINS1_10_Hash_nodeIjLb0EEEEEEEESt4pairINS1_14_Node_iteratorIjLb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %_ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE6insertERKj.exit unwind label %33
 
 _ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE6insertERKj.exit: ; preds = %_ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %35
 
 33:                                               ; preds = %_ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit.thread
@@ -20351,7 +20345,7 @@ _ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE6insertERKj.exit: ; preds = 
   br label %50
 
 35:                                               ; preds = %_ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE6insertERKj.exit, %_ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit
-  %36 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.016.024) #28
+  %36 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.016.024) #27
   %.not = icmp eq ptr %36, %12
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -20382,7 +20376,7 @@ _ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_M
   br label %_ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEED2Ev.exit
 
 _ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEED2Ev.exit: ; preds = %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, %43
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 .lr.ph28:                                         ; preds = %._crit_edge, %46
@@ -20404,8 +20398,8 @@ _ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEED2Ev.exit: ; preds = %_ZNSt1
 
 50:                                               ; preds = %48, %33
   %.pn = phi { ptr, i32 } [ %34, %33 ], [ %49, %48 ]
-  call void @_ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #27
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #27
+  call void @_ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 }
 
@@ -20470,15 +20464,15 @@ _ZNSt13unordered_mapIjN3ue28flat_setIjSt4lessIjESaIjEEESt4hashIjESt8equal_toIjES
 28:                                               ; preds = %.lr.ph, %_ZNSt13unordered_mapIjN3ue28flat_setIjSt4lessIjESaIjEEESt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEEixERSB_.exit
   %.sroa.09.015 = phi ptr [ %25, %.lr.ph ], [ %62, %_ZNSt13unordered_mapIjN3ue28flat_setIjSt4lessIjESaIjEEESt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEEixERSB_.exit ]
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.09.015, i64 32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %30 = load i32, ptr %29, align 8
   store i32 %30, ptr %5, align 4
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.09.015, i64 80
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.09.015, i64 88
   store i64 0, ptr %32, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.431") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %33 = load i32, ptr %4, align 4
   %34 = zext i32 %33 to i64
   %35 = load i64, ptr %21, align 8
@@ -20518,7 +20512,7 @@ _ZNSt13unordered_mapIjN3ue28flat_setIjSt4lessIjESaIjEEESt4hashIjESt8equal_toIjES
   br label %.loopexit.i.i, !llvm.loop !734
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %8, ptr %3, align 8
   %53 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #30
   store ptr null, ptr %53, align 8
@@ -20536,30 +20530,30 @@ _ZNSt13unordered_mapIjN3ue28flat_setIjSt4lessIjESaIjEEESt4hashIjESt8equal_toIjES
           to label %_ZNSt10_HashtableIjSt4pairIKjN3ue28flat_setIjSt4lessIjESaIjEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i.i unwind label %60
 
 _ZNSt10_HashtableIjSt4pairIKjN3ue28flat_setIjSt4lessIjESaIjEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i.i: ; preds = %.loopexit.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt13unordered_mapIjN3ue28flat_setIjSt4lessIjESaIjEEESt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEEixERSB_.exit
 
 60:                                               ; preds = %.loopexit.i.i
   %61 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10_HashtableIjSt4pairIKjN3ue28flat_setIjSt4lessIjESaIjEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #27
+  call void @_ZNSt10_HashtableIjSt4pairIKjN3ue28flat_setIjSt4lessIjESaIjEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %61
 
 _ZNSt13unordered_mapIjN3ue28flat_setIjSt4lessIjESaIjEEESt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEEixERSB_.exit: ; preds = %45, %40, %_ZNSt10_HashtableIjSt4pairIKjN3ue28flat_setIjSt4lessIjESaIjEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i.i
   %.pn.i.i = phi ptr [ %59, %_ZNSt10_HashtableIjSt4pairIKjN3ue28flat_setIjSt4lessIjESaIjEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i.i ], [ %41, %40 ], [ %47, %45 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.431") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #27
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #27
-  %62 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.09.015) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  %62 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.09.015) #27
   %.not = icmp eq ptr %62, %26
   br i1 %.not, label %._crit_edge, label %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -20579,11 +20573,11 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu
   %11 = load ptr, ptr %3, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #28
   %14 = load ptr, ptr %3, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #28
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 17:                                               ; preds = %4
@@ -20606,7 +20600,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %21, %19
   br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !111
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #28
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i, %24
@@ -20652,12 +20646,12 @@ _ZNSt3mapIjN3ue210PureRepeatESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exi
 
 .critedge:                                        ; preds = %2, %_ZNSt3mapIjN3ue210PureRepeatESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit, %14
   %.08.lcssa.i.i.i11 = phi ptr [ %.19.i.i.i, %14 ], [ %.19.i.i.i, %_ZNSt3mapIjN3ue210PureRepeatESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit ], [ %7, %2 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %18 = call ptr @_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt10_Select1stIS4_ESt4lessIjESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i11, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %19
 
 19:                                               ; preds = %.critedge, %14
@@ -20724,7 +20718,7 @@ _ZNK3ue210PureRepeateqERKS0_.exit:                ; preds = %.lr.ph.i.i.i.i.i, %
   ret i1 %32
 }
 
-declare noundef i32 @_ZN3ue211CastleProto5mergeERKNS_10PureRepeatE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #3
+declare noundef i32 @_ZN3ue211CastleProto5mergeERKNS_10PureRepeatE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEEixERS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -20789,7 +20783,7 @@ _ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEE11lower_boundERS3_.exit: ; preds = %.lr.p
 
 .thread.i:                                        ; preds = %23, %21
   %28 = phi i1 [ true, %21 ], [ %27, %23 ]
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %28, ptr noundef nonnull %14, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %5) #27
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %28, ptr noundef nonnull %14, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %5) #28
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, 1
@@ -20875,7 +20869,7 @@ _ZNKSt3mapIjjSt4lessIjESaISt4pairIKjjEEE2atERS3_.exit: ; preds = %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   invoke void @_ZNSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
@@ -20942,7 +20936,7 @@ define linkonce_odr hidden void @_ZN3ue210assoc_keysISt3mapIjNS_10PureRepeatESt4
   br i1 %16, label %select.unfold.i.i, label %17
 
 17:                                               ; preds = %._crit_edge.thread.i.i.i
-  %18 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #28
+  %18 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #27
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %18, i64 32
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
   br label %19
@@ -20972,28 +20966,28 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nod
 .noexc:                                           ; preds = %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIjEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store i32 %.pre.i.pre.pre.i.i, ptr %29, align 4
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %27, ptr noundef nonnull %28, ptr noundef nonnull %.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3) #27
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %27, ptr noundef nonnull %28, ptr noundef nonnull %.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3) #28
   %30 = load i64, ptr %7, align 8
   %31 = add i64 %30, 1
   store i64 %31, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %.noexc, %19
-  %33 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.06.011) #28
+  %33 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.06.011) #27
   %.not = icmp eq ptr %33, %10
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 34:                                               ; preds = %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIjEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
   %35 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt3setIjSt4lessIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #27
+  tail call void @_ZNSt3setIjSt4lessIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #28
   resume { ptr, i32 } %35
 }
 
-declare void @_ZN3ue211CastleProto5eraseEj(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef) local_unnamed_addr #3
+declare void @_ZN3ue211CastleProto5eraseEj(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt3setIjSt4lessIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZNSt3setIjSt4lessIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   invoke void @_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE8_M_eraseEPSt13_Rb_tree_nodeIjE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
@@ -21011,7 +21005,7 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEED2Ev.exit: ; preds = %1
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not5.i.i.i = icmp eq ptr %3, null
@@ -21163,7 +21157,7 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableIjjSaIjENSt8__detail9_Identi
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #27
+  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #28
   store i64 %8, ptr %7, align 8
   invoke void @__cxa_rethrow() #29
           to label %28 unwind label %22
@@ -21378,7 +21372,7 @@ define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIvEE9constructIN3ue21
   br i1 %.not.i.i.i.i, label %_ZNSt3mapIjN3ue210PureRepeatESt4lessIjESaISt4pairIKjS1_EEEC2ERKS8_.exit.i.i, label %13
 
 13:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 8
   %14 = call noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt10_Select1stIS4_ESt4lessIjESaIS4_EE7_M_copyILb0ENSA_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(112) %1, ptr noundef nonnull %12, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(8) %5)
   br label %.noexc.i.i.i.i
@@ -21406,7 +21400,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt10_Select1stIS4_ESt4lessIjESaIS4_
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %22 = load i64, ptr %21, align 8
   store i64 %22, ptr %10, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %14, ptr %7, align 8
   br label %_ZNSt3mapIjN3ue210PureRepeatESt4lessIjESaISt4pairIKjS1_EEEC2ERKS8_.exit.i.i
 
@@ -21429,7 +21423,7 @@ _ZNSt3mapIjN3ue210PureRepeatESt4lessIjESaISt4pairIKjS1_EEEC2ERKS8_.exit.i.i: ; p
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store ptr null, ptr %34, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %23, ptr %4, align 8
   invoke void @_ZNSt10_HashtableIjSt4pairIKjN3ue28flat_setIjSt4lessIjESaIjEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_assignIRKSL_NSA_10_AllocNodeISaINSA_10_Hash_nodeIS8_Lb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %_ZSt10_ConstructIN3ue211CastleProtoEJRS1_EEvPT_DpOT0_.exit unwind label %35
@@ -21437,11 +21431,11 @@ _ZNSt3mapIjN3ue210PureRepeatESt4lessIjESaISt4pairIKjS1_EEEC2ERKS8_.exit.i.i: ; p
 35:                                               ; preds = %_ZNSt3mapIjN3ue210PureRepeatESt4lessIjESaISt4pairIKjS1_EEEC2ERKS8_.exit.i.i
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt3mapIjN3ue210PureRepeatESt4lessIjESaISt4pairIKjS1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %1) #27
+  call void @_ZNSt3mapIjN3ue210PureRepeatESt4lessIjESaISt4pairIKjS1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %1) #28
   resume { ptr, i32 } %36
 
 _ZSt10_ConstructIN3ue211CastleProtoEJRS1_EEvPT_DpOT0_.exit: ; preds = %_ZNSt3mapIjN3ue210PureRepeatESt4lessIjESaISt4pairIKjS1_EEEC2ERKS8_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %39 = load i64, ptr %38, align 8
@@ -21450,32 +21444,32 @@ _ZSt10_ConstructIN3ue211CastleProtoEJRS1_EEvPT_DpOT0_.exit: ; preds = %_ZNSt3map
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN3ue211CastleProtoESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN3ue211CastleProtoESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #5 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN3ue211CastleProtoESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN3ue211CastleProtoESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZNSt16allocator_traitsISaIvEE7destroyIN3ue211CastleProtoEEEvRS0_PT_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull %2) #27
+  tail call void @_ZNSt16allocator_traitsISaIvEE7destroyIN3ue211CastleProtoEEEvRS0_PT_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull %2) #28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN3ue211CastleProtoESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN3ue211CastleProtoESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3ue211CastleProtoESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN3ue211CastleProtoESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN3ue211CastleProtoESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
@@ -21492,7 +21486,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN3ue211Ca
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %9
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #27
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #28
   %.fr = freeze i32 %11
   %12 = icmp eq i32 %.fr, 0
   br i1 %12, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.thread8
@@ -21506,7 +21500,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt3mapIjN3ue210PureRepeatESt4lessIjESaISt4pairIKjS1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt3mapIjN3ue210PureRepeatESt4lessIjESaISt4pairIKjS1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   invoke void @_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt10_Select1stIS4_ESt4lessIjESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
@@ -21603,7 +21597,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRep
 36:                                               ; preds = %34, %17
   %.pn = phi { ptr, i32 } [ %35, %34 ], [ %18, %17 ]
   %.030 = extractvalue { ptr, i32 } %.pn, 0
-  %37 = tail call ptr @__cxa_begin_catch(ptr %.030) #27
+  %37 = tail call ptr @__cxa_begin_catch(ptr %.030) #28
   invoke void @_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt10_Select1stIS4_ESt4lessIjESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %7)
           to label %38 unwind label %40
 
@@ -21689,8 +21683,8 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %9, i64 40, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr %12, ptr %10, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -21726,7 +21720,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt
 
 .body:                                            ; preds = %19, %22, %25
   %26 = extractvalue { ptr, i32 } %20, 0
-  %27 = call ptr @__cxa_begin_catch(ptr %26) #27
+  %27 = call ptr @__cxa_begin_catch(ptr %26) #28
   call void @_ZdlPv(ptr noundef nonnull %1) #31
   invoke void @__cxa_rethrow() #29
           to label %35 unwind label %28
@@ -21738,8 +21732,8 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt
           to label %31 unwind label %32
 
 30:                                               ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 31:                                               ; preds = %28
@@ -21882,8 +21876,8 @@ _ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeISt4pairIKjN3ue28flat_setIjSt4less
 53:                                               ; preds = %50, %48
   %.pn = phi { ptr, i32 } [ %51, %50 ], [ %49, %48 ]
   %.027 = extractvalue { ptr, i32 } %.pn, 0
-  %54 = tail call ptr @__cxa_begin_catch(ptr %.027) #27
-  tail call void @_ZNSt10_HashtableIjSt4pairIKjN3ue28flat_setIjSt4lessIjESaIjEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #27
+  %54 = tail call ptr @__cxa_begin_catch(ptr %.027) #28
+  tail call void @_ZNSt10_HashtableIjSt4pairIKjN3ue28flat_setIjSt4lessIjESaIjEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #28
   br i1 %.not.not, label %55, label %_ZNSt10_HashtableIjSt4pairIKjN3ue28flat_setIjSt4lessIjESaIjEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 55:                                               ; preds = %53
@@ -21924,7 +21918,7 @@ _ZNSt10_HashtableIjSt4pairIKjN3ue28flat_setIjSt4lessIjESaIjEEEESaIS8_ENSt8__deta
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10_HashtableIjSt4pairIKjN3ue28flat_setIjSt4lessIjESaIjEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt10_HashtableIjSt4pairIKjN3ue28flat_setIjSt4lessIjESaIjEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not5.i = icmp eq ptr %3, null
@@ -21975,8 +21969,8 @@ define linkonce_odr hidden noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_1
   store i32 %7, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %10, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -22011,13 +22005,13 @@ define linkonce_odr hidden noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_1
   br label %25
 
 24:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %5
 
 25:                                               ; preds = %17, %20, %23
   %26 = extractvalue { ptr, i32 } %18, 0
-  %27 = call ptr @__cxa_begin_catch(ptr %26) #27
+  %27 = call ptr @__cxa_begin_catch(ptr %26) #28
   call void @_ZdlPv(ptr noundef nonnull %5) #31
   invoke void @__cxa_rethrow() #29
           to label %34 unwind label %28
@@ -22152,7 +22146,7 @@ _ZN5boost9container25copy_assign_range_alloc_nINS0_22small_vector_allocatorIjSaI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIvEE7destroyIN3ue211CastleProtoEEEvRS0_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIvEE7destroyIN3ue211CastleProtoEEEvRS0_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %5 = load ptr, ptr %4, align 8
@@ -22239,7 +22233,7 @@ define linkonce_odr hidden ptr @_ZNSt10_HashtableIjSt4pairIKjN3ue28flat_setIjSt4
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #27
+  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #28
   store i64 %8, ptr %7, align 8
   invoke void @__cxa_rethrow() #29
           to label %28 unwind label %22
@@ -22319,7 +22313,7 @@ _ZNSt10_HashtableIjSt4pairIKjN3ue28flat_setIjSt4lessIjESaIjEEEESaIS8_ENSt8__deta
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10_HashtableIjSt4pairIKjN3ue28flat_setIjSt4lessIjESaIjEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt10_HashtableIjSt4pairIKjN3ue28flat_setIjSt4lessIjESaIjEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -22449,7 +22443,7 @@ _ZNSt10_HashtableIjSt4pairIKjN3ue28flat_setIjSt4lessIjESaIjEEEESaIS8_ENSt8__deta
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt10_Select1stIS4_ESt4lessIjESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, ue2::PureRepeat>, std::_Select1st<std::pair<const unsigned int, ue2::PureRepeat>>, std::less<unsigned int>>::_Auto_node", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #30
@@ -22493,7 +22487,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt1
 
 .thread:                                          ; preds = %22, %25
   %30 = phi i1 [ true, %22 ], [ %29, %25 ]
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %30, ptr noundef nonnull %8, ptr noundef nonnull %21, ptr noundef nonnull align 8 dereferenceable(32) %23) #27
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %30, ptr noundef nonnull %8, ptr noundef nonnull %21, ptr noundef nonnull align 8 dereferenceable(32) %23) #28
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, 1
@@ -22503,8 +22497,8 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt1
 34:                                               ; preds = %5
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt10_Select1stIS4_ESt4lessIjESaIS4_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #27
+  call void @_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt10_Select1stIS4_ESt4lessIjESaIS4_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %35
 
 36:                                               ; preds = %19
@@ -22527,7 +22521,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt10_Select1stIS4_ESt4lessIjESaIS4_
 
 _ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt10_Select1stIS4_ESt4lessIjESaIS4_EE10_Auto_nodeD2Ev.exit: ; preds = %.thread, %_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt10_Select1stIS4_ESt4lessIjESaIS4_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS4_E.exit.i
   %.sroa.0.010 = phi ptr [ %8, %.thread ], [ %20, %_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt10_Select1stIS4_ESt4lessIjESaIS4_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS4_E.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.sroa.0.010
 }
 
@@ -22584,7 +22578,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRe
   br i1 %25, label %_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt10_Select1stIS4_ESt4lessIjESaIS4_EE24_M_get_insert_unique_posERS1_.exit, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #28
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #27
   %.phi.trans.insert80 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81 = load i32, ptr %.phi.trans.insert80, align 4
   %.pre82 = load i32, ptr %2, align 4
@@ -22614,7 +22608,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRe
   br i1 %40, label %_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt10_Select1stIS4_ESt4lessIjESaIS4_EE24_M_get_insert_unique_posERS1_.exit, label %41
 
 41:                                               ; preds = %37
-  %42 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #28
+  %42 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #27
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %44 = load i32, ptr %43, align 4
   %45 = icmp ult i32 %44, %34
@@ -22654,7 +22648,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRe
   br i1 %55, label %_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt10_Select1stIS4_ESt4lessIjESaIS4_EE24_M_get_insert_unique_posERS1_.exit, label %56
 
 56:                                               ; preds = %._crit_edge.thread.i27
-  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28) #28
+  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28) #27
   %.phi.trans.insert78 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %.pre79 = load i32, ptr %.phi.trans.insert78, align 4
   br label %58
@@ -22679,7 +22673,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRe
   br i1 %66, label %_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt10_Select1stIS4_ESt4lessIjESaIS4_EE24_M_get_insert_unique_posERS1_.exit, label %67
 
 67:                                               ; preds = %63
-  %68 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #28
+  %68 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #27
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %70 = load i32, ptr %69, align 4
   %71 = icmp ult i32 %34, %70
@@ -22721,7 +22715,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRe
   br i1 %83, label %_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt10_Select1stIS4_ESt4lessIjESaIS4_EE24_M_get_insert_unique_posERS1_.exit, label %84
 
 84:                                               ; preds = %._crit_edge.thread.i47
-  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48) #28
+  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48) #27
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %85, i64 32
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %86
@@ -22744,7 +22738,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt10_Select1stIS4_ESt4lessIjESaIS4_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt10_Select1stIS4_ESt4lessIjESaIS4_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt10_Select1stIS4_ESt4lessIjESaIS4_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -22828,7 +22822,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjjESt10_Sel
   br i1 %25, label %_ZNSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE24_M_get_insert_unique_posERS1_.exit, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #28
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #27
   %.phi.trans.insert80 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81 = load i32, ptr %.phi.trans.insert80, align 4
   %.pre82 = load i32, ptr %2, align 4
@@ -22858,7 +22852,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjjESt10_Sel
   br i1 %40, label %_ZNSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE24_M_get_insert_unique_posERS1_.exit, label %41
 
 41:                                               ; preds = %37
-  %42 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #28
+  %42 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #27
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %44 = load i32, ptr %43, align 4
   %45 = icmp ult i32 %44, %34
@@ -22898,7 +22892,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjjESt10_Sel
   br i1 %55, label %_ZNSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE24_M_get_insert_unique_posERS1_.exit, label %56
 
 56:                                               ; preds = %._crit_edge.thread.i27
-  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28) #28
+  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28) #27
   %.phi.trans.insert78 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %.pre79 = load i32, ptr %.phi.trans.insert78, align 4
   br label %58
@@ -22923,7 +22917,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjjESt10_Sel
   br i1 %66, label %_ZNSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE24_M_get_insert_unique_posERS1_.exit, label %67
 
 67:                                               ; preds = %63
-  %68 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #28
+  %68 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #27
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %70 = load i32, ptr %69, align 4
   %71 = icmp ult i32 %34, %70
@@ -22965,7 +22959,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjjESt10_Sel
   br i1 %83, label %_ZNSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE24_M_get_insert_unique_posERS1_.exit, label %84
 
 84:                                               ; preds = %._crit_edge.thread.i47
-  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48) #28
+  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48) #27
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %85, i64 32
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %86
@@ -23008,7 +23002,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN3ue214RoseSuffixInfoaSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN3ue214RoseSuffixInfoaSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 8
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -23065,11 +23059,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
   %28 = load ptr, ptr %20, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
-  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %20) #27
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %20) #28
   %31 = load ptr, ptr %20, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load ptr, ptr %32, align 8
-  tail call void %33(ptr noundef nonnull align 8 dereferenceable(16) %20) #27
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(16) %20) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i
 
 34:                                               ; preds = %21
@@ -23092,7 +23086,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %38, %36
   br i1 %40, label %41, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i, !prof !111
 
 41:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #27
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i: ; preds = %41, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %26, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i
@@ -23154,11 +23148,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
   %66 = load ptr, ptr %58, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = load ptr, ptr %67, align 8
-  tail call void %68(ptr noundef nonnull align 8 dereferenceable(16) %58) #27
+  tail call void %68(ptr noundef nonnull align 8 dereferenceable(16) %58) #28
   %69 = load ptr, ptr %58, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %71 = load ptr, ptr %70, align 8
-  tail call void %71(ptr noundef nonnull align 8 dereferenceable(16) %58) #27
+  tail call void %71(ptr noundef nonnull align 8 dereferenceable(16) %58) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i18
 
 72:                                               ; preds = %59
@@ -23181,7 +23175,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i16: ; preds = %76, %7
   br i1 %78, label %79, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i18, !prof !111
 
 79:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i16
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %58) #27
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %58) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i18
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i18: ; preds = %79, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i16, %64, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i13
@@ -23243,11 +23237,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
   %104 = load ptr, ptr %96, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %106 = load ptr, ptr %105, align 8
-  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %96) #27
+  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %96) #28
   %107 = load ptr, ptr %96, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %109 = load ptr, ptr %108, align 8
-  tail call void %109(ptr noundef nonnull align 8 dereferenceable(16) %96) #27
+  tail call void %109(ptr noundef nonnull align 8 dereferenceable(16) %96) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i29
 
 110:                                              ; preds = %97
@@ -23270,7 +23264,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i27: ; preds = %114, %
   br i1 %116, label %117, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i29, !prof !111
 
 117:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i27
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %96) #27
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %96) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i29
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i29: ; preds = %117, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i27, %102, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i24
@@ -23332,11 +23326,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
   %142 = load ptr, ptr %134, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %144 = load ptr, ptr %143, align 8
-  tail call void %144(ptr noundef nonnull align 8 dereferenceable(16) %134) #27
+  tail call void %144(ptr noundef nonnull align 8 dereferenceable(16) %134) #28
   %145 = load ptr, ptr %134, align 8
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 24
   %147 = load ptr, ptr %146, align 8
-  tail call void %147(ptr noundef nonnull align 8 dereferenceable(16) %134) #27
+  tail call void %147(ptr noundef nonnull align 8 dereferenceable(16) %134) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i40
 
 148:                                              ; preds = %135
@@ -23359,7 +23353,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i38: ; preds = %152, %
   br i1 %154, label %155, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i40, !prof !111
 
 155:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i38
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %134) #27
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %134) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i40
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i40: ; preds = %155, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i38, %140, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i35
@@ -23421,11 +23415,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
   %180 = load ptr, ptr %172, align 8
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 16
   %182 = load ptr, ptr %181, align 8
-  tail call void %182(ptr noundef nonnull align 8 dereferenceable(16) %172) #27
+  tail call void %182(ptr noundef nonnull align 8 dereferenceable(16) %172) #28
   %183 = load ptr, ptr %172, align 8
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 24
   %185 = load ptr, ptr %184, align 8
-  tail call void %185(ptr noundef nonnull align 8 dereferenceable(16) %172) #27
+  tail call void %185(ptr noundef nonnull align 8 dereferenceable(16) %172) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i51
 
 186:                                              ; preds = %173
@@ -23448,7 +23442,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i49: ; preds = %190, %
   br i1 %192, label %193, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i51, !prof !111
 
 193:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i49
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %172) #27
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %172) #28
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i51
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i51: ; preds = %193, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i49, %178, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i46
@@ -23472,7 +23466,7 @@ define internal fastcc void @_ZN3ue2L10mergeEdgesENS_12graph_detail17vertex_desc
   %9 = alloca %"class.ue2::graph_detail::vertex_descriptor", align 8
   %10 = alloca %"class.ue2::graph_detail::edge_descriptor", align 8
   %11 = alloca %"class.ue2::graph_detail::vertex_descriptor", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -23495,13 +23489,13 @@ define internal fastcc void @_ZN3ue2L10mergeEdgesENS_12graph_detail17vertex_desc
 
 20:                                               ; preds = %.lr.ph, %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEENS1_15edge_descriptorIS7_EESt4lessIS8_ESaISt4pairIKS8_SA_EEE7emplaceIJRS8_RKSA_EEESD_ISt17_Rb_tree_iteratorISF_EbEDpOT_.exit
   %.sroa.0195.0229 = phi ptr [ %.sroa.0195.0227, %.lr.ph ], [ %.sroa.0195.0, %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEENS1_15edge_descriptorIS7_EESt4lessIS8_ESaISt4pairIKS8_SA_EEE7emplaceIJRS8_RKSA_EEESD_ISt17_Rb_tree_iteratorISF_EbEDpOT_.exit ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %21 = getelementptr inbounds i8, ptr %.sroa.0195.0229, i64 -16
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.0195.0229, i64 32
   %23 = load i64, ptr %22, align 8
   store ptr %21, ptr %8, align 8
   store i64 %23, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.0195.0229, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 312
@@ -23512,8 +23506,8 @@ define internal fastcc void @_ZN3ue2L10mergeEdgesENS_12graph_detail17vertex_desc
           to label %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEENS1_15edge_descriptorIS7_EESt4lessIS8_ESaISt4pairIKS8_SA_EEE7emplaceIJRS8_RKSA_EEESD_ISt17_Rb_tree_iteratorISF_EbEDpOT_.exit unwind label %29
 
 _ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEENS1_15edge_descriptorIS7_EESt4lessIS8_ESaISt4pairIKS8_SA_EEE7emplaceIJRS8_RKSA_EEESD_ISt17_Rb_tree_iteratorISF_EbEDpOT_.exit: ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.sroa.0195.0 = load ptr, ptr %.sroa.0195.0229, align 8
   %.not = icmp eq ptr %.sroa.0195.0, %17
   br i1 %.not, label %._crit_edge, label %20
@@ -23521,8 +23515,8 @@ _ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphEN
 29:                                               ; preds = %20
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %181
 
 ._crit_edge:                                      ; preds = %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEENS1_15edge_descriptorIS7_EESt4lessIS8_ESaISt4pairIKS8_SA_EEE7emplaceIJRS8_RKSA_EEESD_ISt17_Rb_tree_iteratorISF_EbEDpOT_.exit, %4
@@ -23595,7 +23589,7 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraph
   br i1 %56, label %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEENS1_15edge_descriptorIS7_EESt4lessIS8_ESaISt4pairIKS8_SA_EEE4findERSE_.exit.thread, label %60
 
 _ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEENS1_15edge_descriptorIS7_EESt4lessIS8_ESaISt4pairIKS8_SA_EEE4findERSE_.exit.thread: ; preds = %34, %_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_NS1_15edge_descriptorIS7_EEESt10_Select1stISD_ESt4lessIS8_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRSA_.exit.i.i, %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEEclERKS8_SB_.exit.i.i, %54
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN3ue29ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEE13add_edge_implENS_12graph_detail17vertex_descriptorIS4_EES7_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.181") align 8 %6, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr %.sroa.0.0.copyload.i.fr.i.i.i, i64 %39, ptr %1, i64 %2)
           to label %.noexc unwind label %93
 
@@ -23606,7 +23600,7 @@ _ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphEN
   %59 = load i64, ptr %58, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %58, ptr noundef nonnull readonly align 8 dereferenceable(28) %57, i64 28, i1 false)
   store i64 %59, ptr %58, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %72
 
 60:                                               ; preds = %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEEclERKS8_SB_.exit.i.i, %54
@@ -23692,12 +23686,12 @@ _ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphEN
 
 103:                                              ; preds = %.lr.ph239, %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEENS1_15edge_descriptorIS7_EESt4lessIS8_ESaISt4pairIKS8_SA_EEE7emplaceIJRS8_RKSA_EEESD_ISt17_Rb_tree_iteratorISF_EbEDpOT_.exit117
   %.sroa.0174.0237 = phi ptr [ %.sroa.0174.0235, %.lr.ph239 ], [ %.sroa.0174.0, %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEENS1_15edge_descriptorIS7_EESt4lessIS8_ESaISt4pairIKS8_SA_EEE7emplaceIJRS8_RKSA_EEESD_ISt17_Rb_tree_iteratorISF_EbEDpOT_.exit117 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %104 = getelementptr inbounds nuw i8, ptr %.sroa.0174.0237, i64 48
   %105 = load i64, ptr %104, align 8
   store ptr %.sroa.0174.0237, ptr %10, align 8
   store i64 %105, ptr %101, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %106 = getelementptr inbounds nuw i8, ptr %.sroa.0174.0237, i64 40
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 312
@@ -23708,8 +23702,8 @@ _ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphEN
           to label %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEENS1_15edge_descriptorIS7_EESt4lessIS8_ESaISt4pairIKS8_SA_EEE7emplaceIJRS8_RKSA_EEESD_ISt17_Rb_tree_iteratorISF_EbEDpOT_.exit117 unwind label %111
 
 _ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEENS1_15edge_descriptorIS7_EESt4lessIS8_ESaISt4pairIKS8_SA_EEE7emplaceIJRS8_RKSA_EEESD_ISt17_Rb_tree_iteratorISF_EbEDpOT_.exit117: ; preds = %103
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.sroa.0174.0 = load ptr, ptr %.sroa.0174.0237, align 8
   %.not223 = icmp eq ptr %.sroa.0174.0, %100
   br i1 %.not223, label %._crit_edge240, label %103
@@ -23717,8 +23711,8 @@ _ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphEN
 111:                                              ; preds = %103
   %112 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %181
 
 ._crit_edge240:                                   ; preds = %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEENS1_15edge_descriptorIS7_EESt4lessIS8_ESaISt4pairIKS8_SA_EEE7emplaceIJRS8_RKSA_EEESD_ISt17_Rb_tree_iteratorISF_EbEDpOT_.exit117, %99
@@ -23790,7 +23784,7 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraph
   br i1 %137, label %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEENS1_15edge_descriptorIS7_EESt4lessIS8_ESaISt4pairIKS8_SA_EEE4findERSE_.exit151.thread, label %141
 
 _ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEENS1_15edge_descriptorIS7_EESt4lessIS8_ESaISt4pairIKS8_SA_EEE4findERSE_.exit151.thread: ; preds = %116, %_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_NS1_15edge_descriptorIS7_EEESt10_Select1stISD_ESt4lessIS8_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRSA_.exit.i.i137, %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEEclERKS8_SB_.exit.i.i141, %135
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN3ue29ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEE13add_edge_implENS_12graph_detail17vertex_descriptorIS4_EES7_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.181") align 8 %5, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr %1, i64 %2, ptr %.sroa.0.0.copyload.i.fr.i.i.i125, i64 %120)
           to label %.noexc157 unwind label %175
 
@@ -23801,7 +23795,7 @@ _ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphEN
   %140 = load i64, ptr %139, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %139, ptr noundef nonnull readonly align 8 dereferenceable(28) %138, i64 28, i1 false)
   store i64 %140, ptr %139, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %153
 
 141:                                              ; preds = %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEEclERKS8_SB_.exit.i.i141, %135
@@ -23872,13 +23866,13 @@ _ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphEN
   unreachable
 
 _ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEENS1_15edge_descriptorIS7_EESt4lessIS8_ESaISt4pairIKS8_SA_EEED2Ev.exit: ; preds = %._crit_edge245
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 181:                                              ; preds = %175, %111, %93, %29
   %.pn94.pn.pn.pn = phi { ptr, i32 } [ %30, %29 ], [ %94, %93 ], [ %112, %111 ], [ %176, %175 ]
-  call void @_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEENS1_15edge_descriptorIS7_EESt4lessIS8_ESaISt4pairIKS8_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #27
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #27
+  call void @_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEENS1_15edge_descriptorIS7_EESt4lessIS8_ESaISt4pairIKS8_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn94.pn.pn.pn
 }
 
@@ -23899,7 +23893,7 @@ define internal fastcc void @_ZN3ue2L11mergeCommonERNS_13RoseBuildImplERNS_12_GL
   %19 = load i64, ptr %18, align 8
   %20 = or i64 %19, %17
   store i64 %20, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %4, ptr %14, align 8
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %5, ptr %21, align 8
@@ -23931,9 +23925,9 @@ define internal fastcc void @_ZN3ue2L11mergeCommonERNS_13RoseBuildImplERNS_12_GL
 
 .lr.ph.i.i.i:                                     ; preds = %._crit_edge.i, %.lr.ph.i.i.i
   %.sroa.04.0.i.i = phi ptr [ %32, %.lr.ph.i.i.i ], [ %.pre.i, %._crit_edge.i ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @_ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.431") align 8 %13, ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.04.0.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.i.i, i64 4
   %.not.i.i.i = icmp eq ptr %32, %31
   br i1 %.not.i.i.i, label %_ZN3ue2L16mergeLiteralSetsENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES7_RNS_13RoseBuildImplE.exit, label %.lr.ph.i.i.i, !llvm.loop !116
@@ -24056,17 +24050,17 @@ _ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGrap
   br label %_ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE5eraseERKS8_.exit.i
 
 _ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE5eraseERKS8_.exit.i: ; preds = %_ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE5eraseENS_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPS8_Lb1EEEKS8_EE.exit.i.i, %84, %_ZSt11lower_boundIN5boost9container12vec_iteratorIPN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEELb0EEESB_St4lessISB_EET_SG_SG_RKT0_T1_.exit.i.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @_ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.647") align 8 %15, ptr noundef nonnull align 8 dereferenceable(40) %61, ptr noundef nonnull align 8 dereferenceable(16) %14)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %93 = getelementptr inbounds nuw i8, ptr %.sroa.013.019.i, i64 4
   %.not.i = icmp eq ptr %93, %26
   br i1 %.not.i, label %._crit_edge.i, label %33
 
 _ZN3ue2L16mergeLiteralSetsENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES7_RNS_13RoseBuildImplE.exit: ; preds = %.lr.ph.i.i.i, %6, %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %2, ptr %9, align 8
   %94 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %3, ptr %94, align 8
@@ -24078,7 +24072,7 @@ _ZN3ue2L16mergeLiteralSetsENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS
   br i1 %97, label %98, label %117
 
 98:                                               ; preds = %_ZN3ue2L16mergeLiteralSetsENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES7_RNS_13RoseBuildImplE.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %99 = load ptr, ptr %96, align 8
   store ptr %99, ptr %11, align 8
   %100 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -24103,7 +24097,7 @@ _ZN3ue2L16mergeLiteralSetsENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS
   store i32 %114, ptr %112, align 4
   %115 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8__detail9_Map_baseIN3ue27left_idESt4pairIKS2_St3setINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESt4lessISD_ESaISD_EEESaISI_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(112) %1, ptr noundef nonnull align 8 dereferenceable(40) %11)
   %116 = call noundef i64 @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE5eraseERKS8_(ptr noundef nonnull align 8 dereferenceable(48) %115, ptr noundef nonnull align 8 dereferenceable(16) %9)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %117
 
 117:                                              ; preds = %98, %_ZN3ue2L16mergeLiteralSetsENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES7_RNS_13RoseBuildImplE.exit
@@ -24173,7 +24167,7 @@ _ZNKSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseG
   br i1 %136, label %_ZN3ue28containsISt3mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEEEEbRKT_RKNSH_8key_typeE.exit.thread.i, label %_ZN3ue28containsISt3mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEEEEbRKT_RKNSH_8key_typeE.exit.thread89.i
 
 _ZN3ue28containsISt3mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEEEEbRKT_RKNSH_8key_typeE.exit.thread89.i: ; preds = %135
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br label %.lr.ph.split.i.i.i.i26.i.preheader
 
 .lr.ph.split.i.i.i.i26.i.preheader:               ; preds = %_ZN3ue28containsISt3mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEEEEbRKT_RKNSH_8key_typeE.exit.i, %_ZN3ue28containsISt3mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEEEEbRKT_RKNSH_8key_typeE.exit.thread89.i
@@ -24184,7 +24178,7 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraph
   br i1 %137, label %_ZN3ue28containsISt3mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEEEEbRKT_RKNSH_8key_typeE.exit.thread.i, label %_ZN3ue28containsISt3mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEEEEbRKT_RKNSH_8key_typeE.exit.i
 
 _ZN3ue28containsISt3mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEEEEbRKT_RKNSH_8key_typeE.exit.i: ; preds = %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEEclERKS8_SB_.exit.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br i1 %.not13.i.i.i.i.i, label %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEEclERKS8_SB_.exit.us.i.i.i.i36.i, label %.lr.ph.split.i.i.i.i26.i.preheader
 
 _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEEclERKS8_SB_.exit.us.i.i.i.i36.i: ; preds = %_ZN3ue28containsISt3mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEEEEbRKT_RKNSH_8key_typeE.exit.i, %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEEclERKS8_SB_.exit.us.i.i.i.i36.i
@@ -24252,7 +24246,7 @@ _ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphEN
   %155 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %156 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8__detail9_Map_baseIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESt4pairIKS9_St3setIS9_St4lessIS9_ESaIS9_EEESaISH_ENS_10_Select1stESt8equal_toIS9_ESt4hashIS9_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERSB_(ptr noundef nonnull align 8 dereferenceable(56) %155, ptr noundef nonnull align 8 dereferenceable(16) %12)
   %157 = call noundef i64 @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE5eraseERKS8_(ptr noundef nonnull align 8 dereferenceable(48) %156, ptr noundef nonnull align 8 dereferenceable(16) %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZN3ue28containsISt3mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEEEEbRKT_RKNSH_8key_typeE.exit.thread.i
 
 _ZN3ue28containsISt3mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEEEEbRKT_RKNSH_8key_typeE.exit.thread.i: ; preds = %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEE2atERSC_.exit.i, %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEEclERKS8_SB_.exit.i.i.i.i, %135, %_ZNKSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_S8_ESt10_Select1stISB_ESt4lessIS8_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRSA_.exit.i.i.i.i, %117
@@ -24410,12 +24404,12 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraph
 
 .critedge.i62.i:                                  ; preds = %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEEclERKS8_SB_.exit.i61.i, %215, %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEE11lower_boundERSC_.exit.i57.i, %.lr.ph.i25
   %.08.lcssa.i.i.i11.i.i = phi ptr [ %.08.lcssa.i.i.i.i58.i, %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEEclERKS8_SB_.exit.i61.i ], [ %.08.lcssa.i.i.i.i58.i, %215 ], [ %.08.lcssa.i.i.i.i58.i, %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEE11lower_boundERSC_.exit.i57.i ], [ %121, %.lr.ph.i25 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %200, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %218 = call ptr @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_S8_ESt10_Select1stISB_ESt4lessIS8_ESaISB_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRSA_EESM_IJEEEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %118, ptr %.08.lcssa.i.i.i11.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(1) %8)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEEixERSC_.exit.i
 
 _ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEEixERSC_.exit.i: ; preds = %.critedge.i62.i, %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEEclERKS8_SB_.exit.i61.i, %215
@@ -24424,18 +24418,18 @@ _ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphEN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %219, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
   %220 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8__detail9_Map_baseIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESt4pairIKS9_St3setIS9_St4lessIS9_ESaIS9_EEESaISH_ENS_10_Select1stESt8equal_toIS9_ESt4hashIS9_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERSB_(ptr noundef nonnull align 8 dereferenceable(56) %158, ptr noundef nonnull align 8 dereferenceable(16) %10)
   %221 = call { ptr, i8 } @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE16_M_insert_uniqueIRKS8_EESt4pairISt17_Rb_tree_iteratorIS8_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %220, ptr noundef nonnull align 8 dereferenceable(16) %200)
-  %222 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.071.082.i) #28
+  %222 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.071.082.i) #27
   %.not.i26 = icmp eq ptr %222, %198
   br i1 %.not.i26, label %._crit_edge.i27, label %.lr.ph.i25
 
 _ZN3ue2L18updateAliasingInfoERNS_13RoseBuildImplERNS_12_GLOBAL__N_116RoseAliasingInfoENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESC_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %164, %168, %..loopexit_crit_edge22.i.i.i.i.i.i, %._crit_edge.i27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEENS1_15edge_descriptorIS7_EESt4lessIS8_ESaISt4pairIKS8_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEENS1_15edge_descriptorIS7_EESt4lessIS8_ESaISt4pairIKS8_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   invoke void @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_NS1_15edge_descriptorIS7_EEESt10_Select1stISD_ESt4lessIS8_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
@@ -24521,7 +24515,7 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraph
   br i1 %21, label %34, label %22
 
 22:                                               ; preds = %._crit_edge.thread.i
-  %23 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.025.lcssa42.i) #28
+  %23 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.025.lcssa42.i) #27
   %.sroa.0.0.copyload.i5.i.pre = load ptr, ptr %5, align 8
   br label %24
 
@@ -24576,7 +24570,7 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraph
 
 .thread25:                                        ; preds = %34, %41, %45
   %47 = phi i1 [ true, %34 ], [ %44, %41 ], [ %46, %45 ]
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %47, ptr noundef nonnull %4, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %8) #27
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %47, ptr noundef nonnull %4, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %8) #28
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %49 = load i64, ptr %48, align 8
   %50 = add i64 %49, 1
@@ -24930,8 +24924,8 @@ _ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGr
 
 22:                                               ; preds = %22, %.lr.ph.i
   %.sroa.06.09.i = phi ptr [ %4, %.lr.ph.i ], [ %23, %22 ]
-  %23 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.06.09.i) #28
-  %24 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.sroa.06.09.i, ptr noundef nonnull align 8 dereferenceable(32) %21) #27
+  %23 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.06.09.i) #27
+  %24 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.sroa.06.09.i, ptr noundef nonnull align 8 dereferenceable(32) %21) #28
   tail call void @_ZdlPv(ptr noundef nonnull %24) #31
   %25 = load i64, ptr %6, align 8
   %26 = add i64 %25, -1
@@ -25183,7 +25177,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descr
 
 .thread:                                          ; preds = %15, %23, %27
   %29 = phi i1 [ true, %15 ], [ %26, %23 ], [ %28, %27 ]
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %29, ptr noundef nonnull %6, ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(32) %16) #27
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %29, ptr noundef nonnull %6, ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(32) %16) #28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load i64, ptr %30, align 8
   %32 = add i64 %31, 1
@@ -25302,7 +25296,7 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraph
   br i1 %35, label %_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_S8_ESt10_Select1stISB_ESt4lessIS8_ESaISB_EE24_M_get_insert_unique_posERSA_.exit, label %36
 
 36:                                               ; preds = %._crit_edge.thread.i
-  %37 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.025.lcssa42.i) #28
+  %37 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.025.lcssa42.i) #27
   %.sroa.0.0.copyload.i5.i.pre = load ptr, ptr %2, align 8
   br label %38
 
@@ -25361,7 +25355,7 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraph
   br i1 %62, label %_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_S8_ESt10_Select1stISB_ESt4lessIS8_ESaISB_EE24_M_get_insert_unique_posERSA_.exit, label %63
 
 63:                                               ; preds = %59
-  %64 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #28
+  %64 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #27
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %66 = load ptr, ptr %65, align 8
   %67 = icmp ne ptr %66, null
@@ -25446,7 +25440,7 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraph
   br i1 %88, label %_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_S8_ESt10_Select1stISB_ESt4lessIS8_ESaISB_EE24_M_get_insert_unique_posERSA_.exit, label %89
 
 89:                                               ; preds = %._crit_edge.thread.i52
-  %90 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.025.lcssa42.i53) #28
+  %90 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.025.lcssa42.i53) #27
   br label %91
 
 91:                                               ; preds = %89, %._crit_edge.i38
@@ -25496,7 +25490,7 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraph
   br i1 %110, label %_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_S8_ESt10_Select1stISB_ESt4lessIS8_ESaISB_EE24_M_get_insert_unique_posERSA_.exit, label %111
 
 111:                                              ; preds = %107
-  %112 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #28
+  %112 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #27
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 32
   %.sroa.0.0.copyload.i68 = load ptr, ptr %113, align 8
   %114 = icmp ne ptr %.sroa.0.0.copyload.i68, null
@@ -25583,7 +25577,7 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraph
   br i1 %137, label %_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_S8_ESt10_Select1stISB_ESt4lessIS8_ESaISB_EE24_M_get_insert_unique_posERSA_.exit, label %138
 
 138:                                              ; preds = %._crit_edge.thread.i104
-  %139 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.025.lcssa42.i105) #28
+  %139 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.025.lcssa42.i105) #27
   br label %140
 
 140:                                              ; preds = %138, %._crit_edge.i90
@@ -26005,7 +25999,7 @@ _ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9Ros
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN3ue2L22splitRightMergeBucketsERKNS_12_GLOBAL__N_112CandidateSetERKNS_13RoseBuildImplE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(780) %2) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L22splitRightMergeBucketsERKNS_12_GLOBAL__N_112CandidateSetERKNS_13RoseBuildImplE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(780) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::unordered_map.670", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
   store ptr %5, ptr %0, align 8
@@ -26070,11 +26064,11 @@ _ZN3ue26insertISt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9
 
 .body:                                            ; preds = %.body.i, %325, %25
   %eh.lpad-body = phi { ptr, i32 } [ %26, %25 ], [ %.pn20.pn.i.i, %325 ], [ %.pn20.pn.i.i, %.body.i ]
-  call void @_ZNSt6vectorIS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EESaISA_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #27
+  call void @_ZNSt6vectorIS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EESaISA_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #28
   resume { ptr, i32 } %eh.lpad-body
 
 27:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %28, ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -26574,7 +26568,7 @@ _ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
 204:                                              ; preds = %.loopexit.split-lp60.i.i, %.loopexit59.i.i
   %lpad.phi62.i.i = phi { ptr, i32 } [ %lpad.loopexit61.i.i, %.loopexit59.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp60.i.i ]
   %205 = extractvalue { ptr, i32 } %lpad.phi62.i.i, 0
-  %206 = call ptr @__cxa_begin_catch(ptr %205) #27
+  %206 = call ptr @__cxa_begin_catch(ptr %205) #28
   store i64 %171, ptr %32, align 8
   invoke void @__cxa_rethrow() #29
           to label %212 unwind label %207
@@ -26924,7 +26918,7 @@ _ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
   br label %_ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEED2Ev.exit.i.i
 
 _ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEED2Ev.exit.i.i: ; preds = %307, %_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not4.i.i.i.i.i.i = icmp eq ptr %.pr.i.i.i, %299
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaIS9_EESB_EvT_SD_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i37.i.i
 
@@ -26982,7 +26976,7 @@ _ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
   br label %_ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEED2Ev.exit.i
 
 _ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEED2Ev.exit.i: ; preds = %319, %_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not4.i.i.i.i.i = icmp eq ptr %.sroa.014.0.i, %.sroa.11.0.i
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaIS9_EESB_EvT_SD_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i6.i
 
@@ -27030,7 +27024,7 @@ _ZN3ue2L17splitByRightPropsERKNS_9RoseGraphERSt6vectorIS3_INS_12graph_detail17ve
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc ptr @_ZN3ue2L21findRightMergeSiblingEN9__gnu_cxx17__normal_iteratorIPKNS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESt6vectorIS9_SaIS9_EEEERKSF_S9_RKNS_13RoseBuildImplERKNS_12_GLOBAL__N_116RoseAliasingInfoERKNSL_12CandidateSetE(ptr readonly captures(address, ret: address, provenance) %0, ptr readnone captures(address, ret: address, provenance) %.0.val, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(780) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %5) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc ptr @_ZN3ue2L21findRightMergeSiblingEN9__gnu_cxx17__normal_iteratorIPKNS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESt6vectorIS9_SaIS9_EEEERKSF_S9_RKNS_13RoseBuildImplERKNS_12_GLOBAL__N_116RoseAliasingInfoERKNSL_12CandidateSetE(ptr readonly captures(address, ret: address, provenance) %0, ptr readnone captures(address, ret: address, provenance) %.0.val, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(780) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %5) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::set", align 8
   %8 = alloca %"class.std::set", align 8
   %9 = alloca %"class.ue2::graph_detail::vertex_descriptor", align 8
@@ -27182,13 +27176,13 @@ _ZN3ue2neERKNS_8flat_setIjSt4lessIjESaIjEEES6_.exit: ; preds = %82, %75
   br i1 %87, label %88, label %_ZN3ue28containsINS_12_GLOBAL__N_112CandidateSetEEEbRKT_RKNS3_8key_typeE.exit.thread
 
 88:                                               ; preds = %86
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %17, align 8
   store ptr null, ptr %18, align 8
   store ptr %17, ptr %19, align 8
   store ptr %17, ptr %20, align 8
   store i64 0, ptr %21, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %22, align 8
   store ptr null, ptr %23, align 8
   store ptr %22, ptr %24, align 8
@@ -27200,7 +27194,7 @@ _ZN3ue2neERKNS_8flat_setIjSt4lessIjESaIjEEES6_.exit: ; preds = %82, %75
 
 .lr.ph.i:                                         ; preds = %88, %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit.i
   %.sroa.06.018.i = phi ptr [ %.sroa.06.0.i, %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit.i ], [ %.sroa.06.016.i, %88 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %89 = getelementptr inbounds nuw i8, ptr %.sroa.06.018.i, i64 16
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 312
@@ -27219,11 +27213,11 @@ _ZN3ue2neERKNS_8flat_setIjSt4lessIjESaIjEEES6_.exit: ; preds = %82, %75
 97:                                               ; preds = %95
   %98 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %132
 
 _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit.i: ; preds = %95, %.lr.ph.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.sroa.06.0.i = load ptr, ptr %.sroa.06.018.i, align 8
   %.not14.i = icmp eq ptr %.sroa.06.0.i, %27
   br i1 %.not14.i, label %._crit_edge.i, label %.lr.ph.i
@@ -27260,14 +27254,14 @@ _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphEN
   br i1 %109, label %110, label %_ZSteqIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EEbRKSt3setIT_T0_T1_ESI_.exit.i
 
 110:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %111 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.03.07.i.i.i.i.i.i.i) #28
-  %112 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0.08.i.i.i.i.i.i.i) #28
+  %111 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.03.07.i.i.i.i.i.i.i) #27
+  %112 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0.08.i.i.i.i.i.i.i) #27
   %.not.i.i.i.i.i.i.i = icmp eq ptr %111, %17
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSteqIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EEbRKSt3setIT_T0_T1_ESI_.exit.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !969
 
 .lr.ph23.i:                                       ; preds = %._crit_edge.i, %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit33.i
   %.sroa.01.021.i = phi ptr [ %.sroa.01.0.i, %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit33.i ], [ %.sroa.01.019.i, %._crit_edge.i ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %113 = getelementptr inbounds nuw i8, ptr %.sroa.01.021.i, i64 16
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 312
@@ -27286,11 +27280,11 @@ _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphEN
 121:                                              ; preds = %119
   %122 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %132
 
 _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit33.i: ; preds = %119, %.lr.ph23.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.sroa.01.0.i = load ptr, ptr %.sroa.01.021.i, align 8
   %.not15.i = icmp eq ptr %.sroa.01.0.i, %99
   br i1 %.not15.i, label %._crit_edge24.i, label %.lr.ph23.i
@@ -27309,7 +27303,7 @@ _ZSteqIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_
   unreachable
 
 _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev.exit.i: ; preds = %_ZSteqIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EEbRKSt3setIT_T0_T1_ESI_.exit.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %128 = load ptr, ptr %18, align 8
   invoke void @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %128)
           to label %_ZN3ue2L13safeRootPredsENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES7_RKS3_.exit unwind label %129
@@ -27323,14 +27317,14 @@ _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphEN
 
 132:                                              ; preds = %121, %97
   %.pn25.pn.pn.pn.i = phi { ptr, i32 } [ %98, %97 ], [ %122, %121 ]
-  call void @_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #27
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #27
-  call void @_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #27
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #27
+  call void @_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn25.pn.pn.pn.i
 
 _ZN3ue2L13safeRootPredsENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES7_RKS3_.exit: ; preds = %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %123, label %133, label %_ZN3ue28containsINS_12_GLOBAL__N_112CandidateSetEEEbRKT_RKNS3_8key_typeE.exit.thread
 
 133:                                              ; preds = %_ZN3ue2L13safeRootPredsENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES7_RKS3_.exit
@@ -27622,7 +27616,7 @@ _ZN3ue2L26hasCommonPredWithDiffRosesENS_12graph_detail17vertex_descriptorINS_9ue
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt6vectorIS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EESaISA_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt6vectorIS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EESaISA_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -27671,7 +27665,7 @@ define internal fastcc void @_ZN3ue2L28splitByReportSuffixBehaviourERKNS_9RoseGr
   br i1 %6, label %"_ZN3ue221splitAndFilterBucketsIZNS_L28splitByReportSuffixBehaviourERKNS_9RoseGraphERSt6vectorIS4_INS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISB_EESaISD_EEE3$_0EEvSG_RKT_.exit", label %7
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %8, ptr %2, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -28011,7 +28005,7 @@ _ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
 142:                                              ; preds = %.loopexit.split-lp.i, %.loopexit25.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit25.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   %143 = extractvalue { ptr, i32 } %lpad.phi.i, 0
-  %144 = call ptr @__cxa_begin_catch(ptr %143) #27
+  %144 = call ptr @__cxa_begin_catch(ptr %143) #28
   store i64 %109, ptr %12, align 8
   invoke void @__cxa_rethrow() #29
           to label %150 unwind label %145
@@ -28359,7 +28353,7 @@ _ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
   br label %_ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEED2Ev.exit.i
 
 _ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEED2Ev.exit.i: ; preds = %254, %_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not4.i.i.i.i.i = icmp eq ptr %.pr.i.i, %.sroa.11.6
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaIS9_EESB_EvT_SD_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i32.i
 
@@ -28416,7 +28410,7 @@ _ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
   br label %_ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEED2Ev.exit
 
 _ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEED2Ev.exit: ; preds = %_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, %266
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not4.i.i.i.i = icmp eq ptr %.sroa.09.0, %.sroa.11.0
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaIS9_EESB_EvT_SD_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i2
 
@@ -28458,7 +28452,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN3ue212graph_detail17vertex_descri
 .lr.ph.i.i:                                       ; preds = %4, %.lr.ph.i.i
   %.06.i.i = phi i64 [ %6, %.lr.ph.i.i ], [ 0, %4 ]
   %.sroa.02.05.i.i = phi ptr [ %5, %.lr.ph.i.i ], [ %2, %4 ]
-  %5 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.02.05.i.i) #28
+  %5 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.02.05.i.i) #27
   %6 = add nuw nsw i64 %.06.i.i, 1
   %.not.i.i = icmp eq ptr %5, %3
   br i1 %.not.i.i, label %_ZSt8distanceISt23_Rb_tree_const_iteratorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEEEENSt15iterator_traitsIT_E15difference_typeESC_SC_.exit, label %.lr.ph.i.i, !llvm.loop !1005
@@ -28522,7 +28516,7 @@ _ZSt22__uninitialized_move_aIPN3ue212graph_detail17vertex_descriptorINS0_9ue2_gr
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.08.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 16
-  %35 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.03.07.i.i.i.i.i) #28
+  %35 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.03.07.i.i.i.i.i) #27
   %.not.i.i.i.i.i53 = icmp eq ptr %35, %3
   br i1 %.not.i.i.i.i.i53, label %_ZSt4copyISt23_Rb_tree_const_iteratorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEEEN9__gnu_cxx17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEET0_T_SJ_SI_.exit, label %.lr.ph.i.i.i.i.i52, !llvm.loop !1006
 
@@ -28538,7 +28532,7 @@ _ZSt22__uninitialized_move_aIPN3ue212graph_detail17vertex_descriptorINS0_9ue2_gr
   %.012.i.i = phi i64 [ %39, %.preheader.i.i ], [ %18, %36 ]
   %38 = phi ptr [ %40, %.preheader.i.i ], [ %2, %36 ]
   %39 = add nsw i64 %.012.i.i, -1
-  %40 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %38) #28
+  %40 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %38) #27
   %.not6.i.i = icmp eq i64 %39, 0
   br i1 %.not6.i.i, label %_ZSt7advanceISt23_Rb_tree_const_iteratorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEEEmEvRT_T0_.exit, label %.preheader.i.i, !llvm.loop !1007
 
@@ -28546,7 +28540,7 @@ _ZSt22__uninitialized_move_aIPN3ue212graph_detail17vertex_descriptorINS0_9ue2_gr
   %.110.i.i = phi i64 [ %42, %.lr.ph.i.i55 ], [ %18, %.preheader7.i.i ]
   %41 = phi ptr [ %43, %.lr.ph.i.i55 ], [ %2, %.preheader7.i.i ]
   %42 = add nsw i64 %.110.i.i, 1
-  %43 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef %41) #28
+  %43 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef %41) #27
   %.not.i.i56 = icmp eq i64 %42, 0
   br i1 %.not.i.i56, label %_ZSt7advanceISt23_Rb_tree_const_iteratorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEEEmEvRT_T0_.exit, label %.lr.ph.i.i55, !llvm.loop !1008
 
@@ -28560,7 +28554,7 @@ _ZSt7advanceISt23_Rb_tree_const_iteratorIN3ue212graph_detail17vertex_descriptorI
   %.sroa.04.08.i.i.i.i = phi ptr [ %45, %.lr.ph.i.i.i.i ], [ %.sroa.0.0, %_ZSt7advanceISt23_Rb_tree_const_iteratorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEEEmEvRT_T0_.exit ]
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.09.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false)
-  %45 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.04.08.i.i.i.i) #28
+  %45 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.04.08.i.i.i.i) #27
   %46 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 16
   %.not.i.i.i.i = icmp eq ptr %45, %3
   br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aISt23_Rb_tree_const_iteratorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEEEPS9_S9_ET0_T_SD_SC_RSaIT1_E.exit.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !1009
@@ -28603,7 +28597,7 @@ _ZSt22__uninitialized_move_aIPN3ue212graph_detail17vertex_descriptorINS0_9ue2_gr
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i.i.i67, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.08.i.i.i.i.i66, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
   %55 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i66, i64 16
-  %56 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.03.07.i.i.i.i.i67) #28
+  %56 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.03.07.i.i.i.i.i67) #27
   %.not.i.i.i.i.i68 = icmp eq ptr %56, %.sroa.0.0
   br i1 %.not.i.i.i.i.i68, label %_ZSt4copyISt23_Rb_tree_const_iteratorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEEEN9__gnu_cxx17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEET0_T_SJ_SI_.exit, label %.lr.ph.i.i.i.i.i65, !llvm.loop !1006
 
@@ -28657,7 +28651,7 @@ _ZNSt12_Vector_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9R
   %.sroa.04.08.i.i.i.i80 = phi ptr [ %75, %.lr.ph.i.i.i.i78 ], [ %2, %.lr.ph.i.i.i.i78.preheader ]
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i80, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.09.i.i.i.i79, ptr noundef nonnull align 8 dereferenceable(16) %74, i64 16, i1 false)
-  %75 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.04.08.i.i.i.i80) #28
+  %75 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.04.08.i.i.i.i80) #27
   %76 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i79, i64 16
   %.not.i.i.i.i81 = icmp eq ptr %75, %3
   br i1 %.not.i.i.i.i81, label %_ZSt22__uninitialized_copy_aISt23_Rb_tree_const_iteratorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEEEPS9_S9_ET0_T_SD_SC_RSaIT1_E.exit83, label %.lr.ph.i.i.i.i78, !llvm.loop !1009
@@ -28696,10 +28690,10 @@ _ZSt4copyISt23_Rb_tree_const_iteratorIN3ue212graph_detail17vertex_descriptorINS1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #13
+declare noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN3ue2L22removeSingletonBucketsERSt6vectorIS0_INS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaIS8_EESaISA_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L22removeSingletonBucketsERSt6vectorIS0_INS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaIS8_EESaISA_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -28954,7 +28948,7 @@ define linkonce_odr dso_local void @_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  %22 = tail call ptr @__cxa_begin_catch(ptr %21) #27
+  %22 = tail call ptr @__cxa_begin_catch(ptr %21) #28
   store i64 %5, ptr %4, align 8
   invoke void @__cxa_rethrow() #29
           to label %29 unwind label %23
@@ -28986,7 +28980,7 @@ _ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
   ret void
 }
 
-declare noundef i64 @_ZNKSt8__detail20_Prime_rehash_policy11_M_next_bktEm(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef) local_unnamed_addr #3
+declare noundef i64 @_ZNKSt8__detail20_Prime_rehash_policy11_M_next_bktEm(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -29084,9 +29078,9 @@ _ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.ceil.f64(double) #21
+declare double @llvm.ceil.f64(double) #20
 
-declare noundef i64 @_ZNK3ue214RoseSuffixInfo4hashEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #3
+declare noundef i64 @_ZNK3ue214RoseSuffixInfo4hashEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEESt6vectorISA_SaISA_EEEElNS0_5__ops15_Iter_less_iterEEvT_SI_T0_T1_(ptr %0, ptr %1, i64 noundef %2) local_unnamed_addr #0 comdat {
@@ -29113,12 +29107,12 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_less_iterEEvT_SI_RT0_(ptr %0, ptr %storemerge14, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_less_iterEEvT_SI_RT0_(ptr %0, ptr %storemerge14, ptr noundef nonnull align 1 dereferenceable(1) %6)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
 17:                                               ; preds = %13
@@ -29180,11 +29174,11 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3ue212graph_det
   br i1 %30, label %31, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_less_iterEET_SI_SI_T0_.exit
 
 31:                                               ; preds = %.split25.us.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %.us-phi32.i.i, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.us-phi32.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.us-phi26.i.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.us-phi26.i.i, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %32 = getelementptr inbounds nuw i8, ptr %.us-phi32.i.i, i64 16
   br label %21, !llvm.loop !1015
 
@@ -29240,11 +29234,11 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3ue212graph_det
   br i1 %17, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit.i, label %18
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS4_9ue2_graphINS4_9RoseGraphENS4_15RoseVertexPropsENS4_13RoseEdgePropsEEEEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.i, %13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.025.i.ptr, i64 16, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %.sroa.0.025.i.idx, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %20
 
 18:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS4_9ue2_graphINS4_9RoseGraphENS4_15RoseVertexPropsENS4_13RoseEdgePropsEEEEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.i
@@ -29394,7 +29388,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3ue212graph_det
   br i1 %34, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit.i72, label %41
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit.i72: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS4_9ue2_graphINS4_9RoseGraphENS4_15RoseVertexPropsENS4_13RoseEdgePropsEEEEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.i39, %30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.025.i34, i64 16, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %.pn24.i35, i64 32
   %36 = ptrtoint ptr %.sroa.0.025.i34 to i64
@@ -29404,7 +29398,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_
   %40 = getelementptr inbounds %"class.ue2::graph_detail::vertex_descriptor", ptr %35, i64 %39
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %40, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %37, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %43
 
 41:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS4_9ue2_graphINS4_9RoseGraphENS4_15RoseVertexPropsENS4_13RoseEdgePropsEEEEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.i39
@@ -29751,11 +29745,11 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3ue212graph_det
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %21, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS4_9ue2_graphINS4_9RoseGraphENS4_15RoseVertexPropsENS4_13RoseEdgePropsEEEEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit31
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %51
 
 27:                                               ; preds = %21, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS4_9ue2_graphINS4_9RoseGraphENS4_15RoseVertexPropsENS4_13RoseEdgePropsEEEEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit31
@@ -29775,19 +29769,19 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3ue212graph_det
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %28, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS4_9ue2_graphINS4_9RoseGraphENS4_15RoseVertexPropsENS4_13RoseEdgePropsEEEEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit37
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %51
 
 34:                                               ; preds = %28, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS4_9ue2_graphINS4_9RoseGraphENS4_15RoseVertexPropsENS4_13RoseEdgePropsEEEEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit37
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %51
 
 35:                                               ; preds = %14, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS4_9ue2_graphINS4_9RoseGraphENS4_15RoseVertexPropsENS4_13RoseEdgePropsEEEEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit
@@ -29809,11 +29803,11 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3ue212graph_det
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %37, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS4_9ue2_graphINS4_9RoseGraphENS4_15RoseVertexPropsENS4_13RoseEdgePropsEEEEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit43
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %51
 
 43:                                               ; preds = %37, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS4_9ue2_graphINS4_9RoseGraphENS4_15RoseVertexPropsENS4_13RoseEdgePropsEEEEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit43
@@ -29833,19 +29827,19 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3ue212graph_det
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %44, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS4_9ue2_graphINS4_9RoseGraphENS4_15RoseVertexPropsENS4_13RoseEdgePropsEEEEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit49
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %51
 
 50:                                               ; preds = %44, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS4_9ue2_graphINS4_9RoseGraphENS4_15RoseVertexPropsENS4_13RoseEdgePropsEEEEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit49
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %51
 
 51:                                               ; preds = %42, %50, %49, %26, %34, %33
@@ -29853,7 +29847,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3ue212graph_det
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #21
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #20
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext i1 @_ZN3ue2L14sameSuccessorsENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES7_RKS3_(ptr readonly captures(address) %0, ptr readonly captures(address) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -29869,7 +29863,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L14sameSuccessorsENS_12graph_d
   br i1 %.not, label %11, label %61
 
 11:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -29880,7 +29874,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L14sameSuccessorsENS_12graph_d
   store ptr %12, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 0, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -29904,7 +29898,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L14sameSuccessorsENS_12graph_d
 
 25:                                               ; preds = %.lr.ph, %31
   %.sroa.010.021 = phi ptr [ %.sroa.010.019, %.lr.ph ], [ %.sroa.010.0, %31 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.010.021, i64 40
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 312
@@ -29918,7 +29912,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L14sameSuccessorsENS_12graph_d
           to label %31 unwind label %32
 
 31:                                               ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.010.0 = load ptr, ptr %.sroa.010.021, align 8
   %.not17 = icmp eq ptr %.sroa.010.0, %22
   br i1 %.not17, label %._crit_edge, label %25
@@ -29926,7 +29920,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L14sameSuccessorsENS_12graph_d
 32:                                               ; preds = %25
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %60
 
 ._crit_edge:                                      ; preds = %31, %11
@@ -29971,14 +29965,14 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L14sameSuccessorsENS_12graph_d
   br i1 %44, label %45, label %_ZSteqIN3ue212_GLOBAL__N_112AliasOutEdgeESt4lessIS2_ESaIS2_EEbRKSt3setIT_T0_T1_ESC_.exit
 
 45:                                               ; preds = %.noexc
-  %46 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.05.07.i.i.i.i.i.i) #28
-  %47 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0.08.i.i.i.i.i.i) #28
+  %46 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.05.07.i.i.i.i.i.i) #27
+  %47 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0.08.i.i.i.i.i.i) #27
   %.not.i.i.i.i.i.i = icmp eq ptr %46, %12
   br i1 %.not.i.i.i.i.i.i, label %_ZSteqIN3ue212_GLOBAL__N_112AliasOutEdgeESt4lessIS2_ESaIS2_EEbRKSt3setIT_T0_T1_ESC_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !1025
 
 48:                                               ; preds = %.lr.ph26, %54
   %.sroa.02.024 = phi ptr [ %.sroa.02.022, %.lr.ph26 ], [ %.sroa.02.0, %54 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.02.024, i64 40
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 312
@@ -29992,7 +29986,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L14sameSuccessorsENS_12graph_d
           to label %54 unwind label %55
 
 54:                                               ; preds = %48
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.02.0 = load ptr, ptr %.sroa.02.024, align 8
   %.not18 = icmp eq ptr %.sroa.02.0, %34
   br i1 %.not18, label %._crit_edge27, label %48
@@ -30000,17 +29994,17 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L14sameSuccessorsENS_12graph_d
 55:                                               ; preds = %48
   %56 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %60
 
 _ZSteqIN3ue212_GLOBAL__N_112AliasOutEdgeESt4lessIS2_ESaIS2_EEbRKSt3setIT_T0_T1_ESC_.exit: ; preds = %45, %.noexc, %38, %._crit_edge27
   %57 = phi i1 [ false, %._crit_edge27 ], [ true, %38 ], [ %44, %.noexc ], [ %44, %45 ]
   %.val50 = load ptr, ptr %18, align 8
   call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_112AliasOutEdgeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %.val50)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.val51 = load ptr, ptr %13, align 8
   call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_112AliasOutEdgeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %.val51)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %61
 
 58:                                               ; preds = %.lr.ph.i.i.i.i.i.i
@@ -30022,10 +30016,10 @@ _ZSteqIN3ue212_GLOBAL__N_112AliasOutEdgeESt4lessIS2_ESaIS2_EEbRKSt3setIT_T0_T1_E
   %.pn40.pn.pn.pn = phi { ptr, i32 } [ %59, %58 ], [ %33, %32 ], [ %56, %55 ]
   %.val52 = load ptr, ptr %18, align 8
   call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_112AliasOutEdgeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %.val52)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.val53 = load ptr, ptr %13, align 8
   call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_112AliasOutEdgeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %.val53)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn40.pn.pn.pn
 
 61:                                               ; preds = %2, %_ZSteqIN3ue212_GLOBAL__N_112AliasOutEdgeESt4lessIS2_ESaIS2_EEbRKSt3setIT_T0_T1_ESC_.exit
@@ -30143,7 +30137,7 @@ define internal fastcc void @_ZNSt3setIN3ue212_GLOBAL__N_112AliasOutEdgeESt4less
   br i1 %11, label %select.unfold.i, label %12
 
 12:                                               ; preds = %._crit_edge.thread.i.i
-  %13 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.023.lcssa32.i.i) #28
+  %13 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.023.lcssa32.i.i) #27
   br label %14
 
 14:                                               ; preds = %12, %._crit_edge.i.i
@@ -30177,7 +30171,7 @@ _ZNSt8_Rb_treeIN3ue212_GLOBAL__N_112AliasOutEdgeES2_St9_IdentityIS2_ESt4lessIS2_
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull readonly align 8 dereferenceable(24) %31, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3ue212_GLOBAL__N_112AliasOutEdgeE, i64 16), ptr %29, align 8
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %27, ptr noundef nonnull %28, ptr noundef nonnull %.sroa.4.0.i.ph.i, ptr noundef nonnull align 8 dereferenceable(32) %4) #27
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %27, ptr noundef nonnull %28, ptr noundef nonnull %.sroa.4.0.i.ph.i, ptr noundef nonnull align 8 dereferenceable(32) %4) #28
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %33, 1
@@ -30189,18 +30183,18 @@ _ZNSt8_Rb_treeIN3ue212_GLOBAL__N_112AliasOutEdgeES2_St9_IdentityIS2_ESt4lessIS2_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN3ue212_GLOBAL__N_113EdgeAndVertexD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #22 align 2 {
+define internal void @_ZN3ue212_GLOBAL__N_113EdgeAndVertexD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #21 align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN3ue212_GLOBAL__N_112AliasOutEdgeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN3ue212_GLOBAL__N_112AliasOutEdgeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_112AliasOutEdgeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_112AliasOutEdgeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %.not1 = icmp eq ptr %0, null
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
@@ -30214,7 +30208,7 @@ define internal fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_112AliasOutEdgeES2
   %4 = getelementptr inbounds nuw i8, ptr %.02, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
   tail call void @_ZdlPv(ptr noundef nonnull %.02) #31
   %.not = icmp eq ptr %.0.val, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1033
@@ -30223,7 +30217,7 @@ define internal fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_112AliasOutEdgeES2
   ret void
 }
 
-declare noundef zeroext i1 @_ZN3ue218hasAnchHistorySuccERKNS_9RoseGraphENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(56), ptr, i64) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZN3ue218hasAnchHistorySuccERKNS_9RoseGraphENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(56), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN3ue2L17buildInvBucketMapERKSt6vectorIS0_INS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaIS8_EESaISA_EERSt13unordered_mapIS8_mSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_mEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -30292,7 +30286,7 @@ _ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9
 
 .lr.ph:                                           ; preds = %18, %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_mESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRS8_RmEEES9_INSD_14_Node_iteratorISB_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_.exit
   %.sroa.012.029 = phi ptr [ %140, %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_mESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRS8_RmEEES9_INSD_14_Node_iteratorISB_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_.exit ], [ %22, %18 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.012.029, i64 16, i1 false)
   %33 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #30
   store ptr null, ptr %33, align 8
@@ -30495,7 +30489,7 @@ _ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9Ros
 108:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %109 = extractvalue { ptr, i32 } %lpad.phi, 0
-  %110 = tail call ptr @__cxa_begin_catch(ptr %109) #27
+  %110 = tail call ptr @__cxa_begin_catch(ptr %109) #28
   store i64 %75, ptr %16, align 8
   invoke void @__cxa_rethrow() #29
           to label %116 unwind label %111
@@ -30583,7 +30577,7 @@ _ZNKSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9Ro
   br label %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_mESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRS8_RmEEES9_INSD_14_Node_iteratorISB_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_.exit
 
 _ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_mESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRS8_RmEEES9_INSD_14_Node_iteratorISB_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_.exit: ; preds = %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_mESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSD_10_Hash_nodeISB_Lb1EEEm.exit, %_ZNKSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_mESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRSA_m.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %140 = getelementptr inbounds nuw i8, ptr %.sroa.012.029, i64 16
   %.not = icmp eq ptr %140, %24
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
@@ -30596,9 +30590,9 @@ define internal fastcc void @_ZN3ue2L16splitByNeighbourERKNS_9RoseGraphERSt6vect
   %7 = alloca %"class.std::vector.664", align 8
   %8 = alloca %"class.std::map.806", align 8
   %9 = alloca %"class.std::set", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -30609,7 +30603,7 @@ define internal fastcc void @_ZN3ue2L16splitByNeighbourERKNS_9RoseGraphERSt6vect
   store ptr %10, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i64 0, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -30802,7 +30796,7 @@ _ZNSt3mapImSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9
 
 .critedge.i:                                      ; preds = %84, %_ZNSt3mapImSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaIS9_EESt4lessImESaISt4pairIKmSB_EEE11lower_boundERSF_.exit.i, %_ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEmSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_mEEE4findERSE_.exit
   %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %84 ], [ %.19.i.i.i.i, %_ZNSt3mapImSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaIS9_EESt4lessImESaISt4pairIKmSB_EEE11lower_boundERSF_.exit.i ], [ %10, %_ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEmSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_mEEE4findERSE_.exit ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %8, ptr %6, align 8
   %87 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #30
           to label %.noexc201 unwind label %.loopexit318
@@ -30838,7 +30832,7 @@ _ZNSt3mapImSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9
 
 .thread.i:                                        ; preds = %97, %95
   %102 = phi i1 [ true, %95 ], [ %101, %97 ]
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %102, ptr noundef nonnull %87, ptr noundef nonnull %94, ptr noundef nonnull align 8 dereferenceable(32) %10) #27
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %102, ptr noundef nonnull %87, ptr noundef nonnull %94, ptr noundef nonnull align 8 dereferenceable(32) %10) #28
   %103 = load i64, ptr %14, align 8
   %104 = add i64 %103, 1
   store i64 %104, ptr %14, align 8
@@ -30847,8 +30841,8 @@ _ZNSt3mapImSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9
 105:                                              ; preds = %.noexc201
   %106 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt8_Rb_treeImSt4pairIKmSt6vectorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaISB_EEESt10_Select1stISE_ESt4lessImESaISE_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #27
+  call void @_ZNSt8_Rb_treeImSt4pairIKmSt6vectorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaISB_EEESt10_Select1stISE_ESt4lessImESaISE_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.body202
 
 107:                                              ; preds = %92
@@ -30866,7 +30860,7 @@ _ZNSt8_Rb_treeImSt4pairIKmSt6vectorIN3ue212graph_detail17vertex_descriptorINS3_9
 
 .noexc:                                           ; preds = %_ZNSt8_Rb_treeImSt4pairIKmSt6vectorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaISB_EEESt10_Select1stISE_ESt4lessImESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit.i.i, %.thread.i
   %.sroa.0.010.i = phi ptr [ %87, %.thread.i ], [ %93, %_ZNSt8_Rb_treeImSt4pairIKmSt6vectorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaISB_EEESt10_Select1stISE_ESt4lessImESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %110
 
 110:                                              ; preds = %.noexc, %84
@@ -31074,7 +31068,7 @@ _ZNSt3mapImSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9
 
 .critedge.i112:                                   ; preds = %181, %_ZNSt3mapImSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaIS9_EESt4lessImESaISt4pairIKmSB_EEE11lower_boundERSF_.exit.i110, %_ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEmSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_mEEE4findERSE_.exit100
   %.08.lcssa.i.i.i11.i113 = phi ptr [ %.19.i.i.i.i105, %181 ], [ %.19.i.i.i.i105, %_ZNSt3mapImSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaIS9_EESt4lessImESaISt4pairIKmSB_EEE11lower_boundERSF_.exit.i110 ], [ %10, %_ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEmSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_mEEE4findERSE_.exit100 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %8, ptr %5, align 8
   %184 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #30
           to label %.noexc211 unwind label %.loopexit324
@@ -31110,7 +31104,7 @@ _ZNSt3mapImSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9
 
 .thread.i207:                                     ; preds = %194, %192
   %199 = phi i1 [ true, %192 ], [ %198, %194 ]
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %199, ptr noundef nonnull %184, ptr noundef nonnull %191, ptr noundef nonnull align 8 dereferenceable(32) %10) #27
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %199, ptr noundef nonnull %184, ptr noundef nonnull %191, ptr noundef nonnull align 8 dereferenceable(32) %10) #28
   %200 = load i64, ptr %14, align 8
   %201 = add i64 %200, 1
   store i64 %201, ptr %14, align 8
@@ -31119,8 +31113,8 @@ _ZNSt3mapImSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9
 202:                                              ; preds = %.noexc211
   %203 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt8_Rb_treeImSt4pairIKmSt6vectorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaISB_EEESt10_Select1stISE_ESt4lessImESaISE_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #27
+  call void @_ZNSt8_Rb_treeImSt4pairIKmSt6vectorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaISB_EEESt10_Select1stISE_ESt4lessImESaISE_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.body202
 
 204:                                              ; preds = %189
@@ -31138,7 +31132,7 @@ _ZNSt8_Rb_treeImSt4pairIKmSt6vectorIN3ue212graph_detail17vertex_descriptorINS3_9
 
 .noexc114:                                        ; preds = %_ZNSt8_Rb_treeImSt4pairIKmSt6vectorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaISB_EEESt10_Select1stISE_ESt4lessImESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit.i.i210, %.thread.i207
   %.sroa.0.010.i208 = phi ptr [ %184, %.thread.i207 ], [ %190, %_ZNSt8_Rb_treeImSt4pairIKmSt6vectorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaISB_EEESt10_Select1stISE_ESt4lessImESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit.i.i210 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %207
 
 207:                                              ; preds = %.noexc114, %181
@@ -31390,7 +31384,7 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraph
   br i1 %293, label %306, label %294
 
 294:                                              ; preds = %._crit_edge.thread.i.i
-  %295 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.025.lcssa42.i.i) #28
+  %295 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.025.lcssa42.i.i) #27
   %.sroa.0.0.copyload.i5.i.pre.i = load ptr, ptr %.sroa.04.08.i.i, align 8
   br label %296
 
@@ -31451,7 +31445,7 @@ _ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGr
 .noexc137:                                        ; preds = %_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i.i.i
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %321, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.04.08.i.i, i64 16, i1 false)
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %319, ptr noundef nonnull %320, ptr noundef nonnull %.sroa.12.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %15) #27
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %319, ptr noundef nonnull %320, ptr noundef nonnull %.sroa.12.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %15) #28
   %322 = load i64, ptr %19, align 8
   %323 = add i64 %322, 1
   store i64 %323, ptr %19, align 8
@@ -31806,7 +31800,7 @@ _ZNSt6vectorIS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseG
 440:                                              ; preds = %.lr.ph412, %_ZNSt6vectorIS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EESaISA_EE9push_backERKSA_.exit
   %.sroa.19.2 = phi ptr [ %.sroa.19.1409, %.lr.ph412 ], [ %439, %_ZNSt6vectorIS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EESaISA_EE9push_backERKSA_.exit ]
   %.sroa.0272.3 = phi ptr [ %.sroa.0272.2410, %.lr.ph412 ], [ %436, %_ZNSt6vectorIS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EESaISA_EE9push_backERKSA_.exit ]
-  %441 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0234.0408) #28
+  %441 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0234.0408) #27
   %.not303 = icmp eq ptr %441, %10
   br i1 %.not303, label %._crit_edge413, label %.lr.ph412
 
@@ -31841,7 +31835,7 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGrap
   unreachable
 
 _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev.exit: ; preds = %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %448 = load ptr, ptr %11, align 8
   invoke void @_ZNSt8_Rb_treeImSt4pairIKmSt6vectorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaISB_EEESt10_Select1stISE_ESt4lessImESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %448)
           to label %_ZNSt3mapImSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaIS9_EESt4lessImESaISt4pairIKmSB_EEED2Ev.exit unwind label %449
@@ -31854,7 +31848,7 @@ _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphEN
   unreachable
 
 _ZNSt3mapImSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaIS9_EESt4lessImESaISt4pairIKmSB_EEED2Ev.exit: ; preds = %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %452 = load ptr, ptr %7, align 8
   %453 = load ptr, ptr %21, align 8
   %.not4.i.i.i.i = icmp eq ptr %452, %453
@@ -31889,7 +31883,7 @@ _ZSt8_DestroyIPSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphIN
   br label %_ZNSt6vectorIS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EESaISA_EED2Ev.exit
 
 _ZNSt6vectorIS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EESaISA_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaIS9_EESB_EvT_SD_RSaIT0_E.exit.i, %458
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 459:                                              ; preds = %29
@@ -31920,7 +31914,7 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGrap
   unreachable
 
 _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev.exit186: ; preds = %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit185
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %465 = load ptr, ptr %11, align 8
   invoke void @_ZNSt8_Rb_treeImSt4pairIKmSt6vectorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaISB_EEESt10_Select1stISE_ESt4lessImESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %465)
           to label %_ZNSt3mapImSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaIS9_EESt4lessImESaISt4pairIKmSB_EEED2Ev.exit187 unwind label %466
@@ -31933,7 +31927,7 @@ _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphEN
   unreachable
 
 _ZNSt3mapImSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaIS9_EESt4lessImESaISt4pairIKmSB_EEED2Ev.exit187: ; preds = %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev.exit186
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %469 = load ptr, ptr %7, align 8
   %470 = load ptr, ptr %21, align 8
   %.not4.i.i.i.i188 = icmp eq ptr %469, %470
@@ -31968,12 +31962,12 @@ _ZSt8_DestroyIPSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphIN
   br label %_ZNSt6vectorIS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EESaISA_EED2Ev.exit198
 
 _ZNSt6vectorIS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EESaISA_EED2Ev.exit198: ; preds = %_ZSt8_DestroyIPSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaIS9_EESB_EvT_SD_RSaIT0_E.exit.i196, %475
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn67.pn.pn.pn.pn.pn.pn.pn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEmSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_mEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEmSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_mEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not5.i.i.i = icmp eq ptr %3, null
@@ -32035,7 +32029,7 @@ define linkonce_odr dso_local void @_ZNSt10_HashtableIjSt4pairIKjmESaIS2_ENSt8__
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  %22 = tail call ptr @__cxa_begin_catch(ptr %21) #27
+  %22 = tail call ptr @__cxa_begin_catch(ptr %21) #28
   store i64 %5, ptr %4, align 8
   invoke void @__cxa_rethrow() #29
           to label %29 unwind label %23
@@ -32164,7 +32158,7 @@ _ZNSt10_HashtableIjSt4pairIKjmESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i64 @_ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden noundef i64 @_ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -32221,7 +32215,7 @@ define linkonce_odr hidden ptr @_ZNSt10_HashtableIN3ue212graph_detail17vertex_de
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #27
+  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #28
   store i64 %8, ptr %7, align 8
   invoke void @__cxa_rethrow() #29
           to label %28 unwind label %22
@@ -32479,7 +32473,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmSt6vectorIN3u
   br i1 %25, label %_ZNSt8_Rb_treeImSt4pairIKmSt6vectorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaISB_EEESt10_Select1stISE_ESt4lessImESaISE_EE24_M_get_insert_unique_posERS1_.exit, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #28
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #27
   %.phi.trans.insert80 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81 = load i64, ptr %.phi.trans.insert80, align 8
   %.pre82 = load i64, ptr %2, align 8
@@ -32509,7 +32503,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmSt6vectorIN3u
   br i1 %40, label %_ZNSt8_Rb_treeImSt4pairIKmSt6vectorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaISB_EEESt10_Select1stISE_ESt4lessImESaISE_EE24_M_get_insert_unique_posERS1_.exit, label %41
 
 41:                                               ; preds = %37
-  %42 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #28
+  %42 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #27
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %44 = load i64, ptr %43, align 8
   %45 = icmp ult i64 %44, %34
@@ -32549,7 +32543,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmSt6vectorIN3u
   br i1 %55, label %_ZNSt8_Rb_treeImSt4pairIKmSt6vectorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaISB_EEESt10_Select1stISE_ESt4lessImESaISE_EE24_M_get_insert_unique_posERS1_.exit, label %56
 
 56:                                               ; preds = %._crit_edge.thread.i27
-  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28) #28
+  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28) #27
   %.phi.trans.insert78 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %.pre79 = load i64, ptr %.phi.trans.insert78, align 8
   br label %58
@@ -32574,7 +32568,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmSt6vectorIN3u
   br i1 %66, label %_ZNSt8_Rb_treeImSt4pairIKmSt6vectorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaISB_EEESt10_Select1stISE_ESt4lessImESaISE_EE24_M_get_insert_unique_posERS1_.exit, label %67
 
 67:                                               ; preds = %63
-  %68 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #28
+  %68 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #27
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %70 = load i64, ptr %69, align 8
   %71 = icmp ult i64 %34, %70
@@ -32616,7 +32610,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmSt6vectorIN3u
   br i1 %83, label %_ZNSt8_Rb_treeImSt4pairIKmSt6vectorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaISB_EEESt10_Select1stISE_ESt4lessImESaISE_EE24_M_get_insert_unique_posERS1_.exit, label %84
 
 84:                                               ; preds = %._crit_edge.thread.i47
-  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48) #28
+  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48) #27
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %85, i64 32
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %86
@@ -32639,7 +32633,7 @@ _ZNSt8_Rb_treeImSt4pairIKmSt6vectorIN3ue212graph_detail17vertex_descriptorINS3_9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt8_Rb_treeImSt4pairIKmSt6vectorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaISB_EEESt10_Select1stISE_ESt4lessImESaISE_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt8_Rb_treeImSt4pairIKmSt6vectorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaISB_EEESt10_Select1stISE_ESt4lessImESaISE_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -32825,7 +32819,7 @@ _ZNSt12_Vector_baseISt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_gr
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #27
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #28
   tail call void @_ZdlPv(ptr noundef nonnull %20) #31
   invoke void @__cxa_rethrow() #29
           to label %72 unwind label %62
@@ -33130,7 +33124,7 @@ _ZNSt12_Vector_baseISt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_gr
   %123 = landingpad { ptr, i32 }
           catch ptr null
   %124 = extractvalue { ptr, i32 } %123, 0
-  %125 = tail call ptr @__cxa_begin_catch(ptr %124) #27
+  %125 = tail call ptr @__cxa_begin_catch(ptr %124) #28
   %.not4.i.i.i82 = icmp eq ptr %97, %.0.lcssa.i.i.i.i.i73
   br i1 %.not4.i.i.i82, label %_ZSt8_DestroyIPSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaIS9_EESB_EvT_SD_RSaIT0_E.exit88, label %.lr.ph.i.i.i83
 
@@ -33376,7 +33370,7 @@ _ZNSt16allocator_traitsISaIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graph
 23:                                               ; preds = %.loopexit.split-lp, %.loopexit13
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit13 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %24 = extractvalue { ptr, i32 } %lpad.phi, 0
-  %25 = tail call ptr @__cxa_begin_catch(ptr %24) #27
+  %25 = tail call ptr @__cxa_begin_catch(ptr %24) #28
   %.not4.i.i = icmp eq ptr %2, %.019
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaIS9_EEEvT_SD_.exit, label %.lr.ph.i.i
 
@@ -33423,10 +33417,10 @@ _ZSt8_DestroyIPSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphIN
   unreachable
 }
 
-declare noundef zeroext i1 @_ZNK3ue213RoseBuildImpl24hasOnlyPseudoStarInEdgesENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(780), ptr, i64) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZNK3ue213RoseBuildImpl24hasOnlyPseudoStarInEdgesENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(780), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -33446,11 +33440,11 @@ define linkonce_odr hidden void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull al
   %11 = load ptr, ptr %3, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #28
   %14 = load ptr, ptr %3, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #28
   br label %_ZNSt12__shared_ptrIN3ue29TamaProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 17:                                               ; preds = %4
@@ -33473,7 +33467,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %21, %19
   br i1 %23, label %24, label %_ZNSt12__shared_ptrIN3ue29TamaProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !111
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #28
   br label %_ZNSt12__shared_ptrIN3ue29TamaProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN3ue29TamaProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %24
@@ -33496,11 +33490,11 @@ _ZNSt12__shared_ptrIN3ue29TamaProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; p
   %34 = load ptr, ptr %26, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  tail call void %36(ptr noundef nonnull align 8 dereferenceable(16) %26) #27
+  tail call void %36(ptr noundef nonnull align 8 dereferenceable(16) %26) #28
   %37 = load ptr, ptr %26, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load ptr, ptr %38, align 8
-  tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %26) #27
+  tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %26) #28
   br label %_ZNSt12__shared_ptrIN3ue211raw_som_dfaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 40:                                               ; preds = %27
@@ -33523,7 +33517,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i3: ; preds = %44, %42
   br i1 %46, label %47, label %_ZNSt12__shared_ptrIN3ue211raw_som_dfaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !111
 
 47:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i3
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %26) #27
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %26) #28
   br label %_ZNSt12__shared_ptrIN3ue211raw_som_dfaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN3ue211raw_som_dfaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN3ue29TamaProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %32, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i3, %47
@@ -33546,11 +33540,11 @@ _ZNSt12__shared_ptrIN3ue211raw_som_dfaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: 
   %57 = load ptr, ptr %49, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
-  tail call void %59(ptr noundef nonnull align 8 dereferenceable(16) %49) #27
+  tail call void %59(ptr noundef nonnull align 8 dereferenceable(16) %49) #28
   %60 = load ptr, ptr %49, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %62 = load ptr, ptr %61, align 8
-  tail call void %62(ptr noundef nonnull align 8 dereferenceable(16) %49) #27
+  tail call void %62(ptr noundef nonnull align 8 dereferenceable(16) %49) #28
   br label %_ZNSt12__shared_ptrIN3ue27raw_dfaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 63:                                               ; preds = %50
@@ -33573,7 +33567,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i7: ; preds = %67, %65
   br i1 %69, label %70, label %_ZNSt12__shared_ptrIN3ue27raw_dfaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !111
 
 70:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i7
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %49) #27
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %49) #28
   br label %_ZNSt12__shared_ptrIN3ue27raw_dfaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN3ue27raw_dfaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN3ue211raw_som_dfaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %55, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i7, %70
@@ -33596,11 +33590,11 @@ _ZNSt12__shared_ptrIN3ue27raw_dfaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pre
   %80 = load ptr, ptr %72, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load ptr, ptr %81, align 8
-  tail call void %82(ptr noundef nonnull align 8 dereferenceable(16) %72) #27
+  tail call void %82(ptr noundef nonnull align 8 dereferenceable(16) %72) #28
   %83 = load ptr, ptr %72, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %85 = load ptr, ptr %84, align 8
-  tail call void %85(ptr noundef nonnull align 8 dereferenceable(16) %72) #27
+  tail call void %85(ptr noundef nonnull align 8 dereferenceable(16) %72) #28
   br label %_ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 86:                                               ; preds = %73
@@ -33623,7 +33617,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i11: ; preds = %90, %88
   br i1 %92, label %93, label %_ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !111
 
 93:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i11
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %72) #27
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %72) #28
   br label %_ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN3ue27raw_dfaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %78, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i11, %93
@@ -33646,11 +33640,11 @@ _ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: 
   %103 = load ptr, ptr %95, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %105 = load ptr, ptr %104, align 8
-  tail call void %105(ptr noundef nonnull align 8 dereferenceable(16) %95) #27
+  tail call void %105(ptr noundef nonnull align 8 dereferenceable(16) %95) #28
   %106 = load ptr, ptr %95, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 24
   %108 = load ptr, ptr %107, align 8
-  tail call void %108(ptr noundef nonnull align 8 dereferenceable(16) %95) #27
+  tail call void %108(ptr noundef nonnull align 8 dereferenceable(16) %95) #28
   br label %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 109:                                              ; preds = %96
@@ -33673,7 +33667,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i15: ; preds = %113, %11
   br i1 %115, label %116, label %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !111
 
 116:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i15
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %95) #27
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %95) #28
   br label %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %101, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i15, %116
@@ -33681,7 +33675,7 @@ _ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111DupeLeafKeyESt4pairIKS2_NS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEESt10_Select1stISD_ESt4lessIS2_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111DupeLeafKeyESt4pairIKS2_NS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEESt10_Select1stISD_ESt4lessIS2_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %.not1 = icmp eq ptr %0, null
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
@@ -33694,7 +33688,7 @@ define internal fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111DupeLeafKeyESt4
   %.0.val = load ptr, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.02, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %.02, i64 152
-  tail call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #27
+  tail call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #28
   %6 = getelementptr inbounds nuw i8, ptr %.02, i64 80
   %7 = load i64, ptr %6, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %7, 0
@@ -33737,9 +33731,9 @@ _ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111DupeLeafKeyESt4pairIKS2_NS0_12graph_detail17
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZN3ue212_GLOBAL__N_113UncalcLeafKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue212_GLOBAL__N_113UncalcLeafKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  tail call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #27
+  tail call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %.not.i.i.i.i = icmp eq i64 %4, 0
@@ -33777,7 +33771,7 @@ _ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit: ; preds = %_ZN3ue211f
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt13unordered_mapIPKN3ue28NGHolderEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt13unordered_mapIPKN3ue28NGHolderEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not5.i.i.i = icmp eq ptr %3, null
@@ -33833,7 +33827,7 @@ define linkonce_odr hidden ptr @_ZNSt10_HashtableIPKN3ue28NGHolderESt4pairIKS3_j
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #27
+  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #28
   store i64 %8, ptr %7, align 8
   invoke void @__cxa_rethrow() #29
           to label %28 unwind label %22
@@ -34216,7 +34210,7 @@ _ZN5boost9container6vectorISt4pairIN3ue212graph_detail17vertex_descriptorINS3_9u
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN3ue211flat_detail9flat_baseISt4pairINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES8_ESt4lessISB_ESaISB_EEC2ERKSD_RKSE_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::container::small_vector.223", align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %5, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -34264,7 +34258,7 @@ define linkonce_odr hidden void @_ZN3ue211flat_detail9flat_baseISt4pairINS_12gra
   br label %_ZN5boost9container6vectorISt4pairIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEES9_ENS0_22small_vector_allocatorISC_SaIvEvEEvED2Ev.exit
 
 _ZN5boost9container6vectorISt4pairIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEES9_ENS0_22small_vector_allocatorISC_SaIvEvEEvED2Ev.exit: ; preds = %18, %20, %23
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 .body:                                            ; preds = %11, %14, %17
@@ -34282,7 +34276,7 @@ _ZN5boost9container6vectorISt4pairIN3ue212graph_detail17vertex_descriptorINS3_9u
   br label %_ZN5boost9container6vectorISt4pairIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEES9_ENS0_22small_vector_allocatorISC_SaIvEvEEvED2Ev.exit7
 
 _ZN5boost9container6vectorISt4pairIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEES9_ENS0_22small_vector_allocatorISC_SaIvEvEEvED2Ev.exit7: ; preds = %28, %25, %.body
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %12
 }
 
@@ -34405,7 +34399,7 @@ _ZN5boost9container25copy_assign_range_alloc_nINS0_22small_vector_allocatorISt4p
   ret void
 }
 
-declare noundef zeroext i1 @_ZN3ue2ltERKNS_13RoseEdgePropsES2_(ptr noundef nonnull align 8 dereferenceable(28), ptr noundef nonnull align 8 dereferenceable(28)) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZN3ue2ltERKNS_13RoseEdgePropsES2_(ptr noundef nonnull align 8 dereferenceable(28), ptr noundef nonnull align 8 dereferenceable(28)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost9container6vectorISt4pairIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEES9_ENS0_22small_vector_allocatorISC_SaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_move_proxyISF_PSC_EEEENS0_12vec_iteratorISK_Lb0EEERKSK_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind noalias writable sret(%"class.boost::container::vec_iterator.878") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %3, ptr %4) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -34525,13 +34519,13 @@ _ZN5boost9container6vectorISt4pairIN3ue212graph_detail17vertex_descriptorINS3_9u
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @_ZN3ue212_GLOBAL__N_113UncalcLeafKeyC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %1) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue212_GLOBAL__N_113UncalcLeafKeyC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %1) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::container::vec_iterator.883", align 8
   %4 = alloca %"class.boost::container::vec_iterator.883", align 8
   %5 = alloca %"class.boost::container::vec_iterator.300", align 8
   %6 = alloca %"class.boost::container::vec_iterator.300", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %7, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -34570,12 +34564,12 @@ common.resume:                                    ; preds = %common.resume.sink.
   resume { ptr, i32 } %common.resume.op
 
 _ZN3ue28flat_setIjSt4lessIjESaIjEEC2ERKS4_.exit:  ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %21, ptr %19, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -34610,8 +34604,8 @@ _ZN3ue28flat_setIjSt4lessIjESaIjEEC2ERKS4_.exit:  ; preds = %2
   br label %.body
 
 35:                                               ; preds = %_ZN3ue28flat_setIjSt4lessIjESaIjEEC2ERKS4_.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %38 = load ptr, ptr %37, align 8
@@ -34892,7 +34886,7 @@ _ZN5boost9container25copy_assign_range_alloc_nINS0_22small_vector_allocatorISt4p
   ret void
 }
 
-declare void @_ZN3ue215mergeNfaClusterERKSt6vectorIPNS_8NGHolderESaIS2_EEPKNS_13ReportManagerERKNS_14CompileContextE(ptr dead_on_unwind writable sret(%"class.std::map.899") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, ptr noundef nonnull align 8 dereferenceable(320)) local_unnamed_addr #3
+declare void @_ZN3ue215mergeNfaClusterERKSt6vectorIPNS_8NGHolderESaIS2_EEPKNS_13ReportManagerERKNS_14CompileContextE(ptr dead_on_unwind writable sret(%"class.std::map.899") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, ptr noundef nonnull align 8 dereferenceable(320)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt8_Rb_treeIPN3ue28NGHolderESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -34935,7 +34929,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIPN3ue28NGHolderESt4pairIKS2_NS0_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_113UncalcLeafKeyESt4pairIKS2_St6vectorINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaISD_EEESt10_Select1stISG_ESt4lessIS2_ESaISG_EE8_M_eraseEPSt13_Rb_tree_nodeISG_E(ptr noundef %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_113UncalcLeafKeyESt4pairIKS2_St6vectorINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaISD_EEESt10_Select1stISG_ESt4lessIS2_ESaISG_EE8_M_eraseEPSt13_Rb_tree_nodeISG_E(ptr noundef %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %.not1 = icmp eq ptr %0, null
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
@@ -34958,7 +34952,7 @@ define internal fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_113UncalcLeafKeyES
 
 _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit.i.i.i.i.i: ; preds = %7, %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %.02, i64 136
-  tail call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #27
+  tail call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #28
   %9 = getelementptr inbounds nuw i8, ptr %.02, i64 80
   %10 = load i64, ptr %9, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %10, 0
@@ -35011,7 +35005,7 @@ define linkonce_odr hidden void @_ZN3ue29ue2_graphINS_9RoseGraphENS_15RoseVertex
   br i1 %.not.i, label %11, label %16
 
 11:                                               ; preds = %6
-  %12 = tail call ptr @__cxa_allocate_exception(i64 16) #27
+  %12 = tail call ptr @__cxa_allocate_exception(i64 16) #28
   invoke void @_ZNSt14overflow_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull @.str.11)
           to label %13 unwind label %14
 
@@ -35025,7 +35019,7 @@ define linkonce_odr hidden void @_ZN3ue29ue2_graphINS_9RoseGraphENS_15RoseVertex
 14:                                               ; preds = %11
   %15 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %12) #27
+  tail call void @__cxa_free_exception(ptr nonnull %12) #28
   br label %.body
 
 16:                                               ; preds = %6
@@ -35093,10 +35087,10 @@ define linkonce_odr hidden void @_ZN3ue29ue2_graphINS_9RoseGraphENS_15RoseVertex
   resume { ptr, i32 } %eh.lpad-body
 }
 
-declare void @_ZNSt14overflow_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #3
+declare void @_ZNSt14overflow_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare void @_ZNSt14overflow_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #14
+declare void @_ZNSt14overflow_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext i1 @_ZNKSt4lessIN3ue212_GLOBAL__N_111DupeLeafKeyEEclERKS2_S5_(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef nonnull align 8 dereferenceable(220) %1) unnamed_addr #0 align 2 {
@@ -35355,14 +35349,14 @@ _ZN5boost9containerltERKNS0_6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvEES7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111DupeLeafKeyESt4pairIKS2_NS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEESt10_Select1stISD_ESt4lessIS2_ESaISD_EE10_Auto_nodeD2Ev(ptr %.8.val) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111DupeLeafKeyESt4pairIKS2_NS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEESt10_Select1stISD_ESt4lessIS2_ESaISD_EE10_Auto_nodeD2Ev(ptr %.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %.8.val, null
   br i1 %.not, label %19, label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds nuw i8, ptr %.8.val, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %.8.val, i64 152
-  tail call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #27
+  tail call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #28
   %4 = getelementptr inbounds nuw i8, ptr %.8.val, i64 80
   %5 = load i64, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
@@ -35404,7 +35398,7 @@ _ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111DupeLeafKeyESt4pairIKS2_NS0_12graph_detail17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNK3ue29ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEE15delete_disposerclINS4_11vertex_nodeEEEvPKT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK3ue29ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEE15delete_disposerclINS4_11vertex_nodeEEEvPKT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %27, label %4
 
@@ -35425,9 +35419,9 @@ _ZNK3ue29ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEE15dele
 _ZN5boost9intrusive9list_implINS0_8bhtraitsIN3ue29ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEE9edge_nodeENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE1ENS8_12out_edge_tagELj1EEEmLb1EvED2Ev.exit.i: ; preds = %_ZNK3ue29ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEE15delete_disposerclINS4_9edge_nodeEEEvPKT_.exit.i.i, %4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  tail call void @_ZN3ue214RoseSuffixInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #27
+  tail call void @_ZN3ue214RoseSuffixInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #28
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  tail call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #27
+  tail call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #28
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %12 = load i64, ptr %11, align 8
   %.not.i.i.i.i.i.i = icmp eq i64 %12, 0
@@ -35470,7 +35464,7 @@ _ZN3ue29ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEE11verte
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue214RoseSuffixInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3ue214RoseSuffixInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -35490,11 +35484,11 @@ define linkonce_odr hidden void @_ZN3ue214RoseSuffixInfoD2Ev(ptr noundef nonnull
   %11 = load ptr, ptr %3, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #28
   %14 = load ptr, ptr %3, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #28
   br label %_ZNSt12__shared_ptrIN3ue29TamaProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 17:                                               ; preds = %4
@@ -35517,7 +35511,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %21, %19
   br i1 %23, label %24, label %_ZNSt12__shared_ptrIN3ue29TamaProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !111
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #28
   br label %_ZNSt12__shared_ptrIN3ue29TamaProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN3ue29TamaProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %24
@@ -35540,11 +35534,11 @@ _ZNSt12__shared_ptrIN3ue29TamaProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; p
   %34 = load ptr, ptr %26, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  tail call void %36(ptr noundef nonnull align 8 dereferenceable(16) %26) #27
+  tail call void %36(ptr noundef nonnull align 8 dereferenceable(16) %26) #28
   %37 = load ptr, ptr %26, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load ptr, ptr %38, align 8
-  tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %26) #27
+  tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %26) #28
   br label %_ZNSt12__shared_ptrIN3ue27raw_dfaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 40:                                               ; preds = %27
@@ -35567,7 +35561,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i3: ; preds = %44, %42
   br i1 %46, label %47, label %_ZNSt12__shared_ptrIN3ue27raw_dfaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !111
 
 47:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i3
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %26) #27
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %26) #28
   br label %_ZNSt12__shared_ptrIN3ue27raw_dfaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN3ue27raw_dfaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN3ue29TamaProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %32, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i3, %47
@@ -35590,11 +35584,11 @@ _ZNSt12__shared_ptrIN3ue27raw_dfaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pre
   %57 = load ptr, ptr %49, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
-  tail call void %59(ptr noundef nonnull align 8 dereferenceable(16) %49) #27
+  tail call void %59(ptr noundef nonnull align 8 dereferenceable(16) %49) #28
   %60 = load ptr, ptr %49, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %62 = load ptr, ptr %61, align 8
-  tail call void %62(ptr noundef nonnull align 8 dereferenceable(16) %49) #27
+  tail call void %62(ptr noundef nonnull align 8 dereferenceable(16) %49) #28
   br label %_ZNSt12__shared_ptrIN3ue211raw_som_dfaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 63:                                               ; preds = %50
@@ -35617,7 +35611,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i7: ; preds = %67, %65
   br i1 %69, label %70, label %_ZNSt12__shared_ptrIN3ue211raw_som_dfaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !111
 
 70:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i7
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %49) #27
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %49) #28
   br label %_ZNSt12__shared_ptrIN3ue211raw_som_dfaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN3ue211raw_som_dfaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN3ue27raw_dfaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %55, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i7, %70
@@ -35640,11 +35634,11 @@ _ZNSt12__shared_ptrIN3ue211raw_som_dfaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: 
   %80 = load ptr, ptr %72, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load ptr, ptr %81, align 8
-  tail call void %82(ptr noundef nonnull align 8 dereferenceable(16) %72) #27
+  tail call void %82(ptr noundef nonnull align 8 dereferenceable(16) %72) #28
   %83 = load ptr, ptr %72, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %85 = load ptr, ptr %84, align 8
-  tail call void %85(ptr noundef nonnull align 8 dereferenceable(16) %72) #27
+  tail call void %85(ptr noundef nonnull align 8 dereferenceable(16) %72) #28
   br label %_ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 86:                                               ; preds = %73
@@ -35667,7 +35661,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i11: ; preds = %90, %88
   br i1 %92, label %93, label %_ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !111
 
 93:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i11
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %72) #27
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %72) #28
   br label %_ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN3ue211raw_som_dfaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %78, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i11, %93
@@ -35690,11 +35684,11 @@ _ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: 
   %103 = load ptr, ptr %95, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %105 = load ptr, ptr %104, align 8
-  tail call void %105(ptr noundef nonnull align 8 dereferenceable(16) %95) #27
+  tail call void %105(ptr noundef nonnull align 8 dereferenceable(16) %95) #28
   %106 = load ptr, ptr %95, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 24
   %108 = load ptr, ptr %107, align 8
-  tail call void %108(ptr noundef nonnull align 8 dereferenceable(16) %95) #27
+  tail call void %108(ptr noundef nonnull align 8 dereferenceable(16) %95) #28
   br label %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 109:                                              ; preds = %96
@@ -35717,7 +35711,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i15: ; preds = %113, %11
   br i1 %115, label %116, label %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !111
 
 116:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i15
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %95) #27
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %95) #28
   br label %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN3ue211CastleProtoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %101, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i15, %116
@@ -35818,19 +35812,19 @@ _ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit21.thread.i: ; preds = %35, %.lr
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %53 = load i64, ptr %52, align 8, !noalias !1184
   %54 = getelementptr inbounds nuw %"struct.std::pair.880", ptr %51, i64 %53
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %47, ptr %7, align 8
   store ptr %50, ptr %8, align 8
   store ptr %51, ptr %9, align 8
   store ptr %54, ptr %10, align 8
   %55 = call noundef zeroext i1 @_ZN5boost9intrusive28algo_lexicographical_compareINS_9container12vec_iteratorIPSt4pairIN3ue212graph_detail17vertex_descriptorINS5_9ue2_graphINS5_9RoseGraphENS5_15RoseVertexPropsENS5_13RoseEdgePropsEEEEESB_ELb1EEESG_NS0_14algo_pred_lessEEEbT_SI_T0_SJ_T1_(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %55, label %_ZNK3ue212_GLOBAL__N_113UncalcLeafKeyltERKS1_.exit, label %56
 
 56:                                               ; preds = %_ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit21.thread.i
@@ -35840,19 +35834,19 @@ _ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit21.thread.i: ; preds = %35, %.lr
   %60 = load ptr, ptr %45, align 8, !noalias !1197
   %61 = load i64, ptr %48, align 8, !noalias !1200
   %62 = getelementptr inbounds nuw %"struct.std::pair.880", ptr %60, i64 %61
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %57, ptr %3, align 8
   store ptr %59, ptr %4, align 8
   store ptr %60, ptr %5, align 8
   store ptr %62, ptr %6, align 8
   %63 = call noundef zeroext i1 @_ZN5boost9intrusive28algo_lexicographical_compareINS_9container12vec_iteratorIPSt4pairIN3ue212graph_detail17vertex_descriptorINS5_9ue2_graphINS5_9RoseGraphENS5_15RoseVertexPropsENS5_13RoseEdgePropsEEEEESB_ELb1EEESG_NS0_14algo_pred_lessEEEbT_SI_T0_SJ_T1_(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %63, label %_ZNK3ue212_GLOBAL__N_113UncalcLeafKeyltERKS1_.exit, label %64
 
 64:                                               ; preds = %56
@@ -36075,7 +36069,7 @@ _ZStltIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_113UncalcLeafKeyESt4pairIKS2_St6vectorINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaISD_EEESt10_Select1stISG_ESt4lessIS2_ESaISG_EE10_Auto_nodeD2Ev(ptr %.8.val) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_113UncalcLeafKeyESt4pairIKS2_St6vectorINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaISD_EEESt10_Select1stISG_ESt4lessIS2_ESaISG_EE10_Auto_nodeD2Ev(ptr %.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %.8.val, null
   br i1 %.not, label %22, label %1
 
@@ -36092,7 +36086,7 @@ define internal fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_113UncalcLeafKeyES
 
 _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EED2Ev.exit.i.i.i.i.i: ; preds = %5, %1
   %6 = getelementptr inbounds nuw i8, ptr %.8.val, i64 136
-  tail call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #27
+  tail call void @_ZN3ue211LeftEngInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #28
   %7 = getelementptr inbounds nuw i8, ptr %.8.val, i64 80
   %8 = load i64, ptr %7, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %8, 0
@@ -36133,6 +36127,12 @@ _ZNSt8_Rb_treeIN3ue212_GLOBAL__N_113UncalcLeafKeyESt4pairIKS2_St6vectorINS0_12gr
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #23
 
@@ -36155,34 +36155,34 @@ declare i32 @llvm.umin.i32(i32, i32) #24
 declare i32 @llvm.umax.i32(i32, i32) #24
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress noinline uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { inlinehint mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noinline noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold nofree noreturn }
-attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress noinline nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { inlinehint mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { cold noreturn }
-attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { inlinehint mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress noinline uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noinline noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold nofree noreturn }
+attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress noinline nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { inlinehint mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { cold noreturn }
+attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { inlinehint mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #26 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #27 = { nounwind }
-attributes #28 = { nounwind willreturn memory(read) }
+attributes #27 = { nounwind willreturn memory(read) }
+attributes #28 = { nounwind }
 attributes #29 = { noreturn }
 attributes #30 = { builtin allocsize(0) }
 attributes #31 = { builtin nounwind }

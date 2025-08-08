@@ -23,7 +23,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_mjpeg_start_frame(ptr nound
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4456
   %9 = load ptr, ptr %8, align 8, !tbaa !27
-  call void @llvm.lifetime.start.p0(i64 1060, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1224
   %11 = load ptr, ptr %10, align 8, !tbaa !40
   %12 = getelementptr i8, ptr %11, i64 24
@@ -97,7 +97,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_mjpeg_start_frame(ptr nound
 
 50:                                               ; preds = %._crit_edge, %48
   %.029 = phi i32 [ %46, %48 ], [ 0, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 1060, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.029
 }
 
@@ -110,9 +110,9 @@ define internal i32 @vaapi_mjpeg_decode_slice(ptr noundef %0, ptr noundef %1, i3
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4456
   %10 = load ptr, ptr %9, align 8, !tbaa !27
-  call void @llvm.lifetime.start.p0(i64 436, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 276, ptr nonnull %5) #4
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(436) %4, i8 0, i64 436, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 2272
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 2
@@ -305,9 +305,9 @@ define internal i32 @vaapi_mjpeg_decode_slice(ptr noundef %0, ptr noundef %1, i3
 
 104:                                              ; preds = %._crit_edge, %102
   %.080 = phi i32 [ %.079, %102 ], [ 0, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 276, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 436, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.080
 }
 
@@ -327,27 +327,27 @@ declare i32 @ff_vaapi_decode_uninit(ptr noundef) #1
 
 declare i32 @ff_vaapi_common_frame_params(ptr noundef, ptr noundef) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @ff_vaapi_decode_make_param_buffer(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare i32 @ff_vaapi_decode_cancel(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @ff_vaapi_decode_make_slice_buffer(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare i32 @ff_vaapi_decode_issue(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

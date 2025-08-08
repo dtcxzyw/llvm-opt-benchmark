@@ -380,8 +380,8 @@ define linkonce_odr noundef double @_ZN3g2o10BaseVertexILi2ENS_6Line2DEE11solveD
   %.sroa.8.24.vec.insert = insertelement <2 x double> %.sroa.8.16.vec.insert, double %17, i64 1
   %.sroa.014.0.vec.insert = insertelement <2 x double> poison, double %7, i64 0
   %.sroa.014.8.vec.insert = insertelement <2 x double> %.sroa.014.0.vec.insert, double %11, i64 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #23
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store <2 x double> %.sroa.014.8.vec.insert, ptr %4, align 16, !tbaa !66, !alias.scope !67
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store <2 x double> %.sroa.8.24.vec.insert, ptr %24, align 16, !tbaa !66, !alias.scope !67
@@ -512,7 +512,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2E
   %84 = fsub double %73, %83
   %85 = fdiv double %84, %71
   store double %85, ptr %3, align 16, !tbaa !52
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %86 = load ptr, ptr %0, align 16, !tbaa !31
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 224
   %88 = load ptr, ptr %87, align 8
@@ -521,7 +521,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2E
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 216
   %91 = load ptr, ptr %90, align 8
   call void %91(ptr noundef nonnull align 8 dereferenceable(128) %0)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %92
 
 92:                                               ; preds = %2, %66
@@ -934,12 +934,6 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #11
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
 declare void @llvm.trap() #12
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
-
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq i64 %1, 0
@@ -1087,6 +1081,12 @@ define internal void @_GLOBAL__sub_I_vertex_line2d.cpp() #19 section ".text.star
   %4 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #23
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #20

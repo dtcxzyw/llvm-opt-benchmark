@@ -147,7 +147,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %line.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %line.i, ptr noundef nonnull align 8 dereferenceable(12) %line, i64 12, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i)
   %0 = load i8, ptr %read_error_, align 8
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %invoke.cont8, label %if.end.i
@@ -213,7 +213,7 @@ invoke.cont8:                                     ; preds = %do.end.i, %if.then1
   %.sink.i = phi i8 [ %9, %do.end.i ], [ 0, %if.then13.i ], [ 0, %invoke.cont ]
   %current_char_22.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   store i8 %.sink.i, ptr %current_char_22.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i)
   ret void
 
 lpad.loopexit:                                    ; preds = %do.body.i
@@ -461,7 +461,7 @@ if.then15:                                        ; preds = %if.end11
   br label %if.end19
 
 if.else18:                                        ; preds = %if.end11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i)
   %read_error_.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   %8 = load i8, ptr %read_error_.i, align 8
   %tobool.i = trunc i8 %8 to i1
@@ -525,7 +525,7 @@ do.end.i:                                         ; preds = %do.cond.i
 _ZN6google8protobuf2io9Tokenizer7RefreshEv.exit:  ; preds = %if.else18, %if.then13.i, %do.end.i
   %.sink.i = phi i8 [ %16, %do.end.i ], [ 0, %if.then13.i ], [ 0, %if.else18 ]
   store i8 %.sink.i, ptr %current_char_, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i)
   br label %if.end19
 
 if.end19:                                         ; preds = %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit, %if.then15
@@ -1272,8 +1272,8 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true, %land.lhs.true
   tail call void @_ZN6google8protobuf2io9Tokenizer8NextCharEv(ptr noundef nonnull align 8 dereferenceable(192) %this)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %1 = load i8, ptr %current_char_.i, align 8
   %.fr5.i = freeze i8 %1
   %2 = add i8 %.fr5.i, -48
@@ -1384,7 +1384,7 @@ if.then15.i:                                      ; preds = %do.body.i
   br label %_ZN6google8protobuf2io9Tokenizer8NextCharEv.exit
 
 if.else18.i:                                      ; preds = %do.body.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i.i)
   %17 = load i8, ptr %read_error_.i.i, align 8
   %tobool.i.i = trunc i8 %17 to i1
   br i1 %tobool.i.i, label %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i, label %if.end.i.i
@@ -1442,7 +1442,7 @@ do.end.i.i:                                       ; preds = %do.cond.i.i
 _ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i: ; preds = %do.end.i.i, %if.then13.i.i, %if.else18.i
   %.sink.i.i = phi i8 [ %25, %do.end.i.i ], [ 0, %if.then13.i.i ], [ 0, %if.else18.i ]
   store i8 %.sink.i.i, ptr %current_char_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i)
   br label %_ZN6google8protobuf2io9Tokenizer8NextCharEv.exit
 
 _ZN6google8protobuf2io9Tokenizer8NextCharEv.exit: ; preds = %if.then15.i, %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i
@@ -1472,8 +1472,8 @@ do.body.i.backedge:                               ; preds = %switch.early.test4.
   br label %do.body.i
 
 _ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_18HexDigitEEEvPKc.exit: ; preds = %switch.early.test4.i, %invoke.cont4.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   br label %if.end36
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
@@ -1601,8 +1601,8 @@ lor.end.sink.split:                               ; preds = %if.then24, %if.then
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.end.sink.split, %if.then24
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i51)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i52)
   %62 = load i8, ptr %current_char_.i35, align 8
   %63 = add i8 %62, -48
   %64 = icmp ult i8 %63, 10
@@ -1667,8 +1667,8 @@ do.body.i71:                                      ; preds = %lor.end, %do.body.i
   br i1 %76, label %do.body.i71, label %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_15DigitEEEvPKc.exit, !llvm.loop !9
 
 _ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_15DigitEEEvPKc.exit: ; preds = %do.body.i71, %invoke.cont4.i70
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i51)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i52)
   br label %if.end27
 
 if.end27:                                         ; preds = %if.end20, %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_15DigitEEEvPKc.exit
@@ -2021,7 +2021,7 @@ while.cond2.backedge:                             ; preds = %if.then15.i, %_ZN6g
   br label %while.cond2, !llvm.loop !11
 
 if.else18.i:                                      ; preds = %if.end11.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i.i)
   %10 = load i8, ptr %read_error_.i.i, align 8
   %tobool.i.i = trunc i8 %10 to i1
   br i1 %tobool.i.i, label %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i, label %if.end.i.i
@@ -2079,7 +2079,7 @@ do.end.i.i:                                       ; preds = %do.cond.i.i
 _ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i: ; preds = %do.end.i.i, %if.then13.i.i, %if.else18.i
   %.sink.i.i = phi i8 [ %18, %do.end.i.i ], [ 0, %if.then13.i.i ], [ 0, %if.else18.i ]
   store i8 %.sink.i.i, ptr %current_char_, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i)
   br label %while.cond2.backedge
 
 if.then15:                                        ; preds = %while.cond2
@@ -2157,7 +2157,7 @@ while.cond.i.backedge:                            ; preds = %if.then15.i137, %_Z
   br label %while.cond.i, !llvm.loop !12
 
 if.else18.i108:                                   ; preds = %if.end11.i103
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i.i96)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i.i96)
   %30 = load i8, ptr %read_error_.i.i, align 8
   %tobool.i.i110 = trunc i8 %30 to i1
   br i1 %tobool.i.i110, label %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i125, label %if.end.i.i111
@@ -2215,7 +2215,7 @@ do.end.i.i129:                                    ; preds = %do.cond.i.i127
 _ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i125: ; preds = %do.end.i.i129, %if.then13.i.i124, %if.else18.i108
   %.sink.i.i126 = phi i8 [ %38, %do.end.i.i129 ], [ 0, %if.then13.i.i124 ], [ 0, %if.else18.i108 ]
   store i8 %.sink.i.i126, ptr %current_char_, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i.i96)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i96)
   br label %while.cond.i.backedge
 
 if.then20:                                        ; preds = %while.cond.i
@@ -2702,7 +2702,7 @@ if.then15.i142:                                   ; preds = %if.end11.i108
   br label %_ZN6google8protobuf2io9Tokenizer8NextCharEv.exit153
 
 if.else18.i113:                                   ; preds = %if.end11.i108
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i.i101)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i.i101)
   %15 = load i8, ptr %read_error_, align 8
   %tobool.i.i115 = trunc i8 %15 to i1
   br i1 %tobool.i.i115, label %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i130, label %if.end.i.i116
@@ -2760,7 +2760,7 @@ do.end.i.i134:                                    ; preds = %do.cond.i.i132
 _ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i130: ; preds = %do.end.i.i134, %if.then13.i.i129, %if.else18.i113
   %.sink.i.i131 = phi i8 [ %23, %do.end.i.i134 ], [ 0, %if.then13.i.i129 ], [ 0, %if.else18.i113 ]
   store i8 %.sink.i.i131, ptr %current_char_.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i.i101)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i101)
   br label %_ZN6google8protobuf2io9Tokenizer8NextCharEv.exit153
 
 _ZN6google8protobuf2io9Tokenizer8NextCharEv.exit153: ; preds = %if.then15.i142, %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i130
@@ -2837,7 +2837,7 @@ if.then15.i:                                      ; preds = %if.end11.i
   br label %_ZN6google8protobuf2io9Tokenizer8NextCharEv.exit
 
 if.else18.i:                                      ; preds = %if.end11.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i.i)
   %33 = load i8, ptr %read_error_, align 8
   %tobool.i.i = trunc i8 %33 to i1
   br i1 %tobool.i.i, label %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i, label %if.end.i.i
@@ -2895,7 +2895,7 @@ do.end.i.i:                                       ; preds = %do.cond.i.i
 _ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i: ; preds = %do.end.i.i, %if.then13.i.i, %if.else18.i
   %.sink.i.i = phi i8 [ %41, %do.end.i.i ], [ 0, %if.then13.i.i ], [ 0, %if.else18.i ]
   store i8 %.sink.i.i, ptr %current_char_.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i)
   br label %_ZN6google8protobuf2io9Tokenizer8NextCharEv.exit
 
 _ZN6google8protobuf2io9Tokenizer8NextCharEv.exit: ; preds = %if.then15.i, %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i
@@ -3200,14 +3200,14 @@ if.else76:                                        ; preds = %if.else66
 
 if.then80:                                        ; preds = %if.else76
   %91 = load ptr, ptr %error_collector_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i8 %74 to i64
   %92 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i to ptr
   store ptr %92, ptr %ref.tmp.i, align 8, !noalias !17
   %dispatcher_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIhEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !17
   call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp85, ptr nonnull @.str.18, i64 36, ptr nonnull %ref.tmp.i, i64 1)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %call89 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp85) #23
   %93 = extractvalue { i64, ptr } %call89, 0
   %94 = extractvalue { i64, ptr } %call89, 1
@@ -3583,7 +3583,7 @@ if.then15.i:                                      ; preds = %if.end11.i
   br label %while.cond.i.backedge
 
 if.else18.i:                                      ; preds = %if.end11.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i.i)
   %23 = load i8, ptr %read_error_.i.i, align 8
   %tobool.i.i296 = trunc i8 %23 to i1
   br i1 %tobool.i.i296, label %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i, label %if.end.i.i297
@@ -3647,7 +3647,7 @@ do.end.i.i:                                       ; preds = %do.cond.i.i
 _ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i: ; preds = %do.end.i.i, %if.then13.i.i, %if.else18.i
   %.sink.i.i = phi i8 [ %31, %do.end.i.i ], [ 0, %if.then13.i.i ], [ 0, %if.else18.i ]
   store i8 %.sink.i.i, ptr %current_char_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i)
   br label %while.cond.i.backedge
 
 while.cond.i.backedge:                            ; preds = %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i, %if.then15.i
@@ -3994,7 +3994,7 @@ if.then15.i354:                                   ; preds = %if.end11.i321
   br label %while.cond.i103.backedge
 
 if.else18.i326:                                   ; preds = %if.end11.i321
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i.i314)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i.i314)
   %73 = load i8, ptr %read_error_.i.i327, align 8
   %tobool.i.i328 = trunc i8 %73 to i1
   br i1 %tobool.i.i328, label %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i342, label %if.end.i.i329
@@ -4058,7 +4058,7 @@ do.end.i.i346:                                    ; preds = %do.cond.i.i344
 _ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i342: ; preds = %do.end.i.i346, %if.then13.i.i341, %if.else18.i326
   %.sink.i.i343 = phi i8 [ %81, %do.end.i.i346 ], [ 0, %if.then13.i.i341 ], [ 0, %if.else18.i326 ]
   store i8 %.sink.i.i343, ptr %current_char_.i102, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i.i314)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i314)
   br label %while.cond.i103.backedge
 
 while.cond.i103.backedge:                         ; preds = %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i342, %if.then15.i354
@@ -4127,7 +4127,7 @@ if.then15.i409:                                   ; preds = %if.end11.i376
   br label %while.cond.i114.backedge
 
 if.else18.i381:                                   ; preds = %if.end11.i376
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i.i369)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i.i369)
   %90 = load i8, ptr %read_error_.i.i327, align 8
   %tobool.i.i383 = trunc i8 %90 to i1
   br i1 %tobool.i.i383, label %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i397, label %if.end.i.i384
@@ -4191,7 +4191,7 @@ do.end.i.i401:                                    ; preds = %do.cond.i.i399
 _ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i397: ; preds = %do.end.i.i401, %if.then13.i.i396, %if.else18.i381
   %.sink.i.i398 = phi i8 [ %98, %do.end.i.i401 ], [ 0, %if.then13.i.i396 ], [ 0, %if.else18.i381 ]
   store i8 %.sink.i.i398, ptr %current_char_.i102, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i.i369)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i369)
   br label %while.cond.i114.backedge
 
 while.cond.i114.backedge:                         ; preds = %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i397, %if.then15.i409
@@ -4333,7 +4333,7 @@ if.then15.i464:                                   ; preds = %if.end11.i431
   br label %while.cond.i169.backedge
 
 if.else18.i436:                                   ; preds = %if.end11.i431
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i.i424)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i.i424)
   %118 = load i8, ptr %read_error_.i.i327, align 8
   %tobool.i.i438 = trunc i8 %118 to i1
   br i1 %tobool.i.i438, label %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i452, label %if.end.i.i439
@@ -4397,7 +4397,7 @@ do.end.i.i456:                                    ; preds = %do.cond.i.i454
 _ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i452: ; preds = %do.end.i.i456, %if.then13.i.i451, %if.else18.i436
   %.sink.i.i453 = phi i8 [ %126, %do.end.i.i456 ], [ 0, %if.then13.i.i451 ], [ 0, %if.else18.i436 ]
   store i8 %.sink.i.i453, ptr %current_char_.i102, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i.i424)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i424)
   br label %while.cond.i169.backedge
 
 while.cond.i169.backedge:                         ; preds = %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i452, %if.then15.i464
@@ -4576,7 +4576,7 @@ land.lhs.true:                                    ; preds = %lor.lhs.false72, %i
   br i1 %or.cond, label %if.then86, label %cleanup
 
 if.then86:                                        ; preds = %land.lhs.true
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %trail.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %trail.i)
   %145 = load i32, ptr %num_comments_.i, align 8
   %146 = load i8, ptr %has_comment_.i183, align 1
   %147 = and i8 %146, 1
@@ -4682,7 +4682,7 @@ if.end12.i.i:                                     ; preds = %if.else.i.i.i271, %
   br label %_ZN6google8protobuf2io12_GLOBAL__N_116CommentCollector18MaybeDetachCommentEv.exit
 
 _ZN6google8protobuf2io12_GLOBAL__N_116CommentCollector18MaybeDetachCommentEv.exit: ; preds = %if.then86, %if.end16.i, %if.end12.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %trail.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %trail.i)
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont40, %_ZN6google8protobuf2io12_GLOBAL__N_116CommentCollector18MaybeDetachCommentEv.exit, %if.end79, %land.lhs.true, %if.then34, %invoke.cont16, %invoke.cont12
@@ -4912,7 +4912,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 define noundef double @_ZN6google8protobuf2io9Tokenizer10ParseFloatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %text) local_unnamed_addr #6 align 2 {
 entry:
   %end.i = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i)
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %text) #23
   %call1.i = call noundef double @_ZN6google8protobuf2io14NoLocaleStrtodEPKcPPc(ptr noundef %call.i, ptr noundef nonnull %end.i)
   %0 = load ptr, ptr %end.i, align 8
@@ -4952,7 +4952,7 @@ if.then17.i:                                      ; preds = %if.end11.i, %if.end
 
 if.end19.i:                                       ; preds = %if.then17.i, %if.end11.i
   %call20.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %text) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i)
   ret double %call1.i
 }
 
@@ -5280,14 +5280,14 @@ if.then12.i:                                      ; preds = %land.lhs.true10.i
 
 if.else5.i.thread:                                ; preds = %land.lhs.true3.i, %land.lhs.true.i
   %retval.0.i.ptr77 = getelementptr inbounds nuw i8, ptr %call6.pn, i64 %incdec.ptr.i.add
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i)
   br label %if.then7.i
 
 _ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit: ; preds = %for.body.i15.i, %if.end.i, %land.lhs.true10.i, %if.then12.i
   %unicode.1 = phi i32 [ %add.i29.i, %if.then12.i ], [ %add.i.i, %land.lhs.true10.i ], [ %add.i.i, %if.end.i ], [ %add.i.i, %for.body.i15.i ]
   %retval.0.i.idx = phi i64 [ %add.ptr.i.i.add, %if.then12.i ], [ %incdec.ptr.i.add, %land.lhs.true10.i ], [ %incdec.ptr.i.add, %if.end.i ], [ %incdec.ptr.i.add, %for.body.i15.i ]
   %retval.0.i.ptr = getelementptr inbounds nuw i8, ptr %call6.pn, i64 %retval.0.i.idx
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i)
   %cmp.i63 = icmp ult i32 %unicode.1, 128
   br i1 %cmp.i63, label %if.end33.i, label %if.else.i
 
@@ -5343,13 +5343,13 @@ if.then18.i:                                      ; preds = %if.else16.i
   br label %if.end33.i
 
 if.else30.i:                                      ; preds = %if.else16.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   %retval.sroa.0.0.insert.ext.i.i.i.i.i = zext i32 %unicode.1 to i64
   %32 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i.i to ptr
   store ptr %32, ptr %ref.tmp.i.i, align 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIjEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i.i, align 8
   %call3.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl12lts_2023080219str_format_internal10AppendPackEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr noundef nonnull %output, ptr nonnull @.str.25, i64 6, ptr nonnull %ref.tmp.i.i, i64 1)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   br label %_ZN6google8protobuf2ioL10AppendUTF8EjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 if.end33.i:                                       ; preds = %if.then18.i, %if.then7.i, %if.then2.i, %_ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit
@@ -5365,7 +5365,7 @@ if.end33.i:                                       ; preds = %if.then18.i, %if.th
 
 _ZN6google8protobuf2ioL10AppendUTF8EjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %if.else30.i, %if.end33.i
   %retval.0.i.ptr80 = phi ptr [ %retval.0.i.ptr, %if.else30.i ], [ %retval.0.i.ptr82, %if.end33.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i)
   %add.ptr64 = getelementptr inbounds i8, ptr %retval.0.i.ptr80, i64 -1
   br label %for.cond.backedge
 
@@ -6145,10 +6145,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19

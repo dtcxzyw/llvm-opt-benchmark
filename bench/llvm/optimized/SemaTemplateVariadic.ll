@@ -232,14 +232,8 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema34isUnexpandedParameterPackPe
   ret i1 %.not.lcssa
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS_14SourceLocationENS0_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS3_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEES1_EEE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %1, i32 noundef %2, ptr readonly captures(address) %3, i64 %4) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS_14SourceLocationENS0_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS3_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEES1_EEE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %1, i32 noundef %2, ptr readonly captures(address) %3, i64 %4) local_unnamed_addr #1 align 2 {
   %6 = alloca %"class.clang::CharSourceRange", align 8
   %7 = alloca %"class.clang::CharSourceRange", align 8
   %8 = alloca %"class.clang::CanonicalDeclPtr", align 8
@@ -256,7 +250,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameter
   br i1 %18, label %682, label %19
 
 19:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %20, ptr %12, align 8, !tbaa !3
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -902,21 +896,21 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12PointerUnionIJPKN5clang20Template
 .thread177:                                       ; preds = %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4sema17CompoundScopeInfoELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_1EEbOT_T0_.exit", %299, %19
   %.sroa.0165.0.ph = phi ptr [ %300, %299 ], [ %3, %19 ], [ %3, %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4sema17CompoundScopeInfoELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_1EEbOT_T0_.exit" ]
   %.sroa.8.0.ph = phi i64 [ %301, %299 ], [ %4, %19 ], [ %4, %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4sema17CompoundScopeInfoELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_1EEbOT_T0_.exit" ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %303 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %303, ptr %13, align 8, !tbaa !3
   %304 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 0, ptr %304, align 8, !tbaa !9
   %305 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 4, ptr %305, align 4, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %306 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %306, ptr %14, align 8, !tbaa !3
   %307 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 0, ptr %307, align 8, !tbaa !9
   %308 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 4, ptr %308, align 4, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %15) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %309 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %309, ptr %15, align 8, !tbaa !117
   %310 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -936,8 +930,8 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12PointerUnionIJPKN5clang20Template
   br label %.lr.ph237
 
 ._crit_edge238:                                   ; preds = %557, %.thread177
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %16) #16
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %17) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %17, ptr noundef nonnull align 8 dereferenceable(8) %316, i32 %1, i32 noundef 5052, i1 noundef zeroext false) #16
   %317 = getelementptr inbounds nuw i8, ptr %17, i64 120
@@ -1078,7 +1072,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
 
 383:                                              ; preds = %378
   %384 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %17) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %385 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %386 = load ptr, ptr %385, align 8, !tbaa !155
   %.not.i.i = icmp eq ptr %386, null
@@ -1101,7 +1095,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %387, 
   %397 = getelementptr inbounds nuw %"struct.std::pair.1482", ptr %396, i64 %395, i32 2
   %398 = sext i32 %2 to i64
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %397, i64 noundef %398, i32 noundef 2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit
 
 _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit, %378, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i
@@ -1243,7 +1237,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
 
 465:                                              ; preds = %460
   %466 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %17) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %467 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %468 = load ptr, ptr %467, align 8, !tbaa !155
   %.not.i.i95 = icmp eq ptr %468, null
@@ -1266,7 +1260,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i96: ; preds = %469
   %479 = getelementptr inbounds nuw %"struct.std::pair.1482", ptr %478, i64 %477, i32 2
   %480 = sext i32 %399 to i64
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %479, i64 noundef %480, i32 noundef 2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit97
 
 _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit97: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit128, %460, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i96
@@ -1293,7 +1287,7 @@ _ZN5clang8SemaBase21SemaDiagnosticBuilderC2ERKS1_.exit: ; preds = %_ZNK5clang8Se
   %491 = load i64, ptr %490, align 8
   store i64 %491, ptr %489, align 8
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %17) #16
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %17) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %492 = load i32, ptr %307, align 8, !tbaa !9
   %493 = call i32 @llvm.umin.i32(i32 %492, i32 2)
   %.sroa.speculated = zext nneg i32 %493 to i64
@@ -1596,7 +1590,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
 
 628:                                              ; preds = %625
   %629 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %16) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %630 = load ptr, ptr %495, align 8, !tbaa !155
   %.not.i.i106 = icmp eq ptr %630, null
   br i1 %.not.i.i106, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i107, label %631
@@ -1619,7 +1613,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i107: ; preds = %63
   %642 = load ptr, ptr %565, align 8, !tbaa !180
   %643 = ptrtoint ptr %642 to i64
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %641, i64 noundef %643, i32 noundef 5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN5clanglsIPNS_14IdentifierInfoEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit
 
 _ZN5clanglsIPNS_14IdentifierInfoEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit146, %625, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i107
@@ -1629,7 +1623,7 @@ _ZN5clanglsIPNS_14IdentifierInfoEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_
 
 ._crit_edge247:                                   ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit, %._crit_edge242
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %16) #16
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %16) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %645 = load i8, ptr %313, align 4, !tbaa !121, !range !40, !noundef !41
   %646 = trunc nuw i8 %645 to i1
   br i1 %646, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit, label %647
@@ -1640,7 +1634,7 @@ _ZN5clanglsIPNS_14IdentifierInfoEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_
   br label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit
 
 _ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %._crit_edge247, %647
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %15) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %649 = load ptr, ptr %14, align 8, !tbaa !3
   %650 = icmp eq ptr %649, %306
   br i1 %650, label %_ZN4llvm11SmallVectorIPN5clang14IdentifierInfoELj4EED2Ev.exit, label %651
@@ -1650,7 +1644,7 @@ _ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %._crit_edge247, %64
   br label %_ZN4llvm11SmallVectorIPN5clang14IdentifierInfoELj4EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPN5clang14IdentifierInfoELj4EED2Ev.exit: ; preds = %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit, %651
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %652 = load ptr, ptr %13, align 8, !tbaa !3
   %653 = icmp eq ptr %652, %303
   br i1 %653, label %_ZN4llvm11SmallVectorIN5clang14SourceLocationELj4EED2Ev.exit, label %654
@@ -1660,7 +1654,7 @@ _ZN4llvm11SmallVectorIPN5clang14IdentifierInfoELj4EED2Ev.exit: ; preds = %_ZN4ll
   br label %_ZN4llvm11SmallVectorIN5clang14SourceLocationELj4EED2Ev.exit
 
 _ZN4llvm11SmallVectorIN5clang14SourceLocationELj4EED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorIPN5clang14IdentifierInfoELj4EED2Ev.exit, %654
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %678
 
 655:                                              ; preds = %.lr.ph246, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit
@@ -1676,11 +1670,11 @@ _ZN4llvm11SmallVectorIN5clang14SourceLocationELj4EED2Ev.exit: ; preds = %_ZN4llv
   %.sroa.5.0.insert.ext150 = zext i32 %.sroa.0.0.copyload to i64
   %.sroa.5.0.insert.shift151 = shl nuw i64 %.sroa.5.0.insert.ext150, 32
   %.sroa.0.0.insert.insert149 = or disjoint i64 %.sroa.5.0.insert.shift151, %.sroa.5.0.insert.ext150
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.sroa.0.0.insert.insert149, ptr %7, align 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(84) %561, ptr noundef nonnull align 4 dereferenceable(9) %7)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit
 
 661:                                              ; preds = %655
@@ -1690,7 +1684,7 @@ _ZN4llvm11SmallVectorIN5clang14SourceLocationELj4EED2Ev.exit: ; preds = %_ZN4llv
 
 664:                                              ; preds = %661
   %665 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %16) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %666 = load ptr, ptr %560, align 8, !tbaa !155
   %.not.i.i108 = icmp eq ptr %666, null
   br i1 %.not.i.i108, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i109, label %667
@@ -1713,12 +1707,12 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i109: ; preds = %66
   %.sroa.5.0.insert.ext = zext i32 %.sroa.0.0.copyload to i64
   %.sroa.5.0.insert.shift = shl nuw i64 %.sroa.5.0.insert.ext, 32
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.shift, %.sroa.5.0.insert.ext
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %.sroa.0.0.insert.insert, ptr %6, align 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(20) %677, ptr noundef nonnull align 4 dereferenceable(9) %6)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit
 
 _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit: ; preds = %660, %661, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i109
@@ -1737,7 +1731,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit: 
   br label %_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj4EED2Ev.exit
 
 _ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj4EED2Ev.exit: ; preds = %678, %681
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %682
 
 682:                                              ; preds = %5, %_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj4EED2Ev.exit
@@ -1745,20 +1739,20 @@ _ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmType
   ret i1 %.0
 }
 
-declare noundef ptr @_ZNK5clang4Sema25getEnclosingLambdaOrBlockEv(ptr noundef nonnull align 8 dereferenceable(17504)) local_unnamed_addr #3
+declare noundef ptr @_ZNK5clang4Sema25getEnclosingLambdaOrBlockEv(ptr noundef nonnull align 8 dereferenceable(17504)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare noundef ptr @_ZNK5clang20TemplateTypeParmType13getIdentifierEv(ptr noundef nonnull align 16 dereferenceable(40)) local_unnamed_addr #3
+declare noundef ptr @_ZNK5clang20TemplateTypeParmType13getIdentifierEv(ptr noundef nonnull align 16 dereferenceable(40)) local_unnamed_addr #2
 
-declare void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8, ptr noundef nonnull align 8 dereferenceable(8), i32, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8, ptr noundef nonnull align 8 dereferenceable(8), i32, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136)) unnamed_addr #5
+declare void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4Sema31DiagnoseUnexpandedParameterPackENS_14SourceLocationEPNS_14TypeSourceInfoENS0_30UnexpandedParameterPackContextE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang4Sema31DiagnoseUnexpandedParameterPackENS_14SourceLocationEPNS_14TypeSourceInfoENS0_30UnexpandedParameterPackContextE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"class.llvm::SmallVector.764", align 8
   %6 = alloca %"class.(anonymous namespace)::CollectUnexpandedParameterPacksVisitor", align 8
   %.sroa.0.0.copyload.i = load i64, ptr %2, align 8, !tbaa !148
@@ -1772,14 +1766,14 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema31DiagnoseUnexpandedParameter
   br i1 %.not, label %34, label %13
 
 13:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %14, ptr %5, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %15, align 8, !tbaa !9
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 2, ptr %16, align 4, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 0, ptr %17, align 8, !tbaa !186
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 9
@@ -1810,7 +1804,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema31DiagnoseUnexpandedParameter
 _ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor15TraverseTypeLocEN5clang7TypeLocE.exit: ; preds = %13, %.critedge.i
   %28 = phi i64 [ 0, %13 ], [ %27, %.critedge.i ]
   %29 = phi ptr [ %14, %13 ], [ %.pre, %.critedge.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %30 = call noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS_14SourceLocationENS0_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS3_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEES1_EEE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %1, i32 noundef %3, ptr %29, i64 %28)
   %31 = load ptr, ptr %5, align 8, !tbaa !3
   %32 = icmp eq ptr %31, %14
@@ -1821,7 +1815,7 @@ _ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor15TraverseTypeLocEN5cla
   br label %_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit
 
 _ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit: ; preds = %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor15TraverseTypeLocEN5clang7TypeLocE.exit, %33
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %34
 
 34:                                               ; preds = %4, %_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit
@@ -1830,7 +1824,7 @@ _ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmType
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor15TraverseTypeLocEN5clang7TypeLocE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, ptr %2) unnamed_addr #2 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor15TraverseTypeLocEN5clang7TypeLocE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, ptr %2) unnamed_addr #1 align 2 {
   %.not.i.i = icmp ult ptr %1, inttoptr (i64 16 to ptr)
   br i1 %.not.i.i, label %16, label %4
 
@@ -1865,12 +1859,12 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParamete
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #2 comdat align 2 {
+define linkonce_odr void @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #1 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4Sema31DiagnoseUnexpandedParameterPackEPNS_4ExprENS0_30UnexpandedParameterPackContextE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang4Sema31DiagnoseUnexpandedParameterPackEPNS_4ExprENS0_30UnexpandedParameterPackContextE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::SmallVector.764", align 8
   %5 = alloca %"class.(anonymous namespace)::CollectUnexpandedParameterPacksVisitor", align 8
   %6 = load i24, ptr %1, align 8
@@ -1880,14 +1874,14 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema31DiagnoseUnexpandedParameter
 
 8:                                                ; preds = %3
   %9 = trunc i24 %6 to i16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %10, ptr %4, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %11, align 8, !tbaa !9
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 2, ptr %12, align 4, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 0, ptr %13, align 8, !tbaa !186
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 9
@@ -1920,7 +1914,7 @@ _ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor12TraverseStmtEPN5clang
   %25 = phi ptr [ %10, %8 ], [ %.pre, %_ZN4llvm16dyn_cast_or_nullIN5clang4ExprENS1_4StmtEEEDaPT0_.exit.i ]
   %26 = call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #19
   %27 = call noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS_14SourceLocationENS0_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS3_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEES1_EEE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %26, i32 noundef %2, ptr %25, i64 %24)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %28 = load ptr, ptr %4, align 8, !tbaa !3
   %29 = icmp eq ptr %28, %10
   br i1 %29, label %_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit, label %30
@@ -1930,7 +1924,7 @@ _ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor12TraverseStmtEPN5clang
   br label %_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit
 
 _ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit: ; preds = %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor12TraverseStmtEPN5clang4StmtE.exit, %30
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %31
 
 31:                                               ; preds = %3, %_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit
@@ -1939,7 +1933,7 @@ _ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmType
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor12TraverseStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor12TraverseStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %13, label %3
 
@@ -1976,10 +1970,10 @@ _ZN4llvm16dyn_cast_or_nullIN5clang4ExprENS1_4StmtEEEDaPT0_.exit: ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #6
+declare i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4Sema45DiagnoseUnexpandedParameterPackInRequiresExprEPNS_12RequiresExprE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang4Sema45DiagnoseUnexpandedParameterPackInRequiresExprEPNS_12RequiresExprE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::SmallVector.764", align 8
   %4 = alloca %"class.(anonymous namespace)::CollectUnexpandedParameterPacksVisitor", align 8
   %5 = alloca %"class.llvm::SmallPtrSet.770", align 8
@@ -1991,14 +1985,14 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema45DiagnoseUnexpandedParameter
 
 9:                                                ; preds = %2
   %10 = trunc i24 %7 to i16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %11, ptr %3, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %12, align 8, !tbaa !9
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 2, ptr %13, align 4, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 0, ptr %14, align 8, !tbaa !186
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 9
@@ -2024,12 +2018,12 @@ _ZN4llvm16dyn_cast_or_nullIN5clang4ExprENS1_4StmtEEEDaPT0_.exit.i: ; preds = %9
   br label %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor12TraverseStmtEPN5clang4StmtE.exit
 
 _ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor12TraverseStmtEPN5clang4StmtE.exit: ; preds = %9, %_ZN4llvm16dyn_cast_or_nullIN5clang4ExprENS1_4StmtEEEDaPT0_.exit.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = load i32, ptr %25, align 8, !tbaa !196
   %27 = zext i32 %26 to i64
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.idx = shl nuw nsw i64 %27, 3
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -2096,7 +2090,7 @@ _ZN4llvm15SmallPtrSetImplIPN5clang9NamedDeclEE6insertES3_.exit.i.i: ; preds = %.
   br i1 %.not.i.i, label %_ZN4llvm11SmallPtrSetIPN5clang9NamedDeclELj8EEC2IPKPNS1_11ParmVarDeclEEET_SA_.exit, label %.lr.ph.i.i, !llvm.loop !207
 
 _ZN4llvm11SmallPtrSetIPN5clang9NamedDeclELj8EEC2IPKPNS1_11ParmVarDeclEEET_SA_.exit: ; preds = %_ZN4llvm15SmallPtrSetImplIPN5clang9NamedDeclEE6insertES3_.exit.i.i, %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor12TraverseStmtEPN5clang4StmtE.exit
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %51, ptr %6, align 8, !tbaa !3
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2207,7 +2201,7 @@ _ZNK4llvm15SmallPtrSetImplIPN5clang9NamedDeclEE8containsEPKS2_.exit.thread: ; pr
 
 _ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit: ; preds = %_ZN4llvm11SmallPtrSetIPN5clang9NamedDeclELj8EEC2IPKPNS1_11ParmVarDeclEEET_SA_.exit, %90, %93
   %.135 = phi i1 [ %.1, %90 ], [ %.1, %93 ], [ false, %_ZN4llvm11SmallPtrSetIPN5clang9NamedDeclELj8EEC2IPKPNS1_11ParmVarDeclEEET_SA_.exit ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %94 = load i8, ptr %33, align 4, !tbaa !121, !range !40, !noundef !41
   %95 = trunc nuw i8 %94 to i1
   br i1 %95, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit, label %96
@@ -2218,7 +2212,7 @@ _ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmType
   br label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit
 
 _ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit, %96
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %98 = load ptr, ptr %3, align 8, !tbaa !3
   %99 = icmp eq ptr %98, %11
   br i1 %99, label %_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit15, label %100
@@ -2228,7 +2222,7 @@ _ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %_ZN4llvm11SmallVect
   br label %_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit15
 
 _ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit15: ; preds = %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit, %100
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %101
 
 101:                                              ; preds = %2, %_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit15
@@ -2237,7 +2231,7 @@ _ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmType
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4Sema31DiagnoseUnexpandedParameterPackERKNS_12CXXScopeSpecENS0_30UnexpandedParameterPackContextE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang4Sema31DiagnoseUnexpandedParameterPackERKNS_12CXXScopeSpecENS0_30UnexpandedParameterPackContextE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::SmallVector.764", align 8
   %5 = alloca %"class.(anonymous namespace)::CollectUnexpandedParameterPacksVisitor", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2250,14 +2244,14 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema31DiagnoseUnexpandedParameter
   br i1 %9, label %10, label %30
 
 10:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %11, ptr %4, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %12, align 8, !tbaa !9
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 2, ptr %13, align 4, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 0, ptr %14, align 8, !tbaa !186
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 9
@@ -2275,7 +2269,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema31DiagnoseUnexpandedParameter
   store i8 1, ptr %16, align 2, !tbaa !195
   %21 = load ptr, ptr %6, align 8, !tbaa !209
   %22 = call noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef %21) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.0.0.copyload.i = load i64, ptr %1, align 8
   %.sroa.07.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   %23 = load ptr, ptr %4, align 8, !tbaa !3
@@ -2291,7 +2285,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema31DiagnoseUnexpandedParameter
   br label %_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit
 
 _ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit: ; preds = %10, %29
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %30
 
 30:                                               ; preds = %3, %8, %_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit
@@ -2299,12 +2293,12 @@ _ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmType
   ret i1 %.0
 }
 
-declare noundef zeroext i1 @_ZNK5clang19NestedNameSpecifier31containsUnexpandedParameterPackEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZNK5clang19NestedNameSpecifier31containsUnexpandedParameterPackEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4Sema31DiagnoseUnexpandedParameterPackERKNS_19DeclarationNameInfoENS0_30UnexpandedParameterPackContextE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang4Sema31DiagnoseUnexpandedParameterPackERKNS_19DeclarationNameInfoENS0_30UnexpandedParameterPackContextE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::SmallVector.764", align 8
   %5 = alloca %"class.(anonymous namespace)::CollectUnexpandedParameterPacksVisitor", align 8
   %6 = alloca %"class.llvm::SmallVector.764", align 8
@@ -2367,14 +2361,14 @@ _ZNK5clang15DeclarationName11getNameKindEv.exit._crit_edge: ; preds = %_ZNK5clan
   br i1 %.not.i18, label %_ZN5clang4Sema31DiagnoseUnexpandedParameterPackENS_14SourceLocationEPNS_14TypeSourceInfoENS0_30UnexpandedParameterPackContextE.exit.thread, label %28
 
 28:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %29, ptr %4, align 8, !tbaa !3
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %30, align 8, !tbaa !9
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 2, ptr %31, align 4, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 0, ptr %32, align 8, !tbaa !186
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 9
@@ -2405,7 +2399,7 @@ _ZNK5clang15DeclarationName11getNameKindEv.exit._crit_edge: ; preds = %_ZNK5clan
 _ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor15TraverseTypeLocEN5clang7TypeLocE.exit.i: ; preds = %.critedge.i.i, %28
   %43 = phi i64 [ 0, %28 ], [ %42, %.critedge.i.i ]
   %44 = phi ptr [ %29, %28 ], [ %.pre.i, %.critedge.i.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %45 = call noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS_14SourceLocationENS0_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS3_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEES1_EEE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %.sroa.0.0.copyload.i17, i32 noundef %2, ptr %44, i64 %43)
   %46 = load ptr, ptr %4, align 8, !tbaa !3
   %47 = icmp eq ptr %46, %29
@@ -2416,7 +2410,7 @@ _ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor15TraverseTypeLocEN5cla
   br label %_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit.i
 
 _ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit.i: ; preds = %48, %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor15TraverseTypeLocEN5clang7TypeLocE.exit.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN5clang4Sema31DiagnoseUnexpandedParameterPackENS_14SourceLocationEPNS_14TypeSourceInfoENS0_30UnexpandedParameterPackContextE.exit.thread
 
 _ZN5clang4Sema31DiagnoseUnexpandedParameterPackENS_14SourceLocationEPNS_14TypeSourceInfoENS0_30UnexpandedParameterPackContextE.exit: ; preds = %16
@@ -2438,14 +2432,14 @@ _ZN5clang4Sema31DiagnoseUnexpandedParameterPackENS_14SourceLocationEPNS_14TypeSo
 
 59:                                               ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit._crit_edge, %_ZN5clang4Sema31DiagnoseUnexpandedParameterPackENS_14SourceLocationEPNS_14TypeSourceInfoENS0_30UnexpandedParameterPackContextE.exit
   %.off.i24.pre-phi = phi i1 [ %15, %_ZNK5clang15DeclarationName11getNameKindEv.exit._crit_edge ], [ true, %_ZN5clang4Sema31DiagnoseUnexpandedParameterPackENS_14SourceLocationEPNS_14TypeSourceInfoENS0_30UnexpandedParameterPackContextE.exit ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %60, ptr %6, align 8, !tbaa !3
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %61, align 8, !tbaa !9
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 2, ptr %62, align 4, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %63 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 0, ptr %63, align 8, !tbaa !186
   %64 = getelementptr inbounds nuw i8, ptr %7, i64 9
@@ -2491,7 +2485,7 @@ _ZNK5clang15DeclarationName14getCXXNameTypeEv.exit27: ; preds = %59
 _ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor12TraverseTypeEN5clang8QualTypeE.exit: ; preds = %59, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit27, %74, %81
   %84 = phi i64 [ 0, %59 ], [ 0, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit27 ], [ 0, %74 ], [ %83, %81 ]
   %85 = phi ptr [ %60, %59 ], [ %60, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit27 ], [ %60, %74 ], [ %.pre, %81 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i29 = load i32, ptr %86, align 8, !tbaa !168
   %87 = call noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS_14SourceLocationENS0_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS3_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEES1_EEE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %.sroa.0.0.copyload.i29, i32 noundef %2, ptr %85, i64 %84)
@@ -2504,7 +2498,7 @@ _ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor12TraverseTypeEN5clang8
   br label %_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit
 
 _ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit: ; preds = %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor12TraverseTypeEN5clang8QualTypeE.exit, %90
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN5clang4Sema31DiagnoseUnexpandedParameterPackENS_14SourceLocationEPNS_14TypeSourceInfoENS0_30UnexpandedParameterPackContextE.exit.thread
 
 _ZN5clang4Sema31DiagnoseUnexpandedParameterPackENS_14SourceLocationEPNS_14TypeSourceInfoENS0_30UnexpandedParameterPackContextE.exit.thread: ; preds = %20, %_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit.i, %_ZN5clang4Sema31DiagnoseUnexpandedParameterPackENS_14SourceLocationEPNS_14TypeSourceInfoENS0_30UnexpandedParameterPackContextE.exit, %_ZNK5clang15DeclarationName11getNameKindEv.exit, %_ZNK5clang15DeclarationName11getNameKindEv.exit, %_ZNK5clang15DeclarationName11getNameKindEv.exit, %_ZNK5clang15DeclarationName11getNameKindEv.exit, %_ZNK5clang15DeclarationName11getNameKindEv.exit, %_ZNK5clang15DeclarationName11getNameKindEv.exit, %_ZNK5clang15DeclarationName11getNameKindEv.exit, %_ZNK5clang15DeclarationName11getNameKindEv.exit, %_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit
@@ -2513,7 +2507,7 @@ _ZN5clang4Sema31DiagnoseUnexpandedParameterPackENS_14SourceLocationEPNS_14TypeSo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor12TraverseTypeEN5clang8QualTypeE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %1) unnamed_addr #2 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor12TraverseTypeEN5clang8QualTypeE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %1) unnamed_addr #1 align 2 {
   %.not.i.i = icmp ult i64 %1, 16
   br i1 %.not.i.i, label %14, label %3
 
@@ -2547,7 +2541,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParamete
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4Sema31DiagnoseUnexpandedParameterPackENS_14SourceLocationENS_12TemplateNameENS0_30UnexpandedParameterPackContextE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %1, i64 %2, i32 noundef %3) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang4Sema31DiagnoseUnexpandedParameterPackENS_14SourceLocationENS_12TemplateNameENS0_30UnexpandedParameterPackContextE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %1, i64 %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"class.clang::TemplateName", align 8
   %6 = alloca %"class.clang::TemplateName", align 8
   %7 = alloca %"class.llvm::SmallVector.764", align 8
@@ -2561,14 +2555,14 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema31DiagnoseUnexpandedParameter
   br i1 %11, label %12, label %41
 
 12:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %13, ptr %7, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %14, align 8, !tbaa !9
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 2, ptr %15, align 4, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i8 0, ptr %16, align 8, !tbaa !186
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 9
@@ -2585,7 +2579,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema31DiagnoseUnexpandedParameter
   store i8 0, ptr %17, align 1, !tbaa !194
   store i8 1, ptr %18, align 2, !tbaa !195
   %.sroa.01.0.copyload = load i64, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.sroa.01.0.copyload, ptr %5, align 8
   %23 = call noundef ptr @_ZNK5clang12TemplateName17getAsTemplateDeclEb(ptr noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext false) #16
   %.not.i.i.i = icmp eq ptr %23, null
@@ -2612,8 +2606,8 @@ _ZN4llvm16dyn_cast_or_nullIN5clang24TemplateTemplateParmDeclENS1_12TemplateDeclE
 _ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor20TraverseTemplateNameEN5clang12TemplateNameE.exit: ; preds = %12, %24, %_ZN4llvm16dyn_cast_or_nullIN5clang24TemplateTemplateParmDeclENS1_12TemplateDeclEEEDaPT0_.exit.i, %32
   %.sroa.0.0.copyload.i = load i64, ptr %5, align 8
   %33 = call noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseTemplateNameENS_12TemplateNameE(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 %.sroa.0.0.copyload.i) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %34 = load ptr, ptr %7, align 8, !tbaa !3
   %35 = load i32, ptr %14, align 8, !tbaa !9
   %36 = zext i32 %35 to i64
@@ -2627,7 +2621,7 @@ _ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor20TraverseTemplateNameE
   br label %_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit
 
 _ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit: ; preds = %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor20TraverseTemplateNameEN5clang12TemplateNameE.exit, %40
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %41
 
 41:                                               ; preds = %4, %10, %_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit
@@ -2635,12 +2629,12 @@ _ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmType
   ret i1 %.0
 }
 
-declare noundef zeroext i1 @_ZNK5clang12TemplateName6isNullEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZNK5clang12TemplateName6isNullEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
-declare noundef zeroext i1 @_ZNK5clang12TemplateName31containsUnexpandedParameterPackEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZNK5clang12TemplateName31containsUnexpandedParameterPackEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor20TraverseTemplateNameEN5clang12TemplateNameE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %1) unnamed_addr #2 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor20TraverseTemplateNameEN5clang12TemplateNameE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.clang::TemplateName", align 8
   store i64 %1, ptr %3, align 8
   %4 = call noundef ptr @_ZNK5clang12TemplateName17getAsTemplateDeclEb(ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext false) #16
@@ -2672,7 +2666,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang24TemplateTemplateParmDeclENS1_12TemplateDeclE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4Sema31DiagnoseUnexpandedParameterPackENS_19TemplateArgumentLocENS0_30UnexpandedParameterPackContextE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef byval(%"class.clang::TemplateArgumentLoc") align 8 %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang4Sema31DiagnoseUnexpandedParameterPackENS_19TemplateArgumentLocENS0_30UnexpandedParameterPackContextE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef byval(%"class.clang::TemplateArgumentLoc") align 8 %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::SmallVector.764", align 8
   %5 = alloca %"class.(anonymous namespace)::CollectUnexpandedParameterPacksVisitor", align 8
   %6 = load i32, ptr %1, align 8
@@ -2685,14 +2679,14 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema31DiagnoseUnexpandedParameter
   br i1 %10, label %11, label %41
 
 11:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %12, ptr %4, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %13, align 8, !tbaa !9
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 2, ptr %14, align 4, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 0, ptr %15, align 8, !tbaa !186
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 9
@@ -2716,7 +2710,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema31DiagnoseUnexpandedParameter
   br label %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor27TraverseTemplateArgumentLocERKN5clang19TemplateArgumentLocE.exit
 
 _ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor27TraverseTemplateArgumentLocERKN5clang19TemplateArgumentLocE.exit: ; preds = %11, %23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %25 = load i32, ptr %1, align 8
   %26 = and i32 %25, 2147483646
   %switch.i = icmp eq i32 %26, 6
@@ -2751,7 +2745,7 @@ _ZNK5clang19TemplateArgumentLoc11getLocationEv.exit: ; preds = %27, %32
   br label %_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit
 
 _ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit: ; preds = %_ZNK5clang19TemplateArgumentLoc11getLocationEv.exit, %40
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %41
 
 41:                                               ; preds = %3, %9, %_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit
@@ -2759,10 +2753,10 @@ _ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmType
   ret i1 %.0
 }
 
-declare noundef zeroext i1 @_ZNK5clang16TemplateArgument31containsUnexpandedParameterPackEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZNK5clang16TemplateArgument31containsUnexpandedParameterPackEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor27TraverseTemplateArgumentLocERKN5clang19TemplateArgumentLocE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #2 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor27TraverseTemplateArgumentLocERKN5clang19TemplateArgumentLocE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #1 align 2 {
   %3 = tail call noundef zeroext i1 @_ZNK5clang16TemplateArgument15isPackExpansionEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #16
   br i1 %3, label %6, label %4
 
@@ -2776,9 +2770,9 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParamete
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema31collectUnexpandedParameterPacksENS_16TemplateArgumentERN4llvm15SmallVectorImplISt4pairINS2_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(17504) %0, ptr noundef nonnull byval(%"class.clang::TemplateArgument") align 8 %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang4Sema31collectUnexpandedParameterPacksENS_16TemplateArgumentERN4llvm15SmallVectorImplISt4pairINS2_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(17504) %0, ptr noundef nonnull byval(%"class.clang::TemplateArgument") align 8 %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.(anonymous namespace)::CollectUnexpandedParameterPacksVisitor", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 0, ptr %5, align 8, !tbaa !186
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 9
@@ -2802,12 +2796,12 @@ define dso_local void @_ZN5clang4Sema31collectUnexpandedParameterPacksENS_16Temp
   br label %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor24TraverseTemplateArgumentERKN5clang16TemplateArgumentE.exit
 
 _ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor24TraverseTemplateArgumentERKN5clang16TemplateArgumentE.exit: ; preds = %3, %13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor24TraverseTemplateArgumentERKN5clang16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #2 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor24TraverseTemplateArgumentERKN5clang16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 {
   %3 = tail call noundef zeroext i1 @_ZNK5clang16TemplateArgument15isPackExpansionEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #16
   br i1 %3, label %6, label %4
 
@@ -2821,9 +2815,9 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParamete
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema31collectUnexpandedParameterPacksENS_19TemplateArgumentLocERN4llvm15SmallVectorImplISt4pairINS2_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(17504) %0, ptr noundef nonnull byval(%"class.clang::TemplateArgumentLoc") align 8 %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang4Sema31collectUnexpandedParameterPacksENS_19TemplateArgumentLocERN4llvm15SmallVectorImplISt4pairINS2_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(17504) %0, ptr noundef nonnull byval(%"class.clang::TemplateArgumentLoc") align 8 %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.(anonymous namespace)::CollectUnexpandedParameterPacksVisitor", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 0, ptr %5, align 8, !tbaa !186
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 9
@@ -2847,14 +2841,14 @@ define dso_local void @_ZN5clang4Sema31collectUnexpandedParameterPacksENS_19Temp
   br label %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor27TraverseTemplateArgumentLocERKN5clang19TemplateArgumentLocE.exit
 
 _ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor27TraverseTemplateArgumentLocERKN5clang19TemplateArgumentLocE.exit: ; preds = %3, %13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema31collectUnexpandedParameterPacksENS_8QualTypeERN4llvm15SmallVectorImplISt4pairINS2_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(17504) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang4Sema31collectUnexpandedParameterPacksENS_8QualTypeERN4llvm15SmallVectorImplISt4pairINS2_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(17504) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.(anonymous namespace)::CollectUnexpandedParameterPacksVisitor", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 0, ptr %5, align 8, !tbaa !186
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 9
@@ -2888,14 +2882,14 @@ define dso_local void @_ZN5clang4Sema31collectUnexpandedParameterPacksENS_8QualT
   br label %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor12TraverseTypeEN5clang8QualTypeE.exit
 
 _ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor12TraverseTypeEN5clang8QualTypeE.exit: ; preds = %3, %12, %19
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema31collectUnexpandedParameterPacksENS_7TypeLocERN4llvm15SmallVectorImplISt4pairINS2_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(17504) %0, ptr %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(16) %3) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang4Sema31collectUnexpandedParameterPacksENS_7TypeLocERN4llvm15SmallVectorImplISt4pairINS2_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(17504) %0, ptr %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(16) %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"class.(anonymous namespace)::CollectUnexpandedParameterPacksVisitor", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 0, ptr %6, align 8, !tbaa !186
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 9
@@ -2930,14 +2924,14 @@ define dso_local void @_ZN5clang4Sema31collectUnexpandedParameterPacksENS_7TypeL
   br label %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor15TraverseTypeLocEN5clang7TypeLocE.exit
 
 _ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor15TraverseTypeLocEN5clang7TypeLocE.exit: ; preds = %4, %13, %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema31collectUnexpandedParameterPacksENS_22NestedNameSpecifierLocERN4llvm15SmallVectorImplISt4pairINS2_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(17504) %0, ptr %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(16) %3) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang4Sema31collectUnexpandedParameterPacksENS_22NestedNameSpecifierLocERN4llvm15SmallVectorImplISt4pairINS2_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(17504) %0, ptr %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(16) %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"class.(anonymous namespace)::CollectUnexpandedParameterPacksVisitor", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 0, ptr %6, align 8, !tbaa !186
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 9
@@ -2954,16 +2948,16 @@ define dso_local void @_ZN5clang4Sema31collectUnexpandedParameterPacksENS_22Nest
   store i8 0, ptr %7, align 1, !tbaa !194
   store i8 1, ptr %8, align 2, !tbaa !195
   %13 = call noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr %1, ptr %2) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema31collectUnexpandedParameterPacksERKNS_19DeclarationNameInfoERN4llvm15SmallVectorImplISt4pairINS4_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(17504) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang4Sema31collectUnexpandedParameterPacksERKNS_19DeclarationNameInfoERN4llvm15SmallVectorImplISt4pairINS4_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(17504) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.(anonymous namespace)::CollectUnexpandedParameterPacksVisitor", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 0, ptr %5, align 8, !tbaa !186
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 9
@@ -2980,16 +2974,16 @@ define dso_local void @_ZN5clang4Sema31collectUnexpandedParameterPacksERKNS_19De
   store i8 0, ptr %6, align 1, !tbaa !194
   store i8 1, ptr %7, align 2, !tbaa !195
   %12 = call noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseDeclarationNameInfoENS_19DeclarationNameInfoE(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull byval(%"struct.clang::DeclarationNameInfo") align 8 %1) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseDeclarationNameInfoENS_19DeclarationNameInfoE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef byval(%"struct.clang::DeclarationNameInfo") align 8) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseDeclarationNameInfoENS_19DeclarationNameInfoE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef byval(%"struct.clang::DeclarationNameInfo") align 8) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema31collectUnexpandedParameterPacksEPNS_4ExprERN4llvm15SmallVectorImplISt4pairINS3_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEEEE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang4Sema31collectUnexpandedParameterPacksEPNS_4ExprERN4llvm15SmallVectorImplISt4pairINS3_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEEEE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.(anonymous namespace)::CollectUnexpandedParameterPacksVisitor", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 0, ptr %4, align 8, !tbaa !186
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 9
@@ -3026,12 +3020,12 @@ _ZN4llvm16dyn_cast_or_nullIN5clang4ExprENS1_4StmtEEEDaPT0_.exit.i: ; preds = %11
   br label %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor12TraverseStmtEPN5clang4StmtE.exit
 
 _ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor12TraverseStmtEPN5clang4StmtE.exit: ; preds = %2, %11, %_ZN4llvm16dyn_cast_or_nullIN5clang4ExprENS1_4StmtEEEDaPT0_.exit.i, %17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema18ActOnPackExpansionERKNS_22ParsedTemplateArgumentENS_14SourceLocationE(ptr dead_on_unwind noalias writable sret(%"class.clang::ParsedTemplateArgument") align 8 %0, ptr noundef nonnull align 8 dereferenceable(17504) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i32 %3) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang4Sema18ActOnPackExpansionERKNS_22ParsedTemplateArgumentENS_14SourceLocationE(ptr dead_on_unwind noalias writable sret(%"class.clang::ParsedTemplateArgument") align 8 %0, ptr noundef nonnull align 8 dereferenceable(17504) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i32 %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"class.clang::CharSourceRange", align 8
   %6 = alloca %"class.clang::CharSourceRange", align 8
   %7 = alloca %"class.clang::CanonicalDeclPtr", align 8
@@ -3070,7 +3064,7 @@ define dso_local void @_ZN5clang4Sema18ActOnPackExpansionERKNS_22ParsedTemplateA
   ]
 
 27:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %28 = call i64 @_ZN5clang4Sema17GetTypeFromParserENS_9OpaquePtrINS_8QualTypeEEEPPNS_14TypeSourceInfoE(ptr nonnull %12, ptr noundef nonnull %8) #16
   %29 = load ptr, ptr %8, align 8, !tbaa !224
   %.not.i = icmp eq ptr %29, null
@@ -3082,7 +3076,7 @@ define dso_local void @_ZN5clang4Sema18ActOnPackExpansionERKNS_22ParsedTemplateA
   br i1 %.not11.i, label %32, label %34
 
 32:                                               ; preds = %27, %30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store i32 0, ptr %0, align 8, !tbaa !223
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %33, i8 0, i64 64, i1 false)
@@ -3091,7 +3085,7 @@ define dso_local void @_ZN5clang4Sema18ActOnPackExpansionERKNS_22ParsedTemplateA
 34:                                               ; preds = %30
   %.sroa.0.0.copyload.i.i = load i64, ptr %31, align 8, !tbaa !148
   %35 = call ptr @_ZN5clang4Sema16CreateParsedTypeENS_8QualTypeEPNS_14TypeSourceInfoE(ptr noundef nonnull align 8 dereferenceable(17504) %1, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull %31) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %36 = load i32, ptr %2, align 8, !tbaa !223
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %.sroa.0.0.copyload.i28 = load i32, ptr %37, align 8, !tbaa !168
@@ -3135,10 +3129,10 @@ define dso_local void @_ZN5clang4Sema18ActOnPackExpansionERKNS_22ParsedTemplateA
   br label %92
 
 56:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN5clang12TemplateNameC1EPv(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %12) #16
   %57 = call noundef zeroext i1 @_ZNK5clang12TemplateName31containsUnexpandedParameterPackEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %57, label %90, label %58
 
 58:                                               ; preds = %56
@@ -3150,7 +3144,7 @@ define dso_local void @_ZN5clang4Sema18ActOnPackExpansionERKNS_22ParsedTemplateA
   %.not = icmp eq ptr %62, null
   %.sroa.0.0.copyload.i.i31 = load i32, ptr %60, align 8
   %spec.select = select i1 %.not, i32 %.sroa.0.0.copyload.i30, i32 %.sroa.0.0.copyload.i.i31
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %10) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %63, i32 %3, i32 noundef 4488, i1 noundef zeroext false) #16
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 120
@@ -3164,12 +3158,12 @@ define dso_local void @_ZN5clang4Sema18ActOnPackExpansionERKNS_22ParsedTemplateA
   %.sroa.6.0.insert.shift37 = shl nuw i64 %.sroa.6.0.insert.ext36, 32
   %.sroa.0.0.insert.ext33 = zext i32 %spec.select to i64
   %.sroa.0.0.insert.insert35 = or disjoint i64 %.sroa.6.0.insert.shift37, %.sroa.0.0.insert.ext33
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %.sroa.0.0.insert.insert35, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(84) %68, ptr noundef nonnull align 4 dereferenceable(9) %6)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN5clanglsINS_11SourceRangeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit
 
 69:                                               ; preds = %58
@@ -3181,7 +3175,7 @@ define dso_local void @_ZN5clang4Sema18ActOnPackExpansionERKNS_22ParsedTemplateA
 
 74:                                               ; preds = %69
   %75 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %10) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %76 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %77 = load ptr, ptr %76, align 8, !tbaa !155
   %.not.i.i = icmp eq ptr %77, null
@@ -3206,18 +3200,18 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %78, %
   %.sroa.6.0.insert.shift = shl nuw i64 %.sroa.6.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %spec.select to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.6.0.insert.shift, %.sroa.0.0.insert.ext
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.sroa.0.0.insert.insert, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(20) %88, ptr noundef nonnull align 4 dereferenceable(9) %5)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN5clanglsINS_11SourceRangeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit
 
 _ZN5clanglsINS_11SourceRangeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit: ; preds = %67, %69, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %10) #16
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   store i32 0, ptr %0, align 8, !tbaa !223
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %89, i8 0, i64 64, i1 false)
@@ -3235,9 +3229,9 @@ _ZN5clanglsINS_11SourceRangeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, i8 } @_ZN5clang4Sema18ActOnPackExpansionENS_9OpaquePtrINS_8QualTypeEEENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr %1, i32 %2) local_unnamed_addr #2 align 2 {
+define dso_local { ptr, i8 } @_ZN5clang4Sema18ActOnPackExpansionENS_9OpaquePtrINS_8QualTypeEEENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr %1, i32 %2) local_unnamed_addr #1 align 2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i64 @_ZN5clang4Sema17GetTypeFromParserENS_9OpaquePtrINS_8QualTypeEEEPPNS_14TypeSourceInfoE(ptr %1, ptr noundef nonnull %4) #16
   %6 = load ptr, ptr %4, align 8, !tbaa !224
   %.not = icmp eq ptr %6, null
@@ -3256,28 +3250,28 @@ define dso_local { ptr, i8 } @_ZN5clang4Sema18ActOnPackExpansionENS_9OpaquePtrIN
 11:                                               ; preds = %7, %3, %9
   %.sroa.012.0 = phi ptr [ %10, %9 ], [ null, %3 ], [ null, %7 ]
   %.sroa.4.0 = phi i8 [ 0, %9 ], [ 1, %3 ], [ 1, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.012.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.4.0, 1
   ret { ptr, i8 } %.fca.1.insert
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN5clang4Sema18ActOnPackExpansionEPNS_4ExprENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, i32 %2) local_unnamed_addr #2 align 2 {
+define dso_local noundef i64 @_ZN5clang4Sema18ActOnPackExpansionEPNS_4ExprENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, i32 %2) local_unnamed_addr #1 align 2 {
   %4 = tail call i64 @_ZN5clang4Sema18CheckPackExpansionEPNS_4ExprENS_14SourceLocationESt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, i32 %2, i64 0)
   ret i64 %4
 }
 
-declare void @_ZNK5clang22ParsedTemplateArgument24getTemplatePackExpansionENS_14SourceLocationE(ptr dead_on_unwind writable sret(%"class.clang::ParsedTemplateArgument") align 8, ptr noundef nonnull align 8 dereferenceable(72), i32) local_unnamed_addr #3
+declare void @_ZNK5clang22ParsedTemplateArgument24getTemplatePackExpansionENS_14SourceLocationE(ptr dead_on_unwind writable sret(%"class.clang::ParsedTemplateArgument") align 8, ptr noundef nonnull align 8 dereferenceable(72), i32) local_unnamed_addr #2
 
-declare i64 @_ZN5clang4Sema17GetTypeFromParserENS_9OpaquePtrINS_8QualTypeEEEPPNS_14TypeSourceInfoE(ptr, ptr noundef) local_unnamed_addr #3
+declare i64 @_ZN5clang4Sema17GetTypeFromParserENS_9OpaquePtrINS_8QualTypeEEEPPNS_14TypeSourceInfoE(ptr, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang4Sema18CheckPackExpansionEPNS_14TypeSourceInfoENS_14SourceLocationESt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, i32 %2, i64 %3) local_unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZN5clang4Sema18CheckPackExpansionEPNS_14TypeSourceInfoENS_14SourceLocationESt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, i32 %2, i64 %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"class.clang::TypeLoc", align 8
   %6 = alloca %"class.clang::TypeLocBuilder", align 8
   %.sroa.0.0.copyload.i = load i64, ptr %1, align 8, !tbaa !148
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = inttoptr i64 %.sroa.0.0.copyload.i to ptr
   store ptr %8, ptr %5, align 8
@@ -3290,12 +3284,12 @@ define dso_local noundef ptr @_ZN5clang4Sema18CheckPackExpansionEPNS_14TypeSourc
   %.sroa.0.0.insert.ext.i = zext i32 %10 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %12 = call i64 @_ZN5clang4Sema18CheckPackExpansionENS_8QualTypeENS_11SourceRangeENS_14SourceLocationESt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i64 %.sroa.0.0.copyload.i, i64 %.sroa.0.0.insert.insert.i, i32 %2, i64 %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i.i = icmp ult i64 %12, 16
   br i1 %.not.i.i, label %35, label %13
 
 13:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %14, ptr %6, align 8, !tbaa !226
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3334,7 +3328,7 @@ define dso_local noundef ptr @_ZN5clang4Sema18CheckPackExpansionEPNS_14TypeSourc
   br label %_ZN5clang14TypeLocBuilderD2Ev.exit
 
 _ZN5clang14TypeLocBuilderD2Ev.exit:               ; preds = %13, %34
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %35
 
 35:                                               ; preds = %4, %_ZN5clang14TypeLocBuilderD2Ev.exit
@@ -3342,10 +3336,10 @@ _ZN5clang14TypeLocBuilderD2Ev.exit:               ; preds = %13, %34
   ret ptr %.0
 }
 
-declare ptr @_ZN5clang4Sema16CreateParsedTypeENS_8QualTypeEPNS_14TypeSourceInfoE(ptr noundef nonnull align 8 dereferenceable(17504), i64, ptr noundef) local_unnamed_addr #3
+declare ptr @_ZN5clang4Sema16CreateParsedTypeENS_8QualTypeEPNS_14TypeSourceInfoE(ptr noundef nonnull align 8 dereferenceable(17504), i64, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang4Sema18CheckPackExpansionENS_8QualTypeENS_11SourceRangeENS_14SourceLocationESt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i64 %1, i64 %2, i32 %3, i64 %4) local_unnamed_addr #2 align 2 {
+define dso_local i64 @_ZN5clang4Sema18CheckPackExpansionENS_8QualTypeENS_11SourceRangeENS_14SourceLocationESt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i64 %1, i64 %2, i32 %3, i64 %4) local_unnamed_addr #1 align 2 {
   %6 = alloca %"class.clang::CharSourceRange", align 8
   %7 = alloca %"class.clang::CharSourceRange", align 8
   %8 = alloca %"class.clang::CanonicalDeclPtr", align 8
@@ -3365,7 +3359,7 @@ define dso_local i64 @_ZN5clang4Sema18CheckPackExpansionENS_8QualTypeENS_11Sourc
   br i1 %.not, label %18, label %45
 
 18:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %19, i32 %3, i32 noundef 4488, i1 noundef zeroext false) #16
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 120
@@ -3375,12 +3369,12 @@ define dso_local i64 @_ZN5clang4Sema18CheckPackExpansionENS_8QualTypeENS_11Sourc
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %2, ptr %7, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(84) %24, ptr noundef nonnull align 4 dereferenceable(9) %7)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN5clanglsINS_11SourceRangeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit
 
 25:                                               ; preds = %18
@@ -3392,7 +3386,7 @@ define dso_local i64 @_ZN5clang4Sema18CheckPackExpansionENS_8QualTypeENS_11Sourc
 
 30:                                               ; preds = %25
   %31 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %9) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !155
   %.not.i.i = icmp eq ptr %33, null
@@ -3413,18 +3407,18 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %34, %
   %42 = zext i32 %41 to i64
   %43 = load ptr, ptr %40, align 8, !tbaa !169
   %44 = getelementptr inbounds nuw %"struct.std::pair.1482", ptr %43, i64 %42, i32 2
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %2, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(20) %44, ptr noundef nonnull align 4 dereferenceable(9) %6)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN5clanglsINS_11SourceRangeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit
 
 _ZN5clanglsINS_11SourceRangeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit: ; preds = %23, %25, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %9) #16
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %49
 
 45:                                               ; preds = %16, %5
@@ -3438,17 +3432,17 @@ _ZN5clanglsINS_11SourceRangeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exi
   ret i64 %.sroa.010.0
 }
 
-declare void @_ZN5clang14TypeLocBuilder12pushFullCopyENS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(61), ptr, ptr) local_unnamed_addr #3
+declare void @_ZN5clang14TypeLocBuilder12pushFullCopyENS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(61), ptr, ptr) local_unnamed_addr #2
 
-declare noundef ptr @_ZNK5clang4Type23getContainedDeducedTypeEv(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #3
+declare noundef ptr @_ZNK5clang4Type23getContainedDeducedTypeEv(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
-declare i64 @_ZNK5clang10ASTContext20getPackExpansionTypeENS_8QualTypeESt8optionalIjEb(ptr noundef nonnull align 8 dereferenceable(23216), i64, i64, i1 noundef zeroext) local_unnamed_addr #3
+declare i64 @_ZNK5clang10ASTContext20getPackExpansionTypeENS_8QualTypeESt8optionalIjEb(ptr noundef nonnull align 8 dereferenceable(23216), i64, i64, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN5clang4Sema18CheckPackExpansionEPNS_4ExprENS_14SourceLocationESt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, i32 %2, i64 %3) local_unnamed_addr #2 align 2 {
+define dso_local noundef i64 @_ZN5clang4Sema18CheckPackExpansionEPNS_4ExprENS_14SourceLocationESt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, i32 %2, i64 %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"class.clang::CharSourceRange", align 8
   %6 = alloca %"class.clang::CharSourceRange", align 8
   %7 = alloca %"class.clang::CanonicalDeclPtr", align 8
@@ -3464,7 +3458,7 @@ define dso_local noundef i64 @_ZN5clang4Sema18CheckPackExpansionEPNS_4ExprENS_14
   br i1 %.not16, label %13, label %43
 
 13:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %14, i32 %2, i32 noundef 4488, i1 noundef zeroext false) #16
   %15 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #19
@@ -3475,12 +3469,12 @@ define dso_local noundef i64 @_ZN5clang4Sema18CheckPackExpansionEPNS_4ExprENS_14
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %15, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(84) %20, ptr noundef nonnull align 4 dereferenceable(9) %6)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit
 
 21:                                               ; preds = %13
@@ -3492,7 +3486,7 @@ define dso_local noundef i64 @_ZN5clang4Sema18CheckPackExpansionEPNS_4ExprENS_14
 
 26:                                               ; preds = %21
   %27 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %8) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !155
   %.not.i.i = icmp eq ptr %29, null
@@ -3513,22 +3507,22 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %30, %
   %38 = zext i32 %37 to i64
   %39 = load ptr, ptr %36, align 8, !tbaa !169
   %40 = getelementptr inbounds nuw %"struct.std::pair.1482", ptr %39, i64 %38, i32 2
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %15, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(20) %40, ptr noundef nonnull align 4 dereferenceable(9) %5)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit
 
 _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit: ; preds = %19, %21, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %8) #16
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %8) #16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %41 = ptrtoint ptr %9 to i64
   %42 = call i64 @_ZN5clang4Sema25CorrectDelayedTyposInExprEPNS_4ExprEPNS_7VarDeclEbN4llvm12function_refIFNS_12ActionResultIS2_Lb1EEES2_EEE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull %1, ptr noundef null, i1 noundef zeroext false, ptr nonnull @_ZN4llvm12function_refIFN5clang12ActionResultIPNS1_4ExprELb1EEES4_EE11callback_fnIZNS1_4Sema25CorrectDelayedTyposInExprES4_PNS1_7VarDeclEbS7_Ed_UlS4_E_EES5_lS4_, i64 %41) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %74
 
 43:                                               ; preds = %10
@@ -3587,14 +3581,14 @@ _ZN5clang17PackExpansionExprC2ENS_8QualTypeEPNS_4ExprENS_14SourceLocationESt8opt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #6
+declare i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #5
 
-declare i64 @_ZN5clang4Sema25CorrectDelayedTyposInExprEPNS_4ExprEPNS_7VarDeclEbN4llvm12function_refIFNS_12ActionResultIS2_Lb1EEES2_EEE(ptr noundef nonnull align 8 dereferenceable(17504), ptr noundef, ptr noundef, i1 noundef zeroext, ptr, i64) local_unnamed_addr #3
+declare i64 @_ZN5clang4Sema25CorrectDelayedTyposInExprEPNS_4ExprEPNS_7VarDeclEbN4llvm12function_refIFNS_12ActionResultIS2_Lb1EEES2_EEE(ptr noundef nonnull align 8 dereferenceable(17504), ptr noundef, ptr noundef, i1 noundef zeroext, ptr, i64) local_unnamed_addr #2
 
-declare noundef ptr @_ZN5clang4StmtnwEmRKNS_10ASTContextEj(i64 noundef, ptr noundef nonnull align 8 dereferenceable(23216), i32 noundef) local_unnamed_addr #3
+declare noundef ptr @_ZN5clang4StmtnwEmRKNS_10ASTContextEj(i64 noundef, ptr noundef nonnull align 8 dereferenceable(23216), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4Sema31CheckParameterPacksForExpansionENS_14SourceLocationENS_11SourceRangeEN4llvm8ArrayRefISt4pairINS3_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEES1_EEERKNS_30MultiLevelTemplateArgumentListERbSK_RSt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %1, i64 %2, ptr readonly captures(address) %3, i64 %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(117) %5, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %6, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %7, ptr noundef nonnull align 4 captures(none) dereferenceable(8) %8) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang4Sema31CheckParameterPacksForExpansionENS_14SourceLocationENS_11SourceRangeEN4llvm8ArrayRefISt4pairINS3_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEES1_EEERKNS_30MultiLevelTemplateArgumentListERbSK_RSt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %1, i64 %2, ptr readonly captures(address) %3, i64 %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(117) %5, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %6, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %7, ptr noundef nonnull align 4 captures(none) dereferenceable(8) %8) local_unnamed_addr #1 align 2 {
   %10 = alloca %"class.clang::CharSourceRange", align 8
   %11 = alloca %"class.clang::CharSourceRange", align 8
   %12 = alloca %"class.clang::CanonicalDeclPtr", align 8
@@ -3986,7 +3980,7 @@ _ZN5clang16getDepthAndIndexEPKNS_9NamedDeclE.exit131: ; preds = %181, %184, %189
   br i1 %.078666.ph, label %206, label %664
 
 206:                                              ; preds = %204
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %34) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %34, ptr noundef nonnull align 8 dereferenceable(8) %205, i32 %1, i32 noundef 4484, i1 noundef zeroext false) #16
   %207 = getelementptr inbounds nuw i8, ptr %34, i64 120
   %208 = load i8, ptr %207, align 8, !tbaa !122, !range !40, !noundef !41
@@ -4126,7 +4120,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
 
 273:                                              ; preds = %268
   %274 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %34) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %275 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %276 = load ptr, ptr %275, align 8, !tbaa !155
   %.not.i.i = icmp eq ptr %276, null
@@ -4149,7 +4143,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %277, 
   %287 = getelementptr inbounds nuw %"struct.std::pair.1482", ptr %286, i64 %285, i32 2
   %288 = ptrtoint ptr %.sroa.0469.0663.ph to i64
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %287, i64 noundef %288, i32 noundef 5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %_ZN5clanglsIPNS_14IdentifierInfoEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit
 
 _ZN5clanglsIPNS_14IdentifierInfoEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit, %268, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i
@@ -4290,7 +4284,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
 
 354:                                              ; preds = %349
   %355 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %34) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %356 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %357 = load ptr, ptr %356, align 8, !tbaa !155
   %.not.i.i132 = icmp eq ptr %357, null
@@ -4313,7 +4307,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i133: ; preds = %35
   %368 = getelementptr inbounds nuw %"struct.std::pair.1482", ptr %367, i64 %366, i32 2
   %369 = ptrtoint ptr %.3505536562 to i64
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %368, i64 noundef %369, i32 noundef 5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %_ZN5clanglsIPNS_14IdentifierInfoEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit134
 
 _ZN5clanglsIPNS_14IdentifierInfoEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit134: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit204, %349, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i133
@@ -4455,7 +4449,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
 
 436:                                              ; preds = %431
   %437 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %34) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %438 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %439 = load ptr, ptr %438, align 8, !tbaa !155
   %.not.i.i135 = icmp eq ptr %439, null
@@ -4479,7 +4473,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i136: ; preds = %44
   %451 = load i32, ptr %8, align 4, !tbaa !168
   %452 = zext i32 %451 to i64
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %450, i64 noundef %452, i32 noundef 3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %_ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit
 
 _ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit222, %431, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i136
@@ -4621,7 +4615,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
 
 519:                                              ; preds = %514
   %520 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %34) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %521 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %522 = load ptr, ptr %521, align 8, !tbaa !155
   %.not.i.i137 = icmp eq ptr %522, null
@@ -4644,7 +4638,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i138: ; preds = %52
   %533 = getelementptr inbounds nuw %"struct.std::pair.1482", ptr %532, i64 %531, i32 2
   %534 = zext i1 %453 to i64
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %533, i64 noundef %534, i32 noundef 2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit
 
 _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit240, %514, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i138
@@ -4785,7 +4779,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
 
 600:                                              ; preds = %595
   %601 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %34) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %602 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %603 = load ptr, ptr %602, align 8, !tbaa !155
   %.not.i.i139 = icmp eq ptr %603, null
@@ -4808,7 +4802,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i140: ; preds = %60
   %614 = getelementptr inbounds nuw %"struct.std::pair.1482", ptr %613, i64 %612, i32 2
   %615 = zext i32 %202 to i64
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %614, i64 noundef %615, i32 noundef 3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %_ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit141
 
 _ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit141: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit258, %595, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i140
@@ -4820,12 +4814,12 @@ _ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit141: ; preds = 
   %619 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %.sroa.5416.0.insert.ext417 = zext i32 %.sroa.6.0664.ph to i64
   %.sroa.0412.0.insert.insert415 = mul nuw i64 %.sroa.5416.0.insert.ext417, 4294967297
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %27) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i64 %.sroa.0412.0.insert.insert415, ptr %27, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(84) %619, ptr noundef nonnull align 4 dereferenceable(9) %27)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %27) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit
 
 620:                                              ; preds = %_ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit141
@@ -4837,7 +4831,7 @@ _ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit141: ; preds = 
 
 625:                                              ; preds = %620
   %626 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %34) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %627 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %628 = load ptr, ptr %627, align 8, !tbaa !155
   %.not.i.i142 = icmp eq ptr %628, null
@@ -4860,13 +4854,13 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i143: ; preds = %62
   %639 = getelementptr inbounds nuw %"struct.std::pair.1482", ptr %638, i64 %637, i32 2
   %.sroa.5416.0.insert.ext = zext i32 %.sroa.6.0664.ph to i64
   %.sroa.0412.0.insert.insert = mul nuw i64 %.sroa.5416.0.insert.ext, 4294967297
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %26) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i64 %.sroa.0412.0.insert.insert, ptr %26, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(20) %639, ptr noundef nonnull align 4 dereferenceable(9) %26)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %26) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit
 
 _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit: ; preds = %618, %620, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i143
@@ -4879,12 +4873,12 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit: 
   %.sroa.5407.0.insert.ext408 = zext i32 %.sroa.7.0.copyload to i64
   %.sroa.5407.0.insert.shift409 = shl nuw i64 %.sroa.5407.0.insert.ext408, 32
   %.sroa.0403.0.insert.insert406 = or disjoint i64 %.sroa.5407.0.insert.shift409, %.sroa.5407.0.insert.ext408
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %24) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i64 %.sroa.0403.0.insert.insert406, ptr %24, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i149 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i.i149, align 8
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(84) %643, ptr noundef nonnull align 4 dereferenceable(9) %24)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %24) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit150
 
 644:                                              ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit
@@ -4896,7 +4890,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit: 
 
 649:                                              ; preds = %644
   %650 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %34) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %651 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %652 = load ptr, ptr %651, align 8, !tbaa !155
   %.not.i.i144 = icmp eq ptr %652, null
@@ -4920,22 +4914,22 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i145: ; preds = %65
   %.sroa.5407.0.insert.ext = zext i32 %.sroa.7.0.copyload to i64
   %.sroa.5407.0.insert.shift = shl nuw i64 %.sroa.5407.0.insert.ext, 32
   %.sroa.0403.0.insert.insert = or disjoint i64 %.sroa.5407.0.insert.shift, %.sroa.5407.0.insert.ext
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %23) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i64 %.sroa.0403.0.insert.insert, ptr %23, align 8
   %.sroa.2.0..sroa_idx.i.i.i147 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i147, align 8
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(20) %663, ptr noundef nonnull align 4 dereferenceable(9) %23)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit150
 
 _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit150: ; preds = %642, %644, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i145
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %34) #16
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %34) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %.thread603
 
 664:                                              ; preds = %204
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %35) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %35, ptr noundef nonnull align 8 dereferenceable(8) %205, i32 %1, i32 noundef 4485, i1 noundef zeroext false) #16
   %665 = getelementptr inbounds nuw i8, ptr %35, i64 120
   %666 = load i8, ptr %665, align 8, !tbaa !122, !range !40, !noundef !41
@@ -5075,7 +5069,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
 
 731:                                              ; preds = %726
   %732 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %35) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %733 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %734 = load ptr, ptr %733, align 8, !tbaa !155
   %.not.i.i151 = icmp eq ptr %734, null
@@ -5098,7 +5092,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i152: ; preds = %73
   %745 = getelementptr inbounds nuw %"struct.std::pair.1482", ptr %744, i64 %743, i32 2
   %746 = ptrtoint ptr %.3505536562 to i64
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %745, i64 noundef %746, i32 noundef 5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %_ZN5clanglsIPNS_14IdentifierInfoEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit153
 
 _ZN5clanglsIPNS_14IdentifierInfoEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit153: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit276, %726, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i152
@@ -5240,7 +5234,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
 
 813:                                              ; preds = %808
   %814 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %35) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %815 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %816 = load ptr, ptr %815, align 8, !tbaa !155
   %.not.i.i154 = icmp eq ptr %816, null
@@ -5264,7 +5258,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i155: ; preds = %81
   %828 = load i32, ptr %8, align 4, !tbaa !168
   %829 = zext i32 %828 to i64
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %827, i64 noundef %829, i32 noundef 3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %_ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit156
 
 _ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit156: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit294, %808, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i155
@@ -5406,7 +5400,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
 
 896:                                              ; preds = %891
   %897 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %35) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %898 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %899 = load ptr, ptr %898, align 8, !tbaa !155
   %.not.i.i157 = icmp eq ptr %899, null
@@ -5429,7 +5423,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i158: ; preds = %90
   %910 = getelementptr inbounds nuw %"struct.std::pair.1482", ptr %909, i64 %908, i32 2
   %911 = zext i1 %830 to i64
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %910, i64 noundef %911, i32 noundef 2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit159
 
 _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit159: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit312, %891, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i158
@@ -5570,7 +5564,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
 
 977:                                              ; preds = %972
   %978 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %35) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %979 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %980 = load ptr, ptr %979, align 8, !tbaa !155
   %.not.i.i160 = icmp eq ptr %980, null
@@ -5593,7 +5587,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i161: ; preds = %98
   %991 = getelementptr inbounds nuw %"struct.std::pair.1482", ptr %990, i64 %989, i32 2
   %992 = zext i32 %202 to i64
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %991, i64 noundef %992, i32 noundef 3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %_ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit162
 
 _ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit162: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit330, %972, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i161
@@ -5606,12 +5600,12 @@ _ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit162: ; preds = 
   %.sroa.5397.0.insert.ext398 = zext i32 %.sroa.7.0.copyload to i64
   %.sroa.5397.0.insert.shift399 = shl nuw i64 %.sroa.5397.0.insert.ext398, 32
   %.sroa.0393.0.insert.insert396 = or disjoint i64 %.sroa.5397.0.insert.shift399, %.sroa.5397.0.insert.ext398
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 %.sroa.0393.0.insert.insert396, ptr %17, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i168 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i.i168, align 8
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(84) %996, ptr noundef nonnull align 4 dereferenceable(9) %17)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit169
 
 997:                                              ; preds = %_ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit162
@@ -5623,7 +5617,7 @@ _ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit162: ; preds = 
 
 1002:                                             ; preds = %997
   %1003 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %35) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %1004 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %1005 = load ptr, ptr %1004, align 8, !tbaa !155
   %.not.i.i163 = icmp eq ptr %1005, null
@@ -5647,18 +5641,18 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i164: ; preds = %10
   %.sroa.5397.0.insert.ext = zext i32 %.sroa.7.0.copyload to i64
   %.sroa.5397.0.insert.shift = shl nuw i64 %.sroa.5397.0.insert.ext, 32
   %.sroa.0393.0.insert.insert = or disjoint i64 %.sroa.5397.0.insert.shift, %.sroa.5397.0.insert.ext
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 %.sroa.0393.0.insert.insert, ptr %16, align 8
   %.sroa.2.0..sroa_idx.i.i.i166 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i166, align 8
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(20) %1016, ptr noundef nonnull align 4 dereferenceable(9) %16)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit169
 
 _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit169: ; preds = %995, %997, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i164
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %35) #16
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %35) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %.thread603
 
 1017:                                             ; preds = %90, %198, %105, %_ZNK5clang30MultiLevelTemplateArgumentList19hasTemplateArgumentEjj.exit.thread, %199, %203
@@ -5696,7 +5690,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit16
   %1027 = getelementptr inbounds nuw i8, ptr %0, i64 11344
   %1028 = load ptr, ptr %1027, align 8, !tbaa !888
   %1029 = tail call noundef ptr @_ZNK5clang23LocalInstantiationScope27getPartiallySubstitutedPackEPPKNS_16TemplateArgumentEPj(ptr noundef nonnull align 8 dereferenceable(140) %1028, ptr noundef null, ptr noundef null) #16
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %36) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %1030 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %36, ptr noundef nonnull align 8 dereferenceable(8) %1030, i32 %1, i32 noundef 4486, i1 noundef zeroext false) #16
   %1031 = getelementptr inbounds nuw i8, ptr %36, i64 120
@@ -5837,7 +5831,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
 
 1097:                                             ; preds = %1092
   %1098 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %36) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %1099 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %1100 = load ptr, ptr %1099, align 8, !tbaa !155
   %.not.i.i170 = icmp eq ptr %1100, null
@@ -5860,7 +5854,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i171: ; preds = %11
   %1111 = getelementptr inbounds nuw %"struct.std::pair.1482", ptr %1110, i64 %1109, i32 2
   %1112 = ptrtoint ptr %1029 to i64
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %1111, i64 noundef %1112, i32 noundef 10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %_ZN5clanglsIPNS_9NamedDeclEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit
 
 _ZN5clanglsIPNS_9NamedDeclEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit348, %1092, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i171
@@ -6001,7 +5995,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
 
 1178:                                             ; preds = %1173
   %1179 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %36) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %1180 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %1181 = load ptr, ptr %1180, align 8, !tbaa !155
   %.not.i.i172 = icmp eq ptr %1181, null
@@ -6024,7 +6018,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i173: ; preds = %11
   %1192 = getelementptr inbounds nuw %"struct.std::pair.1482", ptr %1191, i64 %1190, i32 2
   %1193 = zext i32 %.sroa.0464.2.ph687693 to i64
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %1192, i64 noundef %1193, i32 noundef 3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit174
 
 _ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit174: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit366, %1173, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i173
@@ -6166,7 +6160,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
 
 1260:                                             ; preds = %1255
   %1261 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %36) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %1262 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %1263 = load ptr, ptr %1262, align 8, !tbaa !155
   %.not.i.i175 = icmp eq ptr %1263, null
@@ -6190,7 +6184,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i176: ; preds = %12
   %1275 = load i32, ptr %8, align 4, !tbaa !168
   %1276 = zext i32 %1275 to i64
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %1274, i64 noundef %1276, i32 noundef 3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit177
 
 _ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit177: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit384, %1255, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i176
@@ -6200,12 +6194,12 @@ _ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit177: ; preds = 
 
 1279:                                             ; preds = %_ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit177
   %1280 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 %1020, ptr %11, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i183 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i.i183, align 8
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(84) %1280, ptr noundef nonnull align 4 dereferenceable(9) %11)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit184
 
 1281:                                             ; preds = %_ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit177
@@ -6217,7 +6211,7 @@ _ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit177: ; preds = 
 
 1286:                                             ; preds = %1281
   %1287 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %36) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %1288 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %1289 = load ptr, ptr %1288, align 8, !tbaa !155
   %.not.i.i178 = icmp eq ptr %1289, null
@@ -6238,18 +6232,18 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i179: ; preds = %12
   %1298 = zext i32 %1297 to i64
   %1299 = load ptr, ptr %1296, align 8, !tbaa !169
   %1300 = getelementptr inbounds nuw %"struct.std::pair.1482", ptr %1299, i64 %1298, i32 2
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 %1020, ptr %10, align 8
   %.sroa.2.0..sroa_idx.i.i.i181 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i181, align 8
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(20) %1300, ptr noundef nonnull align 4 dereferenceable(9) %10)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit184
 
 _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit184: ; preds = %1279, %1281, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i179
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %36) #16
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %36) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %.thread603
 
 1301:                                             ; preds = %._crit_edge.thread689
@@ -6263,12 +6257,12 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit18
   ret i1 %.5
 }
 
-declare noundef ptr @_ZN5clang23LocalInstantiationScope19findInstantiationOfEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef) local_unnamed_addr #3
+declare noundef ptr @_ZN5clang23LocalInstantiationScope19findInstantiationOfEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef) local_unnamed_addr #2
 
-declare noundef ptr @_ZNK5clang23LocalInstantiationScope27getPartiallySubstitutedPackEPPKNS_16TemplateArgumentEPj(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef, ptr noundef) local_unnamed_addr #3
+declare noundef ptr @_ZNK5clang23LocalInstantiationScope27getPartiallySubstitutedPackEPPKNS_16TemplateArgumentEPj(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN5clang4Sema40getNumArgumentsInExpansionFromUnexpandedEN4llvm8ArrayRefISt4pairINS1_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEEEERKNS_30MultiLevelTemplateArgumentListE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17504) %0, ptr readonly captures(none) %1, i64 %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(117) %3) local_unnamed_addr #2 align 2 {
+define dso_local range(i64 0, 8589934592) i64 @_ZN5clang4Sema40getNumArgumentsInExpansionFromUnexpandedEN4llvm8ArrayRefISt4pairINS1_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEEEERKNS_30MultiLevelTemplateArgumentListE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17504) %0, ptr readonly captures(none) %1, i64 %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(117) %3) local_unnamed_addr #1 align 2 {
   %5 = and i64 %2, 4294967295
   %.not139 = icmp eq i64 %5, 0
   br i1 %.not139, label %_ZNK5clang30MultiLevelTemplateArgumentList19hasTemplateArgumentEjj.exit.thread, label %.lr.ph
@@ -6411,7 +6405,7 @@ _ZNK5clang30MultiLevelTemplateArgumentList19hasTemplateArgumentEjj.exit.thread: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN5clang4Sema26getNumArgumentsInExpansionENS_8QualTypeERKNS_30MultiLevelTemplateArgumentListE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17504) %0, i64 %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(117) %2) local_unnamed_addr #2 align 2 {
+define dso_local range(i64 0, 8589934592) i64 @_ZN5clang4Sema26getNumArgumentsInExpansionENS_8QualTypeERKNS_30MultiLevelTemplateArgumentListE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17504) %0, i64 %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(117) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::SmallVector.764", align 8
   %5 = alloca %"class.(anonymous namespace)::CollectUnexpandedParameterPacksVisitor", align 8
   %6 = and i64 %1, -16
@@ -6419,14 +6413,14 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN5clang4Sema26getNumArgumentsIn
   %8 = load ptr, ptr %7, align 16, !tbaa !184
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sroa.0.0.copyload.i = load i64, ptr %9, align 16, !tbaa !148
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %10, ptr %4, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %11, align 8, !tbaa !9
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 2, ptr %12, align 4, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 0, ptr %13, align 8, !tbaa !186
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 9
@@ -6465,7 +6459,7 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN5clang4Sema26getNumArgumentsIn
 _ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor12TraverseTypeEN5clang8QualTypeE.exit: ; preds = %3, %20, %27
   %30 = phi i64 [ 0, %3 ], [ 0, %20 ], [ %29, %27 ]
   %31 = phi ptr [ %10, %3 ], [ %10, %20 ], [ %.pre, %27 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %32 = call i64 @_ZN5clang4Sema40getNumArgumentsInExpansionFromUnexpandedEN4llvm8ArrayRefISt4pairINS1_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEEEERKNS_30MultiLevelTemplateArgumentListE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr %31, i64 %30, ptr noundef nonnull align 8 dereferenceable(117) %2)
   %33 = load ptr, ptr %4, align 8, !tbaa !3
   %34 = icmp eq ptr %33, %10
@@ -6476,12 +6470,12 @@ _ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor12TraverseTypeEN5clang8
   br label %_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit
 
 _ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit: ; preds = %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor12TraverseTypeEN5clang8QualTypeE.exit, %35
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %32
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4Sema32containsUnexpandedParameterPacksERNS_10DeclaratorE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(17504) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(4584) %1) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang4Sema32containsUnexpandedParameterPacksERNS_10DeclaratorE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(17504) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(4584) %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !910
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
@@ -6720,7 +6714,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema32containsUnexpandedParameter
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN5clang4Sema28ActOnSizeofParameterPackExprEPNS_5ScopeENS_14SourceLocationERNS_14IdentifierInfoES3_S3_(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 %4, i32 %5) local_unnamed_addr #2 align 2 {
+define dso_local noundef i64 @_ZN5clang4Sema28ActOnSizeofParameterPackExprEPNS_5ScopeENS_14SourceLocationERNS_14IdentifierInfoES3_S3_(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 %4, i32 %5) local_unnamed_addr #1 align 2 {
   %7 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %8 = alloca %"class.clang::LookupResult", align 8
   %9 = alloca %"class.(anonymous namespace)::ParameterPackValidatorCCC", align 8
@@ -6729,7 +6723,7 @@ define dso_local noundef i64 @_ZN5clang4Sema28ActOnSizeofParameterPackExprEPNS_5
   %12 = alloca %"class.clang::PartialDiagnostic", align 8
   %13 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %14 = alloca %"class.llvm::ArrayRef.1184", align 8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %15 = ptrtoint ptr %3 to i64
   store i32 0, ptr %8, align 8, !tbaa !957
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -6797,13 +6791,13 @@ define dso_local noundef i64 @_ZN5clang4Sema28ActOnSizeofParameterPackExprEPNS_5
 
 44:                                               ; preds = %6, %6
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 152
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %46, i8 1, i64 5, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %47, i8 0, i64 19, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_125ParameterPackValidatorCCCE, i64 16), ptr %9, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %10) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %48 = load i32, ptr %45, align 8, !tbaa !980
   call void @_ZN5clang4Sema11CorrectTypoERKNS_19DeclarationNameInfoENS0_14LookupNameKindEPNS_5ScopeEPNS_12CXXScopeSpecERNS_27CorrectionCandidateCallbackENS0_15CorrectTypoKindEPNS_11DeclContextEbPKNS_21ObjCObjectPointerTypeEb(ptr dead_on_unwind nonnull writable sret(%"class.clang::TypoCorrection") align 8 %10, ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull align 8 dereferenceable(24) %23, i32 noundef %48, ptr noundef %1, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 1, ptr noundef null, i1 noundef zeroext false, ptr noundef null, i1 noundef zeroext true) #16
   %49 = load i64, ptr %10, align 8, !tbaa !172
@@ -6811,7 +6805,7 @@ define dso_local noundef i64 @_ZN5clang4Sema28ActOnSizeofParameterPackExprEPNS_5
   br i1 %.not74, label %_ZNK5clang14TypoCorrection17getCorrectionDeclEv.exit, label %50
 
 50:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN5clang8SemaBase5PDiagEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::PartialDiagnostic") align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %51, i32 noundef 4688) #16
   %52 = load ptr, ptr %11, align 8, !tbaa !124
@@ -6933,7 +6927,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %105 = zext i8 %103 to i64
   %106 = getelementptr inbounds nuw [10 x i64], ptr %102, i64 0, i64 %105
   store i64 %15, ptr %106, align 8, !tbaa !152
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN5clang8SemaBase5PDiagEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::PartialDiagnostic") align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %51, i32 noundef 5950) #16
   call void @_ZN5clang4Sema12diagnoseTypoERKNS_14TypoCorrectionERKNS_17PartialDiagnosticES6_b(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull align 8 dereferenceable(88) %10, ptr noundef nonnull align 8 dereferenceable(20) %11, ptr noundef nonnull align 8 dereferenceable(20) %12, i1 noundef zeroext true) #16
   %107 = load ptr, ptr %12, align 8, !tbaa !124
@@ -6951,7 +6945,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   br label %_ZN5clang19StreamingDiagnosticD2Ev.exit
 
 _ZN5clang19StreamingDiagnosticD2Ev.exit:          ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit, %108, %111
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %112 = load ptr, ptr %11, align 8, !tbaa !124
   %.not.i.i27 = icmp eq ptr %112, null
   br i1 %.not.i.i27, label %_ZN5clang19StreamingDiagnosticD2Ev.exit29, label %113
@@ -6967,7 +6961,7 @@ _ZN5clang19StreamingDiagnosticD2Ev.exit:          ; preds = %_ZNK5clang19Streami
   br label %_ZN5clang19StreamingDiagnosticD2Ev.exit29
 
 _ZN5clang19StreamingDiagnosticD2Ev.exit29:        ; preds = %_ZN5clang19StreamingDiagnosticD2Ev.exit, %113, %116
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %117 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %118 = load i32, ptr %117, align 8, !tbaa !9
   %.not.i.i.i.i.i = icmp eq i32 %118, 0
@@ -7056,8 +7050,8 @@ _ZNSt6vectorIN5clang17PartialDiagnosticESaIS1_EED2Ev.exit.i: ; preds = %139, %_Z
   br label %_ZN5clang14TypoCorrectionD2Ev.exit
 
 _ZN5clang14TypoCorrectionD2Ev.exit:               ; preds = %_ZNSt6vectorIN5clang17PartialDiagnosticESaIS1_EED2Ev.exit.i, %149
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %10) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK5clang12LookupResult12getFoundDeclEv.exit
 
 150:                                              ; preds = %6
@@ -7075,7 +7069,7 @@ _ZNK5clang12LookupResult12getFoundDeclEv.exit.thread70: ; preds = %35, %_ZNK5cla
   br i1 %151, label %233, label %_ZNK5clang12LookupResult12getFoundDeclEv.exit.thread
 
 _ZNK5clang12LookupResult12getFoundDeclEv.exit.thread: ; preds = %6, %_ZNK5clang12LookupResult12getFoundDeclEv.exit.thread70, %_ZNK5clang12LookupResult12getFoundDeclEv.exit
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %13) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %152, i32 %4, i32 noundef 3467, i1 noundef zeroext false) #16
   %153 = getelementptr inbounds nuw i8, ptr %13, i64 120
@@ -7215,7 +7209,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
 
 218:                                              ; preds = %213
   %219 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %13) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %220 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %221 = load ptr, ptr %220, align 8, !tbaa !155
   %.not.i.i31 = icmp eq ptr %221, null
@@ -7237,12 +7231,12 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %222, 
   %231 = load ptr, ptr %228, align 8, !tbaa !169
   %232 = getelementptr inbounds nuw %"struct.std::pair.1482", ptr %231, i64 %230, i32 2
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %232, i64 noundef %15, i32 noundef 5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIPNS_14IdentifierInfoEvEERKS1_OT_.exit
 
 _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIPNS_14IdentifierInfoEvEERKS1_OT_.exit: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit56, %213, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %13) #16
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %13) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %245
 
 233:                                              ; preds = %_ZNK5clang12LookupResult12getFoundDeclEv.exit.thread70
@@ -7329,35 +7323,35 @@ _ZN5clang12LookupResult17diagnoseAmbiguousEv.exit.i: ; preds = %265, %_ZN5clang1
   br label %_ZN5clang12LookupResultD2Ev.exit
 
 _ZN5clang12LookupResultD2Ev.exit:                 ; preds = %269, %272
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %.sroa.067.0
 }
 
-declare noundef zeroext i1 @_ZN5clang4Sema10LookupNameERNS_12LookupResultEPNS_5ScopeEbb(ptr noundef nonnull align 8 dereferenceable(17504), ptr noundef nonnull align 8 dereferenceable(168), ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang4Sema10LookupNameERNS_12LookupResultEPNS_5ScopeEbb(ptr noundef nonnull align 8 dereferenceable(17504), ptr noundef nonnull align 8 dereferenceable(168), ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @_ZN5clang4Sema11CorrectTypoERKNS_19DeclarationNameInfoENS0_14LookupNameKindEPNS_5ScopeEPNS_12CXXScopeSpecERNS_27CorrectionCandidateCallbackENS0_15CorrectTypoKindEPNS_11DeclContextEbPKNS_21ObjCObjectPointerTypeEb(ptr dead_on_unwind writable sret(%"class.clang::TypoCorrection") align 8, ptr noundef nonnull align 8 dereferenceable(17504), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @_ZN5clang4Sema11CorrectTypoERKNS_19DeclarationNameInfoENS0_14LookupNameKindEPNS_5ScopeEPNS_12CXXScopeSpecERNS_27CorrectionCandidateCallbackENS0_15CorrectTypoKindEPNS_11DeclContextEbPKNS_21ObjCObjectPointerTypeEb(ptr dead_on_unwind writable sret(%"class.clang::TypoCorrection") align 8, ptr noundef nonnull align 8 dereferenceable(17504), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @_ZN5clang4Sema12diagnoseTypoERKNS_14TypoCorrectionERKNS_17PartialDiagnosticES6_b(ptr noundef nonnull align 8 dereferenceable(17504), ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), i1 noundef zeroext) local_unnamed_addr #3
+declare void @_ZN5clang4Sema12diagnoseTypoERKNS_14TypoCorrectionERKNS_17PartialDiagnosticES6_b(ptr noundef nonnull align 8 dereferenceable(17504), ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @_ZN5clang8SemaBase5PDiagEj(ptr dead_on_unwind writable sret(%"class.clang::PartialDiagnostic") align 8, ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #3
+declare void @_ZN5clang8SemaBase5PDiagEj(ptr dead_on_unwind writable sret(%"class.clang::PartialDiagnostic") align 8, ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5clang27CorrectionCandidateCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 comdat align 2 {
+define linkonce_odr hidden void @_ZN5clang27CorrectionCandidateCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
   ret void
 }
 
-declare void @_ZN5clang4Sema23DiagnoseAmbiguousLookupERNS_12LookupResultE(ptr noundef nonnull align 8 dereferenceable(17504), ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #3
+declare void @_ZN5clang4Sema23DiagnoseAmbiguousLookupERNS_12LookupResultE(ptr noundef nonnull align 8 dereferenceable(17504), ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #2
 
-declare noundef zeroext i1 @_ZNK5clang4Decl15isParameterPackEv(ptr noundef nonnull align 8 dereferenceable(33)) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZNK5clang4Decl15isParameterPackEv(ptr noundef nonnull align 8 dereferenceable(33)) local_unnamed_addr #2
 
-declare void @_ZN5clang4Sema21MarkAnyDeclReferencedENS_14SourceLocationEPNS_4DeclEb(ptr noundef nonnull align 8 dereferenceable(17504), i32, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @_ZN5clang4Sema21MarkAnyDeclReferencedENS_14SourceLocationEPNS_4DeclEb(ptr noundef nonnull align 8 dereferenceable(17504), i32, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare noundef ptr @_ZN5clang26ResolvedUnexpandedPackExpr11getFromDeclEPNS_4DeclE(ptr noundef) local_unnamed_addr #3
+declare noundef ptr @_ZN5clang26ResolvedUnexpandedPackExpr11getFromDeclEPNS_4DeclE(ptr noundef) local_unnamed_addr #2
 
-declare noundef ptr @_ZN5clang14SizeOfPackExpr6CreateERNS_10ASTContextENS_14SourceLocationEPNS_9NamedDeclES3_S3_St8optionalIjEN4llvm8ArrayRefINS_16TemplateArgumentEEE(ptr noundef nonnull align 8 dereferenceable(23216), i32, ptr noundef, i32, i32, i64, ptr noundef byval(%"class.llvm::ArrayRef.1184") align 8) local_unnamed_addr #3
+declare noundef ptr @_ZN5clang14SizeOfPackExpr6CreateERNS_10ASTContextENS_14SourceLocationEPNS_9NamedDeclES3_S3_St8optionalIjEN4llvm8ArrayRefINS_16TemplateArgumentEEE(ptr noundef nonnull align 8 dereferenceable(23216), i32, ptr noundef, i32, i32, i64, ptr noundef byval(%"class.llvm::ArrayRef.1184") align 8) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN5clang4Sema21ActOnPackIndexingExprEPNS_5ScopeEPNS_4ExprENS_14SourceLocationES5_S4_S5_(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 %3, i32 %4, ptr noundef %5, i32 %6) local_unnamed_addr #2 align 2 {
+define dso_local noundef i64 @_ZN5clang4Sema21ActOnPackIndexingExprEPNS_5ScopeEPNS_4ExprENS_14SourceLocationES5_S4_S5_(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 %3, i32 %4, ptr noundef %5, i32 %6) local_unnamed_addr #1 align 2 {
   %8 = alloca %"class.clang::TemplateArgument", align 8
   %9 = alloca %"class.clang::TemplateArgument", align 8
   %10 = alloca %"class.clang::CanonicalDeclPtr", align 8
@@ -7383,11 +7377,11 @@ _ZL15isParameterPackPN5clang4ExprE.exit.thread:   ; preds = %7, %_ZL15isParamete
   br i1 %.not19, label %22, label %71
 
 22:                                               ; preds = %_ZL15isParameterPackPN5clang4ExprE.exit.thread
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %23 = ptrtoint ptr %11 to i64
   %24 = call i64 @_ZN5clang4Sema25CorrectDelayedTyposInExprEPNS_4ExprEPNS_7VarDeclEbN4llvm12function_refIFNS_12ActionResultIS2_Lb1EEES2_EEE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %5, ptr noundef null, i1 noundef zeroext false, ptr nonnull @_ZN4llvm12function_refIFN5clang12ActionResultIPNS1_4ExprELb1EEES4_EE11callback_fnIZNS1_4Sema25CorrectDelayedTyposInExprES4_PNS1_7VarDeclEbS7_Ed_UlS4_E_EES5_lS4_, i64 %23) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #16
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %12) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #19
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %25, i32 %26, i32 noundef 3467, i1 noundef zeroext false) #16
@@ -7398,13 +7392,13 @@ _ZL15isParameterPackPN5clang4ExprE.exit.thread:   ; preds = %7, %_ZL15isParamete
 
 30:                                               ; preds = %22
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 8, ptr %9, align 8
   %32 = ptrtoint ptr %2 to i64
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %32, ptr %33, align 8, !tbaa !148
   %34 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5clanglsERKNS_19StreamingDiagnosticERKNS_16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(84) %31, ptr noundef nonnull align 8 dereferenceable(24) %9) #16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN5clanglsIPNS_4ExprEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit
 
 35:                                               ; preds = %22
@@ -7416,7 +7410,7 @@ _ZL15isParameterPackPN5clang4ExprE.exit.thread:   ; preds = %7, %_ZL15isParamete
 
 40:                                               ; preds = %35
   %41 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %12) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %42 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !155
   %.not.i.i = icmp eq ptr %43, null
@@ -7437,19 +7431,19 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %44, %
   %52 = zext i32 %51 to i64
   %53 = load ptr, ptr %50, align 8, !tbaa !169
   %54 = getelementptr inbounds nuw %"struct.std::pair.1482", ptr %53, i64 %52, i32 2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 8, ptr %8, align 8
   %55 = ptrtoint ptr %2 to i64
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %55, ptr %56, align 8, !tbaa !148
   %57 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5clanglsERKNS_19StreamingDiagnosticERKNS_16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(20) %54, ptr noundef nonnull align 8 dereferenceable(24) %8) #16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN5clanglsIPNS_4ExprEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit
 
 _ZN5clanglsIPNS_4ExprEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit: ; preds = %30, %35, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %12) #16
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %12) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %71
 
 58:                                               ; preds = %_ZL15isParameterPackPN5clang4ExprE.exit
@@ -7479,7 +7473,7 @@ _ZN5clanglsIPNS_4ExprEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN5clang4Sema21BuildPackIndexingExprEPNS_4ExprENS_14SourceLocationES2_S3_N4llvm8ArrayRefIS2_EEb(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, i32 %2, ptr noundef %3, i32 %4, ptr noundef readonly byval(%"class.llvm::ArrayRef.1255") align 8 captures(none) %5, i1 noundef zeroext %6) local_unnamed_addr #2 align 2 {
+define dso_local noundef i64 @_ZN5clang4Sema21BuildPackIndexingExprEPNS_4ExprENS_14SourceLocationES2_S3_N4llvm8ArrayRefIS2_EEb(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, i32 %2, ptr noundef %3, i32 %4, ptr noundef readonly byval(%"class.llvm::ArrayRef.1255") align 8 captures(none) %5, i1 noundef zeroext %6) local_unnamed_addr #1 align 2 {
   %8 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %9 = alloca %"class.clang::TemplateArgument", align 8
   %10 = alloca %"class.clang::TemplateArgument", align 8
@@ -7494,7 +7488,7 @@ define dso_local noundef i64 @_ZN5clang4Sema21BuildPackIndexingExprEPNS_4ExprENS
   br i1 %.not61, label %18, label %.thread
 
 18:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %20 = load ptr, ptr %19, align 8, !tbaa !232
   %21 = tail call i64 @_ZNK5clang10ASTContext11getSizeTypeEv(ptr noundef nonnull align 8 dereferenceable(23216) %20) #16
@@ -7575,7 +7569,7 @@ _ZNK4llvm6APSInt11getExtValueEv.exit:             ; preds = %37, %44, %47
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %52, %54, %57
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %31, label %58, label %261
 
 58:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit
@@ -7592,7 +7586,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %52, %54, %57
   br i1 %or.cond60, label %.thread, label %64
 
 64:                                               ; preds = %60
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %14) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %66 = call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #19
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %14, ptr noundef nonnull align 8 dereferenceable(8) %65, i32 %66, i32 noundef 4489, i1 noundef zeroext false) #16
@@ -7733,7 +7727,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
 
 132:                                              ; preds = %127
   %133 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %14) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %134 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %135 = load ptr, ptr %134, align 8, !tbaa !155
   %.not.i.i = icmp eq ptr %135, null
@@ -7755,7 +7749,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %136, 
   %145 = load ptr, ptr %142, align 8, !tbaa !169
   %146 = getelementptr inbounds nuw %"struct.std::pair.1482", ptr %145, i64 %144, i32 2
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %146, i64 noundef %.sroa.044.1, i32 noundef 2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZN5clanglsIlEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit
 
 _ZN5clanglsIlEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit, %127, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i
@@ -7765,13 +7759,13 @@ _ZN5clanglsIlEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit: ; preds = %_Z
 
 149:                                              ; preds = %_ZN5clanglsIlEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit
   %150 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 8, ptr %10, align 8
   %151 = ptrtoint ptr %1 to i64
   %152 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %151, ptr %152, align 8, !tbaa !148
   %153 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5clanglsERKNS_19StreamingDiagnosticERKNS_16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(84) %150, ptr noundef nonnull align 8 dereferenceable(24) %10) #16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN5clanglsIPNS_4ExprEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit
 
 154:                                              ; preds = %_ZN5clanglsIlEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit
@@ -7783,7 +7777,7 @@ _ZN5clanglsIlEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit: ; preds = %_Z
 
 159:                                              ; preds = %154
   %160 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %14) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %161 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %162 = load ptr, ptr %161, align 8, !tbaa !155
   %.not.i.i15 = icmp eq ptr %162, null
@@ -7804,14 +7798,14 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i16: ; preds = %163
   %171 = zext i32 %170 to i64
   %172 = load ptr, ptr %169, align 8, !tbaa !169
   %173 = getelementptr inbounds nuw %"struct.std::pair.1482", ptr %172, i64 %171, i32 2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 8, ptr %9, align 8
   %174 = ptrtoint ptr %1 to i64
   %175 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %174, ptr %175, align 8, !tbaa !148
   %176 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5clanglsERKNS_19StreamingDiagnosticERKNS_16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(20) %173, ptr noundef nonnull align 8 dereferenceable(24) %9) #16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN5clanglsIPNS_4ExprEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit
 
 _ZN5clanglsIPNS_4ExprEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit: ; preds = %149, %154, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i16
@@ -7952,7 +7946,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
 
 242:                                              ; preds = %237
   %243 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %14) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %244 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %245 = load ptr, ptr %244, align 8, !tbaa !155
   %.not.i.i17 = icmp eq ptr %245, null
@@ -7974,12 +7968,12 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i18: ; preds = %246
   %255 = load ptr, ptr %252, align 8, !tbaa !169
   %256 = getelementptr inbounds nuw %"struct.std::pair.1482", ptr %255, i64 %254, i32 2
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %256, i64 noundef %177, i32 noundef 3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsImvEERKS1_OT_.exit
 
 _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsImvEERKS1_OT_.exit: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit37, %237, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i18
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %14) #16
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %14) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %261
 
 .thread:                                          ; preds = %60, %7, %58
@@ -8000,16 +7994,16 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsImvEERKS1_OT_.exit: ; preds = %_ZNK5
   ret i64 %.sroa.051.1
 }
 
-declare noundef i32 @_ZNK5clang10ASTContext11getIntWidthENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216), i64) local_unnamed_addr #3
+declare noundef i32 @_ZNK5clang10ASTContext11getIntWidthENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216), i64) local_unnamed_addr #2
 
-declare i64 @_ZNK5clang10ASTContext11getSizeTypeEv(ptr noundef nonnull align 8 dereferenceable(23216)) local_unnamed_addr #3
+declare i64 @_ZNK5clang10ASTContext11getSizeTypeEv(ptr noundef nonnull align 8 dereferenceable(23216)) local_unnamed_addr #2
 
-declare i64 @_ZN5clang4Sema32CheckConvertedConstantExpressionEPNS_4ExprENS_8QualTypeERN4llvm6APSIntENS0_7CCEKindE(ptr noundef nonnull align 8 dereferenceable(17504), ptr noundef, i64, ptr noundef nonnull align 8 dereferenceable(13), i32 noundef) local_unnamed_addr #3
+declare i64 @_ZN5clang4Sema32CheckConvertedConstantExpressionEPNS_4ExprENS_8QualTypeERN4llvm6APSIntENS0_7CCEKindE(ptr noundef nonnull align 8 dereferenceable(17504), ptr noundef, i64, ptr noundef nonnull align 8 dereferenceable(13), i32 noundef) local_unnamed_addr #2
 
-declare noundef ptr @_ZN5clang16PackIndexingExpr6CreateERNS_10ASTContextENS_14SourceLocationES3_PNS_4ExprES5_St8optionalIlEN4llvm8ArrayRefIS5_EEb(ptr noundef nonnull align 8 dereferenceable(23216), i32, i32, ptr noundef, ptr noundef, ptr noundef byval(%"class.std::optional.1277") align 8, ptr noundef byval(%"class.llvm::ArrayRef.1255") align 8, i1 noundef zeroext) local_unnamed_addr #3
+declare noundef ptr @_ZN5clang16PackIndexingExpr6CreateERNS_10ASTContextENS_14SourceLocationES3_PNS_4ExprES5_St8optionalIlEN4llvm8ArrayRefIS5_EEb(ptr noundef nonnull align 8 dereferenceable(23216), i32, i32, ptr noundef, ptr noundef, ptr noundef byval(%"class.std::optional.1277") align 8, ptr noundef byval(%"class.llvm::ArrayRef.1255") align 8, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang4Sema39getTemplateArgumentPackExpansionPatternENS_19TemplateArgumentLocERNS_14SourceLocationERSt8optionalIjE(ptr dead_on_unwind noalias writable sret(%"class.clang::TemplateArgumentLoc") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17504) %1, ptr noundef byval(%"class.clang::TemplateArgumentLoc") align 8 %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(8) %4) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZNK5clang4Sema39getTemplateArgumentPackExpansionPatternENS_19TemplateArgumentLocERNS_14SourceLocationERSt8optionalIjE(ptr dead_on_unwind noalias writable sret(%"class.clang::TemplateArgumentLoc") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17504) %1, ptr noundef byval(%"class.clang::TemplateArgumentLoc") align 8 %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(8) %4) local_unnamed_addr #1 align 2 {
   %6 = alloca %"class.clang::TypeLocBuilder", align 8
   %7 = alloca %"class.clang::TemplateArgument", align 8
   %8 = load i32, ptr %2, align 8
@@ -8073,7 +8067,7 @@ define dso_local void @_ZNK5clang4Sema39getTemplateArgumentPackExpansionPatternE
   %.sroa.0.0.insert.ext.i = zext i32 %38 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   store i64 %.sroa.0.0.insert.insert.i, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %39, ptr %6, align 8, !tbaa !226
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -8114,7 +8108,7 @@ define dso_local void @_ZNK5clang4Sema39getTemplateArgumentPackExpansionPatternE
   br label %_ZN5clang14TypeLocBuilderD2Ev.exit
 
 _ZN5clang14TypeLocBuilderD2Ev.exit:               ; preds = %20, %61
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %97
 
 62:                                               ; preds = %5
@@ -8156,7 +8150,7 @@ _ZNK5clang19TemplateArgumentLoc22getTemplateEllipsisLocEv.exit: ; preds = %5
   store i64 %80, ptr %4, align 4
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %82 = load ptr, ptr %81, align 8, !tbaa !232
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNK5clang16TemplateArgument23getPackExpansionPatternEv(ptr dead_on_unwind nonnull writable sret(%"class.clang::TemplateArgument") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2) #16
   %83 = load i32, ptr %2, align 8
   %84 = and i32 %83, 2147483646
@@ -8181,7 +8175,7 @@ _ZNK5clang19TemplateArgumentLoc18getTemplateNameLocEv.exit: ; preds = %_ZNK5clan
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !tbaa.struct !1001
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @_ZN5clang23TemplateArgumentLocInfoC1ERNS_10ASTContextENS_22NestedNameSpecifierLocENS_14SourceLocationES4_(ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef nonnull align 8 dereferenceable(23216) %82, ptr %.sroa.0.0.i4668, ptr %.sroa.4.0.i70, i32 %.sroa.0.0.i51, i32 0) #16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %97
 
 93:                                               ; preds = %5, %5, %5, %5, %5, %5, %5
@@ -8199,14 +8193,14 @@ _ZNK5clang19TemplateArgumentLoc18getTemplateNameLocEv.exit: ; preds = %_ZNK5clan
   ret void
 }
 
-declare noundef ptr @_ZNK5clang10ASTContext24getTrivialTypeSourceInfoENS_8QualTypeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23216), i64, i32) local_unnamed_addr #3
+declare noundef ptr @_ZNK5clang10ASTContext24getTrivialTypeSourceInfoENS_8QualTypeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23216), i64, i32) local_unnamed_addr #2
 
-declare i64 @_ZNK5clang16TemplateArgument24getNumTemplateExpansionsEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
+declare i64 @_ZNK5clang16TemplateArgument24getNumTemplateExpansionsEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
-declare void @_ZNK5clang16TemplateArgument23getPackExpansionPatternEv(ptr dead_on_unwind writable sret(%"class.clang::TemplateArgument") align 8, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
+declare void @_ZNK5clang16TemplateArgument23getPackExpansionPatternEv(ptr dead_on_unwind writable sret(%"class.clang::TemplateArgument") align 8, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN5clang4Sema24getFullyPackExpandedSizeENS_16TemplateArgumentE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(17504) %0, ptr noundef readonly byval(%"class.clang::TemplateArgument") align 8 captures(none) %1) local_unnamed_addr #2 align 2 {
+define dso_local range(i64 0, 8589934592) i64 @_ZN5clang4Sema24getFullyPackExpandedSizeENS_16TemplateArgumentE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(17504) %0, ptr noundef readonly byval(%"class.clang::TemplateArgument") align 8 captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.clang::TemplateArgument", align 8
   %4 = alloca %"class.clang::TemplateArgument", align 8
   %5 = alloca %"class.clang::TemplateName", align 8
@@ -8255,23 +8249,23 @@ _ZNK5clang4Type5getAsINS_29SubstTemplateTypeParmPackTypeEEEPKT_v.exit: ; preds =
   br i1 %.not.not43, label %.critedge49, label %.thread84
 
 .thread84:                                        ; preds = %_ZNK5clang4Type5getAsINS_29SubstTemplateTypeParmPackTypeEEEPKT_v.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK5clang29SubstTemplateTypeParmPackType15getArgumentPackEv(ptr dead_on_unwind nonnull writable sret(%"class.clang::TemplateArgument") align 8 %3, ptr noundef nonnull align 16 dereferenceable(48) %26) #16
   %.sroa.657.0..sroa_idx87 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.sroa.657.0.copyload88 = load i32, ptr %.sroa.657.0..sroa_idx87, align 4
   %.sroa.8.0..sroa_idx89 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.8.0.copyload90 = load ptr, ptr %.sroa.8.0..sroa_idx89, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %49
 
 27:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK5clang29SubstTemplateTypeParmPackType15getArgumentPackEv(ptr dead_on_unwind nonnull writable sret(%"class.clang::TemplateArgument") align 8 %3, ptr noundef nonnull align 16 dereferenceable(48) %15) #16
   %.sroa.657.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.sroa.657.0.copyload = load i32, ptr %.sroa.657.0..sroa_idx, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.8.0.copyload = load ptr, ptr %.sroa.8.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %49
 
 28:                                               ; preds = %2
@@ -8286,13 +8280,13 @@ _ZNK5clang4Type5getAsINS_29SubstTemplateTypeParmPackTypeEEEPKT_v.exit: ; preds =
   ]
 
 .thread97:                                        ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK5clang32SubstNonTypeTemplateParmPackExpr15getArgumentPackEv(ptr dead_on_unwind nonnull writable sret(%"class.clang::TemplateArgument") align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %31) #16
   %.sroa.657.0..sroa_idx58 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.657.0.copyload59 = load i32, ptr %.sroa.657.0..sroa_idx58, align 4
   %.sroa.8.0..sroa_idx63 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.8.0.copyload64 = load ptr, ptr %.sroa.8.0..sroa_idx63, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %49
 
 34:                                               ; preds = %28
@@ -8321,23 +8315,23 @@ _ZNK5clang4Type5getAsINS_29SubstTemplateTypeParmPackTypeEEEPKT_v.exit: ; preds =
   br label %.critedge49
 
 44:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !148
   call void @_ZN5clang12TemplateNameC1EPv(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %46) #16
   %47 = call noundef ptr @_ZNK5clang12TemplateName34getAsSubstTemplateTemplateParmPackEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.not = icmp eq ptr %47, null
   br i1 %.not.not, label %.critedge49, label %48
 
 48:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNK5clang36SubstTemplateTemplateParmPackStorage15getArgumentPackEv(ptr dead_on_unwind nonnull writable sret(%"class.clang::TemplateArgument") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %47) #16
   %.sroa.657.0..sroa_idx60 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.sroa.657.0.copyload61 = load i32, ptr %.sroa.657.0..sroa_idx60, align 4
   %.sroa.8.0..sroa_idx65 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.8.0.copyload66 = load ptr, ptr %.sroa.8.0..sroa_idx65, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %49
 
 49:                                               ; preds = %48, %.thread97, %27, %.thread84
@@ -8357,7 +8351,7 @@ _ZNK5clang4Type5getAsINS_29SubstTemplateTypeParmPackTypeEEEPKT_v.exit: ; preds =
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %56
   %.034113 = phi ptr [ %57, %56 ], [ %.sroa.8.0121, %.lr.ph.preheader ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.034113, i64 24, i1 false), !tbaa.struct !1001
   %53 = call noundef zeroext i1 @_ZNK5clang16TemplateArgument15isPackExpansionEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #16
   br i1 %53, label %.critedge47, label %54
@@ -8367,13 +8361,13 @@ _ZNK5clang4Type5getAsINS_29SubstTemplateTypeParmPackTypeEEEPKT_v.exit: ; preds =
   br i1 %55, label %.critedge47, label %56
 
 56:                                               ; preds = %54
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %57 = getelementptr inbounds nuw i8, ptr %.034113, i64 24
   %.not = icmp eq ptr %57, %52
   br i1 %.not, label %.critedge49, label %.lr.ph
 
 .critedge47:                                      ; preds = %54, %.lr.ph
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge49
 
 .critedge49:                                      ; preds = %.critedge, %56, %34, %.critedge45.loopexit, %49, %28, %44, %18, %_ZNK5clang4Type5getAsINS_29SubstTemplateTypeParmPackTypeEEEPKT_v.exit, %.critedge47, %2, %2, %2, %2, %2, %2, %2
@@ -8384,20 +8378,20 @@ _ZNK5clang4Type5getAsINS_29SubstTemplateTypeParmPackTypeEEEPKT_v.exit: ; preds =
   ret i64 %.sroa.071.0.insert.insert
 }
 
-declare void @_ZNK5clang29SubstTemplateTypeParmPackType15getArgumentPackEv(ptr dead_on_unwind writable sret(%"class.clang::TemplateArgument") align 8, ptr noundef nonnull align 16 dereferenceable(48)) local_unnamed_addr #3
+declare void @_ZNK5clang29SubstTemplateTypeParmPackType15getArgumentPackEv(ptr dead_on_unwind writable sret(%"class.clang::TemplateArgument") align 8, ptr noundef nonnull align 16 dereferenceable(48)) local_unnamed_addr #2
 
-declare void @_ZNK5clang32SubstNonTypeTemplateParmPackExpr15getArgumentPackEv(ptr dead_on_unwind writable sret(%"class.clang::TemplateArgument") align 8, ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
+declare void @_ZNK5clang32SubstNonTypeTemplateParmPackExpr15getArgumentPackEv(ptr dead_on_unwind writable sret(%"class.clang::TemplateArgument") align 8, ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #2
 
-declare noundef zeroext i1 @_ZNK5clang9ValueDecl15isParameterPackEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZNK5clang9ValueDecl15isParameterPackEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #2
 
-declare noundef ptr @_ZNK5clang12TemplateName34getAsSubstTemplateTemplateParmPackEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3
+declare noundef ptr @_ZNK5clang12TemplateName34getAsSubstTemplateTemplateParmPackEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
-declare void @_ZNK5clang36SubstTemplateTemplateParmPackStorage15getArgumentPackEv(ptr dead_on_unwind writable sret(%"class.clang::TemplateArgument") align 8, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
+declare void @_ZNK5clang36SubstTemplateTemplateParmPackStorage15getArgumentPackEv(ptr dead_on_unwind writable sret(%"class.clang::TemplateArgument") align 8, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
-declare noundef zeroext i1 @_ZNK5clang16TemplateArgument15isPackExpansionEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZNK5clang16TemplateArgument15isPackExpansionEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN5clang4Sema16ActOnCXXFoldExprEPNS_5ScopeENS_14SourceLocationEPNS_4ExprENS_3tok9TokenKindES3_S5_S3_(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, i32 %2, ptr noundef %3, i16 noundef zeroext %4, i32 %5, ptr noundef %6, i32 %7) local_unnamed_addr #2 align 2 {
+define dso_local noundef i64 @_ZN5clang4Sema16ActOnCXXFoldExprEPNS_5ScopeENS_14SourceLocationEPNS_4ExprENS_3tok9TokenKindES3_S5_S3_(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, i32 %2, ptr noundef %3, i16 noundef zeroext %4, i32 %5, ptr noundef %6, i32 %7) local_unnamed_addr #1 align 2 {
   %9 = alloca %"class.clang::CharSourceRange", align 8
   %10 = alloca %"class.clang::CharSourceRange", align 8
   %11 = alloca %"class.clang::CanonicalDeclPtr", align 8
@@ -8431,15 +8425,15 @@ define dso_local noundef i64 @_ZN5clang4Sema16ActOnCXXFoldExprEPNS_5ScopeENS_14S
   br i1 %.not82, label %33, label %.thread
 
 33:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %20) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %34 = ptrtoint ptr %20 to i64
   %35 = call i64 @_ZN5clang4Sema25CorrectDelayedTyposInExprEPNS_4ExprEPNS_7VarDeclEbN4llvm12function_refIFNS_12ActionResultIS2_Lb1EEES2_EEE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull %3, ptr noundef null, i1 noundef zeroext false, ptr nonnull @_ZN4llvm12function_refIFN5clang12ActionResultIPNS1_4ExprELb1EEES4_EE11callback_fnIZNS1_4Sema25CorrectDelayedTyposInExprES4_PNS1_7VarDeclEbS7_Ed_UlS4_E_EES5_lS4_, i64 %34) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20) #16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %21) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %36 = ptrtoint ptr %21 to i64
   %37 = call i64 @_ZN5clang4Sema25CorrectDelayedTyposInExprEPNS_4ExprEPNS_7VarDeclEbN4llvm12function_refIFNS_12ActionResultIS2_Lb1EEES2_EEE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull %6, ptr noundef null, i1 noundef zeroext false, ptr nonnull @_ZN4llvm12function_refIFN5clang12ActionResultIPNS1_4ExprELb1EEES4_EE11callback_fnIZNS1_4Sema25CorrectDelayedTyposInExprES4_PNS1_7VarDeclEbS7_Ed_UlS4_E_EES5_lS4_, i64 %36) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21) #16
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %22) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load i24, ptr %3, align 8
   %40 = and i24 %39, 16384
@@ -8454,12 +8448,12 @@ define dso_local noundef i64 @_ZN5clang4Sema16ActOnCXXFoldExprEPNS_5ScopeENS_14S
 
 46:                                               ; preds = %33
   %47 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 %42, ptr %18, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(84) %47, ptr noundef nonnull align 4 dereferenceable(9) %18)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit
 
 48:                                               ; preds = %33
@@ -8471,7 +8465,7 @@ define dso_local noundef i64 @_ZN5clang4Sema16ActOnCXXFoldExprEPNS_5ScopeENS_14S
 
 53:                                               ; preds = %48
   %54 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %22) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %55 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %56 = load ptr, ptr %55, align 8, !tbaa !155
   %.not.i.i = icmp eq ptr %56, null
@@ -8492,13 +8486,13 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %57, %
   %65 = zext i32 %64 to i64
   %66 = load ptr, ptr %63, align 8, !tbaa !169
   %67 = getelementptr inbounds nuw %"struct.std::pair.1482", ptr %66, i64 %65, i32 2
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 %42, ptr %17, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(20) %67, ptr noundef nonnull align 4 dereferenceable(9) %17)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit
 
 _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit: ; preds = %46, %48, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i
@@ -8509,12 +8503,12 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit: 
 
 71:                                               ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit
   %72 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 %68, ptr %15, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i41 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i.i41, align 8
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(84) %72, ptr noundef nonnull align 4 dereferenceable(9) %15)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit42
 
 73:                                               ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit
@@ -8526,7 +8520,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit: 
 
 78:                                               ; preds = %73
   %79 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %22) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %80 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %81 = load ptr, ptr %80, align 8, !tbaa !155
   %.not.i.i36 = icmp eq ptr %81, null
@@ -8547,18 +8541,18 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i37: ; preds = %82,
   %90 = zext i32 %89 to i64
   %91 = load ptr, ptr %88, align 8, !tbaa !169
   %92 = getelementptr inbounds nuw %"struct.std::pair.1482", ptr %91, i64 %90, i32 2
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %14) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 %68, ptr %14, align 8
   %.sroa.2.0..sroa_idx.i.i.i39 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i39, align 8
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(20) %92, ptr noundef nonnull align 4 dereferenceable(9) %14)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit42
 
 _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit42: ; preds = %71, %73, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i37
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %22) #16
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %22) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %161
 
 93:                                               ; preds = %8
@@ -8569,15 +8563,15 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit42
   br i1 %.not, label %97, label %.thread
 
 97:                                               ; preds = %93
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %98 = ptrtoint ptr %12 to i64
   %99 = call i64 @_ZN5clang4Sema25CorrectDelayedTyposInExprEPNS_4ExprEPNS_7VarDeclEbN4llvm12function_refIFNS_12ActionResultIS2_Lb1EEES2_EEE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %3, ptr noundef null, i1 noundef zeroext false, ptr nonnull @_ZN4llvm12function_refIFN5clang12ActionResultIPNS1_4ExprELb1EEES4_EE11callback_fnIZNS1_4Sema25CorrectDelayedTyposInExprES4_PNS1_7VarDeclEbS7_Ed_UlS4_E_EES5_lS4_, i64 %98) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %100 = ptrtoint ptr %13 to i64
   %101 = call i64 @_ZN5clang4Sema25CorrectDelayedTyposInExprEPNS_4ExprEPNS_7VarDeclEbN4llvm12function_refIFNS_12ActionResultIS2_Lb1EEES2_EEE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %6, ptr noundef null, i1 noundef zeroext false, ptr nonnull @_ZN4llvm12function_refIFN5clang12ActionResultIPNS1_4ExprELb1EEES4_EE11callback_fnIZNS1_4Sema25CorrectDelayedTyposInExprES4_PNS1_7VarDeclEbS7_Ed_UlS4_E_EES5_lS4_, i64 %100) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #16
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %23) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %23, ptr noundef nonnull align 8 dereferenceable(8) %102, i32 %5, i32 noundef 4488, i1 noundef zeroext false) #16
   %103 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %94) #19
@@ -8588,12 +8582,12 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit42
 
 107:                                              ; preds = %97
   %108 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 %103, ptr %10, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i48 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i.i48, align 8
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(84) %108, ptr noundef nonnull align 4 dereferenceable(9) %10)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %129
 
 109:                                              ; preds = %97
@@ -8605,7 +8599,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit42
 
 114:                                              ; preds = %109
   %115 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %23) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %116 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %117 = load ptr, ptr %116, align 8, !tbaa !155
   %.not.i.i43 = icmp eq ptr %117, null
@@ -8626,23 +8620,23 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i44: ; preds = %118
   %126 = zext i32 %125 to i64
   %127 = load ptr, ptr %124, align 8, !tbaa !169
   %128 = getelementptr inbounds nuw %"struct.std::pair.1482", ptr %127, i64 %126, i32 2
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %103, ptr %9, align 8
   %.sroa.2.0..sroa_idx.i.i.i46 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i46, align 8
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(20) %128, ptr noundef nonnull align 4 dereferenceable(9) %9)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %129
 
 129:                                              ; preds = %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i44, %109, %107
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %23) #16
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %23) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %161
 
 .thread:                                          ; preds = %93, %28
   %130 = tail call noundef i32 @_ZN5clang4Sema30ConvertTokenKindToBinaryOpcodeENS_3tok9TokenKindE(i16 noundef zeroext %4) #16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %24) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %131 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %131, ptr %24, align 8, !tbaa !3
   %132 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -8686,7 +8680,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i44: ; preds = %118
   br label %_ZN5clang13UnresolvedSetILj16EED2Ev.exit
 
 _ZN5clang13UnresolvedSetILj16EED2Ev.exit:         ; preds = %150, %153
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %24) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br i1 %cond2, label %154, label %161
 
 154:                                              ; preds = %_ZN5clang13UnresolvedSetILj16EED2Ev.exit
@@ -8706,7 +8700,7 @@ _ZN5clang13UnresolvedSetILj16EED2Ev.exit:         ; preds = %150, %153
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16CheckFoldOperandRN5clang4SemaEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @_ZL16CheckFoldOperandRN5clang4SemaEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %4 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %5 = alloca %"class.clang::CharSourceRange", align 8
@@ -8742,7 +8736,7 @@ define internal fastcc void @_ZL16CheckFoldOperandRN5clang4SemaEPNS_4ExprE(ptr n
   ]
 
 20:                                               ; preds = %17, %17, %15
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = tail call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #19
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %21, i32 %22, i32 noundef 3547, i1 noundef zeroext false) #16
@@ -8754,12 +8748,12 @@ define internal fastcc void @_ZL16CheckFoldOperandRN5clang4SemaEPNS_4ExprE(ptr n
 
 27:                                               ; preds = %20
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %23, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(84) %28, ptr noundef nonnull align 4 dereferenceable(9) %6)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit
 
 29:                                               ; preds = %20
@@ -8771,7 +8765,7 @@ define internal fastcc void @_ZL16CheckFoldOperandRN5clang4SemaEPNS_4ExprE(ptr n
 
 34:                                               ; preds = %29
   %35 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %8) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !155
   %.not.i.i = icmp eq ptr %37, null
@@ -8792,17 +8786,17 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %38, %
   %46 = zext i32 %45 to i64
   %47 = load ptr, ptr %44, align 8, !tbaa !169
   %48 = getelementptr inbounds nuw %"struct.std::pair.1482", ptr %47, i64 %46, i32 2
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %23, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(20) %48, ptr noundef nonnull align 4 dereferenceable(9) %5)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit
 
 _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit: ; preds = %27, %29, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %49 = call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #19
   call void @_ZN5clang9FixItHint15CreateInsertionENS_14SourceLocationEN4llvm9StringRefEb(ptr dead_on_unwind nonnull writable sret(%"class.clang::FixItHint") align 8 %9, i32 %49, ptr nonnull @.str, i64 1, i1 noundef zeroext false)
   %50 = load i8, ptr %24, align 8, !tbaa !122, !range !40, !noundef !41
@@ -8823,7 +8817,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit: 
 
 59:                                               ; preds = %54
   %60 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %8) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %62 = load ptr, ptr %61, align 8, !tbaa !155
   %.not.i.i8 = icmp eq ptr %62, null
@@ -8845,11 +8839,11 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i9: ; preds = %63, 
   %72 = load ptr, ptr %69, align 8, !tbaa !169
   %73 = getelementptr inbounds nuw %"struct.std::pair.1482", ptr %72, i64 %71, i32 2
   call void @_ZNK5clang19StreamingDiagnostic12AddFixItHintERKNS_9FixItHintE(ptr noundef nonnull align 8 dereferenceable(20) %73, ptr noundef nonnull align 8 dereferenceable(57) %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_9FixItHintEvEERKS1_OT_.exit
 
 _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_9FixItHintEvEERKS1_OT_.exit: ; preds = %52, %54, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i9
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %74 = call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #19
   call void @_ZN5clang9FixItHint15CreateInsertionENS_14SourceLocationEN4llvm9StringRefEb(ptr dead_on_unwind nonnull writable sret(%"class.clang::FixItHint") align 8 %10, i32 %74, ptr nonnull @.str.1, i64 1, i1 noundef zeroext false)
   %75 = load i8, ptr %24, align 8, !tbaa !122, !range !40, !noundef !41
@@ -8870,7 +8864,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_9FixItHintEvEERKS1_OT_.exit: ; p
 
 84:                                               ; preds = %79
   %85 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %8) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %86 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %87 = load ptr, ptr %86, align 8, !tbaa !155
   %.not.i.i10 = icmp eq ptr %87, null
@@ -8892,7 +8886,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i11: ; preds = %88,
   %97 = load ptr, ptr %94, align 8, !tbaa !169
   %98 = getelementptr inbounds nuw %"struct.std::pair.1482", ptr %97, i64 %96, i32 2
   call void @_ZNK5clang19StreamingDiagnostic12AddFixItHintERKNS_9FixItHintE(ptr noundef nonnull align 8 dereferenceable(20) %98, ptr noundef nonnull align 8 dereferenceable(57) %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_9FixItHintEvEERKS1_OT_.exit12
 
 _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_9FixItHintEvEERKS1_OT_.exit12: ; preds = %77, %79, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i11
@@ -8916,7 +8910,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN5clang9FixItHintD2Ev.exit
 
 _ZN5clang9FixItHintD2Ev.exit:                     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %108 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %109 = load ptr, ptr %108, align 8, !tbaa !150
   %110 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -8937,25 +8931,25 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN5clang9FixItHintD2Ev.exit15
 
 _ZN5clang9FixItHintD2Ev.exit15:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i13
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %8) #16
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %117
 
 117:                                              ; preds = %17, %_ZN5clang9FixItHintD2Ev.exit15, %2
   ret void
 }
 
-declare noundef i32 @_ZN5clang4Sema30ConvertTokenKindToBinaryOpcodeENS_3tok9TokenKindE(i16 noundef zeroext) local_unnamed_addr #3
+declare noundef i32 @_ZN5clang4Sema30ConvertTokenKindToBinaryOpcodeENS_3tok9TokenKindE(i16 noundef zeroext) local_unnamed_addr #2
 
-declare void @_ZN5clang4Sema11LookupBinOpEPNS_5ScopeENS_14SourceLocationENS_18BinaryOperatorKindERNS_17UnresolvedSetImplE(ptr noundef nonnull align 8 dereferenceable(17504), ptr noundef, i32, i32 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #3
+declare void @_ZN5clang4Sema11LookupBinOpEPNS_5ScopeENS_14SourceLocationENS_18BinaryOperatorKindERNS_17UnresolvedSetImplE(ptr noundef nonnull align 8 dereferenceable(17504), ptr noundef, i32, i32 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #2
 
-declare noundef i32 @_ZN5clang14BinaryOperator21getOverloadedOperatorENS_18BinaryOperatorKindE(i32 noundef) local_unnamed_addr #3
+declare noundef i32 @_ZN5clang14BinaryOperator21getOverloadedOperatorENS_18BinaryOperatorKindE(i32 noundef) local_unnamed_addr #2
 
-declare i64 @_ZN5clang4Sema26CreateUnresolvedLookupExprEPNS_13CXXRecordDeclENS_22NestedNameSpecifierLocENS_19DeclarationNameInfoERKNS_17UnresolvedSetImplEb(ptr noundef nonnull align 8 dereferenceable(17504), ptr noundef, ptr, ptr, ptr noundef byval(%"struct.clang::DeclarationNameInfo") align 8, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #3
+declare i64 @_ZN5clang4Sema26CreateUnresolvedLookupExprEPNS_13CXXRecordDeclENS_22NestedNameSpecifierLocENS_19DeclarationNameInfoERKNS_17UnresolvedSetImplEb(ptr noundef nonnull align 8 dereferenceable(17504), ptr noundef, ptr, ptr, ptr noundef byval(%"struct.clang::DeclarationNameInfo") align 8, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN5clang4Sema16BuildCXXFoldExprEPNS_20UnresolvedLookupExprENS_14SourceLocationEPNS_4ExprENS_18BinaryOperatorKindES3_S5_S3_St8optionalIjE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17504) %0, ptr noundef %1, i32 %2, ptr noundef %3, i32 noundef %4, i32 %5, ptr noundef %6, i32 %7, i64 %8) local_unnamed_addr #2 align 2 {
+define dso_local noundef i64 @_ZN5clang4Sema16BuildCXXFoldExprEPNS_20UnresolvedLookupExprENS_14SourceLocationEPNS_4ExprENS_18BinaryOperatorKindES3_S5_S3_St8optionalIjE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17504) %0, ptr noundef %1, i32 %2, ptr noundef %3, i32 noundef %4, i32 %5, ptr noundef %6, i32 %7, i64 %8) local_unnamed_addr #1 align 2 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %11 = load ptr, ptr %10, align 8, !tbaa !232
   %12 = tail call noundef ptr @_ZN5clang4StmtnwEmRKNS_10ASTContextEj(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(23216) %11, i32 noundef 8) #16
@@ -8967,10 +8961,10 @@ define dso_local noundef i64 @_ZN5clang4Sema16BuildCXXFoldExprEPNS_20UnresolvedL
   ret i64 %15
 }
 
-declare void @_ZN5clang11CXXFoldExprC1ENS_8QualTypeEPNS_20UnresolvedLookupExprENS_14SourceLocationEPNS_4ExprENS_18BinaryOperatorKindES4_S6_S4_St8optionalIjE(ptr noundef nonnull align 8 dereferenceable(60), i64, ptr noundef, i32, ptr noundef, i32 noundef, i32, ptr noundef, i32, i64) unnamed_addr #3
+declare void @_ZN5clang11CXXFoldExprC1ENS_8QualTypeEPNS_20UnresolvedLookupExprENS_14SourceLocationEPNS_4ExprENS_18BinaryOperatorKindES4_S6_S4_St8optionalIjE(ptr noundef nonnull align 8 dereferenceable(60), i64, ptr noundef, i32, ptr noundef, i32 noundef, i32, ptr noundef, i32, i64) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang4Sema21BuildEmptyCXXFoldExprENS_14SourceLocationENS_18BinaryOperatorKindE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define dso_local i64 @_ZN5clang4Sema21BuildEmptyCXXFoldExprENS_14SourceLocationENS_18BinaryOperatorKindE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %5 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   switch i32 %2, label %36 [
@@ -9029,7 +9023,7 @@ _ZN5clang22CXXScalarValueInitExprC2ENS_8QualTypeEPNS_14TypeSourceInfoENS_14Sourc
   br label %66
 
 36:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %37, i32 %1, i32 noundef 3548, i1 noundef zeroext false) #16
   %38 = call { ptr, i64 } @_ZN5clang14BinaryOperator12getOpcodeStrENS_18BinaryOperatorKindE(i32 noundef %2) #16
@@ -9054,7 +9048,7 @@ _ZN5clang22CXXScalarValueInitExprC2ENS_8QualTypeEPNS_14TypeSourceInfoENS_14Sourc
 
 51:                                               ; preds = %46
   %52 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %5) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %54 = load ptr, ptr %53, align 8, !tbaa !155
   %.not.i.i = icmp eq ptr %54, null
@@ -9076,12 +9070,12 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %55, %
   %64 = load ptr, ptr %61, align 8, !tbaa !169
   %65 = getelementptr inbounds nuw %"struct.std::pair.1482", ptr %64, i64 %63, i32 2
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(20) %65, ptr %39, i64 %40)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIN4llvm9StringRefEvEERKS1_OT_.exit
 
 _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIN4llvm9StringRefEvEERKS1_OT_.exit: ; preds = %44, %46, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %5) #16
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %66
 
 66:                                               ; preds = %_ZN5clang22CXXScalarValueInitExprC2ENS_8QualTypeEPNS_14TypeSourceInfoENS_14SourceLocationE.exit, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIN4llvm9StringRefEvEERKS1_OT_.exit, %8, %6
@@ -9089,27 +9083,27 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIN4llvm9StringRefEvEERKS1_OT_.exit: 
   ret i64 %.sroa.016.0
 }
 
-declare i64 @_ZN5clang4Sema19ActOnCXXBoolLiteralENS_14SourceLocationENS_3tok9TokenKindE(ptr noundef nonnull align 8 dereferenceable(17504), i32, i16 noundef zeroext) local_unnamed_addr #3
+declare i64 @_ZN5clang4Sema19ActOnCXXBoolLiteralENS_14SourceLocationENS_3tok9TokenKindE(ptr noundef nonnull align 8 dereferenceable(17504), i32, i16 noundef zeroext) local_unnamed_addr #2
 
-declare { ptr, i64 } @_ZN5clang14BinaryOperator12getOpcodeStrENS_18BinaryOperatorKindE(i32 noundef) local_unnamed_addr #3
+declare { ptr, i64 } @_ZN5clang14BinaryOperator12getOpcodeStrENS_18BinaryOperatorKindE(i32 noundef) local_unnamed_addr #2
 
-declare void @_ZN5clang17DiagnosticBuilderC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(66), ptr noundef nonnull align 8 dereferenceable(66)) unnamed_addr #3
+declare void @_ZN5clang17DiagnosticBuilderC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(66), ptr noundef nonnull align 8 dereferenceable(66)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
-declare void @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE6anchorEv(ptr noundef nonnull align 8 dereferenceable(12)) unnamed_addr #3
+declare void @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE6anchorEv(ptr noundef nonnull align 8 dereferenceable(12)) unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #9 align 2 {
+define internal void @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #8 align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #18
   ret void
 }
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE11TraverseASTERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(23216)) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE11TraverseASTERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(23216)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor12TraverseAttrEPN5clang4AttrE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor12TraverseAttrEPN5clang4AttrE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %4 = load i8, ptr %3, align 2
   %5 = and i8 %4, 2
@@ -9126,7 +9120,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParamete
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor30TraverseConstructorInitializerEPN5clang18CXXCtorInitializerE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor30TraverseConstructorInitializerEPN5clang18CXXCtorInitializerE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %1, align 8
   %3 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 6
   %4 = icmp eq i64 %3, 0
@@ -9153,7 +9147,7 @@ _ZNK5clang18CXXCtorInitializer15isPackExpansionEv.exit.thread: ; preds = %2, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor24TraverseCXXBaseSpecifierERKN5clang16CXXBaseSpecifierE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #2 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor24TraverseCXXBaseSpecifierERKN5clang16CXXBaseSpecifierE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !178
   %.not = icmp eq i32 %4, 0
@@ -9169,7 +9163,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParamete
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor12TraverseDeclEPN5clang4DeclE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor12TraverseDeclEPN5clang4DeclE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %3
 
@@ -9187,7 +9181,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParamete
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor21TraverseLambdaCaptureEPN5clang10LambdaExprEPKNS1_13LambdaCaptureEPNS1_4ExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor21TraverseLambdaCaptureEPN5clang10LambdaExprEPKNS1_13LambdaCaptureEPNS1_4ExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %6 = load i32, ptr %5, align 4, !tbaa !178
   %.not = icmp eq i32 %6, 0
@@ -9202,106 +9196,106 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParamete
   ret i1 %.0
 }
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseObjCProtocolLocENS_15ObjCProtocolLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, i32) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseObjCProtocolLocENS_15ObjCProtocolLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, i32) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseTypeConstraintEPKNS_14TypeConstraintE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseTypeConstraintEPKNS_14TypeConstraintE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseConceptRequirementEPNS_8concepts11RequirementE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseConceptRequirementEPNS_8concepts11RequirementE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseConceptTypeRequirementEPNS_8concepts15TypeRequirementE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseConceptTypeRequirementEPNS_8concepts15TypeRequirementE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseConceptExprRequirementEPNS_8concepts15ExprRequirementE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseConceptExprRequirementEPNS_8concepts15ExprRequirementE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseConceptNestedRequirementEPNS_8concepts17NestedRequirementE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseConceptNestedRequirementEPNS_8concepts17NestedRequirementE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseConceptReferenceEPNS_16ConceptReferenceE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
-
-; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitConceptReferenceEPNS_16ConceptReferenceE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseConceptReferenceEPNS_16ConceptReferenceE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE9VisitAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitConceptReferenceEPNS_16ConceptReferenceE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE9VisitDeclEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE9VisitAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE9VisitDeclEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE9VisitTypeEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE12VisitTypeLocENS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE9VisitTypeEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19dataTraverseStmtPreEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE12VisitTypeLocENS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20dataTraverseStmtPostEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
-
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16dataTraverseNodeEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
-
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseTemplateInstantiationsEPNS_17ClassTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
-
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseTemplateInstantiationsEPNS_15VarTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
-
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseTemplateInstantiationsEPNS_20FunctionTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
-
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseTranslationUnitDeclEPNS_19TranslationUnitDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
-
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseTopLevelStmtDeclEPNS_16TopLevelStmtDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
-
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseRequiresExprBodyDeclEPNS_20RequiresExprBodyDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
-
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseOutlinedFunctionDeclEPNS_20OutlinedFunctionDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
-
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseLinkageSpecDeclEPNS_15LinkageSpecDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
-
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseExternCContextDeclEPNS_18ExternCContextDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
-
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseExportDeclEPNS_10ExportDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
-
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseCapturedDeclEPNS_12CapturedDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
-
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17TraverseBlockDeclEPNS_9BlockDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
-
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseStaticAssertDeclEPNS_16StaticAssertDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
-
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraversePragmaDetectMismatchDeclEPNS_24PragmaDetectMismatchDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
-
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraversePragmaCommentDeclEPNS_17PragmaCommentDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
-
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseObjCPropertyImplDeclEPNS_20ObjCPropertyImplDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
-
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseOMPThreadPrivateDeclEPNS_20OMPThreadPrivateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
-
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseOMPRequiresDeclEPNS_15OMPRequiresDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
-
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseOMPAllocateDeclEPNS_15OMPAllocateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
-
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseObjCMethodDeclEPNS_14ObjCMethodDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
-
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseObjCProtocolDeclEPNS_16ObjCProtocolDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
-
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseObjCInterfaceDeclEPNS_17ObjCInterfaceDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
-
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseObjCImplementationDeclEPNS_22ObjCImplementationDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
-
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseObjCCategoryImplDeclEPNS_20ObjCCategoryImplDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
-
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseObjCCategoryDeclEPNS_16ObjCCategoryDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
-
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseNamespaceDeclEPNS_13NamespaceDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
-
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseHLSLBufferDeclEPNS_14HLSLBufferDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
-
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31TraverseOMPDeclareReductionDeclEPNS_23OMPDeclareReductionDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
-
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseOMPDeclareMapperDeclEPNS_20OMPDeclareMapperDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19dataTraverseStmtPreEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor32TraverseUnresolvedUsingValueDeclEPN5clang24UnresolvedUsingValueDeclE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20dataTraverseStmtPostEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
+
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16dataTraverseNodeEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
+
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseTemplateInstantiationsEPNS_17ClassTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
+
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseTemplateInstantiationsEPNS_15VarTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
+
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseTemplateInstantiationsEPNS_20FunctionTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
+
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseTranslationUnitDeclEPNS_19TranslationUnitDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
+
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseTopLevelStmtDeclEPNS_16TopLevelStmtDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
+
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseRequiresExprBodyDeclEPNS_20RequiresExprBodyDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
+
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseOutlinedFunctionDeclEPNS_20OutlinedFunctionDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
+
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseLinkageSpecDeclEPNS_15LinkageSpecDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
+
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseExternCContextDeclEPNS_18ExternCContextDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
+
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseExportDeclEPNS_10ExportDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
+
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseCapturedDeclEPNS_12CapturedDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
+
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17TraverseBlockDeclEPNS_9BlockDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
+
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseStaticAssertDeclEPNS_16StaticAssertDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
+
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraversePragmaDetectMismatchDeclEPNS_24PragmaDetectMismatchDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
+
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraversePragmaCommentDeclEPNS_17PragmaCommentDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
+
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseObjCPropertyImplDeclEPNS_20ObjCPropertyImplDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
+
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseOMPThreadPrivateDeclEPNS_20OMPThreadPrivateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
+
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseOMPRequiresDeclEPNS_15OMPRequiresDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
+
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseOMPAllocateDeclEPNS_15OMPAllocateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
+
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseObjCMethodDeclEPNS_14ObjCMethodDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
+
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseObjCProtocolDeclEPNS_16ObjCProtocolDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
+
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseObjCInterfaceDeclEPNS_17ObjCInterfaceDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
+
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseObjCImplementationDeclEPNS_22ObjCImplementationDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
+
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseObjCCategoryImplDeclEPNS_20ObjCCategoryImplDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
+
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseObjCCategoryDeclEPNS_16ObjCCategoryDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
+
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseNamespaceDeclEPNS_13NamespaceDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
+
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseHLSLBufferDeclEPNS_14HLSLBufferDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
+
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31TraverseOMPDeclareReductionDeclEPNS_23OMPDeclareReductionDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
+
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseOMPDeclareMapperDeclEPNS_20OMPDeclareMapperDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor32TraverseUnresolvedUsingValueDeclEPN5clang24UnresolvedUsingValueDeclE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %4 = load i32, ptr %3, align 4, !tbaa !178
   %.not = icmp eq i32 %4, 0
@@ -9316,76 +9310,76 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParamete
   ret i1 %.0
 }
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE33TraverseUnnamedGlobalConstantDeclEPNS_25UnnamedGlobalConstantDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE33TraverseUnnamedGlobalConstantDeclEPNS_25UnnamedGlobalConstantDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31TraverseTemplateParamObjectDeclEPNS_23TemplateParamObjectDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31TraverseTemplateParamObjectDeclEPNS_23TemplateParamObjectDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseMSGuidDeclEPNS_10MSGuidDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseMSGuidDeclEPNS_10MSGuidDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseIndirectFieldDeclEPNS_17IndirectFieldDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseIndirectFieldDeclEPNS_17IndirectFieldDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseEnumConstantDeclEPNS_16EnumConstantDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseEnumConstantDeclEPNS_16EnumConstantDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseFunctionDeclEPNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseFunctionDeclEPNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseCXXMethodDeclEPNS_13CXXMethodDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseCXXMethodDeclEPNS_13CXXMethodDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseCXXDestructorDeclEPNS_17CXXDestructorDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseCXXDestructorDeclEPNS_17CXXDestructorDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseCXXConversionDeclEPNS_17CXXConversionDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseCXXConversionDeclEPNS_17CXXConversionDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseCXXConstructorDeclEPNS_18CXXConstructorDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseCXXConstructorDeclEPNS_18CXXConstructorDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29TraverseCXXDeductionGuideDeclEPNS_21CXXDeductionGuideDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29TraverseCXXDeductionGuideDeclEPNS_21CXXDeductionGuideDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15TraverseVarDeclEPNS_7VarDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15TraverseVarDeclEPNS_7VarDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE37TraverseVarTemplateSpecializationDeclEPNS_29VarTemplateSpecializationDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE37TraverseVarTemplateSpecializationDeclEPNS_29VarTemplateSpecializationDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE44TraverseVarTemplatePartialSpecializationDeclEPNS_36VarTemplatePartialSpecializationDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE44TraverseVarTemplatePartialSpecializationDeclEPNS_36VarTemplatePartialSpecializationDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseParmVarDeclEPNS_11ParmVarDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseParmVarDeclEPNS_11ParmVarDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseOMPCapturedExprDeclEPNS_19OMPCapturedExprDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseOMPCapturedExprDeclEPNS_19OMPCapturedExprDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseImplicitParamDeclEPNS_17ImplicitParamDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseImplicitParamDeclEPNS_17ImplicitParamDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseDecompositionDeclEPNS_17DecompositionDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseDecompositionDeclEPNS_17DecompositionDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31TraverseNonTypeTemplateParmDeclEPNS_23NonTypeTemplateParmDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31TraverseNonTypeTemplateParmDeclEPNS_23NonTypeTemplateParmDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseMSPropertyDeclEPNS_14MSPropertyDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseMSPropertyDeclEPNS_14MSPropertyDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17TraverseFieldDeclEPNS_9FieldDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17TraverseFieldDeclEPNS_9FieldDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseObjCIvarDeclEPNS_12ObjCIvarDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseObjCIvarDeclEPNS_12ObjCIvarDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseObjCAtDefsFieldDeclEPNS_19ObjCAtDefsFieldDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseObjCAtDefsFieldDeclEPNS_19ObjCAtDefsFieldDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseBindingDeclEPNS_11BindingDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseBindingDeclEPNS_11BindingDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseUsingShadowDeclEPNS_15UsingShadowDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseUsingShadowDeclEPNS_15UsingShadowDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34TraverseConstructorUsingShadowDeclEPNS_26ConstructorUsingShadowDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34TraverseConstructorUsingShadowDeclEPNS_26ConstructorUsingShadowDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseUsingPackDeclEPNS_13UsingPackDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseUsingPackDeclEPNS_13UsingPackDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseUsingDirectiveDeclEPNS_18UsingDirectiveDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseUsingDirectiveDeclEPNS_18UsingDirectiveDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE35TraverseUnresolvedUsingIfExistsDeclEPNS_27UnresolvedUsingIfExistsDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE35TraverseUnresolvedUsingIfExistsDeclEPNS_27UnresolvedUsingIfExistsDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseRecordDeclEPNS_10RecordDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseRecordDeclEPNS_10RecordDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseCXXRecordDeclEPNS_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseCXXRecordDeclEPNS_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE39TraverseClassTemplateSpecializationDeclEPNS_31ClassTemplateSpecializationDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE39TraverseClassTemplateSpecializationDeclEPNS_31ClassTemplateSpecializationDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE46TraverseClassTemplatePartialSpecializationDeclEPNS_38ClassTemplatePartialSpecializationDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE46TraverseClassTemplatePartialSpecializationDeclEPNS_38ClassTemplatePartialSpecializationDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16TraverseEnumDeclEPNS_8EnumDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16TraverseEnumDeclEPNS_8EnumDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor35TraverseUnresolvedUsingTypenameDeclEPN5clang27UnresolvedUsingTypenameDeclE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor35TraverseUnresolvedUsingTypenameDeclEPN5clang27UnresolvedUsingTypenameDeclE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load i32, ptr %3, align 4, !tbaa !178
   %.not = icmp eq i32 %4, 0
@@ -9400,396 +9394,396 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParamete
   ret i1 %.0
 }
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseTypedefDeclEPNS_11TypedefDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseTypedefDeclEPNS_11TypedefDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseTypeAliasDeclEPNS_13TypeAliasDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseTypeAliasDeclEPNS_13TypeAliasDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseObjCTypeParamDeclEPNS_17ObjCTypeParamDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseObjCTypeParamDeclEPNS_17ObjCTypeParamDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseTemplateTypeParmDeclEPNS_20TemplateTypeParmDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseTemplateTypeParmDeclEPNS_20TemplateTypeParmDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseTemplateTemplateParmDeclEPNS_24TemplateTemplateParmDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseTemplateTemplateParmDeclEPNS_24TemplateTemplateParmDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseVarTemplateDeclEPNS_15VarTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseVarTemplateDeclEPNS_15VarTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29TraverseTypeAliasTemplateDeclEPNS_21TypeAliasTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29TraverseTypeAliasTemplateDeclEPNS_21TypeAliasTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseFunctionTemplateDeclEPNS_20FunctionTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseFunctionTemplateDeclEPNS_20FunctionTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseClassTemplateDeclEPNS_17ClassTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseClassTemplateDeclEPNS_17ClassTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseConceptDeclEPNS_11ConceptDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseConceptDeclEPNS_11ConceptDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseBuiltinTemplateDeclEPNS_19BuiltinTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseBuiltinTemplateDeclEPNS_19BuiltinTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseObjCPropertyDeclEPNS_16ObjCPropertyDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseObjCPropertyDeclEPNS_16ObjCPropertyDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31TraverseObjCCompatibleAliasDeclEPNS_23ObjCCompatibleAliasDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31TraverseObjCCompatibleAliasDeclEPNS_23ObjCCompatibleAliasDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseNamespaceAliasDeclEPNS_18NamespaceAliasDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseNamespaceAliasDeclEPNS_18NamespaceAliasDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17TraverseLabelDeclEPNS_9LabelDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17TraverseLabelDeclEPNS_9LabelDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseUsingEnumDeclEPNS_13UsingEnumDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseUsingEnumDeclEPNS_13UsingEnumDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17TraverseUsingDeclEPNS_9UsingDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17TraverseUsingDeclEPNS_9UsingDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE37TraverseLifetimeExtendedTemporaryDeclEPNS_29LifetimeExtendedTemporaryDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE37TraverseLifetimeExtendedTemporaryDeclEPNS_29LifetimeExtendedTemporaryDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseImportDeclEPNS_10ImportDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseImportDeclEPNS_10ImportDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE41TraverseImplicitConceptSpecializationDeclEPNS_33ImplicitConceptSpecializationDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE41TraverseImplicitConceptSpecializationDeclEPNS_33ImplicitConceptSpecializationDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseFriendTemplateDeclEPNS_18FriendTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseFriendTemplateDeclEPNS_18FriendTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseFriendDeclEPNS_10FriendDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseFriendDeclEPNS_10FriendDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseFileScopeAsmDeclEPNS_16FileScopeAsmDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseFileScopeAsmDeclEPNS_16FileScopeAsmDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17TraverseEmptyDeclEPNS_9EmptyDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17TraverseEmptyDeclEPNS_9EmptyDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseAccessSpecDeclEPNS_14AccessSpecDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseAccessSpecDeclEPNS_14AccessSpecDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitTranslationUnitDeclEPNS_19TranslationUnitDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitTranslationUnitDeclEPNS_19TranslationUnitDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitTopLevelStmtDeclEPNS_16TopLevelStmtDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitTopLevelStmtDeclEPNS_16TopLevelStmtDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitRequiresExprBodyDeclEPNS_20RequiresExprBodyDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitRequiresExprBodyDeclEPNS_20RequiresExprBodyDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitOutlinedFunctionDeclEPNS_20OutlinedFunctionDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitOutlinedFunctionDeclEPNS_20OutlinedFunctionDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitLinkageSpecDeclEPNS_15LinkageSpecDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitLinkageSpecDeclEPNS_15LinkageSpecDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitExternCContextDeclEPNS_18ExternCContextDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitExternCContextDeclEPNS_18ExternCContextDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitExportDeclEPNS_10ExportDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitExportDeclEPNS_10ExportDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitCapturedDeclEPNS_12CapturedDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitCapturedDeclEPNS_12CapturedDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitBlockDeclEPNS_9BlockDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitBlockDeclEPNS_9BlockDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitStaticAssertDeclEPNS_16StaticAssertDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitStaticAssertDeclEPNS_16StaticAssertDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitPragmaDetectMismatchDeclEPNS_24PragmaDetectMismatchDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitPragmaDetectMismatchDeclEPNS_24PragmaDetectMismatchDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitPragmaCommentDeclEPNS_17PragmaCommentDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitPragmaCommentDeclEPNS_17PragmaCommentDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitObjCPropertyImplDeclEPNS_20ObjCPropertyImplDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitObjCPropertyImplDeclEPNS_20ObjCPropertyImplDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitOMPThreadPrivateDeclEPNS_20OMPThreadPrivateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitOMPThreadPrivateDeclEPNS_20OMPThreadPrivateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitOMPRequiresDeclEPNS_15OMPRequiresDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitOMPRequiresDeclEPNS_15OMPRequiresDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitOMPAllocateDeclEPNS_15OMPAllocateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitOMPAllocateDeclEPNS_15OMPAllocateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitNamedDeclEPNS_9NamedDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitNamedDeclEPNS_9NamedDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitObjCMethodDeclEPNS_14ObjCMethodDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitObjCMethodDeclEPNS_14ObjCMethodDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitObjCContainerDeclEPNS_17ObjCContainerDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitObjCContainerDeclEPNS_17ObjCContainerDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitObjCProtocolDeclEPNS_16ObjCProtocolDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitObjCProtocolDeclEPNS_16ObjCProtocolDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitObjCInterfaceDeclEPNS_17ObjCInterfaceDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitObjCInterfaceDeclEPNS_17ObjCInterfaceDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitObjCImplDeclEPNS_12ObjCImplDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitObjCImplDeclEPNS_12ObjCImplDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitObjCImplementationDeclEPNS_22ObjCImplementationDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitObjCImplementationDeclEPNS_22ObjCImplementationDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitObjCCategoryImplDeclEPNS_20ObjCCategoryImplDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitObjCCategoryImplDeclEPNS_20ObjCCategoryImplDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitObjCCategoryDeclEPNS_16ObjCCategoryDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitObjCCategoryDeclEPNS_16ObjCCategoryDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitNamespaceDeclEPNS_13NamespaceDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitNamespaceDeclEPNS_13NamespaceDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitHLSLBufferDeclEPNS_14HLSLBufferDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitHLSLBufferDeclEPNS_14HLSLBufferDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitValueDeclEPNS_9ValueDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitValueDeclEPNS_9ValueDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28VisitOMPDeclareReductionDeclEPNS_23OMPDeclareReductionDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28VisitOMPDeclareReductionDeclEPNS_23OMPDeclareReductionDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitOMPDeclareMapperDeclEPNS_20OMPDeclareMapperDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitOMPDeclareMapperDeclEPNS_20OMPDeclareMapperDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitUnresolvedUsingValueDeclEPNS_24UnresolvedUsingValueDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitUnresolvedUsingValueDeclEPNS_24UnresolvedUsingValueDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30VisitUnnamedGlobalConstantDeclEPNS_25UnnamedGlobalConstantDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30VisitUnnamedGlobalConstantDeclEPNS_25UnnamedGlobalConstantDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28VisitTemplateParamObjectDeclEPNS_23TemplateParamObjectDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28VisitTemplateParamObjectDeclEPNS_23TemplateParamObjectDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitMSGuidDeclEPNS_10MSGuidDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitMSGuidDeclEPNS_10MSGuidDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitIndirectFieldDeclEPNS_17IndirectFieldDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitIndirectFieldDeclEPNS_17IndirectFieldDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitEnumConstantDeclEPNS_16EnumConstantDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitEnumConstantDeclEPNS_16EnumConstantDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitDeclaratorDeclEPNS_14DeclaratorDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitDeclaratorDeclEPNS_14DeclaratorDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitFunctionDeclEPNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitFunctionDeclEPNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitCXXMethodDeclEPNS_13CXXMethodDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitCXXMethodDeclEPNS_13CXXMethodDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitCXXDestructorDeclEPNS_17CXXDestructorDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitCXXDestructorDeclEPNS_17CXXDestructorDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitCXXConversionDeclEPNS_17CXXConversionDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitCXXConversionDeclEPNS_17CXXConversionDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitCXXConstructorDeclEPNS_18CXXConstructorDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitCXXConstructorDeclEPNS_18CXXConstructorDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitCXXDeductionGuideDeclEPNS_21CXXDeductionGuideDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitCXXDeductionGuideDeclEPNS_21CXXDeductionGuideDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE12VisitVarDeclEPNS_7VarDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE12VisitVarDeclEPNS_7VarDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34VisitVarTemplateSpecializationDeclEPNS_29VarTemplateSpecializationDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34VisitVarTemplateSpecializationDeclEPNS_29VarTemplateSpecializationDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE41VisitVarTemplatePartialSpecializationDeclEPNS_36VarTemplatePartialSpecializationDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE41VisitVarTemplatePartialSpecializationDeclEPNS_36VarTemplatePartialSpecializationDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitParmVarDeclEPNS_11ParmVarDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitParmVarDeclEPNS_11ParmVarDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitOMPCapturedExprDeclEPNS_19OMPCapturedExprDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitOMPCapturedExprDeclEPNS_19OMPCapturedExprDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitImplicitParamDeclEPNS_17ImplicitParamDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitImplicitParamDeclEPNS_17ImplicitParamDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitDecompositionDeclEPNS_17DecompositionDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitDecompositionDeclEPNS_17DecompositionDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28VisitNonTypeTemplateParmDeclEPNS_23NonTypeTemplateParmDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28VisitNonTypeTemplateParmDeclEPNS_23NonTypeTemplateParmDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitMSPropertyDeclEPNS_14MSPropertyDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitMSPropertyDeclEPNS_14MSPropertyDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitFieldDeclEPNS_9FieldDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitFieldDeclEPNS_9FieldDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitObjCIvarDeclEPNS_12ObjCIvarDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitObjCIvarDeclEPNS_12ObjCIvarDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitObjCAtDefsFieldDeclEPNS_19ObjCAtDefsFieldDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitObjCAtDefsFieldDeclEPNS_19ObjCAtDefsFieldDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitBindingDeclEPNS_11BindingDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitBindingDeclEPNS_11BindingDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitUsingShadowDeclEPNS_15UsingShadowDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitUsingShadowDeclEPNS_15UsingShadowDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31VisitConstructorUsingShadowDeclEPNS_26ConstructorUsingShadowDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31VisitConstructorUsingShadowDeclEPNS_26ConstructorUsingShadowDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitUsingPackDeclEPNS_13UsingPackDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitUsingPackDeclEPNS_13UsingPackDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitUsingDirectiveDeclEPNS_18UsingDirectiveDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitUsingDirectiveDeclEPNS_18UsingDirectiveDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32VisitUnresolvedUsingIfExistsDeclEPNS_27UnresolvedUsingIfExistsDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32VisitUnresolvedUsingIfExistsDeclEPNS_27UnresolvedUsingIfExistsDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE13VisitTypeDeclEPNS_8TypeDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE13VisitTypeDeclEPNS_8TypeDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE12VisitTagDeclEPNS_7TagDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE12VisitTagDeclEPNS_7TagDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitRecordDeclEPNS_10RecordDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitRecordDeclEPNS_10RecordDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitCXXRecordDeclEPNS_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitCXXRecordDeclEPNS_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE36VisitClassTemplateSpecializationDeclEPNS_31ClassTemplateSpecializationDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE36VisitClassTemplateSpecializationDeclEPNS_31ClassTemplateSpecializationDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE43VisitClassTemplatePartialSpecializationDeclEPNS_38ClassTemplatePartialSpecializationDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE43VisitClassTemplatePartialSpecializationDeclEPNS_38ClassTemplatePartialSpecializationDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE13VisitEnumDeclEPNS_8EnumDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE13VisitEnumDeclEPNS_8EnumDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32VisitUnresolvedUsingTypenameDeclEPNS_27UnresolvedUsingTypenameDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32VisitUnresolvedUsingTypenameDeclEPNS_27UnresolvedUsingTypenameDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitTypedefNameDeclEPNS_15TypedefNameDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitTypedefNameDeclEPNS_15TypedefNameDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitTypedefDeclEPNS_11TypedefDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitTypedefDeclEPNS_11TypedefDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitTypeAliasDeclEPNS_13TypeAliasDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitTypeAliasDeclEPNS_13TypeAliasDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitObjCTypeParamDeclEPNS_17ObjCTypeParamDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitObjCTypeParamDeclEPNS_17ObjCTypeParamDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitTemplateTypeParmDeclEPNS_20TemplateTypeParmDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitTemplateTypeParmDeclEPNS_20TemplateTypeParmDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitTemplateDeclEPNS_12TemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitTemplateDeclEPNS_12TemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitTemplateTemplateParmDeclEPNS_24TemplateTemplateParmDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitTemplateTemplateParmDeclEPNS_24TemplateTemplateParmDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitRedeclarableTemplateDeclEPNS_24RedeclarableTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitRedeclarableTemplateDeclEPNS_24RedeclarableTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitVarTemplateDeclEPNS_15VarTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitVarTemplateDeclEPNS_15VarTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitTypeAliasTemplateDeclEPNS_21TypeAliasTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitTypeAliasTemplateDeclEPNS_21TypeAliasTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitFunctionTemplateDeclEPNS_20FunctionTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitFunctionTemplateDeclEPNS_20FunctionTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitClassTemplateDeclEPNS_17ClassTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitClassTemplateDeclEPNS_17ClassTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitConceptDeclEPNS_11ConceptDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitConceptDeclEPNS_11ConceptDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitBuiltinTemplateDeclEPNS_19BuiltinTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitBuiltinTemplateDeclEPNS_19BuiltinTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitObjCPropertyDeclEPNS_16ObjCPropertyDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitObjCPropertyDeclEPNS_16ObjCPropertyDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28VisitObjCCompatibleAliasDeclEPNS_23ObjCCompatibleAliasDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28VisitObjCCompatibleAliasDeclEPNS_23ObjCCompatibleAliasDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitNamespaceAliasDeclEPNS_18NamespaceAliasDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitNamespaceAliasDeclEPNS_18NamespaceAliasDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitLabelDeclEPNS_9LabelDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitLabelDeclEPNS_9LabelDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitBaseUsingDeclEPNS_13BaseUsingDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitBaseUsingDeclEPNS_13BaseUsingDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitUsingEnumDeclEPNS_13UsingEnumDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitUsingEnumDeclEPNS_13UsingEnumDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitUsingDeclEPNS_9UsingDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitUsingDeclEPNS_9UsingDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34VisitLifetimeExtendedTemporaryDeclEPNS_29LifetimeExtendedTemporaryDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34VisitLifetimeExtendedTemporaryDeclEPNS_29LifetimeExtendedTemporaryDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitImportDeclEPNS_10ImportDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitImportDeclEPNS_10ImportDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE38VisitImplicitConceptSpecializationDeclEPNS_33ImplicitConceptSpecializationDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE38VisitImplicitConceptSpecializationDeclEPNS_33ImplicitConceptSpecializationDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitFriendTemplateDeclEPNS_18FriendTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitFriendTemplateDeclEPNS_18FriendTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitFriendDeclEPNS_10FriendDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitFriendDeclEPNS_10FriendDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitFileScopeAsmDeclEPNS_16FileScopeAsmDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitFileScopeAsmDeclEPNS_16FileScopeAsmDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitEmptyDeclEPNS_9EmptyDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitEmptyDeclEPNS_9EmptyDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitAccessSpecDeclEPNS_14AccessSpecDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitAccessSpecDeclEPNS_14AccessSpecDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17TraverseWhileStmtEPNS_9WhileStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17TraverseWhileStmtEPNS_9WhileStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17TraverseLabelStmtEPNS_9LabelStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17TraverseLabelStmtEPNS_9LabelStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17TraverseVAArgExprEPNS_9VAArgExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17TraverseVAArgExprEPNS_9VAArgExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseUnaryOperatorEPNS_13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseUnaryOperatorEPNS_13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseUnaryExprOrTypeTraitExprEPNS_24UnaryExprOrTypeTraitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseUnaryExprOrTypeTraitExprEPNS_24UnaryExprOrTypeTraitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16TraverseTypoExprEPNS_8TypoExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16TraverseTypoExprEPNS_8TypoExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseTypeTraitExprEPNS_13TypeTraitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseTypeTraitExprEPNS_13TypeTraitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE40TraverseSubstNonTypeTemplateParmPackExprEPNS_32SubstNonTypeTemplateParmPackExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE40TraverseSubstNonTypeTemplateParmPackExprEPNS_32SubstNonTypeTemplateParmPackExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE36TraverseSubstNonTypeTemplateParmExprEPNS_28SubstNonTypeTemplateParmExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE36TraverseSubstNonTypeTemplateParmExprEPNS_28SubstNonTypeTemplateParmExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseStringLiteralEPNS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseStringLiteralEPNS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16TraverseStmtExprEPNS_8StmtExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16TraverseStmtExprEPNS_8StmtExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseSourceLocExprEPNS_13SourceLocExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseSourceLocExprEPNS_13SourceLocExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseSizeOfPackExprEPNS_14SizeOfPackExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseSizeOfPackExprEPNS_14SizeOfPackExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseShuffleVectorExprEPNS_17ShuffleVectorExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseShuffleVectorExprEPNS_17ShuffleVectorExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseSYCLUniqueStableNameExprEPNS_24SYCLUniqueStableNameExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseSYCLUniqueStableNameExprEPNS_24SYCLUniqueStableNameExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34TraverseResolvedUnexpandedPackExprEPNS_26ResolvedUnexpandedPackExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34TraverseResolvedUnexpandedPackExprEPNS_26ResolvedUnexpandedPackExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseRequiresExprEPNS_12RequiresExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseRequiresExprEPNS_12RequiresExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseRecoveryExprEPNS_12RecoveryExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseRecoveryExprEPNS_12RecoveryExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraversePseudoObjectExprEPNS_16PseudoObjectExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraversePseudoObjectExprEPNS_16PseudoObjectExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraversePredefinedExprEPNS_14PredefinedExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraversePredefinedExprEPNS_14PredefinedExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseParenListExprEPNS_13ParenListExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseParenListExprEPNS_13ParenListExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17TraverseParenExprEPNS_9ParenExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17TraverseParenExprEPNS_9ParenExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor24TraversePackIndexingExprEPN5clang16PackIndexingExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(none) %1) unnamed_addr #2 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor24TraversePackIndexingExprEPN5clang16PackIndexingExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !1009
   %5 = tail call noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE12TraverseStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef %4) #16
@@ -9797,42 +9791,42 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParamete
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor25TraversePackExpansionExprEPN5clang17PackExpansionExprE(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #10 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor25TraversePackExpansionExprEPN5clang17PackExpansionExprE(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #9 align 2 {
   ret i1 true
 }
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseUnresolvedMemberExprEPNS_20UnresolvedMemberExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseUnresolvedMemberExprEPNS_20UnresolvedMemberExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseUnresolvedLookupExprEPNS_20UnresolvedLookupExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseUnresolvedLookupExprEPNS_20UnresolvedLookupExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31TraverseOpenACCAsteriskSizeExprEPNS_23OpenACCAsteriskSizeExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31TraverseOpenACCAsteriskSizeExprEPNS_23OpenACCAsteriskSizeExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseOpaqueValueExprEPNS_15OpaqueValueExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseOpaqueValueExprEPNS_15OpaqueValueExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseOffsetOfExprEPNS_12OffsetOfExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseOffsetOfExprEPNS_12OffsetOfExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseObjCSubscriptRefExprEPNS_20ObjCSubscriptRefExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseObjCSubscriptRefExprEPNS_20ObjCSubscriptRefExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseObjCStringLiteralEPNS_17ObjCStringLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseObjCStringLiteralEPNS_17ObjCStringLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseObjCSelectorExprEPNS_16ObjCSelectorExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseObjCSelectorExprEPNS_16ObjCSelectorExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseObjCProtocolExprEPNS_16ObjCProtocolExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseObjCProtocolExprEPNS_16ObjCProtocolExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseObjCPropertyRefExprEPNS_19ObjCPropertyRefExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseObjCPropertyRefExprEPNS_19ObjCPropertyRefExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseObjCMessageExprEPNS_15ObjCMessageExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseObjCMessageExprEPNS_15ObjCMessageExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseObjCIvarRefExprEPNS_15ObjCIvarRefExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseObjCIvarRefExprEPNS_15ObjCIvarRefExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseObjCIsaExprEPNS_11ObjCIsaExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseObjCIsaExprEPNS_11ObjCIsaExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE35TraverseObjCIndirectCopyRestoreExprEPNS_27ObjCIndirectCopyRestoreExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE35TraverseObjCIndirectCopyRestoreExprEPNS_27ObjCIndirectCopyRestoreExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseObjCEncodeExprEPNS_14ObjCEncodeExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseObjCEncodeExprEPNS_14ObjCEncodeExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor29TraverseObjCDictionaryLiteralEPN5clang21ObjCDictionaryLiteralE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(none) %1) unnamed_addr #2 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor29TraverseObjCDictionaryLiteralEPN5clang21ObjCDictionaryLiteralE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 align 2 {
   %3 = load i24, ptr %1, align 8
   %4 = and i24 %3, 16384
   %.not13 = icmp eq i24 %4, 0
@@ -9889,32 +9883,32 @@ _ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit.thread: ; preds = %
   ret i1 true
 }
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseObjCBoxedExprEPNS_13ObjCBoxedExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseObjCBoxedExprEPNS_13ObjCBoxedExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseObjCBoolLiteralExprEPNS_19ObjCBoolLiteralExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseObjCBoolLiteralExprEPNS_19ObjCBoolLiteralExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE33TraverseObjCAvailabilityCheckExprEPNS_25ObjCAvailabilityCheckExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE33TraverseObjCAvailabilityCheckExprEPNS_25ObjCAvailabilityCheckExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseObjCArrayLiteralEPNS_16ObjCArrayLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseObjCArrayLiteralEPNS_16ObjCArrayLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseOMPIteratorExprEPNS_15OMPIteratorExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseOMPIteratorExprEPNS_15OMPIteratorExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseOMPArrayShapingExprEPNS_19OMPArrayShapingExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseOMPArrayShapingExprEPNS_19OMPArrayShapingExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseNoInitExprEPNS_10NoInitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseNoInitExprEPNS_10NoInitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseMemberExprEPNS_10MemberExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseMemberExprEPNS_10MemberExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseMatrixSubscriptExprEPNS_19MatrixSubscriptExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseMatrixSubscriptExprEPNS_19MatrixSubscriptExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseMaterializeTemporaryExprEPNS_24MaterializeTemporaryExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseMaterializeTemporaryExprEPNS_24MaterializeTemporaryExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31TraverseMSPropertySubscriptExprEPNS_23MSPropertySubscriptExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31TraverseMSPropertySubscriptExprEPNS_23MSPropertySubscriptExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseMSPropertyRefExprEPNS_17MSPropertyRefExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseMSPropertyRefExprEPNS_17MSPropertyRefExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor18TraverseLambdaExprEPN5clang10LambdaExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor18TraverseLambdaExprEPN5clang10LambdaExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = load i24, ptr %1, align 8
   %4 = and i24 %3, 16384
   %.not7 = icmp eq i24 %4, 0
@@ -9945,141 +9939,141 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParamete
   ret i1 true
 }
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseIntegerLiteralEPNS_14IntegerLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseIntegerLiteralEPNS_14IntegerLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseInitListExprEPNS_12InitListExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseInitListExprEPNS_12InitListExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29TraverseImplicitValueInitExprEPNS_21ImplicitValueInitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29TraverseImplicitValueInitExprEPNS_21ImplicitValueInitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseImaginaryLiteralEPNS_16ImaginaryLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseImaginaryLiteralEPNS_16ImaginaryLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseHLSLOutArgExprEPNS_14HLSLOutArgExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseHLSLOutArgExprEPNS_14HLSLOutArgExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseGenericSelectionExprEPNS_20GenericSelectionExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseGenericSelectionExprEPNS_20GenericSelectionExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseGNUNullExprEPNS_11GNUNullExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseGNUNullExprEPNS_11GNUNullExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseFunctionParmPackExprEPNS_20FunctionParmPackExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseFunctionParmPackExprEPNS_20FunctionParmPackExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseExprWithCleanupsEPNS_16ExprWithCleanupsE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseExprWithCleanupsEPNS_16ExprWithCleanupsE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseConstantExprEPNS_12ConstantExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseConstantExprEPNS_12ConstantExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseFloatingLiteralEPNS_15FloatingLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseFloatingLiteralEPNS_15FloatingLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseFixedPointLiteralEPNS_17FixedPointLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseFixedPointLiteralEPNS_17FixedPointLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseExtVectorElementExprEPNS_20ExtVectorElementExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseExtVectorElementExprEPNS_20ExtVectorElementExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseExpressionTraitExprEPNS_19ExpressionTraitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseExpressionTraitExprEPNS_19ExpressionTraitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17TraverseEmbedExprEPNS_9EmbedExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17TraverseEmbedExprEPNS_9EmbedExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseDesignatedInitUpdateExprEPNS_24DesignatedInitUpdateExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseDesignatedInitUpdateExprEPNS_24DesignatedInitUpdateExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseDesignatedInitExprEPNS_18DesignatedInitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseDesignatedInitExprEPNS_18DesignatedInitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE33TraverseDependentScopeDeclRefExprEPNS_25DependentScopeDeclRefExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE33TraverseDependentScopeDeclRefExprEPNS_25DependentScopeDeclRefExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseDependentCoawaitExprEPNS_20DependentCoawaitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseDependentCoawaitExprEPNS_20DependentCoawaitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseDeclRefExprEPNS_11DeclRefExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseDeclRefExprEPNS_11DeclRefExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseCoyieldExprEPNS_11CoyieldExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseCoyieldExprEPNS_11CoyieldExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseCoawaitExprEPNS_11CoawaitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseCoawaitExprEPNS_11CoawaitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseConvertVectorExprEPNS_17ConvertVectorExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseConvertVectorExprEPNS_17ConvertVectorExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE33TraverseConceptSpecializationExprEPNS_25ConceptSpecializationExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE33TraverseConceptSpecializationExprEPNS_25ConceptSpecializationExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseCompoundLiteralExprEPNS_19CompoundLiteralExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseCompoundLiteralExprEPNS_19CompoundLiteralExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseChooseExprEPNS_10ChooseExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseChooseExprEPNS_10ChooseExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseCharacterLiteralEPNS_16CharacterLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseCharacterLiteralEPNS_16CharacterLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseImplicitCastExprEPNS_16ImplicitCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseImplicitCastExprEPNS_16ImplicitCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseObjCBridgedCastExprEPNS_19ObjCBridgedCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseObjCBridgedCastExprEPNS_19ObjCBridgedCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseCXXStaticCastExprEPNS_17CXXStaticCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseCXXStaticCastExprEPNS_17CXXStaticCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseCXXReinterpretCastExprEPNS_22CXXReinterpretCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseCXXReinterpretCastExprEPNS_22CXXReinterpretCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseCXXDynamicCastExprEPNS_18CXXDynamicCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseCXXDynamicCastExprEPNS_18CXXDynamicCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseCXXConstCastExprEPNS_16CXXConstCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseCXXConstCastExprEPNS_16CXXConstCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseCXXAddrspaceCastExprEPNS_20CXXAddrspaceCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseCXXAddrspaceCastExprEPNS_20CXXAddrspaceCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29TraverseCXXFunctionalCastExprEPNS_21CXXFunctionalCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29TraverseCXXFunctionalCastExprEPNS_21CXXFunctionalCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseCStyleCastExprEPNS_14CStyleCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseCStyleCastExprEPNS_14CStyleCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseBuiltinBitCastExprEPNS_18BuiltinBitCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseBuiltinBitCastExprEPNS_18BuiltinBitCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16TraverseCallExprEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16TraverseCallExprEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseUserDefinedLiteralEPNS_18UserDefinedLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseUserDefinedLiteralEPNS_18UserDefinedLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseCXXOperatorCallExprEPNS_19CXXOperatorCallExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseCXXOperatorCallExprEPNS_19CXXOperatorCallExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseCXXMemberCallExprEPNS_17CXXMemberCallExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseCXXMemberCallExprEPNS_17CXXMemberCallExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseCUDAKernelCallExprEPNS_18CUDAKernelCallExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseCUDAKernelCallExprEPNS_18CUDAKernelCallExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseCXXUuidofExprEPNS_13CXXUuidofExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseCXXUuidofExprEPNS_13CXXUuidofExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34TraverseCXXUnresolvedConstructExprEPNS_26CXXUnresolvedConstructExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34TraverseCXXUnresolvedConstructExprEPNS_26CXXUnresolvedConstructExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseCXXTypeidExprEPNS_13CXXTypeidExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseCXXTypeidExprEPNS_13CXXTypeidExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseCXXThrowExprEPNS_12CXXThrowExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseCXXThrowExprEPNS_12CXXThrowExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseCXXThisExprEPNS_11CXXThisExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseCXXThisExprEPNS_11CXXThisExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE33TraverseCXXStdInitializerListExprEPNS_25CXXStdInitializerListExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE33TraverseCXXStdInitializerListExprEPNS_25CXXStdInitializerListExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseCXXScalarValueInitExprEPNS_22CXXScalarValueInitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseCXXScalarValueInitExprEPNS_22CXXScalarValueInitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34TraverseCXXRewrittenBinaryOperatorEPNS_26CXXRewrittenBinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34TraverseCXXRewrittenBinaryOperatorEPNS_26CXXRewrittenBinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31TraverseCXXPseudoDestructorExprEPNS_23CXXPseudoDestructorExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31TraverseCXXPseudoDestructorExprEPNS_23CXXPseudoDestructorExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseCXXParenListInitExprEPNS_20CXXParenListInitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseCXXParenListInitExprEPNS_20CXXParenListInitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29TraverseCXXNullPtrLiteralExprEPNS_21CXXNullPtrLiteralExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29TraverseCXXNullPtrLiteralExprEPNS_21CXXNullPtrLiteralExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseCXXNoexceptExprEPNS_15CXXNoexceptExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseCXXNoexceptExprEPNS_15CXXNoexceptExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseCXXNewExprEPNS_10CXXNewExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseCXXNewExprEPNS_10CXXNewExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseCXXInheritedCtorInitExprEPNS_24CXXInheritedCtorInitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseCXXInheritedCtorInitExprEPNS_24CXXInheritedCtorInitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor19TraverseCXXFoldExprEPN5clang11CXXFoldExprE(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #10 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor19TraverseCXXFoldExprEPN5clang11CXXFoldExprE(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #9 align 2 {
   ret i1 true
 }
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE35TraverseCXXDependentScopeMemberExprEPNS_27CXXDependentScopeMemberExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE35TraverseCXXDependentScopeMemberExprEPNS_27CXXDependentScopeMemberExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseCXXDeleteExprEPNS_13CXXDeleteExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseCXXDeleteExprEPNS_13CXXDeleteExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseCXXDefaultInitExprEPNS_18CXXDefaultInitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseCXXDefaultInitExprEPNS_18CXXDefaultInitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseCXXDefaultArgExprEPNS_17CXXDefaultArgExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseCXXDefaultArgExprEPNS_17CXXDefaultArgExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseCXXConstructExprEPNS_16CXXConstructExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseCXXConstructExprEPNS_16CXXConstructExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseCXXTemporaryObjectExprEPNS_22CXXTemporaryObjectExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseCXXTemporaryObjectExprEPNS_22CXXTemporaryObjectExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseCXXBoolLiteralExprEPNS_18CXXBoolLiteralExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseCXXBoolLiteralExprEPNS_18CXXBoolLiteralExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseCXXBindTemporaryExprEPNS_20CXXBindTemporaryExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseCXXBindTemporaryExprEPNS_20CXXBindTemporaryExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor17TraverseBlockExprEPN5clang9BlockExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor17TraverseBlockExprEPN5clang9BlockExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = load i24, ptr %1, align 8
   %4 = and i24 %3, 16384
   %.not = icmp eq i24 %4, 0
@@ -10097,333 +10091,333 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParamete
   ret i1 true
 }
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseCompoundAssignOperatorEPNS_22CompoundAssignOperatorE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseCompoundAssignOperatorEPNS_22CompoundAssignOperatorE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseAtomicExprEPNS_10AtomicExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseAtomicExprEPNS_10AtomicExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseAsTypeExprEPNS_10AsTypeExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseAsTypeExprEPNS_10AsTypeExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseArrayTypeTraitExprEPNS_18ArrayTypeTraitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseArrayTypeTraitExprEPNS_18ArrayTypeTraitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseArraySubscriptExprEPNS_18ArraySubscriptExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseArraySubscriptExprEPNS_18ArraySubscriptExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseArraySectionExprEPNS_16ArraySectionExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseArraySectionExprEPNS_16ArraySectionExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseArrayInitLoopExprEPNS_17ArrayInitLoopExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseArrayInitLoopExprEPNS_17ArrayInitLoopExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseArrayInitIndexExprEPNS_18ArrayInitIndexExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseArrayInitIndexExprEPNS_18ArrayInitIndexExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseAddrLabelExprEPNS_13AddrLabelExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseAddrLabelExprEPNS_13AddrLabelExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseConditionalOperatorEPNS_19ConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseConditionalOperatorEPNS_19ConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE33TraverseBinaryConditionalOperatorEPNS_25BinaryConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE33TraverseBinaryConditionalOperatorEPNS_25BinaryConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseAttributedStmtEPNS_14AttributedStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseAttributedStmtEPNS_14AttributedStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseSwitchStmtEPNS_10SwitchStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseSwitchStmtEPNS_10SwitchStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseDefaultStmtEPNS_11DefaultStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseDefaultStmtEPNS_11DefaultStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16TraverseCaseStmtEPNS_8CaseStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16TraverseCaseStmtEPNS_8CaseStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseSYCLKernelCallStmtEPNS_18SYCLKernelCallStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseSYCLKernelCallStmtEPNS_18SYCLKernelCallStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseSEHTryStmtEPNS_10SEHTryStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseSEHTryStmtEPNS_10SEHTryStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseSEHLeaveStmtEPNS_12SEHLeaveStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseSEHLeaveStmtEPNS_12SEHLeaveStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseSEHFinallyStmtEPNS_14SEHFinallyStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseSEHFinallyStmtEPNS_14SEHFinallyStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseSEHExceptStmtEPNS_13SEHExceptStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseSEHExceptStmtEPNS_13SEHExceptStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseReturnStmtEPNS_10ReturnStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseReturnStmtEPNS_10ReturnStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseOpenACCWaitConstructEPNS_20OpenACCWaitConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseOpenACCWaitConstructEPNS_20OpenACCWaitConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseOpenACCUpdateConstructEPNS_22OpenACCUpdateConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseOpenACCUpdateConstructEPNS_22OpenACCUpdateConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseOpenACCShutdownConstructEPNS_24OpenACCShutdownConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseOpenACCShutdownConstructEPNS_24OpenACCShutdownConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseOpenACCSetConstructEPNS_19OpenACCSetConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseOpenACCSetConstructEPNS_19OpenACCSetConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseOpenACCInitConstructEPNS_20OpenACCInitConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseOpenACCInitConstructEPNS_20OpenACCInitConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseOpenACCExitDataConstructEPNS_24OpenACCExitDataConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseOpenACCExitDataConstructEPNS_24OpenACCExitDataConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE33TraverseOpenACCEnterDataConstructEPNS_25OpenACCEnterDataConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE33TraverseOpenACCEnterDataConstructEPNS_25OpenACCEnterDataConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseOpenACCLoopConstructEPNS_20OpenACCLoopConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseOpenACCLoopConstructEPNS_20OpenACCLoopConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseOpenACCHostDataConstructEPNS_24OpenACCHostDataConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseOpenACCHostDataConstructEPNS_24OpenACCHostDataConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseOpenACCDataConstructEPNS_20OpenACCDataConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseOpenACCDataConstructEPNS_20OpenACCDataConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31TraverseOpenACCComputeConstructEPNS_23OpenACCComputeConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31TraverseOpenACCComputeConstructEPNS_23OpenACCComputeConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseOpenACCCombinedConstructEPNS_24OpenACCCombinedConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseOpenACCCombinedConstructEPNS_24OpenACCCombinedConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseOpenACCAtomicConstructEPNS_22OpenACCAtomicConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseOpenACCAtomicConstructEPNS_22OpenACCAtomicConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29TraverseObjCForCollectionStmtEPNS_21ObjCForCollectionStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29TraverseObjCForCollectionStmtEPNS_21ObjCForCollectionStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31TraverseObjCAutoreleasePoolStmtEPNS_23ObjCAutoreleasePoolStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31TraverseObjCAutoreleasePoolStmtEPNS_23ObjCAutoreleasePoolStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseObjCAtTryStmtEPNS_13ObjCAtTryStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseObjCAtTryStmtEPNS_13ObjCAtTryStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseObjCAtThrowStmtEPNS_15ObjCAtThrowStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseObjCAtThrowStmtEPNS_15ObjCAtThrowStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseObjCAtSynchronizedStmtEPNS_22ObjCAtSynchronizedStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseObjCAtSynchronizedStmtEPNS_22ObjCAtSynchronizedStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseObjCAtFinallyStmtEPNS_17ObjCAtFinallyStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseObjCAtFinallyStmtEPNS_17ObjCAtFinallyStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseObjCAtCatchStmtEPNS_15ObjCAtCatchStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseObjCAtCatchStmtEPNS_15ObjCAtCatchStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseOMPTeamsDirectiveEPNS_17OMPTeamsDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseOMPTeamsDirectiveEPNS_17OMPTeamsDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29TraverseOMPTaskyieldDirectiveEPNS_21OMPTaskyieldDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29TraverseOMPTaskyieldDirectiveEPNS_21OMPTaskyieldDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseOMPTaskwaitDirectiveEPNS_20OMPTaskwaitDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseOMPTaskwaitDirectiveEPNS_20OMPTaskwaitDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29TraverseOMPTaskgroupDirectiveEPNS_21OMPTaskgroupDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29TraverseOMPTaskgroupDirectiveEPNS_21OMPTaskgroupDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseOMPTaskDirectiveEPNS_16OMPTaskDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseOMPTaskDirectiveEPNS_16OMPTaskDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseOMPTargetUpdateDirectiveEPNS_24OMPTargetUpdateDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseOMPTargetUpdateDirectiveEPNS_24OMPTargetUpdateDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31TraverseOMPTargetTeamsDirectiveEPNS_23OMPTargetTeamsDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31TraverseOMPTargetTeamsDirectiveEPNS_23OMPTargetTeamsDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE37TraverseOMPTargetParallelForDirectiveEPNS_29OMPTargetParallelForDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE37TraverseOMPTargetParallelForDirectiveEPNS_29OMPTargetParallelForDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34TraverseOMPTargetParallelDirectiveEPNS_26OMPTargetParallelDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34TraverseOMPTargetParallelDirectiveEPNS_26OMPTargetParallelDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34TraverseOMPTargetExitDataDirectiveEPNS_26OMPTargetExitDataDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34TraverseOMPTargetExitDataDirectiveEPNS_26OMPTargetExitDataDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE35TraverseOMPTargetEnterDataDirectiveEPNS_27OMPTargetEnterDataDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE35TraverseOMPTargetEnterDataDirectiveEPNS_27OMPTargetEnterDataDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseOMPTargetDirectiveEPNS_18OMPTargetDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseOMPTargetDirectiveEPNS_18OMPTargetDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseOMPTargetDataDirectiveEPNS_22OMPTargetDataDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseOMPTargetDataDirectiveEPNS_22OMPTargetDataDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseOMPSingleDirectiveEPNS_18OMPSingleDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseOMPSingleDirectiveEPNS_18OMPSingleDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseOMPSectionsDirectiveEPNS_20OMPSectionsDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseOMPSectionsDirectiveEPNS_20OMPSectionsDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseOMPSectionDirectiveEPNS_19OMPSectionDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseOMPSectionDirectiveEPNS_19OMPSectionDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseOMPScopeDirectiveEPNS_17OMPScopeDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseOMPScopeDirectiveEPNS_17OMPScopeDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseOMPScanDirectiveEPNS_16OMPScanDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseOMPScanDirectiveEPNS_16OMPScanDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE36TraverseOMPParallelSectionsDirectiveEPNS_28OMPParallelSectionsDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE36TraverseOMPParallelSectionsDirectiveEPNS_28OMPParallelSectionsDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34TraverseOMPParallelMasterDirectiveEPNS_26OMPParallelMasterDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34TraverseOMPParallelMasterDirectiveEPNS_26OMPParallelMasterDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34TraverseOMPParallelMaskedDirectiveEPNS_26OMPParallelMaskedDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34TraverseOMPParallelMaskedDirectiveEPNS_26OMPParallelMaskedDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseOMPParallelDirectiveEPNS_20OMPParallelDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseOMPParallelDirectiveEPNS_20OMPParallelDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseOMPOrderedDirectiveEPNS_19OMPOrderedDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseOMPOrderedDirectiveEPNS_19OMPOrderedDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseOMPMetaDirectiveEPNS_16OMPMetaDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseOMPMetaDirectiveEPNS_16OMPMetaDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseOMPMasterDirectiveEPNS_18OMPMasterDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseOMPMasterDirectiveEPNS_18OMPMasterDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseOMPMaskedDirectiveEPNS_18OMPMaskedDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseOMPMaskedDirectiveEPNS_18OMPMaskedDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseOMPUnrollDirectiveEPNS_18OMPUnrollDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseOMPUnrollDirectiveEPNS_18OMPUnrollDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseOMPTileDirectiveEPNS_16OMPTileDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseOMPTileDirectiveEPNS_16OMPTileDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseOMPReverseDirectiveEPNS_19OMPReverseDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseOMPReverseDirectiveEPNS_19OMPReverseDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31TraverseOMPInterchangeDirectiveEPNS_23OMPInterchangeDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31TraverseOMPInterchangeDirectiveEPNS_23OMPInterchangeDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE36TraverseOMPTeamsGenericLoopDirectiveEPNS_28OMPTeamsGenericLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE36TraverseOMPTeamsGenericLoopDirectiveEPNS_28OMPTeamsGenericLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE39TraverseOMPTeamsDistributeSimdDirectiveEPNS_31OMPTeamsDistributeSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE39TraverseOMPTeamsDistributeSimdDirectiveEPNS_31OMPTeamsDistributeSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE50TraverseOMPTeamsDistributeParallelForSimdDirectiveEPNS_42OMPTeamsDistributeParallelForSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE50TraverseOMPTeamsDistributeParallelForSimdDirectiveEPNS_42OMPTeamsDistributeParallelForSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE46TraverseOMPTeamsDistributeParallelForDirectiveEPNS_38OMPTeamsDistributeParallelForDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE46TraverseOMPTeamsDistributeParallelForDirectiveEPNS_38OMPTeamsDistributeParallelForDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE35TraverseOMPTeamsDistributeDirectiveEPNS_27OMPTeamsDistributeDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE35TraverseOMPTeamsDistributeDirectiveEPNS_27OMPTeamsDistributeDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseOMPTaskLoopSimdDirectiveEPNS_24OMPTaskLoopSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseOMPTaskLoopSimdDirectiveEPNS_24OMPTaskLoopSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseOMPTaskLoopDirectiveEPNS_20OMPTaskLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseOMPTaskLoopDirectiveEPNS_20OMPTaskLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE42TraverseOMPTargetTeamsGenericLoopDirectiveEPNS_34OMPTargetTeamsGenericLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE42TraverseOMPTargetTeamsGenericLoopDirectiveEPNS_34OMPTargetTeamsGenericLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE45TraverseOMPTargetTeamsDistributeSimdDirectiveEPNS_37OMPTargetTeamsDistributeSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE45TraverseOMPTargetTeamsDistributeSimdDirectiveEPNS_37OMPTargetTeamsDistributeSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE56TraverseOMPTargetTeamsDistributeParallelForSimdDirectiveEPNS_48OMPTargetTeamsDistributeParallelForSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE56TraverseOMPTargetTeamsDistributeParallelForSimdDirectiveEPNS_48OMPTargetTeamsDistributeParallelForSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE52TraverseOMPTargetTeamsDistributeParallelForDirectiveEPNS_44OMPTargetTeamsDistributeParallelForDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE52TraverseOMPTargetTeamsDistributeParallelForDirectiveEPNS_44OMPTargetTeamsDistributeParallelForDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE41TraverseOMPTargetTeamsDistributeDirectiveEPNS_33OMPTargetTeamsDistributeDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE41TraverseOMPTargetTeamsDistributeDirectiveEPNS_33OMPTargetTeamsDistributeDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseOMPTargetSimdDirectiveEPNS_22OMPTargetSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseOMPTargetSimdDirectiveEPNS_22OMPTargetSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE45TraverseOMPTargetParallelGenericLoopDirectiveEPNS_37OMPTargetParallelGenericLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE45TraverseOMPTargetParallelGenericLoopDirectiveEPNS_37OMPTargetParallelGenericLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE41TraverseOMPTargetParallelForSimdDirectiveEPNS_33OMPTargetParallelForSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE41TraverseOMPTargetParallelForSimdDirectiveEPNS_33OMPTargetParallelForSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseOMPSimdDirectiveEPNS_16OMPSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseOMPSimdDirectiveEPNS_16OMPSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE46TraverseOMPParallelMasterTaskLoopSimdDirectiveEPNS_38OMPParallelMasterTaskLoopSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE46TraverseOMPParallelMasterTaskLoopSimdDirectiveEPNS_38OMPParallelMasterTaskLoopSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE42TraverseOMPParallelMasterTaskLoopDirectiveEPNS_34OMPParallelMasterTaskLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE42TraverseOMPParallelMasterTaskLoopDirectiveEPNS_34OMPParallelMasterTaskLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE46TraverseOMPParallelMaskedTaskLoopSimdDirectiveEPNS_38OMPParallelMaskedTaskLoopSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE46TraverseOMPParallelMaskedTaskLoopSimdDirectiveEPNS_38OMPParallelMaskedTaskLoopSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE42TraverseOMPParallelMaskedTaskLoopDirectiveEPNS_34OMPParallelMaskedTaskLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE42TraverseOMPParallelMaskedTaskLoopDirectiveEPNS_34OMPParallelMaskedTaskLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE39TraverseOMPParallelGenericLoopDirectiveEPNS_31OMPParallelGenericLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE39TraverseOMPParallelGenericLoopDirectiveEPNS_31OMPParallelGenericLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE35TraverseOMPParallelForSimdDirectiveEPNS_27OMPParallelForSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE35TraverseOMPParallelForSimdDirectiveEPNS_27OMPParallelForSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31TraverseOMPParallelForDirectiveEPNS_23OMPParallelForDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31TraverseOMPParallelForDirectiveEPNS_23OMPParallelForDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE38TraverseOMPMasterTaskLoopSimdDirectiveEPNS_30OMPMasterTaskLoopSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE38TraverseOMPMasterTaskLoopSimdDirectiveEPNS_30OMPMasterTaskLoopSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34TraverseOMPMasterTaskLoopDirectiveEPNS_26OMPMasterTaskLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34TraverseOMPMasterTaskLoopDirectiveEPNS_26OMPMasterTaskLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE38TraverseOMPMaskedTaskLoopSimdDirectiveEPNS_30OMPMaskedTaskLoopSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE38TraverseOMPMaskedTaskLoopSimdDirectiveEPNS_30OMPMaskedTaskLoopSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34TraverseOMPMaskedTaskLoopDirectiveEPNS_26OMPMaskedTaskLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34TraverseOMPMaskedTaskLoopDirectiveEPNS_26OMPMaskedTaskLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31TraverseOMPGenericLoopDirectiveEPNS_23OMPGenericLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31TraverseOMPGenericLoopDirectiveEPNS_23OMPGenericLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseOMPForSimdDirectiveEPNS_19OMPForSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseOMPForSimdDirectiveEPNS_19OMPForSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseOMPForDirectiveEPNS_15OMPForDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseOMPForDirectiveEPNS_15OMPForDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34TraverseOMPDistributeSimdDirectiveEPNS_26OMPDistributeSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34TraverseOMPDistributeSimdDirectiveEPNS_26OMPDistributeSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE45TraverseOMPDistributeParallelForSimdDirectiveEPNS_37OMPDistributeParallelForSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE45TraverseOMPDistributeParallelForSimdDirectiveEPNS_37OMPDistributeParallelForSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE41TraverseOMPDistributeParallelForDirectiveEPNS_33OMPDistributeParallelForDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE41TraverseOMPDistributeParallelForDirectiveEPNS_33OMPDistributeParallelForDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseOMPDistributeDirectiveEPNS_22OMPDistributeDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseOMPDistributeDirectiveEPNS_22OMPDistributeDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseOMPInteropDirectiveEPNS_19OMPInteropDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseOMPInteropDirectiveEPNS_19OMPInteropDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseOMPFlushDirectiveEPNS_17OMPFlushDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseOMPFlushDirectiveEPNS_17OMPFlushDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseOMPErrorDirectiveEPNS_17OMPErrorDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseOMPErrorDirectiveEPNS_17OMPErrorDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseOMPDispatchDirectiveEPNS_20OMPDispatchDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseOMPDispatchDirectiveEPNS_20OMPDispatchDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseOMPDepobjDirectiveEPNS_18OMPDepobjDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseOMPDepobjDirectiveEPNS_18OMPDepobjDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseOMPCriticalDirectiveEPNS_20OMPCriticalDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseOMPCriticalDirectiveEPNS_20OMPCriticalDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE37TraverseOMPCancellationPointDirectiveEPNS_29OMPCancellationPointDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE37TraverseOMPCancellationPointDirectiveEPNS_29OMPCancellationPointDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseOMPCancelDirectiveEPNS_18OMPCancelDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseOMPCancelDirectiveEPNS_18OMPCancelDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseOMPBarrierDirectiveEPNS_19OMPBarrierDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseOMPBarrierDirectiveEPNS_19OMPBarrierDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseOMPAtomicDirectiveEPNS_18OMPAtomicDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseOMPAtomicDirectiveEPNS_18OMPAtomicDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseOMPAssumeDirectiveEPNS_18OMPAssumeDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseOMPAssumeDirectiveEPNS_18OMPAssumeDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseOMPCanonicalLoopEPNS_16OMPCanonicalLoopE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseOMPCanonicalLoopEPNS_16OMPCanonicalLoopE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16TraverseNullStmtEPNS_8NullStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16TraverseNullStmtEPNS_8NullStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29TraverseMSDependentExistsStmtEPNS_21MSDependentExistsStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29TraverseMSDependentExistsStmtEPNS_21MSDependentExistsStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseIndirectGotoStmtEPNS_16IndirectGotoStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseIndirectGotoStmtEPNS_16IndirectGotoStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14TraverseIfStmtEPNS_6IfStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14TraverseIfStmtEPNS_6IfStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16TraverseGotoStmtEPNS_8GotoStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16TraverseGotoStmtEPNS_8GotoStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15TraverseForStmtEPNS_7ForStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15TraverseForStmtEPNS_7ForStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14TraverseDoStmtEPNS_6DoStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14TraverseDoStmtEPNS_6DoStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16TraverseDeclStmtEPNS_8DeclStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16TraverseDeclStmtEPNS_8DeclStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseCoroutineBodyStmtEPNS_17CoroutineBodyStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseCoroutineBodyStmtEPNS_17CoroutineBodyStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseCoreturnStmtEPNS_12CoreturnStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseCoreturnStmtEPNS_12CoreturnStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseContinueStmtEPNS_12ContinueStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseContinueStmtEPNS_12ContinueStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseCompoundStmtEPNS_12CompoundStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseCompoundStmtEPNS_12CompoundStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseCapturedStmtEPNS_12CapturedStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseCapturedStmtEPNS_12CapturedStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseCXXTryStmtEPNS_10CXXTryStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseCXXTryStmtEPNS_10CXXTryStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseCXXForRangeStmtEPNS_15CXXForRangeStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseCXXForRangeStmtEPNS_15CXXForRangeStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseCXXCatchStmtEPNS_12CXXCatchStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseCXXCatchStmtEPNS_12CXXCatchStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17TraverseBreakStmtEPNS_9BreakStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17TraverseBreakStmtEPNS_9BreakStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17TraverseMSAsmStmtEPNS_9MSAsmStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17TraverseMSAsmStmtEPNS_9MSAsmStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseGCCAsmStmtEPNS_10GCCAsmStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseGCCAsmStmtEPNS_10GCCAsmStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitWhileStmtEPNS_9WhileStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitWhileStmtEPNS_9WhileStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitValueStmtEPNS_9ValueStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitValueStmtEPNS_9ValueStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitLabelStmtEPNS_9LabelStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitLabelStmtEPNS_9LabelStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE9VisitExprEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE9VisitExprEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitVAArgExprEPNS_9VAArgExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitVAArgExprEPNS_9VAArgExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitUnaryOperatorEPNS_13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitUnaryOperatorEPNS_13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitUnaryExprOrTypeTraitExprEPNS_24UnaryExprOrTypeTraitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitUnaryExprOrTypeTraitExprEPNS_24UnaryExprOrTypeTraitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE13VisitTypoExprEPNS_8TypoExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE13VisitTypoExprEPNS_8TypoExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitTypeTraitExprEPNS_13TypeTraitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitTypeTraitExprEPNS_13TypeTraitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE37VisitSubstNonTypeTemplateParmPackExprEPNS_32SubstNonTypeTemplateParmPackExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE37VisitSubstNonTypeTemplateParmPackExprEPNS_32SubstNonTypeTemplateParmPackExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE33VisitSubstNonTypeTemplateParmExprEPNS_28SubstNonTypeTemplateParmExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE33VisitSubstNonTypeTemplateParmExprEPNS_28SubstNonTypeTemplateParmExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitStringLiteralEPNS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitStringLiteralEPNS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE13VisitStmtExprEPNS_8StmtExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE13VisitStmtExprEPNS_8StmtExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitSourceLocExprEPNS_13SourceLocExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitSourceLocExprEPNS_13SourceLocExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitSizeOfPackExprEPNS_14SizeOfPackExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitSizeOfPackExprEPNS_14SizeOfPackExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitShuffleVectorExprEPNS_17ShuffleVectorExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitShuffleVectorExprEPNS_17ShuffleVectorExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitSYCLUniqueStableNameExprEPNS_24SYCLUniqueStableNameExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitSYCLUniqueStableNameExprEPNS_24SYCLUniqueStableNameExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor31VisitResolvedUnexpandedPackExprEPN5clang26ResolvedUnexpandedPackExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor31VisitResolvedUnexpandedPackExprEPN5clang26ResolvedUnexpandedPackExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val = load ptr, ptr %3, align 8, !tbaa !1017
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -10461,181 +10455,181 @@ _ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor13addUnexpandedEPN5clan
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitRequiresExprEPNS_12RequiresExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitRequiresExprEPNS_12RequiresExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitRecoveryExprEPNS_12RecoveryExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitRecoveryExprEPNS_12RecoveryExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitPseudoObjectExprEPNS_16PseudoObjectExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitPseudoObjectExprEPNS_16PseudoObjectExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitPredefinedExprEPNS_14PredefinedExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitPredefinedExprEPNS_14PredefinedExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitParenListExprEPNS_13ParenListExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitParenListExprEPNS_13ParenListExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitParenExprEPNS_9ParenExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitParenExprEPNS_9ParenExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitPackIndexingExprEPNS_16PackIndexingExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitPackIndexingExprEPNS_16PackIndexingExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitPackExpansionExprEPNS_17PackExpansionExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitPackExpansionExprEPNS_17PackExpansionExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitOverloadExprEPNS_12OverloadExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitOverloadExprEPNS_12OverloadExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitUnresolvedMemberExprEPNS_20UnresolvedMemberExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitUnresolvedMemberExprEPNS_20UnresolvedMemberExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitUnresolvedLookupExprEPNS_20UnresolvedLookupExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitUnresolvedLookupExprEPNS_20UnresolvedLookupExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28VisitOpenACCAsteriskSizeExprEPNS_23OpenACCAsteriskSizeExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28VisitOpenACCAsteriskSizeExprEPNS_23OpenACCAsteriskSizeExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitOpaqueValueExprEPNS_15OpaqueValueExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitOpaqueValueExprEPNS_15OpaqueValueExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitOffsetOfExprEPNS_12OffsetOfExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitOffsetOfExprEPNS_12OffsetOfExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitObjCSubscriptRefExprEPNS_20ObjCSubscriptRefExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitObjCSubscriptRefExprEPNS_20ObjCSubscriptRefExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitObjCStringLiteralEPNS_17ObjCStringLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitObjCStringLiteralEPNS_17ObjCStringLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitObjCSelectorExprEPNS_16ObjCSelectorExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitObjCSelectorExprEPNS_16ObjCSelectorExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitObjCProtocolExprEPNS_16ObjCProtocolExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitObjCProtocolExprEPNS_16ObjCProtocolExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitObjCPropertyRefExprEPNS_19ObjCPropertyRefExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitObjCPropertyRefExprEPNS_19ObjCPropertyRefExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitObjCMessageExprEPNS_15ObjCMessageExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitObjCMessageExprEPNS_15ObjCMessageExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitObjCIvarRefExprEPNS_15ObjCIvarRefExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitObjCIvarRefExprEPNS_15ObjCIvarRefExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitObjCIsaExprEPNS_11ObjCIsaExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitObjCIsaExprEPNS_11ObjCIsaExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32VisitObjCIndirectCopyRestoreExprEPNS_27ObjCIndirectCopyRestoreExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32VisitObjCIndirectCopyRestoreExprEPNS_27ObjCIndirectCopyRestoreExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitObjCEncodeExprEPNS_14ObjCEncodeExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitObjCEncodeExprEPNS_14ObjCEncodeExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitObjCDictionaryLiteralEPNS_21ObjCDictionaryLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitObjCDictionaryLiteralEPNS_21ObjCDictionaryLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitObjCBoxedExprEPNS_13ObjCBoxedExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitObjCBoxedExprEPNS_13ObjCBoxedExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitObjCBoolLiteralExprEPNS_19ObjCBoolLiteralExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitObjCBoolLiteralExprEPNS_19ObjCBoolLiteralExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30VisitObjCAvailabilityCheckExprEPNS_25ObjCAvailabilityCheckExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30VisitObjCAvailabilityCheckExprEPNS_25ObjCAvailabilityCheckExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitObjCArrayLiteralEPNS_16ObjCArrayLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitObjCArrayLiteralEPNS_16ObjCArrayLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitOMPIteratorExprEPNS_15OMPIteratorExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitOMPIteratorExprEPNS_15OMPIteratorExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitOMPArrayShapingExprEPNS_19OMPArrayShapingExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitOMPArrayShapingExprEPNS_19OMPArrayShapingExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitNoInitExprEPNS_10NoInitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitNoInitExprEPNS_10NoInitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitMemberExprEPNS_10MemberExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitMemberExprEPNS_10MemberExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitMatrixSubscriptExprEPNS_19MatrixSubscriptExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitMatrixSubscriptExprEPNS_19MatrixSubscriptExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitMaterializeTemporaryExprEPNS_24MaterializeTemporaryExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitMaterializeTemporaryExprEPNS_24MaterializeTemporaryExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28VisitMSPropertySubscriptExprEPNS_23MSPropertySubscriptExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28VisitMSPropertySubscriptExprEPNS_23MSPropertySubscriptExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitMSPropertyRefExprEPNS_17MSPropertyRefExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitMSPropertyRefExprEPNS_17MSPropertyRefExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitLambdaExprEPNS_10LambdaExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitLambdaExprEPNS_10LambdaExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitIntegerLiteralEPNS_14IntegerLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitIntegerLiteralEPNS_14IntegerLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitInitListExprEPNS_12InitListExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitInitListExprEPNS_12InitListExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitImplicitValueInitExprEPNS_21ImplicitValueInitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitImplicitValueInitExprEPNS_21ImplicitValueInitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitImaginaryLiteralEPNS_16ImaginaryLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitImaginaryLiteralEPNS_16ImaginaryLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitHLSLOutArgExprEPNS_14HLSLOutArgExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitHLSLOutArgExprEPNS_14HLSLOutArgExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitGenericSelectionExprEPNS_20GenericSelectionExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitGenericSelectionExprEPNS_20GenericSelectionExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitGNUNullExprEPNS_11GNUNullExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitGNUNullExprEPNS_11GNUNullExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitFunctionParmPackExprEPNS_20FunctionParmPackExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitFunctionParmPackExprEPNS_20FunctionParmPackExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE13VisitFullExprEPNS_8FullExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE13VisitFullExprEPNS_8FullExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitExprWithCleanupsEPNS_16ExprWithCleanupsE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitExprWithCleanupsEPNS_16ExprWithCleanupsE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitConstantExprEPNS_12ConstantExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitConstantExprEPNS_12ConstantExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitFloatingLiteralEPNS_15FloatingLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitFloatingLiteralEPNS_15FloatingLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitFixedPointLiteralEPNS_17FixedPointLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitFixedPointLiteralEPNS_17FixedPointLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitExtVectorElementExprEPNS_20ExtVectorElementExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitExtVectorElementExprEPNS_20ExtVectorElementExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitExpressionTraitExprEPNS_19ExpressionTraitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitExpressionTraitExprEPNS_19ExpressionTraitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitEmbedExprEPNS_9EmbedExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitEmbedExprEPNS_9EmbedExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitDesignatedInitUpdateExprEPNS_24DesignatedInitUpdateExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitDesignatedInitUpdateExprEPNS_24DesignatedInitUpdateExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitDesignatedInitExprEPNS_18DesignatedInitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitDesignatedInitExprEPNS_18DesignatedInitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30VisitDependentScopeDeclRefExprEPNS_25DependentScopeDeclRefExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30VisitDependentScopeDeclRefExprEPNS_25DependentScopeDeclRefExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitDependentCoawaitExprEPNS_20DependentCoawaitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitDependentCoawaitExprEPNS_20DependentCoawaitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor16VisitDeclRefExprEPN5clang11DeclRefExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(none) %1) unnamed_addr #2 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor16VisitDeclRefExprEPN5clang11DeclRefExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !989
   %5 = tail call noundef zeroext i1 @_ZNK5clang9ValueDecl15isParameterPackEv(ptr noundef nonnull align 8 dereferenceable(56) %4) #16
@@ -10653,888 +10647,888 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParamete
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitCoroutineSuspendExprEPNS_20CoroutineSuspendExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitCoroutineSuspendExprEPNS_20CoroutineSuspendExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitCoyieldExprEPNS_11CoyieldExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitCoyieldExprEPNS_11CoyieldExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitCoawaitExprEPNS_11CoawaitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitCoawaitExprEPNS_11CoawaitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitConvertVectorExprEPNS_17ConvertVectorExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitConvertVectorExprEPNS_17ConvertVectorExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30VisitConceptSpecializationExprEPNS_25ConceptSpecializationExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30VisitConceptSpecializationExprEPNS_25ConceptSpecializationExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitCompoundLiteralExprEPNS_19CompoundLiteralExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitCompoundLiteralExprEPNS_19CompoundLiteralExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitChooseExprEPNS_10ChooseExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitChooseExprEPNS_10ChooseExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitCharacterLiteralEPNS_16CharacterLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitCharacterLiteralEPNS_16CharacterLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE13VisitCastExprEPNS_8CastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE13VisitCastExprEPNS_8CastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitImplicitCastExprEPNS_16ImplicitCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitImplicitCastExprEPNS_16ImplicitCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitExplicitCastExprEPNS_16ExplicitCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitExplicitCastExprEPNS_16ExplicitCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitObjCBridgedCastExprEPNS_19ObjCBridgedCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitObjCBridgedCastExprEPNS_19ObjCBridgedCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitCXXNamedCastExprEPNS_16CXXNamedCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitCXXNamedCastExprEPNS_16CXXNamedCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitCXXStaticCastExprEPNS_17CXXStaticCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitCXXStaticCastExprEPNS_17CXXStaticCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitCXXReinterpretCastExprEPNS_22CXXReinterpretCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitCXXReinterpretCastExprEPNS_22CXXReinterpretCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitCXXDynamicCastExprEPNS_18CXXDynamicCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitCXXDynamicCastExprEPNS_18CXXDynamicCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitCXXConstCastExprEPNS_16CXXConstCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitCXXConstCastExprEPNS_16CXXConstCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitCXXAddrspaceCastExprEPNS_20CXXAddrspaceCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitCXXAddrspaceCastExprEPNS_20CXXAddrspaceCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitCXXFunctionalCastExprEPNS_21CXXFunctionalCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitCXXFunctionalCastExprEPNS_21CXXFunctionalCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitCStyleCastExprEPNS_14CStyleCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitCStyleCastExprEPNS_14CStyleCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitBuiltinBitCastExprEPNS_18BuiltinBitCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitBuiltinBitCastExprEPNS_18BuiltinBitCastExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE13VisitCallExprEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE13VisitCallExprEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitUserDefinedLiteralEPNS_18UserDefinedLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitUserDefinedLiteralEPNS_18UserDefinedLiteralE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitCXXOperatorCallExprEPNS_19CXXOperatorCallExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitCXXOperatorCallExprEPNS_19CXXOperatorCallExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitCXXMemberCallExprEPNS_17CXXMemberCallExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitCXXMemberCallExprEPNS_17CXXMemberCallExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitCUDAKernelCallExprEPNS_18CUDAKernelCallExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitCUDAKernelCallExprEPNS_18CUDAKernelCallExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitCXXUuidofExprEPNS_13CXXUuidofExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitCXXUuidofExprEPNS_13CXXUuidofExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31VisitCXXUnresolvedConstructExprEPNS_26CXXUnresolvedConstructExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31VisitCXXUnresolvedConstructExprEPNS_26CXXUnresolvedConstructExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitCXXTypeidExprEPNS_13CXXTypeidExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitCXXTypeidExprEPNS_13CXXTypeidExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitCXXThrowExprEPNS_12CXXThrowExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitCXXThrowExprEPNS_12CXXThrowExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitCXXThisExprEPNS_11CXXThisExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitCXXThisExprEPNS_11CXXThisExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30VisitCXXStdInitializerListExprEPNS_25CXXStdInitializerListExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30VisitCXXStdInitializerListExprEPNS_25CXXStdInitializerListExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitCXXScalarValueInitExprEPNS_22CXXScalarValueInitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitCXXScalarValueInitExprEPNS_22CXXScalarValueInitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31VisitCXXRewrittenBinaryOperatorEPNS_26CXXRewrittenBinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31VisitCXXRewrittenBinaryOperatorEPNS_26CXXRewrittenBinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28VisitCXXPseudoDestructorExprEPNS_23CXXPseudoDestructorExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28VisitCXXPseudoDestructorExprEPNS_23CXXPseudoDestructorExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitCXXParenListInitExprEPNS_20CXXParenListInitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitCXXParenListInitExprEPNS_20CXXParenListInitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitCXXNullPtrLiteralExprEPNS_21CXXNullPtrLiteralExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitCXXNullPtrLiteralExprEPNS_21CXXNullPtrLiteralExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitCXXNoexceptExprEPNS_15CXXNoexceptExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitCXXNoexceptExprEPNS_15CXXNoexceptExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitCXXNewExprEPNS_10CXXNewExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitCXXNewExprEPNS_10CXXNewExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitCXXInheritedCtorInitExprEPNS_24CXXInheritedCtorInitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitCXXInheritedCtorInitExprEPNS_24CXXInheritedCtorInitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitCXXFoldExprEPNS_11CXXFoldExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitCXXFoldExprEPNS_11CXXFoldExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32VisitCXXDependentScopeMemberExprEPNS_27CXXDependentScopeMemberExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32VisitCXXDependentScopeMemberExprEPNS_27CXXDependentScopeMemberExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitCXXDeleteExprEPNS_13CXXDeleteExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitCXXDeleteExprEPNS_13CXXDeleteExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitCXXDefaultInitExprEPNS_18CXXDefaultInitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitCXXDefaultInitExprEPNS_18CXXDefaultInitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitCXXDefaultArgExprEPNS_17CXXDefaultArgExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitCXXDefaultArgExprEPNS_17CXXDefaultArgExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitCXXConstructExprEPNS_16CXXConstructExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitCXXConstructExprEPNS_16CXXConstructExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitCXXTemporaryObjectExprEPNS_22CXXTemporaryObjectExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitCXXTemporaryObjectExprEPNS_22CXXTemporaryObjectExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitCXXBoolLiteralExprEPNS_18CXXBoolLiteralExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitCXXBoolLiteralExprEPNS_18CXXBoolLiteralExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitCXXBindTemporaryExprEPNS_20CXXBindTemporaryExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitCXXBindTemporaryExprEPNS_20CXXBindTemporaryExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitBlockExprEPNS_9BlockExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitBlockExprEPNS_9BlockExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitCompoundAssignOperatorEPNS_22CompoundAssignOperatorE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitCompoundAssignOperatorEPNS_22CompoundAssignOperatorE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitAtomicExprEPNS_10AtomicExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitAtomicExprEPNS_10AtomicExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitAsTypeExprEPNS_10AsTypeExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitAsTypeExprEPNS_10AsTypeExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitArrayTypeTraitExprEPNS_18ArrayTypeTraitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitArrayTypeTraitExprEPNS_18ArrayTypeTraitExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitArraySubscriptExprEPNS_18ArraySubscriptExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitArraySubscriptExprEPNS_18ArraySubscriptExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitArraySectionExprEPNS_16ArraySectionExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitArraySectionExprEPNS_16ArraySectionExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitArrayInitLoopExprEPNS_17ArrayInitLoopExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitArrayInitLoopExprEPNS_17ArrayInitLoopExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitArrayInitIndexExprEPNS_18ArrayInitIndexExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitArrayInitIndexExprEPNS_18ArrayInitIndexExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitAddrLabelExprEPNS_13AddrLabelExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitAddrLabelExprEPNS_13AddrLabelExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32VisitAbstractConditionalOperatorEPNS_27AbstractConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32VisitAbstractConditionalOperatorEPNS_27AbstractConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitConditionalOperatorEPNS_19ConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitConditionalOperatorEPNS_19ConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30VisitBinaryConditionalOperatorEPNS_25BinaryConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30VisitBinaryConditionalOperatorEPNS_25BinaryConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitAttributedStmtEPNS_14AttributedStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitAttributedStmtEPNS_14AttributedStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitSwitchStmtEPNS_10SwitchStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitSwitchStmtEPNS_10SwitchStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitSwitchCaseEPNS_10SwitchCaseE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitSwitchCaseEPNS_10SwitchCaseE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitDefaultStmtEPNS_11DefaultStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitDefaultStmtEPNS_11DefaultStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE13VisitCaseStmtEPNS_8CaseStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE13VisitCaseStmtEPNS_8CaseStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitSYCLKernelCallStmtEPNS_18SYCLKernelCallStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitSYCLKernelCallStmtEPNS_18SYCLKernelCallStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitSEHTryStmtEPNS_10SEHTryStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitSEHTryStmtEPNS_10SEHTryStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitSEHLeaveStmtEPNS_12SEHLeaveStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitSEHLeaveStmtEPNS_12SEHLeaveStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitSEHFinallyStmtEPNS_14SEHFinallyStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitSEHFinallyStmtEPNS_14SEHFinallyStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitSEHExceptStmtEPNS_13SEHExceptStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitSEHExceptStmtEPNS_13SEHExceptStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitReturnStmtEPNS_10ReturnStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitReturnStmtEPNS_10ReturnStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitOpenACCConstructStmtEPNS_20OpenACCConstructStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitOpenACCConstructStmtEPNS_20OpenACCConstructStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitOpenACCWaitConstructEPNS_20OpenACCWaitConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitOpenACCWaitConstructEPNS_20OpenACCWaitConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitOpenACCUpdateConstructEPNS_22OpenACCUpdateConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitOpenACCUpdateConstructEPNS_22OpenACCUpdateConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitOpenACCShutdownConstructEPNS_24OpenACCShutdownConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitOpenACCShutdownConstructEPNS_24OpenACCShutdownConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitOpenACCSetConstructEPNS_19OpenACCSetConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitOpenACCSetConstructEPNS_19OpenACCSetConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitOpenACCInitConstructEPNS_20OpenACCInitConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitOpenACCInitConstructEPNS_20OpenACCInitConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitOpenACCExitDataConstructEPNS_24OpenACCExitDataConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitOpenACCExitDataConstructEPNS_24OpenACCExitDataConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30VisitOpenACCEnterDataConstructEPNS_25OpenACCEnterDataConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30VisitOpenACCEnterDataConstructEPNS_25OpenACCEnterDataConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE35VisitOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE35VisitOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitOpenACCLoopConstructEPNS_20OpenACCLoopConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitOpenACCLoopConstructEPNS_20OpenACCLoopConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitOpenACCHostDataConstructEPNS_24OpenACCHostDataConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitOpenACCHostDataConstructEPNS_24OpenACCHostDataConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitOpenACCDataConstructEPNS_20OpenACCDataConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitOpenACCDataConstructEPNS_20OpenACCDataConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28VisitOpenACCComputeConstructEPNS_23OpenACCComputeConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28VisitOpenACCComputeConstructEPNS_23OpenACCComputeConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitOpenACCCombinedConstructEPNS_24OpenACCCombinedConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitOpenACCCombinedConstructEPNS_24OpenACCCombinedConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitOpenACCAtomicConstructEPNS_22OpenACCAtomicConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitOpenACCAtomicConstructEPNS_22OpenACCAtomicConstructE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitObjCForCollectionStmtEPNS_21ObjCForCollectionStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitObjCForCollectionStmtEPNS_21ObjCForCollectionStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28VisitObjCAutoreleasePoolStmtEPNS_23ObjCAutoreleasePoolStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28VisitObjCAutoreleasePoolStmtEPNS_23ObjCAutoreleasePoolStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitObjCAtTryStmtEPNS_13ObjCAtTryStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitObjCAtTryStmtEPNS_13ObjCAtTryStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitObjCAtThrowStmtEPNS_15ObjCAtThrowStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitObjCAtThrowStmtEPNS_15ObjCAtThrowStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitObjCAtSynchronizedStmtEPNS_22ObjCAtSynchronizedStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitObjCAtSynchronizedStmtEPNS_22ObjCAtSynchronizedStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitObjCAtFinallyStmtEPNS_17ObjCAtFinallyStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitObjCAtFinallyStmtEPNS_17ObjCAtFinallyStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitObjCAtCatchStmtEPNS_15ObjCAtCatchStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitObjCAtCatchStmtEPNS_15ObjCAtCatchStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitOMPExecutableDirectiveEPNS_22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitOMPExecutableDirectiveEPNS_22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitOMPTeamsDirectiveEPNS_17OMPTeamsDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitOMPTeamsDirectiveEPNS_17OMPTeamsDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitOMPTaskyieldDirectiveEPNS_21OMPTaskyieldDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitOMPTaskyieldDirectiveEPNS_21OMPTaskyieldDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitOMPTaskwaitDirectiveEPNS_20OMPTaskwaitDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitOMPTaskwaitDirectiveEPNS_20OMPTaskwaitDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitOMPTaskgroupDirectiveEPNS_21OMPTaskgroupDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitOMPTaskgroupDirectiveEPNS_21OMPTaskgroupDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitOMPTaskDirectiveEPNS_16OMPTaskDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitOMPTaskDirectiveEPNS_16OMPTaskDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitOMPTargetUpdateDirectiveEPNS_24OMPTargetUpdateDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitOMPTargetUpdateDirectiveEPNS_24OMPTargetUpdateDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28VisitOMPTargetTeamsDirectiveEPNS_23OMPTargetTeamsDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28VisitOMPTargetTeamsDirectiveEPNS_23OMPTargetTeamsDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34VisitOMPTargetParallelForDirectiveEPNS_29OMPTargetParallelForDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34VisitOMPTargetParallelForDirectiveEPNS_29OMPTargetParallelForDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31VisitOMPTargetParallelDirectiveEPNS_26OMPTargetParallelDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31VisitOMPTargetParallelDirectiveEPNS_26OMPTargetParallelDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31VisitOMPTargetExitDataDirectiveEPNS_26OMPTargetExitDataDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31VisitOMPTargetExitDataDirectiveEPNS_26OMPTargetExitDataDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32VisitOMPTargetEnterDataDirectiveEPNS_27OMPTargetEnterDataDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32VisitOMPTargetEnterDataDirectiveEPNS_27OMPTargetEnterDataDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitOMPTargetDirectiveEPNS_18OMPTargetDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitOMPTargetDirectiveEPNS_18OMPTargetDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitOMPTargetDataDirectiveEPNS_22OMPTargetDataDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitOMPTargetDataDirectiveEPNS_22OMPTargetDataDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitOMPSingleDirectiveEPNS_18OMPSingleDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitOMPSingleDirectiveEPNS_18OMPSingleDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitOMPSectionsDirectiveEPNS_20OMPSectionsDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitOMPSectionsDirectiveEPNS_20OMPSectionsDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitOMPSectionDirectiveEPNS_19OMPSectionDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitOMPSectionDirectiveEPNS_19OMPSectionDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitOMPScopeDirectiveEPNS_17OMPScopeDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitOMPScopeDirectiveEPNS_17OMPScopeDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitOMPScanDirectiveEPNS_16OMPScanDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitOMPScanDirectiveEPNS_16OMPScanDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE33VisitOMPParallelSectionsDirectiveEPNS_28OMPParallelSectionsDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE33VisitOMPParallelSectionsDirectiveEPNS_28OMPParallelSectionsDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31VisitOMPParallelMasterDirectiveEPNS_26OMPParallelMasterDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31VisitOMPParallelMasterDirectiveEPNS_26OMPParallelMasterDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31VisitOMPParallelMaskedDirectiveEPNS_26OMPParallelMaskedDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31VisitOMPParallelMaskedDirectiveEPNS_26OMPParallelMaskedDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitOMPParallelDirectiveEPNS_20OMPParallelDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitOMPParallelDirectiveEPNS_20OMPParallelDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitOMPOrderedDirectiveEPNS_19OMPOrderedDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitOMPOrderedDirectiveEPNS_19OMPOrderedDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitOMPMetaDirectiveEPNS_16OMPMetaDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitOMPMetaDirectiveEPNS_16OMPMetaDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitOMPMasterDirectiveEPNS_18OMPMasterDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitOMPMasterDirectiveEPNS_18OMPMasterDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitOMPMaskedDirectiveEPNS_18OMPMaskedDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitOMPMaskedDirectiveEPNS_18OMPMaskedDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitOMPLoopBasedDirectiveEPNS_21OMPLoopBasedDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitOMPLoopBasedDirectiveEPNS_21OMPLoopBasedDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE35VisitOMPLoopTransformationDirectiveEPNS_30OMPLoopTransformationDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE35VisitOMPLoopTransformationDirectiveEPNS_30OMPLoopTransformationDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitOMPUnrollDirectiveEPNS_18OMPUnrollDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitOMPUnrollDirectiveEPNS_18OMPUnrollDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitOMPTileDirectiveEPNS_16OMPTileDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitOMPTileDirectiveEPNS_16OMPTileDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitOMPReverseDirectiveEPNS_19OMPReverseDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitOMPReverseDirectiveEPNS_19OMPReverseDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28VisitOMPInterchangeDirectiveEPNS_23OMPInterchangeDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28VisitOMPInterchangeDirectiveEPNS_23OMPInterchangeDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitOMPLoopDirectiveEPNS_16OMPLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitOMPLoopDirectiveEPNS_16OMPLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE33VisitOMPTeamsGenericLoopDirectiveEPNS_28OMPTeamsGenericLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE33VisitOMPTeamsGenericLoopDirectiveEPNS_28OMPTeamsGenericLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE36VisitOMPTeamsDistributeSimdDirectiveEPNS_31OMPTeamsDistributeSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE36VisitOMPTeamsDistributeSimdDirectiveEPNS_31OMPTeamsDistributeSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE47VisitOMPTeamsDistributeParallelForSimdDirectiveEPNS_42OMPTeamsDistributeParallelForSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE47VisitOMPTeamsDistributeParallelForSimdDirectiveEPNS_42OMPTeamsDistributeParallelForSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE43VisitOMPTeamsDistributeParallelForDirectiveEPNS_38OMPTeamsDistributeParallelForDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE43VisitOMPTeamsDistributeParallelForDirectiveEPNS_38OMPTeamsDistributeParallelForDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32VisitOMPTeamsDistributeDirectiveEPNS_27OMPTeamsDistributeDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32VisitOMPTeamsDistributeDirectiveEPNS_27OMPTeamsDistributeDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitOMPTaskLoopSimdDirectiveEPNS_24OMPTaskLoopSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitOMPTaskLoopSimdDirectiveEPNS_24OMPTaskLoopSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitOMPTaskLoopDirectiveEPNS_20OMPTaskLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitOMPTaskLoopDirectiveEPNS_20OMPTaskLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE39VisitOMPTargetTeamsGenericLoopDirectiveEPNS_34OMPTargetTeamsGenericLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE39VisitOMPTargetTeamsGenericLoopDirectiveEPNS_34OMPTargetTeamsGenericLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE42VisitOMPTargetTeamsDistributeSimdDirectiveEPNS_37OMPTargetTeamsDistributeSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE42VisitOMPTargetTeamsDistributeSimdDirectiveEPNS_37OMPTargetTeamsDistributeSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE53VisitOMPTargetTeamsDistributeParallelForSimdDirectiveEPNS_48OMPTargetTeamsDistributeParallelForSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE53VisitOMPTargetTeamsDistributeParallelForSimdDirectiveEPNS_48OMPTargetTeamsDistributeParallelForSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE49VisitOMPTargetTeamsDistributeParallelForDirectiveEPNS_44OMPTargetTeamsDistributeParallelForDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE49VisitOMPTargetTeamsDistributeParallelForDirectiveEPNS_44OMPTargetTeamsDistributeParallelForDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE38VisitOMPTargetTeamsDistributeDirectiveEPNS_33OMPTargetTeamsDistributeDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE38VisitOMPTargetTeamsDistributeDirectiveEPNS_33OMPTargetTeamsDistributeDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitOMPTargetSimdDirectiveEPNS_22OMPTargetSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitOMPTargetSimdDirectiveEPNS_22OMPTargetSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE42VisitOMPTargetParallelGenericLoopDirectiveEPNS_37OMPTargetParallelGenericLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE42VisitOMPTargetParallelGenericLoopDirectiveEPNS_37OMPTargetParallelGenericLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE38VisitOMPTargetParallelForSimdDirectiveEPNS_33OMPTargetParallelForSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE38VisitOMPTargetParallelForSimdDirectiveEPNS_33OMPTargetParallelForSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitOMPSimdDirectiveEPNS_16OMPSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitOMPSimdDirectiveEPNS_16OMPSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE43VisitOMPParallelMasterTaskLoopSimdDirectiveEPNS_38OMPParallelMasterTaskLoopSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE43VisitOMPParallelMasterTaskLoopSimdDirectiveEPNS_38OMPParallelMasterTaskLoopSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE39VisitOMPParallelMasterTaskLoopDirectiveEPNS_34OMPParallelMasterTaskLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE39VisitOMPParallelMasterTaskLoopDirectiveEPNS_34OMPParallelMasterTaskLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE43VisitOMPParallelMaskedTaskLoopSimdDirectiveEPNS_38OMPParallelMaskedTaskLoopSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE43VisitOMPParallelMaskedTaskLoopSimdDirectiveEPNS_38OMPParallelMaskedTaskLoopSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE39VisitOMPParallelMaskedTaskLoopDirectiveEPNS_34OMPParallelMaskedTaskLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE39VisitOMPParallelMaskedTaskLoopDirectiveEPNS_34OMPParallelMaskedTaskLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE36VisitOMPParallelGenericLoopDirectiveEPNS_31OMPParallelGenericLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE36VisitOMPParallelGenericLoopDirectiveEPNS_31OMPParallelGenericLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32VisitOMPParallelForSimdDirectiveEPNS_27OMPParallelForSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32VisitOMPParallelForSimdDirectiveEPNS_27OMPParallelForSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28VisitOMPParallelForDirectiveEPNS_23OMPParallelForDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28VisitOMPParallelForDirectiveEPNS_23OMPParallelForDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE35VisitOMPMasterTaskLoopSimdDirectiveEPNS_30OMPMasterTaskLoopSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE35VisitOMPMasterTaskLoopSimdDirectiveEPNS_30OMPMasterTaskLoopSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31VisitOMPMasterTaskLoopDirectiveEPNS_26OMPMasterTaskLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31VisitOMPMasterTaskLoopDirectiveEPNS_26OMPMasterTaskLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE35VisitOMPMaskedTaskLoopSimdDirectiveEPNS_30OMPMaskedTaskLoopSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE35VisitOMPMaskedTaskLoopSimdDirectiveEPNS_30OMPMaskedTaskLoopSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31VisitOMPMaskedTaskLoopDirectiveEPNS_26OMPMaskedTaskLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31VisitOMPMaskedTaskLoopDirectiveEPNS_26OMPMaskedTaskLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28VisitOMPGenericLoopDirectiveEPNS_23OMPGenericLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28VisitOMPGenericLoopDirectiveEPNS_23OMPGenericLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitOMPForSimdDirectiveEPNS_19OMPForSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitOMPForSimdDirectiveEPNS_19OMPForSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitOMPForDirectiveEPNS_15OMPForDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitOMPForDirectiveEPNS_15OMPForDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31VisitOMPDistributeSimdDirectiveEPNS_26OMPDistributeSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31VisitOMPDistributeSimdDirectiveEPNS_26OMPDistributeSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE42VisitOMPDistributeParallelForSimdDirectiveEPNS_37OMPDistributeParallelForSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE42VisitOMPDistributeParallelForSimdDirectiveEPNS_37OMPDistributeParallelForSimdDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE38VisitOMPDistributeParallelForDirectiveEPNS_33OMPDistributeParallelForDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE38VisitOMPDistributeParallelForDirectiveEPNS_33OMPDistributeParallelForDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitOMPDistributeDirectiveEPNS_22OMPDistributeDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitOMPDistributeDirectiveEPNS_22OMPDistributeDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitOMPInteropDirectiveEPNS_19OMPInteropDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitOMPInteropDirectiveEPNS_19OMPInteropDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitOMPFlushDirectiveEPNS_17OMPFlushDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitOMPFlushDirectiveEPNS_17OMPFlushDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitOMPErrorDirectiveEPNS_17OMPErrorDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitOMPErrorDirectiveEPNS_17OMPErrorDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitOMPDispatchDirectiveEPNS_20OMPDispatchDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitOMPDispatchDirectiveEPNS_20OMPDispatchDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitOMPDepobjDirectiveEPNS_18OMPDepobjDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitOMPDepobjDirectiveEPNS_18OMPDepobjDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitOMPCriticalDirectiveEPNS_20OMPCriticalDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitOMPCriticalDirectiveEPNS_20OMPCriticalDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34VisitOMPCancellationPointDirectiveEPNS_29OMPCancellationPointDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34VisitOMPCancellationPointDirectiveEPNS_29OMPCancellationPointDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitOMPCancelDirectiveEPNS_18OMPCancelDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitOMPCancelDirectiveEPNS_18OMPCancelDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitOMPBarrierDirectiveEPNS_19OMPBarrierDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitOMPBarrierDirectiveEPNS_19OMPBarrierDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitOMPAtomicDirectiveEPNS_18OMPAtomicDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitOMPAtomicDirectiveEPNS_18OMPAtomicDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitOMPAssumeDirectiveEPNS_18OMPAssumeDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitOMPAssumeDirectiveEPNS_18OMPAssumeDirectiveE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitOMPCanonicalLoopEPNS_16OMPCanonicalLoopE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitOMPCanonicalLoopEPNS_16OMPCanonicalLoopE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE13VisitNullStmtEPNS_8NullStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE13VisitNullStmtEPNS_8NullStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitMSDependentExistsStmtEPNS_21MSDependentExistsStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitMSDependentExistsStmtEPNS_21MSDependentExistsStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitIndirectGotoStmtEPNS_16IndirectGotoStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitIndirectGotoStmtEPNS_16IndirectGotoStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE11VisitIfStmtEPNS_6IfStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE11VisitIfStmtEPNS_6IfStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE13VisitGotoStmtEPNS_8GotoStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE13VisitGotoStmtEPNS_8GotoStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE12VisitForStmtEPNS_7ForStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE12VisitForStmtEPNS_7ForStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE11VisitDoStmtEPNS_6DoStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE11VisitDoStmtEPNS_6DoStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE13VisitDeclStmtEPNS_8DeclStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE13VisitDeclStmtEPNS_8DeclStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitCoroutineBodyStmtEPNS_17CoroutineBodyStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitCoroutineBodyStmtEPNS_17CoroutineBodyStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitCoreturnStmtEPNS_12CoreturnStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitCoreturnStmtEPNS_12CoreturnStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitContinueStmtEPNS_12ContinueStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitContinueStmtEPNS_12ContinueStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitCompoundStmtEPNS_12CompoundStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitCompoundStmtEPNS_12CompoundStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitCapturedStmtEPNS_12CapturedStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitCapturedStmtEPNS_12CapturedStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitCXXTryStmtEPNS_10CXXTryStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitCXXTryStmtEPNS_10CXXTryStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitCXXForRangeStmtEPNS_15CXXForRangeStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitCXXForRangeStmtEPNS_15CXXForRangeStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitCXXCatchStmtEPNS_12CXXCatchStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitCXXCatchStmtEPNS_12CXXCatchStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitBreakStmtEPNS_9BreakStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitBreakStmtEPNS_9BreakStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE12VisitAsmStmtEPNS_7AsmStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE12VisitAsmStmtEPNS_7AsmStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitMSAsmStmtEPNS_9MSAsmStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitMSAsmStmtEPNS_9MSAsmStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitGCCAsmStmtEPNS_10GCCAsmStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitGCCAsmStmtEPNS_10GCCAsmStmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseAdjustedTypeEPNS_12AdjustedTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseAdjustedTypeEPNS_12AdjustedTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseDecayedTypeEPNS_11DecayedTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseDecayedTypeEPNS_11DecayedTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseConstantArrayTypeEPNS_17ConstantArrayTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseConstantArrayTypeEPNS_17ConstantArrayTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseArrayParameterTypeEPNS_18ArrayParameterTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseArrayParameterTypeEPNS_18ArrayParameterTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31TraverseDependentSizedArrayTypeEPNS_23DependentSizedArrayTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31TraverseDependentSizedArrayTypeEPNS_23DependentSizedArrayTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseIncompleteArrayTypeEPNS_19IncompleteArrayTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseIncompleteArrayTypeEPNS_19IncompleteArrayTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseVariableArrayTypeEPNS_17VariableArrayTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseVariableArrayTypeEPNS_17VariableArrayTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseAtomicTypeEPNS_10AtomicTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseAtomicTypeEPNS_10AtomicTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseAttributedTypeEPNS_14AttributedTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseAttributedTypeEPNS_14AttributedTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseBTFTagAttributedTypeEPNS_20BTFTagAttributedTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseBTFTagAttributedTypeEPNS_20BTFTagAttributedTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseBitIntTypeEPNS_10BitIntTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseBitIntTypeEPNS_10BitIntTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseBlockPointerTypeEPNS_16BlockPointerTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseBlockPointerTypeEPNS_16BlockPointerTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseCountAttributedTypeEPNS_19CountAttributedTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseCountAttributedTypeEPNS_19CountAttributedTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseBuiltinTypeEPNS_11BuiltinTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseBuiltinTypeEPNS_11BuiltinTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseComplexTypeEPNS_11ComplexTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseComplexTypeEPNS_11ComplexTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseDecltypeTypeEPNS_12DecltypeTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseDecltypeTypeEPNS_12DecltypeTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16TraverseAutoTypeEPNS_8AutoTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16TraverseAutoTypeEPNS_8AutoTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE41TraverseDeducedTemplateSpecializationTypeEPNS_33DeducedTemplateSpecializationTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE41TraverseDeducedTemplateSpecializationTypeEPNS_33DeducedTemplateSpecializationTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE33TraverseDependentAddressSpaceTypeEPNS_25DependentAddressSpaceTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE33TraverseDependentAddressSpaceTypeEPNS_25DependentAddressSpaceTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseDependentBitIntTypeEPNS_19DependentBitIntTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseDependentBitIntTypeEPNS_19DependentBitIntTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseDependentNameTypeEPNS_17DependentNameTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseDependentNameTypeEPNS_17DependentNameTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE35TraverseDependentSizedExtVectorTypeEPNS_27DependentSizedExtVectorTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE35TraverseDependentSizedExtVectorTypeEPNS_27DependentSizedExtVectorTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE43TraverseDependentTemplateSpecializationTypeEPNS_35DependentTemplateSpecializationTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE43TraverseDependentTemplateSpecializationTypeEPNS_35DependentTemplateSpecializationTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseDependentVectorTypeEPNS_19DependentVectorTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseDependentVectorTypeEPNS_19DependentVectorTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseElaboratedTypeEPNS_14ElaboratedTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseElaboratedTypeEPNS_14ElaboratedTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseFunctionNoProtoTypeEPNS_19FunctionNoProtoTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseFunctionNoProtoTypeEPNS_19FunctionNoProtoTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseFunctionProtoTypeEPNS_17FunctionProtoTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseFunctionProtoTypeEPNS_17FunctionProtoTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34TraverseHLSLAttributedResourceTypeEPNS_26HLSLAttributedResourceTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34TraverseHLSLAttributedResourceTypeEPNS_26HLSLAttributedResourceTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29TraverseInjectedClassNameTypeEPNS_21InjectedClassNameTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29TraverseInjectedClassNameTypeEPNS_21InjectedClassNameTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseMacroQualifiedTypeEPNS_18MacroQualifiedTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseMacroQualifiedTypeEPNS_18MacroQualifiedTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseConstantMatrixTypeEPNS_18ConstantMatrixTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseConstantMatrixTypeEPNS_18ConstantMatrixTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseDependentSizedMatrixTypeEPNS_24DependentSizedMatrixTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseDependentSizedMatrixTypeEPNS_24DependentSizedMatrixTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseMemberPointerTypeEPNS_17MemberPointerTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseMemberPointerTypeEPNS_17MemberPointerTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29TraverseObjCObjectPointerTypeEPNS_21ObjCObjectPointerTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29TraverseObjCObjectPointerTypeEPNS_21ObjCObjectPointerTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseObjCObjectTypeEPNS_14ObjCObjectTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseObjCObjectTypeEPNS_14ObjCObjectTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseObjCInterfaceTypeEPNS_17ObjCInterfaceTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseObjCInterfaceTypeEPNS_17ObjCInterfaceTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseObjCTypeParamTypeEPNS_17ObjCTypeParamTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseObjCTypeParamTypeEPNS_17ObjCTypeParamTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor25TraversePackExpansionTypeEPN5clang17PackExpansionTypeE(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #10 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor25TraversePackExpansionTypeEPN5clang17PackExpansionTypeE(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #9 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor24TraversePackIndexingTypeEPN5clang16PackIndexingTypeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(none) %1) unnamed_addr #2 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor24TraversePackIndexingTypeEPN5clang16PackIndexingTypeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 16, !tbaa !1018
   %5 = tail call noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE12TraverseStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef %4) #16
   ret i1 %5
 }
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17TraverseParenTypeEPNS_9ParenTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17TraverseParenTypeEPNS_9ParenTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16TraversePipeTypeEPNS_8PipeTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16TraversePipeTypeEPNS_8PipeTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraversePointerTypeEPNS_11PointerTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraversePointerTypeEPNS_11PointerTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseLValueReferenceTypeEPNS_19LValueReferenceTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseLValueReferenceTypeEPNS_19LValueReferenceTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseRValueReferenceTypeEPNS_19RValueReferenceTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseRValueReferenceTypeEPNS_19RValueReferenceTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE37TraverseSubstTemplateTypeParmPackTypeEPNS_29SubstTemplateTypeParmPackTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE37TraverseSubstTemplateTypeParmPackTypeEPNS_29SubstTemplateTypeParmPackTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE33TraverseSubstTemplateTypeParmTypeEPNS_25SubstTemplateTypeParmTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE33TraverseSubstTemplateTypeParmTypeEPNS_25SubstTemplateTypeParmTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16TraverseEnumTypeEPNS_8EnumTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16TraverseEnumTypeEPNS_8EnumTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseRecordTypeEPNS_10RecordTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseRecordTypeEPNS_10RecordTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34TraverseTemplateSpecializationTypeEPNS_26TemplateSpecializationTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34TraverseTemplateSpecializationTypeEPNS_26TemplateSpecializationTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseTemplateTypeParmTypeEPNS_20TemplateTypeParmTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseTemplateTypeParmTypeEPNS_20TemplateTypeParmTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseTypeOfExprTypeEPNS_14TypeOfExprTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseTypeOfExprTypeEPNS_14TypeOfExprTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseTypeOfTypeEPNS_10TypeOfTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseTypeOfTypeEPNS_10TypeOfTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseTypedefTypeEPNS_11TypedefTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseTypedefTypeEPNS_11TypedefTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseUnaryTransformTypeEPNS_18UnaryTransformTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseUnaryTransformTypeEPNS_18UnaryTransformTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseUnresolvedUsingTypeEPNS_19UnresolvedUsingTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseUnresolvedUsingTypeEPNS_19UnresolvedUsingTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17TraverseUsingTypeEPNS_9UsingTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17TraverseUsingTypeEPNS_9UsingTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseVectorTypeEPNS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseVectorTypeEPNS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseExtVectorTypeEPNS_13ExtVectorTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
-
-; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitAdjustedTypeEPNS_12AdjustedTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseExtVectorTypeEPNS_13ExtVectorTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitDecayedTypeEPNS_11DecayedTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitAdjustedTypeEPNS_12AdjustedTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitArrayTypeEPNS_9ArrayTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitDecayedTypeEPNS_11DecayedTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitConstantArrayTypeEPNS_17ConstantArrayTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitArrayTypeEPNS_9ArrayTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitArrayParameterTypeEPNS_18ArrayParameterTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitConstantArrayTypeEPNS_17ConstantArrayTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28VisitDependentSizedArrayTypeEPNS_23DependentSizedArrayTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitArrayParameterTypeEPNS_18ArrayParameterTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitIncompleteArrayTypeEPNS_19IncompleteArrayTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28VisitDependentSizedArrayTypeEPNS_23DependentSizedArrayTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitVariableArrayTypeEPNS_17VariableArrayTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitIncompleteArrayTypeEPNS_19IncompleteArrayTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitAtomicTypeEPNS_10AtomicTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitVariableArrayTypeEPNS_17VariableArrayTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitAttributedTypeEPNS_14AttributedTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitAtomicTypeEPNS_10AtomicTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitBTFTagAttributedTypeEPNS_20BTFTagAttributedTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitAttributedTypeEPNS_14AttributedTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitBitIntTypeEPNS_10BitIntTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitBTFTagAttributedTypeEPNS_20BTFTagAttributedTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitBlockPointerTypeEPNS_16BlockPointerTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitBitIntTypeEPNS_10BitIntTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitBoundsAttributedTypeEPNS_20BoundsAttributedTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitBlockPointerTypeEPNS_16BlockPointerTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitCountAttributedTypeEPNS_19CountAttributedTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitBoundsAttributedTypeEPNS_20BoundsAttributedTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitBuiltinTypeEPNS_11BuiltinTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitCountAttributedTypeEPNS_19CountAttributedTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitComplexTypeEPNS_11ComplexTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitBuiltinTypeEPNS_11BuiltinTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitDecltypeTypeEPNS_12DecltypeTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitComplexTypeEPNS_11ComplexTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitDeducedTypeEPNS_11DeducedTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitDecltypeTypeEPNS_12DecltypeTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE13VisitAutoTypeEPNS_8AutoTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitDeducedTypeEPNS_11DeducedTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE38VisitDeducedTemplateSpecializationTypeEPNS_33DeducedTemplateSpecializationTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE13VisitAutoTypeEPNS_8AutoTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30VisitDependentAddressSpaceTypeEPNS_25DependentAddressSpaceTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE38VisitDeducedTemplateSpecializationTypeEPNS_33DeducedTemplateSpecializationTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitDependentBitIntTypeEPNS_19DependentBitIntTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30VisitDependentAddressSpaceTypeEPNS_25DependentAddressSpaceTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitDependentNameTypeEPNS_17DependentNameTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitDependentBitIntTypeEPNS_19DependentBitIntTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32VisitDependentSizedExtVectorTypeEPNS_27DependentSizedExtVectorTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitDependentNameTypeEPNS_17DependentNameTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE40VisitDependentTemplateSpecializationTypeEPNS_35DependentTemplateSpecializationTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32VisitDependentSizedExtVectorTypeEPNS_27DependentSizedExtVectorTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitDependentVectorTypeEPNS_19DependentVectorTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE40VisitDependentTemplateSpecializationTypeEPNS_35DependentTemplateSpecializationTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitElaboratedTypeEPNS_14ElaboratedTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitDependentVectorTypeEPNS_19DependentVectorTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitFunctionTypeEPNS_12FunctionTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitElaboratedTypeEPNS_14ElaboratedTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitFunctionNoProtoTypeEPNS_19FunctionNoProtoTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitFunctionTypeEPNS_12FunctionTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitFunctionProtoTypeEPNS_17FunctionProtoTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitFunctionNoProtoTypeEPNS_19FunctionNoProtoTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31VisitHLSLAttributedResourceTypeEPNS_26HLSLAttributedResourceTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitFunctionProtoTypeEPNS_17FunctionProtoTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitInjectedClassNameTypeEPNS_21InjectedClassNameTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31VisitHLSLAttributedResourceTypeEPNS_26HLSLAttributedResourceTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitMacroQualifiedTypeEPNS_18MacroQualifiedTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitInjectedClassNameTypeEPNS_21InjectedClassNameTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitMatrixTypeEPNS_10MatrixTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitMacroQualifiedTypeEPNS_18MacroQualifiedTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitConstantMatrixTypeEPNS_18ConstantMatrixTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitMatrixTypeEPNS_10MatrixTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitDependentSizedMatrixTypeEPNS_24DependentSizedMatrixTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitConstantMatrixTypeEPNS_18ConstantMatrixTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitMemberPointerTypeEPNS_17MemberPointerTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitDependentSizedMatrixTypeEPNS_24DependentSizedMatrixTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitObjCObjectPointerTypeEPNS_21ObjCObjectPointerTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitMemberPointerTypeEPNS_17MemberPointerTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitObjCObjectTypeEPNS_14ObjCObjectTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitObjCObjectPointerTypeEPNS_21ObjCObjectPointerTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitObjCInterfaceTypeEPNS_17ObjCInterfaceTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitObjCObjectTypeEPNS_14ObjCObjectTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitObjCTypeParamTypeEPNS_17ObjCTypeParamTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitObjCInterfaceTypeEPNS_17ObjCInterfaceTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitPackExpansionTypeEPNS_17PackExpansionTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitObjCTypeParamTypeEPNS_17ObjCTypeParamTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitPackIndexingTypeEPNS_16PackIndexingTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitPackExpansionTypeEPNS_17PackExpansionTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitParenTypeEPNS_9ParenTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitPackIndexingTypeEPNS_16PackIndexingTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE13VisitPipeTypeEPNS_8PipeTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitParenTypeEPNS_9ParenTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitPointerTypeEPNS_11PointerTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE13VisitPipeTypeEPNS_8PipeTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitReferenceTypeEPNS_13ReferenceTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitPointerTypeEPNS_11PointerTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitLValueReferenceTypeEPNS_19LValueReferenceTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitReferenceTypeEPNS_13ReferenceTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitRValueReferenceTypeEPNS_19RValueReferenceTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitLValueReferenceTypeEPNS_19LValueReferenceTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34VisitSubstTemplateTypeParmPackTypeEPNS_29SubstTemplateTypeParmPackTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitRValueReferenceTypeEPNS_19RValueReferenceTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30VisitSubstTemplateTypeParmTypeEPNS_25SubstTemplateTypeParmTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34VisitSubstTemplateTypeParmPackTypeEPNS_29SubstTemplateTypeParmPackTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE12VisitTagTypeEPNS_7TagTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30VisitSubstTemplateTypeParmTypeEPNS_25SubstTemplateTypeParmTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE13VisitEnumTypeEPNS_8EnumTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE12VisitTagTypeEPNS_7TagTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitRecordTypeEPNS_10RecordTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE13VisitEnumTypeEPNS_8EnumTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31VisitTemplateSpecializationTypeEPNS_26TemplateSpecializationTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitRecordTypeEPNS_10RecordTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor25VisitTemplateTypeParmTypeEPN5clang20TemplateTypeParmTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31VisitTemplateSpecializationTypeEPNS_26TemplateSpecializationTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor25VisitTemplateTypeParmTypeEPN5clang20TemplateTypeParmTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 16
   %5 = and i64 %4, 140737488355328
@@ -11588,329 +11582,329 @@ _ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor13addUnexpandedEPKN5cla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitTypeOfExprTypeEPNS_14TypeOfExprTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitTypeOfExprTypeEPNS_14TypeOfExprTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitTypeOfTypeEPNS_10TypeOfTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitTypeOfTypeEPNS_10TypeOfTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitTypedefTypeEPNS_11TypedefTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitTypedefTypeEPNS_11TypedefTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitUnaryTransformTypeEPNS_18UnaryTransformTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23VisitUnaryTransformTypeEPNS_18UnaryTransformTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitUnresolvedUsingTypeEPNS_19UnresolvedUsingTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitUnresolvedUsingTypeEPNS_19UnresolvedUsingTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitUsingTypeEPNS_9UsingTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14VisitUsingTypeEPNS_9UsingTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitVectorTypeEPNS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitVectorTypeEPNS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitExtVectorTypeEPNS_13ExtVectorTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitExtVectorTypeEPNS_13ExtVectorTypeE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #1 align 2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseQualifiedTypeLocENS_16QualifiedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseQualifiedTypeLocENS_16QualifiedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseAdjustedTypeLocENS_15AdjustedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseAdjustedTypeLocENS_15AdjustedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseDecayedTypeLocENS_14DecayedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseDecayedTypeLocENS_14DecayedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseConstantArrayTypeLocENS_20ConstantArrayTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseConstantArrayTypeLocENS_20ConstantArrayTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29TraverseArrayParameterTypeLocENS_21ArrayParameterTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29TraverseArrayParameterTypeLocENS_21ArrayParameterTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34TraverseDependentSizedArrayTypeLocENS_26DependentSizedArrayTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34TraverseDependentSizedArrayTypeLocENS_26DependentSizedArrayTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseIncompleteArrayTypeLocENS_22IncompleteArrayTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseIncompleteArrayTypeLocENS_22IncompleteArrayTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseVariableArrayTypeLocENS_20VariableArrayTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseVariableArrayTypeLocENS_20VariableArrayTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseAtomicTypeLocENS_13AtomicTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseAtomicTypeLocENS_13AtomicTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseAttributedTypeLocENS_17AttributedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseAttributedTypeLocENS_17AttributedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31TraverseBTFTagAttributedTypeLocENS_23BTFTagAttributedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31TraverseBTFTagAttributedTypeLocENS_23BTFTagAttributedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseBitIntTypeLocENS_13BitIntTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseBitIntTypeLocENS_13BitIntTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseBlockPointerTypeLocENS_19BlockPointerTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseBlockPointerTypeLocENS_19BlockPointerTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseCountAttributedTypeLocENS_22CountAttributedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseCountAttributedTypeLocENS_22CountAttributedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseBuiltinTypeLocENS_14BuiltinTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseBuiltinTypeLocENS_14BuiltinTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseComplexTypeLocENS_14ComplexTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseComplexTypeLocENS_14ComplexTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseDecltypeTypeLocENS_15DecltypeTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE23TraverseDecltypeTypeLocENS_15DecltypeTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseAutoTypeLocENS_11AutoTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseAutoTypeLocENS_11AutoTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE44TraverseDeducedTemplateSpecializationTypeLocENS_36DeducedTemplateSpecializationTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE44TraverseDeducedTemplateSpecializationTypeLocENS_36DeducedTemplateSpecializationTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE36TraverseDependentAddressSpaceTypeLocENS_28DependentAddressSpaceTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE36TraverseDependentAddressSpaceTypeLocENS_28DependentAddressSpaceTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseDependentBitIntTypeLocENS_22DependentBitIntTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseDependentBitIntTypeLocENS_22DependentBitIntTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseDependentNameTypeLocENS_20DependentNameTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseDependentNameTypeLocENS_20DependentNameTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE38TraverseDependentSizedExtVectorTypeLocENS_30DependentSizedExtVectorTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE38TraverseDependentSizedExtVectorTypeLocENS_30DependentSizedExtVectorTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE46TraverseDependentTemplateSpecializationTypeLocENS_38DependentTemplateSpecializationTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE46TraverseDependentTemplateSpecializationTypeLocENS_38DependentTemplateSpecializationTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseDependentVectorTypeLocENS_22DependentVectorTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseDependentVectorTypeLocENS_22DependentVectorTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseElaboratedTypeLocENS_17ElaboratedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseElaboratedTypeLocENS_17ElaboratedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseFunctionNoProtoTypeLocENS_22FunctionNoProtoTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseFunctionNoProtoTypeLocENS_22FunctionNoProtoTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseFunctionProtoTypeLocENS_20FunctionProtoTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseFunctionProtoTypeLocENS_20FunctionProtoTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE37TraverseHLSLAttributedResourceTypeLocENS_29HLSLAttributedResourceTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE37TraverseHLSLAttributedResourceTypeLocENS_29HLSLAttributedResourceTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseInjectedClassNameTypeLocENS_24InjectedClassNameTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseInjectedClassNameTypeLocENS_24InjectedClassNameTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29TraverseMacroQualifiedTypeLocENS_21MacroQualifiedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29TraverseMacroQualifiedTypeLocENS_21MacroQualifiedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29TraverseConstantMatrixTypeLocENS_21ConstantMatrixTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29TraverseConstantMatrixTypeLocENS_21ConstantMatrixTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE35TraverseDependentSizedMatrixTypeLocENS_27DependentSizedMatrixTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE35TraverseDependentSizedMatrixTypeLocENS_27DependentSizedMatrixTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseMemberPointerTypeLocENS_20MemberPointerTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseMemberPointerTypeLocENS_20MemberPointerTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseObjCObjectPointerTypeLocENS_24ObjCObjectPointerTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseObjCObjectPointerTypeLocENS_24ObjCObjectPointerTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseObjCObjectTypeLocENS_17ObjCObjectTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseObjCObjectTypeLocENS_17ObjCObjectTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseObjCInterfaceTypeLocENS_20ObjCInterfaceTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseObjCInterfaceTypeLocENS_20ObjCInterfaceTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseObjCTypeParamTypeLocENS_20ObjCTypeParamTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28TraverseObjCTypeParamTypeLocENS_20ObjCTypeParamTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor28TraversePackExpansionTypeLocEN5clang20PackExpansionTypeLocE(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) unnamed_addr #10 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor28TraversePackExpansionTypeLocEN5clang20PackExpansionTypeLocE(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) unnamed_addr #9 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor27TraversePackIndexingTypeLocEN5clang19PackIndexingTypeLocE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr readonly captures(none) %1, ptr readnone captures(none) %2) unnamed_addr #2 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor27TraversePackIndexingTypeLocEN5clang19PackIndexingTypeLocE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr readonly captures(none) %1, ptr readnone captures(none) %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load ptr, ptr %4, align 16, !tbaa !1018
   %6 = tail call noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE12TraverseStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef %5) #16
   ret i1 %6
 }
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseParenTypeLocENS_12ParenTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseParenTypeLocENS_12ParenTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraversePipeTypeLocENS_11PipeTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraversePipeTypeLocENS_11PipeTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraversePointerTypeLocENS_14PointerTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraversePointerTypeLocENS_14PointerTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseLValueReferenceTypeLocENS_22LValueReferenceTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseLValueReferenceTypeLocENS_22LValueReferenceTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseRValueReferenceTypeLocENS_22RValueReferenceTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseRValueReferenceTypeLocENS_22RValueReferenceTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE40TraverseSubstTemplateTypeParmPackTypeLocENS_32SubstTemplateTypeParmPackTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE40TraverseSubstTemplateTypeParmPackTypeLocENS_32SubstTemplateTypeParmPackTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE36TraverseSubstTemplateTypeParmTypeLocENS_28SubstTemplateTypeParmTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE36TraverseSubstTemplateTypeParmTypeLocENS_28SubstTemplateTypeParmTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseEnumTypeLocENS_11EnumTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19TraverseEnumTypeLocENS_11EnumTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseRecordTypeLocENS_13RecordTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseRecordTypeLocENS_13RecordTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE37TraverseTemplateSpecializationTypeLocENS_29TemplateSpecializationTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE37TraverseTemplateSpecializationTypeLocENS_29TemplateSpecializationTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31TraverseTemplateTypeParmTypeLocENS_23TemplateTypeParmTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31TraverseTemplateTypeParmTypeLocENS_23TemplateTypeParmTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseTypeOfExprTypeLocENS_17TypeOfExprTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25TraverseTypeOfExprTypeLocENS_17TypeOfExprTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseTypeOfTypeLocENS_13TypeOfTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseTypeOfTypeLocENS_13TypeOfTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseTypedefTypeLocENS_14TypedefTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22TraverseTypedefTypeLocENS_14TypedefTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29TraverseUnaryTransformTypeLocENS_21UnaryTransformTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29TraverseUnaryTransformTypeLocENS_21UnaryTransformTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseUnresolvedUsingTypeLocENS_22UnresolvedUsingTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseUnresolvedUsingTypeLocENS_22UnresolvedUsingTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseUsingTypeLocENS_12UsingTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseUsingTypeLocENS_12UsingTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseVectorTypeLocENS_13VectorTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseVectorTypeLocENS_13VectorTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseExtVectorTypeLocENS_16ExtVectorTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
-
-; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitQualifiedTypeLocENS_16QualifiedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseExtVectorTypeLocENS_16ExtVectorTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitAdjustedTypeLocENS_15AdjustedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitQualifiedTypeLocENS_16QualifiedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitDecayedTypeLocENS_14DecayedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitAdjustedTypeLocENS_15AdjustedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitArrayTypeLocENS_12ArrayTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitDecayedTypeLocENS_14DecayedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitConstantArrayTypeLocENS_20ConstantArrayTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitArrayTypeLocENS_12ArrayTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitArrayParameterTypeLocENS_21ArrayParameterTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitConstantArrayTypeLocENS_20ConstantArrayTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31VisitDependentSizedArrayTypeLocENS_26DependentSizedArrayTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitArrayParameterTypeLocENS_21ArrayParameterTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitIncompleteArrayTypeLocENS_22IncompleteArrayTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE31VisitDependentSizedArrayTypeLocENS_26DependentSizedArrayTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitVariableArrayTypeLocENS_20VariableArrayTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitIncompleteArrayTypeLocENS_22IncompleteArrayTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitAtomicTypeLocENS_13AtomicTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitVariableArrayTypeLocENS_20VariableArrayTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitAttributedTypeLocENS_17AttributedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitAtomicTypeLocENS_13AtomicTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28VisitBTFTagAttributedTypeLocENS_23BTFTagAttributedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitAttributedTypeLocENS_17AttributedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitBitIntTypeLocENS_13BitIntTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28VisitBTFTagAttributedTypeLocENS_23BTFTagAttributedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitBlockPointerTypeLocENS_19BlockPointerTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitBitIntTypeLocENS_13BitIntTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28VisitBoundsAttributedTypeLocENS_23BoundsAttributedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitBlockPointerTypeLocENS_19BlockPointerTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitCountAttributedTypeLocENS_22CountAttributedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE28VisitBoundsAttributedTypeLocENS_23BoundsAttributedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitBuiltinTypeLocENS_14BuiltinTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitCountAttributedTypeLocENS_22CountAttributedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitComplexTypeLocENS_14ComplexTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitBuiltinTypeLocENS_14BuiltinTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitDecltypeTypeLocENS_15DecltypeTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitComplexTypeLocENS_14ComplexTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitDeducedTypeLocENS_14DeducedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitDecltypeTypeLocENS_15DecltypeTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitAutoTypeLocENS_11AutoTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitDeducedTypeLocENS_14DeducedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE41VisitDeducedTemplateSpecializationTypeLocENS_36DeducedTemplateSpecializationTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitAutoTypeLocENS_11AutoTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE33VisitDependentAddressSpaceTypeLocENS_28DependentAddressSpaceTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE41VisitDeducedTemplateSpecializationTypeLocENS_36DeducedTemplateSpecializationTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitDependentBitIntTypeLocENS_22DependentBitIntTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE33VisitDependentAddressSpaceTypeLocENS_28DependentAddressSpaceTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitDependentNameTypeLocENS_20DependentNameTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitDependentBitIntTypeLocENS_22DependentBitIntTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE35VisitDependentSizedExtVectorTypeLocENS_30DependentSizedExtVectorTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitDependentNameTypeLocENS_20DependentNameTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE43VisitDependentTemplateSpecializationTypeLocENS_38DependentTemplateSpecializationTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE35VisitDependentSizedExtVectorTypeLocENS_30DependentSizedExtVectorTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitDependentVectorTypeLocENS_22DependentVectorTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE43VisitDependentTemplateSpecializationTypeLocENS_38DependentTemplateSpecializationTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitElaboratedTypeLocENS_17ElaboratedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitDependentVectorTypeLocENS_22DependentVectorTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitFunctionTypeLocENS_15FunctionTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitElaboratedTypeLocENS_17ElaboratedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitFunctionNoProtoTypeLocENS_22FunctionNoProtoTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20VisitFunctionTypeLocENS_15FunctionTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitFunctionProtoTypeLocENS_20FunctionProtoTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitFunctionNoProtoTypeLocENS_22FunctionNoProtoTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34VisitHLSLAttributedResourceTypeLocENS_29HLSLAttributedResourceTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitFunctionProtoTypeLocENS_20FunctionProtoTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitInjectedClassNameTypeLocENS_24InjectedClassNameTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34VisitHLSLAttributedResourceTypeLocENS_29HLSLAttributedResourceTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitMacroQualifiedTypeLocENS_21MacroQualifiedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitInjectedClassNameTypeLocENS_24InjectedClassNameTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitMatrixTypeLocENS_13MatrixTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitMacroQualifiedTypeLocENS_21MacroQualifiedTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitConstantMatrixTypeLocENS_21ConstantMatrixTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitMatrixTypeLocENS_13MatrixTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32VisitDependentSizedMatrixTypeLocENS_27DependentSizedMatrixTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitConstantMatrixTypeLocENS_21ConstantMatrixTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitMemberPointerTypeLocENS_20MemberPointerTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32VisitDependentSizedMatrixTypeLocENS_27DependentSizedMatrixTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitObjCObjectPointerTypeLocENS_24ObjCObjectPointerTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitMemberPointerTypeLocENS_20MemberPointerTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitObjCObjectTypeLocENS_17ObjCObjectTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE29VisitObjCObjectPointerTypeLocENS_24ObjCObjectPointerTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitObjCInterfaceTypeLocENS_20ObjCInterfaceTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitObjCObjectTypeLocENS_17ObjCObjectTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitObjCTypeParamTypeLocENS_20ObjCTypeParamTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitObjCInterfaceTypeLocENS_20ObjCInterfaceTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitPackExpansionTypeLocENS_20PackExpansionTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitObjCTypeParamTypeLocENS_20ObjCTypeParamTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitPackIndexingTypeLocENS_19PackIndexingTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE25VisitPackExpansionTypeLocENS_20PackExpansionTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitParenTypeLocENS_12ParenTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24VisitPackIndexingTypeLocENS_19PackIndexingTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitPipeTypeLocENS_11PipeTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitParenTypeLocENS_12ParenTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitPointerTypeLocENS_14PointerTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitPipeTypeLocENS_11PipeTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitReferenceTypeLocENS_16ReferenceTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitPointerTypeLocENS_14PointerTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitLValueReferenceTypeLocENS_22LValueReferenceTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitReferenceTypeLocENS_16ReferenceTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitRValueReferenceTypeLocENS_22RValueReferenceTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitLValueReferenceTypeLocENS_22LValueReferenceTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE37VisitSubstTemplateTypeParmPackTypeLocENS_32SubstTemplateTypeParmPackTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitRValueReferenceTypeLocENS_22RValueReferenceTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE33VisitSubstTemplateTypeParmTypeLocENS_28SubstTemplateTypeParmTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE37VisitSubstTemplateTypeParmPackTypeLocENS_32SubstTemplateTypeParmPackTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitTagTypeLocENS_10TagTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE33VisitSubstTemplateTypeParmTypeLocENS_28SubstTemplateTypeParmTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitEnumTypeLocENS_11EnumTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15VisitTagTypeLocENS_10TagTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitRecordTypeLocENS_13RecordTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16VisitEnumTypeLocENS_11EnumTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34VisitTemplateSpecializationTypeLocENS_29TemplateSpecializationTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitRecordTypeLocENS_13RecordTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor28VisitTemplateTypeParmTypeLocEN5clang23TemplateTypeParmTypeLocE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr %1, ptr readonly captures(none) %2) unnamed_addr #2 align 2 {
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE34VisitTemplateSpecializationTypeLocENS_29TemplateSpecializationTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor28VisitTemplateTypeParmTypeLocEN5clang23TemplateTypeParmTypeLocE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr %1, ptr readonly captures(none) %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 16
   %6 = and i64 %5, 140737488355328
@@ -11965,58 +11959,58 @@ _ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor13addUnexpandedEPKN5cla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitTypeOfExprTypeLocENS_17TypeOfExprTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE22VisitTypeOfExprTypeLocENS_17TypeOfExprTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitTypeOfTypeLocENS_13TypeOfTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitTypeOfTypeLocENS_13TypeOfTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitTypedefTypeLocENS_14TypedefTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19VisitTypedefTypeLocENS_14TypedefTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitUnaryTransformTypeLocENS_21UnaryTransformTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26VisitUnaryTransformTypeLocENS_21UnaryTransformTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitUnresolvedUsingTypeLocENS_22UnresolvedUsingTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27VisitUnresolvedUsingTypeLocENS_22UnresolvedUsingTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitUsingTypeLocENS_12UsingTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17VisitUsingTypeLocENS_12UsingTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitVectorTypeLocENS_13VectorTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18VisitVectorTypeLocENS_13VectorTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitExtVectorTypeLocENS_16ExtVectorTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2 align 2
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21VisitExtVectorTypeLocENS_16ExtVectorTypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #1 align 2
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #11
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE12TraverseAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE12TraverseAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseConstructorInitializerEPNS_18CXXCtorInitializerE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseConstructorInitializerEPNS_18CXXCtorInitializerE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseCXXBaseSpecifierERKNS_16CXXBaseSpecifierE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseCXXBaseSpecifierERKNS_16CXXBaseSpecifierE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE12TraverseDeclEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE12TraverseDeclEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseLambdaCaptureEPNS_10LambdaExprEPKNS_13LambdaCaptureEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef, ptr noundef, ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE21TraverseLambdaCaptureEPNS_10LambdaExprEPKNS_13LambdaCaptureEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef, ptr noundef, ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseUnresolvedUsingValueDeclEPNS_24UnresolvedUsingValueDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE32TraverseUnresolvedUsingValueDeclEPNS_24UnresolvedUsingValueDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE35TraverseUnresolvedUsingTypenameDeclEPNS_27UnresolvedUsingTypenameDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE35TraverseUnresolvedUsingTypenameDeclEPNS_27UnresolvedUsingTypenameDeclE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE12TraverseStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE12TraverseStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef ptr @_ZNK5clang10LambdaExpr24getTemplateParameterListEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
+declare noundef ptr @_ZNK5clang10LambdaExpr24getTemplateParameterListEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
-declare noundef i32 @_ZNK5clang21TemplateParameterList8getDepthEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
+declare noundef i32 @_ZNK5clang21TemplateParameterList8getDepthEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseLambdaExprEPNS_10LambdaExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE18TraverseLambdaExprEPNS_10LambdaExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17TraverseBlockExprEPNS_9BlockExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17TraverseBlockExprEPNS_9BlockExprE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor13addUnexpandedEPN5clang9NamedDeclENS1_14SourceLocationE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, i32 %2) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor13addUnexpandedEPN5clang9NamedDeclENS1_14SourceLocationE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, i32 %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 127
@@ -12178,60 +12172,60 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12PointerUnionIJPKN5clang20Template
   ret void
 }
 
-declare noundef ptr @_ZNK5clang12FunctionDecl28getDescribedFunctionTemplateEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #3
+declare noundef ptr @_ZNK5clang12FunctionDecl28getDescribedFunctionTemplateEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr, ptr) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE12TraverseTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(12), i64) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE12TraverseTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(12), i64) unnamed_addr #2
 
-declare noundef ptr @_ZNK5clang12TemplateName17getAsTemplateDeclEb(ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #3
+declare noundef ptr @_ZNK5clang12TemplateName17getAsTemplateDeclEb(ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseTemplateNameENS_12TemplateNameE(ptr noundef nonnull align 8 dereferenceable(12), i64) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE20TraverseTemplateNameENS_12TemplateNameE(ptr noundef nonnull align 8 dereferenceable(12), i64) unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @_ZNK5clang19TemplateArgumentLoc14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
+declare i64 @_ZNK5clang19TemplateArgumentLoc14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
-declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseTemplateArgumentERKNS_16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #3
+declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseTemplateArgumentERKNS_16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #2
 
-declare void @_ZN5clang29NestedNameSpecifierLocBuilderC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #3
+declare void @_ZN5clang29NestedNameSpecifierLocBuilderC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #2
 
-declare i32 @_ZNK5clang7TypeLoc11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
+declare i32 @_ZNK5clang7TypeLoc11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
-declare i32 @_ZNK5clang7TypeLoc9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
+declare i32 @_ZNK5clang7TypeLoc9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
-declare noundef ptr @_ZNK5clang10ASTContext20CreateTypeSourceInfoENS_8QualTypeEj(ptr noundef nonnull align 8 dereferenceable(23216), i64, i32 noundef) local_unnamed_addr #3
+declare noundef ptr @_ZNK5clang10ASTContext20CreateTypeSourceInfoENS_8QualTypeEj(ptr noundef nonnull align 8 dereferenceable(23216), i64, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #11
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #10
 
-declare noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_17PackExpansionExprE(ptr noundef) local_unnamed_addr #3
+declare noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_17PackExpansionExprE(ptr noundef) local_unnamed_addr #2
 
-declare void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef) local_unnamed_addr #3
+declare void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef) local_unnamed_addr #2
 
-declare noundef i32 @_ZNK5clang20TemplateTypeParmDecl8getDepthEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #3
+declare noundef i32 @_ZNK5clang20TemplateTypeParmDecl8getDepthEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #2
 
-declare noundef i32 @_ZNK5clang20TemplateTypeParmDecl8getIndexEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #3
+declare noundef i32 @_ZNK5clang20TemplateTypeParmDecl8getIndexEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #2
 
-declare noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #3
+declare noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #2
 
-declare void @_ZN5clang12LookupResult9configureEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #3
+declare void @_ZN5clang12LookupResult9configureEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #12
+declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZN5clang9NamedDecl21getUnderlyingDeclImplEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #6
+declare noundef ptr @_ZN5clang9NamedDecl21getUnderlyingDeclImplEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #5
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_125ParameterPackValidatorCCCD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #9 align 2 {
+define internal void @_ZN12_GLOBAL__N_125ParameterPackValidatorCCCD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #8 align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_125ParameterPackValidatorCCC17ValidateCandidateERKN5clang14TypoCorrectionE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %1) unnamed_addr #2 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_125ParameterPackValidatorCCC17ValidateCandidateERKN5clang14TypoCorrectionE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !9
   %.not.i.i.i.i.i = icmp eq i32 %4, 0
@@ -12271,7 +12265,7 @@ _ZNK5clang14TypoCorrection17getCorrectionDeclEv.exit.thread: ; preds = %2, %_ZNK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZN5clang27CorrectionCandidateCallback13RankCandidateERKNS_14TypoCorrectionE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #2 comdat align 2 {
+define linkonce_odr hidden noundef i32 @_ZN5clang27CorrectionCandidateCallback13RankCandidateERKNS_14TypoCorrectionE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !1026
   %.not.i = icmp eq ptr %4, null
@@ -12318,7 +12312,7 @@ _ZN5clang27CorrectionCandidateCallback11MatchesTypoERKNS_14TypoCorrectionE.exit.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_125ParameterPackValidatorCCC5cloneEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.1457") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #2 align 2 {
+define internal void @_ZN12_GLOBAL__N_125ParameterPackValidatorCCC5cloneEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.1457") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #1 align 2 {
 _ZNSt10unique_ptrIN12_GLOBAL__N_125ParameterPackValidatorCCCESt14default_deleteIS1_EED2Ev.exit:
   %2 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17, !noalias !1036
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -12330,10 +12324,10 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_125ParameterPackValidatorCCCESt14default_deleteI
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE(ptr noundef nonnull align 8 dereferenceable(14980) %0, ptr noundef %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE(ptr noundef nonnull align 8 dereferenceable(14980) %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 {
   %3 = icmp uge ptr %1, %0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 14848
   %5 = icmp ule ptr %1, %4
@@ -12456,30 +12450,30 @@ _ZN5clang17DiagnosticStorageD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
   ret void
 }
 
-declare void @_ZN5clang12LookupResult11deletePathsEPNS_12CXXBasePathsE(ptr noundef) local_unnamed_addr #3
+declare void @_ZN5clang12LookupResult11deletePathsEPNS_12CXXBasePathsE(ptr noundef) local_unnamed_addr #2
 
-declare void @_ZN5clang4Sema17CheckLookupAccessERKNS_12LookupResultE(ptr noundef nonnull align 8 dereferenceable(17504), ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #3
+declare void @_ZN5clang4Sema17CheckLookupAccessERKNS_12LookupResultE(ptr noundef nonnull align 8 dereferenceable(17504), ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #2
 
-declare void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12), i64 noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12), i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare noundef i32 @_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE(i64) local_unnamed_addr #3
+declare noundef i32 @_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE(i64) local_unnamed_addr #2
 
-declare void @_ZN5clang16TemplateArgument12initFromTypeENS_8QualTypeEbb(ptr noundef nonnull align 8 dereferenceable(24), i64, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
+declare void @_ZN5clang16TemplateArgument12initFromTypeENS_8QualTypeEbb(ptr noundef nonnull align 8 dereferenceable(24), i64, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @_ZN5clang23TemplateArgumentLocInfoC1ERNS_10ASTContextENS_22NestedNameSpecifierLocENS_14SourceLocationES4_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(23216), ptr, ptr, i32, i32) unnamed_addr #3
+declare void @_ZN5clang23TemplateArgumentLocInfoC1ERNS_10ASTContextENS_22NestedNameSpecifierLocENS_14SourceLocationES4_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(23216), ptr, ptr, i32, i32) unnamed_addr #2
 
-declare void @_ZN5clang12TemplateNameC1EPv(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #3
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZN5clang4Expr14IgnoreImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #6
-
-declare noundef zeroext i1 @_ZNK5clang19CXXOperatorCallExpr15isInfixBinaryOpEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
+declare void @_ZN5clang12TemplateNameC1EPv(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #6
+declare noundef ptr @_ZN5clang4Expr14IgnoreImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #5
+
+declare noundef zeroext i1 @_ZNK5clang19CXXOperatorCallExpr15isInfixBinaryOpEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
+declare i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5clang9FixItHint15CreateInsertionENS_14SourceLocationEN4llvm9StringRefEb(ptr dead_on_unwind noalias writable sret(%"class.clang::FixItHint") align 8 %0, i32 %1, ptr %2, i64 %3, i1 noundef zeroext %4) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr hidden void @_ZN5clang9FixItHint15CreateInsertionENS_14SourceLocationEN4llvm9StringRefEb(ptr dead_on_unwind noalias writable sret(%"class.clang::FixItHint") align 8 %0, i32 %1, ptr %2, i64 %3, i1 noundef zeroext %4) local_unnamed_addr #1 comdat align 2 {
   %6 = alloca i64, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -12497,7 +12491,7 @@ define linkonce_odr hidden void @_ZN5clang9FixItHint15CreateInsertionENS_14Sourc
   store i64 %.sroa.0.0.insert.insert.i, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !884
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %13, ptr %7, align 8, !tbaa !143
   %14 = icmp eq ptr %2, null
@@ -12510,7 +12504,7 @@ define linkonce_odr hidden void @_ZN5clang9FixItHint15CreateInsertionENS_14Sourc
   unreachable
 
 17:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %3, ptr %6, align 8, !tbaa !152
   %18 = icmp ugt i64 %3, 15
   br i1 %18, label %19, label %._crit_edge.i.i.i.i
@@ -12545,7 +12539,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %28 = load ptr, ptr %7, align 8, !tbaa !150
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %26
   store i8 0, ptr %29, align 1, !tbaa !148
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %30 = load ptr, ptr %9, align 8, !tbaa !150
   %31 = icmp eq ptr %30, %10
   br i1 %31, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
@@ -12644,18 +12638,18 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   %63 = zext i1 %4 to i8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store i8 %63, ptr %12, align 8, !tbaa !1042
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #6
+declare i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #5
 
-declare noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #3
+declare noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !1046
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -12708,7 +12702,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_E15LookupBucketForIS6_EEbRKT_RPSI_.exit: ; preds = %23, %2
   %.sink.i = phi ptr [ %24, %23 ], [ null, %2 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %.sink.i, ptr %3, align 8, !tbaa !1051
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load i32, ptr %34, align 8, !tbaa !1052
@@ -12757,7 +12751,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDec
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_E16InsertIntoBucketIS6_JEEEPSI_SM_OT_DpOT0_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_E16InsertIntoBucketIS6_JEEEPSI_SM_OT_DpOT0_.exit: ; preds = %47, %53
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %57 = load i64, ptr %1, align 8, !tbaa !1054
   store i64 %57, ptr %48, align 8, !tbaa !1054
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -12771,7 +12765,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic12AddFixItHintERKNS_9FixItHintE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(57) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic12AddFixItHintERKNS_9FixItHintE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(57) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = load i32, ptr %1, align 8, !tbaa !178
   %4 = icmp eq i32 %3, 0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -12896,7 +12890,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit: ; preds = %_ZN5clang17Diagno
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(57) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(57) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !9
@@ -12943,7 +12937,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGet
   %27 = load ptr, ptr %25, align 8, !tbaa !150
   %28 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 32
   %29 = load i64, ptr %28, align 8, !tbaa !146
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %29, ptr %3, align 8, !tbaa !152
   %30 = icmp ugt i64 %29, 15
   br i1 %30, label %31, label %._crit_edge.i.i.i
@@ -12978,7 +12972,7 @@ _ZN5clang9FixItHintC2ERKS0_.exit:                 ; preds = %._crit_edge.i.i.i, 
   %40 = load ptr, ptr %24, align 8, !tbaa !150
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %38
   store i8 0, ptr %41, align 1, !tbaa !148
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %42 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %43 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 56
   %44 = load i8, ptr %43, align 8, !tbaa !1042, !range !40, !noundef !41
@@ -12990,9 +12984,9 @@ _ZN5clang9FixItHintC2ERKS0_.exit:                 ; preds = %._crit_edge.i.i.i, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = call noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %4, i64 noundef %1, i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(8) %3) #16
   %6 = load ptr, ptr %0, align 8, !tbaa !3
@@ -13106,16 +13100,16 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE21takeAllocationForGrow
   %47 = trunc i64 %44 to i32
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %47, ptr %48, align 4, !tbaa !12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3
+declare noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #3
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_E15LookupBucketForIS6_EEbRKT_RPSI_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_E15LookupBucketForIS6_EEbRKT_RPSI_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 comdat align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !1046
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8, !tbaa !1047
@@ -13173,7 +13167,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4llvm8DenseMapIN5clang16CanonicalDeclPtrIKNS1_12FunctionDeclEEESt6vectorISt4pairINS1_14SourceLocationENS1_17PartialDiagnosticEESaISA_EENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SC_EEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr hidden void @_ZN4llvm8DenseMapIN5clang16CanonicalDeclPtrIKNS1_12FunctionDeclEEESt6vectorISt4pairINS1_14SourceLocationENS1_17PartialDiagnosticEESaISA_EENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SC_EEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %1) local_unnamed_addr #1 comdat align 2 {
 _ZN4llvm8DenseMapIN5clang16CanonicalDeclPtrIKNS1_12FunctionDeclEEESt6vectorISt4pairINS1_14SourceLocationENS1_17PartialDiagnosticEESaISA_EENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SC_EEE15allocateBucketsEj.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8, !tbaa !1047
@@ -13334,23 +13328,23 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDec
   ret void
 }
 
-declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #14
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #13
 
-declare void @_ZN5clang18DeclarationNameLocC1ENS_15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(8), i64) unnamed_addr #3
+declare void @_ZN5clang18DeclarationNameLocC1ENS_15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(8), i64) unnamed_addr #2
 
-declare noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_22CXXScalarValueInitExprE(ptr noundef) local_unnamed_addr #3
+declare noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_22CXXScalarValueInitExprE(ptr noundef) local_unnamed_addr #2
 
-declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21), ptr noundef) local_unnamed_addr #3
+declare { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #1 comdat align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !124
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %48
@@ -13475,7 +13469,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit: ; preds = %_ZN5clang17Diagno
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(9) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(9) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !124
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %47
@@ -13615,20 +13609,20 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang15CharSourceRangeELb1EE9push_backES2_.e
   ret void
 }
 
-declare noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21), ptr noundef) local_unnamed_addr #3
+declare noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21), ptr noundef) local_unnamed_addr #2
 
-declare { ptr, ptr } @_ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj(ptr noundef nonnull align 8 dereferenceable(61), i64, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare { ptr, ptr } @_ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj(ptr noundef nonnull align 8 dereferenceable(61), i64, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i64 @_ZN4llvm12function_refIFN5clang12ActionResultIPNS1_4ExprELb1EEES4_EE11callback_fnIZNS1_4Sema25CorrectDelayedTyposInExprES4_PNS1_7VarDeclEbS7_Ed_UlS4_E_EES5_lS4_(i64 noundef %0, ptr noundef %1) #2 comdat align 2 {
+define linkonce_odr hidden i64 @_ZN4llvm12function_refIFN5clang12ActionResultIPNS1_4ExprELb1EEES4_EE11callback_fnIZNS1_4Sema25CorrectDelayedTyposInExprES4_PNS1_7VarDeclEbS7_Ed_UlS4_E_EES5_lS4_(i64 noundef %0, ptr noundef %1) #1 comdat align 2 {
   %3 = ptrtoint ptr %1 to i64
   ret i64 %3
 }
 
-declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN5clanglsERKNS_19StreamingDiagnosticERKNS_16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
+declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN5clanglsERKNS_19StreamingDiagnosticERKNS_16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %1, i64 %2) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %1, i64 %2) local_unnamed_addr #1 comdat align 2 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = load ptr, ptr %0, align 8, !tbaa !124
@@ -13742,7 +13736,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit: ; preds = %_ZN5clang17Diagno
   %54 = zext i8 %53 to i64
   %55 = getelementptr inbounds nuw [10 x i8], ptr %52, i64 0, i64 %54
   store i8 0, ptr %55, align 1, !tbaa !148
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %56, ptr %5, align 8, !tbaa !143
   %57 = icmp eq ptr %1, null
@@ -13755,7 +13749,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit: ; preds = %_ZN5clang17Diagno
   unreachable
 
 60:                                               ; preds = %50
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %2, ptr %4, align 8, !tbaa !152
   %61 = icmp ugt i64 %2, 15
   br i1 %61, label %62, label %._crit_edge.i.i.i.i
@@ -13790,7 +13784,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %71 = load ptr, ptr %5, align 8, !tbaa !150
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 %69
   store i8 0, ptr %72, align 1, !tbaa !148
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %73 = load ptr, ptr %0, align 8, !tbaa !124
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 96
   %75 = load i8, ptr %73, align 8, !tbaa !131
@@ -13899,9 +13893,15 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #15
@@ -13910,20 +13910,20 @@ declare i32 @llvm.umax.i32(i32, i32) #15
 declare i32 @llvm.umin.i32(i32, i32) #15
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #12 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nounwind }
 attributes #17 = { builtin nounwind allocsize(0) }

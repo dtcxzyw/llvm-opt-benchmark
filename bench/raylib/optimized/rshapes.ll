@@ -139,9 +139,6 @@ define void @DrawPixelV(<2 x float> %0, i32 %1) local_unnamed_addr #4 {
 
 declare void @rlSetTexture(i32 noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
 declare void @rlBegin(i32 noundef) local_unnamed_addr #5
 
 declare void @rlNormal3f(float noundef, float noundef, float noundef) local_unnamed_addr #5
@@ -154,11 +151,8 @@ declare void @rlVertex2f(float noundef, float noundef) local_unnamed_addr #5
 
 declare void @rlEnd() local_unnamed_addr #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
-
 ; Function Attrs: nounwind uwtable
-define void @DrawLine(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 %4) local_unnamed_addr #7 {
+define void @DrawLine(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 %4) local_unnamed_addr #6 {
   %.sroa.0.0.extract.trunc = trunc i32 %4 to i8
   %.sroa.2.0.extract.shift = lshr i32 %4, 8
   %.sroa.2.0.extract.trunc = trunc i32 %.sroa.2.0.extract.shift to i8
@@ -200,7 +194,7 @@ define void @DrawLineV(<2 x float> %0, <2 x float> %1, i32 %2) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define void @DrawLineStrip(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2) local_unnamed_addr #7 {
+define void @DrawLineStrip(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2) local_unnamed_addr #6 {
   %4 = icmp slt i32 %1, 2
   br i1 %4, label %14, label %.lr.ph.preheader
 
@@ -247,7 +241,7 @@ define void @DrawLineBezier(<2 x float> %0, <2 x float> %1, float noundef %2, i3
   %5 = alloca [50 x %struct.Vector2], align 16
   %.sroa.041.0.vec.extract43 = extractelement <2 x float> %0, i64 0
   %.sroa.041.4.vec.extract47 = extractelement <2 x float> %0, i64 1
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %6, i8 0, i64 384, i1 false)
   %7 = fsub <2 x float> %1, %0
@@ -268,7 +262,7 @@ define void @DrawLineBezier(<2 x float> %0, <2 x float> %1, float noundef %2, i3
   store float %51, ptr %15, align 4
   store float %54, ptr %5, align 16
   call void @DrawTriangleStrip(ptr noundef nonnull %5, i32 noundef 50, i32 %3)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 18:                                               ; preds = %4, %50
@@ -349,13 +343,13 @@ EaseCubicInOut.exit._crit_edge:                   ; preds = %EaseCubicInOut.exit
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #9
+declare float @llvm.fmuladd.f32(float, float, float) #8
 
 ; Function Attrs: nounwind uwtable
-define void @DrawTriangleStrip(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2) local_unnamed_addr #7 {
+define void @DrawTriangleStrip(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2) local_unnamed_addr #6 {
   %4 = icmp sgt i32 %1, 2
   br i1 %4, label %5, label %22
 
@@ -431,7 +425,7 @@ define void @DrawLineEx(<2 x float> %0, <2 x float> %1, float noundef %2, i32 %3
   %16 = fneg float %15
   %17 = fmul float %8, %16
   %18 = fmul float %7, %15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = fsub float %.sroa.028.0.vec.extract, %17
   store float %19, ptr %5, align 16
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -456,7 +450,7 @@ define void @DrawLineEx(<2 x float> %0, <2 x float> %1, float noundef %2, i32 %3
   %33 = fadd float %.sroa.019.4.vec.extract, %18
   store float %33, ptr %32, align 4
   call void @DrawTriangleStrip(ptr noundef nonnull %5, i32 noundef 4, i32 %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %34
 
 34:                                               ; preds = %13, %4
@@ -664,19 +658,19 @@ define void @DrawCircleSector(<2 x float> %0, float noundef %1, float noundef %2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.ceil.f32(float) #9
+declare float @llvm.ceil.f32(float) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @acosf(float noundef) local_unnamed_addr #10
+declare float @acosf(float noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @powf(float noundef, float noundef) local_unnamed_addr #10
+declare float @powf(float noundef, float noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @cosf(float noundef) local_unnamed_addr #10
+declare float @cosf(float noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sinf(float noundef) local_unnamed_addr #10
+declare float @sinf(float noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define void @DrawCircleSectorLines(<2 x float> %0, float noundef %1, float noundef %2, float noundef %3, i32 noundef %4, i32 %5) local_unnamed_addr #4 {
@@ -767,7 +761,7 @@ define void @DrawCircleSectorLines(<2 x float> %0, float noundef %1, float nound
 }
 
 ; Function Attrs: nounwind uwtable
-define void @DrawCircleGradient(i32 noundef %0, i32 noundef %1, float noundef %2, i32 %3, i32 %4) local_unnamed_addr #7 {
+define void @DrawCircleGradient(i32 noundef %0, i32 noundef %1, float noundef %2, i32 %3, i32 %4) local_unnamed_addr #6 {
   %.sroa.019.0.extract.trunc = trunc i32 %3 to i8
   %.sroa.2.0.extract.shift = lshr i32 %3, 8
   %.sroa.2.0.extract.trunc = trunc i32 %.sroa.2.0.extract.shift to i8
@@ -897,7 +891,7 @@ define void @DrawCircleLinesV(<2 x float> %0, float noundef %1, i32 %2) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define void @DrawEllipse(i32 noundef %0, i32 noundef %1, float noundef %2, float noundef %3, i32 %4) local_unnamed_addr #7 {
+define void @DrawEllipse(i32 noundef %0, i32 noundef %1, float noundef %2, float noundef %3, i32 %4) local_unnamed_addr #6 {
   %.sroa.0.0.extract.trunc = trunc i32 %4 to i8
   %.sroa.2.0.extract.shift = lshr i32 %4, 8
   %.sroa.2.0.extract.trunc = trunc i32 %.sroa.2.0.extract.shift to i8
@@ -938,7 +932,7 @@ define void @DrawEllipse(i32 noundef %0, i32 noundef %1, float noundef %2, float
 }
 
 ; Function Attrs: nounwind uwtable
-define void @DrawEllipseLines(i32 noundef %0, i32 noundef %1, float noundef %2, float noundef %3, i32 %4) local_unnamed_addr #7 {
+define void @DrawEllipseLines(i32 noundef %0, i32 noundef %1, float noundef %2, float noundef %3, i32 %4) local_unnamed_addr #6 {
   %.sroa.0.0.extract.trunc = trunc i32 %4 to i8
   %.sroa.2.0.extract.shift = lshr i32 %4, 8
   %.sroa.2.0.extract.trunc = trunc i32 %.sroa.2.0.extract.shift to i8
@@ -1498,7 +1492,7 @@ define void @DrawRectangleGradientH(i32 noundef %0, i32 noundef %1, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @DrawRectangleLines(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 %4) local_unnamed_addr #7 {
+define void @DrawRectangleLines(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 %4) local_unnamed_addr #6 {
   %6 = alloca %struct.Matrix, align 4
   %.sroa.0.0.extract.trunc = trunc i32 %4 to i8
   %.sroa.2.0.extract.shift = lshr i32 %4, 8
@@ -1507,7 +1501,7 @@ define void @DrawRectangleLines(i32 noundef %0, i32 noundef %1, i32 noundef %2, 
   %.sroa.3.0.extract.trunc = trunc i32 %.sroa.3.0.extract.shift to i8
   %.sroa.4.0.extract.shift = lshr i32 %4, 24
   %.sroa.4.0.extract.trunc = trunc nuw i32 %.sroa.4.0.extract.shift to i8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @rlGetMatrixTransform(ptr dead_on_unwind nonnull writable sret(%struct.Matrix) align 4 %6) #16
   %7 = load float, ptr %6, align 4
   %8 = fdiv float 5.000000e-01, %7
@@ -1535,7 +1529,7 @@ define void @DrawRectangleLines(i32 noundef %0, i32 noundef %1, i32 noundef %2, 
   call void @rlVertex2f(float noundef %13, float noundef %21) #16
   call void @rlVertex2f(float noundef %13, float noundef %15) #16
   call void @rlEnd() #16
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -1652,7 +1646,7 @@ define void @DrawRectangleRounded(<2 x float> %0, <2 x float> %1, float noundef 
   %32 = fadd float %.sroa.0280.4.vec.extract, %11
   %33 = fadd float %.sroa.0280.4.vec.extract, %.sroa.26326.12.vec.extract
   %34 = fsub float %33, %11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store float %28, ptr %6, align 16
   %.sroa.39.64..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 4
   store float %32, ptr %.sroa.39.64..sroa_idx, align 4
@@ -1853,7 +1847,7 @@ define void @DrawRectangleRounded(<2 x float> %0, <2 x float> %1, float noundef 
   tail call void @rlVertex2f(float noundef %31, float noundef %32) #16
   tail call void @rlEnd() #16
   tail call void @rlSetTexture(i32 noundef 0) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %249
 
 166:                                              ; preds = %25, %248
@@ -2096,7 +2090,7 @@ DrawRectangleLinesEx.exit:                        ; preds = %11, %20, %22, %24
   %50 = sitofp i32 %.0388 to float
   %51 = fdiv float 9.000000e+01, %50
   %52 = fadd float %35, %.0392
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.sroa.0256.0.vec.extract258 = extractelement <2 x float> %0, i64 0
   %53 = fadd float %.sroa.0256.0.vec.extract258, %35
   %54 = fadd float %53, 5.000000e-01
@@ -2185,7 +2179,7 @@ DrawRectangleLinesEx.exit:                        ; preds = %11, %20, %22, %24
   store float %103, ptr %105, align 8
   %106 = getelementptr inbounds nuw i8, ptr %7, i64 124
   store float %69, ptr %106, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store float %54, ptr %8, align 16
   %107 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store float %69, ptr %107, align 4
@@ -2497,8 +2491,8 @@ DrawRectangleLinesEx.exit:                        ; preds = %11, %20, %22, %24
   br i1 %293, label %.preheader, label %283
 
 294:                                              ; preds = %283, %.split411.us
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #16
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %295
 
 295:                                              ; preds = %294, %33, %DrawRectangleLinesEx.exit
@@ -2914,7 +2908,7 @@ define void @DrawPolyLinesEx(<2 x float> %0, i32 noundef %1, float noundef %2, f
 }
 
 ; Function Attrs: nounwind uwtable
-define void @DrawSplineLinear(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, i32 %3) local_unnamed_addr #7 {
+define void @DrawSplineLinear(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, i32 %3) local_unnamed_addr #6 {
   %5 = alloca [4 x %struct.Vector2], align 16
   %6 = icmp slt i32 %1, 2
   br i1 %6, label %.loopexit, label %.lr.ph
@@ -2955,7 +2949,7 @@ define void @DrawSplineLinear(ptr noundef readonly captures(none) %0, i32 nounde
   %31 = fneg float %.1
   %32 = fmul float %25, %31
   %33 = fmul float %20, %.1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %34 = fsub float %19, %32
   store float %34, ptr %5, align 16
   %35 = fsub float %24, %33
@@ -2973,7 +2967,7 @@ define void @DrawSplineLinear(ptr noundef readonly captures(none) %0, i32 nounde
   %41 = fadd float %33, %22
   store float %41, ptr %14, align 4
   call void @DrawTriangleStrip(ptr noundef nonnull %5, i32 noundef 4, i32 %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %15
 
@@ -2988,7 +2982,7 @@ define void @DrawSplineBasis(ptr noundef readonly captures(none) %0, i32 noundef
   br i1 %6, label %125, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %7, i8 0, i64 384, i1 false)
   %8 = add nsw i32 %1, -3
@@ -3001,7 +2995,7 @@ define void @DrawSplineBasis(ptr noundef readonly captures(none) %0, i32 noundef
 
 ._crit_edge:                                      ; preds = %.split137.us
   tail call void @DrawCircleSector(<2 x float> %.us-phi144, float noundef %12, float noundef 0.000000e+00, float noundef 3.600000e+02, i32 noundef 36, i32 %3)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %125
 
 13:                                               ; preds = %.lr.ph, %.split137.us
@@ -3216,7 +3210,7 @@ define void @DrawSplineCatmullRom(ptr noundef readonly captures(none) %0, i32 no
 .lr.ph:                                           ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.057.0.copyload = load <2 x float>, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %8, i8 0, i64 384, i1 false)
   %9 = fmul float %2, 5.000000e-01
@@ -3230,7 +3224,7 @@ define void @DrawSplineCatmullRom(ptr noundef readonly captures(none) %0, i32 no
 
 ._crit_edge:                                      ; preds = %29
   tail call void @DrawCircleSector(<2 x float> %.sroa.057.4.vec.insert, float noundef %9, float noundef 0.000000e+00, float noundef 3.600000e+02, i32 noundef 36, i32 %3)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %97
 
 14:                                               ; preds = %.lr.ph, %29
@@ -3413,7 +3407,7 @@ define void @DrawSplineBezierQuadratic(ptr noundef readonly captures(none) %0, i
   %20 = load <2 x float>, ptr %17, align 4
   %.sroa.050.0.vec.extract52.i = extractelement <2 x float> %18, i64 0
   %.sroa.050.4.vec.extract54.i = extractelement <2 x float> %18, i64 1
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %8, i8 0, i64 384, i1 false)
   %.sroa.049.4.vec.extract.i = extractelement <2 x float> %19, i64 1
   %.sroa.048.4.vec.extract.i = extractelement <2 x float> %20, i64 1
@@ -3495,7 +3489,7 @@ DrawSplineSegmentBezierQuadratic.exit:            ; preds = %51
   store float %52, ptr %10, align 4
   store float %55, ptr %5, align 16
   call void @DrawTriangleStrip(ptr noundef nonnull %5, i32 noundef 50, i32 %3)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %66 = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %66, label %14, label %.loopexit
 
@@ -3508,7 +3502,7 @@ define void @DrawSplineSegmentBezierQuadratic(<2 x float> %0, <2 x float> %1, <2
   %6 = alloca [50 x %struct.Vector2], align 16
   %.sroa.050.0.vec.extract52 = extractelement <2 x float> %0, i64 0
   %.sroa.050.4.vec.extract54 = extractelement <2 x float> %0, i64 1
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %7, i8 0, i64 384, i1 false)
   %.sroa.049.4.vec.extract = extractelement <2 x float> %1, i64 1
@@ -3527,7 +3521,7 @@ define void @DrawSplineSegmentBezierQuadratic(<2 x float> %0, <2 x float> %1, <2
   store float %44, ptr %10, align 4
   store float %47, ptr %6, align 16
   call void @DrawTriangleStrip(ptr noundef nonnull %6, i32 noundef 50, i32 %4)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 13:                                               ; preds = %5, %43
@@ -3633,7 +3627,7 @@ define void @DrawSplineSegmentBezierCubic(<2 x float> %0, <2 x float> %1, <2 x f
   %7 = alloca [50 x %struct.Vector2], align 16
   %.sroa.055.0.vec.extract57 = extractelement <2 x float> %0, i64 0
   %.sroa.055.4.vec.extract59 = extractelement <2 x float> %0, i64 1
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %8, i8 0, i64 384, i1 false)
   %.sroa.054.4.vec.extract = extractelement <2 x float> %1, i64 1
@@ -3654,7 +3648,7 @@ define void @DrawSplineSegmentBezierCubic(<2 x float> %0, <2 x float> %1, <2 x f
   store float %51, ptr %11, align 4
   store float %54, ptr %7, align 16
   call void @DrawTriangleStrip(ptr noundef nonnull %7, i32 noundef 50, i32 %5)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 14:                                               ; preds = %6, %50
@@ -3756,7 +3750,7 @@ define void @DrawSplineSegmentLinear(<2 x float> %0, <2 x float> %1, float nound
   %16 = fneg float %15
   %17 = fmul float %8, %16
   %18 = fmul float %7, %15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = fsub float %.sroa.028.0.vec.extract, %17
   store float %19, ptr %5, align 16
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -3781,7 +3775,7 @@ define void @DrawSplineSegmentLinear(<2 x float> %0, <2 x float> %1, float nound
   %33 = fadd float %.sroa.019.4.vec.extract, %18
   store float %33, ptr %32, align 4
   call void @DrawTriangleStrip(ptr noundef nonnull %5, i32 noundef 4, i32 %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %34
 
 34:                                               ; preds = %13, %4
@@ -3791,7 +3785,7 @@ define void @DrawSplineSegmentLinear(<2 x float> %0, <2 x float> %1, float nound
 ; Function Attrs: nounwind uwtable
 define void @DrawSplineSegmentBasis(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, float noundef %4, i32 %5) local_unnamed_addr #4 {
   %7 = alloca [50 x %struct.Vector2], align 16
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(400) %7, i8 0, i64 400, i1 false)
   %.sroa.075.0.vec.extract = extractelement <2 x float> %0, i64 0
   %8 = fneg float %.sroa.075.0.vec.extract
@@ -3839,7 +3833,7 @@ define void @DrawSplineSegmentBasis(<2 x float> %0, <2 x float> %1, <2 x float> 
 
 42:                                               ; preds = %66
   call void @DrawTriangleStrip(ptr noundef nonnull %7, i32 noundef 50, i32 %5)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 43:                                               ; preds = %6, %66
@@ -3909,7 +3903,7 @@ define void @DrawSplineSegmentCatmullRom(<2 x float> %0, <2 x float> %1, <2 x fl
   %7 = alloca [50 x %struct.Vector2], align 16
   %.sroa.071.0.vec.extract73 = extractelement <2 x float> %0, i64 0
   %.sroa.071.4.vec.extract75 = extractelement <2 x float> %0, i64 1
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(400) %7, i8 0, i64 400, i1 false)
   %.sroa.070.0.vec.extract = extractelement <2 x float> %1, i64 0
   %.sroa.069.0.vec.extract = extractelement <2 x float> %2, i64 0
@@ -3925,7 +3919,7 @@ define void @DrawSplineSegmentCatmullRom(<2 x float> %0, <2 x float> %1, <2 x fl
 
 12:                                               ; preds = %61
   call void @DrawTriangleStrip(ptr noundef nonnull %7, i32 noundef 50, i32 %5)
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 13:                                               ; preds = %6, %61
@@ -4016,7 +4010,7 @@ define void @DrawSplineSegmentCatmullRom(<2 x float> %0, <2 x float> %1, <2 x fl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define <2 x float> @GetSplinePointLinear(<2 x float> %0, <2 x float> %1, float noundef %2) local_unnamed_addr #11 {
+define <2 x float> @GetSplinePointLinear(<2 x float> %0, <2 x float> %1, float noundef %2) local_unnamed_addr #10 {
   %.sroa.04.0.vec.extract = extractelement <2 x float> %0, i64 0
   %4 = fsub float 1.000000e+00, %2
   %.sroa.0.0.vec.extract = extractelement <2 x float> %1, i64 0
@@ -4032,7 +4026,7 @@ define <2 x float> @GetSplinePointLinear(<2 x float> %0, <2 x float> %1, float n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define <2 x float> @GetSplinePointBasis(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, float noundef %4) local_unnamed_addr #11 {
+define <2 x float> @GetSplinePointBasis(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, float noundef %4) local_unnamed_addr #10 {
   %.sroa.033.0.vec.extract = extractelement <2 x float> %0, i64 0
   %6 = fneg float %.sroa.033.0.vec.extract
   %.sroa.024.0.vec.extract = extractelement <2 x float> %1, i64 0
@@ -4083,7 +4077,7 @@ define <2 x float> @GetSplinePointBasis(<2 x float> %0, <2 x float> %1, <2 x flo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define <2 x float> @GetSplinePointCatmullRom(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, float noundef %4) local_unnamed_addr #11 {
+define <2 x float> @GetSplinePointCatmullRom(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, float noundef %4) local_unnamed_addr #10 {
   %6 = fneg float %4
   %7 = fmul float %4, %6
   %8 = fmul float %4, 2.000000e+00
@@ -4129,7 +4123,7 @@ define <2 x float> @GetSplinePointCatmullRom(<2 x float> %0, <2 x float> %1, <2 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define <2 x float> @GetSplinePointBezierQuad(<2 x float> %0, <2 x float> %1, <2 x float> %2, float noundef %3) local_unnamed_addr #11 {
+define <2 x float> @GetSplinePointBezierQuad(<2 x float> %0, <2 x float> %1, <2 x float> %2, float noundef %3) local_unnamed_addr #10 {
   %5 = fsub float 1.000000e+00, %3
   %square = fmul float %5, %5
   %6 = fmul float %5, 2.000000e+00
@@ -4153,7 +4147,7 @@ define <2 x float> @GetSplinePointBezierQuad(<2 x float> %0, <2 x float> %1, <2 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
-define <2 x float> @GetSplinePointBezierCubic(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, float noundef %4) local_unnamed_addr #12 {
+define <2 x float> @GetSplinePointBezierCubic(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, float noundef %4) local_unnamed_addr #11 {
   %6 = fsub float 1.000000e+00, %4
   %7 = tail call float @powf(float noundef %6, float noundef 3.000000e+00) #16
   %square = fmul float %6, %6
@@ -4185,7 +4179,7 @@ define <2 x float> @GetSplinePointBezierCubic(<2 x float> %0, <2 x float> %1, <2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define zeroext i1 @CheckCollisionPointRec(<2 x float> %0, <2 x float> %1, <2 x float> %2) local_unnamed_addr #11 {
+define zeroext i1 @CheckCollisionPointRec(<2 x float> %0, <2 x float> %1, <2 x float> %2) local_unnamed_addr #10 {
   %.sroa.05.0.vec.extract = extractelement <2 x float> %0, i64 0
   %.sroa.0.0.vec.extract = extractelement <2 x float> %1, i64 0
   %4 = fcmp oge float %.sroa.05.0.vec.extract, %.sroa.0.0.vec.extract
@@ -4211,7 +4205,7 @@ define zeroext i1 @CheckCollisionPointRec(<2 x float> %0, <2 x float> %1, <2 x f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define zeroext i1 @CheckCollisionPointCircle(<2 x float> %0, <2 x float> %1, float noundef %2) local_unnamed_addr #11 {
+define zeroext i1 @CheckCollisionPointCircle(<2 x float> %0, <2 x float> %1, float noundef %2) local_unnamed_addr #10 {
   %4 = fsub <2 x float> %0, %1
   %5 = extractelement <2 x float> %4, i64 0
   %6 = fsub <2 x float> %0, %1
@@ -4224,7 +4218,7 @@ define zeroext i1 @CheckCollisionPointCircle(<2 x float> %0, <2 x float> %1, flo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define zeroext i1 @CheckCollisionPointTriangle(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #11 {
+define zeroext i1 @CheckCollisionPointTriangle(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #10 {
   %.sroa.0.4.vec.extract = extractelement <2 x float> %3, i64 1
   %5 = fsub <2 x float> %2, %3
   %6 = extractelement <2 x float> %5, i64 1
@@ -4257,7 +4251,7 @@ define zeroext i1 @CheckCollisionPointTriangle(<2 x float> %0, <2 x float> %1, <
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i1 @CheckCollisionPointPoly(<2 x float> %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #13 {
+define zeroext i1 @CheckCollisionPointPoly(<2 x float> %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #12 {
   %4 = icmp sgt i32 %2, 2
   br i1 %4, label %5, label %.loopexit
 
@@ -4313,7 +4307,7 @@ define zeroext i1 @CheckCollisionPointPoly(<2 x float> %0, ptr noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define zeroext i1 @CheckCollisionRecs(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #11 {
+define zeroext i1 @CheckCollisionRecs(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #10 {
   %.sroa.05.0.vec.extract = extractelement <2 x float> %0, i64 0
   %.sroa.0.0.vec.extract = extractelement <2 x float> %2, i64 0
   %5 = fadd <2 x float> %2, %3
@@ -4341,7 +4335,7 @@ define zeroext i1 @CheckCollisionRecs(<2 x float> %0, <2 x float> %1, <2 x float
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define zeroext i1 @CheckCollisionCircles(<2 x float> %0, float noundef %1, <2 x float> %2, float noundef %3) local_unnamed_addr #11 {
+define zeroext i1 @CheckCollisionCircles(<2 x float> %0, float noundef %1, <2 x float> %2, float noundef %3) local_unnamed_addr #10 {
   %5 = fsub <2 x float> %2, %0
   %6 = extractelement <2 x float> %5, i64 0
   %7 = fsub <2 x float> %2, %0
@@ -4355,7 +4349,7 @@ define zeroext i1 @CheckCollisionCircles(<2 x float> %0, float noundef %1, <2 x 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define zeroext i1 @CheckCollisionCircleRec(<2 x float> %0, float noundef %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #11 {
+define zeroext i1 @CheckCollisionCircleRec(<2 x float> %0, float noundef %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #10 {
   %.sroa.0.0.vec.extract = extractelement <2 x float> %2, i64 0
   %.sroa.3.8.vec.extract = extractelement <2 x float> %3, i64 0
   %5 = fmul float %.sroa.3.8.vec.extract, 5.000000e-01
@@ -4398,10 +4392,10 @@ define zeroext i1 @CheckCollisionCircleRec(<2 x float> %0, float noundef %1, <2 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #9
+declare float @llvm.fabs.f32(float) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @CheckCollisionLines(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #14 {
+define noundef zeroext i1 @CheckCollisionLines(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #13 {
   %.sroa.0.4.vec.extract = extractelement <2 x float> %3, i64 1
   %.sroa.042.4.vec.extract = extractelement <2 x float> %2, i64 1
   %6 = fsub float %.sroa.0.4.vec.extract, %.sroa.042.4.vec.extract
@@ -4510,13 +4504,13 @@ define noundef zeroext i1 @CheckCollisionLines(<2 x float> %0, <2 x float> %1, <
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.minnum.f32(float, float) #9
+declare float @llvm.minnum.f32(float, float) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.maxnum.f32(float, float) #9
+declare float @llvm.maxnum.f32(float, float) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define zeroext i1 @CheckCollisionPointLine(<2 x float> %0, <2 x float> %1, <2 x float> %2, i32 noundef %3) local_unnamed_addr #11 {
+define zeroext i1 @CheckCollisionPointLine(<2 x float> %0, <2 x float> %1, <2 x float> %2, i32 noundef %3) local_unnamed_addr #10 {
   %.sroa.033.0.vec.extract = extractelement <2 x float> %0, i64 0
   %.sroa.020.0.vec.extract = extractelement <2 x float> %1, i64 0
   %5 = fsub <2 x float> %0, %1
@@ -4583,7 +4577,7 @@ define zeroext i1 @CheckCollisionPointLine(<2 x float> %0, <2 x float> %1, <2 x 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define zeroext i1 @CheckCollisionCircleLine(<2 x float> %0, float noundef %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #11 {
+define zeroext i1 @CheckCollisionCircleLine(<2 x float> %0, float noundef %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #10 {
   %.sroa.025.0.vec.extract = extractelement <2 x float> %2, i64 0
   %5 = fsub <2 x float> %2, %3
   %6 = extractelement <2 x float> %5, i64 0
@@ -4651,7 +4645,7 @@ define zeroext i1 @CheckCollisionCircleLine(<2 x float> %0, float noundef %1, <2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define { <2 x float>, <2 x float> } @GetCollisionRec(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #11 {
+define { <2 x float>, <2 x float> } @GetCollisionRec(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #10 {
   %.sroa.026.0.vec.extract = extractelement <2 x float> %0, i64 0
   %.sroa.0.0.vec.extract = extractelement <2 x float> %2, i64 0
   %5 = fcmp ogt float %.sroa.026.0.vec.extract, %.sroa.0.0.vec.extract
@@ -4694,6 +4688,12 @@ define { <2 x float>, <2 x float> } @GetCollisionRec(<2 x float> %0, <2 x float>
   ret { <2 x float>, <2 x float> } %.fca.1.insert
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #15
 
@@ -4706,15 +4706,15 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nounwind }
 

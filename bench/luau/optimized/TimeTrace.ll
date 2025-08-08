@@ -50,7 +50,7 @@ define dso_local noundef double @_ZN4Luau9TimeTrace8getClockEv() local_unnamed_a
   br i1 %.not1, label %21, label %13
 
 13:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %14 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #6
   %15 = load i64, ptr %2, align 8, !tbaa !9
   %16 = sitofp i64 %15 to double
@@ -58,13 +58,13 @@ define dso_local noundef double @_ZN4Luau9TimeTrace8getClockEv() local_unnamed_a
   %18 = load i64, ptr %17, align 8, !tbaa !12
   %19 = sitofp i64 %18 to double
   %20 = call noundef double @llvm.fmuladd.f64(double %16, double 1.000000e+09, double %19)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store double %20, ptr @_ZZN4Luau9TimeTrace8getClockEvE5start, align 8, !tbaa !5
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4Luau9TimeTrace8getClockEvE5start) #6
   br label %21
 
 21:                                               ; preds = %13, %11, %8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %22 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #6
   %23 = load i64, ptr %1, align 8, !tbaa !9
   %24 = sitofp i64 %23 to double
@@ -72,7 +72,7 @@ define dso_local noundef double @_ZN4Luau9TimeTrace8getClockEv() local_unnamed_a
   %26 = load i64, ptr %25, align 8, !tbaa !12
   %27 = sitofp i64 %26 to double
   %28 = call noundef double @llvm.fmuladd.f64(double %24, double 1.000000e+09, double %27)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %29 = load double, ptr @_ZZN4Luau9TimeTrace8getClockEvE5start, align 8, !tbaa !5
   %30 = fsub double %28, %29
   %31 = load double, ptr @_ZZN4Luau9TimeTrace8getClockEvE6period, align 8, !tbaa !5
@@ -117,7 +117,7 @@ define dso_local noundef i32 @_ZN4Luau9TimeTrace20getClockMicrosecondsEv() local
   br i1 %.not1, label %21, label %13
 
 13:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %14 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #6
   %15 = load i64, ptr %2, align 8, !tbaa !9
   %16 = sitofp i64 %15 to double
@@ -125,13 +125,13 @@ define dso_local noundef i32 @_ZN4Luau9TimeTrace20getClockMicrosecondsEv() local
   %18 = load i64, ptr %17, align 8, !tbaa !12
   %19 = sitofp i64 %18 to double
   %20 = call noundef double @llvm.fmuladd.f64(double %16, double 1.000000e+09, double %19)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store double %20, ptr @_ZZN4Luau9TimeTrace20getClockMicrosecondsEvE5start, align 8, !tbaa !5
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4Luau9TimeTrace20getClockMicrosecondsEvE5start) #6
   br label %21
 
 21:                                               ; preds = %13, %11, %8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %22 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #6
   %23 = load i64, ptr %1, align 8, !tbaa !9
   %24 = sitofp i64 %23 to double
@@ -139,7 +139,7 @@ define dso_local noundef i32 @_ZN4Luau9TimeTrace20getClockMicrosecondsEv() local
   %26 = load i64, ptr %25, align 8, !tbaa !12
   %27 = sitofp i64 %26 to double
   %28 = call noundef double @llvm.fmuladd.f64(double %24, double 1.000000e+09, double %27)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %29 = load double, ptr @_ZZN4Luau9TimeTrace20getClockMicrosecondsEvE5start, align 8, !tbaa !5
   %30 = fsub double %28, %29
   %31 = load double, ptr @_ZZN4Luau9TimeTrace20getClockMicrosecondsEvE6period, align 8, !tbaa !5
@@ -148,20 +148,14 @@ define dso_local noundef i32 @_ZN4Luau9TimeTrace20getClockMicrosecondsEv() local
   ret i32 %33
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare double @llvm.fmuladd.f64(double, double, double) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal void @_GLOBAL__sub_I_TimeTrace.cpp() #5 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_TimeTrace.cpp() #4 section ".text.startup" {
   store i8 0, ptr @_ZN5FFlag20DebugLuauTimeTracingE, align 8, !tbaa !13
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag20DebugLuauTimeTracingE, i64 1), align 1, !tbaa !19
   store ptr @.str, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag20DebugLuauTimeTracingE, i64 8), align 8, !tbaa !20
@@ -171,12 +165,18 @@ define internal void @_GLOBAL__sub_I_TimeTrace.cpp() #5 section ".text.startup" 
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

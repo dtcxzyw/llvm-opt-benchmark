@@ -30,12 +30,12 @@ define dso_local i64 @ginarrayextract(ptr noundef readonly captures(none) %0) lo
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = load i64, ptr %15, align 8
   %17 = inttoptr i64 %16 to ptr
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %19 = load i32, ptr %18, align 4
   call void @get_typlenbyvalalign(i32 noundef %19, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
@@ -52,26 +52,20 @@ define dso_local i64 @ginarrayextract(ptr noundef readonly captures(none) %0) lo
   store ptr %27, ptr %17, align 8
   %28 = load ptr, ptr %5, align 8
   %29 = ptrtoint ptr %28 to i64
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %29
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @pg_detoast_datum_copy(ptr noundef) local_unnamed_addr #1
 
-declare ptr @pg_detoast_datum_copy(ptr noundef) local_unnamed_addr #2
+declare void @get_typlenbyvalalign(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @get_typlenbyvalalign(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @deconstruct_array(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i8 noundef signext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @deconstruct_array(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i8 noundef signext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @ginarrayextract_2args(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -104,12 +98,12 @@ define dso_local i64 @ginarrayextract_2args(ptr noundef readonly captures(none) 
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %23 = load i64, ptr %22, align 8
   %24 = inttoptr i64 %23 to ptr
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %26 = load i32, ptr %25, align 4
   call void @get_typlenbyvalalign(i32 noundef %26, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
@@ -126,21 +120,21 @@ define dso_local i64 @ginarrayextract_2args(ptr noundef readonly captures(none) 
   store ptr %34, ptr %24, align 8
   %35 = load ptr, ptr %5, align 8
   %36 = ptrtoint ptr %35 to i64
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %36
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @ginqueryarrayextract(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -165,12 +159,12 @@ define dso_local i64 @ginqueryarrayextract(ptr noundef readonly captures(none) %
   %20 = inttoptr i64 %19 to ptr
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %22 = load i64, ptr %21, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %24 = load i32, ptr %23, align 4
   call void @get_typlenbyvalalign(i32 noundef %24, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
@@ -220,12 +214,12 @@ define dso_local i64 @ginqueryarrayextract(ptr noundef readonly captures(none) %
   store i32 %.sink, ptr %44, align 4
   %45 = load ptr, ptr %5, align 8
   %46 = ptrtoint ptr %45 to i64
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %46
 }
 
@@ -466,13 +460,19 @@ define dso_local range(i64 0, 3) i64 @ginarraytriconsistent(ptr noundef readonly
   ret i64 %46
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #5 = { nounwind }
 attributes #6 = { cold nounwind }

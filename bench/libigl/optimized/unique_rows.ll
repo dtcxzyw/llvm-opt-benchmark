@@ -470,13 +470,7 @@ declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #0
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
-
 declare i32 @__gxx_personality_v0(...)
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
@@ -490,9 +484,9 @@ define weak_odr dso_local void @_ZN3igl11unique_rowsIN5Eigen6MatrixIN4CGAL13Lazy
   %9 = alloca %"class.Eigen::Block.258", align 8
   %10 = alloca %"class.Eigen::Matrix", align 8
   %11 = alloca %"class.Eigen::Matrix.8", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   invoke void @_ZN3igl8sortrowsIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS6_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS6_16cpp_integer_typeE1ELNS6_18cpp_int_check_typeE0ESaIyEEEEELNS6_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEENS2_ISI_Lin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_9DenseBaseIT_EEbRNS1_15PlainObjectBaseIT0_EERNSR_IT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %12 unwind label %73
@@ -920,10 +914,10 @@ _ZN4CGAL6HandleD2Ev.exit.i.i.i.i:                 ; preds = %_ZN4CGAL6Handle6dec
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEED2Ev.exit: ; preds = %_ZN4CGAL6HandleD2Ev.exit.i.i.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit
   call void @free(ptr noundef %143) #22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %175 = load ptr, ptr %10, align 8, !tbaa !33
   call void @free(ptr noundef %175) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 176:                                              ; preds = %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i, %100, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit
@@ -951,7 +945,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecis
   %193 = load i64, ptr %93, align 8, !tbaa !23, !noalias !45
   %194 = mul nsw i64 %193, %191
   %195 = getelementptr inbounds %"class.CGAL::Lazy_exact_nt", ptr %192, i64 %194
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %9) #22, !noalias !48
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !48
   store ptr %190, ptr %9, align 8, !tbaa !51, !alias.scope !54, !noalias !48
   store i64 1, ptr %131, align 8, !tbaa !57, !alias.scope !54, !noalias !48
   store i64 %193, ptr %132, align 8, !tbaa !57, !alias.scope !54, !noalias !48
@@ -963,14 +957,14 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecis
   store i64 %188, ptr %.sroa.10.0..sroa_idx, align 8, !noalias !48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %134, i8 0, i64 16, i1 false), !noalias !48
   store i64 %188, ptr %135, align 8, !tbaa !58, !alias.scope !54, !noalias !48
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #22, !noalias !48
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #22, !noalias !48
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !48
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !48
   store ptr %195, ptr %5, align 8, !tbaa !68, !noalias !48
   store i64 %193, ptr %136, align 8, !tbaa !57, !noalias !48
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #22, !noalias !48
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !48
   store ptr %190, ptr %6, align 8, !tbaa !70, !noalias !48
   store i64 %188, ptr %137, align 8, !tbaa !57, !noalias !48
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #22, !noalias !48
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !48
   store ptr %6, ptr %7, align 8, !tbaa !72, !noalias !48
   store ptr %5, ptr %138, align 8, !tbaa !74, !noalias !48
   store ptr %8, ptr %139, align 8, !tbaa !76, !noalias !48
@@ -979,11 +973,11 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecis
           to label %196 unwind label %.thread
 
 196:                                              ; preds = %178
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #22, !noalias !48
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #22, !noalias !48
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #22, !noalias !48
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #22, !noalias !48
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %9) #22, !noalias !48
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !48
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !48
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !48
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !48
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !48
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond166.not = icmp eq i64 %indvars.iv.next163, %wide.trip.count165
   br i1 %exitcond166.not, label %._crit_edge149.thread, label %178, !llvm.loop !80
@@ -1009,10 +1003,10 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecis
 _ZNSt6vectorIiSaIiEED2Ev.exit77:                  ; preds = %75, %198, %199, %73
   %.pn63.pn.pn.pn = phi { ptr, i32 } [ %74, %73 ], [ %76, %75 ], [ %.pn63.pn, %198 ], [ %.pn63.pn126, %199 ]
   call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %203 = load ptr, ptr %10, align 8, !tbaa !33
   call void @free(ptr noundef %203) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %.pn63.pn.pn.pn
 }
 
@@ -1375,9 +1369,9 @@ define weak_odr dso_local void @_ZN3igl11unique_rowsIN5Eigen6MatrixIN4CGAL13Lazy
   %9 = alloca %"class.Eigen::Block.315", align 8
   %10 = alloca %"class.Eigen::Matrix", align 8
   %11 = alloca %"class.Eigen::Matrix.56", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   invoke void @_ZN3igl8sortrowsIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS6_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS6_16cpp_integer_typeE1ELNS6_18cpp_int_check_typeE0ESaIyEEEEELNS6_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEESJ_NS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_9DenseBaseIT_EEbRNS1_15PlainObjectBaseIT0_EERNSQ_IT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %12 unwind label %67
@@ -1762,10 +1756,10 @@ _ZN4CGAL6HandleD2Ev.exit.i.i.i.i:                 ; preds = %_ZN4CGAL6Handle6dec
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEED2Ev.exit: ; preds = %_ZN4CGAL6HandleD2Ev.exit.i.i.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit
   call void @free(ptr noundef %129) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %160 = load ptr, ptr %10, align 8, !tbaa !33
   call void @free(ptr noundef %160) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 161:                                              ; preds = %114, %._crit_edge131
@@ -1789,7 +1783,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecis
   %174 = sext i32 %169 to i64
   %175 = load ptr, ptr %0, align 8, !tbaa !90, !noalias !102
   %176 = getelementptr inbounds %"class.CGAL::Lazy_exact_nt", ptr %175, i64 %174
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %9) #22, !noalias !105
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !105
   store ptr %173, ptr %9, align 8, !tbaa !108, !alias.scope !110, !noalias !105
   store i64 1, ptr %116, align 8, !tbaa !57, !alias.scope !110, !noalias !105
   store i64 3, ptr %117, align 8, !tbaa !57, !alias.scope !110, !noalias !105
@@ -1800,16 +1794,16 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecis
   store i64 1, ptr %.sroa.9.0..sroa_idx, align 8, !noalias !105
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %119, i8 0, i64 16, i1 false), !noalias !105
   store i64 1, ptr %120, align 8, !tbaa !113, !alias.scope !110, !noalias !105
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #22, !noalias !105
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #22, !noalias !105
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !105
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !105
   store ptr %176, ptr %5, align 8, !tbaa !123, !noalias !105
   %177 = load i64, ptr %80, align 8, !tbaa !88, !noalias !105
   store i64 %177, ptr %121, align 8, !tbaa !57, !noalias !105
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #22, !noalias !105
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !105
   store ptr %173, ptr %6, align 8, !tbaa !125, !noalias !105
   %178 = load i64, ptr %126, align 8, !tbaa !88, !noalias !105
   store i64 %178, ptr %122, align 8, !tbaa !57, !noalias !105
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #22, !noalias !105
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !105
   store ptr %6, ptr %7, align 8, !tbaa !127, !noalias !105
   store ptr %5, ptr %123, align 8, !tbaa !129, !noalias !105
   store ptr %8, ptr %124, align 8, !tbaa !76, !noalias !105
@@ -1818,11 +1812,11 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecis
           to label %179 unwind label %180
 
 179:                                              ; preds = %163
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #22, !noalias !105
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #22, !noalias !105
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #22, !noalias !105
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #22, !noalias !105
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %9) #22, !noalias !105
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !105
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !105
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !105
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !105
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !105
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %exitcond148.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count147
   br i1 %exitcond148.not, label %._crit_edge134.thread, label %163, !llvm.loop !133
@@ -1848,10 +1842,10 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecis
 _ZNSt6vectorIiSaIiEED2Ev.exit80:                  ; preds = %69, %182, %.thread, %67
   %.pn63.pn.pn.pn = phi { ptr, i32 } [ %68, %67 ], [ %70, %69 ], [ %.pn63.pn, %182 ], [ %.pn63.pn120, %.thread ]
   call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %186 = load ptr, ptr %10, align 8, !tbaa !33
   call void @free(ptr noundef %186) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %.pn63.pn.pn.pn
 }
 
@@ -2242,9 +2236,9 @@ define weak_odr dso_local void @_ZN3igl11unique_rowsIN5Eigen6MatrixIN4CGAL13Lazy
   %9 = alloca %"class.Eigen::Block.357", align 8
   %10 = alloca %"class.Eigen::Matrix", align 8
   %11 = alloca %"class.Eigen::Matrix.56", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   invoke void @_ZN3igl8sortrowsIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS6_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS6_16cpp_integer_typeE1ELNS6_18cpp_int_check_typeE0ESaIyEEEEELNS6_26expression_template_optionE1EEEEELin1ELi3ELi1ELin1ELi3EEENS2_ISI_Lin1ELi3ELi0ELin1ELi3EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_9DenseBaseIT_EEbRNS1_15PlainObjectBaseIT0_EERNSR_IT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %12 unwind label %67
@@ -2626,10 +2620,10 @@ _ZN4CGAL6HandleD2Ev.exit.i.i.i.i:                 ; preds = %_ZN4CGAL6Handle6dec
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEED2Ev.exit: ; preds = %_ZN4CGAL6HandleD2Ev.exit.i.i.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit
   call void @free(ptr noundef %126) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %157 = load ptr, ptr %10, align 8, !tbaa !33
   call void @free(ptr noundef %157) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 158:                                              ; preds = %114, %._crit_edge131
@@ -2655,7 +2649,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecis
   %172 = load ptr, ptr %0, align 8, !tbaa !149, !noalias !153
   %.idx.i.i.i.i78 = mul nsw i64 %171, 48
   %173 = getelementptr inbounds i8, ptr %172, i64 %.idx.i.i.i.i78
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %9) #22, !noalias !156
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !156
   store ptr %170, ptr %9, align 8, !tbaa !159, !alias.scope !161, !noalias !156
   store i64 1, ptr %116, align 8, !tbaa !57, !alias.scope !161, !noalias !156
   store i64 3, ptr %117, align 8, !tbaa !57, !alias.scope !161, !noalias !156
@@ -2666,12 +2660,12 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecis
   store i64 3, ptr %.sroa.9.0..sroa_idx, align 8, !noalias !156
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %119, i8 0, i64 16, i1 false), !noalias !156
   store i64 3, ptr %120, align 8, !tbaa !164, !alias.scope !161, !noalias !156
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #22, !noalias !156
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #22, !noalias !156
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !156
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !156
   store ptr %173, ptr %5, align 8, !tbaa !173, !noalias !156
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #22, !noalias !156
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !156
   store ptr %170, ptr %6, align 8, !tbaa !175, !noalias !156
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #22, !noalias !156
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !156
   store ptr %6, ptr %7, align 8, !tbaa !177, !noalias !156
   store ptr %5, ptr %121, align 8, !tbaa !179, !noalias !156
   store ptr %8, ptr %122, align 8, !tbaa !76, !noalias !156
@@ -2680,11 +2674,11 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecis
           to label %174 unwind label %175
 
 174:                                              ; preds = %160
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #22, !noalias !156
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22, !noalias !156
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #22, !noalias !156
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #22, !noalias !156
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %9) #22, !noalias !156
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !156
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !156
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !156
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !156
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !156
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %exitcond148.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count147
   br i1 %exitcond148.not, label %._crit_edge134.thread, label %160, !llvm.loop !183
@@ -2710,10 +2704,10 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecis
 _ZNSt6vectorIiSaIiEED2Ev.exit81:                  ; preds = %69, %177, %.thread, %67
   %.pn63.pn.pn.pn = phi { ptr, i32 } [ %68, %67 ], [ %70, %69 ], [ %.pn63.pn, %177 ], [ %.pn63.pn120, %.thread ]
   call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %181 = load ptr, ptr %10, align 8, !tbaa !33
   call void @free(ptr noundef %181) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %.pn63.pn.pn.pn
 }
 
@@ -3024,9 +3018,9 @@ define weak_odr dso_local void @_ZN3igl11unique_rowsIN5Eigen6MatrixIN4CGAL13Lazy
   %9 = alloca %"class.Eigen::Block.394", align 8
   %10 = alloca %"class.Eigen::Matrix", align 8
   %11 = alloca %"class.Eigen::Matrix.8", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   invoke void @_ZN3igl8sortrowsIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS6_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS6_16cpp_integer_typeE1ELNS6_18cpp_int_check_typeE0ESaIyEEEEELNS6_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEESJ_NS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_9DenseBaseIT_EEbRNS1_15PlainObjectBaseIT0_EERNSQ_IT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %12 unwind label %73
@@ -3455,10 +3449,10 @@ _ZN4CGAL6HandleD2Ev.exit.i.i.i.i:                 ; preds = %_ZN4CGAL6Handle6dec
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEED2Ev.exit: ; preds = %_ZN4CGAL6HandleD2Ev.exit.i.i.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit
   call void @free(ptr noundef %144) #22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %176 = load ptr, ptr %10, align 8, !tbaa !33
   call void @free(ptr noundef %176) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 177:                                              ; preds = %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i, %100, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
@@ -3484,7 +3478,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecis
   %192 = load ptr, ptr %0, align 8, !tbaa !17, !noalias !203
   %193 = getelementptr inbounds %"class.CGAL::Lazy_exact_nt", ptr %192, i64 %191
   %194 = load i64, ptr %93, align 8, !tbaa !11, !noalias !203
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %9) #22, !noalias !206
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !206
   store ptr %189, ptr %9, align 8, !tbaa !209, !alias.scope !211, !noalias !206
   store i64 1, ptr %131, align 8, !tbaa !57, !alias.scope !211, !noalias !206
   store i64 %194, ptr %132, align 8, !tbaa !57, !alias.scope !211, !noalias !206
@@ -3496,16 +3490,16 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecis
   store i64 1, ptr %.sroa.10.0..sroa_idx, align 8, !noalias !206
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %134, i8 0, i64 16, i1 false), !noalias !206
   store i64 1, ptr %135, align 8, !tbaa !214, !alias.scope !211, !noalias !206
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #22, !noalias !206
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #22, !noalias !206
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !206
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !206
   store ptr %193, ptr %5, align 8, !tbaa !223, !noalias !206
   %195 = load i64, ptr %86, align 8, !tbaa !4, !noalias !206
   store i64 %195, ptr %136, align 8, !tbaa !57, !noalias !206
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #22, !noalias !206
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !206
   store ptr %189, ptr %6, align 8, !tbaa !225, !noalias !206
   %196 = load i64, ptr %141, align 8, !tbaa !4, !noalias !206
   store i64 %196, ptr %137, align 8, !tbaa !57, !noalias !206
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #22, !noalias !206
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !206
   store ptr %6, ptr %7, align 8, !tbaa !227, !noalias !206
   store ptr %5, ptr %138, align 8, !tbaa !229, !noalias !206
   store ptr %8, ptr %139, align 8, !tbaa !76, !noalias !206
@@ -3514,11 +3508,11 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecis
           to label %197 unwind label %.thread
 
 197:                                              ; preds = %179
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #22, !noalias !206
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #22, !noalias !206
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #22, !noalias !206
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #22, !noalias !206
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %9) #22, !noalias !206
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !206
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !206
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !206
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !206
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !206
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond166.not = icmp eq i64 %indvars.iv.next163, %wide.trip.count165
   br i1 %exitcond166.not, label %._crit_edge149.thread, label %179, !llvm.loop !233
@@ -3544,10 +3538,10 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecis
 _ZNSt6vectorIiSaIiEED2Ev.exit77:                  ; preds = %75, %199, %200, %73
   %.pn63.pn.pn.pn = phi { ptr, i32 } [ %74, %73 ], [ %76, %75 ], [ %.pn63.pn, %199 ], [ %.pn63.pn126, %200 ]
   call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %204 = load ptr, ptr %10, align 8, !tbaa !33
   call void @free(ptr noundef %204) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %.pn63.pn.pn.pn
 }
 
@@ -3823,9 +3817,9 @@ _ZN5boost14multiprecision8backends12eval_is_zeroILm0ELm0ELNS0_16cpp_integer_type
   br i1 %16, label %_ZN5boost14multiprecision8backends13eval_get_signILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEiE4typeERKS9_.exit.thread, label %_ZN5boost14multiprecision8backends13eval_get_signILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEiE4typeERKS9_.exit
 
 _ZN5boost14multiprecision8backends13eval_get_signILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEiE4typeERKS9_.exit.thread: ; preds = %_ZN5boost14multiprecision8backends12eval_is_zeroILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEbE4typeERKS9_.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZNSt12domain_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.25)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @.str.26, ptr %3, align 8, !tbaa !250
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.27, ptr %17, align 8, !tbaa !253
@@ -3842,9 +3836,9 @@ _ZN5boost14multiprecision8backends13eval_get_signILm0ELm0ELNS0_16cpp_integer_typ
 21:                                               ; preds = %_ZN5boost14multiprecision8backends13eval_get_signILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEiE4typeERKS9_.exit.thread
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZNSt12domain_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %48
 
 _ZN5boost14multiprecision8backends13eval_get_signILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEiE4typeERKS9_.exit: ; preds = %_ZN5boost14multiprecision8backends12eval_is_zeroILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEbE4typeERKS9_.exit, %1
@@ -3854,9 +3848,9 @@ _ZN5boost14multiprecision8backends13eval_get_signILm0ELm0ELNS0_16cpp_integer_typ
   br i1 %25, label %26, label %33
 
 26:                                               ; preds = %_ZN5boost14multiprecision8backends13eval_get_signILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEiE4typeERKS9_.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt12domain_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.28)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @.str.26, ptr %5, align 8, !tbaa !250
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @.str.27, ptr %27, align 8, !tbaa !253
@@ -3873,9 +3867,9 @@ _ZN5boost14multiprecision8backends13eval_get_signILm0ELm0ELNS0_16cpp_integer_typ
 31:                                               ; preds = %26
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZNSt12domain_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %48
 
 33:                                               ; preds = %_ZN5boost14multiprecision8backends13eval_get_signILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEiE4typeERKS9_.exit
@@ -4363,7 +4357,7 @@ define linkonce_odr dso_local void @_ZN5boost16exception_detail20copy_boost_exce
   br i1 %.not, label %36, label %6
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = load ptr, ptr %5, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8
@@ -4402,7 +4396,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEaSERKS3_.e
   unreachable
 
 _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit: ; preds = %15, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEaSERKS3_.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %36
 
 23:                                               ; preds = %6
@@ -4434,7 +4428,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit:
 _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit22: ; preds = %28, %25, %23
   %.sroa.0.2 = phi ptr [ null, %23 ], [ %10, %25 ], [ %10, %28 ]
   %.pn = phi { ptr, i32 } [ %24, %23 ], [ %26, %25 ], [ %26, %28 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %69
 
 36:                                               ; preds = %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit, %2
@@ -6017,11 +6011,11 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
   br label %72
 
 69:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %70 = load i64, ptr %17, align 8, !tbaa !248
   store i64 %70, ptr %4, align 8, !tbaa !248
   call void @_ZN5boost14multiprecision8backends13eval_multiplyILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELm0ELm0ELS3_1ELS4_0ES5_EENSt9enable_ifIXaantsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valuentsr18is_trivial_cpp_intINS7_IXT4_EXT5_EXT6_EXT7_ET8_EEEE5valueEvE4typeERS9_RKSB_RKy(ptr noundef nonnull align 16 dereferenceable(27) %0, ptr noundef nonnull align 16 dereferenceable(27) %2, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 16
   %71 = icmp eq i64 %.pre, 1
@@ -6060,7 +6054,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %92 = load i8, ptr %91, align 8, !tbaa !256, !range !246, !noundef !247
   %93 = icmp ne i8 %90, %92
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %94 = load i64, ptr %23, align 8, !tbaa !248
   store i64 %94, ptr %5, align 8, !tbaa !248
   call void @_ZN5boost14multiprecision8backends13eval_multiplyILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELm0ELm0ELS3_1ELS4_0ES5_EENSt9enable_ifIXaantsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valuentsr18is_trivial_cpp_intINS7_IXT4_EXT5_EXT6_EXT7_ET8_EEEE5valueEvE4typeERS9_RKSB_RKy(ptr noundef nonnull align 16 dereferenceable(27) %0, ptr noundef nonnull align 16 dereferenceable(27) %1, ptr noundef nonnull align 8 dereferenceable(8) %5)
@@ -6089,7 +6083,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE4signEb.exit119
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE4signEb.exit119: ; preds = %88, %100, %109
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE4signEb.exit
 
 110:                                              ; preds = %86
@@ -6097,7 +6091,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br i1 %111, label %112, label %152
 
 112:                                              ; preds = %110
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 16, !tbaa !40
   %113 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 26
@@ -6167,7 +6161,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit107
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit107: ; preds = %131, %136
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE4signEb.exit
 
 141:                                              ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EEC2ERKS6_.exit
@@ -6189,7 +6183,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit105
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit105: ; preds = %141, %147
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 152:                                              ; preds = %110
@@ -6197,7 +6191,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br i1 %153, label %154, label %194
 
 154:                                              ; preds = %152
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 16, !tbaa !40
   %155 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %156 = getelementptr inbounds nuw i8, ptr %2, i64 26
@@ -6263,7 +6257,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit103
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit103: ; preds = %173, %178
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE4signEb.exit
 
 183:                                              ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EEC2ERKS6_.exit113
@@ -6285,7 +6279,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit: ; preds = %183, %189
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 194:                                              ; preds = %152
@@ -6517,8 +6511,8 @@ define linkonce_odr dso_local void @_ZN5boost14multiprecision8backends15setup_ka
   br i1 %13, label %14, label %33
 
 14:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 2400, ptr nonnull %4) #22
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %4, ptr %5, align 8, !tbaa !287
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %12, ptr %15, align 8, !tbaa !289
@@ -6542,8 +6536,8 @@ define linkonce_odr dso_local void @_ZN5boost14multiprecision8backends15setup_ka
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE21scoped_shared_storageD2Ev.exit
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE21scoped_shared_storageD2Ev.exit: ; preds = %18, %21
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #22
-  call void @llvm.lifetime.end.p0(i64 2400, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %57
 
 25:                                               ; preds = %14
@@ -6561,12 +6555,12 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE21scoped_shared_storageD2Ev.exit21
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE21scoped_shared_storageD2Ev.exit21: ; preds = %25, %29
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #22
-  call void @llvm.lifetime.end.p0(i64 2400, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %58
 
 33:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %12, ptr %34, align 8, !tbaa !289
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -6608,7 +6602,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE21scoped_shared_storageD2Ev.exit22
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE21scoped_shared_storageD2Ev.exit22: ; preds = %42, %45
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %57
 
 49:                                               ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE21scoped_shared_storageC2ERKS5_m.exit
@@ -6626,7 +6620,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE21scoped_shared_storageD2Ev.exit23
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE21scoped_shared_storageD2Ev.exit23: ; preds = %49, %53
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %58
 
 57:                                               ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE21scoped_shared_storageD2Ev.exit22, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE21scoped_shared_storageD2Ev.exit
@@ -6669,7 +6663,7 @@ define linkonce_odr dso_local void @_ZN5boost14multiprecision8backends18multiply
   %26 = add nuw i64 %25, 1
   %27 = icmp ult i64 %26, %17
   %.sroa.speculated134 = tail call i64 @llvm.umin.i64(i64 %26, i64 %17)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %29 = load i8, ptr %28, align 1, !tbaa !245, !range !246, !noundef !247
   %30 = trunc nuw i8 %29 to i1
@@ -6706,7 +6700,7 @@ define linkonce_odr dso_local void @_ZN5boost14multiprecision8backends18multiply
 _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEC2EPKymm.exit: ; preds = %.lr.ph.i, %43
   %45 = icmp ult i64 %26, %19
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %26, i64 %19)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 25
   %47 = load i8, ptr %46, align 1, !tbaa !245, !range !246, !noundef !247
   %48 = trunc nuw i8 %47 to i1
@@ -6742,9 +6736,9 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
   br i1 %.not.i.i103, label %_ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEC2EPKymm.exit104, label %.lr.ph.i101, !llvm.loop !269
 
 _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEC2EPKymm.exit104: ; preds = %.lr.ph.i101, %61, %_ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEC2EPKymm.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !248
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %63 = getelementptr inbounds nuw i64, ptr %33, i64 %26
   %spec.select = select i1 %27, ptr %63, ptr %7
   %64 = sub i64 %17, %26
@@ -6778,7 +6772,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
   br i1 %.not.i.i108, label %_ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEC2EPKymm.exit109, label %.lr.ph.i106, !llvm.loop !269
 
 _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEC2EPKymm.exit109: ; preds = %.lr.ph.i106, %75, %_ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEC2EPKymm.exit104
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %77 = getelementptr inbounds nuw i64, ptr %51, i64 %26
   %spec.select165 = select i1 %45, ptr %77, ptr %7
   %78 = sub i64 %19, %26
@@ -6812,7 +6806,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
   br i1 %.not.i.i113, label %_ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEC2EPKymm.exit114, label %.lr.ph.i111, !llvm.loop !269
 
 _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEC2EPKymm.exit114: ; preds = %.lr.ph.i111, %89, %_ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEC2EPKymm.exit109
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %91 = shl i64 %26, 1
   %92 = add i64 %91, 2
   %93 = load ptr, ptr %3, align 8, !tbaa !287
@@ -6831,7 +6825,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
   store i8 0, ptr %101, align 1, !tbaa !245
   %102 = getelementptr inbounds nuw i8, ptr %10, i64 26
   store i8 1, ptr %102, align 2, !tbaa !276
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %103 = add nuw i64 %25, 2
   %104 = getelementptr inbounds nuw i64, ptr %93, i64 %97
   %105 = add i64 %97, %103
@@ -6846,7 +6840,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
   store i8 0, ptr %109, align 1, !tbaa !245
   %110 = getelementptr inbounds nuw i8, ptr %11, i64 26
   store i8 1, ptr %110, align 2, !tbaa !276
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %111 = getelementptr inbounds nuw i64, ptr %93, i64 %105
   %112 = add i64 %105, %103
   store i64 %112, ptr %94, align 8, !tbaa !290
@@ -6861,7 +6855,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
   store i8 0, ptr %116, align 1, !tbaa !245
   %117 = getelementptr inbounds nuw i8, ptr %12, i64 26
   store i8 1, ptr %117, align 2, !tbaa !276
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %119 = load i8, ptr %118, align 1, !tbaa !245, !range !246, !noundef !247
   %120 = trunc nuw i8 %119 to i1
@@ -6879,7 +6873,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
   store i8 0, ptr %127, align 1, !tbaa !245
   %128 = getelementptr inbounds nuw i8, ptr %13, i64 26
   store i8 1, ptr %128, align 2, !tbaa !276
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %130 = load i64, ptr %129, align 16, !tbaa !242
   %131 = sub i64 %130, %91
@@ -6992,7 +6986,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
           to label %178 unwind label %148
 
 178:                                              ; preds = %177
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %179 = load i8, ptr %118, align 1, !tbaa !245, !range !246, !noundef !247
   %180 = trunc nuw i8 %179 to i1
   %181 = load ptr, ptr %121, align 8
@@ -7070,7 +7064,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit76
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit76: ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE9normalizeEv.exit, %219
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %223 = load i8, ptr %136, align 1, !tbaa !245, !range !246, !noundef !247
   %224 = trunc nuw i8 %223 to i1
   %225 = load i8, ptr %137, align 2, !range !246
@@ -7086,7 +7080,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit74
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit74: ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit76, %227
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %231 = load i8, ptr %127, align 1, !tbaa !245, !range !246, !noundef !247
   %232 = trunc nuw i8 %231 to i1
   %233 = load i8, ptr %128, align 2, !range !246
@@ -7102,7 +7096,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit72
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit72: ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit74, %235
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %239 = load i8, ptr %116, align 1, !tbaa !245, !range !246, !noundef !247
   %240 = trunc nuw i8 %239 to i1
   %241 = load i8, ptr %117, align 2, !range !246
@@ -7118,7 +7112,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit70
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit70: ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit72, %243
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %247 = load i8, ptr %109, align 1, !tbaa !245, !range !246, !noundef !247
   %248 = trunc nuw i8 %247 to i1
   %249 = load i8, ptr %110, align 2, !range !246
@@ -7134,7 +7128,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit68
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit68: ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit70, %251
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %255 = load i8, ptr %101, align 1, !tbaa !245, !range !246, !noundef !247
   %256 = trunc nuw i8 %255 to i1
   %257 = load i8, ptr %102, align 2, !range !246
@@ -7150,7 +7144,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit66
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit66: ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit68, %259
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %263 = load i8, ptr %83, align 1, !tbaa !245, !range !246, !noundef !247
   %264 = trunc nuw i8 %263 to i1
   %265 = load i8, ptr %84, align 2, !range !246
@@ -7166,7 +7160,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit64
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit64: ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit66, %267
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %271 = load i8, ptr %69, align 1, !tbaa !245, !range !246, !noundef !247
   %272 = trunc nuw i8 %271 to i1
   %273 = load i8, ptr %70, align 2, !range !246
@@ -7182,8 +7176,8 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit62
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit62: ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit64, %275
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %279 = load i8, ptr %55, align 1, !tbaa !245, !range !246, !noundef !247
   %280 = trunc nuw i8 %279 to i1
   %281 = load i8, ptr %56, align 2, !range !246
@@ -7199,7 +7193,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit60
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit60: ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit62, %283
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %287 = load i8, ptr %37, align 1, !tbaa !245, !range !246, !noundef !247
   %288 = trunc nuw i8 %287 to i1
   %289 = load i8, ptr %38, align 2, !range !246
@@ -7215,7 +7209,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit58
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit58: ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit60, %291
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %295
 
 295:                                              ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit58, %22
@@ -7239,7 +7233,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit56
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit56: ; preds = %296, %302
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %306
 
 306:                                              ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit56, %148
@@ -7259,7 +7253,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit54
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit54: ; preds = %306, %311
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %315 = load i8, ptr %127, align 1, !tbaa !245, !range !246, !noundef !247
   %316 = trunc nuw i8 %315 to i1
   %317 = load i8, ptr %128, align 2, !range !246
@@ -7275,7 +7269,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit52
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit52: ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit54, %319
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %323 = load i8, ptr %116, align 1, !tbaa !245, !range !246, !noundef !247
   %324 = trunc nuw i8 %323 to i1
   %325 = load i8, ptr %117, align 2, !range !246
@@ -7291,7 +7285,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit50
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit50: ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit52, %327
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %331 = load i8, ptr %109, align 1, !tbaa !245, !range !246, !noundef !247
   %332 = trunc nuw i8 %331 to i1
   %333 = load i8, ptr %110, align 2, !range !246
@@ -7307,7 +7301,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit48
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit48: ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit50, %335
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %339 = load i8, ptr %101, align 1, !tbaa !245, !range !246, !noundef !247
   %340 = trunc nuw i8 %339 to i1
   %341 = load i8, ptr %102, align 2, !range !246
@@ -7323,7 +7317,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit46
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit46: ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit48, %343
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %347 = load i8, ptr %83, align 1, !tbaa !245, !range !246, !noundef !247
   %348 = trunc nuw i8 %347 to i1
   %349 = load i8, ptr %84, align 2, !range !246
@@ -7339,7 +7333,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit44
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit44: ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit46, %351
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %355 = load i8, ptr %69, align 1, !tbaa !245, !range !246, !noundef !247
   %356 = trunc nuw i8 %355 to i1
   %357 = load i8, ptr %70, align 2, !range !246
@@ -7355,8 +7349,8 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit42
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit42: ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit44, %359
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %363 = load i8, ptr %55, align 1, !tbaa !245, !range !246, !noundef !247
   %364 = trunc nuw i8 %363 to i1
   %365 = load i8, ptr %56, align 2, !range !246
@@ -7372,7 +7366,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit40
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit40: ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit42, %367
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %371 = load i8, ptr %37, align 1, !tbaa !245, !range !246, !noundef !247
   %372 = trunc nuw i8 %371 to i1
   %373 = load i8, ptr %38, align 2, !range !246
@@ -7388,7 +7382,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit: ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit40, %375
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
 }
 
@@ -7622,9 +7616,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i30:                                    ; preds = %56
   %63 = getelementptr inbounds nuw i8, ptr %45, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %45, ptr %10, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %10, ptr %9, align 8, !tbaa !306
   store ptr %9, ptr %20, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %21, align 8, !tbaa !306
@@ -7660,22 +7654,22 @@ common.resume:                                    ; preds = %107, %115, %67, %75
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i35: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i33
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %68 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %69 = load atomic i64, ptr %68 monotonic, align 8
   %.0.i.i.i.i.i.i36 = inttoptr i64 %69 to ptr
   %70 = load ptr, ptr %44, align 8, !tbaa !37
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %70, ptr %8, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8, !tbaa !306
   store ptr %7, ptr %20, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %21, align 8, !tbaa !306
@@ -7707,14 +7701,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i37:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi60 = phi { ptr, i32 } [ %lpad.loopexit58, %.loopexit56 ], [ %lpad.loopexit.split-lp59, %.loopexit.split-lp57 ]
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit41: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i37
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %76 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %77 = load atomic i64, ptr %76 monotonic, align 8
   %.0.i.i.i.i.i12.i40 = inttoptr i64 %77 to ptr
@@ -7763,9 +7757,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %96
   %103 = getelementptr inbounds nuw i8, ptr %85, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %85, ptr %14, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %14, ptr %13, align 8, !tbaa !306
   store ptr %13, ptr %20, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %21, align 8, !tbaa !306
@@ -7797,22 +7791,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi65 = phi { ptr, i32 } [ %lpad.loopexit63, %.loopexit61 ], [ %lpad.loopexit.split-lp64, %.loopexit.split-lp62 ]
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %108 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %109 = load atomic i64, ptr %108 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %109 to ptr
   %110 = load ptr, ptr %84, align 8, !tbaa !37
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %110, ptr %12, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %12, ptr %11, align 8, !tbaa !306
   store ptr %11, ptr %20, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %21, align 8, !tbaa !306
@@ -7844,14 +7838,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi70 = phi { ptr, i32 } [ %lpad.loopexit68, %.loopexit66 ], [ %lpad.loopexit.split-lp69, %.loopexit.split-lp67 ]
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %116 = getelementptr inbounds nuw i8, ptr %110, i64 32
   %117 = load atomic i64, ptr %116 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %117 to ptr
@@ -7898,12 +7892,12 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIN4CGAL13Lazy
 
 139:                                              ; preds = %133, %129, %._crit_edge
   %.128 = phi i64 [ %135, %133 ], [ %.0.lcssa, %129 ], [ %.0.lcssa, %._crit_edge ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %4, ptr %15, align 8, !tbaa !308
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %5, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !278
   call void @_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINSB_8backends16rational_adaptorINSD_15cpp_int_backendILm0ELm0ELNSB_16cpp_integer_typeE1ELNSB_18cpp_int_check_typeE0ESaIyEEEEELNSB_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEENS7_ISN_Lin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSW_IT1_EEEUlmmE_EEEvSS_SX_SX_S10_RT2_(ptr noundef %0, i64 noundef %.128, i64 noundef %1, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %15)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret void
 }
 
@@ -7982,9 +7976,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i15:                                    ; preds = %47
   %54 = getelementptr inbounds nuw i8, ptr %36, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %36, ptr %9, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !306
   store ptr %8, ptr %17, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %18, align 8, !tbaa !306
@@ -8020,22 +8014,22 @@ common.resume:                                    ; preds = %98, %106, %58, %66
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i20: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i18
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %59 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %60 = load atomic i64, ptr %59 monotonic, align 8
   %.0.i.i.i.i.i.i21 = inttoptr i64 %60 to ptr
   %61 = load ptr, ptr %35, align 8, !tbaa !37
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %61, ptr %7, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !306
   store ptr %6, ptr %17, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %18, align 8, !tbaa !306
@@ -8067,14 +8061,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i22:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi42 = phi { ptr, i32 } [ %lpad.loopexit40, %.loopexit38 ], [ %lpad.loopexit.split-lp41, %.loopexit.split-lp39 ]
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit26: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i22
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %67 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %68 = load atomic i64, ptr %67 monotonic, align 8
   %.0.i.i.i.i.i12.i25 = inttoptr i64 %68 to ptr
@@ -8125,9 +8119,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %87
   %94 = getelementptr inbounds nuw i8, ptr %76, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %76, ptr %13, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %13, ptr %12, align 8, !tbaa !306
   store ptr %12, ptr %17, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %18, align 8, !tbaa !306
@@ -8159,22 +8153,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi47 = phi { ptr, i32 } [ %lpad.loopexit45, %.loopexit43 ], [ %lpad.loopexit.split-lp46, %.loopexit.split-lp44 ]
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %99 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %100 = load atomic i64, ptr %99 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %100 to ptr
   %101 = load ptr, ptr %75, align 8, !tbaa !37
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %101, ptr %11, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %11, ptr %10, align 8, !tbaa !306
   store ptr %10, ptr %17, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %18, align 8, !tbaa !306
@@ -8206,14 +8200,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi52 = phi { ptr, i32 } [ %lpad.loopexit50, %.loopexit48 ], [ %lpad.loopexit.split-lp51, %.loopexit.split-lp49 ]
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %107 = getelementptr inbounds nuw i8, ptr %101, i64 32
   %108 = load atomic i64, ptr %107 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %108 to ptr
@@ -8267,9 +8261,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGALltIN5boost14multipreci
 
 .critedge:                                        ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !306
   %26 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
   store ptr %5, ptr %26, align 8, !tbaa !306
@@ -8298,22 +8292,22 @@ common.resume:                                    ; preds = %40, %31
           cleanup
   store ptr null, ptr %26, align 8, !tbaa !306
   store ptr null, ptr %27, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
   store ptr null, ptr %26, align 8, !tbaa !306
   store ptr null, ptr %27, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %34 = load atomic i64, ptr %33 monotonic, align 8
   %.0.i.i.i.i.i = inttoptr i64 %34 to ptr
   %35 = load ptr, ptr %1, align 8, !tbaa !37
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %35, ptr %4, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8, !tbaa !306
   store ptr %3, ptr %26, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %27, align 8, !tbaa !306
@@ -8336,14 +8330,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10:          ; preds = %_ZNK4CGAL4LazyINS_1
           cleanup
   store ptr null, ptr %26, align 8, !tbaa !306
   store ptr null, ptr %27, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit13: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10
   store ptr null, ptr %26, align 8, !tbaa !306
   store ptr null, ptr %27, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %43 = load atomic i64, ptr %42 monotonic, align 8
   %.0.i.i.i.i.i12 = inttoptr i64 %43 to ptr
@@ -8439,7 +8433,7 @@ _ZN5boost14multiprecision8backends13eval_get_signINS1_15cpp_int_backendILm0ELm0E
   br label %170
 
 54:                                               ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 16, !tbaa !40
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 26
@@ -8659,7 +8653,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit41
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit41: ; preds = %148, %154
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %170
 
 159:                                              ; preds = %_ZNSt15__new_allocatorIyE8allocateEmPKv.exit.i.i, %145, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6negateEv.exit, %94, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6negateEv.exit50
@@ -8681,7 +8675,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit39
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit39: ; preds = %159, %165
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 
 170:                                              ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit41, %45
@@ -8704,7 +8698,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %263
 
 179:                                              ; preds = %175
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 16, !tbaa !40
   %180 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 1, ptr %180, align 16, !tbaa !242
@@ -8714,7 +8708,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   store i8 1, ptr %182, align 1, !tbaa !245
   %183 = getelementptr inbounds nuw i8, ptr %4, i64 26
   store i8 0, ptr %183, align 2, !tbaa !276
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 16, !tbaa !40
   %184 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 1, ptr %184, align 16, !tbaa !242
@@ -8811,7 +8805,7 @@ _ZNK5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit37
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit37: ; preds = %_ZNK5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEE7compareILm0ELm0ELS3_1ELS4_0ES5_EEiRKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit, %229
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %234 = load i8, ptr %182, align 1, !tbaa !245, !range !246, !noundef !247
   %235 = trunc nuw i8 %234 to i1
   %236 = load i8, ptr %183, align 2, !range !246
@@ -8828,7 +8822,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit35
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit35: ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit37, %238
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %263
 
 243:                                              ; preds = %189, %179
@@ -8850,7 +8844,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit33
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit33: ; preds = %243, %249
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %254 = load i8, ptr %182, align 1, !tbaa !245, !range !246, !noundef !247
   %255 = trunc nuw i8 %254 to i1
   %256 = load i8, ptr %183, align 2, !range !246
@@ -8867,7 +8861,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit: ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit33, %258
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 263:                                              ; preds = %173, %177, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit35, %41, %38
@@ -9212,9 +9206,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i25:                                    ; preds = %47
   %54 = getelementptr inbounds nuw i8, ptr %36, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %36, ptr %17, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %17, ptr %16, align 8, !tbaa !306
   store ptr %16, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -9250,22 +9244,22 @@ common.resume:                                    ; preds = %185, %193, %145, %1
   %lpad.phi104 = phi { ptr, i32 } [ %lpad.loopexit102, %.loopexit100 ], [ %lpad.loopexit.split-lp103, %.loopexit.split-lp101 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i30: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i28
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %59 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %60 = load atomic i64, ptr %59 monotonic, align 8
   %.0.i.i.i.i.i.i31 = inttoptr i64 %60 to ptr
   %61 = load ptr, ptr %35, align 8, !tbaa !37
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %61, ptr %15, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %15, ptr %14, align 8, !tbaa !306
   store ptr %14, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -9297,14 +9291,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i32:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi109 = phi { ptr, i32 } [ %lpad.loopexit107, %.loopexit105 ], [ %lpad.loopexit.split-lp108, %.loopexit.split-lp106 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit36: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i32
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %67 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %68 = load atomic i64, ptr %67 monotonic, align 8
   %.0.i.i.i.i.i12.i35 = inttoptr i64 %68 to ptr
@@ -9353,9 +9347,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %87
   %94 = getelementptr inbounds nuw i8, ptr %76, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr %76, ptr %21, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr %21, ptr %20, align 8, !tbaa !306
   store ptr %20, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -9387,22 +9381,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi114 = phi { ptr, i32 } [ %lpad.loopexit112, %.loopexit110 ], [ %lpad.loopexit.split-lp113, %.loopexit.split-lp111 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %99 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %100 = load atomic i64, ptr %99 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %100 to ptr
   %101 = load ptr, ptr %75, align 8, !tbaa !37
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %101, ptr %19, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %19, ptr %18, align 8, !tbaa !306
   store ptr %18, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -9434,14 +9428,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi119 = phi { ptr, i32 } [ %lpad.loopexit117, %.loopexit115 ], [ %lpad.loopexit.split-lp118, %.loopexit.split-lp116 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %107 = getelementptr inbounds nuw i8, ptr %101, i64 32
   %108 = load atomic i64, ptr %107 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %108 to ptr
@@ -9516,9 +9510,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i51:                                    ; preds = %134
   %141 = getelementptr inbounds nuw i8, ptr %123, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %123, ptr %9, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !306
   store ptr %8, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -9550,22 +9544,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i54:        ; preds = %.critedge.i51
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i56: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i54
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %146 = getelementptr inbounds nuw i8, ptr %123, i64 32
   %147 = load atomic i64, ptr %146 monotonic, align 8
   %.0.i.i.i.i.i.i57 = inttoptr i64 %147 to ptr
   %148 = load ptr, ptr %122, align 8, !tbaa !37
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %148, ptr %7, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !306
   store ptr %6, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -9597,14 +9591,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i58:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi89 = phi { ptr, i32 } [ %lpad.loopexit87, %.loopexit85 ], [ %lpad.loopexit.split-lp88, %.loopexit.split-lp86 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit62: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i58
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %154 = getelementptr inbounds nuw i8, ptr %148, i64 32
   %155 = load atomic i64, ptr %154 monotonic, align 8
   %.0.i.i.i.i.i12.i61 = inttoptr i64 %155 to ptr
@@ -9653,9 +9647,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i38:                                    ; preds = %174
   %181 = getelementptr inbounds nuw i8, ptr %163, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %163, ptr %13, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %13, ptr %12, align 8, !tbaa !306
   store ptr %12, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -9687,22 +9681,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i41:        ; preds = %.critedge.i38
   %lpad.phi94 = phi { ptr, i32 } [ %lpad.loopexit92, %.loopexit90 ], [ %lpad.loopexit.split-lp93, %.loopexit.split-lp91 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i43: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i41
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %186 = getelementptr inbounds nuw i8, ptr %163, i64 32
   %187 = load atomic i64, ptr %186 monotonic, align 8
   %.0.i.i.i.i.i.i44 = inttoptr i64 %187 to ptr
   %188 = load ptr, ptr %162, align 8, !tbaa !37
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %188, ptr %11, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %11, ptr %10, align 8, !tbaa !306
   store ptr %10, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -9734,14 +9728,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i45:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi99 = phi { ptr, i32 } [ %lpad.loopexit97, %.loopexit95 ], [ %lpad.loopexit.split-lp98, %.loopexit.split-lp96 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit49: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i45
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %194 = getelementptr inbounds nuw i8, ptr %188, i64 32
   %195 = load atomic i64, ptr %194 monotonic, align 8
   %.0.i.i.i.i.i12.i48 = inttoptr i64 %195 to ptr
@@ -9857,9 +9851,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i19:                                    ; preds = %41
   %48 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %30, ptr %8, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8, !tbaa !306
   store ptr %7, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -9895,22 +9889,22 @@ common.resume:                                    ; preds = %92, %100, %52, %60
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i24: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i22
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %53 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %54 = load atomic i64, ptr %53 monotonic, align 8
   %.0.i.i.i.i.i.i25 = inttoptr i64 %54 to ptr
   %55 = load ptr, ptr %29, align 8, !tbaa !37
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %55, ptr %6, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !306
   store ptr %5, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -9942,14 +9936,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i26:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi48 = phi { ptr, i32 } [ %lpad.loopexit46, %.loopexit44 ], [ %lpad.loopexit.split-lp47, %.loopexit.split-lp45 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit30: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i26
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %61 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %62 = load atomic i64, ptr %61 monotonic, align 8
   %.0.i.i.i.i.i12.i29 = inttoptr i64 %62 to ptr
@@ -9998,9 +9992,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %81
   %88 = getelementptr inbounds nuw i8, ptr %70, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %70, ptr %12, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %12, ptr %11, align 8, !tbaa !306
   store ptr %11, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -10032,22 +10026,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi53 = phi { ptr, i32 } [ %lpad.loopexit51, %.loopexit49 ], [ %lpad.loopexit.split-lp52, %.loopexit.split-lp50 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %93 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %94 = load atomic i64, ptr %93 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %94 to ptr
   %95 = load ptr, ptr %69, align 8, !tbaa !37
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %95, ptr %10, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %10, ptr %9, align 8, !tbaa !306
   store ptr %9, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -10079,14 +10073,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi58 = phi { ptr, i32 } [ %lpad.loopexit56, %.loopexit54 ], [ %lpad.loopexit.split-lp57, %.loopexit.split-lp55 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %101 = getelementptr inbounds nuw i8, ptr %95, i64 32
   %102 = load atomic i64, ptr %101 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %102 to ptr
@@ -10212,9 +10206,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i11:                                    ; preds = %37
   %44 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %26, ptr %7, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !306
   store ptr %6, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -10250,22 +10244,22 @@ common.resume:                                    ; preds = %88, %96, %48, %56
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i16: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i14
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %49 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %50 = load atomic i64, ptr %49 monotonic, align 8
   %.0.i.i.i.i.i.i17 = inttoptr i64 %50 to ptr
   %51 = load ptr, ptr %25, align 8, !tbaa !37
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %51, ptr %5, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8, !tbaa !306
   store ptr %4, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -10297,14 +10291,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i18:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi40 = phi { ptr, i32 } [ %lpad.loopexit38, %.loopexit36 ], [ %lpad.loopexit.split-lp39, %.loopexit.split-lp37 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit22: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i18
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %57 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %58 = load atomic i64, ptr %57 monotonic, align 8
   %.0.i.i.i.i.i12.i21 = inttoptr i64 %58 to ptr
@@ -10353,9 +10347,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %77
   %84 = getelementptr inbounds nuw i8, ptr %66, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %66, ptr %11, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %11, ptr %10, align 8, !tbaa !306
   store ptr %10, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -10387,22 +10381,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi45 = phi { ptr, i32 } [ %lpad.loopexit43, %.loopexit41 ], [ %lpad.loopexit.split-lp44, %.loopexit.split-lp42 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %89 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %90 = load atomic i64, ptr %89 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %90 to ptr
   %91 = load ptr, ptr %65, align 8, !tbaa !37
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %91, ptr %9, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !306
   store ptr %8, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -10434,14 +10428,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi50 = phi { ptr, i32 } [ %lpad.loopexit48, %.loopexit46 ], [ %lpad.loopexit.split-lp49, %.loopexit.split-lp47 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %97 = getelementptr inbounds nuw i8, ptr %91, i64 32
   %98 = load atomic i64, ptr %97 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %98 to ptr
@@ -10619,9 +10613,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i30:                                    ; preds = %56
   %63 = getelementptr inbounds nuw i8, ptr %45, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %45, ptr %10, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %10, ptr %9, align 8, !tbaa !306
   store ptr %9, ptr %20, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %21, align 8, !tbaa !306
@@ -10657,22 +10651,22 @@ common.resume:                                    ; preds = %107, %115, %67, %75
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i35: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i33
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %68 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %69 = load atomic i64, ptr %68 monotonic, align 8
   %.0.i.i.i.i.i.i36 = inttoptr i64 %69 to ptr
   %70 = load ptr, ptr %41, align 8, !tbaa !37
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %70, ptr %8, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8, !tbaa !306
   store ptr %7, ptr %20, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %21, align 8, !tbaa !306
@@ -10704,14 +10698,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i37:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi60 = phi { ptr, i32 } [ %lpad.loopexit58, %.loopexit56 ], [ %lpad.loopexit.split-lp59, %.loopexit.split-lp57 ]
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit41: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i37
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %76 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %77 = load atomic i64, ptr %76 monotonic, align 8
   %.0.i.i.i.i.i12.i40 = inttoptr i64 %77 to ptr
@@ -10760,9 +10754,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %96
   %103 = getelementptr inbounds nuw i8, ptr %85, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %85, ptr %14, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %14, ptr %13, align 8, !tbaa !306
   store ptr %13, ptr %20, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %21, align 8, !tbaa !306
@@ -10794,22 +10788,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi65 = phi { ptr, i32 } [ %lpad.loopexit63, %.loopexit61 ], [ %lpad.loopexit.split-lp64, %.loopexit.split-lp62 ]
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %108 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %109 = load atomic i64, ptr %108 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %109 to ptr
   %110 = load ptr, ptr %82, align 8, !tbaa !37
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %110, ptr %12, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %12, ptr %11, align 8, !tbaa !306
   store ptr %11, ptr %20, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %21, align 8, !tbaa !306
@@ -10841,14 +10835,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi70 = phi { ptr, i32 } [ %lpad.loopexit68, %.loopexit66 ], [ %lpad.loopexit.split-lp69, %.loopexit.split-lp67 ]
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %116 = getelementptr inbounds nuw i8, ptr %110, i64 32
   %117 = load atomic i64, ptr %116 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %117 to ptr
@@ -10895,12 +10889,12 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIN4CGAL13Lazy
 
 139:                                              ; preds = %133, %129, %._crit_edge
   %.128 = phi i64 [ %135, %133 ], [ %.0.lcssa, %129 ], [ %.0.lcssa, %._crit_edge ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %4, ptr %15, align 8, !tbaa !308
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %5, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !278
   call void @_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINSB_8backends16rational_adaptorINSD_15cpp_int_backendILm0ELm0ELNSB_16cpp_integer_typeE1ELNSB_18cpp_int_check_typeE0ESaIyEEEEELNSB_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEENS7_ISN_Lin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSW_IT1_EEEUlmmE0_EEEvSS_SX_SX_S10_RT2_(ptr noundef %0, i64 noundef %.128, i64 noundef %1, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %15)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret void
 }
 
@@ -10979,9 +10973,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i15:                                    ; preds = %47
   %54 = getelementptr inbounds nuw i8, ptr %36, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %36, ptr %9, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !306
   store ptr %8, ptr %17, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %18, align 8, !tbaa !306
@@ -11017,22 +11011,22 @@ common.resume:                                    ; preds = %98, %106, %58, %66
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i20: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i18
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %59 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %60 = load atomic i64, ptr %59 monotonic, align 8
   %.0.i.i.i.i.i.i21 = inttoptr i64 %60 to ptr
   %61 = load ptr, ptr %32, align 8, !tbaa !37
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %61, ptr %7, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !306
   store ptr %6, ptr %17, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %18, align 8, !tbaa !306
@@ -11064,14 +11058,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i22:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi42 = phi { ptr, i32 } [ %lpad.loopexit40, %.loopexit38 ], [ %lpad.loopexit.split-lp41, %.loopexit.split-lp39 ]
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit26: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i22
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %67 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %68 = load atomic i64, ptr %67 monotonic, align 8
   %.0.i.i.i.i.i12.i25 = inttoptr i64 %68 to ptr
@@ -11122,9 +11116,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %87
   %94 = getelementptr inbounds nuw i8, ptr %76, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %76, ptr %13, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %13, ptr %12, align 8, !tbaa !306
   store ptr %12, ptr %17, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %18, align 8, !tbaa !306
@@ -11156,22 +11150,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi47 = phi { ptr, i32 } [ %lpad.loopexit45, %.loopexit43 ], [ %lpad.loopexit.split-lp46, %.loopexit.split-lp44 ]
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %99 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %100 = load atomic i64, ptr %99 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %100 to ptr
   %101 = load ptr, ptr %73, align 8, !tbaa !37
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %101, ptr %11, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %11, ptr %10, align 8, !tbaa !306
   store ptr %10, ptr %17, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %18, align 8, !tbaa !306
@@ -11203,14 +11197,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi52 = phi { ptr, i32 } [ %lpad.loopexit50, %.loopexit48 ], [ %lpad.loopexit.split-lp51, %.loopexit.split-lp49 ]
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %107 = getelementptr inbounds nuw i8, ptr %101, i64 32
   %108 = load atomic i64, ptr %107 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %108 to ptr
@@ -11549,9 +11543,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i25:                                    ; preds = %47
   %54 = getelementptr inbounds nuw i8, ptr %36, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %36, ptr %17, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %17, ptr %16, align 8, !tbaa !306
   store ptr %16, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -11587,22 +11581,22 @@ common.resume:                                    ; preds = %185, %193, %145, %1
   %lpad.phi104 = phi { ptr, i32 } [ %lpad.loopexit102, %.loopexit100 ], [ %lpad.loopexit.split-lp103, %.loopexit.split-lp101 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i30: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i28
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %59 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %60 = load atomic i64, ptr %59 monotonic, align 8
   %.0.i.i.i.i.i.i31 = inttoptr i64 %60 to ptr
   %61 = load ptr, ptr %32, align 8, !tbaa !37
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %61, ptr %15, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %15, ptr %14, align 8, !tbaa !306
   store ptr %14, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -11634,14 +11628,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i32:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi109 = phi { ptr, i32 } [ %lpad.loopexit107, %.loopexit105 ], [ %lpad.loopexit.split-lp108, %.loopexit.split-lp106 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit36: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i32
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %67 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %68 = load atomic i64, ptr %67 monotonic, align 8
   %.0.i.i.i.i.i12.i35 = inttoptr i64 %68 to ptr
@@ -11690,9 +11684,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %87
   %94 = getelementptr inbounds nuw i8, ptr %76, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr %76, ptr %21, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr %21, ptr %20, align 8, !tbaa !306
   store ptr %20, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -11724,22 +11718,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi114 = phi { ptr, i32 } [ %lpad.loopexit112, %.loopexit110 ], [ %lpad.loopexit.split-lp113, %.loopexit.split-lp111 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %99 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %100 = load atomic i64, ptr %99 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %100 to ptr
   %101 = load ptr, ptr %73, align 8, !tbaa !37
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %101, ptr %19, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %19, ptr %18, align 8, !tbaa !306
   store ptr %18, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -11771,14 +11765,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi119 = phi { ptr, i32 } [ %lpad.loopexit117, %.loopexit115 ], [ %lpad.loopexit.split-lp118, %.loopexit.split-lp116 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %107 = getelementptr inbounds nuw i8, ptr %101, i64 32
   %108 = load atomic i64, ptr %107 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %108 to ptr
@@ -11853,9 +11847,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i51:                                    ; preds = %134
   %141 = getelementptr inbounds nuw i8, ptr %123, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %123, ptr %9, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !306
   store ptr %8, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -11887,22 +11881,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i54:        ; preds = %.critedge.i51
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i56: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i54
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %146 = getelementptr inbounds nuw i8, ptr %123, i64 32
   %147 = load atomic i64, ptr %146 monotonic, align 8
   %.0.i.i.i.i.i.i57 = inttoptr i64 %147 to ptr
   %148 = load ptr, ptr %119, align 8, !tbaa !37
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %148, ptr %7, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !306
   store ptr %6, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -11934,14 +11928,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i58:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi89 = phi { ptr, i32 } [ %lpad.loopexit87, %.loopexit85 ], [ %lpad.loopexit.split-lp88, %.loopexit.split-lp86 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit62: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i58
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %154 = getelementptr inbounds nuw i8, ptr %148, i64 32
   %155 = load atomic i64, ptr %154 monotonic, align 8
   %.0.i.i.i.i.i12.i61 = inttoptr i64 %155 to ptr
@@ -11990,9 +11984,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i38:                                    ; preds = %174
   %181 = getelementptr inbounds nuw i8, ptr %163, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %163, ptr %13, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %13, ptr %12, align 8, !tbaa !306
   store ptr %12, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -12024,22 +12018,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i41:        ; preds = %.critedge.i38
   %lpad.phi94 = phi { ptr, i32 } [ %lpad.loopexit92, %.loopexit90 ], [ %lpad.loopexit.split-lp93, %.loopexit.split-lp91 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i43: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i41
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %186 = getelementptr inbounds nuw i8, ptr %163, i64 32
   %187 = load atomic i64, ptr %186 monotonic, align 8
   %.0.i.i.i.i.i.i44 = inttoptr i64 %187 to ptr
   %188 = load ptr, ptr %160, align 8, !tbaa !37
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %188, ptr %11, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %11, ptr %10, align 8, !tbaa !306
   store ptr %10, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -12071,14 +12065,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i45:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi99 = phi { ptr, i32 } [ %lpad.loopexit97, %.loopexit95 ], [ %lpad.loopexit.split-lp98, %.loopexit.split-lp96 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit49: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i45
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %194 = getelementptr inbounds nuw i8, ptr %188, i64 32
   %195 = load atomic i64, ptr %194 monotonic, align 8
   %.0.i.i.i.i.i12.i48 = inttoptr i64 %195 to ptr
@@ -12194,9 +12188,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i19:                                    ; preds = %41
   %48 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %30, ptr %8, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8, !tbaa !306
   store ptr %7, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -12232,22 +12226,22 @@ common.resume:                                    ; preds = %92, %100, %52, %60
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i24: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i22
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %53 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %54 = load atomic i64, ptr %53 monotonic, align 8
   %.0.i.i.i.i.i.i25 = inttoptr i64 %54 to ptr
   %55 = load ptr, ptr %26, align 8, !tbaa !37
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %55, ptr %6, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !306
   store ptr %5, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -12279,14 +12273,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i26:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi48 = phi { ptr, i32 } [ %lpad.loopexit46, %.loopexit44 ], [ %lpad.loopexit.split-lp47, %.loopexit.split-lp45 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit30: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i26
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %61 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %62 = load atomic i64, ptr %61 monotonic, align 8
   %.0.i.i.i.i.i12.i29 = inttoptr i64 %62 to ptr
@@ -12335,9 +12329,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %81
   %88 = getelementptr inbounds nuw i8, ptr %70, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %70, ptr %12, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %12, ptr %11, align 8, !tbaa !306
   store ptr %11, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -12369,22 +12363,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi53 = phi { ptr, i32 } [ %lpad.loopexit51, %.loopexit49 ], [ %lpad.loopexit.split-lp52, %.loopexit.split-lp50 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %93 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %94 = load atomic i64, ptr %93 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %94 to ptr
   %95 = load ptr, ptr %67, align 8, !tbaa !37
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %95, ptr %10, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %10, ptr %9, align 8, !tbaa !306
   store ptr %9, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -12416,14 +12410,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi58 = phi { ptr, i32 } [ %lpad.loopexit56, %.loopexit54 ], [ %lpad.loopexit.split-lp57, %.loopexit.split-lp55 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %101 = getelementptr inbounds nuw i8, ptr %95, i64 32
   %102 = load atomic i64, ptr %101 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %102 to ptr
@@ -12549,9 +12543,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i11:                                    ; preds = %37
   %44 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %26, ptr %7, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !306
   store ptr %6, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -12587,22 +12581,22 @@ common.resume:                                    ; preds = %88, %96, %48, %56
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i16: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i14
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %49 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %50 = load atomic i64, ptr %49 monotonic, align 8
   %.0.i.i.i.i.i.i17 = inttoptr i64 %50 to ptr
   %51 = load ptr, ptr %22, align 8, !tbaa !37
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %51, ptr %5, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8, !tbaa !306
   store ptr %4, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -12634,14 +12628,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i18:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi40 = phi { ptr, i32 } [ %lpad.loopexit38, %.loopexit36 ], [ %lpad.loopexit.split-lp39, %.loopexit.split-lp37 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit22: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i18
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %57 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %58 = load atomic i64, ptr %57 monotonic, align 8
   %.0.i.i.i.i.i12.i21 = inttoptr i64 %58 to ptr
@@ -12690,9 +12684,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %77
   %84 = getelementptr inbounds nuw i8, ptr %66, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %66, ptr %11, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %11, ptr %10, align 8, !tbaa !306
   store ptr %10, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -12724,22 +12718,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi45 = phi { ptr, i32 } [ %lpad.loopexit43, %.loopexit41 ], [ %lpad.loopexit.split-lp44, %.loopexit.split-lp42 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %89 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %90 = load atomic i64, ptr %89 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %90 to ptr
   %91 = load ptr, ptr %63, align 8, !tbaa !37
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %91, ptr %9, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !306
   store ptr %8, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -12771,14 +12765,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi50 = phi { ptr, i32 } [ %lpad.loopexit48, %.loopexit46 ], [ %lpad.loopexit.split-lp49, %.loopexit.split-lp47 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %97 = getelementptr inbounds nuw i8, ptr %91, i64 32
   %98 = load atomic i64, ptr %97 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %98 to ptr
@@ -12838,9 +12832,9 @@ _ZN4CGALeqERKNS_11Interval_ntILb0EEES3_.exit:     ; preds = %19
 
 27:                                               ; preds = %_ZN4CGALeqERKNS_11Interval_ntILb0EEES3_.exit
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !306
   %29 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
   store ptr %5, ptr %29, align 8, !tbaa !306
@@ -12869,22 +12863,22 @@ common.resume:                                    ; preds = %43, %34
           cleanup
   store ptr null, ptr %29, align 8, !tbaa !306
   store ptr null, ptr %30, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
   store ptr null, ptr %29, align 8, !tbaa !306
   store ptr null, ptr %30, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %37 = load atomic i64, ptr %36 monotonic, align 8
   %.0.i.i.i.i.i = inttoptr i64 %37 to ptr
   %38 = load ptr, ptr %1, align 8, !tbaa !37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %38, ptr %4, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8, !tbaa !306
   store ptr %3, ptr %29, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %30, align 8, !tbaa !306
@@ -12907,14 +12901,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10:          ; preds = %_ZNK4CGAL4LazyINS_1
           cleanup
   store ptr null, ptr %29, align 8, !tbaa !306
   store ptr null, ptr %30, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit13: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10
   store ptr null, ptr %29, align 8, !tbaa !306
   store ptr null, ptr %30, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %46 = load atomic i64, ptr %45 monotonic, align 8
   %.0.i.i.i.i.i12 = inttoptr i64 %46 to ptr
@@ -13813,9 +13807,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i30:                                    ; preds = %55
   %62 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %44, ptr %10, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %10, ptr %9, align 8, !tbaa !306
   store ptr %9, ptr %20, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %21, align 8, !tbaa !306
@@ -13851,22 +13845,22 @@ common.resume:                                    ; preds = %104, %112, %66, %74
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i35: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i33
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %67 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %68 = load atomic i64, ptr %67 monotonic, align 8
   %.0.i.i.i.i.i.i36 = inttoptr i64 %68 to ptr
   %69 = load ptr, ptr %43, align 8, !tbaa !37
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %69, ptr %8, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8, !tbaa !306
   store ptr %7, ptr %20, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %21, align 8, !tbaa !306
@@ -13898,14 +13892,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i37:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi60 = phi { ptr, i32 } [ %lpad.loopexit58, %.loopexit56 ], [ %lpad.loopexit.split-lp59, %.loopexit.split-lp57 ]
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit41: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i37
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %75 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %76 = load atomic i64, ptr %75 monotonic, align 8
   %.0.i.i.i.i.i12.i40 = inttoptr i64 %76 to ptr
@@ -13956,9 +13950,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %93
   %100 = getelementptr inbounds nuw i8, ptr %79, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %79, ptr %14, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %14, ptr %13, align 8, !tbaa !306
   store ptr %13, ptr %20, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %21, align 8, !tbaa !306
@@ -13990,22 +13984,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi65 = phi { ptr, i32 } [ %lpad.loopexit63, %.loopexit61 ], [ %lpad.loopexit.split-lp64, %.loopexit.split-lp62 ]
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %105 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %106 = load atomic i64, ptr %105 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %106 to ptr
   %107 = load ptr, ptr %83, align 8, !tbaa !37
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %107, ptr %12, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %12, ptr %11, align 8, !tbaa !306
   store ptr %11, ptr %20, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %21, align 8, !tbaa !306
@@ -14037,14 +14031,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi70 = phi { ptr, i32 } [ %lpad.loopexit68, %.loopexit66 ], [ %lpad.loopexit.split-lp69, %.loopexit.split-lp67 ]
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %113 = getelementptr inbounds nuw i8, ptr %107, i64 32
   %114 = load atomic i64, ptr %113 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %114 to ptr
@@ -14091,12 +14085,12 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIN4CGAL13Lazy
 
 136:                                              ; preds = %130, %126, %._crit_edge
   %.128 = phi i64 [ %132, %130 ], [ %.0.lcssa, %126 ], [ %.0.lcssa, %._crit_edge ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %4, ptr %15, align 8, !tbaa !358
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %5, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !278
   call void @_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINSB_8backends16rational_adaptorINSD_15cpp_int_backendILm0ELm0ELNSB_16cpp_integer_typeE1ELNSB_18cpp_int_check_typeE0ESaIyEEEEELNSB_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEESO_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSV_IT1_EEEUlmmE_EEEvSR_SW_SW_SZ_RT2_(ptr noundef %0, i64 noundef %.128, i64 noundef %1, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %15)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret void
 }
 
@@ -14174,9 +14168,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i15:                                    ; preds = %46
   %53 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %35, ptr %9, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !306
   store ptr %8, ptr %17, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %18, align 8, !tbaa !306
@@ -14212,22 +14206,22 @@ common.resume:                                    ; preds = %95, %103, %57, %65
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i20: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i18
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %58 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %59 = load atomic i64, ptr %58 monotonic, align 8
   %.0.i.i.i.i.i.i21 = inttoptr i64 %59 to ptr
   %60 = load ptr, ptr %34, align 8, !tbaa !37
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %60, ptr %7, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !306
   store ptr %6, ptr %17, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %18, align 8, !tbaa !306
@@ -14259,14 +14253,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i22:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi42 = phi { ptr, i32 } [ %lpad.loopexit40, %.loopexit38 ], [ %lpad.loopexit.split-lp41, %.loopexit.split-lp39 ]
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit26: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i22
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %67 = load atomic i64, ptr %66 monotonic, align 8
   %.0.i.i.i.i.i12.i25 = inttoptr i64 %67 to ptr
@@ -14319,9 +14313,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %84
   %91 = getelementptr inbounds nuw i8, ptr %70, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %70, ptr %13, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %13, ptr %12, align 8, !tbaa !306
   store ptr %12, ptr %17, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %18, align 8, !tbaa !306
@@ -14353,22 +14347,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi47 = phi { ptr, i32 } [ %lpad.loopexit45, %.loopexit43 ], [ %lpad.loopexit.split-lp46, %.loopexit.split-lp44 ]
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %96 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %97 = load atomic i64, ptr %96 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %97 to ptr
   %98 = load ptr, ptr %74, align 8, !tbaa !37
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %98, ptr %11, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %11, ptr %10, align 8, !tbaa !306
   store ptr %10, ptr %17, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %18, align 8, !tbaa !306
@@ -14400,14 +14394,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi52 = phi { ptr, i32 } [ %lpad.loopexit50, %.loopexit48 ], [ %lpad.loopexit.split-lp51, %.loopexit.split-lp49 ]
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %104 = getelementptr inbounds nuw i8, ptr %98, i64 32
   %105 = load atomic i64, ptr %104 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %105 to ptr
@@ -14735,9 +14729,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i25:                                    ; preds = %46
   %53 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %35, ptr %17, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %17, ptr %16, align 8, !tbaa !306
   store ptr %16, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -14773,22 +14767,22 @@ common.resume:                                    ; preds = %179, %187, %141, %1
   %lpad.phi104 = phi { ptr, i32 } [ %lpad.loopexit102, %.loopexit100 ], [ %lpad.loopexit.split-lp103, %.loopexit.split-lp101 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i30: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i28
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %58 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %59 = load atomic i64, ptr %58 monotonic, align 8
   %.0.i.i.i.i.i.i31 = inttoptr i64 %59 to ptr
   %60 = load ptr, ptr %34, align 8, !tbaa !37
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %60, ptr %15, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %15, ptr %14, align 8, !tbaa !306
   store ptr %14, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -14820,14 +14814,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i32:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi109 = phi { ptr, i32 } [ %lpad.loopexit107, %.loopexit105 ], [ %lpad.loopexit.split-lp108, %.loopexit.split-lp106 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit36: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i32
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %67 = load atomic i64, ptr %66 monotonic, align 8
   %.0.i.i.i.i.i12.i35 = inttoptr i64 %67 to ptr
@@ -14878,9 +14872,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %84
   %91 = getelementptr inbounds nuw i8, ptr %70, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr %70, ptr %21, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr %21, ptr %20, align 8, !tbaa !306
   store ptr %20, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -14912,22 +14906,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi114 = phi { ptr, i32 } [ %lpad.loopexit112, %.loopexit110 ], [ %lpad.loopexit.split-lp113, %.loopexit.split-lp111 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %96 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %97 = load atomic i64, ptr %96 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %97 to ptr
   %98 = load ptr, ptr %74, align 8, !tbaa !37
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %98, ptr %19, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %19, ptr %18, align 8, !tbaa !306
   store ptr %18, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -14959,14 +14953,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi119 = phi { ptr, i32 } [ %lpad.loopexit117, %.loopexit115 ], [ %lpad.loopexit.split-lp118, %.loopexit.split-lp116 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %104 = getelementptr inbounds nuw i8, ptr %98, i64 32
   %105 = load atomic i64, ptr %104 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %105 to ptr
@@ -15040,9 +15034,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i51:                                    ; preds = %130
   %137 = getelementptr inbounds nuw i8, ptr %119, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %119, ptr %9, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !306
   store ptr %8, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -15074,22 +15068,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i54:        ; preds = %.critedge.i51
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i56: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i54
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %142 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %143 = load atomic i64, ptr %142 monotonic, align 8
   %.0.i.i.i.i.i.i57 = inttoptr i64 %143 to ptr
   %144 = load ptr, ptr %118, align 8, !tbaa !37
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %144, ptr %7, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !306
   store ptr %6, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -15121,14 +15115,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i58:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi89 = phi { ptr, i32 } [ %lpad.loopexit87, %.loopexit85 ], [ %lpad.loopexit.split-lp88, %.loopexit.split-lp86 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit62: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i58
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %150 = getelementptr inbounds nuw i8, ptr %144, i64 32
   %151 = load atomic i64, ptr %150 monotonic, align 8
   %.0.i.i.i.i.i12.i61 = inttoptr i64 %151 to ptr
@@ -15179,9 +15173,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i38:                                    ; preds = %168
   %175 = getelementptr inbounds nuw i8, ptr %154, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %154, ptr %13, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %13, ptr %12, align 8, !tbaa !306
   store ptr %12, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -15213,22 +15207,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i41:        ; preds = %.critedge.i38
   %lpad.phi94 = phi { ptr, i32 } [ %lpad.loopexit92, %.loopexit90 ], [ %lpad.loopexit.split-lp93, %.loopexit.split-lp91 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i43: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i41
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %180 = getelementptr inbounds nuw i8, ptr %154, i64 32
   %181 = load atomic i64, ptr %180 monotonic, align 8
   %.0.i.i.i.i.i.i44 = inttoptr i64 %181 to ptr
   %182 = load ptr, ptr %158, align 8, !tbaa !37
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %182, ptr %11, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %11, ptr %10, align 8, !tbaa !306
   store ptr %10, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -15260,14 +15254,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i45:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi99 = phi { ptr, i32 } [ %lpad.loopexit97, %.loopexit95 ], [ %lpad.loopexit.split-lp98, %.loopexit.split-lp96 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit49: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i45
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %188 = getelementptr inbounds nuw i8, ptr %182, i64 32
   %189 = load atomic i64, ptr %188 monotonic, align 8
   %.0.i.i.i.i.i12.i48 = inttoptr i64 %189 to ptr
@@ -15382,9 +15376,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i19:                                    ; preds = %40
   %47 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %29, ptr %8, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8, !tbaa !306
   store ptr %7, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -15420,22 +15414,22 @@ common.resume:                                    ; preds = %89, %97, %51, %59
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i24: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i22
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %52 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %53 = load atomic i64, ptr %52 monotonic, align 8
   %.0.i.i.i.i.i.i25 = inttoptr i64 %53 to ptr
   %54 = load ptr, ptr %28, align 8, !tbaa !37
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %54, ptr %6, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !306
   store ptr %5, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -15467,14 +15461,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i26:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi48 = phi { ptr, i32 } [ %lpad.loopexit46, %.loopexit44 ], [ %lpad.loopexit.split-lp47, %.loopexit.split-lp45 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit30: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i26
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %60 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %61 = load atomic i64, ptr %60 monotonic, align 8
   %.0.i.i.i.i.i12.i29 = inttoptr i64 %61 to ptr
@@ -15525,9 +15519,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %78
   %85 = getelementptr inbounds nuw i8, ptr %64, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %64, ptr %12, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %12, ptr %11, align 8, !tbaa !306
   store ptr %11, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -15559,22 +15553,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi53 = phi { ptr, i32 } [ %lpad.loopexit51, %.loopexit49 ], [ %lpad.loopexit.split-lp52, %.loopexit.split-lp50 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %90 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %91 = load atomic i64, ptr %90 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %91 to ptr
   %92 = load ptr, ptr %68, align 8, !tbaa !37
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %92, ptr %10, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %10, ptr %9, align 8, !tbaa !306
   store ptr %9, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -15606,14 +15600,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi58 = phi { ptr, i32 } [ %lpad.loopexit56, %.loopexit54 ], [ %lpad.loopexit.split-lp57, %.loopexit.split-lp55 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %98 = getelementptr inbounds nuw i8, ptr %92, i64 32
   %99 = load atomic i64, ptr %98 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %99 to ptr
@@ -15738,9 +15732,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i11:                                    ; preds = %36
   %43 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %25, ptr %7, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !306
   store ptr %6, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -15776,22 +15770,22 @@ common.resume:                                    ; preds = %85, %93, %47, %55
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i16: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i14
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %48 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %49 = load atomic i64, ptr %48 monotonic, align 8
   %.0.i.i.i.i.i.i17 = inttoptr i64 %49 to ptr
   %50 = load ptr, ptr %24, align 8, !tbaa !37
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %50, ptr %5, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8, !tbaa !306
   store ptr %4, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -15823,14 +15817,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i18:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi40 = phi { ptr, i32 } [ %lpad.loopexit38, %.loopexit36 ], [ %lpad.loopexit.split-lp39, %.loopexit.split-lp37 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit22: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i18
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %56 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %57 = load atomic i64, ptr %56 monotonic, align 8
   %.0.i.i.i.i.i12.i21 = inttoptr i64 %57 to ptr
@@ -15881,9 +15875,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %74
   %81 = getelementptr inbounds nuw i8, ptr %60, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %60, ptr %11, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %11, ptr %10, align 8, !tbaa !306
   store ptr %10, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -15915,22 +15909,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi45 = phi { ptr, i32 } [ %lpad.loopexit43, %.loopexit41 ], [ %lpad.loopexit.split-lp44, %.loopexit.split-lp42 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %86 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %87 = load atomic i64, ptr %86 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %87 to ptr
   %88 = load ptr, ptr %64, align 8, !tbaa !37
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %88, ptr %9, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !306
   store ptr %8, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -15962,14 +15956,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi50 = phi { ptr, i32 } [ %lpad.loopexit48, %.loopexit46 ], [ %lpad.loopexit.split-lp49, %.loopexit.split-lp47 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %94 = getelementptr inbounds nuw i8, ptr %88, i64 32
   %95 = load atomic i64, ptr %94 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %95 to ptr
@@ -16146,9 +16140,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i30:                                    ; preds = %55
   %62 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %44, ptr %10, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %10, ptr %9, align 8, !tbaa !306
   store ptr %9, ptr %20, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %21, align 8, !tbaa !306
@@ -16184,22 +16178,22 @@ common.resume:                                    ; preds = %104, %112, %66, %74
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i35: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i33
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %67 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %68 = load atomic i64, ptr %67 monotonic, align 8
   %.0.i.i.i.i.i.i36 = inttoptr i64 %68 to ptr
   %69 = load ptr, ptr %41, align 8, !tbaa !37
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %69, ptr %8, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8, !tbaa !306
   store ptr %7, ptr %20, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %21, align 8, !tbaa !306
@@ -16231,14 +16225,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i37:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi60 = phi { ptr, i32 } [ %lpad.loopexit58, %.loopexit56 ], [ %lpad.loopexit.split-lp59, %.loopexit.split-lp57 ]
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit41: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i37
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %75 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %76 = load atomic i64, ptr %75 monotonic, align 8
   %.0.i.i.i.i.i12.i40 = inttoptr i64 %76 to ptr
@@ -16289,9 +16283,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %93
   %100 = getelementptr inbounds nuw i8, ptr %79, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %79, ptr %14, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %14, ptr %13, align 8, !tbaa !306
   store ptr %13, ptr %20, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %21, align 8, !tbaa !306
@@ -16323,22 +16317,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi65 = phi { ptr, i32 } [ %lpad.loopexit63, %.loopexit61 ], [ %lpad.loopexit.split-lp64, %.loopexit.split-lp62 ]
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %105 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %106 = load atomic i64, ptr %105 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %106 to ptr
   %107 = load ptr, ptr %83, align 8, !tbaa !37
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %107, ptr %12, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %12, ptr %11, align 8, !tbaa !306
   store ptr %11, ptr %20, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %21, align 8, !tbaa !306
@@ -16370,14 +16364,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi70 = phi { ptr, i32 } [ %lpad.loopexit68, %.loopexit66 ], [ %lpad.loopexit.split-lp69, %.loopexit.split-lp67 ]
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %113 = getelementptr inbounds nuw i8, ptr %107, i64 32
   %114 = load atomic i64, ptr %113 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %114 to ptr
@@ -16424,12 +16418,12 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIN4CGAL13Lazy
 
 136:                                              ; preds = %130, %126, %._crit_edge
   %.128 = phi i64 [ %132, %130 ], [ %.0.lcssa, %126 ], [ %.0.lcssa, %._crit_edge ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %4, ptr %15, align 8, !tbaa !358
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %5, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !278
   call void @_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINSB_8backends16rational_adaptorINSD_15cpp_int_backendILm0ELm0ELNSB_16cpp_integer_typeE1ELNSB_18cpp_int_check_typeE0ESaIyEEEEELNSB_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEESO_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSV_IT1_EEEUlmmE0_EEEvSR_SW_SW_SZ_RT2_(ptr noundef %0, i64 noundef %.128, i64 noundef %1, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %15)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret void
 }
 
@@ -16507,9 +16501,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i15:                                    ; preds = %46
   %53 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %35, ptr %9, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !306
   store ptr %8, ptr %17, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %18, align 8, !tbaa !306
@@ -16545,22 +16539,22 @@ common.resume:                                    ; preds = %95, %103, %57, %65
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i20: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i18
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %58 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %59 = load atomic i64, ptr %58 monotonic, align 8
   %.0.i.i.i.i.i.i21 = inttoptr i64 %59 to ptr
   %60 = load ptr, ptr %32, align 8, !tbaa !37
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %60, ptr %7, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !306
   store ptr %6, ptr %17, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %18, align 8, !tbaa !306
@@ -16592,14 +16586,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i22:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi42 = phi { ptr, i32 } [ %lpad.loopexit40, %.loopexit38 ], [ %lpad.loopexit.split-lp41, %.loopexit.split-lp39 ]
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit26: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i22
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %67 = load atomic i64, ptr %66 monotonic, align 8
   %.0.i.i.i.i.i12.i25 = inttoptr i64 %67 to ptr
@@ -16652,9 +16646,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %84
   %91 = getelementptr inbounds nuw i8, ptr %70, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %70, ptr %13, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %13, ptr %12, align 8, !tbaa !306
   store ptr %12, ptr %17, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %18, align 8, !tbaa !306
@@ -16686,22 +16680,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi47 = phi { ptr, i32 } [ %lpad.loopexit45, %.loopexit43 ], [ %lpad.loopexit.split-lp46, %.loopexit.split-lp44 ]
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %96 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %97 = load atomic i64, ptr %96 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %97 to ptr
   %98 = load ptr, ptr %74, align 8, !tbaa !37
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %98, ptr %11, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %11, ptr %10, align 8, !tbaa !306
   store ptr %10, ptr %17, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %18, align 8, !tbaa !306
@@ -16733,14 +16727,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi52 = phi { ptr, i32 } [ %lpad.loopexit50, %.loopexit48 ], [ %lpad.loopexit.split-lp51, %.loopexit.split-lp49 ]
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %104 = getelementptr inbounds nuw i8, ptr %98, i64 32
   %105 = load atomic i64, ptr %104 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %105 to ptr
@@ -17068,9 +17062,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i25:                                    ; preds = %46
   %53 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %35, ptr %17, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %17, ptr %16, align 8, !tbaa !306
   store ptr %16, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -17106,22 +17100,22 @@ common.resume:                                    ; preds = %179, %187, %141, %1
   %lpad.phi104 = phi { ptr, i32 } [ %lpad.loopexit102, %.loopexit100 ], [ %lpad.loopexit.split-lp103, %.loopexit.split-lp101 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i30: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i28
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %58 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %59 = load atomic i64, ptr %58 monotonic, align 8
   %.0.i.i.i.i.i.i31 = inttoptr i64 %59 to ptr
   %60 = load ptr, ptr %32, align 8, !tbaa !37
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %60, ptr %15, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %15, ptr %14, align 8, !tbaa !306
   store ptr %14, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -17153,14 +17147,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i32:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi109 = phi { ptr, i32 } [ %lpad.loopexit107, %.loopexit105 ], [ %lpad.loopexit.split-lp108, %.loopexit.split-lp106 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit36: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i32
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %67 = load atomic i64, ptr %66 monotonic, align 8
   %.0.i.i.i.i.i12.i35 = inttoptr i64 %67 to ptr
@@ -17211,9 +17205,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %84
   %91 = getelementptr inbounds nuw i8, ptr %70, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr %70, ptr %21, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr %21, ptr %20, align 8, !tbaa !306
   store ptr %20, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -17245,22 +17239,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi114 = phi { ptr, i32 } [ %lpad.loopexit112, %.loopexit110 ], [ %lpad.loopexit.split-lp113, %.loopexit.split-lp111 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %96 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %97 = load atomic i64, ptr %96 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %97 to ptr
   %98 = load ptr, ptr %74, align 8, !tbaa !37
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %98, ptr %19, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %19, ptr %18, align 8, !tbaa !306
   store ptr %18, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -17292,14 +17286,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi119 = phi { ptr, i32 } [ %lpad.loopexit117, %.loopexit115 ], [ %lpad.loopexit.split-lp118, %.loopexit.split-lp116 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %104 = getelementptr inbounds nuw i8, ptr %98, i64 32
   %105 = load atomic i64, ptr %104 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %105 to ptr
@@ -17373,9 +17367,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i51:                                    ; preds = %130
   %137 = getelementptr inbounds nuw i8, ptr %119, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %119, ptr %9, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !306
   store ptr %8, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -17407,22 +17401,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i54:        ; preds = %.critedge.i51
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i56: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i54
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %142 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %143 = load atomic i64, ptr %142 monotonic, align 8
   %.0.i.i.i.i.i.i57 = inttoptr i64 %143 to ptr
   %144 = load ptr, ptr %116, align 8, !tbaa !37
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %144, ptr %7, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !306
   store ptr %6, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -17454,14 +17448,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i58:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi89 = phi { ptr, i32 } [ %lpad.loopexit87, %.loopexit85 ], [ %lpad.loopexit.split-lp88, %.loopexit.split-lp86 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit62: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i58
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %150 = getelementptr inbounds nuw i8, ptr %144, i64 32
   %151 = load atomic i64, ptr %150 monotonic, align 8
   %.0.i.i.i.i.i12.i61 = inttoptr i64 %151 to ptr
@@ -17512,9 +17506,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i38:                                    ; preds = %168
   %175 = getelementptr inbounds nuw i8, ptr %154, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %154, ptr %13, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %13, ptr %12, align 8, !tbaa !306
   store ptr %12, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -17546,22 +17540,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i41:        ; preds = %.critedge.i38
   %lpad.phi94 = phi { ptr, i32 } [ %lpad.loopexit92, %.loopexit90 ], [ %lpad.loopexit.split-lp93, %.loopexit.split-lp91 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i43: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i41
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %180 = getelementptr inbounds nuw i8, ptr %154, i64 32
   %181 = load atomic i64, ptr %180 monotonic, align 8
   %.0.i.i.i.i.i.i44 = inttoptr i64 %181 to ptr
   %182 = load ptr, ptr %158, align 8, !tbaa !37
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %182, ptr %11, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %11, ptr %10, align 8, !tbaa !306
   store ptr %10, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -17593,14 +17587,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i45:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi99 = phi { ptr, i32 } [ %lpad.loopexit97, %.loopexit95 ], [ %lpad.loopexit.split-lp98, %.loopexit.split-lp96 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit49: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i45
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %188 = getelementptr inbounds nuw i8, ptr %182, i64 32
   %189 = load atomic i64, ptr %188 monotonic, align 8
   %.0.i.i.i.i.i12.i48 = inttoptr i64 %189 to ptr
@@ -17715,9 +17709,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i19:                                    ; preds = %40
   %47 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %29, ptr %8, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8, !tbaa !306
   store ptr %7, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -17753,22 +17747,22 @@ common.resume:                                    ; preds = %89, %97, %51, %59
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i24: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i22
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %52 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %53 = load atomic i64, ptr %52 monotonic, align 8
   %.0.i.i.i.i.i.i25 = inttoptr i64 %53 to ptr
   %54 = load ptr, ptr %26, align 8, !tbaa !37
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %54, ptr %6, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !306
   store ptr %5, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -17800,14 +17794,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i26:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi48 = phi { ptr, i32 } [ %lpad.loopexit46, %.loopexit44 ], [ %lpad.loopexit.split-lp47, %.loopexit.split-lp45 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit30: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i26
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %60 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %61 = load atomic i64, ptr %60 monotonic, align 8
   %.0.i.i.i.i.i12.i29 = inttoptr i64 %61 to ptr
@@ -17858,9 +17852,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %78
   %85 = getelementptr inbounds nuw i8, ptr %64, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %64, ptr %12, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %12, ptr %11, align 8, !tbaa !306
   store ptr %11, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -17892,22 +17886,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi53 = phi { ptr, i32 } [ %lpad.loopexit51, %.loopexit49 ], [ %lpad.loopexit.split-lp52, %.loopexit.split-lp50 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %90 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %91 = load atomic i64, ptr %90 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %91 to ptr
   %92 = load ptr, ptr %68, align 8, !tbaa !37
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %92, ptr %10, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %10, ptr %9, align 8, !tbaa !306
   store ptr %9, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -17939,14 +17933,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi58 = phi { ptr, i32 } [ %lpad.loopexit56, %.loopexit54 ], [ %lpad.loopexit.split-lp57, %.loopexit.split-lp55 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %98 = getelementptr inbounds nuw i8, ptr %92, i64 32
   %99 = load atomic i64, ptr %98 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %99 to ptr
@@ -18071,9 +18065,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i11:                                    ; preds = %36
   %43 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %25, ptr %7, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !306
   store ptr %6, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -18109,22 +18103,22 @@ common.resume:                                    ; preds = %85, %93, %47, %55
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i16: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i14
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %48 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %49 = load atomic i64, ptr %48 monotonic, align 8
   %.0.i.i.i.i.i.i17 = inttoptr i64 %49 to ptr
   %50 = load ptr, ptr %22, align 8, !tbaa !37
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %50, ptr %5, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8, !tbaa !306
   store ptr %4, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -18156,14 +18150,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i18:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi40 = phi { ptr, i32 } [ %lpad.loopexit38, %.loopexit36 ], [ %lpad.loopexit.split-lp39, %.loopexit.split-lp37 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit22: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i18
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %56 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %57 = load atomic i64, ptr %56 monotonic, align 8
   %.0.i.i.i.i.i12.i21 = inttoptr i64 %57 to ptr
@@ -18214,9 +18208,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %74
   %81 = getelementptr inbounds nuw i8, ptr %60, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %60, ptr %11, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %11, ptr %10, align 8, !tbaa !306
   store ptr %10, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -18248,22 +18242,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi45 = phi { ptr, i32 } [ %lpad.loopexit43, %.loopexit41 ], [ %lpad.loopexit.split-lp44, %.loopexit.split-lp42 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %86 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %87 = load atomic i64, ptr %86 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %87 to ptr
   %88 = load ptr, ptr %64, align 8, !tbaa !37
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %88, ptr %9, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !306
   store ptr %8, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -18295,14 +18289,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi50 = phi { ptr, i32 } [ %lpad.loopexit48, %.loopexit46 ], [ %lpad.loopexit.split-lp49, %.loopexit.split-lp47 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %94 = getelementptr inbounds nuw i8, ptr %88, i64 32
   %95 = load atomic i64, ptr %94 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %95 to ptr
@@ -18651,9 +18645,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i30:                                    ; preds = %52
   %59 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %41, ptr %10, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %10, ptr %9, align 8, !tbaa !306
   store ptr %9, ptr %19, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %20, align 8, !tbaa !306
@@ -18689,22 +18683,22 @@ common.resume:                                    ; preds = %101, %109, %63, %71
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %19, align 8, !tbaa !306
   store ptr null, ptr %20, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i35: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i33
   store ptr null, ptr %19, align 8, !tbaa !306
   store ptr null, ptr %20, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %64 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %65 = load atomic i64, ptr %64 monotonic, align 8
   %.0.i.i.i.i.i.i36 = inttoptr i64 %65 to ptr
   %66 = load ptr, ptr %40, align 8, !tbaa !37
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %66, ptr %8, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8, !tbaa !306
   store ptr %7, ptr %19, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %20, align 8, !tbaa !306
@@ -18736,14 +18730,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i37:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi60 = phi { ptr, i32 } [ %lpad.loopexit58, %.loopexit56 ], [ %lpad.loopexit.split-lp59, %.loopexit.split-lp57 ]
   store ptr null, ptr %19, align 8, !tbaa !306
   store ptr null, ptr %20, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit41: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i37
   store ptr null, ptr %19, align 8, !tbaa !306
   store ptr null, ptr %20, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %72 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %73 = load atomic i64, ptr %72 monotonic, align 8
   %.0.i.i.i.i.i12.i40 = inttoptr i64 %73 to ptr
@@ -18791,9 +18785,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %90
   %97 = getelementptr inbounds nuw i8, ptr %77, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %77, ptr %14, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %14, ptr %13, align 8, !tbaa !306
   store ptr %13, ptr %19, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %20, align 8, !tbaa !306
@@ -18825,22 +18819,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi65 = phi { ptr, i32 } [ %lpad.loopexit63, %.loopexit61 ], [ %lpad.loopexit.split-lp64, %.loopexit.split-lp62 ]
   store ptr null, ptr %19, align 8, !tbaa !306
   store ptr null, ptr %20, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %19, align 8, !tbaa !306
   store ptr null, ptr %20, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %102 = getelementptr inbounds nuw i8, ptr %77, i64 32
   %103 = load atomic i64, ptr %102 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %103 to ptr
   %104 = load ptr, ptr %80, align 8, !tbaa !37
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %104, ptr %12, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %12, ptr %11, align 8, !tbaa !306
   store ptr %11, ptr %19, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %20, align 8, !tbaa !306
@@ -18872,14 +18866,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi70 = phi { ptr, i32 } [ %lpad.loopexit68, %.loopexit66 ], [ %lpad.loopexit.split-lp69, %.loopexit.split-lp67 ]
   store ptr null, ptr %19, align 8, !tbaa !306
   store ptr null, ptr %20, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %19, align 8, !tbaa !306
   store ptr null, ptr %20, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %110 = getelementptr inbounds nuw i8, ptr %104, i64 32
   %111 = load atomic i64, ptr %110 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %111 to ptr
@@ -18926,12 +18920,12 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIN4CGAL13Lazy
 
 133:                                              ; preds = %127, %123, %._crit_edge
   %.128 = phi i64 [ %129, %127 ], [ %.0.lcssa, %123 ], [ %.0.lcssa, %._crit_edge ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %4, ptr %15, align 8, !tbaa !395
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %5, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !278
   call void @_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINSB_8backends16rational_adaptorINSD_15cpp_int_backendILm0ELm0ELNSB_16cpp_integer_typeE1ELNSB_18cpp_int_check_typeE0ESaIyEEEEELNSB_26expression_template_optionE1EEEEELin1ELi3ELi1ELin1ELi3EEENS7_ISN_Lin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSW_IT1_EEEUlmmE_EEEvSS_SX_SX_S10_RT2_(ptr noundef %0, i64 noundef %.128, i64 noundef %1, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %15)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret void
 }
 
@@ -19011,9 +19005,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i15:                                    ; preds = %44
   %51 = getelementptr inbounds nuw i8, ptr %33, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %33, ptr %9, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !306
   store ptr %8, ptr %17, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %18, align 8, !tbaa !306
@@ -19049,22 +19043,22 @@ common.resume:                                    ; preds = %93, %101, %55, %63
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i20: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i18
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %56 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %57 = load atomic i64, ptr %56 monotonic, align 8
   %.0.i.i.i.i.i.i21 = inttoptr i64 %57 to ptr
   %58 = load ptr, ptr %32, align 8, !tbaa !37
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %58, ptr %7, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !306
   store ptr %6, ptr %17, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %18, align 8, !tbaa !306
@@ -19096,14 +19090,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i22:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi42 = phi { ptr, i32 } [ %lpad.loopexit40, %.loopexit38 ], [ %lpad.loopexit.split-lp41, %.loopexit.split-lp39 ]
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit26: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i22
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %64 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %65 = load atomic i64, ptr %64 monotonic, align 8
   %.0.i.i.i.i.i12.i25 = inttoptr i64 %65 to ptr
@@ -19152,9 +19146,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %82
   %89 = getelementptr inbounds nuw i8, ptr %69, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %69, ptr %13, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %13, ptr %12, align 8, !tbaa !306
   store ptr %12, ptr %17, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %18, align 8, !tbaa !306
@@ -19186,22 +19180,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi47 = phi { ptr, i32 } [ %lpad.loopexit45, %.loopexit43 ], [ %lpad.loopexit.split-lp46, %.loopexit.split-lp44 ]
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %94 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %95 = load atomic i64, ptr %94 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %95 to ptr
   %96 = load ptr, ptr %72, align 8, !tbaa !37
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %96, ptr %11, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %11, ptr %10, align 8, !tbaa !306
   store ptr %10, ptr %17, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %18, align 8, !tbaa !306
@@ -19233,14 +19227,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi52 = phi { ptr, i32 } [ %lpad.loopexit50, %.loopexit48 ], [ %lpad.loopexit.split-lp51, %.loopexit.split-lp49 ]
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %102 = getelementptr inbounds nuw i8, ptr %96, i64 32
   %103 = load atomic i64, ptr %102 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %103 to ptr
@@ -19515,9 +19509,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i27:                                    ; preds = %46
   %53 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %35, ptr %17, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %17, ptr %16, align 8, !tbaa !306
   store ptr %16, ptr %22, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %23, align 8, !tbaa !306
@@ -19553,22 +19547,22 @@ common.resume:                                    ; preds = %179, %187, %141, %1
   %lpad.phi106 = phi { ptr, i32 } [ %lpad.loopexit104, %.loopexit102 ], [ %lpad.loopexit.split-lp105, %.loopexit.split-lp103 ]
   store ptr null, ptr %22, align 8, !tbaa !306
   store ptr null, ptr %23, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i32: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i30
   store ptr null, ptr %22, align 8, !tbaa !306
   store ptr null, ptr %23, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %58 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %59 = load atomic i64, ptr %58 monotonic, align 8
   %.0.i.i.i.i.i.i33 = inttoptr i64 %59 to ptr
   %60 = load ptr, ptr %34, align 8, !tbaa !37
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %60, ptr %15, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %15, ptr %14, align 8, !tbaa !306
   store ptr %14, ptr %22, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %23, align 8, !tbaa !306
@@ -19600,14 +19594,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i34:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi111 = phi { ptr, i32 } [ %lpad.loopexit109, %.loopexit107 ], [ %lpad.loopexit.split-lp110, %.loopexit.split-lp108 ]
   store ptr null, ptr %22, align 8, !tbaa !306
   store ptr null, ptr %23, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit38: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i34
   store ptr null, ptr %22, align 8, !tbaa !306
   store ptr null, ptr %23, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %67 = load atomic i64, ptr %66 monotonic, align 8
   %.0.i.i.i.i.i12.i37 = inttoptr i64 %67 to ptr
@@ -19655,9 +19649,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %84
   %91 = getelementptr inbounds nuw i8, ptr %71, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr %71, ptr %21, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr %21, ptr %20, align 8, !tbaa !306
   store ptr %20, ptr %22, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %23, align 8, !tbaa !306
@@ -19689,22 +19683,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi116 = phi { ptr, i32 } [ %lpad.loopexit114, %.loopexit112 ], [ %lpad.loopexit.split-lp115, %.loopexit.split-lp113 ]
   store ptr null, ptr %22, align 8, !tbaa !306
   store ptr null, ptr %23, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %22, align 8, !tbaa !306
   store ptr null, ptr %23, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %96 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %97 = load atomic i64, ptr %96 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %97 to ptr
   %98 = load ptr, ptr %74, align 8, !tbaa !37
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %98, ptr %19, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %19, ptr %18, align 8, !tbaa !306
   store ptr %18, ptr %22, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %23, align 8, !tbaa !306
@@ -19736,14 +19730,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi121 = phi { ptr, i32 } [ %lpad.loopexit119, %.loopexit117 ], [ %lpad.loopexit.split-lp120, %.loopexit.split-lp118 ]
   store ptr null, ptr %22, align 8, !tbaa !306
   store ptr null, ptr %23, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %22, align 8, !tbaa !306
   store ptr null, ptr %23, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %104 = getelementptr inbounds nuw i8, ptr %98, i64 32
   %105 = load atomic i64, ptr %104 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %105 to ptr
@@ -19817,9 +19811,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i53:                                    ; preds = %130
   %137 = getelementptr inbounds nuw i8, ptr %119, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %119, ptr %9, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !306
   store ptr %8, ptr %22, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %23, align 8, !tbaa !306
@@ -19851,22 +19845,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i56:        ; preds = %.critedge.i53
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %22, align 8, !tbaa !306
   store ptr null, ptr %23, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i58: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i56
   store ptr null, ptr %22, align 8, !tbaa !306
   store ptr null, ptr %23, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %142 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %143 = load atomic i64, ptr %142 monotonic, align 8
   %.0.i.i.i.i.i.i59 = inttoptr i64 %143 to ptr
   %144 = load ptr, ptr %118, align 8, !tbaa !37
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %144, ptr %7, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !306
   store ptr %6, ptr %22, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %23, align 8, !tbaa !306
@@ -19898,14 +19892,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i60:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi91 = phi { ptr, i32 } [ %lpad.loopexit89, %.loopexit87 ], [ %lpad.loopexit.split-lp90, %.loopexit.split-lp88 ]
   store ptr null, ptr %22, align 8, !tbaa !306
   store ptr null, ptr %23, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit64: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i60
   store ptr null, ptr %22, align 8, !tbaa !306
   store ptr null, ptr %23, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %150 = getelementptr inbounds nuw i8, ptr %144, i64 32
   %151 = load atomic i64, ptr %150 monotonic, align 8
   %.0.i.i.i.i.i12.i63 = inttoptr i64 %151 to ptr
@@ -19953,9 +19947,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i40:                                    ; preds = %168
   %175 = getelementptr inbounds nuw i8, ptr %155, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %155, ptr %13, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %13, ptr %12, align 8, !tbaa !306
   store ptr %12, ptr %22, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %23, align 8, !tbaa !306
@@ -19987,22 +19981,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i43:        ; preds = %.critedge.i40
   %lpad.phi96 = phi { ptr, i32 } [ %lpad.loopexit94, %.loopexit92 ], [ %lpad.loopexit.split-lp95, %.loopexit.split-lp93 ]
   store ptr null, ptr %22, align 8, !tbaa !306
   store ptr null, ptr %23, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i45: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i43
   store ptr null, ptr %22, align 8, !tbaa !306
   store ptr null, ptr %23, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %180 = getelementptr inbounds nuw i8, ptr %155, i64 32
   %181 = load atomic i64, ptr %180 monotonic, align 8
   %.0.i.i.i.i.i.i46 = inttoptr i64 %181 to ptr
   %182 = load ptr, ptr %158, align 8, !tbaa !37
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %182, ptr %11, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %11, ptr %10, align 8, !tbaa !306
   store ptr %10, ptr %22, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %23, align 8, !tbaa !306
@@ -20034,14 +20028,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i47:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi101 = phi { ptr, i32 } [ %lpad.loopexit99, %.loopexit97 ], [ %lpad.loopexit.split-lp100, %.loopexit.split-lp98 ]
   store ptr null, ptr %22, align 8, !tbaa !306
   store ptr null, ptr %23, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit51: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i47
   store ptr null, ptr %22, align 8, !tbaa !306
   store ptr null, ptr %23, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %188 = getelementptr inbounds nuw i8, ptr %182, i64 32
   %189 = load atomic i64, ptr %188 monotonic, align 8
   %.0.i.i.i.i.i12.i50 = inttoptr i64 %189 to ptr
@@ -20155,9 +20149,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i19:                                    ; preds = %37
   %44 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %26, ptr %8, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8, !tbaa !306
   store ptr %7, ptr %14, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %15, align 8, !tbaa !306
@@ -20193,22 +20187,22 @@ common.resume:                                    ; preds = %86, %94, %48, %56
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %14, align 8, !tbaa !306
   store ptr null, ptr %15, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i24: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i22
   store ptr null, ptr %14, align 8, !tbaa !306
   store ptr null, ptr %15, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %49 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %50 = load atomic i64, ptr %49 monotonic, align 8
   %.0.i.i.i.i.i.i25 = inttoptr i64 %50 to ptr
   %51 = load ptr, ptr %25, align 8, !tbaa !37
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %51, ptr %6, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !306
   store ptr %5, ptr %14, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %15, align 8, !tbaa !306
@@ -20240,14 +20234,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i26:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi48 = phi { ptr, i32 } [ %lpad.loopexit46, %.loopexit44 ], [ %lpad.loopexit.split-lp47, %.loopexit.split-lp45 ]
   store ptr null, ptr %14, align 8, !tbaa !306
   store ptr null, ptr %15, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit30: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i26
   store ptr null, ptr %14, align 8, !tbaa !306
   store ptr null, ptr %15, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %57 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %58 = load atomic i64, ptr %57 monotonic, align 8
   %.0.i.i.i.i.i12.i29 = inttoptr i64 %58 to ptr
@@ -20295,9 +20289,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %75
   %82 = getelementptr inbounds nuw i8, ptr %62, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %62, ptr %12, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %12, ptr %11, align 8, !tbaa !306
   store ptr %11, ptr %14, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %15, align 8, !tbaa !306
@@ -20329,22 +20323,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi53 = phi { ptr, i32 } [ %lpad.loopexit51, %.loopexit49 ], [ %lpad.loopexit.split-lp52, %.loopexit.split-lp50 ]
   store ptr null, ptr %14, align 8, !tbaa !306
   store ptr null, ptr %15, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %14, align 8, !tbaa !306
   store ptr null, ptr %15, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %87 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %88 = load atomic i64, ptr %87 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %88 to ptr
   %89 = load ptr, ptr %65, align 8, !tbaa !37
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %89, ptr %10, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %10, ptr %9, align 8, !tbaa !306
   store ptr %9, ptr %14, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %15, align 8, !tbaa !306
@@ -20376,14 +20370,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi58 = phi { ptr, i32 } [ %lpad.loopexit56, %.loopexit54 ], [ %lpad.loopexit.split-lp57, %.loopexit.split-lp55 ]
   store ptr null, ptr %14, align 8, !tbaa !306
   store ptr null, ptr %15, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %14, align 8, !tbaa !306
   store ptr null, ptr %15, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %95 = getelementptr inbounds nuw i8, ptr %89, i64 32
   %96 = load atomic i64, ptr %95 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %96 to ptr
@@ -20507,9 +20501,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i11:                                    ; preds = %34
   %41 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %23, ptr %7, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !306
   store ptr %6, ptr %14, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %15, align 8, !tbaa !306
@@ -20545,22 +20539,22 @@ common.resume:                                    ; preds = %83, %91, %45, %53
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %14, align 8, !tbaa !306
   store ptr null, ptr %15, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i16: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i14
   store ptr null, ptr %14, align 8, !tbaa !306
   store ptr null, ptr %15, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %46 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %47 = load atomic i64, ptr %46 monotonic, align 8
   %.0.i.i.i.i.i.i17 = inttoptr i64 %47 to ptr
   %48 = load ptr, ptr %22, align 8, !tbaa !37
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %48, ptr %5, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8, !tbaa !306
   store ptr %4, ptr %14, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %15, align 8, !tbaa !306
@@ -20592,14 +20586,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i18:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi40 = phi { ptr, i32 } [ %lpad.loopexit38, %.loopexit36 ], [ %lpad.loopexit.split-lp39, %.loopexit.split-lp37 ]
   store ptr null, ptr %14, align 8, !tbaa !306
   store ptr null, ptr %15, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit22: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i18
   store ptr null, ptr %14, align 8, !tbaa !306
   store ptr null, ptr %15, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %55 = load atomic i64, ptr %54 monotonic, align 8
   %.0.i.i.i.i.i12.i21 = inttoptr i64 %55 to ptr
@@ -20647,9 +20641,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %72
   %79 = getelementptr inbounds nuw i8, ptr %59, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %59, ptr %11, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %11, ptr %10, align 8, !tbaa !306
   store ptr %10, ptr %14, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %15, align 8, !tbaa !306
@@ -20681,22 +20675,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi45 = phi { ptr, i32 } [ %lpad.loopexit43, %.loopexit41 ], [ %lpad.loopexit.split-lp44, %.loopexit.split-lp42 ]
   store ptr null, ptr %14, align 8, !tbaa !306
   store ptr null, ptr %15, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %14, align 8, !tbaa !306
   store ptr null, ptr %15, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %84 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %85 = load atomic i64, ptr %84 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %85 to ptr
   %86 = load ptr, ptr %62, align 8, !tbaa !37
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %86, ptr %9, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !306
   store ptr %8, ptr %14, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %15, align 8, !tbaa !306
@@ -20728,14 +20722,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi50 = phi { ptr, i32 } [ %lpad.loopexit48, %.loopexit46 ], [ %lpad.loopexit.split-lp49, %.loopexit.split-lp47 ]
   store ptr null, ptr %14, align 8, !tbaa !306
   store ptr null, ptr %15, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %14, align 8, !tbaa !306
   store ptr null, ptr %15, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %92 = getelementptr inbounds nuw i8, ptr %86, i64 32
   %93 = load atomic i64, ptr %92 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %93 to ptr
@@ -20911,9 +20905,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i30:                                    ; preds = %52
   %59 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %41, ptr %10, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %10, ptr %9, align 8, !tbaa !306
   store ptr %9, ptr %19, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %20, align 8, !tbaa !306
@@ -20949,22 +20943,22 @@ common.resume:                                    ; preds = %101, %109, %63, %71
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %19, align 8, !tbaa !306
   store ptr null, ptr %20, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i35: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i33
   store ptr null, ptr %19, align 8, !tbaa !306
   store ptr null, ptr %20, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %64 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %65 = load atomic i64, ptr %64 monotonic, align 8
   %.0.i.i.i.i.i.i36 = inttoptr i64 %65 to ptr
   %66 = load ptr, ptr %38, align 8, !tbaa !37
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %66, ptr %8, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8, !tbaa !306
   store ptr %7, ptr %19, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %20, align 8, !tbaa !306
@@ -20996,14 +20990,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i37:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi60 = phi { ptr, i32 } [ %lpad.loopexit58, %.loopexit56 ], [ %lpad.loopexit.split-lp59, %.loopexit.split-lp57 ]
   store ptr null, ptr %19, align 8, !tbaa !306
   store ptr null, ptr %20, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit41: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i37
   store ptr null, ptr %19, align 8, !tbaa !306
   store ptr null, ptr %20, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %72 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %73 = load atomic i64, ptr %72 monotonic, align 8
   %.0.i.i.i.i.i12.i40 = inttoptr i64 %73 to ptr
@@ -21051,9 +21045,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %90
   %97 = getelementptr inbounds nuw i8, ptr %77, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %77, ptr %14, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %14, ptr %13, align 8, !tbaa !306
   store ptr %13, ptr %19, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %20, align 8, !tbaa !306
@@ -21085,22 +21079,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi65 = phi { ptr, i32 } [ %lpad.loopexit63, %.loopexit61 ], [ %lpad.loopexit.split-lp64, %.loopexit.split-lp62 ]
   store ptr null, ptr %19, align 8, !tbaa !306
   store ptr null, ptr %20, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %19, align 8, !tbaa !306
   store ptr null, ptr %20, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %102 = getelementptr inbounds nuw i8, ptr %77, i64 32
   %103 = load atomic i64, ptr %102 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %103 to ptr
   %104 = load ptr, ptr %80, align 8, !tbaa !37
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %104, ptr %12, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %12, ptr %11, align 8, !tbaa !306
   store ptr %11, ptr %19, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %20, align 8, !tbaa !306
@@ -21132,14 +21126,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi70 = phi { ptr, i32 } [ %lpad.loopexit68, %.loopexit66 ], [ %lpad.loopexit.split-lp69, %.loopexit.split-lp67 ]
   store ptr null, ptr %19, align 8, !tbaa !306
   store ptr null, ptr %20, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %19, align 8, !tbaa !306
   store ptr null, ptr %20, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %110 = getelementptr inbounds nuw i8, ptr %104, i64 32
   %111 = load atomic i64, ptr %110 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %111 to ptr
@@ -21186,12 +21180,12 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIN4CGAL13Lazy
 
 133:                                              ; preds = %127, %123, %._crit_edge
   %.128 = phi i64 [ %129, %127 ], [ %.0.lcssa, %123 ], [ %.0.lcssa, %._crit_edge ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %4, ptr %15, align 8, !tbaa !395
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %5, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !278
   call void @_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINSB_8backends16rational_adaptorINSD_15cpp_int_backendILm0ELm0ELNSB_16cpp_integer_typeE1ELNSB_18cpp_int_check_typeE0ESaIyEEEEELNSB_26expression_template_optionE1EEEEELin1ELi3ELi1ELin1ELi3EEENS7_ISN_Lin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSW_IT1_EEEUlmmE0_EEEvSS_SX_SX_S10_RT2_(ptr noundef %0, i64 noundef %.128, i64 noundef %1, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %15)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret void
 }
 
@@ -21271,9 +21265,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i15:                                    ; preds = %44
   %51 = getelementptr inbounds nuw i8, ptr %33, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %33, ptr %9, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !306
   store ptr %8, ptr %17, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %18, align 8, !tbaa !306
@@ -21309,22 +21303,22 @@ common.resume:                                    ; preds = %93, %101, %55, %63
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i20: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i18
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %56 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %57 = load atomic i64, ptr %56 monotonic, align 8
   %.0.i.i.i.i.i.i21 = inttoptr i64 %57 to ptr
   %58 = load ptr, ptr %30, align 8, !tbaa !37
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %58, ptr %7, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !306
   store ptr %6, ptr %17, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %18, align 8, !tbaa !306
@@ -21356,14 +21350,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i22:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi42 = phi { ptr, i32 } [ %lpad.loopexit40, %.loopexit38 ], [ %lpad.loopexit.split-lp41, %.loopexit.split-lp39 ]
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit26: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i22
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %64 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %65 = load atomic i64, ptr %64 monotonic, align 8
   %.0.i.i.i.i.i12.i25 = inttoptr i64 %65 to ptr
@@ -21412,9 +21406,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %82
   %89 = getelementptr inbounds nuw i8, ptr %69, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %69, ptr %13, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %13, ptr %12, align 8, !tbaa !306
   store ptr %12, ptr %17, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %18, align 8, !tbaa !306
@@ -21446,22 +21440,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi47 = phi { ptr, i32 } [ %lpad.loopexit45, %.loopexit43 ], [ %lpad.loopexit.split-lp46, %.loopexit.split-lp44 ]
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %94 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %95 = load atomic i64, ptr %94 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %95 to ptr
   %96 = load ptr, ptr %72, align 8, !tbaa !37
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %96, ptr %11, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %11, ptr %10, align 8, !tbaa !306
   store ptr %10, ptr %17, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %18, align 8, !tbaa !306
@@ -21493,14 +21487,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi52 = phi { ptr, i32 } [ %lpad.loopexit50, %.loopexit48 ], [ %lpad.loopexit.split-lp51, %.loopexit.split-lp49 ]
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %102 = getelementptr inbounds nuw i8, ptr %96, i64 32
   %103 = load atomic i64, ptr %102 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %103 to ptr
@@ -21775,9 +21769,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i27:                                    ; preds = %46
   %53 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %35, ptr %17, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %17, ptr %16, align 8, !tbaa !306
   store ptr %16, ptr %22, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %23, align 8, !tbaa !306
@@ -21813,22 +21807,22 @@ common.resume:                                    ; preds = %179, %187, %141, %1
   %lpad.phi106 = phi { ptr, i32 } [ %lpad.loopexit104, %.loopexit102 ], [ %lpad.loopexit.split-lp105, %.loopexit.split-lp103 ]
   store ptr null, ptr %22, align 8, !tbaa !306
   store ptr null, ptr %23, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i32: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i30
   store ptr null, ptr %22, align 8, !tbaa !306
   store ptr null, ptr %23, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %58 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %59 = load atomic i64, ptr %58 monotonic, align 8
   %.0.i.i.i.i.i.i33 = inttoptr i64 %59 to ptr
   %60 = load ptr, ptr %32, align 8, !tbaa !37
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %60, ptr %15, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %15, ptr %14, align 8, !tbaa !306
   store ptr %14, ptr %22, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %23, align 8, !tbaa !306
@@ -21860,14 +21854,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i34:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi111 = phi { ptr, i32 } [ %lpad.loopexit109, %.loopexit107 ], [ %lpad.loopexit.split-lp110, %.loopexit.split-lp108 ]
   store ptr null, ptr %22, align 8, !tbaa !306
   store ptr null, ptr %23, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit38: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i34
   store ptr null, ptr %22, align 8, !tbaa !306
   store ptr null, ptr %23, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %67 = load atomic i64, ptr %66 monotonic, align 8
   %.0.i.i.i.i.i12.i37 = inttoptr i64 %67 to ptr
@@ -21915,9 +21909,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %84
   %91 = getelementptr inbounds nuw i8, ptr %71, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr %71, ptr %21, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr %21, ptr %20, align 8, !tbaa !306
   store ptr %20, ptr %22, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %23, align 8, !tbaa !306
@@ -21949,22 +21943,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi116 = phi { ptr, i32 } [ %lpad.loopexit114, %.loopexit112 ], [ %lpad.loopexit.split-lp115, %.loopexit.split-lp113 ]
   store ptr null, ptr %22, align 8, !tbaa !306
   store ptr null, ptr %23, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %22, align 8, !tbaa !306
   store ptr null, ptr %23, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %96 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %97 = load atomic i64, ptr %96 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %97 to ptr
   %98 = load ptr, ptr %74, align 8, !tbaa !37
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %98, ptr %19, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %19, ptr %18, align 8, !tbaa !306
   store ptr %18, ptr %22, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %23, align 8, !tbaa !306
@@ -21996,14 +21990,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi121 = phi { ptr, i32 } [ %lpad.loopexit119, %.loopexit117 ], [ %lpad.loopexit.split-lp120, %.loopexit.split-lp118 ]
   store ptr null, ptr %22, align 8, !tbaa !306
   store ptr null, ptr %23, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %22, align 8, !tbaa !306
   store ptr null, ptr %23, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %104 = getelementptr inbounds nuw i8, ptr %98, i64 32
   %105 = load atomic i64, ptr %104 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %105 to ptr
@@ -22077,9 +22071,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i53:                                    ; preds = %130
   %137 = getelementptr inbounds nuw i8, ptr %119, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %119, ptr %9, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !306
   store ptr %8, ptr %22, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %23, align 8, !tbaa !306
@@ -22111,22 +22105,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i56:        ; preds = %.critedge.i53
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %22, align 8, !tbaa !306
   store ptr null, ptr %23, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i58: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i56
   store ptr null, ptr %22, align 8, !tbaa !306
   store ptr null, ptr %23, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %142 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %143 = load atomic i64, ptr %142 monotonic, align 8
   %.0.i.i.i.i.i.i59 = inttoptr i64 %143 to ptr
   %144 = load ptr, ptr %116, align 8, !tbaa !37
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %144, ptr %7, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !306
   store ptr %6, ptr %22, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %23, align 8, !tbaa !306
@@ -22158,14 +22152,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i60:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi91 = phi { ptr, i32 } [ %lpad.loopexit89, %.loopexit87 ], [ %lpad.loopexit.split-lp90, %.loopexit.split-lp88 ]
   store ptr null, ptr %22, align 8, !tbaa !306
   store ptr null, ptr %23, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit64: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i60
   store ptr null, ptr %22, align 8, !tbaa !306
   store ptr null, ptr %23, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %150 = getelementptr inbounds nuw i8, ptr %144, i64 32
   %151 = load atomic i64, ptr %150 monotonic, align 8
   %.0.i.i.i.i.i12.i63 = inttoptr i64 %151 to ptr
@@ -22213,9 +22207,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i40:                                    ; preds = %168
   %175 = getelementptr inbounds nuw i8, ptr %155, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %155, ptr %13, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %13, ptr %12, align 8, !tbaa !306
   store ptr %12, ptr %22, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %23, align 8, !tbaa !306
@@ -22247,22 +22241,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i43:        ; preds = %.critedge.i40
   %lpad.phi96 = phi { ptr, i32 } [ %lpad.loopexit94, %.loopexit92 ], [ %lpad.loopexit.split-lp95, %.loopexit.split-lp93 ]
   store ptr null, ptr %22, align 8, !tbaa !306
   store ptr null, ptr %23, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i45: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i43
   store ptr null, ptr %22, align 8, !tbaa !306
   store ptr null, ptr %23, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %180 = getelementptr inbounds nuw i8, ptr %155, i64 32
   %181 = load atomic i64, ptr %180 monotonic, align 8
   %.0.i.i.i.i.i.i46 = inttoptr i64 %181 to ptr
   %182 = load ptr, ptr %158, align 8, !tbaa !37
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %182, ptr %11, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %11, ptr %10, align 8, !tbaa !306
   store ptr %10, ptr %22, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %23, align 8, !tbaa !306
@@ -22294,14 +22288,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i47:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi101 = phi { ptr, i32 } [ %lpad.loopexit99, %.loopexit97 ], [ %lpad.loopexit.split-lp100, %.loopexit.split-lp98 ]
   store ptr null, ptr %22, align 8, !tbaa !306
   store ptr null, ptr %23, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit51: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i47
   store ptr null, ptr %22, align 8, !tbaa !306
   store ptr null, ptr %23, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %188 = getelementptr inbounds nuw i8, ptr %182, i64 32
   %189 = load atomic i64, ptr %188 monotonic, align 8
   %.0.i.i.i.i.i12.i50 = inttoptr i64 %189 to ptr
@@ -22415,9 +22409,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i19:                                    ; preds = %37
   %44 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %26, ptr %8, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8, !tbaa !306
   store ptr %7, ptr %14, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %15, align 8, !tbaa !306
@@ -22453,22 +22447,22 @@ common.resume:                                    ; preds = %86, %94, %48, %56
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %14, align 8, !tbaa !306
   store ptr null, ptr %15, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i24: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i22
   store ptr null, ptr %14, align 8, !tbaa !306
   store ptr null, ptr %15, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %49 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %50 = load atomic i64, ptr %49 monotonic, align 8
   %.0.i.i.i.i.i.i25 = inttoptr i64 %50 to ptr
   %51 = load ptr, ptr %23, align 8, !tbaa !37
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %51, ptr %6, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !306
   store ptr %5, ptr %14, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %15, align 8, !tbaa !306
@@ -22500,14 +22494,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i26:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi48 = phi { ptr, i32 } [ %lpad.loopexit46, %.loopexit44 ], [ %lpad.loopexit.split-lp47, %.loopexit.split-lp45 ]
   store ptr null, ptr %14, align 8, !tbaa !306
   store ptr null, ptr %15, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit30: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i26
   store ptr null, ptr %14, align 8, !tbaa !306
   store ptr null, ptr %15, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %57 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %58 = load atomic i64, ptr %57 monotonic, align 8
   %.0.i.i.i.i.i12.i29 = inttoptr i64 %58 to ptr
@@ -22555,9 +22549,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %75
   %82 = getelementptr inbounds nuw i8, ptr %62, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %62, ptr %12, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %12, ptr %11, align 8, !tbaa !306
   store ptr %11, ptr %14, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %15, align 8, !tbaa !306
@@ -22589,22 +22583,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi53 = phi { ptr, i32 } [ %lpad.loopexit51, %.loopexit49 ], [ %lpad.loopexit.split-lp52, %.loopexit.split-lp50 ]
   store ptr null, ptr %14, align 8, !tbaa !306
   store ptr null, ptr %15, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %14, align 8, !tbaa !306
   store ptr null, ptr %15, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %87 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %88 = load atomic i64, ptr %87 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %88 to ptr
   %89 = load ptr, ptr %65, align 8, !tbaa !37
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %89, ptr %10, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %10, ptr %9, align 8, !tbaa !306
   store ptr %9, ptr %14, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %15, align 8, !tbaa !306
@@ -22636,14 +22630,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi58 = phi { ptr, i32 } [ %lpad.loopexit56, %.loopexit54 ], [ %lpad.loopexit.split-lp57, %.loopexit.split-lp55 ]
   store ptr null, ptr %14, align 8, !tbaa !306
   store ptr null, ptr %15, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %14, align 8, !tbaa !306
   store ptr null, ptr %15, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %95 = getelementptr inbounds nuw i8, ptr %89, i64 32
   %96 = load atomic i64, ptr %95 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %96 to ptr
@@ -22767,9 +22761,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i11:                                    ; preds = %34
   %41 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %23, ptr %7, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !306
   store ptr %6, ptr %14, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %15, align 8, !tbaa !306
@@ -22805,22 +22799,22 @@ common.resume:                                    ; preds = %83, %91, %45, %53
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %14, align 8, !tbaa !306
   store ptr null, ptr %15, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i16: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i14
   store ptr null, ptr %14, align 8, !tbaa !306
   store ptr null, ptr %15, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %46 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %47 = load atomic i64, ptr %46 monotonic, align 8
   %.0.i.i.i.i.i.i17 = inttoptr i64 %47 to ptr
   %48 = load ptr, ptr %20, align 8, !tbaa !37
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %48, ptr %5, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8, !tbaa !306
   store ptr %4, ptr %14, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %15, align 8, !tbaa !306
@@ -22852,14 +22846,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i18:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi40 = phi { ptr, i32 } [ %lpad.loopexit38, %.loopexit36 ], [ %lpad.loopexit.split-lp39, %.loopexit.split-lp37 ]
   store ptr null, ptr %14, align 8, !tbaa !306
   store ptr null, ptr %15, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit22: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i18
   store ptr null, ptr %14, align 8, !tbaa !306
   store ptr null, ptr %15, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %55 = load atomic i64, ptr %54 monotonic, align 8
   %.0.i.i.i.i.i12.i21 = inttoptr i64 %55 to ptr
@@ -22907,9 +22901,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %72
   %79 = getelementptr inbounds nuw i8, ptr %59, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %59, ptr %11, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %11, ptr %10, align 8, !tbaa !306
   store ptr %10, ptr %14, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %15, align 8, !tbaa !306
@@ -22941,22 +22935,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi45 = phi { ptr, i32 } [ %lpad.loopexit43, %.loopexit41 ], [ %lpad.loopexit.split-lp44, %.loopexit.split-lp42 ]
   store ptr null, ptr %14, align 8, !tbaa !306
   store ptr null, ptr %15, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %14, align 8, !tbaa !306
   store ptr null, ptr %15, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %84 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %85 = load atomic i64, ptr %84 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %85 to ptr
   %86 = load ptr, ptr %62, align 8, !tbaa !37
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %86, ptr %9, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !306
   store ptr %8, ptr %14, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %15, align 8, !tbaa !306
@@ -22988,14 +22982,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi50 = phi { ptr, i32 } [ %lpad.loopexit48, %.loopexit46 ], [ %lpad.loopexit.split-lp49, %.loopexit.split-lp47 ]
   store ptr null, ptr %14, align 8, !tbaa !306
   store ptr null, ptr %15, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %14, align 8, !tbaa !306
   store ptr null, ptr %15, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %92 = getelementptr inbounds nuw i8, ptr %86, i64 32
   %93 = load atomic i64, ptr %92 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %93 to ptr
@@ -23343,9 +23337,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i30:                                    ; preds = %55
   %62 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %44, ptr %10, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %10, ptr %9, align 8, !tbaa !306
   store ptr %9, ptr %20, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %21, align 8, !tbaa !306
@@ -23381,22 +23375,22 @@ common.resume:                                    ; preds = %104, %112, %66, %74
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i35: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i33
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %67 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %68 = load atomic i64, ptr %67 monotonic, align 8
   %.0.i.i.i.i.i.i36 = inttoptr i64 %68 to ptr
   %69 = load ptr, ptr %43, align 8, !tbaa !37
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %69, ptr %8, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8, !tbaa !306
   store ptr %7, ptr %20, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %21, align 8, !tbaa !306
@@ -23428,14 +23422,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i37:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi60 = phi { ptr, i32 } [ %lpad.loopexit58, %.loopexit56 ], [ %lpad.loopexit.split-lp59, %.loopexit.split-lp57 ]
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit41: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i37
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %75 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %76 = load atomic i64, ptr %75 monotonic, align 8
   %.0.i.i.i.i.i12.i40 = inttoptr i64 %76 to ptr
@@ -23486,9 +23480,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %93
   %100 = getelementptr inbounds nuw i8, ptr %79, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %79, ptr %14, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %14, ptr %13, align 8, !tbaa !306
   store ptr %13, ptr %20, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %21, align 8, !tbaa !306
@@ -23520,22 +23514,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi65 = phi { ptr, i32 } [ %lpad.loopexit63, %.loopexit61 ], [ %lpad.loopexit.split-lp64, %.loopexit.split-lp62 ]
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %105 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %106 = load atomic i64, ptr %105 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %106 to ptr
   %107 = load ptr, ptr %83, align 8, !tbaa !37
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %107, ptr %12, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %12, ptr %11, align 8, !tbaa !306
   store ptr %11, ptr %20, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %21, align 8, !tbaa !306
@@ -23567,14 +23561,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi70 = phi { ptr, i32 } [ %lpad.loopexit68, %.loopexit66 ], [ %lpad.loopexit.split-lp69, %.loopexit.split-lp67 ]
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %113 = getelementptr inbounds nuw i8, ptr %107, i64 32
   %114 = load atomic i64, ptr %113 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %114 to ptr
@@ -23621,12 +23615,12 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIN4CGAL13Lazy
 
 136:                                              ; preds = %130, %126, %._crit_edge
   %.128 = phi i64 [ %132, %130 ], [ %.0.lcssa, %126 ], [ %.0.lcssa, %._crit_edge ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %4, ptr %15, align 8, !tbaa !432
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %5, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !278
   call void @_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINSB_8backends16rational_adaptorINSD_15cpp_int_backendILm0ELm0ELNSB_16cpp_integer_typeE1ELNSB_18cpp_int_check_typeE0ESaIyEEEEELNSB_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEESO_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSV_IT1_EEEUlmmE_EEEvSR_SW_SW_SZ_RT2_(ptr noundef %0, i64 noundef %.128, i64 noundef %1, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %15)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret void
 }
 
@@ -23704,9 +23698,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i15:                                    ; preds = %46
   %53 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %35, ptr %9, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !306
   store ptr %8, ptr %17, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %18, align 8, !tbaa !306
@@ -23742,22 +23736,22 @@ common.resume:                                    ; preds = %95, %103, %57, %65
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i20: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i18
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %58 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %59 = load atomic i64, ptr %58 monotonic, align 8
   %.0.i.i.i.i.i.i21 = inttoptr i64 %59 to ptr
   %60 = load ptr, ptr %34, align 8, !tbaa !37
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %60, ptr %7, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !306
   store ptr %6, ptr %17, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %18, align 8, !tbaa !306
@@ -23789,14 +23783,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i22:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi42 = phi { ptr, i32 } [ %lpad.loopexit40, %.loopexit38 ], [ %lpad.loopexit.split-lp41, %.loopexit.split-lp39 ]
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit26: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i22
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %67 = load atomic i64, ptr %66 monotonic, align 8
   %.0.i.i.i.i.i12.i25 = inttoptr i64 %67 to ptr
@@ -23849,9 +23843,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %84
   %91 = getelementptr inbounds nuw i8, ptr %70, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %70, ptr %13, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %13, ptr %12, align 8, !tbaa !306
   store ptr %12, ptr %17, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %18, align 8, !tbaa !306
@@ -23883,22 +23877,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi47 = phi { ptr, i32 } [ %lpad.loopexit45, %.loopexit43 ], [ %lpad.loopexit.split-lp46, %.loopexit.split-lp44 ]
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %96 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %97 = load atomic i64, ptr %96 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %97 to ptr
   %98 = load ptr, ptr %74, align 8, !tbaa !37
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %98, ptr %11, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %11, ptr %10, align 8, !tbaa !306
   store ptr %10, ptr %17, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %18, align 8, !tbaa !306
@@ -23930,14 +23924,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi52 = phi { ptr, i32 } [ %lpad.loopexit50, %.loopexit48 ], [ %lpad.loopexit.split-lp51, %.loopexit.split-lp49 ]
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %104 = getelementptr inbounds nuw i8, ptr %98, i64 32
   %105 = load atomic i64, ptr %104 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %105 to ptr
@@ -24265,9 +24259,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i25:                                    ; preds = %46
   %53 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %35, ptr %17, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %17, ptr %16, align 8, !tbaa !306
   store ptr %16, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -24303,22 +24297,22 @@ common.resume:                                    ; preds = %179, %187, %141, %1
   %lpad.phi104 = phi { ptr, i32 } [ %lpad.loopexit102, %.loopexit100 ], [ %lpad.loopexit.split-lp103, %.loopexit.split-lp101 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i30: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i28
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %58 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %59 = load atomic i64, ptr %58 monotonic, align 8
   %.0.i.i.i.i.i.i31 = inttoptr i64 %59 to ptr
   %60 = load ptr, ptr %34, align 8, !tbaa !37
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %60, ptr %15, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %15, ptr %14, align 8, !tbaa !306
   store ptr %14, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -24350,14 +24344,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i32:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi109 = phi { ptr, i32 } [ %lpad.loopexit107, %.loopexit105 ], [ %lpad.loopexit.split-lp108, %.loopexit.split-lp106 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit36: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i32
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %67 = load atomic i64, ptr %66 monotonic, align 8
   %.0.i.i.i.i.i12.i35 = inttoptr i64 %67 to ptr
@@ -24408,9 +24402,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %84
   %91 = getelementptr inbounds nuw i8, ptr %70, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr %70, ptr %21, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr %21, ptr %20, align 8, !tbaa !306
   store ptr %20, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -24442,22 +24436,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi114 = phi { ptr, i32 } [ %lpad.loopexit112, %.loopexit110 ], [ %lpad.loopexit.split-lp113, %.loopexit.split-lp111 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %96 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %97 = load atomic i64, ptr %96 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %97 to ptr
   %98 = load ptr, ptr %74, align 8, !tbaa !37
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %98, ptr %19, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %19, ptr %18, align 8, !tbaa !306
   store ptr %18, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -24489,14 +24483,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi119 = phi { ptr, i32 } [ %lpad.loopexit117, %.loopexit115 ], [ %lpad.loopexit.split-lp118, %.loopexit.split-lp116 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %104 = getelementptr inbounds nuw i8, ptr %98, i64 32
   %105 = load atomic i64, ptr %104 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %105 to ptr
@@ -24570,9 +24564,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i51:                                    ; preds = %130
   %137 = getelementptr inbounds nuw i8, ptr %119, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %119, ptr %9, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !306
   store ptr %8, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -24604,22 +24598,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i54:        ; preds = %.critedge.i51
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i56: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i54
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %142 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %143 = load atomic i64, ptr %142 monotonic, align 8
   %.0.i.i.i.i.i.i57 = inttoptr i64 %143 to ptr
   %144 = load ptr, ptr %118, align 8, !tbaa !37
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %144, ptr %7, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !306
   store ptr %6, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -24651,14 +24645,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i58:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi89 = phi { ptr, i32 } [ %lpad.loopexit87, %.loopexit85 ], [ %lpad.loopexit.split-lp88, %.loopexit.split-lp86 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit62: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i58
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %150 = getelementptr inbounds nuw i8, ptr %144, i64 32
   %151 = load atomic i64, ptr %150 monotonic, align 8
   %.0.i.i.i.i.i12.i61 = inttoptr i64 %151 to ptr
@@ -24709,9 +24703,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i38:                                    ; preds = %168
   %175 = getelementptr inbounds nuw i8, ptr %154, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %154, ptr %13, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %13, ptr %12, align 8, !tbaa !306
   store ptr %12, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -24743,22 +24737,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i41:        ; preds = %.critedge.i38
   %lpad.phi94 = phi { ptr, i32 } [ %lpad.loopexit92, %.loopexit90 ], [ %lpad.loopexit.split-lp93, %.loopexit.split-lp91 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i43: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i41
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %180 = getelementptr inbounds nuw i8, ptr %154, i64 32
   %181 = load atomic i64, ptr %180 monotonic, align 8
   %.0.i.i.i.i.i.i44 = inttoptr i64 %181 to ptr
   %182 = load ptr, ptr %158, align 8, !tbaa !37
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %182, ptr %11, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %11, ptr %10, align 8, !tbaa !306
   store ptr %10, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -24790,14 +24784,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i45:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi99 = phi { ptr, i32 } [ %lpad.loopexit97, %.loopexit95 ], [ %lpad.loopexit.split-lp98, %.loopexit.split-lp96 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit49: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i45
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %188 = getelementptr inbounds nuw i8, ptr %182, i64 32
   %189 = load atomic i64, ptr %188 monotonic, align 8
   %.0.i.i.i.i.i12.i48 = inttoptr i64 %189 to ptr
@@ -24912,9 +24906,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i19:                                    ; preds = %40
   %47 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %29, ptr %8, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8, !tbaa !306
   store ptr %7, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -24950,22 +24944,22 @@ common.resume:                                    ; preds = %89, %97, %51, %59
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i24: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i22
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %52 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %53 = load atomic i64, ptr %52 monotonic, align 8
   %.0.i.i.i.i.i.i25 = inttoptr i64 %53 to ptr
   %54 = load ptr, ptr %28, align 8, !tbaa !37
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %54, ptr %6, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !306
   store ptr %5, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -24997,14 +24991,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i26:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi48 = phi { ptr, i32 } [ %lpad.loopexit46, %.loopexit44 ], [ %lpad.loopexit.split-lp47, %.loopexit.split-lp45 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit30: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i26
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %60 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %61 = load atomic i64, ptr %60 monotonic, align 8
   %.0.i.i.i.i.i12.i29 = inttoptr i64 %61 to ptr
@@ -25055,9 +25049,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %78
   %85 = getelementptr inbounds nuw i8, ptr %64, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %64, ptr %12, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %12, ptr %11, align 8, !tbaa !306
   store ptr %11, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -25089,22 +25083,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi53 = phi { ptr, i32 } [ %lpad.loopexit51, %.loopexit49 ], [ %lpad.loopexit.split-lp52, %.loopexit.split-lp50 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %90 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %91 = load atomic i64, ptr %90 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %91 to ptr
   %92 = load ptr, ptr %68, align 8, !tbaa !37
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %92, ptr %10, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %10, ptr %9, align 8, !tbaa !306
   store ptr %9, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -25136,14 +25130,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi58 = phi { ptr, i32 } [ %lpad.loopexit56, %.loopexit54 ], [ %lpad.loopexit.split-lp57, %.loopexit.split-lp55 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %98 = getelementptr inbounds nuw i8, ptr %92, i64 32
   %99 = load atomic i64, ptr %98 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %99 to ptr
@@ -25268,9 +25262,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i11:                                    ; preds = %36
   %43 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %25, ptr %7, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !306
   store ptr %6, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -25306,22 +25300,22 @@ common.resume:                                    ; preds = %85, %93, %47, %55
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i16: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i14
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %48 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %49 = load atomic i64, ptr %48 monotonic, align 8
   %.0.i.i.i.i.i.i17 = inttoptr i64 %49 to ptr
   %50 = load ptr, ptr %24, align 8, !tbaa !37
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %50, ptr %5, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8, !tbaa !306
   store ptr %4, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -25353,14 +25347,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i18:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi40 = phi { ptr, i32 } [ %lpad.loopexit38, %.loopexit36 ], [ %lpad.loopexit.split-lp39, %.loopexit.split-lp37 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit22: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i18
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %56 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %57 = load atomic i64, ptr %56 monotonic, align 8
   %.0.i.i.i.i.i12.i21 = inttoptr i64 %57 to ptr
@@ -25411,9 +25405,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %74
   %81 = getelementptr inbounds nuw i8, ptr %60, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %60, ptr %11, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %11, ptr %10, align 8, !tbaa !306
   store ptr %10, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -25445,22 +25439,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi45 = phi { ptr, i32 } [ %lpad.loopexit43, %.loopexit41 ], [ %lpad.loopexit.split-lp44, %.loopexit.split-lp42 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %86 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %87 = load atomic i64, ptr %86 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %87 to ptr
   %88 = load ptr, ptr %64, align 8, !tbaa !37
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %88, ptr %9, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !306
   store ptr %8, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -25492,14 +25486,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi50 = phi { ptr, i32 } [ %lpad.loopexit48, %.loopexit46 ], [ %lpad.loopexit.split-lp49, %.loopexit.split-lp47 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %94 = getelementptr inbounds nuw i8, ptr %88, i64 32
   %95 = load atomic i64, ptr %94 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %95 to ptr
@@ -25676,9 +25670,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i30:                                    ; preds = %55
   %62 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %44, ptr %10, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %10, ptr %9, align 8, !tbaa !306
   store ptr %9, ptr %20, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %21, align 8, !tbaa !306
@@ -25714,22 +25708,22 @@ common.resume:                                    ; preds = %104, %112, %66, %74
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i35: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i33
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %67 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %68 = load atomic i64, ptr %67 monotonic, align 8
   %.0.i.i.i.i.i.i36 = inttoptr i64 %68 to ptr
   %69 = load ptr, ptr %41, align 8, !tbaa !37
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %69, ptr %8, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8, !tbaa !306
   store ptr %7, ptr %20, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %21, align 8, !tbaa !306
@@ -25761,14 +25755,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i37:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi60 = phi { ptr, i32 } [ %lpad.loopexit58, %.loopexit56 ], [ %lpad.loopexit.split-lp59, %.loopexit.split-lp57 ]
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit41: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i37
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %75 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %76 = load atomic i64, ptr %75 monotonic, align 8
   %.0.i.i.i.i.i12.i40 = inttoptr i64 %76 to ptr
@@ -25819,9 +25813,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %93
   %100 = getelementptr inbounds nuw i8, ptr %79, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %79, ptr %14, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %14, ptr %13, align 8, !tbaa !306
   store ptr %13, ptr %20, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %21, align 8, !tbaa !306
@@ -25853,22 +25847,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi65 = phi { ptr, i32 } [ %lpad.loopexit63, %.loopexit61 ], [ %lpad.loopexit.split-lp64, %.loopexit.split-lp62 ]
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %105 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %106 = load atomic i64, ptr %105 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %106 to ptr
   %107 = load ptr, ptr %83, align 8, !tbaa !37
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %107, ptr %12, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %12, ptr %11, align 8, !tbaa !306
   store ptr %11, ptr %20, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %21, align 8, !tbaa !306
@@ -25900,14 +25894,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi70 = phi { ptr, i32 } [ %lpad.loopexit68, %.loopexit66 ], [ %lpad.loopexit.split-lp69, %.loopexit.split-lp67 ]
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %20, align 8, !tbaa !306
   store ptr null, ptr %21, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %113 = getelementptr inbounds nuw i8, ptr %107, i64 32
   %114 = load atomic i64, ptr %113 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %114 to ptr
@@ -25954,12 +25948,12 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIN4CGAL13Lazy
 
 136:                                              ; preds = %130, %126, %._crit_edge
   %.128 = phi i64 [ %132, %130 ], [ %.0.lcssa, %126 ], [ %.0.lcssa, %._crit_edge ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %4, ptr %15, align 8, !tbaa !432
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %5, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !278
   call void @_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINSB_8backends16rational_adaptorINSD_15cpp_int_backendILm0ELm0ELNSB_16cpp_integer_typeE1ELNSB_18cpp_int_check_typeE0ESaIyEEEEELNSB_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEESO_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSV_IT1_EEEUlmmE0_EEEvSR_SW_SW_SZ_RT2_(ptr noundef %0, i64 noundef %.128, i64 noundef %1, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %15)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret void
 }
 
@@ -26037,9 +26031,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i15:                                    ; preds = %46
   %53 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %35, ptr %9, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !306
   store ptr %8, ptr %17, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %18, align 8, !tbaa !306
@@ -26075,22 +26069,22 @@ common.resume:                                    ; preds = %95, %103, %57, %65
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i20: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i18
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %58 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %59 = load atomic i64, ptr %58 monotonic, align 8
   %.0.i.i.i.i.i.i21 = inttoptr i64 %59 to ptr
   %60 = load ptr, ptr %32, align 8, !tbaa !37
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %60, ptr %7, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !306
   store ptr %6, ptr %17, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %18, align 8, !tbaa !306
@@ -26122,14 +26116,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i22:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi42 = phi { ptr, i32 } [ %lpad.loopexit40, %.loopexit38 ], [ %lpad.loopexit.split-lp41, %.loopexit.split-lp39 ]
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit26: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i22
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %67 = load atomic i64, ptr %66 monotonic, align 8
   %.0.i.i.i.i.i12.i25 = inttoptr i64 %67 to ptr
@@ -26182,9 +26176,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %84
   %91 = getelementptr inbounds nuw i8, ptr %70, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %70, ptr %13, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %13, ptr %12, align 8, !tbaa !306
   store ptr %12, ptr %17, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %18, align 8, !tbaa !306
@@ -26216,22 +26210,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi47 = phi { ptr, i32 } [ %lpad.loopexit45, %.loopexit43 ], [ %lpad.loopexit.split-lp46, %.loopexit.split-lp44 ]
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %96 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %97 = load atomic i64, ptr %96 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %97 to ptr
   %98 = load ptr, ptr %74, align 8, !tbaa !37
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %98, ptr %11, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %11, ptr %10, align 8, !tbaa !306
   store ptr %10, ptr %17, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %18, align 8, !tbaa !306
@@ -26263,14 +26257,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi52 = phi { ptr, i32 } [ %lpad.loopexit50, %.loopexit48 ], [ %lpad.loopexit.split-lp51, %.loopexit.split-lp49 ]
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %17, align 8, !tbaa !306
   store ptr null, ptr %18, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %104 = getelementptr inbounds nuw i8, ptr %98, i64 32
   %105 = load atomic i64, ptr %104 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %105 to ptr
@@ -26598,9 +26592,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i25:                                    ; preds = %46
   %53 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %35, ptr %17, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %17, ptr %16, align 8, !tbaa !306
   store ptr %16, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -26636,22 +26630,22 @@ common.resume:                                    ; preds = %179, %187, %141, %1
   %lpad.phi104 = phi { ptr, i32 } [ %lpad.loopexit102, %.loopexit100 ], [ %lpad.loopexit.split-lp103, %.loopexit.split-lp101 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i30: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i28
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %58 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %59 = load atomic i64, ptr %58 monotonic, align 8
   %.0.i.i.i.i.i.i31 = inttoptr i64 %59 to ptr
   %60 = load ptr, ptr %32, align 8, !tbaa !37
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %60, ptr %15, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %15, ptr %14, align 8, !tbaa !306
   store ptr %14, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -26683,14 +26677,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i32:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi109 = phi { ptr, i32 } [ %lpad.loopexit107, %.loopexit105 ], [ %lpad.loopexit.split-lp108, %.loopexit.split-lp106 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit36: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i32
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %67 = load atomic i64, ptr %66 monotonic, align 8
   %.0.i.i.i.i.i12.i35 = inttoptr i64 %67 to ptr
@@ -26741,9 +26735,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %84
   %91 = getelementptr inbounds nuw i8, ptr %70, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr %70, ptr %21, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr %21, ptr %20, align 8, !tbaa !306
   store ptr %20, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -26775,22 +26769,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi114 = phi { ptr, i32 } [ %lpad.loopexit112, %.loopexit110 ], [ %lpad.loopexit.split-lp113, %.loopexit.split-lp111 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %96 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %97 = load atomic i64, ptr %96 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %97 to ptr
   %98 = load ptr, ptr %74, align 8, !tbaa !37
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %98, ptr %19, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %19, ptr %18, align 8, !tbaa !306
   store ptr %18, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -26822,14 +26816,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi119 = phi { ptr, i32 } [ %lpad.loopexit117, %.loopexit115 ], [ %lpad.loopexit.split-lp118, %.loopexit.split-lp116 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %104 = getelementptr inbounds nuw i8, ptr %98, i64 32
   %105 = load atomic i64, ptr %104 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %105 to ptr
@@ -26903,9 +26897,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i51:                                    ; preds = %130
   %137 = getelementptr inbounds nuw i8, ptr %119, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %119, ptr %9, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !306
   store ptr %8, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -26937,22 +26931,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i54:        ; preds = %.critedge.i51
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i56: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i54
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %142 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %143 = load atomic i64, ptr %142 monotonic, align 8
   %.0.i.i.i.i.i.i57 = inttoptr i64 %143 to ptr
   %144 = load ptr, ptr %116, align 8, !tbaa !37
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %144, ptr %7, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !306
   store ptr %6, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -26984,14 +26978,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i58:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi89 = phi { ptr, i32 } [ %lpad.loopexit87, %.loopexit85 ], [ %lpad.loopexit.split-lp88, %.loopexit.split-lp86 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit62: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i58
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %150 = getelementptr inbounds nuw i8, ptr %144, i64 32
   %151 = load atomic i64, ptr %150 monotonic, align 8
   %.0.i.i.i.i.i12.i61 = inttoptr i64 %151 to ptr
@@ -27042,9 +27036,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i38:                                    ; preds = %168
   %175 = getelementptr inbounds nuw i8, ptr %154, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %154, ptr %13, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %13, ptr %12, align 8, !tbaa !306
   store ptr %12, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -27076,22 +27070,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i41:        ; preds = %.critedge.i38
   %lpad.phi94 = phi { ptr, i32 } [ %lpad.loopexit92, %.loopexit90 ], [ %lpad.loopexit.split-lp93, %.loopexit.split-lp91 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i43: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i41
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %180 = getelementptr inbounds nuw i8, ptr %154, i64 32
   %181 = load atomic i64, ptr %180 monotonic, align 8
   %.0.i.i.i.i.i.i44 = inttoptr i64 %181 to ptr
   %182 = load ptr, ptr %158, align 8, !tbaa !37
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %182, ptr %11, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %11, ptr %10, align 8, !tbaa !306
   store ptr %10, ptr %23, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %24, align 8, !tbaa !306
@@ -27123,14 +27117,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i45:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi99 = phi { ptr, i32 } [ %lpad.loopexit97, %.loopexit95 ], [ %lpad.loopexit.split-lp98, %.loopexit.split-lp96 ]
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit49: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i45
   store ptr null, ptr %23, align 8, !tbaa !306
   store ptr null, ptr %24, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %188 = getelementptr inbounds nuw i8, ptr %182, i64 32
   %189 = load atomic i64, ptr %188 monotonic, align 8
   %.0.i.i.i.i.i12.i48 = inttoptr i64 %189 to ptr
@@ -27245,9 +27239,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i19:                                    ; preds = %40
   %47 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %29, ptr %8, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8, !tbaa !306
   store ptr %7, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -27283,22 +27277,22 @@ common.resume:                                    ; preds = %89, %97, %51, %59
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i24: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i22
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %52 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %53 = load atomic i64, ptr %52 monotonic, align 8
   %.0.i.i.i.i.i.i25 = inttoptr i64 %53 to ptr
   %54 = load ptr, ptr %26, align 8, !tbaa !37
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %54, ptr %6, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !306
   store ptr %5, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -27330,14 +27324,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i26:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi48 = phi { ptr, i32 } [ %lpad.loopexit46, %.loopexit44 ], [ %lpad.loopexit.split-lp47, %.loopexit.split-lp45 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit30: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i26
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %60 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %61 = load atomic i64, ptr %60 monotonic, align 8
   %.0.i.i.i.i.i12.i29 = inttoptr i64 %61 to ptr
@@ -27388,9 +27382,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %78
   %85 = getelementptr inbounds nuw i8, ptr %64, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %64, ptr %12, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %12, ptr %11, align 8, !tbaa !306
   store ptr %11, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -27422,22 +27416,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi53 = phi { ptr, i32 } [ %lpad.loopexit51, %.loopexit49 ], [ %lpad.loopexit.split-lp52, %.loopexit.split-lp50 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %90 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %91 = load atomic i64, ptr %90 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %91 to ptr
   %92 = load ptr, ptr %68, align 8, !tbaa !37
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %92, ptr %10, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %10, ptr %9, align 8, !tbaa !306
   store ptr %9, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -27469,14 +27463,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi58 = phi { ptr, i32 } [ %lpad.loopexit56, %.loopexit54 ], [ %lpad.loopexit.split-lp57, %.loopexit.split-lp55 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %98 = getelementptr inbounds nuw i8, ptr %92, i64 32
   %99 = load atomic i64, ptr %98 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %99 to ptr
@@ -27601,9 +27595,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i11:                                    ; preds = %36
   %43 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %25, ptr %7, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !306
   store ptr %6, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -27639,22 +27633,22 @@ common.resume:                                    ; preds = %85, %93, %47, %55
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i16: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i14
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %48 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %49 = load atomic i64, ptr %48 monotonic, align 8
   %.0.i.i.i.i.i.i17 = inttoptr i64 %49 to ptr
   %50 = load ptr, ptr %22, align 8, !tbaa !37
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %50, ptr %5, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8, !tbaa !306
   store ptr %4, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -27686,14 +27680,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i18:      ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi40 = phi { ptr, i32 } [ %lpad.loopexit38, %.loopexit36 ], [ %lpad.loopexit.split-lp39, %.loopexit.split-lp37 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit22: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i18
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %56 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %57 = load atomic i64, ptr %56 monotonic, align 8
   %.0.i.i.i.i.i12.i21 = inttoptr i64 %57 to ptr
@@ -27744,9 +27738,9 @@ _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15
 
 .critedge.i:                                      ; preds = %74
   %81 = getelementptr inbounds nuw i8, ptr %60, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %60, ptr %11, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %11, ptr %10, align 8, !tbaa !306
   store ptr %10, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -27778,22 +27772,22 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %.critedge.i
   %lpad.phi45 = phi { ptr, i32 } [ %lpad.loopexit43, %.loopexit41 ], [ %lpad.loopexit.split-lp44, %.loopexit.split-lp42 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 _ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %86 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %87 = load atomic i64, ptr %86 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %87 to ptr
   %88 = load ptr, ptr %64, align 8, !tbaa !37
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %88, ptr %9, align 8, !tbaa !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !306
   store ptr %8, ptr %15, align 8, !tbaa !306
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %16, align 8, !tbaa !306
@@ -27825,14 +27819,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i:        ; preds = %_ZNK4CGAL4LazyINS_1
   %lpad.phi50 = phi { ptr, i32 } [ %lpad.loopexit48, %.loopexit46 ], [ %lpad.loopexit.split-lp49, %.loopexit.split-lp47 ]
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN4CGALltIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_EEbRKNS_13Lazy_exact_ntIT_EERKNSE_IT0_EE.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i10.i
   store ptr null, ptr %15, align 8, !tbaa !306
   store ptr null, ptr %16, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %94 = getelementptr inbounds nuw i8, ptr %88, i64 32
   %95 = load atomic i64, ptr %94 monotonic, align 8
   %.0.i.i.i.i.i12.i = inttoptr i64 %95 to ptr
@@ -28170,6 +28164,12 @@ define internal void @_GLOBAL__sub_I_unique_rows.cpp() #28 section ".text.startu
   %18 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4COREL5log_5E)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #0
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #29

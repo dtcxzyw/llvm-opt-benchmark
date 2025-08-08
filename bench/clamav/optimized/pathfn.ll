@@ -97,23 +97,17 @@ define noundef ptr @_Z11PointToNamePKw(ptr noundef readonly captures(ret: addres
   ret ptr %.1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #2
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_Z9IsPathDivi(i32 noundef %0) local_unnamed_addr #3 {
+define noundef zeroext i1 @_Z9IsPathDivi(i32 noundef %0) local_unnamed_addr #2 {
   %2 = icmp eq i32 %0, 47
   ret i1 %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_Z10IsDriveDivi(i32 noundef %0) local_unnamed_addr #3 {
+define noundef zeroext i1 @_Z10IsDriveDivi(i32 noundef %0) local_unnamed_addr #2 {
   ret i1 false
 }
 
@@ -128,7 +122,7 @@ define noundef ptr @_Z15PointToLastCharPKw(ptr noundef readonly captures(ret: ad
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z11ConvertPathPKwPwm(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #4 {
+define noundef ptr @_Z11ConvertPathPKwPwm(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [2048 x i32], align 16
   br label %5
 
@@ -255,20 +249,20 @@ define noundef ptr @_Z11ConvertPathPKwPwm(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %.not61, label %54, label %53
 
 53:                                               ; preds = %.thread
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %4, ptr noundef nonnull %.5, i64 noundef 2048)
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %1, ptr noundef nonnull %4, i64 noundef %2)
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %53, %.thread
   ret ptr %.5
 }
 
-declare void @_Z8wcsncpyzPwPKwm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @_Z8wcsncpyzPwPKwm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z7SetNamePwPKwm(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #4 {
+define void @_Z7SetNamePwPKwm(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = tail call i64 @wcslen(ptr noundef readonly %0) #19
   %5 = and i64 %4, 4294967295
   br label %6
@@ -302,7 +296,7 @@ _Z11PointToNamePKw.exit:                          ; preds = %6, %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z6SetExtPwPKwm(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #4 {
+define void @_Z6SetExtPwPKwm(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %25, label %5
 
@@ -357,7 +351,7 @@ _Z6GetExtPKw.exit:                                ; preds = %11, %19
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef ptr @_Z6GetExtPKw(ptr noundef readonly %0) local_unnamed_addr #6 {
+define noundef ptr @_Z6GetExtPKw(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %17, label %3
 
@@ -393,10 +387,10 @@ _Z11PointToNamePKw.exit:                          ; preds = %6, %14
   ret ptr %18
 }
 
-declare void @_Z8wcsncatzPwPKwm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @_Z8wcsncatzPwPKwm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z9SetSFXExtPwm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
+define void @_Z9SetSFXExtPwm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %22, label %4
 
@@ -447,10 +441,10 @@ _Z6SetExtPwPKwm.exit:                             ; preds = %_Z6GetExtPKw.exit.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @wcsrchr(ptr noundef, i32 noundef signext) local_unnamed_addr #7
+declare ptr @wcsrchr(ptr noundef, i32 noundef signext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z6CmpExtPKwS0_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef zeroext i1 @_Z6CmpExtPKwS0_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %_Z6GetExtPKw.exit.thread, label %4
 
@@ -493,10 +487,10 @@ _Z6GetExtPKw.exit.thread:                         ; preds = %2, %18, %_Z6GetExtP
   ret i1 %22
 }
 
-declare noundef i32 @_Z8wcsicompPKwS0_(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare noundef i32 @_Z8wcsicompPKwS0_(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_Z10IsWildcardPKw(ptr noundef readonly %0) local_unnamed_addr #6 {
+define noundef zeroext i1 @_Z10IsWildcardPKw(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -511,26 +505,26 @@ define noundef zeroext i1 @_Z10IsWildcardPKw(ptr noundef readonly %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @wcspbrk(ptr noundef, ptr noundef) local_unnamed_addr #7
+declare ptr @wcspbrk(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z13IsDriveLetterPKw(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define noundef zeroext i1 @_Z13IsDriveLetterPKw(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 4, !tbaa !3
   %3 = tail call noundef signext i32 @_Z9etoupperww(i32 noundef signext %2)
   ret i1 false
 }
 
-declare noundef signext i32 @_Z9etoupperww(i32 noundef signext) local_unnamed_addr #5
+declare noundef signext i32 @_Z9etoupperww(i32 noundef signext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z11GetPathDiskPKw(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define noundef i32 @_Z11GetPathDiskPKw(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 4, !tbaa !3
   %3 = tail call noundef signext i32 @_Z9etoupperww(i32 noundef signext %2)
   ret i32 -1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_Z11AddEndSlashPwm(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #8 {
+define void @_Z11AddEndSlashPwm(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = tail call i64 @wcslen(ptr noundef %0) #19
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %13, label %4
@@ -558,9 +552,9 @@ define void @_Z11AddEndSlashPwm(ptr noundef captures(none) %0, i64 noundef %1) l
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z8MakeNamePKwS0_Pwm(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #4 {
+define void @_Z8MakeNamePKwS0_Pwm(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #3 {
   %5 = alloca [2048 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %5, ptr noundef %0, i64 noundef 2048)
   %6 = load i32, ptr %0, align 4, !tbaa !3
   %7 = call noundef signext i32 @_Z9etoupperww(i32 noundef signext %6)
@@ -589,12 +583,12 @@ define void @_Z8MakeNamePKwS0_Pwm(ptr noundef %0, ptr noundef %1, ptr noundef %2
 _Z11AddEndSlashPwm.exit:                          ; preds = %4, %9, %13, %16
   call void @_Z8wcsncatzPwPKwm(ptr noundef nonnull %5, ptr noundef %1, i64 noundef 2048)
   call void @_Z8wcsncpyzPwPKwm(ptr noundef %2, ptr noundef nonnull %5, i64 noundef %3)
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_Z11GetFilePathPKwPwm(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #9 {
+define void @_Z11GetFilePathPKwPwm(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #8 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %39, label %5
 
@@ -666,10 +660,10 @@ _Z11PointToNamePKw.exit14:                        ; preds = %.preheader, %31
 }
 
 ; Function Attrs: nounwind
-declare ptr @wcsncpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #10
+declare ptr @wcsncpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define void @_Z18RemoveNameFromPathPw(ptr noundef captures(none) %0) local_unnamed_addr #11 {
+define void @_Z18RemoveNameFromPathPw(ptr noundef captures(none) %0) local_unnamed_addr #10 {
   %2 = tail call i64 @wcslen(ptr noundef readonly %0) #19
   %3 = and i64 %2, 4294967295
   br label %4
@@ -702,7 +696,7 @@ _Z11PointToNamePKw.exit.thread:                   ; preds = %4, %_Z11PointToName
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z15EnumConfigPathsjPwmb(i32 noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #4 {
+define noundef zeroext i1 @_Z15EnumConfigPathsjPwmb(i32 noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 {
   %5 = icmp eq i32 %0, 0
   br i1 %5, label %6, label %11
 
@@ -737,12 +731,12 @@ define noundef zeroext i1 @_Z15EnumConfigPathsjPwmb(i32 noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #12
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #11
 
-declare noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z13GetConfigNamePKwPwmbb(ptr noundef %0, ptr noundef initializes((0, 4)) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #4 {
+define void @_Z13GetConfigNamePKwPwmbb(ptr noundef %0, ptr noundef initializes((0, 4)) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #3 {
   store i32 0, ptr %1, align 4, !tbaa !3
   br i1 %3, label %.split.us, label %.split
 
@@ -849,10 +843,10 @@ _Z15EnumConfigPathsjPwmb.exit:                    ; preds = %7, %_Z11AddEndSlash
   ret void
 }
 
-declare noundef zeroext i1 @_Z13WildFileExistPKw(ptr noundef) local_unnamed_addr #5
+declare noundef zeroext i1 @_Z13WildFileExistPKw(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z13GetVolNumPartPKw(ptr noundef readonly %0) local_unnamed_addr #4 {
+define noundef ptr @_Z13GetVolNumPartPKw(ptr noundef readonly %0) local_unnamed_addr #3 {
   %2 = tail call i64 @wcslen(ptr noundef readonly %0) #19
   %3 = and i64 %2, 4294967295
   br label %4
@@ -934,13 +928,13 @@ _Z11PointToNamePKw.exit:                          ; preds = %4, %12
   ret ptr %.0
 }
 
-declare noundef zeroext i1 @_Z7IsDigiti(i32 noundef) local_unnamed_addr #5
+declare noundef zeroext i1 @_Z7IsDigiti(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @wcschr(ptr noundef, i32 noundef signext) local_unnamed_addr #7
+declare ptr @wcschr(ptr noundef, i32 noundef signext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z14NextVolumeNamePwjb(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 {
+define void @_Z14NextVolumeNamePwjb(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %_Z6GetExtPKw.exit54.thread57, label %6
 
@@ -1154,7 +1148,7 @@ _Z6GetExtPKw.exit54.thread:                       ; preds = %42, %45, %_Z6GetExt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_Z12IsNameUsablePKw(ptr noundef readonly %0) local_unnamed_addr #6 {
+define noundef zeroext i1 @_Z12IsNameUsablePKw(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = tail call ptr @wcschr(ptr noundef %0, i32 noundef signext 58) #19
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.preheader, label %.thread
@@ -1204,7 +1198,7 @@ define noundef zeroext i1 @_Z12IsNameUsablePKw(ptr noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define void @_Z14MakeNameUsablePwb(ptr noundef captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #13 {
+define void @_Z14MakeNameUsablePwb(ptr noundef captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #12 {
   %3 = load i32, ptr %0, align 4, !tbaa !3
   %.not18 = icmp eq i32 %3, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
@@ -1267,7 +1261,7 @@ define void @_Z14MakeNameUsablePwb(ptr noundef captures(none) %0, i1 noundef zer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_Z14UnixSlashToDosPKcPcm(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #14 {
+define void @_Z14UnixSlashToDosPKcPcm(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #13 {
   %4 = add i64 %2, -1
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %.critedge, label %.lr.ph
@@ -1300,7 +1294,7 @@ define void @_Z14UnixSlashToDosPKcPcm(ptr noundef readonly captures(none) %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_Z14DosSlashToUnixPKcPcm(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #14 {
+define void @_Z14DosSlashToUnixPKcPcm(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #13 {
   %4 = add i64 %2, -1
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %.critedge, label %.lr.ph
@@ -1333,7 +1327,7 @@ define void @_Z14DosSlashToUnixPKcPcm(ptr noundef readonly captures(none) %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_Z14UnixSlashToDosPKwPwm(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #14 {
+define void @_Z14UnixSlashToDosPKwPwm(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #13 {
   %4 = add i64 %2, -1
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %.critedge, label %.lr.ph
@@ -1366,7 +1360,7 @@ define void @_Z14UnixSlashToDosPKwPwm(ptr noundef readonly captures(none) %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_Z14DosSlashToUnixPKwPwm(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #14 {
+define void @_Z14DosSlashToUnixPKwPwm(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #13 {
   %4 = add i64 %2, -1
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %.critedge, label %.lr.ph
@@ -1399,7 +1393,7 @@ define void @_Z14DosSlashToUnixPKwPwm(ptr noundef readonly captures(none) %0, pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z17ConvertNameToFullPKwPwm(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #4 {
+define void @_Z17ConvertNameToFullPKwPwm(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [2048 x i8], align 16
   %5 = icmp eq ptr %0, null
   br i1 %5, label %8, label %6
@@ -1424,7 +1418,7 @@ define void @_Z17ConvertNameToFullPKwPwm(ptr noundef %0, ptr noundef %1, i64 nou
   br label %27
 
 11:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = call ptr @getcwd(ptr noundef nonnull %4, i64 noundef 2048) #20
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %15
@@ -1458,7 +1452,7 @@ define void @_Z17ConvertNameToFullPKwPwm(ptr noundef %0, ptr noundef %1, i64 nou
   br label %_Z11AddEndSlashPwm.exit
 
 _Z11AddEndSlashPwm.exit:                          ; preds = %15, %18, %22, %25
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %27
 
 27:                                               ; preds = %_Z11AddEndSlashPwm.exit, %10
@@ -1470,24 +1464,24 @@ _Z11AddEndSlashPwm.exit:                          ; preds = %15, %18, %22, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z10IsFullPathPKw(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 {
+define noundef zeroext i1 @_Z10IsFullPathPKw(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 {
   %2 = load i32, ptr %0, align 4, !tbaa !3
   %3 = icmp eq i32 %2, 47
   ret i1 %3
 }
 
 ; Function Attrs: nounwind
-declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #10
+declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z14IsFullRootPathPKw(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 {
+define noundef zeroext i1 @_Z14IsFullRootPathPKw(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 {
   %2 = load i32, ptr %0, align 4, !tbaa !3
   %3 = icmp eq i32 %2, 47
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z11GetPathRootPKwPwm(ptr noundef %0, ptr noundef initializes((0, 4)) %1, i64 noundef %2) local_unnamed_addr #4 {
+define void @_Z11GetPathRootPKwPwm(ptr noundef %0, ptr noundef initializes((0, 4)) %1, i64 noundef %2) local_unnamed_addr #3 {
   store i32 0, ptr %1, align 4, !tbaa !3
   %4 = load i32, ptr %0, align 4, !tbaa !3
   %5 = tail call noundef signext i32 @_Z9etoupperww(i32 noundef signext %4)
@@ -1539,7 +1533,7 @@ define void @_Z11GetPathRootPKwPwm(ptr noundef %0, ptr noundef initializes((0, 4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z20ParseVersionFileNamePwb(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #4 {
+define noundef i32 @_Z20ParseVersionFileNamePwb(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #3 {
   %3 = tail call ptr @wcsrchr(ptr noundef %0, i32 noundef signext 59) #19
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %4
@@ -1558,10 +1552,10 @@ define noundef i32 @_Z20ParseVersionFileNamePwb(ptr noundef %0, i1 noundef zeroe
   ret i32 %.0
 }
 
-declare noundef i32 @_Z5atoiwPKw(ptr noundef) local_unnamed_addr #5
+declare noundef i32 @_Z5atoiwPKw(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z18VolNameToFirstNamePKwPwmb(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_Z18VolNameToFirstNamePKwPwmb(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca [2048 x i32], align 16
   %6 = alloca %class.FindFile, align 8
   %7 = alloca %struct.FindData, align 8
@@ -1685,7 +1679,7 @@ _Z6GetExtPKw.exit:                                ; preds = %21, %11, %_Z11Point
   br i1 %59, label %106, label %60
 
 60:                                               ; preds = %_Z6GetExtPKw.exit
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %5, ptr noundef %1, i64 noundef 2048)
   %61 = load i32, ptr %5, align 16, !tbaa !3
   %62 = icmp eq i32 %61, 0
@@ -1729,13 +1723,13 @@ _Z6GetExtPKw.exit.i44:                            ; preds = %66, %74
   br label %_Z6SetExtPwPKwm.exit47
 
 _Z6SetExtPwPKwm.exit47:                           ; preds = %60, %78
-  call void @llvm.lifetime.start.p0(i64 8208, ptr nonnull %6) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN8FindFileC1Ev(ptr noundef nonnull align 8 dereferenceable(8208) %6)
   invoke void @_ZN8FindFile7SetMaskEPKw(ptr noundef nonnull align 8 dereferenceable(8208) %6, ptr noundef nonnull %5)
           to label %79 unwind label %95
 
 79:                                               ; preds = %_Z6SetExtPwPKwm.exit47
-  call void @llvm.lifetime.start.p0(i64 8240, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 8208
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %80, i8 0, i64 24, i1 false)
   %81 = getelementptr inbounds nuw i8, ptr %8, i64 48849
@@ -1749,7 +1743,7 @@ _Z6SetExtPwPKwm.exit47:                           ; preds = %60, %78
   br i1 %83, label %85, label %.loopexit
 
 85:                                               ; preds = %84
-  call void @llvm.lifetime.start.p0(i64 57112, ptr nonnull %8) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN7ArchiveC1EP11CommandData(ptr noundef nonnull align 8 dereferenceable(57108) %8, ptr noundef null)
           to label %86 unwind label %99
 
@@ -1776,7 +1770,7 @@ _Z6SetExtPwPKwm.exit47:                           ; preds = %60, %78
 
 .thread:                                          ; preds = %94
   call void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108) %8) #20
-  call void @llvm.lifetime.end.p0(i64 57112, ptr nonnull %8) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
 95:                                               ; preds = %_Z6SetExtPwPKwm.exit47
@@ -1811,66 +1805,66 @@ _Z6SetExtPwPKwm.exit47:                           ; preds = %60, %78
 
 102:                                              ; preds = %88, %91
   call void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108) %8) #20
-  call void @llvm.lifetime.end.p0(i64 57112, ptr nonnull %8) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %82
 
 103:                                              ; preds = %101, %99
   %.pn = phi { ptr, i32 } [ %lpad.phi, %101 ], [ %100, %99 ]
-  call void @llvm.lifetime.end.p0(i64 57112, ptr nonnull %8) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %104
 
 .loopexit:                                        ; preds = %84, %.thread
-  call void @llvm.lifetime.end.p0(i64 8240, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN8FindFileD1Ev(ptr noundef nonnull align 8 dereferenceable(8208) %6) #20
-  call void @llvm.lifetime.end.p0(i64 8208, ptr nonnull %6) #20
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %106
 
 104:                                              ; preds = %103, %97
   %.pn.pn = phi { ptr, i32 } [ %.pn, %103 ], [ %98, %97 ]
-  call void @llvm.lifetime.end.p0(i64 8240, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %105
 
 105:                                              ; preds = %104, %95
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %104 ], [ %96, %95 ]
   call void @_ZN8FindFileD1Ev(ptr noundef nonnull align 8 dereferenceable(8208) %6) #20
-  call void @llvm.lifetime.end.p0(i64 8208, ptr nonnull %6) #20
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.pn
 
 106:                                              ; preds = %.loopexit, %_Z6GetExtPKw.exit
   ret ptr %.136
 }
 
-declare noundef zeroext i1 @_Z9FileExistPKw(ptr noundef) local_unnamed_addr #5
+declare noundef zeroext i1 @_Z9FileExistPKw(ptr noundef) local_unnamed_addr #4
 
-declare void @_ZN8FindFileC1Ev(ptr noundef nonnull align 8 dereferenceable(8208)) unnamed_addr #5
+declare void @_ZN8FindFileC1Ev(ptr noundef nonnull align 8 dereferenceable(8208)) unnamed_addr #4
 
-declare void @_ZN8FindFile7SetMaskEPKw(ptr noundef nonnull align 8 dereferenceable(8208), ptr noundef) local_unnamed_addr #5
+declare void @_ZN8FindFile7SetMaskEPKw(ptr noundef nonnull align 8 dereferenceable(8208), ptr noundef) local_unnamed_addr #4
 
 declare i32 @__gxx_personality_v0(...)
 
-declare noundef zeroext i1 @_ZN8FindFile4NextEP8FindDatab(ptr noundef nonnull align 8 dereferenceable(8208), ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
+declare noundef zeroext i1 @_ZN8FindFile4NextEP8FindDatab(ptr noundef nonnull align 8 dereferenceable(8208), ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
-declare void @_ZN7ArchiveC1EP11CommandData(ptr noundef nonnull align 8 dereferenceable(57108), ptr noundef) unnamed_addr #5
+declare void @_ZN7ArchiveC1EP11CommandData(ptr noundef nonnull align 8 dereferenceable(57108), ptr noundef) unnamed_addr #4
 
-declare noundef zeroext i1 @_ZN7Archive4OpenEPKwj(ptr noundef nonnull align 8 dereferenceable(57108), ptr noundef, i32 noundef) unnamed_addr #5
+declare noundef zeroext i1 @_ZN7Archive4OpenEPKwj(ptr noundef nonnull align 8 dereferenceable(57108), ptr noundef, i32 noundef) unnamed_addr #4
 
-declare noundef zeroext i1 @_ZN7Archive9IsArchiveEb(ptr noundef nonnull align 8 dereferenceable(57108), i1 noundef zeroext) local_unnamed_addr #5
-
-; Function Attrs: nounwind
-declare void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108)) unnamed_addr #10
+declare noundef zeroext i1 @_ZN7Archive9IsArchiveEb(ptr noundef nonnull align 8 dereferenceable(57108), i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN8FindFileD1Ev(ptr noundef nonnull align 8 dereferenceable(8208)) unnamed_addr #10
+declare void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108)) unnamed_addr #9
+
+; Function Attrs: nounwind
+declare void @_ZN8FindFileD1Ev(ptr noundef nonnull align 8 dereferenceable(8208)) unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z19GenerateArchiveNamePwmPKwb(ptr noundef %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #4 {
+define void @_Z19GenerateArchiveNamePwmPKwb(ptr noundef %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 {
   %5 = alloca [2048 x i32], align 16
   %6 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %5, ptr noundef %0, i64 noundef 2048)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1, !tbaa !33
   call fastcc void @_ZL10GenArcNamePwmPKwjRb(ptr noundef %5, ptr noundef %2, i32 noundef 1, ptr noundef nonnull align 1 dereferenceable(1) %6)
   %7 = load i8, ptr %6, align 1, !tbaa !33, !range !32, !noundef !35
@@ -1896,9 +1890,9 @@ define void @_Z19GenerateArchiveNamePwmPKwb(ptr noundef %0, i64 noundef %1, ptr 
 
 15:                                               ; preds = %.lr.ph
   %16 = add i32 %.01218, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %5, ptr noundef %0, i64 noundef 2048)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1, !tbaa !33
   call fastcc void @_ZL10GenArcNamePwmPKwjRb(ptr noundef %5, ptr noundef %2, i32 noundef %16, ptr noundef nonnull align 1 dereferenceable(1) %6)
   %17 = load i8, ptr %6, align 1, !tbaa !33, !range !32, !noundef !35
@@ -1906,14 +1900,14 @@ define void @_Z19GenerateArchiveNamePwmPKwb(ptr noundef %0, i64 noundef %1, ptr 
   br i1 %18, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %15, %4, %12, %10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_Z8wcsncpyzPwPKwm(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %1)
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10GenArcNamePwmPKwjRb(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #4 {
+define internal fastcc void @_ZL10GenArcNamePwmPKwjRb(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 {
   %5 = alloca [128 x i32], align 16
   %6 = alloca %class.RarTime, align 8
   %7 = alloca %struct.RarLocalTime, align 4
@@ -1926,7 +1920,7 @@ define internal fastcc void @_ZL10GenArcNamePwmPKwjRb(ptr noundef nonnull %0, pt
   %14 = icmp eq i32 %13, 43
   %spec.select.idx = select i1 %14, i64 4, i64 0
   %spec.select = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select.idx
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = load i32, ptr %spec.select, align 4, !tbaa !3
   %.not = icmp eq i32 %15, 0
   %16 = select i1 %.not, ptr @.str.18, ptr %spec.select
@@ -1947,12 +1941,12 @@ define internal fastcc void @_ZL10GenArcNamePwmPKwjRb(ptr noundef nonnull %0, pt
   ]
 
 21:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !36
   call void @_ZN7RarTime14SetCurrentTimeEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN7RarTime8GetLocalEP12RarLocalTime(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %8) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %22 = call i64 @wcslen(ptr noundef nonnull readonly %0) #19
   %23 = and i64 %22, 4294967295
   br label %24
@@ -2122,7 +2116,7 @@ _Z11PointToNamePKw.exit:                          ; preds = %.preheader, %88
   %115 = icmp sgt i32 %114, 3
   %spec.select150.v = select i1 %115, i32 2, i32 1
   %spec.select150 = add nsw i32 %spec.select150.v, %113
-  call void @llvm.lifetime.start.p0(i64 110, ptr nonnull %9) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %116 = load i32, ptr %7, align 4, !tbaa !45
   %117 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %116) #20
   %118 = getelementptr inbounds nuw i8, ptr %9, i64 11
@@ -2156,7 +2150,7 @@ _Z11PointToNamePKw.exit:                          ; preds = %.preheader, %88
   %146 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %143, ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %145) #20
   %147 = getelementptr inbounds nuw i8, ptr %9, i64 99
   %148 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %147, ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %2) #20
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %10, i8 0, i64 40, i1 false)
   br label %149
 
@@ -2173,7 +2167,7 @@ _Z11PointToNamePKw.exit:                          ; preds = %.preheader, %88
   ]
 
 153:                                              ; preds = %149
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %11) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 16, !tbaa !3
   %154 = load i32, ptr %5, align 16, !tbaa !3
   %.not170 = icmp eq i32 %154, 0
@@ -2316,7 +2310,7 @@ _Z11PointToNamePKw.exit:                          ; preds = %.preheader, %88
   br i1 %230, label %.lr.ph, label %._crit_edge, !llvm.loop !53
 
 231:                                              ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %12) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %232 = call i64 @wcslen(ptr noundef nonnull readonly %0) #19
   %233 = and i64 %232, 4294967295
   br label %234
@@ -2424,7 +2418,7 @@ _Z11PointToNamePKw.exit156:                       ; preds = %274, %282
   %.1.i155 = phi ptr [ %283, %282 ], [ %0, %274 ]
   call void @_Z8wcsncatzPwPKwm(ptr noundef nonnull %12, ptr noundef nonnull %.1.i155, i64 noundef 2048)
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %0, ptr noundef nonnull %12, i64 noundef 2048)
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %12) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %285
 
 284:                                              ; preds = %._crit_edge
@@ -2433,20 +2427,20 @@ _Z11PointToNamePKw.exit156:                       ; preds = %274, %282
 
 285:                                              ; preds = %284, %_Z11PointToNamePKw.exit156
   call void @_Z8wcsncatzPwPKwm(ptr noundef nonnull %0, ptr noundef nonnull %8, i64 noundef 2048)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %11) #20
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #20
-  call void @llvm.lifetime.end.p0(i64 110, ptr nonnull %9) #20
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %8) #20
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %7) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare noundef ptr @_Z11NullToEmptyPKw(ptr noundef) local_unnamed_addr #5
+declare noundef ptr @_Z11NullToEmptyPKw(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z11GetWideNamePKcPKwPwm(ptr noundef %0, ptr noundef %1, ptr noundef returned %2, i64 noundef %3) local_unnamed_addr #4 {
+define noundef ptr @_Z11GetWideNamePKcPKwPwm(ptr noundef %0, ptr noundef %1, ptr noundef returned %2, i64 noundef %3) local_unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %5
 
@@ -2489,54 +2483,60 @@ define noundef ptr @_Z11GetWideNamePKcPKwPwm(ptr noundef %0, ptr noundef %1, ptr
   ret ptr %2
 }
 
-declare noundef i32 @_Z8toupperwi(i32 noundef) local_unnamed_addr #5
+declare noundef i32 @_Z8toupperwi(i32 noundef) local_unnamed_addr #4
 
-declare noundef i32 @_Z9GetDigitsj(i32 noundef) local_unnamed_addr #5
-
-; Function Attrs: nounwind
-declare ptr @wmemmove(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #10
+declare noundef i32 @_Z9GetDigitsj(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare ptr @wmemset(ptr noundef, i32 noundef signext, i64 noundef) local_unnamed_addr #10
+declare ptr @wmemmove(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #9
 
-declare void @_ZN7RarTime14SetCurrentTimeEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #5
+; Function Attrs: nounwind
+declare ptr @wmemset(ptr noundef, i32 noundef signext, i64 noundef) local_unnamed_addr #9
 
-declare void @_ZN7RarTime8GetLocalEP12RarLocalTime(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #5
+declare void @_ZN7RarTime14SetCurrentTimeEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
-declare noundef zeroext i1 @_Z10IsLeapYeari(i32 noundef) local_unnamed_addr #5
+declare void @_ZN7RarTime8GetLocalEP12RarLocalTime(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #4
+
+declare noundef zeroext i1 @_Z10IsLeapYeari(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #16
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
-declare noundef ptr @_Z12GetMonthNamei(i32 noundef) local_unnamed_addr #5
+declare noundef ptr @_Z12GetMonthNamei(i32 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #18
 
 attributes #0 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { nounwind willreturn memory(read) }
 attributes #20 = { nounwind }

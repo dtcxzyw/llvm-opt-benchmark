@@ -100,10 +100,10 @@ define dso_local range(i64 0, 4294967296) i64 @regprocin(ptr noundef captures(no
   br i1 %17, label %18, label %parseDashOrOid.exit
 
 18:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %19 = call zeroext i1 @DirectInputFunctionCallSafe(ptr noundef nonnull @oidin, ptr noundef nonnull %5, i32 noundef 0, i32 noundef -1, ptr noundef %7, ptr noundef nonnull %2) #9
   %20 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %21 = and i64 %20, 4294967295
   br label %51
 
@@ -170,20 +170,17 @@ parseDashOrOid.exit:                              ; preds = %14, %12, %.tail.i
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @stringToQualifiedNameList(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call ptr @pstrdup(ptr noundef %0) #9
   %5 = call zeroext i1 @SplitIdentifierString(ptr noundef %4, i8 noundef signext 46, ptr noundef nonnull %3) #9
   br i1 %5, label %11, label %6
@@ -247,22 +244,19 @@ define dso_local ptr @stringToQualifiedNameList(ptr noundef %0, ptr noundef %1) 
 
 32:                                               ; preds = %17, %19, %6, %8, %.critedge
   %.0 = phi ptr [ %.018.lcssa, %.critedge ], [ null, %8 ], [ null, %6 ], [ null, %19 ], [ null, %17 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
-declare ptr @FuncnameGetCandidates(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
+declare ptr @FuncnameGetCandidates(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
-declare zeroext i1 @errsave_start(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errsave_start(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #3
+declare i32 @errcode(i32 noundef) local_unnamed_addr #2
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errsave_finish(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @errsave_finish(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @to_regproc(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -273,8 +267,8 @@ define dso_local i64 @to_regproc(ptr noundef captures(none) %0) local_unnamed_ad
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #9
   %8 = tail call ptr @text_to_cstring(ptr noundef %7) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) @__const.to_regnamespace.escontext, i64 16, i1 false)
   %9 = call zeroext i1 @DirectInputFunctionCallSafe(ptr noundef nonnull @regprocin, ptr noundef %8, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %3, ptr noundef nonnull %2) #9
   br i1 %9, label %12, label %10
@@ -290,19 +284,19 @@ define dso_local i64 @to_regproc(ptr noundef captures(none) %0) local_unnamed_ad
 
 14:                                               ; preds = %12, %10
   %.0 = phi i64 [ %13, %12 ], [ 0, %10 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
-declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #3
+declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #2
 
-declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #3
+declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare zeroext i1 @DirectInputFunctionCallSafe(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @DirectInputFunctionCallSafe(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @regprocout(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -383,23 +377,23 @@ define dso_local i64 @regprocout(ptr noundef readonly captures(none) %0) local_u
   ret i64 %.0
 }
 
-declare ptr @pstrdup(ptr noundef) local_unnamed_addr #3
+declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
 
-declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #3
+declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #2
 
-declare ptr @makeString(ptr noundef) local_unnamed_addr #3
+declare ptr @makeString(ptr noundef) local_unnamed_addr #2
 
-declare ptr @get_namespace_name(i32 noundef) local_unnamed_addr #3
+declare ptr @get_namespace_name(i32 noundef) local_unnamed_addr #2
 
-declare ptr @quote_qualified_identifier(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @quote_qualified_identifier(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #3
+declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #2
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #3
+declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
-declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @regprocrecv(ptr noundef %0) local_unnamed_addr #0 {
@@ -407,7 +401,7 @@ define dso_local i64 @regprocrecv(ptr noundef %0) local_unnamed_addr #0 {
   ret i64 %2
 }
 
-declare i64 @oidrecv(ptr noundef) local_unnamed_addr #3
+declare i64 @oidrecv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @regprocsend(ptr noundef %0) local_unnamed_addr #0 {
@@ -415,7 +409,7 @@ define dso_local i64 @regprocsend(ptr noundef %0) local_unnamed_addr #0 {
   ret i64 %2
 }
 
-declare i64 @oidsend(ptr noundef) local_unnamed_addr #3
+declare i64 @oidsend(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 4294967296) i64 @regprocedurein(ptr noundef captures(none) %0) #0 {
@@ -428,9 +422,9 @@ define dso_local range(i64 0, 4294967296) i64 @regprocedurein(ptr noundef captur
   %8 = inttoptr i64 %7 to ptr
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = load i8, ptr %8, align 1
   %.not.i = icmp eq i8 %11, 45
   br i1 %.not.i, label %.tail.i, label %15
@@ -453,10 +447,10 @@ define dso_local range(i64 0, 4294967296) i64 @regprocedurein(ptr noundef captur
   br i1 %20, label %21, label %parseDashOrOid.exit
 
 21:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %22 = call zeroext i1 @DirectInputFunctionCallSafe(ptr noundef nonnull @oidin, ptr noundef nonnull %8, i32 noundef 0, i32 noundef -1, ptr noundef %10, ptr noundef nonnull %2) #9
   %23 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %24 = and i64 %23, 4294967295
   br label %53
 
@@ -523,9 +517,9 @@ parseDashOrOid.exit:                              ; preds = %17, %15, %.tail.i
 
 53:                                               ; preds = %.tail.i, %21, %._crit_edge, %46, %49, %32
   %.0 = phi i64 [ %52, %49 ], [ 0, %32 ], [ 0, %46 ], [ 0, %._crit_edge ], [ 0, %.tail.i ], [ %24, %21 ]
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
 
@@ -533,8 +527,8 @@ parseDashOrOid.exit:                              ; preds = %17, %15, %.tail.i
 define internal fastcc noundef zeroext i1 @parseNameAndArgTypes(ptr noundef %0, i1 noundef zeroext %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull writeonly captures(none) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call ptr @pstrdup(ptr noundef %0) #9
   br label %10
 
@@ -782,8 +776,8 @@ define internal fastcc noundef zeroext i1 @parseNameAndArgTypes(ptr noundef %0, 
 
 .loopexit:                                        ; preds = %90, %95, %97, %72, %74, %50, %52, %35, %37, %23, %18, %20, %106
   %.0 = phi i1 [ true, %106 ], [ false, %20 ], [ false, %18 ], [ false, %23 ], [ false, %37 ], [ false, %35 ], [ false, %52 ], [ false, %50 ], [ false, %74 ], [ false, %72 ], [ false, %97 ], [ false, %95 ], [ false, %90 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
 
@@ -796,8 +790,8 @@ define dso_local i64 @to_regprocedure(ptr noundef captures(none) %0) local_unnam
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #9
   %8 = tail call ptr @text_to_cstring(ptr noundef %7) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) @__const.to_regnamespace.escontext, i64 16, i1 false)
   %9 = call zeroext i1 @DirectInputFunctionCallSafe(ptr noundef nonnull @regprocedurein, ptr noundef %8, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %3, ptr noundef nonnull %2) #9
   br i1 %9, label %12, label %10
@@ -813,8 +807,8 @@ define dso_local i64 @to_regprocedure(ptr noundef captures(none) %0) local_unnam
 
 14:                                               ; preds = %12, %10
   %.0 = phi i64 [ %13, %12 ], [ 0, %10 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -843,7 +837,7 @@ define dso_local ptr @format_procedure_extended(i32 noundef %0, i16 noundef zero
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 104
   %14 = load i16, ptr %13, align 4
   %wide.trip.count35 = sext i16 %14 to i64
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @initStringInfo(ptr noundef nonnull %3) #9
   %15 = and i16 %1, 2
   %16 = icmp eq i16 %15, 0
@@ -910,7 +904,7 @@ define dso_local ptr @format_procedure_extended(i32 noundef %0, i16 noundef zero
   call void @appendStringInfoChar(ptr noundef nonnull %3, i8 noundef signext 41) #9
   %37 = load ptr, ptr %3, align 8
   call void @ReleaseSysCache(ptr noundef nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %43
 
 38:                                               ; preds = %2
@@ -934,19 +928,19 @@ define dso_local ptr @format_procedure_qualified(i32 noundef %0) local_unnamed_a
   ret ptr %2
 }
 
-declare void @initStringInfo(ptr noundef) local_unnamed_addr #3
+declare void @initStringInfo(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @FunctionIsVisible(i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @FunctionIsVisible(i32 noundef) local_unnamed_addr #2
 
-declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #3
+declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #2
 
-declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @format_type_be_qualified(i32 noundef) local_unnamed_addr #3
+declare ptr @format_type_be_qualified(i32 noundef) local_unnamed_addr #2
 
-declare ptr @format_type_be(i32 noundef) local_unnamed_addr #3
+declare ptr @format_type_be(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @format_procedure_parts(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
@@ -1010,11 +1004,11 @@ define dso_local void @format_procedure_parts(i32 noundef %0, ptr noundef writeo
   ret void
 }
 
-declare ptr @list_make2_impl(i32 noundef, ptr, ptr) local_unnamed_addr #3
+declare ptr @list_make2_impl(i32 noundef, ptr, ptr) local_unnamed_addr #2
 
-declare ptr @get_namespace_name_or_temp(i32 noundef) local_unnamed_addr #3
+declare ptr @get_namespace_name_or_temp(i32 noundef) local_unnamed_addr #2
 
-declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @regprocedureout(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -1070,10 +1064,10 @@ define dso_local range(i64 0, 4294967296) i64 @regoperin(ptr noundef captures(no
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %15 = call zeroext i1 @DirectInputFunctionCallSafe(ptr noundef nonnull @oidin, ptr noundef nonnull %5, i32 noundef 0, i32 noundef -1, ptr noundef %7, ptr noundef nonnull %2) #9
   %16 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %17 = and i64 %16, 4294967295
   br label %48
 
@@ -1140,7 +1134,7 @@ define dso_local range(i64 0, 4294967296) i64 @regoperin(ptr noundef captures(no
   ret i64 %.0
 }
 
-declare ptr @OpernameGetCandidates(ptr noundef, i8 noundef signext, i1 noundef zeroext) local_unnamed_addr #3
+declare ptr @OpernameGetCandidates(ptr noundef, i8 noundef signext, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @to_regoper(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -1151,8 +1145,8 @@ define dso_local i64 @to_regoper(ptr noundef captures(none) %0) local_unnamed_ad
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #9
   %8 = tail call ptr @text_to_cstring(ptr noundef %7) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) @__const.to_regnamespace.escontext, i64 16, i1 false)
   %9 = call zeroext i1 @DirectInputFunctionCallSafe(ptr noundef nonnull @regoperin, ptr noundef %8, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %3, ptr noundef nonnull %2) #9
   br i1 %9, label %12, label %10
@@ -1168,8 +1162,8 @@ define dso_local i64 @to_regoper(ptr noundef captures(none) %0) local_unnamed_ad
 
 14:                                               ; preds = %12, %10
   %.0 = phi i64 [ %13, %12 ], [ 0, %10 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -1258,12 +1252,12 @@ define dso_local i64 @regoperout(ptr noundef readonly captures(none) %0) local_u
   ret i64 %.0
 }
 
-declare ptr @quote_identifier(ptr noundef) local_unnamed_addr #3
+declare ptr @quote_identifier(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
-declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @regoperrecv(ptr noundef %0) local_unnamed_addr #0 {
@@ -1288,9 +1282,9 @@ define dso_local range(i64 0, 4294967296) i64 @regoperatorin(ptr noundef capture
   %8 = inttoptr i64 %7 to ptr
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = load i8, ptr %8, align 1
   %12 = add i8 %11, -48
   %or.cond.i = icmp ult i8 %12, 10
@@ -1303,10 +1297,10 @@ define dso_local range(i64 0, 4294967296) i64 @regoperatorin(ptr noundef capture
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %18 = call zeroext i1 @DirectInputFunctionCallSafe(ptr noundef nonnull @oidin, ptr noundef nonnull %8, i32 noundef 0, i32 noundef -1, ptr noundef %10, ptr noundef nonnull %2) #9
   %19 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %20 = and i64 %19, 4294967295
   br label %58
 
@@ -1385,15 +1379,15 @@ define dso_local range(i64 0, 4294967296) i64 @regoperatorin(ptr noundef capture
 
 58:                                               ; preds = %51, %53, %39, %41, %33, %35, %56, %29, %17
   %.0 = phi i64 [ %20, %17 ], [ %57, %56 ], [ 0, %29 ], [ 0, %35 ], [ 0, %33 ], [ 0, %41 ], [ 0, %39 ], [ 0, %53 ], [ 0, %51 ]
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
 
-declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @OpernameGetOprid(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @OpernameGetOprid(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @to_regoperator(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -1404,8 +1398,8 @@ define dso_local i64 @to_regoperator(ptr noundef captures(none) %0) local_unname
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #9
   %8 = tail call ptr @text_to_cstring(ptr noundef %7) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) @__const.to_regnamespace.escontext, i64 16, i1 false)
   %9 = call zeroext i1 @DirectInputFunctionCallSafe(ptr noundef nonnull @regoperatorin, ptr noundef %8, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %3, ptr noundef nonnull %2) #9
   br i1 %9, label %12, label %10
@@ -1421,8 +1415,8 @@ define dso_local i64 @to_regoperator(ptr noundef captures(none) %0) local_unname
 
 14:                                               ; preds = %12, %10
   %.0 = phi i64 [ %13, %12 ], [ 0, %10 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -1442,7 +1436,7 @@ define dso_local ptr @format_operator_extended(i32 noundef %0, i16 noundef zeroe
   %10 = zext i8 %9 to i64
   %11 = getelementptr inbounds nuw i8, ptr %.val, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @initStringInfo(ptr noundef nonnull %3) #9
   %13 = and i16 %1, 2
   %.not25 = icmp eq i16 %13, 0
@@ -1521,7 +1515,7 @@ define dso_local ptr @format_operator_extended(i32 noundef %0, i16 noundef zeroe
 44:                                               ; preds = %43, %41
   %45 = load ptr, ptr %3, align 8
   call void @ReleaseSysCache(ptr noundef nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %51
 
 46:                                               ; preds = %2
@@ -1539,7 +1533,7 @@ define dso_local ptr @format_operator_extended(i32 noundef %0, i16 noundef zeroe
   ret ptr %.0
 }
 
-declare zeroext i1 @OperatorIsVisible(i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @OperatorIsVisible(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @format_operator(i32 noundef %0) local_unnamed_addr #0 {
@@ -1681,10 +1675,10 @@ define dso_local range(i64 0, 4294967296) i64 @regclassin(ptr noundef captures(n
   br i1 %17, label %18, label %parseDashOrOid.exit
 
 18:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %19 = call zeroext i1 @DirectInputFunctionCallSafe(ptr noundef nonnull @oidin, ptr noundef nonnull %5, i32 noundef 0, i32 noundef -1, ptr noundef %7, ptr noundef nonnull %2) #9
   %20 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %21 = and i64 %20, 4294967295
   br label %43
 
@@ -1736,11 +1730,11 @@ parseDashOrOid.exit:                              ; preds = %14, %12, %.tail.i
   ret i64 %.0
 }
 
-declare i32 @RangeVarGetRelidExtended(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @RangeVarGetRelidExtended(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @makeRangeVarFromNameList(ptr noundef) local_unnamed_addr #3
+declare ptr @makeRangeVarFromNameList(ptr noundef) local_unnamed_addr #2
 
-declare ptr @NameListToString(ptr noundef) local_unnamed_addr #3
+declare ptr @NameListToString(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @to_regclass(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -1751,8 +1745,8 @@ define dso_local i64 @to_regclass(ptr noundef captures(none) %0) local_unnamed_a
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #9
   %8 = tail call ptr @text_to_cstring(ptr noundef %7) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) @__const.to_regnamespace.escontext, i64 16, i1 false)
   %9 = call zeroext i1 @DirectInputFunctionCallSafe(ptr noundef nonnull @regclassin, ptr noundef %8, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %3, ptr noundef nonnull %2) #9
   br i1 %9, label %12, label %10
@@ -1768,8 +1762,8 @@ define dso_local i64 @to_regclass(ptr noundef captures(none) %0) local_unnamed_a
 
 14:                                               ; preds = %12, %10
   %.0 = phi i64 [ %13, %12 ], [ 0, %10 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -1838,7 +1832,7 @@ define dso_local i64 @regclassout(ptr noundef readonly captures(none) %0) local_
   ret i64 %.016
 }
 
-declare zeroext i1 @RelationIsVisible(i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @RelationIsVisible(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @regclassrecv(ptr noundef %0) local_unnamed_addr #0 {
@@ -1882,10 +1876,10 @@ define dso_local range(i64 0, 4294967296) i64 @regcollationin(ptr noundef captur
   br i1 %17, label %18, label %parseDashOrOid.exit
 
 18:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %19 = call zeroext i1 @DirectInputFunctionCallSafe(ptr noundef nonnull @oidin, ptr noundef nonnull %5, i32 noundef 0, i32 noundef -1, ptr noundef %7, ptr noundef nonnull %2) #9
   %20 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %21 = and i64 %20, 4294967295
   br label %43
 
@@ -1937,9 +1931,9 @@ parseDashOrOid.exit:                              ; preds = %14, %12, %.tail.i
   ret i64 %.0
 }
 
-declare i32 @get_collation_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare i32 @get_collation_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare ptr @GetDatabaseEncodingName() local_unnamed_addr #3
+declare ptr @GetDatabaseEncodingName() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @to_regcollation(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -1950,8 +1944,8 @@ define dso_local i64 @to_regcollation(ptr noundef captures(none) %0) local_unnam
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #9
   %8 = tail call ptr @text_to_cstring(ptr noundef %7) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) @__const.to_regnamespace.escontext, i64 16, i1 false)
   %9 = call zeroext i1 @DirectInputFunctionCallSafe(ptr noundef nonnull @regcollationin, ptr noundef %8, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %3, ptr noundef nonnull %2) #9
   br i1 %9, label %12, label %10
@@ -1967,8 +1961,8 @@ define dso_local i64 @to_regcollation(ptr noundef captures(none) %0) local_unnam
 
 14:                                               ; preds = %12, %10
   %.0 = phi i64 [ %13, %12 ], [ 0, %10 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -2037,7 +2031,7 @@ define dso_local i64 @regcollationout(ptr noundef readonly captures(none) %0) lo
   ret i64 %.016
 }
 
-declare zeroext i1 @CollationIsVisible(i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @CollationIsVisible(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @regcollationrecv(ptr noundef %0) local_unnamed_addr #0 {
@@ -2061,8 +2055,8 @@ define dso_local range(i64 0, 4294967296) i64 @regtypein(ptr noundef readonly ca
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = load i8, ptr %7, align 1
   %.not.i = icmp eq i8 %10, 45
   br i1 %.not.i, label %.tail.i, label %14
@@ -2085,11 +2079,11 @@ define dso_local range(i64 0, 4294967296) i64 @regtypein(ptr noundef readonly ca
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %21 = call zeroext i1 @DirectInputFunctionCallSafe(ptr noundef nonnull @oidin, ptr noundef nonnull %7, i32 noundef 0, i32 noundef -1, ptr noundef %9, ptr noundef nonnull %2) #9
   %22 = load i64, ptr %2, align 8
   %23 = trunc i64 %22 to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %32
 
 24:                                               ; preds = %16, %14, %.tail.i
@@ -2113,12 +2107,12 @@ define dso_local range(i64 0, 4294967296) i64 @regtypein(ptr noundef readonly ca
 32:                                               ; preds = %.tail.i, %20, %30
   %.0.in = phi i32 [ %23, %20 ], [ %.0.in.pre, %30 ], [ 0, %.tail.i ]
   %.0 = zext i32 %.0.in to i64
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
 
-declare zeroext i1 @parseTypeString(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @parseTypeString(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @to_regtype(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -2129,8 +2123,8 @@ define dso_local i64 @to_regtype(ptr noundef captures(none) %0) local_unnamed_ad
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #9
   %8 = tail call ptr @text_to_cstring(ptr noundef %7) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) @__const.to_regnamespace.escontext, i64 16, i1 false)
   %9 = call zeroext i1 @DirectInputFunctionCallSafe(ptr noundef nonnull @regtypein, ptr noundef %8, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %3, ptr noundef nonnull %2) #9
   br i1 %9, label %12, label %10
@@ -2146,8 +2140,8 @@ define dso_local i64 @to_regtype(ptr noundef captures(none) %0) local_unnamed_ad
 
 14:                                               ; preds = %12, %10
   %.0 = phi i64 [ %13, %12 ], [ 0, %10 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -2161,9 +2155,9 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @to_regtypemod(ptr nound
   %7 = inttoptr i64 %6 to ptr
   %8 = tail call ptr @pg_detoast_datum_packed(ptr noundef %7) #9
   %9 = tail call ptr @text_to_cstring(ptr noundef %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) @__const.to_regnamespace.escontext, i64 16, i1 false)
   %10 = call zeroext i1 @parseTypeString(ptr noundef %9, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
   br i1 %10, label %13, label %11
@@ -2180,9 +2174,9 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @to_regtypemod(ptr nound
 
 16:                                               ; preds = %13, %11
   %.0 = phi i64 [ %15, %13 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -2282,10 +2276,10 @@ define dso_local range(i64 0, 4294967296) i64 @regconfigin(ptr noundef captures(
   br i1 %17, label %18, label %parseDashOrOid.exit
 
 18:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %19 = call zeroext i1 @DirectInputFunctionCallSafe(ptr noundef nonnull @oidin, ptr noundef nonnull %5, i32 noundef 0, i32 noundef -1, ptr noundef %7, ptr noundef nonnull %2) #9
   %20 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %21 = and i64 %20, 4294967295
   br label %42
 
@@ -2336,7 +2330,7 @@ parseDashOrOid.exit:                              ; preds = %14, %12, %.tail.i
   ret i64 %.0
 }
 
-declare i32 @get_ts_config_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare i32 @get_ts_config_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @regconfigout(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -2390,7 +2384,7 @@ define dso_local i64 @regconfigout(ptr noundef readonly captures(none) %0) local
   ret i64 %.015
 }
 
-declare zeroext i1 @TSConfigIsVisible(i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @TSConfigIsVisible(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @regconfigrecv(ptr noundef %0) local_unnamed_addr #0 {
@@ -2434,10 +2428,10 @@ define dso_local range(i64 0, 4294967296) i64 @regdictionaryin(ptr noundef captu
   br i1 %17, label %18, label %parseDashOrOid.exit
 
 18:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %19 = call zeroext i1 @DirectInputFunctionCallSafe(ptr noundef nonnull @oidin, ptr noundef nonnull %5, i32 noundef 0, i32 noundef -1, ptr noundef %7, ptr noundef nonnull %2) #9
   %20 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %21 = and i64 %20, 4294967295
   br label %42
 
@@ -2488,7 +2482,7 @@ parseDashOrOid.exit:                              ; preds = %14, %12, %.tail.i
   ret i64 %.0
 }
 
-declare i32 @get_ts_dict_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare i32 @get_ts_dict_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @regdictionaryout(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -2542,7 +2536,7 @@ define dso_local i64 @regdictionaryout(ptr noundef readonly captures(none) %0) l
   ret i64 %.015
 }
 
-declare zeroext i1 @TSDictionaryIsVisible(i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @TSDictionaryIsVisible(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @regdictionaryrecv(ptr noundef %0) local_unnamed_addr #0 {
@@ -2586,10 +2580,10 @@ define dso_local range(i64 0, 4294967296) i64 @regrolein(ptr noundef captures(no
   br i1 %17, label %18, label %parseDashOrOid.exit
 
 18:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %19 = call zeroext i1 @DirectInputFunctionCallSafe(ptr noundef nonnull @oidin, ptr noundef nonnull %5, i32 noundef 0, i32 noundef -1, ptr noundef %7, ptr noundef nonnull %2) #9
   %20 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %21 = and i64 %20, 4294967295
   br label %55
 
@@ -2664,7 +2658,7 @@ parseDashOrOid.exit:                              ; preds = %14, %12, %.tail.i
   ret i64 %.0
 }
 
-declare i32 @get_role_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare i32 @get_role_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @to_regrole(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -2675,8 +2669,8 @@ define dso_local i64 @to_regrole(ptr noundef captures(none) %0) local_unnamed_ad
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #9
   %8 = tail call ptr @text_to_cstring(ptr noundef %7) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) @__const.to_regnamespace.escontext, i64 16, i1 false)
   %9 = call zeroext i1 @DirectInputFunctionCallSafe(ptr noundef nonnull @regrolein, ptr noundef %8, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %3, ptr noundef nonnull %2) #9
   br i1 %9, label %12, label %10
@@ -2692,8 +2686,8 @@ define dso_local i64 @to_regrole(ptr noundef captures(none) %0) local_unnamed_ad
 
 14:                                               ; preds = %12, %10
   %.0 = phi i64 [ %13, %12 ], [ 0, %10 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -2730,7 +2724,7 @@ define dso_local i64 @regroleout(ptr noundef readonly captures(none) %0) local_u
   ret i64 %.09
 }
 
-declare ptr @GetUserNameFromId(i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare ptr @GetUserNameFromId(i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @regrolerecv(ptr noundef %0) local_unnamed_addr #0 {
@@ -2774,10 +2768,10 @@ define dso_local range(i64 0, 4294967296) i64 @regnamespacein(ptr noundef captur
   br i1 %17, label %18, label %parseDashOrOid.exit
 
 18:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %19 = call zeroext i1 @DirectInputFunctionCallSafe(ptr noundef nonnull @oidin, ptr noundef nonnull %5, i32 noundef 0, i32 noundef -1, ptr noundef %7, ptr noundef nonnull %2) #9
   %20 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %21 = and i64 %20, 4294967295
   br label %55
 
@@ -2852,7 +2846,7 @@ parseDashOrOid.exit:                              ; preds = %14, %12, %.tail.i
   ret i64 %.0
 }
 
-declare i32 @get_namespace_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare i32 @get_namespace_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @to_regnamespace(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -2863,8 +2857,8 @@ define dso_local i64 @to_regnamespace(ptr noundef captures(none) %0) local_unnam
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #9
   %8 = tail call ptr @text_to_cstring(ptr noundef %7) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) @__const.to_regnamespace.escontext, i64 16, i1 false)
   %9 = call zeroext i1 @DirectInputFunctionCallSafe(ptr noundef nonnull @regnamespacein, ptr noundef %8, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %3, ptr noundef nonnull %2) #9
   br i1 %9, label %12, label %10
@@ -2880,8 +2874,8 @@ define dso_local i64 @to_regnamespace(ptr noundef captures(none) %0) local_unnam
 
 14:                                               ; preds = %12, %10
   %.0 = phi i64 [ %13, %12 ], [ 0, %10 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -2943,22 +2937,28 @@ define dso_local range(i64 0, 4294967296) i64 @text_regclass(ptr noundef readonl
   ret i64 %9
 }
 
-declare ptr @textToQualifiedNameList(ptr noundef) local_unnamed_addr #3
+declare ptr @textToQualifiedNameList(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SplitIdentifierString(ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SplitIdentifierString(ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #2
 
-declare void @pfree(ptr noundef) local_unnamed_addr #3
+declare void @pfree(ptr noundef) local_unnamed_addr #2
 
-declare void @list_free(ptr noundef) local_unnamed_addr #3
+declare void @list_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
-declare i64 @oidin(ptr noundef) #3
+declare i64 @oidin(ptr noundef) #2
 
-declare zeroext i1 @scanner_isspace(i8 noundef signext) local_unnamed_addr #3
+declare zeroext i1 @scanner_isspace(i8 noundef signext) local_unnamed_addr #2
 
-declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #6
@@ -2967,11 +2967,11 @@ declare void @llvm.assume(i1 noundef) #6
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #8 = { nounwind willreturn memory(read) }

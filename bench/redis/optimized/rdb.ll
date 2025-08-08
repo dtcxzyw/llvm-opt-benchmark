@@ -233,8 +233,8 @@ define dso_local void @rdbReportError(i32 noundef %0, i32 noundef %1, ptr nounde
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = alloca [1024 x i8], align 16
   %6 = alloca [2 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #23
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2440), align 8, !tbaa !5
   %8 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 1024, ptr noundef nonnull @.str, i64 noundef %7, i32 noundef %1) #23
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -287,7 +287,7 @@ define dso_local void @rdbReportError(i32 noundef %0, i32 noundef %1, ptr nounde
 
 31:                                               ; preds = %27, %30
   %32 = phi ptr [ %26, %27 ], [ %.pre, %30 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @.str.2, ptr %6, align 16, !tbaa !52
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %32, ptr %33, align 8, !tbaa !52
@@ -297,12 +297,12 @@ define dso_local void @rdbReportError(i32 noundef %0, i32 noundef %1, ptr nounde
 
 .thread:                                          ; preds = %31
   %35 = call i32 @redis_check_rdb_main(i32 noundef 2, ptr noundef nonnull %6, ptr noundef null) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %44
 
 36:                                               ; preds = %31
   call void (ptr, ...) @rdbCheckError(ptr noundef nonnull @.str.3, ptr noundef %32) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %47
 
 37:                                               ; preds = %25
@@ -339,39 +339,33 @@ define dso_local void @rdbReportError(i32 noundef %0, i32 noundef %1, ptr nounde
   unreachable
 
 47:                                               ; preds = %36, %43, %42, %21, %18
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #3
+declare void @llvm.va_start.p0(ptr) #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #2
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #3
+declare void @llvm.va_end.p0(ptr) #2
 
-declare void @_serverLog(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @_serverLog(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare void @rdbCheckError(ptr noundef, ...) local_unnamed_addr #4
+declare void @rdbCheckError(ptr noundef, ...) local_unnamed_addr #3
 
-declare i32 @anetIsFifo(ptr noundef) local_unnamed_addr #4
+declare i32 @anetIsFifo(ptr noundef) local_unnamed_addr #3
 
-declare i32 @redis_check_rdb_main(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @redis_check_rdb_main(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #5
+declare void @exit(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @rdbWriteRaw(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -502,7 +496,7 @@ rdbWriteRaw.exit:                                 ; preds = %24, %2, %4, %.threa
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 256) i32 @rdbLoadType(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8, !tbaa !53
   %5 = and i64 %4, 5
@@ -558,12 +552,12 @@ rioRead.exit:                                     ; preds = %21
 
 28:                                               ; preds = %.thread.i, %1, %rioRead.exit
   %29 = phi i32 [ %27, %rioRead.exit ], [ -1, %1 ], [ -1, %.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %29
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i64 0, 2) i64 @rioRead(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 0, -1) %2) unnamed_addr #6 {
+define internal fastcc range(i64 0, 2) i64 @rioRead(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 0, -1) %2) unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8, !tbaa !53
   %6 = and i64 %5, 5
@@ -624,7 +618,7 @@ define internal fastcc range(i64 0, 2) i64 @rioRead(ptr noundef %0, ptr noundef 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 -2147483648, 2147483648) i64 @rdbLoadTime(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8, !tbaa !53
   %5 = and i64 %4, 5
@@ -680,14 +674,14 @@ rioRead.exit:                                     ; preds = %21
 
 28:                                               ; preds = %.thread.i, %1, %rioRead.exit
   %29 = phi i64 [ %27, %rioRead.exit ], [ -1, %1 ], [ -1, %.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %29
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 -1, 9) i64 @rdbSaveMillisecondTime(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %1, ptr %3, align 8, !tbaa !61
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %rdbWriteRaw.exit, label %4
@@ -744,14 +738,14 @@ define dso_local range(i64 -1, 9) i64 @rdbSaveMillisecondTime(ptr noundef %0, i6
 
 rdbWriteRaw.exit:                                 ; preds = %24, %2, %4, %.thread.i.i
   %.0.i = phi i64 [ 8, %2 ], [ -1, %4 ], [ -1, %.thread.i.i ], [ 8, %24 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @rdbLoadMillisecondTime(ptr noundef %0, i32 %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8, !tbaa !53
   %6 = and i64 %5, 5
@@ -806,7 +800,7 @@ rioRead.exit:                                     ; preds = %22
 
 28:                                               ; preds = %.thread.i, %2, %rioRead.exit
   %29 = phi i64 [ %27, %rioRead.exit ], [ 9223372036854775807, %2 ], [ 9223372036854775807, %.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %29
 }
 
@@ -815,7 +809,7 @@ define dso_local range(i32 -1, 10) i32 @rdbSaveLen(ptr noundef %0, i64 noundef %
   %3 = alloca i64, align 8
   %4 = alloca [2 x i8], align 1
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = icmp ult i64 %1, 64
   br i1 %6, label %7, label %34
 
@@ -950,7 +944,7 @@ define dso_local range(i32 -1, 10) i32 @rdbSaveLen(ptr noundef %0, i64 noundef %
   br i1 %.not.i23, label %rdbWriteRaw.exit33.thread70, label %70
 
 rdbWriteRaw.exit33.thread70:                      ; preds = %69
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %rdbWriteRaw.exit44
 
 70:                                               ; preds = %69
@@ -1004,7 +998,7 @@ rdbWriteRaw.exit33.thread70:                      ; preds = %69
   br i1 %.not31.i.i31, label %95, label %78
 
 95:                                               ; preds = %90
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %96 = trunc nuw i64 %1 to i32
   %97 = call noundef i32 @llvm.bswap.i32(i32 %96)
   store i32 %97, ptr %5, align 4, !tbaa !51
@@ -1050,11 +1044,11 @@ rdbWriteRaw.exit33.thread70:                      ; preds = %69
   br i1 %.not31.i.i42, label %rdbWriteRaw.exit44, label %.preheader.i.i37
 
 rdbWriteRaw.exit44.thread:                        ; preds = %95, %.thread.i.i43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %rdbWriteRaw.exit
 
 rdbWriteRaw.exit44:                               ; preds = %111, %rdbWriteRaw.exit33.thread70
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %rdbWriteRaw.exit
 
 116:                                              ; preds = %67
@@ -1161,18 +1155,18 @@ rdbWriteRaw.exit55.thread75:                      ; preds = %116
 
 rdbWriteRaw.exit:                                 ; preds = %158, %62, %29, %.thread.i.i65, %143, %.thread.i.i54, %118, %.thread.i.i32, %70, %.thread.i.i21, %42, %.thread.i.i, %9, %7, %36, %rdbWriteRaw.exit44, %rdbWriteRaw.exit55.thread75, %rdbWriteRaw.exit44.thread
   %.09 = phi i32 [ -1, %rdbWriteRaw.exit44.thread ], [ 5, %rdbWriteRaw.exit44 ], [ 1, %7 ], [ 2, %36 ], [ 9, %rdbWriteRaw.exit55.thread75 ], [ -1, %9 ], [ -1, %.thread.i.i ], [ -1, %42 ], [ -1, %.thread.i.i21 ], [ -1, %70 ], [ -1, %.thread.i.i32 ], [ -1, %118 ], [ -1, %.thread.i.i54 ], [ -1, %143 ], [ -1, %.thread.i.i65 ], [ 1, %29 ], [ 2, %62 ], [ 9, %158 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.09
 }
 
-declare i64 @intrev64(i64 noundef) local_unnamed_addr #4
+declare i64 @intrev64(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @rdbLoadLenByRef(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca [2 x i8], align 1
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %7
 
@@ -1322,7 +1316,7 @@ rioRead.exit39:                                   ; preds = %61
   ]
 
 74:                                               ; preds = %73
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %75 = load i64, ptr %9, align 8, !tbaa !53
   %76 = and i64 %75, 5
   %.not.i40 = icmp eq i64 %76, 0
@@ -1369,11 +1363,11 @@ rioRead.exit49:                                   ; preds = %88
   %94 = call noundef i32 @llvm.bswap.i32(i32 %93)
   %95 = zext i32 %94 to i64
   store i64 %95, ptr %2, align 8, !tbaa !61
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %rioRead.exit.thread
 
 96:                                               ; preds = %73
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %97 = load i64, ptr %9, align 8, !tbaa !53
   %98 = and i64 %97, 5
   %.not.i50 = icmp eq i64 %98, 0
@@ -1419,7 +1413,7 @@ rioRead.exit59:                                   ; preds = %110
   %115 = load i64, ptr %6, align 8, !tbaa !61
   %116 = call i64 @intrev64(i64 noundef %115) #23
   store i64 %116, ptr %2, align 8, !tbaa !61
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %rioRead.exit.thread
 
 117:                                              ; preds = %73
@@ -1427,33 +1421,33 @@ rioRead.exit59:                                   ; preds = %110
   br label %rioRead.exit.thread
 
 .critedge:                                        ; preds = %74, %.thread.i48
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %rioRead.exit.thread
 
 .critedge29:                                      ; preds = %96, %.thread.i58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %rioRead.exit.thread
 
 rioRead.exit.thread:                              ; preds = %.thread.i38, %46, %.thread.i, %8, %37, %rioRead.exit39, %42, %rioRead.exit49, %rioRead.exit59, %.critedge29, %.critedge, %117
   %.020 = phi i32 [ -1, %117 ], [ -1, %.critedge ], [ -1, %.critedge29 ], [ 0, %rioRead.exit59 ], [ 0, %rioRead.exit49 ], [ 0, %42 ], [ 0, %rioRead.exit39 ], [ 0, %37 ], [ -1, %8 ], [ -1, %.thread.i ], [ -1, %46 ], [ -1, %.thread.i38 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @rdbLoadLen(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @rdbLoadLenByRef(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
   %5 = icmp eq i32 %4, -1
   %6 = load i64, ptr %3, align 8
   %.0 = select i1 %5, i64 -1, i64 %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 0, 6) i32 @rdbEncodeInteger(i64 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #7 {
+define dso_local range(i32 0, 6) i32 @rdbEncodeInteger(i64 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #6 {
   %3 = add i64 %0, 128
   %or.cond = icmp ult i64 %3, 256
   br i1 %or.cond, label %4, label %7
@@ -1501,7 +1495,7 @@ define dso_local ptr @rdbLoadIntegerObject(ptr noundef %0, i32 noundef %1, i32 n
   %7 = and i32 %2, 2
   %8 = and i32 %2, 4
   %9 = and i32 %2, 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   switch i32 %1, label %88 [
     i32 0, label %10
     i32 1, label %36
@@ -1683,7 +1677,7 @@ rioRead.exit73:                                   ; preds = %81
   br i1 %or.cond4.not, label %110, label %91
 
 91:                                               ; preds = %89
-  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %6) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %92 = call i32 @ll2string(ptr noundef nonnull %6, i64 noundef 21, i64 noundef %.039) #23
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %95, label %93
@@ -1722,7 +1716,7 @@ rioRead.exit73:                                   ; preds = %81
   %.pre-phi = phi i64 [ %102, %100 ], [ %105, %104 ], [ %97, %96 ]
   %.038 = phi ptr [ %103, %100 ], [ %108, %104 ], [ %98, %96 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.038, ptr nonnull align 16 %6, i64 %.pre-phi, i1 false)
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %6) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
 
 110:                                              ; preds = %89
@@ -1739,30 +1733,30 @@ rioRead.exit73:                                   ; preds = %81
 
 .critedge:                                        ; preds = %.thread.i72, %62, %.thread.i62, %36, %.thread.i, %10, %113, %111, %109, %88
   %.0 = phi ptr [ %.038, %109 ], [ %112, %111 ], [ %114, %113 ], [ null, %88 ], [ null, %10 ], [ null, %.thread.i ], [ null, %36 ], [ null, %.thread.i62 ], [ null, %62 ], [ null, %.thread.i72 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
-declare i32 @ll2string(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @ll2string(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #8
+declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #7
 
-declare ptr @sdsnewlen(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @sdsnewlen(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @hfieldNew(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @hfieldNew(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
-declare ptr @createStringObjectFromLongLongForValue(i64 noundef) local_unnamed_addr #4
+declare ptr @createStringObjectFromLongLongForValue(i64 noundef) local_unnamed_addr #3
 
-declare ptr @createStringObjectFromLongLongWithSds(i64 noundef) local_unnamed_addr #4
+declare ptr @createStringObjectFromLongLongWithSds(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 6) i32 @rdbTryIntegerEncoding(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @string2ll(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %4) #23
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %rdbEncodeInteger.exit, label %6
@@ -1806,16 +1800,16 @@ define dso_local range(i32 0, 6) i32 @rdbTryIntegerEncoding(ptr noundef %0, i64 
 
 rdbEncodeInteger.exit:                            ; preds = %19, %17, %14, %9, %3
   %.0 = phi i32 [ 0, %3 ], [ 2, %9 ], [ 3, %14 ], [ 5, %19 ], [ 0, %17 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare i32 @string2ll(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @string2ll(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @rdbSaveLzfBlob(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 -61, ptr %5, align 1, !tbaa !59
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %rdbWriteRaw.exit, label %6
@@ -1951,7 +1945,7 @@ rdbWriteRaw.exit31.thread34:                      ; preds = %.preheader.i.i24, %
 
 rdbWriteRaw.exit.thread:                          ; preds = %.thread.i.i30, %37, %.thread.i.i, %6, %rdbWriteRaw.exit, %33, %rdbWriteRaw.exit31, %rdbWriteRaw.exit31.thread34
   %.0 = phi i64 [ %66, %rdbWriteRaw.exit31.thread34 ], [ -1, %rdbWriteRaw.exit31 ], [ -1, %33 ], [ -1, %rdbWriteRaw.exit ], [ -1, %6 ], [ -1, %.thread.i.i ], [ -1, %37 ], [ -1, %.thread.i.i30 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.0
 }
 
@@ -1986,9 +1980,9 @@ define dso_local i64 @rdbSaveLzfStringObject(ptr noundef %0, ptr noundef %1, i64
   ret i64 %.0
 }
 
-declare i64 @lzf_compress(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i64 @lzf_compress(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @zfree(ptr noundef) local_unnamed_addr #4
+declare void @zfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @rdbLoadLzfStringObject(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
@@ -2000,21 +1994,21 @@ define dso_local ptr @rdbLoadLzfStringObject(ptr noundef %0, i32 noundef %1, ptr
   %8 = icmp ne i32 %7, 0
   %9 = and i32 %1, 30
   %10 = icmp eq i32 %9, 0
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = call i32 @rdbLoadLenByRef(ptr noundef %0, ptr noundef null, ptr noundef nonnull %5)
   %12 = icmp eq i32 %11, -1
   %13 = load i64, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %14 = icmp eq i64 %13, -1
   %15 = select i1 %12, i1 true, i1 %14
   br i1 %15, label %94, label %16
 
 16:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = call i32 @rdbLoadLenByRef(ptr noundef %0, ptr noundef null, ptr noundef nonnull %4)
   %18 = icmp eq i32 %17, -1
   %19 = load i64, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %20 = icmp eq i64 %19, -1
   %21 = select i1 %18, i1 true, i1 %20
   br i1 %21, label %94, label %22
@@ -2203,17 +2197,17 @@ rioRead.exit.thread:                              ; preds = %.thread.i, %61, %.t
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @ztrymalloc(i64 noundef) local_unnamed_addr #8
+declare noalias ptr @ztrymalloc(i64 noundef) local_unnamed_addr #7
 
-declare ptr @sdstrynewlen(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @sdstrynewlen(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @hfieldTryNew(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @hfieldTryNew(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i64 @lzf_decompress(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i64 @lzf_decompress(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @createObject(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @createObject(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @sdsfree(ptr noundef) local_unnamed_addr #4
+declare void @sdsfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @rdbSaveRawString(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -2223,8 +2217,8 @@ define dso_local i64 @rdbSaveRawString(ptr noundef %0, ptr noundef %1, i64 nound
   br i1 %6, label %7, label %51
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %5) #23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = call i32 @string2ll(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %4) #23
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %.thread59, label %9
@@ -2268,7 +2262,7 @@ define dso_local i64 @rdbSaveRawString(ptr noundef %0, ptr noundef %1, i64 nound
 
 25:                                               ; preds = %12, %17, %22
   %.0.i.ph = phi i64 [ 5, %22 ], [ 3, %17 ], [ 2, %12 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i34 = icmp eq ptr %0, null
   br i1 %.not.i34, label %.thread, label %26
 
@@ -2324,12 +2318,12 @@ define dso_local i64 @rdbSaveRawString(ptr noundef %0, ptr noundef %1, i64 nound
 
 .thread:                                          ; preds = %46, %25, %.thread.i.i, %26
   %.027.ph = phi i64 [ -1, %.thread.i.i ], [ -1, %26 ], [ %.0.i.ph, %25 ], [ %.0.i.ph, %46 ]
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %99
 
 .thread59:                                        ; preds = %7, %20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread66
 
 51:                                               ; preds = %3
@@ -2445,7 +2439,7 @@ rdbWriteRaw.exit49.thread:                        ; preds = %.thread.i.i48, %72,
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 -2147483649, 2147483657) i64 @rdbSaveLongLongAsStringObject(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = add i64 %1, 128
   %or.cond.i = icmp ult i64 %4, 256
   br i1 %or.cond.i, label %5, label %8
@@ -2621,14 +2615,14 @@ rdbWriteRaw.exit32.thread:                        ; preds = %.thread.i.i31, %53,
 
 rdbWriteRaw.exit:                                 ; preds = %39, %.preheader.i.i23, %rdbWriteRaw.exit32.thread, %rdbWriteRaw.exit32, %.thread.i.i, %19, %18, %47
   %.0 = phi i64 [ -1, %47 ], [ %.0.i.ph, %18 ], [ -1, %19 ], [ -1, %.thread.i.i ], [ -1, %rdbWriteRaw.exit32.thread ], [ %79, %rdbWriteRaw.exit32 ], [ %50, %.preheader.i.i23 ], [ %.0.i.ph, %39 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
 
-declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #10
+declare void @abort() local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @rdbSaveStringObject(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2706,10 +2700,10 @@ sdslen.exit:                                      ; preds = %switch.edge, %17, %
   ret i64 %.0
 }
 
-declare void @_serverAssertWithInfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @_serverAssertWithInfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i64 @sdslen(ptr noundef readonly captures(none) %0) unnamed_addr #11 {
+define internal fastcc i64 @sdslen(ptr noundef readonly captures(none) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -1
   %3 = load i8, ptr %2, align 1, !tbaa !59
   %4 = zext i8 %3 to i32
@@ -2765,12 +2759,12 @@ define dso_local ptr @rdbGenericLoadStringObject(ptr noundef %0, i32 noundef %1,
   %.not57 = icmp eq i32 %7, 0
   %8 = and i32 %1, 30
   %9 = icmp eq i32 %8, 0
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = call i32 @rdbLoadLenByRef(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %4)
   %11 = icmp eq i32 %10, -1
   %12 = load i64, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %13 = icmp eq i64 %12, -1
   %14 = select i1 %11, i1 true, i1 %13
   br i1 %14, label %rioRead.exit, label %15
@@ -3023,13 +3017,13 @@ define dso_local ptr @rdbGenericLoadStringObject(ptr noundef %0, i32 noundef %1,
 
 rioRead.exit:                                     ; preds = %112, %61, %.thread91, %.thread, %92, %118, %121, %120, %89, %82, %66, %31, %38, %39, %3, %23, %21, %18
   %.0 = phi ptr [ null, %23 ], [ %20, %18 ], [ %22, %21 ], [ null, %3 ], [ null, %66 ], [ null, %31 ], [ null, %38 ], [ %27, %39 ], [ null, %82 ], [ null, %89 ], [ null, %120 ], [ null, %121 ], [ null, %118 ], [ %.049, %92 ], [ null, %.thread ], [ null, %.thread91 ], [ %27, %61 ], [ %.049, %112 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
-declare ptr @tryCreateStringObject(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @tryCreateStringObject(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @decrRefCount(ptr noundef) local_unnamed_addr #4
+declare void @decrRefCount(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @rdbLoadStringObject(ptr noundef %0) local_unnamed_addr #0 {
@@ -3047,7 +3041,7 @@ define dso_local ptr @rdbLoadEncodedStringObject(ptr noundef %0) local_unnamed_a
 define dso_local range(i64 -1, 257) i64 @rdbSaveDoubleValue(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = alloca [128 x i8], align 16
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = fcmp uno double %1, 0.000000e+00
   br i1 %5, label %6, label %7
 
@@ -3067,7 +3061,7 @@ define dso_local range(i64 -1, 257) i64 @rdbSaveDoubleValue(ptr noundef %0, doub
   br label %30
 
 13:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = call i32 @double2ll(double noundef %1, ptr noundef nonnull %4) #23
   %.not = icmp eq i32 %14, 0
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -3093,7 +3087,7 @@ define dso_local range(i64 -1, 257) i64 @rdbSaveDoubleValue(ptr noundef %0, doub
   store i8 %27, ptr %3, align 16, !tbaa !59
   %28 = and i64 %26, 255
   %29 = add nuw nsw i64 %28, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %30
 
 30:                                               ; preds = %10, %24, %6
@@ -3153,23 +3147,23 @@ define dso_local range(i64 -1, 257) i64 @rdbSaveDoubleValue(ptr noundef %0, doub
 
 rdbWriteRaw.exit:                                 ; preds = %51, %30, %31, %.thread.i.i
   %.0.i = phi i64 [ %.0, %30 ], [ -1, %31 ], [ -1, %.thread.i.i ], [ %.0, %51 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0.i
 }
 
-declare i32 @double2ll(double noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @double2ll(double noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @fpconv_dtoa(double noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @fpconv_dtoa(double noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @rdbLoadDoubleValue(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [256 x i8], align 16
   %4 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #23
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8, !tbaa !53
   %7 = and i64 %6, 5
@@ -3307,13 +3301,13 @@ rioRead.exit15:                                   ; preds = %rioRead.exit15.loop
 
 rioRead.exit.thread:                              ; preds = %.thread.i14, %35, %.thread.i, %2, %rioRead.exit15, %33, %31, %29
   %.0 = phi i32 [ 0, %29 ], [ 0, %31 ], [ 0, %33 ], [ %., %rioRead.exit15 ], [ -1, %2 ], [ -1, %.thread.i ], [ -1, %35 ], [ -1, %.thread.i14 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 9) i32 @rdbSaveBinaryDoubleValue(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -3577,7 +3571,7 @@ define dso_local range(i32 -1, 2) i32 @rdbSaveObjectType(ptr noundef %0, ptr nou
   ]
 
 18:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i8 0, ptr %15, align 1, !tbaa !59
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %rdbSaveType.exit, label %19
@@ -3634,7 +3628,7 @@ define dso_local range(i32 -1, 2) i32 @rdbSaveObjectType(ptr noundef %0, ptr nou
 
 rdbSaveType.exit:                                 ; preds = %39, %18, %19, %.thread.i.i.i
   %.0.i.i = phi i32 [ 1, %18 ], [ -1, %19 ], [ -1, %.thread.i.i.i ], [ 1, %39 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %376
 
 44:                                               ; preds = %2
@@ -3646,7 +3640,7 @@ rdbSaveType.exit:                                 ; preds = %39, %18, %19, %.thr
   ]
 
 47:                                               ; preds = %44, %44
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i8 18, ptr %14, align 1, !tbaa !59
   %.not.i.i29 = icmp eq ptr %0, null
   br i1 %.not.i.i29, label %rdbSaveType.exit39, label %48
@@ -3703,7 +3697,7 @@ rdbSaveType.exit:                                 ; preds = %39, %18, %19, %.thr
 
 rdbSaveType.exit39:                               ; preds = %68, %47, %48, %.thread.i.i.i38
   %.0.i.i31 = phi i32 [ 1, %47 ], [ -1, %48 ], [ -1, %.thread.i.i.i38 ], [ 1, %68 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %376
 
 73:                                               ; preds = %44
@@ -3721,7 +3715,7 @@ rdbSaveType.exit39:                               ; preds = %68, %47, %48, %.thr
   ]
 
 77:                                               ; preds = %74
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i8 11, ptr %13, align 1, !tbaa !59
   %.not.i.i40 = icmp eq ptr %0, null
   br i1 %.not.i.i40, label %rdbSaveType.exit50, label %78
@@ -3778,11 +3772,11 @@ rdbSaveType.exit39:                               ; preds = %68, %47, %48, %.thr
 
 rdbSaveType.exit50:                               ; preds = %98, %77, %78, %.thread.i.i.i49
   %.0.i.i42 = phi i32 [ 1, %77 ], [ -1, %78 ], [ -1, %.thread.i.i.i49 ], [ 1, %98 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %376
 
 103:                                              ; preds = %74
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i8 2, ptr %12, align 1, !tbaa !59
   %.not.i.i51 = icmp eq ptr %0, null
   br i1 %.not.i.i51, label %rdbSaveType.exit61, label %104
@@ -3839,11 +3833,11 @@ rdbSaveType.exit50:                               ; preds = %98, %77, %78, %.thr
 
 rdbSaveType.exit61:                               ; preds = %124, %103, %104, %.thread.i.i.i60
   %.0.i.i53 = phi i32 [ 1, %103 ], [ -1, %104 ], [ -1, %.thread.i.i.i60 ], [ 1, %124 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %376
 
 129:                                              ; preds = %74
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 20, ptr %11, align 1, !tbaa !59
   %.not.i.i62 = icmp eq ptr %0, null
   br i1 %.not.i.i62, label %rdbSaveType.exit72, label %130
@@ -3900,7 +3894,7 @@ rdbSaveType.exit61:                               ; preds = %124, %103, %104, %.
 
 rdbSaveType.exit72:                               ; preds = %150, %129, %130, %.thread.i.i.i71
   %.0.i.i64 = phi i32 [ 1, %129 ], [ -1, %130 ], [ -1, %.thread.i.i.i71 ], [ 1, %150 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %376
 
 155:                                              ; preds = %74
@@ -3917,7 +3911,7 @@ rdbSaveType.exit72:                               ; preds = %150, %129, %130, %.
   ]
 
 159:                                              ; preds = %156
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 17, ptr %10, align 1, !tbaa !59
   %.not.i.i73 = icmp eq ptr %0, null
   br i1 %.not.i.i73, label %rdbSaveType.exit83, label %160
@@ -3974,11 +3968,11 @@ rdbSaveType.exit72:                               ; preds = %150, %129, %130, %.
 
 rdbSaveType.exit83:                               ; preds = %180, %159, %160, %.thread.i.i.i82
   %.0.i.i75 = phi i32 [ 1, %159 ], [ -1, %160 ], [ -1, %.thread.i.i.i82 ], [ 1, %180 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %376
 
 185:                                              ; preds = %156
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 5, ptr %9, align 1, !tbaa !59
   %.not.i.i84 = icmp eq ptr %0, null
   br i1 %.not.i.i84, label %rdbSaveType.exit94, label %186
@@ -4035,7 +4029,7 @@ rdbSaveType.exit83:                               ; preds = %180, %159, %160, %.
 
 rdbSaveType.exit94:                               ; preds = %206, %185, %186, %.thread.i.i.i93
   %.0.i.i86 = phi i32 [ 1, %185 ], [ -1, %186 ], [ -1, %.thread.i.i.i93 ], [ 1, %206 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %376
 
 211:                                              ; preds = %156
@@ -4053,7 +4047,7 @@ rdbSaveType.exit94:                               ; preds = %206, %185, %186, %.
   ]
 
 215:                                              ; preds = %212
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 16, ptr %8, align 1, !tbaa !59
   %.not.i.i95 = icmp eq ptr %0, null
   br i1 %.not.i.i95, label %rdbSaveType.exit105, label %216
@@ -4110,11 +4104,11 @@ rdbSaveType.exit94:                               ; preds = %206, %185, %186, %.
 
 rdbSaveType.exit105:                              ; preds = %236, %215, %216, %.thread.i.i.i104
   %.0.i.i97 = phi i32 [ 1, %215 ], [ -1, %216 ], [ -1, %.thread.i.i.i104 ], [ 1, %236 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %376
 
 241:                                              ; preds = %212
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 25, ptr %7, align 1, !tbaa !59
   %.not.i.i106 = icmp eq ptr %0, null
   br i1 %.not.i.i106, label %rdbSaveType.exit116, label %242
@@ -4171,7 +4165,7 @@ rdbSaveType.exit105:                              ; preds = %236, %215, %216, %.
 
 rdbSaveType.exit116:                              ; preds = %262, %241, %242, %.thread.i.i.i115
   %.0.i.i108 = phi i32 [ 1, %241 ], [ -1, %242 ], [ -1, %.thread.i.i.i115 ], [ 1, %262 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %376
 
 267:                                              ; preds = %212
@@ -4181,7 +4175,7 @@ rdbSaveType.exit116:                              ; preds = %262, %241, %242, %.
   br i1 %269, label %270, label %296
 
 270:                                              ; preds = %267
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 4, ptr %6, align 1, !tbaa !59
   br i1 %.not.i.i117, label %rdbSaveType.exit127, label %271
 
@@ -4237,11 +4231,11 @@ rdbSaveType.exit116:                              ; preds = %262, %241, %242, %.
 
 rdbSaveType.exit127:                              ; preds = %291, %270, %271, %.thread.i.i.i126
   %.0.i.i119 = phi i32 [ 1, %270 ], [ -1, %271 ], [ -1, %.thread.i.i.i126 ], [ 1, %291 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %376
 
 296:                                              ; preds = %267
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 24, ptr %5, align 1, !tbaa !59
   br i1 %.not.i.i117, label %rdbSaveType.exit138, label %297
 
@@ -4297,7 +4291,7 @@ rdbSaveType.exit127:                              ; preds = %291, %270, %271, %.
 
 rdbSaveType.exit138:                              ; preds = %317, %296, %297, %.thread.i.i.i137
   %.0.i.i130 = phi i32 [ 1, %296 ], [ -1, %297 ], [ -1, %.thread.i.i.i137 ], [ 1, %317 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %376
 
 322:                                              ; preds = %212
@@ -4306,7 +4300,7 @@ rdbSaveType.exit138:                              ; preds = %317, %296, %297, %.
   unreachable
 
 323:                                              ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 21, ptr %4, align 1, !tbaa !59
   %.not.i.i139 = icmp eq ptr %0, null
   br i1 %.not.i.i139, label %rdbSaveType.exit149, label %324
@@ -4363,11 +4357,11 @@ rdbSaveType.exit138:                              ; preds = %317, %296, %297, %.
 
 rdbSaveType.exit149:                              ; preds = %344, %323, %324, %.thread.i.i.i148
   %.0.i.i141 = phi i32 [ 1, %323 ], [ -1, %324 ], [ -1, %.thread.i.i.i148 ], [ 1, %344 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %376
 
 349:                                              ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 7, ptr %3, align 1, !tbaa !59
   %.not.i.i150 = icmp eq ptr %0, null
   br i1 %.not.i.i150, label %rdbSaveType.exit160, label %350
@@ -4424,7 +4418,7 @@ rdbSaveType.exit149:                              ; preds = %344, %323, %324, %.
 
 rdbSaveType.exit160:                              ; preds = %370, %349, %350, %.thread.i.i.i159
   %.0.i.i152 = phi i32 [ 1, %349 ], [ -1, %350 ], [ -1, %.thread.i.i.i159 ], [ 1, %370 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %376
 
 375:                                              ; preds = %2
@@ -4437,14 +4431,14 @@ rdbSaveType.exit160:                              ; preds = %370, %349, %350, %.
   ret i32 %.0
 }
 
-declare void @_serverPanic(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @_serverPanic(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare i64 @hashTypeGetMinExpire(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @hashTypeGetMinExpire(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 256) i32 @rdbLoadObjectType(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8, !tbaa !53
   %5 = and i64 %4, 5
@@ -4494,13 +4488,13 @@ define dso_local range(i32 -1, 256) i32 @rdbLoadObjectType(ptr noundef %0) local
   br i1 %.not31.i.i, label %rdbLoadType.exit, label %9
 
 rdbLoadType.exit.thread:                          ; preds = %1, %.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %29
 
 rdbLoadType.exit:                                 ; preds = %21
   %26 = load i8, ptr %2, align 1
   %27 = zext i8 %26 to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %or.cond = icmp ult i8 %26, 8
   %28 = add i8 %26, -9
   %or.cond3 = icmp ult i8 %28, 17
@@ -4524,7 +4518,7 @@ define dso_local range(i64 -9223372036854775800, -9223372036854775808) i64 @rdbS
 
 9:                                                ; preds = %3
   %10 = zext nneg i32 %7 to i64
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @raxStart(ptr noundef nonnull %5, ptr noundef %1) #23
   %11 = call i32 @raxSeek(ptr noundef nonnull %5, ptr noundef nonnull @.str.22, ptr noundef null, i64 noundef 0) #23
   %12 = call i32 @raxNext(ptr noundef nonnull %5) #23
@@ -4668,7 +4662,7 @@ rdbWriteRaw.exit.us:                              ; preds = %43
 rdbWriteRaw.exit:                                 ; preds = %64
   %69 = load ptr, ptr %19, align 8, !tbaa !72
   %70 = load i64, ptr %69, align 8, !tbaa !84
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %70, ptr %4, align 8, !tbaa !61
   %71 = load i64, ptr %14, align 8, !tbaa !53
   %72 = and i64 %71, 6
@@ -4712,11 +4706,11 @@ rdbWriteRaw.exit:                                 ; preds = %64
   br i1 %.not31.i.i.i, label %.loopexit, label %.preheader.i.i.i
 
 .loopexit37:                                      ; preds = %rdbWriteRaw.exit, %.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
 .loopexit:                                        ; preds = %84
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %89 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %90 = load i64, ptr %89, align 8, !tbaa !76
   %91 = call i32 @rdbSaveLen(ptr noundef nonnull %0, i64 noundef %90)
@@ -4734,7 +4728,7 @@ rdbWriteRaw.exit:                                 ; preds = %64
 .critedge:                                        ; preds = %93, %.loopexit, %.lr.ph.split.split, %rdbWriteRaw.exit.us, %.lr.ph.split.split.us, %29, %.thread.us, %9, %.thread.i.i, %.loopexit37
   %.2 = phi i64 [ -1, %.loopexit37 ], [ -1, %.thread.i.i ], [ %10, %9 ], [ -1, %.thread.us ], [ %.121.us, %29 ], [ -1, %.lr.ph.split.split.us ], [ %48, %rdbWriteRaw.exit.us ], [ -1, %.lr.ph.split.split ], [ -1, %.loopexit ], [ %95, %93 ]
   call void @raxStop(ptr noundef nonnull %5) #23
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %97
 
 97:                                               ; preds = %3, %.critedge
@@ -4742,15 +4736,15 @@ rdbWriteRaw.exit:                                 ; preds = %64
   ret i64 %.0
 }
 
-declare i64 @raxSize(ptr noundef) local_unnamed_addr #4
+declare i64 @raxSize(ptr noundef) local_unnamed_addr #3
 
-declare void @raxStart(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @raxStart(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @raxSeek(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @raxSeek(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @raxNext(ptr noundef) local_unnamed_addr #4
+declare i32 @raxNext(ptr noundef) local_unnamed_addr #3
 
-declare void @raxStop(ptr noundef) local_unnamed_addr #4
+declare void @raxStop(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @rdbSaveStreamConsumers(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -4766,7 +4760,7 @@ define dso_local i64 @rdbSaveStreamConsumers(ptr noundef %0, ptr noundef readonl
 
 11:                                               ; preds = %2
   %12 = zext nneg i32 %9 to i64
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = load ptr, ptr %6, align 8, !tbaa !86
   call void @raxStart(ptr noundef nonnull %5, ptr noundef %13) #23
   %14 = call i32 @raxSeek(ptr noundef nonnull %5, ptr noundef nonnull @.str.22, ptr noundef null, i64 noundef 0) #23
@@ -4821,7 +4815,7 @@ define dso_local i64 @rdbSaveStreamConsumers(ptr noundef %0, ptr noundef readonl
 
 43:                                               ; preds = %.lr.ph.split
   %44 = load i64, ptr %38, align 8, !tbaa !93
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %44, ptr %4, align 8, !tbaa !61
   %45 = load i64, ptr %19, align 8, !tbaa !53
   %46 = and i64 %45, 6
@@ -4865,14 +4859,14 @@ define dso_local i64 @rdbSaveStreamConsumers(ptr noundef %0, ptr noundef readonl
   br i1 %.not31.i.i.i, label %63, label %.preheader.i.i.i
 
 .loopexit44:                                      ; preds = %43, %.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
 63:                                               ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %64 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %65 = load i64, ptr %64, align 8, !tbaa !94
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %65, ptr %3, align 8, !tbaa !61
   %66 = load i64, ptr %19, align 8, !tbaa !53
   %67 = and i64 %66, 6
@@ -4916,11 +4910,11 @@ define dso_local i64 @rdbSaveStreamConsumers(ptr noundef %0, ptr noundef readonl
   br i1 %.not31.i.i.i38, label %.loopexit, label %.preheader.i.i.i33
 
 .loopexit45:                                      ; preds = %63, %.thread.i.i.i39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge
 
 .loopexit:                                        ; preds = %79
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %84 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %85 = load ptr, ptr %84, align 8, !tbaa !90
   %86 = call i64 @rdbSaveStreamPEL(ptr noundef nonnull %0, ptr noundef %85, i32 noundef 0)
@@ -4938,7 +4932,7 @@ define dso_local i64 @rdbSaveStreamConsumers(ptr noundef %0, ptr noundef readonl
 .critedge:                                        ; preds = %88, %.loopexit, %.lr.ph.split, %33, %.thread.us, %.lr.ph.split.us, %11, %.loopexit44, %.loopexit45
   %.3 = phi i64 [ -1, %.loopexit45 ], [ -1, %.loopexit44 ], [ %12, %11 ], [ -1, %.lr.ph.split.us ], [ -1, %.thread.us ], [ %36, %33 ], [ -1, %.lr.ph.split ], [ -1, %.loopexit ], [ %91, %88 ]
   call void @raxStop(ptr noundef nonnull %5) #23
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %93
 
 93:                                               ; preds = %2, %.critedge
@@ -5018,14 +5012,14 @@ define dso_local i64 @rdbSaveObject(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %44, label %45, label %51
 
 45:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %46 = call i64 @quicklistGetLzf(ptr noundef nonnull %.0337573, ptr noundef nonnull %11) #23
   %47 = load ptr, ptr %11, align 8, !tbaa !98
   %48 = getelementptr inbounds nuw i8, ptr %.0337573, i64 24
   %49 = load i64, ptr %48, align 8, !tbaa !99
   %50 = call i64 @rdbSaveLzfBlob(ptr noundef %0, ptr noundef %47, i64 noundef %46, i64 noundef %49)
   %.not409 = icmp eq i64 %50, -1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.not409, label %.thread, label %58
 
 51:                                               ; preds = %39
@@ -5048,14 +5042,14 @@ define dso_local i64 @rdbSaveObject(ptr noundef %0, ptr noundef %1, ptr noundef 
 61:                                               ; preds = %19
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !65
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 1, ptr %10, align 1, !tbaa !59
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %.thread473, label %64
 
 .thread473:                                       ; preds = %61
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #23
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %.loopexit523
 
 64:                                               ; preds = %61
@@ -5109,12 +5103,12 @@ define dso_local i64 @rdbSaveObject(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not31.i.i.i, label %89, label %72
 
 rdbSaveLen.exit.thread:                           ; preds = %64, %.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread
 
 89:                                               ; preds = %84
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #23
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 2, ptr %9, align 1, !tbaa !59
   %90 = load i64, ptr %65, align 8, !tbaa !53
   %91 = and i64 %90, 6
@@ -5158,11 +5152,11 @@ rdbSaveLen.exit.thread:                           ; preds = %64, %.thread.i.i.i
   br i1 %.not31.i.i.i422, label %.loopexit523, label %.preheader.i.i.i417
 
 rdbSaveLen.exit424.thread:                        ; preds = %89, %.thread.i.i.i423
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread
 
 .loopexit523:                                     ; preds = %103, %.thread473
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %108 = call i64 @lpBytes(ptr noundef %63) #23
   %109 = call i64 @rdbSaveRawString(ptr noundef %0, ptr noundef %63, i64 noundef %108)
   %.not522 = icmp eq i64 %109, -1
@@ -5391,7 +5385,7 @@ sdslen.exit426:                                   ; preds = %197, %203, %206, %2
 223:                                              ; preds = %sdslen.exit426
   %224 = getelementptr inbounds nuw i8, ptr %.0338562, i64 8
   %225 = load double, ptr %224, align 8, !tbaa !69
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store double %225, ptr %8, align 8, !tbaa !69
   br i1 %.not.i.i427, label %.loopexit524, label %226
 
@@ -5438,11 +5432,11 @@ sdslen.exit426:                                   ; preds = %197, %203, %206, %2
   br i1 %.not31.i.i.i434, label %.loopexit524, label %.preheader.i.i.i429
 
 rdbSaveBinaryDoubleValue.exit.thread:             ; preds = %226, %.thread.i.i.i435
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
 
 .loopexit524:                                     ; preds = %240, %223
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %245 = add i64 %.13301561, 8
   %246 = add i64 %245, %221
   %247 = getelementptr inbounds nuw i8, ptr %.0338562, i64 16
@@ -5473,7 +5467,7 @@ rdbSaveBinaryDoubleValue.exit.thread:             ; preds = %226, %.thread.i.i.i
   %256 = tail call i64 @hashTypeGetMinExpire(ptr noundef nonnull %1, i32 noundef 0) #23
   %257 = icmp eq i64 %256, 281474976710656
   %spec.store.select = select i1 %257, i64 0, i64 %256
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %spec.store.select, ptr %7, align 8, !tbaa !61
   %.not.i.i436 = icmp eq ptr %0, null
   br i1 %.not.i.i436, label %rdbSaveMillisecondTime.exit, label %258
@@ -5529,11 +5523,11 @@ rdbSaveBinaryDoubleValue.exit.thread:             ; preds = %226, %.thread.i.i.i
   br i1 %.not31.i.i.i444, label %rdbSaveMillisecondTime.exit, label %266
 
 rdbSaveMillisecondTime.exit.thread:               ; preds = %258, %.thread.i.i.i445
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
 rdbSaveMillisecondTime.exit:                      ; preds = %278, %255
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %283
 
 283:                                              ; preds = %rdbSaveMillisecondTime.exit, %252
@@ -5552,7 +5546,7 @@ rdbSaveMillisecondTime.exit:                      ; preds = %278, %255
   br i1 %.not396, label %319, label %292
 
 292:                                              ; preds = %287
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %291, ptr %6, align 8, !tbaa !61
   %.not.i.i446 = icmp eq ptr %0, null
   br i1 %.not.i.i446, label %rdbSaveMillisecondTime.exit456, label %293
@@ -5608,11 +5602,11 @@ rdbSaveMillisecondTime.exit:                      ; preds = %278, %255
   br i1 %.not31.i.i.i454, label %rdbSaveMillisecondTime.exit456, label %301
 
 rdbSaveMillisecondTime.exit456:                   ; preds = %313, %292
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %319
 
 318:                                              ; preds = %293, %.thread.i.i.i455
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @dictReleaseIterator(ptr noundef %290) #23
   br label %.thread
 
@@ -5753,7 +5747,7 @@ sdslen.exit458:                                   ; preds = %352, %358, %361, %3
 
 387:                                              ; preds = %380
   %388 = zext nneg i32 %385 to i64
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %12) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @raxStart(ptr noundef nonnull %12, ptr noundef %383) #23
   %389 = call i32 @raxSeek(ptr noundef nonnull %12, ptr noundef nonnull @.str.22, ptr noundef null, i64 noundef 0) #23
   %390 = call i32 @raxNext(ptr noundef nonnull %12) #23
@@ -5963,16 +5957,16 @@ sdslen.exit458:                                   ; preds = %352, %358, %361, %3
   br label %.thread518
 
 .thread518:                                       ; preds = %.thread518.sink.split, %._crit_edge, %412, %417, %422, %427, %432, %437, %442, %468
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %12) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread
 
 521:                                              ; preds = %472, %._crit_edge551
   %.24312 = phi i64 [ %.27315.lcssa, %._crit_edge551 ], [ %474, %472 ]
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %12) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit
 
 522:                                              ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %523 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %524 = load ptr, ptr %523, align 8, !tbaa !65
   %525 = load ptr, ptr %524, align 8, !tbaa !131
@@ -6003,7 +5997,7 @@ sdslen.exit458:                                   ; preds = %352, %358, %361, %3
   %540 = getelementptr inbounds nuw i8, ptr %524, i64 8
   %541 = load ptr, ptr %540, align 8, !tbaa !149
   call void %539(ptr noundef nonnull %13, ptr noundef %541) #23
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1, !tbaa !59
   %.not.i.i459 = icmp eq ptr %0, null
   br i1 %.not.i.i459, label %.loopexit527, label %542
@@ -6059,12 +6053,12 @@ sdslen.exit458:                                   ; preds = %352, %358, %361, %3
   br i1 %.not31.i.i.i467, label %.loopexit527, label %550
 
 567:                                              ; preds = %542, %.thread.i.i.i468
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i32 1, ptr %532, align 8, !tbaa !142
   br label %570
 
 .loopexit527:                                     ; preds = %562, %529
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %568 = load i64, ptr %13, align 8, !tbaa !147
   %569 = add i64 %568, 1
   store i64 %569, ptr %13, align 8, !tbaa !147
@@ -6090,7 +6084,7 @@ sdslen.exit458:                                   ; preds = %352, %358, %361, %3
 
 578:                                              ; preds = %522, %574
   %.30 = phi i64 [ %577, %574 ], [ -1, %522 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.thread
 
 579:                                              ; preds = %4
@@ -6107,27 +6101,27 @@ sdslen.exit458:                                   ; preds = %352, %358, %361, %3
   ret i64 %.0
 }
 
-declare i64 @quicklistGetLzf(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i64 @quicklistGetLzf(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i64 @lpBytes(ptr noundef) local_unnamed_addr #4
+declare i64 @lpBytes(ptr noundef) local_unnamed_addr #3
 
-declare ptr @dictGetIterator(ptr noundef) local_unnamed_addr #4
+declare ptr @dictGetIterator(ptr noundef) local_unnamed_addr #3
 
-declare void @dictReleaseIterator(ptr noundef) local_unnamed_addr #4
+declare void @dictReleaseIterator(ptr noundef) local_unnamed_addr #3
 
-declare ptr @dictNext(ptr noundef) local_unnamed_addr #4
+declare ptr @dictNext(ptr noundef) local_unnamed_addr #3
 
-declare ptr @dictGetKey(ptr noundef) local_unnamed_addr #4
+declare ptr @dictGetKey(ptr noundef) local_unnamed_addr #3
 
-declare i64 @intsetBlobLen(ptr noundef) local_unnamed_addr #4
+declare i64 @intsetBlobLen(ptr noundef) local_unnamed_addr #3
 
-declare ptr @hashTypeListpackGetLp(ptr noundef) local_unnamed_addr #4
+declare ptr @hashTypeListpackGetLp(ptr noundef) local_unnamed_addr #3
 
-declare ptr @dictGetVal(ptr noundef) local_unnamed_addr #4
+declare ptr @dictGetVal(ptr noundef) local_unnamed_addr #3
 
-declare i64 @hfieldGetExpireTime(ptr noundef) local_unnamed_addr #4
+declare i64 @hfieldGetExpireTime(ptr noundef) local_unnamed_addr #3
 
-declare void @moduleFreeContext(ptr noundef) local_unnamed_addr #4
+declare void @moduleFreeContext(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, -1) i64 @rdbSavedObjectLen(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -6158,14 +6152,14 @@ define dso_local range(i32 -1, 2) i32 @rdbSaveKeyValuePair(ptr noundef %0, ptr n
   br i1 %.not, label %59, label %14
 
 14:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 -4, ptr %9, align 1, !tbaa !59
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %.thread, label %15
 
 .thread:                                          ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %rdbSaveMillisecondTime.exit
 
 15:                                               ; preds = %14
@@ -6219,12 +6213,12 @@ define dso_local range(i32 -1, 2) i32 @rdbSaveKeyValuePair(ptr noundef %0, ptr n
   br i1 %.not31.i.i.i, label %40, label %23
 
 rdbSaveType.exit.thread:                          ; preds = %15, %.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge
 
 40:                                               ; preds = %35
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %3, ptr %8, align 8, !tbaa !61
   %41 = load i64, ptr %16, align 8, !tbaa !53
   %42 = and i64 %41, 6
@@ -6268,11 +6262,11 @@ rdbSaveType.exit.thread:                          ; preds = %15, %.thread.i.i.i
   br i1 %.not31.i.i.i43, label %rdbSaveMillisecondTime.exit, label %.preheader.i.i.i38
 
 rdbSaveMillisecondTime.exit.thread:               ; preds = %40, %.thread.i.i.i44
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge
 
 rdbSaveMillisecondTime.exit:                      ; preds = %54, %.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %59
 
 59:                                               ; preds = %rdbSaveMillisecondTime.exit, %5
@@ -6281,7 +6275,7 @@ rdbSaveMillisecondTime.exit:                      ; preds = %54, %.thread
 
 60:                                               ; preds = %59
   %61 = call i64 @estimateObjectIdleTime(ptr noundef %2) #23
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 -8, ptr %7, align 1, !tbaa !59
   %.not.i.i45 = icmp eq ptr %0, null
   br i1 %.not.i.i45, label %.loopexit, label %62
@@ -6337,11 +6331,11 @@ rdbSaveMillisecondTime.exit:                      ; preds = %54, %.thread
   br i1 %.not31.i.i.i53, label %.loopexit, label %70
 
 rdbSaveType.exit55.thread:                        ; preds = %62, %.thread.i.i.i54
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge
 
 .loopexit:                                        ; preds = %82, %60
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %87 = udiv i64 %61, 1000
   %88 = call i32 @rdbSaveLen(ptr noundef %0, i64 noundef %87)
   %.not78 = icmp eq i32 %88, -1
@@ -6352,17 +6346,17 @@ rdbSaveType.exit55.thread:                        ; preds = %62, %.thread.i.i.i5
   br i1 %.not30, label %137, label %90
 
 90:                                               ; preds = %89
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %91 = call i64 @LFUDecrAndReturn(ptr noundef %2) #23
   %92 = trunc i64 %91 to i8
   store i8 %92, ptr %10, align 1, !tbaa !59
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 -7, ptr %6, align 1, !tbaa !59
   %.not.i.i56 = icmp eq ptr %0, null
   br i1 %.not.i.i56, label %.thread73, label %93
 
 .thread73:                                        ; preds = %90
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %rdbWriteRaw.exit.thread77
 
 93:                                               ; preds = %90
@@ -6416,7 +6410,7 @@ rdbSaveType.exit55.thread:                        ; preds = %62, %.thread.i.i.i5
   br i1 %.not31.i.i.i64, label %118, label %101
 
 118:                                              ; preds = %113
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %119 = load i64, ptr %94, align 8, !tbaa !53
   %120 = and i64 %119, 6
   %.not.i.i67 = icmp eq i64 %120, 0
@@ -6459,11 +6453,11 @@ rdbSaveType.exit55.thread:                        ; preds = %62, %.thread.i.i.i5
   br i1 %.not31.i.i, label %rdbWriteRaw.exit.thread77, label %.preheader.i.i
 
 rdbWriteRaw.exit.thread77:                        ; preds = %132, %.thread73
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %137
 
 rdbWriteRaw.exit:                                 ; preds = %.thread.i.i, %118
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge
 
 137:                                              ; preds = %rdbWriteRaw.exit.thread77, %89
@@ -6491,8 +6485,8 @@ rdbWriteRaw.exit:                                 ; preds = %.thread.i.i, %118
   br label %.critedge
 
 .critedge34:                                      ; preds = %93, %.thread.i.i.i65
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge
 
 .critedge:                                        ; preds = %rdbWriteRaw.exit, %rdbSaveType.exit55.thread, %rdbSaveMillisecondTime.exit.thread, %rdbSaveType.exit.thread, %146, %148, %143, %140, %137, %.critedge34, %.loopexit
@@ -6500,16 +6494,16 @@ rdbWriteRaw.exit:                                 ; preds = %.thread.i.i, %118
   ret i32 %.025
 }
 
-declare i64 @estimateObjectIdleTime(ptr noundef) local_unnamed_addr #4
+declare i64 @estimateObjectIdleTime(ptr noundef) local_unnamed_addr #3
 
-declare i64 @LFUDecrAndReturn(ptr noundef) local_unnamed_addr #4
+declare i64 @LFUDecrAndReturn(ptr noundef) local_unnamed_addr #3
 
-declare void @debugDelay(i32 noundef) local_unnamed_addr #4
+declare void @debugDelay(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @rdbSaveAuxField(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 -6, ptr %6, align 1, !tbaa !59
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %.loopexit, label %7
@@ -6565,11 +6559,11 @@ define dso_local i64 @rdbSaveAuxField(ptr noundef %0, ptr noundef %1, i64 nounde
   br i1 %.not31.i.i.i, label %.loopexit, label %15
 
 rdbSaveType.exit.thread:                          ; preds = %7, %.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %40
 
 .loopexit:                                        ; preds = %27, %5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %32 = call i64 @rdbSaveRawString(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %33 = icmp eq i64 %32, -1
   br i1 %33, label %40, label %34
@@ -6594,7 +6588,7 @@ define dso_local i64 @rdbSaveAuxFieldStrStr(ptr noundef %0, ptr noundef %1, ptr 
   %4 = alloca i8, align 1
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #27
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #27
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 -6, ptr %4, align 1, !tbaa !59
   %.not.i.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i.i, label %.loopexit.i, label %7
@@ -6650,11 +6644,11 @@ define dso_local i64 @rdbSaveAuxFieldStrStr(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not31.i.i.i.i, label %.loopexit.i, label %15
 
 rdbSaveType.exit.thread.i:                        ; preds = %.thread.i.i.i.i, %7
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %rdbSaveAuxField.exit
 
 .loopexit.i:                                      ; preds = %27, %3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %32 = call i64 @rdbSaveRawString(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %5)
   %33 = icmp eq i64 %32, -1
   br i1 %33, label %rdbSaveAuxField.exit, label %34
@@ -6678,11 +6672,11 @@ rdbSaveAuxField.exit:                             ; preds = %rdbSaveType.exit.th
 define dso_local i64 @rdbSaveAuxFieldStrInt(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca [21 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 @ll2string(ptr noundef nonnull %5, i64 noundef 21, i64 noundef %2) #23
   %7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #27
   %8 = sext i32 %6 to i64
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 -6, ptr %4, align 1, !tbaa !59
   %.not.i.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i.i, label %.loopexit.i, label %9
@@ -6738,11 +6732,11 @@ define dso_local i64 @rdbSaveAuxFieldStrInt(ptr noundef %0, ptr noundef %1, i64 
   br i1 %.not31.i.i.i.i, label %.loopexit.i, label %17
 
 rdbSaveType.exit.thread.i:                        ; preds = %.thread.i.i.i.i, %9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %rdbSaveAuxField.exit
 
 .loopexit.i:                                      ; preds = %29, %3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %34 = call i64 @rdbSaveRawString(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %7)
   %35 = icmp eq i64 %34, -1
   br i1 %35, label %rdbSaveAuxField.exit, label %36
@@ -6759,7 +6753,7 @@ rdbSaveType.exit.thread.i:                        ; preds = %.thread.i.i.i.i, %9
 
 rdbSaveAuxField.exit:                             ; preds = %rdbSaveType.exit.thread.i, %.loopexit.i, %36, %39
   %.0.i = phi i64 [ %41, %39 ], [ -1, %.loopexit.i ], [ -1, %36 ], [ -1, %rdbSaveType.exit.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.0.i
 }
 
@@ -6822,9 +6816,9 @@ define dso_local range(i32 -1, 2) i32 @rdbSaveInfoAuxFields(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #13
+declare i64 @time(ptr noundef) local_unnamed_addr #12
 
-declare i64 @zmalloc_used_memory() local_unnamed_addr #4
+declare i64 @zmalloc_used_memory() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @rdbSaveSingleModuleAux(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -6833,7 +6827,7 @@ define dso_local i64 @rdbSaveSingleModuleAux(ptr noundef %0, i32 noundef %1, ptr
   %6 = alloca i8, align 1
   %7 = alloca %struct.RedisModuleIO, align 8
   %8 = alloca %struct._rio, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %0, ptr %9, align 8, !tbaa !137
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -6849,10 +6843,10 @@ define dso_local i64 @rdbSaveSingleModuleAux(ptr noundef %0, i32 noundef %1, ptr
   store ptr null, ptr %14, align 8, !tbaa !145
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr null, ptr %15, align 8, !tbaa !146
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %8) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %16 = tail call ptr @sdsempty() #23
   call void @rioInitWithBuffer(ptr noundef nonnull %8, ptr noundef %16) #23
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 -9, ptr %6, align 1, !tbaa !59
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %18 = load i64, ptr %17, align 8, !tbaa !53
@@ -6904,18 +6898,18 @@ define dso_local i64 @rdbSaveSingleModuleAux(ptr noundef %0, i32 noundef %1, ptr
   br i1 %.not31.i.i.i, label %41, label %24
 
 rdbSaveType.exit.thread:                          ; preds = %3, %.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %rdbWriteRaw.exit.thread
 
 41:                                               ; preds = %36
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %42 = load i64, ptr %2, align 8, !tbaa !134
   %43 = call i32 @rdbSaveLen(ptr noundef nonnull %8, i64 noundef %42)
   %44 = icmp eq i32 %43, -1
   br i1 %44, label %rdbWriteRaw.exit.thread, label %45
 
 45:                                               ; preds = %41
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 2, ptr %5, align 1, !tbaa !59
   %46 = load i64, ptr %17, align 8, !tbaa !53
   %47 = and i64 %46, 6
@@ -6959,11 +6953,11 @@ rdbSaveType.exit.thread:                          ; preds = %3, %.thread.i.i.i
   br i1 %.not31.i.i.i29, label %64, label %.preheader.i.i.i24
 
 rdbSaveLen.exit.thread:                           ; preds = %45, %.thread.i.i.i30
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %rdbWriteRaw.exit.thread
 
 64:                                               ; preds = %59
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %65 = sext i32 %1 to i64
   %66 = call i32 @rdbSaveLen(ptr noundef nonnull %8, i64 noundef %65)
   %67 = icmp eq i32 %66, -1
@@ -7112,7 +7106,7 @@ rdbWriteRaw.exit.thread46:                        ; preds = %rdbWriteRaw.exit.rd
   br label %133
 
 133:                                              ; preds = %73, %rdbWriteRaw.exit.thread46
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !59
   %.not.i.i32 = icmp eq ptr %0, null
   br i1 %.not.i.i32, label %rdbSaveLen.exit42, label %134
@@ -7170,7 +7164,7 @@ rdbWriteRaw.exit.thread46:                        ; preds = %rdbWriteRaw.exit.rd
 rdbSaveLen.exit42:                                ; preds = %154, %133, %134, %.thread.i.i.i41
   %159 = phi i1 [ false, %133 ], [ true, %134 ], [ true, %.thread.i.i.i41 ], [ false, %154 ]
   %.09.i34 = phi i64 [ 1, %133 ], [ 4294967295, %134 ], [ 4294967295, %.thread.i.i.i41 ], [ 1, %154 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %160 = load ptr, ptr %15, align 8, !tbaa !146
   %.not20 = icmp eq ptr %160, null
   br i1 %.not20, label %162, label %161, !prof !64
@@ -7219,14 +7213,14 @@ rdbWriteRaw.exit.thread:                          ; preds = %.thread.i.i, %99, %
 
 176:                                              ; preds = %171, %rdbWriteRaw.exit.thread, %75
   %.0 = phi i64 [ -1, %rdbWriteRaw.exit.thread ], [ 0, %75 ], [ %spec.select, %171 ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %8) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
 }
 
-declare void @rioInitWithBuffer(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @rioInitWithBuffer(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @sdsempty() local_unnamed_addr #4
+declare ptr @sdsempty() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @rdbSaveFunctions(ptr noundef %0) local_unnamed_addr #0 {
@@ -7306,7 +7300,7 @@ sdslen.exit.us:                                   ; preds = %35, %31, %27, %23, 
   br i1 %.not, label %.split27.us, label %42
 
 42:                                               ; preds = %.split
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 -11, ptr %2, align 1, !tbaa !59
   %43 = load i64, ptr %5, align 8, !tbaa !53
   %44 = and i64 %43, 6
@@ -7350,11 +7344,11 @@ sdslen.exit.us:                                   ; preds = %35, %31, %27, %23, 
   br i1 %.not31.i.i.i, label %.loopexit, label %.preheader.i.i.i
 
 rdbSaveType.exit.thread:                          ; preds = %42, %.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.split27.us
 
 .loopexit:                                        ; preds = %56
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %61 = add nuw nsw i64 %.016, 1
   %62 = call ptr @dictGetVal(ptr noundef nonnull %41) #23
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
@@ -7412,7 +7406,7 @@ sdslen.exit:                                      ; preds = %.loopexit, %69, %72
   ret i64 %.015
 }
 
-declare ptr @functionsLibGet() local_unnamed_addr #4
+declare ptr @functionsLibGet() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @rdbSaveDb(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
@@ -7432,7 +7426,7 @@ define dso_local i64 @rdbSaveDb(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br i1 %16, label %.thread128, label %17
 
 17:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 -2, ptr %7, align 1, !tbaa !59
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %.loopexit133, label %18
@@ -7488,11 +7482,11 @@ define dso_local i64 @rdbSaveDb(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br i1 %.not31.i.i.i, label %.loopexit133, label %26
 
 rdbSaveType.exit.thread:                          ; preds = %18, %.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread128
 
 .loopexit133:                                     ; preds = %38, %17
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %43 = call i32 @rdbSaveLen(ptr noundef %0, i64 noundef %12)
   %44 = icmp slt i32 %43, 0
   br i1 %44, label %.thread128, label %45
@@ -7501,7 +7495,7 @@ rdbSaveType.exit.thread:                          ; preds = %18, %.thread.i.i.i
   %46 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !165
   %48 = call i64 @kvstoreSize(ptr noundef %47) #23
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 -5, ptr %6, align 1, !tbaa !59
   br i1 %.not.i.i, label %.loopexit132, label %49
 
@@ -7556,11 +7550,11 @@ rdbSaveType.exit.thread:                          ; preds = %18, %.thread.i.i.i
   br i1 %.not31.i.i.i104, label %.loopexit132, label %57
 
 rdbSaveType.exit106.thread:                       ; preds = %49, %.thread.i.i.i105
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread128
 
 .loopexit132:                                     ; preds = %69, %45
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %74 = call i32 @rdbSaveLen(ptr noundef %0, i64 noundef %15)
   %75 = icmp slt i32 %74, 0
   br i1 %75, label %.thread128, label %76
@@ -7603,7 +7597,7 @@ rdbSaveType.exit106.thread:                       ; preds = %49, %.thread.i.i.i1
   br i1 %or.cond, label %136, label %95
 
 95:                                               ; preds = %91
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 -12, ptr %5, align 1, !tbaa !59
   br i1 %.not.i.i, label %.loopexit, label %96
 
@@ -7650,11 +7644,11 @@ rdbSaveType.exit106.thread:                       ; preds = %49, %.thread.i.i.i1
   br i1 %.not31.i.i.i115, label %.loopexit, label %.preheader.i.i.i110
 
 rdbSaveType.exit117.thread:                       ; preds = %96, %.thread.i.i.i116
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
 .loopexit:                                        ; preds = %110, %95
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %115 = sext i32 %93 to i64
   %116 = call i32 @rdbSaveLen(ptr noundef %0, i64 noundef %115)
   %117 = icmp slt i32 %116, 0
@@ -7688,7 +7682,7 @@ rdbSaveType.exit117.thread:                       ; preds = %96, %.thread.i.i.i1
   %.176 = phi i32 [ %93, %128 ], [ %.075140, %91 ]
   %.1 = phi i64 [ %135, %128 ], [ %.071141, %91 ]
   %137 = call ptr @dictGetKey(ptr noundef nonnull %92) #23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %138 = call ptr @dictGetVal(ptr noundef nonnull %92) #23
   %139 = load i64, ptr %88, align 8, !tbaa !58
   store i32 2147483646, ptr %89, align 4, !tbaa !167
@@ -7702,7 +7696,7 @@ rdbSaveType.exit117.thread:                       ; preds = %96, %.thread.i.i.i1
   br i1 %144, label %.thread124, label %145
 
 .thread124:                                       ; preds = %136
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
 
 145:                                              ; preds = %136
@@ -7740,7 +7734,7 @@ rdbSaveType.exit117.thread:                       ; preds = %96, %.thread.i.i.i1
   br label %164
 
 164:                                              ; preds = %157, %162, %152
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %165 = call ptr @kvstoreIteratorNext(ptr noundef %82) #23
   %.not91 = icmp eq ptr %165, null
   br i1 %.not91, label %._crit_edge, label %91
@@ -7763,25 +7757,25 @@ rdbSaveType.exit117.thread:                       ; preds = %96, %.thread.i.i.i1
   ret i64 %.0
 }
 
-declare i64 @kvstoreSize(ptr noundef) local_unnamed_addr #4
+declare i64 @kvstoreSize(ptr noundef) local_unnamed_addr #3
 
-declare ptr @kvstoreIteratorInit(ptr noundef) local_unnamed_addr #4
+declare ptr @kvstoreIteratorInit(ptr noundef) local_unnamed_addr #3
 
-declare ptr @kvstoreIteratorNext(ptr noundef) local_unnamed_addr #4
+declare ptr @kvstoreIteratorNext(ptr noundef) local_unnamed_addr #3
 
-declare i32 @kvstoreIteratorGetCurrentDictIndex(ptr noundef) local_unnamed_addr #4
+declare i32 @kvstoreIteratorGetCurrentDictIndex(ptr noundef) local_unnamed_addr #3
 
-declare i64 @kvstoreDictSize(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @kvstoreDictSize(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i64 @getExpire(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i64 @getExpire(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @dismissObject(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @dismissObject(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i64 @mstime() local_unnamed_addr #4
+declare i64 @mstime() local_unnamed_addr #3
 
-declare void @sendChildInfo(i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare void @sendChildInfo(i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @kvstoreIteratorRelease(ptr noundef) local_unnamed_addr #4
+declare void @kvstoreIteratorRelease(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @rdbSaveRio(i32 noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
@@ -7789,9 +7783,9 @@ define dso_local range(i32 -1, 1) i32 @rdbSaveRio(i32 noundef %0, ptr noundef %1
   %7 = alloca [10 x i8], align 1
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %7) #23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8, !tbaa !61
   %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6788), align 4, !tbaa !169
   %.not = icmp eq i32 %10, 0
@@ -7912,7 +7906,7 @@ rdbWriteRaw.exit:                                 ; preds = %35, %13
   br i1 %62, label %rdbWriteRaw.exit.thread, label %.critedge
 
 .critedge:                                        ; preds = %52, %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 -1, ptr %6, align 1, !tbaa !59
   br i1 %.not.i31, label %.loopexit, label %63
 
@@ -7967,11 +7961,11 @@ rdbWriteRaw.exit:                                 ; preds = %35, %13
   br i1 %.not31.i.i.i, label %.loopexit, label %71
 
 rdbSaveType.exit.thread:                          ; preds = %63, %.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %rdbWriteRaw.exit.thread
 
 .loopexit:                                        ; preds = %83, %.critedge
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %89 = load i64, ptr %88, align 8, !tbaa !172
   store i64 %89, ptr %8, align 8, !tbaa !61
@@ -8036,23 +8030,23 @@ rdbWriteRaw.exit.thread:                          ; preds = %.lr.ph, %.thread.i,
 
 rioWrite.exit:                                    ; preds = %109, %rdbWriteRaw.exit.thread, %114
   %.022 = phi i32 [ -1, %114 ], [ -1, %rdbWriteRaw.exit.thread ], [ 0, %109 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #23
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %7) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.022
 }
 
-declare void @rioGenericUpdateChecksum(ptr noundef, ptr noundef, i64 noundef) #4
+declare void @rioGenericUpdateChecksum(ptr noundef, ptr noundef, i64 noundef) #3
 
-declare i64 @rdbSaveModulesAux(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @rdbSaveModulesAux(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #14
+declare ptr @__errno_location() local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @rdbSaveRioWithEOFMark(i32 noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca [40 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call i32 @getpid() #23
   %7 = load i32, ptr @server, align 8, !tbaa !173
   %.not4.i = icmp eq i32 %6, %7
@@ -8247,7 +8241,7 @@ rioWrite.exit43:                                  ; preds = %78, %rioWrite.exit.
   %.sink = phi i32 [ 4, %88 ], [ 4, %85 ], [ 4, %rioWrite.exit.thread ], [ 3, %78 ]
   %.0 = phi i32 [ -1, %88 ], [ -1, %85 ], [ -1, %rioWrite.exit.thread ], [ 0, %78 ]
   call void @moduleFireServerEvent(i64 noundef 1, i32 noundef %.sink, ptr noundef null) #23
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -8265,7 +8259,7 @@ define dso_local void @startSaving(i32 noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @getRandomHexChars(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @getRandomHexChars(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @stopSaving(i32 noundef %0) local_unnamed_addr #0 {
@@ -8307,9 +8301,9 @@ define internal fastcc range(i32 -1, 1) i32 @rdbSaveInternal(i32 noundef %0, ptr
   %5 = alloca [4096 x i8], align 16
   %6 = alloca %struct._rio, align 8
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5) #23
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !51
   %8 = tail call noalias ptr @fopen64(ptr noundef %1, ptr noundef nonnull @.str.162)
   %.not = icmp eq ptr %8, null
@@ -8427,9 +8421,9 @@ define internal fastcc range(i32 -1, 1) i32 @rdbSaveInternal(i32 noundef %0, ptr
 
 61:                                               ; preds = %47, %59, %18
   %.0 = phi i32 [ -1, %59 ], [ -1, %18 ], [ 0, %47 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #23
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #23
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -8437,8 +8431,8 @@ define internal fastcc range(i32 -1, 1) i32 @rdbSaveInternal(i32 noundef %0, ptr
 define dso_local range(i32 -1, 1) i32 @rdbSave(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [256 x i8], align 16
   %6 = alloca [4096 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #23
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %6) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = and i32 %3, 1
   %.not.i = icmp eq i32 %7, 0
   %8 = tail call i32 @getpid() #23
@@ -8514,27 +8508,27 @@ define dso_local range(i32 -1, 1) i32 @rdbSave(i32 noundef %0, ptr noundef %1, p
   %.sink = phi i32 [ 3, %39 ], [ 4, %25 ], [ 4, %4 ], [ 4, %30 ], [ 4, %32 ]
   %.0 = phi i32 [ 0, %39 ], [ -1, %25 ], [ -1, %4 ], [ -1, %30 ], [ -1, %32 ]
   call void @moduleFireServerEvent(i64 noundef 1, i32 noundef %.sink, ptr noundef null) #23
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %6) #23
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind
-declare i32 @getpid() local_unnamed_addr #13
+declare i32 @getpid() local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #13
+declare ptr @strerror(i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
-declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #13
+declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #2
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #1
 
-declare i32 @fsyncFileDir(ptr noundef) local_unnamed_addr #4
+declare i32 @fsyncFileDir(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @rdbSaveBackground(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -8607,24 +8601,24 @@ define dso_local range(i32 -1, 1) i32 @rdbSaveBackground(i32 noundef %0, ptr nou
   ret i32 %.0
 }
 
-declare i32 @hasActiveChildProcess() local_unnamed_addr #4
+declare i32 @hasActiveChildProcess() local_unnamed_addr #3
 
-declare i32 @redisFork(i32 noundef) local_unnamed_addr #4
+declare i32 @redisFork(i32 noundef) local_unnamed_addr #3
 
-declare i32 @redisSetProcTitle(ptr noundef) local_unnamed_addr #4
+declare i32 @redisSetProcTitle(ptr noundef) local_unnamed_addr #3
 
-declare void @redisSetCpuAffinity(ptr noundef) local_unnamed_addr #4
+declare void @redisSetCpuAffinity(ptr noundef) local_unnamed_addr #3
 
-declare void @sendChildCowInfo(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @sendChildCowInfo(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @exitFromChild(i32 noundef) local_unnamed_addr #4
+declare void @exitFromChild(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @rdbRemoveTempFile(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [256 x i8], align 16
   %4 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = sext i32 %0 to i64
   %6 = call i32 @ll2string(ptr noundef nonnull %4, i64 noundef 32, i64 noundef %5) #23
   %7 = call i64 @redis_strlcpy(ptr noundef nonnull %3, ptr noundef nonnull @.str.47, i64 noundef 256) #23
@@ -8643,19 +8637,19 @@ define dso_local void @rdbRemoveTempFile(i32 noundef %0, i32 noundef %1) local_u
   br label %15
 
 15:                                               ; preds = %13, %10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare i64 @redis_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i64 @redis_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i64 @redis_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i64 @redis_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #15
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #14
 
-declare i32 @bg_unlink(ptr noundef) local_unnamed_addr #4
+declare i32 @bg_unlink(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @rdbLoadCheckModuleValue(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -8663,12 +8657,12 @@ define dso_local ptr @rdbLoadCheckModuleValue(ptr noundef %0, ptr noundef %1) lo
   %4 = alloca i64, align 8
   %5 = alloca float, align 4
   %6 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = call i32 @rdbLoadLenByRef(ptr noundef %0, ptr noundef null, ptr noundef nonnull %3)
   %8 = icmp eq i32 %7, -1
   %9 = load i64, ptr %3, align 8
   %.0.i24 = select i1 %8, i64 -1, i64 %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not25 = icmp eq i64 %.0.i24, 0
   br i1 %.not25, label %._crit_edge, label %.lr.ph
 
@@ -8685,7 +8679,7 @@ define dso_local ptr @rdbLoadCheckModuleValue(ptr noundef %0, ptr noundef %1) lo
   br i1 %or.cond, label %15, label %20
 
 15:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %16 = call i32 @rdbLoadLenByRef(ptr noundef %0, ptr noundef null, ptr noundef nonnull %4)
   %17 = icmp eq i32 %16, -1
   br i1 %17, label %18, label %19
@@ -8695,7 +8689,7 @@ define dso_local ptr @rdbLoadCheckModuleValue(ptr noundef %0, ptr noundef %1) lo
   br label %19
 
 19:                                               ; preds = %18, %15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %66
 
 20:                                               ; preds = %14
@@ -8719,7 +8713,7 @@ define dso_local ptr @rdbLoadCheckModuleValue(ptr noundef %0, ptr noundef %1) lo
   br label %66
 
 26:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %27 = load i64, ptr %10, align 8, !tbaa !53
   %28 = and i64 %27, 5
   %.not.i.i = icmp eq i64 %28, 0
@@ -8766,11 +8760,11 @@ define dso_local ptr @rdbLoadCheckModuleValue(ptr noundef %0, ptr noundef %1) lo
   br label %rdbLoadBinaryFloatValue.exit
 
 rdbLoadBinaryFloatValue.exit:                     ; preds = %40, %45
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %66
 
 46:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %47 = load i64, ptr %10, align 8, !tbaa !53
   %48 = and i64 %47, 5
   %.not.i.i16 = icmp eq i64 %48, 0
@@ -8817,16 +8811,16 @@ rdbLoadBinaryFloatValue.exit:                     ; preds = %40, %45
   br label %rdbLoadBinaryDoubleValue.exit
 
 rdbLoadBinaryDoubleValue.exit:                    ; preds = %60, %65
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %66
 
 66:                                               ; preds = %20, %25, %rdbLoadBinaryDoubleValue.exit, %rdbLoadBinaryFloatValue.exit, %19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %67 = call i32 @rdbLoadLenByRef(ptr noundef %0, ptr noundef null, ptr noundef nonnull %3)
   %68 = icmp eq i32 %67, -1
   %69 = load i64, ptr %3, align 8
   %.0.i = select i1 %68, i64 -1, i64 %69
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq i64 %.0.i, 0
   br i1 %.not, label %._crit_edge, label %14, !llvm.loop !184
 
@@ -8835,12 +8829,12 @@ rdbLoadBinaryDoubleValue.exit:                    ; preds = %60, %65
   ret ptr %70
 }
 
-declare ptr @createStringObject(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @createStringObject(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @ziplistPairsConvertAndValidateIntegrity(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.anon.5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
@@ -8859,20 +8853,20 @@ define dso_local i32 @ziplistPairsConvertAndValidateIntegrity(ptr noundef %0, i6
   %12 = and i64 %8, 1
   %.not = icmp eq i64 %12, 0
   %spec.store.select = select i1 %.not, i32 %7, i32 0
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %spec.store.select
 }
 
-declare i32 @ziplistValidateIntegrity(ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @ziplistValidateIntegrity(ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @_ziplistPairsEntryConvertAndValidate(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !188
   %9 = icmp eq ptr %8, null
@@ -8953,13 +8947,13 @@ define internal range(i32 0, 2) i32 @_ziplistPairsEntryConvertAndValidate(ptr no
 
 49:                                               ; preds = %34, %15, %45
   %.0 = phi i32 [ 1, %45 ], [ 0, %34 ], [ 0, %15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare void @dictRelease(ptr noundef) local_unnamed_addr #4
+declare void @dictRelease(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @lpValidateIntegrityAndDups(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -8972,7 +8966,7 @@ define dso_local i32 @lpValidateIntegrityAndDups(ptr noundef %0, i64 noundef %1,
   br label %20
 
 8:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %3, ptr %5, align 8, !tbaa !189
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -8995,7 +8989,7 @@ define dso_local i32 @lpValidateIntegrityAndDups(ptr noundef %0, i64 noundef %1,
   br label %19
 
 19:                                               ; preds = %18, %8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %20
 
 20:                                               ; preds = %19, %6
@@ -9003,10 +8997,10 @@ define dso_local i32 @lpValidateIntegrityAndDups(ptr noundef %0, i64 noundef %1,
   ret i32 %.0
 }
 
-declare i32 @lpValidateIntegrity(ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @lpValidateIntegrity(ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @_lpEntryValidation(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) #0 {
@@ -9037,8 +9031,8 @@ define internal range(i32 0, 2) i32 @_lpEntryValidation(ptr noundef %0, i32 noun
   br i1 %22, label %23, label %30
 
 23:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
-  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %24 = call ptr @lpGet(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #23
   %25 = load i64, ptr %4, align 8, !tbaa !61
   %26 = call ptr @sdsnewlen(ptr noundef %24, i64 noundef %25) #23
@@ -9049,13 +9043,13 @@ define internal range(i32 0, 2) i32 @_lpEntryValidation(ptr noundef %0, i32 noun
 
 29:                                               ; preds = %23
   call void @sdsfree(ptr noundef %26) #23
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %5) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %50
 
 .critedge:                                        ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %5) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load i64, ptr %17, align 8, !tbaa !192
   %.pre32 = load i32, ptr %2, align 8, !tbaa !189
   %.pre34 = sext i32 %.pre32 to i64
@@ -9069,7 +9063,7 @@ define internal range(i32 0, 2) i32 @_lpEntryValidation(ptr noundef %0, i32 noun
   br i1 %33, label %34, label %47
 
 34:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %35 = call i32 @lpGetIntegerValue(ptr noundef %0, ptr noundef nonnull %6) #23
   %.not28 = icmp eq i32 %35, 0
   br i1 %.not28, label %46, label %36
@@ -9094,12 +9088,12 @@ define internal range(i32 0, 2) i32 @_lpEntryValidation(ptr noundef %0, i32 noun
 .critedge31:                                      ; preds = %40, %39
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 %37, ptr %45, align 8, !tbaa !191
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre33 = load i64, ptr %17, align 8, !tbaa !192
   br label %47
 
 46:                                               ; preds = %40, %36, %34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %50
 
 47:                                               ; preds = %.critedge31, %30
@@ -9227,12 +9221,12 @@ define dso_local ptr @rdbLoadObject(i32 noundef %0, ptr noundef %1, ptr noundef 
   br label %.critedge1037
 
 83:                                               ; preds = %.thread
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %84 = call i32 @rdbLoadLenByRef(ptr noundef %1, ptr noundef null, ptr noundef nonnull %32)
   %85 = icmp eq i32 %84, -1
   %86 = load i64, ptr %32, align 8
   %.0.i = select i1 %85, i64 -1, i64 %86
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   switch i64 %.0.i, label %87 [
     i64 -1, label %.critedge1047
     i64 0, label %1209
@@ -9318,12 +9312,12 @@ sdslen.exit:                                      ; preds = %97, %105, %108, %11
   br label %.critedge1037
 
 125:                                              ; preds = %.thread
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %126 = call i32 @rdbLoadLenByRef(ptr noundef %1, ptr noundef null, ptr noundef nonnull %31)
   %127 = icmp eq i32 %126, -1
   %128 = load i64, ptr %31, align 8
   %.0.i1063 = select i1 %127, i64 -1, i64 %128
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   switch i64 %.0.i1063, label %129 [
     i64 -1, label %.critedge1047
     i64 0, label %1209
@@ -9365,7 +9359,7 @@ sdslen.exit:                                      ; preds = %97, %105, %108, %11
   %.07731332 = phi i32 [ 0, %.lr.ph ], [ %229, %228 ]
   %.08241331 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %228 ]
   %.08281330 = phi i64 [ 0, %.lr.ph ], [ %170, %228 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %144 = call ptr @rdbGenericLoadStringObject(ptr noundef %1, i32 noundef 4, ptr noundef null)
   %145 = icmp eq ptr %144, null
   br i1 %145, label %146, label %147
@@ -9430,7 +9424,7 @@ sdslen.exit1065:                                  ; preds = %147, %152, %155, %1
   br i1 %176, label %177, label %183
 
 177:                                              ; preds = %174
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %34) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %178 = load ptr, ptr %142, align 8, !tbaa !65
   %179 = load i64, ptr %33, align 8, !tbaa !62
   %180 = call ptr @intsetAdd(ptr noundef %178, i64 noundef %179, ptr noundef nonnull %34) #23
@@ -9443,7 +9437,7 @@ sdslen.exit1065:                                  ; preds = %147, %152, %155, %1
   call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 1, i32 noundef 2015, ptr noundef nonnull @.str.55)
   call void @decrRefCount(ptr noundef nonnull %.2759) #23
   call void @sdsfree(ptr noundef nonnull %144) #23
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %34) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %.critedge1016
 
 183:                                              ; preds = %174
@@ -9476,7 +9470,7 @@ sdslen.exit1065:                                  ; preds = %147, %152, %155, %1
   br label %.critedge1016
 
 .critedge:                                        ; preds = %177
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %34) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %194
 
 194:                                              ; preds = %.critedge, %191, %190, %sdslen.exit1065
@@ -9564,14 +9558,14 @@ sdslen.exit1065:                                  ; preds = %147, %152, %155, %1
   br label %228
 
 228:                                              ; preds = %223, %227
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   %229 = add i32 %.07731332, 1
   %230 = zext i32 %229 to i64
   %.not1213 = icmp ugt i64 %.0.i1063, %230
   br i1 %.not1213, label %143, label %.critedge1037, !llvm.loop !205
 
 .critedge1016:                                    ; preds = %182, %.critedge1014, %193, %218, %226, %146
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %.critedge1047
 
 231:                                              ; preds = %.thread
@@ -9583,12 +9577,12 @@ sdslen.exit1065:                                  ; preds = %147, %152, %155, %1
   ]
 
 233:                                              ; preds = %231, %231
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %234 = call i32 @rdbLoadLenByRef(ptr noundef %1, ptr noundef null, ptr noundef nonnull %30)
   %235 = icmp eq i32 %234, -1
   %236 = load i64, ptr %30, align 8
   %.0.i1066 = select i1 %235, i64 -1, i64 %236
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   switch i64 %.0.i1066, label %237 [
     i64 -1, label %.critedge1047
     i64 0, label %1209
@@ -9629,7 +9623,7 @@ sdslen.exit1065:                                  ; preds = %147, %152, %155, %1
   %.08341340 = phi i64 [ 0, %.lr.ph1342 ], [ %.28361120, %328 ]
   %.08381339 = phi i64 [ 0, %.lr.ph1342 ], [ %329, %328 ]
   %253 = add i64 %.in1377, -1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %254 = call ptr @rdbGenericLoadStringObject(ptr noundef %1, i32 noundef 4, ptr noundef null)
   %255 = icmp eq ptr %254, null
   br i1 %255, label %256, label %257
@@ -9853,7 +9847,7 @@ sdslen.exit1072:                                  ; preds = %sdslen.exit1070.thr
 
 328:                                              ; preds = %sdslen.exit1072
   %329 = add i64 %.0.i1071, %.08381339
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   %.not994 = icmp eq i64 %253, 0
   br i1 %.not994, label %._crit_edge1343, label %252, !llvm.loop !207
 
@@ -9878,16 +9872,16 @@ sdslen.exit1072:                                  ; preds = %sdslen.exit1070.thr
   br label %.critedge1037
 
 .critedge1018:                                    ; preds = %280, %327, %283, %.loopexit1219, %256
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %.critedge1047
 
 336:                                              ; preds = %231
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %337 = call i32 @rdbLoadLenByRef(ptr noundef %1, ptr noundef null, ptr noundef nonnull %29)
   %338 = icmp eq i32 %337, -1
   %339 = load i64, ptr %29, align 8
   %.0.i1073 = select i1 %338, i64 -1, i64 %339
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   switch i64 %.0.i1073, label %340 [
     i64 -1, label %.critedge1047
     i64 0, label %1209
@@ -10262,11 +10256,11 @@ sdslen.exit1079:                                  ; preds = %439, %447, %450, %4
   ]
 
 513:                                              ; preds = %511, %511
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   br i1 %512, label %514, label %545
 
 514:                                              ; preds = %513
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %515 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %516 = load i64, ptr %515, align 8, !tbaa !53
   %517 = and i64 %516, 5
@@ -10323,7 +10317,7 @@ rioRead.exit.i:                                   ; preds = %533
 rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i1087, %rioRead.exit.i
   %.val = phi i64 [ %.val.pre, %rioRead.exit.i ], [ %516, %514 ], [ %529, %.thread.i.i1087 ]
   %539 = phi i64 [ %538, %rioRead.exit.i ], [ 9223372036854775807, %514 ], [ 9223372036854775807, %.thread.i.i1087 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %540 = and i64 %.val, 1
   %.not972 = icmp eq i64 %540, 0
   br i1 %.not972, label %542, label %541
@@ -10342,12 +10336,12 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
 
 545:                                              ; preds = %542, %544, %513
   %.0847 = phi i64 [ %539, %544 ], [ %539, %542 ], [ 281474976710656, %513 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %546 = call i32 @rdbLoadLenByRef(ptr noundef %1, ptr noundef null, ptr noundef nonnull %27)
   %547 = icmp eq i32 %546, -1
   %548 = load i64, ptr %27, align 8
   %.0.i1088 = select i1 %547, i64 -1, i64 %548
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   switch i64 %.0.i1088, label %549 [
     i64 -1, label %.thread1158
     i64 0, label %656
@@ -10622,15 +10616,15 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   br label %.thread1162
 
 .thread1158:                                      ; preds = %541, %599, %633, %654, %609, %545, %570, %569, %578, %577, %589, %588
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %.critedge1047
 
 .thread1162:                                      ; preds = %655, %._crit_edge1350
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %.critedge1037
 
 656:                                              ; preds = %545
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %1209
 
 657:                                              ; preds = %511
@@ -10641,12 +10635,12 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   ]
 
 659:                                              ; preds = %657, %657
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %660 = call i32 @rdbLoadLenByRef(ptr noundef %1, ptr noundef null, ptr noundef nonnull %26)
   %661 = icmp eq i32 %660, -1
   %662 = load i64, ptr %26, align 8
   %.0.i1089 = select i1 %661, i64 -1, i64 %662
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   switch i64 %.0.i1089, label %663 [
     i64 -1, label %.critedge1047
     i64 0, label %1209
@@ -10667,16 +10661,16 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   %.in1378 = phi i64 [ %662, %.lr.ph1354 ], [ %669, %716 ]
   %.08561352 = phi i64 [ 2, %.lr.ph1354 ], [ %.1857, %716 ]
   %669 = add i64 %.in1378, -1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   br i1 %658, label %670, label %680
 
 670:                                              ; preds = %668
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %671 = call i32 @rdbLoadLenByRef(ptr noundef %1, ptr noundef null, ptr noundef nonnull %25)
   %672 = icmp eq i32 %671, -1
   %673 = load i64, ptr %25, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %674 = icmp eq i64 %673, -1
   %675 = select i1 %672, i1 true, i1 %674
   br i1 %675, label %676, label %677
@@ -10787,13 +10781,13 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   br label %716
 
 .thread1169:                                      ; preds = %702, %697, %685, %679, %676
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %.critedge1047
 
 716:                                              ; preds = %688, %711, %713
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   %.not969 = icmp eq i64 %669, 0
   br i1 %.not969, label %._crit_edge1355, label %668
 
@@ -10834,7 +10828,7 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
 
 724:                                              ; preds = %722, %722, %722, %722, %722, %722, %722, %722, %722, %722
   %725 = icmp eq i32 %0, 25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   br i1 %725, label %726, label %.critedge1029
 
 726:                                              ; preds = %724
@@ -10888,10 +10882,10 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   %742 = getelementptr inbounds nuw i8, ptr %734, i64 8
   %743 = load ptr, ptr %742, align 8, !tbaa !65
   %744 = call ptr @zipmapRewind(ptr noundef %743) #23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %42) #23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %43) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %745 = call ptr @dictCreate(ptr noundef nonnull @hashDictType) #23
   %746 = call ptr @zipmapNext(ptr noundef %744, ptr noundef nonnull %40, ptr noundef nonnull %42, ptr noundef nonnull %41, ptr noundef nonnull %43) #23
   %.not9651369 = icmp eq ptr %746, null
@@ -10965,10 +10959,10 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   br label %.thread1174
 
 .thread1174:                                      ; preds = %780, %._crit_edge1374
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43) #23
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %42) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %.thread1188
 
 781:                                              ; preds = %.lr.ph1373, %753, %755
@@ -10979,10 +10973,10 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   call void @zfree(ptr noundef nonnull %731) #23
   store ptr null, ptr %742, align 8, !tbaa !65
   call void @decrRefCount(ptr noundef %734) #23
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43) #23
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %42) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %.thread1192
 
 783:                                              ; preds = %733
@@ -11001,7 +10995,7 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   store ptr null, ptr %789, align 8, !tbaa !65
   call void @decrRefCount(ptr noundef %734) #23
   call void @quicklistRelease(ptr noundef %786) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %.critedge1047
 
 790:                                              ; preds = %783
@@ -11016,7 +11010,7 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   store ptr null, ptr %794, align 8, !tbaa !65
   call void @decrRefCount(ptr noundef %734) #23
   call void @quicklistRelease(ptr noundef nonnull %786) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %1209
 
 795:                                              ; preds = %790
@@ -11123,7 +11117,7 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   br label %.thread1188
 
 843:                                              ; preds = %733
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   %844 = load i64, ptr %39, align 8, !tbaa !61
   %845 = call ptr @lpNew(i64 noundef %844) #23
   store ptr %845, ptr %44, align 8, !tbaa !52
@@ -11171,13 +11165,13 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   br label %.thread1180
 
 .thread1180:                                      ; preds = %864, %863
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %.thread1188
 
 867:                                              ; preds = %850, %847
   %.23799 = phi i32 [ 1, %847 ], [ 2, %850 ]
   call void @decrRefCount(ptr noundef %734) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %.thread1176
 
 868:                                              ; preds = %733
@@ -11229,7 +11223,7 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   br label %.thread1188
 
 889:                                              ; preds = %733
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   %890 = load i64, ptr %39, align 8, !tbaa !61
   %891 = call ptr @lpNew(i64 noundef %890) #23
   store ptr %891, ptr %45, align 8, !tbaa !52
@@ -11277,13 +11271,13 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   br label %.thread1184
 
 .thread1184:                                      ; preds = %910, %909
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %.thread1188
 
 913:                                              ; preds = %896, %893
   %.24800 = phi i32 [ 1, %893 ], [ 2, %896 ]
   call void @decrRefCount(ptr noundef %734) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %.thread1176
 
 914:                                              ; preds = %733, %733, %733
@@ -11363,21 +11357,21 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   br label %.thread1188
 
 .thread1188:                                      ; preds = %.thread1184, %.thread1180, %795, %.thread1174, %942, %946, %884, %888, %838, %842, %809, %819, %947
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %.critedge1037
 
 .thread1192:                                      ; preds = %730, %781, %738, %807, %828, %876, %938, %.critedge1029
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %.critedge1047
 
 .thread1196:                                      ; preds = %939, %878, %836
   call void @decrRefCount(ptr noundef nonnull %734) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %1209
 
 .thread1176:                                      ; preds = %913, %867
   %.18794 = phi i32 [ %.23799, %867 ], [ %.24800, %913 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   %cond = icmp ne i32 %.18794, 2
   %brmerge = or i1 %.not, %cond
   br i1 %brmerge, label %.critedge1047, label %1210
@@ -11386,11 +11380,11 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   %949 = tail call ptr @createStreamObject() #23
   %950 = getelementptr inbounds nuw i8, ptr %949, i64 8
   %951 = load ptr, ptr %950, align 8, !tbaa !65
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %952 = call i32 @rdbLoadLenByRef(ptr noundef %1, ptr noundef null, ptr noundef nonnull %24)
   %953 = icmp eq i32 %952, -1
   %954 = load i64, ptr %24, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %955 = icmp eq i64 %954, -1
   %956 = select i1 %953, i1 true, i1 %955
   br i1 %956, label %957, label %.preheader1218
@@ -11405,7 +11399,7 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   br label %.critedge1047
 
 .critedge1050:                                    ; preds = %981
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   %.not934 = icmp eq i64 %958, 0
   br i1 %.not934, label %._crit_edge1358, label %.lr.ph1357
 
@@ -11433,7 +11427,7 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   br label %.critedge1047
 
 965:                                              ; preds = %962
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   %966 = call ptr @rdbGenericLoadStringObject(ptr noundef %1, i32 noundef 2, ptr noundef nonnull %46)
   %967 = icmp eq ptr %966, null
   br i1 %967, label %968, label %969
@@ -11489,32 +11483,32 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 1, i32 noundef 2853, ptr noundef nonnull @.str.87)
   call void @decrRefCount(ptr noundef %949) #23
   call void @zfree(ptr noundef nonnull %966) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %.critedge1047, !llvm.loop !221
 
 ._crit_edge1358:                                  ; preds = %.critedge1050, %.preheader1218
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %985 = call i32 @rdbLoadLenByRef(ptr noundef %1, ptr noundef null, ptr noundef nonnull %23)
   %986 = icmp eq i32 %985, -1
   %987 = load i64, ptr %23, align 8
   %.0.i1095 = select i1 %986, i64 -1, i64 %987
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %988 = getelementptr inbounds nuw i8, ptr %951, i64 8
   store i64 %.0.i1095, ptr %988, align 8, !tbaa !117
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %989 = call i32 @rdbLoadLenByRef(ptr noundef %1, ptr noundef null, ptr noundef nonnull %22)
   %990 = icmp eq i32 %989, -1
   %991 = load i64, ptr %22, align 8
   %.0.i1096 = select i1 %990, i64 -1, i64 %991
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %992 = getelementptr inbounds nuw i8, ptr %951, i64 16
   store i64 %.0.i1096, ptr %992, align 8, !tbaa !118
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %993 = call i32 @rdbLoadLenByRef(ptr noundef %1, ptr noundef null, ptr noundef nonnull %21)
   %994 = icmp eq i32 %993, -1
   %995 = load i64, ptr %21, align 8
   %.0.i1097 = select i1 %994, i64 -1, i64 %995
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %996 = getelementptr inbounds nuw i8, ptr %951, i64 24
   store i64 %.0.i1097, ptr %996, align 8, !tbaa !119
   %997 = icmp sgt i32 %0, 18
@@ -11522,43 +11516,43 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   br i1 %997, label %999, label %1019
 
 999:                                              ; preds = %._crit_edge1358
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %1000 = call i32 @rdbLoadLenByRef(ptr noundef %1, ptr noundef null, ptr noundef nonnull %20)
   %1001 = icmp eq i32 %1000, -1
   %1002 = load i64, ptr %20, align 8
   %.0.i1098 = select i1 %1001, i64 -1, i64 %1002
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   store i64 %.0.i1098, ptr %998, align 8, !tbaa !120
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %1003 = call i32 @rdbLoadLenByRef(ptr noundef %1, ptr noundef null, ptr noundef nonnull %19)
   %1004 = icmp eq i32 %1003, -1
   %1005 = load i64, ptr %19, align 8
   %.0.i1099 = select i1 %1004, i64 -1, i64 %1005
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %1006 = getelementptr inbounds nuw i8, ptr %951, i64 40
   store i64 %.0.i1099, ptr %1006, align 8, !tbaa !121
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %1007 = call i32 @rdbLoadLenByRef(ptr noundef %1, ptr noundef null, ptr noundef nonnull %18)
   %1008 = icmp eq i32 %1007, -1
   %1009 = load i64, ptr %18, align 8
   %.0.i1100 = select i1 %1008, i64 -1, i64 %1009
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %1010 = getelementptr inbounds nuw i8, ptr %951, i64 48
   store i64 %.0.i1100, ptr %1010, align 8, !tbaa !122
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %1011 = call i32 @rdbLoadLenByRef(ptr noundef %1, ptr noundef null, ptr noundef nonnull %17)
   %1012 = icmp eq i32 %1011, -1
   %1013 = load i64, ptr %17, align 8
   %.0.i1101 = select i1 %1012, i64 -1, i64 %1013
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %1014 = getelementptr inbounds nuw i8, ptr %951, i64 56
   store i64 %.0.i1101, ptr %1014, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %1015 = call i32 @rdbLoadLenByRef(ptr noundef %1, ptr noundef null, ptr noundef nonnull %16)
   %1016 = icmp eq i32 %1015, -1
   %1017 = load i64, ptr %16, align 8
   %.0.i1102 = select i1 %1016, i64 -1, i64 %1017
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %1018 = getelementptr inbounds nuw i8, ptr %951, i64 64
   store i64 %.0.i1102, ptr %1018, align 8, !tbaa !124
   br label %1023
@@ -11601,11 +11595,11 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   br label %.critedge1047
 
 1033:                                             ; preds = %1029, %1027
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %1034 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %15)
   %1035 = icmp eq i32 %1034, -1
   %1036 = load i64, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %1037 = icmp eq i64 %1036, -1
   %1038 = select i1 %1035, i1 true, i1 %1037
   br i1 %1038, label %1042, label %.preheader1217
@@ -11628,7 +11622,7 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
 1043:                                             ; preds = %.lr.ph1368, %.critedge1043
   %.in1380 = phi i64 [ %1036, %.lr.ph1368 ], [ %1044, %.critedge1043 ]
   %1044 = add i64 %.in1380, -1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %47) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   %1045 = call ptr @rdbGenericLoadStringObject(ptr noundef nonnull %1, i32 noundef 4, ptr noundef null)
   %1046 = icmp eq ptr %1045, null
   br i1 %1046, label %1047, label %1048
@@ -11639,19 +11633,19 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   br label %.critedge1046
 
 1048:                                             ; preds = %1043
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %1049 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %14)
   %1050 = icmp eq i32 %1049, -1
   %1051 = load i64, ptr %14, align 8
   %.0.i1104 = select i1 %1050, i64 -1, i64 %1051
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   store i64 %.0.i1104, ptr %47, align 8, !tbaa !222
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %1052 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %13)
   %1053 = icmp eq i32 %1052, -1
   %1054 = load i64, ptr %13, align 8
   %.0.i1105 = select i1 %1053, i64 -1, i64 %1054
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   store i64 %.0.i1105, ptr %1039, align 8, !tbaa !223
   %.val1056 = load i64, ptr %1024, align 8, !tbaa !53
   %1055 = and i64 %.val1056, 1
@@ -11668,12 +11662,12 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   br i1 %997, label %1058, label %1064
 
 1058:                                             ; preds = %1057
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %1059 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %12)
   %1060 = icmp eq i32 %1059, -1
   %1061 = load i64, ptr %12, align 8
   %.0.i1106 = select i1 %1060, i64 -1, i64 %1061
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.val1057 = load i64, ptr %1024, align 8, !tbaa !53
   %1062 = and i64 %.val1057, 1
   %.not940 = icmp eq i64 %1062, 0
@@ -11704,11 +11698,11 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
 
 1071:                                             ; preds = %1066
   call void @sdsfree(ptr noundef nonnull %1045) #23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %1072 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %11)
   %1073 = icmp eq i32 %1072, -1
   %1074 = load i64, ptr %11, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %1075 = icmp eq i64 %1074, -1
   %1076 = select i1 %1073, i1 true, i1 %1075
   br i1 %1076, label %1078, label %.preheader1216
@@ -11729,7 +11723,7 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
 1079:                                             ; preds = %.lr.ph1360, %1097
   %.in1381 = phi i64 [ %1074, %.lr.ph1360 ], [ %1080, %1097 ]
   %1080 = add i64 %.in1381, -1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %48) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   %1081 = call fastcc i64 @rioRead(ptr noundef nonnull %1, ptr noundef nonnull %48, i64 noundef 16)
   %1082 = icmp eq i64 %1081, 0
   br i1 %1082, label %1083, label %1084
@@ -11743,12 +11737,12 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   %1085 = call ptr @streamCreateNACK(ptr noundef null) #23
   %1086 = call i64 @rdbLoadMillisecondTime(ptr noundef nonnull %1, i32 poison)
   store i64 %1086, ptr %1085, align 8, !tbaa !84
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %1087 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %10)
   %1088 = icmp eq i32 %1087, -1
   %1089 = load i64, ptr %10, align 8
   %.0.i1108 = select i1 %1088, i64 -1, i64 %1089
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %1090 = getelementptr inbounds nuw i8, ptr %1085, i64 8
   store i64 %.0.i1108, ptr %1090, align 8, !tbaa !76
   %.val1058 = load i64, ptr %1024, align 8, !tbaa !53
@@ -11775,16 +11769,16 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   br label %.critedge1039
 
 1097:                                             ; preds = %1093
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   %.not941 = icmp eq i64 %1080, 0
   br i1 %.not941, label %._crit_edge1361, label %1079, !llvm.loop !224
 
 ._crit_edge1361:                                  ; preds = %1097, %.preheader1216
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %1098 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %9)
   %1099 = icmp eq i32 %1098, -1
   %1100 = load i64, ptr %9, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %1101 = icmp eq i64 %1100, -1
   %1102 = select i1 %1099, i1 true, i1 %1101
   br i1 %1102, label %1104, label %.preheader1215
@@ -11865,11 +11859,11 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   br label %1125
 
 1125:                                             ; preds = %1118, %1123
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %1126 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %8)
   %1127 = icmp eq i32 %1126, -1
   %1128 = load i64, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %1129 = icmp eq i64 %1128, -1
   %1130 = select i1 %1127, i1 true, i1 %1129
   br i1 %1130, label %1132, label %.preheader
@@ -11888,15 +11882,15 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   br label %.critedge1046
 
 .critedge1053:                                    ; preds = %1140
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   %.not948 = icmp eq i64 %1134, 0
   br i1 %.not948, label %.loopexit, label %1133
 
 1133:                                             ; preds = %.lr.ph1363, %.critedge1053
   %.in1383 = phi i64 [ %1128, %.lr.ph1363 ], [ %1134, %.critedge1053 ]
   %1134 = add i64 %.in1383, -1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   %1135 = call fastcc i64 @rioRead(ptr noundef nonnull %1, ptr noundef nonnull %49, i64 noundef 16)
   %1136 = icmp eq i64 %1135, 0
   br i1 %1136, label %.critedge1041, label %1137
@@ -11904,11 +11898,11 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
 .critedge1041:                                    ; preds = %1133
   call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 0, i32 noundef 3048, ptr noundef nonnull @.str.105)
   call void @decrRefCount(ptr noundef %949) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %.critedge1046
 
 1137:                                             ; preds = %1133
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   %1138 = load ptr, ptr %1103, align 8, !tbaa !129
   %1139 = call i32 @raxFind(ptr noundef %1138, ptr noundef nonnull %49, i64 noundef 16, ptr noundef nonnull %50) #23
   %.not949 = icmp eq i32 %1139, 0
@@ -11917,8 +11911,8 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
 .critedge1046.critedge:                           ; preds = %1137
   call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 1, i32 noundef 3055, ptr noundef nonnull @.str.106)
   call void @decrRefCount(ptr noundef %949) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %.critedge1046
 
 1140:                                             ; preds = %1137
@@ -11934,15 +11928,15 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 1, i32 noundef 3068, ptr noundef nonnull @.str.107)
   call void @decrRefCount(ptr noundef %949) #23
   call void @streamFreeNACK(ptr noundef nonnull %1141) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %.critedge1046, !llvm.loop !227
 
 ._crit_edge1366:                                  ; preds = %.loopexit, %.preheader1215
   br i1 %.0774.in, label %1146, label %.critedge1043
 
 1146:                                             ; preds = %._crit_edge1366
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %51) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   %1147 = getelementptr inbounds nuw i8, ptr %1068, i64 24
   %1148 = load ptr, ptr %1147, align 8, !tbaa !129
   call void @raxStart(ptr noundef nonnull %51, ptr noundef %1148) #23
@@ -11963,27 +11957,27 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
 
 .thread1199:                                      ; preds = %.critedge1045
   call void @raxStop(ptr noundef nonnull %51) #23
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %51) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   br label %.critedge1043
 
 1155:                                             ; preds = %1151
   call void @raxStop(ptr noundef nonnull %51) #23
   call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 1, i32 noundef 3085, ptr noundef nonnull @.str.108)
   call void @decrRefCount(ptr noundef %949) #23
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %51) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   br label %.critedge1046
 
 .critedge1043:                                    ; preds = %.thread1199, %._crit_edge1366
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %.not938 = icmp eq i64 %1044, 0
   br i1 %.not938, label %.critedge1037, label %1043, !llvm.loop !228
 
 .critedge1039:                                    ; preds = %1096, %1092, %1083
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %.critedge1046
 
 .critedge1046:                                    ; preds = %1155, %1145, %.critedge1046.critedge, %1109, %1116, %1122, %1132, %1112, %.critedge1041, %1104, %.critedge1039, %1078, %1070, %1063, %1056, %1047
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %.critedge1047
 
 1156:                                             ; preds = %722
@@ -11991,12 +11985,12 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   br label %.critedge1047
 
 1157:                                             ; preds = %722
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %1158 = call i32 @rdbLoadLenByRef(ptr noundef %1, ptr noundef null, ptr noundef nonnull %7)
   %1159 = icmp eq i32 %1158, -1
   %1160 = load i64, ptr %7, align 8
   %.0.i1111 = select i1 %1159, i64 -1, i64 %1160
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %1161 = getelementptr i8, ptr %1, i64 48
   %.val1061 = load i64, ptr %1161, align 8, !tbaa !53
   %1162 = and i64 %.val1061, 1
@@ -12014,10 +12008,10 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   br i1 %.not929, label %1169, label %1167
 
 1167:                                             ; preds = %1164
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %52) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   call void @moduleTypeNameByID(ptr noundef nonnull %52, i64 noundef %.0.i1111) #23
   %1168 = call ptr @rdbLoadCheckModuleValue(ptr noundef nonnull %1, ptr noundef nonnull %52)
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %52) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %.critedge1047
 
 1169:                                             ; preds = %1164
@@ -12025,15 +12019,15 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   br i1 %1170, label %1171, label %1172
 
 1171:                                             ; preds = %1169
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %53) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
   call void @moduleTypeNameByID(ptr noundef nonnull %53, i64 noundef %.0.i1111) #23
   call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 1, i32 noundef 3113, ptr noundef nonnull @.str.111, ptr noundef nonnull %53)
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %53) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %.critedge1047
 
 1172:                                             ; preds = %1169
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %54) #23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %55) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   %1173 = getelementptr inbounds nuw i8, ptr %55, i64 4
   store i32 2147483646, ptr %1173, align 4, !tbaa !167
   store i32 0, ptr %55, align 8
@@ -12070,12 +12064,12 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   br label %1190
 
 1190:                                             ; preds = %1188, %1172
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %1191 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %6)
   %1192 = icmp eq i32 %1191, -1
   %1193 = load i64, ptr %6, align 8
   %.0.i1112 = select i1 %1192, i64 -1, i64 %1193
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   switch i64 %.0.i1112, label %1197 [
     i64 -1, label %1194
     i64 0, label %1201
@@ -12111,14 +12105,14 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   br label %.thread1206
 
 .thread1206:                                      ; preds = %1203, %1195, %1194, %1199, %1197
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %54) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br label %.critedge1047
 
 1205:                                             ; preds = %1201
   %1206 = call ptr @createModuleObject(ptr noundef nonnull %1165, ptr noundef nonnull %1186) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %54) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br label %.critedge1037
 
 1207:                                             ; preds = %722
@@ -12141,7 +12135,7 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   br label %.critedge1047
 
 .critedge1047.critedge:                           ; preds = %980, %976, %968
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %.critedge1047
 
 .critedge1047:                                    ; preds = %.thread1176, %1171, %1167, %1163, %.thread1176.thread, %364, %365, %359, %360, %336, %371, %507, %498, %494, %482, %438, %.critedge1018, %233, %245, %.critedge1016, %139, %.thread1206, %.thread1192, %.thread1169, %.thread1158, %984, %.critedge1047.critedge, %957, %1026, %1032, %1042, %.critedge1046, %964, %961, %1209, %1210, %.critedge1037, %1208, %659, %125, %83, %78, %1207, %1156, %96
@@ -12149,78 +12143,78 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   ret ptr %.0
 }
 
-declare ptr @tryObjectEncodingEx(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @tryObjectEncodingEx(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @createQuicklistObject(i32 noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @createQuicklistObject(i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @getDecodedObject(ptr noundef) local_unnamed_addr #4
+declare ptr @getDecodedObject(ptr noundef) local_unnamed_addr #3
 
-declare i32 @quicklistPushTail(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @quicklistPushTail(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @listTypeTryConversion(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @listTypeTryConversion(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @createSetObject() local_unnamed_addr #4
+declare ptr @createSetObject() local_unnamed_addr #3
 
-declare i32 @dictTryExpand(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @dictTryExpand(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @createIntsetObject() local_unnamed_addr #4
+declare ptr @createIntsetObject() local_unnamed_addr #3
 
-declare i32 @isSdsRepresentableAsLongLong(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @isSdsRepresentableAsLongLong(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @intsetAdd(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @intsetAdd(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i64 @setTypeSize(ptr noundef) local_unnamed_addr #4
+declare i64 @setTypeSize(ptr noundef) local_unnamed_addr #3
 
-declare i32 @lpSafeToAdd(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @lpSafeToAdd(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @setTypeConvert(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @setTypeConvert(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @setTypeConvertAndExpand(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @setTypeConvertAndExpand(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @lpFirst(ptr noundef) local_unnamed_addr #4
+declare ptr @lpFirst(ptr noundef) local_unnamed_addr #3
 
-declare ptr @lpFind(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @lpFind(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @lpAppend(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @lpAppend(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @dictAdd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @dictAdd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @createZsetObject() local_unnamed_addr #4
+declare ptr @createZsetObject() local_unnamed_addr #3
 
-declare ptr @zslInsert(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @zslInsert(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #3
 
-declare i64 @zsetLength(ptr noundef) local_unnamed_addr #4
+declare i64 @zsetLength(ptr noundef) local_unnamed_addr #3
 
-declare void @zsetConvert(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @zsetConvert(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @createHashObject() local_unnamed_addr #4
+declare ptr @createHashObject() local_unnamed_addr #3
 
-declare void @hashTypeConvert(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @hashTypeConvert(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @dictCreate(ptr noundef) local_unnamed_addr #4
+declare ptr @dictCreate(ptr noundef) local_unnamed_addr #3
 
-declare void @dictTypeAddMeta(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @dictTypeAddMeta(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @initDictExpireMetadata(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @initDictExpireMetadata(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i64 @lpEntrySizeInteger(i64 noundef) local_unnamed_addr #4
+declare i64 @lpEntrySizeInteger(i64 noundef) local_unnamed_addr #3
 
-declare void @listpackExAddNew(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare void @listpackExAddNew(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @ebAdd(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @ebAdd(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @quicklistAppendPlainNode(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @quicklistAppendPlainNode(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @lpNew(i64 noundef) local_unnamed_addr #4
+declare ptr @lpNew(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @_ziplistEntryConvertAndValidate(ptr noundef %0, i32 %1, ptr noundef captures(none) %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i32 @ziplistGet(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #23
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %18, label %8
@@ -12248,29 +12242,29 @@ define internal range(i32 0, 2) i32 @_ziplistEntryConvertAndValidate(ptr noundef
 
 18:                                               ; preds = %3, %17
   %.0 = phi i32 [ 1, %17 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare ptr @lpShrinkToFit(ptr noundef) local_unnamed_addr #4
+declare ptr @lpShrinkToFit(ptr noundef) local_unnamed_addr #3
 
-declare i64 @lpLength(ptr noundef) local_unnamed_addr #4
+declare i64 @lpLength(ptr noundef) local_unnamed_addr #3
 
-declare void @quicklistAppendListpack(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @quicklistAppendListpack(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i64 @quicklistCount(ptr noundef) local_unnamed_addr #4
+declare i64 @quicklistCount(ptr noundef) local_unnamed_addr #3
 
-declare i32 @zipmapValidateIntegrity(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @zipmapValidateIntegrity(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @zipmapRewind(ptr noundef) local_unnamed_addr #4
+declare ptr @zipmapRewind(ptr noundef) local_unnamed_addr #3
 
-declare ptr @zipmapNext(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @zipmapNext(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i64 @hashTypeLength(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @hashTypeLength(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @quicklistNew(i32 noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @quicklistNew(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @_listZiplistEntryConvertAndValidate(ptr noundef %0, i32 %1, ptr noundef %2) #0 {
@@ -12278,10 +12272,10 @@ define internal range(i32 0, 2) i32 @_listZiplistEntryConvertAndValidate(ptr nou
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
   %7 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %8 = call i32 @ziplistGet(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #23
   %.not = icmp eq i32 %8, 0
@@ -12312,48 +12306,48 @@ define internal range(i32 0, 2) i32 @_listZiplistEntryConvertAndValidate(ptr nou
 
 19:                                               ; preds = %3, %14
   %.0 = phi i32 [ 1, %14 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare void @quicklistRelease(ptr noundef) local_unnamed_addr #4
+declare void @quicklistRelease(ptr noundef) local_unnamed_addr #3
 
-declare i32 @intsetValidateIntegrity(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @intsetValidateIntegrity(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @intsetLen(ptr noundef) local_unnamed_addr #4
+declare i32 @intsetLen(ptr noundef) local_unnamed_addr #3
 
-declare ptr @listpackExCreate() local_unnamed_addr #4
+declare ptr @listpackExCreate() local_unnamed_addr #3
 
-declare ptr @createStreamObject() local_unnamed_addr #4
+declare ptr @createStreamObject() local_unnamed_addr #3
 
-declare i32 @streamValidateListpackIntegrity(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @streamValidateListpackIntegrity(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @raxTryInsert(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @raxTryInsert(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @streamGetEdgeID(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @streamGetEdgeID(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i64 @streamEstimateDistanceFromFirstEverEntry(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i64 @streamEstimateDistanceFromFirstEverEntry(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @streamCreateCG(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @streamCreateCG(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @streamCreateNACK(ptr noundef) local_unnamed_addr #4
+declare ptr @streamCreateNACK(ptr noundef) local_unnamed_addr #3
 
-declare void @streamFreeNACK(ptr noundef) local_unnamed_addr #4
+declare void @streamFreeNACK(ptr noundef) local_unnamed_addr #3
 
-declare ptr @streamCreateConsumer(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @streamCreateConsumer(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @raxFind(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @raxFind(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @moduleTypeLookupModuleByID(i64 noundef) local_unnamed_addr #4
+declare ptr @moduleTypeLookupModuleByID(i64 noundef) local_unnamed_addr #3
 
-declare void @moduleTypeNameByID(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @moduleTypeNameByID(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @createModuleObject(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @createModuleObject(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @moduleTypeModuleName(ptr noundef) local_unnamed_addr #4
+declare ptr @moduleTypeModuleName(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @startLoading(i64 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -12414,9 +12408,9 @@ define dso_local void @loadingFireEvent(i32 noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @blockingOperationStarts() local_unnamed_addr #4
+declare void @blockingOperationStarts() local_unnamed_addr #3
 
-declare void @moduleFireServerEvent(i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @moduleFireServerEvent(i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @startLoadingFile(i64 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -12474,7 +12468,7 @@ define dso_local void @loadingIncrProgress(i64 noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @updateLoadingFileName(ptr noundef %0) local_unnamed_addr #17 {
+define dso_local void @updateLoadingFileName(ptr noundef %0) local_unnamed_addr #16 {
   store ptr %0, ptr @rdbFileBeingLoaded, align 8, !tbaa !52
   ret void
 }
@@ -12491,7 +12485,7 @@ define dso_local void @stopLoading(i32 noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @blockingOperationEnds() local_unnamed_addr #4
+declare void @blockingOperationEnds() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @rdbLoadProgressCallback(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
@@ -12566,18 +12560,18 @@ loadingAbsProgress.exit:                          ; preds = %21, %26
   ret void
 }
 
-declare void @replicationSendNewlineToMaster() local_unnamed_addr #4
+declare void @replicationSendNewlineToMaster() local_unnamed_addr #3
 
-declare void @processEventsWhileBlocked() local_unnamed_addr #4
+declare void @processEventsWhileBlocked() local_unnamed_addr #3
 
-declare void @processModuleLoadingProgressEvent(i32 noundef) local_unnamed_addr #4
+declare void @processModuleLoadingProgressEvent(i32 noundef) local_unnamed_addr #3
 
-declare zeroext i8 @rioCheckType(ptr noundef) local_unnamed_addr #4
+declare zeroext i8 @rioCheckType(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @rdbFunctionLoad(ptr noundef %0, i32 %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !52
   %7 = tail call ptr @rdbGenericLoadStringObject(ptr noundef %0, i32 noundef 4, ptr noundef null)
   %.not = icmp eq ptr %7, null
@@ -12648,29 +12642,29 @@ define dso_local range(i32 -1, 1) i32 @rdbFunctionLoad(ptr noundef %0, i32 %1, p
   br label %29
 
 29:                                               ; preds = %19, %27, %22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.01231
 }
 
-declare ptr @sdsnew(ptr noundef) local_unnamed_addr #4
+declare ptr @sdsnew(ptr noundef) local_unnamed_addr #3
 
-declare ptr @functionsCreateWithLibraryCtx(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @functionsCreateWithLibraryCtx(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @rdbLoadRio(ptr noundef initializes((32, 40), (64, 72)) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.rdbLoadingCtx, align 8
   %5 = tail call ptr @functionsLibCtxGetCurrent() #23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !162
   store ptr %6, ptr %4, align 8, !tbaa !238
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %7, align 8, !tbaa !241
   %8 = call i32 @rdbLoadRioWithLoadingCtx(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %8
 }
 
-declare ptr @functionsLibCtxGetCurrent() local_unnamed_addr #4
+declare ptr @functionsLibCtxGetCurrent() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @rdbLoadRioWithLoadingCtx(ptr noundef initializes((32, 40), (64, 72)) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
@@ -12699,8 +12693,8 @@ define dso_local i32 @rdbLoadRioWithLoadingCtx(ptr noundef initializes((32, 40),
   %27 = alloca %struct.redisObject, align 8
   %28 = alloca i64, align 8
   %29 = load ptr, ptr %3, align 8, !tbaa !238
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %19) #23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @rdbLoadProgressCallback, ptr %30, align 8, !tbaa !56
   %31 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2456), align 8, !tbaa !235
@@ -12789,7 +12783,7 @@ rioRead.exit:                                     ; preds = %49
   %69 = call i64 @mstime() #23
   %70 = call i32 @LRU_CLOCK() #23
   %71 = zext i32 %70 to i64
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %18) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %72 = load i64, ptr %33, align 8, !tbaa !53
   %73 = and i64 %72, 5
   %.not.i.i376 = icmp eq i64 %73, 0
@@ -12870,13 +12864,13 @@ rioRead.exit:                                     ; preds = %49
   br i1 %.not31.i.i, label %rdbLoadType.exit, label %94
 
 rdbLoadType.exit.thread:                          ; preds = %.backedge, %68, %.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %rioRead.exit.thread
 
 rdbLoadType.exit:                                 ; preds = %106
   %111 = load i8, ptr %18, align 1
   %112 = zext i8 %111 to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   switch i8 %111, label %415 [
     i8 -11, label %406
     i8 -3, label %113
@@ -12893,7 +12887,7 @@ rdbLoadType.exit:                                 ; preds = %106
   ]
 
 113:                                              ; preds = %rdbLoadType.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %114 = load i64, ptr %33, align 8, !tbaa !53
   %115 = and i64 %114, 5
   %.not.i.i280 = icmp eq i64 %115, 0
@@ -12945,13 +12939,13 @@ rioRead.exit.i287:                                ; preds = %127
 rdbLoadTime.exit:                                 ; preds = %113, %.thread.i.i288, %rioRead.exit.i287
   %.val279 = phi i64 [ %.val279.pre, %rioRead.exit.i287 ], [ %114, %113 ], [ %123, %.thread.i.i288 ]
   %135 = phi i64 [ %134, %rioRead.exit.i287 ], [ -1000, %113 ], [ -1000, %.thread.i.i288 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %136 = and i64 %.val279, 1
   %.not270 = icmp eq i64 %136, 0
   br i1 %.not270, label %.backedge, label %rioRead.exit.thread
 
 137:                                              ; preds = %rdbLoadType.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %138 = load i64, ptr %33, align 8, !tbaa !53
   %139 = and i64 %138, 5
   %.not.i.i289 = icmp eq i64 %139, 0
@@ -13001,13 +12995,13 @@ rioRead.exit.i296:                                ; preds = %151
 rdbLoadMillisecondTime.exit:                      ; preds = %137, %.thread.i.i297, %rioRead.exit.i296
   %.val278 = phi i64 [ %.val278.pre, %rioRead.exit.i296 ], [ %138, %137 ], [ %147, %.thread.i.i297 ]
   %157 = phi i64 [ %156, %rioRead.exit.i296 ], [ 9223372036854775807, %137 ], [ 9223372036854775807, %.thread.i.i297 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %158 = and i64 %.val278, 1
   %.not269 = icmp eq i64 %158, 0
   br i1 %.not269, label %.backedge, label %rioRead.exit.thread
 
 159:                                              ; preds = %rdbLoadType.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %21) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %160 = load i64, ptr %33, align 8, !tbaa !53
   %161 = and i64 %160, 5
   %.not.i298 = icmp eq i64 %161, 0
@@ -13052,25 +13046,25 @@ rdbLoadMillisecondTime.exit:                      ; preds = %137, %.thread.i.i29
 rioRead.exit307:                                  ; preds = %173
   %178 = load i8, ptr %21, align 1
   %179 = zext i8 %178 to i64
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %.backedge
 
 180:                                              ; preds = %rdbLoadType.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %181 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %15)
   %182 = icmp eq i32 %181, -1
   %183 = load i64, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %184 = icmp eq i64 %183, -1
   %185 = select i1 %182, i1 true, i1 %184
   br i1 %185, label %rioRead.exit.thread, label %.backedge
 
 186:                                              ; preds = %rdbLoadType.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %187 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %14)
   %188 = icmp eq i32 %187, -1
   %189 = load i64, ptr %14, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %190 = icmp eq i64 %189, -1
   %191 = select i1 %188, i1 true, i1 %190
   br i1 %191, label %rioRead.exit.thread, label %192
@@ -13100,51 +13094,51 @@ rioRead.exit307:                                  ; preds = %173
   br label %.backedge
 
 203:                                              ; preds = %rdbLoadType.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %204 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %13)
   %205 = icmp eq i32 %204, -1
   %206 = load i64, ptr %13, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %207 = icmp eq i64 %206, -1
   %208 = select i1 %205, i1 true, i1 %207
   br i1 %208, label %rioRead.exit.thread, label %209
 
 209:                                              ; preds = %203
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %210 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %12)
   %211 = icmp eq i32 %210, -1
   %212 = load i64, ptr %12, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %213 = icmp eq i64 %212, -1
   %214 = select i1 %211, i1 true, i1 %213
   br i1 %214, label %rioRead.exit.thread, label %.backedge
 
 215:                                              ; preds = %rdbLoadType.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %216 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %11)
   %217 = icmp eq i32 %216, -1
   %218 = load i64, ptr %11, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %219 = icmp eq i64 %218, -1
   %220 = select i1 %217, i1 true, i1 %219
   br i1 %220, label %rioRead.exit.thread, label %221
 
 221:                                              ; preds = %215
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %222 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %10)
   %223 = icmp eq i32 %222, -1
   %224 = load i64, ptr %10, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %225 = icmp eq i64 %224, -1
   %226 = select i1 %223, i1 true, i1 %225
   br i1 %226, label %rioRead.exit.thread, label %227
 
 227:                                              ; preds = %221
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %228 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %9)
   %229 = icmp eq i32 %228, -1
   %230 = load i64, ptr %9, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %231 = icmp eq i64 %230, -1
   %232 = select i1 %229, i1 true, i1 %231
   br i1 %232, label %rioRead.exit.thread, label %233
@@ -13366,21 +13360,21 @@ rioRead.exit307:                                  ; preds = %173
   br label %.backedge
 
 344:                                              ; preds = %rdbLoadType.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %345 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %8)
   %346 = icmp eq i32 %345, -1
   %347 = load i64, ptr %8, align 8
   %.0.i314 = select i1 %346, i64 -1, i64 %347
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %348 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %7)
   %349 = load i64, ptr %7, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %350 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %6)
   %351 = icmp eq i32 %350, -1
   %352 = load i64, ptr %6, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %353 = trunc i64 %352 to i32
   %354 = select i1 %351, i32 -1, i32 %353
   %.val = load i64, ptr %33, align 8, !tbaa !53
@@ -13401,7 +13395,7 @@ rioRead.exit307:                                  ; preds = %173
 
 360:                                              ; preds = %356
   %361 = call ptr @moduleTypeLookupModuleByID(i64 noundef %.0.i314) #23
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %22) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @moduleTypeNameByID(ptr noundef nonnull %22, i64 noundef %.0.i314) #23
   %362 = load i32, ptr @rdbCheckMode, align 4, !tbaa !51
   %363 = icmp eq i32 %362, 0
@@ -13447,7 +13441,7 @@ rioRead.exit307:                                  ; preds = %173
   unreachable
 
 380:                                              ; preds = %372
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %23) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store ptr %0, ptr %74, align 8, !tbaa !137
   store ptr %361, ptr %75, align 8, !tbaa !141
   store i64 0, ptr %23, align 8, !tbaa !147
@@ -13483,11 +13477,11 @@ rioRead.exit307:                                  ; preds = %173
   br i1 %393, label %401, label %.sink.split
 
 394:                                              ; preds = %387
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %395 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %5)
   %396 = icmp ne i32 %395, -1
   %397 = load i64, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not254353 = icmp eq i64 %397, 0
   %.not254 = select i1 %396, i1 %.not254353, i1 false
   br i1 %.not254, label %401, label %398
@@ -13504,7 +13498,7 @@ rioRead.exit307:                                  ; preds = %173
 
 401:                                              ; preds = %.sink.split, %398, %394, %391
   %.6 = phi i32 [ 2, %391 ], [ 2, %398 ], [ 7, %394 ], [ 2, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %23) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %404
 
 402:                                              ; preds = %370
@@ -13514,7 +13508,7 @@ rioRead.exit307:                                  ; preds = %173
 
 404:                                              ; preds = %402, %401
   %.8 = phi i32 [ %.6, %401 ], [ 7, %402 ]
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %22) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %select.unfold320
 
 405:                                              ; preds = %rdbLoadType.exit
@@ -13523,7 +13517,7 @@ rioRead.exit307:                                  ; preds = %173
   unreachable
 
 406:                                              ; preds = %rdbLoadType.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store ptr null, ptr %24, align 8, !tbaa !52
   %407 = load ptr, ptr %84, align 8, !tbaa !241
   %408 = call i32 @rdbFunctionLoad(ptr noundef nonnull %0, i32 poison, ptr noundef %407, i32 noundef %1, ptr noundef nonnull %24)
@@ -13546,7 +13540,7 @@ rioRead.exit307:                                  ; preds = %173
 
 414:                                              ; preds = %406, %413
   %.9 = phi i32 [ 2, %413 ], [ 7, %406 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %select.unfold320
 
 415:                                              ; preds = %rdbLoadType.exit
@@ -13628,11 +13622,11 @@ rioRead.exit307:                                  ; preds = %173
   unreachable
 
 451:                                              ; preds = %446
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 2147483646, ptr %88, align 4, !tbaa !167
   store i32 0, ptr %25, align 8
   store ptr %420, ptr %89, align 8, !tbaa !65
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %452 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8044), align 4, !tbaa !250
   %.not247 = icmp eq i32 %452, 0
   %453 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 408), align 8
@@ -13642,8 +13636,8 @@ rioRead.exit307:                                  ; preds = %173
   store ptr %25, ptr %90, align 8, !tbaa !251
   %456 = trunc i64 %.0190385 to i32
   call void @replicationFeedSlaves(ptr noundef nonnull %447, i32 noundef %456, ptr noundef nonnull %26, i32 noundef 2) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %457
 
 457:                                              ; preds = %451, %443
@@ -13655,7 +13649,7 @@ rioRead.exit307:                                  ; preds = %173
   br label %486
 
 460:                                              ; preds = %440, %438
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i32 2147483646, ptr %91, align 4, !tbaa !167
   store i32 0, ptr %27, align 8
   store ptr %420, ptr %92, align 8, !tbaa !65
@@ -13716,7 +13710,7 @@ rioRead.exit307:                                  ; preds = %173
   %484 = call i32 @objectSetLRUOrLFU(ptr noundef nonnull %425, i64 noundef %.0210378, i64 noundef %.0207379, i64 noundef %71, i32 noundef 1000) #23
   %485 = load i32, ptr %423, align 8, !tbaa !245
   call void @moduleNotifyKeyspaceEvent(i32 noundef 4096, ptr noundef nonnull @.str.141, ptr noundef nonnull %27, i32 noundef %485) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %486
 
 486:                                              ; preds = %457, %483, %436
@@ -13730,7 +13724,7 @@ rioRead.exit307:                                  ; preds = %173
   br label %.backedge
 
 select.unfold:                                    ; preds = %159, %.thread.i306
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %rioRead.exit.thread
 
 select.unfold320:                                 ; preds = %404, %414
@@ -13750,7 +13744,7 @@ select.unfold320:                                 ; preds = %404, %414
   %.1208422 = phi i64 [ %.0207379, %select.unfold320 ], [ %.0207379, %rdbLoadMillisecondTime.exit ], [ %.0207379, %rdbLoadTime.exit ], [ -1, %486 ], [ -1, %488 ], [ %.0207379, %343 ], [ %.0207379, %235 ], [ %.0207379, %233 ], [ %.0207379, %209 ], [ %.0207379, %200 ], [ %183, %180 ], [ %.0207379, %rioRead.exit307 ]
   %.1211421 = phi i64 [ %.0210378, %select.unfold320 ], [ %.0210378, %rdbLoadMillisecondTime.exit ], [ %.0210378, %rdbLoadTime.exit ], [ -1, %486 ], [ -1, %488 ], [ %.0210378, %343 ], [ %.0210378, %235 ], [ %.0210378, %233 ], [ %.0210378, %209 ], [ %.0210378, %200 ], [ %.0210378, %180 ], [ %179, %rioRead.exit307 ]
   %.1214420 = phi i64 [ %.0213377, %select.unfold320 ], [ %157, %rdbLoadMillisecondTime.exit ], [ %135, %rdbLoadTime.exit ], [ -1, %486 ], [ -1, %488 ], [ %.0213377, %343 ], [ %.0213377, %235 ], [ %.0213377, %233 ], [ %.0213377, %209 ], [ %.0213377, %200 ], [ %.0213377, %180 ], [ %.0213377, %rioRead.exit307 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %18) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %489 = load i64, ptr %33, align 8, !tbaa !53
   %490 = and i64 %489, 5
   %.not.i.i = icmp eq i64 %490, 0
@@ -13761,7 +13755,7 @@ select.unfold320:                                 ; preds = %404, %414
   br i1 %491, label %492, label %515
 
 492:                                              ; preds = %.thread333
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %493 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %494 = load i64, ptr %493, align 8, !tbaa !172
   %495 = call fastcc i64 @rioRead(ptr noundef nonnull %0, ptr noundef nonnull %28, i64 noundef 8)
@@ -13805,15 +13799,15 @@ select.unfold320:                                 ; preds = %404, %414
 
 .thread348:                                       ; preds = %513, %510
   call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 1, i32 noundef 3691, ptr noundef nonnull @.str.144)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %.loopexit
 
 .thread346:                                       ; preds = %505, %508, %509, %497
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %515
 
 514:                                              ; preds = %492
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %rioRead.exit.thread
 
 515:                                              ; preds = %.thread346, %.thread333
@@ -13855,43 +13849,43 @@ rioRead.exit.thread:                              ; preds = %select.unfold320, %
 
 .loopexit:                                        ; preds = %select.unfold320, %.thread348, %518, %519, %522, %523, %67, %64, %58, %55, %529
   %.0 = phi i32 [ -1, %529 ], [ -1, %55 ], [ -1, %58 ], [ -1, %64 ], [ -1, %67 ], [ 0, %523 ], [ 0, %522 ], [ 0, %519 ], [ 0, %518 ], [ -1, %.thread348 ], [ undef, %select.unfold320 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #23
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %19) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   ret i32 %.0
 }
 
-declare i32 @LRU_CLOCK() local_unnamed_addr #4
+declare i32 @LRU_CLOCK() local_unnamed_addr #3
 
-declare i32 @kvstoreDictExpand(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @kvstoreDictExpand(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #18
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #19
+declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #19
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #18
 
-declare i32 @dbExpand(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @dbExpand(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @dbExpandExpires(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @dbExpandExpires(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @iAmMaster() local_unnamed_addr #4
+declare i32 @iAmMaster() local_unnamed_addr #3
 
-declare void @replicationFeedSlaves(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @replicationFeedSlaves(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @dbAddRDBLoad(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @dbAddRDBLoad(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @dbSyncDelete(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @dbSyncDelete(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @hashTypeAddToExpires(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @hashTypeAddToExpires(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @setExpire(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @setExpire(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @objectSetLRUOrLFU(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @objectSetLRUOrLFU(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @moduleNotifyKeyspaceEvent(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @moduleNotifyKeyspaceEvent(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 3) i32 @rdbLoad(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -13904,8 +13898,8 @@ define dso_local range(i32 0, 3) i32 @rdbLoadWithEmptyFunc(ptr noundef %0, ptr n
   %5 = alloca %struct.rdbLoadingCtx, align 8
   %6 = alloca %struct._rio, align 8
   %7 = alloca %struct.stat, align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #23
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call noalias ptr @fopen64(ptr noundef %0, ptr noundef nonnull @.str.149)
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %19
@@ -13957,13 +13951,13 @@ define dso_local range(i32 0, 3) i32 @rdbLoadWithEmptyFunc(ptr noundef %0, ptr n
   tail call void @moduleFireServerEvent(i64 noundef 3, i32 noundef %.0.i, ptr noundef null) #23
   call void @rioInitWithFile(ptr noundef nonnull %6, ptr noundef nonnull %8) #23
   %30 = call ptr @functionsLibCtxGetCurrent() #23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !162
   store ptr %31, ptr %5, align 8, !tbaa !238
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %30, ptr %32, align 8, !tbaa !241
   %33 = call i32 @rdbLoadRioWithLoadingCtx(ptr noundef nonnull %6, i32 noundef %2, ptr noundef %1, ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %34 = call i32 @fclose(ptr noundef nonnull %8)
   %35 = icmp ne i32 %33, 0
   %or.cond = and i1 %25, %35
@@ -13999,26 +13993,26 @@ define dso_local range(i32 0, 3) i32 @rdbLoadWithEmptyFunc(ptr noundef %0, ptr n
 
 45:                                               ; preds = %37, %39, %44, %41, %17, %14, %10
   %.0 = phi i32 [ 1, %10 ], [ 2, %14 ], [ 2, %17 ], [ 0, %41 ], [ 0, %44 ], [ 0, %39 ], [ 2, %37 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #23
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #1
 
-declare void @rioInitWithFile(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @rioInitWithFile(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
-declare void @bioCreateCloseJob(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @bioCreateCloseJob(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @backgroundSaveDoneHandler(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -14091,16 +14085,16 @@ define dso_local void @backgroundSaveDoneHandler(i32 noundef %0, i32 noundef %1)
 32:                                               ; preds = %30, %28
   %.0.i = phi i64 [ %31, %30 ], [ 0, %28 ]
   %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 304), align 8, !tbaa !257
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %34 = sext i32 %33 to i64
   %35 = call i32 @ll2string(ptr noundef nonnull %4, i64 noundef 32, i64 noundef %34) #23
   %36 = call i64 @redis_strlcpy(ptr noundef nonnull %3, ptr noundef nonnull @.str.47, i64 noundef 256) #23
   %37 = call i64 @redis_strlcat(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 256) #23
   %38 = call i64 @redis_strlcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.48, i64 noundef 256) #23
   %39 = call i32 @bg_unlink(ptr noundef nonnull %3) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %40 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8064), align 8, !tbaa !256
   %.not14.i = icmp eq i64 %40, 0
   br i1 %.not14.i, label %.thread.i, label %41
@@ -14215,7 +14209,7 @@ backgroundSaveDoneHandlerDisk.exit:               ; preds = %.sink.split.i, %.th
   ret void
 }
 
-declare void @updateSlavesWaitingBgsave(i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @updateSlavesWaitingBgsave(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @killRDBChild() local_unnamed_addr #0 {
@@ -14226,15 +14220,15 @@ define dso_local void @killRDBChild() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind
-declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #13
+declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @rdbSaveToSlavesSockets(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.listIter, align 8
   %4 = alloca [2 x i32], align 4
   %5 = alloca %struct._rio, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = tail call i32 @hasActiveChildProcess() #23
   %.not = icmp eq i32 %6, 0
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6856), align 8
@@ -14380,13 +14374,13 @@ define dso_local range(i32 -1, 1) i32 @rdbSaveToSlavesSockets(i32 noundef %0, pt
   br i1 %82, label %83, label %105
 
 83:                                               ; preds = %.thread
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %84 = sext i32 %.047.lcssa to i64
   call void @rioInitWithConnset(ptr noundef nonnull %5, ptr noundef %31, i64 noundef %84) #23
   br label %88
 
 85:                                               ; preds = %78
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @rioInitWithFd(ptr noundef nonnull %5, i32 noundef %.045) #23
   %86 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6848), align 8, !tbaa !259
   %87 = call i32 @close(i32 noundef %86) #23
@@ -14430,7 +14424,7 @@ define dso_local range(i32 -1, 1) i32 @rdbSaveToSlavesSockets(i32 noundef %0, pt
 104:                                              ; preds = %99, %98
   call void @zfree(ptr noundef %31) #23
   call void @exitFromChild(i32 noundef %not..044) #23
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %152
 
 105:                                              ; preds = %.thread, %78
@@ -14532,41 +14526,41 @@ define dso_local range(i32 -1, 1) i32 @rdbSaveToSlavesSockets(i32 noundef %0, pt
 
 152:                                              ; preds = %150, %104, %10, %2, %19
   %.0 = phi i32 [ -1, %19 ], [ -1, %2 ], [ -1, %10 ], [ 0, %104 ], [ %151, %150 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare i32 @anetPipe(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @anetPipe(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @close(i32 noundef) local_unnamed_addr #4
+declare i32 @close(i32 noundef) local_unnamed_addr #3
 
-declare void @listRewind(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @listRewind(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @listNext(ptr noundef) local_unnamed_addr #4
+declare ptr @listNext(ptr noundef) local_unnamed_addr #3
 
-declare i32 @replicationSetupSlaveForFullResync(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @replicationSetupSlaveForFullResync(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i64 @getPsyncInitialOffset() local_unnamed_addr #4
+declare i64 @getPsyncInitialOffset() local_unnamed_addr #3
 
-declare i32 @connSendTimeout(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @connSendTimeout(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @connBlock(ptr noundef) local_unnamed_addr #4
+declare i32 @connBlock(ptr noundef) local_unnamed_addr #3
 
-declare void @rioInitWithConnset(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @rioInitWithConnset(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @rioInitWithFd(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @rioInitWithFd(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @rioFreeConnset(ptr noundef) local_unnamed_addr #4
+declare void @rioFreeConnset(ptr noundef) local_unnamed_addr #3
 
-declare void @rioFreeFd(ptr noundef) local_unnamed_addr #4
+declare void @rioFreeFd(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #15
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #14
 
-declare i32 @aeCreateFileEvent(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @aeCreateFileEvent(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @rdbPipeReadHandler(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #4
+declare void @rdbPipeReadHandler(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @saveCommand(ptr noundef %0) local_unnamed_addr #0 {
@@ -14583,7 +14577,7 @@ define dso_local void @saveCommand(ptr noundef %0) local_unnamed_addr #0 {
   %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2664), align 8, !tbaa !178
   %8 = add nsw i64 %7, 1
   store i64 %8, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2664), align 8, !tbaa !178
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) @__const.rdbPopulateSaveInfo.rsi_init, i64 64, i1 false), !tbaa.struct !278
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7264), align 8, !tbaa !236
   %10 = icmp eq ptr %9, null
@@ -14645,17 +14639,17 @@ rdbPopulateSaveInfo.exit:                         ; preds = %24, %.sink.split.i
   br label %38
 
 38:                                               ; preds = %36, %34
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %39
 
 39:                                               ; preds = %38, %5
   ret void
 }
 
-declare void @addReplyError(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @addReplyError(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @rdbPopulateSaveInfo(ptr noundef writeonly captures(ret: address, provenance) initializes((0, 64)) %0) local_unnamed_addr #20 {
+define dso_local noundef ptr @rdbPopulateSaveInfo(ptr noundef writeonly captures(ret: address, provenance) initializes((0, 64)) %0) local_unnamed_addr #19 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) @__const.rdbPopulateSaveInfo.rsi_init, i64 64, i1 false), !tbaa.struct !278
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7264), align 8, !tbaa !236
   %3 = icmp eq ptr %2, null
@@ -14704,9 +14698,9 @@ define dso_local noundef ptr @rdbPopulateSaveInfo(ptr noundef writeonly captures
   ret ptr %.0
 }
 
-declare void @addReply(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @addReply(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @addReplyErrorObject(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @addReplyErrorObject(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @bgsaveCommand(ptr noundef %0) local_unnamed_addr #0 {
@@ -14737,7 +14731,7 @@ define dso_local void @bgsaveCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %60
 
 18:                                               ; preds = %8, %1
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) @__const.rdbPopulateSaveInfo.rsi_init, i64 64, i1 false), !tbaa.struct !278
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7264), align 8, !tbaa !236
   %20 = icmp eq ptr %19, null
@@ -14828,45 +14822,51 @@ rdbPopulateSaveInfo.exit:                         ; preds = %34, %.sink.split.i
   br label %59
 
 59:                                               ; preds = %51, %50, %57, %56, %43
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %60
 
 60:                                               ; preds = %59, %16
   ret void
 }
 
-declare void @addReplyStatus(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @addReplyStatus(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @mstrFree(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @mstrFree(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i64 @mstrlen(ptr noundef) local_unnamed_addr #4
+declare i64 @mstrlen(ptr noundef) local_unnamed_addr #3
 
-declare void @rioSetAutoSync(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @rioSetAutoSync(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @rioSetReclaimCache(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @rioSetReclaimCache(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #1
 
-declare i32 @fsync(i32 noundef) local_unnamed_addr #4
+declare i32 @fsync(i32 noundef) local_unnamed_addr #3
 
-declare i32 @reclaimFilePageCache(i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @reclaimFilePageCache(i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @dictExpand(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @dictExpand(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @ziplistGet(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @ziplistGet(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @sdsfromlonglong(i64 noundef) local_unnamed_addr #4
+declare ptr @sdsfromlonglong(i64 noundef) local_unnamed_addr #3
 
-declare ptr @lpAppendInteger(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @lpAppendInteger(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @lpGet(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @lpGet(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @lpGetIntegerValue(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @lpGetIntegerValue(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @latencyAddSample(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @latencyAddSample(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @aeDeleteFileEvent(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @aeDeleteFileEvent(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #21
@@ -14890,26 +14890,26 @@ declare i64 @llvm.umax.i64(i64, i64) #21
 declare i32 @llvm.umax.i32(i32, i32) #21
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { inlinehint nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nocallback nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #22 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #23 = { nounwind }

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden double @SDL_uclibc_tan(double noundef %0) local_unnamed_addr #0 {
   %2 = alloca [2 x double], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = bitcast double %0 to i64
   %.sroa.0.4.extract.shift = lshr i64 %3, 32
   %.sroa.0.4.extract.trunc = trunc nuw i64 %.sroa.0.4.extract.shift to i32
@@ -39,23 +39,23 @@ define hidden double @SDL_uclibc_tan(double noundef %0) local_unnamed_addr #0 {
 
 21:                                               ; preds = %12, %10, %6
   %.0 = phi double [ %7, %6 ], [ %11, %10 ], [ %20, %12 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret double %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare double @__kernel_tan(double noundef, double noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @__ieee754_rem_pio2(double noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
-declare double @__kernel_tan(double noundef, double noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @__ieee754_rem_pio2(double noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

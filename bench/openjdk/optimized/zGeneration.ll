@@ -1216,7 +1216,7 @@ define linkonce_odr hidden void @_ZN22ZRelocationSetSelector18register_live_page
   ]
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1262,12 +1262,12 @@ _ZN27ZRelocationSetSelectorGroup18register_live_pageEP5ZPage.exit: ; preds = %19
   %37 = load i64, ptr %36, align 8
   %38 = add i64 %37, %14
   store i64 %38, ptr %36, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %107
 
 39:                                               ; preds = %2
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 856
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1313,12 +1313,12 @@ _ZN27ZRelocationSetSelectorGroup18register_live_pageEP5ZPage.exit9: ; preds = %5
   %70 = load i64, ptr %69, align 8
   %71 = add i64 %70, %47
   store i64 %71, ptr %69, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %107
 
 72:                                               ; preds = %2
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 1712
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1368,7 +1368,7 @@ _ZN27ZRelocationSetSelectorGroup18register_live_pageEP5ZPage.exit12: ; preds = %
   %105 = load i64, ptr %104, align 8
   %106 = add i64 %105, %80
   store i64 %106, ptr %104, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %107
 
 107:                                              ; preds = %_ZN27ZRelocationSetSelectorGroup18register_live_pageEP5ZPage.exit9, %_ZN27ZRelocationSetSelectorGroup18register_live_pageEP5ZPage.exit12, %_ZN27ZRelocationSetSelectorGroup18register_live_pageEP5ZPage.exit
@@ -2014,7 +2014,7 @@ define hidden void @_ZN16ZGenerationYoung7collectE10ZYoungTypeP17ConcurrentGCTim
   %31 = load ptr, ptr %30, align 8
   call void %31(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %25) #17
   %32 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 6584
   store ptr %2, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 3712
@@ -2026,7 +2026,7 @@ define hidden void @_ZN16ZGenerationYoung7collectE10ZYoungTypeP17ConcurrentGCTim
   call void @_ZN9ZStatHeap19at_collection_startERK19ZPageAllocatorStats(ptr noundef nonnull align 8 dereferenceable(488) %35, ptr noundef nonnull align 8 dereferenceable(96) %17) #17
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 48
   call void @_ZN8ZWorkers10set_activeEv(ptr noundef nonnull align 8 dereferenceable(184) %38) #17
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @_ZN16ZGenerationYoung16pause_mark_startEv(ptr noundef nonnull align 64 dereferenceable(6720) %0)
   call void @_ZN16ZGenerationYoung15concurrent_markEv(ptr noundef nonnull align 64 dereferenceable(6720) %0)
   %39 = load volatile i8, ptr @_ZN6ZAbort13_should_abortE, align 1
@@ -2049,7 +2049,7 @@ define hidden void @_ZN16ZGenerationYoung7collectE10ZYoungTypeP17ConcurrentGCTim
   br label %53
 
 53:                                               ; preds = %.preheader, %72
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 0, ptr %41, align 8
   %54 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 6592
@@ -2088,16 +2088,16 @@ define hidden void @_ZN16ZGenerationYoung7collectE10ZYoungTypeP17ConcurrentGCTim
 _ZN16ZGenerationYoung14pause_mark_endEv.exit:     ; preds = %62, %69
   %70 = load i8, ptr %41, align 8
   %71 = trunc i8 %70 to i1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br i1 %71, label %91, label %72
 
 72:                                               ; preds = %_ZN16ZGenerationYoung14pause_mark_endEv.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @_ZN15ZStatTimerYoungC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(48) @_ZL33ZPhaseConcurrentMarkContinueYoung) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @_ZN15ZStatTimerYoungC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(48) @_ZL34ZSubPhaseConcurrentMarkFollowYoung) #17
   call void @_ZN11ZRemembered15scan_and_followEP5ZMark(ptr noundef nonnull align 8 dereferenceable(96) %45, ptr noundef nonnull %46) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %73 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %74 = extractvalue { i64, i64 } %73, 0
   store i64 %74, ptr %13, align 8
@@ -2109,9 +2109,9 @@ _ZN16ZGenerationYoung14pause_mark_endEv.exit:     ; preds = %62, %69
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8
   call void %80(ptr noundef nonnull align 8 dereferenceable(48) %76, ptr noundef %77, ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %13) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %81 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %82 = extractvalue { i64, i64 } %81, 0
   store i64 %82, ptr %12, align 8
@@ -2123,17 +2123,17 @@ _ZN16ZGenerationYoung14pause_mark_endEv.exit:     ; preds = %62, %69
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load ptr, ptr %87, align 8
   call void %88(ptr noundef nonnull align 8 dereferenceable(48) %84, ptr noundef %85, ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %12) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %89 = load volatile i8, ptr @_ZN6ZAbort13_should_abortE, align 1
   %90 = trunc i8 %89 to i1
   br i1 %90, label %.loopexit, label %53, !llvm.loop !17
 
 91:                                               ; preds = %_ZN16ZGenerationYoung14pause_mark_endEv.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN15ZStatTimerYoungC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(48) @_ZL29ZPhaseConcurrentMarkFreeYoung) #17
   call void @_ZN5ZMark4freeEv(ptr noundef nonnull align 64 dereferenceable(2652) %46) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %92 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %93 = extractvalue { i64, i64 } %92, 0
   store i64 %93, ptr %10, align 8
@@ -2148,8 +2148,8 @@ _ZN16ZGenerationYoung14pause_mark_endEv.exit:     ; preds = %62, %69
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %102 = load ptr, ptr %101, align 8
   call void %102(ptr noundef nonnull align 8 dereferenceable(48) %97, ptr noundef %98, ptr noundef nonnull align 8 dereferenceable(16) %99, ptr noundef nonnull align 8 dereferenceable(16) %10) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %103 = load volatile i8, ptr @_ZN6ZAbort13_should_abortE, align 1
   %104 = trunc i8 %103 to i1
   br i1 %104, label %.loopexit, label %105
@@ -2161,7 +2161,7 @@ _ZN16ZGenerationYoung14pause_mark_endEv.exit:     ; preds = %62, %69
   br i1 %107, label %.loopexit, label %108
 
 108:                                              ; preds = %105
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN15ZStatTimerYoungC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(48) @_ZL40ZPhaseConcurrentSelectRelocationSetYoung) #17
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 6592
   %110 = load i32, ptr %109, align 64
@@ -2169,7 +2169,7 @@ _ZN16ZGenerationYoung14pause_mark_endEv.exit:     ; preds = %62, %69
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %113 = load i8, ptr %112, align 8
   call void @_ZN11ZGeneration21select_relocation_setE13ZGenerationIdb(ptr noundef nonnull align 64 dereferenceable(6720) %0, i8 noundef zeroext %113, i1 noundef zeroext %111)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %114 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %115 = extractvalue { i64, i64 } %114, 0
   store i64 %115, ptr %8, align 8
@@ -2184,17 +2184,17 @@ _ZN16ZGenerationYoung14pause_mark_endEv.exit:     ; preds = %62, %69
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %124 = load ptr, ptr %123, align 8
   call void %124(ptr noundef nonnull align 8 dereferenceable(48) %119, ptr noundef %120, ptr noundef nonnull align 8 dereferenceable(16) %121, ptr noundef nonnull align 8 dereferenceable(16) %8) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %125 = load volatile i8, ptr @_ZN6ZAbort13_should_abortE, align 1
   %126 = trunc i8 %125 to i1
   br i1 %126, label %.loopexit, label %127
 
 127:                                              ; preds = %108
   call void @_ZN16ZGenerationYoung20pause_relocate_startEv(ptr nonnull align 64 poison)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN15ZStatTimerYoungC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(48) @_ZL30ZPhaseConcurrentRelocatedYoung) #17
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 2944
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 3072
   call void @_ZN9ZRelocate8relocateEP14ZRelocationSet(ptr noundef nonnull align 8 dereferenceable(128) %128, ptr noundef nonnull %129) #17
@@ -2206,8 +2206,8 @@ _ZN16ZGenerationYoung14pause_mark_endEv.exit:     ; preds = %62, %69
   %134 = load ptr, ptr %133, align 8
   %135 = call noundef zeroext i1 %134(ptr noundef nonnull align 64 dereferenceable(6720) %0) #17
   call void @_ZN9ZStatHeap15at_relocate_endERK19ZPageAllocatorStatsb(ptr noundef nonnull align 8 dereferenceable(488) %130, ptr noundef nonnull align 8 dereferenceable(96) %6, i1 noundef zeroext %135) #17
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %136 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %137 = extractvalue { i64, i64 } %136, 0
   store i64 %137, ptr %5, align 8
@@ -2222,8 +2222,8 @@ _ZN16ZGenerationYoung14pause_mark_endEv.exit:     ; preds = %62, %69
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %146 = load ptr, ptr %145, align 8
   call void %146(ptr noundef nonnull align 8 dereferenceable(48) %141, ptr noundef %142, ptr noundef nonnull align 8 dereferenceable(16) %143, ptr noundef nonnull align 8 dereferenceable(16) %5) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %72, %108, %105, %91, %3, %127
@@ -2238,7 +2238,7 @@ _ZN16ZGenerationYoung14pause_mark_endEv.exit:     ; preds = %62, %69
   call void @_ZN10ZStatCycle6at_endEP12ZStatWorkersb(ptr noundef nonnull align 8 dereferenceable(376) %149, ptr noundef nonnull %150, i1 noundef zeroext %153) #17
   %154 = getelementptr inbounds nuw i8, ptr %147, i64 6584
   store ptr null, ptr %154, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %155 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %156 = extractvalue { i64, i64 } %155, 0
   store i64 %156, ptr %4, align 8
@@ -2251,7 +2251,7 @@ _ZN16ZGenerationYoung14pause_mark_endEv.exit:     ; preds = %62, %69
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %163 = load ptr, ptr %162, align 8
   call void %163(ptr noundef nonnull align 8 dereferenceable(48) %159, ptr noundef %160, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %4) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %164 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 6592
   store i32 4, ptr %165, align 64
@@ -2344,11 +2344,11 @@ define hidden void @_ZN16ZGenerationYoung15concurrent_markEv(ptr noundef nonnull
   %6 = alloca %class.ZStatTimerYoung, align 8
   %7 = alloca %class.ZStatTimerYoung, align 8
   call void @_ZN15ZStatTimerYoungC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(48) @_ZL25ZPhaseConcurrentMarkYoung) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN15ZStatTimerYoungC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(48) @_ZL33ZSubPhaseConcurrentMarkRootsYoung) #17
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 256
   call void @_ZN5ZMark16mark_young_rootsEv(ptr noundef nonnull align 64 dereferenceable(2652) %8) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %10 = extractvalue { i64, i64 } %9, 0
   store i64 %10, ptr %5, align 8
@@ -2363,13 +2363,13 @@ define hidden void @_ZN16ZGenerationYoung15concurrent_markEv(ptr noundef nonnull
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %5) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN15ZStatTimerYoungC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(48) @_ZL34ZSubPhaseConcurrentMarkFollowYoung) #17
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 6600
   call void @_ZN11ZRemembered15scan_and_followEP5ZMark(ptr noundef nonnull align 8 dereferenceable(96) %20, ptr noundef nonnull %8) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %22 = extractvalue { i64, i64 } %21, 0
   store i64 %22, ptr %3, align 8
@@ -2384,9 +2384,9 @@ define hidden void @_ZN16ZGenerationYoung15concurrent_markEv(ptr noundef nonnull
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   call void %31(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %3) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %32 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %33 = extractvalue { i64, i64 } %32, 0
   store i64 %33, ptr %2, align 8
@@ -2401,7 +2401,7 @@ define hidden void @_ZN16ZGenerationYoung15concurrent_markEv(ptr noundef nonnull
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
   call void %42(ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef %38, ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %2) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -2461,12 +2461,12 @@ define hidden void @_ZN16ZGenerationYoung24concurrent_mark_continueEv(ptr nounde
   %4 = alloca %class.ZStatTimerYoung, align 8
   %5 = alloca %class.ZStatTimerYoung, align 8
   call void @_ZN15ZStatTimerYoungC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) @_ZL33ZPhaseConcurrentMarkContinueYoung) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN15ZStatTimerYoungC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(48) @_ZL34ZSubPhaseConcurrentMarkFollowYoung) #17
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 6600
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 256
   call void @_ZN11ZRemembered15scan_and_followEP5ZMark(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull %7) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %9 = extractvalue { i64, i64 } %8, 0
   store i64 %9, ptr %3, align 8
@@ -2481,9 +2481,9 @@ define hidden void @_ZN16ZGenerationYoung24concurrent_mark_continueEv(ptr nounde
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %3) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %19 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %20 = extractvalue { i64, i64 } %19, 0
   store i64 %20, ptr %2, align 8
@@ -2498,7 +2498,7 @@ define hidden void @_ZN16ZGenerationYoung24concurrent_mark_continueEv(ptr nounde
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef %25, ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %2) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -2509,7 +2509,7 @@ define hidden void @_ZN16ZGenerationYoung20concurrent_mark_freeEv(ptr noundef no
   call void @_ZN15ZStatTimerYoungC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(48) @_ZL29ZPhaseConcurrentMarkFreeYoung) #17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   call void @_ZN5ZMark4freeEv(ptr noundef nonnull align 64 dereferenceable(2652) %4) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %6 = extractvalue { i64, i64 } %5, 0
   store i64 %6, ptr %2, align 8
@@ -2524,7 +2524,7 @@ define hidden void @_ZN16ZGenerationYoung20concurrent_mark_freeEv(ptr noundef no
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %2) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -2577,7 +2577,7 @@ _ZN11ZGeneration20reset_relocation_setEv.exit:    ; preds = %_ZN16ZForwardingTab
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 16
   call void @_ZN14ZRelocationSet5resetEP14ZPageAllocator(ptr noundef nonnull align 8 dereferenceable(120) %24, ptr noundef %26) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %27 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %28 = extractvalue { i64, i64 } %27, 0
   store i64 %28, ptr %2, align 8
@@ -2592,7 +2592,7 @@ _ZN11ZGeneration20reset_relocation_setEv.exit:    ; preds = %_ZN16ZForwardingTab
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
   call void %37(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef %33, ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %2) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -2607,7 +2607,7 @@ define hidden void @_ZN16ZGenerationYoung32concurrent_select_relocation_setEv(pt
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i8, ptr %7, align 8
   call void @_ZN11ZGeneration21select_relocation_setE13ZGenerationIdb(ptr noundef nonnull align 64 dereferenceable(6592) %0, i8 noundef zeroext %8, i1 noundef zeroext %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %10 = extractvalue { i64, i64 } %9, 0
   store i64 %10, ptr %2, align 8
@@ -2622,7 +2622,7 @@ define hidden void @_ZN16ZGenerationYoung32concurrent_select_relocation_setEv(pt
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %2) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -2680,7 +2680,7 @@ define hidden void @_ZN16ZGenerationYoung19concurrent_relocateEv(ptr noundef non
   %3 = alloca %class.ZPageAllocatorStats, align 8
   %4 = alloca %class.ZStatTimerYoung, align 8
   call void @_ZN15ZStatTimerYoungC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(48) @_ZL30ZPhaseConcurrentRelocatedYoung) #17
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2944
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 3072
   call void @_ZN9ZRelocate8relocateEP14ZRelocationSet(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull %6) #17
@@ -2692,8 +2692,8 @@ define hidden void @_ZN16ZGenerationYoung19concurrent_relocateEv(ptr noundef non
   %11 = load ptr, ptr %10, align 8
   %12 = call noundef zeroext i1 %11(ptr noundef nonnull align 64 dereferenceable(6720) %0) #17
   call void @_ZN9ZStatHeap15at_relocate_endERK19ZPageAllocatorStatsb(ptr noundef nonnull align 8 dereferenceable(488) %7, ptr noundef nonnull align 8 dereferenceable(96) %3, i1 noundef zeroext %12) #17
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %13 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %14 = extractvalue { i64, i64 } %13, 0
   store i64 %14, ptr %2, align 8
@@ -2708,7 +2708,7 @@ define hidden void @_ZN16ZGenerationYoung19concurrent_relocateEv(ptr noundef non
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %2) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -2749,7 +2749,7 @@ define hidden void @_ZN16ZGenerationYoung10mark_rootsEv(ptr noundef nonnull alig
   call void @_ZN15ZStatTimerYoungC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(48) @_ZL33ZSubPhaseConcurrentMarkRootsYoung) #17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   call void @_ZN5ZMark16mark_young_rootsEv(ptr noundef nonnull align 64 dereferenceable(2652) %4) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %6 = extractvalue { i64, i64 } %5, 0
   store i64 %6, ptr %2, align 8
@@ -2764,7 +2764,7 @@ define hidden void @_ZN16ZGenerationYoung10mark_rootsEv(ptr noundef nonnull alig
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %2) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -2776,7 +2776,7 @@ define hidden void @_ZN16ZGenerationYoung11mark_followEv(ptr noundef nonnull ali
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 6600
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   call void @_ZN11ZRemembered15scan_and_followEP5ZMark(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull %5) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %7 = extractvalue { i64, i64 } %6, 0
   store i64 %7, ptr %2, align 8
@@ -2791,7 +2791,7 @@ define hidden void @_ZN16ZGenerationYoung11mark_followEv(ptr noundef nonnull ali
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %2) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -3316,7 +3316,7 @@ define hidden void @_ZN14ZGenerationOld7collectEP17ConcurrentGCTimer(ptr noundef
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 40
   call void @_ZN15ZDriverUnlockerC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #17
   %30 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 6584
   store ptr %1, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 3712
@@ -3328,7 +3328,7 @@ define hidden void @_ZN14ZGenerationOld7collectEP17ConcurrentGCTimer(ptr noundef
   call void @_ZN9ZStatHeap19at_collection_startERK19ZPageAllocatorStats(ptr noundef nonnull align 8 dereferenceable(488) %33, ptr noundef nonnull align 8 dereferenceable(96) %17) #17
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 48
   call void @_ZN8ZWorkers10set_activeEv(ptr noundef nonnull align 8 dereferenceable(184) %36) #17
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @_ZN14ZGenerationOld15concurrent_markEv(ptr noundef nonnull align 64 dereferenceable(6720) %0)
   %37 = load volatile i8, ptr @_ZN6ZAbort13_should_abortE, align 1
   %38 = trunc i8 %37 to i1
@@ -3349,7 +3349,7 @@ define hidden void @_ZN14ZGenerationOld7collectEP17ConcurrentGCTimer(ptr noundef
   br label %50
 
 50:                                               ; preds = %.preheader, %61
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %51 = call noundef ptr @_ZN7ZDriver5majorEv() #17
   %52 = call noundef i32 @_ZN7ZDriver8gc_causeEv(ptr noundef nonnull align 8 dereferenceable(924) %51) #17
   store ptr null, ptr %39, align 8
@@ -3372,16 +3372,16 @@ define hidden void @_ZN14ZGenerationOld7collectEP17ConcurrentGCTimer(ptr noundef
 _ZN14ZGenerationOld14pause_mark_endEv.exit:       ; preds = %50, %58
   %59 = load i8, ptr %42, align 8
   %60 = trunc i8 %59 to i1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br i1 %60, label %80, label %61
 
 61:                                               ; preds = %_ZN14ZGenerationOld14pause_mark_endEv.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @_ZN13ZStatTimerOldC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(48) @_ZL31ZPhaseConcurrentMarkContinueOld) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @_ZN13ZStatTimerOldC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(48) @_ZL32ZSubPhaseConcurrentMarkFollowOld) #17
   call void @_ZN5ZMark11mark_followEv(ptr noundef nonnull align 64 dereferenceable(2652) %43) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %62 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %63 = extractvalue { i64, i64 } %62, 0
   store i64 %63, ptr %13, align 8
@@ -3393,9 +3393,9 @@ _ZN14ZGenerationOld14pause_mark_endEv.exit:       ; preds = %50, %58
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load ptr, ptr %68, align 8
   call void %69(ptr noundef nonnull align 8 dereferenceable(48) %65, ptr noundef %66, ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %13) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %70 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %71 = extractvalue { i64, i64 } %70, 0
   store i64 %71, ptr %12, align 8
@@ -3407,17 +3407,17 @@ _ZN14ZGenerationOld14pause_mark_endEv.exit:       ; preds = %50, %58
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8
   call void %77(ptr noundef nonnull align 8 dereferenceable(48) %73, ptr noundef %74, ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %12) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %78 = load volatile i8, ptr @_ZN6ZAbort13_should_abortE, align 1
   %79 = trunc i8 %78 to i1
   br i1 %79, label %.loopexit, label %50, !llvm.loop !20
 
 80:                                               ; preds = %_ZN14ZGenerationOld14pause_mark_endEv.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN13ZStatTimerOldC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(48) @_ZL27ZPhaseConcurrentMarkFreeOld) #17
   call void @_ZN5ZMark4freeEv(ptr noundef nonnull align 64 dereferenceable(2652) %43) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %81 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %82 = extractvalue { i64, i64 } %81, 0
   store i64 %82, ptr %10, align 8
@@ -3432,18 +3432,18 @@ _ZN14ZGenerationOld14pause_mark_endEv.exit:       ; preds = %50, %58
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load ptr, ptr %90, align 8
   call void %91(ptr noundef nonnull align 8 dereferenceable(48) %86, ptr noundef %87, ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull align 8 dereferenceable(16) %10) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %92 = load volatile i8, ptr @_ZN6ZAbort13_should_abortE, align 1
   %93 = trunc i8 %92 to i1
   br i1 %93, label %.loopexit, label %94
 
 94:                                               ; preds = %80
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN13ZStatTimerOldC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(48) @_ZL35ZPhaseConcurrentProcessNonStrongOld) #17
   call void @_ZN11ZBreakpoint37at_after_reference_processing_startedEv() #17
   call void @_ZN14ZGenerationOld29process_non_strong_referencesEv(ptr noundef nonnull align 64 dereferenceable(6720) %0)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %95 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %96 = extractvalue { i64, i64 } %95, 0
   store i64 %96, ptr %8, align 8
@@ -3458,8 +3458,8 @@ _ZN14ZGenerationOld14pause_mark_endEv.exit:       ; preds = %50, %58
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %105 = load ptr, ptr %104, align 8
   call void %105(ptr noundef nonnull align 8 dereferenceable(48) %100, ptr noundef %101, ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef nonnull align 8 dereferenceable(16) %8) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %106 = load volatile i8, ptr @_ZN6ZAbort13_should_abortE, align 1
   %107 = trunc i8 %106 to i1
   br i1 %107, label %.loopexit, label %108
@@ -3471,8 +3471,8 @@ _ZN14ZGenerationOld14pause_mark_endEv.exit:       ; preds = %50, %58
   br i1 %110, label %.loopexit, label %111
 
 111:                                              ; preds = %108
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %112 = load i8, ptr @ZVerifyRoots, align 1
   %113 = trunc i8 %112 to i1
   %114 = load i8, ptr @ZVerifyObjects, align 1
@@ -3490,14 +3490,14 @@ _ZN14ZGenerationOld14pause_mark_endEv.exit:       ; preds = %50, %58
   br label %_ZN14ZGenerationOld12pause_verifyEv.exit
 
 _ZN14ZGenerationOld12pause_verifyEv.exit:         ; preds = %111, %116
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN13ZStatTimerOldC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) @_ZL38ZPhaseConcurrentSelectRelocationSetOld) #17
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %119 = load i8, ptr %118, align 8
   call void @_ZN11ZGeneration21select_relocation_setE13ZGenerationIdb(ptr noundef nonnull align 64 dereferenceable(6720) %0, i8 noundef zeroext %119, i1 noundef zeroext false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %120 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %121 = extractvalue { i64, i64 } %120, 0
   store i64 %121, ptr %4, align 8
@@ -3512,8 +3512,8 @@ _ZN14ZGenerationOld12pause_verifyEv.exit:         ; preds = %111, %116
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %130 = load ptr, ptr %129, align 8
   call void %130(ptr noundef nonnull align 8 dereferenceable(48) %125, ptr noundef %126, ptr noundef nonnull align 8 dereferenceable(16) %127, ptr noundef nonnull align 8 dereferenceable(16) %4) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %131 = load volatile i8, ptr @_ZN6ZAbort13_should_abortE, align 1
   %132 = trunc i8 %131 to i1
   br i1 %132, label %.loopexit, label %133
@@ -3548,7 +3548,7 @@ _ZN14ZGenerationOld12pause_verifyEv.exit:         ; preds = %111, %116
   %144 = getelementptr inbounds nuw i8, ptr %137, i64 6584
   store ptr null, ptr %144, align 8
   call void @_ZN15ZDriverUnlockerD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %145 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %146 = extractvalue { i64, i64 } %145, 0
   store i64 %146, ptr %3, align 8
@@ -3561,7 +3561,7 @@ _ZN14ZGenerationOld12pause_verifyEv.exit:         ; preds = %111, %116
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %153 = load ptr, ptr %152, align 8
   call void %153(ptr noundef nonnull align 8 dereferenceable(48) %149, ptr noundef %150, ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %3) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -3575,11 +3575,11 @@ define hidden void @_ZN14ZGenerationOld15concurrent_markEv(ptr noundef nonnull a
   %7 = alloca %class.ZStatTimerOld, align 8
   call void @_ZN13ZStatTimerOldC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(48) @_ZL23ZPhaseConcurrentMarkOld) #17
   call void @_ZN11ZBreakpoint24at_after_marking_startedEv() #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN13ZStatTimerOldC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(48) @_ZL31ZSubPhaseConcurrentMarkRootsOld) #17
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 256
   call void @_ZN5ZMark14mark_old_rootsEv(ptr noundef nonnull align 64 dereferenceable(2652) %8) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %10 = extractvalue { i64, i64 } %9, 0
   store i64 %10, ptr %5, align 8
@@ -3594,12 +3594,12 @@ define hidden void @_ZN14ZGenerationOld15concurrent_markEv(ptr noundef nonnull a
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %5) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN13ZStatTimerOldC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(48) @_ZL32ZSubPhaseConcurrentMarkFollowOld) #17
   call void @_ZN5ZMark11mark_followEv(ptr noundef nonnull align 64 dereferenceable(2652) %8) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %20 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %21 = extractvalue { i64, i64 } %20, 0
   store i64 %21, ptr %3, align 8
@@ -3614,10 +3614,10 @@ define hidden void @_ZN14ZGenerationOld15concurrent_markEv(ptr noundef nonnull a
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   call void %30(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef %26, ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %3) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN11ZBreakpoint27at_before_marking_completedEv() #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %31 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %32 = extractvalue { i64, i64 } %31, 0
   store i64 %32, ptr %2, align 8
@@ -3632,7 +3632,7 @@ define hidden void @_ZN14ZGenerationOld15concurrent_markEv(ptr noundef nonnull a
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   call void %41(ptr noundef nonnull align 8 dereferenceable(48) %36, ptr noundef %37, ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %2) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -3675,11 +3675,11 @@ define hidden void @_ZN14ZGenerationOld24concurrent_mark_continueEv(ptr noundef 
   %4 = alloca %class.ZStatTimerOld, align 8
   %5 = alloca %class.ZStatTimerOld, align 8
   call void @_ZN13ZStatTimerOldC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) @_ZL31ZPhaseConcurrentMarkContinueOld) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN13ZStatTimerOldC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(48) @_ZL32ZSubPhaseConcurrentMarkFollowOld) #17
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 256
   call void @_ZN5ZMark11mark_followEv(ptr noundef nonnull align 64 dereferenceable(2652) %6) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %8 = extractvalue { i64, i64 } %7, 0
   store i64 %8, ptr %3, align 8
@@ -3694,9 +3694,9 @@ define hidden void @_ZN14ZGenerationOld24concurrent_mark_continueEv(ptr noundef 
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %3) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %18 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %19 = extractvalue { i64, i64 } %18, 0
   store i64 %19, ptr %2, align 8
@@ -3711,7 +3711,7 @@ define hidden void @_ZN14ZGenerationOld24concurrent_mark_continueEv(ptr noundef 
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef %24, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %2) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -3722,7 +3722,7 @@ define hidden void @_ZN14ZGenerationOld20concurrent_mark_freeEv(ptr noundef nonn
   call void @_ZN13ZStatTimerOldC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(48) @_ZL27ZPhaseConcurrentMarkFreeOld) #17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   call void @_ZN5ZMark4freeEv(ptr noundef nonnull align 64 dereferenceable(2652) %4) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %6 = extractvalue { i64, i64 } %5, 0
   store i64 %6, ptr %2, align 8
@@ -3737,7 +3737,7 @@ define hidden void @_ZN14ZGenerationOld20concurrent_mark_freeEv(ptr noundef nonn
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %2) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -3748,7 +3748,7 @@ define hidden void @_ZN14ZGenerationOld40concurrent_process_non_strong_reference
   call void @_ZN13ZStatTimerOldC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(48) @_ZL35ZPhaseConcurrentProcessNonStrongOld) #17
   call void @_ZN11ZBreakpoint37at_after_reference_processing_startedEv() #17
   call void @_ZN14ZGenerationOld29process_non_strong_referencesEv(ptr noundef nonnull align 64 dereferenceable(6720) %0)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %5 = extractvalue { i64, i64 } %4, 0
   store i64 %5, ptr %2, align 8
@@ -3763,7 +3763,7 @@ define hidden void @_ZN14ZGenerationOld40concurrent_process_non_strong_reference
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %2) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -3816,7 +3816,7 @@ _ZN11ZGeneration20reset_relocation_setEv.exit:    ; preds = %_ZN16ZForwardingTab
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 16
   call void @_ZN14ZRelocationSet5resetEP14ZPageAllocator(ptr noundef nonnull align 8 dereferenceable(120) %24, ptr noundef %26) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %27 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %28 = extractvalue { i64, i64 } %27, 0
   store i64 %28, ptr %2, align 8
@@ -3831,7 +3831,7 @@ _ZN11ZGeneration20reset_relocation_setEv.exit:    ; preds = %_ZN16ZForwardingTab
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
   call void %37(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef %33, ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %2) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -3867,7 +3867,7 @@ define hidden void @_ZN14ZGenerationOld32concurrent_select_relocation_setEv(ptr 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i8, ptr %4, align 8
   call void @_ZN11ZGeneration21select_relocation_setE13ZGenerationIdb(ptr noundef nonnull align 64 dereferenceable(6592) %0, i8 noundef zeroext %5, i1 noundef zeroext false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %7 = extractvalue { i64, i64 } %6, 0
   store i64 %7, ptr %2, align 8
@@ -3882,7 +3882,7 @@ define hidden void @_ZN14ZGenerationOld32concurrent_select_relocation_setEv(ptr 
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %2) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -3894,7 +3894,7 @@ define hidden void @_ZN14ZGenerationOld28concurrent_remap_young_rootsEv(ptr noun
   %3 = alloca %class.ZStatTimerOld, align 8
   call void @_ZN13ZStatTimerOldC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(48) @_ZL29ZPhaseConcurrentRemapRootsOld) #17
   call void @_ZN14ZGenerationOld17remap_young_rootsEv(ptr noundef nonnull align 64 dereferenceable(6720) %0)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %5 = extractvalue { i64, i64 } %4, 0
   store i64 %5, ptr %2, align 8
@@ -3909,7 +3909,7 @@ define hidden void @_ZN14ZGenerationOld28concurrent_remap_young_rootsEv(ptr noun
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %2) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -3953,7 +3953,7 @@ define hidden void @_ZN14ZGenerationOld19concurrent_relocateEv(ptr noundef nonnu
   %3 = alloca %class.ZPageAllocatorStats, align 8
   %4 = alloca %class.ZStatTimerOld, align 8
   call void @_ZN13ZStatTimerOldC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(48) @_ZL28ZPhaseConcurrentRelocatedOld) #17
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2944
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 3072
   call void @_ZN9ZRelocate8relocateEP14ZRelocationSet(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull %6) #17
@@ -3965,8 +3965,8 @@ define hidden void @_ZN14ZGenerationOld19concurrent_relocateEv(ptr noundef nonnu
   %11 = load ptr, ptr %10, align 8
   %12 = call noundef zeroext i1 %11(ptr noundef nonnull align 64 dereferenceable(6720) %0) #17
   call void @_ZN9ZStatHeap15at_relocate_endERK19ZPageAllocatorStatsb(ptr noundef nonnull align 8 dereferenceable(488) %7, ptr noundef nonnull align 8 dereferenceable(96) %3, i1 noundef zeroext %12) #17
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %13 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %14 = extractvalue { i64, i64 } %13, 0
   store i64 %14, ptr %2, align 8
@@ -3981,7 +3981,7 @@ define hidden void @_ZN14ZGenerationOld19concurrent_relocateEv(ptr noundef nonnu
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %2) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -4018,7 +4018,7 @@ define hidden void @_ZN14ZGenerationOld10mark_rootsEv(ptr noundef nonnull align 
   call void @_ZN13ZStatTimerOldC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(48) @_ZL31ZSubPhaseConcurrentMarkRootsOld) #17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   call void @_ZN5ZMark14mark_old_rootsEv(ptr noundef nonnull align 64 dereferenceable(2652) %4) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %6 = extractvalue { i64, i64 } %5, 0
   store i64 %6, ptr %2, align 8
@@ -4033,7 +4033,7 @@ define hidden void @_ZN14ZGenerationOld10mark_rootsEv(ptr noundef nonnull align 
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %2) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -4044,7 +4044,7 @@ define hidden void @_ZN14ZGenerationOld11mark_followEv(ptr noundef nonnull align
   call void @_ZN13ZStatTimerOldC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(48) @_ZL32ZSubPhaseConcurrentMarkFollowOld) #17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   call void @_ZN5ZMark11mark_followEv(ptr noundef nonnull align 64 dereferenceable(2652) %4) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %6 = extractvalue { i64, i64 } %5, 0
   store i64 %6, ptr %2, align 8
@@ -4059,7 +4059,7 @@ define hidden void @_ZN14ZGenerationOld11mark_followEv(ptr noundef nonnull align
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %2) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -5054,7 +5054,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN24VM_ZMarkStartYoungAndOld12do
   %13 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   call void @_ZN14ZGenerationOld10mark_startEv(ptr noundef nonnull align 64 dereferenceable(6720) %13)
   call void @_ZN26ZServiceabilityPauseTracerD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %4) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %14 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %15 = extractvalue { i64, i64 } %14, 0
   store i64 %15, ptr %2, align 8
@@ -5069,7 +5069,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN24VM_ZMarkStartYoungAndOld12do
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef %20, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %2) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 true
 }
 
@@ -5132,7 +5132,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN18VM_ZMarkStartYoung12do_opera
   %9 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
   call void @_ZN16ZGenerationYoung10mark_startEv(ptr noundef nonnull align 64 dereferenceable(6720) %9)
   call void @_ZN26ZServiceabilityPauseTracerD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %4) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %10 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %11 = extractvalue { i64, i64 } %10, 0
   store i64 %11, ptr %2, align 8
@@ -5147,7 +5147,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN18VM_ZMarkStartYoung12do_opera
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %2) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 true
 }
 
@@ -5167,7 +5167,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN16VM_ZMarkEndYoung12do_operati
   call void @_ZN15ZStatTimerYoungC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(48) @_ZL23ZPhasePauseMarkEndYoung) #17
   call void @_ZN26ZServiceabilityPauseTracerC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %5) #17
   %6 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 256
   %8 = call noundef zeroext i1 @_ZN5ZMark3endEv(ptr noundef nonnull align 64 dereferenceable(2652) %7) #17
   br i1 %8, label %9, label %_ZN16ZGenerationYoung8mark_endEv.exit
@@ -5197,9 +5197,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN16VM_ZMarkEndYoung12do_operati
   br label %_ZN16ZGenerationYoung8mark_endEv.exit
 
 _ZN16ZGenerationYoung8mark_endEv.exit:            ; preds = %1, %9
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN26ZServiceabilityPauseTracerD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %5) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %24 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %25 = extractvalue { i64, i64 } %24, 0
   store i64 %25, ptr %2, align 8
@@ -5214,7 +5214,7 @@ _ZN16ZGenerationYoung8mark_endEv.exit:            ; preds = %1, %9
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8
   call void %34(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef %30, ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %2) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %8
 }
 
@@ -5237,7 +5237,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN22VM_ZRelocateStartYoung12do_o
   call void @_ZN15ZStatTimerYoungC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(48) @_ZL29ZPhasePauseRelocateStartYoung) #17
   call void @_ZN26ZServiceabilityPauseTracerC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %5) #17
   %6 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN16ZGlobalsPointers25flip_young_relocate_startEv() #17
   %7 = call noundef ptr @_ZN11ZBarrierSet9assemblerEv() #17
   call void @_ZN20ZBarrierSetAssembler14patch_barriersEv(ptr noundef nonnull align 8 dereferenceable(56) %7) #17
@@ -5260,9 +5260,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN22VM_ZRelocateStartYoung12do_o
   call void @_ZN9ZStatHeap17at_relocate_startERK19ZPageAllocatorStats(ptr noundef nonnull align 8 dereferenceable(488) %17, ptr noundef nonnull align 8 dereferenceable(96) %3) #17
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 2944
   call void @_ZN9ZRelocate5startEv(ptr noundef nonnull align 8 dereferenceable(128) %20) #17
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN26ZServiceabilityPauseTracerD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %5) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %21 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %22 = extractvalue { i64, i64 } %21, 0
   store i64 %22, ptr %2, align 8
@@ -5277,7 +5277,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN22VM_ZRelocateStartYoung12do_o
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   call void %31(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %2) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 true
 }
 
@@ -5301,7 +5301,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14VM_ZMarkEndOld12do_operation
   %5 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %6 = call noundef zeroext i1 @_ZN14ZGenerationOld8mark_endEv(ptr noundef nonnull align 64 dereferenceable(6720) %5)
   call void @_ZN26ZServiceabilityPauseTracerD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %4) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %8 = extractvalue { i64, i64 } %7, 0
   store i64 %8, ptr %2, align 8
@@ -5316,7 +5316,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14VM_ZMarkEndOld12do_operation
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %2) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %6
 }
 
@@ -5372,7 +5372,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20VM_ZRelocateStartOld12do_ope
   call void @_ZN13ZStatTimerOldC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(48) @_ZL27ZPhasePauseRelocateStartOld) #17
   call void @_ZN26ZServiceabilityPauseTracerC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %5) #17
   %6 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 6680
   call void @_ZN7ZUnload6finishEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
   call void @_ZN16ZGlobalsPointers23flip_old_relocate_startEv() #17
@@ -5402,9 +5402,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20VM_ZRelocateStartOld12do_ope
   store i32 %23, ptr %24, align 4
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 2944
   call void @_ZN9ZRelocate5startEv(ptr noundef nonnull align 8 dereferenceable(128) %25) #17
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN26ZServiceabilityPauseTracerD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %5) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %26 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %27 = extractvalue { i64, i64 } %26, 0
   store i64 %27, ptr %2, align 8
@@ -5419,7 +5419,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20VM_ZRelocateStartOld12do_ope
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   call void %36(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef %32, ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %2) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 true
 }
 
@@ -5499,7 +5499,7 @@ define linkonce_odr hidden void @_ZN20ZRemapYoungRootsTask4workEv(ptr noundef no
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   call void @_ZN24ZRootsIteratorAllColored5applyEP10OopClosureP10CLDClosure(ptr noundef nonnull align 8 dereferenceable(890) %10, ptr noundef nonnull %11, ptr noundef nonnull %12) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %13 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %14 = extractvalue { i64, i64 } %13, 0
   store i64 %14, ptr %6, align 8
@@ -5514,13 +5514,13 @@ define linkonce_odr hidden void @_ZN20ZRemapYoungRootsTask4workEv(ptr noundef no
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %6) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN16ZStatTimerWorkerC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(48) @_ZL41ZSubPhaseConcurrentRemapRootsUncoloredOld) #17
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 976
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   call void @_ZN26ZRootsIteratorAllUncolored5applyEP13ThreadClosureP14NMethodClosure(ptr noundef nonnull align 8 dereferenceable(76) %24, ptr noundef nonnull %25, ptr noundef nonnull %26) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %27 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %28 = extractvalue { i64, i64 } %27, 0
   store i64 %28, ptr %5, align 8
@@ -5535,20 +5535,20 @@ define linkonce_odr hidden void @_ZN20ZRemapYoungRootsTask4workEv(ptr noundef no
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
   call void %37(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef %33, ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %5) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN16ZStatTimerWorkerC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(48) @_ZL37ZSubPhaseConcurrentRemapRememberedOld) #17
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %38, ptr %3, align 8
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @_ZN17ZIndexDistributor10do_indicesIZN26ZPageTableParallelIterator8do_pagesIZN32ZGenerationPagesParallelIterator8do_pagesIZN20ZRemapYoungRootsTask4workEvEUlP5ZPageE_EEvT_EUlS7_E_EEvS9_EUliE_EEvS9_(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr nonnull align 8 dereferenceable(16) %39, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %42 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
   %43 = extractvalue { i64, i64 } %42, 0
   store i64 %43, ptr %2, align 8
@@ -5563,7 +5563,7 @@ define linkonce_odr hidden void @_ZN20ZRemapYoungRootsTask4workEv(ptr noundef no
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8
   call void %52(ptr noundef nonnull align 8 dereferenceable(48) %47, ptr noundef %48, ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %2) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -5964,15 +5964,15 @@ define linkonce_odr hidden void @_ZN17ZIndexDistributor10do_indicesIZN26ZPageTab
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN26ZIndexDistributorClaimTree12claim_and_doIZN26ZPageTableParallelIterator8do_pagesIZN32ZGenerationPagesParallelIterator8do_pagesIZN20ZRemapYoungRootsTask4workEvEUlP5ZPageE_EEvT_EUlS7_E_EEvS9_EUliE_EEvS9_Pii(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr %1, ptr %2, ptr noundef nonnull %5, i32 noundef 0)
   call void @_ZN26ZIndexDistributorClaimTree12steal_and_doIZN26ZPageTableParallelIterator8do_pagesIZN32ZGenerationPagesParallelIterator8do_pagesIZN20ZRemapYoungRootsTask4workEvEUlP5ZPageE_EEvT_EUlS7_E_EEvS9_EUliE_EEvS9_Pii(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr %1, ptr %2, ptr noundef nonnull %5, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %53
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %11, align 8
@@ -6046,7 +6046,7 @@ define linkonce_odr hidden void @_ZN17ZIndexDistributor10do_indicesIZN26ZPageTab
   br i1 %exitcond.not.i, label %_ZN24ZIndexDistributorStriped10do_indicesIZN26ZPageTableParallelIterator8do_pagesIZN32ZGenerationPagesParallelIterator8do_pagesIZN20ZRemapYoungRootsTask4workEvEUlP5ZPageE_EEvT_EUlS7_E_EEvS9_EUliE_EEvS9_.exit, label %.preheader.i, !llvm.loop !27
 
 _ZN24ZIndexDistributorStriped10do_indicesIZN26ZPageTableParallelIterator8do_pagesIZN32ZGenerationPagesParallelIterator8do_pagesIZN20ZRemapYoungRootsTask4workEvEUlP5ZPageE_EEvT_EUlS7_E_EEvS9_EUliE_EEvS9_.exit: ; preds = %37, %50, %47
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %53
 
 51:                                               ; preds = %3
@@ -6156,7 +6156,7 @@ _ZN26ZIndexDistributorClaimTree11claim_indexEPii.exit: ; preds = %8, %_ZN26ZInde
   br i1 %50, label %.lr.ph.split, label %.loopexit, !llvm.loop !30
 
 51:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %6, align 8
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %52, align 8
@@ -6184,7 +6184,7 @@ _ZN26ZIndexDistributorClaimTree4doitIZN26ZPageTableParallelIterator8do_pagesIZN3
   %65 = load i32, ptr %64, align 4
   %66 = add nsw i32 %63, %65
   %67 = call noundef zeroext i1 @_ZZN26ZPageTableParallelIterator8do_pagesIZN32ZGenerationPagesParallelIterator8do_pagesIZN20ZRemapYoungRootsTask4workEvEUlP5ZPageE_EEvT_EUlS5_E_EEvS7_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %66)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %_ZN26ZIndexDistributorClaimTree11claim_indexEPii.exit, %_ZN26ZIndexDistributorClaimTree4doitIZN26ZPageTableParallelIterator8do_pagesIZN32ZGenerationPagesParallelIterator8do_pagesIZN20ZRemapYoungRootsTask4workEvEUlP5ZPageE_EEvT_EUlS7_E_EEvS9_EUliE_EEvS9_Pi.exit
@@ -6490,10 +6490,10 @@ declare i32 @llvm.ctpop.i32(i32) #15
 declare i32 @llvm.umax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.log.f64(double) #15

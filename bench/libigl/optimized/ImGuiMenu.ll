@@ -156,24 +156,24 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui9ImGuiMenu18draw_viewer_windowEv
   %3 = alloca %struct.ImVec2, align 4
   %4 = alloca %struct.ImVec2, align 4
   %5 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store float 0.000000e+00, ptr %2, align 4, !tbaa !22
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store float 0.000000e+00, ptr %6, align 4, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store float 0.000000e+00, ptr %3, align 4, !tbaa !22
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float 0.000000e+00, ptr %7, align 4, !tbaa !25
   call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef 4, ptr noundef nonnull align 4 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store float 0.000000e+00, ptr %4, align 4, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float 0.000000e+00, ptr %8, align 4, !tbaa !25
   call void @_ZN5ImGui17SetNextWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8) %4, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 1, ptr %5, align 1, !tbaa !26
   %9 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull @.str, ptr noundef nonnull %5, i32 noundef 320)
   %10 = call noundef float @_ZN5ImGui14GetWindowWidthEv()
@@ -201,17 +201,11 @@ _ZNKSt8functionIFvvEEclEv.exit:                   ; preds = %1
 21:                                               ; preds = %17, %_ZNKSt8functionIFvvEEclEv.exit
   call void @_ZN5ImGui12PopItemWidthEv()
   call void @_ZN5ImGui3EndEv()
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 declare void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8), i32 noundef, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 declare void @_ZN5ImGui17SetNextWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8), i32 noundef) local_unnamed_addr #3
 
@@ -226,7 +220,7 @@ declare void @_ZN5ImGui12PopItemWidthEv() local_unnamed_addr #3
 declare void @_ZN5ImGui3EndEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3igl6opengl4glfw5imgui9ImGuiMenu16draw_viewer_menuEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3igl6opengl4glfw5imgui9ImGuiMenu16draw_viewer_menuEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
@@ -252,14 +246,14 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui9ImGuiMenu16draw_viewer_menuEv(p
   %21 = tail call noundef nonnull align 4 dereferenceable(1048) ptr @_ZN5ImGui8GetStyleEv()
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 60
   %23 = load float, ptr %22, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %24 = fsub float %.sroa.09.0.vec.extract, %23
   %25 = fmul float %24, 5.000000e-01
   store float %25, ptr %10, align 4, !tbaa !22
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store float 0.000000e+00, ptr %26, align 4, !tbaa !25
   %27 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.4, ptr noundef nonnull align 4 dereferenceable(8) %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %19
@@ -270,12 +264,12 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui9ImGuiMenu16draw_viewer_menuEv(p
 
 32:                                               ; preds = %28, %19
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef %23)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store float %25, ptr %11, align 4, !tbaa !22
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store float 0.000000e+00, ptr %33, align 4, !tbaa !25
   %34 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.5, ptr noundef nonnull align 4 dereferenceable(8) %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %34, label %35, label %39
 
 35:                                               ; preds = %32
@@ -294,14 +288,14 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui9ImGuiMenu16draw_viewer_menuEv(p
   %43 = call noundef nonnull align 4 dereferenceable(1048) ptr @_ZN5ImGui8GetStyleEv()
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 60
   %45 = load float, ptr %44, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %46 = fsub float %.sroa.0.0.vec.extract, %45
   %47 = fmul float %46, 5.000000e-01
   store float %47, ptr %12, align 4, !tbaa !22
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store float 0.000000e+00, ptr %48, align 4, !tbaa !25
   %49 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.7, ptr noundef nonnull align 4 dereferenceable(8) %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %41
@@ -312,12 +306,12 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui9ImGuiMenu16draw_viewer_menuEv(p
 
 53:                                               ; preds = %50, %41
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef %45)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store float %47, ptr %13, align 4, !tbaa !22
   %54 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store float 0.000000e+00, ptr %54, align 4, !tbaa !25
   %55 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.8, ptr noundef nonnull align 4 dereferenceable(8) %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %53
@@ -331,12 +325,12 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui9ImGuiMenu16draw_viewer_menuEv(p
   br i1 %60, label %61, label %145
 
 61:                                               ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store float -1.000000e+00, ptr %14, align 4, !tbaa !22
   %62 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store float 0.000000e+00, ptr %62, align 4, !tbaa !25
   %63 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.10, ptr noundef nonnull align 4 dereferenceable(8) %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %63, label %64, label %73
 
 64:                                               ; preds = %61
@@ -352,12 +346,12 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui9ImGuiMenu16draw_viewer_menuEv(p
   br label %73
 
 73:                                               ; preds = %64, %61
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store float -1.000000e+00, ptr %15, align 4, !tbaa !22
   %74 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store float 0.000000e+00, ptr %74, align 4, !tbaa !25
   %75 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.11, ptr noundef nonnull align 4 dereferenceable(8) %15)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %75, label %76, label %79
 
 76:                                               ; preds = %73
@@ -380,7 +374,7 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui9ImGuiMenu16draw_viewer_menuEv(p
   %89 = call noundef nonnull align 16 dereferenceable(544) ptr @_ZN3igl6opengl4glfw6Viewer4coreEj(ptr noundef nonnull align 16 dereferenceable(616) %88, i32 noundef 0)
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 100
   %91 = call noundef zeroext i1 @_ZN5ImGui9DragFloatEPKcPffffS1_i(ptr noundef nonnull @.str.12, ptr noundef nonnull %90, float noundef 0x3FA99999A0000000, float noundef 0x3FB99999A0000000, float noundef 2.000000e+01, ptr noundef nonnull @.str.13, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %92 = load ptr, ptr %87, align 8, !tbaa !4
   %93 = call noundef nonnull align 16 dereferenceable(544) ptr @_ZN3igl6opengl4glfw6Viewer4coreEj(ptr noundef nonnull align 16 dereferenceable(616) %92, i32 noundef 0)
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 72
@@ -408,7 +402,7 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui9ImGuiMenu16draw_viewer_menuEv(p
   br i1 %102, label %103, label %140
 
 103:                                              ; preds = %101
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %104 = load i32, ptr %16, align 4, !tbaa !48
   store i32 %104, ptr %17, align 4, !tbaa !54
   %105 = load ptr, ptr %87, align 8, !tbaa !4
@@ -475,7 +469,7 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui9ImGuiMenu16draw_viewer_menuEv(p
   br label %139
 
 139:                                              ; preds = %136, %103
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %140
 
 140:                                              ; preds = %139, %101
@@ -484,7 +478,7 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui9ImGuiMenu16draw_viewer_menuEv(p
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 104
   %144 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.16, ptr noundef nonnull %143)
   call void @_ZN5ImGui12PopItemWidthEv()
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %145
 
 145:                                              ; preds = %140, %59
@@ -510,7 +504,7 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui9ImGuiMenu16draw_viewer_menuEv(p
   %158 = load ptr, ptr %148, align 8, !tbaa !4
   %159 = call noundef nonnull align 8 dereferenceable(1488) ptr @_ZN3igl6opengl4glfw6Viewer4dataEi(ptr noundef nonnull align 16 dereferenceable(616) %158, i32 noundef -1)
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 612
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.val.val.i.i = load ptr, ptr %148, align 8, !tbaa !4
   %161 = call noundef nonnull align 16 dereferenceable(544) ptr @_ZN3igl6opengl4glfw6Viewer4coreEj(ptr noundef nonnull align 16 dereferenceable(616) %.val.val.i.i, i32 noundef 0)
   %162 = load i32, ptr %160, align 4, !tbaa !48
@@ -523,7 +517,7 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui9ImGuiMenu16draw_viewer_menuEv(p
   %.val2.val.i.i = load ptr, ptr %148, align 8, !tbaa !4
   %168 = call noundef nonnull align 16 dereferenceable(544) ptr @_ZN3igl6opengl4glfw6Viewer4coreEj(ptr noundef nonnull align 16 dereferenceable(616) %.val2.val.i.i, i32 noundef 0)
   call void @_ZNK3igl6opengl10ViewerCore3setERjb(ptr noundef nonnull align 16 dereferenceable(544) %168, ptr noundef nonnull align 4 dereferenceable(4) %160, i1 noundef zeroext %167)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %169 = load ptr, ptr %148, align 8, !tbaa !4
   %170 = call noundef nonnull align 8 dereferenceable(1488) ptr @_ZN3igl6opengl4glfw6Viewer4dataEi(ptr noundef nonnull align 16 dereferenceable(616) %169, i32 noundef -1)
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 582
@@ -543,7 +537,7 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui9ImGuiMenu16draw_viewer_menuEv(p
   %180 = load ptr, ptr %148, align 8, !tbaa !4
   %181 = call noundef nonnull align 8 dereferenceable(1488) ptr @_ZN3igl6opengl4glfw6Viewer4dataEi(ptr noundef nonnull align 16 dereferenceable(616) %180, i32 noundef -1)
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 604
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.val.val.i.i21 = load ptr, ptr %148, align 8, !tbaa !4
   %183 = call noundef nonnull align 16 dereferenceable(544) ptr @_ZN3igl6opengl4glfw6Viewer4coreEj(ptr noundef nonnull align 16 dereferenceable(616) %.val.val.i.i21, i32 noundef 0)
   %184 = load i32, ptr %182, align 4, !tbaa !48
@@ -556,11 +550,11 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui9ImGuiMenu16draw_viewer_menuEv(p
   %.val2.val.i.i22 = load ptr, ptr %148, align 8, !tbaa !4
   %190 = call noundef nonnull align 16 dereferenceable(544) ptr @_ZN3igl6opengl4glfw6Viewer4coreEj(ptr noundef nonnull align 16 dereferenceable(616) %.val2.val.i.i22, i32 noundef 0)
   call void @_ZNK3igl6opengl10ViewerCore3setERjb(ptr noundef nonnull align 16 dereferenceable(544) %190, ptr noundef nonnull align 4 dereferenceable(4) %182, i1 noundef zeroext %189)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %191 = load ptr, ptr %148, align 8, !tbaa !4
   %192 = call noundef nonnull align 8 dereferenceable(1488) ptr @_ZN3igl6opengl4glfw6Viewer4dataEi(ptr noundef nonnull align 16 dereferenceable(616) %191, i32 noundef -1)
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 608
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.val.val.i.i23 = load ptr, ptr %148, align 8, !tbaa !4
   %194 = call noundef nonnull align 16 dereferenceable(544) ptr @_ZN3igl6opengl4glfw6Viewer4coreEj(ptr noundef nonnull align 16 dereferenceable(616) %.val.val.i.i23, i32 noundef 0)
   %195 = load i32, ptr %193, align 8, !tbaa !48
@@ -573,7 +567,7 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui9ImGuiMenu16draw_viewer_menuEv(p
   %.val2.val.i.i24 = load ptr, ptr %148, align 8, !tbaa !4
   %201 = call noundef nonnull align 16 dereferenceable(544) ptr @_ZN3igl6opengl4glfw6Viewer4coreEj(ptr noundef nonnull align 16 dereferenceable(616) %.val2.val.i.i24, i32 noundef 0)
   call void @_ZNK3igl6opengl10ViewerCore3setERjb(ptr noundef nonnull align 16 dereferenceable(544) %201, ptr noundef nonnull align 4 dereferenceable(4) %193, i1 noundef zeroext %200)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %202 = load ptr, ptr %148, align 8, !tbaa !4
   %203 = call noundef nonnull align 16 dereferenceable(544) ptr @_ZN3igl6opengl4glfw6Viewer4coreEj(ptr noundef nonnull align 16 dereferenceable(616) %202, i32 noundef 0)
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 16
@@ -601,7 +595,7 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui9ImGuiMenu16draw_viewer_menuEv(p
   %220 = load ptr, ptr %219, align 8, !tbaa !4
   %221 = call noundef nonnull align 8 dereferenceable(1488) ptr @_ZN3igl6opengl4glfw6Viewer4dataEi(ptr noundef nonnull align 16 dereferenceable(616) %220, i32 noundef -1)
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 600
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.val.val.i.i25 = load ptr, ptr %219, align 8, !tbaa !4
   %223 = call noundef nonnull align 16 dereferenceable(544) ptr @_ZN3igl6opengl4glfw6Viewer4coreEj(ptr noundef nonnull align 16 dereferenceable(616) %.val.val.i.i25, i32 noundef 0)
   %224 = load i32, ptr %222, align 8, !tbaa !48
@@ -614,11 +608,11 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui9ImGuiMenu16draw_viewer_menuEv(p
   %.val2.val.i.i26 = load ptr, ptr %219, align 8, !tbaa !4
   %230 = call noundef nonnull align 16 dereferenceable(544) ptr @_ZN3igl6opengl4glfw6Viewer4coreEj(ptr noundef nonnull align 16 dereferenceable(616) %.val2.val.i.i26, i32 noundef 0)
   call void @_ZNK3igl6opengl10ViewerCore3setERjb(ptr noundef nonnull align 16 dereferenceable(544) %230, ptr noundef nonnull align 4 dereferenceable(4) %222, i1 noundef zeroext %229)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %231 = load ptr, ptr %219, align 8, !tbaa !4
   %232 = call noundef nonnull align 8 dereferenceable(1488) ptr @_ZN3igl6opengl4glfw6Viewer4dataEi(ptr noundef nonnull align 16 dereferenceable(616) %231, i32 noundef -1)
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 596
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.val.val.i.i27 = load ptr, ptr %219, align 8, !tbaa !4
   %234 = call noundef nonnull align 16 dereferenceable(544) ptr @_ZN3igl6opengl4glfw6Viewer4coreEj(ptr noundef nonnull align 16 dereferenceable(616) %.val.val.i.i27, i32 noundef 0)
   %235 = load i32, ptr %233, align 4, !tbaa !48
@@ -631,11 +625,11 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui9ImGuiMenu16draw_viewer_menuEv(p
   %.val2.val.i.i28 = load ptr, ptr %219, align 8, !tbaa !4
   %241 = call noundef nonnull align 16 dereferenceable(544) ptr @_ZN3igl6opengl4glfw6Viewer4coreEj(ptr noundef nonnull align 16 dereferenceable(616) %.val2.val.i.i28, i32 noundef 0)
   call void @_ZNK3igl6opengl10ViewerCore3setERjb(ptr noundef nonnull align 16 dereferenceable(544) %241, ptr noundef nonnull align 4 dereferenceable(4) %233, i1 noundef zeroext %240)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %242 = load ptr, ptr %219, align 8, !tbaa !4
   %243 = call noundef nonnull align 8 dereferenceable(1488) ptr @_ZN3igl6opengl4glfw6Viewer4dataEi(ptr noundef nonnull align 16 dereferenceable(616) %242, i32 noundef -1)
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 616
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.val.val.i.i29 = load ptr, ptr %219, align 8, !tbaa !4
   %245 = call noundef nonnull align 16 dereferenceable(544) ptr @_ZN3igl6opengl4glfw6Viewer4coreEj(ptr noundef nonnull align 16 dereferenceable(616) %.val.val.i.i29, i32 noundef 0)
   %246 = load i32, ptr %244, align 8, !tbaa !48
@@ -648,11 +642,11 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui9ImGuiMenu16draw_viewer_menuEv(p
   %.val2.val.i.i30 = load ptr, ptr %219, align 8, !tbaa !4
   %252 = call noundef nonnull align 16 dereferenceable(544) ptr @_ZN3igl6opengl4glfw6Viewer4coreEj(ptr noundef nonnull align 16 dereferenceable(616) %.val2.val.i.i30, i32 noundef 0)
   call void @_ZNK3igl6opengl10ViewerCore3setERjb(ptr noundef nonnull align 16 dereferenceable(544) %252, ptr noundef nonnull align 4 dereferenceable(4) %244, i1 noundef zeroext %251)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %253 = load ptr, ptr %219, align 8, !tbaa !4
   %254 = call noundef nonnull align 8 dereferenceable(1488) ptr @_ZN3igl6opengl4glfw6Viewer4dataEi(ptr noundef nonnull align 16 dereferenceable(616) %253, i32 noundef -1)
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 592
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.val.val.i.i31 = load ptr, ptr %219, align 8, !tbaa !4
   %256 = call noundef nonnull align 16 dereferenceable(544) ptr @_ZN3igl6opengl4glfw6Viewer4coreEj(ptr noundef nonnull align 16 dereferenceable(616) %.val.val.i.i31, i32 noundef 0)
   %257 = load i32, ptr %255, align 8, !tbaa !48
@@ -665,11 +659,11 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui9ImGuiMenu16draw_viewer_menuEv(p
   %.val2.val.i.i32 = load ptr, ptr %219, align 8, !tbaa !4
   %263 = call noundef nonnull align 16 dereferenceable(544) ptr @_ZN3igl6opengl4glfw6Viewer4coreEj(ptr noundef nonnull align 16 dereferenceable(616) %.val2.val.i.i32, i32 noundef 0)
   call void @_ZNK3igl6opengl10ViewerCore3setERjb(ptr noundef nonnull align 16 dereferenceable(544) %263, ptr noundef nonnull align 4 dereferenceable(4) %255, i1 noundef zeroext %262)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %264 = load ptr, ptr %219, align 8, !tbaa !4
   %265 = call noundef nonnull align 8 dereferenceable(1488) ptr @_ZN3igl6opengl4glfw6Viewer4dataEi(ptr noundef nonnull align 16 dereferenceable(616) %264, i32 noundef -1)
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 588
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.val.val.i.i33 = load ptr, ptr %219, align 8, !tbaa !4
   %267 = call noundef nonnull align 16 dereferenceable(544) ptr @_ZN3igl6opengl4glfw6Viewer4coreEj(ptr noundef nonnull align 16 dereferenceable(616) %.val.val.i.i33, i32 noundef 0)
   %268 = load i32, ptr %266, align 4, !tbaa !48
@@ -682,7 +676,7 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui9ImGuiMenu16draw_viewer_menuEv(p
   %.val2.val.i.i34 = load ptr, ptr %219, align 8, !tbaa !4
   %274 = call noundef nonnull align 16 dereferenceable(544) ptr @_ZN3igl6opengl4glfw6Viewer4coreEj(ptr noundef nonnull align 16 dereferenceable(616) %.val2.val.i.i34, i32 noundef 0)
   call void @_ZNK3igl6opengl10ViewerCore3setERjb(ptr noundef nonnull align 16 dereferenceable(544) %274, ptr noundef nonnull align 4 dereferenceable(4) %266, i1 noundef zeroext %273)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %275
 
 275:                                              ; preds = %218, %216
@@ -718,12 +712,12 @@ declare void @_ZN3igl6opengl4glfw6Viewer28snap_to_canonical_quaternionEv(ptr nou
 declare noundef zeroext i1 @_ZN5ImGui9DragFloatEPKcPffffS1_i(ptr noundef, ptr noundef, float noundef, float noundef, float noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #6
+declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #5
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nofree nounwind
-declare void @__cxa_guard_release(ptr) local_unnamed_addr #6
+declare void @__cxa_guard_release(ptr) local_unnamed_addr #5
 
 declare noundef zeroext i1 @_ZN5ImGui5ComboEPKcPiS1_i(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -734,7 +728,7 @@ declare noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef, ptr noundef) l
 declare noundef zeroext i1 @_ZN5ImGui10ColorEdit4EPKcPfi(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui9ImGuiMenuD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui9ImGuiMenuD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN3igl6opengl4glfw5imgui9ImGuiMenuE, i64 16), ptr %0, align 8, !tbaa !20
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8, !tbaa !16
@@ -815,7 +809,7 @@ _ZN3igl6opengl4glfw5imgui11ImGuiWidgetD2Ev.exit:  ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui9ImGuiMenuD0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui9ImGuiMenuD0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN3igl6opengl4glfw5imgui9ImGuiMenuE, i64 16), ptr %0, align 8, !tbaa !20
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8, !tbaa !16
@@ -897,37 +891,37 @@ _ZN3igl6opengl4glfw5imgui9ImGuiMenuD2Ev.exit:     ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImGuiWidget10mouse_downEii(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #8 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImGuiWidget10mouse_downEii(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #7 comdat align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImGuiWidget8mouse_upEii(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #8 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImGuiWidget8mouse_upEii(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #7 comdat align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImGuiWidget10mouse_moveEii(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #8 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImGuiWidget10mouse_moveEii(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #7 comdat align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImGuiWidget11key_pressedEji(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #8 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImGuiWidget11key_pressedEji(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #7 comdat align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImGuiWidget8key_downEii(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #8 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImGuiWidget8key_downEii(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #7 comdat align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImGuiWidget6key_upEii(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #8 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImGuiWidget6key_upEii(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #7 comdat align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui9ImGuiMenu18draw_custom_windowEv(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui9ImGuiMenu18draw_custom_windowEv(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #7 comdat align 2 {
   ret void
 }
 
@@ -940,7 +934,7 @@ declare noundef zeroext i1 @_ZNK3igl6opengl10ViewerCore6is_setEj(ptr noundef non
 declare void @_ZNK3igl6opengl10ViewerCore3setERjb(ptr noundef nonnull align 16 dereferenceable(544), ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
   tail call void @_ZSt9terminatev() #14
   unreachable
@@ -949,10 +943,10 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #10
+declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui11ImGuiWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui11ImGuiWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN3igl6opengl4glfw5imgui11ImGuiWidgetE, i64 16), ptr %0, align 8, !tbaa !20
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !93
@@ -978,7 +972,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui11ImGuiWidgetD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui11ImGuiWidgetD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN3igl6opengl4glfw5imgui11ImGuiWidgetE, i64 16), ptr %0, align 8, !tbaa !20
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !93
@@ -1005,7 +999,7 @@ _ZN3igl6opengl4glfw5imgui11ImGuiWidgetD2Ev.exit:  ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui11ImGuiWidget4initEPNS1_6ViewerEPNS2_11ImGuiPluginE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #8 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui11ImGuiWidget4initEPNS1_6ViewerEPNS2_11ImGuiPluginE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #7 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %4, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1014,17 +1008,23 @@ define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui11ImGuiWidget4initE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui11ImGuiWidget8shutdownEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui11ImGuiWidget8shutdownEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #7 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui11ImGuiWidget4drawEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui11ImGuiWidget4drawEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #7 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #11
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12
@@ -1033,14 +1033,14 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind }
-attributes #7 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { cold nofree noreturn }
-attributes #11 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind }
+attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { cold nofree noreturn }
+attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #13 = { nounwind }
 attributes #14 = { noreturn nounwind }

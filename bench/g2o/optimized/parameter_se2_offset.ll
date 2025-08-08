@@ -177,16 +177,10 @@ define void @_ZN3g2o18ParameterSE2Offset9setOffsetERKNS_3SE2E(ptr noundef nonnul
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN3g2o18ParameterSE2Offset4readERSi(ptr noundef nonnull align 16 captures(none) dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Eigen::Matrix.31", align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %4
 
 4:                                                ; preds = %12, %2
@@ -273,14 +267,14 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9D
   store <2 x double> %44, ptr %.sroa.13.0..sroa_idx.i, align 8
   %.sroa.14.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 184
   store double 1.000000e+00, ptr %.sroa.14.0..sroa_idx.i, align 8, !tbaa !6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %19
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK3g2o18ParameterSE2Offset5writeERSo(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Eigen::Matrix.31", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -313,14 +307,14 @@ _ZN3g2o8internal11writeVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSoRKNS2_
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load i32, ptr %21, align 8, !tbaa !21
   %23 = icmp eq i32 %22, 0
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %23
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3g2o14CacheSE2OffsetC2Ev(ptr noundef nonnull align 16 dereferenceable(432) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   invoke void @_ZN3g2o5CacheC2EPNS_14CacheContainerERKSt6vectorIPNS_9ParameterESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %3 unwind label %24
@@ -340,7 +334,7 @@ define void @_ZN3g2o14CacheSE2OffsetC2Ev(ptr noundef nonnull align 16 dereferenc
   br label %11
 
 11:                                               ; preds = %5, %3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3g2o14CacheSE2OffsetE, i64 16), ptr %0, align 16, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -385,7 +379,7 @@ define void @_ZN3g2o14CacheSE2OffsetC2Ev(ptr noundef nonnull align 16 dereferenc
   br label %_ZNSt6vectorIPN3g2o9ParameterESaIS2_EED2Ev.exit5
 
 _ZNSt6vectorIPN3g2o9ParameterESaIS2_EED2Ev.exit5: ; preds = %24, %27
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %25
 }
 
@@ -739,6 +733,12 @@ define internal void @_GLOBAL__sub_I_parameter_se2_offset.cpp() #15 section ".te
   %4 = tail call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZN5EigenL3allE)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16

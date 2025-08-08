@@ -137,12 +137,6 @@ define hidden i32 @lxb_html_tree_insertion_mode_in_body_text_append(ptr noundef 
 
 declare i32 @lxb_html_tree_active_formatting_reconstruct_elements(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @lxb_html_tree_insert_character_for_data(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
@@ -767,7 +761,7 @@ lxb_html_tree_insertion_mode_in_body_abcdfhlmnopsu_closed.exit: ; preds = %168, 
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @lxb_html_tree_insertion_mode_in_body_body_closed(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc void @lxb_html_tree_insertion_mode_in_body_body_closed(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = tail call ptr @lxb_html_tree_element_in_scope(ptr noundef %0, i64 noundef 31, i64 noundef 2, i32 noundef 8) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -794,7 +788,7 @@ define internal fastcc void @lxb_html_tree_insertion_mode_in_body_body_closed(pt
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc noundef zeroext i1 @lxb_html_tree_insertion_mode_in_body_html_closed(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @lxb_html_tree_insertion_mode_in_body_html_closed(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = tail call ptr @lxb_html_tree_element_in_scope(ptr noundef %0, i64 noundef 31, i64 noundef 2, i32 noundef 8) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -821,7 +815,7 @@ define internal fastcc noundef zeroext i1 @lxb_html_tree_insertion_mode_in_body_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @lxb_html_tree_insertion_mode_in_body_form_closed(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc void @lxb_html_tree_insertion_mode_in_body_form_closed(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = tail call ptr @lxb_html_tree_open_elements_find_reverse(ptr noundef %0, i64 noundef 179, i64 noundef 2, ptr noundef null) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %25
@@ -922,14 +916,14 @@ lxb_html_tree_node_is.exit.thread:                ; preds = %lxb_html_tree_curre
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_p_closed(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_p_closed(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = alloca %struct.lxb_html_token_t, align 8
   %4 = tail call ptr @lxb_html_tree_element_in_scope(ptr noundef %0, i64 noundef 145, i64 noundef 2, i32 noundef 32) #6
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3, i8 0, i64 96, i1 false)
   tail call void @lxb_html_tree_parse_error(ptr noundef %0, ptr noundef %1, i32 noundef 1) #6
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -942,11 +936,11 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_p_closed
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 2, ptr %9, align 8, !tbaa !22
   %10 = call zeroext i1 @lxb_html_tree_process_abort(ptr noundef %0) #6
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %13
 
 11:                                               ; preds = %6
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %12
 
 12:                                               ; preds = %11, %2
@@ -959,7 +953,7 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_p_closed
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @lxb_html_tree_insertion_mode_in_body_li_closed(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc void @lxb_html_tree_insertion_mode_in_body_li_closed(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = tail call ptr @lxb_html_tree_element_in_scope(ptr noundef %0, i64 noundef 113, i64 noundef 2, i32 noundef 16) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -1010,7 +1004,7 @@ lxb_html_tree_node_is.exit.thread:                ; preds = %lxb_html_tree_curre
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @lxb_html_tree_insertion_mode_in_body_dd_dt_closed(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc void @lxb_html_tree_insertion_mode_in_body_dd_dt_closed(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %4 = load i64, ptr %3, align 8, !tbaa !18
   %5 = tail call ptr @lxb_html_tree_element_in_scope(ptr noundef %0, i64 noundef %4, i64 noundef 2, i32 noundef 8) #6
@@ -1067,7 +1061,7 @@ lxb_html_tree_node_is.exit.thread:                ; preds = %lxb_html_tree_curre
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @lxb_html_tree_insertion_mode_in_body_anything_else_closed(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc void @lxb_html_tree_insertion_mode_in_body_anything_else_closed(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !33
   %5 = load ptr, ptr %4, align 8, !tbaa !36
@@ -1154,9 +1148,9 @@ lxb_html_tag_is_category.exit.backedge:           ; preds = %36, %lxb_html_tree_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_text(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_text(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = alloca %struct.lexbor_str_t, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %5 = load i64, ptr %4, align 8, !tbaa !46
   %.not = icmp eq i64 %5, 0
@@ -1253,12 +1247,12 @@ lxb_html_tree_insertion_mode_in_body_text_append.exit.thread: ; preds = %32, %lx
 
 51:                                               ; preds = %lxb_html_tree_insertion_mode_in_body_text_append.exit, %lxb_html_tree_insertion_mode_in_body_text_append.exit.thread, %26, %20
   %.0 = phi i1 [ %21, %20 ], [ true, %26 ], [ %50, %lxb_html_tree_insertion_mode_in_body_text_append.exit.thread ], [ true, %lxb_html_tree_insertion_mode_in_body_text_append.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_comment(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_comment(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = tail call ptr @lxb_html_tree_insert_comment(ptr noundef %0, ptr noundef %1, ptr noundef null) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %8
@@ -1275,7 +1269,7 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_comment(
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_html(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_html(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   tail call void @lxb_html_tree_parse_error(ptr noundef %0, ptr noundef %1, i32 noundef 0) #6
   %3 = tail call ptr @lxb_html_tree_open_elements_find(ptr noundef %0, i64 noundef 179, i64 noundef 2, ptr noundef null) #6
   %.not = icmp eq ptr %3, null
@@ -1308,7 +1302,7 @@ lxb_html_tree_open_elements_first.exit:           ; preds = %2
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_body(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_body(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   tail call void @lxb_html_tree_parse_error(ptr noundef %0, ptr noundef %1, i32 noundef 0) #6
   %3 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %3, align 8, !tbaa !33
@@ -1356,7 +1350,7 @@ lxb_html_tree_open_elements_get.exit.thread:      ; preds = %2, %15, %13, %lxb_h
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_frameset(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_frameset(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   tail call void @lxb_html_tree_parse_error(ptr noundef %0, ptr noundef %1, i32 noundef 0) #6
   %3 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %3, align 8, !tbaa !33
@@ -1421,7 +1415,7 @@ lxb_html_tree_open_elements_get.exit.thread:      ; preds = %2, %13, %lxb_html_t
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_eof(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_eof(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !64
   %5 = getelementptr i8, ptr %4, i64 16
@@ -1458,7 +1452,7 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_eof(ptr 
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_pre_listing(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_pre_listing(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = tail call ptr @lxb_html_tree_element_in_scope(ptr noundef %0, i64 noundef 145, i64 noundef 2, i32 noundef 32) #6
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -1494,7 +1488,7 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_pre_list
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_form(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_form(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = tail call ptr @lxb_html_tree_open_elements_find_reverse(ptr noundef %0, i64 noundef 179, i64 noundef 2, ptr noundef null) #6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !43
@@ -1540,7 +1534,7 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_form(ptr
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_li(ptr noundef initializes((81, 82)) %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_li(ptr noundef initializes((81, 82)) %0, ptr noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !33
   %5 = load ptr, ptr %4, align 8, !tbaa !36
@@ -1686,7 +1680,7 @@ lxb_html_tree_node_is.exit35.thread:              ; preds = %lxb_html_tag_is_cat
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_dd_dt(ptr noundef initializes((81, 82)) %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_dd_dt(ptr noundef initializes((81, 82)) %0, ptr noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !33
   %5 = load ptr, ptr %4, align 8, !tbaa !36
@@ -1857,7 +1851,7 @@ lxb_html_tree_node_is.exit47.thread:              ; preds = %lxb_html_tag_is_cat
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_plaintext(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_plaintext(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = tail call ptr @lxb_html_tree_element_in_scope(ptr noundef %0, i64 noundef 145, i64 noundef 2, i32 noundef 32) #6
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -1888,7 +1882,7 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_plaintex
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_button(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_button(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = tail call ptr @lxb_html_tree_element_in_scope(ptr noundef %0, i64 noundef 33, i64 noundef 2, i32 noundef 8) #6
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -1931,7 +1925,7 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_button(p
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_a(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_a(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %4 = load i64, ptr %3, align 8, !tbaa !18
   %5 = tail call ptr @lxb_html_tree_active_formatting_between_last_marker(ptr noundef %0, i64 noundef %4, ptr noundef null) #6
@@ -1986,7 +1980,7 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_a(ptr no
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_nobr(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_nobr(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = tail call i32 @lxb_html_tree_active_formatting_reconstruct_elements(ptr noundef %0) #6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %3, ptr %4, align 8, !tbaa !22
@@ -2043,7 +2037,7 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_nobr(ptr
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_amo(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_amo(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = tail call i32 @lxb_html_tree_active_formatting_reconstruct_elements(ptr noundef %0) #6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %3, ptr %4, align 8, !tbaa !22
@@ -2088,7 +2082,7 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_amo(ptr 
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_table(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_table(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !47
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 104
@@ -2129,7 +2123,7 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_table(pt
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_abeikw(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_abeikw(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = tail call i32 @lxb_html_tree_active_formatting_reconstruct_elements(ptr noundef %0) #6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %3, ptr %4, align 8, !tbaa !22
@@ -2194,7 +2188,7 @@ lxb_html_tree_acknowledge_token_self_closing.exit: ; preds = %12, %19, %19, %19,
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_input(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_input(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = tail call i32 @lxb_html_tree_active_formatting_reconstruct_elements(ptr noundef %0) #6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %3, ptr %4, align 8, !tbaa !22
@@ -2286,7 +2280,7 @@ lxb_html_tree_acknowledge_token_self_closing.exit: ; preds = %12, %19, %19, %19,
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_pst(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_pst(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = tail call ptr @lxb_html_tree_insert_foreign_element(ptr noundef %0, ptr noundef %1, i64 noundef 2) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %8
@@ -2336,7 +2330,7 @@ lxb_html_tree_acknowledge_token_self_closing.exit: ; preds = %lxb_html_tag_is_vo
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_hr(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_hr(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = tail call ptr @lxb_html_tree_element_in_scope(ptr noundef %0, i64 noundef 145, i64 noundef 2, i32 noundef 32) #6
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -2400,7 +2394,7 @@ lxb_html_tree_acknowledge_token_self_closing.exit: ; preds = %11, %18, %18, %18,
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_textarea(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_textarea(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = tail call ptr @lxb_html_tree_insert_foreign_element(ptr noundef %0, ptr noundef %1, i64 noundef 2) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %8
@@ -2431,7 +2425,7 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_textarea
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_xmp(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_xmp(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = tail call ptr @lxb_html_tree_element_in_scope(ptr noundef %0, i64 noundef 145, i64 noundef 2, i32 noundef 32) #6
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -2468,7 +2462,7 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_xmp(ptr 
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_iframe(ptr noundef initializes((81, 82)) %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_iframe(ptr noundef initializes((81, 82)) %0, ptr noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 81
   store i8 0, ptr %3, align 1, !tbaa !25
   %4 = tail call ptr @lxb_html_tree_generic_rawtext_parsing(ptr noundef %0, ptr noundef %1) #6
@@ -2487,7 +2481,7 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_iframe(p
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_noembed(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_noembed(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = tail call ptr @lxb_html_tree_generic_rawtext_parsing(ptr noundef %0, ptr noundef %1) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %8
@@ -2504,7 +2498,7 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_noembed(
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_noscript(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_noscript(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !47
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 250
@@ -2548,7 +2542,7 @@ lxb_html_tree_insertion_mode_in_body_anything_else.exit: ; preds = %lxb_html_tre
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_select(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_select(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = tail call i32 @lxb_html_tree_active_formatting_reconstruct_elements(ptr noundef %0) #6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %3, ptr %4, align 8, !tbaa !22
@@ -2593,7 +2587,7 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_select(p
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_optopt(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_optopt(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %3, align 8, !tbaa !33
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 16
@@ -2651,7 +2645,7 @@ lxb_html_tree_node_is.exit.thread:                ; preds = %lxb_html_tree_curre
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_rbrtc(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_rbrtc(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = tail call ptr @lxb_html_tree_element_in_scope(ptr noundef %0, i64 noundef 158, i64 noundef 2, i32 noundef 8) #6
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -2709,7 +2703,7 @@ lxb_html_tree_node_is.exit.thread:                ; preds = %lxb_html_tree_curre
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_rprt(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_rprt(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = tail call ptr @lxb_html_tree_element_in_scope(ptr noundef %0, i64 noundef 158, i64 noundef 2, i32 noundef 8) #6
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %lxb_html_tree_current_node.exit, label %4
@@ -2742,7 +2736,7 @@ lxb_html_tree_current_node.exit:                  ; preds = %4, %2
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_math(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_math(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = tail call i32 @lxb_html_tree_active_formatting_reconstruct_elements(ptr noundef %0) #6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %3, ptr %4, align 8, !tbaa !22
@@ -2811,7 +2805,7 @@ lxb_html_tree_acknowledge_token_self_closing.exit: ; preds = %lxb_html_tag_is_vo
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_svg(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_svg(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = tail call i32 @lxb_html_tree_active_formatting_reconstruct_elements(ptr noundef %0) #6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %3, ptr %4, align 8, !tbaa !22
@@ -2880,7 +2874,7 @@ lxb_html_tree_acknowledge_token_self_closing.exit: ; preds = %lxb_html_tag_is_vo
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_anything_else(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_anything_else(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = tail call i32 @lxb_html_tree_active_formatting_reconstruct_elements(ptr noundef %0) #6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %3, ptr %4, align 8, !tbaa !22
@@ -2926,7 +2920,7 @@ declare ptr @lxb_html_tree_element_in_scope_by_node(ptr noundef, ptr noundef, i3
 declare void @lxb_html_tree_open_elements_remove_by_node(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @lxb_html_tree_close_p_element(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3002,14 +2996,20 @@ declare i32 @lxb_html_tree_adjust_attributes_mathml(ptr noundef, ptr noundef, pt
 
 declare i32 @lxb_html_tree_adjust_attributes_svg(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #6 = { nounwind }
 

@@ -139,19 +139,13 @@ define ptr @BrotliDecoderCreateInstance(ptr noundef %0, ptr noundef %1, ptr noun
   ret ptr %.028
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
-declare hidden i32 @BrotliDecoderStateInit(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare hidden i32 @BrotliDecoderStateInit(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @BrotliDecoderDestroyInstance(ptr noundef %0) local_unnamed_addr #1 {
@@ -171,7 +165,7 @@ define void @BrotliDecoderDestroyInstance(ptr noundef %0) local_unnamed_addr #1 
   ret void
 }
 
-declare hidden void @BrotliDecoderStateCleanup(ptr noundef) local_unnamed_addr #4
+declare hidden void @BrotliDecoderStateCleanup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @BrotliDecoderAttachDictionary(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
@@ -281,7 +275,7 @@ AttachCompoundDictionary.exit.thread:             ; preds = %40, %18, %29, %38, 
   ret i32 %.0
 }
 
-declare i32 @BrotliSharedDictionaryAttach(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @BrotliSharedDictionaryAttach(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @BrotliDecoderDecompress(i64 noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3) local_unnamed_addr #1 {
@@ -291,17 +285,17 @@ define range(i32 0, 2) i32 @BrotliDecoderDecompress(i64 noundef %0, ptr noundef 
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
   %10 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 5744, ptr nonnull %5) #22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %0, ptr %7, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %1, ptr %8, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %11 = load i64, ptr %2, align 8, !tbaa !25
   store i64 %11, ptr %9, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %3, ptr %10, align 8, !tbaa !24
   %12 = call i32 @BrotliDecoderStateInit(ptr noundef nonnull %5, ptr noundef null, ptr noundef null, ptr noundef null) #22
   %.not = icmp eq i32 %12, 0
@@ -318,12 +312,12 @@ define range(i32 0, 2) i32 @BrotliDecoderDecompress(i64 noundef %0, ptr noundef 
 
 16:                                               ; preds = %4, %13
   %.0 = phi i32 [ %spec.store.select, %13 ], [ 0, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 5744, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -1012,7 +1006,7 @@ BrotliBitReaderNormalize.exit432:                 ; preds = %BrotliJumpToByteBou
   %333 = load ptr, ptr %88, align 8, !tbaa !51
   %334 = sext i32 %330 to i64
   %335 = getelementptr inbounds %struct.HuffmanCode, ptr %333, i64 %334
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %336 = load i32, ptr %97, align 4, !tbaa !61
   %337 = icmp eq i32 %336, 0
   br i1 %337, label %.preheader, label %382
@@ -1103,7 +1097,7 @@ SafeReadSymbol.exit._crit_edge:                   ; preds = %SafeReadSymbol.exit
   br label %384
 
 SafeReadBlockLength.exit.thread:                  ; preds = %SafeReadSymbol.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.backedge.backedge
 
 382:                                              ; preds = %328
@@ -1153,7 +1147,7 @@ BrotliPullByte.exit:                              ; preds = %393
 SafeReadBlockLength.exit.thread548:               ; preds = %393
   store i64 %385, ptr %98, align 8, !tbaa !66
   store i32 1, ptr %97, align 4, !tbaa !61
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.backedge.backedge
 
 ._crit_edge643:                                   ; preds = %BrotliPullByte.exit, %.._crit_edge643_crit_edge
@@ -1170,7 +1164,7 @@ SafeReadBlockLength.exit.thread548:               ; preds = %393
   %412 = add i64 %408, %411
   store i64 %412, ptr %332, align 8, !tbaa !25
   store i32 0, ptr %97, align 4, !tbaa !61
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %413 = load i32, ptr %58, align 4, !tbaa !48
   %414 = add nsw i32 %413, 1
   store i32 %414, ptr %58, align 4, !tbaa !48
@@ -1527,7 +1521,7 @@ BrotliCalculateDistanceCodeLimit.exit:            ; preds = %524, %549
 
 591:                                              ; preds = %598, %.lr.ph.i459
   %592 = phi ptr [ %.pre27.i, %.lr.ph.i459 ], [ %605, %598 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %593 = load i16, ptr %589, align 8, !tbaa !85
   %594 = zext i16 %593 to i64
   %595 = load i16, ptr %590, align 2, !tbaa !86
@@ -1548,14 +1542,14 @@ BrotliCalculateDistanceCodeLimit.exit:            ; preds = %524, %549
   store ptr %605, ptr %76, align 8, !tbaa !83
   %606 = add nsw i32 %601, 1
   store i32 %606, ptr %77, align 4, !tbaa !81
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %607 = load i16, ptr %585, align 4, !tbaa !84
   %608 = zext i16 %607 to i32
   %609 = icmp slt i32 %606, %608
   br i1 %609, label %591, label %.loopexit590.loopexit, !llvm.loop !89
 
 HuffmanTreeGroupDecode.exit:                      ; preds = %591
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.backedge.backedge
 
 .loopexit590.loopexit:                            ; preds = %598
@@ -1954,7 +1948,7 @@ BrotliBitReaderUnload.exit416:                    ; preds = %785, %787
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 4) i32 @SaveErrorCode(ptr noundef captures(none) initializes((128, 132)) %0, i32 noundef %1, i64 noundef %2) unnamed_addr #6 {
+define internal fastcc range(i32 0, 4) i32 @SaveErrorCode(ptr noundef captures(none) initializes((128, 132)) %0, i32 noundef %1, i64 noundef %2) unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %1, ptr %4, align 8, !tbaa !38
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 744
@@ -1986,7 +1980,7 @@ define internal fastcc range(i32 0, 4) i32 @SaveErrorCode(ptr noundef captures(n
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -9, 4) i32 @WriteRingBuffer(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #7 {
+define internal fastcc range(i32 -9, 4) i32 @WriteRingBuffer(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #6 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = load ptr, ptr %6, align 8, !tbaa !43
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 432
@@ -2093,12 +2087,12 @@ define internal fastcc range(i32 -9, 4) i32 @WriteRingBuffer(ptr noundef capture
   ret i32 %.041
 }
 
-declare hidden i32 @BrotliWarmupBitReader(ptr noundef) local_unnamed_addr #4
+declare hidden i32 @BrotliWarmupBitReader(ptr noundef) local_unnamed_addr #3
 
-declare hidden void @BrotliDecoderStateMetablockBegin(ptr noundef) local_unnamed_addr #4
+declare hidden void @BrotliDecoderStateMetablockBegin(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree noinline norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -31, 3) i32 @DecodeMetaBlockLength(ptr noundef captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #8 {
+define internal fastcc range(i32 -31, 3) i32 @DecodeMetaBlockLength(ptr noundef captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #7 {
 .split:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %.promoted255 = load i32, ptr %2, align 8, !tbaa !113
@@ -2606,7 +2600,7 @@ BrotliSafeReadBits.exit95.thread:                 ; preds = %9, %.lr.ph, %.lr.ph
 }
 
 ; Function Attrs: nofree noinline norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @BrotliCalculateRingBufferSize(ptr noundef captures(none) %0) unnamed_addr #9 {
+define internal fastcc void @BrotliCalculateRingBufferSize(ptr noundef captures(none) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 772
   %3 = load i32, ptr %2, align 4
   %4 = lshr i32 %3, 6
@@ -2660,7 +2654,7 @@ define internal fastcc void @BrotliCalculateRingBufferSize(ptr noundef captures(
 }
 
 ; Function Attrs: nofree noinline norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -31, 3) i32 @DecodeVarLenUint8(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #8 {
+define internal fastcc range(i32 -31, 3) i32 @DecodeVarLenUint8(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %5 = load i32, ptr %4, align 8, !tbaa !118
   switch i32 %5, label %BrotliSafeReadBits.exit22.thread [
@@ -3752,7 +3746,7 @@ thread-pre-split.thread:                          ; preds = %283, %thread-pre-sp
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc range(i32 -26, 4) i32 @CopyUncompressedBlockToOutput(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef captures(none) %3) unnamed_addr #10 {
+define internal fastcc range(i32 -26, 4) i32 @CopyUncompressedBlockToOutput(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef captures(none) %3) unnamed_addr #9 {
   %5 = tail call fastcc i32 @BrotliEnsureRingBuffer(ptr noundef %3)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.thread50, label %.preheader
@@ -3914,7 +3908,7 @@ BrotliCopyBytes.exit:                             ; preds = %BrotliBitReaderNorm
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc range(i32 1, 3) i32 @SkipMetadataBlock(ptr noundef captures(none) %0) unnamed_addr #10 {
+define internal fastcc range(i32 1, 3) i32 @SkipMetadataBlock(ptr noundef captures(none) %0) unnamed_addr #9 {
   %2 = alloca [8 x i8], align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -3929,7 +3923,7 @@ define internal fastcc range(i32 1, 3) i32 @SkipMetadataBlock(ptr noundef captur
   br i1 %10, label %11, label %44
 
 11:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = trunc i64 %9 to i32
   %13 = ashr i32 %12, 3
   %spec.select = tail call i32 @llvm.smin.i32(i32 %13, i32 %5)
@@ -4007,7 +4001,7 @@ BrotliCopyBytes.exit:                             ; preds = %BrotliBitReaderNorm
   %43 = sub nsw i32 %42, %spec.select
   store i32 %43, ptr %4, align 4, !tbaa !54
   %.not41 = icmp eq i32 %42, %spec.select
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not41, label %74, label %44
 
 44:                                               ; preds = %41, %7
@@ -4201,7 +4195,7 @@ BrotliPullByte.exit.i:                            ; preds = %.lr.ph
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 2688
   %61 = load i64, ptr %60, align 8, !tbaa !136
   %62 = load ptr, ptr %2, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 2696
   store i64 %57, ptr %5, align 8, !tbaa !25
   %64 = icmp ne i64 %57, 65535
@@ -4217,7 +4211,7 @@ BrotliPullByte.exit.i:                            ; preds = %.lr.ph
   br label %71
 
 .thread151:                                       ; preds = %.backedge, %56
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %159
 
 71:                                               ; preds = %.lr.ph193, %.backedge
@@ -4409,7 +4403,7 @@ BrotliPullByte.exit:                              ; preds = %137
 
 .thread146:                                       ; preds = %._crit_edge186, %.thread146.sink.split
   %.6 = phi i32 [ 2, %.thread146.sink.split ], [ -8, %._crit_edge186 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
 159:                                              ; preds = %.thread151, %4
@@ -4466,10 +4460,10 @@ BrotliSafeReadBits.exit.thread:                   ; preds = %.lr.ph196.split, %1
   ret i32 %.2
 }
 
-declare hidden i32 @BrotliDecoderHuffmanTreeGroupInit(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare hidden i32 @BrotliDecoderHuffmanTreeGroupInit(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @BrotliEnsureRingBuffer(ptr noundef captures(none) %0) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @BrotliEnsureRingBuffer(ptr noundef captures(none) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8, !tbaa !43
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 100
@@ -4541,7 +4535,7 @@ define internal fastcc range(i32 0, 2) i32 @BrotliEnsureRingBuffer(ptr noundef c
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc range(i32 -31, 3) i32 @ProcessCommands(ptr noundef %0) unnamed_addr #10 {
+define internal fastcc range(i32 -31, 3) i32 @ProcessCommands(ptr noundef %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8, !tbaa !105
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -6265,7 +6259,7 @@ ProcessCommandsInternal.exit:                     ; preds = %895, %913, %892, %.
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc range(i32 -31, 3) i32 @SafeProcessCommands(ptr noundef %0) unnamed_addr #10 {
+define internal fastcc range(i32 -31, 3) i32 @SafeProcessCommands(ptr noundef %0) unnamed_addr #9 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
@@ -6317,7 +6311,7 @@ GetCompoundDictionarySize.exit._crit_edge:        ; preds = %GetCompoundDictiona
   br i1 %.not466.i, label %.thread206, label %18
 
 23:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %24 = load i64, ptr %10, align 8, !tbaa !47
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load i64, ptr %25, align 8, !tbaa !46
@@ -6553,7 +6547,7 @@ SafeReadBits.exit29:                              ; preds = %95, %118
 
 ReadCommandInternal.exit.thread:                  ; preds = %SafeReadBits.exit29, %SafeReadSymbol.exit.i8
   %.14.ph = phi i32 [ %.392.ph, %SafeReadSymbol.exit.i8 ], [ %91, %SafeReadBits.exit29 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread206
 
 142:                                              ; preds = %BrotliTakeBits.exit.i, %114
@@ -6566,7 +6560,7 @@ ReadCommandInternal.exit.thread:                  ; preds = %SafeReadBits.exit29
   %147 = add i64 %146, -1
   store i64 %147, ptr %17, align 8, !tbaa !25
   %148 = add nsw i32 %.1121.ph, %91
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %149 = icmp eq i32 %148, 0
   br i1 %149, label %327, label %150
 
@@ -6615,7 +6609,7 @@ ReadCommandInternal.exit.thread:                  ; preds = %SafeReadBits.exit29
   br i1 %171, label %.thread183, label %172, !prof !147
 
 172:                                              ; preds = %169
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %173 = load ptr, ptr %155, align 8, !tbaa !93
   %.promoted399 = load i64, ptr %157, align 8, !tbaa !46
   %174 = icmp ult i64 %.promoted399, 15
@@ -6722,7 +6716,7 @@ SafeReadSymbol.exit485.i._crit_edge:              ; preds = %SafeReadSymbol.exit
   br label %.loopexit345
 
 230:                                              ; preds = %218
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not448.i = icmp eq i32 %228, 0
   br i1 %.not448.i, label %.thread177, label %169, !llvm.loop !168
 
@@ -6734,7 +6728,7 @@ SafeReadSymbol.exit485.i._crit_edge:              ; preds = %SafeReadSymbol.exit
   %.695.ph = phi i32 [ %228, %229 ], [ %.594, %.loopexit345.loopexit ]
   %.9338.i.ph = phi i32 [ 1, %229 ], [ 2, %.loopexit345.loopexit ]
   %.10.i.ph = phi i32 [ %225, %229 ], [ %231, %.loopexit345.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread206
 
 232:                                              ; preds = %166
@@ -6781,7 +6775,7 @@ SafeReadSymbol.exit485.i._crit_edge:              ; preds = %SafeReadSymbol.exit
   %264 = zext i8 %263 to i64
   %265 = getelementptr inbounds nuw ptr, ptr %259, i64 %264
   %266 = load ptr, ptr %265, align 8, !tbaa !88
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.promoted405 = load i64, ptr %157, align 8, !tbaa !46
   %267 = icmp ult i64 %.promoted405, 15
   br i1 %267, label %.lr.ph407, label %.._crit_edge408_crit_edge
@@ -6855,7 +6849,7 @@ SafeReadSymbol.exit.i.thread:                     ; preds = %._crit_edge408, %Bi
   %307 = getelementptr inbounds nuw i8, ptr %.0.i488.i, i64 2
   %308 = load i16, ptr %307, align 2, !tbaa !65
   %309 = trunc i16 %308 to i8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %313
 
 SafeReadSymbol.exit.i:                            ; preds = %269
@@ -6863,7 +6857,7 @@ SafeReadSymbol.exit.i:                            ; preds = %269
   %.not441.not.i = icmp eq i32 %310, 0
   %311 = load i64, ptr %5, align 8
   %312 = trunc i64 %311 to i8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not441.not.i, label %.thread206.loopexit, label %313
 
 313:                                              ; preds = %SafeReadSymbol.exit.i.thread, %SafeReadSymbol.exit.i
@@ -6940,7 +6934,7 @@ SafeReadSymbol.exit.i:                            ; preds = %269
 
 348:                                              ; preds = %346, %342
   %349 = getelementptr inbounds nuw i8, ptr %0, i64 848
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %350 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %351 = load ptr, ptr %350, align 8, !tbaa !153
   %352 = getelementptr inbounds nuw i8, ptr %0, i64 716
@@ -7171,13 +7165,13 @@ SafeReadBits32.exit:                              ; preds = %452
   br label %ReadDistanceInternal.exit
 
 ReadDistanceInternal.exit.thread:                 ; preds = %SafeReadBits32.exit, %SafeReadSymbol.exit.i34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread206
 
 ReadDistanceInternal.exit:                        ; preds = %430, %419, %475
   %484 = phi i32 [ 0, %430 ], [ %420, %419 ], [ 0, %475 ]
   %485 = phi i32 [ %storemerge.i, %430 ], [ %428, %419 ], [ %483, %475 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %486
 
 486:                                              ; preds = %ReadDistanceInternal.exit, %331
@@ -7768,7 +7762,7 @@ ProcessCommandsInternal.exit:                     ; preds = %729, %747, %726, %.
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @WrapRingBuffer(ptr noundef captures(none) %0) unnamed_addr #7 {
+define internal fastcc void @WrapRingBuffer(ptr noundef captures(none) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 772
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 8
@@ -7793,10 +7787,10 @@ define internal fastcc void @WrapRingBuffer(ptr noundef captures(none) %0) unnam
   ret void
 }
 
-declare hidden void @BrotliDecoderStateCleanupAfterMetablock(ptr noundef) local_unnamed_addr #4
+declare hidden void @BrotliDecoderStateCleanupAfterMetablock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @BrotliDecoderHasMoreOutput(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @BrotliDecoderHasMoreOutput(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load i32, ptr %2, align 8, !tbaa !38
   %4 = icmp slt i32 %3, 0
@@ -7832,12 +7826,12 @@ define range(i32 0, 2) i32 @BrotliDecoderHasMoreOutput(ptr noundef readonly capt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @BrotliDecoderTakeOutput(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #12 {
+define ptr @BrotliDecoderTakeOutput(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #11 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i64, ptr %1, align 8, !tbaa !25
   %.not = icmp eq i64 %5, 0
   %spec.select = select i1 %.not, i64 16777216, i64 %5
@@ -7885,13 +7879,13 @@ define ptr @BrotliDecoderTakeOutput(ptr noundef captures(none) %0, ptr noundef c
 
 25:                                               ; preds = %17, %24, %13
   %.0 = phi ptr [ null, %13 ], [ null, %24 ], [ %.pre, %17 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @BrotliDecoderIsUsed(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @BrotliDecoderIsUsed(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = load i32, ptr %0, align 8, !tbaa !3
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %8
@@ -7909,7 +7903,7 @@ define range(i32 0, 2) i32 @BrotliDecoderIsUsed(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @BrotliDecoderIsFinished(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @BrotliDecoderIsFinished(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = load i32, ptr %0, align 8, !tbaa !3
   %3 = icmp eq i32 %2, 26
   br i1 %3, label %4, label %BrotliDecoderHasMoreOutput.exit
@@ -7950,14 +7944,14 @@ BrotliDecoderHasMoreOutput.exit:                  ; preds = %11, %8, %4, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @BrotliDecoderGetErrorCode(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+define i32 @BrotliDecoderGetErrorCode(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load i32, ptr %2, align 8, !tbaa !38
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @BrotliDecoderErrorString(i32 noundef %0) local_unnamed_addr #13 {
+define noundef nonnull ptr @BrotliDecoderErrorString(i32 noundef %0) local_unnamed_addr #12 {
   %switch.tableidx = add i32 %0, 31
   %2 = icmp ult i32 %switch.tableidx, 35
   br i1 %2, label %switch.lookup, label %4
@@ -7974,12 +7968,12 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @BrotliDecoderVersion() local_unnamed_addr #13 {
+define noundef i32 @BrotliDecoderVersion() local_unnamed_addr #12 {
   ret i32 16781312
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @BrotliDecoderSetMetadataCallbacks(ptr noundef writeonly captures(none) initializes((720, 744)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #14 {
+define void @BrotliDecoderSetMetadataCallbacks(ptr noundef writeonly captures(none) initializes((720, 744)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #13 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 720
   store ptr %1, ptr %5, align 8, !tbaa !52
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 728
@@ -7990,19 +7984,19 @@ define void @BrotliDecoderSetMetadataCallbacks(ptr noundef writeonly captures(no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
-declare hidden i32 @BrotliBuildSimpleHuffmanTable(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare hidden i32 @BrotliBuildSimpleHuffmanTable(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare hidden void @BrotliBuildCodeLengthsHuffmanTable(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare hidden void @BrotliBuildCodeLengthsHuffmanTable(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare hidden i32 @BrotliBuildHuffmanTable(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare hidden i32 @BrotliBuildHuffmanTable(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @SafeDecodeSymbol(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @SafeDecodeSymbol(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !46
   %6 = icmp eq i64 %5, 0
@@ -8074,7 +8068,7 @@ BitMask.exit:                                     ; preds = %18
 }
 
 ; Function Attrs: nofree noinline norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @InverseMoveToFrontTransform(ptr noundef captures(none) %0, i64 noundef range(i64 0, -3) %1, ptr noundef captures(none) initializes((452, 456)) %2) unnamed_addr #9 {
+define internal fastcc void @InverseMoveToFrontTransform(ptr noundef captures(none) %0, i64 noundef range(i64 0, -3) %1, ptr noundef captures(none) initializes((452, 456)) %2) unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 440
   %5 = load i64, ptr %4, align 8, !tbaa !170
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 452
@@ -8129,7 +8123,7 @@ define internal fastcc void @InverseMoveToFrontTransform(ptr noundef captures(no
 }
 
 ; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @SafeDecodeCommandBlockSwitch(ptr noundef captures(none) %0) unnamed_addr #17 {
+define internal fastcc range(i32 0, 2) i32 @SafeDecodeCommandBlockSwitch(ptr noundef captures(none) %0) unnamed_addr #16 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -8142,7 +8136,7 @@ define internal fastcc range(i32 0, 2) i32 @SafeDecodeCommandBlockSwitch(ptr nou
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 1584
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = icmp ult i64 %5, 2
   br i1 %14, label %DecodeBlockTypeAndLength.exit.thread, label %15
 
@@ -8230,7 +8224,7 @@ SafeReadSymbol.exit55.i:                          ; preds = %.lr.ph
 
 68:                                               ; preds = %SafeReadSymbol.exit55.i.thread, %SafeReadSymbol.exit55.i
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 764
   %71 = load i32, ptr %70, align 4, !tbaa !61
   %72 = icmp eq i32 %71, 0
@@ -8372,7 +8366,7 @@ SafeReadBlockLength.exit.i.thread26:              ; preds = %130
   br label %SafeReadBlockLength.exit.i.thread
 
 SafeReadBlockLength.exit.i.thread:                ; preds = %SafeReadSymbol.exit.i, %SafeReadBlockLength.exit.i.thread26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i32 0, ptr %70, align 4, !tbaa !61
   store i64 %16, ptr %12, align 8, !tbaa !47
   store i64 %18, ptr %17, align 8, !tbaa !46
@@ -8401,7 +8395,7 @@ SafeReadBlockLength.exit.i.thread:                ; preds = %SafeReadSymbol.exit
   %155 = add i64 %151, %154
   store i64 %155, ptr %69, align 8, !tbaa !25
   store i32 0, ptr %70, align 4, !tbaa !61
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %156 = load i64, ptr %3, align 8, !tbaa !25
   switch i64 %156, label %163 [
     i64 1, label %157
@@ -8431,7 +8425,7 @@ SafeReadBlockLength.exit.i.thread:                ; preds = %SafeReadSymbol.exit
   %169 = load i64, ptr %168, align 8, !tbaa !25
   store i64 %169, ptr %13, align 8, !tbaa !25
   store i64 %spec.select, ptr %168, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %171 = load ptr, ptr %170, align 8, !tbaa !97
   %172 = getelementptr inbounds nuw ptr, ptr %171, i64 %spec.select
@@ -8441,7 +8435,7 @@ SafeReadBlockLength.exit.i.thread:                ; preds = %SafeReadSymbol.exit
   br label %DecodeCommandBlockSwitchInternal.exit
 
 DecodeBlockTypeAndLength.exit.thread:             ; preds = %SafeReadBlockLength.exit.i.thread, %1, %SafeReadSymbol.exit55.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %DecodeCommandBlockSwitchInternal.exit
 
 DecodeCommandBlockSwitchInternal.exit:            ; preds = %DecodeBlockTypeAndLength.exit.thread, %165
@@ -8450,7 +8444,7 @@ DecodeCommandBlockSwitchInternal.exit:            ; preds = %DecodeBlockTypeAndL
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @DecodeCommandBlockSwitch(ptr noundef captures(none) %0) unnamed_addr #18 {
+define internal fastcc void @DecodeCommandBlockSwitch(ptr noundef captures(none) %0) unnamed_addr #17 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %3 = load i64, ptr %2, align 8, !tbaa !25
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -8649,7 +8643,7 @@ DecodeCommandBlockSwitchInternal.exit:            ; preds = %1, %120
 }
 
 ; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @SafeDecodeDistanceBlockSwitch(ptr noundef captures(none) %0) unnamed_addr #17 {
+define internal fastcc range(i32 0, 2) i32 @SafeDecodeDistanceBlockSwitch(ptr noundef captures(none) %0) unnamed_addr #16 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -8662,7 +8656,7 @@ define internal fastcc range(i32 0, 2) i32 @SafeDecodeDistanceBlockSwitch(ptr no
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 3168
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = icmp ult i64 %5, 2
   br i1 %14, label %DecodeBlockTypeAndLength.exit.i.thread, label %15
 
@@ -8750,7 +8744,7 @@ SafeReadSymbol.exit55.i.i:                        ; preds = %.lr.ph
 
 68:                                               ; preds = %SafeReadSymbol.exit55.i.i.thread, %SafeReadSymbol.exit55.i.i
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 764
   %71 = load i32, ptr %70, align 4, !tbaa !61
   %72 = icmp eq i32 %71, 0
@@ -8892,7 +8886,7 @@ SafeReadBlockLength.exit.i.i.thread26:            ; preds = %130
   br label %SafeReadBlockLength.exit.i.i.thread
 
 SafeReadBlockLength.exit.i.i.thread:              ; preds = %SafeReadSymbol.exit.i.i, %SafeReadBlockLength.exit.i.i.thread26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i32 0, ptr %70, align 4, !tbaa !61
   store i64 %16, ptr %12, align 8, !tbaa !47
   store i64 %18, ptr %17, align 8, !tbaa !46
@@ -8921,7 +8915,7 @@ SafeReadBlockLength.exit.i.i.thread:              ; preds = %SafeReadSymbol.exit
   %155 = add i64 %151, %154
   store i64 %155, ptr %69, align 8, !tbaa !25
   store i32 0, ptr %70, align 4, !tbaa !61
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %156 = load i64, ptr %3, align 8, !tbaa !25
   switch i64 %156, label %163 [
     i64 1, label %157
@@ -8951,7 +8945,7 @@ SafeReadBlockLength.exit.i.i.thread:              ; preds = %SafeReadSymbol.exit
   %169 = load i64, ptr %168, align 8, !tbaa !25
   store i64 %169, ptr %13, align 8, !tbaa !25
   store i64 %spec.select, ptr %168, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %171 = load ptr, ptr %170, align 8, !tbaa !95
   %172 = shl i64 %spec.select, 2
@@ -8968,7 +8962,7 @@ SafeReadBlockLength.exit.i.i.thread:              ; preds = %SafeReadSymbol.exit
   br label %DecodeDistanceBlockSwitchInternal.exit
 
 DecodeBlockTypeAndLength.exit.i.thread:           ; preds = %SafeReadBlockLength.exit.i.i.thread, %1, %SafeReadSymbol.exit55.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %DecodeDistanceBlockSwitchInternal.exit
 
 DecodeDistanceBlockSwitchInternal.exit:           ; preds = %DecodeBlockTypeAndLength.exit.i.thread, %165
@@ -8977,7 +8971,7 @@ DecodeDistanceBlockSwitchInternal.exit:           ; preds = %DecodeBlockTypeAndL
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @DecodeDistanceBlockSwitch(ptr noundef captures(none) %0) unnamed_addr #18 {
+define internal fastcc void @DecodeDistanceBlockSwitch(ptr noundef captures(none) %0) unnamed_addr #17 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %3 = load i64, ptr %2, align 8, !tbaa !25
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -9182,10 +9176,10 @@ DecodeDistanceBlockSwitchInternal.exit:           ; preds = %1, %120
   ret void
 }
 
-declare i32 @BrotliTransformDictionaryWord(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @BrotliTransformDictionaryWord(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @SafeDecodeLiteralBlockSwitch(ptr noundef captures(none) %0) unnamed_addr #17 {
+define internal fastcc range(i32 0, 2) i32 @SafeDecodeLiteralBlockSwitch(ptr noundef captures(none) %0) unnamed_addr #16 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -9196,7 +9190,7 @@ define internal fastcc range(i32 0, 2) i32 @SafeDecodeLiteralBlockSwitch(ptr nou
   %9 = load ptr, ptr %8, align 8, !tbaa !51
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = icmp ult i64 %5, 2
   br i1 %12, label %DecodeBlockTypeAndLength.exit.i.thread, label %13
 
@@ -9284,7 +9278,7 @@ SafeReadSymbol.exit55.i.i:                        ; preds = %.lr.ph
 
 66:                                               ; preds = %SafeReadSymbol.exit55.i.i.thread, %SafeReadSymbol.exit55.i.i
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 764
   %69 = load i32, ptr %68, align 4, !tbaa !61
   %70 = icmp eq i32 %69, 0
@@ -9426,7 +9420,7 @@ SafeReadBlockLength.exit.i.i.thread26:            ; preds = %128
   br label %SafeReadBlockLength.exit.i.i.thread
 
 SafeReadBlockLength.exit.i.i.thread:              ; preds = %SafeReadSymbol.exit.i.i, %SafeReadBlockLength.exit.i.i.thread26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i32 0, ptr %68, align 4, !tbaa !61
   store i64 %14, ptr %10, align 8, !tbaa !47
   store i64 %16, ptr %15, align 8, !tbaa !46
@@ -9455,7 +9449,7 @@ SafeReadBlockLength.exit.i.i.thread:              ; preds = %SafeReadSymbol.exit
   %153 = add i64 %149, %152
   store i64 %153, ptr %67, align 8, !tbaa !25
   store i32 0, ptr %68, align 4, !tbaa !61
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %154 = load i64, ptr %3, align 8, !tbaa !25
   switch i64 %154, label %161 [
     i64 1, label %155
@@ -9485,7 +9479,7 @@ SafeReadBlockLength.exit.i.i.thread:              ; preds = %SafeReadSymbol.exit
   %167 = load i64, ptr %166, align 8, !tbaa !25
   store i64 %167, ptr %11, align 8, !tbaa !25
   store i64 %spec.select, ptr %166, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %168 = shl i64 %spec.select, 6
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %170 = load ptr, ptr %169, align 8, !tbaa !75
@@ -9524,7 +9518,7 @@ SafeReadBlockLength.exit.i.i.thread:              ; preds = %SafeReadSymbol.exit
   br label %DecodeLiteralBlockSwitchInternal.exit
 
 DecodeBlockTypeAndLength.exit.i.thread:           ; preds = %SafeReadBlockLength.exit.i.i.thread, %1, %SafeReadSymbol.exit55.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %DecodeLiteralBlockSwitchInternal.exit
 
 DecodeLiteralBlockSwitchInternal.exit:            ; preds = %DecodeBlockTypeAndLength.exit.i.thread, %163
@@ -9533,7 +9527,7 @@ DecodeLiteralBlockSwitchInternal.exit:            ; preds = %DecodeBlockTypeAndL
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @DecodeLiteralBlockSwitch(ptr noundef captures(none) %0) unnamed_addr #18 {
+define internal fastcc void @DecodeLiteralBlockSwitch(ptr noundef captures(none) %0) unnamed_addr #17 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %3 = load i64, ptr %2, align 8, !tbaa !25
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -9758,6 +9752,12 @@ DecodeLiteralBlockSwitchInternal.exit:            ; preds = %1, %118
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #19
 
@@ -9781,23 +9781,23 @@ declare i64 @llvm.smin.i64(i64, i64) #19
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree noinline norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree noinline norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree noinline norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #17 = { nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree noinline norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree noinline norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree noinline norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree noinline norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #16 = { nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree noinline norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #21 = { nounwind allocsize(0) }

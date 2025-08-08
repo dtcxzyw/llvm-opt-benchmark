@@ -145,7 +145,7 @@ parse_memory_region.exit.thread22:                ; preds = %parse_memory_region
   br i1 %18, label %parse_memory_region.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %parse_memory_region.exit.thread22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %19 = mul i64 %14, 3
   %20 = load i8, ptr %0, align 1
   %.not3745.i.not = icmp eq i8 %20, 0
@@ -191,7 +191,7 @@ parse_memory_region.exit.thread22:                ; preds = %parse_memory_region
   br i1 %or.cond39.i, label %.lr.ph49.i, label %parse_memory_region.exit20, !llvm.loop !8
 
 parse_memory_region.exit20:                       ; preds = %33, %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %parse_memory_region.exit.thread
 
 parse_memory_region.exit.thread:                  ; preds = %1, %parse_memory_region.exit.thread22, %parse_memory_region.exit20
@@ -219,10 +219,10 @@ define void @free_memory_region(ptr noundef captures(address_is_null) %0) local_
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nofree norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

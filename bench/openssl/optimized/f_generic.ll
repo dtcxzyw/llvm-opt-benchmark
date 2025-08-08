@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @gf_serialize(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.gf_s], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, ptr noundef nonnull align 16 dereferenceable(64) %1, i64 64, i1 false), !tbaa.struct !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load i64, ptr %5, align 8, !tbaa !7
@@ -122,12 +122,9 @@ gf_strong_reduce.exit:                            ; preds = %51, %gf_strong_redu
   br i1 %exitcond.not, label %65, label %gf_strong_reduce.exit.preheader, !llvm.loop !13
 
 65:                                               ; preds = %gf_strong_reduce.exit
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @gf_strong_reduce(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -208,13 +205,10 @@ gf_weak_reduce.exit:                              ; preds = %8
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i64 -1, 1) i64 @gf_hibit(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i64 -1, 1) i64 @gf_hibit(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca [1 x %struct.gf_s], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %3
 
 3:                                                ; preds = %3, %1
@@ -356,7 +350,7 @@ gf_strong_reduce.exit:                            ; preds = %68
   %81 = load i64, ptr %2, align 16, !tbaa !7
   %82 = and i64 %81, 1
   %83 = sub nsw i64 0, %82
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %83
 }
 
@@ -437,7 +431,7 @@ gf_weak_reduce.exit:                              ; preds = %33
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define range(i64 -1, 1) i64 @gf_lobit(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.gf_s], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, ptr noundef nonnull align 16 dereferenceable(64) %0, i64 64, i1 false), !tbaa.struct !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4 = load i64, ptr %3, align 8, !tbaa !7
@@ -516,7 +510,7 @@ gf_strong_reduce.exit:                            ; preds = %34
   %47 = load i64, ptr %2, align 16, !tbaa !7
   %48 = and i64 %47, 1
   %49 = sub nsw i64 0, %48
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %49
 }
 
@@ -685,9 +679,9 @@ gf_weak_reduce.exit:                              ; preds = %36
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i64 -1, 1) i64 @gf_eq(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
+define range(i64 -1, 1) i64 @gf_eq(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca [1 x %struct.gf_s], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %4
 
 4:                                                ; preds = %4, %2
@@ -843,12 +837,12 @@ gf_strong_reduce.exit:                            ; preds = %74, %gf_strong_redu
 90:                                               ; preds = %gf_strong_reduce.exit
   %91 = icmp eq i64 %89, 0
   %.neg.i.i = sext i1 %91 to i64
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.neg.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -1, 1) i64 @gf_isr(ptr noundef writeonly captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
+define range(i64 -1, 1) i64 @gf_isr(ptr noundef writeonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
 .lr.ph.i:
   %2 = alloca [1 x %struct.gf_s], align 16
   %3 = alloca [1 x %struct.gf_s], align 16
@@ -861,26 +855,26 @@ define range(i64 -1, 1) i64 @gf_isr(ptr noundef writeonly captures(none) %0, ptr
   %10 = alloca [1 x %struct.gf_s], align 16
   %11 = alloca [1 x %struct.gf_s], align 16
   %12 = alloca [1 x %struct.gf_s], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @ossl_gf_sqr(ptr noundef nonnull %11, ptr noundef %1) #6
   call void @ossl_gf_mul(ptr noundef nonnull %12, ptr noundef %1, ptr noundef nonnull %11) #6
   call void @ossl_gf_sqr(ptr noundef nonnull %11, ptr noundef nonnull %12) #6
   call void @ossl_gf_mul(ptr noundef nonnull %12, ptr noundef %1, ptr noundef nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #6, !noalias !19
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !19
   call void @ossl_gf_sqr(ptr noundef nonnull %11, ptr noundef nonnull %12) #6
   call void @ossl_gf_sqr(ptr noundef nonnull %9, ptr noundef nonnull %11) #6
   call void @ossl_gf_sqr(ptr noundef nonnull %11, ptr noundef nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #6, !noalias !19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !19
   call void @ossl_gf_mul(ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #6, !noalias !22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !22
   call void @ossl_gf_sqr(ptr noundef nonnull %11, ptr noundef nonnull %10) #6
   call void @ossl_gf_sqr(ptr noundef nonnull %8, ptr noundef nonnull %11) #6
   call void @ossl_gf_sqr(ptr noundef nonnull %11, ptr noundef nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #6, !noalias !22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !22
   call void @ossl_gf_mul(ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #6, !noalias !25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !25
   call void @ossl_gf_sqr(ptr noundef nonnull %12, ptr noundef nonnull %10) #6
   br label %.lr.ph.i11
 
@@ -893,11 +887,11 @@ define range(i64 -1, 1) i64 @gf_isr(ptr noundef writeonly captures(none) %0, ptr
   br i1 %.not10.i13, label %gf_sqrn.exit14, label %.lr.ph.i11, !llvm.loop !28
 
 gf_sqrn.exit14:                                   ; preds = %.lr.ph.i11
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6, !noalias !25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !25
   call void @ossl_gf_mul(ptr noundef nonnull %11, ptr noundef nonnull %10, ptr noundef nonnull %12) #6
   call void @ossl_gf_sqr(ptr noundef nonnull %10, ptr noundef nonnull %11) #6
   call void @ossl_gf_mul(ptr noundef nonnull %12, ptr noundef %1, ptr noundef nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6, !noalias !29
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !29
   call void @ossl_gf_sqr(ptr noundef nonnull %6, ptr noundef nonnull %12) #6, !noalias !29
   call void @ossl_gf_sqr(ptr noundef nonnull %10, ptr noundef nonnull %6) #6
   br label %.lr.ph.i15
@@ -911,9 +905,9 @@ gf_sqrn.exit14:                                   ; preds = %.lr.ph.i11
   br i1 %.not10.i17, label %gf_sqrn.exit18, label %.lr.ph.i15, !llvm.loop !28
 
 gf_sqrn.exit18:                                   ; preds = %.lr.ph.i15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6, !noalias !29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !29
   call void @ossl_gf_mul(ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6, !noalias !32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !32
   call void @ossl_gf_sqr(ptr noundef nonnull %10, ptr noundef nonnull %12) #6
   br label %.lr.ph.i19
 
@@ -926,9 +920,9 @@ gf_sqrn.exit18:                                   ; preds = %.lr.ph.i15
   br i1 %.not10.i21, label %gf_sqrn.exit22, label %.lr.ph.i19, !llvm.loop !28
 
 gf_sqrn.exit22:                                   ; preds = %.lr.ph.i19
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6, !noalias !32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !32
   call void @ossl_gf_mul(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #6, !noalias !35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !35
   call void @ossl_gf_sqr(ptr noundef nonnull %10, ptr noundef nonnull %11) #6
   br label %.lr.ph.i23
 
@@ -941,9 +935,9 @@ gf_sqrn.exit22:                                   ; preds = %.lr.ph.i19
   br i1 %.not10.i25, label %gf_sqrn.exit26, label %.lr.ph.i23, !llvm.loop !28
 
 gf_sqrn.exit26:                                   ; preds = %.lr.ph.i23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6, !noalias !35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !35
   call void @ossl_gf_mul(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #6, !noalias !38
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !38
   call void @ossl_gf_sqr(ptr noundef nonnull %10, ptr noundef nonnull %11) #6
   br label %.lr.ph.i27
 
@@ -956,11 +950,11 @@ gf_sqrn.exit26:                                   ; preds = %.lr.ph.i23
   br i1 %.not10.i29, label %gf_sqrn.exit30, label %.lr.ph.i27, !llvm.loop !28
 
 gf_sqrn.exit30:                                   ; preds = %.lr.ph.i27
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #6, !noalias !38
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !38
   call void @ossl_gf_mul(ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %10) #6
   call void @ossl_gf_sqr(ptr noundef nonnull %10, ptr noundef nonnull %12) #6
   call void @ossl_gf_mul(ptr noundef nonnull %11, ptr noundef %1, ptr noundef nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #6, !noalias !41
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !41
   call void @ossl_gf_sqr(ptr noundef nonnull %10, ptr noundef nonnull %11) #6
   br label %.lr.ph.i31
 
@@ -973,31 +967,37 @@ gf_sqrn.exit30:                                   ; preds = %.lr.ph.i27
   br i1 %.not10.i33, label %gf_sqrn.exit34, label %.lr.ph.i31, !llvm.loop !28
 
 gf_sqrn.exit34:                                   ; preds = %.lr.ph.i31
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #6, !noalias !41
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !41
   call void @ossl_gf_mul(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %10) #6
   call void @ossl_gf_sqr(ptr noundef nonnull %12, ptr noundef nonnull %11) #6
   call void @ossl_gf_mul(ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef %1) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %0, ptr noundef nonnull align 16 dereferenceable(64) %11, i64 64, i1 false), !tbaa.struct !3
   %19 = call i64 @gf_eq(ptr noundef nonnull %10, ptr noundef nonnull @ONE)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i64 %19
 }
 
-declare void @ossl_gf_sqr(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @ossl_gf_sqr(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @ossl_gf_mul(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @ossl_gf_mul(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

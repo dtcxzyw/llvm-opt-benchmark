@@ -111,18 +111,18 @@ define internal zeroext i1 @HIDAPI_DriverPS3_InitDevice(ptr noundef %0) #0 {
   br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %2, ptr noundef nonnull align 1 dereferenceable(5) @__const.HIDAPI_DriverPS3_InitDevice.data, i64 5, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %25 = load ptr, ptr %24, align 8
   %26 = call i32 @SDL_hid_send_feature_report_REAL(ptr noundef %25, ptr noundef nonnull %2, i64 noundef 5) #10
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre = load i8, ptr %20, align 4, !range !3
   %27 = trunc nuw i8 %.pre to i1
   br i1 %27, label %43, label %.thread
 
 .thread:                                          ; preds = %16, %23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %29 = load ptr, ptr %28, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %3, i8 0, i64 17, i1 false)
@@ -149,7 +149,7 @@ define internal zeroext i1 @HIDAPI_DriverPS3_InitDevice(ptr noundef %0) #0 {
   br label %42
 
 42:                                               ; preds = %36, %39
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %43
 
 43:                                               ; preds = %42, %23
@@ -162,7 +162,7 @@ define internal zeroext i1 @HIDAPI_DriverPS3_InitDevice(ptr noundef %0) #0 {
 .critedge:                                        ; preds = %32, %.thread
   %.str.5.sink = phi ptr [ @.str.4, %.thread ], [ @.str.5, %32 ]
   call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 7, ptr noundef nonnull %.str.5.sink) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %46
 
 46:                                               ; preds = %.critedge, %14, %43
@@ -199,7 +199,7 @@ define internal void @HIDAPI_DriverPS3_SetDevicePlayerIndex(ptr noundef %0, i32 
   %18 = add nsw i32 %17, 1
   %19 = shl nuw nsw i32 1, %18
   %20 = trunc i32 %19 to i8
-  call void @llvm.lifetime.start.p0(i64 49, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %21, i8 0, i64 17, i1 false)
   store i8 1, ptr %4, align 16
@@ -226,7 +226,7 @@ define internal void @HIDAPI_DriverPS3_SetDevicePlayerIndex(ptr noundef %0, i32 
   br label %HIDAPI_DriverPS3_UpdateEffects.exit
 
 HIDAPI_DriverPS3_UpdateEffects.exit:              ; preds = %7, %24
-  call void @llvm.lifetime.end.p0(i64 49, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %26
 
 26:                                               ; preds = %3, %HIDAPI_DriverPS3_UpdateEffects.exit
@@ -241,7 +241,7 @@ define internal zeroext i1 @HIDAPI_DriverPS3_UpdateDevice(ptr noundef %0) #0 {
   %5 = alloca [64 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %9 = load i32, ptr %8, align 4
   %10 = icmp sgt i32 %9, 0
@@ -427,7 +427,7 @@ HIDAPI_DriverPS3_HandleMiniStatePacket.exit:      ; preds = %72, %75
   %126 = add nsw i32 %125, 1
   %127 = shl nuw nsw i32 1, %126
   %128 = trunc i32 %127 to i8
-  call void @llvm.lifetime.start.p0(i64 49, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %46, i8 0, i64 17, i1 false)
   store i8 1, ptr %4, align 16
   store i16 -255, ptr %47, align 1
@@ -446,7 +446,7 @@ HIDAPI_DriverPS3_HandleMiniStatePacket.exit:      ; preds = %72, %75
   br label %HIDAPI_DriverPS3_UpdateEffects.exit
 
 HIDAPI_DriverPS3_UpdateEffects.exit:              ; preds = %116, %130
-  call void @llvm.lifetime.end.p0(i64 49, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.backedge.sink.split
 
 .backedge.sink.split:                             ; preds = %HIDAPI_DriverPS3_UpdateEffects.exit, %HIDAPI_DriverPS3_UpdateEffects.exit38
@@ -606,7 +606,7 @@ HIDAPI_DriverPS3_UpdateEffects.exit:              ; preds = %116, %130
   br i1 %224, label %225, label %HIDAPI_DriverPS3_HandleStatePacket.exit
 
 225:                                              ; preds = %.loopexit.i
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %226 = load i16, ptr %35, align 1
   %227 = call i16 @llvm.bswap.i16(i16 %226)
   %228 = sext i16 %227 to i32
@@ -632,7 +632,7 @@ HIDAPI_DriverPS3_UpdateEffects.exit:              ; preds = %116, %130
   %246 = fmul float %245, 0xC0239D0140000000
   store float %246, ptr %39, align 4
   call void @SDL_SendJoystickSensor(i64 noundef %140, ptr noundef nonnull %15, i32 noundef 1, i64 noundef %140, ptr noundef nonnull %3, i32 noundef 3) #10
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %HIDAPI_DriverPS3_HandleStatePacket.exit
 
 HIDAPI_DriverPS3_HandleStatePacket.exit:          ; preds = %.loopexit.i, %225
@@ -657,7 +657,7 @@ HIDAPI_DriverPS3_HandleStatePacket.exit:          ; preds = %.loopexit.i, %225
   %261 = add nsw i32 %260, 1
   %262 = shl nuw nsw i32 1, %261
   %263 = trunc i32 %262 to i8
-  call void @llvm.lifetime.start.p0(i64 49, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %42, i8 0, i64 17, i1 false)
   store i8 1, ptr %2, align 16
   store i16 -255, ptr %43, align 1
@@ -676,7 +676,7 @@ HIDAPI_DriverPS3_HandleStatePacket.exit:          ; preds = %.loopexit.i, %225
   br label %HIDAPI_DriverPS3_UpdateEffects.exit38
 
 HIDAPI_DriverPS3_UpdateEffects.exit38:            ; preds = %251, %265
-  call void @llvm.lifetime.end.p0(i64 49, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.backedge.sink.split
 
 ._crit_edge:                                      ; preds = %.backedge, %.backedge.us, %11
@@ -696,7 +696,7 @@ HIDAPI_DriverPS3_UpdateEffects.exit38:            ; preds = %251, %265
 
 273:                                              ; preds = %1, %271
   %.0 = phi i1 [ %272, %271 ], [ false, %1 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
 
@@ -755,7 +755,7 @@ define internal zeroext i1 @HIDAPI_DriverPS3_RumbleJoystick(ptr noundef %0, ptr 
   %23 = add nsw i32 %22, 1
   %24 = shl nuw nsw i32 1, %23
   %25 = trunc i32 %24 to i8
-  call void @llvm.lifetime.start.p0(i64 49, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %26, i8 0, i64 17, i1 false)
   store i8 1, ptr %5, align 16
@@ -783,7 +783,7 @@ define internal zeroext i1 @HIDAPI_DriverPS3_RumbleJoystick(ptr noundef %0, ptr 
 
 HIDAPI_DriverPS3_UpdateEffects.exit:              ; preds = %4, %29
   %.0.i.i = phi i1 [ %30, %29 ], [ true, %4 ]
-  call void @llvm.lifetime.end.p0(i64 49, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0.i.i
 }
 
@@ -807,7 +807,7 @@ define internal zeroext i1 @HIDAPI_DriverPS3_SetJoystickLED(ptr readnone capture
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @HIDAPI_DriverPS3_SendJoystickEffect(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #0 {
   %5 = alloca [49 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 49, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(49) %5, i8 0, i64 49, i1 false)
   store i8 1, ptr %5, align 16
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -824,7 +824,7 @@ define internal zeroext i1 @HIDAPI_DriverPS3_SendJoystickEffect(ptr noundef %0, 
 
 12:                                               ; preds = %4, %10
   %.0 = phi i1 [ %11, %10 ], [ true, %4 ]
-  call void @llvm.lifetime.end.p0(i64 49, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
 
@@ -862,7 +862,7 @@ define internal zeroext i1 @HIDAPI_DriverPS3ThirdParty_IsEnabled() #0 {
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @HIDAPI_DriverPS3ThirdParty_IsSupportedDevice(ptr noundef readonly captures(address_is_null) %0, ptr readnone captures(none) %1, i32 noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i16 zeroext %5, i32 %6, i32 %7, i32 %8, i32 %9) #0 {
   %11 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = icmp eq i16 %3, 1133
   %13 = icmp eq i16 %4, -13615
   %or.cond = and i1 %12, %13
@@ -901,7 +901,7 @@ define internal zeroext i1 @HIDAPI_DriverPS3ThirdParty_IsSupportedDevice(ptr nou
 
 29:                                               ; preds = %17, %19, %20, %23, %10
   %.0 = phi i1 [ true, %10 ], [ %or.cond9, %23 ], [ true, %20 ], [ true, %19 ], [ false, %17 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i1 %.0
 }
 
@@ -983,7 +983,7 @@ define internal zeroext i1 @HIDAPI_DriverPS3ThirdParty_UpdateDevice(ptr noundef 
   %2 = alloca [64 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
@@ -1381,7 +1381,7 @@ HIDAPI_DriverPS3ThirdParty_HandleStatePacket18.exit: ; preds = %229, %190
 
 239:                                              ; preds = %1, %237
   %.0 = phi i1 [ %238, %237 ], [ false, %1 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0
 }
 
@@ -1512,7 +1512,7 @@ define internal zeroext i1 @HIDAPI_DriverPS3SonySixaxis_InitDevice(ptr noundef %
   store i8 1, ptr %5, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %3, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = load ptr, ptr %7, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, i8 0, i64 64, i1 false)
@@ -1542,7 +1542,7 @@ define internal zeroext i1 @HIDAPI_DriverPS3SonySixaxis_InitDevice(ptr noundef %
 
 19:                                               ; preds = %16, %15
   %.1 = phi i1 [ false, %15 ], [ %18, %16 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %20
 
 20:                                               ; preds = %1, %19
@@ -1568,7 +1568,7 @@ define internal void @HIDAPI_DriverPS3SonySixaxis_SetDevicePlayerIndex(ptr nound
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 %2, ptr %9, align 4
   %10 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %5, ptr noundef nonnull align 1 dereferenceable(9) @__const.HIDAPI_DriverPS3_UpdateLEDsSonySixaxis.effects, i64 9, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %12 = load i32, ptr %11, align 4
@@ -1583,7 +1583,7 @@ define internal void @HIDAPI_DriverPS3SonySixaxis_SetDevicePlayerIndex(ptr nound
   br label %18
 
 18:                                               ; preds = %14, %8
-  call void @llvm.lifetime.start.p0(i64 49, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %19, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %4, ptr noundef nonnull readonly align 1 dereferenceable(9) %5, i64 9, i1 false)
@@ -1596,8 +1596,8 @@ define internal void @HIDAPI_DriverPS3SonySixaxis_SetDevicePlayerIndex(ptr nound
   br label %HIDAPI_DriverPS3_UpdateLEDsSonySixaxis.exit
 
 HIDAPI_DriverPS3_UpdateLEDsSonySixaxis.exit:      ; preds = %18, %21
-  call void @llvm.lifetime.end.p0(i64 49, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %23
 
 23:                                               ; preds = %3, %HIDAPI_DriverPS3_UpdateLEDsSonySixaxis.exit
@@ -1612,7 +1612,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverPS3SonySixaxis_UpdateDevice(ptr
   %5 = alloca [64 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %9 = load i32, ptr %8, align 4
   %10 = icmp sgt i32 %9, 0
@@ -1798,7 +1798,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverPS3SonySixaxis_UpdateDevice(ptr
   br i1 %125, label %126, label %HIDAPI_DriverPS3SonySixaxis_HandleStatePacket.exit
 
 126:                                              ; preds = %.loopexit.i
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %127 = getelementptr inbounds nuw i8, ptr %5, i64 42
   %128 = load i16, ptr %127, align 2
   %129 = call i16 @llvm.bswap.i16(i16 %128)
@@ -1829,7 +1829,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverPS3SonySixaxis_UpdateDevice(ptr
   %152 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store float %151, ptr %152, align 4
   call void @SDL_SendJoystickSensor(i64 noundef %27, ptr noundef nonnull %15, i32 noundef 1, i64 noundef %27, ptr noundef nonnull %4, i32 noundef 3) #10
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %HIDAPI_DriverPS3SonySixaxis_HandleStatePacket.exit
 
 HIDAPI_DriverPS3SonySixaxis_HandleStatePacket.exit: ; preds = %.loopexit.i, %126
@@ -1844,7 +1844,7 @@ HIDAPI_DriverPS3SonySixaxis_HandleStatePacket.exit: ; preds = %.loopexit.i, %126
 
 159:                                              ; preds = %HIDAPI_DriverPS3SonySixaxis_HandleStatePacket.exit
   %160 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %3, ptr noundef nonnull align 1 dereferenceable(9) @__const.HIDAPI_DriverPS3_UpdateLEDsSonySixaxis.effects, i64 9, i1 false)
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 20
   %162 = load i32, ptr %161, align 4
@@ -1859,7 +1859,7 @@ HIDAPI_DriverPS3SonySixaxis_HandleStatePacket.exit: ; preds = %.loopexit.i, %126
   br label %168
 
 168:                                              ; preds = %164, %159
-  call void @llvm.lifetime.start.p0(i64 49, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %169 = getelementptr inbounds nuw i8, ptr %2, i64 9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %169, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %2, ptr noundef nonnull readonly align 1 dereferenceable(9) %3, i64 9, i1 false)
@@ -1872,14 +1872,14 @@ HIDAPI_DriverPS3SonySixaxis_HandleStatePacket.exit: ; preds = %.loopexit.i, %126
   br label %HIDAPI_DriverPS3_UpdateLEDsSonySixaxis.exit
 
 HIDAPI_DriverPS3_UpdateLEDsSonySixaxis.exit:      ; preds = %168, %171
-  call void @llvm.lifetime.end.p0(i64 49, ptr nonnull %2) #10
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i8 1, ptr %156, align 1
   br label %173
 
 173:                                              ; preds = %22, %HIDAPI_DriverPS3SonySixaxis_HandleStatePacket.exit, %HIDAPI_DriverPS3_UpdateLEDsSonySixaxis.exit, %11, %1, %21
   %.0 = phi i1 [ false, %21 ], [ false, %1 ], [ false, %11 ], [ true, %HIDAPI_DriverPS3_UpdateLEDsSonySixaxis.exit ], [ true, %HIDAPI_DriverPS3SonySixaxis_HandleStatePacket.exit ], [ true, %22 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
 
@@ -1932,7 +1932,7 @@ define internal zeroext i1 @HIDAPI_DriverPS3SonySixaxis_RumbleJoystick(ptr nound
   %17 = zext i1 %.not.i to i8
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %19 = load i8, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 49, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %20, i8 0, i64 41, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %5, ptr noundef nonnull align 1 dereferenceable(6) @__const.HIDAPI_DriverPS3_UpdateRumbleSonySixaxis.effects, i64 6, i1 false)
@@ -1951,7 +1951,7 @@ define internal zeroext i1 @HIDAPI_DriverPS3SonySixaxis_RumbleJoystick(ptr nound
 
 HIDAPI_DriverPS3_UpdateRumbleSonySixaxis.exit:    ; preds = %4, %22
   %.0.i.i = phi i1 [ %23, %22 ], [ true, %4 ]
-  call void @llvm.lifetime.end.p0(i64 49, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0.i.i
 }
 
@@ -1975,7 +1975,7 @@ define internal zeroext i1 @HIDAPI_DriverPS3SonySixaxis_SetJoystickLED(ptr readn
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @HIDAPI_DriverPS3SonySixaxis_SendJoystickEffect(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #0 {
   %5 = alloca [49 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 49, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call i32 @llvm.umin.i32(i32 %3, i32 49)
   %7 = zext nneg i32 %6 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(49) %5, i8 0, i64 49, i1 false)
@@ -1990,7 +1990,7 @@ define internal zeroext i1 @HIDAPI_DriverPS3SonySixaxis_SendJoystickEffect(ptr n
 
 11:                                               ; preds = %4, %9
   %.0 = phi i1 [ %10, %9 ], [ true, %4 ]
-  call void @llvm.lifetime.end.p0(i64 49, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
 
@@ -2022,21 +2022,15 @@ declare zeroext i1 @SDL_AddHintCallback_REAL(ptr noundef, ptr noundef, ptr nound
 
 declare void @SDL_RemoveHintCallback_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 declare i32 @SDL_strncasecmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @SDL_LogDebug_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
@@ -2049,7 +2043,7 @@ declare zeroext i1 @HIDAPI_JoystickConnected(ptr noundef, ptr noundef) local_unn
 declare i32 @SDL_hid_send_feature_report_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i32 @SDL_hid_get_feature_report_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -2070,7 +2064,7 @@ declare void @SDL_SendJoystickAxis(i64 noundef, ptr noundef, i8 noundef zeroext,
 declare void @SDL_SendJoystickSensor(i64 noundef, ptr noundef, i32 noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #8
+declare i16 @llvm.bswap.i16(i16) #7
 
 declare void @SDL_AssertJoysticksLocked() local_unnamed_addr #3
 
@@ -2084,6 +2078,12 @@ declare i32 @SDL_HIDAPI_SendRumble(ptr noundef, ptr noundef, i32 noundef) local_
 
 declare zeroext i1 @HIDAPI_SupportsPlaystationDetection(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #3
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9
 
@@ -2091,11 +2091,11 @@ attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind allocsize(0,1) }

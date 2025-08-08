@@ -667,7 +667,7 @@ _ZN19GCTraceConcTimeImplILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0E
   %48 = load double, ptr %6, align 8
   %49 = fsub double %47, %48
   store double %49, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %50 = load i8, ptr @UsePerfData, align 1
   %51 = trunc i8 %50 to i1
   br i1 %51, label %52, label %_ZN22G1ConcurrentMarkThread23update_threads_cpu_timeEv.exit
@@ -687,7 +687,7 @@ _ZN19GCTraceConcTimeImplILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0E
   br label %_ZN22G1ConcurrentMarkThread23update_threads_cpu_timeEv.exit
 
 _ZN22G1ConcurrentMarkThread23update_threads_cpu_timeEv.exit: ; preds = %43, %52, %54
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not, label %_ZN19GCTraceConcTimeImplILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit, label %56
 
 56:                                               ; preds = %_ZN22G1ConcurrentMarkThread23update_threads_cpu_timeEv.exit
@@ -816,7 +816,7 @@ define hidden void @_ZN22G1ConcurrentMarkThread24concurrent_mark_cycle_doEv(ptr 
   br i1 %27, label %41, label %28
 
 28:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN23ConcurrentGCBreakpoints2atEPKc(ptr noundef nonnull @.str.18) #11
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %29, align 8
@@ -831,7 +831,7 @@ define hidden void @_ZN22G1ConcurrentMarkThread24concurrent_mark_cycle_doEv(ptr 
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 1494
   %35 = load volatile i8, ptr %34, align 2
   %36 = trunc i8 %35 to i1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %36, label %41, label %37
 
 37:                                               ; preds = %28
@@ -1022,7 +1022,7 @@ define hidden noundef zeroext i1 @_ZN22G1ConcurrentMarkThread29phase_clear_cld_c
   %3 = alloca %class.TimeInstant, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %5 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %6, null
   %7 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #11
@@ -1042,12 +1042,12 @@ _ZN16G1ConcPhaseTimerC2EP16G1ConcurrentMarkPKc.exit: ; preds = %1, %8
   %14 = extractvalue { i64, i64 } %11, 1
   store i64 %14, ptr %13, align 8
   call void @_ZN17ConcurrentGCTimer28register_gc_concurrent_startEPKcRK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr noundef nonnull align 8 dereferenceable(112) %10, ptr noundef nonnull @.str.7, ptr noundef nonnull align 8 dereferenceable(16) %3) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN20ClassLoaderDataGraph19clear_claimed_marksEv() #11
   %15 = load ptr, ptr %4, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 1494
   %17 = load volatile i8, ptr %16, align 2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %18 = load ptr, ptr %9, align 8
   %19 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #11
   %20 = extractvalue { i64, i64 } %19, 0
@@ -1067,7 +1067,7 @@ _ZN16G1ConcPhaseTimerC2EP16G1ConcurrentMarkPKc.exit: ; preds = %1, %8
 
 _ZN16G1ConcPhaseTimerD2Ev.exit:                   ; preds = %_ZN16G1ConcPhaseTimerC2EP16G1ConcurrentMarkPKc.exit, %23
   %27 = trunc i8 %17 to i1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %27
 }
 
@@ -1080,7 +1080,7 @@ define hidden noundef zeroext i1 @_ZN22G1ConcurrentMarkThread23phase_scan_root_r
   %4 = alloca %class.TimeInstant, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %6 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %7, null
   %8 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #11
@@ -1100,10 +1100,10 @@ _ZN16G1ConcPhaseTimerC2EP16G1ConcurrentMarkPKc.exit: ; preds = %1, %9
   %15 = extractvalue { i64, i64 } %12, 1
   store i64 %15, ptr %14, align 8
   call void @_ZN17ConcurrentGCTimer28register_gc_concurrent_startEPKcRK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr noundef nonnull align 8 dereferenceable(112) %11, ptr noundef nonnull @.str.8, ptr noundef nonnull align 8 dereferenceable(16) %4) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %16 = load ptr, ptr %5, align 8
   call void @_ZN16G1ConcurrentMark17scan_root_regionsEv(ptr noundef nonnull align 8 dereferenceable(1849) %16) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %17 = load i8, ptr @UsePerfData, align 1
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %_ZN22G1ConcurrentMarkThread23update_threads_cpu_timeEv.exit
@@ -1125,11 +1125,11 @@ _ZN16G1ConcPhaseTimerC2EP16G1ConcurrentMarkPKc.exit: ; preds = %1, %9
   br label %_ZN22G1ConcurrentMarkThread23update_threads_cpu_timeEv.exit
 
 _ZN22G1ConcurrentMarkThread23update_threads_cpu_timeEv.exit: ; preds = %_ZN16G1ConcPhaseTimerC2EP16G1ConcurrentMarkPKc.exit, %19, %21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %25 = load ptr, ptr %5, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 1494
   %27 = load volatile i8, ptr %26, align 2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %28 = load ptr, ptr %10, align 8
   %29 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #11
   %30 = extractvalue { i64, i64 } %29, 0
@@ -1149,7 +1149,7 @@ _ZN22G1ConcurrentMarkThread23update_threads_cpu_timeEv.exit: ; preds = %_ZN16G1C
 
 _ZN16G1ConcPhaseTimerD2Ev.exit:                   ; preds = %_ZN22G1ConcurrentMarkThread23update_threads_cpu_timeEv.exit, %33
   %37 = trunc i8 %27 to i1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %37
 }
 
@@ -1254,7 +1254,7 @@ define hidden noundef zeroext i1 @_ZN22G1ConcurrentMarkThread24subphase_mark_fro
   tail call void @_ZN23ConcurrentGCBreakpoints2atEPKc(ptr noundef nonnull @.str.12) #11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %5 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %6, null
   %7 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #11
@@ -1274,13 +1274,13 @@ _ZN16G1ConcPhaseTimerC2EP16G1ConcurrentMarkPKc.exit: ; preds = %1, %8
   %14 = extractvalue { i64, i64 } %11, 1
   store i64 %14, ptr %13, align 8
   call void @_ZN17ConcurrentGCTimer28register_gc_concurrent_startEPKcRK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr noundef nonnull align 8 dereferenceable(112) %10, ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(16) %3) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = load ptr, ptr %4, align 8
   call void @_ZN16G1ConcurrentMark15mark_from_rootsEv(ptr noundef nonnull align 8 dereferenceable(1849) %15) #11
   %16 = load ptr, ptr %4, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 1494
   %18 = load volatile i8, ptr %17, align 2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %19 = load ptr, ptr %9, align 8
   %20 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #11
   %21 = extractvalue { i64, i64 } %20, 0
@@ -1300,7 +1300,7 @@ _ZN16G1ConcPhaseTimerC2EP16G1ConcurrentMarkPKc.exit: ; preds = %1, %8
 
 _ZN16G1ConcPhaseTimerD2Ev.exit:                   ; preds = %_ZN16G1ConcPhaseTimerC2EP16G1ConcurrentMarkPKc.exit, %24
   %28 = trunc i8 %18 to i1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %28
 }
 
@@ -1310,7 +1310,7 @@ define hidden noundef zeroext i1 @_ZN22G1ConcurrentMarkThread17subphase_preclean
   %3 = alloca %class.TimeInstant, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %5 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %6, null
   %7 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #11
@@ -1330,13 +1330,13 @@ _ZN16G1ConcPhaseTimerC2EP16G1ConcurrentMarkPKc.exit: ; preds = %1, %8
   %14 = extractvalue { i64, i64 } %11, 1
   store i64 %14, ptr %13, align 8
   call void @_ZN17ConcurrentGCTimer28register_gc_concurrent_startEPKcRK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr noundef nonnull align 8 dereferenceable(112) %10, ptr noundef nonnull @.str.14, ptr noundef nonnull align 8 dereferenceable(16) %3) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = load ptr, ptr %4, align 8
   call void @_ZN16G1ConcurrentMark8precleanEv(ptr noundef nonnull align 8 dereferenceable(1849) %15) #11
   %16 = load ptr, ptr %4, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 1494
   %18 = load volatile i8, ptr %17, align 2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %19 = load ptr, ptr %9, align 8
   %20 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #11
   %21 = extractvalue { i64, i64 } %20, 0
@@ -1356,7 +1356,7 @@ _ZN16G1ConcPhaseTimerC2EP16G1ConcurrentMarkPKc.exit: ; preds = %1, %8
 
 _ZN16G1ConcPhaseTimerD2Ev.exit:                   ; preds = %_ZN16G1ConcPhaseTimerC2EP16G1ConcurrentMarkPKc.exit, %24
   %28 = trunc i8 %18 to i1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %28
 }
 
@@ -1376,7 +1376,7 @@ define hidden noundef zeroext i1 @_ZN22G1ConcurrentMarkThread15subphase_remarkEv
   %2 = alloca %class.ThreadTotalCPUTimeClosure, align 8
   %3 = alloca %class.VM_G1PauseRemark, align 8
   tail call void @_ZN23ConcurrentGCBreakpoints2atEPKc(ptr noundef nonnull @.str.15) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = load i8, ptr @UsePerfData, align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %_ZN22G1ConcurrentMarkThread23update_threads_cpu_timeEv.exit
@@ -1399,7 +1399,7 @@ define hidden noundef zeroext i1 @_ZN22G1ConcurrentMarkThread15subphase_remarkEv
   br label %_ZN22G1ConcurrentMarkThread23update_threads_cpu_timeEv.exit
 
 _ZN22G1ConcurrentMarkThread23update_threads_cpu_timeEv.exit: ; preds = %1, %6, %8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1443,7 +1443,7 @@ define hidden noundef zeroext i1 @_ZN22G1ConcurrentMarkThread23phase_rebuild_and
   tail call void @_ZN23ConcurrentGCBreakpoints2atEPKc(ptr noundef nonnull @.str.16) #11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %6 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %7, null
   %8 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #11
@@ -1463,10 +1463,10 @@ _ZN16G1ConcPhaseTimerC2EP16G1ConcurrentMarkPKc.exit: ; preds = %1, %9
   %15 = extractvalue { i64, i64 } %12, 1
   store i64 %15, ptr %14, align 8
   call void @_ZN17ConcurrentGCTimer28register_gc_concurrent_startEPKcRK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr noundef nonnull align 8 dereferenceable(112) %11, ptr noundef nonnull @.str.17, ptr noundef nonnull align 8 dereferenceable(16) %4) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %16 = load ptr, ptr %5, align 8
   call void @_ZN16G1ConcurrentMark17rebuild_and_scrubEv(ptr noundef nonnull align 8 dereferenceable(1849) %16) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %17 = load i8, ptr @UsePerfData, align 1
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %_ZN22G1ConcurrentMarkThread23update_threads_cpu_timeEv.exit
@@ -1488,11 +1488,11 @@ _ZN16G1ConcPhaseTimerC2EP16G1ConcurrentMarkPKc.exit: ; preds = %1, %9
   br label %_ZN22G1ConcurrentMarkThread23update_threads_cpu_timeEv.exit
 
 _ZN22G1ConcurrentMarkThread23update_threads_cpu_timeEv.exit: ; preds = %_ZN16G1ConcPhaseTimerC2EP16G1ConcurrentMarkPKc.exit, %19, %21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %25 = load ptr, ptr %5, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 1494
   %27 = load volatile i8, ptr %26, align 2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %28 = load ptr, ptr %10, align 8
   %29 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #11
   %30 = extractvalue { i64, i64 } %29, 0
@@ -1512,7 +1512,7 @@ _ZN22G1ConcurrentMarkThread23update_threads_cpu_timeEv.exit: ; preds = %_ZN16G1C
 
 _ZN16G1ConcPhaseTimerD2Ev.exit:                   ; preds = %_ZN22G1ConcurrentMarkThread23update_threads_cpu_timeEv.exit, %33
   %37 = trunc i8 %27 to i1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %37
 }
 
@@ -1557,7 +1557,7 @@ define hidden noundef zeroext i1 @_ZN22G1ConcurrentMarkThread32phase_clear_bitma
   tail call void @_ZN23ConcurrentGCBreakpoints2atEPKc(ptr noundef nonnull @.str.19) #11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %5 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %6, null
   %7 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #11
@@ -1577,13 +1577,13 @@ _ZN16G1ConcPhaseTimerC2EP16G1ConcurrentMarkPKc.exit: ; preds = %1, %8
   %14 = extractvalue { i64, i64 } %11, 1
   store i64 %14, ptr %13, align 8
   call void @_ZN17ConcurrentGCTimer28register_gc_concurrent_startEPKcRK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr noundef nonnull align 8 dereferenceable(112) %10, ptr noundef nonnull @.str.20, ptr noundef nonnull align 8 dereferenceable(16) %3) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = load ptr, ptr %4, align 8
   call void @_ZN16G1ConcurrentMark21cleanup_for_next_markEv(ptr noundef nonnull align 8 dereferenceable(1849) %15) #11
   %16 = load ptr, ptr %4, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 1494
   %18 = load volatile i8, ptr %17, align 2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %19 = load ptr, ptr %9, align 8
   %20 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #11
   %21 = extractvalue { i64, i64 } %20, 0
@@ -1603,7 +1603,7 @@ _ZN16G1ConcPhaseTimerC2EP16G1ConcurrentMarkPKc.exit: ; preds = %1, %8
 
 _ZN16G1ConcPhaseTimerD2Ev.exit:                   ; preds = %_ZN16G1ConcPhaseTimerC2EP16G1ConcurrentMarkPKc.exit, %24
   %28 = trunc i8 %18 to i1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %28
 }
 
@@ -3477,9 +3477,9 @@ _ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit: ; preds = %
   br i1 %264, label %23, label %._crit_edge35, !llvm.loop !20
 
 ._crit_edge35:                                    ; preds = %._crit_edge, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop14G1CMOopClosure14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -5554,9 +5554,9 @@ _ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit: ; preds = %8
   br i1 %255, label %23, label %._crit_edge35, !llvm.loop !26
 
 ._crit_edge35:                                    ; preds = %._crit_edge, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc14G1CMOopClosure14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -9543,12 +9543,12 @@ _ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit: ; preds = %
   br i1 %274, label %30, label %._crit_edge62, !llvm.loop !53
 
 ._crit_edge62:                                    ; preds = %._crit_edge, %14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %4, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop14G1CMOopClosureK10MrContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -10216,12 +10216,12 @@ _ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit: ; preds = %9
   br i1 %265, label %30, label %._crit_edge62, !llvm.loop !55
 
 ._crit_edge62:                                    ; preds = %._crit_edge, %14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %4, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc14G1CMOopClosureK10MrContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -12761,10 +12761,10 @@ declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr nound
 declare noundef double @_ZN29CompositeElapsedCounterSource7secondsE7PairRepIllE(i64, i64) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

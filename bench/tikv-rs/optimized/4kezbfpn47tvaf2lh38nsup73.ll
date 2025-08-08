@@ -17,14 +17,14 @@ define noundef ptr @_RNvCshSmAE3ICOH0_7___rustc12___rust_alloc(i64 noundef %0, i
   br i1 %or.cond.i, label %7, label %11
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef range(i64 8, -9223372036854775807) i64 @llvm.umax.i64(i64 range(i64 1, -9223372036854775807) %1, i64 8)
   %8 = call noundef i32 @posix_memalign(ptr noundef nonnull %3, i64 noundef %.sroa.0.0.sroa.speculated.i.i.i, i64 noundef %0) #12
   %9 = icmp eq i32 %8, 0
   %10 = load ptr, ptr %3, align 8
   %.sroa.0.0.i.i = select i1 %9, ptr %10, ptr null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %"_ZN3std3sys5alloc4unix81_$LT$impl$u20$core..alloc..global..GlobalAlloc$u20$for$u20$std..alloc..System$GT$5alloc17h4cda58facd73de78E.exit"
 
 11:                                               ; preds = %2
@@ -77,13 +77,13 @@ define noundef ptr @_RNvCshSmAE3ICOH0_7___rustc19___rust_alloc_zeroed(i64 nounde
   br i1 %or.cond.i, label %7, label %12
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef range(i64 8, -9223372036854775807) i64 @llvm.umax.i64(i64 range(i64 1, -9223372036854775807) %1, i64 8)
   %8 = call noundef i32 @posix_memalign(ptr noundef nonnull %3, i64 noundef %.sroa.0.0.sroa.speculated.i.i.i.i, i64 noundef %0) #12
   %9 = icmp ne i32 %8, 0
   %10 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %11 = icmp eq ptr %10, null
   %or.cond2.i = select i1 %9, i1 true, i1 %11
   br i1 %or.cond2.i, label %"_ZN3std3sys5alloc4unix81_$LT$impl$u20$core..alloc..global..GlobalAlloc$u20$for$u20$std..alloc..System$GT$12alloc_zeroed17hee397110c5f2cbd3E.exit", label %14
@@ -129,10 +129,10 @@ declare noundef range(i32 0, 10) i32 @rust_eh_personality(i32 noundef, i32 nound
 declare void @free(ptr allocptr noundef captures(none)) unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #11

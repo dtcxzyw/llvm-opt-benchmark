@@ -119,7 +119,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_turbocell(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %7 = and i8 %6, 15
   %.not = icmp eq i8 %7, 0
@@ -295,7 +295,7 @@ define internal i32 @dissect_turbocell(ptr noundef %0, ptr noundef %1, ptr nound
 
 125:                                              ; preds = %120, %122, %.critedge, %42
   %126 = call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %126
 }
 
@@ -312,9 +312,6 @@ define hidden void @proto_reg_handoff_turbocell() local_unnamed_addr #0 {
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -370,11 +367,14 @@ declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef,
 ; Function Attrs: null_pointer_is_valid
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #3
@@ -383,7 +383,6 @@ attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-widt
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

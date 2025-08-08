@@ -507,7 +507,7 @@ define hidden void @_ZN20ParallelScavengeHeap15update_countersEv(ptr noundef non
   %4 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
   tail call void @_ZN8PSOldGen15update_countersEv(ptr noundef nonnull align 8 dereferenceable(128) %4) #15
   tail call void @_ZN17MetaspaceCounters27update_performance_countersEv() #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = load i8, ptr @UsePerfData, align 1
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %_ZN20ParallelScavengeHeap39update_parallel_worker_threads_cpu_timeEv.exit
@@ -531,7 +531,7 @@ define hidden void @_ZN20ParallelScavengeHeap15update_countersEv(ptr noundef non
   br label %_ZN20ParallelScavengeHeap39update_parallel_worker_threads_cpu_timeEv.exit
 
 _ZN20ParallelScavengeHeap39update_parallel_worker_threads_cpu_timeEv.exit: ; preds = %1, %7, %9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -2599,7 +2599,7 @@ define hidden void @_ZN20ParallelScavengeHeap10trace_heapEN6GCWhen4TypeEPK8GCTra
   %5 = alloca %class.PSHeapSummary, align 8
   %6 = alloca %class.MetaspaceSummary, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8, !noalias !20
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !noalias !20
@@ -2715,7 +2715,7 @@ define hidden void @_ZN20ParallelScavengeHeap10trace_heapEN6GCWhen4TypeEPK8GCTra
   store ptr %64, ptr %.sroa.486.0..sroa_idx.i, align 8, !alias.scope !20
   %.sroa.587.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 176
   store i64 %69, ptr %.sroa.587.0..sroa_idx.i, align 8, !alias.scope !20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZNK8GCTracer22report_gc_heap_summaryEN6GCWhen4TypeERK13GCHeapSummary(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %5) #15
   call void @_ZN13CollectedHeap24create_metaspace_summaryEv(ptr dead_on_unwind nonnull writable sret(%class.MetaspaceSummary) align 8 %6, ptr noundef nonnull align 8 dereferenceable(104) %0) #15
   call void @_ZNK8GCTracer24report_metaspace_summaryEN6GCWhen4TypeERK16MetaspaceSummary(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(208) %6) #15
@@ -3390,10 +3390,10 @@ declare i64 @llvm.umin.i64(i64, i64) #11
 declare i64 @llvm.umax.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13

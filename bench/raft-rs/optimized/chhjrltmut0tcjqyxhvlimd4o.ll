@@ -127,7 +127,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   unreachable
 
 14:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.512)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.512)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
   %17 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17hb09967945c3ec4ffE(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
@@ -135,7 +135,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   br i1 %18, label %74, label %112
 
 19:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.58)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !3, !align !5, !noundef !3
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -152,7 +152,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   br i1 %32, label %114, label %117
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load ptr, ptr %34, align 8, !nonnull !3, !align !5, !noundef !3
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -207,7 +207,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   br label %113
 
 74:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %75 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17hb09967945c3ec4ffE(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
@@ -281,7 +281,7 @@ default.unreachable1.i:                           ; preds = %74
   %.sroa.010.0.copyload = phi i8 [ %.sroa.010.0.copyload.pre, %78 ], [ 7, %83 ], [ 8, %89 ], [ 9, %95 ], [ 10, %102 ]
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512.0..sroa_idx, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %112
 
 112:                                              ; preds = %14, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17h2e3be7273fb12304E.exit"
@@ -289,21 +289,21 @@ default.unreachable1.i:                           ; preds = %74
   store i8 %.sroa.010.0, ptr %0, align 8
   %.sroa.512.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512.0..sroa_idx13, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.512)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.512)
   br label %113
 
 113:                                              ; preds = %123, %117, %112, %61, %48
   ret void
 
 114:                                              ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %115 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %116 = load ptr, ptr %115, align 8, !invariant.load !3, !nonnull !3
   call void %116(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef align 1 %28)
   %.sroa.06.0.copyload = load i8, ptr %7, align 8
   %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58.0..sroa_idx, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %117
 
 117:                                              ; preds = %19, %114
@@ -311,21 +311,21 @@ default.unreachable1.i:                           ; preds = %74
   store i8 %.sroa.06.0, ptr %0, align 8
   %.sroa.58.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58.0..sroa_idx9, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.58)
   br label %113
 
 118:                                              ; preds = %33
   %119 = extractvalue { ptr, ptr } %46, 1
   %120 = icmp ne ptr %119, null
   tail call void @llvm.assume(i1 %120)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %122 = load ptr, ptr %121, align 8, !invariant.load !3, !nonnull !3
   call void %122(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %47)
   %.sroa.0.0.copyload = load i8, ptr %5, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5.0..sroa_idx, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %123
 
 123:                                              ; preds = %33, %118
@@ -333,7 +333,7 @@ default.unreachable1.i:                           ; preds = %74
   store i8 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5.0..sroa_idx2, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   br label %113
 }
 
@@ -362,7 +362,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   unreachable
 
 14:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.512)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.512)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
   %17 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h722d3670f1156119E(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
@@ -370,7 +370,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   br i1 %18, label %74, label %112
 
 19:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.58)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !3, !align !5, !noundef !3
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -387,7 +387,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   br i1 %32, label %114, label %117
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load ptr, ptr %34, align 8, !nonnull !3, !align !5, !noundef !3
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -442,7 +442,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   br label %113
 
 74:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %75 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h722d3670f1156119E(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
@@ -516,7 +516,7 @@ default.unreachable1.i:                           ; preds = %74
   %.sroa.010.0.copyload = phi i8 [ %.sroa.010.0.copyload.pre, %78 ], [ 7, %83 ], [ 8, %89 ], [ 9, %95 ], [ 10, %102 ]
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512.0..sroa_idx, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %112
 
 112:                                              ; preds = %14, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17hbeece39611097364E.exit"
@@ -524,21 +524,21 @@ default.unreachable1.i:                           ; preds = %74
   store i8 %.sroa.010.0, ptr %0, align 8
   %.sroa.512.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512.0..sroa_idx13, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.512)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.512)
   br label %113
 
 113:                                              ; preds = %123, %117, %112, %61, %48
   ret void
 
 114:                                              ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %115 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %116 = load ptr, ptr %115, align 8, !invariant.load !3, !nonnull !3
   call void %116(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef align 1 %28)
   %.sroa.06.0.copyload = load i8, ptr %7, align 8
   %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58.0..sroa_idx, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %117
 
 117:                                              ; preds = %19, %114
@@ -546,21 +546,21 @@ default.unreachable1.i:                           ; preds = %74
   store i8 %.sroa.06.0, ptr %0, align 8
   %.sroa.58.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58.0..sroa_idx9, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.58)
   br label %113
 
 118:                                              ; preds = %33
   %119 = extractvalue { ptr, ptr } %46, 1
   %120 = icmp ne ptr %119, null
   tail call void @llvm.assume(i1 %120)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %122 = load ptr, ptr %121, align 8, !invariant.load !3, !nonnull !3
   call void %122(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %47)
   %.sroa.0.0.copyload = load i8, ptr %5, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5.0..sroa_idx, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %123
 
 123:                                              ; preds = %33, %118
@@ -568,7 +568,7 @@ default.unreachable1.i:                           ; preds = %74
   store i8 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5.0..sroa_idx2, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   br label %113
 }
 
@@ -597,7 +597,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   unreachable
 
 14:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.512)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.512)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
   %17 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h09a8cd2db1787e30E(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
@@ -605,7 +605,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   br i1 %18, label %74, label %112
 
 19:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.58)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !3, !align !5, !noundef !3
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -622,7 +622,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   br i1 %32, label %114, label %117
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load ptr, ptr %34, align 8, !nonnull !3, !align !5, !noundef !3
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -677,7 +677,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   br label %113
 
 74:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %75 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h09a8cd2db1787e30E(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
@@ -751,7 +751,7 @@ default.unreachable1.i:                           ; preds = %74
   %.sroa.010.0.copyload = phi i8 [ %.sroa.010.0.copyload.pre, %78 ], [ 7, %83 ], [ 8, %89 ], [ 9, %95 ], [ 10, %102 ]
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512.0..sroa_idx, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %112
 
 112:                                              ; preds = %14, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17h822685c462d5ff3eE.exit"
@@ -759,21 +759,21 @@ default.unreachable1.i:                           ; preds = %74
   store i8 %.sroa.010.0, ptr %0, align 8
   %.sroa.512.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512.0..sroa_idx13, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.512)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.512)
   br label %113
 
 113:                                              ; preds = %123, %117, %112, %61, %48
   ret void
 
 114:                                              ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %115 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %116 = load ptr, ptr %115, align 8, !invariant.load !3, !nonnull !3
   call void %116(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef align 1 %28)
   %.sroa.06.0.copyload = load i8, ptr %7, align 8
   %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58.0..sroa_idx, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %117
 
 117:                                              ; preds = %19, %114
@@ -781,21 +781,21 @@ default.unreachable1.i:                           ; preds = %74
   store i8 %.sroa.06.0, ptr %0, align 8
   %.sroa.58.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58.0..sroa_idx9, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.58)
   br label %113
 
 118:                                              ; preds = %33
   %119 = extractvalue { ptr, ptr } %46, 1
   %120 = icmp ne ptr %119, null
   tail call void @llvm.assume(i1 %120)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %122 = load ptr, ptr %121, align 8, !invariant.load !3, !nonnull !3
   call void %122(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %47)
   %.sroa.0.0.copyload = load i8, ptr %5, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5.0..sroa_idx, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %123
 
 123:                                              ; preds = %33, %118
@@ -803,7 +803,7 @@ default.unreachable1.i:                           ; preds = %74
   store i8 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5.0..sroa_idx2, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   br label %113
 }
 
@@ -832,7 +832,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   unreachable
 
 14:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.512)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.512)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
   %17 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h4cb390ae43787c0eE(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
@@ -840,7 +840,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   br i1 %18, label %74, label %112
 
 19:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.58)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !3, !align !5, !noundef !3
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -857,7 +857,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   br i1 %32, label %114, label %117
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load ptr, ptr %34, align 8, !nonnull !3, !align !5, !noundef !3
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -912,7 +912,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   br label %113
 
 74:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %75 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h4cb390ae43787c0eE(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
@@ -986,7 +986,7 @@ default.unreachable1.i:                           ; preds = %74
   %.sroa.010.0.copyload = phi i8 [ %.sroa.010.0.copyload.pre, %78 ], [ 7, %83 ], [ 8, %89 ], [ 9, %95 ], [ 10, %102 ]
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512.0..sroa_idx, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %112
 
 112:                                              ; preds = %14, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17hbfbf17dd479f5776E.exit"
@@ -994,21 +994,21 @@ default.unreachable1.i:                           ; preds = %74
   store i8 %.sroa.010.0, ptr %0, align 8
   %.sroa.512.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512.0..sroa_idx13, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.512)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.512)
   br label %113
 
 113:                                              ; preds = %123, %117, %112, %61, %48
   ret void
 
 114:                                              ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %115 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %116 = load ptr, ptr %115, align 8, !invariant.load !3, !nonnull !3
   call void %116(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef align 1 %28)
   %.sroa.06.0.copyload = load i8, ptr %7, align 8
   %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58.0..sroa_idx, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %117
 
 117:                                              ; preds = %19, %114
@@ -1016,21 +1016,21 @@ default.unreachable1.i:                           ; preds = %74
   store i8 %.sroa.06.0, ptr %0, align 8
   %.sroa.58.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58.0..sroa_idx9, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.58)
   br label %113
 
 118:                                              ; preds = %33
   %119 = extractvalue { ptr, ptr } %46, 1
   %120 = icmp ne ptr %119, null
   tail call void @llvm.assume(i1 %120)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %122 = load ptr, ptr %121, align 8, !invariant.load !3, !nonnull !3
   call void %122(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %47)
   %.sroa.0.0.copyload = load i8, ptr %5, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5.0..sroa_idx, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %123
 
 123:                                              ; preds = %33, %118
@@ -1038,7 +1038,7 @@ default.unreachable1.i:                           ; preds = %74
   store i8 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5.0..sroa_idx2, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   br label %113
 }
 
@@ -1067,7 +1067,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   unreachable
 
 14:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.512)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.512)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
   %17 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h734e8043a6ba0708E(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
@@ -1075,7 +1075,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   br i1 %18, label %74, label %112
 
 19:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.58)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !3, !align !5, !noundef !3
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1092,7 +1092,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   br i1 %32, label %114, label %117
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load ptr, ptr %34, align 8, !nonnull !3, !align !5, !noundef !3
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1147,7 +1147,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   br label %113
 
 74:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %75 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h734e8043a6ba0708E(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
@@ -1221,7 +1221,7 @@ default.unreachable1.i:                           ; preds = %74
   %.sroa.010.0.copyload = phi i8 [ %.sroa.010.0.copyload.pre, %78 ], [ 7, %83 ], [ 8, %89 ], [ 9, %95 ], [ 10, %102 ]
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512.0..sroa_idx, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %112
 
 112:                                              ; preds = %14, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17hef17fcc232eb74abE.exit"
@@ -1229,21 +1229,21 @@ default.unreachable1.i:                           ; preds = %74
   store i8 %.sroa.010.0, ptr %0, align 8
   %.sroa.512.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512.0..sroa_idx13, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.512)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.512)
   br label %113
 
 113:                                              ; preds = %123, %117, %112, %61, %48
   ret void
 
 114:                                              ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %115 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %116 = load ptr, ptr %115, align 8, !invariant.load !3, !nonnull !3
   call void %116(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef align 1 %28)
   %.sroa.06.0.copyload = load i8, ptr %7, align 8
   %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58.0..sroa_idx, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %117
 
 117:                                              ; preds = %19, %114
@@ -1251,21 +1251,21 @@ default.unreachable1.i:                           ; preds = %74
   store i8 %.sroa.06.0, ptr %0, align 8
   %.sroa.58.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58.0..sroa_idx9, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.58)
   br label %113
 
 118:                                              ; preds = %33
   %119 = extractvalue { ptr, ptr } %46, 1
   %120 = icmp ne ptr %119, null
   tail call void @llvm.assume(i1 %120)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %122 = load ptr, ptr %121, align 8, !invariant.load !3, !nonnull !3
   call void %122(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %47)
   %.sroa.0.0.copyload = load i8, ptr %5, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5.0..sroa_idx, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %123
 
 123:                                              ; preds = %33, %118
@@ -1273,7 +1273,7 @@ default.unreachable1.i:                           ; preds = %74
   store i8 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5.0..sroa_idx2, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   br label %113
 }
 
@@ -1302,7 +1302,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   unreachable
 
 14:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.512)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.512)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
   %17 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h5d025e926e17cd2aE(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
@@ -1310,7 +1310,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   br i1 %18, label %74, label %112
 
 19:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.58)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !3, !align !5, !noundef !3
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1327,7 +1327,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   br i1 %32, label %114, label %117
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load ptr, ptr %34, align 8, !nonnull !3, !align !5, !noundef !3
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1382,7 +1382,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   br label %113
 
 74:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %75 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h5d025e926e17cd2aE(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
@@ -1456,7 +1456,7 @@ default.unreachable1.i:                           ; preds = %74
   %.sroa.010.0.copyload = phi i8 [ %.sroa.010.0.copyload.pre, %78 ], [ 7, %83 ], [ 8, %89 ], [ 9, %95 ], [ 10, %102 ]
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512.0..sroa_idx, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %112
 
 112:                                              ; preds = %14, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17he648df4efe49681eE.exit"
@@ -1464,21 +1464,21 @@ default.unreachable1.i:                           ; preds = %74
   store i8 %.sroa.010.0, ptr %0, align 8
   %.sroa.512.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512.0..sroa_idx13, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.512)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.512)
   br label %113
 
 113:                                              ; preds = %123, %117, %112, %61, %48
   ret void
 
 114:                                              ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %115 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %116 = load ptr, ptr %115, align 8, !invariant.load !3, !nonnull !3
   call void %116(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef align 1 %28)
   %.sroa.06.0.copyload = load i8, ptr %7, align 8
   %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58.0..sroa_idx, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %117
 
 117:                                              ; preds = %19, %114
@@ -1486,21 +1486,21 @@ default.unreachable1.i:                           ; preds = %74
   store i8 %.sroa.06.0, ptr %0, align 8
   %.sroa.58.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58.0..sroa_idx9, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.58)
   br label %113
 
 118:                                              ; preds = %33
   %119 = extractvalue { ptr, ptr } %46, 1
   %120 = icmp ne ptr %119, null
   tail call void @llvm.assume(i1 %120)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %122 = load ptr, ptr %121, align 8, !invariant.load !3, !nonnull !3
   call void %122(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %47)
   %.sroa.0.0.copyload = load i8, ptr %5, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5.0..sroa_idx, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %123
 
 123:                                              ; preds = %33, %118
@@ -1508,7 +1508,7 @@ default.unreachable1.i:                           ; preds = %74
   store i8 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5.0..sroa_idx2, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   br label %113
 }
 
@@ -1537,7 +1537,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   unreachable
 
 14:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.512)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.512)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
   %17 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h73e37a23cbb29c22E(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
@@ -1545,7 +1545,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   br i1 %18, label %74, label %112
 
 19:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.58)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !3, !align !5, !noundef !3
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1562,7 +1562,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   br i1 %32, label %114, label %117
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load ptr, ptr %34, align 8, !nonnull !3, !align !5, !noundef !3
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1617,7 +1617,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   br label %113
 
 74:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %75 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h73e37a23cbb29c22E(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
@@ -1691,7 +1691,7 @@ default.unreachable1.i:                           ; preds = %74
   %.sroa.010.0.copyload = phi i8 [ %.sroa.010.0.copyload.pre, %78 ], [ 7, %83 ], [ 8, %89 ], [ 9, %95 ], [ 10, %102 ]
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512.0..sroa_idx, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %112
 
 112:                                              ; preds = %14, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17h52b82e287134b3e6E.exit"
@@ -1699,21 +1699,21 @@ default.unreachable1.i:                           ; preds = %74
   store i8 %.sroa.010.0, ptr %0, align 8
   %.sroa.512.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512.0..sroa_idx13, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.512)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.512)
   br label %113
 
 113:                                              ; preds = %123, %117, %112, %61, %48
   ret void
 
 114:                                              ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %115 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %116 = load ptr, ptr %115, align 8, !invariant.load !3, !nonnull !3
   call void %116(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef align 1 %28)
   %.sroa.06.0.copyload = load i8, ptr %7, align 8
   %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58.0..sroa_idx, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %117
 
 117:                                              ; preds = %19, %114
@@ -1721,21 +1721,21 @@ default.unreachable1.i:                           ; preds = %74
   store i8 %.sroa.06.0, ptr %0, align 8
   %.sroa.58.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58.0..sroa_idx9, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.58)
   br label %113
 
 118:                                              ; preds = %33
   %119 = extractvalue { ptr, ptr } %46, 1
   %120 = icmp ne ptr %119, null
   tail call void @llvm.assume(i1 %120)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %122 = load ptr, ptr %121, align 8, !invariant.load !3, !nonnull !3
   call void %122(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %47)
   %.sroa.0.0.copyload = load i8, ptr %5, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5.0..sroa_idx, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %123
 
 123:                                              ; preds = %33, %118
@@ -1743,7 +1743,7 @@ default.unreachable1.i:                           ; preds = %74
   store i8 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5.0..sroa_idx2, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   br label %113
 }
 
@@ -1772,7 +1772,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   unreachable
 
 14:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.512)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.512)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
   %17 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17hea7fa5187af2b43eE(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
@@ -1780,7 +1780,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   br i1 %18, label %74, label %112
 
 19:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.58)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !3, !align !5, !noundef !3
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1797,7 +1797,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   br i1 %32, label %114, label %117
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load ptr, ptr %34, align 8, !nonnull !3, !align !5, !noundef !3
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1852,7 +1852,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   br label %113
 
 74:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %75 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17hea7fa5187af2b43eE(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
@@ -1926,7 +1926,7 @@ default.unreachable1.i:                           ; preds = %74
   %.sroa.010.0.copyload = phi i8 [ %.sroa.010.0.copyload.pre, %78 ], [ 7, %83 ], [ 8, %89 ], [ 9, %95 ], [ 10, %102 ]
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512.0..sroa_idx, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %112
 
 112:                                              ; preds = %14, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17ha701b962268cf95dE.exit"
@@ -1934,21 +1934,21 @@ default.unreachable1.i:                           ; preds = %74
   store i8 %.sroa.010.0, ptr %0, align 8
   %.sroa.512.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512.0..sroa_idx13, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.512)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.512)
   br label %113
 
 113:                                              ; preds = %123, %117, %112, %61, %48
   ret void
 
 114:                                              ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %115 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %116 = load ptr, ptr %115, align 8, !invariant.load !3, !nonnull !3
   call void %116(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef align 1 %28)
   %.sroa.06.0.copyload = load i8, ptr %7, align 8
   %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58.0..sroa_idx, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %117
 
 117:                                              ; preds = %19, %114
@@ -1956,21 +1956,21 @@ default.unreachable1.i:                           ; preds = %74
   store i8 %.sroa.06.0, ptr %0, align 8
   %.sroa.58.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58.0..sroa_idx9, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.58)
   br label %113
 
 118:                                              ; preds = %33
   %119 = extractvalue { ptr, ptr } %46, 1
   %120 = icmp ne ptr %119, null
   tail call void @llvm.assume(i1 %120)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %122 = load ptr, ptr %121, align 8, !invariant.load !3, !nonnull !3
   call void %122(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %47)
   %.sroa.0.0.copyload = load i8, ptr %5, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5.0..sroa_idx, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %123
 
 123:                                              ; preds = %33, %118
@@ -1978,7 +1978,7 @@ default.unreachable1.i:                           ; preds = %74
   store i8 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5.0..sroa_idx2, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   br label %113
 }
 
@@ -2007,7 +2007,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   unreachable
 
 14:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.512)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.512)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
   %17 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h75dbad18a536a730E(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
@@ -2015,7 +2015,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   br i1 %18, label %74, label %112
 
 19:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.58)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !3, !align !5, !noundef !3
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2032,7 +2032,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   br i1 %32, label %114, label %117
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load ptr, ptr %34, align 8, !nonnull !3, !align !5, !noundef !3
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2087,7 +2087,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   br label %113
 
 74:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %75 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h75dbad18a536a730E(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
@@ -2161,7 +2161,7 @@ default.unreachable1.i:                           ; preds = %74
   %.sroa.010.0.copyload = phi i8 [ %.sroa.010.0.copyload.pre, %78 ], [ 7, %83 ], [ 8, %89 ], [ 9, %95 ], [ 10, %102 ]
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512.0..sroa_idx, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %112
 
 112:                                              ; preds = %14, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17hb0b0533ba8db5a64E.exit"
@@ -2169,21 +2169,21 @@ default.unreachable1.i:                           ; preds = %74
   store i8 %.sroa.010.0, ptr %0, align 8
   %.sroa.512.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512.0..sroa_idx13, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.512)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.512)
   br label %113
 
 113:                                              ; preds = %123, %117, %112, %61, %48
   ret void
 
 114:                                              ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %115 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %116 = load ptr, ptr %115, align 8, !invariant.load !3, !nonnull !3
   call void %116(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef align 1 %28)
   %.sroa.06.0.copyload = load i8, ptr %7, align 8
   %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58.0..sroa_idx, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %117
 
 117:                                              ; preds = %19, %114
@@ -2191,21 +2191,21 @@ default.unreachable1.i:                           ; preds = %74
   store i8 %.sroa.06.0, ptr %0, align 8
   %.sroa.58.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58.0..sroa_idx9, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.58, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.58)
   br label %113
 
 118:                                              ; preds = %33
   %119 = extractvalue { ptr, ptr } %46, 1
   %120 = icmp ne ptr %119, null
   tail call void @llvm.assume(i1 %120)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %122 = load ptr, ptr %121, align 8, !invariant.load !3, !nonnull !3
   call void %122(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %47)
   %.sroa.0.0.copyload = load i8, ptr %5, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5.0..sroa_idx, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %123
 
 123:                                              ; preds = %33, %118
@@ -2213,14 +2213,14 @@ default.unreachable1.i:                           ; preds = %74
   store i8 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5.0..sroa_idx2, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   br label %113
 }
 
 ; Function Attrs: nonlazybind uwtable
 define internal noundef float @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_f32_generic17h200ed43e20b32621E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h73e37a23cbb29c22E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hd0a347e6749239ecE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -2231,7 +2231,7 @@ define internal noundef float @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcce
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi float [ %10, %8 ], [ 0.000000e+00, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret float %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -2247,7 +2247,7 @@ define internal noundef float @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcce
 ; Function Attrs: nonlazybind uwtable
 define internal noundef float @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_f32_generic17h2d2d3983e6dae693E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h734e8043a6ba0708E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17h0dd491ff9def70feE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -2258,7 +2258,7 @@ define internal noundef float @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcce
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi float [ %10, %8 ], [ 0.000000e+00, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret float %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -2274,7 +2274,7 @@ define internal noundef float @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcce
 ; Function Attrs: nonlazybind uwtable
 define internal noundef float @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_f32_generic17h4053cf6c8147457bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h75dbad18a536a730E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17h5017194a3d8201c9E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -2285,7 +2285,7 @@ define internal noundef float @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcce
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi float [ %10, %8 ], [ 0.000000e+00, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret float %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -2301,7 +2301,7 @@ define internal noundef float @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcce
 ; Function Attrs: nonlazybind uwtable
 define internal noundef float @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_f32_generic17h42b8fbee53508d59E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h4cb390ae43787c0eE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hb44cd3f1d47cbbceE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -2312,7 +2312,7 @@ define internal noundef float @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcce
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi float [ %10, %8 ], [ 0.000000e+00, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret float %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -2328,7 +2328,7 @@ define internal noundef float @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcce
 ; Function Attrs: nonlazybind uwtable
 define internal noundef float @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_f32_generic17h56e4271b941d8c84E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h09a8cd2db1787e30E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17ha800bc9e0656a7c1E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -2339,7 +2339,7 @@ define internal noundef float @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcce
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi float [ %10, %8 ], [ 0.000000e+00, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret float %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -2355,7 +2355,7 @@ define internal noundef float @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcce
 ; Function Attrs: nonlazybind uwtable
 define internal noundef float @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_f32_generic17hb8f1106214e90408E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h5d025e926e17cd2aE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hee54ad46a363d9e7E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -2366,7 +2366,7 @@ define internal noundef float @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcce
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi float [ %10, %8 ], [ 0.000000e+00, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret float %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -2382,7 +2382,7 @@ define internal noundef float @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcce
 ; Function Attrs: nonlazybind uwtable
 define internal noundef float @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_f32_generic17hc80db901d1c51813E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17hb09967945c3ec4ffE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hde4a6d17ebcc6428E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -2393,7 +2393,7 @@ define internal noundef float @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcce
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi float [ %10, %8 ], [ 0.000000e+00, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret float %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -2409,7 +2409,7 @@ define internal noundef float @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcce
 ; Function Attrs: nonlazybind uwtable
 define internal noundef float @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_f32_generic17hcc4205b052251b62E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17hea7fa5187af2b43eE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17h892e30e1a98b7e7bE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -2420,7 +2420,7 @@ define internal noundef float @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcce
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi float [ %10, %8 ], [ 0.000000e+00, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret float %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -2436,7 +2436,7 @@ define internal noundef float @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcce
 ; Function Attrs: nonlazybind uwtable
 define internal noundef float @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_f32_generic17hcd073d6db3d458a6E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h722d3670f1156119E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hc7237794d563fc87E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -2447,7 +2447,7 @@ define internal noundef float @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcce
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi float [ %10, %8 ], [ 0.000000e+00, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret float %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -2463,7 +2463,7 @@ define internal noundef float @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcce
 ; Function Attrs: nonlazybind uwtable
 define internal noundef double @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_f64_generic17h29aab402a7ccb21bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h5d025e926e17cd2aE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hee54ad46a363d9e7E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -2474,7 +2474,7 @@ define internal noundef double @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcc
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi double [ %10, %8 ], [ 0.000000e+00, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret double %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -2490,7 +2490,7 @@ define internal noundef double @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcc
 ; Function Attrs: nonlazybind uwtable
 define internal noundef double @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_f64_generic17h3883d501cc7de89cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h09a8cd2db1787e30E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17ha800bc9e0656a7c1E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -2501,7 +2501,7 @@ define internal noundef double @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcc
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi double [ %10, %8 ], [ 0.000000e+00, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret double %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -2517,7 +2517,7 @@ define internal noundef double @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcc
 ; Function Attrs: nonlazybind uwtable
 define internal noundef double @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_f64_generic17h3e81bb6c15c39247E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h722d3670f1156119E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hc7237794d563fc87E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -2528,7 +2528,7 @@ define internal noundef double @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcc
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi double [ %10, %8 ], [ 0.000000e+00, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret double %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -2544,7 +2544,7 @@ define internal noundef double @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcc
 ; Function Attrs: nonlazybind uwtable
 define internal noundef double @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_f64_generic17h40d5bb5ac1e2f64dE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h75dbad18a536a730E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17h5017194a3d8201c9E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -2555,7 +2555,7 @@ define internal noundef double @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcc
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi double [ %10, %8 ], [ 0.000000e+00, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret double %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -2571,7 +2571,7 @@ define internal noundef double @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcc
 ; Function Attrs: nonlazybind uwtable
 define internal noundef double @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_f64_generic17h5e7a6eae4d697942E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h73e37a23cbb29c22E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hd0a347e6749239ecE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -2582,7 +2582,7 @@ define internal noundef double @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcc
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi double [ %10, %8 ], [ 0.000000e+00, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret double %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -2598,7 +2598,7 @@ define internal noundef double @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcc
 ; Function Attrs: nonlazybind uwtable
 define internal noundef double @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_f64_generic17h67bbc4d499a2a180E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h4cb390ae43787c0eE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hb44cd3f1d47cbbceE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -2609,7 +2609,7 @@ define internal noundef double @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcc
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi double [ %10, %8 ], [ 0.000000e+00, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret double %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -2625,7 +2625,7 @@ define internal noundef double @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcc
 ; Function Attrs: nonlazybind uwtable
 define internal noundef double @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_f64_generic17h8b751ce47a443ad8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17hb09967945c3ec4ffE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hde4a6d17ebcc6428E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -2636,7 +2636,7 @@ define internal noundef double @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcc
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi double [ %10, %8 ], [ 0.000000e+00, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret double %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -2652,7 +2652,7 @@ define internal noundef double @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcc
 ; Function Attrs: nonlazybind uwtable
 define internal noundef double @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_f64_generic17hc9b05c04808f10ccE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h734e8043a6ba0708E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17h0dd491ff9def70feE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -2663,7 +2663,7 @@ define internal noundef double @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcc
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi double [ %10, %8 ], [ 0.000000e+00, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret double %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -2679,7 +2679,7 @@ define internal noundef double @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcc
 ; Function Attrs: nonlazybind uwtable
 define internal noundef double @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_f64_generic17hcc31a2a0443d926bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17hea7fa5187af2b43eE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17h892e30e1a98b7e7bE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -2690,7 +2690,7 @@ define internal noundef double @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcc
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi double [ %10, %8 ], [ 0.000000e+00, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret double %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -2706,7 +2706,7 @@ define internal noundef double @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcc
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_i32_generic17h005d18b560cb2396E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h722d3670f1156119E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hc7237794d563fc87E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -2717,7 +2717,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i32 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -2733,7 +2733,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_i32_generic17h0e2bc0c4caa69e96E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h09a8cd2db1787e30E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17ha800bc9e0656a7c1E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -2744,7 +2744,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i32 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -2760,7 +2760,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_i32_generic17h146078f53176723fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h75dbad18a536a730E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17h5017194a3d8201c9E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -2771,7 +2771,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i32 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -2787,7 +2787,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_i32_generic17h18bcdf51a55f1a5fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h5d025e926e17cd2aE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hee54ad46a363d9e7E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -2798,7 +2798,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i32 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -2814,7 +2814,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_i32_generic17h4ffbcf54a0d5c8b1E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h4cb390ae43787c0eE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hb44cd3f1d47cbbceE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -2825,7 +2825,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i32 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -2841,7 +2841,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_i32_generic17h770bd8eea8bb74e5E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17hea7fa5187af2b43eE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17h892e30e1a98b7e7bE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -2852,7 +2852,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i32 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -2868,7 +2868,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_i32_generic17h80e6af7d5e306500E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h734e8043a6ba0708E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17h0dd491ff9def70feE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -2879,7 +2879,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i32 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -2895,7 +2895,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_i32_generic17h94e13730294a9f4cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17hb09967945c3ec4ffE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hde4a6d17ebcc6428E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -2906,7 +2906,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i32 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -2922,7 +2922,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_i32_generic17hba0a9afdd9d20ca8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h73e37a23cbb29c22E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hd0a347e6749239ecE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -2933,7 +2933,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i32 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -2949,7 +2949,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_i64_generic17h1a7a2a5ae2cfd495E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h5d025e926e17cd2aE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hee54ad46a363d9e7E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -2960,7 +2960,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i64 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -2976,7 +2976,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_i64_generic17h3a2a3d9d81485f3fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h734e8043a6ba0708E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17h0dd491ff9def70feE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -2987,7 +2987,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i64 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -3003,7 +3003,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_i64_generic17h7b06878a52495bbfE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h75dbad18a536a730E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17h5017194a3d8201c9E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3014,7 +3014,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i64 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -3030,7 +3030,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_i64_generic17h7f96a3cb4ade8274E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17hb09967945c3ec4ffE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hde4a6d17ebcc6428E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3041,7 +3041,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i64 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -3057,7 +3057,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_i64_generic17h96af6cfffd4ffb24E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17hea7fa5187af2b43eE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17h892e30e1a98b7e7bE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3068,7 +3068,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i64 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -3084,7 +3084,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_i64_generic17ha172944aa6e56743E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h722d3670f1156119E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hc7237794d563fc87E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3095,7 +3095,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i64 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -3111,7 +3111,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_i64_generic17hbfb1b9c3d576fbb2E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h4cb390ae43787c0eE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hb44cd3f1d47cbbceE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3122,7 +3122,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i64 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -3138,7 +3138,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_i64_generic17hc87548708ef71d07E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h73e37a23cbb29c22E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hd0a347e6749239ecE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3149,7 +3149,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i64 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -3165,7 +3165,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_i64_generic17hf27da7ba0d9c8a26E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h09a8cd2db1787e30E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17ha800bc9e0656a7c1E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3176,7 +3176,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i64 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -3192,7 +3192,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_str_generic17h531522dbd02efb0fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17hb09967945c3ec4ffE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hde4a6d17ebcc6428E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3204,7 +3204,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 7:                                                ; preds = %3, %10
   %.sroa.3.0 = phi i64 [ %14, %10 ], [ 0, %3 ]
   %.sroa.0.0 = phi ptr [ %12, %10 ], [ inttoptr (i64 1 to ptr), %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %8 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %9
@@ -3224,7 +3224,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_str_generic17h5a8c2105a6ae5dd1E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h734e8043a6ba0708E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17h0dd491ff9def70feE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3236,7 +3236,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 7:                                                ; preds = %3, %10
   %.sroa.3.0 = phi i64 [ %14, %10 ], [ 0, %3 ]
   %.sroa.0.0 = phi ptr [ %12, %10 ], [ inttoptr (i64 1 to ptr), %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %8 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %9
@@ -3256,7 +3256,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_str_generic17h72337fdcfa9ee28cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h722d3670f1156119E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hc7237794d563fc87E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3268,7 +3268,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 7:                                                ; preds = %3, %10
   %.sroa.3.0 = phi i64 [ %14, %10 ], [ 0, %3 ]
   %.sroa.0.0 = phi ptr [ %12, %10 ], [ inttoptr (i64 1 to ptr), %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %8 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %9
@@ -3288,7 +3288,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_str_generic17h7ffaed67243ab8e8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h09a8cd2db1787e30E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17ha800bc9e0656a7c1E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3300,7 +3300,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 7:                                                ; preds = %3, %10
   %.sroa.3.0 = phi i64 [ %14, %10 ], [ 0, %3 ]
   %.sroa.0.0 = phi ptr [ %12, %10 ], [ inttoptr (i64 1 to ptr), %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %8 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %9
@@ -3320,7 +3320,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_str_generic17h86ebee9caa906e96E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17hea7fa5187af2b43eE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17h892e30e1a98b7e7bE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3332,7 +3332,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 7:                                                ; preds = %3, %10
   %.sroa.3.0 = phi i64 [ %14, %10 ], [ 0, %3 ]
   %.sroa.0.0 = phi ptr [ %12, %10 ], [ inttoptr (i64 1 to ptr), %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %8 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %9
@@ -3352,7 +3352,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_str_generic17h9c4dd5c1c097e709E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h4cb390ae43787c0eE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hb44cd3f1d47cbbceE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3364,7 +3364,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 7:                                                ; preds = %3, %10
   %.sroa.3.0 = phi i64 [ %14, %10 ], [ 0, %3 ]
   %.sroa.0.0 = phi ptr [ %12, %10 ], [ inttoptr (i64 1 to ptr), %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %8 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %9
@@ -3384,7 +3384,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_str_generic17hab381f6c64db54b2E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h75dbad18a536a730E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17h5017194a3d8201c9E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3396,7 +3396,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 7:                                                ; preds = %3, %10
   %.sroa.3.0 = phi i64 [ %14, %10 ], [ 0, %3 ]
   %.sroa.0.0 = phi ptr [ %12, %10 ], [ inttoptr (i64 1 to ptr), %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %8 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %9
@@ -3416,7 +3416,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_str_generic17hb5346f8246d1428aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h5d025e926e17cd2aE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hee54ad46a363d9e7E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3428,7 +3428,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 7:                                                ; preds = %3, %10
   %.sroa.3.0 = phi i64 [ %14, %10 ], [ 0, %3 ]
   %.sroa.0.0 = phi ptr [ %12, %10 ], [ inttoptr (i64 1 to ptr), %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %8 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %9
@@ -3448,7 +3448,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_str_generic17hbb4449358ccbfcfbE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h73e37a23cbb29c22E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hd0a347e6749239ecE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3460,7 +3460,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 7:                                                ; preds = %3, %10
   %.sroa.3.0 = phi i64 [ %14, %10 ], [ 0, %3 ]
   %.sroa.0.0 = phi ptr [ %12, %10 ], [ inttoptr (i64 1 to ptr), %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %8 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %9
@@ -3480,7 +3480,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_u32_generic17h24e352cad6528de9E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17hea7fa5187af2b43eE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17h892e30e1a98b7e7bE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3491,7 +3491,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i32 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -3507,7 +3507,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_u32_generic17h4fec2801f2cad0d1E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h75dbad18a536a730E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17h5017194a3d8201c9E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3518,7 +3518,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i32 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -3534,7 +3534,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_u32_generic17h70c42b199f853782E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h734e8043a6ba0708E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17h0dd491ff9def70feE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3545,7 +3545,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i32 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -3561,7 +3561,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_u32_generic17h71aac25e3b4b4c84E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17hb09967945c3ec4ffE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hde4a6d17ebcc6428E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3572,7 +3572,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i32 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -3588,7 +3588,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_u32_generic17h9d6aeba9aa7d5f4bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h722d3670f1156119E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hc7237794d563fc87E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3599,7 +3599,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i32 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -3615,7 +3615,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_u32_generic17ha0a63606e5555af6E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h09a8cd2db1787e30E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17ha800bc9e0656a7c1E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3626,7 +3626,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i32 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -3642,7 +3642,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_u32_generic17hcdd0e22b937d24b2E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h5d025e926e17cd2aE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hee54ad46a363d9e7E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3653,7 +3653,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i32 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -3669,7 +3669,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_u32_generic17hdad54191f2d7cd94E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h4cb390ae43787c0eE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hb44cd3f1d47cbbceE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3680,7 +3680,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i32 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -3696,7 +3696,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_u32_generic17hdd68aa991e73a28aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h73e37a23cbb29c22E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hd0a347e6749239ecE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3707,7 +3707,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i32 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -3723,7 +3723,7 @@ define internal noundef i32 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_u64_generic17h1c99b5563379d30aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17hb09967945c3ec4ffE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hde4a6d17ebcc6428E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3734,7 +3734,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i64 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -3750,7 +3750,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_u64_generic17h41b63ec2df39f3b7E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h5d025e926e17cd2aE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hee54ad46a363d9e7E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3761,7 +3761,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i64 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -3777,7 +3777,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_u64_generic17h5cbbe269cec536e2E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h09a8cd2db1787e30E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17ha800bc9e0656a7c1E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3788,7 +3788,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i64 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -3804,7 +3804,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_u64_generic17h729561a07da09604E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h4cb390ae43787c0eE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hb44cd3f1d47cbbceE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3815,7 +3815,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i64 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -3831,7 +3831,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_u64_generic17h7a4e7fd4ac189eccE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h75dbad18a536a730E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17h5017194a3d8201c9E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3842,7 +3842,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i64 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -3858,7 +3858,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_u64_generic17h8f68cee111994e0cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17hea7fa5187af2b43eE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17h892e30e1a98b7e7bE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3869,7 +3869,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i64 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -3885,7 +3885,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_u64_generic17ha2efce7f9ff265f1E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h734e8043a6ba0708E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17h0dd491ff9def70feE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3896,7 +3896,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i64 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -3912,7 +3912,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_u64_generic17hd1928504d456894bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h73e37a23cbb29c22E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hd0a347e6749239ecE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3923,7 +3923,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i64 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -3939,7 +3939,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$15get_u64_generic17he7fffca5f3821aa5E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h722d3670f1156119E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hc7237794d563fc87E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3950,7 +3950,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i64 [ %10, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -3966,7 +3966,7 @@ define internal noundef i64 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccess
 ; Function Attrs: nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$16get_bool_generic17h23ec89df5e67aed8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17hea7fa5187af2b43eE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17h892e30e1a98b7e7bE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -3977,7 +3977,7 @@ define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..Fiel
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i1 [ %11, %8 ], [ false, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -3994,7 +3994,7 @@ define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..Fiel
 ; Function Attrs: nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$16get_bool_generic17h47abc5d11ad0932aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h75dbad18a536a730E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17h5017194a3d8201c9E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -4005,7 +4005,7 @@ define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..Fiel
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i1 [ %11, %8 ], [ false, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -4022,7 +4022,7 @@ define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..Fiel
 ; Function Attrs: nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$16get_bool_generic17h4b1a4a65dde9098fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h722d3670f1156119E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hc7237794d563fc87E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -4033,7 +4033,7 @@ define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..Fiel
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i1 [ %11, %8 ], [ false, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -4050,7 +4050,7 @@ define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..Fiel
 ; Function Attrs: nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$16get_bool_generic17h5dde260c07aaba0cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h5d025e926e17cd2aE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hee54ad46a363d9e7E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -4061,7 +4061,7 @@ define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..Fiel
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i1 [ %11, %8 ], [ false, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -4078,7 +4078,7 @@ define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..Fiel
 ; Function Attrs: nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$16get_bool_generic17h6a197d449a8e3d9eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h4cb390ae43787c0eE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hb44cd3f1d47cbbceE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -4089,7 +4089,7 @@ define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..Fiel
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i1 [ %11, %8 ], [ false, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -4106,7 +4106,7 @@ define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..Fiel
 ; Function Attrs: nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$16get_bool_generic17h862fe772d7ec1fcbE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h09a8cd2db1787e30E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17ha800bc9e0656a7c1E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -4117,7 +4117,7 @@ define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..Fiel
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i1 [ %11, %8 ], [ false, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -4134,7 +4134,7 @@ define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..Fiel
 ; Function Attrs: nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$16get_bool_generic17h953e2144dcdcf5dbE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17hb09967945c3ec4ffE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hde4a6d17ebcc6428E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -4145,7 +4145,7 @@ define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..Fiel
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i1 [ %11, %8 ], [ false, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -4162,7 +4162,7 @@ define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..Fiel
 ; Function Attrs: nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$16get_bool_generic17h9ee10bbc4d80263aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h734e8043a6ba0708E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17h0dd491ff9def70feE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -4173,7 +4173,7 @@ define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..Fiel
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i1 [ %11, %8 ], [ false, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -4190,7 +4190,7 @@ define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..Fiel
 ; Function Attrs: nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$16get_bool_generic17hd7d2ec689f2abc5fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h73e37a23cbb29c22E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hd0a347e6749239ecE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -4201,7 +4201,7 @@ define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..Fiel
 
 7:                                                ; preds = %3, %8
   %.sroa.0.0 = phi i1 [ %11, %8 ], [ false, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.sroa.0.0
 
 8:                                                ; preds = %3
@@ -4234,10 +4234,10 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   ], !prof !64
 
 14:                                               ; preds = %19, %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hf0f1c1982bd3431bE", ptr %.sroa.45.0..sroa_idx, align 8
@@ -4258,7 +4258,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   br i1 %20, label %51, label %14, !prof !65
 
 21:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !3, !align !5, !noundef !3
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4277,7 +4277,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   br i1 %35, label %61, label %64, !prof !65
 
 36:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8, !nonnull !3, !align !5, !noundef !3
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4313,7 +4313,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
 61:                                               ; preds = %21
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %63 = load ptr, ptr %62, align 8, !nonnull !3, !align !6, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %60
 
 64:                                               ; preds = %21
@@ -4338,7 +4338,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
 73:                                               ; preds = %65
   %74 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %75 = load ptr, ptr %74, align 8, !nonnull !3, !align !6, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %60
 
 76:                                               ; preds = %65
@@ -4365,10 +4365,10 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   ], !prof !64
 
 14:                                               ; preds = %19, %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hf5ae416328fe1b0eE", ptr %.sroa.45.0..sroa_idx, align 8
@@ -4389,7 +4389,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   br i1 %20, label %51, label %14, !prof !65
 
 21:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !3, !align !5, !noundef !3
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4408,7 +4408,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   br i1 %35, label %61, label %64, !prof !65
 
 36:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8, !nonnull !3, !align !5, !noundef !3
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4444,7 +4444,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
 61:                                               ; preds = %21
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %63 = load ptr, ptr %62, align 8, !nonnull !3, !align !6, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %60
 
 64:                                               ; preds = %21
@@ -4469,7 +4469,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
 73:                                               ; preds = %65
   %74 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %75 = load ptr, ptr %74, align 8, !nonnull !3, !align !6, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %60
 
 76:                                               ; preds = %65
@@ -4496,10 +4496,10 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   ], !prof !64
 
 14:                                               ; preds = %19, %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h432e0140949bea4dE", ptr %.sroa.45.0..sroa_idx, align 8
@@ -4520,7 +4520,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   br i1 %20, label %51, label %14, !prof !65
 
 21:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !3, !align !5, !noundef !3
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4539,7 +4539,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   br i1 %35, label %61, label %64, !prof !65
 
 36:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8, !nonnull !3, !align !5, !noundef !3
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4575,7 +4575,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
 61:                                               ; preds = %21
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %63 = load ptr, ptr %62, align 8, !nonnull !3, !align !6, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %60
 
 64:                                               ; preds = %21
@@ -4600,7 +4600,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
 73:                                               ; preds = %65
   %74 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %75 = load ptr, ptr %74, align 8, !nonnull !3, !align !6, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %60
 
 76:                                               ; preds = %65
@@ -4627,10 +4627,10 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   ], !prof !64
 
 14:                                               ; preds = %19, %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hed4b02899520552cE", ptr %.sroa.45.0..sroa_idx, align 8
@@ -4651,7 +4651,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   br i1 %20, label %51, label %14, !prof !65
 
 21:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !3, !align !5, !noundef !3
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4670,7 +4670,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   br i1 %35, label %61, label %64, !prof !65
 
 36:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8, !nonnull !3, !align !5, !noundef !3
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4706,7 +4706,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
 61:                                               ; preds = %21
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %63 = load ptr, ptr %62, align 8, !nonnull !3, !align !6, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %60
 
 64:                                               ; preds = %21
@@ -4731,7 +4731,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
 73:                                               ; preds = %65
   %74 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %75 = load ptr, ptr %74, align 8, !nonnull !3, !align !6, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %60
 
 76:                                               ; preds = %65
@@ -4758,10 +4758,10 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   ], !prof !64
 
 14:                                               ; preds = %19, %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h15472985d57a3dfdE", ptr %.sroa.45.0..sroa_idx, align 8
@@ -4782,7 +4782,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   br i1 %20, label %51, label %14, !prof !65
 
 21:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !3, !align !5, !noundef !3
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4801,7 +4801,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   br i1 %35, label %61, label %64, !prof !65
 
 36:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8, !nonnull !3, !align !5, !noundef !3
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4837,7 +4837,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
 61:                                               ; preds = %21
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %63 = load ptr, ptr %62, align 8, !nonnull !3, !align !6, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %60
 
 64:                                               ; preds = %21
@@ -4862,7 +4862,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
 73:                                               ; preds = %65
   %74 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %75 = load ptr, ptr %74, align 8, !nonnull !3, !align !6, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %60
 
 76:                                               ; preds = %65
@@ -4889,10 +4889,10 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   ], !prof !64
 
 14:                                               ; preds = %19, %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h7d0408ae7bf98215E", ptr %.sroa.45.0..sroa_idx, align 8
@@ -4913,7 +4913,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   br i1 %20, label %51, label %14, !prof !65
 
 21:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !3, !align !5, !noundef !3
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4932,7 +4932,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   br i1 %35, label %61, label %64, !prof !65
 
 36:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8, !nonnull !3, !align !5, !noundef !3
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4968,7 +4968,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
 61:                                               ; preds = %21
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %63 = load ptr, ptr %62, align 8, !nonnull !3, !align !6, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %60
 
 64:                                               ; preds = %21
@@ -4993,7 +4993,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
 73:                                               ; preds = %65
   %74 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %75 = load ptr, ptr %74, align 8, !nonnull !3, !align !6, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %60
 
 76:                                               ; preds = %65
@@ -5020,10 +5020,10 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   ], !prof !64
 
 14:                                               ; preds = %19, %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h09794fc6a6dc57b4E", ptr %.sroa.45.0..sroa_idx, align 8
@@ -5044,7 +5044,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   br i1 %20, label %51, label %14, !prof !65
 
 21:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !3, !align !5, !noundef !3
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5063,7 +5063,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   br i1 %35, label %61, label %64, !prof !65
 
 36:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8, !nonnull !3, !align !5, !noundef !3
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5099,7 +5099,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
 61:                                               ; preds = %21
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %63 = load ptr, ptr %62, align 8, !nonnull !3, !align !6, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %60
 
 64:                                               ; preds = %21
@@ -5124,7 +5124,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
 73:                                               ; preds = %65
   %74 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %75 = load ptr, ptr %74, align 8, !nonnull !3, !align !6, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %60
 
 76:                                               ; preds = %65
@@ -5151,10 +5151,10 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   ], !prof !64
 
 14:                                               ; preds = %19, %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc2d1820a6aab3e61E", ptr %.sroa.45.0..sroa_idx, align 8
@@ -5175,7 +5175,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   br i1 %20, label %51, label %14, !prof !65
 
 21:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !3, !align !5, !noundef !3
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5194,7 +5194,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   br i1 %35, label %61, label %64, !prof !65
 
 36:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8, !nonnull !3, !align !5, !noundef !3
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5230,7 +5230,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
 61:                                               ; preds = %21
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %63 = load ptr, ptr %62, align 8, !nonnull !3, !align !6, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %60
 
 64:                                               ; preds = %21
@@ -5255,7 +5255,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
 73:                                               ; preds = %65
   %74 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %75 = load ptr, ptr %74, align 8, !nonnull !3, !align !6, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %60
 
 76:                                               ; preds = %65
@@ -5282,10 +5282,10 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   ], !prof !64
 
 14:                                               ; preds = %19, %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h2fb77ad6cdc88478E", ptr %.sroa.45.0..sroa_idx, align 8
@@ -5306,7 +5306,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   br i1 %20, label %51, label %14, !prof !65
 
 21:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !3, !align !5, !noundef !3
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5325,7 +5325,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   br i1 %35, label %61, label %64, !prof !65
 
 36:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8, !nonnull !3, !align !5, !noundef !3
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5361,7 +5361,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
 61:                                               ; preds = %21
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %63 = load ptr, ptr %62, align 8, !nonnull !3, !align !6, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %60
 
 64:                                               ; preds = %21
@@ -5386,7 +5386,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
 73:                                               ; preds = %65
   %74 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %75 = load ptr, ptr %74, align 8, !nonnull !3, !align !6, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %60
 
 76:                                               ; preds = %65
@@ -5397,7 +5397,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$17get_bytes_generic17h0209a81212e6e7f0E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h5d025e926e17cd2aE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hee54ad46a363d9e7E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -5409,7 +5409,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 7:                                                ; preds = %3, %10
   %.sroa.3.0 = phi i64 [ %14, %10 ], [ 0, %3 ]
   %.sroa.0.0 = phi ptr [ %12, %10 ], [ inttoptr (i64 1 to ptr), %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %8 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %9
@@ -5429,7 +5429,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$17get_bytes_generic17h0d18b8307537dfb9E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17hb09967945c3ec4ffE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hde4a6d17ebcc6428E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -5441,7 +5441,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 7:                                                ; preds = %3, %10
   %.sroa.3.0 = phi i64 [ %14, %10 ], [ 0, %3 ]
   %.sroa.0.0 = phi ptr [ %12, %10 ], [ inttoptr (i64 1 to ptr), %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %8 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %9
@@ -5461,7 +5461,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$17get_bytes_generic17h52b6b8a6d918f554E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h734e8043a6ba0708E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17h0dd491ff9def70feE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -5473,7 +5473,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 7:                                                ; preds = %3, %10
   %.sroa.3.0 = phi i64 [ %14, %10 ], [ 0, %3 ]
   %.sroa.0.0 = phi ptr [ %12, %10 ], [ inttoptr (i64 1 to ptr), %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %8 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %9
@@ -5493,7 +5493,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$17get_bytes_generic17h606ac3d6e4ab63cbE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17hea7fa5187af2b43eE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17h892e30e1a98b7e7bE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -5505,7 +5505,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 7:                                                ; preds = %3, %10
   %.sroa.3.0 = phi i64 [ %14, %10 ], [ 0, %3 ]
   %.sroa.0.0 = phi ptr [ %12, %10 ], [ inttoptr (i64 1 to ptr), %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %8 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %9
@@ -5525,7 +5525,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$17get_bytes_generic17h92631f27b5d55ac2E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h722d3670f1156119E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hc7237794d563fc87E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -5537,7 +5537,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 7:                                                ; preds = %3, %10
   %.sroa.3.0 = phi i64 [ %14, %10 ], [ 0, %3 ]
   %.sroa.0.0 = phi ptr [ %12, %10 ], [ inttoptr (i64 1 to ptr), %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %8 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %9
@@ -5557,7 +5557,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$17get_bytes_generic17hb44ae2e607e83277E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h75dbad18a536a730E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17h5017194a3d8201c9E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -5569,7 +5569,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 7:                                                ; preds = %3, %10
   %.sroa.3.0 = phi i64 [ %14, %10 ], [ 0, %3 ]
   %.sroa.0.0 = phi ptr [ %12, %10 ], [ inttoptr (i64 1 to ptr), %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %8 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %9
@@ -5589,7 +5589,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$17get_bytes_generic17hc06e08e34e327a42E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h73e37a23cbb29c22E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hd0a347e6749239ecE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -5601,7 +5601,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 7:                                                ; preds = %3, %10
   %.sroa.3.0 = phi i64 [ %14, %10 ], [ 0, %3 ]
   %.sroa.0.0 = phi ptr [ %12, %10 ], [ inttoptr (i64 1 to ptr), %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %8 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %9
@@ -5621,7 +5621,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$17get_bytes_generic17hc987a2f29c64e6cbE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h4cb390ae43787c0eE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17hb44cd3f1d47cbbceE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -5633,7 +5633,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 7:                                                ; preds = %3, %10
   %.sroa.3.0 = phi i64 [ %14, %10 ], [ 0, %3 ]
   %.sroa.0.0 = phi ptr [ %12, %10 ], [ inttoptr (i64 1 to ptr), %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %8 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %9
@@ -5653,7 +5653,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$M$GT$$u20$as$u20$protobuf..reflect..acc..v1..FieldAccessorTrait$GT$17get_bytes_generic17hd096d5d3172aa622E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef nonnull align 8 ptr @_ZN8protobuf7message17message_down_cast17h09a8cd2db1787e30E(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   call fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$M$GT$16get_value_option17ha800bc9e0656a7c1E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %5)
   %6 = load i8, ptr %4, align 8, !range !61, !noundef !3
@@ -5665,7 +5665,7 @@ define internal { ptr, i64 } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
 7:                                                ; preds = %3, %10
   %.sroa.3.0 = phi i64 [ %14, %10 ], [ 0, %3 ]
   %.sroa.0.0 = phi ptr [ %12, %10 ], [ inttoptr (i64 1 to ptr), %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %8 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %9
@@ -6554,10 +6554,10 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   ], !prof !70
 
 13:                                               ; preds = %18, %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc2d1820a6aab3e61E", ptr %.sroa.45.0..sroa_idx, align 8
@@ -6578,7 +6578,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   br i1 %19, label %35, label %13, !prof !65
 
 20:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !3, !align !5, !noundef !3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6639,7 +6639,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %59 = load ptr, ptr %58, align 8, !nonnull !3, !align !5, !noundef !3
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %61 = load ptr, ptr %60, align 8, !nonnull !3, !align !6, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %62 = insertvalue { ptr, ptr } poison, ptr %59, 0
   %63 = insertvalue { ptr, ptr } %62, ptr %61, 1
   br label %48
@@ -6666,10 +6666,10 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   ], !prof !70
 
 13:                                               ; preds = %18, %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hed4b02899520552cE", ptr %.sroa.45.0..sroa_idx, align 8
@@ -6690,7 +6690,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   br i1 %19, label %35, label %13, !prof !65
 
 20:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !3, !align !5, !noundef !3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6751,7 +6751,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %59 = load ptr, ptr %58, align 8, !nonnull !3, !align !5, !noundef !3
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %61 = load ptr, ptr %60, align 8, !nonnull !3, !align !6, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %62 = insertvalue { ptr, ptr } poison, ptr %59, 0
   %63 = insertvalue { ptr, ptr } %62, ptr %61, 1
   br label %48
@@ -6778,10 +6778,10 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   ], !prof !70
 
 13:                                               ; preds = %18, %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h432e0140949bea4dE", ptr %.sroa.45.0..sroa_idx, align 8
@@ -6802,7 +6802,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   br i1 %19, label %35, label %13, !prof !65
 
 20:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !3, !align !5, !noundef !3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6863,7 +6863,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %59 = load ptr, ptr %58, align 8, !nonnull !3, !align !5, !noundef !3
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %61 = load ptr, ptr %60, align 8, !nonnull !3, !align !6, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %62 = insertvalue { ptr, ptr } poison, ptr %59, 0
   %63 = insertvalue { ptr, ptr } %62, ptr %61, 1
   br label %48
@@ -6890,10 +6890,10 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   ], !prof !70
 
 13:                                               ; preds = %18, %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h2fb77ad6cdc88478E", ptr %.sroa.45.0..sroa_idx, align 8
@@ -6914,7 +6914,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   br i1 %19, label %35, label %13, !prof !65
 
 20:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !3, !align !5, !noundef !3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6975,7 +6975,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %59 = load ptr, ptr %58, align 8, !nonnull !3, !align !5, !noundef !3
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %61 = load ptr, ptr %60, align 8, !nonnull !3, !align !6, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %62 = insertvalue { ptr, ptr } poison, ptr %59, 0
   %63 = insertvalue { ptr, ptr } %62, ptr %61, 1
   br label %48
@@ -7002,10 +7002,10 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   ], !prof !70
 
 13:                                               ; preds = %18, %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h7d0408ae7bf98215E", ptr %.sroa.45.0..sroa_idx, align 8
@@ -7026,7 +7026,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   br i1 %19, label %35, label %13, !prof !65
 
 20:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !3, !align !5, !noundef !3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7087,7 +7087,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %59 = load ptr, ptr %58, align 8, !nonnull !3, !align !5, !noundef !3
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %61 = load ptr, ptr %60, align 8, !nonnull !3, !align !6, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %62 = insertvalue { ptr, ptr } poison, ptr %59, 0
   %63 = insertvalue { ptr, ptr } %62, ptr %61, 1
   br label %48
@@ -7114,10 +7114,10 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   ], !prof !70
 
 13:                                               ; preds = %18, %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h15472985d57a3dfdE", ptr %.sroa.45.0..sroa_idx, align 8
@@ -7138,7 +7138,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   br i1 %19, label %35, label %13, !prof !65
 
 20:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !3, !align !5, !noundef !3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7199,7 +7199,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %59 = load ptr, ptr %58, align 8, !nonnull !3, !align !5, !noundef !3
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %61 = load ptr, ptr %60, align 8, !nonnull !3, !align !6, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %62 = insertvalue { ptr, ptr } poison, ptr %59, 0
   %63 = insertvalue { ptr, ptr } %62, ptr %61, 1
   br label %48
@@ -7226,10 +7226,10 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   ], !prof !70
 
 13:                                               ; preds = %18, %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hf5ae416328fe1b0eE", ptr %.sroa.45.0..sroa_idx, align 8
@@ -7250,7 +7250,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   br i1 %19, label %35, label %13, !prof !65
 
 20:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !3, !align !5, !noundef !3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7311,7 +7311,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %59 = load ptr, ptr %58, align 8, !nonnull !3, !align !5, !noundef !3
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %61 = load ptr, ptr %60, align 8, !nonnull !3, !align !6, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %62 = insertvalue { ptr, ptr } poison, ptr %59, 0
   %63 = insertvalue { ptr, ptr } %62, ptr %61, 1
   br label %48
@@ -7338,10 +7338,10 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   ], !prof !70
 
 13:                                               ; preds = %18, %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h09794fc6a6dc57b4E", ptr %.sroa.45.0..sroa_idx, align 8
@@ -7362,7 +7362,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   br i1 %19, label %35, label %13, !prof !65
 
 20:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !3, !align !5, !noundef !3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7423,7 +7423,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %59 = load ptr, ptr %58, align 8, !nonnull !3, !align !5, !noundef !3
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %61 = load ptr, ptr %60, align 8, !nonnull !3, !align !6, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %62 = insertvalue { ptr, ptr } poison, ptr %59, 0
   %63 = insertvalue { ptr, ptr } %62, ptr %61, 1
   br label %48
@@ -7450,10 +7450,10 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   ], !prof !70
 
 13:                                               ; preds = %18, %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hf0f1c1982bd3431bE", ptr %.sroa.45.0..sroa_idx, align 8
@@ -7474,7 +7474,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   br i1 %19, label %35, label %13, !prof !65
 
 20:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !3, !align !5, !noundef !3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7535,7 +7535,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %59 = load ptr, ptr %58, align 8, !nonnull !3, !align !5, !noundef !3
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %61 = load ptr, ptr %60, align 8, !nonnull !3, !align !6, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %62 = insertvalue { ptr, ptr } poison, ptr %59, 0
   %63 = insertvalue { ptr, ptr } %62, ptr %61, 1
   br label %48
@@ -8561,7 +8561,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
   store ptr %3, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %4, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 7, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -8596,7 +8596,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17hec5b83abb3d5de55E.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %1, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %21, align 8
@@ -8673,7 +8673,7 @@ define internal fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$
   br label %80
 
 43:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !212)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !215)
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8747,7 +8747,7 @@ default.unreachable1.i:                           ; preds = %43
 
 "_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17hef17fcc232eb74abE.exit": ; preds = %46, %51, %57, %63, %70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %80
 
 80:                                               ; preds = %81, %86, %42, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17hef17fcc232eb74abE.exit", %15
@@ -8833,7 +8833,7 @@ define internal fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$
   br label %80
 
 43:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !218)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !221)
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8907,7 +8907,7 @@ default.unreachable1.i:                           ; preds = %43
 
 "_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17hb0b0533ba8db5a64E.exit": ; preds = %46, %51, %57, %63, %70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %80
 
 80:                                               ; preds = %81, %86, %42, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17hb0b0533ba8db5a64E.exit", %15
@@ -8993,7 +8993,7 @@ define internal fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$
   br label %80
 
 43:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !224)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !227)
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9067,7 +9067,7 @@ default.unreachable1.i:                           ; preds = %43
 
 "_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17ha701b962268cf95dE.exit": ; preds = %46, %51, %57, %63, %70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %80
 
 80:                                               ; preds = %81, %86, %42, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17ha701b962268cf95dE.exit", %15
@@ -9153,7 +9153,7 @@ define internal fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$
   br label %80
 
 43:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !230)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !233)
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9227,7 +9227,7 @@ default.unreachable1.i:                           ; preds = %43
 
 "_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17h822685c462d5ff3eE.exit": ; preds = %46, %51, %57, %63, %70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %80
 
 80:                                               ; preds = %81, %86, %42, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17h822685c462d5ff3eE.exit", %15
@@ -9313,7 +9313,7 @@ define internal fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$
   br label %80
 
 43:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !236)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !239)
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9387,7 +9387,7 @@ default.unreachable1.i:                           ; preds = %43
 
 "_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17hbfbf17dd479f5776E.exit": ; preds = %46, %51, %57, %63, %70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %80
 
 80:                                               ; preds = %81, %86, %42, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17hbfbf17dd479f5776E.exit", %15
@@ -9473,7 +9473,7 @@ define internal fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$
   br label %80
 
 43:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !242)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !245)
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9547,7 +9547,7 @@ default.unreachable1.i:                           ; preds = %43
 
 "_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17hbeece39611097364E.exit": ; preds = %46, %51, %57, %63, %70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %80
 
 80:                                               ; preds = %81, %86, %42, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17hbeece39611097364E.exit", %15
@@ -9633,7 +9633,7 @@ define internal fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$
   br label %80
 
 43:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !248)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !251)
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9707,7 +9707,7 @@ default.unreachable1.i:                           ; preds = %43
 
 "_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17h52b82e287134b3e6E.exit": ; preds = %46, %51, %57, %63, %70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %80
 
 80:                                               ; preds = %81, %86, %42, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17h52b82e287134b3e6E.exit", %15
@@ -9793,7 +9793,7 @@ define internal fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$
   br label %80
 
 43:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !254)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !257)
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9867,7 +9867,7 @@ default.unreachable1.i:                           ; preds = %43
 
 "_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17h2e3be7273fb12304E.exit": ; preds = %46, %51, %57, %63, %70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %80
 
 80:                                               ; preds = %81, %86, %42, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17h2e3be7273fb12304E.exit", %15
@@ -9953,7 +9953,7 @@ define internal fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$
   br label %80
 
 43:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !260)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !263)
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10027,7 +10027,7 @@ default.unreachable1.i:                           ; preds = %43
 
 "_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17he648df4efe49681eE.exit": ; preds = %46, %51, %57, %63, %70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %80
 
 80:                                               ; preds = %81, %86, %42, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17he648df4efe49681eE.exit", %15
@@ -10063,7 +10063,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
   store ptr %3, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %4, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 5, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -10098,7 +10098,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h03a1196011df8e42E.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %1, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %21, align 8
@@ -10125,7 +10125,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
   store ptr %3, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %4, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 5, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -10160,7 +10160,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h6a4cd67bff55d6c0E.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %1, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %21, align 8
@@ -10187,7 +10187,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
   store ptr %3, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %4, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 5, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -10222,7 +10222,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h1959acf06b103eccE.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %1, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %21, align 8
@@ -10249,7 +10249,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
   store ptr %3, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %4, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 5, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -10284,7 +10284,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17hb1f9b8a621122eeeE.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %1, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %21, align 8
@@ -10311,7 +10311,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
   store ptr %3, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %4, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 5, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -10346,7 +10346,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h102c576141af4da9E.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %1, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %21, align 8
@@ -10373,7 +10373,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
   store ptr %3, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %4, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 5, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -10408,7 +10408,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h03a1196011df8e42E.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %1, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %21, align 8
@@ -10435,7 +10435,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
   store ptr %3, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %4, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 5, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -10470,7 +10470,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h03a1196011df8e42E.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %1, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %21, align 8
@@ -10497,7 +10497,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
   store ptr %3, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %4, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 5, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -10532,7 +10532,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17hec5b83abb3d5de55E.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %1, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %21, align 8
@@ -10559,7 +10559,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
   store ptr %3, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %4, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 5, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -10594,7 +10594,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h03a1196011df8e42E.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %1, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %21, align 8
@@ -10621,7 +10621,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
   store ptr %3, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %4, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 5, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -10656,7 +10656,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h30d2fa27087ce3dbE.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %1, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %21, align 8
@@ -10683,7 +10683,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
   store ptr %3, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %4, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 5, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -10718,7 +10718,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h30d2fa27087ce3dbE.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %1, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %21, align 8
@@ -10745,7 +10745,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
   store ptr %3, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %4, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 5, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -10780,7 +10780,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h30d2fa27087ce3dbE.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %1, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %21, align 8
@@ -10807,7 +10807,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
   store ptr %3, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %4, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 5, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -10842,7 +10842,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h102c576141af4da9E.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %1, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %21, align 8
@@ -10869,7 +10869,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
   store ptr %3, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %4, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 5, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -10904,7 +10904,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17hb1f9b8a621122eeeE.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %1, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %21, align 8
@@ -10931,7 +10931,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
   store ptr %3, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %4, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 5, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -10966,7 +10966,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h18f115ad741bbca4E.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %1, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %21, align 8
@@ -10993,7 +10993,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
   store ptr %3, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %4, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 5, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -11028,7 +11028,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h102c576141af4da9E.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %1, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %21, align 8
@@ -11055,7 +11055,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
   store ptr %3, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %4, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 5, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -11090,7 +11090,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h03a1196011df8e42E.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %1, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %21, align 8
@@ -11117,7 +11117,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
   store ptr %3, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %4, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 5, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -11152,7 +11152,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h6a4cd67bff55d6c0E.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %1, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %21, align 8
@@ -11179,7 +11179,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
   store ptr %3, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %4, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 5, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -11214,7 +11214,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h102c576141af4da9E.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %1, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %21, align 8
@@ -11241,7 +11241,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
   store ptr %3, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %4, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 5, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -11276,7 +11276,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h88b800dab4aa63e2E.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %1, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %21, align 8
@@ -11303,7 +11303,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
   store ptr %3, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %4, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 7, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -11338,7 +11338,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h6a4cd67bff55d6c0E.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %1, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %21, align 8
@@ -11365,7 +11365,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
   store ptr %3, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %4, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 7, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -11400,7 +11400,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h03a1196011df8e42E.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %1, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %21, align 8
@@ -11427,7 +11427,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
   store ptr %3, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %4, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 6, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -11462,7 +11462,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h88b800dab4aa63e2E.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %1, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %21, align 8
@@ -11489,7 +11489,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
   store ptr %3, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %4, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 6, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -11524,7 +11524,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h1959acf06b103eccE.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %1, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %21, align 8
@@ -11551,7 +11551,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
   store ptr %3, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %4, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 6, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -11586,7 +11586,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %5
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h03a1196011df8e42E.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %1, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %21, align 8
@@ -11841,10 +11841,10 @@ declare hidden void @"_ZN4core3ptr119drop_in_place$LT$protobuf..reflect..acc..v1
 declare hidden void @"_ZN4core3ptr112drop_in_place$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$LT$raft_proto..protos..eraftpb..ConfState$GT$$GT$17hed7bbcbc6ccd3021E"(ptr noalias noundef align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12

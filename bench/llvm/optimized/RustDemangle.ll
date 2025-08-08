@@ -58,7 +58,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %2
   br i1 %4, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.thread
 
 _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 500, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -335,7 +335,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLEc.exit: ; preds = %106, %._ZN4llvm16i
 
 123:                                              ; preds = %_ZN4llvm16itanium_demangle12OutputBufferpLEc.exit, %105
   %.1 = phi ptr [ %122, %_ZN4llvm16itanium_demangle12OutputBufferpLEc.exit ], [ null, %105 ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.thread
 
 _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.thread: ; preds = %2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %123
@@ -346,20 +346,14 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #4
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #5
+declare void @abort() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19Demangler12demanglePathENS_8IsInTypeENS_17LeaveGenericsOpenE(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
@@ -1700,10 +1694,10 @@ _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_trait
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: noreturn
-declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #7
+declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_19Demangler15printIdentifierENS_10IdentifierE(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly byval(%"struct.(anonymous namespace)::Identifier") align 8 captures(none) %1) unnamed_addr #0 align 2 {
@@ -3881,7 +3875,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19Demangler18printDecimalNumberEm(p
   br i1 %or.cond, label %10, label %36
 
 10:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %11
 
 11:                                               ; preds = %11, %10
@@ -3943,7 +3937,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i.i: ; preds = %._ZN4ll
   br label %_ZN4llvm16itanium_demangle12OutputBufferlsEm.exit
 
 _ZN4llvm16itanium_demangle12OutputBufferlsEm.exit: ; preds = %16, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %36
 
 36:                                               ; preds = %2, %_ZN4llvm16itanium_demangle12OutputBufferlsEm.exit
@@ -3951,7 +3945,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsEm.exit: ; preds = %16, %_ZN4llvm16ita
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i64 @_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0) unnamed_addr #8 align 2 {
+define internal fastcc noundef i64 @_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 49
   %3 = load i8, ptr %2, align 1, !tbaa !18, !range !24, !noundef !25
   %4 = trunc nuw i8 %3 to i1
@@ -4061,7 +4055,7 @@ _ZN12_GLOBAL__N_19Demangler9addAssignERmm.exit:   ; preds = %39
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
@@ -4186,7 +4180,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLEc.exit.i.i: ; preds = %._ZN4llvm16ita
   br label %_ZN12_GLOBAL__N_19Demangler5printEc.exit.i
 
 _ZN12_GLOBAL__N_19Demangler5printEc.exit.i:       ; preds = %_ZN4llvm16itanium_demangle12OutputBufferpLEc.exit.i.i, %26, %23, %.sink.split.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %48 = call fastcc noundef i64 @_ZN12_GLOBAL__N_19Demangler14parseHexNumberERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
   %49 = load i64, ptr %3, align 8, !tbaa !22
@@ -4204,7 +4198,7 @@ _ZN12_GLOBAL__N_19Demangler5printEc.exit.i:       ; preds = %_ZN4llvm16itanium_d
   br i1 %or.cond.i3.i, label %57, label %_ZN12_GLOBAL__N_19Demangler16demangleConstIntEv.exit
 
 57:                                               ; preds = %56
-  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %58
 
 58:                                               ; preds = %58, %57
@@ -4266,7 +4260,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i.i.i.i: ; preds = %._Z
   br label %_ZN4llvm16itanium_demangle12OutputBufferlsEm.exit.i.i
 
 _ZN4llvm16itanium_demangle12OutputBufferlsEm.exit.i.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i.i.i.i, %63
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN12_GLOBAL__N_19Demangler16demangleConstIntEv.exit
 
 83:                                               ; preds = %_ZN12_GLOBAL__N_19Demangler5printEc.exit.i
@@ -4364,7 +4358,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i13.i: ; preds = %._ZN4ll
   br label %_ZN12_GLOBAL__N_19Demangler16demangleConstIntEv.exit
 
 _ZN12_GLOBAL__N_19Demangler16demangleConstIntEv.exit: ; preds = %56, %_ZN4llvm16itanium_demangle12OutputBufferlsEm.exit.i.i, %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit.i, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i13.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %"_ZN12_GLOBAL__N_19Demangler15demangleBackrefIZNS0_13demangleConstEvE3$_0EEvT_.exit"
 
 126:                                              ; preds = %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit
@@ -4710,7 +4704,7 @@ _ZN12_GLOBAL__N_19Demangler5printEc.exit33:       ; preds = %87, %_ZN4llvm16itan
 
 113:                                              ; preds = %_ZN12_GLOBAL__N_19Demangler5printEc.exit33
   %114 = add i64 %38, -25
-  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %115
 
 115:                                              ; preds = %115, %113
@@ -4772,7 +4766,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i.i.i: ; preds = %._ZN4
   br label %_ZN4llvm16itanium_demangle12OutputBufferlsEm.exit.i
 
 _ZN4llvm16itanium_demangle12OutputBufferlsEm.exit.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i.i.i, %120
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZN4llvm16itanium_demangle12OutputBufferlsEm.exit.i, %_ZN12_GLOBAL__N_19Demangler5printEc.exit33, %_ZN4llvm16itanium_demangle12OutputBufferpLEc.exit.i17, %63, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %5, %35
@@ -4980,7 +4974,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i34: ; preds = %._ZN4llvm
   br label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit38
 
 106:                                              ; preds = %79, %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit25.thread, %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit25
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call fastcc void @_ZN12_GLOBAL__N_19Demangler15parseIdentifierEv(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(96) %0)
   %107 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %108 = load i8, ptr %107, align 8, !tbaa !34, !range !24, !noundef !25
@@ -5006,7 +5000,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i34: ; preds = %._ZN4llvm
   br label %119
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_19Demangler5printEc.exit, %111
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit38
 
 119:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_19Demangler5printEc.exit
@@ -5604,7 +5598,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i44: ; preds = %._ZN4llvm
   br label %_ZN12_GLOBAL__N_19Demangler5printEc.exit
 
 _ZN12_GLOBAL__N_19Demangler5printEc.exit:         ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i44, %93, %_ZN4llvm16itanium_demangle12OutputBufferpLEc.exit.i, %78
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call fastcc void @_ZN12_GLOBAL__N_19Demangler15parseIdentifierEv(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(96) %0)
   %.sroa.0.0.copyload.i = load i64, ptr %2, align 8, !tbaa !20
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !21
@@ -5659,7 +5653,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i35: ; preds = %._ZN4llvm
 _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit39: ; preds = %_ZN12_GLOBAL__N_19Demangler5printEc.exit, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i35
   %130 = phi i8 [ %112, %_ZN12_GLOBAL__N_19Demangler5printEc.exit ], [ %.pre111, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i35 ]
   %131 = phi i8 [ %110, %_ZN12_GLOBAL__N_19Demangler5printEc.exit ], [ %.pre, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i35 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %132 = trunc nuw i8 %131 to i1
   %.not.i22 = xor i1 %132, true
   %133 = trunc nuw i8 %130 to i1
@@ -5869,7 +5863,7 @@ _ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread: ; preds = %33, %32
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_19Demangler17demangleConstBoolEv(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.std::basic_string_view", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = call fastcc noundef i64 @_ZN12_GLOBAL__N_19Demangler14parseHexNumberERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(16) %2)
   %.sroa.01.0.copyload = load i64, ptr %2, align 8, !tbaa !20
@@ -5994,14 +5988,14 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i11: ; preds = %._ZN4llvm
   br label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i11, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit6, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit, %56
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_19Demangler17demangleConstCharEv(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.std::basic_string_view", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = call fastcc noundef i64 @_ZN12_GLOBAL__N_19Demangler14parseHexNumberERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(16) %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 49
@@ -6428,7 +6422,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLEc.exit.i: ; preds = %._ZN4llvm16itani
   br label %_ZN12_GLOBAL__N_19Demangler5printEc.exit
 
 _ZN12_GLOBAL__N_19Demangler5printEc.exit:         ; preds = %_ZN4llvm16itanium_demangle12OutputBufferpLEc.exit.i, %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit12, %10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -6861,6 +6855,12 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10
 
@@ -6875,14 +6875,14 @@ declare i64 @llvm.umax.i64(i64, i64) #10
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #12 = { nounwind }

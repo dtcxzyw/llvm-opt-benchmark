@@ -2470,7 +2470,7 @@ _ZN7QStringC2EPKc.exit110:                        ; preds = %84
           to label %121 unwind label %189
 
 121:                                              ; preds = %119
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   invoke void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %15, ptr noundef nonnull @.str.19, i32 noundef 1)
           to label %.noexc unwind label %189
 
@@ -2507,7 +2507,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   br label %.body
 
 130:                                              ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i, %123
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %131 = getelementptr inbounds nuw i8, ptr %116, i64 4
   %132 = load float, ptr %131, align 4
   %133 = fpext float %132 to double
@@ -2519,7 +2519,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
           to label %136 unwind label %191
 
 136:                                              ; preds = %134
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   invoke void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %14, ptr noundef nonnull @.str.19, i32 noundef 1)
           to label %.noexc116 unwind label %191
 
@@ -2556,7 +2556,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i111: ; preds = %_ZN9QtPrivate8Ref
   br label %.body117
 
 145:                                              ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i111, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i112, %138
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %146 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %147 = load float, ptr %146, align 4
   %148 = fpext float %147 to double
@@ -2568,7 +2568,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i111: ; preds = %_ZN9QtPrivate8Ref
           to label %151 unwind label %193
 
 151:                                              ; preds = %149
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   invoke void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %13, ptr noundef nonnull @.str.19, i32 noundef 1)
           to label %.noexc125 unwind label %193
 
@@ -2605,7 +2605,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i120: ; preds = %_ZN9QtPrivate8Ref
   br label %.body126
 
 160:                                              ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i120, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i121, %153
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %161 = load ptr, ptr %27, align 8
   %162 = load atomic i32, ptr %161 monotonic, align 4
   switch i32 %162, label %_ZN9QtPrivate8RefCount5derefEv.exit.i130 [
@@ -7412,10 +7412,10 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -393,7 +393,7 @@ define internal range(i32 0, 2) i32 @i2r_ADMISSION_SYNTAX(ptr readnone captures(
   %124 = call ptr @OPENSSL_sk_value(ptr noundef %123, i32 noundef %.188120) #5
   %125 = call i32 @OBJ_obj2nid(ptr noundef %124) #5
   %126 = call ptr @OBJ_nid2ln(i32 noundef %125) #5
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %127 = call i32 @OBJ_obj2txt(ptr noundef nonnull %5, i32 noundef 128, ptr noundef %124, i32 noundef 1) #5
   %.not97 = icmp eq ptr %126, null
   %128 = select i1 %.not97, ptr @.str.16, ptr %126
@@ -401,7 +401,7 @@ define internal range(i32 0, 2) i32 @i2r_ADMISSION_SYNTAX(ptr readnone captures(
   %130 = select i1 %.not97, ptr @.str.16, ptr @.str.29
   %131 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.27, i32 noundef %3, ptr noundef nonnull @.str.16, ptr noundef nonnull %128, ptr noundef nonnull %129, ptr noundef nonnull %5, ptr noundef nonnull %130) #5
   %132 = icmp sgt i32 %131, 0
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %132, label %118, label %.thread107
 
 .thread107:                                       ; preds = %.loopexit116, %30, %48, %44, %41, %38, %54, %112, %89, %84, %72, %75, %79, %.lr.ph123, %107, %.lr.ph, %104, %.lr.ph121, %20, %17, %13, %10, %7
@@ -635,9 +635,6 @@ declare ptr @ASN1_OCTET_STRING_it() #2
 
 declare ptr @GENERAL_NAME_it() #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 declare i32 @GENERAL_NAME_print(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -676,7 +673,7 @@ define internal fastcc range(i32 0, 2) i32 @i2r_NAMING_AUTHORITY(ptr noundef non
   br i1 %.not, label %34, label %20
 
 20:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = tail call i32 @OBJ_obj2nid(ptr noundef nonnull %19) #5
   %22 = tail call ptr @OBJ_nid2ln(i32 noundef %21) #5
   %23 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.31, i32 noundef %2, ptr noundef nonnull @.str.16) #5
@@ -695,11 +692,11 @@ define internal fastcc range(i32 0, 2) i32 @i2r_NAMING_AUTHORITY(ptr noundef non
   br i1 %32, label %.thread, label %33
 
 .thread:                                          ; preds = %20, %25
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %60
 
 33:                                               ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %34
 
 34:                                               ; preds = %33, %18
@@ -756,14 +753,17 @@ define internal fastcc range(i32 0, 2) i32 @i2r_NAMING_AUTHORITY(ptr noundef non
 
 declare i32 @ASN1_STRING_print(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 declare ptr @OBJ_nid2ln(i32 noundef) local_unnamed_addr #2
 
 declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #2
 
 declare i32 @OBJ_obj2txt(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -108,17 +108,11 @@ define dso_local noundef ptr @smgr_bulk_start_smgr(ptr noundef %0, i32 noundef %
   ret ptr %5
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare i32 @smgrnblocks(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @smgrnblocks(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i64 @GetRedoRecPtr() local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @GetRedoRecPtr() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @smgr_bulk_finish(ptr noundef %0) local_unnamed_addr #0 {
@@ -214,8 +208,8 @@ define internal fastcc void @smgr_bulk_flush(ptr noundef %0) unnamed_addr #0 {
   br i1 %16, label %17, label %31
 
 17:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %18 = icmp sgt i32 %6, 0
   br i1 %18, label %.lr.ph.preheader, label %._crit_edge
 
@@ -229,8 +223,8 @@ define internal fastcc void @smgr_bulk_flush(ptr noundef %0) unnamed_addr #0 {
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i32, ptr %20, align 8
   call void @log_newpages(ptr noundef %19, i32 noundef %21, i32 noundef %6, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext %.0.lcssa) #4
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %31
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -304,10 +298,10 @@ define internal fastcc void @smgr_bulk_flush(ptr noundef %0) unnamed_addr #0 {
 52:                                               ; preds = %35
   %53 = load ptr, ptr %0, align 8
   %54 = load i32, ptr %34, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %39, ptr %2, align 8
   call void @smgrwritev(ptr noundef %53, i32 noundef %54, i32 noundef %38, ptr noundef nonnull %2, i32 noundef 1, i1 noundef zeroext true) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %55
 
 55:                                               ; preds = %52, %._crit_edge58
@@ -320,15 +314,15 @@ define internal fastcc void @smgr_bulk_flush(ptr noundef %0) unnamed_addr #0 {
   ret void
 }
 
-declare void @smgrregistersync(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @smgrregistersync(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @smgrimmedsync(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @smgrimmedsync(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @smgr_bulk_write(ptr noundef %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
@@ -365,16 +359,16 @@ define dso_local ptr @smgr_bulk_get_buf(ptr noundef readonly captures(none) %0) 
   ret ptr %4
 }
 
-declare ptr @MemoryContextAllocAligned(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @MemoryContextAllocAligned(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @smgropen(i64, i32, i32 noundef) local_unnamed_addr #2
+declare ptr @smgropen(i64, i32, i32 noundef) local_unnamed_addr #1
 
-declare void @smgrpin(ptr noundef) local_unnamed_addr #2
+declare void @smgrpin(ptr noundef) local_unnamed_addr #1
 
-declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @buffer_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
+define internal range(i32 -1, 2) i32 @buffer_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -384,20 +378,26 @@ define internal range(i32 -1, 2) i32 @buffer_cmp(ptr noundef readonly captures(n
   ret i32 %.
 }
 
-declare void @log_newpages(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @log_newpages(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @PageSetChecksumInplace(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @PageSetChecksumInplace(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @smgrextend(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @smgrextend(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
-declare void @smgrwritev(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @smgrwritev(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

@@ -24,7 +24,7 @@ define hidden void @"_ZN4core3num23_$LT$impl$u20$usize$GT$13unchecked_add18preco
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @_ZN4core5error19request_by_type_tag17haefaf08e20e7de4cE(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(80) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 -5243332826197431211, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 -6636617272035578738, ptr %4, align 8
@@ -34,7 +34,7 @@ define hidden noundef align 8 ptr @_ZN4core5error19request_by_type_tag17haefaf08
   %7 = load ptr, ptr %6, align 8, !invariant.load !4, !nonnull !4
   call void %7(ptr noundef nonnull align 1 %0, ptr noundef nonnull align 8 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.480298ec0aadb82777b76f31f7f7c756.1.llvm.10555996572525425549)
   %8 = load ptr, ptr %5, align 8, !align !5, !noundef !4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %8
 }
 
@@ -129,10 +129,10 @@ declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, 
 declare void @llvm.assume(i1 noundef) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11

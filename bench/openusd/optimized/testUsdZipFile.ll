@@ -182,77 +182,77 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readnone captures
   %113 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator", align 8
   %114 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator", align 8
   %115 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %46)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %47)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %58)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %59)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %60)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %61)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %62)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %63)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %64)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %65)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %66)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %67)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %68)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %69)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %70)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %71)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %72)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %73)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %74)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %75)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %76)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %77)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %78)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %79)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %80)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %81)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %82)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %83)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %84)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %85)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %86)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %87)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %88)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %89)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %90)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %91)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %92)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %93)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %94)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %95)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %96)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %97)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %98)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %99)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %100)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %101)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %102)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %103)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %104)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %105)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %106)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %107)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %108)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %109)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %110)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %111)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %112)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %113)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %114)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %115)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
+  call void @llvm.lifetime.start.p0(ptr nonnull %81)
+  call void @llvm.lifetime.start.p0(ptr nonnull %82)
+  call void @llvm.lifetime.start.p0(ptr nonnull %83)
+  call void @llvm.lifetime.start.p0(ptr nonnull %84)
+  call void @llvm.lifetime.start.p0(ptr nonnull %85)
+  call void @llvm.lifetime.start.p0(ptr nonnull %86)
+  call void @llvm.lifetime.start.p0(ptr nonnull %87)
+  call void @llvm.lifetime.start.p0(ptr nonnull %88)
+  call void @llvm.lifetime.start.p0(ptr nonnull %89)
+  call void @llvm.lifetime.start.p0(ptr nonnull %90)
+  call void @llvm.lifetime.start.p0(ptr nonnull %91)
+  call void @llvm.lifetime.start.p0(ptr nonnull %92)
+  call void @llvm.lifetime.start.p0(ptr nonnull %93)
+  call void @llvm.lifetime.start.p0(ptr nonnull %94)
+  call void @llvm.lifetime.start.p0(ptr nonnull %95)
+  call void @llvm.lifetime.start.p0(ptr nonnull %96)
+  call void @llvm.lifetime.start.p0(ptr nonnull %97)
+  call void @llvm.lifetime.start.p0(ptr nonnull %98)
+  call void @llvm.lifetime.start.p0(ptr nonnull %99)
+  call void @llvm.lifetime.start.p0(ptr nonnull %100)
+  call void @llvm.lifetime.start.p0(ptr nonnull %101)
+  call void @llvm.lifetime.start.p0(ptr nonnull %102)
+  call void @llvm.lifetime.start.p0(ptr nonnull %103)
+  call void @llvm.lifetime.start.p0(ptr nonnull %104)
+  call void @llvm.lifetime.start.p0(ptr nonnull %105)
+  call void @llvm.lifetime.start.p0(ptr nonnull %106)
+  call void @llvm.lifetime.start.p0(ptr nonnull %107)
+  call void @llvm.lifetime.start.p0(ptr nonnull %108)
+  call void @llvm.lifetime.start.p0(ptr nonnull %109)
+  call void @llvm.lifetime.start.p0(ptr nonnull %110)
+  call void @llvm.lifetime.start.p0(ptr nonnull %111)
+  call void @llvm.lifetime.start.p0(ptr nonnull %112)
+  call void @llvm.lifetime.start.p0(ptr nonnull %113)
+  call void @llvm.lifetime.start.p0(ptr nonnull %114)
+  call void @llvm.lifetime.start.p0(ptr nonnull %115)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #10
   %.sink684.i.sroa.gep = getelementptr inbounds nuw i8, ptr %42, i64 8
   %.sink684.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -295,7 +295,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #10
   %120 = load ptr, ptr %45, align 8
   %.not.i = icmp eq ptr %120, null
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   br i1 %.not.i, label %121, label %123
 
 121:                                              ; preds = %119
@@ -317,7 +317,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   unreachable
 
 123:                                              ; preds = %119
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator") align 8 %48, ptr noundef nonnull align 8 dereferenceable(16) %45)
           to label %124 unwind label %400
 
@@ -330,7 +330,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
           to label %127 unwind label %404
 
 127:                                              ; preds = %125
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   br i1 %126, label %130, label %128
 
 128:                                              ; preds = %127
@@ -352,7 +352,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   unreachable
 
 130:                                              ; preds = %127
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %49) #10
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull align 8 dereferenceable(8) %48)
           to label %131 unwind label %402
@@ -362,11 +362,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
           to label %133 unwind label %406
 
 133:                                              ; preds = %131
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   br i1 %132, label %134, label %.invoke.i
 
 134:                                              ; preds = %133
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   %135 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorppEv(ptr noundef nonnull align 8 dereferenceable(8) %50)
           to label %136 unwind label %406
 
@@ -375,11 +375,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
           to label %138 unwind label %406
 
 138:                                              ; preds = %136
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   br i1 %137, label %139, label %.invoke.i
 
 139:                                              ; preds = %138
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorppEi(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator") align 8 %51, ptr noundef nonnull align 8 dereferenceable(8) %48, i32 noundef 0)
           to label %140 unwind label %406
 
@@ -389,7 +389,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
           to label %142 unwind label %406
 
 142:                                              ; preds = %140
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   br i1 %141, label %144, label %.invoke.i
 
 .invoke.i:                                        ; preds = %142, %138, %133
@@ -414,7 +414,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   unreachable
 
 144:                                              ; preds = %142
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorC1EOS1_(ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull align 8 dereferenceable(8) %48)
           to label %145 unwind label %406
 
@@ -423,7 +423,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
           to label %147 unwind label %408
 
 147:                                              ; preds = %145
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   br i1 %146, label %150, label %148
 
 148:                                              ; preds = %147
@@ -445,7 +445,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   unreachable
 
 150:                                              ; preds = %147
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorC1EOS1_(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull align 8 dereferenceable(8) %50)
           to label %151 unwind label %408
 
@@ -454,7 +454,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
           to label %153 unwind label %410
 
 153:                                              ; preds = %151
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   br i1 %152, label %156, label %154
 
 154:                                              ; preds = %153
@@ -476,7 +476,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   unreachable
 
 156:                                              ; preds = %153
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %53) #10
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %52) #10
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %50) #10
@@ -502,7 +502,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 162:                                              ; preds = %160
   %163 = icmp eq i64 %161, 4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   br i1 %163, label %166, label %164
 
 164:                                              ; preds = %162
@@ -524,7 +524,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   unreachable
 
 166:                                              ; preds = %162
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %57) #10
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %56) #10
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratordeB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %58, ptr noundef nonnull align 8 dereferenceable(8) %54)
@@ -533,7 +533,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 167:                                              ; preds = %166
   %168 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull @.str.9) #10
   %169 = icmp eq i32 %168, 0
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   br i1 %169, label %172, label %170
 
 170:                                              ; preds = %167
@@ -555,7 +555,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   unreachable
 
 172:                                              ; preds = %167
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #10
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorptEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator::_ArrowProxy") align 8 %59, ptr noundef nonnull align 8 dereferenceable(8) %54)
           to label %173 unwind label %417
@@ -564,7 +564,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   %174 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %59) #10
   %175 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %174, ptr noundef nonnull dereferenceable(7) @.str.9) #12
   %176 = icmp eq i32 %175, 0
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   br i1 %176, label %179, label %177
 
 177:                                              ; preds = %173
@@ -586,7 +586,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   unreachable
 
 179:                                              ; preds = %173
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %59) #10
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator") align 8 %61, ptr noundef nonnull align 8 dereferenceable(16) %45)
           to label %180 unwind label %417
@@ -600,7 +600,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
           to label %182 unwind label %430
 
 182:                                              ; preds = %_ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   br i1 %181, label %185, label %183
 
 183:                                              ; preds = %182
@@ -622,7 +622,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   unreachable
 
 185:                                              ; preds = %182
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %60) #10
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %61) #10
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator") align 8 %63, ptr noundef nonnull align 8 dereferenceable(16) %45)
@@ -641,7 +641,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
           to label %188 unwind label %433
 
 188:                                              ; preds = %_ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit130.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   br i1 %187, label %191, label %189
 
 189:                                              ; preds = %188
@@ -663,7 +663,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   unreachable
 
 191:                                              ; preds = %188
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %62) #10
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %63) #10
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator") align 8 %65, ptr noundef nonnull align 8 dereferenceable(16) %45)
@@ -688,7 +688,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
           to label %195 unwind label %436
 
 195:                                              ; preds = %_ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit139.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   br i1 %194, label %198, label %196
 
 196:                                              ; preds = %195
@@ -710,7 +710,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   unreachable
 
 198:                                              ; preds = %195
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %64) #10
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %65) #10
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator") align 8 %67, ptr noundef nonnull align 8 dereferenceable(16) %45)
@@ -735,7 +735,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
           to label %202 unwind label %439
 
 202:                                              ; preds = %_ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit148.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   br i1 %201, label %205, label %203
 
 203:                                              ; preds = %202
@@ -757,7 +757,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   unreachable
 
 205:                                              ; preds = %202
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %66) #10
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %67) #10
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator") align 8 %69, ptr noundef nonnull align 8 dereferenceable(16) %45)
@@ -782,7 +782,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
           to label %209 unwind label %442
 
 209:                                              ; preds = %_ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit157.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   br i1 %208, label %212, label %210
 
 210:                                              ; preds = %209
@@ -804,7 +804,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   unreachable
 
 212:                                              ; preds = %209
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %68) #10
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %69) #10
   %213 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorppEv(ptr noundef nonnull align 8 dereferenceable(8) %54)
@@ -817,7 +817,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 215:                                              ; preds = %214
   %216 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull @.str.17) #10
   %217 = icmp eq i32 %216, 0
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   br i1 %217, label %220, label %218
 
 218:                                              ; preds = %215
@@ -839,7 +839,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   unreachable
 
 220:                                              ; preds = %215
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #10
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorptEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator::_ArrowProxy") align 8 %71, ptr noundef nonnull align 8 dereferenceable(8) %54)
           to label %221 unwind label %417
@@ -848,7 +848,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   %222 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %71) #10
   %223 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %222, ptr noundef nonnull dereferenceable(6) @.str.17) #12
   %224 = icmp eq i32 %223, 0
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   br i1 %224, label %227, label %225
 
 225:                                              ; preds = %221
@@ -870,7 +870,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   unreachable
 
 227:                                              ; preds = %221
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %71) #10
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator") align 8 %73, ptr noundef nonnull align 8 dereferenceable(16) %45)
           to label %228 unwind label %417
@@ -884,7 +884,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
           to label %230 unwind label %451
 
 230:                                              ; preds = %_ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit166.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   br i1 %229, label %233, label %231
 
 231:                                              ; preds = %230
@@ -906,7 +906,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   unreachable
 
 233:                                              ; preds = %230
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %72) #10
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %73) #10
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator") align 8 %75, ptr noundef nonnull align 8 dereferenceable(16) %45)
@@ -925,7 +925,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
           to label %236 unwind label %454
 
 236:                                              ; preds = %_ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit175.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   br i1 %235, label %239, label %237
 
 237:                                              ; preds = %236
@@ -947,7 +947,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   unreachable
 
 239:                                              ; preds = %236
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %74) #10
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %75) #10
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator") align 8 %77, ptr noundef nonnull align 8 dereferenceable(16) %45)
@@ -972,7 +972,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
           to label %243 unwind label %457
 
 243:                                              ; preds = %_ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit184.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   br i1 %242, label %246, label %244
 
 244:                                              ; preds = %243
@@ -994,7 +994,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   unreachable
 
 246:                                              ; preds = %243
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %76) #10
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %77) #10
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator") align 8 %79, ptr noundef nonnull align 8 dereferenceable(16) %45)
@@ -1019,7 +1019,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
           to label %250 unwind label %460
 
 250:                                              ; preds = %_ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit193.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   br i1 %249, label %253, label %251
 
 251:                                              ; preds = %250
@@ -1041,7 +1041,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   unreachable
 
 253:                                              ; preds = %250
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %78) #10
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %79) #10
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator") align 8 %81, ptr noundef nonnull align 8 dereferenceable(16) %45)
@@ -1066,7 +1066,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
           to label %257 unwind label %463
 
 257:                                              ; preds = %_ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit202.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   br i1 %256, label %260, label %258
 
 258:                                              ; preds = %257
@@ -1088,7 +1088,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   unreachable
 
 260:                                              ; preds = %257
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %80) #10
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %81) #10
   %261 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorppEv(ptr noundef nonnull align 8 dereferenceable(8) %54)
@@ -1101,7 +1101,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 263:                                              ; preds = %262
   %264 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %82, ptr noundef nonnull @.str.22) #10
   %265 = icmp eq i32 %264, 0
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   br i1 %265, label %268, label %266
 
 266:                                              ; preds = %263
@@ -1123,7 +1123,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   unreachable
 
 268:                                              ; preds = %263
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %82) #10
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorptEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator::_ArrowProxy") align 8 %83, ptr noundef nonnull align 8 dereferenceable(8) %54)
           to label %269 unwind label %417
@@ -1132,7 +1132,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   %270 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %83) #10
   %271 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %270, ptr noundef nonnull dereferenceable(10) @.str.22) #12
   %272 = icmp eq i32 %271, 0
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   br i1 %272, label %275, label %273
 
 273:                                              ; preds = %269
@@ -1154,7 +1154,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   unreachable
 
 275:                                              ; preds = %269
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %83) #10
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator") align 8 %85, ptr noundef nonnull align 8 dereferenceable(16) %45)
           to label %276 unwind label %417
@@ -1168,7 +1168,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
           to label %278 unwind label %472
 
 278:                                              ; preds = %_ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit211.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   br i1 %277, label %281, label %279
 
 279:                                              ; preds = %278
@@ -1190,7 +1190,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   unreachable
 
 281:                                              ; preds = %278
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %84) #10
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %85) #10
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator") align 8 %87, ptr noundef nonnull align 8 dereferenceable(16) %45)
@@ -1209,7 +1209,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
           to label %284 unwind label %475
 
 284:                                              ; preds = %_ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit220.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   br i1 %283, label %287, label %285
 
 285:                                              ; preds = %284
@@ -1231,7 +1231,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   unreachable
 
 287:                                              ; preds = %284
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %86) #10
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %87) #10
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator") align 8 %89, ptr noundef nonnull align 8 dereferenceable(16) %45)
@@ -1256,7 +1256,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
           to label %291 unwind label %478
 
 291:                                              ; preds = %_ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit229.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   br i1 %290, label %294, label %292
 
 292:                                              ; preds = %291
@@ -1278,7 +1278,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   unreachable
 
 294:                                              ; preds = %291
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %88) #10
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %89) #10
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator") align 8 %91, ptr noundef nonnull align 8 dereferenceable(16) %45)
@@ -1303,7 +1303,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
           to label %298 unwind label %481
 
 298:                                              ; preds = %_ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit238.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   br i1 %297, label %301, label %299
 
 299:                                              ; preds = %298
@@ -1325,7 +1325,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   unreachable
 
 301:                                              ; preds = %298
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %90) #10
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %91) #10
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator") align 8 %93, ptr noundef nonnull align 8 dereferenceable(16) %45)
@@ -1350,7 +1350,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
           to label %305 unwind label %484
 
 305:                                              ; preds = %_ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit247.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   br i1 %304, label %308, label %306
 
 306:                                              ; preds = %305
@@ -1372,7 +1372,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   unreachable
 
 308:                                              ; preds = %305
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %92) #10
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %93) #10
   %309 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorppEv(ptr noundef nonnull align 8 dereferenceable(8) %54)
@@ -1385,7 +1385,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 311:                                              ; preds = %310
   %312 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %94, ptr noundef nonnull @.str.26) #10
   %313 = icmp eq i32 %312, 0
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   br i1 %313, label %316, label %314
 
 314:                                              ; preds = %311
@@ -1407,7 +1407,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   unreachable
 
 316:                                              ; preds = %311
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %94) #10
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorptEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator::_ArrowProxy") align 8 %95, ptr noundef nonnull align 8 dereferenceable(8) %54)
           to label %317 unwind label %417
@@ -1416,7 +1416,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   %318 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %95) #10
   %319 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %318, ptr noundef nonnull dereferenceable(10) @.str.26) #12
   %320 = icmp eq i32 %319, 0
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   br i1 %320, label %323, label %321
 
 321:                                              ; preds = %317
@@ -1438,7 +1438,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   unreachable
 
 323:                                              ; preds = %317
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %95) #10
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator") align 8 %97, ptr noundef nonnull align 8 dereferenceable(16) %45)
           to label %324 unwind label %417
@@ -1452,7 +1452,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
           to label %326 unwind label %493
 
 326:                                              ; preds = %_ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit256.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   br i1 %325, label %329, label %327
 
 327:                                              ; preds = %326
@@ -1474,7 +1474,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   unreachable
 
 329:                                              ; preds = %326
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %96) #10
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %97) #10
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator") align 8 %99, ptr noundef nonnull align 8 dereferenceable(16) %45)
@@ -1493,7 +1493,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
           to label %332 unwind label %496
 
 332:                                              ; preds = %_ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit265.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br i1 %331, label %335, label %333
 
 333:                                              ; preds = %332
@@ -1515,7 +1515,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   unreachable
 
 335:                                              ; preds = %332
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %98) #10
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %99) #10
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator") align 8 %101, ptr noundef nonnull align 8 dereferenceable(16) %45)
@@ -1540,7 +1540,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
           to label %339 unwind label %499
 
 339:                                              ; preds = %_ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit274.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br i1 %338, label %342, label %340
 
 340:                                              ; preds = %339
@@ -1562,7 +1562,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   unreachable
 
 342:                                              ; preds = %339
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %100) #10
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %101) #10
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator") align 8 %103, ptr noundef nonnull align 8 dereferenceable(16) %45)
@@ -1587,7 +1587,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
           to label %346 unwind label %502
 
 346:                                              ; preds = %_ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit283.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br i1 %345, label %349, label %347
 
 347:                                              ; preds = %346
@@ -1609,7 +1609,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   unreachable
 
 349:                                              ; preds = %346
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %102) #10
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %103) #10
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator") align 8 %105, ptr noundef nonnull align 8 dereferenceable(16) %45)
@@ -1634,7 +1634,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
           to label %353 unwind label %505
 
 353:                                              ; preds = %_ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit292.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br i1 %352, label %356, label %354
 
 354:                                              ; preds = %353
@@ -1656,7 +1656,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   unreachable
 
 356:                                              ; preds = %353
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %104) #10
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %105) #10
   %357 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorppEv(ptr noundef nonnull align 8 dereferenceable(8) %54)
@@ -1675,7 +1675,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
           to label %361 unwind label %510
 
 361:                                              ; preds = %_ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit297.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br i1 %360, label %364, label %362
 
 362:                                              ; preds = %361
@@ -1697,7 +1697,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   unreachable
 
 364:                                              ; preds = %361
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %106) #10
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %107) #10
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator") align 8 %109, ptr noundef nonnull align 8 dereferenceable(16) %45)
@@ -1716,7 +1716,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
           to label %367 unwind label %513
 
 367:                                              ; preds = %_ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit306.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br i1 %366, label %370, label %368
 
 368:                                              ; preds = %367
@@ -1738,7 +1738,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   unreachable
 
 370:                                              ; preds = %367
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %108) #10
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %109) #10
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator") align 8 %111, ptr noundef nonnull align 8 dereferenceable(16) %45)
@@ -1763,7 +1763,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
           to label %374 unwind label %516
 
 374:                                              ; preds = %_ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit315.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br i1 %373, label %377, label %375
 
 375:                                              ; preds = %374
@@ -1785,7 +1785,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   unreachable
 
 377:                                              ; preds = %374
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %110) #10
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %111) #10
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator") align 8 %113, ptr noundef nonnull align 8 dereferenceable(16) %45)
@@ -1810,7 +1810,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
           to label %381 unwind label %519
 
 381:                                              ; preds = %_ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit324.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %380, label %384, label %382
 
 382:                                              ; preds = %381
@@ -1832,7 +1832,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   unreachable
 
 384:                                              ; preds = %381
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %112) #10
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %113) #10
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator") align 8 %115, ptr noundef nonnull align 8 dereferenceable(16) %45)
@@ -1857,7 +1857,7 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
           to label %388 unwind label %522
 
 388:                                              ; preds = %_ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit333.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %387, label %391, label %389
 
 389:                                              ; preds = %388
@@ -1879,14 +1879,14 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   unreachable
 
 391:                                              ; preds = %388
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %114) #10
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %115) #10
   %392 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratoreqERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef nonnull align 8 dereferenceable(8) %55)
           to label %393 unwind label %417
 
 393:                                              ; preds = %391
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br i1 %392, label %_ZL13TestIteratorsv.exit, label %394
 
 394:                                              ; preds = %393
@@ -2564,81 +2564,81 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
   resume { ptr, i32 } %.pn100.pn.pn.pn.i
 
 _ZL13TestIteratorsv.exit:                         ; preds = %393
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %55) #10
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %54) #10
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %45) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %46)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %47)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %58)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %59)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %67)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %70)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %71)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %72)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %73)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %74)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %75)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %76)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %77)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %78)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %79)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %80)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %81)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %82)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %83)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %84)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %85)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %86)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %87)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %88)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %89)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %90)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %91)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %92)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %93)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %94)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %95)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %96)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %97)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %98)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %99)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %100)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %101)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %102)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %103)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %104)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %105)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %106)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %107)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %108)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %109)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %110)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %111)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %112)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %113)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %114)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %115)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
+  call void @llvm.lifetime.end.p0(ptr nonnull %94)
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
+  call void @llvm.lifetime.end.p0(ptr nonnull %102)
+  call void @llvm.lifetime.end.p0(ptr nonnull %103)
+  call void @llvm.lifetime.end.p0(ptr nonnull %104)
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
+  call void @llvm.lifetime.end.p0(ptr nonnull %107)
+  call void @llvm.lifetime.end.p0(ptr nonnull %108)
+  call void @llvm.lifetime.end.p0(ptr nonnull %109)
+  call void @llvm.lifetime.end.p0(ptr nonnull %110)
+  call void @llvm.lifetime.end.p0(ptr nonnull %111)
+  call void @llvm.lifetime.end.p0(ptr nonnull %112)
+  call void @llvm.lifetime.end.p0(ptr nonnull %113)
+  call void @llvm.lifetime.end.p0(ptr nonnull %114)
+  call void @llvm.lifetime.end.p0(ptr nonnull %115)
   ret i32 0
 }
 
@@ -2862,10 +2862,10 @@ declare void @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15I
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

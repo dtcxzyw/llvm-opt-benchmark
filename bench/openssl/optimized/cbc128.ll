@@ -88,19 +88,13 @@ define void @CRYPTO_cbc128_encrypt(ptr noundef readonly captures(none) %0, ptr n
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define void @CRYPTO_cbc128_decrypt(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(address) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca %union.anon, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp eq i64 %2, 0
   br i1 %8, label %.loopexit, label %9
 
@@ -216,13 +210,19 @@ define void @CRYPTO_cbc128_decrypt(ptr noundef %0, ptr noundef %1, i64 noundef %
   br i1 %54, label %.lr.ph120, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph120, %.loopexit100, %6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

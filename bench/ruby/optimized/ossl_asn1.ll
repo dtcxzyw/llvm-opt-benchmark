@@ -222,8 +222,8 @@ define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
 define i64 @asn1time_to_time(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.tm, align 8
   %3 = alloca [6 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 noundef 0, i64 noundef 56, i1 noundef false) #9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !6
@@ -358,26 +358,20 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %40
 
 78:                                               ; preds = %rbimpl_intern_const.exit, %39
   %.0 = phi i64 [ 4, %39 ], [ %77, %rbimpl_intern_const.exit ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @ossl_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @ossl_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @rb_warning(ptr noundef, ...) local_unnamed_addr #4
+declare void @rb_warning(ptr noundef, ...) local_unnamed_addr #3
 
-declare i64 @rb_funcallv(i64 noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @rb_funcallv(i64 noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define void @ossl_time_split(i64 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
@@ -468,9 +462,9 @@ rb_num2long_inline.exit:                          ; preds = %25, %27
   ret void
 }
 
-declare i64 @rb_Integer(i64 noundef) local_unnamed_addr #4
+declare i64 @rb_Integer(i64 noundef) local_unnamed_addr #3
 
-declare i64 @rb_funcall(i64 noundef, i64 noundef, i32 noundef, ...) local_unnamed_addr #4
+declare i64 @rb_funcall(i64 noundef, i64 noundef, i32 noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define i64 @asn1str_to_str(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -482,9 +476,9 @@ define i64 @asn1str_to_str(ptr noundef readonly captures(none) %0) local_unnamed
   ret i64 %6
 }
 
-declare i64 @rb_str_new_static(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i64 @rb_str_new_static(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i64 @rb_str_new(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i64 @rb_str_new(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define i64 @asn1integer_to_num(ptr noundef %0) local_unnamed_addr #0 {
@@ -526,13 +520,13 @@ define i64 @asn1integer_to_num(ptr noundef %0) local_unnamed_addr #0 {
   ret i64 %16
 }
 
-declare ptr @ASN1_ENUMERATED_to_BN(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @ASN1_ENUMERATED_to_BN(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @ASN1_INTEGER_to_BN(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @ASN1_INTEGER_to_BN(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i64 @ossl_bn_new(ptr noundef) local_unnamed_addr #4
+declare i64 @ossl_bn_new(ptr noundef) local_unnamed_addr #3
 
-declare void @BN_free(ptr noundef) local_unnamed_addr #4
+declare void @BN_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define nonnull ptr @num_to_asn1integer(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -561,9 +555,9 @@ define nonnull ptr @num_to_asn1integer(i64 noundef %0, ptr noundef %1) local_unn
   ret ptr %9
 }
 
-declare ptr @ossl_bn_value_ptr(ptr noundef) local_unnamed_addr #4
+declare ptr @ossl_bn_value_ptr(ptr noundef) local_unnamed_addr #3
 
-declare ptr @BN_to_ASN1_INTEGER(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @BN_to_ASN1_INTEGER(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define void @Init_ossl_asn1() local_unnamed_addr #0 {
@@ -881,15 +875,15 @@ define void @Init_ossl_asn1() local_unnamed_addr #0 {
   ret void
 }
 
-declare i64 @rb_id2sym(i64 noundef) local_unnamed_addr #4
+declare i64 @rb_id2sym(i64 noundef) local_unnamed_addr #3
 
-declare i64 @rb_intern(ptr noundef) local_unnamed_addr #4
+declare i64 @rb_intern(ptr noundef) local_unnamed_addr #3
 
-declare i64 @rb_define_module_under(i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i64 @rb_define_module_under(i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i64 @rb_define_class_under(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i64 @rb_define_class_under(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare extern_weak void @rb_define_module_function(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare extern_weak void @rb_define_module_function(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_asn1_traverse(i64 %0, i64 noundef %1) #0 {
@@ -899,11 +893,11 @@ define internal noundef i64 @ossl_asn1_traverse(i64 %0, i64 noundef %1) #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !17
   %9 = tail call i64 @ossl_to_der_if_possible(i64 noundef %1) #9
   store i64 %9, ptr %3, align 8, !tbaa !17
@@ -927,11 +921,11 @@ RSTRING_PTR.exit:                                 ; preds = %2, %16
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %18 = load i64, ptr %17, align 8, !tbaa !38
   %19 = call fastcc i64 @ossl_asn1_decode0(ptr noundef %4, i64 noundef %18, ptr noundef %7, i32 noundef 0, i32 noundef 1, ptr noundef %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %5, ptr %8, align 8, !tbaa !40
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %8) #9, !srcloc !41
   %20 = load ptr, ptr %8, align 8, !tbaa !40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %21 = load volatile i64, ptr %20, align 8, !tbaa !17
   %22 = load i64, ptr %6, align 8, !tbaa !17
   %23 = load i64, ptr %7, align 8, !tbaa !17
@@ -950,10 +944,10 @@ RSTRING_PTR.exit:                                 ; preds = %2, %16
   unreachable
 
 int_ossl_decode_sanity_check.exit:                ; preds = %RSTRING_PTR.exit, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 4
 }
 
@@ -965,11 +959,11 @@ define internal i64 @ossl_asn1_decode(i64 %0, i64 noundef %1) #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !17
   %9 = tail call i64 @ossl_to_der_if_possible(i64 noundef %1) #9
   store i64 %9, ptr %3, align 8, !tbaa !17
@@ -993,11 +987,11 @@ RSTRING_PTR.exit:                                 ; preds = %2, %16
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %18 = load i64, ptr %17, align 8, !tbaa !38
   %19 = call fastcc i64 @ossl_asn1_decode0(ptr noundef %4, i64 noundef %18, ptr noundef %7, i32 noundef 0, i32 noundef 0, ptr noundef %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %5, ptr %8, align 8, !tbaa !40
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %8) #9, !srcloc !45
   %20 = load ptr, ptr %8, align 8, !tbaa !40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %21 = load volatile i64, ptr %20, align 8, !tbaa !17
   %22 = load i64, ptr %6, align 8, !tbaa !17
   %23 = load i64, ptr %7, align 8, !tbaa !17
@@ -1016,10 +1010,10 @@ RSTRING_PTR.exit:                                 ; preds = %2, %16
   unreachable
 
 int_ossl_decode_sanity_check.exit:                ; preds = %RSTRING_PTR.exit, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %19
 }
 
@@ -1031,10 +1025,10 @@ define internal i64 @ossl_asn1_decode_all(i64 %0, i64 noundef %1) #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = tail call i64 @ossl_to_der_if_possible(i64 noundef %1) #9
   store i64 %9, ptr %3, align 8, !tbaa !17
   %10 = call i64 @rb_string_value(ptr noundef nonnull %3) #9
@@ -1063,14 +1057,14 @@ RSTRING_PTR.exit:                                 ; preds = %2, %16
 .lr.ph:                                           ; preds = %RSTRING_PTR.exit, %.lr.ph
   %.012 = phi i64 [ %25, %.lr.ph ], [ %18, %RSTRING_PTR.exit ]
   %.01011 = phi i64 [ %24, %.lr.ph ], [ 0, %RSTRING_PTR.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !17
   %21 = call fastcc i64 @ossl_asn1_decode0(ptr noundef %4, i64 noundef %.012, ptr noundef %5, i32 noundef 0, i32 noundef 0, ptr noundef %7)
   %22 = call i64 @rb_ary_push(i64 noundef %19, i64 noundef %21) #9
   %23 = load i64, ptr %7, align 8, !tbaa !17
   %24 = add nsw i64 %23, %.01011
   %25 = sub nsw i64 %.012, %23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %26 = icmp sgt i64 %25, 0
   br i1 %26, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !49
 
@@ -1081,11 +1075,11 @@ RSTRING_PTR.exit:                                 ; preds = %2, %16
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %RSTRING_PTR.exit
   %27 = phi i64 [ 0, %RSTRING_PTR.exit ], [ %.pre, %._crit_edge.loopexit ]
   %.010.lcssa = phi i64 [ 0, %RSTRING_PTR.exit ], [ %24, %._crit_edge.loopexit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %6, ptr %8, align 8, !tbaa !40
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %8) #9, !srcloc !50
   %28 = load ptr, ptr %8, align 8, !tbaa !40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %29 = load volatile i64, ptr %28, align 8, !tbaa !17
   %.not.i = icmp eq i64 %18, 0
   br i1 %.not.i, label %int_ossl_decode_sanity_check.exit, label %30
@@ -1102,21 +1096,21 @@ RSTRING_PTR.exit:                                 ; preds = %2, %16
   unreachable
 
 int_ossl_decode_sanity_check.exit:                ; preds = %._crit_edge, %30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %19
 }
 
-declare i64 @rb_ary_new() local_unnamed_addr #4
+declare i64 @rb_ary_new() local_unnamed_addr #3
 
-declare void @rb_define_const(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @rb_define_const(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @rb_ary_store(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare void @rb_ary_store(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i64 @rb_str_new_cstr(ptr noundef) local_unnamed_addr #4
+declare i64 @rb_str_new_cstr(ptr noundef) local_unnamed_addr #3
 
-declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_asn1data_to_der(i64 noundef %0) #0 {
@@ -1169,13 +1163,13 @@ define internal i64 @ossl_asn1prim_to_der(i64 noundef %0) #0 {
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %17 = tail call fastcc i32 @ossl_asn1_default_tag(i64 noundef %0)
   %18 = icmp eq i32 %17, -1
   br i1 %18, label %19, label %23
@@ -1226,7 +1220,7 @@ define internal i64 @ossl_asn1prim_to_der(i64 noundef %0) #0 {
   unreachable
 
 31:                                               ; preds = %23, %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %26, ptr %9, align 8, !tbaa !17
   %32 = icmp eq i64 %26, 4
   br i1 %32, label %33, label %35
@@ -1248,7 +1242,7 @@ define internal i64 @ossl_asn1prim_to_der(i64 noundef %0) #0 {
   unreachable
 
 obj_to_asn1int.exit.i:                            ; preds = %35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %obj_to_asn1null.exit.i
 
 40:                                               ; preds = %23
@@ -1270,7 +1264,7 @@ rb_num2int_inline.exit.i:                         ; preds = %46, %44
   %.0.i.i = phi i64 [ %45, %44 ], [ %47, %46 ]
   %sext.i = shl i64 %.0.i.i, 32
   %48 = ashr exact i64 %sext.i, 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %26, ptr %8, align 8, !tbaa !17
   %or.cond.i.i = icmp ugt i64 %48, 7
   br i1 %or.cond.i.i, label %49, label %51
@@ -1325,7 +1319,7 @@ obj_to_asn1bstr.exit.i:                           ; preds = %RSTRING_PTR.exit.i.
   %72 = or disjoint i64 %48, %71
   %73 = or disjoint i64 %72, 8
   store i64 %73, ptr %69, align 8, !tbaa !54
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %obj_to_asn1null.exit.i
 
 74:                                               ; preds = %23
@@ -1348,7 +1342,7 @@ obj_to_asn1bstr.exit.i:                           ; preds = %RSTRING_PTR.exit.i.
   unreachable
 
 82:                                               ; preds = %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %26, ptr %7, align 8, !tbaa !17
   %83 = call i64 @rb_string_value(ptr noundef nonnull %7) #9
   %84 = call ptr @ASN1_STRING_new() #9
@@ -1388,11 +1382,11 @@ RSTRING_PTR.exit.i30.i:                           ; preds = %93, %87
 obj_to_asn1str.exit.i:                            ; preds = %RSTRING_PTR.exit.i30.i
   %98 = trunc nsw i64 %95 to i32
   %99 = call i32 @ASN1_STRING_set(ptr noundef nonnull %84, ptr noundef %.sroa.2.0.i.i31.i, i32 noundef %98) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %obj_to_asn1null.exit.i
 
 100:                                              ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %26, ptr %6, align 8, !tbaa !17
   %101 = call ptr @rb_string_value_cstr(ptr noundef nonnull %6) #9
   %102 = load i64, ptr %6, align 8, !tbaa !17
@@ -1440,12 +1434,12 @@ RSTRING_PTR.exit.i34.i:                           ; preds = %107, %100
 
 obj_to_asn1obj.exit.i:                            ; preds = %116, %RSTRING_PTR.exit.i34.i
   %.011.i.i = phi ptr [ %117, %116 ], [ %108, %RSTRING_PTR.exit.i34.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %obj_to_asn1null.exit.i
 
 121:                                              ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @ossl_time_split(i64 noundef %26, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %122 = load i64, ptr %4, align 8, !tbaa !17
   %123 = load i32, ptr %5, align 4, !tbaa !25
@@ -1459,13 +1453,13 @@ obj_to_asn1obj.exit.i:                            ; preds = %116, %RSTRING_PTR.e
   unreachable
 
 obj_to_asn1utime.exit.i:                          ; preds = %121
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %obj_to_asn1null.exit.i
 
 127:                                              ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @ossl_time_split(i64 noundef %26, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %128 = load i64, ptr %2, align 8, !tbaa !17
   %129 = load i32, ptr %3, align 4, !tbaa !25
@@ -1479,8 +1473,8 @@ obj_to_asn1utime.exit.i:                          ; preds = %121
   unreachable
 
 obj_to_asn1gtime.exit.i:                          ; preds = %127
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %obj_to_asn1null.exit.i
 
 133:                                              ; preds = %23, %23
@@ -1643,13 +1637,13 @@ RSTRING_PTR.exit23:                               ; preds = %180, %184
 196:                                              ; preds = %192, %19
   %.sink = phi i64 [ %195, %192 ], [ %22, %19 ]
   %197 = call fastcc i64 @to_der_internal(i64 noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %.sink)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i64 %197
 }
 
@@ -1689,11 +1683,11 @@ rb_array_len.exit.us.thread:                      ; preds = %.split.us
   br i1 %20, label %.thread, label %.loopexit
 
 .thread:                                          ; preds = %rb_array_len.exit.us.thread
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %rb_array_const_ptr.exit.us
 
 21:                                               ; preds = %rb_array_len.exit.us
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %22 = load ptr, ptr %13, align 8, !tbaa !30
   br label %rb_array_const_ptr.exit.us
 
@@ -1714,7 +1708,7 @@ rb_array_const_ptr.exit.us:                       ; preds = %.thread, %21
   %30 = call i64 @rb_string_value(ptr noundef nonnull %2) #9
   %31 = load i64, ptr %2, align 8, !tbaa !17
   %32 = call i64 @rb_str_append(i64 noundef %10, i64 noundef %31) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %33 = add nuw nsw i64 %.015.us, 1
   br label %.split.us, !llvm.loop !73
 
@@ -1737,11 +1731,11 @@ rb_array_len.exit.thread:                         ; preds = %.split
   br i1 %40, label %.thread34, label %.loopexit
 
 .thread34:                                        ; preds = %rb_array_len.exit.thread
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %rb_array_const_ptr.exit
 
 41:                                               ; preds = %rb_array_len.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %42 = load ptr, ptr %13, align 8, !tbaa !30
   br label %rb_array_const_ptr.exit
 
@@ -1755,7 +1749,7 @@ rb_array_const_ptr.exit:                          ; preds = %.thread34, %41
   %46 = call i64 @rb_string_value(ptr noundef nonnull %2) #9
   %47 = load i64, ptr %2, align 8, !tbaa !17
   %48 = call i64 @rb_str_append(i64 noundef %10, i64 noundef %47) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %49 = add nuw nsw i64 %.015, 1
   br label %.split, !llvm.loop !75
 
@@ -1786,7 +1780,7 @@ rb_array_len.exit21:                              ; preds = %52, %55
   unreachable
 
 60:                                               ; preds = %rb_array_len.exit21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %rb_array_len.exit, %rb_array_len.exit.thread, %rb_array_len.exit.us, %rb_array_len.exit.us.thread, %60
@@ -2232,7 +2226,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %3
   ret i64 %6
 }
 
-declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_asn1obj_s_register(i64 %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #0 {
@@ -2303,7 +2297,7 @@ RSTRING_PTR.exit8:                                ; preds = %RSTRING_PTR.exit4, 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_asn1obj_get_sn(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load i64, ptr @sivVALUE, align 8, !tbaa !17
   %4 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %3) #9
   store i64 %4, ptr %2, align 8, !tbaa !17
@@ -2319,14 +2313,14 @@ define internal i64 @ossl_asn1obj_get_sn(i64 noundef %0) #0 {
 
 10:                                               ; preds = %7, %1
   %.0 = phi i64 [ %9, %7 ], [ 4, %1 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_asn1obj_get_ln(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load i64, ptr @sivVALUE, align 8, !tbaa !17
   %4 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %3) #9
   store i64 %4, ptr %2, align 8, !tbaa !17
@@ -2342,7 +2336,7 @@ define internal i64 @ossl_asn1obj_get_ln(i64 noundef %0) #0 {
 
 10:                                               ; preds = %7, %1
   %.0 = phi i64 [ %9, %7 ], [ 4, %1 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -2350,10 +2344,10 @@ define internal i64 @ossl_asn1obj_get_ln(i64 noundef %0) #0 {
 define internal i64 @ossl_asn1obj_get_oid(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i64, ptr @sivVALUE, align 8, !tbaa !17
   %5 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %4) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %5, ptr %2, align 8, !tbaa !17
   %6 = call ptr @rb_string_value_cstr(ptr noundef nonnull %2) #9
   %7 = load i64, ptr %2, align 8, !tbaa !17
@@ -2401,7 +2395,7 @@ RSTRING_PTR.exit.i:                               ; preds = %12, %1
 
 obj_to_asn1obj.exit:                              ; preds = %RSTRING_PTR.exit.i, %21
   %.011.i = phi ptr [ %22, %21 ], [ %13, %RSTRING_PTR.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %26 = ptrtoint ptr %.011.i to i64
   %27 = call i64 @rb_protect(ptr noundef nonnull @asn1obj_get_oid_i, i64 noundef %26, ptr noundef nonnull %3) #9
   call void @ASN1_OBJECT_free(ptr noundef nonnull %.011.i) #9
@@ -2414,11 +2408,11 @@ obj_to_asn1obj.exit:                              ; preds = %RSTRING_PTR.exit.i,
   unreachable
 
 30:                                               ; preds = %obj_to_asn1obj.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %27
 }
 
-declare void @rb_define_alias(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @rb_define_alias(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_asn1obj_eq(i64 noundef %0, i64 noundef %1) #0 {
@@ -2444,28 +2438,28 @@ define internal i64 @ossl_asn1eoc_to_der(i64 %0) #0 {
   ret i64 %2
 }
 
-declare i64 @rb_hash_new() local_unnamed_addr #4
+declare i64 @rb_hash_new() local_unnamed_addr #3
 
-declare i64 @rb_hash_aset(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare i64 @rb_hash_aset(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i64 @rb_int2big(i64 noundef) local_unnamed_addr #4
+declare i64 @rb_int2big(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold noreturn
-declare void @rb_out_of_int(i64 noundef) local_unnamed_addr #5
+declare void @rb_out_of_int(i64 noundef) local_unnamed_addr #4
 
-declare i64 @rb_fix2int(i64 noundef) local_unnamed_addr #4
+declare i64 @rb_fix2int(i64 noundef) local_unnamed_addr #3
 
-declare i64 @rb_num2int(i64 noundef) local_unnamed_addr #4
+declare i64 @rb_num2int(i64 noundef) local_unnamed_addr #3
 
-declare i64 @rb_num2long(i64 noundef) local_unnamed_addr #4
+declare i64 @rb_num2long(i64 noundef) local_unnamed_addr #3
 
-declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i64 @ossl_to_der_if_possible(i64 noundef) local_unnamed_addr #4
+declare i64 @ossl_to_der_if_possible(i64 noundef) local_unnamed_addr #3
 
-declare i64 @rb_str_new_frozen(i64 noundef) local_unnamed_addr #4
+declare i64 @rb_str_new_frozen(i64 noundef) local_unnamed_addr #3
 
-declare i64 @rb_string_value(ptr noundef) local_unnamed_addr #4
+declare i64 @rb_string_value(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @ossl_asn1_decode0(ptr noundef nonnull captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #0 {
@@ -2490,12 +2484,12 @@ define internal fastcc i64 @ossl_asn1_decode0(ptr noundef nonnull captures(none)
   %25 = alloca i64, align 8
   %26 = alloca i32, align 4
   %27 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i64 0, ptr %25, align 8, !tbaa !17
   %28 = load i64, ptr %2, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %29 = load ptr, ptr %0, align 8, !tbaa !37
   store ptr %29, ptr %24, align 8, !tbaa !37
   %30 = call i32 @ASN1_get_object(ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %27, i64 noundef %1) #9
@@ -2650,7 +2644,7 @@ ossl_asn1_class2sym.exit:                         ; preds = %rb_long2num_inline.
   %102 = sub nsw i64 %1, %51
   %103 = load i64, ptr %25, align 8, !tbaa !17
   %104 = load i32, ptr %26, align 4, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 %101, ptr %18, align 8, !tbaa !17
   %105 = icmp eq i32 %30, 33
   %106 = call i64 @rb_ary_new() #9
@@ -2665,7 +2659,7 @@ ossl_asn1_class2sym.exit:                         ; preds = %rb_long2num_inline.
 110:                                              ; preds = %.lr.ph, %134
   %.041.i119 = phi i64 [ %107, %.lr.ph ], [ %114, %134 ]
   %.1118 = phi i64 [ 0, %.lr.ph ], [ %113, %134 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i64 0, ptr %19, align 8, !tbaa !17
   %111 = call fastcc i64 @ossl_asn1_decode0(ptr noundef nonnull %0, i64 noundef %.041.i119, ptr noundef %18, i32 noundef %109, i32 noundef range(i32 0, 2) %4, ptr noundef %19)
   %112 = load i64, ptr %19, align 8, !tbaa !17
@@ -2711,12 +2705,12 @@ ossl_asn1_tag.exit:                               ; preds = %123, %125
   br i1 %133, label %.thread, label %134
 
 .thread:                                          ; preds = %129
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %.loopexit
 
 134:                                              ; preds = %110, %ossl_asn1_tag.exit, %129
   %135 = call i64 @rb_ary_push(i64 noundef %106, i64 noundef %111) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %136 = icmp sgt i64 %114, 0
   br i1 %136, label %110, label %.loopexit
 
@@ -2733,7 +2727,7 @@ ossl_asn1_tag.exit:                               ; preds = %123, %125
   ]
 
 140:                                              ; preds = %139
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i64 %106, ptr %20, align 16, !tbaa !17
   %141 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 33, ptr %141, align 8, !tbaa !17
@@ -2755,11 +2749,11 @@ ossl_asn1_tag.exit:                               ; preds = %123, %125
 rbimpl_intern_const.exit94:                       ; preds = %.lr.ph.i92, %140
   %.lcssa.i91 = phi i64 [ %.pr.i88, %140 ], [ %145, %.lr.ph.i92 ]
   %146 = call i64 @rb_funcallv_public(i64 noundef %144, i64 noundef %.lcssa.i91, i32 noundef 4, ptr noundef nonnull %20) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %int_ossl_asn1_decode0_cons.exit
 
 147:                                              ; preds = %139
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i64 %106, ptr %21, align 16, !tbaa !17
   %148 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 35, ptr %148, align 8, !tbaa !17
@@ -2781,11 +2775,11 @@ rbimpl_intern_const.exit94:                       ; preds = %.lr.ph.i92, %140
 rbimpl_intern_const.exit87:                       ; preds = %.lr.ph.i85, %147
   %.lcssa.i84 = phi i64 [ %.pr.i81, %147 ], [ %152, %.lr.ph.i85 ]
   %153 = call i64 @rb_funcallv_public(i64 noundef %151, i64 noundef %.lcssa.i84, i32 noundef 4, ptr noundef nonnull %21) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %int_ossl_asn1_decode0_cons.exit
 
 154:                                              ; preds = %139
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i64 %106, ptr %22, align 16, !tbaa !17
   %155 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %156 = sext i32 %104 to i64
@@ -2810,11 +2804,11 @@ rbimpl_intern_const.exit87:                       ; preds = %.lr.ph.i85, %147
 rbimpl_intern_const.exit80:                       ; preds = %.lr.ph.i78, %154
   %.lcssa.i77 = phi i64 [ %.pr.i74, %154 ], [ %162, %.lr.ph.i78 ]
   %163 = call i64 @rb_funcallv_public(i64 noundef %161, i64 noundef %.lcssa.i77, i32 noundef 4, ptr noundef nonnull %22) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %int_ossl_asn1_decode0_cons.exit
 
 164:                                              ; preds = %.loopexit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i64 %106, ptr %23, align 16, !tbaa !17
   %165 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %166 = sext i32 %104 to i64
@@ -2837,7 +2831,7 @@ rbimpl_intern_const.exit80:                       ; preds = %.lr.ph.i78, %154
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %164
   %.lcssa.i = phi i64 [ %.pr.i, %164 ], [ %171, %.lr.ph.i ]
   %172 = call i64 @rb_funcallv_public(i64 noundef %170, i64 noundef %.lcssa.i, i32 noundef 3, ptr noundef nonnull %23) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %int_ossl_asn1_decode0_cons.exit
 
 int_ossl_asn1_decode0_cons.exit:                  ; preds = %rbimpl_intern_const.exit, %rbimpl_intern_const.exit80, %rbimpl_intern_const.exit87, %rbimpl_intern_const.exit94
@@ -2846,7 +2840,7 @@ int_ossl_asn1_decode0_cons.exit:                  ; preds = %rbimpl_intern_const
   %. = select i1 %105, i64 20, i64 0
   %174 = call i64 @rb_ivar_set(i64 noundef %.0.i68, i64 noundef %173, i64 noundef %.) #9
   %175 = load i64, ptr %18, align 8, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %176 = add nsw i64 %.2, %51
   %.pr = load i64, ptr %25, align 8, !tbaa !17
   br label %333
@@ -2946,8 +2940,8 @@ decode_bool.exit.i:                               ; preds = %209
 
 217:                                              ; preds = %190
   %218 = add nsw i64 %180, %51
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4, !tbaa !25
   store ptr %186, ptr %14, align 8, !tbaa !37
   %219 = call ptr @d2i_ASN1_INTEGER(ptr noundef null, ptr noundef nonnull %14, i64 noundef %218) #9
@@ -2972,13 +2966,13 @@ decode_bool.exit.i:                               ; preds = %209
   unreachable
 
 decode_int.exit.i:                                ; preds = %222
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %293
 
 227:                                              ; preds = %190
   %228 = add nsw i64 %180, %51
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %186, ptr %13, align 8, !tbaa !37
   %229 = call ptr @d2i_ASN1_BIT_STRING(ptr noundef null, ptr noundef nonnull %13, i64 noundef %228) #9
   %.not.i70.i = icmp eq ptr %229, null
@@ -3000,7 +2994,7 @@ decode_bstr.exit.i:                               ; preds = %227
   %238 = load ptr, ptr %237, align 8, !tbaa !14
   %239 = call i64 @rb_str_new(ptr noundef %238, i64 noundef %236) #9
   call void @ASN1_BIT_STRING_free(ptr noundef nonnull %229) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %240 = shl i64 %234, 1
   %241 = and i64 %240, 14
   %242 = or disjoint i64 %241, 1
@@ -3009,7 +3003,7 @@ decode_bstr.exit.i:                               ; preds = %227
 
 244:                                              ; preds = %190
   %245 = add nsw i64 %180, %51
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %186, ptr %12, align 8, !tbaa !37
   %246 = call ptr @d2i_ASN1_NULL(ptr noundef null, ptr noundef nonnull %12, i64 noundef %245) #9
   %.not.i71.i = icmp eq ptr %246, null
@@ -3022,13 +3016,13 @@ decode_bstr.exit.i:                               ; preds = %227
 
 decode_null.exit.i:                               ; preds = %244
   call void @ASN1_NULL_free(ptr noundef nonnull %246) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %293
 
 249:                                              ; preds = %190
   %250 = add nsw i64 %180, %51
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !25
   store ptr %186, ptr %10, align 8, !tbaa !37
   %251 = call ptr @d2i_ASN1_ENUMERATED(ptr noundef null, ptr noundef nonnull %10, i64 noundef %250) #9
@@ -3053,13 +3047,13 @@ decode_null.exit.i:                               ; preds = %244
   unreachable
 
 decode_enum.exit.i:                               ; preds = %254
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %293
 
 259:                                              ; preds = %190
   %260 = add nsw i64 %180, %51
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %186, ptr %9, align 8, !tbaa !37
   %261 = call ptr @d2i_ASN1_OBJECT(ptr noundef null, ptr noundef nonnull %9, i64 noundef %260) #9
   %.not.i74.i = icmp eq ptr %261, null
@@ -3101,13 +3095,13 @@ decode_enum.exit.i:                               ; preds = %254
 
 decode_obj.exit.i:                                ; preds = %274, %266
   %.0.i.i = phi i64 [ %268, %266 ], [ %276, %274 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %293
 
 277:                                              ; preds = %190, %190
   %278 = add nsw i64 %180, %51
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !25
   store ptr %186, ptr %7, align 8, !tbaa !37
   %279 = call ptr @d2i_ASN1_TIME(ptr noundef null, ptr noundef nonnull %7, i64 noundef %278) #9
@@ -3132,8 +3126,8 @@ decode_obj.exit.i:                                ; preds = %274, %266
   unreachable
 
 decode_time.exit.i:                               ; preds = %282
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %293
 
 287:                                              ; preds = %190
@@ -3190,7 +3184,7 @@ decode_time.exit.i:                               ; preds = %282
   %310 = getelementptr inbounds [31 x %struct.ossl_asn1_info_t], ptr @ossl_asn1_info, i64 0, i64 %299, i32 1
   %311 = load ptr, ptr %310, align 8, !tbaa !91
   %312 = load i64, ptr %311, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 %.0.i70, ptr %16, align 16, !tbaa !17
   %313 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %314 = shl nsw i64 %299, 1
@@ -3213,7 +3207,7 @@ decode_time.exit.i:                               ; preds = %282
 .loopexit.i:                                      ; preds = %.lr.ph.i82.i, %309
   %.lcssa.i81.i = phi i64 [ %.pr.i79.i, %309 ], [ %318, %.lr.ph.i82.i ]
   %319 = call i64 @rb_funcallv_public(i64 noundef %312, i64 noundef %.lcssa.i81.i, i32 noundef 4, ptr noundef nonnull %16) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %320 = icmp eq i32 %185, 3
   br i1 %320, label %rb_long2num_inline.exit.i, label %int_ossl_asn1_decode0_prim.exit
 
@@ -3223,7 +3217,7 @@ rb_long2num_inline.exit.i:                        ; preds = %.loopexit.i
   br label %int_ossl_asn1_decode0_prim.exit
 
 ._crit_edge.i:                                    ; preds = %300, %293
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 %.0.i70, ptr %17, align 16, !tbaa !17
   %323 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %324 = shl nsw i64 %299, 1
@@ -3245,7 +3239,7 @@ rb_long2num_inline.exit.i:                        ; preds = %.loopexit.i
 rbimpl_intern_const.exit91.i:                     ; preds = %.lr.ph.i89.i, %._crit_edge.i
   %.lcssa.i88.i = phi i64 [ %.pr.i86.i, %._crit_edge.i ], [ %328, %.lr.ph.i89.i ]
   %329 = call i64 @rb_funcallv_public(i64 noundef %327, i64 noundef %.lcssa.i88.i, i32 noundef 3, ptr noundef nonnull %17) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %int_ossl_asn1_decode0_prim.exit
 
 int_ossl_asn1_decode0_prim.exit:                  ; preds = %.thread.i, %.loopexit.i, %rb_long2num_inline.exit.i, %rbimpl_intern_const.exit91.i
@@ -3276,28 +3270,28 @@ int_ossl_asn1_decode0_prim.exit:                  ; preds = %.thread.i, %.loopex
 
 339:                                              ; preds = %335, %333
   store i64 %.0104, ptr %2, align 8, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   ret i64 %.045
 }
 
-declare i32 @ASN1_get_object(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @ASN1_get_object(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i64 @rb_ary_push(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare i64 @rb_ary_push(i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i64 @rb_yield(i64 noundef) local_unnamed_addr #4
+declare i64 @rb_yield(i64 noundef) local_unnamed_addr #3
 
-declare i64 @rb_attr_get(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare i64 @rb_attr_get(i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i64 @rb_funcallv_public(i64 noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i64 @rb_funcallv_public(i64 noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i64 @rb_ivar_set(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare i64 @rb_ivar_set(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @d2i_ASN1_INTEGER(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @d2i_ASN1_INTEGER(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i64 @rb_protect(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i64 @rb_protect(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @asn1integer_to_num_i(i64 noundef %0) #0 {
@@ -3340,40 +3334,40 @@ asn1integer_to_num.exit:                          ; preds = %13
   ret i64 %16
 }
 
-declare void @ASN1_INTEGER_free(ptr noundef) local_unnamed_addr #4
+declare void @ASN1_INTEGER_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
-declare void @rb_jump_tag(i32 noundef) local_unnamed_addr #3
+declare void @rb_jump_tag(i32 noundef) local_unnamed_addr #2
 
-declare ptr @d2i_ASN1_BIT_STRING(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @d2i_ASN1_BIT_STRING(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @ASN1_BIT_STRING_free(ptr noundef) local_unnamed_addr #4
+declare void @ASN1_BIT_STRING_free(ptr noundef) local_unnamed_addr #3
 
-declare ptr @d2i_ASN1_NULL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @d2i_ASN1_NULL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @ASN1_NULL_free(ptr noundef) local_unnamed_addr #4
+declare void @ASN1_NULL_free(ptr noundef) local_unnamed_addr #3
 
-declare ptr @d2i_ASN1_ENUMERATED(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @d2i_ASN1_ENUMERATED(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @ASN1_ENUMERATED_free(ptr noundef) local_unnamed_addr #4
+declare void @ASN1_ENUMERATED_free(ptr noundef) local_unnamed_addr #3
 
-declare ptr @d2i_ASN1_OBJECT(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @d2i_ASN1_OBJECT(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #4
+declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #3
 
-declare void @ASN1_OBJECT_free(ptr noundef) local_unnamed_addr #4
+declare void @ASN1_OBJECT_free(ptr noundef) local_unnamed_addr #3
 
-declare ptr @OBJ_nid2sn(i32 noundef) local_unnamed_addr #4
+declare ptr @OBJ_nid2sn(i32 noundef) local_unnamed_addr #3
 
-declare ptr @BIO_new(ptr noundef) local_unnamed_addr #4
+declare ptr @BIO_new(ptr noundef) local_unnamed_addr #3
 
-declare ptr @BIO_s_mem() local_unnamed_addr #4
+declare ptr @BIO_s_mem() local_unnamed_addr #3
 
-declare i32 @i2a_ASN1_OBJECT(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @i2a_ASN1_OBJECT(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i64 @ossl_membio2str(ptr noundef) local_unnamed_addr #4
+declare i64 @ossl_membio2str(ptr noundef) local_unnamed_addr #3
 
-declare ptr @d2i_ASN1_TIME(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @d2i_ASN1_TIME(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @asn1time_to_time_i(i64 noundef %0) #0 {
@@ -3382,9 +3376,9 @@ define internal i64 @asn1time_to_time_i(i64 noundef %0) #0 {
   ret i64 %3
 }
 
-declare void @ASN1_TIME_free(ptr noundef) local_unnamed_addr #4
+declare void @ASN1_TIME_free(ptr noundef) local_unnamed_addr #3
 
-declare i64 @rb_obj_is_kind_of(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare i64 @rb_obj_is_kind_of(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i32 @ossl_asn1_default_tag(i64 noundef %0) unnamed_addr #0 {
@@ -3528,7 +3522,7 @@ ossl_asn1_tag.exit:                               ; preds = %31, %33
   %.0.i.i = phi i64 [ %32, %31 ], [ %34, %33 ]
   %35 = trunc i64 %.0.i.i to i32
   %36 = tail call fastcc i32 @ossl_asn1_default_tag(i64 noundef %0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %37 = inttoptr i64 %3 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load i64, ptr %38, align 8, !tbaa !38
@@ -3646,66 +3640,66 @@ RSTRING_PTR.exit59:                               ; preds = %RSTRING_PTR.exit55,
 
 87:                                               ; preds = %.sink.split, %RSTRING_PTR.exit51, %RSTRING_PTR.exit59
   %.0 = phi i64 [ %73, %RSTRING_PTR.exit59 ], [ %55, %RSTRING_PTR.exit51 ], [ %.0.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.0
 }
 
-declare i32 @i2d_ASN1_TYPE(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @i2d_ASN1_TYPE(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @ASN1_TYPE_free(ptr noundef) local_unnamed_addr #4
+declare void @ASN1_TYPE_free(ptr noundef) local_unnamed_addr #3
 
-declare i64 @ossl_str_new(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i64 @ossl_str_new(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @rb_str_set_len(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare void @rb_str_set_len(i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i64 @rb_str_drop_bytes(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare i64 @rb_str_drop_bytes(i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i64 @rb_hash_lookup(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare i64 @rb_hash_lookup(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @rb_class_superclass(i64 noundef) local_unnamed_addr #6
+declare i64 @rb_class_superclass(i64 noundef) local_unnamed_addr #5
 
-declare i32 @ASN1_object_size(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @ASN1_object_size(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @ASN1_put_object(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @ASN1_put_object(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @ASN1_put_eoc(ptr noundef) local_unnamed_addr #4
+declare i32 @ASN1_put_eoc(ptr noundef) local_unnamed_addr #3
 
-declare void @ASN1_STRING_free(ptr noundef) local_unnamed_addr #4
+declare void @ASN1_STRING_free(ptr noundef) local_unnamed_addr #3
 
-declare ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @ASN1_TYPE_set(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @ASN1_TYPE_set(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @ASN1_BIT_STRING_new() local_unnamed_addr #4
+declare ptr @ASN1_BIT_STRING_new() local_unnamed_addr #3
 
-declare i32 @ASN1_BIT_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @ASN1_BIT_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @ASN1_NULL_new() local_unnamed_addr #4
+declare ptr @ASN1_NULL_new() local_unnamed_addr #3
 
-declare ptr @ASN1_STRING_new() local_unnamed_addr #4
+declare ptr @ASN1_STRING_new() local_unnamed_addr #3
 
-declare i32 @ASN1_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @ASN1_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @rb_string_value_cstr(ptr noundef) local_unnamed_addr #4
+declare ptr @rb_string_value_cstr(ptr noundef) local_unnamed_addr #3
 
-declare ptr @OBJ_txt2obj(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @OBJ_txt2obj(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @ASN1_UTCTIME_adj(ptr noundef, i64 noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @ASN1_UTCTIME_adj(ptr noundef, i64 noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @ASN1_GENERALIZEDTIME_adj(ptr noundef, i64 noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @ASN1_GENERALIZEDTIME_adj(ptr noundef, i64 noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i64 @ossl_to_der(i64 noundef) local_unnamed_addr #4
+declare i64 @ossl_to_der(i64 noundef) local_unnamed_addr #3
 
-declare i64 @rb_convert_type(i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i64 @rb_convert_type(i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i64 @rb_str_append(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare i64 @rb_str_append(i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @OBJ_create(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @OBJ_create(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @OBJ_txt2nid(ptr noundef) local_unnamed_addr #4
+declare i32 @OBJ_txt2nid(ptr noundef) local_unnamed_addr #3
 
-declare ptr @OBJ_nid2ln(i32 noundef) local_unnamed_addr #4
+declare ptr @OBJ_nid2ln(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @asn1obj_get_oid_i(i64 noundef %0) #0 {
@@ -3786,13 +3780,19 @@ RSTRING_PTR.exit23._crit_edge:                    ; preds = %RSTRING_PTR.exit23
   ret i64 %3
 }
 
-declare i64 @rb_usascii_str_new_static(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i64 @rb_usascii_str_new_static(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @OBJ_obj2txt(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @OBJ_obj2txt(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i64 @rb_str_resize(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare i64 @rb_str_resize(i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i64 @rb_str_equal(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare i64 @rb_str_equal(i64 noundef, i64 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
@@ -3801,12 +3801,12 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind }

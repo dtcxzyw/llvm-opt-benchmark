@@ -82,15 +82,9 @@ define hidden i64 @php_dom_get_namednodemap_length(ptr noundef readonly captures
   ret i64 %.013
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @xmlHashSize(ptr noundef) local_unnamed_addr #1
 
-declare i32 @xmlHashSize(ptr noundef) local_unnamed_addr #2
-
-declare ptr @dom_object_get_node(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @dom_object_get_node(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @dom_namednodemap_length_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
@@ -220,13 +214,13 @@ php_dom_follow_spec_doc_ref.exit.thread:          ; preds = %24, %php_dom_follow
   ret ptr %.0
 }
 
-declare ptr @xmlHashLookup(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @xmlHashLookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @create_notation(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @create_notation(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @php_dom_get_attribute_node(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @php_dom_get_attribute_node(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @xmlHasProp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @xmlHasProp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @php_dom_named_node_map_get_named_item_into_zval(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -248,12 +242,12 @@ define hidden void @php_dom_named_node_map_get_named_item_into_zval(ptr noundef 
   ret void
 }
 
-declare zeroext i1 @php_dom_create_object(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @php_dom_create_object(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_DOMNamedNodeMap_getNamedItem(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4, !tbaa !31
   %6 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %5, ptr noundef nonnull @.str, ptr noundef nonnull %3) #4
@@ -287,14 +281,14 @@ define hidden void @zim_DOMNamedNodeMap_getNamedItem(ptr noundef readonly captur
   br label %php_dom_named_node_map_get_named_item_into_zval.exit
 
 php_dom_named_node_map_get_named_item_into_zval.exit: ; preds = %21, %18, %8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare i32 @zend_parse_parameters(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @zend_parse_parameters(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #3
+declare void @llvm.assume(i1 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @php_dom_named_node_map_get_item(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -350,7 +344,7 @@ define hidden ptr @php_dom_named_node_map_get_item(ptr noundef %0, i64 noundef %
   ret ptr %.016
 }
 
-declare ptr @php_dom_libxml_hash_iter(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @php_dom_libxml_hash_iter(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @php_dom_named_node_map_get_item_into_zval(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -423,7 +417,7 @@ php_dom_named_node_map_get_item.exit.thread:      ; preds = %13, %3, %7, %php_do
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_DOMNamedNodeMap_item(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4, !tbaa !31
@@ -540,15 +534,15 @@ php_dom_named_node_map_get_item.exit.thread.i:    ; preds = %php_dom_named_node_
   br label %php_dom_named_node_map_get_item_into_zval.exit
 
 php_dom_named_node_map_get_item_into_zval.exit:   ; preds = %php_dom_named_node_map_get_item.exit.thread.i, %45, %14, %16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare void @zend_wrong_parameters_count_error(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @zend_wrong_parameters_count_error(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_DOMNamedNodeMap_getNamedItemNS(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -556,12 +550,12 @@ define hidden void @zim_DOMNamedNodeMap_getNamedItemNS(ptr noundef readonly capt
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !70
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !70
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4, !tbaa !31
   %9 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %8, ptr noundef nonnull @.str.2, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %3) #4
@@ -638,14 +632,14 @@ define hidden void @zim_DOMNamedNodeMap_getNamedItemNS(ptr noundef readonly capt
   br label %.thread
 
 .thread:                                          ; preds = %14, %37, %22, %29, %44, %45, %11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare ptr @xmlHasNsProp(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @xmlHasNsProp(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_DOMNamedNodeMap_count(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
@@ -717,7 +711,7 @@ php_dom_get_namednodemap_length.exit:             ; preds = %.lr.ph.i, %6, %14, 
   ret void
 }
 
-declare void @zend_wrong_parameters_none_error() local_unnamed_addr #2
+declare void @zend_wrong_parameters_none_error() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_DOMNamedNodeMap_getIterator(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -739,14 +733,20 @@ define hidden void @zim_DOMNamedNodeMap_getIterator(ptr noundef %0, ptr noundef 
   ret void
 }
 
-declare i32 @zend_create_internal_iterator_zval(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @zend_create_internal_iterator_zval(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @zend_parse_arg_long_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @zend_parse_arg_long_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

@@ -301,12 +301,6 @@ declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 nound
 
 declare void @_ZN6google14FlagRegistererC1IjEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
@@ -512,7 +506,7 @@ __cxx_global_var_init.47.exit:                    ; preds = %__cxx_global_var_in
   %spec.select.i = select i1 %.not.i17, ptr @.str.55, ptr %86
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL16s_alsologtoemailE, i64 16), ptr @_ZN3fLSL16s_alsologtoemailE, align 16, !tbaa !20
   %87 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 %87, ptr %12, align 8, !tbaa !21
   %88 = icmp ugt i64 %87, 15
   br i1 %88, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
@@ -546,13 +540,13 @@ __cxx_global_var_init.53.exit:                    ; preds = %._crit_edge.i.i.i.i
   %96 = load ptr, ptr @_ZN3fLSL16s_alsologtoemailE, align 16, !tbaa !8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 %95
   store i8 0, ptr %97, align 1, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   store ptr @_ZN3fLSL16s_alsologtoemailE, ptr @_ZN3fLSL22FLAGS_noalsologtoemailB5cxx11E, align 8, !tbaa !22
   %98 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN3fLSL22FLAGS_noalsologtoemailB5cxx11E)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL16s_alsologtoemailE, i64 48), ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL16s_alsologtoemailE, i64 32), align 16, !tbaa !20
   %99 = load ptr, ptr @_ZN3fLSL16s_alsologtoemailE, align 16, !tbaa !8
   %100 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL16s_alsologtoemailE, i64 8), align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 %100, ptr %11, align 8, !tbaa !21
   %101 = icmp ugt i64 %100, 15
   br i1 %101, label %.noexc.i.i, label %._crit_edge.i.i.i
@@ -586,7 +580,7 @@ __cxx_global_var_init.56.exit:                    ; preds = %._crit_edge.i.i.i, 
   %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL16s_alsologtoemailE, i64 32), align 16, !tbaa !8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 %108
   store i8 0, ptr %110, align 1, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL16o_alsologtoemailE, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.7, ptr noundef nonnull @_ZN3fLSL16s_alsologtoemailE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN3fLSL16s_alsologtoemailE, i64 32))
   store ptr @_ZN3fLSL16s_alsologtoemailE, ptr @_ZN3fLSL16d_alsologtoemailE, align 8, !tbaa !3
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL16s_alsologtoemailE, i64 32), ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL16d_alsologtoemailE, i64 8), align 8, !tbaa !15
@@ -735,7 +729,7 @@ __cxx_global_var_init.103.exit:                   ; preds = %__cxx_global_var_in
   %spec.select.i27 = select i1 %.not.i26, ptr @.str.55, ptr %170
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL11s_logmailerE, i64 16), ptr @_ZN3fLSL11s_logmailerE, align 16, !tbaa !20
   %171 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i27) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 %171, ptr %10, align 8, !tbaa !21
   %172 = icmp ugt i64 %171, 15
   br i1 %172, label %.noexc.i.i.i29, label %._crit_edge.i.i.i.i28
@@ -769,13 +763,13 @@ __cxx_global_var_init.109.exit:                   ; preds = %._crit_edge.i.i.i.i
   %180 = load ptr, ptr @_ZN3fLSL11s_logmailerE, align 16, !tbaa !8
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 %179
   store i8 0, ptr %181, align 1, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   store ptr @_ZN3fLSL11s_logmailerE, ptr @_ZN3fLSL17FLAGS_nologmailerB5cxx11E, align 8, !tbaa !22
   %182 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN3fLSL17FLAGS_nologmailerB5cxx11E)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL11s_logmailerE, i64 48), ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL11s_logmailerE, i64 32), align 16, !tbaa !20
   %183 = load ptr, ptr @_ZN3fLSL11s_logmailerE, align 16, !tbaa !8
   %184 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL11s_logmailerE, i64 8), align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %184, ptr %9, align 8, !tbaa !21
   %185 = icmp ugt i64 %184, 15
   br i1 %185, label %.noexc.i.i31, label %._crit_edge.i.i.i30
@@ -809,7 +803,7 @@ __cxx_global_var_init.111.exit:                   ; preds = %._crit_edge.i.i.i30
   %193 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL11s_logmailerE, i64 32), align 16, !tbaa !8
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 %192
   store i8 0, ptr %194, align 1, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL11o_logmailerE, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.7, ptr noundef nonnull @_ZN3fLSL11s_logmailerE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN3fLSL11s_logmailerE, i64 32))
   store ptr @_ZN3fLSL11s_logmailerE, ptr @_ZN3fLSL11d_logmailerE, align 8, !tbaa !3
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL11s_logmailerE, i64 32), ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL11d_logmailerE, i64 8), align 8, !tbaa !15
@@ -858,7 +852,7 @@ __cxx_global_var_init.116.exit:                   ; preds = %__cxx_global_var_in
   %209 = phi ptr [ %203, %__cxx_global_var_init.116.exit ], [ @.str.55, %208 ], [ %205, %206 ]
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL9s_log_dirE, i64 16), ptr @_ZN3fLSL9s_log_dirE, align 16, !tbaa !20
   %210 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %209) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %210, ptr %8, align 8, !tbaa !21
   %211 = icmp ugt i64 %210, 15
   br i1 %211, label %.noexc.i.i.i35, label %._crit_edge.i.i.i.i34
@@ -892,13 +886,13 @@ __cxx_global_var_init.122.exit:                   ; preds = %._crit_edge.i.i.i.i
   %219 = load ptr, ptr @_ZN3fLSL9s_log_dirE, align 16, !tbaa !8
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 %218
   store i8 0, ptr %220, align 1, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store ptr @_ZN3fLSL9s_log_dirE, ptr @_ZN3fLSL15FLAGS_nolog_dirB5cxx11E, align 8, !tbaa !22
   %221 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN3fLSL15FLAGS_nolog_dirB5cxx11E)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL9s_log_dirE, i64 48), ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL9s_log_dirE, i64 32), align 16, !tbaa !20
   %222 = load ptr, ptr @_ZN3fLSL9s_log_dirE, align 16, !tbaa !8
   %223 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL9s_log_dirE, i64 8), align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %223, ptr %7, align 8, !tbaa !21
   %224 = icmp ugt i64 %223, 15
   br i1 %224, label %.noexc.i.i38, label %._crit_edge.i.i.i37
@@ -932,7 +926,7 @@ __cxx_global_var_init.124.exit:                   ; preds = %._crit_edge.i.i.i37
   %232 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL9s_log_dirE, i64 32), align 16, !tbaa !8
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 %231
   store i8 0, ptr %233, align 1, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL9o_log_dirE, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.7, ptr noundef nonnull @_ZN3fLSL9s_log_dirE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN3fLSL9s_log_dirE, i64 32))
   store ptr @_ZN3fLSL9s_log_dirE, ptr @_ZN3fLSL9d_log_dirE, align 8, !tbaa !3
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL9s_log_dirE, i64 32), ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL9d_log_dirE, i64 8), align 8, !tbaa !15
@@ -944,7 +938,7 @@ __cxx_global_var_init.124.exit:                   ; preds = %._crit_edge.i.i.i37
   %spec.select.i40 = select i1 %.not.i39, ptr @.str.55, ptr %236
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL10s_log_linkE, i64 16), ptr @_ZN3fLSL10s_log_linkE, align 16, !tbaa !20
   %237 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i40) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %237, ptr %6, align 8, !tbaa !21
   %238 = icmp ugt i64 %237, 15
   br i1 %238, label %.noexc.i.i.i42, label %._crit_edge.i.i.i.i41
@@ -978,13 +972,13 @@ __cxx_global_var_init.129.exit:                   ; preds = %._crit_edge.i.i.i.i
   %246 = load ptr, ptr @_ZN3fLSL10s_log_linkE, align 16, !tbaa !8
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 %245
   store i8 0, ptr %247, align 1, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr @_ZN3fLSL10s_log_linkE, ptr @_ZN3fLSL16FLAGS_nolog_linkB5cxx11E, align 8, !tbaa !22
   %248 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN3fLSL16FLAGS_nolog_linkB5cxx11E)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL10s_log_linkE, i64 48), ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL10s_log_linkE, i64 32), align 16, !tbaa !20
   %249 = load ptr, ptr @_ZN3fLSL10s_log_linkE, align 16, !tbaa !8
   %250 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL10s_log_linkE, i64 8), align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %250, ptr %5, align 8, !tbaa !21
   %251 = icmp ugt i64 %250, 15
   br i1 %251, label %.noexc.i.i44, label %._crit_edge.i.i.i43
@@ -1018,7 +1012,7 @@ __cxx_global_var_init.131.exit:                   ; preds = %._crit_edge.i.i.i43
   %259 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL10s_log_linkE, i64 32), align 16, !tbaa !8
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 %258
   store i8 0, ptr %260, align 1, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL10o_log_linkE, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.7, ptr noundef nonnull @_ZN3fLSL10s_log_linkE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN3fLSL10s_log_linkE, i64 32))
   store ptr @_ZN3fLSL10s_log_linkE, ptr @_ZN3fLSL10d_log_linkE, align 8, !tbaa !3
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL10s_log_linkE, i64 32), ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL10d_log_linkE, i64 8), align 8, !tbaa !15
@@ -1065,7 +1059,7 @@ __cxx_global_var_init.142.exit:                   ; preds = %__cxx_global_var_in
   %spec.select.i48 = select i1 %.not.i47, ptr @.str.55, ptr %278
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL18s_log_backtrace_atE, i64 16), ptr @_ZN3fLSL18s_log_backtrace_atE, align 16, !tbaa !20
   %279 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i48) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %279, ptr %4, align 8, !tbaa !21
   %280 = icmp ugt i64 %279, 15
   br i1 %280, label %.noexc.i.i.i50, label %._crit_edge.i.i.i.i49
@@ -1099,13 +1093,13 @@ __cxx_global_var_init.148.exit:                   ; preds = %._crit_edge.i.i.i.i
   %288 = load ptr, ptr @_ZN3fLSL18s_log_backtrace_atE, align 16, !tbaa !8
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 %287
   store i8 0, ptr %289, align 1, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr @_ZN3fLSL18s_log_backtrace_atE, ptr @_ZN3fLSL24FLAGS_nolog_backtrace_atB5cxx11E, align 8, !tbaa !22
   %290 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN3fLSL24FLAGS_nolog_backtrace_atB5cxx11E)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL18s_log_backtrace_atE, i64 48), ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL18s_log_backtrace_atE, i64 32), align 16, !tbaa !20
   %291 = load ptr, ptr @_ZN3fLSL18s_log_backtrace_atE, align 16, !tbaa !8
   %292 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL18s_log_backtrace_atE, i64 8), align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %292, ptr %3, align 8, !tbaa !21
   %293 = icmp ugt i64 %292, 15
   br i1 %293, label %.noexc.i.i52, label %._crit_edge.i.i.i51
@@ -1139,7 +1133,7 @@ __cxx_global_var_init.150.exit:                   ; preds = %._crit_edge.i.i.i51
   %301 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL18s_log_backtrace_atE, i64 32), align 16, !tbaa !8
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 %300
   store i8 0, ptr %302, align 1, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL18o_log_backtrace_atE, ptr noundef nonnull @.str.151, ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.7, ptr noundef nonnull @_ZN3fLSL18s_log_backtrace_atE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN3fLSL18s_log_backtrace_atE, i64 32))
   store ptr @_ZN3fLSL18s_log_backtrace_atE, ptr @_ZN3fLSL18d_log_backtrace_atE, align 8, !tbaa !3
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL18s_log_backtrace_atE, i64 32), ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL18d_log_backtrace_atE, i64 8), align 8, !tbaa !15
@@ -1186,7 +1180,7 @@ __cxx_global_var_init.161.exit:                   ; preds = %__cxx_global_var_in
   %spec.select.i56 = select i1 %.not.i55, ptr @.str.55, ptr %320
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL9s_vmoduleE, i64 16), ptr @_ZN3fLSL9s_vmoduleE, align 16, !tbaa !20
   %321 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i56) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %321, ptr %2, align 8, !tbaa !21
   %322 = icmp ugt i64 %321, 15
   br i1 %322, label %.noexc.i.i.i58, label %._crit_edge.i.i.i.i57
@@ -1220,13 +1214,13 @@ __cxx_global_var_init.167.exit:                   ; preds = %._crit_edge.i.i.i.i
   %330 = load ptr, ptr @_ZN3fLSL9s_vmoduleE, align 16, !tbaa !8
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 %329
   store i8 0, ptr %331, align 1, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr @_ZN3fLSL9s_vmoduleE, ptr @_ZN3fLSL15FLAGS_novmoduleB5cxx11E, align 8, !tbaa !22
   %332 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN3fLSL15FLAGS_novmoduleB5cxx11E)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL9s_vmoduleE, i64 48), ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL9s_vmoduleE, i64 32), align 16, !tbaa !20
   %333 = load ptr, ptr @_ZN3fLSL9s_vmoduleE, align 16, !tbaa !8
   %334 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL9s_vmoduleE, i64 8), align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 %334, ptr %1, align 8, !tbaa !21
   %335 = icmp ugt i64 %334, 15
   br i1 %335, label %.noexc.i.i60, label %._crit_edge.i.i.i59
@@ -1260,7 +1254,7 @@ __cxx_global_var_init.169.exit:                   ; preds = %._crit_edge.i.i.i59
   %343 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL9s_vmoduleE, i64 32), align 16, !tbaa !8
   %344 = getelementptr inbounds nuw i8, ptr %343, i64 %342
   store i8 0, ptr %344, align 1, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL9o_vmoduleE, ptr noundef nonnull @.str.170, ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.7, ptr noundef nonnull @_ZN3fLSL9s_vmoduleE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN3fLSL9s_vmoduleE, i64 32))
   store ptr @_ZN3fLSL9s_vmoduleE, ptr @_ZN3fLSL9d_vmoduleE, align 8, !tbaa !3
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL9s_vmoduleE, i64 32), ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL9d_vmoduleE, i64 8), align 8, !tbaa !15
@@ -1288,6 +1282,12 @@ __cxx_global_var_init.174.exit:                   ; preds = %__cxx_global_var_in
   call void @_ZN6google14FlagRegistererC1IbEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLBL22o_symbolize_stacktraceE, ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.179, ptr noundef nonnull @.str.7, ptr noundef nonnull @_ZN3fLB26FLAGS_symbolize_stacktraceE, ptr noundef nonnull @_ZN3fLBL28FLAGS_nosymbolize_stacktraceE)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #10

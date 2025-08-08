@@ -48,15 +48,9 @@ define i32 @CountLiterals() local_unnamed_addr #0 {
   ret i32 %.0.lcssa
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @IterCubeSetStart(...) local_unnamed_addr #1
 
-declare ptr @IterCubeSetStart(...) local_unnamed_addr #2
-
-declare ptr @IterCubeSetNext(...) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @IterCubeSetNext(...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @CountLiteralsCheck() local_unnamed_addr #0 {
@@ -119,10 +113,10 @@ define i32 @CountLiteralsCheck() local_unnamed_addr #0 {
   ret i32 %.016.lcssa35
 }
 
-declare i32 @GetVar(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @GetVar(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @CountQCost() local_unnamed_addr #0 {
@@ -144,7 +138,7 @@ define i32 @CountQCost() local_unnamed_addr #0 {
   ret i32 %.05.lcssa
 }
 
-declare i32 @ComputeQCostBits(ptr noundef) local_unnamed_addr #2
+declare i32 @ComputeQCostBits(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @WriteTableIntoFile(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -230,12 +224,12 @@ switch.lookup:                                    ; preds = %.lr.ph
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @WriteResultIntoFile(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.6)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %8
@@ -366,24 +360,30 @@ CountQCost.exit:                                  ; preds = %.lr.ph.i21, %CountL
 
 74:                                               ; preds = %CountQCost.exit, %5
   %.0 = phi i32 [ 1, %5 ], [ 0, %CountQCost.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #4
+declare i64 @time(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare ptr @asctime(ptr noundef) local_unnamed_addr #4
+declare ptr @asctime(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare ptr @localtime(ptr noundef) local_unnamed_addr #4
+declare ptr @localtime(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
@@ -392,10 +392,10 @@ declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i6
 declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nofree nounwind }
 attributes #6 = { nounwind }
 attributes #7 = { cold }

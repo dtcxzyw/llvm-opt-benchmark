@@ -102,8 +102,8 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %error.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %errorsize.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %error.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %errorsize.i)
   store i32 4, ptr %errorsize.i, align 4
   %delayed_error.i = getelementptr inbounds nuw i8, ptr %w, i64 96
   %1 = load i32, ptr %delayed_error.i, align 8
@@ -208,8 +208,8 @@ uv__stream_flush_write_queue.exit.i:              ; preds = %while.body.i.i, %if
   br label %uv__stream_connect.exit
 
 uv__stream_connect.exit:                          ; preds = %if.end.i, %if.end16.i, %uv__stream_flush_write_queue.exit.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %error.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %errorsize.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %error.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %errorsize.i)
   br label %if.end31
 
 if.end:                                           ; preds = %entry
@@ -218,9 +218,9 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buf.i)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %msg.i)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %cmsg.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %msg.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %cmsg.i)
   %flags.i = getelementptr inbounds i8, ptr %w, i64 -48
   %18 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %18, -1025
@@ -571,9 +571,9 @@ if.then107.i:                                     ; preds = %if.end103.i
   br label %uv__read.exit
 
 uv__read.exit:                                    ; preds = %while.cond.i, %land.lhs.true.i, %land.rhs5.i, %if.then.i26, %if.end49.i, %if.else51.i, %if.then59.i, %if.end70.i, %do.body78.i, %uv__stream_eof.exit.i, %if.then99.i, %if.then107.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buf.i)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %msg.i)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %cmsg.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %msg.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %cmsg.i)
   br label %if.end3
 
 if.end3:                                          ; preds = %uv__read.exit, %if.end
@@ -2177,10 +2177,10 @@ declare i32 @llvm.smin.i32(i32, i32) #10
 declare i64 @llvm.umin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

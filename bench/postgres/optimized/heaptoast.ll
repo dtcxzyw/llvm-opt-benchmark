@@ -27,26 +27,20 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @heap_toast_delete(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca [1600 x i64], align 16
   %5 = alloca [1600 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 12800, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 1600, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   call void @heap_deform_tuple(ptr noundef %1, ptr noundef %7, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   call void @toast_delete_external(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext %2) #8
-  call void @llvm.lifetime.end.p0(i64 1600, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 12800, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @heap_deform_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @heap_deform_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @toast_delete_external(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @toast_delete_external(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -56,12 +50,12 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
   %8 = alloca [1600 x i64], align 16
   %9 = alloca [1600 x %struct.ToastAttrInfo], align 16
   %10 = alloca %struct.ToastTupleContext, align 8
-  call void @llvm.lifetime.start.p0(i64 1600, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 1600, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 12800, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 12800, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 25600, ptr nonnull %9) #8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = and i32 %3, -17
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load ptr, ptr %12, align 8
@@ -309,33 +303,33 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
 145:                                              ; preds = %.critedge2, %116
   %.0 = phi ptr [ %122, %116 ], [ %1, %.critedge2 ]
   call void @toast_tuple_cleanup(ptr noundef nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 25600, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 12800, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 12800, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 1600, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 1600, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
-declare void @toast_tuple_init(ptr noundef) local_unnamed_addr #2
+declare void @toast_tuple_init(ptr noundef) local_unnamed_addr #1
 
-declare i64 @heap_compute_data_size(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @heap_compute_data_size(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @toast_tuple_find_biggest_attribute(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @toast_tuple_find_biggest_attribute(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @toast_tuple_try_compression(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @toast_tuple_try_compression(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @toast_tuple_externalize(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @toast_tuple_externalize(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare void @heap_fill_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @heap_fill_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @toast_tuple_cleanup(ptr noundef) local_unnamed_addr #2
+declare void @toast_tuple_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @toast_flatten_tuple(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -343,9 +337,9 @@ define dso_local ptr @toast_flatten_tuple(ptr noundef %0, ptr noundef %1) local_
   %4 = alloca [1664 x i8], align 16
   %5 = alloca [1664 x i8], align 16
   %6 = load i32, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(i64 13312, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 1664, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 1664, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @heap_deform_tuple(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %7 = sext i32 %6 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %5, i8 0, i64 %7, i1 false)
@@ -465,20 +459,20 @@ define dso_local ptr @toast_flatten_tuple(ptr noundef %0, ptr noundef %1) local_
   br i1 %exitcond47.not, label %._crit_edge41, label %.lr.ph40, !llvm.loop !8
 
 ._crit_edge41:                                    ; preds = %74, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 1664, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 1664, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 13312, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %29
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare ptr @detoast_external_attr(ptr noundef) local_unnamed_addr #2
+declare ptr @detoast_external_attr(ptr noundef) local_unnamed_addr #1
 
-declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @toast_flatten_tuple_to_datum(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -486,11 +480,11 @@ define dso_local noundef i64 @toast_flatten_tuple_to_datum(ptr noundef %0, i32 n
   %5 = alloca [1664 x i64], align 16
   %6 = alloca [1664 x i8], align 16
   %7 = alloca [1664 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = load i32, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 13312, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 1664, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 1664, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %1, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i16 -1, ptr %9, align 4
@@ -626,22 +620,22 @@ define dso_local noundef i64 @toast_flatten_tuple_to_datum(ptr noundef %0, i32 n
 
 ._crit_edge62:                                    ; preds = %73, %._crit_edge.thread
   %74 = ptrtoint ptr %46 to i64
-  call void @llvm.lifetime.end.p0(i64 1664, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 1664, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 13312, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %74
 }
 
-declare ptr @detoast_attr(ptr noundef) local_unnamed_addr #2
+declare ptr @detoast_attr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @toast_build_flattened_tuple(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1664 x i64], align 16
   %5 = alloca [1664 x ptr], align 16
   %6 = load i32, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 13312, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 13312, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = sext i32 %6 to i64
   %8 = shl nsw i64 %7, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr align 8 %1, i64 %8, i1 false)
@@ -716,8 +710,8 @@ define dso_local ptr @toast_build_flattened_tuple(ptr noundef %0, ptr noundef re
 
 ._crit_edge30:                                    ; preds = %.lr.ph29, %._crit_edge.thread, %._crit_edge
   %37 = phi ptr [ %10, %._crit_edge.thread ], [ %33, %._crit_edge ], [ %33, %.lr.ph29 ]
-  call void @llvm.lifetime.end.p0(i64 13312, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 13312, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %37
 }
 
@@ -727,15 +721,15 @@ define dso_local void @heap_fetch_toast_slice(ptr noundef %0, i32 noundef %1, i3
   %8 = alloca [3 x %struct.ScanKeyData], align 16
   %9 = alloca i32, align 4
   %10 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = add i32 %2, -1
   %14 = sext i32 %13 to i64
   %15 = udiv i64 %14, 1996
   %16 = trunc i64 %15 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %17 = call i32 @toast_open_indexes(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %7, ptr noundef nonnull %9) #8
   %18 = sext i32 %3 to i64
   %19 = udiv i64 %18, 1996
@@ -796,7 +790,7 @@ define dso_local void @heap_fetch_toast_slice(ptr noundef %0, i32 noundef %1, i3
 52:                                               ; preds = %.lr.ph, %106
   %53 = phi ptr [ %46, %.lr.ph ], [ %121, %106 ]
   %.083110 = phi i32 [ %21, %.lr.ph ], [ %120, %106 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %54 = call fastcc i64 @fastgetattr(ptr noundef %53, i32 noundef 2, ptr noundef %12, ptr noundef %10)
   %55 = trunc i64 %54 to i32
   %56 = call fastcc i64 @fastgetattr(ptr noundef %53, i32 noundef 3, ptr noundef %12, ptr noundef %10)
@@ -903,7 +897,7 @@ define dso_local void @heap_fetch_toast_slice(ptr noundef %0, i32 noundef %1, i3
   %119 = sext i32 %118 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %116, ptr nonnull align 1 %117, i64 %119, i1 false)
   %120 = add i32 %.083110, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %121 = call ptr @systable_getnext_ordered(ptr noundef %45, i32 noundef 1) #8
   %.not = icmp eq ptr %121, null
   br i1 %.not, label %._crit_edge, label %52, !llvm.loop !13
@@ -930,24 +924,24 @@ define dso_local void @heap_fetch_toast_slice(ptr noundef %0, i32 noundef %1, i3
   %131 = load ptr, ptr %7, align 8
   %132 = load i32, ptr %9, align 4
   call void @toast_close_indexes(ptr noundef %131, i32 noundef %132, i32 noundef 1) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
-declare i32 @toast_open_indexes(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @toast_open_indexes(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ScanKeyInit(ptr noundef, i16 noundef signext, i16 noundef zeroext, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare void @ScanKeyInit(ptr noundef, i16 noundef signext, i16 noundef zeroext, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @systable_beginscan_ordered(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @systable_beginscan_ordered(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @get_toast_snapshot() local_unnamed_addr #2
+declare ptr @get_toast_snapshot() local_unnamed_addr #1
 
-declare ptr @systable_getnext_ordered(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @systable_getnext_ordered(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc i64 @fastgetattr(ptr noundef nonnull %0, i32 noundef range(i32 2, 4) %1, ptr noundef %2, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %3) unnamed_addr #5 {
+define internal fastcc i64 @fastgetattr(ptr noundef nonnull %0, i32 noundef range(i32 2, 4) %1, ptr noundef %2, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %3) unnamed_addr #4 {
   store i8 0, ptr %3, align 1
   %5 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %5, align 8
@@ -1046,30 +1040,36 @@ fetch_att.exit:                                   ; preds = %43, %37, %34, %31, 
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #6
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
-declare void @systable_endscan_ordered(ptr noundef) local_unnamed_addr #2
+declare void @systable_endscan_ordered(ptr noundef) local_unnamed_addr #1
 
-declare void @toast_close_indexes(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @toast_close_indexes(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @nocachegetattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @nocachegetattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #8 = { nounwind }
 attributes #9 = { cold nounwind }

@@ -186,23 +186,23 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit112:         ; preds = %.noexc111, %_ZNSt6v
   br label %84
 
 ._crit_edge208:                                   ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit112
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %sext202 = shl i64 %12, 32
   %61 = ashr exact i64 %sext202, 32
   br label %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit
 
 _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i: ; preds = %84
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %62 = and i64 %12, 2147483647
   %63 = shl i64 %12, 2
   %64 = and i64 %63, 8589934588
-  %65 = tail call noalias ptr @malloc(i64 noundef %64) #19
+  %65 = tail call noalias ptr @malloc(i64 noundef %64) #18
   %66 = icmp eq ptr %65, null
   br i1 %66, label %67, label %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit
 
 67:                                               ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i
-  %68 = tail call ptr @__cxa_allocate_exception(i64 8) #18
+  %68 = tail call ptr @__cxa_allocate_exception(i64 8) #19
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %68, align 8, !tbaa !24
   invoke void @__cxa_throw(ptr nonnull %68, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #16
           to label %.noexc3.i unwind label %.body.thread
@@ -214,8 +214,8 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i: ; preds = %84
   %69 = landingpad { ptr, i32 }
           cleanup
   %70 = load ptr, ptr %5, align 8, !tbaa !21
-  tail call void @free(ptr noundef %70) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #18
+  tail call void @free(ptr noundef %70) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %197
 
 _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit: ; preds = %._crit_edge208, %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i
@@ -362,8 +362,8 @@ _ZN5Eigen12SparseMatrixIdLi0EiE7reserveINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvR
 
 _ZN5Eigen12SparseMatrixIdLi0EiE7reserveINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKT_RKNS5_10value_typeE.exit._crit_edge: ; preds = %_ZN5Eigen12SparseMatrixIdLi0EiE7reserveINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKT_RKNS5_10value_typeE.exit, %_ZN5Eigen12SparseMatrixIdLi0EiE7reserveINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKT_RKNS5_10value_typeE.exit.preheader
   %133 = load ptr, ptr %5, align 8, !tbaa !21
-  call void @free(ptr noundef %133) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #18
+  call void @free(ptr noundef %133) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i.i.i = icmp eq ptr %.sroa.0136.0, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %134
 
@@ -510,8 +510,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit118:                 ; preds = %140, %_ZNSt6vectorI
 .body:                                            ; preds = %144, %146, %184
   %.pn84.pn = phi { ptr, i32 } [ %147, %146 ], [ %145, %144 ], [ %185, %184 ]
   %196 = load ptr, ptr %5, align 8, !tbaa !21
-  call void @free(ptr noundef %196) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #18
+  call void @free(ptr noundef %196) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i.i.i121 = icmp eq ptr %.sroa.0136.0, null
   br i1 %.not.i.i.i121, label %_ZNSt6vectorIiSaIiEED2Ev.exit122, label %197
 
@@ -552,9 +552,6 @@ _ZNSt6vectorIiSaIiEED2Ev.exit126:                 ; preds = %203, %_ZNSt6vectorI
   resume { ptr, i32 } %.pn91.pn.pn
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE6resizeEll(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -571,16 +568,16 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE6resizeEll(pt
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !27
-  tail call void @free(ptr noundef %11) #18
+  tail call void @free(ptr noundef %11) #19
   %12 = shl i64 %2, 2
   %13 = add i64 %12, 4
-  %14 = tail call noalias ptr @malloc(i64 noundef %13) #19
+  %14 = tail call noalias ptr @malloc(i64 noundef %13) #18
   store ptr %14, ptr %10, align 8, !tbaa !27
   %.not6 = icmp eq ptr %14, null
   br i1 %.not6, label %15, label %17
 
 15:                                               ; preds = %9
-  %16 = tail call ptr @__cxa_allocate_exception(i64 8) #18
+  %16 = tail call ptr @__cxa_allocate_exception(i64 8) #19
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %16, align 8, !tbaa !24
   tail call void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #16
   unreachable
@@ -596,7 +593,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE6resizeEll(pt
   br i1 %.not7, label %22, label %21
 
 21:                                               ; preds = %18
-  tail call void @free(ptr noundef nonnull %20) #18
+  tail call void @free(ptr noundef nonnull %20) #19
   store ptr null, ptr %19, align 8, !tbaa !28
   %.pre = load i64, ptr %6, align 8, !tbaa !4
   br label %22
@@ -613,11 +610,8 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE6resizeEll(pt
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen12SparseMatrixIdLi0EiE6insertEll(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen12SparseMatrixIdLi0EiE6insertEll(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Eigen::CwiseNullaryOp", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !28
@@ -659,7 +653,7 @@ _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit: ; 
   br i1 %.not69, label %28, label %30
 
 28:                                               ; preds = %25
-  %29 = tail call ptr @__cxa_allocate_exception(i64 8) #18
+  %29 = tail call ptr @__cxa_allocate_exception(i64 8) #19
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %29, align 8, !tbaa !24
   tail call void @__cxa_throw(ptr nonnull %29, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #16
   unreachable
@@ -684,7 +678,7 @@ _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit: ; 
 
 37:                                               ; preds = %_ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit
   %38 = shl i64 %11, 2
-  %39 = tail call noalias ptr @malloc(i64 noundef %38) #19
+  %39 = tail call noalias ptr @malloc(i64 noundef %38) #18
   store ptr %39, ptr %5, align 8, !tbaa !28
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %41, label %.preheader
@@ -694,7 +688,7 @@ _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit: ; 
   br i1 %40, label %.lr.ph, label %.loopexit78
 
 41:                                               ; preds = %37
-  %42 = tail call ptr @__cxa_allocate_exception(i64 8) #18
+  %42 = tail call ptr @__cxa_allocate_exception(i64 8) #19
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %42, align 8, !tbaa !24
   tail call void @__cxa_throw(ptr nonnull %42, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #16
   unreachable
@@ -916,14 +910,14 @@ _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit: ; 
 
 158:                                              ; preds = %156
   tail call void @_ZN5Eigen8internal17CompressedStorageIdiE6resizeEld(ptr noundef nonnull align 8 dereferenceable(32) %51, i64 noundef %53, double noundef 0.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %160 = load i64, ptr %159, align 8, !tbaa !4
   store i64 %160, ptr %4, align 8, !tbaa !48, !alias.scope !50
   %161 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 2, ptr %161, align 4, !tbaa !55, !alias.scope !50
   call void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInnerVectorsINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIiEENS_5ArrayIiLin1ELi1ELi0ELin1ELi1EEEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %162
 
 162:                                              ; preds = %158, %156
@@ -936,33 +930,33 @@ _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: nounwind
-declare void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #6
+declare void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #5
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #7
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #6
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInnerVectorsINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInnerVectorsINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !28
   %5 = icmp eq ptr %4, null
@@ -972,7 +966,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInne
   br i1 %5, label %9, label %85
 
 9:                                                ; preds = %2
-  %10 = tail call noalias ptr @malloc(i64 noundef %8) #19
+  %10 = tail call noalias ptr @malloc(i64 noundef %8) #18
   store ptr %10, ptr %3, align 8, !tbaa !28
   %.not80 = icmp eq ptr %10, null
   br i1 %.not80, label %15, label %.preheader
@@ -988,7 +982,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInne
   br label %28
 
 15:                                               ; preds = %9
-  %16 = tail call ptr @__cxa_allocate_exception(i64 8) #18
+  %16 = tail call ptr @__cxa_allocate_exception(i64 8) #19
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %16, align 8, !tbaa !24
   tail call void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #16
   unreachable
@@ -1111,7 +1105,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInne
 
 85:                                               ; preds = %2
   %86 = add i64 %8, 4
-  %87 = tail call noalias ptr @malloc(i64 noundef %86) #19
+  %87 = tail call noalias ptr @malloc(i64 noundef %86) #18
   %.not = icmp eq ptr %87, null
   br i1 %.not, label %92, label %.preheader92
 
@@ -1127,7 +1121,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInne
   br label %105
 
 92:                                               ; preds = %85
-  %93 = tail call ptr @__cxa_allocate_exception(i64 8) #18
+  %93 = tail call ptr @__cxa_allocate_exception(i64 8) #19
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %93, align 8, !tbaa !24
   tail call void @__cxa_throw(ptr nonnull %93, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #16
   unreachable
@@ -1176,7 +1170,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInne
 ._crit_edge102:                                   ; preds = %.loopexit, %._crit_edge
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %87, ptr %119, align 8, !tbaa !60
-  tail call void @free(ptr noundef %100) #18
+  tail call void @free(ptr noundef %100) #19
   br label %147
 
 120:                                              ; preds = %.lr.ph101, %.loopexit
@@ -1318,7 +1312,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal17CompressedStorageIdiE6re
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %7
-  %14 = tail call ptr @__cxa_allocate_exception(i64 8) #18
+  %14 = tail call ptr @__cxa_allocate_exception(i64 8) #19
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %14, align 8, !tbaa !24
   tail call void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #16
   unreachable
@@ -1390,16 +1384,16 @@ _ZN5Eigen8internal17CompressedStorageIdiE10reallocateEl.exit: ; preds = %35, %_Z
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #9
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #10
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInnerVectorsINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIiEENS_5ArrayIiLin1ELi1ELi0ELin1ELi1EEEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInnerVectorsINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIiEENS_5ArrayIiLin1ELi1ELi0ELin1ELi1EEEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !28
   %5 = icmp eq ptr %4, null
@@ -1409,7 +1403,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInne
   br i1 %5, label %9, label %83
 
 9:                                                ; preds = %2
-  %10 = tail call noalias ptr @malloc(i64 noundef %8) #19
+  %10 = tail call noalias ptr @malloc(i64 noundef %8) #18
   store ptr %10, ptr %3, align 8, !tbaa !28
   %.not80 = icmp eq ptr %10, null
   br i1 %.not80, label %17, label %.preheader
@@ -1427,7 +1421,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInne
   br label %31
 
 17:                                               ; preds = %9
-  %18 = tail call ptr @__cxa_allocate_exception(i64 8) #18
+  %18 = tail call ptr @__cxa_allocate_exception(i64 8) #19
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %18, align 8, !tbaa !24
   tail call void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #16
   unreachable
@@ -1548,7 +1542,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInne
 
 83:                                               ; preds = %2
   %84 = add i64 %8, 4
-  %85 = tail call noalias ptr @malloc(i64 noundef %84) #19
+  %85 = tail call noalias ptr @malloc(i64 noundef %84) #18
   %.not = icmp eq ptr %85, null
   br i1 %.not, label %91, label %.preheader94
 
@@ -1565,7 +1559,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInne
   br label %104
 
 91:                                               ; preds = %83
-  %92 = tail call ptr @__cxa_allocate_exception(i64 8) #18
+  %92 = tail call ptr @__cxa_allocate_exception(i64 8) #19
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %92, align 8, !tbaa !24
   tail call void @__cxa_throw(ptr nonnull %92, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #16
   unreachable
@@ -1612,7 +1606,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInne
 ._crit_edge104:                                   ; preds = %.loopexit, %._crit_edge
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %85, ptr %116, align 8, !tbaa !60
-  tail call void @free(ptr noundef %99) #18
+  tail call void @free(ptr noundef %99) #19
   br label %144
 
 117:                                              ; preds = %.lr.ph103, %.loopexit
@@ -1666,7 +1660,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInne
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen12SparseMatrixIdLi0EiE18insertUncompressedEll(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #13 comdat align 2 {
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen12SparseMatrixIdLi0EiE18insertUncompressedEll(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #12 comdat align 2 {
   %4 = alloca %"class.Eigen::SparseMatrix<double>::SingletonVector", align 4
   %5 = trunc i64 %1 to i32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1684,14 +1678,14 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   br i1 %.not, label %20, label %17
 
 17:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %16, i32 2)
   %18 = trunc i64 %2 to i32
   store i32 %18, ptr %4, align 4, !tbaa !72
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %.sroa.speculated, ptr %19, align 4, !tbaa !74
   call void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInnerVectorsINS1_15SingletonVectorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 4 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load ptr, ptr %6, align 8, !tbaa !27
   %.phi.trans.insert = getelementptr inbounds i32, ptr %.pre, i64 %2
   %.pre29 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !19
@@ -1751,7 +1745,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInnerVectorsINS1_15SingletonVectorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 4 dereferenceable(8) %1) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInnerVectorsINS1_15SingletonVectorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 4 dereferenceable(8) %1) local_unnamed_addr #10 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !28
   %5 = icmp eq ptr %4, null
@@ -1761,7 +1755,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInne
   br i1 %5, label %9, label %91
 
 9:                                                ; preds = %2
-  %10 = tail call noalias ptr @malloc(i64 noundef %8) #19
+  %10 = tail call noalias ptr @malloc(i64 noundef %8) #18
   store ptr %10, ptr %3, align 8, !tbaa !28
   %.not80 = icmp eq ptr %10, null
   br i1 %.not80, label %18, label %.preheader
@@ -1780,7 +1774,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInne
   br label %31
 
 18:                                               ; preds = %9
-  %19 = tail call ptr @__cxa_allocate_exception(i64 8) #18
+  %19 = tail call ptr @__cxa_allocate_exception(i64 8) #19
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %19, align 8, !tbaa !24
   tail call void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #16
   unreachable
@@ -1906,7 +1900,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInne
 
 91:                                               ; preds = %2
   %92 = add i64 %8, 4
-  %93 = tail call noalias ptr @malloc(i64 noundef %92) #19
+  %93 = tail call noalias ptr @malloc(i64 noundef %92) #18
   %.not = icmp eq ptr %93, null
   br i1 %.not, label %101, label %.preheader94
 
@@ -1925,7 +1919,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInne
   br label %114
 
 101:                                              ; preds = %91
-  %102 = tail call ptr @__cxa_allocate_exception(i64 8) #18
+  %102 = tail call ptr @__cxa_allocate_exception(i64 8) #19
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %102, align 8, !tbaa !24
   tail call void @__cxa_throw(ptr nonnull %102, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #16
   unreachable
@@ -1974,7 +1968,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInne
 ._crit_edge104:                                   ; preds = %.loopexit, %._crit_edge
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %93, ptr %128, align 8, !tbaa !60
-  tail call void @free(ptr noundef %109) #18
+  tail call void @free(ptr noundef %109) #19
   br label %156
 
 129:                                              ; preds = %.lr.ph103, %.loopexit
@@ -2027,6 +2021,12 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInne
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #14
 
@@ -2037,25 +2037,25 @@ declare i32 @llvm.smax.i32(i32, i32) #14
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #15
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold noreturn }
-attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold noreturn }
+attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #16 = { noreturn }
 attributes #17 = { builtin allocsize(0) }
-attributes #18 = { nounwind }
-attributes #19 = { nounwind allocsize(0) }
+attributes #18 = { nounwind allocsize(0) }
+attributes #19 = { nounwind }
 attributes #20 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

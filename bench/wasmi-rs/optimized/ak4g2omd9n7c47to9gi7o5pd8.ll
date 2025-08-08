@@ -25,7 +25,7 @@ define { i16, i16 } @_ZN8wasmi_ir4span7RegSpan10iter_sized17h726dc644deb3ee3dE(i
   %3 = alloca [16 x i8], align 8
   %4 = alloca [48 x i8], align 8
   %5 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %1, ptr %5, align 8
   %6 = icmp ugt i64 %1, 65535
   br i1 %6, label %14, label %7, !prof !3
@@ -43,8 +43,8 @@ define { i16, i16 } @_ZN8wasmi_ir4span7RegSpan10iter_sized17h726dc644deb3ee3dE(i
   unreachable
 
 14:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %5, ptr %3, align 8
   %.sroa.43.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17hd8f455fd1d89d1b2E", ptr %.sroa.43.0..sroa_idx.i, align 8
@@ -64,7 +64,7 @@ _ZN8wasmi_ir4span11RegSpanIter3new17h01e17d3be79e7d49E.exit: ; preds = %7
   %19 = extractvalue { i16, i1 } %9, 0
   %20 = insertvalue { i16, i16 } poison, i16 %0, 0
   %21 = insertvalue { i16, i16 } %20, i16 %19, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret { i16, i16 } %21
 }
 
@@ -125,8 +125,8 @@ _ZN8wasmi_ir4span7RegSpan4iter17h60b39cc4fde2d4eeE.exit: ; preds = %3
 _ZN8wasmi_ir4span7RegSpan4iter17h60b39cc4fde2d4eeE.exit1: ; preds = %_ZN8wasmi_ir4span7RegSpan4iter17h60b39cc4fde2d4eeE.exit
   %16 = extractvalue { i16, i1 } %7, 0
   %17 = extractvalue { i16, i1 } %12, 0
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %18 = icmp slt i16 %16, %0
   %19 = sub i16 %0, %16
   %20 = sub i16 %16, %0
@@ -143,7 +143,7 @@ _ZN8wasmi_ir4span7RegSpan4iter17h60b39cc4fde2d4eeE.exit1: ; preds = %_ZN8wasmi_i
   br i1 %26, label %28, label %27, !prof !4
 
 27:                                               ; preds = %_ZN8wasmi_ir4span7RegSpan4iter17h60b39cc4fde2d4eeE.exit1
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @anon.97404d2c5ebf29853ca4f85ccf74caae.8, ptr %4, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx.i, align 8
@@ -175,8 +175,8 @@ _ZN8wasmi_ir4span7RegSpan4iter17h60b39cc4fde2d4eeE.exit1: ; preds = %_ZN8wasmi_i
 
 _ZN8wasmi_ir4span11RegSpanIter22has_overlapping_copies17hf1e7aeea3d0f10c4E.exit: ; preds = %28, %32
   %.sroa.0.0.i = phi i1 [ %34, %32 ], [ false, %28 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.sroa.0.0.i
 }
 
@@ -362,7 +362,7 @@ define noundef zeroext i1 @_ZN8wasmi_ir4span11RegSpanIter22has_overlapping_copie
   br i1 %16, label %18, label %17, !prof !4
 
 17:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @anon.97404d2c5ebf29853ca4f85ccf74caae.8, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -476,10 +476,10 @@ declare void @_ZN4core9panicking13assert_failed17h77d57c61d0ad0ecdE(i8 noundef r
 declare noundef i16 @_ZN8wasmi_ir5index3Reg4prev17h8eaac36b81e8b9c9E(i16 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #7

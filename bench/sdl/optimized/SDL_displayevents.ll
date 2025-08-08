@@ -40,7 +40,7 @@ define hidden void @SDL_SendDisplayEvent(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %18, label %19, label %26
 
 19:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %1, ptr %5, align 8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %20, align 8
@@ -52,7 +52,7 @@ define hidden void @SDL_SendDisplayEvent(ptr noundef %0, i32 noundef %1, i32 nou
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %3, ptr %24, align 8
   %25 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %26
 
 26:                                               ; preds = %19, %17
@@ -75,17 +75,17 @@ define hidden void @SDL_SendDisplayEvent(ptr noundef %0, i32 noundef %1, i32 nou
 
 declare zeroext i1 @SDL_EventEnabled_REAL(i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare zeroext i1 @SDL_PushEvent_REAL(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @SDL_OnDisplayAdded(ptr noundef) local_unnamed_addr #1
 
 declare void @SDL_OnDisplayMoved(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

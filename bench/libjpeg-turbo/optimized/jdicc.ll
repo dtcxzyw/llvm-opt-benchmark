@@ -8,9 +8,9 @@ define range(i32 0, 2) i32 @jpeg_read_icc_profile(ptr noundef %0, ptr noundef wr
   %4 = alloca [256 x i8], align 16
   %5 = alloca [256 x i32], align 16
   %6 = alloca [256 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #4
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq ptr %1, null
   %8 = icmp eq ptr %2, null
   %or.cond = or i1 %7, %8
@@ -409,27 +409,27 @@ marker_is_icc.exit99.thread:                      ; preds = %.lr.ph124, %198, %.
 
 ._crit_edge.thread:                               ; preds = %23, %._crit_edge, %._crit_edge130, %._crit_edge117.thread, %118, %105, %96, %85
   %.083 = phi i32 [ 0, %96 ], [ 0, %105 ], [ 0, %85 ], [ 0, %118 ], [ 0, %._crit_edge117.thread ], [ 1, %._crit_edge130 ], [ 0, %._crit_edge ], [ 0, %23 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.083
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { nounwind }
 attributes #5 = { nounwind allocsize(0) }

@@ -42,9 +42,9 @@ define internal ptr @_posixshmem_shm_open(ptr readnone captures(none) %0, ptr no
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 511, ptr %7, align 4, !tbaa !3
   %8 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.8, ptr noundef nonnull @_posixshmem_shm_open._keywords, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
   %.not = icmp eq i32 %8, 0
@@ -54,7 +54,7 @@ define internal ptr @_posixshmem_shm_open(ptr readnone captures(none) %0, ptr no
   %10 = load ptr, ptr %5, align 8, !tbaa !7
   %11 = load i32, ptr %6, align 4, !tbaa !3
   %12 = load i32, ptr %7, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %10, ptr noundef nonnull %4) #5
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.loopexit, label %15
@@ -94,12 +94,12 @@ define internal ptr @_posixshmem_shm_open(ptr readnone captures(none) %0, ptr no
   br label %.loopexit
 
 _posixshmem_shm_open_impl.exit:                   ; preds = %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %32 = zext nneg i32 %21 to i64
   br label %34
 
 .loopexit:                                        ; preds = %27, %18, %9, %29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %33 = call ptr @PyErr_Occurred() #5
   %.not5 = icmp eq ptr %33, null
   br i1 %.not5, label %34, label %36
@@ -111,9 +111,9 @@ _posixshmem_shm_open_impl.exit:                   ; preds = %.preheader.i
 
 36:                                               ; preds = %.loopexit, %3, %34
   %.0 = phi ptr [ null, %.loopexit ], [ %35, %34 ], [ null, %3 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -133,7 +133,7 @@ define internal ptr @_posixshmem_shm_unlink(ptr readnone captures(none) %0, ptr 
   br label %31
 
 10:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %1, ptr noundef nonnull %3) #5
   %12 = icmp eq ptr %11, null
   br i1 %12, label %_posixshmem_shm_unlink_impl.exit, label %13
@@ -178,7 +178,7 @@ define internal ptr @_posixshmem_shm_unlink(ptr readnone captures(none) %0, ptr 
 
 _posixshmem_shm_unlink_impl.exit:                 ; preds = %25, %10, %16, %27, %.critedge13.i
   %.0.i = phi ptr [ null, %16 ], [ %30, %.critedge13.i ], [ null, %10 ], [ null, %27 ], [ null, %25 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %31
 
 31:                                               ; preds = %_posixshmem_shm_unlink_impl.exit, %7
@@ -186,22 +186,16 @@ _posixshmem_shm_unlink_impl.exit:                 ; preds = %25, %10, %16, %27, 
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @PyArg_ParseTupleAndKeywords(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare ptr @PyErr_Occurred() local_unnamed_addr #1
 
 declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -212,7 +206,7 @@ declare i32 @shm_open(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr 
 declare void @PyEval_RestoreThread(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #4
+declare ptr @__errno_location() local_unnamed_addr #3
 
 declare i32 @PyErr_CheckSignals() local_unnamed_addr #1
 
@@ -226,11 +220,17 @@ declare i32 @shm_unlink(ptr noundef) local_unnamed_addr #1
 
 declare ptr @Py_GetConstantBorrowed(i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 attributes #6 = { nounwind willreturn memory(read) }
 attributes #7 = { nounwind willreturn memory(none) }

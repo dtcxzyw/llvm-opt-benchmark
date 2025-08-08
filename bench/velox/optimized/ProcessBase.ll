@@ -88,8 +88,8 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 
 if.end:                                           ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %appName) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %fd.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %SCOPE_EXIT_STATE1.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %fd.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %SCOPE_EXIT_STATE1.i)
   %call.i11 = invoke noundef i32 @_ZN5folly9openNoIntEPKcij(ptr noundef nonnull @.str.1, i32 noundef 524288, i32 noundef 438)
           to label %call.i.noexc10 unwind label %lpad2
 
@@ -99,8 +99,8 @@ call.i.noexc10:                                   ; preds = %if.end
   br i1 %cmp.i7, label %invoke.cont3.thread, label %if.end.i8
 
 invoke.cont3.thread:                              ; preds = %call.i.noexc10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %SCOPE_EXIT_STATE1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %fd.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %SCOPE_EXIT_STATE1.i)
   br label %if.end12
 
 if.end.i8:                                        ; preds = %call.i.noexc10
@@ -130,8 +130,8 @@ lpad.i9:                                          ; preds = %if.end.i8
   br label %ehcleanup
 
 invoke.cont3:                                     ; preds = %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %SCOPE_EXIT_STATE1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %fd.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %SCOPE_EXIT_STATE1.i)
   br i1 %call1.i, label %if.then5, label %if.end12
 
 if.then5:                                         ; preds = %invoke.cont3
@@ -745,10 +745,10 @@ __cxx_global_var_init.3.exit:                     ; preds = %if.end.i.i2, %__cxx
 declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

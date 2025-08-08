@@ -10,11 +10,11 @@ define i32 @FT_Get_CID_Registry_Ordering_Supplement(ptr noundef %0, ptr noundef 
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #2
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #2
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #2
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %8
@@ -71,22 +71,16 @@ define i32 @FT_Get_CID_Registry_Ordering_Supplement(ptr noundef %0, ptr noundef 
   br label %28
 
 28:                                               ; preds = %26, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #2
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.016
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @FT_Get_CID_Is_Internally_CID_Keyed(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #2
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1, !tbaa !35
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %4
@@ -126,14 +120,14 @@ define i32 @FT_Get_CID_Is_Internally_CID_Keyed(ptr noundef %0, ptr noundef write
   br label %19
 
 19:                                               ; preds = %17, %.thread
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #2
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.012
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @FT_Get_CID_From_Glyph_Index(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #2
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %5
@@ -173,9 +167,15 @@ define i32 @FT_Get_CID_From_Glyph_Index(ptr noundef %0, i32 noundef %1, ptr noun
   br label %20
 
 20:                                               ; preds = %18, %.thread
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #2
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.013
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #1
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

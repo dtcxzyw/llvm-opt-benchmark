@@ -192,7 +192,7 @@ define internal range(i32 0, 2) i32 @test_sparse_array_num() #0 {
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_sparse_array_doall() #0 {
   %1 = alloca %struct.doall_st, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = tail call ptr @ossl_sa_new() #4
   %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.11, i32 noundef 155, ptr noundef nonnull @.str.12, ptr noundef %2) #4
   %.not = icmp eq i32 %3, 0
@@ -266,12 +266,9 @@ define internal range(i32 0, 2) i32 @test_sparse_array_doall() #0 {
 33:                                               ; preds = %29, %0, %32, %28, %24, %18
   %.0 = phi i32 [ 0, %18 ], [ 0, %24 ], [ 0, %28 ], [ 0, %32 ], [ 0, %0 ], [ 1, %29 ]
   call void @ossl_sa_free(ptr noundef %2) #4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -282,9 +279,6 @@ declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local
 declare void @test_note(ptr noundef, ...) local_unnamed_addr #1
 
 declare i32 @test_str_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @ossl_sa_new() local_unnamed_addr #1
 
@@ -420,14 +414,20 @@ define internal void @leaf_delete(i64 noundef %0, ptr noundef %1, ptr noundef ca
 declare void @ossl_sa_doall_arg(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @test_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 attributes #5 = { nounwind willreturn memory(read) }
 

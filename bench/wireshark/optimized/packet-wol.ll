@@ -91,7 +91,7 @@ define internal zeroext i1 @dissect_wolheur(ptr noundef %0, ptr noundef readonly
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc range(i32 0, 109) i32 @dissect_wol_pdu(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._address, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %6 = icmp ult i32 %5, 102
   br i1 %6, label %.loopexit, label %7
@@ -208,12 +208,9 @@ define internal fastcc range(i32 0, 109) i32 @dissect_wol_pdu(ptr noundef %0, pt
 
 .loopexit:                                        ; preds = %16, %57, %.loopexit.sink.split, %36, %7, %3
   %.0 = phi i32 [ 0, %3 ], [ 0, %7 ], [ %.060, %36 ], [ %.060, %.loopexit.sink.split ], [ %.060, %57 ], [ 0, %16 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
@@ -261,12 +258,14 @@ declare ptr @proto_tree_add_ether(ptr noundef, i32 noundef, ptr noundef, i32 nou
 declare ptr @proto_tree_add_bytes_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

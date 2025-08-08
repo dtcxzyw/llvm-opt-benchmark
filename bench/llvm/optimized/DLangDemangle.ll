@@ -37,7 +37,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %2
   br i1 %7, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.thread
 
 _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 0, i64 24, i1 false)
   store i32 -1, ptr %8, align 8, !tbaa !3
@@ -62,7 +62,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %_ZN4llvm16itanium_d
   br i1 %15, label %16, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread
 
 16:                                               ; preds = %13
-  tail call void @abort() #14
+  tail call void @abort() #13
   unreachable
 
 _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread: ; preds = %13
@@ -71,14 +71,14 @@ _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_trait
   br label %197
 
 18:                                               ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %0, ptr %6, align 8, !tbaa !15
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !16
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %20 = trunc i64 %0 to i32
   store i32 %20, ptr %19, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(20) %6, i64 16, i1 false), !tbaa.struct !20
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !21
@@ -137,13 +137,13 @@ _ZN12_GLOBAL__N_19Demangler12isSymbolNameESt17basic_string_viewIcSt11char_traits
   %49 = shl i64 %45, 1
   %spec.select.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %49, i64 %48)
   store i64 %spec.select.i.i.i.i.i.i, ptr %27, align 8, !tbaa !13
-  %50 = tail call ptr @realloc(ptr noundef %.pre.i.i.i.i.i, i64 noundef %spec.select.i.i.i.i.i.i) #15
+  %50 = tail call ptr @realloc(ptr noundef %.pre.i.i.i.i.i, i64 noundef %spec.select.i.i.i.i.i.i) #14
   store ptr %50, ptr %5, align 8, !tbaa !14
   %51 = icmp eq ptr %50, null
   br i1 %51, label %52, label %_ZN4llvm16itanium_demangle12OutputBufferlsEc.exit.i.i.i
 
 52:                                               ; preds = %47
-  tail call void @abort() #14
+  tail call void @abort() #13
   unreachable
 
 _ZN4llvm16itanium_demangle12OutputBufferlsEc.exit.i.i.i: ; preds = %47, %42
@@ -164,7 +164,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsEc.exit.i.i.i: ; preds = %47, %42
   br i1 %59, label %60, label %120
 
 60:                                               ; preds = %.lr.ph77.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %61 = getelementptr inbounds nuw i8, ptr %56, i64 1
   store ptr %61, ptr %21, align 8, !tbaa !21
   %62 = add i64 %57, -1
@@ -178,7 +178,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsEc.exit.i.i.i: ; preds = %47, %42
   %65 = phi i64 [ %83, %78 ], [ %62, %60 ]
   %66 = load i8, ptr %64, align 1, !tbaa !23
   %67 = sext i8 %66 to i32
-  %68 = tail call i32 @isalpha(i32 noundef %67) #16
+  %68 = tail call i32 @isalpha(i32 noundef %67) #15
   %.not.i.i.i.i.i.i.i = icmp eq i32 %68, 0
   %69 = icmp ugt i64 %.05.i.i.i.i.i.i.i, 709490156681136599
   %or.cond.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i, i1 true, i1 %69
@@ -221,7 +221,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsEc.exit.i.i.i: ; preds = %47, %42
 91:                                               ; preds = %85
   %92 = sub nsw i64 0, %76
   %93 = getelementptr inbounds i8, ptr %56, i64 %92
-  %94 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %93) #13
+  %94 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %93) #16
   %95 = icmp eq i64 %94, 0
   br i1 %95, label %_ZN12_GLOBAL__N_19Demangler18parseSymbolBackrefEPN4llvm16itanium_demangle12OutputBufferERSt17basic_string_viewIcSt11char_traitsIcEE.exit.sink.split.i.i.i.i, label %96
 
@@ -281,7 +281,7 @@ _ZN12_GLOBAL__N_19Demangler18parseSymbolBackrefEPN4llvm16itanium_demangle12Outpu
 
 _ZN12_GLOBAL__N_19Demangler18parseSymbolBackrefEPN4llvm16itanium_demangle12OutputBufferERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i.i: ; preds = %_ZN12_GLOBAL__N_19Demangler18parseSymbolBackrefEPN4llvm16itanium_demangle12OutputBufferERSt17basic_string_viewIcSt11char_traitsIcEE.exit.sink.split.i.i.i.i, %117
   %.pr.i.i91.i = phi i64 [ 0, %_ZN12_GLOBAL__N_19Demangler18parseSymbolBackrefEPN4llvm16itanium_demangle12OutputBufferERSt17basic_string_viewIcSt11char_traitsIcEE.exit.sink.split.i.i.i.i ], [ %87, %117 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge.i.i.i
 
 120:                                              ; preds = %.lr.ph77.i.i.i.i
@@ -411,7 +411,7 @@ tailrecurse.i.i.i.i:                              ; preds = %149, %.critedge.i.i
   %.sroa.9.0.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.9.0.pn.i.i.i.i, i64 1
   %162 = load i8, ptr %.sroa.9.0.i.i.i.i, align 1, !tbaa !23
   %163 = sext i8 %162 to i32
-  %164 = tail call i32 @isalpha(i32 noundef %163) #16
+  %164 = tail call i32 @isalpha(i32 noundef %163) #15
   %.not.i.i16.i.i.i = icmp eq i32 %164, 0
   %165 = icmp ugt i64 %.05.i.i.i.i.i, 709490156681136599
   %or.cond.i.i.i.i.i = select i1 %.not.i.i16.i.i.i, i1 true, i1 %165
@@ -460,7 +460,7 @@ _ZN12_GLOBAL__N_19Demangler14parseQualifiedEPN4llvm16itanium_demangle12OutputBuf
 
 _ZN12_GLOBAL__N_19Demangler11parseMangleEPN4llvm16itanium_demangle12OutputBufferE.exit.thread22: ; preds = %_ZN12_GLOBAL__N_19Demangler14parseQualifiedEPN4llvm16itanium_demangle12OutputBufferERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i
   %189 = getelementptr inbounds nuw i8, ptr %156, i64 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %192
 
 _ZN12_GLOBAL__N_19Demangler14parseQualifiedEPN4llvm16itanium_demangle12OutputBufferERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.thread.i: ; preds = %183, %169, %177, %.preheader.i.i15.i.i.i, %_ZN12_GLOBAL__N_19Demangler14parseQualifiedEPN4llvm16itanium_demangle12OutputBufferERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i
@@ -468,12 +468,12 @@ _ZN12_GLOBAL__N_19Demangler14parseQualifiedEPN4llvm16itanium_demangle12OutputBuf
   br i1 %190, label %_ZN12_GLOBAL__N_19Demangler11parseMangleEPN4llvm16itanium_demangle12OutputBufferE.exit, label %_ZN12_GLOBAL__N_19Demangler11parseMangleEPN4llvm16itanium_demangle12OutputBufferE.exit.thread
 
 _ZN12_GLOBAL__N_19Demangler11parseMangleEPN4llvm16itanium_demangle12OutputBufferE.exit.thread: ; preds = %.critedge.i.i.i, %55, %.preheader.i.i.i, %tailrecurse.i.i.i.i, %_ZN12_GLOBAL__N_19Demangler12decodeNumberERSt17basic_string_viewIcSt11char_traitsIcEERm.exit.i.i.i.i, %120, %128, %.preheader.i.i.i.i.i, %_ZN12_GLOBAL__N_19Demangler14parseQualifiedEPN4llvm16itanium_demangle12OutputBufferERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.thread.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
 _ZN12_GLOBAL__N_19Demangler11parseMangleEPN4llvm16itanium_demangle12OutputBufferE.exit: ; preds = %_ZN12_GLOBAL__N_19Demangler14parseQualifiedEPN4llvm16itanium_demangle12OutputBufferERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.thread.i
   %.pre.i = load ptr, ptr %21, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %191 = icmp eq ptr %.pre.i, null
   br i1 %191, label %.critedge, label %192
 
@@ -485,12 +485,12 @@ _ZN12_GLOBAL__N_19Demangler11parseMangleEPN4llvm16itanium_demangle12OutputBuffer
 
 .critedge:                                        ; preds = %_ZN12_GLOBAL__N_19Demangler11parseMangleEPN4llvm16itanium_demangle12OutputBufferE.exit.thread, %192, %_ZN12_GLOBAL__N_19Demangler11parseMangleEPN4llvm16itanium_demangle12OutputBufferE.exit
   %195 = load ptr, ptr %5, align 8, !tbaa !14
-  tail call void @free(ptr noundef %195) #13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #13
+  tail call void @free(ptr noundef %195) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %214
 
 _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %192
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre = load i64, ptr %26, align 8, !tbaa !26
   %196 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not9 = icmp eq i64 %.pre, 0
@@ -510,12 +510,12 @@ _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_trait
   %205 = add i64 %199, 993
   %206 = shl i64 %202, 1
   %spec.select.i.i.i11 = tail call i64 @llvm.umax.i64(i64 %206, i64 %205)
-  %207 = tail call ptr @realloc(ptr noundef %.pre.i.i10, i64 noundef %spec.select.i.i.i11) #15
+  %207 = tail call ptr @realloc(ptr noundef %.pre.i.i10, i64 noundef %spec.select.i.i.i11) #14
   %208 = icmp eq ptr %207, null
   br i1 %208, label %209, label %_ZN4llvm16itanium_demangle12OutputBufferlsEc.exit
 
 209:                                              ; preds = %204
-  tail call void @abort() #14
+  tail call void @abort() #13
   unreachable
 
 _ZN4llvm16itanium_demangle12OutputBufferlsEc.exit: ; preds = %204, %197
@@ -527,12 +527,12 @@ _ZN4llvm16itanium_demangle12OutputBufferlsEc.exit: ; preds = %204, %197
 
 212:                                              ; preds = %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit
   %213 = load ptr, ptr %5, align 8, !tbaa !14
-  tail call void @free(ptr noundef %213) #13
+  tail call void @free(ptr noundef %213) #16
   br label %214
 
 214:                                              ; preds = %.critedge, %212, %_ZN4llvm16itanium_demangle12OutputBufferlsEc.exit
   %.2 = phi ptr [ %210, %_ZN4llvm16itanium_demangle12OutputBufferlsEc.exit ], [ null, %212 ], [ null, %.critedge ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.thread
 
 _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.thread: ; preds = %2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %214
@@ -543,26 +543,20 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #6
+declare void @abort() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19Demangler9parseTypeERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 captures(none) dereferenceable(20) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %1) unnamed_addr #7 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19Demangler9parseTypeERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 captures(none) dereferenceable(20) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %1) unnamed_addr #6 align 2 {
   %3 = alloca %"class.std::basic_string_view", align 8
   %4 = load i64, ptr %1, align 8, !tbaa !22
   %5 = icmp eq i64 %4, 0
@@ -607,7 +601,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19Demangler9parseType
 24:                                               ; preds = %14
   %25 = trunc i64 %19 to i32
   store i32 %25, ptr %20, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store ptr %26, ptr %8, align 8, !tbaa !21
   %27 = add i64 %4, -1
@@ -621,7 +615,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19Demangler9parseType
   %30 = phi i64 [ %48, %43 ], [ %27, %24 ]
   %31 = load i8, ptr %29, align 1, !tbaa !23
   %32 = sext i8 %31 to i32
-  %33 = tail call i32 @isalpha(i32 noundef %32) #16
+  %33 = tail call i32 @isalpha(i32 noundef %32) #15
   %.not.i.i = icmp eq i32 %33, 0
   %34 = icmp ugt i64 %.05.i.i, 709490156681136599
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %34
@@ -665,7 +659,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19Demangler9parseType
 57:                                               ; preds = %50
   %58 = sub nsw i64 0, %41
   %59 = getelementptr inbounds i8, ptr %9, i64 %58
-  %60 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %59) #13
+  %60 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %59) #16
   store i64 %60, ptr %3, align 8, !tbaa !15
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %59, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !16
@@ -691,7 +685,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19Demangler9parseType
   br label %68
 
 68:                                               ; preds = %.sink.split, %65
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN12_GLOBAL__N_19Demangler16parseTypeBackrefERSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 69:                                               ; preds = %7
@@ -739,7 +733,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   %15 = shl i64 %11, 1
   %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %15, i64 %14)
   store i64 %spec.select.i.i, ptr %10, align 8, !tbaa !13
-  %16 = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.select.i.i) #15
+  %16 = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.select.i.i) #14
   store ptr %16, ptr %0, align 8, !tbaa !14
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -749,7 +743,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br label %_ZN4llvm16itanium_demangle12OutputBuffer7prependESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 18:                                               ; preds = %13
-  tail call void @abort() #14
+  tail call void @abort() #13
   unreachable
 
 _ZN4llvm16itanium_demangle12OutputBuffer7prependESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -789,7 +783,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   %38 = shl i64 %34, 1
   %spec.select.i.i51 = tail call i64 @llvm.umax.i64(i64 %38, i64 %37)
   store i64 %spec.select.i.i51, ptr %33, align 8, !tbaa !13
-  %39 = tail call ptr @realloc(ptr noundef %.pre.i50, i64 noundef %spec.select.i.i51) #15
+  %39 = tail call ptr @realloc(ptr noundef %.pre.i50, i64 noundef %spec.select.i.i51) #14
   store ptr %39, ptr %0, align 8, !tbaa !14
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i52
@@ -799,7 +793,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br label %_ZN4llvm16itanium_demangle12OutputBuffer7prependESt17basic_string_viewIcSt11char_traitsIcEE.exit54
 
 41:                                               ; preds = %36
-  tail call void @abort() #14
+  tail call void @abort() #13
   unreachable
 
 _ZN4llvm16itanium_demangle12OutputBuffer7prependESt17basic_string_viewIcSt11char_traitsIcEE.exit54: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit49, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i52
@@ -845,7 +839,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   %63 = shl i64 %59, 1
   %spec.select.i.i61 = tail call i64 @llvm.umax.i64(i64 %63, i64 %62)
   store i64 %spec.select.i.i61, ptr %58, align 8, !tbaa !13
-  %64 = tail call ptr @realloc(ptr noundef %.pre.i60, i64 noundef %spec.select.i.i61) #15
+  %64 = tail call ptr @realloc(ptr noundef %.pre.i60, i64 noundef %spec.select.i.i61) #14
   store ptr %64, ptr %0, align 8, !tbaa !14
   %65 = icmp eq ptr %64, null
   br i1 %65, label %66, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i62
@@ -855,7 +849,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br label %_ZN4llvm16itanium_demangle12OutputBuffer7prependESt17basic_string_viewIcSt11char_traitsIcEE.exit64
 
 66:                                               ; preds = %61
-  tail call void @abort() #14
+  tail call void @abort() #13
   unreachable
 
 _ZN4llvm16itanium_demangle12OutputBuffer7prependESt17basic_string_viewIcSt11char_traitsIcEE.exit64: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit59, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i62
@@ -901,7 +895,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   %88 = shl i64 %84, 1
   %spec.select.i.i71 = tail call i64 @llvm.umax.i64(i64 %88, i64 %87)
   store i64 %spec.select.i.i71, ptr %83, align 8, !tbaa !13
-  %89 = tail call ptr @realloc(ptr noundef %.pre.i70, i64 noundef %spec.select.i.i71) #15
+  %89 = tail call ptr @realloc(ptr noundef %.pre.i70, i64 noundef %spec.select.i.i71) #14
   store ptr %89, ptr %0, align 8, !tbaa !14
   %90 = icmp eq ptr %89, null
   br i1 %90, label %91, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i72
@@ -911,7 +905,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br label %_ZN4llvm16itanium_demangle12OutputBuffer7prependESt17basic_string_viewIcSt11char_traitsIcEE.exit74
 
 91:                                               ; preds = %86
-  tail call void @abort() #14
+  tail call void @abort() #13
   unreachable
 
 _ZN4llvm16itanium_demangle12OutputBuffer7prependESt17basic_string_viewIcSt11char_traitsIcEE.exit74: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit69, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i72
@@ -957,7 +951,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   %113 = shl i64 %109, 1
   %spec.select.i.i81 = tail call i64 @llvm.umax.i64(i64 %113, i64 %112)
   store i64 %spec.select.i.i81, ptr %108, align 8, !tbaa !13
-  %114 = tail call ptr @realloc(ptr noundef %.pre.i80, i64 noundef %spec.select.i.i81) #15
+  %114 = tail call ptr @realloc(ptr noundef %.pre.i80, i64 noundef %spec.select.i.i81) #14
   store ptr %114, ptr %0, align 8, !tbaa !14
   %115 = icmp eq ptr %114, null
   br i1 %115, label %116, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i82
@@ -967,7 +961,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br label %_ZN4llvm16itanium_demangle12OutputBuffer7prependESt17basic_string_viewIcSt11char_traitsIcEE.exit84
 
 116:                                              ; preds = %111
-  tail call void @abort() #14
+  tail call void @abort() #13
   unreachable
 
 _ZN4llvm16itanium_demangle12OutputBuffer7prependESt17basic_string_viewIcSt11char_traitsIcEE.exit84: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit79, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i82
@@ -1009,7 +1003,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   %138 = shl i64 %134, 1
   %spec.select.i.i.i = tail call i64 @llvm.umax.i64(i64 %138, i64 %137)
   store i64 %spec.select.i.i.i, ptr %133, align 8, !tbaa !13
-  %139 = tail call ptr @realloc(ptr noundef %.pre.i.i, i64 noundef %spec.select.i.i.i) #15
+  %139 = tail call ptr @realloc(ptr noundef %.pre.i.i, i64 noundef %spec.select.i.i.i) #14
   store ptr %139, ptr %0, align 8, !tbaa !14
   %140 = icmp eq ptr %139, null
   br i1 %140, label %141, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i
@@ -1019,7 +1013,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i
 
 141:                                              ; preds = %136
-  tail call void @abort() #14
+  tail call void @abort() #13
   unreachable
 
 _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i, %129
@@ -1049,10 +1043,16 @@ _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_trait
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @isalpha(i32 noundef) local_unnamed_addr #8
+declare i32 @isalpha(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9
@@ -1071,21 +1071,21 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #12
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #13 = { nounwind }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { nounwind allocsize(1) }
-attributes #16 = { nounwind willreturn memory(read) }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { nounwind allocsize(1) }
+attributes #15 = { nounwind willreturn memory(read) }
+attributes #16 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

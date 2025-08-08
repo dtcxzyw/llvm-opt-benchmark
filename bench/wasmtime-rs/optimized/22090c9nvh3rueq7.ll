@@ -1030,7 +1030,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h535224e
           to label %19 unwind label %24
 
 13:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8
   %14 = invoke ptr @_ZN5alloc5alloc15exchange_malloc17hbb1747b8bbd8f118E(i64 8, i64 8)
           to label %20 unwind label %15
@@ -1052,7 +1052,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h535224e
 
 20:                                               ; preds = %13
   store ptr %1, ptr %14, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   invoke void @"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$syn..lit..LitStr$GT$$GT$$GT$17h9d188b3077ef6567E"(ptr nonnull align 8 %6)
           to label %22 unwind label %.thread
 
@@ -1392,9 +1392,9 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
   br i1 %31, label %32, label %48
 
 32:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %33 = load ptr, ptr %11, align 8, !noundef !4
   %.not.i = icmp eq ptr %33, null
   br i1 %.not.i, label %35, label %34
@@ -1440,9 +1440,9 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
   unreachable
 
 "_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17he40734265180cc98E.exit": ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = load ptr, ptr %1, align 8, !noundef !4
   %46 = load ptr, ptr %12, align 8, !noundef !4
   %47 = icmp eq ptr %45, %46
@@ -1563,9 +1563,9 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
   br i1 %31, label %32, label %48
 
 32:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %33 = load ptr, ptr %11, align 8, !noundef !4
   %.not.i = icmp eq ptr %33, null
   br i1 %.not.i, label %35, label %34
@@ -1611,9 +1611,9 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
   unreachable
 
 "_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17hc9fb11d5299510c2E.exit": ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = load ptr, ptr %1, align 8, !noundef !4
   %46 = load ptr, ptr %12, align 8, !noundef !4
   %47 = icmp eq ptr %45, %46
@@ -1734,9 +1734,9 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
   br i1 %31, label %32, label %48
 
 32:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %33 = load ptr, ptr %11, align 8, !noundef !4
   %.not.i = icmp eq ptr %33, null
   br i1 %.not.i, label %35, label %34
@@ -1782,9 +1782,9 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
   unreachable
 
 "_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17he3646c45032badc8E.exit": ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = load ptr, ptr %1, align 8, !noundef !4
   %46 = load ptr, ptr %12, align 8, !noundef !4
   %47 = icmp eq ptr %45, %46
@@ -1905,9 +1905,9 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
   br i1 %33, label %34, label %51
 
 34:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %35 = load ptr, ptr %10, align 8, !noundef !4
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %38, label %36
@@ -1954,9 +1954,9 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
   unreachable
 
 "_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h0ad9468a29edd560E.exit": ; preds = %45
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %48 = load ptr, ptr %1, align 8, !noundef !4
   %49 = load ptr, ptr %11, align 8, !noundef !4
   %50 = icmp eq ptr %48, %49
@@ -2077,9 +2077,9 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
   br i1 %31, label %32, label %48
 
 32:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %33 = load ptr, ptr %11, align 8, !noundef !4
   %.not.i = icmp eq ptr %33, null
   br i1 %.not.i, label %35, label %34
@@ -2125,9 +2125,9 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
   unreachable
 
 "_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17hc1bcd999d36cebccE.exit": ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = load ptr, ptr %1, align 8, !noundef !4
   %46 = load ptr, ptr %12, align 8, !noundef !4
   %47 = icmp eq ptr %45, %46
@@ -2245,9 +2245,9 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
   br i1 %31, label %32, label %48
 
 32:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %33 = load ptr, ptr %11, align 8, !noundef !4
   %.not.i = icmp eq ptr %33, null
   br i1 %.not.i, label %35, label %34
@@ -2293,9 +2293,9 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
   unreachable
 
 "_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17he6495ce68bb36f2aE.exit": ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = load ptr, ptr %1, align 8, !noundef !4
   %46 = load ptr, ptr %12, align 8, !noundef !4
   %47 = icmp eq ptr %45, %46
@@ -3040,10 +3040,10 @@ declare void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u2
 declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10

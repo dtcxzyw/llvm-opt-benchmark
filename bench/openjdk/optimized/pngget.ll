@@ -508,11 +508,11 @@ define hidden i32 @png_get_pixels_per_inch(ptr noalias noundef readnone captures
   br i1 %19, label %png_get_pixels_per_meter.exit, label %png_get_pixels_per_meter.exit.thread
 
 png_get_pixels_per_meter.exit.thread:             ; preds = %2, %6, %10, %14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %21
 
 png_get_pixels_per_meter.exit:                    ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %20 = icmp sgt i32 %16, -1
   br i1 %20, label %21, label %ppi_from_ppm.exit
 
@@ -526,7 +526,7 @@ png_get_pixels_per_meter.exit:                    ; preds = %14
 
 ppi_from_ppm.exit:                                ; preds = %png_get_pixels_per_meter.exit, %21
   %.0.i2 = phi i32 [ 0, %png_get_pixels_per_meter.exit ], [ %spec.select.i, %21 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0.i2
 }
 
@@ -552,13 +552,13 @@ define hidden i32 @png_get_x_pixels_per_inch(ptr noalias noundef readnone captur
   br i1 %13, label %png_get_x_pixels_per_meter.exit, label %png_get_x_pixels_per_meter.exit.thread
 
 png_get_x_pixels_per_meter.exit.thread:           ; preds = %10, %6, %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %17
 
 png_get_x_pixels_per_meter.exit:                  ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %15 = load i32, ptr %14, align 8, !alias.scope !11, !noalias !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = icmp sgt i32 %15, -1
   br i1 %16, label %17, label %ppi_from_ppm.exit
 
@@ -572,7 +572,7 @@ png_get_x_pixels_per_meter.exit:                  ; preds = %10
 
 ppi_from_ppm.exit:                                ; preds = %png_get_x_pixels_per_meter.exit, %17
   %.0.i2 = phi i32 [ 0, %png_get_x_pixels_per_meter.exit ], [ %spec.select.i, %17 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0.i2
 }
 
@@ -598,13 +598,13 @@ define hidden i32 @png_get_y_pixels_per_inch(ptr noalias noundef readnone captur
   br i1 %13, label %png_get_y_pixels_per_meter.exit, label %png_get_y_pixels_per_meter.exit.thread
 
 png_get_y_pixels_per_meter.exit.thread:           ; preds = %10, %6, %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %17
 
 png_get_y_pixels_per_meter.exit:                  ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 228
   %15 = load i32, ptr %14, align 4, !alias.scope !16, !noalias !19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = icmp sgt i32 %15, -1
   br i1 %16, label %17, label %ppi_from_ppm.exit
 
@@ -618,7 +618,7 @@ png_get_y_pixels_per_meter.exit:                  ; preds = %10
 
 ppi_from_ppm.exit:                                ; preds = %png_get_y_pixels_per_meter.exit, %17
   %.0.i2 = phi i32 [ 0, %png_get_y_pixels_per_meter.exit ], [ %spec.select.i, %17 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0.i2
 }
 
@@ -2245,10 +2245,10 @@ define hidden i32 @png_get_palette_max(ptr noundef readonly captures(address_is_
 declare i32 @png_muldiv_warn(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

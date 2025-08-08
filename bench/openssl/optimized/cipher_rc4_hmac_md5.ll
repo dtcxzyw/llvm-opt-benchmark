@@ -159,7 +159,7 @@ define internal noundef nonnull ptr @rc4_hmac_md5_gettable_ctx_params(ptr readno
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @rc4_hmac_md5_set_ctx_params(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = icmp eq ptr %1, null
   br i1 %4, label %ossl_param_is_empty.exit.thread, label %ossl_param_is_empty.exit
 
@@ -277,7 +277,7 @@ ossl_param_is_empty.exit.thread.sink.split:       ; preds = %57, %43, %27, %24, 
 
 ossl_param_is_empty.exit.thread:                  ; preds = %ossl_param_is_empty.exit.thread.sink.split, %2, %55, %57, %ossl_param_is_empty.exit
   %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 1, %57 ], [ 1, %55 ], [ 1, %2 ], [ 0, %ossl_param_is_empty.exit.thread.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -286,9 +286,6 @@ define internal noundef nonnull ptr @rc4_hmac_md5_settable_ctx_params(ptr readno
   ret ptr @rc4_hmac_md5_known_settable_ctx_params
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @ossl_prov_is_running() local_unnamed_addr #1
 
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -296,9 +293,6 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare void @ossl_cipher_generic_initkey(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @ossl_prov_cipher_hw_rc4_hmac_md5(i64 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare void @ossl_cipher_generic_reset_ctx(ptr noundef) local_unnamed_addr #1
 
@@ -327,6 +321,12 @@ declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @OSSL_PARAM_get_size_t(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @OSSL_PARAM_get_uint(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

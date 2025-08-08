@@ -216,12 +216,6 @@ define noundef range(i64 0, 4294967296) i64 @_ZN12duckdb_miniz10mz_adler32EmPKhm
   ret i64 %.064
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef range(i64 0, 4294967296) i64 @_ZN12duckdb_miniz8mz_crc32EmPKhm(i64 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = trunc i64 %0 to i32
@@ -305,53 +299,53 @@ define noundef range(i64 0, 4294967296) i64 @_ZN12duckdb_miniz8mz_crc32EmPKhm(i6
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN12duckdb_miniz7mz_freeEPv(ptr noundef captures(none) %0) local_unnamed_addr #2 {
+define void @_ZN12duckdb_miniz7mz_freeEPv(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   tail call void @free(ptr noundef %0) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @_ZN12duckdb_miniz20miniz_def_alloc_funcEPvmm(ptr readnone captures(none) %0, i64 noundef %1, i64 noundef %2) #4 {
+define noalias noundef ptr @_ZN12duckdb_miniz20miniz_def_alloc_funcEPvmm(ptr readnone captures(none) %0, i64 noundef %1, i64 noundef %2) #3 {
   %4 = mul i64 %2, %1
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #26
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN12duckdb_miniz19miniz_def_free_funcEPvS0_(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #2 {
+define void @_ZN12duckdb_miniz19miniz_def_free_funcEPvS0_(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #1 {
   tail call void @free(ptr noundef %1) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @_ZN12duckdb_miniz22miniz_def_realloc_funcEPvS0_mm(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2, i64 noundef %3) #2 {
+define noalias noundef ptr @_ZN12duckdb_miniz22miniz_def_realloc_funcEPvS0_mm(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2, i64 noundef %3) #1 {
   %5 = mul i64 %3, %2
   %6 = tail call ptr @realloc(ptr noundef %1, i64 noundef %5) #27
   ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN12duckdb_miniz10mz_versionEv() local_unnamed_addr #7 {
+define noundef nonnull ptr @_ZN12duckdb_miniz10mz_versionEv() local_unnamed_addr #6 {
   ret ptr @.str
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -10000, 1) i32 @_ZN12duckdb_miniz14mz_deflateInitEPNS_11mz_stream_sEi(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #8 {
+define noundef range(i32 -10000, 1) i32 @_ZN12duckdb_miniz14mz_deflateInitEPNS_11mz_stream_sEi(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = tail call noundef i32 @_ZN12duckdb_miniz15mz_deflateInit2EPNS_11mz_stream_sEiiiii(ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef 15, i32 noundef 9, i32 noundef 0)
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -10000, 1) i32 @_ZN12duckdb_miniz15mz_deflateInit2EPNS_11mz_stream_sEiiiii(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #8 {
+define noundef range(i32 -10000, 1) i32 @_ZN12duckdb_miniz15mz_deflateInit2EPNS_11mz_stream_sEiiiii(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #7 {
   %7 = icmp sgt i32 %1, -1
   %8 = tail call i32 @llvm.umin.i32(i32 %1, i32 10)
   %9 = select i1 %7, i32 %8, i32 6
@@ -543,7 +537,7 @@ _ZN12duckdb_miniz10tdefl_initEPNS_16tdefl_compressorEPFiPKviPvES4_i.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN12duckdb_miniz39tdefl_create_comp_flags_from_zip_paramsEiii(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
+define noundef i32 @_ZN12duckdb_miniz39tdefl_create_comp_flags_from_zip_paramsEiii(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = icmp sgt i32 %0, -1
   %5 = tail call i32 @llvm.umin.i32(i32 %0, i32 10)
   %6 = select i1 %4, i32 %5, i32 6
@@ -593,7 +587,7 @@ define noundef i32 @_ZN12duckdb_miniz39tdefl_create_comp_flags_from_zip_paramsEi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @_ZN12duckdb_miniz10tdefl_initEPNS_16tdefl_compressorEPFiPKviPvES4_i(ptr noundef initializes((0, 32), (36, 48), (84, 100), (112, 132)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #9 {
+define noundef i32 @_ZN12duckdb_miniz10tdefl_initEPNS_16tdefl_compressorEPFiPKviPvES4_i(ptr noundef initializes((0, 32), (36, 48), (84, 100), (112, 132)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #8 {
   store ptr %1, ptr %0, align 8, !tbaa !46
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8, !tbaa !47
@@ -680,7 +674,7 @@ define noundef i32 @_ZN12duckdb_miniz10tdefl_initEPNS_16tdefl_compressorEPFiPKvi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -2, 1) i32 @_ZN12duckdb_miniz13mz_deflateEndEPNS_11mz_stream_sE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #8 {
+define noundef range(i32 -2, 1) i32 @_ZN12duckdb_miniz13mz_deflateEndEPNS_11mz_stream_sE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -705,7 +699,7 @@ define noundef range(i32 -2, 1) i32 @_ZN12duckdb_miniz13mz_deflateEndEPNS_11mz_s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 -2, 1) i32 @_ZN12duckdb_miniz15mz_deflateResetEPNS_11mz_stream_sE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #10 {
+define noundef range(i32 -2, 1) i32 @_ZN12duckdb_miniz15mz_deflateResetEPNS_11mz_stream_sE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %55, label %2
 
@@ -820,11 +814,11 @@ _ZN12duckdb_miniz10tdefl_initEPNS_16tdefl_compressorEPFiPKviPvES4_i.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -5, 2) i32 @_ZN12duckdb_miniz10mz_deflateEPNS_11mz_stream_sEi(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #8 {
+define noundef range(i32 -5, 2) i32 @_ZN12duckdb_miniz10mz_deflateEPNS_11mz_stream_sEi(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread58, label %5
 
@@ -992,13 +986,13 @@ define noundef range(i32 -5, 2) i32 @_ZN12duckdb_miniz10mz_deflateEPNS_11mz_stre
 
 .thread58:                                        ; preds = %.split, %96, %98, %64, %62, %.split.us, %102, %101, %13, %2, %5, %10, %21
   %.0 = phi i32 [ %23, %21 ], [ -2, %10 ], [ -2, %5 ], [ -2, %2 ], [ -5, %13 ], [ 0, %101 ], [ %spec.select, %102 ], [ -2, %.split.us ], [ 1, %62 ], [ 0, %64 ], [ -2, %.split ], [ 1, %96 ], [ 0, %98 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN12duckdb_miniz14tdefl_compressEPNS_16tdefl_compressorEPKvPmPvS4_NS_11tdefl_flushE(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #8 {
+define noundef i32 @_ZN12duckdb_miniz14tdefl_compressEPNS_16tdefl_compressorEPKvPmPvS4_NS_11tdefl_flushE(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %11
 
@@ -1259,7 +1253,7 @@ define noundef i32 @_ZN12duckdb_miniz17tdefl_get_adler32EPNS_16tdefl_compressorE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i64 128, 0) i64 @_ZN12duckdb_miniz15mz_deflateBoundEPNS_11mz_stream_sEm(ptr noundef readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #7 {
+define noundef range(i64 128, 0) i64 @_ZN12duckdb_miniz15mz_deflateBoundEPNS_11mz_stream_sEm(ptr noundef readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #6 {
   %3 = mul i64 %1, 110
   %4 = udiv i64 %3, 100
   %5 = add nuw nsw i64 %4, 128
@@ -1272,9 +1266,9 @@ define noundef range(i64 128, 0) i64 @_ZN12duckdb_miniz15mz_deflateBoundEPNS_11m
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -10000, 1) i32 @_ZN12duckdb_miniz12mz_compress2EPhPmPKhmi(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #8 {
+define noundef range(i32 -10000, 1) i32 @_ZN12duckdb_miniz12mz_compress2EPhPmPKhmi(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
   %6 = alloca %"struct.duckdb_miniz::mz_stream_s", align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7, i8 0, i64 104, i1 false)
   %8 = load i64, ptr %1, align 8, !tbaa !53
@@ -1339,17 +1333,17 @@ _ZN12duckdb_miniz13mz_deflateEndEPNS_11mz_stream_sE.exit: ; preds = %20, %23
 
 _ZN12duckdb_miniz13mz_deflateEndEPNS_11mz_stream_sE.exit17: ; preds = %35, %30, %11, %5, %_ZN12duckdb_miniz13mz_deflateEndEPNS_11mz_stream_sE.exit
   %.0 = phi i32 [ %29, %_ZN12duckdb_miniz13mz_deflateEndEPNS_11mz_stream_sE.exit ], [ -10000, %5 ], [ %17, %11 ], [ 0, %30 ], [ 0, %35 ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -10000, 1) i32 @_ZN12duckdb_miniz11mz_compressEPhPmPKhm(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #8 {
+define noundef range(i32 -10000, 1) i32 @_ZN12duckdb_miniz11mz_compressEPhPmPKhm(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #7 {
   %5 = alloca %"struct.duckdb_miniz::mz_stream_s", align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, i8 0, i64 88, i1 false)
   %7 = load i64, ptr %1, align 8, !tbaa !53
@@ -1469,12 +1463,12 @@ _ZN12duckdb_miniz13mz_deflateEndEPNS_11mz_stream_sE.exit.i: ; preds = %53, %51
 
 _ZN12duckdb_miniz12mz_compress2EPhPmPKhmi.exit:   ; preds = %10, %4, %_ZN12duckdb_miniz13mz_deflateEndEPNS_11mz_stream_sE.exit.i, %58, %61
   %.0.i = phi i32 [ %57, %_ZN12duckdb_miniz13mz_deflateEndEPNS_11mz_stream_sE.exit.i ], [ -10000, %4 ], [ 0, %58 ], [ 0, %61 ], [ -4, %10 ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i64 128, 0) i64 @_ZN12duckdb_miniz16mz_compressBoundEm(i64 noundef %0) local_unnamed_addr #7 {
+define noundef range(i64 128, 0) i64 @_ZN12duckdb_miniz16mz_compressBoundEm(i64 noundef %0) local_unnamed_addr #6 {
   %2 = mul i64 %0, 110
   %3 = udiv i64 %2, 100
   %4 = add nuw nsw i64 %3, 128
@@ -1487,7 +1481,7 @@ define noundef range(i64 128, 0) i64 @_ZN12duckdb_miniz16mz_compressBoundEm(i64 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -10000, 1) i32 @_ZN12duckdb_miniz15mz_inflateInit2EPNS_11mz_stream_sEi(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #8 {
+define noundef range(i32 -10000, 1) i32 @_ZN12duckdb_miniz15mz_inflateInit2EPNS_11mz_stream_sEi(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %29, label %3
 
@@ -1557,7 +1551,7 @@ define noundef range(i32 -10000, 1) i32 @_ZN12duckdb_miniz15mz_inflateInit2EPNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -4, 1) i32 @_ZN12duckdb_miniz14mz_inflateInitEPNS_11mz_stream_sE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #8 {
+define noundef range(i32 -4, 1) i32 @_ZN12duckdb_miniz14mz_inflateInitEPNS_11mz_stream_sE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #7 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_ZN12duckdb_miniz15mz_inflateInit2EPNS_11mz_stream_sEi.exit, label %2
 
@@ -1621,11 +1615,11 @@ _ZN12duckdb_miniz15mz_inflateInit2EPNS_11mz_stream_sEi.exit: ; preds = %1, %15, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 -5, 2) i32 @_ZN12duckdb_miniz10mz_inflateEPNS_11mz_stream_sEi(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #12 {
+define noundef range(i32 -5, 2) i32 @_ZN12duckdb_miniz10mz_inflateEPNS_11mz_stream_sEi(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #11 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %5
 
@@ -1897,13 +1891,13 @@ define noundef range(i32 -5, 2) i32 @_ZN12duckdb_miniz10mz_inflateEPNS_11mz_stre
 
 .loopexit:                                        ; preds = %158, %156, %149, %108, %.critedge, %81, %106, %66, %31, %22, %11, %8, %2, %5, %154, %67
   %.0 = phi i32 [ -5, %67 ], [ %155, %154 ], [ -2, %5 ], [ -2, %2 ], [ -2, %8 ], [ -3, %11 ], [ -2, %22 ], [ -3, %31 ], [ 1, %66 ], [ 0, %81 ], [ %107, %106 ], [ %160, %.critedge ], [ 0, %158 ], [ -5, %156 ], [ -5, %149 ], [ -3, %108 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22tinfl_decompressor_tagEPKhPmPhS5_S4_j(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(none) %5, i32 noundef %6) local_unnamed_addr #12 {
+define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22tinfl_decompressor_tagEPKhPmPhS5_S4_j(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(none) %5, i32 noundef %6) local_unnamed_addr #11 {
   %8 = ptrtoint ptr %1 to i64
   %9 = alloca [17 x i32], align 16
   %10 = alloca [16 x i32], align 16
@@ -4391,10 +4385,10 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -2, 1) i32 @_ZN12duckdb_miniz13mz_inflateEndEPNS_11mz_stream_sE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #8 {
+define noundef range(i32 -2, 1) i32 @_ZN12duckdb_miniz13mz_inflateEndEPNS_11mz_stream_sE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -4419,9 +4413,9 @@ define noundef range(i32 -2, 1) i32 @_ZN12duckdb_miniz13mz_inflateEndEPNS_11mz_s
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -10000, 1) i32 @_ZN12duckdb_miniz13mz_uncompressEPhPmPKhm(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #8 {
+define noundef range(i32 -10000, 1) i32 @_ZN12duckdb_miniz13mz_uncompressEPhPmPKhm(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #7 {
   %5 = alloca %"struct.duckdb_miniz::mz_stream_s", align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, i8 0, i64 88, i1 false)
   %7 = load i64, ptr %1, align 8, !tbaa !53
@@ -4505,12 +4499,12 @@ _ZN12duckdb_miniz13mz_inflateEndEPNS_11mz_stream_sE.exit: ; preds = %30, %32
 
 _ZN12duckdb_miniz14mz_inflateInitEPNS_11mz_stream_sE.exit: ; preds = %42, %39, %10, %4, %_ZN12duckdb_miniz13mz_inflateEndEPNS_11mz_stream_sE.exit
   %.0 = phi i32 [ %38, %_ZN12duckdb_miniz13mz_inflateEndEPNS_11mz_stream_sE.exit ], [ -10000, %4 ], [ -4, %10 ], [ 0, %39 ], [ 0, %42 ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @_ZN12duckdb_miniz8mz_errorEi(i32 noundef %0) local_unnamed_addr #7 {
+define noundef ptr @_ZN12duckdb_miniz8mz_errorEi(i32 noundef %0) local_unnamed_addr #6 {
   br label %3
 
 2:                                                ; preds = %3
@@ -4536,7 +4530,7 @@ define noundef ptr @_ZN12duckdb_miniz8mz_errorEi(i32 noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZN12duckdb_minizL25tdefl_flush_output_bufferEPNS_16tdefl_compressorE(ptr noundef nonnull captures(none) %0) unnamed_addr #10 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZN12duckdb_minizL25tdefl_flush_output_bufferEPNS_16tdefl_compressorE(ptr noundef nonnull captures(none) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8, !tbaa !57
   %.not = icmp eq ptr %3, null
@@ -4610,7 +4604,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN12duckdb_minizL25tdefl_fl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZN12duckdb_minizL21tdefl_compress_normalEPNS_16tdefl_compressorE(ptr noundef nonnull %0) unnamed_addr #8 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZN12duckdb_minizL21tdefl_compress_normalEPNS_16tdefl_compressorE(ptr noundef nonnull %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8, !tbaa !60
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -5505,7 +5499,7 @@ select.unfold.backedge:                           ; preds = %497, %485, %494
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN12duckdb_minizL17tdefl_flush_blockEPNS_16tdefl_compressorEi(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #8 {
+define internal fastcc noundef i32 @_ZN12duckdb_minizL17tdefl_flush_blockEPNS_16tdefl_compressorEi(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !27
   %5 = and i32 %4, 524288
@@ -6363,7 +6357,7 @@ define internal fastcc noundef i32 @_ZN12duckdb_minizL17tdefl_flush_blockEPNS_16
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN12duckdb_miniz21tdefl_compress_bufferEPNS_16tdefl_compressorEPKvmNS_11tdefl_flushE(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #8 {
+define noundef i32 @_ZN12duckdb_miniz21tdefl_compress_bufferEPNS_16tdefl_compressorEPKvmNS_11tdefl_flushE(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #7 {
   %5 = alloca i64, align 8
   store i64 %2, ptr %5, align 8, !tbaa !53
   %6 = call noundef i32 @_ZN12duckdb_miniz14tdefl_compressEPNS_16tdefl_compressorEPKvPmPvS4_NS_11tdefl_flushE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, ptr noundef null, ptr noundef null, i32 noundef %3)
@@ -6378,7 +6372,7 @@ define noundef i32 @_ZN12duckdb_miniz28tdefl_get_prev_return_statusEPNS_16tdefl_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz28tdefl_compress_mem_to_outputEPKvmPFiS1_iPvES2_i(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #8 {
+define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz28tdefl_compress_mem_to_outputEPKvmPFiS1_iPvES2_i(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #7 {
   %6 = alloca i64, align 8
   %7 = icmp eq i64 %1, 0
   %8 = icmp ne ptr %0, null
@@ -6475,10 +6469,10 @@ define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz28tdefl_compress_mem_to_out
 _ZN12duckdb_miniz10tdefl_initEPNS_16tdefl_compressorEPFiPKviPvES4_i.exit: ; preds = %30, %51
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 33226
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(640) %53, i8 0, i64 640, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %1, ptr %6, align 8, !tbaa !53
   %54 = call noundef i32 @_ZN12duckdb_miniz14tdefl_compressEPNS_16tdefl_compressorEPKvPmPvS4_NS_11tdefl_flushE(ptr noundef nonnull %11, ptr noundef %0, ptr noundef nonnull %6, ptr noundef null, ptr noundef null, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %55 = icmp eq i32 %54, 1
   %56 = zext i1 %55 to i32
   call void @free(ptr noundef nonnull %11) #25
@@ -6490,9 +6484,9 @@ _ZN12duckdb_miniz10tdefl_initEPNS_16tdefl_compressorEPFiPKviPvES4_i.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN12duckdb_miniz26tdefl_compress_mem_to_heapEPKvmPmi(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #8 {
+define noundef ptr @_ZN12duckdb_miniz26tdefl_compress_mem_to_heapEPKvmPmi(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #7 {
   %5 = alloca %"struct.duckdb_miniz::tdefl_output_buffer", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %13, label %6
@@ -6514,12 +6508,12 @@ define noundef ptr @_ZN12duckdb_miniz26tdefl_compress_mem_to_heapEPKvmPmi(ptr no
 
 13:                                               ; preds = %6, %4, %9
   %.0 = phi ptr [ %12, %9 ], [ null, %4 ], [ null, %6 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef range(i32 0, 2) i32 @_ZN12duckdb_minizL26tdefl_output_buffer_putterEPKviPv(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) #14 {
+define internal noundef range(i32 0, 2) i32 @_ZN12duckdb_minizL26tdefl_output_buffer_putterEPKviPv(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) #13 {
   %4 = load i64, ptr %2, align 8, !tbaa !198
   %5 = sext i32 %1 to i64
   %6 = add i64 %4, %5
@@ -6573,9 +6567,9 @@ define internal noundef range(i32 0, 2) i32 @_ZN12duckdb_minizL26tdefl_output_bu
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN12duckdb_miniz25tdefl_compress_mem_to_memEPvmPKvmi(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #8 {
+define noundef i64 @_ZN12duckdb_miniz25tdefl_compress_mem_to_memEPvmPKvmi(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
   %6 = alloca %"struct.duckdb_miniz::tdefl_output_buffer", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %7
@@ -6593,12 +6587,12 @@ define noundef i64 @_ZN12duckdb_miniz25tdefl_compress_mem_to_memEPvmPKvmi(ptr no
 
 12:                                               ; preds = %7, %5
   %.0 = phi i64 [ 0, %5 ], [ %spec.select, %7 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN12duckdb_miniz42tdefl_write_image_to_png_file_in_memory_exEPKviiiPmji(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) initializes((0, 8)) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #8 {
+define noundef ptr @_ZN12duckdb_miniz42tdefl_write_image_to_png_file_in_memory_exEPKviiiPmji(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) initializes((0, 8)) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #7 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
@@ -6606,9 +6600,9 @@ define noundef ptr @_ZN12duckdb_miniz42tdefl_write_image_to_png_file_in_memory_e
   %12 = alloca i32, align 4
   %13 = alloca [41 x i8], align 16
   %14 = tail call noalias dereferenceable_or_null(319352) ptr @malloc(i64 noundef 319352) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %15 = mul nsw i32 %3, %1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %4, align 8, !tbaa !53
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %254, label %16
@@ -6775,29 +6769,29 @@ _ZN12duckdb_miniz10tdefl_initEPNS_16tdefl_compressorEPFiPKviPvES4_i.exit: ; pred
 
 94:                                               ; preds = %.lr.ph, %94
   %.051112 = phi i32 [ 0, %.lr.ph ], [ %103, %94 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 1, ptr %10, align 8, !tbaa !53
   %95 = call noundef i32 @_ZN12duckdb_miniz14tdefl_compressEPNS_16tdefl_compressorEPKvPmPvS4_NS_11tdefl_flushE(ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull %10, ptr noundef null, ptr noundef null, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %96 = xor i32 %.051112, -1
   %97 = add nsw i32 %2, %96
   %98 = select i1 %.not61, i32 %.051112, i32 %97
   %99 = mul nsw i32 %98, %15
   %100 = sext i32 %99 to i64
   %101 = getelementptr inbounds i8, ptr %0, i64 %100
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %93, ptr %9, align 8, !tbaa !53
   %102 = call noundef i32 @_ZN12duckdb_miniz14tdefl_compressEPNS_16tdefl_compressorEPKvPmPvS4_NS_11tdefl_flushE(ptr noundef nonnull %14, ptr noundef %101, ptr noundef nonnull %9, ptr noundef null, ptr noundef null, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %103 = add nuw nsw i32 %.051112, 1
   %exitcond.not = icmp eq i32 %103, %2
   br i1 %exitcond.not, label %._crit_edge, label %94, !llvm.loop !203
 
 ._crit_edge:                                      ; preds = %94, %_ZN12duckdb_miniz10tdefl_initEPNS_16tdefl_compressorEPFiPKviPvES4_i.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !53
   %104 = call noundef i32 @_ZN12duckdb_miniz14tdefl_compressEPNS_16tdefl_compressorEPKvPmPvS4_NS_11tdefl_flushE(ptr noundef nonnull %14, ptr noundef null, ptr noundef nonnull %8, ptr noundef null, ptr noundef null, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not59 = icmp eq i32 %104, 1
   br i1 %.not59, label %107, label %105
 
@@ -6811,7 +6805,7 @@ _ZN12duckdb_miniz10tdefl_initEPNS_16tdefl_compressorEPFiPKviPvES4_i.exit: ; pred
   %108 = load i64, ptr %11, align 8, !tbaa !198
   %109 = add i64 %108, -41
   store i64 %109, ptr %4, align 8, !tbaa !53
-  call void @llvm.lifetime.start.p0(i64 41, ptr nonnull %13) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(41) %13, ptr noundef nonnull align 16 dereferenceable(41) @__const._ZN12duckdb_miniz42tdefl_write_image_to_png_file_in_memory_exEPKviiiPmji.pnghdr, i64 41, i1 false)
   %110 = lshr i32 %1, 8
   %111 = trunc i32 %110 to i8
@@ -6920,7 +6914,7 @@ _ZN12duckdb_miniz8mz_crc32EmPKhm.exit:            ; preds = %.lr.ph.i
 179:                                              ; preds = %174
   %180 = load ptr, ptr %25, align 8, !tbaa !199
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(41) %180, ptr noundef nonnull align 16 dereferenceable(41) %13, i64 41, i1 false)
-  call void @llvm.lifetime.end.p0(i64 41, ptr nonnull %13) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %181 = add i64 %108, 16
   %182 = load i64, ptr %23, align 8, !tbaa !200
   %183 = icmp ugt i64 %181, %182
@@ -7072,35 +7066,35 @@ _ZN12duckdb_miniz8mz_crc32EmPKhm.exit100:         ; preds = %.lr.ph42.i79, %.pre
 
 254:                                              ; preds = %7, %250, %191, %105, %27
   %.052 = phi ptr [ null, %27 ], [ null, %105 ], [ %253, %250 ], [ null, %191 ], [ null, %7 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret ptr %.052
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN12duckdb_miniz39tdefl_write_image_to_png_file_in_memoryEPKviiiPm(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) initializes((0, 8)) %4) local_unnamed_addr #8 {
+define noundef ptr @_ZN12duckdb_miniz39tdefl_write_image_to_png_file_in_memoryEPKviiiPm(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) initializes((0, 8)) %4) local_unnamed_addr #7 {
   %6 = tail call noundef ptr @_ZN12duckdb_miniz42tdefl_write_image_to_png_file_in_memory_exEPKviiiPmji(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef 6, i32 noundef 0)
   ret ptr %6
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @_ZN12duckdb_miniz22tdefl_compressor_allocEv() local_unnamed_addr #4 {
+define noalias noundef ptr @_ZN12duckdb_miniz22tdefl_compressor_allocEv() local_unnamed_addr #3 {
   %1 = tail call noalias dereferenceable_or_null(319352) ptr @malloc(i64 noundef 319352) #26
   ret ptr %1
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN12duckdb_miniz21tdefl_compressor_freeEPNS_16tdefl_compressorE(ptr noundef captures(none) %0) local_unnamed_addr #2 {
+define void @_ZN12duckdb_miniz21tdefl_compressor_freeEPNS_16tdefl_compressorE(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   tail call void @free(ptr noundef %0) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN12duckdb_miniz28tinfl_decompress_mem_to_heapEPKvmPmi(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) initializes((0, 8)) %2, i32 noundef %3) local_unnamed_addr #14 {
+define noundef ptr @_ZN12duckdb_miniz28tinfl_decompress_mem_to_heapEPKvmPmi(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) initializes((0, 8)) %2, i32 noundef %3) local_unnamed_addr #13 {
   %5 = alloca %"struct.duckdb_miniz::tinfl_decompressor_tag", align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 11000, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %2, align 8, !tbaa !53
   store i32 0, ptr %5, align 8, !tbaa !86
   %8 = and i32 %3, -7
@@ -7112,10 +7106,10 @@ define noundef ptr @_ZN12duckdb_miniz28tinfl_decompress_mem_to_heapEPKvmPmi(ptr 
   %.036 = phi ptr [ null, %4 ], [ %30, %31 ]
   %.034 = phi i64 [ 0, %4 ], [ %23, %31 ]
   %.032 = phi i64 [ 0, %4 ], [ %spec.store.select, %31 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = sub i64 %1, %.034
   store i64 %12, ptr %6, align 8, !tbaa !53
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %13 = sub i64 %.032, %11
   store i64 %13, ptr %7, align 8, !tbaa !53
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 %.034
@@ -7161,26 +7155,26 @@ define noundef ptr @_ZN12duckdb_miniz28tinfl_decompress_mem_to_heapEPKvmPmi(ptr 
   br label %.loopexit
 
 31:                                               ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %10
 
 .loopexit:                                        ; preds = %21, %.thread
   %.2 = phi ptr [ null, %.thread ], [ %.036, %21 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 11000, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN12duckdb_miniz27tinfl_decompress_mem_to_memEPvmPKvmi(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #12 {
+define noundef i64 @_ZN12duckdb_miniz27tinfl_decompress_mem_to_memEPvmPKvmi(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #11 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca %"struct.duckdb_miniz::tinfl_decompressor_tag", align 8
   store i64 %1, ptr %6, align 8, !tbaa !53
   store i64 %3, ptr %7, align 8, !tbaa !53
-  call void @llvm.lifetime.start.p0(i64 11000, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 8, !tbaa !86
   %9 = and i32 %4, -7
   %10 = or disjoint i32 %9, 4
@@ -7188,16 +7182,16 @@ define noundef i64 @_ZN12duckdb_miniz27tinfl_decompress_mem_to_memEPvmPKvmi(ptr 
   %.not = icmp eq i32 %11, 0
   %12 = load i64, ptr %6, align 8
   %13 = select i1 %.not, i64 %12, i64 -1
-  call void @llvm.lifetime.end.p0(i64 11000, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %13
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 2) i32 @_ZN12duckdb_miniz32tinfl_decompress_mem_to_callbackEPKvPmPFiS1_iPvES3_i(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #8 {
+define noundef range(i32 -1, 2) i32 @_ZN12duckdb_miniz32tinfl_decompress_mem_to_callbackEPKvPmPFiS1_iPvES3_i(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #7 {
   %6 = alloca %"struct.duckdb_miniz::tinfl_decompressor_tag", align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 11000, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = tail call noalias dereferenceable_or_null(32768) ptr @malloc(i64 noundef 32768) #26
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %32, label %10
@@ -7210,11 +7204,11 @@ define noundef range(i32 -1, 2) i32 @_ZN12duckdb_miniz32tinfl_decompress_mem_to_
 12:                                               ; preds = %29, %10
   %.025 = phi i64 [ 0, %10 ], [ %20, %29 ]
   %.024 = phi i64 [ 0, %10 ], [ %31, %29 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %13 = load i64, ptr %1, align 8, !tbaa !53
   %14 = sub i64 %13, %.025
   store i64 %14, ptr %7, align 8, !tbaa !53
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %15 = sub nuw nsw i64 32768, %.024
   store i64 %15, ptr %8, align 8, !tbaa !53
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 %.025
@@ -7244,26 +7238,26 @@ define noundef range(i32 -1, 2) i32 @_ZN12duckdb_miniz32tinfl_decompress_mem_to_
 29:                                               ; preds = %25
   %30 = add i64 %21, %.024
   %31 = and i64 %30, 32767
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %12
 
 .loopexit:                                        ; preds = %22, %26
   %.127.ph = phi i32 [ %28, %26 ], [ 0, %22 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @free(ptr noundef nonnull %9) #25
   store i64 %20, ptr %1, align 8, !tbaa !53
   br label %32
 
 32:                                               ; preds = %5, %.loopexit
   %.0 = phi i32 [ %.127.ph, %.loopexit ], [ -1, %5 ]
-  call void @llvm.lifetime.end.p0(i64 11000, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @_ZN12duckdb_miniz24tinfl_decompressor_allocEv() local_unnamed_addr #15 {
+define noalias noundef ptr @_ZN12duckdb_miniz24tinfl_decompressor_allocEv() local_unnamed_addr #14 {
   %1 = tail call noalias dereferenceable_or_null(11000) ptr @malloc(i64 noundef 11000) #26
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %2
@@ -7277,13 +7271,13 @@ define noalias noundef ptr @_ZN12duckdb_miniz24tinfl_decompressor_allocEv() loca
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN12duckdb_miniz23tinfl_decompressor_freeEPNS_22tinfl_decompressor_tagE(ptr noundef captures(none) %0) local_unnamed_addr #2 {
+define void @_ZN12duckdb_miniz23tinfl_decompressor_freeEPNS_22tinfl_decompressor_tagE(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   tail call void @free(ptr noundef %0) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12duckdb_miniz18mz_zip_zero_structEPNS_14mz_zip_archiveE(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #9 {
+define void @_ZN12duckdb_miniz18mz_zip_zero_structEPNS_14mz_zip_archiveE(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 
@@ -7296,7 +7290,7 @@ define void @_ZN12duckdb_miniz18mz_zip_zero_structEPNS_14mz_zip_archiveE(ptr nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz17mz_zip_reader_endEPNS_14mz_zip_archiveE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #8 {
+define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz17mz_zip_reader_endEPNS_14mz_zip_archiveE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #7 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_ZN12duckdb_minizL26mz_zip_reader_end_internalEPNS_14mz_zip_archiveEi.exit, label %2
 
@@ -7360,7 +7354,7 @@ _ZN12duckdb_minizL26mz_zip_reader_end_internalEPNS_14mz_zip_archiveEi.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz18mz_zip_reader_initEPNS_14mz_zip_archiveEmj(ptr noundef captures(address_is_null) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
+define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz18mz_zip_reader_initEPNS_14mz_zip_archiveEmj(ptr noundef captures(address_is_null) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.split, label %4
 
@@ -7511,16 +7505,16 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZN12duckdb_minizL30mz_zip_reader_read_central_dirEPNS_14mz_zip_archiveEj(ptr noundef captures(address_is_null) %0, i32 noundef %1) unnamed_addr #8 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZN12duckdb_minizL30mz_zip_reader_read_central_dirEPNS_14mz_zip_archiveEj(ptr noundef captures(address_is_null) %0, i32 noundef %1) unnamed_addr #7 {
   %3 = alloca [1024 x i32], align 16
   %4 = alloca [1024 x i32], align 16
   %5 = alloca [5 x i32], align 16
   %6 = alloca [14 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = and i32 %1, 2048
   %8 = icmp eq i32 %7, 0
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #25
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = load i64, ptr %0, align 8, !tbaa !229
   %10 = icmp ult i64 %9, 22
   br i1 %10, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit404, label %12
@@ -7531,7 +7525,7 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
   br label %.critedge
 
 12:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = tail call i64 @llvm.smax.i64(i64 %9, i64 4096)
   %spec.select.i = add nsw i64 %13, -4096
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -7595,11 +7589,11 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
   br i1 %43, label %.thread, label %17
 
 .thread:                                          ; preds = %17, %40
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %46
 
 45:                                               ; preds = %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.i401 = icmp eq ptr %0, null
   br i1 %.not.i401, label %.critedge, label %46
 
@@ -7609,7 +7603,7 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
   br label %.critedge
 
 48:                                               ; preds = %32
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %49 = load ptr, ptr %14, align 8, !tbaa !219
   %50 = load ptr, ptr %15, align 8, !tbaa !230
   %51 = call noundef i64 %49(ptr noundef %50, i64 noundef %34, ptr noundef nonnull %4, i64 noundef 22)
@@ -8248,14 +8242,14 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
 
 .critedge:                                        ; preds = %402, %388, %373, %358, %340, %327, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit360, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit370, %46, %45, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit372, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit374, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit376, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit394, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit392, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit390, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit388, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit386, %.loopexit, %411, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit378, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit380, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit382, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit384, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit396, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit398, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit400, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit404
   %.0 = phi i32 [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit404 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit400 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit398 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit396 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit384 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit382 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit380 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit378 ], [ 1, %411 ], [ 1, %.loopexit ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit386 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit388 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit390 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit392 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit394 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit376 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit374 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit372 ], [ 0, %45 ], [ 0, %46 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit370 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit360 ], [ 0, %327 ], [ 0, %340 ], [ 0, %358 ], [ 0, %373 ], [ 0, %388 ], [ 0, %402 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz22mz_zip_reader_init_memEPNS_14mz_zip_archiveEPKvmj(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #8 {
+define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz22mz_zip_reader_init_memEPNS_14mz_zip_archiveEPKvmj(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #7 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %8
 
@@ -8430,7 +8424,7 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @_ZN12duckdb_minizL20mz_zip_mem_read_funcEPvmS0_m(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) #10 {
+define internal noundef i64 @_ZN12duckdb_minizL20mz_zip_mem_read_funcEPvmS0_m(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) #9 {
   %5 = load i64, ptr %0, align 8, !tbaa !229
   %.not = icmp ult i64 %1, %5
   %6 = sub nuw i64 %5, %1
@@ -8446,7 +8440,7 @@ define internal noundef i64 @_ZN12duckdb_minizL20mz_zip_mem_read_funcEPvmS0_m(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz31mz_zip_reader_is_file_encryptedEPNS_14mz_zip_archiveEj(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #16 {
+define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz31mz_zip_reader_is_file_encryptedEPNS_14mz_zip_archiveEj(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #15 {
   %.not.i8 = icmp eq ptr %0, null
   br i1 %.not.i8, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit, label %3
 
@@ -8493,7 +8487,7 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz31mz_zip_reader_is_file_supportedEPNS_14mz_zip_archiveEj(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #16 {
+define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz31mz_zip_reader_is_file_supportedEPNS_14mz_zip_archiveEj(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #15 {
   %.not.i25 = icmp eq ptr %0, null
   br i1 %.not.i25, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit24, label %3
 
@@ -8559,7 +8553,7 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz33mz_zip_reader_is_file_a_directoryEPNS_14mz_zip_archiveEj(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #16 {
+define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz33mz_zip_reader_is_file_a_directoryEPNS_14mz_zip_archiveEj(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #15 {
   %.not.i20 = icmp eq ptr %0, null
   br i1 %.not.i20, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit, label %3
 
@@ -8627,19 +8621,19 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN12duckdb_miniz25mz_zip_reader_locate_fileEPNS_14mz_zip_archiveEPKcS3_j(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #17 {
+define noundef i32 @_ZN12duckdb_miniz25mz_zip_reader_locate_fileEPNS_14mz_zip_archiveEPKcS3_j(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #16 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call noundef i32 @_ZN12duckdb_miniz28mz_zip_reader_locate_file_v2EPNS_14mz_zip_archiveEPKcS3_jPj(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %5)
   %.not = icmp eq i32 %6, 0
   %7 = load i32, ptr %5, align 4
   %.0 = select i1 %.not, i32 -1, i32 %7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz28mz_zip_reader_locate_file_v2EPNS_14mz_zip_archiveEPKcS3_jPj(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #17 {
+define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz28mz_zip_reader_locate_file_v2EPNS_14mz_zip_archiveEPKcS3_jPj(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #16 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %6
 
@@ -9048,18 +9042,18 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz37mz_zip_reader_extract_to_mem_no_allocEPNS_14mz_zip_archiveEjPvmjS2_m(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #8 {
+define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz37mz_zip_reader_extract_to_mem_no_allocEPNS_14mz_zip_archiveEjPvmjS2_m(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #7 {
   %8 = alloca %"struct.duckdb_miniz::mz_zip_archive_file_stat", align 8
   %9 = alloca [8 x i32], align 16
   %10 = alloca %"struct.duckdb_miniz::tinfl_decompressor_tag", align 8
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 1104, ptr nonnull %8) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #25
-  call void @llvm.lifetime.start.p0(i64 11000, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit186, label %13
 
@@ -9288,8 +9282,8 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
   %.0124 = phi i64 [ 0, %122 ], [ %147, %138 ]
   %.0120 = phi i64 [ 0, %122 ], [ %145, %138 ]
   %.1 = phi i64 [ %.0119, %122 ], [ %144, %138 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %124 = sub i64 %62, %.0124
   store i64 %124, ptr %12, align 8, !tbaa !53
   %.not156 = icmp eq i64 %.1, 0
@@ -9313,8 +9307,8 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
 .thread199:                                       ; preds = %129
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 11, ptr %134, align 4, !tbaa !215
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit
 
 135:                                              ; preds = %129
@@ -9338,8 +9332,8 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
   %145 = add i64 %143, %.1121
   %146 = load i64, ptr %12, align 8, !tbaa !53
   %147 = add i64 %146, %.0124
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   switch i32 %142, label %.loopexit [
     i32 1, label %123
     i32 0, label %148
@@ -9386,14 +9380,14 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
 
 _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit186: ; preds = %25, %7, %.loopexit, %160, %112, %98, %99, %40, %_ZN12duckdb_miniz23mz_zip_reader_file_statEPNS_14mz_zip_archiveEjPNS_24mz_zip_archive_file_statE.exit, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit168, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit170, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit172, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit174, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit176, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit178, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit180, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit182, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit184
   %.0117 = phi i32 [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit184 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit182 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit180 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit178 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit176 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit174 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit168 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit172 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit170 ], [ 0, %_ZN12duckdb_miniz23mz_zip_reader_file_statEPNS_14mz_zip_archiveEjPNS_24mz_zip_archive_file_statE.exit ], [ 1, %40 ], [ 1, %99 ], [ 1, %98 ], [ 0, %112 ], [ %.1134, %160 ], [ %.1134, %.loopexit ], [ 0, %7 ], [ 0, %25 ]
-  call void @llvm.lifetime.end.p0(i64 11000, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #25
-  call void @llvm.lifetime.end.p0(i64 1104, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0117
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz23mz_zip_reader_file_statEPNS_14mz_zip_archiveEjPNS_24mz_zip_archive_file_statE(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #12 {
+define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz23mz_zip_reader_file_statEPNS_14mz_zip_archiveEjPNS_24mz_zip_archive_file_statE(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #11 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_ZN12duckdb_minizL14mz_zip_get_cdhEPNS_14mz_zip_archiveEj.exit, label %4
 
@@ -9427,9 +9421,9 @@ _ZN12duckdb_minizL14mz_zip_get_cdhEPNS_14mz_zip_archiveEj.exit: ; preds = %3, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz42mz_zip_reader_extract_file_to_mem_no_allocEPNS_14mz_zip_archiveEPKcPvmjS4_m(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #8 {
+define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz42mz_zip_reader_extract_file_to_mem_no_allocEPNS_14mz_zip_archiveEPKcPvmjS4_m(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #7 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = call noundef i32 @_ZN12duckdb_miniz28mz_zip_reader_locate_file_v2EPNS_14mz_zip_archiveEPKcS3_jPj(ptr noundef %0, ptr noundef %1, ptr noundef null, i32 noundef %4, ptr noundef nonnull %8)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %13, label %10
@@ -9441,20 +9435,20 @@ define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz42mz_zip_reader_extract_fil
 
 13:                                               ; preds = %7, %10
   %.0 = phi i32 [ %12, %10 ], [ 0, %7 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz28mz_zip_reader_extract_to_memEPNS_14mz_zip_archiveEjPvmj(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #8 {
+define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz28mz_zip_reader_extract_to_memEPNS_14mz_zip_archiveEjPvmj(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
   %6 = tail call noundef i32 @_ZN12duckdb_miniz37mz_zip_reader_extract_to_mem_no_allocEPNS_14mz_zip_archiveEjPvmjS2_m(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef null, i64 noundef 0)
   ret i32 %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz33mz_zip_reader_extract_file_to_memEPNS_14mz_zip_archiveEPKcPvmj(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #8 {
+define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz33mz_zip_reader_extract_file_to_memEPNS_14mz_zip_archiveEPKcPvmj(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call noundef i32 @_ZN12duckdb_miniz28mz_zip_reader_locate_file_v2EPNS_14mz_zip_archiveEPKcS3_jPj(ptr noundef %0, ptr noundef readonly %1, ptr noundef null, i32 noundef %4, ptr noundef nonnull %6)
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %_ZN12duckdb_miniz42mz_zip_reader_extract_file_to_mem_no_allocEPNS_14mz_zip_archiveEPKcPvmjS4_m.exit, label %8
@@ -9466,12 +9460,12 @@ define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz33mz_zip_reader_extract_fil
 
 _ZN12duckdb_miniz42mz_zip_reader_extract_file_to_mem_no_allocEPNS_14mz_zip_archiveEPKcPvmjS4_m.exit: ; preds = %5, %8
   %.0.i = phi i32 [ %10, %8 ], [ 0, %5 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN12duckdb_miniz29mz_zip_reader_extract_to_heapEPNS_14mz_zip_archiveEjPmj(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #8 {
+define noundef ptr @_ZN12duckdb_miniz29mz_zip_reader_extract_to_heapEPNS_14mz_zip_archiveEjPmj(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #7 {
   %.not.i41 = icmp eq ptr %0, null
   br i1 %.not.i41, label %_ZN12duckdb_minizL14mz_zip_get_cdhEPNS_14mz_zip_archiveEj.exit, label %5
 
@@ -9566,9 +9560,9 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN12duckdb_miniz34mz_zip_reader_extract_file_to_heapEPNS_14mz_zip_archiveEPKcPmj(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #8 {
+define noundef ptr @_ZN12duckdb_miniz34mz_zip_reader_extract_file_to_heapEPNS_14mz_zip_archiveEPKcPmj(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #7 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call noundef i32 @_ZN12duckdb_miniz28mz_zip_reader_locate_file_v2EPNS_14mz_zip_archiveEPKcS3_jPj(ptr noundef %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef nonnull %5)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %9
@@ -9673,19 +9667,19 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
 
 _ZN12duckdb_miniz29mz_zip_reader_extract_to_heapEPNS_14mz_zip_archiveEjPmj.exit: ; preds = %52, %51, %47, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit.i, %29, %28, %7, %8
   %.0 = phi ptr [ null, %8 ], [ null, %7 ], [ null, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit.i ], [ null, %47 ], [ %42, %52 ], [ %42, %51 ], [ null, %28 ], [ null, %29 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz33mz_zip_reader_extract_to_callbackEPNS_14mz_zip_archiveEjPFmPvmPKvmES2_j(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #8 {
+define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz33mz_zip_reader_extract_to_callbackEPNS_14mz_zip_archiveEjPFmPvmPKvmES2_j(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #7 {
   %6 = alloca %"struct.duckdb_miniz::mz_zip_archive_file_stat", align 8
   %7 = alloca [8 x i32], align 16
   %8 = alloca %"struct.duckdb_miniz::tinfl_decompressor_tag", align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 1104, ptr nonnull %6) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit248, label %11
 
@@ -9939,7 +9933,7 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
   br i1 %.not200, label %.thread262, label %.lr.ph.split, !llvm.loop !257
 
 129:                                              ; preds = %94
-  call void @llvm.lifetime.start.p0(i64 11000, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 8, !tbaa !86
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %131 = load ptr, ptr %130, align 8, !tbaa !212
@@ -9968,8 +9962,8 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
   %.1154 = phi i64 [ %.2155, %172 ], [ %74, %.preheader ]
   %140 = and i64 %.3160, 32767
   %141 = getelementptr inbounds nuw i8, ptr %134, i64 %140
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %142 = sub nuw nsw i64 32768, %140
   store i64 %142, ptr %10, align 8, !tbaa !53
   %.not206 = icmp eq i64 %.1168, 0
@@ -10029,25 +10023,25 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
   %.sink = phi i32 [ 20, %147 ], [ 31, %163 ], [ 11, %165 ]
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %.sink, ptr %171, align 4, !tbaa !215
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread280
 
 172:                                              ; preds = %155, %165
   %.6 = phi i32 [ %168, %165 ], [ %.5180, %155 ]
   %.4161 = phi i64 [ %169, %165 ], [ %.3160, %155 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %173 = add nsw i32 %158, -1
   %174 = icmp ult i32 %173, 2
   br i1 %174, label %139, label %175, !llvm.loop !258
 
 .thread280:                                       ; preds = %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit228, %.thread250
-  call void @llvm.lifetime.end.p0(i64 11000, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread274
 
 175:                                              ; preds = %172
-  call void @llvm.lifetime.end.p0(i64 11000, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %176 = icmp eq i32 %158, 0
   br i1 %176, label %.thread262, label %.thread274
 
@@ -10117,15 +10111,15 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
 
 _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit248: ; preds = %19, %5, %194, %195, %34, %_ZN12duckdb_miniz23mz_zip_reader_file_statEPNS_14mz_zip_archiveEjPNS_24mz_zip_archive_file_statE.exit, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit236, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit238, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit240, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit242, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit244, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit246
   %.0 = phi i32 [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit246 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit244 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit242 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit240 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit238 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit236 ], [ 0, %_ZN12duckdb_miniz23mz_zip_reader_file_statEPNS_14mz_zip_archiveEjPNS_24mz_zip_archive_file_statE.exit ], [ 1, %34 ], [ %.4, %195 ], [ %.4, %194 ], [ 0, %5 ], [ 0, %19 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 1104, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz38mz_zip_reader_extract_file_to_callbackEPNS_14mz_zip_archiveEPKcPFmPvmPKvmES4_j(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #8 {
+define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz38mz_zip_reader_extract_file_to_callbackEPNS_14mz_zip_archiveEPKcPFmPvmPKvmES4_j(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #7 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call noundef i32 @_ZN12duckdb_miniz28mz_zip_reader_locate_file_v2EPNS_14mz_zip_archiveEPKcS3_jPj(ptr noundef %0, ptr noundef %1, ptr noundef null, i32 noundef %4, ptr noundef nonnull %6)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %11, label %8
@@ -10137,14 +10131,14 @@ define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz38mz_zip_reader_extract_fil
 
 11:                                               ; preds = %5, %8
   %.0 = phi i32 [ %10, %8 ], [ 0, %5 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN12duckdb_miniz30mz_zip_reader_extract_iter_newEPNS_14mz_zip_archiveEjj(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
+define noundef ptr @_ZN12duckdb_miniz30mz_zip_reader_extract_iter_newEPNS_14mz_zip_archiveEjj(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = alloca [8 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %143, label %5
 
@@ -10421,14 +10415,14 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
 
 143:                                              ; preds = %121, %124, %127, %3, %5, %139, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit126, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit128, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit130, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit132, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit134, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit136, %31, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit138
   %.0 = phi ptr [ null, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit136 ], [ null, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit132 ], [ null, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit130 ], [ null, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit128 ], [ null, %139 ], [ null, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit126 ], [ null, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit134 ], [ null, %31 ], [ null, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit138 ], [ null, %5 ], [ null, %3 ], [ %13, %127 ], [ %13, %124 ], [ %13, %121 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN12duckdb_miniz35mz_zip_reader_extract_file_iter_newEPNS_14mz_zip_archiveEPKcj(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #8 {
+define noundef ptr @_ZN12duckdb_miniz35mz_zip_reader_extract_file_iter_newEPNS_14mz_zip_archiveEPKcj(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call noundef i32 @_ZN12duckdb_miniz28mz_zip_reader_locate_file_v2EPNS_14mz_zip_archiveEPKcS3_jPj(ptr noundef %0, ptr noundef %1, ptr noundef null, i32 noundef %2, ptr noundef nonnull %4)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %9, label %6
@@ -10440,12 +10434,12 @@ define noundef ptr @_ZN12duckdb_miniz35mz_zip_reader_extract_file_iter_newEPNS_1
 
 9:                                                ; preds = %3, %6
   %.0 = phi ptr [ %8, %6 ], [ null, %3 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN12duckdb_miniz31mz_zip_reader_extract_iter_readEPNS_32mz_zip_reader_extract_iter_stateEPvm(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #8 {
+define noundef i64 @_ZN12duckdb_miniz31mz_zip_reader_extract_iter_readEPNS_32mz_zip_reader_extract_iter_stateEPvm(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %.not = icmp eq ptr %0, null
@@ -10658,8 +10652,8 @@ _ZN12duckdb_miniz8mz_crc32EmPKhm.exit:            ; preds = %.lr.ph42.i, %.prehe
   %120 = load i64, ptr %21, align 8, !tbaa !268
   %121 = and i64 %120, 32767
   %122 = getelementptr inbounds nuw i8, ptr %119, i64 %121
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %123 = sub nuw nsw i64 32768, %121
   store i64 %123, ptr %5, align 8, !tbaa !53
   %.not123 = icmp eq i64 %118, 0
@@ -10711,8 +10705,8 @@ _ZN12duckdb_miniz8mz_crc32EmPKhm.exit:            ; preds = %.lr.ph42.i, %.prehe
 
 .thread183:                                       ; preds = %144, %142
   store i32 -1, ptr %30, align 4, !tbaa !265
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
 146:                                              ; preds = %132
@@ -10855,8 +10849,8 @@ _ZN12duckdb_miniz8mz_crc32EmPKhm.exit167:         ; preds = %.lr.ph42.i147, %.pr
 
 .thread207:                                       ; preds = %218, %216
   store i32 -1, ptr %30, align 4, !tbaa !265
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
 220:                                              ; preds = %_ZN12duckdb_miniz8mz_crc32EmPKhm.exit167
@@ -10866,8 +10860,8 @@ _ZN12duckdb_miniz8mz_crc32EmPKhm.exit167:         ; preds = %.lr.ph42.i147, %.pr
 222:                                              ; preds = %220, %151
   %223 = phi i64 [ 0, %151 ], [ %212, %220 ]
   %.3 = phi i64 [ %.2, %151 ], [ %221, %220 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %224 = icmp ult i64 %.3, %2
   br i1 %224, label %225, label %.critedge
 
@@ -10883,7 +10877,7 @@ _ZN12duckdb_miniz8mz_crc32EmPKhm.exit167:         ; preds = %.lr.ph42.i147, %.pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz31mz_zip_reader_extract_iter_freeEPNS_32mz_zip_reader_extract_iter_stateE(ptr noundef %0) local_unnamed_addr #8 {
+define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz31mz_zip_reader_extract_iter_freeEPNS_32mz_zip_reader_extract_iter_stateE(ptr noundef %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %53, label %2
 
@@ -10985,17 +10979,17 @@ define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz31mz_zip_reader_extract_ite
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz20mz_zip_validate_fileEPNS_14mz_zip_archiveEjj(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
+define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz20mz_zip_validate_fileEPNS_14mz_zip_archiveEjj(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = alloca %"struct.duckdb_miniz::mz_zip_archive_file_stat", align 8
   %5 = alloca i32, align 4
   %6 = alloca [8 x i32], align 16
   %7 = alloca i32, align 4
   %8 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1104, ptr nonnull %4) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !10
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit291, label %9
@@ -11368,7 +11362,7 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
   br i1 %or.cond12, label %332, label %219
 
 219:                                              ; preds = %.thread425
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %220 = getelementptr inbounds nuw i8, ptr %11, i64 100
   %221 = load i32, ptr %220, align 4, !tbaa !226
   %222 = icmp ne i32 %221, 0
@@ -11564,11 +11558,11 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
   %.sink = phi i32 [ 20, %219 ], [ 30, %326 ]
   %330 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %.sink, ptr %330, align 4, !tbaa !215
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %348
 
 331:                                              ; preds = %326
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %336
 
 332:                                              ; preds = %.thread425
@@ -11620,15 +11614,15 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
 
 _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit291: ; preds = %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit265, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit263, %21, %3, %336, %345, %343, %39, %_ZN12duckdb_minizL14mz_zip_get_cdhEPNS_14mz_zip_archiveEj.exit, %348, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit273, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit275, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit277, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit279, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit281, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit283, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit285, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit287, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit289
   %.0 = phi i32 [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit289 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit287 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit285 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit281 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit279 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit277 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit275 ], [ 0, %348 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit273 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit283 ], [ 0, %_ZN12duckdb_minizL14mz_zip_get_cdhEPNS_14mz_zip_archiveEj.exit ], [ 1, %39 ], [ 0, %343 ], [ 1, %345 ], [ 1, %336 ], [ 0, %3 ], [ 0, %21 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit263 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit265 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 1104, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZN12duckdb_minizL25mz_zip_file_stat_internalEPNS_14mz_zip_archiveEjPKhPNS_24mz_zip_archive_file_statEPi(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #19 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZN12duckdb_minizL25mz_zip_file_stat_internalEPNS_14mz_zip_archiveEjPKhPNS_24mz_zip_archive_file_statEPi(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #18 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %6
 
@@ -12085,7 +12079,7 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i64 @_ZN12duckdb_minizL29mz_zip_compute_crc32_callbackEPvmPKvm(ptr noundef captures(none) %0, i64 %1, ptr noundef readonly captures(none) %2, i64 noundef returned %3) #20 {
+define internal noundef i64 @_ZN12duckdb_minizL29mz_zip_compute_crc32_callbackEPvmPKvm(ptr noundef captures(none) %0, i64 %1, ptr noundef readonly captures(none) %2, i64 noundef returned %3) #19 {
   %5 = load i32, ptr %0, align 4, !tbaa !10
   %6 = xor i32 %5, -1
   %7 = icmp ugt i64 %3, 3
@@ -12167,7 +12161,7 @@ _ZN12duckdb_miniz8mz_crc32EmPKhm.exit:            ; preds = %.lr.ph42.i, %.prehe
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz23mz_zip_validate_archiveEPNS_14mz_zip_archiveEj(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #8 {
+define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz23mz_zip_validate_archiveEPNS_14mz_zip_archiveEj(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = alloca i32, align 4
   %4 = alloca %"struct.duckdb_miniz::mz_zip_archive_file_stat", align 8
   %.not = icmp eq ptr %0, null
@@ -12281,8 +12275,8 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %48
   %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ 0, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #25
-  call void @llvm.lifetime.start.p0(i64 1104, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %52 = load ptr, ptr %6, align 8, !tbaa !206
   %.not12.i.i = icmp eq ptr %52, null
   br i1 %.not12.i.i, label %_ZN12duckdb_miniz23mz_zip_reader_file_statEPNS_14mz_zip_archiveEjPNS_24mz_zip_archive_file_statE.exit, label %53
@@ -12321,15 +12315,15 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
   br label %.critedge
 
 69:                                               ; preds = %65
-  call void @llvm.lifetime.end.p0(i64 1104, ptr nonnull %4) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %70 = call noundef i32 @_ZN12duckdb_miniz20mz_zip_validate_fileEPNS_14mz_zip_archiveEjj(ptr noundef nonnull %0, i32 noundef %61, i32 noundef %1)
   %.not42 = icmp eq i32 %70, 0
   br i1 %.not42, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit52, label %48
 
 .critedge:                                        ; preds = %63, %_ZN12duckdb_miniz23mz_zip_reader_file_statEPNS_14mz_zip_archiveEjPNS_24mz_zip_archive_file_statE.exit, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit
-  call void @llvm.lifetime.end.p0(i64 1104, ptr nonnull %4) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit52
 
 _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit52: ; preds = %69, %48, %.lr.ph.split.us, %44, %39, %17, %2, %.critedge, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit44, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit46, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit48, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit50
@@ -12338,9 +12332,9 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz27mz_zip_validate_mem_archiveEPKvmjPNS_12mz_zip_errorE(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #8 {
+define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz27mz_zip_validate_mem_archiveEPKvmjPNS_12mz_zip_errorE(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #7 {
   %5 = alloca %"struct.duckdb_miniz::mz_zip_archive", align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp ne ptr %0, null
   %7 = icmp ne i64 %1, 0
   %or.cond = and i1 %6, %7
@@ -12475,12 +12469,12 @@ _ZN12duckdb_minizL26mz_zip_reader_end_internalEPNS_14mz_zip_archiveEi.exit.threa
 
 64:                                               ; preds = %.sink.split, %_ZN12duckdb_minizL26mz_zip_reader_end_internalEPNS_14mz_zip_archiveEi.exit.thread.thread, %11, %8
   %.019 = phi i32 [ 0, %8 ], [ 0, %11 ], [ %63, %_ZN12duckdb_minizL26mz_zip_reader_end_internalEPNS_14mz_zip_archiveEi.exit.thread.thread ], [ %.019.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.019
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz21mz_zip_writer_init_v2EPNS_14mz_zip_archiveEmj(ptr noundef captures(address_is_null) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
+define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz21mz_zip_writer_init_v2EPNS_14mz_zip_archiveEmj(ptr noundef captures(address_is_null) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = lshr i32 %2, 14
   %.lobit = and i32 %4, 1
   %.not = icmp eq ptr %0, null
@@ -12610,7 +12604,7 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz18mz_zip_writer_initEPNS_14mz_zip_archiveEm(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #8 {
+define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz18mz_zip_writer_initEPNS_14mz_zip_archiveEm(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #7 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_ZN12duckdb_miniz21mz_zip_writer_init_v2EPNS_14mz_zip_archiveEmj.exit, label %3
 
@@ -12722,7 +12716,7 @@ _ZN12duckdb_miniz21mz_zip_writer_init_v2EPNS_14mz_zip_archiveEmj.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz26mz_zip_writer_init_heap_v2EPNS_14mz_zip_archiveEmmj(ptr noundef initializes((80, 96)) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #8 {
+define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz26mz_zip_writer_init_heap_v2EPNS_14mz_zip_archiveEmmj(ptr noundef initializes((80, 96)) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #7 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr @_ZN12duckdb_minizL22mz_zip_heap_write_funcEPvmPKvm, ptr %5, align 8, !tbaa !298
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -12838,7 +12832,7 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZN12duckdb_minizL22mz_zip_heap_write_funcEPvmPKvm(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #8 {
+define internal noundef i64 @_ZN12duckdb_minizL22mz_zip_heap_write_funcEPvmPKvm(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #7 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8, !tbaa !206
   %7 = add i64 %3, %1
@@ -12903,13 +12897,13 @@ define internal noundef i64 @_ZN12duckdb_minizL22mz_zip_heap_write_funcEPvmPKvm(
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz23mz_zip_writer_init_heapEPNS_14mz_zip_archiveEmm(ptr noundef initializes((80, 96)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #8 {
+define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz23mz_zip_writer_init_heapEPNS_14mz_zip_archiveEmm(ptr noundef initializes((80, 96)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #7 {
   %4 = tail call noundef i32 @_ZN12duckdb_miniz26mz_zip_writer_init_heap_v2EPNS_14mz_zip_archiveEmmj(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef 0)
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz33mz_zip_writer_init_from_reader_v2EPNS_14mz_zip_archiveEPKcj(ptr noundef captures(address) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #8 {
+define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz33mz_zip_writer_init_from_reader_v2EPNS_14mz_zip_archiveEPKcj(ptr noundef captures(address) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit57, label %4
 
@@ -13054,7 +13048,7 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz30mz_zip_writer_init_from_readerEPNS_14mz_zip_archiveEPKc(ptr noundef captures(address) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #8 {
+define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz30mz_zip_writer_init_from_readerEPNS_14mz_zip_archiveEPKc(ptr noundef captures(address) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #7 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_ZN12duckdb_miniz33mz_zip_writer_init_from_reader_v2EPNS_14mz_zip_archiveEPKcj.exit, label %3
 
@@ -13184,19 +13178,19 @@ _ZN12duckdb_miniz33mz_zip_writer_init_from_reader_v2EPNS_14mz_zip_archiveEPKcj.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz21mz_zip_writer_add_memEPNS_14mz_zip_archiveEPKcPKvmj(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #8 {
+define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz21mz_zip_writer_add_memEPNS_14mz_zip_archiveEPKcPKvmj(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
   %6 = tail call noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz27mz_zip_writer_add_mem_ex_v2EPNS_14mz_zip_archiveEPKcPKvmS5_tjmjPNS_19mz_dummy_time_t_tagES3_jS3_j(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef null, i16 noundef zeroext 0, i32 noundef %4, i64 noundef 0, i32 noundef 0, ptr poison, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0)
   ret i32 %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz24mz_zip_writer_add_mem_exEPNS_14mz_zip_archiveEPKcPKvmS5_tjmj(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4, i16 noundef zeroext %5, i32 noundef %6, i64 noundef %7, i32 noundef %8) local_unnamed_addr #8 {
+define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz24mz_zip_writer_add_mem_exEPNS_14mz_zip_archiveEPKcPKvmS5_tjmj(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4, i16 noundef zeroext %5, i32 noundef %6, i64 noundef %7, i32 noundef %8) local_unnamed_addr #7 {
   %10 = tail call noundef i32 @_ZN12duckdb_miniz27mz_zip_writer_add_mem_ex_v2EPNS_14mz_zip_archiveEPKcPKvmS5_tjmjPNS_19mz_dummy_time_t_tagES3_jS3_j(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i16 noundef zeroext %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, ptr poison, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz27mz_zip_writer_add_mem_ex_v2EPNS_14mz_zip_archiveEPKcPKvmS5_tjmjPNS_19mz_dummy_time_t_tagES3_jS3_j(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4, i16 noundef zeroext %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, ptr readnone captures(none) %9, ptr noundef %10, i32 noundef %11, ptr noundef readonly captures(none) %12, i32 noundef %13) local_unnamed_addr #8 {
+define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz27mz_zip_writer_add_mem_ex_v2EPNS_14mz_zip_archiveEPKcPKvmS5_tjmjPNS_19mz_dummy_time_t_tagES3_jS3_j(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4, i16 noundef zeroext %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, ptr readnone captures(none) %9, ptr noundef %10, i32 noundef %11, ptr noundef readonly captures(none) %12, i32 noundef %13) local_unnamed_addr #7 {
   %15 = alloca i64, align 8
   %16 = alloca i64, align 8
   %17 = alloca i64, align 8
@@ -13206,12 +13200,12 @@ define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz27mz_zip_writer_add_mem_ex_
   %21 = alloca %"struct.duckdb_miniz::mz_zip_writer_add_state", align 8
   %22 = alloca [24 x i8], align 16
   store i64 %7, ptr %16, align 8, !tbaa !53
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %23 = load i64, ptr %0, align 8, !tbaa !229
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 0, ptr %18, align 8, !tbaa !53
-  call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %19) #25
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %20) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %24 = icmp slt i32 %6, 0
   %spec.store.select = select i1 %24, i32 6, i32 %6
   %.not = icmp eq i64 %7, 0
@@ -13739,7 +13733,7 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
   br i1 %39, label %288, label %_ZN12duckdb_miniz39tdefl_create_comp_flags_from_zip_paramsEiii.exit
 
 _ZN12duckdb_miniz39tdefl_create_comp_flags_from_zip_paramsEiii.exit: ; preds = %267
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr %0, ptr %21, align 8, !tbaa !304
   %268 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 %.1251, ptr %268, align 8, !tbaa !306
@@ -13756,10 +13750,10 @@ _ZN12duckdb_miniz39tdefl_create_comp_flags_from_zip_paramsEiii.exit: ; preds = %
   %277 = or i32 %276, 524288
   %spec.select369 = select i1 %.not.i356, i32 %277, i32 %276
   %278 = call noundef i32 @_ZN12duckdb_miniz10tdefl_initEPNS_16tdefl_compressorEPFiPKviPvES4_i(ptr noundef %.0249, ptr noundef nonnull @_ZN12duckdb_minizL34mz_zip_writer_add_put_buf_callbackEPKviPv, ptr noundef nonnull %21, i32 noundef %spec.select369)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 %3, ptr %15, align 8, !tbaa !53
   %279 = call noundef i32 @_ZN12duckdb_miniz14tdefl_compressEPNS_16tdefl_compressorEPKvPmPvS4_NS_11tdefl_flushE(ptr noundef %.0249, ptr noundef %2, ptr noundef nonnull %15, ptr noundef null, ptr noundef null, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.not300 = icmp eq i32 %279, 1
   br i1 %.not300, label %.thread364, label %282
 
@@ -13767,7 +13761,7 @@ _ZN12duckdb_miniz39tdefl_create_comp_flags_from_zip_paramsEiii.exit: ; preds = %
   %280 = load i64, ptr %269, align 8, !tbaa !307
   store i64 %280, ptr %18, align 8, !tbaa !53
   %281 = load i64, ptr %268, align 8, !tbaa !306
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %288
 
 282:                                              ; preds = %_ZN12duckdb_miniz39tdefl_create_comp_flags_from_zip_paramsEiii.exit
@@ -13778,7 +13772,7 @@ _ZN12duckdb_miniz39tdefl_create_comp_flags_from_zip_paramsEiii.exit: ; preds = %
   call void %284(ptr noundef %286, ptr noundef %.0249)
   %287 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 12, ptr %287, align 4, !tbaa !215
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit340
 
 288:                                              ; preds = %.thread364, %267, %265
@@ -13793,7 +13787,7 @@ _ZN12duckdb_miniz39tdefl_create_comp_flags_from_zip_paramsEiii.exit: ; preds = %
   br i1 %.not302, label %318, label %294
 
 294:                                              ; preds = %288
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i8 80, ptr %22, align 16, !tbaa !3
   %295 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store i8 75, ptr %295, align 1, !tbaa !3
@@ -13813,7 +13807,7 @@ _ZN12duckdb_miniz39tdefl_create_comp_flags_from_zip_paramsEiii.exit: ; preds = %
 .thread366:                                       ; preds = %300
   %302 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 29, ptr %302, align 4, !tbaa !215
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit340
 
 303:                                              ; preds = %300
@@ -13841,7 +13835,7 @@ _ZN12duckdb_miniz39tdefl_create_comp_flags_from_zip_paramsEiii.exit: ; preds = %
   %316 = call noundef i64 %313(ptr noundef %315, i64 noundef %.2252, ptr noundef nonnull %22, i64 noundef %.0)
   %.not303 = icmp eq i64 %316, %.0
   %317 = add i64 %.0, %.2252
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br i1 %.not303, label %318, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit340
 
 318:                                              ; preds = %311, %288
@@ -13877,17 +13871,17 @@ _ZN12duckdb_miniz39tdefl_create_comp_flags_from_zip_paramsEiii.exit: ; preds = %
 
 _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit340: ; preds = %.thread366, %282, %79, %78, %.thread, %68, %.split, %311, %327, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit314, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit316, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit318, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit320, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit322, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit324, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit326, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit328, %149, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit330, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit332, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit334, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit336, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit342, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit344, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit346
   %.0245 = phi i32 [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit346 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit344 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit342 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit336 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit334 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit330 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit328 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit326 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit324 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit316 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit314 ], [ 1, %327 ], [ 0, %311 ], [ 0, %282 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit322 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit320 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit318 ], [ 0, %149 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit332 ], [ 0, %.split ], [ 0, %68 ], [ 0, %.thread ], [ 0, %78 ], [ 0, %79 ], [ 0, %.thread366 ]
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %20) #25
-  call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret i32 %.0245
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZN12duckdb_minizL25mz_zip_writer_write_zerosEPNS_14mz_zip_archiveEmj(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #8 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZN12duckdb_minizL25mz_zip_writer_write_zerosEPNS_14mz_zip_archiveEmj(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #7 {
   %4 = alloca [4096 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call i32 @llvm.umin.i32(i32 %2, i32 4096)
   %6 = zext nneg i32 %5 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %4, i8 0, i64 %6, i1 false)
@@ -13923,12 +13917,12 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN12duckdb_minizL25mz_zip_w
 
 .loopexit:                                        ; preds = %16, %3, %.thread
   %.2 = phi i32 [ 0, %.thread ], [ 1, %3 ], [ 1, %16 ]
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @_ZN12duckdb_minizL37mz_zip_writer_create_zip64_extra_dataEPhPmS1_S1_(ptr noundef nonnull initializes((0, 4)) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #21 {
+define internal fastcc noundef i32 @_ZN12duckdb_minizL37mz_zip_writer_create_zip64_extra_dataEPhPmS1_S1_(ptr noundef nonnull initializes((0, 4)) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #20 {
   store i8 1, ptr %0, align 1, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 0, ptr %5, align 1, !tbaa !3
@@ -13985,7 +13979,7 @@ define internal fastcc noundef i32 @_ZN12duckdb_minizL37mz_zip_writer_create_zip
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 2) i32 @_ZN12duckdb_minizL34mz_zip_writer_add_put_buf_callbackEPKviPv(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) #8 {
+define internal noundef range(i32 0, 2) i32 @_ZN12duckdb_minizL34mz_zip_writer_add_put_buf_callbackEPKviPv(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) #7 {
   %4 = load ptr, ptr %2, align 8, !tbaa !304
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %6 = load ptr, ptr %5, align 8, !tbaa !298
@@ -14015,17 +14009,17 @@ define internal noundef range(i32 0, 2) i32 @_ZN12duckdb_minizL34mz_zip_writer_a
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZN12duckdb_minizL32mz_zip_writer_add_to_central_dirEPNS_14mz_zip_archiveEPKctPKvtS5_tmmjttttmjS3_j(ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i16 noundef zeroext %2, ptr noundef readonly captures(none) %3, i16 noundef zeroext %4, ptr noundef readonly captures(none) %5, i16 noundef zeroext %6, i64 noundef %7, i64 noundef %8, i32 noundef %9, i16 noundef zeroext range(i16 0, 9) %10, i16 noundef zeroext range(i16 0, 2064) %11, i64 noundef %12, i32 noundef range(i32 0, 17) %13, ptr noundef readonly captures(none) %14, i32 noundef %15) unnamed_addr #8 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZN12duckdb_minizL32mz_zip_writer_add_to_central_dirEPNS_14mz_zip_archiveEPKctPKvtS5_tmmjttttmjS3_j(ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i16 noundef zeroext %2, ptr noundef readonly captures(none) %3, i16 noundef zeroext %4, ptr noundef readonly captures(none) %5, i16 noundef zeroext %6, i64 noundef %7, i64 noundef %8, i32 noundef %9, i16 noundef zeroext range(i16 0, 9) %10, i16 noundef zeroext range(i16 0, 2064) %11, i64 noundef %12, i32 noundef range(i32 0, 17) %13, ptr noundef readonly captures(none) %14, i32 noundef %15) unnamed_addr #7 {
   %17 = alloca i32, align 4
   %18 = alloca [46 x i8], align 16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %20 = load ptr, ptr %19, align 8, !tbaa !206
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !294
   %23 = trunc i64 %22 to i32
   store i32 %23, ptr %17, align 4, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 46, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 100
   %25 = load i32, ptr %24, align 4, !tbaa !226
   %26 = icmp eq i32 %25, 0
@@ -14372,22 +14366,22 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
 
 193:                                              ; preds = %_ZN12duckdb_minizL22mz_zip_array_push_backEPNS_14mz_zip_archiveEPNS_12mz_zip_arrayEPKvm.exit93, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit58, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit60
   %.0 = phi i32 [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit60 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit58 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit ], [ 1, %_ZN12duckdb_minizL22mz_zip_array_push_backEPNS_14mz_zip_archiveEPNS_12mz_zip_arrayEPKvm.exit93 ]
-  call void @llvm.lifetime.end.p0(i64 46, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz33mz_zip_writer_add_from_zip_readerEPNS_14mz_zip_archiveES1_j(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #8 {
+define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz33mz_zip_writer_add_from_zip_readerEPNS_14mz_zip_archiveES1_j(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = alloca i32, align 4
   %5 = alloca [8 x i32], align 16
   %6 = alloca [46 x i8], align 16
   %7 = alloca %"struct.duckdb_miniz::mz_zip_archive_file_stat", align 8
   %8 = alloca %"struct.duckdb_miniz::mz_zip_array", align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #25
-  call void @llvm.lifetime.start.p0(i64 46, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 1104, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit429, label %9
 
@@ -14963,7 +14957,7 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
   %321 = getelementptr inbounds nuw i8, ptr %39, i64 46
   %322 = zext nneg i32 %53 to i64
   %323 = getelementptr inbounds nuw i8, ptr %321, i64 %322
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   %324 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 1, ptr %324, align 8, !tbaa !235
@@ -15188,11 +15182,11 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
   %445 = load ptr, ptr %315, align 8, !tbaa !213
   %446 = load ptr, ptr %223, align 8, !tbaa !216
   call void %445(ptr noundef %446, ptr noundef %384)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %498
 
 447:                                              ; preds = %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit379, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit381, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit383, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit385, %327
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit429
 
 448:                                              ; preds = %314
@@ -15400,15 +15394,15 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
 
 _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit429: ; preds = %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit403, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit405, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit407, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit411, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit409, %299, %18, %3, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit401, %447, %.critedge, %99, %544, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit369, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit371, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit373, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit375, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit377, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit387, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit391, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit393, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit395, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit397, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit399, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit413, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit415, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit417, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit419, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit421, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit423, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit425, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit427
   %.0 = phi i32 [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit425 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit423 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit421 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit417 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit415 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit413 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit399 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit397 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit395 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit393 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit391 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit387 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit369 ], [ 1, %544 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit ], [ 0, %447 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit377 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit375 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit371 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit373 ], [ 0, %299 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit401 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit419 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit427 ], [ 0, %99 ], [ 0, %.critedge ], [ 0, %3 ], [ 0, %18 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit409 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit411 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit407 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit405 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit403 ]
-  call void @llvm.lifetime.end.p0(i64 1104, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 46, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZN12duckdb_minizL42mz_zip_writer_update_zip64_extension_blockEPNS_12mz_zip_arrayEPNS_14mz_zip_archiveEPKhjPmS6_S6_Pj(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, i64 %.0.val, i64 %.0.val1, i64 %.0.val3) unnamed_addr #8 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZN12duckdb_minizL42mz_zip_writer_update_zip64_extension_blockEPNS_12mz_zip_arrayEPNS_14mz_zip_archiveEPKhjPmS6_S6_Pj(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, i64 %.0.val, i64 %.0.val1, i64 %.0.val3) unnamed_addr #7 {
   %5 = alloca [64 x i8], align 16
   %6 = add nuw nsw i32 %3, 64
   %7 = zext nneg i32 %6 to i64
@@ -15437,7 +15431,7 @@ _ZN12duckdb_minizL28mz_zip_array_ensure_capacityEPNS_14mz_zip_archiveEPNS_12mz_z
 
 22:                                               ; preds = %_ZN12duckdb_minizL28mz_zip_array_ensure_capacityEPNS_14mz_zip_archiveEPNS_12mz_zip_arrayEmj.exit, %4
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 1, ptr %5, align 16, !tbaa !3
   %.1..1..1..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 0, ptr %.1..1..1..sroa_idx, align 1, !tbaa !3
@@ -15458,7 +15452,7 @@ _ZN12duckdb_minizL28mz_zip_array_ensure_capacityEPNS_14mz_zip_archiveEPNS_12mz_z
   %26 = zext i32 %25 to i64
   %27 = mul nuw nsw i64 %26, 28
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre, ptr nonnull align 16 %5, i64 %27, i1 false)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not88 = icmp eq i32 %3, 0
   br i1 %.not88, label %.thread35, label %.preheader
 
@@ -15552,9 +15546,9 @@ _ZN12duckdb_minizL22mz_zip_array_push_backEPNS_14mz_zip_archiveEPNS_12mz_zip_arr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz30mz_zip_writer_finalize_archiveEPNS_14mz_zip_archiveE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #8 {
+define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz30mz_zip_writer_finalize_archiveEPNS_14mz_zip_archiveE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #7 {
   %2 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %3
 
@@ -15787,12 +15781,12 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
 
 .critedge:                                        ; preds = %9, %1, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit79, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit77, %106, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit81, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit83, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit85
   %.0 = phi i32 [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit85 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit81 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit ], [ 1, %106 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit83 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit77 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit79 ], [ 0, %1 ], [ 0, %9 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz35mz_zip_writer_finalize_heap_archiveEPNS_14mz_zip_archiveEPPvPm(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #8 {
+define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz35mz_zip_writer_finalize_heap_archiveEPNS_14mz_zip_archiveEPPvPm(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #7 {
   %4 = icmp ne ptr %1, null
   %5 = icmp ne ptr %2, null
   %or.cond = and i1 %4, %5
@@ -15859,7 +15853,7 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz17mz_zip_writer_endEPNS_14mz_zip_archiveE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #8 {
+define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz17mz_zip_writer_endEPNS_14mz_zip_archiveE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #7 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_ZN12duckdb_minizL26mz_zip_writer_end_internalEPNS_14mz_zip_archiveEi.exit, label %2
 
@@ -15973,7 +15967,7 @@ define noundef i32 @_ZN12duckdb_miniz15mz_zip_get_typeEPNS_14mz_zip_archiveE(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN12duckdb_miniz21mz_zip_set_last_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #21 {
+define noundef i32 @_ZN12duckdb_miniz21mz_zip_set_last_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -16004,7 +15998,7 @@ define noundef i32 @_ZN12duckdb_miniz22mz_zip_peek_last_errorEPNS_14mz_zip_archi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN12duckdb_miniz23mz_zip_clear_last_errorEPNS_14mz_zip_archiveE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #21 {
+define noundef i32 @_ZN12duckdb_miniz23mz_zip_clear_last_errorEPNS_14mz_zip_archiveE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_ZN12duckdb_miniz21mz_zip_set_last_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit, label %2
 
@@ -16020,7 +16014,7 @@ _ZN12duckdb_miniz21mz_zip_set_last_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN12duckdb_miniz21mz_zip_get_last_errorEPNS_14mz_zip_archiveE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #21 {
+define noundef i32 @_ZN12duckdb_miniz21mz_zip_get_last_errorEPNS_14mz_zip_archiveE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -16036,7 +16030,7 @@ define noundef i32 @_ZN12duckdb_miniz21mz_zip_get_last_errorEPNS_14mz_zip_archiv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN12duckdb_miniz23mz_zip_get_error_stringENS_12mz_zip_errorE(i32 noundef %0) local_unnamed_addr #7 {
+define noundef nonnull ptr @_ZN12duckdb_miniz23mz_zip_get_error_stringENS_12mz_zip_errorE(i32 noundef %0) local_unnamed_addr #6 {
   %2 = icmp ult i32 %0, 32
   br i1 %2, label %switch.lookup, label %4
 
@@ -16052,7 +16046,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN12duckdb_miniz15mz_zip_is_zip64EPNS_14mz_zip_archiveE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #22 {
+define noundef i32 @_ZN12duckdb_miniz15mz_zip_is_zip64EPNS_14mz_zip_archiveE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -16073,7 +16067,7 @@ define noundef i32 @_ZN12duckdb_miniz15mz_zip_is_zip64EPNS_14mz_zip_archiveE(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN12duckdb_miniz27mz_zip_get_central_dir_sizeEPNS_14mz_zip_archiveE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #22 {
+define noundef i64 @_ZN12duckdb_miniz27mz_zip_get_central_dir_sizeEPNS_14mz_zip_archiveE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -16123,7 +16117,7 @@ define noundef i64 @_ZN12duckdb_miniz23mz_zip_get_archive_sizeEPNS_14mz_zip_arch
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN12duckdb_miniz36mz_zip_get_archive_file_start_offsetEPNS_14mz_zip_archiveE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #22 {
+define noundef i64 @_ZN12duckdb_miniz36mz_zip_get_archive_file_start_offsetEPNS_14mz_zip_archiveE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -16144,7 +16138,7 @@ define noundef i64 @_ZN12duckdb_miniz36mz_zip_get_archive_file_start_offsetEPNS_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN12duckdb_miniz16mz_zip_get_cfileEPNS_14mz_zip_archiveE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #22 {
+define noundef ptr @_ZN12duckdb_miniz16mz_zip_get_cfileEPNS_14mz_zip_archiveE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -16165,7 +16159,7 @@ define noundef ptr @_ZN12duckdb_miniz16mz_zip_get_cfileEPNS_14mz_zip_archiveE(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN12duckdb_miniz24mz_zip_read_archive_dataEPNS_14mz_zip_archiveEmPvm(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #8 {
+define noundef i64 @_ZN12duckdb_miniz24mz_zip_read_archive_dataEPNS_14mz_zip_archiveEmPvm(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit, label %5
 
@@ -16200,7 +16194,7 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 65537) i32 @_ZN12duckdb_miniz26mz_zip_reader_get_filenameEPNS_14mz_zip_archiveEjPcj(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #10 {
+define noundef range(i32 0, 65537) i32 @_ZN12duckdb_miniz26mz_zip_reader_get_filenameEPNS_14mz_zip_archiveEjPcj(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #9 {
   %.not.i24 = icmp eq ptr %0, null
   br i1 %.not.i24, label %_ZN12duckdb_minizL14mz_zip_get_cdhEPNS_14mz_zip_archiveEj.exit.thread, label %5
 
@@ -16277,7 +16271,7 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz10mz_zip_endEPNS_14mz_zip_archiveE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #8 {
+define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz10mz_zip_endEPNS_14mz_zip_archiveE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZN12duckdb_miniz17mz_zip_reader_endEPNS_14mz_zip_archiveE.exit, label %2
 
@@ -16411,7 +16405,7 @@ _ZN12duckdb_miniz17mz_zip_reader_endEPNS_14mz_zip_archiveE.exit: ; preds = %62, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZN12duckdb_minizL20tdefl_compress_blockEPNS_16tdefl_compressorEi(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #12 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZN12duckdb_minizL20tdefl_compress_blockEPNS_16tdefl_compressorEi(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #11 {
   %3 = alloca [320 x i8], align 16
   %4 = alloca [320 x i8], align 16
   %5 = alloca [33 x i32], align 16
@@ -16432,8 +16426,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN12duckdb_minizL20tdefl_co
   store i64 578721382704613384, ptr %scevgep74.i, align 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 36970
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %11, i8 5, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %7) #25
-  call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(132) %7, i8 0, i64 132, i1 false)
   br label %12
 
@@ -16513,10 +16507,10 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN12duckdb_minizL20tdefl_co
   br i1 %exitcond151.not.i.i, label %_ZN12duckdb_minizL28tdefl_optimize_huffman_tableEPNS_16tdefl_compressorEiiii.exit.i, label %28, !llvm.loop !317
 
 _ZN12duckdb_minizL28tdefl_optimize_huffman_tableEPNS_16tdefl_compressorEiiii.exit.i: ; preds = %48
-  call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %7) #25
-  call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %5) #25
-  call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(132) %5, i8 0, i64 132, i1 false)
   br label %49
 
@@ -16596,8 +16590,8 @@ _ZN12duckdb_minizL28tdefl_optimize_huffman_tableEPNS_16tdefl_compressorEiiii.exi
   br i1 %exitcond151.not.i46.i, label %_ZN12duckdb_minizL28tdefl_optimize_huffman_tableEPNS_16tdefl_compressorEiiii.exit47.i, label %65, !llvm.loop !317
 
 _ZN12duckdb_minizL28tdefl_optimize_huffman_tableEPNS_16tdefl_compressorEiiii.exit47.i: ; preds = %85
-  call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %87 = load i32, ptr %86, align 4, !tbaa !173
   %88 = shl nuw i32 1, %87
@@ -16643,8 +16637,8 @@ _ZN12duckdb_minizL28tdefl_optimize_huffman_tableEPNS_16tdefl_compressorEiiii.exi
   br i1 %110, label %96, label %_ZN12duckdb_minizL24tdefl_start_static_blockEPNS_16tdefl_compressorE.exit, !llvm.loop !318
 
 111:                                              ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %3) #25
-  call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 33738
   store i16 1, ptr %112, align 2, !tbaa !118
   tail call fastcc void @_ZN12duckdb_minizL28tdefl_optimize_huffman_tableEPNS_16tdefl_compressorEiiii(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 288, i32 noundef 15, i32 noundef 0)
@@ -17468,8 +17462,8 @@ _ZN12duckdb_minizL28tdefl_optimize_huffman_tableEPNS_16tdefl_compressorEiiii.exi
 _ZN12duckdb_minizL25tdefl_start_dynamic_blockEPNS_16tdefl_compressorE.exit: ; preds = %.loopexit.i, %.preheader.i
   %.pre168.i106 = phi i32 [ %447, %.preheader.i ], [ %529, %.loopexit.i ]
   %.pre166.i104 = phi i32 [ %448, %.preheader.i ], [ %530, %.loopexit.i ]
-  call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %4) #25
-  call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN12duckdb_minizL24tdefl_start_static_blockEPNS_16tdefl_compressorE.exit
 
 _ZN12duckdb_minizL24tdefl_start_static_blockEPNS_16tdefl_compressorE.exit: ; preds = %105, %_ZN12duckdb_minizL28tdefl_optimize_huffman_tableEPNS_16tdefl_compressorEiiii.exit47.i, %_ZN12duckdb_minizL25tdefl_start_dynamic_blockEPNS_16tdefl_compressorE.exit
@@ -17847,15 +17841,15 @@ _ZN12duckdb_minizL23tdefl_compress_lz_codesEPNS_16tdefl_compressorE.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12duckdb_minizL28tdefl_optimize_huffman_tableEPNS_16tdefl_compressorEiiii(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 3) %1, i32 noundef range(i32 19, 289) %2, i32 noundef range(i32 7, 16) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #19 {
+define internal fastcc void @_ZN12duckdb_minizL28tdefl_optimize_huffman_tableEPNS_16tdefl_compressorEiiii(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 3) %1, i32 noundef range(i32 19, 289) %2, i32 noundef range(i32 7, 16) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #18 {
   %6 = alloca [512 x i32], align 16
   %7 = alloca [256 x i32], align 16
   %8 = alloca [33 x i32], align 16
   %9 = alloca [33 x i32], align 16
   %10 = alloca [288 x %"struct.duckdb_miniz::tdefl_sym_freq"], align 16
   %11 = alloca [288 x %"struct.duckdb_miniz::tdefl_sym_freq"], align 16
-  call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %8) #25
-  call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(132) %8, i8 0, i64 132, i1 false)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %22, label %.preheader96
@@ -17881,8 +17875,8 @@ define internal fastcc void @_ZN12duckdb_minizL28tdefl_optimize_huffman_tableEPN
   br i1 %exitcond.not, label %.loopexit.loopexit, label %15, !llvm.loop !314
 
 22:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 1152, ptr nonnull %10) #25
-  call void @llvm.lifetime.start.p0(i64 1152, ptr nonnull %11) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 33226
   %24 = zext nneg i32 %1 to i64
   %25 = getelementptr inbounds nuw [3 x [288 x i16]], ptr %23, i64 0, i64 %24
@@ -17914,13 +17908,13 @@ define internal fastcc void @_ZN12duckdb_minizL28tdefl_optimize_huffman_tableEPN
   br i1 %exitcond127.not, label %36, label %26, !llvm.loop !351
 
 36:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %6, i8 0, i64 2048, i1 false)
   %.not.i = icmp eq i32 %.173, 0
   br i1 %.not.i, label %.critedge.preheader.split55.i.preheader, label %.lr.ph.preheader.i
 
 .critedge.preheader.split55.i.preheader:          ; preds = %36
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %73
 
 .lr.ph.preheader.i:                               ; preds = %36
@@ -17964,7 +17958,7 @@ define internal fastcc void @_ZN12duckdb_minizL28tdefl_optimize_huffman_tableEPN
   %.04151.us.i = phi ptr [ %10, %.preheader45.i ], [ %.04052.us.i, %._crit_edge.us.i ]
   %53 = shl nuw nsw i64 %indvars.iv70.i, 8
   %54 = getelementptr inbounds nuw [512 x i32], ptr %6, i64 0, i64 %53
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %67
 
 .preheader.us.i:                                  ; preds = %67, %.preheader.us.i
@@ -18000,15 +17994,15 @@ define internal fastcc void @_ZN12duckdb_minizL28tdefl_optimize_huffman_tableEPN
   br i1 %exitcond64.not.i, label %.preheader.us.i, label %67, !llvm.loop !354
 
 ._crit_edge.us.i:                                 ; preds = %.preheader.us.i
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %72 = add nuw nsw i32 %.03854.us.i, 8
   %exitcond74.not.i = icmp eq i64 %indvars.iv.next71.i, %spec.select.i
   br i1 %exitcond74.not.i, label %_ZN12duckdb_minizL21tdefl_radix_sort_symsEjPNS_14tdefl_sym_freqES1_.exit, label %.critedge.preheader.split55.us.i, !llvm.loop !355
 
 _ZN12duckdb_minizL21tdefl_radix_sort_symsEjPNS_14tdefl_sym_freqES1_.exit.thread: ; preds = %73
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN12duckdb_minizL35tdefl_huffman_enforce_max_code_sizeEPiii.exit
 
 73:                                               ; preds = %73, %.critedge.preheader.split55.i.preheader
@@ -18024,7 +18018,7 @@ _ZN12duckdb_minizL21tdefl_radix_sort_symsEjPNS_14tdefl_sym_freqES1_.exit.thread:
   br i1 %exitcond78.not.i, label %_ZN12duckdb_minizL21tdefl_radix_sort_symsEjPNS_14tdefl_sym_freqES1_.exit.thread, label %73, !llvm.loop !354
 
 _ZN12duckdb_minizL21tdefl_radix_sort_symsEjPNS_14tdefl_sym_freqES1_.exit: ; preds = %._crit_edge.us.i
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   switch i32 %.173, label %78 [
     i32 0, label %_ZN12duckdb_minizL35tdefl_huffman_enforce_max_code_sizeEPiii.exit
     i32 1, label %_ZN12duckdb_minizL34tdefl_calculate_minimum_redundancyEPNS_14tdefl_sym_freqEi.exit.thread159
@@ -18378,8 +18372,8 @@ _ZN12duckdb_minizL35tdefl_huffman_enforce_max_code_sizeEPiii.exit: ; preds = %.l
   br i1 %exitcond141.not, label %217, label %203, !llvm.loop !367
 
 217:                                              ; preds = %._crit_edge108
-  call void @llvm.lifetime.end.p0(i64 1152, ptr nonnull %11) #25
-  call void @llvm.lifetime.end.p0(i64 1152, ptr nonnull %10) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %15
@@ -18456,13 +18450,13 @@ _ZN12duckdb_minizL35tdefl_huffman_enforce_max_code_sizeEPiii.exit: ; preds = %.l
   br i1 %exitcond151.not, label %252, label %231, !llvm.loop !317
 
 252:                                              ; preds = %251
-  call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %9) #25
-  call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12duckdb_minizL50mz_zip_reader_sort_central_dir_offsets_by_filenameEPNS_14mz_zip_archiveE(i32 %.16.val, ptr readonly captures(none) %.104.val) unnamed_addr #12 {
+define internal fastcc void @_ZN12duckdb_minizL50mz_zip_reader_sort_central_dir_offsets_by_filenameEPNS_14mz_zip_archiveE(i32 %.16.val, ptr readonly captures(none) %.104.val) unnamed_addr #11 {
   %1 = getelementptr inbounds nuw i8, ptr %.104.val, i64 32
   %2 = icmp ult i32 %.16.val, 2
   br i1 %2, label %.loopexit, label %3
@@ -18877,7 +18871,7 @@ _ZN12duckdb_minizL27mz_zip_reader_filename_lessEPKNS_12mz_zip_arrayES2_jj.exit13
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZN12duckdb_minizL28mz_zip_array_ensure_capacityEPNS_14mz_zip_archiveEPNS_12mz_zip_arrayEmj(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #8 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZN12duckdb_minizL28mz_zip_array_ensure_capacityEPNS_14mz_zip_archiveEPNS_12mz_zip_arrayEmj(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #7 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !234
   %.not = icmp ult i64 %6, %2
@@ -18921,6 +18915,12 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN12duckdb_minizL28mz_zip_a
   ret i32 %.018
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #23
 
@@ -18949,28 +18949,28 @@ declare i64 @llvm.smax.i64(i64, i64) #23
 declare i16 @llvm.umin.i16(i16, i16) #23
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #24 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #25 = { nounwind }

@@ -36,7 +36,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden range(i32 -1, 2) i32 @peekclassic_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.peekclassic_header, align 4
-  call void @llvm.lifetime.start.p0(i64 52, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %0, align 8
   %6 = call zeroext i1 @wtap_read_bytes(ptr noundef %5, ptr noundef nonnull %4, i32 noundef 2, ptr noundef %1, ptr noundef %2)
   br i1 %6, label %9, label %7
@@ -84,11 +84,11 @@ define hidden range(i32 -1, 2) i32 @peekclassic_open(ptr noundef %0, ptr noundef
 28:                                               ; preds = %18
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %30 = load i32, ptr %29, align 4
-  %31 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %30) #7, !srcloc !6
+  %31 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %30) #6, !srcloc !6
   store i32 %31, ptr %29, align 4
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %33 = load i32, ptr %32, align 4
-  %34 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %33) #7, !srcloc !7
+  %34 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %33) #6, !srcloc !7
   store i32 %34, ptr %32, align 4
   switch i32 %34, label %76 [
     i32 0, label %35
@@ -111,35 +111,35 @@ define hidden range(i32 -1, 2) i32 @peekclassic_open(ptr noundef %0, ptr noundef
 38:                                               ; preds = %36, %35, %37
   %.0117 = phi i32 [ 2, %36 ], [ 1, %35 ], [ 22, %37 ]
   %39 = load i32, ptr %14, align 4
-  %40 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %39) #7, !srcloc !8
+  %40 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %39) #6, !srcloc !8
   store i32 %40, ptr %14, align 4
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %42 = load i32, ptr %41, align 4
-  %43 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %42) #7, !srcloc !9
+  %43 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %42) #6, !srcloc !9
   store i32 %43, ptr %41, align 4
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %45 = load i32, ptr %44, align 4
-  %46 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %45) #7, !srcloc !10
+  %46 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %45) #6, !srcloc !10
   store i32 %46, ptr %44, align 4
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %48 = load i32, ptr %47, align 4
-  %49 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %48) #7, !srcloc !11
+  %49 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %48) #6, !srcloc !11
   store i32 %49, ptr %47, align 4
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %51 = load i32, ptr %50, align 4
-  %52 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %51) #7, !srcloc !12
+  %52 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %51) #6, !srcloc !12
   store i32 %52, ptr %50, align 4
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %54 = load i32, ptr %53, align 4
-  %55 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %54) #7, !srcloc !13
+  %55 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %54) #6, !srcloc !13
   store i32 %55, ptr %53, align 4
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %57 = load i32, ptr %56, align 4
-  %58 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %57) #7, !srcloc !14
+  %58 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %57) #6, !srcloc !14
   store i32 %58, ptr %56, align 4
   %59 = add i32 %46, -2082844800
   %60 = zext i32 %59 to i64
-  %61 = call noalias dereferenceable_or_null(8) ptr @g_malloc(i64 noundef 8) #8
+  %61 = call noalias dereferenceable_or_null(8) ptr @g_malloc(i64 noundef 8) #7
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %61, ptr %62, align 8
   store i64 %60, ptr %61, align 8
@@ -151,7 +151,7 @@ define hidden range(i32 -1, 2) i32 @peekclassic_open(ptr noundef %0, ptr noundef
   br i1 %65, label %switch.lookup, label %66
 
 66:                                               ; preds = %38
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 347, ptr noundef nonnull @__func__.peekclassic_open, ptr noundef nonnull @.str.2) #9
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 347, ptr noundef nonnull @__func__.peekclassic_open, ptr noundef nonnull @.str.2) #8
   unreachable
 
 switch.lookup:                                    ; preds = %38
@@ -180,21 +180,15 @@ switch.lookup:                                    ; preds = %38
 
 76:                                               ; preds = %9, %28, %37, %35, %18, %16, %7, %switch.lookup
   %.0 = phi i32 [ 1, %switch.lookup ], [ %., %7 ], [ %.128, %16 ], [ 0, %18 ], [ 0, %35 ], [ 0, %37 ], [ 0, %28 ], [ 0, %9 ]
-  call void @llvm.lifetime.end.p0(i64 52, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare zeroext i1 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #3
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @peekclassic_read_v56(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4) #0 {
@@ -302,10 +296,10 @@ define internal noundef zeroext i1 @peekclassic_seek_read_v7(ptr noundef readonl
 }
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wtap_add_generated_idb(ptr noundef) local_unnamed_addr #2
+declare void @wtap_add_generated_idb(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @register_peekclassic() local_unnamed_addr #0 {
@@ -321,20 +315,20 @@ define hidden void @register_peekclassic() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_register_file_type_subtype(ptr noundef) local_unnamed_addr #2
+declare i32 @wtap_register_file_type_subtype(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @file_tell(ptr noundef) local_unnamed_addr #2
+declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc range(i32 -1, 65536) i32 @peekclassic_read_packet_v7(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca [16 x i8], align 16
   %7 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 16, ptr noundef %3, ptr noundef %4)
   br i1 %8, label %9, label %150
 
@@ -437,7 +431,7 @@ define internal fastcc range(i32 -1, 65536) i32 @peekclassic_read_packet_v7(ptr 
 
 86:                                               ; preds = %9
   %87 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %87, i8 noundef 0, i64 noundef 72, i1 noundef false) #6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %87, i8 noundef 0, i64 noundef 72, i1 noundef false) #9
   store i32 0, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %2, i64 84
   store i8 0, ptr %88, align 4
@@ -573,35 +567,35 @@ define internal fastcc range(i32 -1, 65536) i32 @peekclassic_read_packet_v7(ptr 
 
 150:                                              ; preds = %144, %97, %5, %148, %135, %95
   %.085 = phi i32 [ %149, %148 ], [ -1, %95 ], [ -1, %135 ], [ -1, %5 ], [ -1, %97 ], [ -1, %144 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.085
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #2
+declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_block_add_uint32_option(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wtap_block_add_uint32_option(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wtap_read_bytes_buffer(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @wtap_read_bytes_buffer(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc zeroext i1 @peekclassic_read_packet_v56(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca [26 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 26, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 26, ptr noundef %3, ptr noundef %4)
   br i1 %9, label %10, label %70
 
@@ -689,23 +683,29 @@ define internal fastcc zeroext i1 @peekclassic_read_packet_v56(ptr noundef reado
 
 70:                                               ; preds = %5, %67
   %.033 = phi i1 [ %69, %67 ], [ false, %5 ]
-  call void @llvm.lifetime.end.p0(i64 26, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.033
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind memory(none) }
-attributes #8 = { allocsize(0) }
-attributes #9 = { noreturn }
+attributes #6 = { nounwind memory(none) }
+attributes #7 = { allocsize(0) }
+attributes #8 = { noreturn }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

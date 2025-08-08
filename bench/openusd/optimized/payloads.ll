@@ -151,8 +151,8 @@ $_ZTSN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8UsdStageEEE = comdat any
 define void @_ZN32pxrInternal_v0_24__pxrReserved__16Usd_ListEditImplINS_11UsdPayloadsENS_18SdfListEditorProxyINS_20SdfPayloadTypePolicyEEEE21_GetListEditorForSpecERKNS_9SdfHandleINS_11SdfPrimSpecEEE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfListEditorProxy") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticHelper", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfSpec9IsDormantEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   br i1 %5, label %6, label %_ZNK32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_11SdfPrimSpecEEptEv.exit
 
@@ -184,8 +184,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16Usd_ListEditImplINS_11UsdPay
   resume { ptr, i32 } %11
 
 _ZNK32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_11SdfPrimSpecEEptEv.exit: ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   tail call void @_ZNK32pxrInternal_v0_24__pxrReserved__11SdfPrimSpec14GetPayloadListEv(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfListEditorProxy") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
 }
@@ -293,7 +293,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10SdfPayloadC2ERKS0_.exit: ; preds = %_ZNK3
           to label %52 unwind label %76
 
 52:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10SdfPayloadC2ERKS0_.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %54 = load ptr, ptr %53, align 8
   %.not.i.i.i.i.i = icmp eq ptr %54, null
@@ -325,7 +325,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8UsdSta
   unreachable
 
 63:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %64 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__8UsdStage13GetEditTargetEv(ptr noundef nonnull align 8 dereferenceable(1282) %58)
           to label %65 unwind label %78
 
@@ -1096,7 +1096,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10SdfPayloadC2ERKS0_.exit: ; preds = %_ZNK3
           to label %51 unwind label %75
 
 51:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10SdfPayloadC2ERKS0_.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %53 = load ptr, ptr %52, align 8
   %.not.i.i.i.i.i = icmp eq ptr %53, null
@@ -1128,7 +1128,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8UsdSta
   unreachable
 
 62:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %63 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__8UsdStage13GetEditTargetEv(ptr noundef nonnull align 8 dereferenceable(1282) %57)
           to label %64 unwind label %77
 
@@ -1332,12 +1332,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePol
 
 .noexc30:                                         ; preds = %.noexc29
   %149 = getelementptr inbounds nuw i8, ptr %145, i64 160
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %150 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(104) %149, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc31 unwind label %105
 
 .noexc31:                                         ; preds = %.noexc30
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %148, %150
   br i1 %.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit, label %151
 
@@ -1506,7 +1506,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePo
   br i1 %34, label %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit, label %35
 
 35:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePolicyEEcvbEv.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %36 = load ptr, ptr %7, align 8
   %.not.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePolicyEE10ClearEditsEv.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePolicyEE9IsExpiredEv.exit.i.i
@@ -1533,11 +1533,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePo
           to label %_ZN32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePolicyEE10ClearEditsEv.exit.thread unwind label %61
 
 _ZN32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePolicyEE10ClearEditsEv.exit.thread: ; preds = %35, %39
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit
 
 44:                                               ; preds = %.noexc12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %45 = load ptr, ptr %7, align 8
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 48
@@ -1669,12 +1669,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePol
 
 .noexc20:                                         ; preds = %.noexc19
   %103 = getelementptr inbounds nuw i8, ptr %99, i64 160
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %104 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(104) %103, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %.noexc21 unwind label %59
 
 .noexc21:                                         ; preds = %.noexc20
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not = icmp eq ptr %102, %104
   br i1 %.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit, label %105
 
@@ -1786,7 +1786,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %15
 
 _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread71: ; preds = %23, %21, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject8GetStageEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not.i.i.i.i.i = icmp eq ptr %36, null
@@ -1818,7 +1818,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8UsdSta
   unreachable
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %46 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__8UsdStage13GetEditTargetEv(ptr noundef nonnull align 8 dereferenceable(1282) %40)
           to label %47 unwind label %114
 
@@ -2069,7 +2069,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePo
   br i1 %161, label %162, label %181
 
 162:                                              ; preds = %157
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %163 = load ptr, ptr %12, align 8
   %.not.i.i = icmp eq ptr %163, null
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePolicyEE9_ValidateEv.exit.thread.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePolicyEE9IsExpiredEv.exit.i.i
@@ -2096,11 +2096,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePo
           to label %_ZN32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePolicyEE9_ValidateEv.exit.thread.i unwind label %179
 
 _ZN32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePolicyEE9_ValidateEv.exit.thread.i: ; preds = %166, %162
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePolicyEE25ClearEditsAndMakeExplicitEv.exit
 
 171:                                              ; preds = %.noexc38
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %172 = load ptr, ptr %12, align 8
   %173 = load ptr, ptr %172, align 8
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 56
@@ -2359,12 +2359,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit57: ; preds = 
 
 .noexc60:                                         ; preds = %.noexc59
   %294 = getelementptr inbounds nuw i8, ptr %290, i64 160
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %295 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(104) %294, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc61 unwind label %177
 
 .noexc61:                                         ; preds = %.noexc60
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not73 = icmp eq ptr %293, %295
   br i1 %.not73, label %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit, label %296
 
@@ -2853,7 +2853,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %8,
 
 .critedge:                                        ; preds = %16, %14, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject8GetStageEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not.i.i.i.i.i = icmp eq ptr %31, null
@@ -2885,7 +2885,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8UsdSta
   unreachable
 
 40:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8UsdStage25_CreatePrimSpecForEditingERKNS_7UsdPrimE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfHandle") align 8 %5, ptr noundef nonnull align 8 dereferenceable(1282) %35, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %41 unwind label %52
 
@@ -3356,7 +3356,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePo
 
 183:                                              ; preds = %.sink.split, %3
   %.0 = phi i1 [ false, %3 ], [ %.0.ph, %.sink.split ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %184 = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %184, null
   br i1 %.not.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePolicyEE10IsExplicitEv.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePolicyEE9IsExpiredEv.exit.i.i
@@ -3383,11 +3383,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePo
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePolicyEE10IsExplicitEv.exit.thread unwind label %51
 
 _ZNK32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePolicyEE10IsExplicitEv.exit.thread: ; preds = %183, %187
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %198
 
 192:                                              ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %193 = load ptr, ptr %0, align 8
   %194 = load ptr, ptr %193, align 8
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 16
@@ -3502,7 +3502,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEED
   br label %246
 
 246:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEED2Ev.exit82, %_ZNK32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePolicyEE10IsExplicitEv.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %247 = load ptr, ptr %8, align 8
   %.not.i.i.i = icmp eq ptr %247, null
   br i1 %.not.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE9_ValidateEv.exit.thread.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE9IsExpiredEv.exit.i.i.i
@@ -3529,11 +3529,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE9_ValidateEv.exit.thread.i.i unwind label %51
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE9_ValidateEv.exit.thread.i.i: ; preds = %250, %246
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE4FindERKNS_10SdfPayloadE.exit.thread.invoke
 
 255:                                              ; preds = %.noexc83
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %256 = load ptr, ptr %8, align 8
   %.not.i1.i.i = icmp eq ptr %256, null
   br i1 %.not.i1.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE4FindERKNS_10SdfPayloadE.exit.thread.invoke, label %257
@@ -3554,7 +3554,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE
   br i1 %266, label %_ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE4FindERKNS_10SdfPayloadE.exit.thread.invoke, label %267
 
 267:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE5emptyEv.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %268 = load ptr, ptr %8, align 8
   %.not.i.i86 = icmp eq ptr %268, null
   br i1 %.not.i.i86, label %_ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE9_ValidateEv.exit.thread.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE9IsExpiredEv.exit.i.i
@@ -3581,11 +3581,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE9_ValidateEv.exit.thread.i unwind label %51
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE9_ValidateEv.exit.thread.i: ; preds = %271, %267
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE4FindERKNS_10SdfPayloadE.exit.thread
 
 276:                                              ; preds = %.noexc87
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %277 = load ptr, ptr %8, align 8
   %278 = load i32, ptr %9, align 8
   %279 = load ptr, ptr %277, align 8
@@ -3619,7 +3619,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE
   br i1 %.0, label %_ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE4sizeEv.exit, label %294
 
 294:                                              ; preds = %293
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %295 = load ptr, ptr %8, align 8
   %.not.i.i91 = icmp eq ptr %295, null
   br i1 %.not.i.i91, label %_ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE9_ValidateEv.exit.thread.i93, label %_ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE9IsExpiredEv.exit.i.i92
@@ -3646,11 +3646,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE9_ValidateEv.exit.thread.i93 unwind label %51
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE9_ValidateEv.exit.thread.i93: ; preds = %298, %294
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE4sizeEv.exit
 
 303:                                              ; preds = %.noexc94
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %304 = load ptr, ptr %8, align 8
   %.not.i1.i = icmp eq ptr %304, null
   br i1 %.not.i1.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE4sizeEv.exit, label %305
@@ -4285,8 +4285,8 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = alloca %"class.std::vector", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE9_ValidateEv.exit.thread.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE9IsExpiredEv.exit.i.i
@@ -4313,11 +4313,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE9_ValidateEv.exit.thread.i unwind label %58
 
 _ZN32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE9_ValidateEv.exit.thread.i: ; preds = %9, %2
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %27
 
 14:                                               ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i32, ptr %16, align 8
@@ -4344,7 +4344,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE9
           to label %27 unwind label %58
 
 27:                                               ; preds = %.noexc4, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE9_ValidateEv.exit.thread.i, %22
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %28 = load ptr, ptr %5, align 8
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %30 = load ptr, ptr %29, align 8
@@ -4424,7 +4424,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfAllowed", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE9_ValidateEv.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE9IsExpiredEv.exit.i
@@ -4448,11 +4448,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE9_ValidateEv.exit.thread
 
 _ZN32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE9_ValidateEv.exit.thread: ; preds = %12, %4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit8
 
 17:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE9IsExpiredEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %18 = icmp eq i64 %2, 0
   br i1 %18, label %19, label %51
 
@@ -4861,7 +4861,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__18SdfListEditorPr
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfListProxy", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfListProxy", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfListProxy", align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePolicyEE9_ValidateEv.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePolicyEE9IsExpiredEv.exit.i
@@ -4885,11 +4885,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePo
   br label %_ZN32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePolicyEE9_ValidateEv.exit.thread
 
 _ZN32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePolicyEE9_ValidateEv.exit.thread: ; preds = %11, %2
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEED2Ev.exit
 
 16:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePolicyEE9IsExpiredEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = load ptr, ptr %0, align 8
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -5365,7 +5365,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEED
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE6RemoveERKNS_10SdfPayloadE(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = alloca %"class.std::vector", align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE9_ValidateEv.exit.thread.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE9IsExpiredEv.exit.i.i
@@ -5389,11 +5389,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE9_ValidateEv.exit.thread.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE9_ValidateEv.exit.thread.i: ; preds = %8, %2
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE4FindERKNS_10SdfPayloadE.exit.thread
 
 13:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE9IsExpiredEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i32, ptr %15, align 8
@@ -5557,7 +5557,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEEC
   %18 = phi ptr [ %6, %3 ], [ %6, %13 ], [ %.pre, %16 ]
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %1, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE9_ValidateEv.exit.thread.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE9IsExpiredEv.exit.i.i
 
@@ -5583,11 +5583,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE9_ValidateEv.exit.thread.i unwind label %44
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE9_ValidateEv.exit.thread.i: ; preds = %22, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEEC2ERKSt10shared_ptrINS_14Sdf_ListEditorIS1_EEENS_13SdfListOpTypeE.exit
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12SdfListProxyINS_20SdfPayloadTypePolicyEE4FindERKNS_10SdfPayloadE.exit.thread
 
 27:                                               ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %28 = load ptr, ptr %5, align 8
   %29 = load i32, ptr %19, align 8
   %30 = load ptr, ptr %28, align 8
@@ -6283,10 +6283,10 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__10SdfPayloadESaIS1_EE13_M
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14

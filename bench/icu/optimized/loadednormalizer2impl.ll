@@ -196,17 +196,11 @@ define void @_ZN6icu_7721LoadedNormalizer2Impl4loadEPKcS2_R10UErrorCode(ptr noun
 
 declare ptr @udata_openChoice_77(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
 declare ptr @udata_getMemory_77(ptr noundef) local_unnamed_addr #1
 
 declare ptr @ucptrie_openFromBinary_77(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @_ZN6icu_7715Normalizer2Impl4initEPKiPK7UCPTriePKtPKh(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6icu_7713Norm2AllModes14createInstanceEPKcS2_R10UErrorCode(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
@@ -773,7 +767,7 @@ _ZN6icu_775MutexD2Ev.exit85:                      ; preds = %47
 
 52:                                               ; preds = %_ZN6icu_775MutexD2Ev.exit85
   tail call void @ucln_common_registerCleanup_77(i32 noundef 14, ptr noundef nonnull @_ZN6icu_77L31uprv_loaded_normalizer2_cleanupEv)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = tail call noundef ptr @_ZN6icu_7713Norm2AllModes14createInstanceEPKcS2_R10UErrorCode(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %3)
   store ptr %53, ptr %5, align 8, !tbaa !38
   %54 = load i32, ptr %3, align 4, !tbaa !30
@@ -782,7 +776,7 @@ _ZN6icu_775MutexD2Ev.exit85:                      ; preds = %47
 
 .thread102:                                       ; preds = %52
   call void @_ZN6icu_7712LocalPointerINS_13Norm2AllModesEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread99
 
 56:                                               ; preds = %52
@@ -901,12 +895,12 @@ _ZN6icu_775MutexD2Ev.exit86:                      ; preds = %93
 _ZN6icu_775MutexD2Ev.exit87:                      ; preds = %97, %64
   %.pn.pn.pn = phi { ptr, i32 } [ %65, %64 ], [ %.pn.pn, %97 ]
   call void @_ZN6icu_7712LocalPointerINS_13Norm2AllModesEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN6icu_775MutexD2Ev.exit
 
 101:                                              ; preds = %_ZN6icu_775MutexD2Ev.exit86
   call void @_ZN6icu_7712LocalPointerINS_13Norm2AllModesEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not82 = icmp eq ptr %.453, null
   br i1 %.not82, label %.thread99, label %.thread95
 
@@ -953,7 +947,7 @@ _ZN6icu_775MutexD2Ev.exit87:                      ; preds = %97, %64
 
 .critedge:                                        ; preds = %.critedge.critedge, %_ZN6icu_775MutexD2Ev.exit86
   call void @_ZN6icu_7712LocalPointerINS_13Norm2AllModesEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread99
 
 _ZN6icu_775MutexD2Ev.exit:                        ; preds = %42, %_ZN6icu_775MutexD2Ev.exit87
@@ -966,7 +960,7 @@ _ZN6icu_775MutexD2Ev.exit:                        ; preds = %42, %_ZN6icu_775Mut
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare noundef ptr @_ZN6icu_7713Norm2AllModes14getNFCInstanceER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
@@ -1045,13 +1039,13 @@ define internal void @_ZN6icu_77L19deleteNorm2AllModesEPv(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #9
+declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare ptr @uhash_put_77(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1462,7 +1456,7 @@ define noundef i32 @unorm_getQuickCheck_77(i32 noundef %0, i32 noundef %1) local
   br i1 %or.cond, label %15, label %5
 
 5:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !30
   %6 = call noundef ptr @_ZN6icu_7718Normalizer2Factory11getInstanceE18UNormalizationModeR10UErrorCode(i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %7 = load i32, ptr %3, align 4, !tbaa !30
@@ -1478,7 +1472,7 @@ define noundef i32 @unorm_getQuickCheck_77(i32 noundef %0, i32 noundef %1) local
 
 14:                                               ; preds = %5, %9
   %.1 = phi i32 [ %13, %9 ], [ 2, %5 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %15
 
 15:                                               ; preds = %2, %14
@@ -1489,7 +1483,7 @@ define noundef i32 @unorm_getQuickCheck_77(i32 noundef %0, i32 noundef %1) local
 declare noundef ptr @_ZNK6icu_777UObject17getDynamicClassIDEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #11
+declare void @abort() local_unnamed_addr #10
 
 declare void @umtx_lock_77(ptr noundef) local_unnamed_addr #1
 
@@ -1504,6 +1498,12 @@ declare noundef signext i8 @_ZN6icu_7720umtx_initImplPreInitERNS_9UInitOnceE(ptr
 
 declare void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
@@ -1514,11 +1514,11 @@ attributes #3 = { cold nofree noreturn }
 attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #13 = { nounwind }
 attributes #14 = { noreturn nounwind }

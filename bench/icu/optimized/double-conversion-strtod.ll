@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define noundef double @_ZN6icu_7717double_conversion13StrtodTrimmedENS0_6VectorIKcEEi(ptr %0, i32 %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call fastcc noundef zeroext i1 @_ZN6icu_7717double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd(ptr %0, i32 %1, i32 noundef %2, ptr noundef %4)
   %6 = load double, ptr %4, align 8, !tbaa !3
   br i1 %5, label %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit, label %7
@@ -87,12 +87,9 @@ define noundef double @_ZN6icu_7717double_conversion13StrtodTrimmedENS0_6VectorI
 
 _ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit: ; preds = %3, %46, %43, %41, %36, %33, %30, %28, %24, %7
   %.0 = phi double [ %6, %7 ], [ %32, %30 ], [ %35, %33 ], [ 0.000000e+00, %28 ], [ 0x7FF0000000000000, %24 ], [ %6, %36 ], [ %45, %43 ], [ %48, %46 ], [ 0.000000e+00, %41 ], [ %6, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret double %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext i1 @_ZN6icu_7717double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd(ptr readonly captures(none) %0, i32 %1, i32 noundef %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
@@ -324,11 +321,11 @@ _ZN6icu_7717double_conversion5DiyFp9NormalizeEv.exit.i: ; preds = %.lr.ph15.i.i,
   br i1 %112, label %.sink.split, label %113
 
 113:                                              ; preds = %_ZN6icu_7717double_conversion5DiyFp9NormalizeEv.exit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !12
   %114 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %114, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN6icu_7717double_conversion16PowersOfTenCache32GetCachedPowerForDecimalExponentEiPNS0_5DiyFpEPi(i32 noundef %99, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %115 = load i32, ptr %6, align 4, !tbaa !17
   %.not.i = icmp eq i32 %115, %99
@@ -340,7 +337,7 @@ _ZN6icu_7717double_conversion5DiyFp9NormalizeEv.exit.i: ; preds = %.lr.ph15.i.i,
   br i1 %118, label %switch.lookup, label %119
 
 119:                                              ; preds = %116
-  call void @abort() #7
+  call void @abort() #6
   unreachable
 
 switch.lookup:                                    ; preds = %116
@@ -526,8 +523,8 @@ _ZN6icu_7717double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit: ; preds = 
   %221 = sub i64 %191, %.2.i14
   %222 = icmp uge i64 %221, %190
   %or.cond.not.i = or i1 %222, %.not61.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %223 = fcmp oeq double %220, 0x7FF0000000000000
   %spec.select = select i1 %or.cond.not.i, i1 true, i1 %223
   br label %224
@@ -543,20 +540,17 @@ _ZN6icu_7717double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef i32 @_ZN6icu_7717double_conversionL22CompareBufferWithDiyFpENS0_6VectorIKcEEiNS0_5DiyFpE(ptr %0, i32 %1, i32 noundef %2, i64 %3, i32 %4) unnamed_addr #0 {
   %6 = alloca %"class.icu_77::double_conversion::Bignum", align 4
   %7 = alloca %"class.icu_77::double_conversion::Bignum", align 4
-  call void @llvm.lifetime.start.p0(i64 516, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i16 0, ptr %6, align 4, !tbaa !20
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i16 0, ptr %8, align 2, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 516, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i16 0, ptr %7, align 4, !tbaa !20
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i16 0, ptr %9, align 2, !tbaa !23
@@ -589,8 +583,8 @@ define internal fastcc noundef i32 @_ZN6icu_7717double_conversionL22CompareBuffe
 
 19:                                               ; preds = %17, %16
   %20 = call noundef i32 @_ZN6icu_7717double_conversion6Bignum7CompareERKS1_S3_(ptr noundef nonnull align 4 dereferenceable(516) %6, ptr noundef nonnull align 4 dereferenceable(516) %7)
-  call void @llvm.lifetime.end.p0(i64 516, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 516, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %20
 }
 
@@ -598,7 +592,7 @@ define internal fastcc noundef i32 @_ZN6icu_7717double_conversionL22CompareBuffe
 define noundef double @_ZN6icu_7717double_conversion6StrtodENS0_6VectorIKcEEi(ptr %0, i32 %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca double, align 8
   %5 = alloca [780 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 780, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %.lr.ph.preheader.i.i, label %_ZN6icu_7717double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i
 
@@ -665,7 +659,7 @@ _ZN6icu_7717double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit: ; pr
   %.sroa.6.0 = phi i32 [ 780, %.preheader.i.preheader ], [ 0, %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i ], [ %16, %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i ]
   %.sroa.0.0 = phi ptr [ %5, %.preheader.i.preheader ], [ %.sroa.09.1.i.i, %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i ], [ %.sroa.09.1.i.i, %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i ]
   %.0 = phi i32 [ %28, %.preheader.i.preheader ], [ %18, %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i ], [ %24, %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %29 = call fastcc noundef zeroext i1 @_ZN6icu_7717double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd(ptr %.sroa.0.0, i32 %.sroa.6.0, i32 noundef %.0, ptr noundef %4)
   %30 = load double, ptr %4, align 8, !tbaa !3
   br i1 %29, label %_ZN6icu_7717double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit, label %31
@@ -739,15 +733,15 @@ _ZN6icu_7717double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit: ; pr
 
 _ZN6icu_7717double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit: ; preds = %_ZN6icu_7717double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit, %31, %48, %52, %54, %57, %60, %65, %67, %70
   %.0.i = phi double [ %30, %31 ], [ %56, %54 ], [ %59, %57 ], [ 0.000000e+00, %52 ], [ 0x7FF0000000000000, %48 ], [ %30, %60 ], [ %69, %67 ], [ %72, %70 ], [ 0.000000e+00, %65 ], [ %30, %_ZN6icu_7717double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 780, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret double %.0.i
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef float @_ZN6icu_7717double_conversion6StrtofENS0_6VectorIKcEEi(ptr %0, i32 %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [780 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 780, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph.preheader.i.i, label %_ZN6icu_7717double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i
 
@@ -815,14 +809,14 @@ _ZN6icu_7717double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit: ; pr
   %.sroa.0.0 = phi ptr [ %4, %.preheader.i.preheader ], [ %.sroa.09.1.i.i, %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i ], [ %.sroa.09.1.i.i, %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i ]
   %.0 = phi i32 [ %27, %.preheader.i.preheader ], [ %17, %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i ], [ %23, %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i ]
   %28 = call noundef float @_ZN6icu_7717double_conversion13StrtofTrimmedENS0_6VectorIKcEEi(ptr %.sroa.0.0, i32 %.sroa.6.0, i32 noundef %.0)
-  call void @llvm.lifetime.end.p0(i64 780, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret float %28
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef float @_ZN6icu_7717double_conversion13StrtofTrimmedENS0_6VectorIKcEEi(ptr %0, i32 %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call fastcc noundef zeroext i1 @_ZN6icu_7717double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd(ptr %0, i32 %1, i32 noundef %2, ptr noundef %4)
   %6 = load double, ptr %4, align 8, !tbaa !3
   %7 = fcmp ult double %6, 0x47EFFFFFE0000000
@@ -989,36 +983,41 @@ _ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit58: ; preds = %_ZNK6icu
 
 78:                                               ; preds = %70, %73, %74, %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit58, %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit
   %.0 = phi float [ %.0.i, %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit ], [ %.0.i, %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit58 ], [ %.0.i51, %70 ], [ %.046, %73 ], [ %..046, %74 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret float %.0
 }
 
-declare void @_ZN6icu_7717double_conversion16PowersOfTenCache32GetCachedPowerForDecimalExponentEiPNS0_5DiyFpEPi(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @_ZN6icu_7717double_conversion16PowersOfTenCache32GetCachedPowerForDecimalExponentEiPNS0_5DiyFpEPi(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #4
+declare void @abort() local_unnamed_addr #3
 
-declare void @_ZN6icu_7717double_conversion6Bignum19AssignDecimalStringENS0_6VectorIKcEE(ptr noundef nonnull align 4 dereferenceable(516), ptr, i32) local_unnamed_addr #3
+declare void @_ZN6icu_7717double_conversion6Bignum19AssignDecimalStringENS0_6VectorIKcEE(ptr noundef nonnull align 4 dereferenceable(516), ptr, i32) local_unnamed_addr #2
 
-declare void @_ZN6icu_7717double_conversion6Bignum12AssignUInt64Em(ptr noundef nonnull align 4 dereferenceable(516), i64 noundef) local_unnamed_addr #3
+declare void @_ZN6icu_7717double_conversion6Bignum12AssignUInt64Em(ptr noundef nonnull align 4 dereferenceable(516), i64 noundef) local_unnamed_addr #2
 
-declare void @_ZN6icu_7717double_conversion6Bignum20MultiplyByPowerOfTenEi(ptr noundef nonnull align 4 dereferenceable(516), i32 noundef) local_unnamed_addr #3
+declare void @_ZN6icu_7717double_conversion6Bignum20MultiplyByPowerOfTenEi(ptr noundef nonnull align 4 dereferenceable(516), i32 noundef) local_unnamed_addr #2
 
-declare void @_ZN6icu_7717double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516), i32 noundef) local_unnamed_addr #3
+declare void @_ZN6icu_7717double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516), i32 noundef) local_unnamed_addr #2
 
-declare noundef i32 @_ZN6icu_7717double_conversion6Bignum7CompareERKS1_S3_(ptr noundef nonnull align 4 dereferenceable(516), ptr noundef nonnull align 4 dereferenceable(516)) local_unnamed_addr #3
+declare noundef i32 @_ZN6icu_7717double_conversion6Bignum7CompareERKS1_S3_(ptr noundef nonnull align 4 dereferenceable(516), ptr noundef nonnull align 4 dereferenceable(516)) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #5
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
-attributes #7 = { noreturn nounwind }
+attributes #6 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

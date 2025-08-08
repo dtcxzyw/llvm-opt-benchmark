@@ -417,14 +417,8 @@ define hidden noundef ptr @bufferevent_ssl_upcast(ptr noundef readnone returned 
   ret ptr %0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @bufferevent_ssl_put_error(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #3 {
+define hidden void @bufferevent_ssl_put_error(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 588
   %4 = load i8, ptr %3, align 4
   %5 = lshr i8 %4, 2
@@ -476,9 +470,9 @@ define hidden void @bufferevent_ssl_stop_reading(ptr noundef %0) local_unnamed_a
   ret void
 }
 
-declare void @bufferevent_suspend_read_(ptr noundef, i16 noundef zeroext) local_unnamed_addr #4
+declare void @bufferevent_suspend_read_(ptr noundef, i16 noundef zeroext) local_unnamed_addr #3
 
-declare i32 @event_del(ptr noundef) local_unnamed_addr #4
+declare i32 @event_del(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @bufferevent_ssl_stop_writing(ptr noundef %0) local_unnamed_addr #0 {
@@ -507,7 +501,7 @@ define hidden void @bufferevent_ssl_stop_writing(ptr noundef %0) local_unnamed_a
   ret void
 }
 
-declare void @bufferevent_unsuspend_read_(ptr noundef, i16 noundef zeroext) local_unnamed_addr #4
+declare void @bufferevent_unsuspend_read_(ptr noundef, i16 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @bufferevent_ssl_renegotiate_impl(ptr noundef %0) local_unnamed_addr #0 {
@@ -954,11 +948,11 @@ be_ssl_auto_fd.exit:                              ; preds = %31, %43, %48
   ret ptr %.0
 }
 
-declare ptr @event_mm_calloc_(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @event_mm_calloc_(i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @bufferevent_init_common_(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @bufferevent_init_common_(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @evbuffer_add_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @evbuffer_add_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @be_ssl_outbuf_cb(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
@@ -999,11 +993,11 @@ define internal void @be_ssl_outbuf_cb(ptr readnone captures(none) %0, ptr nound
   ret void
 }
 
-declare i32 @bufferevent_enable_locking_(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @bufferevent_enable_locking_(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @bufferevent_init_generic_timeout_cbs_(ptr noundef) local_unnamed_addr #4
+declare void @bufferevent_init_generic_timeout_cbs_(ptr noundef) local_unnamed_addr #3
 
-declare void @bufferevent_incref(ptr noundef) local_unnamed_addr #4
+declare void @bufferevent_incref(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @be_ssl_set_fd(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
@@ -1076,11 +1070,11 @@ define internal fastcc range(i32 -1, 1) i32 @be_ssl_set_fd(ptr noundef %0, i32 n
   ret i32 %.0
 }
 
-declare void @bufferevent_setwatermark(ptr noundef, i16 noundef signext, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare void @bufferevent_setwatermark(ptr noundef, i16 noundef signext, i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @bufferevent_enable(ptr noundef, i16 noundef signext) local_unnamed_addr #4
+declare i32 @bufferevent_enable(ptr noundef, i16 noundef signext) local_unnamed_addr #3
 
-declare void @bufferevent_free(ptr noundef) local_unnamed_addr #4
+declare void @bufferevent_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i64 0, 4294967296) i64 @bufferevent_get_ssl_error(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -1424,7 +1418,7 @@ bufferevent_ssl_set_flags.exit:                   ; preds = %39, %33, %.thread.i
   ret void
 }
 
-declare void @bufferevent_setcb(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @bufferevent_setcb(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @be_ssl_handshakecb(ptr readnone captures(none) %0, ptr noundef %1) #0 {
@@ -1460,11 +1454,11 @@ define internal void @be_ssl_eventcb(ptr readnone captures(none) %0, i16 noundef
   ret void
 }
 
-declare i32 @bufferevent_setfd(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @bufferevent_setfd(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @event_initialized(ptr noundef) local_unnamed_addr #4
+declare i32 @event_initialized(ptr noundef) local_unnamed_addr #3
 
-declare i32 @event_assign(ptr noundef, ptr noundef, i32 noundef, i16 noundef signext, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @event_assign(ptr noundef, ptr noundef, i32 noundef, i16 noundef signext, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @be_ssl_handshakeeventcb(i32 noundef %0, i16 noundef signext %1, ptr noundef %2) #0 {
@@ -1495,15 +1489,15 @@ define internal void @be_ssl_handshakeeventcb(i32 noundef %0, i16 noundef signex
   ret void
 }
 
-declare void @bufferevent_run_eventcb_(ptr noundef, i16 noundef signext, i32 noundef) local_unnamed_addr #4
+declare void @bufferevent_run_eventcb_(ptr noundef, i16 noundef signext, i32 noundef) local_unnamed_addr #3
 
-declare void @bufferevent_incref_and_lock_(ptr noundef) local_unnamed_addr #4
+declare void @bufferevent_incref_and_lock_(ptr noundef) local_unnamed_addr #3
 
-declare i32 @evutil_socket_finished_connecting_(i32 noundef) local_unnamed_addr #4
+declare i32 @evutil_socket_finished_connecting_(i32 noundef) local_unnamed_addr #3
 
-declare i32 @bufferevent_decref_and_unlock_(ptr noundef) local_unnamed_addr #4
+declare i32 @bufferevent_decref_and_unlock_(ptr noundef) local_unnamed_addr #3
 
-declare i32 @event_get_fd(ptr noundef) local_unnamed_addr #4
+declare i32 @event_get_fd(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @set_open_callbacks(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
@@ -1581,7 +1575,7 @@ define internal void @be_ssl_writecb(ptr readnone captures(none) %0, ptr noundef
   ret void
 }
 
-declare i32 @event_pending(ptr noundef, i16 noundef signext, ptr noundef) local_unnamed_addr #4
+declare i32 @event_pending(ptr noundef, i16 noundef signext, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @be_ssl_readeventcb(i32 %0, i16 noundef signext %1, ptr noundef %2) #0 {
@@ -1621,7 +1615,7 @@ define internal void @be_ssl_writeeventcb(i32 %0, i16 noundef signext %1, ptr no
   ret void
 }
 
-declare i32 @bufferevent_add_event_(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @bufferevent_add_event_(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @consider_reading(ptr noundef %0) unnamed_addr #0 {
@@ -1834,7 +1828,7 @@ define internal fastcc range(i32 0, 8) i32 @do_write(ptr noundef %0) unnamed_add
   %2 = alloca [8 x %struct.iovec], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %4 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %6 = load i64, ptr %5, align 8
   %7 = icmp sgt i64 %6, 0
@@ -2079,7 +2073,7 @@ define internal fastcc range(i32 0, 8) i32 @do_write(ptr noundef %0) unnamed_add
 
 bufferevent_trigger_nolock_.exit:                 ; preds = %52, %20, %101, %86, %132, %127, %.loopexit, %16, %113
   %.0 = phi i32 [ %114, %113 ], [ 4, %16 ], [ %.178, %.loopexit ], [ %.178152, %127 ], [ %.178152, %132 ], [ %102, %101 ], [ %87, %86 ], [ 0, %20 ], [ 5, %52 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -2088,7 +2082,7 @@ define internal fastcc range(i32 0, 6) i32 @do_read(ptr noundef %0, i32 noundef 
   %3 = alloca [2 x %struct.iovec], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %5 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 388
   %7 = load i16, ptr %6, align 4
   %.not = icmp eq i16 %7, 0
@@ -2290,15 +2284,15 @@ define internal fastcc range(i32 0, 6) i32 @do_read(ptr noundef %0, i32 noundef 
 
 .loopexit:                                        ; preds = %38, %.preheader, %68, %81, %.thread.thread, %100, %103, %93, %8, %2
   %.0 = phi i32 [ 0, %2 ], [ 4, %8 ], [ %.172166, %93 ], [ %.172166, %103 ], [ %.172166, %100 ], [ %.172166, %.thread.thread ], [ %69, %68 ], [ %82, %81 ], [ 0, %.preheader ], [ 5, %38 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare i64 @bufferevent_get_write_max_(ptr noundef) local_unnamed_addr #4
+declare i64 @bufferevent_get_write_max_(ptr noundef) local_unnamed_addr #3
 
-declare ptr @evbuffer_pullup(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @evbuffer_pullup(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @evbuffer_peek(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @evbuffer_peek(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @clear_wbor(ptr noundef %0) unnamed_addr #0 {
@@ -2436,15 +2430,15 @@ start_reading.exit:                               ; preds = %13, %15, %20, %23
   ret i32 %.010.i
 }
 
-declare i32 @evbuffer_drain(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @evbuffer_drain(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @event_add(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @event_add(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i64 @evbuffer_get_length(ptr noundef) local_unnamed_addr #4
+declare i64 @evbuffer_get_length(ptr noundef) local_unnamed_addr #3
 
-declare i64 @bufferevent_get_read_max_(ptr noundef) local_unnamed_addr #4
+declare i64 @bufferevent_get_read_max_(ptr noundef) local_unnamed_addr #3
 
-declare i32 @evbuffer_reserve_space(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @evbuffer_reserve_space(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @clear_rbow(ptr noundef %0) unnamed_addr #0 {
@@ -2582,11 +2576,11 @@ start_writing.exit:                               ; preds = %13, %17, %18, %22, 
   ret i32 %.0.i
 }
 
-declare i32 @evbuffer_commit_space(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @evbuffer_commit_space(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @bufferevent_run_readcb_(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @bufferevent_run_readcb_(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @bufferevent_run_writecb_(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @bufferevent_run_writecb_(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @consider_writing(ptr noundef %0) unnamed_addr #0 {
@@ -2762,13 +2756,19 @@ split:                                            ; preds = %7, %bufferevent_tri
   ret void
 }
 
-declare void @event_warnx(ptr noundef, ...) local_unnamed_addr #4
+declare void @event_warnx(ptr noundef, ...) local_unnamed_addr #3
 
-declare i32 @evutil_closesocket(i32 noundef) local_unnamed_addr #4
+declare i32 @evutil_closesocket(i32 noundef) local_unnamed_addr #3
 
-declare i32 @bufferevent_generic_adj_timeouts_(ptr noundef) local_unnamed_addr #4
+declare i32 @bufferevent_generic_adj_timeouts_(ptr noundef) local_unnamed_addr #3
 
-declare i32 @bufferevent_generic_adj_existing_timeouts_(ptr noundef) local_unnamed_addr #4
+declare i32 @bufferevent_generic_adj_existing_timeouts_(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
@@ -2781,9 +2781,9 @@ declare i32 @llvm.umin.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }

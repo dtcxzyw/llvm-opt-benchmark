@@ -727,7 +727,7 @@ _ZN37btSequentialImpulseConstraintSolverMtdlEPv.exit: ; preds = %1
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt30setupBatchedContactConstraintsEv(ptr noundef nonnull align 8 dereferenceable(920) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.CProfileSample, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -741,19 +741,16 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt30setupBatchedC
 
 10:                                               ; preds = %1
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 11:                                               ; preds = %1
   %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %12
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 declare void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) unnamed_addr #1
 
@@ -762,13 +759,10 @@ declare void @_ZN20btBatchedConstraints5setupEP20btAlignedObjectArrayI18btSolver
 ; Function Attrs: nounwind
 declare void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
-
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt28setupBatchedJointConstraintsEv(ptr noundef nonnull align 8 dereferenceable(920) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.CProfileSample, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.1)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -782,19 +776,19 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt28setupBatchedJ
 
 10:                                               ; preds = %1
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 11:                                               ; preds = %1
   %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt31internalSetupContactConstraintsEiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(920) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(128) %2) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt31internalSetupContactConstraintsEiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(920) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(128) %2) local_unnamed_addr #5 align 2 {
   %.sroa.0.i = alloca [4 x float], align 4
   %4 = alloca %class.btVector3, align 8
   %5 = alloca %class.btVector3, align 8
@@ -805,9 +799,9 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt31internalSetup
   %10 = load ptr, ptr %9, align 8, !tbaa !67
   %11 = sext i32 %1 to i64
   %12 = getelementptr inbounds %struct.btSolverConstraint, ptr %10, i64 %11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %14 = load i32, ptr %13, align 8, !tbaa !68
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 156
@@ -1007,7 +1001,7 @@ _ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit179: ; p
   %171 = load float, ptr %170, align 4, !tbaa !80
   %172 = load float, ptr %6, align 4, !tbaa !79
   call void @_ZN35btSequentialImpulseConstraintSolver32setupTorsionalFrictionConstraintER18btSolverConstraintRK9btVector3iiR15btManifoldPointfS4_S4_P17btCollisionObjectS8_fff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(160) %169, ptr noundef nonnull align 4 dereferenceable(16) %151, i32 noundef %14, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(204) %28, float noundef %171, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef %24, ptr noundef %26, float noundef %172, float noundef 0.000000e+00, float noundef 0.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %173 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %174 = load float, ptr %157, align 4, !tbaa !79
   %175 = call noundef float @llvm.fabs.f32(float %174)
@@ -1099,11 +1093,11 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %178, %191
   br i1 %233, label %234, label %235
 
 234:                                              ; preds = %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0.i, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !82
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 16 dereferenceable(16) %173, i64 16, i1 false), !tbaa.struct !82
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %173, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0.i, i64 16, i1 false), !tbaa.struct !82
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   br label %235
 
 235:                                              ; preds = %234, %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit
@@ -1114,7 +1108,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %178, %191
   br label %241
 
 240:                                              ; preds = %259
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %260
 
 241:                                              ; preds = %235, %259
@@ -1124,7 +1118,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %178, %191
   %243 = load ptr, ptr %166, align 8, !tbaa !67
   %244 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %243, i64 %indvars.iv
   %245 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %244, i64 %239
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 16 dereferenceable(16) %indvars.iv.sroa.phi, i64 16, i1 false), !tbaa.struct !82
   %246 = load float, ptr %8, align 4, !tbaa !79
   %247 = load float, ptr %236, align 4, !tbaa !79
@@ -1149,7 +1143,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %178, %191
   br label %259
 
 259:                                              ; preds = %257, %253
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %242, label %241, label %240, !llvm.loop !85
 
 260:                                              ; preds = %240, %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit179
@@ -1356,14 +1350,14 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit206: ; preds = %331, %342
 
 378:                                              ; preds = %301, %295, %361, %358, %365, %372
   call void @_ZN35btSequentialImpulseConstraintSolver28setFrictionConstraintImpulseER18btSolverConstraintiiR15btManifoldPointRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(160) %12, i32 noundef %14, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(204) %28, ptr noundef nonnull align 4 dereferenceable(128) %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @_ZN35btSequentialImpulseConstraintSolver22setupContactConstraintER18btSolverConstraintiiR15btManifoldPointRK19btContactSolverInfoRfRK9btVector3SA_(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef nonnull align 8 dereferenceable(160), i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(204), ptr noundef nonnull align 4 dereferenceable(128), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #1
 
@@ -1379,7 +1373,7 @@ declare void @_ZN35btSequentialImpulseConstraintSolver28setFrictionConstraintImp
 define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt26setupAllContactConstraintsERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef nonnull align 4 dereferenceable(128) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.CProfileSample, align 1
   %4 = alloca %struct.SetupContactConstraintsLoop, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull @.str.2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 748
   %6 = load i8, ptr %5, align 4, !tbaa !61, !range !63, !noundef !93
@@ -1394,7 +1388,7 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt26setupAllConta
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27SetupContactConstraintsLoop, i64 16), ptr %4, align 8, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %13, align 8, !tbaa !95
@@ -1413,7 +1407,7 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt26setupAllConta
   br label %21
 
 ._crit_edge:                                      ; preds = %31, %11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 21:                                               ; preds = %.lr.ph24, %31
@@ -1440,7 +1434,7 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt26setupAllConta
 35:                                               ; preds = %21
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %43
 
 37:                                               ; preds = %.lr.ph
@@ -1461,13 +1455,13 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt26setupAllConta
 
 .loopexit:                                        ; preds = %39, %.preheader, %._crit_edge
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 43:                                               ; preds = %37, %35
   %.pn = phi { ptr, i32 } [ %36, %35 ], [ %38, %37 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
 
@@ -1732,10 +1726,10 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i: ; preds = %95, %_ZNK20btAli
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %120 = load i32, ptr %119, align 4, !tbaa !117
-  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %4, i8 0, i64 248, i1 false)
   %121 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyE6expandERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %118, ptr noundef nonnull align 8 dereferenceable(248) %4)
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN35btSequentialImpulseConstraintSolver14initSolverBodyEP12btSolverBodyP17btCollisionObjectf(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull %121, ptr noundef nonnull %1, float noundef %2)
   %122 = load ptr, ptr %104, align 8, !tbaa !15
   %123 = getelementptr inbounds i32, ptr %122, i64 %106
@@ -1869,7 +1863,7 @@ _ZN20btAlignedObjectArrayI12btSolverBodyE6expandERKS0_.exit61: ; preds = %132, %
 declare void @_ZN11btSpinMutex4lockEv(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyE6expandERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 8 dereferenceable(248) %1) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyE6expandERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 8 dereferenceable(248) %1) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !117
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1976,7 +1970,7 @@ _ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i: ; preds = %37, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare void @_ZN35btSequentialImpulseConstraintSolver14initSolverBodyEP12btSolverBodyP17btCollisionObjectf(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef, ptr noundef, float noundef) local_unnamed_addr #1
 
@@ -1985,7 +1979,7 @@ declare void @_ZN11btSpinMutex6unlockEv(ptr noundef nonnull align 4 dereferencea
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt40internalCollectContactManifoldCachedInfoEPNS_27btContactManifoldCachedInfoEPP20btPersistentManifoldiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(128) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.CProfileSample, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull @.str.3)
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph47, label %._crit_edge48
@@ -1997,7 +1991,7 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt40internalColle
 
 ._crit_edge48:                                    ; preds = %._crit_edge, %5
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 9:                                                ; preds = %.lr.ph47, %._crit_edge
@@ -2086,14 +2080,14 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt40internalColle
 52:                                               ; preds = %35, %33
   %.pn = phi { ptr, i32 } [ %36, %35 ], [ %34, %33 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt31internalAllocContactConstraintsEPKNS_27btContactManifoldCachedInfoEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(920) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.CProfileSample, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull @.str.4)
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph58, label %._crit_edge59
@@ -2109,7 +2103,7 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt31internalAlloc
 
 ._crit_edge59:                                    ; preds = %._crit_edge55, %3
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 11:                                               ; preds = %.lr.ph58, %._crit_edge55
@@ -2232,9 +2226,9 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt26allocAllConta
   %7 = alloca %struct.CollectContactManifoldCachedInfoLoop, align 8
   %8 = alloca %class.CProfileSample, align 1
   %9 = alloca %struct.AllocContactConstraintsLoop, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull @.str.5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i8 1, ptr %10, align 8, !tbaa !35
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -2261,7 +2255,7 @@ _ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt27btContactMan
 19:                                               ; preds = %_ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt27btContactManifoldCachedInfoEE10deallocateEv.exit.i.i, %4
   %20 = phi ptr [ %18, %_ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt27btContactManifoldCachedInfoEE10deallocateEv.exit.i.i ], [ null, %4 ]
   store i32 %2, ptr %12, align 4, !tbaa !40
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV36CollectContactManifoldCachedInfoLoop, i64 16), ptr %7, align 8, !tbaa !4
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %0, ptr %21, align 8, !tbaa !148
@@ -2275,7 +2269,7 @@ _ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt27btContactMan
           to label %25 unwind label %28
 
 25:                                               ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %14, label %.lr.ph163, label %._crit_edge164
 
 .lr.ph163:                                        ; preds = %25
@@ -2285,7 +2279,7 @@ _ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt27btContactMan
 ._crit_edge164:                                   ; preds = %._crit_edge, %25
   %.046.lcssa = phi i32 [ 0, %25 ], [ %.147.lcssa, %._crit_edge ]
   %.044.lcssa = phi i32 [ 0, %25 ], [ %35, %._crit_edge ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull @.str.6)
           to label %43 unwind label %140
 
@@ -2297,7 +2291,7 @@ _ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt27btContactMan
 28:                                               ; preds = %19
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %262
 
 30:                                               ; preds = %.lr.ph163, %._crit_edge
@@ -2880,8 +2874,8 @@ _ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i145: ; pre
 250:                                              ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i145, %228, %224
   store i32 %.046.lcssa, ptr %225, align 4, !tbaa !94
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV27AllocContactConstraintsLoop, i64 16), ptr %9, align 8, !tbaa !4
   %251 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %251, align 8, !tbaa !160
@@ -2891,7 +2885,7 @@ _ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i145: ; pre
           to label %253 unwind label %260
 
 253:                                              ; preds = %250
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not.i.i.i154.not = icmp eq ptr %20, null
   br i1 %.not.i.i.i154.not, label %_ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt27btContactManifoldCachedInfoEED2Ev.exit, label %254
 
@@ -2907,9 +2901,9 @@ _ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i145: ; pre
   unreachable
 
 _ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt27btContactManifoldCachedInfoEED2Ev.exit: ; preds = %253, %254
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 258:                                              ; preds = %144, %142
@@ -2919,21 +2913,21 @@ _ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt27btContactMan
 
 259:                                              ; preds = %258, %140
   %.pn.pn = phi { ptr, i32 } [ %.pn, %258 ], [ %141, %140 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %262
 
 260:                                              ; preds = %250
   %261 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %262
 
 262:                                              ; preds = %260, %259, %28, %26
   %.pn52 = phi { ptr, i32 } [ %261, %260 ], [ %.pn.pn, %259 ], [ %29, %28 ], [ %27, %26 ]
   call void @_ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt27btContactManifoldCachedInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn52
 }
 
@@ -2950,7 +2944,7 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt15convertContac
   br label %79
 
 10:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull @.str.7)
   %11 = icmp sgt i32 %2, 0
   br i1 %11, label %12, label %78
@@ -3098,7 +3092,7 @@ _ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i: ; preds = %51,
 
 78:                                               ; preds = %77, %10
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %79
 
 79:                                               ; preds = %78, %9
@@ -3107,7 +3101,7 @@ _ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i: ; preds = %51,
 80:                                               ; preds = %65, %67, %63
   %.pn16 = phi { ptr, i32 } [ %64, %63 ], [ %68, %67 ], [ %66, %65 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn16
 }
 
@@ -3116,7 +3110,7 @@ declare void @_ZN35btSequentialImpulseConstraintSolver15convertContactsEPP20btPe
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt26internalInitMultipleJointsEPP17btTypedConstraintii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(920) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.CProfileSample, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull @.str.8)
   %6 = icmp slt i32 %2, %3
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -3128,7 +3122,7 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt26internalInitM
 
 ._crit_edge:                                      ; preds = %36, %4
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 9:                                                ; preds = %.lr.ph, %36
@@ -3193,14 +3187,14 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt26internalInitM
 37:                                               ; preds = %28, %26
   %.pn = phi { ptr, i32 } [ %29, %28 ], [ %27, %26 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt29internalConvertMultipleJointsERK20btAlignedObjectArrayINS_11JointParamsEEPP17btTypedConstraintiiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(128) %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %class.CProfileSample, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull @.str.9)
   %8 = icmp slt i32 %3, %4
   br i1 %8, label %.lr.ph, label %._crit_edge
@@ -3214,7 +3208,7 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt29internalConve
 
 ._crit_edge:                                      ; preds = %31, %6
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 13:                                               ; preds = %.lr.ph, %31
@@ -3244,7 +3238,7 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt29internalConve
   %30 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %30
 
 31:                                               ; preds = %17, %13
@@ -3272,7 +3266,7 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt13convertJoints
   br label %141
 
 13:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull @.str.10)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %15 = load i32, ptr %14, align 4, !tbaa !184
@@ -3343,7 +3337,7 @@ _ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EE10deallocateE
 
 40:                                               ; preds = %_ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EE10deallocateEv.exit.i.i, %17, %13
   store i32 %2, ptr %14, align 4, !tbaa !184
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV14InitJointsLoop, i64 16), ptr %6, align 8, !tbaa !4
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %41, align 8, !tbaa !188
@@ -3360,12 +3354,12 @@ _ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EE10deallocateE
 45:                                               ; preds = %40
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %143
 
 47:                                               ; preds = %40
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i8 1, ptr %48, align 8, !tbaa !192
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -3555,7 +3549,7 @@ _ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i: ; preds 
 
 122:                                              ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i, %71, %._crit_edge
   store i32 %.044.lcssa, ptr %68, align 4, !tbaa !94
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV17ConvertJointsLoop, i64 16), ptr %8, align 8, !tbaa !4
   %123 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %7, ptr %123, align 8, !tbaa !200
@@ -3569,7 +3563,7 @@ _ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i: ; preds 
           to label %127 unwind label %131
 
 127:                                              ; preds = %122
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %128 = load ptr, ptr %0, align 8, !tbaa !4
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 176
   %130 = load ptr, ptr %129, align 8
@@ -3579,7 +3573,7 @@ _ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i: ; preds 
 131:                                              ; preds = %122
   %132 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %142
 
 133:                                              ; preds = %127
@@ -3602,9 +3596,9 @@ _ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i: ; preds 
   unreachable
 
 _ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt11JointParamsEED2Ev.exit: ; preds = %133, %137
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %141
 
 141:                                              ; preds = %_ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt11JointParamsEED2Ev.exit, %12
@@ -3613,13 +3607,13 @@ _ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt11JointParamsE
 142:                                              ; preds = %131, %116, %93
   %.pn = phi { ptr, i32 } [ %117, %116 ], [ %94, %93 ], [ %132, %131 ]
   call void @_ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt11JointParamsEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %143
 
 143:                                              ; preds = %142, %45, %43
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn, %142 ], [ %46, %45 ], [ %44, %43 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -3660,9 +3654,9 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIN37btSequentialImp
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt21internalConvertBodiesEPP17btCollisionObjectiiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(128) %4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt21internalConvertBodiesEPP17btCollisionObjectiiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(128) %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.CProfileSample, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull @.str.11)
   %7 = icmp slt i32 %2, %3
   br i1 %7, label %.lr.ph, label %._crit_edge
@@ -3676,7 +3670,7 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt21internalConve
 
 ._crit_edge:                                      ; preds = %122, %5
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 12:                                               ; preds = %.lr.ph, %122
@@ -3861,7 +3855,7 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt21internalConve
 123:                                              ; preds = %80, %100, %120, %78
   %.pn.pn.pn = phi { ptr, i32 } [ %79, %78 ], [ %121, %120 ], [ %101, %100 ], [ %81, %80 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -3875,7 +3869,7 @@ declare { <2 x float>, <2 x float> } @_ZNK11btRigidBody37computeGyroscopicImpuls
 define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt13convertBodiesEPP17btCollisionObjectiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(128) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.CProfileSample, align 1
   %6 = alloca %struct.ConvertBodiesLoop, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull @.str.12)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %8 = load i32, ptr %7, align 4, !tbaa !16
@@ -4012,7 +4006,7 @@ _ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i: ; preds = %55,
           to label %64 unwind label %74
 
 64:                                               ; preds = %56
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV17ConvertBodiesLoop, i64 16), ptr %6, align 8, !tbaa !4
   %65 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %3, ptr %65, align 8, !tbaa !202
@@ -4026,9 +4020,9 @@ _ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i: ; preds = %55,
           to label %69 unwind label %76
 
 69:                                               ; preds = %64
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 70:                                               ; preds = %19
@@ -4049,13 +4043,13 @@ _ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i: ; preds = %55,
 76:                                               ; preds = %64
   %77 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %78
 
 78:                                               ; preds = %76, %74, %72, %70
   %.pn = phi { ptr, i32 } [ %77, %76 ], [ %75, %74 ], [ %73, %72 ], [ %71, %70 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
 }
 
@@ -4145,13 +4139,13 @@ define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt56reso
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #10
+declare float @llvm.fmuladd.f32(float, float, float) #9
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt45solveGroupCacheFriendlySplitImpulseIterationsEPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3, i32 %4, ptr readnone captures(none) %5, i32 %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(128) %7, ptr readnone captures(none) %8) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %class.CProfileSample, align 1
   %11 = alloca %struct.ContactSplitPenetrationImpulseSolverLoop, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull @.str.13)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %13 = load i32, ptr %12, align 4, !tbaa !223
@@ -4188,7 +4182,7 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt45solveGroupCac
   br i1 %33, label %34, label %57
 
 34:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV40ContactSplitPenetrationImpulseSolverLoop, i64 16), ptr %11, align 8, !tbaa !4
   store ptr %0, ptr %24, align 8, !tbaa !225
   store ptr %23, ptr %25, align 8, !tbaa !228
@@ -4197,7 +4191,7 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt45solveGroupCac
   br i1 %36, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %51, %34
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN37btSequentialImpulseConstraintSolverMt56resolveMultipleContactSplitPenetrationImpulseConstraintsERK20btAlignedObjectArrayIiEii.exit
 
 .lr.ph:                                           ; preds = %34, %51
@@ -4228,7 +4222,7 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt45solveGroupCac
 55:                                               ; preds = %.lr.ph
   %56 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %87
 
 57:                                               ; preds = %31
@@ -4291,12 +4285,12 @@ _ZN37btSequentialImpulseConstraintSolverMt56resolveMultipleContactSplitPenetrati
 87:                                               ; preds = %79, %55
   %.pn = phi { ptr, i32 } [ %56, %55 ], [ %80, %79 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %.pn
 
 .loopexit:                                        ; preds = %.critedge, %_ZN37btSequentialImpulseConstraintSolverMt56resolveMultipleContactSplitPenetrationImpulseConstraintsERK20btAlignedObjectArrayIiEii.exit, %.preheader, %9
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
@@ -4315,7 +4309,7 @@ define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt20solv
   br label %110
 
 17:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull @.str.14)
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %19 = load i32, ptr %18, align 4, !tbaa !87
@@ -4469,13 +4463,13 @@ define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt20solv
 108:                                              ; preds = %88, %104, %34
   %.043 = phi float [ %89, %88 ], [ %107, %104 ], [ %35, %34 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %110
 
 109:                                              ; preds = %74, %78, %76, %27
   %.pn.pn.pn = phi { ptr, i32 } [ %28, %27 ], [ %75, %74 ], [ %79, %78 ], [ %77, %76 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %.pn.pn.pn
 
 110:                                              ; preds = %108, %15
@@ -5173,10 +5167,10 @@ _ZN37btSequentialImpulseConstraintSolverMt34randomizeBatchedConstraintOrderingEP
 define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt26resolveAllJointConstraintsEi(ptr noundef nonnull align 8 dereferenceable(920) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.CProfileSample, align 1
   %4 = alloca %struct.JointSolverLoop, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull @.str.15)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV15JointSolverLoop, i64 16), ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %6, align 8, !tbaa !250
@@ -5196,9 +5190,9 @@ define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt26reso
 
 ._crit_edge:                                      ; preds = %25, %2
   %.0.lcssa = phi float [ 0.000000e+00, %2 ], [ %26, %25 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret float %.0.lcssa
 
 14:                                               ; preds = %.lr.ph, %25
@@ -5227,9 +5221,9 @@ define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt26reso
 30:                                               ; preds = %14
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %31
 }
 
@@ -5237,10 +5231,10 @@ define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt26reso
 define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt28resolveAllContactConstraintsEv(ptr noundef nonnull align 8 dereferenceable(920) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.CProfileSample, align 1
   %3 = alloca %struct.ContactSolverLoop, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.16)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV17ContactSolverLoop, i64 16), ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %5, align 8, !tbaa !255
@@ -5259,9 +5253,9 @@ define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt28reso
 
 ._crit_edge:                                      ; preds = %28, %1
   %.0.lcssa = phi float [ 0.000000e+00, %1 ], [ %29, %28 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret float %.0.lcssa
 
 13:                                               ; preds = %.lr.ph, %28
@@ -5294,9 +5288,9 @@ define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt28reso
 33:                                               ; preds = %13
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %34
 }
 
@@ -5304,10 +5298,10 @@ define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt28reso
 define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt36resolveAllContactFrictionConstraintsEv(ptr noundef nonnull align 8 dereferenceable(920) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.CProfileSample, align 1
   %3 = alloca %struct.ContactFrictionSolverLoop, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.17)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV25ContactFrictionSolverLoop, i64 16), ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %5, align 8, !tbaa !259
@@ -5326,9 +5320,9 @@ define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt36reso
 
 ._crit_edge:                                      ; preds = %28, %1
   %.0.lcssa = phi float [ 0.000000e+00, %1 ], [ %29, %28 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret float %.0.lcssa
 
 13:                                               ; preds = %.lr.ph, %28
@@ -5361,9 +5355,9 @@ define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt36reso
 33:                                               ; preds = %13
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %34
 }
 
@@ -5371,10 +5365,10 @@ define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt36reso
 define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt39resolveAllContactConstraintsInterleavedEv(ptr noundef nonnull align 8 dereferenceable(920) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.CProfileSample, align 1
   %3 = alloca %struct.InterleavedContactSolverLoop, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.18)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV28InterleavedContactSolverLoop, i64 16), ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %5, align 8, !tbaa !263
@@ -5392,9 +5386,9 @@ define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt39reso
 
 ._crit_edge:                                      ; preds = %23, %1
   %.0.lcssa = phi float [ 0.000000e+00, %1 ], [ %24, %23 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret float %.0.lcssa
 
 12:                                               ; preds = %.lr.ph, %23
@@ -5423,9 +5417,9 @@ define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt39reso
 28:                                               ; preds = %12
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %29
 }
 
@@ -5433,7 +5427,7 @@ define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt39reso
 define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt36resolveAllRollingFrictionConstraintsEv(ptr noundef nonnull align 8 dereferenceable(920) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.CProfileSample, align 1
   %3 = alloca %struct.ContactRollingFrictionSolverLoop, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.19)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %5 = load i32, ptr %4, align 4, !tbaa !94
@@ -5455,7 +5449,7 @@ define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt36reso
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32ContactRollingFrictionSolverLoop, i64 16), ptr %3, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %14, align 8, !tbaa !267
@@ -5472,7 +5466,7 @@ define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt36reso
   br label %21
 
 ._crit_edge:                                      ; preds = %32, %12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
 21:                                               ; preds = %.lr.ph, %32
@@ -5499,7 +5493,7 @@ define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt36reso
 36:                                               ; preds = %21
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %73
 
 38:                                               ; preds = %.lr.ph54, %72
@@ -5561,13 +5555,13 @@ define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt36reso
 .loopexit:                                        ; preds = %72, %.preheader, %._crit_edge
   %.0 = phi float [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %.preheader ], [ %.2, %72 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret float %.0
 
 73:                                               ; preds = %70, %36
   %.pn = phi { ptr, i32 } [ %37, %36 ], [ %71, %70 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn
 }
 
@@ -5579,21 +5573,21 @@ define linkonce_odr dso_local void @_ZN18btIParallelSumBodyD2Ev(ptr noundef nonn
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt25internalWriteBackContactsEiiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(920) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(128) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.CProfileSample, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull @.str.20)
   invoke void @_ZN35btSequentialImpulseConstraintSolver17writeBackContactsEiiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(408) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(128) %3)
           to label %6 unwind label %7
 
 6:                                                ; preds = %4
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 7:                                                ; preds = %4
   %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %8
 }
 
@@ -5602,21 +5596,21 @@ declare void @_ZN35btSequentialImpulseConstraintSolver17writeBackContactsEiiRK19
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt23internalWriteBackJointsEiiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(920) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(128) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.CProfileSample, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull @.str.21)
   invoke void @_ZN35btSequentialImpulseConstraintSolver15writeBackJointsEiiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(408) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(128) %3)
           to label %6 unwind label %7
 
 6:                                                ; preds = %4
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 7:                                                ; preds = %4
   %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %8
 }
 
@@ -5625,21 +5619,21 @@ declare void @_ZN35btSequentialImpulseConstraintSolver15writeBackJointsEiiRK19bt
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt23internalWriteBackBodiesEiiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(920) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(128) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.CProfileSample, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull @.str.22)
   invoke void @_ZN35btSequentialImpulseConstraintSolver15writeBackBodiesEiiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(408) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(128) %3)
           to label %6 unwind label %7
 
 6:                                                ; preds = %4
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 7:                                                ; preds = %4
   %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %8
 }
 
@@ -5651,7 +5645,7 @@ define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt29solv
   %6 = alloca %struct.WriteContactPointsLoop, align 8
   %7 = alloca %struct.WriteJointsLoop, align 8
   %8 = alloca %struct.WriteBodiesLoop, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull @.str.23)
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %10 = load i32, ptr %9, align 4, !tbaa !87
@@ -5660,7 +5654,7 @@ define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt29solv
   br i1 %.not, label %20, label %12
 
 12:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV22WriteContactPointsLoop, i64 16), ptr %6, align 8, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %13, align 8, !tbaa !272
@@ -5672,17 +5666,17 @@ define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt29solv
           to label %17 unwind label %18
 
 17:                                               ; preds = %12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %20
 
 18:                                               ; preds = %12
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %105
 
 20:                                               ; preds = %17, %4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV15WriteJointsLoop, i64 16), ptr %7, align 8, !tbaa !4
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %0, ptr %21, align 8, !tbaa !275
@@ -5694,8 +5688,8 @@ define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt29solv
           to label %25 unwind label %99
 
 25:                                               ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV15WriteBodiesLoop, i64 16), ptr %8, align 8, !tbaa !4
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %0, ptr %26, align 8, !tbaa !278
@@ -5707,7 +5701,7 @@ define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt29solv
           to label %30 unwind label %101
 
 30:                                               ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %32 = load i32, ptr %31, align 4, !tbaa !94
   %33 = icmp slt i32 %32, 0
@@ -5872,19 +5866,19 @@ _ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i: ; preds = %97,
 98:                                               ; preds = %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i, %88, %85
   store i32 0, ptr %28, align 4, !tbaa !117
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret float 0.000000e+00
 
 99:                                               ; preds = %20
   %100 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %105
 
 101:                                              ; preds = %25
   %102 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %105
 
 103:                                              ; preds = %97, %84, %70, %56, %43
@@ -5895,7 +5889,7 @@ _ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i: ; preds = %97,
 105:                                              ; preds = %103, %101, %99, %18
   %.pn = phi { ptr, i32 } [ %104, %103 ], [ %102, %101 ], [ %100, %99 ], [ %19, %18 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
 }
 
@@ -5926,7 +5920,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK35btSequentialImpulseConstraintSo
 declare noundef float @_ZN35btSequentialImpulseConstraintSolver33solveGroupCacheFriendlyIterationsEPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(128), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
   tail call void @_ZSt9terminatev() #15
   unreachable
@@ -5935,7 +5929,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #12
+declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #1
 
@@ -5948,7 +5942,7 @@ define linkonce_odr dso_local void @_ZN27SetupContactConstraintsLoopD0Ev(ptr nou
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK27SetupContactConstraintsLoop7forLoopEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.CProfileSample, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull @.str.24)
   %5 = icmp slt i32 %1, %2
   br i1 %5, label %.lr.ph17, label %._crit_edge18
@@ -5962,7 +5956,7 @@ define linkonce_odr dso_local void @_ZNK27SetupContactConstraintsLoop7forLoopEii
 
 ._crit_edge18:                                    ; preds = %._crit_edge, %3
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 10:                                               ; preds = %.lr.ph17, %._crit_edge
@@ -6010,12 +6004,12 @@ define linkonce_odr dso_local void @_ZNK27SetupContactConstraintsLoop7forLoopEii
   %32 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %32
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #13
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN36CollectContactManifoldCachedInfoLoopD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 {
@@ -6073,7 +6067,7 @@ define linkonce_odr dso_local void @_ZNK14InitJointsLoop7forLoopEii(ptr noundef 
   %6 = load ptr, ptr %5, align 8, !tbaa !188
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !191
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull @.str.8)
   %9 = icmp slt i32 %1, %2
   br i1 %9, label %.lr.ph.i, label %_ZN37btSequentialImpulseConstraintSolverMt26internalInitMultipleJointsEPP17btTypedConstraintii.exit
@@ -6145,12 +6139,12 @@ define linkonce_odr dso_local void @_ZNK14InitJointsLoop7forLoopEii(ptr noundef 
 40:                                               ; preds = %31, %29
   %.pn.i = phi { ptr, i32 } [ %32, %31 ], [ %30, %29 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn.i
 
 _ZN37btSequentialImpulseConstraintSolverMt26internalInitMultipleJointsEPP17btTypedConstraintii.exit: ; preds = %39, %3
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -6171,7 +6165,7 @@ define linkonce_odr dso_local void @_ZNK17ConvertJointsLoop7forLoopEii(ptr nound
   %10 = load ptr, ptr %9, align 8, !tbaa !205
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !284
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull @.str.9)
   %13 = icmp slt i32 %1, %2
   br i1 %13, label %.lr.ph.i, label %_ZN37btSequentialImpulseConstraintSolverMt29internalConvertMultipleJointsERK20btAlignedObjectArrayINS_11JointParamsEEPP17btTypedConstraintiiRK19btContactSolverInfo.exit
@@ -6210,7 +6204,7 @@ define linkonce_odr dso_local void @_ZNK17ConvertJointsLoop7forLoopEii(ptr nound
   %35 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %35
 
 36:                                               ; preds = %22, %18
@@ -6221,7 +6215,7 @@ define linkonce_odr dso_local void @_ZNK17ConvertJointsLoop7forLoopEii(ptr nound
 
 _ZN37btSequentialImpulseConstraintSolverMt29internalConvertMultipleJointsERK20btAlignedObjectArrayINS_11JointParamsEEPP17btTypedConstraintiiRK19btContactSolverInfo.exit: ; preds = %36, %3
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -6252,7 +6246,7 @@ define linkonce_odr dso_local void @_ZN40ContactSplitPenetrationImpulseSolverLoo
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef float @_ZNK40ContactSplitPenetrationImpulseSolverLoop7sumLoopEii(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.CProfileSample, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull @.str.25)
   %5 = icmp slt i32 %1, %2
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -6266,7 +6260,7 @@ define linkonce_odr dso_local noundef float @_ZNK40ContactSplitPenetrationImpuls
 ._crit_edge:                                      ; preds = %_ZN37btSequentialImpulseConstraintSolverMt56resolveMultipleContactSplitPenetrationImpulseConstraintsERK20btAlignedObjectArrayIiEii.exit, %3
   %.0.lcssa = phi float [ 0.000000e+00, %3 ], [ %43, %_ZN37btSequentialImpulseConstraintSolverMt56resolveMultipleContactSplitPenetrationImpulseConstraintsERK20btAlignedObjectArrayIiEii.exit ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret float %.0.lcssa
 
 9:                                                ; preds = %.lr.ph, %_ZN37btSequentialImpulseConstraintSolverMt56resolveMultipleContactSplitPenetrationImpulseConstraintsERK20btAlignedObjectArrayIiEii.exit
@@ -6332,7 +6326,7 @@ _ZN37btSequentialImpulseConstraintSolverMt56resolveMultipleContactSplitPenetrati
   %45 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %45
 }
 
@@ -6345,7 +6339,7 @@ define linkonce_odr dso_local void @_ZN15JointSolverLoopD0Ev(ptr noundef nonnull
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef float @_ZNK15JointSolverLoop7sumLoopEii(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.CProfileSample, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull @.str.26)
   %5 = icmp slt i32 %1, %2
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -6360,7 +6354,7 @@ define linkonce_odr dso_local noundef float @_ZNK15JointSolverLoop7sumLoopEii(pt
 ._crit_edge:                                      ; preds = %_ZN37btSequentialImpulseConstraintSolverMt31resolveMultipleJointConstraintsERK20btAlignedObjectArrayIiEiii.exit, %3
   %.0.lcssa = phi float [ 0.000000e+00, %3 ], [ %48, %_ZN37btSequentialImpulseConstraintSolverMt31resolveMultipleJointConstraintsERK20btAlignedObjectArrayIiEiii.exit ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret float %.0.lcssa
 
 10:                                               ; preds = %.lr.ph, %_ZN37btSequentialImpulseConstraintSolverMt31resolveMultipleJointConstraintsERK20btAlignedObjectArrayIiEiii.exit
@@ -6435,7 +6429,7 @@ _ZN37btSequentialImpulseConstraintSolverMt31resolveMultipleJointConstraintsERK20
   %50 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %50
 }
 
@@ -6448,7 +6442,7 @@ define linkonce_odr dso_local void @_ZN17ContactSolverLoopD0Ev(ptr noundef nonnu
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef float @_ZNK17ContactSolverLoop7sumLoopEii(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.CProfileSample, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull @.str.27)
   %5 = icmp slt i32 %1, %2
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -6462,7 +6456,7 @@ define linkonce_odr dso_local noundef float @_ZNK17ContactSolverLoop7sumLoopEii(
 ._crit_edge:                                      ; preds = %_ZN37btSequentialImpulseConstraintSolverMt33resolveMultipleContactConstraintsERK20btAlignedObjectArrayIiEii.exit, %3
   %.0.lcssa = phi float [ 0.000000e+00, %3 ], [ %41, %_ZN37btSequentialImpulseConstraintSolverMt33resolveMultipleContactConstraintsERK20btAlignedObjectArrayIiEii.exit ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret float %.0.lcssa
 
 9:                                                ; preds = %.lr.ph, %_ZN37btSequentialImpulseConstraintSolverMt33resolveMultipleContactConstraintsERK20btAlignedObjectArrayIiEii.exit
@@ -6526,7 +6520,7 @@ _ZN37btSequentialImpulseConstraintSolverMt33resolveMultipleContactConstraintsERK
   %43 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %43
 }
 
@@ -6539,7 +6533,7 @@ define linkonce_odr dso_local void @_ZN25ContactFrictionSolverLoopD0Ev(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef float @_ZNK25ContactFrictionSolverLoop7sumLoopEii(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.CProfileSample, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull @.str.28)
   %5 = icmp slt i32 %1, %2
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -6553,7 +6547,7 @@ define linkonce_odr dso_local noundef float @_ZNK25ContactFrictionSolverLoop7sum
 ._crit_edge:                                      ; preds = %_ZN37btSequentialImpulseConstraintSolverMt41resolveMultipleContactFrictionConstraintsERK20btAlignedObjectArrayIiEii.exit, %3
   %.0.lcssa = phi float [ 0.000000e+00, %3 ], [ %63, %_ZN37btSequentialImpulseConstraintSolverMt41resolveMultipleContactFrictionConstraintsERK20btAlignedObjectArrayIiEii.exit ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret float %.0.lcssa
 
 9:                                                ; preds = %.lr.ph, %_ZN37btSequentialImpulseConstraintSolverMt41resolveMultipleContactFrictionConstraintsERK20btAlignedObjectArrayIiEii.exit
@@ -6655,7 +6649,7 @@ _ZN37btSequentialImpulseConstraintSolverMt41resolveMultipleContactFrictionConstr
   %65 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %65
 }
 
@@ -6668,7 +6662,7 @@ define linkonce_odr dso_local void @_ZN28InterleavedContactSolverLoopD0Ev(ptr no
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef float @_ZNK28InterleavedContactSolverLoop7sumLoopEii(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.CProfileSample, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull @.str.29)
   %5 = icmp slt i32 %1, %2
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -6682,7 +6676,7 @@ define linkonce_odr dso_local noundef float @_ZNK28InterleavedContactSolverLoop7
 ._crit_edge:                                      ; preds = %19, %3
   %.0.lcssa = phi float [ 0.000000e+00, %3 ], [ %20, %19 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret float %.0.lcssa
 
 9:                                                ; preds = %.lr.ph, %19
@@ -6710,7 +6704,7 @@ define linkonce_odr dso_local noundef float @_ZNK28InterleavedContactSolverLoop7
   %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %22
 }
 
@@ -6723,7 +6717,7 @@ define linkonce_odr dso_local void @_ZN32ContactRollingFrictionSolverLoopD0Ev(pt
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef float @_ZNK32ContactRollingFrictionSolverLoop7sumLoopEii(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.CProfileSample, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull @.str.28)
   %5 = icmp slt i32 %1, %2
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -6737,7 +6731,7 @@ define linkonce_odr dso_local noundef float @_ZNK32ContactRollingFrictionSolverL
 ._crit_edge:                                      ; preds = %_ZN37btSequentialImpulseConstraintSolverMt48resolveMultipleContactRollingFrictionConstraintsERK20btAlignedObjectArrayIiEii.exit, %3
   %.0.lcssa = phi float [ 0.000000e+00, %3 ], [ %68, %_ZN37btSequentialImpulseConstraintSolverMt48resolveMultipleContactRollingFrictionConstraintsERK20btAlignedObjectArrayIiEii.exit ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret float %.0.lcssa
 
 9:                                                ; preds = %.lr.ph, %_ZN37btSequentialImpulseConstraintSolverMt48resolveMultipleContactRollingFrictionConstraintsERK20btAlignedObjectArrayIiEii.exit
@@ -6847,7 +6841,7 @@ _ZN37btSequentialImpulseConstraintSolverMt48resolveMultipleContactRollingFrictio
   %70 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %70
 }
 
@@ -6864,7 +6858,7 @@ define linkonce_odr dso_local void @_ZNK22WriteContactPointsLoop7forLoopEii(ptr 
   %6 = load ptr, ptr %5, align 8, !tbaa !272
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !274
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull @.str.20)
   invoke void @_ZN35btSequentialImpulseConstraintSolver17writeBackContactsEiiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(920) %6, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(128) %8)
           to label %_ZN37btSequentialImpulseConstraintSolverMt25internalWriteBackContactsEiiRK19btContactSolverInfo.exit unwind label %9
@@ -6873,12 +6867,12 @@ define linkonce_odr dso_local void @_ZNK22WriteContactPointsLoop7forLoopEii(ptr 
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %10
 
 _ZN37btSequentialImpulseConstraintSolverMt25internalWriteBackContactsEiiRK19btContactSolverInfo.exit: ; preds = %3
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -6895,7 +6889,7 @@ define linkonce_odr dso_local void @_ZNK15WriteJointsLoop7forLoopEii(ptr noundef
   %6 = load ptr, ptr %5, align 8, !tbaa !275
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !277
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull @.str.21)
   invoke void @_ZN35btSequentialImpulseConstraintSolver15writeBackJointsEiiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(920) %6, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(128) %8)
           to label %_ZN37btSequentialImpulseConstraintSolverMt23internalWriteBackJointsEiiRK19btContactSolverInfo.exit unwind label %9
@@ -6904,12 +6898,12 @@ define linkonce_odr dso_local void @_ZNK15WriteJointsLoop7forLoopEii(ptr noundef
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %10
 
 _ZN37btSequentialImpulseConstraintSolverMt23internalWriteBackJointsEiiRK19btContactSolverInfo.exit: ; preds = %3
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -6926,7 +6920,7 @@ define linkonce_odr dso_local void @_ZNK15WriteBodiesLoop7forLoopEii(ptr noundef
   %6 = load ptr, ptr %5, align 8, !tbaa !278
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !280
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull @.str.22)
   invoke void @_ZN35btSequentialImpulseConstraintSolver15writeBackBodiesEiiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(920) %6, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(128) %8)
           to label %_ZN37btSequentialImpulseConstraintSolverMt23internalWriteBackBodiesEiiRK19btContactSolverInfo.exit unwind label %9
@@ -6935,19 +6929,25 @@ define linkonce_odr dso_local void @_ZNK15WriteBodiesLoop7forLoopEii(ptr noundef
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %10
 
 _ZN37btSequentialImpulseConstraintSolverMt23internalWriteBackBodiesEiiRK19btContactSolverInfo.exit: ; preds = %3
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #10
+declare float @llvm.fabs.f32(float) #9
 
 declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #14
@@ -6957,15 +6957,15 @@ attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { cold nofree noreturn }
-attributes #13 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { cold nofree noreturn }
+attributes #12 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { noreturn nounwind }
 attributes #16 = { nounwind }

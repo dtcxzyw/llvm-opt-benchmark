@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_dsa_generate_ffc_parameters(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq i32 %1, 1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %9 = load ptr, ptr %8, align 8, !tbaa !3
@@ -36,19 +36,13 @@ define i32 @ossl_dsa_generate_ffc_parameters(ptr noundef %0, i32 noundef %1, i32
   br label %23
 
 23:                                               ; preds = %19, %17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @ossl_ffc_params_FIPS186_2_generate(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_ffc_params_FIPS186_2_generate(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @ossl_ffc_params_FIPS186_4_generate(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @ossl_ffc_params_FIPS186_4_generate(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @DSA_generate_parameters_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
@@ -86,7 +80,7 @@ define i32 @DSA_generate_parameters_ex(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %or.cond, label %27, label %34
 
 27:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %28 = load ptr, ptr %24, align 8, !tbaa !3
   %29 = call i32 @ossl_ffc_params_FIPS186_2_generate(ptr noundef %28, ptr noundef nonnull %25, i32 noundef 0, i64 noundef %26, i64 noundef 160, ptr noundef nonnull %9, ptr noundef %6) #3
   %30 = icmp sgt i32 %29, 0
@@ -97,16 +91,16 @@ ossl_dsa_generate_ffc_parameters.exit.thread:     ; preds = %27
   %32 = load i64, ptr %31, align 8, !tbaa !20
   %33 = add i64 %32, 1
   store i64 %33, ptr %31, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %41
 
 ossl_dsa_generate_ffc_parameters.exit:            ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not36 = icmp eq i32 %29, 0
   br i1 %.not36, label %50, label %41
 
 34:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %35 = load ptr, ptr %24, align 8, !tbaa !3
   %36 = call i32 @ossl_ffc_params_FIPS186_4_generate(ptr noundef %35, ptr noundef nonnull %25, i32 noundef 0, i64 noundef %26, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %6) #3
   %37 = icmp sgt i32 %36, 0
@@ -117,11 +111,11 @@ ossl_dsa_generate_ffc_parameters.exit39.thread:   ; preds = %34
   %39 = load i64, ptr %38, align 8, !tbaa !20
   %40 = add i64 %39, 1
   store i64 %40, ptr %38, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %41
 
 ossl_dsa_generate_ffc_parameters.exit39:          ; preds = %34
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not35 = icmp eq i32 %36, 0
   br i1 %.not35, label %50, label %41
 
@@ -151,11 +145,17 @@ ossl_dsa_generate_ffc_parameters.exit39:          ; preds = %34
   ret i32 %.0
 }
 
-declare i32 @ossl_ffc_params_set_validate_params(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ossl_ffc_params_set_validate_params(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

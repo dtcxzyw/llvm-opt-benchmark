@@ -28,14 +28,8 @@ define dso_local noundef i64 @spg_range_quad_config(ptr noundef readonly capture
   ret i64 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @spg_range_quad_choose(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local noundef i64 @spg_range_quad_choose(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.RangeBound, align 8
   %3 = alloca %struct.RangeBound, align 8
   %4 = alloca i8, align 1
@@ -84,12 +78,12 @@ define dso_local noundef i64 @spg_range_quad_choose(ptr noundef %0) local_unname
   %35 = load i64, ptr %34, align 8
   %36 = inttoptr i64 %35 to ptr
   %37 = tail call ptr @pg_detoast_datum(ptr noundef %36) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @range_deserialize(ptr noundef %24, ptr noundef %37, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
   call void @range_deserialize(ptr noundef %24, ptr noundef nonnull %16, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #6
   %38 = load i8, ptr %7, align 1, !range !4, !noundef !5
@@ -113,12 +107,12 @@ define dso_local noundef i64 @spg_range_quad_choose(ptr noundef %0) local_unname
 
 getQuadrant.exit:                                 ; preds = %33, %45, %46
   %.0.i = phi i32 [ 5, %33 ], [ %..i, %45 ], [ %.7.i, %46 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i32 1, ptr %13, align 8
   %47 = add nsw i32 %.0.i, -1
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -135,12 +129,12 @@ getQuadrant.exit:                                 ; preds = %33, %45, %46
   ret i64 0
 }
 
-declare ptr @range_get_typcache(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @range_get_typcache(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare signext i8 @range_get_flags(ptr noundef) local_unnamed_addr #3
+declare signext i8 @range_get_flags(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @spg_range_quad_picksplit(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local noundef i64 @spg_range_quad_picksplit(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.RangeBound, align 8
   %3 = alloca %struct.RangeBound, align 8
   %4 = alloca i8, align 1
@@ -154,7 +148,7 @@ define dso_local noundef i64 @spg_range_quad_picksplit(ptr noundef %0) local_unn
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load i64, ptr %12, align 8
   %14 = inttoptr i64 %13 to ptr
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load i64, ptr %16, align 8
@@ -289,12 +283,12 @@ define dso_local noundef i64 @spg_range_quad_picksplit(ptr noundef %0) local_unn
   %105 = load i64, ptr %104, align 8
   %106 = inttoptr i64 %105 to ptr
   %107 = call ptr @pg_detoast_datum(ptr noundef %106) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @range_deserialize(ptr noundef %22, ptr noundef %82, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
   call void @range_deserialize(ptr noundef %22, ptr noundef %107, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #6
   %108 = load i8, ptr %7, align 1, !range !4, !noundef !5
@@ -318,12 +312,12 @@ define dso_local noundef i64 @spg_range_quad_picksplit(ptr noundef %0) local_unn
 
 getQuadrant.exit:                                 ; preds = %.lr.ph80, %115, %116
   %.0.i = phi i32 [ 5, %.lr.ph80 ], [ %..i, %115 ], [ %.7.i, %116 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %117 = ptrtoint ptr %107 to i64
   %118 = load ptr, ptr %100, align 8
   %119 = getelementptr inbounds nuw i64, ptr %118, i64 %indvars.iv86
@@ -339,26 +333,26 @@ getQuadrant.exit:                                 ; preds = %.lr.ph80, %115, %11
   br i1 %125, label %.lr.ph80, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %getQuadrant.exit, %.lr.ph83, %76, %._crit_edge.thread
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 0
 }
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #3
+declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
-declare void @range_deserialize(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @range_deserialize(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @qsort_arg(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @qsort_arg(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bound_cmp(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+define internal i32 @bound_cmp(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = tail call i32 @range_cmp_bounds(ptr noundef %2, ptr noundef %0, ptr noundef %1) #6
   ret i32 %4
 }
 
-declare ptr @range_serialize(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
+declare ptr @range_serialize(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @spg_range_quad_inner_consistent(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local noundef i64 @spg_range_quad_inner_consistent(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.RangeBound, align 8
   %3 = alloca %struct.RangeBound, align 8
   %4 = alloca i8, align 1
@@ -500,9 +494,9 @@ select.unfold180:                                 ; preds = %63, %59, %61, %67, 
   br i1 %78, label %.lr.ph, label %.thread185, !llvm.loop !11
 
 79:                                               ; preds = %41
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %80 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %81 = load i64, ptr %80, align 8
   %82 = inttoptr i64 %81 to ptr
@@ -530,12 +524,12 @@ select.unfold180:                                 ; preds = %63, %59, %61, %67, 
   %indvars.iv327 = phi i64 [ 0, %.lr.ph312 ], [ %indvars.iv.next328, %.thread288.thread ]
   %.3311 = phi i32 [ 62, %.lr.ph312 ], [ %.7, %.thread288.thread ]
   %.1150309 = phi i1 [ false, %.lr.ph312 ], [ %.3152201, %.thread288.thread ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %98 = load ptr, ptr %19, align 8
   %99 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %98, i64 %indvars.iv327
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 6
@@ -638,12 +632,12 @@ select.unfold180:                                 ; preds = %63, %59, %61, %67, 
   br label %.thread288
 
 138:                                              ; preds = %106
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @range_deserialize(ptr noundef %86, ptr noundef %83, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
   call void @range_deserialize(ptr noundef %86, ptr noundef %110, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #6
   %139 = load i8, ptr %7, align 1, !range !4, !noundef !5
@@ -667,12 +661,12 @@ select.unfold180:                                 ; preds = %63, %59, %61, %67, 
 
 getQuadrant.exit:                                 ; preds = %138, %146, %147
   %.0.i = phi i32 [ 5, %138 ], [ %..i, %146 ], [ %.7.i, %147 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %148 = shl nuw nsw i32 1, %.0.i
   %149 = and i32 %148, %.3311
   br label %.thread288
@@ -781,23 +775,23 @@ getQuadrant.exit:                                 ; preds = %138, %146, %147
 
 .thread248:                                       ; preds = %154, %.thread288
   %.3152201.ph = phi i1 [ %.3152.ph, %154 ], [ %.3152202229260287294, %.thread288 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit297
 
 .thread288.thread:                                ; preds = %130, %.thread288
   %.3152201 = phi i1 [ %.3152202229260287294, %.thread288 ], [ %.1150309, %130 ]
   %.7 = phi i32 [ %.11, %.thread288 ], [ %.3311, %130 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %indvars.iv.next328 = add nuw nsw i64 %indvars.iv327, 1
   %179 = load i32, ptr %87, align 8
   %180 = sext i32 %179 to i64
@@ -807,9 +801,9 @@ getQuadrant.exit:                                 ; preds = %138, %146, %147
 .loopexit297:                                     ; preds = %.thread288.thread, %79, %.thread248
   %.2151 = phi i1 [ %.3152201.ph, %.thread248 ], [ false, %79 ], [ %.3152201, %.thread288.thread ]
   %.4 = phi i32 [ 0, %.thread248 ], [ 62, %79 ], [ %.7, %.thread288.thread ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread185
 
 .thread185:                                       ; preds = %.thread182, %select.unfold180, %59, %.preheader, %.loopexit297
@@ -927,14 +921,14 @@ getQuadrant.exit:                                 ; preds = %138, %146, %147
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @adjacent_inner_consistent(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 2) i32 @adjacent_inner_consistent(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.thread, label %5
 
@@ -1013,12 +1007,12 @@ adjacent_cmp_bounds.exit22:                       ; preds = %adjacent_cmp_bounds
   ret i32 %.1
 }
 
-declare i32 @range_cmp_bounds(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @range_cmp_bounds(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #3
+declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @spg_range_quad_leaf_consistent(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local range(i64 0, 2) i64 @spg_range_quad_leaf_consistent(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1143,38 +1137,44 @@ define dso_local range(i64 0, 2) i64 @spg_range_quad_leaf_consistent(ptr noundef
   ret i64 %.lcssa52
 }
 
-declare zeroext i1 @range_before_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @range_before_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @range_overleft_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @range_overleft_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @range_overlaps_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @range_overlaps_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @range_overright_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @range_overright_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @range_after_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @range_after_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @range_adjacent_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @range_adjacent_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @range_contains_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @range_contains_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @range_contained_by_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @range_contained_by_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @range_contains_elem_internal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare zeroext i1 @range_contains_elem_internal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @range_eq_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @range_eq_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #3
+declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @bounds_adjacent(ptr noundef, i64, i64, i64, i64) local_unnamed_addr #3
+declare zeroext i1 @bounds_adjacent(ptr noundef, i64, i64, i64, i64) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #6 = { nounwind }
 attributes #7 = { cold nounwind }

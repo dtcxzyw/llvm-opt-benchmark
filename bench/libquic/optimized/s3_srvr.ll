@@ -639,20 +639,17 @@ ssl3_send_server_certificate.exit.thread:         ; preds = %119, %76, %213, %16
   ret i32 %.0169
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @ERR_clear_system_error() local_unnamed_addr #1
 
-declare void @ERR_clear_system_error() local_unnamed_addr #2
+declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @BUF_MEM_new() local_unnamed_addr #1
 
-declare ptr @BUF_MEM_new() local_unnamed_addr #2
+declare i64 @BUF_MEM_grow(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @BUF_MEM_grow(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @ssl_init_wbio_buffer(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ssl_init_wbio_buffer(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @ssl3_init_handshake_buffer(ptr noundef) local_unnamed_addr #2
+declare i32 @ssl3_init_handshake_buffer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483648, 2) i32 @ssl3_get_initial_bytes(ptr noundef %0) local_unnamed_addr #0 {
@@ -743,20 +740,20 @@ define hidden range(i32 -2147483648, 2) i32 @ssl3_get_v2_client_hello(ptr nounde
   %14 = alloca %struct.cbb_st, align 8
   %15 = alloca [32 x i8], align 16
   %16 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #10
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #10
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10) #10
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11) #10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %17 = tail call ptr @ssl_read_buffer(ptr noundef %0) #10
   %18 = load i8, ptr %17, align 1, !tbaa !86
   %19 = and i8 %18, 127
@@ -927,7 +924,7 @@ define hidden range(i32 -2147483648, 2) i32 @ssl3_get_v2_client_hello(ptr nounde
   br label %126
 
 .lr.ph:                                           ; preds = %.preheader, %110
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %101 = call i32 @CBS_get_u24(ptr noundef nonnull %3, ptr noundef nonnull %16) #10
   %.not53 = icmp eq i32 %101, 0
   br i1 %.not53, label %102, label %103
@@ -955,11 +952,11 @@ define hidden range(i32 -2147483648, 2) i32 @ssl3_get_v2_client_hello(ptr nounde
   br label %.thread
 
 .thread:                                          ; preds = %109, %102
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %126
 
 110:                                              ; preds = %106, %103
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %111 = call i64 @CBS_len(ptr noundef nonnull %3) #10
   %.not49 = icmp eq i64 %111, 0
   br i1 %.not49, label %._crit_edge, label %.lr.ph
@@ -1001,20 +998,20 @@ define hidden range(i32 -2147483648, 2) i32 @ssl3_get_v2_client_hello(ptr nounde
 
 126:                                              ; preds = %.thread, %35, %31, %118, %117, %100, %73, %30, %27
   %.028 = phi i32 [ -1, %27 ], [ -1, %30 ], [ -1, %73 ], [ 1, %118 ], [ -1, %117 ], [ -1, %100 ], [ %33, %31 ], [ -1, %35 ], [ -1, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #10
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #10
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #10
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.028
 }
 
@@ -1033,15 +1030,15 @@ define hidden i32 @ssl3_get_client_hello(ptr noundef %0) local_unnamed_addr #0 {
   %12 = alloca i32, align 4
   %13 = alloca ptr, align 8
   %14 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #10
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8, !tbaa !99
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %16 = load i32, ptr %15, align 4, !tbaa !43
@@ -1169,7 +1166,7 @@ define hidden i32 @ssl3_get_client_hello(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not133, label %80, label %74
 
 74:                                               ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %75 = call i32 @CBS_get_u8_length_prefixed(ptr noundef nonnull %4, ptr noundef nonnull %11) #10
   %.not134 = icmp eq i32 %75, 0
   br i1 %.not134, label %79, label %76
@@ -1180,12 +1177,12 @@ define hidden i32 @ssl3_get_client_hello(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %78, label %79, label %.thread
 
 .thread:                                          ; preds = %76
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %80
 
 79:                                               ; preds = %74, %76
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 137, ptr noundef nonnull @.str, i32 noundef 848) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %287
 
 80:                                               ; preds = %.thread, %63
@@ -1617,15 +1614,15 @@ define hidden i32 @ssl3_get_client_hello(ptr noundef %0) local_unnamed_addr #0 {
 
 291:                                              ; preds = %289, %54, %24
   %.0 = phi i32 [ -1, %54 ], [ %.0113, %289 ], [ %25, %24 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -1698,9 +1695,9 @@ define hidden i32 @ssl3_send_server_hello(ptr noundef %0) local_unnamed_addr #0 
   br label %100
 
 42:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @CBB_zero(ptr noundef nonnull %2) #10
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %44 = load ptr, ptr %43, align 8, !tbaa !44
@@ -1797,9 +1794,9 @@ define hidden i32 @ssl3_send_server_hello(ptr noundef %0) local_unnamed_addr #0 
 
 99:                                               ; preds = %94, %93
   %.1 = phi i32 [ %98, %94 ], [ -1, %93 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %100
 
 100:                                              ; preds = %99, %41, %8
@@ -1807,7 +1804,7 @@ define hidden i32 @ssl3_send_server_hello(ptr noundef %0) local_unnamed_addr #0 
   ret i32 %.0
 }
 
-declare i32 @ssl_cipher_has_server_public_key(ptr noundef) local_unnamed_addr #2
+declare i32 @ssl_cipher_has_server_public_key(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ssl3_send_server_certificate(ptr noundef %0) local_unnamed_addr #0 {
@@ -1849,9 +1846,9 @@ define hidden i32 @ssl3_send_certificate_status(ptr noundef %0) local_unnamed_ad
   br i1 %7, label %8, label %44
 
 8:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @CBB_zero(ptr noundef nonnull %2) #10
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !44
@@ -1907,17 +1904,17 @@ define hidden i32 @ssl3_send_certificate_status(ptr noundef %0) local_unnamed_ad
 
 .thread:                                          ; preds = %37
   store i32 8705, ptr %5, align 4, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %44
 
 43:                                               ; preds = %8, %23, %25, %27, %35, %37
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 1166) #10
   call void @CBB_cleanup(ptr noundef nonnull %2) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %50
 
 44:                                               ; preds = %.thread, %1
@@ -1933,7 +1930,7 @@ define hidden i32 @ssl3_send_certificate_status(ptr noundef %0) local_unnamed_ad
   ret i32 %.1
 }
 
-declare i32 @ssl_cipher_requires_server_key_exchange(ptr noundef) local_unnamed_addr #2
+declare i32 @ssl_cipher_requires_server_key_exchange(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ssl3_send_server_key_exchange(ptr noundef %0) local_unnamed_addr #0 {
@@ -1961,8 +1958,8 @@ define hidden i32 @ssl3_send_server_key_exchange(ptr noundef %0) local_unnamed_a
   br label %234
 
 21:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load ptr, ptr %22, align 8, !tbaa !44
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -2111,7 +2108,7 @@ define hidden i32 @ssl3_send_server_key_exchange(ptr noundef %0) local_unnamed_a
   br i1 %.not104, label %.thread154, label %110
 
 110:                                              ; preds = %108
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %111 = call i32 @tls1_get_shared_curve(ptr noundef nonnull %0, ptr noundef nonnull %4) #10
   %.not105 = icmp eq i32 %111, 0
   br i1 %.not105, label %112, label %114
@@ -2151,7 +2148,7 @@ define hidden i32 @ssl3_send_server_key_exchange(ptr noundef %0) local_unnamed_a
   br i1 %.not109, label %.thread148, label %130
 
 .thread148:                                       ; preds = %112, %128, %125, %123, %114
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread152
 
 130:                                              ; preds = %128
@@ -2159,7 +2156,7 @@ define hidden i32 @ssl3_send_server_key_exchange(ptr noundef %0) local_unnamed_a
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 560
   %133 = call i32 @SSL_ECDH_CTX_generate_keypair(ptr noundef nonnull %132, ptr noundef nonnull %3) #10
   %.not110.not = icmp eq i32 %133, 0
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not110.not, label %.thread152, label %.thread154
 
 134:                                              ; preds = %36
@@ -2194,7 +2191,7 @@ define hidden i32 @ssl3_send_server_key_exchange(ptr noundef %0) local_unnamed_a
 
 152:                                              ; preds = %148
   %153 = call i64 @ssl_private_key_max_signature_len(ptr noundef nonnull %0) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %154 = load i32, ptr %12, align 4, !tbaa !43
   %155 = icmp eq i32 %154, 8528
   br i1 %155, label %156, label %199
@@ -2236,10 +2233,10 @@ define hidden i32 @ssl3_send_server_key_exchange(ptr noundef %0) local_unnamed_a
 
 173:                                              ; preds = %169, %171, %162
   %.086 = phi ptr [ %163, %162 ], [ %170, %169 ], [ %172, %171 ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !93
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @EVP_MD_CTX_init(ptr noundef nonnull %8) #10
   %174 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %8, ptr noundef %.086, ptr noundef null) #10
   %.not124 = icmp eq i32 %174, 0
@@ -2269,7 +2266,7 @@ define hidden i32 @ssl3_send_server_key_exchange(ptr noundef %0) local_unnamed_a
   %187 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef nonnull %7) #10
   %.not174 = icmp eq i32 %187, 0
   %188 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br i1 %.not174, label %.thread161, label %189
 
 189:                                              ; preds = %186
@@ -2284,14 +2281,14 @@ define hidden i32 @ssl3_send_server_key_exchange(ptr noundef %0) local_unnamed_a
 
 .critedge:                                        ; preds = %173, %175, %179, %183
   %193 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %.thread161
 
 .thread161:                                       ; preds = %.critedge, %191, %189, %186
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread171
 
 194:                                              ; preds = %191
@@ -2299,14 +2296,14 @@ define hidden i32 @ssl3_send_server_key_exchange(ptr noundef %0) local_unnamed_a
   %196 = load i32, ptr %7, align 4, !tbaa !93
   %197 = zext i32 %196 to i64
   %198 = call i32 @ssl_private_key_sign(ptr noundef nonnull %0, ptr noundef %195, ptr noundef nonnull %5, i64 noundef %153, ptr noundef %.086, ptr noundef nonnull %6, i64 noundef %197) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %206
 
 199:                                              ; preds = %152
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %200 = call i32 @CBB_add_u16_length_prefixed(ptr noundef nonnull %2, ptr noundef nonnull %3) #10
   %.not120 = icmp eq i32 %200, 0
   br i1 %.not120, label %.thread166, label %201
@@ -2317,13 +2314,13 @@ define hidden i32 @ssl3_send_server_key_exchange(ptr noundef %0) local_unnamed_a
   br i1 %.not121, label %.thread166, label %203
 
 .thread166:                                       ; preds = %201, %199
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread171
 
 203:                                              ; preds = %201
   %204 = load ptr, ptr %10, align 8, !tbaa !143
   %205 = call i32 @ssl_private_key_sign_complete(ptr noundef nonnull %0, ptr noundef %204, ptr noundef nonnull %5, i64 noundef %153) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %206
 
 206:                                              ; preds = %203, %194
@@ -2356,11 +2353,11 @@ define hidden i32 @ssl3_send_server_key_exchange(ptr noundef %0) local_unnamed_a
   br label %.thread171
 
 .thread171:                                       ; preds = %210, %156, %207, %206, %.thread156, %.thread161, %.thread166
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread152
 
 219:                                              ; preds = %206, %207
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %220
 
 220:                                              ; preds = %219, %.thread154
@@ -2391,8 +2388,8 @@ define hidden i32 @ssl3_send_server_key_exchange(ptr noundef %0) local_unnamed_a
 
 233:                                              ; preds = %.thread152, %228
   %.1 = phi i32 [ %232, %228 ], [ -1, %.thread152 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %234
 
 234:                                              ; preds = %233, %15
@@ -2404,7 +2401,7 @@ define hidden i32 @ssl3_send_server_key_exchange(ptr noundef %0) local_unnamed_a
 define hidden i32 @ssl3_send_certificate_request(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %5 = load i32, ptr %4, align 4, !tbaa !43
   %6 = icmp eq i32 %5, 8544
@@ -2433,7 +2430,7 @@ define hidden i32 @ssl3_send_certificate_request(ptr noundef %0) local_unnamed_a
   br i1 %25, label %26, label %39
 
 26:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %27 = call i64 @tls12_get_psigalgs(ptr noundef nonnull %0, ptr noundef nonnull %3) #10
   %28 = trunc i64 %27 to i32
   %29 = lshr i64 %27, 8
@@ -2450,7 +2447,7 @@ define hidden i32 @ssl3_send_certificate_request(ptr noundef %0) local_unnamed_a
   %36 = getelementptr inbounds i8, ptr %33, i64 %35
   %37 = add i32 %19, 3
   %38 = add i32 %37, %28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %39
 
 39:                                               ; preds = %26, %7
@@ -2566,7 +2563,7 @@ define hidden i32 @ssl3_send_certificate_request(ptr noundef %0) local_unnamed_a
 
 110:                                              ; preds = %55, %.loopexit, %104
   %.0 = phi i32 [ %109, %104 ], [ -1, %.loopexit ], [ -1, %55 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -2603,7 +2600,7 @@ define hidden i32 @ssl3_send_server_done(ptr noundef %0) local_unnamed_addr #0 {
   ret i32 %.0
 }
 
-declare i32 @BIO_flush(ptr noundef) local_unnamed_addr #2
+declare i32 @BIO_flush(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ssl3_get_client_certificate(ptr noundef %0) local_unnamed_addr #0 {
@@ -2613,10 +2610,10 @@ define hidden i32 @ssl3_get_client_certificate(ptr noundef %0) local_unnamed_add
   %5 = alloca %struct.cbs_st, align 8
   %6 = alloca %struct.cbs_st, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #10
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !64
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -2706,8 +2703,8 @@ define hidden i32 @ssl3_get_client_certificate(ptr noundef %0) local_unnamed_add
 
 50:                                               ; preds = %.lr.ph, %84
   %.not6484 = phi i1 [ false, %.lr.ph ], [ true, %84 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %51 = call i32 @CBS_get_u24_length_prefixed(ptr noundef nonnull %5, ptr noundef nonnull %6) #10
   %.not63 = icmp eq i32 %51, 0
   br i1 %.not63, label %52, label %53
@@ -2772,20 +2769,20 @@ define hidden i32 @ssl3_get_client_certificate(ptr noundef %0) local_unnamed_add
 
 .thread76:                                        ; preds = %82
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 1913) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %121
 
 .thread:                                          ; preds = %75, %81, %52
   %.251.ph = phi i32 [ 50, %52 ], [ 50, %81 ], [ 42, %75 ]
   %.3.ph = phi ptr [ null, %52 ], [ %73, %81 ], [ null, %75 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %119
 
 84:                                               ; preds = %82
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %85 = call i64 @CBS_len(ptr noundef nonnull %5) #10
   %.not60 = icmp eq i64 %85, 0
   br i1 %.not60, label %._crit_edge, label %50
@@ -2867,10 +2864,10 @@ define hidden i32 @ssl3_get_client_certificate(ptr noundef %0) local_unnamed_add
 
 122:                                              ; preds = %121, %33, %17
   %.045 = phi i32 [ %.048, %121 ], [ 1, %33 ], [ %18, %17 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.045
 }
 
@@ -2890,12 +2887,12 @@ define hidden i32 @ssl3_get_client_key_exchange(ptr noundef %0) local_unnamed_ad
   %13 = alloca %struct.cbb_st, align 8
   %14 = alloca ptr, align 8
   %15 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !143
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !97
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %17 = load i32, ptr %16, align 4, !tbaa !43
   %18 = and i32 %17, -2
@@ -2903,7 +2900,7 @@ define hidden i32 @ssl3_get_client_key_exchange(ptr noundef %0) local_unnamed_ad
   br i1 %switch150, label %19, label %27
 
 19:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !64
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
@@ -2912,7 +2909,7 @@ define hidden i32 @ssl3_get_client_key_exchange(ptr noundef %0) local_unnamed_ad
   %25 = load i32, ptr %6, align 4, !tbaa !93
   %.not.not = icmp eq i32 %25, 0
   %26 = trunc i64 %24 to i32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not.not, label %248, label %27
 
 27:                                               ; preds = %1, %19
@@ -2935,7 +2932,7 @@ define hidden i32 @ssl3_get_client_key_exchange(ptr noundef %0) local_unnamed_ad
   br i1 %.not, label %78, label %42
 
 42:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %43 = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %2, ptr noundef nonnull %7) #10
   %.not124 = icmp eq i32 %43, 0
   br i1 %.not124, label %48, label %44
@@ -3013,11 +3010,11 @@ define hidden i32 @ssl3_get_client_key_exchange(ptr noundef %0) local_unnamed_ad
 
 .thread:                                          ; preds = %48, %53, %59, %73, %76, %65
   %.197.ph = phi i32 [ 80, %65 ], [ 115, %76 ], [ 80, %73 ], [ 47, %59 ], [ 80, %53 ], [ 50, %48 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %241
 
 77:                                               ; preds = %74
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %78
 
 78:                                               ; preds = %77, %27
@@ -3038,7 +3035,7 @@ define hidden i32 @ssl3_get_client_key_exchange(ptr noundef %0) local_unnamed_ad
   br label %243
 
 85:                                               ; preds = %81
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %86 = load i32, ptr %16, align 4, !tbaa !43
   %87 = icmp eq i32 %86, 8593
   br i1 %87, label %88, label %105
@@ -3058,7 +3055,7 @@ define hidden i32 @ssl3_get_client_key_exchange(ptr noundef %0) local_unnamed_ad
   br label %.thread165
 
 93:                                               ; preds = %90
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %94 = load i32, ptr %0, align 8, !tbaa !110
   %95 = icmp sgt i32 %94, 768
   br i1 %95, label %96, label %100
@@ -3081,12 +3078,12 @@ define hidden i32 @ssl3_get_client_key_exchange(ptr noundef %0) local_unnamed_ad
   %101 = call ptr @CBS_data(ptr noundef nonnull %9) #10
   %102 = call i64 @CBS_len(ptr noundef nonnull %9) #10
   %103 = call i32 @ssl_private_key_decrypt(ptr noundef nonnull %0, ptr noundef nonnull %83, ptr noundef nonnull %8, i64 noundef %82, ptr noundef %101, i64 noundef %102) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %107
 
 104:                                              ; preds = %96, %98
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 218, ptr noundef nonnull @.str, i32 noundef 1541) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread165
 
 105:                                              ; preds = %85
@@ -3200,16 +3197,16 @@ define hidden i32 @ssl3_get_client_key_exchange(ptr noundef %0) local_unnamed_ad
 
 .thread165:                                       ; preds = %92, %112, %122, %104
   %.4.ph = phi i32 [ 50, %104 ], [ 51, %122 ], [ 51, %112 ], [ 40, %92 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %241
 
 .thread170:                                       ; preds = %116, %108, %107, %117
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %243
 
 ._crit_edge189:                                   ; preds = %154
   call void @free(ptr noundef nonnull %83) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %193
 
 164:                                              ; preds = %78
@@ -3218,7 +3215,7 @@ define hidden i32 @ssl3_get_client_key_exchange(ptr noundef %0) local_unnamed_ad
   br i1 %.not130, label %186, label %166
 
 166:                                              ; preds = %164
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %167 = and i64 %79, 4
   %.not132 = icmp eq i64 %167, 0
   br i1 %.not132, label %170, label %168
@@ -3243,11 +3240,11 @@ define hidden i32 @ssl3_get_client_key_exchange(ptr noundef %0) local_unnamed_ad
 
 .thread174:                                       ; preds = %172, %173
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 137, ptr noundef nonnull @.str, i32 noundef 1638) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %241
 
 175:                                              ; preds = %173
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %176 = load ptr, ptr %33, align 8, !tbaa !46
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 560
   %178 = call ptr @CBS_data(ptr noundef nonnull %10) #10
@@ -3260,15 +3257,15 @@ define hidden i32 @ssl3_get_client_key_exchange(ptr noundef %0) local_unnamed_ad
   %181 = load ptr, ptr %33, align 8, !tbaa !46
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 560
   call void @SSL_ECDH_CTX_cleanup(ptr noundef nonnull %182) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %193
 
 183:                                              ; preds = %175
   %184 = load i8, ptr %11, align 1, !tbaa !86
   %185 = zext i8 %184 to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %241
 
 186:                                              ; preds = %164
@@ -3301,10 +3298,10 @@ define hidden i32 @ssl3_get_client_key_exchange(ptr noundef %0) local_unnamed_ad
   br label %219
 
 194:                                              ; preds = %193
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @CBB_zero(ptr noundef nonnull %12) #10
   %195 = add nuw nsw i32 %.0112, 4
   %196 = zext nneg i32 %195 to i64
@@ -3352,19 +3349,19 @@ define hidden i32 @ssl3_get_client_key_exchange(ptr noundef %0) local_unnamed_ad
   store ptr %216, ptr %3, align 8, !tbaa !143
   %217 = load i64, ptr %15, align 8, !tbaa !97
   store i64 %217, ptr %4, align 8, !tbaa !97
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %219
 
 218:                                              ; preds = %194, %200, %202, %206, %208, %211
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 1683) #10
   call void @CBB_cleanup(ptr noundef nonnull %12) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %243
 
 219:                                              ; preds = %._crit_edge191, %.thread180
@@ -3423,10 +3420,10 @@ define hidden i32 @ssl3_get_client_key_exchange(ptr noundef %0) local_unnamed_ad
 
 248:                                              ; preds = %.sink.split, %19
   %.2 = phi i32 [ %26, %19 ], [ %.2.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.2
 }
 
@@ -3441,18 +3438,18 @@ define hidden i32 @ssl3_get_cert_verify(ptr noundef %0) local_unnamed_addr #0 {
   %8 = alloca i64, align 8
   %9 = alloca i8, align 1
   %10 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %12 = load ptr, ptr %11, align 8, !tbaa !79
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 144
   %14 = load ptr, ptr %13, align 8, !tbaa !80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !152
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %17
 
@@ -3507,8 +3504,8 @@ define hidden i32 @ssl3_get_cert_verify(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %40, label %41, label %51
 
 41:                                               ; preds = %36
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %42 = call i32 @CBS_get_u8(ptr noundef nonnull %4, ptr noundef nonnull %9) #10
   %.not43 = icmp eq i32 %42, 0
   br i1 %.not43, label %45, label %43
@@ -3531,13 +3528,13 @@ define hidden i32 @ssl3_get_cert_verify(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not45, label %.thread, label %50
 
 .thread:                                          ; preds = %45, %46
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %74
 
 50:                                               ; preds = %46
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %51
 
 51:                                               ; preds = %50, %36
@@ -3611,17 +3608,17 @@ define hidden i32 @ssl3_get_cert_verify(ptr noundef %0) local_unnamed_addr #0 {
 
 78:                                               ; preds = %77, %24, %16
   %.0 = phi i32 [ 1, %16 ], [ %.034, %77 ], [ %25, %24 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
-declare i32 @tls1_change_cipher_state(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tls1_change_cipher_state(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ssl3_get_next_proto(ptr noundef %0) local_unnamed_addr #0 {
@@ -3629,10 +3626,10 @@ define hidden i32 @ssl3_get_next_proto(ptr noundef %0) local_unnamed_addr #0 {
   %3 = alloca %struct.cbs_st, align 8
   %4 = alloca %struct.cbs_st, align 8
   %5 = alloca %struct.cbs_st, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8, !tbaa !46
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 728
@@ -3687,10 +3684,10 @@ define hidden i32 @ssl3_get_next_proto(ptr noundef %0) local_unnamed_addr #0 {
 
 33:                                               ; preds = %28, %20, %24, %26, %18, %10
   %.0 = phi i32 [ %19, %18 ], [ -1, %10 ], [ 0, %26 ], [ 0, %24 ], [ 0, %20 ], [ %spec.select, %28 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -3705,15 +3702,15 @@ define hidden i32 @ssl3_get_channel_id(ptr noundef %0) local_unnamed_addr #0 {
   %8 = alloca %struct.bignum_st, align 8
   %9 = alloca %struct.cbs_st, align 8
   %10 = alloca %struct.cbs_st, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #10
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !64
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -3876,21 +3873,21 @@ define hidden i32 @ssl3_get_channel_id(ptr noundef %0) local_unnamed_addr #0 {
 
 86:                                               ; preds = %21, %19, %83, %39, %36, %17
   %.035 = phi i32 [ -1, %36 ], [ %.036, %83 ], [ -1, %39 ], [ %18, %17 ], [ -1, %19 ], [ -1, %21 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.035
 }
 
-declare i32 @ssl3_get_finished(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ssl3_get_finished(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @tls1_record_handshake_hashes_for_channel_id(ptr noundef) local_unnamed_addr #2
+declare i32 @tls1_record_handshake_hashes_for_channel_id(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ssl3_send_new_session_ticket(ptr noundef %0) local_unnamed_addr #0 {
@@ -3902,11 +3899,11 @@ define hidden i32 @ssl3_send_new_session_ticket(ptr noundef %0) local_unnamed_ad
   %7 = alloca i32, align 4
   %8 = alloca [16 x i8], align 16
   %9 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !143
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @EVP_CIPHER_CTX_init(ptr noundef nonnull %4) #10
   call void @HMAC_CTX_init(ptr noundef nonnull %5) #10
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -3915,12 +3912,12 @@ define hidden i32 @ssl3_send_new_session_ticket(ptr noundef %0) local_unnamed_ad
   br i1 %12, label %13, label %195
 
 13:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %15 = load ptr, ptr %14, align 8, !tbaa !159
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %17 = load ptr, ptr %16, align 8, !tbaa !79
   %18 = call i32 @SSL_SESSION_to_bytes_for_ticket(ptr noundef %17, ptr noundef nonnull %2, ptr noundef nonnull %3) #10
@@ -3977,10 +3974,10 @@ define hidden i32 @ssl3_send_new_session_ticket(ptr noundef %0) local_unnamed_ad
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 112
   %54 = load ptr, ptr %53, align 8, !tbaa !65
   %55 = call i32 %54(ptr noundef nonnull %0) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %204
 
 56:                                               ; preds = %19
@@ -4186,18 +4183,18 @@ define hidden i32 @ssl3_send_new_session_ticket(ptr noundef %0) local_unnamed_ad
   br i1 %.not92, label %.thread, label %194
 
 .thread:                                          ; preds = %13, %22, %56, %79, %88, %84, %82, %136, %149, %162, %154, %164
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %201
 
 194:                                              ; preds = %164
   store i32 8689, ptr %10, align 4, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %195
 
 195:                                              ; preds = %194, %1
@@ -4218,332 +4215,335 @@ define hidden i32 @ssl3_send_new_session_ticket(ptr noundef %0) local_unnamed_ad
 
 204:                                              ; preds = %.thread96, %201
   %.2 = phi i32 [ %.076, %201 ], [ %55, %.thread96 ]
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.2
 }
 
-declare i32 @ssl3_send_change_cipher_spec(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ssl3_send_change_cipher_spec(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ssl3_send_finished(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ssl3_send_finished(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @ssl3_cleanup_key_block(ptr noundef) local_unnamed_addr #2
+declare void @ssl3_cleanup_key_block(ptr noundef) local_unnamed_addr #1
 
-declare void @BUF_MEM_free(ptr noundef) local_unnamed_addr #2
+declare void @BUF_MEM_free(ptr noundef) local_unnamed_addr #1
 
-declare void @ssl_free_wbio_buffer(ptr noundef) local_unnamed_addr #2
+declare void @ssl_free_wbio_buffer(ptr noundef) local_unnamed_addr #1
 
-declare void @X509_free(ptr noundef) #2
+declare void @X509_free(ptr noundef) #1
 
-declare void @sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ssl_update_cache(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @ssl_update_cache(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @ssl_read_buffer_extend_to(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @ssl_read_buffer_extend_to(ptr noundef, i64 noundef) local_unnamed_addr #2
-
-declare ptr @ssl_read_buffer(ptr noundef) local_unnamed_addr #2
+declare ptr @ssl_read_buffer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
-declare void @CBS_init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @CBS_init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @ssl3_update_handshake_hash(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @ssl3_update_handshake_hash(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @CBS_data(ptr noundef) local_unnamed_addr #2
+declare ptr @CBS_data(ptr noundef) local_unnamed_addr #1
 
-declare i64 @CBS_len(ptr noundef) local_unnamed_addr #2
+declare i64 @CBS_len(ptr noundef) local_unnamed_addr #1
 
-declare i32 @CBS_get_u8(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @CBS_get_u8(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @CBS_get_u16(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @CBS_get_u16(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @CBS_get_bytes(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @CBS_get_bytes(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare void @CBB_zero(ptr noundef) local_unnamed_addr #2
+declare void @CBB_zero(ptr noundef) local_unnamed_addr #1
 
-declare i32 @CBB_init_fixed(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @CBB_init_fixed(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @CBB_add_u8(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare i32 @CBB_add_u8(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @CBB_add_u24_length_prefixed(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @CBB_add_u24_length_prefixed(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @CBB_add_u16(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
+declare i32 @CBB_add_u16(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @CBB_add_bytes(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @CBB_add_bytes(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @CBB_add_u16_length_prefixed(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @CBB_add_u16_length_prefixed(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @CBB_cleanup(ptr noundef) local_unnamed_addr #2
+declare void @CBB_cleanup(ptr noundef) local_unnamed_addr #1
 
-declare i32 @CBS_get_u24(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @CBS_get_u24(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @CBB_finish(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @CBB_finish(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ssl_read_buffer_consume(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @ssl_read_buffer_consume(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @ssl_read_buffer_discard(ptr noundef) local_unnamed_addr #2
+declare void @ssl_read_buffer_discard(ptr noundef) local_unnamed_addr #1
 
-declare signext i8 @ssl_early_callback_init(ptr noundef) local_unnamed_addr #2
+declare signext i8 @ssl_early_callback_init(ptr noundef) local_unnamed_addr #1
 
-declare i32 @CBS_get_u8_length_prefixed(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @CBS_get_u8_length_prefixed(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i16 @ssl3_get_mutual_version(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
+declare zeroext i16 @ssl3_get_mutual_version(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @ssl3_get_enc_method(i16 noundef zeroext) local_unnamed_addr #2
+declare ptr @ssl3_get_enc_method(i16 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @ssl_get_prev_session(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ssl_get_prev_session(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SSL_early_callback_ctx_extension_get(ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SSL_early_callback_ctx_extension_get(ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SSL_SESSION_free(ptr noundef) local_unnamed_addr #2
+declare void @SSL_SESSION_free(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ssl_get_new_session(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ssl_get_new_session(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @CBS_get_u16_length_prefixed(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @CBS_get_u16_length_prefixed(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @ssl_bytes_to_cipher_list(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ssl_bytes_to_cipher_list(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @sk_num(ptr noundef) local_unnamed_addr #2
+declare i64 @sk_num(ptr noundef) local_unnamed_addr #1
 
-declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
-
-declare i32 @ssl_parse_clienthello_tlsext(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @ssl3_choose_cipher(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @ssl_get_cipher_preferences(ptr noundef) local_unnamed_addr #2
-
-declare i32 @ssl3_init_handshake_hash(ptr noundef) local_unnamed_addr #2
-
-declare zeroext i16 @ssl3_protocol_version(ptr noundef) local_unnamed_addr #2
-
-declare void @ssl3_free_handshake_buffer(ptr noundef) local_unnamed_addr #2
-
-declare i32 @ssl3_send_alert(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-declare void @sk_free(ptr noundef) local_unnamed_addr #2
-
-declare i32 @ssl_fill_hello_random(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @CBB_add_u8_length_prefixed(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare zeroext i16 @ssl_cipher_get_value(ptr noundef) local_unnamed_addr #2
-
-declare i32 @ssl_add_serverhello_tlsext(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @DH_num_bits(ptr noundef) local_unnamed_addr #2
+declare i32 @ssl_parse_clienthello_tlsext(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @DHparams_dup(ptr noundef) local_unnamed_addr #2
+declare ptr @ssl3_choose_cipher(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SSL_ECDH_CTX_init_for_dhe(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ssl_get_cipher_preferences(ptr noundef) local_unnamed_addr #1
 
-declare i32 @BN_bn2cbb_padded(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ssl3_init_handshake_hash(ptr noundef) local_unnamed_addr #1
 
-declare i32 @BN_num_bytes(ptr noundef) local_unnamed_addr #2
+declare zeroext i16 @ssl3_protocol_version(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SSL_ECDH_CTX_generate_keypair(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ssl3_free_handshake_buffer(ptr noundef) local_unnamed_addr #1
 
-declare i32 @tls1_get_shared_curve(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ssl3_send_alert(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @SSL_ECDH_CTX_init(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
+declare void @sk_free(ptr noundef) local_unnamed_addr #1
 
-declare i32 @CBB_did_write(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @ssl_fill_hello_random(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ssl_has_private_key(ptr noundef) local_unnamed_addr #2
+declare i32 @CBB_add_u8_length_prefixed(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @ssl_private_key_max_signature_len(ptr noundef) local_unnamed_addr #2
+declare zeroext i16 @ssl_cipher_get_value(ptr noundef) local_unnamed_addr #1
 
-declare i32 @CBB_flush(ptr noundef) local_unnamed_addr #2
+declare i32 @ssl_add_serverhello_tlsext(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @CBB_len(ptr noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
-declare ptr @tls1_choose_signing_digest(ptr noundef) local_unnamed_addr #2
+declare i32 @DH_num_bits(ptr noundef) local_unnamed_addr #1
 
-declare i32 @tls12_add_sigandhash(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @DHparams_dup(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ssl_private_key_type(ptr noundef) local_unnamed_addr #2
+declare void @SSL_ECDH_CTX_init_for_dhe(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @EVP_md5_sha1() local_unnamed_addr #2
+declare i32 @BN_bn2cbb_padded(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @EVP_sha1() local_unnamed_addr #2
+declare i32 @BN_num_bytes(ptr noundef) local_unnamed_addr #1
 
-declare void @EVP_MD_CTX_init(ptr noundef) local_unnamed_addr #2
+declare i32 @SSL_ECDH_CTX_generate_keypair(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_DigestInit_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @tls1_get_shared_curve(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @SSL_ECDH_CTX_init(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @CBB_data(ptr noundef) local_unnamed_addr #2
+declare i32 @CBB_did_write(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ssl_has_private_key(ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_MD_CTX_cleanup(ptr noundef) local_unnamed_addr #2
+declare i64 @ssl_private_key_max_signature_len(ptr noundef) local_unnamed_addr #1
 
-declare i32 @CBB_reserve(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @CBB_flush(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ssl_private_key_sign(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @CBB_len(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ssl_private_key_sign_complete(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @tls1_choose_signing_digest(ptr noundef) local_unnamed_addr #1
 
-declare void @CBB_discard_child(ptr noundef) local_unnamed_addr #2
+declare i32 @tls12_add_sigandhash(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ssl3_get_req_cert_type(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ssl_private_key_type(ptr noundef) local_unnamed_addr #1
 
-declare i64 @tls12_get_psigalgs(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @EVP_md5_sha1() local_unnamed_addr #1
 
-declare ptr @SSL_get_client_CA_list(ptr noundef) local_unnamed_addr #2
+declare ptr @EVP_sha1() local_unnamed_addr #1
 
-declare i32 @i2d_X509_NAME(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @EVP_MD_CTX_init(ptr noundef) local_unnamed_addr #1
 
-declare i64 @BUF_MEM_grow_clean(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @EVP_DigestInit_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @CBS_contains_zero_byte(ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @CBS_strdup(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @CBB_data(ptr noundef) local_unnamed_addr #1
+
+declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @EVP_MD_CTX_cleanup(ptr noundef) local_unnamed_addr #1
+
+declare i32 @CBB_reserve(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare i32 @ssl_private_key_sign(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare i32 @ssl_private_key_sign_complete(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare void @CBB_discard_child(ptr noundef) local_unnamed_addr #1
+
+declare i32 @ssl3_get_req_cert_type(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i64 @tls12_get_psigalgs(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @SSL_get_client_CA_list(ptr noundef) local_unnamed_addr #1
+
+declare i32 @i2d_X509_NAME(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i64 @BUF_MEM_grow_clean(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare i32 @CBS_contains_zero_byte(ptr noundef) local_unnamed_addr #1
+
+declare i32 @CBS_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
-declare i32 @ssl_private_key_decrypt(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @ssl_private_key_decrypt(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @ssl_private_key_decrypt_complete(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @ssl_private_key_decrypt_complete(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @RAND_bytes(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @RAND_bytes(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
-declare i32 @SSL_ECDH_CTX_compute_secret(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @SSL_ECDH_CTX_compute_secret(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @SSL_ECDH_CTX_cleanup(ptr noundef) local_unnamed_addr #2
+declare void @SSL_ECDH_CTX_cleanup(ptr noundef) local_unnamed_addr #1
 
-declare i32 @CBB_init(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @CBB_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @tls1_generate_master_secret(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @tls1_generate_master_secret(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @X509_get_pubkey(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_get_pubkey(ptr noundef) local_unnamed_addr #1
 
-declare i32 @X509_certificate_type(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @X509_certificate_type(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @tls12_check_peer_sigalg(ptr noundef, ptr noundef, ptr noundef, i8 noundef zeroext, i8 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare i32 @tls12_check_peer_sigalg(ptr noundef, ptr noundef, ptr noundef, i8 noundef zeroext, i8 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ssl3_cert_verify_hash(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ssl3_cert_verify_hash(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ssl3_hash_current_message(ptr noundef) local_unnamed_addr #2
+declare i32 @ssl3_hash_current_message(ptr noundef) local_unnamed_addr #1
 
-declare ptr @EVP_PKEY_CTX_new(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @EVP_PKEY_CTX_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_PKEY_verify_init(ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_PKEY_verify_init(ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_PKEY_CTX_set_signature_md(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_PKEY_CTX_set_signature_md(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_PKEY_verify(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @EVP_PKEY_verify(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @EVP_PKEY_CTX_free(ptr noundef) local_unnamed_addr #2
+declare void @EVP_PKEY_CTX_free(ptr noundef) local_unnamed_addr #1
 
-declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #2
+declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #1
 
-declare ptr @sk_new_null() local_unnamed_addr #2
+declare ptr @sk_new_null() local_unnamed_addr #1
 
-declare i32 @CBS_get_u24_length_prefixed(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @CBS_get_u24_length_prefixed(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SHA256_Init(ptr noundef) local_unnamed_addr #2
+declare i32 @SHA256_Init(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SHA256_Update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @SHA256_Update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @SHA256_Final(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SHA256_Final(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @d2i_X509(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @d2i_X509(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ssl_verify_cert_chain(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ssl_verify_cert_chain(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ssl_verify_alarm_type(i64 noundef) local_unnamed_addr #2
+declare i32 @ssl_verify_alarm_type(i64 noundef) local_unnamed_addr #1
 
-declare ptr @sk_shift(ptr noundef) local_unnamed_addr #2
+declare ptr @sk_shift(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ssl3_output_cert_chain(ptr noundef) local_unnamed_addr #2
+declare i32 @ssl3_output_cert_chain(ptr noundef) local_unnamed_addr #1
 
-declare void @EVP_CIPHER_CTX_init(ptr noundef) local_unnamed_addr #2
+declare void @EVP_CIPHER_CTX_init(ptr noundef) local_unnamed_addr #1
 
-declare void @HMAC_CTX_init(ptr noundef) local_unnamed_addr #2
+declare void @HMAC_CTX_init(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SSL_SESSION_to_bytes_for_ticket(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SSL_SESSION_to_bytes_for_ticket(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_EncryptInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_EncryptInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @EVP_aes_128_cbc() local_unnamed_addr #2
+declare ptr @EVP_aes_128_cbc() local_unnamed_addr #1
 
-declare i32 @HMAC_Init_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @HMAC_Init_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @EVP_sha256() local_unnamed_addr #2
+declare ptr @EVP_sha256() local_unnamed_addr #1
 
-declare i32 @EVP_CIPHER_CTX_iv_length(ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_CIPHER_CTX_iv_length(ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_EncryptUpdate(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @EVP_EncryptUpdate(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @EVP_EncryptFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_EncryptFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @HMAC_Update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @HMAC_Update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @HMAC_Final(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @HMAC_Final(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_CIPHER_CTX_cleanup(ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_CIPHER_CTX_cleanup(ptr noundef) local_unnamed_addr #1
 
-declare void @HMAC_CTX_cleanup(ptr noundef) local_unnamed_addr #2
+declare void @HMAC_CTX_cleanup(ptr noundef) local_unnamed_addr #1
 
-declare i32 @CBS_stow(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @CBS_stow(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @tls1_channel_id_hash(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @tls1_channel_id_hash(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @EC_GROUP_new_by_curve_name(i32 noundef) local_unnamed_addr #2
+declare ptr @EC_GROUP_new_by_curve_name(i32 noundef) local_unnamed_addr #1
 
-declare void @BN_init(ptr noundef) local_unnamed_addr #2
+declare void @BN_init(ptr noundef) local_unnamed_addr #1
 
-declare ptr @BN_new() local_unnamed_addr #2
+declare ptr @BN_new() local_unnamed_addr #1
 
-declare ptr @BN_bin2bn(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @BN_bin2bn(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @EC_POINT_new(ptr noundef) local_unnamed_addr #2
+declare ptr @EC_POINT_new(ptr noundef) local_unnamed_addr #1
 
-declare i32 @EC_POINT_set_affine_coordinates_GFp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EC_POINT_set_affine_coordinates_GFp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @EC_KEY_new() local_unnamed_addr #2
+declare ptr @EC_KEY_new() local_unnamed_addr #1
 
-declare i32 @EC_KEY_set_group(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EC_KEY_set_group(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @EC_KEY_set_public_key(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EC_KEY_set_public_key(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ECDSA_do_verify(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ECDSA_do_verify(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @BN_free(ptr noundef) local_unnamed_addr #2
+declare void @BN_free(ptr noundef) local_unnamed_addr #1
 
-declare void @EC_KEY_free(ptr noundef) local_unnamed_addr #2
+declare void @EC_KEY_free(ptr noundef) local_unnamed_addr #1
 
-declare void @EC_POINT_free(ptr noundef) local_unnamed_addr #2
+declare void @EC_POINT_free(ptr noundef) local_unnamed_addr #1
 
-declare void @EC_GROUP_free(ptr noundef) local_unnamed_addr #2
+declare void @EC_GROUP_free(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8
@@ -4552,13 +4552,13 @@ declare i64 @llvm.umin.i64(i64, i64) #8
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #10 = { nounwind }

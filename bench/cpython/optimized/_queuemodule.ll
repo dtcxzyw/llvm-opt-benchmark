@@ -225,9 +225,6 @@ define internal range(i32 -1, 1) i32 @queuemodule_exec(ptr noundef %0) #0 {
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @PyErr_NewExceptionWithDoc(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @PyModule_AddObjectRef(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -235,9 +232,6 @@ declare i32 @PyModule_AddObjectRef(ptr noundef, ptr noundef, ptr noundef) local_
 declare ptr @PyType_FromModuleAndSpec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @PyModule_AddType(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @simplequeue_dealloc(ptr noundef %0) #0 {
@@ -536,7 +530,7 @@ define internal ptr @_queue_SimpleQueue_empty(ptr noundef readonly captures(none
 ; Function Attrs: nounwind uwtable
 define internal ptr @_queue_SimpleQueue_get(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
   %6 = alloca [2 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %.thread
 
@@ -592,7 +586,7 @@ define internal ptr @_queue_SimpleQueue_get(ptr noundef %0, ptr noundef %1, ptr 
 
 28:                                               ; preds = %19, %12, %26
   %.028 = phi ptr [ null, %19 ], [ %27, %26 ], [ null, %12 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.028
 }
 
@@ -628,7 +622,7 @@ define internal ptr @_queue_SimpleQueue_get_nowait(ptr noundef %0, ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @_queue_SimpleQueue_put(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca [3 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %.thread
 
@@ -675,14 +669,14 @@ define internal noundef ptr @_queue_SimpleQueue_put(ptr noundef %0, ptr noundef 
 
 26:                                               ; preds = %21, %12, %24
   %.029 = phi ptr [ null, %21 ], [ %25, %24 ], [ null, %12 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.029
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @_queue_SimpleQueue_put_nowait(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca [1 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp eq ptr %3, null
   %7 = icmp eq i64 %2, 1
   %or.cond3 = and i1 %7, %6
@@ -703,7 +697,7 @@ define internal noundef ptr @_queue_SimpleQueue_put_nowait(ptr noundef %0, ptr n
 
 14:                                               ; preds = %9, %.thread
   %.0 = phi ptr [ %13, %.thread ], [ null, %9 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -749,7 +743,7 @@ define internal fastcc ptr @_queue_SimpleQueue_get_impl(ptr noundef %0, ptr noun
   br i1 %or.cond, label %20, label %10
 
 10:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = call i32 @_PyTime_FromSecondsObject(ptr noundef nonnull %5, ptr noundef %3, i32 noundef 1) #7
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %.critedge, label %13
@@ -766,7 +760,7 @@ define internal fastcc ptr @_queue_SimpleQueue_get_impl(ptr noundef %0, ptr noun
 
 18:                                               ; preds = %13
   %19 = call i64 @_PyDeadline_Init(i64 noundef %14) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %20
 
 20:                                               ; preds = %18, %4
@@ -785,10 +779,10 @@ define internal fastcc ptr @_queue_SimpleQueue_get_impl(ptr noundef %0, ptr noun
   br i1 %.not28, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %28
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 1, ptr %6, align 1, !tbaa !45
   store i8 1, ptr %23, align 8, !tbaa !46
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !17
   %24 = call i32 @_PyParkingLot_Park(ptr noundef nonnull %23, ptr noundef nonnull %6, i64 noundef 1, i64 noundef -1, ptr noundef nonnull %7, i32 noundef 1) #7
   switch i32 %24, label %.split.us [
@@ -804,8 +798,8 @@ define internal fastcc ptr @_queue_SimpleQueue_get_impl(ptr noundef %0, ptr noun
   br i1 %27, label %.thread33, label %28
 
 28:                                               ; preds = %25, %.lr.ph.split.split.us
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.val.us = load i64, ptr %21, align 8, !tbaa !23
   %29 = icmp eq i64 %.val.us, 0
   br i1 %29, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !47
@@ -915,10 +909,10 @@ RingBuf_Get.exit:                                 ; preds = %._crit_edge, %35, %
   br label %99
 
 87:                                               ; preds = %.lr.ph.split.split
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 1, ptr %6, align 1, !tbaa !45
   store i8 1, ptr %23, align 8, !tbaa !46
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !17
   %88 = call i32 @_PyParkingLot_Park(ptr noundef nonnull %23, ptr noundef nonnull %6, i64 noundef 1, i64 noundef %76, ptr noundef nonnull %7, i32 noundef 1) #7
   switch i32 %88, label %.split.us [
@@ -951,19 +945,19 @@ RingBuf_Get.exit:                                 ; preds = %._crit_edge, %35, %
 
 .thread33:                                        ; preds = %94, %25, %.split56.us, %.split58.us
   %.5.ph = phi ptr [ null, %.split58.us ], [ %89, %.split56.us ], [ null, %25 ], [ null, %94 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %99
 
 97:                                               ; preds = %94, %87
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.val = load i64, ptr %21, align 8, !tbaa !23
   %98 = icmp eq i64 %.val, 0
   br i1 %98, label %.lr.ph.split.split, label %._crit_edge
 
 .critedge:                                        ; preds = %10, %16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %99
 
 99:                                               ; preds = %.thread33, %.thread, %.critedge, %78, %RingBuf_Get.exit
@@ -986,7 +980,7 @@ declare i32 @Py_MakePendingCalls() local_unnamed_addr #1
 declare ptr @PyMem_Calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @PyType_GetModule(ptr noundef) local_unnamed_addr #1
 
@@ -995,7 +989,7 @@ declare void @PyErr_SetNone(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @_queue_SimpleQueue_put_impl(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.HandoffData, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %3, align 8
   store ptr %0, ptr %4, align 8, !tbaa !50
@@ -1107,17 +1101,17 @@ RingBuf_Put.exit:                                 ; preds = %.thread, %21, %49
 
 63:                                               ; preds = %13, %RingBuf_Put.exit, %RingBuf_Put.exit.thread
   %.0 = phi ptr [ null, %RingBuf_Put.exit.thread ], [ @_Py_NoneStruct, %RingBuf_Put.exit ], [ @_Py_NoneStruct, %13 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @_PyParkingLot_Unpark(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @maybe_handoff_item(ptr noundef captures(none) initializes((0, 1)) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) #5 {
+define internal void @maybe_handoff_item(ptr noundef captures(none) initializes((0, 1)) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) #4 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %8, label %5
 
@@ -1149,6 +1143,12 @@ declare i32 @_PyArg_NoPositional(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @_PyArg_NoKeywords(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #6
 
@@ -1157,10 +1157,10 @@ declare i64 @llvm.smin.i64(i64, i64) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 

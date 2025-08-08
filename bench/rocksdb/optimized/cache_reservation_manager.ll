@@ -498,7 +498,7 @@ _ZNSt10shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE9
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE22CacheReservationHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat($_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE22CacheReservationHandleD5Ev) align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.rocksdb::Status", align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE22CacheReservationHandleE, i64 16), ptr %0, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -528,7 +528,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb6StatusD2Ev.exit
 
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE23ReleaseCacheReservationEm.exit, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !19
   %.not.i.i2 = icmp eq ptr %18, null
@@ -589,11 +589,8 @@ _ZNSt12__shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRole
   unreachable
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE23ReleaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #2 comdat align 2 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE23ReleaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 {
   %4 = load ptr, ptr %1, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -609,7 +606,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #2 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
   tail call void @_ZSt9terminatev() #20
   unreachable
@@ -618,10 +615,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @_ZSt9terminatev() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt12__shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE9EEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -686,10 +680,10 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EEC2ESt10shared_ptrINS_5CacheEEb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #2 comdat($_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EEC5ESt10shared_ptrINS_5CacheEEb) align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EEC2ESt10shared_ptrINS_5CacheEEb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #1 comdat($_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EEC5ESt10shared_ptrINS_5CacheEEb) align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EEE, i64 16), ptr %0, align 8, !tbaa !4
@@ -878,7 +872,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE22UpdateCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE22UpdateCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i64 %2, ptr %4, align 8, !tbaa !61
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -973,7 +967,7 @@ _ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE24DecreaseCache
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE24IncreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE24IncreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.rocksdb::Slice", align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.rocksdb::Status", align 8
@@ -1010,10 +1004,10 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   br label %30
 
 30:                                               ; preds = %.lr.ph, %86
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !59
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %31 = load ptr, ptr %12, align 8, !tbaa !32
   %32 = invoke { i64, i64 } @_ZN7rocksdb8CacheKey28CreateUniqueForCacheLifetimeEPNS_5CacheE(ptr noundef %31)
           to label %33 unwind label %57
@@ -1044,7 +1038,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   br label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i
 
 _ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i: ; preds = %41, %39, %33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18, !noalias !85
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !85
   store ptr @.str, ptr %4, align 8, !tbaa !94, !noalias !85
   store i64 0, ptr %15, align 8, !tbaa !96, !noalias !85
   %43 = load ptr, ptr %36, align 8, !tbaa !4, !noalias !85
@@ -1054,7 +1048,7 @@ _ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_
           to label %46 unwind label %57
 
 46:                                               ; preds = %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18, !noalias !85
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !85
   %.pre32 = load ptr, ptr %26, align 8, !tbaa !30
   br i1 %.not.i, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %47
 
@@ -1098,8 +1092,8 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb6StatusD2Ev.exit16
 
 _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i, %_ZN7rocksdb6StatusaSEOS0_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %56 = load i8, ptr %0, align 8, !tbaa !99
   %.not = icmp eq i8 %56, 0
   br i1 %.not, label %59, label %92
@@ -1107,8 +1101,8 @@ _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14defaul
 57:                                               ; preds = %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i, %30
   %58 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %90
 
 59:                                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit16
@@ -1181,7 +1175,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__g
 
 86:                                               ; preds = %62, %_ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
   %87 = atomicrmw add ptr %9, i64 262144 seq_cst, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %88 = load atomic i64, ptr %9 monotonic, align 8
   %89 = icmp ugt i64 %2, %88
   br i1 %89, label %30, label %.critedge, !llvm.loop !116
@@ -1198,7 +1192,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__g
 
 90:                                               ; preds = %.loopexit, %.loopexit.split-lp, %57
   %.pn11 = phi { ptr, i32 } [ %58, %57 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %91 = load ptr, ptr %8, align 8, !tbaa !30
   %.not.i.i22 = icmp eq ptr %91, null
   br i1 %.not.i.i22, label %_ZN7rocksdb6StatusD2Ev.exit24, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i23
@@ -1212,7 +1206,7 @@ _ZN7rocksdb6StatusD2Ev.exit24:                    ; preds = %90, %_ZNKSt14defaul
   resume { ptr, i32 } %.pn11
 
 92:                                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
 .critedge:                                        ; preds = %86, %3, %92
@@ -1220,7 +1214,7 @@ _ZN7rocksdb6StatusD2Ev.exit24:                    ; preds = %90, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE24DecreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE24DecreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %4, align 8, !tbaa !62, !alias.scope !117
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !117
@@ -1275,7 +1269,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %23, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE22UpdateCacheReservationEmb(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE22UpdateCacheReservationEmb(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store i8 3, ptr %0, align 8, !tbaa !99, !alias.scope !120
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 0, ptr %5, align 1, !tbaa !109, !alias.scope !120
@@ -1287,7 +1281,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE20MakeCacheReservationEmPSt10unique_ptrINS_23CacheReservationManager22CacheReservationHandleESt14default_deleteIS5_EE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, ptr noundef %3) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE20MakeCacheReservationEmPSt10unique_ptrINS_23CacheReservationManager22CacheReservationHandleESt14default_deleteIS5_EE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, ptr noundef %3) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr", align 8
   %6 = load ptr, ptr %1, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -1446,7 +1440,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %67, %_ZNKSt14defaul
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i64 @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE25GetTotalReservedCacheSizeEv(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1468,7 +1462,7 @@ define weak_odr noundef i64 @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cach
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef ptr @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE30TEST_GetCacheItemHelperForRoleEv() local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef ptr @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE30TEST_GetCacheItemHelperForRoleEv() local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper acquire, align 8
   %2 = icmp eq i8 %1, 0
   br i1 %2, label %3, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit, !prof !88
@@ -1491,7 +1485,7 @@ _ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE9ESt10shared_ptrINS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr { ptr, i64 } @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE15GetNextCacheKeyEv(ptr noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #2 comdat align 2 {
+define weak_odr { ptr, i64 } @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EE15GetNextCacheKeyEv(ptr noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #1 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !32
   %4 = tail call { i64, i64 } @_ZN7rocksdb8CacheKey28CreateUniqueForCacheLifetimeEPNS_5CacheE(ptr noundef %3)
@@ -1506,7 +1500,7 @@ define weak_odr { ptr, i64 } @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cac
   ret { ptr, i64 } %.fca.1.insert.i
 }
 
-declare { i64, i64 } @_ZN7rocksdb8CacheKey28CreateUniqueForCacheLifetimeEPNS_5CacheE(ptr noundef) local_unnamed_addr #7
+declare { i64, i64 } @_ZN7rocksdb8CacheKey28CreateUniqueForCacheLifetimeEPNS_5CacheE(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE22CacheReservationHandleC2EmSt10shared_ptrIS2_E(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 comdat($_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE22CacheReservationHandleC5EmSt10shared_ptrIS2_E) align 2 personality ptr @__gxx_personality_v0 {
@@ -1597,7 +1591,7 @@ _ZNSt10shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE7
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE22CacheReservationHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat($_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE22CacheReservationHandleD5Ev) align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.rocksdb::Status", align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE22CacheReservationHandleE, i64 16), ptr %0, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !135
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1627,7 +1621,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb6StatusD2Ev.exit
 
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE23ReleaseCacheReservationEm.exit, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !19
   %.not.i.i2 = icmp eq ptr %18, null
@@ -1689,7 +1683,7 @@ _ZNSt12__shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRole
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE23ReleaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #2 comdat align 2 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE23ReleaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 {
   %4 = load ptr, ptr %1, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -1765,7 +1759,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EEC2ESt10shared_ptrINS_5CacheEEb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #2 comdat($_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EEC5ESt10shared_ptrINS_5CacheEEb) align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EEC2ESt10shared_ptrINS_5CacheEEb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #1 comdat($_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EEC5ESt10shared_ptrINS_5CacheEEb) align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EEE, i64 16), ptr %0, align 8, !tbaa !4
@@ -1954,7 +1948,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE22UpdateCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE22UpdateCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i64 %2, ptr %4, align 8, !tbaa !145
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -2049,7 +2043,7 @@ _ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE24DecreaseCache
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE24IncreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE24IncreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.rocksdb::Slice", align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.rocksdb::Status", align 8
@@ -2086,10 +2080,10 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   br label %30
 
 30:                                               ; preds = %.lr.ph, %86
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !59
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %31 = load ptr, ptr %12, align 8, !tbaa !32
   %32 = invoke { i64, i64 } @_ZN7rocksdb8CacheKey28CreateUniqueForCacheLifetimeEPNS_5CacheE(ptr noundef %31)
           to label %33 unwind label %57
@@ -2120,7 +2114,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   br label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i
 
 _ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i: ; preds = %41, %39, %33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18, !noalias !162
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !162
   store ptr @.str, ptr %4, align 8, !tbaa !94, !noalias !162
   store i64 0, ptr %15, align 8, !tbaa !96, !noalias !162
   %43 = load ptr, ptr %36, align 8, !tbaa !4, !noalias !162
@@ -2130,7 +2124,7 @@ _ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_
           to label %46 unwind label %57
 
 46:                                               ; preds = %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18, !noalias !162
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !162
   %.pre32 = load ptr, ptr %26, align 8, !tbaa !30
   br i1 %.not.i, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %47
 
@@ -2174,8 +2168,8 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb6StatusD2Ev.exit16
 
 _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i, %_ZN7rocksdb6StatusaSEOS0_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %56 = load i8, ptr %0, align 8, !tbaa !99
   %.not = icmp eq i8 %56, 0
   br i1 %.not, label %59, label %92
@@ -2183,8 +2177,8 @@ _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14defaul
 57:                                               ; preds = %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i, %30
   %58 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %90
 
 59:                                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit16
@@ -2257,7 +2251,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__g
 
 86:                                               ; preds = %62, %_ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
   %87 = atomicrmw add ptr %9, i64 262144 seq_cst, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %88 = load atomic i64, ptr %9 monotonic, align 8
   %89 = icmp ugt i64 %2, %88
   br i1 %89, label %30, label %.critedge, !llvm.loop !165
@@ -2274,7 +2268,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__g
 
 90:                                               ; preds = %.loopexit, %.loopexit.split-lp, %57
   %.pn11 = phi { ptr, i32 } [ %58, %57 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %91 = load ptr, ptr %8, align 8, !tbaa !30
   %.not.i.i22 = icmp eq ptr %91, null
   br i1 %.not.i.i22, label %_ZN7rocksdb6StatusD2Ev.exit24, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i23
@@ -2288,7 +2282,7 @@ _ZN7rocksdb6StatusD2Ev.exit24:                    ; preds = %90, %_ZNKSt14defaul
   resume { ptr, i32 } %.pn11
 
 92:                                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
 .critedge:                                        ; preds = %86, %3, %92
@@ -2296,7 +2290,7 @@ _ZN7rocksdb6StatusD2Ev.exit24:                    ; preds = %90, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE24DecreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE24DecreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %4, align 8, !tbaa !62, !alias.scope !166
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !166
@@ -2351,7 +2345,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %23, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE22UpdateCacheReservationEmb(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE22UpdateCacheReservationEmb(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store i8 3, ptr %0, align 8, !tbaa !99, !alias.scope !169
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 0, ptr %5, align 1, !tbaa !109, !alias.scope !169
@@ -2363,7 +2357,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE20MakeCacheReservationEmPSt10unique_ptrINS_23CacheReservationManager22CacheReservationHandleESt14default_deleteIS5_EE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, ptr noundef %3) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE20MakeCacheReservationEmPSt10unique_ptrINS_23CacheReservationManager22CacheReservationHandleESt14default_deleteIS5_EE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, ptr noundef %3) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr.13", align 8
   %6 = load ptr, ptr %1, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -2541,7 +2535,7 @@ define weak_odr noundef i64 @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cach
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef ptr @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE30TEST_GetCacheItemHelperForRoleEv() local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef ptr @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE30TEST_GetCacheItemHelperForRoleEv() local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper acquire, align 8
   %2 = icmp eq i8 %1, 0
   br i1 %2, label %3, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit, !prof !88
@@ -2564,7 +2558,7 @@ _ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE7ESt10shared_ptrINS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr { ptr, i64 } @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE15GetNextCacheKeyEv(ptr noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #2 comdat align 2 {
+define weak_odr { ptr, i64 } @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EE15GetNextCacheKeyEv(ptr noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #1 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !32
   %4 = tail call { i64, i64 } @_ZN7rocksdb8CacheKey28CreateUniqueForCacheLifetimeEPNS_5CacheE(ptr noundef %3)
@@ -2668,7 +2662,7 @@ _ZNSt10shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE8
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE22CacheReservationHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat($_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE22CacheReservationHandleD5Ev) align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.rocksdb::Status", align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE22CacheReservationHandleE, i64 16), ptr %0, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !181
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2698,7 +2692,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb6StatusD2Ev.exit
 
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE23ReleaseCacheReservationEm.exit, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !19
   %.not.i.i2 = icmp eq ptr %18, null
@@ -2760,7 +2754,7 @@ _ZNSt12__shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRole
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE23ReleaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #2 comdat align 2 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE23ReleaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 {
   %4 = load ptr, ptr %1, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -2836,7 +2830,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EEC2ESt10shared_ptrINS_5CacheEEb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #2 comdat($_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EEC5ESt10shared_ptrINS_5CacheEEb) align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EEC2ESt10shared_ptrINS_5CacheEEb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #1 comdat($_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EEC5ESt10shared_ptrINS_5CacheEEb) align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EEE, i64 16), ptr %0, align 8, !tbaa !4
@@ -3025,7 +3019,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE22UpdateCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE22UpdateCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i64 %2, ptr %4, align 8, !tbaa !191
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -3120,7 +3114,7 @@ _ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE24DecreaseCache
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE24IncreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE24IncreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.rocksdb::Slice", align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.rocksdb::Status", align 8
@@ -3157,10 +3151,10 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   br label %30
 
 30:                                               ; preds = %.lr.ph, %86
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !59
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %31 = load ptr, ptr %12, align 8, !tbaa !32
   %32 = invoke { i64, i64 } @_ZN7rocksdb8CacheKey28CreateUniqueForCacheLifetimeEPNS_5CacheE(ptr noundef %31)
           to label %33 unwind label %57
@@ -3191,7 +3185,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   br label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i
 
 _ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i: ; preds = %41, %39, %33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18, !noalias !208
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !208
   store ptr @.str, ptr %4, align 8, !tbaa !94, !noalias !208
   store i64 0, ptr %15, align 8, !tbaa !96, !noalias !208
   %43 = load ptr, ptr %36, align 8, !tbaa !4, !noalias !208
@@ -3201,7 +3195,7 @@ _ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_
           to label %46 unwind label %57
 
 46:                                               ; preds = %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18, !noalias !208
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !208
   %.pre32 = load ptr, ptr %26, align 8, !tbaa !30
   br i1 %.not.i, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %47
 
@@ -3245,8 +3239,8 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb6StatusD2Ev.exit16
 
 _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i, %_ZN7rocksdb6StatusaSEOS0_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %56 = load i8, ptr %0, align 8, !tbaa !99
   %.not = icmp eq i8 %56, 0
   br i1 %.not, label %59, label %92
@@ -3254,8 +3248,8 @@ _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14defaul
 57:                                               ; preds = %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i, %30
   %58 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %90
 
 59:                                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit16
@@ -3328,7 +3322,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__g
 
 86:                                               ; preds = %62, %_ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
   %87 = atomicrmw add ptr %9, i64 262144 seq_cst, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %88 = load atomic i64, ptr %9 monotonic, align 8
   %89 = icmp ugt i64 %2, %88
   br i1 %89, label %30, label %.critedge, !llvm.loop !211
@@ -3345,7 +3339,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__g
 
 90:                                               ; preds = %.loopexit, %.loopexit.split-lp, %57
   %.pn11 = phi { ptr, i32 } [ %58, %57 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %91 = load ptr, ptr %8, align 8, !tbaa !30
   %.not.i.i22 = icmp eq ptr %91, null
   br i1 %.not.i.i22, label %_ZN7rocksdb6StatusD2Ev.exit24, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i23
@@ -3359,7 +3353,7 @@ _ZN7rocksdb6StatusD2Ev.exit24:                    ; preds = %90, %_ZNKSt14defaul
   resume { ptr, i32 } %.pn11
 
 92:                                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
 .critedge:                                        ; preds = %86, %3, %92
@@ -3367,7 +3361,7 @@ _ZN7rocksdb6StatusD2Ev.exit24:                    ; preds = %90, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE24DecreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE24DecreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %4, align 8, !tbaa !62, !alias.scope !212
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !212
@@ -3422,7 +3416,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %23, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE22UpdateCacheReservationEmb(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE22UpdateCacheReservationEmb(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store i8 3, ptr %0, align 8, !tbaa !99, !alias.scope !215
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 0, ptr %5, align 1, !tbaa !109, !alias.scope !215
@@ -3434,7 +3428,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE20MakeCacheReservationEmPSt10unique_ptrINS_23CacheReservationManager22CacheReservationHandleESt14default_deleteIS5_EE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, ptr noundef %3) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE20MakeCacheReservationEmPSt10unique_ptrINS_23CacheReservationManager22CacheReservationHandleESt14default_deleteIS5_EE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, ptr noundef %3) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr.21", align 8
   %6 = load ptr, ptr %1, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -3612,7 +3606,7 @@ define weak_odr noundef i64 @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cach
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef ptr @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE30TEST_GetCacheItemHelperForRoleEv() local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef ptr @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE30TEST_GetCacheItemHelperForRoleEv() local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper acquire, align 8
   %2 = icmp eq i8 %1, 0
   br i1 %2, label %3, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit, !prof !88
@@ -3635,7 +3629,7 @@ _ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE8ESt10shared_ptrINS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr { ptr, i64 } @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE15GetNextCacheKeyEv(ptr noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #2 comdat align 2 {
+define weak_odr { ptr, i64 } @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EE15GetNextCacheKeyEv(ptr noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #1 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !32
   %4 = tail call { i64, i64 } @_ZN7rocksdb8CacheKey28CreateUniqueForCacheLifetimeEPNS_5CacheE(ptr noundef %3)
@@ -3739,7 +3733,7 @@ _ZNSt10shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE1
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE22CacheReservationHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat($_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE22CacheReservationHandleD5Ev) align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.rocksdb::Status", align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE22CacheReservationHandleE, i64 16), ptr %0, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !227
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3769,7 +3763,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb6StatusD2Ev.exit
 
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE23ReleaseCacheReservationEm.exit, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !19
   %.not.i.i2 = icmp eq ptr %18, null
@@ -3831,7 +3825,7 @@ _ZNSt12__shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRole
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE23ReleaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #2 comdat align 2 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE23ReleaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 {
   %4 = load ptr, ptr %1, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -3907,7 +3901,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EEC2ESt10shared_ptrINS_5CacheEEb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #2 comdat($_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EEC5ESt10shared_ptrINS_5CacheEEb) align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EEC2ESt10shared_ptrINS_5CacheEEb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #1 comdat($_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EEC5ESt10shared_ptrINS_5CacheEEb) align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EEE, i64 16), ptr %0, align 8, !tbaa !4
@@ -4096,7 +4090,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE22UpdateCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE22UpdateCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i64 %2, ptr %4, align 8, !tbaa !237
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -4191,7 +4185,7 @@ _ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE24DecreaseCach
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE24IncreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE24IncreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.rocksdb::Slice", align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.rocksdb::Status", align 8
@@ -4228,10 +4222,10 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   br label %30
 
 30:                                               ; preds = %.lr.ph, %86
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !59
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %31 = load ptr, ptr %12, align 8, !tbaa !32
   %32 = invoke { i64, i64 } @_ZN7rocksdb8CacheKey28CreateUniqueForCacheLifetimeEPNS_5CacheE(ptr noundef %31)
           to label %33 unwind label %57
@@ -4262,7 +4256,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   br label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i
 
 _ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i: ; preds = %41, %39, %33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18, !noalias !254
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !254
   store ptr @.str, ptr %4, align 8, !tbaa !94, !noalias !254
   store i64 0, ptr %15, align 8, !tbaa !96, !noalias !254
   %43 = load ptr, ptr %36, align 8, !tbaa !4, !noalias !254
@@ -4272,7 +4266,7 @@ _ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS
           to label %46 unwind label %57
 
 46:                                               ; preds = %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18, !noalias !254
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !254
   %.pre32 = load ptr, ptr %26, align 8, !tbaa !30
   br i1 %.not.i, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %47
 
@@ -4316,8 +4310,8 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb6StatusD2Ev.exit16
 
 _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i, %_ZN7rocksdb6StatusaSEOS0_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %56 = load i8, ptr %0, align 8, !tbaa !99
   %.not = icmp eq i8 %56, 0
   br i1 %.not, label %59, label %92
@@ -4325,8 +4319,8 @@ _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14defaul
 57:                                               ; preds = %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i, %30
   %58 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %90
 
 59:                                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit16
@@ -4399,7 +4393,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__g
 
 86:                                               ; preds = %62, %_ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
   %87 = atomicrmw add ptr %9, i64 262144 seq_cst, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %88 = load atomic i64, ptr %9 monotonic, align 8
   %89 = icmp ugt i64 %2, %88
   br i1 %89, label %30, label %.critedge, !llvm.loop !257
@@ -4416,7 +4410,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__g
 
 90:                                               ; preds = %.loopexit, %.loopexit.split-lp, %57
   %.pn11 = phi { ptr, i32 } [ %58, %57 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %91 = load ptr, ptr %8, align 8, !tbaa !30
   %.not.i.i22 = icmp eq ptr %91, null
   br i1 %.not.i.i22, label %_ZN7rocksdb6StatusD2Ev.exit24, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i23
@@ -4430,7 +4424,7 @@ _ZN7rocksdb6StatusD2Ev.exit24:                    ; preds = %90, %_ZNKSt14defaul
   resume { ptr, i32 } %.pn11
 
 92:                                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
 .critedge:                                        ; preds = %86, %3, %92
@@ -4438,7 +4432,7 @@ _ZN7rocksdb6StatusD2Ev.exit24:                    ; preds = %90, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE24DecreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE24DecreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %4, align 8, !tbaa !62, !alias.scope !258
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !258
@@ -4493,7 +4487,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %23, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE22UpdateCacheReservationEmb(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE22UpdateCacheReservationEmb(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store i8 3, ptr %0, align 8, !tbaa !99, !alias.scope !261
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 0, ptr %5, align 1, !tbaa !109, !alias.scope !261
@@ -4505,7 +4499,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE20MakeCacheReservationEmPSt10unique_ptrINS_23CacheReservationManager22CacheReservationHandleESt14default_deleteIS5_EE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, ptr noundef %3) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE20MakeCacheReservationEmPSt10unique_ptrINS_23CacheReservationManager22CacheReservationHandleESt14default_deleteIS5_EE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, ptr noundef %3) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr.29", align 8
   %6 = load ptr, ptr %1, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -4683,7 +4677,7 @@ define weak_odr noundef i64 @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cach
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef ptr @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE30TEST_GetCacheItemHelperForRoleEv() local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef ptr @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE30TEST_GetCacheItemHelperForRoleEv() local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper acquire, align 8
   %2 = icmp eq i8 %1, 0
   br i1 %2, label %3, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit, !prof !88
@@ -4706,7 +4700,7 @@ _ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE13ESt10shared_ptrINS
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr { ptr, i64 } @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE15GetNextCacheKeyEv(ptr noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #2 comdat align 2 {
+define weak_odr { ptr, i64 } @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EE15GetNextCacheKeyEv(ptr noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #1 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !32
   %4 = tail call { i64, i64 } @_ZN7rocksdb8CacheKey28CreateUniqueForCacheLifetimeEPNS_5CacheE(ptr noundef %3)
@@ -4810,7 +4804,7 @@ _ZNSt10shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE6
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE22CacheReservationHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat($_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE22CacheReservationHandleD5Ev) align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.rocksdb::Status", align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE22CacheReservationHandleE, i64 16), ptr %0, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !273
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4840,7 +4834,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb6StatusD2Ev.exit
 
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE23ReleaseCacheReservationEm.exit, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !19
   %.not.i.i2 = icmp eq ptr %18, null
@@ -4902,7 +4896,7 @@ _ZNSt12__shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRole
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE23ReleaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #2 comdat align 2 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE23ReleaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 {
   %4 = load ptr, ptr %1, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -4978,7 +4972,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EEC2ESt10shared_ptrINS_5CacheEEb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #2 comdat($_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EEC5ESt10shared_ptrINS_5CacheEEb) align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EEC2ESt10shared_ptrINS_5CacheEEb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #1 comdat($_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EEC5ESt10shared_ptrINS_5CacheEEb) align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EEE, i64 16), ptr %0, align 8, !tbaa !4
@@ -5167,7 +5161,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE22UpdateCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE22UpdateCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i64 %2, ptr %4, align 8, !tbaa !283
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -5262,7 +5256,7 @@ _ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE24DecreaseCache
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE24IncreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE24IncreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.rocksdb::Slice", align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.rocksdb::Status", align 8
@@ -5299,10 +5293,10 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   br label %30
 
 30:                                               ; preds = %.lr.ph, %86
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !59
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %31 = load ptr, ptr %12, align 8, !tbaa !32
   %32 = invoke { i64, i64 } @_ZN7rocksdb8CacheKey28CreateUniqueForCacheLifetimeEPNS_5CacheE(ptr noundef %31)
           to label %33 unwind label %57
@@ -5333,7 +5327,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   br label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i
 
 _ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i: ; preds = %41, %39, %33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18, !noalias !300
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !300
   store ptr @.str, ptr %4, align 8, !tbaa !94, !noalias !300
   store i64 0, ptr %15, align 8, !tbaa !96, !noalias !300
   %43 = load ptr, ptr %36, align 8, !tbaa !4, !noalias !300
@@ -5343,7 +5337,7 @@ _ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_
           to label %46 unwind label %57
 
 46:                                               ; preds = %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18, !noalias !300
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !300
   %.pre32 = load ptr, ptr %26, align 8, !tbaa !30
   br i1 %.not.i, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %47
 
@@ -5387,8 +5381,8 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb6StatusD2Ev.exit16
 
 _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i, %_ZN7rocksdb6StatusaSEOS0_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %56 = load i8, ptr %0, align 8, !tbaa !99
   %.not = icmp eq i8 %56, 0
   br i1 %.not, label %59, label %92
@@ -5396,8 +5390,8 @@ _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14defaul
 57:                                               ; preds = %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i, %30
   %58 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %90
 
 59:                                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit16
@@ -5470,7 +5464,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__g
 
 86:                                               ; preds = %62, %_ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
   %87 = atomicrmw add ptr %9, i64 262144 seq_cst, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %88 = load atomic i64, ptr %9 monotonic, align 8
   %89 = icmp ugt i64 %2, %88
   br i1 %89, label %30, label %.critedge, !llvm.loop !303
@@ -5487,7 +5481,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__g
 
 90:                                               ; preds = %.loopexit, %.loopexit.split-lp, %57
   %.pn11 = phi { ptr, i32 } [ %58, %57 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %91 = load ptr, ptr %8, align 8, !tbaa !30
   %.not.i.i22 = icmp eq ptr %91, null
   br i1 %.not.i.i22, label %_ZN7rocksdb6StatusD2Ev.exit24, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i23
@@ -5501,7 +5495,7 @@ _ZN7rocksdb6StatusD2Ev.exit24:                    ; preds = %90, %_ZNKSt14defaul
   resume { ptr, i32 } %.pn11
 
 92:                                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
 .critedge:                                        ; preds = %86, %3, %92
@@ -5509,7 +5503,7 @@ _ZN7rocksdb6StatusD2Ev.exit24:                    ; preds = %90, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE24DecreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE24DecreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %4, align 8, !tbaa !62, !alias.scope !304
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !304
@@ -5564,7 +5558,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %23, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE22UpdateCacheReservationEmb(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE22UpdateCacheReservationEmb(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store i8 3, ptr %0, align 8, !tbaa !99, !alias.scope !307
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 0, ptr %5, align 1, !tbaa !109, !alias.scope !307
@@ -5576,7 +5570,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE20MakeCacheReservationEmPSt10unique_ptrINS_23CacheReservationManager22CacheReservationHandleESt14default_deleteIS5_EE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, ptr noundef %3) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE20MakeCacheReservationEmPSt10unique_ptrINS_23CacheReservationManager22CacheReservationHandleESt14default_deleteIS5_EE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, ptr noundef %3) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr.37", align 8
   %6 = load ptr, ptr %1, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -5754,7 +5748,7 @@ define weak_odr noundef i64 @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cach
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef ptr @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE30TEST_GetCacheItemHelperForRoleEv() local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef ptr @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE30TEST_GetCacheItemHelperForRoleEv() local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper acquire, align 8
   %2 = icmp eq i8 %1, 0
   br i1 %2, label %3, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit, !prof !88
@@ -5777,7 +5771,7 @@ _ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE6ESt10shared_ptrINS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr { ptr, i64 } @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE15GetNextCacheKeyEv(ptr noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #2 comdat align 2 {
+define weak_odr { ptr, i64 } @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EE15GetNextCacheKeyEv(ptr noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #1 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !32
   %4 = tail call { i64, i64 } @_ZN7rocksdb8CacheKey28CreateUniqueForCacheLifetimeEPNS_5CacheE(ptr noundef %3)
@@ -5881,7 +5875,7 @@ _ZNSt10shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE1
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE22CacheReservationHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat($_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE22CacheReservationHandleD5Ev) align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.rocksdb::Status", align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE22CacheReservationHandleE, i64 16), ptr %0, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !319
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5911,7 +5905,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb6StatusD2Ev.exit
 
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE23ReleaseCacheReservationEm.exit, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !19
   %.not.i.i2 = icmp eq ptr %18, null
@@ -5973,7 +5967,7 @@ _ZNSt12__shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRole
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE23ReleaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #2 comdat align 2 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE23ReleaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 {
   %4 = load ptr, ptr %1, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -6049,7 +6043,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EEC2ESt10shared_ptrINS_5CacheEEb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #2 comdat($_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EEC5ESt10shared_ptrINS_5CacheEEb) align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EEC2ESt10shared_ptrINS_5CacheEEb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #1 comdat($_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EEC5ESt10shared_ptrINS_5CacheEEb) align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EEE, i64 16), ptr %0, align 8, !tbaa !4
@@ -6238,7 +6232,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE22UpdateCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE22UpdateCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i64 %2, ptr %4, align 8, !tbaa !329
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -6333,7 +6327,7 @@ _ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE24DecreaseCach
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE24IncreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE24IncreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.rocksdb::Slice", align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.rocksdb::Status", align 8
@@ -6370,10 +6364,10 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   br label %30
 
 30:                                               ; preds = %.lr.ph, %86
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !59
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %31 = load ptr, ptr %12, align 8, !tbaa !32
   %32 = invoke { i64, i64 } @_ZN7rocksdb8CacheKey28CreateUniqueForCacheLifetimeEPNS_5CacheE(ptr noundef %31)
           to label %33 unwind label %57
@@ -6404,7 +6398,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   br label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i
 
 _ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i: ; preds = %41, %39, %33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18, !noalias !346
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !346
   store ptr @.str, ptr %4, align 8, !tbaa !94, !noalias !346
   store i64 0, ptr %15, align 8, !tbaa !96, !noalias !346
   %43 = load ptr, ptr %36, align 8, !tbaa !4, !noalias !346
@@ -6414,7 +6408,7 @@ _ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS
           to label %46 unwind label %57
 
 46:                                               ; preds = %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18, !noalias !346
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !346
   %.pre32 = load ptr, ptr %26, align 8, !tbaa !30
   br i1 %.not.i, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %47
 
@@ -6458,8 +6452,8 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb6StatusD2Ev.exit16
 
 _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i, %_ZN7rocksdb6StatusaSEOS0_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %56 = load i8, ptr %0, align 8, !tbaa !99
   %.not = icmp eq i8 %56, 0
   br i1 %.not, label %59, label %92
@@ -6467,8 +6461,8 @@ _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14defaul
 57:                                               ; preds = %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i, %30
   %58 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %90
 
 59:                                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit16
@@ -6541,7 +6535,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__g
 
 86:                                               ; preds = %62, %_ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
   %87 = atomicrmw add ptr %9, i64 262144 seq_cst, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %88 = load atomic i64, ptr %9 monotonic, align 8
   %89 = icmp ugt i64 %2, %88
   br i1 %89, label %30, label %.critedge, !llvm.loop !349
@@ -6558,7 +6552,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__g
 
 90:                                               ; preds = %.loopexit, %.loopexit.split-lp, %57
   %.pn11 = phi { ptr, i32 } [ %58, %57 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %91 = load ptr, ptr %8, align 8, !tbaa !30
   %.not.i.i22 = icmp eq ptr %91, null
   br i1 %.not.i.i22, label %_ZN7rocksdb6StatusD2Ev.exit24, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i23
@@ -6572,7 +6566,7 @@ _ZN7rocksdb6StatusD2Ev.exit24:                    ; preds = %90, %_ZNKSt14defaul
   resume { ptr, i32 } %.pn11
 
 92:                                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
 .critedge:                                        ; preds = %86, %3, %92
@@ -6580,7 +6574,7 @@ _ZN7rocksdb6StatusD2Ev.exit24:                    ; preds = %90, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE24DecreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE24DecreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %4, align 8, !tbaa !62, !alias.scope !350
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !350
@@ -6635,7 +6629,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %23, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE22UpdateCacheReservationEmb(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE22UpdateCacheReservationEmb(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store i8 3, ptr %0, align 8, !tbaa !99, !alias.scope !353
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 0, ptr %5, align 1, !tbaa !109, !alias.scope !353
@@ -6647,7 +6641,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE20MakeCacheReservationEmPSt10unique_ptrINS_23CacheReservationManager22CacheReservationHandleESt14default_deleteIS5_EE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, ptr noundef %3) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE20MakeCacheReservationEmPSt10unique_ptrINS_23CacheReservationManager22CacheReservationHandleESt14default_deleteIS5_EE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, ptr noundef %3) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr.45", align 8
   %6 = load ptr, ptr %1, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -6825,7 +6819,7 @@ define weak_odr noundef i64 @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cach
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef ptr @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE30TEST_GetCacheItemHelperForRoleEv() local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef ptr @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE30TEST_GetCacheItemHelperForRoleEv() local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper acquire, align 8
   %2 = icmp eq i8 %1, 0
   br i1 %2, label %3, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit, !prof !88
@@ -6848,7 +6842,7 @@ _ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE10ESt10shared_ptrINS
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr { ptr, i64 } @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE15GetNextCacheKeyEv(ptr noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #2 comdat align 2 {
+define weak_odr { ptr, i64 } @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EE15GetNextCacheKeyEv(ptr noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #1 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !32
   %4 = tail call { i64, i64 } @_ZN7rocksdb8CacheKey28CreateUniqueForCacheLifetimeEPNS_5CacheE(ptr noundef %3)
@@ -6952,7 +6946,7 @@ _ZNSt10shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE1
 define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE22CacheReservationHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat($_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE22CacheReservationHandleD5Ev) align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.rocksdb::Status", align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE22CacheReservationHandleE, i64 16), ptr %0, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !365
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6982,7 +6976,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb6StatusD2Ev.exit
 
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE23ReleaseCacheReservationEm.exit, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !19
   %.not.i.i2 = icmp eq ptr %18, null
@@ -7044,7 +7038,7 @@ _ZNSt12__shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRole
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE23ReleaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #2 comdat align 2 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE23ReleaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 {
   %4 = load ptr, ptr %1, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -7120,7 +7114,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EEC2ESt10shared_ptrINS_5CacheEEb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #2 comdat($_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EEC5ESt10shared_ptrINS_5CacheEEb) align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EEC2ESt10shared_ptrINS_5CacheEEb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #1 comdat($_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EEC5ESt10shared_ptrINS_5CacheEEb) align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EEE, i64 16), ptr %0, align 8, !tbaa !4
@@ -7309,7 +7303,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE22UpdateCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE22UpdateCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i64 %2, ptr %4, align 8, !tbaa !375
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -7404,7 +7398,7 @@ _ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE24DecreaseCach
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE24IncreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE24IncreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.rocksdb::Slice", align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.rocksdb::Status", align 8
@@ -7441,10 +7435,10 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   br label %30
 
 30:                                               ; preds = %.lr.ph, %86
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !59
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %31 = load ptr, ptr %12, align 8, !tbaa !32
   %32 = invoke { i64, i64 } @_ZN7rocksdb8CacheKey28CreateUniqueForCacheLifetimeEPNS_5CacheE(ptr noundef %31)
           to label %33 unwind label %57
@@ -7475,7 +7469,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
   br label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i
 
 _ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i: ; preds = %41, %39, %33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18, !noalias !392
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !392
   store ptr @.str, ptr %4, align 8, !tbaa !94, !noalias !392
   store i64 0, ptr %15, align 8, !tbaa !96, !noalias !392
   %43 = load ptr, ptr %36, align 8, !tbaa !4, !noalias !392
@@ -7485,7 +7479,7 @@ _ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS
           to label %46 unwind label %57
 
 46:                                               ; preds = %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18, !noalias !392
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !392
   %.pre32 = load ptr, ptr %26, align 8, !tbaa !30
   br i1 %.not.i, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %47
 
@@ -7529,8 +7523,8 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb6StatusD2Ev.exit16
 
 _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i, %_ZN7rocksdb6StatusaSEOS0_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %56 = load i8, ptr %0, align 8, !tbaa !99
   %.not = icmp eq i8 %56, 0
   br i1 %.not, label %59, label %92
@@ -7538,8 +7532,8 @@ _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %47, %_ZNKSt14defaul
 57:                                               ; preds = %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit.i, %30
   %58 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %90
 
 59:                                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit16
@@ -7612,7 +7606,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__g
 
 86:                                               ; preds = %62, %_ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
   %87 = atomicrmw add ptr %9, i64 262144 seq_cst, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %88 = load atomic i64, ptr %9 monotonic, align 8
   %89 = icmp ugt i64 %2, %88
   br i1 %89, label %30, label %.critedge, !llvm.loop !395
@@ -7629,7 +7623,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__g
 
 90:                                               ; preds = %.loopexit, %.loopexit.split-lp, %57
   %.pn11 = phi { ptr, i32 } [ %58, %57 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %91 = load ptr, ptr %8, align 8, !tbaa !30
   %.not.i.i22 = icmp eq ptr %91, null
   br i1 %.not.i.i22, label %_ZN7rocksdb6StatusD2Ev.exit24, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i23
@@ -7643,7 +7637,7 @@ _ZN7rocksdb6StatusD2Ev.exit24:                    ; preds = %90, %_ZNKSt14defaul
   resume { ptr, i32 } %.pn11
 
 92:                                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
 .critedge:                                        ; preds = %86, %3, %92
@@ -7651,7 +7645,7 @@ _ZN7rocksdb6StatusD2Ev.exit24:                    ; preds = %90, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE24DecreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE24DecreaseCacheReservationEm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %4, align 8, !tbaa !62, !alias.scope !396
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !396
@@ -7706,7 +7700,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %23, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE22UpdateCacheReservationEmb(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE22UpdateCacheReservationEmb(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store i8 3, ptr %0, align 8, !tbaa !99, !alias.scope !399
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 0, ptr %5, align 1, !tbaa !109, !alias.scope !399
@@ -7718,7 +7712,7 @@ define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryR
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE20MakeCacheReservationEmPSt10unique_ptrINS_23CacheReservationManager22CacheReservationHandleESt14default_deleteIS5_EE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, ptr noundef %3) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE20MakeCacheReservationEmPSt10unique_ptrINS_23CacheReservationManager22CacheReservationHandleESt14default_deleteIS5_EE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, ptr noundef %3) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr.53", align 8
   %6 = load ptr, ptr %1, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -7896,7 +7890,7 @@ define weak_odr noundef i64 @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cach
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef ptr @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE30TEST_GetCacheItemHelperForRoleEv() local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef ptr @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE30TEST_GetCacheItemHelperForRoleEv() local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEvE7kHelper acquire, align 8
   %2 = icmp eq i8 %1, 0
   br i1 %2, label %3, label %_ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS_5CacheEEE9GetHelperEv.exit, !prof !88
@@ -7919,7 +7913,7 @@ _ZN7rocksdb25PlaceholderCacheInterfaceILNS_14CacheEntryRoleE12ESt10shared_ptrINS
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr { ptr, i64 } @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE15GetNextCacheKeyEv(ptr noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #2 comdat align 2 {
+define weak_odr { ptr, i64 } @_ZN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EE15GetNextCacheKeyEv(ptr noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #1 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !32
   %4 = tail call { i64, i64 } @_ZN7rocksdb8CacheKey28CreateUniqueForCacheLifetimeEPNS_5CacheE(ptr noundef %3)
@@ -7935,7 +7929,7 @@ define weak_odr { ptr, i64 } @_ZN7rocksdb27CacheReservationManagerImplILNS_14Cac
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -7972,33 +7966,39 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #5
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: nounwind
-declare void @_ZNSt12bad_weak_ptrD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #10
+declare void @_ZNSt12bad_weak_ptrD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #9
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #11
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #12
+declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nofree nounwind
-declare void @__cxa_guard_release(ptr) local_unnamed_addr #12
+declare void @__cxa_guard_release(ptr) local_unnamed_addr #11
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15
@@ -8013,18 +8013,18 @@ declare i64 @llvm.umin.i64(i64, i64) #16
 declare void @llvm.assume(i1 noundef) #17
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #3 = { noinline noreturn nounwind uwtable "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #4 = { cold nofree noreturn }
-attributes #5 = { nobuiltin nounwind "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #7 = { "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #8 = { mustprogress noinline nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nounwind "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #11 = { cold noreturn }
-attributes #12 = { nofree nounwind }
+attributes #1 = { mustprogress uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #2 = { noinline noreturn nounwind uwtable "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #3 = { cold nofree noreturn }
+attributes #4 = { nobuiltin nounwind "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #5 = { nobuiltin allocsize(0) "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #6 = { "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #7 = { mustprogress noinline nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nounwind "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #10 = { cold noreturn }
+attributes #11 = { nofree nounwind }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { noreturn "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

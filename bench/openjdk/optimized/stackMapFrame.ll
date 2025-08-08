@@ -725,7 +725,7 @@ define hidden noundef zeroext i1 @_ZNK13StackMapFrame16is_assignable_toEPKS_P12E
 19:                                               ; preds = %4
   %20 = load i32, ptr %0, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN10TypeOrigin5frameEP13StackMapFrame(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %7, ptr noundef nonnull %0) #12, !noalias !15
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 32
   call void @_ZN10TypeOrigin5frameEP13StackMapFrame(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %21, ptr noundef nonnull %1) #12
@@ -734,7 +734,7 @@ define hidden noundef zeroext i1 @_ZNK13StackMapFrame16is_assignable_toEPKS_P12E
   store i32 %20, ptr %8, align 8, !alias.scope !15
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 5, ptr %23, align 4, !alias.scope !15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %8, i64 56, i1 false)
   br label %67
 
@@ -749,7 +749,7 @@ define hidden noundef zeroext i1 @_ZNK13StackMapFrame16is_assignable_toEPKS_P12E
 29:                                               ; preds = %24
   %30 = load i32, ptr %0, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN10TypeOrigin5frameEP13StackMapFrame(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %6, ptr noundef nonnull %0) #12, !noalias !18
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 32
   call void @_ZN10TypeOrigin5frameEP13StackMapFrame(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %31, ptr noundef nonnull %1) #12
@@ -758,7 +758,7 @@ define hidden noundef zeroext i1 @_ZNK13StackMapFrame16is_assignable_toEPKS_P12E
   store i32 %30, ptr %9, align 8, !alias.scope !18
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 6, ptr %33, align 4, !alias.scope !18
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %9, i64 56, i1 false)
   br label %67
 
@@ -823,7 +823,7 @@ define hidden noundef zeroext i1 @_ZNK13StackMapFrame16is_assignable_toEPKS_P12E
 62:                                               ; preds = %55
   %63 = load i32, ptr %1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN10TypeOrigin5frameEP13StackMapFrame(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %5, ptr noundef nonnull %0) #12, !noalias !21
   %64 = getelementptr inbounds nuw i8, ptr %14, i64 32
   call void @_ZN10TypeOrigin5frameEP13StackMapFrame(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %64, ptr noundef nonnull %1) #12
@@ -832,7 +832,7 @@ define hidden noundef zeroext i1 @_ZNK13StackMapFrame16is_assignable_toEPKS_P12E
   store i32 %63, ptr %14, align 8, !alias.scope !21
   %66 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 2, ptr %66, align 4, !alias.scope !21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %14, i64 56, i1 false)
   br label %67
 
@@ -1883,10 +1883,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @llvm.smin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11

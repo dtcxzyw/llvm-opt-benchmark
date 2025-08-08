@@ -4122,7 +4122,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
 
 1257:                                             ; preds = %1240
   %.sroa.0530.0.copyload = load i16, ptr @_ZN4pkpy11__getitem__E, align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store ptr %1245, ptr %34, align 8
   %1258 = invoke noundef ptr @_ZN4pkpy2VM18get_unbound_methodEPNS_8PyObjectENS_7StrNameEPS2_bb(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %1245, i16 %.sroa.0530.0.copyload, ptr noundef nonnull %34, i1 noundef zeroext true, i1 noundef zeroext false)
           to label %.noexc unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
@@ -4145,7 +4145,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
           to label %1267 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
 1267:                                             ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %1268
 
 1268:                                             ; preds = %1255, %1267
@@ -4218,7 +4218,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
 
 1302:                                             ; preds = %1287
   %.sroa.0522.0.copyload = load i16, ptr @_ZN4pkpy11__getitem__E, align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store ptr %1290, ptr %33, align 8
   %1303 = invoke noundef ptr @_ZN4pkpy2VM18get_unbound_methodEPNS_8PyObjectENS_7StrNameEPS2_bb(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %1290, i16 %.sroa.0522.0.copyload, ptr noundef nonnull %33, i1 noundef zeroext true, i1 noundef zeroext false)
           to label %.noexc4207 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
@@ -4241,7 +4241,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
           to label %1312 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
 1312:                                             ; preds = %.noexc4207
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %1313
 
 1313:                                             ; preds = %1300, %1312
@@ -4300,7 +4300,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
 
 1339:                                             ; preds = %1322
   %.sroa.0515.0.copyload = load i16, ptr @_ZN4pkpy11__getitem__E, align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store ptr %1327, ptr %32, align 8
   %1340 = invoke noundef ptr @_ZN4pkpy2VM18get_unbound_methodEPNS_8PyObjectENS_7StrNameEPS2_bb(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %1327, i16 %.sroa.0515.0.copyload, ptr noundef nonnull %32, i1 noundef zeroext true, i1 noundef zeroext false)
           to label %.noexc4211 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
@@ -4323,7 +4323,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
           to label %1349 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
 1349:                                             ; preds = %.noexc4211
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %1350
 
 1350:                                             ; preds = %1337, %1349
@@ -4575,7 +4575,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
 
 1449:                                             ; preds = %1431
   %.sroa.0491.0.copyload = load i16, ptr @_ZN4pkpy11__setitem__E, align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store ptr %1436, ptr %31, align 8
   %1450 = invoke noundef ptr @_ZN4pkpy2VM18get_unbound_methodEPNS_8PyObjectENS_7StrNameEPS2_bb(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %1436, i16 %.sroa.0491.0.copyload, ptr noundef nonnull %31, i1 noundef zeroext true, i1 noundef zeroext false)
           to label %.noexc4215 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
@@ -4602,7 +4602,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
           to label %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectES4_EEES3_S3_NS_7StrNameEDpOT_.exit unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
 _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectES4_EEES3_S3_NS_7StrNameEDpOT_.exit: ; preds = %.noexc4215
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %1461
 
 1461:                                             ; preds = %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectES4_EEES3_S3_NS_7StrNameEDpOT_.exit, %1448
@@ -4675,7 +4675,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectES4_EEES3_S3_NS_7StrNameEDpOT_.exit: ; p
 
 1494:                                             ; preds = %1478
   %.sroa.0483.0.copyload = load i16, ptr @_ZN4pkpy11__setitem__E, align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store ptr %1481, ptr %30, align 8
   %1495 = invoke noundef ptr @_ZN4pkpy2VM18get_unbound_methodEPNS_8PyObjectENS_7StrNameEPS2_bb(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %1481, i16 %.sroa.0483.0.copyload, ptr noundef nonnull %30, i1 noundef zeroext true, i1 noundef zeroext false)
           to label %.noexc4218 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
@@ -4702,7 +4702,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectES4_EEES3_S3_NS_7StrNameEDpOT_.exit: ; p
           to label %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectES4_EEES3_S3_NS_7StrNameEDpOT_.exit4220 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
 _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectES4_EEES3_S3_NS_7StrNameEDpOT_.exit4220: ; preds = %.noexc4218
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %1506
 
 1506:                                             ; preds = %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectES4_EEES3_S3_NS_7StrNameEDpOT_.exit4220, %1493
@@ -4962,7 +4962,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectES4_EEES3_S3_NS_7StrNameEDpOT_.exit4220:
 
 1605:                                             ; preds = %1589
   %.sroa.0456.0.copyload = load i16, ptr @_ZN4pkpy11__delitem__E, align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store ptr %1594, ptr %29, align 8
   %1606 = invoke noundef ptr @_ZN4pkpy2VM18get_unbound_methodEPNS_8PyObjectENS_7StrNameEPS2_bb(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %1594, i16 %.sroa.0456.0.copyload, ptr noundef nonnull %29, i1 noundef zeroext true, i1 noundef zeroext false)
           to label %.noexc4222 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
@@ -4985,7 +4985,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectES4_EEES3_S3_NS_7StrNameEDpOT_.exit4220:
           to label %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_NS_7StrNameEDpOT_.exit4224 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
 _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_NS_7StrNameEDpOT_.exit4224: ; preds = %.noexc4222
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %1615
 
 1615:                                             ; preds = %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_NS_7StrNameEDpOT_.exit4224, %1604
@@ -6552,7 +6552,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4321: ; preds = %
   %2231 = ashr i64 %2222, 2
   %2232 = ashr i64 %2226, 2
   %2233 = add nsw i64 %2231, %2232
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store i64 %2233, ptr %28, align 8
   %or.cond.i = icmp ult i64 %2233, 1152921504606846976
   br i1 %or.cond.i, label %2234, label %2238
@@ -6575,7 +6575,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4321: ; preds = %
 2241:                                             ; preds = %._crit_edge5456, %2234
   %2242 = phi ptr [ %2218, %2234 ], [ %.pre5457, %._crit_edge5456 ]
   %.0.i4322 = phi ptr [ %2237, %2234 ], [ %2240, %._crit_edge5456 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %2243 = getelementptr inbounds i8, ptr %2242, i64 -8
   store ptr %.0.i4322, ptr %2243, align 8
   %2244 = load i32, ptr %206, align 4
@@ -6767,7 +6767,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4328: ; preds = %
   %2327 = ashr i64 %2318, 2
   %2328 = ashr i64 %2322, 2
   %2329 = sub nsw i64 %2327, %2328
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i64 %2329, ptr %27, align 8
   %or.cond.i4329 = icmp ult i64 %2329, 1152921504606846976
   br i1 %or.cond.i4329, label %2330, label %2334
@@ -6790,7 +6790,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4328: ; preds = %
 2337:                                             ; preds = %._crit_edge5454, %2330
   %2338 = phi ptr [ %2314, %2330 ], [ %.pre5455, %._crit_edge5454 ]
   %.0.i4330 = phi ptr [ %2333, %2330 ], [ %2336, %._crit_edge5454 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %2339 = getelementptr inbounds i8, ptr %2338, i64 -8
   store ptr %.0.i4330, ptr %2339, align 8
   %2340 = load i32, ptr %206, align 4
@@ -6982,7 +6982,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4337: ; preds = %
   %2423 = ashr i64 %2414, 2
   %2424 = ashr i64 %2418, 2
   %2425 = mul nsw i64 %2423, %2424
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i64 %2425, ptr %26, align 8
   %or.cond.i4338 = icmp ult i64 %2425, 1152921504606846976
   br i1 %or.cond.i4338, label %2426, label %2430
@@ -7005,7 +7005,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4337: ; preds = %
 2433:                                             ; preds = %._crit_edge5452, %2426
   %2434 = phi ptr [ %2410, %2426 ], [ %.pre5453, %._crit_edge5452 ]
   %.0.i4339 = phi ptr [ %2429, %2426 ], [ %2432, %._crit_edge5452 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %2435 = getelementptr inbounds i8, ptr %2434, i64 -8
   store ptr %.0.i4339, ptr %2435, align 8
   %2436 = load i32, ptr %206, align 4
@@ -7197,7 +7197,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4346: ; preds = %
   br i1 %2518, label %2519, label %2523
 
 2519:                                             ; preds = %2517
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %2520 = invoke i16 @_ZN4pkpy7StrName3getESt17basic_string_viewIcSt11char_traitsIcEE(i64 17, ptr nonnull @.str.38)
           to label %.noexc4347 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
@@ -7220,7 +7220,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4346: ; preds = %
 
 _ZN4pkpy2VM17ZeroDivisionErrorEv.exit:            ; preds = %.noexc4348
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %2523
 
 2523:                                             ; preds = %_ZN4pkpy2VM17ZeroDivisionErrorEv.exit, %2517
@@ -7228,7 +7228,7 @@ _ZN4pkpy2VM17ZeroDivisionErrorEv.exit:            ; preds = %.noexc4348
   %2525 = ashr i64 %2510, 2
   %2526 = ashr i64 %2514, 2
   %2527 = sdiv i64 %2525, %2526
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i64 %2527, ptr %24, align 8
   %or.cond.i4349 = icmp ult i64 %2527, 1152921504606846976
   br i1 %or.cond.i4349, label %2528, label %2532
@@ -7246,7 +7246,7 @@ _ZN4pkpy2VM17ZeroDivisionErrorEv.exit:            ; preds = %.noexc4348
 
 2535:                                             ; preds = %2528, %2532
   %.0.i4350 = phi ptr [ %2531, %2528 ], [ %2534, %2532 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %2536 = load ptr, ptr %131, align 8
   %2537 = getelementptr inbounds i8, ptr %2536, i64 -8
   store ptr %.0.i4350, ptr %2537, align 8
@@ -7395,7 +7395,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4355: ; preds = %
   br i1 %2599, label %2600, label %2604
 
 2600:                                             ; preds = %2598
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %2601 = invoke i16 @_ZN4pkpy7StrName3getESt17basic_string_viewIcSt11char_traitsIcEE(i64 17, ptr nonnull @.str.38)
           to label %.noexc4356 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
@@ -7418,7 +7418,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4355: ; preds = %
 
 _ZN4pkpy2VM17ZeroDivisionErrorEv.exit4362:        ; preds = %.noexc4357
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %2604
 
 2604:                                             ; preds = %_ZN4pkpy2VM17ZeroDivisionErrorEv.exit4362, %2598
@@ -7426,7 +7426,7 @@ _ZN4pkpy2VM17ZeroDivisionErrorEv.exit4362:        ; preds = %.noexc4357
   %2606 = ashr i64 %2591, 2
   %2607 = ashr i64 %2595, 2
   %2608 = srem i64 %2606, %2607
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i64 %2608, ptr %22, align 8
   %or.cond.i4363 = icmp ult i64 %2608, 1152921504606846976
   br i1 %or.cond.i4363, label %2609, label %2613
@@ -7444,7 +7444,7 @@ _ZN4pkpy2VM17ZeroDivisionErrorEv.exit4362:        ; preds = %.noexc4357
 
 2616:                                             ; preds = %2609, %2613
   %.0.i4364 = phi ptr [ %2612, %2609 ], [ %2615, %2613 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %2617 = load ptr, ptr %131, align 8
   %2618 = getelementptr inbounds i8, ptr %2617, i64 -8
   store ptr %.0.i4364, ptr %2618, align 8
@@ -8045,7 +8045,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4369: ; preds = %
   %2867 = ashr i64 %2858, 2
   %2868 = ashr i64 %2862, 2
   %2869 = shl i64 %2867, %2868
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i64 %2869, ptr %21, align 8
   %or.cond.i4389 = icmp ult i64 %2869, 1152921504606846976
   br i1 %or.cond.i4389, label %2870, label %2874
@@ -8068,7 +8068,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4369: ; preds = %
 2877:                                             ; preds = %._crit_edge5450, %2870
   %2878 = phi ptr [ %2854, %2870 ], [ %.pre5451, %._crit_edge5450 ]
   %.0.i4390 = phi ptr [ %2873, %2870 ], [ %2876, %._crit_edge5450 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %2879 = getelementptr inbounds i8, ptr %2878, i64 -8
   store ptr %.0.i4390, ptr %2879, align 8
   %2880 = load i32, ptr %206, align 4
@@ -8216,7 +8216,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4395: ; preds = %
   %2942 = ashr i64 %2933, 2
   %2943 = ashr i64 %2937, 2
   %2944 = ashr i64 %2942, %2943
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i64 %2944, ptr %20, align 8
   %or.cond.i4396 = icmp ult i64 %2944, 1152921504606846976
   br i1 %or.cond.i4396, label %2945, label %2949
@@ -8239,7 +8239,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4395: ; preds = %
 2952:                                             ; preds = %._crit_edge5448, %2945
   %2953 = phi ptr [ %2929, %2945 ], [ %.pre5449, %._crit_edge5448 ]
   %.0.i4397 = phi ptr [ %2948, %2945 ], [ %2951, %._crit_edge5448 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %2954 = getelementptr inbounds i8, ptr %2953, i64 -8
   store ptr %.0.i4397, ptr %2954, align 8
   %2955 = load i32, ptr %206, align 4
@@ -8386,7 +8386,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4402: ; preds = %
   %3016 = load ptr, ptr %129, align 8
   %3017 = and i64 %3008, %3012
   %3018 = ashr i64 %3017, 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i64 %3018, ptr %19, align 8
   %or.cond.i4403 = icmp ult i64 %3018, 1152921504606846976
   br i1 %or.cond.i4403, label %3019, label %3021
@@ -8407,7 +8407,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4402: ; preds = %
 3024:                                             ; preds = %._crit_edge5446, %3019
   %3025 = phi ptr [ %3004, %3019 ], [ %.pre5447, %._crit_edge5446 ]
   %.0.i4404 = phi ptr [ %3020, %3019 ], [ %3023, %._crit_edge5446 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %3026 = getelementptr inbounds i8, ptr %3025, i64 -8
   store ptr %.0.i4404, ptr %3026, align 8
   %3027 = load i32, ptr %206, align 4
@@ -8554,7 +8554,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4409: ; preds = %
   %3088 = load ptr, ptr %129, align 8
   %3089 = or i64 %3080, %3084
   %3090 = ashr i64 %3089, 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 %3090, ptr %18, align 8
   %or.cond.i4410 = icmp ult i64 %3090, 1152921504606846976
   br i1 %or.cond.i4410, label %3091, label %3093
@@ -8575,7 +8575,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4409: ; preds = %
 3096:                                             ; preds = %._crit_edge5444, %3091
   %3097 = phi ptr [ %3076, %3091 ], [ %.pre5445, %._crit_edge5444 ]
   %.0.i4411 = phi ptr [ %3092, %3091 ], [ %3095, %._crit_edge5444 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %3098 = getelementptr inbounds i8, ptr %3097, i64 -8
   store ptr %.0.i4411, ptr %3098, align 8
   %3099 = load i32, ptr %206, align 4
@@ -8722,7 +8722,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4416: ; preds = %
   %3160 = load ptr, ptr %129, align 8
   %3161 = xor i64 %3152, %3156
   %3162 = ashr exact i64 %3161, 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 %3162, ptr %17, align 8
   %or.cond.i4417 = icmp ult i64 %3162, 1152921504606846976
   br i1 %or.cond.i4417, label %3163, label %3166
@@ -8744,7 +8744,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4416: ; preds = %
 3169:                                             ; preds = %._crit_edge5442, %3163
   %3170 = phi ptr [ %3148, %3163 ], [ %.pre5443, %._crit_edge5442 ]
   %.0.i4418 = phi ptr [ %3165, %3163 ], [ %3168, %._crit_edge5442 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %3171 = getelementptr inbounds i8, ptr %3170, i64 -8
   store ptr %.0.i4418, ptr %3171, align 8
   %3172 = load i32, ptr %206, align 4
@@ -9040,7 +9040,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4426: ; preds = %
 
 3301:                                             ; preds = %3284
   %.sroa.0205.0.copyload = load i16, ptr @_ZN4pkpy12__contains__E, align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %3287, ptr %16, align 8
   %3302 = invoke noundef ptr @_ZN4pkpy2VM18get_unbound_methodEPNS_8PyObjectENS_7StrNameEPS2_bb(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %3287, i16 %.sroa.0205.0.copyload, ptr noundef nonnull %16, i1 noundef zeroext true, i1 noundef zeroext false)
           to label %.noexc4430 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
@@ -9065,7 +9065,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4426: ; preds = %
           to label %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_NS_7StrNameEDpOT_.exit4432 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
 _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_NS_7StrNameEDpOT_.exit4432: ; preds = %.noexc4430
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %3313
 
 3313:                                             ; preds = %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_NS_7StrNameEDpOT_.exit4432, %3297
@@ -10151,7 +10151,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i4
   %3735 = load ptr, ptr %3731, align 8
   %3736 = load ptr, ptr %214, align 8
   %3737 = load ptr, ptr %218, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %219, i64 16, i1 false)
   store i32 -1, ptr %3734, align 8
   %3738 = getelementptr inbounds nuw i8, ptr %3732, i64 12
@@ -10166,7 +10166,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i4
   store ptr %3737, ptr %3742, align 8
   %3743 = getelementptr inbounds nuw i8, ptr %3732, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3743, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %3732, ptr %3730, align 8
   %3744 = getelementptr inbounds nuw i8, ptr %3728, i64 264320
   %3745 = load i32, ptr %3744, align 8
@@ -10743,7 +10743,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i.i.i: ; preds = %3857
   %3995 = getelementptr inbounds i8, ptr %3992, i64 -24
   %3996 = load ptr, ptr %3995, align 8
   %.sroa.0150.0.copyload = load i16, ptr @_ZN4pkpy9pk_id_addE, align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %3996, ptr %15, align 8
   %3997 = invoke noundef ptr @_ZN4pkpy2VM18get_unbound_methodEPNS_8PyObjectENS_7StrNameEPS2_bb(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %3996, i16 %.sroa.0150.0.copyload, ptr noundef nonnull %15, i1 noundef zeroext true, i1 noundef zeroext false)
           to label %.noexc4501 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
@@ -10766,7 +10766,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i.i.i: ; preds = %3857
           to label %4006 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
 4006:                                             ; preds = %.noexc4501
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %4007 = load i32, ptr %206, align 4
   %4008 = add nsw i32 %4007, 1
   store i32 %4008, ptr %206, align 4
@@ -10957,7 +10957,7 @@ _ZN4pkpy6py_varINS_11StarWrapperEEEPNS_8PyObjectEPNS_2VMEOT_.exit: ; preds = %40
 
 4083:                                             ; preds = %4068
   %.sroa.0139.0.copyload = load i16, ptr @_ZN4pkpy10__invert__E, align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %4071, ptr %14, align 8
   %4084 = invoke noundef ptr @_ZN4pkpy2VM18get_unbound_methodEPNS_8PyObjectENS_7StrNameEPS2_bb(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %4071, i16 %.sroa.0139.0.copyload, ptr noundef nonnull %14, i1 noundef zeroext true, i1 noundef zeroext false)
           to label %.noexc4508 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
@@ -10976,7 +10976,7 @@ _ZN4pkpy6py_varINS_11StarWrapperEEEPNS_8PyObjectEPNS_2VMEOT_.exit: ; preds = %40
           to label %_ZN4pkpy2VM11call_methodIJEEEPNS_8PyObjectES3_NS_7StrNameEDpOT_.exit unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
 _ZN4pkpy2VM11call_methodIJEEEPNS_8PyObjectES3_NS_7StrNameEDpOT_.exit: ; preds = %.noexc4508
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %4091
 
 4091:                                             ; preds = %_ZN4pkpy2VM11call_methodIJEEEPNS_8PyObjectES3_NS_7StrNameEDpOT_.exit, %4081
@@ -11377,7 +11377,7 @@ _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit:          ; preds = %.noexc4520
 
 4272:                                             ; preds = %4237
   %.sroa.0113.0.copyload = load i16, ptr @_ZN4pkpy8__next__E, align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %4240, ptr %13, align 8
   %4273 = invoke noundef ptr @_ZN4pkpy2VM18get_unbound_methodEPNS_8PyObjectENS_7StrNameEPS2_bb(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %4240, i16 %.sroa.0113.0.copyload, ptr noundef nonnull %13, i1 noundef zeroext true, i1 noundef zeroext false)
           to label %.noexc4522 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
@@ -11396,7 +11396,7 @@ _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit:          ; preds = %.noexc4520
           to label %4280 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
 4280:                                             ; preds = %.noexc4522
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %4281 = load ptr, ptr %137, align 8
   %.not3886 = icmp eq ptr %4279, %4281
   br i1 %.not3886, label %.invoke5664, label %4282
@@ -11723,7 +11723,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   br i1 %4434, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4555.thread, label %4491
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4555.thread: ; preds = %.lr.ph.i.i4546, %4399, %4424, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4555
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %4435 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN4pkpy7StrName11_r_internedB5cxx11Ev()
           to label %.noexc4557 unwind label %.loopexit.split-lp4961.loopexit
 
@@ -11759,7 +11759,7 @@ _ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4p
 
 .critedge.i.i.i:                                  ; preds = %4443, %_ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4pairIKtS5_EEE11lower_boundERS9_.exit.i.i.i, %.noexc4557
   %.08.lcssa.i.i.i10.i.i.i = phi ptr [ %.19.i.i.i.i.i.i, %_ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4pairIKtS5_EEE11lower_boundERS9_.exit.i.i.i ], [ %.19.i.i.i.i.i.i, %4443 ], [ %4438, %.noexc4557 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4435, ptr %3, align 8
   %4447 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
           to label %.noexc4681 unwind label %.loopexit.split-lp4961.loopexit
@@ -11817,7 +11817,7 @@ _ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4p
 
 .noexc4558:                                       ; preds = %4467, %.thread.i
   %.sroa.0.010.i = phi ptr [ %4447, %.thread.i ], [ %4452, %4467 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNK4pkpy7StrName2svEv.exit.i
 
 _ZNK4pkpy7StrName2svEv.exit.i:                    ; preds = %.noexc4558, %4443
@@ -11844,8 +11844,8 @@ _ZNK4pkpy7StrName2svEv.exit.i:                    ; preds = %.noexc4558, %4443
 
 4474:                                             ; preds = %.noexc4559
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 8, !noalias !31
   store i32 64, ptr %141, align 4, !noalias !31
   %4475 = call noundef ptr @_ZN4pkpy12pool64_allocEm(i64 noundef 64) #23, !noalias !31
@@ -11886,7 +11886,7 @@ _ZNK4pkpy7StrName2svEv.exit.i:                    ; preds = %.noexc4558, %4443
   br label %.body4565
 
 4487:                                             ; preds = %4482, %4480
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %4488 = invoke i16 @_ZN4pkpy7StrName3getESt17basic_string_viewIcSt11char_traitsIcEE(i64 11, ptr nonnull @.str.41)
           to label %.noexc4567 unwind label %4489
 
@@ -12029,7 +12029,7 @@ _ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4p
 
 .critedge.i.i:                                    ; preds = %4522, %_ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4pairIKtS5_EEE11lower_boundERS9_.exit.i.i, %.noexc4578
   %.08.lcssa.i.i.i10.i.i = phi ptr [ %.19.i.i.i.i.i, %_ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4pairIKtS5_EEE11lower_boundERS9_.exit.i.i ], [ %.19.i.i.i.i.i, %4522 ], [ %4515, %.noexc4578 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %4512, ptr %2, align 8
   %4526 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
           to label %.noexc4691 unwind label %4508
@@ -12088,7 +12088,7 @@ _ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4p
 
 .noexc4579:                                       ; preds = %4547, %.thread.i4689
   %.sroa.0.010.i4690 = phi ptr [ %4526, %.thread.i4689 ], [ %4532, %4547 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %4548
 
 4548:                                             ; preds = %.noexc4579, %4522
@@ -13069,7 +13069,7 @@ _ZNSt6vectorIN4pkpy7StrNameESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vect
   %4865 = getelementptr inbounds i8, ptr %4864, i64 -8
   %4866 = load ptr, ptr %4865, align 8
   %.sroa.042.0.copyload = load i16, ptr @_ZN4pkpy9__enter__E, align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %4866, ptr %10, align 8
   %4867 = invoke noundef ptr @_ZN4pkpy2VM18get_unbound_methodEPNS_8PyObjectENS_7StrNameEPS2_bb(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %4866, i16 %.sroa.042.0.copyload, ptr noundef nonnull %10, i1 noundef zeroext true, i1 noundef zeroext false)
           to label %.noexc4616 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
@@ -13088,7 +13088,7 @@ _ZNSt6vectorIN4pkpy7StrNameESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vect
           to label %4874 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
 4874:                                             ; preds = %.noexc4616
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %4875 = load ptr, ptr %131, align 8
   %4876 = getelementptr inbounds nuw i8, ptr %4875, i64 8
   store ptr %4876, ptr %131, align 8
@@ -13124,7 +13124,7 @@ _ZNSt6vectorIN4pkpy7StrNameESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vect
   %4885 = getelementptr inbounds i8, ptr %4884, i64 -8
   %4886 = load ptr, ptr %4885, align 8
   %.sroa.040.0.copyload = load i16, ptr @_ZN4pkpy8__exit__E, align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %4886, ptr %9, align 8
   %4887 = invoke noundef ptr @_ZN4pkpy2VM18get_unbound_methodEPNS_8PyObjectENS_7StrNameEPS2_bb(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %4886, i16 %.sroa.040.0.copyload, ptr noundef nonnull %9, i1 noundef zeroext true, i1 noundef zeroext false)
           to label %.noexc4619 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
@@ -13143,7 +13143,7 @@ _ZNSt6vectorIN4pkpy7StrNameESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vect
           to label %4894 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
 4894:                                             ; preds = %.noexc4619
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %4895 = load ptr, ptr %131, align 8
   %4896 = getelementptr inbounds i8, ptr %4895, i64 -8
   store ptr %4896, ptr %131, align 8
@@ -13649,7 +13649,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i4636: ; preds = %5005
 
 _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %5075
   %5079 = add nsw i64 %5078, 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %5079, ptr %8, align 8
   %or.cond.i4641 = icmp ult i64 %5079, 1152921504606846976
   br i1 %or.cond.i4641, label %5080, label %5084
@@ -13667,7 +13667,7 @@ _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %5075
 
 5087:                                             ; preds = %5080, %5084
   %.0.i4642 = phi ptr [ %5083, %5080 ], [ %5086, %5084 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store ptr %.0.i4642, ptr %5068, align 8
   %5088 = load i32, ptr %206, align 4
   %5089 = add nsw i32 %5088, 1
@@ -13723,7 +13723,7 @@ _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %5075
 
 _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4646: ; preds = %5104
   %5108 = add nsw i64 %5107, -1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %5108, ptr %7, align 8
   %or.cond.i4647 = icmp ult i64 %5108, 1152921504606846976
   br i1 %or.cond.i4647, label %5109, label %5113
@@ -13741,7 +13741,7 @@ _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4646: ; preds = %5104
 
 5116:                                             ; preds = %5109, %5113
   %.0.i4648 = phi ptr [ %5112, %5109 ], [ %5115, %5113 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %.0.i4648, ptr %5097, align 8
   %5117 = load i32, ptr %206, align 4
   %5118 = add nsw i32 %5117, 1
@@ -13863,7 +13863,7 @@ _ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit
 
 _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4659: ; preds = %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit.thread
   %5174 = add nsw i64 %5173, 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %5174, ptr %6, align 8
   %or.cond.i4660 = icmp ult i64 %5174, 1152921504606846976
   br i1 %or.cond.i4660, label %5175, label %5179
@@ -13881,7 +13881,7 @@ _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4659: ; preds = %_ZN4pkpy12Name
 
 5182:                                             ; preds = %5175, %5179
   %.0.i4661 = phi ptr [ %5178, %5175 ], [ %5181, %5179 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %.0.i4661, ptr %5170, align 8
   %5183 = load i32, ptr %206, align 4
   %5184 = add nsw i32 %5183, 1
@@ -14003,7 +14003,7 @@ _ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit
 
 _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4674: ; preds = %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit4672.thread
   %5240 = add nsw i64 %5239, -1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %5240, ptr %5, align 8
   %or.cond.i4675 = icmp ult i64 %5240, 1152921504606846976
   br i1 %or.cond.i4675, label %5241, label %5245
@@ -14021,7 +14021,7 @@ _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4674: ; preds = %_ZN4pkpy12Name
 
 5248:                                             ; preds = %5241, %5245
   %.0.i4676 = phi ptr [ %5244, %5241 ], [ %5247, %5245 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %.0.i4676, ptr %5236, align 8
   %5249 = load i32, ptr %206, align 4
   %5250 = add nsw i32 %5249, 1
@@ -14792,7 +14792,7 @@ define linkonce_odr void @_ZN4pkpy2VM17UnboundLocalErrorENS_7StrNameE(ptr nounde
           to label %9 unwind label %27
 
 9:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 8, !noalias !55
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 64, ptr %10, align 4, !noalias !55
@@ -14833,7 +14833,7 @@ define linkonce_odr void @_ZN4pkpy2VM17UnboundLocalErrorENS_7StrNameE(ptr nounde
   br label %.body
 
 25:                                               ; preds = %20, %18
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   invoke void @_ZN4pkpy2VM15__builtin_errorENS_7StrNameERKNS_3StrE(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 %8, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %26 unwind label %29
 
@@ -14883,7 +14883,7 @@ define linkonce_odr void @_ZN4pkpy2VM9NameErrorENS_7StrNameE(ptr noundef nonnull
           to label %9 unwind label %27
 
 9:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 8, !noalias !58
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 64, ptr %10, align 4, !noalias !58
@@ -14924,7 +14924,7 @@ define linkonce_odr void @_ZN4pkpy2VM9NameErrorENS_7StrNameE(ptr noundef nonnull
   br label %.body
 
 25:                                               ; preds = %20, %18
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   invoke void @_ZN4pkpy2VM15__builtin_errorENS_7StrNameERKNS_3StrE(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 %8, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %26 unwind label %29
 
@@ -15277,11 +15277,11 @@ define linkonce_odr noundef zeroext i1 @_ZN4pkpy12NameDictImplIPNS_8PyObjectEE3d
 50:                                               ; preds = %.lr.ph35.i
   %51 = zext i16 %.01833.i to i64
   %52 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %48, i64 %51
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %52, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %47, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %53 = add i16 %.01734.i, 1
   %54 = load i16, ptr %19, align 2
   %55 = and i16 %54, %53
@@ -15394,8 +15394,8 @@ define linkonce_odr void @_ZNK4pkpy7StrName6escapeEv(ptr dead_on_unwind noalias 
   %4 = alloca %"class.std::tuple.128", align 1
   %5 = alloca %"struct.pkpy::Str", align 8
   %6 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4pkpy7StrName11_r_internedB5cxx11Ev()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -15438,8 +15438,8 @@ _ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4p
 _ZNK4pkpy7StrName2svEv.exit:                      ; preds = %16, %.critedge.i.i
   %.sroa.05.0.i.i = phi ptr [ %20, %.critedge.i.i ], [ %.19.i.i.i.i.i, %16 ]
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i.i, i64 40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #23
   %23 = extractvalue { i64, ptr } %22, 0
   %24 = extractvalue { i64, ptr } %22, 1
@@ -17937,7 +17937,7 @@ declare void @_ZNK4pkpy4Dict8_gc_markEv(ptr noundef nonnull align 8 dereferencea
 define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5SliceEJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %0, i16 %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.pkpy::Slice", align 8
   %5 = tail call noundef ptr @_ZN4pkpy12pool64_allocEm(i64 noundef 48) #23
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 1, ptr %6, align 8
@@ -17950,7 +17950,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5SliceEJS2_EEEPN
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4pkpy3Py_INS_5SliceEEE, i64 16), ptr %5, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
@@ -19656,10 +19656,10 @@ declare i64 @llvm.umin.i64(i64, i64) #19
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #19

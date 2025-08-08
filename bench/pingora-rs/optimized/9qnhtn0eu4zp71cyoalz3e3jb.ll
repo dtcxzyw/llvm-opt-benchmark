@@ -14,8 +14,8 @@ define hidden void @_ZN20pingora_header_serde11thread_zstd16CompressionInner18co
   %9 = alloca [16 x i8], align 8
   %10 = alloca [16 x i8], align 8
   %11 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %12 = tail call noundef align 8 ptr @"_ZN12thread_local20ThreadLocal$LT$T$GT$10get_or_try17hc6aaf83d4b99f5c8E"(ptr noundef nonnull align 8 %1)
   %13 = icmp ne ptr %12, null
   tail call void @llvm.assume(i1 %13)
@@ -34,13 +34,13 @@ _ZN20pingora_header_serde11thread_zstd16CompressionInner15get_com_context17h4528
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %12, ptr %18, align 8
   store ptr %17, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %2, ptr %9, align 8
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %3, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %5, ptr %8, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %11, ptr %7, align 8
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %9, ptr %20, align 8
@@ -58,10 +58,10 @@ _ZN20pingora_header_serde11thread_zstd16CompressionInner15get_com_context17h4528
 25:                                               ; preds = %_ZN20pingora_header_serde11thread_zstd16CompressionInner15get_com_context17h4528ad91ba79e2a7E.exit
   %26 = extractvalue { i64, i64 } %22, 0
   %27 = extractvalue { i64, i64 } %22, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %28 = trunc nuw i64 %26 to i1
   br i1 %28, label %29, label %31
 
@@ -77,7 +77,7 @@ _ZN20pingora_header_serde11thread_zstd16CompressionInner15get_com_context17h4528
 
 33:                                               ; preds = %34, %31
   call void @"_ZN4core3ptr62drop_in_place$LT$core..cell..RefMut$LT$zstd_safe..CCtx$GT$$GT$17h853faf9b93b7c575E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 34:                                               ; preds = %29
@@ -103,8 +103,8 @@ define hidden void @_ZN20pingora_header_serde11thread_zstd16CompressionInner20de
   %6 = alloca [16 x i8], align 8
   %7 = alloca [16 x i8], align 8
   %8 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 512
   %10 = tail call noundef align 8 ptr @"_ZN12thread_local20ThreadLocal$LT$T$GT$10get_or_try17h5715fe1775e5109dE"(ptr noundef nonnull align 8 %9)
   %11 = icmp ne ptr %10, null
@@ -124,7 +124,7 @@ _ZN20pingora_header_serde11thread_zstd16CompressionInner14get_de_context17hbc9e8
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %10, ptr %16, align 8
   store ptr %15, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %3, ptr %17, align 8
@@ -140,8 +140,8 @@ _ZN20pingora_header_serde11thread_zstd16CompressionInner14get_de_context17hbc9e8
 21:                                               ; preds = %_ZN20pingora_header_serde11thread_zstd16CompressionInner14get_de_context17hbc9e8c144921272bE.exit
   %22 = extractvalue { i64, i64 } %18, 0
   %23 = extractvalue { i64, i64 } %18, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %24 = trunc nuw i64 %22 to i1
   br i1 %24, label %25, label %27
 
@@ -157,7 +157,7 @@ _ZN20pingora_header_serde11thread_zstd16CompressionInner14get_de_context17hbc9e8
 
 29:                                               ; preds = %30, %27
   call void @"_ZN4core3ptr62drop_in_place$LT$core..cell..RefMut$LT$zstd_safe..DCtx$GT$$GT$17h439763bc99556d44E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 30:                                               ; preds = %25
@@ -185,8 +185,8 @@ define hidden void @_ZN20pingora_header_serde11thread_zstd16CompressionInner29co
   %9 = alloca [16 x i8], align 8
   %10 = alloca [16 x i8], align 8
   %11 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %12 = tail call noundef align 8 ptr @"_ZN12thread_local20ThreadLocal$LT$T$GT$10get_or_try17hc6aaf83d4b99f5c8E"(ptr noundef nonnull align 8 %1)
   %13 = icmp ne ptr %12, null
   tail call void @llvm.assume(i1 %13)
@@ -205,13 +205,13 @@ _ZN20pingora_header_serde11thread_zstd16CompressionInner15get_com_context17h4528
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %12, ptr %18, align 8
   store ptr %17, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %2, ptr %9, align 8
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %3, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %5, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %11, ptr %7, align 8
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %9, ptr %20, align 8
@@ -229,10 +229,10 @@ _ZN20pingora_header_serde11thread_zstd16CompressionInner15get_com_context17h4528
 25:                                               ; preds = %_ZN20pingora_header_serde11thread_zstd16CompressionInner15get_com_context17h4528ad91ba79e2a7E.exit
   %26 = extractvalue { i64, i64 } %22, 0
   %27 = extractvalue { i64, i64 } %22, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %28 = trunc nuw i64 %26 to i1
   br i1 %28, label %29, label %31
 
@@ -248,7 +248,7 @@ _ZN20pingora_header_serde11thread_zstd16CompressionInner15get_com_context17h4528
 
 33:                                               ; preds = %34, %31
   call void @"_ZN4core3ptr62drop_in_place$LT$core..cell..RefMut$LT$zstd_safe..CCtx$GT$$GT$17h853faf9b93b7c575E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 34:                                               ; preds = %29
@@ -276,8 +276,8 @@ define hidden void @_ZN20pingora_header_serde11thread_zstd16CompressionInner31de
   %9 = alloca [16 x i8], align 8
   %10 = alloca [16 x i8], align 8
   %11 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 512
   %13 = tail call noundef align 8 ptr @"_ZN12thread_local20ThreadLocal$LT$T$GT$10get_or_try17h5715fe1775e5109dE"(ptr noundef nonnull align 8 %12)
   %14 = icmp ne ptr %13, null
@@ -297,13 +297,13 @@ _ZN20pingora_header_serde11thread_zstd16CompressionInner14get_de_context17hbc9e8
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %13, ptr %19, align 8
   store ptr %18, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %2, ptr %9, align 8
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %3, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %5, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %11, ptr %7, align 8
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %9, ptr %21, align 8
@@ -321,10 +321,10 @@ _ZN20pingora_header_serde11thread_zstd16CompressionInner14get_de_context17hbc9e8
 26:                                               ; preds = %_ZN20pingora_header_serde11thread_zstd16CompressionInner14get_de_context17hbc9e8c144921272bE.exit
   %27 = extractvalue { i64, i64 } %23, 0
   %28 = extractvalue { i64, i64 } %23, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %29 = trunc nuw i64 %27 to i1
   br i1 %29, label %30, label %32
 
@@ -340,7 +340,7 @@ _ZN20pingora_header_serde11thread_zstd16CompressionInner14get_de_context17hbc9e8
 
 34:                                               ; preds = %35, %32
   call void @"_ZN4core3ptr62drop_in_place$LT$core..cell..RefMut$LT$zstd_safe..DCtx$GT$$GT$17h439763bc99556d44E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 35:                                               ; preds = %30
@@ -401,10 +401,10 @@ declare hidden { i64, i64 } @_ZN9zstd_safe8WriteBuf10write_from17hd8ec6743499559
 declare hidden { i64, i64 } @_ZN9zstd_safe8WriteBuf10write_from17ha03adc6e35aa9988E(ptr noalias noundef align 8 dereferenceable(24), ptr noalias noundef align 8 captures(none) dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

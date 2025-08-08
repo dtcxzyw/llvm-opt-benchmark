@@ -2563,8 +2563,8 @@ define hidden void @camelsrt_call_matching(ptr noundef %0, ptr noundef %1, ptr n
   br label %101
 
 19:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %20 = getelementptr i8, ptr %3, i64 18
   store i8 1, ptr %20, align 1
   %21 = load i32, ptr %3, align 8
@@ -2598,8 +2598,8 @@ define hidden void @camelsrt_call_matching(ptr noundef %0, ptr noundef %1, ptr n
   br label %camelsrt_close_call_matching.exit
 
 camelsrt_close_call_matching.exit:                ; preds = %19, %24, %34
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %38 = load ptr, ptr %37, align 8
   call void @tcapsrt_close(ptr noundef %38, ptr noundef %1)
@@ -2633,8 +2633,8 @@ camelsrt_close_call_matching.exit:                ; preds = %19, %24, %34
 
 45:                                               ; preds = %4
   tail call fastcc void @camelsrt_report_call_matching(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %46 = getelementptr i8, ptr %3, i64 18
   store i8 1, ptr %46, align 1
   %47 = load i32, ptr %3, align 8
@@ -2668,13 +2668,13 @@ camelsrt_close_call_matching.exit:                ; preds = %19, %24, %34
   br label %camelsrt_close_call_matching.exit70
 
 camelsrt_close_call_matching.exit70:              ; preds = %45, %50, %60
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %101
 
 63:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %64 = getelementptr i8, ptr %3, i64 18
   store i8 1, ptr %64, align 1
   %65 = load i32, ptr %3, align 8
@@ -2708,16 +2708,16 @@ camelsrt_close_call_matching.exit70:              ; preds = %45, %50, %60
   br label %camelsrt_close_call_matching.exit72
 
 camelsrt_close_call_matching.exit72:              ; preds = %63, %68, %78
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %82 = load ptr, ptr %81, align 8
   call void @tcapsrt_close(ptr noundef %82, ptr noundef %1)
   br label %101
 
 83:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %84 = getelementptr i8, ptr %3, i64 18
   store i8 1, ptr %84, align 1
   %85 = load i32, ptr %3, align 8
@@ -2751,8 +2751,8 @@ camelsrt_close_call_matching.exit72:              ; preds = %63, %68, %78
   br label %camelsrt_close_call_matching.exit74
 
 camelsrt_close_call_matching.exit74:              ; preds = %83, %88, %98
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %101
 
 101:                                              ; preds = %camelsrt_close_call_matching.exit74, %camelsrt_close_call_matching.exit72, %camelsrt_close_call_matching.exit70, %44, %43, %42, %41, %40, %39, %camelsrt_close_call_matching.exit, %18, %17, %16, %15, %4
@@ -2762,7 +2762,7 @@ camelsrt_close_call_matching.exit74:              ; preds = %83, %88, %98
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @camelsrt_begin_call_matching(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((18, 19)) %1) unnamed_addr #0 {
   %3 = alloca %struct.camelsrt_call_info_key_t, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr i8, ptr %1, i64 18
   store i8 1, ptr %4, align 1
   %5 = load i32, ptr %1, align 8
@@ -2774,13 +2774,13 @@ define internal fastcc void @camelsrt_begin_call_matching(ptr noundef readonly c
 
 8:                                                ; preds = %2
   %9 = call ptr @wmem_file_scope()
-  %10 = call noalias dereferenceable_or_null(4) ptr @wmem_alloc(ptr noundef %9, i64 noundef 4) #13
+  %10 = call noalias dereferenceable_or_null(4) ptr @wmem_alloc(ptr noundef %9, i64 noundef 4) #12
   %11 = load i32, ptr %3, align 4
   store i32 %11, ptr %10, align 4
   %12 = call ptr @wmem_file_scope()
-  %13 = call noalias dereferenceable_or_null(336) ptr @wmem_alloc(ptr noundef %12, i64 noundef 336) #13
+  %13 = call noalias dereferenceable_or_null(336) ptr @wmem_alloc(ptr noundef %12, i64 noundef 336) #12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(332) %14, i8 noundef 0, i64 noundef 332, i1 noundef false) #12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(332) %14, i8 noundef 0, i64 noundef 332, i1 noundef false) #13
   %15 = load i32, ptr @camelsrt_global_SessionId, align 4
   %16 = add i32 %15, 1
   store i32 %16, ptr @camelsrt_global_SessionId, align 4
@@ -2807,14 +2807,14 @@ define internal fastcc void @camelsrt_begin_call_matching(ptr noundef readonly c
   br label %30
 
 30:                                               ; preds = %2, %8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @camelsrt_request_call_matching(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(none) %3, i32 noundef range(i32 2, 10) %4) unnamed_addr #0 {
   %6 = alloca %struct.camelsrt_call_info_key_t, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr %3, align 8
   store i32 %7, ptr %6, align 4
   %8 = load ptr, ptr @srt_calls, align 8
@@ -3048,7 +3048,7 @@ proto_item_set_hidden.exit:                       ; preds = %95, %92, %89, %82, 
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %127, %124, %119, %proto_item_set_hidden.exit, %110, %113, %115, %5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -3059,8 +3059,8 @@ declare void @tcapsrt_close(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal fastcc void @camelsrt_report_call_matching(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, i32 noundef range(i32 2, 10) %4) unnamed_addr #0 {
   %6 = alloca %struct.camelsrt_call_info_key_t, align 4
   %7 = alloca %struct.nstime_t, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr %3, align 8
   store i32 %8, ptr %6, align 4
   %9 = load ptr, ptr @srt_calls, align 8
@@ -3330,8 +3330,8 @@ proto_item_set_generated.exit.sink.split.i:       ; preds = %135, %129, %123, %1
   br label %camelsrt_display_DeltaTime.exit
 
 camelsrt_display_DeltaTime.exit:                  ; preds = %44, %proto_item_set_generated.exit.sink.split.i, %135, %132, %129, %126, %123, %120, %117, %114, %111, %108, %105, %102, %proto_item_set_generated.exit, %proto_item_set_hidden.exit, %69, %71, %5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -3346,17 +3346,11 @@ define hidden noundef ptr @camelsrt_razinfo() local_unnamed_addr #2 {
   %.idx = mul nsw i64 %4, 432
   %5 = getelementptr [10 x %struct.camelsrt_info_t], ptr @camelsrt_global_info, i64 0, i64 %4
   %6 = tail call i64 @llvm.usub.sat.i64(i64 4320, i64 %.idx)
-  %7 = tail call ptr @__memset_chk(ptr noundef %5, i32 noundef 0, i64 noundef 432, i64 noundef %6) #12
+  %7 = tail call ptr @__memset_chk(ptr noundef %5, i32 noundef 0, i64 noundef 432, i64 noundef %6) #13
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 -1, ptr %8, align 16
   ret ptr %5
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_camel() #0 {
@@ -3442,23 +3436,23 @@ declare void @register_ber_oid_dissector(ptr noundef, ptr noundef, i32 noundef, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_CAP_GPRS_ReferenceNumber_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_camel_CAP_GPRS_ReferenceNumber_PDU, align 4
   %7 = load i32, ptr @ett_camel_CAP_GPRS_ReferenceNumber, align 4
   %8 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @CAP_GPRS_ReferenceNumber_sequence, i32 noundef %6, i32 noundef %7)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %8
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_CAP_U_ABORT_REASON_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_camel_CAP_U_ABORT_REASON_PDU, align 4
   %7 = call i32 @dissect_ber_integer(i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %6, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %7
 }
 
@@ -3560,7 +3554,7 @@ define hidden void @proto_register_camel() local_unnamed_addr #0 {
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @camel_stat_init(ptr noundef %0) #0 {
   %2 = alloca [2 x %struct._stat_tap_table_item_type], align 16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @stat_tap_find_table(ptr noundef %0, ptr noundef nonnull @.str.1467)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %4
@@ -3578,7 +3572,7 @@ define internal void @camel_stat_init(ptr noundef %0) #0 {
 8:                                                ; preds = %1
   %9 = tail call ptr @stat_tap_init_table(ptr noundef nonnull @.str.1467, i32 noundef 2, i32 noundef 0, ptr noundef null)
   tail call void @stat_tap_add_table(ptr noundef %0, ptr noundef %9)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %2, i8 noundef 0, i64 noundef 48, i1 noundef false) #12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %2, i8 noundef 0, i64 noundef 48, i1 noundef false) #13
   store i32 3, ptr %2, align 16
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 1, ptr %10, align 8
@@ -3608,7 +3602,7 @@ define internal void @camel_stat_init(ptr noundef %0) #0 {
   br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !8
 
 .loopexit:                                        ; preds = %18, %4, %7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -3756,7 +3750,7 @@ declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr nound
 declare void @register_init_routine(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal void @camelsrt_init_routine() #4 {
+define internal void @camelsrt_init_routine() #3 {
   store i32 1, ptr @camelsrt_global_SessionId, align 4
   %1 = load i8, ptr @gcamel_PersistentSRT, align 1, !range !6, !noundef !7
   %2 = trunc nuw i8 %1 to i1
@@ -3773,13 +3767,13 @@ declare noalias ptr @wmem_map_new_autoreset(ptr noundef, ptr noundef, ptr nounde
 declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @camelsrt_call_hash(ptr noundef readonly captures(none) %0) #5 {
+define internal i32 @camelsrt_call_hash(ptr noundef readonly captures(none) %0) #4 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @camelsrt_call_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+define internal range(i32 0, 2) i32 @camelsrt_call_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -3879,7 +3873,7 @@ define internal void @camelsrt_tcap_matching(ptr readnone captures(none) %0, ptr
   %.idx.i = mul nsw i64 %10, 432
   %11 = getelementptr [10 x %struct.camelsrt_info_t], ptr @camelsrt_global_info, i64 0, i64 %10
   %12 = tail call i64 @llvm.usub.sat.i64(i64 4320, i64 %.idx.i)
-  %13 = tail call ptr @__memset_chk(ptr noundef %11, i32 noundef 0, i64 noundef 432, i64 noundef %12) #12
+  %13 = tail call ptr @__memset_chk(ptr noundef %11, i32 noundef 0, i64 noundef 432, i64 noundef %12) #13
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i8 -1, ptr %14, align 16
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -3891,8 +3885,8 @@ define internal void @camelsrt_tcap_matching(ptr readnone captures(none) %0, ptr
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = load i32, ptr %17, align 8
   store i32 %18, ptr %11, align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %19 = getelementptr i8, ptr %11, i64 18
   store i8 1, ptr %19, align 2
   store i32 %18, ptr %5, align 4
@@ -3925,8 +3919,8 @@ define internal void @camelsrt_tcap_matching(ptr readnone captures(none) %0, ptr
   br label %camelsrt_close_call_matching.exit
 
 camelsrt_close_call_matching.exit:                ; preds = %16, %22, %32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %35 = load i32, ptr @camel_tap, align 4
   call void @tap_queue_packet(i32 noundef %35, ptr noundef %1, ptr noundef %11)
   br label %36
@@ -3936,13 +3930,13 @@ camelsrt_close_call_matching.exit:                ; preds = %16, %22, %32
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -3966,7 +3960,7 @@ declare ptr @wmem_map_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
-declare ptr @__memset_chk(ptr noundef writeonly, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
+declare ptr @__memset_chk(ptr noundef writeonly, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
 declare void @asn1_ctx_init(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
@@ -4016,7 +4010,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_camel_all(i32 noundef range(i32 1, 5) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(address_is_null) %6) unnamed_addr #0 {
   %8 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @asn1_ctx_init(ptr noundef nonnull %8, i32 noundef 0, i1 noundef zeroext true, ptr noundef %4)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -4044,7 +4038,7 @@ define internal fastcc i32 @dissect_camel_all(i32 noundef range(i32 1, 5) %0, pt
   %.idx.i = mul nsw i64 %20, 432
   %21 = getelementptr [10 x %struct.camelsrt_info_t], ptr @camelsrt_global_info, i64 0, i64 %20
   %22 = call i64 @llvm.usub.sat.i64(i64 4320, i64 %.idx.i)
-  %23 = call ptr @__memset_chk(ptr noundef %21, i32 noundef 0, i64 noundef 432, i64 noundef %22) #12
+  %23 = call ptr @__memset_chk(ptr noundef %21, i32 noundef 0, i64 noundef 432, i64 noundef %22) #13
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i8 -1, ptr %24, align 16
   store ptr %21, ptr @gp_camelsrt_info, align 8
@@ -4116,7 +4110,7 @@ dissect_camel_camelPDU.exit:                      ; preds = %16, %25, %29
 
 61:                                               ; preds = %57, %dissect_camel_camelPDU.exit
   %62 = call i32 @tvb_captured_length(ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %62
 }
 
@@ -4320,12 +4314,12 @@ define internal i32 @dissect_camel_T_argument(i1 zeroext %0, ptr noundef %1, i32
   br label %dissect_invokeData.exit
 
 46:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %22) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @asn1_ctx_init(ptr noundef nonnull %22, i32 noundef 0, i1 noundef zeroext true, ptr noundef %25)
   %47 = load i32, ptr @hf_camel_CollectInformationArg_PDU, align 4
   %48 = load i32, ptr @ett_camel_CollectInformationArg, align 4
   %49 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %22, ptr noundef %4, ptr noundef %1, i32 noundef 0, ptr noundef nonnull @CollectInformationArg_sequence, i32 noundef %47, i32 noundef %48)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %22) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %dissect_invokeData.exit
 
 50:                                               ; preds = %6
@@ -4337,12 +4331,12 @@ define internal i32 @dissect_camel_T_argument(i1 zeroext %0, ptr noundef %1, i32
   br label %dissect_invokeData.exit
 
 54:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %21) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @asn1_ctx_init(ptr noundef nonnull %21, i32 noundef 0, i1 noundef zeroext true, ptr noundef %25)
   %55 = load i32, ptr @hf_camel_ContinueWithArgumentArg_PDU, align 4
   %56 = load i32, ptr @ett_camel_ContinueWithArgumentArg, align 4
   %57 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %21, ptr noundef %4, ptr noundef %1, i32 noundef 0, ptr noundef nonnull @ContinueWithArgumentArg_sequence, i32 noundef %55, i32 noundef %56)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %21) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %dissect_invokeData.exit
 
 58:                                               ; preds = %6
@@ -4350,12 +4344,12 @@ define internal i32 @dissect_camel_T_argument(i1 zeroext %0, ptr noundef %1, i32
   br label %dissect_invokeData.exit
 
 60:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %20) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @asn1_ctx_init(ptr noundef nonnull %20, i32 noundef 0, i1 noundef zeroext true, ptr noundef %25)
   %61 = load i32, ptr @hf_camel_DisconnectLegArg_PDU, align 4
   %62 = load i32, ptr @ett_camel_DisconnectLegArg, align 4
   %63 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %20, ptr noundef %4, ptr noundef %1, i32 noundef 0, ptr noundef nonnull @DisconnectLegArg_sequence, i32 noundef %61, i32 noundef %62)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %20) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %dissect_invokeData.exit
 
 64:                                               ; preds = %6
@@ -4399,12 +4393,12 @@ define internal i32 @dissect_camel_T_argument(i1 zeroext %0, ptr noundef %1, i32
   br label %dissect_invokeData.exit
 
 84:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %19) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @asn1_ctx_init(ptr noundef nonnull %19, i32 noundef 0, i1 noundef zeroext true, ptr noundef %25)
   %85 = load i32, ptr @hf_camel_ResetTimerArg_PDU, align 4
   %86 = load i32, ptr @ett_camel_ResetTimerArg, align 4
   %87 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %19, ptr noundef %4, ptr noundef %1, i32 noundef 0, ptr noundef nonnull @ResetTimerArg_sequence, i32 noundef %85, i32 noundef %86)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %19) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %dissect_invokeData.exit
 
 88:                                               ; preds = %6
@@ -4428,46 +4422,46 @@ define internal i32 @dissect_camel_T_argument(i1 zeroext %0, ptr noundef %1, i32
   br label %dissect_invokeData.exit
 
 98:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %18) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @asn1_ctx_init(ptr noundef nonnull %18, i32 noundef 0, i1 noundef zeroext true, ptr noundef %25)
   %99 = load i32, ptr @hf_camel_ConnectGPRSArg_PDU, align 4
   %100 = load i32, ptr @ett_camel_ConnectGPRSArg, align 4
   %101 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %18, ptr noundef %4, ptr noundef %1, i32 noundef 0, ptr noundef nonnull @ConnectGPRSArg_sequence, i32 noundef %99, i32 noundef %100)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %18) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %dissect_invokeData.exit
 
 102:                                              ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %17) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @asn1_ctx_init(ptr noundef nonnull %17, i32 noundef 0, i1 noundef zeroext true, ptr noundef %25)
   %103 = load i32, ptr @hf_camel_ContinueGPRSArg_PDU, align 4
   %104 = load i32, ptr @ett_camel_ContinueGPRSArg, align 4
   %105 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %17, ptr noundef %4, ptr noundef %1, i32 noundef 0, ptr noundef nonnull @ContinueGPRSArg_sequence, i32 noundef %103, i32 noundef %104)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %17) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %dissect_invokeData.exit
 
 106:                                              ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %16) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @asn1_ctx_init(ptr noundef nonnull %16, i32 noundef 0, i1 noundef zeroext true, ptr noundef %25)
   %107 = load i32, ptr @hf_camel_EntityReleasedGPRSArg_PDU, align 4
   %108 = load i32, ptr @ett_camel_EntityReleasedGPRSArg, align 4
   %109 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %16, ptr noundef %4, ptr noundef %1, i32 noundef 0, ptr noundef nonnull @EntityReleasedGPRSArg_sequence, i32 noundef %107, i32 noundef %108)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %16) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %dissect_invokeData.exit
 
 110:                                              ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %15) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @asn1_ctx_init(ptr noundef nonnull %15, i32 noundef 0, i1 noundef zeroext true, ptr noundef %25)
   %111 = load i32, ptr @hf_camel_EventReportGPRSArg_PDU, align 4
   %112 = load i32, ptr @ett_camel_EventReportGPRSArg, align 4
   %113 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %4, ptr noundef %1, i32 noundef 0, ptr noundef nonnull @EventReportGPRSArg_sequence, i32 noundef %111, i32 noundef %112)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %15) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %dissect_invokeData.exit
 
 114:                                              ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %14) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @asn1_ctx_init(ptr noundef nonnull %14, i32 noundef 0, i1 noundef zeroext true, ptr noundef %25)
   %115 = load i32, ptr @hf_camel_FurnishChargingInformationGPRSArg_PDU, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %116 = call i32 @dissect_ber_octet_string(i1 noundef zeroext false, ptr noundef nonnull %14, ptr noundef %4, ptr noundef %1, i32 noundef 0, i32 noundef %115, ptr noundef nonnull %13)
   %117 = load ptr, ptr %13, align 8
   %.not.i.i.i.i = icmp eq ptr %117, null
@@ -4485,8 +4479,8 @@ define internal i32 @dissect_camel_T_argument(i1 zeroext %0, ptr noundef %1, i32
   br label %dissect_FurnishChargingInformationGPRSArg_PDU.exit.i
 
 dissect_FurnishChargingInformationGPRSArg_PDU.exit.i: ; preds = %118, %114
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #12
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %14) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %dissect_invokeData.exit
 
 127:                                              ; preds = %6
@@ -4510,21 +4504,21 @@ dissect_FurnishChargingInformationGPRSArg_PDU.exit.i: ; preds = %118, %114
   br label %dissect_invokeData.exit
 
 137:                                              ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %12) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @asn1_ctx_init(ptr noundef nonnull %12, i32 noundef 0, i1 noundef zeroext true, ptr noundef %25)
   %138 = load i32, ptr @hf_camel_ConnectSMSArg_PDU, align 4
   %139 = load i32, ptr @ett_camel_ConnectSMSArg, align 4
   %140 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %12, ptr noundef %4, ptr noundef %1, i32 noundef 0, ptr noundef nonnull @ConnectSMSArg_sequence, i32 noundef %138, i32 noundef %139)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %12) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %dissect_invokeData.exit
 
 141:                                              ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @asn1_ctx_init(ptr noundef nonnull %11, i32 noundef 0, i1 noundef zeroext true, ptr noundef %25)
   %142 = load i32, ptr @hf_camel_EventReportSMSArg_PDU, align 4
   %143 = load i32, ptr @ett_camel_EventReportSMSArg, align 4
   %144 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %11, ptr noundef %4, ptr noundef %1, i32 noundef 0, ptr noundef nonnull @EventReportSMSArg_sequence, i32 noundef %142, i32 noundef %143)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %dissect_invokeData.exit
 
 145:                                              ; preds = %6
@@ -4536,10 +4530,10 @@ dissect_FurnishChargingInformationGPRSArg_PDU.exit.i: ; preds = %118, %114
   br label %dissect_invokeData.exit
 
 149:                                              ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @asn1_ctx_init(ptr noundef nonnull %10, i32 noundef 0, i1 noundef zeroext true, ptr noundef %25)
   %150 = load i32, ptr @hf_camel_ReleaseSMSArg_PDU, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %151 = call i32 @dissect_ber_octet_string(i1 noundef zeroext false, ptr noundef nonnull %10, ptr noundef %4, ptr noundef %1, i32 noundef 0, i32 noundef %150, ptr noundef nonnull %9)
   %152 = load ptr, ptr %9, align 8
   %.not.i.i.i151.i = icmp eq ptr %152, null
@@ -4566,26 +4560,26 @@ dissect_FurnishChargingInformationGPRSArg_PDU.exit.i: ; preds = %118, %114
   br label %dissect_ReleaseSMSArg_PDU.exit.i
 
 dissect_ReleaseSMSArg_PDU.exit.i:                 ; preds = %164, %153, %149
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %10) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %dissect_invokeData.exit
 
 168:                                              ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @asn1_ctx_init(ptr noundef nonnull %8, i32 noundef 0, i1 noundef zeroext true, ptr noundef %25)
   %169 = load i32, ptr @hf_camel_RequestReportSMSEventArg_PDU, align 4
   %170 = load i32, ptr @ett_camel_RequestReportSMSEventArg, align 4
   %171 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %8, ptr noundef %4, ptr noundef %1, i32 noundef 0, ptr noundef nonnull @RequestReportSMSEventArg_sequence, i32 noundef %169, i32 noundef %170)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %dissect_invokeData.exit
 
 172:                                              ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @asn1_ctx_init(ptr noundef nonnull %7, i32 noundef 0, i1 noundef zeroext true, ptr noundef %25)
   %173 = load i32, ptr @hf_camel_ResetTimerSMSArg_PDU, align 4
   %174 = load i32, ptr @ett_camel_ResetTimerSMSArg, align 4
   %175 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %7, ptr noundef %4, ptr noundef %1, i32 noundef 0, ptr noundef nonnull @ResetTimerSMSArg_sequence, i32 noundef %173, i32 noundef %174)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %dissect_invokeData.exit
 
 176:                                              ; preds = %6
@@ -4704,31 +4698,31 @@ declare i32 @dissect_ber_object_identifier_str(i1 noundef zeroext, ptr noundef, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_PlayAnnouncementArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_camel_PlayAnnouncementArg_PDU, align 4
   %6 = load i32, ptr @ett_camel_PlayAnnouncementArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @PlayAnnouncementArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_PromptAndCollectUserInformationArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_camel_PromptAndCollectUserInformationArg_PDU, align 4
   %6 = load i32, ptr @ett_camel_PromptAndCollectUserInformationArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @PromptAndCollectUserInformationArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_SpecializedResourceReportArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @camel_ver, align 4
   %6 = icmp ult i32 %5, 4
@@ -4747,19 +4741,19 @@ define internal fastcc i32 @dissect_SpecializedResourceReportArg_PDU(ptr noundef
 
 dissect_camel_SpecializedResourceReportArg.exit:  ; preds = %7, %10
   %.0.i = phi i32 [ %9, %7 ], [ %13, %10 ]
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.i
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_ApplyChargingArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_camel_ApplyChargingArg_PDU, align 4
   %6 = load i32, ptr @ett_camel_ApplyChargingArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @ApplyChargingArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
@@ -4767,10 +4761,10 @@ define internal fastcc i32 @dissect_ApplyChargingArg_PDU(ptr noundef %0, ptr nou
 define internal fastcc i32 @dissect_ApplyChargingReportArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_camel_ApplyChargingReportArg_PDU, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = call i32 @dissect_ber_octet_string(i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %6, ptr noundef nonnull %4)
   %8 = load ptr, ptr %4, align 8
   %.not.i.i = icmp eq ptr %8, null
@@ -4788,123 +4782,123 @@ define internal fastcc i32 @dissect_ApplyChargingReportArg_PDU(ptr noundef %0, p
   br label %dissect_camel_ApplyChargingReportArg.exit
 
 dissect_camel_ApplyChargingReportArg.exit:        ; preds = %3, %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_AssistRequestInstructionsArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_camel_AssistRequestInstructionsArg_PDU, align 4
   %6 = load i32, ptr @ett_camel_AssistRequestInstructionsArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @AssistRequestInstructionsArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_CallGapArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_camel_CallGapArg_PDU, align 4
   %6 = load i32, ptr @ett_camel_CallGapArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @CallGapArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_CallInformationReportArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_camel_CallInformationReportArg_PDU, align 4
   %6 = load i32, ptr @ett_camel_CallInformationReportArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @CallInformationReportArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_CallInformationRequestArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_camel_CallInformationRequestArg_PDU, align 4
   %6 = load i32, ptr @ett_camel_CallInformationRequestArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @CallInformationRequestArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_CancelArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_camel_CancelArg_PDU, align 4
   %6 = load i32, ptr @ett_camel_CancelArg, align 4
   %7 = call i32 @dissect_ber_choice(ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @CancelArg_choice, i32 noundef %5, i32 noundef %6, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_ConnectArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_camel_ConnectArg_PDU, align 4
   %6 = load i32, ptr @ett_camel_ConnectArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @ConnectArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_ConnectToResourceArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_camel_ConnectToResourceArg_PDU, align 4
   %6 = load i32, ptr @ett_camel_ConnectToResourceArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @ConnectToResourceArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_DisconnectForwardConnectionWithArgumentArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_camel_DisconnectForwardConnectionWithArgumentArg_PDU, align 4
   %6 = load i32, ptr @ett_camel_DisconnectForwardConnectionWithArgumentArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @DisconnectForwardConnectionWithArgumentArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_EntityReleasedArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_camel_EntityReleasedArg_PDU, align 4
   %6 = load i32, ptr @ett_camel_EntityReleasedArg, align 4
   %7 = call i32 @dissect_ber_choice(ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @EntityReleasedArg_choice, i32 noundef %5, i32 noundef %6, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_EstablishTemporaryConnectionArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_camel_EstablishTemporaryConnectionArg_PDU, align 4
   %6 = load i32, ptr @camel_ver, align 4
@@ -4914,19 +4908,19 @@ define internal fastcc i32 @dissect_EstablishTemporaryConnectionArg_PDU(ptr noun
   %ett_camel_EstablishTemporaryConnectionArg.val.i = load i32, ptr @ett_camel_EstablishTemporaryConnectionArg, align 4
   %8 = select i1 %7, i32 %ett_camel_EstablishTemporaryConnectionArgV2.val.i, i32 %ett_camel_EstablishTemporaryConnectionArg.val.i
   %9 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %EstablishTemporaryConnectionArgV2_sequence.EstablishTemporaryConnectionArg_sequence.i, i32 noundef %5, i32 noundef %8)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_EventReportBCSMArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_camel_EventReportBCSMArg_PDU, align 4
   %6 = load i32, ptr @ett_camel_EventReportBCSMArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @EventReportBCSMArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
@@ -4934,10 +4928,10 @@ define internal fastcc i32 @dissect_EventReportBCSMArg_PDU(ptr noundef %0, ptr n
 define internal fastcc i32 @dissect_FurnishChargingInformationArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_camel_FurnishChargingInformationArg_PDU, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = call i32 @dissect_ber_octet_string(i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %6, ptr noundef nonnull %4)
   %8 = load ptr, ptr %4, align 8
   %.not.i.i = icmp eq ptr %8, null
@@ -4955,200 +4949,200 @@ define internal fastcc i32 @dissect_FurnishChargingInformationArg_PDU(ptr nounde
   br label %dissect_camel_FurnishChargingInformationArg.exit
 
 dissect_camel_FurnishChargingInformationArg.exit: ; preds = %3, %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_InitialDPArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_camel_InitialDPArg_PDU, align 4
   %6 = load i32, ptr @ett_camel_InitialDPArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @InitialDPArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_InitiateCallAttemptArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_camel_InitiateCallAttemptArg_PDU, align 4
   %6 = load i32, ptr @ett_camel_InitiateCallAttemptArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @InitiateCallAttemptArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_MoveLegArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_camel_MoveLegArg_PDU, align 4
   %6 = load i32, ptr @ett_camel_MoveLegArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @MoveLegArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_PlayToneArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_camel_PlayToneArg_PDU, align 4
   %6 = load i32, ptr @ett_camel_PlayToneArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @PlayToneArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_ReleaseCallArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_camel_ReleaseCallArg_PDU, align 4
   %6 = load i32, ptr @ett_camel_ReleaseCallArg, align 4
   %7 = call i32 @dissect_ber_choice(ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @ReleaseCallArg_choice, i32 noundef %5, i32 noundef %6, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_RequestReportBCSMEventArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_camel_RequestReportBCSMEventArg_PDU, align 4
   %6 = load i32, ptr @ett_camel_RequestReportBCSMEventArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @RequestReportBCSMEventArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_SendChargingInformationArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_camel_SendChargingInformationArg_PDU, align 4
   %6 = load i32, ptr @ett_camel_SendChargingInformationArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @SendChargingInformationArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_SplitLegArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_camel_SplitLegArg_PDU, align 4
   %6 = load i32, ptr @ett_camel_SplitLegArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @SplitLegArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_ApplyChargingGPRSArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_camel_ApplyChargingGPRSArg_PDU, align 4
   %6 = load i32, ptr @ett_camel_ApplyChargingGPRSArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @ApplyChargingGPRSArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_ApplyChargingReportGPRSArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_camel_ApplyChargingReportGPRSArg_PDU, align 4
   %6 = load i32, ptr @ett_camel_ApplyChargingReportGPRSArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @ApplyChargingReportGPRSArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_CancelGPRSArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_camel_CancelGPRSArg_PDU, align 4
   %6 = load i32, ptr @ett_camel_CancelGPRSArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @CancelGPRSArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_InitialDPGPRSArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_camel_InitialDPGPRSArg_PDU, align 4
   %6 = load i32, ptr @ett_camel_InitialDPGPRSArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @InitialDPGPRSArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_ReleaseGPRSArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_camel_ReleaseGPRSArg_PDU, align 4
   %6 = load i32, ptr @ett_camel_ReleaseGPRSArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @ReleaseGPRSArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_RequestReportGPRSEventArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_camel_RequestReportGPRSEventArg_PDU, align 4
   %6 = load i32, ptr @ett_camel_RequestReportGPRSEventArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @RequestReportGPRSEventArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_ResetTimerGPRSArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_camel_ResetTimerGPRSArg_PDU, align 4
   %6 = load i32, ptr @ett_camel_ResetTimerGPRSArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @ResetTimerGPRSArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_SendChargingInformationGPRSArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_camel_SendChargingInformationGPRSArg_PDU, align 4
   %6 = load i32, ptr @ett_camel_SendChargingInformationGPRSArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @SendChargingInformationGPRSArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
@@ -5156,10 +5150,10 @@ define internal fastcc i32 @dissect_SendChargingInformationGPRSArg_PDU(ptr nound
 define internal fastcc i32 @dissect_FurnishChargingInformationSMSArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_camel_FurnishChargingInformationSMSArg_PDU, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = call i32 @dissect_ber_octet_string(i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %6, ptr noundef nonnull %4)
   %8 = load ptr, ptr %4, align 8
   %.not.i.i = icmp eq ptr %8, null
@@ -5177,20 +5171,20 @@ define internal fastcc i32 @dissect_FurnishChargingInformationSMSArg_PDU(ptr nou
   br label %dissect_camel_FurnishChargingInformationSMSArg.exit
 
 dissect_camel_FurnishChargingInformationSMSArg.exit: ; preds = %3, %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_InitialDPSMSArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_camel_InitialDPSMSArg_PDU, align 4
   %6 = load i32, ptr @ett_camel_InitialDPSMSArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @InitialDPSMSArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
@@ -5315,7 +5309,7 @@ define internal i32 @dissect_camel_VariablePart(i1 zeroext %0, ptr noundef %1, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_camel_Digits(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
@@ -5411,7 +5405,7 @@ define internal i32 @dissect_camel_Digits(i1 noundef zeroext %0, ptr noundef %1,
   br label %62
 
 62:                                               ; preds = %54, %57, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -5504,7 +5498,7 @@ define internal i32 @dissect_camel_ErrorTreatment(i1 noundef zeroext %0, ptr nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_camel_AChBillingChargingCharacteristics(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
@@ -5534,7 +5528,7 @@ define internal i32 @dissect_camel_AChBillingChargingCharacteristics(i1 noundef 
 
 25:                                               ; preds = %6, %22, %19
   %.0 = phi i32 [ %21, %19 ], [ %8, %22 ], [ %8, %6 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -5790,8 +5784,8 @@ declare i32 @dissect_inap_Interval(i1 noundef zeroext, ptr noundef, i32 noundef,
 define internal i32 @dissect_camel_Cause(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %10, null
@@ -5809,8 +5803,8 @@ define internal i32 @dissect_camel_Cause(i1 noundef zeroext %0, ptr noundef %1, 
   br label %19
 
 19:                                               ; preds = %6, %11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -5854,8 +5848,8 @@ define internal i32 @dissect_camel_INTEGER_0_255(i1 noundef zeroext %0, ptr noun
 define internal noundef i32 @dissect_camel_DateAndTime(i1 zeroext %0, ptr noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca [20 x i8], align 16
   %8 = alloca [20 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 7
   %.sink.sroa.gep34 = getelementptr inbounds nuw i8, ptr %8, i64 5
   br label %9
@@ -5979,8 +5973,8 @@ define internal noundef i32 @dissect_camel_DateAndTime(i1 zeroext %0, ptr nounde
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 19
   store i8 0, ptr %85, align 1
   %86 = call ptr @proto_tree_add_string(ptr noundef %4, i32 noundef %5, ptr noundef %1, i32 noundef 0, i32 noundef 7, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 7
 }
 
@@ -6023,7 +6017,7 @@ define internal i32 @dissect_camel_AlertingPattern(i1 noundef zeroext %0, ptr no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_camel_OriginalCalledPartyID(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
@@ -6041,7 +6035,7 @@ define internal i32 @dissect_camel_OriginalCalledPartyID(i1 noundef zeroext %0, 
   br label %18
 
 18:                                               ; preds = %6, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -6057,7 +6051,7 @@ declare i32 @dissect_inap_CallingPartysCategory(i1 noundef zeroext, ptr noundef,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_camel_RedirectingPartyID(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
@@ -6075,7 +6069,7 @@ define internal i32 @dissect_camel_RedirectingPartyID(i1 noundef zeroext %0, ptr
   br label %18
 
 18:                                               ; preds = %6, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -6099,7 +6093,7 @@ define internal i32 @dissect_camel_ServiceInteractionIndicatorsTwo(i1 noundef ze
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_camel_ChargeNumber(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %9, null
@@ -6117,7 +6111,7 @@ define internal i32 @dissect_camel_ChargeNumber(i1 noundef zeroext %0, ptr nound
   br label %dissect_camel_LocationNumber.exit
 
 dissect_camel_LocationNumber.exit:                ; preds = %6, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -6142,7 +6136,7 @@ define internal i32 @dissect_camel_NAOliInfo(i1 noundef zeroext %0, ptr noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_camel_CalledPartyNumber(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
@@ -6160,7 +6154,7 @@ define internal i32 @dissect_camel_CalledPartyNumber(i1 noundef zeroext %0, ptr 
   br label %18
 
 18:                                               ; preds = %6, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -6179,7 +6173,7 @@ declare i32 @dissect_ber_set_of(i1 noundef zeroext, ptr noundef, ptr noundef, pt
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_camel_GenericNumber(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
@@ -6192,7 +6186,7 @@ define internal i32 @dissect_camel_GenericNumber(i1 noundef zeroext %0, ptr noun
   br label %13
 
 13:                                               ; preds = %6, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -6228,7 +6222,7 @@ define internal i32 @dissect_camel_OCTET_STRING_SIZE_1(i1 noundef zeroext %0, pt
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_camel_LocationNumber(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
@@ -6246,7 +6240,7 @@ define internal i32 @dissect_camel_LocationNumber(i1 noundef zeroext %0, ptr nou
   br label %18
 
 18:                                               ; preds = %6, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -6263,7 +6257,7 @@ define internal i32 @dissect_camel_T_resourceAddress(i1 zeroext %0, ptr noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_camel_IPRoutingAddress(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %9, null
@@ -6281,7 +6275,7 @@ define internal i32 @dissect_camel_IPRoutingAddress(i1 noundef zeroext %0, ptr n
   br label %dissect_camel_CalledPartyNumber.exit
 
 dissect_camel_CalledPartyNumber.exit:             ; preds = %6, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -6351,7 +6345,7 @@ define internal i32 @dissect_camel_NACarrierSelectionInfo(i1 noundef zeroext %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_camel_CallingPartyNumber(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
@@ -6369,7 +6363,7 @@ define internal i32 @dissect_camel_CallingPartyNumber(i1 noundef zeroext %0, ptr
   br label %18
 
 18:                                               ; preds = %6, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -6656,7 +6650,7 @@ declare i32 @dissect_gsm_map_ISDN_AddressString(i1 noundef zeroext, ptr noundef,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_camel_CalledPartyBCDNumber(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
@@ -6675,7 +6669,7 @@ define internal i32 @dissect_camel_CalledPartyBCDNumber(i1 noundef zeroext %0, p
   br label %20
 
 20:                                               ; preds = %6, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -6689,14 +6683,14 @@ define internal i32 @dissect_camel_TimeAndTimezone(i1 noundef zeroext %0, ptr no
   %12 = alloca [3 x i8], align 1
   %13 = alloca [3 x i8], align 1
   %14 = alloca [3 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %10) #12
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %11) #12
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %12) #12
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %13) #12
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %14) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %15 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %16 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %16, null
@@ -6782,14 +6776,14 @@ define internal i32 @dissect_camel_TimeAndTimezone(i1 noundef zeroext %0, ptr no
   br label %79
 
 79:                                               ; preds = %6, %62, %59, %20
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %14) #12
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %13) #12
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %12) #12
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %11) #12
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %15
 }
 
@@ -6809,7 +6803,7 @@ define internal i32 @dissect_camel_InitialDPArgExtension(i1 noundef zeroext %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_camel_T_bearerCap(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
@@ -6821,7 +6815,7 @@ define internal i32 @dissect_camel_T_bearerCap(i1 noundef zeroext %0, ptr nounde
   br label %12
 
 12:                                               ; preds = %6, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -6844,10 +6838,10 @@ declare ptr @proto_tree_add_item_ret_display_string(ptr noundef, i32 noundef, pt
 declare ptr @proto_tree_add_int_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #9
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid
 declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -6877,8 +6871,8 @@ declare i32 @dissect_gsm_map_ch_UU_Data(i1 noundef zeroext, ptr noundef, i32 nou
 define internal i32 @dissect_camel_AllCallSegments(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %10, null
@@ -6896,8 +6890,8 @@ define internal i32 @dissect_camel_AllCallSegments(i1 noundef zeroext %0, ptr no
   br label %dissect_camel_Cause.exit
 
 dissect_camel_Cause.exit:                         ; preds = %6, %11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -6997,7 +6991,7 @@ define internal i32 @dissect_camel_TimerValue(i1 noundef zeroext %0, ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_camel_SCIBillingChargingCharacteristics(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
@@ -7015,7 +7009,7 @@ define internal i32 @dissect_camel_SCIBillingChargingCharacteristics(i1 noundef 
   br label %19
 
 19:                                               ; preds = %6, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -7190,7 +7184,7 @@ define internal i32 @dissect_camel_T_rO_TimeGPRSIfTariffSwitch(i1 noundef zeroex
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_camel_AccessPointName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
@@ -7209,7 +7203,7 @@ define internal i32 @dissect_camel_AccessPointName(i1 noundef zeroext %0, ptr no
   br label %20
 
 20:                                               ; preds = %6, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -7343,7 +7337,7 @@ declare i32 @dissect_gsm_map_GSN_Address(i1 noundef zeroext, ptr noundef, i32 no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_camel_T_pDPTypeOrganization(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
@@ -7356,14 +7350,14 @@ define internal i32 @dissect_camel_T_pDPTypeOrganization(i1 noundef zeroext %0, 
   br label %13
 
 13:                                               ; preds = %6, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_camel_T_pDPTypeNumber(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
@@ -7393,14 +7387,14 @@ define internal i32 @dissect_camel_T_pDPTypeNumber(i1 noundef zeroext %0, ptr no
   br label %21
 
 21:                                               ; preds = %.sink.split, %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_camel_T_pDPAddress(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
@@ -7434,7 +7428,7 @@ define internal i32 @dissect_camel_T_pDPAddress(i1 noundef zeroext %0, ptr nound
   br label %23
 
 23:                                               ; preds = %.sink.split, %16, %10, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -7483,7 +7477,7 @@ define internal i32 @dissect_camel_GPRSEvent(i1 noundef zeroext %0, ptr noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_camel_SCIGPRSBillingChargingCharacteristics(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
@@ -7501,7 +7495,7 @@ define internal i32 @dissect_camel_SCIGPRSBillingChargingCharacteristics(i1 noun
   br label %19
 
 19:                                               ; preds = %6, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -7639,21 +7633,21 @@ define internal i32 @dissect_camel_ResultArgument(i1 zeroext %0, ptr noundef %1,
   ]
 
 12:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @asn1_ctx_init(ptr noundef nonnull %8, i32 noundef 0, i1 noundef zeroext true, ptr noundef %11)
   %13 = load i32, ptr @hf_camel_ReceivedInformationArg_PDU, align 4
   %14 = load i32, ptr @ett_camel_ReceivedInformationArg, align 4
   %15 = call i32 @dissect_ber_choice(ptr noundef nonnull %8, ptr noundef %4, ptr noundef %1, i32 noundef 0, ptr noundef nonnull @ReceivedInformationArg_choice, i32 noundef %13, i32 noundef %14, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %dissect_returnResultData.exit
 
 16:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @asn1_ctx_init(ptr noundef nonnull %7, i32 noundef 0, i1 noundef zeroext true, ptr noundef %11)
   %17 = load i32, ptr @hf_camel_InitiateCallAttemptRes_PDU, align 4
   %18 = load i32, ptr @ett_camel_InitiateCallAttemptRes, align 4
   %19 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %7, ptr noundef %4, ptr noundef %1, i32 noundef 0, ptr noundef nonnull @InitiateCallAttemptRes_sequence, i32 noundef %17, i32 noundef %18)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %dissect_returnResultData.exit
 
 20:                                               ; preds = %6
@@ -7682,36 +7676,36 @@ define internal noundef i32 @dissect_camel_T_parameter(i1 zeroext %0, ptr nounde
   ]
 
 14:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @asn1_ctx_init(ptr noundef nonnull %10, i32 noundef 0, i1 noundef zeroext true, ptr noundef %13)
   %15 = load i32, ptr @hf_camel_PAR_cancelFailed_PDU, align 4
   %16 = load i32, ptr @ett_camel_PAR_cancelFailed, align 4
   %17 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %10, ptr noundef %4, ptr noundef %1, i32 noundef 0, ptr noundef nonnull @PAR_cancelFailed_sequence, i32 noundef %15, i32 noundef %16)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %10) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %dissect_returnErrorData.exit
 
 18:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @asn1_ctx_init(ptr noundef nonnull %9, i32 noundef 0, i1 noundef zeroext true, ptr noundef %13)
   %19 = load i32, ptr @hf_camel_PAR_requestedInfoError_PDU, align 4
   %20 = call i32 @dissect_ber_integer(i1 noundef zeroext false, ptr noundef nonnull %9, ptr noundef %4, ptr noundef %1, i32 noundef 0, i32 noundef %19, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %dissect_returnErrorData.exit
 
 21:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @asn1_ctx_init(ptr noundef nonnull %8, i32 noundef 0, i1 noundef zeroext true, ptr noundef %13)
   %22 = load i32, ptr @hf_camel_UnavailableNetworkResource_PDU, align 4
   %23 = call i32 @dissect_ber_integer(i1 noundef zeroext false, ptr noundef nonnull %8, ptr noundef %4, ptr noundef %1, i32 noundef 0, i32 noundef %22, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %dissect_returnErrorData.exit
 
 24:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @asn1_ctx_init(ptr noundef nonnull %7, i32 noundef 0, i1 noundef zeroext true, ptr noundef %13)
   %25 = load i32, ptr @hf_camel_PAR_taskRefused_PDU, align 4
   %26 = call i32 @dissect_ber_integer(i1 noundef zeroext false, ptr noundef nonnull %7, ptr noundef %4, ptr noundef %1, i32 noundef 0, i32 noundef %25, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %dissect_returnErrorData.exit
 
 27:                                               ; preds = %6
@@ -7771,6 +7765,12 @@ declare ptr @val_to_str_wmem(ptr noundef, i32 noundef, ptr noundef, ptr noundef)
 ; Function Attrs: null_pointer_is_valid
 declare void @init_srt_table_row(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
@@ -7780,17 +7780,17 @@ declare i64 @llvm.usub.sat.i64(i64, i64) #11
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nounwind null_pointer_is_valid sspstrong memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
-attributes #13 = { allocsize(1) }
+attributes #12 = { allocsize(1) }
+attributes #13 = { nounwind }
 attributes #14 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}

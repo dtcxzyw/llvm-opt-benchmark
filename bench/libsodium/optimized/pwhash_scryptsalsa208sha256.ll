@@ -178,25 +178,19 @@ pickparams.exit:                                  ; preds = %21, %.loopexit.spli
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #3
+declare ptr @__errno_location() local_unnamed_addr #2
 
-declare i32 @crypto_pwhash_scryptsalsa208sha256_ll(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare i32 @crypto_pwhash_scryptsalsa208sha256_ll(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind ssp uwtable
 define dso_local range(i32 -1, 1) i32 @crypto_pwhash_scryptsalsa208sha256_str(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = alloca [32 x i8], align 16
   %7 = alloca [58 x i8], align 16
   %8 = alloca %struct.escrypt_region_t, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #7
-  call void @llvm.lifetime.start.p0(i64 58, ptr nonnull %7) #7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(102) %0, i8 noundef 0, i64 noundef 102, i1 noundef false) #7
   %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 %3, i64 32768)
   %9 = lshr i64 %4, 5
@@ -277,28 +271,28 @@ pickparams.exit:                                  ; preds = %16, %.loopexit.spli
 
 36:                                               ; preds = %.sink.split, %31, %29
   %.0 = phi i32 [ -1, %29 ], [ 0, %31 ], [ -1, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 58, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-declare void @randombytes_buf(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @randombytes_buf(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @_sodium_escrypt_gensalt_r(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @_sodium_escrypt_gensalt_r(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @_sodium_escrypt_init_local(ptr noundef) local_unnamed_addr #4
+declare i32 @_sodium_escrypt_init_local(ptr noundef) local_unnamed_addr #3
 
-declare ptr @_sodium_escrypt_r(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @_sodium_escrypt_r(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @_sodium_escrypt_free_local(ptr noundef) local_unnamed_addr #4
+declare i32 @_sodium_escrypt_free_local(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind ssp uwtable
 define dso_local i32 @crypto_pwhash_scryptsalsa208sha256_str_verify(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = alloca [102 x i8], align 16
   %5 = alloca %struct.escrypt_region_t, align 8
-  call void @llvm.lifetime.start.p0(i64 102, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   fence acquire
   br label %6
 
@@ -337,23 +331,23 @@ sodium_strnlen.exit:                              ; preds = %6
 
 sodium_strnlen.exit.thread:                       ; preds = %9, %13, %11, %sodium_strnlen.exit, %17
   %.0 = phi i32 [ %18, %17 ], [ -1, %sodium_strnlen.exit ], [ -1, %11 ], [ -1, %13 ], [ -1, %9 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 102, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare i32 @sodium_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @sodium_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind ssp uwtable
 define dso_local range(i32 -1, 2) i32 @crypto_pwhash_scryptsalsa208sha256_str_needs_rehash(ptr noundef nonnull %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 %1, i64 32768)
   %7 = lshr i64 %2, 5
   %8 = icmp ult i64 %spec.store.select.i, %7
@@ -460,13 +454,19 @@ sodium_strnlen.exit.thread:                       ; preds = %28, %sodium_strnlen
 
 41:                                               ; preds = %39, %36, %34, %sodium_strnlen.exit.thread
   %.0 = phi i32 [ -1, %sodium_strnlen.exit.thread ], [ -1, %34 ], [ 1, %36 ], [ %spec.select, %39 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare ptr @_sodium_escrypt_parse_setting(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @_sodium_escrypt_parse_setting(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #5
@@ -479,9 +479,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { nounwind }

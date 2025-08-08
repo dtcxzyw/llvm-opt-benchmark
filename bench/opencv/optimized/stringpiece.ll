@@ -32,7 +32,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr nou
 define hidden void @_ZN6google8protobuf20stringpiece_internal11StringPiece18LogFatalSizeTooBigEmPKc(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %4 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %3, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 50)
   %5 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.1)
           to label %6 unwind label %14
@@ -50,14 +50,14 @@ define hidden void @_ZN6google8protobuf20stringpiece_internal11StringPiece18LogF
           to label %12 unwind label %14
 
 12:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(56) %11)
           to label %13 unwind label %16
 
 13:                                               ; preds = %12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #15
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 14:                                               ; preds = %10, %8, %6, %2
@@ -68,18 +68,15 @@ define hidden void @_ZN6google8protobuf20stringpiece_internal11StringPiece18LogF
 16:                                               ; preds = %12
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 18:                                               ; preds = %16, %14
   %.pn = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ]
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #15
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56), i32 noundef, ptr noundef, i32 noundef) unnamed_addr #1
 
@@ -91,11 +88,8 @@ declare noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8int
 
 declare void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind
-declare void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #3
+declare void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK6google8protobuf20stringpiece_internal11StringPiece12CopyToStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
@@ -129,7 +123,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf20stringpiece_internal11StringPiece7ConsumeES2_(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN6google8protobuf20stringpiece_internal11StringPiece7ConsumeES2_(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !10
   %.not.i = icmp ult i64 %5, %2
@@ -154,10 +148,10 @@ _ZNK6google8protobuf20stringpiece_internal11StringPiece11starts_withES2_.exit.th
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf20stringpiece_internal11StringPiece14ConsumeFromEndES2_(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN6google8protobuf20stringpiece_internal11StringPiece14ConsumeFromEndES2_(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !10
   %.not.i = icmp ult i64 %5, %2
@@ -181,7 +175,7 @@ _ZNK6google8protobuf20stringpiece_internal11StringPiece9ends_withES2_.exit.threa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPiece4copyEPcmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #6 align 2 {
+define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPiece4copyEPcmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #5 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !10
   %7 = sub i64 %6, %3
@@ -264,7 +258,7 @@ define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPie
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPiece4findEcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #7 align 2 {
+define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPiece4findEcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !10
   %.not = icmp ult i64 %2, %5
@@ -289,7 +283,7 @@ define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPie
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #8
+declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPiece5rfindES2_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr %1, i64 %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
@@ -318,11 +312,11 @@ _ZSt8find_endIPKcS1_ET_S2_S2_T0_S3_.exit:         ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 %.sroa.speculated
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %2
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %19, ptr %6, align 8, !tbaa !14
   store ptr %16, ptr %7, align 8, !tbaa !14
   store ptr %20, ptr %8, align 8, !tbaa !14
@@ -333,11 +327,11 @@ _ZSt8find_endIPKcS1_ET_S2_S2_T0_S3_.exit:         ; preds = %13
   %gepdiff = sub nsw i64 0, %2
   %23 = getelementptr inbounds i8, ptr %21, i64 %gepdiff
   %.0.i.i = select i1 %22, ptr %19, ptr %23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not = icmp eq ptr %.0.i.i, %19
   %24 = load ptr, ptr %0, align 8
   %25 = ptrtoint ptr %.0.i.i to i64
@@ -352,7 +346,7 @@ _ZSt8find_endIPKcS1_ET_S2_S2_T0_S3_.exit:         ; preds = %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPiece5rfindEcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #9 align 2 {
+define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPiece5rfindEcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !10
   %6 = icmp eq i64 %5, 0
@@ -385,7 +379,7 @@ define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPie
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPiece13find_first_ofES2_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readonly captures(none) %1, i64 %2, i64 noundef %3) local_unnamed_addr #7 align 2 {
+define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPiece13find_first_ofES2_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readonly captures(none) %1, i64 %2, i64 noundef %3) local_unnamed_addr #6 align 2 {
   %5 = alloca [256 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !10
@@ -417,7 +411,7 @@ define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPie
   br label %_ZNK6google8protobuf20stringpiece_internal11StringPiece13find_first_ofEcm.exit
 
 24:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %5, i8 0, i64 256, i1 false)
   br label %.lr.ph.i
 
@@ -457,7 +451,7 @@ _ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEP
 
 ._crit_edge:                                      ; preds = %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit, %31, %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit.preheader
   %spec.select = phi i64 [ -1, %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit.preheader ], [ %.0813, %31 ], [ -1, %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK6google8protobuf20stringpiece_internal11StringPiece13find_first_ofEcm.exit
 
 _ZNK6google8protobuf20stringpiece_internal11StringPiece13find_first_ofEcm.exit: ; preds = %13, %12, %4, %._crit_edge
@@ -466,10 +460,10 @@ _ZNK6google8protobuf20stringpiece_internal11StringPiece13find_first_ofEcm.exit: 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPiece17find_first_not_ofES2_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readonly captures(none) %1, i64 %2, i64 noundef %3) local_unnamed_addr #9 align 2 {
+define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPiece17find_first_not_ofES2_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readonly captures(none) %1, i64 %2, i64 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca [256 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !10
@@ -504,7 +498,7 @@ define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPie
   br i1 %exitcond.not.i, label %_ZNK6google8protobuf20stringpiece_internal11StringPiece17find_first_not_ofEcm.exit, label %14, !llvm.loop !25
 
 19:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %5, i8 0, i64 256, i1 false)
   br label %.lr.ph.i11
 
@@ -544,7 +538,7 @@ _ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEP
 
 ._crit_edge:                                      ; preds = %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit, %26, %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit.preheader
   %spec.select = phi i64 [ -1, %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit.preheader ], [ %.0816, %26 ], [ -1, %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK6google8protobuf20stringpiece_internal11StringPiece17find_first_not_ofEcm.exit
 
 _ZNK6google8protobuf20stringpiece_internal11StringPiece17find_first_not_ofEcm.exit: ; preds = %17, %14, %9, %10, %4, %._crit_edge
@@ -553,7 +547,7 @@ _ZNK6google8protobuf20stringpiece_internal11StringPiece17find_first_not_ofEcm.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPiece17find_first_not_ofEcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #9 align 2 {
+define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPiece17find_first_not_ofEcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !10
   %6 = icmp ult i64 %2, %5
@@ -581,7 +575,7 @@ define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPie
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPiece12find_last_ofES2_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readonly captures(none) %1, i64 %2, i64 noundef %3) local_unnamed_addr #9 align 2 {
+define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPiece12find_last_ofES2_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readonly captures(none) %1, i64 %2, i64 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca [256 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !10
@@ -617,7 +611,7 @@ define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPie
   br i1 %24, label %_ZNK6google8protobuf20stringpiece_internal11StringPiece12find_last_ofEcm.exit, label %.lr.ph.i.i, !llvm.loop !17
 
 25:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %5, i8 0, i64 256, i1 false)
   br label %.lr.ph.i
 
@@ -653,7 +647,7 @@ _ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEP
 
 42:                                               ; preds = %33
   %spec.select = select i1 %39, i64 %.06, i64 -1
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK6google8protobuf20stringpiece_internal11StringPiece12find_last_ofEcm.exit
 
 _ZNK6google8protobuf20stringpiece_internal11StringPiece12find_last_ofEcm.exit: ; preds = %20, %.lr.ph.i.i, %12, %4, %42
@@ -662,7 +656,7 @@ _ZNK6google8protobuf20stringpiece_internal11StringPiece12find_last_ofEcm.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPiece16find_last_not_ofES2_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readonly captures(none) %1, i64 %2, i64 noundef %3) local_unnamed_addr #9 align 2 {
+define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPiece16find_last_not_ofES2_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readonly captures(none) %1, i64 %2, i64 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca [256 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !10
@@ -698,7 +692,7 @@ define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPie
   br i1 %.not.i, label %.lr.ph.i, label %_ZNK6google8protobuf20stringpiece_internal11StringPiece16find_last_not_ofEcm.exit, !llvm.loop !28
 
 21:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %5, i8 0, i64 256, i1 false)
   br label %.lr.ph.i8
 
@@ -740,7 +734,7 @@ _ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEP
 
 ._crit_edge:                                      ; preds = %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit, %.lr.ph, %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit.preheader
   %.2 = phi i64 [ %.sroa.speculated, %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit.preheader ], [ -1, %.lr.ph ], [ %35, %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK6google8protobuf20stringpiece_internal11StringPiece16find_last_not_ofEcm.exit
 
 _ZNK6google8protobuf20stringpiece_internal11StringPiece16find_last_not_ofEcm.exit: ; preds = %17, %.lr.ph.i, %9, %11, %._crit_edge, %4
@@ -749,7 +743,7 @@ _ZNK6google8protobuf20stringpiece_internal11StringPiece16find_last_not_ofEcm.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPiece16find_last_not_ofEcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #9 align 2 {
+define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPiece16find_last_not_ofEcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !10
   %6 = icmp eq i64 %5, 0
@@ -782,7 +776,7 @@ define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPie
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden { ptr, i64 } @_ZNK6google8protobuf20stringpiece_internal11StringPiece6substrEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #11 align 2 {
+define hidden { ptr, i64 } @_ZNK6google8protobuf20stringpiece_internal11StringPiece6substrEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #10 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !10
   %spec.select = tail call i64 @llvm.umin.i64(i64 %1, i64 %5)
@@ -798,7 +792,7 @@ define hidden { ptr, i64 } @_ZNK6google8protobuf20stringpiece_internal11StringPi
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1339,6 +1333,12 @@ _ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
@@ -1347,17 +1347,17 @@ declare i64 @llvm.umin.i64(i64, i64) #14
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #12 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #11 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nounwind }

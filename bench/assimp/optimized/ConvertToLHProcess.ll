@@ -57,7 +57,7 @@ define hidden void @_ZN6Assimp21MakeLeftHandedProcess7ExecuteEP7aiScene(ptr noun
   tail call void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull @.str)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store float 1.000000e+00, ptr %3, align 4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 20
@@ -72,7 +72,7 @@ define hidden void @_ZN6Assimp21MakeLeftHandedProcess7ExecuteEP7aiScene(ptr noun
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %12, align 4
   call void @_ZN6Assimp21MakeLeftHandedProcess11ProcessNodeEP6aiNodeRK12aiMatrix4x4tIfE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %6, ptr noundef nonnull align 4 dereferenceable(64) %3)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %14, 0
@@ -140,7 +140,7 @@ define hidden void @_ZN6Assimp21MakeLeftHandedProcess7ExecuteEP7aiScene(ptr noun
   %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv.i
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(13) @.str.4) #16
+  %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(13) @.str.4) #15
   %.not.i = icmp eq i32 %43, 0
   br i1 %.not.i, label %44, label %50
 
@@ -380,7 +380,7 @@ define hidden void @_ZN6Assimp21MakeLeftHandedProcess11ProcessNodeEP6aiNodeRK12a
   %53 = load ptr, ptr %28, align 8
   %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %.023
   %55 = load ptr, ptr %54, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %4, ptr noundef nonnull align 4 dereferenceable(64) %2, i64 64, i1 false)
   %56 = load float, ptr %5, align 4
   %57 = load float, ptr %4, align 4
@@ -495,7 +495,7 @@ define hidden void @_ZN6Assimp21MakeLeftHandedProcess11ProcessNodeEP6aiNodeRK12a
   store float %147, ptr %50, align 4
   store float %151, ptr %51, align 4
   call void @_ZN6Assimp21MakeLeftHandedProcess11ProcessNodeEP6aiNodeRK12aiMatrix4x4tIfE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %55, ptr noundef nonnull align 4 dereferenceable(64) %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %152 = add nuw nsw i64 %.023, 1
   %153 = load i32, ptr %26, align 8
   %154 = zext i32 %153 to i64
@@ -503,14 +503,8 @@ define hidden void @_ZN6Assimp21MakeLeftHandedProcess11ProcessNodeEP6aiNodeRK12a
   br i1 %155, label %52, label %._crit_edge, !llvm.loop !12
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp21MakeLeftHandedProcess11ProcessMeshEP6aiMesh(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN6Assimp21MakeLeftHandedProcess11ProcessMeshEP6aiMesh(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %10, label %.preheader75
 
@@ -771,7 +765,7 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit68.thread: ; preds = %.lr.ph84, %._c
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp21MakeLeftHandedProcess15ProcessMaterialEP10aiMaterial(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN6Assimp21MakeLeftHandedProcess15ProcessMaterialEP10aiMaterial(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %6, label %.preheader
 
@@ -793,7 +787,7 @@ define hidden void @_ZN6Assimp21MakeLeftHandedProcess15ProcessMaterialEP10aiMate
   %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(13) @.str.4) #16
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(13) @.str.4) #15
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %20
 
@@ -819,7 +813,7 @@ define hidden void @_ZN6Assimp21MakeLeftHandedProcess15ProcessMaterialEP10aiMate
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Assimp21MakeLeftHandedProcess16ProcessAnimationEP10aiNodeAnim(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN6Assimp21MakeLeftHandedProcess16ProcessAnimationEP10aiNodeAnim(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 1028
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -875,7 +869,7 @@ define hidden void @_ZN6Assimp21MakeLeftHandedProcess16ProcessAnimationEP10aiNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6Assimp21MakeLeftHandedProcess13ProcessCameraEP8aiCamera(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr noundef captures(none) %1) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN6Assimp21MakeLeftHandedProcess13ProcessCameraEP8aiCamera(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr noundef captures(none) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 1028
   %4 = load float, ptr %3, align 4
   %5 = fmul float %4, 2.000000e+00
@@ -904,20 +898,20 @@ define hidden void @_ZN6Assimp21MakeLeftHandedProcess13ProcessCameraEP8aiCamera(
 declare void @_ZN6Assimp6Logger5errorEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp14FlipUVsProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 align 2 {
-  tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #15
+define hidden void @_ZN6Assimp14FlipUVsProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 align 2 {
+  tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #16
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6Assimp14FlipUVsProcessE, i64 16), ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #11
+declare void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden void @_ZN6Assimp14FlipUVsProcessD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
@@ -925,13 +919,13 @@ define hidden void @_ZN6Assimp14FlipUVsProcessD2Ev(ptr nonnull readnone align 8 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp14FlipUVsProcessD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 align 2 {
+define hidden void @_ZN6Assimp14FlipUVsProcessD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #17
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @_ZNK6Assimp14FlipUVsProcess8IsActiveEj(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #0 align 2 {
@@ -941,7 +935,7 @@ define hidden noundef zeroext i1 @_ZNK6Assimp14FlipUVsProcess8IsActiveEj(ptr non
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp14FlipUVsProcess7ExecuteEP7aiScene(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #5 align 2 {
+define hidden void @_ZN6Assimp14FlipUVsProcess7ExecuteEP7aiScene(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 align 2 {
   %3 = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   tail call void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull @.str.5)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1108,7 +1102,7 @@ _ZN6Assimp14FlipUVsProcess11ProcessMeshEP6aiMesh.exit: ; preds = %_ZN12_GLOBAL__
 
 69:                                               ; preds = %.lr.ph.i11
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 4
-  %71 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(13) @.str.8) #16
+  %71 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(13) @.str.8) #15
   %.not11.i = icmp eq i32 %71, 0
   br i1 %.not11.i, label %72, label %81
 
@@ -1145,7 +1139,7 @@ _ZN6Assimp14FlipUVsProcess15ProcessMaterialEP10aiMaterial.exit: ; preds = %_ZN6A
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Assimp14FlipUVsProcess11ProcessMeshEP6aiMesh(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN6Assimp14FlipUVsProcess11ProcessMeshEP6aiMesh(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %_ZN12_GLOBAL__N_17flipUVsI6aiMeshEEvPT_.exit, label %.preheader15.i
 
@@ -1253,7 +1247,7 @@ _ZN12_GLOBAL__N_17flipUVsI10aiAnimMeshEEvPT_.exit: ; preds = %_ZN12_GLOBAL__N_17
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp14FlipUVsProcess15ProcessMaterialEP10aiMaterial(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN6Assimp14FlipUVsProcess15ProcessMaterialEP10aiMaterial(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %.not13 = icmp eq i32 %4, 0
@@ -1277,7 +1271,7 @@ define hidden void @_ZN6Assimp14FlipUVsProcess15ProcessMaterialEP10aiMaterial(pt
 
 10:                                               ; preds = %.lr.ph
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(13) @.str.8) #16
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(13) @.str.8) #15
   %.not11 = icmp eq i32 %12, 0
   br i1 %.not11, label %13, label %22
 
@@ -1312,7 +1306,7 @@ define hidden noundef zeroext i1 @_ZNK6Assimp23FlipWindingOrderProcess8IsActiveE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp23FlipWindingOrderProcess7ExecuteEP7aiScene(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #5 align 2 {
+define hidden void @_ZN6Assimp23FlipWindingOrderProcess7ExecuteEP7aiScene(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 align 2 {
   %3 = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   tail call void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull @.str.9)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1343,7 +1337,7 @@ define hidden void @_ZN6Assimp23FlipWindingOrderProcess7ExecuteEP7aiScene(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Assimp23FlipWindingOrderProcess11ProcessMeshEP6aiMesh(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN6Assimp23FlipWindingOrderProcess11ProcessMeshEP6aiMesh(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 align 2 {
   %2 = alloca %class.aiColor4t, align 4
   %3 = alloca %class.aiVector3t, align 4
   %4 = alloca %class.aiVector3t, align 4
@@ -1445,11 +1439,11 @@ define hidden void @_ZN6Assimp23FlipWindingOrderProcess11ProcessMeshEP6aiMesh(pt
   %51 = add i32 %.fr133, %50
   %52 = zext i32 %51 to i64
   %53 = getelementptr inbounds nuw %class.aiVector3t, ptr %47, i64 %52
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %48, i64 12, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %48, ptr noundef nonnull align 4 dereferenceable(12) %53, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %53, ptr noundef nonnull align 4 dereferenceable(12) %7, i64 12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit99, label %.lr.ph106, !llvm.loop !29
@@ -1474,11 +1468,11 @@ define hidden void @_ZN6Assimp23FlipWindingOrderProcess11ProcessMeshEP6aiMesh(pt
   %60 = add i32 %.fr133, %59
   %61 = zext i32 %60 to i64
   %62 = getelementptr inbounds nuw %class.aiVector3t, ptr %56, i64 %61
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %57, i64 12, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %57, ptr noundef nonnull align 4 dereferenceable(12) %62, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %62, ptr noundef nonnull align 4 dereferenceable(12) %6, i64 12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
   br i1 %exitcond149.not, label %_ZNK10aiAnimMesh16HasTextureCoordsEj.exit.us.preheader, label %.lr.ph108, !llvm.loop !30
@@ -1508,11 +1502,11 @@ _ZNK10aiAnimMesh16HasTextureCoordsEj.exit.us:     ; preds = %_ZNK10aiAnimMesh16H
   %70 = add i32 %.fr133, %69
   %71 = zext i32 %70 to i64
   %72 = getelementptr inbounds nuw %class.aiVector3t, ptr %66, i64 %71
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %67, i64 12, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %67, ptr noundef nonnull align 4 dereferenceable(12) %72, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %72, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count153
   br i1 %exitcond154.not, label %..loopexit93_crit_edge.us, label %.preheader92.us, !llvm.loop !31
@@ -1543,19 +1537,19 @@ _ZNK10aiAnimMesh16HasTextureCoordsEj.exit.us:     ; preds = %_ZNK10aiAnimMesh16H
   %81 = add i32 %.fr133, %80
   %82 = zext i32 %81 to i64
   %83 = getelementptr inbounds nuw %class.aiVector3t, ptr %77, i64 %82
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %78, i64 12, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %78, ptr noundef nonnull align 4 dereferenceable(12) %83, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %83, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %84 = load ptr, ptr %75, align 8
   %85 = getelementptr inbounds nuw %class.aiVector3t, ptr %84, i64 %indvars.iv159
   %86 = getelementptr inbounds nuw %class.aiVector3t, ptr %84, i64 %82
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %85, i64 12, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %85, ptr noundef nonnull align 4 dereferenceable(12) %86, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %86, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %exitcond163.not = icmp eq i64 %indvars.iv.next160, %wide.trip.count162
   br i1 %exitcond163.not, label %.loopexit95, label %76, !llvm.loop !34
@@ -1581,11 +1575,11 @@ _ZNK10aiAnimMesh15HasVertexColorsEj.exit.us:      ; preds = %.loopexit95, %..loo
   %94 = add i32 %.fr133, %93
   %95 = zext i32 %94 to i64
   %96 = getelementptr inbounds nuw %class.aiColor4t, ptr %90, i64 %95
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %91, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %91, ptr noundef nonnull align 4 dereferenceable(16) %96, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %96, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next165, %wide.trip.count167
   br i1 %exitcond168.not, label %..loopexit_crit_edge.us, label %.preheader.us, !llvm.loop !35
@@ -1604,7 +1598,7 @@ _ZNK10aiAnimMesh15HasVertexColorsEj.exit.us:      ; preds = %.loopexit95, %..loo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6Assimp21MakeLeftHandedProcessD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 {
+define linkonce_odr hidden void @_ZN6Assimp21MakeLeftHandedProcessD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #17
   ret void
 }
@@ -1614,18 +1608,24 @@ declare noundef zeroext i1 @_ZNK6Assimp11BaseProcess20RequireVerboseFormatEv(ptr
 declare void @_ZN6Assimp11BaseProcess15SetupPropertiesEPKNS_8ImporterE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6Assimp11BaseProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZN6Assimp11BaseProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6Assimp23FlipWindingOrderProcessD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 {
+define linkonce_odr hidden void @_ZN6Assimp23FlipWindingOrderProcessD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #13
+declare float @llvm.fmuladd.f32(float, float, float) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
@@ -1634,19 +1634,19 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #15 = { nounwind }
-attributes #16 = { nounwind willreturn memory(read) }
+attributes #15 = { nounwind willreturn memory(read) }
+attributes #16 = { nounwind }
 attributes #17 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

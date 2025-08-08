@@ -137,17 +137,11 @@ define i32 @exr_get_chunk_table_offset(ptr noundef %0, i32 noundef %1, ptr nound
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define hidden i32 @extract_chunk_table(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %8 = load i64, ptr %7, align 8, !tbaa !27
   store i64 %8, ptr %5, align 8, !tbaa !28
@@ -164,7 +158,7 @@ define hidden i32 @extract_chunk_table(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %17, label %18, label %87
 
 18:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !28
   %19 = load i32, ptr %9, align 4, !tbaa !29
   %20 = icmp slt i32 %19, 1
@@ -301,12 +295,12 @@ define hidden i32 @extract_chunk_table(ptr noundef %0, ptr noundef %1, ptr nound
 
 .thread:                                          ; preds = %21, %._crit_edge103, %41
   %.0.ph = phi i32 [ %44, %41 ], [ %35, %._crit_edge103 ], [ %24, %21 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %90
 
 86:                                               ; preds = %82, %83, %._crit_edge.thread
   %.174 = phi ptr [ %.2, %._crit_edge.thread ], [ %81, %83 ], [ %81, %82 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %87
 
 87:                                               ; preds = %86, %4
@@ -318,7 +312,7 @@ define hidden i32 @extract_chunk_table(ptr noundef %0, ptr noundef %1, ptr nound
 
 90:                                               ; preds = %.thread, %87
   %.1 = phi i32 [ %89, %87 ], [ %.0.ph, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
 }
 
@@ -330,9 +324,9 @@ define internal fastcc i32 @reconstruct_chunk_table(ptr noundef %0, ptr noundef 
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %11 = load ptr, ptr %10, align 8, !tbaa !25
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 196
@@ -395,9 +389,9 @@ define internal fastcc i32 @reconstruct_chunk_table(ptr noundef %0, ptr noundef 
 
 ._crit_edge108:                                   ; preds = %44, %38
   %spec.store.select103.lcssa = phi i64 [ %24, %38 ], [ %spec.store.select, %44 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %43 = call fastcc i32 @extract_chunk_leader(ptr noundef nonnull %0, ptr noundef nonnull readonly %36, i32 noundef range(i32 0, 2147483647) %33, i64 noundef %spec.store.select103.lcssa, ptr noundef nonnull %7, ptr noundef %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not81 = icmp eq i32 %43, 0
   br i1 %.not81, label %49, label %127
 
@@ -467,13 +461,13 @@ define internal fastcc i32 @reconstruct_chunk_table(ptr noundef %0, ptr noundef 
   %.neg = xor i32 %78, -1
   %79 = add i32 %71, %.neg
   %.066 = select i1 %77, i32 %79, i32 %78
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %80 = call fastcc i32 @extract_chunk_leader(ptr noundef %0, ptr noundef nonnull readonly %1, i32 noundef %.065.lcssa134, i64 noundef %spec.store.select99, ptr noundef nonnull %7, ptr noundef %4)
   %.not.i = icmp eq i32 %80, 0
   br i1 %.not.i, label %81, label %read_and_validate_chunk_leader.exit.thread93
 
 read_and_validate_chunk_leader.exit.thread93:     ; preds = %70
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %109
 
 81:                                               ; preds = %70
@@ -505,7 +499,7 @@ read_and_validate_chunk_leader.exit.thread93:     ; preds = %70
   br i1 %.not35.i, label %read_and_validate_chunk_leader.exit.thread, label %98
 
 read_and_validate_chunk_leader.exit.thread:       ; preds = %95
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %111
 
 98:                                               ; preds = %95, %83
@@ -515,7 +509,7 @@ read_and_validate_chunk_leader.exit.thread:       ; preds = %95
   br label %read_and_validate_chunk_leader.exit
 
 102:                                              ; preds = %81
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !48
   %103 = load i32, ptr %62, align 4, !tbaa !45
   %104 = load i32, ptr %66, align 8, !tbaa !45
@@ -523,13 +517,13 @@ read_and_validate_chunk_leader.exit.thread:       ; preds = %95
   %106 = load i32, ptr %68, align 8, !tbaa !45
   %107 = call fastcc i32 @validate_and_compute_tile_chunk_off(ptr noundef %0, ptr noundef nonnull readonly %1, i32 noundef %103, i32 noundef %104, i32 noundef %105, i32 noundef %106, ptr noundef %5)
   %108 = load i32, ptr %5, align 4, !tbaa !48
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %read_and_validate_chunk_leader.exit
 
 read_and_validate_chunk_leader.exit:              ; preds = %98, %102
   %.088 = phi i32 [ %108, %102 ], [ %92, %98 ]
   %.030.i = phi i32 [ %107, %102 ], [ %101, %98 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not84 = icmp eq i32 %.030.i, 0
   br i1 %.not84, label %111, label %109
 
@@ -580,16 +574,16 @@ read_and_validate_chunk_leader.exit:              ; preds = %98, %102
 
 127:                                              ; preds = %49, %._crit_edge108, %._crit_edge, %124
   %.064 = phi i32 [ %.069.lcssa138, %124 ], [ %37, %._crit_edge ], [ %43, %._crit_edge108 ], [ 1, %49 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.064
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_chunk_default_initialize(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %5, null
   %.not172 = icmp eq ptr %2, null
   %or.cond180 = or i1 %.not172, %.not
@@ -915,17 +909,17 @@ define i32 @exr_chunk_default_initialize(ptr noundef %0, i32 noundef %1, ptr nou
 
 .thread:                                          ; preds = %155, %.thread187, %._crit_edge, %91, %97, %53, %57, %18, %8, %6, %14
   %.0 = phi i32 [ %17, %14 ], [ 3, %6 ], [ 2, %8 ], [ 3, %18 ], [ 3, %57 ], [ 3, %53 ], [ 0, %91 ], [ 0, %97 ], [ 0, %._crit_edge ], [ 17, %155 ], [ %109, %.thread187 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
-declare i32 @internal_exr_compute_chunk_offset_size(ptr noundef) local_unnamed_addr #3
+declare i32 @internal_exr_compute_chunk_offset_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i64 @compute_chunk_unpack_size(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 -32768, 32768) %3, ptr noundef readonly captures(none) %4) unnamed_addr #4 {
+define internal fastcc i64 @compute_chunk_unpack_size(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 -32768, 32768) %3, ptr noundef readonly captures(none) %4) unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 242
   %7 = load i16, ptr %6, align 2, !tbaa !77
   %.not = icmp eq i16 %7, 0
@@ -1353,11 +1347,11 @@ define i32 @exr_read_scanline_chunk_info(ptr noundef %0, i32 noundef %1, i32 nou
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %232, label %10
 
@@ -1756,11 +1750,11 @@ define i32 @exr_read_scanline_chunk_info(ptr noundef %0, i32 noundef %1, i32 nou
 
 232:                                              ; preds = %207, %221, %.thread, %140, %111, %93, %89, %4, %228, %189, %180, %160, %153, %146, %133, %125, %107, %._crit_edge246, %46, %38, %31, %21, %12
   %.0 = phi i32 [ %15, %12 ], [ %24, %21 ], [ %41, %38 ], [ %49, %46 ], [ %64, %._crit_edge246 ], [ %110, %107 ], [ %128, %125 ], [ %136, %133 ], [ %149, %146 ], [ %156, %153 ], [ %163, %160 ], [ %183, %180 ], [ %192, %189 ], [ %231, %228 ], [ %34, %31 ], [ 2, %4 ], [ %92, %89 ], [ 24, %93 ], [ %120, %111 ], [ %142, %140 ], [ 0, %.thread ], [ %212, %207 ], [ %224, %221 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -1773,12 +1767,12 @@ define i32 @exr_read_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 noundef
   %12 = alloca i64, align 8
   %13 = alloca ptr, align 8
   %14 = alloca [3 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %300, label %15
 
@@ -2101,7 +2095,7 @@ define i32 @exr_read_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 noundef
   br i1 %207, label %208, label %267
 
 208:                                              ; preds = %205
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %209 = load ptr, ptr %158, align 8, !tbaa !33
   %210 = call i32 %209(ptr noundef nonnull %0, ptr noundef nonnull %14, i64 noundef 24, ptr noundef nonnull %11, ptr noundef null, i32 noundef 0) #8
   %.not325 = icmp eq i32 %210, 0
@@ -2206,11 +2200,11 @@ define i32 @exr_read_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 noundef
 
 .thread:                                          ; preds = %227, %237, %246, %262, %208
   %.1.ph = phi i32 [ %210, %208 ], [ %265, %262 ], [ %249, %246 ], [ %241, %237 ], [ %230, %227 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %300
 
 266:                                              ; preds = %258, %250
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %292
 
 267:                                              ; preds = %205
@@ -2277,12 +2271,12 @@ define i32 @exr_read_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 noundef
 
 300:                                              ; preds = %.thread333, %.thread, %292, %135, %._crit_edge, %47, %7, %296, %277, %201, %194, %187, %180, %172, %161, %153, %107, %43, %36, %26, %17
   %.0 = phi i32 [ %20, %17 ], [ %29, %26 ], [ %46, %43 ], [ %110, %107 ], [ %156, %153 ], [ %166, %161 ], [ %175, %172 ], [ %183, %180 ], [ %190, %187 ], [ %197, %194 ], [ %204, %201 ], [ %299, %296 ], [ %280, %277 ], [ %39, %36 ], [ 2, %7 ], [ %48, %47 ], [ %127, %._crit_edge ], [ 24, %135 ], [ 0, %292 ], [ %.1.ph, %.thread ], [ %285, %.thread333 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
@@ -2290,8 +2284,8 @@ define i32 @exr_read_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 noundef
 define i32 @exr_read_chunk(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %90, label %7
 
@@ -2438,20 +2432,20 @@ define i32 @exr_read_chunk(ptr noundef %0, i32 noundef %1, ptr noundef readonly 
 
 90:                                               ; preds = %87, %84, %79, %78, %4, %74, %63, %53, %._crit_edge, %37, %28, %18, %9
   %.0 = phi i32 [ %12, %9 ], [ %21, %18 ], [ %46, %._crit_edge ], [ %56, %53 ], [ %66, %63 ], [ %77, %74 ], [ %40, %37 ], [ %31, %28 ], [ 2, %4 ], [ %83, %87 ], [ %83, %84 ], [ %83, %79 ], [ 0, %78 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_read_deep_chunk(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %98, label %8
 
@@ -2615,8 +2609,8 @@ define i32 @exr_read_deep_chunk(ptr noundef %0, i32 noundef %1, ptr noundef read
 
 98:                                               ; preds = %.thread87, %89, %92, %83, %5, %75, %67, %55, %45, %._crit_edge, %29, %19, %10
   %.0 = phi i32 [ %13, %10 ], [ %22, %19 ], [ %38, %._crit_edge ], [ %48, %45 ], [ %58, %55 ], [ %70, %67 ], [ %78, %75 ], [ %32, %29 ], [ 2, %5 ], [ %88, %83 ], [ %97, %92 ], [ 0, %89 ], [ 0, %.thread87 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -2820,7 +2814,7 @@ define i32 @exr_write_scanline_chunk_info(ptr noundef %0, i32 noundef %1, i32 no
 ; Function Attrs: nounwind uwtable
 define i32 @exr_write_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %153, label %9
 
@@ -3042,7 +3036,7 @@ define i32 @exr_write_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 nounde
 
 153:                                              ; preds = %7, %._crit_edge, %122, %54, %47, %42, %35, %27, %16
   %.0 = phi i32 [ %20, %16 ], [ %39, %35 ], [ %46, %42 ], [ %51, %47 ], [ %53, %54 ], [ %125, %122 ], [ 0, %._crit_edge ], [ %31, %27 ], [ 2, %7 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
@@ -3104,8 +3098,8 @@ define internal fastcc i32 @write_scan_chunk(ptr noundef nonnull %0, i32 noundef
   %11 = alloca ptr, align 8
   %12 = alloca [3 x i64], align 16
   %13 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %14 = load i8, ptr %0, align 8, !tbaa !3
   %.sink174.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sink174.sroa.gep175 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -3314,7 +3308,7 @@ define internal fastcc i32 @write_scan_chunk(ptr noundef nonnull %0, i32 noundef
   br i1 %120, label %121, label %131
 
 121:                                              ; preds = %118
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 %8, ptr %12, align 16, !tbaa !28
   %122 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %5, ptr %122, align 8, !tbaa !28
@@ -3332,7 +3326,7 @@ define internal fastcc i32 @write_scan_chunk(ptr noundef nonnull %0, i32 noundef
 
 130:                                              ; preds = %127, %121
   %.1 = phi i32 [ %129, %127 ], [ %125, %121 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %131
 
 131:                                              ; preds = %130, %118
@@ -3362,7 +3356,7 @@ define internal fastcc i32 @write_scan_chunk(ptr noundef nonnull %0, i32 noundef
   br i1 %144, label %145, label %160
 
 145:                                              ; preds = %139
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %146 = getelementptr inbounds nuw i8, ptr %2, i64 248
   %147 = load i64, ptr %146, align 8, !tbaa !27
   store i64 %147, ptr %13, align 8, !tbaa !28
@@ -3386,7 +3380,7 @@ define internal fastcc i32 @write_scan_chunk(ptr noundef nonnull %0, i32 noundef
   %157 = sext i32 %142 to i64
   %158 = shl nsw i64 %157, 3
   %159 = call i32 %156(ptr noundef nonnull %0, ptr noundef nonnull %111, i64 noundef %158, ptr noundef nonnull %13) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.thread167
 
 160:                                              ; preds = %139
@@ -3396,8 +3390,8 @@ define internal fastcc i32 @write_scan_chunk(ptr noundef nonnull %0, i32 noundef
 
 .thread167:                                       ; preds = %108, %137, %160, %154, %106, %96, %._crit_edge, %80, %._crit_edge169, %57, %47, %40, %33, %26, %19, %15
   %.0137 = phi i32 [ %18, %15 ], [ %22, %19 ], [ %29, %26 ], [ %36, %33 ], [ %50, %47 ], [ %60, %57 ], [ %68, %._crit_edge169 ], [ %83, %80 ], [ %88, %._crit_edge ], [ %99, %96 ], [ %43, %40 ], [ %107, %106 ], [ %159, %154 ], [ 0, %160 ], [ %.2, %137 ], [ %116, %108 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0137
 }
 
@@ -3512,9 +3506,9 @@ define internal fastcc i32 @write_tile_chunk(ptr noundef nonnull %0, i32 noundef
   %15 = alloca ptr, align 8
   %16 = alloca [3 x i64], align 16
   %17 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %18 = load i8, ptr %0, align 8, !tbaa !3
   switch i8 %18, label %23 [
     i8 3, label %27
@@ -3706,7 +3700,7 @@ define internal fastcc i32 @write_tile_chunk(ptr noundef nonnull %0, i32 noundef
   br i1 %122, label %123, label %.thread
 
 123:                                              ; preds = %120
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 %11, ptr %16, align 16, !tbaa !28
   %124 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %8, ptr %124, align 8, !tbaa !28
@@ -3718,13 +3712,13 @@ define internal fastcc i32 @write_tile_chunk(ptr noundef nonnull %0, i32 noundef
   br i1 %128, label %129, label %.thread147
 
 .thread147:                                       ; preds = %123
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.thread149
 
 129:                                              ; preds = %123
   %130 = load ptr, ptr %114, align 8, !tbaa !107
   %131 = call i32 %130(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %11, ptr noundef nonnull %109) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %132 = icmp eq i32 %131, 0
   br i1 %132, label %.thread, label %.thread149
 
@@ -3744,7 +3738,7 @@ define internal fastcc i32 @write_tile_chunk(ptr noundef nonnull %0, i32 noundef
   br i1 %141, label %142, label %157
 
 142:                                              ; preds = %136
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %143 = getelementptr inbounds nuw i8, ptr %2, i64 248
   %144 = load i64, ptr %143, align 8, !tbaa !27
   store i64 %144, ptr %17, align 8, !tbaa !28
@@ -3768,7 +3762,7 @@ define internal fastcc i32 @write_tile_chunk(ptr noundef nonnull %0, i32 noundef
   %154 = sext i32 %139 to i64
   %155 = shl nsw i64 %154, 3
   %156 = call i32 %153(ptr noundef nonnull %0, ptr noundef nonnull %111, i64 noundef %155, ptr noundef nonnull %17) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.thread149
 
 157:                                              ; preds = %136
@@ -3778,9 +3772,9 @@ define internal fastcc i32 @write_tile_chunk(ptr noundef nonnull %0, i32 noundef
 
 .thread149:                                       ; preds = %108, %.thread147, %129, %.thread, %157, %151, %106, %65, %80, %._crit_edge, %61, %51, %44, %37, %30, %23, %19
   %.0121 = phi i32 [ %22, %19 ], [ %26, %23 ], [ %33, %30 ], [ %40, %37 ], [ %47, %44 ], [ %54, %51 ], [ %64, %61 ], [ %72, %._crit_edge ], [ %83, %80 ], [ %66, %65 ], [ %107, %106 ], [ %156, %151 ], [ 0, %157 ], [ %134, %.thread ], [ %127, %.thread147 ], [ %131, %129 ], [ %118, %108 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %.0121
 }
 
@@ -3839,7 +3833,7 @@ define i32 @exr_write_deep_tile_chunk(ptr noundef %0, i32 noundef %1, i32 nounde
 ; Function Attrs: nounwind uwtable
 define hidden i32 @internal_validate_next_chunk(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %6 = load i32, ptr %5, align 8, !tbaa !104
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -3935,23 +3929,23 @@ define hidden i32 @internal_validate_next_chunk(ptr noundef readonly captures(no
 
 59:                                               ; preds = %28, %48, %51, %55, %.thread._crit_edge, %9
   %.0 = phi i32 [ %12, %9 ], [ %47, %.thread._crit_edge ], [ %58, %55 ], [ 0, %51 ], [ 0, %48 ], [ %39, %28 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #6
+declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #6
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @extract_chunk_leader(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i64 noundef %3, ptr noundef nonnull writeonly captures(none) %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #0 {
   %7 = alloca [6 x i32], align 16
   %8 = alloca i64, align 8
   %9 = alloca [3 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %3, ptr %8, align 8, !tbaa !28
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %11 = load i64, ptr %10, align 8, !tbaa !31
@@ -4060,7 +4054,7 @@ define internal fastcc i32 @extract_chunk_leader(ptr noundef %0, ptr noundef rea
   br i1 %switch, label %65, label %99
 
 65:                                               ; preds = %58
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %66 = load ptr, ptr %27, align 8, !tbaa !33
   %67 = call i32 %66(ptr noundef nonnull %0, ptr noundef nonnull %9, i64 noundef 24, ptr noundef nonnull %8, ptr noundef null, i32 noundef 0) #8
   %.not96 = icmp eq i32 %67, 0
@@ -4114,14 +4108,14 @@ define internal fastcc i32 @extract_chunk_leader(ptr noundef %0, ptr noundef rea
 
 .thread:                                          ; preds = %80, %92, %65
   %.175.ph = phi i32 [ %67, %65 ], [ %95, %92 ], [ %83, %80 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %118
 
 96:                                               ; preds = %87
   %97 = add nuw i64 %84, %69
   %98 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %97, ptr %98, align 8, !tbaa !118
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %114
 
 99:                                               ; preds = %58
@@ -4157,8 +4151,8 @@ define internal fastcc i32 @extract_chunk_leader(ptr noundef %0, ptr noundef rea
 
 118:                                              ; preds = %.thread, %26, %114, %108, %36
   %.074 = phi i32 [ %39, %36 ], [ 0, %114 ], [ %111, %108 ], [ %30, %26 ], [ %.175.ph, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.074
 }
 
@@ -4212,16 +4206,22 @@ define internal fastcc i32 @alloc_chunk_table(ptr noundef nonnull %0, ptr nounde
   ret i32 %.1
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 

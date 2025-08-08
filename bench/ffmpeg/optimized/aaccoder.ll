@@ -82,19 +82,19 @@ define internal void @search_for_quantizers_twoloop(ptr noundef readonly capture
   %36 = fpext nsz float %35 to double
   %37 = fmul nsz double %34, %36
   %38 = fptosi double %37 to i32
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #13
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #13
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7) #13
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %8) #13
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %9, i8 0, i64 512, i1 false)
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %10, i8 0, i64 512, i1 false)
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %11) #13
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %12) #13
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %13) #13
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %14) #13
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %15) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %39 = fdiv nsz float 2.400000e+02, %3
   %40 = fcmp nsz ogt float %39, 6.250000e-02
   %41 = select nsz i1 %40, float %39, float 6.250000e-02
@@ -3088,17 +3088,17 @@ find_min_book.exit1892.thread.us:                 ; preds = %1511
   br i1 %1558, label %.preheader.us, label %.loopexit, !llvm.loop !145
 
 .loopexit:                                        ; preds = %._crit_edge2281.us, %.preheader.lr.ph.i1889, %.preheader28.i, %139, %ff_init_nextband_map.exit, %._crit_edge2074
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -3108,14 +3108,14 @@ define internal void @codebook_trellis_rate(ptr noundef %0, ptr noundef %1, i32 
   %7 = alloca [120 x [15 x %struct.TrellisBandCodingPath]], align 16
   %8 = alloca [120 x i32], align 16
   %9 = alloca [120 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 21600, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = load i8, ptr %1, align 16, !tbaa !146
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %12 = load i32, ptr %11, align 4, !tbaa !59
   %13 = icmp eq i32 %12, 1
   %14 = select i1 %13, i32 5, i32 3
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %8) #13
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 567256
   %16 = load ptr, ptr %15, align 8, !tbaa !90
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 38864
@@ -3324,10 +3324,10 @@ define internal void @codebook_trellis_rate(ptr noundef %0, ptr noundef %1, i32 
   %121 = getelementptr inbounds [1024 x float], ptr %18, i64 0, i64 %120
   %122 = getelementptr inbounds [1024 x float], ptr %17, i64 0, i64 %120
   %123 = load i32, ptr %91, align 4, !tbaa !85
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %124 = call nsz float %117(ptr noundef %0, ptr noundef null, ptr noundef nonnull %121, ptr noundef null, ptr noundef nonnull %122, i32 noundef range(i32 0, 256) %42, i32 noundef %123, i32 noundef range(i32 0, 256) %114, float noundef 0.000000e+00, float noundef 0x7FF0000000000000, ptr noundef nonnull %6, ptr noundef null) #13
   %125 = load i32, ptr %6, align 4, !tbaa !85
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %126 = sitofp i32 %125 to float
   %127 = fadd nsz float %.0247, %126
   %indvars.iv.next300 = add nuw nsw i64 %indvars.iv299, 1
@@ -3659,9 +3659,9 @@ put_bits.exit236:                                 ; preds = %270, %290
   br i1 %292, label %200, label %._crit_edge281, !llvm.loop !166
 
 ._crit_edge281:                                   ; preds = %put_bits.exit236, %.preheader238, %.preheader237
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 21600, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -3873,7 +3873,7 @@ define internal void @search_for_pns(ptr noundef %0, ptr noundef readonly captur
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 38864
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 39376
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40400
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 38424
   %12 = load float, ptr %11, align 8, !tbaa !171
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 344
@@ -4528,7 +4528,7 @@ ff_init_nextband_map.exit:                        ; preds = %._crit_edge.i
   br i1 %381, label %.preheader654, label %._crit_edge700, !llvm.loop !181
 
 ._crit_edge700:                                   ; preds = %._crit_edge695, %.preheader28.i, %.preheader654.lr.ph
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -4805,8 +4805,8 @@ define internal void @search_for_ms(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #13
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 38864
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 39376
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 39888
@@ -5318,10 +5318,10 @@ find_min_book.exit408:                            ; preds = %find_min_book.exit,
   %275 = load float, ptr %274, align 4, !tbaa !72
   %276 = fcmp nsz ogt float %272, %275
   %.375 = select nsz i1 %276, float %275, float %272
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %277 = load ptr, ptr %100, align 16, !tbaa !69
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 %indvars.iv520
   %279 = load i8, ptr %278, align 1, !tbaa !77
@@ -5443,10 +5443,10 @@ find_min_book.exit408:                            ; preds = %find_min_book.exit,
   %372 = fsub nsz float %344, %371
   %373 = sitofp i32 %369 to float
   %374 = fsub nsz float %362, %373
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next518 = add nuw nsw i64 %indvars.iv517, 1
   %375 = load i8, ptr %118, align 1, !tbaa !77
   %376 = zext i8 %375 to i64
@@ -5572,8 +5572,8 @@ find_min_book.exit408:                            ; preds = %find_min_book.exit,
   br i1 %426, label %.preheader426, label %.loopexit, !llvm.loop !194
 
 .loopexit:                                        ; preds = %._crit_edge483, %.preheader426.lr.ph, %ff_init_nextband_map.exit399, %2
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -5600,11 +5600,11 @@ define internal void @search_for_quantizers_fast(ptr noundef readonly captures(n
   %21 = fpext nsz float %20 to double
   %22 = fmul nsz double %19, %21
   %23 = fptosi double %22 to i32
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %5, i8 0, i64 512, i1 false)
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %6, i8 0, i64 512, i1 false)
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = tail call i32 @llvm.smin.i32(i32 %23, i32 5800)
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %26 = load i32, ptr %25, align 4, !tbaa !59
@@ -6306,9 +6306,9 @@ find_min_book.exit329.us:                         ; preds = %343, %._crit_edge47
   br i1 %358, label %156, label %.loopexit339, !llvm.loop !210
 
 .loopexit339:                                     ; preds = %.preheader.lr.ph, %.thread, %._crit_edge418, %4, %._crit_edge366
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -7908,51 +7908,45 @@ quantize_and_encode_band_cost_template.exit:      ; preds = %.preheader.preheade
   ret float %26
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fmuladd.f32(float, float, float) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #7
+declare float @llvm.fabs.f32(float) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare float @cbrtf(float noundef) local_unnamed_addr #8
+declare float @cbrtf(float noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #7
+declare float @llvm.sqrt.f32(float) #6
 
 declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #9
+declare void @abort() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.log2.f32(float) #7
+declare float @llvm.log2.f32(float) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.pow.f32(float, float) #7
+declare float @llvm.pow.f32(float, float) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #7
+declare double @llvm.fmuladd.f64(double, double, double) #6
 
 declare void @ff_quantize_band_cost_cache_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.log.f32(float) #7
+declare float @llvm.log.f32(float) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.exp.f32(float) #7
+declare float @llvm.exp.f32(float) #6
 
 ; Function Attrs: nounwind uwtable
 define internal float @quantize_and_encode_band_cost_ESC_RTZ(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 %7, float noundef %8, float noundef %9, ptr noundef writeonly captures(address_is_null) %10, ptr noundef writeonly captures(address_is_null) %11) #0 {
@@ -8399,10 +8393,16 @@ quantize_and_encode_band_cost_template.exit:      ; preds = %105, %255, %256
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.round.f32(float) #7
+declare float @llvm.round.f32(float) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.ceil.f32(float) #7
+declare float @llvm.ceil.f32(float) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #12
@@ -8428,12 +8428,12 @@ attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "st
 attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { cold inlinehint noreturn nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nounwind }
 attributes #14 = { nounwind willreturn memory(none) }

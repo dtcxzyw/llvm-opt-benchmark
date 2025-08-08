@@ -77,11 +77,11 @@ define internal noundef zeroext i1 @_ZL28Test_TfRegistryManagerUnloadv() #1 pers
   %.sink18.sroa.gep24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sink18.sroa.gep21 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sink18.sroa.gep = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br i1 %6, label %8, label %.invoke
 
 8:                                                ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13TfGetPathNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %9 unwind label %23
 
@@ -99,7 +99,7 @@ define internal noundef zeroext i1 @_ZL28Test_TfRegistryManagerUnloadv() #1 pers
   %15 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #11
   %16 = call i32 @access(ptr noundef %15, i32 noundef 4) #11
   %.not = icmp eq i32 %16, 0
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   br i1 %.not, label %18, label %.invoke
 
 .invoke:                                          ; preds = %11, %7
@@ -124,7 +124,7 @@ define internal noundef zeroext i1 @_ZL28Test_TfRegistryManagerUnloadv() #1 pers
   unreachable
 
 18:                                               ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   invoke fastcc void @_ZL27_LoadAndUnloadSharedLibraryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %19 unwind label %23
 
@@ -249,23 +249,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #11
   %.not27 = icmp eq ptr %18, null
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %.not27, label %.invoke, label %20
 
 20:                                               ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %21 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br i1 %21, label %22, label %.invoke
 
 22:                                               ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %23 = invoke noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__9TfDlcloseEPv(ptr noundef nonnull %18)
           to label %24 unwind label %31
 
 24:                                               ; preds = %22
   %.not = icmp eq i32 %23, 0
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br i1 %.not, label %26, label %.invoke
 
 .invoke:                                          ; preds = %24, %20, %19
@@ -290,7 +290,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   unreachable
 
 26:                                               ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
   ret void
 
@@ -470,10 +470,10 @@ define internal void @_GLOBAL__sub_I_registryManagerUnload.cpp() #9 section ".te
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

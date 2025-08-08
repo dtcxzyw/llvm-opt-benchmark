@@ -33,7 +33,7 @@ define hidden void @spl_add_class_name(ptr noundef readonly captures(none) %0, p
   br i1 %17, label %18, label %30
 
 18:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = load ptr, ptr %14, align 8, !tbaa !27
   store ptr %19, ptr %5, align 8, !tbaa !26
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
@@ -54,22 +54,16 @@ define hidden void @spl_add_class_name(ptr noundef readonly captures(none) %0, p
   store i32 %.sink, ptr %27, align 8, !tbaa !26
   %28 = load ptr, ptr %0, align 8, !tbaa !26
   %29 = call ptr @zend_hash_add(ptr noundef %28, ptr noundef nonnull %19, ptr noundef nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %30
 
 30:                                               ; preds = %6, %12, %26
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @zend_hash_find(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @zend_hash_find(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @zend_hash_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @zend_hash_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @spl_add_interfaces(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -104,7 +98,7 @@ define hidden void @spl_add_interfaces(ptr noundef readonly captures(none) %0, p
   br i1 %22, label %23, label %spl_add_class_name.exit.us
 
 23:                                               ; preds = %.lr.ph.split.us
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %24 = load ptr, ptr %19, align 8, !tbaa !27
   store ptr %24, ptr %5, align 8, !tbaa !26
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
@@ -124,7 +118,7 @@ define hidden void @spl_add_interfaces(ptr noundef readonly captures(none) %0, p
   store i32 %.sink.i.us, ptr %14, align 8, !tbaa !26
   %32 = load ptr, ptr %0, align 8, !tbaa !26
   %33 = call ptr @zend_hash_add(ptr noundef %32, ptr noundef nonnull %24, ptr noundef nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %spl_add_class_name.exit.us
 
 spl_add_class_name.exit.us:                       ; preds = %31, %.lr.ph.split.us
@@ -155,7 +149,7 @@ spl_add_class_name.exit.us:                       ; preds = %31, %.lr.ph.split.u
   br i1 %49, label %50, label %spl_add_class_name.exit
 
 50:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %51 = load ptr, ptr %46, align 8, !tbaa !27
   store ptr %51, ptr %5, align 8, !tbaa !26
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
@@ -175,7 +169,7 @@ spl_add_class_name.exit.us:                       ; preds = %31, %.lr.ph.split.u
   store i32 %.sink.i, ptr %14, align 8, !tbaa !26
   %59 = load ptr, ptr %0, align 8, !tbaa !26
   %60 = call ptr @zend_hash_add(ptr noundef %59, ptr noundef nonnull %51, ptr noundef nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %spl_add_class_name.exit
 
 spl_add_class_name.exit:                          ; preds = %.lr.ph.split, %44, %58
@@ -190,7 +184,7 @@ spl_add_class_name.exit:                          ; preds = %.lr.ph.split, %44, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #3
+declare void @llvm.assume(i1 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @spl_add_traits(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -225,7 +219,7 @@ define hidden void @spl_add_traits(ptr noundef readonly captures(none) %0, ptr n
   br i1 %22, label %23, label %spl_add_class_name.exit.us
 
 23:                                               ; preds = %.lr.ph.split.us
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %24 = load ptr, ptr %19, align 8, !tbaa !27
   store ptr %24, ptr %5, align 8, !tbaa !26
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
@@ -245,7 +239,7 @@ define hidden void @spl_add_traits(ptr noundef readonly captures(none) %0, ptr n
   store i32 %.sink.i.us, ptr %10, align 8, !tbaa !26
   %32 = load ptr, ptr %0, align 8, !tbaa !26
   %33 = call ptr @zend_hash_add(ptr noundef %32, ptr noundef nonnull %24, ptr noundef nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %spl_add_class_name.exit.us
 
 spl_add_class_name.exit.us:                       ; preds = %31, %.lr.ph.split.us
@@ -284,7 +278,7 @@ spl_add_class_name.exit.us:                       ; preds = %31, %.lr.ph.split.u
   br i1 %53, label %54, label %spl_add_class_name.exit
 
 54:                                               ; preds = %48
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %55 = load ptr, ptr %50, align 8, !tbaa !27
   store ptr %55, ptr %5, align 8, !tbaa !26
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
@@ -304,7 +298,7 @@ spl_add_class_name.exit.us:                       ; preds = %31, %.lr.ph.split.u
   store i32 %.sink.i, ptr %10, align 8, !tbaa !26
   %63 = load ptr, ptr %0, align 8, !tbaa !26
   %64 = call ptr @zend_hash_add(ptr noundef %63, ptr noundef nonnull %55, ptr noundef nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %spl_add_class_name.exit
 
 spl_add_class_name.exit:                          ; preds = %.lr.ph.split, %48, %62
@@ -315,7 +309,7 @@ spl_add_class_name.exit:                          ; preds = %.lr.ph.split, %48, 
   br i1 %67, label %.lr.ph.split, label %._crit_edge
 }
 
-declare ptr @zend_fetch_class_by_name(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @zend_fetch_class_by_name(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @spl_add_classes(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -343,7 +337,7 @@ define hidden void @spl_add_classes(ptr noundef readonly captures(address_is_nul
   br i1 %19, label %20, label %spl_add_class_name.exit
 
 20:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %21 = load ptr, ptr %16, align 8, !tbaa !27
   store ptr %21, ptr %6, align 8, !tbaa !26
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
@@ -364,7 +358,7 @@ define hidden void @spl_add_classes(ptr noundef readonly captures(address_is_nul
   store i32 %.sink.i, ptr %29, align 8, !tbaa !26
   %30 = load ptr, ptr %1, align 8, !tbaa !26
   %31 = call ptr @zend_hash_add(ptr noundef %30, ptr noundef nonnull %21, ptr noundef nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %spl_add_class_name.exit
 
 spl_add_class_name.exit:                          ; preds = %8, %14, %28
@@ -421,16 +415,22 @@ zend_string_release_ex.exit:                      ; preds = %5, %16, %21
   ret void
 }
 
-declare ptr @zend_mangle_property_name(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @zend_mangle_property_name(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @zend_hash_update(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @zend_hash_update(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @_efree(ptr noundef) local_unnamed_addr #2
+declare void @_efree(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

@@ -204,7 +204,7 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN23assistant_slash_command4init17hb67dda9388390f1dE(ptr noalias noundef align 8 dereferenceable(1176) %0) unnamed_addr #0 {
   %2 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call noundef nonnull ptr @_ZN23assistant_slash_command22slash_command_registry20SlashCommandRegistry14default_global17h1f252ac4f6bf7ff0E(ptr noalias noundef nonnull align 8 dereferenceable(1176) %0)
   store ptr %3, ptr %2, align 8
   %4 = atomicrmw sub ptr %3, i64 1 release, align 8, !noalias !29
@@ -217,7 +217,7 @@ define void @_ZN23assistant_slash_command4init17hb67dda9388390f1dE(ptr noalias n
   br label %"_ZN4core3ptr114drop_in_place$LT$alloc..sync..Arc$LT$assistant_slash_command..slash_command_registry..SlashCommandRegistry$GT$$GT$17h90238f2fc8c54fe7E.exit"
 
 "_ZN4core3ptr114drop_in_place$LT$alloc..sync..Arc$LT$assistant_slash_command..slash_command_registry..SlashCommandRegistry$GT$$GT$17h90238f2fc8c54fe7E.exit": ; preds = %1, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -281,12 +281,6 @@ declare noundef zeroext i1 @_ZN4text6anchor6Anchor8is_valid17h681be9f7d6ae77a6E(
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef align 8 dereferenceable(64), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
-
 ; Function Attrs: nonlazybind uwtable
 declare hidden { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6078bcc81f4248a1E"(ptr noalias noundef align 8 dereferenceable(72)) unnamed_addr #0
 
@@ -298,6 +292,12 @@ declare noundef nonnull ptr @_ZN23assistant_slash_command22slash_command_registr
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h00d0f6c17592aa72E"(ptr noalias noundef align 8 dereferenceable(32)) unnamed_addr #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12

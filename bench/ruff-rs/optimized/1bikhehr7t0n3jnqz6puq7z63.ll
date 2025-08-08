@@ -46,7 +46,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
   %14 = phi i64 [ %.promoted8, %.lr.ph ], [ %19, %13 ]
   %15 = phi i64 [ %.promoted, %.lr.ph ], [ %20, %13 ]
   %16 = phi ptr [ %7, %.lr.ph ], [ %17, %13 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %16, i64 40, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store ptr %17, ptr %5, align 8
@@ -59,7 +59,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.41.0..sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !4
   %19 = add i64 %14, 1
   %20 = add i64 %15, 1
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %17, %6
   br i1 %.not, label %._crit_edge, label %13
 }
@@ -325,10 +325,10 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #6
 declare i64 @llvm.usub.sat.i64(i64, i64) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #8

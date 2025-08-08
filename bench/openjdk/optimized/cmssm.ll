@@ -457,7 +457,7 @@ FindNearSectors.exit:                             ; preds = %30
   %135 = fsub double %131, %105
   %136 = fsub double %132, %106
   call void @_cmsVEC3init(ptr noundef nonnull %61, double noundef %134, double noundef %135, double noundef %136) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_cmsVEC3minus(ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %8) #8
   %137 = call double @_cmsVEC3dot(ptr noundef nonnull %51, ptr noundef nonnull %51) #8
   %138 = call double @_cmsVEC3dot(ptr noundef nonnull %51, ptr noundef nonnull %61) #8
@@ -537,7 +537,7 @@ ClosestLineToLine.exit:                           ; preds = %159, %161, %164, %1
   %181 = load double, ptr %64, align 8
   %182 = load double, ptr %65, align 8
   %183 = call double @llvm.fmuladd.f64(double %174, double %182, double %181)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %184 = fmul double %180, %180
   %185 = call double @llvm.fmuladd.f64(double %177, double %177, double %184)
   %186 = call double @llvm.fmuladd.f64(double %183, double %183, double %185)
@@ -659,10 +659,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @llvm.smin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

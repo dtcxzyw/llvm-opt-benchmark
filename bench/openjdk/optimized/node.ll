@@ -6804,7 +6804,7 @@ define hidden noundef zeroext i1 @_ZN4Node18remove_dead_regionEP8PhaseGVNb(ptr n
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1
   %..i = select i1 %16, ptr %1, ptr null
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 16
@@ -7607,7 +7607,7 @@ thread-pre-split.i:                               ; preds = %412
   br label %_ZL14kill_dead_codeP4NodeP12PhaseIterGVN.exit
 
 _ZL14kill_dead_codeP4NodeP12PhaseIterGVN.exit:    ; preds = %13, %439, %441
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK10RegionNode7is_copyEv.exit.thread
 
 442:                                              ; preds = %9, %8
@@ -9078,10 +9078,10 @@ declare noundef zeroext i1 @_ZNK8ciMethod16is_boxing_methodEv(ptr noundef nonnul
 declare i32 @llvm.ctpop.i32(i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

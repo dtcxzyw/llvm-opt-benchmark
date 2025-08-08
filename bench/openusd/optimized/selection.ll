@@ -3408,7 +3408,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__11HdSelectionC2ER
   %.add8 = add nuw nsw i64 %.idx, 8
   %.ptr11 = getelementptr inbounds nuw i8, ptr %0, i64 %.add8
   %9 = getelementptr inbounds nuw [2 x %"class.std::unordered_map"], ptr %4, i64 0, i64 %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %.ptr11, align 8
   %10 = getelementptr inbounds nuw i8, ptr %.ptr11, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -3430,7 +3430,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__11HdSelectionC2ER
           to label %20 unwind label %45
 
 20:                                               ; preds = %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %7, label %21, label %5
 
 21:                                               ; preds = %20
@@ -4676,10 +4676,10 @@ declare void @llvm.assume(i1 noundef) #15
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

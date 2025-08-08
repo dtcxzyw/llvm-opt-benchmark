@@ -198,22 +198,16 @@ $_ZTSSt24_Weak_result_type_memfunIMN19OpenColorIO_v2_5dev34DynamicPropertyGradin
 @.str.37 = private unnamed_addr constant [21 x i8] c"basic_string::append\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_GradingRGBCurveOpGPU.cpp, ptr null }]
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
-
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
-
 ; Function Attrs: mustprogress nounwind uwtable
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1 align 2
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0 align 2
 
 ; Function Attrs: nofree nounwind
-declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
+declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_5dev34GetGradingRGBCurveGPUShaderProgramERSt10shared_ptrINS_16GpuShaderCreatorEERS0_IKNS_21GradingRGBCurveOpDataEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_5dev34GetGradingRGBCurveGPUShaderProgramERSt10shared_ptrINS_16GpuShaderCreatorEERS0_IKNS_21GradingRGBCurveOpDataEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine", align 8
   %5 = alloca %"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine", align 8
@@ -292,7 +286,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev34GetGradingRGBCurveGPUShaderProgram
   br i1 %.not, label %.thread, label %116
 
 .thread:                                          ; preds = %2, %72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %57) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   %75 = load ptr, ptr %1, align 8, !tbaa !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 176
@@ -331,7 +325,7 @@ _ZNK19OpenColorIO_v2_5dev21GradingRGBCurveOpData26getDynamicPropertyInternalEv.e
   %92 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %57) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %57) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br label %1581
 
 93:                                               ; preds = %_ZNK19OpenColorIO_v2_5dev21GradingRGBCurveOpData26getDynamicPropertyInternalEv.exit
@@ -384,7 +378,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %112, %110
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %93, %100, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %115
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %57) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br i1 %90, label %1562, label %116
 
 116:                                              ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %72
@@ -400,10 +394,10 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
   br i1 %123, label %.noexc.i, label %156
 
 .noexc.i:                                         ; preds = %120
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %58) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
   %124 = getelementptr inbounds nuw i8, ptr %58, i64 16
   store ptr %124, ptr %58, align 8, !tbaa !30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
   store i64 100, ptr %56, align 8, !tbaa !33
   %125 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull align 8 dereferenceable(8) %56, i64 noundef 0)
           to label %.noexc unwind label %146
@@ -417,7 +411,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
   store i64 %126, ptr %127, align 8, !tbaa !37
   %128 = getelementptr inbounds nuw i8, ptr %125, i64 %126
   store i8 0, ptr %128, align 1, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   %129 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixB5cxx11E, i64 8), align 8, !tbaa !37
   %130 = load i64, ptr %127, align 8, !tbaa !37
   %131 = sub i64 4611686018427387903, %130
@@ -468,7 +462,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %58) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %156
 
 146:                                              ; preds = %.noexc.i
@@ -497,7 +491,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i75
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i75, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i76, %146
   %.pn = phi { ptr, i32 } [ %147, %146 ], [ %149, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i76 ], [ %149, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i75 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %58) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %1581
 
 156:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %120, %116
@@ -505,7 +499,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %_ZN
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 168
   %159 = load i32, ptr %158, align 8, !tbaa !38
   %160 = call noundef i32 @_ZNK19OpenColorIO_v2_5dev21GradingRGBCurveOpData12getDirectionEv(ptr noundef nonnull align 8 dereferenceable(200) %157) #19
-  call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %59) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   %161 = load ptr, ptr %0, align 8, !tbaa !11
   %162 = call noundef i32 @_ZNK19OpenColorIO_v2_5dev16GpuShaderCreator11getLanguageEv(ptr noundef nonnull align 8 dereferenceable(16) %161) #19
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderTextC1ENS_11GpuLanguageE(ptr noundef nonnull align 8 dereferenceable(764) %59, i32 noundef %162)
@@ -513,7 +507,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %_ZN
           to label %163 unwind label %1036
 
 163:                                              ; preds = %156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %60) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %60, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %164 unwind label %1038
 
@@ -523,8 +517,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %_ZN
 
 166:                                              ; preds = %164
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %60) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %61) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %61, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %167 unwind label %1043
 
@@ -558,8 +552,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %_ZN
 
 181:                                              ; preds = %179
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %61) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %62) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %62, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %182 unwind label %1048
 
@@ -569,8 +563,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %_ZN
 
 184:                                              ; preds = %182
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %62) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %63) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %63, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %185 unwind label %1053
 
@@ -580,12 +574,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %_ZN
 
 187:                                              ; preds = %185
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %63) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6indentEv(ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %188 unwind label %1036
 
 188:                                              ; preds = %187
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %64) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
   %189 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store ptr %189, ptr %64, align 8, !tbaa !30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %189, ptr noundef nonnull align 1 dereferenceable(12) @.str.9, i64 12, i1 false)
@@ -628,7 +622,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %_ZN
   %208 = getelementptr inbounds nuw i8, ptr %64, i64 160
   %209 = getelementptr inbounds nuw i8, ptr %64, i64 176
   store ptr %209, ptr %208, align 8, !tbaa !30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i64 16, ptr %55, align 8, !tbaa !33
   %210 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %208, ptr noundef nonnull align 8 dereferenceable(8) %55, i64 noundef 0)
           to label %243 unwind label %211
@@ -730,11 +724,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i41
   %246 = load ptr, ptr %208, align 8, !tbaa !35
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 %244
   store i8 0, ptr %247, align 1, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   br i1 %117, label %248, label %489
 
 248:                                              ; preds = %243
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %44) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   invoke void @_ZN19OpenColorIO_v2_5dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %44, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(192) %64)
           to label %.noexc83 unwind label %1058
 
@@ -840,8 +834,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i80
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i80: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i79, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i81
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %44) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %45) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   invoke void @_ZN19OpenColorIO_v2_5dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %45, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %192)
           to label %.noexc84 unwind label %1058
 
@@ -947,8 +941,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i48
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i48.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i49.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %45) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %46) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   invoke void @_ZN19OpenColorIO_v2_5dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %46, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %196)
           to label %.noexc85 unwind label %1058
 
@@ -1054,8 +1048,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i60
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i60.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i61.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %46) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %47) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   invoke void @_ZN19OpenColorIO_v2_5dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %47, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %200)
           to label %.noexc86 unwind label %1058
 
@@ -1161,8 +1155,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i72
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i72.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i73.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %47) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %48) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   invoke void @_ZN19OpenColorIO_v2_5dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %48, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %204)
           to label %.noexc87 unwind label %1058
 
@@ -1268,8 +1262,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i84
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i84.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i85.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %48) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %49) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   invoke void @_ZN19OpenColorIO_v2_5dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %49, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %208)
           to label %.noexc88 unwind label %1058
 
@@ -1377,7 +1371,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i96
 489:                                              ; preds = %243
   %490 = load ptr, ptr %0, align 8, !tbaa !11
   %491 = call noundef i32 @_ZN19OpenColorIO_v2_5dev16GpuShaderCreator20getNextResourceIndexEv(ptr noundef nonnull align 8 dereferenceable(16) %490) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %50) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   invoke fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124BuildResourceNameIndexedERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_j(ptr dead_on_unwind noalias writable align 8 %50, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(192) %64, i32 noundef %491)
           to label %.noexc89 unwind label %1058
 
@@ -1483,8 +1477,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i108.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i109.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %50) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %51) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   invoke fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124BuildResourceNameIndexedERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_j(ptr dead_on_unwind noalias writable align 8 %51, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %192, i32 noundef %491)
           to label %.noexc90 unwind label %1058
 
@@ -1590,8 +1584,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i120.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i121.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %51) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %52) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   invoke fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124BuildResourceNameIndexedERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_j(ptr dead_on_unwind noalias writable align 8 %52, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %196, i32 noundef %491)
           to label %.noexc91 unwind label %1058
 
@@ -1697,8 +1691,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit134.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit134.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i132.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i133.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %52) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %53) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
   invoke fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124BuildResourceNameIndexedERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_j(ptr dead_on_unwind noalias writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %200, i32 noundef %491)
           to label %.noexc92 unwind label %1058
 
@@ -1804,8 +1798,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i144.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i145.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %53) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %54) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   invoke fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124BuildResourceNameIndexedERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_j(ptr dead_on_unwind noalias writable align 8 %54, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %208, i32 noundef %491)
           to label %.noexc93 unwind label %1058
 
@@ -1911,8 +1905,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
   br label %1065
 
 692:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i97.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i96.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %49) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %65) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
   %693 = load ptr, ptr %1, align 8, !tbaa !3
   call void @llvm.experimental.noalias.scope.decl(metadata !59)
   %694 = getelementptr inbounds nuw i8, ptr %693, i64 176
@@ -1944,12 +1938,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
 
 _ZNK19OpenColorIO_v2_5dev21GradingRGBCurveOpData26getDynamicPropertyInternalEv.exit96: ; preds = %692, %702, %705
   %707 = phi ptr [ %695, %692 ], [ %695, %702 ], [ %.pre173, %705 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %66) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
   invoke void @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl18createEditableCopyEv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.8") align 8 %66, ptr noundef nonnull align 8 dereferenceable(144) %707)
           to label %708 unwind label %1060
 
 708:                                              ; preds = %_ZNK19OpenColorIO_v2_5dev21GradingRGBCurveOpData26getDynamicPropertyInternalEv.exit96
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %67) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
   %709 = load ptr, ptr %66, align 8, !tbaa !17
   store ptr %709, ptr %67, align 8, !tbaa !62
   %710 = getelementptr inbounds nuw i8, ptr %67, i64 8
@@ -1982,7 +1976,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_34DynamicPrope
 
 722:                                              ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_34DynamicPropertyGradingRGBCurveImplEvEERKS_IT_E.exit
   %.val = load ptr, ptr %66, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %723 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %724 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %725 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -1990,7 +1984,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_34DynamicPrope
   store ptr @_ZN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl18GetNumOffsetValuesEv, ptr %35, align 8, !tbaa !65
   store ptr @_ZNSt17_Function_handlerIFivEPS0_E9_M_invokeERKSt9_Any_data, ptr %724, align 8, !tbaa !66
   store ptr @_ZNSt17_Function_handlerIFivEPS0_E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation, ptr %723, align 8, !tbaa !69
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %36) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %726 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %727 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i64 0, ptr %727, align 8
@@ -2027,7 +2021,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_34DynamicPrope
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %733, %731
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %738 = load ptr, ptr %723, align 8, !tbaa !69
   %.not.i62.i = icmp eq ptr %738, null
   br i1 %.not.i62.i, label %_ZNSt14_Function_baseD2Ev.exit63.i, label %739
@@ -2044,8 +2038,8 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %733, %731
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit63.i:               ; preds = %739, %_ZNSt14_Function_baseD2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %37) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %744 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %745 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 0, ptr %745, align 8
@@ -2062,7 +2056,7 @@ _ZNSt14_Function_baseD2Ev.exit63.i:               ; preds = %739, %_ZNSt14_Funct
   store ptr %746, ptr %37, align 8, !tbaa !74
   store ptr @_ZNSt17_Function_handlerIFivESt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFivEPS3_EEE9_M_invokeERKSt9_Any_data, ptr %747, align 8, !tbaa !66
   store ptr @_ZNSt17_Function_handlerIFivESt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFivEPS3_EEE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %744, align 8, !tbaa !69
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %38) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %748 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %749 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i64 0, ptr %749, align 8
@@ -2103,7 +2097,7 @@ _ZNSt14_Function_baseD2Ev.exit63.i:               ; preds = %739, %_ZNSt14_Funct
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit65.i:               ; preds = %757, %755
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %38) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   %762 = load ptr, ptr %744, align 8, !tbaa !69
   %.not.i66.i = icmp eq ptr %762, null
   br i1 %.not.i66.i, label %_ZNSt14_Function_baseD2Ev.exit67.i, label %763
@@ -2120,8 +2114,8 @@ _ZNSt14_Function_baseD2Ev.exit65.i:               ; preds = %757, %755
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit67.i:               ; preds = %763, %_ZNSt14_Function_baseD2Ev.exit65.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %37) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %39) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %768 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %769 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %770 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -2129,7 +2123,7 @@ _ZNSt14_Function_baseD2Ev.exit67.i:               ; preds = %763, %_ZNSt14_Funct
   store ptr @_ZN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl18GetNumOffsetValuesEv, ptr %39, align 8, !tbaa !65
   store ptr @_ZNSt17_Function_handlerIFivEPS0_E9_M_invokeERKSt9_Any_data, ptr %769, align 8, !tbaa !66
   store ptr @_ZNSt17_Function_handlerIFivEPS0_E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation, ptr %768, align 8, !tbaa !69
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %40) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %771 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %772 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i64 0, ptr %772, align 8
@@ -2166,7 +2160,7 @@ _ZNSt14_Function_baseD2Ev.exit67.i:               ; preds = %763, %_ZNSt14_Funct
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit70.i:               ; preds = %778, %776
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %40) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   %783 = load ptr, ptr %768, align 8, !tbaa !69
   %.not.i71.i = icmp eq ptr %783, null
   br i1 %.not.i71.i, label %_ZNSt14_Function_baseD2Ev.exit72.i, label %784
@@ -2183,8 +2177,8 @@ _ZNSt14_Function_baseD2Ev.exit70.i:               ; preds = %778, %776
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit72.i:               ; preds = %784, %_ZNSt14_Function_baseD2Ev.exit70.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %39) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %41) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %789 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %790 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i64 0, ptr %790, align 8
@@ -2201,7 +2195,7 @@ _ZNSt14_Function_baseD2Ev.exit72.i:               ; preds = %784, %_ZNSt14_Funct
   store ptr %791, ptr %41, align 8, !tbaa !74
   store ptr @_ZNSt17_Function_handlerIFivESt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFivEPS3_EEE9_M_invokeERKSt9_Any_data, ptr %792, align 8, !tbaa !66
   store ptr @_ZNSt17_Function_handlerIFivESt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFivEPS3_EEE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %789, align 8, !tbaa !69
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %42) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   %793 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %794 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i64 0, ptr %794, align 8
@@ -2242,7 +2236,7 @@ _ZNSt14_Function_baseD2Ev.exit72.i:               ; preds = %784, %_ZNSt14_Funct
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit75.i:               ; preds = %802, %800
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %42) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   %807 = load ptr, ptr %789, align 8, !tbaa !69
   %.not.i76.i = icmp eq ptr %807, null
   br i1 %.not.i76.i, label %_ZNSt14_Function_baseD2Ev.exit77.i, label %808
@@ -2259,8 +2253,8 @@ _ZNSt14_Function_baseD2Ev.exit75.i:               ; preds = %802, %800
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit77.i:               ; preds = %808, %_ZNSt14_Function_baseD2Ev.exit75.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %41) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %43) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %813 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %814 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 0, ptr %814, align 8
@@ -2289,7 +2283,7 @@ _ZNSt14_Function_baseD2Ev.exit77.i:               ; preds = %808, %_ZNSt14_Funct
   br i1 %822, label %823, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110AddUniformERSt10shared_ptrINS_16GpuShaderCreatorEERKSt8functionIFbvEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
 
 823:                                              ; preds = %.noexc.i101
-  call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %33) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %824 = load ptr, ptr %0, align 8, !tbaa !11
   %825 = call noundef i32 @_ZNK19OpenColorIO_v2_5dev16GpuShaderCreator11getLanguageEv(ptr noundef nonnull align 8 dereferenceable(16) %824) #19
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderTextC1ENS_11GpuLanguageE(ptr noundef nonnull align 8 dereferenceable(764) %33, i32 noundef %825)
@@ -2301,7 +2295,7 @@ _ZNSt14_Function_baseD2Ev.exit77.i:               ; preds = %808, %_ZNSt14_Funct
 
 826:                                              ; preds = %.noexc78.i
   %827 = load ptr, ptr %0, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   invoke void @_ZNK19OpenColorIO_v2_5dev13GpuShaderText6stringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %34, ptr noundef nonnull align 8 dereferenceable(764) %33)
           to label %828 unwind label %877
 
@@ -2333,7 +2327,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %842 = getelementptr inbounds nuw i8, ptr %33, i64 384
   %843 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %843, ptr %842, align 8, !tbaa !27
@@ -2401,7 +2395,7 @@ _ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev.exit.i.i: ; preds = %_ZNKSt7__cxx111
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %873) #19
   %874 = getelementptr inbounds nuw i8, ptr %33, i64 120
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %874) #19
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %33) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110AddUniformERSt10shared_ptrINS_16GpuShaderCreatorEERKSt8functionIFbvEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
 
 875:                                              ; preds = %.noexc78.i
@@ -2437,13 +2431,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i12.i.i, %877
   %.pn.i.i = phi { ptr, i32 } [ %878, %877 ], [ %880, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i12.i.i ], [ %880, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11.i.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %889
 
 889:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13.i.i, %875
   %.pn.pn.i.i = phi { ptr, i32 } [ %.pn.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13.i.i ], [ %876, %875 ]
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev(ptr noundef nonnull align 8 dereferenceable(764) %33) #19
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %33) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %.body.i
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110AddUniformERSt10shared_ptrINS_16GpuShaderCreatorEERKSt8functionIFbvEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i: ; preds = %_ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev.exit.i.i, %.noexc.i101
@@ -2487,7 +2481,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110AddUniformERSt10shared_ptrINS_16GpuShade
 
 _ZNSt14_Function_baseD2Ev.exit82.i:               ; preds = %901, %898, %896
   %.pn.i = phi { ptr, i32 } [ %897, %896 ], [ %899, %898 ], [ %899, %901 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %906 = load ptr, ptr %723, align 8, !tbaa !69
   %.not.i83.i = icmp eq ptr %906, null
   br i1 %.not.i83.i, label %_ZNSt14_Function_baseD2Ev.exit84.i, label %907
@@ -2504,7 +2498,7 @@ _ZNSt14_Function_baseD2Ev.exit82.i:               ; preds = %901, %898, %896
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit84.i:               ; preds = %907, %_ZNSt14_Function_baseD2Ev.exit82.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %.body105
 
 912:                                              ; preds = %.noexc102
@@ -2532,7 +2526,7 @@ _ZNSt14_Function_baseD2Ev.exit84.i:               ; preds = %907, %_ZNSt14_Funct
 
 _ZNSt14_Function_baseD2Ev.exit86.i:               ; preds = %917, %914, %912
   %.pn30.i = phi { ptr, i32 } [ %913, %912 ], [ %915, %914 ], [ %915, %917 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %38) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   %922 = load ptr, ptr %744, align 8, !tbaa !69
   %.not.i87.i = icmp eq ptr %922, null
   br i1 %.not.i87.i, label %_ZNSt14_Function_baseD2Ev.exit88.i, label %923
@@ -2549,7 +2543,7 @@ _ZNSt14_Function_baseD2Ev.exit86.i:               ; preds = %917, %914, %912
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit88.i:               ; preds = %923, %_ZNSt14_Function_baseD2Ev.exit86.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %37) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %.body105
 
 928:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit67.i
@@ -2577,7 +2571,7 @@ _ZNSt14_Function_baseD2Ev.exit88.i:               ; preds = %923, %_ZNSt14_Funct
 
 _ZNSt14_Function_baseD2Ev.exit90.i:               ; preds = %933, %930, %928
   %.pn32.i = phi { ptr, i32 } [ %929, %928 ], [ %931, %930 ], [ %931, %933 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %40) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   %938 = load ptr, ptr %768, align 8, !tbaa !69
   %.not.i91.i = icmp eq ptr %938, null
   br i1 %.not.i91.i, label %_ZNSt14_Function_baseD2Ev.exit92.i, label %939
@@ -2594,7 +2588,7 @@ _ZNSt14_Function_baseD2Ev.exit90.i:               ; preds = %933, %930, %928
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit92.i:               ; preds = %939, %_ZNSt14_Function_baseD2Ev.exit90.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %39) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %.body105
 
 944:                                              ; preds = %.noexc103
@@ -2622,7 +2616,7 @@ _ZNSt14_Function_baseD2Ev.exit92.i:               ; preds = %939, %_ZNSt14_Funct
 
 _ZNSt14_Function_baseD2Ev.exit94.i:               ; preds = %949, %946, %944
   %.pn34.i = phi { ptr, i32 } [ %945, %944 ], [ %947, %946 ], [ %947, %949 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %42) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   %954 = load ptr, ptr %789, align 8, !tbaa !69
   %.not.i95.i = icmp eq ptr %954, null
   br i1 %.not.i95.i, label %_ZNSt14_Function_baseD2Ev.exit96.i, label %955
@@ -2639,7 +2633,7 @@ _ZNSt14_Function_baseD2Ev.exit94.i:               ; preds = %949, %946, %944
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit96.i:               ; preds = %955, %_ZNSt14_Function_baseD2Ev.exit94.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %41) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %.body105
 
 960:                                              ; preds = %823, %.noexc104
@@ -2665,11 +2659,11 @@ _ZNSt14_Function_baseD2Ev.exit96.i:               ; preds = %955, %_ZNSt14_Funct
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit98.i:               ; preds = %963, %.body.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %43) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %.body105
 
 968:                                              ; preds = %891, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110AddUniformERSt10shared_ptrINS_16GpuShaderCreatorEERKSt8functionIFbvEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %43) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   invoke fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_137AddCurveEvalMethodTextToShaderProgramERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_21GradingRGBCurveOpDataEERKNS0_12GCPropertiesEb(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(192) %64, i1 noundef zeroext true)
           to label %969 unwind label %1062
 
@@ -2723,7 +2717,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i109: ; preds = %988, %9
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %969, %976, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i109, %991
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %67) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
   %992 = load ptr, ptr %711, align 8, !tbaa !20
   %.not.i.i111 = icmp eq ptr %992, null
   br i1 %.not.i.i111, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit115, label %993
@@ -2773,7 +2767,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i113: ; preds = %1010, %
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit115
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit115: ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %998, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i113, %1013
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %66) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
   %1014 = load ptr, ptr %696, align 8, !tbaa !20
   %.not.i.i116 = icmp eq ptr %1014, null
   br i1 %.not.i.i116, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit120, label %1015
@@ -2823,7 +2817,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i118: ; preds = %1032, %
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit120
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit120: ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit115, %1020, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i118, %1035
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %65) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
   br label %1066
 
 1036:                                             ; preds = %187, %156
@@ -2844,7 +2838,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
 
 1042:                                             ; preds = %1040, %1038
   %.pn52 = phi { ptr, i32 } [ %1041, %1040 ], [ %1039, %1038 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   br label %1580
 
 1043:                                             ; preds = %166
@@ -2860,7 +2854,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
 
 1047:                                             ; preds = %1045, %1043
   %.pn54 = phi { ptr, i32 } [ %1046, %1045 ], [ %1044, %1043 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
   br label %1580
 
 1048:                                             ; preds = %181
@@ -2876,7 +2870,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
 
 1052:                                             ; preds = %1050, %1048
   %.pn56 = phi { ptr, i32 } [ %1051, %1050 ], [ %1049, %1048 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
   br label %1580
 
 1053:                                             ; preds = %184
@@ -2892,7 +2886,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
 
 1057:                                             ; preds = %1055, %1053
   %.pn58 = phi { ptr, i32 } [ %1056, %1055 ], [ %1054, %1053 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
   br label %1580
 
 1058:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit134.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110.i, %489, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i80, %248, %1065
@@ -2913,19 +2907,19 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
 .body105:                                         ; preds = %_ZNSt14_Function_baseD2Ev.exit84.i, %_ZNSt14_Function_baseD2Ev.exit88.i, %_ZNSt14_Function_baseD2Ev.exit92.i, %_ZNSt14_Function_baseD2Ev.exit96.i, %_ZNSt14_Function_baseD2Ev.exit98.i, %1062
   %eh.lpad-body106 = phi { ptr, i32 } [ %1063, %1062 ], [ %eh.lpad-body.i, %_ZNSt14_Function_baseD2Ev.exit98.i ], [ %.pn34.i, %_ZNSt14_Function_baseD2Ev.exit96.i ], [ %.pn32.i, %_ZNSt14_Function_baseD2Ev.exit92.i ], [ %.pn30.i, %_ZNSt14_Function_baseD2Ev.exit88.i ], [ %.pn.i, %_ZNSt14_Function_baseD2Ev.exit84.i ]
   call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %67) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %67) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
   call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %66) #19
   br label %1064
 
 1064:                                             ; preds = %.body105, %1060
   %.pn60 = phi { ptr, i32 } [ %eh.lpad-body106, %.body105 ], [ %1061, %1060 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %66) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
   call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %65) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %65) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
   br label %.body132
 
 1065:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i156.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i157.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %54) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
   invoke fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_137AddCurveEvalMethodTextToShaderProgramERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_21GradingRGBCurveOpDataEERKNS0_12GCPropertiesEb(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(192) %64, i1 noundef zeroext false)
           to label %1066 unwind label %1058
 
@@ -2952,7 +2946,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
   br i1 %117, label %1077, label %.noexc128
 
 1077:                                             ; preds = %1076
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %19, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %.noexc126 unwind label %1273
 
@@ -2970,8 +2964,8 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
 
 1083:                                             ; preds = %1081
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %20, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %.noexc127 unwind label %1273
 
@@ -2981,7 +2975,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
 
 1085:                                             ; preds = %.noexc127
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6indentEv(ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %.noexc128 unwind label %1273
 
@@ -2989,21 +2983,21 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
   %1087 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %.body132
 
 1088:                                             ; preds = %.noexc127
   %1089 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.body132
 
 .noexc128:                                        ; preds = %1085, %1076
   br i1 %1075, label %1090, label %1099
 
 1090:                                             ; preds = %.noexc128
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %21, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %.noexc129 unwind label %1273
 
@@ -3013,12 +3007,12 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
 
 1092:                                             ; preds = %.noexc129
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   invoke void @_ZN19OpenColorIO_v2_5dev17AddLinToLogShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %.noexc130 unwind label %1273
 
 .noexc130:                                        ; preds = %1092
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %22, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %.noexc131 unwind label %1273
 
@@ -3028,25 +3022,25 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
 
 1094:                                             ; preds = %.noexc131
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %1099
 
 1095:                                             ; preds = %.noexc129
   %1096 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %.body132
 
 1097:                                             ; preds = %.noexc131
   %1098 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %.body132
 
 1099:                                             ; preds = %1094, %.noexc128
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %1100 = load ptr, ptr %0, align 8, !tbaa !11
   %1101 = call noundef ptr @_ZNK19OpenColorIO_v2_5dev16GpuShaderCreator12getPixelNameEv(ptr noundef nonnull align 8 dereferenceable(16) %1100) #19
   %1102 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -3063,7 +3057,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
 
 1105:                                             ; preds = %1099
   %1106 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1101) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 %1106, ptr %18, align 8, !tbaa !33
   %1107 = icmp ugt i64 %1106, 15
   br i1 %1107, label %.noexc.i.i, label %._crit_edge.i.i.i
@@ -3101,8 +3095,8 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
   %1117 = load ptr, ptr %23, align 8, !tbaa !35
   %1118 = getelementptr inbounds nuw i8, ptr %1117, i64 %1115
   store i8 0, ptr %1118, align 1, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %24, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %1119 unwind label %1206
 
@@ -3132,8 +3126,8 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
 
 1131:                                             ; preds = %1129
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %25, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %1132 unwind label %1211
 
@@ -3163,8 +3157,8 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
 
 1144:                                             ; preds = %1142
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %26, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %1145 unwind label %1216
 
@@ -3194,8 +3188,8 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
 
 1157:                                             ; preds = %1155
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %27, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %1158 unwind label %1221
 
@@ -3225,8 +3219,8 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
 
 1170:                                             ; preds = %1168
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %28, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %1171 unwind label %1226
 
@@ -3256,8 +3250,8 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
 
 1183:                                             ; preds = %1181
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %29, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %1184 unwind label %1231
 
@@ -3287,11 +3281,11 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
 
 1196:                                             ; preds = %1194
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br i1 %1075, label %1197, label %1248
 
 1197:                                             ; preds = %1196
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %30, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %1198 unwind label %1236
 
@@ -3301,8 +3295,8 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
 
 1200:                                             ; preds = %1198
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %31, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %1201 unwind label %1241
 
@@ -3312,7 +3306,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
 
 1203:                                             ; preds = %1201
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   invoke void @_ZN19OpenColorIO_v2_5dev17AddLogToLinShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %1248 unwind label %1246
 
@@ -3334,7 +3328,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
 
 1210:                                             ; preds = %1208, %1206
   %.pn.i121 = phi { ptr, i32 } [ %1209, %1208 ], [ %1207, %1206 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %1266
 
 1211:                                             ; preds = %1131
@@ -3350,7 +3344,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
 
 1215:                                             ; preds = %1213, %1211
   %.pn45.i = phi { ptr, i32 } [ %1214, %1213 ], [ %1212, %1211 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %1266
 
 1216:                                             ; preds = %1144
@@ -3366,7 +3360,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
 
 1220:                                             ; preds = %1218, %1216
   %.pn47.i = phi { ptr, i32 } [ %1219, %1218 ], [ %1217, %1216 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %1266
 
 1221:                                             ; preds = %1157
@@ -3382,7 +3376,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
 
 1225:                                             ; preds = %1223, %1221
   %.pn49.i = phi { ptr, i32 } [ %1224, %1223 ], [ %1222, %1221 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %1266
 
 1226:                                             ; preds = %1170
@@ -3398,7 +3392,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
 
 1230:                                             ; preds = %1228, %1226
   %.pn51.i = phi { ptr, i32 } [ %1229, %1228 ], [ %1227, %1226 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %1266
 
 1231:                                             ; preds = %1183
@@ -3414,7 +3408,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
 
 1235:                                             ; preds = %1233, %1231
   %.pn53.i = phi { ptr, i32 } [ %1234, %1233 ], [ %1232, %1231 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %1266
 
 1236:                                             ; preds = %1197
@@ -3430,7 +3424,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
 
 1240:                                             ; preds = %1238, %1236
   %.pn55.i = phi { ptr, i32 } [ %1239, %1238 ], [ %1237, %1236 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %1266
 
 1241:                                             ; preds = %1200
@@ -3446,7 +3440,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
 
 1245:                                             ; preds = %1243, %1241
   %.pn57.i = phi { ptr, i32 } [ %1244, %1243 ], [ %1242, %1241 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %1266
 
 1246:                                             ; preds = %1249, %1203
@@ -3462,7 +3456,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
           to label %1250 unwind label %1246
 
 1250:                                             ; preds = %1249
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %32, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %1251 unwind label %1254
 
@@ -3472,7 +3466,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
 
 1253:                                             ; preds = %1251
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %1259
 
 1254:                                             ; preds = %1250
@@ -3488,7 +3482,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
 
 1258:                                             ; preds = %1256, %1254
   %.pn59.i = phi { ptr, i32 } [ %1257, %1256 ], [ %1255, %1254 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %1266
 
 1259:                                             ; preds = %1253, %1248
@@ -3528,11 +3522,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i65
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i65.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i66.i, %1204
   %.pn59.pn.pn.i = phi { ptr, i32 } [ %1205, %1204 ], [ %.pn59.pn.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i66.i ], [ %.pn59.pn.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i65.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %.body132
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118AddGCForwardShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GCPropertiesEbb.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i124, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i122
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %1472
 
 1273:                                             ; preds = %.noexc160, %1291, %1289, %1284, %1282, %1276, %.noexc130, %1092, %1090, %1085, %1083, %1077, %1476, %1472
@@ -3544,7 +3538,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118AddGCForwardShaderERSt10shared_ptrINS_16
   br i1 %117, label %1276, label %.noexc158
 
 1276:                                             ; preds = %1275
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %4, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %.noexc156 unwind label %1273
 
@@ -3562,8 +3556,8 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118AddGCForwardShaderERSt10shared_ptrINS_16
 
 1282:                                             ; preds = %1280
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %5, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %.noexc157 unwind label %1273
 
@@ -3573,7 +3567,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118AddGCForwardShaderERSt10shared_ptrINS_16
 
 1284:                                             ; preds = %.noexc157
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6indentEv(ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %.noexc158 unwind label %1273
 
@@ -3581,21 +3575,21 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118AddGCForwardShaderERSt10shared_ptrINS_16
   %1286 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.body132
 
 1287:                                             ; preds = %.noexc157
   %1288 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.body132
 
 .noexc158:                                        ; preds = %1284, %1275
   br i1 %1075, label %1289, label %1298
 
 1289:                                             ; preds = %.noexc158
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %6, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %.noexc159 unwind label %1273
 
@@ -3605,12 +3599,12 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118AddGCForwardShaderERSt10shared_ptrINS_16
 
 1291:                                             ; preds = %.noexc159
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   invoke void @_ZN19OpenColorIO_v2_5dev17AddLinToLogShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %.noexc160 unwind label %1273
 
 .noexc160:                                        ; preds = %1291
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %7, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %.noexc161 unwind label %1273
 
@@ -3620,25 +3614,25 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118AddGCForwardShaderERSt10shared_ptrINS_16
 
 1293:                                             ; preds = %.noexc161
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %1298
 
 1294:                                             ; preds = %.noexc159
   %1295 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.body132
 
 1296:                                             ; preds = %.noexc161
   %1297 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.body132
 
 1298:                                             ; preds = %1293, %.noexc158
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %1299 = load ptr, ptr %0, align 8, !tbaa !11
   %1300 = call noundef ptr @_ZNK19OpenColorIO_v2_5dev16GpuShaderCreator12getPixelNameEv(ptr noundef nonnull align 8 dereferenceable(16) %1299) #19
   %1301 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -3655,7 +3649,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118AddGCForwardShaderERSt10shared_ptrINS_16
 
 1304:                                             ; preds = %1298
   %1305 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1300) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %1305, ptr %3, align 8, !tbaa !33
   %1306 = icmp ugt i64 %1305, 15
   br i1 %1306, label %.noexc.i.i153, label %._crit_edge.i.i.i134
@@ -3693,8 +3687,8 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118AddGCForwardShaderERSt10shared_ptrINS_16
   %1316 = load ptr, ptr %8, align 8, !tbaa !35
   %1317 = getelementptr inbounds nuw i8, ptr %1316, i64 %1314
   store i8 0, ptr %1317, align 1, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %9, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %1318 unwind label %1405
 
@@ -3724,8 +3718,8 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118AddGCForwardShaderERSt10shared_ptrINS_16
 
 1330:                                             ; preds = %1328
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %10, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %1331 unwind label %1410
 
@@ -3755,8 +3749,8 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118AddGCForwardShaderERSt10shared_ptrINS_16
 
 1343:                                             ; preds = %1341
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %11, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %1344 unwind label %1415
 
@@ -3786,8 +3780,8 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118AddGCForwardShaderERSt10shared_ptrINS_16
 
 1356:                                             ; preds = %1354
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %12, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %1357 unwind label %1420
 
@@ -3817,8 +3811,8 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118AddGCForwardShaderERSt10shared_ptrINS_16
 
 1369:                                             ; preds = %1367
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %13, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %1370 unwind label %1425
 
@@ -3848,8 +3842,8 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118AddGCForwardShaderERSt10shared_ptrINS_16
 
 1382:                                             ; preds = %1380
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %14, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %1383 unwind label %1430
 
@@ -3879,11 +3873,11 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118AddGCForwardShaderERSt10shared_ptrINS_16
 
 1395:                                             ; preds = %1393
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %1075, label %1396, label %1447
 
 1396:                                             ; preds = %1395
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %15, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %1397 unwind label %1435
 
@@ -3893,8 +3887,8 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118AddGCForwardShaderERSt10shared_ptrINS_16
 
 1399:                                             ; preds = %1397
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %16, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %1400 unwind label %1440
 
@@ -3904,7 +3898,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118AddGCForwardShaderERSt10shared_ptrINS_16
 
 1402:                                             ; preds = %1400
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   invoke void @_ZN19OpenColorIO_v2_5dev17AddLogToLinShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %1447 unwind label %1445
 
@@ -3926,7 +3920,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118AddGCForwardShaderERSt10shared_ptrINS_16
 
 1409:                                             ; preds = %1407, %1405
   %.pn.i135 = phi { ptr, i32 } [ %1408, %1407 ], [ %1406, %1405 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %1465
 
 1410:                                             ; preds = %1330
@@ -3942,7 +3936,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118AddGCForwardShaderERSt10shared_ptrINS_16
 
 1414:                                             ; preds = %1412, %1410
   %.pn45.i142 = phi { ptr, i32 } [ %1413, %1412 ], [ %1411, %1410 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %1465
 
 1415:                                             ; preds = %1343
@@ -3958,7 +3952,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118AddGCForwardShaderERSt10shared_ptrINS_16
 
 1419:                                             ; preds = %1417, %1415
   %.pn47.i143 = phi { ptr, i32 } [ %1418, %1417 ], [ %1416, %1415 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %1465
 
 1420:                                             ; preds = %1356
@@ -3974,7 +3968,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118AddGCForwardShaderERSt10shared_ptrINS_16
 
 1424:                                             ; preds = %1422, %1420
   %.pn49.i144 = phi { ptr, i32 } [ %1423, %1422 ], [ %1421, %1420 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %1465
 
 1425:                                             ; preds = %1369
@@ -3990,7 +3984,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118AddGCForwardShaderERSt10shared_ptrINS_16
 
 1429:                                             ; preds = %1427, %1425
   %.pn51.i145 = phi { ptr, i32 } [ %1428, %1427 ], [ %1426, %1425 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %1465
 
 1430:                                             ; preds = %1382
@@ -4006,7 +4000,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118AddGCForwardShaderERSt10shared_ptrINS_16
 
 1434:                                             ; preds = %1432, %1430
   %.pn53.i146 = phi { ptr, i32 } [ %1433, %1432 ], [ %1431, %1430 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %1465
 
 1435:                                             ; preds = %1396
@@ -4022,7 +4016,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118AddGCForwardShaderERSt10shared_ptrINS_16
 
 1439:                                             ; preds = %1437, %1435
   %.pn55.i151 = phi { ptr, i32 } [ %1438, %1437 ], [ %1436, %1435 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %1465
 
 1440:                                             ; preds = %1399
@@ -4038,7 +4032,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118AddGCForwardShaderERSt10shared_ptrINS_16
 
 1444:                                             ; preds = %1442, %1440
   %.pn57.i152 = phi { ptr, i32 } [ %1443, %1442 ], [ %1441, %1440 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %1465
 
 1445:                                             ; preds = %1448, %1402
@@ -4054,7 +4048,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118AddGCForwardShaderERSt10shared_ptrINS_16
           to label %1449 unwind label %1445
 
 1449:                                             ; preds = %1448
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %17, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %1450 unwind label %1453
 
@@ -4064,7 +4058,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118AddGCForwardShaderERSt10shared_ptrINS_16
 
 1452:                                             ; preds = %1450
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %1458
 
 1453:                                             ; preds = %1449
@@ -4080,7 +4074,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118AddGCForwardShaderERSt10shared_ptrINS_16
 
 1457:                                             ; preds = %1455, %1453
   %.pn59.i150 = phi { ptr, i32 } [ %1456, %1455 ], [ %1454, %1453 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %1465
 
 1458:                                             ; preds = %1452, %1447
@@ -4120,11 +4114,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i65
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67.i138: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i65.i137, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i66.i141, %1403
   %.pn59.pn.pn.i139 = phi { ptr, i32 } [ %1404, %1403 ], [ %.pn59.pn.i136, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i66.i141 ], [ %.pn59.pn.i136, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i65.i137 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.body132
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118AddGCInverseShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GCPropertiesEbb.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i149, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i147
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %1472
 
 1472:                                             ; preds = %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118AddGCInverseShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GCPropertiesEbb.exit, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118AddGCForwardShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GCPropertiesEbb.exit, %1074
@@ -4132,7 +4126,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118AddGCInverseShaderERSt10shared_ptrINS_16
           to label %1473 unwind label %1273
 
 1473:                                             ; preds = %1472
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %68) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %68, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %1474 unwind label %1563
 
@@ -4142,13 +4136,13 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118AddGCInverseShaderERSt10shared_ptrINS_16
 
 1476:                                             ; preds = %1474
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %68) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6dedentEv(ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %1477 unwind label %1273
 
 1477:                                             ; preds = %1476
   %1478 = load ptr, ptr %0, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %69) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
   invoke void @_ZNK19OpenColorIO_v2_5dev13GpuShaderText6stringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %69, ptr noundef nonnull align 8 dereferenceable(764) %59)
           to label %1479 unwind label %1568
 
@@ -4180,7 +4174,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit166
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit166: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i165, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i164
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %69) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
   %1493 = load ptr, ptr %208, align 8, !tbaa !35
   %1494 = icmp eq ptr %1493, %209
   br i1 %1494, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i169, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i167
@@ -4283,7 +4277,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
   br label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112GCPropertiesD2Ev.exit
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112GCPropertiesD2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i14.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13.i
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %64) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
   %1529 = getelementptr inbounds nuw i8, ptr %59, i64 384
   %1530 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %1530, ptr %1529, align 8, !tbaa !27
@@ -4351,7 +4345,7 @@ _ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev.exit: ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1560) #19
   %1561 = getelementptr inbounds nuw i8, ptr %59, i64 120
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %1561) #19
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %59) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   br label %1562
 
 1562:                                             ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev.exit
@@ -4370,7 +4364,7 @@ _ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev.exit: ; preds = %_ZNKSt7__cxx1112bas
 
 1567:                                             ; preds = %1565, %1563
   %.pn62 = phi { ptr, i32 } [ %1566, %1565 ], [ %1564, %1563 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
   br label %.body132
 
 1568:                                             ; preds = %1477
@@ -4401,7 +4395,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit172: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i170, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i171, %1568
   %.pn64 = phi { ptr, i32 } [ %1569, %1568 ], [ %1571, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i171 ], [ %1571, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i170 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %69) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
   br label %.body132
 
 .body132:                                         ; preds = %1285, %1287, %1294, %1296, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67.i138, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67.i, %1097, %1095, %1088, %1086, %1273, %1567, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit172, %1064, %1058
@@ -4411,13 +4405,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit172: ; preds = %_Z
 
 .body:                                            ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i41.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i42.i, %.body132
   %.pn64.pn.pn.pn = phi { ptr, i32 } [ %.pn64.pn.pn, %.body132 ], [ %212, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i41.i ], [ %212, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i42.i ]
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %64) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
   br label %1580
 
 1580:                                             ; preds = %.body, %1057, %1052, %1047, %1042, %1036
   %.pn64.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn64.pn.pn.pn, %.body ], [ %1037, %1036 ], [ %.pn58, %1057 ], [ %.pn56, %1052 ], [ %.pn54, %1047 ], [ %.pn52, %1042 ]
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev(ptr noundef nonnull align 8 dereferenceable(764) %59) #19
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %59) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   br label %1581
 
 1581:                                             ; preds = %1580, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77, %91
@@ -4426,15 +4420,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit172: ; preds = %_Z
 }
 
 ; Function Attrs: nounwind
-declare noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev21GradingRGBCurveOpData9isDynamicEv(ptr noundef nonnull align 8 dereferenceable(200)) local_unnamed_addr #4
+declare noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev21GradingRGBCurveOpData9isDynamicEv(ptr noundef nonnull align 8 dereferenceable(200)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare noundef i32 @_ZNK19OpenColorIO_v2_5dev16GpuShaderCreator11getLanguageEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
+declare noundef i32 @_ZNK19OpenColorIO_v2_5dev16GpuShaderCreator11getLanguageEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
 
-declare noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl14getLocalBypassEv(ptr noundef nonnull align 8 dereferenceable(144)) #5
+declare noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl14getLocalBypassEv(ptr noundef nonnull align 8 dereferenceable(144)) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !20
   %.not.i = icmp eq ptr %3, null
@@ -4488,32 +4482,32 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9,
   ret void
 }
 
-declare void @_ZN19OpenColorIO_v2_5dev10LogWarningERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
+declare void @_ZN19OpenColorIO_v2_5dev10LogWarningERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare noundef i32 @_ZNK19OpenColorIO_v2_5dev21GradingRGBCurveOpData12getDirectionEv(ptr noundef nonnull align 8 dereferenceable(200)) local_unnamed_addr #4
+declare noundef i32 @_ZNK19OpenColorIO_v2_5dev21GradingRGBCurveOpData12getDirectionEv(ptr noundef nonnull align 8 dereferenceable(200)) local_unnamed_addr #3
 
-declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderTextC1ENS_11GpuLanguageE(ptr noundef nonnull align 8 dereferenceable(764), i32 noundef) unnamed_addr #5
+declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderTextC1ENS_11GpuLanguageE(ptr noundef nonnull align 8 dereferenceable(764), i32 noundef) unnamed_addr #4
 
-declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6indentEv(ptr noundef nonnull align 8 dereferenceable(764)) local_unnamed_addr #5
+declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6indentEv(ptr noundef nonnull align 8 dereferenceable(764)) local_unnamed_addr #4
 
-declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8, ptr noundef nonnull align 8 dereferenceable(764)) local_unnamed_addr #5
+declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8, ptr noundef nonnull align 8 dereferenceable(764)) local_unnamed_addr #4
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLinelsEPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #5
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLinelsEPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
+declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
-declare noundef ptr @_ZN19OpenColorIO_v2_5dev20GradingStyleToStringENS_12GradingStyleE(i32 noundef) local_unnamed_addr #5
+declare noundef ptr @_ZN19OpenColorIO_v2_5dev20GradingStyleToStringENS_12GradingStyleE(i32 noundef) local_unnamed_addr #4
 
-declare noundef ptr @_ZN19OpenColorIO_v2_5dev26TransformDirectionToStringENS_18TransformDirectionE(i32 noundef) local_unnamed_addr #5
+declare noundef ptr @_ZN19OpenColorIO_v2_5dev26TransformDirectionToStringENS_18TransformDirectionE(i32 noundef) local_unnamed_addr #4
 
-declare void @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl18createEditableCopyEv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.8") align 8, ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #5
+declare void @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl18createEditableCopyEv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.8") align 8, ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #4
 
-declare void @_ZN19OpenColorIO_v2_5dev16GpuShaderCreator18addDynamicPropertyERSt10shared_ptrINS_15DynamicPropertyEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #5
+declare void @_ZN19OpenColorIO_v2_5dev16GpuShaderCreator18addDynamicPropertyERSt10shared_ptrINS_15DynamicPropertyEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_137AddCurveEvalMethodTextToShaderProgramERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_21GradingRGBCurveOpDataEERKNS0_12GCPropertiesEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, i1 noundef zeroext %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_137AddCurveEvalMethodTextToShaderProgramERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_21GradingRGBCurveOpDataEERKNS0_12GCPropertiesEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, i1 noundef zeroext %3) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.OpenColorIO_v2_5dev::GpuShaderText", align 8
   %6 = alloca %"class.std::shared_ptr.8", align 8
   %7 = alloca %"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine", align 8
@@ -4525,14 +4519,14 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_137AddCurveEva
   %13 = alloca %"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine", align 8
   %14 = alloca %"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine", align 8
   %15 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = load ptr, ptr %0, align 8, !tbaa !11
   %17 = tail call noundef i32 @_ZNK19OpenColorIO_v2_5dev16GpuShaderCreator11getLanguageEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #19
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderTextC1ENS_11GpuLanguageE(ptr noundef nonnull align 8 dereferenceable(764) %5, i32 noundef %17)
   br i1 %3, label %86, label %18
 
 18:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %19 = load ptr, ptr %1, align 8, !tbaa !3
   call void @llvm.experimental.noalias.scope.decl(metadata !87)
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 176
@@ -4562,7 +4556,7 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_137AddCurveEva
   br label %_ZNK19OpenColorIO_v2_5dev21GradingRGBCurveOpData26getDynamicPropertyInternalEv.exit
 
 _ZNK19OpenColorIO_v2_5dev21GradingRGBCurveOpData26getDynamicPropertyInternalEv.exit: ; preds = %18, %28, %31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %7, ptr noundef nonnull align 8 dereferenceable(764) %5)
           to label %33 unwind label %78
 
@@ -4572,7 +4566,7 @@ _ZNK19OpenColorIO_v2_5dev21GradingRGBCurveOpData26getDynamicPropertyInternalEv.e
 
 35:                                               ; preds = %33
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %36 = load ptr, ptr %6, align 8, !tbaa !17
   %37 = invoke noundef ptr @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl20getKnotsOffsetsArrayEv(ptr noundef nonnull align 8 dereferenceable(144) %36)
           to label %38 unwind label %83
@@ -4666,7 +4660,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %74, %72
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %55, %62, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %77
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %86
 
 78:                                               ; preds = %_ZNK19OpenColorIO_v2_5dev21GradingRGBCurveOpData26getDynamicPropertyInternalEv.exit
@@ -4682,7 +4676,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
 
 82:                                               ; preds = %80, %78
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %79, %78 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %85
 
 83:                                               ; preds = %54, %52, %49, %47, %45, %44, %42, %39, %38, %35
@@ -4693,11 +4687,11 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
 85:                                               ; preds = %83, %82
   %.pn32 = phi { ptr, i32 } [ %84, %83 ], [ %.pn, %82 ]
   call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %262
 
 86:                                               ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %8, ptr noundef nonnull align 8 dereferenceable(764) %5)
           to label %87 unwind label %117
 
@@ -4707,7 +4701,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
 
 89:                                               ; preds = %87
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %90 = load ptr, ptr %0, align 8, !tbaa !11
   %91 = call noundef i32 @_ZNK19OpenColorIO_v2_5dev16GpuShaderCreator11getLanguageEv(ptr noundef nonnull align 8 dereferenceable(16) %90) #19
   %92 = icmp eq i32 %91, 5
@@ -4720,12 +4714,12 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEL
   br i1 %96, label %97, label %137
 
 97:                                               ; preds = %93, %89
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %9, ptr noundef nonnull align 8 dereferenceable(764) %5)
           to label %98 unwind label %122
 
 98:                                               ; preds = %97
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZNK19OpenColorIO_v2_5dev13GpuShaderText12floatKeywordB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(764) %5)
           to label %99 unwind label %124
 
@@ -4766,9 +4760,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %172
 
 117:                                              ; preds = %86
@@ -4784,7 +4778,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 121:                                              ; preds = %119, %117
   %.pn34 = phi { ptr, i32 } [ %120, %119 ], [ %118, %117 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %262
 
 122:                                              ; preds = %97
@@ -4820,22 +4814,22 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i50
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i50, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i51, %124
   %.pn39 = phi { ptr, i32 } [ %125, %124 ], [ %127, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i51 ], [ %127, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i50 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #19
   br label %136
 
 136:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52, %122
   %.pn39.pn = phi { ptr, i32 } [ %.pn39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52 ], [ %123, %122 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %262
 
 137:                                              ; preds = %93
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %11, ptr noundef nonnull align 8 dereferenceable(764) %5)
           to label %138 unwind label %157
 
 138:                                              ; preds = %137
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   invoke void @_ZNK19OpenColorIO_v2_5dev13GpuShaderText12floatKeywordB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 8 dereferenceable(764) %5)
           to label %139 unwind label %159
 
@@ -4876,9 +4870,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i54, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %172
 
 157:                                              ; preds = %137
@@ -4914,17 +4908,17 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i56
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i56, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i57, %159
   %.pn36 = phi { ptr, i32 } [ %160, %159 ], [ %162, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i57 ], [ %162, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i56 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #19
   br label %171
 
 171:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58, %157
   %.pn36.pn = phi { ptr, i32 } [ %.pn36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58 ], [ %158, %157 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %262
 
 172:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %13, ptr noundef nonnull align 8 dereferenceable(764) %5)
           to label %173 unwind label %236
 
@@ -4934,7 +4928,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %_ZN
 
 175:                                              ; preds = %173
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6indentEv(ptr noundef nonnull align 8 dereferenceable(764) %5)
           to label %176 unwind label %241
 
@@ -4953,7 +4947,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %_ZN
           to label %184 unwind label %243
 
 184:                                              ; preds = %183
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %14, ptr noundef nonnull align 8 dereferenceable(764) %5)
           to label %185 unwind label %245
 
@@ -4963,9 +4957,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %_ZN
 
 187:                                              ; preds = %185
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %188 = load ptr, ptr %0, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   invoke void @_ZNK19OpenColorIO_v2_5dev13GpuShaderText6stringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef nonnull align 8 dereferenceable(764) %5)
           to label %189 unwind label %250
 
@@ -4997,7 +4991,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i59
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i60, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i59
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %203 = getelementptr inbounds nuw i8, ptr %5, i64 384
   %204 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %204, ptr %203, align 8, !tbaa !27
@@ -5065,7 +5059,7 @@ _ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev.exit: ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %234) #19
   %235 = getelementptr inbounds nuw i8, ptr %5, i64 120
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %235) #19
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 236:                                              ; preds = %172
@@ -5081,7 +5075,7 @@ _ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev.exit: ; preds = %_ZNKSt7__cxx1112bas
 
 240:                                              ; preds = %238, %236
   %.pn42 = phi { ptr, i32 } [ %239, %238 ], [ %237, %236 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %262
 
 241:                                              ; preds = %175
@@ -5107,7 +5101,7 @@ _ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev.exit: ; preds = %_ZNKSt7__cxx1112bas
 
 249:                                              ; preds = %247, %245
   %.pn44 = phi { ptr, i32 } [ %248, %247 ], [ %246, %245 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %262
 
 250:                                              ; preds = %187
@@ -5138,18 +5132,18 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i62
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i62, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i63, %250
   %.pn46 = phi { ptr, i32 } [ %251, %250 ], [ %253, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i63 ], [ %253, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i62 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %262
 
 262:                                              ; preds = %243, %249, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64, %241, %240, %171, %136, %121, %85
   %.pn46.pn.pn = phi { ptr, i32 } [ %242, %241 ], [ %.pn42, %240 ], [ %.pn39.pn, %136 ], [ %.pn36.pn, %171 ], [ %.pn34, %121 ], [ %.pn32, %85 ], [ %.pn46, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64 ], [ %.pn44, %249 ], [ %244, %243 ]
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev(ptr noundef nonnull align 8 dereferenceable(764) %5) #19
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn46.pn.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !20
   %.not.i = icmp eq ptr %3, null
@@ -5203,12 +5197,12 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9,
   ret void
 }
 
-declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6dedentEv(ptr noundef nonnull align 8 dereferenceable(764)) local_unnamed_addr #5
+declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6dedentEv(ptr noundef nonnull align 8 dereferenceable(764)) local_unnamed_addr #4
 
-declare void @_ZNK19OpenColorIO_v2_5dev13GpuShaderText6stringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(764)) local_unnamed_addr #5
+declare void @_ZNK19OpenColorIO_v2_5dev13GpuShaderText6stringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(764)) local_unnamed_addr #4
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112GCPropertiesD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(192) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112GCPropertiesD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(192) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8, !tbaa !35
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -5332,7 +5326,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %_ZN
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev(ptr noundef nonnull align 8 dereferenceable(764) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev(ptr noundef nonnull align 8 dereferenceable(764) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %3 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %3, ptr %2, align 8, !tbaa !27
@@ -5404,7 +5398,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit3: ; preds 
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #19
   tail call void @_ZSt9terminatev() #23
   unreachable
@@ -5413,10 +5407,10 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #8
+declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !27
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -5452,13 +5446,13 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
   ret void
 }
 
-declare void @_ZN19OpenColorIO_v2_5dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
+declare void @_ZN19OpenColorIO_v2_5dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare noundef i32 @_ZN19OpenColorIO_v2_5dev16GpuShaderCreator20getNextResourceIndexEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
+declare noundef i32 @_ZN19OpenColorIO_v2_5dev16GpuShaderCreator20getNextResourceIndexEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124BuildResourceNameIndexedERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_j(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124BuildResourceNameIndexedERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_j(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5480,7 +5474,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit unwind label %118
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
   %13 = icmp ult i32 %3, 10
   br i1 %13, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i
@@ -5631,8 +5625,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %85, ptr %6, align 8, !tbaa !30
   store i16 24415, ptr %85, align 8
@@ -5640,7 +5634,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store i64 2, ptr %86, align 8, !tbaa !37
   %87 = getelementptr inbounds nuw i8, ptr %6, i64 18
   store i8 0, ptr %87, align 2, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %88 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %88, ptr %7, align 8, !tbaa !30
   store i8 95, ptr %88, align 8, !tbaa !21
@@ -5701,7 +5695,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i24, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %112 = load ptr, ptr %6, align 8, !tbaa !35
   %113 = icmp eq ptr %112, %85
   br i1 %113, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i27, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26
@@ -5719,7 +5713,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i27, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 118:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i, %11
@@ -5747,7 +5741,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i30, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %141
 
 .loopexit:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmRKS4_.exit.i
@@ -5779,7 +5773,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i33
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %135 = load ptr, ptr %6, align 8, !tbaa !35
   %136 = icmp eq ptr %135, %85
   br i1 %136, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i36, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i35
@@ -5797,7 +5791,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i35
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i36
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %141
 
 141:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31, %118
@@ -5824,35 +5818,35 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #5
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
-declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #12
+declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #11
 
-declare noundef i32 @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl11getNumKnotsEv(ptr noundef nonnull align 8 dereferenceable(144)) #5
+declare noundef i32 @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl11getNumKnotsEv(ptr noundef nonnull align 8 dereferenceable(144)) #4
 
-declare noundef ptr @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl20getKnotsOffsetsArrayEv(ptr noundef nonnull align 8 dereferenceable(144)) #5
+declare noundef ptr @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl20getKnotsOffsetsArrayEv(ptr noundef nonnull align 8 dereferenceable(144)) #4
 
-declare noundef ptr @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl13getKnotsArrayEv(ptr noundef nonnull align 8 dereferenceable(144)) #5
+declare noundef ptr @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl13getKnotsArrayEv(ptr noundef nonnull align 8 dereferenceable(144)) #4
 
-declare noundef i32 @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl11getNumCoefsEv(ptr noundef nonnull align 8 dereferenceable(144)) #5
+declare noundef i32 @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl11getNumCoefsEv(ptr noundef nonnull align 8 dereferenceable(144)) #4
 
-declare noundef ptr @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl20getCoefsOffsetsArrayEv(ptr noundef nonnull align 8 dereferenceable(144)) #5
+declare noundef ptr @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl20getCoefsOffsetsArrayEv(ptr noundef nonnull align 8 dereferenceable(144)) #4
 
-declare noundef ptr @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl13getCoefsArrayEv(ptr noundef nonnull align 8 dereferenceable(144)) #5
+declare noundef ptr @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl13getCoefsArrayEv(ptr noundef nonnull align 8 dereferenceable(144)) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110AddUniformERSt10shared_ptrINS_16GpuShaderCreatorEERKSt8functionIFivEERKS5_IFPKivEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110AddUniformERSt10shared_ptrINS_16GpuShaderCreatorEERKSt8functionIFivEERKS5_IFPKivEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.OpenColorIO_v2_5dev::GpuShaderText", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = load ptr, ptr %0, align 8, !tbaa !11
@@ -5864,7 +5858,7 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110AddUniformE
   br i1 %12, label %13, label %80
 
 13:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = load ptr, ptr %0, align 8, !tbaa !11
   %15 = tail call noundef i32 @_ZNK19OpenColorIO_v2_5dev16GpuShaderCreator11getLanguageEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #19
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderTextC1ENS_11GpuLanguageE(ptr noundef nonnull align 8 dereferenceable(764) %5, i32 noundef %15)
@@ -5873,7 +5867,7 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110AddUniformE
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %0, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZNK19OpenColorIO_v2_5dev13GpuShaderText6stringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(764) %5)
           to label %18 unwind label %67
 
@@ -5905,7 +5899,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 384
   %33 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %33, ptr %32, align 8, !tbaa !27
@@ -5973,7 +5967,7 @@ _ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev.exit: ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %63) #19
   %64 = getelementptr inbounds nuw i8, ptr %5, i64 120
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %64) #19
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %80
 
 65:                                               ; preds = %13
@@ -6009,13 +6003,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i13, %67
   %.pn = phi { ptr, i32 } [ %68, %67 ], [ %70, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i13 ], [ %70, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %79
 
 79:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14, %65
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14 ], [ %66, %65 ]
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev(ptr noundef nonnull align 8 dereferenceable(764) %5) #19
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn
 
 80:                                               ; preds = %_ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev.exit, %4
@@ -6023,12 +6017,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl18GetNumOffsetValuesEv() #1 comdat align 2 {
+define linkonce_odr hidden noundef i32 @_ZN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl18GetNumOffsetValuesEv() #0 comdat align 2 {
   ret i32 8
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110AddUniformERSt10shared_ptrINS_16GpuShaderCreatorEERKSt8functionIFivEERKS5_IFPKfvEEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110AddUniformERSt10shared_ptrINS_16GpuShaderCreatorEERKSt8functionIFivEERKS5_IFPKfvEEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.OpenColorIO_v2_5dev::GpuShaderText", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = load ptr, ptr %0, align 8, !tbaa !11
@@ -6040,7 +6034,7 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110AddUniformE
   br i1 %13, label %14, label %81
 
 14:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %15 = load ptr, ptr %0, align 8, !tbaa !11
   %16 = tail call noundef i32 @_ZNK19OpenColorIO_v2_5dev16GpuShaderCreator11getLanguageEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #19
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderTextC1ENS_11GpuLanguageE(ptr noundef nonnull align 8 dereferenceable(764) %6, i32 noundef %16)
@@ -6049,7 +6043,7 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110AddUniformE
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr %0, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZNK19OpenColorIO_v2_5dev13GpuShaderText6stringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(764) %6)
           to label %19 unwind label %68
 
@@ -6081,7 +6075,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 384
   %34 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %34, ptr %33, align 8, !tbaa !27
@@ -6149,7 +6143,7 @@ _ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev.exit: ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %64) #19
   %65 = getelementptr inbounds nuw i8, ptr %6, i64 120
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %65) #19
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %81
 
 66:                                               ; preds = %14
@@ -6185,34 +6179,34 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i14, %68
   %.pn = phi { ptr, i32 } [ %69, %68 ], [ %71, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i14 ], [ %71, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %80
 
 80:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15, %66
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15 ], [ %67, %66 ]
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev(ptr noundef nonnull align 8 dereferenceable(764) %6) #19
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn.pn
 
 81:                                               ; preds = %_ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev.exit, %5
   ret void
 }
 
-declare noundef i32 @_ZN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl11GetMaxKnotsEv() local_unnamed_addr #5
+declare noundef i32 @_ZN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl11GetMaxKnotsEv() local_unnamed_addr #4
 
-declare noundef i32 @_ZN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl11GetMaxCoefsEv() local_unnamed_addr #5
+declare noundef i32 @_ZN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImpl11GetMaxCoefsEv() local_unnamed_addr #4
 
-declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText22declareUniformArrayIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #5
+declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText22declareUniformArrayIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZNSt17_Function_handlerIFivEPS0_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #3 comdat align 2 {
+define linkonce_odr hidden noundef i32 @_ZNSt17_Function_handlerIFivEPS0_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !65
   %3 = tail call noundef i32 %2()
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFivEPS0_E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFivEPS0_E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIPFivEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIPFivEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -6236,7 +6230,7 @@ _ZNSt14_Function_base13_Base_managerIPFivEE10_M_managerERSt9_Any_dataRKS4_St18_M
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt17_Function_handlerIFPKivESt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFS1_vEPS5_EEE9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #3 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNSt17_Function_handlerIFPKivESt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFS1_vEPS5_EEE9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !70
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !97
@@ -6266,7 +6260,7 @@ _ZSt10__invoke_rIPKiRSt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRG
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFPKivESt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFS1_vEPS5_EEE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #3 comdat align 2 {
+define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFPKivESt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFS1_vEPS5_EEE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #2 comdat align 2 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerISt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFPKivEPS3_EEE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit [
     i32 0, label %4
     i32 1, label %5
@@ -6304,12 +6298,12 @@ _ZNSt14_Function_base13_Base_managerISt5_BindIFMN19OpenColorIO_v2_5dev34DynamicP
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 
-declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText24declareUniformArrayFloatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #5
+declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText24declareUniformArrayFloatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZNSt17_Function_handlerIFivESt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFivEPS3_EEE9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #3 comdat align 2 {
+define linkonce_odr hidden noundef i32 @_ZNSt17_Function_handlerIFivESt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFivEPS3_EEE9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !74
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !97
@@ -6339,7 +6333,7 @@ _ZSt10__invoke_rIiRSt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBC
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFivESt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFivEPS3_EEE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #3 comdat align 2 {
+define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFivESt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFivEPS3_EEE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #2 comdat align 2 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerISt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFivEPS3_EEE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit [
     i32 0, label %4
     i32 1, label %5
@@ -6377,7 +6371,7 @@ _ZNSt14_Function_base13_Base_managerISt5_BindIFMN19OpenColorIO_v2_5dev34DynamicP
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt17_Function_handlerIFPKfvESt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFS1_vEPS5_EEE9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #3 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNSt17_Function_handlerIFPKfvESt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFS1_vEPS5_EEE9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !76
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !97
@@ -6407,7 +6401,7 @@ _ZSt10__invoke_rIPKfRSt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRG
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFPKfvESt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFS1_vEPS5_EEE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #3 comdat align 2 {
+define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFPKfvESt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFS1_vEPS5_EEE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #2 comdat align 2 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerISt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFPKfvEPS3_EEE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit [
     i32 0, label %4
     i32 1, label %5
@@ -6444,10 +6438,10 @@ _ZNSt14_Function_base13_Base_managerISt5_BindIFMN19OpenColorIO_v2_5dev34DynamicP
   ret i1 false
 }
 
-declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText18declareUniformBoolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
+declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText18declareUniformBoolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFbvESt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFbvEPS3_EEE9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #3 comdat align 2 {
+define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFbvESt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFbvEPS3_EEE9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !80
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !97
@@ -6477,7 +6471,7 @@ _ZSt10__invoke_rIbRSt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBC
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFbvESt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFbvEPS3_EEE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #3 comdat align 2 {
+define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFbvESt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFbvEPS3_EEE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #2 comdat align 2 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerISt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFbvEPS3_EEE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit [
     i32 0, label %4
     i32 1, label %5
@@ -6514,47 +6508,47 @@ _ZNSt14_Function_base13_Base_managerISt5_BindIFMN19OpenColorIO_v2_5dev34DynamicP
   ret i1 false
 }
 
-declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText20declareIntArrayConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPKi(ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, ptr noundef) local_unnamed_addr #5
+declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText20declareIntArrayConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPKi(ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText22declareFloatArrayConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPKf(ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, ptr noundef) local_unnamed_addr #5
+declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText22declareFloatArrayConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPKf(ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLinelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLinelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
-declare void @_ZNK19OpenColorIO_v2_5dev13GpuShaderText12floatKeywordB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(764)) local_unnamed_addr #5
+declare void @_ZNK19OpenColorIO_v2_5dev13GpuShaderText12floatKeywordB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(764)) local_unnamed_addr #4
 
-declare void @_ZN19OpenColorIO_v2_5dev23GradingBSplineCurveImpl13AddShaderEvalERNS_13GpuShaderTextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SA_SA_b(ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext) local_unnamed_addr #5
+declare void @_ZN19OpenColorIO_v2_5dev23GradingBSplineCurveImpl13AddShaderEvalERNS_13GpuShaderTextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SA_SA_b(ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext) local_unnamed_addr #4
 
-declare void @_ZN19OpenColorIO_v2_5dev17AddLinToLogShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(764)) local_unnamed_addr #5
-
-; Function Attrs: nounwind
-declare noundef ptr @_ZNK19OpenColorIO_v2_5dev16GpuShaderCreator12getPixelNameEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
-
-declare void @_ZN19OpenColorIO_v2_5dev17AddLogToLinShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(764)) local_unnamed_addr #5
+declare void @_ZN19OpenColorIO_v2_5dev17AddLinToLogShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(764)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #4
+declare noundef ptr @_ZNK19OpenColorIO_v2_5dev16GpuShaderCreator12getPixelNameEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
+
+declare void @_ZN19OpenColorIO_v2_5dev17AddLogToLinShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(764)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
+declare void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #3
+
+; Function Attrs: nounwind
+declare void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #12
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #5
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #4
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #5
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_GradingRGBCurveOpGPU.cpp() #15 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_GradingRGBCurveOpGPU.cpp() #14 section ".text.startup" personality ptr @__gxx_personality_v0 {
   %1 = alloca i64, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixB5cxx11E, i64 16), ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixB5cxx11E, align 8, !tbaa !30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 16, ptr %1, align 8, !tbaa !33
   %2 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef 0)
   store ptr %2, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixB5cxx11E, align 8, !tbaa !35
@@ -6565,10 +6559,16 @@ define internal void @_GLOBAL__sub_I_GradingRGBCurveOpGPU.cpp() #15 section ".te
   %4 = load ptr, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixB5cxx11E, align 8, !tbaa !35
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 %3
   store i8 0, ptr %5, align 1, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %6 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr nonnull @__dso_handle) #19
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #16
@@ -6579,22 +6579,22 @@ declare i64 @llvm.umin.i64(i64, i64) #17
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
-attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold nofree noreturn }
-attributes #9 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind }
+attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold nofree noreturn }
+attributes #8 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

@@ -2443,7 +2443,7 @@ define linkonce_odr hidden noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4MATHE22hb_ta
   br label %.loopexit
 
 14:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %5, i8 0, i64 33, i1 false)
   store i8 0, ptr %9, align 1
@@ -2479,7 +2479,7 @@ _ZN21hb_sanitize_context_t15reference_tableIN2OT4MATHEEEP9hb_blob_tPK9hb_face_tj
   resume { ptr, i32 } %23
 
 _ZNK17hb_data_wrapper_tI9hb_face_tLj40EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4MATHELj40ELb1EEEEPT_v.exit: ; preds = %_ZN21hb_sanitize_context_t15reference_tableIN2OT4MATHEEEP9hb_blob_tPK9hb_face_tj.exit.i.i, %18
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not10 = icmp eq ptr %16, null
   br i1 %.not10, label %24, label %26
 
@@ -4480,10 +4480,10 @@ declare i32 @llvm.umax.i32(i32, i32) #8
 declare i32 @llvm.umin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #8

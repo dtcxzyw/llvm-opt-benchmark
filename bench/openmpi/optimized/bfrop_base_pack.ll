@@ -160,17 +160,11 @@ pmix_bfrops_base_pack_buffer.exit:                ; preds = %19, %pmix_pointer_a
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #1
 
-declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #2
-
-declare i32 @pmix_bfrop_store_data_type(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @pmix_bfrop_store_data_type(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix_bfrops_base_pack_buffer(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
@@ -286,7 +280,7 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_pack_bool(ptr noundef readnone ca
   ret i32 %.0
 }
 
-declare ptr @pmix_bfrop_buffer_extend(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @pmix_bfrop_buffer_extend(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix_bfrops_base_pack_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
@@ -422,7 +416,7 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_pack_byte(ptr noundef readnone ca
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix_bfrops_base_pack_int16(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
@@ -608,7 +602,7 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_pack_int64(ptr noundef readnone c
 ; Function Attrs: nounwind uwtable
 define i32 @pmix_bfrops_base_pack_string(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %.lr.ph, label %.thread
@@ -696,17 +690,17 @@ pmix_pointer_array_get_item.exit45:               ; preds = %37
 
 .thread:                                          ; preds = %20, %33, %43, %49, %pmix_pointer_array_get_item.exit, %14, %pmix_pointer_array_get_item.exit42, %24, %pmix_pointer_array_get_item.exit45, %37, %5
   %.0 = phi i32 [ 0, %5 ], [ -16, %37 ], [ -16, %pmix_pointer_array_get_item.exit45 ], [ -16, %24 ], [ -16, %pmix_pointer_array_get_item.exit42 ], [ -16, %14 ], [ -16, %pmix_pointer_array_get_item.exit ], [ 0, %49 ], [ %48, %43 ], [ %36, %33 ], [ %23, %20 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix_bfrops_base_pack_float(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph, label %.loopexit
 
@@ -759,20 +753,20 @@ pmix_pointer_array_get_item.exit:                 ; preds = %16
 
 .loopexit:                                        ; preds = %10, %27, %5, %.thread
   %.0 = phi i32 [ %.01420, %.thread ], [ 0, %5 ], [ -29, %10 ], [ 0, %27 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind
-declare i32 @asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
+declare i32 @asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix_bfrops_base_pack_double(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph, label %.loopexit
 
@@ -824,14 +818,14 @@ pmix_pointer_array_get_item.exit:                 ; preds = %15
 
 .loopexit:                                        ; preds = %10, %26, %5, %.thread
   %.0 = phi i32 [ %.01420, %.thread ], [ 0, %5 ], [ -29, %10 ], [ 0, %26 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix_bfrops_base_pack_timeval(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca [2 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %.lr.ph, label %.thread
@@ -875,14 +869,14 @@ pmix_pointer_array_get_item.exit:                 ; preds = %12
 
 .thread:                                          ; preds = %22, %11, %pmix_pointer_array_get_item.exit, %12, %5
   %.0 = phi i32 [ 0, %5 ], [ -16, %12 ], [ -16, %pmix_pointer_array_get_item.exit ], [ 0, %11 ], [ %25, %22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix_bfrops_base_pack_time(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %.lr.ph, label %.thread
@@ -922,14 +916,14 @@ pmix_pointer_array_get_item.exit:                 ; preds = %11
 
 .thread:                                          ; preds = %19, %10, %pmix_pointer_array_get_item.exit, %11, %5
   %.0 = phi i32 [ 0, %5 ], [ -16, %11 ], [ -16, %pmix_pointer_array_get_item.exit ], [ 0, %10 ], [ %22, %19 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @pmix_bfrops_base_pack_status(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph, label %.loopexit
 
@@ -977,7 +971,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %10
 
 .loopexit:                                        ; preds = %18, %23, %5, %.thread
   %.0 = phi i32 [ %.01521, %.thread ], [ 0, %5 ], [ %21, %23 ], [ %21, %18 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -1161,7 +1155,7 @@ define i32 @pmix_bfrops_base_pack_proc(ptr noundef %0, ptr noundef %1, ptr nound
 
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = getelementptr inbounds nuw %struct.pmix_proc, ptr %2, i64 %indvars.iv
   store ptr %12, ptr %6, align 8, !tbaa !45
   %13 = load i32, ptr %8, align 8, !tbaa !15
@@ -1200,12 +1194,12 @@ pmix_pointer_array_get_item.exit32:               ; preds = %22
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 256
   %32 = call i32 %30(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %31, i32 noundef 1, i16 noundef zeroext 40) #8
   %.not29 = icmp eq i32 %32, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not29, label %10, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %22, %pmix_pointer_array_get_item.exit32, %11, %pmix_pointer_array_get_item.exit, %18
   %.2.ph = phi i32 [ %21, %18 ], [ -16, %pmix_pointer_array_get_item.exit ], [ -16, %11 ], [ -16, %pmix_pointer_array_get_item.exit32 ], [ -16, %22 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %10, %.loopexit.sink.split, %5
@@ -1341,7 +1335,7 @@ pmix_pointer_array_get_item.exit29:               ; preds = %21
 ; Function Attrs: nounwind uwtable
 define i32 @pmix_bfrops_base_pack_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %.lr.ph, label %.thread
@@ -1412,14 +1406,14 @@ pmix_pointer_array_get_item.exit43:               ; preds = %22
 
 .thread:                                          ; preds = %18, %28, %33, %37, %10, %pmix_pointer_array_get_item.exit, %11, %pmix_pointer_array_get_item.exit43, %22, %5
   %.0 = phi i32 [ 0, %5 ], [ -16, %22 ], [ -16, %pmix_pointer_array_get_item.exit43 ], [ -16, %11 ], [ -16, %pmix_pointer_array_get_item.exit ], [ 0, %10 ], [ %38, %37 ], [ %36, %33 ], [ %32, %28 ], [ %21, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix_bfrops_base_pack_pdata(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph, label %.thread
 
@@ -1503,14 +1497,14 @@ pmix_pointer_array_get_item.exit52:               ; preds = %21
 
 .thread:                                          ; preds = %16, %28, %32, %36, %38, %pmix_pointer_array_get_item.exit, %10, %.thread.sink.split, %5
   %.0 = phi i32 [ 0, %5 ], [ %.lcssa79.sink, %.thread.sink.split ], [ %20, %16 ], [ %31, %28 ], [ %35, %32 ], [ %37, %36 ], [ 0, %38 ], [ -16, %pmix_pointer_array_get_item.exit ], [ -16, %10 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix_bfrops_base_pack_app(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph195, label %.thread
 
@@ -1749,11 +1743,11 @@ pmix_pointer_array_get_item.exit140:              ; preds = %114
 
 .thread:                                          ; preds = %16, %30, %59, %85, %96, %107, %120, %127, %pmix_pointer_array_get_item.exit, %10, %pmix_pointer_array_get_item.exit119, %21, %pmix_pointer_array_get_item.exit125, %._crit_edge, %pmix_pointer_array_get_item.exit131, %._crit_edge192, %pmix_pointer_array_get_item.exit134, %90, %pmix_pointer_array_get_item.exit137, %101, %pmix_pointer_array_get_item.exit140, %114, %.lr.ph, %pmix_pointer_array_get_item.exit122, %45, %.lr.ph191, %pmix_pointer_array_get_item.exit128, %74, %5
   %.0 = phi i32 [ 0, %5 ], [ -16, %.lr.ph191 ], [ -16, %pmix_pointer_array_get_item.exit128 ], [ %79, %74 ], [ -16, %.lr.ph ], [ -16, %pmix_pointer_array_get_item.exit122 ], [ %50, %45 ], [ %20, %16 ], [ %33, %30 ], [ %62, %59 ], [ %89, %85 ], [ %100, %96 ], [ %111, %107 ], [ %126, %120 ], [ 0, %127 ], [ -16, %pmix_pointer_array_get_item.exit ], [ -16, %10 ], [ -16, %pmix_pointer_array_get_item.exit119 ], [ -16, %21 ], [ -16, %pmix_pointer_array_get_item.exit125 ], [ -16, %._crit_edge ], [ -16, %pmix_pointer_array_get_item.exit131 ], [ -16, %._crit_edge192 ], [ -16, %pmix_pointer_array_get_item.exit134 ], [ -16, %90 ], [ -16, %pmix_pointer_array_get_item.exit137 ], [ -16, %101 ], [ -16, %pmix_pointer_array_get_item.exit140 ], [ -16, %114 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-declare i32 @PMIx_Argv_count(ptr noundef) local_unnamed_addr #2
+declare i32 @PMIx_Argv_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix_bfrops_base_pack_kval(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
@@ -1873,7 +1867,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %5, %pmix_pointer_ar
 ; Function Attrs: nounwind uwtable
 define i32 @pmix_bfrops_base_pack_ptr(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 1, ptr %6, align 1, !tbaa !36
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = load i32, ptr %7, align 8, !tbaa !15
@@ -1896,7 +1890,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %5
 
 pmix_pointer_array_get_item.exit.thread:          ; preds = %5, %pmix_pointer_array_get_item.exit, %14
   %.0 = phi i32 [ %17, %14 ], [ -16, %pmix_pointer_array_get_item.exit ], [ -16, %5 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -2276,7 +2270,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %5, %pmix_pointer_ar
 ; Function Attrs: nounwind uwtable
 define i32 @pmix_bfrops_base_pack_query(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %.lr.ph, label %.thread
@@ -2389,7 +2383,7 @@ pmix_pointer_array_get_item.exit62:               ; preds = %50
 
 .thread:                                          ; preds = %19, %32, %43, %56, %63, %pmix_pointer_array_get_item.exit, %10, %pmix_pointer_array_get_item.exit56, %26, %pmix_pointer_array_get_item.exit59, %37, %pmix_pointer_array_get_item.exit62, %50, %5
   %.0 = phi i32 [ 0, %5 ], [ -16, %50 ], [ -16, %pmix_pointer_array_get_item.exit62 ], [ -16, %37 ], [ -16, %pmix_pointer_array_get_item.exit59 ], [ -16, %26 ], [ -16, %pmix_pointer_array_get_item.exit56 ], [ -16, %10 ], [ -16, %pmix_pointer_array_get_item.exit ], [ 0, %63 ], [ %62, %56 ], [ %47, %43 ], [ %36, %32 ], [ %22, %19 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -2643,8 +2637,8 @@ pmix_pointer_array_get_item.exit45:               ; preds = %31
 define i32 @pmix_bfrops_base_pack_regattr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %.lr.ph, label %.thread
 
@@ -2780,8 +2774,8 @@ pmix_pointer_array_get_item.exit80:               ; preds = %57
 
 .thread:                                          ; preds = %17, %29, %39, %53, %63, %69, %pmix_pointer_array_get_item.exit, %11, %pmix_pointer_array_get_item.exit71, %22, %.thread.sink.split, %5
   %.0 = phi i32 [ 0, %5 ], [ %.4103.sink, %.thread.sink.split ], [ %21, %17 ], [ %32, %29 ], [ %43, %39 ], [ %56, %53 ], [ %68, %63 ], [ 0, %69 ], [ -16, %pmix_pointer_array_get_item.exit ], [ -16, %11 ], [ -16, %pmix_pointer_array_get_item.exit71 ], [ -16, %22 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -2891,7 +2885,7 @@ define i32 @pmix_bfrops_base_pack_cpuset(ptr noundef %0, ptr noundef %1, ptr nou
   ret i32 %.0
 }
 
-declare i32 @pmix_hwloc_pack_cpuset(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @pmix_hwloc_pack_cpuset(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix_bfrops_base_pack_geometry(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
@@ -3421,7 +3415,7 @@ define i32 @pmix_bfrops_base_pack_topology(ptr noundef %0, ptr noundef %1, ptr n
   ret i32 %.0
 }
 
-declare i32 @pmix_hwloc_pack_topology(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @pmix_hwloc_pack_topology(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix_bfrops_base_pack_devtype(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
@@ -3478,7 +3472,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %5, %pmix_pointer_ar
 ; Function Attrs: nounwind uwtable
 define i32 @pmix_bfrops_base_pack_nspace(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %.lr.ph, label %.thread
@@ -3517,14 +3511,14 @@ pmix_pointer_array_get_item.exit:                 ; preds = %11
 
 .thread:                                          ; preds = %18, %10, %pmix_pointer_array_get_item.exit, %11, %5
   %.0 = phi i32 [ 0, %5 ], [ -16, %11 ], [ -16, %pmix_pointer_array_get_item.exit ], [ 0, %10 ], [ %21, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix_bfrops_base_pack_pstats(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %.lr.ph, label %.thread
@@ -3806,14 +3800,14 @@ pmix_pointer_array_get_item.exit183:              ; preds = %145
 
 .thread:                                          ; preds = %19, %29, %40, %53, %63, %74, %85, %96, %107, %118, %129, %140, %151, %10, %pmix_pointer_array_get_item.exit, %11, %pmix_pointer_array_get_item.exit150, %23, %pmix_pointer_array_get_item.exit153, %34, %pmix_pointer_array_get_item.exit156, %45, %pmix_pointer_array_get_item.exit159, %57, %pmix_pointer_array_get_item.exit162, %68, %pmix_pointer_array_get_item.exit165, %79, %pmix_pointer_array_get_item.exit168, %90, %pmix_pointer_array_get_item.exit171, %101, %pmix_pointer_array_get_item.exit174, %112, %pmix_pointer_array_get_item.exit177, %123, %pmix_pointer_array_get_item.exit180, %134, %pmix_pointer_array_get_item.exit183, %145, %5
   %.0 = phi i32 [ 0, %5 ], [ -16, %145 ], [ -16, %pmix_pointer_array_get_item.exit183 ], [ -16, %134 ], [ -16, %pmix_pointer_array_get_item.exit180 ], [ -16, %123 ], [ -16, %pmix_pointer_array_get_item.exit177 ], [ -16, %112 ], [ -16, %pmix_pointer_array_get_item.exit174 ], [ -16, %101 ], [ -16, %pmix_pointer_array_get_item.exit171 ], [ -16, %90 ], [ -16, %pmix_pointer_array_get_item.exit168 ], [ -16, %79 ], [ -16, %pmix_pointer_array_get_item.exit165 ], [ -16, %68 ], [ -16, %pmix_pointer_array_get_item.exit162 ], [ -16, %57 ], [ -16, %pmix_pointer_array_get_item.exit159 ], [ -16, %45 ], [ -16, %pmix_pointer_array_get_item.exit156 ], [ -16, %34 ], [ -16, %pmix_pointer_array_get_item.exit153 ], [ -16, %23 ], [ -16, %pmix_pointer_array_get_item.exit150 ], [ -16, %11 ], [ -16, %pmix_pointer_array_get_item.exit ], [ 0, %10 ], [ %155, %151 ], [ %144, %140 ], [ %133, %129 ], [ %122, %118 ], [ %111, %107 ], [ %100, %96 ], [ %89, %85 ], [ %78, %74 ], [ %67, %63 ], [ %56, %53 ], [ %44, %40 ], [ %33, %29 ], [ %22, %19 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix_bfrops_base_pack_dkstats(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %.lr.ph, label %.thread
@@ -4073,14 +4067,14 @@ pmix_pointer_array_get_item.exit169:              ; preds = %133
 
 .thread:                                          ; preds = %19, %29, %40, %51, %62, %73, %84, %95, %106, %117, %128, %139, %10, %pmix_pointer_array_get_item.exit, %11, %pmix_pointer_array_get_item.exit139, %23, %pmix_pointer_array_get_item.exit142, %34, %pmix_pointer_array_get_item.exit145, %45, %pmix_pointer_array_get_item.exit148, %56, %pmix_pointer_array_get_item.exit151, %67, %pmix_pointer_array_get_item.exit154, %78, %pmix_pointer_array_get_item.exit157, %89, %pmix_pointer_array_get_item.exit160, %100, %pmix_pointer_array_get_item.exit163, %111, %pmix_pointer_array_get_item.exit166, %122, %pmix_pointer_array_get_item.exit169, %133, %5
   %.0 = phi i32 [ 0, %5 ], [ -16, %133 ], [ -16, %pmix_pointer_array_get_item.exit169 ], [ -16, %122 ], [ -16, %pmix_pointer_array_get_item.exit166 ], [ -16, %111 ], [ -16, %pmix_pointer_array_get_item.exit163 ], [ -16, %100 ], [ -16, %pmix_pointer_array_get_item.exit160 ], [ -16, %89 ], [ -16, %pmix_pointer_array_get_item.exit157 ], [ -16, %78 ], [ -16, %pmix_pointer_array_get_item.exit154 ], [ -16, %67 ], [ -16, %pmix_pointer_array_get_item.exit151 ], [ -16, %56 ], [ -16, %pmix_pointer_array_get_item.exit148 ], [ -16, %45 ], [ -16, %pmix_pointer_array_get_item.exit145 ], [ -16, %34 ], [ -16, %pmix_pointer_array_get_item.exit142 ], [ -16, %23 ], [ -16, %pmix_pointer_array_get_item.exit139 ], [ -16, %11 ], [ -16, %pmix_pointer_array_get_item.exit ], [ 0, %10 ], [ %143, %139 ], [ %132, %128 ], [ %121, %117 ], [ %110, %106 ], [ %99, %95 ], [ %88, %84 ], [ %77, %73 ], [ %66, %62 ], [ %55, %51 ], [ %44, %40 ], [ %33, %29 ], [ %22, %19 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix_bfrops_base_pack_netstats(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %.lr.ph, label %.thread
@@ -4240,14 +4234,14 @@ pmix_pointer_array_get_item.exit99:               ; preds = %78
 
 .thread:                                          ; preds = %19, %29, %40, %51, %62, %73, %84, %10, %pmix_pointer_array_get_item.exit, %11, %pmix_pointer_array_get_item.exit84, %23, %pmix_pointer_array_get_item.exit87, %34, %pmix_pointer_array_get_item.exit90, %45, %pmix_pointer_array_get_item.exit93, %56, %pmix_pointer_array_get_item.exit96, %67, %pmix_pointer_array_get_item.exit99, %78, %5
   %.0 = phi i32 [ 0, %5 ], [ -16, %78 ], [ -16, %pmix_pointer_array_get_item.exit99 ], [ -16, %67 ], [ -16, %pmix_pointer_array_get_item.exit96 ], [ -16, %56 ], [ -16, %pmix_pointer_array_get_item.exit93 ], [ -16, %45 ], [ -16, %pmix_pointer_array_get_item.exit90 ], [ -16, %34 ], [ -16, %pmix_pointer_array_get_item.exit87 ], [ -16, %23 ], [ -16, %pmix_pointer_array_get_item.exit84 ], [ -16, %11 ], [ -16, %pmix_pointer_array_get_item.exit ], [ 0, %10 ], [ %88, %84 ], [ %77, %73 ], [ %66, %62 ], [ %55, %51 ], [ %44, %40 ], [ %33, %29 ], [ %22, %19 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix_bfrops_base_pack_ndstats(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %.lr.ph, label %.thread
@@ -4619,7 +4613,7 @@ pmix_pointer_array_get_item.exit249:              ; preds = %192
 
 .thread:                                          ; preds = %18, %28, %39, %50, %61, %72, %83, %94, %105, %116, %127, %138, %149, %160, %173, %185, %198, %204, %pmix_pointer_array_get_item.exit, %10, %pmix_pointer_array_get_item.exit204, %22, %pmix_pointer_array_get_item.exit207, %33, %pmix_pointer_array_get_item.exit210, %44, %pmix_pointer_array_get_item.exit213, %55, %pmix_pointer_array_get_item.exit216, %66, %pmix_pointer_array_get_item.exit219, %77, %pmix_pointer_array_get_item.exit222, %88, %pmix_pointer_array_get_item.exit225, %99, %pmix_pointer_array_get_item.exit228, %110, %pmix_pointer_array_get_item.exit231, %121, %pmix_pointer_array_get_item.exit234, %132, %pmix_pointer_array_get_item.exit237, %143, %pmix_pointer_array_get_item.exit240, %154, %pmix_pointer_array_get_item.exit243, %167, %pmix_pointer_array_get_item.exit246, %179, %pmix_pointer_array_get_item.exit249, %192, %5
   %.0 = phi i32 [ 0, %5 ], [ -16, %192 ], [ -16, %pmix_pointer_array_get_item.exit249 ], [ -16, %179 ], [ -16, %pmix_pointer_array_get_item.exit246 ], [ -16, %167 ], [ -16, %pmix_pointer_array_get_item.exit243 ], [ -16, %154 ], [ -16, %pmix_pointer_array_get_item.exit240 ], [ -16, %143 ], [ -16, %pmix_pointer_array_get_item.exit237 ], [ -16, %132 ], [ -16, %pmix_pointer_array_get_item.exit234 ], [ -16, %121 ], [ -16, %pmix_pointer_array_get_item.exit231 ], [ -16, %110 ], [ -16, %pmix_pointer_array_get_item.exit228 ], [ -16, %99 ], [ -16, %pmix_pointer_array_get_item.exit225 ], [ -16, %88 ], [ -16, %pmix_pointer_array_get_item.exit222 ], [ -16, %77 ], [ -16, %pmix_pointer_array_get_item.exit219 ], [ -16, %66 ], [ -16, %pmix_pointer_array_get_item.exit216 ], [ -16, %55 ], [ -16, %pmix_pointer_array_get_item.exit213 ], [ -16, %44 ], [ -16, %pmix_pointer_array_get_item.exit210 ], [ -16, %33 ], [ -16, %pmix_pointer_array_get_item.exit207 ], [ -16, %22 ], [ -16, %pmix_pointer_array_get_item.exit204 ], [ -16, %10 ], [ -16, %pmix_pointer_array_get_item.exit ], [ 0, %204 ], [ %203, %198 ], [ %189, %185 ], [ %178, %173 ], [ %164, %160 ], [ %153, %149 ], [ %142, %138 ], [ %131, %127 ], [ %120, %116 ], [ %109, %105 ], [ %98, %94 ], [ %87, %83 ], [ %76, %72 ], [ %65, %61 ], [ %54, %50 ], [ %43, %39 ], [ %32, %28 ], [ %21, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -4797,6 +4791,12 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %5, %pmix_pointer_ar
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #7
 
@@ -4807,12 +4807,12 @@ declare i32 @llvm.bswap.i32(i32) #7
 declare i64 @llvm.bswap.i64(i64) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) }

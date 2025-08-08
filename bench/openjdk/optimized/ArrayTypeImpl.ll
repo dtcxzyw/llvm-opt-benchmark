@@ -140,11 +140,11 @@ isReferenceTag.exit:                              ; preds = %switch.lookup, %jdw
 
 36:                                               ; preds = %isReferenceTag.exit, %isReferenceTag.exit
   call void @createLocalRefSpace(ptr noundef %9, i32 noundef 1) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %37 = call i32 @classLoader(ptr noundef %10, ptr noundef nonnull %3) #4
   %.not.i.i = icmp eq i32 %37, 0
   br i1 %.not.i.i, label %38, label %getComponentClass.exit.sink.split.i
@@ -227,11 +227,11 @@ isReferenceTag.exit:                              ; preds = %switch.lookup, %jdw
   br i1 %or.cond.i.i, label %getComponentClass.exit.thread.i, label %getComponentClass.exit.i
 
 getComponentClass.exit.thread.i:                  ; preds = %70
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %73
 
 getComponentClass.exit.sink.split.i:              ; preds = %54, %36
@@ -242,11 +242,11 @@ getComponentClass.exit.sink.split.i:              ; preds = %54, %36
 getComponentClass.exit.i:                         ; preds = %getComponentClass.exit.sink.split.i, %70
   %.1.i = phi ptr [ %.028.i, %70 ], [ null, %getComponentClass.exit.sink.split.i ]
   %.026.i.i = phi i16 [ %.028.i.i, %70 ], [ %72, %getComponentClass.exit.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i25 = icmp eq i16 %.026.i.i, 0
   br i1 %.not.i25, label %74, label %73
 
@@ -691,10 +691,10 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 declare zeroext i8 @isSameObject(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

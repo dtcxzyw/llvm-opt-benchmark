@@ -1249,8 +1249,8 @@ invoke.cont10:                                    ; preds = %for.body.i
   store i64 %retval.sroa.0.0.insert.insert.i6.i, ptr %ref.tmp8, align 8
   %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store i32 %and7.i.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i18
 
 while.body.i.i.i.i18:                             ; preds = %invoke.cont10, %if.end.i.i.i.i33
@@ -1331,8 +1331,8 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
 invoke.cont14:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i39
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i35, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i35, %cond.false.i.i.i39 ], [ %__y.addr.1.i.i.i.i35, %cond.false12.i.i.i ], [ %call12.i41, %if.then.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   store ptr %call5, ptr %second.i, align 8
   %ref.tmp6.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   store i8 0, ptr %ref.tmp6.sroa.2.0.second.i.sroa_idx, align 8
@@ -2606,8 +2606,8 @@ invoke.cont10:                                    ; preds = %for.body.i
   store i64 %retval.sroa.0.0.insert.insert.i6.i, ptr %ref.tmp8, align 8
   %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store i32 %and7.i.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i18
 
 while.body.i.i.i.i18:                             ; preds = %invoke.cont10, %if.end.i.i.i.i33
@@ -2688,8 +2688,8 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
 invoke.cont14:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i39
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i35, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i35, %cond.false.i.i.i39 ], [ %__y.addr.1.i.i.i.i35, %cond.false12.i.i.i ], [ %call12.i41, %if.then.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   store ptr %call5, ptr %second.i, align 8
   %ref.tmp6.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   store i32 0, ptr %ref.tmp6.sroa.2.0.second.i.sroa_idx, align 8
@@ -5532,8 +5532,8 @@ invoke.cont10:                                    ; preds = %for.body.i
   store i64 %retval.sroa.0.0.insert.insert.i6.i, ptr %ref.tmp8, align 8
   %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store i32 %and7.i.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i18
 
 while.body.i.i.i.i18:                             ; preds = %invoke.cont10, %if.end.i.i.i.i33
@@ -5614,8 +5614,8 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
 invoke.cont14:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i39
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i35, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i35, %cond.false.i.i.i39 ], [ %__y.addr.1.i.i.i.i35, %cond.false12.i.i.i ], [ %call12.i41, %if.then.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   store ptr %call5, ptr %second.i, align 8
   %ref.tmp6.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   store i64 0, ptr %ref.tmp6.sroa.2.0.second.i.sroa_idx, align 8
@@ -7983,8 +7983,8 @@ invoke.cont10:                                    ; preds = %for.body.i
   store i64 %retval.sroa.0.0.insert.insert.i6.i, ptr %ref.tmp8, align 8
   %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store i32 %and7.i.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i18
 
 while.body.i.i.i.i18:                             ; preds = %invoke.cont10, %if.end.i.i.i.i33
@@ -8065,8 +8065,8 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
 invoke.cont14:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i39
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i35, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i35, %cond.false.i.i.i39 ], [ %__y.addr.1.i.i.i.i35, %cond.false12.i.i.i ], [ %call12.i41, %if.then.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   store ptr %call5, ptr %second.i, align 8
   %ref.tmp6.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   store float 0.000000e+00, ptr %ref.tmp6.sroa.2.0.second.i.sroa_idx, align 8
@@ -10614,8 +10614,8 @@ invoke.cont10:                                    ; preds = %for.body.i
   store i64 %retval.sroa.0.0.insert.insert.i6.i, ptr %ref.tmp8, align 8
   %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store i32 %and7.i.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i18
 
 while.body.i.i.i.i18:                             ; preds = %invoke.cont10, %if.end.i.i.i.i33
@@ -10696,8 +10696,8 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
 invoke.cont14:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i39
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i35, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i35, %cond.false.i.i.i39 ], [ %__y.addr.1.i.i.i.i35, %cond.false12.i.i.i ], [ %call12.i41, %if.then.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   store ptr %call5, ptr %second.i, align 8
   %ref.tmp6.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   store double 0.000000e+00, ptr %ref.tmp6.sroa.2.0.second.i.sroa_idx, align 8
@@ -13253,8 +13253,8 @@ invoke.cont10:                                    ; preds = %for.body.i
   store i64 %retval.sroa.0.0.insert.insert.i6.i, ptr %ref.tmp8, align 8
   %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store i32 %and7.i.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i18
 
 while.body.i.i.i.i18:                             ; preds = %invoke.cont10, %if.end.i.i.i.i33
@@ -13335,8 +13335,8 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
 invoke.cont14:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i39
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i35, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i35, %cond.false.i.i.i39 ], [ %__y.addr.1.i.i.i.i35, %cond.false12.i.i.i ], [ %call12.i41, %if.then.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   store ptr %call5, ptr %second.i, align 8
   %ref.tmp6.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   store <2 x float> zeroinitializer, ptr %ref.tmp6.sroa.2.0.second.i.sroa_idx, align 8
@@ -16222,8 +16222,8 @@ invoke.cont10:                                    ; preds = %for.body.i
   store i64 %retval.sroa.0.0.insert.insert.i6.i, ptr %ref.tmp8, align 8
   %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store i32 %and7.i.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i18
 
 while.body.i.i.i.i18:                             ; preds = %invoke.cont10, %if.end.i.i.i.i33
@@ -16304,8 +16304,8 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
 invoke.cont14:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i39
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i35, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i35, %cond.false.i.i.i39 ], [ %__y.addr.1.i.i.i.i35, %cond.false12.i.i.i ], [ %call12.i41, %if.then.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   store ptr %call5, ptr %second.i, align 8
   %ref.tmp6.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp6.sroa.2.0.second.i.sroa_idx, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp6.sroa.2, i64 25, i1 false)
@@ -19197,8 +19197,8 @@ invoke.cont10:                                    ; preds = %for.body.i
   store i64 %retval.sroa.0.0.insert.insert.i6.i, ptr %ref.tmp8, align 8
   %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store i32 %and7.i.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i18
 
 while.body.i.i.i.i18:                             ; preds = %invoke.cont10, %if.end.i.i.i.i33
@@ -19279,8 +19279,8 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
 invoke.cont14:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i39
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i35, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i35, %cond.false.i.i.i39 ], [ %__y.addr.1.i.i.i.i35, %cond.false12.i.i.i ], [ %call12.i41, %if.then.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   store ptr %call5, ptr %second.i, align 8
   %ref.tmp6.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   store i64 0, ptr %ref.tmp6.sroa.2.0.second.i.sroa_idx, align 8
@@ -21887,8 +21887,8 @@ invoke.cont10:                                    ; preds = %for.body.i
   store i64 %retval.sroa.0.0.insert.insert.i6.i, ptr %ref.tmp8, align 8
   %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store i32 %and7.i.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i18
 
 while.body.i.i.i.i18:                             ; preds = %invoke.cont10, %if.end.i.i.i.i33
@@ -21969,8 +21969,8 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
 invoke.cont14:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i39
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i35, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i35, %cond.false.i.i.i39 ], [ %__y.addr.1.i.i.i.i35, %cond.false12.i.i.i ], [ %call12.i41, %if.then.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   store ptr %call5, ptr %second.i, align 8
   %ref.tmp6.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   store i8 0, ptr %ref.tmp6.sroa.2.0.second.i.sroa_idx, align 8
@@ -22459,8 +22459,8 @@ invoke.cont10:                                    ; preds = %for.body.i
   store i64 %retval.sroa.0.0.insert.insert.i6.i, ptr %ref.tmp8, align 8
   %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store i32 %and7.i.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i18
 
 while.body.i.i.i.i18:                             ; preds = %invoke.cont10, %if.end.i.i.i.i33
@@ -22541,8 +22541,8 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
 invoke.cont14:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i39
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i35, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i35, %cond.false.i.i.i39 ], [ %__y.addr.1.i.i.i.i35, %cond.false12.i.i.i ], [ %call12.i41, %if.then.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   store ptr %call5, ptr %second.i, align 8
   %ref.tmp6.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   store i32 0, ptr %ref.tmp6.sroa.2.0.second.i.sroa_idx, align 8
@@ -23067,8 +23067,8 @@ invoke.cont10:                                    ; preds = %for.body.i
   store i64 %retval.sroa.0.0.insert.insert.i6.i, ptr %ref.tmp8, align 8
   %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store i32 %and7.i.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i18
 
 while.body.i.i.i.i18:                             ; preds = %invoke.cont10, %if.end.i.i.i.i33
@@ -23149,8 +23149,8 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
 invoke.cont14:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i39
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i35, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i35, %cond.false.i.i.i39 ], [ %__y.addr.1.i.i.i.i35, %cond.false12.i.i.i ], [ %call12.i41, %if.then.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   store ptr %call5, ptr %second.i, align 8
   %ref.tmp6.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   store i64 0, ptr %ref.tmp6.sroa.2.0.second.i.sroa_idx, align 8
@@ -23675,8 +23675,8 @@ invoke.cont10:                                    ; preds = %for.body.i
   store i64 %retval.sroa.0.0.insert.insert.i6.i, ptr %ref.tmp8, align 8
   %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store i32 %and7.i.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i18
 
 while.body.i.i.i.i18:                             ; preds = %invoke.cont10, %if.end.i.i.i.i33
@@ -23757,8 +23757,8 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
 invoke.cont14:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i39
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i35, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i35, %cond.false.i.i.i39 ], [ %__y.addr.1.i.i.i.i35, %cond.false12.i.i.i ], [ %call12.i41, %if.then.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   store ptr %call5, ptr %second.i, align 8
   %ref.tmp6.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   store float 0.000000e+00, ptr %ref.tmp6.sroa.2.0.second.i.sroa_idx, align 8
@@ -24290,8 +24290,8 @@ invoke.cont10:                                    ; preds = %for.body.i
   store i64 %retval.sroa.0.0.insert.insert.i6.i, ptr %ref.tmp8, align 8
   %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store i32 %and7.i.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i18
 
 while.body.i.i.i.i18:                             ; preds = %invoke.cont10, %if.end.i.i.i.i33
@@ -24372,8 +24372,8 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
 invoke.cont14:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i39
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i35, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i35, %cond.false.i.i.i39 ], [ %__y.addr.1.i.i.i.i35, %cond.false12.i.i.i ], [ %call12.i41, %if.then.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   store ptr %call5, ptr %second.i, align 8
   %ref.tmp6.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   store double 0.000000e+00, ptr %ref.tmp6.sroa.2.0.second.i.sroa_idx, align 8
@@ -24918,8 +24918,8 @@ invoke.cont10:                                    ; preds = %for.body.i
   store i64 %retval.sroa.0.0.insert.insert.i6.i, ptr %ref.tmp8, align 8
   %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store i32 %and7.i.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i18
 
 while.body.i.i.i.i18:                             ; preds = %invoke.cont10, %if.end.i.i.i.i33
@@ -25000,8 +25000,8 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
 invoke.cont14:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i39
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i35, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i35, %cond.false.i.i.i39 ], [ %__y.addr.1.i.i.i.i35, %cond.false12.i.i.i ], [ %call12.i41, %if.then.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   store ptr %call5, ptr %second.i, align 8
   %ref.tmp6.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   store <2 x float> zeroinitializer, ptr %ref.tmp6.sroa.2.0.second.i.sroa_idx, align 8
@@ -25761,8 +25761,8 @@ invoke.cont10:                                    ; preds = %for.body.i
   store i64 %retval.sroa.0.0.insert.insert.i6.i, ptr %ref.tmp8, align 8
   %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store i32 %and7.i.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i18
 
 while.body.i.i.i.i18:                             ; preds = %invoke.cont10, %if.end.i.i.i.i33
@@ -25843,8 +25843,8 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
 invoke.cont14:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i39
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i35, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i35, %cond.false.i.i.i39 ], [ %__y.addr.1.i.i.i.i35, %cond.false12.i.i.i ], [ %call12.i41, %if.then.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   store ptr %call5, ptr %second.i, align 8
   %ref.tmp6.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp6.sroa.2.0.second.i.sroa_idx, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp6.sroa.2, i64 25, i1 false)
@@ -26597,8 +26597,8 @@ invoke.cont10:                                    ; preds = %for.body.i
   store i64 %retval.sroa.0.0.insert.insert.i6.i, ptr %ref.tmp8, align 8
   %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store i32 %and7.i.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i18
 
 while.body.i.i.i.i18:                             ; preds = %invoke.cont10, %if.end.i.i.i.i33
@@ -26679,8 +26679,8 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
 invoke.cont14:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i39
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i35, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i35, %cond.false.i.i.i39 ], [ %__y.addr.1.i.i.i.i35, %cond.false12.i.i.i ], [ %call12.i41, %if.then.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   store ptr %call5, ptr %second.i, align 8
   %ref.tmp6.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   store i64 0, ptr %ref.tmp6.sroa.2.0.second.i.sroa_idx, align 8
@@ -27426,8 +27426,8 @@ invoke.cont10:                                    ; preds = %for.body.i
   store i64 %retval.sroa.0.0.insert.insert.i6.i, ptr %ref.tmp8, align 8
   %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store i32 %and7.i.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i18
 
 while.body.i.i.i.i18:                             ; preds = %invoke.cont10, %if.end.i.i.i.i33
@@ -27508,8 +27508,8 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
 invoke.cont14:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i39
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i35, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i35, %cond.false.i.i.i39 ], [ %__y.addr.1.i.i.i.i35, %cond.false12.i.i.i ], [ %call12.i41, %if.then.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   store ptr %call5, ptr %second.i, align 8
   %ref.tmp6.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   store i8 0, ptr %ref.tmp6.sroa.2.0.second.i.sroa_idx, align 8
@@ -27989,8 +27989,8 @@ invoke.cont10:                                    ; preds = %for.body.i
   store i64 %retval.sroa.0.0.insert.insert.i6.i, ptr %ref.tmp8, align 8
   %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store i32 %and7.i.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i18
 
 while.body.i.i.i.i18:                             ; preds = %invoke.cont10, %if.end.i.i.i.i33
@@ -28071,8 +28071,8 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
 invoke.cont14:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i39
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i35, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i35, %cond.false.i.i.i39 ], [ %__y.addr.1.i.i.i.i35, %cond.false12.i.i.i ], [ %call12.i41, %if.then.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   store ptr %call5, ptr %second.i, align 8
   %ref.tmp6.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   store i32 0, ptr %ref.tmp6.sroa.2.0.second.i.sroa_idx, align 8
@@ -28585,8 +28585,8 @@ invoke.cont10:                                    ; preds = %for.body.i
   store i64 %retval.sroa.0.0.insert.insert.i6.i, ptr %ref.tmp8, align 8
   %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store i32 %and7.i.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i18
 
 while.body.i.i.i.i18:                             ; preds = %invoke.cont10, %if.end.i.i.i.i33
@@ -28667,8 +28667,8 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
 invoke.cont14:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i39
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i35, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i35, %cond.false.i.i.i39 ], [ %__y.addr.1.i.i.i.i35, %cond.false12.i.i.i ], [ %call12.i41, %if.then.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   store ptr %call5, ptr %second.i, align 8
   %ref.tmp6.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   store i64 0, ptr %ref.tmp6.sroa.2.0.second.i.sroa_idx, align 8
@@ -29181,8 +29181,8 @@ invoke.cont10:                                    ; preds = %for.body.i
   store i64 %retval.sroa.0.0.insert.insert.i6.i, ptr %ref.tmp8, align 8
   %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store i32 %and7.i.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i18
 
 while.body.i.i.i.i18:                             ; preds = %invoke.cont10, %if.end.i.i.i.i33
@@ -29263,8 +29263,8 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
 invoke.cont14:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i39
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i35, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i35, %cond.false.i.i.i39 ], [ %__y.addr.1.i.i.i.i35, %cond.false12.i.i.i ], [ %call12.i41, %if.then.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   store ptr %call5, ptr %second.i, align 8
   %ref.tmp6.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   store float 0.000000e+00, ptr %ref.tmp6.sroa.2.0.second.i.sroa_idx, align 8
@@ -29792,8 +29792,8 @@ invoke.cont10:                                    ; preds = %for.body.i
   store i64 %retval.sroa.0.0.insert.insert.i6.i, ptr %ref.tmp8, align 8
   %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store i32 %and7.i.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i18
 
 while.body.i.i.i.i18:                             ; preds = %invoke.cont10, %if.end.i.i.i.i33
@@ -29874,8 +29874,8 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
 invoke.cont14:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i39
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i35, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i35, %cond.false.i.i.i39 ], [ %__y.addr.1.i.i.i.i35, %cond.false12.i.i.i ], [ %call12.i41, %if.then.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   store ptr %call5, ptr %second.i, align 8
   %ref.tmp6.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   store double 0.000000e+00, ptr %ref.tmp6.sroa.2.0.second.i.sroa_idx, align 8
@@ -30414,8 +30414,8 @@ invoke.cont10:                                    ; preds = %for.body.i
   store i64 %retval.sroa.0.0.insert.insert.i6.i, ptr %ref.tmp8, align 8
   %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store i32 %and7.i.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i18
 
 while.body.i.i.i.i18:                             ; preds = %invoke.cont10, %if.end.i.i.i.i33
@@ -30496,8 +30496,8 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
 invoke.cont14:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i39
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i35, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i35, %cond.false.i.i.i39 ], [ %__y.addr.1.i.i.i.i35, %cond.false12.i.i.i ], [ %call12.i41, %if.then.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   store ptr %call5, ptr %second.i, align 8
   %ref.tmp6.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   store <2 x float> zeroinitializer, ptr %ref.tmp6.sroa.2.0.second.i.sroa_idx, align 8
@@ -31140,8 +31140,8 @@ invoke.cont10:                                    ; preds = %for.body.i
   store i64 %retval.sroa.0.0.insert.insert.i6.i, ptr %ref.tmp8, align 8
   %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store i32 %and7.i.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i18
 
 while.body.i.i.i.i18:                             ; preds = %invoke.cont10, %if.end.i.i.i.i33
@@ -31222,8 +31222,8 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
 invoke.cont14:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i39
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i35, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i35, %cond.false.i.i.i39 ], [ %__y.addr.1.i.i.i.i35, %cond.false12.i.i.i ], [ %call12.i41, %if.then.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   store ptr %call5, ptr %second.i, align 8
   %ref.tmp6.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp6.sroa.2.0.second.i.sroa_idx, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp6.sroa.2, i64 25, i1 false)
@@ -31859,8 +31859,8 @@ invoke.cont10:                                    ; preds = %for.body.i
   store i64 %retval.sroa.0.0.insert.insert.i6.i, ptr %ref.tmp8, align 8
   %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store i32 %and7.i.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i18
 
 while.body.i.i.i.i18:                             ; preds = %invoke.cont10, %if.end.i.i.i.i33
@@ -31941,8 +31941,8 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
 invoke.cont14:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i39
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i35, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i35, %cond.false.i.i.i39 ], [ %__y.addr.1.i.i.i.i35, %cond.false12.i.i.i ], [ %call12.i41, %if.then.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   store ptr %call5, ptr %second.i, align 8
   %ref.tmp6.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   store i64 0, ptr %ref.tmp6.sroa.2.0.second.i.sroa_idx, align 8
@@ -32545,8 +32545,8 @@ invoke.cont10:                                    ; preds = %for.body.i
   store i64 %retval.sroa.0.0.insert.insert.i6.i, ptr %ref.tmp8, align 8
   %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store i32 %and7.i.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i18
 
 while.body.i.i.i.i18:                             ; preds = %invoke.cont10, %if.end.i.i.i.i33
@@ -32627,8 +32627,8 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
 invoke.cont14:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i39
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i35, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i35, %cond.false.i.i.i39 ], [ %__y.addr.1.i.i.i.i35, %cond.false12.i.i.i ], [ %call12.i41, %if.then.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   store ptr %call5, ptr %second.i, align 8
   %ref.tmp6.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   store i8 0, ptr %ref.tmp6.sroa.2.0.second.i.sroa_idx, align 8
@@ -33108,8 +33108,8 @@ invoke.cont10:                                    ; preds = %for.body.i
   store i64 %retval.sroa.0.0.insert.insert.i6.i, ptr %ref.tmp8, align 8
   %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store i32 %and7.i.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i18
 
 while.body.i.i.i.i18:                             ; preds = %invoke.cont10, %if.end.i.i.i.i33
@@ -33190,8 +33190,8 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
 invoke.cont14:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i39
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i35, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i35, %cond.false.i.i.i39 ], [ %__y.addr.1.i.i.i.i35, %cond.false12.i.i.i ], [ %call12.i41, %if.then.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   store ptr %call5, ptr %second.i, align 8
   %ref.tmp6.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   store i32 0, ptr %ref.tmp6.sroa.2.0.second.i.sroa_idx, align 8
@@ -33719,8 +33719,8 @@ invoke.cont10:                                    ; preds = %for.body.i
   store i64 %retval.sroa.0.0.insert.insert.i6.i, ptr %ref.tmp8, align 8
   %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store i32 %and7.i.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i18
 
 while.body.i.i.i.i18:                             ; preds = %invoke.cont10, %if.end.i.i.i.i33
@@ -33801,8 +33801,8 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
 invoke.cont14:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i39
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i35, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i35, %cond.false.i.i.i39 ], [ %__y.addr.1.i.i.i.i35, %cond.false12.i.i.i ], [ %call12.i41, %if.then.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   store ptr %call5, ptr %second.i, align 8
   %ref.tmp6.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   store i64 0, ptr %ref.tmp6.sroa.2.0.second.i.sroa_idx, align 8
@@ -34330,8 +34330,8 @@ invoke.cont10:                                    ; preds = %for.body.i
   store i64 %retval.sroa.0.0.insert.insert.i6.i, ptr %ref.tmp8, align 8
   %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store i32 %and7.i.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i18
 
 while.body.i.i.i.i18:                             ; preds = %invoke.cont10, %if.end.i.i.i.i33
@@ -34412,8 +34412,8 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
 invoke.cont14:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i39
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i35, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i35, %cond.false.i.i.i39 ], [ %__y.addr.1.i.i.i.i35, %cond.false12.i.i.i ], [ %call12.i41, %if.then.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   store ptr %call5, ptr %second.i, align 8
   %ref.tmp6.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   store float 0.000000e+00, ptr %ref.tmp6.sroa.2.0.second.i.sroa_idx, align 8
@@ -34941,8 +34941,8 @@ invoke.cont10:                                    ; preds = %for.body.i
   store i64 %retval.sroa.0.0.insert.insert.i6.i, ptr %ref.tmp8, align 8
   %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store i32 %and7.i.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i18
 
 while.body.i.i.i.i18:                             ; preds = %invoke.cont10, %if.end.i.i.i.i33
@@ -35023,8 +35023,8 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
 invoke.cont14:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i39
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i35, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i35, %cond.false.i.i.i39 ], [ %__y.addr.1.i.i.i.i35, %cond.false12.i.i.i ], [ %call12.i41, %if.then.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   store ptr %call5, ptr %second.i, align 8
   %ref.tmp6.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   store double 0.000000e+00, ptr %ref.tmp6.sroa.2.0.second.i.sroa_idx, align 8
@@ -35563,8 +35563,8 @@ invoke.cont10:                                    ; preds = %for.body.i
   store i64 %retval.sroa.0.0.insert.insert.i6.i, ptr %ref.tmp8, align 8
   %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store i32 %and7.i.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i18
 
 while.body.i.i.i.i18:                             ; preds = %invoke.cont10, %if.end.i.i.i.i33
@@ -35645,8 +35645,8 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
 invoke.cont14:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i39
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i35, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i35, %cond.false.i.i.i39 ], [ %__y.addr.1.i.i.i.i35, %cond.false12.i.i.i ], [ %call12.i41, %if.then.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   store ptr %call5, ptr %second.i, align 8
   %ref.tmp6.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   store <2 x float> zeroinitializer, ptr %ref.tmp6.sroa.2.0.second.i.sroa_idx, align 8
@@ -36289,8 +36289,8 @@ invoke.cont10:                                    ; preds = %for.body.i
   store i64 %retval.sroa.0.0.insert.insert.i6.i, ptr %ref.tmp8, align 8
   %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store i32 %and7.i.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i18
 
 while.body.i.i.i.i18:                             ; preds = %invoke.cont10, %if.end.i.i.i.i33
@@ -36371,8 +36371,8 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
 invoke.cont14:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i39
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i35, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i35, %cond.false.i.i.i39 ], [ %__y.addr.1.i.i.i.i35, %cond.false12.i.i.i ], [ %call12.i41, %if.then.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   store ptr %call5, ptr %second.i, align 8
   %ref.tmp6.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp6.sroa.2.0.second.i.sroa_idx, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp6.sroa.2, i64 25, i1 false)
@@ -37008,8 +37008,8 @@ invoke.cont10:                                    ; preds = %for.body.i
   store i64 %retval.sroa.0.0.insert.insert.i6.i, ptr %ref.tmp8, align 8
   %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store i32 %and7.i.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive13.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i18
 
 while.body.i.i.i.i18:                             ; preds = %invoke.cont10, %if.end.i.i.i.i33
@@ -37090,8 +37090,8 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN7openv
 invoke.cont14:                                    ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i, %cond.false12.i.i.i, %cond.false.i.i.i39
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i35, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i ], [ %__y.addr.1.i.i.i.i35, %cond.false.i.i.i39 ], [ %__y.addr.1.i.i.i.i35, %cond.false12.i.i.i ], [ %call12.i41, %if.then.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   store ptr %call5, ptr %second.i, align 8
   %ref.tmp6.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   store i64 0, ptr %ref.tmp6.sroa.2.0.second.i.sroa_idx, align 8
@@ -37601,10 +37601,10 @@ entry:
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #18

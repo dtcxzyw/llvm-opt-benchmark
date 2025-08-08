@@ -24,14 +24,8 @@ define noalias noundef ptr @wmem_tree_new(ptr noundef %0) local_unnamed_addr #0 
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define noalias noundef ptr @wmem_tree_new_autoreset(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -49,7 +43,7 @@ define noalias noundef ptr @wmem_tree_new_autoreset(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wmem_register_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @wmem_register_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @wmem_tree_destroy_cb(ptr readnone captures(none) %0, i32 %1, ptr noundef readonly captures(none) %2) #0 {
@@ -208,13 +202,13 @@ wmem_tree_destroy.exit:                           ; preds = %25, %27
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wmem_unregister_callback(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @wmem_unregister_callback(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define zeroext i1 @wmem_tree_is_empty(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define zeroext i1 @wmem_tree_is_empty(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -224,7 +218,7 @@ define zeroext i1 @wmem_tree_is_empty(ptr noundef readonly captures(none) %0) lo
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define i32 @wmem_tree_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -238,7 +232,7 @@ define i32 @wmem_tree_count(ptr noundef readonly captures(none) %0) local_unname
 
 wmem_tree_foreach.exit:                           ; preds = %1, %5
   %7 = phi i32 [ 0, %1 ], [ %.pre, %5 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %7
 }
 
@@ -259,7 +253,7 @@ define noundef zeroext i1 @wmem_tree_foreach(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @count_nodes(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(none) %2) #5 {
+define internal noundef zeroext i1 @count_nodes(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(none) %2) #4 {
   %4 = load i32, ptr %2, align 4
   %5 = add i32 %4, 1
   store i32 %5, ptr %2, align 4
@@ -899,7 +893,7 @@ lookup_or_insert32_node.exit:                     ; preds = %53, %.split.us.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @wmem_tree_contains32(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
+define noundef zeroext i1 @wmem_tree_contains32(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -943,7 +937,7 @@ define noundef zeroext i1 @wmem_tree_contains32(ptr noundef readonly captures(ad
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
-define ptr @wmem_tree_lookup32(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
+define ptr @wmem_tree_lookup32(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #5 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %wmem_tree_lookup32_node.exit.thread, label %3
 
@@ -992,7 +986,7 @@ wmem_tree_lookup32_node.exit.thread:              ; preds = %17, %3, %2, %wmem_t
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
-define ptr @wmem_tree_lookup32_le(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
+define ptr @wmem_tree_lookup32_le(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #5 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %wmem_tree_lookup32_le_node.exit.thread, label %3
 
@@ -1083,7 +1077,7 @@ wmem_tree_lookup32_le_node.exit.thread:           ; preds = %40, %28, %3, %2, %w
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @wmem_tree_lookup32_le_full(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #7 {
+define ptr @wmem_tree_lookup32_le_full(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #6 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %wmem_tree_lookup32_le_node.exit.thread, label %4
 
@@ -1179,7 +1173,7 @@ wmem_tree_lookup32_le_node.exit.thread:           ; preds = %41, %29, %4, %3, %w
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
-define ptr @wmem_tree_lookup32_ge(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
+define ptr @wmem_tree_lookup32_ge(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #5 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %wmem_tree_lookup32_ge_node.exit.thread, label %3
 
@@ -1280,7 +1274,7 @@ wmem_tree_lookup32_ge_node.exit.thread:           ; preds = %44, %.thread, %3, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @wmem_tree_lookup32_ge_full(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #7 {
+define ptr @wmem_tree_lookup32_ge_full(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #6 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %wmem_tree_lookup32_ge_node.exit.thread, label %4
 
@@ -2242,13 +2236,13 @@ wmem_tree_insert_node.exit:                       ; preds = %94, %.thread.i18, %
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_ascii_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @g_ascii_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @wmem_tree_lookup_string(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -2572,7 +2566,7 @@ lookup_or_insert32.exit:                          ; preds = %.preheader.split.sp
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
-define ptr @wmem_tree_lookup32_array(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 {
+define ptr @wmem_tree_lookup32_array(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond.i = and i1 %3, %4
@@ -2688,7 +2682,7 @@ wmem_tree_lookup32_array_helper.exit:             ; preds = %9, %wmem_tree_looku
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
-define ptr @wmem_tree_lookup32_array_le(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 {
+define ptr @wmem_tree_lookup32_array_le(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond.i = and i1 %3, %4
@@ -2981,10 +2975,10 @@ wmem_print_subtree.exit:                          ; preds = %3, %4, %9
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @__printf_chk(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @__printf_chk(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @wmem_tree_print_nodes(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
@@ -3121,21 +3115,26 @@ wmem_print_subtree.exit:                          ; preds = %wmem_print_indent.e
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { allocsize(1) }
-attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

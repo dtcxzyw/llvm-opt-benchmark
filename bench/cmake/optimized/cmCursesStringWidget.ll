@@ -31,12 +31,6 @@ $_ZN20cmCursesStringWidgetD0Ev = comdat any
 @_ZN20cmCursesStringWidgetC1Eiiii = dso_local unnamed_addr alias void (ptr, i32, i32, i32, i32), ptr @_ZN20cmCursesStringWidgetC2Eiiii
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress uwtable
@@ -213,7 +207,7 @@ define dso_local noundef zeroext i1 @_ZN20cmCursesStringWidget11HandleInputERiP1
   store i8 0, ptr %15, align 1, !tbaa !15
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i8 0, ptr %16, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not97 = icmp eq ptr %3, null
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %18
@@ -418,7 +412,7 @@ thread-pre-split:                                 ; preds = %35
 
 .loopexit:                                        ; preds = %.critedge, %.backedge, %38, %60, %46
   %.1 = phi i1 [ false, %46 ], [ true, %60 ], [ false, %.critedge ], [ false, %38 ], [ true, %.backedge ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %103
 
 103:                                              ; preds = %11, %.loopexit
@@ -488,7 +482,7 @@ define dso_local noundef zeroext i1 @_ZN20cmCursesStringWidget9PrintKeysEv(ptr n
 
 14:                                               ; preds = %4
   %15 = zext nneg i16 %6 to i32
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %2, ptr noundef nonnull align 1 dereferenceable(3) @__const._ZN20cmCursesStringWidget9PrintKeysEv.fmt_s, i64 3, i1 false)
   %16 = add nsw i32 %15, -3
   %17 = tail call i32 @move(i32 noundef %16, i32 noundef 0)
@@ -507,7 +501,7 @@ define dso_local noundef zeroext i1 @_ZN20cmCursesStringWidget9PrintKeysEv(ptr n
   %30 = call i32 @move(i32 noundef %15, i32 noundef 0)
   %31 = load ptr, ptr @stdscr, align 8, !tbaa !33
   %32 = call i32 @wclrtoeol(ptr noundef %31)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread15
 
 .thread15:                                        ; preds = %1, %4, %14
@@ -597,7 +591,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_cmCursesStringWidget.cxx() #11 section ".text.startup" {
   %1 = alloca [3 x i32], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %1) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 0, ptr %1, align 4, !tbaa !44
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 1, ptr %2, align 4, !tbaa !44
@@ -628,10 +622,16 @@ _ZNSt6bitsetILm32EE3setEmb.exit.i.i.i:            ; preds = %.lr.ph.i.i.i
   br i1 %.not.i.i.i, label %__cxx_global_var_init.exit, label %.lr.ph.i.i.i
 
 __cxx_global_var_init.exit:                       ; preds = %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %1) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %11 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12cmStateEnumsL16AllTargetDomainsE)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12

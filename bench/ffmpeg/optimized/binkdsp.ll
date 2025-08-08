@@ -18,7 +18,7 @@ define void @ff_binkdsp_init(ptr noundef writeonly captures(none) initializes((0
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @bink_idct_add_c(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) #1 {
   %4 = alloca [64 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %5
 
 5:                                                ; preds = %bink_idct_col.exit.i, %3
@@ -216,7 +216,7 @@ bink_idct_col.exit.i:                             ; preds = %32, %30
   br i1 %exitcond90.not.i, label %bink_idct_c.exit, label %.preheader.i, !llvm.loop !16
 
 bink_idct_c.exit:                                 ; preds = %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %156 = sext i32 %1 to i64
   br label %.preheader
 
@@ -253,7 +253,7 @@ bink_idct_c.exit:                                 ; preds = %.preheader.i
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @bink_idct_put_c(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = alloca [64 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %5
 
 5:                                                ; preds = %3, %bink_idct_col.exit
@@ -465,7 +465,7 @@ bink_idct_col.exit:                               ; preds = %30, %32
   br i1 %exitcond98.not, label %167, label %.preheader, !llvm.loop !21
 
 167:                                              ; preds = %.preheader
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -653,15 +653,14 @@ define internal void @add_pixels8_c(ptr noalias noundef captures(none) %0, ptr n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

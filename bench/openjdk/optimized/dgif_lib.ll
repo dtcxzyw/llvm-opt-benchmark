@@ -190,7 +190,7 @@ define hidden range(i32 0, 2) i32 @DGifGetScreenDesc(ptr noundef %0) local_unnam
   br label %.loopexit
 
 11:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %13 = load ptr, ptr %12, align 8
   %.not.i.i = icmp eq ptr %13, null
@@ -215,16 +215,16 @@ InternalRead.exit.i:                              ; preds = %16, %14
 DGifGetWord.exit.thread:                          ; preds = %InternalRead.exit.i
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 102, ptr %22, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
 23:                                               ; preds = %InternalRead.exit.i
   %24 = load i16, ptr %3, align 2
   %25 = zext i16 %24 to i32
   store i32 %25, ptr %0, align 4
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %27 = load ptr, ptr %5, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 72
   %29 = load ptr, ptr %28, align 8
@@ -250,14 +250,14 @@ InternalRead.exit.i41:                            ; preds = %32, %30
 DGifGetWord.exit44.thread:                        ; preds = %InternalRead.exit.i41
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 102, ptr %38, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
 39:                                               ; preds = %InternalRead.exit.i41
   %40 = load i16, ptr %2, align 2
   %41 = zext i16 %40 to i32
   store i32 %41, ptr %26, align 4
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %42 = load ptr, ptr %5, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 72
   %44 = load ptr, ptr %43, align 8
@@ -634,7 +634,7 @@ define hidden range(i32 0, 2) i32 @DGifGetImageHeader(ptr noundef %0) local_unna
 
 14:                                               ; preds = %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %17 = load ptr, ptr %16, align 8
   %.not.i.i = icmp eq ptr %17, null
@@ -659,16 +659,16 @@ InternalRead.exit.i:                              ; preds = %20, %18
 DGifGetWord.exit.thread:                          ; preds = %InternalRead.exit.i
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 102, ptr %26, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %191
 
 27:                                               ; preds = %InternalRead.exit.i
   %28 = load i16, ptr %6, align 2
   %29 = zext i16 %28 to i32
   store i32 %29, ptr %15, align 4
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %31 = load ptr, ptr %8, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 72
   %33 = load ptr, ptr %32, align 8
@@ -694,16 +694,16 @@ InternalRead.exit.i47:                            ; preds = %36, %34
 DGifGetWord.exit50.thread:                        ; preds = %InternalRead.exit.i47
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 102, ptr %42, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %191
 
 43:                                               ; preds = %InternalRead.exit.i47
   %44 = load i16, ptr %5, align 2
   %45 = zext i16 %44 to i32
   store i32 %45, ptr %30, align 4
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %47 = load ptr, ptr %8, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 72
   %49 = load ptr, ptr %48, align 8
@@ -729,16 +729,16 @@ InternalRead.exit.i52:                            ; preds = %52, %50
 DGifGetWord.exit55.thread:                        ; preds = %InternalRead.exit.i52
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 102, ptr %58, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %191
 
 59:                                               ; preds = %InternalRead.exit.i52
   %60 = load i16, ptr %4, align 2
   %61 = zext i16 %60 to i32
   store i32 %61, ptr %46, align 4
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %63 = load ptr, ptr %8, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 72
   %65 = load ptr, ptr %64, align 8
@@ -764,14 +764,14 @@ InternalRead.exit.i57:                            ; preds = %68, %66
 DGifGetWord.exit60.thread:                        ; preds = %InternalRead.exit.i57
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 102, ptr %74, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %191
 
 75:                                               ; preds = %InternalRead.exit.i57
   %76 = load i16, ptr %3, align 2
   %77 = zext i16 %76 to i32
   store i32 %77, ptr %62, align 4
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %78 = load ptr, ptr %8, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 72
   %80 = load ptr, ptr %79, align 8
@@ -916,7 +916,7 @@ InternalRead.exit63:                              ; preds = %117, %119
   %152 = mul nsw i64 %151, %149
   %153 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store i64 %152, ptr %153, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %154 = load ptr, ptr %8, align 8
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 72
   %156 = load ptr, ptr %155, align 8
@@ -991,7 +991,7 @@ InternalRead.exit.i65:                            ; preds = %159, %157
 
 DGifSetupDecompress.exit:                         ; preds = %188, %.loopexit.sink.split.i
   %.0.i66 = phi i32 [ 0, %.loopexit.sink.split.i ], [ 1, %188 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %191
 
 191:                                              ; preds = %DGifGetWord.exit60.thread, %DGifGetWord.exit55.thread, %DGifGetWord.exit50.thread, %DGifGetWord.exit.thread, %DGifSetupDecompress.exit, %125, %111, %89, %12
@@ -1153,7 +1153,7 @@ define hidden range(i32 0, 2) i32 @DGifGetLine(ptr noundef %0, ptr noundef write
   br i1 %27, label %.preheader, label %62
 
 .preheader:                                       ; preds = %25, %61
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %28 = load ptr, ptr %5, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 72
   %30 = load ptr, ptr %29, align 8
@@ -1215,17 +1215,17 @@ InternalRead.exit15.i:                            ; preds = %50, %47
   store i8 0, ptr %41, align 8
   %59 = getelementptr inbounds nuw i8, ptr %28, i64 56
   store i64 0, ptr %59, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %62
 
 DGifGetCodeNext.exit.thread:                      ; preds = %InternalRead.exit15.i, %InternalRead.exit.i
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 102, ptr %60, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %62
 
 61:                                               ; preds = %InternalRead.exit15.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.preheader, !llvm.loop !10
 
 62:                                               ; preds = %.thread, %DGifGetCodeNext.exit.thread, %23, %25, %21, %9
@@ -1736,7 +1736,7 @@ define hidden range(i32 0, 2) i32 @DGifGetPixel(ptr noundef %0, i8 noundef zeroe
   br i1 %22, label %.preheader, label %57
 
 .preheader:                                       ; preds = %20, %56
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = load ptr, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 72
   %25 = load ptr, ptr %24, align 8
@@ -1798,17 +1798,17 @@ InternalRead.exit15.i:                            ; preds = %45, %42
   store i8 0, ptr %36, align 8
   %54 = getelementptr inbounds nuw i8, ptr %23, i64 56
   store i64 0, ptr %54, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %57
 
 DGifGetCodeNext.exit.thread:                      ; preds = %InternalRead.exit15.i, %InternalRead.exit.i
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 102, ptr %55, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %57
 
 56:                                               ; preds = %InternalRead.exit15.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.preheader, !llvm.loop !17
 
 57:                                               ; preds = %.thread, %DGifGetCodeNext.exit.thread, %18, %20, %16, %9
@@ -1863,7 +1863,7 @@ InternalRead.exit:                                ; preds = %15, %17
   %26 = load i8, ptr %5, align 1
   %27 = zext i8 %26 to i32
   store i32 %27, ptr %1, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %28 = load ptr, ptr %6, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 72
   %30 = load ptr, ptr %29, align 8
@@ -1939,7 +1939,7 @@ InternalRead.exit13.i:                            ; preds = %53, %50
 
 DGifGetExtensionNext.exit:                        ; preds = %39, %InternalRead.exit13.i, %62, %64
   %.0.i = phi i32 [ 0, %39 ], [ 0, %62 ], [ 1, %InternalRead.exit13.i ], [ 1, %64 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %65
 
 65:                                               ; preds = %DGifGetExtensionNext.exit, %23, %10
@@ -2298,7 +2298,7 @@ define hidden range(i32 0, 2) i32 @DGifGetCode(ptr noundef %0, ptr noundef write
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = load i32, ptr %12, align 8
   store i32 %13, ptr %1, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = load ptr, ptr %5, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %16 = load ptr, ptr %15, align 8
@@ -2378,7 +2378,7 @@ InternalRead.exit15.i:                            ; preds = %39, %36
 
 DGifGetCodeNext.exit:                             ; preds = %25, %InternalRead.exit15.i, %48, %50
   %.0.i = phi i32 [ 0, %25 ], [ 0, %48 ], [ 1, %InternalRead.exit15.i ], [ 1, %50 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %53
 
 53:                                               ; preds = %DGifGetCodeNext.exit, %9
@@ -2414,7 +2414,7 @@ define hidden range(i32 0, 2) i32 @DGifGetLZCodes(ptr noundef %0, ptr noundef ca
   br i1 %17, label %.preheader, label %53
 
 .preheader:                                       ; preds = %13, %50
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load ptr, ptr %4, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %20 = load ptr, ptr %19, align 8
@@ -2475,18 +2475,18 @@ InternalRead.exit15.i:                            ; preds = %40, %37
 DGifGetCodeNext.exit.thread:                      ; preds = %InternalRead.exit15.i, %InternalRead.exit.i
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 102, ptr %49, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %66
 
 50:                                               ; preds = %InternalRead.exit15.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.preheader, !llvm.loop !19
 
 51:                                               ; preds = %29
   store i8 0, ptr %31, align 8
   %52 = getelementptr inbounds nuw i8, ptr %18, i64 56
   store i64 0, ptr %52, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i32 -1, ptr %1, align 4
   br label %66
 
@@ -2751,7 +2751,7 @@ define hidden range(i32 0, 2) i32 @DGifSlurp(ptr noundef initializes((80, 84), (
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 8
@@ -2798,11 +2798,11 @@ DGifGetRecordType.exit.thread:                    ; preds = %26, %InternalRead.e
   %.sink = phi i32 [ 111, %1 ], [ 111, %158 ], [ 102, %InternalRead.exit.i ], [ 107, %26 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %.sink, ptr %28, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %DGifDecreaseImageCounter.exit
 
 29:                                               ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %30 = call i32 @DGifGetImageDesc(ptr noundef nonnull %0)
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %DGifDecreaseImageCounter.exit, label %32
@@ -2968,7 +2968,7 @@ DGifGetRecordType.exit.thread:                    ; preds = %26, %InternalRead.e
   br label %158
 
 108:                                              ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %109 = call i32 @DGifGetExtension(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %4)
   %110 = icmp eq i32 %109, 0
   br i1 %110, label %DGifDecreaseImageCounter.exit, label %111
@@ -2991,7 +2991,7 @@ DGifGetRecordType.exit.thread:                    ; preds = %26, %InternalRead.e
   br label %120
 
 120:                                              ; preds = %.preheader155, %153
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %121 = load ptr, ptr %8, align 8
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 72
   %123 = load ptr, ptr %122, align 8
@@ -3051,17 +3051,17 @@ InternalRead.exit13.i:                            ; preds = %143, %140
 
 .thread88:                                        ; preds = %132
   store ptr null, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %158
 
 DGifGetExtensionNext.exit.thread:                 ; preds = %InternalRead.exit13.i, %InternalRead.exit.i71
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 102, ptr %152, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %DGifDecreaseImageCounter.exit
 
 153:                                              ; preds = %InternalRead.exit13.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %154 = load i8, ptr %135, align 1
   %155 = zext i8 %154 to i32
   %156 = call i32 @GifAddExtensionBlock(ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef 0, i32 noundef %155, ptr noundef nonnull %136) #14
@@ -3069,7 +3069,7 @@ DGifGetExtensionNext.exit.thread:                 ; preds = %InternalRead.exit13
   br i1 %157, label %DGifDecreaseImageCounter.exit, label %120
 
 158:                                              ; preds = %.thread88, %104, %.loopexit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %159 = load ptr, ptr %8, align 8
   %160 = load i32, ptr %159, align 8
   %161 = and i32 %160, 8
@@ -3077,7 +3077,7 @@ DGifGetExtensionNext.exit.thread:                 ; preds = %InternalRead.exit13
   br i1 %.not.i, label %DGifGetRecordType.exit.thread, label %14, !llvm.loop !23
 
 162:                                              ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %163 = load i32, ptr %13, align 8
   %164 = icmp eq i32 %163, 0
   br i1 %164, label %165, label %DGifDecreaseImageCounter.exit
@@ -3101,10 +3101,10 @@ declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i6
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #13

@@ -887,11 +887,11 @@ _ZN15ClassLoaderData17ChunkedHandleList3addEP7oopDesc.exit: ; preds = %27, %32
   br i1 %2, label %79, label %_ZNK6HandleclEv.exit.i
 
 67:                                               ; preds = %66
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %_ZN15ClassLoaderData17initialize_holderE6Handle.exit
 
 _ZNK6HandleclEv.exit.i:                           ; preds = %.thread
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %68 = load ptr, ptr %1, align 8
   %.not.i = icmp eq ptr %68, null
   br i1 %.not.i, label %_ZN15ClassLoaderData17initialize_holderE6Handle.exit, label %69
@@ -904,7 +904,7 @@ _ZNK6HandleclEv.exit.i:                           ; preds = %.thread
   br label %_ZN15ClassLoaderData17initialize_holderE6Handle.exit
 
 _ZN15ClassLoaderData17initialize_holderE6Handle.exit: ; preds = %67, %_ZNK6HandleclEv.exit.i, %69
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %72 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 880, i8 noundef zeroext 20, i32 noundef 0) #17
   call void @_ZN17PackageEntryTableC1Ev(ptr noundef nonnull align 8 dereferenceable(880) %72) #17
   store volatile ptr %72, ptr %19, align 8
@@ -1504,7 +1504,7 @@ define hidden void @_ZN15ClassLoaderData14dec_keep_aliveEv(ptr noundef nonnull a
   br i1 %9, label %10, label %24
 
 10:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVZN15ClassLoaderData19demote_strong_rootsEvE25TransitionRootsOopClosure, i64 16), ptr %2, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load volatile ptr, ptr %11, align 8
@@ -1567,7 +1567,7 @@ _ZN15ClassLoaderData17ChunkedHandleList13oops_do_chunkEP10OopClosurePNS0_5ChunkE
   br i1 %.not12.i.i.i, label %_ZN15ClassLoaderData19demote_strong_rootsEv.exit, label %.lr.ph.i.i.i, !llvm.loop !15
 
 _ZN15ClassLoaderData19demote_strong_rootsEv.exit: ; preds = %_ZN15ClassLoaderData17ChunkedHandleList13oops_do_chunkEP10OopClosurePNS0_5ChunkEj.exit20.i.i.i, %10, %_ZN15ClassLoaderData17ChunkedHandleList13oops_do_chunkEP10OopClosurePNS0_5ChunkEj.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre = load i32, ptr %7, align 4
   br label %24
 
@@ -1913,7 +1913,7 @@ _ZNK15ClassLoaderData12class_loaderEv.exit18:     ; preds = %_ZNK15ClassLoaderDa
 _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %43, %39, %62
   %.0 = phi ptr [ %53, %62 ], [ %45, %43 ], [ null, %39 ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV24VerifyContainsOopClosure, i64 16), ptr %3, align 8
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.0, ptr %65, align 8
@@ -1981,7 +1981,7 @@ _ZN15ClassLoaderData17ChunkedHandleList13oops_do_chunkEP10OopClosurePNS0_5ChunkE
 _ZN15ClassLoaderData17ChunkedHandleList8containsEP7oopDesc.exit: ; preds = %_ZN15ClassLoaderData17ChunkedHandleList13oops_do_chunkEP10OopClosurePNS0_5ChunkEj.exit20.i.i, %_ZNK5Klass11java_mirrorEv.exit, %_ZN15ClassLoaderData17ChunkedHandleList13oops_do_chunkEP10OopClosurePNS0_5ChunkEj.exit.i.i
   %79 = load i8, ptr %66, align 8
   %80 = trunc i8 %79 to i1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %80, label %154, label %81
 
 81:                                               ; preds = %_ZN15ClassLoaderData17ChunkedHandleList8containsEP7oopDesc.exit
@@ -7742,9 +7742,9 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI16VerifyOopClosureE5
   br i1 %31, label %19, label %_ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop16VerifyOopClosureEEvP7oopDescPT0_.exit, !llvm.loop !57
 
 _ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop16VerifyOopClosureEEvP7oopDescPT0_.exit: ; preds = %._crit_edge.i, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop16VerifyOopClosure14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -7799,9 +7799,9 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI16VerifyOopClosureE5
   br i1 %31, label %19, label %_ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc16VerifyOopClosureEEvS2_PT0_.exit, !llvm.loop !59
 
 _ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc16VerifyOopClosureEEvS2_PT0_.exit: ; preds = %._crit_edge.i, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc16VerifyOopClosure14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -9616,10 +9616,10 @@ declare i32 @llvm.ctpop.i32(i32) #14
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

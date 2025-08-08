@@ -492,7 +492,7 @@ _ZN3net8RttStats18set_initial_rtt_usEl.exit73:    ; preds = %15
   br i1 %26, label %27, label %.critedge.thread
 
 27:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK3net10QuicConfig25ReceivedConnectionOptionsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.13") align 8 %3, ptr noundef nonnull align 8 dereferenceable(600) %1)
   %28 = invoke noundef zeroext i1 @_ZN3net15ContainsQuicTagERKSt6vectorIjSaIjEEj(ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef 1380074068)
           to label %29 unwind label %47
@@ -507,7 +507,7 @@ _ZN3net8RttStats18set_initial_rtt_usEl.exit73:    ; preds = %15
   br label %.critedge
 
 .critedge:                                        ; preds = %31, %29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %28, label %32, label %.critedge.thread
 
 32:                                               ; preds = %.critedge
@@ -549,7 +549,7 @@ _ZN3net21QuicSentPacketManager16SetSendAlgorithmENS_21CongestionControlTypeE.exi
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit75
 
 _ZNSt6vectorIjSaIjEED2Ev.exit75:                  ; preds = %47, %50
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 
 .critedge.thread:                                 ; preds = %25, %22, %_ZN3net21QuicSentPacketManager16SetSendAlgorithmENS_21CongestionControlTypeE.exit, %.critedge
@@ -557,7 +557,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit75:                  ; preds = %47, %50
   br i1 %51, label %52, label %.critedge62.thread
 
 52:                                               ; preds = %.critedge.thread
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK3net10QuicConfig25ReceivedConnectionOptionsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.13") align 8 %4, ptr noundef nonnull align 8 dereferenceable(600) %1)
   %53 = invoke noundef zeroext i1 @_ZN3net15ContainsQuicTagERKSt6vectorIjSaIjEEj(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef 1330529618)
           to label %54 unwind label %73
@@ -572,11 +572,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit75:                  ; preds = %47, %50
   br label %.critedge62
 
 .critedge62:                                      ; preds = %56, %54
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %53, label %57, label %.critedge62.thread
 
 57:                                               ; preds = %.critedge62
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNK3net10QuicConfig25ReceivedConnectionOptionsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.13") align 8 %5, ptr noundef nonnull align 8 dereferenceable(600) %1)
   %58 = invoke noundef zeroext i1 @_ZN3net15ContainsQuicTagERKSt6vectorIjSaIjEEj(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 1163155778)
           to label %59 unwind label %77
@@ -591,7 +591,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit75:                  ; preds = %47, %50
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit79
 
 _ZNSt6vectorIjSaIjEED2Ev.exit79:                  ; preds = %59, %61
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %63 = load ptr, ptr %62, align 8, !tbaa !74
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -621,7 +621,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit79:                  ; preds = %59, %61
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit84
 
 _ZNSt6vectorIjSaIjEED2Ev.exit84:                  ; preds = %73, %76
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 77:                                               ; preds = %57
@@ -636,7 +636,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit84:                  ; preds = %73, %76
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit86
 
 _ZNSt6vectorIjSaIjEED2Ev.exit86:                  ; preds = %77, %80
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 81:                                               ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit79
@@ -651,7 +651,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit86:                  ; preds = %77, %80
   br i1 %84, label %85, label %.critedge64.thread
 
 85:                                               ; preds = %.critedge62.thread
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNK3net10QuicConfig25ReceivedConnectionOptionsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.13") align 8 %6, ptr noundef nonnull align 8 dereferenceable(600) %1)
   %86 = invoke noundef zeroext i1 @_ZN3net15ContainsQuicTagERKSt6vectorIjSaIjEEj(ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef 1163155778)
           to label %87 unwind label %101
@@ -666,7 +666,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit86:                  ; preds = %77, %80
   br label %.critedge64
 
 .critedge64:                                      ; preds = %89, %87
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %86, label %90, label %.critedge64.thread
 
 90:                                               ; preds = %.critedge64
@@ -696,7 +696,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit86:                  ; preds = %77, %80
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit96
 
 _ZNSt6vectorIjSaIjEED2Ev.exit96:                  ; preds = %101, %104
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 .critedge64.thread.sink.split.sink.split:         ; preds = %90, %81, %70
@@ -778,7 +778,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit96:                  ; preds = %101, %104
   br i1 %142, label %143, label %.critedge66.thread
 
 143:                                              ; preds = %141
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNK3net10QuicConfig25ReceivedConnectionOptionsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.13") align 8 %7, ptr noundef nonnull align 8 dereferenceable(600) %1)
   %144 = invoke noundef zeroext i1 @_ZN3net15ContainsQuicTagERKSt6vectorIjSaIjEEj(ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef 1162692948)
           to label %145 unwind label %150
@@ -793,7 +793,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit96:                  ; preds = %101, %104
   br label %.critedge66
 
 .critedge66:                                      ; preds = %147, %145
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %144, label %148, label %.critedge66.thread
 
 148:                                              ; preds = %.critedge66
@@ -813,7 +813,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit96:                  ; preds = %101, %104
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit100
 
 _ZNSt6vectorIjSaIjEED2Ev.exit100:                 ; preds = %150, %153
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 .critedge66.thread:                               ; preds = %141, %148, %.critedge66
@@ -821,7 +821,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit100:                 ; preds = %150, %153
   br i1 %154, label %155, label %.critedge68.thread
 
 155:                                              ; preds = %.critedge66.thread
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZNK3net10QuicConfig25ReceivedConnectionOptionsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.13") align 8 %8, ptr noundef nonnull align 8 dereferenceable(600) %1)
   %156 = invoke noundef zeroext i1 @_ZN3net15ContainsQuicTagERKSt6vectorIjSaIjEEj(ptr noundef nonnull align 8 dereferenceable(24) %8, i32 noundef 1296651329)
           to label %157 unwind label %162
@@ -836,7 +836,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit100:                 ; preds = %150, %153
   br label %.critedge68
 
 .critedge68:                                      ; preds = %159, %157
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %156, label %160, label %.critedge68.thread
 
 160:                                              ; preds = %.critedge68
@@ -856,7 +856,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit100:                 ; preds = %150, %153
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit104
 
 _ZNSt6vectorIjSaIjEED2Ev.exit104:                 ; preds = %162, %165
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 .critedge68.thread:                               ; preds = %.critedge66.thread, %160, %.critedge68
@@ -896,12 +896,6 @@ _ZNSt6vectorIjSaIjEED2Ev.exit104:                 ; preds = %162, %165
 declare noundef zeroext i1 @_ZNK3net10QuicConfig33HasReceivedInitialRoundTripTimeUsEv(ptr noundef nonnull align 8 dereferenceable(600)) local_unnamed_addr #1
 
 declare noundef i32 @_ZNK3net10QuicConfig30ReceivedInitialRoundTripTimeUsEv(ptr noundef nonnull align 8 dereferenceable(600)) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 declare noundef zeroext i1 @_ZNK3net10QuicConfig31HasInitialRoundTripTimeUsToSendEv(ptr noundef nonnull align 8 dereferenceable(600)) local_unnamed_addr #1
 
@@ -970,17 +964,17 @@ define void @_ZN3net21QuicSentPacketManager17SetNumOpenStreamsEm(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3net21QuicSentPacketManager16SetMaxPacingRateENS_13QuicBandwidthE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(776) initializes((688, 696)) %0, i64 %1) unnamed_addr #7 align 2 {
+define void @_ZN3net21QuicSentPacketManager16SetMaxPacingRateENS_13QuicBandwidthE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(776) initializes((688, 696)) %0, i64 %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 688
   store i64 %1, ptr %3, align 8, !tbaa !111
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3net21QuicSentPacketManager21SetHandshakeConfirmedEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(776) initializes((728, 729)) %0) unnamed_addr #7 align 2 {
+define void @_ZN3net21QuicSentPacketManager21SetHandshakeConfirmedEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(776) initializes((728, 729)) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 728
   store i8 1, ptr %2, align 8, !tbaa !84
   ret void
@@ -1294,7 +1288,7 @@ define noundef zeroext i1 @_ZN3net21QuicSentPacketManager14MaybeUpdateRTTERKNS_1
   br i1 %15, label %16, label %.critedge33
 
 16:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %4, ptr noundef nonnull @.str, i32 noundef 739, i32 noundef 2)
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.5, i64 noundef 50)
@@ -1307,14 +1301,14 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %16
 
 .critedge:                                        ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %4) #18
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge33
 
 21:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %16
   %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %4) #18
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %49
 
 23:                                               ; preds = %9
@@ -1328,7 +1322,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %16
   br i1 %28, label %29, label %.critedge33
 
 29:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %5, ptr noundef nonnull @.str, i32 noundef 748, i32 noundef 1)
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull @.str.6, i64 noundef 22)
@@ -1374,14 +1368,14 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43: ; preds = %_ZNSo
 
 .critedge35:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %5) #18
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge33
 
 44:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43, %_ZNSolsEl.exit42, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit41, %_ZNSolsEm.exit40, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit39, %35, %_ZNSolsEl.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37, %29, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit38
   %45 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %5) #18
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %49
 
 46:                                               ; preds = %23
@@ -1812,7 +1806,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4h
   br i1 %35, label %.critedge9, label %36
 
 36:                                               ; preds = %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4hashImESt8equal_toImESaIS1_IKmS5_EEE4findERSA_.exit
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN7logging10LogMessageC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(404) %3, ptr noundef nonnull @.str.13, i32 noundef 137, ptr noundef nonnull @.str.14)
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %38 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull @.str.15, i64 noundef 66)
@@ -1820,7 +1814,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4h
 
 .critedge:                                        ; preds = %36
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %3) #18
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre = load i64, ptr %32, align 8, !tbaa !111
   br label %.critedge9
 
@@ -1909,7 +1903,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4h
   %76 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %3) #18
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %76
 }
 
@@ -1926,7 +1920,7 @@ declare noundef zeroext i1 @_ZNK3net17PacketNumberQueue8ContainsEm(ptr noundef n
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3net21QuicSentPacketManager17MarkPacketHandledEmPNS_16TransmissionInfoENS_8QuicTime5DeltaE(ptr noundef nonnull align 8 dereferenceable(776) %0, i64 noundef %1, ptr noundef %2, i64 %3, i64 %4) local_unnamed_addr #0 align 2 {
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.0.in6.i = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.07.i = load i64, ptr %.0.in6.i, align 8, !tbaa !192
   %.not8.i = icmp eq i64 %.07.i, 0
@@ -2021,7 +2015,7 @@ _ZNK3net21QuicSentPacketManager23GetNewestRetransmissionEmRKNS_16TransmissionInf
   call void @_ZN3net20QuicUnackedPacketMap24RemoveRetransmittabilityEPNS_16TransmissionInfoE(ptr noundef nonnull align 8 dereferenceable(120) %48, ptr noundef nonnull %2)
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 42
   store i8 1, ptr %49, align 2, !tbaa !177
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -2141,10 +2135,10 @@ define void @_ZN3net21QuicSentPacketManager21MarkForRetransmissionEmNS_16Transmi
   br i1 %13, label %14, label %.critedge
 
 14:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %5, ptr noundef nonnull @.str, i32 noundef 356, i32 noundef 2)
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %5) #18
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
 .critedge:                                        ; preds = %9, %3, %14
@@ -2240,14 +2234,14 @@ _ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEb
   br i1 %.not17, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEbRKT_RKT0_.exit.thread, label %61
 
 _ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEbRKT_RKT0_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i, %32, %..loopexit_crit_edge21.i.i.i.i.i.i, %37, %_ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEbRKT_RKT0_.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %1, ptr %4, align 8
   %.sroa.24.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 0, ptr %.sroa.24.0..sroa_idx.i, align 8
   %59 = call { ptr, i8 } @_ZN15linked_hash_mapImN3net16TransmissionTypeESt4hashImEE6insertERKSt4pairImS1_E(ptr noundef nonnull align 8 dereferenceable(80) %27, ptr noundef nonnull align 8 dereferenceable(9) %4)
   %.fca.0.extract.i = extractvalue { ptr, i8 } %59, 0
   %60 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i, i64 24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i8 %2, ptr %60, align 1, !tbaa !213
   br label %61
 
@@ -2258,7 +2252,7 @@ _ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEb
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3net21QuicSentPacketManager24NeuterUnencryptedPacketsEv(ptr noundef nonnull align 8 dereferenceable(776) %0) unnamed_addr #0 align 2 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = tail call noundef i64 @_ZNK3net20QuicUnackedPacketMap15GetLeastUnackedEv(ptr noundef nonnull align 8 dereferenceable(120) %3)
   store i64 %4, ptr %2, align 8, !tbaa !111
@@ -2280,7 +2274,7 @@ define void @_ZN3net21QuicSentPacketManager24NeuterUnencryptedPacketsEv(ptr noun
   br label %16
 
 ._crit_edge:                                      ; preds = %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit, %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 16:                                               ; preds = %.lr.ph, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit
@@ -2623,7 +2617,7 @@ _ZN3net21QuicSentPacketManager31RecordOneSpuriousRetransmissionERKNS_16Transmiss
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK3net21QuicSentPacketManager25HasPendingRetransmissionsEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(776) %0) unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK3net21QuicSentPacketManager25HasPendingRetransmissionsEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(776) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8, !tbaa !21
   %4 = icmp ne ptr %3, %2
@@ -2641,7 +2635,7 @@ define void @_ZN3net21QuicSentPacketManager25NextPendingRetransmissionEv(ptr dea
   br i1 %or.cond, label %8, label %.critedge
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %3, ptr noundef nonnull @.str, i32 noundef 410, i32 noundef 2)
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.1, i64 noundef 63)
@@ -2653,7 +2647,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %8
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit28: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %3) #18
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre = load ptr, ptr %5, align 8, !tbaa !21
   br label %.critedge
 
@@ -2677,7 +2671,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit28: ; preds = %_ZStl
   %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %3) #18
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %20
 
 21:                                               ; preds = %.preheader
@@ -2764,7 +2758,7 @@ define void @_ZN3net21QuicSentPacketManager28MarkPacketNotRetransmittableEmNS_8Q
 
 8:                                                ; preds = %4
   %9 = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZNK3net20QuicUnackedPacketMap19GetTransmissionInfoEm(ptr noundef nonnull align 8 dereferenceable(120) %6, i64 noundef %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.0.in6.i = getelementptr inbounds nuw i8, ptr %9, i64 48
   %.07.i = load i64, ptr %.0.in6.i, align 8, !tbaa !192
   %.not8.i = icmp eq i64 %.07.i, 0
@@ -2805,7 +2799,7 @@ _ZNK3net21QuicSentPacketManager23GetNewestRetransmissionEmRKNS_16TransmissionInf
   %23 = phi i64 [ %.pre, %19 ], [ %.05.lcssa.i, %13 ]
   call void @_ZN3net20QuicUnackedPacketMap23NotifyAndClearListenersEmNS_8QuicTime5DeltaE(ptr noundef nonnull align 8 dereferenceable(120) %6, i64 noundef %23, i64 %2, i64 %3)
   call void @_ZN3net20QuicUnackedPacketMap24RemoveRetransmittabilityEm(ptr noundef nonnull align 8 dereferenceable(120) %6, i64 noundef %1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %24
 
 24:                                               ; preds = %4, %22
@@ -2855,7 +2849,7 @@ define noundef zeroext i1 @_ZN3net21QuicSentPacketManager12OnPacketSentEPNS_16Se
   br i1 %16, label %17, label %.critedge
 
 17:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %9) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %9, ptr noundef nonnull @.str, i32 noundef 537, i32 noundef 2)
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull @.str.3, i64 noundef 26)
@@ -2863,7 +2857,7 @@ define noundef zeroext i1 @_ZN3net21QuicSentPacketManager12OnPacketSentEPNS_16Se
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %17
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %9) #18
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge
 
 .critedge:                                        ; preds = %13, %7, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
@@ -2883,7 +2877,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %17
   %28 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %9) #18
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %28
 
 29:                                               ; preds = %24, %.critedge
@@ -3314,7 +3308,7 @@ define void @_ZN3net21QuicSentPacketManager20RetransmitRtoPacketsEv(ptr noundef 
   br i1 %.not15, label %.critedge, label %7
 
 7:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %2) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %2, ptr noundef nonnull @.str, i32 noundef 647, i32 noundef 2)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.4, i64 noundef 31)
@@ -3327,7 +3321,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %7
 
 _ZNSolsEm.exit:                                   ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %2) #18
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.critedge
 
 .critedge:                                        ; preds = %4, %1, %_ZNSolsEm.exit
@@ -3360,7 +3354,7 @@ _ZNSolsEm.exit:                                   ; preds = %_ZStlsISt11char_tra
   %28 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %2) #18
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %28
 
 29:                                               ; preds = %.lr.ph, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit
@@ -3804,7 +3798,7 @@ _ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit28: ; preds = %112,
 declare noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap18HasInFlightPacketsEv(ptr noundef nonnull align 8 dereferenceable(120)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @_ZNK3net21QuicSentPacketManager28GetCryptoRetransmissionDelayEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %0) local_unnamed_addr #9 align 2 {
+define { i64, i64 } @_ZNK3net21QuicSentPacketManager28GetCryptoRetransmissionDelayEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %0) local_unnamed_addr #8 align 2 {
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 304
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !111
   %2 = icmp eq i64 %.sroa.2.0.copyload.i, 0
@@ -3904,7 +3898,7 @@ define { i64, i64 } @_ZNK3net21QuicSentPacketManager22GetRetransmissionDelayEv(p
 declare noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap26HasMultipleInFlightPacketsEv(ptr noundef nonnull align 8 dereferenceable(120)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK3net21QuicSentPacketManager11GetRttStatsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(776) %0) unnamed_addr #10 align 2 {
+define noundef nonnull ptr @_ZNK3net21QuicSentPacketManager11GetRttStatsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(776) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   ret ptr %2
 }
@@ -3921,7 +3915,7 @@ define i64 @_ZNK3net21QuicSentPacketManager17BandwidthEstimateEv(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK3net21QuicSentPacketManager26SustainedBandwidthRecorderEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(776) %0) unnamed_addr #10 align 2 {
+define noundef nonnull ptr @_ZNK3net21QuicSentPacketManager26SustainedBandwidthRecorderEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(776) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 736
   ret ptr %2
 }
@@ -4077,7 +4071,7 @@ define void @_ZN3net21QuicSentPacketManager21OnConnectionMigrationEhNS_21PeerAdd
 declare void @_ZN3net8RttStats21OnConnectionMigrationEv(ptr noundef nonnull align 8 dereferenceable(224)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK3net21QuicSentPacketManager20IsHandshakeConfirmedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %0) unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK3net21QuicSentPacketManager20IsHandshakeConfirmedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %3 = load i8, ptr %2, align 8, !tbaa !84, !range !94, !noundef !95
   %4 = trunc nuw i8 %3 to i1
@@ -4085,35 +4079,35 @@ define noundef zeroext i1 @_ZNK3net21QuicSentPacketManager20IsHandshakeConfirmed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3net21QuicSentPacketManager16SetDebugDelegateEPNS_30QuicSentPacketManagerInterface13DebugDelegateE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(776) initializes((240, 248)) %0, ptr noundef %1) unnamed_addr #7 align 2 {
+define void @_ZN3net21QuicSentPacketManager16SetDebugDelegateEPNS_30QuicSentPacketManagerInterface13DebugDelegateE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(776) initializes((240, 248)) %0, ptr noundef %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %1, ptr %3, align 8, !tbaa !141
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK3net21QuicSentPacketManager18GetLargestObservedEh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %0, i8 zeroext %1) unnamed_addr #9 align 2 {
+define noundef i64 @_ZNK3net21QuicSentPacketManager18GetLargestObservedEh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %0, i8 zeroext %1) unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !tbaa !142
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK3net21QuicSentPacketManager20GetLargestSentPacketEh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %0, i8 zeroext %1) unnamed_addr #9 align 2 {
+define noundef i64 @_ZNK3net21QuicSentPacketManager20GetLargestSentPacketEh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %0, i8 zeroext %1) unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !285
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK3net21QuicSentPacketManager27GetLeastPacketAwaitedByPeerEh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %0, i8 zeroext %1) unnamed_addr #9 align 2 {
+define noundef i64 @_ZNK3net21QuicSentPacketManager27GetLeastPacketAwaitedByPeerEh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %0, i8 zeroext %1) unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %4 = load i64, ptr %3, align 8, !tbaa !82
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3net21QuicSentPacketManager23SetNetworkChangeVisitorEPNS_30QuicSentPacketManagerInterface20NetworkChangeVisitorE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(776) initializes((248, 256)) %0, ptr noundef %1) unnamed_addr #7 align 2 {
+define void @_ZN3net21QuicSentPacketManager23SetNetworkChangeVisitorEPNS_30QuicSentPacketManagerInterface20NetworkChangeVisitorE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(776) initializes((248, 256)) %0, ptr noundef %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr %1, ptr %3, align 8, !tbaa !103
   ret void
@@ -4131,14 +4125,14 @@ define noundef zeroext i1 @_ZNK3net21QuicSentPacketManager11InSlowStartEv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK3net21QuicSentPacketManager22GetConsecutiveRtoCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %0) unnamed_addr #9 align 2 {
+define noundef i64 @_ZNK3net21QuicSentPacketManager22GetConsecutiveRtoCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %3 = load i64, ptr %2, align 8, !tbaa !131
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK3net21QuicSentPacketManager22GetConsecutiveTlpCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %0) unnamed_addr #9 align 2 {
+define noundef i64 @_ZNK3net21QuicSentPacketManager22GetConsecutiveTlpCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %3 = load i64, ptr %2, align 8, !tbaa !247
   ret i64 %3
@@ -4174,10 +4168,10 @@ define void @_ZN3net21QuicSentPacketManager20OnApplicationLimitedEv(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #12 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #11 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
   tail call void @_ZSt9terminatev() #22
   unreachable
@@ -4186,7 +4180,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #13
+declare void @_ZSt9terminatev() local_unnamed_addr #12
 
 ; Function Attrs: nounwind
 declare i64 @llround(double noundef) local_unnamed_addr #2
@@ -4201,16 +4195,16 @@ declare void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull al
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #14
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #13
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #14
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #13
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #15
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, i8 } @_ZN15linked_hash_mapImN3net16TransmissionTypeESt4hashImEE6insertERKSt4pairImS1_E(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(9) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4295,7 +4289,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4h
   store i64 %43, ptr %41, align 8, !tbaa !191
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %45 = load ptr, ptr %44, align 8, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %46 = load i64, ptr %1, align 8, !tbaa !111
   store i64 %46, ptr %3, align 8
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4306,7 +4300,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4h
   br i1 %49, label %.critedge21, label %50
 
 50:                                               ; preds = %.loopexit
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN7logging10LogMessageC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(404) %4, ptr noundef nonnull @.str.13, i32 noundef 217, ptr noundef nonnull @.str.17)
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %52 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull @.str.18, i64 noundef 29)
@@ -4314,19 +4308,19 @@ _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4h
 
 .critedge:                                        ; preds = %50
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %4) #18
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge21
 
 .critedge21:                                      ; preds = %.loopexit, %.critedge
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %55
 
 53:                                               ; preds = %50
   %54 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %4) #18
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %4) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %54
 
 55:                                               ; preds = %.critedge21, %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4hashImESt8equal_toImESaIS1_IKmS5_EEE4findERSA_.exit
@@ -4638,6 +4632,12 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImN3net16TransmissionTypeEEEE
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #16
 
@@ -4662,16 +4662,16 @@ attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { cold nofree noreturn }
-attributes #14 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { cold nofree noreturn }
+attributes #13 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nounwind }

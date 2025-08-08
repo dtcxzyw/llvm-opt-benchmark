@@ -38,12 +38,12 @@ define void @_ZN13RtpAudioGraphC2EP11QCustomPlotj(ptr noundef align 8 dereferenc
   store i16 -1, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 34
   store i64 0, ptr %10, align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN4QPenC1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %4)
           to label %11 unwind label %34
 
 11:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN8QPaletteC1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(12) %5)
           to label %12 unwind label %36
 
@@ -56,7 +56,7 @@ define void @_ZN13RtpAudioGraphC2EP11QCustomPlotj(ptr noundef align 8 dereferenc
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 96
   call void @_ZN4QPenC1ERKS_(ptr noundef nonnull align 8 dereferenceable_or_null(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %17) #6
   %18 = load ptr, ptr %4, align 8
@@ -64,15 +64,15 @@ define void @_ZN13RtpAudioGraphC2EP11QCustomPlotj(ptr noundef align 8 dereferenc
   store ptr %19, ptr %4, align 8
   store ptr %18, ptr %6, align 8
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %20 = load i32, ptr %13, align 8
   call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable_or_null(14) %7, i32 noundef %20) #6
   invoke void @_ZN4QPen8setColorERK6QColor(ptr noundef nonnull align 8 dereferenceable_or_null(8) %4, ptr noundef nonnull align 4 dereferenceable(14) %7)
           to label %21 unwind label %40
 
 21:                                               ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   invoke void @_ZN4QPen9setWidthFEd(ptr noundef nonnull align 8 dereferenceable_or_null(8) %4, double noundef 5.000000e-01)
           to label %22 unwind label %38
 
@@ -100,9 +100,9 @@ define void @_ZN13RtpAudioGraphC2EP11QCustomPlotj(ptr noundef align 8 dereferenc
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %8, ptr noundef nonnull align 4 dereferenceable(14) %33, i64 14, i1 false)
   call void @_ZN8QPaletteD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(12) %5) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %4) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 34:                                               ; preds = %3
@@ -123,7 +123,7 @@ define void @_ZN13RtpAudioGraphC2EP11QCustomPlotj(ptr noundef align 8 dereferenc
 40:                                               ; preds = %15
   %41 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %42
 
 42:                                               ; preds = %40, %38
@@ -133,22 +133,19 @@ define void @_ZN13RtpAudioGraphC2EP11QCustomPlotj(ptr noundef align 8 dereferenc
 
 43:                                               ; preds = %42, %36
   %.pn.pn = phi { ptr, i32 } [ %.pn, %42 ], [ %37, %36 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %4) #6
   br label %44
 
 44:                                               ; preds = %43, %34
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %43 ], [ %35, %34 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN7QObjectD2Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) #6
   resume { ptr, i32 } %.pn.pn.pn
 }
 
 ; Function Attrs: null_pointer_is_valid
 declare void @_ZN7QObjectC2EPS_(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef) unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare void @_ZN4QPenC1Ev(ptr noundef align 8 dereferenceable_or_null(8)) unnamed_addr #1
@@ -162,16 +159,13 @@ declare void @_ZN8QPaletteC1Ev(ptr noundef align 8 dereferenceable_or_null(12)) 
 declare noundef ptr @_ZN11QCustomPlot8addGraphEP7QCPAxisS1_(ptr noundef align 8 dereferenceable_or_null(513), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind null_pointer_is_valid
-declare void @_ZN4QPenD1Ev(ptr noundef align 8 dereferenceable_or_null(8)) unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @_ZN4QPenD1Ev(ptr noundef align 8 dereferenceable_or_null(8)) unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare void @_ZN4QPen8setColorERK6QColor(ptr noundef align 8 dereferenceable_or_null(8), ptr noundef align 4 dereferenceable(14)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind null_pointer_is_valid
-declare void @_ZN6QColorC1Ej(ptr noundef align 4 dereferenceable_or_null(14), i32 noundef) unnamed_addr #3
+declare void @_ZN6QColorC1Ej(ptr noundef align 4 dereferenceable_or_null(14), i32 noundef) unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare void @_ZN4QPen9setWidthFEd(ptr noundef align 8 dereferenceable_or_null(8), double noundef) local_unnamed_addr #1
@@ -186,19 +180,19 @@ declare void @_ZN20QCPAbstractPlottable13setSelectableEN3QCP13SelectionTypeE(ptr
 declare noundef zeroext i1 @_ZNK20QCPAbstractPlottable16removeFromLegendEv(ptr noundef align 8 dereferenceable_or_null(184)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind null_pointer_is_valid
-declare void @_ZN8QPaletteD1Ev(ptr noundef align 8 dereferenceable_or_null(12)) unnamed_addr #3
+declare void @_ZN8QPaletteD1Ev(ptr noundef align 8 dereferenceable_or_null(12)) unnamed_addr #2
 
 ; Function Attrs: nounwind null_pointer_is_valid
-declare void @_ZN7QObjectD2Ev(ptr noundef align 8 dereferenceable_or_null(16)) unnamed_addr #3
+declare void @_ZN7QObjectD2Ev(ptr noundef align 8 dereferenceable_or_null(16)) unnamed_addr #2
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
 define void @_ZN13RtpAudioGraph8setMutedEb(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(44) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 .invoke:
   %2 = alloca %class.QPen, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -211,7 +205,7 @@ define void @_ZN13RtpAudioGraph8setMutedEb(ptr noundef readonly align 8 captures
   %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %2) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %8
 
 9:                                                ; preds = %.invoke
@@ -221,7 +215,7 @@ define void @_ZN13RtpAudioGraph8setMutedEb(ptr noundef readonly align 8 captures
 
 11:                                               ; preds = %9
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %2) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -235,7 +229,7 @@ define void @_ZN13RtpAudioGraph12setHighlightEb(ptr noundef readonly align 8 cap
   %5 = alloca %class.QPen, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %1, label %8, label %9
 
 8:                                                ; preds = %2
@@ -272,8 +266,8 @@ _ZN16QCPDataSelectionD2Ev.exit.invoke.sink.split: ; preds = %_ZN17QArrayDataPoin
 
 _ZN16QCPDataSelectionD2Ev.exit.invoke:            ; preds = %_ZN16QCPDataSelectionD2Ev.exit.invoke.sink.split, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i, %.critedge17, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i19, %.critedge
   %15 = phi double [ 1.000000e+00, %.critedge ], [ 1.000000e+00, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i19 ], [ 5.000000e-01, %.critedge17 ], [ 5.000000e-01, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i ], [ %.ph, %_ZN16QCPDataSelectionD2Ev.exit.invoke.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   call void @_ZN4QPenC1ERKS_(ptr noundef nonnull align 8 dereferenceable_or_null(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %17) #6
@@ -328,14 +322,14 @@ _ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i27: ; preds = %_ZN16QCP
 
 _ZN16QCPDataSelectionD2Ev.exit29:                 ; preds = %26, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i23, %24, %19, %29, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i27, %_ZN16QCPDataSelectionD2Ev.exit25
   %.pn32 = phi { ptr, i32 } [ %22, %_ZN16QCPDataSelectionD2Ev.exit25 ], [ %22, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i27 ], [ %22, %29 ], [ %22, %26 ], [ %22, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i23 ], [ %22, %24 ], [ %20, %19 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %36
 
 31:                                               ; preds = %_ZN16QCPDataSelectionD2Ev.exit.invoke, %33
   %32 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %5) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %36
 
 33:                                               ; preds = %_ZN16QCPDataSelectionD2Ev.exit.invoke
@@ -345,7 +339,7 @@ _ZN16QCPDataSelectionD2Ev.exit29:                 ; preds = %26, %_ZN17QArrayDat
 
 35:                                               ; preds = %33
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %5) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 36:                                               ; preds = %31, %_ZN16QCPDataSelectionD2Ev.exit29
@@ -373,7 +367,7 @@ define void @_ZN13RtpAudioGraph11setSelectedEb(ptr noundef align 8 dereferenceab
   %6 = alloca %class.QColor, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %1, label %9, label %10
 
 9:                                                ; preds = %2
@@ -408,12 +402,12 @@ _ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i: ; preds = %.critedge1
   br label %_ZN16QCPDataSelectionD2Ev.exit
 
 _ZN16QCPDataSelectionD2Ev.exit:                   ; preds = %.critedge19, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i, %15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %17 = load ptr, ptr %7, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 96
   call void @_ZN4QPenC1ERKS_(ptr noundef nonnull align 8 dereferenceable_or_null(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %18) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load i32, ptr %19, align 8
   call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable_or_null(14) %6, i32 noundef %20) #6
@@ -434,8 +428,8 @@ _ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i21: ; preds = %.critedg
   br label %_ZN16QCPDataSelectionD2Ev.exit23
 
 _ZN16QCPDataSelectionD2Ev.exit23:                 ; preds = %.critedge, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i21, %22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %24 = load ptr, ptr %7, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 96
   call void @_ZN4QPenC1ERKS_(ptr noundef nonnull align 8 dereferenceable_or_null(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %25) #6
@@ -483,7 +477,7 @@ _ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i29: ; preds = %_ZN16QCP
 
 _ZN16QCPDataSelectionD2Ev.exit31:                 ; preds = %34, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i25, %32, %27, %37, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i29, %_ZN16QCPDataSelectionD2Ev.exit27
   %.pn34 = phi { ptr, i32 } [ %30, %_ZN16QCPDataSelectionD2Ev.exit27 ], [ %30, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i29 ], [ %30, %37 ], [ %30, %34 ], [ %30, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i25 ], [ %30, %32 ], [ %28, %27 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %48
 
 39:                                               ; preds = %44, %_ZN16QCPDataSelectionD2Ev.exit23
@@ -492,13 +486,13 @@ _ZN16QCPDataSelectionD2Ev.exit31:                 ; preds = %34, %_ZN17QArrayDat
   br label %47
 
 41:                                               ; preds = %_ZN16QCPDataSelectionD2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %44
 
 42:                                               ; preds = %_ZN16QCPDataSelectionD2Ev.exit
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %47
 
 44:                                               ; preds = %_ZN16QCPDataSelectionD2Ev.exit23, %41
@@ -508,13 +502,13 @@ _ZN16QCPDataSelectionD2Ev.exit31:                 ; preds = %34, %_ZN17QArrayDat
 
 46:                                               ; preds = %44
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %5) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 47:                                               ; preds = %42, %39
   %.pn15 = phi { ptr, i32 } [ %40, %39 ], [ %43, %42 ]
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %5) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %48
 
 48:                                               ; preds = %47, %_ZN16QCPDataSelectionD2Ev.exit31
@@ -545,7 +539,7 @@ define void @_ZN13RtpAudioGraph6removeEP11QCustomPlot(ptr noundef readonly align
 declare noundef zeroext i1 @_ZN11QCustomPlot11removeGraphEP8QCPGraph(ptr noundef align 8 dereferenceable_or_null(513), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN13RtpAudioGraph13isMyPlottableEP20QCPAbstractPlottable(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(44) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZN13RtpAudioGraph13isMyPlottableEP20QCPAbstractPlottable(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(44) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4
@@ -553,20 +547,26 @@ define noundef zeroext i1 @_ZN13RtpAudioGraph13isMyPlottableEP20QCPAbstractPlott
 }
 
 ; Function Attrs: nounwind null_pointer_is_valid
-declare void @_ZN4QPenC1ERKS_(ptr noundef align 8 dereferenceable_or_null(8), ptr noundef align 8 dereferenceable(8)) unnamed_addr #3
+declare void @_ZN4QPenC1ERKS_(ptr noundef align 8 dereferenceable_or_null(8), ptr noundef align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare noundef align 8 dereferenceable(8) ptr @_ZNK8QPalette5brushENS_10ColorGroupENS_9ColorRoleE(ptr noundef align 8 dereferenceable_or_null(12), i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind null_pointer_is_valid
-declare void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { mustprogress null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}

@@ -212,7 +212,7 @@ define void @ff_id3v1_read(ptr noundef %0) local_unnamed_addr #0 {
   %5 = alloca [512 x i8], align 16
   %6 = alloca [512 x i8], align 16
   %7 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = tail call i64 @avio_seek(ptr noundef %9, i64 noundef 0, i32 noundef 1) #3
@@ -250,7 +250,7 @@ define void @ff_id3v1_read(ptr noundef %0) local_unnamed_addr #0 {
 
 33:                                               ; preds = %18
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 3
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %35
 
 35:                                               ; preds = %39, %33
@@ -295,9 +295,9 @@ define void @ff_id3v1_read(ptr noundef %0) local_unnamed_addr #0 {
   br label %get_string.exit.i
 
 get_string.exit.i:                                ; preds = %46, %44
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 33
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %50
 
 50:                                               ; preds = %54, %get_string.exit.i
@@ -342,9 +342,9 @@ get_string.exit.i:                                ; preds = %46, %44
   br label %get_string.exit34.i
 
 get_string.exit34.i:                              ; preds = %61, %59
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %64 = getelementptr inbounds nuw i8, ptr %7, i64 63
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %65
 
 65:                                               ; preds = %69, %get_string.exit34.i
@@ -389,9 +389,9 @@ get_string.exit34.i:                              ; preds = %61, %59
   br label %get_string.exit47.i
 
 get_string.exit47.i:                              ; preds = %76, %74
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %79 = getelementptr inbounds nuw i8, ptr %7, i64 93
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %80
 
 80:                                               ; preds = %84, %get_string.exit47.i
@@ -436,9 +436,9 @@ get_string.exit47.i:                              ; preds = %76, %74
   br label %get_string.exit60.i
 
 get_string.exit60.i:                              ; preds = %91, %89
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %94 = getelementptr inbounds nuw i8, ptr %7, i64 97
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %95
 
 95:                                               ; preds = %99, %get_string.exit60.i
@@ -483,7 +483,7 @@ get_string.exit60.i:                              ; preds = %91, %89
   br label %get_string.exit73.i
 
 get_string.exit73.i:                              ; preds = %106, %104
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %109 = getelementptr inbounds nuw i8, ptr %7, i64 125
   %110 = load i8, ptr %109, align 1, !tbaa !26
   %111 = icmp eq i8 %110, 0
@@ -521,29 +521,29 @@ parse_tag.exit:                                   ; preds = %123, %119, %18
   br label %131
 
 131:                                              ; preds = %15, %parse_tag.exit, %1
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
+declare i64 @avio_size(ptr noundef) local_unnamed_addr #1
+
+declare i64 @avio_seek(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @avio_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @av_dict_set_int(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @av_dict_set(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i64 @avio_size(ptr noundef) local_unnamed_addr #2
-
-declare i64 @avio_seek(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @avio_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @av_dict_set_int(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @av_dict_set(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

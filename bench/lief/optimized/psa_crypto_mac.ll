@@ -129,9 +129,9 @@ mac_init.exit:                                    ; preds = %12
 30:                                               ; preds = %12
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = and i32 %4, 33554687
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %3, ptr %6, align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   switch i32 %32, label %33 [
     i32 33554435, label %.thread84.i
     i32 33554436, label %.fold.split81.i
@@ -273,8 +273,8 @@ switch.lookup:                                    ; preds = %.fold.split.i
 
 psa_hmac_setup_internal.exit:                     ; preds = %39, %72
   %.054.i = phi i32 [ %.0.i23, %72 ], [ -134, %39 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %cmac_setup.exit
 
 cmac_setup.exit:                                  ; preds = %28, %psa_hmac_setup_internal.exit
@@ -385,9 +385,6 @@ define hidden i32 @mbedtls_psa_mac_sign_finish(ptr noundef %0, ptr noundef write
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @psa_mac_finish_internal(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca [64 x i8], align 16
@@ -399,7 +396,7 @@ define internal fastcc i32 @psa_mac_finish_internal(ptr noundef %0, ptr noundef 
   br i1 %9, label %10, label %17
 
 10:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = call i32 @mbedtls_cipher_cmac_finish(ptr noundef nonnull %11, ptr noundef nonnull %6) #5
   %13 = icmp eq i32 %12, 0
@@ -412,7 +409,7 @@ define internal fastcc i32 @psa_mac_finish_internal(ptr noundef %0, ptr noundef 
 15:                                               ; preds = %14, %10
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %6, i64 noundef 16) #5
   %16 = call i32 @mbedtls_to_psa_error(i32 noundef %12) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %46
 
 17:                                               ; preds = %3
@@ -422,9 +419,9 @@ define internal fastcc i32 @psa_mac_finish_internal(ptr noundef %0, ptr noundef 
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = load i32, ptr %21, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !13
   %trunc.i = trunc i32 %22 to i8
   %switch.tableidx = add i8 %trunc.i, -3
@@ -490,8 +487,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 psa_hmac_finish_internal.exit:                    ; preds = %29, %44
   %.031.i = phi i32 [ %.0.i, %44 ], [ %32, %29 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %46
 
 46:                                               ; preds = %17, %psa_hmac_finish_internal.exit, %15
@@ -499,13 +496,10 @@ psa_hmac_finish_internal.exit:                    ; preds = %29, %44
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_psa_mac_verify_finish(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i32, ptr %0, align 8, !tbaa !3
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %14, label %7
@@ -532,7 +526,7 @@ define hidden i32 @mbedtls_psa_mac_verify_finish(ptr noundef %0, ptr noundef %1,
 
 14:                                               ; preds = %7, %3, %13
   %.08 = phi i32 [ %.0, %13 ], [ -137, %3 ], [ -135, %7 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.08
 }
 
@@ -543,7 +537,7 @@ declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_psa_mac_compute(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef writeonly captures(none) %6, i64 noundef %7, ptr noundef writeonly captures(none) %8) local_unnamed_addr #0 {
   %10 = alloca %struct.mbedtls_psa_mac_operation_t, align 8
-  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %10, i8 0, i64 392, i1 false)
   %11 = call fastcc i32 @psa_mac_setup(ptr noundef nonnull %10, ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3)
   %.not = icmp eq i32 %11, 0
@@ -623,7 +617,7 @@ mbedtls_psa_mac_update.exit.thread:               ; preds = %23, %29, %32, %mbed
 
 mbedtls_psa_mac_abort.exit:                       ; preds = %39, %37, %42, %13, %mbedtls_psa_mac_update.exit.thread
   %.024 = phi i32 [ %.0.ph, %mbedtls_psa_mac_update.exit.thread ], [ -137, %13 ], [ %.0.ph, %42 ], [ %.0.ph, %37 ], [ %.0.ph, %39 ]
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.024
 }
 
@@ -640,7 +634,7 @@ declare i32 @mbedtls_cipher_cmac_starts(ptr noundef, ptr noundef, i64 noundef) l
 declare i32 @psa_hash_compute(i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @psa_hash_setup(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -650,11 +644,17 @@ declare i32 @mbedtls_cipher_cmac_finish(ptr noundef, ptr noundef) local_unnamed_
 
 declare i32 @psa_hash_finish(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

@@ -97,9 +97,9 @@ entry:
   %private_mem.i = getelementptr inbounds nuw i8, ptr %dalloc, i64 80
   %pmem_next.i = getelementptr inbounds nuw i8, ptr %dalloc, i64 8
   store ptr %private_mem.i, ptr %pmem_next.i, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %bbe.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %bbbits.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rv.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %bbe.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %bbbits.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rv.i)
   store double 0.000000e+00, ptr %rv.i, align 8
   br label %for.cond.i
 
@@ -1707,8 +1707,8 @@ if.end750.i:                                      ; preds = %sulp.exit491.i, %su
   br label %for.end919.i
 
 if.end754.i:                                      ; preds = %if.end598.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ka.i.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %kb.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ka.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %kb.i.i)
   %call.i492.i = call fastcc double @b2d(ptr noundef nonnull readonly %call583.i, ptr noundef %ka.i.i)
   %call1.i.i = call fastcc double @b2d(ptr noundef readonly %bs.4.i, ptr noundef %kb.i.i)
   %147 = load i32, ptr %ka.i.i, align 4
@@ -1751,8 +1751,8 @@ ratio.exit.i:                                     ; preds = %if.else.i498.i, %if
   %da.sroa.0.0.i.i = phi double [ %151, %if.then.i501.i ], [ %call.i492.i, %if.else.i498.i ]
   %db.sroa.0.0.i.i = phi double [ %call1.i.i, %if.then.i501.i ], [ %154, %if.else.i498.i ]
   %div.i500.i = fdiv double %da.sroa.0.0.i.i, %db.sroa.0.0.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ka.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %kb.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ka.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %kb.i.i)
   %cmp756.i = fcmp ugt double %div.i500.i, 2.000000e+00
   br i1 %cmp756.i, label %if.else793.i, label %if.then758.i
 
@@ -2133,8 +2133,8 @@ Bfree.exit603.i:                                  ; preds = %if.else.i598.i, %if
   br i1 %tobool920.not.i, label %if.end937.i, label %if.then921.i
 
 if.then921.i:                                     ; preds = %Bfree.exit603.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %bbits.i.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %p2.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %bbits.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %p2.i.i)
   %add.i604.i = add i32 %sub222.i, %nd.2.i
   %sub.i605.i = add nsw i32 %add.i604.i, -1
   %197 = load double, ptr %rv.i, align 8
@@ -2649,8 +2649,8 @@ if.end170.sink.split.i.i:                         ; preds = %sulp.exit151.i.i, %
 
 bigcomp.exit.i:                                   ; preds = %if.end170.sink.split.i.i, %if.else158.i.i, %if.else149.i.i, %if.then143.i.i, %if.then127.i.i, %if.then118.i.i, %if.then110.i.bigcomp.exit_crit_edge.i
   %241 = phi i32 [ %.pre.i, %if.then110.i.bigcomp.exit_crit_edge.i ], [ %.pre976.i, %if.then118.i.i ], [ %231, %if.then127.i.i ], [ %231, %if.then143.i.i ], [ %231, %if.else149.i.i ], [ %231, %if.else158.i.i ], [ %240, %if.end170.sink.split.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bbits.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %p2.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %bbits.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %p2.i.i)
   %and925.i = and i32 %241, 2146435072
   %cmp926.i = icmp eq i32 %and925.i, 2146435072
   br i1 %cmp926.i, label %ovfl.i, label %if.end929.i
@@ -2689,9 +2689,9 @@ if.then952.i:                                     ; preds = %ret.i
 
 _hermes_g_strtod.exit:                            ; preds = %ret.i, %if.then952.i
   %244 = load double, ptr %rv.i, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bbe.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bbbits.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rv.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %bbe.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %bbbits.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rv.i)
   %used_heap.i = getelementptr inbounds nuw i8, ptr %dalloc, i64 4
   %245 = load i32, ptr %used_heap.i, align 4
   %tobool.not.i1 = icmp eq i32 %245, 0
@@ -8123,10 +8123,10 @@ declare i32 @llvm.smax.i32(i32, i32) #15
 declare i64 @llvm.umax.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #15

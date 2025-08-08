@@ -6167,7 +6167,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 define linkonce_odr void @_ZN10open_spiel15dynamic_routing7VehicleC2EN4absl7debian211string_viewES4_f(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr %1, i64 %2, ptr %3, i64 %4, float noundef %5) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::allocator.6", align 1
   %8 = alloca %"class.std::allocator.6", align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %9, label %10
 
@@ -6195,9 +6195,9 @@ common.resume:                                    ; preds = %.body, %12
   br label %common.resume
 
 _ZNK4absl7debian211string_viewcvNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EEISaIcEEEv.exit: ; preds = %9, %11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not.i3 = icmp eq ptr %3, null
   br i1 %.not.i3, label %15, label %16
 
@@ -6222,7 +6222,7 @@ _ZNK4absl7debian211string_viewcvNSt7__cxx1112basic_stringIcSt11char_traitsIcET_E
   br label %common.resume
 
 19:                                               ; preds = %17, %15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store float %5, ptr %20, align 8
   ret void
@@ -7674,10 +7674,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 declare i16 @llvm.cttz.i16(i16, i1 immarg) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

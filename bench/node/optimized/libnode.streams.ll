@@ -580,18 +580,18 @@ if.end.i:                                         ; preds = %_ZN4node11Environme
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.then.i
   %retval.i.sroa.0.0 = phi ptr [ %16, %if.then.i ], [ %17, %if.end.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp16.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp17.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp29.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp30.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp34.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp35.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp42.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp51.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp52.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp66.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp16.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp17.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp29.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp30.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp34.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp35.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp42.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp51.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp52.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp66.i)
   %18 = load i64, ptr %retval.i.sroa.0.0, align 8, !noalias !5
   %and.i.i = and i64 %18, 3
   %cmp.i136.i = icmp eq i64 %and.i.i, 1
@@ -616,18 +616,18 @@ if.end5.i.i:                                      ; preds = %if.end.i.i10
   br i1 %cmp7.i.i, label %if.then.i28.thread, label %if.else.i
 
 if.then.i28.thread:                               ; preds = %if.end5.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp16.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp17.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp29.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp30.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp34.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp35.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp42.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp51.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp52.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp66.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp16.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp17.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp29.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp30.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp34.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp35.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp42.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp51.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp52.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp66.i)
   br label %do.body
 
 if.else.i:                                        ; preds = %if.end5.i.i, %if.end.i.i10, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
@@ -1018,18 +1018,18 @@ if.end74.i:                                       ; preds = %if.else53.i
 if.then.i28:                                      ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i, %if.then.i.i.i83.i, %_ZSt8_DestroyIPSt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i231.i, %if.then.i.i.i233.i, %_ZSt8_DestroyIPSt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i350.i, %if.then.i.i.i352.i, %_ZNSt10shared_ptrIN4node9DataQueueEED2Ev.exit407.i
   %ref.tmp.sroa.9.0.ph = phi ptr [ %83, %_ZNSt10shared_ptrIN4node9DataQueueEED2Ev.exit407.i ], [ %64, %if.then.i.i.i352.i ], [ %64, %_ZSt8_DestroyIPSt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i350.i ], [ %56, %if.then.i.i.i233.i ], [ %56, %_ZSt8_DestroyIPSt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i231.i ], [ %37, %if.then.i.i.i83.i ], [ %37, %_ZSt8_DestroyIPSt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i ]
   %ref.tmp.sroa.17.0.ph = phi ptr [ %84, %_ZNSt10shared_ptrIN4node9DataQueueEED2Ev.exit407.i ], [ %65, %if.then.i.i.i352.i ], [ %65, %_ZSt8_DestroyIPSt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i350.i ], [ %57, %if.then.i.i.i233.i ], [ %57, %_ZSt8_DestroyIPSt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i231.i ], [ %38, %if.then.i.i.i83.i ], [ %38, %_ZSt8_DestroyIPSt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp16.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp17.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp29.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp30.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp34.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp35.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp42.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp51.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp52.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp66.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp16.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp17.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp29.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp30.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp34.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp35.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp42.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp51.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp52.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp66.i)
   %cmp.not.i.i.i = icmp eq ptr %ref.tmp.sroa.17.0.ph, null
   br i1 %cmp.not.i.i.i, label %do.body, label %if.then4.i.i.i
 
@@ -1117,18 +1117,18 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %do.body
 
 _ZN2v85MaybeISt10shared_ptrIN4node9DataQueueEEED2Ev.exit: ; preds = %if.end74.i, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp16.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp17.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp29.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp30.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp34.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp35.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp42.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp51.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp52.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp66.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp16.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp17.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp29.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp30.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp34.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp35.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp42.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp51.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp52.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp66.i)
   br label %_ZNSt10shared_ptrIN4node9DataQueueEED2Ev.exit83
 
 do.body:                                          ; preds = %if.then.i28.thread, %if.then.i28, %if.end8.sink.split.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
@@ -4043,7 +4043,7 @@ entry:
   store ptr null, ptr %buffer_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef %isolate) #26
   call void @_ZN2v811ArrayBuffer15NewBackingStoreEPNS_7IsolateEm(ptr nonnull sret(%"class.std::unique_ptr.448") align 8 %ref.tmp, ptr noundef %isolate, i64 noundef 88) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   call void @_ZNSt12__shared_ptrIN2v812BackingStoreELN9__gnu_cxx12_Lock_policyE2EEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   %0 = load ptr, ptr %ref.tmp.i.i, align 8
   %1 = load ptr, ptr %store_, align 8
@@ -4127,7 +4127,7 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN2v812BackingStoreEEaSIS1_St14default_deleteIS1_EEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EESt10unique_ptrIT_T0_EEE5valueERS2_E4typeEOSF_.exit
 
 _ZNSt10shared_ptrIN2v812BackingStoreEEaSIS1_St14default_deleteIS1_EEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EESt10unique_ptrIT_T0_EEE5valueERS2_E4typeEOSF_.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   %14 = load ptr, ptr %ref.tmp, align 8
   %cmp.not.i = icmp eq ptr %14, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i
@@ -4310,7 +4310,7 @@ entry:
   store ptr null, ptr %buffer_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef %isolate) #26
   call void @_ZN2v811ArrayBuffer15NewBackingStoreEPNS_7IsolateEm(ptr nonnull sret(%"class.std::unique_ptr.448") align 8 %ref.tmp, ptr noundef %isolate, i64 noundef 24) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   call void @_ZNSt12__shared_ptrIN2v812BackingStoreELN9__gnu_cxx12_Lock_policyE2EEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   %0 = load ptr, ptr %ref.tmp.i.i, align 8
   %1 = load ptr, ptr %store_, align 8
@@ -4394,7 +4394,7 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN2v812BackingStoreEEaSIS1_St14default_deleteIS1_EEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EESt10unique_ptrIT_T0_EEE5valueERS2_E4typeEOSF_.exit
 
 _ZNSt10shared_ptrIN2v812BackingStoreEEaSIS1_St14default_deleteIS1_EEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EESt10unique_ptrIT_T0_EEE5valueERS2_E4typeEOSF_.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   %14 = load ptr, ptr %ref.tmp, align 8
   %cmp.not.i = icmp eq ptr %14, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i
@@ -5453,9 +5453,9 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream6DoPullESt8functionIFviPK10ngtcp2_vecmS4_IS0_EEEiPS5_mmE3$_0E9_M_invokeERKSt9_Any_dataOm", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream6DoPullESt8functionIFviPK10ngtcp2_vecmS4_IS0_EEEiPS5_mmE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr4.i)
   store i32 0, ptr %__args.addr.i, align 4
   store ptr null, ptr %__args.addr2.i, align 8
   store i64 0, ptr %__args.addr4.i, align 8
@@ -5472,9 +5472,9 @@ _ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit: ; preds = %if.then
   %_M_invoker.i4 = getelementptr inbounds nuw i8, ptr %next, i64 24
   %4 = load ptr, ptr %_M_invoker.i4, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(32) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr4.i)
   %5 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i6 = icmp eq ptr %5, null
   br i1 %tobool.not.i.i6, label %return, label %if.then.i.i
@@ -5495,9 +5495,9 @@ if.then4:                                         ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp5, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream6DoPullESt8functionIFviPK10ngtcp2_vecmS4_IS0_EEEiPS5_mmE3$_1E9_M_invokeERKSt9_Any_dataOm", ptr %_M_invoker.i8, align 8
   store ptr @"_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream6DoPullESt8functionIFviPK10ngtcp2_vecmS4_IS0_EEEiPS5_mmE3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i9)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i10)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr4.i11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr2.i10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr4.i11)
   store i32 2, ptr %__args.addr.i9, align 4
   store ptr null, ptr %__args.addr2.i10, align 8
   store i64 0, ptr %__args.addr4.i11, align 8
@@ -5514,9 +5514,9 @@ _ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit16: ; preds = %if.th
   %_M_invoker.i14 = getelementptr inbounds nuw i8, ptr %next, i64 24
   %8 = load ptr, ptr %_M_invoker.i14, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(32) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i9, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i10, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i11, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp5) #26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr2.i10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr4.i11)
   %9 = load ptr, ptr %_M_manager.i.i7, align 8
   %tobool.not.i.i18 = icmp eq ptr %9, null
   br i1 %tobool.not.i.i18, label %return, label %if.then.i.i19
@@ -5623,9 +5623,9 @@ if.then:                                          ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream8Outbound4PullESt8functionIFviPK10ngtcp2_vecmS5_IS0_EEEiPS6_mmEUliE_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream8Outbound4PullESt8functionIFviPK10ngtcp2_vecmS5_IS0_EEEiPS6_mmEUliE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %_M_manager.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr4.i)
   store i32 2, ptr %__args.addr.i, align 4
   store ptr null, ptr %__args.addr2.i, align 8
   store i64 0, ptr %__args.addr4.i, align 8
@@ -5642,9 +5642,9 @@ _ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit: ; preds = %if.then
   %_M_invoker.i7 = getelementptr inbounds nuw i8, ptr %next, i64 24
   %2 = load ptr, ptr %_M_invoker.i7, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(32) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr4.i)
   %3 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i9 = icmp eq ptr %3, null
   br i1 %tobool.not.i.i9, label %return, label %if.then.i.i
@@ -5665,9 +5665,9 @@ if.then3:                                         ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp4, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream8Outbound4PullESt8functionIFviPK10ngtcp2_vecmS5_IS0_EEEiPS6_mmEUliE0_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i11, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream8Outbound4PullESt8functionIFviPK10ngtcp2_vecmS5_IS0_EEEiPS6_mmEUliE0_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %_M_manager.i.i10, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i12)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i13)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr4.i14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr2.i13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr4.i14)
   store i32 -9, ptr %__args.addr.i12, align 4
   store ptr null, ptr %__args.addr2.i13, align 8
   store i64 0, ptr %__args.addr4.i14, align 8
@@ -5684,9 +5684,9 @@ _ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit19: ; preds = %if.th
   %_M_invoker.i17 = getelementptr inbounds nuw i8, ptr %next, i64 24
   %6 = load ptr, ptr %_M_invoker.i17, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(32) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i12, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i13, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i14, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp4) #26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr2.i13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr4.i14)
   %7 = load ptr, ptr %_M_manager.i.i10, align 8
   %tobool.not.i.i21 = icmp eq ptr %7, null
   br i1 %tobool.not.i.i21, label %return, label %if.then.i.i22
@@ -5742,9 +5742,9 @@ if.end11:                                         ; preds = %if.then8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp12, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream8Outbound4PullESt8functionIFviPK10ngtcp2_vecmS5_IS0_EEEiPS6_mmEUliE1_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i33, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream8Outbound4PullESt8functionIFviPK10ngtcp2_vecmS5_IS0_EEEiPS6_mmEUliE1_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %_M_manager.i.i32, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i34)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i35)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr4.i36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr2.i35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr4.i36)
   store i32 0, ptr %__args.addr.i34, align 4
   store ptr null, ptr %__args.addr2.i35, align 8
   store i64 0, ptr %__args.addr4.i36, align 8
@@ -5761,9 +5761,9 @@ _ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit41: ; preds = %if.en
   %_M_invoker.i39 = getelementptr inbounds nuw i8, ptr %next, i64 24
   %14 = load ptr, ptr %_M_invoker.i39, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(32) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i34, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i35, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i36, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp12) #26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i34)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i35)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr2.i35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr4.i36)
   %15 = load ptr, ptr %_M_manager.i.i32, align 8
   %tobool.not.i.i43 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i43, label %return, label %if.then.i.i44
@@ -5855,9 +5855,9 @@ _ZN4node4quic6Stream8Outbound11MarkErroredEv.exit: ; preds = %if.then24, %_ZNKSt
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp25, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream8Outbound4PullESt8functionIFviPK10ngtcp2_vecmS5_IS0_EEEiPS6_mmEUliE2_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i66, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream8Outbound4PullESt8functionIFviPK10ngtcp2_vecmS5_IS0_EEEiPS6_mmEUliE2_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %_M_manager.i.i65, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i67)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i68)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr4.i69)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i67)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr2.i68)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr4.i69)
   store i32 %call22, ptr %__args.addr.i67, align 4
   store ptr null, ptr %__args.addr2.i68, align 8
   store i64 0, ptr %__args.addr4.i69, align 8
@@ -5874,9 +5874,9 @@ _ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit74: ; preds = %_ZN4n
   %_M_invoker.i72 = getelementptr inbounds nuw i8, ptr %next, i64 24
   %26 = load ptr, ptr %_M_invoker.i72, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(32) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i67, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i68, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i69, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp25) #26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i67)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i68)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i69)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i67)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr2.i68)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr4.i69)
   %27 = load ptr, ptr %_M_manager.i.i65, align 8
   %tobool.not.i.i76 = icmp eq ptr %27, null
   br i1 %tobool.not.i.i76, label %return, label %if.then.i.i77
@@ -7933,9 +7933,9 @@ if.then:                                          ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node3bob10SourceImplI10ngtcp2_vecE4PullESt8functionIFviPKS4_mS6_IS0_EEEiPS4_mmEUlmE_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node3bob10SourceImplI10ngtcp2_vecE4PullESt8functionIFviPKS4_mS6_IS0_EEEiPS4_mmEUlmE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %_M_manager.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr4.i)
   store i32 0, ptr %__args.addr.i, align 4
   store ptr null, ptr %__args.addr2.i, align 8
   store i64 0, ptr %__args.addr4.i, align 8
@@ -7952,9 +7952,9 @@ _ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit: ; preds = %if.then
   %_M_invoker.i5 = getelementptr inbounds nuw i8, ptr %next, i64 24
   %2 = load ptr, ptr %_M_invoker.i5, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(32) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr4.i)
   %3 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i7 = icmp eq ptr %3, null
   br i1 %tobool.not.i.i7, label %return, label %if.then.i.i
@@ -8722,9 +8722,9 @@ while.end:                                        ; preds = %_ZN4node16MaybeStac
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream8Outbound15PullUncommittedESt8functionIFviPK10ngtcp2_vecmS5_IS0_EEEEUliE_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream8Outbound15PullUncommittedESt8functionIFviPK10ngtcp2_vecmS5_IS0_EEEEUliE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation, ptr %_M_manager.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr4.i)
   store i32 1, ptr %__args.addr.i, align 4
   store ptr %12, ptr %__args.addr2.i, align 8
   store i64 %n.0.lcssa, ptr %__args.addr4.i, align 8
@@ -8741,9 +8741,9 @@ _ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit: ; preds = %while.e
   %_M_invoker.i18 = getelementptr inbounds nuw i8, ptr %next, i64 24
   %14 = load ptr, ptr %_M_invoker.i18, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(32) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr4.i)
   %15 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i20 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i20, label %_ZNSt8functionIFvmEED2Ev.exit, label %if.then.i.i
@@ -9086,7 +9086,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFviPKN4node9DataQueue3VecEmSt8functionIFvmEEEZNS0_4quic6Stream8Outbound4PullES5_IFviPK10ngtcp2_vecmS7_EEiPSC_mmEUlT_T0_T1_T2_E_E9_M_invokeERKSt9_Any_dataOiOS4_OmOS7_(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 4 dereferenceable(4) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 8 dereferenceable(8) %__args3, ptr noundef nonnull align 8 dereferenceable(32) %__args5) #3 comdat align 2 {
 entry:
   %agg.tmp.i.i = alloca %"class.std::function.430", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   %0 = load i32, ptr %__args, align 4
   %1 = load ptr, ptr %__args1, align 8
   %2 = load i64, ptr %__args3, align 8
@@ -9119,7 +9119,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt8functionIFvmE
   br label %_ZSt10__invoke_rIvRZN4node4quic6Stream8Outbound4PullESt8functionIFviPK10ngtcp2_vecmS4_IFvmEEEEiPS5_mmEUlT_T0_T1_T2_E_JiPKNS0_9DataQueue3VecEmS9_EENSt9enable_ifIX16is_invocable_r_vISD_SE_DpT1_EESD_E4typeEOSE_DpOSO_.exit
 
 _ZSt10__invoke_rIvRZN4node4quic6Stream8Outbound4PullESt8functionIFviPK10ngtcp2_vecmS4_IFvmEEEEiPS5_mmEUlT_T0_T1_T2_E_JiPKNS0_9DataQueue3VecEmS9_EENSt9enable_ifIX16is_invocable_r_vISD_SE_DpT1_EESD_E4typeEOSE_DpOSO_.exit: ; preds = %_ZNSt8functionIFvmEEC2EOS1_.exit.i.i, %if.then.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   ret void
 }
 
@@ -9504,7 +9504,7 @@ define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceIN4node4quic6S
 entry:
   %__args.addr.i.i.i.i = alloca i64, align 8
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i.i.i.i)
   store i64 0, ptr %__args.addr.i.i.i.i, align 8
   %_M_manager.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
@@ -9519,7 +9519,7 @@ _ZNKSt8functionIFvmEEclEm.exit.i.i.i:             ; preds = %entry
   %_M_invoker.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_invoker.i.i.i.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i.i.i) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i.i.i.i)
   %2 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
   %tobool.not.i.i2.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i2.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN4node4quic6Stream8Outbound10OnCompleteEEEvRS0_PT_.exit, label %if.then.i.i.i.i.i
@@ -10297,7 +10297,7 @@ _ZN4node13MemoryTracker10TrackFieldINS_9DataQueue6ReaderEEEvPKcRKSt10shared_ptrI
   br i1 %cmp.not.i, label %_ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4node13MemoryTracker10TrackFieldINS_9DataQueue6ReaderEEEvPKcRKSt10shared_ptrIT_ES5_.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #27
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
   %retainer_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
@@ -10369,7 +10369,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i: ; preds = %_ZNK4node13Memory
   br label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i
 
 _ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i:   ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i65, %_ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   br label %_ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit
 
 _ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit: ; preds = %_ZN4node13MemoryTracker10TrackFieldINS_9DataQueue6ReaderEEEvPKcRKSt10shared_ptrIT_ES5_.exit, %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i
@@ -10528,7 +10528,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit17:   ; preds = %_ZNK4node13MemoryTr
   br label %cleanup
 
 if.end12:                                         ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %n.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %n.i)
   %call.i = call noundef ptr @_ZN4node13MemoryTracker7AddNodeEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef %retainer, ptr noundef %edge_name)
   store ptr %call.i, ptr %n.i, align 8
   %_M_finish.i.i.i18 = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -10554,7 +10554,7 @@ if.else.i.i.i:                                    ; preds = %if.end12
 
 _ZN4node13MemoryTracker8PushNodeEPKNS_14MemoryRetainerEPKc.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
   %29 = phi ptr [ %call.i, %if.then.i.i.i ], [ %.pre.i, %if.else.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %n.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %n.i)
   %vtable14 = load ptr, ptr %retainer, align 8
   %vfn15 = getelementptr inbounds nuw i8, ptr %vtable14, i64 16
   %30 = load ptr, ptr %vfn15, align 8
@@ -11480,10 +11480,10 @@ declare i64 @llvm.umax.i64(i64, i64) #24
 declare i64 @llvm.umin.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #25
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

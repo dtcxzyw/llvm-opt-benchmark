@@ -19,13 +19,13 @@ define dso_local ptr @get_attribute_options(i32 noundef %0, i32 noundef %1) loca
   %3 = alloca %struct.HASHCTL, align 8
   %4 = alloca %struct.AttoptCacheKey, align 4
   %5 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr @AttoptCacheHash, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %14
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 8, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -44,7 +44,7 @@ define dso_local ptr @get_attribute_options(i32 noundef %0, i32 noundef %1) loca
 
 InitializeAttoptCache.exit:                       ; preds = %7, %13
   call void @CacheRegisterSyscacheCallback(i32 noundef 7, ptr noundef nonnull @InvalidateAttoptCacheCallback, i64 noundef 0) #6
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre = load ptr, ptr @AttoptCacheHash, align 8
   br label %14
 
@@ -72,7 +72,7 @@ InitializeAttoptCache.exit:                       ; preds = %7, %13
   br i1 %.not27, label %38, label %23
 
 23:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %24 = call i64 @SysCacheGetAttr(i32 noundef 7, ptr noundef nonnull %22, i16 noundef signext 23, ptr noundef nonnull %5) #6
   %25 = load i8, ptr %5, align 1, !range !4, !noundef !5
   %26 = trunc nuw i8 %25 to i1
@@ -94,7 +94,7 @@ InitializeAttoptCache.exit:                       ; preds = %7, %13
 37:                                               ; preds = %23, %27
   %.1 = phi ptr [ %33, %27 ], [ null, %23 ]
   call void @ReleaseSysCache(ptr noundef nonnull %22) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %38
 
 38:                                               ; preds = %18, %37
@@ -126,32 +126,26 @@ InitializeAttoptCache.exit:                       ; preds = %7, %13
 
 55:                                               ; preds = %42, %45
   %.0 = phi ptr [ %50, %45 ], [ null, %42 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SearchSysCache2(i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @SearchSysCache2(i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @SysCacheGetAttr(i32 noundef, ptr noundef, i16 noundef signext, ptr noundef) local_unnamed_addr #1
 
-declare i64 @SysCacheGetAttr(i32 noundef, ptr noundef, i16 noundef signext, ptr noundef) local_unnamed_addr #2
+declare ptr @attribute_reloptions(i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @attribute_reloptions(i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
-
-declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
 
-declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #2
-
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @relatt_cache_syshash(ptr noundef readonly captures(none) %0, i64 %1) #0 {
@@ -164,16 +158,16 @@ define internal i32 @relatt_cache_syshash(ptr noundef readonly captures(none) %0
   ret i32 %8
 }
 
-declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @CreateCacheMemoryContext() local_unnamed_addr #2
+declare void @CreateCacheMemoryContext() local_unnamed_addr #1
 
-declare void @CacheRegisterSyscacheCallback(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @CacheRegisterSyscacheCallback(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @InvalidateAttoptCacheCallback(i64 %0, i32 %1, i32 noundef %2) #0 {
   %4 = alloca %struct.HASH_SEQ_STATUS, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp eq i32 %2, 0
   %6 = load ptr, ptr @AttoptCacheHash, align 8
   br i1 %5, label %7, label %8
@@ -218,35 +212,41 @@ define internal void @InvalidateAttoptCacheCallback(i64 %0, i32 %1, i32 noundef 
   unreachable
 
 22:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare i32 @GetSysCacheHashValue(i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @GetSysCacheHashValue(i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @hash_seq_init(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @hash_seq_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @hash_seq_init_with_hash_value(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @hash_seq_init_with_hash_value(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @hash_seq_search(ptr noundef) local_unnamed_addr #2
+declare ptr @hash_seq_search(ptr noundef) local_unnamed_addr #1
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #6 = { nounwind }
 attributes #7 = { cold nounwind }

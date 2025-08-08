@@ -572,7 +572,7 @@ entry:
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef double %0(ptr noundef nonnull align 8 dereferenceable(8) %this)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %xx) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %xx)
   %n_.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %1 = load i64, ptr %n_.i, align 8, !tbaa !32
   %cmp.not.i = icmp eq i64 %1, 0
@@ -595,7 +595,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZN8QuantLib5ArrayD2Ev.exit
 
 _ZN8QuantLib5ArrayD2Ev.exit:                      ; preds = %entry, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %xx) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %xx)
   ret void
 
 for.body:                                         ; preds = %for.body.preheader, %invoke.cont12
@@ -653,7 +653,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZN8QuantLib5ArrayD2Ev.exit18
 
 _ZN8QuantLib5ArrayD2Ev.exit18:                    ; preds = %lpad, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %xx) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %xx)
   resume { ptr, i32 } %18
 }
 
@@ -681,7 +681,7 @@ entry:
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef double %0(ptr noundef nonnull align 8 dereferenceable(8) %this)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %xx) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %xx)
   %n_.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %1 = load i64, ptr %n_.i, align 8, !tbaa !32
   %cmp.not.i = icmp eq i64 %1, 0
@@ -736,7 +736,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZN8QuantLib5ArrayD2Ev.exit24
 
 _ZN8QuantLib5ArrayD2Ev.exit24:                    ; preds = %_ZN8QuantLib5ArrayD2Ev.exit21, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %xx) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %xx)
   ret void
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond.cleanup21
@@ -750,7 +750,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %8 = load double, ptr %arrayidx.i, align 8, !tbaa !36
   %add = fadd double %call, %8
   store double %add, ptr %arrayidx.i, align 8, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %vtable6 = load ptr, ptr %this, align 8, !tbaa !3
   %vfn7 = getelementptr inbounds nuw i8, ptr %vtable6, i64 24
   %9 = load ptr, ptr %vfn7, align 8
@@ -770,13 +770,13 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZN8QuantLib5ArrayD2Ev.exit27
 
 _ZN8QuantLib5ArrayD2Ev.exit27:                    ; preds = %invoke.cont9, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %12 = load ptr, ptr %xx, align 8, !tbaa !14
   %arrayidx.i28 = getelementptr inbounds nuw double, ptr %12, i64 %i.067
   %13 = load double, ptr %arrayidx.i28, align 8, !tbaa !36
   %14 = call double @llvm.fmuladd.f64(double %call, double -2.000000e+00, double %13)
   store double %14, ptr %arrayidx.i28, align 8, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp12) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12)
   %vtable13 = load ptr, ptr %this, align 8, !tbaa !3
   %vfn14 = getelementptr inbounds nuw i8, ptr %vtable13, i64 24
   %15 = load ptr, ptr %vfn14, align 8
@@ -796,7 +796,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZN8QuantLib5ArrayD2Ev.exit33
 
 _ZN8QuantLib5ArrayD2Ev.exit33:                    ; preds = %invoke.cont16, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp12) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12)
   %cmp2060.not = icmp eq i64 %11, 0
   br i1 %cmp2060.not, label %for.cond.cleanup21, label %invoke.cont26.lr.ph
 
@@ -821,13 +821,13 @@ for.cond.cleanup21:                               ; preds = %invoke.cont26, %_ZN
 lpad8:                                            ; preds = %for.body
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br label %ehcleanup
 
 lpad15:                                           ; preds = %_ZN8QuantLib5ArrayD2Ev.exit27
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp12) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12)
   br label %ehcleanup
 
 invoke.cont26:                                    ; preds = %invoke.cont26.lr.ph, %invoke.cont26
@@ -874,7 +874,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZN8QuantLib5ArrayD2Ev.exit47
 
 _ZN8QuantLib5ArrayD2Ev.exit47:                    ; preds = %ehcleanup36, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i46
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %xx) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %xx)
   resume { ptr, i32 } %.pn
 }
 
@@ -1030,7 +1030,7 @@ entry:
 define linkonce_odr noundef double @_ZNK8QuantLib12CostFunction5valueERKNS_5ArrayE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %x) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v = alloca %"class.QuantLib::Array", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %v) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %v)
   %vtable = load ptr, ptr %this, align 8, !tbaa !3
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
@@ -1074,7 +1074,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZN8QuantLib5ArrayD2Ev.exit
 
 _ZN8QuantLib5ArrayD2Ev.exit:                      ; preds = %_ZSt10accumulateIPddET0_T_S2_S1_.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %v) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %v)
   ret double %call16
 }
 
@@ -1083,32 +1083,32 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
 declare void @llvm.trap() #6
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #8
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare double @sqrt(double noundef) local_unnamed_addr #7
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #9
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #10
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #12
+declare double @llvm.fmuladd.f64(double, double, double) #11
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
@@ -1120,12 +1120,12 @@ attributes #3 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "
 attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { builtin nounwind }
 attributes #15 = { builtin allocsize(0) }

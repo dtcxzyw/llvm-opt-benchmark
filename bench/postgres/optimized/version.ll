@@ -121,14 +121,14 @@ define dso_local void @old_9_6_invalidate_hash_indexes(ptr noundef %0, i1 nounde
   br i1 %.04153, label %39, label %35
 
 35:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @initPQExpBuffer(ptr noundef nonnull %3) #7
   %36 = load ptr, ptr %21, align 8
   call void @appendPsqlMetaConnect(ptr noundef nonnull %3, ptr noundef %36) #7
   %37 = load ptr, ptr %3, align 8
   %38 = call i32 @fputs(ptr noundef %37, ptr noundef nonnull %.2)
   call void @termPQExpBuffer(ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %39
 
 39:                                               ; preds = %35, %34
@@ -192,60 +192,54 @@ define dso_local void @old_9_6_invalidate_hash_indexes(ptr noundef %0, i1 nounde
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare void @prep_status(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @prep_status(ptr noundef, ...) local_unnamed_addr #3
+declare ptr @connectToServer(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @connectToServer(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @executeQueryOrDie(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @executeQueryOrDie(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @PQntuples(ptr noundef) local_unnamed_addr #2
 
-declare i32 @PQntuples(ptr noundef) local_unnamed_addr #3
-
-declare i32 @PQfnumber(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @PQfnumber(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
-declare void @pg_fatal(ptr noundef, ...) local_unnamed_addr #5
+declare void @pg_fatal(ptr noundef, ...) local_unnamed_addr #4
 
-declare void @initPQExpBuffer(ptr noundef) local_unnamed_addr #3
+declare void @initPQExpBuffer(ptr noundef) local_unnamed_addr #2
 
-declare void @appendPsqlMetaConnect(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #4
-
-declare void @termPQExpBuffer(ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
-declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
-
-declare ptr @quote_identifier(ptr noundef) local_unnamed_addr #3
-
-declare ptr @PQgetvalue(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
-
-declare void @PQclear(ptr noundef) local_unnamed_addr #3
-
-declare void @PQfinish(ptr noundef) local_unnamed_addr #3
+declare void @appendPsqlMetaConnect(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
-declare void @report_status(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @termPQExpBuffer(ptr noundef) local_unnamed_addr #2
 
-declare void @pg_log(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @check_ok() local_unnamed_addr #3
+declare ptr @quote_identifier(ptr noundef) local_unnamed_addr #2
+
+declare ptr @PQgetvalue(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+
+declare void @PQclear(ptr noundef) local_unnamed_addr #2
+
+declare void @PQfinish(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
+
+declare void @report_status(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+
+declare void @pg_log(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+
+declare void @check_ok() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @report_extension_updates(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.UpgradeTaskReport, align 8
-  call void @llvm.lifetime.start.p0(i64 1032, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @upgrade_task_create() #7
   tail call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.13) #7
   store ptr null, ptr %2, align 8
@@ -269,20 +263,20 @@ define dso_local void @report_extension_updates(ptr noundef %0) local_unnamed_ad
   br label %9
 
 9:                                                ; preds = %8, %6
-  call void @llvm.lifetime.end.p0(i64 1032, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare ptr @upgrade_task_create() local_unnamed_addr #3
+declare ptr @upgrade_task_create() local_unnamed_addr #2
 
-declare void @upgrade_task_add_step(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
+declare void @upgrade_task_add_step(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @process_extension_updates(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = alloca %struct.PQExpBufferData, align 8
   %5 = tail call i32 @PQntuples(ptr noundef %1) #7
   %6 = tail call i32 @PQfnumber(ptr noundef %1, ptr noundef nonnull @.str.17) #7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = icmp eq i32 %5, 0
   br i1 %7, label %.loopexit, label %8
 
@@ -325,23 +319,29 @@ define internal void @process_extension_updates(ptr noundef readonly captures(no
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %16, %3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare void @upgrade_task_run(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @upgrade_task_run(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @upgrade_task_free(ptr noundef) local_unnamed_addr #3
+declare void @upgrade_task_free(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 attributes #8 = { noreturn nounwind }

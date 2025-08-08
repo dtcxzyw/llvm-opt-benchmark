@@ -233,17 +233,11 @@ define hidden void @Wayland_SeatWarpMouse(ptr noundef %0, ptr noundef readonly c
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @SDL_GetVideoDevice() local_unnamed_addr #1
 
-declare ptr @SDL_GetVideoDevice() local_unnamed_addr #2
+declare void @Wayland_SeatUpdatePointerGrab(ptr noundef) local_unnamed_addr #1
 
-declare void @Wayland_SeatUpdatePointerGrab(ptr noundef) local_unnamed_addr #2
-
-declare void @SDL_SendMouseMotion(i64 noundef, ptr noundef, i32 noundef, i1 noundef zeroext, float noundef, float noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @SDL_SendMouseMotion(i64 noundef, ptr noundef, i32 noundef, i1 noundef zeroext, float noundef, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @Wayland_InitMouse() local_unnamed_addr #0 {
@@ -524,7 +518,7 @@ Wayland_CreateSystemCursor.exit:                  ; preds = %86, %.thread.i66, %
   br i1 %.not.i68, label %Wayland_DBusInitCursorProperties.exit, label %96
 
 96:                                               ; preds = %94
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @.str.3, ptr %4, align 8
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 192
   %98 = load ptr, ptr %97, align 8
@@ -533,7 +527,7 @@ Wayland_CreateSystemCursor.exit:                  ; preds = %86, %.thread.i66, %
   br i1 %.not.i.i, label %Wayland_ReadDBusProperty.exit.thread.i, label %100
 
 Wayland_ReadDBusProperty.exit.thread.i:           ; preds = %96
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %135
 
 100:                                              ; preds = %96
@@ -547,7 +541,7 @@ Wayland_ReadDBusProperty.exit.thread40.i:         ; preds = %100
   %104 = getelementptr inbounds nuw i8, ptr %95, i64 312
   %105 = load ptr, ptr %104, align 8
   call void %105(ptr noundef nonnull %99) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %135
 
 Wayland_ReadDBusProperty.exit.i:                  ; preds = %100
@@ -558,12 +552,12 @@ Wayland_ReadDBusProperty.exit.i:                  ; preds = %100
   %110 = getelementptr inbounds nuw i8, ptr %95, i64 312
   %111 = load ptr, ptr %110, align 8
   call void %111(ptr noundef nonnull %99) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not22.i = icmp eq ptr %109, null
   br i1 %.not22.i, label %135, label %112
 
 112:                                              ; preds = %Wayland_ReadDBusProperty.exit.i
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %113 = getelementptr inbounds nuw i8, ptr %95, i64 272
   %114 = load ptr, ptr %113, align 8
   %115 = call i32 %114(ptr noundef nonnull %109, ptr noundef nonnull %3) #6
@@ -600,14 +594,14 @@ Wayland_ReadDBusProperty.exit.i:                  ; preds = %100
 
 Wayland_ParseDBusReply.exit.thread.i:             ; preds = %130, %125, %119, %112
   %133 = phi i1 [ true, %130 ], [ false, %112 ], [ false, %119 ], [ false, %125 ]
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %134 = load ptr, ptr %110, align 8
   call void %134(ptr noundef nonnull %109) #6
   br label %135
 
 135:                                              ; preds = %Wayland_ParseDBusReply.exit.thread.i, %Wayland_ReadDBusProperty.exit.i, %Wayland_ReadDBusProperty.exit.thread40.i, %Wayland_ReadDBusProperty.exit.thread.i
   %.0.i = phi i1 [ %133, %Wayland_ParseDBusReply.exit.thread.i ], [ false, %Wayland_ReadDBusProperty.exit.i ], [ false, %Wayland_ReadDBusProperty.exit.thread.i ], [ false, %Wayland_ReadDBusProperty.exit.thread40.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr @.str.4, ptr %2, align 8
   %136 = load ptr, ptr %97, align 8
   %137 = call ptr %136(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10) #6
@@ -615,7 +609,7 @@ Wayland_ParseDBusReply.exit.thread.i:             ; preds = %130, %125, %119, %1
   br i1 %.not.i28.i, label %Wayland_ReadDBusProperty.exit32.thread.i, label %138
 
 Wayland_ReadDBusProperty.exit32.thread.i:         ; preds = %135
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.0.i, label %178, label %Wayland_DBusInitCursorProperties.exit
 
 138:                                              ; preds = %135
@@ -629,7 +623,7 @@ Wayland_ReadDBusProperty.exit32.thread46.i:       ; preds = %138
   %142 = getelementptr inbounds nuw i8, ptr %95, i64 312
   %143 = load ptr, ptr %142, align 8
   call void %143(ptr noundef nonnull %137) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.0.i, label %178, label %Wayland_DBusInitCursorProperties.exit
 
 Wayland_ReadDBusProperty.exit32.i:                ; preds = %138
@@ -640,14 +634,14 @@ Wayland_ReadDBusProperty.exit32.i:                ; preds = %138
   %148 = getelementptr inbounds nuw i8, ptr %95, i64 312
   %149 = load ptr, ptr %148, align 8
   call void %149(ptr noundef nonnull %137) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not23.i = icmp eq ptr %147, null
   br i1 %.not23.i, label %177, label %150
 
 150:                                              ; preds = %Wayland_ReadDBusProperty.exit32.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %151 = getelementptr inbounds nuw i8, ptr %95, i64 272
   %152 = load ptr, ptr %151, align 8
   %153 = call i32 %152(ptr noundef nonnull %147, ptr noundef nonnull %1) #6
@@ -680,7 +674,7 @@ Wayland_ReadDBusProperty.exit32.i:                ; preds = %138
   %169 = getelementptr inbounds nuw i8, ptr %95, i64 288
   %170 = load ptr, ptr %169, align 8
   call void %170(ptr noundef nonnull %165, ptr noundef nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %171 = load ptr, ptr %5, align 8
   %.not24.i = icmp eq ptr %171, null
   br i1 %.not24.i, label %.thread.i69, label %172
@@ -693,14 +687,14 @@ Wayland_ReadDBusProperty.exit32.i:                ; preds = %138
 .thread.i69:                                      ; preds = %172, %168
   %174 = load ptr, ptr %148, align 8
   call void %174(ptr noundef nonnull %147) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %178
 
 175:                                              ; preds = %163, %157, %150
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %176 = load ptr, ptr %148, align 8
   call void %176(ptr noundef nonnull %147) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.0.i, label %178, label %Wayland_DBusInitCursorProperties.exit
 
 177:                                              ; preds = %Wayland_ReadDBusProperty.exit32.i
@@ -751,7 +745,7 @@ Wayland_CreateDefaultCursor.exit:                 ; preds = %Wayland_DBusInitCur
   ret void
 }
 
-declare ptr @SDL_GetMouse() local_unnamed_addr #2
+declare ptr @SDL_GetMouse() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @Wayland_CreateCursor(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
@@ -1104,8 +1098,8 @@ define internal zeroext i1 @Wayland_WarpMouseGlobal(float noundef %0, float noun
 .thread:                                          ; preds = %.lr.ph, %15
   %18 = phi ptr [ %17, %15 ], [ %14, %.lr.ph ]
   %19 = load ptr, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 28
@@ -1139,8 +1133,8 @@ define internal zeroext i1 @Wayland_WarpMouseGlobal(float noundef %0, float noun
   br label %SDL_PointInRectFloat.exit.thread
 
 SDL_PointInRectFloat.exit.thread:                 ; preds = %.thread, %40
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %43
 
 43:                                               ; preds = %SDL_PointInRectFloat.exit.thread, %15
@@ -1205,8 +1199,8 @@ define internal i32 @Wayland_GetGlobalMouseState(ptr noundef writeonly captures(
   %9 = tail call ptr @SDL_GetVideoDevice() #6
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 1656
   %11 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = load ptr, ptr %6, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i32, ptr %13, align 8
@@ -1244,8 +1238,8 @@ define internal i32 @Wayland_GetGlobalMouseState(ptr noundef writeonly captures(
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   %.016.lcssa = phi i32 [ 0, %8 ], [ %31, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %34
 
 33:                                               ; preds = %2
@@ -1258,7 +1252,7 @@ define internal i32 @Wayland_GetGlobalMouseState(ptr noundef writeonly captures(
   ret i32 %.1
 }
 
-declare void @SDL_SetDefaultCursor(ptr noundef) local_unnamed_addr #2
+declare void @SDL_SetDefaultCursor(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @Wayland_FiniMouse(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -1585,7 +1579,7 @@ Wayland_SetSystemCursorShape.exit:                ; preds = %55, %switch.lookup
 
 67:                                               ; preds = %29
   %68 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %69 = load i32, ptr @dbus_cursor_size, align 4
   %70 = icmp slt i32 %69, 1
@@ -1838,7 +1832,7 @@ thread-pre-split.i:                               ; preds = %191
   br label %202
 
 Wayland_GetSystemCursor.exit.thread:              ; preds = %142, %148, %.thread.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %Wayland_GetCustomCursor.exit
 
 202:                                              ; preds = %191, %._crit_edge139.i, %._crit_edge.i
@@ -1864,7 +1858,7 @@ Wayland_GetSystemCursor.exit.thread:              ; preds = %142, %148, %.thread
   %220 = fdiv double %219, %.1101.i
   %221 = call i64 @SDL_lround_REAL(double noundef %220) #6
   %222 = trunc i64 %221 to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %223 = load ptr, ptr %12, align 8
   %.not77 = icmp eq ptr %223, null
   br i1 %.not77, label %224, label %233
@@ -2095,14 +2089,14 @@ Wayland_GetCustomCursor.exit:                     ; preds = %Wayland_SetSystemCu
   ret void
 }
 
-declare i64 @SDL_GetTicksNS_REAL() local_unnamed_addr #2
+declare i64 @SDL_GetTicksNS_REAL() local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SurfaceHasAlternateImages_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SurfaceHasAlternateImages_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @Wayland_CacheScaledCustomCursor(ptr noundef %0, double noundef %1) unnamed_addr #0 {
@@ -2190,25 +2184,25 @@ define internal fastcc ptr @Wayland_CacheScaledCustomCursor(ptr noundef %0, doub
   ret ptr %.0
 }
 
-declare ptr @SDL_GetSurfaceImage(ptr noundef, float noundef) local_unnamed_addr #2
+declare ptr @SDL_GetSurfaceImage(ptr noundef, float noundef) local_unnamed_addr #1
 
-declare zeroext i1 @Wayland_AllocSHMBuffer(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @Wayland_AllocSHMBuffer(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_DestroySurface_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_DestroySurface_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_PremultiplyAlpha_REAL(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_PremultiplyAlpha_REAL(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @Wayland_ReleaseSHMBuffer(ptr noundef) local_unnamed_addr #2
+declare void @Wayland_ReleaseSHMBuffer(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @SDL_RelativeToGlobalForWindow(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_RelativeToGlobalForWindow(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @Wayland_DisplayUpdatePointerGrabs(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Wayland_DisplayUpdatePointerGrabs(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_DBus_GetContext() local_unnamed_addr #2
+declare ptr @SDL_DBus_GetContext() local_unnamed_addr #1
 
-declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Wayland_DBusCursorMessageFilter(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #0 {
@@ -2226,10 +2220,10 @@ define internal range(i32 0, 2) i32 @Wayland_DBusCursorMessageFilter(ptr readnon
   br i1 %.not, label %85, label %14
 
 14:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 272
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 %16(ptr noundef %1, ptr noundef nonnull %4) #6
@@ -2270,7 +2264,7 @@ define internal range(i32 0, 2) i32 @Wayland_DBusCursorMessageFilter(ptr readnon
   br i1 %37, label %38, label %55
 
 38:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %39 = load ptr, ptr %27, align 8
   %40 = call i32 %39(ptr noundef nonnull %4) #6
   %.not42 = icmp eq i32 %40, 0
@@ -2305,11 +2299,11 @@ define internal range(i32 0, 2) i32 @Wayland_DBusCursorMessageFilter(ptr readnon
   br label %54
 
 .thread:                                          ; preds = %38, %41, %44
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.sink.split
 
 54:                                               ; preds = %49, %53
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.sink.split
 
 55:                                               ; preds = %33
@@ -2319,7 +2313,7 @@ define internal range(i32 0, 2) i32 @Wayland_DBusCursorMessageFilter(ptr readnon
   br i1 %58, label %59, label %.sink.split
 
 59:                                               ; preds = %55
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %60 = load ptr, ptr %27, align 8
   %61 = call i32 %60(ptr noundef nonnull %4) #6
@@ -2379,19 +2373,19 @@ define internal range(i32 0, 2) i32 @Wayland_DBusCursorMessageFilter(ptr readnon
   br label %84
 
 .thread49:                                        ; preds = %59, %62, %65
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.sink.split
 
 84:                                               ; preds = %76, %83
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %84, %54, %.thread49, %.thread, %55, %30, %26, %21, %14
   %.128.ph = phi i32 [ 1, %14 ], [ 1, %21 ], [ 1, %26 ], [ 1, %30 ], [ 1, %55 ], [ 1, %.thread ], [ 1, %.thread49 ], [ 0, %54 ], [ 0, %84 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %85
 
 85:                                               ; preds = %.sink.split, %3
@@ -2399,37 +2393,43 @@ define internal range(i32 0, 2) i32 @Wayland_DBusCursorMessageFilter(ptr readnon
   ret i32 %.128
 }
 
-declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_RedrawCursor() local_unnamed_addr #2
+declare void @SDL_RedrawCursor() local_unnamed_addr #1
 
-declare i32 @SDL_GetDefaultSystemCursor() local_unnamed_addr #2
+declare i32 @SDL_GetDefaultSystemCursor() local_unnamed_addr #1
 
-declare i64 @SDL_GetTicks_REAL() local_unnamed_addr #2
+declare i64 @SDL_GetTicks_REAL() local_unnamed_addr #1
 
-declare ptr @SDL_getenv_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_getenv_REAL(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_atoi_REAL(ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_atoi_REAL(ptr noundef) local_unnamed_addr #1
 
-declare double @SDL_ceil_REAL(double noundef) local_unnamed_addr #2
+declare double @SDL_ceil_REAL(double noundef) local_unnamed_addr #1
 
-declare i64 @SDL_lround_REAL(double noundef) local_unnamed_addr #2
+declare i64 @SDL_lround_REAL(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(1)
-declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @SDL_GetCSSCursorName(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetCSSCursorName(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GetMouseFocus_REAL() local_unnamed_addr #2
+declare ptr @SDL_GetMouseFocus_REAL() local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind allocsize(0,1) }

@@ -523,11 +523,8 @@ _ZL14pj_adams_setupP8PJconstsN12_GLOBAL__N_115projection_typeE.exit: ; preds = %
   ret ptr %.0.i
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 declare noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -556,12 +553,12 @@ define internal { double, double } @_ZL13adams_forward5PJ_LPP8PJconsts(double %0
 
 15:                                               ; preds = %11
   %16 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 2050)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %4)
   %.sroa.0173.0.copyload = load double, ptr %4, align 8, !tbaa !51
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.7.0.copyload = load double, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread234
 
 17:                                               ; preds = %11
@@ -603,12 +600,12 @@ define internal { double, double } @_ZL13adams_forward5PJ_LPP8PJconsts(double %0
 
 45:                                               ; preds = %40
   %46 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 2050)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %5)
   %.sroa.0173.0.copyload174 = load double, ptr %5, align 8, !tbaa !51
   %.sroa.7.0..sroa_idx177 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.7.0.copyload178 = load double, ptr %.sroa.7.0..sroa_idx177, align 8, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread234
 
 47:                                               ; preds = %40
@@ -619,12 +616,12 @@ define internal { double, double } @_ZL13adams_forward5PJ_LPP8PJconsts(double %0
 
 50:                                               ; preds = %47
   %51 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 2050)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %6)
   %.sroa.0173.0.copyload175 = load double, ptr %6, align 8, !tbaa !51
   %.sroa.7.0..sroa_idx179 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.7.0.copyload180 = load double, ptr %.sroa.7.0..sroa_idx179, align 8, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread234
 
 52:                                               ; preds = %47
@@ -666,12 +663,12 @@ define internal { double, double } @_ZL13adams_forward5PJ_LPP8PJconsts(double %0
 
 82:                                               ; preds = %68
   %83 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 2050)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %7)
   %.sroa.0173.0.copyload176 = load double, ptr %7, align 8, !tbaa !51
   %.sroa.7.0..sroa_idx181 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.7.0.copyload182 = load double, ptr %.sroa.7.0..sroa_idx181, align 8, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread234
 
 84:                                               ; preds = %3
@@ -952,11 +949,8 @@ define internal { double, double } @_ZL13adams_inverse5PJ_XYP8PJconsts(double %0
 
 declare i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define internal { double, double } @_ZL23peirce_q_square_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr noundef %2) #0 {
@@ -1100,43 +1094,49 @@ define internal { double, double } @_ZL24peirce_q_diamond_inverse5PJ_XYP8PJconst
 declare void @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #5
+declare double @llvm.fabs.f64(double) #4
 
 declare i32 @proj_errno_set(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @_Z16proj_coord_errorv(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sin(double noundef) local_unnamed_addr #6
+declare double @sin(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @cos(double noundef) local_unnamed_addr #6
+declare double @cos(double noundef) local_unnamed_addr #5
 
 declare noundef double @_Z5aacosP6pj_ctxd(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #5
+declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @tan(double noundef) local_unnamed_addr #6
+declare double @tan(double noundef) local_unnamed_addr #5
 
 declare noundef double @_Z5aasinP6pj_ctxd(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #6
+declare double @sqrt(double noundef) local_unnamed_addr #5
 
 declare { double, double } @_Z21pj_generic_inverse_2d5PJ_XYP8PJconsts5PJ_LPd(double, double, ptr noundef, double, double, double noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #7
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind allocsize(0,1) }
 attributes #9 = { nounwind willreturn memory(read) }

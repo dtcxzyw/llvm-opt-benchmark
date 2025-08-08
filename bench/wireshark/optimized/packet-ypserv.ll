@@ -214,7 +214,7 @@ define internal noundef i32 @dissect_domain_nonack_reply(ptr noundef %0, ptr rea
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_match_call(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.89)
   %6 = load i32, ptr @hf_ypserv_domain, align 4
   %7 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0, ptr noundef nonnull %5)
@@ -238,14 +238,14 @@ define internal i32 @dissect_match_call(ptr noundef %0, ptr noundef readonly cap
   call void @col_append_str(ptr noundef %19, i32 noundef 25, ptr noundef %20)
   %21 = load ptr, ptr %5, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.92, ptr noundef %21)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %18
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_match_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.93)
   %6 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
   %7 = load i32, ptr @hf_ypserv_status, align 4
@@ -276,7 +276,7 @@ define internal i32 @dissect_match_reply(ptr noundef %0, ptr noundef readonly ca
 
 23:                                               ; preds = %17, %10
   %.0 = phi i32 [ %12, %10 ], [ %22, %17 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -510,7 +510,7 @@ dissect_ypserv_status.exit:                       ; preds = %4, %9
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_order_call(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.109)
   %6 = load i32, ptr @hf_ypserv_domain, align 4
   %7 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0, ptr noundef nonnull %5)
@@ -527,7 +527,7 @@ define internal i32 @dissect_order_call(ptr noundef %0, ptr noundef readonly cap
   call void @col_append_str(ptr noundef %14, i32 noundef 25, ptr noundef %15)
   %16 = load ptr, ptr %5, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.92, ptr noundef %16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %13
 }
 
@@ -612,14 +612,8 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 ; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_rpc_string(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -642,10 +636,15 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 ; Function Attrs: null_pointer_is_valid
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

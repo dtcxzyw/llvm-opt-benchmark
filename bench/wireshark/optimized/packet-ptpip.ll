@@ -506,17 +506,11 @@ define hidden void @dissect_ptp_transactionID(ptr noundef %0, ptr noundef readon
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_ptpip() local_unnamed_addr #0 {
@@ -593,7 +587,7 @@ define internal range(i32 0, 65536) i32 @dissect_ptpIP(ptr noundef %0, ptr nound
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %29, ptr noundef %0, i32 noundef 8, i32 noundef 16, i32 noundef 0)
   %31 = load ptr, ptr %12, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %31, i32 noundef 25, ptr noundef nonnull @.str.126, ptr noundef %28)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %32 = tail call i32 @tvb_unicode_strsize(ptr noundef %0, i32 noundef 24)
   %33 = load i32, ptr @hf_ptpIP_name, align 4
   %34 = load ptr, ptr %26, align 8
@@ -602,8 +596,8 @@ define internal range(i32 0, 65536) i32 @dissect_ptpIP(ptr noundef %0, ptr nound
   %37 = load ptr, ptr %12, align 8
   %38 = load ptr, ptr %8, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %37, i32 noundef 25, ptr noundef nonnull @.str.127, ptr noundef %38)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
-  call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %39 = and i32 %36, 65535
   %40 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %39)
   %41 = lshr i32 %40, 16
@@ -612,7 +606,7 @@ define internal range(i32 0, 65536) i32 @dissect_ptpIP(ptr noundef %0, ptr nound
   %44 = load i32, ptr @hf_ptpIP_version, align 4
   %45 = call ptr @proto_tree_add_string(ptr noundef %18, i32 noundef %44, ptr noundef %0, i32 noundef %39, i32 noundef 4, ptr noundef nonnull %7)
   %46 = add i32 %32, 28
-  call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %dissect_ptpIP_start_data.exit
 
 47:                                               ; preds = %11
@@ -630,7 +624,7 @@ define internal range(i32 0, 65536) i32 @dissect_ptpIP(ptr noundef %0, ptr nound
   %57 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %56, ptr noundef %0, i32 noundef 12, i32 noundef 16, i32 noundef 0)
   %58 = load ptr, ptr %12, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %58, i32 noundef 25, ptr noundef nonnull @.str.126, ptr noundef %55)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %59 = tail call i32 @tvb_unicode_strsize(ptr noundef %0, i32 noundef 28)
   %60 = load i32, ptr @hf_ptpIP_name, align 4
   %61 = load ptr, ptr %53, align 8
@@ -639,8 +633,8 @@ define internal range(i32 0, 65536) i32 @dissect_ptpIP(ptr noundef %0, ptr nound
   %64 = load ptr, ptr %12, align 8
   %65 = load ptr, ptr %6, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %64, i32 noundef 25, ptr noundef nonnull @.str.127, ptr noundef %65)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %66 = and i32 %63, 65535
   %67 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %66)
   %68 = lshr i32 %67, 16
@@ -649,7 +643,7 @@ define internal range(i32 0, 65536) i32 @dissect_ptpIP(ptr noundef %0, ptr nound
   %71 = load i32, ptr @hf_ptpIP_version, align 4
   %72 = call ptr @proto_tree_add_string(ptr noundef %18, i32 noundef %71, ptr noundef %0, i32 noundef %66, i32 noundef 4, ptr noundef nonnull %5)
   %73 = add i32 %59, 32
-  call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dissect_ptpIP_start_data.exit
 
 74:                                               ; preds = %11
@@ -710,7 +704,7 @@ define internal range(i32 0, 65536) i32 @dissect_ptpIP(ptr noundef %0, ptr nound
   br label %98
 
 97:                                               ; preds = %87
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.135, i32 noundef 760, ptr noundef nonnull @.str.136) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.135, i32 noundef 760, ptr noundef nonnull @.str.136) #5
   unreachable
 
 98:                                               ; preds = %96, %95, %94, %93, %92, %87
@@ -903,7 +897,7 @@ declare i32 @tvb_unicode_strsize(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_item_ret_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree null_pointer_is_valid
-declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -912,7 +906,7 @@ declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #4
+declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -929,13 +923,18 @@ declare i64 @tvb_get_letoh64(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: null_pointer_is_valid
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { noreturn }
+attributes #2 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

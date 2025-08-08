@@ -345,8 +345,8 @@ define dso_local { i64, ptr } @binop_plus(i64 %0, ptr %1, i64 %2, ptr %3) local_
   br label %64
 
 53:                                               ; preds = %48, %45
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %54 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
   %55 = tail call ptr @jv_kind_name(i32 noundef %54) #14
   %56 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #14
@@ -357,8 +357,8 @@ define dso_local { i64, ptr } @binop_plus(i64 %0, ptr %1, i64 %2, ptr %3) local_
   %61 = extractvalue { i64, ptr } %60, 0
   %62 = extractvalue { i64, ptr } %60, 1
   %63 = call { i64, ptr } @jv_invalid_with_msg(i64 %61, ptr %62) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %64
 
 64:                                               ; preds = %53, %51, %43, %35, %24, %15, %9
@@ -492,8 +492,8 @@ define dso_local { i64, ptr } @binop_minus(i64 %0, ptr %1, i64 %2, ptr %3) local
   br i1 %exitcond111.not, label %.loopexit.loopexit, label %.lr.ph104, !llvm.loop !6
 
 61:                                               ; preds = %20, %17
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %62 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
   %63 = tail call ptr @jv_kind_name(i32 noundef %62) #14
   %64 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #14
@@ -504,8 +504,8 @@ define dso_local { i64, ptr } @binop_minus(i64 %0, ptr %1, i64 %2, ptr %3) local
   %69 = extractvalue { i64, ptr } %68, 0
   %70 = extractvalue { i64, ptr } %68, 1
   %71 = call { i64, ptr } @jv_invalid_with_msg(i64 %69, ptr %70) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %72
 
 72:                                               ; preds = %61, %.loopexit, %12
@@ -515,17 +515,11 @@ define dso_local { i64, ptr } @binop_minus(i64 %0, ptr %1, i64 %2, ptr %3) local
 
 declare { i64, ptr } @jv_array() local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @jv_array_length(i64, ptr) local_unnamed_addr #1
 
 declare { i64, ptr } @jv_copy(i64, ptr) local_unnamed_addr #1
 
 declare { i64, ptr } @jv_array_get(i64, ptr, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @jv_equal(i64, ptr, i64, ptr) local_unnamed_addr #1
 
@@ -617,8 +611,8 @@ define dso_local { i64, ptr } @binop_multiply(i64 %0, ptr %1, i64 %2, ptr %3) lo
   br label %54
 
 43:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %44 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
   %45 = tail call ptr @jv_kind_name(i32 noundef %44) #14
   %46 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #14
@@ -629,8 +623,8 @@ define dso_local { i64, ptr } @binop_multiply(i64 %0, ptr %1, i64 %2, ptr %3) lo
   %51 = extractvalue { i64, ptr } %50, 0
   %52 = extractvalue { i64, ptr } %50, 1
   %53 = call { i64, ptr } @jv_invalid_with_msg(i64 %51, ptr %52) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %54
 
 54:                                               ; preds = %43, %41, %.loopexit, %11
@@ -639,7 +633,7 @@ define dso_local { i64, ptr } @binop_multiply(i64 %0, ptr %1, i64 %2, ptr %3) lo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #3
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #2
 
 declare { i64, ptr } @jv_null() local_unnamed_addr #1
 
@@ -674,8 +668,8 @@ define dso_local { i64, ptr } @binop_divide(i64 %0, ptr %1, i64 %2, ptr %3) loca
   br i1 %16, label %17, label %28
 
 17:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %18 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
   %19 = tail call ptr @jv_kind_name(i32 noundef %18) #14
   %20 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #14
@@ -686,8 +680,8 @@ define dso_local { i64, ptr } @binop_divide(i64 %0, ptr %1, i64 %2, ptr %3) loca
   %25 = extractvalue { i64, ptr } %24, 0
   %26 = extractvalue { i64, ptr } %24, 1
   %27 = call { i64, ptr } @jv_invalid_with_msg(i64 %25, ptr %26) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %52
 
 28:                                               ; preds = %14
@@ -714,8 +708,8 @@ define dso_local { i64, ptr } @binop_divide(i64 %0, ptr %1, i64 %2, ptr %3) loca
   br label %52
 
 41:                                               ; preds = %36, %33
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %42 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
   %43 = tail call ptr @jv_kind_name(i32 noundef %42) #14
   %44 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #14
@@ -726,8 +720,8 @@ define dso_local { i64, ptr } @binop_divide(i64 %0, ptr %1, i64 %2, ptr %3) loca
   %49 = extractvalue { i64, ptr } %48, 0
   %50 = extractvalue { i64, ptr } %48, 1
   %51 = call { i64, ptr } @jv_invalid_with_msg(i64 %49, ptr %50) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %52
 
 52:                                               ; preds = %41, %39, %28, %17
@@ -778,8 +772,8 @@ define dso_local { i64, ptr } @binop_mod(i64 %0, ptr %1, i64 %2, ptr %3) local_u
   ]
 
 27:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %28 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
   %29 = tail call ptr @jv_kind_name(i32 noundef %28) #14
   %30 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #14
@@ -790,8 +784,8 @@ define dso_local { i64, ptr } @binop_mod(i64 %0, ptr %1, i64 %2, ptr %3) local_u
   %35 = extractvalue { i64, ptr } %34, 0
   %36 = extractvalue { i64, ptr } %34, 1
   %37 = call { i64, ptr } @jv_invalid_with_msg(i64 %35, ptr %36) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %60
 
 38:                                               ; preds = %21
@@ -812,8 +806,8 @@ define dso_local { i64, ptr } @binop_mod(i64 %0, ptr %1, i64 %2, ptr %3) local_u
   br label %60
 
 49:                                               ; preds = %11, %4
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %50 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
   %51 = tail call ptr @jv_kind_name(i32 noundef %50) #14
   %52 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #14
@@ -824,8 +818,8 @@ define dso_local { i64, ptr } @binop_mod(i64 %0, ptr %1, i64 %2, ptr %3) local_u
   %57 = extractvalue { i64, ptr } %56, 0
   %58 = extractvalue { i64, ptr } %56, 1
   %59 = call { i64, ptr } @jv_invalid_with_msg(i64 %57, ptr %58) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %60
 
 60:                                               ; preds = %19, %46, %27, %49
@@ -894,7 +888,7 @@ define dso_local i32 @builtins_bind(ptr noundef %0, ptr noundef captures(none) %
   %3 = alloca [2 x %struct.bytecoded_builtin], align 16
   %4 = alloca [2 x %struct.bytecoded_builtin], align 16
   %5 = alloca %struct.block, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call ptr @locfile_init(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef nonnull @jq_builtins, i32 noundef 9894) #14
   %7 = call i32 @jq_parse_library(ptr noundef %6, ptr noundef nonnull %5) #14
   call void @locfile_free(ptr noundef %6) #14
@@ -902,7 +896,7 @@ define dso_local i32 @builtins_bind(ptr noundef %0, ptr noundef captures(none) %
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = call { ptr, ptr } (...) @gen_noop() #14
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @.str.9, ptr %3, align 16, !tbaa !8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = call { ptr, ptr } @gen_op_simple(i32 noundef 19) #14
@@ -938,8 +932,8 @@ define dso_local i32 @builtins_bind(ptr noundef %0, ptr noundef captures(none) %
 
 35:                                               ; preds = %169
   %indvars.iv107.i.sroa.gep11 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #14
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @.str.11, ptr %4, align 16, !tbaa !8
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %37 = call { ptr, ptr } @gen_op_simple(i32 noundef 25) #14
@@ -1124,7 +1118,7 @@ define dso_local i32 @builtins_bind(ptr noundef %0, ptr noundef captures(none) %
   br i1 %184, label %183, label %bind_bytecoded_builtins.exit, !llvm.loop !17
 
 bind_bytecoded_builtins.exit:                     ; preds = %183
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %199 = call { ptr, ptr } @gen_op_var_fresh(i32 noundef 8, ptr noundef nonnull @.str.14) #14
   %200 = extractvalue { ptr, ptr } %199, 0
   %201 = extractvalue { ptr, ptr } %199, 1
@@ -1232,7 +1226,7 @@ bind_bytecoded_builtins.exit:                     ; preds = %183
   %297 = extractvalue { ptr, ptr } %295, 1
   store ptr %296, ptr %1, align 8, !tbaa !18
   store ptr %297, ptr %293, align 8, !tbaa !18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %7
 }
 
@@ -1290,7 +1284,7 @@ define internal { i64, ptr } @f_acos(ptr readnone captures(none) %0, i64 %1, ptr
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -1298,7 +1292,7 @@ define internal { i64, ptr } @f_acos(ptr readnone captures(none) %0, i64 %1, ptr
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -1321,7 +1315,7 @@ define internal { i64, ptr } @f_acosh(ptr readnone captures(none) %0, i64 %1, pt
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -1329,7 +1323,7 @@ define internal { i64, ptr } @f_acosh(ptr readnone captures(none) %0, i64 %1, pt
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -1352,7 +1346,7 @@ define internal { i64, ptr } @f_asin(ptr readnone captures(none) %0, i64 %1, ptr
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -1360,7 +1354,7 @@ define internal { i64, ptr } @f_asin(ptr readnone captures(none) %0, i64 %1, ptr
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -1383,7 +1377,7 @@ define internal { i64, ptr } @f_asinh(ptr readnone captures(none) %0, i64 %1, pt
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -1391,7 +1385,7 @@ define internal { i64, ptr } @f_asinh(ptr readnone captures(none) %0, i64 %1, pt
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -1414,7 +1408,7 @@ define internal { i64, ptr } @f_atan(ptr readnone captures(none) %0, i64 %1, ptr
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -1422,7 +1416,7 @@ define internal { i64, ptr } @f_atan(ptr readnone captures(none) %0, i64 %1, ptr
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -1451,7 +1445,7 @@ define internal { i64, ptr } @f_atan2(ptr readnone captures(none) %0, i64 %1, pt
 
 13:                                               ; preds = %6
   tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
   %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
   %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
@@ -1459,7 +1453,7 @@ define internal { i64, ptr } @f_atan2(ptr readnone captures(none) %0, i64 %1, pt
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
   %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %36
 
 21:                                               ; preds = %6
@@ -1469,7 +1463,7 @@ define internal { i64, ptr } @f_atan2(ptr readnone captures(none) %0, i64 %1, pt
 
 23:                                               ; preds = %21
   tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
   %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
   %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
@@ -1477,7 +1471,7 @@ define internal { i64, ptr } @f_atan2(ptr readnone captures(none) %0, i64 %1, pt
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
   %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %36
 
 31:                                               ; preds = %21
@@ -1502,7 +1496,7 @@ define internal { i64, ptr } @f_atanh(ptr readnone captures(none) %0, i64 %1, pt
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -1510,7 +1504,7 @@ define internal { i64, ptr } @f_atanh(ptr readnone captures(none) %0, i64 %1, pt
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -1533,7 +1527,7 @@ define internal { i64, ptr } @f_cbrt(ptr readnone captures(none) %0, i64 %1, ptr
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -1541,7 +1535,7 @@ define internal { i64, ptr } @f_cbrt(ptr readnone captures(none) %0, i64 %1, ptr
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -1564,7 +1558,7 @@ define internal { i64, ptr } @f_cos(ptr readnone captures(none) %0, i64 %1, ptr 
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -1572,7 +1566,7 @@ define internal { i64, ptr } @f_cos(ptr readnone captures(none) %0, i64 %1, ptr 
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -1595,7 +1589,7 @@ define internal { i64, ptr } @f_cosh(ptr readnone captures(none) %0, i64 %1, ptr
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -1603,7 +1597,7 @@ define internal { i64, ptr } @f_cosh(ptr readnone captures(none) %0, i64 %1, ptr
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -1626,7 +1620,7 @@ define internal { i64, ptr } @f_exp(ptr readnone captures(none) %0, i64 %1, ptr 
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -1634,7 +1628,7 @@ define internal { i64, ptr } @f_exp(ptr readnone captures(none) %0, i64 %1, ptr 
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -1657,7 +1651,7 @@ define internal { i64, ptr } @f_exp2(ptr readnone captures(none) %0, i64 %1, ptr
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -1665,7 +1659,7 @@ define internal { i64, ptr } @f_exp2(ptr readnone captures(none) %0, i64 %1, ptr
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -1688,7 +1682,7 @@ define internal { i64, ptr } @f_floor(ptr readnone captures(none) %0, i64 %1, pt
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -1696,7 +1690,7 @@ define internal { i64, ptr } @f_floor(ptr readnone captures(none) %0, i64 %1, pt
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -1725,7 +1719,7 @@ define internal { i64, ptr } @f_hypot(ptr readnone captures(none) %0, i64 %1, pt
 
 13:                                               ; preds = %6
   tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
   %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
   %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
@@ -1733,7 +1727,7 @@ define internal { i64, ptr } @f_hypot(ptr readnone captures(none) %0, i64 %1, pt
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
   %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %36
 
 21:                                               ; preds = %6
@@ -1743,7 +1737,7 @@ define internal { i64, ptr } @f_hypot(ptr readnone captures(none) %0, i64 %1, pt
 
 23:                                               ; preds = %21
   tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
   %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
   %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
@@ -1751,7 +1745,7 @@ define internal { i64, ptr } @f_hypot(ptr readnone captures(none) %0, i64 %1, pt
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
   %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %36
 
 31:                                               ; preds = %21
@@ -1776,7 +1770,7 @@ define internal { i64, ptr } @f_j0(ptr readnone captures(none) %0, i64 %1, ptr %
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -1784,7 +1778,7 @@ define internal { i64, ptr } @f_j0(ptr readnone captures(none) %0, i64 %1, ptr %
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -1807,7 +1801,7 @@ define internal { i64, ptr } @f_j1(ptr readnone captures(none) %0, i64 %1, ptr %
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -1815,7 +1809,7 @@ define internal { i64, ptr } @f_j1(ptr readnone captures(none) %0, i64 %1, ptr %
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -1838,7 +1832,7 @@ define internal { i64, ptr } @f_log(ptr readnone captures(none) %0, i64 %1, ptr 
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -1846,7 +1840,7 @@ define internal { i64, ptr } @f_log(ptr readnone captures(none) %0, i64 %1, ptr 
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -1869,7 +1863,7 @@ define internal { i64, ptr } @f_log10(ptr readnone captures(none) %0, i64 %1, pt
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -1877,7 +1871,7 @@ define internal { i64, ptr } @f_log10(ptr readnone captures(none) %0, i64 %1, pt
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -1900,7 +1894,7 @@ define internal { i64, ptr } @f_log2(ptr readnone captures(none) %0, i64 %1, ptr
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -1908,7 +1902,7 @@ define internal { i64, ptr } @f_log2(ptr readnone captures(none) %0, i64 %1, ptr
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -1937,7 +1931,7 @@ define internal { i64, ptr } @f_pow(ptr readnone captures(none) %0, i64 %1, ptr 
 
 13:                                               ; preds = %6
   tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
   %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
   %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
@@ -1945,7 +1939,7 @@ define internal { i64, ptr } @f_pow(ptr readnone captures(none) %0, i64 %1, ptr 
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
   %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %36
 
 21:                                               ; preds = %6
@@ -1955,7 +1949,7 @@ define internal { i64, ptr } @f_pow(ptr readnone captures(none) %0, i64 %1, ptr 
 
 23:                                               ; preds = %21
   tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
   %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
   %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
@@ -1963,7 +1957,7 @@ define internal { i64, ptr } @f_pow(ptr readnone captures(none) %0, i64 %1, ptr 
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
   %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %36
 
 31:                                               ; preds = %21
@@ -1994,7 +1988,7 @@ define internal { i64, ptr } @f_remainder(ptr readnone captures(none) %0, i64 %1
 
 13:                                               ; preds = %6
   tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
   %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
   %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
@@ -2002,7 +1996,7 @@ define internal { i64, ptr } @f_remainder(ptr readnone captures(none) %0, i64 %1
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
   %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %36
 
 21:                                               ; preds = %6
@@ -2012,7 +2006,7 @@ define internal { i64, ptr } @f_remainder(ptr readnone captures(none) %0, i64 %1
 
 23:                                               ; preds = %21
   tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
   %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
   %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
@@ -2020,7 +2014,7 @@ define internal { i64, ptr } @f_remainder(ptr readnone captures(none) %0, i64 %1
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
   %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %36
 
 31:                                               ; preds = %21
@@ -2045,7 +2039,7 @@ define internal { i64, ptr } @f_sin(ptr readnone captures(none) %0, i64 %1, ptr 
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -2053,7 +2047,7 @@ define internal { i64, ptr } @f_sin(ptr readnone captures(none) %0, i64 %1, ptr 
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -2076,7 +2070,7 @@ define internal { i64, ptr } @f_sinh(ptr readnone captures(none) %0, i64 %1, ptr
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -2084,7 +2078,7 @@ define internal { i64, ptr } @f_sinh(ptr readnone captures(none) %0, i64 %1, ptr
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -2107,7 +2101,7 @@ define internal { i64, ptr } @f_sqrt(ptr readnone captures(none) %0, i64 %1, ptr
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -2115,7 +2109,7 @@ define internal { i64, ptr } @f_sqrt(ptr readnone captures(none) %0, i64 %1, ptr
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -2138,7 +2132,7 @@ define internal { i64, ptr } @f_tan(ptr readnone captures(none) %0, i64 %1, ptr 
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -2146,7 +2140,7 @@ define internal { i64, ptr } @f_tan(ptr readnone captures(none) %0, i64 %1, ptr 
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -2169,7 +2163,7 @@ define internal { i64, ptr } @f_tanh(ptr readnone captures(none) %0, i64 %1, ptr
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -2177,7 +2171,7 @@ define internal { i64, ptr } @f_tanh(ptr readnone captures(none) %0, i64 %1, ptr
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -2200,7 +2194,7 @@ define internal { i64, ptr } @f_tgamma(ptr readnone captures(none) %0, i64 %1, p
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -2208,7 +2202,7 @@ define internal { i64, ptr } @f_tgamma(ptr readnone captures(none) %0, i64 %1, p
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -2231,7 +2225,7 @@ define internal { i64, ptr } @f_y0(ptr readnone captures(none) %0, i64 %1, ptr %
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -2239,7 +2233,7 @@ define internal { i64, ptr } @f_y0(ptr readnone captures(none) %0, i64 %1, ptr %
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -2262,7 +2256,7 @@ define internal { i64, ptr } @f_y1(ptr readnone captures(none) %0, i64 %1, ptr %
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -2270,7 +2264,7 @@ define internal { i64, ptr } @f_y1(ptr readnone captures(none) %0, i64 %1, ptr %
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -2299,7 +2293,7 @@ define internal { i64, ptr } @f_jn(ptr readnone captures(none) %0, i64 %1, ptr %
 
 13:                                               ; preds = %6
   tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
   %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
   %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
@@ -2307,7 +2301,7 @@ define internal { i64, ptr } @f_jn(ptr readnone captures(none) %0, i64 %1, ptr %
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
   %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %37
 
 21:                                               ; preds = %6
@@ -2317,7 +2311,7 @@ define internal { i64, ptr } @f_jn(ptr readnone captures(none) %0, i64 %1, ptr %
 
 23:                                               ; preds = %21
   tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
   %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
   %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
@@ -2325,7 +2319,7 @@ define internal { i64, ptr } @f_jn(ptr readnone captures(none) %0, i64 %1, ptr %
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
   %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %37
 
 31:                                               ; preds = %21
@@ -2357,7 +2351,7 @@ define internal { i64, ptr } @f_yn(ptr readnone captures(none) %0, i64 %1, ptr %
 
 13:                                               ; preds = %6
   tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
   %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
   %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
@@ -2365,7 +2359,7 @@ define internal { i64, ptr } @f_yn(ptr readnone captures(none) %0, i64 %1, ptr %
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
   %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %37
 
 21:                                               ; preds = %6
@@ -2375,7 +2369,7 @@ define internal { i64, ptr } @f_yn(ptr readnone captures(none) %0, i64 %1, ptr %
 
 23:                                               ; preds = %21
   tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
   %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
   %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
@@ -2383,7 +2377,7 @@ define internal { i64, ptr } @f_yn(ptr readnone captures(none) %0, i64 %1, ptr %
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
   %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %37
 
 31:                                               ; preds = %21
@@ -2409,7 +2403,7 @@ define internal { i64, ptr } @f_ceil(ptr readnone captures(none) %0, i64 %1, ptr
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -2417,7 +2411,7 @@ define internal { i64, ptr } @f_ceil(ptr readnone captures(none) %0, i64 %1, ptr
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -2446,7 +2440,7 @@ define internal { i64, ptr } @f_copysign(ptr readnone captures(none) %0, i64 %1,
 
 13:                                               ; preds = %6
   tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
   %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
   %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
@@ -2454,7 +2448,7 @@ define internal { i64, ptr } @f_copysign(ptr readnone captures(none) %0, i64 %1,
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
   %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %36
 
 21:                                               ; preds = %6
@@ -2464,7 +2458,7 @@ define internal { i64, ptr } @f_copysign(ptr readnone captures(none) %0, i64 %1,
 
 23:                                               ; preds = %21
   tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
   %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
   %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
@@ -2472,7 +2466,7 @@ define internal { i64, ptr } @f_copysign(ptr readnone captures(none) %0, i64 %1,
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
   %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %36
 
 31:                                               ; preds = %21
@@ -2503,7 +2497,7 @@ define internal { i64, ptr } @f_drem(ptr readnone captures(none) %0, i64 %1, ptr
 
 13:                                               ; preds = %6
   tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
   %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
   %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
@@ -2511,7 +2505,7 @@ define internal { i64, ptr } @f_drem(ptr readnone captures(none) %0, i64 %1, ptr
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
   %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %36
 
 21:                                               ; preds = %6
@@ -2521,7 +2515,7 @@ define internal { i64, ptr } @f_drem(ptr readnone captures(none) %0, i64 %1, ptr
 
 23:                                               ; preds = %21
   tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
   %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
   %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
@@ -2529,7 +2523,7 @@ define internal { i64, ptr } @f_drem(ptr readnone captures(none) %0, i64 %1, ptr
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
   %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %36
 
 31:                                               ; preds = %21
@@ -2554,7 +2548,7 @@ define internal { i64, ptr } @f_erf(ptr readnone captures(none) %0, i64 %1, ptr 
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -2562,7 +2556,7 @@ define internal { i64, ptr } @f_erf(ptr readnone captures(none) %0, i64 %1, ptr 
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -2585,7 +2579,7 @@ define internal { i64, ptr } @f_erfc(ptr readnone captures(none) %0, i64 %1, ptr
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -2593,7 +2587,7 @@ define internal { i64, ptr } @f_erfc(ptr readnone captures(none) %0, i64 %1, ptr
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -2616,7 +2610,7 @@ define internal { i64, ptr } @f_exp10(ptr readnone captures(none) %0, i64 %1, pt
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -2624,7 +2618,7 @@ define internal { i64, ptr } @f_exp10(ptr readnone captures(none) %0, i64 %1, pt
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -2647,7 +2641,7 @@ define internal { i64, ptr } @f_expm1(ptr readnone captures(none) %0, i64 %1, pt
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -2655,7 +2649,7 @@ define internal { i64, ptr } @f_expm1(ptr readnone captures(none) %0, i64 %1, pt
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -2678,7 +2672,7 @@ define internal { i64, ptr } @f_fabs(ptr readnone captures(none) %0, i64 %1, ptr
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -2686,7 +2680,7 @@ define internal { i64, ptr } @f_fabs(ptr readnone captures(none) %0, i64 %1, ptr
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -2715,7 +2709,7 @@ define internal { i64, ptr } @f_fdim(ptr readnone captures(none) %0, i64 %1, ptr
 
 13:                                               ; preds = %6
   tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
   %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
   %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
@@ -2723,7 +2717,7 @@ define internal { i64, ptr } @f_fdim(ptr readnone captures(none) %0, i64 %1, ptr
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
   %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %36
 
 21:                                               ; preds = %6
@@ -2733,7 +2727,7 @@ define internal { i64, ptr } @f_fdim(ptr readnone captures(none) %0, i64 %1, ptr
 
 23:                                               ; preds = %21
   tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
   %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
   %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
@@ -2741,7 +2735,7 @@ define internal { i64, ptr } @f_fdim(ptr readnone captures(none) %0, i64 %1, ptr
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
   %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %36
 
 31:                                               ; preds = %21
@@ -2777,7 +2771,7 @@ define internal { i64, ptr } @f_fma(ptr readnone captures(none) %0, i64 %1, ptr 
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void @jv_free(i64 %16, ptr %18) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %19 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
   %20 = tail call ptr @jv_kind_name(i32 noundef %19) #14
   %21 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %10, i64 noundef 15) #14
@@ -2785,7 +2779,7 @@ define internal { i64, ptr } @f_fma(ptr readnone captures(none) %0, i64 %1, ptr 
   %23 = extractvalue { i64, ptr } %22, 0
   %24 = extractvalue { i64, ptr } %22, 1
   %25 = call { i64, ptr } @jv_invalid_with_msg(i64 %23, ptr %24) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %58
 
 26:                                               ; preds = %7
@@ -2799,7 +2793,7 @@ define internal { i64, ptr } @f_fma(ptr readnone captures(none) %0, i64 %1, ptr 
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %31 = load ptr, ptr %30, align 8
   tail call void @jv_free(i64 %29, ptr %31) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %32 = tail call i32 @jv_get_kind(i64 %12, ptr %14) #14
   %33 = tail call ptr @jv_kind_name(i32 noundef %32) #14
   %34 = call ptr @jv_dump_string_trunc(i64 %12, ptr %14, ptr noundef nonnull %9, i64 noundef 15) #14
@@ -2807,7 +2801,7 @@ define internal { i64, ptr } @f_fma(ptr readnone captures(none) %0, i64 %1, ptr 
   %36 = extractvalue { i64, ptr } %35, 0
   %37 = extractvalue { i64, ptr } %35, 1
   %38 = call { i64, ptr } @jv_invalid_with_msg(i64 %36, ptr %37) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %58
 
 39:                                               ; preds = %26
@@ -2821,7 +2815,7 @@ define internal { i64, ptr } @f_fma(ptr readnone captures(none) %0, i64 %1, ptr 
 44:                                               ; preds = %39
   tail call void @jv_free(i64 %3, ptr %4) #14
   tail call void @jv_free(i64 %12, ptr %14) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %45 = tail call i32 @jv_get_kind(i64 %40, ptr %42) #14
   %46 = tail call ptr @jv_kind_name(i32 noundef %45) #14
   %47 = call ptr @jv_dump_string_trunc(i64 %40, ptr %42, ptr noundef nonnull %8, i64 noundef 15) #14
@@ -2829,7 +2823,7 @@ define internal { i64, ptr } @f_fma(ptr readnone captures(none) %0, i64 %1, ptr 
   %49 = extractvalue { i64, ptr } %48, 0
   %50 = extractvalue { i64, ptr } %48, 1
   %51 = call { i64, ptr } @jv_invalid_with_msg(i64 %49, ptr %50) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %58
 
 52:                                               ; preds = %39
@@ -2862,7 +2856,7 @@ define internal { i64, ptr } @f_fmax(ptr readnone captures(none) %0, i64 %1, ptr
 
 13:                                               ; preds = %6
   tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
   %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
   %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
@@ -2870,7 +2864,7 @@ define internal { i64, ptr } @f_fmax(ptr readnone captures(none) %0, i64 %1, ptr
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
   %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %36
 
 21:                                               ; preds = %6
@@ -2880,7 +2874,7 @@ define internal { i64, ptr } @f_fmax(ptr readnone captures(none) %0, i64 %1, ptr
 
 23:                                               ; preds = %21
   tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
   %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
   %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
@@ -2888,7 +2882,7 @@ define internal { i64, ptr } @f_fmax(ptr readnone captures(none) %0, i64 %1, ptr
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
   %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %36
 
 31:                                               ; preds = %21
@@ -2919,7 +2913,7 @@ define internal { i64, ptr } @f_fmin(ptr readnone captures(none) %0, i64 %1, ptr
 
 13:                                               ; preds = %6
   tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
   %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
   %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
@@ -2927,7 +2921,7 @@ define internal { i64, ptr } @f_fmin(ptr readnone captures(none) %0, i64 %1, ptr
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
   %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %36
 
 21:                                               ; preds = %6
@@ -2937,7 +2931,7 @@ define internal { i64, ptr } @f_fmin(ptr readnone captures(none) %0, i64 %1, ptr
 
 23:                                               ; preds = %21
   tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
   %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
   %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
@@ -2945,7 +2939,7 @@ define internal { i64, ptr } @f_fmin(ptr readnone captures(none) %0, i64 %1, ptr
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
   %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %36
 
 31:                                               ; preds = %21
@@ -2976,7 +2970,7 @@ define internal { i64, ptr } @f_fmod(ptr readnone captures(none) %0, i64 %1, ptr
 
 13:                                               ; preds = %6
   tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
   %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
   %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
@@ -2984,7 +2978,7 @@ define internal { i64, ptr } @f_fmod(ptr readnone captures(none) %0, i64 %1, ptr
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
   %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %36
 
 21:                                               ; preds = %6
@@ -2994,7 +2988,7 @@ define internal { i64, ptr } @f_fmod(ptr readnone captures(none) %0, i64 %1, ptr
 
 23:                                               ; preds = %21
   tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
   %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
   %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
@@ -3002,7 +2996,7 @@ define internal { i64, ptr } @f_fmod(ptr readnone captures(none) %0, i64 %1, ptr
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
   %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %36
 
 31:                                               ; preds = %21
@@ -3027,7 +3021,7 @@ define internal { i64, ptr } @f_gamma(ptr readnone captures(none) %0, i64 %1, pt
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -3035,7 +3029,7 @@ define internal { i64, ptr } @f_gamma(ptr readnone captures(none) %0, i64 %1, pt
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -3058,7 +3052,7 @@ define internal { i64, ptr } @f_lgamma(ptr readnone captures(none) %0, i64 %1, p
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -3066,7 +3060,7 @@ define internal { i64, ptr } @f_lgamma(ptr readnone captures(none) %0, i64 %1, p
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -3089,7 +3083,7 @@ define internal { i64, ptr } @f_log1p(ptr readnone captures(none) %0, i64 %1, pt
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -3097,7 +3091,7 @@ define internal { i64, ptr } @f_log1p(ptr readnone captures(none) %0, i64 %1, pt
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -3120,7 +3114,7 @@ define internal { i64, ptr } @f_logb(ptr readnone captures(none) %0, i64 %1, ptr
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -3128,7 +3122,7 @@ define internal { i64, ptr } @f_logb(ptr readnone captures(none) %0, i64 %1, ptr
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -3151,7 +3145,7 @@ define internal { i64, ptr } @f_nearbyint(ptr readnone captures(none) %0, i64 %1
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -3159,7 +3153,7 @@ define internal { i64, ptr } @f_nearbyint(ptr readnone captures(none) %0, i64 %1
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -3188,7 +3182,7 @@ define internal { i64, ptr } @f_nextafter(ptr readnone captures(none) %0, i64 %1
 
 13:                                               ; preds = %6
   tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
   %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
   %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
@@ -3196,7 +3190,7 @@ define internal { i64, ptr } @f_nextafter(ptr readnone captures(none) %0, i64 %1
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
   %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %36
 
 21:                                               ; preds = %6
@@ -3206,7 +3200,7 @@ define internal { i64, ptr } @f_nextafter(ptr readnone captures(none) %0, i64 %1
 
 23:                                               ; preds = %21
   tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
   %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
   %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
@@ -3214,7 +3208,7 @@ define internal { i64, ptr } @f_nextafter(ptr readnone captures(none) %0, i64 %1
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
   %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %36
 
 31:                                               ; preds = %21
@@ -3245,7 +3239,7 @@ define internal { i64, ptr } @f_nexttoward(ptr readnone captures(none) %0, i64 %
 
 13:                                               ; preds = %6
   tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
   %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
   %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
@@ -3253,7 +3247,7 @@ define internal { i64, ptr } @f_nexttoward(ptr readnone captures(none) %0, i64 %
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
   %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %37
 
 21:                                               ; preds = %6
@@ -3263,7 +3257,7 @@ define internal { i64, ptr } @f_nexttoward(ptr readnone captures(none) %0, i64 %
 
 23:                                               ; preds = %21
   tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
   %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
   %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
@@ -3271,7 +3265,7 @@ define internal { i64, ptr } @f_nexttoward(ptr readnone captures(none) %0, i64 %
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
   %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %37
 
 31:                                               ; preds = %21
@@ -3297,7 +3291,7 @@ define internal { i64, ptr } @f_rint(ptr readnone captures(none) %0, i64 %1, ptr
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -3305,7 +3299,7 @@ define internal { i64, ptr } @f_rint(ptr readnone captures(none) %0, i64 %1, ptr
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -3328,7 +3322,7 @@ define internal { i64, ptr } @f_round(ptr readnone captures(none) %0, i64 %1, pt
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -3336,7 +3330,7 @@ define internal { i64, ptr } @f_round(ptr readnone captures(none) %0, i64 %1, pt
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -3365,7 +3359,7 @@ define internal { i64, ptr } @f_scalb(ptr readnone captures(none) %0, i64 %1, pt
 
 13:                                               ; preds = %6
   tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
   %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
   %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
@@ -3373,7 +3367,7 @@ define internal { i64, ptr } @f_scalb(ptr readnone captures(none) %0, i64 %1, pt
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
   %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %36
 
 21:                                               ; preds = %6
@@ -3383,7 +3377,7 @@ define internal { i64, ptr } @f_scalb(ptr readnone captures(none) %0, i64 %1, pt
 
 23:                                               ; preds = %21
   tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
   %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
   %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
@@ -3391,7 +3385,7 @@ define internal { i64, ptr } @f_scalb(ptr readnone captures(none) %0, i64 %1, pt
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
   %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %36
 
 31:                                               ; preds = %21
@@ -3422,7 +3416,7 @@ define internal { i64, ptr } @f_scalbln(ptr readnone captures(none) %0, i64 %1, 
 
 13:                                               ; preds = %6
   tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
   %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
   %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
@@ -3430,7 +3424,7 @@ define internal { i64, ptr } @f_scalbln(ptr readnone captures(none) %0, i64 %1, 
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
   %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %37
 
 21:                                               ; preds = %6
@@ -3440,7 +3434,7 @@ define internal { i64, ptr } @f_scalbln(ptr readnone captures(none) %0, i64 %1, 
 
 23:                                               ; preds = %21
   tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
   %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
   %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
@@ -3448,7 +3442,7 @@ define internal { i64, ptr } @f_scalbln(ptr readnone captures(none) %0, i64 %1, 
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
   %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %37
 
 31:                                               ; preds = %21
@@ -3474,7 +3468,7 @@ define internal { i64, ptr } @f_significand(ptr readnone captures(none) %0, i64 
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -3482,7 +3476,7 @@ define internal { i64, ptr } @f_significand(ptr readnone captures(none) %0, i64 
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -3505,7 +3499,7 @@ define internal { i64, ptr } @f_trunc(ptr readnone captures(none) %0, i64 %1, pt
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -3513,7 +3507,7 @@ define internal { i64, ptr } @f_trunc(ptr readnone captures(none) %0, i64 %1, pt
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -3542,7 +3536,7 @@ define internal { i64, ptr } @f_ldexp(ptr readnone captures(none) %0, i64 %1, pt
 
 13:                                               ; preds = %6
   tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
   %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
   %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
@@ -3550,7 +3544,7 @@ define internal { i64, ptr } @f_ldexp(ptr readnone captures(none) %0, i64 %1, pt
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
   %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %37
 
 21:                                               ; preds = %6
@@ -3560,7 +3554,7 @@ define internal { i64, ptr } @f_ldexp(ptr readnone captures(none) %0, i64 %1, pt
 
 23:                                               ; preds = %21
   tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
   %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
   %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
@@ -3568,7 +3562,7 @@ define internal { i64, ptr } @f_ldexp(ptr readnone captures(none) %0, i64 %1, pt
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
   %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %37
 
 31:                                               ; preds = %21
@@ -3595,7 +3589,7 @@ define internal { i64, ptr } @f_modf(ptr readnone captures(none) %0, i64 %1, ptr
   br i1 %.not, label %15, label %7
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %9 = tail call ptr @jv_kind_name(i32 noundef %8) #14
   %10 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -3603,11 +3597,11 @@ define internal { i64, ptr } @f_modf(ptr readnone captures(none) %0, i64 %1, ptr
   %12 = extractvalue { i64, ptr } %11, 0
   %13 = extractvalue { i64, ptr } %11, 1
   %14 = call { i64, ptr } @jv_invalid_with_msg(i64 %12, ptr %13) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %32
 
 15:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = tail call double @jv_number_value(i64 %1, ptr %2) #14
   %17 = call double @modf(double noundef %16, ptr noundef nonnull %5) #14
   %18 = tail call { i64, ptr } @jv_array() #14
@@ -3625,7 +3619,7 @@ define internal { i64, ptr } @f_modf(ptr readnone captures(none) %0, i64 %1, ptr
   %30 = extractvalue { i64, ptr } %28, 1
   %31 = tail call { i64, ptr } @jv_array_append(i64 %25, ptr %26, i64 %29, ptr %30) #14
   tail call void @jv_free(i64 %1, ptr %2) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %32
 
 32:                                               ; preds = %15, %7
@@ -3642,7 +3636,7 @@ define internal { i64, ptr } @f_frexp(ptr readnone captures(none) %0, i64 %1, pt
   br i1 %.not, label %15, label %7
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %9 = tail call ptr @jv_kind_name(i32 noundef %8) #14
   %10 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -3650,11 +3644,11 @@ define internal { i64, ptr } @f_frexp(ptr readnone captures(none) %0, i64 %1, pt
   %12 = extractvalue { i64, ptr } %11, 0
   %13 = extractvalue { i64, ptr } %11, 1
   %14 = call { i64, ptr } @jv_invalid_with_msg(i64 %12, ptr %13) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %33
 
 15:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = tail call double @jv_number_value(i64 %1, ptr %2) #14
   %17 = call double @frexp(double noundef %16, ptr noundef nonnull %5) #14
   %18 = tail call { i64, ptr } @jv_array() #14
@@ -3673,7 +3667,7 @@ define internal { i64, ptr } @f_frexp(ptr readnone captures(none) %0, i64 %1, pt
   %31 = extractvalue { i64, ptr } %29, 1
   %32 = tail call { i64, ptr } @jv_array_append(i64 %25, ptr %26, i64 %30, ptr %31) #14
   tail call void @jv_free(i64 %1, ptr %2) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %33
 
 33:                                               ; preds = %15, %7
@@ -3690,7 +3684,7 @@ define internal { i64, ptr } @f_lgamma_r(ptr readnone captures(none) %0, i64 %1,
   br i1 %.not, label %15, label %7
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %9 = tail call ptr @jv_kind_name(i32 noundef %8) #14
   %10 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -3698,11 +3692,11 @@ define internal { i64, ptr } @f_lgamma_r(ptr readnone captures(none) %0, i64 %1,
   %12 = extractvalue { i64, ptr } %11, 0
   %13 = extractvalue { i64, ptr } %11, 1
   %14 = call { i64, ptr } @jv_invalid_with_msg(i64 %12, ptr %13) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %33
 
 15:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = tail call double @jv_number_value(i64 %1, ptr %2) #14
   %17 = call double @lgamma_r(double noundef %16, ptr noundef nonnull %5) #14
   %18 = call { i64, ptr } @jv_array() #14
@@ -3721,7 +3715,7 @@ define internal { i64, ptr } @f_lgamma_r(ptr readnone captures(none) %0, i64 %1,
   %31 = extractvalue { i64, ptr } %29, 1
   %32 = call { i64, ptr } @jv_array_append(i64 %25, ptr %26, i64 %30, ptr %31) #14
   call void @jv_free(i64 %1, ptr %2) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %33
 
 33:                                               ; preds = %15, %7
@@ -3737,7 +3731,7 @@ define internal { i64, ptr } @f_negate(ptr readnone captures(none) %0, i64 %1, p
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -3745,7 +3739,7 @@ define internal { i64, ptr } @f_negate(ptr readnone captures(none) %0, i64 %1, p
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %16
 
 14:                                               ; preds = %3
@@ -3897,7 +3891,7 @@ define internal { i64, ptr } @f_json_parse(ptr readnone captures(none) %0, i64 %
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -3905,7 +3899,7 @@ define internal { i64, ptr } @f_json_parse(ptr readnone captures(none) %0, i64 %
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %21
 
 14:                                               ; preds = %3
@@ -3951,7 +3945,7 @@ define internal { i64, ptr } @f_tonumber(ptr readnone captures(none) %0, i64 %1,
   br i1 %20, label %21, label %29
 
 21:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %22 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %23 = tail call ptr @jv_kind_name(i32 noundef %22) #14
   %24 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %5, i64 noundef 15) #14
@@ -3959,7 +3953,7 @@ define internal { i64, ptr } @f_tonumber(ptr readnone captures(none) %0, i64 %1,
   %26 = extractvalue { i64, ptr } %25, 0
   %27 = extractvalue { i64, ptr } %25, 1
   %28 = call { i64, ptr } @jv_invalid_with_msg(i64 %26, ptr %27) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %38
 
 29:                                               ; preds = %14
@@ -3967,7 +3961,7 @@ define internal { i64, ptr } @f_tonumber(ptr readnone captures(none) %0, i64 %1,
   br label %38
 
 30:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %31 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %32 = tail call ptr @jv_kind_name(i32 noundef %31) #14
   %33 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -3975,7 +3969,7 @@ define internal { i64, ptr } @f_tonumber(ptr readnone captures(none) %0, i64 %1,
   %35 = extractvalue { i64, ptr } %34, 0
   %36 = extractvalue { i64, ptr } %34, 1
   %37 = call { i64, ptr } @jv_invalid_with_msg(i64 %35, ptr %36) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %38
 
 38:                                               ; preds = %21, %29, %30, %8
@@ -4020,7 +4014,7 @@ define internal { i64, ptr } @f_keys(ptr readnone captures(none) %0, i64 %1, ptr
   br label %20
 
 12:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %14 = tail call ptr @jv_kind_name(i32 noundef %13) #14
   %15 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -4028,7 +4022,7 @@ define internal { i64, ptr } @f_keys(ptr readnone captures(none) %0, i64 %1, ptr
   %17 = extractvalue { i64, ptr } %16, 0
   %18 = extractvalue { i64, ptr } %16, 1
   %19 = call { i64, ptr } @jv_invalid_with_msg(i64 %17, ptr %18) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %20
 
 20:                                               ; preds = %12, %10
@@ -4053,7 +4047,7 @@ define internal { i64, ptr } @f_keys_unsorted(ptr readnone captures(none) %0, i6
   br label %20
 
 12:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %14 = tail call ptr @jv_kind_name(i32 noundef %13) #14
   %15 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -4061,7 +4055,7 @@ define internal { i64, ptr } @f_keys_unsorted(ptr readnone captures(none) %0, i6
   %17 = extractvalue { i64, ptr } %16, 0
   %18 = extractvalue { i64, ptr } %16, 1
   %19 = call { i64, ptr } @jv_invalid_with_msg(i64 %17, ptr %18) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %20
 
 20:                                               ; preds = %12, %10
@@ -4289,7 +4283,7 @@ define internal { i64, ptr } @f_string_implode(ptr readnone captures(none) %0, i
 .thread63:                                        ; preds = %24, %.lr.ph
   tail call void @jv_free(i64 %1, ptr %2) #14
   tail call void @jv_free(i64 %.sroa.024.078, ptr %.sroa.7.077) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %26 = tail call i32 @jv_get_kind(i64 %21, ptr %22) #14
   %27 = tail call ptr @jv_kind_name(i32 noundef %26) #14
   %28 = call ptr @jv_dump_string_trunc(i64 %21, ptr %22, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -4297,7 +4291,7 @@ define internal { i64, ptr } @f_string_implode(ptr readnone captures(none) %0, i
   %30 = extractvalue { i64, ptr } %29, 0
   %31 = extractvalue { i64, ptr } %29, 1
   %32 = call { i64, ptr } @jv_invalid_with_msg(i64 %30, ptr %31) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %39
 
 33:                                               ; preds = %24
@@ -4403,8 +4397,8 @@ define internal { i64, ptr } @f_contains(ptr readnone captures(none) %0, i64 %1,
   br label %25
 
 14:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %16 = tail call ptr @jv_kind_name(i32 noundef %15) #14
   %17 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
@@ -4415,8 +4409,8 @@ define internal { i64, ptr } @f_contains(ptr readnone captures(none) %0, i64 %1,
   %22 = extractvalue { i64, ptr } %21, 0
   %23 = extractvalue { i64, ptr } %21, 1
   %24 = call { i64, ptr } @jv_invalid_with_msg(i64 %22, ptr %23) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %25
 
 25:                                               ; preds = %14, %11
@@ -4482,7 +4476,7 @@ define internal { i64, ptr } @f_length(ptr readnone captures(none) %0, i64 %1, p
   br label %45
 
 37:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %38 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %39 = tail call ptr @jv_kind_name(i32 noundef %38) #14
   %40 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -4490,7 +4484,7 @@ define internal { i64, ptr } @f_length(ptr readnone captures(none) %0, i64 %1, p
   %42 = extractvalue { i64, ptr } %41, 0
   %43 = extractvalue { i64, ptr } %41, 1
   %44 = call { i64, ptr } @jv_invalid_with_msg(i64 %42, ptr %43) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %45
 
 45:                                               ; preds = %37, %35, %28, %21, %14, %7
@@ -4506,7 +4500,7 @@ define internal { i64, ptr } @f_utf8bytelength(ptr readnone captures(none) %0, i
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
   %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -4514,7 +4508,7 @@ define internal { i64, ptr } @f_utf8bytelength(ptr readnone captures(none) %0, i
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 14:                                               ; preds = %3
@@ -4657,7 +4651,7 @@ define internal { i64, ptr } @f_sort(ptr readnone captures(none) %0, i64 %1, ptr
   br label %20
 
 12:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %14 = tail call ptr @jv_kind_name(i32 noundef %13) #14
   %15 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -4665,7 +4659,7 @@ define internal { i64, ptr } @f_sort(ptr readnone captures(none) %0, i64 %1, ptr
   %17 = extractvalue { i64, ptr } %16, 0
   %18 = extractvalue { i64, ptr } %16, 1
   %19 = call { i64, ptr } @jv_invalid_with_msg(i64 %17, ptr %18) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %20
 
 20:                                               ; preds = %12, %7
@@ -4703,8 +4697,8 @@ define internal { i64, ptr } @f_sort_by_impl(ptr readnone captures(none) %0, i64
   br label %36
 
 25:                                               ; preds = %13, %10, %5
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %26 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %27 = tail call ptr @jv_kind_name(i32 noundef %26) #14
   %28 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
@@ -4715,8 +4709,8 @@ define internal { i64, ptr } @f_sort_by_impl(ptr readnone captures(none) %0, i64
   %33 = extractvalue { i64, ptr } %32, 0
   %34 = extractvalue { i64, ptr } %32, 1
   %35 = call { i64, ptr } @jv_invalid_with_msg(i64 %33, ptr %34) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %36
 
 36:                                               ; preds = %25, %23
@@ -4754,8 +4748,8 @@ define internal { i64, ptr } @f_group_by_impl(ptr readnone captures(none) %0, i6
   br label %36
 
 25:                                               ; preds = %13, %10, %5
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %26 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %27 = tail call ptr @jv_kind_name(i32 noundef %26) #14
   %28 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
@@ -4766,8 +4760,8 @@ define internal { i64, ptr } @f_group_by_impl(ptr readnone captures(none) %0, i6
   %33 = extractvalue { i64, ptr } %32, 0
   %34 = extractvalue { i64, ptr } %32, 1
   %35 = call { i64, ptr } @jv_invalid_with_msg(i64 %33, ptr %34) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %36
 
 36:                                               ; preds = %25, %23
@@ -4784,7 +4778,7 @@ define internal { i64, ptr } @f_bsearch(ptr readnone captures(none) %0, i64 %1, 
 
 8:                                                ; preds = %5
   tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %10 = tail call ptr @jv_kind_name(i32 noundef %9) #14
   %11 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %6, i64 noundef 15) #14
@@ -4792,7 +4786,7 @@ define internal { i64, ptr } @f_bsearch(ptr readnone captures(none) %0, i64 %1, 
   %13 = extractvalue { i64, ptr } %12, 0
   %14 = extractvalue { i64, ptr } %12, 1
   %15 = call { i64, ptr } @jv_invalid_with_msg(i64 %13, ptr %14) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %49
 
 16:                                               ; preds = %5
@@ -4915,7 +4909,7 @@ define internal { i64, ptr } @f_format(ptr readnone captures(none) %0, i64 %1, p
 
 16:                                               ; preds = %5
   tail call void @jv_free(i64 %1, ptr %2) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %17 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
   %18 = tail call ptr @jv_kind_name(i32 noundef %17) #14
   %19 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %11, i64 noundef 15) #14
@@ -4923,7 +4917,7 @@ define internal { i64, ptr } @f_format(ptr readnone captures(none) %0, i64 %1, p
   %21 = extractvalue { i64, ptr } %20, 0
   %22 = extractvalue { i64, ptr } %20, 1
   %23 = call { i64, ptr } @jv_invalid_with_msg(i64 %21, ptr %22) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %f_tostring.exit
 
 24:                                               ; preds = %5
@@ -4978,7 +4972,7 @@ define internal { i64, ptr } @f_format(ptr readnone captures(none) %0, i64 %1, p
 
 45:                                               ; preds = %43
   %.str.180..str.184 = select i1 %.not447, ptr @.str.180, ptr @.str.184
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %46 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %47 = tail call ptr @jv_kind_name(i32 noundef %46) #14
   %48 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %10, i64 noundef 15) #14
@@ -4986,7 +4980,7 @@ define internal { i64, ptr } @f_format(ptr readnone captures(none) %0, i64 %1, p
   %50 = extractvalue { i64, ptr } %49, 0
   %51 = extractvalue { i64, ptr } %49, 1
   %52 = call { i64, ptr } @jv_invalid_with_msg(i64 %50, ptr %51) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %f_tostring.exit
 
 .preheader:                                       ; preds = %43
@@ -5091,7 +5085,7 @@ define internal { i64, ptr } @f_format(ptr readnone captures(none) %0, i64 %1, p
 107:                                              ; preds = %70
   tail call void @jv_free(i64 %1, ptr %2) #14
   tail call void @jv_free(i64 %.sroa.0256.4, ptr %.sroa.17.4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %108 = tail call i32 @jv_get_kind(i64 %64, ptr %65) #14
   %109 = tail call ptr @jv_kind_name(i32 noundef %108) #14
   %110 = call ptr @jv_dump_string_trunc(i64 %64, ptr %65, ptr noundef nonnull %9, i64 noundef 15) #14
@@ -5099,7 +5093,7 @@ define internal { i64, ptr } @f_format(ptr readnone captures(none) %0, i64 %1, p
   %112 = extractvalue { i64, ptr } %111, 0
   %113 = extractvalue { i64, ptr } %111, 1
   %114 = call { i64, ptr } @jv_invalid_with_msg(i64 %112, ptr %113) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %f_tostring.exit
 
 .thread498.loopexit:                              ; preds = %105
@@ -5147,7 +5141,7 @@ f_tostring.exit484:                               ; preds = %122, %125
 132:                                              ; preds = %130
   tail call void @jv_free(i64 %3, ptr %4) #14
   %133 = tail call { i64, ptr } @f_tostring(ptr poison, i64 %1, ptr %2)
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %12) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %12, i8 0, i64 512, i1 false)
   br label %134
 
@@ -5178,7 +5172,7 @@ f_tostring.exit484:                               ; preds = %122, %125
 ._crit_edge640:                                   ; preds = %163, %139
   %.pn459.lcssa = phi { i64, ptr } [ %142, %139 ], [ %.pn, %163 ]
   tail call void @jv_free(i64 %140, ptr %141) #14
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %12) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %f_tostring.exit
 
 .lr.ph639:                                        ; preds = %139, %163
@@ -5252,7 +5246,7 @@ f_tostring.exit484:                               ; preds = %122, %125
   br label %.backedge
 
 184:                                              ; preds = %179
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4
   br label %185
 
@@ -5293,7 +5287,7 @@ f_tostring.exit484:                               ; preds = %122, %125
 
 199:                                              ; preds = %.critedge
   call void @jv_free(i64 %.sroa.0176.0, ptr %.sroa.11.0) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %200 = call i32 @jv_get_kind(i64 %175, ptr %176) #14
   %201 = call ptr @jv_kind_name(i32 noundef %200) #14
   %202 = call ptr @jv_dump_string_trunc(i64 %175, ptr %176, ptr noundef nonnull %8, i64 noundef 15) #14
@@ -5301,7 +5295,7 @@ f_tostring.exit484:                               ; preds = %122, %125
   %204 = extractvalue { i64, ptr } %203, 0
   %205 = extractvalue { i64, ptr } %203, 1
   %206 = call { i64, ptr } @jv_invalid_with_msg(i64 %204, ptr %205) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread519
 
 207:                                              ; preds = %.preheader562, %220
@@ -5342,7 +5336,7 @@ f_tostring.exit484:                               ; preds = %122, %125
 
 222:                                              ; preds = %216
   call void @jv_free(i64 %.sroa.0176.0, ptr %.sroa.11.0) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %223 = call i32 @jv_get_kind(i64 %175, ptr %176) #14
   %224 = call ptr @jv_kind_name(i32 noundef %223) #14
   %225 = call ptr @jv_dump_string_trunc(i64 %175, ptr %176, ptr noundef nonnull %7, i64 noundef 15) #14
@@ -5350,7 +5344,7 @@ f_tostring.exit484:                               ; preds = %122, %125
   %227 = extractvalue { i64, ptr } %226, 0
   %228 = extractvalue { i64, ptr } %226, 1
   %229 = call { i64, ptr } @jv_invalid_with_msg(i64 %227, ptr %228) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread519
 
 230:                                              ; preds = %220
@@ -5366,7 +5360,7 @@ f_tostring.exit484:                               ; preds = %122, %125
 
 234:                                              ; preds = %.critedge9
   call void @jv_free(i64 %.sroa.0176.0, ptr %.sroa.11.0) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %235 = call i32 @jv_get_kind(i64 %175, ptr %176) #14
   %236 = call ptr @jv_kind_name(i32 noundef %235) #14
   %237 = call ptr @jv_dump_string_trunc(i64 %175, ptr %176, ptr noundef nonnull %6, i64 noundef 15) #14
@@ -5374,18 +5368,18 @@ f_tostring.exit484:                               ; preds = %122, %125
   %239 = extractvalue { i64, ptr } %238, 0
   %240 = extractvalue { i64, ptr } %238, 1
   %241 = call { i64, ptr } @jv_invalid_with_msg(i64 %239, ptr %240) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread519
 
 .thread519:                                       ; preds = %199, %222, %234
   %.pn554 = phi { i64, ptr } [ %241, %234 ], [ %229, %222 ], [ %206, %199 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %f_tostring.exit
 
 242:                                              ; preds = %.critedge9
   %243 = trunc nuw nsw i64 %indvars.iv700 to i32
   %244 = call { i64, ptr } @jv_string_append_buf(i64 %.sroa.0176.0, ptr %.sroa.11.0, ptr noundef nonnull %13, i32 noundef %243) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.backedge
 
 .backedge:                                        ; preds = %242, %181
@@ -5547,7 +5541,7 @@ sub_1:                                            ; preds = %sub_0
   br label %316
 
 315:                                              ; preds = %322
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   br label %327
 
 316:                                              ; preds = %313, %322
@@ -5603,7 +5597,7 @@ sub_1:                                            ; preds = %sub_0
 
 .thread547:                                       ; preds = %325, %339, %337
   %340 = call { i64, ptr } @jv_string_append_buf(i64 %.sroa.0397.21612, ptr %.sroa.26.21611, ptr noundef nonnull %14, i32 noundef 4) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %indvars.iv.next697 = add nuw nsw i64 %indvars.iv696, 3
   %341 = icmp samesign ult i64 %indvars.iv.next697, %312
   br i1 %341, label %313, label %._crit_edge615, !llvm.loop !34
@@ -5850,7 +5844,7 @@ define internal { i64, ptr } @f_halt_error(ptr noundef %0, i64 %1, ptr %2, i64 %
 
 8:                                                ; preds = %5
   tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %10 = tail call ptr @jv_kind_name(i32 noundef %9) #14
   %11 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %6, i64 noundef 15) #14
@@ -5858,7 +5852,7 @@ define internal { i64, ptr } @f_halt_error(ptr noundef %0, i64 %1, ptr %2, i64 %
   %13 = extractvalue { i64, ptr } %12, 0
   %14 = extractvalue { i64, ptr } %12, 1
   %15 = call { i64, ptr } @jv_invalid_with_msg(i64 %13, ptr %14) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %18
 
 16:                                               ; preds = %5
@@ -5910,8 +5904,8 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 @jv_equal(i64 %20, ptr %22, i64 %18, ptr %19) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #14
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %24 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %24, 5
   br i1 %.not, label %36, label %25
@@ -5922,7 +5916,7 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %28 = load ptr, ptr %27, align 8
   tail call void @jv_free(i64 %26, ptr %28) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %29 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %30 = tail call ptr @jv_kind_name(i32 noundef %29) #14
   %31 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %10, i64 noundef 15) #14
@@ -5930,7 +5924,7 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %33 = extractvalue { i64, ptr } %32, 0
   %34 = extractvalue { i64, ptr } %32, 1
   %35 = call { i64, ptr } @jv_invalid_with_msg(i64 %33, ptr %34) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge
 
 36:                                               ; preds = %7
@@ -5944,7 +5938,7 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %41 = load ptr, ptr %40, align 8
   tail call void @jv_free(i64 %39, ptr %41) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %42 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
   %43 = tail call ptr @jv_kind_name(i32 noundef %42) #14
   %44 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %9, i64 noundef 15) #14
@@ -5952,7 +5946,7 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %46 = extractvalue { i64, ptr } %45, 0
   %47 = extractvalue { i64, ptr } %45, 1
   %48 = call { i64, ptr } @jv_invalid_with_msg(i64 %46, ptr %47) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge
 
 49:                                               ; preds = %36
@@ -6066,7 +6060,7 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
 100:                                              ; preds = %98
   tail call void @jv_free(i64 %1, ptr %2) #14
   tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %101 = tail call i32 @jv_get_kind(i64 %50, ptr %52) #14
   %102 = tail call ptr @jv_kind_name(i32 noundef %101) #14
   %103 = call ptr @jv_dump_string_trunc(i64 %50, ptr %52, ptr noundef nonnull %8, i64 noundef 15) #14
@@ -6074,7 +6068,7 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %105 = extractvalue { i64, ptr } %104, 0
   %106 = extractvalue { i64, ptr } %104, 1
   %107 = call { i64, ptr } @jv_invalid_with_msg(i64 %105, ptr %106) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge
 
 108:                                              ; preds = %.thread468, %98
@@ -6094,7 +6088,7 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   br i1 %.not442, label %130, label %118
 
 118:                                              ; preds = %108
-  call void @llvm.lifetime.start.p0(i64 90, ptr nonnull %13) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %119 = call i32 (ptr, i32, ...) @onig_error_code_to_str(ptr noundef nonnull %13, i32 noundef %117, ptr noundef nonnull %12) #14
   call void @jv_free(i64 %1, ptr %2) #14
   call void @jv_free(i64 %3, ptr %4) #14
@@ -6108,7 +6102,7 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %127 = extractvalue { i64, ptr } %126, 0
   %128 = extractvalue { i64, ptr } %126, 1
   %129 = call { i64, ptr } @jv_invalid_with_msg(i64 %127, ptr %128) #14
-  call void @llvm.lifetime.end.p0(i64 90, ptr nonnull %13) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.critedge
 
 130:                                              ; preds = %108
@@ -6209,7 +6203,7 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %199 = call { i64, ptr } @jv_object_set(i64 %187, ptr %188, i64 %190, ptr %191, i64 %197, ptr %198) #14
   %200 = extractvalue { i64, ptr } %199, 0
   %201 = extractvalue { i64, ptr } %199, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %202 = call { i64, ptr } @jv_array() #14
   %203 = extractvalue { i64, ptr } %202, 0
   store i64 %203, ptr %15, align 8
@@ -6236,7 +6230,7 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %220 = sext i32 %219 to i64
   %221 = getelementptr inbounds i8, ptr %136, i64 %220
   call void @onig_region_free(ptr noundef nonnull %144, i32 noundef 0) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %431
 
 .lr.ph522.us:                                     ; preds = %._crit_edge.us, %345
@@ -6491,7 +6485,7 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %407 = call { i64, ptr } @jv_object_set(i64 %399, ptr %400, i64 %402, ptr %403, i64 %405, ptr %406) #14
   %408 = extractvalue { i64, ptr } %407, 0
   %409 = extractvalue { i64, ptr } %407, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %410 = call { i64, ptr } @jv_array() #14
   %411 = extractvalue { i64, ptr } %410, 0
   store i64 %411, ptr %14, align 8
@@ -6518,7 +6512,7 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %428 = sext i32 %427 to i64
   %429 = getelementptr inbounds i8, ptr %136, i64 %428
   %430 = getelementptr inbounds nuw i8, ptr %429, i64 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %431
 
 431:                                              ; preds = %._crit_edge532.us, %._crit_edge523.us
@@ -6661,7 +6655,7 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   br i1 %519, label %.loopexit, label %520
 
 520:                                              ; preds = %.split534.us
-  call void @llvm.lifetime.start.p0(i64 90, ptr nonnull %16) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %521 = call i32 (ptr, i32, ...) @onig_error_code_to_str(ptr noundef nonnull %16, i32 noundef %.us-phi536, ptr noundef nonnull %12) #14
   call void @jv_free(i64 %.us-phi, ptr %.us-phi535) #14
   %522 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.211) #14
@@ -6676,7 +6670,7 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %531 = call { i64, ptr } @jv_invalid_with_msg(i64 %529, ptr %530) #14
   %532 = extractvalue { i64, ptr } %531, 0
   %533 = extractvalue { i64, ptr } %531, 1
-  call void @llvm.lifetime.end.p0(i64 90, ptr nonnull %16) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %431, %.split534.us, %520, %515
@@ -6693,8 +6687,8 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
 
 .critedge:                                        ; preds = %100, %118, %.loopexit, %89, %38, %25
   %.fca.1.insert.merged = phi { i64, ptr } [ %35, %25 ], [ %48, %38 ], [ %129, %118 ], [ %536, %.loopexit ], [ %107, %100 ], [ %96, %89 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret { i64, ptr } %.fca.1.insert.merged
 }
 
@@ -6726,8 +6720,8 @@ define internal { i64, ptr } @f_input(ptr noundef %0, i64 %1, ptr %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   tail call void @jv_free(i64 %1, ptr %2) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @jq_get_input_cb(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #14
   %6 = load ptr, ptr %4, align 8, !tbaa !57
   %7 = icmp eq ptr %6, null
@@ -6759,8 +6753,8 @@ define internal { i64, ptr } @f_input(ptr noundef %0, i64 %1, ptr %2) #0 {
 
 23:                                               ; preds = %.sink.split, %14, %8
   %.fca.1.insert.merged = phi { i64, ptr } [ %10, %14 ], [ %10, %8 ], [ %22, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret { i64, ptr } %.fca.1.insert.merged
 }
 
@@ -6768,8 +6762,8 @@ define internal { i64, ptr } @f_input(ptr noundef %0, i64 %1, ptr %2) #0 {
 define internal { i64, ptr } @f_debug(ptr noundef %0, i64 %1, ptr %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @jq_get_debug_cb(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #14
   %6 = load ptr, ptr %4, align 8, !tbaa !57
   %.not = icmp eq ptr %6, null
@@ -6784,8 +6778,8 @@ define internal { i64, ptr } @f_debug(ptr noundef %0, i64 %1, ptr %2) #0 {
   br label %12
 
 12:                                               ; preds = %7, %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %1, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %2, 1
   ret { i64, ptr } %.fca.1.insert
@@ -6795,8 +6789,8 @@ define internal { i64, ptr } @f_debug(ptr noundef %0, i64 %1, ptr %2) #0 {
 define internal { i64, ptr } @f_stderr(ptr noundef %0, i64 %1, ptr %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @jq_get_stderr_cb(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #14
   %6 = load ptr, ptr %4, align 8, !tbaa !57
   %.not = icmp eq ptr %6, null
@@ -6811,8 +6805,8 @@ define internal { i64, ptr } @f_stderr(ptr noundef %0, i64 %1, ptr %2) #0 {
   br label %12
 
 12:                                               ; preds = %7, %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %1, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %2, 1
   ret { i64, ptr } %.fca.1.insert
@@ -6840,7 +6834,7 @@ define internal { i64, ptr } @f_strptime(ptr readnone captures(none) %0, i64 %1,
   br label %106
 
 15:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 8, ptr %16, align 8, !tbaa !58
@@ -6984,7 +6978,7 @@ set_tm_yday.exit:                                 ; preds = %77, %79
 
 105:                                              ; preds = %104, %31
   %.merged = phi { i64, ptr } [ %35, %31 ], [ %.merged57, %104 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %106
 
 106:                                              ; preds = %105, %10
@@ -7042,7 +7036,7 @@ define internal { i64, ptr } @f_strftime(ptr noundef readnone captures(none) %0,
   br label %51
 
 29:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %30 = call fastcc i32 @jv2tm(i64 %.sroa.029.0, ptr %.sroa.10.0, ptr noundef %6)
   %.not45 = icmp eq i32 %30, 0
   br i1 %.not45, label %31, label %36
@@ -7079,7 +7073,7 @@ define internal { i64, ptr } @f_strftime(ptr noundef readnone captures(none) %0,
 
 50:                                               ; preds = %43, %48, %31
   %.pn.pn = phi { i64, ptr } [ %35, %31 ], [ %47, %43 ], [ %49, %48 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %51
 
 51:                                               ; preds = %50, %24, %17, %14
@@ -7131,7 +7125,7 @@ define internal { i64, ptr } @f_strflocaltime(ptr noundef readnone captures(none
   br label %49
 
 27:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %28 = call fastcc i32 @jv2tm(i64 %.sroa.027.0, ptr %.sroa.8.0, ptr noundef %6)
   %.not40 = icmp eq i32 %28, 0
   br i1 %.not40, label %29, label %34
@@ -7168,7 +7162,7 @@ define internal { i64, ptr } @f_strflocaltime(ptr noundef readnone captures(none
 
 48:                                               ; preds = %41, %46, %29
   %.pn.pn = phi { i64, ptr } [ %33, %29 ], [ %45, %41 ], [ %47, %46 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %49
 
 49:                                               ; preds = %48, %22, %15
@@ -7192,7 +7186,7 @@ define internal { i64, ptr } @f_mktime(ptr readnone captures(none) %0, i64 %1, p
   br label %34
 
 11:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = call fastcc i32 @jv2tm(i64 %1, ptr %2, ptr noundef %4)
   %.not15 = icmp eq i32 %12, 0
   br i1 %.not15, label %13, label %18
@@ -7232,7 +7226,7 @@ define internal { i64, ptr } @f_mktime(ptr readnone captures(none) %0, i64 %1, p
 
 33:                                               ; preds = %20, %25, %30, %13
   %.pn.pn = phi { i64, ptr } [ %17, %13 ], [ %24, %20 ], [ %29, %25 ], [ %32, %30 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %34
 
 34:                                               ; preds = %33, %6
@@ -7257,10 +7251,10 @@ define internal { i64, ptr } @f_gmtime(ptr readnone captures(none) %0, i64 %1, p
   br label %41
 
 12:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   %13 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = fptosi double %13 to i64
   store i64 %14, ptr %5, align 8, !tbaa !67
   tail call void @jv_free(i64 %1, ptr %2) #14
@@ -7297,8 +7291,8 @@ define internal { i64, ptr } @f_gmtime(ptr readnone captures(none) %0, i64 %1, p
 
 40:                                               ; preds = %22, %17
   %.pn = phi { i64, ptr } [ %21, %17 ], [ %39, %22 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %41
 
 41:                                               ; preds = %40, %7
@@ -7323,10 +7317,10 @@ define internal { i64, ptr } @f_localtime(ptr readnone captures(none) %0, i64 %1
   br label %41
 
 12:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   %13 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = fptosi double %13 to i64
   store i64 %14, ptr %5, align 8, !tbaa !67
   tail call void @jv_free(i64 %1, ptr %2) #14
@@ -7363,8 +7357,8 @@ define internal { i64, ptr } @f_localtime(ptr readnone captures(none) %0, i64 %1
 
 40:                                               ; preds = %22, %17
   %.pn = phi { i64, ptr } [ %21, %17 ], [ %39, %22 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %41
 
 41:                                               ; preds = %40, %7
@@ -7376,7 +7370,7 @@ define internal { i64, ptr } @f_localtime(ptr readnone captures(none) %0, i64 %1
 define internal { i64, ptr } @f_now(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca %struct.timeval, align 8
   tail call void @jv_free(i64 %1, ptr %2) #14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
   %6 = icmp eq i32 %5, -1
   br i1 %6, label %7, label %10
@@ -7399,7 +7393,7 @@ define internal { i64, ptr } @f_now(ptr readnone captures(none) %0, i64 %1, ptr 
 18:                                               ; preds = %10, %7
   %.sink = phi double [ %17, %10 ], [ %9, %7 ]
   %19 = tail call { i64, ptr } @jv_number(double noundef %.sink) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret { i64, ptr } %19
 }
 
@@ -7440,7 +7434,7 @@ define internal { i64, ptr } @f_have_decnum(ptr readnone captures(none) %0, i64 
 ; Function Attrs: nounwind uwtable
 define internal fastcc { i64, ptr } @type_error(i64 %0, ptr %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [15 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
   %6 = tail call ptr @jv_kind_name(i32 noundef %5) #14
   %7 = call ptr @jv_dump_string_trunc(i64 %0, ptr %1, ptr noundef nonnull %4, i64 noundef 15) #14
@@ -7448,192 +7442,192 @@ define internal fastcc { i64, ptr } @type_error(i64 %0, ptr %1, ptr noundef %2) 
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
   %11 = call { i64, ptr } @jv_invalid_with_msg(i64 %9, ptr %10) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret { i64, ptr } %11
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @acos(double noundef) local_unnamed_addr #4
+declare double @acos(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @acosh(double noundef) local_unnamed_addr #4
+declare double @acosh(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @asin(double noundef) local_unnamed_addr #4
+declare double @asin(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @asinh(double noundef) local_unnamed_addr #4
+declare double @asinh(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @atan(double noundef) local_unnamed_addr #4
+declare double @atan(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @atan2(double noundef, double noundef) local_unnamed_addr #4
+declare double @atan2(double noundef, double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @atanh(double noundef) local_unnamed_addr #4
+declare double @atanh(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare double @cbrt(double noundef) local_unnamed_addr #5
+declare double @cbrt(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @cos(double noundef) local_unnamed_addr #4
+declare double @cos(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @cosh(double noundef) local_unnamed_addr #4
+declare double @cosh(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @exp(double noundef) local_unnamed_addr #4
+declare double @exp(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @exp2(double noundef) local_unnamed_addr #4
+declare double @exp2(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.floor.f64(double) #3
+declare double @llvm.floor.f64(double) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @hypot(double noundef, double noundef) local_unnamed_addr #4
+declare double @hypot(double noundef, double noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare double @j0(double noundef) local_unnamed_addr #6
+declare double @j0(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare double @j1(double noundef) local_unnamed_addr #6
+declare double @j1(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @log(double noundef) local_unnamed_addr #4
+declare double @log(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @log10(double noundef) local_unnamed_addr #4
+declare double @log10(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @log2(double noundef) local_unnamed_addr #4
+declare double @log2(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #4
+declare double @pow(double noundef, double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @remainder(double noundef, double noundef) local_unnamed_addr #4
+declare double @remainder(double noundef, double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sin(double noundef) local_unnamed_addr #4
+declare double @sin(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sinh(double noundef) local_unnamed_addr #4
+declare double @sinh(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #4
+declare double @sqrt(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @tan(double noundef) local_unnamed_addr #4
+declare double @tan(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @tanh(double noundef) local_unnamed_addr #4
+declare double @tanh(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @tgamma(double noundef) local_unnamed_addr #4
+declare double @tgamma(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare double @y0(double noundef) local_unnamed_addr #6
+declare double @y0(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare double @y1(double noundef) local_unnamed_addr #6
+declare double @y1(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare double @jn(i32 noundef, double noundef) local_unnamed_addr #6
+declare double @jn(i32 noundef, double noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare double @yn(i32 noundef, double noundef) local_unnamed_addr #6
+declare double @yn(i32 noundef, double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.ceil.f64(double) #3
+declare double @llvm.ceil.f64(double) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.copysign.f64(double, double) #3
+declare double @llvm.copysign.f64(double, double) #2
 
 ; Function Attrs: nounwind
-declare double @drem(double noundef, double noundef) local_unnamed_addr #6
+declare double @drem(double noundef, double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @erf(double noundef) local_unnamed_addr #4
+declare double @erf(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare double @erfc(double noundef) local_unnamed_addr #6
+declare double @erfc(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare double @exp10(double noundef) local_unnamed_addr #6
+declare double @exp10(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @expm1(double noundef) local_unnamed_addr #4
+declare double @expm1(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #3
+declare double @llvm.fabs.f64(double) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @fdim(double noundef, double noundef) local_unnamed_addr #4
+declare double @fdim(double noundef, double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fma.f64(double, double, double) #3
+declare double @llvm.fma.f64(double, double, double) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.maxnum.f64(double, double) #3
+declare double @llvm.maxnum.f64(double, double) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.minnum.f64(double, double) #3
+declare double @llvm.minnum.f64(double, double) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @fmod(double noundef, double noundef) local_unnamed_addr #4
+declare double @fmod(double noundef, double noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare double @gamma(double noundef) local_unnamed_addr #6
+declare double @gamma(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare double @lgamma(double noundef) local_unnamed_addr #6
+declare double @lgamma(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @log1p(double noundef) local_unnamed_addr #4
+declare double @log1p(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @logb(double noundef) local_unnamed_addr #4
+declare double @logb(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.nearbyint.f64(double) #3
+declare double @llvm.nearbyint.f64(double) #2
 
 ; Function Attrs: nounwind
-declare double @nextafter(double noundef, double noundef) local_unnamed_addr #6
+declare double @nextafter(double noundef, double noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare double @nexttoward(double noundef, x86_fp80 noundef) local_unnamed_addr #6
+declare double @nexttoward(double noundef, x86_fp80 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.rint.f64(double) #3
+declare double @llvm.rint.f64(double) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.round.f64(double) #3
+declare double @llvm.round.f64(double) #2
 
 ; Function Attrs: nounwind
-declare double @scalb(double noundef, double noundef) local_unnamed_addr #6
+declare double @scalb(double noundef, double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @scalbln(double noundef, i64 noundef) local_unnamed_addr #4
+declare double @scalbln(double noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare double @significand(double noundef) local_unnamed_addr #6
+declare double @significand(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.trunc.f64(double) #3
+declare double @llvm.trunc.f64(double) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #4
+declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare double @modf(double noundef, ptr noundef captures(none)) local_unnamed_addr #7
+declare double @modf(double noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare double @frexp(double noundef, ptr noundef captures(none)) local_unnamed_addr #7
+declare double @frexp(double noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare double @lgamma_r(double noundef, ptr noundef) local_unnamed_addr #6
+declare double @lgamma_r(double noundef, ptr noundef) local_unnamed_addr #5
 
 declare { i64, ptr } @jv_number_negate(i64, ptr) local_unnamed_addr #1
 
@@ -7680,7 +7674,7 @@ define internal fastcc { i64, ptr } @string_trim(i64 %0, ptr %1, i32 noundef ran
   %16 = tail call ptr @jv_string_value(i64 %0, ptr %1) #14
   %17 = sext i32 %15 to i64
   %18 = getelementptr inbounds i8, ptr %16, i64 %17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %19 = and i32 %2, 1
   %.not49 = icmp eq i32 %19, 0
   br i1 %.not49, label %.thread, label %.preheader62
@@ -7740,7 +7734,7 @@ define internal fastcc { i64, ptr } @string_trim(i64 %0, ptr %1, i32 noundef ran
 
 42:                                               ; preds = %36, %33
   %.merged = phi { i64, ptr } [ %35, %33 ], [ %41, %36 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %43
 
 43:                                               ; preds = %42, %6
@@ -7791,8 +7785,8 @@ define internal fastcc { i64, ptr } @minmax_by(i64 %0, ptr %1, i64 %2, ptr %3, i
   br i1 %.not, label %24, label %13
 
 13:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %10) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %14 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
   %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
   %16 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #14
@@ -7803,8 +7797,8 @@ define internal fastcc { i64, ptr } @minmax_by(i64 %0, ptr %1, i64 %2, ptr %3, i
   %21 = extractvalue { i64, ptr } %20, 0
   %22 = extractvalue { i64, ptr } %20, 1
   %23 = call { i64, ptr } @jv_invalid_with_msg(i64 %21, ptr %22) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %11) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %114
 
 24:                                               ; preds = %5
@@ -7813,8 +7807,8 @@ define internal fastcc { i64, ptr } @minmax_by(i64 %0, ptr %1, i64 %2, ptr %3, i
   br i1 %.not73, label %37, label %26
 
 26:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %27 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
   %28 = tail call ptr @jv_kind_name(i32 noundef %27) #14
   %29 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #14
@@ -7825,8 +7819,8 @@ define internal fastcc { i64, ptr } @minmax_by(i64 %0, ptr %1, i64 %2, ptr %3, i
   %34 = extractvalue { i64, ptr } %33, 0
   %35 = extractvalue { i64, ptr } %33, 1
   %36 = call { i64, ptr } @jv_invalid_with_msg(i64 %34, ptr %35) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %114
 
 37:                                               ; preds = %24
@@ -7842,8 +7836,8 @@ define internal fastcc { i64, ptr } @minmax_by(i64 %0, ptr %1, i64 %2, ptr %3, i
   br i1 %.not74, label %57, label %46
 
 46:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %47 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
   %48 = tail call ptr @jv_kind_name(i32 noundef %47) #14
   %49 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #14
@@ -7854,8 +7848,8 @@ define internal fastcc { i64, ptr } @minmax_by(i64 %0, ptr %1, i64 %2, ptr %3, i
   %54 = extractvalue { i64, ptr } %53, 0
   %55 = extractvalue { i64, ptr } %53, 1
   %56 = call { i64, ptr } @jv_invalid_with_msg(i64 %54, ptr %55) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %114
 
 57:                                               ; preds = %37
@@ -7966,7 +7960,7 @@ define internal fastcc { i64, ptr } @minmax_by(i64 %0, ptr %1, i64 %2, ptr %3, i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare { i64, ptr } @jv_string_append_str(i64, ptr, ptr noundef) local_unnamed_addr #1
 
@@ -7974,7 +7968,7 @@ declare { i64, ptr } @jv_string_append_str(i64, ptr, ptr noundef) local_unnamed_
 define internal fastcc { i64, ptr } @escape_string(i64 %0, ptr %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [128 x ptr], align 16
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %4, i8 0, i64 1024, i1 false)
   store ptr @.str.206, ptr %4, align 16, !tbaa !38
   %6 = load i8, ptr %2, align 1, !tbaa !25
@@ -8004,7 +7998,7 @@ define internal fastcc { i64, ptr } @escape_string(i64 %0, ptr %1, ptr noundef %
   %20 = tail call i32 @jv_string_length_bytes(i64 %18, ptr %19) #14
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i8, ptr %16, i64 %21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !19
   %23 = call ptr @jvp_utf8_next(ptr noundef %16, ptr noundef %22, ptr noundef nonnull %5) #14
   %.not3241 = icmp eq ptr %23, null
@@ -8048,13 +8042,13 @@ define internal fastcc { i64, ptr } @escape_string(i64 %0, ptr %1, ptr noundef %
 ._crit_edge47:                                    ; preds = %39, %._crit_edge
   %.pn34.lcssa = phi { i64, ptr } [ %15, %._crit_edge ], [ %.pn, %39 ]
   call void @jv_free(i64 %0, ptr %1) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret { i64, ptr } %.pn34.lcssa
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare i32 @jvp_utf8_is_valid(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -8063,15 +8057,15 @@ declare { i64, ptr } @jv_array_set(i64, ptr, i32 noundef, i64, ptr) local_unname
 declare ptr @jv_mem_calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare { i64, ptr } @jv_object() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 declare { i64, ptr } @jv_object_set(i64, ptr, i64, ptr, i64, ptr) local_unnamed_addr #1
 
@@ -8179,10 +8173,10 @@ declare void @jq_get_debug_cb(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare void @jq_get_stderr_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare ptr @strptime(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare ptr @strptime(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #11
+declare ptr @__ctype_b_loc() local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc { i64, ptr } @tm2jv(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
@@ -8263,7 +8257,7 @@ define internal fastcc { i64, ptr } @tm2jv(ptr noundef nonnull readonly captures
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #3
+declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @jv2tm(i64 %0, ptr %1, ptr noundef nonnull writeonly captures(none) initializes((0, 56)) %2) unnamed_addr #0 {
@@ -8333,22 +8327,22 @@ define internal fastcc range(i32 0, 2) i32 @jv2tm(i64 %0, ptr %1, ptr noundef no
 }
 
 ; Function Attrs: nounwind
-declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i64 @timegm(ptr noundef) local_unnamed_addr #6
+declare i64 @timegm(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare ptr @gmtime_r(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare ptr @gmtime_r(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare ptr @localtime_r(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare ptr @localtime_r(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #6
+declare i64 @time(ptr noundef) local_unnamed_addr #5
 
 declare { i64, ptr } @jq_util_input_get_current_filename(ptr noundef) local_unnamed_addr #1
 
@@ -8356,22 +8350,28 @@ declare { i64, ptr } @jq_util_input_get_current_line(ptr noundef) local_unnamed_
 
 declare { i64, ptr } @block_list_funcs(ptr, ptr, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #14 = { nounwind }
 attributes #15 = { nounwind willreturn memory(none) }

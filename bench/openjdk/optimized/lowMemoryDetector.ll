@@ -435,7 +435,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %0, %3
   %.sroa.022.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %27 = freeze i64 %.sroa.2.0.copyload
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx, i64 16, i1 false)
   %28 = load ptr, ptr %16, align 8
   %29 = load i8, ptr %28, align 8
@@ -523,7 +523,7 @@ _ZN16ThresholdSupport24is_low_threshold_crossedE11MemoryUsage.exit.i: ; preds = 
   br label %_ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit
 
 _ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit: ; preds = %52, %55, %56, %64, %68
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   %70 = trunc nuw i8 %.024 to i1
   br i1 %70, label %80, label %71
 
@@ -2546,10 +2546,10 @@ declare void @_ZN5Mutex28lock_without_safepoint_checkEP6Thread(ptr noundef nonnu
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11

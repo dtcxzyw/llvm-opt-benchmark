@@ -432,16 +432,16 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__36HdsiPrimTypeNoticeBatchingSc
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__36HdsiPrimTypeNoticeBatchingSceneIndexE, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14 = load ptr, ptr %2, align 8, !noalias !6
   %.not12.i = icmp eq ptr %14, null
   br i1 %.not12.i, label %.thread, label %15
 
 .thread:                                          ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false), !alias.scope !6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_GetNumPrioritiesERKSt10shared_ptrINS_36HdsiPrimTypeNoticeBatchingSceneIndex23PrimTypePriorityFunctorEE.exit
 
 15:                                               ; preds = %3
@@ -691,8 +691,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 128:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i11.i, %123, %110, %91
   %.val.pr = load ptr, ptr %13, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not.i20 = icmp eq ptr %.val.pr, null
   br i1 %.not.i20, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_GetNumPrioritiesERKSt10shared_ptrINS_36HdsiPrimTypeNoticeBatchingSceneIndex23PrimTypePriorityFunctorEE.exit, label %129
 
@@ -958,7 +958,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
 
 _ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexPrimView14const_iteratorD2Ev.exit29: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexPrimView14const_iteratorD2Ev.exit, %243, %.noexc.i.i28, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i25, %249
   call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexPrimViewD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %9) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br i1 %149, label %256, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 256:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexPrimView14const_iteratorD2Ev.exit29
@@ -970,7 +970,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexPrimView14const_iteratorD2Ev.
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexPrimView14const_iteratorD2Ev.exit29, %256
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 258:                                              ; preds = %23
@@ -1014,7 +1014,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZN32
   %270 = load i64, ptr %269, align 8
   %271 = load ptr, ptr %268, align 8
   %272 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", ptr %271, i64 %270
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %273 = load ptr, ptr %157, align 8
   %.not.i30 = icmp eq ptr %273, null
   br i1 %.not.i30, label %274, label %279
@@ -1036,7 +1036,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZN32
   unreachable
 
 279:                                              ; preds = %.loopexit
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %280 = load ptr, ptr %273, align 8
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 16
   %282 = load ptr, ptr %281, align 8
@@ -1212,7 +1212,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__36HdsiPrimTypeNoticeBatchingSceneIndex15_Pr
 
 353:                                              ; preds = %352, %262
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %352 ], [ %263, %262 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %149, label %354, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit43
 
 354:                                              ; preds = %353
@@ -1224,7 +1224,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__36HdsiPrimTypeNoticeBatchingSceneIndex15_Pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit43
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit43: ; preds = %353, %354
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZNSt3setIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %142) #25
   call void @_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt7variantIJNS0_36HdsiPrimTypeNoticeBatchingSceneIndex17_PrimDirtiedEntryENS3_15_PrimAddedEntryEEESt4lessIS1_ESaISt4pairIKS1_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %136) #25
   br label %356
@@ -2082,7 +2082,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__36HdsiPrimTypeNoticeBatchingS
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %12, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEptEv.exit
@@ -2101,7 +2101,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__36HdsiPrimTypeNoticeBatchingS
   unreachable
 
 _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEptEv.exit: ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %17 = load ptr, ptr %11, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
@@ -2129,7 +2129,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__36HdsiPrimTypeNoticeBatchingS
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %12, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEptEv.exit
@@ -2148,7 +2148,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__36HdsiPrimTypeNoticeBatchingS
   unreachable
 
 _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEptEv.exit: ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %17 = load ptr, ptr %11, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
@@ -2277,7 +2277,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__36HdsiPrimTypeNoticeBatchingSceneIndex15_Pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__36HdsiPrimTypeNoticeBatchingSceneIndex15_PrimAddedEntryD2Ev.exit16
 
 ._crit_edge:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__36HdsiPrimTypeNoticeBatchingSceneIndex15_PrimAddedEntryD2Ev.exit, %15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %7, label %58, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 58:                                               ; preds = %._crit_edge
@@ -2289,11 +2289,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__36HdsiPrimTypeNoticeBatchingSceneIndex15_Pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %._crit_edge, %58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 _ZN32pxrInternal_v0_24__pxrReserved__36HdsiPrimTypeNoticeBatchingSceneIndex15_PrimAddedEntryD2Ev.exit16: ; preds = %54, %51
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %7, label %60, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit17
 
 60:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__36HdsiPrimTypeNoticeBatchingSceneIndex15_PrimAddedEntryD2Ev.exit16
@@ -2305,7 +2305,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__36HdsiPrimTypeNoticeBatchingSceneIndex15_Pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit17
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit17: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__36HdsiPrimTypeNoticeBatchingSceneIndex15_PrimAddedEntryD2Ev.exit16, %60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %52
 }
 
@@ -2366,7 +2366,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__36HdsiPrimTypeNoticeBatchingSc
 32:                                               ; preds = %30, %25
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %7, label %34, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 34:                                               ; preds = %32
@@ -2378,7 +2378,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__36HdsiPrimTypeNoticeBatchingSc
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %32, %34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %33
 
 36:                                               ; preds = %27, %30
@@ -2387,7 +2387,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %32, %
   br i1 %.not, label %._crit_edge, label %25
 
 ._crit_edge:                                      ; preds = %36, %15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %7, label %38, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit18
 
 38:                                               ; preds = %._crit_edge
@@ -2399,7 +2399,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %32, %
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit18
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit18: ; preds = %._crit_edge, %38
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2881,7 +2881,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__36HdsiPrimTypeNoticeBatchingSceneIndex34_Re
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp26, %.loopexit.split-lp.loopexit.split-lp ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %7, label %112, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 112:                                              ; preds = %.loopexit.split-lp
@@ -2893,11 +2893,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__36HdsiPrimTypeNoticeBatchingSceneIndex34_Re
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %.loopexit.split-lp, %112
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %lpad.phi
 
 ._crit_edge:                                      ; preds = %110, %15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %7, label %114, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit13
 
 114:                                              ; preds = %._crit_edge
@@ -2909,7 +2909,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %.loop
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit13
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit13: ; preds = %._crit_edge, %114
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3338,7 +3338,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS0_20HdS
   ]
 
 166:                                              ; preds = %161
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %167 = load ptr, ptr %147, align 8
   %.not7.i = icmp eq ptr %167, null
   br i1 %.not7.i, label %186, label %168
@@ -3387,7 +3387,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %178,
 
 186:                                              ; preds = %.noexc59, %.noexc58, %166
   %.0.i = phi i64 [ %185, %.noexc59 ], [ 0, %166 ], [ %172, %.noexc58 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %187 = load ptr, ptr %9, align 8
   %188 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfSmallVector", ptr %187, i64 %.0.i
   %189 = load i32, ptr %162, align 4
@@ -3518,7 +3518,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i: ; preds = %_ZN32pxrInt
   unreachable
 
 _ZSt3getIN32pxrInternal_v0_24__pxrReserved__36HdsiPrimTypeNoticeBatchingSceneIndex17_PrimDirtiedEntryEJS2_NS1_15_PrimAddedEntryEEERKT_RKSt7variantIJDpT0_EE.exit: ; preds = %161
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %240 = load ptr, ptr %145, align 8
   %.not.i70 = icmp eq ptr %240, null
   br i1 %.not.i70, label %241, label %246
@@ -3540,7 +3540,7 @@ _ZSt3getIN32pxrInternal_v0_24__pxrReserved__36HdsiPrimTypeNoticeBatchingSceneInd
   unreachable
 
 246:                                              ; preds = %_ZSt3getIN32pxrInternal_v0_24__pxrReserved__36HdsiPrimTypeNoticeBatchingSceneIndex17_PrimDirtiedEntryEJS2_NS1_15_PrimAddedEntryEEERKT_RKSt7variantIJDpT0_EE.exit
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %247 = load ptr, ptr %240, align 8
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 16
   %249 = load ptr, ptr %248, align 8
@@ -3637,7 +3637,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2
   br label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexPrimD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexPrimD2Ev.exit: ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit.i, %290
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %294 = load ptr, ptr %147, align 8
   %.not7.i76 = icmp eq ptr %294, null
   br i1 %.not7.i76, label %313, label %295
@@ -3686,7 +3686,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i80: ; preds = %30
 
 313:                                              ; preds = %.noexc83, %.noexc82, %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexPrimD2Ev.exit
   %.0.i81 = phi i64 [ %312, %.noexc83 ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexPrimD2Ev.exit ], [ %299, %.noexc82 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %314 = load ptr, ptr %10, align 8
   %315 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfSmallVector.39", ptr %314, i64 %.0.i81
   %316 = load i32, ptr %162, align 4
@@ -3905,7 +3905,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt7variantIJNS0_36HdsiPrim
   store ptr %406, ptr %408, align 8
   %409 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i64 0, ptr %409, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br i1 %16, label %410, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 410:                                              ; preds = %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt7variantIJNS0_36HdsiPrimTypeNoticeBatchingSceneIndex17_PrimDirtiedEntryENS3_15_PrimAddedEntryEEESt4lessIS1_ESaISt4pairIKS1_S6_EEE5clearEv.exit
@@ -3917,12 +3917,12 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt7variantIJNS0_36HdsiPrim
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt7variantIJNS0_36HdsiPrimTypeNoticeBatchingSceneIndex17_PrimDirtiedEntryENS3_15_PrimAddedEntryEEESt4lessIS1_ESaISt4pairIKS1_S6_EEE5clearEv.exit, %410
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 412:                                              ; preds = %389, %232, %110, %74
   %.pn37.pn.pn = phi { ptr, i32 } [ %.pn37.pn, %389 ], [ %233, %232 ], [ %.pn, %110 ], [ %75, %74 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br i1 %16, label %413, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit93
 
 413:                                              ; preds = %412
@@ -3934,7 +3934,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZNSt
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit93
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit93: ; preds = %412, %413
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn37.pn.pn
 }
 
@@ -6951,10 +6951,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 declare i64 @llvm.umax.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

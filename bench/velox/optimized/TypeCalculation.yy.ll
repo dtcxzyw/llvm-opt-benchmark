@@ -143,7 +143,7 @@ entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox10expression9calculate6ParserE, i64 16), ptr %this, align 8
   %yystack_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   invoke void @_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EEC2EmRKS6_(ptr noundef nonnull align 8 dereferenceable(24) %yystack_, i64 noundef 200, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %_ZN8facebook5velox10expression9calculate6Parser5stackINS3_17stack_symbol_typeESt6vectorIS5_SaIS5_EEEC2Em.exit unwind label %terminate.lpad.i
 
@@ -155,7 +155,7 @@ terminate.lpad.i:                                 ; preds = %entry
   unreachable
 
 _ZN8facebook5velox10expression9calculate6Parser5stackINS3_17stack_symbol_typeESt6vectorIS5_SaIS5_EEEC2Em.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %scanner = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %scanner_yyarg, ptr %scanner, align 8
   ret void
@@ -753,7 +753,7 @@ invoke.cont.i.i.i:                                ; preds = %_ZSt8_DestroyIN8fac
   br label %_ZN8facebook5velox10expression9calculate6Parser5stackINS3_17stack_symbol_typeESt6vectorIS5_SaIS5_EEE5clearEv.exit
 
 _ZN8facebook5velox10expression9calculate6Parser5stackINS3_17stack_symbol_typeESt6vectorIS5_SaIS5_EEE5clearEv.exit: ; preds = %entry, %invoke.cont.i.i.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   invoke void @_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeC1EaONS3_11symbol_typeE(ptr noundef nonnull align 16 dereferenceable(48) %ref.tmp.i, i8 noundef signext 0, ptr noundef nonnull align 16 dereferenceable(48) %yyla)
           to label %.noexc unwind label %lpad.loopexit.split-lp
 
@@ -786,7 +786,7 @@ sw.bb2.i.i.i2.i:                                  ; preds = %lpad.i
   br label %lpad.body
 
 _ZN8facebook5velox10expression9calculate6Parser7yypush_EPKcaONS3_11symbol_typeE.exit: ; preds = %invoke.cont.i, %sw.bb2.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %scanner = getelementptr inbounds nuw i8, ptr %this, i64 32
   %value3.i.i.i.i53 = getelementptr inbounds nuw i8, ptr %ref.tmp.i43, i64 16
   %value86 = getelementptr inbounds nuw i8, ptr %yylhs, i64 16
@@ -935,7 +935,7 @@ if.end47:                                         ; preds = %if.end39
 
 if.end48:                                         ; preds = %if.end39
   %spec.select = call i32 @llvm.usub.sat.i32(i32 %yyerrstatus_.0429, i32 1)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i43)
   invoke void @_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeC1EaONS3_11symbol_typeE(ptr noundef nonnull align 16 dereferenceable(48) %ref.tmp.i43, i8 noundef signext %30, ptr noundef nonnull align 16 dereferenceable(48) %yyla)
           to label %.noexc54 unwind label %lpad.loopexit.loopexit
 
@@ -966,7 +966,7 @@ sw.bb2.i.i.i2.i48:                                ; preds = %lpad.i45
   br label %lpad.body
 
 _ZN8facebook5velox10expression9calculate6Parser7yypush_EPKcaONS3_11symbol_typeE.exit57: ; preds = %invoke.cont.i50, %sw.bb2.i.i.i.i52
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i43)
   %36 = load ptr, ptr %_M_finish.i.i.i, align 8
   %37 = load ptr, ptr %yystack_, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %36 to i64
@@ -3521,10 +3521,10 @@ declare void @llvm.assume(i1 noundef) #22
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #21

@@ -64,7 +64,7 @@ define dso_local void @virtio_gpu_create_context(ptr noundef readonly captures(n
   br label %virtio_gpu_create_context_locked.exit
 
 23:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !7
   %24 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !8
   %25 = inttoptr i64 %24 to ptr
@@ -75,7 +75,7 @@ define dso_local void @virtio_gpu_create_context(ptr noundef readonly captures(n
   %30 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #6
   %31 = trunc i64 %30 to i32
   call void @virtio_gpu_cmd_context_create(ptr noundef %5, i32 noundef %27, i32 noundef %29, i32 noundef %31, ptr noundef nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %virtio_gpu_create_context_locked.exit
 
 virtio_gpu_create_context_locked.exit:            ; preds = %16, %23
@@ -87,11 +87,8 @@ virtio_gpu_create_context_locked.exit:            ; preds = %16, %23
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
+declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @virtio_gpu_create_context_locked(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
@@ -112,7 +109,7 @@ define internal fastcc void @virtio_gpu_create_context_locked(ptr noundef %0, pt
   br label %23
 
 14:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !7
   %15 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !8
   %16 = inttoptr i64 %15 to ptr
@@ -123,7 +120,7 @@ define internal fastcc void @virtio_gpu_create_context_locked(ptr noundef %0, pt
   %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #6
   %22 = trunc i64 %21 to i32
   call void @virtio_gpu_cmd_context_create(ptr noundef %0, i32 noundef %18, i32 noundef %20, i32 noundef %22, ptr noundef nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %23
 
 23:                                               ; preds = %14, %7
@@ -133,10 +130,7 @@ define internal fastcc void @virtio_gpu_create_context_locked(ptr noundef %0, pt
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @virtio_gpu_map_ioctl(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
@@ -150,14 +144,14 @@ define internal i32 @virtio_gpu_map_ioctl(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @virtio_gpu_execbuffer_ioctl(ptr noundef, ptr noundef, ptr noundef) #2
+declare dso_local i32 @virtio_gpu_execbuffer_ioctl(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 -22, 1) i32 @virtio_gpu_getparam_ioctl(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load i64, ptr %1, align 8
   switch i64 %7, label %43 [
     i64 1, label %8
@@ -225,7 +219,7 @@ define internal range(i32 -22, 1) i32 @virtio_gpu_getparam_ioctl(ptr noundef rea
 
 43:                                               ; preds = %36, %3
   %44 = phi i32 [ -22, %3 ], [ %42, %36 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %44
 }
 
@@ -237,11 +231,11 @@ define internal i32 @virtio_gpu_resource_create_ioctl(ptr noundef readonly captu
   %7 = alloca %struct.virtio_gpu_object_params, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !annotation !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 64, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 62136
@@ -276,7 +270,7 @@ define internal i32 @virtio_gpu_resource_create_ioctl(ptr noundef readonly captu
   br label %virtio_gpu_create_context_locked.exit
 
 32:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !7
   %33 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !8
   %34 = inttoptr i64 %33 to ptr
@@ -287,7 +281,7 @@ define internal i32 @virtio_gpu_resource_create_ioctl(ptr noundef readonly captu
   %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #6
   %40 = trunc i64 %39 to i32
   call void @virtio_gpu_cmd_context_create(ptr noundef %9, i32 noundef %36, i32 noundef %38, i32 noundef %40, ptr noundef nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %virtio_gpu_create_context_locked.exit
 
 virtio_gpu_create_context_locked.exit:            ; preds = %25, %32
@@ -447,9 +441,9 @@ virtio_gpu_create_context_locked.exit:            ; preds = %25, %32
 
 .thread7:                                         ; preds = %127, %129, %130, %116, %115, %.thread, %82, %78, %75, %71, %67, %63
   %131 = phi i32 [ %113, %115 ], [ -22, %63 ], [ -22, %67 ], [ -22, %71 ], [ -22, %75 ], [ -22, %78 ], [ -12, %82 ], [ %102, %.thread ], [ 0, %116 ], [ 0, %130 ], [ 0, %129 ], [ 0, %127 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %131
 }
 
@@ -550,7 +544,7 @@ define internal i32 @virtio_gpu_transfer_from_host_ioctl(ptr noundef readonly ca
   br label %virtio_gpu_create_context_locked.exit
 
 30:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !7
   %31 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !8
   %32 = inttoptr i64 %31 to ptr
@@ -561,7 +555,7 @@ define internal i32 @virtio_gpu_transfer_from_host_ioctl(ptr noundef readonly ca
   %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #6
   %38 = trunc i64 %37 to i32
   call void @virtio_gpu_cmd_context_create(ptr noundef %6, i32 noundef %34, i32 noundef %36, i32 noundef %38, ptr noundef nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %virtio_gpu_create_context_locked.exit
 
 virtio_gpu_create_context_locked.exit:            ; preds = %23, %30
@@ -735,7 +729,7 @@ define internal i32 @virtio_gpu_transfer_to_host_ioctl(ptr noundef readonly capt
   br label %virtio_gpu_create_context_locked.exit
 
 55:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !7
   %56 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !8
   %57 = inttoptr i64 %56 to ptr
@@ -746,7 +740,7 @@ define internal i32 @virtio_gpu_transfer_to_host_ioctl(ptr noundef readonly capt
   %62 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #6
   %63 = trunc i64 %62 to i32
   call void @virtio_gpu_cmd_context_create(ptr noundef %38, i32 noundef %59, i32 noundef %61, i32 noundef %63, ptr noundef nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %virtio_gpu_create_context_locked.exit
 
 virtio_gpu_create_context_locked.exit:            ; preds = %48, %55
@@ -898,7 +892,7 @@ define internal i32 @virtio_gpu_get_caps_ioctl(ptr noundef readonly captures(non
   %5 = alloca %struct.wait_queue_entry, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 62496
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
@@ -1006,7 +1000,7 @@ define internal i32 @virtio_gpu_get_caps_ioctl(ptr noundef readonly captures(non
   br i1 %69, label %70, label %90
 
 70:                                               ; preds = %64
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false), !annotation !7
   call void @init_wait_entry(ptr noundef nonnull %5, i32 noundef 0) #6
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 62040
@@ -1019,7 +1013,7 @@ define internal i32 @virtio_gpu_get_caps_ioctl(ptr noundef readonly captures(non
 
 ._crit_edge.thread:                               ; preds = %70
   call void @finish_wait(ptr noundef nonnull %71, ptr noundef nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %90
 
 .lr.ph:                                           ; preds = %70, %.lr.ph
@@ -1041,7 +1035,7 @@ define internal i32 @virtio_gpu_get_caps_ioctl(ptr noundef readonly captures(non
   %88 = and i64 %85, 4294967295
   %89 = icmp eq i64 %88, 0
   call void @finish_wait(ptr noundef nonnull %71, ptr noundef nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %89, label %104, label %90
 
 90:                                               ; preds = %._crit_edge.thread, %._crit_edge, %64
@@ -1070,7 +1064,7 @@ define internal i32 @virtio_gpu_get_caps_ioctl(ptr noundef readonly captures(non
 
 104:                                              ; preds = %93, %92, %._crit_edge, %.loopexit, %.thread, %11, %3
   %105 = phi i32 [ -22, %.thread ], [ -38, %3 ], [ -22, %11 ], [ %61, %.loopexit ], [ -16, %._crit_edge ], [ %103, %93 ], [ -14, %92 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %105
 }
 
@@ -1079,10 +1073,10 @@ define internal i32 @virtio_gpu_resource_create_blob_ioctl(ptr noundef readonly 
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca %struct.virtio_gpu_object_params, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 72, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
@@ -1319,9 +1313,9 @@ define internal i32 @virtio_gpu_resource_create_blob_ioctl(ptr noundef readonly 
 
 .critedge:                                        ; preds = %131, %133, %.thread10, %3, %24, %50, %46, %27, %31, %20, %14, %134, %120, %119, %115, %95, %92
   %135 = phi i32 [ %113, %115 ], [ %117, %119 ], [ -22, %92 ], [ %99, %95 ], [ 0, %120 ], [ 0, %134 ], [ -22, %14 ], [ -22, %20 ], [ -22, %31 ], [ -22, %27 ], [ -22, %46 ], [ -22, %50 ], [ -22, %24 ], [ -22, %3 ], [ %83, %.thread10 ], [ 0, %133 ], [ 0, %131 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %135
 }
 
@@ -1515,7 +1509,7 @@ define internal i32 @virtio_gpu_context_init_ioctl(ptr noundef readonly captures
   br label %virtio_gpu_create_context_locked.exit
 
 122:                                              ; preds = %111
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !7
   %123 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !8
   %124 = inttoptr i64 %123 to ptr
@@ -1526,7 +1520,7 @@ define internal i32 @virtio_gpu_context_init_ioctl(ptr noundef readonly captures
   %129 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #6
   %130 = trunc i64 %129 to i32
   call void @virtio_gpu_cmd_context_create(ptr noundef %6, i32 noundef %126, i32 noundef %128, i32 noundef %130, ptr noundef nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %virtio_gpu_create_context_locked.exit
 
 virtio_gpu_create_context_locked.exit:            ; preds = %115, %122
@@ -1546,134 +1540,140 @@ virtio_gpu_create_context_locked.exit:            ; preds = %115, %122
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @virtio_gpu_cmd_context_create(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local void @virtio_gpu_cmd_context_create(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @__get_task_comm(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local ptr @__get_task_comm(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @virtio_gpu_mode_dumb_mmap(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @virtio_gpu_mode_dumb_mmap(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @_copy_to_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare dso_local i64 @_copy_to_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @virtio_gpu_fence_alloc(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local ptr @virtio_gpu_fence_alloc(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @virtio_gpu_object_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @virtio_gpu_object_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @drm_gem_handle_create(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @drm_gem_handle_create(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @drm_gem_object_release(ptr noundef) local_unnamed_addr #2
+declare dso_local void @drm_gem_object_release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @dma_fence_release(ptr noundef) local_unnamed_addr #2
+declare dso_local void @dma_fence_release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @drm_gem_object_free(ptr noundef) local_unnamed_addr #2
+declare dso_local void @drm_gem_object_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @drm_gem_object_lookup(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local ptr @drm_gem_object_lookup(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @virtio_gpu_array_from_handles(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local ptr @virtio_gpu_array_from_handles(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @virtio_gpu_array_lock_resv(ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @virtio_gpu_array_lock_resv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @virtio_gpu_cmd_transfer_from_host_3d(ptr noundef, i32 noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local void @virtio_gpu_cmd_transfer_from_host_3d(ptr noundef, i32 noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @virtio_gpu_notify(ptr noundef) local_unnamed_addr #2
+declare dso_local void @virtio_gpu_notify(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @virtio_gpu_array_unlock_resv(ptr noundef) local_unnamed_addr #2
+declare dso_local void @virtio_gpu_array_unlock_resv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @virtio_gpu_array_put_free(ptr noundef) local_unnamed_addr #2
+declare dso_local void @virtio_gpu_array_put_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @virtio_gpu_cmd_transfer_to_host_2d(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local void @virtio_gpu_cmd_transfer_to_host_2d(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @virtio_gpu_cmd_transfer_to_host_3d(ptr noundef, i32 noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local void @virtio_gpu_cmd_transfer_to_host_3d(ptr noundef, i32 noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local zeroext i1 @dma_resv_test_signaled(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local zeroext i1 @dma_resv_test_signaled(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @dma_resv_wait_timeout(ptr noundef, i32 noundef, i1 noundef zeroext, i64 noundef) local_unnamed_addr #2
+declare dso_local i64 @dma_resv_wait_timeout(ptr noundef, i32 noundef, i1 noundef zeroext, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @virtio_gpu_cmd_get_capset(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @virtio_gpu_cmd_get_capset(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @init_wait_entry(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local void @init_wait_entry(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @prepare_to_wait_event(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local i64 @prepare_to_wait_event(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @schedule_timeout(i64 noundef) local_unnamed_addr #2
+declare dso_local i64 @schedule_timeout(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @finish_wait(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local void @finish_wait(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
+declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
+declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #2
+declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @memdup_user(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare dso_local ptr @memdup_user(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @virtio_gpu_cmd_submit(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local void @virtio_gpu_cmd_submit(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @virtio_gpu_vram_create(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @virtio_gpu_vram_create(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @virtio_gpu_resource_assign_uuid(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @virtio_gpu_resource_assign_uuid(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @dma_fence_context_alloc(i32 noundef) local_unnamed_addr #2
+declare dso_local i64 @dma_fence_context_alloc(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @strncpy_from_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare dso_local i64 @strncpy_from_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
+declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #5
+declare i32 @llvm.smin.i32(i32, i32) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #5
+declare i32 @llvm.umin.i32(i32, i32) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind memory(none) }
 

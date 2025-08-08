@@ -47,10 +47,7 @@ define internal ptr @hwloc_pci_component_instantiate(ptr noundef %0, ptr noundef
   ret ptr %7
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-declare ptr @hwloc_backend_alloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @hwloc_backend_alloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @hwloc_look_pci(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #1 {
@@ -74,11 +71,11 @@ define internal range(i32 -1, 1) i32 @hwloc_look_pci(ptr noundef captures(none) 
   %20 = alloca [16 x i8], align 16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %23 = call i32 @hwloc_topology_get_type_filter(ptr noundef %22, i32 noundef 17, ptr noundef nonnull %10) #10
   %24 = call i32 @hwloc_topology_get_type_filter(ptr noundef %22, i32 noundef 16, ptr noundef nonnull %11) #10
   %25 = load i32, ptr %11, align 4, !tbaa !16
@@ -94,7 +91,7 @@ define internal range(i32 -1, 1) i32 @hwloc_look_pci(ptr noundef captures(none) 
   br i1 %31, label %32, label %111
 
 32:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %33 = call i32 @hwloc_topology_reconnect(ptr noundef %22, i64 noundef 0) #10
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 -1, ptr %34, align 8, !tbaa !19
@@ -140,8 +137,8 @@ hwloc_get_next_pcidev.exit.i:                     ; preds = %46, %41
   br i1 %or.cond.i.i1122.i, label %hwloc_pci_get_names.exit, label %.lr.ph.i
 
 50:                                               ; preds = %hwloc_get_next_pcidev.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %52 = load ptr, ptr %51, align 8, !tbaa !31
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 10
@@ -183,8 +180,8 @@ hwloc_get_next_pcidev.exit.i:                     ; preds = %46, %41
   br label %hwloc_pci_get_obj_names.exit.i
 
 hwloc_pci_get_obj_names.exit.i:                   ; preds = %69, %67, %65
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %72 = call i32 @hwloc_get_type_depth(ptr noundef %22, i32 noundef 17) #10
   %or.cond.i.i.i = icmp ugt i32 %72, -3
   br i1 %or.cond.i.i.i, label %.preheader.i, label %.lr.ph168, !llvm.loop !36
@@ -224,8 +221,8 @@ hwloc_get_next_bridge.exit.i:                     ; preds = %79, %74
   br i1 %87, label %88, label %108
 
 88:                                               ; preds = %82
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %89 = getelementptr inbounds nuw i8, ptr %84, i64 10
   %90 = load i16, ptr %89, align 2, !tbaa !32
   %91 = zext i16 %90 to i32
@@ -265,8 +262,8 @@ hwloc_get_next_bridge.exit.i:                     ; preds = %79, %74
   br label %hwloc_pci_get_obj_names.exit19.i
 
 hwloc_pci_get_obj_names.exit19.i:                 ; preds = %105, %103, %101
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %108
 
 108:                                              ; preds = %hwloc_pci_get_obj_names.exit19.i, %82
@@ -276,7 +273,7 @@ hwloc_pci_get_obj_names.exit19.i:                 ; preds = %105, %103, %101
 
 hwloc_pci_get_names.exit:                         ; preds = %76, %hwloc_get_next_bridge.exit.i, %108, %.preheader.i
   %110 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @hwloc_pciaccess_mutex) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %317
 
 111:                                              ; preds = %29
@@ -321,9 +318,9 @@ hwloc_pci_get_names.exit:                         ; preds = %76, %hwloc_get_next
 134:                                              ; preds = %.lr.ph, %302
   %.0126164 = phi i32 [ 0, %.lr.ph ], [ %.1, %302 ]
   %.0127163 = phi ptr [ %129, %.lr.ph ], [ %303, %302 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %14) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %135 = getelementptr inbounds nuw i8, ptr %.0127163, i64 292
   %136 = load i32, ptr %135, align 4, !tbaa !41
   %137 = getelementptr inbounds nuw i8, ptr %.0127163, i64 2
@@ -398,8 +395,8 @@ hwloc_pci_get_names.exit:                         ; preds = %76, %hwloc_get_next
   br i1 %179, label %180, label %199
 
 180:                                              ; preds = %176
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %17) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %181 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %17, i64 noundef 64, ptr noundef nonnull @.str.5, i32 noundef %136, i32 noundef %139, i32 noundef %142, i32 noundef %145) #10
   %182 = call noalias ptr @fopen(ptr noundef nonnull %17, ptr noundef nonnull @.str.6)
   %.not138 = icmp eq ptr %182, null
@@ -436,8 +433,8 @@ hwloc_pci_get_names.exit:                         ; preds = %76, %hwloc_get_next
   br label %198
 
 198:                                              ; preds = %192, %195, %189
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %199
 
 199:                                              ; preds = %198, %176, %.thread153
@@ -513,8 +510,8 @@ hwloc_pci_get_names.exit:                         ; preds = %76, %hwloc_get_next
   br label %272
 
 246:                                              ; preds = %236
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %19) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %247 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %19, i64 noundef 128, ptr noundef nonnull @.str.8, i32 noundef %136, i32 noundef %139, i32 noundef %142, i32 noundef %145) #10
   %248 = call noalias ptr @fopen(ptr noundef nonnull %19, ptr noundef nonnull @.str.6)
   %.not143 = icmp eq ptr %248, null
@@ -569,8 +566,8 @@ hwloc_linux_pci_link_speed_from_string.exit:      ; preds = %sub_0.i, %.tail.thr
   %270 = load ptr, ptr %201, align 8, !tbaa !31
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 20
   store float %269, ptr %271, align 4, !tbaa !32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %19) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %272
 
 272:                                              ; preds = %267, %242
@@ -590,8 +587,8 @@ hwloc_linux_pci_link_speed_from_string.exit:      ; preds = %sub_0.i, %.tail.thr
   br label %280
 
 280:                                              ; preds = %272, %275
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %281 = load ptr, ptr %201, align 8, !tbaa !31
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 10
   %283 = load i16, ptr %282, align 2, !tbaa !32
@@ -632,17 +629,17 @@ hwloc_linux_pci_link_speed_from_string.exit:      ; preds = %sub_0.i, %.tail.thr
   br label %hwloc_pci_get_obj_names.exit
 
 hwloc_pci_get_obj_names.exit:                     ; preds = %294, %296, %298
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @hwloc_pcidisc_tree_insert_by_busid(ptr noundef nonnull %12, ptr noundef nonnull %200) #10
   %301 = add i32 %.0126164, 1
   br label %302
 
 302:                                              ; preds = %162, %160, %153, %hwloc_pci_get_obj_names.exit
   %.1 = phi i32 [ %301, %hwloc_pci_get_obj_names.exit ], [ %.0126164, %153 ], [ %.0126164, %160 ], [ %.0126164, %162 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #10
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %14) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %303 = call ptr @pci_device_next(ptr noundef %128) #10
   %.not135 = icmp eq ptr %303, null
   br i1 %.not135, label %._crit_edge.loopexit, label %134, !llvm.loop !54
@@ -675,110 +672,113 @@ hwloc_pci_get_obj_names.exit:                     ; preds = %294, %296, %298
 
 317:                                              ; preds = %._crit_edge, %314, %117, %121, %2, %hwloc_pci_get_names.exit
   %.0125 = phi i32 [ 0, %hwloc_pci_get_names.exit ], [ 0, %2 ], [ -1, %121 ], [ -1, %117 ], [ 0, %314 ], [ 0, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0125
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
-declare i32 @hwloc_topology_get_type_filter(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @hwloc_topology_get_type_filter(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #4
+declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #3
 
-declare i32 @pci_system_init() local_unnamed_addr #3
+declare i32 @pci_system_init() local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #3
 
-declare i32 @hwloc_hide_errors() local_unnamed_addr #3
+declare i32 @hwloc_hide_errors() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #4
+declare ptr @strerror(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #6
+declare ptr @__errno_location() local_unnamed_addr #5
 
-declare ptr @pci_slot_match_iterator_create(ptr noundef) local_unnamed_addr #3
+declare ptr @pci_slot_match_iterator_create(ptr noundef) local_unnamed_addr #2
 
-declare ptr @pci_device_next(ptr noundef) local_unnamed_addr #3
+declare ptr @pci_device_next(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
-declare i32 @pci_device_probe(ptr noundef) local_unnamed_addr #3
+declare i32 @pci_device_probe(ptr noundef) local_unnamed_addr #2
 
-declare i32 @pci_device_cfg_read(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @pci_device_cfg_read(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @hwloc_pcidisc_check_bridge_type(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @hwloc_pcidisc_check_bridge_type(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @hwloc_pcidisc_find_bridge_buses(i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
+declare i32 @hwloc_pcidisc_find_bridge_buses(i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #7
 
-declare ptr @hwloc_alloc_setup_object(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @hwloc_alloc_setup_object(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @hwloc_pcidisc_find_cap(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @hwloc_pcidisc_find_cap(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @hwloc_pcidisc_find_linkspeed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @hwloc_pcidisc_find_linkspeed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @hwloc_pcidisc_tree_insert_by_busid(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @hwloc_pcidisc_tree_insert_by_busid(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @pci_iterator_destroy(ptr noundef) local_unnamed_addr #3
+declare void @pci_iterator_destroy(ptr noundef) local_unnamed_addr #2
 
-declare void @pci_system_cleanup() local_unnamed_addr #3
+declare void @pci_system_cleanup() local_unnamed_addr #2
 
-declare i32 @hwloc_pcidisc_tree_attach(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @hwloc_pcidisc_tree_attach(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @hwloc_modify_infos(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @hwloc_modify_infos(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @hwloc_topology_get_infos(ptr noundef) local_unnamed_addr #3
+declare ptr @hwloc_topology_get_infos(ptr noundef) local_unnamed_addr #2
 
-declare i32 @hwloc_topology_reconnect(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @hwloc_topology_reconnect(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @hwloc_get_type_depth(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @hwloc_get_type_depth(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @hwloc_get_obj_by_depth(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #9
+declare ptr @hwloc_get_obj_by_depth(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #8
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #7
 
-declare void @pci_get_strings(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @pci_get_strings(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind willreturn memory(read) }
 attributes #12 = { nounwind willreturn memory(none) }

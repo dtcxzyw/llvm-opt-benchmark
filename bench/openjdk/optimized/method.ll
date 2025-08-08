@@ -1089,7 +1089,7 @@ define hidden noundef ptr @_ZNK6Method13external_nameEv(ptr noundef nonnull read
   %17 = zext i16 %16 to i64
   %18 = getelementptr inbounds nuw i64, ptr %11, i64 %17
   %19 = load ptr, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %2, i64 noundef 0) #24
   call void @_ZN6Symbol39print_as_signature_external_return_typeEP12outputStream(ptr noundef nonnull align 4 dereferenceable(8) %19, ptr noundef nonnull %2) #24
   %20 = call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %8) #24
@@ -1099,7 +1099,7 @@ define hidden noundef ptr @_ZNK6Method13external_nameEv(ptr noundef nonnull read
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.4) #24
   %22 = call noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 dereferenceable(129) %2, i1 noundef zeroext false) #24
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %2) #24
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %22
 }
 
@@ -1601,7 +1601,7 @@ _ZN14ExceptionTableC2EPK6Method.exit60:           ; preds = %.lr.ph.split, %120
 
 _ZN12ResourceMarkD2Ev.exit69:                     ; preds = %233, %231, %180
   %234 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %234, ptr %5, align 8
   store ptr %3, ptr %82, align 8
   %235 = load ptr, ptr %83, align 8
@@ -1636,7 +1636,7 @@ _ZN12ConstantPool8klass_atEiP10JavaThread.exit:   ; preds = %_ZN12ResourceMarkD2
   store ptr %234, ptr %253, align 8
   %254 = call noundef ptr @_ZN12ConstantPool13klass_at_implERK18constantPoolHandleiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %142, ptr noundef nonnull %3) #24
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %255 = load ptr, ptr %84, align 8
   %.not150 = icmp eq ptr %255, null
   br i1 %.not150, label %293, label %256
@@ -2334,7 +2334,7 @@ define hidden noundef zeroext i1 @_ZN6Method15register_nativeEP5KlassP6SymbolS3_
 39:                                               ; preds = %36
   %40 = getelementptr i8, ptr %4, i64 800
   %.val = load ptr, ptr %40, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %41 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.val, i64 32
@@ -2369,9 +2369,9 @@ define hidden noundef zeroext i1 @_ZN6Method15register_nativeEP5KlassP6SymbolS3_
   %63 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %62, i32 noundef 0) #24
   %64 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull dereferenceable(1) %57) #24
   %65 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull dereferenceable(1) %.02935.i) #24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %66 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull %63, i32 noundef %60, ptr noundef nonnull align 4 dereferenceable(4) %7) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i.i = icmp eq ptr %66, null
   br i1 %.not.i.i, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit.thread.i, label %67
 
@@ -2454,7 +2454,7 @@ _ZN16SymbolHandleBaseILb1EED2Ev.exit.thread.i:    ; preds = %_ZN16SymbolHandleBa
   br label %_ZL20find_prefixed_nativeP5KlassP6SymbolS2_P10JavaThread.exit
 
 _ZL20find_prefixed_nativeP5KlassP6SymbolS2_P10JavaThread.exit: ; preds = %92, %94
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %95 = icmp eq ptr %.2.i, null
   br i1 %95, label %96, label %115
 
@@ -2507,7 +2507,7 @@ _ZL20find_prefixed_nativeP5KlassP6SymbolS2_P10JavaThread.exit: ; preds = %92, %9
   br i1 %.not, label %130, label %116
 
 116:                                              ; preds = %115
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3, ptr %6, align 8
   %117 = getelementptr inbounds nuw i8, ptr %.0, i64 88
   %118 = load ptr, ptr %117, align 8
@@ -2538,7 +2538,7 @@ _ZL20find_prefixed_nativeP5KlassP6SymbolS2_P10JavaThread.exit: ; preds = %92, %9
   br label %_ZN6Method19set_native_functionEPhb.exit
 
 _ZN6Method19set_native_functionEPhb.exit:         ; preds = %116, %124, %128
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN6Method21clear_native_functionEv.exit
 
 130:                                              ; preds = %115
@@ -4947,7 +4947,7 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit27: ; preds = %54, %_ZN10Ha
   %78 = getelementptr inbounds nuw %class.CheckedExceptionElement, ptr %74, i64 %indvars.iv
   %79 = load i16, ptr %78, align 2
   %80 = zext i16 %79 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %77, ptr %4, align 8
   store ptr %1, ptr %70, align 8
   %81 = load ptr, ptr %30, align 8
@@ -4982,7 +4982,7 @@ _ZN12ConstantPool8klass_atEiP10JavaThread.exit:   ; preds = %72, %86
   store ptr %77, ptr %99, align 8
   %100 = call noundef ptr @_ZN12ConstantPool13klass_at_implERK18constantPoolHandleiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %80, ptr noundef nonnull %1) #24
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %101 = load ptr, ptr %52, align 8
   %.not33 = icmp eq ptr %101, null
   br i1 %.not33, label %102, label %.loopexit
@@ -5029,7 +5029,7 @@ _ZN12ConstantPool8klass_atEiP10JavaThread.exit:   ; preds = %72, %86
   %133 = zext i16 %132 to i64
   %134 = getelementptr inbounds nuw i64, ptr %127, i64 %133
   %135 = load ptr, ptr %134, align 8
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %3, i64 noundef 0) #24
   call void @_ZN6Symbol39print_as_signature_external_return_typeEP12outputStream(ptr noundef nonnull align 4 dereferenceable(8) %135, ptr noundef nonnull %3) #24
   %136 = call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %124) #24
@@ -5039,7 +5039,7 @@ _ZN12ConstantPool8klass_atEiP10JavaThread.exit:   ; preds = %72, %86
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.4) #24
   %138 = call noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 dereferenceable(129) %3, i1 noundef zeroext false) #24
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %3) #24
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE42ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str.31, ptr noundef %119, ptr noundef %138)
   br label %139
 
@@ -9096,7 +9096,7 @@ define hidden noundef ptr @_ZN6Method15make_jmethod_idEP15ClassLoaderDataPS_(ptr
   %32 = zext i16 %31 to i64
   %33 = getelementptr inbounds nuw i64, ptr %26, i64 %32
   %34 = load ptr, ptr %33, align 8
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %3, i64 noundef 0) #24
   call void @_ZN6Symbol39print_as_signature_external_return_typeEP12outputStream(ptr noundef nonnull align 4 dereferenceable(8) %34, ptr noundef nonnull %3) #24
   %35 = call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %23) #24
@@ -9106,7 +9106,7 @@ define hidden noundef ptr @_ZN6Method15make_jmethod_idEP15ClassLoaderDataPS_(ptr
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.4) #24
   %37 = call noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 dereferenceable(129) %3, i1 noundef zeroext false) #24
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %3) #24
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE66ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.55, ptr noundef %37)
   br label %38
 
@@ -11871,10 +11871,10 @@ declare i32 @llvm.smax.i32(i32, i32) #20
 declare i32 @llvm.ctpop.i32(i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #22

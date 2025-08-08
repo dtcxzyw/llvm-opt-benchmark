@@ -1140,7 +1140,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @svcctl_dissect_bitmap_security_secinfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
@@ -1156,21 +1156,15 @@ define hidden i32 @svcctl_dissect_bitmap_security_secinfo(ptr noundef %0, i32 no
   %19 = shl nuw i32 %18, 27
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef 4, i32 noundef %19)
   %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef -1, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %21
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @svcctl_dissect_struct_SERVICE_LOCK_STATUS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
@@ -1256,15 +1250,15 @@ define hidden i32 @svcctl_dissect_struct_SERVICE_LOCK_STATUS(ptr noundef %0, i32
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @svcctl_dissect_enum_ServiceStatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -1283,14 +1277,14 @@ define hidden i32 @svcctl_dissect_enum_ServiceStatus(ptr noundef %0, i32 noundef
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @svcctl_dissect_enum_ServiceType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -1309,14 +1303,14 @@ define hidden i32 @svcctl_dissect_enum_ServiceType(ptr noundef %0, i32 noundef %
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @svcctl_dissect_bitmap_ControlsAccepted(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
@@ -1354,15 +1348,15 @@ define hidden i32 @svcctl_dissect_bitmap_ControlsAccepted(ptr noundef %0, i32 no
   br label %29
 
 29:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %22
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @svcctl_dissect_struct_SERVICE_STATUS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
@@ -1390,15 +1384,15 @@ define hidden i32 @svcctl_dissect_struct_SERVICE_STATUS(ptr noundef %0, i32 noun
   %.060 = phi ptr [ %18, %17 ], [ null, %8 ]
   %.059 = phi ptr [ %20, %17 ], [ null, %8 ]
   %22 = load i32, ptr @hf_svcctl_SERVICE_STATUS_type, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4
   %23 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.059, ptr noundef %4, ptr noundef %5, i32 noundef %22, ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %24 = load i32, ptr @hf_svcctl_SERVICE_STATUS_state, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %25 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.059, ptr noundef %4, ptr noundef %5, i32 noundef %24, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %26 = load i32, ptr @hf_svcctl_SERVICE_STATUS_controls_accepted, align 4
   %27 = call i32 @svcctl_dissect_bitmap_ControlsAccepted(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.059, ptr noundef %4, ptr noundef %5, i32 noundef %26, i32 poison)
   %28 = load i32, ptr @hf_svcctl_SERVICE_STATUS_win32_exit_code, align 4
@@ -1440,7 +1434,7 @@ define hidden i32 @svcctl_dissect_struct_SERVICE_STATUS(ptr noundef %0, i32 noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @svcctl_dissect_enum_ServiceFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -1459,7 +1453,7 @@ define hidden i32 @svcctl_dissect_enum_ServiceFlags(ptr noundef %0, i32 noundef 
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -1490,15 +1484,15 @@ define hidden i32 @svcctl_dissect_struct_SERVICE_STATUS_PROCESS(ptr noundef %0, 
   %.072 = phi ptr [ %19, %18 ], [ null, %8 ]
   %.071 = phi ptr [ %21, %18 ], [ null, %8 ]
   %23 = load i32, ptr @hf_svcctl_SERVICE_STATUS_PROCESS_type, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4
   %24 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.071, ptr noundef %4, ptr noundef %5, i32 noundef %23, ptr noundef nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %25 = load i32, ptr @hf_svcctl_SERVICE_STATUS_PROCESS_state, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4
   %26 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.071, ptr noundef %4, ptr noundef %5, i32 noundef %25, ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %27 = load i32, ptr @hf_svcctl_SERVICE_STATUS_PROCESS_controls_accepted, align 4
   %28 = call i32 @svcctl_dissect_bitmap_ControlsAccepted(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.071, ptr noundef %4, ptr noundef %5, i32 noundef %27, i32 poison)
   %29 = load i32, ptr @hf_svcctl_SERVICE_STATUS_PROCESS_win32_exit_code, align 4
@@ -1512,10 +1506,10 @@ define hidden i32 @svcctl_dissect_struct_SERVICE_STATUS_PROCESS(ptr noundef %0, 
   %37 = load i32, ptr @hf_svcctl_SERVICE_STATUS_PROCESS_process_id, align 4
   %38 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.071, ptr noundef %4, ptr noundef %5, i32 noundef %37, i32 noundef 0)
   %39 = load i32, ptr @hf_svcctl_SERVICE_STATUS_PROCESS_service_flags, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %40 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.071, ptr noundef %4, ptr noundef %5, i32 noundef %39, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %41 = sub i32 %40, %.0
   call void @proto_item_set_len(ptr noundef %.072, i32 noundef %41)
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 64
@@ -1713,7 +1707,7 @@ define hidden i32 @svcctl_dissect_struct_ENUM_SERVICE_STATUSA(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @svcctl_dissect_enum_SERVICE_CONTROL(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -1732,14 +1726,14 @@ define hidden i32 @svcctl_dissect_enum_SERVICE_CONTROL(ptr noundef %0, i32 nound
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @svcctl_dissect_enum_ErrorControl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -1758,14 +1752,14 @@ define hidden i32 @svcctl_dissect_enum_ErrorControl(ptr noundef %0, i32 noundef 
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @svcctl_dissect_enum_StartType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -1784,14 +1778,14 @@ define hidden i32 @svcctl_dissect_enum_StartType(ptr noundef %0, i32 noundef %1,
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @svcctl_dissect_enum_ServiceState(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -1810,14 +1804,14 @@ define hidden i32 @svcctl_dissect_enum_ServiceState(ptr noundef %0, i32 noundef 
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @svcctl_dissect_bitmap_MgrAccessMask(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
@@ -1855,14 +1849,14 @@ define hidden i32 @svcctl_dissect_bitmap_MgrAccessMask(ptr noundef %0, i32 nound
   br label %29
 
 29:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %22
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @svcctl_dissect_bitmap_ServiceAccessMask(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
@@ -1900,7 +1894,7 @@ define hidden i32 @svcctl_dissect_bitmap_ServiceAccessMask(ptr noundef %0, i32 n
   br label %29
 
 29:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %22
 }
 
@@ -1957,20 +1951,20 @@ define hidden i32 @svcctl_dissect_struct_QUERY_SERVICE_CONFIG(ptr noundef %0, i3
   %.080 = phi ptr [ %32, %31 ], [ null, %30 ]
   %.079 = phi ptr [ %34, %31 ], [ null, %30 ]
   %36 = load i32, ptr @hf_svcctl_QUERY_SERVICE_CONFIG_service_type, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4
   %37 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.079, ptr noundef %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %38 = load i32, ptr @hf_svcctl_QUERY_SERVICE_CONFIG_start_type, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4
   %39 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.079, ptr noundef %4, ptr noundef %5, i32 noundef %38, ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %40 = load i32, ptr @hf_svcctl_QUERY_SERVICE_CONFIG_error_control, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %41 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.079, ptr noundef %4, ptr noundef %5, i32 noundef %40, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %42 = load i32, ptr @hf_svcctl_QUERY_SERVICE_CONFIG_executablepath, align 4
   %43 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.079, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QUERY_SERVICE_CONFIG_executablepath_, i32 noundef 2, ptr noundef nonnull @.str.522, i32 noundef %42)
   %44 = load i32, ptr @hf_svcctl_QUERY_SERVICE_CONFIG_loadordergroup, align 4
@@ -2172,7 +2166,7 @@ define hidden i32 @svcctl_dissect_struct_ArgumentStringA(ptr noundef %0, i32 nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @svcctl_dissect_enum_ConfigLevel(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -2191,14 +2185,14 @@ define hidden i32 @svcctl_dissect_enum_ConfigLevel(ptr noundef %0, i32 noundef %
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @svcctl_dissect_enum_StatusLevel(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -2217,7 +2211,7 @@ define hidden i32 @svcctl_dissect_enum_StatusLevel(ptr noundef %0, i32 noundef %
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -2231,13 +2225,13 @@ define hidden void @proto_register_dcerpc_svcctl() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_dcerpc_svcctl() local_unnamed_addr #0 {
@@ -2249,28 +2243,28 @@ define hidden void @proto_reg_handoff_dcerpc_svcctl() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dcerpc_init_uuid(i32 noundef, i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @dcerpc_init_uuid(i32 noundef, i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @PIDL_dissect_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PIDL_dissect_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_embedded_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_embedded_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_SERVICE_LOCK_STATUS_lock_owner_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_SERVICE_LOCK_STATUS_lock_owner, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_cvstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_cvstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_ENUM_SERVICE_STATUSW_service_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
@@ -2280,7 +2274,7 @@ define internal i32 @svcctl_dissect_element_ENUM_SERVICE_STATUSW_service_name_(p
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_null_term_wstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @dissect_null_term_wstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_ENUM_SERVICE_STATUSW_display_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
@@ -2297,7 +2291,7 @@ define internal i32 @svcctl_dissect_element_ENUM_SERVICE_STATUSA_service_name_(p
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_null_term_string(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @dissect_null_term_string(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_ENUM_SERVICE_STATUSA_display_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
@@ -2309,84 +2303,84 @@ define internal i32 @svcctl_dissect_element_ENUM_SERVICE_STATUSA_display_name_(p
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_QUERY_SERVICE_CONFIG_executablepath_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_QUERY_SERVICE_CONFIG_executablepath, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_QUERY_SERVICE_CONFIG_loadordergroup_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_QUERY_SERVICE_CONFIG_loadordergroup, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_QUERY_SERVICE_CONFIG_dependencies_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_QUERY_SERVICE_CONFIG_dependencies, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_QUERY_SERVICE_CONFIG_startname_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_QUERY_SERVICE_CONFIG_startname, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_QUERY_SERVICE_CONFIG_displayname_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_QUERY_SERVICE_CONFIG_displayname, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_ArgumentString_string_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_ArgumentString_string, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_ArgumentStringA_string_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_ArgumentStringA_string, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -2403,7 +2397,7 @@ define internal i32 @svcctl_dissect_CloseServiceHandle_request(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_CloseServiceHandle_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.585, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_CloseServiceHandle_object_handle, align 4
@@ -2423,7 +2417,7 @@ define internal i32 @svcctl_dissect_CloseServiceHandle_response(ptr noundef %0, 
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -2436,10 +2430,10 @@ define internal i32 @svcctl_dissect_ControlService_request(ptr noundef %0, i32 n
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_ControlService_service_handle_, i32 noundef 1, ptr noundef nonnull @.str.656, i32 noundef %9)
   %11 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %10, ptr noundef %4, ptr noundef %5)
   %12 = load i32, ptr @hf_svcctl_svcctl_ControlService_control, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %13 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %11, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %12, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %14 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %13, ptr noundef %4, ptr noundef %5)
   ret i32 %14
 }
@@ -2447,7 +2441,7 @@ define internal i32 @svcctl_dissect_ControlService_request(ptr noundef %0, i32 n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_ControlService_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.586, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_ControlService_service_status, align 4
@@ -2467,7 +2461,7 @@ define internal i32 @svcctl_dissect_ControlService_response(ptr noundef %0, i32 
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -2484,7 +2478,7 @@ define internal i32 @svcctl_dissect_DeleteService_request(ptr noundef %0, i32 no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_DeleteService_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.587, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
@@ -2501,7 +2495,7 @@ define internal i32 @svcctl_dissect_DeleteService_response(ptr noundef %0, i32 n
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -2518,7 +2512,7 @@ define internal i32 @svcctl_dissect_LockServiceDatabase_request(ptr noundef %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_LockServiceDatabase_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.588, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_LockServiceDatabase_lock_handle, align 4
@@ -2538,7 +2532,7 @@ define internal i32 @svcctl_dissect_LockServiceDatabase_response(ptr noundef %0,
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -2551,7 +2545,7 @@ define internal i32 @svcctl_dissect_QueryServiceObjectSecurity_request(ptr nound
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QueryServiceObjectSecurity_service_handle_, i32 noundef 1, ptr noundef nonnull @.str.656, i32 noundef %9)
   %11 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %10, ptr noundef %4, ptr noundef %5)
   %12 = load i32, ptr @hf_svcctl_svcctl_QueryServiceObjectSecurity_security_flags, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %14 = load i8, ptr %13, align 1, !range !6, !noundef !7
   %15 = trunc nuw i8 %14 to i1
@@ -2567,7 +2561,7 @@ define internal i32 @svcctl_dissect_QueryServiceObjectSecurity_request(ptr nound
   %22 = shl nuw i32 %21, 27
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %12, ptr noundef %0, i32 noundef %.0.i.i, i32 noundef 4, i32 noundef %22)
   %24 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef -1, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %25 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %24, ptr noundef %4, ptr noundef %5)
   %26 = load i32, ptr @hf_svcctl_svcctl_QueryServiceObjectSecurity_offered, align 4
   %27 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %26, i32 noundef 0)
@@ -2578,7 +2572,7 @@ define internal i32 @svcctl_dissect_QueryServiceObjectSecurity_request(ptr nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_QueryServiceObjectSecurity_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.589, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_QueryServiceObjectSecurity_security_descriptor, align 4
@@ -2601,7 +2595,7 @@ define internal i32 @svcctl_dissect_QueryServiceObjectSecurity_response(ptr noun
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -2614,7 +2608,7 @@ define internal i32 @svcctl_dissect_SetServiceObjectSecurity_request(ptr noundef
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_SetServiceObjectSecurity_service_handle_, i32 noundef 1, ptr noundef nonnull @.str.656, i32 noundef %9)
   %11 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %10, ptr noundef %4, ptr noundef %5)
   %12 = load i32, ptr @hf_svcctl_svcctl_SetServiceObjectSecurity_security_flags, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %14 = load i8, ptr %13, align 1, !range !6, !noundef !7
   %15 = trunc nuw i8 %14 to i1
@@ -2630,7 +2624,7 @@ define internal i32 @svcctl_dissect_SetServiceObjectSecurity_request(ptr noundef
   %22 = shl nuw i32 %21, 27
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %12, ptr noundef %0, i32 noundef %.0.i.i, i32 noundef 4, i32 noundef %22)
   %24 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef -1, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %25 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %24, ptr noundef %4, ptr noundef %5)
   %26 = load i32, ptr @hf_svcctl_svcctl_SetServiceObjectSecurity_security_descriptor, align 4
   %27 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_SetServiceObjectSecurity_security_descriptor_, i32 noundef 1, ptr noundef nonnull @.str.660, i32 noundef %26)
@@ -2644,7 +2638,7 @@ define internal i32 @svcctl_dissect_SetServiceObjectSecurity_request(ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_SetServiceObjectSecurity_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.590, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
@@ -2661,7 +2655,7 @@ define internal i32 @svcctl_dissect_SetServiceObjectSecurity_response(ptr nounde
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -2678,7 +2672,7 @@ define internal i32 @svcctl_dissect_QueryServiceStatus_request(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_QueryServiceStatus_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.591, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_QueryServiceStatus_service_status, align 4
@@ -2698,7 +2692,7 @@ define internal i32 @svcctl_dissect_QueryServiceStatus_response(ptr noundef %0, 
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -2718,7 +2712,7 @@ define internal i32 @svcctl_dissect_SetServiceStatus_request(ptr noundef %0, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_SetServiceStatus_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.592, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
@@ -2735,7 +2729,7 @@ define internal i32 @svcctl_dissect_SetServiceStatus_response(ptr noundef %0, i3
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -2752,7 +2746,7 @@ define internal i32 @svcctl_dissect_UnlockServiceDatabase_request(ptr noundef %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_UnlockServiceDatabase_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.593, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_UnlockServiceDatabase_lock_handle, align 4
@@ -2772,7 +2766,7 @@ define internal i32 @svcctl_dissect_UnlockServiceDatabase_response(ptr noundef %
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -2792,7 +2786,7 @@ define internal i32 @svcctl_dissect_NotifyBootConfigStatus_request(ptr noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_NotifyBootConfigStatus_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.594, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
@@ -2809,7 +2803,7 @@ define internal i32 @svcctl_dissect_NotifyBootConfigStatus_response(ptr noundef 
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -2838,7 +2832,7 @@ define internal i32 @svcctl_dissect_SCSetServiceBitsW_request(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_SCSetServiceBitsW_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.595, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
@@ -2855,7 +2849,7 @@ define internal i32 @svcctl_dissect_SCSetServiceBitsW_response(ptr noundef %0, i
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -2870,22 +2864,22 @@ define internal i32 @svcctl_dissect_ChangeServiceConfigW_request(ptr noundef %0,
   %12 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_ChangeServiceConfigW_service_handle_, i32 noundef 1, ptr noundef nonnull @.str.656, i32 noundef %11)
   %13 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %12, ptr noundef %4, ptr noundef %5)
   %14 = load i32, ptr @hf_svcctl_svcctl_ChangeServiceConfigW_service_type, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %15 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %13, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %14, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %16 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %15, ptr noundef %4, ptr noundef %5)
   %17 = load i32, ptr @hf_svcctl_svcctl_ChangeServiceConfigW_start_type, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %18 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %16, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %19 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %18, ptr noundef %4, ptr noundef %5)
   %20 = load i32, ptr @hf_svcctl_svcctl_ChangeServiceConfigW_error_control, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %22 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %21, ptr noundef %4, ptr noundef %5)
   %23 = load i32, ptr @hf_svcctl_svcctl_ChangeServiceConfigW_binary_path, align 4
   %24 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_ChangeServiceConfigW_binary_path_, i32 noundef 2, ptr noundef nonnull @.str.664, i32 noundef %23)
@@ -2920,7 +2914,7 @@ define internal i32 @svcctl_dissect_ChangeServiceConfigW_request(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_ChangeServiceConfigW_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.596, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_ChangeServiceConfigW_tag_id, align 4
@@ -2940,7 +2934,7 @@ define internal i32 @svcctl_dissect_ChangeServiceConfigW_response(ptr noundef %0
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -2956,12 +2950,12 @@ define internal i32 @svcctl_dissect_CreateServiceW_request(ptr noundef %0, i32 n
   %13 = load i32, ptr @hf_svcctl_svcctl_CreateServiceW_scm_handle, align 4
   %14 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_CreateServiceW_scm_handle_, i32 noundef 1, ptr noundef nonnull @.str.658, i32 noundef %13)
   %15 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %14, ptr noundef %4, ptr noundef %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %16 = load i32, ptr @hf_svcctl_svcctl_CreateServiceW_ServiceName, align 4
   %17 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %16, i1 noundef zeroext false, ptr noundef nonnull %11)
   %18 = load ptr, ptr %11, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %18)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %19 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %17, ptr noundef %4, ptr noundef %5)
   %20 = load i32, ptr @hf_svcctl_svcctl_CreateServiceW_DisplayName, align 4
   %21 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_CreateServiceW_DisplayName_, i32 noundef 2, ptr noundef nonnull @.str.670, i32 noundef %20)
@@ -2970,29 +2964,29 @@ define internal i32 @svcctl_dissect_CreateServiceW_request(ptr noundef %0, i32 n
   %24 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %23, i32 noundef 0)
   %25 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %24, ptr noundef %4, ptr noundef %5)
   %26 = load i32, ptr @hf_svcctl_svcctl_CreateServiceW_service_type, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4
   %27 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %26, ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %28 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %27, ptr noundef %4, ptr noundef %5)
   %29 = load i32, ptr @hf_svcctl_svcctl_CreateServiceW_start_type, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %30 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %29, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %31 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %30, ptr noundef %4, ptr noundef %5)
   %32 = load i32, ptr @hf_svcctl_svcctl_CreateServiceW_error_control, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %33 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %32, ptr noundef nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %34 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %33, ptr noundef %4, ptr noundef %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %35 = load i32, ptr @hf_svcctl_svcctl_CreateServiceW_binary_path, align 4
   %36 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %35, i1 noundef zeroext false, ptr noundef nonnull %7)
   %37 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %37)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %38 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %36, ptr noundef %4, ptr noundef %5)
   %39 = load i32, ptr @hf_svcctl_svcctl_CreateServiceW_LoadOrderGroup, align 4
   %40 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_CreateServiceW_LoadOrderGroup_, i32 noundef 2, ptr noundef nonnull @.str.671, i32 noundef %39)
@@ -3021,7 +3015,7 @@ define internal i32 @svcctl_dissect_CreateServiceW_request(ptr noundef %0, i32 n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_CreateServiceW_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.597, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_CreateServiceW_tag_id, align 4
@@ -3044,7 +3038,7 @@ define internal i32 @svcctl_dissect_CreateServiceW_response(ptr noundef %0, i32 
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -3057,10 +3051,10 @@ define internal i32 @svcctl_dissect_EnumDependentServicesW_request(ptr noundef %
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_EnumDependentServicesW_service_handle_, i32 noundef 1, ptr noundef nonnull @.str.656, i32 noundef %9)
   %11 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %10, ptr noundef %4, ptr noundef %5)
   %12 = load i32, ptr @hf_svcctl_svcctl_EnumDependentServicesW_service_state, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %13 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %11, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %12, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %14 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %13, ptr noundef %4, ptr noundef %5)
   %15 = load i32, ptr @hf_svcctl_svcctl_EnumDependentServicesW_offered, align 4
   %16 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %15, i32 noundef 0)
@@ -3071,7 +3065,7 @@ define internal i32 @svcctl_dissect_EnumDependentServicesW_request(ptr noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_EnumDependentServicesW_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.598, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_EnumDependentServicesW_service_status, align 4
@@ -3097,7 +3091,7 @@ define internal i32 @svcctl_dissect_EnumDependentServicesW_response(ptr noundef 
   br label %25
 
 25:                                               ; preds = %21, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %19
 }
 
@@ -3111,16 +3105,16 @@ define internal i32 @svcctl_dissect_EnumServicesStatusW_request(ptr noundef %0, 
   %11 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_EnumServicesStatusW_scm_handle_, i32 noundef 1, ptr noundef nonnull @.str.658, i32 noundef %10)
   %12 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %11, ptr noundef %4, ptr noundef %5)
   %13 = load i32, ptr @hf_svcctl_svcctl_EnumServicesStatusW_service_type, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %13, ptr noundef nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %15 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %14, ptr noundef %4, ptr noundef %5)
   %16 = load i32, ptr @hf_svcctl_svcctl_EnumServicesStatusW_service_state, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %17 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %18 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %17, ptr noundef %4, ptr noundef %5)
   %19 = load i32, ptr @hf_svcctl_svcctl_EnumServicesStatusW_offered, align 4
   %20 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0)
@@ -3138,11 +3132,11 @@ define internal i32 @svcctl_dissect_EnumServicesStatusW_response(ptr noundef %0,
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
   %11 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %13 = load ptr, ptr %12, align 8
@@ -3224,7 +3218,7 @@ define internal i32 @svcctl_dissect_EnumServicesStatusW_response(ptr noundef %0,
   %.081 = phi i32 [ 0, %.lr.ph ], [ %105, %svcctl_dissect_struct_ENUM_SERVICE_STATUSW_ptr.exit ]
   %.07080 = phi i32 [ %35, %.lr.ph ], [ %.1.i, %svcctl_dissect_struct_ENUM_SERVICE_STATUSW_ptr.exit ]
   %55 = load i32, ptr @hf_svcctl_svcctl_EnumDependentServicesW_service_status, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %56 = and i32 %54, 1
   %.not.i = icmp eq i32 %56, 0
@@ -3309,7 +3303,7 @@ define internal i32 @svcctl_dissect_EnumServicesStatusW_response(ptr noundef %0,
 
 svcctl_dissect_struct_ENUM_SERVICE_STATUSW_ptr.exit: ; preds = %74, %98, %102
   %.1.i = phi i32 [ %92, %98 ], [ %104, %102 ], [ %92, %74 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %105 = add nuw i32 %.081, 1
   %106 = load i32, ptr %9, align 4
   %107 = icmp ult i32 %105, %106
@@ -3333,10 +3327,10 @@ svcctl_dissect_struct_ENUM_SERVICE_STATUSW_ptr.exit: ; preds = %74, %98, %102
   br label %119
 
 119:                                              ; preds = %115, %108
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %113
 }
 
@@ -3359,7 +3353,7 @@ define internal i32 @svcctl_dissect_OpenSCManagerW_request(ptr noundef %0, i32 n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_OpenSCManagerW_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.600, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_OpenSCManagerW_scm_handle, align 4
@@ -3379,7 +3373,7 @@ define internal i32 @svcctl_dissect_OpenSCManagerW_response(ptr noundef %0, i32 
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -3391,12 +3385,12 @@ define internal i32 @svcctl_dissect_OpenServiceW_request(ptr noundef %0, i32 nou
   %9 = load i32, ptr @hf_svcctl_svcctl_OpenServiceW_scm_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_OpenServiceW_scm_handle_, i32 noundef 1, ptr noundef nonnull @.str.658, i32 noundef %9)
   %11 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %10, ptr noundef %4, ptr noundef %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = load i32, ptr @hf_svcctl_svcctl_OpenServiceW_ServiceName, align 4
   %13 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %11, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %12, i1 noundef zeroext false, ptr noundef nonnull %7)
   %14 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %15 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %13, ptr noundef %4, ptr noundef %5)
   %16 = load i32, ptr @hf_svcctl_svcctl_OpenServiceW_access_mask, align 4
   %17 = call i32 @svcctl_dissect_bitmap_ServiceAccessMask(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %16, i32 poison)
@@ -3407,7 +3401,7 @@ define internal i32 @svcctl_dissect_OpenServiceW_request(ptr noundef %0, i32 nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_OpenServiceW_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.601, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_OpenServiceW_service_handle, align 4
@@ -3427,7 +3421,7 @@ define internal i32 @svcctl_dissect_OpenServiceW_response(ptr noundef %0, i32 no
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -3447,7 +3441,7 @@ define internal i32 @svcctl_dissect_QueryServiceConfigW_request(ptr noundef %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_QueryServiceConfigW_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.602, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_QueryServiceConfigW_service_config, align 4
@@ -3470,7 +3464,7 @@ define internal i32 @svcctl_dissect_QueryServiceConfigW_response(ptr noundef %0,
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -3490,7 +3484,7 @@ define internal i32 @svcctl_dissect_QueryServiceLockStatusW_request(ptr noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_QueryServiceLockStatusW_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.603, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_QueryServiceLockStatusW_lock_status, align 4
@@ -3513,7 +3507,7 @@ define internal i32 @svcctl_dissect_QueryServiceLockStatusW_response(ptr noundef
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -3536,7 +3530,7 @@ define internal i32 @svcctl_dissect_StartServiceW_request(ptr noundef %0, i32 no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_StartServiceW_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.604, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
@@ -3553,7 +3547,7 @@ define internal i32 @svcctl_dissect_StartServiceW_response(ptr noundef %0, i32 n
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -3576,7 +3570,7 @@ define internal i32 @svcctl_dissect_GetServiceDisplayNameW_request(ptr noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_GetServiceDisplayNameW_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.605, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_GetServiceDisplayNameW_display_name, align 4
@@ -3599,7 +3593,7 @@ define internal i32 @svcctl_dissect_GetServiceDisplayNameW_response(ptr noundef 
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -3622,7 +3616,7 @@ define internal i32 @svcctl_dissect_GetServiceKeyNameW_request(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_GetServiceKeyNameW_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.606, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_GetServiceKeyNameW_service_name, align 4
@@ -3645,7 +3639,7 @@ define internal i32 @svcctl_dissect_GetServiceKeyNameW_response(ptr noundef %0, 
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -3674,7 +3668,7 @@ define internal i32 @svcctl_dissect_SCSetServiceBitsA_request(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_SCSetServiceBitsA_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.607, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
@@ -3691,7 +3685,7 @@ define internal i32 @svcctl_dissect_SCSetServiceBitsA_response(ptr noundef %0, i
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -3706,22 +3700,22 @@ define internal i32 @svcctl_dissect_ChangeServiceConfigA_request(ptr noundef %0,
   %12 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_ChangeServiceConfigA_service_handle_, i32 noundef 1, ptr noundef nonnull @.str.656, i32 noundef %11)
   %13 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %12, ptr noundef %4, ptr noundef %5)
   %14 = load i32, ptr @hf_svcctl_svcctl_ChangeServiceConfigA_service_type, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %15 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %13, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %14, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %16 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %15, ptr noundef %4, ptr noundef %5)
   %17 = load i32, ptr @hf_svcctl_svcctl_ChangeServiceConfigA_start_type, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %18 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %16, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %19 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %18, ptr noundef %4, ptr noundef %5)
   %20 = load i32, ptr @hf_svcctl_svcctl_ChangeServiceConfigA_error_control, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %22 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %21, ptr noundef %4, ptr noundef %5)
   %23 = load i32, ptr @hf_svcctl_svcctl_ChangeServiceConfigA_binary_path, align 4
   %24 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_ChangeServiceConfigA_binary_path_, i32 noundef 2, ptr noundef nonnull @.str.691, i32 noundef %23)
@@ -3750,7 +3744,7 @@ define internal i32 @svcctl_dissect_ChangeServiceConfigA_request(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_ChangeServiceConfigA_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.608, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_ChangeServiceConfigA_tag_id, align 4
@@ -3770,7 +3764,7 @@ define internal i32 @svcctl_dissect_ChangeServiceConfigA_response(ptr noundef %0
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -3786,12 +3780,12 @@ define internal i32 @svcctl_dissect_CreateServiceA_request(ptr noundef %0, i32 n
   %13 = load i32, ptr @hf_svcctl_svcctl_CreateServiceA_scm_handle, align 4
   %14 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_CreateServiceA_scm_handle_, i32 noundef 1, ptr noundef nonnull @.str.658, i32 noundef %13)
   %15 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %14, ptr noundef %4, ptr noundef %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %16 = load i32, ptr @hf_svcctl_svcctl_CreateServiceA_ServiceName, align 4
   %17 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %16, i1 noundef zeroext false, ptr noundef nonnull %11)
   %18 = load ptr, ptr %11, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %18)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %19 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %17, ptr noundef %4, ptr noundef %5)
   %20 = load i32, ptr @hf_svcctl_svcctl_CreateServiceA_DisplayName, align 4
   %21 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_CreateServiceA_DisplayName_, i32 noundef 2, ptr noundef nonnull @.str.696, i32 noundef %20)
@@ -3800,29 +3794,29 @@ define internal i32 @svcctl_dissect_CreateServiceA_request(ptr noundef %0, i32 n
   %24 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %23, i32 noundef 0)
   %25 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %24, ptr noundef %4, ptr noundef %5)
   %26 = load i32, ptr @hf_svcctl_svcctl_CreateServiceA_service_type, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4
   %27 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %26, ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %28 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %27, ptr noundef %4, ptr noundef %5)
   %29 = load i32, ptr @hf_svcctl_svcctl_CreateServiceA_start_type, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %30 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %29, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %31 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %30, ptr noundef %4, ptr noundef %5)
   %32 = load i32, ptr @hf_svcctl_svcctl_CreateServiceA_error_control, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %33 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %32, ptr noundef nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %34 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %33, ptr noundef %4, ptr noundef %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %35 = load i32, ptr @hf_svcctl_svcctl_CreateServiceA_binary_path, align 4
   %36 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %35, i1 noundef zeroext false, ptr noundef nonnull %7)
   %37 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %37)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %38 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %36, ptr noundef %4, ptr noundef %5)
   %39 = load i32, ptr @hf_svcctl_svcctl_CreateServiceA_LoadOrderGroupKey, align 4
   %40 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_CreateServiceA_LoadOrderGroupKey_, i32 noundef 2, ptr noundef nonnull @.str.697, i32 noundef %39)
@@ -3851,7 +3845,7 @@ define internal i32 @svcctl_dissect_CreateServiceA_request(ptr noundef %0, i32 n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_CreateServiceA_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.609, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_CreateServiceA_tag_id, align 4
@@ -3874,7 +3868,7 @@ define internal i32 @svcctl_dissect_CreateServiceA_response(ptr noundef %0, i32 
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -3887,10 +3881,10 @@ define internal i32 @svcctl_dissect_EnumDependentServicesA_request(ptr noundef %
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_EnumDependentServicesA_service_handle_, i32 noundef 1, ptr noundef nonnull @.str.656, i32 noundef %9)
   %11 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %10, ptr noundef %4, ptr noundef %5)
   %12 = load i32, ptr @hf_svcctl_svcctl_EnumDependentServicesA_state, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %13 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %11, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %12, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %14 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %13, ptr noundef %4, ptr noundef %5)
   %15 = load i32, ptr @hf_svcctl_svcctl_EnumDependentServicesA_offered, align 4
   %16 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %15, i32 noundef 0)
@@ -3901,7 +3895,7 @@ define internal i32 @svcctl_dissect_EnumDependentServicesA_request(ptr noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_EnumDependentServicesA_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.610, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_EnumDependentServicesA_service_status, align 4
@@ -3927,7 +3921,7 @@ define internal i32 @svcctl_dissect_EnumDependentServicesA_response(ptr noundef 
   br label %25
 
 25:                                               ; preds = %21, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %19
 }
 
@@ -3941,16 +3935,16 @@ define internal i32 @svcctl_dissect_EnumServicesStatusA_request(ptr noundef %0, 
   %11 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_EnumServicesStatusA_scm_handle_, i32 noundef 1, ptr noundef nonnull @.str.658, i32 noundef %10)
   %12 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %11, ptr noundef %4, ptr noundef %5)
   %13 = load i32, ptr @hf_svcctl_svcctl_EnumServicesStatusA_service_type, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %13, ptr noundef nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %15 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %14, ptr noundef %4, ptr noundef %5)
   %16 = load i32, ptr @hf_svcctl_svcctl_EnumServicesStatusA_service_state, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %17 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %18 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %17, ptr noundef %4, ptr noundef %5)
   %19 = load i32, ptr @hf_svcctl_svcctl_EnumServicesStatusA_offered, align 4
   %20 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0)
@@ -3964,7 +3958,7 @@ define internal i32 @svcctl_dissect_EnumServicesStatusA_request(ptr noundef %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_EnumServicesStatusA_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.611, ptr %8, align 8
   %9 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_EnumServicesStatusA_service_)
@@ -3992,7 +3986,7 @@ define internal i32 @svcctl_dissect_EnumServicesStatusA_response(ptr noundef %0,
   br label %27
 
 27:                                               ; preds = %23, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %21
 }
 
@@ -4015,7 +4009,7 @@ define internal i32 @svcctl_dissect_OpenSCManagerA_request(ptr noundef %0, i32 n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_OpenSCManagerA_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.612, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_OpenSCManagerA_scm_handle, align 4
@@ -4035,7 +4029,7 @@ define internal i32 @svcctl_dissect_OpenSCManagerA_response(ptr noundef %0, i32 
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -4047,12 +4041,12 @@ define internal i32 @svcctl_dissect_OpenServiceA_request(ptr noundef %0, i32 nou
   %9 = load i32, ptr @hf_svcctl_svcctl_OpenServiceA_scm_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_OpenServiceA_scm_handle_, i32 noundef 1, ptr noundef nonnull @.str.658, i32 noundef %9)
   %11 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %10, ptr noundef %4, ptr noundef %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = load i32, ptr @hf_svcctl_svcctl_OpenServiceA_ServiceName, align 4
   %13 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %11, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %12, i1 noundef zeroext false, ptr noundef nonnull %7)
   %14 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %15 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %13, ptr noundef %4, ptr noundef %5)
   %16 = load i32, ptr @hf_svcctl_svcctl_OpenServiceA_access_mask, align 4
   %17 = call i32 @svcctl_dissect_bitmap_MgrAccessMask(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %16, i32 poison)
@@ -4063,7 +4057,7 @@ define internal i32 @svcctl_dissect_OpenServiceA_request(ptr noundef %0, i32 nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_OpenServiceA_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.613, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_OpenServiceA_service_handle, align 4
@@ -4083,7 +4077,7 @@ define internal i32 @svcctl_dissect_OpenServiceA_response(ptr noundef %0, i32 no
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -4103,7 +4097,7 @@ define internal i32 @svcctl_dissect_QueryServiceConfigA_request(ptr noundef %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_QueryServiceConfigA_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.614, ptr %8, align 8
   %9 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QueryServiceConfigA_query_)
@@ -4125,7 +4119,7 @@ define internal i32 @svcctl_dissect_QueryServiceConfigA_response(ptr noundef %0,
   br label %21
 
 21:                                               ; preds = %17, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %15
 }
 
@@ -4145,7 +4139,7 @@ define internal i32 @svcctl_dissect_QueryServiceLockStatusA_request(ptr noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_QueryServiceLockStatusA_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.615, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_QueryServiceLockStatusA_lock_status, align 4
@@ -4168,7 +4162,7 @@ define internal i32 @svcctl_dissect_QueryServiceLockStatusA_response(ptr noundef
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -4191,7 +4185,7 @@ define internal i32 @svcctl_dissect_StartServiceA_request(ptr noundef %0, i32 no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_StartServiceA_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.616, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
@@ -4208,7 +4202,7 @@ define internal i32 @svcctl_dissect_StartServiceA_response(ptr noundef %0, i32 n
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -4231,7 +4225,7 @@ define internal i32 @svcctl_dissect_GetServiceDisplayNameA_request(ptr noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_GetServiceDisplayNameA_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.617, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_GetServiceDisplayNameA_display_name, align 4
@@ -4254,7 +4248,7 @@ define internal i32 @svcctl_dissect_GetServiceDisplayNameA_response(ptr noundef 
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -4277,7 +4271,7 @@ define internal i32 @svcctl_dissect_GetServiceKeyNameA_request(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_GetServiceKeyNameA_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.618, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_GetServiceKeyNameA_key_name, align 4
@@ -4300,7 +4294,7 @@ define internal i32 @svcctl_dissect_GetServiceKeyNameA_response(ptr noundef %0, 
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -4320,7 +4314,7 @@ define internal i32 @svcctl_dissect_GetCurrentGroupeStateW_request(ptr noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_GetCurrentGroupeStateW_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.619, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_GetCurrentGroupeStateW_state, align 4
@@ -4340,7 +4334,7 @@ define internal i32 @svcctl_dissect_GetCurrentGroupeStateW_response(ptr noundef 
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -4354,16 +4348,16 @@ define internal i32 @svcctl_dissect_EnumServiceGroupW_request(ptr noundef %0, i3
   %11 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_EnumServiceGroupW_scm_handle_, i32 noundef 1, ptr noundef nonnull @.str.658, i32 noundef %10)
   %12 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %11, ptr noundef %4, ptr noundef %5)
   %13 = load i32, ptr @hf_svcctl_svcctl_EnumServiceGroupW_service_type, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %13, ptr noundef nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %15 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %14, ptr noundef %4, ptr noundef %5)
   %16 = load i32, ptr @hf_svcctl_svcctl_EnumServiceGroupW_service_state, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %17 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %18 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %17, ptr noundef %4, ptr noundef %5)
   %19 = load i32, ptr @hf_svcctl_svcctl_EnumServiceGroupW_cbBufSize, align 4
   %20 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0)
@@ -4380,7 +4374,7 @@ define internal i32 @svcctl_dissect_EnumServiceGroupW_request(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_EnumServiceGroupW_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.620, ptr %8, align 8
   %9 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_EnumServiceGroupW_lpBuffer_)
@@ -4408,7 +4402,7 @@ define internal i32 @svcctl_dissect_EnumServiceGroupW_response(ptr noundef %0, i
   br label %27
 
 27:                                               ; preds = %23, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %21
 }
 
@@ -4431,7 +4425,7 @@ define internal i32 @svcctl_dissect_ChangeServiceConfig2A_request(ptr noundef %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_ChangeServiceConfig2A_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.621, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
@@ -4448,7 +4442,7 @@ define internal i32 @svcctl_dissect_ChangeServiceConfig2A_response(ptr noundef %
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -4471,7 +4465,7 @@ define internal i32 @svcctl_dissect_ChangeServiceConfig2W_request(ptr noundef %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_ChangeServiceConfig2W_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.622, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
@@ -4488,7 +4482,7 @@ define internal i32 @svcctl_dissect_ChangeServiceConfig2W_response(ptr noundef %
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -4501,10 +4495,10 @@ define internal i32 @svcctl_dissect_QueryServiceConfig2A_request(ptr noundef %0,
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QueryServiceConfig2A_handle_, i32 noundef 1, ptr noundef nonnull @.str.690, i32 noundef %9)
   %11 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %10, ptr noundef %4, ptr noundef %5)
   %12 = load i32, ptr @hf_svcctl_svcctl_QueryServiceConfig2A_info_level, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %13 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %11, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %12, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %14 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %13, ptr noundef %4, ptr noundef %5)
   %15 = load i32, ptr @hf_svcctl_svcctl_QueryServiceConfig2A_offered, align 4
   %16 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %15, i32 noundef 0)
@@ -4515,7 +4509,7 @@ define internal i32 @svcctl_dissect_QueryServiceConfig2A_request(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_QueryServiceConfig2A_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.623, ptr %8, align 8
   %9 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QueryServiceConfig2A_buffer_)
@@ -4537,7 +4531,7 @@ define internal i32 @svcctl_dissect_QueryServiceConfig2A_response(ptr noundef %0
   br label %21
 
 21:                                               ; preds = %17, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %15
 }
 
@@ -4550,10 +4544,10 @@ define internal i32 @svcctl_dissect_QueryServiceConfig2W_request(ptr noundef %0,
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QueryServiceConfig2W_handle_, i32 noundef 1, ptr noundef nonnull @.str.690, i32 noundef %9)
   %11 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %10, ptr noundef %4, ptr noundef %5)
   %12 = load i32, ptr @hf_svcctl_svcctl_QueryServiceConfig2W_info_level, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %13 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %11, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %12, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %14 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %13, ptr noundef %4, ptr noundef %5)
   %15 = load i32, ptr @hf_svcctl_svcctl_QueryServiceConfig2W_offered, align 4
   %16 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %15, i32 noundef 0)
@@ -4564,7 +4558,7 @@ define internal i32 @svcctl_dissect_QueryServiceConfig2W_request(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_QueryServiceConfig2W_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.624, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_QueryServiceConfig2W_buffer, align 4
@@ -4587,7 +4581,7 @@ define internal i32 @svcctl_dissect_QueryServiceConfig2W_response(ptr noundef %0
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -4600,10 +4594,10 @@ define internal i32 @svcctl_dissect_QueryServiceStatusEx_request(ptr noundef %0,
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QueryServiceStatusEx_handle_, i32 noundef 1, ptr noundef nonnull @.str.690, i32 noundef %9)
   %11 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %10, ptr noundef %4, ptr noundef %5)
   %12 = load i32, ptr @hf_svcctl_svcctl_QueryServiceStatusEx_info_level, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %13 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %11, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %12, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %14 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %13, ptr noundef %4, ptr noundef %5)
   %15 = load i32, ptr @hf_svcctl_svcctl_QueryServiceStatusEx_offered, align 4
   %16 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %15, i32 noundef 0)
@@ -4614,7 +4608,7 @@ define internal i32 @svcctl_dissect_QueryServiceStatusEx_request(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_QueryServiceStatusEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.625, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_QueryServiceStatusEx_buffer, align 4
@@ -4637,7 +4631,7 @@ define internal i32 @svcctl_dissect_QueryServiceStatusEx_response(ptr noundef %0
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -4654,16 +4648,16 @@ define internal i32 @svcctl_dissect_EnumServicesStatusExA_request(ptr noundef %0
   %14 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %13, i32 noundef 0)
   %15 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %14, ptr noundef %4, ptr noundef %5)
   %16 = load i32, ptr @hf_svcctl_EnumServicesStatusExA_service_type, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %17 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %18 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %17, ptr noundef %4, ptr noundef %5)
   %19 = load i32, ptr @hf_svcctl_EnumServicesStatusExA_state, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %20 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %21 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %20, ptr noundef %4, ptr noundef %5)
   %22 = load i32, ptr @hf_svcctl_EnumServicesStatusExA_offered, align 4
   %23 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %22, i32 noundef 0)
@@ -4677,7 +4671,7 @@ define internal i32 @svcctl_dissect_EnumServicesStatusExA_request(ptr noundef %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_EnumServicesStatusExA_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.626, ptr %8, align 8
   %9 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_EnumServicesStatusExA_services_)
@@ -4708,7 +4702,7 @@ define internal i32 @svcctl_dissect_EnumServicesStatusExA_response(ptr noundef %
   br label %30
 
 30:                                               ; preds = %26, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %24
 }
 
@@ -4725,16 +4719,16 @@ define internal i32 @svcctl_dissect_EnumServicesStatusExW_request(ptr noundef %0
   %14 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %13, i32 noundef 0)
   %15 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %14, ptr noundef %4, ptr noundef %5)
   %16 = load i32, ptr @hf_svcctl_EnumServicesStatusExW_service_type, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %17 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %18 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %17, ptr noundef %4, ptr noundef %5)
   %19 = load i32, ptr @hf_svcctl_EnumServicesStatusExW_state, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %20 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %21 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %20, ptr noundef %4, ptr noundef %5)
   %22 = load i32, ptr @hf_svcctl_EnumServicesStatusExW_offered, align 4
   %23 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %22, i32 noundef 0)
@@ -4751,7 +4745,7 @@ define internal i32 @svcctl_dissect_EnumServicesStatusExW_request(ptr noundef %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_EnumServicesStatusExW_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.627, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_EnumServicesStatusExW_services, align 4
@@ -4780,12 +4774,12 @@ define internal i32 @svcctl_dissect_EnumServicesStatusExW_response(ptr noundef %
   br label %28
 
 28:                                               ; preds = %24, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @svcctl_dissect_ScBroadcastServiceControlMessage_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @svcctl_dissect_ScBroadcastServiceControlMessage_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.628, ptr %7, align 8
   ret i32 %1
@@ -4794,7 +4788,7 @@ define internal noundef i32 @svcctl_dissect_ScBroadcastServiceControlMessage_req
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_ScBroadcastServiceControlMessage_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.628, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
@@ -4811,7 +4805,7 @@ define internal i32 @svcctl_dissect_ScBroadcastServiceControlMessage_response(pt
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -4827,12 +4821,12 @@ define internal i32 @svcctl_dissect_CreateServiceWOW64A_request(ptr noundef %0, 
   %13 = load i32, ptr @hf_svcctl_svcctl_CreateServiceWOW64A_scm_handle, align 4
   %14 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_CreateServiceWOW64A_scm_handle_, i32 noundef 1, ptr noundef nonnull @.str.658, i32 noundef %13)
   %15 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %14, ptr noundef %4, ptr noundef %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %16 = load i32, ptr @hf_svcctl_svcctl_CreateServiceWOW64A_ServiceName, align 4
   %17 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %16, i1 noundef zeroext false, ptr noundef nonnull %11)
   %18 = load ptr, ptr %11, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %18)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %19 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %17, ptr noundef %4, ptr noundef %5)
   %20 = load i32, ptr @hf_svcctl_svcctl_CreateServiceWOW64A_DisplayName, align 4
   %21 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_CreateServiceWOW64A_DisplayName_, i32 noundef 2, ptr noundef nonnull @.str.696, i32 noundef %20)
@@ -4841,29 +4835,29 @@ define internal i32 @svcctl_dissect_CreateServiceWOW64A_request(ptr noundef %0, 
   %24 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %23, i32 noundef 0)
   %25 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %24, ptr noundef %4, ptr noundef %5)
   %26 = load i32, ptr @hf_svcctl_svcctl_CreateServiceWOW64A_service_type, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4
   %27 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %26, ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %28 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %27, ptr noundef %4, ptr noundef %5)
   %29 = load i32, ptr @hf_svcctl_svcctl_CreateServiceWOW64A_start_type, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %30 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %29, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %31 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %30, ptr noundef %4, ptr noundef %5)
   %32 = load i32, ptr @hf_svcctl_svcctl_CreateServiceWOW64A_error_control, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %33 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %32, ptr noundef nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %34 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %33, ptr noundef %4, ptr noundef %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %35 = load i32, ptr @hf_svcctl_svcctl_CreateServiceWOW64A_binary_path, align 4
   %36 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %35, i1 noundef zeroext false, ptr noundef nonnull %7)
   %37 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %37)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %38 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %36, ptr noundef %4, ptr noundef %5)
   %39 = load i32, ptr @hf_svcctl_svcctl_CreateServiceWOW64A_LoadOrderGroupKey, align 4
   %40 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_CreateServiceWOW64A_LoadOrderGroupKey_, i32 noundef 2, ptr noundef nonnull @.str.697, i32 noundef %39)
@@ -4892,7 +4886,7 @@ define internal i32 @svcctl_dissect_CreateServiceWOW64A_request(ptr noundef %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_CreateServiceWOW64A_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.629, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_CreateServiceWOW64A_tag_id, align 4
@@ -4915,7 +4909,7 @@ define internal i32 @svcctl_dissect_CreateServiceWOW64A_response(ptr noundef %0,
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -4931,12 +4925,12 @@ define internal i32 @svcctl_dissect_CreateServiceWOW64W_request(ptr noundef %0, 
   %13 = load i32, ptr @hf_svcctl_svcctl_CreateServiceWOW64W_scm_handle, align 4
   %14 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_CreateServiceWOW64W_scm_handle_, i32 noundef 1, ptr noundef nonnull @.str.658, i32 noundef %13)
   %15 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %14, ptr noundef %4, ptr noundef %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %16 = load i32, ptr @hf_svcctl_svcctl_CreateServiceWOW64W_ServiceName, align 4
   %17 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %16, i1 noundef zeroext false, ptr noundef nonnull %11)
   %18 = load ptr, ptr %11, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %18)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %19 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %17, ptr noundef %4, ptr noundef %5)
   %20 = load i32, ptr @hf_svcctl_svcctl_CreateServiceWOW64W_DisplayName, align 4
   %21 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_CreateServiceWOW64W_DisplayName_, i32 noundef 2, ptr noundef nonnull @.str.670, i32 noundef %20)
@@ -4945,29 +4939,29 @@ define internal i32 @svcctl_dissect_CreateServiceWOW64W_request(ptr noundef %0, 
   %24 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %23, i32 noundef 0)
   %25 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %24, ptr noundef %4, ptr noundef %5)
   %26 = load i32, ptr @hf_svcctl_svcctl_CreateServiceWOW64W_service_type, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4
   %27 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %26, ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %28 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %27, ptr noundef %4, ptr noundef %5)
   %29 = load i32, ptr @hf_svcctl_svcctl_CreateServiceWOW64W_start_type, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %30 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %29, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %31 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %30, ptr noundef %4, ptr noundef %5)
   %32 = load i32, ptr @hf_svcctl_svcctl_CreateServiceWOW64W_error_control, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %33 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %32, ptr noundef nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %34 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %33, ptr noundef %4, ptr noundef %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %35 = load i32, ptr @hf_svcctl_svcctl_CreateServiceWOW64W_binary_path, align 4
   %36 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %35, i1 noundef zeroext false, ptr noundef nonnull %7)
   %37 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %37)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %38 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %36, ptr noundef %4, ptr noundef %5)
   %39 = load i32, ptr @hf_svcctl_svcctl_CreateServiceWOW64W_LoadOrderGroupKey, align 4
   %40 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_CreateServiceWOW64W_LoadOrderGroupKey_, i32 noundef 2, ptr noundef nonnull @.str.718, i32 noundef %39)
@@ -4996,7 +4990,7 @@ define internal i32 @svcctl_dissect_CreateServiceWOW64W_request(ptr noundef %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_CreateServiceWOW64W_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.630, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_CreateServiceWOW64W_tag_id, align 4
@@ -5019,12 +5013,12 @@ define internal i32 @svcctl_dissect_CreateServiceWOW64W_response(ptr noundef %0,
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @svcctl_dissect_ScQueryServiceTagInfo_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @svcctl_dissect_ScQueryServiceTagInfo_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.631, ptr %7, align 8
   ret i32 %1
@@ -5033,7 +5027,7 @@ define internal noundef i32 @svcctl_dissect_ScQueryServiceTagInfo_request(ptr re
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_ScQueryServiceTagInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.631, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
@@ -5050,12 +5044,12 @@ define internal i32 @svcctl_dissect_ScQueryServiceTagInfo_response(ptr noundef %
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @svcctl_dissect_NotifyServiceStatusChange_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @svcctl_dissect_NotifyServiceStatusChange_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.632, ptr %7, align 8
   ret i32 %1
@@ -5064,7 +5058,7 @@ define internal noundef i32 @svcctl_dissect_NotifyServiceStatusChange_request(pt
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_NotifyServiceStatusChange_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.632, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
@@ -5081,12 +5075,12 @@ define internal i32 @svcctl_dissect_NotifyServiceStatusChange_response(ptr nound
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @svcctl_dissect_GetNotifyResults_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @svcctl_dissect_GetNotifyResults_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.633, ptr %7, align 8
   ret i32 %1
@@ -5095,7 +5089,7 @@ define internal noundef i32 @svcctl_dissect_GetNotifyResults_request(ptr readnon
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_GetNotifyResults_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.633, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
@@ -5112,12 +5106,12 @@ define internal i32 @svcctl_dissect_GetNotifyResults_response(ptr noundef %0, i3
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @svcctl_dissect_CloseNotifyHandle_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @svcctl_dissect_CloseNotifyHandle_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.634, ptr %7, align 8
   ret i32 %1
@@ -5126,7 +5120,7 @@ define internal noundef i32 @svcctl_dissect_CloseNotifyHandle_request(ptr readno
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_CloseNotifyHandle_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.634, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
@@ -5143,12 +5137,12 @@ define internal i32 @svcctl_dissect_CloseNotifyHandle_response(ptr noundef %0, i
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @svcctl_dissect_ControlServiceExA_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @svcctl_dissect_ControlServiceExA_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.635, ptr %7, align 8
   ret i32 %1
@@ -5157,7 +5151,7 @@ define internal noundef i32 @svcctl_dissect_ControlServiceExA_request(ptr readno
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_ControlServiceExA_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.635, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
@@ -5174,12 +5168,12 @@ define internal i32 @svcctl_dissect_ControlServiceExA_response(ptr noundef %0, i
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @svcctl_dissect_ControlServiceExW_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @svcctl_dissect_ControlServiceExW_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.636, ptr %7, align 8
   ret i32 %1
@@ -5188,7 +5182,7 @@ define internal noundef i32 @svcctl_dissect_ControlServiceExW_request(ptr readno
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_ControlServiceExW_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.636, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
@@ -5205,12 +5199,12 @@ define internal i32 @svcctl_dissect_ControlServiceExW_response(ptr noundef %0, i
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @svcctl_dissect_ScSendPnPMessage_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @svcctl_dissect_ScSendPnPMessage_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.637, ptr %7, align 8
   ret i32 %1
@@ -5219,7 +5213,7 @@ define internal noundef i32 @svcctl_dissect_ScSendPnPMessage_request(ptr readnon
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_ScSendPnPMessage_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.637, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
@@ -5236,12 +5230,12 @@ define internal i32 @svcctl_dissect_ScSendPnPMessage_response(ptr noundef %0, i3
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @svcctl_dissect_ScValidatePnPService_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @svcctl_dissect_ScValidatePnPService_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.638, ptr %7, align 8
   ret i32 %1
@@ -5250,7 +5244,7 @@ define internal noundef i32 @svcctl_dissect_ScValidatePnPService_request(ptr rea
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_ScValidatePnPService_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.638, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
@@ -5267,12 +5261,12 @@ define internal i32 @svcctl_dissect_ScValidatePnPService_response(ptr noundef %0
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @svcctl_dissect_ScOpenServiceStatusHandle_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @svcctl_dissect_ScOpenServiceStatusHandle_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.639, ptr %7, align 8
   ret i32 %1
@@ -5281,7 +5275,7 @@ define internal noundef i32 @svcctl_dissect_ScOpenServiceStatusHandle_request(pt
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_ScOpenServiceStatusHandle_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.639, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
@@ -5298,12 +5292,12 @@ define internal i32 @svcctl_dissect_ScOpenServiceStatusHandle_response(ptr nound
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @svcctl_dissect_ScQueryServiceConfig_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @svcctl_dissect_ScQueryServiceConfig_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.640, ptr %7, align 8
   ret i32 %1
@@ -5312,7 +5306,7 @@ define internal noundef i32 @svcctl_dissect_ScQueryServiceConfig_request(ptr rea
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_ScQueryServiceConfig_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.640, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
@@ -5329,7 +5323,7 @@ define internal i32 @svcctl_dissect_ScQueryServiceConfig_response(ptr noundef %0
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -5349,7 +5343,7 @@ define internal i32 @svcctl_dissect_QueryServiceConfigEx_request(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_QueryServiceConfigEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.641, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
@@ -5366,12 +5360,12 @@ define internal i32 @svcctl_dissect_QueryServiceConfigEx_response(ptr noundef %0
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @svcctl_dissect_ScRegisterPreshutdownRestart_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @svcctl_dissect_ScRegisterPreshutdownRestart_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.642, ptr %7, align 8
   ret i32 %1
@@ -5380,7 +5374,7 @@ define internal noundef i32 @svcctl_dissect_ScRegisterPreshutdownRestart_request
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_ScRegisterPreshutdownRestart_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.642, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
@@ -5397,12 +5391,12 @@ define internal i32 @svcctl_dissect_ScRegisterPreshutdownRestart_response(ptr no
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @svcctl_dissect_ScReparseServiceDatabase_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @svcctl_dissect_ScReparseServiceDatabase_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.643, ptr %7, align 8
   ret i32 %1
@@ -5411,7 +5405,7 @@ define internal noundef i32 @svcctl_dissect_ScReparseServiceDatabase_request(ptr
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_ScReparseServiceDatabase_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.643, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
@@ -5428,12 +5422,12 @@ define internal i32 @svcctl_dissect_ScReparseServiceDatabase_response(ptr nounde
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @svcctl_dissect_QueryUserServiceName_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @svcctl_dissect_QueryUserServiceName_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.644, ptr %7, align 8
   ret i32 %1
@@ -5442,7 +5436,7 @@ define internal noundef i32 @svcctl_dissect_QueryUserServiceName_request(ptr rea
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_QueryUserServiceName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.644, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
@@ -5459,7 +5453,7 @@ define internal i32 @svcctl_dissect_QueryUserServiceName_response(ptr noundef %0
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -5474,12 +5468,12 @@ define internal i32 @svcctl_dissect_CreateWowService_request(ptr noundef %0, i32
   %12 = load i32, ptr @hf_svcctl_svcctl_CreateWowService_scm_handle, align 4
   %13 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_CreateWowService_scm_handle_, i32 noundef 1, ptr noundef nonnull @.str.658, i32 noundef %12)
   %14 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %13, ptr noundef %4, ptr noundef %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %15 = load i32, ptr @hf_svcctl_svcctl_CreateWowService_ServiceName, align 4
   %16 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %15, i1 noundef zeroext false, ptr noundef nonnull %10)
   %17 = load ptr, ptr %10, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %17)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %18 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %16, ptr noundef %4, ptr noundef %5)
   %19 = load i32, ptr @hf_svcctl_svcctl_CreateWowService_DisplayName, align 4
   %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_CreateWowService_DisplayName_, i32 noundef 2, ptr noundef nonnull @.str.670, i32 noundef %19)
@@ -5491,23 +5485,23 @@ define internal i32 @svcctl_dissect_CreateWowService_request(ptr noundef %0, i32
   %26 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %25, i32 noundef 0)
   %27 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %26, ptr noundef %4, ptr noundef %5)
   %28 = load i32, ptr @hf_svcctl_svcctl_CreateWowService_start_type, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %29 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %28, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %30 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %29, ptr noundef %4, ptr noundef %5)
   %31 = load i32, ptr @hf_svcctl_svcctl_CreateWowService_error_control, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %32 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %31, ptr noundef nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %33 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %32, ptr noundef %4, ptr noundef %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %34 = load i32, ptr @hf_svcctl_svcctl_CreateWowService_binary_path, align 4
   %35 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %34, i1 noundef zeroext false, ptr noundef nonnull %7)
   %36 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %36)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %37 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %35, ptr noundef %4, ptr noundef %5)
   %38 = load i32, ptr @hf_svcctl_svcctl_CreateWowService_LoadOrderGroupKey, align 4
   %39 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_CreateWowService_LoadOrderGroupKey_, i32 noundef 2, ptr noundef nonnull @.str.718, i32 noundef %38)
@@ -5539,7 +5533,7 @@ define internal i32 @svcctl_dissect_CreateWowService_request(ptr noundef %0, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_CreateWowService_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.645, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_CreateWowService_tag_id, align 4
@@ -5562,12 +5556,12 @@ define internal i32 @svcctl_dissect_CreateWowService_response(ptr noundef %0, i3
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @svcctl_dissect_GetServiceRegistryStateKey_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @svcctl_dissect_GetServiceRegistryStateKey_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.646, ptr %7, align 8
   ret i32 %1
@@ -5576,7 +5570,7 @@ define internal noundef i32 @svcctl_dissect_GetServiceRegistryStateKey_request(p
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_GetServiceRegistryStateKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.646, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
@@ -5593,12 +5587,12 @@ define internal i32 @svcctl_dissect_GetServiceRegistryStateKey_response(ptr noun
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @svcctl_dissect_GetServiceDirectory_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @svcctl_dissect_GetServiceDirectory_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.647, ptr %7, align 8
   ret i32 %1
@@ -5607,7 +5601,7 @@ define internal noundef i32 @svcctl_dissect_GetServiceDirectory_request(ptr read
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_GetServiceDirectory_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.647, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
@@ -5624,12 +5618,12 @@ define internal i32 @svcctl_dissect_GetServiceDirectory_response(ptr noundef %0,
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @svcctl_dissect_GetServiceProcessToken_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @svcctl_dissect_GetServiceProcessToken_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.648, ptr %7, align 8
   ret i32 %1
@@ -5638,7 +5632,7 @@ define internal noundef i32 @svcctl_dissect_GetServiceProcessToken_request(ptr r
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_GetServiceProcessToken_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.648, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
@@ -5655,7 +5649,7 @@ define internal i32 @svcctl_dissect_GetServiceProcessToken_response(ptr noundef 
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -5675,7 +5669,7 @@ define internal i32 @svcctl_dissect_OpenSCManager2_request(ptr noundef %0, i32 n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_OpenSCManager2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.649, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_OpenSCManager2_handle, align 4
@@ -5695,12 +5689,12 @@ define internal i32 @svcctl_dissect_OpenSCManager2_response(ptr noundef %0, i32 
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @svcctl_dissect_GetSharedServiceRegistryStateKey_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @svcctl_dissect_GetSharedServiceRegistryStateKey_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.650, ptr %7, align 8
   ret i32 %1
@@ -5709,7 +5703,7 @@ define internal noundef i32 @svcctl_dissect_GetSharedServiceRegistryStateKey_req
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_GetSharedServiceRegistryStateKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.650, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
@@ -5726,12 +5720,12 @@ define internal i32 @svcctl_dissect_GetSharedServiceRegistryStateKey_response(pt
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @svcctl_dissect_GetSharedServiceDirectory_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @svcctl_dissect_GetSharedServiceDirectory_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.651, ptr %7, align 8
   ret i32 %1
@@ -5740,7 +5734,7 @@ define internal noundef i32 @svcctl_dissect_GetSharedServiceDirectory_request(pt
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_GetSharedServiceDirectory_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.651, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
@@ -5757,15 +5751,15 @@ define internal i32 @svcctl_dissect_GetSharedServiceDirectory_response(ptr nound
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_deferred_pointers(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_deferred_pointers(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_toplevel_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_toplevel_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_CloseServiceHandle_object_handle_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -5775,13 +5769,13 @@ define internal i32 @svcctl_dissect_element_CloseServiceHandle_object_handle_(pt
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @PIDL_dissect_policy_hnd(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PIDL_dissect_policy_hnd(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_ControlService_service_handle_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -5832,7 +5826,7 @@ define internal i32 @svcctl_dissect_element_QueryServiceObjectSecurity_security_
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_ucarray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_ucarray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_QueryServiceObjectSecurity_security_descriptor__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -5842,7 +5836,7 @@ define internal i32 @svcctl_dissect_element_QueryServiceObjectSecurity_security_
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @PIDL_dissect_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PIDL_dissect_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_QueryServiceObjectSecurity_bytes_needed_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -5909,12 +5903,12 @@ define internal i32 @svcctl_dissect_element_UnlockServiceDatabase_lock_handle_(p
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_NotifyBootConfigStatus_machine_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_NotifyBootConfigStatus_machine_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -5928,12 +5922,12 @@ define internal i32 @svcctl_dissect_element_SCSetServiceBitsW_service_handle_(pt
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_SCSetServiceBitsW_lpString_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_SCSetServiceBitsW_lpString, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -5947,24 +5941,24 @@ define internal i32 @svcctl_dissect_element_ChangeServiceConfigW_service_handle_
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_ChangeServiceConfigW_binary_path_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_ChangeServiceConfigW_binary_path, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_ChangeServiceConfigW_load_order_group_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_ChangeServiceConfigW_load_order_group, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -5978,48 +5972,48 @@ define internal i32 @svcctl_dissect_element_ChangeServiceConfigW_tag_id_(ptr nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_ChangeServiceConfigW_dependencies_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_ChangeServiceConfigW_dependencies, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_ChangeServiceConfigW_service_start_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_ChangeServiceConfigW_service_start_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_ChangeServiceConfigW_password_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_ChangeServiceConfigW_password, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_ChangeServiceConfigW_display_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_ChangeServiceConfigW_display_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -6033,24 +6027,24 @@ define internal i32 @svcctl_dissect_element_CreateServiceW_scm_handle_(ptr nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_CreateServiceW_DisplayName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_CreateServiceW_DisplayName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_CreateServiceW_LoadOrderGroup_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_CreateServiceW_LoadOrderGroup, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -6077,12 +6071,12 @@ define internal i32 @svcctl_dissect_element_CreateServiceW_dependencies__(ptr no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_CreateServiceW_service_start_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_CreateServiceW_service_start_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -6155,35 +6149,35 @@ define internal i32 @svcctl_dissect_element_EnumServicesStatusW_resume_index_(pt
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_uint3264(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_uint3264(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @PIDL_dissect_uint32_val(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PIDL_dissect_uint32_val(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_OpenSCManagerW_MachineName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_OpenSCManagerW_MachineName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_OpenSCManagerW_DatabaseName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_OpenSCManagerW_DatabaseName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -6280,12 +6274,12 @@ define internal i32 @svcctl_dissect_element_GetServiceDisplayNameW_scm_handle_(p
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_GetServiceDisplayNameW_service_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_GetServiceDisplayNameW_service_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -6306,12 +6300,12 @@ define internal i32 @svcctl_dissect_element_GetServiceDisplayNameW_display_name_
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_GetServiceDisplayNameW_display_name__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_GetServiceDisplayNameW_display_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -6325,12 +6319,12 @@ define internal i32 @svcctl_dissect_element_GetServiceKeyNameW_scm_handle_(ptr n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_GetServiceKeyNameW_display_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_GetServiceKeyNameW_display_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -6351,12 +6345,12 @@ define internal i32 @svcctl_dissect_element_GetServiceKeyNameW_service_name_(ptr
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_GetServiceKeyNameW_service_name__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_GetServiceKeyNameW_service_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -6370,12 +6364,12 @@ define internal i32 @svcctl_dissect_element_SCSetServiceBitsA_handle_(ptr nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_SCSetServiceBitsA_lpString_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_SCSetServiceBitsA_lpString, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -6445,24 +6439,24 @@ define internal i32 @svcctl_dissect_element_CreateServiceA_scm_handle_(ptr nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_CreateServiceA_DisplayName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_CreateServiceA_DisplayName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_CreateServiceA_LoadOrderGroupKey_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_CreateServiceA_LoadOrderGroupKey, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -6489,12 +6483,12 @@ define internal i32 @svcctl_dissect_element_CreateServiceA_dependencies__(ptr no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_CreateServiceA_service_start_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_CreateServiceA_service_start_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -6584,24 +6578,24 @@ define internal i32 @svcctl_dissect_element_EnumServicesStatusA_services_returne
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_OpenSCManagerA_MachineName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_OpenSCManagerA_MachineName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_OpenSCManagerA_DatabaseName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_OpenSCManagerA_DatabaseName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -6719,12 +6713,12 @@ define internal i32 @svcctl_dissect_element_GetServiceDisplayNameA_display_name_
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_GetServiceDisplayNameA_display_name__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_GetServiceDisplayNameA_display_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -6759,12 +6753,12 @@ define internal i32 @svcctl_dissect_element_GetServiceKeyNameA_key_name_(ptr nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_GetServiceKeyNameA_key_name__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_GetServiceKeyNameA_key_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -6778,12 +6772,12 @@ define internal i32 @svcctl_dissect_element_GetCurrentGroupeStateW_handle_(ptr n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_GetCurrentGroupeStateW_lpLoadOrderGroup_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_GetCurrentGroupeStateW_lpLoadOrderGroup, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -6811,12 +6805,12 @@ define internal i32 @svcctl_dissect_element_EnumServiceGroupW_ResumeIndex_(ptr n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_EnumServiceGroupW_pszGroupName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_EnumServiceGroupW_pszGroupName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -6989,12 +6983,12 @@ define internal i32 @svcctl_dissect_element_EnumServicesStatusExA_group_name_(pt
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_EnumServicesStatusExA_group_name__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_EnumServicesStatusExA_group_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -7015,12 +7009,12 @@ define internal i32 @svcctl_dissect_element_EnumServicesStatusExW_resume_handle_
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_EnumServicesStatusExW_group_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_EnumServicesStatusExW_group_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -7061,24 +7055,24 @@ define internal i32 @svcctl_dissect_element_CreateServiceWOW64A_scm_handle_(ptr 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_CreateServiceWOW64A_DisplayName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_CreateServiceWOW64A_DisplayName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_CreateServiceWOW64A_LoadOrderGroupKey_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_CreateServiceWOW64A_LoadOrderGroupKey, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -7105,12 +7099,12 @@ define internal i32 @svcctl_dissect_element_CreateServiceWOW64A_dependencies__(p
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_CreateServiceWOW64A_service_start_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_CreateServiceWOW64A_service_start_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -7144,24 +7138,24 @@ define internal i32 @svcctl_dissect_element_CreateServiceWOW64W_scm_handle_(ptr 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_CreateServiceWOW64W_DisplayName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_CreateServiceWOW64W_DisplayName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_CreateServiceWOW64W_LoadOrderGroupKey_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_CreateServiceWOW64W_LoadOrderGroupKey, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -7188,12 +7182,12 @@ define internal i32 @svcctl_dissect_element_CreateServiceWOW64W_dependencies__(p
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_CreateServiceWOW64W_service_start_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_CreateServiceWOW64W_service_start_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -7234,24 +7228,24 @@ define internal i32 @svcctl_dissect_element_CreateWowService_scm_handle_(ptr nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_CreateWowService_DisplayName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_CreateWowService_DisplayName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_CreateWowService_LoadOrderGroupKey_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_CreateWowService_LoadOrderGroupKey, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -7278,12 +7272,12 @@ define internal i32 @svcctl_dissect_element_CreateWowService_dependencies__(ptr 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_CreateWowService_service_start_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_CreateWowService_service_start_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -7301,7 +7295,7 @@ define internal i32 @svcctl_dissect_element_CreateWowService_password__(ptr noun
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @PIDL_dissect_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PIDL_dissect_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_CreateWowService_handle_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -7313,12 +7307,12 @@ define internal i32 @svcctl_dissect_element_CreateWowService_handle_(ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @svcctl_dissect_element_OpenSCManager2_database_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_svcctl_svcctl_OpenSCManager2_database_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.519, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -7329,11 +7323,16 @@ define internal i32 @svcctl_dissect_element_OpenSCManager2_handle_(ptr noundef %
   ret i32 %8
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

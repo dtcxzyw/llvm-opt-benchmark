@@ -60,9 +60,9 @@ define range(i32 -1, 1) i32 @rename(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %.not22, label %105, label %33
 
 33:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %7, align 8
   %34 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -208,15 +208,15 @@ define range(i32 -1, 1) i32 @rename(ptr noundef %0, ptr noundef %1) local_unname
 
 mountptrename.exit:                               ; preds = %33, %102, %104
   %.0.i = phi i32 [ -38, %33 ], [ %.136.i, %104 ], [ %.136.i, %102 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %175
 
 105:                                              ; preds = %30, %24
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %106 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %107 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -375,9 +375,9 @@ mountptrename.exit:                               ; preds = %33, %102, %104
   br label %pseudorename.exit
 
 pseudorename.exit:                                ; preds = %172, %174
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %175
 
 175:                                              ; preds = %pseudorename.exit, %mountptrename.exit
@@ -440,10 +440,10 @@ declare void @inode_unlock() local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

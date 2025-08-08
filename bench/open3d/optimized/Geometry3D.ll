@@ -84,7 +84,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress ssp uwtable
 define noundef nonnull align 8 dereferenceable(48) ptr @_ZN6open3d8geometry10Geometry3D6RotateERKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.Eigen::Matrix.3", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %0, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -93,18 +93,12 @@ define noundef nonnull align 8 dereferenceable(48) ptr @_ZN6open3d8geometry10Geo
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %9 = load ptr, ptr %8, align 8
   %10 = call noundef nonnull align 8 dereferenceable(48) ptr %9(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %10
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nounwind ssp memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK6open3d8geometry10Geometry3D15ComputeMinBoundERKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EE(ptr dead_on_unwind noalias writable writeonly sret(%"class.Eigen::Matrix.3") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6open3d8geometry10Geometry3D15ComputeMinBoundERKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EE(ptr dead_on_unwind noalias writable writeonly sret(%"class.Eigen::Matrix.3") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %2, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !7
@@ -126,7 +120,7 @@ define void @_ZNK6open3d8geometry10Geometry3D15ComputeMinBoundERKSt6vectorIN5Eig
   %10 = phi <2 x double> [ %.sroa.0.0.copyload, %.lr.ph.i ], [ %12, %9 ]
   %.sroa.02.06.i = phi ptr [ %4, %.lr.ph.i ], [ %17, %9 ]
   %11 = load <2 x double>, ptr %.sroa.02.06.i, align 1, !tbaa !11, !noalias !12
-  %12 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %10, <2 x double> %11) #25, !srcloc !15
+  %12 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %10, <2 x double> %11) #24, !srcloc !15
   %13 = getelementptr i8, ptr %.sroa.02.06.i, i64 16
   %14 = load double, ptr %13, align 8, !tbaa !16, !noalias !12
   %15 = fcmp olt double %14, %.sroa.4.0
@@ -146,12 +140,12 @@ define void @_ZNK6open3d8geometry10Geometry3D15ComputeMinBoundERKSt6vectorIN5Eig
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind ssp memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK6open3d8geometry10Geometry3D15ComputeMaxBoundERKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EE(ptr dead_on_unwind noalias writable writeonly sret(%"class.Eigen::Matrix.3") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6open3d8geometry10Geometry3D15ComputeMaxBoundERKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EE(ptr dead_on_unwind noalias writable writeonly sret(%"class.Eigen::Matrix.3") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %2, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !7
@@ -173,7 +167,7 @@ define void @_ZNK6open3d8geometry10Geometry3D15ComputeMaxBoundERKSt6vectorIN5Eig
   %10 = phi <2 x double> [ %.sroa.0.0.copyload, %.lr.ph.i ], [ %12, %9 ]
   %.sroa.02.06.i = phi ptr [ %4, %.lr.ph.i ], [ %17, %9 ]
   %11 = load <2 x double>, ptr %.sroa.02.06.i, align 1, !tbaa !11, !noalias !20
-  %12 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %10, <2 x double> %11) #25, !srcloc !23
+  %12 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %10, <2 x double> %11) #24, !srcloc !23
   %13 = getelementptr i8, ptr %.sroa.02.06.i, i64 16
   %14 = load double, ptr %13, align 8, !tbaa !16, !noalias !20
   %15 = fcmp olt double %.sroa.4.0, %14
@@ -193,7 +187,7 @@ define void @_ZNK6open3d8geometry10Geometry3D15ComputeMaxBoundERKSt6vectorIN5Eig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK6open3d8geometry10Geometry3D13ComputeCenterERKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EE(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix.3") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6open3d8geometry10Geometry3D13ComputeCenterERKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EE(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix.3") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = load ptr, ptr %2, align 8, !tbaa !7
@@ -238,7 +232,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKN5Eigen6MatrixIdLi3ELi1ELi0ELi
 }
 
 ; Function Attrs: mustprogress ssp uwtable
-define void @_ZNK6open3d8geometry10Geometry3D26ResizeAndPaintUniformColorERSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EEmRKS5_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6open3d8geometry10Geometry3D26ResizeAndPaintUniformColorERSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EEmRKS5_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %2)
   %.sroa.033.0.copyload = load <2 x double>, ptr %3, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -262,10 +256,10 @@ define void @_ZNK6open3d8geometry10Geometry3D26ResizeAndPaintUniformColorERSt6ve
 
 16:                                               ; preds = %10, %4
   tail call void @_ZN6open3d7utility6Logger11LogWarning_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 64, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK6open3d8geometry10Geometry3D26ResizeAndPaintUniformColorERSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EEmRKS5_, ptr noundef nonnull @.str.3)
-  %17 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.033.0.copyload, <2 x double> zeroinitializer) #25, !srcloc !23
+  %17 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.033.0.copyload, <2 x double> zeroinitializer) #24, !srcloc !23
   %18 = fcmp olt double %.sroa.7.0.copyload, 0.000000e+00
   %19 = select i1 %18, double 0.000000e+00, double %.sroa.7.0.copyload
-  %20 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %17, <2 x double> splat (double 1.000000e+00)) #25, !srcloc !15
+  %20 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %17, <2 x double> splat (double 1.000000e+00)) #24, !srcloc !15
   %21 = fcmp ogt double %19, 1.000000e+00
   %22 = select i1 %21, double 1.000000e+00, double %19
   br label %23
@@ -329,7 +323,7 @@ define linkonce_odr void @_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaI
   br i1 %24, label %25, label %_ZNKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 25:                                               ; preds = %23
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #26
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
 _ZNKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %23
@@ -337,7 +331,7 @@ _ZNKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE12_M_check_lenEmPKc.
   %26 = add nuw nsw i64 %.sroa.speculated.i.i, %9
   %27 = tail call i64 @llvm.umin.i64(i64 %26, i64 384307168202282325)
   %28 = mul nuw nsw i64 %27, 24
-  %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #27
+  %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #26
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %8
   %.not10.i.i.i.i = icmp eq ptr %5, %4
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i, label %.lr.ph.i.i.i.i
@@ -357,7 +351,7 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 
 33:                                               ; preds = %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
   %34 = sub i64 %15, %7
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %34) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %34) #27
   br label %_ZNSt12_Vector_baseIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE13_M_deallocateEPS2_m.exit32.i
 
 _ZNSt12_Vector_baseIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE13_M_deallocateEPS2_m.exit32.i: ; preds = %33, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
@@ -396,19 +390,19 @@ define linkonce_odr void @_ZN6open3d7utility6Logger11LogWarning_IJEEEvPKciS4_S4_
 
 10:                                               ; preds = %4
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6open3d7utility6Logger11GetInstanceEv()
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %12, ptr %6, align 8, !tbaa !40
   %13 = icmp eq ptr %3, null
   br i1 %13, label %.noexc, label %14
 
 .noexc:                                           ; preds = %10
-  call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.5) #26
+  call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.5) #25
   unreachable
 
 14:                                               ; preds = %10
-  %15 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
+  %15 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %15, ptr %5, align 8, !tbaa !43
   %16 = icmp ugt i64 %15, 15
   br i1 %16, label %.noexc.i, label %._crit_edge.i.i
@@ -443,7 +437,7 @@ define linkonce_odr void @_ZN6open3d7utility6Logger11LogWarning_IJEEEvPKciS4_S4_
   %26 = load ptr, ptr %6, align 8, !tbaa !45
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %24
   store i8 0, ptr %27, align 1, !tbaa !11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZNK6open3d7utility6Logger8VWarningEPKciS3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %28 unwind label %35
 
@@ -461,11 +455,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %28
   %33 = load i64, ptr %12, align 8, !tbaa !11
   %34 = add i64 %33, 1
-  call void @_ZdlPvm(ptr noundef %29, i64 noundef %34) #28
+  call void @_ZdlPvm(ptr noundef %29, i64 noundef %34) #27
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %43
 
 35:                                               ; preds = %23
@@ -484,11 +478,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8: ; preds = %35
   %41 = load i64, ptr %12, align 8, !tbaa !11
   %42 = add i64 %41, 1
-  call void @_ZdlPvm(ptr noundef %37, i64 noundef %42) #28
+  call void @_ZdlPvm(ptr noundef %37, i64 noundef %42) #27
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %36
 
 43:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %4
@@ -496,30 +490,30 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %_ZN
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6open3d7utility6Logger11GetInstanceEv() local_unnamed_addr #10
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6open3d7utility6Logger11GetInstanceEv() local_unnamed_addr #9
 
-declare noundef i32 @_ZNK6open3d7utility6Logger17GetVerbosityLevelEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #10
+declare noundef i32 @_ZNK6open3d7utility6Logger17GetVerbosityLevelEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #9
 
-declare void @_ZNK6open3d7utility6Logger8VWarningEPKciS3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i32 noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #10
+declare void @_ZNK6open3d7utility6Logger8VWarningEPKciS3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i32 noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #9
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #7
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #10
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK6open3d8geometry10Geometry3D15TransformPointsERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEERSt6vectorINS3_IdLi3ELi1ELi0ELi3ELi1EEESaIS8_EE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(128) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6open3d8geometry10Geometry3D15TransformPointsERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEERSt6vectorINS3_IdLi3ELi1ELi0ELi3ELi1EEESaIS8_EE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(128) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0 = alloca [4 x double], align 16
   %4 = load ptr, ptr %2, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -547,7 +541,7 @@ define void @_ZNK6open3d8geometry10Geometry3D15TransformPointsERKN5Eigen6MatrixI
 
 14:                                               ; preds = %.lr.ph, %14
   %.sroa.018.022 = phi ptr [ %4, %.lr.ph ], [ %49, %14 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.018.022, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.018.022, i64 16
   %17 = load double, ptr %.sroa.018.022, align 8, !tbaa !16
@@ -586,7 +580,7 @@ define void @_ZNK6open3d8geometry10Geometry3D15TransformPointsERKN5Eigen6MatrixI
   %43 = load <2 x double>, ptr %13, align 16, !tbaa !11
   %44 = fmul <2 x double> %32, %43
   %45 = fadd <2 x double> %44, %42
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   %.sroa.4.24.vec.extract = extractelement <2 x double> %45, i64 1
   %46 = shufflevector <2 x double> %45, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %47 = fdiv <2 x double> %34, %46
@@ -600,7 +594,7 @@ define void @_ZNK6open3d8geometry10Geometry3D15TransformPointsERKN5Eigen6MatrixI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK6open3d8geometry10Geometry3D16TransformNormalsERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEERSt6vectorINS3_IdLi3ELi1ELi0ELi3ELi1EEESaIS8_EE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(128) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6open3d8geometry10Geometry3D16TransformNormalsERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEERSt6vectorINS3_IdLi3ELi1ELi0ELi3ELi1EEESaIS8_EE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(128) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0 = alloca [4 x double], align 16
   %4 = load ptr, ptr %2, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -628,7 +622,7 @@ define void @_ZNK6open3d8geometry10Geometry3D16TransformNormalsERKN5Eigen6Matrix
 
 14:                                               ; preds = %.lr.ph, %14
   %.sroa.013.017 = phi ptr [ %4, %.lr.ph ], [ %53, %14 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.013.017, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.013.017, i64 16
   %17 = load double, ptr %.sroa.013.017, align 8, !tbaa !16
@@ -660,7 +654,7 @@ define void @_ZNK6open3d8geometry10Geometry3D16TransformNormalsERKN5Eigen6Matrix
   %36 = load <2 x double>, ptr %11, align 16, !tbaa !11
   %37 = load <2 x double>, ptr %12, align 16, !tbaa !11
   %38 = load <2 x double>, ptr %13, align 16, !tbaa !11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   store <2 x double> %34, ptr %.sroa.013.017, align 1, !tbaa !11
   %39 = extractelement <2 x double> %.sroa.0.16..sroa.0.16..sroa.0.16., i64 1
   %40 = extractelement <2 x double> %38, i64 0
@@ -684,14 +678,14 @@ define void @_ZNK6open3d8geometry10Geometry3D16TransformNormalsERKN5Eigen6Matrix
 }
 
 ; Function Attrs: mustprogress ssp uwtable
-define void @_ZNK6open3d8geometry10Geometry3D20TransformCovariancesERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEERSt6vectorINS3_IdLi3ELi3ELi0ELi3ELi3EEESaIS8_EE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(128) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6open3d8geometry10Geometry3D20TransformCovariancesERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEERSt6vectorINS3_IdLi3ELi3ELi0ELi3ELi3EEESaIS8_EE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(128) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Eigen::internal::evaluator.458", align 8
   %5 = alloca %"struct.Eigen::internal::evaluator.467", align 8
   %6 = alloca %"class.Eigen::internal::generic_dense_assignment_kernel.471", align 8
   %7 = alloca %"struct.Eigen::internal::assign_op", align 1
   %8 = alloca %"class.Eigen::Matrix.441", align 8
   %9 = alloca %"class.Eigen::Matrix", align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   br label %11
 
@@ -744,9 +738,9 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EE
 
 43:                                               ; preds = %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_7ProductINS3_IS1_S1_Li0EEENS_9TransposeIKS1_EELi0EEEEERS1_RKNS_9DenseBaseIT_EE.exit.i, %.lr.ph.i
   %.sroa.011.015.i = phi ptr [ %19, %.lr.ph.i ], [ %87, %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_7ProductINS3_IS1_S1_Li0EEENS_9TransposeIKS1_EELi0EEEEERS1_RKNS_9DenseBaseIT_EE.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8) #24
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #24
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.011.015.i, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.011.015.i, i64 16
   %.pre.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %9, align 16, !tbaa !11
@@ -795,18 +789,18 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_7ProductINS3_IS1_S1_Li0EEENS_9Trans
   store ptr %4, ptr %29, align 8, !tbaa !52
   store ptr %9, ptr %30, align 8, !tbaa !52
   store i64 3, ptr %31, align 8, !tbaa !55
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %8, ptr %5, align 8, !tbaa !52
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %5, ptr %6, align 8, !tbaa !67
   store ptr %4, ptr %32, align 8, !tbaa !69
   store ptr %7, ptr %33, align 8, !tbaa !71
   store ptr %8, ptr %34, align 8, !tbaa !73
   call void @_ZN5Eigen8internal55copy_using_evaluator_DefaultTraversal_CompleteUnrollingINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi3ELi3ELi1ELi3ELi3EEEEENS3_INS_7ProductINS7_INS4_IdLi3ELi3ELi0ELi3ELi3EEES8_Li0EEENS_9TransposeIKS8_EELi1EEEEENS0_9assign_opIddEELi0EEELi0ELi9EE3runERSH_(ptr noundef nonnull align 8 dereferenceable(32) %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %72 = load double, ptr %8, align 8, !tbaa !16
   store double %72, ptr %.sroa.011.015.i, align 8, !tbaa !16
   %73 = load double, ptr %35, align 8, !tbaa !16
@@ -831,18 +825,18 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_7ProductINS3_IS1_S1_Li0EEENS_9Trans
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.011.015.i, i64 64
   %86 = load double, ptr %42, align 8, !tbaa !16
   store double %86, ptr %85, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.011.015.i, i64 72
   %.not.i = icmp eq ptr %87, %21
   br i1 %.not.i, label %_ZNK6open3d8geometry10Geometry3D17RotateCovariancesERKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEERSt6vectorIS4_SaIS4_EE.exit, label %43
 
 _ZNK6open3d8geometry10Geometry3D17RotateCovariancesERKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEERSt6vectorIS4_SaIS4_EE.exit: ; preds = %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_7ProductINS3_IS1_S1_Li0EEENS_9TransposeIKS1_EELi0EEEEERS1_RKNS_9DenseBaseIT_EE.exit.i, %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEEEERKNS_9EigenBaseIT_EE.exit
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress ssp uwtable
-define void @_ZNK6open3d8geometry10Geometry3D17RotateCovariancesERKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEERSt6vectorIS4_SaIS4_EE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6open3d8geometry10Geometry3D17RotateCovariancesERKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEERSt6vectorIS4_SaIS4_EE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Eigen::internal::evaluator.458", align 8
   %5 = alloca %"struct.Eigen::internal::evaluator.467", align 8
   %6 = alloca %"class.Eigen::internal::generic_dense_assignment_kernel.471", align 8
@@ -884,9 +878,9 @@ define void @_ZNK6open3d8geometry10Geometry3D17RotateCovariancesERKN5Eigen6Matri
 
 34:                                               ; preds = %.lr.ph, %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_7ProductINS3_IS1_S1_Li0EEENS_9TransposeIKS1_EELi0EEEEERS1_RKNS_9DenseBaseIT_EE.exit
   %.sroa.011.015 = phi ptr [ %9, %.lr.ph ], [ %78, %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_7ProductINS3_IS1_S1_Li0EEENS_9TransposeIKS1_EELi0EEEEERS1_RKNS_9DenseBaseIT_EE.exit ]
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8) #24
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #24
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.011.015, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.011.015, i64 16
   %.pre.i.i.i.i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %1, align 8, !tbaa !11
@@ -935,18 +929,18 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_7ProductINS3_IS1_S1_Li0EEENS_9Trans
   store ptr %4, ptr %20, align 8, !tbaa !52
   store ptr %1, ptr %21, align 8, !tbaa !52
   store i64 3, ptr %22, align 8, !tbaa !55
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %8, ptr %5, align 8, !tbaa !52
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %5, ptr %6, align 8, !tbaa !67
   store ptr %4, ptr %23, align 8, !tbaa !69
   store ptr %7, ptr %24, align 8, !tbaa !71
   store ptr %8, ptr %25, align 8, !tbaa !73
   call void @_ZN5Eigen8internal55copy_using_evaluator_DefaultTraversal_CompleteUnrollingINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi3ELi3ELi1ELi3ELi3EEEEENS3_INS_7ProductINS7_INS4_IdLi3ELi3ELi0ELi3ELi3EEES8_Li0EEENS_9TransposeIKS8_EELi1EEEEENS0_9assign_opIddEELi0EEELi0ELi9EE3runERSH_(ptr noundef nonnull align 8 dereferenceable(32) %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %63 = load double, ptr %8, align 8, !tbaa !16
   store double %63, ptr %.sroa.011.015, align 8, !tbaa !16
   %64 = load double, ptr %26, align 8, !tbaa !16
@@ -971,14 +965,14 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_7ProductINS3_IS1_S1_Li0EEENS_9Trans
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.011.015, i64 64
   %77 = load double, ptr %33, align 8, !tbaa !16
   store double %77, ptr %76, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.011.015, i64 72
   %.not = icmp eq ptr %78, %11
   br i1 %.not, label %._crit_edge, label %34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK6open3d8geometry10Geometry3D15TranslatePointsERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERSt6vectorIS4_SaIS4_EEb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, i1 noundef zeroext %3) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6open3d8geometry10Geometry3D15TranslatePointsERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERSt6vectorIS4_SaIS4_EEb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, i1 noundef zeroext %3) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.012.0.copyload = load <2 x double>, ptr %1, align 8
   %.sroa.614.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.614.0.copyload = load double, ptr %.sroa.614.0..sroa_idx, align 8, !tbaa !11
@@ -1047,7 +1041,7 @@ _ZNK6open3d8geometry10Geometry3D13ComputeCenterERKSt6vectorIN5Eigen6MatrixIdLi3E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK6open3d8geometry10Geometry3D11ScalePointsEdRSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0, double noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6open3d8geometry10Geometry3D11ScalePointsEdRSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0, double noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %2, align 8, !tbaa !7
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !7
@@ -1084,7 +1078,7 @@ define void @_ZNK6open3d8geometry10Geometry3D11ScalePointsEdRSt6vectorIN5Eigen6M
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK6open3d8geometry10Geometry3D12RotatePointsERKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEERSt6vectorINS3_IdLi3ELi1ELi0ELi3ELi1EEESaIS8_EERKS8_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6open3d8geometry10Geometry3D12RotatePointsERKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEERSt6vectorINS3_IdLi3ELi1ELi0ELi3ELi1EEESaIS8_EERKS8_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = alloca { %"class.Eigen::Matrix.3", %"struct.Eigen::internal::evaluator.259" }, align 16
   %5 = load ptr, ptr %2, align 8, !tbaa !7
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1110,7 +1104,7 @@ define void @_ZNK6open3d8geometry10Geometry3D12RotatePointsERKN5Eigen6MatrixIdLi
 
 14:                                               ; preds = %.lr.ph, %14
   %.sroa.015.020 = phi ptr [ %5, %.lr.ph ], [ %46, %14 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   %15 = load <2 x double>, ptr %.sroa.015.020, align 1, !tbaa !11
   %16 = load <2 x double>, ptr %3, align 8, !tbaa !11
   %17 = fsub <2 x double> %15, %16
@@ -1144,7 +1138,7 @@ define void @_ZNK6open3d8geometry10Geometry3D12RotatePointsERKN5Eigen6MatrixIdLi
   %40 = fmul double %21, %39
   %41 = fadd double %38, %40
   %42 = fadd double %35, %41
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   %43 = fadd <2 x double> %16, %33
   store <2 x double> %43, ptr %.sroa.015.020, align 1, !tbaa !11
   %44 = load double, ptr %8, align 8, !tbaa !16
@@ -1156,7 +1150,7 @@ define void @_ZNK6open3d8geometry10Geometry3D12RotatePointsERKN5Eigen6MatrixIdLi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK6open3d8geometry10Geometry3D13RotateNormalsERKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEERSt6vectorINS3_IdLi3ELi1ELi0ELi3ELi1EEESaIS8_EE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6open3d8geometry10Geometry3D13RotateNormalsERKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEERSt6vectorINS3_IdLi3ELi1ELi0ELi3ELi1EEESaIS8_EE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %2, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !7
@@ -1210,7 +1204,7 @@ define void @_ZNK6open3d8geometry10Geometry3D13RotateNormalsERKN5Eigen6MatrixIdL
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define linkonce_odr void @_ZN5Eigen8internal55copy_using_evaluator_DefaultTraversal_CompleteUnrollingINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi3ELi3ELi1ELi3ELi3EEEEENS3_INS_7ProductINS7_INS4_IdLi3ELi3ELi0ELi3ELi3EEES8_Li0EEENS_9TransposeIKS8_EELi1EEEEENS0_9assign_opIddEELi0EEELi0ELi9EE3runERSH_(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Eigen8internal55copy_using_evaluator_DefaultTraversal_CompleteUnrollingINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi3ELi3ELi1ELi3ELi3EEEEENS3_INS_7ProductINS7_INS4_IdLi3ELi3ELi0ELi3ELi3EEES8_Li0EEENS_9TransposeIKS8_EELi1EEEEENS0_9assign_opIddEELi0EEELi0ELi9EE3runERSH_(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !80
   %3 = load ptr, ptr %2, align 8, !tbaa !82
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1353,23 +1347,23 @@ define linkonce_odr void @_ZN5Eigen8internal55copy_using_evaluator_DefaultTraver
 }
 
 ; Function Attrs: mustprogress ssp uwtable
-define void @_ZN6open3d8geometry10Geometry3D24GetRotationMatrixFromXYZERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.Eigen::Matrix") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6open3d8geometry10Geometry3D24GetRotationMatrixFromXYZERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.Eigen::Matrix") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Eigen::internal::evaluator.563", align 16
   %4 = alloca %"class.Eigen::Matrix", align 16
   %5 = alloca %"class.Eigen::Matrix", align 8
   %6 = alloca %"class.Eigen::Matrix", align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load double, ptr %1, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixXEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %4, double noundef %7)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixYEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %5, double noundef %9)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load double, ptr %10, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixZEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %6, double noundef %11)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -1469,37 +1463,37 @@ define void @_ZN6open3d8geometry10Geometry3D24GetRotationMatrixFromXYZERKN5Eigen
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductINS3_IS1_S1_Li0EEES1_Li0EEEEERKNS_9EigenBaseIT_EE.exit, label %60, !llvm.loop !89
 
 _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductINS3_IS1_S1_Li0EEES1_Li0EEEEERKNS_9EigenBaseIT_EE.exit: ; preds = %60
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #24
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #24
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare void @_ZN6open3d7utility15RotationMatrixXEd(ptr dead_on_unwind writable sret(%"class.Eigen::Matrix") align 8, double noundef) local_unnamed_addr #10
+declare void @_ZN6open3d7utility15RotationMatrixXEd(ptr dead_on_unwind writable sret(%"class.Eigen::Matrix") align 8, double noundef) local_unnamed_addr #9
 
-declare void @_ZN6open3d7utility15RotationMatrixYEd(ptr dead_on_unwind writable sret(%"class.Eigen::Matrix") align 8, double noundef) local_unnamed_addr #10
+declare void @_ZN6open3d7utility15RotationMatrixYEd(ptr dead_on_unwind writable sret(%"class.Eigen::Matrix") align 8, double noundef) local_unnamed_addr #9
 
-declare void @_ZN6open3d7utility15RotationMatrixZEd(ptr dead_on_unwind writable sret(%"class.Eigen::Matrix") align 8, double noundef) local_unnamed_addr #10
+declare void @_ZN6open3d7utility15RotationMatrixZEd(ptr dead_on_unwind writable sret(%"class.Eigen::Matrix") align 8, double noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress ssp uwtable
-define void @_ZN6open3d8geometry10Geometry3D24GetRotationMatrixFromYZXERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.Eigen::Matrix") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6open3d8geometry10Geometry3D24GetRotationMatrixFromYZXERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.Eigen::Matrix") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Eigen::internal::evaluator.563", align 16
   %4 = alloca %"class.Eigen::Matrix", align 16
   %5 = alloca %"class.Eigen::Matrix", align 8
   %6 = alloca %"class.Eigen::Matrix", align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load double, ptr %1, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixYEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %4, double noundef %7)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixZEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %5, double noundef %9)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load double, ptr %10, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixXEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %6, double noundef %11)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -1599,31 +1593,31 @@ define void @_ZN6open3d8geometry10Geometry3D24GetRotationMatrixFromYZXERKN5Eigen
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductINS3_IS1_S1_Li0EEES1_Li0EEEEERKNS_9EigenBaseIT_EE.exit, label %60, !llvm.loop !89
 
 _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductINS3_IS1_S1_Li0EEES1_Li0EEEEERKNS_9EigenBaseIT_EE.exit: ; preds = %60
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #24
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #24
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress ssp uwtable
-define void @_ZN6open3d8geometry10Geometry3D24GetRotationMatrixFromZXYERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.Eigen::Matrix") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6open3d8geometry10Geometry3D24GetRotationMatrixFromZXYERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.Eigen::Matrix") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Eigen::internal::evaluator.563", align 16
   %4 = alloca %"class.Eigen::Matrix", align 16
   %5 = alloca %"class.Eigen::Matrix", align 8
   %6 = alloca %"class.Eigen::Matrix", align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load double, ptr %1, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixZEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %4, double noundef %7)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixXEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %5, double noundef %9)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load double, ptr %10, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixYEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %6, double noundef %11)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -1723,31 +1717,31 @@ define void @_ZN6open3d8geometry10Geometry3D24GetRotationMatrixFromZXYERKN5Eigen
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductINS3_IS1_S1_Li0EEES1_Li0EEEEERKNS_9EigenBaseIT_EE.exit, label %60, !llvm.loop !89
 
 _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductINS3_IS1_S1_Li0EEES1_Li0EEEEERKNS_9EigenBaseIT_EE.exit: ; preds = %60
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #24
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #24
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress ssp uwtable
-define void @_ZN6open3d8geometry10Geometry3D24GetRotationMatrixFromXZYERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.Eigen::Matrix") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6open3d8geometry10Geometry3D24GetRotationMatrixFromXZYERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.Eigen::Matrix") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Eigen::internal::evaluator.563", align 16
   %4 = alloca %"class.Eigen::Matrix", align 16
   %5 = alloca %"class.Eigen::Matrix", align 8
   %6 = alloca %"class.Eigen::Matrix", align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load double, ptr %1, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixXEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %4, double noundef %7)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixZEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %5, double noundef %9)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load double, ptr %10, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixYEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %6, double noundef %11)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -1847,31 +1841,31 @@ define void @_ZN6open3d8geometry10Geometry3D24GetRotationMatrixFromXZYERKN5Eigen
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductINS3_IS1_S1_Li0EEES1_Li0EEEEERKNS_9EigenBaseIT_EE.exit, label %60, !llvm.loop !89
 
 _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductINS3_IS1_S1_Li0EEES1_Li0EEEEERKNS_9EigenBaseIT_EE.exit: ; preds = %60
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #24
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #24
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress ssp uwtable
-define void @_ZN6open3d8geometry10Geometry3D24GetRotationMatrixFromZYXERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.Eigen::Matrix") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6open3d8geometry10Geometry3D24GetRotationMatrixFromZYXERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.Eigen::Matrix") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Eigen::internal::evaluator.563", align 16
   %4 = alloca %"class.Eigen::Matrix", align 16
   %5 = alloca %"class.Eigen::Matrix", align 8
   %6 = alloca %"class.Eigen::Matrix", align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load double, ptr %1, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixZEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %4, double noundef %7)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixYEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %5, double noundef %9)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load double, ptr %10, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixXEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %6, double noundef %11)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -1971,31 +1965,31 @@ define void @_ZN6open3d8geometry10Geometry3D24GetRotationMatrixFromZYXERKN5Eigen
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductINS3_IS1_S1_Li0EEES1_Li0EEEEERKNS_9EigenBaseIT_EE.exit, label %60, !llvm.loop !89
 
 _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductINS3_IS1_S1_Li0EEES1_Li0EEEEERKNS_9EigenBaseIT_EE.exit: ; preds = %60
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #24
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #24
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress ssp uwtable
-define void @_ZN6open3d8geometry10Geometry3D24GetRotationMatrixFromYXZERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.Eigen::Matrix") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6open3d8geometry10Geometry3D24GetRotationMatrixFromYXZERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.Eigen::Matrix") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Eigen::internal::evaluator.563", align 16
   %4 = alloca %"class.Eigen::Matrix", align 16
   %5 = alloca %"class.Eigen::Matrix", align 8
   %6 = alloca %"class.Eigen::Matrix", align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load double, ptr %1, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixYEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %4, double noundef %7)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixXEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %5, double noundef %9)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load double, ptr %10, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixZEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %6, double noundef %11)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -2095,15 +2089,15 @@ define void @_ZN6open3d8geometry10Geometry3D24GetRotationMatrixFromYXZERKN5Eigen
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductINS3_IS1_S1_Li0EEES1_Li0EEEEERKNS_9EigenBaseIT_EE.exit, label %60, !llvm.loop !89
 
 _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductINS3_IS1_S1_Li0EEES1_Li0EEEEERKNS_9EigenBaseIT_EE.exit: ; preds = %60
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #24
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #24
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind ssp willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) uwtable
-define void @_ZN6open3d8geometry10Geometry3D30GetRotationMatrixFromAxisAngleERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.Eigen::Matrix") align 8 captures(none) initializes((0, 72)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6open3d8geometry10Geometry3D30GetRotationMatrixFromAxisAngleERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.Eigen::Matrix") align 8 captures(none) initializes((0, 72)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load <2 x double>, ptr %1, align 8, !tbaa !11
   %4 = fmul <2 x double> %3, %3
   %shift = shufflevector <2 x double> %4, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -2123,12 +2117,12 @@ define void @_ZN6open3d8geometry10Geometry3D30GetRotationMatrixFromAxisAngleERKN
   %14 = fdiv <2 x double> %3, %13
   %15 = fdiv double %8, %.scalar.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
-  %16 = tail call double @sin(double noundef %.scalar.i) #24, !tbaa !93, !noalias !90
+  %16 = tail call double @sin(double noundef %.scalar.i) #28, !tbaa !93, !noalias !90
   %.sroa.3.8.vec.insert.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %16, i64 0
   %17 = shufflevector <2 x double> %.sroa.3.8.vec.insert.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %18 = fmul <2 x double> %14, %17
   %19 = fmul double %15, %16
-  %20 = tail call double @cos(double noundef %.scalar.i) #24, !tbaa !93, !noalias !90
+  %20 = tail call double @cos(double noundef %.scalar.i) #28, !tbaa !93, !noalias !90
   %21 = fsub double 1.000000e+00, %20
   %.sroa.3.8.vec.insert.i.i.i.i.i.i7.i = insertelement <2 x double> poison, double %21, i64 0
   %22 = shufflevector <2 x double> %.sroa.3.8.vec.insert.i.i.i.i.i.i7.i, <2 x double> poison, <2 x i32> zeroinitializer
@@ -2189,13 +2183,13 @@ define void @_ZN6open3d8geometry10Geometry3D30GetRotationMatrixFromAxisAngleERKN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sin(double noundef) local_unnamed_addr #15
+declare double @sin(double noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @cos(double noundef) local_unnamed_addr #15
+declare double @cos(double noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6open3d8geometry10Geometry3D31GetRotationMatrixFromQuaternionERKN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.Eigen::Matrix") align 8 captures(none) initializes((0, 72)) %0, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(32) %1) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6open3d8geometry10Geometry3D31GetRotationMatrixFromQuaternionERKN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.Eigen::Matrix") align 8 captures(none) initializes((0, 72)) %0, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(32) %1) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load <2 x double>, ptr %3, align 8
@@ -2284,7 +2278,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %1
   %9 = load i64, ptr %4, align 8, !tbaa !11
   %10 = add i64 %9, 1
-  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %10) #28
+  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %10) #27
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -2298,10 +2292,10 @@ define linkonce_odr void @_ZN6open3d8geometry8GeometryD0Ev(ptr noundef nonnull a
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #17
+declare void @llvm.trap() #16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal void @__cxx_global_var_init.7() #18 section ".text.startup" comdat($_ZN3fmt3v1012format_facetISt6localeE2idE) {
+define internal void @__cxx_global_var_init.7() #17 section ".text.startup" comdat($_ZN3fmt3v1012format_facetISt6localeE2idE) {
   %1 = load i8, ptr @_ZGVN3fmt3v1012format_facetISt6localeE2idE, align 8
   %2 = icmp eq i8 %1, 0
   br i1 %2, label %3, label %4
@@ -2313,6 +2307,12 @@ define internal void @__cxx_global_var_init.7() #18 section ".text.startup" comd
 4:                                                ; preds = %3, %0
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #19
@@ -2334,33 +2334,33 @@ declare double @llvm.sqrt.f64(double) #22
 
 attributes #0 = { mustprogress nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nounwind ssp memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind ssp memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress ssp uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { inlinehint mustprogress ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nounwind ssp willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind ssp memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind ssp memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress ssp uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { inlinehint mustprogress ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nounwind ssp willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #21 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #23 = { noreturn nounwind }
-attributes #24 = { nounwind }
-attributes #25 = { nounwind memory(none) }
-attributes #26 = { noreturn }
-attributes #27 = { builtin allocsize(0) }
-attributes #28 = { builtin nounwind }
+attributes #24 = { nounwind memory(none) }
+attributes #25 = { noreturn }
+attributes #26 = { builtin allocsize(0) }
+attributes #27 = { builtin nounwind }
+attributes #28 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

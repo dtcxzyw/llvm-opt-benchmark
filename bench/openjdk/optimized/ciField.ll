@@ -824,7 +824,7 @@ define hidden noundef ptr @_ZN7ciField12compute_typeEv(ptr noundef nonnull align
   br i1 %4, label %5, label %43
 
 5:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1808
@@ -884,7 +884,7 @@ define hidden noundef ptr @_ZN7ciField12compute_typeEv(ptr noundef nonnull align
   br label %_ZN7ciField17compute_type_implEv.exit
 
 _ZN7ciField17compute_type_implEv.exit:            ; preds = %35, %39, %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %114
 
 43:                                               ; preds = %1
@@ -926,7 +926,7 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; pred
 
 _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, %58
   store volatile i32 6, ptr %48, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %59 = load ptr, ptr %44, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 1808
   %61 = load ptr, ptr %60, align 8
@@ -985,7 +985,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %_ZN7ciField17compute_type_implEv.exit9
 
 _ZN7ciField17compute_type_implEv.exit9:           ; preds = %87, %91, %.critedge.i6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %95 = getelementptr inbounds nuw i8, ptr %45, i64 408
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
@@ -1750,10 +1750,10 @@ declare i32 @llvm.ctpop.i32(i32) #6
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

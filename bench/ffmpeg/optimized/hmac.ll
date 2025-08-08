@@ -118,65 +118,59 @@ define ptr @av_hmac_alloc(i32 noundef %0) local_unnamed_addr #0 {
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare noalias ptr @av_mallocz(i64 noundef) local_unnamed_addr #1
 
-declare noalias ptr @av_mallocz(i64 noundef) local_unnamed_addr #2
+declare void @av_md5_init(ptr noundef) #1
 
-declare void @av_md5_init(ptr noundef) #2
+declare void @av_md5_update(ptr noundef, ptr noundef, i64 noundef) #1
 
-declare void @av_md5_update(ptr noundef, ptr noundef, i64 noundef) #2
+declare void @av_md5_final(ptr noundef, ptr noundef) #1
 
-declare void @av_md5_final(ptr noundef, ptr noundef) #2
-
-declare ptr @av_md5_alloc() local_unnamed_addr #2
+declare ptr @av_md5_alloc() local_unnamed_addr #1
 
 ; Function Attrs: cold nounwind optsize uwtable
-define internal void @sha160_init(ptr noundef %0) #3 {
+define internal void @sha160_init(ptr noundef %0) #2 {
   %2 = tail call i32 @av_sha_init(ptr noundef %0, i32 noundef 160) #6
   ret void
 }
 
-declare void @av_sha_update(ptr noundef, ptr noundef, i64 noundef) #2
+declare void @av_sha_update(ptr noundef, ptr noundef, i64 noundef) #1
 
-declare void @av_sha_final(ptr noundef, ptr noundef) #2
+declare void @av_sha_final(ptr noundef, ptr noundef) #1
 
-declare ptr @av_sha_alloc() local_unnamed_addr #2
+declare ptr @av_sha_alloc() local_unnamed_addr #1
 
 ; Function Attrs: cold nounwind optsize uwtable
-define internal void @sha224_init(ptr noundef %0) #3 {
+define internal void @sha224_init(ptr noundef %0) #2 {
   %2 = tail call i32 @av_sha_init(ptr noundef %0, i32 noundef 224) #6
   ret void
 }
 
 ; Function Attrs: cold nounwind optsize uwtable
-define internal void @sha256_init(ptr noundef %0) #3 {
+define internal void @sha256_init(ptr noundef %0) #2 {
   %2 = tail call i32 @av_sha_init(ptr noundef %0, i32 noundef 256) #6
   ret void
 }
 
 ; Function Attrs: cold nounwind optsize uwtable
-define internal void @sha384_init(ptr noundef %0) #3 {
+define internal void @sha384_init(ptr noundef %0) #2 {
   %2 = tail call i32 @av_sha512_init(ptr noundef %0, i32 noundef 384) #6
   ret void
 }
 
-declare void @av_sha512_update(ptr noundef, ptr noundef, i64 noundef) #2
+declare void @av_sha512_update(ptr noundef, ptr noundef, i64 noundef) #1
 
-declare void @av_sha512_final(ptr noundef, ptr noundef) #2
+declare void @av_sha512_final(ptr noundef, ptr noundef) #1
 
-declare ptr @av_sha512_alloc() local_unnamed_addr #2
+declare ptr @av_sha512_alloc() local_unnamed_addr #1
 
 ; Function Attrs: cold nounwind optsize uwtable
-define internal void @sha512_init(ptr noundef %0) #3 {
+define internal void @sha512_init(ptr noundef %0) #2 {
   %2 = tail call i32 @av_sha512_init(ptr noundef %0, i32 noundef 512) #6
   ret void
 }
 
-declare void @av_free(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @av_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @av_hmac_free(ptr noundef %0) local_unnamed_addr #0 {
@@ -192,12 +186,12 @@ define void @av_hmac_free(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @av_freep(ptr noundef) local_unnamed_addr #2
+declare void @av_freep(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @av_hmac_init(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !4
   %7 = icmp ugt i32 %2, %6
@@ -277,12 +271,12 @@ define void @av_hmac_init(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   %47 = load ptr, ptr %0, align 8, !tbaa !14
   %48 = sext i32 %33 to i64
   call void %46(ptr noundef %47, ptr noundef nonnull %4, i64 noundef %48) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define void @av_hmac_update(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -297,7 +291,7 @@ define void @av_hmac_update(ptr noundef readonly captures(none) %0, ptr noundef 
 ; Function Attrs: nounwind uwtable
 define i32 @av_hmac_final(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4, !tbaa !10
   %7 = icmp ult i32 %2, %6
@@ -368,7 +362,7 @@ define i32 @av_hmac_final(ptr noundef readonly captures(none) %0, ptr noundef %1
 
 43:                                               ; preds = %3, %._crit_edge
   %.029 = phi i32 [ %42, %._crit_edge ], [ -22, %3 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.029
 }
 
@@ -376,7 +370,7 @@ define i32 @av_hmac_final(ptr noundef readonly captures(none) %0, ptr noundef %1
 define i32 @av_hmac_calc(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca [128 x i8], align 16
   %9 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !4
   %12 = icmp ugt i32 %4, %11
@@ -456,12 +450,12 @@ av_hmac_init.exit:                                ; preds = %.preheader.i, %.lr.
   %52 = load ptr, ptr %0, align 8, !tbaa !14
   %53 = sext i32 %38 to i64
   call void %51(ptr noundef %52, ptr noundef nonnull %9, i64 noundef %53) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %54 = load ptr, ptr %50, align 8, !tbaa !12
   %55 = load ptr, ptr %0, align 8, !tbaa !14
   %56 = zext i32 %2 to i64
   call void %54(ptr noundef %55, ptr noundef %1, i64 noundef %56) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %58 = load i32, ptr %57, align 4, !tbaa !10
   %59 = icmp ult i32 %6, %58
@@ -528,22 +522,28 @@ av_hmac_init.exit:                                ; preds = %.preheader.i, %.lr.
 
 av_hmac_final.exit:                               ; preds = %av_hmac_init.exit, %._crit_edge.i
   %.029.i = phi i32 [ %90, %._crit_edge.i ], [ -22, %av_hmac_init.exit ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.029.i
 }
 
-declare i32 @av_sha_init(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @av_sha_init(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @av_sha512_init(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @av_sha512_init(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nounwind }
 

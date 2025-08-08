@@ -382,22 +382,22 @@ define internal noundef zeroext i1 @_ZL19setup_syllables_usePK18hb_ot_shape_plan
   %22 = load i8, ptr %21, align 8
   %23 = or i8 %22, 8
   store i8 %23, ptr %21, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %18)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr %2, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %25 = load ptr, ptr %24, align 8
@@ -4009,22 +4009,22 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br label %131
 
 _ZL18find_syllables_useP11hb_buffer_t.exit:       ; preds = %1449, %"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEeqERKSQ_.exit1030.i"
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %1462 = load i32, ptr %26, align 8
   %.not = icmp eq i32 %1462, 0
   br i1 %.not, label %._crit_edge, label %1463
@@ -4207,7 +4207,7 @@ _ZL15setup_rphf_maskPK18hb_ot_shape_plan_tP11hb_buffer_t.exit.loopexit: ; preds 
 _ZL15setup_rphf_maskPK18hb_ot_shape_plan_tP11hb_buffer_t.exit: ; preds = %_ZL15setup_rphf_maskPK18hb_ot_shape_plan_tP11hb_buffer_t.exit.loopexit, %._crit_edge, %1491
   %1531 = phi i32 [ %.val.i, %_ZL15setup_rphf_maskPK18hb_ot_shape_plan_tP11hb_buffer_t.exit.loopexit ], [ %1489, %._crit_edge ], [ 0, %1491 ]
   %1532 = phi ptr [ %.pre, %_ZL15setup_rphf_maskPK18hb_ot_shape_plan_tP11hb_buffer_t.exit.loopexit ], [ %.val20, %._crit_edge ], [ %.val20, %1491 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %1533 = getelementptr inbounds nuw i8, ptr %1532, i64 8
   %1534 = load ptr, ptr %1533, align 8
   %.not.i29 = icmp eq ptr %1534, null
@@ -4425,7 +4425,7 @@ _ZL17_hb_next_syllableP11hb_buffer_tj.exit66.i:   ; preds = %1611, %1610
   br i1 %1618, label %.lr.ph80.i, label %_ZL25setup_topographical_masksPK18hb_ot_shape_plan_tP11hb_buffer_t.exit, !llvm.loop !545
 
 _ZL25setup_topographical_masksPK18hb_ot_shape_plan_tP11hb_buffer_t.exit: ; preds = %_ZL17_hb_next_syllableP11hb_buffer_tj.exit66.i, %_ZL15setup_rphf_maskPK18hb_ot_shape_plan_tP11hb_buffer_t.exit, %.preheader.i, %.split.us.i, %1563
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 false
 }
 
@@ -4734,8 +4734,8 @@ _ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit: ; preds = %17
   %26 = phi ptr [ %.pre, %.lr.ph ], [ %.val22, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit26 ]
   %.031 = phi i32 [ %23, %.lr.ph ], [ %.lcssa.i25, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit26 ]
   %.01830 = phi i32 [ 0, %.lr.ph ], [ %.031, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit26 ]
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %27 = zext i32 %.01830 to i64
   %28 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %26, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 15
@@ -4924,8 +4924,8 @@ _ZN11hb_buffer_t14merge_clustersEjj.exit85.i:     ; preds = %104, %100
   br i1 %exitcond102.not.i, label %_ZL20reorder_syllable_useP11hb_buffer_tjj.exit, label %.lr.ph94.i, !llvm.loop !552
 
 _ZL20reorder_syllable_useP11hb_buffer_tjj.exit:   ; preds = %111, %25, %.loopexit88.i
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.val21 = load i32, ptr %9, align 8
   %.val22 = load ptr, ptr %24, align 8
   %112 = zext i32 %.031 to i64
@@ -5836,10 +5836,10 @@ declare i32 @llvm.umin.i32(i32, i32) #7
 declare i32 @llvm.umax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #9

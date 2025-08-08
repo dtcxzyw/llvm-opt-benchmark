@@ -46,9 +46,9 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local range(i32 0, 2) i32 @crl2pkcs7_main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 32773, ptr %3, align 4, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 32773, ptr %4, align 4, !tbaa !4
   %5 = tail call ptr @opt_init(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @crl2pkcs7_options) #3
   br label %6
@@ -368,82 +368,82 @@ add_certs_from_file.exit.loopexit:                ; preds = %.split.i
   call void @BIO_free_all(ptr noundef %.050) #3
   call void @PKCS7_free(ptr noundef %.051) #3
   call void @X509_CRL_free(ptr noundef %.056) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.047
 }
 
+declare ptr @opt_init(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @opt_next() local_unnamed_addr #1
+
+declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+
+declare void @opt_help(ptr noundef) local_unnamed_addr #1
+
+declare i32 @opt_format(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @opt_arg() local_unnamed_addr #1
+
+declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #1
+
+declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @opt_provider(i32 noundef) local_unnamed_addr #1
+
+declare i32 @opt_check_rest_arg(ptr noundef) local_unnamed_addr #1
+
+declare ptr @bio_open_default(ptr noundef, i8 noundef signext, i32 noundef) local_unnamed_addr #1
+
+declare ptr @d2i_X509_CRL_bio(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @PEM_read_bio_X509_CRL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @ERR_print_errors(ptr noundef) local_unnamed_addr #1
+
+declare ptr @PKCS7_new() local_unnamed_addr #1
+
+declare ptr @PKCS7_SIGNED_new() local_unnamed_addr #1
+
+declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #1
+
+declare i32 @ASN1_INTEGER_set(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #1
+
+declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @i2d_PKCS7_bio(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @PEM_write_bio_PKCS7(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
+
+declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
+
+declare void @BIO_free_all(ptr noundef) local_unnamed_addr #1
+
+declare void @PKCS7_free(ptr noundef) local_unnamed_addr #1
+
+declare void @X509_CRL_free(ptr noundef) local_unnamed_addr #1
+
+declare ptr @BIO_new_file(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @PEM_X509_INFO_read_bio(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @OPENSSL_sk_shift(ptr noundef) local_unnamed_addr #1
+
+declare void @X509_INFO_free(ptr noundef) local_unnamed_addr #1
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @opt_init(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @opt_next() local_unnamed_addr #2
-
-declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare void @opt_help(ptr noundef) local_unnamed_addr #2
-
-declare i32 @opt_format(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @opt_arg() local_unnamed_addr #2
-
-declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #2
-
-declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @opt_provider(i32 noundef) local_unnamed_addr #2
-
-declare i32 @opt_check_rest_arg(ptr noundef) local_unnamed_addr #2
-
-declare ptr @bio_open_default(ptr noundef, i8 noundef signext, i32 noundef) local_unnamed_addr #2
-
-declare ptr @d2i_X509_CRL_bio(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @PEM_read_bio_X509_CRL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @ERR_print_errors(ptr noundef) local_unnamed_addr #2
-
-declare ptr @PKCS7_new() local_unnamed_addr #2
-
-declare ptr @PKCS7_SIGNED_new() local_unnamed_addr #2
-
-declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #2
-
-declare i32 @ASN1_INTEGER_set(ptr noundef, i64 noundef) local_unnamed_addr #2
-
-declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
-
-declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @i2d_PKCS7_bio(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @PEM_write_bio_PKCS7(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #2
-
-declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
-
-declare void @BIO_free_all(ptr noundef) local_unnamed_addr #2
-
-declare void @PKCS7_free(ptr noundef) local_unnamed_addr #2
-
-declare void @X509_CRL_free(ptr noundef) local_unnamed_addr #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @BIO_new_file(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @PEM_X509_INFO_read_bio(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @OPENSSL_sk_shift(ptr noundef) local_unnamed_addr #2
-
-declare void @X509_INFO_free(ptr noundef) local_unnamed_addr #2
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

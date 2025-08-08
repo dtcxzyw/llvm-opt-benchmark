@@ -13,8 +13,8 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i32 0, 2) i32 @RSA_sign_ASN1_OCTET_STRING(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.asn1_string_st, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 4, ptr %9, align 4, !tbaa !3
   store i32 %2, ptr %7, align 8, !tbaa !11
@@ -57,37 +57,31 @@ define range(i32 0, 2) i32 @RSA_sign_ASN1_OCTET_STRING(i32 noundef %0, ptr nound
 
 27:                                               ; preds = %16, %26, %15
   %.0 = phi i32 [ 0, %15 ], [ %.018, %26 ], [ 0, %16 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @i2d_ASN1_OCTET_STRING(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @i2d_ASN1_OCTET_STRING(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @RSA_size(ptr noundef) local_unnamed_addr #1
 
-declare i32 @RSA_size(ptr noundef) local_unnamed_addr #2
+declare void @ERR_new() local_unnamed_addr #1
 
-declare void @ERR_new() local_unnamed_addr #2
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @RSA_private_encrypt(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @RSA_private_encrypt(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @RSA_verify_ASN1_OCTET_STRING(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call i32 @RSA_size(ptr noundef %5) #4
   %.not = icmp eq i32 %4, %8
   br i1 %.not, label %10, label %9
@@ -144,22 +138,28 @@ define range(i32 0, 2) i32 @RSA_verify_ASN1_OCTET_STRING(i32 noundef %0, ptr nou
 
 29:                                               ; preds = %28, %9
   %.021 = phi i32 [ 0, %9 ], [ %.022, %28 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.021
 }
 
-declare i32 @RSA_public_decrypt(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @RSA_public_decrypt(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @d2i_ASN1_OCTET_STRING(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @d2i_ASN1_OCTET_STRING(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @ASN1_OCTET_STRING_free(ptr noundef) local_unnamed_addr #2
+declare void @ASN1_OCTET_STRING_free(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #4 = { nounwind }
 

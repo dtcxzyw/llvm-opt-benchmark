@@ -597,7 +597,7 @@ declare i32 @dissect_nt_access_mask(ptr noundef, i32 noundef, ptr noundef, ptr n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @winreg_dissect_bitmap_security_secinfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
@@ -613,21 +613,15 @@ define hidden i32 @winreg_dissect_bitmap_security_secinfo(ptr noundef %0, i32 no
   %19 = shl nuw i32 %18, 27
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef 4, i32 noundef %19)
   %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef -1, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %21
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @winreg_dissect_struct_String(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
@@ -861,7 +855,7 @@ define hidden i32 @winreg_dissect_struct_SecBuf(ptr noundef %0, i32 noundef %1, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @winreg_dissect_bitmap_KeyOptions(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
@@ -899,7 +893,7 @@ define hidden i32 @winreg_dissect_bitmap_KeyOptions(ptr noundef %0, i32 noundef 
   br label %29
 
 29:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %22
 }
 
@@ -912,7 +906,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @winreg_dissect_enum_CreateAction(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -931,7 +925,7 @@ define hidden i32 @winreg_dissect_enum_CreateAction(ptr noundef %0, i32 noundef 
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -1104,7 +1098,7 @@ define hidden i32 @winreg_dissect_struct_ValNameBuf(ptr noundef %0, i32 noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @winreg_dissect_bitmap_NotifyChangeType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
@@ -1142,14 +1136,14 @@ define hidden i32 @winreg_dissect_bitmap_NotifyChangeType(ptr noundef %0, i32 no
   br label %29
 
 29:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %22
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @winreg_dissect_bitmap_RestoreKeyFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
@@ -1187,7 +1181,7 @@ define hidden i32 @winreg_dissect_bitmap_RestoreKeyFlags(ptr noundef %0, i32 nou
   br label %29
 
 29:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %22
 }
 
@@ -1408,12 +1402,12 @@ declare i32 @dissect_ndr_embedded_pointer(ptr noundef, i32 noundef, ptr noundef,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_element_String_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_winreg_winreg_String_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.253, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -1423,7 +1417,7 @@ declare i32 @dissect_ndr_cvstring(ptr noundef, i32 noundef, ptr noundef, ptr nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_element_KeySecurityData_data_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %9 = load i8, ptr %8, align 1, !range !6, !noundef !7
   %10 = trunc nuw i8 %9 to i1
@@ -1444,7 +1438,7 @@ define internal i32 @winreg_dissect_element_KeySecurityData_data_(ptr noundef %0
 
 22:                                               ; preds = %6, %11
   %.0 = phi i32 [ %21, %11 ], [ %1, %6 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -1512,7 +1506,7 @@ define internal i32 @winreg_dissect_OpenHKCR_request(ptr noundef %0, i32 noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_OpenHKCR_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.296, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_handle, align 4
@@ -1532,7 +1526,7 @@ define internal i32 @winreg_dissect_OpenHKCR_response(ptr noundef %0, i32 nounde
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -1552,7 +1546,7 @@ define internal i32 @winreg_dissect_OpenHKCU_request(ptr noundef %0, i32 noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_OpenHKCU_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.297, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_handle, align 4
@@ -1572,7 +1566,7 @@ define internal i32 @winreg_dissect_OpenHKCU_response(ptr noundef %0, i32 nounde
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -1592,7 +1586,7 @@ define internal i32 @winreg_dissect_OpenHKLM_request(ptr noundef %0, i32 noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_OpenHKLM_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.298, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_handle, align 4
@@ -1612,7 +1606,7 @@ define internal i32 @winreg_dissect_OpenHKLM_response(ptr noundef %0, i32 nounde
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -1632,7 +1626,7 @@ define internal i32 @winreg_dissect_OpenHKPD_request(ptr noundef %0, i32 noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_OpenHKPD_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.299, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_handle, align 4
@@ -1652,7 +1646,7 @@ define internal i32 @winreg_dissect_OpenHKPD_response(ptr noundef %0, i32 nounde
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -1672,7 +1666,7 @@ define internal i32 @winreg_dissect_OpenHKU_request(ptr noundef %0, i32 noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_OpenHKU_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.300, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_handle, align 4
@@ -1692,7 +1686,7 @@ define internal i32 @winreg_dissect_OpenHKU_response(ptr noundef %0, i32 noundef
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -1709,7 +1703,7 @@ define internal i32 @winreg_dissect_CloseKey_request(ptr noundef %0, i32 noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_CloseKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.301, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_handle, align 4
@@ -1729,7 +1723,7 @@ define internal i32 @winreg_dissect_CloseKey_response(ptr noundef %0, i32 nounde
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -1764,7 +1758,7 @@ define internal i32 @winreg_dissect_CreateKey_request(ptr noundef %0, i32 nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_CreateKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.302, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_winreg_CreateKey_new_handle, align 4
@@ -1787,7 +1781,7 @@ define internal i32 @winreg_dissect_CreateKey_response(ptr noundef %0, i32 nound
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -1807,7 +1801,7 @@ define internal i32 @winreg_dissect_DeleteKey_request(ptr noundef %0, i32 nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_DeleteKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.303, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_werror, align 4
@@ -1824,7 +1818,7 @@ define internal i32 @winreg_dissect_DeleteKey_response(ptr noundef %0, i32 nound
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -1844,7 +1838,7 @@ define internal i32 @winreg_dissect_DeleteValue_request(ptr noundef %0, i32 noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_DeleteValue_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.304, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_werror, align 4
@@ -1861,7 +1855,7 @@ define internal i32 @winreg_dissect_DeleteValue_response(ptr noundef %0, i32 nou
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -1890,7 +1884,7 @@ define internal i32 @winreg_dissect_EnumKey_request(ptr noundef %0, i32 noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_EnumKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.305, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_winreg_EnumKey_name, align 4
@@ -1916,7 +1910,7 @@ define internal i32 @winreg_dissect_EnumKey_response(ptr noundef %0, i32 noundef
   br label %25
 
 25:                                               ; preds = %21, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %19
 }
 
@@ -1951,7 +1945,7 @@ define internal i32 @winreg_dissect_EnumValue_request(ptr noundef %0, i32 nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_EnumValue_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.306, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_winreg_EnumValue_name, align 4
@@ -1983,7 +1977,7 @@ define internal i32 @winreg_dissect_EnumValue_response(ptr noundef %0, i32 nound
   br label %31
 
 31:                                               ; preds = %27, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %25
 }
 
@@ -2000,7 +1994,7 @@ define internal i32 @winreg_dissect_FlushKey_request(ptr noundef %0, i32 noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_FlushKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.307, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_werror, align 4
@@ -2017,7 +2011,7 @@ define internal i32 @winreg_dissect_FlushKey_response(ptr noundef %0, i32 nounde
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -2040,7 +2034,7 @@ define internal i32 @winreg_dissect_GetKeySecurity_request(ptr noundef %0, i32 n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_GetKeySecurity_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.308, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_sd, align 4
@@ -2060,7 +2054,7 @@ define internal i32 @winreg_dissect_GetKeySecurity_response(ptr noundef %0, i32 
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -2083,7 +2077,7 @@ define internal i32 @winreg_dissect_LoadKey_request(ptr noundef %0, i32 noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_LoadKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.309, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_werror, align 4
@@ -2100,7 +2094,7 @@ define internal i32 @winreg_dissect_LoadKey_response(ptr noundef %0, i32 noundef
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -2135,7 +2129,7 @@ define internal i32 @winreg_dissect_NotifyChangeKeyValue_request(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_NotifyChangeKeyValue_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.310, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_werror, align 4
@@ -2152,7 +2146,7 @@ define internal i32 @winreg_dissect_NotifyChangeKeyValue_response(ptr noundef %0
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -2178,7 +2172,7 @@ define internal i32 @winreg_dissect_OpenKey_request(ptr noundef %0, i32 noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_OpenKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.311, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_handle, align 4
@@ -2198,7 +2192,7 @@ define internal i32 @winreg_dissect_OpenKey_response(ptr noundef %0, i32 noundef
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -2218,7 +2212,7 @@ define internal i32 @winreg_dissect_QueryInfoKey_request(ptr noundef %0, i32 nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_QueryInfoKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.312, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_winreg_QueryInfoKey_classname, align 4
@@ -2262,7 +2256,7 @@ define internal i32 @winreg_dissect_QueryInfoKey_response(ptr noundef %0, i32 no
   br label %43
 
 43:                                               ; preds = %39, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %37
 }
 
@@ -2294,7 +2288,7 @@ define internal i32 @winreg_dissect_QueryValue_request(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_QueryValue_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.313, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_winreg_QueryValue_type, align 4
@@ -2323,7 +2317,7 @@ define internal i32 @winreg_dissect_QueryValue_response(ptr noundef %0, i32 noun
   br label %28
 
 28:                                               ; preds = %24, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %22
 }
 
@@ -2349,7 +2343,7 @@ define internal i32 @winreg_dissect_ReplaceKey_request(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_ReplaceKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.314, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_werror, align 4
@@ -2366,7 +2360,7 @@ define internal i32 @winreg_dissect_ReplaceKey_response(ptr noundef %0, i32 noun
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -2389,7 +2383,7 @@ define internal i32 @winreg_dissect_RestoreKey_request(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_RestoreKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.315, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_werror, align 4
@@ -2406,7 +2400,7 @@ define internal i32 @winreg_dissect_RestoreKey_response(ptr noundef %0, i32 noun
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -2429,7 +2423,7 @@ define internal i32 @winreg_dissect_SaveKey_request(ptr noundef %0, i32 noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_SaveKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.316, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_werror, align 4
@@ -2446,7 +2440,7 @@ define internal i32 @winreg_dissect_SaveKey_response(ptr noundef %0, i32 noundef
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -2469,7 +2463,7 @@ define internal i32 @winreg_dissect_SetKeySecurity_request(ptr noundef %0, i32 n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_SetKeySecurity_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.317, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_werror, align 4
@@ -2486,7 +2480,7 @@ define internal i32 @winreg_dissect_SetKeySecurity_response(ptr noundef %0, i32 
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -2515,7 +2509,7 @@ define internal i32 @winreg_dissect_SetValue_request(ptr noundef %0, i32 noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_SetValue_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.318, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_werror, align 4
@@ -2532,7 +2526,7 @@ define internal i32 @winreg_dissect_SetValue_response(ptr noundef %0, i32 nounde
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -2552,7 +2546,7 @@ define internal i32 @winreg_dissect_UnLoadKey_request(ptr noundef %0, i32 nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_UnLoadKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.319, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_werror, align 4
@@ -2569,7 +2563,7 @@ define internal i32 @winreg_dissect_UnLoadKey_response(ptr noundef %0, i32 nound
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -2598,7 +2592,7 @@ define internal i32 @winreg_dissect_InitiateSystemShutdown_request(ptr noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_InitiateSystemShutdown_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.320, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_werror, align 4
@@ -2615,7 +2609,7 @@ define internal i32 @winreg_dissect_InitiateSystemShutdown_response(ptr noundef 
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -2632,7 +2626,7 @@ define internal i32 @winreg_dissect_AbortSystemShutdown_request(ptr noundef %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_AbortSystemShutdown_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.321, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_werror, align 4
@@ -2649,7 +2643,7 @@ define internal i32 @winreg_dissect_AbortSystemShutdown_response(ptr noundef %0,
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -2666,7 +2660,7 @@ define internal i32 @winreg_dissect_GetVersion_request(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_GetVersion_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.322, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_winreg_GetVersion_version, align 4
@@ -2686,7 +2680,7 @@ define internal i32 @winreg_dissect_GetVersion_response(ptr noundef %0, i32 noun
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -2706,7 +2700,7 @@ define internal i32 @winreg_dissect_OpenHKCC_request(ptr noundef %0, i32 noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_OpenHKCC_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.323, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_handle, align 4
@@ -2726,7 +2720,7 @@ define internal i32 @winreg_dissect_OpenHKCC_response(ptr noundef %0, i32 nounde
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -2746,7 +2740,7 @@ define internal i32 @winreg_dissect_OpenHKDD_request(ptr noundef %0, i32 noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_OpenHKDD_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.324, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_handle, align 4
@@ -2766,7 +2760,7 @@ define internal i32 @winreg_dissect_OpenHKDD_response(ptr noundef %0, i32 nounde
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -2795,7 +2789,7 @@ define internal i32 @winreg_dissect_QueryMultipleValues_request(ptr noundef %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_QueryMultipleValues_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.325, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_winreg_QueryMultipleValues_values_out, align 4
@@ -2821,7 +2815,7 @@ define internal i32 @winreg_dissect_QueryMultipleValues_response(ptr noundef %0,
   br label %25
 
 25:                                               ; preds = %21, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %19
 }
 
@@ -2853,7 +2847,7 @@ define internal i32 @winreg_dissect_InitiateSystemShutdownEx_request(ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_InitiateSystemShutdownEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.326, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_werror, align 4
@@ -2870,7 +2864,7 @@ define internal i32 @winreg_dissect_InitiateSystemShutdownEx_response(ptr nounde
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -2896,7 +2890,7 @@ define internal i32 @winreg_dissect_SaveKeyEx_request(ptr noundef %0, i32 nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_SaveKeyEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.327, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_werror, align 4
@@ -2913,7 +2907,7 @@ define internal i32 @winreg_dissect_SaveKeyEx_response(ptr noundef %0, i32 nound
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -2933,7 +2927,7 @@ define internal i32 @winreg_dissect_OpenHKPT_request(ptr noundef %0, i32 noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_OpenHKPT_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.328, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_handle, align 4
@@ -2953,7 +2947,7 @@ define internal i32 @winreg_dissect_OpenHKPT_response(ptr noundef %0, i32 nounde
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -2973,7 +2967,7 @@ define internal i32 @winreg_dissect_OpenHKPN_request(ptr noundef %0, i32 noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_OpenHKPN_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.329, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_handle, align 4
@@ -2993,7 +2987,7 @@ define internal i32 @winreg_dissect_OpenHKPN_response(ptr noundef %0, i32 nounde
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -3022,7 +3016,7 @@ define internal i32 @winreg_dissect_QueryMultipleValues2_request(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_QueryMultipleValues2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.330, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_winreg_QueryMultipleValues2_values_out, align 4
@@ -3048,7 +3042,7 @@ define internal i32 @winreg_dissect_QueryMultipleValues2_response(ptr noundef %0
   br label %25
 
 25:                                               ; preds = %21, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %19
 }
 
@@ -3074,7 +3068,7 @@ define internal i32 @winreg_dissect_DeleteKeyEx_request(ptr noundef %0, i32 noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @winreg_dissect_DeleteKeyEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.331, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_werror, align 4
@@ -3091,7 +3085,7 @@ define internal i32 @winreg_dissect_DeleteKeyEx_response(ptr noundef %0, i32 nou
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -3197,7 +3191,7 @@ define internal i32 @winreg_dissect_element_CreateKey_handle_(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @cnf_dissect_winreg_String(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 805306371) %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
@@ -3231,7 +3225,7 @@ define internal fastcc i32 @cnf_dissect_winreg_String(ptr noundef %0, i32 nounde
   %30 = load ptr, ptr %9, align 8
   %31 = sub i32 %29, %.0
   call void @proto_item_set_len(ptr noundef %30, i32 noundef %31)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %29
 }
 
@@ -3261,10 +3255,10 @@ define internal i32 @winreg_dissect_element_CreateKey_secdesc_(ptr noundef %0, i
 define internal i32 @winreg_dissect_element_CreateKey_action_taken_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_winreg_winreg_CreateKey_action_taken, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %9 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -3919,10 +3913,15 @@ define internal i32 @winreg_dissect_element_DeleteKeyEx_key_(ptr noundef %0, i32
   ret i32 %8
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

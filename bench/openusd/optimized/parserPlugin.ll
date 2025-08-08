@@ -563,14 +563,14 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFuncti
   %3 = alloca %"class.std::unique_ptr.98", align 8
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_BaseTypeInfos", align 8
   %5 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_TypeCastFunctions", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @_ZTIN32pxrInternal_v0_24__pxrReserved__15NdrParserPluginE, ptr %4, align 8
   store ptr @_ZN32pxrInternal_v0_24__pxrReserved__15Tf_CastToParentINS_21SdrGlslfxParserPluginENS_15NdrParserPluginEEEPvS3_b, ptr %5, align 8
   %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__6TfType11_DefineImplERKSt9type_infoPPS2_PPFPvS6_bEmmbb(ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__21SdrGlslfxParserPluginE, ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 1, i64 noundef 16, i1 noundef zeroext false, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #19
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__22NdrParserPluginFactoryINS_21SdrGlslfxParserPluginEEE, i64 16), ptr %7, align 8
   store ptr %7, ptr %3, align 8
@@ -607,7 +607,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__6TfType11FactoryBaseESt14de
   resume { ptr, i32 } %14
 
 _ZNK32pxrInternal_v0_24__pxrReserved__6TfType10SetFactoryINS_22NdrParserPluginFactoryINS_21SdrGlslfxParserPluginEEEEEvv.exit: ; preds = %8, %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__6TfType11FactoryBaseEEclEPS2_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -711,7 +711,7 @@ define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfSt
 
 4:                                                ; preds = %0
   %5 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC1EPKcNS0_12_ImmortalTagE(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull @.str.8, i32 noundef 0)
           to label %.noexc.i.i.i unwind label %85
 
@@ -896,7 +896,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit11.i.i.i.i: ; preds = %74,
   resume { ptr, i32 } %eh.lpad-body.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeEE3NewEv.exit.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %87 = ptrtoint ptr %5 to i64
   %88 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__L7_tokensE, i64 0, i64 %87 seq_cst seq_cst, align 8
   %89 = extractvalue { i64, i1 } %88, 1
@@ -2350,7 +2350,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit172: ; preds = %505, %.bod
 
 ._crit_edge358:                                   ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit163, %268
   %517 = getelementptr inbounds nuw i8, ptr %2, i64 176
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %32, align 8
   %518 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %519 = getelementptr inbounds nuw i8, ptr %2, i64 184
@@ -2372,7 +2372,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit172: ; preds = %505, %.bod
           to label %528 unwind label %650
 
 528:                                              ; preds = %._crit_edge358
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
   %529 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__15SdrNodeMetadataE seq_cst, align 8
   %530 = inttoptr i64 %529 to ptr
@@ -6558,7 +6558,7 @@ define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load double, ptr %3, align 8
   %.inv.i.i.i.i.i.i.i.i.i.i = fcmp oeq double %20, 0.000000e+00
@@ -6588,7 +6588,7 @@ define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13
   %36 = load i64, ptr %2, align 8
   %37 = mul i64 %36, -7046029254386353067
   %38 = call noundef i64 @llvm.bswap.i64(i64 %37)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %39 = mul i64 %38, -7046029254386353067
   %40 = call noundef i64 @llvm.bswap.i64(i64 %39)
   ret i64 %40
@@ -6982,7 +6982,7 @@ define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 60
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load float, ptr %3, align 4
   %.inv.i.i.i.i.i.i.i.i.i.i = fcmp oeq float %20, 0.000000e+00
@@ -7015,7 +7015,7 @@ define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13
   %39 = load i64, ptr %2, align 8
   %40 = mul i64 %39, -7046029254386353067
   %41 = call noundef i64 @llvm.bswap.i64(i64 %40)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %42 = mul i64 %41, -7046029254386353067
   %43 = call noundef i64 @llvm.bswap.i64(i64 %42)
   ret i64 %43
@@ -7662,12 +7662,12 @@ define linkonce_odr { i64, i64 } @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue1
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_7VtArrayIfEENS_19TfDelegatedCountPtrINS0_8_CountedIS3_EEEENS0_15_RemoteTypeInfoIS3_EEE10_StreamOutERKNSt15aligned_storageILm8ELm8EE4typeERSo(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray<float>::_Streamer", align 8
   %4 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE5cdataEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE9_StreamerC1EPKf(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %5)
   %6 = call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE13_GetShapeDataEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS_12Vt_ShapeDataENS_13TfFunctionRefIFvS0_EEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %6, ptr nonnull %3, ptr nonnull @_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvRSoEE9_InvokeFnINS_7VtArrayIfE9_StreamerEEEvPKvS1_)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %1
 }
 
@@ -9261,10 +9261,10 @@ define internal void @_GLOBAL__sub_I_parserPlugin.cpp() #14 section ".text.start
 declare i64 @llvm.bswap.i64(i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17

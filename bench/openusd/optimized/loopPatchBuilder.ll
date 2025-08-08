@@ -1045,9 +1045,9 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i69:           ; preds = %185, %183, %181, %.
   %222 = zext i16 %220 to i32
   %223 = add nuw nsw i32 %222, 1
   %224 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %222, ptr %3, align 4
   store i32 %223, ptr %51, align 4
   store ptr %224, ptr %4, align 8
@@ -1060,9 +1060,9 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i69:           ; preds = %185, %183, %181, %.
           to label %225 unwind label %.loopexit
 
 225:                                              ; preds = %221
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %226 = load ptr, ptr %6, align 8
   %227 = load i32, ptr %226, align 4
   store i32 %227, ptr %203, align 4
@@ -3546,7 +3546,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE7Co
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i32, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = add nsw i32 %13, 1
   %15 = add nsw i32 %11, 1
   %16 = srem i32 %15, 3
@@ -3605,7 +3605,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE7Co
   %51 = add nsw i32 %50, 74
   %52 = load i32, ptr %0, align 8
   call fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_113_resizeMatrixIfEEvRNS1_12SparseMatrixIT_EEiiiPKi(ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %52, i32 noundef %51, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %54
 
 53:                                               ; preds = %2
@@ -6930,9 +6930,9 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i69:           ; preds = %185, %183, %181, %.
   %222 = zext i16 %220 to i32
   %223 = add nuw nsw i32 %222, 1
   %224 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %222, ptr %3, align 4
   store i32 %223, ptr %51, align 4
   store ptr %224, ptr %4, align 8
@@ -6945,9 +6945,9 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i69:           ; preds = %185, %183, %181, %.
           to label %225 unwind label %.loopexit
 
 225:                                              ; preds = %221
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %226 = load ptr, ptr %6, align 8
   %227 = load i32, ptr %226, align 4
   store i32 %227, ptr %203, align 4
@@ -9156,7 +9156,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE7Co
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i32, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = add nsw i32 %13, 1
   %15 = add nsw i32 %11, 1
   %16 = srem i32 %15, 3
@@ -9215,7 +9215,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE7Co
   %51 = add nsw i32 %50, 74
   %52 = load i32, ptr %0, align 8
   call fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_113_resizeMatrixIdEEvRNS1_12SparseMatrixIT_EEiiiPKi(ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %52, i32 noundef %51, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %54
 
 53:                                               ; preds = %2
@@ -11797,10 +11797,10 @@ declare i64 @llvm.umax.i64(i64, i64) #14
 declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #14

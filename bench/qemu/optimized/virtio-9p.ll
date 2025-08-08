@@ -61,7 +61,7 @@ define dso_local void @virtio_9p_create_local_test_dir() local_unnamed_addr #0 {
   unreachable
 
 4:                                                ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %1) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %1, i8 0, i64 144, i1 false), !annotation !5
   %5 = tail call ptr @g_get_current_dir() #13
   %6 = tail call noalias ptr (ptr, ...) @g_build_filename(ptr noundef %5, ptr noundef nonnull @.str.2, ptr noundef null) #13
@@ -106,36 +106,30 @@ define dso_local void @virtio_9p_create_local_test_dir() local_unnamed_addr #0 {
 
 21:                                               ; preds = %16
   tail call void @g_free(ptr noundef %5) #13
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %1) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: noreturn
-declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-declare ptr @g_get_current_dir() local_unnamed_addr #4
+declare ptr @g_get_current_dir() local_unnamed_addr #3
 
-declare ptr @g_mkdtemp(ptr noundef) local_unnamed_addr #4
+declare ptr @g_mkdtemp(ptr noundef) local_unnamed_addr #3
 
-declare void @g_test_message(ptr noundef, ...) local_unnamed_addr #4
+declare void @g_test_message(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #5
+declare ptr @strerror(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #6
+declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_9p_remove_local_test_dir() local_unnamed_addr #0 {
@@ -157,12 +151,12 @@ define dso_local void @virtio_9p_remove_local_test_dir() local_unnamed_addr #0 {
   ret void
 }
 
-declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #4
+declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i32 @system(ptr noundef readonly captures(none)) local_unnamed_addr #8
+declare noundef i32 @system(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
-declare void @g_free(ptr noundef) local_unnamed_addr #4
+declare void @g_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias ptr @virtio_9p_test_path(ptr noundef %0) local_unnamed_addr #0 {
@@ -204,12 +198,12 @@ define dso_local void @virtio_9p_assign_local_driver(ptr noundef %0, ptr noundef
   ret void
 }
 
-declare void @g_assertion_message(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @g_assertion_message(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @regex_replace(ptr noundef %0, ptr noundef %1, ptr noundef %2, ...) unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !5
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = call noalias ptr @g_strdup_vprintf(ptr noundef %2, ptr noundef nonnull %4) #13
@@ -218,7 +212,7 @@ define internal void @regex_replace(ptr noundef %0, ptr noundef %1, ptr noundef 
   %7 = load ptr, ptr %0, align 8
   %8 = call ptr @g_regex_replace(ptr noundef %6, ptr noundef %7, i64 noundef -1, i32 noundef 0, ptr noundef %5, i32 noundef 0, ptr noundef null) #13
   %9 = call ptr @g_string_assign(ptr noundef nonnull %0, ptr noundef %8) #13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @g_free(ptr noundef %8) #13
   call void @g_free(ptr noundef %5) #13
   %.not.i.i = icmp eq ptr %6, null
@@ -238,15 +232,15 @@ define internal void @do_qemu_init_virtio_9p_register_nodes() #0 {
   ret void
 }
 
-declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_9p_register_nodes() #0 {
   %1 = alloca %struct.QPCIAddress, align 8
   %2 = alloca %struct.QOSGraphEdgeOptions, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 32, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) @__const.virtio_9p_register_nodes.opts, i64 48, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr @.str.15, ptr %3, align 8
@@ -261,33 +255,33 @@ define internal void @virtio_9p_register_nodes() #0 {
   call void @qos_node_produces(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.24) #13
   call void @qos_node_produces(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.20) #13
   call void @qos_node_produces(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.21) #13
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
-declare noalias ptr @g_build_filename(ptr noundef, ...) local_unnamed_addr #4
+declare noalias ptr @g_build_filename(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #9
+declare void @llvm.va_start.p0(ptr) #8
 
-declare noalias ptr @g_strdup_vprintf(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare noalias ptr @g_strdup_vprintf(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #9
+declare void @llvm.va_end.p0(ptr) #8
 
-declare ptr @g_regex_new(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @g_regex_new(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @g_regex_replace(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @g_regex_replace(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @g_string_assign(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @g_string_assign(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @g_regex_unref(ptr noundef) local_unnamed_addr #4
+declare void @g_regex_unref(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
-declare void @qos_node_create_driver(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @qos_node_create_driver(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noalias noundef ptr @virtio_9p_device_create(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
@@ -303,11 +297,11 @@ define internal noalias noundef ptr @virtio_9p_device_create(ptr noundef %0, ptr
   ret ptr %4
 }
 
-declare void @qos_node_consumes(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @qos_node_consumes(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @qos_node_produces(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @qos_node_produces(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @add_qpci_address(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @add_qpci_address(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef ptr @virtio_9p_pci_create(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -337,7 +331,7 @@ define internal noundef ptr @virtio_9p_pci_create(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #11
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_9p_device_destructor(ptr noundef readonly captures(none) %0) #0 {
@@ -396,23 +390,23 @@ define internal void @virtio_9p_device_start_hw(ptr noundef captures(none) initi
   ret void
 }
 
-declare void @qvirtqueue_cleanup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @qvirtqueue_cleanup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @__fprintf_chk(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare i32 @__fprintf_chk(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare i64 @qvirtio_get_features(ptr noundef) local_unnamed_addr #4
+declare i64 @qvirtio_get_features(ptr noundef) local_unnamed_addr #3
 
-declare void @qvirtio_set_features(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @qvirtio_set_features(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @qvirtqueue_setup(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #4
+declare ptr @qvirtqueue_setup(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #3
 
-declare void @qvirtio_set_driver_ok(ptr noundef) local_unnamed_addr #4
+declare void @qvirtio_set_driver_ok(ptr noundef) local_unnamed_addr #3
 
-declare void @virtio_pci_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @virtio_pci_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @g_assertion_message_cmpnum(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, x86_fp80 noundef, ptr noundef, x86_fp80 noundef, i8 noundef signext) local_unnamed_addr #4
+declare void @g_assertion_message_cmpnum(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, x86_fp80 noundef, ptr noundef, x86_fp80 noundef, i8 noundef signext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_9p_pci_destructor(ptr noundef %0) #0 {
@@ -483,22 +477,28 @@ virtio_9p_get_driver.exit:                        ; preds = %12, %7, %4
   ret ptr %.0
 }
 
-declare void @qvirtio_pci_destructor(ptr noundef) local_unnamed_addr #4
+declare void @qvirtio_pci_destructor(ptr noundef) local_unnamed_addr #3
 
-declare void @qvirtio_pci_start_hw(ptr noundef) local_unnamed_addr #4
+declare void @qvirtio_pci_start_hw(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #8 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #1 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #7 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { noreturn nounwind }
 attributes #13 = { nounwind }
 attributes #14 = { nounwind willreturn memory(none) }

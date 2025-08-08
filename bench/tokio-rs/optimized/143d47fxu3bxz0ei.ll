@@ -430,7 +430,7 @@ define void @_ZN10tokio_util4sync14poll_semaphore13PollSemaphore17poll_acquire_m
   br i1 %15, label %16, label %23
 
 16:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.val40 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
   %17 = atomicrmw add ptr %.val40, i64 1 monotonic, align 8
   %18 = icmp slt i64 %17, 0
@@ -467,7 +467,7 @@ define void @_ZN10tokio_util4sync14poll_semaphore13PollSemaphore17poll_acquire_m
 
 32:                                               ; preds = %33, %26
   store i64 0, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %55
 
 33:                                               ; preds = %30
@@ -476,7 +476,7 @@ define void @_ZN10tokio_util4sync14poll_semaphore13PollSemaphore17poll_acquire_m
   br label %32
 
 35:                                               ; preds = %30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.val39 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
   %36 = atomicrmw add ptr %.val39, i64 1 monotonic, align 8
   %37 = icmp slt i64 %36, 0
@@ -488,7 +488,7 @@ define void @_ZN10tokio_util4sync14poll_semaphore13PollSemaphore17poll_acquire_m
 
 "_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h42e481a09baee474E.exit41": ; preds = %35
   call void @_ZN5tokio4sync9semaphore9Semaphore18acquire_many_owned17h56e616ee390b996eE(ptr noalias noundef nonnull sret({ ptr, [18 x i32], i32, [4 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(96) %9, ptr noundef nonnull %.val39, i32 noundef %3)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %39 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !131
   %40 = tail call noundef align 8 dereferenceable_or_null(96) ptr @__rust_alloc(i64 noundef 96, i64 noundef 8) #16, !noalias !131
   %41 = icmp eq ptr %40, null
@@ -555,15 +555,15 @@ common.resume:                                    ; preds = %.thread, %77, %99, 
   br label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17hd3939ebdd09de68eE.exit"
 
 "_ZN4core6option15Option$LT$T$GT$13get_or_insert17hd3939ebdd09de68eE.exit": ; preds = %.thread.i, %"_ZN4core3ptr209drop_in_place$LT$$LP$u32$C$tokio_util..sync..reusable_box..ReusableBoxFuture$LT$core..result..Result$LT$tokio..sync..semaphore..OwnedSemaphorePermit$C$tokio..sync..batch_semaphore..AcquireError$GT$$GT$$RP$$GT$17hd66d2fd1185fb76fE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %56
 
 55:                                               ; preds = %95, %76, %32
   ret void
 
 56:                                               ; preds = %23, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h42e481a09baee474E.exit42", %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17hd3939ebdd09de68eE.exit"
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %57 = load ptr, ptr %13, align 8, !nonnull !5, !align !149, !noundef !5
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %59 = load ptr, ptr %58, align 8, !nonnull !5, !align !129, !noundef !5
@@ -598,7 +598,7 @@ common.resume:                                    ; preds = %.thread, %77, %99, 
   store ptr %69, ptr %7, align 8
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %71, ptr %72, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.val = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
   %73 = atomicrmw add ptr %.val, i64 1 monotonic, align 8
   %74 = icmp slt i64 %73, 0
@@ -610,8 +610,8 @@ common.resume:                                    ; preds = %.thread, %77, %99, 
 
 76:                                               ; preds = %56
   store i64 1, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %55
 
 77:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h42e481a09baee474E.exit43", %79
@@ -673,7 +673,7 @@ common.resume:                                    ; preds = %.thread, %77, %99, 
 
 95:                                               ; preds = %"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$$LP$u32$C$tokio_util..sync..reusable_box..ReusableBoxFuture$LT$core..result..Result$LT$tokio..sync..semaphore..OwnedSemaphorePermit$C$tokio..sync..batch_semaphore..AcquireError$GT$$GT$$RP$$GT$$GT$17hd5d8d605f40eda00E.exit", %82
   store i64 0, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %55
 
 96:                                               ; preds = %"_ZN4core3ptr209drop_in_place$LT$$LP$u32$C$tokio_util..sync..reusable_box..ReusableBoxFuture$LT$core..result..Result$LT$tokio..sync..semaphore..OwnedSemaphorePermit$C$tokio..sync..batch_semaphore..AcquireError$GT$$GT$$RP$$GT$17hd66d2fd1185fb76fE.exit.i44"
@@ -747,11 +747,11 @@ _ZN10tokio_util4sync14poll_semaphore13PollSemaphore11clone_inner17h29f5764f80fa2
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN84_$LT$tokio_util..sync..poll_semaphore..PollSemaphore$u20$as$u20$core..fmt..Debug$GT$3fmt17hbb120903de8cf6faE"(ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = alloca { ptr, i8, i8, [6 x i8] }, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4core3fmt9Formatter12debug_struct17h182b2d36b73186b9E(ptr noalias noundef nonnull sret({ ptr, i8, i8, [6 x i8] }) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.157ac962087fac9d78de4a1413961f6c.5, i64 noundef 13)
   %4 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders11DebugStruct5field17h0ae9bd404677e494E(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 1 @anon.157ac962087fac9d78de4a1413961f6c.6, i64 noundef 9, ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.157ac962087fac9d78de4a1413961f6c.7)
   %5 = call noundef zeroext i1 @_ZN4core3fmt8builders11DebugStruct6finish17h27bac3b01d1dda5cE(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %5
 }
 
@@ -819,12 +819,6 @@ declare noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders11DebugStr
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @_ZN4core3fmt8builders11DebugStruct6finish17h27bac3b01d1dda5cE(ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
-
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN10tokio_util4sync12reusable_box26ReusableBoxFuture$LT$T$GT$3set17h89f6637ad565a518E"(ptr noalias noundef align 8 dereferenceable(16), ptr noalias noundef align 8 captures(none) dereferenceable(96)) unnamed_addr #0
 
@@ -839,6 +833,12 @@ declare void @"_ZN79_$LT$tokio..sync..batch_semaphore..Acquire$u20$as$u20$core..
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr65drop_in_place$LT$tokio..sync..semaphore..OwnedSemaphorePermit$GT$17hb381c2a25fbc8e28E"(ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12

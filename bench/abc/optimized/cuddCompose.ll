@@ -37,9 +37,6 @@ define ptr @Cudd_bddCompose(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define ptr @cuddBddComposeRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -220,9 +217,6 @@ define ptr @cuddBddComposeRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %.0 = phi ptr [ %29, %25 ], [ %112, %109 ], [ null, %84 ], [ null, %99 ], [ %1, %20 ], [ null, %32 ], [ null, %72 ]
   ret ptr %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_addCompose(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -451,7 +445,7 @@ define ptr @Cudd_addPermute(ptr noundef initializes((448, 452)) %0, ptr noundef 
   ret ptr %.0
 }
 
-declare ptr @cuddHashTableInit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @cuddHashTableInit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @cuddAddPermuteRecur(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
@@ -570,7 +564,7 @@ define internal fastcc ptr @cuddAddPermuteRecur(ptr noundef %0, ptr noundef nonn
   ret ptr %.0
 }
 
-declare void @cuddHashTableQuit(ptr noundef) local_unnamed_addr #2
+declare void @cuddHashTableQuit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_addSwapVariables(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -641,10 +635,10 @@ define ptr @Cudd_addSwapVariables(ptr noundef %0, ptr noundef %1, ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_bddPermute(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -875,7 +869,7 @@ define internal fastcc ptr @cuddBddVarMapRecur(ptr noundef %0, ptr noundef %1) u
   br i1 %.not51, label %35, label %23
 
 23:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %24 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #7
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %Abc_Clock.exit, label %26
@@ -891,7 +885,7 @@ define internal fastcc ptr @cuddBddVarMapRecur(ptr noundef %0, ptr noundef %1) u
 
 Abc_Clock.exit:                                   ; preds = %23, %26
   %.0.i = phi i64 [ %32, %26 ], [ -1, %23 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %33 = load i64, ptr %21, align 8, !tbaa !44
   %34 = icmp sgt i64 %.0.i, %33
   br i1 %34, label %89, label %35
@@ -1069,7 +1063,7 @@ define range(i32 0, 2) i32 @Cudd_SetVarMap(ptr noundef %0, ptr noundef readonly 
   ret i32 %.027
 }
 
-declare void @cuddCacheFlush(ptr noundef) local_unnamed_addr #2
+declare void @cuddCacheFlush(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_bddSwapVariables(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -1925,15 +1919,15 @@ ddIsIthAddVar.exit96.thread:                      ; preds = %84, %89, %ddIsIthAd
   ret ptr %.084
 }
 
-declare ptr @Cudd_addIthVar(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @Cudd_addIthVar(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @Cudd_addApply(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Cudd_addApply(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @Cudd_addTimes(ptr noundef, ptr noundef, ptr noundef) #2
+declare ptr @Cudd_addTimes(ptr noundef, ptr noundef, ptr noundef) #1
 
-declare ptr @Cudd_addXnor(ptr noundef, ptr noundef, ptr noundef) #2
+declare ptr @Cudd_addXnor(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 -2147483647, -2147483648) %5) unnamed_addr #0 {
@@ -2434,34 +2428,40 @@ define internal fastcc ptr @cuddBddVectorComposeRecur(ptr noundef %0, ptr nounde
   ret ptr %.0
 }
 
-declare ptr @cuddCacheLookup(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @cuddCacheLookup(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @cuddBddIteRecur(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @cuddBddIteRecur(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @Cudd_IterDerefBdd(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Cudd_IterDerefBdd(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @cuddCacheInsert(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @cuddCacheInsert(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @cuddAddIteRecur(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @cuddAddIteRecur(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @cuddUniqueInter(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @cuddUniqueInter(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @cuddHashTableLookup1(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @cuddHashTableLookup1(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @cuddHashTableInsert1(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @cuddHashTableInsert1(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @cuddCacheLookup1(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @cuddCacheLookup1(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @cuddCacheInsert1(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @cuddCacheInsert1(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @cuddAddApplyRecur(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @cuddAddApplyRecur(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @Cudd_addPlus(ptr noundef, ptr noundef, ptr noundef) #2
+declare ptr @Cudd_addPlus(ptr noundef, ptr noundef, ptr noundef) #1
 
-declare ptr @cuddAddExistAbstractRecur(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @cuddAddExistAbstractRecur(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #6
@@ -2470,11 +2470,11 @@ declare i32 @llvm.umin.i32(i32, i32) #6
 declare i32 @llvm.smin.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind allocsize(0) }

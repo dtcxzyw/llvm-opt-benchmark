@@ -18,8 +18,8 @@ define noundef range(i32 -2147483648, 256) i32 @main(i32 noundef %0, ptr noundef
   %3 = alloca [2 x i32], align 4
   %4 = alloca [4096 x i8], align 16
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = call i32 @pipe(ptr noundef nonnull %3) #8
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %_ZL10fork_xtermPi.exit.thread, label %8
@@ -46,7 +46,7 @@ define noundef range(i32 -2147483648, 256) i32 @main(i32 noundef %0, ptr noundef
   br label %_ZL10fork_xtermPi.exit.thread
 
 21:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = load i32, ptr %3, align 4, !tbaa !3
   %23 = call i64 @read(i32 noundef %22, ptr noundef nonnull %4, i64 noundef 4096)
   %24 = icmp slt i64 %23, 2
@@ -66,18 +66,18 @@ define noundef range(i32 -2147483648, 256) i32 @main(i32 noundef %0, ptr noundef
   br i1 %.inv.i, label %33, label %_ZL10fork_xtermPi.exit.thread15
 
 _ZL10fork_xtermPi.exit.thread15:                  ; preds = %25, %21, %29
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZL10fork_xtermPi.exit.thread
 
 _ZL10fork_xtermPi.exit.thread:                    ; preds = %13, %8, %19, %2, %_ZL10fork_xtermPi.exit.thread15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %31 = load ptr, ptr @stderr, align 8, !tbaa !8
   %32 = call i64 @fwrite(ptr nonnull @.str, i64 21, i64 1, ptr %31) #9
   br label %66
 
 33:                                               ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %34 = call ptr @signal(i32 noundef 2, ptr noundef nonnull @"_ZZ4mainEN3$_08__invokeEi") #8
   %35 = call i32 @fork() #8
   %36 = icmp slt i32 %35, 0
@@ -138,64 +138,64 @@ _ZL10fork_spikeiPPc.exit:                         ; preds = %37, %_ZL10fork_spik
 
 66:                                               ; preds = %63, %_ZL10fork_xtermPi.exit.thread
   %.0 = phi i32 [ -1, %_ZL10fork_xtermPi.exit.thread ], [ %.1, %63 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: nounwind
+declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
-
-; Function Attrs: nounwind
-declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @"_ZZ4mainEN3$_08__invokeEi"(i32 %0) #4 align 2 {
+define internal void @"_ZZ4mainEN3$_08__invokeEi"(i32 %0) #3 align 2 {
   store i1 true, ptr @_ZZ4mainE11signal_exit, align 1
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare i32 @fork() local_unnamed_addr #5
+declare i32 @fork() local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i32 @dup2(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @dup2(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare i32 @execvp(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @execvp(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i32 @pipe(ptr noundef) local_unnamed_addr #2
+declare i32 @pipe(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @setpgid(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @setpgid(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare i32 @execl(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
+declare i32 @execl(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #6
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 attributes #0 = { mustprogress norecurse uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nofree nounwind }
 attributes #8 = { nounwind }
 attributes #9 = { cold }

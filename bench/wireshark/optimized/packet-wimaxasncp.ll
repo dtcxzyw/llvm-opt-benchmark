@@ -403,14 +403,11 @@ define hidden void @proto_register_wimaxasncp() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wimaxasncp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
@@ -816,22 +813,22 @@ dissect_wimaxasncp_backend.exit:                  ; preds = %189, %192
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_prefix(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @proto_register_prefix(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @register_wimaxasncp_fields(ptr readnone captures(none) %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct._value_string, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = tail call ptr @getenv(ptr noundef nonnull @.str.260) #8
   %5 = icmp ne ptr %4, null
   %6 = tail call ptr @getenv(ptr noundef nonnull @.str.261) #8
@@ -902,7 +899,7 @@ define internal void @register_wimaxasncp_fields(ptr readnone captures(none) %0)
 
 .lr.ph:                                           ; preds = %31, %.lr.ph
   %.03953 = phi ptr [ %.039, %.lr.ph ], [ %.03951, %31 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %34 = getelementptr inbounds nuw i8, ptr %.03953, i64 8
   %35 = load i32, ptr %34, align 8
   store i32 %35, ptr %3, align 8
@@ -910,7 +907,7 @@ define internal void @register_wimaxasncp_fields(ptr readnone captures(none) %0)
   %36 = load ptr, ptr %.03953, align 8
   store ptr %36, ptr %27, align 8
   call void @wmem_array_append(ptr noundef %33, ptr noundef nonnull %3, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %37 = getelementptr inbounds nuw i8, ptr %.03953, i64 16
   %.039 = load ptr, ptr %37, align 8
   %.not48 = icmp eq ptr %.039, null
@@ -1000,12 +997,9 @@ define internal void @register_wimaxasncp_fields(ptr readnone captures(none) %0)
   %90 = load i32, ptr @proto_wimaxasncp, align 4
   %91 = call ptr @expert_register_protocol(i32 noundef %90)
   call void @expert_register_field_array(ptr noundef %91, ptr noundef nonnull @register_wimaxasncp_fields.ei, i32 noundef 5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_wimaxasncp() local_unnamed_addr #0 {
@@ -1018,82 +1012,82 @@ define hidden void @proto_reg_handoff_wimaxasncp() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_registrar_get_byname(ptr noundef) local_unnamed_addr #2
+declare ptr @proto_registrar_get_byname(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_address_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_address_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_wimaxasncp_tlvs(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
@@ -1701,7 +1695,7 @@ wimaxasncp_proto_tree_add_ether_value.exit:       ; preds = %263, %267
   br i1 %.not671.i, label %wimaxasncp_dissect_tlv_value.exit, label %275
 
 275:                                              ; preds = %274
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %276 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %277 = load i32, ptr %276, align 8
   %278 = icmp sgt i32 %277, 0
@@ -1713,7 +1707,7 @@ wimaxasncp_proto_tree_add_ether_value.exit:       ; preds = %263, %267
   %280 = call ptr @tvb_address_with_resolution_to_str(ptr noundef %279, ptr noundef %96, i32 noundef 3, i32 noundef 0)
   %281 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_ipv6_format(ptr noundef nonnull %59, i32 noundef %.0.i98, ptr noundef %96, i32 noundef 0, i32 noundef 16, ptr noundef nonnull %4, ptr noundef nonnull @.str.180, ptr noundef %280)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %45, ptr noundef nonnull @.str.179, ptr noundef %280)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %wimaxasncp_dissect_tlv_value.exit
 
 282:                                              ; preds = %94
@@ -1915,7 +1909,7 @@ wimaxasncp_proto_tree_add_tlv_ipv4_value.exit95:  ; preds = %362, %366
   br i1 %.not653.i, label %wimaxasncp_dissect_tlv_value.exit, label %374
 
 374:                                              ; preds = %373
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %375 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %376 = load i32, ptr %375, align 8
   %377 = icmp sgt i32 %376, 0
@@ -1927,7 +1921,7 @@ wimaxasncp_proto_tree_add_tlv_ipv4_value.exit95:  ; preds = %362, %366
   %379 = call ptr @tvb_address_with_resolution_to_str(ptr noundef %378, ptr noundef %96, i32 noundef 3, i32 noundef 0)
   %380 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_ipv6_format(ptr noundef nonnull %59, i32 noundef %.0.i93, ptr noundef %96, i32 noundef 0, i32 noundef 16, ptr noundef nonnull %5, ptr noundef nonnull @.str.180, ptr noundef %379)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %45, ptr noundef nonnull @.str.179, ptr noundef %379)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %wimaxasncp_dissect_tlv_value.exit
 
 381:                                              ; preds = %94
@@ -2427,133 +2421,133 @@ wimaxasncp_dissect_tlv_value.exit:                ; preds = %527, %516, %487, %4
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
+declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #2
+declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @decrement_dissection_depth(ptr noundef) local_unnamed_addr #2
+declare void @decrement_dissection_depth(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @tvb_ensure_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @tvb_ensure_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_print(ptr noundef, ...) local_unnamed_addr #2
+declare void @g_print(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_bytes_to_str_punct(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i8 noundef signext) local_unnamed_addr #2
+declare ptr @tvb_bytes_to_str_punct(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_bytes_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_bytes_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @ipprotostr(i32 noundef) local_unnamed_addr #2
+declare ptr @ipprotostr(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_get_ipv4(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_get_ipv4(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_hostname(i32 noundef) local_unnamed_addr #2
+declare ptr @get_hostname(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @col_get_writable(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @col_get_writable(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_set_writable(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @col_set_writable(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @enterprises_lookup(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @enterprises_lookup(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_address_with_resolution_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_address_with_resolution_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_ether_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_ether_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_ipv4_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_ipv4_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @tvb_get_ipv6(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @tvb_get_ipv6(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_ipv6_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_ipv6_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid memory(read)
-declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_datafile_dir() local_unnamed_addr #2
+declare ptr @get_datafile_dir() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wimaxasncp_dict_scan(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @wimaxasncp_dict_scan(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_free(ptr noundef) local_unnamed_addr #2
+declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @report_failure(ptr noundef, ...) local_unnamed_addr #2
+declare void @report_failure(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wimaxasncp_dict_print(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @wimaxasncp_dict_print(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_array_new(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare noalias ptr @wmem_array_new(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_epan_scope() local_unnamed_addr #2
+declare ptr @wmem_epan_scope() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wmem_array_append(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @wmem_array_append(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wmem_array_set_null_terminator(ptr noundef) local_unnamed_addr #2
+declare void @wmem_array_set_null_terminator(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_array_get_raw(ptr noundef) local_unnamed_addr #2
+declare ptr @wmem_array_get_raw(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @add_tlv_reg_info(ptr noundef %0) unnamed_addr #0 {
@@ -2687,7 +2681,7 @@ alnumerize.exit:                                  ; preds = %63, %1
 75:                                               ; preds = %.sink.split, %alnumerize.exit
   %.0 = phi ptr [ @.str.267, %alnumerize.exit ], [ %74, %.sink.split ]
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %40) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store ptr %76, ptr %40, align 8
   %77 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %44, ptr %77, align 8
@@ -2711,7 +2705,7 @@ alnumerize.exit:                                  ; preds = %63, %1
   store ptr null, ptr %86, align 8
   %87 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %87, ptr noundef nonnull %40, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %40) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   %88 = call ptr @wmem_epan_scope()
   %89 = call noalias ptr @wmem_strdup(ptr noundef %88, ptr noundef nonnull @.str.197)
   %90 = call ptr @wmem_epan_scope()
@@ -2811,7 +2805,7 @@ alnumerize.exit189:                               ; preds = %108, %75
   %117 = call ptr @wmem_epan_scope()
   call void @wmem_free(ptr noundef %117, ptr noundef %114)
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %39) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store ptr %118, ptr %39, align 8
   %119 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %89, ptr %119, align 8
@@ -2835,12 +2829,12 @@ alnumerize.exit189:                               ; preds = %108, %75
   store ptr null, ptr %128, align 8
   %129 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %129, ptr noundef nonnull %39, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %39) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %937
 
 130:                                              ; preds = %alnumerize.exit189
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %38) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store ptr %131, ptr %38, align 8
   %132 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %89, ptr %132, align 8
@@ -2864,7 +2858,7 @@ alnumerize.exit189:                               ; preds = %108, %75
   store ptr null, ptr %141, align 8
   %142 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %142, ptr noundef nonnull %38, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %38) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %937
 
 143:                                              ; preds = %alnumerize.exit189, %alnumerize.exit189
@@ -2878,7 +2872,7 @@ alnumerize.exit189:                               ; preds = %108, %75
 
 147:                                              ; preds = %alnumerize.exit189
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %37) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store ptr %148, ptr %37, align 8
   %149 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %89, ptr %149, align 8
@@ -2902,12 +2896,12 @@ alnumerize.exit189:                               ; preds = %108, %75
   store ptr null, ptr %158, align 8
   %159 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %159, ptr noundef nonnull %37, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %37) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %937
 
 160:                                              ; preds = %alnumerize.exit189
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %36) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store ptr %161, ptr %36, align 8
   %162 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %89, ptr %162, align 8
@@ -2933,12 +2927,12 @@ alnumerize.exit189:                               ; preds = %108, %75
   store ptr null, ptr %172, align 8
   %173 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %173, ptr noundef nonnull %36, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %36) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %937
 
 174:                                              ; preds = %alnumerize.exit189
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %35) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store ptr %175, ptr %35, align 8
   %176 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %89, ptr %176, align 8
@@ -2964,12 +2958,12 @@ alnumerize.exit189:                               ; preds = %108, %75
   store ptr null, ptr %186, align 8
   %187 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %187, ptr noundef nonnull %35, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %35) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %937
 
 188:                                              ; preds = %alnumerize.exit189
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %34) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store ptr %189, ptr %34, align 8
   %190 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %89, ptr %190, align 8
@@ -2995,12 +2989,12 @@ alnumerize.exit189:                               ; preds = %108, %75
   store ptr null, ptr %200, align 8
   %201 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %201, ptr noundef nonnull %34, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %34) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %937
 
 202:                                              ; preds = %alnumerize.exit189
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %33) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store ptr %203, ptr %33, align 8
   %204 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %89, ptr %204, align 8
@@ -3024,12 +3018,12 @@ alnumerize.exit189:                               ; preds = %108, %75
   store ptr null, ptr %213, align 8
   %214 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %214, ptr noundef nonnull %33, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %33) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %937
 
 215:                                              ; preds = %alnumerize.exit189
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %32) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store ptr %216, ptr %32, align 8
   %217 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %89, ptr %217, align 8
@@ -3053,12 +3047,12 @@ alnumerize.exit189:                               ; preds = %108, %75
   store ptr null, ptr %226, align 8
   %227 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %227, ptr noundef nonnull %32, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %32) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %937
 
 228:                                              ; preds = %alnumerize.exit189
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %31) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store ptr %229, ptr %31, align 8
   %230 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %89, ptr %230, align 8
@@ -3084,12 +3078,12 @@ alnumerize.exit189:                               ; preds = %108, %75
   store ptr null, ptr %240, align 8
   %241 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %241, ptr noundef nonnull %31, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %31) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %937
 
 242:                                              ; preds = %alnumerize.exit189
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %30) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store ptr %243, ptr %30, align 8
   %244 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %89, ptr %244, align 8
@@ -3115,12 +3109,12 @@ alnumerize.exit189:                               ; preds = %108, %75
   store ptr null, ptr %254, align 8
   %255 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %255, ptr noundef nonnull %30, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %30) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %937
 
 256:                                              ; preds = %alnumerize.exit189
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %29) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store ptr %257, ptr %29, align 8
   %258 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %89, ptr %258, align 8
@@ -3146,7 +3140,7 @@ alnumerize.exit189:                               ; preds = %108, %75
   store ptr null, ptr %268, align 8
   %269 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %269, ptr noundef nonnull %29, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %29) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %937
 
 270:                                              ; preds = %alnumerize.exit189
@@ -3211,7 +3205,7 @@ alnumerize.exit202:                               ; preds = %290, %270
   %.028.lcssa.i200 = phi ptr [ %274, %270 ], [ %.1.i198, %290 ]
   store i8 0, ptr %.028.lcssa.i200, align 1
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %28) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store ptr %293, ptr %28, align 8
   %294 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr @.str.276, ptr %294, align 8
@@ -3235,7 +3229,7 @@ alnumerize.exit202:                               ; preds = %290, %270
   store ptr null, ptr %303, align 8
   %304 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %304, ptr noundef nonnull %28, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %28) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %305 = call ptr @wmem_epan_scope()
   %306 = load ptr, ptr %42, align 8
   %307 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %305, ptr noundef nonnull @.str.277, ptr noundef %306)
@@ -3295,7 +3289,7 @@ alnumerize.exit215:                               ; preds = %323, %alnumerize.ex
   %.028.lcssa.i213 = phi ptr [ %307, %alnumerize.exit202 ], [ %.1.i211, %323 ]
   store i8 0, ptr %.028.lcssa.i213, align 1
   %326 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %27) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store ptr %326, ptr %27, align 8
   %327 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr @.str.278, ptr %327, align 8
@@ -3319,7 +3313,7 @@ alnumerize.exit215:                               ; preds = %323, %alnumerize.ex
   store ptr null, ptr %336, align 8
   %337 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %337, ptr noundef nonnull %27, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %27) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %338 = call ptr @wmem_epan_scope()
   %339 = load ptr, ptr %42, align 8
   %340 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %338, ptr noundef nonnull @.str.279, ptr noundef %339)
@@ -3379,7 +3373,7 @@ alnumerize.exit228:                               ; preds = %356, %alnumerize.ex
   %.028.lcssa.i226 = phi ptr [ %340, %alnumerize.exit215 ], [ %.1.i224, %356 ]
   store i8 0, ptr %.028.lcssa.i226, align 1
   %359 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %26) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store ptr %359, ptr %26, align 8
   %360 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr @.str.280, ptr %360, align 8
@@ -3403,12 +3397,12 @@ alnumerize.exit228:                               ; preds = %356, %alnumerize.ex
   store ptr null, ptr %369, align 8
   %370 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %370, ptr noundef nonnull %26, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %937
 
 371:                                              ; preds = %alnumerize.exit189
   %372 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %25) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store ptr %372, ptr %25, align 8
   %373 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %89, ptr %373, align 8
@@ -3434,12 +3428,12 @@ alnumerize.exit228:                               ; preds = %356, %alnumerize.ex
   store ptr null, ptr %383, align 8
   %384 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %384, ptr noundef nonnull %25, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %25) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %937
 
 385:                                              ; preds = %alnumerize.exit189
   %386 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %24) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store ptr %386, ptr %24, align 8
   %387 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %89, ptr %387, align 8
@@ -3465,12 +3459,12 @@ alnumerize.exit228:                               ; preds = %356, %alnumerize.ex
   store ptr null, ptr %397, align 8
   %398 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %398, ptr noundef nonnull %24, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %937
 
 399:                                              ; preds = %alnumerize.exit189
   %400 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %23) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store ptr %400, ptr %23, align 8
   %401 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %89, ptr %401, align 8
@@ -3496,12 +3490,12 @@ alnumerize.exit228:                               ; preds = %356, %alnumerize.ex
   store ptr null, ptr %411, align 8
   %412 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %412, ptr noundef nonnull %23, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %23) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %937
 
 413:                                              ; preds = %alnumerize.exit189
   %414 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %22) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store ptr %414, ptr %22, align 8
   %415 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %89, ptr %415, align 8
@@ -3527,12 +3521,12 @@ alnumerize.exit228:                               ; preds = %356, %alnumerize.ex
   store ptr null, ptr %425, align 8
   %426 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %426, ptr noundef nonnull %22, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %937
 
 427:                                              ; preds = %alnumerize.exit189
   %428 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %21) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr %428, ptr %21, align 8
   %429 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %89, ptr %429, align 8
@@ -3558,12 +3552,12 @@ alnumerize.exit228:                               ; preds = %356, %alnumerize.ex
   store ptr null, ptr %439, align 8
   %440 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %440, ptr noundef nonnull %21, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %21) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %937
 
 441:                                              ; preds = %alnumerize.exit189
   %442 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %20) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr %442, ptr %20, align 8
   %443 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %89, ptr %443, align 8
@@ -3589,7 +3583,7 @@ alnumerize.exit228:                               ; preds = %356, %alnumerize.ex
   store ptr null, ptr %453, align 8
   %454 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %454, ptr noundef nonnull %20, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %20) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %937
 
 455:                                              ; preds = %alnumerize.exit189
@@ -3654,7 +3648,7 @@ alnumerize.exit241:                               ; preds = %475, %455
   %.028.lcssa.i239 = phi ptr [ %459, %455 ], [ %.1.i237, %475 ]
   store i8 0, ptr %.028.lcssa.i239, align 1
   %478 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %19) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %478, ptr %19, align 8
   %479 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr @.str.276, ptr %479, align 8
@@ -3678,7 +3672,7 @@ alnumerize.exit241:                               ; preds = %475, %455
   store ptr null, ptr %488, align 8
   %489 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %489, ptr noundef nonnull %19, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %19) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %490 = call ptr @wmem_epan_scope()
   %491 = load ptr, ptr %42, align 8
   %492 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %490, ptr noundef nonnull @.str.277, ptr noundef %491)
@@ -3738,7 +3732,7 @@ alnumerize.exit254:                               ; preds = %508, %alnumerize.ex
   %.028.lcssa.i252 = phi ptr [ %492, %alnumerize.exit241 ], [ %.1.i250, %508 ]
   store i8 0, ptr %.028.lcssa.i252, align 1
   %511 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %18) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %511, ptr %18, align 8
   %512 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr @.str.278, ptr %512, align 8
@@ -3762,12 +3756,12 @@ alnumerize.exit254:                               ; preds = %508, %alnumerize.ex
   store ptr null, ptr %521, align 8
   %522 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %522, ptr noundef nonnull %18, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %937
 
 523:                                              ; preds = %alnumerize.exit189
   %524 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %17) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %524, ptr %17, align 8
   %525 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %89, ptr %525, align 8
@@ -3791,12 +3785,12 @@ alnumerize.exit254:                               ; preds = %508, %alnumerize.ex
   store ptr null, ptr %534, align 8
   %535 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %535, ptr noundef nonnull %17, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %937
 
 536:                                              ; preds = %alnumerize.exit189
   %537 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %16) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %537, ptr %16, align 8
   %538 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %89, ptr %538, align 8
@@ -3820,7 +3814,7 @@ alnumerize.exit254:                               ; preds = %508, %alnumerize.ex
   store ptr null, ptr %547, align 8
   %548 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %548, ptr noundef nonnull %16, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %549 = call ptr @wmem_epan_scope()
   %550 = load i16, ptr %0, align 8
   %551 = zext i16 %550 to i32
@@ -3884,7 +3878,7 @@ alnumerize.exit267:                               ; preds = %571, %536
   %.028.lcssa.i265 = phi ptr [ %555, %536 ], [ %.1.i263, %571 ]
   store i8 0, ptr %.028.lcssa.i265, align 1
   %574 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %15) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %574, ptr %15, align 8
   %575 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr @.str.283, ptr %575, align 8
@@ -3910,12 +3904,12 @@ alnumerize.exit267:                               ; preds = %571, %536
   store ptr null, ptr %585, align 8
   %586 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %586, ptr noundef nonnull %15, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %937
 
 587:                                              ; preds = %alnumerize.exit189
   %588 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %14) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %588, ptr %14, align 8
   %589 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %89, ptr %589, align 8
@@ -3939,7 +3933,7 @@ alnumerize.exit267:                               ; preds = %571, %536
   store ptr null, ptr %598, align 8
   %599 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %599, ptr noundef nonnull %14, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %600 = call ptr @wmem_epan_scope()
   %601 = load i16, ptr %0, align 8
   %602 = zext i16 %601 to i32
@@ -4003,7 +3997,7 @@ alnumerize.exit280:                               ; preds = %622, %587
   %.028.lcssa.i278 = phi ptr [ %606, %587 ], [ %.1.i276, %622 ]
   store i8 0, ptr %.028.lcssa.i278, align 1
   %625 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %13) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %625, ptr %13, align 8
   %626 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @.str.285, ptr %626, align 8
@@ -4029,7 +4023,7 @@ alnumerize.exit280:                               ; preds = %622, %587
   store ptr null, ptr %636, align 8
   %637 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %637, ptr noundef nonnull %13, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %638 = call ptr @wmem_epan_scope()
   %639 = load ptr, ptr %42, align 8
   %640 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %638, ptr noundef nonnull @.str.286, ptr noundef %639)
@@ -4089,7 +4083,7 @@ alnumerize.exit293:                               ; preds = %656, %alnumerize.ex
   %.028.lcssa.i291 = phi ptr [ %640, %alnumerize.exit280 ], [ %.1.i289, %656 ]
   store i8 0, ptr %.028.lcssa.i291, align 1
   %659 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %659, ptr %12, align 8
   %660 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @.str.287, ptr %660, align 8
@@ -4115,12 +4109,12 @@ alnumerize.exit293:                               ; preds = %656, %alnumerize.ex
   store ptr null, ptr %670, align 8
   %671 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %671, ptr noundef nonnull %12, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %937
 
 672:                                              ; preds = %alnumerize.exit189
   %673 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %673, ptr %11, align 8
   %674 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %89, ptr %674, align 8
@@ -4144,7 +4138,7 @@ alnumerize.exit293:                               ; preds = %656, %alnumerize.ex
   store ptr null, ptr %683, align 8
   %684 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %684, ptr noundef nonnull %11, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %685 = call ptr @wmem_epan_scope()
   %686 = load i16, ptr %0, align 8
   %687 = zext i16 %686 to i32
@@ -4208,7 +4202,7 @@ alnumerize.exit306:                               ; preds = %707, %672
   %.028.lcssa.i304 = phi ptr [ %691, %672 ], [ %.1.i302, %707 ]
   store i8 0, ptr %.028.lcssa.i304, align 1
   %710 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %710, ptr %10, align 8
   %711 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @.str.276, ptr %711, align 8
@@ -4232,7 +4226,7 @@ alnumerize.exit306:                               ; preds = %707, %672
   store ptr null, ptr %720, align 8
   %721 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %721, ptr noundef nonnull %10, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %722 = call ptr @wmem_epan_scope()
   %723 = load ptr, ptr %42, align 8
   %724 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %722, ptr noundef nonnull @.str.289, ptr noundef %723)
@@ -4292,7 +4286,7 @@ alnumerize.exit319:                               ; preds = %740, %alnumerize.ex
   %.028.lcssa.i317 = phi ptr [ %724, %alnumerize.exit306 ], [ %.1.i315, %740 ]
   store i8 0, ptr %.028.lcssa.i317, align 1
   %743 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %743, ptr %9, align 8
   %744 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @.str.290, ptr %744, align 8
@@ -4316,7 +4310,7 @@ alnumerize.exit319:                               ; preds = %740, %alnumerize.ex
   store ptr null, ptr %753, align 8
   %754 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %754, ptr noundef nonnull %9, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %755 = call ptr @wmem_epan_scope()
   %756 = load ptr, ptr %42, align 8
   %757 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %755, ptr noundef nonnull @.str.291, ptr noundef %756)
@@ -4376,7 +4370,7 @@ alnumerize.exit332:                               ; preds = %773, %alnumerize.ex
   %.028.lcssa.i330 = phi ptr [ %757, %alnumerize.exit319 ], [ %.1.i328, %773 ]
   store i8 0, ptr %.028.lcssa.i330, align 1
   %776 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %776, ptr %8, align 8
   %777 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @.str.278, ptr %777, align 8
@@ -4400,7 +4394,7 @@ alnumerize.exit332:                               ; preds = %773, %alnumerize.ex
   store ptr null, ptr %786, align 8
   %787 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %787, ptr noundef nonnull %8, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %788 = call ptr @wmem_epan_scope()
   %789 = load ptr, ptr %42, align 8
   %790 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %788, ptr noundef nonnull @.str.292, ptr noundef %789)
@@ -4460,7 +4454,7 @@ alnumerize.exit345:                               ; preds = %806, %alnumerize.ex
   %.028.lcssa.i343 = phi ptr [ %790, %alnumerize.exit332 ], [ %.1.i341, %806 ]
   store i8 0, ptr %.028.lcssa.i343, align 1
   %809 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %809, ptr %7, align 8
   %810 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @.str.293, ptr %810, align 8
@@ -4484,12 +4478,12 @@ alnumerize.exit345:                               ; preds = %806, %alnumerize.ex
   store ptr null, ptr %819, align 8
   %820 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %820, ptr noundef nonnull %7, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %937
 
 821:                                              ; preds = %alnumerize.exit189
   %822 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %822, ptr %6, align 8
   %823 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %89, ptr %823, align 8
@@ -4513,7 +4507,7 @@ alnumerize.exit345:                               ; preds = %806, %alnumerize.ex
   store ptr null, ptr %832, align 8
   %833 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %833, ptr noundef nonnull %6, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %834 = call ptr @wmem_epan_scope()
   %835 = load i16, ptr %0, align 8
   %836 = zext i16 %835 to i32
@@ -4577,7 +4571,7 @@ alnumerize.exit358:                               ; preds = %856, %821
   %.028.lcssa.i356 = phi ptr [ %840, %821 ], [ %.1.i354, %856 ]
   store i8 0, ptr %.028.lcssa.i356, align 1
   %859 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %859, ptr %5, align 8
   %860 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @.str.295, ptr %860, align 8
@@ -4603,7 +4597,7 @@ alnumerize.exit358:                               ; preds = %856, %821
   store ptr null, ptr %870, align 8
   %871 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %871, ptr noundef nonnull %5, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %872 = call ptr @wmem_epan_scope()
   %873 = load ptr, ptr %42, align 8
   %874 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %872, ptr noundef nonnull @.str.296, ptr noundef %873)
@@ -4663,7 +4657,7 @@ alnumerize.exit371:                               ; preds = %890, %alnumerize.ex
   %.028.lcssa.i369 = phi ptr [ %874, %alnumerize.exit358 ], [ %.1.i367, %890 ]
   store i8 0, ptr %.028.lcssa.i369, align 1
   %893 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %893, ptr %4, align 8
   %894 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str.297, ptr %894, align 8
@@ -4687,14 +4681,14 @@ alnumerize.exit371:                               ; preds = %890, %alnumerize.ex
   store ptr null, ptr %903, align 8
   %904 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %904, ptr noundef nonnull %4, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %937
 
 905:                                              ; preds = %alnumerize.exit189
   %906 = call ptr @wmem_epan_scope()
   %907 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %906, ptr noundef nonnull @.str.298, ptr noundef %89)
   %908 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %908, ptr %3, align 8
   %909 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %89, ptr %909, align 8
@@ -4718,12 +4712,12 @@ alnumerize.exit371:                               ; preds = %890, %alnumerize.ex
   store ptr null, ptr %918, align 8
   %919 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %919, ptr noundef nonnull %3, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %937
 
 920:                                              ; preds = %alnumerize.exit189
   %921 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %921, ptr %2, align 8
   %922 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %89, ptr %922, align 8
@@ -4747,7 +4741,7 @@ alnumerize.exit371:                               ; preds = %890, %alnumerize.ex
   store ptr null, ptr %931, align 8
   %932 = load ptr, ptr @wimaxasncp_build_dict, align 8
   call void @wmem_array_append(ptr noundef %932, ptr noundef nonnull %2, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %933 = load i8, ptr @debug_enabled, align 1, !range !10, !noundef !11
   %934 = trunc nuw i8 %933 to i1
   br i1 %934, label %935, label %937
@@ -4762,28 +4756,34 @@ alnumerize.exit371:                               ; preds = %890, %alnumerize.ex
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @__printf_chk(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @__printf_chk(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wmem_array_get_count(ptr noundef) local_unnamed_addr #2
+declare i32 @wmem_array_get_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #6
@@ -4792,11 +4792,11 @@ declare i32 @llvm.umax.i32(i32, i32) #6
 declare i32 @llvm.umin.i32(i32, i32) #6
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind null_pointer_is_valid memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind null_pointer_is_valid memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind willreturn memory(read) }
 attributes #8 = { nounwind }

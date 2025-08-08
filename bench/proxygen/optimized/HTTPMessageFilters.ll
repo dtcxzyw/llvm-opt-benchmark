@@ -837,7 +837,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
   %switch.i.i.i.i.i = icmp eq i32 %.lobit.i, %0
   br i1 %switch.i.i.i.i.i, label %if.then.i.i.i, label %invoke.cont
 
@@ -857,7 +857,7 @@ lpad.i.i.i:                                       ; preds = %if.then.i.i.i
 
 invoke.cont:                                      ; preds = %land.lhs.true
   %storage_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
   %2 = load ptr, ptr %storage_.i.i.i.i.i.i, align 8
   %cmp4 = icmp ne ptr %2, %prev
   %tobool = icmp ne ptr %prev, null
@@ -1923,7 +1923,7 @@ entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #21
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #21
   %call.i1.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kMessageFilterDefaultName_B5cxx11E)
           to label %call.i.noexc.i unwind label %lpad.i
@@ -1933,7 +1933,7 @@ call.i.noexc.i:                                   ; preds = %entry
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %call.i.noexc.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i)
   %call.i.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kMessageFilterDefaultName_B5cxx11E)
           to label %if.end.i unwind label %terminate.lpad.i.i
 
@@ -1973,18 +1973,18 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i1
   resume { ptr, i32 } %eh.lpad-body.i
 
 __cxx_global_var_init.1.exit:                     ; preds = %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #21
   %5 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL26kMessageFilterDefaultName_B5cxx11E, ptr nonnull @__dso_handle) #21
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

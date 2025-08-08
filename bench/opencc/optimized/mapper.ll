@@ -124,7 +124,7 @@ define void @_ZN6marisa8grimoire2io6Mapper4openEPKc(ptr noundef nonnull align 8 
   unreachable
 
 11:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN6marisa8grimoire2io6MapperC1Ev(ptr noundef nonnull align 8 dereferenceable(36) %3)
   invoke void @_ZN6marisa8grimoire2io6Mapper5open_EPKc(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull %1)
           to label %12 unwind label %31
@@ -159,14 +159,14 @@ define void @_ZN6marisa8grimoire2io6Mapper4openEPKc(ptr noundef nonnull align 8 
   store i32 %30, ptr %27, align 8, !tbaa !25
   store i32 %29, ptr %28, align 8, !tbaa !25
   call void @_ZN6marisa8grimoire2io6MapperD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #15
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 31:                                               ; preds = %11
   %32 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6marisa8grimoire2io6MapperD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #15
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %32
 }
 
@@ -178,13 +178,10 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 ; Function Attrs: cold noreturn
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
-
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6marisa8grimoire2io6Mapper5open_EPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(36) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct.stat, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @stat(ptr noundef %1, ptr noundef nonnull %3) #15
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %11, label %5
@@ -255,12 +252,12 @@ define void @_ZN6marisa8grimoire2io6Mapper5open_EPKc(ptr noundef nonnull align 8
   %36 = load i64, ptr %14, align 8, !tbaa !12
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %36, ptr %37, align 8, !tbaa !29
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6marisa8grimoire2io6Mapper4swapERS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(36) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(36) %1) local_unnamed_addr #9 align 2 {
+define void @_ZN6marisa8grimoire2io6Mapper4swapERS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(36) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(36) %1) local_unnamed_addr #8 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !23
   %4 = load ptr, ptr %1, align 8, !tbaa !23
   store ptr %4, ptr %0, align 8, !tbaa !23
@@ -292,9 +289,6 @@ define void @_ZN6marisa8grimoire2io6Mapper4swapERS2_(ptr noundef nonnull align 8
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
-
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6marisa8grimoire2io6Mapper4openEPKvm(ptr noundef nonnull align 8 captures(none) dereferenceable(36) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.marisa::grimoire::io::Mapper", align 8
@@ -318,7 +312,7 @@ define void @_ZN6marisa8grimoire2io6Mapper4openEPKvm(ptr noundef nonnull align 8
   unreachable
 
 13:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN6marisa8grimoire2io6MapperC1Ev(ptr noundef nonnull align 8 dereferenceable(36) %4)
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = load ptr, ptr %0, align 8, !tbaa !23
@@ -347,7 +341,7 @@ define void @_ZN6marisa8grimoire2io6Mapper4openEPKvm(ptr noundef nonnull align 8
   store i32 %29, ptr %26, align 8, !tbaa !25
   store i32 %28, ptr %27, align 8, !tbaa !25
   call void @_ZN6marisa8grimoire2io6MapperD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %4) #15
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -408,7 +402,7 @@ _ZN6marisa8grimoire2io6Mapper8map_dataEm.exit:    ; preds = %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK6marisa8grimoire2io6Mapper7is_openEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0) local_unnamed_addr #10 align 2 {
+define noundef zeroext i1 @_ZNK6marisa8grimoire2io6Mapper7is_openEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0) local_unnamed_addr #9 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !3
   %3 = icmp ne ptr %2, null
   ret i1 %3
@@ -465,7 +459,7 @@ define noundef ptr @_ZN6marisa8grimoire2io6Mapper8map_dataEm(ptr noundef nonnull
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6marisa8grimoire2io6Mapper5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(36) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.marisa::grimoire::io::Mapper", align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN6marisa8grimoire2io6MapperC1Ev(ptr noundef nonnull align 8 dereferenceable(36) %2)
   %3 = load ptr, ptr %2, align 8, !tbaa !23
   %4 = load ptr, ptr %0, align 8, !tbaa !23
@@ -496,15 +490,15 @@ define void @_ZN6marisa8grimoire2io6Mapper5clearEv(ptr noundef nonnull align 8 c
   store i32 %20, ptr %17, align 8, !tbaa !25
   store i32 %19, ptr %18, align 8, !tbaa !25
   call void @_ZN6marisa8grimoire2io6MapperD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %2) #15
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #11
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #12
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
 declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
@@ -524,7 +518,13 @@ define linkonce_odr noundef ptr @_ZNK6marisa9Exception4whatEv(ptr noundef nonnul
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #13
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
@@ -537,12 +537,12 @@ attributes #4 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "
 attributes #5 = { cold nofree noreturn }
 attributes #6 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { cold noreturn }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #15 = { nounwind }
 attributes #16 = { noreturn nounwind }

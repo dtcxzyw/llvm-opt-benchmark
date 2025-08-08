@@ -641,7 +641,7 @@ declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, p
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @socket_s_getifaddrs(i64 %0) #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @getifaddrs(ptr noundef nonnull %2) #7
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %5, label %8
@@ -722,12 +722,9 @@ define internal i64 @socket_s_getifaddrs(i64 %0) #0 {
 
 rsock_getifaddrs.exit:                            ; preds = %.lr.ph.i, %10, %27
   %.0.i = phi i64 [ %11, %10 ], [ %30, %27 ], [ %30, %.lr.ph.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0.i
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i64 @rb_str_append(i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -739,11 +736,8 @@ declare i64 @rsock_inspect_sockaddr(ptr noundef, i32 noundef, i64 noundef) local
 
 declare i32 @rsock_sockaddr_len(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: noreturn
-declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 declare ptr @rb_check_typeddata(i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -772,7 +766,7 @@ define internal void @ifaddr_free(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 64, 81) i64 @ifaddr_memsize(ptr noundef readonly captures(none) %0) #4 {
+define internal range(i64 64, 81) i64 @ifaddr_memsize(ptr noundef readonly captures(none) %0) #3 {
   %2 = load i32, ptr %0, align 8, !tbaa !30
   %3 = icmp eq i32 %2, 0
   %spec.select = select i1 %3, i64 80, i64 64
@@ -780,7 +774,7 @@ define internal range(i64 64, 81) i64 @ifaddr_memsize(ptr noundef readonly captu
 }
 
 ; Function Attrs: nounwind
-declare void @freeifaddrs(ptr noundef) local_unnamed_addr #5
+declare void @freeifaddrs(ptr noundef) local_unnamed_addr #4
 
 declare void @ruby_xfree(ptr noundef) local_unnamed_addr #1
 
@@ -793,36 +787,42 @@ declare i64 @rb_str_catf(i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i64 @rb_str_new_cstr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @if_nametoindex(ptr noundef) local_unnamed_addr #5
+declare i32 @if_nametoindex(ptr noundef) local_unnamed_addr #4
 
 declare i64 @rsock_sockaddr_obj(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @getifaddrs(ptr noundef) local_unnamed_addr #5
+declare i32 @getifaddrs(ptr noundef) local_unnamed_addr #4
 
 declare ptr @rb_errno_ptr() local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @rb_syserr_fail(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @rb_syserr_fail(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 declare i64 @rb_ary_new() local_unnamed_addr #1
 
 declare i64 @rb_data_typed_object_wrap(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0)
-declare noalias nonnull ptr @ruby_xmalloc(i64 noundef) local_unnamed_addr #6
+declare noalias nonnull ptr @ruby_xmalloc(i64 noundef) local_unnamed_addr #5
 
 declare i64 @rb_ary_new_capa(i64 noundef) local_unnamed_addr #1
 
 declare i64 @rb_ary_push(i64 noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 attributes #8 = { noreturn nounwind }
 attributes #9 = { nounwind allocsize(0) }

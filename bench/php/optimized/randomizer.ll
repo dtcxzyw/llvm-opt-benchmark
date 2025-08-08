@@ -52,7 +52,7 @@ define hidden void @zim_Random_Randomizer___construct(ptr noundef %0, ptr nounde
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds i8, ptr %5, i64 -24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4, !tbaa !4
   %9 = icmp ugt i32 %8, 1
@@ -254,29 +254,23 @@ zend_string_release.exit.i:                       ; preds = %90, %89, %82, %zend
   br label %randomizer_common_init.exit
 
 randomizer_common_init.exit:                      ; preds = %zend_string_release.exit.i, %65, %33, %zend_object_release.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @zend_wrong_parameters_count_error(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @zend_wrong_parameters_count_error(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #3
+declare void @llvm.assume(i1 noundef) #2
 
-declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @object_init_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @object_init_ex(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @zend_update_property(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @zend_update_property(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @randomizer_common_init(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #4 {
+define internal fastcc void @randomizer_common_init(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !12
   %5 = load i8, ptr %4, align 8, !tbaa !62
@@ -410,9 +404,9 @@ define hidden void @zim_Random_Randomizer_nextFloat(ptr noundef readonly capture
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare void @zend_wrong_parameters_none_error() local_unnamed_addr #2
+declare void @zend_wrong_parameters_none_error() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_Random_Randomizer_getFloat(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
@@ -421,8 +415,8 @@ define hidden void @zim_Random_Randomizer_getFloat(ptr noundef %0, ptr noundef w
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds i8, ptr %6, i64 -24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4, !tbaa !4
   %10 = and i32 %9, -2
@@ -673,22 +667,22 @@ thread-pre-split:                                 ; preds = %instanceof_function
   unreachable
 
 127:                                              ; preds = %46, %116, %123, %113, %105, %102, %94, %91, %83, %80, %57, %50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare double @php_random_gammasection_closed_open(ptr, ptr, double noundef, double noundef) local_unnamed_addr #2
+declare double @php_random_gammasection_closed_open(ptr, ptr, double noundef, double noundef) local_unnamed_addr #1
 
-declare double @php_random_gammasection_closed_closed(ptr, ptr, double noundef, double noundef) local_unnamed_addr #2
+declare double @php_random_gammasection_closed_closed(ptr, ptr, double noundef, double noundef) local_unnamed_addr #1
 
-declare double @php_random_gammasection_open_closed(ptr, ptr, double noundef, double noundef) local_unnamed_addr #2
+declare double @php_random_gammasection_open_closed(ptr, ptr, double noundef, double noundef) local_unnamed_addr #1
 
-declare double @php_random_gammasection_open_open(ptr, ptr, double noundef, double noundef) local_unnamed_addr #2
+declare double @php_random_gammasection_open_open(ptr, ptr, double noundef, double noundef) local_unnamed_addr #1
 
-declare void @zend_value_error(ptr noundef, ...) local_unnamed_addr #2
+declare void @zend_value_error(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_Random_Randomizer_nextInt(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
@@ -740,7 +734,7 @@ define hidden void @zim_Random_Randomizer_nextInt(ptr noundef readonly captures(
   ret void
 }
 
-declare ptr @zend_throw_exception(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @zend_throw_exception(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_Random_Randomizer_getInt(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
@@ -752,8 +746,8 @@ define hidden void @zim_Random_Randomizer_getInt(ptr noundef %0, ptr noundef wri
   %.sroa.048.0.copyload = load ptr, ptr %7, align 8, !tbaa !64
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 -16
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !66
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4, !tbaa !4
   %.not = icmp eq i32 %9, 2
@@ -867,8 +861,8 @@ zend_parse_arg_long_ex.exit..critedge_crit_edge:  ; preds = %zend_parse_arg_long
   br label %60
 
 60:                                               ; preds = %.thread, %56, %58, %28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -881,7 +875,7 @@ define hidden void @zim_Random_Randomizer_getBytes(ptr noundef %0, ptr noundef w
   %.sroa.057.0.copyload = load ptr, ptr %6, align 8, !tbaa !64
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 -16
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !66
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4, !tbaa !4
   %cond = icmp eq i32 %8, 1
@@ -1083,7 +1077,7 @@ zend_string_free.exit87:                          ; preds = %58, %63, %64
   br label %82
 
 82:                                               ; preds = %16, %zend_string_free.exit, %zend_string_free.exit87, %75, %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1138,9 +1132,9 @@ define hidden void @zim_Random_Randomizer_shuffleArray(ptr noundef %0, ptr nound
   ret void
 }
 
-declare ptr @zend_array_dup(ptr noundef) local_unnamed_addr #2
+declare ptr @zend_array_dup(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @php_array_data_shuffle(ptr, ptr, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @php_array_data_shuffle(ptr, ptr, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_Random_Randomizer_shuffleBytes(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
@@ -1148,7 +1142,7 @@ define hidden void @zim_Random_Randomizer_shuffleBytes(ptr noundef %0, ptr nound
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds i8, ptr %5, i64 -24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4, !tbaa !4
   %cond = icmp eq i32 %8, 1
@@ -1247,11 +1241,11 @@ zend_string_init.exit:                            ; preds = %.critedge
   br label %48
 
 48:                                               ; preds = %16, %zend_string_init.exit, %25, %27, %45
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare zeroext i1 @php_binary_string_shuffle(ptr, ptr, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare zeroext i1 @php_binary_string_shuffle(ptr, ptr, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_Random_Randomizer_pickArrayKeys(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1260,8 +1254,8 @@ define hidden void @zim_Random_Randomizer_pickArrayKeys(ptr noundef %0, ptr noun
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds i8, ptr %6, i64 -24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4, !tbaa !4
   %.not = icmp eq i32 %9, 2
@@ -1339,16 +1333,16 @@ zend_parse_arg_long_ex.exit..critedge_crit_edge:  ; preds = %zend_parse_arg_long
   br label %39
 
 39:                                               ; preds = %.thread, %30, %33, %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare zeroext i1 @php_array_pick_keys(ptr, ptr, ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @php_array_pick_keys(ptr, ptr, ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @_zend_new_array_0() local_unnamed_addr #2
+declare ptr @_zend_new_array_0() local_unnamed_addr #1
 
-declare ptr @zend_hash_next_index_insert(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @zend_hash_next_index_insert(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_Random_Randomizer_getBytesFromString(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
@@ -1360,8 +1354,8 @@ define hidden void @zim_Random_Randomizer_getBytesFromString(ptr noundef %0, ptr
   %.sroa.095.0.copyload = load ptr, ptr %7, align 8, !tbaa !64
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 -16
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !66
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4, !tbaa !4
   %.not = icmp eq i32 %9, 2
@@ -1639,21 +1633,21 @@ select.unfold:                                    ; preds = %113, %100
   br label %125
 
 125:                                              ; preds = %.thread170.thread, %zend_string_free.exit142, %.thread167, %.thread, %30, %36, %.critedge139
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare void @zend_argument_must_not_be_empty_error(i32 noundef) local_unnamed_addr #2
+declare void @zend_argument_must_not_be_empty_error(i32 noundef) local_unnamed_addr #1
 
-declare void @zend_throw_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @zend_throw_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_Random_Randomizer___serialize(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4, !tbaa !4
   %.not = icmp eq i32 %7, 0
@@ -1680,11 +1674,11 @@ define hidden void @zim_Random_Randomizer___serialize(ptr noundef readonly captu
   br label %18
 
 18:                                               ; preds = %9, %8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare ptr @zend_std_get_properties(ptr noundef) local_unnamed_addr #2
+declare ptr @zend_std_get_properties(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_Random_Randomizer___unserialize(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
@@ -1802,37 +1796,43 @@ instanceof_function.exit.thread:                  ; preds = %instanceof_function
   ret void
 }
 
-declare ptr @zend_hash_index_find(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @zend_hash_index_find(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @object_properties_load(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @object_properties_load(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @zend_read_property(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare ptr @zend_read_property(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
-declare void @zend_objects_store_del(ptr noundef) local_unnamed_addr #2
+declare void @zend_objects_store_del(ptr noundef) local_unnamed_addr #1
 
-declare void @gc_possible_root(ptr noundef) local_unnamed_addr #2
+declare void @gc_possible_root(ptr noundef) local_unnamed_addr #1
 
-declare ptr @php_random_status_alloc(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @php_random_status_alloc(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @zend_hash_find(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @zend_hash_find(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
-declare void @_efree(ptr noundef) local_unnamed_addr #2
+declare void @_efree(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @zend_parse_arg_double_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @zend_parse_arg_double_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @zend_parse_arg_long_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @zend_parse_arg_long_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare noalias ptr @_emalloc_40() local_unnamed_addr #2
+declare noalias ptr @_emalloc_40() local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #7
+declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #6
 
-declare zeroext i1 @zend_parse_arg_str_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @zend_parse_arg_str_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @instanceof_function_slow(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @instanceof_function_slow(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #8
@@ -1841,13 +1841,13 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #8
 declare double @llvm.fabs.f64(double) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind allocsize(0) }

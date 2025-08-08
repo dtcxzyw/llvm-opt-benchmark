@@ -95,9 +95,9 @@ declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal range(i32 0, 2) i32 @test_qlog() #0 {
   %1 = alloca %struct.qlog_trace_info_st, align 8
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %1, i8 0, i64 72, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !4
   store i64 170653117000000000, ptr @last_time.0, align 8, !tbaa !9
   store i8 1, ptr %1, align 8, !tbaa !11
@@ -214,8 +214,8 @@ define internal range(i32 0, 2) i32 @test_qlog() #0 {
 48:                                               ; preds = %45, %42, %37, %21, %17, %12, %0
   %.0 = phi i32 [ 0, %42 ], [ 0, %37 ], [ 0, %21 ], [ 0, %17 ], [ 0, %12 ], [ 0, %0 ], [ %spec.select, %45 ]
   call void @ossl_qlog_free(ptr noundef %10) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -224,7 +224,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_qlog_filter(i32 noundef %0) #0 {
   %2 = alloca %struct.qlog_trace_info_st, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2, i8 0, i64 88, i1 false)
   store i8 1, ptr %2, align 8, !tbaa !11
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 1
@@ -265,21 +265,15 @@ define internal range(i32 0, 2) i32 @test_qlog_filter(i32 noundef %0) #0 {
 23:                                               ; preds = %17, %6, %1, %22
   %.0 = phi i32 [ 1, %22 ], [ 0, %17 ], [ 0, %6 ], [ 0, %1 ]
   call void @ossl_qlog_free(ptr noundef %4) #6
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal i64 @now(ptr readnone captures(none) %0) #4 {
+define internal i64 @now(ptr readnone captures(none) %0) #3 {
   %.sroa.02.0.copyload = load i64, ptr @last_time.0, align 8, !tbaa !9
   %.sroa.03.0.i = tail call i64 @llvm.uadd.sat.i64(i64 %.sroa.02.0.copyload, i64 1000000000)
   store i64 %.sroa.03.0.i, ptr @last_time.0, align 8, !tbaa !9
@@ -340,14 +334,20 @@ declare i32 @ossl_qlog_set_filter(ptr noundef, ptr noundef) local_unnamed_addr #
 
 declare i32 @ossl_qlog_enabled(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.uadd.sat.i64(i64, i64) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

@@ -134,7 +134,7 @@ define noundef zeroext i1 @_ZN3net22SpdyHeadersBlockParser29HandleControlFrameHe
   br i1 %18, label %19, label %.critedge52
 
 19:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %8, ptr noundef nonnull @.str, i32 noundef 49, i32 noundef 2)
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %21 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @.str.1, i64 noundef 18)
@@ -147,14 +147,14 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %19
 
 .critedge:                                        ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %8) #8
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge52
 
 24:                                               ; preds = %19, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %8) #8
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %174
 
 26:                                               ; preds = %4, %.thread
@@ -182,7 +182,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %19
   br i1 %36, label %37, label %.critedge55
 
 37:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %9, ptr noundef nonnull @.str, i32 noundef 59, i32 noundef 2)
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %39 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull @.str.2, i64 noundef 22)
@@ -209,7 +209,7 @@ _ZNSolsEj.exit62:                                 ; preds = %_ZStlsISt11char_tra
 
 .critedge54:                                      ; preds = %_ZNSolsEj.exit62
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %9) #8
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge55
 
 .critedge55:                                      ; preds = %35, %.critedge54
@@ -220,7 +220,7 @@ _ZNSolsEj.exit62:                                 ; preds = %_ZStlsISt11char_tra
   %48 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %9) #8
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %174
 
 49:                                               ; preds = %.thread97, %._crit_edge
@@ -233,7 +233,7 @@ _ZNSolsEj.exit62:                                 ; preds = %_ZStlsISt11char_tra
   br i1 %53, label %54, label %.critedge58
 
 54:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %10, ptr noundef nonnull @.str, i32 noundef 65, i32 noundef 2)
   %55 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %56 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef nonnull @.str.5, i64 noundef 33)
@@ -247,7 +247,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit64: ; preds = %54
 
 .critedge57:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit64
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %10) #8
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge58
 
 .critedge58:                                      ; preds = %52, %.critedge57
@@ -258,7 +258,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit64: ; preds = %54
   %61 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %10) #8
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %174
 
 62:                                               ; preds = %49
@@ -266,14 +266,14 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit64: ; preds = %54
   %64 = load i64, ptr %63, align 8, !tbaa !25
   %65 = add i64 %64, %3
   store i64 %65, ptr %63, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN3net23SpdyPinnableBufferPieceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   invoke void @_ZN3net23SpdyPinnableBufferPieceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12)
           to label %66 unwind label %83
 
 66:                                               ; preds = %62
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   invoke void @_ZN3net23SpdyPinnableBufferPieceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13)
           to label %67 unwind label %85
 
@@ -288,7 +288,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit64: ; preds = %54
           to label %71 unwind label %87
 
 71:                                               ; preds = %69
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %72 = load ptr, ptr %11, align 8, !tbaa !31
   %73 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %74 = load i64, ptr %73, align 8, !tbaa !32
@@ -341,7 +341,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit64: ; preds = %54
   br label %170
 
 91:                                               ; preds = %.critedge101
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %92 = invoke noundef zeroext i1 @_ZN3net24SpdyPrefixedBufferReader5ReadNEmPc(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef 4, ptr noundef nonnull %7)
           to label %.noexc unwind label %106
@@ -351,7 +351,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit64: ; preds = %54
 
 _ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.thread.i: ; preds = %.noexc
   store i32 1, ptr %15, align 4, !tbaa !29
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit.thread
 
 _ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.i: ; preds = %.noexc
@@ -360,7 +360,7 @@ _ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.e
   store i32 %94, ptr %76, align 8, !tbaa !33
   %.pre.i = load i32, ptr %15, align 4, !tbaa !29
   %95 = icmp eq i32 %.pre.i, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %95, label %96, label %_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit
 
 96:                                               ; preds = %_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.i
@@ -387,7 +387,7 @@ _ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.e
   br label %170
 
 108:                                              ; preds = %.critedge101
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %109 = invoke noundef zeroext i1 @_ZN3net24SpdyPrefixedBufferReader5ReadNEmPc(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef 4, ptr noundef nonnull %6)
           to label %.noexc71 unwind label %106
@@ -397,7 +397,7 @@ _ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.e
 
 _ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.thread.i67: ; preds = %.noexc71
   store i32 1, ptr %15, align 4, !tbaa !29
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit.thread
 
 _ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.i68: ; preds = %.noexc71
@@ -406,7 +406,7 @@ _ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.e
   store i32 %111, ptr %78, align 4, !tbaa !33
   %.pre.i70 = load i32, ptr %15, align 4, !tbaa !29
   %112 = icmp eq i32 %.pre.i70, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %113 = icmp ugt i32 %111, 16384
   %or.cond.i = and i1 %113, %112
   br i1 %or.cond.i, label %114, label %_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit
@@ -429,7 +429,7 @@ _ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.e
   br label %_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit.thread
 
 121:                                              ; preds = %.critedge101
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   %122 = invoke noundef zeroext i1 @_ZN3net24SpdyPrefixedBufferReader5ReadNEmPc(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef 4, ptr noundef nonnull %5)
           to label %.noexc77 unwind label %106
@@ -439,7 +439,7 @@ _ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.e
 
 _ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.thread.i72: ; preds = %.noexc77
   store i32 1, ptr %15, align 4, !tbaa !29
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit.thread
 
 _ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.i73: ; preds = %.noexc77
@@ -448,7 +448,7 @@ _ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.e
   store i32 %124, ptr %78, align 4, !tbaa !33
   %.pre.i75 = load i32, ptr %15, align 4, !tbaa !29
   %125 = icmp eq i32 %.pre.i75, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %126 = icmp ugt i32 %124, 16384
   %or.cond.i76 = and i1 %126, %125
   br i1 %or.cond.i76, label %127, label %_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit
@@ -569,18 +569,18 @@ _ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReader
 
 .loopexit:                                        ; preds = %_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit, %._ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit.thread90_crit_edge, %127, %114, %100, %155, %.thread92, %75
   %169 = phi i1 [ true, %.thread92 ], [ false, %75 ], [ false, %155 ], [ false, %100 ], [ false, %114 ], [ false, %127 ], [ false, %._ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit.thread90_crit_edge ], [ false, %_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @_ZN3net23SpdyPinnableBufferPieceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZN3net23SpdyPinnableBufferPieceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @_ZN3net23SpdyPinnableBufferPieceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.critedge52
 
 170:                                              ; preds = %106, %89
   %.pn = phi { ptr, i32 } [ %107, %106 ], [ %90, %89 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %171
 
 171:                                              ; preds = %170, %87
@@ -590,15 +590,15 @@ _ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReader
 
 172:                                              ; preds = %171, %85
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %171 ], [ %86, %85 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZN3net23SpdyPinnableBufferPieceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #8
   br label %173
 
 173:                                              ; preds = %172, %83
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %172 ], [ %84, %83 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @_ZN3net23SpdyPinnableBufferPieceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %174
 
 .critedge52:                                      ; preds = %.critedge, %17, %.loopexit, %.critedge58, %.critedge55
@@ -612,18 +612,12 @@ _ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReader
 
 declare noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
 declare void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #2
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
 declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404)) unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 declare void @_ZN3net23SpdyPinnableBufferPiece4SwapEPS0_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #2
 
@@ -633,7 +627,7 @@ declare void @_ZN3net24SpdyPrefixedBufferReaderC1EPKcmS2_m(ptr noundef nonnull a
 define void @_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE(ptr noundef nonnull align 8 captures(none) dereferenceable(108) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [4 x i8], align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
   %5 = call noundef zeroext i1 @_ZN3net24SpdyPrefixedBufferReader5ReadNEmPc(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 4, ptr noundef nonnull %3)
   br i1 %5, label %_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit, label %_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.thread
@@ -641,7 +635,7 @@ define void @_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixe
 _ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.thread: ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 1, ptr %6, align 4, !tbaa !29
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread
 
 _ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit: ; preds = %2
@@ -651,7 +645,7 @@ _ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.e
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 100
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !29
   %9 = icmp eq i32 %.pre, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 100
   br i1 %9, label %11, label %.thread
 
@@ -688,7 +682,7 @@ _ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.e
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3net22SpdyHeadersBlockParser16ParseFieldLengthEPNS_24SpdyPrefixedBufferReaderE(ptr noundef nonnull align 8 captures(none) dereferenceable(108) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [4 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
   %4 = call noundef zeroext i1 @_ZN3net24SpdyPrefixedBufferReader5ReadNEmPc(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 4, ptr noundef nonnull %3)
   br i1 %4, label %_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit, label %_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.thread
@@ -696,7 +690,7 @@ define void @_ZN3net22SpdyHeadersBlockParser16ParseFieldLengthEPNS_24SpdyPrefixe
 _ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.thread: ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 1, ptr %5, align 4, !tbaa !29
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %13
 
 _ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit: ; preds = %2
@@ -707,7 +701,7 @@ _ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.e
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 100
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !29
   %9 = icmp eq i32 %.pre, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %10 = icmp ugt i32 %8, 16384
   %or.cond = and i1 %9, %10
   br i1 %or.cond, label %11, label %13
@@ -730,7 +724,7 @@ declare void @_ZN3net23SpdyPinnableBufferPiece3PinEv(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(108) %0, ptr noundef nonnull %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca [4 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %5 = call noundef zeroext i1 @_ZN3net24SpdyPrefixedBufferReader5ReadNEmPc(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 4, ptr noundef nonnull %4)
   br i1 %5, label %8, label %6
@@ -747,18 +741,24 @@ define void @_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBuff
   br label %11
 
 11:                                               ; preds = %8, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 declare noundef zeroext i1 @_ZN3net24SpdyPrefixedBufferReader5ReadNEmPc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #7
+declare i32 @llvm.bswap.i32(i32) #6
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #2
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -766,8 +766,8 @@ attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 attributes #9 = { builtin nounwind }
 

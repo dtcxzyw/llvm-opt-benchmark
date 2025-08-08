@@ -84,22 +84,16 @@ define void @av_image_fill_max_pixsteps(ptr noundef captures(none) initializes((
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @av_image_get_linesize(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define i32 @av_image_get_linesize(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca [4 x i32], align 16
   %5 = alloca [4 x i32], align 16
   %6 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %0) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %image_get_linesize.exit, label %7
 
@@ -185,20 +179,20 @@ av_image_fill_max_pixsteps.exit:                  ; preds = %24
 
 image_get_linesize.exit:                          ; preds = %46, %43, %av_image_fill_max_pixsteps.exit, %3, %7
   %.0 = phi i32 [ -22, %7 ], [ -22, %3 ], [ %.0.i, %46 ], [ -22, %av_image_fill_max_pixsteps.exit ], [ -22, %43 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare ptr @av_pix_fmt_desc_get(i32 noundef) local_unnamed_addr #4
+declare ptr @av_pix_fmt_desc_get(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 1) i32 @av_image_fill_linesizes(ptr noundef writeonly captures(none) initializes((0, 16)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define range(i32 -2147483648, 1) i32 @av_image_fill_linesizes(ptr noundef writeonly captures(none) initializes((0, 16)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca [4 x i32], align 16
   %5 = alloca [4 x i32], align 16
   %6 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %1) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %image_get_linesize.exit.thread, label %7
@@ -336,15 +330,15 @@ av_image_fill_max_pixsteps.exit:                  ; preds = %image_get_linesize.
 
 image_get_linesize.exit.thread:                   ; preds = %61, %av_image_fill_max_pixsteps.exit, %image_get_linesize.exit, %42, %av_image_fill_max_pixsteps.exit.us, %image_get_linesize.exit.us, %av_image_fill_max_pixsteps.exit.preheader, %3, %7
   %.0 = phi i32 [ -22, %7 ], [ -22, %3 ], [ -22, %av_image_fill_max_pixsteps.exit.preheader ], [ -22, %42 ], [ 0, %av_image_fill_max_pixsteps.exit.us ], [ %45, %image_get_linesize.exit.us ], [ -22, %61 ], [ 0, %av_image_fill_max_pixsteps.exit ], [ %66, %image_get_linesize.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -22, 1) i32 @av_image_fill_plane_sizes(ptr noundef writeonly captures(none) initializes((0, 32)) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #3 {
+define range(i32 -22, 1) i32 @av_image_fill_plane_sizes(ptr noundef writeonly captures(none) initializes((0, 32)) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #2 {
   %5 = alloca [4 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %1) #11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
@@ -436,17 +430,17 @@ define range(i32 -22, 1) i32 @av_image_fill_plane_sizes(ptr noundef writeonly ca
 
 .critedge:                                        ; preds = %35, %28, %43, %11, %4, %7, %19
   %.0 = phi i32 [ 0, %19 ], [ -22, %7 ], [ -22, %4 ], [ -22, %11 ], [ -22, %35 ], [ 0, %28 ], [ 0, %43 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @av_image_fill_pointers(ptr noundef writeonly captures(none) initializes((0, 32)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #3 {
+define i32 @av_image_fill_pointers(ptr noundef writeonly captures(none) initializes((0, 32)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #2 {
   %6 = alloca [4 x i32], align 16
   %7 = alloca [4 x i64], align 16
   %8 = alloca [4 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   br label %9
 
@@ -462,7 +456,7 @@ define i32 @av_image_fill_pointers(ptr noundef writeonly captures(none) initiali
   br i1 %exitcond.not, label %14, label %9, !llvm.loop !27
 
 14:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %15 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %1) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, i8 0, i64 32, i1 false)
@@ -552,11 +546,11 @@ define i32 @av_image_fill_pointers(ptr noundef writeonly captures(none) initiali
   br i1 %exitcond54.not.i, label %av_image_fill_plane_sizes.exit, label %36, !llvm.loop !26
 
 av_image_fill_plane_sizes.exit.thread:            ; preds = %43, %16, %14, %20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
 
 av_image_fill_plane_sizes.exit:                   ; preds = %36, %51, %27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %54
 
 54:                                               ; preds = %av_image_fill_plane_sizes.exit, %60
@@ -605,13 +599,13 @@ av_image_fill_plane_sizes.exit:                   ; preds = %36, %51, %27
 
 .critedge:                                        ; preds = %54, %65, %69, %av_image_fill_plane_sizes.exit.thread, %63
   %.030 = phi i32 [ %62, %63 ], [ -22, %av_image_fill_plane_sizes.exit.thread ], [ %62, %69 ], [ %62, %65 ], [ -22, %54 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.030
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define range(i32 -22, 1) i32 @avpriv_set_systematic_pal2(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
+define range(i32 -22, 1) i32 @avpriv_set_systematic_pal2(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   switch i32 %1, label %.split28 [
     i32 20, label %.critedge.us
     i32 17, label %.critedge.us33
@@ -715,13 +709,13 @@ define range(i32 -22, 1) i32 @avpriv_set_systematic_pal2(ptr noundef writeonly c
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @av_image_alloc(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 {
+define i32 @av_image_alloc(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = alloca [4 x i32], align 16
   %8 = alloca [4 x i64], align 16
   %9 = alloca [4 x i64], align 16
   %10 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %4) #11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %.loopexit, label %11
 
@@ -759,7 +753,7 @@ define i32 @av_image_alloc(ptr noundef captures(none) %0, ptr noundef captures(n
   br i1 %exitcond.not, label %30, label %23, !llvm.loop !36
 
 30:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %31 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %4) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, i8 0, i64 32, i1 false)
@@ -849,11 +843,11 @@ define i32 @av_image_alloc(ptr noundef captures(none) %0, ptr noundef captures(n
   br i1 %exitcond54.not.i, label %.loopexit77, label %52, !llvm.loop !26
 
 av_image_fill_plane_sizes.exit.thread:            ; preds = %59, %32, %30, %36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
 .loopexit77:                                      ; preds = %67, %52, %43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %70 = sext i32 %5 to i64
   br label %71
 
@@ -936,29 +930,29 @@ av_image_fill_plane_sizes.exit.thread:            ; preds = %59, %32, %30, %36
 
 .loopexit:                                        ; preds = %71, %84, %av_image_fill_plane_sizes.exit.thread, %94, %96, %99, %108, %78, %14, %11, %6, %93, %83
   %.0 = phi i32 [ %81, %83 ], [ -22, %93 ], [ -22, %6 ], [ %12, %11 ], [ %19, %14 ], [ -12, %78 ], [ %81, %108 ], [ %81, %99 ], [ %81, %96 ], [ %81, %94 ], [ -22, %av_image_fill_plane_sizes.exit.thread ], [ %81, %84 ], [ -22, %71 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -22, 1) i32 @av_image_check_size(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
+define range(i32 -22, 1) i32 @av_image_check_size(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = tail call i32 @av_image_check_size2(i32 noundef %0, i32 noundef %1, i64 noundef 9223372036854775807, i32 noundef -1, i32 noundef %2, ptr noundef %3)
   ret i32 %5
 }
 
-declare noalias ptr @av_malloc(i64 noundef) local_unnamed_addr #4
+declare noalias ptr @av_malloc(i64 noundef) local_unnamed_addr #3
 
-declare void @av_free(ptr noundef) local_unnamed_addr #4
+declare void @av_free(ptr noundef) local_unnamed_addr #3
 
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -22, 1) i32 @av_image_check_size2(i32 noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #3 {
+define range(i32 -22, 1) i32 @av_image_check_size2(i32 noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #2 {
   %7 = alloca [4 x i32], align 16
   %8 = alloca [4 x i32], align 16
   %9 = alloca %struct.ImgUtils, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr @imgutils_class, ptr %9, align 8, !tbaa !38
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %4, ptr %10, align 8, !tbaa !41
@@ -967,8 +961,8 @@ define range(i32 -22, 1) i32 @av_image_check_size2(i32 noundef %0, i32 noundef %
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %5, ptr %12, align 8, !tbaa !42
   %13 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %av_image_get_linesize.exit.thread, label %14
 
@@ -1041,8 +1035,8 @@ av_image_fill_max_pixsteps.exit.i:                ; preds = %31
   br i1 %49, label %av_image_get_linesize.exit.thread, label %av_image_get_linesize.exit
 
 av_image_get_linesize.exit.thread:                ; preds = %14, %6, %av_image_fill_max_pixsteps.exit.i, %47
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %50 = zext i32 %0 to i64
   %51 = shl nuw nsw i64 %50, 3
   br label %60
@@ -1055,8 +1049,8 @@ av_image_get_linesize.exit:                       ; preds = %41, %47
   %55 = ashr i32 %54, 3
   %.0.i.i = select i1 %.not21.i.i, i32 %52, i32 %55
   %.0.i.i.fr = freeze i32 %.0.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %56 = zext nneg i32 %.0.i.i.fr to i64
   %57 = icmp slt i32 %.0.i.i.fr, 1
   %58 = zext nneg i32 %0 to i64
@@ -1099,12 +1093,12 @@ av_image_get_linesize.exit:                       ; preds = %41, %47
 
 77:                                               ; preds = %73, %76, %72
   %.030 = phi i32 [ -22, %72 ], [ -22, %76 ], [ 0, %73 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.030
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define range(i32 -22, 1) i32 @av_image_check_sar(i32 noundef %0, i32 noundef %1, i64 %2) local_unnamed_addr #6 {
+define range(i32 -22, 1) i32 @av_image_check_sar(i32 noundef %0, i32 noundef %1, i64 %2) local_unnamed_addr #5 {
   %.sroa.0.0.extract.trunc = trunc i64 %2 to i32
   %.sroa.7.0.extract.shift = lshr i64 %2, 32
   %.sroa.7.0.extract.trunc = trunc nuw i64 %.sroa.7.0.extract.shift to i32
@@ -1146,10 +1140,10 @@ define range(i32 -22, 1) i32 @av_image_check_sar(i32 noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @av_rescale_rnd(i64 noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #7
+declare i64 @av_rescale_rnd(i64 noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @av_image_copy_plane_uc_from(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) #3 {
+define void @av_image_copy_plane_uc_from(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) #2 {
   %7 = icmp ne ptr %0, null
   %8 = icmp ne ptr %2, null
   %or.cond.i = and i1 %7, %8
@@ -1195,7 +1189,7 @@ image_copy_plane.exit:                            ; preds = %.lr.ph.i, %6, %.pre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @image_copy_plane(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) #3 {
+define internal void @image_copy_plane(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) #2 {
   %7 = icmp ne ptr %0, null
   %8 = icmp ne ptr %2, null
   %or.cond = and i1 %7, %8
@@ -1241,7 +1235,7 @@ define internal void @image_copy_plane(ptr noundef writeonly captures(address_is
 }
 
 ; Function Attrs: nounwind uwtable
-define void @av_image_copy_plane(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 {
+define void @av_image_copy_plane(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = sext i32 %1 to i64
   %8 = sext i32 %3 to i64
   %9 = sext i32 %4 to i64
@@ -1290,11 +1284,11 @@ image_copy_plane.exit:                            ; preds = %.lr.ph.i, %6, %.pre
 }
 
 ; Function Attrs: nounwind uwtable
-define void @av_image_copy(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #3 {
+define void @av_image_copy(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
   %8 = alloca [4 x i64], align 16
   %9 = alloca [4 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %10
 
 10:                                               ; preds = %7, %10
@@ -1315,13 +1309,13 @@ define void @av_image_copy(ptr noundef readonly captures(none) %0, ptr noundef r
 
 19:                                               ; preds = %10
   call fastcc void @image_copy(ptr noundef %0, ptr noundef nonnull %8, ptr noundef %2, ptr noundef nonnull %9, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef nonnull @image_copy_plane)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @image_copy(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly captures(none) %7) unnamed_addr #3 {
+define internal fastcc void @image_copy(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly captures(none) %7) unnamed_addr #2 {
   %9 = alloca [4 x i32], align 16
   %10 = alloca [4 x i32], align 16
   %11 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %4) #11
@@ -1411,8 +1405,8 @@ define internal fastcc void @image_copy(ptr noundef readonly captures(none) %0, 
 45:                                               ; preds = %.lr.ph74, %97
   %indvars.iv77 = phi i64 [ 0, %.lr.ph74 ], [ %indvars.iv.next78, %97 ]
   %46 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.not.i = icmp eq ptr %46, null
   br i1 %.not.i, label %av_image_get_linesize.exit.thread, label %47
 
@@ -1485,8 +1479,8 @@ av_image_fill_max_pixsteps.exit.i:                ; preds = %64
   br i1 %82, label %av_image_get_linesize.exit.thread, label %av_image_get_linesize.exit
 
 av_image_get_linesize.exit.thread:                ; preds = %47, %45, %av_image_fill_max_pixsteps.exit.i, %80
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
 av_image_get_linesize.exit:                       ; preds = %75, %80
@@ -1496,8 +1490,8 @@ av_image_get_linesize.exit:                       ; preds = %75, %80
   %85 = add nsw i32 %83, 7
   %86 = ashr i32 %85, 3
   %.0.i.i = select i1 %.not21.i.i, i32 %83, i32 %86
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %87 = sext i32 %.0.i.i to i64
   %88 = icmp sgt i32 %.0.i.i, -1
   br i1 %88, label %89, label %.loopexit
@@ -1539,13 +1533,13 @@ av_image_get_linesize.exit:                       ; preds = %75, %80
 }
 
 ; Function Attrs: nounwind uwtable
-define void @av_image_copy_uc_from(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #3 {
+define void @av_image_copy_uc_from(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
   tail call fastcc void @image_copy(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef nonnull @av_image_copy_plane_uc_from)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @av_image_fill_arrays(ptr noundef writeonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #3 {
+define i32 @av_image_fill_arrays(ptr noundef writeonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
   %8 = tail call range(i32 -22, 1) i32 @av_image_check_size2(i32 noundef %4, i32 noundef %5, i64 noundef 9223372036854775807, i32 noundef -1, i32 noundef 0, ptr noundef null)
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %22, label %10
@@ -1581,14 +1575,14 @@ define i32 @av_image_fill_arrays(ptr noundef writeonly captures(none) %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @av_image_get_buffer_size(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
+define i32 @av_image_get_buffer_size(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [4 x i32], align 16
   %7 = alloca [4 x i64], align 16
   %8 = alloca [4 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %0) #11
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %.loopexit, label %10
@@ -1622,7 +1616,7 @@ define i32 @av_image_get_buffer_size(i32 noundef %0, i32 noundef %1, i32 noundef
   br i1 %exitcond.not, label %25, label %18, !llvm.loop !50
 
 25:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %26 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %0) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, i8 0, i64 32, i1 false)
@@ -1712,11 +1706,11 @@ define i32 @av_image_get_buffer_size(i32 noundef %0, i32 noundef %1, i32 noundef
   br i1 %exitcond54.not.i, label %av_image_fill_plane_sizes.exit, label %47, !llvm.loop !26
 
 av_image_fill_plane_sizes.exit.thread:            ; preds = %54, %27, %25, %31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
 av_image_fill_plane_sizes.exit:                   ; preds = %47, %62, %38
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %65
 
 65:                                               ; preds = %av_image_fill_plane_sizes.exit, %71
@@ -1738,16 +1732,16 @@ av_image_fill_plane_sizes.exit:                   ; preds = %47, %62, %38
 
 .loopexit:                                        ; preds = %71, %65, %av_image_fill_plane_sizes.exit.thread, %13, %10, %4
   %.0 = phi i32 [ -22, %4 ], [ %11, %10 ], [ %14, %13 ], [ -22, %av_image_fill_plane_sizes.exit.thread ], [ %73, %71 ], [ -22, %65 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @av_image_copy_to_buffer(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #3 {
+define i32 @av_image_copy_to_buffer(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #2 {
   %9 = alloca [4 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = tail call i32 @av_image_get_buffer_size(i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7)
   %11 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %4) #11
   %12 = icmp sle i32 %10, %1
@@ -1878,18 +1872,18 @@ define i32 @av_image_copy_to_buffer(ptr noundef writeonly captures(none) %0, i32
 
 .loopexit:                                        ; preds = %61, %._crit_edge86, %8
   %.0 = phi i32 [ -22, %8 ], [ %10, %._crit_edge86 ], [ %10, %61 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #8
+declare void @abort() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -22, 1) i32 @av_image_fill_color(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 %6) local_unnamed_addr #3 {
+define range(i32 -22, 1) i32 @av_image_fill_color(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 %6) local_unnamed_addr #2 {
   %8 = alloca [4 x i32], align 16
   %9 = alloca [4 x i32], align 16
   %10 = alloca [4 x [32 x i8]], align 16
@@ -1900,11 +1894,11 @@ define range(i32 -22, 1) i32 @av_image_fill_color(ptr noundef readonly captures(
   %15 = alloca [32 x i32], align 16
   %16 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %2) #11
   %17 = tail call i32 @av_pix_fmt_count_planes(i32 noundef %2) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %10) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %10, i8 0, i64 128, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   %18 = icmp eq ptr %16, null
   %19 = add i32 %17, -5
@@ -1971,8 +1965,8 @@ define range(i32 -22, 1) i32 @av_image_fill_color(ptr noundef readonly captures(
 
 .lr.ph110.split.us:                               ; preds = %.lr.ph110
   %42 = call ptr @av_pix_fmt_desc_get(i32 noundef %2) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.not.i.us = icmp eq ptr %42, null
   br i1 %.not.i.us, label %av_image_get_linesize.exit.thread, label %43
 
@@ -2025,10 +2019,10 @@ define range(i32 -22, 1) i32 @av_image_fill_color(ptr noundef readonly captures(
   %65 = load i32, ptr %64, align 4, !tbaa !10
   %66 = shl i32 %65, %32
   %67 = sdiv i32 %66, %.sroa.4.0.copyload
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %15) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %68 = icmp sgt i32 %.sroa.522.0.copyload, 32
   %69 = icmp slt i32 %67, 1
   %or.cond = select i1 %68, i1 true, i1 %69
@@ -2060,9 +2054,9 @@ define range(i32 -22, 1) i32 @av_image_fill_color(ptr noundef readonly captures(
 .critedge:                                        ; preds = %.preheader97
   %76 = trunc nuw nsw i64 %indvars.iv142 to i32
   call void @av_write_image_line2(ptr noundef nonnull %15, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %16, i32 noundef 0, i32 noundef 0, i32 noundef %76, i32 noundef %67, i32 noundef 4) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %15) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %77 = load i8, ptr %27, align 8, !tbaa !45
   %78 = zext i8 %77 to i64
@@ -2070,16 +2064,16 @@ define range(i32 -22, 1) i32 @av_image_fill_color(ptr noundef readonly captures(
   br i1 %79, label %61, label %.preheader95, !llvm.loop !61
 
 80:                                               ; preds = %61
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %15) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit
 
 .lr.ph110.split:                                  ; preds = %.lr.ph110.split.preheader, %124
   %indvars.iv145 = phi i64 [ 0, %.lr.ph110.split.preheader ], [ %indvars.iv.next146, %124 ]
   %81 = call ptr @av_pix_fmt_desc_get(i32 noundef %2) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.not.i = icmp eq ptr %81, null
   br i1 %.not.i, label %av_image_get_linesize.exit.thread, label %82
 
@@ -2149,8 +2143,8 @@ av_image_fill_max_pixsteps.exit.i:                ; preds = %99
   br i1 %116, label %av_image_get_linesize.exit.thread, label %av_image_get_linesize.exit
 
 av_image_get_linesize.exit.thread:                ; preds = %114, %.lr.ph110.split, %82, %60, %.lr.ph110.split.us, %43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
 av_image_get_linesize.exit:                       ; preds = %109, %114
@@ -2160,8 +2154,8 @@ av_image_get_linesize.exit:                       ; preds = %109, %114
   %119 = add nsw i32 %117, 7
   %120 = ashr i32 %119, 3
   %.0.i.i = select i1 %.not21.i.i, i32 %117, i32 %120
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %121 = sext i32 %.0.i.i to i64
   %122 = getelementptr inbounds nuw [4 x i64], ptr %12, i64 0, i64 %indvars.iv145
   store i64 %121, ptr %122, align 8, !tbaa !23
@@ -2276,22 +2270,22 @@ memset_bytes.exit:                                ; preds = %.thread.i.loopexit,
 
 .loopexit:                                        ; preds = %33, %av_image_get_linesize.exit, %._crit_edge115, %.preheader95, %av_image_get_linesize.exit.thread, %._crit_edge, %80, %7, %21
   %.076 = phi i32 [ -22, %80 ], [ -22, %21 ], [ -22, %7 ], [ 0, %._crit_edge ], [ -22, %av_image_get_linesize.exit.thread ], [ 0, %.preheader95 ], [ 0, %._crit_edge115 ], [ -22, %av_image_get_linesize.exit ], [ -22, %33 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %10) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.076
 }
 
-declare i32 @av_pix_fmt_count_planes(i32 noundef) local_unnamed_addr #4
+declare i32 @av_pix_fmt_count_planes(i32 noundef) local_unnamed_addr #3
 
-declare void @av_write_image_line2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @av_write_image_line2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -22, 1) i32 @av_image_fill_black(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 {
+define range(i32 -22, 1) i32 @av_image_fill_black(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = alloca [4 x i32], align 16
   %8 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %2) #11
   %9 = tail call i32 @av_pix_fmt_count_planes(i32 noundef %2) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %10 = icmp eq ptr %8, null
   %11 = add i32 %9, -5
@@ -2603,13 +2597,19 @@ switch.early.test104:                             ; preds = %108
 
 .loopexit:                                        ; preds = %.lr.ph.split.split.us, %39, %switch.early.test104.us, %47, %switch.early.test.us, %71, %switch.early.test104.us130, %62, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split, %84, %switch.early.test, %95, %switch.early.test104, %106, %.lr.ph.split.us, %6, %13, %.critedge106
   %.097 = phi i32 [ %115, %.critedge106 ], [ -22, %13 ], [ -22, %6 ], [ -22, %.lr.ph.split.us ], [ -22, %106 ], [ -22, %switch.early.test104 ], [ -22, %95 ], [ -22, %switch.early.test ], [ -22, %84 ], [ -22, %.lr.ph.split.split.split ], [ -22, %.lr.ph.split.split.split.us ], [ -22, %62 ], [ -22, %switch.early.test104.us130 ], [ -22, %71 ], [ -22, %switch.early.test.us ], [ -22, %47 ], [ -22, %switch.early.test104.us ], [ -22, %39 ], [ -22, %.lr.ph.split.split.us ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.097
 }
 
-declare ptr @av_default_item_name(ptr noundef) #4
+declare ptr @av_default_item_name(ptr noundef) #3
 
-declare void @av_memcpy_backptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @av_memcpy_backptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #10
@@ -2624,15 +2624,15 @@ declare i32 @llvm.smax.i32(i32, i32) #10
 declare i64 @llvm.umin.i64(i64, i64) #10
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind willreturn memory(none) }

@@ -21,7 +21,7 @@ define internal i32 @tak_parse(ptr noundef captures(none) %0, ptr noundef %1, pt
   store ptr %4, ptr %7, align 8, !tbaa !4
   store i32 %5, ptr %8, align 4, !tbaa !9
   %14 = load ptr, ptr %0, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.not = icmp eq i32 %5, 0
   %15 = select i1 %.not, i32 8, i32 37
   store ptr %4, ptr %2, align 8, !tbaa !4
@@ -49,7 +49,7 @@ define internal i32 @tak_parse(ptr noundef captures(none) %0, ptr noundef %1, pt
   br label %56
 
 32:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %33 = icmp ugt i32 %5, 268435455
   %.not.i.i = icmp eq ptr %4, null
   %or.cond = or i1 %33, %.not.i.i
@@ -103,7 +103,7 @@ bits_init8_le.exit:                               ; preds = %43, %34
   br label %bits_init8_le.exit.thread
 
 bits_init8_le.exit.thread:                        ; preds = %32, %bits_init8_le.exit, %53
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit108
 
 .loopexit:                                        ; preds = %130, %.critedge.thread
@@ -130,10 +130,10 @@ bits_init8_le.exit.thread:                        ; preds = %32, %bits_init8_le.
   br i1 %65, label %66, label %.critedge.thread
 
 66:                                               ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %67 = call i32 @llvm.smin.i32(i32 %59, i32 37)
   store i32 %67, ptr %11, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %58, ptr %12, align 8, !tbaa !4
   %68 = call i32 @ff_combine_frame(ptr noundef nonnull %14, i32 noundef -100, ptr noundef nonnull %12, ptr noundef nonnull %11) #4
   %.not82 = icmp eq i32 %68, -1
@@ -147,15 +147,15 @@ bits_init8_le.exit.thread:                        ; preds = %32, %bits_init8_le.
   store ptr %72, ptr %7, align 8, !tbaa !4
   %73 = sub nsw i32 %57, %69
   store i32 %73, ptr %8, align 4, !tbaa !9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.pre = load i32, ptr %19, align 8, !tbaa !32
   %.pre149 = load i32, ptr %20, align 8, !tbaa !33
   br label %.critedge.thread
 
 74:                                               ; preds = %66
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit107
 
 .critedge.thread:                                 ; preds = %62, %.thread, %.critedge
@@ -186,7 +186,7 @@ bits_init8_le.exit.thread:                        ; preds = %32, %bits_init8_le.
   br i1 %91, label %92, label %130
 
 92:                                               ; preds = %88
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %13) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %93 = sub nsw i32 %81, %82
   %94 = icmp ugt i32 %93, 268435455
   br i1 %94, label %.loopexit107.loopexit, label %95
@@ -264,7 +264,7 @@ bits_init8_le.exit100:                            ; preds = %99, %95
   br label %bits_init8_le.exit100.thread._crit_edge
 
 bits_init8_le.exit100.thread._crit_edge:          ; preds = %126, %105, %bits_init8_le.exit100
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.pre150 = load i32, ptr %19, align 8, !tbaa !32
   %.pre151 = load i32, ptr %20, align 8, !tbaa !33
   br label %130
@@ -284,7 +284,7 @@ bits_init8_le.exit100.thread._crit_edge:          ; preds = %126, %105, %bits_in
   %136 = load i32, ptr %20, align 8, !tbaa !33
   %137 = sub nsw i32 %135, %136
   store i32 0, ptr %19, align 8, !tbaa !32
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit106
 
 .loopexit106:                                     ; preds = %62, %.loopexit106.loopexit
@@ -327,7 +327,7 @@ bits_init8_le.exit100.thread._crit_edge:          ; preds = %126, %105, %bits_in
   br label %.loopexit108
 
 .loopexit107.loopexit:                            ; preds = %92
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit107
 
 .loopexit107:                                     ; preds = %..loopexit107_crit_edge, %.loopexit107.loopexit, %74, %.loopexit106
@@ -340,23 +340,23 @@ bits_init8_le.exit100.thread._crit_edge:          ; preds = %126, %105, %bits_in
 
 .loopexit108:                                     ; preds = %.loopexit107, %151, %bits_init8_le.exit.thread
   %.168 = phi i32 [ %5, %bits_init8_le.exit.thread ], [ %155, %.loopexit107 ], [ %.5, %151 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.168
 }
 
 declare void @ff_parse_close(ptr noundef) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @ff_tak_decode_frame_header(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @ff_combine_frame(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @ff_tak_check_crc(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #3

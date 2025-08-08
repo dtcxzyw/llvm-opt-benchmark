@@ -57,10 +57,10 @@ define internal void @"_ZN4core3ptr50drop_in_place$LT$$RF$alloc..vec..Vec$LT$u8$
 define internal noundef zeroext i1 @"_ZN64_$LT$alloc..ffi..c_str..NulError$u20$as$u20$core..fmt..Debug$GT$3fmt17heb83bd9fc9ab8a99E"(ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field2_finish17h4874cc7a3089bec1E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.232216470bd1d4c6aa51cabc183ca156.2, i64 noundef 8, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.232216470bd1d4c6aa51cabc183ca156.3, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.232216470bd1d4c6aa51cabc183ca156.4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %5
 }
 
@@ -68,7 +68,7 @@ define internal noundef zeroext i1 @"_ZN64_$LT$alloc..ffi..c_str..NulError$u20$a
 define void @_ZN8pyo3_ffi8datetime17PyDateTime_IMPORT17hb5076f9810e237b1E() unnamed_addr #2 personality ptr @rust_eh_personality {
   %1 = alloca [32 x i8], align 8
   %2 = alloca [32 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @"_ZN72_$LT$$RF$str$u20$as$u20$alloc..ffi..c_str..CString..new..SpecNewImpl$GT$13spec_new_impl17haaa44de7de0840feE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef nonnull readonly align 1 @anon.232216470bd1d4c6aa51cabc183ca156.5, i64 noundef 22)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   %3 = load i64, ptr %2, align 8, !range !8, !alias.scope !5, !noundef !4
@@ -76,7 +76,7 @@ define void @_ZN8pyo3_ffi8datetime17PyDateTime_IMPORT17hb5076f9810e237b1E() unna
   br i1 %4, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1901a67b92b931bbE.exit", label %5
 
 5:                                                ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1), !noalias !5
+  call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.232216470bd1d4c6aa51cabc183ca156.0, i64 noundef 43, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.232216470bd1d4c6aa51cabc183ca156.1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.232216470bd1d4c6aa51cabc183ca156.7) #9
           to label %8 unwind label %6, !noalias !5
@@ -105,7 +105,7 @@ common.resume:                                    ; preds = %16, %19, %6
   %12 = load ptr, ptr %11, align 8, !alias.scope !5, !nonnull !4, !align !9, !noundef !4
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !5, !noundef !4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %15 = invoke noundef ptr @PyCapsule_Import(ptr noundef nonnull %12, i32 noundef 1)
           to label %20 unwind label %16
 
@@ -209,14 +209,14 @@ declare void @"_ZN72_$LT$$RF$str$u20$as$u20$alloc..ffi..c_str..CString..new..Spe
 ; Function Attrs: nonlazybind uwtable
 declare noundef ptr @PyCapsule_Import(ptr noundef, i32 noundef) unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
-
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr48drop_in_place$LT$alloc..ffi..c_str..NulError$GT$17hc54f7bafc361eb6fE"(ptr noalias noundef align 8 dereferenceable(32)) unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #8

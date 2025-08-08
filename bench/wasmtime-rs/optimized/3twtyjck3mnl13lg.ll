@@ -91,10 +91,10 @@ define i64 @_ZN4core4hash11BuildHasher8hash_one17hefc127bd495033bcE(ptr align 8 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @_ZN4core4hash6Hasher11write_isize17hb102760bc979a878E(ptr align 8 %0, i64 %1) unnamed_addr #1 {
   %3 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %1, ptr %3, align 8
   call void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h3b7639e330f97f5eE"(ptr align 8 %0, ptr nonnull align 1 %3, i64 8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -109,10 +109,10 @@ define void @_ZN4core4hash6Hasher11write_usize17hcd98c23575c67417E(ptr align 8 %
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @_ZN4core4hash6Hasher19write_length_prefix17h10d5d1f551dea9aeE(ptr align 8 %0, i64 %1) unnamed_addr #1 {
   %3 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %1, ptr %3, align 8
   call void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h3b7639e330f97f5eE"(ptr align 8 %0, ptr nonnull align 1 %3, i64 8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -160,10 +160,10 @@ declare void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$
 declare hidden void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h3b7639e330f97f5eE"(ptr align 8, ptr align 1, i64) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

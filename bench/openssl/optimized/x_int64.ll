@@ -101,9 +101,9 @@ define internal range(i32 0, 2) i32 @uint32_c2i(ptr noundef captures(none) %0, p
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
   store ptr %1, ptr %7, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !10
   %10 = load ptr, ptr %0, align 8, !tbaa !3
   %11 = icmp eq ptr %10, null
@@ -184,8 +184,8 @@ define internal range(i32 0, 2) i32 @uint32_c2i(ptr noundef captures(none) %0, p
 
 44:                                               ; preds = %17, %12, %41, %40, %32, %27
   %.0 = phi i32 [ 1, %41 ], [ 0, %27 ], [ 0, %32 ], [ 0, %40 ], [ 0, %12 ], [ 0, %17 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
@@ -235,9 +235,6 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @uint64_new(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr readnone captures(none) %1) #1 {
   %3 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 8, ptr noundef nonnull @.str.8, i32 noundef 31) #5
@@ -254,9 +251,6 @@ declare void @ERR_new() local_unnamed_addr #3
 declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 declare i32 @ossl_i2c_uint64_int(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
@@ -283,9 +277,9 @@ define internal range(i32 0, 2) i32 @uint64_c2i(ptr noundef captures(none) %0, p
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
   store ptr %1, ptr %7, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !10
   %10 = load ptr, ptr %0, align 8, !tbaa !3
   %11 = icmp eq ptr %10, null
@@ -349,8 +343,8 @@ define internal range(i32 0, 2) i32 @uint64_c2i(ptr noundef captures(none) %0, p
 
 36:                                               ; preds = %17, %12, %34, %31, %27
   %.0 = phi i32 [ 1, %34 ], [ 0, %27 ], [ 0, %31 ], [ 0, %12 ], [ 0, %17 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
@@ -394,6 +388,12 @@ define internal i32 @uint64_print(ptr noundef %0, ptr noundef readonly captures(
   %11 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull %.str.12..str.11, i64 noundef %10) #5
   ret i32 %11
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

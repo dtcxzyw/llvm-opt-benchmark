@@ -355,8 +355,8 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit:
   %2 = alloca [48 x i8], align 8
   %3 = alloca [16 x i8], align 8
   %4 = alloca [16 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load i64, ptr %0, align 8, !range !41, !alias.scope !42, !noundef !10
   %switch = icmp samesign ult i64 %5, 5
   %.sroa.0.0.i.ph.in = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -375,7 +375,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit:
   %.val = load ptr, ptr %7, align 8, !nonnull !10, !noundef !10
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.val5 = load ptr, ptr %8, align 8, !nonnull !10, !noundef !10
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !45
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !45
   store ptr @anon.86d151933e283cf377ce94c5f4c085e0.11, ptr %2, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 1, ptr %.sroa.5.0..sroa_idx, align 8
@@ -386,9 +386,9 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit:
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8
   %9 = call noundef zeroext i1 @_ZN4core3fmt5write17h5af61a909e3ec64dE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2), !noalias !45
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !45
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !45
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %9
 }
 
@@ -491,10 +491,10 @@ declare noundef range(i32 0, 10) i32 @rust_eh_personality(i32 noundef, i32 nound
 declare hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h42c02606474b17bdE"(ptr noalias noundef readonly align 8 dereferenceable(16), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10

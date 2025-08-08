@@ -26,10 +26,10 @@ define internal range(i32 -2147483648, 1) i32 @srtp_open(ptr noundef %0, ptr nou
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #4
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #4
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !15
   %.not = icmp eq ptr %12, null
@@ -104,10 +104,10 @@ define internal range(i32 -2147483648, 1) i32 @srtp_open(ptr noundef %0, ptr nou
 
 54:                                               ; preds = %48, %41
   %.025 = phi i32 [ %.0, %48 ], [ 0, %41 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.025
 }
 
@@ -116,7 +116,7 @@ define internal i32 @srtp_read(ptr noundef readonly captures(none) %0, ptr nound
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 224
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %9
@@ -144,7 +144,7 @@ define internal i32 @srtp_read(ptr noundef readonly captures(none) %0, ptr nound
 
 split:                                            ; preds = %13, %9, %._crit_edge
   %18 = phi i32 [ %.pre, %._crit_edge ], [ %11, %9 ], [ %11, %13 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %18
 }
 
@@ -213,44 +213,44 @@ define internal i32 @srtp_get_multi_file_handle(ptr noundef readonly captures(no
   ret i32 %8
 }
 
+declare i32 @ff_srtp_set_crypto(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @av_url_split(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @ff_url_join(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+
+declare i32 @ffurl_open_whitelist(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @ff_srtp_decrypt(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @ffurl_read2(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @ff_srtp_encrypt(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @ffurl_write2(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare void @ff_srtp_free(ptr noundef) local_unnamed_addr #1
+
+declare i32 @ffurl_closep(ptr noundef) local_unnamed_addr #1
+
+declare i32 @ffurl_get_file_handle(ptr noundef) local_unnamed_addr #1
+
+declare i32 @ffurl_get_multi_file_handle(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @av_default_item_name(ptr noundef) #1
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @ff_srtp_set_crypto(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @av_url_split(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @ff_url_join(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare i32 @ffurl_open_whitelist(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @ff_srtp_decrypt(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @ffurl_read2(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @ff_srtp_encrypt(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @ffurl_write2(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare void @ff_srtp_free(ptr noundef) local_unnamed_addr #2
-
-declare i32 @ffurl_closep(ptr noundef) local_unnamed_addr #2
-
-declare i32 @ffurl_get_file_handle(ptr noundef) local_unnamed_addr #2
-
-declare i32 @ffurl_get_multi_file_handle(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @av_default_item_name(ptr noundef) #2
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nounwind }
 

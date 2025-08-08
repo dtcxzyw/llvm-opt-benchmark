@@ -971,7 +971,7 @@ define internal void @cbSingleStep(ptr readnone captures(none) %0, ptr noundef %
   store i32 1, ptr %7, align 8
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %2, ptr %22, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %23 = icmp eq ptr %3, null
   br i1 %23, label %getMethodClass.exit, label %24
@@ -994,7 +994,7 @@ define internal void @cbSingleStep(ptr readnone captures(none) %0, ptr noundef %
 
 getMethodClass.exit:                              ; preds = %18, %26, %29
   %.0.i = phi ptr [ null, %26 ], [ %30, %29 ], [ null, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %.0.i, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -1111,7 +1111,7 @@ define internal void @cbBreakpoint(ptr readnone captures(none) %0, ptr noundef %
   store i32 2, ptr %7, align 8
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %2, ptr %22, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %23 = icmp eq ptr %3, null
   br i1 %23, label %getMethodClass.exit, label %24
@@ -1134,7 +1134,7 @@ define internal void @cbBreakpoint(ptr readnone captures(none) %0, ptr noundef %
 
 getMethodClass.exit:                              ; preds = %18, %26, %29
   %.0.i = phi ptr [ null, %26 ], [ %30, %29 ], [ null, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %.0.i, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -1255,7 +1255,7 @@ define internal void @cbFramePop(ptr readnone captures(none) %0, ptr noundef %1,
   store i32 3, ptr %7, align 8
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %2, ptr %23, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %24 = icmp eq ptr %3, null
   br i1 %24, label %getMethodClass.exit, label %25
@@ -1278,7 +1278,7 @@ define internal void @cbFramePop(ptr readnone captures(none) %0, ptr noundef %1,
 
 getMethodClass.exit:                              ; preds = %19, %27, %30
   %.0.i = phi ptr [ null, %27 ], [ %31, %30 ], [ null, %19 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %.0.i, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -1394,7 +1394,7 @@ define internal void @cbException(ptr readnone captures(none) %0, ptr noundef %1
   store i32 4, ptr %11, align 8
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %2, ptr %26, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
   %27 = icmp eq ptr %3, null
   br i1 %27, label %getMethodClass.exit, label %28
@@ -1417,7 +1417,7 @@ define internal void @cbException(ptr readnone captures(none) %0, ptr noundef %1
 
 getMethodClass.exit:                              ; preds = %22, %30, %33
   %.0.i = phi ptr [ null, %30 ], [ %34, %33 ], [ null, %22 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %.0.i, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -1426,7 +1426,7 @@ getMethodClass.exit:                              ; preds = %22, %30, %33
   store i64 %4, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store ptr %5, ptr %38, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %39 = icmp eq ptr %6, null
   br i1 %39, label %getMethodClass.exit17, label %40
@@ -1449,7 +1449,7 @@ getMethodClass.exit:                              ; preds = %22, %30, %33
 
 getMethodClass.exit17:                            ; preds = %getMethodClass.exit, %42, %45
   %.0.i16 = phi ptr [ null, %42 ], [ %46, %45 ], [ null, %getMethodClass.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store ptr %.0.i16, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 64
@@ -2006,7 +2006,7 @@ define internal void @cbFieldAccess(ptr readnone captures(none) %0, ptr noundef 
   store i32 10, ptr %10, align 8
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %2, ptr %25, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %26 = icmp eq ptr %3, null
   br i1 %26, label %getMethodClass.exit, label %27
@@ -2029,7 +2029,7 @@ define internal void @cbFieldAccess(ptr readnone captures(none) %0, ptr noundef 
 
 getMethodClass.exit:                              ; preds = %21, %29, %32
   %.0.i = phi ptr [ null, %29 ], [ %33, %32 ], [ null, %21 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %.0.i, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -2152,7 +2152,7 @@ define internal void @cbFieldModification(ptr readnone captures(none) %0, ptr no
   store i32 11, ptr %12, align 8
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %2, ptr %27, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8
   %28 = icmp eq ptr %3, null
   br i1 %28, label %getMethodClass.exit, label %29
@@ -2175,7 +2175,7 @@ define internal void @cbFieldModification(ptr readnone captures(none) %0, ptr no
 
 getMethodClass.exit:                              ; preds = %23, %31, %34
   %.0.i = phi ptr [ null, %31 ], [ %35, %34 ], [ null, %23 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %.0.i, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -2302,7 +2302,7 @@ define internal void @cbExceptionCatch(ptr readnone captures(none) %0, ptr nound
   store i32 12, ptr %8, align 8
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %23, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %24 = icmp eq ptr %3, null
   br i1 %24, label %getMethodClass.exit, label %25
@@ -2325,7 +2325,7 @@ define internal void @cbExceptionCatch(ptr readnone captures(none) %0, ptr nound
 
 getMethodClass.exit:                              ; preds = %19, %27, %30
   %.0.i = phi ptr [ null, %27 ], [ %31, %30 ], [ null, %19 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %.0.i, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -2444,7 +2444,7 @@ define internal void @cbMethodEntry(ptr readnone captures(none) %0, ptr noundef 
   store i32 13, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %21, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %22 = icmp eq ptr %3, null
   br i1 %22, label %getMethodClass.exit, label %23
@@ -2467,7 +2467,7 @@ define internal void @cbMethodEntry(ptr readnone captures(none) %0, ptr noundef 
 
 getMethodClass.exit:                              ; preds = %17, %25, %28
   %.0.i = phi ptr [ null, %25 ], [ %29, %28 ], [ null, %17 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %.0.i, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -2586,7 +2586,7 @@ define internal void @cbMethodExit(ptr readnone captures(none) %0, ptr noundef %
   store i32 14, ptr %8, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %24, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %25 = icmp eq ptr %3, null
   br i1 %25, label %getMethodClass.exit, label %26
@@ -2609,7 +2609,7 @@ define internal void @cbMethodExit(ptr readnone captures(none) %0, ptr noundef %
 
 getMethodClass.exit:                              ; preds = %20, %28, %31
   %.0.i = phi ptr [ null, %28 ], [ %32, %31 ], [ null, %20 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %.0.i, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -2760,7 +2760,7 @@ define internal void @cbMonitorContendedEnter(ptr readnone captures(none) %0, pt
   %41 = load ptr, ptr %7, align 8
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %41, ptr %42, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %43 = icmp eq ptr %41, null
   br i1 %43, label %getMethodClass.exit, label %44
@@ -2783,7 +2783,7 @@ define internal void @cbMonitorContendedEnter(ptr readnone captures(none) %0, pt
 
 getMethodClass.exit:                              ; preds = %38, %46, %49
   %.0.i = phi ptr [ null, %46 ], [ %50, %49 ], [ null, %38 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %.0.i, ptr %51, align 8
   br label %54
@@ -2938,7 +2938,7 @@ define internal void @cbMonitorContendedEntered(ptr readnone captures(none) %0, 
   %41 = load ptr, ptr %7, align 8
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %41, ptr %42, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %43 = icmp eq ptr %41, null
   br i1 %43, label %getMethodClass.exit, label %44
@@ -2961,7 +2961,7 @@ define internal void @cbMonitorContendedEntered(ptr readnone captures(none) %0, 
 
 getMethodClass.exit:                              ; preds = %38, %46, %49
   %.0.i = phi ptr [ null, %46 ], [ %50, %49 ], [ null, %38 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %.0.i, ptr %51, align 8
   br label %54
@@ -4491,7 +4491,7 @@ define internal fastcc void @event_callback(ptr noundef %0, ptr noundef nonnull 
 
 58:                                               ; preds = %51, %56
   %.0 = phi ptr [ %52, %51 ], [ %57, %56 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %59 = load ptr, ptr @handlerLock, align 8
   tail call void @debugMonitorEnter(ptr noundef %59) #6
   %60 = add i32 %7, -23
@@ -4639,8 +4639,8 @@ freeHandler.exit.i:                               ; preds = %deinsert.exit.i.i, 
 
 .thread43.i.i:                                    ; preds = %118
   call void @threadControl_clearCLEInfo(ptr noundef nonnull %0, ptr noundef nonnull %105) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %deferEventReport.exit.thread.i.i
 
 120:                                              ; preds = %118
@@ -4678,8 +4678,8 @@ freeHandler.exit.i:                               ; preds = %deinsert.exit.i.i, 
 
 135:                                              ; preds = %116
   call void @threadControl_clearCLEInfo(ptr noundef nonnull %0, ptr noundef nonnull %105) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   switch i32 %106, label %deferEventReport.exit.thread.i.i [
     i32 13, label %136
     i32 1, label %152
@@ -4729,13 +4729,13 @@ freeHandler.exit.i:                               ; preds = %deinsert.exit.i.i, 
   br label %deferEventReport.exit.thread.i.i
 
 deferEventReport.exit.thread.i.i:                 ; preds = %154, %.critedge.i.i.i, %138, %136, %135, %.thread43.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread.i.i
 
 deferEventReport.exit.i.i:                        ; preds = %152, %148, %141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %filterAndHandleEvent.exit
 
 .thread.i.i:                                      ; preds = %deferEventReport.exit.thread.i.i, %114
@@ -4766,7 +4766,7 @@ deferEventReport.exit.i.i:                        ; preds = %152, %148, %141
   br label %filterAndHandleEvent.exit
 
 filterAndHandleEvent.exit:                        ; preds = %._crit_edge.i, %104, %112, %134, %deferEventReport.exit.i.i, %.thread.i.i, %.critedge.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %162 = load i32, ptr %1, align 8
   %163 = icmp eq i32 %162, 20
   br i1 %163, label %164, label %167
@@ -4864,10 +4864,10 @@ declare i32 @eventFilter_setLocationOnlyFilter(ptr noundef, i32 noundef, ptr nou
 declare i32 @eventFilterRestricted_install(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -102,7 +102,7 @@ define internal fastcc noundef zeroext i1 @PrepareThreadpool() unnamed_addr #0 {
   br i1 %18, label %19, label %.critedge.thread
 
 19:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %20 = load i32, ptr @threadpool_threads_spun, align 4
   %21 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %1, i64 noundef 32, ptr noundef nonnull @.str, i32 noundef %20) #8
   %22 = call ptr @SDL_CreateThreadRuntime_REAL(ptr noundef nonnull @AsyncIOThreadpoolWorker, ptr noundef nonnull %1, ptr noundef null, ptr noundef null, ptr noundef null) #8
@@ -117,11 +117,11 @@ define internal fastcc noundef zeroext i1 @PrepareThreadpool() unnamed_addr #0 {
   %25 = load i32, ptr @threadpool_threads_spun, align 4
   %26 = add nsw i32 %25, 1
   store i32 %26, ptr @threadpool_threads_spun, align 4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %.critedge.thread
 
 .critedge:                                        ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %.critedge.thread11
 
 .critedge.thread11:                               ; preds = %3, %.critedge
@@ -154,19 +154,16 @@ define internal fastcc noundef zeroext i1 @PrepareThreadpool() unnamed_addr #0 {
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @SDL_CreateMutex_REAL() local_unnamed_addr #3
+declare ptr @SDL_CreateMutex_REAL() local_unnamed_addr #2
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
 
-declare ptr @SDL_CreateCondition_REAL() local_unnamed_addr #3
+declare ptr @SDL_CreateCondition_REAL() local_unnamed_addr #2
 
-declare void @SDL_DestroyMutex_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_DestroyMutex_REAL(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @generic_asyncioqueue_queue_task(ptr readnone captures(none) %0, ptr noundef %1) #0 {
@@ -236,7 +233,7 @@ AsyncIOTaskComplete.exit.i:                       ; preds = %17, %5
   br i1 %34, label %35, label %MaybeSpinNewWorkerThread.exit.i
 
 35:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %36 = load i32, ptr @threadpool_threads_spun, align 4
   %37 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull @.str, i32 noundef %36) #8
   %38 = call ptr @SDL_CreateThreadRuntime_REAL(ptr noundef nonnull @AsyncIOThreadpoolWorker, ptr noundef nonnull %3, ptr noundef null, ptr noundef null, ptr noundef null) #8
@@ -254,7 +251,7 @@ AsyncIOTaskComplete.exit.i:                       ; preds = %17, %5
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %.thread.i.i, %35
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %MaybeSpinNewWorkerThread.exit.i
 
 MaybeSpinNewWorkerThread.exit.i:                  ; preds = %.sink.split.i.i, %31, %28
@@ -443,10 +440,7 @@ define internal void @generic_asyncioqueue_destroy(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_SYS_AsyncIOFromFile_Generic(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
@@ -492,7 +486,7 @@ define hidden noundef zeroext i1 @SDL_SYS_AsyncIOFromFile_Generic(ptr noundef %0
   ret i1 %.0
 }
 
-declare ptr @SDL_IOFromFile_REAL(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @SDL_IOFromFile_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @generic_asyncio_size(ptr noundef readonly captures(none) %0) #0 {
@@ -642,17 +636,17 @@ define hidden void @SDL_SYS_QuitAsyncIO() local_unnamed_addr #0 {
   ret void
 }
 
-declare zeroext i1 @SDL_ShouldInit_REAL(ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_ShouldInit_REAL(ptr noundef) local_unnamed_addr #2
 
-declare i32 @SDL_GetNumLogicalCPUCores_REAL() local_unnamed_addr #3
+declare i32 @SDL_GetNumLogicalCPUCores_REAL() local_unnamed_addr #2
 
-declare void @SDL_DestroyCondition_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_DestroyCondition_REAL(ptr noundef) local_unnamed_addr #2
 
-declare void @SDL_SetInitialized_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @SDL_SetInitialized_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @SDL_CreateThreadRuntime_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @SDL_CreateThreadRuntime_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @AsyncIOThreadpoolWorker(ptr readnone captures(none) %0) #0 {
@@ -836,35 +830,41 @@ SynchronousIO.exit:                               ; preds = %66, %79
   ret i32 0
 }
 
-declare void @SDL_DetachThread_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_DetachThread_REAL(ptr noundef) local_unnamed_addr #2
 
-declare void @SDL_LockMutex_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_LockMutex_REAL(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_WaitConditionTimeout_REAL(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_WaitConditionTimeout_REAL(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @SDL_UnlockMutex_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_UnlockMutex_REAL(ptr noundef) local_unnamed_addr #2
 
-declare void @SDL_BroadcastCondition_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_BroadcastCondition_REAL(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_FlushIO_REAL(ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_FlushIO_REAL(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_CloseIO_REAL(ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_CloseIO_REAL(ptr noundef) local_unnamed_addr #2
 
-declare i64 @SDL_SeekIO_REAL(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @SDL_SeekIO_REAL(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i64 @SDL_WriteIO_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @SDL_WriteIO_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i64 @SDL_ReadIO_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @SDL_ReadIO_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @SDL_GetIOStatus_REAL(ptr noundef) local_unnamed_addr #3
+declare i32 @SDL_GetIOStatus_REAL(ptr noundef) local_unnamed_addr #2
 
-declare void @SDL_SignalCondition_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_SignalCondition_REAL(ptr noundef) local_unnamed_addr #2
 
-declare i64 @SDL_GetIOSize_REAL(ptr noundef) local_unnamed_addr #3
+declare i64 @SDL_GetIOSize_REAL(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_ShouldQuit_REAL(ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_ShouldQuit_REAL(ptr noundef) local_unnamed_addr #2
 
-declare void @SDL_WaitCondition_REAL(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @SDL_WaitCondition_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5
@@ -876,10 +876,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @llvm.umin.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { nounwind allocsize(0,1) }

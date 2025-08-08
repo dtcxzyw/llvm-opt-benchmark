@@ -3496,8 +3496,8 @@ define hidden void @_ZN12SerialFullGC19invoke_at_safepointEb(i1 noundef zeroext 
   store ptr %15, ptr %22, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 160
   store i64 %21, ptr %.sroa.2.0..sroa_idx.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %2, align 8
   %23 = tail call noundef ptr @_ZN10SerialHeap4heapEv() #16
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 104
@@ -3513,8 +3513,8 @@ define hidden void @_ZN12SerialFullGC19invoke_at_safepointEb(i1 noundef zeroext 
   store ptr %26, ptr @_ZN12SerialFullGC16_preserved_marksE, align 8
   store i64 0, ptr @_ZN12SerialFullGC16_preserved_countE, align 8
   call void @_ZN17PreservedMarksSet4initEj(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12SerialFullGC29_preserved_overflow_stack_setE, i32 noundef 1) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN12SerialFullGC11phase1_markEb(i1 noundef zeroext %0)
   %30 = load ptr, ptr %11, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 216
@@ -5494,9 +5494,9 @@ _ZN13Devirtualizer6do_oopI20AdjustPointerClosure9narrowOopEEvPT_PT0_.exit.i: ; p
   br i1 %51, label %19, label %_ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop20AdjustPointerClosureEEvP7oopDescPT0_.exit, !llvm.loop !28
 
 _ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop20AdjustPointerClosureEEvP7oopDescPT0_.exit: ; preds = %._crit_edge.i, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop20AdjustPointerClosure14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -5568,9 +5568,9 @@ _ZN13Devirtualizer6do_oopI20AdjustPointerClosureP7oopDescEEvPT_PT0_.exit.i: ; pr
   br i1 %41, label %19, label %_ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc20AdjustPointerClosureEEvS2_PT0_.exit, !llvm.loop !30
 
 _ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc20AdjustPointerClosureEEvS2_PT0_.exit: ; preds = %._crit_edge.i, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc20AdjustPointerClosure14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -9519,9 +9519,9 @@ _ZN13Devirtualizer6do_oopI18MarkAndPushClosure9narrowOopEEvPT_PT0_.exit: ; preds
   br i1 %168, label %22, label %._crit_edge33, !llvm.loop !57
 
 ._crit_edge33:                                    ; preds = %._crit_edge, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop18MarkAndPushClosure14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -10325,9 +10325,9 @@ _ZN13Devirtualizer6do_oopI18MarkAndPushClosureP7oopDescEEvPT_PT0_.exit: ; preds 
   br i1 %161, label %22, label %._crit_edge33, !llvm.loop !59
 
 ._crit_edge33:                                    ; preds = %._crit_edge, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc18MarkAndPushClosure14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -12386,8 +12386,8 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   %27 = load i32, ptr %26, align 4
   %28 = sext i32 %27 to i64
   %.idx = shl nsw i64 %28, 3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @_ZN23InstanceStackChunkKlass10do_methodsEP17stackChunkOopDescP17OopIterateClosure(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull %1, ptr noundef %2) #16
   %29 = icmp sgt i64 %.idx, %22
   br i1 %29, label %30, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop18MarkAndPushClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
@@ -12428,15 +12428,15 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   %58 = ptrtoint ptr %35 to i64
   %59 = sub i64 %58, %44
   %60 = ashr exact i64 %59, 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8
   %61 = call noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop18MarkAndPushClosureEEEbPT_mmEUlmE_EEbS6_mm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull %4, i64 noundef %57, i64 noundef %60)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop18MarkAndPushClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
 
 _ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop18MarkAndPushClosureEEvP17stackChunkOopDescPT0_PlS7_.exit: ; preds = %14, %30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %118
 
 62:                                               ; preds = %3
@@ -12882,8 +12882,8 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   %27 = load i32, ptr %26, align 4
   %28 = sext i32 %27 to i64
   %.idx = shl nsw i64 %28, 3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @_ZN23InstanceStackChunkKlass10do_methodsEP17stackChunkOopDescP17OopIterateClosure(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull %1, ptr noundef %2) #16
   %29 = icmp sgt i64 %.idx, %22
   br i1 %29, label %30, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc18MarkAndPushClosureEEvP17stackChunkOopDescPT0_PlS8_.exit
@@ -12924,15 +12924,15 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   %58 = ptrtoint ptr %35 to i64
   %59 = sub i64 %58, %44
   %60 = ashr exact i64 %59, 3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8
   %61 = call noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc18MarkAndPushClosureEEEbPT_mmEUlmE_EEbS7_mm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull %4, i64 noundef %57, i64 noundef %60)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc18MarkAndPushClosureEEvP17stackChunkOopDescPT0_PlS8_.exit
 
 _ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc18MarkAndPushClosureEEvP17stackChunkOopDescPT0_PlS8_.exit: ; preds = %14, %30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %118
 
 62:                                               ; preds = %3
@@ -13905,10 +13905,10 @@ define internal void @_GLOBAL__sub_I_serialFullGC.cpp() #12 section ".text.start
 declare i32 @llvm.smin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15

@@ -36,10 +36,10 @@ define internal range(i32 0, 2) i32 @test_sm3() #0 {
   %2 = alloca %struct.SM3state_st, align 4
   %3 = alloca [32 x i8], align 16
   %4 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 108, ptr nonnull %1) #3
-  call void @llvm.lifetime.start.p0(i64 108, ptr nonnull %2) #3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @ossl_sm3_init(ptr noundef nonnull %1) #3
   %6 = icmp ne i32 %5, 0
   %7 = zext i1 %6 to i32
@@ -100,15 +100,12 @@ define internal range(i32 0, 2) i32 @test_sm3() #0 {
 
 38:                                               ; preds = %36, %21, %26, %31, %0, %9, %14, %19
   %.0 = phi i32 [ 0, %19 ], [ 0, %14 ], [ 0, %9 ], [ 0, %0 ], [ 0, %31 ], [ 0, %26 ], [ 0, %21 ], [ %spec.select, %36 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #3
-  call void @llvm.lifetime.end.p0(i64 108, ptr nonnull %2) #3
-  call void @llvm.lifetime.end.p0(i64 108, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -121,7 +118,10 @@ declare i32 @ossl_sm3_final(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

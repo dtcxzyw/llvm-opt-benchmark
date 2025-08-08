@@ -128,7 +128,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 if.end:                                           ; preds = %lor.lhs.false
   call void @_ZN6hermes18SourceErrorManagerC1Ev(ptr noundef nonnull align 8 dereferenceable(464) %sm) #9
   call void @_ZN6hermes21SimpleDiagHandlerRAIIC1ERNS_18SourceErrorManagerE(ptr noundef nonnull align 8 dereferenceable(388) %handler, ptr noundef nonnull align 8 dereferenceable(464) %sm) #9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   store ptr %source, ptr %agg.tmp.i, align 8, !noalias !4
   %Buffer.sroa.2.0.Buffer2.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 8
   store i64 %sub, ptr %Buffer.sroa.2.0.Buffer2.sroa_idx.i.i, align 8, !noalias !4
@@ -137,7 +137,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %Identifier.sroa.2.0.Identifier3.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 24
   store i64 12, ptr %Identifier.sroa.2.0.Identifier3.sroa_idx.i.i, align 8, !noalias !4
   call void @_ZN6hermes15SourceMapParser5parseEN4llvh15MemoryBufferRefERNS_18SourceErrorManagerE(ptr nonnull sret(%"class.std::unique_ptr") align 8 %sourceMap, ptr noundef nonnull byval(%"class.llvh::MemoryBufferRef") align 8 %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(464) %sm) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   %1 = load ptr, ptr %sourceMap, align 8
   %cmp.i.not = icmp eq ptr %1, null
   br i1 %cmp.i.not, label %land.lhs.true, label %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit
@@ -1088,10 +1088,10 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_leng
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

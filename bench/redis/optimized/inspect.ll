@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @je_inspect_extent_util_stats_get(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.rtree_ctx_s, align 8
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq ptr %0, null
   br i1 %7, label %8, label %9, !prof !4
 
@@ -133,7 +133,7 @@ rtree_read.exit:                                  ; preds = %18, %28, %40, %54
   %58 = ashr exact i64 %57, 16
   %59 = and i64 %58, -128
   %60 = inttoptr i64 %59 to ptr
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %61 = icmp eq i64 %59, 0
   br i1 %61, label %62, label %63, !prof !4
 
@@ -178,16 +178,10 @@ rtree_read.exit:                                  ; preds = %18, %28, %40, %54
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define hidden void @je_inspect_extent_util_stats_verbose_get(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca %struct.rtree_ctx_s, align 8
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = icmp eq ptr %0, null
   br i1 %10, label %11, label %12, !prof !4
 
@@ -283,7 +277,7 @@ rtree_read.exit:                                  ; preds = %21, %31, %43, %57
   %61 = ashr exact i64 %60, 16
   %62 = and i64 %61, -128
   %63 = inttoptr i64 %62 to ptr
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %64 = icmp eq i64 %62, 0
   br i1 %64, label %65, label %66, !prof !4
 
@@ -405,24 +399,30 @@ malloc_mutex_lock.exit:                           ; preds = %94, %100
   ret void
 }
 
-declare ptr @je_edata_heap_first(ptr noundef) local_unnamed_addr #2
+declare ptr @je_edata_heap_first(ptr noundef) local_unnamed_addr #1
 
-declare void @je_rtree_ctx_data_init(ptr noundef) local_unnamed_addr #2
+declare void @je_rtree_ctx_data_init(ptr noundef) local_unnamed_addr #1
 
-declare ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @je_malloc_mutex_lock_slow(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: nounwind
-declare i32 @pthread_mutex_trylock(ptr noundef) local_unnamed_addr #3
+declare void @je_malloc_mutex_lock_slow(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #3
+declare i32 @pthread_mutex_trylock(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

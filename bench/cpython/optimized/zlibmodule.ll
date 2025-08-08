@@ -337,7 +337,7 @@ define internal void @zlib_free(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal ptr @zlib_adler32(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false)
   %5 = add i64 %2, -1
   %or.cond = icmp ult i64 %5, 2
@@ -430,7 +430,7 @@ zlib_adler32_impl.exit:                           ; preds = %._crit_edge.i, %36
   br label %46
 
 46:                                               ; preds = %45, %42
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.010
 }
 
@@ -440,7 +440,7 @@ define internal ptr @zlib_compress(ptr noundef %0, ptr noundef %1, i64 noundef %
   %6 = alloca %struct._BlocksOutputBuffer, align 8
   %7 = alloca [3 x ptr], align 16
   %8 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %9
 
@@ -452,7 +452,7 @@ define internal ptr @zlib_compress(ptr noundef %0, ptr noundef %1, i64 noundef %
 11:                                               ; preds = %4, %9
   %12 = phi i64 [ %.val, %9 ], [ 0, %4 ]
   %13 = add i64 %12, %2
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 0, i64 80, i1 false)
   %14 = add i64 %2, -1
   %15 = icmp ult i64 %14, 3
@@ -513,8 +513,8 @@ define internal ptr @zlib_compress(ptr noundef %0, ptr noundef %1, i64 noundef %
 40:                                               ; preds = %33, %38, %32, %23
   %.028 = phi i32 [ %.1, %38 ], [ %.1, %33 ], [ %28, %32 ], [ -1, %23 ]
   %.0 = phi i32 [ -1, %38 ], [ %36, %33 ], [ 15, %32 ], [ 15, %23 ]
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %41 = call ptr @PyModule_GetState(ptr noundef %0) #7
   %42 = load ptr, ptr %8, align 8, !tbaa !28
@@ -712,8 +712,8 @@ zlib_error.exit.i:                                ; preds = %119, %114, %zlib_er
 
 zlib_compress_impl.exit:                          ; preds = %114, %zlib_error.exit.i, %122, %124, %127
   %.0.i = phi ptr [ %117, %114 ], [ null, %zlib_error.exit.i ], [ null, %122 ], [ null, %124 ], [ null, %127 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %128
 
 128:                                              ; preds = %38, %30, %.thread, %18, %zlib_compress_impl.exit
@@ -728,8 +728,8 @@ zlib_compress_impl.exit:                          ; preds = %114, %zlib_error.ex
   br label %132
 
 132:                                              ; preds = %131, %128
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.029
 }
 
@@ -737,7 +737,7 @@ zlib_compress_impl.exit:                          ; preds = %114, %zlib_error.ex
 define internal ptr @zlib_compressobj(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca [6 x ptr], align 16
   %6 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %7
 
@@ -749,7 +749,7 @@ define internal ptr @zlib_compressobj(ptr noundef %0, ptr noundef %1, i64 nounde
 9:                                                ; preds = %4, %7
   %10 = phi i64 [ %.val, %7 ], [ 0, %4 ]
   %11 = add i64 %10, %2
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 80, i1 false)
   %12 = icmp ult i64 %2, 7
   %13 = icmp ne ptr %1, null
@@ -1023,15 +1023,15 @@ zlib_compressobj_impl.exit:                       ; preds = %121, %118, %zlib_er
   br label %125
 
 125:                                              ; preds = %124, %zlib_compressobj_impl.exit
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.055
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @zlib_crc32(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false)
   %5 = add i64 %2, -1
   %or.cond = icmp ult i64 %5, 2
@@ -1133,7 +1133,7 @@ zlib_crc32_impl.exit:                             ; preds = %._crit_edge.i, %36
   br label %50
 
 50:                                               ; preds = %49, %46
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -1143,7 +1143,7 @@ define internal ptr @zlib_decompress(ptr noundef %0, ptr noundef %1, i64 noundef
   %6 = alloca %struct._BlocksOutputBuffer, align 8
   %7 = alloca [3 x ptr], align 16
   %8 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %9
 
@@ -1155,7 +1155,7 @@ define internal ptr @zlib_decompress(ptr noundef %0, ptr noundef %1, i64 noundef
 11:                                               ; preds = %4, %9
   %12 = phi i64 [ %.val, %9 ], [ 0, %4 ]
   %13 = add i64 %12, %2
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 0, i64 80, i1 false)
   %14 = add i64 %2, -1
   %15 = icmp ult i64 %14, 3
@@ -1236,8 +1236,8 @@ Py_DECREF.exit.thread:                            ; preds = %33, %Py_DECREF.exit
 .thread61:                                        ; preds = %Py_DECREF.exit.thread, %Py_DECREF.exit, %32, %23
   %.037 = phi i32 [ %28, %32 ], [ 15, %23 ], [ %.138, %Py_DECREF.exit ], [ %.138, %Py_DECREF.exit.thread ]
   %.036 = phi i64 [ 16384, %32 ], [ 16384, %23 ], [ %38, %Py_DECREF.exit ], [ -1, %Py_DECREF.exit.thread ]
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %46 = call ptr @PyModule_GetState(ptr noundef %0) #7
   %47 = icmp slt i64 %.036, 0
@@ -1518,8 +1518,8 @@ zlib_error.exit.i:                                ; preds = %151, %149, %146, %1
 
 zlib_decompress_impl.exit:                        ; preds = %48, %60, %151, %zlib_error.exit.i, %156, %158, %161
   %.0.i = phi ptr [ null, %48 ], [ %155, %151 ], [ null, %zlib_error.exit.i ], [ null, %156 ], [ null, %158 ], [ null, %161 ], [ null, %60 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %162
 
 162:                                              ; preds = %Py_DECREF.exit.thread, %30, %.thread, %18, %zlib_decompress_impl.exit
@@ -1534,15 +1534,15 @@ zlib_decompress_impl.exit:                        ; preds = %48, %60, %151, %zli
   br label %166
 
 166:                                              ; preds = %162, %165
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.039
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @zlib_decompressobj(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca [2 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %.thread
 
@@ -1780,15 +1780,12 @@ zlib_error.exit.i:                                ; preds = %92, %88
 
 zlib_decompressobj_impl.exit:                     ; preds = %100, %97, %zlib_error.exit.i, %Py_DECREF.exit35.i, %Py_DECREF.exit37.i, %67, %64, %62, %59, %53, %33, %31, %21, %11
   %.027 = phi ptr [ null, %21 ], [ null, %11 ], [ null, %31 ], [ null, %33 ], [ null, %Py_DECREF.exit37.i ], [ null, %Py_DECREF.exit35.i ], [ %37, %59 ], [ %37, %53 ], [ null, %62 ], [ null, %64 ], [ null, %67 ], [ null, %zlib_error.exit.i ], [ null, %97 ], [ null, %100 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.027
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1799,9 +1796,6 @@ declare i64 @PyLong_AsUnsignedLongMask(ptr noundef) local_unnamed_addr #1
 declare ptr @PyErr_Occurred() local_unnamed_addr #1
 
 declare void @PyBuffer_Release(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @PyEval_SaveThread() local_unnamed_addr #1
 
@@ -1904,7 +1898,7 @@ declare void @PyMem_RawFree(ptr noundef) local_unnamed_addr #1
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc i64 @_BlocksOutputBuffer_Grow(ptr noundef nonnull captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef range(i64 0, 4294967296) %2) unnamed_addr #4 {
+define internal fastcc i64 @_BlocksOutputBuffer_Grow(ptr noundef nonnull captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef range(i64 0, 4294967296) %2) unnamed_addr #3 {
   %4 = load ptr, ptr %0, align 8, !tbaa !29
   %5 = getelementptr i8, ptr %4, i64 16
   %.val = load i64, ptr %5, align 8, !tbaa !25
@@ -2005,7 +1999,7 @@ Py_DECREF.exit29:                                 ; preds = %38, %35, %34, %Py_D
 declare i32 @PyList_Append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc ptr @_BlocksOutputBuffer_Finish(ptr noundef nonnull captures(none) %0, i64 noundef %1) unnamed_addr #4 {
+define internal fastcc ptr @_BlocksOutputBuffer_Finish(ptr noundef nonnull captures(none) %0, i64 noundef %1) unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8, !tbaa !29
   %4 = getelementptr i8, ptr %3, i64 16
   %.val55 = load i64, ptr %4, align 8, !tbaa !25
@@ -2146,7 +2140,7 @@ Py_DECREF.exit50:                                 ; preds = %65, %62, %60, %27, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @newcompobject(ptr noundef %0) unnamed_addr #0 {
@@ -2261,7 +2255,7 @@ declare i32 @PyObject_CheckBuffer(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @set_inflate_zdict(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %5 = load ptr, ptr %4, align 8, !tbaa !60
   %6 = call i32 @PyObject_GetBuffer(ptr noundef %5, ptr noundef nonnull %3, i32 noundef 0) #7
@@ -2325,7 +2319,7 @@ define internal fastcc range(i32 -1, 1) i32 @set_inflate_zdict(ptr noundef reado
 
 zlib_error.exit:                                  ; preds = %29, %25, %14, %2, %12
   %.0 = phi i32 [ -1, %12 ], [ -1, %2 ], [ 0, %14 ], [ -1, %25 ], [ -1, %29 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -2621,8 +2615,8 @@ define internal ptr @zlib_Compress_compress(ptr noundef %0, ptr noundef %1, ptr 
   %6 = alloca %struct._BlocksOutputBuffer, align 8
   %7 = alloca [1 x ptr], align 8
   %8 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 0, i64 80, i1 false)
   %9 = icmp eq ptr %4, null
   %10 = icmp eq i64 %3, 1
@@ -2644,7 +2638,7 @@ define internal ptr @zlib_Compress_compress(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not19, label %17, label %78
 
 17:                                               ; preds = %.thread
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %18 = call ptr @PyType_GetModuleState(ptr noundef %1) #7
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -2782,7 +2776,7 @@ zlib_Compress_compress_impl.exit:                 ; preds = %67, %.loopexit.i, %
   %.0.i = phi ptr [ %69, %67 ], [ null, %.loopexit.i ], [ null, %71 ], [ null, %73 ], [ null, %76 ]
   %77 = load ptr, ptr %19, align 8, !tbaa !66
   call void @PyThread_release_lock(ptr noundef %77) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %78
 
 78:                                               ; preds = %.thread, %12, %zlib_Compress_compress_impl.exit
@@ -2797,8 +2791,8 @@ zlib_Compress_compress_impl.exit:                 ; preds = %67, %.loopexit.i, %
   br label %82
 
 82:                                               ; preds = %81, %78
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
 
@@ -2806,7 +2800,7 @@ zlib_Compress_compress_impl.exit:                 ; preds = %67, %.loopexit.i, %
 define internal ptr @zlib_Compress_flush(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
   %6 = alloca %struct._BlocksOutputBuffer, align 8
   %7 = alloca [1 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp eq ptr %4, null
   %9 = icmp ult i64 %3, 2
   %or.cond3 = and i1 %9, %8
@@ -2837,7 +2831,7 @@ define internal ptr @zlib_Compress_flush(ptr noundef %0, ptr noundef %1, ptr nou
 
 21:                                               ; preds = %15, %19, %.thread
   %.0 = phi i32 [ 4, %.thread ], [ -1, %19 ], [ %17, %15 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %22 = call ptr @PyType_GetModuleState(ptr noundef %1) #7
   %23 = icmp eq i32 %.0, 0
@@ -3060,12 +3054,12 @@ OutputBuffer_OnError.exit.i:                      ; preds = %115, %112, %110, %z
 
 zlib_Compress_flush_impl.exit:                    ; preds = %24, %OutputBuffer_OnError.exit.i
   %.0.i = phi ptr [ %25, %24 ], [ %.039.i, %OutputBuffer_OnError.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %117
 
 117:                                              ; preds = %19, %11, %zlib_Compress_flush_impl.exit
   %.020 = phi ptr [ %.0.i, %zlib_Compress_flush_impl.exit ], [ null, %19 ], [ null, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.020
 }
 
@@ -3130,7 +3124,7 @@ define internal ptr @zlib_Compress___copy__(ptr noundef %0, ptr noundef %1, ptr 
 ; Function Attrs: nounwind uwtable
 define internal ptr @zlib_Compress___deepcopy__(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
   %6 = alloca [1 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq ptr %4, null
   %8 = icmp eq i64 %3, 1
   %or.cond3 = and i1 %8, %7
@@ -3149,7 +3143,7 @@ define internal ptr @zlib_Compress___deepcopy__(ptr noundef %0, ptr noundef %1, 
 
 13:                                               ; preds = %10, %.thread
   %.0 = phi ptr [ %12, %.thread ], [ null, %10 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
 
@@ -3398,7 +3392,7 @@ define internal ptr @zlib_Decompress_decompress(ptr noundef %0, ptr noundef %1, 
   %6 = alloca %struct._BlocksOutputBuffer, align 8
   %7 = alloca [2 x ptr], align 16
   %8 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %11, label %9
 
@@ -3410,7 +3404,7 @@ define internal ptr @zlib_Decompress_decompress(ptr noundef %0, ptr noundef %1, 
 11:                                               ; preds = %5, %9
   %12 = phi i64 [ %.val, %9 ], [ 0, %5 ]
   %13 = add i64 %12, %3
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 0, i64 80, i1 false)
   %14 = add i64 %3, -1
   %15 = icmp ult i64 %14, 2
@@ -3469,7 +3463,7 @@ Py_DECREF.exit.thread:                            ; preds = %24, %Py_DECREF.exit
 
 .thread50:                                        ; preds = %Py_DECREF.exit.thread, %Py_DECREF.exit, %23
   %.032 = phi i64 [ 0, %23 ], [ %29, %Py_DECREF.exit ], [ -1, %Py_DECREF.exit.thread ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %37 = call ptr @PyType_GetModule(ptr noundef %1) #7
   %38 = icmp eq ptr %37, null
@@ -3704,7 +3698,7 @@ OutputBuffer_OnError.exit.i:                      ; preds = %135, %132, %130, %z
 
 zlib_Decompress_decompress_impl.exit:             ; preds = %.thread50, %42, %OutputBuffer_OnError.exit.i
   %.0.i = phi ptr [ null, %.thread50 ], [ null, %42 ], [ %.047.i, %OutputBuffer_OnError.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %137
 
 137:                                              ; preds = %Py_DECREF.exit.thread, %.thread, %18, %zlib_Decompress_decompress_impl.exit
@@ -3719,8 +3713,8 @@ zlib_Decompress_decompress_impl.exit:             ; preds = %.thread50, %42, %Ou
   br label %141
 
 141:                                              ; preds = %137, %140
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.033
 }
 
@@ -3729,7 +3723,7 @@ define internal ptr @zlib_Decompress_flush(ptr noundef %0, ptr noundef %1, ptr n
   %6 = alloca %struct.Py_buffer, align 8
   %7 = alloca %struct._BlocksOutputBuffer, align 8
   %8 = alloca [1 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp eq ptr %4, null
   %10 = icmp ult i64 %3, 2
   %or.cond3 = and i1 %10, %9
@@ -3780,8 +3774,8 @@ Py_DECREF.exit.thread:                            ; preds = %16, %Py_DECREF.exit
 
 .thread41:                                        ; preds = %Py_DECREF.exit.thread, %Py_DECREF.exit, %.thread
   %.028 = phi i64 [ 16384, %.thread ], [ %20, %Py_DECREF.exit ], [ -1, %Py_DECREF.exit.thread ]
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %28 = call ptr @PyType_GetModule(ptr noundef %1) #7
   %29 = icmp eq ptr %28, null
@@ -4001,13 +3995,13 @@ OutputBuffer_WindowOnError.exit.i:                ; preds = %123, %120, %118, %O
 
 zlib_Decompress_flush_impl.exit:                  ; preds = %.thread41, %33, %48, %OutputBuffer_WindowOnError.exit.i
   %.0.i = phi ptr [ null, %.thread41 ], [ null, %33 ], [ null, %48 ], [ %.038.i, %OutputBuffer_WindowOnError.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %125
 
 125:                                              ; preds = %Py_DECREF.exit.thread, %zlib_Decompress_flush_impl.exit, %12
   %.029 = phi ptr [ %.0.i, %zlib_Decompress_flush_impl.exit ], [ null, %12 ], [ null, %Py_DECREF.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.029
 }
 
@@ -4072,7 +4066,7 @@ define internal ptr @zlib_Decompress___copy__(ptr noundef %0, ptr noundef %1, pt
 ; Function Attrs: nounwind uwtable
 define internal ptr @zlib_Decompress___deepcopy__(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
   %6 = alloca [1 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq ptr %4, null
   %8 = icmp eq i64 %3, 1
   %or.cond3 = and i1 %8, %7
@@ -4091,7 +4085,7 @@ define internal ptr @zlib_Decompress___deepcopy__(ptr noundef %0, ptr noundef %1
 
 13:                                               ; preds = %10, %.thread
   %.0 = phi ptr [ %12, %.thread ], [ null, %10 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
 
@@ -4529,9 +4523,9 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit20, %
 define internal ptr @ZlibDecompressor__new__(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 15, ptr %4, align 4, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !15
   %6 = tail call ptr @PyType_GetModuleState(ptr noundef %0) #7
   %7 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.103, ptr noundef nonnull @ZlibDecompressor__new__.keywords, ptr noundef nonnull %4, ptr noundef nonnull %5) #7
@@ -4755,8 +4749,8 @@ zlib_error.exit:                                  ; preds = %85, %89
 
 Py_DECREF.exit50:                                 ; preds = %97, %94, %zlib_error.exit, %64, %61, %59, %35, %32, %30, %Py_DECREF.exit48, %8, %50, %56, %Py_DECREF.exit42, %Py_DECREF.exit44, %3
   %.0 = phi ptr [ null, %3 ], [ null, %Py_DECREF.exit48 ], [ null, %8 ], [ null, %Py_DECREF.exit44 ], [ null, %Py_DECREF.exit42 ], [ %9, %56 ], [ %9, %50 ], [ null, %30 ], [ null, %32 ], [ null, %35 ], [ null, %59 ], [ null, %61 ], [ null, %64 ], [ null, %zlib_error.exit ], [ null, %94 ], [ null, %97 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -4767,7 +4761,7 @@ declare i32 @PyArg_ParseTupleAndKeywords(ptr noundef, ptr noundef, ptr noundef, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @set_inflate_zdict_ZlibDecompressor(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %5 = load ptr, ptr %4, align 8, !tbaa !84
   %6 = call i32 @PyObject_GetBuffer(ptr noundef %5, ptr noundef nonnull %3, i32 noundef 0) #7
@@ -4831,7 +4825,7 @@ define internal fastcc range(i32 -1, 1) i32 @set_inflate_zdict_ZlibDecompressor(
 
 zlib_error.exit:                                  ; preds = %29, %25, %14, %2, %12
   %.0 = phi i32 [ -1, %12 ], [ -1, %2 ], [ 0, %14 ], [ -1, %25 ], [ -1, %29 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -4840,7 +4834,7 @@ define internal ptr @zlib_ZlibDecompressor_decompress(ptr noundef %0, ptr nounde
   %5 = alloca ptr, align 8
   %6 = alloca [2 x ptr], align 16
   %7 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %8
 
@@ -4852,7 +4846,7 @@ define internal ptr @zlib_ZlibDecompressor_decompress(ptr noundef %0, ptr nounde
 10:                                               ; preds = %4, %8
   %11 = phi i64 [ %.val, %8 ], [ 0, %4 ]
   %12 = add i64 %11, %2
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, i8 0, i64 80, i1 false)
   %13 = add i64 %2, -1
   %14 = icmp ult i64 %13, 2
@@ -5013,7 +5007,7 @@ Py_DECREF.exit.thread:                            ; preds = %23, %Py_DECREF.exit
   br label %89
 
 89:                                               ; preds = %87, %.critedge.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !15
   %90 = getelementptr i8, ptr %0, i64 8
   %.val.i.i.i = load ptr, ptr %90, align 8, !tbaa !69
@@ -5219,12 +5213,12 @@ zlib_error.exit.i.i.i:                            ; preds = %126, %153, %151, %1
   br label %decompress_buf.exit.i.i
 
 decompress_buf.exit.thread.i.i:                   ; preds = %166, %zlib_error.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %173
 
 decompress_buf.exit.i.i:                          ; preds = %171, %168, %153
   %.pr.i.i = load ptr, ptr %5, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %172 = icmp eq ptr %.pr.i.i, null
   br i1 %172, label %173, label %174
 
@@ -5366,8 +5360,8 @@ zlib_ZlibDecompressor_decompress_impl.exit:       ; preds = %46, %.thread.i.i, %
   br label %231
 
 231:                                              ; preds = %227, %230
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.032
 }
 
@@ -5376,11 +5370,17 @@ declare ptr @PyMem_Realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @PyErr_SetNone(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #1
 
 declare i32 @_PyBytes_Resize(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #6
@@ -5393,10 +5393,10 @@ declare i64 @llvm.smin.i64(i64, i64) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 

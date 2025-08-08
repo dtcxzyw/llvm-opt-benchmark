@@ -147,7 +147,7 @@ define hidden void @proto_register_componentstatusprotocol() local_unnamed_addr 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @componentstatusprotocol_stat_init(ptr noundef %0) #0 {
   %2 = alloca [10 x %struct._stat_tap_table_item_type], align 16
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @stat_tap_find_table(ptr noundef %0, ptr noundef nonnull @.str.2)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.loopexit.loopexit, label %4
@@ -195,7 +195,7 @@ define internal void @componentstatusprotocol_stat_init(ptr noundef %0) #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %4, %7
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -458,7 +458,7 @@ define internal i32 @dissect_componentstatusprotocol(ptr noundef %0, ptr noundef
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %19 = load i32, ptr @ett_componentstatusprotocol, align 4
   %20 = tail call ptr @proto_item_add_subtree(ptr noundef %18, i32 noundef %19)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc0(ptr noundef %22, i64 noundef 16) #6
@@ -509,7 +509,7 @@ define internal i32 @dissect_componentstatusprotocol(ptr noundef %0, ptr noundef
   br i1 %cond.i, label %60, label %dissect_componentstatusprotocol_message.exit
 
 60:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %61 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 24)
   %62 = udiv i32 %61, 1000000
   %63 = zext nneg i32 %62 to i64
@@ -572,7 +572,7 @@ define internal i32 @dissect_componentstatusprotocol(ptr noundef %0, ptr noundef
 100:                                              ; preds = %98, %92
   %101 = phi i32 [ %99, %98 ], [ 24, %92 ]
   %102 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.03537.i.i, i32 noundef %101, i32 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %103 = load i32, ptr @hf_cspreport_association_receiver_id, align 4
   %104 = call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %103, ptr noundef %102, i32 noundef 0, i32 noundef 8, i32 noundef 0)
   %105 = load i32, ptr @ett_cspreport_association_receiver_id, align 4
@@ -608,18 +608,18 @@ dissect_componentstatusprotocol_cspreport_association.exit.i.i: ; preds = %120, 
   %125 = call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %124, ptr noundef %102, i32 noundef 18, i32 noundef 2, i32 noundef 0)
   %126 = load i32, ptr @hf_cspreport_association_ppid, align 4
   %127 = call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %126, ptr noundef %102, i32 noundef 20, i32 noundef 4, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %128 = add i32 %.03537.i.i, 24
   %129 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %128)
   %130 = icmp sgt i32 %129, 23
   br i1 %130, label %92, label %dissect_componentstatusprotocol_cspreport_message.exit.i, !llvm.loop !8
 
 dissect_componentstatusprotocol_cspreport_message.exit.i: ; preds = %dissect_componentstatusprotocol_cspreport_association.exit.i.i, %86
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %dissect_componentstatusprotocol_message.exit
 
 dissect_componentstatusprotocol_message.exit:     ; preds = %14, %dissect_componentstatusprotocol_cspreport_message.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %131 = call i32 @tvb_reported_length(ptr noundef %0)
   br label %132
 
@@ -641,9 +641,6 @@ define hidden void @proto_reg_handoff_componentstatusprotocol() local_unnamed_ad
 ; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare ptr @stat_tap_find_table(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -655,9 +652,6 @@ declare void @stat_tap_add_table(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
 declare void @stat_tap_init_table_row(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @str_to_val_idx(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -690,7 +684,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -725,13 +719,19 @@ declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef,
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_time_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { nounwind }
 attributes #6 = { allocsize(1) }

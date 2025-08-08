@@ -631,7 +631,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__9GfFrustum11FitToSphereERKNS_7
   %60 = tail call double @llvm.fmuladd.f64(double %.pre-phi, double 2.000000e+00, double %59)
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store double %60, ptr %61, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double -0.000000e+00, ptr %5, align 8, !alias.scope !8, !noalias !11
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -639,7 +639,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__9GfFrustum11FitToSphereERKNS_7
   %64 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double -1.000000e+00, ptr %64, align 8, !alias.scope !8, !noalias !11
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation12TransformDirERKNS_7GfVec3dE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(24) %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.0.0.copyload.i.i = load double, ptr %6, align 8, !noalias !14
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.4.0.copyload.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !14
@@ -786,7 +786,7 @@ define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24_
   store double %79, ptr %.sroa.269.0..sroa_idx, align 8
   %.sroa.370.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double %80, ptr %.sroa.370.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double -0.000000e+00, ptr %4, align 8, !alias.scope !28, !noalias !31
   %82 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -797,8 +797,8 @@ define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24_
           to label %84 unwind label %339
 
 84:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !alias.scope !34, !noalias !37
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double 1.000000e+00, ptr %85, align 8, !alias.scope !34, !noalias !37
@@ -806,7 +806,7 @@ define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24_
           to label %86 unwind label %339
 
 86:                                               ; preds = %84
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %87 = load double, ptr %6, align 8, !noalias !40
   %88 = load double, ptr %1, align 8, !noalias !40
   %89 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1268,22 +1268,22 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum16ComputeViewFrameE
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", align 8
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !alias.scope !64, !noalias !67
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store double 1.000000e+00, ptr %10, align 8, !alias.scope !64, !noalias !67
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation12TransformDirERKNS_7GfVec3dE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(24) %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store double -0.000000e+00, ptr %5, align 8, !alias.scope !70, !noalias !73
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double -0.000000e+00, ptr %11, align 8, !alias.scope !70, !noalias !73
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double -1.000000e+00, ptr %12, align 8, !alias.scope !70, !noalias !73
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation12TransformDirERKNS_7GfVec3dE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(24) %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load double, ptr %13, align 8, !noalias !76
@@ -1318,7 +1318,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18ComputeLookAtPoin
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %6 = load double, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store double -0.000000e+00, ptr %3, align 8, !alias.scope !79, !noalias !82
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1326,7 +1326,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18ComputeLookAtPoin
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store double -1.000000e+00, ptr %9, align 8, !alias.scope !79, !noalias !82
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation12TransformDirERKNS_7GfVec3dE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.sroa.0.0.copyload.i.i = load double, ptr %4, align 8, !noalias !85
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.4.0.copyload.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !85
@@ -2279,7 +2279,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3dESaIS1_EE17_M_realloc_in
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3dESaIS1_EE9push_backEOS1_.exit142
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3dESaIS1_EE9push_backEOS1_.exit142: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3dESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i219, %296, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3dESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i139, %149
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %318 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %319 = invoke noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetLookAtERKNS_7GfVec3dERKNS_10GfRotationE(ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(32) %318)
           to label %.noexc223 unwind label %171
@@ -2289,7 +2289,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3dESaIS1_EE9push_backEOS1_
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18ComputeViewInverseEv.exit unwind label %171
 
 _ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18ComputeViewInverseEv.exit: ; preds = %.noexc223
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %320 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %321 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %322 = getelementptr inbounds nuw i8, ptr %3, i64 96
@@ -2608,7 +2608,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3dESaIS1_EE17_M_realloc_in
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3dESaIS1_EE9push_backEOS1_.exit70
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3dESaIS1_EE9push_backEOS1_.exit70: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3dESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i107, %72, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3dESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i67, %32
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %94 = invoke noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetLookAtERKNS_7GfVec3dERKNS_10GfRotationE(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(32) %93)
           to label %.noexc111 unwind label %53
@@ -2618,7 +2618,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3dESaIS1_EE9push_backEOS1_
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18ComputeViewInverseEv.exit unwind label %53
 
 _ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18ComputeViewInverseEv.exit: ; preds = %.noexc111
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %95 = load ptr, ptr %0, align 8
   %96 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %97 = getelementptr inbounds nuw i8, ptr %4, i64 64
@@ -3098,8 +3098,8 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10ComputeRayERKNS_7
   %.val = load double, ptr %2, align 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val4 = load double, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %17 = fadd double %.val, 1.000000e+00
   %18 = fadd double %.val4, 1.000000e+00
   %19 = fmul double %17, 5.000000e-01
@@ -3155,13 +3155,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__L24_ComputeUntransformedRayENS_9GfFrustum14
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store double %.sink.i, ptr %47, align 8, !noalias !111
   call void @_ZN32pxrInternal_v0_24__pxrReserved__5GfRay20SetPointAndDirectionERKNS_7GfVec3dES3_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %49 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetLookAtERKNS_7GfVec3dERKNS_10GfRotationE(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(32) %48), !noalias !114
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d10GetInverseEPdd(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 %8, ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef null, double noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !117)
   %50 = load double, ptr %7, align 8, !noalias !117
   %51 = load double, ptr %8, align 8, !noalias !117
@@ -3264,8 +3264,8 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14ComputePickRayERK
   %.val = load double, ptr %2, align 8
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val2 = load double, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = fadd double %.val, 1.000000e+00
   %14 = fadd double %.val2, 1.000000e+00
   %15 = fmul double %13, 5.000000e-01
@@ -3321,8 +3321,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L24_ComputeUntransformedRayENS_9GfFrustum14
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double %.sink.i, ptr %43, align 8, !noalias !126
   call void @_ZN32pxrInternal_v0_24__pxrReserved__5GfRay20SetPointAndDirectionERKNS_7GfVec3dES3_(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 24
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum32_ComputePickRayOffsetToNearPlaneERKNS_7GfVec3dES3_(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfRay") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %44)
   ret void
@@ -3354,11 +3354,11 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum32_ComputePickRayOf
   %16 = fadd double %13, %.sroa.6.0.copyload.i
   %.sroa.4.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.6.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetLookAtERKNS_7GfVec3dERKNS_10GfRotationE(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(32) %17), !noalias !137
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d10GetInverseEPdd(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 %7, ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef null, double noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %19 = load double, ptr %7, align 8, !noalias !140
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %21 = load double, ptr %20, align 8, !noalias !140
@@ -3528,10 +3528,10 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10ComputeRayERKNS_7
   %.sroa.618.0 = phi double [ %81, %59 ], [ -1.000000e+00, %3 ]
   %.sroa.019.0 = phi double [ 0.000000e+00, %59 ], [ %54, %3 ]
   %.sroa.320.0 = phi double [ 0.000000e+00, %59 ], [ %55, %3 ]
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %83 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetLookAtERKNS_7GfVec3dERKNS_10GfRotationE(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(32) %9), !noalias !149
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d10GetInverseEPdd(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 %6, ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef null, double noundef 0.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !152)
   %84 = load double, ptr %6, align 8, !noalias !152
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -3801,7 +3801,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum23_CalculateFrustum
   %34 = load double, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %36 = load double, ptr %35, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %38 = invoke noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetLookAtERKNS_7GfVec3dERKNS_10GfRotationE(ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(32) %37)
           to label %.noexc unwind label %_ZNSt10unique_ptrISt5arrayIN32pxrInternal_v0_24__pxrReserved__7GfPlaneELm6EESt14default_deleteIS3_EED2Ev.exit
@@ -3811,7 +3811,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum23_CalculateFrustum
           to label %39 unwind label %_ZNSt10unique_ptrISt5arrayIN32pxrInternal_v0_24__pxrReserved__7GfPlaneELm6EESt14default_deleteIS3_EED2Ev.exit
 
 39:                                               ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %41 = load i32, ptr %40, align 8
   %42 = icmp eq i32 %41, 1
@@ -5135,11 +5135,11 @@ switch.lookup:                                    ; preds = %357
 359:                                              ; preds = %357, %switch.lookup
   %.sroa.5.0 = phi double [ %switch.load, %switch.lookup ], [ 0.000000e+00, %357 ]
   %.sroa.0.0 = phi double [ %switch.load120, %switch.lookup ], [ 1.000000e+00, %357 ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %360 = load i32, ptr %343, align 8, !noalias !196
   %361 = load double, ptr %345, align 8, !noalias !196
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !196
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !196
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !196
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !196
   %.sroa.0.0.copyload2.i.i3.i.i.i = load double, ptr %346, align 8, !noalias !199
   %.sroa.4.0.copyload.i.i5.i.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i4.i.i.i, align 8, !noalias !199
   %362 = load double, ptr %344, align 8, !noalias !199
@@ -5184,10 +5184,10 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14ComputePickRayERKNS_7GfVec2dE.
   store double %.sink15.i.i, ptr %350, align 8, !noalias !199
   store double %.sink.i.i, ptr %351, align 8, !noalias !199
   call void @_ZN32pxrInternal_v0_24__pxrReserved__5GfRay20SetPointAndDirectionERKNS_7GfVec3dES3_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6), !noalias !196
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !196
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !196
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !196
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !196
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum32_ComputePickRayOffsetToNearPlaneERKNS_7GfVec3dES3_(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfRay") align 8 %8, ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %352)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %383 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay9IntersectERKNS_7GfVec3dES3_S3_PdPS1_Pbd(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %9, ptr noundef null, ptr noundef null, double noundef 0x7FF0000000000000)
   br i1 %383, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18_SegmentIntersectsERKNS_7GfVec3dEjS3_j.exit, label %353
 
@@ -5535,10 +5535,10 @@ define internal void @_GLOBAL__sub_I_frustum.cpp() #21 section ".text.startup" {
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #24

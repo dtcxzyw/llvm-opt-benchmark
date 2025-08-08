@@ -18,7 +18,7 @@ define hidden i64 @SDL_GetPerformanceCounter_REAL() local_unnamed_addr #0 {
   br i1 %.b6, label %8, label %4
 
 4:                                                ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %5 = call i32 @clock_gettime(i32 noundef 4, ptr noundef nonnull %1) #6
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %CheckMonotonicTime.exit
@@ -29,7 +29,7 @@ define hidden i64 @SDL_GetPerformanceCounter_REAL() local_unnamed_addr #0 {
 
 CheckMonotonicTime.exit:                          ; preds = %4, %7
   store i1 true, ptr @checked_monotonic_time, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %8
 
 8:                                                ; preds = %CheckMonotonicTime.exit, %0
@@ -37,25 +37,25 @@ CheckMonotonicTime.exit:                          ; preds = %4, %7
   br i1 %.b57, label %9, label %16
 
 9:                                                ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %10 = call i32 @clock_gettime(i32 noundef 4, ptr noundef nonnull %2) #6
   %11 = load i64, ptr %2, align 8
   %12 = mul i64 %11, 1000000000
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %12, %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %23
 
 16:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %17 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #6
   %18 = load i64, ptr %3, align 8
   %19 = mul i64 %18, 1000000
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %19, %21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %23
 
 23:                                               ; preds = %16, %9
@@ -63,17 +63,11 @@ CheckMonotonicTime.exit:                          ; preds = %4, %7
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i64 1000000, 1000000001) i64 @SDL_GetPerformanceFrequency_REAL() local_unnamed_addr #0 {
@@ -82,7 +76,7 @@ define hidden range(i64 1000000, 1000000001) i64 @SDL_GetPerformanceFrequency_RE
   br i1 %.b2, label %6, label %2
 
 2:                                                ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = call i32 @clock_gettime(i32 noundef 4, ptr noundef nonnull %1) #6
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %CheckMonotonicTime.exit
@@ -93,7 +87,7 @@ define hidden range(i64 1000000, 1000000001) i64 @SDL_GetPerformanceFrequency_RE
 
 CheckMonotonicTime.exit:                          ; preds = %2, %5
   store i1 true, ptr @checked_monotonic_time, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %6
 
 6:                                                ; preds = %CheckMonotonicTime.exit, %0
@@ -106,8 +100,8 @@ CheckMonotonicTime.exit:                          ; preds = %2, %5
 define hidden void @SDL_SYS_DelayNS(i64 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = udiv i64 %0, 1000000000
   store i64 %4, ptr %3, align 8
   %5 = urem i64 %0, 1000000000
@@ -133,22 +127,28 @@ define hidden void @SDL_SYS_DelayNS(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %15, label %9, label %.critedge, !llvm.loop !3
 
 .critedge:                                        ; preds = %9, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #4
+declare ptr @__errno_location() local_unnamed_addr #3
 
-declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(none) }
 

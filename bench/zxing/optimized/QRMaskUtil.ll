@@ -94,7 +94,7 @@ define noundef i32 @_ZN5ZXing6QRCode8MaskUtil20CalculateMaskPenaltyERKNS_6Matrix
 
 _ZN5ZXing6QRCode8MaskUtilL21ApplyMaskPenaltyRule2ERKNS_6MatrixINS_4TritEEE.exit: ; preds = %1, %._crit_edge27.loopexit.i
   %.020.lcssa.i = phi i32 [ 0, %1 ], [ %19, %._crit_edge27.loopexit.i ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4
   %38 = icmp sgt i32 %6, 0
   br i1 %38, label %.preheader.lr.ph.i4, label %_ZN5ZXing6QRCode8MaskUtilL21ApplyMaskPenaltyRule2ERKNS_6MatrixINS_4TritEEE.exit._ZN5ZXing6QRCode8MaskUtilL21ApplyMaskPenaltyRule3ERKNS_6MatrixINS_4TritEEE.exit_crit_edge
@@ -331,7 +331,7 @@ _ZN5ZXing6QRCode8MaskUtilL12HasPatternAtILm4EEEbRKSt5arrayIbXT_EEPKNS_4TritEii.e
 _ZN5ZXing6QRCode8MaskUtilL21ApplyMaskPenaltyRule3ERKNS_6MatrixINS_4TritEEE.exit: ; preds = %_ZN5ZXing6QRCode8MaskUtilL21ApplyMaskPenaltyRule2ERKNS_6MatrixINS_4TritEEE.exit._ZN5ZXing6QRCode8MaskUtilL21ApplyMaskPenaltyRule3ERKNS_6MatrixINS_4TritEEE.exit_crit_edge, %._crit_edge142.loopexit.i
   %122 = phi ptr [ %.pre21, %_ZN5ZXing6QRCode8MaskUtilL21ApplyMaskPenaltyRule2ERKNS_6MatrixINS_4TritEEE.exit._ZN5ZXing6QRCode8MaskUtilL21ApplyMaskPenaltyRule3ERKNS_6MatrixINS_4TritEEE.exit_crit_edge ], [ %41, %._crit_edge142.loopexit.i ]
   %.0.lcssa.i = phi i32 [ 0, %_ZN5ZXing6QRCode8MaskUtilL21ApplyMaskPenaltyRule2ERKNS_6MatrixINS_4TritEEE.exit._ZN5ZXing6QRCode8MaskUtilL21ApplyMaskPenaltyRule3ERKNS_6MatrixINS_4TritEEE.exit_crit_edge ], [ %59, %._crit_edge142.loopexit.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %123 = mul nsw i32 %.pre20, %6
   %124 = sext i32 %123 to i64
   %125 = getelementptr inbounds i8, ptr %122, i64 %124
@@ -455,14 +455,14 @@ define internal fastcc noundef i32 @_ZN5ZXing6QRCode8MaskUtilL29ApplyMaskPenalty
   br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !34
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #2
+declare i64 @llvm.abs.i64(i64, i1 immarg) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #3
@@ -471,11 +471,10 @@ declare i32 @llvm.umin.i32(i32, i32) #3
 declare i32 @llvm.smin.i32(i32, i32) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind optsize willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { optsize }
-attributes #5 = { nounwind }
 
 !llvm.linker.options = !{}
 !llvm.module.flags = !{!0, !1, !2}

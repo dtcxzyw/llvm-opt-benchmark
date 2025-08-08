@@ -23,7 +23,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6411emitBuiltinERNS1_13IrRegAllocX64ERN
   ]
 
 11:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX64C1ERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64Ej(ptr noundef nonnull align 8 dereferenceable(240) %9, ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(252) %1, i32 noundef -1)
   %12 = shl i32 %4, 4
   %.sroa.21.0.insert.ext.i.i.i = zext i32 %12 to i64
@@ -31,10 +31,10 @@ define dso_local void @_ZN4Luau7CodeGen3X6411emitBuiltinERNS1_13IrRegAllocX64ERN
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.21.0.insert.shift.i.i.i, 343179265
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240) %9, i8 noundef zeroext 5, i64 %.sroa.0.0.insert.insert.i.i, i32 0)
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240) %9, i8 noundef zeroext 4, i64 275148734465, i32 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 1718329573377, ptr %10, align 8
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX644callERKNS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(240) %9, ptr noundef nonnull align 4 dereferenceable(8) %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %13 = shl i32 %3, 4
   %.sroa.21.0.insert.ext.i.i24.i = zext i32 %13 to i64
   %.sroa.21.0.insert.shift.i.i25.i = shl nuw i64 %.sroa.21.0.insert.ext.i.i24.i, 32
@@ -63,11 +63,11 @@ define dso_local void @_ZN4Luau7CodeGen3X6411emitBuiltinERNS1_13IrRegAllocX64ERN
   br label %_ZN4Luau7CodeGen3X64L20emitBuiltinMathFrexpERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64Eiii.exit
 
 _ZN4Luau7CodeGen3X64L20emitBuiltinMathFrexpERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64Eiii.exit: ; preds = %11, %16
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %27
 
 19:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX64C1ERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64Ej(ptr noundef nonnull align 8 dereferenceable(240) %7, ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(252) %1, i32 noundef -1)
   %20 = shl i32 %4, 4
   %.sroa.21.0.insert.ext.i.i.i10 = zext i32 %20 to i64
@@ -75,10 +75,10 @@ _ZN4Luau7CodeGen3X64L20emitBuiltinMathFrexpERNS1_13IrRegAllocX64ERNS1_18Assembly
   %.sroa.0.0.insert.insert.i.i12 = or disjoint i64 %.sroa.21.0.insert.shift.i.i.i11, 343179265
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240) %7, i8 noundef zeroext 5, i64 %.sroa.0.0.insert.insert.i.i12, i32 0)
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240) %7, i8 noundef zeroext 4, i64 275148734465, i32 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 1752689311745, ptr %8, align 8
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX644callERKNS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(240) %7, ptr noundef nonnull align 4 dereferenceable(8) %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX646vmovsdENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %1, i64 269320192, i64 275215843329)
   %21 = shl i32 %3, 4
   %.sroa.21.0.insert.ext.i.i24.i13 = zext i32 %21 to i64
@@ -107,35 +107,34 @@ _ZN4Luau7CodeGen3X64L20emitBuiltinMathFrexpERNS1_13IrRegAllocX64ERNS1_18Assembly
   br label %_ZN4Luau7CodeGen3X64L19emitBuiltinMathModfERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64Eiii.exit
 
 _ZN4Luau7CodeGen3X64L19emitBuiltinMathModfERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64Eiii.exit: ; preds = %19, %24
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %27
 
 27:                                               ; preds = %6, %_ZN4Luau7CodeGen3X64L19emitBuiltinMathModfERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64Eiii.exit, %_ZN4Luau7CodeGen3X64L20emitBuiltinMathFrexpERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64Eiii.exit
   ret void
 }
 
+declare void @_ZN4Luau7CodeGen3X6416IrCallWrapperX64C1ERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64Ej(ptr noundef nonnull align 8 dereferenceable(240), ptr noundef nonnull align 8 dereferenceable(256), ptr noundef nonnull align 8 dereferenceable(252), i32 noundef) unnamed_addr #1
+
+declare void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240), i8 noundef zeroext, i64, i32) local_unnamed_addr #1
+
+declare void @_ZN4Luau7CodeGen3X6416IrCallWrapperX644callERKNS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(240), ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
+
+declare void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX646vmovsdENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252), i64, i64) local_unnamed_addr #1
+
+declare void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252), i64, i64) local_unnamed_addr #1
+
+declare void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649vcvtsi2sdENS1_10OperandX64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(252), i64, i64, i64) local_unnamed_addr #1
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @_ZN4Luau7CodeGen3X6416IrCallWrapperX64C1ERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64Ej(ptr noundef nonnull align 8 dereferenceable(240), ptr noundef nonnull align 8 dereferenceable(256), ptr noundef nonnull align 8 dereferenceable(252), i32 noundef) unnamed_addr #2
-
-declare void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(240), i8 noundef zeroext, i64, i32) local_unnamed_addr #2
-
-declare void @_ZN4Luau7CodeGen3X6416IrCallWrapperX644callERKNS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(240), ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX646vmovsdENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252), i64, i64) local_unnamed_addr #2
-
-declare void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252), i64, i64) local_unnamed_addr #2
-
-declare void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649vcvtsi2sdENS1_10OperandX64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(252), i64, i64, i64) local_unnamed_addr #2
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

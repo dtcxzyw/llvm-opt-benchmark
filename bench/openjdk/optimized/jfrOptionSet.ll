@@ -385,7 +385,7 @@ define hidden noundef zeroext i1 @_ZN12JfrOptionSet10initializeEP10JavaThread(pt
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) @_ZL7_parser, ptr noundef nonnull @_ZL17_dcmd_retransform) #18
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) @_ZL7_parser, ptr noundef nonnull @_ZL27_dcmd_old_object_queue_size) #18
   tail call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) @_ZL7_parser, ptr noundef nonnull @_ZL25_dcmd_preserve_repository) #18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @FlightRecorderOptions, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %44, label %5
@@ -482,11 +482,11 @@ define hidden noundef zeroext i1 @_ZN12JfrOptionSet10initializeEP10JavaThread(pt
   br label %_ZL38parse_flight_recorder_options_internalP10JavaThread.exit.thread
 
 _ZL38parse_flight_recorder_options_internalP10JavaThread.exit.thread: ; preds = %18, %20, %41, %43
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %53
 
 44:                                               ; preds = %5, %1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %45 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL17_dcmd_retransform, i64 48), align 8
   %46 = trunc i8 %45 to i1
   br i1 %46, label %47, label %50
@@ -2530,10 +2530,10 @@ declare i32 @llvm.umin.i32(i32, i32) #15
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

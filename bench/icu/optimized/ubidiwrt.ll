@@ -83,10 +83,7 @@ define i32 @ubidi_writeReverse_77(ptr noundef %0, i32 noundef %1, ptr noundef %2
   ret i32 %.038
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @u_strlen_77(ptr noundef) local_unnamed_addr #2
+declare i32 @u_strlen_77(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, i16 noundef zeroext %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #0 {
@@ -439,17 +436,14 @@ define internal fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(p
   ret i32 %.0116
 }
 
-declare i32 @u_terminateUChars_77(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @u_terminateUChars_77(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp eq ptr %4, null
   br i1 %8, label %284, label %9
 
@@ -1020,14 +1014,14 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 284:                                              ; preds = %43, %5, %9, %.loopexit, %41, %38, %25
   %.0 = phi i32 [ 0, %25 ], [ 0, %38 ], [ %42, %41 ], [ %283, %.loopexit ], [ 0, %9 ], [ 0, %5 ], [ 0, %43 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-declare i32 @ubidi_countRuns_77(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ubidi_countRuns_77(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ubidi_getVisualRun_77(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ubidi_getVisualRun_77(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, i16 noundef zeroext %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #0 {
@@ -1325,18 +1319,23 @@ switch.early.test:                                ; preds = %.preheader178
   ret i32 %.1
 }
 
-declare signext i8 @u_charType_77(i32 noundef) local_unnamed_addr #2
+declare signext i8 @u_charType_77(i32 noundef) local_unnamed_addr #1
 
-declare i32 @u_charMirror_77(i32 noundef) local_unnamed_addr #2
+declare i32 @u_charMirror_77(i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #3
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

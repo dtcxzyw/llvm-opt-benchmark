@@ -530,7 +530,7 @@ for.body119:                                      ; preds = %for.body119.lr.ph, 
   %maxModuleID.0325 = phi i64 [ %conv111, %for.body119.lr.ph ], [ %spec.select, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes2vm8SymbolIDEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findERKS4_.exit ]
   %__begin2.0324 = phi ptr [ %retval.sroa.0.0.copyload.i114, %for.body119.lr.ph ], [ %incdec.ptr, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes2vm8SymbolIDEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findERKS4_.exit ]
   %35 = load i32, ptr %__begin2.0324, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %entry4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %entry4.i)
   %conv.i = zext i32 %35 to i64
   %36 = load ptr, ptr %stringIDMap_.i, align 8
   %add.ptr.i.i120 = getelementptr inbounds nuw %"class.hermes::vm::RootSymbolID", ptr %36, i64 %conv.i
@@ -580,7 +580,7 @@ _ZNK6hermes3hbc20BCProviderFromBuffer19getStringTableEntryEj.exit.i: ; preds = %
 
 _ZN6hermes2vm13RuntimeModule34getSymbolIDFromStringIDMayAllocateEj.exit: ; preds = %for.body119, %_ZNK6hermes3hbc20BCProviderFromBuffer19getStringTableEntryEj.exit.i
   %retval.sroa.0.0.i125 = phi i32 [ %37, %for.body119 ], [ %call7.i, %_ZNK6hermes3hbc20BCProviderFromBuffer19getStringTableEntryEj.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %entry4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %entry4.i)
   %agg.tmp.sroa.0.0.copyload.i.i126 = load i64, ptr %self.coerce, align 8
   %and.i.i.i.i.i127 = and i64 %agg.tmp.sroa.0.0.copyload.i.i126, 281474976710655
   %42 = inttoptr i64 %and.i.i.i.i.i127 to ptr
@@ -809,7 +809,7 @@ for.body208.lr.ph:                                ; preds = %if.end194
 for.body208:                                      ; preds = %for.body208.lr.ph, %for.inc228
   %__begin2202.0333 = phi ptr [ %retval.sroa.0.0.copyload.i192, %for.body208.lr.ph ], [ %incdec.ptr229, %for.inc228 ]
   %66 = load i32, ptr %__begin2202.0333, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %entry4.i199)
+  call void @llvm.lifetime.start.p0(ptr nonnull %entry4.i199)
   %conv.i201 = zext i32 %66 to i64
   %67 = load ptr, ptr %stringIDMap_.i200, align 8
   %add.ptr.i.i202 = getelementptr inbounds nuw %"class.hermes::vm::RootSymbolID", ptr %67, i64 %conv.i201
@@ -859,7 +859,7 @@ _ZNK6hermes3hbc20BCProviderFromBuffer19getStringTableEntryEj.exit.i214: ; preds 
 
 _ZN6hermes2vm13RuntimeModule34getSymbolIDFromStringIDMayAllocateEj.exit234: ; preds = %for.body208, %_ZNK6hermes3hbc20BCProviderFromBuffer19getStringTableEntryEj.exit.i214
   %retval.sroa.0.0.i224 = phi i32 [ %68, %for.body208 ], [ %call7.i222, %_ZNK6hermes3hbc20BCProviderFromBuffer19getStringTableEntryEj.exit.i214 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %entry4.i199)
+  call void @llvm.lifetime.end.p0(ptr nonnull %entry4.i199)
   store i32 %retval.sroa.0.0.i224, ptr %symbolId210, align 4
   %agg.tmp.sroa.0.0.copyload.i.i235 = load i64, ptr %self.coerce, align 8
   %and.i.i.i.i.i236 = and i64 %agg.tmp.sroa.0.0.copyload.i.i235, 281474976710655
@@ -1804,10 +1804,10 @@ declare void @llvm.assume(i1 noundef) #11
 declare i32 @llvm.umax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

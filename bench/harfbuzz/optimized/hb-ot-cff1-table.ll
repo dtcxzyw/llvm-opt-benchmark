@@ -254,12 +254,6 @@ _ZN17hb_sorted_array_tIK12sid_to_gid_tE7bsearchIjEEPS1_RKT_S4_.exit.thread: ; pr
   ret i32 %20
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef range(i32 0, 256) i32 @_ZN2OT4cff138lookup_expert_subset_charset_for_glyphEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
 .lr.ph.i.i.i.i:
@@ -325,9 +319,9 @@ define hidden noundef range(i32 -1, 256) i32 @_ZN2OT4cff132lookup_standard_encod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK2OT4cff113accelerator_t11get_extentsEP9hb_font_tjP18hb_glyph_extents_t(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK2OT4cff113accelerator_t11get_extentsEP9hb_font_tjP18hb_glyph_extents_t(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %struct.bounds_t, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call fastcc noundef zeroext i1 @_ZL11_get_boundsPKN2OT4cff113accelerator_tEjR8bounds_tb(ptr noundef nonnull %0, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext false)
   br i1 %6, label %7, label %40
 
@@ -384,12 +378,12 @@ define hidden noundef zeroext i1 @_ZNK2OT4cff113accelerator_t11get_extentsEP9hb_
   br label %40
 
 40:                                               ; preds = %4, %37
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL11_get_boundsPKN2OT4cff113accelerator_tEjR8bounds_tb(ptr noundef %0, i32 noundef %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %2, i1 noundef zeroext %3) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @_ZL11_get_boundsPKN2OT4cff113accelerator_tEjR8bounds_tb(ptr noundef %0, i32 noundef %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %2, i1 noundef zeroext %3) unnamed_addr #1 {
   %5 = alloca %"struct.CFF::cff1_cs_interp_env_t", align 8
   %6 = alloca %struct.cff1_extents_param_t, align 8
   store double 0x41DFFFFFFFC00000, ptr %2, align 8, !tbaa !14
@@ -518,7 +512,7 @@ _ZNK3CFF8FDSelect6get_fdEj.exit:                  ; preds = %15, %19, %21, %_ZNK
   %60 = tail call { ptr, i64 } @_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEEixEj(ptr noundef nonnull align 1 dereferenceable(4) %59, i32 noundef %1)
   %61 = extractvalue { ptr, i64 } %60, 0
   %62 = extractvalue { ptr, i64 } %60, 1
-  call void @llvm.lifetime.start.p0(i64 4488, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %64 = load ptr, ptr %63, align 8, !tbaa !61
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 284
@@ -628,7 +622,7 @@ _ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT
   %108 = getelementptr inbounds nuw i8, ptr %5, i64 4480
   %109 = zext i1 %3 to i8
   store i8 %109, ptr %108, align 8, !tbaa !97
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 8, !tbaa !98
   %110 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %111 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -759,8 +753,8 @@ _ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE8in_erro
 
 _ZN3CFF16cs_interpreter_tINS_20cff1_cs_interp_env_tE23cff1_cs_opset_extents_t20cff1_extents_param_tE9interpretERS3_.exit: ; preds = %_ZN3CFF15cff1_cs_opset_tI23cff1_cs_opset_extents_t20cff1_extents_param_t25cff1_path_procs_extents_tE10process_opEjRNS_20cff1_cs_interp_env_tERS2_.exit, %_ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE8in_errorEv.exit, %158
   %.03.i30 = phi i1 [ true, %158 ], [ false, %_ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE8in_errorEv.exit ], [ false, %_ZN3CFF15cff1_cs_opset_tI23cff1_cs_opset_extents_t20cff1_extents_param_t25cff1_path_procs_extents_tE10process_opEjRNS_20cff1_cs_interp_env_tERS2_.exit ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 4488, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
 .critedge:                                        ; preds = %4, %12, %_ZN3CFF16cs_interpreter_tINS_20cff1_cs_interp_env_tE23cff1_cs_opset_extents_t20cff1_extents_param_tE9interpretERS3_.exit
@@ -769,7 +763,7 @@ _ZN3CFF16cs_interpreter_tINS_20cff1_cs_interp_env_tE23cff1_cs_opset_extents_t20c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN9hb_font_t19scale_glyph_extentsEP18hb_glyph_extents_t(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN9hb_font_t19scale_glyph_extentsEP18hb_glyph_extents_t(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 {
   %3 = load i32, ptr %1, align 4, !tbaa !20
   %4 = trunc i32 %3 to i16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -875,13 +869,13 @@ define linkonce_odr dso_local void @_ZN9hb_font_t19scale_glyph_extentsEP18hb_gly
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK2OT4cff113accelerator_t8get_pathEP9hb_font_tjR17hb_draw_session_t(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK2OT4cff113accelerator_t8get_pathEP9hb_font_tjR17hb_draw_session_t(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #1 align 2 {
   %5 = tail call fastcc noundef zeroext i1 @_ZL9_get_pathPKN2OT4cff113accelerator_tEP9hb_font_tjR17hb_draw_session_tbPN3CFF7point_tE(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(72) %3, i1 noundef zeroext false, ptr noundef null)
   ret i1 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL9_get_pathPKN2OT4cff113accelerator_tEP9hb_font_tjR17hb_draw_session_tbPN3CFF7point_tE(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(72) %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @_ZL9_get_pathPKN2OT4cff113accelerator_tEP9hb_font_tjR17hb_draw_session_tbPN3CFF7point_tE(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(72) %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #1 {
   %7 = alloca %"struct.CFF::cff1_cs_interp_env_t", align 8
   %8 = alloca %struct.cff1_path_param_t, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1003,7 +997,7 @@ _ZNK3CFF8FDSelect6get_fdEj.exit:                  ; preds = %14, %18, %20, %_ZNK
   %59 = tail call { ptr, i64 } @_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEEixEj(ptr noundef nonnull align 1 dereferenceable(4) %58, i32 noundef %2)
   %60 = extractvalue { ptr, i64 } %59, 0
   %61 = extractvalue { ptr, i64 } %59, 1
-  call void @llvm.lifetime.start.p0(i64 4488, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %63 = load ptr, ptr %62, align 8, !tbaa !61
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 284
@@ -1113,7 +1107,7 @@ _ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 4480
   %108 = zext i1 %4 to i8
   store i8 %108, ptr %107, align 8, !tbaa !97
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %109 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %3, ptr %109, align 8, !tbaa !143
   %110 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -1303,8 +1297,8 @@ _ZN17cff1_path_param_t8end_pathEv.exit:           ; preds = %155, %_ZN15hb_draw_
 
 _ZN3CFF16cs_interpreter_tINS_20cff1_cs_interp_env_tE20cff1_cs_opset_path_t17cff1_path_param_tE9interpretERS3_.exit: ; preds = %_ZN3CFF15cff1_cs_opset_tI20cff1_cs_opset_path_t17cff1_path_param_t22cff1_path_procs_path_tE10process_opEjRNS_20cff1_cs_interp_env_tERS2_.exit, %_ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE8in_errorEv.exit, %_ZN17cff1_path_param_t8end_pathEv.exit
   %.03.i32 = phi i1 [ true, %_ZN17cff1_path_param_t8end_pathEv.exit ], [ false, %_ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE8in_errorEv.exit ], [ false, %_ZN3CFF15cff1_cs_opset_tI20cff1_cs_opset_path_t17cff1_path_param_t22cff1_path_procs_path_tE10process_opEjRNS_20cff1_cs_interp_env_tERS2_.exit ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 4488, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge
 
 .critedge:                                        ; preds = %6, %11, %_ZN3CFF16cs_interpreter_tINS_20cff1_cs_interp_env_tE20cff1_cs_opset_path_t17cff1_path_param_tE9interpretERS3_.exit
@@ -1313,7 +1307,7 @@ _ZN3CFF16cs_interpreter_tINS_20cff1_cs_interp_env_tE20cff1_cs_opset_path_t17cff1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK2OT4cff120accelerator_subset_t19get_seac_componentsEjPjS2_(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK2OT4cff120accelerator_subset_t19get_seac_componentsEjPjS2_(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"struct.CFF::cff1_cs_interp_env_t", align 8
   %6 = alloca %"struct.CFF::cs_interpreter_t", align 8
   %7 = alloca %struct.get_seac_param_t, align 8
@@ -1434,7 +1428,7 @@ _ZNK3CFF8FDSelect6get_fdEj.exit:                  ; preds = %14, %18, %20, %_ZNK
   %59 = tail call { ptr, i64 } @_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEEixEj(ptr noundef nonnull align 1 dereferenceable(4) %58, i32 noundef %1)
   %60 = extractvalue { ptr, i64 } %59, 0
   %61 = extractvalue { ptr, i64 } %59, 1
-  call void @llvm.lifetime.start.p0(i64 4488, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %63 = load ptr, ptr %62, align 8, !tbaa !175
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 284
@@ -1542,9 +1536,9 @@ _ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff120accelerator_subset_tEEERK10hb_array_
   store i32 0, ptr %105, align 4, !tbaa !96
   %106 = getelementptr inbounds nuw i8, ptr %5, i64 4480
   store i8 0, ptr %106, align 8, !tbaa !97
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %5, ptr %6, align 8, !tbaa !183
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %0, ptr %7, align 8, !tbaa !185
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %107, align 8, !tbaa !188
@@ -1568,9 +1562,9 @@ _ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff120accelerator_subset_tEEERK10hb_array_
 
 116:                                              ; preds = %110, %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff120accelerator_subset_tEEERK10hb_array_tIKhERT_jPKij.exit, %115
   %.1 = phi i1 [ true, %115 ], [ false, %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff120accelerator_subset_tEEERK10hb_array_tIKhERT_jPKij.exit ], [ false, %110 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 4488, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %117
 
 117:                                              ; preds = %4, %116
@@ -1579,7 +1573,7 @@ _ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff120accelerator_subset_tEEERK10hb_array_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local { ptr, i64 } @_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEEixEj(ptr noundef nonnull align 1 dereferenceable(4) %0, i32 noundef %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local { ptr, i64 } @_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEEixEj(ptr noundef nonnull align 1 dereferenceable(4) %0, i32 noundef %1) local_unnamed_addr #1 comdat align 2 {
   %3 = load i16, ptr %0, align 1, !tbaa !57
   %4 = tail call noundef i16 @llvm.bswap.i16(i16 %3)
   %5 = zext i16 %4 to i32
@@ -1751,7 +1745,7 @@ _ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit13: ; preds = %_ZNK2OT8CFF
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3CFF16cs_interpreter_tINS_20cff1_cs_interp_env_tE20cff1_cs_opset_seac_t16get_seac_param_tE9interpretERS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN3CFF16cs_interpreter_tINS_20cff1_cs_interp_env_tE20cff1_cs_opset_seac_t16get_seac_param_tE9interpretERS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !194
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4152
   store i8 0, ptr %4, align 8, !tbaa !103
@@ -1904,16 +1898,16 @@ _ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE8in_erro
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #5
+declare i16 @llvm.bswap.i16(i16) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN23cff1_cs_opset_extents_t12process_seacERN3CFF20cff1_cs_interp_env_tER20cff1_extents_param_t(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN23cff1_cs_opset_extents_t12process_seacERN3CFF20cff1_cs_interp_env_tER20cff1_extents_param_t(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca %struct.bounds_t, align 8
   %4 = alloca %struct.bounds_t, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2068,9 +2062,9 @@ _ZN2OT4cff132lookup_standard_encoding_for_sidEj.exit.i36: ; preds = %_ZN3CFF11cf
 
 _ZNK2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEE17std_code_to_glyphEj.exit40: ; preds = %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit34, %78, %82
   %.0.i35 = phi i32 [ %81, %78 ], [ %..i39, %82 ], [ 0, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit34 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 4480
   %88 = load i8, ptr %87, align 8, !tbaa !97, !range !106, !noundef !107
@@ -2244,13 +2238,13 @@ _ZN8bounds_t6offsetERKN3CFF7point_tE.exit:        ; preds = %_ZN8bounds_t5mergeE
   br label %_ZN8bounds_t5mergeERKS_.exit42
 
 _ZN8bounds_t5mergeERKS_.exit42:                   ; preds = %176, %174, %161, %160, %.critedge
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3CFF10cs_opset_tINS_8number_tE23cff1_cs_opset_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_t25cff1_path_procs_extents_tE10process_opEjRS3_RS4_(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(4481) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3CFF10cs_opset_tINS_8number_tE23cff1_cs_opset_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_t25cff1_path_procs_extents_tE10process_opEjRS3_RS4_(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(4481) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #1 comdat align 2 {
   switch i32 %0, label %439 [
     i32 11, label %4
     i32 14, label %23
@@ -3230,7 +3224,7 @@ _ZN3CFF11arg_stack_tINS_8number_tEE22push_fixed_from_substrERNS_14byte_str_ref_t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK3CFF7Charset9get_glyphEjj(ptr noundef nonnull align 1 dereferenceable(5) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZNK3CFF7Charset9get_glyphEjj(ptr noundef nonnull align 1 dereferenceable(5) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 comdat align 2 {
   %4 = load i8, ptr %0, align 1, !tbaa !54
   switch i8 %4, label %_ZNK3CFF8Charset09get_glyphEjj.exit [
     i8 0, label %5
@@ -3350,7 +3344,7 @@ _ZNK3CFF8Charset09get_glyphEjj.exit:              ; preds = %.lr.ph._crit_edge.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE7rlinetoERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE7rlinetoERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4, !tbaa !105
@@ -3509,7 +3503,7 @@ _ZN25cff1_path_procs_extents_t4lineERN3CFF20cff1_cs_interp_env_tER20cff1_extents
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE7hlinetoERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE7hlinetoERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4, !tbaa !105
@@ -3870,7 +3864,7 @@ _ZN25cff1_path_procs_extents_t4lineERN3CFF20cff1_cs_interp_env_tER20cff1_extents
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE7vlinetoERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE7vlinetoERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4, !tbaa !105
@@ -4231,7 +4225,7 @@ _ZN25cff1_path_procs_extents_t4lineERN3CFF20cff1_cs_interp_env_tER20cff1_extents
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE9rrcurvetoERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE9rrcurvetoERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca %"struct.CFF::point_t", align 8
   %4 = alloca %"struct.CFF::point_t", align 8
   %5 = alloca %"struct.CFF::point_t", align 8
@@ -4260,7 +4254,7 @@ define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_exte
   %19 = phi i32 [ %8, %.lr.ph ], [ %69, %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit32 ]
   %20 = phi i32 [ 6, %.lr.ph ], [ %68, %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit32 ]
   %.034 = phi i32 [ 0, %.lr.ph ], [ %20, %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit32 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !211
   %.not.i.i = icmp ult i32 %.034, %19
   br i1 %.not.i.i, label %22, label %21, !prof !52
@@ -4301,7 +4295,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit20: ; preds = %26, %27
   %34 = load double, ptr %12, align 8, !tbaa !14
   %35 = fadd double %34, %30
   store double %35, ptr %12, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !211
   %36 = add i32 %.034, 2
   %.not.i.i21 = icmp ult i32 %36, %19
@@ -4343,7 +4337,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit26: ; preds = %42, %43
   %50 = load double, ptr %13, align 8, !tbaa !14
   %51 = fadd double %50, %46
   store double %51, ptr %13, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !211
   %52 = add i32 %.034, 4
   %.not.i.i27 = icmp ult i32 %52, %19
@@ -4386,9 +4380,9 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit32: ; preds = %58, %59
   %67 = fadd double %66, %62
   store double %67, ptr %14, align 8, !tbaa !14
   call void @_ZN25cff1_path_procs_extents_t5curveERN3CFF20cff1_cs_interp_env_tER20cff1_extents_param_tRKNS0_7point_tES7_S7_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %68 = add i32 %20, 6
   %69 = load i32, ptr %7, align 4, !tbaa !105
   %.not = icmp ugt i32 %68, %69
@@ -4396,7 +4390,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit32: ; preds = %58, %59
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE10rcurvelineERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE10rcurvelineERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca %"struct.CFF::point_t", align 8
   %4 = alloca %"struct.CFF::point_t", align 8
   %5 = alloca %"struct.CFF::point_t", align 8
@@ -4422,7 +4416,7 @@ define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_exte
 20:                                               ; preds = %.lr.ph, %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit43
   %21 = phi i32 [ 6, %.lr.ph ], [ %70, %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit43 ]
   %.054 = phi i32 [ 0, %.lr.ph ], [ %21, %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit43 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !211
   %22 = load i32, ptr %7, align 4, !tbaa !105
   %.not.i.i = icmp ult i32 %.054, %22
@@ -4464,7 +4458,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit31: ; preds = %28, %29
   %36 = load double, ptr %14, align 8, !tbaa !14
   %37 = fadd double %36, %32
   store double %37, ptr %14, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !211
   %38 = add i32 %.054, 2
   %.not.i.i32 = icmp ult i32 %38, %22
@@ -4506,7 +4500,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit37: ; preds = %44, %45
   %52 = load double, ptr %15, align 8, !tbaa !14
   %53 = fadd double %52, %48
   store double %53, ptr %15, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !211
   %54 = add i32 %.054, 4
   %.not.i.i38 = icmp ult i32 %54, %22
@@ -4549,9 +4543,9 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit43: ; preds = %60, %61
   %69 = fadd double %68, %64
   store double %69, ptr %16, align 8, !tbaa !14
   call void @_ZN25cff1_path_procs_extents_t5curveERN3CFF20cff1_cs_interp_env_tER20cff1_extents_param_tRKNS0_7point_tES7_S7_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %70 = add i32 %21, 6
   %.not = icmp ugt i32 %70, %10
   br i1 %.not, label %._crit_edge, label %20, !llvm.loop !213
@@ -4705,7 +4699,7 @@ _ZN25cff1_path_procs_extents_t4lineERN3CFF20cff1_cs_interp_env_tER20cff1_extents
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE10rlinecurveERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE10rlinecurveERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca %"struct.CFF::point_t", align 8
   %4 = alloca %"struct.CFF::point_t", align 8
   %5 = alloca %"struct.CFF::point_t", align 8
@@ -4864,7 +4858,7 @@ _ZN25cff1_path_procs_extents_t4lineERN3CFF20cff1_cs_interp_env_tER20cff1_extents
   br i1 %.not, label %._crit_edge, label %19, !llvm.loop !214
 
 ._crit_edge:                                      ; preds = %_ZN25cff1_path_procs_extents_t4lineERN3CFF20cff1_cs_interp_env_tER20cff1_extents_param_tRKNS0_7point_tE.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 4448
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %75, i64 16, i1 false), !tbaa.struct !211
   %.not.i.i32 = icmp ult i32 %20, %8
@@ -4912,7 +4906,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit37: ; preds = %83, %86
   %95 = load double, ptr %94, align 8, !tbaa !14
   %96 = fadd double %95, %90
   store double %96, ptr %94, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !211
   %.not.i.i38 = icmp ult i32 %74, %8
   br i1 %.not.i.i38, label %99, label %97, !prof !52
@@ -4959,7 +4953,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit43: ; preds = %104, %107
   %116 = load double, ptr %115, align 8, !tbaa !14
   %117 = fadd double %116, %111
   store double %117, ptr %115, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !211
   %118 = add i32 %20, 4
   %.not.i.i44 = icmp ult i32 %118, %8
@@ -5008,9 +5002,9 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit49: ; preds = %126, %129
   %139 = fadd double %138, %133
   store double %139, ptr %137, align 8, !tbaa !14
   call void @_ZN25cff1_path_procs_extents_t5curveERN3CFF20cff1_cs_interp_env_tER20cff1_extents_param_tRKNS0_7point_tES7_S7_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %140
 
 140:                                              ; preds = %2, %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit49
@@ -5018,11 +5012,11 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit49: ; preds = %126, %129
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE9vvcurvetoERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE9vvcurvetoERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca %"struct.CFF::point_t", align 8
   %4 = alloca %"struct.CFF::point_t", align 8
   %5 = alloca %"struct.CFF::point_t", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4448
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !211
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5080,7 +5074,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit21: ; preds = %27, %28
   %32 = load double, ptr %18, align 8, !tbaa !14
   %33 = fadd double %32, %31
   store double %33, ptr %18, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !211
   %34 = add i32 %.132, 1
   %.not.i.i22 = icmp ult i32 %34, %25
@@ -5122,7 +5116,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit27: ; preds = %40, %41
   %48 = load double, ptr %19, align 8, !tbaa !14
   %49 = fadd double %48, %44
   store double %49, ptr %19, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !211
   %50 = add i32 %.132, 3
   %.not.i.i28 = icmp ult i32 %50, %25
@@ -5146,24 +5140,24 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit30: ; preds = %51, %52
   store double %57, ptr %20, align 8, !tbaa !14
   call void @_ZN25cff1_path_procs_extents_t5curveERN3CFF20cff1_cs_interp_env_tER20cff1_extents_param_tRKNS0_7point_tES7_S7_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !211
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %58 = add i32 %26, 4
   %59 = load i32, ptr %8, align 4, !tbaa !105
   %.not18 = icmp ugt i32 %58, %59
   br i1 %.not18, label %._crit_edge, label %24, !llvm.loop !215
 
 ._crit_edge:                                      ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit30, %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE9hhcurvetoERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE9hhcurvetoERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca %"struct.CFF::point_t", align 8
   %4 = alloca %"struct.CFF::point_t", align 8
   %5 = alloca %"struct.CFF::point_t", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4448
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !211
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5220,7 +5214,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit21: ; preds = %26, %27
   %31 = load double, ptr %3, align 8, !tbaa !14
   %32 = fadd double %31, %30
   store double %32, ptr %3, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !211
   %33 = add i32 %.132, 1
   %.not.i.i22 = icmp ult i32 %33, %24
@@ -5262,7 +5256,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit27: ; preds = %39, %40
   %47 = load double, ptr %19, align 8, !tbaa !14
   %48 = fadd double %47, %43
   store double %48, ptr %19, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !211
   %49 = add i32 %.132, 3
   %.not.i.i28 = icmp ult i32 %49, %24
@@ -5286,29 +5280,29 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit30: ; preds = %50, %51
   store double %56, ptr %5, align 8, !tbaa !14
   call void @_ZN25cff1_path_procs_extents_t5curveERN3CFF20cff1_cs_interp_env_tER20cff1_extents_param_tRKNS0_7point_tES7_S7_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !211
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %57 = add i32 %25, 4
   %58 = load i32, ptr %8, align 4, !tbaa !105
   %.not18 = icmp ugt i32 %57, %58
   br i1 %.not18, label %._crit_edge, label %23, !llvm.loop !216
 
 ._crit_edge:                                      ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit30, %15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE9vhcurvetoERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE9vhcurvetoERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca %"struct.CFF::point_t", align 8
   %4 = alloca %"struct.CFF::point_t", align 8
   %5 = alloca %"struct.CFF::point_t", align 8
   %6 = alloca %"struct.CFF::point_t", align 8
   %7 = alloca %"struct.CFF::point_t", align 8
   %8 = alloca %"struct.CFF::point_t", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %11 = load i32, ptr %10, align 4, !tbaa !105
@@ -5337,7 +5331,7 @@ define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_exte
   br label %129
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit82: ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4448
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false), !tbaa.struct !211
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5346,7 +5340,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit82: ; preds = %2
   %29 = load double, ptr %28, align 8, !tbaa !14
   %30 = fadd double %29, %.pre
   store double %30, ptr %28, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !211
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -5359,7 +5353,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit82: ; preds = %2
   %37 = load double, ptr %36, align 8, !tbaa !14
   %38 = fadd double %37, %.pre145
   store double %38, ptr %36, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !211
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.pre146 = load double, ptr %39, align 8, !tbaa !14
@@ -5576,9 +5570,9 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit109: ; preds = %._crit_edge
 
 128:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit109, %._crit_edge
   call void @_ZN25cff1_path_procs_extents_t5curveERN3CFF20cff1_cs_interp_env_tER20cff1_extents_param_tRKNS0_7point_tES7_S7_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
 129:                                              ; preds = %.lr.ph142, %207
@@ -5789,23 +5783,23 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit136: ; preds = %200, %201
   br i1 %.not71, label %.loopexit, label %129, !llvm.loop !218
 
 .loopexit:                                        ; preds = %207, %.preheader, %128
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE9hvcurvetoERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE9hvcurvetoERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca %"struct.CFF::point_t", align 8
   %4 = alloca %"struct.CFF::point_t", align 8
   %5 = alloca %"struct.CFF::point_t", align 8
   %6 = alloca %"struct.CFF::point_t", align 8
   %7 = alloca %"struct.CFF::point_t", align 8
   %8 = alloca %"struct.CFF::point_t", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %11 = load i32, ptr %10, align 4, !tbaa !105
@@ -5834,7 +5828,7 @@ define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_exte
   br label %128
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit82: ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4448
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false), !tbaa.struct !211
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5842,7 +5836,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit82: ; preds = %2
   %28 = load double, ptr %6, align 8, !tbaa !14
   %29 = fadd double %28, %.pre
   store double %29, ptr %6, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !211
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -5855,7 +5849,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit82: ; preds = %2
   %36 = load double, ptr %35, align 8, !tbaa !14
   %37 = fadd double %36, %.pre145
   store double %37, ptr %35, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !211
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.pre146 = load double, ptr %38, align 8, !tbaa !14
@@ -6072,9 +6066,9 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit109: ; preds = %._crit_edge
 
 127:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit109, %._crit_edge
   call void @_ZN25cff1_path_procs_extents_t5curveERN3CFF20cff1_cs_interp_env_tER20cff1_extents_param_tRKNS0_7point_tES7_S7_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
 128:                                              ; preds = %.lr.ph142, %206
@@ -6285,14 +6279,14 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit136: ; preds = %199, %200
   br i1 %.not71, label %.loopexit, label %128, !llvm.loop !220
 
 .loopexit:                                        ; preds = %206, %.preheader, %127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE5hflexERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE5hflexERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca %"struct.CFF::point_t", align 8
   %4 = alloca %"struct.CFF::point_t", align 8
   %5 = alloca %"struct.CFF::point_t", align 8
@@ -6305,7 +6299,7 @@ define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_exte
   br i1 %11, label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit29, label %40, !prof !52
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit29: ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4448
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !211
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6313,7 +6307,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit29: ; preds = %2
   %15 = load double, ptr %13, align 8, !tbaa !14
   %16 = fadd double %14, %15
   store double %16, ptr %3, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !211
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -6326,21 +6320,21 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit29: ; preds = %2
   %23 = load double, ptr %22, align 8, !tbaa !14
   %24 = fadd double %23, %.pre
   store double %24, ptr %22, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !211
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.pre30 = load double, ptr %25, align 8, !tbaa !14
   %26 = load double, ptr %5, align 8, !tbaa !14
   %27 = fadd double %26, %.pre30
   store double %27, ptr %5, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !211
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.pre31 = load double, ptr %28, align 8, !tbaa !14
   %29 = load double, ptr %6, align 8, !tbaa !14
   %30 = fadd double %29, %.pre31
   store double %30, ptr %6, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !211
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.pre32 = load double, ptr %31, align 8, !tbaa !14
@@ -6351,7 +6345,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit29: ; preds = %2
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %36 = load i64, ptr %34, align 8, !tbaa !109
   store i64 %36, ptr %35, align 8, !tbaa !109
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !211
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.pre33 = load double, ptr %37, align 8, !tbaa !14
@@ -6360,12 +6354,12 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit29: ; preds = %2
   store double %39, ptr %8, align 8, !tbaa !14
   call void @_ZN25cff1_path_procs_extents_t5curveERN3CFF20cff1_cs_interp_env_tER20cff1_extents_param_tRKNS0_7point_tES7_S7_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @_ZN25cff1_path_procs_extents_t5curveERN3CFF20cff1_cs_interp_env_tER20cff1_extents_param_tRKNS0_7point_tES7_S7_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %45
 
 40:                                               ; preds = %2
@@ -6381,7 +6375,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit29: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE4flexERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE4flexERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca %"struct.CFF::point_t", align 8
   %4 = alloca %"struct.CFF::point_t", align 8
   %5 = alloca %"struct.CFF::point_t", align 8
@@ -6394,7 +6388,7 @@ define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_exte
   br i1 %11, label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit49, label %61, !prof !52
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit49: ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4448
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !211
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6408,7 +6402,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit49: ; preds = %2
   %19 = load double, ptr %18, align 8, !tbaa !14
   %20 = fadd double %19, %.pre
   store double %20, ptr %18, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !211
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -6421,7 +6415,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit49: ; preds = %2
   %27 = load double, ptr %26, align 8, !tbaa !14
   %28 = fadd double %27, %.pre50
   store double %28, ptr %26, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !211
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -6434,7 +6428,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit49: ; preds = %2
   %35 = load double, ptr %34, align 8, !tbaa !14
   %36 = fadd double %35, %.pre51
   store double %36, ptr %34, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !211
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -6447,7 +6441,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit49: ; preds = %2
   %43 = load double, ptr %42, align 8, !tbaa !14
   %44 = fadd double %43, %.pre52
   store double %44, ptr %42, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !211
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -6460,7 +6454,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit49: ; preds = %2
   %51 = load double, ptr %50, align 8, !tbaa !14
   %52 = fadd double %51, %.pre53
   store double %52, ptr %50, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !211
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -6475,12 +6469,12 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit49: ; preds = %2
   store double %60, ptr %58, align 8, !tbaa !14
   call void @_ZN25cff1_path_procs_extents_t5curveERN3CFF20cff1_cs_interp_env_tER20cff1_extents_param_tRKNS0_7point_tES7_S7_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @_ZN25cff1_path_procs_extents_t5curveERN3CFF20cff1_cs_interp_env_tER20cff1_extents_param_tRKNS0_7point_tES7_S7_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %66
 
 61:                                               ; preds = %2
@@ -6496,7 +6490,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit49: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE6hflex1ERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE6hflex1ERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca %"struct.CFF::point_t", align 8
   %4 = alloca %"struct.CFF::point_t", align 8
   %5 = alloca %"struct.CFF::point_t", align 8
@@ -6509,7 +6503,7 @@ define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_exte
   br i1 %11, label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit38, label %49, !prof !52
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit38: ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4448
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !211
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6523,7 +6517,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit38: ; preds = %2
   %19 = load double, ptr %18, align 8, !tbaa !14
   %20 = fadd double %19, %.pre
   store double %20, ptr %18, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !211
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -6536,21 +6530,21 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit38: ; preds = %2
   %27 = load double, ptr %26, align 8, !tbaa !14
   %28 = fadd double %27, %.pre39
   store double %28, ptr %26, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !211
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.pre40 = load double, ptr %29, align 8, !tbaa !14
   %30 = load double, ptr %5, align 8, !tbaa !14
   %31 = fadd double %30, %.pre40
   store double %31, ptr %5, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !211
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.pre41 = load double, ptr %32, align 8, !tbaa !14
   %33 = load double, ptr %6, align 8, !tbaa !14
   %34 = fadd double %33, %.pre41
   store double %34, ptr %6, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !211
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -6563,7 +6557,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit38: ; preds = %2
   %41 = load double, ptr %40, align 8, !tbaa !14
   %42 = fadd double %41, %.pre42
   store double %42, ptr %40, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !211
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.pre43 = load double, ptr %43, align 8, !tbaa !14
@@ -6576,12 +6570,12 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit38: ; preds = %2
   store i64 %48, ptr %47, align 8, !tbaa !109
   call void @_ZN25cff1_path_procs_extents_t5curveERN3CFF20cff1_cs_interp_env_tER20cff1_extents_param_tRKNS0_7point_tES7_S7_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @_ZN25cff1_path_procs_extents_t5curveERN3CFF20cff1_cs_interp_env_tER20cff1_extents_param_tRKNS0_7point_tES7_S7_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %54
 
 49:                                               ; preds = %2
@@ -6597,7 +6591,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit38: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE5flex1ERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE5flex1ERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca %"struct.CFF::point_t", align 8
   %4 = alloca %"struct.CFF::point_t", align 8
   %5 = alloca %"struct.CFF::point_t", align 8
@@ -6614,7 +6608,7 @@ define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI25cff1_path_procs_exte
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit53
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit50: ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit53
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4448
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false), !tbaa.struct !211
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -6627,7 +6621,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit50: ; preds = %_ZN3CFF12inte
   %19 = load double, ptr %18, align 8, !tbaa !14
   %20 = fadd double %19, %.pre70
   store double %20, ptr %18, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !211
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -6640,7 +6634,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit50: ; preds = %_ZN3CFF12inte
   %27 = load double, ptr %26, align 8, !tbaa !14
   %28 = fadd double %27, %.pre71
   store double %28, ptr %26, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !211
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -6653,7 +6647,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit50: ; preds = %_ZN3CFF12inte
   %35 = load double, ptr %34, align 8, !tbaa !14
   %36 = fadd double %35, %.pre72
   store double %36, ptr %34, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !211
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -6666,7 +6660,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit50: ; preds = %_ZN3CFF12inte
   %43 = load double, ptr %42, align 8, !tbaa !14
   %44 = fadd double %43, %.pre73
   store double %44, ptr %42, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !211
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -6679,7 +6673,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit50: ; preds = %_ZN3CFF12inte
   %51 = load double, ptr %50, align 8, !tbaa !14
   %52 = fadd double %51, %.pre74
   store double %52, ptr %50, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !211
   %53 = tail call double @llvm.fabs.f64(double %60)
   %54 = tail call double @llvm.fabs.f64(double %61)
@@ -6727,12 +6721,12 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit62: ; preds = %_ZN3CFF12inte
 74:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit62, %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit59
   call void @_ZN25cff1_path_procs_extents_t5curveERN3CFF20cff1_cs_interp_env_tER20cff1_extents_param_tRKNS0_7point_tES7_S7_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @_ZN25cff1_path_procs_extents_t5curveERN3CFF20cff1_cs_interp_env_tER20cff1_extents_param_tRKNS0_7point_tES7_S7_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %80
 
 75:                                               ; preds = %2
@@ -6748,7 +6742,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit62: ; preds = %_ZN3CFF12inte
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3CFF7opset_tINS_8number_tEE10process_opEjRNS_12interp_env_tIS1_EE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(4128) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3CFF7opset_tINS_8number_tEE10process_opEjRNS_12interp_env_tIS1_EE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(4128) %1) local_unnamed_addr #1 comdat align 2 {
   switch i32 %0, label %104 [
     i32 28, label %3
     i32 247, label %42
@@ -6991,10 +6985,10 @@ _ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit32: ; preds = %112, %117
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #5
+declare i32 @llvm.bswap.i32(i32) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN25cff1_path_procs_extents_t5curveERN3CFF20cff1_cs_interp_env_tER20cff1_extents_param_tRKNS0_7point_tES7_S7_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN25cff1_path_procs_extents_t5curveERN3CFF20cff1_cs_interp_env_tER20cff1_extents_param_tRKNS0_7point_tES7_S7_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) local_unnamed_addr #1 comdat align 2 {
   %6 = load i8, ptr %1, align 8, !tbaa !98, !range !106, !noundef !107
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %._ZN8bounds_t6updateERKN3CFF7point_tE.exit_crit_edge, label %8
@@ -7194,19 +7188,19 @@ _ZN8bounds_t6updateERKN3CFF7point_tE.exit20:      ; preds = %95, %99
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #5
+declare double @llvm.fabs.f64(double) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.floor.f64(double) #5
+declare double @llvm.floor.f64(double) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.floor.f32(float) #5
+declare float @llvm.floor.f32(float) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.ceil.f32(float) #5
+declare float @llvm.ceil.f32(float) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20cff1_cs_opset_path_t12process_seacERN3CFF20cff1_cs_interp_env_tER17cff1_path_param_t(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN20cff1_cs_opset_path_t12process_seacERN3CFF20cff1_cs_interp_env_tER17cff1_path_param_t(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca %"struct.CFF::point_t", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !143
@@ -7276,7 +7270,7 @@ _ZN17cff1_path_param_t8end_pathEv.exit:           ; preds = %2, %_ZN15hb_draw_fu
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %41 = load i32, ptr %40, align 4, !tbaa !105
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %.not.i = icmp ugt i32 %41, 3
   br i1 %.not.i, label %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.thread, label %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit, !prof !52
@@ -7459,12 +7453,12 @@ _ZNK2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_pr
   br label %135
 
 135:                                              ; preds = %.critedge, %126
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3CFF10cs_opset_tINS_8number_tE20cff1_cs_opset_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_t22cff1_path_procs_path_tE10process_opEjRS3_RS4_(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(4481) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3CFF10cs_opset_tINS_8number_tE20cff1_cs_opset_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_t22cff1_path_procs_path_tE10process_opEjRS3_RS4_(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(4481) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #1 comdat align 2 {
   %4 = alloca %"struct.CFF::point_t", align 8
   %5 = alloca %"struct.CFF::point_t", align 8
   %6 = alloca %"struct.CFF::point_t", align 8
@@ -8061,7 +8055,7 @@ _ZN3CFF20cff1_cs_interp_env_t9set_widthEb.exit.i161: ; preds = %_ZN3CFF11cff_sta
   br label %_ZN3CFF15cff1_cs_opset_tI20cff1_cs_opset_path_t17cff1_path_param_t22cff1_path_procs_path_tE11check_widthEjRNS_20cff1_cs_interp_env_tERS2_.exit163
 
 _ZN3CFF15cff1_cs_opset_tI20cff1_cs_opset_path_t17cff1_path_param_t22cff1_path_procs_path_tE11check_widthEjRNS_20cff1_cs_interp_env_tERS2_.exit163: ; preds = %266, %_ZN3CFF20cff1_cs_interp_env_t9set_widthEb.exit.i161
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %277 = getelementptr inbounds nuw i8, ptr %1, i64 4448
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %277, i64 16, i1 false), !tbaa.struct !211
   %278 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -8107,7 +8101,7 @@ _ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_p
   store double %296, ptr %293, align 8, !tbaa !14
   call void @_ZN17cff1_path_param_t7move_toERKN3CFF7point_tE(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(16) %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %277, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !211
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %297 = getelementptr inbounds nuw i8, ptr %1, i64 4153
   %298 = load i8, ptr %297, align 1, !tbaa !79, !range !106, !noundef !107
   %299 = trunc nuw i8 %298 to i1
@@ -8174,7 +8168,7 @@ _ZN3CFF20cff1_cs_interp_env_t9set_widthEb.exit.i169: ; preds = %_ZN3CFF11cff_sta
   br label %_ZN3CFF15cff1_cs_opset_tI20cff1_cs_opset_path_t17cff1_path_param_t22cff1_path_procs_path_tE11check_widthEjRNS_20cff1_cs_interp_env_tERS2_.exit171
 
 _ZN3CFF15cff1_cs_opset_tI20cff1_cs_opset_path_t17cff1_path_param_t22cff1_path_procs_path_tE11check_widthEjRNS_20cff1_cs_interp_env_tERS2_.exit171: ; preds = %317, %_ZN3CFF20cff1_cs_interp_env_t9set_widthEb.exit.i169
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %328 = getelementptr inbounds nuw i8, ptr %1, i64 4448
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %328, i64 16, i1 false), !tbaa.struct !211
   %329 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -8205,7 +8199,7 @@ _ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_p
   store double %341, ptr %6, align 8, !tbaa !14
   call void @_ZN17cff1_path_param_t7move_toERKN3CFF7point_tE(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %328, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !211
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %342 = getelementptr inbounds nuw i8, ptr %1, i64 4153
   %343 = load i8, ptr %342, align 1, !tbaa !79, !range !106, !noundef !107
   %344 = trunc nuw i8 %343 to i1
@@ -8272,7 +8266,7 @@ _ZN3CFF20cff1_cs_interp_env_t9set_widthEb.exit.i179: ; preds = %_ZN3CFF11cff_sta
   br label %_ZN3CFF15cff1_cs_opset_tI20cff1_cs_opset_path_t17cff1_path_param_t22cff1_path_procs_path_tE11check_widthEjRNS_20cff1_cs_interp_env_tERS2_.exit181
 
 _ZN3CFF15cff1_cs_opset_tI20cff1_cs_opset_path_t17cff1_path_param_t22cff1_path_procs_path_tE11check_widthEjRNS_20cff1_cs_interp_env_tERS2_.exit181: ; preds = %362, %_ZN3CFF20cff1_cs_interp_env_t9set_widthEb.exit.i179
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %373 = getelementptr inbounds nuw i8, ptr %1, i64 4448
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %373, i64 16, i1 false), !tbaa.struct !211
   %374 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -8304,7 +8298,7 @@ _ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_p
   store double %387, ptr %385, align 8, !tbaa !14
   call void @_ZN17cff1_path_param_t7move_toERKN3CFF7point_tE(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %373, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !211
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %388 = getelementptr inbounds nuw i8, ptr %1, i64 4153
   %389 = load i8, ptr %388, align 1, !tbaa !79, !range !106, !noundef !107
   %390 = trunc nuw i8 %389 to i1
@@ -8362,7 +8356,7 @@ _ZN3CFF10cs_opset_tINS_8number_tE20cff1_cs_opset_path_tNS_20cff1_cs_interp_env_t
   %418 = phi i32 [ %411, %.lr.ph.i ], [ %436, %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit12.i ]
   %419 = phi i32 [ 2, %.lr.ph.i ], [ %435, %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit12.i ]
   %.014.i = phi i32 [ 0, %.lr.ph.i ], [ %419, %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit12.i ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %412, i64 16, i1 false), !tbaa.struct !211
   %.not.i.i.i187 = icmp ult i32 %.014.i, %418
   br i1 %.not.i.i.i187, label %421, label %420, !prof !52
@@ -8405,7 +8399,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit12.i: ; preds = %426, %425
   store double %434, ptr %415, align 8, !tbaa !14
   call void @_ZN17cff1_path_param_t7line_toERKN3CFF7point_tE(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(16) %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %412, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !211
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %435 = add i32 %419, 2
   %436 = load i32, ptr %410, align 4, !tbaa !105
   %.not.i189 = icmp ugt i32 %435, %436
@@ -8530,9 +8524,9 @@ _ZN3CFF11arg_stack_tINS_8number_tEE22push_fixed_from_substrERNS_14byte_str_ref_t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_tE7hlinetoERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_tE7hlinetoERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca %"struct.CFF::point_t", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4, !tbaa !105
@@ -8623,14 +8617,14 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit24: ; preds = %._crit_edge
   br label %43
 
 43:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit24, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_tE7vlinetoERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_tE7vlinetoERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca %"struct.CFF::point_t", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4, !tbaa !105
@@ -8722,12 +8716,12 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit24: ; preds = %._crit_edge
   br label %44
 
 44:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit24, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_tE9rrcurvetoERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_tE9rrcurvetoERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca %"struct.CFF::point_t", align 8
   %4 = alloca %"struct.CFF::point_t", align 8
   %5 = alloca %"struct.CFF::point_t", align 8
@@ -8756,7 +8750,7 @@ define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path
   %19 = phi i32 [ %8, %.lr.ph ], [ %69, %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit32 ]
   %20 = phi i32 [ 6, %.lr.ph ], [ %68, %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit32 ]
   %.034 = phi i32 [ 0, %.lr.ph ], [ %20, %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit32 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !211
   %.not.i.i = icmp ult i32 %.034, %19
   br i1 %.not.i.i, label %22, label %21, !prof !52
@@ -8797,7 +8791,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit20: ; preds = %26, %27
   %34 = load double, ptr %12, align 8, !tbaa !14
   %35 = fadd double %34, %30
   store double %35, ptr %12, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !211
   %36 = add i32 %.034, 2
   %.not.i.i21 = icmp ult i32 %36, %19
@@ -8839,7 +8833,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit26: ; preds = %42, %43
   %50 = load double, ptr %13, align 8, !tbaa !14
   %51 = fadd double %50, %46
   store double %51, ptr %13, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !211
   %52 = add i32 %.034, 4
   %.not.i.i27 = icmp ult i32 %52, %19
@@ -8883,9 +8877,9 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit32: ; preds = %58, %59
   store double %67, ptr %14, align 8, !tbaa !14
   call void @_ZN17cff1_path_param_t8cubic_toERKN3CFF7point_tES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !211
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %68 = add i32 %20, 6
   %69 = load i32, ptr %7, align 4, !tbaa !105
   %.not = icmp ugt i32 %68, %69
@@ -8893,7 +8887,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit32: ; preds = %58, %59
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_tE10rcurvelineERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_tE10rcurvelineERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca %"struct.CFF::point_t", align 8
   %4 = alloca %"struct.CFF::point_t", align 8
   %5 = alloca %"struct.CFF::point_t", align 8
@@ -8920,7 +8914,7 @@ define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path
 21:                                               ; preds = %.lr.ph, %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit43
   %22 = phi i32 [ 6, %.lr.ph ], [ %71, %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit43 ]
   %.051 = phi i32 [ 0, %.lr.ph ], [ %22, %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit43 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !211
   %23 = load i32, ptr %8, align 4, !tbaa !105
   %.not.i.i = icmp ult i32 %.051, %23
@@ -8962,7 +8956,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit31: ; preds = %29, %30
   %37 = load double, ptr %15, align 8, !tbaa !14
   %38 = fadd double %37, %33
   store double %38, ptr %15, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !211
   %39 = add i32 %.051, 2
   %.not.i.i32 = icmp ult i32 %39, %23
@@ -9004,7 +8998,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit37: ; preds = %45, %46
   %53 = load double, ptr %16, align 8, !tbaa !14
   %54 = fadd double %53, %49
   store double %54, ptr %16, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !211
   %55 = add i32 %.051, 4
   %.not.i.i38 = icmp ult i32 %55, %23
@@ -9048,16 +9042,16 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit43: ; preds = %61, %62
   store double %70, ptr %17, align 8, !tbaa !14
   call void @_ZN17cff1_path_param_t8cubic_toERKN3CFF7point_tES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !211
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %71 = add i32 %22, 6
   %.not = icmp ugt i32 %71, %11
   br i1 %.not, label %._crit_edge, label %21, !llvm.loop !227
 
 ._crit_edge:                                      ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit43
   %.pre54 = load i32, ptr %8, align 4, !tbaa !105
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 4448
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false), !tbaa.struct !211
   %.not.i.i44 = icmp ult i32 %22, %.pre54
@@ -9107,7 +9101,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit49: ; preds = %80, %83
   store double %93, ptr %91, align 8, !tbaa !14
   call void @_ZN17cff1_path_param_t7line_toERKN3CFF7point_tE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !211
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %94
 
 94:                                               ; preds = %2, %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit49
@@ -9115,7 +9109,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit49: ; preds = %80, %83
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_tE10rlinecurveERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_tE10rlinecurveERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca %"struct.CFF::point_t", align 8
   %4 = alloca %"struct.CFF::point_t", align 8
   %5 = alloca %"struct.CFF::point_t", align 8
@@ -9138,7 +9132,7 @@ define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path
 17:                                               ; preds = %.lr.ph, %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit31
   %indvars.iv55 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next56, %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit31 ]
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit31 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !211
   %18 = load i32, ptr %8, align 4, !tbaa !105
   %19 = zext i32 %18 to i64
@@ -9181,7 +9175,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit31: ; preds = %24, %25
   store double %32, ptr %15, align 8, !tbaa !14
   call void @_ZN17cff1_path_param_t7line_toERKN3CFF7point_tE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !211
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %indvars = trunc i64 %indvars.iv.next to i32
   %.not = icmp ult i32 %11, %indvars
@@ -9193,7 +9187,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit31: ; preds = %24, %25
   %34 = add i32 %33, -4
   %35 = trunc nuw i64 %indvars.iv to i32
   %.pre60 = load i32, ptr %8, align 4, !tbaa !105
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 4448
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false), !tbaa.struct !211
   %.not.i.i32 = icmp ugt i32 %.pre60, %35
@@ -9241,7 +9235,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit37: ; preds = %44, %47
   %56 = load double, ptr %55, align 8, !tbaa !14
   %57 = fadd double %56, %51
   store double %57, ptr %55, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !211
   %.not.i.i38 = icmp ult i32 %34, %.pre60
   br i1 %.not.i.i38, label %60, label %58, !prof !52
@@ -9288,7 +9282,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit43: ; preds = %65, %68
   %77 = load double, ptr %76, align 8, !tbaa !14
   %78 = fadd double %77, %72
   store double %78, ptr %76, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !211
   %79 = add i32 %35, 4
   %.not.i.i44 = icmp ult i32 %79, %.pre60
@@ -9338,9 +9332,9 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit49: ; preds = %87, %90
   store double %100, ptr %98, align 8, !tbaa !14
   call void @_ZN17cff1_path_param_t8cubic_toERKN3CFF7point_tES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !211
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %101
 
 101:                                              ; preds = %2, %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit49
@@ -9348,11 +9342,11 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit49: ; preds = %87, %90
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_tE9vvcurvetoERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_tE9vvcurvetoERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca %"struct.CFF::point_t", align 8
   %4 = alloca %"struct.CFF::point_t", align 8
   %5 = alloca %"struct.CFF::point_t", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4448
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !211
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9410,7 +9404,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit21: ; preds = %27, %28
   %32 = load double, ptr %18, align 8, !tbaa !14
   %33 = fadd double %32, %31
   store double %33, ptr %18, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !211
   %34 = add i32 %.132, 1
   %.not.i.i22 = icmp ult i32 %34, %25
@@ -9452,7 +9446,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit27: ; preds = %40, %41
   %48 = load double, ptr %19, align 8, !tbaa !14
   %49 = fadd double %48, %44
   store double %49, ptr %19, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !211
   %50 = add i32 %.132, 3
   %.not.i.i28 = icmp ult i32 %50, %25
@@ -9477,24 +9471,24 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit30: ; preds = %51, %52
   call void @_ZN17cff1_path_param_t8cubic_toERKN3CFF7point_tES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !211
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %58 = add i32 %26, 4
   %59 = load i32, ptr %8, align 4, !tbaa !105
   %.not18 = icmp ugt i32 %58, %59
   br i1 %.not18, label %._crit_edge, label %24, !llvm.loop !229
 
 ._crit_edge:                                      ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit30, %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_tE9hhcurvetoERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_tE9hhcurvetoERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca %"struct.CFF::point_t", align 8
   %4 = alloca %"struct.CFF::point_t", align 8
   %5 = alloca %"struct.CFF::point_t", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4448
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !211
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9551,7 +9545,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit21: ; preds = %26, %27
   %31 = load double, ptr %3, align 8, !tbaa !14
   %32 = fadd double %31, %30
   store double %32, ptr %3, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !211
   %33 = add i32 %.132, 1
   %.not.i.i22 = icmp ult i32 %33, %24
@@ -9593,7 +9587,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit27: ; preds = %39, %40
   %47 = load double, ptr %19, align 8, !tbaa !14
   %48 = fadd double %47, %43
   store double %48, ptr %19, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !211
   %49 = add i32 %.132, 3
   %.not.i.i28 = icmp ult i32 %49, %24
@@ -9618,29 +9612,29 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit30: ; preds = %50, %51
   call void @_ZN17cff1_path_param_t8cubic_toERKN3CFF7point_tES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !211
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %57 = add i32 %25, 4
   %58 = load i32, ptr %8, align 4, !tbaa !105
   %.not18 = icmp ugt i32 %57, %58
   br i1 %.not18, label %._crit_edge, label %23, !llvm.loop !230
 
 ._crit_edge:                                      ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit30, %15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_tE9vhcurvetoERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_tE9vhcurvetoERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca %"struct.CFF::point_t", align 8
   %4 = alloca %"struct.CFF::point_t", align 8
   %5 = alloca %"struct.CFF::point_t", align 8
   %6 = alloca %"struct.CFF::point_t", align 8
   %7 = alloca %"struct.CFF::point_t", align 8
   %8 = alloca %"struct.CFF::point_t", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %11 = load i32, ptr %10, align 4, !tbaa !105
@@ -9669,7 +9663,7 @@ define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path
   br label %129
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit82: ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4448
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false), !tbaa.struct !211
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -9678,7 +9672,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit82: ; preds = %2
   %29 = load double, ptr %28, align 8, !tbaa !14
   %30 = fadd double %29, %.pre
   store double %30, ptr %28, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !211
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -9691,7 +9685,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit82: ; preds = %2
   %37 = load double, ptr %36, align 8, !tbaa !14
   %38 = fadd double %37, %.pre145
   store double %38, ptr %36, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !211
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.pre146 = load double, ptr %39, align 8, !tbaa !14
@@ -9911,9 +9905,9 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit109: ; preds = %._crit_edge
 128:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit109, %._crit_edge
   call void @_ZN17cff1_path_param_t8cubic_toERKN3CFF7point_tES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !211
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
 129:                                              ; preds = %.lr.ph142, %207
@@ -10126,23 +10120,23 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit136: ; preds = %200, %201
   br i1 %.not71, label %.loopexit, label %129, !llvm.loop !232
 
 .loopexit:                                        ; preds = %207, %.preheader, %128
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_tE9hvcurvetoERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_tE9hvcurvetoERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca %"struct.CFF::point_t", align 8
   %4 = alloca %"struct.CFF::point_t", align 8
   %5 = alloca %"struct.CFF::point_t", align 8
   %6 = alloca %"struct.CFF::point_t", align 8
   %7 = alloca %"struct.CFF::point_t", align 8
   %8 = alloca %"struct.CFF::point_t", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %11 = load i32, ptr %10, align 4, !tbaa !105
@@ -10171,7 +10165,7 @@ define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path
   br label %128
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit82: ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4448
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false), !tbaa.struct !211
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -10179,7 +10173,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit82: ; preds = %2
   %28 = load double, ptr %6, align 8, !tbaa !14
   %29 = fadd double %28, %.pre
   store double %29, ptr %6, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !211
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -10192,7 +10186,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit82: ; preds = %2
   %36 = load double, ptr %35, align 8, !tbaa !14
   %37 = fadd double %36, %.pre145
   store double %37, ptr %35, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !211
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.pre146 = load double, ptr %38, align 8, !tbaa !14
@@ -10412,9 +10406,9 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit109: ; preds = %._crit_edge
 127:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit109, %._crit_edge
   call void @_ZN17cff1_path_param_t8cubic_toERKN3CFF7point_tES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !211
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
 128:                                              ; preds = %.lr.ph142, %206
@@ -10627,14 +10621,14 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit136: ; preds = %199, %200
   br i1 %.not71, label %.loopexit, label %128, !llvm.loop !234
 
 .loopexit:                                        ; preds = %206, %.preheader, %127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_tE5hflexERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_tE5hflexERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca %"struct.CFF::point_t", align 8
   %4 = alloca %"struct.CFF::point_t", align 8
   %5 = alloca %"struct.CFF::point_t", align 8
@@ -10647,7 +10641,7 @@ define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path
   br i1 %11, label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit29, label %40, !prof !52
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit29: ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4448
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !211
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -10655,7 +10649,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit29: ; preds = %2
   %15 = load double, ptr %13, align 8, !tbaa !14
   %16 = fadd double %14, %15
   store double %16, ptr %3, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !211
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -10668,21 +10662,21 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit29: ; preds = %2
   %23 = load double, ptr %22, align 8, !tbaa !14
   %24 = fadd double %23, %.pre
   store double %24, ptr %22, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !211
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.pre30 = load double, ptr %25, align 8, !tbaa !14
   %26 = load double, ptr %5, align 8, !tbaa !14
   %27 = fadd double %26, %.pre30
   store double %27, ptr %5, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !211
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.pre31 = load double, ptr %28, align 8, !tbaa !14
   %29 = load double, ptr %6, align 8, !tbaa !14
   %30 = fadd double %29, %.pre31
   store double %30, ptr %6, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !211
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.pre32 = load double, ptr %31, align 8, !tbaa !14
@@ -10693,7 +10687,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit29: ; preds = %2
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %36 = load i64, ptr %34, align 8, !tbaa !109
   store i64 %36, ptr %35, align 8, !tbaa !109
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !211
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.pre33 = load double, ptr %37, align 8, !tbaa !14
@@ -10704,12 +10698,12 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit29: ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !211
   call void @_ZN17cff1_path_param_t8cubic_toERKN3CFF7point_tES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !211
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %45
 
 40:                                               ; preds = %2
@@ -10725,7 +10719,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit29: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_tE4flexERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_tE4flexERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca %"struct.CFF::point_t", align 8
   %4 = alloca %"struct.CFF::point_t", align 8
   %5 = alloca %"struct.CFF::point_t", align 8
@@ -10738,7 +10732,7 @@ define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path
   br i1 %11, label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit49, label %61, !prof !52
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit49: ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4448
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !211
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -10752,7 +10746,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit49: ; preds = %2
   %19 = load double, ptr %18, align 8, !tbaa !14
   %20 = fadd double %19, %.pre
   store double %20, ptr %18, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !211
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -10765,7 +10759,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit49: ; preds = %2
   %27 = load double, ptr %26, align 8, !tbaa !14
   %28 = fadd double %27, %.pre50
   store double %28, ptr %26, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !211
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -10778,7 +10772,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit49: ; preds = %2
   %35 = load double, ptr %34, align 8, !tbaa !14
   %36 = fadd double %35, %.pre51
   store double %36, ptr %34, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !211
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -10791,7 +10785,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit49: ; preds = %2
   %43 = load double, ptr %42, align 8, !tbaa !14
   %44 = fadd double %43, %.pre52
   store double %44, ptr %42, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !211
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -10804,7 +10798,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit49: ; preds = %2
   %51 = load double, ptr %50, align 8, !tbaa !14
   %52 = fadd double %51, %.pre53
   store double %52, ptr %50, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !211
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -10821,12 +10815,12 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit49: ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !211
   call void @_ZN17cff1_path_param_t8cubic_toERKN3CFF7point_tES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !211
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %66
 
 61:                                               ; preds = %2
@@ -10842,7 +10836,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit49: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_tE6hflex1ERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_tE6hflex1ERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca %"struct.CFF::point_t", align 8
   %4 = alloca %"struct.CFF::point_t", align 8
   %5 = alloca %"struct.CFF::point_t", align 8
@@ -10855,7 +10849,7 @@ define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path
   br i1 %11, label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit38, label %49, !prof !52
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit38: ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4448
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !211
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -10869,7 +10863,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit38: ; preds = %2
   %19 = load double, ptr %18, align 8, !tbaa !14
   %20 = fadd double %19, %.pre
   store double %20, ptr %18, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !211
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -10882,21 +10876,21 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit38: ; preds = %2
   %27 = load double, ptr %26, align 8, !tbaa !14
   %28 = fadd double %27, %.pre39
   store double %28, ptr %26, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !211
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.pre40 = load double, ptr %29, align 8, !tbaa !14
   %30 = load double, ptr %5, align 8, !tbaa !14
   %31 = fadd double %30, %.pre40
   store double %31, ptr %5, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !211
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.pre41 = load double, ptr %32, align 8, !tbaa !14
   %33 = load double, ptr %6, align 8, !tbaa !14
   %34 = fadd double %33, %.pre41
   store double %34, ptr %6, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !211
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -10909,7 +10903,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit38: ; preds = %2
   %41 = load double, ptr %40, align 8, !tbaa !14
   %42 = fadd double %41, %.pre42
   store double %42, ptr %40, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !211
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.pre43 = load double, ptr %43, align 8, !tbaa !14
@@ -10924,12 +10918,12 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit38: ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !211
   call void @_ZN17cff1_path_param_t8cubic_toERKN3CFF7point_tES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !211
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %54
 
 49:                                               ; preds = %2
@@ -10945,7 +10939,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit38: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_tE5flex1ERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_tE5flex1ERS2_RS3_(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca %"struct.CFF::point_t", align 8
   %4 = alloca %"struct.CFF::point_t", align 8
   %5 = alloca %"struct.CFF::point_t", align 8
@@ -10962,7 +10956,7 @@ define linkonce_odr dso_local void @_ZN3CFF12path_procs_tI22cff1_path_procs_path
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit53
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit50: ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit53
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4448
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false), !tbaa.struct !211
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -10975,7 +10969,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit50: ; preds = %_ZN3CFF12inte
   %19 = load double, ptr %18, align 8, !tbaa !14
   %20 = fadd double %19, %.pre70
   store double %20, ptr %18, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !211
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -10988,7 +10982,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit50: ; preds = %_ZN3CFF12inte
   %27 = load double, ptr %26, align 8, !tbaa !14
   %28 = fadd double %27, %.pre71
   store double %28, ptr %26, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !211
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -11001,7 +10995,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit50: ; preds = %_ZN3CFF12inte
   %35 = load double, ptr %34, align 8, !tbaa !14
   %36 = fadd double %35, %.pre72
   store double %36, ptr %34, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !211
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -11014,7 +11008,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit50: ; preds = %_ZN3CFF12inte
   %43 = load double, ptr %42, align 8, !tbaa !14
   %44 = fadd double %43, %.pre73
   store double %44, ptr %42, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !211
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -11027,7 +11021,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit50: ; preds = %_ZN3CFF12inte
   %51 = load double, ptr %50, align 8, !tbaa !14
   %52 = fadd double %51, %.pre74
   store double %52, ptr %50, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !211
   %53 = tail call double @llvm.fabs.f64(double %60)
   %54 = tail call double @llvm.fabs.f64(double %61)
@@ -11077,12 +11071,12 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit62: ; preds = %_ZN3CFF12inte
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !211
   call void @_ZN17cff1_path_param_t8cubic_toERKN3CFF7point_tES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !211
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %80
 
 75:                                               ; preds = %2
@@ -11098,7 +11092,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit62: ; preds = %_ZN3CFF12inte
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN17cff1_path_param_t7move_toERKN3CFF7point_tE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN17cff1_path_param_t7move_toERKN3CFF7point_tE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 comdat align 2 {
   %.sroa.0.0.copyload = load double, ptr %1, align 8, !tbaa !109
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !109
@@ -11270,10 +11264,10 @@ _ZN17hb_draw_session_t7move_toEff.exit:           ; preds = %_ZN17hb_draw_sessio
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #5
+declare float @llvm.fmuladd.f32(float, float, float) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN17cff1_path_param_t7line_toERKN3CFF7point_tE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN17cff1_path_param_t7line_toERKN3CFF7point_tE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 comdat align 2 {
   %.sroa.0.0.copyload = load double, ptr %1, align 8, !tbaa !109
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !109
@@ -11380,7 +11374,7 @@ _ZN17hb_draw_session_t7line_toEff.exit:           ; preds = %_ZN15hb_draw_funcs_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(48) %2) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(48) %2) local_unnamed_addr #1 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %5 = load float, ptr %4, align 4, !tbaa !158
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -11410,7 +11404,7 @@ _ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit: ; preds = %3, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN17cff1_path_param_t8cubic_toERKN3CFF7point_tES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN17cff1_path_param_t8cubic_toERKN3CFF7point_tES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) local_unnamed_addr #1 comdat align 2 {
   %.sroa.015.0.copyload = load double, ptr %1, align 8, !tbaa !109
   %.sroa.617.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.617.0.copyload = load double, ptr %.sroa.617.0..sroa_idx, align 8, !tbaa !109
@@ -11541,7 +11535,7 @@ _ZN17hb_draw_session_t8cubic_toEffffff.exit:      ; preds = %_ZN15hb_draw_funcs_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20cff1_cs_opset_seac_t12process_seacERN3CFF20cff1_cs_interp_env_tER16get_seac_param_t(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN20cff1_cs_opset_seac_t12process_seacERN3CFF20cff1_cs_interp_env_tER16get_seac_param_t(ptr noundef nonnull align 8 dereferenceable(4481) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !105
   %.not.i = icmp ugt i32 %4, 1
@@ -11656,7 +11650,7 @@ _ZNK2OT4cff119accelerator_templ_tIN3CFF32cff1_private_dict_opset_subset_tENS2_31
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3CFF10cs_opset_tINS_8number_tE20cff1_cs_opset_seac_tNS_20cff1_cs_interp_env_tE16get_seac_param_tNS_17path_procs_null_tIS3_S4_EEE10process_opEjRS3_RS4_(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(4481) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3CFF10cs_opset_tINS_8number_tE20cff1_cs_opset_seac_tNS_20cff1_cs_interp_env_tE16get_seac_param_tNS_17path_procs_null_tIS3_S4_EEE10process_opEjRS3_RS4_(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(4481) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #1 comdat align 2 {
   switch i32 %0, label %406 [
     i32 11, label %4
     i32 14, label %23
@@ -12525,15 +12519,21 @@ _ZN3CFF11arg_stack_tINS_8number_tEE22push_fixed_from_substrERNS_14byte_str_ref_t
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 

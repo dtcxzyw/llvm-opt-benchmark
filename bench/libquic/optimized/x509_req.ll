@@ -67,32 +67,26 @@ define hidden ptr @X509_to_X509_REQ(ptr noundef %0, ptr noundef %1, ptr noundef 
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @X509_REQ_new() local_unnamed_addr #1
 
-declare ptr @X509_REQ_new() local_unnamed_addr #2
-
-declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
-declare i32 @X509_REQ_set_subject_name(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @X509_REQ_set_subject_name(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_get_subject_name(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_get_subject_name(ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_get_pubkey(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_get_pubkey(ptr noundef) local_unnamed_addr #1
 
-declare i32 @X509_REQ_set_pubkey(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @X509_REQ_set_pubkey(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #2
+declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #1
 
-declare i32 @X509_REQ_sign(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @X509_REQ_sign(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @X509_REQ_free(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @X509_REQ_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @X509_REQ_get_pubkey(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -115,7 +109,7 @@ define hidden ptr @X509_REQ_get_pubkey(ptr noundef readonly captures(address_is_
   ret ptr %.0
 }
 
-declare ptr @X509_PUBKEY_get(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_PUBKEY_get(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @X509_REQ_check_private_key(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -180,10 +174,10 @@ X509_REQ_get_pubkey.exit:                         ; preds = %2, %4, %7
   ret i32 %.0
 }
 
-declare i32 @EVP_PKEY_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_PKEY_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @X509_REQ_extension_nid(i32 noundef %0) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @X509_REQ_extension_nid(i32 noundef %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr @ext_nids, align 8, !tbaa !31
   %3 = load i32, ptr %2, align 4, !tbaa !33
   %4 = icmp eq i32 %3, 0
@@ -208,13 +202,13 @@ define hidden range(i32 0, 2) i32 @X509_REQ_extension_nid(i32 noundef %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden ptr @X509_REQ_get_extension_nids() local_unnamed_addr #5 {
+define hidden ptr @X509_REQ_get_extension_nids() local_unnamed_addr #4 {
   %1 = load ptr, ptr @ext_nids, align 8, !tbaa !31
   ret ptr %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define hidden void @X509_REQ_set_extension_nids(ptr noundef %0) local_unnamed_addr #6 {
+define hidden void @X509_REQ_set_extension_nids(ptr noundef %0) local_unnamed_addr #5 {
   store ptr %0, ptr @ext_nids, align 8, !tbaa !31
   ret void
 }
@@ -222,7 +216,7 @@ define hidden void @X509_REQ_set_extension_nids(ptr noundef %0) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define hidden ptr @X509_REQ_get_extensions(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 
@@ -300,7 +294,7 @@ define hidden ptr @X509_REQ_get_extensions(ptr noundef readonly captures(address
 
 .thread:                                          ; preds = %10, %.preheader, %28, %33, %34, %1, %4, %36
   %.018 = phi ptr [ %43, %36 ], [ null, %4 ], [ null, %1 ], [ null, %34 ], [ null, %33 ], [ null, %28 ], [ null, %.preheader ], [ null, %10 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.018
 }
 
@@ -322,11 +316,11 @@ define hidden ptr @X509_REQ_get_attr(ptr noundef readonly captures(none) %0, i32
   ret ptr %6
 }
 
-declare i64 @sk_num(ptr noundef) local_unnamed_addr #2
+declare i64 @sk_num(ptr noundef) local_unnamed_addr #1
 
-declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @ASN1_item_d2i(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ASN1_item_d2i(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @X509_REQ_add_extensions_nid(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -400,23 +394,23 @@ define hidden range(i32 0, 2) i32 @X509_REQ_add_extensions_nid(ptr noundef reado
   ret i32 %.018
 }
 
-declare ptr @ASN1_TYPE_new() local_unnamed_addr #2
+declare ptr @ASN1_TYPE_new() local_unnamed_addr #1
 
-declare ptr @ASN1_STRING_new() local_unnamed_addr #2
+declare ptr @ASN1_STRING_new() local_unnamed_addr #1
 
-declare i32 @ASN1_item_i2d(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ASN1_item_i2d(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_ATTRIBUTE_new() local_unnamed_addr #2
+declare ptr @X509_ATTRIBUTE_new() local_unnamed_addr #1
 
-declare ptr @sk_new_null() local_unnamed_addr #2
+declare ptr @sk_new_null() local_unnamed_addr #1
 
-declare i64 @sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #2
+declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #1
 
-declare void @X509_ATTRIBUTE_free(ptr noundef) local_unnamed_addr #2
+declare void @X509_ATTRIBUTE_free(ptr noundef) local_unnamed_addr #1
 
-declare void @ASN1_TYPE_free(ptr noundef) local_unnamed_addr #2
+declare void @ASN1_TYPE_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @X509_REQ_add_extensions(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -433,9 +427,9 @@ define hidden i32 @X509_REQ_get_attr_count(ptr noundef readonly captures(none) %
   ret i32 %5
 }
 
-declare i32 @X509at_get_attr_count(ptr noundef) local_unnamed_addr #2
+declare i32 @X509at_get_attr_count(ptr noundef) local_unnamed_addr #1
 
-declare i32 @X509at_get_attr_by_NID(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @X509at_get_attr_by_NID(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @X509_REQ_get_attr_by_OBJ(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -446,9 +440,9 @@ define hidden i32 @X509_REQ_get_attr_by_OBJ(ptr noundef readonly captures(none) 
   ret i32 %7
 }
 
-declare i32 @X509at_get_attr_by_OBJ(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @X509at_get_attr_by_OBJ(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @X509at_get_attr(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @X509at_get_attr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @X509_REQ_delete_attr(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -459,7 +453,7 @@ define hidden ptr @X509_REQ_delete_attr(ptr noundef readonly captures(none) %0, 
   ret ptr %6
 }
 
-declare ptr @X509at_delete_attr(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @X509at_delete_attr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @X509_REQ_add1_attr(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -471,7 +465,7 @@ define hidden range(i32 0, 2) i32 @X509_REQ_add1_attr(ptr noundef readonly captu
   ret i32 %.
 }
 
-declare ptr @X509at_add1_attr(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @X509at_add1_attr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @X509_REQ_add1_attr_by_OBJ(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -483,7 +477,7 @@ define hidden range(i32 0, 2) i32 @X509_REQ_add1_attr_by_OBJ(ptr noundef readonl
   ret i32 %.
 }
 
-declare ptr @X509at_add1_attr_by_OBJ(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @X509at_add1_attr_by_OBJ(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @X509_REQ_add1_attr_by_NID(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -495,7 +489,7 @@ define hidden range(i32 0, 2) i32 @X509_REQ_add1_attr_by_NID(ptr noundef readonl
   ret i32 %.
 }
 
-declare ptr @X509at_add1_attr_by_NID(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @X509at_add1_attr_by_NID(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @X509_REQ_add1_attr_by_txt(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -507,15 +501,21 @@ define hidden range(i32 0, 2) i32 @X509_REQ_add1_attr_by_txt(ptr noundef readonl
   ret i32 %.
 }
 
-declare ptr @X509at_add1_attr_by_txt(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @X509at_add1_attr_by_txt(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind allocsize(0) }
 

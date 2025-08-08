@@ -55,18 +55,15 @@ define dso_local noundef range(i32 0, -1) i32 @_Z40test_assert_success_message_e
   ret i32 %0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
-declare i32 @zmq_errno() local_unnamed_addr #3
+declare i32 @zmq_errno() local_unnamed_addr #2
 
-declare ptr @zmq_strerror(i32 noundef) local_unnamed_addr #3
+declare ptr @zmq_strerror(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #4
+declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z15terminate_proxyPK15proxy_hwm_cfg_t(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -80,19 +77,16 @@ define dso_local void @_Z15terminate_proxyPK15proxy_hwm_cfg_t(ptr noundef readon
   ret void
 }
 
-declare ptr @zmq_socket(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @zmq_socket(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @zmq_connect(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @zmq_connect(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @zmq_send(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @zmq_send(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @zmq_close(ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @zmq_close(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress norecurse uwtable
-define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
+define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = alloca %struct.proxy_hwm_cfg_t, align 8
   %4 = alloca %struct.proxy_hwm_cfg_t, align 8
   %5 = alloca %struct.proxy_hwm_cfg_t, align 8
@@ -125,11 +119,11 @@ define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef r
   %22 = tail call ptr @zmq_ctx_new()
   %23 = tail call i32 @zmq_ctx_set(ptr noundef %22, i32 noundef 1, i32 noundef 4)
   %.sroa.10.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10.0..sroa_idx33, i8 0, i64 16, i1 false)
   %.sroa.11.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %6, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.11.0..sroa_idx43, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %22, ptr %3, align 8, !tbaa !15
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %.sroa.8.0..sroa_idx, align 8
@@ -146,7 +140,7 @@ define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef r
   %.sroa.1144.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
   store ptr @.str.11, ptr %.sroa.1144.0..sroa_idx, align 8, !tbaa !12
   %24 = call ptr @zmq_threadstart(ptr noundef nonnull @_ZL17proxy_thread_mainPv, ptr noundef nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %22, ptr %4, align 8, !tbaa !15
   %.sroa.8.0..sroa_idx12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %.sroa.8.0..sroa_idx12, align 8
@@ -164,7 +158,7 @@ define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef r
   store ptr @.str.11, ptr %.sroa.1144.0..sroa_idx45, align 8, !tbaa !12
   %25 = call ptr @zmq_threadstart(ptr noundef nonnull @_ZL22subscriber_thread_mainPv, ptr noundef nonnull %4)
   %26 = call ptr @zmq_stopwatch_start()
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %22, ptr %5, align 8, !tbaa !15
   %.sroa.8.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %.sroa.8.0..sroa_idx14, align 8
@@ -220,10 +214,10 @@ define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef r
   %49 = call i32 @zmq_close(ptr noundef %45)
   call void @zmq_threadclose(ptr noundef %24)
   %50 = call i32 @zmq_ctx_term(ptr noundef %22)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %51
 
 51:                                               ; preds = %8, %7
@@ -231,14 +225,14 @@ define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef r
   ret i32 %.0
 }
 
-declare ptr @zmq_ctx_new() local_unnamed_addr #3
+declare ptr @zmq_ctx_new() local_unnamed_addr #2
 
-declare i32 @zmq_ctx_set(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @zmq_ctx_set(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-declare ptr @zmq_threadstart(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @zmq_threadstart(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL17proxy_thread_mainPv(ptr noundef readonly captures(none) %0) #0 {
@@ -252,7 +246,7 @@ define internal void @_ZL17proxy_thread_mainPv(ptr noundef readonly captures(non
 6:                                                ; preds = %16
   %7 = load ptr, ptr %0, align 8, !tbaa !4
   %8 = tail call ptr @zmq_socket(ptr noundef %7, i32 noundef 9)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 1, ptr %2, align 4, !tbaa !16
   %9 = call i32 @zmq_setsockopt(ptr noundef %8, i32 noundef 69, ptr noundef nonnull %2, i64 noundef 4)
   call fastcc void @_ZL7set_hwmPv(ptr noundef %8)
@@ -285,7 +279,7 @@ define internal void @_ZL17proxy_thread_mainPv(ptr noundef readonly captures(non
   %24 = call i32 @zmq_close(ptr noundef %4)
   %25 = call i32 @zmq_close(ptr noundef %8)
   %26 = call i32 @zmq_close(ptr noundef %19)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 27:                                               ; preds = %6, %32
@@ -344,7 +338,7 @@ _Z40test_assert_success_message_errno_helperiPKcS0_.exit: ; preds = %1
 
 _Z40test_assert_success_message_errno_helperiPKcS0_.exit15: ; preds = %_Z40test_assert_success_message_errno_helperiPKcS0_.exit, %36
   %.014 = phi i64 [ %.1, %36 ], [ 0, %_Z40test_assert_success_message_errno_helperiPKcS0_.exit ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %25 = call i32 @zmq_msg_init(ptr noundef nonnull %2)
   %26 = call i32 @zmq_msg_recv(ptr noundef nonnull %2, ptr noundef %6, i32 noundef 0)
   %.not = icmp eq i32 %26, -1
@@ -371,7 +365,7 @@ _Z40test_assert_success_message_errno_helperiPKcS0_.exit16: ; preds = %27
   %.1 = phi i64 [ %35, %_Z40test_assert_success_message_errno_helperiPKcS0_.exit16 ], [ %.014, %_Z40test_assert_success_message_errno_helperiPKcS0_.exit15 ]
   %37 = load i64, ptr @_ZL13message_count, align 8, !tbaa !13
   %38 = icmp eq i64 %.1, %37
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %38, label %39, label %_Z40test_assert_success_message_errno_helperiPKcS0_.exit15
 
 39:                                               ; preds = %36
@@ -379,7 +373,7 @@ _Z40test_assert_success_message_errno_helperiPKcS0_.exit16: ; preds = %27
   ret void
 }
 
-declare ptr @zmq_stopwatch_start() local_unnamed_addr #3
+declare ptr @zmq_stopwatch_start() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL21publisher_thread_mainPv(ptr noundef readonly captures(none) %0) #0 {
@@ -389,7 +383,7 @@ define internal void @_ZL21publisher_thread_mainPv(ptr noundef readonly captures
   %5 = alloca %struct.zmq_msg_t, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = load ptr, ptr %0, align 8, !tbaa !4
   %9 = tail call ptr @zmq_socket(ptr noundef %8, i32 noundef 9)
   tail call fastcc void @_ZL7set_hwmPv(ptr noundef %9)
@@ -438,7 +432,7 @@ _Z40test_assert_success_message_errno_helperiPKcS0_.exit20: ; preds = %_Z40test_
   unreachable
 
 _Z40test_assert_success_message_errno_helperiPKcS0_.exit21: ; preds = %_Z40test_assert_success_message_errno_helperiPKcS0_.exit20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %35 = call i32 @zmq_recv(ptr noundef %9, ptr noundef nonnull %3, i64 noundef 32, i32 noundef 0)
   switch i32 %35, label %41 [
@@ -471,7 +465,7 @@ _Z40test_assert_success_message_errno_helperiPKcS0_.exit21: ; preds = %_Z40test_
   unreachable
 
 48:                                               ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %49 = load i64, ptr @_ZL12message_size, align 8, !tbaa !13
   %50 = call i32 @zmq_msg_init_size(ptr noundef nonnull %4, i64 noundef %49)
   %51 = call ptr @zmq_msg_data(ptr noundef nonnull %4)
@@ -483,7 +477,7 @@ _Z40test_assert_success_message_errno_helperiPKcS0_.exit21: ; preds = %_Z40test_
 
 .lr.ph:                                           ; preds = %48, %_Z40test_assert_success_message_errno_helperiPKcS0_.exit23
   %.024 = phi i64 [ %.1, %_Z40test_assert_success_message_errno_helperiPKcS0_.exit23 ], [ 0, %48 ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %54 = call i32 @zmq_msg_init(ptr noundef nonnull %5)
   %55 = call i32 @zmq_msg_copy(ptr noundef nonnull %5, ptr noundef nonnull %4)
   %56 = call i32 @zmq_msg_send(ptr noundef nonnull %5, ptr noundef %9, i32 noundef 0)
@@ -509,32 +503,32 @@ _Z40test_assert_success_message_errno_helperiPKcS0_.exit21: ; preds = %_Z40test_
 
 _Z40test_assert_success_message_errno_helperiPKcS0_.exit23: ; preds = %59, %57
   %.1 = phi i64 [ %58, %57 ], [ %.024, %59 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %67 = load i64, ptr @_ZL13message_count, align 8, !tbaa !13
   %68 = icmp ult i64 %.1, %67
   br i1 %68, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %_Z40test_assert_success_message_errno_helperiPKcS0_.exit23, %48
   %69 = call i32 @zmq_close(ptr noundef %9)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare void @zmq_threadclose(ptr noundef) local_unnamed_addr #3
+declare void @zmq_threadclose(ptr noundef) local_unnamed_addr #2
 
-declare i64 @zmq_stopwatch_stop(ptr noundef) local_unnamed_addr #3
+declare i64 @zmq_stopwatch_stop(ptr noundef) local_unnamed_addr #2
 
-declare i32 @zmq_ctx_term(ptr noundef) local_unnamed_addr #3
+declare i32 @zmq_ctx_term(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #7
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL7set_hwmPv(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 10000, ptr %2, align 4, !tbaa !16
   %3 = call i32 @zmq_setsockopt(ptr noundef %0, i32 noundef 23, ptr noundef nonnull %2, i64 noundef 4)
   %4 = icmp eq i32 %3, -1
@@ -562,33 +556,39 @@ _Z40test_assert_success_message_errno_helperiPKcS0_.exit: ; preds = %1
   unreachable
 
 _Z40test_assert_success_message_errno_helperiPKcS0_.exit2: ; preds = %_Z40test_assert_success_message_errno_helperiPKcS0_.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare i32 @zmq_bind(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @zmq_bind(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @zmq_setsockopt(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @zmq_setsockopt(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @zmq_proxy_steerable(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @zmq_proxy_steerable(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @zmq_msg_init(ptr noundef) local_unnamed_addr #3
+declare i32 @zmq_msg_init(ptr noundef) local_unnamed_addr #2
 
-declare i32 @zmq_msg_recv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @zmq_msg_recv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @zmq_msg_close(ptr noundef) local_unnamed_addr #3
+declare i32 @zmq_msg_close(ptr noundef) local_unnamed_addr #2
 
-declare i32 @zmq_recv(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @zmq_recv(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @zmq_msg_init_size(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @zmq_msg_init_size(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @zmq_msg_data(ptr noundef) local_unnamed_addr #3
+declare ptr @zmq_msg_data(ptr noundef) local_unnamed_addr #2
 
-declare i64 @zmq_msg_size(ptr noundef) local_unnamed_addr #3
+declare i64 @zmq_msg_size(ptr noundef) local_unnamed_addr #2
 
-declare i32 @zmq_msg_copy(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @zmq_msg_copy(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @zmq_msg_send(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @zmq_msg_send(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #8
@@ -597,13 +597,13 @@ declare i64 @llvm.umax.i64(i64, i64) #8
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress norecurse uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress norecurse uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nofree nounwind }
 attributes #10 = { cold noreturn nounwind }

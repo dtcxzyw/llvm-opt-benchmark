@@ -161,15 +161,9 @@ define dso_local void @_ZN4absl18container_internal14HashtablezInfo18PrepareForS
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+declare { i64, i32 } @_ZN4absl3NowEv() local_unnamed_addr #4
 
-declare { i64, i32 } @_ZN4absl3NowEv() local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
-declare noundef i32 @_ZN4absl13GetStackTraceEPPvii(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare noundef i32 @_ZN4absl13GetStackTraceEPPvii(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local void @_ZN4absl18container_internal15ForcedTrySampleEmmmt(i64 noundef %0, i64 noundef %1, i64 noundef %2, i16 noundef zeroext %3) local_unnamed_addr #3 {
@@ -211,14 +205,14 @@ _ZN4absl18container_internalL19ShouldForceSamplingEv.exit: ; preds = %5, %12
 
 16:                                               ; preds = %_ZN4absl18container_internalL19ShouldForceSamplingEv.exit
   store i64 1, ptr %0, align 8, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !34
   store i64 1, ptr %17, align 8, !tbaa !34
   store i64 %18, ptr %10, align 8, !tbaa !34
   %19 = tail call noundef nonnull align 8 dereferenceable(712) ptr @_ZN4absl18container_internal23GlobalHashtablezSamplerEv()
   %20 = call noundef ptr @_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE8RegisterIJRKlRmS8_S8_RtEEEPS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(712) %19, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 2 dereferenceable(2) %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %21
 
 _ZN4absl18container_internalL19ShouldForceSamplingEv.exit.thread: ; preds = %5, %_ZN4absl18container_internalL19ShouldForceSamplingEv.exit
@@ -401,7 +395,7 @@ _ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit: ; preds = %1, %4, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4absl18container_internal16RecordRehashSlowEPNS0_14HashtablezInfoEm(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #6 {
+define dso_local void @_ZN4absl18container_internal16RecordRehashSlowEPNS0_14HashtablezInfoEm(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #5 {
   %3 = lshr i64 %1, 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store atomic i64 %3, ptr %4 monotonic, align 8
@@ -415,7 +409,7 @@ define dso_local void @_ZN4absl18container_internal16RecordRehashSlowEPNS0_14Has
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4absl18container_internal21RecordReservationSlowEPNS0_14HashtablezInfoEm(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #6 {
+define dso_local void @_ZN4absl18container_internal21RecordReservationSlowEPNS0_14HashtablezInfoEm(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load atomic i64, ptr %3 monotonic, align 8
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %4, i64 %1)
@@ -424,14 +418,14 @@ define dso_local void @_ZN4absl18container_internal21RecordReservationSlowEPNS0_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4absl18container_internal28RecordClearedReservationSlowEPNS0_14HashtablezInfoE(ptr noundef writeonly captures(none) %0) local_unnamed_addr #6 {
+define dso_local void @_ZN4absl18container_internal28RecordClearedReservationSlowEPNS0_14HashtablezInfoE(ptr noundef writeonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store atomic i64 0, ptr %2 monotonic, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4absl18container_internal24RecordStorageChangedSlowEPNS0_14HashtablezInfoEmm(ptr noundef writeonly captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #6 {
+define dso_local void @_ZN4absl18container_internal24RecordStorageChangedSlowEPNS0_14HashtablezInfoEmm(ptr noundef writeonly captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store atomic i64 %1, ptr %4 monotonic, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -451,7 +445,7 @@ define dso_local void @_ZN4absl18container_internal24RecordStorageChangedSlowEPN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4absl18container_internal16RecordInsertSlowEPNS0_14HashtablezInfoEmm(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #6 {
+define dso_local void @_ZN4absl18container_internal16RecordInsertSlowEPNS0_14HashtablezInfoEmm(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = lshr i64 %2, 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = atomicrmw and ptr %5, i64 %1 monotonic, align 8
@@ -471,7 +465,7 @@ define dso_local void @_ZN4absl18container_internal16RecordInsertSlowEPNS0_14Has
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4absl18container_internal15RecordEraseSlowEPNS0_14HashtablezInfoE(ptr noundef captures(none) %0) local_unnamed_addr #6 {
+define dso_local void @_ZN4absl18container_internal15RecordEraseSlowEPNS0_14HashtablezInfoE(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = atomicrmw sub ptr %2, i64 1 monotonic, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -482,14 +476,14 @@ define dso_local void @_ZN4absl18container_internal15RecordEraseSlowEPNS0_14Hash
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4absl18container_internal27SetHashtablezConfigListenerEPFvvE(ptr noundef %0) local_unnamed_addr #7 {
+define dso_local void @_ZN4absl18container_internal27SetHashtablezConfigListenerEPFvvE(ptr noundef %0) local_unnamed_addr #6 {
   %2 = ptrtoint ptr %0 to i64
   store atomic i64 %2, ptr @_ZN4absl18container_internal12_GLOBAL__N_128g_hashtablez_config_listenerE.0 release, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4absl18container_internal19IsHashtablezEnabledEv() local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4absl18container_internal19IsHashtablezEnabledEv() local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_120g_hashtablez_enabledE.0 acquire, align 1
   %2 = trunc i8 %1 to i1
   ret i1 %2
@@ -513,14 +507,14 @@ _ZN4absl18container_internal12_GLOBAL__N_131TriggerHashtablezConfigListenerEv.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4absl18container_internal28SetHashtablezEnabledInternalEb(i1 noundef zeroext %0) local_unnamed_addr #7 {
+define dso_local void @_ZN4absl18container_internal28SetHashtablezEnabledInternalEb(i1 noundef zeroext %0) local_unnamed_addr #6 {
   %2 = zext i1 %0 to i8
   store atomic i8 %2, ptr @_ZN4absl18container_internal12_GLOBAL__N_120g_hashtablez_enabledE.0 release, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN4absl18container_internal28GetHashtablezSampleParameterEv() local_unnamed_addr #7 {
+define dso_local noundef i32 @_ZN4absl18container_internal28GetHashtablezSampleParameterEv() local_unnamed_addr #6 {
   %1 = load atomic i32, ptr @_ZN4absl18container_internal12_GLOBAL__N_129g_hashtablez_sample_parameterE.0 acquire, align 4
   ret i32 %1
 }
@@ -571,7 +565,7 @@ define dso_local void @_ZN4absl18container_internal36SetHashtablezSampleParamete
   ret void
 }
 
-declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #5
+declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZN4absl18container_internal23GetHashtablezMaxSamplesEv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -695,12 +689,12 @@ _ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit: ; preds = %2, %5, 
   ret void
 }
 
-declare void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #5
+declare void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
-declare void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #5
+declare void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
   tail call void @_ZSt9terminatev() #14
   unreachable
@@ -709,9 +703,9 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #9
+declare void @_ZSt9terminatev() local_unnamed_addr #8
 
-declare zeroext i1 @AbslContainerInternalSampleEverything() local_unnamed_addr #5
+declare zeroext i1 @AbslContainerInternalSampleEverything() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE7PopDeadIJlmmmtEEEPS3_DpT_(ptr noundef nonnull align 8 dereferenceable(712) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i16 noundef zeroext %5) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -838,9 +832,9 @@ _ZN4absl9MutexLockD2Ev.exit21:                    ; preds = %_ZN4absl9MutexLockD
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
-declare void @_ZN4absl5Mutex18ForgetDeadlockInfoEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #5
+declare void @_ZN4absl5Mutex18ForgetDeadlockInfoEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE8PushDeadEPS3_(ptr noundef nonnull align 8 dereferenceable(712) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -907,6 +901,12 @@ _ZN4absl9MutexLockD2Ev.exit9:                     ; preds = %17
   resume { ptr, i32 } %18
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
@@ -917,13 +917,13 @@ attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping
 attributes #1 = { nofree nounwind }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { cold nofree noreturn }
-attributes #10 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { cold nofree noreturn }
+attributes #9 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nounwind }

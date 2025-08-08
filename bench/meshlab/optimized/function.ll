@@ -719,7 +719,7 @@ define noundef zeroext i1 @_ZNK9pymeshlab8Function8containsERK7QString(ptr nound
 .lr.ph.i.i.i:                                     ; preds = %2, %12
   %.sroa.03.06.i.i.i = phi ptr [ %13, %12 ], [ %5, %2 ]
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i.i, i64 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK9pymeshlab17FunctionParameter10pythonNameEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %6)
   %7 = call noundef zeroext i1 @_ZeqRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %1) #13
   %8 = load ptr, ptr %3, align 8
@@ -744,7 +744,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i.i: ; preds = %_ZN9QtPrivat
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK9pymeshlab8Function8containsERK7QStringE3$_0EclISt20_List_const_iteratorINS2_17FunctionParameterEEEEbT_.exit.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK9pymeshlab8Function8containsERK7QStringE3$_0EclISt20_List_const_iteratorINS2_17FunctionParameterEEEEbT_.exit.i.i.i": ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i.i, %.lr.ph.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %7, label %"_ZSt7find_ifISt20_List_const_iteratorIN9pymeshlab17FunctionParameterEEZNKS1_8Function8containsERK7QStringE3$_0ET_S9_S9_T0_.exit.loopexit", label %12
 
 12:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK9pymeshlab8Function8containsERK7QStringE3$_0EclISt20_List_const_iteratorINS2_17FunctionParameterEEEEbT_.exit.i.i.i"
@@ -776,7 +776,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK9pymeshlab8Function2
 .lr.ph.i.i.i:                                     ; preds = %2, %12
   %.sroa.03.06.i.i.i = phi ptr [ %13, %12 ], [ %5, %2 ]
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i.i, i64 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK9pymeshlab17FunctionParameter10pythonNameEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %6)
   %7 = call noundef zeroext i1 @_ZeqRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %1) #13
   %8 = load ptr, ptr %3, align 8
@@ -801,7 +801,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i.i: ; preds = %_ZN9QtPrivat
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK9pymeshlab8Function26getFilterFunctionParameterERK7QStringE3$_0EclISt20_List_const_iteratorINS2_17FunctionParameterEEEEbT_.exit.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK9pymeshlab8Function26getFilterFunctionParameterERK7QStringE3$_0EclISt20_List_const_iteratorINS2_17FunctionParameterEEEEbT_.exit.i.i.i": ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i.i, %.lr.ph.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %7, label %"_ZSt7find_ifISt20_List_const_iteratorIN9pymeshlab17FunctionParameterEEZNKS1_8Function26getFilterFunctionParameterERK7QStringE3$_0ET_S9_S9_T0_.exit", label %12
 
 12:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK9pymeshlab8Function26getFilterFunctionParameterERK7QStringE3$_0EclISt20_List_const_iteratorINS2_17FunctionParameterEEEEbT_.exit.i.i.i"
@@ -861,10 +861,10 @@ define internal void @_GLOBAL__sub_I_function.cpp() #11 section ".text.startup" 
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

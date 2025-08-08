@@ -37,7 +37,7 @@ define ptr @SRP_Calc_u_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @srp_Calc_xy(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca [20 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i32 @BN_num_bits(ptr noundef %2) #5
   %8 = add nsw i32 %7, 7
   %9 = sdiv i32 %8, 8
@@ -100,7 +100,7 @@ define internal fastcc ptr @srp_Calc_xy(ptr noundef %0, ptr noundef %1, ptr noun
 
 38:                                               ; preds = %5, %37
   %.0 = phi ptr [ %.026, %37 ], [ null, %5 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
 
@@ -169,25 +169,19 @@ define ptr @SRP_Calc_server_key(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @BN_CTX_new() local_unnamed_addr #1
 
-declare ptr @BN_CTX_new() local_unnamed_addr #2
+declare ptr @BN_new() local_unnamed_addr #1
 
-declare ptr @BN_new() local_unnamed_addr #2
+declare i32 @BN_mod_exp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @BN_mod_exp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @BN_mod_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @BN_mod_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @BN_free(ptr noundef) local_unnamed_addr #1
 
-declare void @BN_free(ptr noundef) local_unnamed_addr #2
+declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 
-declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #2
-
-declare void @BN_clear_free(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @BN_clear_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @SRP_Calc_B_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
@@ -260,9 +254,9 @@ define ptr @SRP_Calc_B_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   ret ptr %.0
 }
 
-declare ptr @BN_CTX_new_ex(ptr noundef) local_unnamed_addr #2
+declare ptr @BN_CTX_new_ex(ptr noundef) local_unnamed_addr #1
 
-declare i32 @BN_mod_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @BN_mod_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @SRP_Calc_B(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -273,7 +267,7 @@ define ptr @SRP_Calc_B(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 ; Function Attrs: nounwind uwtable
 define ptr @SRP_Calc_x_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca [20 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq ptr %0, null
   %8 = icmp eq ptr %1, null
   %or.cond = or i1 %7, %8
@@ -370,36 +364,36 @@ define ptr @SRP_Calc_x_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
 
 53:                                               ; preds = %10, %5, %52
   %.036 = phi ptr [ %.035, %52 ], [ null, %5 ], [ null, %10 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.036
 }
 
-declare ptr @EVP_MD_CTX_new() local_unnamed_addr #2
+declare ptr @EVP_MD_CTX_new() local_unnamed_addr #1
 
-declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #2
+declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #1
 
-declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_DigestInit_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_DigestInit_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
-declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @BN_bn2bin(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @BN_bn2bin(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @BN_bin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @BN_bin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #2
+declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #1
 
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #2
+declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @SRP_Calc_x(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -550,15 +544,15 @@ define ptr @SRP_Calc_client_key_ex(ptr noundef %0, ptr noundef %1, ptr noundef %
   ret ptr %.0
 }
 
-declare void @BN_with_flags(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @BN_with_flags(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @BN_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @BN_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @BN_mod_sub(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @BN_mod_sub(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @BN_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @BN_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @BN_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @BN_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @SRP_Calc_client_key(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
@@ -605,9 +599,9 @@ define range(i32 0, 2) i32 @SRP_Verify_B_mod_N(ptr noundef %0, ptr noundef %1) l
   ret i32 %.011
 }
 
-declare i32 @BN_nnmod(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @BN_nnmod(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #2
+declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @SRP_Verify_A_mod_N(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -685,10 +679,10 @@ define ptr @SRP_check_known_gN_param(ptr noundef %0, ptr noundef %1) local_unnam
   ret ptr %.010
 }
 
-declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @SRP_get_default_gN(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define noundef ptr @SRP_get_default_gN(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader
 
@@ -711,19 +705,25 @@ define noundef ptr @SRP_get_default_gN(ptr noundef readonly captures(address_is_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
-declare i32 @BN_ucmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @BN_ucmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @BN_bn2binpad(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @BN_bn2binpad(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @EVP_Digest(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_Digest(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 attributes #6 = { nounwind willreturn memory(read) }
 

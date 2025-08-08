@@ -124,8 +124,8 @@ $_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt
 define linkonce_odr void @_ZN5faiss15IndexBinaryHashD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN5faiss15IndexBinaryHashE, i64 16), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #15
-  tail call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
+  tail call void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #14
+  tail call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   ret void
 }
 
@@ -133,8 +133,8 @@ define linkonce_odr void @_ZN5faiss15IndexBinaryHashD2Ev(ptr noundef nonnull ali
 define linkonce_odr void @_ZN5faiss15IndexBinaryHashD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN5faiss15IndexBinaryHashE, i64 16), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #15
-  tail call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #15
+  tail call void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #14
+  tail call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #14
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #27
   ret void
 }
@@ -235,7 +235,7 @@ define void @_ZN5faiss15IndexBinaryHash12add_with_idsElPKhPKl(ptr noundef nonnul
   br label %.loopexit.i.i, !llvm.loop !30
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %13, ptr %5, align 8, !tbaa !32
   %51 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #28
   store ptr null, ptr %51, align 8, !tbaa !29
@@ -248,7 +248,7 @@ define void @_ZN5faiss15IndexBinaryHash12add_with_idsElPKhPKl(ptr noundef nonnul
           to label %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i.i unwind label %55
 
 _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i.i: ; preds = %.loopexit.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = load i32, ptr %12, align 4, !tbaa !25
   %.pre21 = sext i32 %.pre to i64
   br label %_ZNSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEEixERS8_.exit
@@ -256,8 +256,8 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
 55:                                               ; preds = %.loopexit.i.i
   %56 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
+  call void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %56
 
 _ZNSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEEixERS8_.exit: ; preds = %44, %39, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i.i
@@ -293,13 +293,13 @@ define void @_ZNK5faiss15IndexBinaryHash6searchElPKhlPiPlPKNS_16SearchParameters
   br i1 %.not, label %42, label %20
 
 20:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %21, ptr %13, align 8, !tbaa !55
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %22, align 8, !tbaa !57
   store i8 0, ptr %21, align 8, !tbaa !59
-  %23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #15
+  %23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #14
   %24 = add nsw i32 %23, 1
   %25 = sext i32 %24 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef %25, i8 noundef signext 0)
@@ -308,8 +308,8 @@ define void @_ZNK5faiss15IndexBinaryHash6searchElPKhlPiPlPKNS_16SearchParameters
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %20
   %26 = load ptr, ptr %13, align 8, !tbaa !60
   %27 = load i64, ptr %22, align 8, !tbaa !57
-  %28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %26, i64 noundef %27, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #15
-  %29 = call ptr @__cxa_allocate_exception(i64 40) #15
+  %28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %26, i64 noundef %27, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #14
+  %29 = call ptr @__cxa_allocate_exception(i64 40) #14
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5faiss15IndexBinaryHash6searchElPKhlPiPlPKNS_16SearchParametersE, ptr noundef nonnull @.str.4, i32 noundef 239)
           to label %30 unwind label %33
 
@@ -325,7 +325,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
 33:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %29) #15
+  call void @__cxa_free_exception(ptr nonnull %29) #14
   br label %35
 
 35:                                               ; preds = %33, %31
@@ -347,7 +347,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %83
 
 42:                                               ; preds = %7
@@ -355,13 +355,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %43, label %66, label %44
 
 44:                                               ; preds = %42
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %45 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %45, ptr %14, align 8, !tbaa !55
   %46 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 0, ptr %46, align 8, !tbaa !57
   store i8 0, ptr %45, align 8, !tbaa !59
-  %47 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #15
+  %47 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #14
   %48 = add nsw i32 %47, 1
   %49 = sext i32 %48 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %49, i8 noundef signext 0)
@@ -370,8 +370,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit12: ; preds = %44
   %50 = load ptr, ptr %14, align 8, !tbaa !60
   %51 = load i64, ptr %46, align 8, !tbaa !57
-  %52 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %50, i64 noundef %51, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #15
-  %53 = call ptr @__cxa_allocate_exception(i64 40) #15
+  %52 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %50, i64 noundef %51, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #14
+  %53 = call ptr @__cxa_allocate_exception(i64 40) #14
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5faiss15IndexBinaryHash6searchElPKhlPiPlPKNS_16SearchParametersE, ptr noundef nonnull @.str.4, i32 noundef 240)
           to label %54 unwind label %57
 
@@ -387,7 +387,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit12: ; preds =
 57:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit12
   %58 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %53) #15
+  call void @__cxa_free_exception(ptr nonnull %53) #14
   br label %59
 
 59:                                               ; preds = %57, %55
@@ -409,15 +409,15 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %83
 
 66:                                               ; preds = %42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 0, ptr %15, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 0, ptr %16, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 0, ptr %17, align 8, !tbaa !24
   %67 = icmp sgt i64 %1, 100
   br i1 %67, label %68, label %69
@@ -430,7 +430,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %_ZN
 69:                                               ; preds = %66
   tail call void @__kmpc_serialized_parallel(ptr nonnull @4, i32 %19)
   store i32 %19, ptr %18, align 4, !tbaa !61
-  call void @_ZNK5faiss15IndexBinaryHash6searchElPKhlPiPlPKNS_16SearchParametersE.omp_outlined(ptr nonnull %18, ptr nonnull poison, ptr %8, ptr %11, ptr %10, ptr %12, ptr %9, ptr nonnull %0, ptr %17, ptr %15, ptr %16) #15
+  call void @_ZNK5faiss15IndexBinaryHash6searchElPKhlPiPlPKNS_16SearchParametersE.omp_outlined(ptr nonnull %18, ptr nonnull poison, ptr %8, ptr %11, ptr %10, ptr %12, ptr %9, ptr nonnull %0, ptr %17, ptr %15, ptr %16) #14
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @4, i32 %19)
   br label %70
 
@@ -451,9 +451,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %_ZN
   %81 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss21indexBinaryHash_statsE, i64 24), align 8, !tbaa !66
   %82 = add i64 %81, %80
   store i64 %82, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss21indexBinaryHash_statsE, i64 24), align 8, !tbaa !66
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret void
 
 83:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -484,13 +484,13 @@ define void @_ZNK5faiss15IndexBinaryHash12range_searchElPKhiPNS_17RangeSearchRes
   br i1 %.not, label %39, label %17
 
 17:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %18, ptr %11, align 8, !tbaa !55
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %19, align 8, !tbaa !57
   store i8 0, ptr %18, align 8, !tbaa !59
-  %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #15
+  %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #14
   %21 = add nsw i32 %20, 1
   %22 = sext i32 %21 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %22, i8 noundef signext 0)
@@ -499,8 +499,8 @@ define void @_ZNK5faiss15IndexBinaryHash12range_searchElPKhiPNS_17RangeSearchRes
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %17
   %23 = load ptr, ptr %11, align 8, !tbaa !60
   %24 = load i64, ptr %19, align 8, !tbaa !57
-  %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %23, i64 noundef %24, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #15
-  %26 = call ptr @__cxa_allocate_exception(i64 40) #15
+  %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %23, i64 noundef %24, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #14
+  %26 = call ptr @__cxa_allocate_exception(i64 40) #14
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5faiss15IndexBinaryHash12range_searchElPKhiPNS_17RangeSearchResultEPKNS_16SearchParametersE, ptr noundef nonnull @.str.4, i32 noundef 208)
           to label %27 unwind label %30
 
@@ -516,7 +516,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
 30:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %26) #15
+  call void @__cxa_free_exception(ptr nonnull %26) #14
   br label %32
 
 32:                                               ; preds = %30, %28
@@ -538,15 +538,15 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %.pn
 
 39:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 0, ptr %14, align 8, !tbaa !24
   %40 = icmp sgt i64 %1, 100
   br i1 %40, label %41, label %42
@@ -559,7 +559,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 42:                                               ; preds = %39
   tail call void @__kmpc_serialized_parallel(ptr nonnull @4, i32 %16)
   store i32 %16, ptr %15, align 4, !tbaa !61
-  call void @_ZNK5faiss15IndexBinaryHash12range_searchElPKhiPNS_17RangeSearchResultEPKNS_16SearchParametersE.omp_outlined(ptr nonnull %15, ptr nonnull poison, ptr %10, ptr %7, ptr %9, ptr %8, ptr nonnull %0, ptr %14, ptr %12, ptr %13) #15
+  call void @_ZNK5faiss15IndexBinaryHash12range_searchElPKhiPNS_17RangeSearchResultEPKNS_16SearchParametersE.omp_outlined(ptr nonnull %15, ptr nonnull poison, ptr %10, ptr %7, ptr %9, ptr %8, ptr nonnull %0, ptr %14, ptr %12, ptr %13) #14
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @4, i32 %16)
   br label %43
 
@@ -580,9 +580,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %54 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss21indexBinaryHash_statsE, i64 24), align 8, !tbaa !66
   %55 = add i64 %54, %53
   store i64 %55, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss21indexBinaryHash_statsE, i64 24), align 8, !tbaa !66
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 
 56:                                               ; preds = %27
@@ -664,7 +664,7 @@ declare void @_ZN5faiss11IndexBinary12add_sa_codesElPKhPKl(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5faiss20IndexBinaryMultiHashD0Ev(ptr noundef nonnull align 8 dereferenceable(84) %0) unnamed_addr #3 align 2 {
-  tail call void @_ZN5faiss20IndexBinaryMultiHashD1Ev(ptr noundef nonnull align 8 dereferenceable(84) %0) #15
+  tail call void @_ZN5faiss20IndexBinaryMultiHashD1Ev(ptr noundef nonnull align 8 dereferenceable(84) %0) #14
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #27
   ret void
 }
@@ -769,7 +769,7 @@ define void @_ZN5faiss20IndexBinaryMultiHash3addElPKh(ptr noundef nonnull align 
   br label %.loopexit.i.i, !llvm.loop !91
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %42, ptr %4, align 8, !tbaa !92
   %61 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
   store ptr null, ptr %61, align 8, !tbaa !29
@@ -909,7 +909,7 @@ _ZNSt10_HashtableIlSt4pairIKlSt6vectorIlSaIlEEESaIS5_ENSt8__detail10_Select1stES
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %108 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %109 = extractvalue { ptr, i32 } %lpad.phi, 0
-  %110 = tail call ptr @__cxa_begin_catch(ptr %109) #15
+  %110 = tail call ptr @__cxa_begin_catch(ptr %109) #14
   store i64 %66, ptr %108, align 8, !tbaa !99
   invoke void @__cxa_rethrow() #29
           to label %116 unwind label %111
@@ -977,7 +977,7 @@ _ZNSt10_HashtableIlSt4pairIKlSt6vectorIlSaIlEEESaIS5_ENSt8__detail10_Select1stES
   %136 = load i64, ptr %68, align 8, !tbaa !100
   %137 = add i64 %136, 1
   store i64 %137, ptr %68, align 8, !tbaa !100
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEEixEOl.exit
 
 138:                                              ; preds = %.loopexit.i.i
@@ -987,8 +987,8 @@ _ZNSt10_HashtableIlSt4pairIKlSt6vectorIlSaIlEEESaIS5_ENSt8__detail10_Select1stES
 
 .body:                                            ; preds = %111, %138
   %eh.lpad-body = phi { ptr, i32 } [ %139, %138 ], [ %112, %111 ]
-  call void @_ZNSt10_HashtableIlSt4pairIKlSt6vectorIlSaIlEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @_ZNSt10_HashtableIlSt4pairIKlSt6vectorIlSaIlEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %eh.lpad-body
 
 _ZNSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEEixEOl.exit: ; preds = %54, %49, %_ZNSt10_HashtableIlSt4pairIKlSt6vectorIlSaIlEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i.i
@@ -1092,13 +1092,13 @@ define void @_ZNK5faiss20IndexBinaryMultiHash6searchElPKhlPiPlPKNS_16SearchParam
   br i1 %.not, label %42, label %20
 
 20:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %21, ptr %13, align 8, !tbaa !55
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %22, align 8, !tbaa !57
   store i8 0, ptr %21, align 8, !tbaa !59
-  %23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #15
+  %23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #14
   %24 = add nsw i32 %23, 1
   %25 = sext i32 %24 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef %25, i8 noundef signext 0)
@@ -1107,8 +1107,8 @@ define void @_ZNK5faiss20IndexBinaryMultiHash6searchElPKhlPiPlPKNS_16SearchParam
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %20
   %26 = load ptr, ptr %13, align 8, !tbaa !60
   %27 = load i64, ptr %22, align 8, !tbaa !57
-  %28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %26, i64 noundef %27, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #15
-  %29 = call ptr @__cxa_allocate_exception(i64 40) #15
+  %28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %26, i64 noundef %27, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #14
+  %29 = call ptr @__cxa_allocate_exception(i64 40) #14
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5faiss20IndexBinaryMultiHash6searchElPKhlPiPlPKNS_16SearchParametersE, ptr noundef nonnull @.str.4, i32 noundef 447)
           to label %30 unwind label %33
 
@@ -1124,7 +1124,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
 33:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %29) #15
+  call void @__cxa_free_exception(ptr nonnull %29) #14
   br label %35
 
 35:                                               ; preds = %33, %31
@@ -1146,7 +1146,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %83
 
 42:                                               ; preds = %7
@@ -1154,13 +1154,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %43, label %66, label %44
 
 44:                                               ; preds = %42
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %45 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %45, ptr %14, align 8, !tbaa !55
   %46 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 0, ptr %46, align 8, !tbaa !57
   store i8 0, ptr %45, align 8, !tbaa !59
-  %47 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #15
+  %47 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #14
   %48 = add nsw i32 %47, 1
   %49 = sext i32 %48 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %49, i8 noundef signext 0)
@@ -1169,8 +1169,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit12: ; preds = %44
   %50 = load ptr, ptr %14, align 8, !tbaa !60
   %51 = load i64, ptr %46, align 8, !tbaa !57
-  %52 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %50, i64 noundef %51, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #15
-  %53 = call ptr @__cxa_allocate_exception(i64 40) #15
+  %52 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %50, i64 noundef %51, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #14
+  %53 = call ptr @__cxa_allocate_exception(i64 40) #14
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5faiss20IndexBinaryMultiHash6searchElPKhlPiPlPKNS_16SearchParametersE, ptr noundef nonnull @.str.4, i32 noundef 448)
           to label %54 unwind label %57
 
@@ -1186,7 +1186,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit12: ; preds =
 57:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit12
   %58 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %53) #15
+  call void @__cxa_free_exception(ptr nonnull %53) #14
   br label %59
 
 59:                                               ; preds = %57, %55
@@ -1208,15 +1208,15 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %83
 
 66:                                               ; preds = %42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 0, ptr %15, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 0, ptr %16, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 0, ptr %17, align 8, !tbaa !24
   %67 = icmp sgt i64 %1, 100
   br i1 %67, label %68, label %69
@@ -1229,7 +1229,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %_ZN
 69:                                               ; preds = %66
   tail call void @__kmpc_serialized_parallel(ptr nonnull @4, i32 %19)
   store i32 %19, ptr %18, align 4, !tbaa !61
-  call void @_ZNK5faiss20IndexBinaryMultiHash6searchElPKhlPiPlPKNS_16SearchParametersE.omp_outlined(ptr nonnull %18, ptr nonnull poison, ptr %8, ptr %11, ptr %10, ptr %12, ptr %9, ptr nonnull %0, ptr %17, ptr %15, ptr %16) #15
+  call void @_ZNK5faiss20IndexBinaryMultiHash6searchElPKhlPiPlPKNS_16SearchParametersE.omp_outlined(ptr nonnull %18, ptr nonnull poison, ptr %8, ptr %11, ptr %10, ptr %12, ptr %9, ptr nonnull %0, ptr %17, ptr %15, ptr %16) #14
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @4, i32 %19)
   br label %70
 
@@ -1250,9 +1250,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %_ZN
   %81 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss21indexBinaryHash_statsE, i64 24), align 8, !tbaa !66
   %82 = add i64 %81, %80
   store i64 %82, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss21indexBinaryHash_statsE, i64 24), align 8, !tbaa !66
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret void
 
 83:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -1283,13 +1283,13 @@ define void @_ZNK5faiss20IndexBinaryMultiHash12range_searchElPKhiPNS_17RangeSear
   br i1 %.not, label %39, label %17
 
 17:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %18, ptr %11, align 8, !tbaa !55
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %19, align 8, !tbaa !57
   store i8 0, ptr %18, align 8, !tbaa !59
-  %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #15
+  %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #14
   %21 = add nsw i32 %20, 1
   %22 = sext i32 %21 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %22, i8 noundef signext 0)
@@ -1298,8 +1298,8 @@ define void @_ZNK5faiss20IndexBinaryMultiHash12range_searchElPKhiPNS_17RangeSear
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %17
   %23 = load ptr, ptr %11, align 8, !tbaa !60
   %24 = load i64, ptr %19, align 8, !tbaa !57
-  %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %23, i64 noundef %24, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #15
-  %26 = call ptr @__cxa_allocate_exception(i64 40) #15
+  %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %23, i64 noundef %24, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #14
+  %26 = call ptr @__cxa_allocate_exception(i64 40) #14
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5faiss20IndexBinaryMultiHash12range_searchElPKhiPNS_17RangeSearchResultEPKNS_16SearchParametersE, ptr noundef nonnull @.str.4, i32 noundef 416)
           to label %27 unwind label %30
 
@@ -1315,7 +1315,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
 30:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %26) #15
+  call void @__cxa_free_exception(ptr nonnull %26) #14
   br label %32
 
 32:                                               ; preds = %30, %28
@@ -1337,15 +1337,15 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %.pn
 
 39:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 0, ptr %14, align 8, !tbaa !24
   %40 = icmp sgt i64 %1, 100
   br i1 %40, label %41, label %42
@@ -1358,7 +1358,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 42:                                               ; preds = %39
   tail call void @__kmpc_serialized_parallel(ptr nonnull @4, i32 %16)
   store i32 %16, ptr %15, align 4, !tbaa !61
-  call void @_ZNK5faiss20IndexBinaryMultiHash12range_searchElPKhiPNS_17RangeSearchResultEPKNS_16SearchParametersE.omp_outlined(ptr nonnull %15, ptr nonnull poison, ptr %10, ptr %7, ptr %9, ptr %8, ptr nonnull %0, ptr %14, ptr %12, ptr %13) #15
+  call void @_ZNK5faiss20IndexBinaryMultiHash12range_searchElPKhiPNS_17RangeSearchResultEPKNS_16SearchParametersE.omp_outlined(ptr nonnull %15, ptr nonnull poison, ptr %10, ptr %7, ptr %9, ptr %8, ptr nonnull %0, ptr %14, ptr %12, ptr %13) #14
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @4, i32 %16)
   br label %43
 
@@ -1379,9 +1379,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %54 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss21indexBinaryHash_statsE, i64 24), align 8, !tbaa !66
   %55 = add i64 %54, %53
   store i64 %55, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss21indexBinaryHash_statsE, i64 24), align 8, !tbaa !66
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 
 56:                                               ; preds = %27
@@ -1420,7 +1420,7 @@ define void @_ZN5faiss20IndexBinaryMultiHash5resetEv(ptr noundef nonnull align 8
 
 19:                                               ; preds = %.lr.ph, %_ZNSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEED2Ev.exit
   %.sroa.03.07 = phi ptr [ %11, %.lr.ph ], [ %46, %_ZNSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEED2Ev.exit ]
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !90
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.03.07, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !88
@@ -1432,10 +1432,10 @@ define void @_ZN5faiss20IndexBinaryMultiHash5resetEv(ptr noundef nonnull align 8
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.03.07, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %18, align 8, !tbaa !102
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8, !tbaa !110
   call void @_ZNSt10_HashtableIlSt4pairIKlSt6vectorIlSaIlEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_assignIRKSI_NS7_10_AllocNodeISaINS7_10_Hash_nodeIS5_Lb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.03.07, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %25 = load ptr, ptr %15, align 8, !tbaa !103
   %.not5.i.i.i = icmp eq ptr %25, null
   br i1 %.not5.i.i.i, label %_ZNSt10_HashtableIlSt4pairIKlSt6vectorIlSaIlEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i
@@ -1483,7 +1483,7 @@ _ZNSt10_HashtableIlSt4pairIKlSt6vectorIlSaIlEEESaIS5_ENSt8__detail10_Select1stES
   br label %_ZNSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEED2Ev.exit
 
 _ZNSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEED2Ev.exit: ; preds = %_ZNSt10_HashtableIlSt4pairIKlSt6vectorIlSaIlEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, %43
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.03.07, i64 56
   %.not = icmp eq ptr %46, %13
   br i1 %.not, label %._crit_edge, label %19
@@ -1566,20 +1566,14 @@ _ZNSt6vectorIlSaIlEE9push_backERKl.exit:          ; preds = %9, %_ZNSt6vectorIlS
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #5
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #4
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
   tail call void @_ZSt9terminatev() #30
   unreachable
 }
@@ -1587,22 +1581,22 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #7
+declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #5
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #4
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #5
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #4
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1757,7 +1751,7 @@ _ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEET0_T_SA_S9_.ex
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare void @__cxa_rethrow() local_unnamed_addr
 
@@ -1865,7 +1859,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKlN5faiss15IndexBina
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1890,7 +1884,7 @@ define linkonce_odr ptr @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #15
+  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #14
   store i64 %8, ptr %7, align 8, !tbaa !99
   invoke void @__cxa_rethrow() #29
           to label %28 unwind label %22
@@ -2109,7 +2103,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #12
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
@@ -2140,15 +2134,15 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
   ret void
 }
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #13
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #12
 
 ; Function Attrs: noinline norecurse nounwind uwtable
-define internal void @_ZNK5faiss15IndexBinaryHash12range_searchElPKhiPNS_17RangeSearchResultEPKNS_16SearchParametersE.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef %6, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %9) #14 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5faiss15IndexBinaryHash12range_searchElPKhiPNS_17RangeSearchResultEPKNS_16SearchParametersE.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef %6, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %9) #13 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"struct.faiss::HammingComputerDefault", align 8
   %12 = alloca %"struct.std::__detail::_AllocNode", align 8
   %13 = alloca %"struct.std::__detail::_AllocNode", align 8
@@ -2175,13 +2169,13 @@ define internal void @_ZNK5faiss15IndexBinaryHash12range_searchElPKhiPNS_17Range
   %34 = alloca i64, align 8
   %35 = alloca i32, align 4
   %36 = alloca [3 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store i64 0, ptr %28, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i64 0, ptr %29, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i64 0, ptr %30, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %31) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %37 = load ptr, ptr %2, align 8, !tbaa !67
   invoke void @_ZN5faiss24RangeSearchPartialResultC1EPNS_17RangeSearchResultE(ptr noundef nonnull align 8 dereferenceable(72) %31, ptr noundef %37)
           to label %38 unwind label %.loopexit.split-lp
@@ -2194,13 +2188,13 @@ define internal void @_ZNK5faiss15IndexBinaryHash12range_searchElPKhiPNS_17Range
 
 41:                                               ; preds = %38
   %42 = add nsw i64 %39, -1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i64 0, ptr %32, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i64 %42, ptr %33, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store i64 1, ptr %34, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store i32 0, ptr %35, align 4, !tbaa !61
   call void @__kmpc_for_static_init_8(ptr nonnull @1, i32 %.pre140, i32 34, ptr nonnull %35, ptr nonnull %32, ptr nonnull %33, ptr nonnull %34, i64 1, i64 1)
   %43 = load i64, ptr %33, align 8, !tbaa !24
@@ -2305,7 +2299,7 @@ define internal void @_ZNK5faiss15IndexBinaryHash12range_searchElPKhiPNS_17Range
   %132 = sext i32 %131 to i64
   %133 = mul nsw i64 %.097, %132
   %134 = getelementptr inbounds i8, ptr %130, i64 %133
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %48, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN5faiss15IndexBinaryHashE, i64 16), ptr %27, align 8, !tbaa !4
   store ptr null, ptr %49, align 8, !tbaa !27
@@ -2316,14 +2310,14 @@ define internal void @_ZNK5faiss15IndexBinaryHash12range_searchElPKhiPNS_17Range
   store i64 %136, ptr %54, align 8, !tbaa !116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %58, align 8, !tbaa !117
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store ptr %49, ptr %26, align 8, !tbaa !119
   invoke void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_assignIRKSI_NS7_10_AllocNodeISaINS7_10_Hash_nodeIS5_Lb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %49, ptr noundef nonnull align 8 dereferenceable(56) %50, ptr noundef nonnull align 8 dereferenceable(8) %26)
           to label %_ZN5faiss15IndexBinaryHashC2ERKS0_.exit.i unwind label %137
 
 common.resume.i:                                  ; preds = %common.resume.i.i, %137
   %common.resume.op.i = phi { ptr, i32 } [ %138, %137 ], [ %common.resume.op.i.i, %common.resume.i.i ]
-  call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %27) #15
+  call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %27) #14
   br label %.body
 
 137:                                              ; preds = %128
@@ -2332,16 +2326,16 @@ common.resume.i:                                  ; preds = %common.resume.i.i, 
   br label %common.resume.i
 
 _ZN5faiss15IndexBinaryHashC2ERKS0_.exit.i:        ; preds = %128
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %139 = load i64, ptr %60, align 8
   store i64 %139, ptr %59, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %20)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %21)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %24)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   switch i32 %131, label %947 [
     i32 4, label %140
     i32 8, label %257
@@ -2362,7 +2356,7 @@ _ZN5faiss15IndexBinaryHashC2ERKS0_.exit.i:        ; preds = %128
   store i64 %142, ptr %110, align 8, !tbaa !116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %112, align 8, !tbaa !117
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %107, ptr %18, align 8, !tbaa !119
   invoke void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_assignIRKSI_NS7_10_AllocNodeISaINS7_10_Hash_nodeIS5_Lb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %107, ptr noundef nonnull align 8 dereferenceable(56) %49, ptr noundef nonnull align 8 dereferenceable(8) %18)
           to label %_ZN5faiss15IndexBinaryHashC2ERKS0_.exit.i.i unwind label %143
@@ -2370,9 +2364,9 @@ _ZN5faiss15IndexBinaryHashC2ERKS0_.exit.i:        ; preds = %128
 common.resume.i.i:                                ; preds = %1063, %950, %945, %776, %771, %634, %629, %501, %496, %377, %372, %260, %255, %143
   %.sink.i.i = phi ptr [ %19, %255 ], [ %20, %372 ], [ %21, %496 ], [ %22, %629 ], [ %23, %771 ], [ %24, %945 ], [ %25, %1063 ], [ %25, %950 ], [ %24, %776 ], [ %23, %634 ], [ %22, %501 ], [ %21, %377 ], [ %20, %260 ], [ %19, %143 ]
   %common.resume.op.i.i = phi { ptr, i32 } [ %256, %255 ], [ %373, %372 ], [ %497, %496 ], [ %630, %629 ], [ %772, %771 ], [ %946, %945 ], [ %1064, %1063 ], [ %951, %950 ], [ %777, %776 ], [ %635, %634 ], [ %502, %501 ], [ %378, %377 ], [ %261, %260 ], [ %144, %143 ]
-  call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink.i.i) #15
+  call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink.i.i) #14
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN5faiss15IndexBinaryHashE, i64 16), ptr %27, align 8, !tbaa !4
-  call void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %49) #15
+  call void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %49) #14
   br label %common.resume.i
 
 143:                                              ; preds = %140
@@ -2381,7 +2375,7 @@ common.resume.i.i:                                ; preds = %1063, %950, %945, %
   br label %common.resume.i.i
 
 _ZN5faiss15IndexBinaryHashC2ERKS0_.exit.i.i:      ; preds = %140
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %145 = load i64, ptr %59, align 8
   store i64 %145, ptr %113, align 8
   %.val.i.i = load i64, ptr %134, align 8
@@ -2609,7 +2603,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   %256 = landingpad { ptr, i32 }
           catch ptr null
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN5faiss15IndexBinaryHashE, i64 16), ptr %19, align 8, !tbaa !4
-  call void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %107) #15
+  call void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %107) #14
   br label %common.resume.i.i
 
 257:                                              ; preds = %_ZN5faiss15IndexBinaryHashC2ERKS0_.exit.i
@@ -2623,7 +2617,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   store i64 %259, ptr %101, align 8, !tbaa !116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %103, align 8, !tbaa !117
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %98, ptr %17, align 8, !tbaa !119
   invoke void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_assignIRKSI_NS7_10_AllocNodeISaINS7_10_Hash_nodeIS5_Lb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %98, ptr noundef nonnull align 8 dereferenceable(56) %49, ptr noundef nonnull align 8 dereferenceable(8) %17)
           to label %_ZN5faiss15IndexBinaryHashC2ERKS0_.exit74.i.i unwind label %260
@@ -2634,7 +2628,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   br label %common.resume.i.i
 
 _ZN5faiss15IndexBinaryHashC2ERKS0_.exit74.i.i:    ; preds = %257
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %262 = load i64, ptr %59, align 8
   store i64 %262, ptr %104, align 8
   %.val71.i.i = load i64, ptr %134, align 8, !tbaa !24
@@ -2862,7 +2856,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   %373 = landingpad { ptr, i32 }
           catch ptr null
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN5faiss15IndexBinaryHashE, i64 16), ptr %20, align 8, !tbaa !4
-  call void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %98) #15
+  call void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %98) #14
   br label %common.resume.i.i
 
 374:                                              ; preds = %_ZN5faiss15IndexBinaryHashC2ERKS0_.exit.i
@@ -2876,7 +2870,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   store i64 %376, ptr %92, align 8, !tbaa !116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %93, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %94, align 8, !tbaa !117
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %89, ptr %16, align 8, !tbaa !119
   invoke void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_assignIRKSI_NS7_10_AllocNodeISaINS7_10_Hash_nodeIS5_Lb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %89, ptr noundef nonnull align 8 dereferenceable(56) %49, ptr noundef nonnull align 8 dereferenceable(8) %16)
           to label %_ZN5faiss15IndexBinaryHashC2ERKS0_.exit105.i.i unwind label %377
@@ -2887,7 +2881,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   br label %common.resume.i.i
 
 _ZN5faiss15IndexBinaryHashC2ERKS0_.exit105.i.i:   ; preds = %374
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %379 = load i64, ptr %59, align 8
   store i64 %379, ptr %95, align 8
   %.val72.i.i = load i64, ptr %134, align 8, !tbaa !24
@@ -3123,7 +3117,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   %497 = landingpad { ptr, i32 }
           catch ptr null
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN5faiss15IndexBinaryHashE, i64 16), ptr %21, align 8, !tbaa !4
-  call void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %89) #15
+  call void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %89) #14
   br label %common.resume.i.i
 
 498:                                              ; preds = %_ZN5faiss15IndexBinaryHashC2ERKS0_.exit.i
@@ -3137,7 +3131,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   store i64 %500, ptr %83, align 8, !tbaa !116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %85, align 8, !tbaa !117
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %80, ptr %15, align 8, !tbaa !119
   invoke void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_assignIRKSI_NS7_10_AllocNodeISaINS7_10_Hash_nodeIS5_Lb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %80, ptr noundef nonnull align 8 dereferenceable(56) %49, ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %_ZN5faiss15IndexBinaryHashC2ERKS0_.exit136.i.i unwind label %501
@@ -3148,7 +3142,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   br label %common.resume.i.i
 
 _ZN5faiss15IndexBinaryHashC2ERKS0_.exit136.i.i:   ; preds = %498
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %503 = load i64, ptr %59, align 8
   store i64 %503, ptr %86, align 8
   %504 = load i32, ptr %87, align 4, !tbaa !25
@@ -3391,7 +3385,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   %630 = landingpad { ptr, i32 }
           catch ptr null
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN5faiss15IndexBinaryHashE, i64 16), ptr %22, align 8, !tbaa !4
-  call void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %80) #15
+  call void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %80) #14
   br label %common.resume.i.i
 
 631:                                              ; preds = %_ZN5faiss15IndexBinaryHashC2ERKS0_.exit.i
@@ -3405,7 +3399,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   store i64 %633, ptr %74, align 8, !tbaa !116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %76, align 8, !tbaa !117
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %71, ptr %14, align 8, !tbaa !119
   invoke void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_assignIRKSI_NS7_10_AllocNodeISaINS7_10_Hash_nodeIS5_Lb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %71, ptr noundef nonnull align 8 dereferenceable(56) %49, ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %_ZN5faiss15IndexBinaryHashC2ERKS0_.exit169.i.i unwind label %634
@@ -3416,7 +3410,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   br label %common.resume.i.i
 
 _ZN5faiss15IndexBinaryHashC2ERKS0_.exit169.i.i:   ; preds = %631
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %636 = load i64, ptr %59, align 8
   store i64 %636, ptr %77, align 8
   %637 = load i32, ptr %78, align 4, !tbaa !25
@@ -3668,7 +3662,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   %772 = landingpad { ptr, i32 }
           catch ptr null
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN5faiss15IndexBinaryHashE, i64 16), ptr %23, align 8, !tbaa !4
-  call void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %71) #15
+  call void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %71) #14
   br label %common.resume.i.i
 
 773:                                              ; preds = %_ZN5faiss15IndexBinaryHashC2ERKS0_.exit.i
@@ -3682,7 +3676,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   store i64 %775, ptr %65, align 8, !tbaa !116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %67, align 8, !tbaa !117
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %62, ptr %13, align 8, !tbaa !119
   invoke void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_assignIRKSI_NS7_10_AllocNodeISaINS7_10_Hash_nodeIS5_Lb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %62, ptr noundef nonnull align 8 dereferenceable(56) %49, ptr noundef nonnull align 8 dereferenceable(8) %13)
           to label %_ZN5faiss15IndexBinaryHashC2ERKS0_.exit204.i.i unwind label %776
@@ -3693,7 +3687,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   br label %common.resume.i.i
 
 _ZN5faiss15IndexBinaryHashC2ERKS0_.exit204.i.i:   ; preds = %773
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %778 = load i64, ptr %59, align 8
   store i64 %778, ptr %68, align 8
   %779 = load i32, ptr %69, align 4, !tbaa !25
@@ -3977,7 +3971,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   %946 = landingpad { ptr, i32 }
           catch ptr null
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN5faiss15IndexBinaryHashE, i64 16), ptr %24, align 8, !tbaa !4
-  call void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %62) #15
+  call void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %62) #14
   br label %common.resume.i.i
 
 947:                                              ; preds = %_ZN5faiss15IndexBinaryHashC2ERKS0_.exit.i
@@ -3991,7 +3985,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   store i64 %949, ptr %119, align 8, !tbaa !116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %120, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %121, align 8, !tbaa !117
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %116, ptr %12, align 8, !tbaa !119
   invoke void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_assignIRKSI_NS7_10_AllocNodeISaINS7_10_Hash_nodeIS5_Lb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %116, ptr noundef nonnull align 8 dereferenceable(56) %49, ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %_ZN5faiss15IndexBinaryHashC2ERKS0_.exit239.i.i unwind label %950
@@ -4002,7 +3996,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   br label %common.resume.i.i
 
 _ZN5faiss15IndexBinaryHashC2ERKS0_.exit239.i.i:   ; preds = %947
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %952 = load i64, ptr %59, align 8
   store i64 %952, ptr %122, align 8
   %953 = load i32, ptr %123, align 4, !tbaa !25
@@ -4013,7 +4007,7 @@ _ZN5faiss15IndexBinaryHashC2ERKS0_.exit239.i.i:   ; preds = %947
   %957 = xor i64 %notmask.i.i240.i.i, -1
   %958 = load i64, ptr %134, align 8, !tbaa !24
   %959 = and i64 %958, %957
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %134, ptr %11, align 8, !tbaa !133
   %960 = sdiv i32 %953, 8
   store i32 %960, ptr %124, align 8, !tbaa !135
@@ -4173,7 +4167,7 @@ _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal
   br label %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i256.i.i, !llvm.loop !138
 
 1037:                                             ; preds = %1010
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN5faiss15IndexBinaryHashE, i64 16), ptr %25, align 8, !tbaa !4
   %1038 = load ptr, ptr %118, align 8, !tbaa !69
   %.not5.i.i.i323.i.i = icmp eq ptr %1038, null
@@ -4234,7 +4228,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   %1064 = landingpad { ptr, i32 }
           catch ptr null
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN5faiss15IndexBinaryHashE, i64 16), ptr %25, align 8, !tbaa !4
-  call void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %116) #15
+  call void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %116) #14
   br label %common.resume.i.i
 
 _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit.sink.split.i.i: ; preds = %1061, %943, %769, %627, %494, %370, %253
@@ -4247,14 +4241,14 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
 
 1066:                                             ; preds = %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit.sink.split.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i331.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i321.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i311.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i301.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i291.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i281.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i
   %.sink127.i.i = phi ptr [ %19, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i ], [ %20, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i281.i.i ], [ %21, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i291.i.i ], [ %22, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i301.i.i ], [ %23, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i311.i.i ], [ %24, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i321.i.i ], [ %25, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i331.i.i ], [ %.sink127.ph.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit.sink.split.i.i ]
-  call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink127.i.i) #15
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %25)
+  call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink127.i.i) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN5faiss15IndexBinaryHashE, i64 16), ptr %27, align 8, !tbaa !4
   %1067 = load ptr, ptr %53, align 8, !tbaa !69
   %.not5.i.i.i.i = icmp eq ptr %1067, null
@@ -4314,8 +4308,8 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   br label %1093
 
 1093:                                             ; preds = %1090, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
-  call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %27) #15
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %27)
+  call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %27) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %1094 = add nsw i64 %.097, 1
   %1095 = load i64, ptr %33, align 8, !tbaa !24
   %.not.not = icmp slt i64 %.097, %1095
@@ -4323,10 +4317,10 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
 
 ._crit_edge:                                      ; preds = %1093, %41
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre140)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %.pre = load i32, ptr %0, align 4, !tbaa !61
   br label %1096
 
@@ -4352,8 +4346,8 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   br label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit
 
 _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %1098, %1101
-  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %31) #15
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %31) #15
+  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %31) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   store ptr %28, ptr %36, align 8
   %1107 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %29, ptr %1107, align 8
@@ -4391,9 +4385,9 @@ _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %1098, %1101
   br label %1127
 
 1127:                                             ; preds = %1120, %1110, %_ZN5faiss24RangeSearchPartialResultD2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   ret void
 
 .loopexit:                                        ; preds = %126
@@ -4416,20 +4410,20 @@ _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %1098, %1101
 declare void @_ZN5faiss24RangeSearchPartialResultC1EPNS_17RangeSearchResultE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @__kmpc_for_static_init_8(ptr, i32, i32, ptr, ptr, ptr, ptr, i64, i64) local_unnamed_addr #15
+declare void @__kmpc_for_static_init_8(ptr, i32, i32, ptr, ptr, ptr, ptr, i64, i64) local_unnamed_addr #14
 
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN5faiss24RangeSearchPartialResult10new_resultEl(ptr noundef nonnull align 8 dereferenceable(72), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @__kmpc_for_static_fini(ptr, i32) local_unnamed_addr #15
+declare void @__kmpc_for_static_fini(ptr, i32) local_unnamed_addr #14
 
 ; Function Attrs: convergent nounwind
-declare void @__kmpc_barrier(ptr, i32) local_unnamed_addr #16
+declare void @__kmpc_barrier(ptr, i32) local_unnamed_addr #15
 
 declare void @_ZN5faiss24RangeSearchPartialResult8finalizeEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK5faiss15IndexBinaryHash12range_searchElPKhiPNS_17RangeSearchResultEPKNS_16SearchParametersE.omp_outlined.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #17 {
+define internal void @_ZNK5faiss15IndexBinaryHash12range_searchElPKhiPNS_17RangeSearchResultEPKNS_16SearchParametersE.omp_outlined.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #16 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4456,35 +4450,35 @@ define internal void @_ZNK5faiss15IndexBinaryHash12range_searchElPKhiPNS_17Range
 }
 
 ; Function Attrs: convergent nounwind
-declare i32 @__kmpc_reduce_nowait(ptr, i32, i32, i64, ptr, ptr, ptr) local_unnamed_addr #16
+declare i32 @__kmpc_reduce_nowait(ptr, i32, i32, i64, ptr, ptr, ptr) local_unnamed_addr #15
 
 ; Function Attrs: convergent nounwind
-declare void @__kmpc_end_reduce_nowait(ptr, i32, ptr) local_unnamed_addr #16
+declare void @__kmpc_end_reduce_nowait(ptr, i32, ptr) local_unnamed_addr #15
 
 ; Function Attrs: nounwind
-declare !callback !143 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #15
+declare !callback !143 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #14
 
 ; Function Attrs: nounwind
-declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #15
+declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #14
 
 ; Function Attrs: nounwind
-declare void @__kmpc_serialized_parallel(ptr, i32) local_unnamed_addr #15
+declare void @__kmpc_serialized_parallel(ptr, i32) local_unnamed_addr #14
 
 ; Function Attrs: nounwind
-declare void @__kmpc_end_serialized_parallel(ptr, i32) local_unnamed_addr #15
+declare void @__kmpc_end_serialized_parallel(ptr, i32) local_unnamed_addr #14
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #18
+declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #19
+declare i64 @llvm.ctpop.i64(i64) #18
 
 declare void @_ZN5faiss16RangeQueryResult3addEfl(ptr noundef nonnull align 8 dereferenceable(24), float noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #19
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 {
@@ -4761,7 +4755,7 @@ default.unreachable92:                            ; preds = %2
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #18
+declare void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_assignIRKSI_NS7_10_AllocNodeISaINS7_10_Hash_nodeIS5_Lb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4832,7 +4826,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  %30 = tail call ptr @__cxa_begin_catch(ptr %29) #15
+  %30 = tail call ptr @__cxa_begin_catch(ptr %29) #14
   tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef 64) #27
   invoke void @__cxa_rethrow() #29
           to label %36 unwind label %31
@@ -4888,7 +4882,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  %54 = tail call ptr @__cxa_begin_catch(ptr %53) #15
+  %54 = tail call ptr @__cxa_begin_catch(ptr %53) #14
   tail call void @_ZdlPvm(ptr noundef nonnull %45, i64 noundef 64) #27
   invoke void @__cxa_rethrow() #29
           to label %60 unwind label %55
@@ -4942,8 +4936,8 @@ _ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeISt4pairIKlN5faiss15IndexBinaryHas
 .body:                                            ; preds = %70, %55, %68, %31
   %.pn = phi { ptr, i32 } [ %69, %68 ], [ %32, %31 ], [ %71, %70 ], [ %56, %55 ]
   %.027 = extractvalue { ptr, i32 } %.pn, 0
-  %73 = tail call ptr @__cxa_begin_catch(ptr %.027) #15
-  tail call void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #15
+  %73 = tail call ptr @__cxa_begin_catch(ptr %.027) #14
+  tail call void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #14
   br i1 %.not.not, label %74, label %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 74:                                               ; preds = %.body
@@ -4987,7 +4981,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr void @_ZN5faiss15IndexBinaryHash12InvertedListC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5faiss15IndexBinaryHash12InvertedListC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #19 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !105
   %5 = load ptr, ptr %1, align 8, !tbaa !72
@@ -5105,10 +5099,10 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %47, %50
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #18
+declare void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #17
 
 ; Function Attrs: noinline norecurse nounwind uwtable
-define internal void @_ZNK5faiss15IndexBinaryHash6searchElPKhlPiPlPKNS_16SearchParametersE.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef %7, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %10) #14 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5faiss15IndexBinaryHash6searchElPKhlPiPlPKNS_16SearchParametersE.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef %7, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %10) #13 personality ptr @__gxx_personality_v0 {
   %12 = alloca %"struct.faiss::HammingComputerDefault", align 8
   %13 = alloca %"struct.std::__detail::_AllocNode", align 8
   %14 = alloca %"struct.std::__detail::_AllocNode", align 8
@@ -5140,19 +5134,19 @@ define internal void @_ZNK5faiss15IndexBinaryHash6searchElPKhlPiPlPKNS_16SearchP
 
 39:                                               ; preds = %11
   %40 = add nsw i64 %37, -1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i64 0, ptr %29, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i64 %40, ptr %30, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i64 1, ptr %31, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i32 0, ptr %32, align 4, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i64 0, ptr %33, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store i64 0, ptr %34, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store i64 0, ptr %35, align 8, !tbaa !24
   %41 = load i32, ptr %0, align 4, !tbaa !61
   call void @__kmpc_for_static_init_8(ptr nonnull @1, i32 %41, i32 34, ptr nonnull %32, ptr nonnull %29, ptr nonnull %30, ptr nonnull %31, i64 1, i64 1)
@@ -5278,7 +5272,7 @@ _ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit: ; pre
   %138 = sext i32 %137 to i64
   %139 = mul nsw i64 %.081, %138
   %140 = getelementptr inbounds i8, ptr %136, i64 %139
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %47, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN5faiss15IndexBinaryHashE, i64 16), ptr %28, align 8, !tbaa !4
   store ptr null, ptr %48, align 8, !tbaa !27
@@ -5289,14 +5283,14 @@ _ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit: ; pre
   store i64 %142, ptr %53, align 8, !tbaa !116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %57, align 8, !tbaa !117
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store ptr %48, ptr %27, align 8, !tbaa !119
   invoke void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_assignIRKSI_NS7_10_AllocNodeISaINS7_10_Hash_nodeIS5_Lb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %48, ptr noundef nonnull align 8 dereferenceable(56) %49, ptr noundef nonnull align 8 dereferenceable(8) %27)
           to label %_ZN5faiss15IndexBinaryHashC2ERKS0_.exit.i unwind label %144
 
 common.resume.i:                                  ; preds = %common.resume.i.i, %144
   %common.resume.op.i = phi { ptr, i32 } [ %145, %144 ], [ %common.resume.op.i.i, %common.resume.i.i ]
-  call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %28) #15
+  call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %28) #14
   %143 = extractvalue { ptr, i32 } %common.resume.op.i, 0
   call void @__clang_call_terminate(ptr %143) #30
   unreachable
@@ -5307,16 +5301,16 @@ common.resume.i:                                  ; preds = %common.resume.i.i, 
   br label %common.resume.i
 
 _ZN5faiss15IndexBinaryHashC2ERKS0_.exit.i:        ; preds = %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %146 = load i64, ptr %59, align 8
   store i64 %146, ptr %58, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %20)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %21)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %24)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %25)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   switch i32 %137, label %1183 [
     i32 4, label %147
     i32 8, label %302
@@ -5337,7 +5331,7 @@ _ZN5faiss15IndexBinaryHashC2ERKS0_.exit.i:        ; preds = %_ZN5faiss12heap_hea
   store i64 %149, ptr %109, align 8, !tbaa !116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %111, align 8, !tbaa !117
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %106, ptr %19, align 8, !tbaa !119
   invoke void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_assignIRKSI_NS7_10_AllocNodeISaINS7_10_Hash_nodeIS5_Lb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %106, ptr noundef nonnull align 8 dereferenceable(56) %48, ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %_ZN5faiss15IndexBinaryHashC2ERKS0_.exit.i.i unwind label %150
@@ -5345,9 +5339,9 @@ _ZN5faiss15IndexBinaryHashC2ERKS0_.exit.i:        ; preds = %_ZN5faiss12heap_hea
 common.resume.i.i:                                ; preds = %1186, %973, %793, %622, %460, %305, %150
   %.sink.i.i = phi ptr [ %26, %1186 ], [ %25, %973 ], [ %24, %793 ], [ %23, %622 ], [ %22, %460 ], [ %21, %305 ], [ %20, %150 ]
   %common.resume.op.i.i = phi { ptr, i32 } [ %1187, %1186 ], [ %974, %973 ], [ %794, %793 ], [ %623, %622 ], [ %461, %460 ], [ %306, %305 ], [ %151, %150 ]
-  call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink.i.i) #15
+  call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink.i.i) #14
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN5faiss15IndexBinaryHashE, i64 16), ptr %28, align 8, !tbaa !4
-  call void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %48) #15
+  call void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %48) #14
   br label %common.resume.i
 
 150:                                              ; preds = %147
@@ -5356,7 +5350,7 @@ common.resume.i.i:                                ; preds = %1186, %973, %793, %
   br label %common.resume.i.i
 
 _ZN5faiss15IndexBinaryHashC2ERKS0_.exit.i.i:      ; preds = %147
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %152 = load i64, ptr %58, align 8
   store i64 %152, ptr %112, align 8
   %.val.i.i = load i64, ptr %140, align 8
@@ -5667,7 +5661,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   store i64 %304, ptr %100, align 8, !tbaa !116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %102, align 8, !tbaa !117
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %97, ptr %18, align 8, !tbaa !119
   invoke void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_assignIRKSI_NS7_10_AllocNodeISaINS7_10_Hash_nodeIS5_Lb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %97, ptr noundef nonnull align 8 dereferenceable(56) %48, ptr noundef nonnull align 8 dereferenceable(8) %18)
           to label %_ZN5faiss15IndexBinaryHashC2ERKS0_.exit42.i.i unwind label %305
@@ -5678,7 +5672,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   br label %common.resume.i.i
 
 _ZN5faiss15IndexBinaryHashC2ERKS0_.exit42.i.i:    ; preds = %302
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %307 = load i64, ptr %58, align 8
   store i64 %307, ptr %103, align 8
   %.val39.i.i = load i64, ptr %140, align 8, !tbaa !24
@@ -5989,7 +5983,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   store i64 %459, ptr %91, align 8, !tbaa !116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %93, align 8, !tbaa !117
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %88, ptr %17, align 8, !tbaa !119
   invoke void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_assignIRKSI_NS7_10_AllocNodeISaINS7_10_Hash_nodeIS5_Lb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %88, ptr noundef nonnull align 8 dereferenceable(56) %48, ptr noundef nonnull align 8 dereferenceable(8) %17)
           to label %_ZN5faiss15IndexBinaryHashC2ERKS0_.exit85.i.i unwind label %460
@@ -6000,7 +5994,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   br label %common.resume.i.i
 
 _ZN5faiss15IndexBinaryHashC2ERKS0_.exit85.i.i:    ; preds = %457
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %462 = load i64, ptr %58, align 8
   store i64 %462, ptr %94, align 8
   %.val40.i.i = load i64, ptr %140, align 8, !tbaa !24
@@ -6319,7 +6313,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   store i64 %621, ptr %82, align 8, !tbaa !116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %84, align 8, !tbaa !117
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %79, ptr %16, align 8, !tbaa !119
   invoke void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_assignIRKSI_NS7_10_AllocNodeISaINS7_10_Hash_nodeIS5_Lb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %79, ptr noundef nonnull align 8 dereferenceable(56) %48, ptr noundef nonnull align 8 dereferenceable(8) %16)
           to label %_ZN5faiss15IndexBinaryHashC2ERKS0_.exit130.i.i unwind label %622
@@ -6330,7 +6324,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   br label %common.resume.i.i
 
 _ZN5faiss15IndexBinaryHashC2ERKS0_.exit130.i.i:   ; preds = %619
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %624 = load i64, ptr %58, align 8
   store i64 %624, ptr %85, align 8
   %625 = load i32, ptr %86, align 4, !tbaa !25
@@ -6656,7 +6650,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   store i64 %792, ptr %73, align 8, !tbaa !116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %75, align 8, !tbaa !117
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %70, ptr %15, align 8, !tbaa !119
   invoke void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_assignIRKSI_NS7_10_AllocNodeISaINS7_10_Hash_nodeIS5_Lb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %70, ptr noundef nonnull align 8 dereferenceable(56) %48, ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %_ZN5faiss15IndexBinaryHashC2ERKS0_.exit175.i.i unwind label %793
@@ -6667,7 +6661,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   br label %common.resume.i.i
 
 _ZN5faiss15IndexBinaryHashC2ERKS0_.exit175.i.i:   ; preds = %790
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %795 = load i64, ptr %58, align 8
   store i64 %795, ptr %76, align 8
   %796 = load i32, ptr %77, align 4, !tbaa !25
@@ -7002,7 +6996,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   store i64 %972, ptr %64, align 8, !tbaa !116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %66, align 8, !tbaa !117
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %61, ptr %14, align 8, !tbaa !119
   invoke void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_assignIRKSI_NS7_10_AllocNodeISaINS7_10_Hash_nodeIS5_Lb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %61, ptr noundef nonnull align 8 dereferenceable(56) %48, ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %_ZN5faiss15IndexBinaryHashC2ERKS0_.exit222.i.i unwind label %973
@@ -7013,7 +7007,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   br label %common.resume.i.i
 
 _ZN5faiss15IndexBinaryHashC2ERKS0_.exit222.i.i:   ; preds = %970
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %975 = load i64, ptr %58, align 8
   store i64 %975, ptr %67, align 8
   %976 = load i32, ptr %68, align 4, !tbaa !25
@@ -7381,7 +7375,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   store i64 %1185, ptr %118, align 8, !tbaa !116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %119, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %120, align 8, !tbaa !117
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %115, ptr %13, align 8, !tbaa !119
   invoke void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_assignIRKSI_NS7_10_AllocNodeISaINS7_10_Hash_nodeIS5_Lb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %115, ptr noundef nonnull align 8 dereferenceable(56) %48, ptr noundef nonnull align 8 dereferenceable(8) %13)
           to label %_ZN5faiss15IndexBinaryHashC2ERKS0_.exit267.i.i unwind label %1186
@@ -7392,7 +7386,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   br label %common.resume.i.i
 
 _ZN5faiss15IndexBinaryHashC2ERKS0_.exit267.i.i:   ; preds = %1183
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %1188 = load i64, ptr %58, align 8
   store i64 %1188, ptr %121, align 8
   %1189 = load i32, ptr %122, align 4, !tbaa !25
@@ -7403,7 +7397,7 @@ _ZN5faiss15IndexBinaryHashC2ERKS0_.exit267.i.i:   ; preds = %1183
   %1193 = xor i64 %notmask.i.i268.i.i, -1
   %1194 = load i64, ptr %140, align 8, !tbaa !24
   %1195 = and i64 %1194, %1193
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %140, ptr %12, align 8, !tbaa !133
   %1196 = sdiv i32 %1189, 8
   store i32 %1196, ptr %123, align 8, !tbaa !135
@@ -7641,7 +7635,7 @@ _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal
   br label %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i285.i.i, !llvm.loop !162
 
 1314:                                             ; preds = %1287
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN5faiss15IndexBinaryHashE, i64 16), ptr %26, align 8, !tbaa !4
   %1315 = load ptr, ptr %117, align 8, !tbaa !69
   %.not5.i.i.i363.i.i = icmp eq ptr %1315, null
@@ -7708,14 +7702,14 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
 
 1341:                                             ; preds = %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit.sink.split.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i371.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i361.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i351.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i341.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i331.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i321.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i
   %.sink164.i.i = phi ptr [ %20, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i ], [ %21, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i321.i.i ], [ %22, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i331.i.i ], [ %23, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i341.i.i ], [ %24, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i351.i.i ], [ %25, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i361.i.i ], [ %26, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i371.i.i ], [ %.sink164.ph.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit.sink.split.i.i ]
-  call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink164.i.i) #15
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %26)
+  call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink164.i.i) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN5faiss15IndexBinaryHashE, i64 16), ptr %28, align 8, !tbaa !4
   %1342 = load ptr, ptr %52, align 8, !tbaa !69
   %.not5.i.i.i.i = icmp eq ptr %1342, null
@@ -7775,8 +7769,8 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   br label %1368
 
 1368:                                             ; preds = %1365, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
-  call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %28) #15
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %28)
+  call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %28) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %1369 = load i64, ptr %4, align 8, !tbaa !24
   %.not46.i = icmp eq i64 %1369, 0
   br i1 %.not46.i, label %._crit_edge.i, label %.lr.ph.i
@@ -7960,13 +7954,13 @@ _ZN5faiss12heap_reorderINS_4CMaxIilEEEEmmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.p
   br label %1458
 
 1458:                                             ; preds = %1451, %1441, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %1459
 
 1459:                                             ; preds = %1458, %11
@@ -7974,7 +7968,7 @@ _ZN5faiss12heap_reorderINS_4CMaxIilEEEEmmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK5faiss15IndexBinaryHash6searchElPKhlPiPlPKNS_16SearchParametersE.omp_outlined.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #17 {
+define internal void @_ZNK5faiss15IndexBinaryHash6searchElPKhlPiPlPKNS_16SearchParametersE.omp_outlined.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #16 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8001,14 +7995,14 @@ define internal void @_ZNK5faiss15IndexBinaryHash6searchElPKhlPiPlPKNS_16SearchP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK5faiss15IndexBinaryHash14hashtable_sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #21 align 2 {
+define noundef i64 @_ZNK5faiss15IndexBinaryHash14hashtable_sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i64, ptr %2, align 8, !tbaa !116
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZNK5faiss15IndexBinaryHash7displayEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #22 align 2 {
+define void @_ZNK5faiss15IndexBinaryHash7displayEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #21 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.08.015 = load ptr, ptr %2, align 8, !tbaa !29
   %.not16 = icmp eq ptr %.sroa.08.015, null
@@ -8045,10 +8039,10 @@ define void @_ZNK5faiss15IndexBinaryHash7displayEv(ptr noundef nonnull readonly 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #12
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss20IndexBinaryHashStats5resetEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0) local_unnamed_addr #23 align 2 {
+define void @_ZN5faiss20IndexBinaryHashStats5resetEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0) local_unnamed_addr #22 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   ret void
 }
@@ -8134,13 +8128,13 @@ _ZNSt12_Vector_baseISt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlE
   br i1 %.not, label %32, label %60
 
 32:                                               ; preds = %.loopexit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %33, ptr %5, align 8, !tbaa !55
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %34, align 8, !tbaa !57
   store i8 0, ptr %33, align 8, !tbaa !59
-  %35 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.10) #15
+  %35 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.10) #14
   %36 = add nsw i32 %35, 1
   %37 = sext i32 %36 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %37, i8 noundef signext 0)
@@ -8149,8 +8143,8 @@ _ZNSt12_Vector_baseISt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlE
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %32
   %38 = load ptr, ptr %5, align 8, !tbaa !60
   %39 = load i64, ptr %34, align 8, !tbaa !57
-  %40 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %38, i64 noundef %39, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.10) #15
-  %41 = call ptr @__cxa_allocate_exception(i64 40) #15
+  %40 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %38, i64 noundef %39, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.10) #14
+  %41 = call ptr @__cxa_allocate_exception(i64 40) #14
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss20IndexBinaryMultiHashC2Eiii, ptr noundef nonnull @.str.4, i32 noundef 297)
           to label %42 unwind label %51
 
@@ -8182,7 +8176,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
 51:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
   %52 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %41) #15
+  call void @__cxa_free_exception(ptr nonnull %41) #14
   br label %53
 
 53:                                               ; preds = %51, %49
@@ -8204,8 +8198,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15
-  call void @_ZNSt6vectorISt13unordered_mapIlS_IlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEESaISB_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @_ZNSt6vectorISt13unordered_mapIlS_IlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEESaISB_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #14
   br label %61
 
 60:                                               ; preds = %.loopexit
@@ -8213,7 +8207,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 61:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %47, %45, %43
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ]
-  call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
+  call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   resume { ptr, i32 } %.pn.pn
 
 62:                                               ; preds = %42
@@ -8374,13 +8368,13 @@ define void @_ZN5faiss20IndexBinaryMultiHashD2Ev(ptr noundef nonnull align 8 der
   %10 = load ptr, ptr %7, align 8, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(76) %7) #15
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(76) %7) #14
   br label %13
 
 13:                                               ; preds = %5, %9, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @_ZNSt6vectorISt13unordered_mapIlS_IlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEESaISB_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #15
-  tail call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
+  tail call void @_ZNSt6vectorISt13unordered_mapIlS_IlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEESaISB_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #14
+  tail call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   ret void
 }
 
@@ -8508,8 +8502,8 @@ _ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeISt4pairIKlSt6vectorIlSaIlEEELb0EE
 51:                                               ; preds = %48, %46
   %.pn = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ]
   %.027 = extractvalue { ptr, i32 } %.pn, 0
-  %52 = tail call ptr @__cxa_begin_catch(ptr %.027) #15
-  tail call void @_ZNSt10_HashtableIlSt4pairIKlSt6vectorIlSaIlEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #15
+  %52 = tail call ptr @__cxa_begin_catch(ptr %.027) #14
+  tail call void @_ZNSt10_HashtableIlSt4pairIKlSt6vectorIlSaIlEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #14
   br i1 %.not.not, label %53, label %_ZNSt10_HashtableIlSt4pairIKlSt6vectorIlSaIlEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 53:                                               ; preds = %51
@@ -8614,7 +8608,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %17
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  %30 = tail call ptr @__cxa_begin_catch(ptr %29) #15
+  %30 = tail call ptr @__cxa_begin_catch(ptr %29) #14
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 40) #27
   invoke void @__cxa_rethrow() #29
           to label %37 unwind label %31
@@ -8670,7 +8664,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKlSt6vectorIlSaIlEEE
 }
 
 ; Function Attrs: noinline norecurse nounwind uwtable
-define internal void @_ZNK5faiss20IndexBinaryMultiHash12range_searchElPKhiPNS_17RangeSearchResultEPKNS_16SearchParametersE.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef readonly captures(none) %6, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %9) #14 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5faiss20IndexBinaryMultiHash12range_searchElPKhiPNS_17RangeSearchResultEPKNS_16SearchParametersE.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef readonly captures(none) %6, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %9) #13 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"struct.faiss::HammingComputerDefault", align 8
   %12 = alloca %"struct.std::__detail::_AllocNode.85", align 8
   %13 = alloca %"struct.std::__detail::_AllocNode.85", align 8
@@ -8698,13 +8692,13 @@ define internal void @_ZNK5faiss20IndexBinaryMultiHash12range_searchElPKhiPNS_17
   %35 = alloca i64, align 8
   %36 = alloca i32, align 4
   %37 = alloca [3 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i64 0, ptr %29, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i64 0, ptr %30, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i64 0, ptr %31, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %32) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %38 = load ptr, ptr %2, align 8, !tbaa !67
   invoke void @_ZN5faiss24RangeSearchPartialResultC1EPNS_17RangeSearchResultE(ptr noundef nonnull align 8 dereferenceable(72) %32, ptr noundef %38)
           to label %39 unwind label %.loopexit.split-lp41
@@ -8717,13 +8711,13 @@ define internal void @_ZNK5faiss20IndexBinaryMultiHash12range_searchElPKhiPNS_17
 
 42:                                               ; preds = %39
   %43 = add nsw i64 %40, -1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i64 0, ptr %33, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store i64 %43, ptr %34, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store i64 1, ptr %35, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store i32 0, ptr %36, align 4, !tbaa !61
   call void @__kmpc_for_static_init_8(ptr nonnull @1, i32 %.pre129, i32 34, ptr nonnull %36, ptr nonnull %33, ptr nonnull %34, ptr nonnull %35, i64 1, i64 1)
   %44 = load i64, ptr %34, align 8, !tbaa !24
@@ -8803,8 +8797,8 @@ define internal void @_ZNK5faiss20IndexBinaryMultiHash12range_searchElPKhiPNS_17
   %108 = sext i32 %107 to i64
   %109 = mul nsw i64 %.0108, %108
   %110 = getelementptr inbounds i8, ptr %106, i64 %109
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %28)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %27) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store ptr %48, ptr %27, align 8, !tbaa !178
   store i64 1, ptr %49, align 8, !tbaa !180
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false)
@@ -8836,7 +8830,7 @@ define internal void @_ZNK5faiss20IndexBinaryMultiHash12range_searchElPKhiPNS_17
   store i64 %118, ptr %61, align 8, !tbaa !181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %51, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %63, align 8, !tbaa !182
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store ptr %28, ptr %26, align 8, !tbaa !183
   invoke void @_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_assignIRKSC_NS1_10_AllocNodeISaINS1_10_Hash_nodeIlLb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull align 8 dereferenceable(56) %27, ptr noundef nonnull align 8 dereferenceable(8) %26)
           to label %304 unwind label %629
@@ -9133,7 +9127,7 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
 233:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %234 = extractvalue { ptr, i32 } %lpad.phi, 0
-  %235 = call ptr @__cxa_begin_catch(ptr %234) #15
+  %235 = call ptr @__cxa_begin_catch(ptr %234) #14
   store i64 %198, ptr %52, align 8, !tbaa !99
   invoke void @__cxa_rethrow() #29
           to label %241 unwind label %236
@@ -9288,14 +9282,14 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   br i1 %303, label %.lr.ph95.i, label %._crit_edge96.loopexit.i, !llvm.loop !191
 
 304:                                              ; preds = %._crit_edge96.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #15
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %20)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %21)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %24)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %305 = getelementptr i8, ptr %120, i64 12
   %306 = getelementptr i8, ptr %120, i64 32
   switch i32 %116, label %579 [
@@ -9316,13 +9310,13 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   store i64 %309, ptr %91, align 8, !tbaa !181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %93, align 8, !tbaa !182
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %19, ptr %18, align 8, !tbaa !183
   invoke void @_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_assignIRKSC_NS1_10_AllocNodeISaINS1_10_Hash_nodeIlLb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull align 8 dereferenceable(8) %18)
           to label %.noexc.i unwind label %631
 
 .noexc.i:                                         ; preds = %307
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %.val.i.i = load i32, ptr %305, align 4, !tbaa !25
   %.val44.i.i = load ptr, ptr %306, align 8, !tbaa !70
   %.val45.i.i = load i32, ptr %110, align 4, !tbaa !61
@@ -9397,13 +9391,13 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   store i64 %336, ptr %86, align 8, !tbaa !181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %88, align 8, !tbaa !182
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %20, ptr %17, align 8, !tbaa !183
   invoke void @_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_assignIRKSC_NS1_10_AllocNodeISaINS1_10_Hash_nodeIlLb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %20, ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull align 8 dereferenceable(8) %17)
           to label %.noexc42.i unwind label %631
 
 .noexc42.i:                                       ; preds = %334
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.val47.i.i = load i32, ptr %305, align 4, !tbaa !25
   %.val48.i.i = load ptr, ptr %306, align 8, !tbaa !70
   %.val49.i.i = load i64, ptr %110, align 8, !tbaa !24
@@ -9479,13 +9473,13 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   store i64 %364, ptr %81, align 8, !tbaa !181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %83, align 8, !tbaa !182
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %21, ptr %16, align 8, !tbaa !183
   invoke void @_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_assignIRKSC_NS1_10_AllocNodeISaINS1_10_Hash_nodeIlLb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull align 8 dereferenceable(8) %16)
           to label %.noexc43.i unwind label %631
 
 .noexc43.i:                                       ; preds = %362
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %.val51.i.i = load i32, ptr %305, align 4, !tbaa !25
   %.val52.i.i = load ptr, ptr %306, align 8, !tbaa !70
   %.val53.i.i = load i64, ptr %110, align 8, !tbaa !24
@@ -9569,13 +9563,13 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   store i64 %399, ptr %76, align 8, !tbaa !181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %78, align 8, !tbaa !182
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %22, ptr %15, align 8, !tbaa !183
   invoke void @_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_assignIRKSC_NS1_10_AllocNodeISaINS1_10_Hash_nodeIlLb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %.noexc44.i unwind label %631
 
 .noexc44.i:                                       ; preds = %397
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.val56.i.i = load i32, ptr %305, align 4, !tbaa !25
   %.val57.i.i = load ptr, ptr %306, align 8, !tbaa !70
   %.val58.i.i = load ptr, ptr %75, align 8, !tbaa !188
@@ -9666,13 +9660,13 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   store i64 %443, ptr %71, align 8, !tbaa !181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %73, align 8, !tbaa !182
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %23, ptr %14, align 8, !tbaa !183
   invoke void @_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_assignIRKSC_NS1_10_AllocNodeISaINS1_10_Hash_nodeIlLb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %.noexc45.i unwind label %631
 
 .noexc45.i:                                       ; preds = %441
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.val59.i.i = load i32, ptr %305, align 4, !tbaa !25
   %.val60.i.i = load ptr, ptr %306, align 8, !tbaa !70
   %.val61.i.i = load ptr, ptr %70, align 8, !tbaa !188
@@ -9772,13 +9766,13 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   store i64 %496, ptr %66, align 8, !tbaa !181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %68, align 8, !tbaa !182
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %24, ptr %13, align 8, !tbaa !183
   invoke void @_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_assignIRKSC_NS1_10_AllocNodeISaINS1_10_Hash_nodeIlLb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull align 8 dereferenceable(8) %13)
           to label %.noexc46.i unwind label %631
 
 .noexc46.i:                                       ; preds = %494
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.val62.i.i = load i32, ptr %305, align 4, !tbaa !25
   %.val63.i.i = load ptr, ptr %306, align 8, !tbaa !70
   %.val64.i.i = load ptr, ptr %65, align 8, !tbaa !188
@@ -9910,18 +9904,18 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   store i64 %581, ptr %96, align 8, !tbaa !181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %98, align 8, !tbaa !182
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %25, ptr %12, align 8, !tbaa !183
   invoke void @_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_assignIRKSC_NS1_10_AllocNodeISaINS1_10_Hash_nodeIlLb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %.noexc47.i unwind label %631
 
 .noexc47.i:                                       ; preds = %579
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.val65.i.i = load i32, ptr %305, align 4, !tbaa !25
   %.val66.i.i = load ptr, ptr %306, align 8, !tbaa !70
   %.val67.i.i = load ptr, ptr %95, align 8, !tbaa !188
   %582 = sext i32 %.val65.i.i to i64
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %110, ptr %11, align 8, !tbaa !133
   %583 = sdiv i32 %.val65.i.i, 8
   store i32 %583, ptr %99, align 8, !tbaa !135
@@ -9931,7 +9925,7 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   br i1 %.not4.i.i.i.i, label %.loopexit.thread.i.i, label %.lr.ph.i.i124.i.i
 
 .loopexit.thread.i.i:                             ; preds = %.noexc47.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i132.i.i
 
 .lr.ph.i.i124.i.i:                                ; preds = %.noexc47.i
@@ -9960,7 +9954,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResults3addEfl.exit.i.i125.i.i: ; preds = %5
 
 .loopexit.i.i:                                    ; preds = %_ZN5faiss12_GLOBAL__N_118RangeSearchResults3addEfl.exit.i.i125.i.i
   %.pre8.i.i = load ptr, ptr %95, align 8, !tbaa !188
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not5.i.i.i.i128.i.i = icmp eq ptr %.pre8.i.i, null
   br i1 %.not5.i.i.i.i128.i.i, label %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i132.i.i, label %.lr.ph.i.i.i.i129.i.i
 
@@ -10000,17 +9994,17 @@ _ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev.exit.sink.split.i.i: ; 
 607:                                              ; preds = %604, %577, %492, %439, %395, %360, %332
   %.sink15.i.i = phi ptr [ %25, %604 ], [ %24, %577 ], [ %23, %492 ], [ %22, %439 ], [ %21, %395 ], [ %20, %360 ], [ %19, %332 ]
   %.pn.i.i = phi { ptr, i32 } [ %605, %604 ], [ %578, %577 ], [ %493, %492 ], [ %440, %439 ], [ %396, %395 ], [ %361, %360 ], [ %333, %332 ]
-  call void @_ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink15.i.i) #15
+  call void @_ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink15.i.i) #14
   br label %.body.i
 
 608:                                              ; preds = %_ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev.exit.sink.split.i.i, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i132.i.i, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i122.i.i, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i110.i.i, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i98.i.i, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i88.i.i, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i78.i.i, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %609 = load ptr, ptr %60, align 8, !tbaa !188
   %.not5.i.i.i.i.i = icmp eq ptr %609, null
   br i1 %.not5.i.i.i.i.i, label %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i48.i
@@ -10078,7 +10072,7 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
 
 .body.i:                                          ; preds = %631, %607
   %eh.lpad-body.i = phi { ptr, i32 } [ %632, %631 ], [ %.pn.i.i, %607 ]
-  call void @_ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %28) #15
+  call void @_ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %28) #14
   br label %.body60.i
 
 .body60.i:                                        ; preds = %.body.i, %629, %265, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit20.i.i.body
@@ -10111,12 +10105,12 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   br label %_ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev.exit
 
 _ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev.exit: ; preds = %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, %640
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %27) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %.body
 
 643:                                              ; preds = %626, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i54.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %27) #15
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %644 = add nsw i64 %.0108, 1
   %645 = load i64, ptr %34, align 8, !tbaa !24
   %.not.not = icmp slt i64 %.0108, %645
@@ -10124,10 +10118,10 @@ _ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev.exit: ; preds = %_ZNSt1
 
 ._crit_edge:                                      ; preds = %643, %42
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre129)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %646
 
 646:                                              ; preds = %._crit_edge, %39
@@ -10151,8 +10145,8 @@ _ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev.exit: ; preds = %_ZNSt1
   br label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit
 
 _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %647, %650
-  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %32) #15
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %32) #15
+  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %32) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   store ptr %29, ptr %37, align 8
   %656 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %30, ptr %656, align 8
@@ -10190,9 +10184,9 @@ _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %647, %650
   br label %676
 
 676:                                              ; preds = %669, %659, %_ZN5faiss24RangeSearchPartialResultD2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   ret void
 
 .loopexit40:                                      ; preds = %101
@@ -10213,7 +10207,7 @@ _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %647, %650
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK5faiss20IndexBinaryMultiHash12range_searchElPKhiPNS_17RangeSearchResultEPKNS_16SearchParametersE.omp_outlined.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #17 {
+define internal void @_ZNK5faiss20IndexBinaryMultiHash12range_searchElPKhiPNS_17RangeSearchResultEPKNS_16SearchParametersE.omp_outlined.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #16 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10388,8 +10382,8 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
 46:                                               ; preds = %43, %41
   %.pn = phi { ptr, i32 } [ %44, %43 ], [ %42, %41 ]
   %.027 = extractvalue { ptr, i32 } %.pn, 0
-  %47 = tail call ptr @__cxa_begin_catch(ptr %.027) #15
-  tail call void @_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #15
+  %47 = tail call ptr @__cxa_begin_catch(ptr %.027) #14
+  tail call void @_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #14
   br i1 %.not.not, label %48, label %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 48:                                               ; preds = %46
@@ -10457,7 +10451,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIlLb0EEEEE19_M_deallocate_nod
 }
 
 ; Function Attrs: noinline norecurse nounwind uwtable
-define internal void @_ZNK5faiss20IndexBinaryMultiHash6searchElPKhlPiPlPKNS_16SearchParametersE.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef readonly captures(none) %7, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %10) #14 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5faiss20IndexBinaryMultiHash6searchElPKhlPiPlPKNS_16SearchParametersE.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef readonly captures(none) %7, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %10) #13 personality ptr @__gxx_personality_v0 {
   %12 = alloca %"struct.faiss::HammingComputerDefault", align 8
   %13 = alloca %"struct.std::__detail::_AllocNode.85", align 8
   %14 = alloca %"struct.std::__detail::_AllocNode.85", align 8
@@ -10490,19 +10484,19 @@ define internal void @_ZNK5faiss20IndexBinaryMultiHash6searchElPKhlPiPlPKNS_16Se
 
 40:                                               ; preds = %11
   %41 = add nsw i64 %38, -1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i64 0, ptr %30, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i64 %41, ptr %31, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i64 1, ptr %32, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i32 0, ptr %33, align 4, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store i64 0, ptr %34, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store i64 0, ptr %35, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store i64 0, ptr %36, align 8, !tbaa !24
   %42 = load i32, ptr %0, align 4, !tbaa !61
   call void @__kmpc_for_static_init_8(ptr nonnull @1, i32 %42, i32 34, ptr nonnull %33, ptr nonnull %30, ptr nonnull %31, ptr nonnull %32, i64 1, i64 1)
@@ -10603,8 +10597,8 @@ _ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit: ; pre
   %113 = sext i32 %112 to i64
   %114 = mul nsw i64 %.087, %113
   %115 = getelementptr inbounds i8, ptr %111, i64 %114
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %29)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %28) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store ptr %47, ptr %28, align 8, !tbaa !178
   store i64 1, ptr %48, align 8, !tbaa !180
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
@@ -10637,7 +10631,7 @@ _ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit: ; pre
   store i64 %123, ptr %60, align 8, !tbaa !181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %50, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %62, align 8, !tbaa !182
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store ptr %29, ptr %27, align 8, !tbaa !183
   invoke void @_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_assignIRKSC_NS1_10_AllocNodeISaINS1_10_Hash_nodeIlLb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull align 8 dereferenceable(8) %27)
           to label %310 unwind label %949
@@ -10934,7 +10928,7 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
 239:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %240 = extractvalue { ptr, i32 } %lpad.phi, 0
-  %241 = call ptr @__cxa_begin_catch(ptr %240) #15
+  %241 = call ptr @__cxa_begin_catch(ptr %240) #14
   store i64 %204, ptr %51, align 8, !tbaa !99
   invoke void @__cxa_rethrow() #29
           to label %247 unwind label %242
@@ -11089,14 +11083,14 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   br i1 %309, label %.lr.ph96.i, label %._crit_edge97.loopexit.i, !llvm.loop !195
 
 310:                                              ; preds = %._crit_edge97.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #15
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %20)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %21)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %24)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %25)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   switch i32 %121, label %849 [
     i32 4, label %311
     i32 8, label %390
@@ -11115,13 +11109,13 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   store i64 %313, ptr %90, align 8, !tbaa !181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef nonnull align 8 dereferenceable(16) %61, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %92, align 8, !tbaa !182
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %20, ptr %19, align 8, !tbaa !183
   invoke void @_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_assignIRKSC_NS1_10_AllocNodeISaINS1_10_Hash_nodeIlLb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %20, ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %.noexc.i unwind label %951
 
 .noexc.i:                                         ; preds = %311
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %314 = getelementptr i8, ptr %126, i64 12
   %.val.i.i = load i32, ptr %314, align 4, !tbaa !25
   %315 = getelementptr i8, ptr %126, i64 32
@@ -11295,13 +11289,13 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   store i64 %392, ptr %85, align 8, !tbaa !181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %61, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %87, align 8, !tbaa !182
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %21, ptr %18, align 8, !tbaa !183
   invoke void @_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_assignIRKSC_NS1_10_AllocNodeISaINS1_10_Hash_nodeIlLb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(8) %18)
           to label %.noexc41.i unwind label %951
 
 .noexc41.i:                                       ; preds = %390
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %393 = getelementptr i8, ptr %126, i64 12
   %.val28.i.i = load i32, ptr %393, align 4, !tbaa !25
   %394 = getelementptr i8, ptr %126, i64 32
@@ -11477,13 +11471,13 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   store i64 %473, ptr %80, align 8, !tbaa !181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %61, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %82, align 8, !tbaa !182
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %22, ptr %17, align 8, !tbaa !183
   invoke void @_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_assignIRKSC_NS1_10_AllocNodeISaINS1_10_Hash_nodeIlLb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(8) %17)
           to label %.noexc42.i unwind label %951
 
 .noexc42.i:                                       ; preds = %471
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %474 = getelementptr i8, ptr %126, i64 12
   %.val32.i.i = load i32, ptr %474, align 4, !tbaa !25
   %475 = getelementptr i8, ptr %126, i64 32
@@ -11636,13 +11630,13 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   store i64 %548, ptr %75, align 8, !tbaa !181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull align 8 dereferenceable(16) %61, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %77, align 8, !tbaa !182
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %23, ptr %16, align 8, !tbaa !183
   invoke void @_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_assignIRKSC_NS1_10_AllocNodeISaINS1_10_Hash_nodeIlLb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(8) %16)
           to label %.noexc43.i unwind label %951
 
 .noexc43.i:                                       ; preds = %546
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %549 = getelementptr i8, ptr %126, i64 12
   %.val37.i.i = load i32, ptr %549, align 4, !tbaa !25
   %550 = getelementptr i8, ptr %126, i64 32
@@ -11802,13 +11796,13 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   store i64 %632, ptr %70, align 8, !tbaa !181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull align 8 dereferenceable(16) %61, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %72, align 8, !tbaa !182
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %24, ptr %15, align 8, !tbaa !183
   invoke void @_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_assignIRKSC_NS1_10_AllocNodeISaINS1_10_Hash_nodeIlLb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %.noexc44.i unwind label %951
 
 .noexc44.i:                                       ; preds = %630
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %633 = getelementptr i8, ptr %126, i64 12
   %.val40.i.i = load i32, ptr %633, align 4, !tbaa !25
   %634 = getelementptr i8, ptr %126, i64 32
@@ -11977,13 +11971,13 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   store i64 %725, ptr %65, align 8, !tbaa !181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %61, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %67, align 8, !tbaa !182
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %25, ptr %14, align 8, !tbaa !183
   invoke void @_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_assignIRKSC_NS1_10_AllocNodeISaINS1_10_Hash_nodeIlLb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %.noexc45.i unwind label %951
 
 .noexc45.i:                                       ; preds = %723
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %726 = getelementptr i8, ptr %126, i64 12
   %.val43.i.i = load i32, ptr %726, align 4, !tbaa !25
   %727 = getelementptr i8, ptr %126, i64 32
@@ -12185,20 +12179,20 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   store i64 %851, ptr %95, align 8, !tbaa !181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %96, ptr noundef nonnull align 8 dereferenceable(16) %61, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %97, align 8, !tbaa !182
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %26, ptr %13, align 8, !tbaa !183
   invoke void @_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_assignIRKSC_NS1_10_AllocNodeISaINS1_10_Hash_nodeIlLb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(8) %13)
           to label %.noexc46.i unwind label %951
 
 .noexc46.i:                                       ; preds = %849
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %852 = getelementptr i8, ptr %126, i64 12
   %.val46.i.i = load i32, ptr %852, align 4, !tbaa !25
   %853 = getelementptr i8, ptr %126, i64 32
   %.val47.i.i = load ptr, ptr %853, align 8, !tbaa !70
   %.val48.i.i = load ptr, ptr %94, align 8, !tbaa !188
   %854 = sext i32 %.val46.i.i to i64
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %115, ptr %12, align 8, !tbaa !133
   %855 = sdiv i32 %.val46.i.i, 8
   store i32 %855, ptr %98, align 8, !tbaa !135
@@ -12334,7 +12328,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResults3addEfl.exit.i.i185.i.i: ; preds = %_ZN
   br i1 %.not.i.i186.i.i, label %.loopexit.i.i, label %.lr.ph.i.split.i184.i.i
 
 .loopexit.i.i:                                    ; preds = %_ZN5faiss12_GLOBAL__N_116KnnSearchResults3addEfl.exit.i.i185.i.i, %_ZN5faiss12_GLOBAL__N_116KnnSearchResults3addEfl.exit.i.us.i201.i.i, %.noexc46.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %918 = load ptr, ptr %94, align 8, !tbaa !188
   %.not5.i.i.i.i204.i.i = icmp eq ptr %918, null
   br i1 %.not5.i.i.i.i204.i.i, label %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i208.i.i, label %.lr.ph.i.i.i.i205.i.i
@@ -12368,13 +12362,13 @@ _ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev.exit.sink.split.i.i: ; 
   br label %928
 
 928:                                              ; preds = %_ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev.exit.sink.split.i.i, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i208.i.i, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i179.i.i, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i154.i.i, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i129.i.i, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i104.i.i, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i81.i.i, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %929 = load ptr, ptr %59, align 8, !tbaa !188
   %.not5.i.i.i.i.i = icmp eq ptr %929, null
   br i1 %.not5.i.i.i.i.i, label %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i47.i
@@ -12438,7 +12432,7 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
 951:                                              ; preds = %849, %723, %630, %546, %471, %390, %311
   %952 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %29) #15
+  call void @_ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %29) #14
   br label %.body.i
 
 .body.i:                                          ; preds = %951, %949, %271, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit20.i.i.body
@@ -12471,14 +12465,14 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   br label %_ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev.exit
 
 _ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev.exit: ; preds = %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, %960
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %28) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %963 = extractvalue { ptr, i32 } %.pn37.pn.i, 0
   call void @__clang_call_terminate(ptr %963) #30
   unreachable
 
 964:                                              ; preds = %946, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i53.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %28) #15
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %965 = load i64, ptr %4, align 8, !tbaa !24
   %.not46.i = icmp eq i64 %965, 0
   br i1 %.not46.i, label %._crit_edge.i32, label %.lr.ph.i29
@@ -12662,13 +12656,13 @@ _ZN5faiss12heap_reorderINS_4CMaxIilEEEEmmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.p
   br label %1054
 
 1054:                                             ; preds = %1047, %1037, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %1055
 
 1055:                                             ; preds = %1054, %11
@@ -12676,7 +12670,7 @@ _ZN5faiss12heap_reorderINS_4CMaxIilEEEEmmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK5faiss20IndexBinaryMultiHash6searchElPKhlPiPlPKNS_16SearchParametersE.omp_outlined.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #17 {
+define internal void @_ZNK5faiss20IndexBinaryMultiHash6searchElPKhlPiPlPKNS_16SearchParametersE.omp_outlined.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #16 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -12728,7 +12722,7 @@ define noundef i64 @_ZNK5faiss20IndexBinaryMultiHash14hashtable_sizeEv(ptr nound
 13:                                               ; preds = %.lr.ph, %_ZNSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEED2Ev.exit
   %.09 = phi i64 [ 0, %.lr.ph ], [ %20, %_ZNSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEED2Ev.exit ]
   %.sroa.04.08 = phi ptr [ %5, %.lr.ph ], [ %39, %_ZNSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEED2Ev.exit ]
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !90
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !88
@@ -12740,10 +12734,10 @@ define noundef i64 @_ZNK5faiss20IndexBinaryMultiHash14hashtable_sizeEv(ptr nound
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !tbaa.struct !108
   store ptr null, ptr %12, align 8, !tbaa !102
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8, !tbaa !110
   call void @_ZNSt10_HashtableIlSt4pairIKlSt6vectorIlSaIlEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_assignIRKSI_NS7_10_AllocNodeISaINS7_10_Hash_nodeIS5_Lb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.04.08, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %19 = load i64, ptr %10, align 8, !tbaa !100
   %20 = add i64 %19, %.09
   %21 = load ptr, ptr %9, align 8, !tbaa !103
@@ -12789,7 +12783,7 @@ _ZNSt10_HashtableIlSt4pairIKlSt6vectorIlSaIlEEESaIS5_ENSt8__detail10_Select1stES
   br label %_ZNSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEED2Ev.exit
 
 _ZNSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEED2Ev.exit: ; preds = %_ZNSt10_HashtableIlSt4pairIKlSt6vectorIlSaIlEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, %36
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 56
   %.not = icmp eq ptr %39, %7
   br i1 %.not, label %._crit_edge, label %13
@@ -12861,6 +12855,12 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #23
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #23
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #24
 
@@ -12883,26 +12883,26 @@ attributes #0 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-wid
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold nofree noreturn }
-attributes #8 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { cold noreturn }
-attributes #14 = { noinline norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nounwind }
-attributes #16 = { convergent nounwind }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold nofree noreturn }
+attributes #7 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { cold noreturn }
+attributes #13 = { noinline norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nounwind }
+attributes #15 = { convergent nounwind }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #24 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #25 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #26 = { nofree nounwind }

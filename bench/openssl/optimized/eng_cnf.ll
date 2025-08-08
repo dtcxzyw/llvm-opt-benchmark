@@ -55,7 +55,7 @@ define internal range(i32 0, 2) i32 @int_engine_module_init(ptr noundef %0, ptr 
   %11 = load ptr, ptr %10, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 -1, ptr %3, align 8, !tbaa !10
   %14 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %11, i32 noundef 46) #5
   %15 = call ptr @NCONF_get_section(ptr noundef %1, ptr noundef %13) #4
@@ -77,7 +77,7 @@ int_engine_configure.exit.thread:                 ; preds = %.lr.ph
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 60, ptr noundef nonnull @__func__.int_engine_configure) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 38, i32 noundef 149, ptr noundef null) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
 .lr.ph.i:                                         ; preds = %int_engine_init.exit.i, %.lr.ph.preheader.i
@@ -282,11 +282,11 @@ int_engine_configure.exit.thread19:               ; preds = %.thread.i82.i, %._c
 int_engine_configure.exit:                        ; preds = %.loopexit23, %int_engine_init.exit.thread.i
   %.149101.i = phi ptr [ %.3.i, %.loopexit23 ], [ %.149.ph.ph.i, %int_engine_init.exit.thread.i ]
   %97 = call i32 @ENGINE_free(ptr noundef %.149101.i) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
 98:                                               ; preds = %int_engine_configure.exit.thread19, %int_engine_configure.exit.thread16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %99 = add nuw nsw i32 %.046, 1
   %100 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %5) #4
   %101 = icmp slt i32 %99, %100
@@ -319,9 +319,6 @@ define internal void @int_engine_module_finish(ptr readnone captures(none) %0) #
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @NCONF_get_section(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @CONF_imodule_get_value(ptr noundef) local_unnamed_addr #1
@@ -336,11 +333,8 @@ declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #1
 
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @ENGINE_by_id(ptr noundef) local_unnamed_addr #1
 
@@ -355,7 +349,7 @@ declare i32 @ENGINE_set_default_string(ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @ENGINE_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare i32 @ENGINE_init(ptr noundef) local_unnamed_addr #1
 
@@ -369,10 +363,16 @@ declare ptr @OPENSSL_sk_pop(ptr noundef) local_unnamed_addr #1
 
 declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 attributes #5 = { nounwind willreturn memory(read) }
 

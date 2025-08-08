@@ -69,7 +69,7 @@ define hidden noundef zeroext i1 @_ZN15MallocSiteTable10initializeEv() local_unn
   br i1 %.not4, label %25, label %18
 
 18:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN15MallocSiteTable10initializeEvE5stack, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN15MallocSiteTable10initializeEvE5entry, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN15MallocSiteTable10initializeEvE5stack, i64 32, i1 false)
   store i8 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZN15MallocSiteTable10initializeEvE5entry, i64 32), align 8
@@ -94,7 +94,7 @@ _ZN24MallocSiteHashtableEntryC2E15NativeCallStack8MEMFLAGS.exit: ; preds = %19
   %24 = trunc i64 %23 to i32
   store i32 %24, ptr getelementptr inbounds nuw (i8, ptr @_ZZN15MallocSiteTable10initializeEvE5entry, i64 72), align 8
   store volatile ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN15MallocSiteTable10initializeEvE5entry, i64 80), align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN15MallocSiteTable10initializeEvE5entry) #14
   br label %25
 
@@ -171,7 +171,7 @@ _ZNK15NativeCallStack14calculate_hashEv.exit:     ; preds = %6
 18:                                               ; preds = %_ZNK15NativeCallStack14calculate_hashEv.exit
   %19 = load ptr, ptr @_ZN15MallocSiteTable28_hash_entry_allocation_stackE, align 8
   %20 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSRK15NativeCallStackN17AllocFailStrategy13AllocFailEnumE(i64 noundef 88, i8 noundef zeroext 12, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 1) #14
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull readonly align 8 dereferenceable(32) %0, i64 32, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull readonly align 8 dereferenceable(32) %0, i64 32, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
@@ -203,7 +203,7 @@ _ZNK15NativeCallStack14calculate_hashEv.exit:     ; preds = %6
   store i32 %33, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 80
   store volatile ptr null, ptr %34, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %35 = load ptr, ptr @_ZN15MallocSiteTable6_tableE, align 8
   %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %14
   %37 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %20, ptr null, ptr %36) #14, !srcloc !10
@@ -261,7 +261,7 @@ _ZNK15NativeCallStack14calculate_hashEv.exit:     ; preds = %6
 59:                                               ; preds = %54
   %60 = load ptr, ptr @_ZN15MallocSiteTable28_hash_entry_allocation_stackE, align 8
   %61 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSRK15NativeCallStackN17AllocFailStrategy13AllocFailEnumE(i64 noundef 88, i8 noundef zeroext 12, ptr noundef nonnull align 8 dereferenceable(32) %60, i32 noundef 1) #14
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(32) %0, i64 32, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull readonly align 8 dereferenceable(32) %0, i64 32, i1 false)
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
@@ -293,7 +293,7 @@ _ZNK15NativeCallStack14calculate_hashEv.exit:     ; preds = %6
   store i32 %74, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %61, i64 80
   store volatile ptr null, ptr %75, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %76 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %61, ptr null, ptr nonnull %55) #14, !srcloc !10
   %77 = icmp eq ptr %76, null
   br i1 %77, label %78, label %82
@@ -331,7 +331,7 @@ define hidden noundef ptr @_ZN15MallocSiteTable9new_entryERK15NativeCallStack8ME
   %3 = alloca %class.NativeCallStack, align 8
   %4 = load ptr, ptr @_ZN15MallocSiteTable28_hash_entry_allocation_stackE, align 8
   %5 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSRK15NativeCallStackN17AllocFailStrategy13AllocFailEnumE(i64 noundef 88, i8 noundef zeroext 12, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 1) #14
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -363,7 +363,7 @@ _ZN24MallocSiteHashtableEntryC2E15NativeCallStack8MEMFLAGS.exit: ; preds = %11
   store i32 %17, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store volatile ptr null, ptr %18, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %5
 }
 
@@ -617,10 +617,10 @@ declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #3
 declare i32 @llvm.smin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11

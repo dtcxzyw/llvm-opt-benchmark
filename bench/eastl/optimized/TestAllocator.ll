@@ -116,7 +116,7 @@ entry:
   %myList1.i = alloca %"class.eastl::list.4", align 8
   %myList2.i = alloca %"class.eastl::list.4", align 8
   %nErrorCount.i = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i)
   store i32 0, ptr %nErrorCount.i, align 4
   call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr nonnull %nErrorCount.i, i32 noundef 1)
   call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr nonnull %nErrorCount.i, i32 noundef 2)
@@ -129,22 +129,22 @@ entry:
   call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr nonnull %nErrorCount.i, i32 noundef 8)
   call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr nonnull %nErrorCount.i, i32 noundef 16)
   %0 = load i32, ptr %nErrorCount.i, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i6)
-  call void @llvm.lifetime.start.p0(i64 4800, ptr nonnull %buffer1.i)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %intList1.i)
-  call void @llvm.lifetime.start.p0(i64 4800, ptr nonnull %buffer2.i)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %intList2.i)
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %buffer119.i)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %intList132.i)
-  call void @llvm.lifetime.start.p0(i64 4800, ptr nonnull %buffer161.i)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %intList162.i)
-  call void @llvm.lifetime.start.p0(i64 4800, ptr nonnull %buffer281.i)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %intList282.i)
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %buffer.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %myPool.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %myList1.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %myList2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer1.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %intList1.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %intList2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer119.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %intList132.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer161.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %intList162.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer281.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %intList282.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %myPool.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %myList1.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %myList2.i)
   store i32 0, ptr %nErrorCount.i6, align 4
   %1 = getelementptr inbounds nuw i8, ptr %intList1.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, i8 0, i64 40, i1 false)
@@ -873,10 +873,10 @@ invoke.cont112.i:                                 ; preds = %if.then4.i.i.i.i.i.
   %108 = load i64, ptr %mSize.i.i123.i, align 8, !noalias !34
   %inc.i.i.i170.i = add i64 %108, 1
   store i64 %inc.i.i.i170.i, ptr %mSize.i.i123.i, align 8, !noalias !34
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %compare.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp2.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %compare.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp2.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !37)
   %109 = load ptr, ptr %myList1.i, align 8, !noalias !37
   store ptr %109, ptr %agg.tmp.i.i, align 8, !alias.scope !37
@@ -885,10 +885,10 @@ invoke.cont112.i:                                 ; preds = %if.then4.i.i.i.i.i.
           to label %invoke.cont113.i unwind label %lpad103.i
 
 invoke.cont113.i:                                 ; preds = %invoke.cont112.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %compare.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp2.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %compare.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp2.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i.i)
   %110 = load ptr, ptr %myList2.i, align 8, !noalias !43
   %111 = load ptr, ptr %mSecond.i.i.i.i125.i, align 8, !noalias !46
   %112 = load ptr, ptr %111, align 8, !noalias !46
@@ -929,10 +929,10 @@ invoke.cont115.i:                                 ; preds = %if.then4.i.i.i.i.i.
   %118 = load i64, ptr %mSize.i.i126.i, align 8, !noalias !46
   %inc.i.i.i188.i = add i64 %118, 1
   store i64 %inc.i.i.i188.i, ptr %mSize.i.i126.i, align 8, !noalias !46
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %compare.i196.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i197.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp2.i198.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i199.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %compare.i196.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i197.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp2.i198.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i199.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !49)
   %119 = load ptr, ptr %myList2.i, align 8, !noalias !49
   store ptr %119, ptr %agg.tmp.i197.i, align 8, !alias.scope !49
@@ -941,10 +941,10 @@ invoke.cont115.i:                                 ; preds = %if.then4.i.i.i.i.i.
           to label %invoke.cont116.i unwind label %lpad103.i
 
 invoke.cont116.i:                                 ; preds = %invoke.cont115.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %compare.i196.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i197.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp2.i198.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tmp.i199.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %compare.i196.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i197.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp2.i198.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i199.i)
   %120 = load i64, ptr %mSize.i.i123.i, align 8
   %121 = load i64, ptr %mSize.i.i126.i, align 8
   %cmp.i204.i = icmp eq i64 %120, %121
@@ -1051,24 +1051,24 @@ common.resume:                                    ; preds = %while.body.i.i.i42.
 
 _ZL18TestFixedAllocatorv.exit:                    ; preds = %while.body.i.i.i226.i, %_ZN5eastl4listIi20fixed_pool_referenceED2Ev.exit.i
   %142 = load i32, ptr %nErrorCount.i6, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i6)
-  call void @llvm.lifetime.end.p0(i64 4800, ptr nonnull %buffer1.i)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %intList1.i)
-  call void @llvm.lifetime.end.p0(i64 4800, ptr nonnull %buffer2.i)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %intList2.i)
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %buffer119.i)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %intList132.i)
-  call void @llvm.lifetime.end.p0(i64 4800, ptr nonnull %buffer161.i)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %intList162.i)
-  call void @llvm.lifetime.end.p0(i64 4800, ptr nonnull %buffer281.i)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %intList282.i)
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %buffer.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %myPool.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %myList1.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %myList2.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i11)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %myList1.i12)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %myList2.i13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %intList1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %intList2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer119.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %intList132.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer161.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %intList162.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer281.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %intList282.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %myPool.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %myList1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %myList2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %myList1.i12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %myList2.i13)
   store i32 0, ptr %nErrorCount.i11, align 4
   %143 = getelementptr inbounds nuw i8, ptr %myList1.i12, i64 16
   %mpPrev.i.i.i.i14 = getelementptr inbounds nuw i8, ptr %myList1.i12, i64 8
@@ -1127,10 +1127,10 @@ invoke.cont9.i:                                   ; preds = %_ZN5eastleqIiNS_16a
   %148 = load i64, ptr %143, align 8, !noalias !63
   %inc.i.i.i14.i = add i64 %148, 1
   store i64 %inc.i.i.i14.i, ptr %143, align 8, !noalias !63
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %compare.i.i7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp2.i.i9)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i.i10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %compare.i.i7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp2.i.i9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i.i10)
   call void @llvm.experimental.noalias.scope.decl(metadata !66)
   %149 = load ptr, ptr %myList1.i12, align 8, !noalias !66
   store ptr %149, ptr %agg.tmp.i.i8, align 8, !alias.scope !66
@@ -1139,10 +1139,10 @@ invoke.cont9.i:                                   ; preds = %_ZN5eastleqIiNS_16a
           to label %invoke.cont12.i unwind label %lpad1.i
 
 invoke.cont12.i:                                  ; preds = %invoke.cont9.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %compare.i.i7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp2.i.i9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tmp.i.i10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %compare.i.i7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp2.i.i9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i.i10)
   %150 = load ptr, ptr %myList2.i13, align 8, !noalias !72
   %call.i.i.i.i.i.i.i16.i = call noalias noundef dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #13
   %mValue.i.i.i.i17.i29 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i.i16.i, i64 16
@@ -1157,10 +1157,10 @@ invoke.cont12.i:                                  ; preds = %invoke.cont9.i
   %152 = load i64, ptr %144, align 8, !noalias !75
   %inc.i.i.i21.i = add i64 %152, 1
   store i64 %inc.i.i.i21.i, ptr %144, align 8, !noalias !75
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %compare.i22.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i23.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp2.i24.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i25.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %compare.i22.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i23.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp2.i24.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i25.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !78)
   %153 = load ptr, ptr %myList2.i13, align 8, !noalias !78
   store ptr %153, ptr %agg.tmp.i23.i, align 8, !alias.scope !78
@@ -1169,10 +1169,10 @@ invoke.cont12.i:                                  ; preds = %invoke.cont9.i
           to label %invoke.cont13.i unwind label %lpad1.i
 
 invoke.cont13.i:                                  ; preds = %invoke.cont12.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %compare.i22.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i23.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp2.i24.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tmp.i25.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %compare.i22.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i23.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp2.i24.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i25.i)
   %154 = load i64, ptr %143, align 8
   %155 = load i64, ptr %144, align 8
   %cmp.i30.i = icmp eq i64 %154, %155
@@ -1252,13 +1252,13 @@ while.body.i.i.i54.i:                             ; preds = %ehcleanup.i28, %whi
 _ZL19TestAllocatorMallocv.exit:                   ; preds = %while.body.i.i.i44.i, %_ZN5eastl4listIiNS_16allocator_mallocEED2Ev.exit.i
   %add2 = add nsw i32 %142, %0
   %167 = load i32, ptr %nErrorCount.i11, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i11)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %myList1.i12)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %myList2.i13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %myList1.i12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %myList2.i13)
   %add4 = add nsw i32 %add2, %167
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i35)
-  call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %a.i)
-  call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %b.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %a.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %b.i)
   store i32 0, ptr %nErrorCount.i35, align 4
   store i8 -34, ptr %a.i, align 1
   store i8 111, ptr %b.i, align 1
@@ -1275,9 +1275,9 @@ _ZL19TestAllocatorMallocv.exit:                   ; preds = %while.body.i.i.i44.
   %cmp11.i = icmp eq i32 %call10.i, 0
   %call12.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp11.i, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i35, ptr noundef nonnull @.str, i32 noundef 339, ptr noundef nonnull @.str.17)
   %168 = load i32, ptr %nErrorCount.i35, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i35)
-  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %a.i)
-  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %b.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %a.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %b.i)
   %add8 = add nsw i32 %add4, %168
   ret i32 %add8
 }
@@ -2127,10 +2127,10 @@ declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr n
 declare void @llvm.experimental.noalias.scope.decl(metadata) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

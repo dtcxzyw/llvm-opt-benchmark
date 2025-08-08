@@ -57,14 +57,14 @@ define dso_local range(i32 -1, 1) i32 @FuzzerTestOneInput(ptr noundef %0, i64 no
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !4
   %9 = icmp ult i64 %1, 32
   br i1 %9, label %28, label %10
@@ -106,19 +106,13 @@ define dso_local range(i32 -1, 1) i32 @FuzzerTestOneInput(ptr noundef %0, i64 no
 
 28:                                               ; preds = %2, %23
   %.0 = phi i32 [ 0, %23 ], [ -1, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @FuzzerCleanup() local_unnamed_addr #1 {
@@ -126,12 +120,12 @@ define dso_local void @FuzzerCleanup() local_unnamed_addr #1 {
   ret void
 }
 
-declare void @OPENSSL_cleanup() local_unnamed_addr #3
+declare void @OPENSSL_cleanup() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @create_ml_dsa_raw_key(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca [4896 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4896, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %0, align 8, !tbaa !11
   %.0.copyload.i25.i = load i16, ptr %6, align 1
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 2
@@ -219,7 +213,7 @@ select_keytype_and_size.exit:                     ; preds = %19, %14, %13, %12, 
   br label %35
 
 35:                                               ; preds = %.thread, %26, %23, %34
-  call void @llvm.lifetime.end.p0(i64 4896, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -257,10 +251,10 @@ define internal void @ml_dsa_sign_verify(ptr noundef readonly captures(none) %0,
   %7 = alloca i64, align 8
   %8 = alloca [2 x %struct.ossl_param_st], align 16
   %9 = tail call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef null, ptr noundef %2, ptr noundef null) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !9
   %10 = tail call ptr @EVP_PKEY_get0_type_name(ptr noundef %2) #6
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %8, ptr noundef nonnull align 16 dereferenceable(80) @__const.ml_dsa_digest_sign_verify.params, i64 80, i1 false)
   %11 = load i64, ptr %1, align 8, !tbaa !9
   %12 = icmp ult i64 %11, 8
@@ -359,8 +353,8 @@ define internal void @ml_dsa_sign_verify(ptr noundef readonly captures(none) %0,
   call void @EVP_PKEY_CTX_free(ptr noundef %.0) #6
   call void @EVP_SIGNATURE_free(ptr noundef %.032) #6
   call void @CRYPTO_free(ptr noundef %.031, ptr noundef nonnull @.str.23, i32 noundef 359) #6
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -369,8 +363,8 @@ define internal void @ml_dsa_digest_sign_verify(ptr noundef readonly captures(no
   %7 = alloca i64, align 8
   %8 = alloca [2 x %struct.ossl_param_st], align 16
   %9 = tail call ptr @EVP_MD_CTX_new() #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %8, ptr noundef nonnull align 16 dereferenceable(80) @__const.ml_dsa_digest_sign_verify.params, i64 80, i1 false)
   %10 = load i64, ptr %1, align 8, !tbaa !9
   %11 = icmp ult i64 %10, 8
@@ -461,8 +455,8 @@ define internal void @ml_dsa_digest_sign_verify(ptr noundef readonly captures(no
   call void @EVP_MD_CTX_free(ptr noundef %.024) #6
   call void @EVP_SIGNATURE_free(ptr noundef null) #6
   call void @CRYPTO_free(ptr noundef %.023, ptr noundef nonnull @.str.23, i32 noundef 436) #6
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -470,9 +464,9 @@ define internal void @ml_dsa_digest_sign_verify(ptr noundef readonly captures(no
 define internal void @ml_dsa_export_import(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #1 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !20
   %9 = call i32 @EVP_PKEY_todata(ptr noundef %2, i32 noundef 135, ptr noundef nonnull %8) #6
   %.not = icmp eq i32 %9, 0
@@ -511,8 +505,8 @@ define internal void @ml_dsa_export_import(ptr readnone captures(none) %0, ptr r
   call void @EVP_PKEY_free(ptr noundef %26) #6
   %27 = load ptr, ptr %8, align 8, !tbaa !20
   call void @OSSL_PARAM_free(ptr noundef %27) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -523,16 +517,16 @@ define internal void @ml_dsa_compare(ptr readnone captures(none) %0, ptr readnon
   ret void
 }
 
-declare i32 @RAND_bytes(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @RAND_bytes(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @EVP_PKEY_new_raw_public_key_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @EVP_PKEY_new_raw_public_key_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @EVP_PKEY_new_raw_private_key_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @EVP_PKEY_new_raw_private_key_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #3
+declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @keygen_ml_dsa_real_key_helper(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) unnamed_addr #1 {
@@ -589,68 +583,74 @@ switch.lookup:
   ret i32 %.0
 }
 
-declare ptr @EVP_PKEY_CTX_new_from_name(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @EVP_PKEY_CTX_new_from_name(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_keygen_init(ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_PKEY_keygen_init(ptr noundef) local_unnamed_addr #2
 
-declare ptr @EVP_PKEY_new() local_unnamed_addr #3
+declare ptr @EVP_PKEY_new() local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_generate(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_PKEY_generate(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @EVP_PKEY_CTX_free(ptr noundef) local_unnamed_addr #3
+declare void @EVP_PKEY_CTX_free(ptr noundef) local_unnamed_addr #2
 
-declare ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @EVP_PKEY_get0_type_name(ptr noundef) local_unnamed_addr #3
+declare ptr @EVP_PKEY_get0_type_name(ptr noundef) local_unnamed_addr #2
 
-declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @RAND_bytes_ex(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @RAND_bytes_ex(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @EVP_SIGNATURE_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @EVP_SIGNATURE_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_sign_message_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_PKEY_sign_message_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_sign(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @EVP_PKEY_sign(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_verify_message_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_PKEY_verify_message_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_verify(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @EVP_PKEY_verify(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @EVP_SIGNATURE_free(ptr noundef) local_unnamed_addr #3
+declare void @EVP_SIGNATURE_free(ptr noundef) local_unnamed_addr #2
 
-declare ptr @EVP_MD_CTX_new() local_unnamed_addr #3
+declare ptr @EVP_MD_CTX_new() local_unnamed_addr #2
 
-declare i32 @EVP_DigestSignInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_DigestSignInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_DigestSign(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @EVP_DigestSign(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #3
+declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_DigestVerifyInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_DigestVerifyInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_DigestVerify(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @EVP_DigestVerify(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_todata(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_PKEY_todata(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_fromdata(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_PKEY_fromdata(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @OSSL_PARAM_free(ptr noundef) local_unnamed_addr #3
+declare void @OSSL_PARAM_free(ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_eq(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_PKEY_eq(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nofree nounwind }
 attributes #6 = { nounwind }
 attributes #7 = { cold }

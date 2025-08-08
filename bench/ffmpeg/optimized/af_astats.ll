@@ -1869,15 +1869,15 @@ calc_entropy.exit.i:                              ; preds = %240
 
 312:                                              ; preds = %calc_entropy.exit.i
   %313 = fdiv nsz double %306, %.pre-phi.i
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %107) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %108) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %107)
+  call void @llvm.lifetime.start.p0(ptr nonnull %108)
   %314 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %107, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %313) #11
   %315 = trunc i64 %indvars.iv.i29 to i32
   %316 = add i32 %315, 1
   %317 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %108, i64 noundef 128, ptr noundef nonnull @.str.53, i32 noundef range(i32 -2147483647, -2147483648) %316, ptr noundef nonnull @.str.3) #11
   %318 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %108, ptr noundef nonnull %107, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %108) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %107) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %108)
+  call void @llvm.lifetime.end.p0(ptr nonnull %107)
   %.pre586.i = load i32, ptr %188, align 4, !tbaa !56
   br label %319
 
@@ -1889,15 +1889,15 @@ calc_entropy.exit.i:                              ; preds = %240
 
 322:                                              ; preds = %319
   %323 = load double, ptr %210, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %105) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %106) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %105)
+  call void @llvm.lifetime.start.p0(ptr nonnull %106)
   %324 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %105, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %323) #11
   %325 = trunc i64 %indvars.iv.i29 to i32
   %326 = add i32 %325, 1
   %327 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %106, i64 noundef 128, ptr noundef nonnull @.str.53, i32 noundef range(i32 -2147483647, -2147483648) %326, ptr noundef nonnull @.str.5) #11
   %328 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %106, ptr noundef nonnull %105, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %106) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %105) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
   %.pre587.i = load i32, ptr %188, align 4, !tbaa !56
   br label %329
 
@@ -1909,15 +1909,15 @@ calc_entropy.exit.i:                              ; preds = %240
 
 332:                                              ; preds = %329
   %333 = load double, ptr %212, align 8, !tbaa !34
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %103) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %104) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %103)
+  call void @llvm.lifetime.start.p0(ptr nonnull %104)
   %334 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %103, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %333) #11
   %335 = trunc i64 %indvars.iv.i29 to i32
   %336 = add i32 %335, 1
   %337 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %104, i64 noundef 128, ptr noundef nonnull @.str.53, i32 noundef range(i32 -2147483647, -2147483648) %336, ptr noundef nonnull @.str.6) #11
   %338 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %104, ptr noundef nonnull %103, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %104) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %103) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %104)
+  call void @llvm.lifetime.end.p0(ptr nonnull %103)
   %.pre588.i = load i32, ptr %188, align 4, !tbaa !56
   br label %339
 
@@ -1929,15 +1929,15 @@ calc_entropy.exit.i:                              ; preds = %240
 
 342:                                              ; preds = %339
   %343 = load double, ptr %218, align 8, !tbaa !37
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %101) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %102) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %101)
+  call void @llvm.lifetime.start.p0(ptr nonnull %102)
   %344 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %101, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %343) #11
   %345 = trunc i64 %indvars.iv.i29 to i32
   %346 = add i32 %345, 1
   %347 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %102, i64 noundef 128, ptr noundef nonnull @.str.53, i32 noundef range(i32 -2147483647, -2147483648) %346, ptr noundef nonnull @.str.7) #11
   %348 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %102, ptr noundef nonnull %101, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %102) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %101) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %102)
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
   %.pre589.i = load i32, ptr %188, align 4, !tbaa !56
   br label %349
 
@@ -1949,15 +1949,15 @@ calc_entropy.exit.i:                              ; preds = %240
 
 352:                                              ; preds = %349
   %353 = load double, ptr %220, align 8, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %99) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %100) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %99)
+  call void @llvm.lifetime.start.p0(ptr nonnull %100)
   %354 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %99, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %353) #11
   %355 = trunc i64 %indvars.iv.i29 to i32
   %356 = add i32 %355, 1
   %357 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %100, i64 noundef 128, ptr noundef nonnull @.str.53, i32 noundef range(i32 -2147483647, -2147483648) %356, ptr noundef nonnull @.str.8) #11
   %358 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %100, ptr noundef nonnull %99, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %100) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %99) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
   %.pre590.i = load i32, ptr %188, align 4, !tbaa !56
   br label %359
 
@@ -1973,15 +1973,15 @@ calc_entropy.exit.i:                              ; preds = %240
   %365 = add i64 %364, -1
   %366 = uitofp i64 %365 to double
   %367 = fdiv nsz double %363, %366
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %97) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %98) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %97)
+  call void @llvm.lifetime.start.p0(ptr nonnull %98)
   %368 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %97, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %367) #11
   %369 = trunc i64 %indvars.iv.i29 to i32
   %370 = add i32 %369, 1
   %371 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %98, i64 noundef 128, ptr noundef nonnull @.str.53, i32 noundef range(i32 -2147483647, -2147483648) %370, ptr noundef nonnull @.str.9) #11
   %372 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %98, ptr noundef nonnull %97, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %98) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %97) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
   %.pre591.i = load i32, ptr %188, align 4, !tbaa !56
   br label %373
 
@@ -1998,15 +1998,15 @@ calc_entropy.exit.i:                              ; preds = %240
   %380 = uitofp i64 %379 to double
   %381 = fdiv nsz double %377, %380
   %382 = call nsz double @llvm.sqrt.f64(double %381)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %95) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %96) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %95)
+  call void @llvm.lifetime.start.p0(ptr nonnull %96)
   %383 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %95, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %382) #11
   %384 = trunc i64 %indvars.iv.i29 to i32
   %385 = add i32 %384, 1
   %386 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %96, i64 noundef 128, ptr noundef nonnull @.str.53, i32 noundef range(i32 -2147483647, -2147483648) %385, ptr noundef nonnull @.str.10) #11
   %387 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %96, ptr noundef nonnull %95, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %96) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %95) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
   %.pre592.i = load i32, ptr %188, align 4, !tbaa !56
   br label %388
 
@@ -2024,15 +2024,15 @@ calc_entropy.exit.i:                              ; preds = %240
   %..i = select nsz i1 %395, double %393, double %394
   %396 = call nsz double @llvm.log10.f64(double %..i)
   %397 = fmul nsz double %396, 2.000000e+01
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %93) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %94) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %93)
+  call void @llvm.lifetime.start.p0(ptr nonnull %94)
   %398 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %93, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %397) #11
   %399 = trunc i64 %indvars.iv.i29 to i32
   %400 = add i32 %399, 1
   %401 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %94, i64 noundef 128, ptr noundef nonnull @.str.53, i32 noundef range(i32 -2147483647, -2147483648) %400, ptr noundef nonnull @.str.11) #11
   %402 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %94, ptr noundef nonnull %93, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %94) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %93) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %94)
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
   %.pre593.i = load i32, ptr %188, align 4, !tbaa !56
   br label %403
 
@@ -2050,15 +2050,15 @@ calc_entropy.exit.i:                              ; preds = %240
   %411 = call nsz double @llvm.sqrt.f64(double %410)
   %412 = call nsz double @llvm.log10.f64(double %411)
   %413 = fmul nsz double %412, 2.000000e+01
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %91) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %92) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %91)
+  call void @llvm.lifetime.start.p0(ptr nonnull %92)
   %414 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %91, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %413) #11
   %415 = trunc i64 %indvars.iv.i29 to i32
   %416 = add i32 %415, 1
   %417 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %92, i64 noundef 128, ptr noundef nonnull @.str.53, i32 noundef range(i32 -2147483647, -2147483648) %416, ptr noundef nonnull @.str.12) #11
   %418 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %92, ptr noundef nonnull %91, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %92) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %91) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
   %.pre594.i = load i32, ptr %188, align 4, !tbaa !56
   br label %419
 
@@ -2073,15 +2073,15 @@ calc_entropy.exit.i:                              ; preds = %240
   %424 = call nsz double @llvm.sqrt.f64(double %423)
   %425 = call nsz double @llvm.log10.f64(double %424)
   %426 = fmul nsz double %425, 2.000000e+01
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %89) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %90) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %89)
+  call void @llvm.lifetime.start.p0(ptr nonnull %90)
   %427 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %89, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %426) #11
   %428 = trunc i64 %indvars.iv.i29 to i32
   %429 = add i32 %428, 1
   %430 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %90, i64 noundef 128, ptr noundef nonnull @.str.53, i32 noundef range(i32 -2147483647, -2147483648) %429, ptr noundef nonnull @.str.13) #11
   %431 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %90, ptr noundef nonnull %89, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %90) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %89) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
   %.pre595.i = load i32, ptr %188, align 4, !tbaa !56
   br label %432
 
@@ -2096,15 +2096,15 @@ calc_entropy.exit.i:                              ; preds = %240
   %437 = call nsz double @llvm.sqrt.f64(double %436)
   %438 = call nsz double @llvm.log10.f64(double %437)
   %439 = fmul nsz double %438, 2.000000e+01
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %87) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %88) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %87)
+  call void @llvm.lifetime.start.p0(ptr nonnull %88)
   %440 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %87, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %439) #11
   %441 = trunc i64 %indvars.iv.i29 to i32
   %442 = add i32 %441, 1
   %443 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %88, i64 noundef 128, ptr noundef nonnull @.str.53, i32 noundef range(i32 -2147483647, -2147483648) %442, ptr noundef nonnull @.str.14) #11
   %444 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %88, ptr noundef nonnull %87, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %88) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %87) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
   %.pre596.i = load i32, ptr %188, align 4, !tbaa !56
   br label %445
 
@@ -2134,15 +2134,15 @@ calc_entropy.exit.i:                              ; preds = %240
 
 461:                                              ; preds = %451, %448
   %462 = phi nsz double [ %460, %451 ], [ 1.000000e+00, %448 ]
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %85) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %86) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %85)
+  call void @llvm.lifetime.start.p0(ptr nonnull %86)
   %463 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %85, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %462) #11
   %464 = trunc i64 %indvars.iv.i29 to i32
   %465 = add i32 %464, 1
   %466 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %86, i64 noundef 128, ptr noundef nonnull @.str.53, i32 noundef range(i32 -2147483647, -2147483648) %465, ptr noundef nonnull @.str.15) #11
   %467 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %86, ptr noundef nonnull %85, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %86) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %85) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
   %.pre597.i = load i32, ptr %188, align 4, !tbaa !56
   br label %468
 
@@ -2163,15 +2163,15 @@ calc_entropy.exit.i:                              ; preds = %240
   %479 = fdiv nsz double %474, %478
   %480 = call nsz double @llvm.log10.f64(double %479)
   %481 = fmul nsz double %480, 2.000000e+01
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %83) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %84) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %83)
+  call void @llvm.lifetime.start.p0(ptr nonnull %84)
   %482 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %83, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %481) #11
   %483 = trunc i64 %indvars.iv.i29 to i32
   %484 = add i32 %483, 1
   %485 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %84, i64 noundef 128, ptr noundef nonnull @.str.53, i32 noundef range(i32 -2147483647, -2147483648) %484, ptr noundef nonnull @.str.16) #11
   %486 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %84, ptr noundef nonnull %83, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %84) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %83) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
   %.pre598.i = load i32, ptr %188, align 4, !tbaa !56
   br label %487
 
@@ -2187,15 +2187,15 @@ calc_entropy.exit.i:                              ; preds = %240
   %493 = add i64 %492, %491
   %494 = uitofp i64 %493 to float
   %495 = fpext nsz float %494 to double
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %81) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %82) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %81)
+  call void @llvm.lifetime.start.p0(ptr nonnull %82)
   %496 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %81, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %495) #11
   %497 = trunc i64 %indvars.iv.i29 to i32
   %498 = add i32 %497, 1
   %499 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %82, i64 noundef 128, ptr noundef nonnull @.str.53, i32 noundef range(i32 -2147483647, -2147483648) %498, ptr noundef nonnull @.str.17) #11
   %500 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %82, ptr noundef nonnull %81, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %82) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %81) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
   %.pre599.i = load i32, ptr %188, align 4, !tbaa !56
   br label %501
 
@@ -2208,15 +2208,15 @@ calc_entropy.exit.i:                              ; preds = %240
 504:                                              ; preds = %501
   %505 = load i64, ptr %274, align 8, !tbaa !48
   %506 = uitofp i64 %505 to double
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %79) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %80) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
   %507 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %79, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %506) #11
   %508 = trunc i64 %indvars.iv.i29 to i32
   %509 = add i32 %508, 1
   %510 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %80, i64 noundef 128, ptr noundef nonnull @.str.53, i32 noundef range(i32 -2147483647, -2147483648) %509, ptr noundef nonnull @.str.17) #11
   %511 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %80, ptr noundef nonnull %79, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %80) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %79) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
   %.pre600.i = load i32, ptr %188, align 4, !tbaa !56
   br label %512
 
@@ -2230,15 +2230,15 @@ calc_entropy.exit.i:                              ; preds = %240
   %516 = load double, ptr %226, align 8, !tbaa !41
   %517 = call nsz double @llvm.log10.f64(double %516)
   %518 = fmul nsz double %517, 2.000000e+01
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %77) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %78) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
   %519 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %77, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %518) #11
   %520 = trunc i64 %indvars.iv.i29 to i32
   %521 = add i32 %520, 1
   %522 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %78, i64 noundef 128, ptr noundef nonnull @.str.53, i32 noundef range(i32 -2147483647, -2147483648) %521, ptr noundef nonnull @.str.18) #11
   %523 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %78, ptr noundef nonnull %77, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %78) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %77) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
   %.pre601.i = load i32, ptr %188, align 4, !tbaa !56
   br label %524
 
@@ -2251,15 +2251,15 @@ calc_entropy.exit.i:                              ; preds = %240
 527:                                              ; preds = %524
   %528 = load i64, ptr %228, align 8, !tbaa !49
   %529 = uitofp i64 %528 to double
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %75) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %76) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
   %530 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %75, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %529) #11
   %531 = trunc i64 %indvars.iv.i29 to i32
   %532 = add i32 %531, 1
   %533 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %76, i64 noundef 128, ptr noundef nonnull @.str.53, i32 noundef range(i32 -2147483647, -2147483648) %532, ptr noundef nonnull @.str.19) #11
   %534 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %76, ptr noundef nonnull %75, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %76) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %75) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
   %.pre602.i = load i32, ptr %188, align 4, !tbaa !56
   br label %535
 
@@ -2271,15 +2271,15 @@ calc_entropy.exit.i:                              ; preds = %240
 
 538:                                              ; preds = %535
   %539 = load double, ptr %266, align 8, !tbaa !45
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %73) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %74) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
   %540 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %73, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %539) #11
   %541 = trunc i64 %indvars.iv.i29 to i32
   %542 = add i32 %541, 1
   %543 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %74, i64 noundef 128, ptr noundef nonnull @.str.53, i32 noundef range(i32 -2147483647, -2147483648) %542, ptr noundef nonnull @.str.20) #11
   %544 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %74, ptr noundef nonnull %73, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %74) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %73) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
   %.pre603.i = load i32, ptr %188, align 4, !tbaa !56
   br label %545
 
@@ -2372,36 +2372,36 @@ bit_depth.exit.i:                                 ; preds = %bit_depth.exit.loop
   %.sroa.16.1.i = phi double [ 0.000000e+00, %548 ], [ %582, %bit_depth.exit.loopexit.i ]
   %.sroa.8.0.i = phi double [ 0.000000e+00, %548 ], [ %581, %bit_depth.exit.loopexit.i ]
   %.sroa.0.0.i = phi double [ 0.000000e+00, %548 ], [ %580, %bit_depth.exit.loopexit.i ]
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %71) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %72) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
   %584 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %71, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %.sroa.0.0.i) #11
   %585 = trunc i64 %indvars.iv.i29 to i32
   %586 = add i32 %585, 1
   %587 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %72, i64 noundef 128, ptr noundef nonnull @.str.53, i32 noundef range(i32 -2147483647, -2147483648) %586, ptr noundef nonnull @.str.21) #11
   %588 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %72, ptr noundef nonnull %71, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %72) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %71) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %69) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %70) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
   %589 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %69, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %.sroa.8.0.i) #11
   %590 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %70, i64 noundef 128, ptr noundef nonnull @.str.53, i32 noundef range(i32 -2147483647, -2147483648) %586, ptr noundef nonnull @.str.22) #11
   %591 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %70, ptr noundef nonnull %69, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %70) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %69) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %67) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %68) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
   %592 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %67, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %.sroa.16.1.i) #11
   %593 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %68, i64 noundef 128, ptr noundef nonnull @.str.53, i32 noundef range(i32 -2147483647, -2147483648) %586, ptr noundef nonnull @.str.23) #11
   %594 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %68, ptr noundef nonnull %67, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %68) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %67) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %65) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %66) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
   %595 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %65, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %.sroa.24.0.i) #11
   %596 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %66, i64 noundef 128, ptr noundef nonnull @.str.53, i32 noundef range(i32 -2147483647, -2147483648) %586, ptr noundef nonnull @.str.24) #11
   %597 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %66, ptr noundef nonnull %65, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %66) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %65) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
   %.pre604.i = load i32, ptr %188, align 4, !tbaa !56
   br label %598
 
@@ -2443,15 +2443,15 @@ bit_depth.exit.i:                                 ; preds = %bit_depth.exit.loop
   %620 = fdiv nsz double %617, %619
   %621 = call nsz double @llvm.log10.f64(double %620)
   %622 = fmul nsz double %621, 2.000000e+01
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %63) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %64) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
   %623 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %63, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %622) #11
   %624 = trunc i64 %indvars.iv.i29 to i32
   %625 = add i32 %624, 1
   %626 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %64, i64 noundef 128, ptr noundef nonnull @.str.53, i32 noundef range(i32 -2147483647, -2147483648) %625, ptr noundef nonnull @.str.25) #11
   %627 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %64, ptr noundef nonnull %63, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %64) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %63) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
   %.pre605.i = load i32, ptr %188, align 4, !tbaa !56
   br label %628
 
@@ -2465,15 +2465,15 @@ bit_depth.exit.i:                                 ; preds = %bit_depth.exit.loop
   %632 = getelementptr inbounds nuw i8, ptr %194, i64 232
   %633 = load i64, ptr %632, align 8, !tbaa !63
   %634 = uitofp i64 %633 to double
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %61) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %62) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
   %635 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %61, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %634) #11
   %636 = trunc i64 %indvars.iv.i29 to i32
   %637 = add i32 %636, 1
   %638 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %62, i64 noundef 128, ptr noundef nonnull @.str.53, i32 noundef range(i32 -2147483647, -2147483648) %637, ptr noundef nonnull @.str.26) #11
   %639 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %62, ptr noundef nonnull %61, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %62) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %61) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
   %.pre606.i = load i32, ptr %188, align 4, !tbaa !56
   br label %640
 
@@ -2490,15 +2490,15 @@ bit_depth.exit.i:                                 ; preds = %bit_depth.exit.loop
   %647 = load i64, ptr %195, align 8, !tbaa !26
   %648 = uitofp i64 %647 to double
   %649 = fdiv nsz double %646, %648
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %59) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %60) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
   %650 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %59, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %649) #11
   %651 = trunc i64 %indvars.iv.i29 to i32
   %652 = add i32 %651, 1
   %653 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %60, i64 noundef 128, ptr noundef nonnull @.str.53, i32 noundef range(i32 -2147483647, -2147483648) %652, ptr noundef nonnull @.str.27) #11
   %654 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %60, ptr noundef nonnull %59, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %60) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %59) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   br label %655
 
 655:                                              ; preds = %643, %640
@@ -2520,15 +2520,15 @@ bit_depth.exit.i:                                 ; preds = %bit_depth.exit.loop
 662:                                              ; preds = %659
   %663 = load i64, ptr %296, align 8, !tbaa !52
   %664 = uitofp i64 %663 to double
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %57) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %58) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
   %665 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %57, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %664) #11
   %666 = trunc i64 %indvars.iv.i29 to i32
   %667 = add i32 %666, 1
   %668 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %58, i64 noundef 128, ptr noundef nonnull @.str.53, i32 noundef range(i32 -2147483647, -2147483648) %667, ptr noundef nonnull @.str.28) #11
   %669 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %58, ptr noundef nonnull %57, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %58) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %57) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   %.pre607.i = load i32, ptr %190, align 4, !tbaa !64
   br label %670
 
@@ -2551,15 +2551,15 @@ bit_depth.exit.i:                                 ; preds = %bit_depth.exit.loop
 676:                                              ; preds = %673
   %677 = load i64, ptr %299, align 8, !tbaa !53
   %678 = uitofp i64 %677 to double
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %55) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %56) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
   %679 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %55, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %678) #11
   %680 = trunc i64 %indvars.iv.i29 to i32
   %681 = add i32 %680, 1
   %682 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %56, i64 noundef 128, ptr noundef nonnull @.str.53, i32 noundef range(i32 -2147483647, -2147483648) %681, ptr noundef nonnull @.str.29) #11
   %683 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %56, ptr noundef nonnull %55, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %56) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %55) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   %.pre608.i = load i32, ptr %190, align 4, !tbaa !64
   br label %684
 
@@ -2582,15 +2582,15 @@ bit_depth.exit.i:                                 ; preds = %bit_depth.exit.loop
 689:                                              ; preds = %686
   %690 = load i64, ptr %302, align 8, !tbaa !54
   %691 = uitofp i64 %690 to double
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %53) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %54) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   %692 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %53, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %691) #11
   %693 = trunc i64 %indvars.iv.i29 to i32
   %694 = add i32 %693, 1
   %695 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %54, i64 noundef 128, ptr noundef nonnull @.str.53, i32 noundef range(i32 -2147483647, -2147483648) %694, ptr noundef nonnull @.str.30) #11
   %696 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %54, ptr noundef nonnull %53, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %54) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %53) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %.thread633.thread.i
 
 .thread633.thread.i:                              ; preds = %689, %686, %.thread633.i, %672, %657
@@ -2654,13 +2654,13 @@ bit_depth.exit.i:                                 ; preds = %bit_depth.exit.loop
   %715 = udiv i64 %.0346.lcssa.i, %714
   %716 = uitofp i64 %715 to double
   %717 = fdiv nsz double %.0332.lcssa.i, %716
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %51) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %52) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   %718 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %51, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %717) #11
   %719 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %52, i64 noundef 128, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.31) #11
   %720 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %52, ptr noundef nonnull %51, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %52) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %51) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   %.pre609.i = load i32, ptr %710, align 8, !tbaa !67
   br label %721
 
@@ -2671,13 +2671,13 @@ bit_depth.exit.i:                                 ; preds = %bit_depth.exit.loop
   br i1 %.not371.i, label %728, label %724
 
 724:                                              ; preds = %721
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %49) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %50) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   %725 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %49, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %.0338.lcssa.i) #11
   %726 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %50, i64 noundef 128, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.32) #11
   %727 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %50, ptr noundef nonnull %49, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %50) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %49) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   %.pre610.i = load i32, ptr %710, align 8, !tbaa !67
   br label %728
 
@@ -2688,13 +2688,13 @@ bit_depth.exit.i:                                 ; preds = %bit_depth.exit.loop
   br i1 %.not372.i, label %735, label %731
 
 731:                                              ; preds = %728
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %47) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %48) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   %732 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %47, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %.0337.lcssa.i) #11
   %733 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %48, i64 noundef 128, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.33) #11
   %734 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %48, ptr noundef nonnull %47, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %48) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %47) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %.pre611.i = load i32, ptr %710, align 8, !tbaa !67
   br label %735
 
@@ -2705,13 +2705,13 @@ bit_depth.exit.i:                                 ; preds = %bit_depth.exit.loop
   br i1 %.not373.i, label %742, label %738
 
 738:                                              ; preds = %735
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %45) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %46) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   %739 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %45, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %.0336.lcssa.i) #11
   %740 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %46, i64 noundef 128, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.34) #11
   %741 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %46, ptr noundef nonnull %45, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %46) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %45) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   %.pre612.i = load i32, ptr %710, align 8, !tbaa !67
   br label %742
 
@@ -2722,13 +2722,13 @@ bit_depth.exit.i:                                 ; preds = %bit_depth.exit.loop
   br i1 %.not374.i, label %749, label %745
 
 745:                                              ; preds = %742
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %43) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %44) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   %746 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %43, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %.0335.lcssa.i) #11
   %747 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %44, i64 noundef 128, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.35) #11
   %748 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %44, ptr noundef nonnull %43, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %44) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %43) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   %.pre613.i = load i32, ptr %710, align 8, !tbaa !67
   br label %749
 
@@ -2744,13 +2744,13 @@ bit_depth.exit.i:                                 ; preds = %bit_depth.exit.loop
   %755 = sub i64 %.0346.lcssa.i, %754
   %756 = uitofp i64 %755 to double
   %757 = fdiv nsz double %.0331.lcssa.i, %756
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %41) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %42) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   %758 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %41, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %757) #11
   %759 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %42, i64 noundef 128, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.36) #11
   %760 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %42, ptr noundef nonnull %41, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %42) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %41) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   %.pre614.i = load i32, ptr %710, align 8, !tbaa !67
   br label %761
 
@@ -2767,13 +2767,13 @@ bit_depth.exit.i:                                 ; preds = %bit_depth.exit.loop
   %768 = uitofp i64 %767 to double
   %769 = fdiv nsz double %.0330.lcssa.i, %768
   %770 = call nsz double @llvm.sqrt.f64(double %769)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %39) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %40) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %771 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %39, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %770) #11
   %772 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %40, i64 noundef 128, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.37) #11
   %773 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %40, ptr noundef nonnull %39, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %40) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %39) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   %.pre615.i = load i32, ptr %710, align 8, !tbaa !67
   br label %774
 
@@ -2789,13 +2789,13 @@ bit_depth.exit.i:                                 ; preds = %bit_depth.exit.loop
   %780 = select nsz i1 %779, double %778, double %.0333.lcssa.i
   %781 = call nsz double @llvm.log10.f64(double %780)
   %782 = fmul nsz double %781, 2.000000e+01
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %37) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %38) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %783 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %37, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %782) #11
   %784 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %38, i64 noundef 128, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.38) #11
   %785 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %38, ptr noundef nonnull %37, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %38) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %37) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   %.pre616.i = load i32, ptr %710, align 8, !tbaa !67
   br label %786
 
@@ -2811,13 +2811,13 @@ bit_depth.exit.i:                                 ; preds = %bit_depth.exit.loop
   %792 = call nsz double @llvm.sqrt.f64(double %791)
   %793 = call nsz double @llvm.log10.f64(double %792)
   %794 = fmul nsz double %793, 2.000000e+01
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %35) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %36) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %795 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %35, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %794) #11
   %796 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %36, i64 noundef 128, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.39) #11
   %797 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %36, ptr noundef nonnull %35, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %36) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %35) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   %.pre617.i = load i32, ptr %710, align 8, !tbaa !67
   br label %798
 
@@ -2831,13 +2831,13 @@ bit_depth.exit.i:                                 ; preds = %bit_depth.exit.loop
   %802 = call nsz double @llvm.sqrt.f64(double %.0325.lcssa.i)
   %803 = call nsz double @llvm.log10.f64(double %802)
   %804 = fmul nsz double %803, 2.000000e+01
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %33) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %34) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %805 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %33, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %804) #11
   %806 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %34, i64 noundef 128, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.40) #11
   %807 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %34, ptr noundef nonnull %33, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %34) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %33) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   %.pre618.i = load i32, ptr %710, align 8, !tbaa !67
   br label %808
 
@@ -2848,13 +2848,13 @@ bit_depth.exit.i:                                 ; preds = %bit_depth.exit.loop
   br i1 %.not380.i, label %815, label %811
 
 811:                                              ; preds = %808
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %31) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %32) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %812 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %31, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %.0326.lcssa.i) #11
   %813 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %32, i64 noundef 128, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.41) #11
   %814 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %32, ptr noundef nonnull %31, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %32) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %31) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   %.pre619.i = load i32, ptr %710, align 8, !tbaa !67
   br label %815
 
@@ -2871,13 +2871,13 @@ bit_depth.exit.i:                                 ; preds = %bit_depth.exit.loop
   %822 = fdiv nsz double %819, %821
   %823 = call nsz double @llvm.log10.f64(double %822)
   %824 = fmul nsz double %823, 2.000000e+01
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %29) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %30) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %825 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %29, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %824) #11
   %826 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %30, i64 noundef 128, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.42) #11
   %827 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %30, ptr noundef nonnull %29, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %30) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %29) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %.pre620.i = load i32, ptr %710, align 8, !tbaa !67
   br label %828
 
@@ -2894,13 +2894,13 @@ bit_depth.exit.i:                                 ; preds = %bit_depth.exit.loop
   %835 = load i32, ptr %183, align 8, !tbaa !20
   %836 = sitofp i32 %835 to double
   %837 = fdiv nsz double %834, %836
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %27) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %28) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %838 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %27, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %837) #11
   %839 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %28, i64 noundef 128, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.43) #11
   %840 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %28, ptr noundef nonnull %27, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %28) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %27) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %.pre621.i = load i32, ptr %710, align 8, !tbaa !67
   br label %841
 
@@ -2914,13 +2914,13 @@ bit_depth.exit.i:                                 ; preds = %bit_depth.exit.loop
   %845 = load i32, ptr %183, align 8, !tbaa !20
   %846 = sitofp i32 %845 to double
   %847 = fdiv nsz double %.0341.lcssa.i, %846
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %25) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %26) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %848 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %25, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %847) #11
   %849 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %26, i64 noundef 128, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.44) #11
   %850 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %26, ptr noundef nonnull %25, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %26) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %25) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %.pre622.i = load i32, ptr %710, align 8, !tbaa !67
   br label %851
 
@@ -2933,13 +2933,13 @@ bit_depth.exit.i:                                 ; preds = %bit_depth.exit.loop
 854:                                              ; preds = %851
   %855 = call nsz double @llvm.log10.f64(double %.0328.lcssa.i)
   %856 = fmul nsz double %855, 2.000000e+01
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %23) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %24) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %857 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %23, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %856) #11
   %858 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %24, i64 noundef 128, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.45) #11
   %859 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %24, ptr noundef nonnull %23, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %24) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %23) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %.pre623.i = load i32, ptr %710, align 8, !tbaa !67
   br label %860
 
@@ -2953,13 +2953,13 @@ bit_depth.exit.i:                                 ; preds = %bit_depth.exit.loop
   %864 = load i32, ptr %183, align 8, !tbaa !20
   %865 = sitofp i32 %864 to double
   %866 = fdiv nsz double %.0345.lcssa.i, %865
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %21) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %22) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %867 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %21, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %866) #11
   %868 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %22, i64 noundef 128, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.46) #11
   %869 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %22, ptr noundef nonnull %21, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %22) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %21) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %.pre624.i = load i32, ptr %710, align 8, !tbaa !67
   br label %870
 
@@ -2973,13 +2973,13 @@ bit_depth.exit.i:                                 ; preds = %bit_depth.exit.loop
   %874 = load i32, ptr %183, align 8, !tbaa !20
   %875 = sitofp i32 %874 to double
   %876 = fdiv nsz double %.0327.lcssa.i, %875
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %19) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %20) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %877 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %19, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %876) #11
   %878 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %20, i64 noundef 128, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.47) #11
   %879 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %20, ptr noundef nonnull %19, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %20) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %19) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %.pre625.i = load i32, ptr %710, align 8, !tbaa !67
   br label %880
 
@@ -3068,34 +3068,34 @@ bit_depth.exit469.i:                              ; preds = %bit_depth.exit469.l
   %.sroa.16.3.i = phi double [ 0.000000e+00, %883 ], [ %913, %bit_depth.exit469.loopexit.i ]
   %.sroa.8.1.i = phi double [ 0.000000e+00, %883 ], [ %912, %bit_depth.exit469.loopexit.i ]
   %.sroa.0.1.i = phi double [ 0.000000e+00, %883 ], [ %911, %bit_depth.exit469.loopexit.i ]
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %17) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %18) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %915 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %17, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %.sroa.0.1.i) #11
   %916 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %18, i64 noundef 128, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.48) #11
   %917 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %18, ptr noundef nonnull %17, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %18) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %17) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %15) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %16) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %918 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %15, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %.sroa.8.1.i) #11
   %919 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %16, i64 noundef 128, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.49) #11
   %920 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %16, ptr noundef nonnull %15, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %16) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %15) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %13) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %14) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %921 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %.sroa.16.3.i) #11
   %922 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 128, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.50) #11
   %923 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %14, ptr noundef nonnull %13, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %14) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %13) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %924 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %.sroa.24.1.i) #11
   %925 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 128, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.51) #11
   %926 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %12, ptr noundef nonnull %11, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.pre626.i = load i32, ptr %710, align 8, !tbaa !67
   br label %927
 
@@ -3110,13 +3110,13 @@ bit_depth.exit469.i:                              ; preds = %bit_depth.exit469.l
   %932 = sext i32 %931 to i64
   %933 = udiv i64 %.0346.lcssa.i, %932
   %934 = uitofp i64 %933 to double
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %10) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %935 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %934) #11
   %936 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 128, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.52) #11
   %937 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %10, ptr noundef nonnull %9, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %10) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %938
 
 938:                                              ; preds = %930, %927
@@ -3142,13 +3142,13 @@ bit_depth.exit469.i:                              ; preds = %bit_depth.exit469.l
   %949 = sitofp i32 %948 to float
   %950 = fdiv nsz float %.0344.lcssa.i, %949
   %951 = fpext nsz float %950 to double
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %952 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %951) #11
   %953 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 128, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.28) #11
   %954 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre627.i = load i32, ptr %939, align 4, !tbaa !64
   br label %955
 
@@ -3174,13 +3174,13 @@ bit_depth.exit469.i:                              ; preds = %bit_depth.exit469.l
   %963 = sitofp i32 %962 to float
   %964 = fdiv nsz float %.0343.lcssa.i, %963
   %965 = fpext nsz float %964 to double
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %966 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %965) #11
   %967 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 128, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.29) #11
   %968 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre628.i = load i32, ptr %939, align 4, !tbaa !64
   br label %969
 
@@ -3206,13 +3206,13 @@ bit_depth.exit469.i:                              ; preds = %bit_depth.exit469.l
   %977 = sitofp i32 %976 to float
   %978 = fdiv nsz float %.0342.lcssa.i, %977
   %979 = fpext nsz float %978 to double
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %980 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 128, ptr noundef nonnull @.str.4, double noundef %979) #11
   %981 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.30) #11
   %982 = call i32 @av_dict_set(ptr noundef nonnull %113, ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %set_metadata.exit
 
 set_metadata.exit:                                ; preds = %941, %.thread635.i, %975, %972, %.thread637.i, %175
@@ -3224,13 +3224,10 @@ set_metadata.exit:                                ; preds = %941, %.thread635.i,
   ret i32 %987
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-declare i32 @ff_filter_execute(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @ff_filter_execute(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #4 {
+define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5069,18 +5066,15 @@ update_minmax.exit616:                            ; preds = %906, %909
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @ff_filter_get_nb_threads(ptr noundef) local_unnamed_addr #5
+declare i32 @ff_filter_get_nb_threads(ptr noundef) local_unnamed_addr #4
 
-declare i32 @ff_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare i32 @ff_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @update_stat(ptr noundef readonly captures(none) %0, ptr noundef %1, double noundef %2, double noundef %3, i64 noundef %4) unnamed_addr #7 {
+define internal fastcc void @update_stat(ptr noundef readonly captures(none) %0, ptr noundef %1, double noundef %2, double noundef %3, i64 noundef %4) unnamed_addr #6 {
   %6 = fcmp nsz oge double %2, 0.000000e+00
   %7 = fneg nsz double %2
   %8 = select nsz i1 %6, double %2, double %7
@@ -5529,33 +5523,33 @@ calc_noise_floor.exit:                            ; preds = %.lr.ph.i, %.lr.ph88
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.llrint.i64.f64(double) #8
+declare i64 @llvm.llrint.i64.f64(double) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #8
+declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #8
+declare double @llvm.fabs.f64(double) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.lrint.i64.f64(double) #8
+declare i64 @llvm.lrint.i64.f64(double) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #8
+declare float @llvm.fabs.f32(float) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #8
+declare double @llvm.sqrt.f64(double) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.log10.f64(double) #8
+declare double @llvm.log10.f64(double) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.log2.f64(double) #8
+declare double @llvm.log2.f64(double) #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #9
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
-declare i32 @av_dict_set(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @av_dict_set(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -12, 1) i32 @config_output(ptr noundef readonly captures(none) %0) #1 {
@@ -5739,18 +5733,24 @@ define internal range(i32 -12, 1) i32 @config_output(ptr noundef readonly captur
   ret i32 %.0
 }
 
-declare noalias ptr @av_calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @av_calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.exp.f64(double) #8
+declare double @llvm.exp.f64(double) #7
 
-declare i32 @av_get_bytes_per_sample(i32 noundef) local_unnamed_addr #3
+declare i32 @av_get_bytes_per_sample(i32 noundef) local_unnamed_addr #2
 
-declare ptr @av_default_item_name(ptr noundef) #3
+declare ptr @av_default_item_name(ptr noundef) #2
 
-declare void @av_freep(ptr noundef) local_unnamed_addr #3
+declare void @av_freep(ptr noundef) local_unnamed_addr #2
 
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #10
@@ -5766,14 +5766,14 @@ declare i32 @llvm.umin.i32(i32, i32) #10
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { inlinehint nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nofree nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { inlinehint nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nofree nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind willreturn memory(read) }

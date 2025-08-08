@@ -61,14 +61,8 @@ define range(i64 -72, 2097152) i64 @ZSTD_getcBlockSize(ptr noundef readonly capt
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
-define range(i64 -70, 1048579) i64 @ZSTD_decodeLiteralsBlock_wrapper(ptr noundef initializes((30176, 30180)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
+define range(i64 -70, 1048579) i64 @ZSTD_decodeLiteralsBlock_wrapper(ptr noundef initializes((30176, 30180)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 30176
   store i32 0, ptr %6, align 8, !tbaa !13
   %7 = tail call fastcc i64 @ZSTD_decodeLiteralsBlock(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef 0)
@@ -76,7 +70,7 @@ define range(i64 -70, 1048579) i64 @ZSTD_decodeLiteralsBlock_wrapper(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -70, 1048579) i64 @ZSTD_decodeLiteralsBlock(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #2 {
+define internal fastcc range(i64 -70, 1048579) i64 @ZSTD_decodeLiteralsBlock(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #1 {
   %7 = icmp ult i64 %2, 2
   br i1 %7, label %310, label %8
 
@@ -644,7 +638,7 @@ default.unreachable248:                           ; preds = %ZSTD_blockSizeMax.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ZSTD_buildFSETable(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef captures(none) %6, i64 %7, i32 noundef %8) local_unnamed_addr #3 {
+define void @ZSTD_buildFSETable(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef captures(none) %6, i64 %7, i32 noundef %8) local_unnamed_addr #2 {
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %11, label %10
 
@@ -878,7 +872,7 @@ ZSTD_buildFSETable_body_default.exit:             ; preds = %87, %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ZSTD_buildFSETable_body_bmi2(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef captures(none) %6) unnamed_addr #4 {
+define internal fastcc void @ZSTD_buildFSETable_body_bmi2(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef captures(none) %6) unnamed_addr #3 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = add i32 %2, 1
   %10 = shl nuw i32 1, %5
@@ -1109,7 +1103,7 @@ ZSTD_buildFSETable_body.exit:                     ; preds = %86
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_decodeSeqHeaders(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #2 {
+define i64 @ZSTD_decodeSeqHeaders(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca [53 x i16], align 16
@@ -1197,7 +1191,7 @@ define i64 @ZSTD_decodeSeqHeaders(ptr noundef %0, ptr noundef writeonly captures
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 27324
   %56 = getelementptr i8, ptr %0, i64 30180
   %.val100 = load i32, ptr %56, align 4, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 35, ptr %8, align 4, !tbaa !28
   switch i32 %44, label %default.unreachable [
     i32 1, label %57
@@ -1259,8 +1253,8 @@ define i64 @ZSTD_decodeSeqHeaders(ptr noundef %0, ptr noundef writeonly captures
 82:                                               ; preds = %43
   %83 = ptrtoint ptr %37 to i64
   %84 = sub i64 %50, %83
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #18
-  call void @llvm.lifetime.start.p0(i64 106, ptr nonnull %10) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %85 = call i64 @FSE_readNCount(ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %37, i64 noundef %84) #18
   %86 = icmp ult i64 %85, -119
   br i1 %86, label %87, label %ZSTD_buildSeqTable.exit.thread126
@@ -1281,26 +1275,26 @@ ZSTD_buildSeqTable.exit.thread.sink.split:        ; preds = %43, %61
 
 ZSTD_buildSeqTable.exit.thread:                   ; preds = %78, %ZSTD_buildSeqTable.exit.thread.sink.split, %73
   %.0.i.ph = phi i64 [ 0, %73 ], [ %.0.i.ph.ph, %ZSTD_buildSeqTable.exit.thread.sink.split ], [ 0, %78 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %91
 
 ZSTD_buildSeqTable.exit.thread121:                ; preds = %57, %58, %72
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge
 
 ZSTD_buildSeqTable.exit.thread126:                ; preds = %82, %87
-  call void @llvm.lifetime.end.p0(i64 106, ptr nonnull %10) #18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge
 
 ZSTD_buildSeqTable.exit:                          ; preds = %87
   %90 = load i32, ptr %8, align 4, !tbaa !28
   call void @ZSTD_buildFSETable(ptr noundef nonnull %49, ptr noundef nonnull %10, i32 noundef %90, ptr noundef nonnull @LL_base, ptr noundef nonnull @LL_bits, i32 noundef %88, ptr noundef nonnull %55, i64 poison, i32 noundef %.val100)
   store ptr %49, ptr %0, align 8, !tbaa !59
-  call void @llvm.lifetime.end.p0(i64 106, ptr nonnull %10) #18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre = load i32, ptr %51, align 4, !tbaa !55
   %.pre145 = load i32, ptr %53, align 4, !tbaa !34
   %.val101.pre = load i32, ptr %56, align 4, !tbaa !29
@@ -1314,7 +1308,7 @@ ZSTD_buildSeqTable.exit:                          ; preds = %87
   %.182118 = getelementptr inbounds nuw i8, ptr %37, i64 %.0.i.ph.pn
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 4136
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 31, ptr %5, align 4, !tbaa !28
   switch i32 %46, label %default.unreachable [
     i32 1, label %96
@@ -1376,8 +1370,8 @@ ZSTD_buildSeqTable.exit:                          ; preds = %87
 121:                                              ; preds = %91
   %122 = ptrtoint ptr %.182118 to i64
   %123 = sub i64 %50, %122
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
-  call void @llvm.lifetime.start.p0(i64 106, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %124 = call i64 @FSE_readNCount(ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %.182118, i64 noundef %123) #18
   %125 = icmp ult i64 %124, -119
   br i1 %125, label %126, label %ZSTD_buildSeqTable.exit110.thread141
@@ -1395,26 +1389,26 @@ ZSTD_buildSeqTable.exit110.thread.sink.split:     ; preds = %91, %100
 
 ZSTD_buildSeqTable.exit110.thread:                ; preds = %117, %ZSTD_buildSeqTable.exit110.thread.sink.split, %112
   %.0.i104.ph = phi i64 [ 0, %112 ], [ %.0.i104.ph.ph, %ZSTD_buildSeqTable.exit110.thread.sink.split ], [ 0, %117 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %130
 
 ZSTD_buildSeqTable.exit110.thread136:             ; preds = %96, %97, %111
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
 ZSTD_buildSeqTable.exit110.thread141:             ; preds = %121, %126
-  call void @llvm.lifetime.end.p0(i64 106, ptr nonnull %7) #18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
 ZSTD_buildSeqTable.exit110:                       ; preds = %126
   %129 = load i32, ptr %5, align 4, !tbaa !28
   call void @ZSTD_buildFSETable(ptr noundef nonnull %94, ptr noundef nonnull %7, i32 noundef %129, ptr noundef nonnull @OF_base, ptr noundef nonnull @OF_bits, i32 noundef %127, ptr noundef nonnull %55, i64 poison, i32 noundef %.val101)
   store ptr %94, ptr %95, align 8, !tbaa !59
-  call void @llvm.lifetime.end.p0(i64 106, ptr nonnull %7) #18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre147 = load i32, ptr %51, align 4, !tbaa !55
   %.pre148 = load i32, ptr %53, align 4, !tbaa !34
   %.val102.pre = load i32, ptr %56, align 4, !tbaa !29
@@ -1447,7 +1441,7 @@ ZSTD_buildSeqTable.exit110:                       ; preds = %126
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -20, -71) i64 @ZSTD_buildSeqTable(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef range(i32 0, 4) %2, i32 noundef range(i32 31, 53) %3, i32 noundef range(i32 8, 10) %4, ptr noundef %5, i64 noundef %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(none) %8, ptr noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef range(i32 1, 98048) %12, ptr noundef captures(none) %13, i32 noundef %14) unnamed_addr #2 {
+define internal fastcc range(i64 -20, -71) i64 @ZSTD_buildSeqTable(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef range(i32 0, 4) %2, i32 noundef range(i32 31, 53) %3, i32 noundef range(i32 8, 10) %4, ptr noundef %5, i64 noundef %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(none) %8, ptr noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef range(i32 1, 98048) %12, ptr noundef captures(none) %13, i32 noundef %14) unnamed_addr #1 {
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
   %18 = alloca [53 x i16], align 16
@@ -1519,8 +1513,8 @@ define internal fastcc range(i64 -20, -71) i64 @ZSTD_buildSeqTable(ptr noundef %
   br i1 %48, label %45, label %.loopexit, !llvm.loop !60
 
 49:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #18
-  call void @llvm.lifetime.start.p0(i64 106, ptr nonnull %18) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %50 = call i64 @FSE_readNCount(ptr noundef nonnull %18, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef %5, i64 noundef %6) #18
   %51 = icmp ult i64 %50, -119
   br i1 %51, label %52, label %57
@@ -1538,8 +1532,8 @@ define internal fastcc range(i64 -20, -71) i64 @ZSTD_buildSeqTable(ptr noundef %
 
 57:                                               ; preds = %52, %49, %55
   %.1 = phi i64 [ %50, %55 ], [ -20, %49 ], [ -20, %52 ]
-  call void @llvm.lifetime.end.p0(i64 106, ptr nonnull %18) #18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.loopexit
 
 default.unreachable47:                            ; preds = %15
@@ -1551,7 +1545,7 @@ default.unreachable47:                            ; preds = %15
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 30176
   %9 = load i32, ptr %8, align 8, !tbaa !13
@@ -1602,7 +1596,7 @@ ZSTD_blockSizeMax.exit88:                         ; preds = %ZSTD_blockSizeMax.e
   %32 = sub i64 %30, %31
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 30204
   %34 = load i32, ptr %33, align 4, !tbaa !34
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %35 = call i64 @ZSTD_decodeSeqHeaders(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef %19, i64 noundef %20)
   %36 = icmp ult i64 %35, -119
   br i1 %36, label %37, label %66
@@ -1663,7 +1657,7 @@ ZSTD_blockSizeMax.exit88:                         ; preds = %ZSTD_blockSizeMax.e
 
 66:                                               ; preds = %37, %ZSTD_blockSizeMax.exit88, %64, %62, %56
   %.2 = phi i64 [ %57, %56 ], [ %63, %62 ], [ %65, %64 ], [ %35, %ZSTD_blockSizeMax.exit88 ], [ -70, %37 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %67
 
 67:                                               ; preds = %ZSTD_blockSizeMax.exit, %16, %66
@@ -1672,7 +1666,7 @@ ZSTD_blockSizeMax.exit88:                         ; preds = %ZSTD_blockSizeMax.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc range(i64 0, 1099511627776) i64 @ZSTD_getOffsetInfo(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #5 {
+define internal fastcc range(i64 0, 1099511627776) i64 @ZSTD_getOffsetInfo(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #4 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %23, label %3
 
@@ -1715,7 +1709,7 @@ define internal fastcc range(i64 0, 1099511627776) i64 @ZSTD_getOffsetInfo(ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_decompressSequencesLong(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #6 {
+define internal fastcc i64 @ZSTD_decompressSequencesLong(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #5 {
   %7 = alloca ptr, align 8
   %8 = alloca [8 x %struct.seq_t], align 16
   %9 = alloca %struct.seqState_t, align 8
@@ -1746,7 +1740,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong(ptr noundef %0, ptr nou
 
 22:                                               ; preds = %20, %17
   %23 = phi ptr [ %19, %17 ], [ %21, %20 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 30120
   %25 = load ptr, ptr %24, align 8, !tbaa !38
   store ptr %25, ptr %7, align 8, !tbaa !64
@@ -1762,8 +1756,8 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong(ptr noundef %0, ptr nou
   br i1 %.not.i.i, label %1470, label %34
 
 34:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %8) #18
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %9) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 30004
   store i32 1, ptr %35, align 4, !tbaa !55
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 26684
@@ -4361,13 +4355,13 @@ ZSTD_execSequenceSplitLitBuffer.exit45.i:         ; preds = %1452, %.preheader53
 
 .thread505.i:                                     ; preds = %974, %862, %744, %ZSTD_execSequenceSplitLitBuffer.exit.i, %ZSTD_execSequence.exit.i, %676, %1382, %1273, %1163, %ZSTD_execSequenceSplitLitBuffer.exit45.i, %.loopexit.i, %1095, %._crit_edge.i, %BIT_initDStream.exit.i, %101, %54, %43
   %.1.i.ph.i = phi i64 [ -20, %BIT_initDStream.exit.i ], [ -20, %._crit_edge.i ], [ -20, %43 ], [ -20, %54 ], [ -20, %101 ], [ -20, %1382 ], [ -20, %1273 ], [ -20, %1163 ], [ %1459, %ZSTD_execSequenceSplitLitBuffer.exit45.i ], [ %.0.i24.i, %.loopexit.i ], [ -70, %1095 ], [ -20, %974 ], [ -20, %862 ], [ -20, %744 ], [ %1051, %ZSTD_execSequenceSplitLitBuffer.exit.i ], [ %.0.i15.i, %ZSTD_execSequence.exit.i ], [ -70, %676 ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %9) #18
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %ZSTD_decompressSequencesLong_default.exit
 
 1469:                                             ; preds = %1464
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %9) #18
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre639.i = load i32, ptr %14, align 8, !tbaa !33
   %.pre640.pre.i = load ptr, ptr %7, align 8, !tbaa !64
   br label %1470
@@ -4440,7 +4434,7 @@ ZSTD_execSequenceSplitLitBuffer.exit45.i:         ; preds = %1452, %.preheader53
 
 ZSTD_decompressSequencesLong_default.exit:        ; preds = %.thread505.i, %1473, %1486, %1497
   %.14.i.i = phi i64 [ %1499, %1497 ], [ %.1.i.ph.i, %.thread505.i ], [ -70, %1486 ], [ -70, %1473 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %1500
 
 1500:                                             ; preds = %ZSTD_decompressSequencesLong_default.exit, %11
@@ -4449,7 +4443,7 @@ ZSTD_decompressSequencesLong_default.exit:        ; preds = %.thread505.i, %1473
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #7 {
+define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #6 {
   %7 = alloca %struct.seq_t, align 8
   %8 = alloca %struct.seq_t, align 8
   %9 = alloca %struct.seq_t, align 8
@@ -4467,7 +4461,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
 15:                                               ; preds = %6
   %.idx.i.i = tail call i64 @llvm.smax.i64(i64 %2, i64 0)
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 30120
   %18 = load ptr, ptr %17, align 8, !tbaa !38
   store ptr %18, ptr %10, align 8, !tbaa !64
@@ -4483,7 +4477,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   br i1 %.not.i.i, label %1048, label %27
 
 27:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %11) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 30004
   store i32 1, ptr %28, align 4, !tbaa !55
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 26684
@@ -5172,7 +5166,7 @@ ZSTD_decodeSequence.exit189.i.thread.i:           ; preds = %375
   %447 = phi ptr [ %443, %ZSTD_decodeSequence.exit189.i.thread.i ], [ %439, %ZSTD_decodeSequence.exit189.i.i ]
   %448 = phi ptr [ %442, %ZSTD_decodeSequence.exit189.i.thread.i ], [ %438, %ZSTD_decodeSequence.exit189.i.i ]
   %449 = getelementptr inbounds i8, ptr %447, i64 -32
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.sroa.052.0.i, ptr %7, align 8
   store i64 %.sroa.653.0.i, ptr %.sroa.958.0..sroa_idx.i, align 8
   store i64 %.sink.i, ptr %.sroa.10.0..sroa_idx.i, align 8
@@ -5236,7 +5230,7 @@ ZSTD_wildcopy.exit.i.i:                           ; preds = %469, %461, %457
   br i1 %481, label %ZSTD_execSequenceSplitLitBuffer.exit.i.thread.i, label %482, !prof !47
 
 ZSTD_execSequenceSplitLitBuffer.exit.i.thread.i:  ; preds = %479
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread211.i
 
 482:                                              ; preds = %479
@@ -5379,7 +5373,7 @@ ZSTD_overlapCopy8.exit.i.i:                       ; preds = %530, %508
 
 ZSTD_execSequenceSplitLitBuffer.exit.i.i:         ; preds = %550, %.preheader240.i, %499, %545, %ZSTD_overlapCopy8.exit.i.i, %493, %487, %.critedge.i201.i.i
   %.0.i198.i.i = phi i64 [ %460, %.critedge.i201.i.i ], [ %451, %487 ], [ %451, %ZSTD_overlapCopy8.exit.i.i ], [ %451, %493 ], [ %451, %545 ], [ %451, %499 ], [ %451, %.preheader240.i ], [ %451, %550 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %557 = icmp ult i64 %.0.i198.i.i, -119
   br i1 %557, label %558, label %.thread211.i
 
@@ -5495,7 +5489,7 @@ ZSTD_safecopyDstBeforeSrc.exit.i:                 ; preds = %.lr.ph.i.i, %.lr.ph
   %609 = getelementptr inbounds nuw i8, ptr %0, i64 95924
   %610 = getelementptr inbounds nuw i8, ptr %0, i64 30384
   store i32 0, ptr %610, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %.sroa.055.2.i, ptr %8, align 8
   %.sroa.958.0..sroa_idx59.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %.sroa.653.0.i, ptr %.sroa.958.0..sroa_idx59.i, align 8
@@ -5562,7 +5556,7 @@ ZSTD_wildcopy.exit251.i.i:                        ; preds = %631, %624, %620
   br i1 %643, label %.loopexit.thread.i, label %644, !prof !47
 
 .loopexit.thread.i:                               ; preds = %641
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread211.i
 
 644:                                              ; preds = %641
@@ -5705,7 +5699,7 @@ ZSTD_overlapCopy8.exit287.i.i:                    ; preds = %692, %670
 
 .loopexit.i:                                      ; preds = %712, %.preheader236.i, %661, %707, %ZSTD_overlapCopy8.exit287.i.i, %655, %649, %.critedge.i195.i.i
   %.0.i192.i.i = phi i64 [ %623, %.critedge.i195.i.i ], [ %612, %649 ], [ %612, %ZSTD_overlapCopy8.exit287.i.i ], [ %612, %655 ], [ %612, %707 ], [ %612, %661 ], [ %612, %.preheader236.i ], [ %612, %712 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %719 = icmp ult i64 %.0.i192.i.i, -119
   %720 = getelementptr inbounds nuw i8, ptr %.6138.i.i, i64 %.0.i192.i.i
   %721 = add nsw i32 %.0125.i262.i, -1
@@ -6043,7 +6037,7 @@ BIT_reloadDStream.exit217.i.i:                    ; preds = %838, %835, %829, %8
   br label %ZSTD_decodeSequence.exit.i.i
 
 ZSTD_decodeSequence.exit.i.i:                     ; preds = %911, %908, %902, %898, %863
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %.sroa.0.0.i, ptr %9, align 8
   store i64 %.sroa.6.0.i, ptr %.sroa.6.0..sroa_idx.i, align 8
   store i64 %.sink353.i, ptr %.sroa.9.0..sroa_idx.i, align 8
@@ -6109,7 +6103,7 @@ ZSTD_wildcopy.exit272.i.i:                        ; preds = %947, %939, %935
   br i1 %959, label %ZSTD_execSequence.exit.i.thread.i, label %960, !prof !47
 
 ZSTD_execSequence.exit.i.thread.i:                ; preds = %957
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread211.i
 
 960:                                              ; preds = %957
@@ -6252,7 +6246,7 @@ ZSTD_overlapCopy8.exit288.i.i:                    ; preds = %1008, %986
 
 ZSTD_execSequence.exit.i.i:                       ; preds = %1028, %.preheader233.i, %977, %1023, %ZSTD_overlapCopy8.exit288.i.i, %971, %965, %.critedge.i.i.i
   %.0.i.i.i = phi i64 [ %938, %.critedge.i.i.i ], [ %927, %965 ], [ %927, %ZSTD_overlapCopy8.exit288.i.i ], [ %927, %971 ], [ %927, %1023 ], [ %927, %977 ], [ %927, %.preheader233.i ], [ %927, %1028 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %1035 = icmp ult i64 %.0.i.i.i, -119
   br i1 %1035, label %1036, label %.thread211.i
 
@@ -6286,11 +6280,11 @@ ZSTD_execSequence.exit.i.i:                       ; preds = %1028, %.preheader23
 
 .thread211.i:                                     ; preds = %ZSTD_execSequenceSplitLitBuffer.exit.i.i, %ZSTD_execSequence.exit.i.i, %.thread207.i, %ZSTD_execSequence.exit.i.thread.i, %.loopexit.i, %.loopexit.thread.i, %568, %561, %ZSTD_execSequenceSplitLitBuffer.exit.i.thread.i, %BIT_initDStream.exit.i, %90, %43, %36
   %.1.i.ph.i = phi i64 [ -20, %561 ], [ -20, %ZSTD_execSequence.exit.i.thread.i ], [ -20, %BIT_initDStream.exit.i ], [ %.0.i192.i.i, %.loopexit.i ], [ -70, %568 ], [ -20, %ZSTD_execSequenceSplitLitBuffer.exit.i.thread.i ], [ -20, %.thread207.i ], [ -20, %.loopexit.thread.i ], [ -20, %36 ], [ -20, %43 ], [ -20, %90 ], [ %.0.i.i.i, %ZSTD_execSequence.exit.i.i ], [ %.0.i198.i.i, %ZSTD_execSequenceSplitLitBuffer.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %11) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %ZSTD_decompressSequencesSplitLitBuffer_default.exit
 
 1047:                                             ; preds = %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %11) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.pre.pre.i = load ptr, ptr %10, align 8, !tbaa !64
   br label %1048
 
@@ -6364,7 +6358,7 @@ ZSTD_execSequence.exit.i.i:                       ; preds = %1028, %.preheader23
 
 ZSTD_decompressSequencesSplitLitBuffer_default.exit: ; preds = %.thread211.i, %1052, %1065, %1076
   %.11.i.i = phi i64 [ %1078, %1076 ], [ %.1.i.ph.i, %.thread211.i ], [ -70, %1065 ], [ -70, %1052 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %1079
 
 1079:                                             ; preds = %ZSTD_decompressSequencesSplitLitBuffer_default.exit, %13
@@ -6373,7 +6367,7 @@ ZSTD_decompressSequencesSplitLitBuffer_default.exit: ; preds = %.thread211.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ZSTD_decompressSequences(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #7 {
+define internal fastcc i64 @ZSTD_decompressSequences(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #6 {
   %7 = alloca %struct.seq_t, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %struct.seqState_t, align 8
@@ -6404,7 +6398,7 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr noundef captures(none) 
 
 22:                                               ; preds = %19, %17
   %23 = phi ptr [ %18, %17 ], [ %21, %19 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 30120
   %25 = load ptr, ptr %24, align 8, !tbaa !38
   store ptr %25, ptr %8, align 8, !tbaa !64
@@ -6421,7 +6415,7 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr noundef captures(none) 
   br i1 %.not.i.i, label %570, label %35
 
 35:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %9) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 30004
   store i32 1, ptr %36, align 4, !tbaa !55
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 26684
@@ -7098,7 +7092,7 @@ BIT_reloadDStream.exit.i.i:                       ; preds = %359, %356, %350, %3
   br label %ZSTD_decodeSequence.exit.i.i
 
 ZSTD_decodeSequence.exit.i.i:                     ; preds = %432, %429, %423, %419, %384
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.sroa.0.0.i, ptr %7, align 8
   store i64 %.sroa.6.0.i, ptr %.sroa.6.0..sroa_idx.i, align 8
   store i64 %.sink.i, ptr %.sroa.9.0..sroa_idx.i, align 8
@@ -7164,7 +7158,7 @@ ZSTD_wildcopy.exit.i.i:                           ; preds = %468, %460, %456
   br i1 %480, label %ZSTD_execSequence.exit.i.thread.i, label %481, !prof !47
 
 ZSTD_execSequence.exit.i.thread.i:                ; preds = %478
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread75.i
 
 481:                                              ; preds = %478
@@ -7307,7 +7301,7 @@ ZSTD_overlapCopy8.exit.i.i:                       ; preds = %529, %507
 
 ZSTD_execSequence.exit.i.i:                       ; preds = %549, %.preheader87.i, %498, %544, %ZSTD_overlapCopy8.exit.i.i, %492, %486, %.critedge.i.i.i
   %.0.i.i.i = phi i64 [ %459, %.critedge.i.i.i ], [ %448, %486 ], [ %448, %ZSTD_overlapCopy8.exit.i.i ], [ %448, %492 ], [ %448, %544 ], [ %448, %498 ], [ %448, %.preheader87.i ], [ %448, %549 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %556 = icmp ult i64 %.0.i.i.i, -119
   br i1 %556, label %557, label %.thread75.i
 
@@ -7339,11 +7333,11 @@ ZSTD_execSequence.exit.i.i:                       ; preds = %549, %.preheader87.
 
 .thread75.i:                                      ; preds = %ZSTD_execSequence.exit.i.i, %560, %ZSTD_execSequence.exit.i.thread.i, %BIT_initDStream.exit.i, %98, %51, %44
   %.1.i.ph.i = phi i64 [ -20, %ZSTD_execSequence.exit.i.thread.i ], [ -20, %BIT_initDStream.exit.i ], [ -20, %560 ], [ -20, %44 ], [ -20, %51 ], [ -20, %98 ], [ %.0.i.i.i, %ZSTD_execSequence.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %ZSTD_decompressSequences_default.exit
 
 569:                                              ; preds = %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.pre.i = load ptr, ptr %8, align 8, !tbaa !64
   br label %570
 
@@ -7377,7 +7371,7 @@ ZSTD_execSequence.exit.i.i:                       ; preds = %549, %.preheader87.
 
 ZSTD_decompressSequences_default.exit:            ; preds = %.thread75.i, %570, %582
   %.4.i.i = phi i64 [ %584, %582 ], [ %.1.i.ph.i, %.thread75.i ], [ -70, %570 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %585
 
 585:                                              ; preds = %ZSTD_decompressSequences_default.exit, %11
@@ -7414,7 +7408,7 @@ define void @ZSTD_checkContinuity(ptr noundef captures(none) %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_decompressBlock_deprecated(ptr noundef initializes((30176, 30180)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
+define i64 @ZSTD_decompressBlock_deprecated(ptr noundef initializes((30176, 30180)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 30176
   store i32 0, ptr %6, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 29888
@@ -7454,7 +7448,7 @@ ZSTD_checkContinuity.exit:                        ; preds = %5, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_decompressBlock(ptr noundef initializes((30176, 30180)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
+define i64 @ZSTD_decompressBlock(ptr noundef initializes((30176, 30180)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 30176
   store i32 0, ptr %6, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 29888
@@ -7494,32 +7488,32 @@ ZSTD_decompressBlock_deprecated.exit:             ; preds = %ZSTD_checkContinuit
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #8
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #7
 
-declare i64 @HUF_decompress1X_usingDTable(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
+declare i64 @HUF_decompress1X_usingDTable(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
-declare i64 @HUF_decompress4X_usingDTable(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
+declare i64 @HUF_decompress4X_usingDTable(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
-declare i64 @HUF_decompress1X1_DCtx_wksp(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #9
+declare i64 @HUF_decompress1X1_DCtx_wksp(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #8
 
-declare i64 @HUF_decompress4X_hufOnly_wksp(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #9
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
+declare i64 @HUF_decompress4X_hufOnly_wksp(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #12
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #11
 
-declare i64 @FSE_readNCount(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #9
+declare i64 @FSE_readNCount(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #13 {
+define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #12 {
   %7 = alloca ptr, align 8
   %8 = alloca [8 x %struct.seq_t], align 16
   %9 = alloca %struct.seqState_t, align 8
@@ -7540,7 +7534,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
 
 18:                                               ; preds = %16, %13
   %19 = phi ptr [ %15, %13 ], [ %17, %16 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 30120
   %21 = load ptr, ptr %20, align 8, !tbaa !38
   store ptr %21, ptr %7, align 8, !tbaa !64
@@ -7556,8 +7550,8 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   br i1 %.not.i, label %1474, label %30
 
 30:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %8) #18
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %9) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 30004
   store i32 1, ptr %31, align 4, !tbaa !55
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 26684
@@ -10165,13 +10159,13 @@ ZSTD_execSequenceSplitLitBuffer.exit45:           ; preds = %ZSTD_overlapCopy8.e
 
 .thread505:                                       ; preds = %ZSTD_execSequenceSplitLitBuffer.exit, %672, %ZSTD_execSequence.exit, %.loopexit, %ZSTD_execSequenceSplitLitBuffer.exit45, %1095, %1164, %741, %97, %50, %39, %BIT_initDStream.exit, %._crit_edge
   %.1.i.ph = phi i64 [ -20, %BIT_initDStream.exit ], [ -20, %._crit_edge ], [ -20, %39 ], [ -20, %50 ], [ -20, %97 ], [ -20, %741 ], [ -20, %1164 ], [ -70, %1095 ], [ %.0.i24, %.loopexit ], [ %1463, %ZSTD_execSequenceSplitLitBuffer.exit45 ], [ -70, %672 ], [ %.0.i15, %ZSTD_execSequence.exit ], [ %1051, %ZSTD_execSequenceSplitLitBuffer.exit ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %9) #18
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %ZSTD_decompressSequencesLong_body.exit
 
 1473:                                             ; preds = %1468
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %9) #18
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre639 = load i32, ptr %10, align 8, !tbaa !33
   %.pre640.pre = load ptr, ptr %7, align 8, !tbaa !64
   br label %1474
@@ -10244,12 +10238,12 @@ ZSTD_execSequenceSplitLitBuffer.exit45:           ; preds = %ZSTD_overlapCopy8.e
 
 ZSTD_decompressSequencesLong_body.exit:           ; preds = %1477, %1490, %.thread505, %1501
   %.14.i = phi i64 [ %1503, %1501 ], [ %.1.i.ph, %.thread505 ], [ -70, %1490 ], [ -70, %1477 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.14.i
 }
 
 ; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %0, ptr noundef %1, ptr noundef readonly byval(%struct.seq_t) align 8 captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly captures(none) %7) unnamed_addr #14 {
+define internal fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %0, ptr noundef %1, ptr noundef readonly byval(%struct.seq_t) align 8 captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly captures(none) %7) unnamed_addr #13 {
   %9 = load i64, ptr %2, align 8, !tbaa !94
   %10 = getelementptr inbounds i8, ptr %0, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -10417,7 +10411,7 @@ ZSTD_safecopy.exit:                               ; preds = %43, %.lr.ph.i, %.lr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ZSTD_safecopy(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #15 {
+define internal fastcc void @ZSTD_safecopy(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #14 {
   %6 = ptrtoint ptr %0 to i64
   %7 = ptrtoint ptr %2 to i64
   %8 = sub i64 %6, %7
@@ -10614,7 +10608,7 @@ ZSTD_wildcopy.exit27:                             ; preds = %63, %.preheader62, 
 }
 
 ; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ZSTD_execSequenceEndSplitLitBuffer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly byval(%struct.seq_t) align 8 captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef readonly captures(none) %8) unnamed_addr #14 {
+define internal fastcc i64 @ZSTD_execSequenceEndSplitLitBuffer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly byval(%struct.seq_t) align 8 captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef readonly captures(none) %8) unnamed_addr #13 {
   %10 = load i64, ptr %3, align 8, !tbaa !94
   %11 = getelementptr inbounds i8, ptr %0, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -10763,7 +10757,7 @@ ZSTD_safecopyDstBeforeSrc.exit:                   ; preds = %.lr.ph.i, %.lr.ph40
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #16 {
+define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #15 {
   %7 = alloca %struct.seq_t, align 8
   %8 = alloca %struct.seq_t, align 8
   %9 = alloca %struct.seq_t, align 8
@@ -10771,7 +10765,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %11 = alloca %struct.seqState_t, align 8
   %.idx.i = tail call i64 @llvm.smax.i64(i64 %2, i64 0)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 30120
   %14 = load ptr, ptr %13, align 8, !tbaa !38
   store ptr %14, ptr %10, align 8, !tbaa !64
@@ -10787,7 +10781,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   br i1 %.not.i, label %1044, label %23
 
 23:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %11) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 30004
   store i32 1, ptr %24, align 4, !tbaa !55
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 26684
@@ -11476,7 +11470,7 @@ ZSTD_decodeSequence.exit189.i.thread:             ; preds = %371
   %443 = phi ptr [ %439, %ZSTD_decodeSequence.exit189.i.thread ], [ %435, %ZSTD_decodeSequence.exit189.i ]
   %444 = phi ptr [ %438, %ZSTD_decodeSequence.exit189.i.thread ], [ %434, %ZSTD_decodeSequence.exit189.i ]
   %445 = getelementptr inbounds i8, ptr %443, i64 -32
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.sroa.052.0, ptr %7, align 8
   store i64 %.sroa.653.0, ptr %.sroa.958.0..sroa_idx, align 8
   store i64 %.sink, ptr %.sroa.10.0..sroa_idx, align 8
@@ -11540,7 +11534,7 @@ ZSTD_wildcopy.exit.i:                             ; preds = %465, %457, %453
   br i1 %477, label %ZSTD_execSequenceSplitLitBuffer.exit.i.thread, label %478, !prof !47
 
 ZSTD_execSequenceSplitLitBuffer.exit.i.thread:    ; preds = %475
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread211
 
 478:                                              ; preds = %475
@@ -11683,7 +11677,7 @@ ZSTD_overlapCopy8.exit.i:                         ; preds = %526, %504
 
 ZSTD_execSequenceSplitLitBuffer.exit.i:           ; preds = %546, %.preheader240, %495, %541, %489, %ZSTD_overlapCopy8.exit.i, %483, %.critedge.i201.i
   %.0.i198.i = phi i64 [ %456, %.critedge.i201.i ], [ %447, %483 ], [ %447, %ZSTD_overlapCopy8.exit.i ], [ %447, %489 ], [ %447, %541 ], [ %447, %495 ], [ %447, %.preheader240 ], [ %447, %546 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %553 = icmp ult i64 %.0.i198.i, -119
   br i1 %553, label %554, label %.thread211
 
@@ -11799,7 +11793,7 @@ ZSTD_safecopyDstBeforeSrc.exit:                   ; preds = %.lr.ph.i, %.lr.ph40
   %605 = getelementptr inbounds nuw i8, ptr %0, i64 95924
   %606 = getelementptr inbounds nuw i8, ptr %0, i64 30384
   store i32 0, ptr %606, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %.sroa.055.2, ptr %8, align 8
   %.sroa.958.0..sroa_idx59 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %.sroa.653.0, ptr %.sroa.958.0..sroa_idx59, align 8
@@ -11866,7 +11860,7 @@ ZSTD_wildcopy.exit251.i:                          ; preds = %627, %620, %616
   br i1 %639, label %.loopexit.thread, label %640, !prof !47
 
 .loopexit.thread:                                 ; preds = %637
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread211
 
 640:                                              ; preds = %637
@@ -12009,7 +12003,7 @@ ZSTD_overlapCopy8.exit287.i:                      ; preds = %688, %666
 
 .loopexit:                                        ; preds = %708, %.preheader236, %657, %.critedge.i195.i, %645, %ZSTD_overlapCopy8.exit287.i, %651, %703
   %.0.i192.i = phi i64 [ %619, %.critedge.i195.i ], [ %608, %645 ], [ %608, %ZSTD_overlapCopy8.exit287.i ], [ %608, %651 ], [ %608, %703 ], [ %608, %657 ], [ %608, %.preheader236 ], [ %608, %708 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %715 = icmp ult i64 %.0.i192.i, -119
   %716 = getelementptr inbounds nuw i8, ptr %.6138.i, i64 %.0.i192.i
   %717 = add nsw i32 %.0125.i262, -1
@@ -12347,7 +12341,7 @@ BIT_reloadDStream.exit217.i:                      ; preds = %831, %821, %825, %8
   br label %ZSTD_decodeSequence.exit.i
 
 ZSTD_decodeSequence.exit.i:                       ; preds = %904, %894, %898, %907, %859
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %.sroa.0.0, ptr %9, align 8
   store i64 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8
   store i64 %.sink353, ptr %.sroa.9.0..sroa_idx, align 8
@@ -12413,7 +12407,7 @@ ZSTD_wildcopy.exit272.i:                          ; preds = %943, %935, %931
   br i1 %955, label %ZSTD_execSequence.exit.i.thread, label %956, !prof !47
 
 ZSTD_execSequence.exit.i.thread:                  ; preds = %953
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread211
 
 956:                                              ; preds = %953
@@ -12556,7 +12550,7 @@ ZSTD_overlapCopy8.exit288.i:                      ; preds = %1004, %982
 
 ZSTD_execSequence.exit.i:                         ; preds = %1024, %.preheader233, %973, %1019, %967, %ZSTD_overlapCopy8.exit288.i, %961, %.critedge.i.i
   %.0.i.i = phi i64 [ %934, %.critedge.i.i ], [ %923, %961 ], [ %923, %ZSTD_overlapCopy8.exit288.i ], [ %923, %967 ], [ %923, %1019 ], [ %923, %973 ], [ %923, %.preheader233 ], [ %923, %1024 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %1031 = icmp ult i64 %.0.i.i, -119
   br i1 %1031, label %1032, label %.thread211
 
@@ -12590,11 +12584,11 @@ ZSTD_execSequence.exit.i:                         ; preds = %1024, %.preheader23
 
 .thread211:                                       ; preds = %ZSTD_execSequenceSplitLitBuffer.exit.i, %ZSTD_execSequence.exit.i, %86, %39, %32, %.loopexit.thread, %.loopexit, %BIT_initDStream.exit, %ZSTD_execSequence.exit.i.thread, %557, %ZSTD_execSequenceSplitLitBuffer.exit.i.thread, %564, %.thread207
   %.1.i.ph = phi i64 [ -20, %557 ], [ -20, %ZSTD_execSequence.exit.i.thread ], [ -20, %BIT_initDStream.exit ], [ %.0.i192.i, %.loopexit ], [ -70, %564 ], [ -20, %ZSTD_execSequenceSplitLitBuffer.exit.i.thread ], [ -20, %.thread207 ], [ -20, %.loopexit.thread ], [ -20, %32 ], [ -20, %39 ], [ -20, %86 ], [ %.0.i.i, %ZSTD_execSequence.exit.i ], [ %.0.i198.i, %ZSTD_execSequenceSplitLitBuffer.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %11) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %ZSTD_decompressSequences_bodySplitLitBuffer.exit
 
 1043:                                             ; preds = %.preheader
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %11) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.pre.pre = load ptr, ptr %10, align 8, !tbaa !64
   br label %1044
 
@@ -12668,12 +12662,12 @@ ZSTD_execSequence.exit.i:                         ; preds = %1024, %.preheader23
 
 ZSTD_decompressSequences_bodySplitLitBuffer.exit: ; preds = %1048, %1061, %.thread211, %1072
   %.11.i = phi i64 [ %1074, %1072 ], [ %.1.i.ph, %.thread211 ], [ -70, %1061 ], [ -70, %1048 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i64 %.11.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #16 {
+define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #15 {
   %7 = alloca %struct.seq_t, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %struct.seqState_t, align 8
@@ -12694,7 +12688,7 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr noundef captures(n
 
 18:                                               ; preds = %15, %13
   %19 = phi ptr [ %14, %13 ], [ %17, %15 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 30120
   %21 = load ptr, ptr %20, align 8, !tbaa !38
   store ptr %21, ptr %8, align 8, !tbaa !64
@@ -12711,7 +12705,7 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr noundef captures(n
   br i1 %.not.i, label %566, label %31
 
 31:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %9) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 30004
   store i32 1, ptr %32, align 4, !tbaa !55
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 26684
@@ -13388,7 +13382,7 @@ BIT_reloadDStream.exit.i:                         ; preds = %352, %342, %346, %3
   br label %ZSTD_decodeSequence.exit.i
 
 ZSTD_decodeSequence.exit.i:                       ; preds = %425, %415, %419, %428, %380
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.sroa.0.0, ptr %7, align 8
   store i64 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8
   store i64 %.sink, ptr %.sroa.9.0..sroa_idx, align 8
@@ -13454,7 +13448,7 @@ ZSTD_wildcopy.exit.i:                             ; preds = %464, %456, %452
   br i1 %476, label %ZSTD_execSequence.exit.i.thread, label %477, !prof !47
 
 ZSTD_execSequence.exit.i.thread:                  ; preds = %474
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread75
 
 477:                                              ; preds = %474
@@ -13597,7 +13591,7 @@ ZSTD_overlapCopy8.exit.i:                         ; preds = %525, %503
 
 ZSTD_execSequence.exit.i:                         ; preds = %545, %.preheader87, %494, %540, %488, %ZSTD_overlapCopy8.exit.i, %482, %.critedge.i.i
   %.0.i.i = phi i64 [ %455, %.critedge.i.i ], [ %444, %482 ], [ %444, %ZSTD_overlapCopy8.exit.i ], [ %444, %488 ], [ %444, %540 ], [ %444, %494 ], [ %444, %.preheader87 ], [ %444, %545 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %552 = icmp ult i64 %.0.i.i, -119
   br i1 %552, label %553, label %.thread75
 
@@ -13629,11 +13623,11 @@ ZSTD_execSequence.exit.i:                         ; preds = %545, %.preheader87,
 
 .thread75:                                        ; preds = %ZSTD_execSequence.exit.i, %94, %47, %40, %BIT_initDStream.exit, %ZSTD_execSequence.exit.i.thread, %556
   %.1.i.ph = phi i64 [ -20, %ZSTD_execSequence.exit.i.thread ], [ -20, %BIT_initDStream.exit ], [ -20, %556 ], [ -20, %40 ], [ -20, %47 ], [ -20, %94 ], [ %.0.i.i, %ZSTD_execSequence.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %ZSTD_decompressSequences_body.exit
 
 565:                                              ; preds = %.preheader
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.pre = load ptr, ptr %8, align 8, !tbaa !64
   br label %566
 
@@ -13667,9 +13661,15 @@ ZSTD_execSequence.exit.i:                         ; preds = %545, %.preheader87,
 
 ZSTD_decompressSequences_body.exit:               ; preds = %566, %.thread75, %578
   %.4.i = phi i64 [ %580, %578 ], [ %.1.i.ph, %.thread75 ], [ -70, %566 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %.4.i
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #17
@@ -13687,22 +13687,22 @@ declare i32 @llvm.umax.i32(i32, i32) #17
 declare i64 @llvm.smin.i64(i64, i64) #17
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
-attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nofree norecurse nosync nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
+attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nofree norecurse nosync nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nounwind }
 

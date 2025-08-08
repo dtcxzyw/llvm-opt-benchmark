@@ -26,21 +26,15 @@ define noundef ptr @lv_spinner_create(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_spinner_set_anim_params(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._lv_anim_t, align 8
   %5 = tail call zeroext i1 @lv_anim_delete(ptr noundef %0, ptr noundef null) #3
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @lv_anim_init(ptr noundef nonnull %4) #3
   call void @lv_anim_set_var(ptr noundef nonnull %4, ptr noundef %0) #3
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %4, ptr noundef nonnull @arc_anim_end_angle) #3
@@ -56,17 +50,17 @@ define void @lv_spinner_set_anim_params(ptr noundef %0, i32 noundef %1, i32 noun
   %8 = call ptr @lv_anim_start(ptr noundef nonnull %4) #3
   call void @lv_arc_set_bg_angles(ptr noundef %0, float noundef 0.000000e+00, float noundef 3.600000e+02) #3
   call void @lv_arc_set_rotation(ptr noundef %0, i32 noundef 270) #3
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare zeroext i1 @lv_anim_delete(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @lv_anim_delete(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_anim_init(ptr noundef) local_unnamed_addr #2
+declare void @lv_anim_init(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_anim_set_var(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_anim_set_var(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_anim_set_exec_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_anim_set_exec_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @arc_anim_end_angle(ptr noundef %0, i32 noundef %1) #0 {
@@ -75,19 +69,19 @@ define internal void @arc_anim_end_angle(ptr noundef %0, i32 noundef %1) #0 {
   ret void
 }
 
-declare void @lv_anim_set_repeat_count(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_anim_set_repeat_count(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_anim_set_duration(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_anim_set_duration(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_anim_set_values(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_anim_set_values(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lv_anim_start(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_anim_start(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_anim_set_path_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_anim_set_path_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_anim_path_custom_bezier3(ptr noundef) #2
+declare i32 @lv_anim_path_custom_bezier3(ptr noundef) #1
 
-declare void @lv_anim_set_bezier3_param(ptr noundef, i16 noundef signext, i16 noundef signext, i16 noundef signext, i16 noundef signext) local_unnamed_addr #2
+declare void @lv_anim_set_bezier3_param(ptr noundef, i16 noundef signext, i16 noundef signext, i16 noundef signext, i16 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @arc_anim_start_angle(ptr noundef %0, i32 noundef %1) #0 {
@@ -96,19 +90,25 @@ define internal void @arc_anim_start_angle(ptr noundef %0, i32 noundef %1) #0 {
   ret void
 }
 
-declare void @lv_arc_set_bg_angles(ptr noundef, float noundef, float noundef) local_unnamed_addr #2
+declare void @lv_arc_set_bg_angles(ptr noundef, float noundef, float noundef) local_unnamed_addr #1
 
-declare void @lv_arc_set_rotation(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_arc_set_rotation(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_remove_flag(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_remove_flag(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_arc_set_start_angle(ptr noundef, float noundef) local_unnamed_addr #2
+declare void @lv_arc_set_start_angle(ptr noundef, float noundef) local_unnamed_addr #1
 
-declare void @lv_arc_set_end_angle(ptr noundef, float noundef) local_unnamed_addr #2
+declare void @lv_arc_set_end_angle(ptr noundef, float noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

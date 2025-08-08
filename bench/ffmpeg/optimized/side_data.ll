@@ -57,12 +57,6 @@ define noundef ptr @av_frame_side_data_desc(i32 noundef %0) local_unnamed_addr #
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define ptr @av_frame_side_data_name(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp ult i32 %0, 30
@@ -80,7 +74,7 @@ av_frame_side_data_desc.exit.thread:              ; preds = %3, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @av_frame_side_data_remove(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
+define void @av_frame_side_data_remove(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr %1, align 4, !tbaa !11
   %6 = icmp sgt i32 %5, 0
@@ -98,7 +92,7 @@ define void @av_frame_side_data_remove(ptr noundef readonly captures(none) %0, p
   %8 = phi ptr [ %.pre, %.lr.ph.preheader ], [ %24, %23 ]
   %indvars.iv = phi i64 [ %7, %.lr.ph.preheader ], [ %indvars.iv.next, %23 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.next
   %10 = load ptr, ptr %9, align 8, !tbaa !15
   store ptr %10, ptr %4, align 8, !tbaa !15
@@ -126,13 +120,13 @@ define void @av_frame_side_data_remove(ptr noundef readonly captures(none) %0, p
 
 23:                                               ; preds = %.lr.ph, %12
   %24 = phi ptr [ %8, %.lr.ph ], [ %15, %12 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %25 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 }
 
 ; Function Attrs: nounwind uwtable
-define void @av_frame_side_data_remove_by_props(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
+define void @av_frame_side_data_remove_by_props(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr %1, align 4, !tbaa !11
   %6 = icmp sgt i32 %5, 0
@@ -150,7 +144,7 @@ define void @av_frame_side_data_remove_by_props(ptr noundef readonly captures(no
   %8 = phi ptr [ %.pre, %.lr.ph.preheader ], [ %31, %av_frame_side_data_desc.exit.thread ]
   %indvars.iv = phi i64 [ %7, %.lr.ph.preheader ], [ %indvars.iv.next, %av_frame_side_data_desc.exit.thread ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.next
   %10 = load ptr, ptr %9, align 8, !tbaa !15
   store ptr %10, ptr %4, align 8, !tbaa !15
@@ -192,13 +186,13 @@ av_frame_side_data_desc.exit:                     ; preds = %13
 
 av_frame_side_data_desc.exit.thread:              ; preds = %13, %.lr.ph, %av_frame_side_data_desc.exit, %20
   %31 = phi ptr [ %8, %13 ], [ %8, %.lr.ph ], [ %8, %av_frame_side_data_desc.exit ], [ %23, %20 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %32 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 }
 
 ; Function Attrs: nounwind uwtable
-define void @av_frame_side_data_free(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
+define void @av_frame_side_data_free(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = load i32, ptr %1, align 4, !tbaa !11
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
@@ -225,10 +219,10 @@ define void @av_frame_side_data_free(ptr noundef %0, ptr noundef captures(none) 
   br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 }
 
-declare void @av_freep(ptr noundef) local_unnamed_addr #3
+declare void @av_freep(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @ff_frame_side_data_add_from_buf(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define ptr @ff_frame_side_data_add_from_buf(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %add_side_data_from_buf_ext.exit, label %5
 
@@ -278,7 +272,7 @@ add_side_data_from_buf_ext.exit:                  ; preds = %19, %17, %12, %5, %
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @av_frame_side_data_new(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define ptr @av_frame_side_data_new(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = icmp ult i32 %2, 30
@@ -296,7 +290,7 @@ define ptr @av_frame_side_data_new(ptr noundef captures(none) %0, ptr noundef ca
 
 av_frame_side_data_desc.exit:                     ; preds = %9, %13
   %.0.i = phi ptr [ null, %13 ], [ %11, %9 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %14 = tail call ptr @av_buffer_alloc(i64 noundef %3) #5
   store ptr %14, ptr %7, align 8, !tbaa !34
   %15 = and i32 %4, 1
@@ -317,7 +311,7 @@ av_frame_side_data_desc.exit:                     ; preds = %9, %13
   %20 = phi ptr [ %.pre.i, %.lr.ph.preheader.i ], [ %36, %35 ]
   %indvars.iv.i = phi i64 [ %19, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %35 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.next.i
   %22 = load ptr, ptr %21, align 8, !tbaa !15
   store ptr %22, ptr %6, align 8, !tbaa !15
@@ -345,7 +339,7 @@ av_frame_side_data_desc.exit:                     ; preds = %9, %13
 
 35:                                               ; preds = %24, %.lr.ph.i
   %36 = phi ptr [ %20, %.lr.ph.i ], [ %27, %24 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %37 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %37, label %.lr.ph.i, label %av_frame_side_data_remove.exit, !llvm.loop !22
 
@@ -458,16 +452,16 @@ ff_frame_side_data_add_from_buf.exit:             ; preds = %72
 
 83:                                               ; preds = %ff_frame_side_data_add_from_buf.exit, %replace_side_data_from_buf.exit, %82, %59
   %.0 = phi ptr [ null, %59 ], [ %47, %replace_side_data_from_buf.exit ], [ null, %82 ], [ %73, %ff_frame_side_data_add_from_buf.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
 
-declare ptr @av_buffer_alloc(i64 noundef) local_unnamed_addr #3
+declare ptr @av_buffer_alloc(i64 noundef) local_unnamed_addr #2
 
-declare void @av_buffer_unref(ptr noundef) local_unnamed_addr #3
+declare void @av_buffer_unref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @av_frame_side_data_add(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #2 {
+define ptr @av_frame_side_data_add(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = icmp ult i32 %2, 30
@@ -485,7 +479,7 @@ define ptr @av_frame_side_data_add(ptr noundef captures(none) %0, ptr noundef ca
 
 av_frame_side_data_desc.exit:                     ; preds = %9, %13
   %.0.i = phi ptr [ null, %13 ], [ %11, %9 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %14 = load ptr, ptr %3, align 8, !tbaa !34
   store ptr %14, ptr %7, align 8, !tbaa !34
   %15 = and i32 %4, 4
@@ -518,7 +512,7 @@ av_frame_side_data_desc.exit:                     ; preds = %9, %13
   %25 = phi ptr [ %.pre.i, %.lr.ph.preheader.i ], [ %41, %40 ]
   %indvars.iv.i = phi i64 [ %24, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %40 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.next.i
   %27 = load ptr, ptr %26, align 8, !tbaa !15
   store ptr %27, ptr %6, align 8, !tbaa !15
@@ -546,7 +540,7 @@ av_frame_side_data_desc.exit:                     ; preds = %9, %13
 
 40:                                               ; preds = %29, %.lr.ph.i
   %41 = phi ptr [ %25, %.lr.ph.i ], [ %32, %29 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %42 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %42, label %.lr.ph.i, label %av_frame_side_data_remove.exit, !llvm.loop !22
 
@@ -666,19 +660,19 @@ replace_side_data_from_buf.exit.thread:           ; preds = %77, %72, %65, %av_f
 
 replace_side_data_from_buf.exit.thread.thread:    ; preds = %replace_side_data_from_buf.exit, %88, %89, %replace_side_data_from_buf.exit.thread, %16
   %.024 = phi ptr [ null, %16 ], [ null, %replace_side_data_from_buf.exit.thread ], [ null, %89 ], [ %.0, %88 ], [ %.0, %replace_side_data_from_buf.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.024
 }
 
-declare ptr @av_buffer_ref(ptr noundef) local_unnamed_addr #3
+declare ptr @av_buffer_ref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 1) i32 @av_frame_side_data_clone(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #2 {
+define range(i32 -2147483648, 1) i32 @av_frame_side_data_clone(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = icmp ne ptr %0, null
   %10 = icmp ne ptr %2, null
   %or.cond = and i1 %9, %10
@@ -729,7 +723,7 @@ av_frame_side_data_desc.exit:                     ; preds = %19, %23
   %28 = phi ptr [ %.pre.i, %.lr.ph.preheader.i ], [ %45, %43 ]
   %indvars.iv.i = phi i64 [ %26, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %43 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.next.i
   %30 = load ptr, ptr %29, align 8, !tbaa !15
   store ptr %30, ptr %6, align 8, !tbaa !15
@@ -758,7 +752,7 @@ av_frame_side_data_desc.exit:                     ; preds = %19, %23
 43:                                               ; preds = %32, %.lr.ph.i
   %44 = phi i32 [ %27, %.lr.ph.i ], [ %42, %32 ]
   %45 = phi ptr [ %28, %.lr.ph.i ], [ %35, %32 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %46 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %46, label %.lr.ph.i, label %av_frame_side_data_remove.exit, !llvm.loop !22
 
@@ -798,7 +792,7 @@ av_frame_side_data_remove.exit:                   ; preds = %43, %av_frame_side_
   br i1 %59, label %av_frame_side_data_get.exit, label %55
 
 av_frame_side_data_get.exit:                      ; preds = %.lr.ph.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !36
   %60 = and i32 %3, 2
   %.not61 = icmp eq i32 %60, 0
@@ -840,7 +834,7 @@ av_frame_side_data_get.exit:                      ; preds = %.lr.ph.i.i
 
 82:                                               ; preds = %61, %av_frame_side_data_get.exit, %73, %72
   %.1 = phi i32 [ %70, %72 ], [ 0, %73 ], [ -17, %av_frame_side_data_get.exit ], [ %64, %61 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %remove_side_data_by_entry.exit
 
 av_frame_side_data_get.exit.thread:               ; preds = %55, %52, %48
@@ -914,7 +908,7 @@ av_frame_side_data_get.exit.thread:               ; preds = %55, %52, %48
 121:                                              ; preds = %.critedge.i, %.lr.ph.i67
   %indvars.iv.i68 = phi i64 [ %120, %.lr.ph.i67 ], [ %indvars.iv.next.i69, %.critedge.i ]
   %indvars.iv.next.i69 = add nsw i64 %indvars.iv.i68, -1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %122 = getelementptr inbounds nuw ptr, ptr %119, i64 %indvars.iv.next.i69
   %123 = load ptr, ptr %122, align 8, !tbaa !15
   store ptr %123, ptr %5, align 8, !tbaa !15
@@ -937,28 +931,28 @@ av_frame_side_data_get.exit.thread:               ; preds = %55, %52, %48
   store ptr %132, ptr %133, align 8, !tbaa !15
   %134 = add nsw i32 %128, -1
   store i32 %134, ptr %1, align 4, !tbaa !11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %remove_side_data_by_entry.exit
 
 .critedge.i:                                      ; preds = %121
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %135 = icmp samesign ugt i64 %indvars.iv.i68, 1
   br i1 %135, label %121, label %remove_side_data_by_entry.exit, !llvm.loop !38
 
 remove_side_data_by_entry.exit:                   ; preds = %.critedge.i, %124, %116, %102, %av_frame_side_data_get.exit.thread, %4, %14, %101, %82
   %.0 = phi i32 [ -12, %101 ], [ %.1, %82 ], [ -22, %14 ], [ -22, %4 ], [ -12, %av_frame_side_data_get.exit.thread ], [ 0, %102 ], [ %114, %116 ], [ %114, %124 ], [ %114, %.critedge.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
-declare i32 @av_dict_copy(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @av_dict_copy(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @av_buffer_replace(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @av_buffer_replace(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @av_dict_free(ptr noundef) local_unnamed_addr #3
+declare void @av_dict_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @av_frame_side_data_get_c(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define noundef ptr @av_frame_side_data_get_c(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %.not11 = icmp sgt i32 %1, 0
   br i1 %.not11, label %.lr.ph.preheader, label %._crit_edge
 
@@ -984,15 +978,21 @@ define noundef ptr @av_frame_side_data_get_c(ptr noundef readonly captures(none)
   ret ptr %spec.select
 }
 
-declare ptr @av_realloc_array(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @av_realloc_array(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare noalias ptr @av_mallocz(i64 noundef) local_unnamed_addr #3
+declare noalias ptr @av_mallocz(i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

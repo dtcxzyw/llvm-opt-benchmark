@@ -39,7 +39,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.35918
   br i1 %or.cond, label %10, label %15
 
 10:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @anon.af80f3b00d74d753ab4fb2da5d789350.2.llvm.3591878441004885337, ptr %6, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 1, ptr %11, align 8
@@ -84,7 +84,7 @@ define hidden void @_ZN4core3fmt9Arguments9new_const17h11941afc58751b19E.llvm.35
   ret void
 
 11:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @anon.af80f3b00d74d753ab4fb2da5d789350.2.llvm.3591878441004885337, ptr %4, align 8, !alias.scope !4, !noalias !7
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %12, align 8, !alias.scope !4, !noalias !7
@@ -117,7 +117,7 @@ define hidden noundef range(i64 0, -1) i64 @"_ZN4core3ptr7mut_ptr31_$LT$impl$u20
   ret i64 %12
 
 14:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @anon.af80f3b00d74d753ab4fb2da5d789350.8.llvm.3591878441004885337, ptr %3, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %15, align 8
@@ -238,7 +238,7 @@ define { i64, ptr } @_ZN14wasmtime_fiber4unix10FiberStack3top17h210886924db9380d
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8, !invariant.load !15, !nonnull !15
   %15 = tail call noundef ptr %14(ptr noundef nonnull align 1 %9)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %16 = tail call noundef i64 @sysconf(i32 noundef 30)
   store i64 %16, ptr %6, align 8
   %17 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %16)
@@ -246,7 +246,7 @@ define { i64, ptr } @_ZN14wasmtime_fiber4unix10FiberStack3top17h210886924db9380d
   br i1 %18, label %"_ZN4core3ptr7mut_ptr31_$LT$impl$u20$$BP$mut$u20$T$GT$12align_offset17h4ca0150705e0911aE.llvm.3591878441004885337.exit", label %19
 
 19:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr @anon.af80f3b00d74d753ab4fb2da5d789350.8.llvm.3591878441004885337, ptr %2, align 8
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 1, ptr %20, align 8
@@ -277,13 +277,13 @@ define { i64, ptr } @_ZN14wasmtime_fiber4unix10FiberStack3top17h210886924db9380d
   ret { i64, ptr } %33
 
 34:                                               ; preds = %"_ZN4core3ptr7mut_ptr31_$LT$impl$u20$$BP$mut$u20$T$GT$12align_offset17h4ca0150705e0911aE.llvm.3591878441004885337.exit"
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %32
 
 35:                                               ; preds = %"_ZN4core3ptr7mut_ptr31_$LT$impl$u20$$BP$mut$u20$T$GT$12align_offset17h4ca0150705e0911aE.llvm.3591878441004885337.exit"
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %24, ptr %3, align 8
   store ptr %3, ptr %4, align 8
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -330,7 +330,7 @@ define hidden void @_ZN14wasmtime_fiber4unix10FiberStack5range17h67d67cebd7e05e6
   br label %46
 
 20:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !15, !align !23, !noundef !15
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -343,7 +343,7 @@ define hidden void @_ZN14wasmtime_fiber4unix10FiberStack5range17h67d67cebd7e05e6
   store i64 %28, ptr %9, align 8
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %29, ptr %30, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %31 = tail call noundef i64 @sysconf(i32 noundef 30)
   store i64 %31, ptr %8, align 8
   %32 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %31)
@@ -351,7 +351,7 @@ define hidden void @_ZN14wasmtime_fiber4unix10FiberStack5range17h67d67cebd7e05e6
   br i1 %33, label %"_ZN4core3ptr9const_ptr33_$LT$impl$u20$$BP$const$u20$T$GT$12align_offset17h635124e0a73f0083E.exit", label %34
 
 34:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @anon.af80f3b00d74d753ab4fb2da5d789350.8.llvm.3591878441004885337, ptr %3, align 8
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %35, align 8
@@ -395,8 +395,8 @@ define hidden void @_ZN14wasmtime_fiber4unix10FiberStack5range17h67d67cebd7e05e6
   br i1 %53, label %62, label %63
 
 54:                                               ; preds = %"_ZN4core3ptr9const_ptr33_$LT$impl$u20$$BP$const$u20$T$GT$12align_offset17h635124e0a73f0083E.exit"
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %9, ptr %6, align 8
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %55, align 8
@@ -417,13 +417,13 @@ define hidden void @_ZN14wasmtime_fiber4unix10FiberStack5range17h67d67cebd7e05e6
   unreachable
 
 62:                                               ; preds = %"_ZN4core3ptr9const_ptr33_$LT$impl$u20$$BP$const$u20$T$GT$12align_offset17h635124e0a73f0083E.exit8"
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %46
 
 63:                                               ; preds = %"_ZN4core3ptr9const_ptr33_$LT$impl$u20$$BP$const$u20$T$GT$12align_offset17h635124e0a73f0083E.exit8"
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %30, ptr %4, align 8
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %64, align 8
@@ -456,22 +456,22 @@ declare noundef i64 @sysconf(i32 noundef) unnamed_addr #1
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
+declare void @llvm.assume(i1 noundef) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { noreturn }
 attributes #8 = { nounwind }
 

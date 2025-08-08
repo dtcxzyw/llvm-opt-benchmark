@@ -178,10 +178,10 @@ invoke.cont29:                                    ; preds = %invoke.cont27
   %isRetriable = getelementptr inbounds nuw i8, ptr %args, i64 48
   %12 = load i8, ptr %isRetriable, align 8
   %tobool = trunc i8 %12 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3620)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4222)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4423)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp3620)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4222)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4423)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp3.i)
   store i64 17, ptr %agg.tmp4423, align 8
   %agg.tmp44.sroa.2.0.agg.tmp4423.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp4423, i64 8
   store ptr @.str.8, ptr %agg.tmp44.sroa.2.0.agg.tmp4423.sroa_idx, align 8
@@ -197,10 +197,10 @@ invoke.cont29:                                    ; preds = %invoke.cont27
 
 invoke.cont45:                                    ; preds = %invoke.cont29
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox17VeloxRuntimeErrorE, i64 16), ptr %exception, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3620)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4222)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4423)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp3620)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4222)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4423)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp3.i)
   call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN8facebook5velox17VeloxRuntimeErrorE, ptr nonnull @_ZN8facebook5velox17VeloxRuntimeErrorD2Ev) #10
   unreachable
 
@@ -422,10 +422,10 @@ invoke.cont27:                                    ; preds = %invoke.cont25
   %isRetriable = getelementptr inbounds nuw i8, ptr %args, i64 48
   %12 = load i8, ptr %isRetriable, align 8
   %tobool = trunc i8 %12 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3423)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3725)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3926)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp3423)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp3725)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp3926)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp3.i)
   store i64 17, ptr %agg.tmp3926, align 8
   %agg.tmp39.sroa.2.0.agg.tmp3926.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp3926, i64 8
   store ptr @.str.8, ptr %agg.tmp39.sroa.2.0.agg.tmp3926.sroa_idx, align 8
@@ -443,10 +443,10 @@ invoke.cont27:                                    ; preds = %invoke.cont25
 
 invoke.cont41:                                    ; preds = %invoke.cont27
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox17VeloxRuntimeErrorE, i64 16), ptr %exception, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3423)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3725)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3926)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp3423)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp3725)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp3926)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp3.i)
   call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN8facebook5velox17VeloxRuntimeErrorE, ptr nonnull @_ZN8facebook5velox17VeloxRuntimeErrorD2Ev) #10
   unreachable
 
@@ -566,10 +566,10 @@ invoke.cont27:                                    ; preds = %invoke.cont25
   %isRetriable = getelementptr inbounds nuw i8, ptr %args, i64 48
   %14 = load i8, ptr %isRetriable, align 8
   %tobool = trunc i8 %14 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3421)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3823)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4024)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp3421)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp3823)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4024)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp3.i)
   store i64 17, ptr %agg.tmp4024, align 8
   %agg.tmp40.sroa.2.0.agg.tmp4024.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp4024, i64 8
   store ptr @.str.8, ptr %agg.tmp40.sroa.2.0.agg.tmp4024.sroa_idx, align 8
@@ -587,10 +587,10 @@ invoke.cont27:                                    ; preds = %invoke.cont25
 
 invoke.cont42:                                    ; preds = %invoke.cont27
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox17VeloxRuntimeErrorE, i64 16), ptr %exception, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3421)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3823)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4024)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp3421)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp3823)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4024)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp3.i)
   call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN8facebook5velox17VeloxRuntimeErrorE, ptr nonnull @_ZN8facebook5velox17VeloxRuntimeErrorD2Ev) #10
   unreachable
 
@@ -642,10 +642,10 @@ entry:
   %isRetriable = getelementptr inbounds nuw i8, ptr %args, i64 48
   %6 = load i8, ptr %isRetriable, align 8
   %tobool = trunc i8 %6 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp113)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp415)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp516)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp113)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp415)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp516)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp3.i)
   store i64 14, ptr %agg.tmp516, align 8
   %agg.tmp5.sroa.2.0.agg.tmp516.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp516, i64 8
   store ptr @.str.9, ptr %agg.tmp5.sroa.2.0.agg.tmp516.sroa_idx, align 8
@@ -661,10 +661,10 @@ entry:
 
 invoke.cont6:                                     ; preds = %entry
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox14VeloxUserErrorE, i64 16), ptr %exception, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp113)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp415)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp516)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp113)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp415)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp516)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp3.i)
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN8facebook5velox14VeloxUserErrorE, ptr nonnull @_ZN8facebook5velox14VeloxUserErrorD2Ev) #10
   unreachable
 
@@ -784,10 +784,10 @@ entry:
   %isRetriable = getelementptr inbounds nuw i8, ptr %args, i64 48
   %6 = load i8, ptr %isRetriable, align 8
   %tobool = trunc i8 %6 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp115)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp317)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp418)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp115)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp317)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp418)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp3.i)
   store i64 14, ptr %agg.tmp418, align 8
   %agg.tmp4.sroa.2.0.agg.tmp418.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp418, i64 8
   store ptr @.str.9, ptr %agg.tmp4.sroa.2.0.agg.tmp418.sroa_idx, align 8
@@ -805,10 +805,10 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox14VeloxUserErrorE, i64 16), ptr %exception, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp115)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp317)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp418)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp115)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp317)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp418)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp3.i)
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN8facebook5velox14VeloxUserErrorE, ptr nonnull @_ZN8facebook5velox14VeloxUserErrorD2Ev) #10
   unreachable
 
@@ -848,10 +848,10 @@ entry:
   %isRetriable = getelementptr inbounds nuw i8, ptr %args, i64 48
   %8 = load i8, ptr %isRetriable, align 8
   %tobool = trunc i8 %8 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp113)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp415)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp516)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp113)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp415)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp516)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp3.i)
   store i64 14, ptr %agg.tmp516, align 8
   %agg.tmp5.sroa.2.0.agg.tmp516.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp516, i64 8
   store ptr @.str.9, ptr %agg.tmp5.sroa.2.0.agg.tmp516.sroa_idx, align 8
@@ -869,10 +869,10 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox14VeloxUserErrorE, i64 16), ptr %exception, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp113)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp415)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp516)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp113)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp415)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp516)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp3.i)
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN8facebook5velox14VeloxUserErrorE, ptr nonnull @_ZN8facebook5velox14VeloxUserErrorD2Ev) #10
   unreachable
 
@@ -1241,10 +1241,10 @@ _ZN8facebook5velox14VeloxUserErrorD2Ev.exit:      ; preds = %entry, %_ZN9__gnu_c
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

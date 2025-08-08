@@ -1268,28 +1268,22 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 ; Function Attrs: cold nofree noreturn
 declare void @_ZSt9terminatev() local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix3aux26attach_attribute_name_infoERNS_9exceptionERKNS1_14attribute_nameE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix3aux26attach_attribute_name_infoERNS_9exceptionERKNS1_14attribute_nameE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZN5boostlsINS_9exceptionENS_3log11v2_mt_posix23attribute_name_info_tagENS3_14attribute_nameEEENS_9enable_ifINS_16exception_detail23derives_boost_exceptionIT_EERKS9_E4typeESC_ONS_10error_infoIT0_T1_EE.exit:
   %2 = alloca %"class.boost::error_info", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS2_14attribute_nameEEE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i32, ptr %1, align 4, !tbaa !6
   store i32 %4, ptr %3, align 8, !tbaa !6
   %5 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5boost16exception_detail11set_info_rvINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS4_14attribute_nameEEEE3setINS_9exceptionEEERKT_SD_OS7_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(12) %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix9bad_allocC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix9bad_allocC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix9bad_allocE, i64 16), ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1307,7 +1301,7 @@ define void @_ZN5boost3log11v2_mt_posix9bad_allocC2EPKc(ptr noundef nonnull alig
 
 8:                                                ; preds = %2
   %9 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %9, ptr %3, align 8, !tbaa !12
   %10 = icmp ugt i64 %9, 15
   br i1 %10, label %.noexc.i, label %._crit_edge.i.i
@@ -1345,7 +1339,7 @@ define void @_ZN5boost3log11v2_mt_posix9bad_allocC2EPKc(ptr noundef nonnull alig
   %20 = load ptr, ptr %4, align 8, !tbaa !14
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %18
   store i8 0, ptr %21, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 22:                                               ; preds = %.noexc.i, %7
@@ -1356,10 +1350,10 @@ define void @_ZN5boost3log11v2_mt_posix9bad_allocC2EPKc(ptr noundef nonnull alig
 }
 
 ; Function Attrs: nounwind
-declare void @_ZNSt9bad_allocD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #5
+declare void @_ZNSt9bad_allocD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix9bad_allocC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix9bad_allocC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix9bad_allocE, i64 16), ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1368,7 +1362,7 @@ define void @_ZN5boost3log11v2_mt_posix9bad_allocC2ERKNSt7__cxx1112basic_stringI
   %6 = load ptr, ptr %1, align 8, !tbaa !14
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %8, ptr %3, align 8, !tbaa !12
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %.noexc.i, label %._crit_edge.i.i
@@ -1406,7 +1400,7 @@ define void @_ZN5boost3log11v2_mt_posix9bad_allocC2ERKNSt7__cxx1112basic_stringI
   %19 = load ptr, ptr %4, align 8, !tbaa !14
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store i8 0, ptr %20, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 21:                                               ; preds = %.noexc.i
@@ -1417,7 +1411,7 @@ define void @_ZN5boost3log11v2_mt_posix9bad_allocC2ERKNSt7__cxx1112basic_stringI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost3log11v2_mt_posix9bad_allocD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix9bad_allocD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix9bad_allocE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !14
@@ -1444,29 +1438,29 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost3log11v2_mt_posix9bad_allocD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 align 2 {
+define void @_ZN5boost3log11v2_mt_posix9bad_allocD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 {
   tail call void @_ZN5boost3log11v2_mt_posix9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #29
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK5boost3log11v2_mt_posix9bad_alloc4whatEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #8 align 2 {
+define noundef ptr @_ZNK5boost3log11v2_mt_posix9bad_alloc4whatEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix9bad_alloc6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix9bad_alloc6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.boost::exception_detail::error_info_injector", align 8
   %6 = alloca %"class.boost::log::v2_mt_posix::bad_alloc", align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5boost3log11v2_mt_posix9bad_allocC1EPKc(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef %2)
   call void @llvm.experimental.noalias.scope.decl(metadata !18)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix9bad_allocE, i64 16), ptr %5, align 8, !tbaa !3, !alias.scope !18
@@ -1477,7 +1471,7 @@ define void @_ZN5boost3log11v2_mt_posix9bad_alloc6throw_EPKcmS4_(ptr noundef %0,
   %10 = load ptr, ptr %8, align 8, !tbaa !14, !noalias !18
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !17, !noalias !18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26, !noalias !18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !18
   store i64 %12, ptr %4, align 8, !tbaa !12, !noalias !18
   %13 = icmp ugt i64 %12, 15
   br i1 %13, label %.noexc.i.i.i.i, label %._crit_edge.i.i.i.i.i
@@ -1520,7 +1514,7 @@ define void @_ZN5boost3log11v2_mt_posix9bad_alloc6throw_EPKcmS4_(ptr noundef %0,
   %25 = load ptr, ptr %7, align 8, !tbaa !14, !alias.scope !18
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %23
   store i8 0, ptr %26, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26, !noalias !18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !18
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 72
@@ -1590,13 +1584,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i ], [ %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ]
   call void @_ZNSt9bad_allocD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #26
   call void @_ZN5boost3log11v2_mt_posix9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #26
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix9bad_allocEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #9 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix9bad_allocEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 88) #26
   invoke void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix9bad_allocEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(80) %0)
           to label %3 unwind label %4
@@ -1613,7 +1607,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detai
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix9bad_allocEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix9bad_allocEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1669,12 +1663,12 @@ _ZN5boost3log11v2_mt_posix9bad_allocD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix9bad_alloc6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix9bad_alloc6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.boost::exception_detail::error_info_injector", align 8
   %6 = alloca %"class.boost::log::v2_mt_posix::bad_alloc", align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5boost3log11v2_mt_posix9bad_allocC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(32) %2)
   call void @llvm.experimental.noalias.scope.decl(metadata !27)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix9bad_allocE, i64 16), ptr %5, align 8, !tbaa !3, !alias.scope !27
@@ -1685,7 +1679,7 @@ define void @_ZN5boost3log11v2_mt_posix9bad_alloc6throw_EPKcmRKNSt7__cxx1112basi
   %10 = load ptr, ptr %8, align 8, !tbaa !14, !noalias !27
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !17, !noalias !27
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26, !noalias !27
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !27
   store i64 %12, ptr %4, align 8, !tbaa !12, !noalias !27
   %13 = icmp ugt i64 %12, 15
   br i1 %13, label %.noexc.i.i.i.i, label %._crit_edge.i.i.i.i.i
@@ -1728,7 +1722,7 @@ define void @_ZN5boost3log11v2_mt_posix9bad_alloc6throw_EPKcmRKNSt7__cxx1112basi
   %25 = load ptr, ptr %7, align 8, !tbaa !14, !alias.scope !27
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %23
   store i8 0, ptr %26, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26, !noalias !27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !27
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 72
@@ -1798,13 +1792,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i ], [ %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ]
   call void @_ZNSt9bad_allocD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #26
   call void @_ZN5boost3log11v2_mt_posix9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #26
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix22capacity_limit_reachedC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix22capacity_limit_reachedC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix9bad_allocE, i64 16), ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1822,7 +1816,7 @@ define void @_ZN5boost3log11v2_mt_posix22capacity_limit_reachedC2EPKc(ptr nounde
 
 8:                                                ; preds = %2
   %9 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %9, ptr %3, align 8, !tbaa !12
   %10 = icmp ugt i64 %9, 15
   br i1 %10, label %.noexc.i.i, label %._crit_edge.i.i.i
@@ -1866,13 +1860,13 @@ _ZN5boost3log11v2_mt_posix9bad_allocC2EPKc.exit:  ; preds = %._crit_edge.i.i.i, 
   %21 = load ptr, ptr %4, align 8, !tbaa !14
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store i8 0, ptr %22, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix22capacity_limit_reachedE, i64 16), ptr %0, align 8, !tbaa !3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix22capacity_limit_reachedC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix22capacity_limit_reachedC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix9bad_allocE, i64 16), ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1881,7 +1875,7 @@ define void @_ZN5boost3log11v2_mt_posix22capacity_limit_reachedC2ERKNSt7__cxx111
   %6 = load ptr, ptr %1, align 8, !tbaa !14
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %8, ptr %3, align 8, !tbaa !12
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %.noexc.i.i, label %._crit_edge.i.i.i
@@ -1925,25 +1919,25 @@ _ZN5boost3log11v2_mt_posix9bad_allocC2ERKNSt7__cxx1112basic_stringIcSt11char_tra
   %20 = load ptr, ptr %4, align 8, !tbaa !14
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %18
   store i8 0, ptr %21, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix22capacity_limit_reachedE, i64 16), ptr %0, align 8, !tbaa !3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost3log11v2_mt_posix22capacity_limit_reachedD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 align 2 {
+define void @_ZN5boost3log11v2_mt_posix22capacity_limit_reachedD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 {
   tail call void @_ZN5boost3log11v2_mt_posix22capacity_limit_reachedD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #29
   ret void
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix22capacity_limit_reached6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix22capacity_limit_reached6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.boost::exception_detail::error_info_injector.3", align 8
   %6 = alloca %"class.boost::log::v2_mt_posix::capacity_limit_reached", align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5boost3log11v2_mt_posix22capacity_limit_reachedC1EPKc(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef %2)
   call void @llvm.experimental.noalias.scope.decl(metadata !30)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix9bad_allocE, i64 16), ptr %5, align 8, !tbaa !3, !alias.scope !30
@@ -1954,7 +1948,7 @@ define void @_ZN5boost3log11v2_mt_posix22capacity_limit_reached6throw_EPKcmS4_(p
   %10 = load ptr, ptr %8, align 8, !tbaa !14, !noalias !30
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !17, !noalias !30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26, !noalias !30
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !30
   store i64 %12, ptr %4, align 8, !tbaa !12, !noalias !30
   %13 = icmp ugt i64 %12, 15
   br i1 %13, label %.noexc.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i
@@ -1998,7 +1992,7 @@ define void @_ZN5boost3log11v2_mt_posix22capacity_limit_reached6throw_EPKcmS4_(p
   %25 = load ptr, ptr %7, align 8, !tbaa !14, !alias.scope !30
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %23
   store i8 0, ptr %26, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26, !noalias !30
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !30
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 72
@@ -2053,13 +2047,13 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_
 .body:                                            ; preds = %20, %_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_limit_reachedEED2Ev.exit
   %.pn.pn = phi { ptr, i32 } [ %35, %_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_limit_reachedEED2Ev.exit ], [ %21, %20 ]
   call void @_ZN5boost3log11v2_mt_posix22capacity_limit_reachedD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #26
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_limit_reachedEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #9 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_limit_reachedEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 88) #26
   invoke void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_limit_reachedEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(80) %0)
           to label %3 unwind label %4
@@ -2076,7 +2070,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detai
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_limit_reachedEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_limit_reachedEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2111,12 +2105,12 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix22capacity_limit_reached6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix22capacity_limit_reached6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.boost::exception_detail::error_info_injector.3", align 8
   %6 = alloca %"class.boost::log::v2_mt_posix::capacity_limit_reached", align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5boost3log11v2_mt_posix22capacity_limit_reachedC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(32) %2)
   call void @llvm.experimental.noalias.scope.decl(metadata !33)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix9bad_allocE, i64 16), ptr %5, align 8, !tbaa !3, !alias.scope !33
@@ -2127,7 +2121,7 @@ define void @_ZN5boost3log11v2_mt_posix22capacity_limit_reached6throw_EPKcmRKNSt
   %10 = load ptr, ptr %8, align 8, !tbaa !14, !noalias !33
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !17, !noalias !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26, !noalias !33
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !33
   store i64 %12, ptr %4, align 8, !tbaa !12, !noalias !33
   %13 = icmp ugt i64 %12, 15
   br i1 %13, label %.noexc.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i
@@ -2171,7 +2165,7 @@ define void @_ZN5boost3log11v2_mt_posix22capacity_limit_reached6throw_EPKcmRKNSt
   %25 = load ptr, ptr %7, align 8, !tbaa !14, !alias.scope !33
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %23
   store i8 0, ptr %26, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26, !noalias !33
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !33
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 72
@@ -2226,42 +2220,42 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_
 .body:                                            ; preds = %20, %_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_limit_reachedEED2Ev.exit
   %.pn.pn = phi { ptr, i32 } [ %35, %_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_limit_reachedEED2Ev.exit ], [ %21, %20 ]
   call void @_ZN5boost3log11v2_mt_posix22capacity_limit_reachedD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #26
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 {
+define void @_ZN5boost3log11v2_mt_posix13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 {
   tail call void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix13runtime_errorE, i64 16), ptr %0, align 8, !tbaa !3
   ret void
 }
 
-declare void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #10
+declare void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost3log11v2_mt_posix13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 align 2 {
+define void @_ZN5boost3log11v2_mt_posix13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 align 2 {
   tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost3log11v2_mt_posix13runtime_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 align 2 {
+define void @_ZN5boost3log11v2_mt_posix13runtime_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 align 2 {
   tail call void @_ZN5boost3log11v2_mt_posix13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #29
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix13missing_valueC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix13missing_valueC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .noexc.i:
   %1 = alloca i64, align 8
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %3, ptr %2, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 25, ptr %1, align 8, !tbaa !12
   %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef 0)
   store ptr %4, ptr %2, align 8, !tbaa !14
@@ -2273,7 +2267,7 @@ define void @_ZN5boost3log11v2_mt_posix13missing_valueC2Ev(ptr noundef nonnull a
   %7 = load ptr, ptr %2, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 %5
   store i8 0, ptr %8, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   invoke void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %9 unwind label %16
 
@@ -2296,7 +2290,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix13missing_valueE, i64 16), ptr %0, align 8, !tbaa !3
   ret void
 
@@ -2320,30 +2314,30 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5:
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix13missing_valueC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 {
+define void @_ZN5boost3log11v2_mt_posix13missing_valueC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 {
   tail call void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix13missing_valueE, i64 16), ptr %0, align 8, !tbaa !3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost3log11v2_mt_posix13missing_valueD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 align 2 {
+define void @_ZN5boost3log11v2_mt_posix13missing_valueD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 align 2 {
   tail call void @_ZN5boost3log11v2_mt_posix13missing_valueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #29
   ret void
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix13missing_value6throw_EPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix13missing_value6throw_EPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.boost::exception_detail::error_info_injector.5", align 8
   %4 = alloca %"class.boost::log::v2_mt_posix::missing_value", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5boost3log11v2_mt_posix13missing_valueC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4)
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #26
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2396,13 +2390,13 @@ define void @_ZN5boost3log11v2_mt_posix13missing_value6throw_EPKcm(ptr noundef %
 _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_valueEED2Ev.exit: ; preds = %12, %.noexc.i.i.i, %20
   call void @_ZN5boost3log11v2_mt_posix13missing_valueD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #26
   call void @_ZN5boost3log11v2_mt_posix13missing_valueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %13
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_valueEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #9 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_valueEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 64) #26
   invoke void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_valueEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(56) %0)
           to label %3 unwind label %4
@@ -2419,7 +2413,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detai
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_valueEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_valueEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2454,14 +2448,14 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix13missing_value6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix13missing_value6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.boost::exception_detail::error_info_injector.5", align 8
   %6 = alloca %"class.boost::log::v2_mt_posix::missing_value", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %8, ptr %7, align 8, !tbaa !9
   %9 = icmp eq ptr %2, null
@@ -2473,7 +2467,7 @@ define void @_ZN5boost3log11v2_mt_posix13missing_value6throw_EPKcmS4_(ptr nounde
 
 10:                                               ; preds = %3
   %11 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %11, ptr %4, align 8, !tbaa !12
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i, label %._crit_edge.i.i
@@ -2508,7 +2502,7 @@ define void @_ZN5boost3log11v2_mt_posix13missing_value6throw_EPKcmS4_(ptr nounde
   %22 = load ptr, ptr %7, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %20
   store i8 0, ptr %23, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   invoke void @_ZN5boost3log11v2_mt_posix13missing_valueC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %24 unwind label %32
 
@@ -2590,18 +2584,18 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix13missing_value6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix13missing_value6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.boost::exception_detail::error_info_injector.5", align 8
   %5 = alloca %"class.boost::log::v2_mt_posix::missing_value", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN5boost3log11v2_mt_posix13missing_valueC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %2)
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(16) %5) #26
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2654,21 +2648,21 @@ define void @_ZN5boost3log11v2_mt_posix13missing_value6throw_EPKcmRKNSt7__cxx111
 _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_valueEED2Ev.exit: ; preds = %13, %.noexc.i.i.i, %21
   call void @_ZN5boost3log11v2_mt_posix13missing_valueD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #26
   call void @_ZN5boost3log11v2_mt_posix13missing_valueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %14
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix13missing_value6throw_EPKcmS4_RKNS1_14attribute_nameE(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix13missing_value6throw_EPKcmS4_RKNS1_14attribute_nameE(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"struct.boost::exception_detail::error_info_injector.5", align 8
   %7 = alloca %"class.boost::log::v2_mt_posix::missing_value", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.boost::error_info", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %10, ptr %8, align 8, !tbaa !9
   %11 = icmp eq ptr %2, null
@@ -2680,7 +2674,7 @@ define void @_ZN5boost3log11v2_mt_posix13missing_value6throw_EPKcmS4_RKNS1_14att
 
 12:                                               ; preds = %4
   %13 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %13, ptr %5, align 8, !tbaa !12
   %14 = icmp ugt i64 %13, 15
   br i1 %14, label %.noexc.i, label %._crit_edge.i.i
@@ -2715,7 +2709,7 @@ define void @_ZN5boost3log11v2_mt_posix13missing_value6throw_EPKcmS4_RKNS1_14att
   %24 = load ptr, ptr %8, align 8, !tbaa !14
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %22
   store i8 0, ptr %25, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN5boost3log11v2_mt_posix13missing_valueC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %26 unwind label %37
 
@@ -2733,7 +2727,7 @@ define void @_ZN5boost3log11v2_mt_posix13missing_value6throw_EPKcmS4_RKNS1_14att
   store ptr %0, ptr %31, align 8, !tbaa !24
   %32 = trunc i64 %1 to i32
   store i32 %32, ptr %29, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS2_14attribute_nameEEE, i64 16), ptr %9, align 8, !tbaa !3
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %34 = load i32, ptr %3, align 4, !tbaa !6
@@ -2756,7 +2750,7 @@ _ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13mis
 39:                                               ; preds = %26, %_ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_valueEEENS4_23attribute_name_info_tagENS4_14attribute_nameEEENS_9enable_ifINS1_23derives_boost_exceptionIT_EERKSB_E4typeESE_ONS_10error_infoIT0_T1_EE.exit
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %27, align 8, !tbaa !3
   %41 = load ptr, ptr %28, align 8, !tbaa !26
   %.not.i.i.i.i = icmp eq ptr %41, null
@@ -2807,19 +2801,19 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix13missing_value6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_14attribute_nameE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix13missing_value6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_14attribute_nameE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.boost::exception_detail::error_info_injector.5", align 8
   %6 = alloca %"class.boost::log::v2_mt_posix::missing_value", align 8
   %7 = alloca %"class.boost::error_info", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5boost3log11v2_mt_posix13missing_valueC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %2)
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #26
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -2834,7 +2828,7 @@ define void @_ZN5boost3log11v2_mt_posix13missing_value6throw_EPKcmRKNSt7__cxx111
   store ptr %0, ptr %12, align 8, !tbaa !24
   %13 = trunc i64 %1 to i32
   store i32 %13, ptr %10, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS2_14attribute_nameEEE, i64 16), ptr %7, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load i32, ptr %3, align 4, !tbaa !6
@@ -2852,7 +2846,7 @@ _ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13mis
 18:                                               ; preds = %4, %_ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_valueEEENS4_23attribute_name_info_tagENS4_14attribute_nameEEENS_9enable_ifINS1_23derives_boost_exceptionIT_EERKSB_E4typeESE_ONS_10error_infoIT0_T1_EE.exit
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %8, align 8, !tbaa !3
   %20 = load ptr, ptr %9, align 8, !tbaa !26
   %.not.i.i.i.i = icmp eq ptr %20, null
@@ -2882,20 +2876,20 @@ _ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13mis
 _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_valueEED2Ev.exit: ; preds = %18, %.noexc.i.i.i, %26
   call void @_ZN5boost3log11v2_mt_posix13missing_valueD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #26
   call void @_ZN5boost3log11v2_mt_posix13missing_valueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix12invalid_typeC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix12invalid_typeC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .noexc.i:
   %1 = alloca i64, align 8
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %3, ptr %2, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 32, ptr %1, align 8, !tbaa !12
   %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef 0)
   store ptr %4, ptr %2, align 8, !tbaa !14
@@ -2907,7 +2901,7 @@ define void @_ZN5boost3log11v2_mt_posix12invalid_typeC2Ev(ptr noundef nonnull al
   %7 = load ptr, ptr %2, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 %5
   store i8 0, ptr %8, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   invoke void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %9 unwind label %16
 
@@ -2930,7 +2924,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix12invalid_typeE, i64 16), ptr %0, align 8, !tbaa !3
   ret void
 
@@ -2954,30 +2948,30 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5:
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix12invalid_typeC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 {
+define void @_ZN5boost3log11v2_mt_posix12invalid_typeC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 {
   tail call void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix12invalid_typeE, i64 16), ptr %0, align 8, !tbaa !3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost3log11v2_mt_posix12invalid_typeD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 align 2 {
+define void @_ZN5boost3log11v2_mt_posix12invalid_typeD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 align 2 {
   tail call void @_ZN5boost3log11v2_mt_posix12invalid_typeD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #29
   ret void
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.boost::exception_detail::error_info_injector.6", align 8
   %4 = alloca %"class.boost::log::v2_mt_posix::invalid_type", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5boost3log11v2_mt_posix12invalid_typeC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4)
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #26
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -3030,13 +3024,13 @@ define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcm(ptr noundef %0
 _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEED2Ev.exit: ; preds = %12, %.noexc.i.i.i, %20
   call void @_ZN5boost3log11v2_mt_posix12invalid_typeD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #26
   call void @_ZN5boost3log11v2_mt_posix12invalid_typeD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %13
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #9 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 64) #26
   invoke void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(56) %0)
           to label %3 unwind label %4
@@ -3053,7 +3047,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detai
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3088,14 +3082,14 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.boost::exception_detail::error_info_injector.6", align 8
   %6 = alloca %"class.boost::log::v2_mt_posix::invalid_type", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %8, ptr %7, align 8, !tbaa !9
   %9 = icmp eq ptr %2, null
@@ -3107,7 +3101,7 @@ define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmS4_(ptr noundef
 
 10:                                               ; preds = %3
   %11 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %11, ptr %4, align 8, !tbaa !12
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i, label %._crit_edge.i.i
@@ -3142,7 +3136,7 @@ define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmS4_(ptr noundef
   %22 = load ptr, ptr %7, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %20
   store i8 0, ptr %23, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   invoke void @_ZN5boost3log11v2_mt_posix12invalid_typeC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %24 unwind label %32
 
@@ -3224,18 +3218,18 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.boost::exception_detail::error_info_injector.6", align 8
   %5 = alloca %"class.boost::log::v2_mt_posix::invalid_type", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN5boost3log11v2_mt_posix12invalid_typeC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %2)
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(16) %5) #26
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3288,21 +3282,21 @@ define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmRKNSt7__cxx1112
 _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEED2Ev.exit: ; preds = %13, %.noexc.i.i.i, %21
   call void @_ZN5boost3log11v2_mt_posix12invalid_typeD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #26
   call void @_ZN5boost3log11v2_mt_posix12invalid_typeD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %14
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmS4_RKNS1_14attribute_nameE(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmS4_RKNS1_14attribute_nameE(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"struct.boost::exception_detail::error_info_injector.6", align 8
   %7 = alloca %"class.boost::log::v2_mt_posix::invalid_type", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.boost::error_info", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %10, ptr %8, align 8, !tbaa !9
   %11 = icmp eq ptr %2, null
@@ -3314,7 +3308,7 @@ define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmS4_RKNS1_14attr
 
 12:                                               ; preds = %4
   %13 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %13, ptr %5, align 8, !tbaa !12
   %14 = icmp ugt i64 %13, 15
   br i1 %14, label %.noexc.i, label %._crit_edge.i.i
@@ -3349,7 +3343,7 @@ define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmS4_RKNS1_14attr
   %24 = load ptr, ptr %8, align 8, !tbaa !14
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %22
   store i8 0, ptr %25, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN5boost3log11v2_mt_posix12invalid_typeC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %26 unwind label %37
 
@@ -3367,7 +3361,7 @@ define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmS4_RKNS1_14attr
   store ptr %0, ptr %31, align 8, !tbaa !24
   %32 = trunc i64 %1 to i32
   store i32 %32, ptr %29, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS2_14attribute_nameEEE, i64 16), ptr %9, align 8, !tbaa !3
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %34 = load i32, ptr %3, align 4, !tbaa !6
@@ -3390,7 +3384,7 @@ _ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12inv
 39:                                               ; preds = %26, %_ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEEENS4_23attribute_name_info_tagENS4_14attribute_nameEEENS_9enable_ifINS1_23derives_boost_exceptionIT_EERKSB_E4typeESE_ONS_10error_infoIT0_T1_EE.exit
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %27, align 8, !tbaa !3
   %41 = load ptr, ptr %28, align 8, !tbaa !26
   %.not.i.i.i.i = icmp eq ptr %41, null
@@ -3441,19 +3435,19 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_14attribute_nameE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_14attribute_nameE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.boost::exception_detail::error_info_injector.6", align 8
   %6 = alloca %"class.boost::log::v2_mt_posix::invalid_type", align 8
   %7 = alloca %"class.boost::error_info", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5boost3log11v2_mt_posix12invalid_typeC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %2)
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #26
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -3468,7 +3462,7 @@ define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmRKNSt7__cxx1112
   store ptr %0, ptr %12, align 8, !tbaa !24
   %13 = trunc i64 %1 to i32
   store i32 %13, ptr %10, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS2_14attribute_nameEEE, i64 16), ptr %7, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load i32, ptr %3, align 4, !tbaa !6
@@ -3486,7 +3480,7 @@ _ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12inv
 18:                                               ; preds = %4, %_ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEEENS4_23attribute_name_info_tagENS4_14attribute_nameEEENS_9enable_ifINS1_23derives_boost_exceptionIT_EERKSB_E4typeESE_ONS_10error_infoIT0_T1_EE.exit
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %8, align 8, !tbaa !3
   %20 = load ptr, ptr %9, align 8, !tbaa !26
   %.not.i.i.i.i = icmp eq ptr %20, null
@@ -3516,21 +3510,21 @@ _ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12inv
 _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEED2Ev.exit: ; preds = %18, %.noexc.i.i.i, %26
   call void @_ZN5boost3log11v2_mt_posix12invalid_typeD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #26
   call void @_ZN5boost3log11v2_mt_posix12invalid_typeD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmS4_RKNS_9typeindex14stl_type_indexE(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmS4_RKNS_9typeindex14stl_type_indexE(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"struct.boost::exception_detail::error_info_injector.6", align 8
   %7 = alloca %"class.boost::log::v2_mt_posix::invalid_type", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.boost::error_info.7", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %10, ptr %8, align 8, !tbaa !9
   %11 = icmp eq ptr %2, null
@@ -3542,7 +3536,7 @@ define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmS4_RKNS_9typein
 
 12:                                               ; preds = %4
   %13 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %13, ptr %5, align 8, !tbaa !12
   %14 = icmp ugt i64 %13, 15
   br i1 %14, label %.noexc.i, label %._crit_edge.i.i
@@ -3577,7 +3571,7 @@ define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmS4_RKNS_9typein
   %24 = load ptr, ptr %8, align 8, !tbaa !14
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %22
   store i8 0, ptr %25, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN5boost3log11v2_mt_posix12invalid_typeC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %26 unwind label %37
 
@@ -3595,7 +3589,7 @@ define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmS4_RKNS_9typein
   store ptr %0, ptr %31, align 8, !tbaa !24
   %32 = trunc i64 %1 to i32
   store i32 %32, ptr %29, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10error_infoINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEEE, i64 16), ptr %9, align 8, !tbaa !3
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %34 = load i64, ptr %3, align 8
@@ -3618,7 +3612,7 @@ _ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12inv
 39:                                               ; preds = %26, %_ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEEENS4_18type_info_info_tagENS_9typeindex14stl_type_indexEEENS_9enable_ifINS1_23derives_boost_exceptionIT_EERKSC_E4typeESF_ONS_10error_infoIT0_T1_EE.exit
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %27, align 8, !tbaa !3
   %41 = load ptr, ptr %28, align 8, !tbaa !26
   %.not.i.i.i.i = icmp eq ptr %41, null
@@ -3669,19 +3663,19 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9typeindex14stl_type_indexE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9typeindex14stl_type_indexE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.boost::exception_detail::error_info_injector.6", align 8
   %6 = alloca %"class.boost::log::v2_mt_posix::invalid_type", align 8
   %7 = alloca %"class.boost::error_info.7", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5boost3log11v2_mt_posix12invalid_typeC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %2)
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #26
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -3696,7 +3690,7 @@ define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmRKNSt7__cxx1112
   store ptr %0, ptr %12, align 8, !tbaa !24
   %13 = trunc i64 %1 to i32
   store i32 %13, ptr %10, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10error_infoINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEEE, i64 16), ptr %7, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load i64, ptr %3, align 8
@@ -3714,7 +3708,7 @@ _ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12inv
 18:                                               ; preds = %4, %_ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEEENS4_18type_info_info_tagENS_9typeindex14stl_type_indexEEENS_9enable_ifINS1_23derives_boost_exceptionIT_EERKSC_E4typeESF_ONS_10error_infoIT0_T1_EE.exit
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %8, align 8, !tbaa !3
   %20 = load ptr, ptr %9, align 8, !tbaa !26
   %.not.i.i.i.i = icmp eq ptr %20, null
@@ -3744,22 +3738,22 @@ _ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12inv
 _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEED2Ev.exit: ; preds = %18, %.noexc.i.i.i, %26
   call void @_ZN5boost3log11v2_mt_posix12invalid_typeD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #26
   call void @_ZN5boost3log11v2_mt_posix12invalid_typeD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmS4_RKNS1_14attribute_nameERKNS_9typeindex14stl_type_indexE(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmS4_RKNS1_14attribute_nameERKNS_9typeindex14stl_type_indexE(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i64, align 8
   %7 = alloca %"struct.boost::exception_detail::error_info_injector.6", align 8
   %8 = alloca %"class.boost::log::v2_mt_posix::invalid_type", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.boost::error_info", align 8
   %11 = alloca %"class.boost::error_info.7", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %12, ptr %9, align 8, !tbaa !9
   %13 = icmp eq ptr %2, null
@@ -3771,7 +3765,7 @@ define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmS4_RKNS1_14attr
 
 14:                                               ; preds = %5
   %15 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %15, ptr %6, align 8, !tbaa !12
   %16 = icmp ugt i64 %15, 15
   br i1 %16, label %.noexc.i, label %._crit_edge.i.i
@@ -3806,7 +3800,7 @@ define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmS4_RKNS1_14attr
   %26 = load ptr, ptr %9, align 8, !tbaa !14
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %24
   store i8 0, ptr %27, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   invoke void @_ZN5boost3log11v2_mt_posix12invalid_typeC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %28 unwind label %42
 
@@ -3824,7 +3818,7 @@ define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmS4_RKNS1_14attr
   store ptr %0, ptr %33, align 8, !tbaa !24
   %34 = trunc i64 %1 to i32
   store i32 %34, ptr %31, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS2_14attribute_nameEEE, i64 16), ptr %10, align 8, !tbaa !3
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %36 = load i32, ptr %3, align 4, !tbaa !6
@@ -3833,7 +3827,7 @@ define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmS4_RKNS1_14attr
           to label %_ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEEENS4_23attribute_name_info_tagENS4_14attribute_nameEEENS_9enable_ifINS1_23derives_boost_exceptionIT_EERKSB_E4typeESE_ONS_10error_infoIT0_T1_EE.exit unwind label %44
 
 _ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEEENS4_23attribute_name_info_tagENS4_14attribute_nameEEENS_9enable_ifINS1_23derives_boost_exceptionIT_EERKSB_E4typeESE_ONS_10error_infoIT0_T1_EE.exit: ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10error_infoINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEEE, i64 16), ptr %11, align 8, !tbaa !3
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %39 = load i64, ptr %4, align 8
@@ -3861,12 +3855,12 @@ _ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12inv
 46:                                               ; preds = %_ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEEENS4_23attribute_name_info_tagENS4_14attribute_nameEEENS_9enable_ifINS1_23derives_boost_exceptionIT_EERKSB_E4typeESE_ONS_10error_infoIT0_T1_EE.exit, %_ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEEENS4_18type_info_info_tagENS_9typeindex14stl_type_indexEEENS_9enable_ifINS1_23derives_boost_exceptionIT_EERKSC_E4typeESF_ONS_10error_infoIT0_T1_EE.exit
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %48
 
 48:                                               ; preds = %46, %44
   %.pn = phi { ptr, i32 } [ %47, %46 ], [ %45, %44 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %29, align 8, !tbaa !3
   %49 = load ptr, ptr %30, align 8, !tbaa !26
   %.not.i.i.i.i = icmp eq ptr %49, null
@@ -3917,20 +3911,20 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_14attribute_nameERKNS_9typeindex14stl_type_indexE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_14attribute_nameERKNS_9typeindex14stl_type_indexE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.boost::exception_detail::error_info_injector.6", align 8
   %7 = alloca %"class.boost::log::v2_mt_posix::invalid_type", align 8
   %8 = alloca %"class.boost::error_info", align 8
   %9 = alloca %"class.boost::error_info.7", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5boost3log11v2_mt_posix12invalid_typeC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(32) %2)
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(16) %7) #26
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -3945,7 +3939,7 @@ define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmRKNSt7__cxx1112
   store ptr %0, ptr %14, align 8, !tbaa !24
   %15 = trunc i64 %1 to i32
   store i32 %15, ptr %12, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS2_14attribute_nameEEE, i64 16), ptr %8, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %17 = load i32, ptr %3, align 4, !tbaa !6
@@ -3954,7 +3948,7 @@ define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmRKNSt7__cxx1112
           to label %_ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEEENS4_23attribute_name_info_tagENS4_14attribute_nameEEENS_9enable_ifINS1_23derives_boost_exceptionIT_EERKSB_E4typeESE_ONS_10error_infoIT0_T1_EE.exit unwind label %23
 
 _ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEEENS4_23attribute_name_info_tagENS4_14attribute_nameEEENS_9enable_ifINS1_23derives_boost_exceptionIT_EERKSB_E4typeESE_ONS_10error_infoIT0_T1_EE.exit: ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10error_infoINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEEE, i64 16), ptr %9, align 8, !tbaa !3
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %20 = load i64, ptr %4, align 8
@@ -3977,12 +3971,12 @@ _ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12inv
 25:                                               ; preds = %_ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEEENS4_23attribute_name_info_tagENS4_14attribute_nameEEENS_9enable_ifINS1_23derives_boost_exceptionIT_EERKSB_E4typeESE_ONS_10error_infoIT0_T1_EE.exit, %_ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEEENS4_18type_info_info_tagENS_9typeindex14stl_type_indexEEENS_9enable_ifINS1_23derives_boost_exceptionIT_EERKSC_E4typeESF_ONS_10error_infoIT0_T1_EE.exit
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %27
 
 27:                                               ; preds = %25, %23
   %.pn = phi { ptr, i32 } [ %26, %25 ], [ %24, %23 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %10, align 8, !tbaa !3
   %28 = load ptr, ptr %11, align 8, !tbaa !26
   %.not.i.i.i.i = icmp eq ptr %28, null
@@ -4012,20 +4006,20 @@ _ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12inv
 _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEED2Ev.exit: ; preds = %27, %.noexc.i.i.i, %34
   call void @_ZN5boost3log11v2_mt_posix12invalid_typeD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #26
   call void @_ZN5boost3log11v2_mt_posix12invalid_typeD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix13invalid_valueC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix13invalid_valueC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .noexc.i:
   %1 = alloca i64, align 8
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %3, ptr %2, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 20, ptr %1, align 8, !tbaa !12
   %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef 0)
   store ptr %4, ptr %2, align 8, !tbaa !14
@@ -4037,7 +4031,7 @@ define void @_ZN5boost3log11v2_mt_posix13invalid_valueC2Ev(ptr noundef nonnull a
   %7 = load ptr, ptr %2, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 %5
   store i8 0, ptr %8, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   invoke void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %9 unwind label %16
 
@@ -4060,7 +4054,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix13invalid_valueE, i64 16), ptr %0, align 8, !tbaa !3
   ret void
 
@@ -4084,30 +4078,30 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5:
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix13invalid_valueC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 {
+define void @_ZN5boost3log11v2_mt_posix13invalid_valueC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 {
   tail call void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix13invalid_valueE, i64 16), ptr %0, align 8, !tbaa !3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost3log11v2_mt_posix13invalid_valueD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 align 2 {
+define void @_ZN5boost3log11v2_mt_posix13invalid_valueD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 align 2 {
   tail call void @_ZN5boost3log11v2_mt_posix13invalid_valueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #29
   ret void
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix13invalid_value6throw_EPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix13invalid_value6throw_EPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.boost::exception_detail::error_info_injector.8", align 8
   %4 = alloca %"class.boost::log::v2_mt_posix::invalid_value", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5boost3log11v2_mt_posix13invalid_valueC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4)
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #26
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -4160,13 +4154,13 @@ define void @_ZN5boost3log11v2_mt_posix13invalid_value6throw_EPKcm(ptr noundef %
 _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_valueEED2Ev.exit: ; preds = %12, %.noexc.i.i.i, %20
   call void @_ZN5boost3log11v2_mt_posix13invalid_valueD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #26
   call void @_ZN5boost3log11v2_mt_posix13invalid_valueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %13
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_valueEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #9 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_valueEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 64) #26
   invoke void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_valueEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(56) %0)
           to label %3 unwind label %4
@@ -4183,7 +4177,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detai
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_valueEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_valueEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4218,14 +4212,14 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix13invalid_value6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix13invalid_value6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.boost::exception_detail::error_info_injector.8", align 8
   %6 = alloca %"class.boost::log::v2_mt_posix::invalid_value", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %8, ptr %7, align 8, !tbaa !9
   %9 = icmp eq ptr %2, null
@@ -4237,7 +4231,7 @@ define void @_ZN5boost3log11v2_mt_posix13invalid_value6throw_EPKcmS4_(ptr nounde
 
 10:                                               ; preds = %3
   %11 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %11, ptr %4, align 8, !tbaa !12
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i, label %._crit_edge.i.i
@@ -4272,7 +4266,7 @@ define void @_ZN5boost3log11v2_mt_posix13invalid_value6throw_EPKcmS4_(ptr nounde
   %22 = load ptr, ptr %7, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %20
   store i8 0, ptr %23, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   invoke void @_ZN5boost3log11v2_mt_posix13invalid_valueC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %24 unwind label %32
 
@@ -4354,18 +4348,18 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix13invalid_value6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix13invalid_value6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.boost::exception_detail::error_info_injector.8", align 8
   %5 = alloca %"class.boost::log::v2_mt_posix::invalid_value", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN5boost3log11v2_mt_posix13invalid_valueC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %2)
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(16) %5) #26
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -4418,20 +4412,20 @@ define void @_ZN5boost3log11v2_mt_posix13invalid_value6throw_EPKcmRKNSt7__cxx111
 _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_valueEED2Ev.exit: ; preds = %13, %.noexc.i.i.i, %21
   call void @_ZN5boost3log11v2_mt_posix13invalid_valueD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #26
   call void @_ZN5boost3log11v2_mt_posix13invalid_valueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix11parse_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix11parse_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .noexc.i:
   %1 = alloca i64, align 8
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %3, ptr %2, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 23, ptr %1, align 8, !tbaa !12
   %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef 0)
   store ptr %4, ptr %2, align 8, !tbaa !14
@@ -4443,7 +4437,7 @@ define void @_ZN5boost3log11v2_mt_posix11parse_errorC2Ev(ptr noundef nonnull ali
   %7 = load ptr, ptr %2, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 %5
   store i8 0, ptr %8, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   invoke void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %9 unwind label %16
 
@@ -4466,7 +4460,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix11parse_errorE, i64 16), ptr %0, align 8, !tbaa !3
   ret void
 
@@ -4490,30 +4484,30 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5:
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix11parse_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 {
+define void @_ZN5boost3log11v2_mt_posix11parse_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 {
   tail call void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix11parse_errorE, i64 16), ptr %0, align 8, !tbaa !3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost3log11v2_mt_posix11parse_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 align 2 {
+define void @_ZN5boost3log11v2_mt_posix11parse_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 align 2 {
   tail call void @_ZN5boost3log11v2_mt_posix11parse_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #29
   ret void
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.boost::exception_detail::error_info_injector.9", align 8
   %4 = alloca %"class.boost::log::v2_mt_posix::parse_error", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5boost3log11v2_mt_posix11parse_errorC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4)
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #26
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -4566,13 +4560,13 @@ define void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcm(ptr noundef %0,
 _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEED2Ev.exit: ; preds = %12, %.noexc.i.i.i, %20
   call void @_ZN5boost3log11v2_mt_posix11parse_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #26
   call void @_ZN5boost3log11v2_mt_posix11parse_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %13
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #9 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 64) #26
   invoke void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(56) %0)
           to label %3 unwind label %4
@@ -4589,7 +4583,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detai
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4624,14 +4618,14 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.boost::exception_detail::error_info_injector.9", align 8
   %6 = alloca %"class.boost::log::v2_mt_posix::parse_error", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %8, ptr %7, align 8, !tbaa !9
   %9 = icmp eq ptr %2, null
@@ -4643,7 +4637,7 @@ define void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_(ptr noundef 
 
 10:                                               ; preds = %3
   %11 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %11, ptr %4, align 8, !tbaa !12
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i, label %._crit_edge.i.i
@@ -4678,7 +4672,7 @@ define void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_(ptr noundef 
   %22 = load ptr, ptr %7, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %20
   store i8 0, ptr %23, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   invoke void @_ZN5boost3log11v2_mt_posix11parse_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %24 unwind label %32
 
@@ -4760,18 +4754,18 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.boost::exception_detail::error_info_injector.9", align 8
   %5 = alloca %"class.boost::log::v2_mt_posix::parse_error", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN5boost3log11v2_mt_posix11parse_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %2)
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(16) %5) #26
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -4824,21 +4818,21 @@ define void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmRKNSt7__cxx1112b
 _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEED2Ev.exit: ; preds = %13, %.noexc.i.i.i, %21
   call void @_ZN5boost3log11v2_mt_posix11parse_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #26
   call void @_ZN5boost3log11v2_mt_posix11parse_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %14
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_m(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_m(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"struct.boost::exception_detail::error_info_injector.9", align 8
   %7 = alloca %"class.boost::log::v2_mt_posix::parse_error", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.boost::error_info.10", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %10, ptr %8, align 8, !tbaa !9
   %11 = icmp eq ptr %2, null
@@ -4850,7 +4844,7 @@ define void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_m(ptr noundef
 
 12:                                               ; preds = %4
   %13 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %13, ptr %5, align 8, !tbaa !12
   %14 = icmp ugt i64 %13, 15
   br i1 %14, label %.noexc.i, label %._crit_edge.i.i
@@ -4885,7 +4879,7 @@ define void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_m(ptr noundef
   %24 = load ptr, ptr %8, align 8, !tbaa !14
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %22
   store i8 0, ptr %25, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN5boost3log11v2_mt_posix11parse_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %26 unwind label %37
 
@@ -4903,7 +4897,7 @@ define void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_m(ptr noundef
   store ptr %0, ptr %31, align 8, !tbaa !24
   %32 = trunc i64 %1 to i32
   store i32 %32, ptr %29, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %33 = trunc i64 %3 to i32
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10error_infoINS_16errinfo_at_line_EiEE, i64 16), ptr %9, align 8, !tbaa !3
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -4926,7 +4920,7 @@ _ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11par
 39:                                               ; preds = %26, %_ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEEENS_16errinfo_at_line_EiEENS_9enable_ifINS1_23derives_boost_exceptionIT_EERKSA_E4typeESD_ONS_10error_infoIT0_T1_EE.exit
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %27, align 8, !tbaa !3
   %41 = load ptr, ptr %28, align 8, !tbaa !26
   %.not.i.i.i.i = icmp eq ptr %41, null
@@ -4977,24 +4971,24 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost16exception_detail15error_info_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden void @_ZN5boost16exception_detail15error_info_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %3) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.boost::exception_detail::error_info_injector.9", align 8
   %6 = alloca %"class.boost::log::v2_mt_posix::parse_error", align 8
   %7 = alloca %"class.boost::error_info.10", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5boost3log11v2_mt_posix11parse_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %2)
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #26
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -5009,7 +5003,7 @@ define void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmRKNSt7__cxx1112b
   store ptr %0, ptr %12, align 8, !tbaa !24
   %13 = trunc i64 %1 to i32
   store i32 %13, ptr %10, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %14 = trunc i64 %3 to i32
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10error_infoINS_16errinfo_at_line_EiEE, i64 16), ptr %7, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -5027,7 +5021,7 @@ _ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11par
 18:                                               ; preds = %4, %_ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEEENS_16errinfo_at_line_EiEENS_9enable_ifINS1_23derives_boost_exceptionIT_EERKSA_E4typeESD_ONS_10error_infoIT0_T1_EE.exit
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %8, align 8, !tbaa !3
   %20 = load ptr, ptr %9, align 8, !tbaa !26
   %.not.i.i.i.i = icmp eq ptr %20, null
@@ -5057,21 +5051,21 @@ _ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11par
 _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEED2Ev.exit: ; preds = %18, %.noexc.i.i.i, %26
   call void @_ZN5boost3log11v2_mt_posix11parse_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #26
   call void @_ZN5boost3log11v2_mt_posix11parse_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_RKNS1_14attribute_nameE(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_RKNS1_14attribute_nameE(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"struct.boost::exception_detail::error_info_injector.9", align 8
   %7 = alloca %"class.boost::log::v2_mt_posix::parse_error", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.boost::error_info", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %10, ptr %8, align 8, !tbaa !9
   %11 = icmp eq ptr %2, null
@@ -5083,7 +5077,7 @@ define void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_RKNS1_14attri
 
 12:                                               ; preds = %4
   %13 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %13, ptr %5, align 8, !tbaa !12
   %14 = icmp ugt i64 %13, 15
   br i1 %14, label %.noexc.i, label %._crit_edge.i.i
@@ -5118,7 +5112,7 @@ define void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_RKNS1_14attri
   %24 = load ptr, ptr %8, align 8, !tbaa !14
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %22
   store i8 0, ptr %25, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN5boost3log11v2_mt_posix11parse_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %26 unwind label %37
 
@@ -5136,7 +5130,7 @@ define void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_RKNS1_14attri
   store ptr %0, ptr %31, align 8, !tbaa !24
   %32 = trunc i64 %1 to i32
   store i32 %32, ptr %29, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS2_14attribute_nameEEE, i64 16), ptr %9, align 8, !tbaa !3
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %34 = load i32, ptr %3, align 4, !tbaa !6
@@ -5159,7 +5153,7 @@ _ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11par
 39:                                               ; preds = %26, %_ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEEENS4_23attribute_name_info_tagENS4_14attribute_nameEEENS_9enable_ifINS1_23derives_boost_exceptionIT_EERKSB_E4typeESE_ONS_10error_infoIT0_T1_EE.exit
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %27, align 8, !tbaa !3
   %41 = load ptr, ptr %28, align 8, !tbaa !26
   %.not.i.i.i.i = icmp eq ptr %41, null
@@ -5210,19 +5204,19 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_14attribute_nameE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_14attribute_nameE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.boost::exception_detail::error_info_injector.9", align 8
   %6 = alloca %"class.boost::log::v2_mt_posix::parse_error", align 8
   %7 = alloca %"class.boost::error_info", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5boost3log11v2_mt_posix11parse_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %2)
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #26
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -5237,7 +5231,7 @@ define void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmRKNSt7__cxx1112b
   store ptr %0, ptr %12, align 8, !tbaa !24
   %13 = trunc i64 %1 to i32
   store i32 %13, ptr %10, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS2_14attribute_nameEEE, i64 16), ptr %7, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load i32, ptr %3, align 4, !tbaa !6
@@ -5255,7 +5249,7 @@ _ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11par
 18:                                               ; preds = %4, %_ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEEENS4_23attribute_name_info_tagENS4_14attribute_nameEEENS_9enable_ifINS1_23derives_boost_exceptionIT_EERKSB_E4typeESE_ONS_10error_infoIT0_T1_EE.exit
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %8, align 8, !tbaa !3
   %20 = load ptr, ptr %9, align 8, !tbaa !26
   %.not.i.i.i.i = icmp eq ptr %20, null
@@ -5285,20 +5279,20 @@ _ZN5boostlsINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11par
 _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEED2Ev.exit: ; preds = %18, %.noexc.i.i.i, %26
   call void @_ZN5boost3log11v2_mt_posix11parse_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #26
   call void @_ZN5boost3log11v2_mt_posix11parse_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix16conversion_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix16conversion_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .noexc.i:
   %1 = alloca i64, align 8
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %3, ptr %2, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 28, ptr %1, align 8, !tbaa !12
   %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef 0)
   store ptr %4, ptr %2, align 8, !tbaa !14
@@ -5310,7 +5304,7 @@ define void @_ZN5boost3log11v2_mt_posix16conversion_errorC2Ev(ptr noundef nonnul
   %7 = load ptr, ptr %2, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 %5
   store i8 0, ptr %8, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   invoke void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %9 unwind label %16
 
@@ -5333,7 +5327,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix16conversion_errorE, i64 16), ptr %0, align 8, !tbaa !3
   ret void
 
@@ -5357,30 +5351,30 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5:
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix16conversion_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 {
+define void @_ZN5boost3log11v2_mt_posix16conversion_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 {
   tail call void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix16conversion_errorE, i64 16), ptr %0, align 8, !tbaa !3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost3log11v2_mt_posix16conversion_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 align 2 {
+define void @_ZN5boost3log11v2_mt_posix16conversion_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 align 2 {
   tail call void @_ZN5boost3log11v2_mt_posix16conversion_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #29
   ret void
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix16conversion_error6throw_EPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix16conversion_error6throw_EPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.boost::exception_detail::error_info_injector.12", align 8
   %4 = alloca %"class.boost::log::v2_mt_posix::conversion_error", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5boost3log11v2_mt_posix16conversion_errorC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4)
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #26
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -5433,13 +5427,13 @@ define void @_ZN5boost3log11v2_mt_posix16conversion_error6throw_EPKcm(ptr nounde
 _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversion_errorEED2Ev.exit: ; preds = %12, %.noexc.i.i.i, %20
   call void @_ZN5boost3log11v2_mt_posix16conversion_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #26
   call void @_ZN5boost3log11v2_mt_posix16conversion_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %13
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversion_errorEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #9 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversion_errorEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 64) #26
   invoke void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversion_errorEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(56) %0)
           to label %3 unwind label %4
@@ -5456,7 +5450,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detai
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversion_errorEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversion_errorEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5491,14 +5485,14 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix16conversion_error6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix16conversion_error6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.boost::exception_detail::error_info_injector.12", align 8
   %6 = alloca %"class.boost::log::v2_mt_posix::conversion_error", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %8, ptr %7, align 8, !tbaa !9
   %9 = icmp eq ptr %2, null
@@ -5510,7 +5504,7 @@ define void @_ZN5boost3log11v2_mt_posix16conversion_error6throw_EPKcmS4_(ptr nou
 
 10:                                               ; preds = %3
   %11 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %11, ptr %4, align 8, !tbaa !12
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i, label %._crit_edge.i.i
@@ -5545,7 +5539,7 @@ define void @_ZN5boost3log11v2_mt_posix16conversion_error6throw_EPKcmS4_(ptr nou
   %22 = load ptr, ptr %7, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %20
   store i8 0, ptr %23, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   invoke void @_ZN5boost3log11v2_mt_posix16conversion_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %24 unwind label %32
 
@@ -5627,18 +5621,18 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix16conversion_error6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix16conversion_error6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.boost::exception_detail::error_info_injector.12", align 8
   %5 = alloca %"class.boost::log::v2_mt_posix::conversion_error", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN5boost3log11v2_mt_posix16conversion_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %2)
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(16) %5) #26
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -5691,33 +5685,33 @@ define void @_ZN5boost3log11v2_mt_posix16conversion_error6throw_EPKcmRKNSt7__cxx
 _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversion_errorEED2Ev.exit: ; preds = %13, %.noexc.i.i.i, %21
   call void @_ZN5boost3log11v2_mt_posix16conversion_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #26
   call void @_ZN5boost3log11v2_mt_posix16conversion_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix12system_errorC2ENS_6system10error_codeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull byval(%"class.boost::system::error_code") align 8 %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #4 align 2 {
+define void @_ZN5boost3log11v2_mt_posix12system_errorC2ENS_6system10error_codeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull byval(%"class.boost::system::error_code") align 8 %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 align 2 {
   call void @_ZN5boost6system12system_errorC2ERKNS0_10error_codeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix12system_errorE, i64 16), ptr %0, align 8, !tbaa !3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost6system12system_errorC2ERKNS0_10error_codeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost6system12system_errorC2ERKNS0_10error_codeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !120)
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %8, ptr %6, align 8, !tbaa !9, !alias.scope !120
   %9 = load ptr, ptr %2, align 8, !tbaa !14, !noalias !120
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !17, !noalias !120
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26, !noalias !120
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !120
   store i64 %11, ptr %4, align 8, !tbaa !12, !noalias !120
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i.i, label %._crit_edge.i.i.i
@@ -5752,7 +5746,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
   %21 = load ptr, ptr %6, align 8, !tbaa !14, !alias.scope !120
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store i8 0, ptr %22, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26, !noalias !120
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !120
   %23 = load i64, ptr %20, align 8, !tbaa !17, !alias.scope !120
   %24 = and i64 %23, -2
   %25 = icmp eq i64 %24, 4611686018427387902
@@ -5793,7 +5787,7 @@ common.resume:                                    ; preds = %_ZNKSt7__cxx1112bas
   resume { ptr, i32 } %common.resume.op
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZNK5boost6system10error_code4whatB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %36 unwind label %112
 
@@ -5964,7 +5958,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %105 = load ptr, ptr %6, align 8, !tbaa !14
   %106 = icmp eq ptr %105, %8
   br i1 %106, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i16, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
@@ -5982,8 +5976,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %0, align 8, !tbaa !3
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %111, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !126
@@ -6041,7 +6035,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i22, %112
   %.pn.pn = phi { ptr, i32 } [ %113, %112 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i22 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %133 = load ptr, ptr %6, align 8, !tbaa !14
   %134 = icmp eq ptr %133, %8
   br i1 %134, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i25, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24
@@ -6059,33 +6053,33 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost3log11v2_mt_posix12system_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 align 2 {
+define void @_ZN5boost3log11v2_mt_posix12system_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 {
   tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost3log11v2_mt_posix12system_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 align 2 {
+define void @_ZN5boost3log11v2_mt_posix12system_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 {
   tail call void @_ZN5boost3log11v2_mt_posix12system_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #29
   ret void
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix12system_error6throw_EPKcmS4_i(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix12system_error6throw_EPKcmS4_i(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"struct.boost::exception_detail::error_info_injector.14", align 8
   %7 = alloca %"class.boost::log::v2_mt_posix::system_error", align 8
   %8 = alloca %"class.boost::system::error_code", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #26
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %8, align 8
   %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i64 8), align 8, !tbaa !127
   %11 = and i64 %10, -2
@@ -6111,7 +6105,7 @@ _ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit: ; preds = %12, %14
   store i32 %3, ptr %8, align 8, !tbaa !16
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, ptr %21, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %22, ptr %9, align 8, !tbaa !9
   %23 = icmp eq ptr %2, null
@@ -6123,7 +6117,7 @@ _ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit: ; preds = %12, %14
 
 24:                                               ; preds = %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit
   %25 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %25, ptr %5, align 8, !tbaa !12
   %26 = icmp ugt i64 %25, 15
   br i1 %26, label %.noexc.i, label %._crit_edge.i.i
@@ -6158,7 +6152,7 @@ _ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit: ; preds = %12, %14
   %36 = load ptr, ptr %9, align 8, !tbaa !14
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 %34
   store i8 0, ptr %37, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN5boost3log11v2_mt_posix12system_errorC1ENS_6system10error_codeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull byval(%"class.boost::system::error_code") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %38 unwind label %48
 
@@ -6243,14 +6237,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #26
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #26
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_errorEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #9 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_errorEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 88) #26
   invoke void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_errorEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(80) %0)
           to label %3 unwind label %4
@@ -6267,7 +6261,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detai
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_errorEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_errorEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -6302,12 +6296,12 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix12system_error6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix12system_error6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.boost::exception_detail::error_info_injector.14", align 8
   %6 = alloca %"class.boost::log::v2_mt_posix::system_error", align 8
   %7 = alloca %"class.boost::system::error_code", align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %7, align 8
   %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i64 8), align 8, !tbaa !127
   %9 = and i64 %8, -2
@@ -6388,20 +6382,20 @@ define void @_ZN5boost3log11v2_mt_posix12system_error6throw_EPKcmRKNSt7__cxx1112
 _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_errorEED2Ev.exit: ; preds = %30, %.noexc.i.i.i, %38
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #26
   call void @_ZN5boost3log11v2_mt_posix12system_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #26
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %31
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix12system_error6throw_EPKcmS4_NS_6system10error_codeE(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly byval(%"class.boost::system::error_code") align 8 captures(none) %3) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix12system_error6throw_EPKcmS4_NS_6system10error_codeE(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly byval(%"class.boost::system::error_code") align 8 captures(none) %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"struct.boost::exception_detail::error_info_injector.14", align 8
   %7 = alloca %"class.boost::log::v2_mt_posix::system_error", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #26
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %9, ptr %8, align 8, !tbaa !9
   %10 = icmp eq ptr %2, null
@@ -6413,7 +6407,7 @@ define void @_ZN5boost3log11v2_mt_posix12system_error6throw_EPKcmS4_NS_6system10
 
 11:                                               ; preds = %4
   %12 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %12, ptr %5, align 8, !tbaa !12
   %13 = icmp ugt i64 %12, 15
   br i1 %13, label %.noexc.i, label %._crit_edge.i.i
@@ -6448,7 +6442,7 @@ define void @_ZN5boost3log11v2_mt_posix12system_error6throw_EPKcmS4_NS_6system10
   %23 = load ptr, ptr %8, align 8, !tbaa !14
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %21
   store i8 0, ptr %24, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN5boost3log11v2_mt_posix12system_errorC1ENS_6system10error_codeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull byval(%"class.boost::system::error_code") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %25 unwind label %35
 
@@ -6533,21 +6527,21 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #26
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #26
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix12system_error6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6system10error_codeE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef readonly byval(%"class.boost::system::error_code") align 8 captures(none) %3) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix12system_error6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6system10error_codeE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef readonly byval(%"class.boost::system::error_code") align 8 captures(none) %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.boost::exception_detail::error_info_injector.14", align 8
   %6 = alloca %"class.boost::log::v2_mt_posix::system_error", align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5boost3log11v2_mt_posix12system_errorC1ENS_6system10error_codeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull byval(%"class.boost::system::error_code") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %2)
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull align 8 dereferenceable(40) %6) #26
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6603,45 +6597,45 @@ define void @_ZN5boost3log11v2_mt_posix12system_error6throw_EPKcmRKNSt7__cxx1112
 _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_errorEED2Ev.exit: ; preds = %16, %.noexc.i.i.i, %24
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #26
   call void @_ZN5boost3log11v2_mt_posix12system_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #26
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 {
+define void @_ZN5boost3log11v2_mt_posix11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 {
   tail call void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix11logic_errorE, i64 16), ptr %0, align 8, !tbaa !3
   ret void
 }
 
-declare void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #10
+declare void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #9
 
 ; Function Attrs: nounwind
-declare void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
+declare void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost3log11v2_mt_posix11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 align 2 {
+define void @_ZN5boost3log11v2_mt_posix11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 align 2 {
   tail call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost3log11v2_mt_posix11logic_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 align 2 {
+define void @_ZN5boost3log11v2_mt_posix11logic_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 align 2 {
   tail call void @_ZN5boost3log11v2_mt_posix11logic_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #29
   ret void
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix11logic_error6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix11logic_error6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.boost::exception_detail::error_info_injector.15", align 8
   %6 = alloca %"class.boost::log::v2_mt_posix::logic_error", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %8, ptr %7, align 8, !tbaa !9
   %9 = icmp eq ptr %2, null
@@ -6653,7 +6647,7 @@ define void @_ZN5boost3log11v2_mt_posix11logic_error6throw_EPKcmS4_(ptr noundef 
 
 10:                                               ; preds = %3
   %11 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %11, ptr %4, align 8, !tbaa !12
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i, label %._crit_edge.i.i
@@ -6688,7 +6682,7 @@ define void @_ZN5boost3log11v2_mt_posix11logic_error6throw_EPKcmS4_(ptr noundef 
   %22 = load ptr, ptr %7, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %20
   store i8 0, ptr %23, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   invoke void @_ZN5boost3log11v2_mt_posix11logic_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %24 unwind label %32
 
@@ -6770,14 +6764,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11logic_errorEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #9 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11logic_errorEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 64) #26
   invoke void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11logic_errorEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(56) %0)
           to label %3 unwind label %4
@@ -6794,7 +6788,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detai
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11logic_errorEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11logic_errorEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6829,11 +6823,11 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix11logic_error6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix11logic_error6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.boost::exception_detail::error_info_injector.15", align 8
   %5 = alloca %"class.boost::log::v2_mt_posix::logic_error", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN5boost3log11v2_mt_posix11logic_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %2)
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(16) %5) #26
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -6886,20 +6880,20 @@ define void @_ZN5boost3log11v2_mt_posix11logic_error6throw_EPKcmRKNSt7__cxx1112b
 _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11logic_errorEED2Ev.exit: ; preds = %13, %.noexc.i.i.i, %21
   call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #26
   call void @_ZN5boost3log11v2_mt_posix11logic_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix13odr_violationC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix13odr_violationC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .noexc.i:
   %1 = alloca i64, align 8
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %3, ptr %2, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 22, ptr %1, align 8, !tbaa !12
   %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef 0)
   store ptr %4, ptr %2, align 8, !tbaa !14
@@ -6911,7 +6905,7 @@ define void @_ZN5boost3log11v2_mt_posix13odr_violationC2Ev(ptr noundef nonnull a
   %7 = load ptr, ptr %2, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 %5
   store i8 0, ptr %8, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %9 unwind label %16
 
@@ -6934,7 +6928,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix13odr_violationE, i64 16), ptr %0, align 8, !tbaa !3
   ret void
 
@@ -6958,30 +6952,30 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5:
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix13odr_violationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 {
+define void @_ZN5boost3log11v2_mt_posix13odr_violationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 {
   tail call void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix13odr_violationE, i64 16), ptr %0, align 8, !tbaa !3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost3log11v2_mt_posix13odr_violationD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 align 2 {
+define void @_ZN5boost3log11v2_mt_posix13odr_violationD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 align 2 {
   tail call void @_ZN5boost3log11v2_mt_posix13odr_violationD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #29
   ret void
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix13odr_violation6throw_EPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix13odr_violation6throw_EPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.boost::exception_detail::error_info_injector.16", align 8
   %4 = alloca %"class.boost::log::v2_mt_posix::odr_violation", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5boost3log11v2_mt_posix13odr_violationC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4)
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #26
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -7034,13 +7028,13 @@ define void @_ZN5boost3log11v2_mt_posix13odr_violation6throw_EPKcm(ptr noundef %
 _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_violationEED2Ev.exit: ; preds = %12, %.noexc.i.i.i, %20
   call void @_ZN5boost3log11v2_mt_posix13odr_violationD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #26
   call void @_ZN5boost3log11v2_mt_posix13odr_violationD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %13
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_violationEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #9 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_violationEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 64) #26
   invoke void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_violationEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(56) %0)
           to label %3 unwind label %4
@@ -7057,7 +7051,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detai
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_violationEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_violationEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7092,14 +7086,14 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix13odr_violation6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix13odr_violation6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.boost::exception_detail::error_info_injector.16", align 8
   %6 = alloca %"class.boost::log::v2_mt_posix::odr_violation", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %8, ptr %7, align 8, !tbaa !9
   %9 = icmp eq ptr %2, null
@@ -7111,7 +7105,7 @@ define void @_ZN5boost3log11v2_mt_posix13odr_violation6throw_EPKcmS4_(ptr nounde
 
 10:                                               ; preds = %3
   %11 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %11, ptr %4, align 8, !tbaa !12
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i, label %._crit_edge.i.i
@@ -7146,7 +7140,7 @@ define void @_ZN5boost3log11v2_mt_posix13odr_violation6throw_EPKcmS4_(ptr nounde
   %22 = load ptr, ptr %7, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %20
   store i8 0, ptr %23, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   invoke void @_ZN5boost3log11v2_mt_posix13odr_violationC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %24 unwind label %32
 
@@ -7228,18 +7222,18 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix13odr_violation6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix13odr_violation6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.boost::exception_detail::error_info_injector.16", align 8
   %5 = alloca %"class.boost::log::v2_mt_posix::odr_violation", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN5boost3log11v2_mt_posix13odr_violationC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %2)
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(16) %5) #26
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -7292,20 +7286,20 @@ define void @_ZN5boost3log11v2_mt_posix13odr_violation6throw_EPKcmRKNSt7__cxx111
 _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_violationEED2Ev.exit: ; preds = %13, %.noexc.i.i.i, %21
   call void @_ZN5boost3log11v2_mt_posix13odr_violationD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #26
   call void @_ZN5boost3log11v2_mt_posix13odr_violationD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix15unexpected_callC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix15unexpected_callC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .noexc.i:
   %1 = alloca i64, align 8
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %3, ptr %2, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 21, ptr %1, align 8, !tbaa !12
   %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef 0)
   store ptr %4, ptr %2, align 8, !tbaa !14
@@ -7317,7 +7311,7 @@ define void @_ZN5boost3log11v2_mt_posix15unexpected_callC2Ev(ptr noundef nonnull
   %7 = load ptr, ptr %2, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 %5
   store i8 0, ptr %8, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %9 unwind label %16
 
@@ -7340,7 +7334,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix15unexpected_callE, i64 16), ptr %0, align 8, !tbaa !3
   ret void
 
@@ -7364,30 +7358,30 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5:
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix15unexpected_callC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 {
+define void @_ZN5boost3log11v2_mt_posix15unexpected_callC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 {
   tail call void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix15unexpected_callE, i64 16), ptr %0, align 8, !tbaa !3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost3log11v2_mt_posix15unexpected_callD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 align 2 {
+define void @_ZN5boost3log11v2_mt_posix15unexpected_callD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 align 2 {
   tail call void @_ZN5boost3log11v2_mt_posix15unexpected_callD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #29
   ret void
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix15unexpected_call6throw_EPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix15unexpected_call6throw_EPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.boost::exception_detail::error_info_injector.17", align 8
   %4 = alloca %"class.boost::log::v2_mt_posix::unexpected_call", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5boost3log11v2_mt_posix15unexpected_callC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4)
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #26
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -7440,13 +7434,13 @@ define void @_ZN5boost3log11v2_mt_posix15unexpected_call6throw_EPKcm(ptr noundef
 _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpected_callEED2Ev.exit: ; preds = %12, %.noexc.i.i.i, %20
   call void @_ZN5boost3log11v2_mt_posix15unexpected_callD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #26
   call void @_ZN5boost3log11v2_mt_posix15unexpected_callD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %13
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpected_callEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #9 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpected_callEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 64) #26
   invoke void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpected_callEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(56) %0)
           to label %3 unwind label %4
@@ -7463,7 +7457,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detai
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpected_callEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpected_callEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7498,14 +7492,14 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix15unexpected_call6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix15unexpected_call6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.boost::exception_detail::error_info_injector.17", align 8
   %6 = alloca %"class.boost::log::v2_mt_posix::unexpected_call", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %8, ptr %7, align 8, !tbaa !9
   %9 = icmp eq ptr %2, null
@@ -7517,7 +7511,7 @@ define void @_ZN5boost3log11v2_mt_posix15unexpected_call6throw_EPKcmS4_(ptr noun
 
 10:                                               ; preds = %3
   %11 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %11, ptr %4, align 8, !tbaa !12
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i, label %._crit_edge.i.i
@@ -7552,7 +7546,7 @@ define void @_ZN5boost3log11v2_mt_posix15unexpected_call6throw_EPKcmS4_(ptr noun
   %22 = load ptr, ptr %7, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %20
   store i8 0, ptr %23, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   invoke void @_ZN5boost3log11v2_mt_posix15unexpected_callC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %24 unwind label %32
 
@@ -7634,18 +7628,18 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix15unexpected_call6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix15unexpected_call6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.boost::exception_detail::error_info_injector.17", align 8
   %5 = alloca %"class.boost::log::v2_mt_posix::unexpected_call", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN5boost3log11v2_mt_posix15unexpected_callC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %2)
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(16) %5) #26
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -7698,20 +7692,20 @@ define void @_ZN5boost3log11v2_mt_posix15unexpected_call6throw_EPKcmRKNSt7__cxx1
 _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpected_callEED2Ev.exit: ; preds = %13, %.noexc.i.i.i, %21
   call void @_ZN5boost3log11v2_mt_posix15unexpected_callD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #26
   call void @_ZN5boost3log11v2_mt_posix15unexpected_callD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix11setup_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix11setup_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .noexc.i:
   %1 = alloca i64, align 8
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %3, ptr %2, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 39, ptr %1, align 8, !tbaa !12
   %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef 0)
   store ptr %4, ptr %2, align 8, !tbaa !14
@@ -7722,7 +7716,7 @@ define void @_ZN5boost3log11v2_mt_posix11setup_errorC2Ev(ptr noundef nonnull ali
   store i64 %5, ptr %6, align 8, !tbaa !17
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 %5
   store i8 0, ptr %7, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %8 unwind label %15
 
@@ -7745,7 +7739,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix11setup_errorE, i64 16), ptr %0, align 8, !tbaa !3
   ret void
 
@@ -7769,30 +7763,30 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5:
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix11setup_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 {
+define void @_ZN5boost3log11v2_mt_posix11setup_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 {
   tail call void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix11setup_errorE, i64 16), ptr %0, align 8, !tbaa !3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost3log11v2_mt_posix11setup_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 align 2 {
+define void @_ZN5boost3log11v2_mt_posix11setup_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 align 2 {
   tail call void @_ZN5boost3log11v2_mt_posix11setup_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #29
   ret void
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix11setup_error6throw_EPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix11setup_error6throw_EPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.boost::exception_detail::error_info_injector.18", align 8
   %4 = alloca %"class.boost::log::v2_mt_posix::setup_error", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5boost3log11v2_mt_posix11setup_errorC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4)
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #26
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -7845,13 +7839,13 @@ define void @_ZN5boost3log11v2_mt_posix11setup_error6throw_EPKcm(ptr noundef %0,
 _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_errorEED2Ev.exit: ; preds = %12, %.noexc.i.i.i, %20
   call void @_ZN5boost3log11v2_mt_posix11setup_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #26
   call void @_ZN5boost3log11v2_mt_posix11setup_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %13
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_errorEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #9 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_errorEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 64) #26
   invoke void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_errorEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(56) %0)
           to label %3 unwind label %4
@@ -7868,7 +7862,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detai
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_errorEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_errorEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7903,14 +7897,14 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix11setup_error6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix11setup_error6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.boost::exception_detail::error_info_injector.18", align 8
   %6 = alloca %"class.boost::log::v2_mt_posix::setup_error", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %8, ptr %7, align 8, !tbaa !9
   %9 = icmp eq ptr %2, null
@@ -7922,7 +7916,7 @@ define void @_ZN5boost3log11v2_mt_posix11setup_error6throw_EPKcmS4_(ptr noundef 
 
 10:                                               ; preds = %3
   %11 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %11, ptr %4, align 8, !tbaa !12
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i, label %._crit_edge.i.i
@@ -7957,7 +7951,7 @@ define void @_ZN5boost3log11v2_mt_posix11setup_error6throw_EPKcmS4_(ptr noundef 
   %22 = load ptr, ptr %7, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %20
   store i8 0, ptr %23, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   invoke void @_ZN5boost3log11v2_mt_posix11setup_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %24 unwind label %32
 
@@ -8039,18 +8033,18 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix11setup_error6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix11setup_error6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.boost::exception_detail::error_info_injector.18", align 8
   %5 = alloca %"class.boost::log::v2_mt_posix::setup_error", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN5boost3log11v2_mt_posix11setup_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %2)
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(16) %5) #26
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -8103,20 +8097,20 @@ define void @_ZN5boost3log11v2_mt_posix11setup_error6throw_EPKcmRKNSt7__cxx1112b
 _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_errorEED2Ev.exit: ; preds = %13, %.noexc.i.i.i, %21
   call void @_ZN5boost3log11v2_mt_posix11setup_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #26
   call void @_ZN5boost3log11v2_mt_posix11setup_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix16limitation_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix16limitation_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .noexc.i:
   %1 = alloca i64, align 8
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %3, ptr %2, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 31, ptr %1, align 8, !tbaa !12
   %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef 0)
   store ptr %4, ptr %2, align 8, !tbaa !14
@@ -8128,7 +8122,7 @@ define void @_ZN5boost3log11v2_mt_posix16limitation_errorC2Ev(ptr noundef nonnul
   %7 = load ptr, ptr %2, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 %5
   store i8 0, ptr %8, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %9 unwind label %16
 
@@ -8151,7 +8145,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix16limitation_errorE, i64 16), ptr %0, align 8, !tbaa !3
   ret void
 
@@ -8175,30 +8169,30 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5:
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix16limitation_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 {
+define void @_ZN5boost3log11v2_mt_posix16limitation_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 {
   tail call void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix16limitation_errorE, i64 16), ptr %0, align 8, !tbaa !3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost3log11v2_mt_posix16limitation_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 align 2 {
+define void @_ZN5boost3log11v2_mt_posix16limitation_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 align 2 {
   tail call void @_ZN5boost3log11v2_mt_posix16limitation_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #29
   ret void
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix16limitation_error6throw_EPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix16limitation_error6throw_EPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.boost::exception_detail::error_info_injector.19", align 8
   %4 = alloca %"class.boost::log::v2_mt_posix::limitation_error", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5boost3log11v2_mt_posix16limitation_errorC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4)
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #26
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -8251,13 +8245,13 @@ define void @_ZN5boost3log11v2_mt_posix16limitation_error6throw_EPKcm(ptr nounde
 _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitation_errorEED2Ev.exit: ; preds = %12, %.noexc.i.i.i, %20
   call void @_ZN5boost3log11v2_mt_posix16limitation_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #26
   call void @_ZN5boost3log11v2_mt_posix16limitation_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %13
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitation_errorEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #9 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitation_errorEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 64) #26
   invoke void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitation_errorEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(56) %0)
           to label %3 unwind label %4
@@ -8274,7 +8268,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detai
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitation_errorEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitation_errorEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -8309,14 +8303,14 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix16limitation_error6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix16limitation_error6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.boost::exception_detail::error_info_injector.19", align 8
   %6 = alloca %"class.boost::log::v2_mt_posix::limitation_error", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %8, ptr %7, align 8, !tbaa !9
   %9 = icmp eq ptr %2, null
@@ -8328,7 +8322,7 @@ define void @_ZN5boost3log11v2_mt_posix16limitation_error6throw_EPKcmS4_(ptr nou
 
 10:                                               ; preds = %3
   %11 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %11, ptr %4, align 8, !tbaa !12
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i, label %._crit_edge.i.i
@@ -8363,7 +8357,7 @@ define void @_ZN5boost3log11v2_mt_posix16limitation_error6throw_EPKcmS4_(ptr nou
   %22 = load ptr, ptr %7, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %20
   store i8 0, ptr %23, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   invoke void @_ZN5boost3log11v2_mt_posix16limitation_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %24 unwind label %32
 
@@ -8445,18 +8439,18 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix16limitation_error6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix16limitation_error6throw_EPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.boost::exception_detail::error_info_injector.19", align 8
   %5 = alloca %"class.boost::log::v2_mt_posix::limitation_error", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN5boost3log11v2_mt_posix16limitation_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %2)
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(16) %5) #26
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -8509,8 +8503,8 @@ define void @_ZN5boost3log11v2_mt_posix16limitation_error6throw_EPKcmRKNSt7__cxx
 _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitation_errorEED2Ev.exit: ; preds = %13, %.noexc.i.i.i, %21
   call void @_ZN5boost3log11v2_mt_posix16limitation_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #26
   call void @_ZN5boost3log11v2_mt_posix16limitation_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %14
 }
 
@@ -8628,23 +8622,23 @@ _ZNK5boost6system10error_code6equalsEiRKNS0_14error_categoryE.exit: ; preds = %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost6system14error_category6failedEi(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %1) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost6system14error_category6failedEi(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %1) unnamed_addr #5 comdat align 2 {
   %3 = icmp ne i32 %1, 0
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNK5boost6system6detail21system_error_category4nameEv(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNK5boost6system6detail21system_error_category4nameEv(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #5 comdat align 2 {
   ret ptr @.str.19
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZNK5boost6system6detail21system_error_category7messageB5cxx11Ei(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(52) %1, i32 noundef %2) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK5boost6system6detail21system_error_category7messageB5cxx11Ei(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(52) %1, i32 noundef %2) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca [128 x i8], align 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !193)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !196)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #26, !noalias !199
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !199
   %6 = call ptr @strerror_r(i32 noundef %2, ptr noundef nonnull %5, i64 noundef 128) #26, !noalias !199
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %0, align 8, !tbaa !9, !alias.scope !199
@@ -8657,7 +8651,7 @@ define linkonce_odr hidden void @_ZNK5boost6system6detail21system_error_category
 
 9:                                                ; preds = %3
   %10 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26, !noalias !199
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !199
   store i64 %10, ptr %4, align 8, !tbaa !12, !noalias !199
   %11 = icmp ugt i64 %10, 15
   br i1 %11, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
@@ -8692,8 +8686,8 @@ _ZN5boost6system6detail29system_error_category_messageB5cxx11Ei.exit: ; preds = 
   %20 = load ptr, ptr %0, align 8, !tbaa !14, !alias.scope !199
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %18
   store i8 0, ptr %21, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26, !noalias !199
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #26, !noalias !199
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !199
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !199
   ret void
 }
 
@@ -8708,12 +8702,12 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost6system6detail21system_error_c
   br label %_ZN5boost6system6detail29system_error_category_messageEiPcm.exit
 
 8:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1
   %9 = call ptr @strerror_r(i32 noundef %1, ptr noundef nonnull %5, i64 noundef 0) #26
   %10 = icmp eq ptr %9, %5
   %11 = select i1 %10, ptr null, ptr %9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN5boost6system6detail29system_error_category_messageEiPcm.exit
 
 _ZN5boost6system6detail29system_error_category_messageEiPcm.exit: ; preds = %6, %8
@@ -8722,19 +8716,19 @@ _ZN5boost6system6detail29system_error_category_messageEiPcm.exit: ; preds = %6, 
 }
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
+declare noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZNKSt11logic_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
+declare noundef ptr @_ZNKSt11logic_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare ptr @strerror_r(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare ptr @strerror_r(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK5boost6system10error_code4whatB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK5boost6system10error_code4whatB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNK5boost6system10error_code7messageB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
@@ -8749,7 +8743,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit unwind label %55
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZNK5boost6system10error_code9to_stringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %10 unwind label %57
 
@@ -8792,7 +8786,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load i64, ptr %26, align 8, !tbaa !132
   %28 = icmp ugt i64 %27, 3
@@ -8809,7 +8803,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i14: ; pre
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit17 unwind label %55
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit17: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i14
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %34 = load i64, ptr %26, align 8, !tbaa !132
   %35 = icmp ugt i64 %34, 3
   %36 = and i64 %34, -2
@@ -8857,7 +8851,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i23, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %79
 
 55:                                               ; preds = %.invoke, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i14, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -8892,7 +8886,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i26, %57
   %.pn = phi { ptr, i32 } [ %58, %57 ], [ %60, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i26 ], [ %60, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %83
 
 68:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit17
@@ -8922,7 +8916,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i28
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i29, %68
   %.pn7 = phi { ptr, i32 } [ %69, %68 ], [ %71, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i29 ], [ %71, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i28 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %83
 
 79:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -8968,7 +8962,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37: ; preds = %_ZN
 }
 
 ; Function Attrs: nounwind
-declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
+declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6system12system_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
@@ -8977,18 +8971,18 @@ define linkonce_odr hidden void @_ZN5boost6system12system_errorD0Ev(ptr noundef 
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #10
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #9
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #10
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK5boost6system10error_code7messageB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK5boost6system10error_code7messageB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca [128 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -9012,7 +9006,7 @@ _ZNK5boost6system10error_code5valueEv.exit:       ; preds = %2
   %14 = load i32, ptr %1, align 8, !tbaa !16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !204)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !207)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #26, !noalias !210
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !210
   %15 = call ptr @strerror_r(i32 noundef %14, ptr noundef nonnull %4, i64 noundef 128) #26, !noalias !210
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %16, ptr %0, align 8, !tbaa !9, !alias.scope !210
@@ -9025,7 +9019,7 @@ _ZNK5boost6system10error_code5valueEv.exit:       ; preds = %2
 
 18:                                               ; preds = %_ZNK5boost6system10error_code5valueEv.exit
   %19 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26, !noalias !210
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !210
   store i64 %19, ptr %3, align 8, !tbaa !12, !noalias !210
   %20 = icmp ugt i64 %19, 15
   br i1 %20, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
@@ -9060,8 +9054,8 @@ _ZN5boost6system6detail29system_error_category_messageB5cxx11Ei.exit: ; preds = 
   %29 = load ptr, ptr %0, align 8, !tbaa !14, !alias.scope !210
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %27
   store i8 0, ptr %30, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26, !noalias !210
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #26, !noalias !210
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !210
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !210
   br label %37
 
 _ZNK5boost6system10error_code8categoryEv.exit.thread: ; preds = %2
@@ -9079,7 +9073,7 @@ _ZNK5boost6system10error_code8categoryEv.exit.thread: ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK5boost6system10error_code9to_stringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK5boost6system10error_code9to_stringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [32 x i8], align 16
   %4 = alloca i64, align 8
   %5 = alloca [32 x i8], align 16
@@ -9116,7 +9110,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
   %22 = load i32, ptr %1, align 8, !tbaa !203
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 32, ptr noundef nonnull @.str.18, i32 noundef %22) #26
   %24 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #26
   %25 = load i64, ptr %9, align 8, !tbaa !17
@@ -9136,7 +9130,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i: ; preds = %_
           to label %_ZN5boost6system6detail10append_intERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit unwind label %29
 
 _ZN5boost6system6detail10append_intERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %85
 
 29:                                               ; preds = %.invoke, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -9182,7 +9176,7 @@ _ZNK5boost6system10error_code13category_nameEv.exit: ; preds = %2
   %46 = phi ptr [ %37, %_ZNK5boost6system10error_code13category_nameEv.exit.thread ], [ %43, %_ZNK5boost6system10error_code13category_nameEv.exit ]
   %.0.i29 = phi ptr [ @.str.19, %_ZNK5boost6system10error_code13category_nameEv.exit.thread ], [ %42, %_ZNK5boost6system10error_code13category_nameEv.exit ]
   %47 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i29) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %47, ptr %4, align 8, !tbaa !12
   %48 = icmp ugt i64 %47, 15
   br i1 %48, label %.noexc.i15, label %._crit_edge.i.i14
@@ -9217,7 +9211,7 @@ _ZNK5boost6system10error_code13category_nameEv.exit: ; preds = %2
   %58 = load ptr, ptr %0, align 8, !tbaa !14
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 %56
   store i8 0, ptr %59, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %60 = load i64, ptr %6, align 8, !tbaa !132
   %.not.i = icmp eq i64 %60, 1
   %61 = load i32, ptr %1, align 8, !tbaa !16
@@ -9235,7 +9229,7 @@ _ZNK5boost6system10error_code13category_nameEv.exit: ; preds = %2
 
 _ZNK5boost6system10error_code5valueEv.exit:       ; preds = %55, %62
   %.0.i19 = phi i32 [ %69, %62 ], [ %61, %55 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %70 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 32, ptr noundef nonnull @.str.18, i32 noundef %.0.i19) #26
   %71 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #26
   %72 = load i64, ptr %57, align 8, !tbaa !17
@@ -9255,7 +9249,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i20: ; preds = 
           to label %_ZN5boost6system6detail10append_intERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit23 unwind label %77
 
 _ZN5boost6system6detail10append_intERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit23: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %85
 
 77:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i20, %75
@@ -9286,7 +9280,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK5boost15source_location9to_stringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK5boost15source_location9to_stringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca [16 x i8], align 16
@@ -9299,7 +9293,7 @@ define linkonce_odr hidden void @_ZNK5boost15source_location9to_stringB5cxx11Ev(
 .noexc.i:                                         ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %10, ptr %0, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 25, ptr %4, align 8, !tbaa !12
   %11 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
   store ptr %11, ptr %0, align 8, !tbaa !14
@@ -9311,7 +9305,7 @@ define linkonce_odr hidden void @_ZNK5boost15source_location9to_stringB5cxx11Ev(
   %14 = load ptr, ptr %0, align 8, !tbaa !14
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %12
   store i8 0, ptr %15, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %93
 
 16:                                               ; preds = %2
@@ -9327,7 +9321,7 @@ define linkonce_odr hidden void @_ZNK5boost15source_location9to_stringB5cxx11Ev(
 
 20:                                               ; preds = %16
   %21 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %21, ptr %3, align 8, !tbaa !12
   %22 = icmp ugt i64 %21, 15
   br i1 %22, label %.noexc.i20, label %._crit_edge.i.i19
@@ -9362,8 +9356,8 @@ define linkonce_odr hidden void @_ZNK5boost15source_location9to_stringB5cxx11Ev(
   %32 = load ptr, ptr %0, align 8, !tbaa !14
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 %30
   store i8 0, ptr %33, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 16, ptr noundef nonnull @.str.23, i64 noundef %8) #26
   %35 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #26
   %36 = load i64, ptr %31, align 8, !tbaa !17
@@ -9495,12 +9489,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKS
   br label %86
 
 85:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit29
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %93
 
 86:                                               ; preds = %54, %83, %52
   %.pn.pn = phi { ptr, i32 } [ %53, %52 ], [ %84, %83 ], [ %55, %54 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %87 = load ptr, ptr %0, align 8, !tbaa !14
   %88 = icmp eq ptr %87, %18
   br i1 %88, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -9525,25 +9519,25 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #16
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #15
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #10
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #9
 
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #14
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #13
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #10
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZNK5boost10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS2_14attribute_nameEE17name_value_stringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #12 comdat align 2 {
+define linkonce_odr hidden void @_ZNK5boost10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS2_14attribute_nameEE17name_value_stringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #11 comdat align 2 {
   tail call void @_ZN5boost9to_stringINS_3log11v2_mt_posix23attribute_name_info_tagENS2_14attribute_nameEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_10error_infoIT_T0_EE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZNK5boost10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS2_14attribute_nameEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef ptr @_ZNK5boost10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS2_14attribute_nameEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS2_14attribute_nameEEE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -9554,25 +9548,25 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost10error_infoINS_3log11v2_mt_po
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS2_14attribute_nameEED0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden void @_ZN5boost10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS2_14attribute_nameEED0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #5 comdat align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #29
   ret void
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #17
+declare void @llvm.trap() #16
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost9to_stringINS_3log11v2_mt_posix23attribute_name_info_tagENS2_14attribute_nameEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_10error_infoIT_T0_EE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %1) local_unnamed_addr #12 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost9to_stringINS_3log11v2_mt_posix23attribute_name_info_tagENS2_14attribute_nameEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_10error_infoIT_T0_EE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %1) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5boost4core8demangleB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @_ZTSPN5boost3log11v2_mt_posix23attribute_name_info_tagE)
   %8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 0, i64 noundef 0, i64 noundef 1, i8 noundef signext 91)
           to label %.noexc unwind label %145
@@ -9658,7 +9652,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
   store ptr %29, ptr %26, align 8, !tbaa !14
   store i64 0, ptr %39, align 8, !tbaa !17
   store i8 0, ptr %29, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   invoke void @_ZN5boost9to_stringINS_3log11v2_mt_posix14attribute_nameEEENS_9enable_ifINS_20is_output_streamableIT_cSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEE4typeERKS6_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 4 dereferenceable(4) %41)
           to label %_ZN5boost14to_string_stubINS_3log11v2_mt_posix14attribute_nameEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit unwind label %149
@@ -9864,7 +9858,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i27
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i27
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %125 = load ptr, ptr %4, align 8, !tbaa !14
   %126 = icmp eq ptr %125, %27
   br i1 %126, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i31, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i30
@@ -9918,10 +9912,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i37, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 145:                                              ; preds = %2
@@ -9985,7 +9979,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i42
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i43, %149
   %.pn.pn = phi { ptr, i32 } [ %150, %149 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i43 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i42 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %169 = load ptr, ptr %4, align 8, !tbaa !14
   %170 = icmp eq ptr %169, %27
   br i1 %170, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i46, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i45
@@ -10041,23 +10035,23 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i52, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #10
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #9
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost4core8demangleB5cxx11EPKc(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1) local_unnamed_addr #12 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost4core8demangleB5cxx11EPKc(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !12
   %6 = invoke ptr @__cxa_demangle(ptr noundef %1, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull %4)
           to label %_ZN5boost4core21scoped_demangled_nameC2EPKc.exit unwind label %7
@@ -10070,8 +10064,8 @@ define linkonce_odr hidden void @_ZN5boost4core8demangleB5cxx11EPKc(ptr dead_on_
   unreachable
 
 _ZN5boost4core21scoped_demangled_nameC2EPKc.exit: ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp eq ptr %6, null
   %spec.select = select i1 %.not, ptr %1, ptr %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10088,7 +10082,7 @@ _ZN5boost4core21scoped_demangled_nameC2EPKc.exit: ; preds = %2
 
 13:                                               ; preds = %_ZN5boost4core21scoped_demangled_nameC2EPKc.exit
   %14 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %14, ptr %3, align 8, !tbaa !12
   %15 = icmp ugt i64 %14, 15
   br i1 %15, label %.noexc.i, label %._crit_edge.i.i
@@ -10126,7 +10120,7 @@ _ZN5boost4core21scoped_demangled_nameC2EPKc.exit: ; preds = %2
   %25 = load ptr, ptr %0, align 8, !tbaa !14
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %23
   store i8 0, ptr %26, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @free(ptr noundef %6) #26
   ret void
 
@@ -10137,15 +10131,15 @@ _ZN5boost4core21scoped_demangled_nameC2EPKc.exit: ; preds = %2
   resume { ptr, i32 } %28
 }
 
-declare ptr @__cxa_demangle(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
+declare ptr @__cxa_demangle(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #18
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost9to_stringINS_3log11v2_mt_posix14attribute_nameEEENS_9enable_ifINS_20is_output_streamableIT_cSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEE4typeERKS6_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #12 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost9to_stringINS_3log11v2_mt_posix14attribute_nameEEENS_9enable_ifINS_20is_output_streamableIT_cSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS8_SaIcEEEE4typeERKS6_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
-  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
   %4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost3log11v2_mt_posixlsIcSt11char_traitsIcEEERSt13basic_ostreamIT_T0_ES9_RKNS1_14attribute_nameE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %5 unwind label %47
@@ -10237,7 +10231,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %45) #26
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 112
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %46) #26
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 47:                                               ; preds = %2
@@ -10248,37 +10242,37 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 .body:                                            ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %47
   %eh.lpad-body = phi { ptr, i32 } [ %48, %47 ], [ %21, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %21, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #26
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %eh.lpad-body
 }
 
 ; Function Attrs: mustprogress uwtable
-declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #4 align 2
+declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #3 align 2
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost3log11v2_mt_posixlsIcSt11char_traitsIcEEERSt13basic_ostreamIT_T0_ES9_RKNS1_14attribute_nameE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #10
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost3log11v2_mt_posixlsIcSt11char_traitsIcEEERSt13basic_ostreamIT_T0_ES9_RKNS1_14attribute_nameE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #6 align 2
+declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #5 align 2
 
 ; Function Attrs: nounwind
-declare void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #5
+declare void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #5
+declare void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #10
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #9
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #10
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #19
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5boost16exception_detail11set_info_rvINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS4_14attribute_nameEEEE3setINS_9exceptionEEERKT_SD_OS7_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5boost16exception_detail11set_info_rvINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS4_14attribute_nameEEEE3setINS_9exceptionEEERKT_SD_OS7_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::shared_ptr", align 8
   %4 = alloca %"class.boost::shared_ptr.25", align 8
   %5 = alloca %"struct.boost::exception_detail::type_info_", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS2_14attribute_nameEEE, i64 16), ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -10375,12 +10369,12 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv
 
 _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2INS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS7_14attribute_nameEEEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleISB_S2_E4typeE.exit: ; preds = %_ZN5boost10shared_ptrINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS3_14attribute_nameEEEEC2IS6_EEPT_.exit, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i
   %.0818 = phi ptr [ %30, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i ], [ %28, %_ZN5boost10shared_ptrINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS3_14attribute_nameEEEEC2IS6_EEPT_.exit ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8, !tbaa !264
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %11, ptr %42, align 8, !tbaa !242
   %43 = atomicrmw add ptr %24, i32 1 monotonic, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @_ZTIN5boost10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS2_14attribute_nameEEE, ptr %5, align 8, !tbaa !266
   %44 = load ptr, ptr %.0818, align 8, !tbaa !3
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -10389,7 +10383,7 @@ _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2INS_10error_info
           to label %47 unwind label %86
 
 47:                                               ; preds = %_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2INS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS7_14attribute_nameEEEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleISB_S2_E4typeE.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %48 = load ptr, ptr %42, align 8, !tbaa !242
   %.not.i.i13 = icmp eq ptr %48, null
   br i1 %.not.i.i13, label %_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit, label %49
@@ -10428,7 +10422,7 @@ _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2INS_10error_info
   unreachable
 
 _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit: ; preds = %47, %49, %.noexc.i.i, %60
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %67 = load ptr, ptr %10, align 8, !tbaa !242
   %.not.i.i14 = icmp eq ptr %67, null
   br i1 %.not.i.i14, label %_ZN5boost10shared_ptrINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS3_14attribute_nameEEEED2Ev.exit, label %68
@@ -10467,21 +10461,21 @@ _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit: ; preds
   unreachable
 
 _ZN5boost10shared_ptrINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS3_14attribute_nameEEEED2Ev.exit: ; preds = %_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit, %68, %.noexc.i.i15, %79
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %0
 
 86:                                               ; preds = %_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2INS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS7_14attribute_nameEEEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleISB_S2_E4typeE.exit
   %87 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %88
 
 88:                                               ; preds = %86, %40
   %.pn = phi { ptr, i32 } [ %87, %86 ], [ %41, %40 ]
   call void @_ZN5boost10shared_ptrINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS3_14attribute_nameEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 }
 
@@ -10574,7 +10568,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %1, %4, %.noexc.i, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost6detail12shared_countD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost6detail12shared_countD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !242
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN5boost6detail15sp_counted_base7releaseEv.exit, label %3
@@ -10625,7 +10619,7 @@ define linkonce_odr hidden void @_ZN5boost6detail17sp_counted_impl_pINS_10error_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost6detail17sp_counted_impl_pINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS4_14attribute_nameEEEE7disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden void @_ZN5boost6detail17sp_counted_impl_pINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS4_14attribute_nameEEEE7disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !246
   %4 = icmp eq ptr %3, null
@@ -10643,7 +10637,7 @@ _ZN5boost14checked_deleteINS_10error_infoINS_3log11v2_mt_posix23attribute_name_i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost6detail15sp_counted_base7destroyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden void @_ZN5boost6detail15sp_counted_base7destroyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -10652,22 +10646,22 @@ define linkonce_odr hidden void @_ZN5boost6detail15sp_counted_base7destroyEv(ptr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZN5boost6detail17sp_counted_impl_pINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS4_14attribute_nameEEEE11get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZN5boost6detail17sp_counted_impl_pINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS4_14attribute_nameEEEE11get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 comdat align 2 {
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZN5boost6detail17sp_counted_impl_pINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS4_14attribute_nameEEEE17get_local_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZN5boost6detail17sp_counted_impl_pINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS4_14attribute_nameEEEE17get_local_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 comdat align 2 {
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZN5boost6detail17sp_counted_impl_pINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS4_14attribute_nameEEEE19get_untyped_deleterEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZN5boost6detail17sp_counted_impl_pINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS4_14attribute_nameEEEE19get_untyped_deleterEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
   ret ptr null
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZNK5boost16exception_detail25error_info_container_impl22diagnostic_informationEPKc(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef ptr @_ZNK5boost16exception_detail25error_info_container_impl22diagnostic_informationEPKc(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10675,7 +10669,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost16exception_detail25error_info
   br i1 %.not, label %91, label %6
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
   %7 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #26
   %8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %1, i64 noundef %7)
@@ -10694,7 +10688,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %6
   br label %40
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !268)
   call void @llvm.experimental.noalias.scope.decl(metadata !271)
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -10755,7 +10749,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %.sroa.018.023 = phi ptr [ %10, %.lr.ph ], [ %55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.018.023, i64 40
   %42 = load ptr, ptr %41, align 8, !tbaa !264
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %43 = load ptr, ptr %42, align 8, !tbaa !3
   %44 = load ptr, ptr %43, align 8
   invoke void %44(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %42)
@@ -10785,7 +10779,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %55 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.018.023) #31
   %.not21 = icmp eq ptr %55, %11
   br i1 %.not21, label %._crit_edge, label %40, !llvm.loop !275
@@ -10816,7 +10810,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i13, %56
   %.pn = phi { ptr, i32 } [ %57, %56 ], [ %59, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i13 ], [ %59, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %90
 
 _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; preds = %36, %21
@@ -10839,7 +10833,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %73 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %73, ptr %3, align 8, !tbaa !3
   %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
@@ -10874,17 +10868,17 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %88) #26
   %89 = getelementptr inbounds nuw i8, ptr %3, i64 112
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %89) #26
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %91
 
 .body:                                            ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %90
 
 90:                                               ; preds = %.body, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14, %38
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14 ], [ %29, %.body ], [ %39, %38 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #26
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn
 
 91:                                               ; preds = %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %2
@@ -10894,7 +10888,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK5boost16exception_detail25error_info_container_impl3getERKNS0_10type_info_E(ptr dead_on_unwind noalias writable sret(%"class.boost::shared_ptr.25") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK5boost16exception_detail25error_info_container_impl3getERKNS0_10type_info_E(ptr dead_on_unwind noalias writable sret(%"class.boost::shared_ptr.25") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !252
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -10991,7 +10985,7 @@ _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2ERKS3_.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost16exception_detail25error_info_container_impl3setERKNS_10shared_ptrINS0_15error_info_baseEEERKNS0_10type_info_E(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost16exception_detail25error_info_container_impl3setERKNS_10shared_ptrINS0_15error_info_baseEEERKNS0_10type_info_E(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIN5boost16exception_detail10type_info_ENS0_10shared_ptrINS1_15error_info_baseEEESt4lessIS2_ESaISt4pairIKS2_S5_EEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %6 = load ptr, ptr %1, align 8, !tbaa !264
@@ -11056,7 +11050,7 @@ _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEaSERKS3_.exit: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNK5boost16exception_detail25error_info_container_impl7add_refEv(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden void @_ZNK5boost16exception_detail25error_info_container_impl7add_refEv(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8, !tbaa !256
   %4 = add nsw i32 %3, 1
@@ -11065,7 +11059,7 @@ define linkonce_odr hidden void @_ZNK5boost16exception_detail25error_info_contai
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost16exception_detail25error_info_container_impl7releaseEv(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost16exception_detail25error_info_container_impl7releaseEv(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8, !tbaa !256
   %4 = add nsw i32 %3, -1
@@ -11116,7 +11110,7 @@ _ZN5boost16exception_detail25error_info_container_implD2Ev.exit: ; preds = %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK5boost16exception_detail25error_info_container_impl5cloneEv(ptr dead_on_unwind noalias writable sret(%"class.boost::exception_detail::refcount_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK5boost16exception_detail25error_info_container_impl5cloneEv(ptr dead_on_unwind noalias writable sret(%"class.boost::exception_detail::refcount_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::shared_ptr.25", align 8
   %4 = alloca %"struct.std::pair.32", align 8
   store ptr null, ptr %0, align 8, !tbaa !26
@@ -11167,7 +11161,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv
 
 24:                                               ; preds = %.lr.ph, %_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit
   %.sroa.013.025 = phi ptr [ %16, %.lr.ph ], [ %95, %_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.013.025, i64 32
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.013.025, i64 40
   %27 = load ptr, ptr %26, align 8, !tbaa !264
@@ -11231,7 +11225,7 @@ _ZN5boost14checked_deleteINS_16exception_detail15error_info_baseEEEvPT_.exit.i.i
   %52 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store ptr %31, ptr %52, align 8, !tbaa !281
   store ptr %33, ptr %18, align 8, !tbaa !242
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !283)
   %53 = load i64, ptr %25, align 8, !tbaa !279, !noalias !283
   store i64 %53, ptr %4, align 8, !tbaa !279, !alias.scope !283
@@ -11280,7 +11274,7 @@ _ZN5boost14checked_deleteINS_16exception_detail15error_info_baseEEEvPT_.exit.i.i
   unreachable
 
 _ZNSt4pairIN5boost16exception_detail10type_info_ENS0_10shared_ptrINS1_15error_info_baseEEEED2Ev.exit: ; preds = %56, %58, %.noexc.i.i.i, %69
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %76 = load ptr, ptr %18, align 8, !tbaa !242
   %.not.i.i12 = icmp eq ptr %76, null
   br i1 %.not.i.i12, label %_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit, label %77
@@ -11319,7 +11313,7 @@ _ZNSt4pairIN5boost16exception_detail10type_info_ENS0_10shared_ptrINS1_15error_in
   unreachable
 
 _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit: ; preds = %_ZNSt4pairIN5boost16exception_detail10type_info_ENS0_10shared_ptrINS1_15error_info_baseEEEED2Ev.exit, %77, %.noexc.i.i, %88
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %95 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.013.025) #31
   %.not = icmp eq ptr %95, %17
   br i1 %.not, label %._crit_edge, label %24, !llvm.loop !286
@@ -11333,13 +11327,13 @@ _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit: ; preds
   %99 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt4pairIN5boost16exception_detail10type_info_ENS0_10shared_ptrINS1_15error_info_baseEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #26
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #26
   br label %.body
 
 .body:                                            ; preds = %96, %.body.i, %98
   %.pn.pn = phi { ptr, i32 } [ %99, %98 ], [ %97, %96 ], [ %44, %.body.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %100
 
 100:                                              ; preds = %.body, %22
@@ -11349,16 +11343,16 @@ _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #20
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #15
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIN5boost16exception_detail10type_info_ENS0_10shared_ptrINS1_15error_info_baseEEESt4lessIS2_ESaISt4pairIKS2_S5_EEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIN5boost16exception_detail10type_info_ENS0_10shared_ptrINS1_15error_info_baseEEESt4lessIS2_ESaISt4pairIKS2_S5_EEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::tuple", align 8
   %4 = alloca %"class.std::tuple.26", align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11434,12 +11428,12 @@ _ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit: ; preds = %
 
 .critedge:                                        ; preds = %2, %_ZNSt3mapIN5boost16exception_detail10type_info_ENS0_10shared_ptrINS1_15error_info_baseEEESt4lessIS2_ESaISt4pairIKS2_S5_EEE11lower_boundERS9_.exit, %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit
   %.08.lcssa.i.i.i11 = phi ptr [ %.19.i.i.i, %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit ], [ %.19.i.i.i, %_ZNSt3mapIN5boost16exception_detail10type_info_ENS0_10shared_ptrINS1_15error_info_baseEEESt4lessIS2_ESaISt4pairIKS2_S5_EEE11lower_boundERS9_.exit ], [ %7, %2 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !279
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %40 = call ptr @_ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS4_EESJ_IJEEEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i11, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit.thread
 
 _ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit.thread: ; preds = %26, %.critedge, %_ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit
@@ -11449,9 +11443,9 @@ _ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit.thread: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS4_EESJ_IJEEEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS4_EESJ_IJEEEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.std::_Rb_tree<boost::exception_detail::type_info_, std::pair<const boost::exception_detail::type_info_, boost::shared_ptr<boost::exception_detail::error_info_base>>, std::_Select1st<std::pair<const boost::exception_detail::type_info_, boost::shared_ptr<boost::exception_detail::error_info_base>>>, std::less<boost::exception_detail::type_info_>>::_Auto_node", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8, !tbaa !279
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #30
@@ -11516,7 +11510,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIN5boost16exception_detail10type_i
   %43 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %43
 
 44:                                               ; preds = %15
@@ -11564,12 +11558,12 @@ _ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_pt
 
 _ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE10_Auto_nodeD2Ev.exit: ; preds = %.thread, %_ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i
   %.sroa.0.010 = phi ptr [ %8, %.thread ], [ %16, %_ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.sroa.0.010
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %30
@@ -11726,7 +11720,7 @@ _ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit21.thread: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !288
   %.not = icmp eq ptr %3, null
@@ -11780,7 +11774,7 @@ _ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE24_M_get_insert_unique_posERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE24_M_get_insert_unique_posERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.02425 = load ptr, ptr %3, align 8, !tbaa !279
@@ -11878,16 +11872,16 @@ _ZNKSt4lessIN5boost16exception_detail10type_info_EEclERKS2_S5_.exit8.thread: ; p
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #20
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #20
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: nounwind
-declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
+declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not6 = icmp eq ptr %1, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
@@ -11946,7 +11940,7 @@ _ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden { ptr, i8 } @_ZNSt3mapIN5boost16exception_detail10type_info_ENS0_10shared_ptrINS1_15error_info_baseEEESt4lessIS2_ESaISt4pairIKS2_S5_EEE6insertIS8_IS2_S5_EEENSt9enable_ifIXsr16is_constructibleISA_T_EE5valueES8_ISt17_Rb_tree_iteratorISA_EbEE4typeEOSG_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden { ptr, i8 } @_ZNSt3mapIN5boost16exception_detail10type_info_ENS0_10shared_ptrINS1_15error_info_baseEEESt4lessIS2_ESaISt4pairIKS2_S5_EEE6insertIS8_IS2_S5_EEENSt9enable_ifIXsr16is_constructibleISA_T_EE5valueES8_ISt17_Rb_tree_iteratorISA_EbEE4typeEOSG_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !252
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12076,7 +12070,7 @@ _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !26
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit, label %3
@@ -12113,7 +12107,7 @@ define linkonce_odr hidden void @_ZN5boost6detail17sp_counted_impl_pINS_16except
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost6detail17sp_counted_impl_pINS_16exception_detail15error_info_baseEE7disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden void @_ZN5boost6detail17sp_counted_impl_pINS_16exception_detail15error_info_baseEE7disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !281
   %4 = icmp eq ptr %3, null
@@ -12131,24 +12125,24 @@ _ZN5boost14checked_deleteINS_16exception_detail15error_info_baseEEEvPT_.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZN5boost6detail17sp_counted_impl_pINS_16exception_detail15error_info_baseEE11get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZN5boost6detail17sp_counted_impl_pINS_16exception_detail15error_info_baseEE11get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 comdat align 2 {
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZN5boost6detail17sp_counted_impl_pINS_16exception_detail15error_info_baseEE17get_local_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZN5boost6detail17sp_counted_impl_pINS_16exception_detail15error_info_baseEE17get_local_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 comdat align 2 {
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZN5boost6detail17sp_counted_impl_pINS_16exception_detail15error_info_baseEE19get_untyped_deleterEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZN5boost6detail17sp_counted_impl_pINS_16exception_detail15error_info_baseEE19get_untyped_deleterEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
   ret ptr null
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE22_M_emplace_hint_uniqueIJS3_IS2_S7_EEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE22_M_emplace_hint_uniqueIJS3_IS2_S7_EEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::_Rb_tree<boost::exception_detail::type_info_, std::pair<const boost::exception_detail::type_info_, boost::shared_ptr<boost::exception_detail::error_info_base>>, std::_Select1st<std::pair<const boost::exception_detail::type_info_, boost::shared_ptr<boost::exception_detail::error_info_base>>>, std::less<boost::exception_detail::type_info_>>::_Auto_node", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !279
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #30
@@ -12218,7 +12212,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIN5boost16exception_detail10type_i
   %44 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %44
 
 45:                                               ; preds = %16
@@ -12265,12 +12259,12 @@ _ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_pt
 
 _ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE10_Auto_nodeD2Ev.exit: ; preds = %.thread, %_ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i
   %.sroa.0.08 = phi ptr [ %6, %.thread ], [ %17, %_ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_ptrINS1_15error_info_baseEEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.sroa.0.08
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix9bad_allocEED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix9bad_allocEED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -12327,7 +12321,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix9bad_allocE
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn40_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix9bad_allocEED1Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn40_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix9bad_allocEED1Ev(ptr noundef %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12383,7 +12377,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix9bad_allocE
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn40_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix9bad_allocEED0Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn40_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix9bad_allocEED0Ev(ptr noundef %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12442,7 +12436,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix9bad_allocE
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix9bad_allocEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix9bad_allocEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12454,7 +12448,7 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19er
   %8 = load ptr, ptr %6, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %10, ptr %3, align 8, !tbaa !12
   %11 = icmp ugt i64 %10, 15
   br i1 %11, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
@@ -12498,7 +12492,7 @@ _ZN5boost3log11v2_mt_posix9bad_allocC2ERKS2_.exit.i: ; preds = %17, %15, %._crit
   %22 = load ptr, ptr %5, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %20
   store i8 0, ptr %23, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %24, align 8, !tbaa !3
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -12631,10 +12625,10 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix9bad_allocE
 }
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #22
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix9bad_allocEEEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix9bad_allocEEEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #30
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %3, align 8, !tbaa !3
@@ -12647,7 +12641,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_16exception_de
   %8 = load ptr, ptr %6, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %10, ptr %2, align 8, !tbaa !12
   %11 = icmp ugt i64 %10, 15
   br i1 %11, label %.noexc.i.i.i.i, label %._crit_edge.i.i.i.i.i
@@ -12691,7 +12685,7 @@ _ZN5boost3log11v2_mt_posix9bad_allocC2ERKS2_.exit.i.i: ; preds = %17, %15, %._cr
   %22 = load ptr, ptr %5, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %20
   store i8 0, ptr %23, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %24, align 8, !tbaa !3
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -12748,7 +12742,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix9bad_allocEEEE7rethrowEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix9bad_allocEEEE7rethrowEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 88) #26
   invoke void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix9bad_allocEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(88) %0)
           to label %3 unwind label %4
@@ -12823,7 +12817,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix9bad_allocEEEED1Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix9bad_allocEEEED1Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -12879,7 +12873,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix9bad_allocEEEED0Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix9bad_allocEEEED0Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -12937,7 +12931,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn48_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix9bad_allocEEEED1Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn48_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix9bad_allocEEEED1Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12993,7 +12987,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn48_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix9bad_allocEEEED0Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn48_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix9bad_allocEEEED0Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13051,18 +13045,18 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost16exception_detail10clone_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden void @_ZN5boost16exception_detail10clone_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost16exception_detail10clone_baseD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden void @_ZN5boost16exception_detail10clone_baseD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 {
   tail call void @llvm.trap() #27
   unreachable
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix9bad_allocEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix9bad_allocEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13074,7 +13068,7 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19er
   %8 = load ptr, ptr %6, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %10, ptr %3, align 8, !tbaa !12
   %11 = icmp ugt i64 %10, 15
   br i1 %11, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
@@ -13118,7 +13112,7 @@ _ZN5boost3log11v2_mt_posix9bad_allocC2ERKS2_.exit.i: ; preds = %17, %15, %._crit
   %22 = load ptr, ptr %5, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %20
   store i8 0, ptr %23, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %24, align 8, !tbaa !3
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -13156,7 +13150,7 @@ _ZN5boost3log11v2_mt_posix9bad_allocC2ERKS2_.exit.i: ; preds = %17, %15, %._crit
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #12 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::exception_detail::refcount_ptr", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !26
@@ -13164,7 +13158,7 @@ define linkonce_odr hidden void @_ZN5boost16exception_detail20copy_boost_excepti
   br i1 %.not, label %36, label %6
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = load ptr, ptr %5, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8
@@ -13203,7 +13197,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEaSERKS3_.e
   unreachable
 
 _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit: ; preds = %15, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEaSERKS3_.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %36
 
 23:                                               ; preds = %6
@@ -13235,7 +13229,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit:
 _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit22: ; preds = %28, %25, %23
   %.sroa.0.2 = phi ptr [ null, %23 ], [ %10, %25 ], [ %10, %28 ]
   %.pn = phi { ptr, i32 } [ %24, %23 ], [ %26, %25 ], [ %26, %28 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %69
 
 36:                                               ; preds = %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit, %2
@@ -13327,7 +13321,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_limit_reachedEED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_limit_reachedEED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -13363,7 +13357,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn40_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_limit_reachedEED1Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn40_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_limit_reachedEED1Ev(ptr noundef %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -13398,7 +13392,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn40_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_limit_reachedEED0Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn40_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_limit_reachedEED0Ev(ptr noundef %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -13434,7 +13428,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_limit_reachedEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_limit_reachedEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13446,7 +13440,7 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19er
   %8 = load ptr, ptr %6, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %10, ptr %3, align 8, !tbaa !12
   %11 = icmp ugt i64 %10, 15
   br i1 %11, label %.noexc.i.i.i.i, label %._crit_edge.i.i.i.i.i
@@ -13490,7 +13484,7 @@ _ZN5boost3log11v2_mt_posix22capacity_limit_reachedC2ERKS2_.exit.i: ; preds = %17
   %22 = load ptr, ptr %5, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %20
   store i8 0, ptr %23, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix22capacity_limit_reachedE, i64 16), ptr %4, align 8, !tbaa !3
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %24, align 8, !tbaa !3
@@ -13601,7 +13595,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_limit_reachedEEEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_limit_reachedEEEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #30
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %3, align 8, !tbaa !3
@@ -13614,7 +13608,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_16exception_de
   %8 = load ptr, ptr %6, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %10, ptr %2, align 8, !tbaa !12
   %11 = icmp ugt i64 %10, 15
   br i1 %11, label %.noexc.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i
@@ -13658,7 +13652,7 @@ _ZN5boost3log11v2_mt_posix22capacity_limit_reachedC2ERKS2_.exit.i.i: ; preds = %
   %22 = load ptr, ptr %5, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %20
   store i8 0, ptr %23, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix22capacity_limit_reachedE, i64 16), ptr %4, align 8, !tbaa !3
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %24, align 8, !tbaa !3
@@ -13716,7 +13710,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_limit_reachedEEEE7rethrowEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_limit_reachedEEEE7rethrowEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 88) #26
   invoke void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_limit_reachedEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(88) %0)
           to label %3 unwind label %4
@@ -13770,7 +13764,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_limit_reachedEEEED1Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_limit_reachedEEEED1Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -13805,7 +13799,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_limit_reachedEEEED0Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_limit_reachedEEEED0Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -13842,7 +13836,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn48_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_limit_reachedEEEED1Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn48_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_limit_reachedEEEED1Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -13877,7 +13871,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn48_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_limit_reachedEEEED0Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn48_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_limit_reachedEEEED0Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -13914,7 +13908,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_limit_reachedEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix22capacity_limit_reachedEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13926,7 +13920,7 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19er
   %8 = load ptr, ptr %6, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %10, ptr %3, align 8, !tbaa !12
   %11 = icmp ugt i64 %10, 15
   br i1 %11, label %.noexc.i.i.i.i, label %._crit_edge.i.i.i.i.i
@@ -13970,7 +13964,7 @@ _ZN5boost3log11v2_mt_posix22capacity_limit_reachedC2ERKS2_.exit.i: ; preds = %17
   %22 = load ptr, ptr %5, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %20
   store i8 0, ptr %23, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix22capacity_limit_reachedE, i64 16), ptr %4, align 8, !tbaa !3
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %24, align 8, !tbaa !3
@@ -14009,7 +14003,7 @@ _ZN5boost3log11v2_mt_posix22capacity_limit_reachedC2ERKS2_.exit.i: ; preds = %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_valueEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_valueEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -14045,7 +14039,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_v
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_valueEED1Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_valueEED1Ev(ptr noundef %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -14080,7 +14074,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_v
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_valueEED0Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_valueEED0Ev(ptr noundef %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -14116,10 +14110,10 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_v
 }
 
 ; Function Attrs: nounwind
-declare void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
+declare void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_valueEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_valueEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %1) #26
@@ -14233,7 +14227,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_v
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_valueEEEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_valueEEEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #30
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -14292,7 +14286,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_valueEEEE7rethrowEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_valueEEEE7rethrowEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 64) #26
   invoke void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_valueEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %0)
           to label %3 unwind label %4
@@ -14346,7 +14340,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_valueEEEED1Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_valueEEEED1Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -14381,7 +14375,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_valueEEEED0Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_valueEEEED0Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -14418,7 +14412,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_valueEEEED1Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_valueEEEED1Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -14453,7 +14447,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_valueEEEED0Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_valueEEEED0Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -14490,7 +14484,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_valueEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_valueEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -14529,11 +14523,11 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19er
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN5boost16exception_detail11set_info_rvINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS4_14attribute_nameEEEE3setINS0_19error_info_injectorINS4_13missing_valueEEEEERKT_SF_OS7_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN5boost16exception_detail11set_info_rvINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS4_14attribute_nameEEEE3setINS0_19error_info_injectorINS4_13missing_valueEEEEERKT_SF_OS7_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::shared_ptr", align 8
   %4 = alloca %"class.boost::shared_ptr.25", align 8
   %5 = alloca %"struct.boost::exception_detail::type_info_", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS2_14attribute_nameEEE, i64 16), ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -14630,12 +14624,12 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv
 
 _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2INS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS7_14attribute_nameEEEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleISB_S2_E4typeE.exit: ; preds = %_ZN5boost10shared_ptrINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS3_14attribute_nameEEEEC2IS6_EEPT_.exit, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i
   %.0818 = phi ptr [ %30, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i ], [ %28, %_ZN5boost10shared_ptrINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS3_14attribute_nameEEEEC2IS6_EEPT_.exit ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8, !tbaa !264
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %11, ptr %42, align 8, !tbaa !242
   %43 = atomicrmw add ptr %24, i32 1 monotonic, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @_ZTIN5boost10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS2_14attribute_nameEEE, ptr %5, align 8, !tbaa !266
   %44 = load ptr, ptr %.0818, align 8, !tbaa !3
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -14644,7 +14638,7 @@ _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2INS_10error_info
           to label %47 unwind label %86
 
 47:                                               ; preds = %_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2INS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS7_14attribute_nameEEEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleISB_S2_E4typeE.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %48 = load ptr, ptr %42, align 8, !tbaa !242
   %.not.i.i13 = icmp eq ptr %48, null
   br i1 %.not.i.i13, label %_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit, label %49
@@ -14683,7 +14677,7 @@ _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2INS_10error_info
   unreachable
 
 _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit: ; preds = %47, %49, %.noexc.i.i, %60
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %67 = load ptr, ptr %10, align 8, !tbaa !242
   %.not.i.i14 = icmp eq ptr %67, null
   br i1 %.not.i.i14, label %_ZN5boost10shared_ptrINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS3_14attribute_nameEEEED2Ev.exit, label %68
@@ -14722,26 +14716,26 @@ _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit: ; preds
   unreachable
 
 _ZN5boost10shared_ptrINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS3_14attribute_nameEEEED2Ev.exit: ; preds = %_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit, %68, %.noexc.i.i15, %79
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %0
 
 86:                                               ; preds = %_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2INS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS7_14attribute_nameEEEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleISB_S2_E4typeE.exit
   %87 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %88
 
 88:                                               ; preds = %86, %40
   %.pn = phi { ptr, i32 } [ %87, %86 ], [ %41, %40 ]
   call void @_ZN5boost10shared_ptrINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS3_14attribute_nameEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -14777,7 +14771,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_t
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEED1Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEED1Ev(ptr noundef %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -14812,7 +14806,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_t
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEED0Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEED0Ev(ptr noundef %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -14848,7 +14842,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_t
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %1) #26
@@ -14962,7 +14956,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_t
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEEEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEEEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #30
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -15021,7 +15015,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEEEE7rethrowEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEEEE7rethrowEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 64) #26
   invoke void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %0)
           to label %3 unwind label %4
@@ -15075,7 +15069,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEEEED1Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEEEED1Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -15110,7 +15104,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEEEED0Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEEEED0Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -15147,7 +15141,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEEEED1Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEEEED1Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -15182,7 +15176,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEEEED0Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEEEED0Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -15219,7 +15213,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_typeEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -15258,11 +15252,11 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19er
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN5boost16exception_detail11set_info_rvINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS4_14attribute_nameEEEE3setINS0_19error_info_injectorINS4_12invalid_typeEEEEERKT_SF_OS7_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN5boost16exception_detail11set_info_rvINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS4_14attribute_nameEEEE3setINS0_19error_info_injectorINS4_12invalid_typeEEEEERKT_SF_OS7_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::shared_ptr", align 8
   %4 = alloca %"class.boost::shared_ptr.25", align 8
   %5 = alloca %"struct.boost::exception_detail::type_info_", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS2_14attribute_nameEEE, i64 16), ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -15359,12 +15353,12 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv
 
 _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2INS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS7_14attribute_nameEEEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleISB_S2_E4typeE.exit: ; preds = %_ZN5boost10shared_ptrINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS3_14attribute_nameEEEEC2IS6_EEPT_.exit, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i
   %.0818 = phi ptr [ %30, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i ], [ %28, %_ZN5boost10shared_ptrINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS3_14attribute_nameEEEEC2IS6_EEPT_.exit ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8, !tbaa !264
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %11, ptr %42, align 8, !tbaa !242
   %43 = atomicrmw add ptr %24, i32 1 monotonic, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @_ZTIN5boost10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS2_14attribute_nameEEE, ptr %5, align 8, !tbaa !266
   %44 = load ptr, ptr %.0818, align 8, !tbaa !3
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -15373,7 +15367,7 @@ _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2INS_10error_info
           to label %47 unwind label %86
 
 47:                                               ; preds = %_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2INS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS7_14attribute_nameEEEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleISB_S2_E4typeE.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %48 = load ptr, ptr %42, align 8, !tbaa !242
   %.not.i.i13 = icmp eq ptr %48, null
   br i1 %.not.i.i13, label %_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit, label %49
@@ -15412,7 +15406,7 @@ _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2INS_10error_info
   unreachable
 
 _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit: ; preds = %47, %49, %.noexc.i.i, %60
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %67 = load ptr, ptr %10, align 8, !tbaa !242
   %.not.i.i14 = icmp eq ptr %67, null
   br i1 %.not.i.i14, label %_ZN5boost10shared_ptrINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS3_14attribute_nameEEEED2Ev.exit, label %68
@@ -15451,32 +15445,32 @@ _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit: ; preds
   unreachable
 
 _ZN5boost10shared_ptrINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS3_14attribute_nameEEEED2Ev.exit: ; preds = %_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit, %68, %.noexc.i.i15, %79
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %0
 
 86:                                               ; preds = %_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2INS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS7_14attribute_nameEEEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleISB_S2_E4typeE.exit
   %87 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %88
 
 88:                                               ; preds = %86, %40
   %.pn = phi { ptr, i32 } [ %87, %86 ], [ %41, %40 ]
   call void @_ZN5boost10shared_ptrINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS3_14attribute_nameEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZNK5boost10error_infoINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEE17name_value_stringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #12 comdat align 2 {
+define linkonce_odr hidden void @_ZNK5boost10error_infoINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEE17name_value_stringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #11 comdat align 2 {
   tail call void @_ZN5boost9to_stringINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_10error_infoIT_T0_EE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZNK5boost10error_infoINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef ptr @_ZNK5boost10error_infoINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10error_infoINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEEE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -15487,22 +15481,22 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost10error_infoINS_3log11v2_mt_po
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost10error_infoINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden void @_ZN5boost10error_infoINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #29
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost9to_stringINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_10error_infoIT_T0_EE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #12 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost9to_stringINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_10error_infoIT_T0_EE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5boost4core8demangleB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @_ZTSPN5boost3log11v2_mt_posix18type_info_info_tagE)
   %8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 0, i64 noundef 0, i64 noundef 1, i8 noundef signext 91)
           to label %.noexc unwind label %145
@@ -15588,7 +15582,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
   store ptr %29, ptr %26, align 8, !tbaa !14
   store i64 0, ptr %39, align 8, !tbaa !17
   store i8 0, ptr %29, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   invoke void @_ZN5boost9to_stringINS_9typeindex14stl_type_indexEEENS_9enable_ifINS_20is_output_streamableIT_cSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS7_SaIcEEEE4typeERKS5_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %41)
           to label %_ZN5boost14to_string_stubINS_9typeindex14stl_type_indexEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit unwind label %149
@@ -15794,7 +15788,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i27
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i27
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %125 = load ptr, ptr %4, align 8, !tbaa !14
   %126 = icmp eq ptr %125, %27
   br i1 %126, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i31, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i30
@@ -15848,10 +15842,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i37, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 145:                                              ; preds = %2
@@ -15915,7 +15909,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i42
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i43, %149
   %.pn.pn = phi { ptr, i32 } [ %150, %149 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i43 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i42 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %169 = load ptr, ptr %4, align 8, !tbaa !14
   %170 = icmp eq ptr %169, %27
   br i1 %170, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i46, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i45
@@ -15971,20 +15965,20 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i52, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost9to_stringINS_9typeindex14stl_type_indexEEENS_9enable_ifINS_20is_output_streamableIT_cSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS7_SaIcEEEE4typeERKS5_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #12 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost9to_stringINS_9typeindex14stl_type_indexEEENS_9enable_ifINS_20is_output_streamableIT_cSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS7_SaIcEEEE4typeERKS5_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
-  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZNK5boost9typeindex14stl_type_index11pretty_nameB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %.noexc unwind label %67
 
@@ -16034,11 +16028,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.body
 
 25:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.experimental.noalias.scope.decl(metadata !307)
   call void @llvm.experimental.noalias.scope.decl(metadata !310)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -16125,7 +16119,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %65) #26
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 112
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %66) #26
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 67:                                               ; preds = %2
@@ -16136,12 +16130,12 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 .body:                                            ; preds = %67, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i
   %eh.lpad-body = phi { ptr, i32 } [ %17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i ], [ %68, %67 ], [ %41, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %41, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #26
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %eh.lpad-body
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZNK5boost9typeindex14stl_type_index11pretty_nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK5boost9typeindex14stl_type_index11pretty_nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
@@ -16153,9 +16147,9 @@ define linkonce_odr hidden void @_ZNK5boost9typeindex14stl_type_index11pretty_na
   %11 = icmp eq i8 %10, 42
   %.idx.i = zext i1 %11 to i64
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !12
   %13 = invoke ptr @__cxa_demangle(ptr noundef nonnull %12, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull %4)
           to label %_ZN5boost4core21scoped_demangled_nameC2EPKc.exit unwind label %14
@@ -16168,13 +16162,13 @@ define linkonce_odr hidden void @_ZNK5boost9typeindex14stl_type_index11pretty_na
   unreachable
 
 _ZN5boost4core21scoped_demangled_nameC2EPKc.exit: ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %17, label %25
 
 17:                                               ; preds = %_ZN5boost4core21scoped_demangled_nameC2EPKc.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.39)
           to label %18 unwind label %20
 
@@ -16198,7 +16192,7 @@ _ZN5boost4core21scoped_demangled_nameC2EPKc.exit: ; preds = %2
 
 24:                                               ; preds = %22, %20
   %.pn = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %63
 
 25:                                               ; preds = %_ZN5boost4core21scoped_demangled_nameC2EPKc.exit
@@ -16255,7 +16249,7 @@ _ZN5boost4core21scoped_demangled_nameC2EPKc.exit: ; preds = %2
   store ptr %45, ptr %0, align 8, !tbaa !9
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %46, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %47 = ptrtoint ptr %.030 to i64
   %48 = ptrtoint ptr %.032 to i64
   %49 = sub i64 %47, %48
@@ -16295,7 +16289,7 @@ _ZN5boost4core21scoped_demangled_nameC2EPKc.exit: ; preds = %2
   %59 = load ptr, ptr %0, align 8, !tbaa !14
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 %58
   store i8 0, ptr %60, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @free(ptr noundef %13) #26
   ret void
 
@@ -16311,7 +16305,7 @@ _ZN5boost4core21scoped_demangled_nameC2EPKc.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZN5boost15throw_exceptionISt13runtime_errorEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #9 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost15throw_exceptionISt13runtime_errorEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 64) #26
   invoke void @_ZN5boost10wrapexceptISt13runtime_errorEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %3 unwind label %4
@@ -16327,16 +16321,16 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionISt13runtime_errorEEv
   resume { ptr, i32 } %5
 }
 
-declare void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #10
+declare void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #9
 
 ; Function Attrs: nounwind
-declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
+declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #15
+declare noundef ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost10wrapexceptISt13runtime_errorEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost10wrapexceptISt13runtime_errorEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1) #26
@@ -16390,7 +16384,7 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptISt13runtime_errorE5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptISt13runtime_errorE5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #30
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -16448,7 +16442,7 @@ _ZN5boost10wrapexceptISt13runtime_errorE7deleterD2Ev.exit7: ; preds = %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK5boost10wrapexceptISt13runtime_errorE7rethrowEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK5boost10wrapexceptISt13runtime_errorE7rethrowEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 64) #26
   invoke void @_ZN5boost10wrapexceptISt13runtime_errorEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %0)
           to label %3 unwind label %4
@@ -16502,7 +16496,7 @@ _ZN5boost10wrapexceptISt13runtime_errorED2Ev.exit: ; preds = %1, %.noexc.i.i.i, 
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptISt13runtime_errorED1Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptISt13runtime_errorED1Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -16537,7 +16531,7 @@ _ZN5boost10wrapexceptISt13runtime_errorED2Ev.exit: ; preds = %1, %.noexc.i.i.i, 
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptISt13runtime_errorED0Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptISt13runtime_errorED0Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -16574,7 +16568,7 @@ _ZN5boost10wrapexceptISt13runtime_errorED0Ev.exit: ; preds = %1, %.noexc.i.i.i.i
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptISt13runtime_errorED1Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptISt13runtime_errorED1Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -16609,7 +16603,7 @@ _ZN5boost10wrapexceptISt13runtime_errorED2Ev.exit: ; preds = %1, %.noexc.i.i.i, 
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptISt13runtime_errorED0Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptISt13runtime_errorED0Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -16646,7 +16640,7 @@ _ZN5boost10wrapexceptISt13runtime_errorED0Ev.exit: ; preds = %1, %.noexc.i.i.i.i
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost10wrapexceptISt13runtime_errorEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost10wrapexceptISt13runtime_errorEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -16684,11 +16678,11 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptISt13runtime_errorEC2ERKS2
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN5boost16exception_detail11set_info_rvINS_10error_infoINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEEEE3setINS0_19error_info_injectorINS4_12invalid_typeEEEEERKT_SG_OS8_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN5boost16exception_detail11set_info_rvINS_10error_infoINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEEEE3setINS0_19error_info_injectorINS4_12invalid_typeEEEEERKT_SG_OS8_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::shared_ptr.39", align 8
   %4 = alloca %"class.boost::shared_ptr.25", align 8
   %5 = alloca %"struct.boost::exception_detail::type_info_", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10error_infoINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEEE, i64 16), ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -16785,12 +16779,12 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv
 
 _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2INS_10error_infoINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEEEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleISC_S2_E4typeE.exit: ; preds = %_ZN5boost10shared_ptrINS_10error_infoINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEEEEC2IS7_EEPT_.exit, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i
   %.0818 = phi ptr [ %31, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i ], [ %29, %_ZN5boost10shared_ptrINS_10error_infoINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEEEEC2IS7_EEPT_.exit ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8, !tbaa !264
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %11, ptr %43, align 8, !tbaa !242
   %44 = atomicrmw add ptr %25, i32 1 monotonic, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @_ZTIN5boost10error_infoINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEEE, ptr %5, align 8, !tbaa !266
   %45 = load ptr, ptr %.0818, align 8, !tbaa !3
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
@@ -16799,7 +16793,7 @@ _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2INS_10error_info
           to label %48 unwind label %87
 
 48:                                               ; preds = %_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2INS_10error_infoINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEEEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleISC_S2_E4typeE.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %49 = load ptr, ptr %43, align 8, !tbaa !242
   %.not.i.i13 = icmp eq ptr %49, null
   br i1 %.not.i.i13, label %_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit, label %50
@@ -16838,7 +16832,7 @@ _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2INS_10error_info
   unreachable
 
 _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit: ; preds = %48, %50, %.noexc.i.i, %61
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %68 = load ptr, ptr %10, align 8, !tbaa !242
   %.not.i.i14 = icmp eq ptr %68, null
   br i1 %.not.i.i14, label %_ZN5boost10shared_ptrINS_10error_infoINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEEEED2Ev.exit, label %69
@@ -16877,21 +16871,21 @@ _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit: ; preds
   unreachable
 
 _ZN5boost10shared_ptrINS_10error_infoINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEEEED2Ev.exit: ; preds = %_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit, %69, %.noexc.i.i15, %80
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %0
 
 87:                                               ; preds = %_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2INS_10error_infoINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEEEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleISC_S2_E4typeE.exit
   %88 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %89
 
 89:                                               ; preds = %87, %41
   %.pn = phi { ptr, i32 } [ %88, %87 ], [ %42, %41 ]
   call void @_ZN5boost10shared_ptrINS_10error_infoINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 }
 
@@ -16946,7 +16940,7 @@ define linkonce_odr hidden void @_ZN5boost6detail17sp_counted_impl_pINS_10error_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost6detail17sp_counted_impl_pINS_10error_infoINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEEEE7disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden void @_ZN5boost6detail17sp_counted_impl_pINS_10error_infoINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEEEE7disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !321
   %4 = icmp eq ptr %3, null
@@ -16964,22 +16958,22 @@ _ZN5boost14checked_deleteINS_10error_infoINS_3log11v2_mt_posix18type_info_info_t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZN5boost6detail17sp_counted_impl_pINS_10error_infoINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEEEE11get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZN5boost6detail17sp_counted_impl_pINS_10error_infoINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEEEE11get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 comdat align 2 {
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZN5boost6detail17sp_counted_impl_pINS_10error_infoINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEEEE17get_local_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZN5boost6detail17sp_counted_impl_pINS_10error_infoINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEEEE17get_local_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 comdat align 2 {
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZN5boost6detail17sp_counted_impl_pINS_10error_infoINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEEEE19get_untyped_deleterEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZN5boost6detail17sp_counted_impl_pINS_10error_infoINS_3log11v2_mt_posix18type_info_info_tagENS_9typeindex14stl_type_indexEEEE19get_untyped_deleterEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_valueEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_valueEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -17015,7 +17009,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_v
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_valueEED1Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_valueEED1Ev(ptr noundef %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -17050,7 +17044,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_v
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_valueEED0Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_valueEED0Ev(ptr noundef %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -17086,7 +17080,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_v
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_valueEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_valueEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %1) #26
@@ -17200,7 +17194,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_v
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_valueEEEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_valueEEEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #30
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -17259,7 +17253,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_valueEEEE7rethrowEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_valueEEEE7rethrowEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 64) #26
   invoke void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_valueEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %0)
           to label %3 unwind label %4
@@ -17313,7 +17307,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_valueEEEED1Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_valueEEEED1Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -17348,7 +17342,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_valueEEEED0Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_valueEEEED0Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -17385,7 +17379,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_valueEEEED1Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_valueEEEED1Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -17420,7 +17414,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_valueEEEED0Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_valueEEEED0Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -17457,7 +17451,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_valueEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13invalid_valueEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -17496,7 +17490,7 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19er
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -17532,7 +17526,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_err
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEED1Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEED1Ev(ptr noundef %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -17567,7 +17561,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_err
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEED0Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEED0Ev(ptr noundef %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -17603,7 +17597,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_err
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %1) #26
@@ -17717,7 +17711,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_err
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEEEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEEEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #30
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -17776,7 +17770,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEEEE7rethrowEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEEEE7rethrowEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 64) #26
   invoke void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %0)
           to label %3 unwind label %4
@@ -17830,7 +17824,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEEEED1Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEEEED1Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -17865,7 +17859,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEEEED0Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEEEED0Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -17902,7 +17896,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEEEED1Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEEEED1Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -17937,7 +17931,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEEEED0Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEEEED0Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -17974,7 +17968,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_errorEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -18013,13 +18007,13 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19er
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZNK5boost10error_infoINS_16errinfo_at_line_EiE17name_value_stringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #12 comdat align 2 {
+define linkonce_odr hidden void @_ZNK5boost10error_infoINS_16errinfo_at_line_EiE17name_value_stringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #11 comdat align 2 {
   tail call void @_ZN5boost9to_stringINS_16errinfo_at_line_EiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_10error_infoIT_T0_EE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZNK5boost10error_infoINS_16errinfo_at_line_EiE5cloneEv(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef ptr @_ZNK5boost10error_infoINS_16errinfo_at_line_EiE5cloneEv(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10error_infoINS_16errinfo_at_line_EiEE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -18030,22 +18024,22 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost10error_infoINS_16errinfo_at_l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost10error_infoINS_16errinfo_at_line_EiED0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden void @_ZN5boost10error_infoINS_16errinfo_at_line_EiED0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #5 comdat align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #29
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost9to_stringINS_16errinfo_at_line_EiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_10error_infoIT_T0_EE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %1) local_unnamed_addr #12 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost9to_stringINS_16errinfo_at_line_EiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_10error_infoIT_T0_EE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %1) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5boost4core8demangleB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @_ZTSPN5boost16errinfo_at_line_E)
   %8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 0, i64 noundef 0, i64 noundef 1, i8 noundef signext 91)
           to label %.noexc unwind label %145
@@ -18131,7 +18125,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
   store ptr %29, ptr %26, align 8, !tbaa !14
   store i64 0, ptr %39, align 8, !tbaa !17
   store i8 0, ptr %29, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   invoke void @_ZN5boost9to_stringIiEENS_9enable_ifINS_20is_output_streamableIT_cSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS5_SaIcEEEE4typeERKS3_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 4 dereferenceable(4) %41)
           to label %_ZN5boost14to_string_stubIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit unwind label %149
@@ -18337,7 +18331,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i27
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i27
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %125 = load ptr, ptr %4, align 8, !tbaa !14
   %126 = icmp eq ptr %125, %27
   br i1 %126, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i31, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i30
@@ -18391,10 +18385,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i37, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 145:                                              ; preds = %2
@@ -18458,7 +18452,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i42
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i43, %149
   %.pn.pn = phi { ptr, i32 } [ %150, %149 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i43 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i42 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %169 = load ptr, ptr %4, align 8, !tbaa !14
   %170 = icmp eq ptr %169, %27
   br i1 %170, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i46, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i45
@@ -18514,17 +18508,17 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i52, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost9to_stringIiEENS_9enable_ifINS_20is_output_streamableIT_cSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS5_SaIcEEEE4typeERKS3_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #12 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost9to_stringIiEENS_9enable_ifINS_20is_output_streamableIT_cSt11char_traitsIcEEENSt7__cxx1112basic_stringIcS5_SaIcEEEE4typeERKS3_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
-  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
   %4 = load i32, ptr %1, align 4, !tbaa !6
   %5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
@@ -18617,7 +18611,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %46) #26
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 112
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %47) #26
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 48:                                               ; preds = %2
@@ -18628,18 +18622,18 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 .body:                                            ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %48
   %eh.lpad-body = phi { ptr, i32 } [ %49, %48 ], [ %22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #26
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %eh.lpad-body
 }
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #10
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN5boost16exception_detail11set_info_rvINS_10error_infoINS_16errinfo_at_line_EiEEE3setINS0_19error_info_injectorINS_3log11v2_mt_posix11parse_errorEEEEERKT_SE_OS4_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN5boost16exception_detail11set_info_rvINS_10error_infoINS_16errinfo_at_line_EiEEE3setINS0_19error_info_injectorINS_3log11v2_mt_posix11parse_errorEEEEERKT_SE_OS4_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::shared_ptr.43", align 8
   %4 = alloca %"class.boost::shared_ptr.25", align 8
   %5 = alloca %"struct.boost::exception_detail::type_info_", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10error_infoINS_16errinfo_at_line_EiEE, i64 16), ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -18736,12 +18730,12 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv
 
 _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2INS_10error_infoINS_16errinfo_at_line_EiEEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS8_S2_E4typeE.exit: ; preds = %_ZN5boost10shared_ptrINS_10error_infoINS_16errinfo_at_line_EiEEEC2IS3_EEPT_.exit, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i
   %.0818 = phi ptr [ %31, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i ], [ %29, %_ZN5boost10shared_ptrINS_10error_infoINS_16errinfo_at_line_EiEEEC2IS3_EEPT_.exit ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8, !tbaa !264
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %11, ptr %43, align 8, !tbaa !242
   %44 = atomicrmw add ptr %25, i32 1 monotonic, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @_ZTIN5boost10error_infoINS_16errinfo_at_line_EiEE, ptr %5, align 8, !tbaa !266
   %45 = load ptr, ptr %.0818, align 8, !tbaa !3
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
@@ -18750,7 +18744,7 @@ _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2INS_10error_info
           to label %48 unwind label %87
 
 48:                                               ; preds = %_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2INS_10error_infoINS_16errinfo_at_line_EiEEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS8_S2_E4typeE.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %49 = load ptr, ptr %43, align 8, !tbaa !242
   %.not.i.i13 = icmp eq ptr %49, null
   br i1 %.not.i.i13, label %_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit, label %50
@@ -18789,7 +18783,7 @@ _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2INS_10error_info
   unreachable
 
 _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit: ; preds = %48, %50, %.noexc.i.i, %61
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %68 = load ptr, ptr %10, align 8, !tbaa !242
   %.not.i.i14 = icmp eq ptr %68, null
   br i1 %.not.i.i14, label %_ZN5boost10shared_ptrINS_10error_infoINS_16errinfo_at_line_EiEEED2Ev.exit, label %69
@@ -18828,21 +18822,21 @@ _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit: ; preds
   unreachable
 
 _ZN5boost10shared_ptrINS_10error_infoINS_16errinfo_at_line_EiEEED2Ev.exit: ; preds = %_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit, %69, %.noexc.i.i15, %80
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %0
 
 87:                                               ; preds = %_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2INS_10error_infoINS_16errinfo_at_line_EiEEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS8_S2_E4typeE.exit
   %88 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %89
 
 89:                                               ; preds = %87, %41
   %.pn = phi { ptr, i32 } [ %88, %87 ], [ %42, %41 ]
   call void @_ZN5boost10shared_ptrINS_10error_infoINS_16errinfo_at_line_EiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 }
 
@@ -18891,7 +18885,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %1, %4, %.noexc.i, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost6detail15sp_counted_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden void @_ZN5boost6detail15sp_counted_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
   ret void
 }
 
@@ -18902,7 +18896,7 @@ define linkonce_odr hidden void @_ZN5boost6detail17sp_counted_impl_pINS_10error_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost6detail17sp_counted_impl_pINS_10error_infoINS_16errinfo_at_line_EiEEE7disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden void @_ZN5boost6detail17sp_counted_impl_pINS_10error_infoINS_16errinfo_at_line_EiEEE7disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !344
   %4 = icmp eq ptr %3, null
@@ -18920,26 +18914,26 @@ _ZN5boost14checked_deleteINS_10error_infoINS_16errinfo_at_line_EiEEEEvPT_.exit: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZN5boost6detail17sp_counted_impl_pINS_10error_infoINS_16errinfo_at_line_EiEEE11get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZN5boost6detail17sp_counted_impl_pINS_10error_infoINS_16errinfo_at_line_EiEEE11get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 comdat align 2 {
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZN5boost6detail17sp_counted_impl_pINS_10error_infoINS_16errinfo_at_line_EiEEE17get_local_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZN5boost6detail17sp_counted_impl_pINS_10error_infoINS_16errinfo_at_line_EiEEE17get_local_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 comdat align 2 {
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZN5boost6detail17sp_counted_impl_pINS_10error_infoINS_16errinfo_at_line_EiEEE19get_untyped_deleterEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZN5boost6detail17sp_counted_impl_pINS_10error_infoINS_16errinfo_at_line_EiEEE19get_untyped_deleterEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
   ret ptr null
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN5boost16exception_detail11set_info_rvINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS4_14attribute_nameEEEE3setINS0_19error_info_injectorINS4_11parse_errorEEEEERKT_SF_OS7_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN5boost16exception_detail11set_info_rvINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS4_14attribute_nameEEEE3setINS0_19error_info_injectorINS4_11parse_errorEEEEERKT_SF_OS7_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::shared_ptr", align 8
   %4 = alloca %"class.boost::shared_ptr.25", align 8
   %5 = alloca %"struct.boost::exception_detail::type_info_", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS2_14attribute_nameEEE, i64 16), ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -19036,12 +19030,12 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv
 
 _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2INS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS7_14attribute_nameEEEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleISB_S2_E4typeE.exit: ; preds = %_ZN5boost10shared_ptrINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS3_14attribute_nameEEEEC2IS6_EEPT_.exit, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i
   %.0818 = phi ptr [ %30, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i ], [ %28, %_ZN5boost10shared_ptrINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS3_14attribute_nameEEEEC2IS6_EEPT_.exit ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8, !tbaa !264
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %11, ptr %42, align 8, !tbaa !242
   %43 = atomicrmw add ptr %24, i32 1 monotonic, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @_ZTIN5boost10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS2_14attribute_nameEEE, ptr %5, align 8, !tbaa !266
   %44 = load ptr, ptr %.0818, align 8, !tbaa !3
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -19050,7 +19044,7 @@ _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2INS_10error_info
           to label %47 unwind label %86
 
 47:                                               ; preds = %_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2INS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS7_14attribute_nameEEEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleISB_S2_E4typeE.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %48 = load ptr, ptr %42, align 8, !tbaa !242
   %.not.i.i13 = icmp eq ptr %48, null
   br i1 %.not.i.i13, label %_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit, label %49
@@ -19089,7 +19083,7 @@ _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2INS_10error_info
   unreachable
 
 _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit: ; preds = %47, %49, %.noexc.i.i, %60
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %67 = load ptr, ptr %10, align 8, !tbaa !242
   %.not.i.i14 = icmp eq ptr %67, null
   br i1 %.not.i.i14, label %_ZN5boost10shared_ptrINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS3_14attribute_nameEEEED2Ev.exit, label %68
@@ -19128,26 +19122,26 @@ _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit: ; preds
   unreachable
 
 _ZN5boost10shared_ptrINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS3_14attribute_nameEEEED2Ev.exit: ; preds = %_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit, %68, %.noexc.i.i15, %79
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %0
 
 86:                                               ; preds = %_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEEC2INS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS7_14attribute_nameEEEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleISB_S2_E4typeE.exit
   %87 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %88
 
 88:                                               ; preds = %86, %40
   %.pn = phi { ptr, i32 } [ %87, %86 ], [ %41, %40 ]
   call void @_ZN5boost10shared_ptrINS_10error_infoINS_3log11v2_mt_posix23attribute_name_info_tagENS3_14attribute_nameEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversion_errorEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversion_errorEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -19183,7 +19177,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversio
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversion_errorEED1Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversion_errorEED1Ev(ptr noundef %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -19218,7 +19212,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversio
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversion_errorEED0Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversion_errorEED0Ev(ptr noundef %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -19254,7 +19248,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversio
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversion_errorEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversion_errorEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %1) #26
@@ -19368,7 +19362,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversio
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversion_errorEEEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversion_errorEEEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #30
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -19427,7 +19421,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversion_errorEEEE7rethrowEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversion_errorEEEE7rethrowEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 64) #26
   invoke void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversion_errorEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %0)
           to label %3 unwind label %4
@@ -19481,7 +19475,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversion_errorEEEED1Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversion_errorEEEED1Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -19516,7 +19510,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversion_errorEEEED0Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversion_errorEEEED0Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -19553,7 +19547,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversion_errorEEEED1Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversion_errorEEEED1Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -19588,7 +19582,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversion_errorEEEED0Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversion_errorEEEED0Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -19625,7 +19619,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversion_errorEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16conversion_errorEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -19664,7 +19658,7 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19er
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_errorEED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_errorEED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -19700,7 +19694,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_er
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn40_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_errorEED1Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn40_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_errorEED1Ev(ptr noundef %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -19735,7 +19729,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_er
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn40_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_errorEED0Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn40_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_errorEED0Ev(ptr noundef %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -19771,7 +19765,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_er
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_errorEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_errorEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %1) #26
@@ -19889,7 +19883,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_er
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_errorEEEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_errorEEEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #30
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -19951,7 +19945,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_errorEEEE7rethrowEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_errorEEEE7rethrowEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 88) #26
   invoke void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_errorEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(88) %0)
           to label %3 unwind label %4
@@ -20005,7 +19999,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_errorEEEED1Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_errorEEEED1Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -20040,7 +20034,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_errorEEEED0Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_errorEEEED0Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -20077,7 +20071,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn48_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_errorEEEED1Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn48_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_errorEEEED1Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -20112,7 +20106,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn48_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_errorEEEED0Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn48_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_errorEEEED0Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -20149,7 +20143,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_errorEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_errorEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -20192,7 +20186,7 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19er
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11logic_errorEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11logic_errorEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -20228,7 +20222,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11logic_err
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11logic_errorEED1Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11logic_errorEED1Ev(ptr noundef %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -20263,7 +20257,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11logic_err
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11logic_errorEED0Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11logic_errorEED0Ev(ptr noundef %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -20299,10 +20293,10 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11logic_err
 }
 
 ; Function Attrs: nounwind
-declare void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
+declare void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11logic_errorEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11logic_errorEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %1) #26
@@ -20416,7 +20410,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11logic_err
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11logic_errorEEEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11logic_errorEEEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #30
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -20475,7 +20469,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11logic_errorEEEE7rethrowEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11logic_errorEEEE7rethrowEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 64) #26
   invoke void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11logic_errorEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %0)
           to label %3 unwind label %4
@@ -20529,7 +20523,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11logic_errorEEEED1Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11logic_errorEEEED1Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -20564,7 +20558,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11logic_errorEEEED0Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11logic_errorEEEED0Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -20601,7 +20595,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11logic_errorEEEED1Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11logic_errorEEEED1Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -20636,7 +20630,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11logic_errorEEEED0Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11logic_errorEEEED0Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -20673,7 +20667,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11logic_errorEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11logic_errorEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -20712,7 +20706,7 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19er
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_violationEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_violationEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -20748,7 +20742,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_viola
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_violationEED1Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_violationEED1Ev(ptr noundef %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -20783,7 +20777,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_viola
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_violationEED0Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_violationEED0Ev(ptr noundef %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -20819,7 +20813,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_viola
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_violationEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_violationEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %1) #26
@@ -20933,7 +20927,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_viola
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_violationEEEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_violationEEEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #30
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -20992,7 +20986,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_violationEEEE7rethrowEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_violationEEEE7rethrowEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 64) #26
   invoke void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_violationEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %0)
           to label %3 unwind label %4
@@ -21046,7 +21040,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_violationEEEED1Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_violationEEEED1Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -21081,7 +21075,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_violationEEEED0Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_violationEEEED0Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -21118,7 +21112,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_violationEEEED1Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_violationEEEED1Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -21153,7 +21147,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_violationEEEED0Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_violationEEEED0Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -21190,7 +21184,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_violationEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix13odr_violationEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -21229,7 +21223,7 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19er
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpected_callEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpected_callEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -21265,7 +21259,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpecte
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpected_callEED1Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpected_callEED1Ev(ptr noundef %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -21300,7 +21294,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpecte
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpected_callEED0Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpected_callEED0Ev(ptr noundef %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -21336,7 +21330,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpecte
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpected_callEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpected_callEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %1) #26
@@ -21450,7 +21444,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpecte
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpected_callEEEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpected_callEEEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #30
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -21509,7 +21503,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpected_callEEEE7rethrowEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpected_callEEEE7rethrowEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 64) #26
   invoke void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpected_callEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %0)
           to label %3 unwind label %4
@@ -21563,7 +21557,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpected_callEEEED1Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpected_callEEEED1Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -21598,7 +21592,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpected_callEEEED0Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpected_callEEEED0Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -21635,7 +21629,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpected_callEEEED1Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpected_callEEEED1Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -21670,7 +21664,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpected_callEEEED0Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpected_callEEEED0Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -21707,7 +21701,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpected_callEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix15unexpected_callEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -21746,7 +21740,7 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19er
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_errorEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_errorEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -21782,7 +21776,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_err
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_errorEED1Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_errorEED1Ev(ptr noundef %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -21817,7 +21811,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_err
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_errorEED0Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_errorEED0Ev(ptr noundef %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -21853,7 +21847,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_err
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_errorEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_errorEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %1) #26
@@ -21967,7 +21961,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_err
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_errorEEEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_errorEEEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #30
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -22026,7 +22020,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_errorEEEE7rethrowEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_errorEEEE7rethrowEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 64) #26
   invoke void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_errorEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %0)
           to label %3 unwind label %4
@@ -22080,7 +22074,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_errorEEEED1Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_errorEEEED1Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -22115,7 +22109,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_errorEEEED0Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_errorEEEED0Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -22152,7 +22146,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_errorEEEED1Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_errorEEEED1Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -22187,7 +22181,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_errorEEEED0Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_errorEEEED0Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -22224,7 +22218,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_errorEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix11setup_errorEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -22263,7 +22257,7 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19er
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitation_errorEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitation_errorEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -22299,7 +22293,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitatio
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitation_errorEED1Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitation_errorEED1Ev(ptr noundef %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -22334,7 +22328,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitatio
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitation_errorEED0Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn16_N5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitation_errorEED0Ev(ptr noundef %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -22370,7 +22364,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitatio
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitation_errorEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitation_errorEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %1) #26
@@ -22484,7 +22478,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitatio
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitation_errorEEEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitation_errorEEEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #30
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -22543,7 +22537,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitation_errorEEEE7rethrowEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitation_errorEEEE7rethrowEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 64) #26
   invoke void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitation_errorEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %0)
           to label %3 unwind label %4
@@ -22597,7 +22591,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitation_errorEEEED1Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitation_errorEEEED1Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -22632,7 +22626,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitation_errorEEEED0Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitation_errorEEEED0Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -22669,7 +22663,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitation_errorEEEED1Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitation_errorEEEED1Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -22704,7 +22698,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitation_errorEEEED0Ev(ptr noundef %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitation_errorEEEED0Ev(ptr noundef %0) unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
@@ -22741,7 +22735,7 @@ _ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitation_errorEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19error_info_injectorINS_3log11v2_mt_posix16limitation_errorEEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -22779,6 +22773,12 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_16exception_detail19er
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #23
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #23
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #24
 
@@ -22788,27 +22788,27 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #25
 attributes #0 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold nofree noreturn }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #18 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { cold noreturn }
-attributes #23 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #17 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { cold noreturn }
+attributes #22 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #24 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #26 = { nounwind }

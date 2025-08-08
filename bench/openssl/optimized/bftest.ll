@@ -355,19 +355,16 @@ print_test_data.exit:                             ; preds = %.lr.ph84.i, %._crit
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare i32 @opt_next() local_unnamed_addr #2
 
-declare i32 @opt_next() local_unnamed_addr #3
-
-declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_bf_ecb_raw(i32 noundef %0) #1 {
   %2 = alloca %struct.bf_key_st, align 4
   %3 = alloca [2 x i32], align 4
-  call void @llvm.lifetime.start.p0(i64 4168, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = sext i32 %0 to i64
   %5 = getelementptr inbounds [2 x [30 x i8]], ptr @bf_key, i64 0, i64 %4
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #9
@@ -389,8 +386,8 @@ define internal range(i32 0, 2) i32 @test_bf_ecb_raw(i32 noundef %0) #1 {
   %.not7 = icmp ne i32 %15, 0
   %narrow = select i1 %.not7, i1 %.not, i1 false
   %.1 = zext i1 %narrow to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 4168, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.1
 }
 
@@ -398,8 +395,8 @@ define internal range(i32 0, 2) i32 @test_bf_ecb_raw(i32 noundef %0) #1 {
 define internal range(i32 0, 2) i32 @test_bf_ecb(i32 noundef %0) #1 {
   %2 = alloca %struct.bf_key_st, align 4
   %3 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 4168, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = sext i32 %0 to i64
   %5 = getelementptr inbounds [34 x [8 x i8]], ptr @ecb_data, i64 0, i64 %4
   call void @BF_set_key(ptr noundef nonnull %2, i32 noundef 8, ptr noundef nonnull %5) #8
@@ -413,8 +410,8 @@ define internal range(i32 0, 2) i32 @test_bf_ecb(i32 noundef %0) #1 {
   %.not5 = icmp ne i32 %9, 0
   %narrow = select i1 %.not5, i1 %.not, i1 false
   %.1 = zext i1 %narrow to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 4168, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.1
 }
 
@@ -422,8 +419,8 @@ define internal range(i32 0, 2) i32 @test_bf_ecb(i32 noundef %0) #1 {
 define internal range(i32 0, 2) i32 @test_bf_set_key(i32 noundef %0) #1 {
   %2 = alloca %struct.bf_key_st, align 4
   %3 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 4168, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = add nsw i32 %0, 1
   call void @BF_set_key(ptr noundef nonnull %2, i32 noundef %4, ptr noundef nonnull @key_test) #8
   call void @BF_ecb_encrypt(ptr noundef nonnull @key_data, ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef 1) #8
@@ -432,12 +429,12 @@ define internal range(i32 0, 2) i32 @test_bf_set_key(i32 noundef %0) #1 {
   %7 = call i32 @test_mem_eq(ptr noundef nonnull @.str.40, i32 noundef 344, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.47, ptr noundef nonnull %3, i64 noundef 8, ptr noundef nonnull %6, i64 noundef 8) #8
   %.not = icmp ne i32 %7, 0
   %spec.select = zext i1 %.not to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 4168, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %spec.select
 }
 
-declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_bf_cbc() #1 {
@@ -445,10 +442,10 @@ define internal range(i32 0, 2) i32 @test_bf_cbc() #1 {
   %2 = alloca [40 x i8], align 16
   %3 = alloca [8 x i8], align 8
   %4 = alloca %struct.bf_key_st, align 4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1) #8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 4168, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @cbc_data) #9
   %6 = add i64 %5, 1
   call void @BF_set_key(ptr noundef nonnull %4, i32 noundef 16, ptr noundef nonnull @cbc_key) #8
@@ -467,10 +464,10 @@ define internal range(i32 0, 2) i32 @test_bf_cbc() #1 {
   %.not4 = icmp ne i32 %11, 0
   %narrow = select i1 %.not4, i1 %.not, i1 false
   %.1 = zext i1 %narrow to i32
-  call void @llvm.lifetime.end.p0(i64 4168, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.1
 }
 
@@ -481,11 +478,11 @@ define internal range(i32 0, 2) i32 @test_bf_cfb64() #1 {
   %3 = alloca [8 x i8], align 8
   %4 = alloca i32, align 4
   %5 = alloca %struct.bf_key_st, align 4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1) #8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 4168, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @cbc_data) #9
   call void @BF_set_key(ptr noundef nonnull %5, i32 noundef 16, ptr noundef nonnull @cbc_key) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %1, i8 0, i64 40, i1 false)
@@ -514,11 +511,11 @@ define internal range(i32 0, 2) i32 @test_bf_cfb64() #1 {
   %.not7 = icmp ne i32 %17, 0
   %narrow = select i1 %.not7, i1 %.not, i1 false
   %.1 = zext i1 %narrow to i32
-  call void @llvm.lifetime.end.p0(i64 4168, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.1
 }
 
@@ -529,11 +526,11 @@ define internal range(i32 0, 2) i32 @test_bf_ofb64() #1 {
   %3 = alloca [8 x i8], align 8
   %4 = alloca i32, align 4
   %5 = alloca %struct.bf_key_st, align 4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1) #8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 4168, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @cbc_data) #9
   call void @BF_set_key(ptr noundef nonnull %5, i32 noundef 16, ptr noundef nonnull @cbc_key) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %1, i8 0, i64 40, i1 false)
@@ -562,41 +559,44 @@ define internal range(i32 0, 2) i32 @test_bf_ofb64() #1 {
   %.not7 = icmp ne i32 %17, 0
   %narrow = select i1 %.not7, i1 %.not, i1 false
   %.1 = zext i1 %narrow to i32
-  call void @llvm.lifetime.end.p0(i64 4168, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
-declare void @BF_set_key(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @BF_set_key(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @BF_encrypt(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @BF_encrypt(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @BF_decrypt(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @BF_decrypt(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @BF_ecb_encrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @BF_ecb_encrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-declare void @BF_cbc_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @BF_cbc_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @BF_cfb64_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @BF_cfb64_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @BF_ofb64_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @BF_ofb64_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #7
@@ -606,11 +606,11 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nofree nounwind }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) }

@@ -196,7 +196,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11copy_within1
   br i1 %.not, label %13, label %18
 
 13:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @anon.d126d3296d9517d5518575f231663373.7.llvm.5600706966749493971, ptr %7, align 8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 1, ptr %14, align 8
@@ -254,7 +254,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN94_$LT$ropey..tree..node_children..inner..NodeChildrenInternal$u20$as$u20$core..clone..Clone$GT$5clone17h8d7f33ff17fe2fc6E"(ptr dead_on_unwind noalias noundef writable writeonly sret([968 x i8]) align 8 captures(none) dereferenceable(968) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(968) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca [968 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 968, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 960
   store i8 0, ptr %5, align 8
@@ -300,7 +300,7 @@ define void @"_ZN94_$LT$ropey..tree..node_children..inner..NodeChildrenInternal$
 ._crit_edge65:                                    ; preds = %.lr.ph64, %.preheader
   store i8 %7, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(968) %0, ptr noundef nonnull align 8 dereferenceable(968) %3, i64 968, i1 false)
-  call void @llvm.lifetime.end.p0(i64 968, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 .lr.ph64:                                         ; preds = %._crit_edge, %.lr.ph64
@@ -380,14 +380,14 @@ declare void @llvm.trap() #11
 ; Function Attrs: cold noreturn nounwind nonlazybind uwtable
 declare void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() unnamed_addr #12
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
-
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr76drop_in_place$LT$ropey..tree..node_children..inner..NodeChildrenInternal$GT$17haf21cb8a7decc8feE"(ptr noalias noundef align 8 dereferenceable(968)) unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14

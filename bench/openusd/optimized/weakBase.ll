@@ -111,7 +111,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10TfWeakBase9_RegisterEv.exit: ; preds = %
   %.sink8.i.sink5.i.i = inttoptr i64 %14 to ptr
   %18 = getelementptr inbounds nuw i8, ptr %.sink8.i.sink5.i.i, i64 8
   %19 = atomicrmw add ptr %18, i32 1 monotonic, align 4, !noalias !4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not.i = extractvalue { i64, i1 } %12, 1
   br i1 %.not.i, label %.noexc, label %25
 
@@ -132,13 +132,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10TfWeakBase9_RegisterEv.exit: ; preds = %
   %.sink = phi ptr [ %4, %_ZNK32pxrInternal_v0_24__pxrReserved__10TfWeakBase9_RegisterEv.exit.thread15 ], [ %7, %5 ]
   %.sink8.i.sink5.i.i10.ph = phi ptr [ %.sink8.i.sink5.i.i17, %_ZNK32pxrInternal_v0_24__pxrReserved__10TfWeakBase9_RegisterEv.exit.thread15 ], [ %6, %5 ]
   %24 = atomicrmw add ptr %.sink, i32 1 monotonic, align 4, !noalias !4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %25
 
 25:                                               ; preds = %.sink.split, %_ZNK32pxrInternal_v0_24__pxrReserved__10TfWeakBase9_RegisterEv.exit
   %26 = phi ptr [ %18, %_ZNK32pxrInternal_v0_24__pxrReserved__10TfWeakBase9_RegisterEv.exit ], [ %.sink, %.sink.split ]
   %.sink8.i.sink5.i.i10 = phi ptr [ %.sink8.i.sink5.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__10TfWeakBase9_RegisterEv.exit ], [ %.sink8.i.sink5.i.i10.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %27 = load ptr, ptr %.sink8.i.sink5.i.i10, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
@@ -215,7 +215,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10TfWeakBase9_RegisterEv.exit: ; preds = %
   %.sink8.i.sink5.i.i = inttoptr i64 %14 to ptr
   %18 = getelementptr inbounds nuw i8, ptr %.sink8.i.sink5.i.i, i64 8
   %19 = atomicrmw add ptr %18, i32 1 monotonic, align 4, !noalias !12
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not.i = extractvalue { i64, i1 } %12, 1
   br i1 %.not.i, label %.noexc, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i
 
@@ -236,13 +236,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   %.sink = phi ptr [ %4, %_ZNK32pxrInternal_v0_24__pxrReserved__10TfWeakBase9_RegisterEv.exit.thread10 ], [ %7, %5 ]
   %.sink8.i.sink5.i.i9.ph = phi ptr [ %.sink8.i.sink5.i.i12, %_ZNK32pxrInternal_v0_24__pxrReserved__10TfWeakBase9_RegisterEv.exit.thread10 ], [ %6, %5 ]
   %24 = atomicrmw add ptr %.sink, i32 1 monotonic, align 4, !noalias !12
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.sink.split, %_ZNK32pxrInternal_v0_24__pxrReserved__10TfWeakBase9_RegisterEv.exit
   %25 = phi ptr [ %18, %_ZNK32pxrInternal_v0_24__pxrReserved__10TfWeakBase9_RegisterEv.exit ], [ %.sink, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.sink.split ]
   %.sink8.i.sink5.i.i9 = phi ptr [ %.sink8.i.sink5.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__10TfWeakBase9_RegisterEv.exit ], [ %.sink8.i.sink5.i.i9.ph, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %26 = getelementptr inbounds nuw i8, ptr %.sink8.i.sink5.i.i9, i64 13
   store i8 1, ptr %26, align 1
   %27 = atomicrmw sub ptr %25, i32 1 release, align 4
@@ -279,10 +279,10 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__40Tf_PostNullSmartPtrDereferenceFatalErrorERKNS_13TfCallContextEPKc(ptr noundef nonnull align 8 dereferenceable(33), ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

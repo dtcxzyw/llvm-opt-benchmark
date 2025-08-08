@@ -247,7 +247,7 @@ define hidden void @OGLPaints_SetGradientPaint(ptr noundef captures(address_is_n
   br i1 %28, label %29, label %37
 
 29:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store float 1.000000e+00, ptr %9, align 4
   %30 = load ptr, ptr @j2d_glGenTextures, align 8
   tail call void %30(i32 noundef 1, ptr noundef nonnull @gradientTexID) #6
@@ -262,7 +262,7 @@ define hidden void @OGLPaints_SetGradientPaint(ptr noundef captures(address_is_n
   call void %35(i32 noundef 3552, i32 noundef 10241, i32 noundef 9729) #6
   %36 = load ptr, ptr @j2d_glTexImage1D, align 8
   call void %36(i32 noundef 3552, i32 noundef 0, i32 noundef 32856, i32 noundef 2, i32 noundef 0, i32 noundef 32993, i32 noundef 33639, ptr noundef null) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %37
 
 37:                                               ; preds = %29, %26
@@ -736,7 +736,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %38, label %39, label %48
 
 39:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store float 1.000000e+00, ptr %4, align 4
   %40 = load ptr, ptr @j2d_glGenTextures, align 8
   call void %40(i32 noundef 1, ptr noundef nonnull @multiGradientTexID) #6
@@ -753,7 +753,7 @@ sub_2:                                            ; preds = %sub_1
   call void %46(i32 noundef 3552, i32 noundef 10242, i32 noundef 33071) #6
   %47 = load ptr, ptr @j2d_glTexImage1D, align 8
   call void %47(i32 noundef 3552, i32 noundef 0, i32 noundef 32856, i32 noundef 16, i32 noundef 0, i32 noundef 32993, i32 noundef 33639, ptr noundef null) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %48
 
 48:                                               ; preds = %33, %39, %25
@@ -771,10 +771,10 @@ declare void @J2dTraceImpl(i32 noundef, i8 noundef zeroext, ptr noundef, ...) lo
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

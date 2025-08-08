@@ -229,12 +229,6 @@ define hidden ptr @mi_heap_get_backing() local_unnamed_addr #0 {
   ret ptr %5
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind uwtable
 define hidden ptr @mi_heap_new() local_unnamed_addr #0 {
   tail call void @mi_thread_init() #8
@@ -331,12 +325,12 @@ define hidden void @_mi_heap_destroy_pages(ptr noundef %0) local_unnamed_addr #0
   br i1 %16, label %_mi_heap_page_destroy.exit, label %17, !prof !50
 
 17:                                               ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %18 = ptrtoint ptr %.022.i3 to i64
   %19 = and i64 %18, -67108864
   %20 = inttoptr i64 %19 to ptr
   %21 = call ptr @_mi_segment_page_start(ptr noundef %20, ptr noundef nonnull %.022.i3, ptr noundef nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_mi_heap_page_destroy.exit
 
 _mi_heap_page_destroy.exit:                       ; preds = %.lr.ph, %17
@@ -414,12 +408,12 @@ define hidden void @mi_heap_destroy(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %22, label %_mi_heap_page_destroy.exit.i, label %23, !prof !50
 
 23:                                               ; preds = %.lr.ph.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %24 = ptrtoint ptr %.022.i3.i to i64
   %25 = and i64 %24, -67108864
   %26 = inttoptr i64 %25 to ptr
   %27 = call ptr @_mi_segment_page_start(ptr noundef %26, ptr noundef nonnull %.022.i3.i, ptr noundef nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_mi_heap_page_destroy.exit.i
 
 _mi_heap_page_destroy.exit.i:                     ; preds = %23, %.lr.ph.i
@@ -645,7 +639,7 @@ define hidden ptr @mi_heap_set_default(ptr noundef %0) local_unnamed_addr #0 {
 declare void @_mi_heap_set_default_direct(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @mi_heap_contains_block(ptr noundef readnone captures(address) %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden zeroext i1 @mi_heap_contains_block(ptr noundef readnone captures(address) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %0, @_mi_heap_empty
   %or.cond.not8 = or i1 %3, %4
@@ -740,10 +734,10 @@ define hidden noundef zeroext i1 @mi_heap_check_owned(ptr noundef readonly captu
   br label %mi_heap_page_check_owned.exit
 
 31:                                               ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %32 = call ptr @_mi_segment_page_start(ptr noundef %22, ptr noundef nonnull %.022.i12, ptr noundef nonnull %3) #8
   %33 = load i64, ptr %3, align 8, !tbaa !46
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %mi_heap_page_check_owned.exit
 
 mi_heap_page_check_owned.exit:                    ; preds = %29, %31
@@ -823,10 +817,10 @@ define hidden noundef zeroext i1 @mi_check_owned(ptr noundef %0) local_unnamed_a
   br label %mi_heap_page_check_owned.exit.i
 
 32:                                               ; preds = %.lr.ph.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %33 = call ptr @_mi_segment_page_start(ptr noundef %23, ptr noundef nonnull %.022.i12.i, ptr noundef nonnull %2) #8
   %34 = load i64, ptr %2, align 8, !tbaa !46
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %mi_heap_page_check_owned.exit.i
 
 mi_heap_page_check_owned.exit.i:                  ; preds = %32, %30
@@ -888,7 +882,7 @@ define hidden noundef zeroext i1 @mi_heap_visit_blocks(ptr noundef %0, i1 nounde
   %.022.i.i17 = phi ptr [ %28, %.backedge ], [ %26, %24 ]
   %27 = getelementptr inbounds nuw i8, ptr %.022.i.i17, i64 56
   %28 = load ptr, ptr %27, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %29 = getelementptr inbounds nuw i8, ptr %.022.i.i17, i64 28
   %30 = load i32, ptr %29, align 4, !tbaa !49
   %31 = icmp sgt i32 %30, -1
@@ -902,10 +896,10 @@ mi_page_block_size.exit.thread.i.i:               ; preds = %.lr.ph
   br label %mi_heap_visit_areas_page.exit.i
 
 mi_page_block_size.exit.i.i:                      ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %33 = call ptr @_mi_segment_page_start(ptr noundef %.pre26.i.i, ptr noundef nonnull %.022.i.i17, ptr noundef nonnull %10) #8
   %34 = load i64, ptr %10, align 8, !tbaa !46
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.pr.i.i = load i32, ptr %29, align 4, !tbaa !49
   %35 = icmp sgt i32 %.pr.i.i, -1
   br i1 %35, label %mi_page_block_size.exit._crit_edge.i.i, label %36, !prof !60
@@ -915,10 +909,10 @@ mi_page_block_size.exit._crit_edge.i.i:           ; preds = %mi_page_block_size.
   br label %mi_heap_visit_areas_page.exit.i
 
 36:                                               ; preds = %mi_page_block_size.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %37 = call ptr @_mi_segment_page_start(ptr noundef %.pre26.i.i, ptr noundef nonnull %.022.i.i17, ptr noundef nonnull %9) #8
   %38 = load i64, ptr %9, align 8, !tbaa !46
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %mi_heap_visit_areas_page.exit.i
 
 mi_heap_visit_areas_page.exit.i:                  ; preds = %36, %mi_page_block_size.exit._crit_edge.i.i, %mi_page_block_size.exit.thread.i.i
@@ -976,10 +970,10 @@ mi_page_block_size.exit.thread.i.i10:             ; preds = %61
   br label %mi_page_usable_block_size.exit.i.i
 
 mi_page_block_size.exit.i.i3:                     ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %66 = call ptr @_mi_segment_page_start(ptr noundef %.pre95.i.i, ptr noundef nonnull %55, ptr noundef nonnull %6) #8
   %67 = load i64, ptr %6, align 8, !tbaa !46
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pr.i.i4 = load i32, ptr %62, align 4, !tbaa !49
   %68 = icmp sgt i32 %.pr.i.i4, -1
   br i1 %68, label %mi_page_block_size.exit._crit_edge.i.i9, label %69, !prof !60
@@ -989,16 +983,16 @@ mi_page_block_size.exit._crit_edge.i.i9:          ; preds = %mi_page_block_size.
   br label %mi_page_usable_block_size.exit.i.i
 
 69:                                               ; preds = %mi_page_block_size.exit.i.i3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %70 = call ptr @_mi_segment_page_start(ptr noundef %.pre95.i.i, ptr noundef nonnull %55, ptr noundef nonnull %5) #8
   %71 = load i64, ptr %5, align 8, !tbaa !46
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %mi_page_usable_block_size.exit.i.i
 
 mi_page_usable_block_size.exit.i.i:               ; preds = %69, %mi_page_block_size.exit._crit_edge.i.i9, %mi_page_block_size.exit.thread.i.i10
   %.0.i75.i.i = phi i64 [ %67, %69 ], [ %67, %mi_page_block_size.exit._crit_edge.i.i9 ], [ %65, %mi_page_block_size.exit.thread.i.i10 ]
   %.0.i.i.i.i5 = phi i64 [ %71, %69 ], [ %.pre91.i.i, %mi_page_block_size.exit._crit_edge.i.i9 ], [ %65, %mi_page_block_size.exit.thread.i.i10 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %72 = call ptr @_mi_segment_page_start(ptr noundef %.pre95.i.i, ptr noundef nonnull %55, ptr noundef nonnull %7) #8
   %73 = getelementptr inbounds nuw i8, ptr %55, i64 10
   %74 = load i16, ptr %73, align 2, !tbaa !59
@@ -1010,12 +1004,12 @@ mi_page_usable_block_size.exit.i.i:               ; preds = %69, %mi_page_block_
   %78 = load atomic i64, ptr %77 monotonic, align 8
   %79 = inttoptr i64 %78 to ptr
   %80 = call zeroext i1 %2(ptr noundef %79, ptr noundef nonnull %11, ptr noundef %72, i64 noundef %.0.i.i.i.i5, ptr noundef %3) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %80, label %.backedge, label %mi_heap_visit_areas.exit
 
 81:                                               ; preds = %mi_page_usable_block_size.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8192) %8, i8 0, i64 8192, i1 false)
   %82 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %83 = load ptr, ptr %82, align 8, !tbaa !71
@@ -1082,8 +1076,8 @@ mi_page_usable_block_size.exit.i.i:               ; preds = %69, %mi_page_block_
   br i1 %116, label %._crit_edge.i.i, label %.thread
 
 .thread:                                          ; preds = %111
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %mi_heap_visit_areas.exit.sink.split
 
 ._crit_edge.i.i:                                  ; preds = %111
@@ -1099,12 +1093,12 @@ mi_page_usable_block_size.exit.i.i:               ; preds = %69, %mi_page_block_
   br i1 %.not72.not.i.i, label %97, label %.loopexit, !llvm.loop !75
 
 .loopexit:                                        ; preds = %117, %.preheader.i.i7
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.backedge.sink.split
 
 .backedge.sink.split:                             ; preds = %57, %54, %53, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.sink.split, %76
@@ -1117,7 +1111,7 @@ mi_page_usable_block_size.exit.i.i:               ; preds = %69, %mi_page_block_
   br i1 %exitcond.i.i, label %mi_heap_visit_areas.exit, label %24, !llvm.loop !37
 
 mi_heap_visit_areas.exit.sink.split:              ; preds = %mi_heap_visit_areas_page.exit.i, %.thread
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %mi_heap_visit_areas.exit
 
 mi_heap_visit_areas.exit:                         ; preds = %._crit_edge, %76, %mi_heap_visit_areas.exit.sink.split, %4, %13
@@ -1126,7 +1120,7 @@ mi_heap_visit_areas.exit:                         ; preds = %._crit_edge, %76, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @_mi_deferred_free(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
@@ -1153,13 +1147,13 @@ declare void @_mi_page_free(ptr noundef, ptr noundef, i1 noundef zeroext) local_
 declare void @_mi_page_abandon(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #5
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
+declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @_mi_segment_page_free(ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
@@ -1169,14 +1163,20 @@ declare void @mi_free(ptr noundef) local_unnamed_addr #1
 
 declare i64 @_mi_page_queue_append(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind memory(read) }
 

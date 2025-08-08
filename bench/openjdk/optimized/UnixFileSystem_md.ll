@@ -113,19 +113,19 @@ define range(i32 0, 8) i32 @Java_java_io_UnixFileSystem_getBooleanAttributes0(pt
   br i1 %15, label %29, label %16
 
 16:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = call i32 @stat64(ptr noundef nonnull readonly %14, ptr noundef nonnull %4) #7
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %statMode.exit.thread
 
 statMode.exit.thread:                             ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %28
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %21 = load i32, ptr %20, align 8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = and i32 %21, 61440
   %23 = icmp eq i32 %22, 32768
   %24 = select i1 %23, i32 3, i32 1
@@ -259,19 +259,19 @@ define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_setPermission0(ptr
 
 23:                                               ; preds = %22, %21, %20, %19
   %.023 = phi i32 [ 0, %19 ], [ %., %20 ], [ %.31, %21 ], [ %.32, %22 ]
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = call i32 @stat64(ptr noundef nonnull readonly %17, ptr noundef nonnull %7) #7
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %statMode.exit.thread
 
 statMode.exit.thread:                             ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %28 = load i32, ptr %27, align 8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not30 = icmp eq i8 %4, 0
   %29 = xor i32 %.023, -1
   %30 = and i32 %28, %29
@@ -869,19 +869,19 @@ define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_setReadOnly0(ptr n
   br i1 %15, label %28, label %16
 
 16:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = call i32 @stat64(ptr noundef nonnull readonly %14, ptr noundef nonnull %4) #7
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %statMode.exit, label %statMode.exit.thread
 
 statMode.exit.thread:                             ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
 statMode.exit:                                    ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %20 = load i32, ptr %19, align 8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %21 = and i32 %20, -147
   br label %22
 
@@ -1032,10 +1032,10 @@ define range(i64 0, -1) i64 @Java_java_io_UnixFileSystem_getNameMax0(ptr noundef
 declare i64 @pathconf(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -254,8 +254,8 @@ define dso_local void @_ZN7msdfgen22distanceSignCorrectionERKNS_9BitmapRefIfLi3E
 entry:
   %scanline.i = alloca %"class.msdfgen::Scanline", align 8
   %matchMap.i = alloca %"class.std::vector.7", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %scanline.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %matchMap.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %scanline.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %matchMap.i)
   %width.i = getelementptr inbounds nuw i8, ptr %sdf, i64 8
   %0 = load i32, ptr %width.i, align 8
   %.fr.i = freeze i32 %0
@@ -644,8 +644,8 @@ if.then.i.i.i.i74.i:                              ; preds = %_ZNSt6vectorIcSaIcE
   br label %_ZN7msdfgenL27multiDistanceSignCorrectionILi3EEEvRKNS_9BitmapRefIfXT_EEERKNS_5ShapeERKNS_10ProjectionENS_8FillRuleE.exit
 
 _ZN7msdfgenL27multiDistanceSignCorrectionILi3EEEvRKNS_9BitmapRefIfXT_EEERKNS_5ShapeERKNS_10ProjectionENS_8FillRuleE.exit: ; preds = %entry, %_ZNSt6vectorIcSaIcEED2Ev.exit.i, %if.then.i.i.i.i74.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %scanline.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %matchMap.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %scanline.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %matchMap.i)
   ret void
 }
 
@@ -654,8 +654,8 @@ define dso_local void @_ZN7msdfgen22distanceSignCorrectionERKNS_9BitmapRefIfLi4E
 entry:
   %scanline.i = alloca %"class.msdfgen::Scanline", align 8
   %matchMap.i = alloca %"class.std::vector.7", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %scanline.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %matchMap.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %scanline.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %matchMap.i)
   %width.i = getelementptr inbounds nuw i8, ptr %sdf, i64 8
   %0 = load i32, ptr %width.i, align 8
   %.fr.i = freeze i32 %0
@@ -1056,8 +1056,8 @@ if.then.i.i.i.i78.i:                              ; preds = %_ZNSt6vectorIcSaIcE
   br label %_ZN7msdfgenL27multiDistanceSignCorrectionILi4EEEvRKNS_9BitmapRefIfXT_EEERKNS_5ShapeERKNS_10ProjectionENS_8FillRuleE.exit
 
 _ZN7msdfgenL27multiDistanceSignCorrectionILi4EEEvRKNS_9BitmapRefIfXT_EEERKNS_5ShapeERKNS_10ProjectionENS_8FillRuleE.exit: ; preds = %entry, %_ZNSt6vectorIcSaIcEED2Ev.exit.i, %if.then.i.i.i.i78.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %scanline.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %matchMap.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %scanline.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %matchMap.i)
   ret void
 }
 
@@ -1134,10 +1134,10 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

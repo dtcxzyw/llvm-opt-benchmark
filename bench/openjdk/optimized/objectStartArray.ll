@@ -69,7 +69,7 @@ define hidden void @_ZN16ObjectStartArray10initializeE9MemRegion(ptr noundef non
 
 16:                                               ; preds = %15, %3
   %17 = phi ptr [ %.pre, %15 ], [ %14, %3 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %18 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   %19 = icmp sgt i32 %18, 1
   %20 = icmp ne ptr %17, null
@@ -83,7 +83,7 @@ define hidden void @_ZN16ObjectStartArray10initializeE9MemRegion(ptr noundef non
   br label %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit
 
 _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %16, %21
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN14PSVirtualSpace10initializeE13ReservedSpace(ptr noundef nonnull align 8 dereferenceable(49) %22, ptr noundef nonnull byval(%class.ReservedSpace) align 8 %5) #9
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -318,10 +318,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -186,9 +186,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp1.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp1.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %crashMgr_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 9480
   %0 = load ptr, ptr %crashMgr_.i.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
@@ -237,9 +237,9 @@ if.then:                                          ; preds = %entry
   %rightSize_.i25.i.i84.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 40
   store i64 %conv.i52.i, ptr %rightSize_.i25.i.i84.i, align 8, !alias.scope !14
   %call8.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp1.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -349,9 +349,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp1.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp1.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %crashMgr_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 9480
   %0 = load ptr, ptr %crashMgr_.i.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
@@ -400,9 +400,9 @@ if.then:                                          ; preds = %entry
   %rightSize_.i25.i.i84.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 40
   store i64 %conv.i52.i, ptr %rightSize_.i25.i.i84.i, align 8, !alias.scope !44
   %call8.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp1.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -410,7 +410,7 @@ if.end:                                           ; preds = %entry
   %heapStorage_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
   %sub.i.i.i.i = add nuw nsw i32 %mul.i.i.i, 15
   %div1.i.i.i.i = and i32 %sub.i.i.i.i, 8388600
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lk.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lk.i.i.i.i)
   call void @_ZN6hermes2vm7HadesGC19pauseBackgroundTaskEv(ptr nonnull sret(%"class.std::lock_guard") align 8 %lk.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i) #7
   %call.i.i.i.i = call noundef ptr @_ZN6hermes2vm7HadesGC14allocLongLivedEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 noundef %div1.i.i.i.i) #7
   store i64 0, ptr %call.i.i.i.i, align 8
@@ -418,7 +418,7 @@ if.end:                                           ; preds = %entry
   store i32 %bf.set7.i.i.i.i.i.i, ptr %call.i.i.i.i, align 4
   %3 = load ptr, ptr %lk.i.i.i.i, align 8
   %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lk.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lk.i.i.i.i)
   %4 = ptrtoint ptr %call.i.i.i.i to i64
   %or.i.i.i = or i64 %4, -281474976710656
   br label %return
@@ -1507,9 +1507,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp1.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp1.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %crashMgr_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 9480
   %0 = load ptr, ptr %crashMgr_.i.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
@@ -1558,9 +1558,9 @@ if.then:                                          ; preds = %entry
   %rightSize_.i25.i.i84.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 40
   store i64 %conv.i52.i, ptr %rightSize_.i25.i.i84.i, align 8, !alias.scope !64
   %call8.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp1.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1670,9 +1670,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp1.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp1.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %crashMgr_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 9480
   %0 = load ptr, ptr %crashMgr_.i.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
@@ -1721,9 +1721,9 @@ if.then:                                          ; preds = %entry
   %rightSize_.i25.i.i84.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 40
   store i64 %conv.i52.i, ptr %rightSize_.i25.i.i84.i, align 8, !alias.scope !94
   %call8.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp1.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1731,7 +1731,7 @@ if.end:                                           ; preds = %entry
   %heapStorage_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
   %sub.i.i.i.i = add nuw nsw i32 %mul.i.i.i, 15
   %div1.i.i.i.i = and i32 %sub.i.i.i.i, 8388600
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lk.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lk.i.i.i.i)
   call void @_ZN6hermes2vm7HadesGC19pauseBackgroundTaskEv(ptr nonnull sret(%"class.std::lock_guard") align 8 %lk.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i) #7
   %call.i.i.i.i = call noundef ptr @_ZN6hermes2vm7HadesGC14allocLongLivedEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 noundef %div1.i.i.i.i) #7
   store i64 0, ptr %call.i.i.i.i, align 4
@@ -1739,7 +1739,7 @@ if.end:                                           ; preds = %entry
   store i32 %bf.set7.i.i.i.i.i.i, ptr %call.i.i.i.i, align 4
   %3 = load ptr, ptr %lk.i.i.i.i, align 8
   %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lk.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lk.i.i.i.i)
   %4 = ptrtoint ptr %call.i.i.i.i to i64
   %or.i.i.i = or i64 %4, -281474976710656
   br label %return
@@ -3000,10 +3000,10 @@ declare void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseI
 declare void @_ZN6hermes2vm7HadesGC32constructorWriteBarrierRangeSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEEj(ptr noundef nonnull align 8 dereferenceable(8152), ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #6

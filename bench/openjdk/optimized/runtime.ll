@@ -3386,7 +3386,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %2, %_ZN10HandleArea
 
 _ZNK6HandleclEv.exit:                             ; preds = %30, %46
   %48 = phi ptr [ %47, %46 ], [ null, %30 ]
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %49 = load i32, ptr @trace_exception_counter, align 4
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr @trace_exception_counter, align 4
@@ -3430,7 +3430,7 @@ _ZL15trace_exceptionP12outputStreamP7oopDescPhPKc.exit: ; preds = %55, %61, %62
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull %65, i64 noundef %66) #12
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %5) #12
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %3) #12
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %5) #12
   %67 = load ptr, ptr %36, align 8
   %.not.i.i.i.i47 = icmp eq ptr %67, null
@@ -4675,10 +4675,10 @@ declare i32 @llvm.smax.i32(i32, i32) #9
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

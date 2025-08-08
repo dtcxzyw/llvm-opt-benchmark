@@ -17,7 +17,7 @@ define i32 @task_spawn(ptr noundef %0, ptr noundef %1, ptr noundef readonly capt
 
 10:                                               ; preds = %6, %8
   %11 = phi ptr [ %9, %8 ], [ null, %6 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %21, label %12
 
@@ -95,7 +95,7 @@ nxtask_spawn_exec.exit:                           ; preds = %nxtask_spawn_create
 
 46:                                               ; preds = %37, %44, %29, %nxtask_spawn_create.exit.i, %21, %nxtask_spawn_exec.exit
   %47 = phi i32 [ %spec.select, %nxtask_spawn_exec.exit ], [ %35, %37 ], [ %42, %44 ], [ -12, %29 ], [ %40, %nxtask_spawn_create.exit.i ], [ %22, %21 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %47
 }
 
@@ -118,10 +118,10 @@ declare void @nxtask_activate(ptr noundef) local_unnamed_addr #1
 declare void @nxtask_uninit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

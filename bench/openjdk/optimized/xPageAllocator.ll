@@ -301,7 +301,7 @@ define hidden void @_ZN14XPageAllocatorC2EP8XWorkersmmm(ptr noundef nonnull alig
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull @.str.17, ptr noundef nonnull %53)
   call void @_ZNK22XPhysicalMemoryManager18warn_commit_limitsEm(ptr noundef nonnull align 8 dereferenceable(160) %16, i64 noundef %4) #14
   call void @_ZN22XPhysicalMemoryManager19try_enable_uncommitEmm(ptr noundef nonnull align 8 dereferenceable(160) %16, i64 noundef %2, i64 noundef %4) #14
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %54 = call noundef ptr @_ZN14XPageAllocator10alloc_pageEhm16XAllocationFlags(ptr noundef nonnull align 8 dereferenceable(609) %0, i8 noundef zeroext 2, i64 noundef %3, i8 5)
   %.not38 = icmp eq ptr %54, null
   br i1 %.not38, label %66, label %55
@@ -328,7 +328,7 @@ define hidden void @_ZN14XPageAllocatorC2EP8XWorkersmmm(ptr noundef nonnull alig
   br label %67
 
 66:                                               ; preds = %50
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i32 5, ptr %13, align 8
   %.sroa.21.0..sroa_idx.i37 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i37, align 8
@@ -337,7 +337,7 @@ define hidden void @_ZN14XPageAllocatorC2EP8XWorkersmmm(ptr noundef nonnull alig
 
 67:                                               ; preds = %55, %58
   call void @_ZN14XPageAllocator9free_pageEP5XPageb(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr noundef nonnull %54, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i8 1, ptr %38, align 8
   br label %68
 
@@ -948,7 +948,7 @@ define hidden void @_ZN14XPageAllocator12destroy_pageEP5XPage(ptr noundef nonnul
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 104
   tail call void @_ZN22XPhysicalMemoryManager4freeERK15XPhysicalMemory(ptr noundef nonnull align 8 dereferenceable(160) %6, ptr noundef nonnull align 8 dereferenceable(16) %7) #14
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i = icmp eq ptr %9, null
@@ -977,7 +977,7 @@ _ZN7XLockerI5XLockEC2EPS0_.exit.i.i:              ; preds = %10, %2
   br label %_ZN15XSafeDeleteImplI5XPageE15deferred_deleteEPS0_.exit.i
 
 _ZN15XSafeDeleteImplI5XPageE15deferred_deleteEPS0_.exit.i: ; preds = %18, %17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i.not, label %20, label %_ZN15XSafeDeleteImplI5XPageEclEPS0_.exit
 
 20:                                               ; preds = %_ZN15XSafeDeleteImplI5XPageE15deferred_deleteEPS0_.exit.i
@@ -1272,7 +1272,7 @@ _ZN7XLockerI5XLockED2Ev.exit:                     ; preds = %_ZN15XPageAllocatio
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %58 = load i64, ptr %57, align 8
   call void @_ZN21EventZAllocationStall6commitEmm(ptr noundef nonnull align 8 dereferenceable(40) %5, i64 noundef %56, i64 noundef %58)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %59 = load i8, ptr %4, align 8
   %60 = trunc i8 %59 to i1
   br i1 %60, label %61, label %_ZN10XStatTimerD2Ev.exit
@@ -1293,7 +1293,7 @@ _ZN7XLockerI5XLockED2Ev.exit:                     ; preds = %_ZN15XPageAllocatio
 
 _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN7XLockerI5XLockED2Ev.exit, %61
   %70 = icmp eq i32 %41, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %70
 }
 
@@ -1944,7 +1944,7 @@ _ZN23XListRemoveIteratorImplI5XPageLb1EE4nextEPPS0_.exit: ; preds = %_ZN14XPageA
   br label %_ZN14XPageAllocator13decrease_usedEmb.exit
 
 _ZN14XPageAllocator13decrease_usedEmb.exit:       ; preds = %_ZN23XListRemoveIteratorImplI5XPageLb1EE4nextEPPS0_.exit, %57
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %59 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %51, ptr nonnull %58) #14, !srcloc !6
   store i32 5, ptr %3, align 8
@@ -1972,7 +1972,7 @@ _ZN14XPageAllocator13decrease_usedEmb.exit:       ; preds = %_ZN23XListRemoveIte
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.21, i64 noundef %62, double noundef %70, i64 noundef %72, double noundef %77)
   %78 = load volatile i64, ptr %58, align 8
   store volatile i64 %78, ptr %60, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %81 = load i64, ptr %80, align 8
@@ -3262,14 +3262,14 @@ _ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128Enco
   %42 = load ptr, ptr %8, align 8
   %43 = ptrtoint ptr %42 to i64
   %44 = sub i64 %38, %43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %45 = load ptr, ptr %9, align 8
   %46 = load ptr, ptr %10, align 8
   call void @_ZN8JfrFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %45, i64 noundef %44, i64 noundef 9, ptr noundef %46) #14
   %47 = load ptr, ptr %7, align 8
   store ptr %47, ptr %9, align 8
   %.not5.i.i.i = icmp eq ptr %47, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %41
@@ -3368,7 +3368,7 @@ define linkonce_odr hidden void @_ZN15EventWriterHostI11EncoderHostI20BigEndianE
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
@@ -3376,7 +3376,7 @@ define linkonce_odr hidden void @_ZN15EventWriterHostI11EncoderHostI20BigEndianE
   %13 = load ptr, ptr %5, align 8
   store ptr %13, ptr %9, align 8
   %.not1.i.i.i = icmp eq ptr %13, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not1.i.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE5flushEv.exit.i.i, label %14
 
 14:                                               ; preds = %8
@@ -3421,7 +3421,7 @@ _ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128Enco
   %36 = ptrtoint ptr %35 to i64
   %37 = sub i64 %31, %36
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %41 = load ptr, ptr %40, align 8
@@ -3429,7 +3429,7 @@ _ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128Enco
   %42 = load ptr, ptr %4, align 8
   store ptr %42, ptr %38, align 8
   %.not5.i.i = icmp eq ptr %42, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %34
@@ -3484,7 +3484,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %64 = ptrtoint ptr %63 to i64
   %65 = sub i64 %62, %64
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %69 = load ptr, ptr %68, align 8
@@ -3492,7 +3492,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %70 = load ptr, ptr %3, align 8
   store ptr %70, ptr %66, align 8
   %.not5.i.i8 = icmp eq ptr %70, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i8, label %.sink.split.i.i10, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i9
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i9: ; preds = %61
@@ -3558,7 +3558,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %10, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
@@ -3566,7 +3566,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %21 = load ptr, ptr %3, align 8
   store ptr %21, ptr %17, align 8
   %.not5.i.i = icmp eq ptr %21, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %13
@@ -3765,7 +3765,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %10, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
@@ -3773,7 +3773,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %21 = load ptr, ptr %3, align 8
   store ptr %21, ptr %17, align 8
   %.not5.i.i = icmp eq ptr %21, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %13
@@ -3970,14 +3970,14 @@ define linkonce_odr hidden noundef i64 @_ZN15EventWriterHostI11EncoderHostI20Big
   br i1 %11, label %12, label %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertE7releaseEv.exit
 
 12:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   call void @_ZN8JfrFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %13, i64 noundef 0, i64 noundef 0, ptr noundef %15) #14
   %16 = load ptr, ptr %4, align 8
   store ptr %16, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertE7releaseEv.exit
 
 17:                                               ; preds = %2
@@ -4055,14 +4055,14 @@ _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit: ; preds = %_ZN11St
   br i1 %50, label %51, label %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertE7releaseEv.exit15
 
 51:                                               ; preds = %49
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %52 = load ptr, ptr %47, align 8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %54 = load ptr, ptr %53, align 8
   call void @_ZN8JfrFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %52, i64 noundef 0, i64 noundef 0, ptr noundef %54) #14
   %55 = load ptr, ptr %3, align 8
   store ptr %55, ptr %47, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertE7releaseEv.exit15
 
 _ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertE7releaseEv.exit15: ; preds = %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit, %49, %51
@@ -4112,7 +4112,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
 
 19:                                               ; preds = %7
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8
@@ -4120,7 +4120,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %24 = load ptr, ptr %4, align 8
   store ptr %24, ptr %20, align 8
   %.not5.i.i.i = icmp eq ptr %24, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %19
@@ -4240,7 +4240,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %10, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
@@ -4248,7 +4248,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %21 = load ptr, ptr %3, align 8
   store ptr %21, ptr %17, align 8
   %.not5.i.i = icmp eq ptr %21, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %13
@@ -4501,14 +4501,14 @@ _ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128Enco
   %42 = load ptr, ptr %8, align 8
   %43 = ptrtoint ptr %42 to i64
   %44 = sub i64 %38, %43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %45 = load ptr, ptr %9, align 8
   %46 = load ptr, ptr %10, align 8
   call void @_ZN8JfrFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %45, i64 noundef %44, i64 noundef 9, ptr noundef %46) #14
   %47 = load ptr, ptr %7, align 8
   store ptr %47, ptr %9, align 8
   %.not5.i.i.i = icmp eq ptr %47, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %41
@@ -4622,7 +4622,7 @@ define linkonce_odr hidden void @_ZN20EventZPageAllocation9writeDataI15EventWrit
   %26 = ptrtoint ptr %25 to i64
   %27 = sub i64 %24, %26
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %31 = load ptr, ptr %30, align 8
@@ -4630,7 +4630,7 @@ define linkonce_odr hidden void @_ZN20EventZPageAllocation9writeDataI15EventWrit
   %32 = load ptr, ptr %3, align 8
   store ptr %32, ptr %28, align 8
   %.not5.i.i.i.i = icmp eq ptr %32, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i.i.i, label %.sink.split.i.i.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i: ; preds = %23
@@ -4823,10 +4823,10 @@ declare i64 @llvm.umax.i64(i64, i64) #12
 declare i32 @llvm.ctpop.i32(i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

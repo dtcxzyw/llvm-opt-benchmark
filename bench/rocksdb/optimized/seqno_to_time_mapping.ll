@@ -90,12 +90,6 @@ $_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE16_M_push_back
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
-
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !4
@@ -2219,9 +2213,9 @@ _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EppE
   %.sroa.093.0.lcssa = phi ptr [ %349, %._crit_edge225 ], [ %.sroa.093.1, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EppEv.exit80 ]
   %.lcssa = phi ptr [ %348, %._crit_edge225 ], [ %369, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EppEv.exit80 ]
   %370 = load ptr, ptr %9, align 8, !tbaa !21, !noalias !189
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #27
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !192)
   store ptr %.sroa.093.0.lcssa, ptr %3, align 8, !tbaa !11, !alias.scope !192, !noalias !195
   %371 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2246,9 +2240,9 @@ _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EppE
           to label %381 unwind label %386
 
 381:                                              ; preds = %._crit_edge238
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i.i.i.i82 = icmp eq ptr %.sroa.0159.2.lcssa, null
   br i1 %.not.i.i.i.i82, label %_ZNSt14priority_queueIZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16RemovalCandidateSt6vectorIS2_SaIS2_EESt7greaterIS2_EED2Ev.exit, label %382
 
@@ -2265,7 +2259,7 @@ _ZNSt14priority_queueIZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16Remova
 386:                                              ; preds = %._crit_edge238
   %387 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %388
 
 388:                                              ; preds = %.loopexit166, %.loopexit.split-lp, %.loopexit168, %.loopexit.split-lp169, %386
@@ -2362,10 +2356,10 @@ _ZSt4sortISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_P
   %24 = load ptr, ptr %23, align 8, !tbaa !20, !noalias !206
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %26 = load ptr, ptr %25, align 8, !tbaa !21, !noalias !206
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %13, ptr %4, align 8, !tbaa !11
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %16, ptr %27, align 8, !tbaa !19
@@ -2417,10 +2411,10 @@ _ZSt4sortISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_P
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %26, ptr %58, align 8, !tbaa !21
   call void @_ZSt22__final_insertion_sortISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_EN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_T0_(ptr noundef nonnull %6, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %59 = load ptr, ptr %11, align 8, !tbaa !11, !noalias !209
   %60 = load ptr, ptr %15, align 8, !tbaa !19, !noalias !209
   %61 = load ptr, ptr %17, align 8, !tbaa !20, !noalias !209
@@ -2571,9 +2565,9 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   %.sroa.10.0 = phi ptr [ %.sroa.16.0.lcssa, %110 ], [ %118, %116 ]
   %storemerge.i.i = phi ptr [ %111, %110 ], [ %122, %116 ]
   %124 = load ptr, ptr %25, align 8, !tbaa !21, !noalias !224
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #27
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.experimental.noalias.scope.decl(metadata !227)
   store ptr %storemerge.i.i, ptr %2, align 8, !tbaa !11, !alias.scope !227, !noalias !228
   %125 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2594,9 +2588,9 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   %133 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %124, ptr %133, align 8, !tbaa !21, !alias.scope !229, !noalias !228
   call void @_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE8_M_eraseESt15_Deque_iteratorIS2_RS2_PS2_ES8_(ptr dead_on_unwind nonnull writable sret(%"struct.std::_Deque_iterator.3") align 8 %8, ptr noundef nonnull align 8 dereferenceable(80) %9, ptr noundef nonnull %2, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %134
 
 134:                                              ; preds = %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit, %1
@@ -2737,7 +2731,7 @@ define void @_ZNK7rocksdb18SeqnoToTimeMapping8EncodeToERNSt7__cxx1112basic_strin
   %33 = sub i64 %31, %32
   %34 = ashr exact i64 %33, 4
   %35 = add nsw i64 %28, %34
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %4) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %36 = icmp ugt i64 %35, 127
   br i1 %36, label %.lr.ph.i.i, label %_ZN7rocksdb14EncodeVarint64EPcm.exit.i
 
@@ -2773,7 +2767,7 @@ _ZN7rocksdb14EncodeVarint64EPcm.exit.i:           ; preds = %.lr.ph.i.i, %10
 
 _ZN7rocksdb11PutVarint64EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit: ; preds = %_ZN7rocksdb14EncodeVarint64EPcm.exit.i
   %52 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %4, i64 noundef %46)
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %53 = load ptr, ptr %6, align 8, !tbaa !11, !noalias !244
   %54 = load ptr, ptr %5, align 8, !tbaa !11, !noalias !247
   %.not19 = icmp eq ptr %53, %54
@@ -2796,7 +2790,7 @@ _ZN7rocksdb11PutVarint64EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.09.020, i64 8
   %62 = load i64, ptr %61, align 8, !tbaa !33
   %63 = sub i64 %62, %.sroa.513.023
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %64 = icmp ugt i64 %60, 127
   br i1 %64, label %.lr.ph.i.i.i, label %_ZN7rocksdb14EncodeVarint64EPcm.exit.i.i
 
@@ -2850,7 +2844,7 @@ _ZN7rocksdb14EncodeVarint64EPcm.exit9.i.i:        ; preds = %.lr.ph.i6.i.i, %_ZN
 
 _ZNK7rocksdb18SeqnoToTimeMapping13SeqnoTimePair6EncodeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %_ZN7rocksdb14EncodeVarint64EPcm.exit9.i.i
   %86 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %3, i64 noundef %81)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.09.020, i64 16
   %88 = icmp eq ptr %87, %.sroa.10.021
   br i1 %88, label %89, label %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEv.exit
@@ -2878,7 +2872,7 @@ define void @_ZNK7rocksdb18SeqnoToTimeMapping13SeqnoTimePair6EncodeERNSt7__cxx11
   %4 = load i64, ptr %0, align 8, !tbaa !56
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = icmp ugt i64 %4, 127
   br i1 %7, label %.lr.ph.i.i, label %_ZN7rocksdb14EncodeVarint64EPcm.exit.i
 
@@ -2934,7 +2928,7 @@ _ZN7rocksdb14EncodeVarint64EPcm.exit9.i:          ; preds = %.lr.ph.i6.i, %_ZN7r
 
 _ZN7rocksdb19PutVarint64Varint64EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit: ; preds = %_ZN7rocksdb14EncodeVarint64EPcm.exit9.i
   %31 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %3, i64 noundef %25)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -2978,7 +2972,7 @@ define void @_ZN7rocksdb18SeqnoToTimeMapping10DecodeFromERKNSt7__cxx1112basic_st
   %38 = sub i64 %36, %37
   %39 = ashr exact i64 %38, 4
   %40 = add nsw i64 %32, %39
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %41 = load ptr, ptr %2, align 8, !tbaa !250
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2994,24 +2988,24 @@ define void @_ZN7rocksdb18SeqnoToTimeMapping10DecodeFromERKNSt7__cxx1112basic_st
   br label %94
 
 47:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #27, !noalias !251
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !251
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 %44
   %49 = call noundef ptr @_ZN7rocksdb14GetVarint64PtrEPKcS1_Pm(ptr noundef %41, ptr noundef nonnull %48, ptr noundef nonnull %4), !noalias !251
   %.not20.i = icmp eq ptr %49, null
   br i1 %.not20.i, label %_ZN7rocksdb11GetVarint64EPNS_5SliceEPm.exit.i, label %52
 
 _ZN7rocksdb11GetVarint64EPNS_5SliceEPm.exit.i:    ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #27, !noalias !251
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !251
   store ptr @.str.6, ptr %5, align 8, !tbaa !259, !noalias !251
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 33, ptr %50, align 8, !tbaa !261, !noalias !251
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #27, !noalias !251
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !251
   store ptr @.str.9, ptr %6, align 8, !tbaa !259, !noalias !251
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %51, align 8, !tbaa !261, !noalias !251
   call void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, i8 noundef zeroext 0)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #27, !noalias !251
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #27, !noalias !251
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !251
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !251
   br label %87
 
 52:                                               ; preds = %47
@@ -3034,7 +3028,7 @@ _ZN7rocksdb11GetVarint64EPNS_5SliceEPm.exit.i:    ; preds = %47
   %.01224.i = phi i64 [ 0, %.lr.ph.i ], [ %79, %_ZN7rocksdb6StatusD2Ev.exit19.i ]
   %.sroa.6.023.i = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.6.0.copyload.i, %_ZN7rocksdb6StatusD2Ev.exit19.i ]
   %.sroa.0.022.i = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.0.0.copyload.i, %_ZN7rocksdb6StatusD2Ev.exit19.i ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #27, !noalias !251
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !251
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !noalias !251
   call void @_ZN7rocksdb18SeqnoToTimeMapping13SeqnoTimePair6DecodeERNS_5SliceE(ptr dead_on_unwind writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %10)
   %61 = load i8, ptr %0, align 8, !tbaa !263
@@ -3058,8 +3052,8 @@ common.resume:                                    ; preds = %_ZN7rocksdb6StatusD
 
 _ZN7rocksdb6StatusD2Ev.exit.i:                    ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i, %63
   store ptr null, ptr %59, align 8, !tbaa !262, !alias.scope !251
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #27, !noalias !251
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #27, !noalias !251
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !251
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !251
   br label %common.resume
 
 66:                                               ; preds = %60
@@ -3099,15 +3093,15 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 
 _ZN7rocksdb6StatusD2Ev.exit19.i:                  ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i18.i, %.critedge.i
   store ptr null, ptr %59, align 8, !tbaa !262, !alias.scope !251
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #27, !noalias !251
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !251
   %79 = add nuw i64 %.01224.i, 1
   %80 = load i64, ptr %4, align 8, !tbaa !113, !noalias !251
   %.not.i = icmp ult i64 %79, %80
   br i1 %.not.i, label %60, label %.critedge16.loopexit.i, !llvm.loop !273
 
 .thread13:                                        ; preds = %60
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #27, !noalias !251
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #27, !noalias !251
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !251
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !251
   br label %89
 
 .critedge16.loopexit.i:                           ; preds = %_ZN7rocksdb6StatusD2Ev.exit19.i
@@ -3120,29 +3114,29 @@ _ZN7rocksdb6StatusD2Ev.exit19.i:                  ; preds = %_ZNKSt14default_del
   br i1 %82, label %.thread11, label %83
 
 83:                                               ; preds = %.critedge16.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #27, !noalias !251
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !251
   store ptr @.str.7, ptr %8, align 8, !tbaa !259, !noalias !251
   %84 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 50, ptr %84, align 8, !tbaa !261, !noalias !251
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #27, !noalias !251
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !251
   store ptr @.str.9, ptr %9, align 8, !tbaa !259, !noalias !251
   %85 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %85, align 8, !tbaa !261, !noalias !251
   call void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, i8 noundef zeroext 0)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #27, !noalias !251
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #27, !noalias !251
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !251
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !251
   br label %87
 
 .thread11:                                        ; preds = %.critedge16.i
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %86, align 8, !tbaa !254, !alias.scope !274
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !274
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #27, !noalias !251
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !251
   br label %94
 
 87:                                               ; preds = %_ZN7rocksdb11GetVarint64EPNS_5SliceEPm.exit.i, %83
   %.pr.pr = load i8, ptr %0, align 8, !tbaa !263
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #27, !noalias !251
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !251
   %88 = icmp eq i8 %.pr.pr, 0
   br i1 %88, label %94, label %89
 
@@ -3164,7 +3158,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %90, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
   store ptr null, ptr %92, align 8, !tbaa !262
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 94:                                               ; preds = %.thread11, %.thread, %87
@@ -3184,7 +3178,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %90, %_ZNKSt14defaul
   br label %100
 
 100:                                              ; preds = %89, %98, %94
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
@@ -3406,17 +3400,17 @@ define void @_ZN7rocksdb18SeqnoToTimeMapping13SeqnoTimePair6DecodeERNS_5SliceE(p
   br i1 %.not, label %_ZN7rocksdb11GetVarint64EPNS_5SliceEPm.exit, label %15
 
 _ZN7rocksdb11GetVarint64EPNS_5SliceEPm.exit:      ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @.str, ptr %4, align 8, !tbaa !259
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 23, ptr %13, align 8, !tbaa !261
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @.str.9, ptr %5, align 8, !tbaa !259
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %14, align 8, !tbaa !261
   call void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i8 noundef zeroext 0)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %28
 
 15:                                               ; preds = %3
@@ -3432,17 +3426,17 @@ _ZN7rocksdb11GetVarint64EPNS_5SliceEPm.exit:      ; preds = %3
   br i1 %.not4, label %_ZN7rocksdb11GetVarint64EPNS_5SliceEPm.exit3, label %24
 
 _ZN7rocksdb11GetVarint64EPNS_5SliceEPm.exit3:     ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @.str.2, ptr %6, align 8, !tbaa !259
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 12, ptr %22, align 8, !tbaa !261
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @.str.9, ptr %7, align 8, !tbaa !259
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %23, align 8, !tbaa !261
   call void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, i8 noundef zeroext 0)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %28
 
 24:                                               ; preds = %15
@@ -3701,8 +3695,8 @@ _ZNK7rocksdb18SeqnoToTimeMapping16FindGreaterSeqnoEm.exit.thread: ; preds = %4, 
   %.sroa.13.0 = phi ptr [ %.sroa.13.1, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EmmEv.exit ], [ %.sroa.11.1.i.i, %_ZNK7rocksdb18SeqnoToTimeMapping16FindGreaterSeqnoEm.exit ], [ %17, %4 ]
   %.sroa.17.0 = phi ptr [ %.sroa.17.1, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EmmEv.exit ], [ %.sroa.17.1.i.i, %_ZNK7rocksdb18SeqnoToTimeMapping16FindGreaterSeqnoEm.exit ], [ %19, %4 ]
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %.sroa.045.0, ptr %5, align 8, !tbaa !38
   %126 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.sroa.849.0, ptr %126, align 8, !tbaa !40
@@ -3718,8 +3712,8 @@ _ZNK7rocksdb18SeqnoToTimeMapping16FindGreaterSeqnoEm.exit.thread: ; preds = %4, 
   %131 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %.sroa.11.070, ptr %131, align 8, !tbaa !42
   %132 = call ptr @_ZSt15__copy_move_ditILb0EN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_St20back_insert_iteratorISt5dequeIS2_SaIS2_EEEET3_St15_Deque_iteratorIT0_T1_T2_ESG_SB_(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr nonnull %125)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %133 = load i64, ptr %0, align 8
   %.not = icmp eq i64 %133, -1
   %or.cond = select i1 %11, i1 %.not, i1 false
@@ -3913,7 +3907,7 @@ _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE12emplace_backI
 define noundef zeroext i1 @_ZN7rocksdb18SeqnoToTimeMapping11PrePopulateEmmmm(ptr noundef nonnull align 8 dereferenceable(97) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #6 align 2 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %1, ptr %6, align 8, !tbaa !113
   %.not8 = icmp ugt i64 %1, %2
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -3927,12 +3921,12 @@ define noundef zeroext i1 @_ZN7rocksdb18SeqnoToTimeMapping11PrePopulateEmmmm(ptr
   br label %13
 
 ._crit_edge:                                      ; preds = %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE12emplace_backIJRmS6_EEERS2_DpOT_.exit, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 true
 
 13:                                               ; preds = %.lr.ph, %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE12emplace_backIJRmS6_EEERS2_DpOT_.exit
   %storemerge9 = phi i64 [ %1, %.lr.ph ], [ %26, %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE12emplace_backIJRmS6_EEERS2_DpOT_.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %14 = sub i64 %storemerge9, %1
   %15 = mul i64 %14, %8
   %16 = udiv i64 %15, %9
@@ -3957,7 +3951,7 @@ define noundef zeroext i1 @_ZN7rocksdb18SeqnoToTimeMapping11PrePopulateEmmmm(ptr
   br label %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE12emplace_backIJRmS6_EEERS2_DpOT_.exit
 
 _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE12emplace_backIJRmS6_EEERS2_DpOT_.exit: ; preds = %24, %21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %25 = load i64, ptr %6, align 8, !tbaa !113
   %26 = add i64 %25, 1
   store i64 %26, ptr %6, align 8, !tbaa !113
@@ -4090,7 +4084,7 @@ define { ptr, i64 } @_ZN7rocksdb21PackValueAndWriteTimeERKNS_5SliceEmPNSt7__cxx1
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !240
   %10 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0, i64 noundef %9, ptr noundef %5, i64 noundef %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %1, ptr %4, align 8, !tbaa !113
   %11 = load i64, ptr %8, align 8, !tbaa !240
   %12 = and i64 %11, -8
@@ -4103,7 +4097,7 @@ define { ptr, i64 } @_ZN7rocksdb21PackValueAndWriteTimeERKNS_5SliceEmPNSt7__cxx1
 
 _ZN7rocksdb10PutFixed64EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit: ; preds = %3
   %15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %4, i64 noundef 8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %16 = load ptr, ptr %2, align 8, !tbaa !250
   %17 = load i64, ptr %8, align 8, !tbaa !240
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %16, 0
@@ -4120,7 +4114,7 @@ define { ptr, i64 } @_ZN7rocksdb17PackValueAndSeqnoERKNS_5SliceEmPNSt7__cxx1112b
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !240
   %10 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0, i64 noundef %9, ptr noundef %5, i64 noundef %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %1, ptr %4, align 8, !tbaa !113
   %11 = load i64, ptr %8, align 8, !tbaa !240
   %12 = and i64 %11, -8
@@ -4133,7 +4127,7 @@ define { ptr, i64 } @_ZN7rocksdb17PackValueAndSeqnoERKNS_5SliceEmPNSt7__cxx1112b
 
 _ZN7rocksdb10PutFixed64EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit: ; preds = %3
   %15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %4, i64 noundef 8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %16 = load ptr, ptr %2, align 8, !tbaa !250
   %17 = load i64, ptr %8, align 8, !tbaa !240
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %16, 0
@@ -4607,10 +4601,10 @@ _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5clearEv.exit: 
   %117 = load ptr, ptr %29, align 8, !tbaa !19, !noalias !345
   %118 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %119 = load ptr, ptr %118, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12), !noalias !348
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !351
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !351
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11), !noalias !351
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !348
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !351
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !351
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !351
   store ptr %28, ptr %9, align 8, !tbaa !11, !noalias !354
   %120 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %117, ptr %120, align 8, !tbaa !19, !noalias !354
@@ -4633,10 +4627,10 @@ _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5clearEv.exit: 
   %128 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %52, ptr %128, align 8, !tbaa !21, !noalias !354
   call void @_ZSt24__copy_move_backward_ditILb1EN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_St15_Deque_iteratorIS2_S3_S4_EET3_S5_IT0_T1_T2_ESB_S7_(ptr dead_on_unwind nonnull writable sret(%"struct.std::_Deque_iterator.3") align 8 %12, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11), !noalias !351
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !351
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !351
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11), !noalias !351
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12), !noalias !348
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !351
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !351
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !351
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !348
   %.pre93 = load ptr, ptr %27, align 8, !tbaa !11, !noalias !357
   %.pre94 = load ptr, ptr %30, align 8, !tbaa !20, !noalias !357
   %.pre95 = load ptr, ptr %31, align 8, !tbaa !21, !noalias !357
@@ -4712,10 +4706,10 @@ _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE17_M_erase_at_b
   %160 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %161 = load ptr, ptr %160, align 8, !tbaa !20
   %162 = load ptr, ptr %158, align 8, !tbaa !20, !noalias !363
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !366
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !369
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !369
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !369
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !366
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !369
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !369
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !369
   store ptr %14, ptr %5, align 8, !tbaa !11, !noalias !372
   %163 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %63, ptr %163, align 8, !tbaa !19, !noalias !372
@@ -4738,10 +4732,10 @@ _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE17_M_erase_at_b
   %171 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %54, ptr %171, align 8, !tbaa !21, !noalias !372
   call void @_ZSt15__copy_move_ditILb1EN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_St15_Deque_iteratorIS2_S3_S4_EET3_S5_IT0_T1_T2_ESB_S7_(ptr dead_on_unwind nonnull writable sret(%"struct.std::_Deque_iterator.3") align 8 %8, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7), !noalias !369
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !369
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !369
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !369
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !366
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !369
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !369
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !369
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !366
   %.pre96 = load ptr, ptr %96, align 8, !tbaa !11, !noalias !375
   %.pre97 = load ptr, ptr %105, align 8, !tbaa !19, !noalias !375
   %.pre98 = load ptr, ptr %97, align 8, !tbaa !21, !noalias !375
@@ -5756,7 +5750,7 @@ define linkonce_odr void @_ZSt16__introsort_loopISt15_Deque_iteratorIN7rocksdb18
 
 72:                                               ; preds = %58
   %73 = add nsw i64 %.0, -1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %51, ptr %8, align 8, !tbaa !11
   %74 = load ptr, ptr %17, align 8, !tbaa !19
   store ptr %74, ptr %16, align 8, !tbaa !19
@@ -5786,7 +5780,7 @@ define linkonce_odr void @_ZSt16__introsort_loopISt15_Deque_iteratorIN7rocksdb18
   store ptr %83, ptr %32, align 8, !tbaa !21
   call void @_ZSt16__introsort_loopISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_ElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_T0_T1_(ptr noundef nonnull %10, ptr noundef nonnull %11, i64 noundef %73)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !415
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %33, !llvm.loop !416
 
 .loopexit:                                        ; preds = %33, %60
@@ -6148,7 +6142,7 @@ _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmmE
   %.pre-phi15.i = phi i64 [ %67, %.lr.ph._ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmmEv.exit.i_crit_edge ], [ %.pre14.i, %69 ]
   %73 = phi ptr [ %.sroa.0.08, %.lr.ph._ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmmEv.exit.i_crit_edge ], [ %72, %69 ]
   %74 = getelementptr inbounds i8, ptr %73, i64 -16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.sroa.01.0.copyload.i.i = load i64, ptr %74, align 8, !tbaa !113
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %73, i64 -8
   %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !113
@@ -6167,7 +6161,7 @@ _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmmE
   %81 = add i64 %77, %52
   %82 = add i64 %81, %80
   call void @_ZSt13__adjust_heapISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_ElS3_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SB_T1_T2_(ptr noundef nonnull %4, i64 noundef 0, i64 noundef %82, i64 %.sroa.01.0.copyload.i.i, i64 %.sroa.4.0.copyload.i.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %83 = add nsw i64 %.pre-phi12, %.neg.i.i.i
   %84 = shl nsw i64 %83, 5
   %85 = sub i64 %78, %.pre-phi14
@@ -6506,11 +6500,11 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTi
   br i1 %172, label %173, label %_ZSt21__unguarded_partitionISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_EN9__gnu_cxx5__ops15_Iter_less_iterEET_SA_SA_SA_T0_.exit
 
 173:                                              ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit1.thread25.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.010.1, i64 16, i1 false), !tbaa.struct !187, !noalias !438
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.010.1, ptr noundef nonnull align 8 dereferenceable(16) %storemerge.i, i64 16, i1 false), !tbaa.struct !187, !noalias !438
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storemerge.i, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !187, !noalias !438
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %174 = getelementptr inbounds nuw i8, ptr %.sroa.010.1, i64 16
   %175 = icmp eq ptr %174, %.sroa.13.2.ph
   br i1 %175, label %176, label %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EppEv.exit3.i.backedge
@@ -6556,7 +6550,7 @@ define linkonce_odr void @_ZSt13__heap_selectISt15_Deque_iteratorIN7rocksdb18Seq
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = ptrtoint ptr %18 to i64
   %20 = ptrtoint ptr %12 to i64
   %21 = sub i64 %19, %20
@@ -6642,7 +6636,7 @@ _ZSt11__make_heapISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePa
 _ZSt11__make_heapISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_EN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_RT0_.exit: ; preds = %_ZSt11__make_heapISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_EN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_RT0_.exit.loopexit, %3
   %65 = phi ptr [ %.pre44, %_ZSt11__make_heapISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_EN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_RT0_.exit.loopexit ], [ %18, %3 ]
   %66 = phi ptr [ %.pre, %_ZSt11__make_heapISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_EN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_RT0_.exit.loopexit ], [ %13, %3 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %68 = load ptr, ptr %67, align 8, !tbaa !21
   %69 = icmp eq ptr %65, %68
@@ -6696,7 +6690,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTi
   %93 = load ptr, ptr %1, align 8, !tbaa !11
   %94 = load ptr, ptr %14, align 8, !tbaa !19
   %95 = load ptr, ptr %17, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.020.041, ptr noundef nonnull align 8 dereferenceable(16) %79, i64 16, i1 false), !tbaa.struct !187
   store ptr %79, ptr %4, align 8, !tbaa !11
   store ptr %90, ptr %75, align 8, !tbaa !19
@@ -6721,7 +6715,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTi
   %111 = add nsw i64 %106, %110
   %112 = add i64 %111, %102
   call void @_ZSt13__adjust_heapISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_ElS3_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SB_T1_T2_(ptr noundef nonnull %4, i64 noundef 0, i64 noundef %112, i64 %82, i64 %.sroa.4.0.copyload.i3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit.thread40
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit.thread40: ; preds = %85, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit.thread
@@ -7016,7 +7010,7 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
 
 155:                                              ; preds = %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit33, %105, %._crit_edge
   %.1 = phi i64 [ %111, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit33 ], [ %.0.lcssa, %105 ], [ %.0.lcssa, %._crit_edge ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %156 = load ptr, ptr %0, align 8, !tbaa !11
   store ptr %156, ptr %7, align 8, !tbaa !11
   %157 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -7032,7 +7026,7 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   %165 = load ptr, ptr %164, align 8, !tbaa !21
   store ptr %165, ptr %163, align 8, !tbaa !21
   call void @_ZSt11__push_heapISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_ElS3_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_SB_T1_RT2_(ptr noundef nonnull %7, i64 noundef %.1, i64 noundef %1, i64 %3, i64 %4, ptr noundef nonnull align 1 dereferenceable(1) %6)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -7261,11 +7255,11 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTi
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit1.thread: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit.thread, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit1
   %32 = load ptr, ptr %0, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false), !tbaa.struct !187
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !187
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !187
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %59
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit1.thread90: ; preds = %27, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit1
@@ -7284,20 +7278,20 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTi
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit2.thread: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit1.thread90, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit2
   %39 = load ptr, ptr %0, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false), !tbaa.struct !187
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false), !tbaa.struct !187
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !187
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %59
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit2.thread91: ; preds = %34, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit2
   %40 = load ptr, ptr %0, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false), !tbaa.struct !187
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !187
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !187
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %59
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit.thread89: ; preds = %18, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit
@@ -7319,11 +7313,11 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTi
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit3.thread: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit.thread89, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit3
   %50 = load ptr, ptr %0, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %50, i64 16, i1 false), !tbaa.struct !187
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !187
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !187
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %59
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit3.thread92: ; preds = %45, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit3
@@ -7342,20 +7336,20 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTi
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit4.thread: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit3.thread92, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit4
   %57 = load ptr, ptr %0, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false), !tbaa.struct !187
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %41, i64 16, i1 false), !tbaa.struct !187
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !187
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %59
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit4.thread93: ; preds = %52, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit4
   %58 = load ptr, ptr %0, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %58, i64 16, i1 false), !tbaa.struct !187
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !187
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !187
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %59
 
 59:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit3.thread, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit4.thread93, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit4.thread, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit1.thread, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit2.thread91, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit2.thread
@@ -7462,7 +7456,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTi
   br i1 %59, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit.thread, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit.thread41
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit.thread: ; preds = %49, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.023.043, i64 16, i1 false), !tbaa.struct !187
   %60 = load ptr, ptr %12, align 8, !tbaa !19
   %61 = load ptr, ptr %14, align 8, !tbaa !20
@@ -7506,10 +7500,10 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   %.sroa.2.0 = phi ptr [ %.sroa.12.046, %71 ], [ %80, %77 ]
   %.sroa.8.0 = phi ptr [ %.sroa.27.049, %71 ], [ %79, %77 ]
   %storemerge.i.i1 = phi ptr [ %72, %71 ], [ %84, %77 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !487
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !490
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !490
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !490
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !487
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !490
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !490
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !490
   store ptr %50, ptr %3, align 8, !tbaa !11, !noalias !493
   store ptr %60, ptr %40, align 8, !tbaa !19, !noalias !493
   store ptr %61, ptr %41, align 8, !tbaa !20, !noalias !493
@@ -7523,13 +7517,13 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   store ptr %.sroa.56.0, ptr %47, align 8, !tbaa !20, !noalias !493
   store ptr %.sroa.8.0, ptr %48, align 8, !tbaa !21, !noalias !493
   call void @_ZSt24__copy_move_backward_ditILb1EN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_St15_Deque_iteratorIS2_S3_S4_EET3_S5_IT0_T1_T2_ESB_S7_(ptr dead_on_unwind nonnull writable sret(%"struct.std::_Deque_iterator.3") align 8 %6, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5), !noalias !490
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !490
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !490
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !490
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !487
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !490
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !490
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !490
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !487
   %85 = load ptr, ptr %0, align 8, !tbaa !11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !187
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %100
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit.thread41: ; preds = %55, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit
@@ -8236,6 +8230,12 @@ define internal void @_GLOBAL__sub_I_seqno_to_time_mapping.cc() #20 section ".te
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev, ptr nonnull @_ZN7rocksdbL18empty_operand_listE, ptr nonnull @__dso_handle) #27
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #21

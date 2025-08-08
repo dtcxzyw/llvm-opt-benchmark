@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @Lzma2Dec_AllocateProbs(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [5 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = zext i8 %1 to i32
   %6 = icmp ugt i8 %1, 40
   br i1 %6, label %Lzma2Dec_GetOldProps.exit, label %7
@@ -37,22 +37,16 @@ define i32 @Lzma2Dec_AllocateProbs(ptr noundef %0, i8 noundef zeroext %1, ptr no
 
 Lzma2Dec_GetOldProps.exit:                        ; preds = %3, %15
   %.1 = phi i32 [ %18, %15 ], [ 4, %3 ]
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @LzmaDec_AllocateProbs(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @LzmaDec_AllocateProbs(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @Lzma2Dec_Allocate(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [5 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = zext i8 %1 to i32
   %6 = icmp ugt i8 %1, 40
   br i1 %6, label %Lzma2Dec_GetOldProps.exit, label %7
@@ -79,11 +73,11 @@ define i32 @Lzma2Dec_Allocate(ptr noundef %0, i8 noundef zeroext %1, ptr noundef
 
 Lzma2Dec_GetOldProps.exit:                        ; preds = %3, %15
   %.1 = phi i32 [ %18, %15 ], [ 4, %3 ]
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
 }
 
-declare i32 @LzmaDec_Allocate(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @LzmaDec_Allocate(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @Lzma2Dec_Init(ptr noundef initializes((144, 148), (152, 164)) %0) local_unnamed_addr #0 {
@@ -99,7 +93,7 @@ define void @Lzma2Dec_Init(ptr noundef initializes((144, 148), (152, 164)) %0) l
   ret void
 }
 
-declare void @LzmaDec_Init(ptr noundef) local_unnamed_addr #2
+declare void @LzmaDec_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @Lzma2Dec_DecodeToDic(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(none) %3, i32 noundef %4, ptr noundef initializes((0, 4)) %5) local_unnamed_addr #0 {
@@ -269,7 +263,7 @@ define i32 @Lzma2Dec_DecodeToDic(ptr noundef %0, i64 noundef %1, ptr noundef %2,
 
 89:                                               ; preds = %31
   %90 = sub i64 %1, %26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %91 = load i64, ptr %3, align 8, !tbaa !18
   %92 = sub i64 %8, %91
   store i64 %92, ptr %7, align 8, !tbaa !18
@@ -477,12 +471,12 @@ LzmaDec_UpdateWithUncompressed.exit:              ; preds = %._crit_edge.i, %123
 
 .thread171:                                       ; preds = %112, %106, %161, %174, %180, %153, %150, %99
   %.2.ph = phi i32 [ 0, %99 ], [ 1, %112 ], [ 1, %106 ], [ %163, %161 ], [ 0, %174 ], [ 1, %180 ], [ 1, %153 ], [ 1, %150 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread151
 
 186:                                              ; preds = %LzmaDec_UpdateWithUncompressed.exit, %182, %185
   %.2105 = phi ptr [ %133, %LzmaDec_UpdateWithUncompressed.exit ], [ %165, %185 ], [ %165, %182 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pr = load i32, ptr %9, align 8, !tbaa !6
   br label %.backedge
 
@@ -501,9 +495,9 @@ LzmaDec_UpdateWithUncompressed.exit:              ; preds = %._crit_edge.i, %123
   ret i32 %.10
 }
 
-declare void @LzmaDec_InitDicAndState(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @LzmaDec_InitDicAndState(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @LzmaDec_DecodeToDic(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @LzmaDec_DecodeToDic(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @Lzma2Dec_DecodeToBuf(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, i32 noundef %5, ptr noundef initializes((0, 4)) %6) local_unnamed_addr #0 {
@@ -522,7 +516,7 @@ define i32 @Lzma2Dec_DecodeToBuf(ptr noundef %0, ptr noundef writeonly captures(
   %.047 = phi i64 [ %9, %7 ], [ %35, %34 ]
   %.046 = phi i64 [ %10, %7 ], [ %37, %34 ]
   %.044 = phi ptr [ %1, %7 ], [ %36, %34 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %.046, ptr %8, align 8, !tbaa !18
   %15 = load i64, ptr %11, align 8, !tbaa !20
   %16 = load i64, ptr %12, align 8, !tbaa !32
@@ -557,7 +551,7 @@ define i32 @Lzma2Dec_DecodeToBuf(ptr noundef %0, ptr noundef writeonly captures(
   br i1 %.not, label %34, label %.thread
 
 .thread:                                          ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
 34:                                               ; preds = %19
@@ -568,7 +562,7 @@ define i32 @Lzma2Dec_DecodeToBuf(ptr noundef %0, ptr noundef writeonly captures(
   %39 = icmp ne i64 %28, %20
   %40 = icmp ne i64 %35, 0
   %or.cond.not = select i1 %39, i1 %40, i1 false
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %or.cond.not, label %14, label %.loopexit
 
 .loopexit:                                        ; preds = %34, %.thread
@@ -576,16 +570,16 @@ define i32 @Lzma2Dec_DecodeToBuf(ptr noundef %0, ptr noundef writeonly captures(
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @Lzma2Decode(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef captures(none) %3, i8 noundef zeroext %4, i32 noundef %5, ptr noundef initializes((0, 4)) %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.CLzma2Dec, align 8
   %10 = alloca [5 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %11 = load i64, ptr %1, align 8, !tbaa !18
   %12 = load i64, ptr %3, align 8, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %14, align 8
@@ -642,20 +636,26 @@ define i32 @Lzma2Decode(ptr noundef %0, ptr noundef captures(none) %1, ptr nound
 
 Lzma2Dec_GetOldProps.exit:                        ; preds = %8, %26, %38
   %.1 = phi i32 [ %.030, %38 ], [ %29, %26 ], [ 4, %8 ]
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %10) #5
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.1
 }
 
-declare void @LzmaDec_FreeProbs(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @LzmaDec_FreeProbs(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 

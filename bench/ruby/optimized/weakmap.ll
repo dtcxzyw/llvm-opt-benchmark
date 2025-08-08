@@ -89,14 +89,11 @@ define hidden void @Init_WeakMap() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @rb_define_module(ptr noundef) local_unnamed_addr #1
 
-declare i64 @rb_define_module(ptr noundef) local_unnamed_addr #2
+declare i64 @rb_define_class_under(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_define_class_under(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
-
-declare void @rb_define_alloc_func(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @rb_define_alloc_func(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @wmap_allocate(i64 noundef %0) #0 {
@@ -120,13 +117,13 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %1, %8
   ret i64 %2
 }
 
-declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @wmap_aset(i64 noundef %0, i64 noundef %1, i64 noundef %2) #0 {
   %4 = alloca [2 x i64], align 16
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @weakmap_type) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %1, ptr %4, align 16, !tbaa !7
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %2, ptr %6, align 8, !tbaa !7
@@ -155,7 +152,7 @@ rb_obj_written.exit:                              ; preds = %3, %14
   br label %rb_obj_written.exit7
 
 rb_obj_written.exit7:                             ; preds = %rb_obj_written.exit, %19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 4
 }
 
@@ -163,10 +160,10 @@ rb_obj_written.exit7:                             ; preds = %rb_obj_written.exit
 define internal range(i64 37, 36) i64 @wmap_aref(i64 noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %1, ptr %3, align 8, !tbaa !7
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @weakmap_type) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %5, align 8, !tbaa !17
   %7 = ptrtoint ptr %3 to i64
   %8 = call i32 @rb_st_lookup(ptr noundef %6, i64 noundef %7, ptr noundef nonnull %4) #10
@@ -174,8 +171,8 @@ define internal range(i64 37, 36) i64 @wmap_aref(i64 noundef %0, i64 noundef %1)
   br i1 %.not.i, label %wmap_lookup.exit.thread, label %wmap_lookup.exit
 
 wmap_lookup.exit.thread:                          ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %13
 
 wmap_lookup.exit:                                 ; preds = %2
@@ -183,8 +180,8 @@ wmap_lookup.exit:                                 ; preds = %2
   %10 = inttoptr i64 %9 to ptr
   %11 = load i64, ptr %10, align 8, !tbaa !7
   %.fr = freeze i64 %11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %12 = icmp eq i64 %.fr, 36
   br i1 %12, label %13, label %14
 
@@ -202,12 +199,12 @@ define internal i64 @wmap_delete(i64 noundef %0, i64 noundef %1) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @weakmap_type) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %1, ptr %3, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = ptrtoint ptr %3 to i64
   store i64 %7, ptr %4, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = load ptr, ptr %6, align 8, !tbaa !17
   %9 = call i32 @rb_st_delete(ptr noundef %8, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
   %.not = icmp eq i32 %9, 0
@@ -240,9 +237,9 @@ define internal i64 @wmap_delete(i64 noundef %0, i64 noundef %1) #0 {
 
 24:                                               ; preds = %20, %10, %22
   %.1 = phi i64 [ %23, %22 ], [ %13, %10 ], [ 4, %20 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.1
 }
 
@@ -250,10 +247,10 @@ define internal i64 @wmap_delete(i64 noundef %0, i64 noundef %1) #0 {
 define internal range(i64 0, 21) i64 @wmap_has_key(i64 noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %1, ptr %3, align 8, !tbaa !7
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @weakmap_type) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %5, align 8, !tbaa !17
   %7 = ptrtoint ptr %3 to i64
   %8 = call i32 @rb_st_lookup(ptr noundef %6, i64 noundef %7, ptr noundef nonnull %4) #10
@@ -261,16 +258,16 @@ define internal range(i64 0, 21) i64 @wmap_has_key(i64 noundef %0, i64 noundef %
   br i1 %.not.i, label %wmap_lookup.exit.thread, label %wmap_lookup.exit
 
 wmap_lookup.exit.thread:                          ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %13
 
 wmap_lookup.exit:                                 ; preds = %2
   %9 = load i64, ptr %4, align 8, !tbaa !7
   %10 = inttoptr i64 %9 to ptr
   %11 = load i64, ptr %10, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.fr = freeze i64 %11
   %12 = icmp eq i64 %.fr, 36
   br i1 %12, label %13, label %14
@@ -329,7 +326,7 @@ rb_class_of.exit:                                 ; preds = %7, %10, %11, %12, %
   %20 = inttoptr i64 %0 to ptr
   %21 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.22, i64 noundef %18, ptr noundef %20) #10
   %.val = load ptr, ptr %19, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr @wmap_inspect_i, ptr %2, align 8, !tbaa !20
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %21, ptr %22, align 8, !tbaa !23
@@ -339,7 +336,7 @@ rb_class_of.exit:                                 ; preds = %7, %10, %11, %12, %
   %25 = call i32 @rb_st_foreach(ptr noundef %.val, ptr noundef nonnull @wmap_foreach_i, i64 noundef %24) #10
   %26 = load ptr, ptr %23, align 8, !tbaa !24
   call void @ruby_xfree(ptr noundef %26) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %27 = inttoptr i64 %21 to ptr
   %28 = load i64, ptr %27, align 8, !tbaa !25, !noalias !26
   %29 = and i64 %28, 8192
@@ -363,7 +360,7 @@ define internal noundef i64 @wmap_each(i64 noundef returned %0) #0 {
   %2 = alloca %struct.wmap_foreach_data, align 8
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @weakmap_type) #10
   %.val = load ptr, ptr %3, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr @wmap_each_i, ptr %2, align 8, !tbaa !20
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -372,7 +369,7 @@ define internal noundef i64 @wmap_each(i64 noundef returned %0) #0 {
   %7 = call i32 @rb_st_foreach(ptr noundef %.val, ptr noundef nonnull @wmap_foreach_i, i64 noundef %6) #10
   %8 = load ptr, ptr %5, align 8, !tbaa !24
   call void @ruby_xfree(ptr noundef %8) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %0
 }
 
@@ -381,7 +378,7 @@ define internal noundef i64 @wmap_each_key(i64 noundef returned %0) #0 {
   %2 = alloca %struct.wmap_foreach_data, align 8
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @weakmap_type) #10
   %.val = load ptr, ptr %3, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr @wmap_each_key_i, ptr %2, align 8, !tbaa !20
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -390,7 +387,7 @@ define internal noundef i64 @wmap_each_key(i64 noundef returned %0) #0 {
   %7 = call i32 @rb_st_foreach(ptr noundef %.val, ptr noundef nonnull @wmap_foreach_i, i64 noundef %6) #10
   %8 = load ptr, ptr %5, align 8, !tbaa !24
   call void @ruby_xfree(ptr noundef %8) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %0
 }
 
@@ -399,7 +396,7 @@ define internal noundef i64 @wmap_each_value(i64 noundef returned %0) #0 {
   %2 = alloca %struct.wmap_foreach_data, align 8
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @weakmap_type) #10
   %.val = load ptr, ptr %3, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr @wmap_each_value_i, ptr %2, align 8, !tbaa !20
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -408,7 +405,7 @@ define internal noundef i64 @wmap_each_value(i64 noundef returned %0) #0 {
   %7 = call i32 @rb_st_foreach(ptr noundef %.val, ptr noundef nonnull @wmap_foreach_i, i64 noundef %6) #10
   %8 = load ptr, ptr %5, align 8, !tbaa !24
   call void @ruby_xfree(ptr noundef %8) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %0
 }
 
@@ -418,7 +415,7 @@ define internal i64 @wmap_keys(i64 noundef %0) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @weakmap_type) #10
   %4 = tail call i64 @rb_ary_new() #10
   %.val = load ptr, ptr %3, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr @wmap_keys_i, ptr %2, align 8, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %4, ptr %5, align 8, !tbaa !23
@@ -428,7 +425,7 @@ define internal i64 @wmap_keys(i64 noundef %0) #0 {
   %8 = call i32 @rb_st_foreach(ptr noundef %.val, ptr noundef nonnull @wmap_foreach_i, i64 noundef %7) #10
   %9 = load ptr, ptr %6, align 8, !tbaa !24
   call void @ruby_xfree(ptr noundef %9) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %4
 }
 
@@ -438,7 +435,7 @@ define internal i64 @wmap_values(i64 noundef %0) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @weakmap_type) #10
   %4 = tail call i64 @rb_ary_new() #10
   %.val = load ptr, ptr %3, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr @wmap_values_i, ptr %2, align 8, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %4, ptr %5, align 8, !tbaa !23
@@ -448,7 +445,7 @@ define internal i64 @wmap_values(i64 noundef %0) #0 {
   %8 = call i32 @rb_st_foreach(ptr noundef %.val, ptr noundef nonnull @wmap_foreach_i, i64 noundef %7) #10
   %9 = load ptr, ptr %6, align 8, !tbaa !24
   call void @ruby_xfree(ptr noundef %9) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %4
 }
 
@@ -474,7 +471,7 @@ rb_ulong2num_inline.exit:                         ; preds = %6, %9
   ret i64 %.0.i
 }
 
-declare void @rb_include_module(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare void @rb_include_module(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @wkmap_allocate(i64 noundef %0) #0 {
@@ -527,7 +524,7 @@ RB_FL_ABLE.exit.thread:                           ; preds = %RB_FL_ABLE.exit, %R
   unreachable
 
 15:                                               ; preds = %RB_FL_ABLE.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %1, ptr %5, align 8, !tbaa !32
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %2, ptr %16, align 8, !tbaa !34
@@ -558,7 +555,7 @@ rb_obj_written.exit:                              ; preds = %15, %26
   br label %rb_obj_written.exit13
 
 rb_obj_written.exit13:                            ; preds = %rb_obj_written.exit, %31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %2
 }
 
@@ -566,18 +563,18 @@ rb_obj_written.exit13:                            ; preds = %rb_obj_written.exit
 define internal i64 @wkmap_aref(i64 noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %1, ptr %3, align 8, !tbaa !7
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @weakkeymap_type) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %5, align 8, !tbaa !30
   %7 = ptrtoint ptr %3 to i64
   %8 = call i32 @rb_st_lookup(ptr noundef %6, i64 noundef %7, ptr noundef nonnull %4) #10
   %.not.i = icmp eq i32 %8, 0
   %9 = load i64, ptr %4, align 8
   %.0.i = select i1 %.not.i, i64 36, i64 %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %10 = icmp eq i64 %.0.i, 36
   %11 = select i1 %10, i64 4, i64 %.0.i
   ret i64 %11
@@ -589,12 +586,12 @@ define internal i64 @wkmap_delete(i64 noundef %0, i64 noundef %1) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @weakkeymap_type) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %1, ptr %3, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = ptrtoint ptr %3 to i64
   store i64 %7, ptr %4, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = load ptr, ptr %6, align 8, !tbaa !30
   %9 = call i32 @rb_st_delete(ptr noundef %8, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
   %.not = icmp eq i32 %9, 0
@@ -621,9 +618,9 @@ define internal i64 @wkmap_delete(i64 noundef %0, i64 noundef %1) #0 {
 
 20:                                               ; preds = %16, %18, %10
   %.0 = phi i64 [ %11, %10 ], [ %19, %18 ], [ 4, %16 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
 
@@ -633,7 +630,7 @@ define internal i64 @wkmap_getkey(i64 noundef %0, i64 noundef %1) #0 {
   %4 = alloca i64, align 8
   store i64 %1, ptr %3, align 8, !tbaa !7
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @weakkeymap_type) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %5, align 8, !tbaa !30
   %7 = ptrtoint ptr %3 to i64
   %8 = call i32 @rb_st_get_key(ptr noundef %6, i64 noundef %7, ptr noundef nonnull %4) #10
@@ -648,7 +645,7 @@ define internal i64 @wkmap_getkey(i64 noundef %0, i64 noundef %1) #0 {
 
 13:                                               ; preds = %2, %9
   %.0 = phi i64 [ %12, %9 ], [ 4, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 }
 
@@ -656,17 +653,17 @@ define internal i64 @wkmap_getkey(i64 noundef %0, i64 noundef %1) #0 {
 define internal range(i64 0, 21) i64 @wkmap_has_key(i64 noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %1, ptr %3, align 8, !tbaa !7
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @weakkeymap_type) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %5, align 8, !tbaa !30
   %7 = ptrtoint ptr %3 to i64
   %8 = call i32 @rb_st_lookup(ptr noundef %6, i64 noundef %7, ptr noundef nonnull %4) #10
   %.not.i = icmp eq i32 %8, 0
   %9 = load i64, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %10 = icmp eq i64 %9, 36
   %11 = select i1 %.not.i, i1 true, i1 %10
   %12 = select i1 %11, i64 0, i64 20
@@ -732,12 +729,9 @@ rb_class_of.exit:                                 ; preds = %9, %12, %13, %14, %
   ret i64 %22
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @rb_data_typed_object_zalloc(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @rb_data_typed_object_zalloc(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @rb_st_init_table(ptr noundef) local_unnamed_addr #2
+declare ptr @rb_st_init_table(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @wmap_mark(ptr noundef readonly captures(none) %0) #0 {
@@ -747,7 +741,7 @@ define internal void @wmap_mark(ptr noundef readonly captures(none) %0) #0 {
   br i1 %.not, label %10, label %4
 
 4:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr @wmap_mark_weak_table_i, ptr %2, align 8, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -756,7 +750,7 @@ define internal void @wmap_mark(ptr noundef readonly captures(none) %0) #0 {
   %8 = call i32 @rb_st_foreach(ptr noundef nonnull %3, ptr noundef nonnull @wmap_foreach_i, i64 noundef %7) #10
   %9 = load ptr, ptr %6, align 8, !tbaa !24
   call void @ruby_xfree(ptr noundef %9) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %10
 
 10:                                               ; preds = %4, %1
@@ -790,7 +784,7 @@ define internal void @wmap_compact(ptr noundef readonly captures(none) %0) #0 {
   br i1 %.not, label %9, label %4
 
 4:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8, !tbaa !35
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %5, align 8, !tbaa !37
@@ -798,7 +792,7 @@ define internal void @wmap_compact(ptr noundef readonly captures(none) %0) #0 {
   %7 = call i32 @rb_st_foreach(ptr noundef nonnull %3, ptr noundef nonnull @wmap_compact_table_i, i64 noundef %6) #10
   %8 = load ptr, ptr %5, align 8, !tbaa !37
   call void @ruby_xfree(ptr noundef %8) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %9
 
 9:                                                ; preds = %4, %1
@@ -813,7 +807,7 @@ define internal noundef i32 @wmap_mark_weak_table_i(ptr noundef %0, i64 %1) #0 {
   ret i32 0
 }
 
-declare i32 @rb_st_foreach(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @rb_st_foreach(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @wmap_foreach_i(i64 noundef %0, i64 %1, i64 noundef %2) #0 {
@@ -845,28 +839,28 @@ define internal i32 @wmap_foreach_i(i64 noundef %0, i64 %1, i64 noundef %2) #0 {
   br i1 %.not19, label %27, label %18
 
 18:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %14, ptr %4, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %17, ptr %5, align 8, !tbaa !7
   %19 = load ptr, ptr %8, align 8, !tbaa !20
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !23
   %22 = tail call i32 %19(ptr noundef nonnull %13, i64 noundef %21) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %4, ptr %6, align 8, !tbaa !41
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #10, !srcloc !43
   %23 = load ptr, ptr %6, align 8, !tbaa !41
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %24 = load volatile i64, ptr %23, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %5, ptr %7, align 8, !tbaa !41
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %7) #10, !srcloc !44
   %25 = load ptr, ptr %7, align 8, !tbaa !41
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %26 = load volatile i64, ptr %25, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %28
 
 27:                                               ; preds = %15, %12
@@ -878,9 +872,9 @@ define internal i32 @wmap_foreach_i(i64 noundef %0, i64 %1, i64 noundef %2) #0 {
   ret i32 %.0
 }
 
-declare void @ruby_xfree(ptr noundef) local_unnamed_addr #2
+declare void @ruby_xfree(ptr noundef) local_unnamed_addr #1
 
-declare void @rb_gc_mark_weak(ptr noundef) local_unnamed_addr #2
+declare void @rb_gc_mark_weak(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @wmap_free_table_i(i64 noundef %0, i64 %1, i64 %2) #0 {
@@ -889,12 +883,12 @@ define internal noundef i32 @wmap_free_table_i(i64 noundef %0, i64 %1, i64 %2) #
   ret i32 0
 }
 
-declare void @rb_st_free_table(ptr noundef) local_unnamed_addr #2
+declare void @rb_st_free_table(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @rb_st_memsize(ptr noundef) local_unnamed_addr #3
+declare i64 @rb_st_memsize(ptr noundef) local_unnamed_addr #2
 
-declare i64 @rb_st_table_size(ptr noundef) local_unnamed_addr #2
+declare i64 @rb_st_table_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 0, 3) i32 @wmap_compact_table_i(i64 noundef %0, i64 %1, i64 noundef %2) #0 {
@@ -948,19 +942,19 @@ define internal range(i32 0, 3) i32 @wmap_compact_table_i(i64 noundef %0, i64 %1
   ret i32 %.0
 }
 
-declare i64 @rb_gc_location(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_gc_location(i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_gc_disable_no_rest() local_unnamed_addr #2
+declare i64 @rb_gc_disable_no_rest() local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0)
-declare noalias nonnull ptr @ruby_xmalloc(i64 noundef) local_unnamed_addr #4
+declare noalias nonnull ptr @ruby_xmalloc(i64 noundef) local_unnamed_addr #3
 
-declare i32 @rb_st_insert(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @rb_st_insert(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_gc_enable() local_unnamed_addr #2
+declare i64 @rb_gc_enable() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @wmap_cmp(i64 noundef %0, i64 noundef %1) #5 {
+define internal range(i32 0, 2) i32 @wmap_cmp(i64 noundef %0, i64 noundef %1) #4 {
   %3 = inttoptr i64 %0 to ptr
   %4 = load i64, ptr %3, align 8, !tbaa !7
   %5 = inttoptr i64 %1 to ptr
@@ -985,7 +979,7 @@ define internal range(i32 0, 2) i32 @wmap_cmp(i64 noundef %0, i64 noundef %1) #5
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @wmap_hash(i64 noundef %0) #6 {
+define internal i64 @wmap_hash(i64 noundef %0) #5 {
   %2 = inttoptr i64 %0 to ptr
   %3 = load i64, ptr %2, align 8, !tbaa !7
   %4 = tail call i64 @rb_st_numhash(i64 noundef %3) #14
@@ -993,11 +987,11 @@ define internal i64 @wmap_hash(i64 noundef %0) #6 {
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @rb_st_numhash(i64 noundef) local_unnamed_addr #7
+declare i64 @rb_st_numhash(i64 noundef) local_unnamed_addr #6
 
-declare ptr @rb_check_typeddata(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @rb_check_typeddata(i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @rb_st_update(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @rb_st_update(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @wmap_aset_replace(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2, i32 noundef %3) #0 {
@@ -1027,21 +1021,21 @@ define internal noundef i32 @wmap_aset_replace(ptr noundef captures(none) %0, pt
   ret i32 0
 }
 
-declare void @rb_gc_writebarrier(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare void @rb_gc_writebarrier(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @rb_st_lookup(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @rb_st_lookup(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @rb_st_delete(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @rb_st_delete(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @rb_gc_remove_weak(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @rb_gc_remove_weak(i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @rb_block_given_p() local_unnamed_addr #2
+declare i32 @rb_block_given_p() local_unnamed_addr #1
 
-declare i64 @rb_yield(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_yield(i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_class_name(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_class_name(i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_sprintf(ptr noundef, ...) local_unnamed_addr #2
+declare i64 @rb_sprintf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @wmap_inspect_i(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
@@ -1124,13 +1118,13 @@ wmap_inspect_append.exit14:                       ; preds = %35, %37
   ret i32 0
 }
 
-declare i64 @rb_str_append(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_str_append(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_inspect(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_inspect(i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_any_to_s(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_any_to_s(i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_str_cat(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_str_cat(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @wmap_each_i(ptr noundef readonly captures(none) %0, i64 %1) #0 {
@@ -1141,7 +1135,7 @@ define internal noundef i32 @wmap_each_i(ptr noundef readonly captures(none) %0,
   ret i32 0
 }
 
-declare i64 @rb_yield_values(i32 noundef, ...) local_unnamed_addr #2
+declare i64 @rb_yield_values(i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @wmap_each_key_i(ptr noundef readonly captures(none) %0, i64 %1) #0 {
@@ -1158,7 +1152,7 @@ define internal noundef i32 @wmap_each_value_i(ptr noundef readonly captures(non
   ret i32 0
 }
 
-declare i64 @rb_ary_new() local_unnamed_addr #2
+declare i64 @rb_ary_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @wmap_keys_i(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
@@ -1167,7 +1161,7 @@ define internal noundef i32 @wmap_keys_i(ptr noundef readonly captures(none) %0,
   ret i32 0
 }
 
-declare i64 @rb_ary_push(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_ary_push(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @wmap_values_i(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
@@ -1177,7 +1171,7 @@ define internal noundef i32 @wmap_values_i(ptr noundef readonly captures(none) %
   ret i32 0
 }
 
-declare i64 @rb_uint2big(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_uint2big(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @wkmap_mark(ptr noundef readonly captures(none) %0) #0 {
@@ -1187,7 +1181,7 @@ define internal void @wkmap_mark(ptr noundef readonly captures(none) %0) #0 {
   br i1 %.not, label %10, label %4
 
 4:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !41
   %5 = ptrtoint ptr %2 to i64
   %6 = call i32 @rb_st_foreach(ptr noundef nonnull %3, ptr noundef nonnull @wkmap_mark_table_i, i64 noundef %5) #10
@@ -1200,7 +1194,7 @@ define internal void @wkmap_mark(ptr noundef readonly captures(none) %0) #0 {
   br label %9
 
 9:                                                ; preds = %8, %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %10
 
 10:                                               ; preds = %9, %1
@@ -1234,7 +1228,7 @@ define internal void @wkmap_compact(ptr noundef readonly captures(none) %0) #0 {
   br i1 %.not, label %10, label %4
 
 4:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !41
   %5 = ptrtoint ptr %2 to i64
   %6 = call i32 @rb_st_foreach_with_replace(ptr noundef nonnull %3, ptr noundef nonnull @wkmap_compact_table_i, ptr noundef nonnull @wkmap_compact_table_replace, i64 noundef %5) #10
@@ -1247,7 +1241,7 @@ define internal void @wkmap_compact(ptr noundef readonly captures(none) %0) #0 {
   br label %9
 
 9:                                                ; preds = %8, %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %10
 
 10:                                               ; preds = %9, %1
@@ -1279,7 +1273,7 @@ define internal range(i32 0, 3) i32 @wkmap_mark_table_i(i64 noundef %0, i64 noun
   ret i32 %.0
 }
 
-declare void @rb_gc_mark_movable(i64 noundef) local_unnamed_addr #2
+declare void @rb_gc_mark_movable(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @wkmap_free_table_i(i64 noundef %0, i64 %1, i64 %2) #0 {
@@ -1288,7 +1282,7 @@ define internal noundef i32 @wkmap_free_table_i(i64 noundef %0, i64 %1, i64 %2) 
   ret i32 0
 }
 
-declare i32 @rb_st_foreach_with_replace(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @rb_st_foreach_with_replace(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 0, 5) i32 @wkmap_compact_table_i(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 %3) #0 {
@@ -1364,12 +1358,12 @@ define internal i64 @wkmap_hash(i64 noundef %0) #0 {
   ret i64 %4
 }
 
-declare i32 @rb_any_cmp(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @rb_any_cmp(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_any_hash(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_any_hash(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #8
+declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @wkmap_aset_replace(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, i64 noundef %2, i32 noundef %3) #0 {
@@ -1398,7 +1392,7 @@ define internal noundef i32 @wkmap_aset_replace(ptr noundef captures(none) %0, p
   ret i32 0
 }
 
-declare i32 @rb_st_get_key(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @rb_st_get_key(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @wkmap_clear_i(i64 noundef %0, i64 %1, i64 noundef %2) #0 {
@@ -1408,20 +1402,26 @@ define internal noundef i32 @wkmap_clear_i(i64 noundef %0, i64 %1, i64 noundef %
   ret i32 0
 }
 
-declare void @rb_st_clear(ptr noundef) local_unnamed_addr #2
+declare void @rb_st_clear(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { nounwind }
 attributes #11 = { noreturn nounwind }

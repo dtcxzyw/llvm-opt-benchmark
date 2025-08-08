@@ -218,7 +218,7 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) 
   br label %321
 
 20:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 1008, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %6, align 8
@@ -436,9 +436,9 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) 
   br label %317
 
 129:                                              ; preds = %122
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !35)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #28, !noalias !35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !35
   %130 = getelementptr inbounds nuw i8, ptr %6, i64 5
   %131 = load i8, ptr %130, align 1, !tbaa !38, !range !39, !noalias !35, !noundef !40
   %132 = trunc nuw i8 %131 to i1
@@ -464,11 +464,11 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) 
 
 .thread:                                          ; preds = %.noexc19
   store ptr null, ptr %7, align 8, !tbaa !43, !alias.scope !35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28, !noalias !35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !35
   br label %285
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #28, !noalias !35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !35
   %139 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %139, ptr %4, align 8, !tbaa !10, !noalias !35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %139, ptr noundef nonnull align 1 dereferenceable(3) @.str.1, i64 3, i1 false), !noalias !35
@@ -547,7 +547,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit._crit_edge.i:
   br label %269
 
 169:                                              ; preds = %167, %161
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #28, !noalias !35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !35
   %170 = invoke ptr @DH_get_2048_256(ptr noundef null)
           to label %171 unwind label %172, !noalias !35
 
@@ -786,12 +786,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit._crit_edge.i:
   unreachable
 
 _ZNSt10unique_ptrI5dh_st14OpenSSLDeleterIS0_XadL_Z7DH_freeEEEED2Ev.exit.i: ; preds = %264, %263, %.thread.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #28, !noalias !35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !35
   br label %269
 
 268:                                              ; preds = %187, %172
   %.pn.i = phi { ptr, i32 } [ %188, %187 ], [ %173, %172 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #28, !noalias !35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !35
   br label %274
 
 269:                                              ; preds = %_ZNSt10unique_ptrI5dh_st14OpenSSLDeleterIS0_XadL_Z7DH_freeEEEED2Ev.exit.i, %168, %160, %152
@@ -826,13 +826,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i37.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #28, !noalias !35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !35
   call void @_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #28, !noalias !35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28, !noalias !35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !35
   br label %.body
 
 279:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #28, !noalias !35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !35
   %.pr41.i = load ptr, ptr %3, align 8, !tbaa !41, !noalias !35
   %.not.i39.i = icmp eq ptr %.pr41.i, null
   br i1 %.not.i39.i, label %284, label %280
@@ -850,7 +850,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38.i: ; preds = %_
 
 284:                                              ; preds = %280, %279
   %.pr = load ptr, ptr %7, align 8, !tbaa !41
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28, !noalias !35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !35
   %.not = icmp eq ptr %.pr, null
   br i1 %.not, label %285, label %291
 
@@ -870,7 +870,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38.i: ; preds = %_
   br label %315
 
 291:                                              ; preds = %284
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !79
   %292 = invoke fastcc noundef zeroext i1 @_ZL10DoExchangePSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEEP10ssl_ctx_stPK10TestConfigbPS0_(ptr noundef nonnull %8, ptr noundef nonnull %.pr, ptr noundef %6, i1 noundef zeroext false, ptr noundef null)
           to label %293 unwind label %294
@@ -882,7 +882,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38.i: ; preds = %_
   %295 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %315
 
 296:                                              ; preds = %293
@@ -922,7 +922,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38.i: ; preds = %_
   unreachable
 
 311:                                              ; preds = %305, %307
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   invoke void @SSL_CTX_free(ptr noundef nonnull %.pr)
           to label %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit unwind label %312
 
@@ -935,7 +935,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38.i: ; preds = %_
 
 _ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit: ; preds = %285, %311
   %.21232 = phi i32 [ %.313, %311 ], [ 1, %285 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %316
 
 315:                                              ; preds = %294, %289
@@ -945,19 +945,19 @@ _ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.e
 
 .body:                                            ; preds = %287, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38.i, %315
   %.pn.pn = phi { ptr, i32 } [ %.pn, %315 ], [ %288, %287 ], [ %.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %317
 
 316:                                              ; preds = %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit, %123
   %.111 = phi i32 [ %.21232, %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit ], [ 1, %123 ]
   call void @_ZN10TestConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(1005) %6) #28
-  call void @llvm.lifetime.end.p0(i64 1008, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %318
 
 317:                                              ; preds = %.body, %127
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body ], [ %128, %127 ]
   call void @_ZN10TestConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(1005) %6) #28
-  call void @llvm.lifetime.end.p0(i64 1008, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %321
 
 318:                                              ; preds = %14, %316
@@ -973,20 +973,17 @@ _ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.e
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind
-declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @CRYPTO_library_init() local_unnamed_addr #3
+declare void @CRYPTO_library_init() local_unnamed_addr #2
 
 declare i32 @__gxx_personality_v0(...)
 
-declare i32 @SSL_get_ex_new_index(i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @SSL_get_ex_new_index(i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL15TestStateExFreePvS_P17crypto_ex_data_stilS_(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, i32 %3, i64 %4, ptr readnone captures(none) %5) #4 {
+define internal void @_ZL15TestStateExFreePvS_P17crypto_ex_data_stilS_(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, i32 %3, i64 %4, ptr readnone captures(none) %5) #3 {
   %7 = icmp eq ptr %1, null
   br i1 %7, label %9, label %8
 
@@ -999,13 +996,13 @@ define internal void @_ZL15TestStateExFreePvS_P17crypto_ex_data_stilS_(ptr readn
   ret void
 }
 
-declare noundef zeroext i1 @_Z11ParseConfigiPPcP10TestConfig(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare noundef zeroext i1 @_Z11ParseConfigiPPcP10TestConfig(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @SSL_CTX_free(ptr noundef) local_unnamed_addr #3
+declare void @SSL_CTX_free(ptr noundef) local_unnamed_addr #2
 
-declare void @ERR_print_errors_fp(ptr noundef) local_unnamed_addr #3
+declare void @ERR_print_errors_fp(ptr noundef) local_unnamed_addr #2
 
-declare void @SSL_SESSION_free(ptr noundef) local_unnamed_addr #3
+declare void @SSL_SESSION_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress norecurse uwtable
 define internal fastcc noundef zeroext i1 @_ZL10DoExchangePSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEEP10ssl_ctx_stPK10TestConfigbPS0_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -1023,7 +1020,7 @@ define internal fastcc noundef zeroext i1 @_ZL10DoExchangePSt10unique_ptrI14ssl_
   %17 = alloca %"class.std::allocator.18", align 1
   %18 = alloca [16 x i8], align 16
   %19 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %20 = tail call ptr @SSL_new(ptr noundef %1)
   store ptr %20, ptr %8, align 8, !tbaa !83
   %.not305 = icmp eq ptr %20, null
@@ -1235,7 +1232,7 @@ define internal fastcc noundef zeroext i1 @_ZL10DoExchangePSt10unique_ptrI14ssl_
   br i1 %129, label %146, label %130
 
 130:                                              ; preds = %126
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke fastcc void @_ZL14LoadPrivateKeyRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %120)
           to label %131 unwind label %136
 
@@ -1265,7 +1262,7 @@ define internal fastcc noundef zeroext i1 @_ZL10DoExchangePSt10unique_ptrI14ssl_
 
 .critedge223:                                     ; preds = %135
   call void @_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %146
 
 140:                                              ; preds = %135
@@ -1285,12 +1282,12 @@ define internal fastcc noundef zeroext i1 @_ZL10DoExchangePSt10unique_ptrI14ssl_
   unreachable
 
 _ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit: ; preds = %131, %140, %141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread282
 
 145:                                              ; preds = %138, %136
   %.pn = phi { ptr, i32 } [ %139, %138 ], [ %137, %136 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %603
 
 146:                                              ; preds = %.critedge223, %126, %119
@@ -1504,20 +1501,20 @@ _ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev
   br i1 %255, label %256, label %261
 
 256:                                              ; preds = %252
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 715, ptr %11, align 4, !tbaa !6
   %257 = invoke i32 @SSL_set1_curves(ptr noundef nonnull %20, ptr noundef nonnull %11, i64 noundef 1)
           to label %258 unwind label %259
 
 258:                                              ; preds = %256
   %.not190.not = icmp eq i32 %257, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.not190.not, label %.thread282, label %261
 
 259:                                              ; preds = %256
   %260 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %603
 
 261:                                              ; preds = %258, %252
@@ -1546,7 +1543,7 @@ _ZL7Connectt.exit.thread:                         ; preds = %268
   br label %.thread282
 
 273:                                              ; preds = %268
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 1, ptr %6, align 4, !tbaa !6
   %274 = call i32 @setsockopt(i32 noundef %271, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %6, i32 noundef 4) #28
   %.not.i238 = icmp eq i32 %274, 0
@@ -1558,11 +1555,11 @@ _ZL7Connectt.exit.thread:                         ; preds = %268
           to label %_ZL7Connectt.exit.thread289 unwind label %284
 
 _ZL7Connectt.exit.thread289:                      ; preds = %275
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread282
 
 277:                                              ; preds = %273
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %278 = getelementptr inbounds nuw i8, ptr %7, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %278, i8 0, i64 12, i1 false)
   store i16 2, ptr %7, align 4, !tbaa !109
@@ -1588,8 +1585,8 @@ _ZL7Connectt.exit.thread289:                      ; preds = %275
           to label %_ZL7Connectt.exit.thread291 unwind label %284
 
 _ZL7Connectt.exit.thread291:                      ; preds = %.sink.split.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread282
 
 284:                                              ; preds = %.sink.split.i, %281, %275
@@ -1598,11 +1595,11 @@ _ZL7Connectt.exit.thread291:                      ; preds = %.sink.split.i
   br label %603
 
 286:                                              ; preds = %.noexc240
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #28
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %271, ptr %12, align 4, !tbaa !113
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %287 = invoke ptr @BIO_new_socket(i32 noundef %271, i32 noundef 0)
           to label %288 unwind label %289
 
@@ -1623,7 +1620,7 @@ _ZL7Connectt.exit.thread291:                      ; preds = %.sink.split.i
   br i1 %294, label %295, label %311
 
 295:                                              ; preds = %291
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %296 = load i32, ptr @_ZL13g_state_index, align 4, !tbaa !6
   %297 = invoke noundef ptr @SSL_get_ex_data(ptr noundef nonnull %20, i32 noundef %296)
           to label %_ZL12GetTestStatePK6ssl_st.exit unwind label %301
@@ -1652,7 +1649,7 @@ _ZL12GetTestStatePK6ssl_st.exit:                  ; preds = %295
 306:                                              ; preds = %303
   %307 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14) #28
   call void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %311
 
 308:                                              ; preds = %303
@@ -1663,7 +1660,7 @@ _ZL12GetTestStatePK6ssl_st.exit:                  ; preds = %295
 
 310:                                              ; preds = %308, %301
   %.pn192 = phi { ptr, i32 } [ %309, %308 ], [ %302, %301 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %597
 
 311:                                              ; preds = %306, %291
@@ -1673,7 +1670,7 @@ _ZL12GetTestStatePK6ssl_st.exit:                  ; preds = %295
   br i1 %314, label %315, label %335
 
 315:                                              ; preds = %311
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %316 = load i8, ptr %292, align 1, !tbaa !38, !range !39, !noundef !40
   %317 = trunc nuw i8 %316 to i1
   br i1 %317, label %318, label %319
@@ -1712,7 +1709,7 @@ _ZL12GetTestStatePK6ssl_st.exit244:               ; preds = %327
   store ptr %328, ptr %330, align 8, !tbaa !117
   %331 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %15) #28
   call void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %335
 
 332:                                              ; preds = %327, %324
@@ -1723,7 +1720,7 @@ _ZL12GetTestStatePK6ssl_st.exit244:               ; preds = %327
 
 334:                                              ; preds = %332, %322
   %.pn194 = phi { ptr, i32 } [ %333, %332 ], [ %323, %322 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %597
 
 335:                                              ; preds = %_ZL12GetTestStatePK6ssl_st.exit244, %311
@@ -1871,14 +1868,14 @@ _ZL12GetTestStatePK6ssl_st.exit248:               ; preds = %387
   br i1 %394, label %395, label %438
 
 395:                                              ; preds = %391
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %396 = zext nneg i32 %393 to i64
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   invoke void @_ZNSt6vectorIhSaIhEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %396, ptr noundef nonnull align 1 dereferenceable(1) %17)
           to label %397 unwind label %421
 
 397:                                              ; preds = %395
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %398 = load ptr, ptr %16, align 8, !tbaa !140
   %399 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %400 = load ptr, ptr %399, align 8, !tbaa !141
@@ -1915,13 +1912,13 @@ _ZL12GetTestStatePK6ssl_st.exit248:               ; preds = %387
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %.critedge229, %420
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %596
 
 421:                                              ; preds = %395
   %422 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit250
 
 423:                                              ; preds = %427, %397
@@ -1955,12 +1952,12 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %.critedge229, %420
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit252
 
 _ZNSt6vectorIhSaIhEED2Ev.exit252:                 ; preds = %434, %437
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br i1 %435, label %438, label %596
 
 _ZNSt6vectorIhSaIhEED2Ev.exit250:                 ; preds = %426, %423, %421
   %.pn201 = phi { ptr, i32 } [ %422, %421 ], [ %424, %423 ], [ %424, %426 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %597
 
 438:                                              ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit252, %391
@@ -1970,8 +1967,8 @@ _ZNSt6vectorIhSaIhEED2Ev.exit250:                 ; preds = %426, %423, %421
   br i1 %441, label %442, label %460
 
 442:                                              ; preds = %438
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %443 = invoke i32 @SSL_get_tls_unique(ptr noundef %20, ptr noundef nonnull %18, ptr noundef nonnull %19, i64 noundef 16)
           to label %444 unwind label %448
 
@@ -1987,8 +1984,8 @@ _ZNSt6vectorIhSaIhEED2Ev.exit250:                 ; preds = %426, %423, %421
 448:                                              ; preds = %456, %442
   %449 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %597
 
 450:                                              ; preds = %444
@@ -2008,8 +2005,8 @@ _ZNSt6vectorIhSaIhEED2Ev.exit250:                 ; preds = %426, %423, %421
 
 458:                                              ; preds = %456
   %459 = icmp sgt i32 %457, -1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br i1 %459, label %460, label %596
 
 460:                                              ; preds = %458, %438
@@ -2315,26 +2312,26 @@ _ZL12GetTestStatePK6ssl_st.exit269:               ; preds = %554
   br label %596
 
 .critedge232:                                     ; preds = %445, %452
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %596
 
 .critedge225:                                     ; preds = %299
   call void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %596
 
 .critedge227:                                     ; preds = %320
   call void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %596
 
 596:                                              ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit261.thread, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit256, %467, %560, %577, %583, %594, %458, %_ZNSt6vectorIhSaIhEED2Ev.exit252, %386, %.critedge, %_ZNSt6vectorIhSaIhEED2Ev.exit, %.critedge232, %490, %588, %344, %.critedge227, %.critedge225, %288, %359
   %.6 = phi i1 [ false, %359 ], [ false, %288 ], [ false, %.critedge225 ], [ false, %.critedge227 ], [ false, %344 ], [ false, %467 ], [ false, %577 ], [ false, %583 ], [ false, %594 ], [ false, %560 ], [ false, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit256 ], [ false, %458 ], [ false, %_ZNSt6vectorIhSaIhEED2Ev.exit252 ], [ false, %386 ], [ false, %.critedge ], [ false, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ false, %.critedge232 ], [ false, %490 ], [ true, %588 ], [ false, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit261.thread ]
   call void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZN12SocketCloserD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %12) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread282
 
 597:                                              ; preds = %.loopexit, %.loopexit.split-lp, %512, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit264, %475, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit, %_ZNSt6vectorIhSaIhEED2Ev.exit250, %448, %345, %334, %310
@@ -2344,9 +2341,9 @@ _ZL12GetTestStatePK6ssl_st.exit269:               ; preds = %554
 
 598:                                              ; preds = %597, %289
   %.pn216.pn.pn = phi { ptr, i32 } [ %.pn216.pn, %597 ], [ %290, %289 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZN12SocketCloserD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %12) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %603
 
 .thread282:                                       ; preds = %24, %_ZL7Connectt.exit.thread291, %_ZL7Connectt.exit.thread289, %_ZL7Connectt.exit.thread, %.thread283, %596, %267, %202, %195, %188, %179, %164, %154, %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit, %60, %44, %258
@@ -2368,18 +2365,18 @@ _ZL12GetTestStatePK6ssl_st.exit269:               ; preds = %554
 
 _ZNSt10unique_ptrI6ssl_st14OpenSSLDeleterIS0_XadL_Z8SSL_freeEEEED2Ev.exit: ; preds = %5, %.thread282, %599
   %.0132304 = phi i1 [ %.0132.ph, %.thread282 ], [ %.0132.ph, %599 ], [ false, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0132304
 
 603:                                              ; preds = %284, %598, %36, %259, %145, %34
   %.pn216.pn.pn.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %260, %259 ], [ %.pn, %145 ], [ %37, %36 ], [ %.pn216.pn.pn, %598 ], [ %285, %284 ]
   call void @_ZNSt10unique_ptrI6ssl_st14OpenSSLDeleterIS0_XadL_Z8SSL_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn216.pn.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !82
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN14OpenSSLDeleterI14ssl_session_stXadL_Z16SSL_SESSION_freeEEEclEPS0_.exit, label %3
@@ -2400,11 +2397,8 @@ _ZN14OpenSSLDeleterI14ssl_session_stXadL_Z16SSL_SESSION_freeEEEclEPS0_.exit: ; p
   unreachable
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !41
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN14OpenSSLDeleterI10ssl_ctx_stXadL_Z12SSL_CTX_freeEEEclEPS0_.exit, label %3
@@ -2426,7 +2420,7 @@ _ZN14OpenSSLDeleterI10ssl_ctx_stXadL_Z12SSL_CTX_freeEEEclEPS0_.exit: ; preds = %
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN10TestConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(1005) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN10TestConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(1005) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %3 = load ptr, ptr %2, align 8, !tbaa !45
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 968
@@ -2917,7 +2911,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78: ; preds = %_ZN
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN9TestStateD2Ev(ptr noundef nonnull align 8 dereferenceable(117) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN9TestStateD2Ev(ptr noundef nonnull align 8 dereferenceable(117) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8, !tbaa !140
   %.not.i.i.i = icmp eq ptr %3, null
@@ -3004,10 +2998,10 @@ _ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !96
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN14OpenSSLDeleterI11evp_pkey_stXadL_Z13EVP_PKEY_freeEEEclEPS0_.exit, label %3
@@ -3029,7 +3023,7 @@ _ZN14OpenSSLDeleterI11evp_pkey_stXadL_Z13EVP_PKEY_freeEEEclEPS0_.exit: ; preds =
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #28
   tail call void @_ZSt9terminatev() #30
   unreachable
@@ -3038,45 +3032,45 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #8
+declare void @_ZSt9terminatev() local_unnamed_addr #7
 
-declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #3
+declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
-declare ptr @SSL_CTX_new(ptr noundef) local_unnamed_addr #3
+declare ptr @SSL_CTX_new(ptr noundef) local_unnamed_addr #2
 
-declare ptr @DTLS_method() local_unnamed_addr #3
+declare ptr @DTLS_method() local_unnamed_addr #2
 
-declare ptr @TLS_method() local_unnamed_addr #3
+declare ptr @TLS_method() local_unnamed_addr #2
 
-declare i32 @SSL_CTX_set_options(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @SSL_CTX_set_options(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @SSL_CTX_set_cipher_list(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @SSL_CTX_set_cipher_list(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @SSL_CTX_set_cipher_list_tls10(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @SSL_CTX_set_cipher_list_tls10(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @SSL_CTX_set_cipher_list_tls11(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @SSL_CTX_set_cipher_list_tls11(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @DH_free(ptr noundef) local_unnamed_addr #3
+declare void @DH_free(ptr noundef) local_unnamed_addr #2
 
-declare ptr @DH_get_2048_256(ptr noundef) local_unnamed_addr #3
+declare ptr @DH_get_2048_256(ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_hex2bn(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_hex2bn(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_set_word(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @BN_set_word(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @BN_free(ptr noundef) local_unnamed_addr #3
+declare void @BN_free(ptr noundef) local_unnamed_addr #2
 
-declare i32 @SSL_CTX_set_tmp_dh(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @SSL_CTX_set_tmp_dh(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @SSL_CTX_set_session_cache_mode(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @SSL_CTX_set_session_cache_mode(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @SSL_CTX_sess_set_get_cb(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @SSL_CTX_sess_set_get_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL18GetSessionCallbackP6ssl_stPhiPi(ptr noundef %0, ptr readnone captures(none) %1, i32 %2, ptr noundef writeonly captures(none) %3) #10 {
+define internal noundef ptr @_ZL18GetSessionCallbackP6ssl_stPhiPi(ptr noundef %0, ptr readnone captures(none) %1, i32 %2, ptr noundef writeonly captures(none) %3) #9 {
   %5 = load i32, ptr @_ZL13g_state_index, align 4, !tbaa !6
   %6 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %0, i32 noundef %5)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -3104,10 +3098,10 @@ define internal noundef ptr @_ZL18GetSessionCallbackP6ssl_stPhiPi(ptr noundef %0
   ret ptr %.0
 }
 
-declare void @SSL_CTX_set_select_certificate_cb(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @SSL_CTX_set_select_certificate_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZL25SelectCertificateCallbackPK22ssl_early_callback_ctx(ptr noundef %0) #10 {
+define internal noundef range(i32 -1, 2) i32 @_ZL25SelectCertificateCallbackPK22ssl_early_callback_ctx(ptr noundef %0) #9 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca %struct.cbs_st, align 8
@@ -3129,12 +3123,12 @@ define internal noundef range(i32 -1, 2) i32 @_ZL25SelectCertificateCallbackPK22
   br i1 %18, label %50, label %19
 
 19:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #28
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %20 = call i32 @SSL_early_callback_ctx_extension_get(ptr noundef nonnull %0, i16 noundef zeroext 0, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %21, label %24
@@ -3193,12 +3187,12 @@ define internal noundef range(i32 -1, 2) i32 @_ZL25SelectCertificateCallbackPK22
   br label %49
 
 49:                                               ; preds = %42, %46
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %50
 
 50:                                               ; preds = %49, %1
@@ -3228,12 +3222,12 @@ define internal noundef range(i32 -1, 2) i32 @_ZL25SelectCertificateCallbackPK22
   br label %66
 
 .critedge:                                        ; preds = %21, %39
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %66
 
 66:                                               ; preds = %62, %58, %50, %.critedge, %65
@@ -3241,10 +3235,10 @@ define internal noundef range(i32 -1, 2) i32 @_ZL25SelectCertificateCallbackPK22
   ret i32 %.1
 }
 
-declare void @SSL_CTX_set_client_cert_cb(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @SSL_CTX_set_client_cert_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZL18ClientCertCallbackP6ssl_stPP7x509_stPP11evp_pkey_st(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) #10 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 -1, 2) i32 @_ZL18ClientCertCallbackP6ssl_stPP7x509_stPP11evp_pkey_st(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) #9 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::unique_ptr.31", align 8
   %5 = alloca %"class.std::unique_ptr.10", align 8
   %6 = load i32, ptr @_ZL14g_config_index, align 4, !tbaa !6
@@ -3263,9 +3257,9 @@ define internal noundef range(i32 -1, 2) i32 @_ZL18ClientCertCallbackP6ssl_stPP7
   br i1 %16, label %17, label %34
 
 17:                                               ; preds = %11, %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !159
   %18 = invoke fastcc noundef zeroext i1 @_ZL14GetCertificateP6ssl_stPSt10unique_ptrI7x509_st14OpenSSLDeleterIS2_XadL_Z9X509_freeEEEEPS1_I11evp_pkey_stS3_IS7_XadL_Z13EVP_PKEY_freeEEEE(ptr noundef %0, ptr noundef %4, ptr noundef %5)
           to label %19 unwind label %20
@@ -3277,9 +3271,9 @@ define internal noundef range(i32 -1, 2) i32 @_ZL18ClientCertCallbackP6ssl_stPP7
   %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZNSt10unique_ptrI7x509_st14OpenSSLDeleterIS0_XadL_Z9X509_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %21
 
 22:                                               ; preds = %19
@@ -3291,7 +3285,7 @@ _ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev
   store ptr %23, ptr %1, align 8, !tbaa !160
   %24 = load ptr, ptr %5, align 8, !tbaa !96
   store ptr %24, ptr %2, align 8, !tbaa !96
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNSt10unique_ptrI7x509_st14OpenSSLDeleterIS0_XadL_Z9X509_freeEEEED2Ev.exit
 
 25:                                               ; preds = %22, %19
@@ -3313,7 +3307,7 @@ _ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev
 
 _ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit: ; preds = %25, %26
   %.pr11 = load ptr, ptr %4, align 8, !tbaa !160
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i7 = icmp eq ptr %.pr11, null
   br i1 %.not.i7, label %_ZNSt10unique_ptrI7x509_st14OpenSSLDeleterIS0_XadL_Z9X509_freeEEEED2Ev.exit, label %30
 
@@ -3330,7 +3324,7 @@ _ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev
 
 _ZNSt10unique_ptrI7x509_st14OpenSSLDeleterIS0_XadL_Z9X509_freeEEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit.thread, %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit, %30
   %.11014 = phi i32 [ 1, %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit.thread ], [ %.1.ph, %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit ], [ %.1.ph, %30 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %34
 
 34:                                               ; preds = %11, %_ZNSt10unique_ptrI7x509_st14OpenSSLDeleterIS0_XadL_Z9X509_freeEEEED2Ev.exit
@@ -3338,10 +3332,10 @@ _ZNSt10unique_ptrI7x509_st14OpenSSLDeleterIS0_XadL_Z9X509_freeEEEED2Ev.exit: ; p
   ret i32 %.0
 }
 
-declare void @SSL_CTX_set_next_protos_advertised_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @SSL_CTX_set_next_protos_advertised_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 4) i32 @_ZL28NextProtosAdvertisedCallbackP6ssl_stPPKhPjPv(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr readnone captures(none) %3) #10 {
+define internal noundef range(i32 0, 4) i32 @_ZL28NextProtosAdvertisedCallbackP6ssl_stPPKhPjPv(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr readnone captures(none) %3) #9 {
   %5 = load i32, ptr @_ZL14g_config_index, align 4, !tbaa !6
   %6 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %0, i32 noundef %5)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 184
@@ -3362,10 +3356,10 @@ define internal noundef range(i32 0, 4) i32 @_ZL28NextProtosAdvertisedCallbackP6
   ret i32 %.0
 }
 
-declare void @SSL_CTX_set_next_proto_select_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @SSL_CTX_set_next_proto_select_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 4) i32 @_ZL23NextProtoSelectCallbackP6ssl_stPPhS1_PKhjPv(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr readnone captures(none) %3, i32 %4, ptr readnone captures(none) %5) #10 {
+define internal noundef range(i32 0, 4) i32 @_ZL23NextProtoSelectCallbackP6ssl_stPPhS1_PKhjPv(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr readnone captures(none) %3, i32 %4, ptr readnone captures(none) %5) #9 {
   %7 = load i32, ptr @_ZL14g_config_index, align 4, !tbaa !6
   %8 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %0, i32 noundef %7)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 256
@@ -3386,10 +3380,10 @@ define internal noundef range(i32 0, 4) i32 @_ZL23NextProtoSelectCallbackP6ssl_s
   ret i32 %.0
 }
 
-declare void @SSL_CTX_set_alpn_select_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @SSL_CTX_set_alpn_select_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 4) i32 @_ZL18AlpnSelectCallbackP6ssl_stPPKhPhS2_jPv(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr readnone captures(none) %5) #10 {
+define internal noundef range(i32 0, 4) i32 @_ZL18AlpnSelectCallbackP6ssl_stPPKhPhS2_jPv(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr readnone captures(none) %5) #9 {
   %7 = load i32, ptr @_ZL14g_config_index, align 4, !tbaa !6
   %8 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %0, i32 noundef %7)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 520
@@ -3436,12 +3430,12 @@ define internal noundef range(i32 0, 4) i32 @_ZL18AlpnSelectCallbackP6ssl_stPPKh
   ret i32 %.0
 }
 
-declare i32 @SSL_CTX_enable_tls_channel_id(ptr noundef) local_unnamed_addr #3
+declare i32 @SSL_CTX_enable_tls_channel_id(ptr noundef) local_unnamed_addr #2
 
-declare void @SSL_CTX_set_channel_id_cb(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @SSL_CTX_set_channel_id_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL17ChannelIdCallbackP6ssl_stPP11evp_pkey_st(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #10 {
+define internal void @_ZL17ChannelIdCallbackP6ssl_stPP11evp_pkey_st(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #9 {
   %3 = load i32, ptr @_ZL13g_state_index, align 4, !tbaa !6
   %4 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %0, i32 noundef %3)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -3452,7 +3446,7 @@ define internal void @_ZL17ChannelIdCallbackP6ssl_stPP11evp_pkey_st(ptr noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL19CurrentTimeCallbackPK6ssl_stP7timeval(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) #10 {
+define internal void @_ZL19CurrentTimeCallbackPK6ssl_stP7timeval(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) #9 {
   %3 = load i32, ptr @_ZL13g_state_index, align 4, !tbaa !6
   %4 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %0, i32 noundef %3)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3460,10 +3454,10 @@ define internal void @_ZL19CurrentTimeCallbackPK6ssl_stP7timeval(ptr noundef %0,
   ret void
 }
 
-declare void @SSL_CTX_set_info_callback(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @SSL_CTX_set_info_callback(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL12InfoCallbackPK6ssl_stii(ptr noundef %0, i32 noundef %1, i32 %2) #10 {
+define internal void @_ZL12InfoCallbackPK6ssl_stii(ptr noundef %0, i32 noundef %1, i32 %2) #9 {
   %4 = icmp eq i32 %1, 32
   br i1 %4, label %5, label %18
 
@@ -3492,10 +3486,10 @@ define internal void @_ZL12InfoCallbackPK6ssl_stii(ptr noundef %0, i32 noundef %
   ret void
 }
 
-declare void @SSL_CTX_sess_set_new_cb(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @SSL_CTX_sess_set_new_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL18NewSessionCallbackP6ssl_stP14ssl_session_st(ptr noundef %0, ptr noundef %1) #10 {
+define internal noundef i32 @_ZL18NewSessionCallbackP6ssl_stP14ssl_session_st(ptr noundef %0, ptr noundef %1) #9 {
   %3 = load i32, ptr @_ZL13g_state_index, align 4, !tbaa !6
   %4 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %0, i32 noundef %3)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 116
@@ -3504,10 +3498,10 @@ define internal noundef i32 @_ZL18NewSessionCallbackP6ssl_stP14ssl_session_st(pt
   ret i32 1
 }
 
-declare i32 @SSL_CTX_set_tlsext_ticket_key_cb(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @SSL_CTX_set_tlsext_ticket_key_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 -1, 3) i32 @_ZL17TicketKeyCallbackP6ssl_stPhS1_P17evp_cipher_ctx_stP11hmac_ctx_sti(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #10 {
+define internal noundef range(i32 -1, 3) i32 @_ZL17TicketKeyCallbackP6ssl_stPhS1_P17evp_cipher_ctx_stP11hmac_ctx_sti(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #9 {
   %.not = icmp ne i32 %5, 0
   br i1 %.not, label %7, label %9
 
@@ -3549,10 +3543,10 @@ define internal noundef range(i32 -1, 3) i32 @_ZL17TicketKeyCallbackP6ssl_stPhS1
   ret i32 %.0
 }
 
-declare i32 @SSL_CTX_add_client_custom_ext(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @SSL_CTX_add_client_custom_ext(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZL26CustomExtensionAddCallbackP6ssl_stjPPKhPmPiPv(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef readnone captures(address) %5) #10 {
+define internal noundef range(i32 -1, 2) i32 @_ZL26CustomExtensionAddCallbackP6ssl_stjPPKhPmPiPv(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef readnone captures(address) %5) #9 {
   %7 = icmp ne i32 %1, 1234
   %8 = icmp ne ptr %5, inttoptr (i64 1234 to ptr)
   %or.cond = or i1 %7, %8
@@ -3589,7 +3583,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL26CustomExtensionAddCallbackP6s
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal void @_ZL27CustomExtensionFreeCallbackP6ssl_stjPKhPv(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef readnone captures(address) %2, ptr noundef readnone captures(address) %3) #11 {
+define internal void @_ZL27CustomExtensionFreeCallbackP6ssl_stjPKhPv(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef readnone captures(address) %2, ptr noundef readnone captures(address) %3) #10 {
   %5 = icmp ne i32 %1, 1234
   %6 = icmp ne ptr %3, inttoptr (i64 1234 to ptr)
   %or.cond = or i1 %5, %6
@@ -3606,7 +3600,7 @@ define internal void @_ZL27CustomExtensionFreeCallbackP6ssl_stjPKhPv(ptr readnon
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL28CustomExtensionParseCallbackP6ssl_stjPKhmPiPv(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef readnone captures(address) %5) #11 {
+define internal noundef range(i32 0, 2) i32 @_ZL28CustomExtensionParseCallbackP6ssl_stjPKhmPiPv(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef readnone captures(address) %5) #10 {
   %7 = icmp ne i32 %1, 1234
   %8 = icmp ne ptr %5, inttoptr (i64 1235 to ptr)
   %or.cond = or i1 %7, %8
@@ -3634,19 +3628,19 @@ define internal noundef range(i32 0, 2) i32 @_ZL28CustomExtensionParseCallbackP6
   ret i32 %.0
 }
 
-declare i32 @SSL_CTX_add_server_custom_ext(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @SSL_CTX_add_server_custom_ext(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @SSL_CTX_set_cert_verify_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @SSL_CTX_set_cert_verify_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_ZL10VerifyFailP17x509_store_ctx_stPv(ptr noundef writeonly captures(none) initializes((184, 188)) %0, ptr readnone captures(none) %1) #12 {
+define internal noundef i32 @_ZL10VerifyFailP17x509_store_ctx_stPv(ptr noundef writeonly captures(none) initializes((184, 188)) %0, ptr readnone captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i32 50, ptr %3, align 8, !tbaa !165
   ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL13VerifySucceedP17x509_store_ctx_stPv(ptr noundef %0, ptr readnone captures(none) %1) #10 {
+define internal noundef range(i32 0, 2) i32 @_ZL13VerifySucceedP17x509_store_ctx_stPv(ptr noundef %0, ptr readnone captures(none) %1) #9 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = tail call i32 @SSL_get_ex_data_X509_STORE_CTX_idx()
@@ -3659,8 +3653,8 @@ define internal noundef range(i32 0, 2) i32 @_ZL13VerifySucceedP17x509_store_ctx
   br i1 %11, label %17, label %12
 
 12:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @SSL_get0_ocsp_response(ptr noundef %6, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %13 = load i64, ptr %4, align 8, !tbaa !144
   %.not = icmp eq i64 %13, 0
@@ -3673,8 +3667,8 @@ define internal noundef range(i32 0, 2) i32 @_ZL13VerifySucceedP17x509_store_ctx
 
 .sink.split:                                      ; preds = %12, %14
   %.1.ph = phi i32 [ 0, %14 ], [ 1, %12 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %.sink.split, %2
@@ -3682,10 +3676,10 @@ define internal noundef range(i32 0, 2) i32 @_ZL13VerifySucceedP17x509_store_ctx
   ret i32 %.1
 }
 
-declare i32 @SSL_CTX_set_signed_cert_timestamp_list(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @SSL_CTX_set_signed_cert_timestamp_list(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrI5dh_st14OpenSSLDeleterIS0_XadL_Z7DH_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt10unique_ptrI5dh_st14OpenSSLDeleterIS0_XadL_Z7DH_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !46
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN14OpenSSLDeleterI5dh_stXadL_Z7DH_freeEEEclEPS0_.exit, label %3
@@ -3707,44 +3701,44 @@ _ZN14OpenSSLDeleterI5dh_stXadL_Z7DH_freeEEEclEPS0_.exit: ; preds = %3, %1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #14
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #3
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
-declare ptr @SSL_magic_pending_session_ptr() local_unnamed_addr #3
+declare ptr @SSL_magic_pending_session_ptr() local_unnamed_addr #2
 
-declare ptr @SSL_get_ex_data(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @SSL_get_ex_data(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @SSL_early_callback_ctx_extension_get(ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @SSL_early_callback_ctx_extension_get(ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @CBS_init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @CBS_init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @CBS_get_u16_length_prefixed(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @CBS_get_u16_length_prefixed(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @CBS_len(ptr noundef) local_unnamed_addr #3
+declare i64 @CBS_len(ptr noundef) local_unnamed_addr #2
 
-declare i32 @CBS_get_u8(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @CBS_get_u8(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @CBS_mem_equal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @CBS_mem_equal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL18InstallCertificateP6ssl_st(ptr noundef %0) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL18InstallCertificateP6ssl_st(ptr noundef %0) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::unique_ptr.31", align 8
   %3 = alloca %"class.std::unique_ptr.10", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !159
   %4 = invoke fastcc noundef zeroext i1 @_ZL14GetCertificateP6ssl_stPSt10unique_ptrI7x509_st14OpenSSLDeleterIS2_XadL_Z9X509_freeEEEEPS1_I11evp_pkey_stS3_IS7_XadL_Z13EVP_PKEY_freeEEEE(ptr noundef %0, ptr noundef %2, ptr noundef %3)
           to label %5 unwind label %6
@@ -3857,7 +3851,7 @@ _ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEaSEO
 
 _ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit: ; preds = %37, %.thread
   %.026 = phi i1 [ %.0, %37 ], [ %.025, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %43 = load ptr, ptr %2, align 8, !tbaa !160
   %.not.i20 = icmp eq ptr %43, null
   br i1 %.not.i20, label %_ZNSt10unique_ptrI7x509_st14OpenSSLDeleterIS0_XadL_Z9X509_freeEEEED2Ev.exit, label %44
@@ -3874,22 +3868,22 @@ _ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev
   unreachable
 
 _ZNSt10unique_ptrI7x509_st14OpenSSLDeleterIS0_XadL_Z9X509_freeEEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit, %44
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.026
 
 48:                                               ; preds = %24, %26, %6
   %.pn17 = phi { ptr, i32 } [ %7, %6 ], [ %27, %26 ], [ %25, %24 ]
   call void @_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZNSt10unique_ptrI7x509_st14OpenSSLDeleterIS0_XadL_Z9X509_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn17
 }
 
-declare void @X509_free(ptr noundef) local_unnamed_addr #3
+declare void @X509_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL14GetCertificateP6ssl_stPSt10unique_ptrI7x509_st14OpenSSLDeleterIS2_XadL_Z9X509_freeEEEEPS1_I11evp_pkey_stS3_IS7_XadL_Z13EVP_PKEY_freeEEEE(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL14GetCertificateP6ssl_stPSt10unique_ptrI7x509_st14OpenSSLDeleterIS2_XadL_Z9X509_freeEEEEPS1_I11evp_pkey_stS3_IS7_XadL_Z13EVP_PKEY_freeEEEE(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::unique_ptr.54", align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -4065,8 +4059,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit39:                  ; preds = %58, %59
 
 65:                                               ; preds = %61
   %66 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #28
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %67 = load ptr, ptr %66, align 8, !tbaa !45
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %68, ptr %8, align 8, !tbaa !10
@@ -4082,7 +4076,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit39:                  ; preds = %58, %59
 
 71:                                               ; preds = %65
   %72 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %72, ptr %6, align 8, !tbaa !144
   %73 = icmp ugt i64 %72, 15
   br i1 %73, label %.noexc.i, label %._crit_edge.i.i
@@ -4120,7 +4114,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit39:                  ; preds = %58, %59
   %83 = load ptr, ptr %8, align 8, !tbaa !45
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 %81
   store i8 0, ptr %84, align 1, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   invoke fastcc void @_ZL14LoadPrivateKeyRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %85 unwind label %99
 
@@ -4158,8 +4152,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %96 = load ptr, ptr %2, align 8, !tbaa !96
   %.not88 = icmp eq ptr %96, null
   br i1 %.not88, label %173, label %105
@@ -4188,8 +4182,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i46
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i46, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i47, %97
   %.pn32 = phi { ptr, i32 } [ %98, %97 ], [ %100, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i47 ], [ %100, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i46 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNSt10unique_ptrIc4FreeIcEED2Ev.exit41
 
 105:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %61
@@ -4200,7 +4194,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48: ; preds = %_ZN
 
 109:                                              ; preds = %105
   %110 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %111 = load ptr, ptr %110, align 8, !tbaa !45
   %112 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %112, ptr %9, align 8, !tbaa !10
@@ -4216,7 +4210,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48: ; preds = %_ZN
 
 115:                                              ; preds = %109
   %116 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %111) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %116, ptr %5, align 8, !tbaa !144
   %117 = icmp ugt i64 %116, 15
   br i1 %117, label %.noexc.i50, label %._crit_edge.i.i49
@@ -4254,8 +4248,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48: ; preds = %_ZN
   %127 = load ptr, ptr %9, align 8, !tbaa !45
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 %125
   store i8 0, ptr %128, align 1, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28, !noalias !171
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !171
   %129 = invoke ptr @BIO_s_file()
           to label %.noexc55 unwind label %156
 
@@ -4281,7 +4275,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48: ; preds = %_ZN
   %136 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #28, !noalias !171
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28, !noalias !171
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !171
   br label %.body
 
 137:                                              ; preds = %134
@@ -4302,7 +4296,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48: ; preds = %_ZN
 
 143:                                              ; preds = %139, %.noexc56
   %.sroa.065.0 = phi ptr [ %storemerge.ph.i, %139 ], [ null, %.noexc56 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28, !noalias !171
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !171
   %144 = load ptr, ptr %1, align 8, !tbaa !160
   store ptr %.sroa.065.0, ptr %1, align 8, !tbaa !160
   %.not.i.i.i.i57 = icmp eq ptr %144, null
@@ -4335,7 +4329,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i59
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i60, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i59
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %153 = load ptr, ptr %1, align 8, !tbaa !160
   %.not89 = icmp eq ptr %153, null
   br i1 %.not89, label %173, label %162
@@ -4368,7 +4362,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i62
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i62, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i63, %154
   %.pn34 = phi { ptr, i32 } [ %155, %154 ], [ %eh.lpad-body, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i63 ], [ %eh.lpad-body, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i62 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNSt10unique_ptrIc4FreeIcEED2Ev.exit41
 
 162:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61, %105
@@ -4399,7 +4393,7 @@ _ZNSt10unique_ptrIc4FreeIcEED2Ev.exit41:          ; preds = %60, %_ZNSt6vectorIi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !96
   store ptr null, ptr %1, align 8, !tbaa !96
   %4 = load ptr, ptr %0, align 8, !tbaa !96
@@ -4422,14 +4416,14 @@ _ZNSt15__uniq_ptr_dataI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEE
   ret ptr %0
 }
 
-declare void @SSL_set_private_key_method(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @SSL_set_private_key_method(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @SSL_use_PrivateKey(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @SSL_use_PrivateKey(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @SSL_use_certificate(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @SSL_use_certificate(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrI7x509_st14OpenSSLDeleterIS0_XadL_Z9X509_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt10unique_ptrI7x509_st14OpenSSLDeleterIS0_XadL_Z9X509_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !160
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN14OpenSSLDeleterI7x509_stXadL_Z9X509_freeEEEclEPS0_.exit, label %3
@@ -4451,21 +4445,21 @@ _ZN14OpenSSLDeleterI7x509_stXadL_Z9X509_freeEEEclEPS0_.exit: ; preds = %3, %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #17
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #18
+declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #17
 
-declare i32 @EVP_MD_type(ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_MD_type(ptr noundef) local_unnamed_addr #2
 
-declare ptr @EVP_get_digestbyname(ptr noundef) local_unnamed_addr #3
+declare ptr @EVP_get_digestbyname(ptr noundef) local_unnamed_addr #2
 
-declare i32 @SSL_set_private_key_digest_prefs(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @SSL_set_private_key_digest_prefs(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14LoadPrivateKeyRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL14LoadPrivateKeyRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr.54", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call ptr @BIO_s_file()
   %5 = tail call ptr @BIO_new(ptr noundef %4)
   store ptr %5, ptr %3, align 8, !tbaa !115
@@ -4485,7 +4479,7 @@ define internal fastcc void @_ZL14LoadPrivateKeyRKNSt7__cxx1112basic_stringIcSt1
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %11
 
 12:                                               ; preds = %9
@@ -4510,36 +4504,36 @@ define internal fastcc void @_ZL14LoadPrivateKeyRKNSt7__cxx1112basic_stringIcSt1
   unreachable
 
 _ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit: ; preds = %14, %15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare i32 @SSL_CTX_set_ocsp_response(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @SSL_CTX_set_ocsp_response(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #19
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #16
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #20
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #19
 
-declare void @BIO_vfree(ptr noundef) local_unnamed_addr #3
+declare void @BIO_vfree(ptr noundef) local_unnamed_addr #2
 
-declare ptr @BIO_new(ptr noundef) local_unnamed_addr #3
+declare ptr @BIO_new(ptr noundef) local_unnamed_addr #2
 
-declare ptr @BIO_s_file() local_unnamed_addr #3
+declare ptr @BIO_s_file() local_unnamed_addr #2
 
-declare i32 @BIO_read_filename(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BIO_read_filename(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @PEM_read_bio_PrivateKey(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @PEM_read_bio_PrivateKey(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !115
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEEclEPS0_.exit, label %3
@@ -4560,10 +4554,10 @@ _ZN14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEEclEPS0_.exit: ; preds = %3, %1
   unreachable
 }
 
-declare ptr @PEM_read_bio_X509(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @PEM_read_bio_X509(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL19AsyncPrivateKeyTypeP6ssl_st(ptr noundef %0) #10 {
+define internal noundef i32 @_ZL19AsyncPrivateKeyTypeP6ssl_st(ptr noundef %0) #9 {
   %2 = load i32, ptr @_ZL13g_state_index, align 4, !tbaa !6
   %3 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %0, i32 noundef %2)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -4573,7 +4567,7 @@ define internal noundef i32 @_ZL19AsyncPrivateKeyTypeP6ssl_st(ptr noundef %0) #1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZL30AsyncPrivateKeyMaxSignatureLenP6ssl_st(ptr noundef %0) #10 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZL30AsyncPrivateKeyMaxSignatureLenP6ssl_st(ptr noundef %0) #9 {
   %2 = load i32, ptr @_ZL13g_state_index, align 4, !tbaa !6
   %3 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %0, i32 noundef %2)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -4584,7 +4578,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZL30AsyncPrivat
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 1, 3) i32 @_ZL19AsyncPrivateKeySignP6ssl_stPhPmmPK9env_md_stPKhm(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 %3, ptr noundef %4, ptr noundef %5, i64 noundef %6) #10 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 1, 3) i32 @_ZL19AsyncPrivateKeySignP6ssl_stPhPmmPK9env_md_stPKhm(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 %3, ptr noundef %4, ptr noundef %5, i64 noundef %6) #9 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::unique_ptr.63", align 8
   %9 = alloca i64, align 8
   %10 = load i32, ptr @_ZL13g_state_index, align 4, !tbaa !6
@@ -4603,7 +4597,7 @@ define internal noundef range(i32 1, 3) i32 @_ZL19AsyncPrivateKeySignP6ssl_stPhP
   unreachable
 
 20:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %22 = load ptr, ptr %21, align 8, !tbaa !96
   %23 = tail call ptr @EVP_PKEY_CTX_new(ptr noundef %22, ptr noundef null)
@@ -4612,7 +4606,7 @@ define internal noundef range(i32 1, 3) i32 @_ZL19AsyncPrivateKeySignP6ssl_stPhP
   br i1 %.not19, label %_ZNSt10unique_ptrI15evp_pkey_ctx_st14OpenSSLDeleterIS0_XadL_Z17EVP_PKEY_CTX_freeEEEED2Ev.exit, label %24
 
 24:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8, !tbaa !144
   %25 = invoke i32 @EVP_PKEY_sign_init(ptr noundef nonnull %23)
           to label %26 unwind label %33
@@ -4640,9 +4634,9 @@ define internal noundef range(i32 1, 3) i32 @_ZL19AsyncPrivateKeySignP6ssl_stPhP
 33:                                               ; preds = %41, %37, %35, %30, %27, %24
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZNSt10unique_ptrI15evp_pkey_ctx_st14OpenSSLDeleterIS0_XadL_Z17EVP_PKEY_CTX_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %34
 
 35:                                               ; preds = %32
@@ -4666,7 +4660,7 @@ define internal noundef range(i32 1, 3) i32 @_ZL19AsyncPrivateKeySignP6ssl_stPhP
 
 43:                                               ; preds = %41, %40, %26, %29, %32
   %.1 = phi i32 [ 2, %32 ], [ 2, %29 ], [ 2, %26 ], [ 2, %40 ], [ 1, %41 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   invoke void @EVP_PKEY_CTX_free(ptr noundef nonnull %23)
           to label %_ZNSt10unique_ptrI15evp_pkey_ctx_st14OpenSSLDeleterIS0_XadL_Z17EVP_PKEY_CTX_freeEEEED2Ev.exit unwind label %44
 
@@ -4679,12 +4673,12 @@ define internal noundef range(i32 1, 3) i32 @_ZL19AsyncPrivateKeySignP6ssl_stPhP
 
 _ZNSt10unique_ptrI15evp_pkey_ctx_st14OpenSSLDeleterIS0_XadL_Z17EVP_PKEY_CTX_freeEEEED2Ev.exit: ; preds = %20, %43
   %.018 = phi i32 [ %.1, %43 ], [ 2, %20 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 3) i32 @_ZL27AsyncPrivateKeySignCompleteP6ssl_stPhPmm(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) #10 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 3) i32 @_ZL27AsyncPrivateKeySignCompleteP6ssl_stPhPmm(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) #9 personality ptr @__gxx_personality_v0 {
   %5 = load i32, ptr @_ZL13g_state_index, align 4, !tbaa !6
   %6 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %0, i32 noundef %5)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 88
@@ -4743,7 +4737,7 @@ _ZNSt6vectorIhSaIhEE5clearEv.exit:                ; preds = %27, %33
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 1, 3) i32 @_ZL22AsyncPrivateKeyDecryptP6ssl_stPhPmmPKhm(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i64 %3, ptr noundef %4, i64 noundef %5) #10 {
+define internal noundef range(i32 1, 3) i32 @_ZL22AsyncPrivateKeyDecryptP6ssl_stPhPmmPKhm(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i64 %3, ptr noundef %4, i64 noundef %5) #9 {
   %7 = load i32, ptr @_ZL13g_state_index, align 4, !tbaa !6
   %8 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %0, i32 noundef %7)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 88
@@ -4794,7 +4788,7 @@ define internal noundef range(i32 1, 3) i32 @_ZL22AsyncPrivateKeyDecryptP6ssl_st
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 3) i32 @_ZL30AsyncPrivateKeyDecryptCompleteP6ssl_stPhPmm(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) #10 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 3) i32 @_ZL30AsyncPrivateKeyDecryptCompleteP6ssl_stPhPmm(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) #9 personality ptr @__gxx_personality_v0 {
   %5 = load i32, ptr @_ZL13g_state_index, align 4, !tbaa !6
   %6 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %0, i32 noundef %5)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 88
@@ -4852,25 +4846,25 @@ _ZNSt6vectorIhSaIhEE5clearEv.exit:                ; preds = %27, %33
   ret i32 %.0
 }
 
-declare i32 @EVP_PKEY_id(ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_PKEY_id(ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_size(ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_PKEY_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #21
+declare void @abort() local_unnamed_addr #20
 
-declare void @EVP_PKEY_CTX_free(ptr noundef) local_unnamed_addr #3
+declare void @EVP_PKEY_CTX_free(ptr noundef) local_unnamed_addr #2
 
-declare ptr @EVP_PKEY_CTX_new(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @EVP_PKEY_CTX_new(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_sign_init(ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_PKEY_sign_init(ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_CTX_set_signature_md(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_PKEY_CTX_set_signature_md(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_sign(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @EVP_PKEY_sign(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !141
   %5 = load ptr, ptr %0, align 8, !tbaa !140
@@ -4977,7 +4971,7 @@ _ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit:   ; preds = %44, %42, %_ZNSt12_V
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrI15evp_pkey_ctx_st14OpenSSLDeleterIS0_XadL_Z17EVP_PKEY_CTX_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt10unique_ptrI15evp_pkey_ctx_st14OpenSSLDeleterIS0_XadL_Z17EVP_PKEY_CTX_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !183
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN14OpenSSLDeleterI15evp_pkey_ctx_stXadL_Z17EVP_PKEY_CTX_freeEEEclEPS0_.exit, label %3
@@ -4998,37 +4992,37 @@ _ZN14OpenSSLDeleterI15evp_pkey_ctx_stXadL_Z17EVP_PKEY_CTX_freeEEEclEPS0_.exit: ;
   unreachable
 }
 
-declare ptr @EVP_PKEY_get0_RSA(ptr noundef) local_unnamed_addr #3
+declare ptr @EVP_PKEY_get0_RSA(ptr noundef) local_unnamed_addr #2
 
-declare i32 @RSA_size(ptr noundef) local_unnamed_addr #3
+declare i32 @RSA_size(ptr noundef) local_unnamed_addr #2
 
-declare i32 @RSA_decrypt(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @RSA_decrypt(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #22
+declare void @exit(i32 noundef) local_unnamed_addr #21
 
-declare i32 @RAND_bytes(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @RAND_bytes(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @HMAC_Init_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @HMAC_Init_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @EVP_sha256() local_unnamed_addr #3
+declare ptr @EVP_sha256() local_unnamed_addr #2
 
-declare i32 @EVP_CipherInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @EVP_CipherInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @EVP_aes_128_cbc() local_unnamed_addr #3
+declare ptr @EVP_aes_128_cbc() local_unnamed_addr #2
 
-declare ptr @X509_STORE_CTX_get_ex_data(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @X509_STORE_CTX_get_ex_data(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @SSL_get_ex_data_X509_STORE_CTX_idx() local_unnamed_addr #3
+declare i32 @SSL_get_ex_data_X509_STORE_CTX_idx() local_unnamed_addr #2
 
-declare void @SSL_get0_ocsp_response(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @SSL_get0_ocsp_response(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @SSL_free(ptr noundef) local_unnamed_addr #3
+declare void @SSL_free(ptr noundef) local_unnamed_addr #2
 
-declare ptr @SSL_new(ptr noundef) local_unnamed_addr #3
+declare ptr @SSL_new(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrI9TestStateSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt10unique_ptrI9TestStateSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !85
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %_ZNKSt14default_deleteI9TestStateEclEPS0_.exit
@@ -5043,12 +5037,12 @@ _ZNKSt14default_deleteI9TestStateEclEPS0_.exit:   ; preds = %1
   ret void
 }
 
-declare i32 @SSL_set_mode(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @SSL_set_mode(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @SSL_set_cert_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @SSL_set_cert_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZL12CertCallbackP6ssl_stPv(ptr noundef %0, ptr readnone captures(none) %1) #10 {
+define internal noundef range(i32 -1, 2) i32 @_ZL12CertCallbackP6ssl_stPv(ptr noundef %0, ptr readnone captures(none) %1) #9 {
   %3 = load i32, ptr @_ZL13g_state_index, align 4, !tbaa !6
   %4 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %0, i32 noundef %3)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -5066,22 +5060,22 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12CertCallbackP6ssl_stPv(ptr no
   ret i32 %.0
 }
 
-declare void @SSL_set_verify(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @SSL_set_verify(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @SSL_set_options(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @SSL_set_options(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @SSL_enable_tls_channel_id(ptr noundef) local_unnamed_addr #3
+declare i32 @SSL_enable_tls_channel_id(ptr noundef) local_unnamed_addr #2
 
-declare i32 @SSL_set1_tls_channel_id(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @SSL_set1_tls_channel_id(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @SSL_set_tlsext_host_name(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @SSL_set_tlsext_host_name(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @SSL_set_alpn_protos(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @SSL_set_alpn_protos(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @SSL_set_psk_client_callback(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @SSL_set_psk_client_callback(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL17PskClientCallbackP6ssl_stPKcPcjPhj(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, i32 noundef %5) #10 {
+define internal noundef i32 @_ZL17PskClientCallbackP6ssl_stPKcPcjPhj(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, i32 noundef %5) #9 {
   %7 = load i32, ptr @_ZL14g_config_index, align 4, !tbaa !6
   %8 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %0, i32 noundef %7)
   %.not = icmp eq ptr %1, null
@@ -5131,10 +5125,10 @@ define internal noundef i32 @_ZL17PskClientCallbackP6ssl_stPKcPcjPhj(ptr noundef
   ret i32 %.0
 }
 
-declare void @SSL_set_psk_server_callback(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @SSL_set_psk_server_callback(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL17PskServerCallbackP6ssl_stPKcPhj(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #10 {
+define internal noundef i32 @_ZL17PskServerCallbackP6ssl_stPKcPhj(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #9 {
   %5 = load i32, ptr @_ZL14g_config_index, align 4, !tbaa !6
   %6 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %0, i32 noundef %5)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 560
@@ -5173,24 +5167,24 @@ define internal noundef i32 @_ZL17PskServerCallbackP6ssl_stPKcPhj(ptr noundef %0
   ret i32 %.0
 }
 
-declare i32 @SSL_use_psk_identity_hint(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @SSL_use_psk_identity_hint(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @SSL_set_srtp_profiles(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @SSL_set_srtp_profiles(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @SSL_enable_ocsp_stapling(ptr noundef) local_unnamed_addr #3
+declare i32 @SSL_enable_ocsp_stapling(ptr noundef) local_unnamed_addr #2
 
-declare i32 @SSL_enable_signed_cert_timestamps(ptr noundef) local_unnamed_addr #3
+declare i32 @SSL_enable_signed_cert_timestamps(ptr noundef) local_unnamed_addr #2
 
-declare void @SSL_set_min_version(ptr noundef, i16 noundef zeroext) local_unnamed_addr #3
+declare void @SSL_set_min_version(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
 
-declare void @SSL_set_max_version(ptr noundef, i16 noundef zeroext) local_unnamed_addr #3
+declare void @SSL_set_max_version(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
 
-declare i32 @SSL_set_mtu(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @SSL_set_mtu(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @SSL_CTX_set_dos_protection_cb(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @SSL_CTX_set_dos_protection_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL12DDoSCallbackPK22ssl_early_callback_ctx(ptr noundef readonly captures(none) %0) #10 {
+define internal noundef range(i32 0, 2) i32 @_ZL12DDoSCallbackPK22ssl_early_callback_ctx(ptr noundef readonly captures(none) %0) #9 {
   %2 = load ptr, ptr %0, align 8, !tbaa !151
   %3 = load i32, ptr @_ZL14g_config_index, align 4, !tbaa !6
   %4 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %2, i32 noundef %3)
@@ -5217,20 +5211,20 @@ define internal noundef range(i32 0, 2) i32 @_ZL12DDoSCallbackPK22ssl_early_call
   ret i32 %.0
 }
 
-declare void @SSL_set_renegotiate_mode(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @SSL_set_renegotiate_mode(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @SSL_set_quiet_shutdown(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @SSL_set_quiet_shutdown(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @SSL_set1_curves(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @SSL_set1_curves(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @BIO_new_socket(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @BIO_new_socket(i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @_Z17PacketedBioCreateP7timeval(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.54") align 8, ptr noundef) local_unnamed_addr #3
+declare void @_Z17PacketedBioCreateP7timeval(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.54") align 8, ptr noundef) local_unnamed_addr #2
 
-declare ptr @BIO_push(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @BIO_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !115
   store ptr null, ptr %1, align 8, !tbaa !115
   %4 = load ptr, ptr %0, align 8, !tbaa !115
@@ -5253,16 +5247,16 @@ _ZNSt15__uniq_ptr_dataI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEELb1ELb1EEaS
   ret ptr %0
 }
 
-declare void @_Z22AsyncBioCreateDatagramv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.54") align 8) local_unnamed_addr #3
+declare void @_Z22AsyncBioCreateDatagramv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.54") align 8) local_unnamed_addr #2
 
-declare void @_Z14AsyncBioCreatev(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.54") align 8) local_unnamed_addr #3
+declare void @_Z14AsyncBioCreatev(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.54") align 8) local_unnamed_addr #2
 
-declare void @SSL_set_bio(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @SSL_set_bio(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @SSL_set_session(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @SSL_set_session(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEE5resetEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEE5resetEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !82
   store ptr %1, ptr %0, align 8, !tbaa !82
   %.not.i = icmp eq ptr %3, null
@@ -5283,17 +5277,17 @@ _ZNSt15__uniq_ptr_implI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_f
   ret void
 }
 
-declare ptr @SSL_SESSION_up_ref(ptr noundef) local_unnamed_addr #3
+declare ptr @SSL_SESSION_up_ref(ptr noundef) local_unnamed_addr #2
 
-declare ptr @SSL_get_current_cipher(ptr noundef) local_unnamed_addr #3
+declare ptr @SSL_get_current_cipher(ptr noundef) local_unnamed_addr #2
 
-declare void @SSL_set_accept_state(ptr noundef) local_unnamed_addr #3
+declare void @SSL_set_accept_state(ptr noundef) local_unnamed_addr #2
 
-declare void @SSL_set_connect_state(ptr noundef) local_unnamed_addr #3
+declare void @SSL_set_connect_state(ptr noundef) local_unnamed_addr #2
 
-declare i32 @SSL_accept(ptr noundef) local_unnamed_addr #3
+declare i32 @SSL_accept(ptr noundef) local_unnamed_addr #2
 
-declare i32 @SSL_connect(ptr noundef) local_unnamed_addr #3
+declare i32 @SSL_connect(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress norecurse uwtable
 define internal fastcc noundef zeroext i1 @_ZL10RetryAsyncP6ssl_sti(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
@@ -5381,7 +5375,7 @@ define internal fastcc noundef zeroext i1 @_ZL10RetryAsyncP6ssl_sti(ptr noundef 
   br label %67
 
 45:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %46 = load i32, ptr @_ZL14g_config_index, align 4, !tbaa !6
   %47 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %0, i32 noundef %46)
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 320
@@ -5397,7 +5391,7 @@ define internal fastcc noundef zeroext i1 @_ZL10RetryAsyncP6ssl_sti(ptr noundef 
 
 54:                                               ; preds = %45, %51
   call void @_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %67
 
 55:                                               ; preds = %39
@@ -5591,7 +5585,7 @@ define internal fastcc noundef zeroext i1 @_ZL24CheckHandshakePropertiesP6ssl_st
   br i1 %111, label %121, label %112
 
 112:                                              ; preds = %.critedge138
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %113 = call i64 @SSL_get0_certificate_types(ptr noundef %0, ptr noundef nonnull %3)
   %114 = load i64, ptr %109, align 8, !tbaa !14
   %.not109 = icmp eq i64 %113, %114
@@ -5607,11 +5601,11 @@ define internal fastcc noundef zeroext i1 @_ZL24CheckHandshakePropertiesP6ssl_st
 .critedge140:                                     ; preds = %115, %112
   %118 = load ptr, ptr @stderr, align 8, !tbaa !33
   %119 = call i64 @fwrite(ptr nonnull @.str.49, i64 27, i64 1, ptr %118) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %260
 
 120:                                              ; preds = %115
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %121
 
 121:                                              ; preds = %120, %.critedge138
@@ -5622,8 +5616,8 @@ define internal fastcc noundef zeroext i1 @_ZL24CheckHandshakePropertiesP6ssl_st
   br i1 %125, label %136, label %126
 
 126:                                              ; preds = %121
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @SSL_get0_next_proto_negotiated(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %127 = load i32, ptr %5, align 4, !tbaa !6
   %128 = zext i32 %127 to i64
@@ -5641,13 +5635,13 @@ define internal fastcc noundef zeroext i1 @_ZL24CheckHandshakePropertiesP6ssl_st
 .critedge142:                                     ; preds = %130, %126
   %133 = load ptr, ptr @stderr, align 8, !tbaa !33
   %134 = call i64 @fwrite(ptr nonnull @.str.50, i64 31, i64 1, ptr %133) #32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %260
 
 135:                                              ; preds = %130
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %136
 
 136:                                              ; preds = %135, %121
@@ -5658,8 +5652,8 @@ define internal fastcc noundef zeroext i1 @_ZL24CheckHandshakePropertiesP6ssl_st
   br i1 %140, label %151, label %141
 
 141:                                              ; preds = %136
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #28
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @SSL_get0_alpn_selected(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %142 = load i32, ptr %7, align 4, !tbaa !6
   %143 = zext i32 %142 to i64
@@ -5677,13 +5671,13 @@ define internal fastcc noundef zeroext i1 @_ZL24CheckHandshakePropertiesP6ssl_st
 .critedge144:                                     ; preds = %145, %141
   %148 = load ptr, ptr @stderr, align 8, !tbaa !33
   %149 = call i64 @fwrite(ptr nonnull @.str.51, i64 31, i64 1, ptr %148) #32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %260
 
 150:                                              ; preds = %145
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %151
 
 151:                                              ; preds = %150, %136
@@ -5694,7 +5688,7 @@ define internal fastcc noundef zeroext i1 @_ZL24CheckHandshakePropertiesP6ssl_st
   br i1 %155, label %169, label %156
 
 156:                                              ; preds = %151
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %157 = call i64 @SSL_get_tls_channel_id(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 64)
   %.not117 = icmp eq i64 %157, 0
   br i1 %.not117, label %158, label %161
@@ -5721,7 +5715,7 @@ define internal fastcc noundef zeroext i1 @_ZL24CheckHandshakePropertiesP6ssl_st
   br label %.critedge146
 
 168:                                              ; preds = %163
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %169
 
 169:                                              ; preds = %168, %151
@@ -5752,8 +5746,8 @@ define internal fastcc noundef zeroext i1 @_ZL24CheckHandshakePropertiesP6ssl_st
   br i1 %186, label %196, label %187
 
 187:                                              ; preds = %182
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @SSL_get0_ocsp_response(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %188 = load i64, ptr %184, align 8, !tbaa !14
   %189 = load i64, ptr %10, align 8, !tbaa !144
@@ -5770,13 +5764,13 @@ define internal fastcc noundef zeroext i1 @_ZL24CheckHandshakePropertiesP6ssl_st
 .critedge148:                                     ; preds = %190, %187
   %193 = load ptr, ptr @stderr, align 8, !tbaa !33
   %194 = call i64 @fwrite(ptr nonnull @.str.55, i64 23, i64 1, ptr %193) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %260
 
 195:                                              ; preds = %190
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %196
 
 196:                                              ; preds = %195, %182
@@ -5787,8 +5781,8 @@ define internal fastcc noundef zeroext i1 @_ZL24CheckHandshakePropertiesP6ssl_st
   br i1 %200, label %210, label %201
 
 201:                                              ; preds = %196
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @SSL_get0_signed_cert_timestamp_list(ptr noundef %0, ptr noundef nonnull %11, ptr noundef nonnull %12)
   %202 = load i64, ptr %198, align 8, !tbaa !14
   %203 = load i64, ptr %12, align 8, !tbaa !144
@@ -5805,13 +5799,13 @@ define internal fastcc noundef zeroext i1 @_ZL24CheckHandshakePropertiesP6ssl_st
 .critedge150:                                     ; preds = %204, %201
   %207 = load ptr, ptr @stderr, align 8, !tbaa !33
   %208 = call i64 @fwrite(ptr nonnull @.str.56, i64 18, i64 1, ptr %207) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %260
 
 209:                                              ; preds = %204
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %210
 
 210:                                              ; preds = %209, %196
@@ -5902,7 +5896,7 @@ define internal fastcc noundef zeroext i1 @_ZL24CheckHandshakePropertiesP6ssl_st
   br label %260
 
 .critedge146:                                     ; preds = %158, %165
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %260
 
 260:                                              ; preds = %241, %220, %104, %75, %44, %93, %179, %228, %253, %257, %.critedge140, %.critedge142, %.critedge144, %.critedge146, %.critedge148, %.critedge150, %252, %256, %.critedge154, %28, %17
@@ -5911,7 +5905,7 @@ define internal fastcc noundef zeroext i1 @_ZL24CheckHandshakePropertiesP6ssl_st
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIhSaIhEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIhSaIhEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = icmp slt i64 %1, 0
   br i1 %4, label %5, label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit
 
@@ -5951,7 +5945,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread: ; preds = %_ZNSt6vectorIhSaIhE
   ret void
 }
 
-declare i32 @SSL_export_keying_material(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @SSL_export_keying_material(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress norecurse uwtable
 define internal fastcc noundef i32 @_ZL8WriteAllP6ssl_stPKhm(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
@@ -5993,10 +5987,10 @@ define internal fastcc noundef i32 @_ZL8WriteAllP6ssl_stPKhm(ptr noundef %0, ptr
   ret i32 %8
 }
 
-declare i32 @SSL_get_tls_unique(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @SSL_get_tls_unique(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #19
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress norecurse uwtable
 define internal fastcc noundef i32 @_ZL6DoReadP6ssl_stPhm(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 512, 16385) %2) unnamed_addr #0 {
@@ -6039,9 +6033,9 @@ define internal fastcc noundef i32 @_ZL6DoReadP6ssl_stPhm(ptr noundef %0, ptr no
   ret i32 %16
 }
 
-declare i32 @SSL_get_error(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @SSL_get_error(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @SSL_get1_session(ptr noundef) local_unnamed_addr #3
+declare ptr @SSL_get1_session(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress norecurse uwtable
 define internal fastcc noundef i32 @_ZL10DoShutdownP6ssl_st(ptr noundef %0) unnamed_addr #0 {
@@ -6064,24 +6058,24 @@ define internal fastcc noundef i32 @_ZL10DoShutdownP6ssl_st(ptr noundef %0) unna
   ret i32 %6
 }
 
-declare i32 @SSL_total_renegotiations(ptr noundef) local_unnamed_addr #3
+declare i32 @SSL_total_renegotiations(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN12SocketCloserD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN12SocketCloserD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [1024 x i8], align 16
   %3 = load i32, ptr %0, align 4, !tbaa !113
   %4 = tail call i32 @shutdown(i32 noundef %3, i32 noundef 1) #28
   br label %5
 
 5:                                                ; preds = %8, %1
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = load i32, ptr %0, align 4, !tbaa !113
   %7 = invoke i64 @recv(i32 noundef %6, ptr noundef nonnull %2, i64 noundef 1024, i32 noundef 0)
           to label %8 unwind label %.loopexit
 
 8:                                                ; preds = %5
   %9 = icmp slt i64 %7, 1
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %9, label %10, label %5
 
 10:                                               ; preds = %8
@@ -6110,7 +6104,7 @@ _ZL11closesocketi.exit:                           ; preds = %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrI6ssl_st14OpenSSLDeleterIS0_XadL_Z8SSL_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt10unique_ptrI6ssl_st14OpenSSLDeleterIS0_XadL_Z8SSL_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !83
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN14OpenSSLDeleterI6ssl_stXadL_Z8SSL_freeEEEclEPS0_.exit, label %3
@@ -6131,39 +6125,39 @@ _ZN14OpenSSLDeleterI6ssl_stXadL_Z8SSL_freeEEEclEPS0_.exit: ; preds = %3, %1
   unreachable
 }
 
-declare i32 @SSL_set_ex_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @SSL_set_ex_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #15
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #14
 
-declare i64 @BUF_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
-
-; Function Attrs: nounwind
-declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @BUF_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @inet_pton(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @connect(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+; Function Attrs: nounwind
+declare i32 @inet_pton(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @connect(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #9
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
-declare i32 @close(i32 noundef) local_unnamed_addr #3
+declare i32 @close(i32 noundef) local_unnamed_addr #2
 
-declare void @_Z25AsyncBioEnforceWriteQuotaP6bio_stb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @_Z25AsyncBioEnforceWriteQuotaP6bio_stb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare i32 @DTLSv1_handle_timeout(ptr noundef) local_unnamed_addr #3
+declare i32 @DTLSv1_handle_timeout(ptr noundef) local_unnamed_addr #2
 
-declare void @_Z17AsyncBioAllowReadP6bio_stm(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @_Z17AsyncBioAllowReadP6bio_stm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @_Z18AsyncBioAllowWriteP6bio_stm(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @_Z18AsyncBioAllowWriteP6bio_stm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !82
   store ptr null, ptr %1, align 8, !tbaa !82
   %4 = load ptr, ptr %0, align 8, !tbaa !82
@@ -6186,46 +6180,52 @@ _ZNSt15__uniq_ptr_dataI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_f
   ret ptr %0
 }
 
-declare i32 @SSL_session_reused(ptr noundef) local_unnamed_addr #3
+declare i32 @SSL_session_reused(ptr noundef) local_unnamed_addr #2
 
-declare ptr @SSL_get_servername(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @SSL_get_servername(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i64 @SSL_get0_certificate_types(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @SSL_get0_certificate_types(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @SSL_get0_next_proto_negotiated(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @SSL_get0_next_proto_negotiated(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @SSL_get0_alpn_selected(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @SSL_get0_alpn_selected(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @SSL_get_tls_channel_id(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @SSL_get_tls_channel_id(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @SSL_get0_signed_cert_timestamp_list(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @SSL_get0_signed_cert_timestamp_list(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @SSL_get_verify_result(ptr noundef) local_unnamed_addr #3
+declare i64 @SSL_get_verify_result(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i8 @SSL_get_server_key_exchange_hash(ptr noundef) local_unnamed_addr #3
+declare zeroext i8 @SSL_get_server_key_exchange_hash(ptr noundef) local_unnamed_addr #2
 
-declare i32 @SSL_SESSION_get_key_exchange_info(ptr noundef) local_unnamed_addr #3
+declare i32 @SSL_SESSION_get_key_exchange_info(ptr noundef) local_unnamed_addr #2
 
-declare ptr @SSL_get_session(ptr noundef) local_unnamed_addr #3
+declare ptr @SSL_get_session(ptr noundef) local_unnamed_addr #2
 
-declare ptr @SSL_get_peer_cert_chain(ptr noundef) local_unnamed_addr #3
+declare ptr @SSL_get_peer_cert_chain(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
+declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
-declare i32 @SSL_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @SSL_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #5
 
-declare i32 @SSL_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @SSL_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @SSL_shutdown(ptr noundef) local_unnamed_addr #3
+declare i32 @SSL_shutdown(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @shutdown(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @shutdown(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @recv(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @recv(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #23
@@ -6252,28 +6252,28 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #27
 declare i32 @llvm.smax.i32(i32, i32) #26
 
 attributes #0 = { mustprogress norecurse uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold nofree noreturn }
-attributes #9 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold nofree noreturn }
+attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #24 = { nofree nounwind }
 attributes #25 = { nocallback nofree nounwind willreturn memory(argmem: read) }

@@ -36,7 +36,7 @@ define internal range(i32 0, 51) i32 @dvbsub_probe(ptr noundef readonly captures
   br i1 %14, label %15, label %50
 
 15:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %2, i8 0, i64 6, i1 false)
   %gepdiff = sub nsw i64 %8, %indvars.iv65
   %16 = icmp sgt i64 %gepdiff, 6
@@ -106,7 +106,7 @@ define internal range(i32 0, 51) i32 @dvbsub_probe(ptr noundef readonly captures
   %.not46.not = icmp eq i32 %..0, 0
   %49 = tail call i32 @llvm.smax.i32(i32 %.040.lcssa, i32 %.03759)
   %.1 = select i1 %.not46.not, i32 %.03759, i32 %49
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %50
 
 50:                                               ; preds = %11, %48
@@ -129,14 +129,14 @@ declare i32 @ff_raw_subtitle_read_header(ptr noundef) #1
 
 declare i32 @ff_raw_read_partial_packet(ptr noundef, ptr noundef) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #4
@@ -149,10 +149,9 @@ declare i32 @llvm.umin.i32(i32, i32) #4
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

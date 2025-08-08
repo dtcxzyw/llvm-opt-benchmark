@@ -85,16 +85,10 @@ define hidden noalias noundef nonnull ptr @je_prof_lookup(ptr noundef readnone c
   unreachable
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nounwind uwtable
 define hidden i64 @je_prof_tdata_count() local_unnamed_addr #0 {
   %1 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 0, ptr %1, align 8, !tbaa !10
   %2 = load i8, ptr @je_tsd_booted, align 1, !tbaa !12, !range !14, !noundef !15
   %3 = trunc nuw i8 %2 to i1
@@ -143,12 +137,12 @@ malloc_mutex_lock.exit:                           ; preds = %12, %16
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @je_tdatas_mtx, i64 104) monotonic, align 8
   %21 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_tdatas_mtx, i64 64)) #13
   %22 = load i64, ptr %1, align 8, !tbaa !10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i64 %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noalias noundef ptr @prof_tdata_count_iter(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(none) %2) #4 {
+define internal noalias noundef ptr @prof_tdata_count_iter(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(none) %2) #3 {
   %4 = load i64, ptr %2, align 8, !tbaa !10
   %5 = add i64 %4, 1
   store i64 %5, ptr %2, align 8, !tbaa !10
@@ -156,7 +150,7 @@ define internal noalias noundef ptr @prof_tdata_count_iter(ptr readnone captures
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define hidden noundef i64 @je_prof_bt_count() local_unnamed_addr #5 {
+define hidden noundef i64 @je_prof_bt_count() local_unnamed_addr #4 {
   %1 = tail call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 832
   %3 = load i8, ptr %2, align 8, !tbaa !16
@@ -241,12 +235,12 @@ tsdn_witness_tsdp_get.exit.thread:                ; preds = %arena_get.exit
   br i1 %.not.i29, label %iallocztm.exit.thread, label %.thread, !prof !26
 
 .thread:                                          ; preds = %tsdn_witness_tsdp_get.exit.thread
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @je_rtree_ctx_data_init(ptr noundef nonnull %4) #13
   br label %tsdn_rtree_ctx.exit
 
 42:                                               ; preds = %tsdn_witness_tsdp_get.exit
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %tsdn_rtree_ctx.exit
 
@@ -335,13 +329,13 @@ rtree_read.exit:                                  ; preds = %52, %62, %74, %88
   %92 = ashr exact i64 %91, 16
   %93 = and i64 %92, -128
   %94 = inttoptr i64 %93 to ptr
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.val = load i64, ptr %94, align 128, !tbaa !39
   %95 = and i64 %.val, 4095
   %96 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @je_arenas, i64 0, i64 %95
   %97 = load atomic i64, ptr %96 monotonic, align 8
   %.0.i15 = inttoptr i64 %97 to ptr
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br i1 %39, label %98, label %99, !prof !26
 
 98:                                               ; preds = %rtree_read.exit
@@ -429,7 +423,7 @@ iallocztm.exit:                                   ; preds = %140, %126, %114, %1
   %.0.i.i25 = phi ptr [ %109, %104 ], [ %121, %114 ], [ %141, %140 ], [ %139, %126 ]
   %142 = load atomic i64, ptr %.0.i.i25 monotonic, align 8, !noalias !42
   %143 = lshr i64 %142, 48
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %144 = getelementptr inbounds nuw [235 x i64], ptr @je_sz_index2size_tab, i64 0, i64 %143
   %145 = load i64, ptr %144, align 8, !tbaa !10
   %146 = getelementptr inbounds nuw i8, ptr %.0.i15, i64 56
@@ -443,10 +437,10 @@ iallocztm.exit.thread:                            ; preds = %tsdn_witness_tsdp_g
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable
 define hidden noundef i32 @je_prof_thread_name_set_impl(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
@@ -465,7 +459,7 @@ define hidden void @je_prof_dump_impl(ptr noundef readnone captures(none) %0, pt
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define hidden void @je_prof_cnt_all(ptr noundef readnone captures(none) %0) local_unnamed_addr #5 {
+define hidden void @je_prof_cnt_all(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 {
   %2 = tail call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 832
   %4 = load i8, ptr %3, align 8, !tbaa !16
@@ -585,7 +579,7 @@ prof_tdata_destroy.exit:                          ; preds = %36, %40
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define hidden void @je_prof_reset(ptr noundef %0, i64 noundef %1) local_unnamed_addr #5 {
+define hidden void @je_prof_reset(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_prof_dump_mtx, i64 64)) #13
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %5, label %4
@@ -625,7 +619,7 @@ define internal fastcc void @prof_tdata_destroy_locked(ptr noundef %0, ptr nound
   %5 = alloca %struct.rtree_ctx_s, align 8
   %6 = alloca %struct.rtree_ctx_s, align 8
   %7 = alloca %struct.rtree_ctx_s, align 8
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = load ptr, ptr @tdatas, align 8, !tbaa !4
   store ptr %8, ptr %3, align 16, !tbaa !54
   %.not56.i = icmp eq ptr %8, null
@@ -1302,7 +1296,7 @@ prof_tdata_comp.exit.i:                           ; preds = %18, %12
   br label %tdata_tree_remove.exit
 
 tdata_tree_remove.exit:                           ; preds = %105, %111, %114, %125, %132, %189, %192, %226, %233, %235, %314, %320, %323, %366, %369, %378, %406, %412, %415, %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %430 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %431 = load ptr, ptr %430, align 8, !tbaa !64
   %.not = icmp eq ptr %431, null
@@ -1310,7 +1304,7 @@ tdata_tree_remove.exit:                           ; preds = %105, %111, %114, %1
 
 432:                                              ; preds = %tdata_tree_remove.exit
   %433 = icmp eq ptr %0, null
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br i1 %433, label %434, label %435
 
 434:                                              ; preds = %432
@@ -1405,13 +1399,13 @@ rtree_read.exit:                                  ; preds = %444, %454, %466, %4
   %484 = ashr exact i64 %483, 16
   %485 = and i64 %484, -128
   %486 = inttoptr i64 %485 to ptr
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.val = load i64, ptr %486, align 128, !tbaa !39
   %487 = and i64 %.val, 4095
   %488 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @je_arenas, i64 0, i64 %487
   %489 = load atomic i64, ptr %488 monotonic, align 8
   %.0.i13 = inttoptr i64 %489 to ptr
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %433, label %490, label %491, !prof !26
 
 490:                                              ; preds = %rtree_read.exit
@@ -1499,7 +1493,7 @@ rtree_metadata_read.exit:                         ; preds = %496, %506, %518, %5
   %.0.i.i30 = phi ptr [ %501, %496 ], [ %513, %506 ], [ %533, %532 ], [ %531, %518 ]
   %534 = load atomic i64, ptr %.0.i.i30 monotonic, align 8, !noalias !71
   %535 = lshr i64 %534, 48
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %536 = getelementptr inbounds nuw [235 x i64], ptr @je_sz_index2size_tab, i64 0, i64 %535
   %537 = load i64, ptr %536, align 8, !tbaa !10
   %538 = getelementptr inbounds nuw i8, ptr %.0.i13, i64 56
@@ -1511,7 +1505,7 @@ rtree_metadata_read.exit:                         ; preds = %496, %506, %518, %5
   %541 = getelementptr inbounds nuw i8, ptr %1, i64 64
   call void @je_ckh_delete(ptr noundef %0, ptr noundef nonnull %541) #13
   %542 = icmp eq ptr %0, null
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br i1 %542, label %543, label %544
 
 543:                                              ; preds = %540
@@ -1606,12 +1600,12 @@ rtree_read.exit36:                                ; preds = %553, %563, %575, %5
   %593 = ashr exact i64 %592, 16
   %594 = and i64 %593, -128
   %595 = inttoptr i64 %594 to ptr
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.val23 = load i64, ptr %595, align 128, !tbaa !39
   %596 = and i64 %.val23, 4095
   %597 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @je_arenas, i64 0, i64 %596
   %598 = load atomic i64, ptr %597 monotonic, align 8
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %542, label %599, label %600, !prof !26
 
 599:                                              ; preds = %rtree_read.exit36
@@ -1700,7 +1694,7 @@ rtree_metadata_read.exit50:                       ; preds = %605, %615, %627, %6
   %.0.i14 = inttoptr i64 %598 to ptr
   %643 = load atomic i64, ptr %.0.i.i41 monotonic, align 8, !noalias !80
   %644 = lshr i64 %643, 48
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %645 = getelementptr inbounds nuw [235 x i64], ptr @je_sz_index2size_tab, i64 0, i64 %644
   %646 = load i64, ptr %645, align 8, !tbaa !10
   %647 = getelementptr inbounds nuw i8, ptr %.0.i14, i64 56
@@ -1840,7 +1834,7 @@ malloc_mutex_lock.exit.i:                         ; preds = %58, %52
 
 64:                                               ; preds = %malloc_mutex_lock.exit.i
   %65 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %66 = load ptr, ptr %65, align 8, !tbaa !98
   store ptr %66, ptr %3, align 16, !tbaa !99
   %.not374.i.i = icmp eq ptr %66, null
@@ -2526,7 +2520,7 @@ prof_tctx_comp.exit.i.i:                          ; preds = %83, %77, %71
   br label %tctx_tree_remove.exit.i
 
 tctx_tree_remove.exit.i:                          ; preds = %._crit_edge.i.i, %480, %477, %471, %443, %434, %431, %388, %385, %379, %300, %298, %291, %257, %254, %197, %190, %179, %176, %170
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %495 = load i8, ptr @je_opt_prof_accum, align 1, !tbaa !12, !range !14, !noundef !15
   %496 = trunc nuw i8 %495 to i1
   br i1 %496, label %.thread57.i, label %497
@@ -2558,7 +2552,7 @@ prof_gctx_should_destroy.exit.i:                  ; preds = %497
   %508 = getelementptr inbounds nuw i8, ptr %506, i64 64
   %509 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %508) #13
   %510 = icmp eq ptr %0, null
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %510, label %516, label %517
 
 511:                                              ; preds = %malloc_mutex_lock.exit.i
@@ -2662,13 +2656,13 @@ rtree_read.exit.i:                                ; preds = %562, %548, %536, %5
   %566 = ashr exact i64 %565, 16
   %567 = and i64 %566, -128
   %568 = inttoptr i64 %567 to ptr
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.val.i = load i64, ptr %568, align 128, !tbaa !39
   %569 = and i64 %.val.i, 4095
   %570 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @je_arenas, i64 0, i64 %569
   %571 = load atomic i64, ptr %570 monotonic, align 8
   %.0.i32.i = inttoptr i64 %571 to ptr
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %510, label %572, label %573, !prof !26
 
 572:                                              ; preds = %rtree_read.exit.i
@@ -2756,7 +2750,7 @@ rtree_metadata_read.exit.i:                       ; preds = %614, %600, %588, %5
   %.0.i.i45.i = phi ptr [ %583, %578 ], [ %595, %588 ], [ %615, %614 ], [ %613, %600 ]
   %616 = load atomic i64, ptr %.0.i.i45.i monotonic, align 8, !noalias !117
   %617 = lshr i64 %616, 48
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %618 = getelementptr inbounds nuw [235 x i64], ptr @je_sz_index2size_tab, i64 0, i64 %617
   %619 = load i64, ptr %618, align 8, !tbaa !10
   %620 = getelementptr inbounds nuw i8, ptr %.0.i32.i, i64 56
@@ -2780,15 +2774,15 @@ prof_tctx_destroy.exit:                           ; preds = %rtree_metadata_read
 declare void @je_malloc_mutex_lock_slow(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_trylock(ptr noundef) local_unnamed_addr #8
+declare i32 @pthread_mutex_trylock(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #8
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #7
 
 declare ptr @je_arena_malloc_hard(ptr noundef, ptr noundef, i64 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #9
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #8
 
 declare void @je_rtree_ctx_data_init(ptr noundef) local_unnamed_addr #1
 
@@ -2797,9 +2791,9 @@ declare ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef, ptr noundef, ptr noundef
 declare zeroext i1 @je_ckh_remove(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @arena_dalloc_no_tcache(ptr noundef %0, ptr noundef %1) unnamed_addr #10 {
+define internal fastcc void @arena_dalloc_no_tcache(ptr noundef %0, ptr noundef %1) unnamed_addr #9 {
   %3 = alloca %struct.rtree_ctx_s, align 8
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6, !prof !26
 
@@ -2892,7 +2886,7 @@ rtree_metadata_read.exit:                         ; preds = %15, %25, %37, %51
   %.0.i.i6 = phi ptr [ %20, %15 ], [ %32, %25 ], [ %52, %51 ], [ %50, %37 ]
   %53 = load atomic i64, ptr %.0.i.i6 monotonic, align 8, !noalias !120
   %54 = trunc i64 %53 to i1
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %54, label %55, label %56, !prof !17
 
 55:                                               ; preds = %rtree_metadata_read.exit
@@ -2910,9 +2904,9 @@ rtree_metadata_read.exit:                         ; preds = %15, %25, %37, %51
 declare void @je_arena_dalloc_small(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @arena_dalloc_large_no_tcache(ptr noundef %0, ptr noundef %1) unnamed_addr #10 {
+define internal fastcc void @arena_dalloc_large_no_tcache(ptr noundef %0, ptr noundef %1) unnamed_addr #9 {
   %3 = alloca %struct.rtree_ctx_s, align 8
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6, !prof !26
 
@@ -3008,7 +3002,7 @@ rtree_read.exit:                                  ; preds = %15, %25, %37, %51
   %55 = ashr exact i64 %54, 16
   %56 = and i64 %55, -128
   %57 = inttoptr i64 %56 to ptr
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @je_large_dalloc(ptr noundef %0, ptr noundef %57) #13
   ret void
 }
@@ -3018,7 +3012,7 @@ declare void @je_large_dalloc(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @je_tsd_fetch_slow(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #9
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #8
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @tdata_tree_iter_recurse(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
@@ -3056,6 +3050,12 @@ declare ptr @je_arena_init(ptr noundef, i32 noundef, ptr noundef) local_unnamed_
 
 declare void @je_ckh_delete(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #11
 
@@ -3065,14 +3065,14 @@ declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #12
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nounwind }

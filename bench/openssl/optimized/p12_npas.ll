@@ -47,18 +47,18 @@ define range(i32 0, 2) i32 @PKCS12_newpass(ptr noundef %0, ptr noundef %1, ptr n
   br label %135
 
 24:                                               ; preds = %21, %18
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr null, ptr %13, align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %25 = tail call ptr @PKCS12_unpack_authsafes(ptr noundef nonnull %0) #3
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.critedge, label %27
@@ -122,12 +122,12 @@ define range(i32 0, 2) i32 @PKCS12_newpass(ptr noundef %0, ptr noundef %1, ptr n
 .lr.ph.i.i:                                       ; preds = %54, %86
   %.014.i.i = phi i32 [ %87, %86 ], [ 0, %54 ]
   %61 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %.3.i, i32 noundef %.014.i.i) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %62 = call i32 @PKCS12_SAFEBAG_get_nid(ptr noundef %61) #3
   %.not.i.i.i = icmp eq i32 %62, 151
   br i1 %.not.i.i.i, label %63, label %86
@@ -180,22 +180,22 @@ newpass_bag.exit.thread.sink.split.i.i:           ; preds = %74, %68
   br label %newpass_bags.exit.i
 
 86:                                               ; preds = %84, %.lr.ph.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %87 = add nuw nsw i32 %.014.i.i, 1
   %88 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %.3.i) #3
   %89 = icmp slt i32 %87, %88
   br i1 %89, label %.lr.ph.i.i, label %.loopexit.i, !llvm.loop !33
 
 newpass_bags.exit.i:                              ; preds = %78, %63, %newpass_bag.exit.thread.sink.split.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
 .loopexit.i:                                      ; preds = %86, %54
@@ -276,13 +276,13 @@ newpass_p12.exit:                                 ; preds = %122, %118
   call void @OPENSSL_sk_pop_free(ptr noundef null, ptr noundef nonnull @PKCS12_SAFEBAG_free) #3
   call void @OPENSSL_sk_pop_free(ptr noundef nonnull %25, ptr noundef nonnull @PKCS7_free) #3
   call void @OPENSSL_sk_pop_free(ptr noundef nonnull %28, ptr noundef nonnull @PKCS7_free) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #3
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %135
 
 128:                                              ; preds = %122, %120, %116, %._crit_edge.i
@@ -305,13 +305,13 @@ newpass_p12.exit:                                 ; preds = %122, %118
   call void @OPENSSL_sk_pop_free(ptr noundef %.05273.i.ph, ptr noundef nonnull @PKCS12_SAFEBAG_free) #3
   call void @OPENSSL_sk_pop_free(ptr noundef %25, ptr noundef nonnull @PKCS7_free) #3
   call void @OPENSSL_sk_pop_free(ptr noundef %.05075.i.ph, ptr noundef nonnull @PKCS7_free) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #3
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @ERR_new() #3
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 51, ptr noundef nonnull @__func__.PKCS12_newpass) #3
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 35, i32 noundef 114, ptr noundef null) #3
@@ -329,9 +329,6 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare i32 @PKCS12_verify_mac(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @PKCS12_unpack_authsafes(ptr noundef) local_unnamed_addr #1
 
@@ -352,9 +349,9 @@ define internal fastcc range(i32 0, 2) i32 @alg_get(ptr noundef %0, ptr noundef 
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @X509_ALGOR_get0(ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef %0) #3
   %9 = load ptr, ptr %7, align 8, !tbaa !40
   %10 = call i32 @OBJ_obj2nid(ptr noundef %9) #3
@@ -463,9 +460,9 @@ define internal fastcc range(i32 0, 2) i32 @alg_get(ptr noundef %0, ptr noundef 
 
 .thread93:                                        ; preds = %11, %14, %42, %.thread46, %57
   %.038547997 = phi i32 [ 1, %57 ], [ %.0385487, %.thread46 ], [ 0, %42 ], [ 0, %14 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.038547997
 }
 
@@ -492,9 +489,6 @@ declare i32 @ASN1_OCTET_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_
 declare void @ASN1_OCTET_STRING_free(ptr noundef) local_unnamed_addr #1
 
 declare void @PKCS7_free(ptr noundef) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @X509_ALGOR_get0(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -533,6 +527,12 @@ declare ptr @PKCS8_encrypt_ex(i32 noundef, ptr noundef, ptr noundef, i32 noundef
 declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #1
 
 declare void @X509_SIG_free(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -376,7 +376,7 @@ define internal void @put_vp8_epel16_v4_c(ptr noundef writeonly captures(none) %
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_vp8_epel16_h4v4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #1 {
   %8 = alloca [560 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 560, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp sgt i32 %4, -3
   br i1 %9, label %.preheader62.lr.ph, label %._crit_edge75
 
@@ -516,14 +516,14 @@ define internal void @put_vp8_epel16_h4v4_c(ptr noundef writeonly captures(none)
   br i1 %exitcond82.not, label %._crit_edge75, label %.preheader, !llvm.loop !20
 
 ._crit_edge75:                                    ; preds = %100, %7, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 560, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_vp8_epel16_h6v4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #1 {
   %8 = alloca [560 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 560, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp sgt i32 %4, -3
   br i1 %9, label %.preheader67.lr.ph, label %._crit_edge80
 
@@ -678,7 +678,7 @@ define internal void @put_vp8_epel16_h6v4_c(ptr noundef writeonly captures(none)
   br i1 %exitcond87.not, label %._crit_edge80, label %.preheader, !llvm.loop !24
 
 ._crit_edge80:                                    ; preds = %115, %7, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 560, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -778,7 +778,7 @@ define internal void @put_vp8_epel16_v6_c(ptr noundef writeonly captures(none) %
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_vp8_epel16_h4v6_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #1 {
   %8 = alloca [592 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 592, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp sgt i32 %4, -5
   br i1 %9, label %.preheader68.lr.ph, label %._crit_edge80
 
@@ -934,14 +934,14 @@ define internal void @put_vp8_epel16_h4v6_c(ptr noundef writeonly captures(none)
   br i1 %exitcond87.not, label %._crit_edge80, label %.preheader, !llvm.loop !30
 
 ._crit_edge80:                                    ; preds = %115, %7, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 592, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_vp8_epel16_h6v6_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #1 {
   %8 = alloca [592 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 592, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp sgt i32 %4, -5
   br i1 %9, label %.preheader73.lr.ph, label %._crit_edge85
 
@@ -1112,7 +1112,7 @@ define internal void @put_vp8_epel16_h6v6_c(ptr noundef writeonly captures(none)
   br i1 %exitcond92.not, label %._crit_edge85, label %.preheader, !llvm.loop !34
 
 ._crit_edge85:                                    ; preds = %130, %7, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 592, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -1374,7 +1374,7 @@ define internal void @put_vp8_epel8_v4_c(ptr noundef writeonly captures(none) %0
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_vp8_epel8_h4v4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #1 {
   %8 = alloca [152 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp sgt i32 %4, -3
   br i1 %9, label %.preheader62.lr.ph, label %._crit_edge75
 
@@ -1514,14 +1514,14 @@ define internal void @put_vp8_epel8_h4v4_c(ptr noundef writeonly captures(none) 
   br i1 %exitcond82.not, label %._crit_edge75, label %.preheader, !llvm.loop !45
 
 ._crit_edge75:                                    ; preds = %100, %7, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_vp8_epel8_h6v4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #1 {
   %8 = alloca [152 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp sgt i32 %4, -3
   br i1 %9, label %.preheader67.lr.ph, label %._crit_edge80
 
@@ -1676,7 +1676,7 @@ define internal void @put_vp8_epel8_h6v4_c(ptr noundef writeonly captures(none) 
   br i1 %exitcond87.not, label %._crit_edge80, label %.preheader, !llvm.loop !49
 
 ._crit_edge80:                                    ; preds = %115, %7, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -1776,7 +1776,7 @@ define internal void @put_vp8_epel8_v6_c(ptr noundef writeonly captures(none) %0
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_vp8_epel8_h4v6_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #1 {
   %8 = alloca [168 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp sgt i32 %4, -5
   br i1 %9, label %.preheader68.lr.ph, label %._crit_edge80
 
@@ -1932,14 +1932,14 @@ define internal void @put_vp8_epel8_h4v6_c(ptr noundef writeonly captures(none) 
   br i1 %exitcond87.not, label %._crit_edge80, label %.preheader, !llvm.loop !55
 
 ._crit_edge80:                                    ; preds = %115, %7, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_vp8_epel8_h6v6_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #1 {
   %8 = alloca [168 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp sgt i32 %4, -5
   br i1 %9, label %.preheader73.lr.ph, label %._crit_edge85
 
@@ -2110,7 +2110,7 @@ define internal void @put_vp8_epel8_h6v6_c(ptr noundef writeonly captures(none) 
   br i1 %exitcond92.not, label %._crit_edge85, label %.preheader, !llvm.loop !59
 
 ._crit_edge85:                                    ; preds = %130, %7, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -2372,7 +2372,7 @@ define internal void @put_vp8_epel4_v4_c(ptr noundef writeonly captures(none) %0
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_vp8_epel4_h4v4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #1 {
   %8 = alloca [44 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp sgt i32 %4, -3
   br i1 %9, label %.preheader62.lr.ph, label %._crit_edge75
 
@@ -2512,14 +2512,14 @@ define internal void @put_vp8_epel4_h4v4_c(ptr noundef writeonly captures(none) 
   br i1 %exitcond82.not, label %._crit_edge75, label %.preheader, !llvm.loop !70
 
 ._crit_edge75:                                    ; preds = %100, %7, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_vp8_epel4_h6v4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #1 {
   %8 = alloca [44 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp sgt i32 %4, -3
   br i1 %9, label %.preheader67.lr.ph, label %._crit_edge80
 
@@ -2674,7 +2674,7 @@ define internal void @put_vp8_epel4_h6v4_c(ptr noundef writeonly captures(none) 
   br i1 %exitcond87.not, label %._crit_edge80, label %.preheader, !llvm.loop !74
 
 ._crit_edge80:                                    ; preds = %115, %7, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -2774,7 +2774,7 @@ define internal void @put_vp8_epel4_v6_c(ptr noundef writeonly captures(none) %0
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_vp8_epel4_h4v6_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #1 {
   %8 = alloca [52 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 52, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp sgt i32 %4, -5
   br i1 %9, label %.preheader68.lr.ph, label %._crit_edge80
 
@@ -2930,14 +2930,14 @@ define internal void @put_vp8_epel4_h4v6_c(ptr noundef writeonly captures(none) 
   br i1 %exitcond87.not, label %._crit_edge80, label %.preheader, !llvm.loop !80
 
 ._crit_edge80:                                    ; preds = %115, %7, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 52, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_vp8_epel4_h6v6_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #1 {
   %8 = alloca [52 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 52, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp sgt i32 %4, -5
   br i1 %9, label %.preheader73.lr.ph, label %._crit_edge85
 
@@ -3108,7 +3108,7 @@ define internal void @put_vp8_epel4_h6v6_c(ptr noundef writeonly captures(none) 
   br i1 %exitcond92.not, label %._crit_edge85, label %.preheader, !llvm.loop !84
 
 ._crit_edge85:                                    ; preds = %130, %7, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 52, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -3203,7 +3203,7 @@ define internal void @put_vp8_bilinear16_hv_c(ptr noundef writeonly captures(non
   %8 = alloca [528 x i8], align 16
   %9 = sub nsw i32 8, %5
   %10 = sub nsw i32 8, %6
-  call void @llvm.lifetime.start.p0(i64 528, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not44 = icmp slt i32 %4, 0
   br i1 %.not44, label %._crit_edge, label %.preheader42
 
@@ -3278,7 +3278,7 @@ define internal void @put_vp8_bilinear16_hv_c(ptr noundef writeonly captures(non
   br i1 %exitcond58.not, label %._crit_edge, label %.preheader, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %42, %7, %.preheader41
-  call void @llvm.lifetime.end.p0(i64 528, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -3373,7 +3373,7 @@ define internal void @put_vp8_bilinear8_hv_c(ptr noundef writeonly captures(none
   %8 = alloca [136 x i8], align 16
   %9 = sub nsw i32 8, %5
   %10 = sub nsw i32 8, %6
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not44 = icmp slt i32 %4, 0
   br i1 %.not44, label %._crit_edge, label %.preheader42
 
@@ -3448,7 +3448,7 @@ define internal void @put_vp8_bilinear8_hv_c(ptr noundef writeonly captures(none
   br i1 %exitcond58.not, label %._crit_edge, label %.preheader, !llvm.loop !100
 
 ._crit_edge:                                      ; preds = %42, %7, %.preheader41
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -3543,7 +3543,7 @@ define internal void @put_vp8_bilinear4_hv_c(ptr noundef writeonly captures(none
   %8 = alloca [36 x i8], align 16
   %9 = sub nsw i32 8, %5
   %10 = sub nsw i32 8, %6
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not44 = icmp slt i32 %4, 0
   br i1 %.not44, label %._crit_edge, label %.preheader42
 
@@ -3618,7 +3618,7 @@ define internal void @put_vp8_bilinear4_hv_c(ptr noundef writeonly captures(none
   br i1 %exitcond58.not, label %._crit_edge, label %.preheader, !llvm.loop !108
 
 ._crit_edge:                                      ; preds = %42, %7, %.preheader41
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -3661,7 +3661,7 @@ define void @ff_vp7dsp_init(ptr noundef writeonly captures(none) initializes((0,
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @vp7_luma_dc_wht_c(ptr noundef writeonly captures(none) %0, ptr noundef captures(none) %1) #1 {
   %3 = alloca [16 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %7
 
 .preheader:                                       ; preds = %7
@@ -3779,7 +3779,7 @@ define internal void @vp7_luma_dc_wht_c(ptr noundef writeonly captures(none) %0,
   br i1 %exitcond66.not, label %93, label %49, !llvm.loop !129
 
 93:                                               ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -3817,7 +3817,7 @@ define internal void @vp7_luma_dc_wht_dc_c(ptr noundef writeonly captures(none) 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @vp7_idct_add_c(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [16 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %10
 
 .preheader:                                       ; preds = %10
@@ -3963,7 +3963,7 @@ define internal void @vp7_idct_add_c(ptr noundef captures(none) %0, ptr noundef 
   br i1 %exitcond91.not, label %111, label %52, !llvm.loop !132
 
 111:                                              ; preds = %52
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -7295,7 +7295,7 @@ define internal void @vp8_luma_dc_wht_dc_c(ptr noundef writeonly captures(none) 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @vp8_idct_add_c(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [16 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %5
 
 5:                                                ; preds = %3, %5
@@ -7536,7 +7536,7 @@ define internal void @vp8_idct_add_c(ptr noundef captures(none) %0, ptr noundef 
   br i1 %exitcond95.not, label %.loopexit, label %.preheader, !llvm.loop !148
 
 .loopexit:                                        ; preds = %.preheader.lver.orig, %.preheader
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -10718,14 +10718,14 @@ define internal void @vp8_h_loop_filter_simple_c(ptr noundef captures(none) %0, 
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4
@@ -10738,10 +10738,9 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #4
 
 attributes #0 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -3385,7 +3385,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %retval.i.sroa.0.0 = phi ptr [ %22, %if.then.i ], [ %23, %if.end.i ]
   %call19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
   %add.ptr.i160 = getelementptr inbounds i8, ptr %24, i64 -8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   tail call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(72) %call19, ptr noundef %retval.0.i.i, ptr nonnull %add.ptr.i160, i32 noundef 63, double noundef -1.000000e+00) #21
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_15LocalConnectionEEE, i64 16), ptr %call19, align 8
   %session_.i = getelementptr inbounds nuw i8, ptr %call19, i64 56
@@ -3423,7 +3423,7 @@ do.body6.i.i.i.i:                                 ; preds = %_ZNK4node17BaseObje
 
 _ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS2_15LocalConnectionEE25JSBindingsSessionDelegateEJRPNS0_11EnvironmentEPS5_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i: ; preds = %_ZNK4node17BaseObjectPtrImplINS_9inspector12_GLOBAL__N_120JSBindingsConnectionINS2_15LocalConnectionEEELb0EE12pointer_dataEv.exit.i.i.i.i
   tail call void @_ZN4node10BaseObject17increase_refcountEv(ptr noundef nonnull align 8 dereferenceable(72) %call19) #21, !noalias !13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   %28 = ptrtoint ptr %call.i.i to i64
   store i64 %28, ptr %agg.tmp.i.i, align 8, !noalias !16
   call void @_ZN4node9inspector5Agent7ConnectESt10unique_ptrINS0_24InspectorSessionDelegateESt14default_deleteIS3_EEb(ptr nonnull sret(%"class.std::unique_ptr.316") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(186) %27, ptr noundef nonnull %agg.tmp.i.i, i1 noundef zeroext false) #21
@@ -3439,7 +3439,7 @@ _ZNKSt14default_deleteIN4node9inspector24InspectorSessionDelegateEEclEPS2_.exit.
   br label %_ZN4node9inspector12_GLOBAL__N_115LocalConnection7ConnectEPNS0_5AgentESt10unique_ptrINS0_24InspectorSessionDelegateESt14default_deleteIS6_EE.exit.i
 
 _ZN4node9inspector12_GLOBAL__N_115LocalConnection7ConnectEPNS0_5AgentESt10unique_ptrINS0_24InspectorSessionDelegateESt14default_deleteIS6_EE.exit.i: ; preds = %_ZNKSt14default_deleteIN4node9inspector24InspectorSessionDelegateEEclEPS2_.exit.i.i.i, %_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS2_15LocalConnectionEE25JSBindingsSessionDelegateEJRPNS0_11EnvironmentEPS5_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   %31 = load ptr, ptr %ref.tmp.i, align 8
   store ptr null, ptr %ref.tmp.i, align 8
   %32 = load ptr, ptr %session_.i, align 8
@@ -3464,7 +3464,7 @@ _ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i.i: ; p
   br label %_ZN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_15LocalConnectionEEC2EPNS_11EnvironmentEN2v85LocalINS7_6ObjectEEENS8_INS7_8FunctionEEE.exit
 
 _ZN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_15LocalConnectionEEC2EPNS_11EnvironmentEN2v85LocalINS7_6ObjectEEENS8_INS7_8FunctionEEE.exit: ; preds = %_ZN4node9inspector12_GLOBAL__N_115LocalConnection7ConnectEPNS0_5AgentESt10unique_ptrINS0_24InspectorSessionDelegateESt14default_deleteIS6_EE.exit.i, %_ZNSt10unique_ptrIN4node9inspector16InspectorSessionESt14default_deleteIS2_EEaSEOS5_.exit.i, %_ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   ret void
 }
 
@@ -3608,8 +3608,8 @@ if.end.i:                                         ; preds = %if.then27
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.then.i
   %retval.i.sroa.0.0 = phi ptr [ %39, %if.then.i ], [ %40, %if.end.i ]
-  call void @llvm.lifetime.start.p0(i64 2072, ptr nonnull %buffer.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp6.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i)
   call void @_ZN4node12TwoByteValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(2072) %buffer.i, ptr noundef %35, ptr %retval.i.sroa.0.0) #21, !noalias !19
   %buf_.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 16
   %41 = load ptr, ptr %buf_.i.i, align 8, !noalias !19
@@ -3632,8 +3632,8 @@ if.then.i.i.i:                                    ; preds = %_ZNK2v820FunctionCa
   br label %_ZN4node9inspector12_GLOBAL__N_116ToProtocolStringEPN2v87IsolateENS2_5LocalINS2_5ValueEEE.exit
 
 _ZN4node9inspector12_GLOBAL__N_116ToProtocolStringEPN2v87IsolateENS2_5LocalINS2_5ValueEEE.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit, %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 2072, ptr nonnull %buffer.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp6.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i)
   %46 = load ptr, ptr %ref.tmp31, align 8
   %vtable = load ptr, ptr %46, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
@@ -3832,7 +3832,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %retval.i.sroa.0.0 = phi ptr [ %22, %if.then.i ], [ %23, %if.end.i ]
   %call19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
   %add.ptr.i160 = getelementptr inbounds i8, ptr %24, i64 -8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   tail call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(72) %call19, ptr noundef %retval.0.i.i, ptr nonnull %add.ptr.i160, i32 noundef 63, double noundef -1.000000e+00) #21
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_20MainThreadConnectionEEE, i64 16), ptr %call19, align 8
   %session_.i = getelementptr inbounds nuw i8, ptr %call19, i64 56
@@ -3870,7 +3870,7 @@ do.body6.i.i.i.i:                                 ; preds = %_ZNK4node17BaseObje
 
 _ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS2_20MainThreadConnectionEE25JSBindingsSessionDelegateEJRPNS0_11EnvironmentEPS5_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i: ; preds = %_ZNK4node17BaseObjectPtrImplINS_9inspector12_GLOBAL__N_120JSBindingsConnectionINS2_20MainThreadConnectionEEELb0EE12pointer_dataEv.exit.i.i.i.i
   tail call void @_ZN4node10BaseObject17increase_refcountEv(ptr noundef nonnull align 8 dereferenceable(72) %call19) #21, !noalias !22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   %28 = ptrtoint ptr %call.i.i to i64
   store i64 %28, ptr %agg.tmp.i.i, align 8, !noalias !25
   call void @_ZN4node9inspector5Agent19ConnectToMainThreadESt10unique_ptrINS0_24InspectorSessionDelegateESt14default_deleteIS3_EEb(ptr nonnull sret(%"class.std::unique_ptr.316") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(186) %27, ptr noundef nonnull %agg.tmp.i.i, i1 noundef zeroext true) #21
@@ -3886,7 +3886,7 @@ _ZNKSt14default_deleteIN4node9inspector24InspectorSessionDelegateEEclEPS2_.exit.
   br label %_ZN4node9inspector12_GLOBAL__N_120MainThreadConnection7ConnectEPNS0_5AgentESt10unique_ptrINS0_24InspectorSessionDelegateESt14default_deleteIS6_EE.exit.i
 
 _ZN4node9inspector12_GLOBAL__N_120MainThreadConnection7ConnectEPNS0_5AgentESt10unique_ptrINS0_24InspectorSessionDelegateESt14default_deleteIS6_EE.exit.i: ; preds = %_ZNKSt14default_deleteIN4node9inspector24InspectorSessionDelegateEEclEPS2_.exit.i.i.i, %_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS2_20MainThreadConnectionEE25JSBindingsSessionDelegateEJRPNS0_11EnvironmentEPS5_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   %31 = load ptr, ptr %ref.tmp.i, align 8
   store ptr null, ptr %ref.tmp.i, align 8
   %32 = load ptr, ptr %session_.i, align 8
@@ -3911,7 +3911,7 @@ _ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i.i: ; p
   br label %_ZN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_20MainThreadConnectionEEC2EPNS_11EnvironmentEN2v85LocalINS7_6ObjectEEENS8_INS7_8FunctionEEE.exit
 
 _ZN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_20MainThreadConnectionEEC2EPNS_11EnvironmentEN2v85LocalINS7_6ObjectEEENS8_INS7_8FunctionEEE.exit: ; preds = %_ZN4node9inspector12_GLOBAL__N_120MainThreadConnection7ConnectEPNS0_5AgentESt10unique_ptrINS0_24InspectorSessionDelegateESt14default_deleteIS6_EE.exit.i, %_ZNSt10unique_ptrIN4node9inspector16InspectorSessionESt14default_deleteIS2_EEaSEOS5_.exit.i, %_ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   ret void
 }
 
@@ -4055,8 +4055,8 @@ if.end.i:                                         ; preds = %if.then27
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.then.i
   %retval.i.sroa.0.0 = phi ptr [ %39, %if.then.i ], [ %40, %if.end.i ]
-  call void @llvm.lifetime.start.p0(i64 2072, ptr nonnull %buffer.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp6.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i)
   call void @_ZN4node12TwoByteValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(2072) %buffer.i, ptr noundef %35, ptr %retval.i.sroa.0.0) #21, !noalias !28
   %buf_.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 16
   %41 = load ptr, ptr %buf_.i.i, align 8, !noalias !28
@@ -4079,8 +4079,8 @@ if.then.i.i.i:                                    ; preds = %_ZNK2v820FunctionCa
   br label %_ZN4node9inspector12_GLOBAL__N_116ToProtocolStringEPN2v87IsolateENS2_5LocalINS2_5ValueEEE.exit
 
 _ZN4node9inspector12_GLOBAL__N_116ToProtocolStringEPN2v87IsolateENS2_5LocalINS2_5ValueEEE.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit, %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 2072, ptr nonnull %buffer.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp6.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i)
   %46 = load ptr, ptr %ref.tmp31, align 8
   %vtable = load ptr, ptr %46, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
@@ -4666,7 +4666,7 @@ entry:
   br i1 %cmp.i.i30.i, label %_ZN2v89LocalBaseINS_8FunctionEE3NewEPNS_7IsolateEPS1_.exit.thread.i, label %if.end.i31.i
 
 _ZN2v89LocalBaseINS_8FunctionEE3NewEPNS_7IsolateEPS1_.exit.thread.i: ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit.i
 
 if.end.i31.i:                                     ; preds = %entry
@@ -4680,7 +4680,7 @@ _ZN2v89LocalBaseINS_8FunctionEE3NewEPNS_7IsolateEPS1_.exit.i: ; preds = %if.end.
   %3 = load ptr, ptr %tracker, align 8
   %4 = load i64, ptr %0, align 8
   %call.i.i = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %3, i64 noundef %4) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   %cmp.i.i3.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i3.i, label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit.i, label %if.then.i.i
 
@@ -4727,11 +4727,11 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i: ; preds = %_ZNKSt5stackIPN4nod
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit.i
 
 _ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit.i: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i, %_ZN2v89LocalBaseINS_8FunctionEE3NewEPNS_7IsolateEPS1_.exit.i, %_ZN2v89LocalBaseINS_8FunctionEE3NewEPNS_7IsolateEPS1_.exit.thread.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_14PersistentBaseIT_EES5_.exit
 
 _ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_14PersistentBaseIT_EES5_.exit: ; preds = %if.end.i31.i, %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   %call.i.i2 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #19
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i2, align 8
   %retainer_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i2, i64 8
@@ -4803,7 +4803,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i: ; preds = %_ZNK4node13Memory
   br label %_ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit
 
 _ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit: ; preds = %_ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit.i.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i11, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   ret void
 }
 
@@ -4971,7 +4971,7 @@ entry:
 if.end:                                           ; preds = %entry
   %connection_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %connection_.val = load ptr, ptr %connection_, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %value.i)
   store ptr %call11, ptr %value.i, align 8
   %callback_.i = getelementptr inbounds nuw i8, ptr %connection_.val, i64 64
   %8 = load ptr, ptr %callback_.i, align 8
@@ -4992,7 +4992,7 @@ if.end.i.i:                                       ; preds = %if.end
 _ZN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_15LocalConnectionEE9OnMessageEN2v85LocalINS5_5ValueEEE.exit: ; preds = %if.end, %if.end.i.i
   %retval.i24.sroa.0.0.i = phi ptr [ %call.i.i, %if.end.i.i ], [ null, %if.end ]
   %call12.i = call ptr @_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_8FunctionEEEiPNS2_INS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(72) %connection_.val, ptr %retval.i24.sroa.0.0.i, i32 noundef 1, ptr noundef nonnull %value.i) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %value.i)
   br label %cleanup
 
 cleanup:                                          ; preds = %entry, %_ZN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_15LocalConnectionEE9OnMessageEN2v85LocalINS5_5ValueEEE.exit
@@ -5204,7 +5204,7 @@ entry:
   br i1 %cmp.i.i30.i, label %_ZN2v89LocalBaseINS_8FunctionEE3NewEPNS_7IsolateEPS1_.exit.thread.i, label %if.end.i31.i
 
 _ZN2v89LocalBaseINS_8FunctionEE3NewEPNS_7IsolateEPS1_.exit.thread.i: ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit.i
 
 if.end.i31.i:                                     ; preds = %entry
@@ -5218,7 +5218,7 @@ _ZN2v89LocalBaseINS_8FunctionEE3NewEPNS_7IsolateEPS1_.exit.i: ; preds = %if.end.
   %3 = load ptr, ptr %tracker, align 8
   %4 = load i64, ptr %0, align 8
   %call.i.i = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %3, i64 noundef %4) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   %cmp.i.i3.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i3.i, label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit.i, label %if.then.i.i
 
@@ -5265,11 +5265,11 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i: ; preds = %_ZNKSt5stackIPN4nod
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit.i
 
 _ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit.i: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i, %_ZN2v89LocalBaseINS_8FunctionEE3NewEPNS_7IsolateEPS1_.exit.i, %_ZN2v89LocalBaseINS_8FunctionEE3NewEPNS_7IsolateEPS1_.exit.thread.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   br label %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_14PersistentBaseIT_EES5_.exit
 
 _ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_14PersistentBaseIT_EES5_.exit: ; preds = %if.end.i31.i, %_ZN4node13MemoryTracker10TrackFieldIN2v88FunctionEEEvPKcRKNS2_5LocalIT_EES5_.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   %call.i.i2 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #19
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i2, align 8
   %retainer_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i2, i64 8
@@ -5341,7 +5341,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i: ; preds = %_ZNK4node13Memory
   br label %_ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit
 
 _ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit: ; preds = %_ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit.i.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i11, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   ret void
 }
 
@@ -5430,7 +5430,7 @@ entry:
 if.end:                                           ; preds = %entry
   %connection_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %connection_.val = load ptr, ptr %connection_, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %value.i)
   store ptr %call11, ptr %value.i, align 8
   %callback_.i = getelementptr inbounds nuw i8, ptr %connection_.val, i64 64
   %8 = load ptr, ptr %callback_.i, align 8
@@ -5451,7 +5451,7 @@ if.end.i.i:                                       ; preds = %if.end
 _ZN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_20MainThreadConnectionEE9OnMessageEN2v85LocalINS5_5ValueEEE.exit: ; preds = %if.end, %if.end.i.i
   %retval.i24.sroa.0.0.i = phi ptr [ %call.i.i, %if.end.i.i ], [ null, %if.end ]
   %call12.i = call ptr @_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_8FunctionEEEiPNS2_INS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(72) %connection_.val, ptr %retval.i24.sroa.0.0.i, i32 noundef 1, ptr noundef nonnull %value.i) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %value.i)
   br label %cleanup
 
 cleanup:                                          ; preds = %entry, %_ZN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_20MainThreadConnectionEE9OnMessageEN2v85LocalINS5_5ValueEEE.exit
@@ -5478,10 +5478,10 @@ declare i64 @llvm.umin.i64(i64, i64) #15
 declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

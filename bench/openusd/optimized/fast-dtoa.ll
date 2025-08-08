@@ -20,8 +20,8 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_con
   ]
 
 12:                                               ; preds = %7, %7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %13 = bitcast double %0 to i64
   %14 = and i64 %13, 4503599627370495
   %15 = and i64 %13, 9218868437227405312
@@ -329,8 +329,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Single20Normalized
   %208 = and i1 %.not48.i.i.i, %207
   %209 = load i32, ptr %11, align 4
   %210 = sub nsw i32 %171, %209
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %208, label %426, label %432
 
 211:                                              ; preds = %.lr.ph.i69.i
@@ -424,8 +424,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Single20Normalized
   br i1 %255, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL6Grisu3EdNS0_12FastDtoaModeENS0_6VectorIcEEPiS4_.exit.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL6Grisu3EdNS0_12FastDtoaModeENS0_6VectorIcEEPiS4_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL6Grisu3EdNS0_12FastDtoaModeENS0_6VectorIcEEPiS4_.exit.thread: ; preds = %198, %201, %249, %252
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %432
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL6Grisu3EdNS0_12FastDtoaModeENS0_6VectorIcEEPiS4_.exit: ; preds = %.critedge.i67.i.i, %252
@@ -437,13 +437,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL6Grisu3EdNS0_12Fast
   %259 = and i1 %.not48.i71.i.i, %258
   %260 = load i32, ptr %11, align 4
   %261 = sub nsw i32 %226, %260
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %259, label %426, label %432
 
 262:                                              ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %263 = bitcast double %0 to i64
   %264 = and i64 %263, 9218868437227405312
   %265 = icmp eq i64 %264, 0
@@ -737,23 +737,23 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL16RoundWeedCountedE
   unreachable
 
 .thread:                                          ; preds = %355, %353, %.thread.i.i, %401, %400, %391, %._crit_edge96.i.i, %.preheader.i.i19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %432
 
 .thread36:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL16RoundWeedCountedENS0_6VectorIcEEimmmPi.exit.sink.split.i.i, %._crit_edge.i.i.i, %350, %._crit_edge.i51.i.i
   %.5.i.ph = phi i32 [ %386, %._crit_edge.i51.i.i ], [ %.3.i23, %350 ], [ %.3.i23, %._crit_edge.i.i.i ], [ %419, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL16RoundWeedCountedENS0_6VectorIcEEimmmPi.exit.sink.split.i.i ]
   %421 = load i32, ptr %9, align 4
   %422 = sub nsw i32 %.5.i.ph, %421
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %426
 
 423:                                              ; preds = %396
   %424 = load i32, ptr %9, align 4
   %425 = sub nsw i32 %386, %424
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.not31.i59.i.i, label %432, label %426
 
 426:                                              ; preds = %205, %.thread36, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL6Grisu3EdNS0_12FastDtoaModeENS0_6VectorIcEEPiS4_.exit, %423
@@ -778,10 +778,10 @@ declare void @abort() local_unnamed_addr #1
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion16PowersOfTenCache36GetCachedPowerForBinaryExponentRangeEiiPNS0_5DiyFpEPi(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

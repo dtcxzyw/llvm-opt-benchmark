@@ -92,13 +92,13 @@ define internal i32 @drawbox_vaapi_filter_frame(ptr noundef readonly captures(no
   %13 = load ptr, ptr %12, align 8, !tbaa !39
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %15 = load ptr, ptr %14, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !27
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) @__const.drawbox_vaapi_filter_frame.blend_state, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %17 = load ptr, ptr %16, align 8, !tbaa !41
   %.not = icmp eq ptr %17, null
@@ -285,21 +285,18 @@ define internal i32 @drawbox_vaapi_filter_frame(ptr noundef readonly captures(no
 
 127:                                              ; preds = %126, %124
   %.059 = phi i32 [ %.058, %126 ], [ %125, %124 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.059
 }
 
 declare i32 @ff_vaapi_vpp_config_input(ptr noundef) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @av_frame_alloc() local_unnamed_addr #1
 
@@ -319,9 +316,6 @@ declare void @av_frame_free(ptr noundef) local_unnamed_addr #1
 
 declare i32 @ff_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nounwind uwtable
 define internal i32 @drawbox_vaapi_config_output(ptr noundef %0) #2 {
   %2 = alloca [10 x double], align 16
@@ -332,8 +326,8 @@ define internal i32 @drawbox_vaapi_config_output(ptr noundef %0) #2 {
   %7 = load ptr, ptr %6, align 8, !tbaa !39
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %9 = load ptr, ptr %8, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %11 = load i32, ptr %10, align 8, !tbaa !64
   %12 = sitofp i32 %11 to double
@@ -588,8 +582,8 @@ define internal i32 @drawbox_vaapi_config_output(ptr noundef %0) #2 {
 
 160:                                              ; preds = %137, %131, %159, %142
   %.0114 = phi i32 [ %.0113, %159 ], [ %158, %142 ], [ %135, %131 ], [ -12, %137 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0114
 }
 
@@ -613,11 +607,17 @@ declare void @av_buffer_unref(ptr noundef) local_unnamed_addr #1
 
 declare void @ff_vaapi_vpp_ctx_uninit(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

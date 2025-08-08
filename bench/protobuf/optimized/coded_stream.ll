@@ -710,13 +710,13 @@ entry:
 invoke.cont3:                                     ; preds = %entry
   %total_bytes_limit_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load i32, ptr %total_bytes_limit_, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i)
   store i32 %0, ptr %v.addr.i, align 4
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsIiTnNSt9enable_ifIXntsr16strings_internal16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, ptr noundef nonnull align 4 dereferenceable(4) %v.addr.i)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i)
   invoke void @_ZN4absl12lts_2023080212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %call.i1, i64 149, ptr nonnull @.str.2)
           to label %invoke.cont7 unwind label %lpad
 
@@ -2499,8 +2499,8 @@ land.rhs:                                         ; preds = %while.cond
 while.body:                                       ; preds = %land.rhs
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %size.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i)
   %2 = load ptr, ptr %stream_.i, align 8
   %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %if.then.i, label %if.then2.i
@@ -2558,8 +2558,8 @@ if.else.i:                                        ; preds = %do.end.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit: ; preds = %if.then.i, %if.then8.i, %if.then13.i, %if.else.i
   %retval.0.i = phi ptr [ %buffer_30.i, %if.then.i ], [ %buffer_30.i, %if.then8.i ], [ %5, %if.then13.i ], [ %buffer_30.i, %if.else.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %size.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i)
   %sext = shl i64 %sub.ptr.sub, 32
   %idx.ext = ashr exact i64 %sext, 32
   %add.ptr = getelementptr inbounds i8, ptr %retval.0.i, i64 %idx.ext
@@ -2629,8 +2629,8 @@ land.rhs.i:                                       ; preds = %while.cond.i
 while.body.i:                                     ; preds = %land.rhs.i
   %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %size.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i.i)
   %3 = load ptr, ptr %stream_.i.i, align 8
   %cmp.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then2.i.i
@@ -2688,8 +2688,8 @@ if.else.i.i:                                      ; preds = %do.end.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i: ; preds = %if.else.i.i, %if.then13.i.i, %if.then8.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ %buffer_30.i.i, %if.then.i.i ], [ %buffer_30.i.i, %if.then8.i.i ], [ %6, %if.then13.i.i ], [ %buffer_30.i.i, %if.else.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %size.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i)
   %sext.i = shl i64 %sub.ptr.sub.i, 32
   %idx.ext.i = ashr exact i64 %sext.i, 32
   %add.ptr.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 %idx.ext.i
@@ -2780,8 +2780,8 @@ land.rhs.i:                                       ; preds = %if.end, %while.cond
 while.body.i:                                     ; preds = %land.rhs.i
   %sub.ptr.rhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %size.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i.i)
   %5 = load ptr, ptr %stream_.i.i, align 8
   %cmp.i.i = icmp eq ptr %5, null
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then2.i.i
@@ -2839,8 +2839,8 @@ if.else.i.i:                                      ; preds = %do.end.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i: ; preds = %if.else.i.i, %if.then13.i.i, %if.then8.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ %buffer_30.i.i, %if.then.i.i ], [ %buffer_30.i.i, %if.then8.i.i ], [ %8, %if.then13.i.i ], [ %buffer_30.i.i, %if.else.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %size.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i)
   %11 = load i8, ptr %had_error_, align 8
   %tobool3.i = trunc i8 %11 to i1
   br i1 %tobool3.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit, label %while.cond.i, !llvm.loop !20
@@ -2950,8 +2950,8 @@ land.rhs.i:                                       ; preds = %if.end3, %while.con
 while.body.i:                                     ; preds = %land.rhs.i
   %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %size.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i.i)
   %6 = load ptr, ptr %stream_.i.i, align 8
   %cmp.i.i = icmp eq ptr %6, null
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then2.i.i
@@ -3009,8 +3009,8 @@ if.else.i.i:                                      ; preds = %do.end.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i: ; preds = %if.else.i.i, %if.then13.i.i, %if.then8.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ %buffer_30.i.i, %if.then.i.i ], [ %buffer_30.i.i, %if.then8.i.i ], [ %9, %if.then13.i.i ], [ %buffer_30.i.i, %if.else.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %size.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i)
   %12 = load i8, ptr %had_error_, align 8
   %tobool3.i = trunc i8 %12 to i1
   br i1 %tobool3.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit, label %while.cond.i, !llvm.loop !20
@@ -3142,8 +3142,8 @@ land.rhs.i:                                       ; preds = %while.cond.i
 while.body.i:                                     ; preds = %land.rhs.i
   %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %size.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i.i)
   %4 = load ptr, ptr %stream_.i.i, align 8
   %cmp.i.i = icmp eq ptr %4, null
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then2.i.i
@@ -3201,8 +3201,8 @@ if.else.i.i:                                      ; preds = %do.end.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i: ; preds = %if.else.i.i, %if.then13.i.i, %if.then8.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ %buffer_30.i.i, %if.then.i.i ], [ %buffer_30.i.i, %if.then8.i.i ], [ %7, %if.then13.i.i ], [ %buffer_30.i.i, %if.else.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %size.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i)
   %sext.i = shl i64 %sub.ptr.sub.i, 32
   %idx.ext.i = ashr exact i64 %sext.i, 32
   %add.ptr.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 %idx.ext.i
@@ -3330,8 +3330,8 @@ land.rhs.i:                                       ; preds = %if.end, %while.cond
 while.body.i:                                     ; preds = %land.rhs.i
   %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %size.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i.i)
   %6 = load ptr, ptr %stream_.i.i, align 8
   %cmp.i.i = icmp eq ptr %6, null
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then2.i.i
@@ -3389,8 +3389,8 @@ if.else.i.i:                                      ; preds = %do.end.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i: ; preds = %if.else.i.i, %if.then13.i.i, %if.then8.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ %buffer_30.i.i, %if.then.i.i ], [ %buffer_30.i.i, %if.then8.i.i ], [ %9, %if.then13.i.i ], [ %buffer_30.i.i, %if.else.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %size.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i)
   %12 = load i8, ptr %had_error_, align 8
   %tobool3.i = trunc i8 %12 to i1
   br i1 %tobool3.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit, label %while.cond.i, !llvm.loop !20
@@ -3496,8 +3496,8 @@ if.end:                                           ; preds = %do.body
   %sub.ptr.lhs.cast = ptrtoint ptr %ptr.addr.0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %size.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i)
   %2 = load ptr, ptr %stream_.i, align 8
   %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -3567,8 +3567,8 @@ if.else29.i:                                      ; preds = %if.end.i
 _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit: ; preds = %if.then.i, %if.then8.i, %if.then13.i, %if.else.i, %if.else29.i
   %9 = phi ptr [ %add.ptr.i7.i, %if.then.i ], [ %add.ptr.i7.i, %if.then8.i ], [ %add.ptr15.i, %if.then13.i ], [ %add.ptr25.i, %if.else.i ], [ %add.ptr.i7.i, %if.else29.i ]
   %retval.0.i = phi ptr [ %buffer_30.i, %if.then.i ], [ %buffer_30.i, %if.then8.i ], [ %6, %if.then13.i ], [ %buffer_30.i, %if.else.i ], [ %buffer_30.i, %if.else29.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %size.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i)
   %sext = shl i64 %sub.ptr.sub, 32
   %idx.ext = ashr exact i64 %sext, 32
   %add.ptr = getelementptr inbounds i8, ptr %retval.0.i, i64 %idx.ext
@@ -3629,8 +3629,8 @@ if.end.i:                                         ; preds = %do.body.i
   %sub.ptr.lhs.cast.i15 = ptrtoint ptr %ptr.addr.0.i to i64
   %sub.ptr.rhs.cast.i16 = ptrtoint ptr %.pre to i64
   %sub.ptr.sub.i17 = sub i64 %sub.ptr.lhs.cast.i15, %sub.ptr.rhs.cast.i16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %size.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i.i)
   %2 = load ptr, ptr %stream_.i.i, align 8
   %cmp.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
@@ -3700,8 +3700,8 @@ if.else29.i.i:                                    ; preds = %if.end.i.i
 _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i: ; preds = %if.else29.i.i, %if.else.i.i, %if.then13.i.i, %if.then8.i.i, %if.then.i.i
   %9 = phi ptr [ %add.ptr.i7.i.i, %if.then.i.i ], [ %add.ptr.i7.i.i, %if.then8.i.i ], [ %add.ptr15.i.i, %if.then13.i.i ], [ %add.ptr25.i.i, %if.else.i.i ], [ %add.ptr.i7.i.i, %if.else29.i.i ]
   %retval.0.i.i = phi ptr [ %buffer_30.i.i, %if.then.i.i ], [ %buffer_30.i.i, %if.then8.i.i ], [ %6, %if.then13.i.i ], [ %buffer_30.i.i, %if.else.i.i ], [ %buffer_30.i.i, %if.else29.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %size.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i)
   %sext.i = shl i64 %sub.ptr.sub.i17, 32
   %idx.ext.i = ashr exact i64 %sext.i, 32
   %add.ptr.i18 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 %idx.ext.i
@@ -3828,8 +3828,8 @@ if.end.i.i:                                       ; preds = %do.body.i.i
   %sub.ptr.lhs.cast.i15.i = ptrtoint ptr %ptr.addr.0.i.i to i64
   %sub.ptr.rhs.cast.i16.i = ptrtoint ptr %.pre.i to i64
   %sub.ptr.sub.i17.i = sub i64 %sub.ptr.lhs.cast.i15.i, %sub.ptr.rhs.cast.i16.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %size.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i.i.i)
   %2 = load ptr, ptr %stream_.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
@@ -3899,8 +3899,8 @@ if.else29.i.i.i:                                  ; preds = %if.end.i.i.i
 _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i.i: ; preds = %if.else29.i.i.i, %if.else.i.i.i, %if.then13.i.i.i, %if.then8.i.i.i, %if.then.i.i.i
   %9 = phi ptr [ %add.ptr.i7.i.i.i, %if.then.i.i.i ], [ %add.ptr.i7.i.i.i, %if.then8.i.i.i ], [ %add.ptr15.i.i.i, %if.then13.i.i.i ], [ %add.ptr25.i.i.i, %if.else.i.i.i ], [ %add.ptr.i7.i.i.i, %if.else29.i.i.i ]
   %retval.0.i.i.i = phi ptr [ %buffer_30.i.i.i, %if.then.i.i.i ], [ %buffer_30.i.i.i, %if.then8.i.i.i ], [ %6, %if.then13.i.i.i ], [ %buffer_30.i.i.i, %if.else.i.i.i ], [ %buffer_30.i.i.i, %if.else29.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %size.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i.i)
   %sext.i.i = shl i64 %sub.ptr.sub.i17.i, 32
   %idx.ext.i.i = ashr exact i64 %sext.i.i, 32
   %add.ptr.i18.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 %idx.ext.i.i
@@ -3985,7 +3985,7 @@ _ZNK4absl12lts_202308024Cord4sizeEv.exit:         ; preds = %cond.true.i.i, %con
   br i1 %cmp4.not, label %if.else, label %if.then5
 
 if.then5:                                         ; preds = %_ZNK4absl12lts_202308024Cord4sizeEv.exit
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %__begin3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__begin3.i)
   call void @_ZN4absl12lts_202308024Cord13ChunkIteratorC2EPKS1_(ptr noundef nonnull align 8 dereferenceable(152) %__begin3.i, ptr noundef nonnull align 8 dereferenceable(16) %cord)
   %bytes_remaining_.i.i.i = getelementptr inbounds nuw i8, ptr %__begin3.i, i64 24
   %6 = load i64, ptr %bytes_remaining_.i.i.i, align 8
@@ -4009,7 +4009,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 _ZN6google8protobuf2io12_GLOBAL__N_115CopyCordToArrayERKN4absl12lts_202308024CordEPh.exit: ; preds = %for.body.i, %if.then5
   %target.addr.0.lcssa.i = phi ptr [ %ptr, %if.then5 ], [ %add.ptr.i12, %for.body.i ]
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %__begin3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__begin3.i)
   br label %return
 
 if.else:                                          ; preds = %_ZNK4absl12lts_202308024Cord4sizeEv.exit
@@ -4046,7 +4046,7 @@ _ZNK4absl12lts_202308024Cord4sizeEv.exit29:       ; preds = %_ZNK4absl12lts_2023
   br i1 %cmp13, label %if.then14, label %if.else16
 
 if.then14:                                        ; preds = %_ZNK4absl12lts_202308024Cord4sizeEv.exit29
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %__begin3.i30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__begin3.i30)
   call void @_ZN4absl12lts_202308024Cord13ChunkIteratorC2EPKS1_(ptr noundef nonnull align 8 dereferenceable(152) %__begin3.i30, ptr noundef nonnull align 8 dereferenceable(16) %cord)
   %bytes_remaining_.i.i.i31 = getelementptr inbounds nuw i8, ptr %__begin3.i30, i64 24
   %10 = load i64, ptr %bytes_remaining_.i.i.i31, align 8
@@ -4070,7 +4070,7 @@ for.body.i35:                                     ; preds = %for.body.i35, %for.
 
 _ZN6google8protobuf2io12_GLOBAL__N_115CopyCordToArrayERKN4absl12lts_202308024CordEPh.exit43: ; preds = %for.body.i35, %if.then14
   %target.addr.0.lcssa.i42 = phi ptr [ %ptr, %if.then14 ], [ %add.ptr.i39, %for.body.i35 ]
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %__begin3.i30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__begin3.i30)
   br label %return
 
 if.else16:                                        ; preds = %_ZNK4absl12lts_202308024Cord4sizeEv.exit21.thread, %_ZNK4absl12lts_202308024Cord4sizeEv.exit29, %_ZNK4absl12lts_202308024Cord4sizeEv.exit21
@@ -4124,8 +4124,8 @@ if.end.i.i:                                       ; preds = %do.body.i.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %ptr.addr.0.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %size.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i.i.i)
   %3 = load ptr, ptr %stream_.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
@@ -4195,8 +4195,8 @@ if.else29.i.i.i:                                  ; preds = %if.end.i.i.i
 _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i.i: ; preds = %if.else29.i.i.i, %if.else.i.i.i, %if.then13.i.i.i, %if.then8.i.i.i, %if.then.i.i.i
   %10 = phi ptr [ %add.ptr.i7.i.i.i, %if.then.i.i.i ], [ %add.ptr.i7.i.i.i, %if.then8.i.i.i ], [ %add.ptr15.i.i.i, %if.then13.i.i.i ], [ %add.ptr25.i.i.i, %if.else.i.i.i ], [ %add.ptr.i7.i.i.i, %if.else29.i.i.i ]
   %retval.0.i.i.i = phi ptr [ %buffer_30.i.i.i, %if.then.i.i.i ], [ %buffer_30.i.i.i, %if.then8.i.i.i ], [ %7, %if.then13.i.i.i ], [ %buffer_30.i.i.i, %if.else.i.i.i ], [ %buffer_30.i.i.i, %if.else29.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %size.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i.i)
   %sext.i.i = shl i64 %sub.ptr.sub.i.i, 32
   %idx.ext.i.i = ashr exact i64 %sext.i.i, 32
   %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 %idx.ext.i.i
@@ -4333,8 +4333,8 @@ if.end.i.i:                                       ; preds = %do.body.i.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %ptr.addr.0.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %size.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i.i.i)
   %3 = load ptr, ptr %stream_.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
@@ -4404,8 +4404,8 @@ if.else29.i.i.i:                                  ; preds = %if.end.i.i.i
 _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i.i: ; preds = %if.else29.i.i.i, %if.else.i.i.i, %if.then13.i.i.i, %if.then8.i.i.i, %if.then.i.i.i
   %10 = phi ptr [ %add.ptr.i7.i.i.i, %if.then.i.i.i ], [ %add.ptr.i7.i.i.i, %if.then8.i.i.i ], [ %add.ptr15.i.i.i, %if.then13.i.i.i ], [ %add.ptr25.i.i.i, %if.else.i.i.i ], [ %add.ptr.i7.i.i.i, %if.else29.i.i.i ]
   %retval.0.i.i.i = phi ptr [ %buffer_30.i.i.i, %if.then.i.i.i ], [ %buffer_30.i.i.i, %if.then8.i.i.i ], [ %7, %if.then13.i.i.i ], [ %buffer_30.i.i.i, %if.else.i.i.i ], [ %buffer_30.i.i.i, %if.else29.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %size.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i.i)
   %sext.i.i = shl i64 %sub.ptr.sub.i.i, 32
   %idx.ext.i.i = ashr exact i64 %sext.i.i, 32
   %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 %idx.ext.i.i
@@ -4493,8 +4493,8 @@ if.end.i.i:                                       ; preds = %do.body.i.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %ptr.addr.0.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %size.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i.i.i)
   %3 = load ptr, ptr %stream_.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
@@ -4564,8 +4564,8 @@ if.else29.i.i.i:                                  ; preds = %if.end.i.i.i
 _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i.i: ; preds = %if.else29.i.i.i, %if.else.i.i.i, %if.then13.i.i.i, %if.then8.i.i.i, %if.then.i.i.i
   %10 = phi ptr [ %add.ptr.i7.i.i.i, %if.then.i.i.i ], [ %add.ptr.i7.i.i.i, %if.then8.i.i.i ], [ %add.ptr15.i.i.i, %if.then13.i.i.i ], [ %add.ptr25.i.i.i, %if.else.i.i.i ], [ %add.ptr.i7.i.i.i, %if.else29.i.i.i ]
   %retval.0.i.i.i = phi ptr [ %buffer_30.i.i.i, %if.then.i.i.i ], [ %buffer_30.i.i.i, %if.then8.i.i.i ], [ %7, %if.then13.i.i.i ], [ %buffer_30.i.i.i, %if.else.i.i.i ], [ %buffer_30.i.i.i, %if.else29.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %size.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i.i)
   %sext.i.i = shl i64 %sub.ptr.sub.i.i, 32
   %idx.ext.i.i = ashr exact i64 %sext.i.i, 32
   %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 %idx.ext.i.i
@@ -4692,7 +4692,7 @@ terminate.lpad:                                   ; preds = %entry
 define noundef ptr @_ZN6google8protobuf2io17CodedOutputStream16WriteCordToArrayERKN4absl12lts_202308024CordEPh(ptr noundef nonnull align 8 dereferenceable(16) %cord, ptr noundef writeonly captures(ret: address, provenance) %target) local_unnamed_addr #4 align 2 {
 entry:
   %__begin3.i = alloca %"class.absl::lts_20230802::Cord::ChunkIterator", align 8
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %__begin3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__begin3.i)
   call void @_ZN4absl12lts_202308024Cord13ChunkIteratorC2EPKS1_(ptr noundef nonnull align 8 dereferenceable(152) %__begin3.i, ptr noundef nonnull align 8 dereferenceable(16) %cord)
   %bytes_remaining_.i.i.i = getelementptr inbounds nuw i8, ptr %__begin3.i, i64 24
   %0 = load i64, ptr %bytes_remaining_.i.i.i, align 8
@@ -4716,7 +4716,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 _ZN6google8protobuf2io12_GLOBAL__N_115CopyCordToArrayERKN4absl12lts_202308024CordEPh.exit: ; preds = %for.body.i, %entry
   %target.addr.0.lcssa.i = phi ptr [ %target, %entry ], [ %add.ptr.i, %for.body.i ]
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %__begin3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__begin3.i)
   ret ptr %target.addr.0.lcssa.i
 }
 
@@ -5146,10 +5146,10 @@ entry:
 declare i32 @llvm.smin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #16

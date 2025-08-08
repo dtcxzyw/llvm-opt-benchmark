@@ -65,15 +65,15 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readnone 
   br label %268
 
 32:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store ptr null, ptr %22, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store ptr null, ptr %23, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store ptr null, ptr %24, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %33 = tail call i32 @ASYNC_init_thread(i64 noundef 2, i64 noundef 0) #5
   %.not.i = icmp eq i32 %33, 0
   br i1 %.not.i, label %.critedge, label %34
@@ -133,27 +133,27 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readnone 
   %59 = call i64 @fwrite(ptr nonnull @.str.2, i64 32, i64 1, ptr %58) #6
   call void @ASYNC_WAIT_CTX_free(ptr noundef %.0.i) #5
   call void @ASYNC_cleanup_thread() #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %269
 
 test_ASYNC_init_thread.exit:                      ; preds = %49
   call void @ASYNC_WAIT_CTX_free(ptr noundef nonnull %35) #5
   call void @ASYNC_cleanup_thread() #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 100, ptr %19, align 4, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %60 = call i32 @ASYNC_init_thread(i64 noundef 1, i64 noundef 0) #5
   %.not.i9 = icmp eq i32 %60, 0
   br i1 %.not.i9, label %.critedge47, label %61
@@ -196,20 +196,20 @@ test_ASYNC_init_thread.exit:                      ; preds = %49
   %78 = call i64 @fwrite(ptr nonnull @.str.3, i64 36, i64 1, ptr %77) #6
   call void @ASYNC_WAIT_CTX_free(ptr noundef %.011.i) #5
   call void @ASYNC_cleanup_thread() #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %269
 
 test_ASYNC_callback_status.exit:                  ; preds = %75
   call void @ASYNC_WAIT_CTX_free(ptr noundef nonnull %62) #5
   call void @ASYNC_cleanup_thread() #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr null, ptr %17, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr @ctr, align 4, !tbaa !11
   %79 = call i32 @ASYNC_init_thread(i64 noundef 1, i64 noundef 0) #5
   %.not.i16 = icmp eq i32 %79, 0
@@ -245,18 +245,18 @@ test_ASYNC_callback_status.exit:                  ; preds = %75
   %96 = call i64 @fwrite(ptr nonnull @.str.5, i64 30, i64 1, ptr %95) #6
   call void @ASYNC_WAIT_CTX_free(ptr noundef %.0.i21) #5
   call void @ASYNC_cleanup_thread() #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %269
 
 test_ASYNC_start_job.exit:                        ; preds = %88
   call void @ASYNC_WAIT_CTX_free(ptr noundef nonnull %81) #5
   call void @ASYNC_cleanup_thread() #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr null, ptr %15, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr null, ptr @currjob, align 8, !tbaa !9
   %97 = call i32 @ASYNC_init_thread(i64 noundef 1, i64 noundef 0) #5
   %.not.i22 = icmp eq i32 %97, 0
@@ -292,24 +292,24 @@ test_ASYNC_start_job.exit:                        ; preds = %88
   %112 = call i64 @fwrite(ptr nonnull @.str.6, i64 36, i64 1, ptr %111) #6
   call void @ASYNC_WAIT_CTX_free(ptr noundef %.0.i23) #5
   call void @ASYNC_cleanup_thread() #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %269
 
 test_ASYNC_get_current_job.exit:                  ; preds = %106
   call void @ASYNC_WAIT_CTX_free(ptr noundef nonnull %99) #5
   call void @ASYNC_cleanup_thread() #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 -1, ptr %11, align 4, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 -1, ptr %12, align 4, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %113 = call i32 @ASYNC_init_thread(i64 noundef 1, i64 noundef 0) #5
   %.not.i26 = icmp eq i32 %113, 0
   br i1 %.not.i26, label %.critedge50, label %114
@@ -449,26 +449,26 @@ test_ASYNC_get_current_job.exit:                  ; preds = %106
   %191 = call i64 @fwrite(ptr nonnull @.str.7, i64 32, i64 1, ptr %190) #6
   call void @ASYNC_WAIT_CTX_free(ptr noundef %.0.i27) #5
   call void @ASYNC_cleanup_thread() #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %269
 
 test_ASYNC_WAIT_CTX_get_all_fds.exit:             ; preds = %181
   call void @ASYNC_WAIT_CTX_free(ptr noundef nonnull %115) #5
   call void @ASYNC_cleanup_thread() #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %192 = call i32 @ASYNC_init_thread(i64 noundef 1, i64 noundef 0) #5
   %.not.i32 = icmp eq i32 %192, 0
   br i1 %.not.i32, label %.critedge51, label %193
@@ -497,18 +497,18 @@ test_ASYNC_WAIT_CTX_get_all_fds.exit:             ; preds = %181
   %204 = call i64 @fwrite(ptr nonnull @.str.8, i64 32, i64 1, ptr %203) #6
   call void @ASYNC_WAIT_CTX_free(ptr noundef %.0.i34) #5
   call void @ASYNC_cleanup_thread() #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %269
 
 test_ASYNC_block_pause.exit:                      ; preds = %198
   call void @ASYNC_WAIT_CTX_free(ptr noundef nonnull %194) #5
   call void @ASYNC_cleanup_thread() #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %205 = call ptr @OSSL_LIB_CTX_new() #5
   %206 = icmp eq ptr %205, null
   br i1 %206, label %207, label %210
@@ -593,10 +593,10 @@ test_ASYNC_start_job_ex.exit:                     ; preds = %243
   call void @ASYNC_WAIT_CTX_free(ptr noundef nonnull %212) #5
   call void @ASYNC_cleanup_thread() #5
   call void @OSSL_LIB_CTX_free(ptr noundef nonnull %205) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %249 = call i32 @ASYNC_set_mem_functions(ptr noundef nonnull @test_alloc_stack, ptr noundef nonnull @test_free_stack) #5
   %250 = icmp eq i32 %249, 0
   br i1 %250, label %test_ASYNC_set_mem_functions.exit, label %251
@@ -638,13 +638,13 @@ test_ASYNC_start_job_ex.exit:                     ; preds = %243
   br label %test_ASYNC_set_mem_functions.exit.thread
 
 test_ASYNC_set_mem_functions.exit.thread:         ; preds = %256, %265, %261
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %269
 
 test_ASYNC_set_mem_functions.exit:                ; preds = %test_ASYNC_start_job_ex.exit, %264
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %268
 
 268:                                              ; preds = %test_ASYNC_set_mem_functions.exit, %29
@@ -656,8 +656,8 @@ test_ASYNC_set_mem_functions.exit:                ; preds = %test_ASYNC_start_jo
   call void @ASYNC_WAIT_CTX_free(ptr noundef %.019.i.ph) #5
   call void @ASYNC_cleanup_thread() #5
   call void @OSSL_LIB_CTX_free(ptr noundef %205) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %269
 
 269:                                              ; preds = %.critedge52, %.critedge51, %.critedge50, %.critedge49, %.critedge48, %.critedge47, %.critedge, %test_ASYNC_set_mem_functions.exit.thread, %268
@@ -666,9 +666,6 @@ test_ASYNC_set_mem_functions.exit:                ; preds = %test_ASYNC_start_jo
 }
 
 declare i32 @ASYNC_is_capable() local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @ASYNC_init_thread(i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -686,15 +683,12 @@ declare void @ASYNC_WAIT_CTX_free(ptr noundef) local_unnamed_addr #1
 
 declare void @ASYNC_cleanup_thread() local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @ASYNC_pause_job() local_unnamed_addr #1
 
 declare i32 @ASYNC_WAIT_CTX_set_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @test_callback(ptr readnone captures(none) %0) #3 {
+define internal noundef i32 @test_callback(ptr readnone captures(none) %0) #2 {
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   ret i32 1
 }
@@ -850,6 +844,12 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
@@ -858,8 +858,8 @@ declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_add
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nofree nounwind }
 attributes #5 = { nounwind }
 attributes #6 = { cold }

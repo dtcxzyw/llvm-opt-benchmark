@@ -150,17 +150,11 @@ init_digest_with_data.exit.thread:                ; preds = %23, %1, %17, %init_
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @ssl_get_algorithm_prf(ptr noundef) local_unnamed_addr #1
 
 declare ptr @ssl_get_handshake_digest(i32 noundef) local_unnamed_addr #1
 
 declare ptr @EVP_md5() local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @EVP_MD_CTX_cleanup(ptr noundef) local_unnamed_addr #1
 
@@ -237,7 +231,7 @@ declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, 
 declare i64 @BUF_MEM_grow(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @EVP_MD_CTX_md(ptr noundef) local_unnamed_addr #1
 
@@ -249,10 +243,10 @@ define internal range(i32 0, 2) i32 @ssl3_prf(ptr readnone captures(none) %0, pt
   %13 = alloca %struct.env_md_ctx_st, align 8
   %14 = alloca [16 x i8], align 16
   %15 = alloca [20 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #6
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @EVP_MD_CTX_init(ptr noundef nonnull %12) #6
   call void @EVP_MD_CTX_init(ptr noundef nonnull %13) #6
   %.not49 = icmp eq i64 %2, 0
@@ -345,10 +339,10 @@ define internal range(i32 0, 2) i32 @ssl3_prf(ptr readnone captures(none) %0, pt
 
 51:                                               ; preds = %._crit_edge48, %35, %22, %18
   %.032 = phi i32 [ 0, %18 ], [ 0, %35 ], [ 0, %22 ], [ 1, %._crit_edge48 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.032
 }
 
@@ -394,10 +388,10 @@ define internal fastcc i32 @ssl3_handshake_mac(ptr noundef readonly captures(non
   %7 = alloca i32, align 4
   %8 = alloca [64 x i8], align 16
   %9 = alloca %struct.env_md_ctx_st, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = icmp eq i32 %1, 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = load ptr, ptr %11, align 8, !tbaa !6
@@ -483,10 +477,10 @@ define internal fastcc i32 @ssl3_handshake_mac(ptr noundef readonly captures(non
 
 61:                                               ; preds = %47, %45, %25, %22
   %.018 = phi i32 [ %60, %47 ], [ 0, %45 ], [ 0, %25 ], [ 0, %22 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.018
 }
 
@@ -496,14 +490,20 @@ declare i32 @EVP_MD_CTX_copy_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i64 @EVP_MD_CTX_size(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nounwind }
 

@@ -150,7 +150,7 @@ define internal range(i32 0, 2) i32 @pkcs7_verify_test() #0 {
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @pkcs7_inner_content_verify_test() #0 {
   %1 = alloca [1575 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1575, ptr nonnull %1) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1575) %1, ptr noundef nonnull align 16 dereferenceable(1575) @__const.pkcs7_inner_content_verify_test.sig_der, i64 1575, i1 false)
   %2 = call ptr @BIO_new_mem_buf(ptr noundef nonnull %1, i32 noundef 1575) #4
   %3 = call i32 @test_ptr(ptr noundef nonnull @.str.11, i32 noundef 364, ptr noundef nonnull @.str.22, ptr noundef %2) #4
@@ -252,15 +252,12 @@ define internal range(i32 0, 2) i32 @pkcs7_inner_content_verify_test() #0 {
   call void @PKCS7_free(ptr noundef %.015) #4
   %54 = call i32 @BIO_free(ptr noundef %.020) #4
   %55 = call i32 @BIO_free(ptr noundef %2) #4
-  call void @llvm.lifetime.end.p0(i64 1575, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -296,9 +293,6 @@ declare void @PKCS7_free(ptr noundef) local_unnamed_addr #1
 
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @X509_STORE_get0_param(ptr noundef) local_unnamed_addr #1
 
 declare i32 @X509_VERIFY_PARAM_set_purpose(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -307,10 +301,16 @@ declare i32 @X509_STORE_set1_param(ptr noundef, ptr noundef) local_unnamed_addr 
 
 declare ptr @d2i_PKCS7_bio(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

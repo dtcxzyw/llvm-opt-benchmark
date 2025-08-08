@@ -39,7 +39,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h17cd8ade04ab8959E(ptr noal
   br i1 %8, label %24, label %9
 
 9:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = icmp sgt i64 %1, -1
   %11 = and i64 %1, 9223372036854775806
   tail call void @llvm.assume(i1 %10)
@@ -57,7 +57,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h17cd8ade04ab8959E(ptr noal
   store ptr %13, ptr %7, align 8
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %16, ptr %17, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %18 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !4
   %19 = tail call noalias noundef align 8 dereferenceable_or_null(256) ptr @__rust_alloc(i64 noundef 256, i64 noundef 8) #11, !noalias !4
@@ -109,7 +109,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h17cd8ade04ab8959E(ptr noal
   %37 = icmp ult i64 %34, -9223372036854775807
   tail call void @llvm.assume(i1 %37)
   tail call void @__rust_dealloc(ptr noundef nonnull %30, i64 noundef %35, i64 noundef %34) #11, !noalias !13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %38 = load ptr, ptr %7, align 8, !alias.scope !21, !nonnull !14, !noundef !14
@@ -122,7 +122,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h17cd8ade04ab8959E(ptr noal
   %44 = icmp ult i64 %41, -9223372036854775807
   tail call void @llvm.assume(i1 %44)
   tail call void @__rust_dealloc(ptr noundef nonnull %38, i64 noundef %42, i64 noundef %41) #11, !noalias !21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN4core5slice4sort25insertion_sort_shift_left17h42bd616d102a3457E.exit
 
 _ZN4core5slice4sort25insertion_sort_shift_left17h42bd616d102a3457E.exit: ; preds = %_ZN4core5slice4sort11insert_tail17h127c9b463a3447aaE.exit.i, %24, %33
@@ -510,7 +510,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h37162104452882b7E.exit: ; preds = %.
   br i1 %184, label %186, label %185
 
 185:                                              ; preds = %183
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !47
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !47
   br label %.invoke177
 
 186:                                              ; preds = %183
@@ -523,7 +523,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h37162104452882b7E.exit: ; preds = %.
   br i1 %192, label %195, label %193
 
 193:                                              ; preds = %186
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !50
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !50
   br label %.invoke177
 
 .invoke177:                                       ; preds = %185, %193
@@ -798,7 +798,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hbcbeaab5146fd015E(ptr noal
   br i1 %8, label %24, label %9
 
 9:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = lshr i64 %1, 1
   %11 = icmp ult i64 %1, 2305843009213693952
   %12 = shl nuw nsw i64 %10, 3
@@ -816,7 +816,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hbcbeaab5146fd015E(ptr noal
   store ptr %14, ptr %7, align 8
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %10, ptr %17, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
   %18 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !69
   %19 = tail call noalias noundef align 8 dereferenceable_or_null(256) ptr @__rust_alloc(i64 noundef 256, i64 noundef 8) #11, !noalias !69
@@ -868,7 +868,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hbcbeaab5146fd015E(ptr noal
   %37 = icmp ult i64 %34, -9223372036854775807
   tail call void @llvm.assume(i1 %37)
   tail call void @__rust_dealloc(ptr noundef nonnull %30, i64 noundef %35, i64 noundef %34) #11, !noalias !78
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
   %38 = load ptr, ptr %7, align 8, !alias.scope !85, !nonnull !14, !noundef !14
@@ -881,7 +881,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hbcbeaab5146fd015E(ptr noal
   %44 = icmp ult i64 %41, -9223372036854775807
   tail call void @llvm.assume(i1 %44)
   tail call void @__rust_dealloc(ptr noundef nonnull %38, i64 noundef %42, i64 noundef %41) #11, !noalias !85
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN4core5slice4sort25insertion_sort_shift_left17h940ff0e69f609c97E.exit
 
 _ZN4core5slice4sort25insertion_sort_shift_left17h940ff0e69f609c97E.exit: ; preds = %_ZN4core5slice4sort11insert_tail17hb7996b871c9b99f7E.exit.i, %24, %33
@@ -1269,7 +1269,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h78f0042017d13d91E.exit: ; preds = %.
   br i1 %184, label %186, label %185
 
 185:                                              ; preds = %183
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !112
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !112
   br label %.invoke177
 
 186:                                              ; preds = %183
@@ -1282,7 +1282,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h78f0042017d13d91E.exit: ; preds = %.
   br i1 %192, label %195, label %193
 
 193:                                              ; preds = %186
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !115
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !115
   br label %.invoke177
 
 .invoke177:                                       ; preds = %185, %193
@@ -1575,14 +1575,8 @@ declare void @__rust_dealloc(ptr allocptr noundef, i64 noundef, i64 noundef) unn
 ; Function Attrs: nounwind nonlazybind allockind("alloc,uninitialized,aligned") allocsize(0) uwtable
 declare noalias noundef ptr @__rust_alloc(i64 noundef, i64 allocalign noundef) unnamed_addr #6
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
-
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h23040184a2cdf9ebE.llvm.8519985026491776260(i64 noundef, i64 noundef, i64 noundef) unnamed_addr #8
+declare hidden { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h23040184a2cdf9ebE.llvm.8519985026491776260(i64 noundef, i64 noundef, i64 noundef) unnamed_addr #7
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr283drop_in_place$LT$core..slice..sort..merge_sort..BufGuard$LT$regex_syntax..hir..ClassBytesRange$C$alloc..slice..stable_sort$LT$regex_syntax..hir..ClassBytesRange$C$$LT$regex_syntax..hir..ClassBytesRange$u20$as$u20$core..cmp..PartialOrd$GT$..lt$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h33ee4a338fcfd2a5E"(ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #0
@@ -1595,6 +1589,12 @@ declare hidden void @"_ZN4core3ptr425drop_in_place$LT$core..slice..sort..merge_s
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr433drop_in_place$LT$core..slice..sort..merge_sort..RunVec$LT$alloc..slice..stable_sort$LT$regex_syntax..hir..ClassUnicodeRange$C$$LT$regex_syntax..hir..ClassUnicodeRange$u20$as$u20$core..cmp..PartialOrd$GT$..lt$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..slice..stable_sort$LT$regex_syntax..hir..ClassUnicodeRange$C$$LT$regex_syntax..hir..ClassUnicodeRange$u20$as$u20$core..cmp..PartialOrd$GT$..lt$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2180ee9050eb9409E"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #9
@@ -1612,8 +1612,8 @@ attributes #3 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inli
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { nounwind nonlazybind allockind("alloc,uninitialized,aligned") allocsize(0) uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #7 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind }

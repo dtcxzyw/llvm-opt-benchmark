@@ -29,7 +29,7 @@ define void @J2dTraceImpl(i32 noundef %0, i8 noundef zeroext %1, ptr noundef rea
   br i1 %7, label %8, label %25
 
 8:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = tail call ptr @getenv(ptr noundef nonnull @.str.6) #6
   store i32 0, ptr @j2dTraceLevel, align 4
   %.not.i = icmp eq ptr %9, null
@@ -74,7 +74,7 @@ define void @J2dTraceImpl(i32 noundef %0, i8 noundef zeroext %1, ptr noundef rea
   br label %J2dTraceInit.exit
 
 J2dTraceInit.exit:                                ; preds = %18, %22, %23
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load i32, ptr @j2dTraceLevel, align 4
   br label %25
 
@@ -156,10 +156,10 @@ declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i6
 declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn }

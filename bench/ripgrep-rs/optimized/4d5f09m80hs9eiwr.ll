@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: cold noreturn nonlazybind uwtable
 define noalias noundef nonnull ptr @"_ZN12grep_matcher100_$LT$impl$u20$core..convert..From$LT$grep_matcher..NoError$GT$$u20$for$u20$std..io..error..Error$GT$4from17h70aa8186255e76e0E"() unnamed_addr #0 {
   %1 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr @anon.34af1673c5b8e709e49cbbae0cb27e1a.1, ptr %1, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 1, ptr %2, align 8
@@ -30,7 +30,7 @@ define noalias noundef nonnull ptr @"_ZN12grep_matcher100_$LT$impl$u20$core..con
 declare void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef align 8 captures(none) dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #1
 
 attributes #0 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

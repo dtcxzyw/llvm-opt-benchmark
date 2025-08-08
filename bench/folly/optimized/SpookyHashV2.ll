@@ -327,12 +327,6 @@ define void @_ZN5folly4hash12SpookyHashV25ShortEPKvmPmS4_(ptr noundef readonly c
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN5folly4hash12SpookyHashV27Hash128EPKvmPmS4_(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [12 x i64], align 16
@@ -344,7 +338,7 @@ define void @_ZN5folly4hash12SpookyHashV27Hash128EPKvmPmS4_(ptr noundef readonly
   br label %231
 
 .lr.ph.preheader:                                 ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = urem i64 %1, 96
   %.idx = sub nuw i64 %1, %8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
@@ -605,7 +599,7 @@ define void @_ZN5folly4hash12SpookyHashV27Hash128EPKvmPmS4_(ptr noundef readonly
   %230 = tail call i64 @llvm.fshl.i64(i64 %227, i64 %227, i64 54)
   store i64 %230, ptr %2, align 8, !tbaa !7
   store i64 %229, ptr %3, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %231
 
 231:                                              ; preds = %._crit_edge, %7
@@ -613,13 +607,13 @@ define void @_ZN5folly4hash12SpookyHashV27Hash128EPKvmPmS4_(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly4hash12SpookyHashV24InitEmm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(297) initializes((192, 208), (288, 297)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #4 align 2 {
+define void @_ZN5folly4hash12SpookyHashV24InitEmm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(297) initializes((192, 208), (288, 297)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i64 0, ptr %4, align 8, !tbaa !17
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -1065,7 +1059,7 @@ define void @_ZNK5folly4hash12SpookyHashV25FinalEPmS2_(ptr noundef nonnull reado
   br label %263
 
 14:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %4, ptr noundef nonnull align 8 dereferenceable(192) %0, i64 192, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %16 = load i8, ptr %15, align 8, !tbaa !19
@@ -1349,23 +1343,28 @@ define void @_ZNK5folly4hash12SpookyHashV25FinalEPmS2_(ptr noundef nonnull reado
   %262 = tail call i64 @llvm.fshl.i64(i64 %259, i64 %259, i64 54)
   store i64 %262, ptr %1, align 8, !tbaa !7
   store i64 %261, ptr %2, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %263
 
 263:                                              ; preds = %116, %8
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

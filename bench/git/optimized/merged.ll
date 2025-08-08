@@ -69,19 +69,13 @@ define dso_local range(i32 -13, 1) i32 @reftable_merged_table_new(ptr noundef wr
   ret i32 %.3
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @reftable_reader_min_update_index(ptr noundef) local_unnamed_addr #1
 
-declare i64 @reftable_reader_min_update_index(ptr noundef) local_unnamed_addr #2
+declare i64 @reftable_reader_max_update_index(ptr noundef) local_unnamed_addr #1
 
-declare i64 @reftable_reader_max_update_index(ptr noundef) local_unnamed_addr #2
+declare i32 @reftable_reader_hash_id(ptr noundef) local_unnamed_addr #1
 
-declare i32 @reftable_reader_hash_id(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @reftable_calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @reftable_calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @reftable_merged_table_free(ptr noundef %0) local_unnamed_addr #0 {
@@ -96,17 +90,17 @@ define dso_local void @reftable_merged_table_free(ptr noundef %0) local_unnamed_
   ret void
 }
 
-declare void @reftable_free(ptr noundef) local_unnamed_addr #2
+declare void @reftable_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @reftable_merged_table_max_update_index(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define dso_local i64 @reftable_merged_table_max_update_index(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !tbaa !18
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @reftable_merged_table_min_update_index(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define dso_local i64 @reftable_merged_table_min_update_index(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8, !tbaa !17
   ret i64 %3
@@ -203,13 +197,13 @@ define dso_local range(i32 -2147483648, 1) i32 @merged_table_init_iter(ptr nound
   ret i32 %.04063
 }
 
-declare void @reftable_record_init(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare void @reftable_record_init(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @reader_init_iter(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare i32 @reader_init_iter(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
-declare void @reftable_iterator_destroy(ptr noundef) local_unnamed_addr #2
+declare void @reftable_iterator_destroy(ptr noundef) local_unnamed_addr #1
 
-declare void @reftable_record_release(ptr noundef) local_unnamed_addr #2
+declare void @reftable_record_release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -2147483648, 1) i32 @reftable_merged_table_init_ref_iterator(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
@@ -224,7 +218,7 @@ define dso_local range(i32 -2147483648, 1) i32 @reftable_merged_table_init_log_i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @reftable_merged_table_hash_id(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define dso_local i32 @reftable_merged_table_hash_id(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8, !tbaa !19
   ret i32 %3
@@ -270,7 +264,7 @@ define internal range(i32 -2147483648, 1) i32 @merged_iter_seek_void(ptr noundef
   br i1 %.not22.i, label %17, label %26
 
 17:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %.01727.i, ptr %3, align 8, !tbaa !38
   %18 = load ptr, ptr %0, align 8, !tbaa !30
   %19 = getelementptr inbounds nuw %struct.merged_subiter, ptr %18, i64 %.01727.i, i32 1
@@ -287,7 +281,7 @@ define internal range(i32 -2147483648, 1) i32 @merged_iter_seek_void(ptr noundef
 
 merged_iter_advance_subiter.exit.i:               ; preds = %23, %17
   %.0.i.i = phi i32 [ %22, %17 ], [ %24, %23 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %25 = icmp slt i32 %.0.i.i, 0
   br i1 %25, label %merged_iter_seek.exit, label %26
 
@@ -326,7 +320,7 @@ define internal i32 @merged_iter_next_void(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not.i, label %merged_iter_next_entry.exit, label %16
 
 16:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %13, ptr %4, align 8, !tbaa !38
   %17 = load ptr, ptr %0, align 8, !tbaa !30
   %18 = getelementptr inbounds nuw %struct.merged_subiter, ptr %17, i64 %13, i32 1
@@ -343,7 +337,7 @@ define internal i32 @merged_iter_next_void(ptr noundef %0, ptr noundef %1) #0 {
 
 merged_iter_advance_subiter.exit.i:               ; preds = %22, %16
   %.0.i.i = phi i32 [ %21, %16 ], [ %23, %22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %24 = icmp slt i32 %.0.i.i, 0
   br i1 %24, label %merged_iter_next_entry.exit.thread, label %.thread.i
 
@@ -376,7 +370,7 @@ merged_iter_advance_subiter.exit.i:               ; preds = %22, %16
 
 35:                                               ; preds = %31
   %36 = call { i64, ptr } @merged_iter_pqueue_remove(ptr noundef nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %.val45.val.i, ptr %3, align 8, !tbaa !38
   %37 = load ptr, ptr %0, align 8, !tbaa !30
   %38 = getelementptr inbounds nuw %struct.merged_subiter, ptr %37, i64 %.val45.val.i, i32 1
@@ -393,17 +387,17 @@ merged_iter_advance_subiter.exit.i:               ; preds = %22, %16
 
 merged_iter_advance_subiter.exit49.i:             ; preds = %42, %35
   %.0.i48.i = phi i32 [ %41, %35 ], [ %43, %42 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %44 = icmp slt i32 %.0.i48.i, 0
   br i1 %44, label %merged_iter_next_entry.exit.thread, label %30
 
 merged_iter_next_entry.exit.thread14:             ; preds = %30, %31
   store i64 %28, ptr %8, align 8, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(152) %5, ptr noundef nonnull align 1 dereferenceable(152) %1, i64 152, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %1, ptr noundef nonnull align 1 dereferenceable(152) %29, i64 152, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %29, ptr noundef nonnull align 16 dereferenceable(152) %5, i64 152, i1 false)
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %48
 
 merged_iter_next_entry.exit:                      ; preds = %15
@@ -456,22 +450,28 @@ define internal void @merged_iter_close(ptr noundef %0) #0 {
   br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !46
 }
 
-declare { i64, ptr } @merged_iter_pqueue_remove(ptr noundef) local_unnamed_addr #2
+declare { i64, ptr } @merged_iter_pqueue_remove(ptr noundef) local_unnamed_addr #1
 
-declare i32 @iterator_seek(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @iterator_seek(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @iterator_next(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @iterator_next(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @merged_iter_pqueue_add(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @merged_iter_pqueue_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @reftable_record_is_deletion(ptr noundef) local_unnamed_addr #2
+declare i32 @reftable_record_is_deletion(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare i32 @reftable_record_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @reftable_record_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @merged_iter_pqueue_release(ptr noundef) local_unnamed_addr #2
+declare void @merged_iter_pqueue_release(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5
@@ -480,10 +480,10 @@ declare i64 @llvm.umin.i64(i64, i64) #5
 declare i64 @llvm.umax.i64(i64, i64) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

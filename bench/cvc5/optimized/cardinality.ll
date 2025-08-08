@@ -81,18 +81,15 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 declare void @_ZN4cvc58internal7IntegerC1EPKcj(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef) unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN4cvc58internal11CardinalityC2ENS0_15CardinalityBethE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN4cvc58internal11CardinalityC2ENS0_15CardinalityBethE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cvc5::internal::Integer", align 8
   %4 = alloca %"class.cvc5::internal::Integer", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK4cvc58internal7IntegerngEv(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Integer") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef 1)
           to label %_ZN4cvc58internal7IntegerC2Ei.exit unwind label %12
 
@@ -112,7 +109,7 @@ _ZN4cvc58internal7IntegerC2Ei.exit:               ; preds = %2
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit4 unwind label %9
 
@@ -124,7 +121,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %5
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit4:              ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 12:                                               ; preds = %2
@@ -147,7 +144,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit4:              ; preds = %_ZN4cvc58internal7I
 
 _ZN4cvc58internal7IntegerD2Ev.exit5:              ; preds = %14, %12
   %.pn = phi { ptr, i32 } [ %13, %12 ], [ %15, %14 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit6 unwind label %19
 
@@ -159,15 +156,12 @@ _ZN4cvc58internal7IntegerD2Ev.exit5:              ; preds = %14, %12
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit6:              ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4cvc58internal11CardinalityD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN4cvc58internal11CardinalityD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit unwind label %2
 
@@ -183,17 +177,17 @@ _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal15CardinalityBethC2ERKNS0_7IntegerE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal15CardinalityBethC2ERKNS0_7IntegerE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 {
   tail call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal11CardinalityC2El(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal11CardinalityC2El(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN4cvc58internal7IntegerC2El.exit:
   %2 = alloca %"class.cvc5::internal::Integer", align 8
   tail call void @__gmpz_init_set_si(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   invoke void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef 1)
           to label %_ZN4cvc58internal7IntegerC2Ei.exit unwind label %8
 
@@ -213,7 +207,7 @@ _ZN4cvc58internal7IntegerC2Ei.exit:               ; preds = %_ZN4cvc58internal7I
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 8:                                                ; preds = %_ZN4cvc58internal7IntegerC2El.exit
@@ -236,7 +230,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %4
 
 _ZN4cvc58internal7IntegerD2Ev.exit5:              ; preds = %10, %8
   %.pn = phi { ptr, i32 } [ %9, %8 ], [ %11, %10 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit6 unwind label %15
 
@@ -254,10 +248,10 @@ _ZN4cvc58internal7IntegerD2Ev.exit6:              ; preds = %_ZN4cvc58internal7I
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegerpLERKS1_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal11CardinalityC2ERKNS0_7IntegerE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal11CardinalityC2ERKNS0_7IntegerE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cvc5::internal::Integer", align 8
   tail call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef 1)
           to label %_ZN4cvc58internal7IntegerC2Ei.exit unwind label %9
 
@@ -277,7 +271,7 @@ _ZN4cvc58internal7IntegerC2Ei.exit:               ; preds = %2
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 9:                                                ; preds = %2
@@ -300,7 +294,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %5
 
 _ZN4cvc58internal7IntegerD2Ev.exit5:              ; preds = %11, %9
   %.pn = phi { ptr, i32 } [ %10, %9 ], [ %12, %11 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit6 unwind label %16
 
@@ -316,9 +310,9 @@ _ZN4cvc58internal7IntegerD2Ev.exit6:              ; preds = %_ZN4cvc58internal7I
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal11Cardinality20getFiniteCardinalityEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal11Cardinality20getFiniteCardinalityEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cvc5::internal::Integer", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef 1)
   invoke void @_ZNK4cvc58internal7IntegermiERKS1_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %4 unwind label %8
@@ -335,7 +329,7 @@ define hidden void @_ZNK4cvc58internal11Cardinality20getFiniteCardinalityEv(ptr 
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 8:                                                ; preds = %2
@@ -352,19 +346,19 @@ _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %4
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit2:              ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %9
 }
 
 declare void @_ZNK4cvc58internal7IntegermiERKS1_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::Integer") align 8, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal11Cardinality13getBethNumberEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal11Cardinality13getBethNumberEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cvc5::internal::Integer", align 8
   %4 = alloca %"class.cvc5::internal::Integer", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK4cvc58internal7IntegerngEv(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Integer") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef 1)
           to label %_ZN4cvc58internal7IntegerC2Ei.exit unwind label %12
 
@@ -384,7 +378,7 @@ _ZN4cvc58internal7IntegerC2Ei.exit:               ; preds = %2
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit4 unwind label %9
 
@@ -396,7 +390,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %5
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit4:              ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 12:                                               ; preds = %2
@@ -419,7 +413,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit4:              ; preds = %_ZN4cvc58internal7I
 
 _ZN4cvc58internal7IntegerD2Ev.exit5:              ; preds = %14, %12
   %.pn = phi { ptr, i32 } [ %13, %12 ], [ %15, %14 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit6 unwind label %19
 
@@ -431,14 +425,14 @@ _ZN4cvc58internal7IntegerD2Ev.exit5:              ; preds = %14, %12
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit6:              ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
 
 declare void @_ZNK4cvc58internal7IntegerngEv(ptr dead_on_unwind writable sret(%"class.cvc5::internal::Integer") align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal11CardinalitypLERKS1_(ptr noundef nonnull returned align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal11CardinalitypLERKS1_(ptr noundef nonnull returned align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cvc5::internal::Integer", align 8
   %4 = alloca %"class.cvc5::internal::Integer", align 8
   %5 = alloca %"class.cvc5::internal::Integer", align 8
@@ -447,7 +441,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal
   %8 = alloca %"class.cvc5::internal::Integer", align 8
   %9 = alloca %"class.cvc5::internal::Integer", align 8
   %10 = alloca %"class.cvc5::internal::Integer", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %8) #15
   %11 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegereqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %12 unwind label %16
@@ -481,15 +475,15 @@ common.resume:                                    ; preds = %_ZN4cvc58internal7I
   resume { ptr, i32 } %common.resume.op
 
 _ZN4cvc58internal7IntegerD2Ev.exit2.i:            ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZNK4cvc58internal11Cardinality9isUnknownEv.exit: ; preds = %12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %11, label %109, label %21
 
 21:                                               ; preds = %_ZNK4cvc58internal11Cardinality9isUnknownEv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %7) #15
   %22 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegereqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %7)
           to label %23 unwind label %27
@@ -519,11 +513,11 @@ _ZNK4cvc58internal11Cardinality9isUnknownEv.exit: ; preds = %12
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit2.i13:          ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZNK4cvc58internal11Cardinality9isUnknownEv.exit14: ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %22, label %32, label %34
 
 32:                                               ; preds = %_ZNK4cvc58internal11Cardinality9isUnknownEv.exit14
@@ -531,7 +525,7 @@ _ZNK4cvc58internal11Cardinality9isUnknownEv.exit14: ; preds = %23
   br label %109
 
 34:                                               ; preds = %_ZNK4cvc58internal11Cardinality9isUnknownEv.exit14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %6) #15
   %35 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegergtERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %36 unwind label %40
@@ -561,11 +555,11 @@ _ZNK4cvc58internal11Cardinality9isUnknownEv.exit14: ; preds = %23
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit2.i15:          ; preds = %40
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZNK4cvc58internal11Cardinality8isFiniteEv.exit:  ; preds = %36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %35, label %45, label %47
 
 45:                                               ; preds = %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit
@@ -573,7 +567,7 @@ _ZNK4cvc58internal11Cardinality8isFiniteEv.exit:  ; preds = %36
   br i1 %46, label %109, label %47
 
 47:                                               ; preds = %45, %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
   %48 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegergtERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %49 unwind label %53
@@ -603,11 +597,11 @@ _ZNK4cvc58internal11Cardinality8isFiniteEv.exit:  ; preds = %36
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit2.i16:          ; preds = %53
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZNK4cvc58internal11Cardinality8isFiniteEv.exit17: ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %48, label %58, label %62
 
 58:                                               ; preds = %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit17
@@ -619,7 +613,7 @@ _ZNK4cvc58internal11Cardinality8isFiniteEv.exit17: ; preds = %49
   br label %109
 
 62:                                               ; preds = %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit17, %58
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   %63 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegergtERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %64 unwind label %68
@@ -649,15 +643,15 @@ _ZNK4cvc58internal11Cardinality8isFiniteEv.exit17: ; preds = %49
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit2.i18:          ; preds = %68
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 _ZNK4cvc58internal11Cardinality8isFiniteEv.exit19: ; preds = %64
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %63, label %73, label %104
 
 73:                                               ; preds = %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
   %74 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegergtERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %75 unwind label %79
@@ -687,16 +681,16 @@ _ZNK4cvc58internal11Cardinality8isFiniteEv.exit19: ; preds = %64
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit2.i20:          ; preds = %79
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 
 _ZNK4cvc58internal11Cardinality8isFiniteEv.exit21: ; preds = %75
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %74, label %84, label %104
 
 84:                                               ; preds = %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit21
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %10, i64 noundef 1)
   invoke void @_ZNK4cvc58internal7IntegermiERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Integer") align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %85 unwind label %94
@@ -728,8 +722,8 @@ _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %87
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit22:             ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %109
 
 94:                                               ; preds = %84
@@ -763,8 +757,8 @@ _ZN4cvc58internal7IntegerD2Ev.exit23:             ; preds = %96, %94
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit24:             ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 104:                                              ; preds = %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit21, %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit19
@@ -783,9 +777,9 @@ _ZN4cvc58internal7IntegerD2Ev.exit24:             ; preds = %_ZN4cvc58internal7I
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK4cvc58internal11Cardinality8isFiniteEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef zeroext i1 @_ZNK4cvc58internal11Cardinality8isFiniteEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cvc5::internal::Integer", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %2) #15
   %3 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegergtERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %4 unwind label %8
@@ -802,7 +796,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4cvc58internal11Cardinality8i
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %3
 
 8:                                                ; preds = %1
@@ -819,12 +813,12 @@ _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %4
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit2:              ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 0, 4) i32 @_ZNK4cvc58internal11Cardinality7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 4) i32 @_ZNK4cvc58internal11Cardinality7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cvc5::internal::Integer", align 8
   %4 = alloca %"class.cvc5::internal::Integer", align 8
   %5 = alloca %"class.cvc5::internal::Integer", align 8
@@ -832,7 +826,7 @@ define hidden noundef range(i32 0, 4) i32 @_ZNK4cvc58internal11Cardinality7compa
   %7 = alloca %"class.cvc5::internal::Integer", align 8
   %8 = alloca %"class.cvc5::internal::Integer", align 8
   %9 = alloca %"class.cvc5::internal::Integer", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %9) #15
   %10 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegereqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %11 unwind label %15
@@ -866,15 +860,15 @@ common.resume:                                    ; preds = %_ZN4cvc58internal7I
   resume { ptr, i32 } %common.resume.op
 
 _ZN4cvc58internal7IntegerD2Ev.exit2.i:            ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 _ZNK4cvc58internal11Cardinality9isUnknownEv.exit: ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %10, label %103, label %20
 
 20:                                               ; preds = %_ZNK4cvc58internal11Cardinality9isUnknownEv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %8) #15
   %21 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegereqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %22 unwind label %26
@@ -904,11 +898,11 @@ _ZNK4cvc58internal11Cardinality9isUnknownEv.exit: ; preds = %11
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit2.i12:          ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZNK4cvc58internal11Cardinality9isUnknownEv.exit13: ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %21, label %103, label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal11Cardinality9isUnknownEv.exit13
@@ -920,7 +914,7 @@ _ZNK4cvc58internal11Cardinality9isUnknownEv.exit13: ; preds = %22
   br i1 %33, label %103, label %35
 
 35:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %7) #15
   %36 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegergtERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %7)
           to label %37 unwind label %41
@@ -950,11 +944,11 @@ _ZNK4cvc58internal11Cardinality9isUnknownEv.exit13: ; preds = %22
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit2.i14:          ; preds = %41
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZNK4cvc58internal11Cardinality8isFiniteEv.exit:  ; preds = %37
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %. = select i1 %36, i32 2, i32 0
   br label %103
 
@@ -966,7 +960,7 @@ _ZNK4cvc58internal11Cardinality8isFiniteEv.exit:  ; preds = %37
   br i1 %48, label %103, label %49
 
 49:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %6) #15
   %50 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegergtERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %51 unwind label %55
@@ -996,16 +990,16 @@ _ZNK4cvc58internal11Cardinality8isFiniteEv.exit:  ; preds = %37
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit2.i15:          ; preds = %55
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZNK4cvc58internal11Cardinality8isFiniteEv.exit16: ; preds = %51
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.11 = select i1 %50, i32 0, i32 2
   br label %103
 
 60:                                               ; preds = %46
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
   %61 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegerltERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %62 unwind label %66
@@ -1035,15 +1029,15 @@ _ZNK4cvc58internal11Cardinality8isFiniteEv.exit16: ; preds = %51
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit2.i17:          ; preds = %66
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZNK4cvc58internal11Cardinality10isInfiniteEv.exit: ; preds = %62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %61, label %71, label %87
 
 71:                                               ; preds = %_ZNK4cvc58internal11Cardinality10isInfiniteEv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   %72 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegergtERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %73 unwind label %77
@@ -1073,11 +1067,11 @@ _ZNK4cvc58internal11Cardinality10isInfiniteEv.exit: ; preds = %62
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit2.i18:          ; preds = %77
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 _ZNK4cvc58internal11Cardinality8isFiniteEv.exit19: ; preds = %73
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %72, label %103, label %82
 
 82:                                               ; preds = %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit19
@@ -1090,7 +1084,7 @@ _ZNK4cvc58internal11Cardinality8isFiniteEv.exit19: ; preds = %73
   br label %103
 
 87:                                               ; preds = %_ZNK4cvc58internal11Cardinality10isInfiniteEv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
   %88 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegerltERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %89 unwind label %93
@@ -1120,11 +1114,11 @@ _ZNK4cvc58internal11Cardinality8isFiniteEv.exit19: ; preds = %73
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit2.i20:          ; preds = %93
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 
 _ZNK4cvc58internal11Cardinality10isInfiniteEv.exit21: ; preds = %89
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %88, label %103, label %98
 
 98:                                               ; preds = %_ZNK4cvc58internal11Cardinality10isInfiniteEv.exit21
@@ -1142,7 +1136,7 @@ _ZNK4cvc58internal11Cardinality10isInfiniteEv.exit21: ; preds = %89
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal11CardinalitymLERKS1_(ptr noundef nonnull returned align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal11CardinalitymLERKS1_(ptr noundef nonnull returned align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cvc5::internal::Integer", align 8
   %4 = alloca %"class.cvc5::internal::Integer", align 8
   %5 = alloca %"class.cvc5::internal::Integer", align 8
@@ -1156,7 +1150,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal
   %13 = alloca %"class.cvc5::internal::Integer", align 8
   %14 = alloca %"class.cvc5::internal::Integer", align 8
   %15 = alloca %"class.cvc5::internal::Integer", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %8) #15
   %16 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegereqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %17 unwind label %21
@@ -1190,15 +1184,15 @@ common.resume:                                    ; preds = %_ZN4cvc58internal11
   resume { ptr, i32 } %common.resume.op
 
 _ZN4cvc58internal7IntegerD2Ev.exit2.i:            ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZNK4cvc58internal11Cardinality9isUnknownEv.exit: ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %16, label %172, label %26
 
 26:                                               ; preds = %_ZNK4cvc58internal11Cardinality9isUnknownEv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %7) #15
   %27 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegereqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %7)
           to label %28 unwind label %32
@@ -1228,11 +1222,11 @@ _ZNK4cvc58internal11Cardinality9isUnknownEv.exit: ; preds = %17
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit2.i28:          ; preds = %32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZNK4cvc58internal11Cardinality9isUnknownEv.exit29: ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %27, label %37, label %39
 
 37:                                               ; preds = %_ZNK4cvc58internal11Cardinality9isUnknownEv.exit29
@@ -1240,7 +1234,7 @@ _ZNK4cvc58internal11Cardinality9isUnknownEv.exit29: ; preds = %28
   br label %172
 
 39:                                               ; preds = %_ZNK4cvc58internal11Cardinality9isUnknownEv.exit29
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %6) #15
   %40 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegergtERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %41 unwind label %45
@@ -1270,11 +1264,11 @@ _ZNK4cvc58internal11Cardinality9isUnknownEv.exit29: ; preds = %28
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit2.i30:          ; preds = %45
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZNK4cvc58internal11Cardinality8isFiniteEv.exit:  ; preds = %41
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %40, label %50, label %52
 
 50:                                               ; preds = %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit
@@ -1282,7 +1276,7 @@ _ZNK4cvc58internal11Cardinality8isFiniteEv.exit:  ; preds = %41
   br i1 %51, label %172, label %52
 
 52:                                               ; preds = %50, %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
   %53 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegergtERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %54 unwind label %58
@@ -1312,11 +1306,11 @@ _ZNK4cvc58internal11Cardinality8isFiniteEv.exit:  ; preds = %41
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit2.i31:          ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZNK4cvc58internal11Cardinality8isFiniteEv.exit32: ; preds = %54
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %53, label %63, label %67
 
 63:                                               ; preds = %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit32
@@ -1328,7 +1322,7 @@ _ZNK4cvc58internal11Cardinality8isFiniteEv.exit32: ; preds = %54
   br label %172
 
 67:                                               ; preds = %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit32, %63
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN4cvc58internal11CardinalityC2El(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 noundef 0)
   %68 = invoke noundef i32 @_ZNK4cvc58internal11Cardinality7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %69 unwind label %87
@@ -1338,7 +1332,7 @@ _ZNK4cvc58internal11Cardinality8isFiniteEv.exit32: ; preds = %54
   br i1 %.not, label %.critedge, label %70
 
 70:                                               ; preds = %69
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN4cvc58internal11CardinalityC2El(ptr noundef nonnull align 8 dereferenceable(16) %10, i64 noundef 0)
           to label %71 unwind label %89
 
@@ -1359,7 +1353,7 @@ _ZNK4cvc58internal11Cardinality8isFiniteEv.exit32: ; preds = %54
 
 _ZN4cvc58internal11CardinalityD2Ev.exit:          ; preds = %73
   %77 = icmp eq i32 %72, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge
 
 .critedge:                                        ; preds = %69, %_ZN4cvc58internal11CardinalityD2Ev.exit
@@ -1375,11 +1369,11 @@ _ZN4cvc58internal11CardinalityD2Ev.exit:          ; preds = %73
   unreachable
 
 _ZN4cvc58internal11CardinalityD2Ev.exit33:        ; preds = %.critedge
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %78, label %82, label %105
 
 82:                                               ; preds = %_ZN4cvc58internal11CardinalityD2Ev.exit33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN4cvc58internal11CardinalityC2El(ptr noundef nonnull align 8 dereferenceable(16) %11, i64 noundef 0)
   %83 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %11)
           to label %_ZN4cvc58internal11CardinalityaSEOS1_.exit unwind label %100
@@ -1396,7 +1390,7 @@ _ZN4cvc58internal11CardinalityaSEOS1_.exit:       ; preds = %82
   unreachable
 
 _ZN4cvc58internal11CardinalityD2Ev.exit34:        ; preds = %_ZN4cvc58internal11CardinalityaSEOS1_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %172
 
 87:                                               ; preds = %67
@@ -1424,7 +1418,7 @@ _ZN4cvc58internal11CardinalityD2Ev.exit34:        ; preds = %_ZN4cvc58internal11
 
 _ZN4cvc58internal11CardinalityD2Ev.exit35:        ; preds = %91, %89
   %.pn = phi { ptr, i32 } [ %90, %89 ], [ %92, %91 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %96
 
 96:                                               ; preds = %_ZN4cvc58internal11CardinalityD2Ev.exit35, %87
@@ -1440,7 +1434,7 @@ _ZN4cvc58internal11CardinalityD2Ev.exit35:        ; preds = %91, %89
   unreachable
 
 _ZN4cvc58internal11CardinalityD2Ev.exit36:        ; preds = %96
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 100:                                              ; preds = %82
@@ -1457,11 +1451,11 @@ _ZN4cvc58internal11CardinalityD2Ev.exit36:        ; preds = %96
   unreachable
 
 _ZN4cvc58internal11CardinalityD2Ev.exit37:        ; preds = %100
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %common.resume
 
 105:                                              ; preds = %_ZN4cvc58internal11CardinalityD2Ev.exit33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   %106 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegergtERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %107 unwind label %111
@@ -1491,15 +1485,15 @@ _ZN4cvc58internal11CardinalityD2Ev.exit37:        ; preds = %100
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit2.i38:          ; preds = %111
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 _ZNK4cvc58internal11Cardinality8isFiniteEv.exit39: ; preds = %107
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %106, label %116, label %127
 
 116:                                              ; preds = %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit39
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
   %117 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegergtERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %118 unwind label %122
@@ -1529,11 +1523,11 @@ _ZNK4cvc58internal11Cardinality8isFiniteEv.exit39: ; preds = %107
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit2.i40:          ; preds = %122
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 
 _ZNK4cvc58internal11Cardinality8isFiniteEv.exit41: ; preds = %118
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %117, label %132, label %127
 
 127:                                              ; preds = %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit41, %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit39
@@ -1546,7 +1540,7 @@ _ZNK4cvc58internal11Cardinality8isFiniteEv.exit41: ; preds = %118
   br label %172
 
 132:                                              ; preds = %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit41
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef 1)
   %133 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegermIERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %12)
           to label %134 unwind label %152
@@ -1563,9 +1557,9 @@ _ZNK4cvc58internal11Cardinality8isFiniteEv.exit41: ; preds = %118
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %134
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %14, i64 noundef 1)
   invoke void @_ZNK4cvc58internal7IntegermiERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Integer") align 8 %13, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %14)
           to label %138 unwind label %157
@@ -1597,9 +1591,9 @@ _ZN4cvc58internal7IntegerD2Ev.exit42:             ; preds = %140
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit43:             ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %15, i64 noundef 1)
   %147 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegerpLERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %15)
           to label %148 unwind label %167
@@ -1616,7 +1610,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit43:             ; preds = %_ZN4cvc58internal7I
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit44:             ; preds = %148
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %172
 
 152:                                              ; preds = %132
@@ -1633,7 +1627,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit44:             ; preds = %148
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit45:             ; preds = %152
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %common.resume
 
 157:                                              ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit
@@ -1667,8 +1661,8 @@ _ZN4cvc58internal7IntegerD2Ev.exit46:             ; preds = %159, %157
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit47:             ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit46
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %common.resume
 
 167:                                              ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit43
@@ -1685,7 +1679,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit47:             ; preds = %_ZN4cvc58internal7I
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit48:             ; preds = %167
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %common.resume
 
 172:                                              ; preds = %127, %50, %_ZNK4cvc58internal11Cardinality9isUnknownEv.exit, %_ZN4cvc58internal7IntegerD2Ev.exit44, %130, %_ZN4cvc58internal11CardinalityD2Ev.exit34, %65, %37
@@ -1697,7 +1691,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7Integ
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegermLERKS1_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal11CardinalityeOERKS1_(ptr noundef nonnull returned align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal11CardinalityeOERKS1_(ptr noundef nonnull returned align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cvc5::internal::Integer", align 8
   %4 = alloca %"class.cvc5::internal::Integer", align 8
   %5 = alloca %"class.cvc5::internal::Integer", align 8
@@ -1720,7 +1714,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal
   %22 = alloca %"class.cvc5::internal::Integer", align 8
   %23 = alloca %"class.cvc5::internal::Integer", align 8
   %24 = alloca %"class.cvc5::internal::Integer", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %6) #15
   %25 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegereqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %26 unwind label %30
@@ -1754,15 +1748,15 @@ common.resume:                                    ; preds = %_ZN4cvc58internal11
   resume { ptr, i32 } %common.resume.op
 
 _ZN4cvc58internal7IntegerD2Ev.exit2.i:            ; preds = %30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZNK4cvc58internal11Cardinality9isUnknownEv.exit: ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %25, label %291, label %35
 
 35:                                               ; preds = %_ZNK4cvc58internal11Cardinality9isUnknownEv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
   %36 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegereqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %37 unwind label %41
@@ -1792,11 +1786,11 @@ _ZNK4cvc58internal11Cardinality9isUnknownEv.exit: ; preds = %26
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit2.i71:          ; preds = %41
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZNK4cvc58internal11Cardinality9isUnknownEv.exit72: ; preds = %37
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %36, label %46, label %48
 
 46:                                               ; preds = %_ZNK4cvc58internal11Cardinality9isUnknownEv.exit72
@@ -1804,7 +1798,7 @@ _ZNK4cvc58internal11Cardinality9isUnknownEv.exit72: ; preds = %37
   br label %291
 
 48:                                               ; preds = %_ZNK4cvc58internal11Cardinality9isUnknownEv.exit72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   %49 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegergtERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %50 unwind label %54
@@ -1834,11 +1828,11 @@ _ZNK4cvc58internal11Cardinality9isUnknownEv.exit72: ; preds = %37
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit2.i73:          ; preds = %54
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 _ZNK4cvc58internal11Cardinality8isFiniteEv.exit:  ; preds = %50
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %49, label %59, label %61
 
 59:                                               ; preds = %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit
@@ -1846,7 +1840,7 @@ _ZNK4cvc58internal11Cardinality8isFiniteEv.exit:  ; preds = %50
   br i1 %60, label %291, label %61
 
 61:                                               ; preds = %59, %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
   %62 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegergtERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %63 unwind label %67
@@ -1876,11 +1870,11 @@ _ZNK4cvc58internal11Cardinality8isFiniteEv.exit:  ; preds = %50
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit2.i74:          ; preds = %67
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 
 _ZNK4cvc58internal11Cardinality8isFiniteEv.exit75: ; preds = %63
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %62, label %72, label %76
 
 72:                                               ; preds = %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit75
@@ -1892,7 +1886,7 @@ _ZNK4cvc58internal11Cardinality8isFiniteEv.exit75: ; preds = %63
   br label %291
 
 76:                                               ; preds = %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit75, %72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN4cvc58internal11CardinalityC2El(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef 0)
   %77 = invoke noundef i32 @_ZNK4cvc58internal11Cardinality7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %7)
           to label %78 unwind label %89
@@ -1910,11 +1904,11 @@ _ZNK4cvc58internal11Cardinality8isFiniteEv.exit75: ; preds = %63
 
 _ZN4cvc58internal11CardinalityD2Ev.exit:          ; preds = %78
   %82 = icmp eq i32 %77, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %82, label %83, label %99
 
 83:                                               ; preds = %_ZN4cvc58internal11CardinalityD2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef 2)
   %84 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %85 unwind label %94
@@ -1931,7 +1925,7 @@ _ZN4cvc58internal11CardinalityD2Ev.exit:          ; preds = %78
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %85
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %291
 
 89:                                               ; preds = %76
@@ -1948,7 +1942,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %85
   unreachable
 
 _ZN4cvc58internal11CardinalityD2Ev.exit76:        ; preds = %89
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 94:                                               ; preds = %83
@@ -1965,11 +1959,11 @@ _ZN4cvc58internal11CardinalityD2Ev.exit76:        ; preds = %89
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit77:             ; preds = %94
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 99:                                               ; preds = %_ZN4cvc58internal11CardinalityD2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN4cvc58internal11CardinalityC2El(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 noundef 0)
   %100 = invoke noundef i32 @_ZNK4cvc58internal11Cardinality7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %101 unwind label %106
@@ -1987,7 +1981,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit77:             ; preds = %94
 
 _ZN4cvc58internal11CardinalityD2Ev.exit78:        ; preds = %101
   %105 = icmp eq i32 %100, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %105, label %291, label %111
 
 106:                                              ; preds = %99
@@ -2004,11 +1998,11 @@ _ZN4cvc58internal11CardinalityD2Ev.exit78:        ; preds = %101
   unreachable
 
 _ZN4cvc58internal11CardinalityD2Ev.exit79:        ; preds = %106
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 111:                                              ; preds = %_ZN4cvc58internal11CardinalityD2Ev.exit78
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN4cvc58internal11CardinalityC2El(ptr noundef nonnull align 8 dereferenceable(16) %10, i64 noundef 1)
   %112 = invoke noundef i32 @_ZNK4cvc58internal11Cardinality7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %113 unwind label %118
@@ -2026,7 +2020,7 @@ _ZN4cvc58internal11CardinalityD2Ev.exit79:        ; preds = %106
 
 _ZN4cvc58internal11CardinalityD2Ev.exit80:        ; preds = %113
   %117 = icmp eq i32 %112, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %117, label %291, label %123
 
 118:                                              ; preds = %111
@@ -2043,11 +2037,11 @@ _ZN4cvc58internal11CardinalityD2Ev.exit80:        ; preds = %113
   unreachable
 
 _ZN4cvc58internal11CardinalityD2Ev.exit81:        ; preds = %118
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 123:                                              ; preds = %_ZN4cvc58internal11CardinalityD2Ev.exit80
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN4cvc58internal11CardinalityC2El(ptr noundef nonnull align 8 dereferenceable(16) %11, i64 noundef 1)
   %124 = invoke noundef i32 @_ZNK4cvc58internal11Cardinality7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %11)
           to label %125 unwind label %130
@@ -2065,7 +2059,7 @@ _ZN4cvc58internal11CardinalityD2Ev.exit81:        ; preds = %118
 
 _ZN4cvc58internal11CardinalityD2Ev.exit82:        ; preds = %125
   %129 = icmp eq i32 %124, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %129, label %291, label %135
 
 130:                                              ; preds = %123
@@ -2082,7 +2076,7 @@ _ZN4cvc58internal11CardinalityD2Ev.exit82:        ; preds = %125
   unreachable
 
 _ZN4cvc58internal11CardinalityD2Ev.exit83:        ; preds = %130
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %common.resume
 
 135:                                              ; preds = %_ZN4cvc58internal11CardinalityD2Ev.exit82
@@ -2094,8 +2088,8 @@ _ZN4cvc58internal11CardinalityD2Ev.exit83:        ; preds = %130
   br i1 %138, label %139, label %264
 
 139:                                              ; preds = %137
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   invoke void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef 1)
           to label %_ZN4cvc58internal7IntegerC2Ei.exit unwind label %167
 
@@ -2104,7 +2098,7 @@ _ZN4cvc58internal7IntegerC2Ei.exit:               ; preds = %139
           to label %140 unwind label %169
 
 140:                                              ; preds = %_ZN4cvc58internal7IntegerC2Ei.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   invoke void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %14, i64 noundef 2)
           to label %_ZN4cvc58internal7IntegerC2Ei.exit84 unwind label %171
 
@@ -2116,8 +2110,8 @@ _ZN4cvc58internal7IntegerC2Ei.exit84:             ; preds = %140
   br i1 %141, label %143, label %.critedge70
 
 143:                                              ; preds = %142
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   invoke void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %16, i64 noundef 1)
           to label %_ZN4cvc58internal7IntegerC2Ei.exit85 unwind label %175
 
@@ -2126,7 +2120,7 @@ _ZN4cvc58internal7IntegerC2Ei.exit85:             ; preds = %143
           to label %144 unwind label %177
 
 144:                                              ; preds = %_ZN4cvc58internal7IntegerC2Ei.exit85
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   invoke void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %17, i64 noundef 64)
           to label %_ZN4cvc58internal7IntegerC2Ei.exit86 unwind label %179
 
@@ -2146,7 +2140,7 @@ _ZN4cvc58internal7IntegerC2Ei.exit86:             ; preds = %144
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit87:             ; preds = %.critedge
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %15)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit88 unwind label %149
 
@@ -2169,8 +2163,8 @@ _ZN4cvc58internal7IntegerD2Ev.exit88:             ; preds = %_ZN4cvc58internal7I
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit89:             ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit88
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.critedge70
 
 .critedge70:                                      ; preds = %142, %_ZN4cvc58internal7IntegerD2Ev.exit89
@@ -2186,7 +2180,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit89:             ; preds = %_ZN4cvc58internal7I
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit90:             ; preds = %.critedge70
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %12)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit91 unwind label %159
 
@@ -2209,8 +2203,8 @@ _ZN4cvc58internal7IntegerD2Ev.exit91:             ; preds = %_ZN4cvc58internal7I
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit92:             ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit91
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %155, label %165, label %204
 
 165:                                              ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit92
@@ -2275,7 +2269,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit92:             ; preds = %_ZN4cvc58internal7I
 
 _ZN4cvc58internal7IntegerD2Ev.exit93:             ; preds = %181, %179
   %.pn51 = phi { ptr, i32 } [ %180, %179 ], [ %182, %181 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %15)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit94 unwind label %186
 
@@ -2300,8 +2294,8 @@ _ZN4cvc58internal7IntegerD2Ev.exit94:             ; preds = %_ZN4cvc58internal7I
 
 _ZN4cvc58internal7IntegerD2Ev.exit95:             ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit94, %175
   %.pn51.pn.pn = phi { ptr, i32 } [ %176, %175 ], [ %.pn51.pn, %_ZN4cvc58internal7IntegerD2Ev.exit94 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %192
 
 192:                                              ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit95, %173
@@ -2318,7 +2312,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit95:             ; preds = %_ZN4cvc58internal7I
 
 _ZN4cvc58internal7IntegerD2Ev.exit96:             ; preds = %192, %171
   %.pn51.pn.pn.pn.pn = phi { ptr, i32 } [ %172, %171 ], [ %.pn51.pn.pn.pn, %192 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %12)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit97 unwind label %196
 
@@ -2343,8 +2337,8 @@ _ZN4cvc58internal7IntegerD2Ev.exit97:             ; preds = %_ZN4cvc58internal7I
 
 _ZN4cvc58internal7IntegerD2Ev.exit98:             ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit97, %167
   %.pn51.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %168, %167 ], [ %.pn51.pn.pn.pn.pn.pn, %_ZN4cvc58internal7IntegerD2Ev.exit97 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %255
 
 202:                                              ; preds = %165
@@ -2353,10 +2347,10 @@ _ZN4cvc58internal7IntegerD2Ev.exit98:             ; preds = %_ZN4cvc58internal7I
   br label %255
 
 204:                                              ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit92
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   invoke void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %21, i64 noundef 1)
           to label %_ZN4cvc58internal7IntegerC2Ei.exit99 unwind label %228
 
@@ -2374,7 +2368,7 @@ _ZN4cvc58internal7IntegerC2Ei.exit99:             ; preds = %204
           to label %209 unwind label %232
 
 209:                                              ; preds = %207
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   invoke void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %22, i64 noundef 1)
           to label %_ZN4cvc58internal7IntegerC2Ei.exit100 unwind label %234
 
@@ -2409,7 +2403,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit101:            ; preds = %212
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit102:            ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit101
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %19)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit103 unwind label %219
 
@@ -2443,10 +2437,10 @@ _ZN4cvc58internal7IntegerD2Ev.exit104:            ; preds = %_ZN4cvc58internal7I
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit105:            ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit104
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %291
 
 228:                                              ; preds = %204
@@ -2507,7 +2501,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit106:            ; preds = %238, %236
 
 _ZN4cvc58internal7IntegerD2Ev.exit107:            ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit106, %234
   %.pn59.pn = phi { ptr, i32 } [ %235, %234 ], [ %.pn59, %_ZN4cvc58internal7IntegerD2Ev.exit106 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %19)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit108 unwind label %246
 
@@ -2544,10 +2538,10 @@ _ZN4cvc58internal7IntegerD2Ev.exit109:            ; preds = %_ZN4cvc58internal7I
 
 _ZN4cvc58internal7IntegerD2Ev.exit110:            ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit109, %228
   %.pn59.pn.pn.pn.pn = phi { ptr, i32 } [ %229, %228 ], [ %.pn59.pn.pn.pn, %_ZN4cvc58internal7IntegerD2Ev.exit109 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %255
 
 255:                                              ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit110, %202, %_ZN4cvc58internal7IntegerD2Ev.exit98
@@ -2587,8 +2581,8 @@ _ZN4cvc58internal7IntegerD2Ev.exit110:            ; preds = %_ZN4cvc58internal7I
   br i1 %270, label %291, label %271
 
 271:                                              ; preds = %268
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %24, i64 noundef 1)
   invoke void @_ZNK4cvc58internal7IntegermiERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Integer") align 8 %23, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %24)
           to label %272 unwind label %281
@@ -2620,8 +2614,8 @@ _ZN4cvc58internal7IntegerD2Ev.exit111:            ; preds = %274
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit112:            ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit111
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %291
 
 281:                                              ; preds = %271
@@ -2655,8 +2649,8 @@ _ZN4cvc58internal7IntegerD2Ev.exit113:            ; preds = %283, %281
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit114:            ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit113
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %common.resume
 
 291:                                              ; preds = %268, %266, %261, %165, %_ZN4cvc58internal7IntegerD2Ev.exit105, %_ZN4cvc58internal11CardinalityD2Ev.exit82, %_ZN4cvc58internal11CardinalityD2Ev.exit80, %_ZN4cvc58internal11CardinalityD2Ev.exit78, %59, %_ZNK4cvc58internal11Cardinality9isUnknownEv.exit, %_ZN4cvc58internal7IntegerD2Ev.exit112, %_ZN4cvc58internal7IntegerD2Ev.exit, %74, %46
@@ -2679,37 +2673,37 @@ declare noundef i32 @_ZNK4cvc58internal7Integer14getUnsignedIntEv(ptr noundef no
 declare void @_ZNK4cvc58internal7IntegerplERKS1_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::Integer") align 8, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for.p0(ptr) #6
+declare i32 @llvm.eh.typeid.for.p0(ptr) #5
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
   tail call void @_ZSt9terminatev() #14
   unreachable
 }
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #8
+declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 declare noundef zeroext i1 @_ZNK4cvc58internal7IntegerltERKS1_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 declare noundef zeroext i1 @_ZNK4cvc58internal7IntegereqERKS1_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal11Cardinality20knownLessThanOrEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK4cvc58internal11Cardinality20knownLessThanOrEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 {
   %3 = tail call noundef i32 @_ZNK4cvc58internal11Cardinality7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %4 = icmp samesign ult i32 %3, 2
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal11Cardinality8toStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal11Cardinality8toStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_stringstream", align 8
-  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_11CardinalityE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(16) %1)
@@ -2813,7 +2807,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   store i64 0, ptr %53, align 8, !tbaa !28
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 128
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %54) #15
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 55:                                               ; preds = %2
@@ -2824,15 +2818,15 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
 .body:                                            ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %55
   %eh.lpad-body = phi { ptr, i32 } [ %56, %55 ], [ %22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #15
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %eh.lpad-body
 }
 
 ; Function Attrs: mustprogress uwtable
-declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #4 align 2
+declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #3 align 2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_11CardinalityE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_11CardinalityE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.cvc5::internal::Integer", align 8
   %5 = alloca %"class.cvc5::internal::Integer", align 8
@@ -2840,7 +2834,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internall
   %7 = alloca %"class.cvc5::internal::Integer", align 8
   %8 = alloca %"class.cvc5::internal::CardinalityBeth", align 8
   %9 = alloca %"class.cvc5::internal::Integer", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %6) #15
   %10 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegereqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %11 unwind label %15
@@ -2874,11 +2868,11 @@ common.resume:                                    ; preds = %_ZN4cvc58internal7I
   resume { ptr, i32 } %common.resume.op
 
 _ZN4cvc58internal7IntegerD2Ev.exit2.i:            ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZNK4cvc58internal11Cardinality9isUnknownEv.exit: ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %10, label %20, label %22
 
 20:                                               ; preds = %_ZNK4cvc58internal11Cardinality9isUnknownEv.exit
@@ -2886,7 +2880,7 @@ _ZNK4cvc58internal11Cardinality9isUnknownEv.exit: ; preds = %11
   br label %91
 
 22:                                               ; preds = %_ZNK4cvc58internal11Cardinality9isUnknownEv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
   %23 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegergtERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %24 unwind label %28
@@ -2916,16 +2910,16 @@ _ZNK4cvc58internal11Cardinality9isUnknownEv.exit: ; preds = %11
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit2.i14:          ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZNK4cvc58internal11Cardinality8isFiniteEv.exit:  ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %23, label %33, label %72
 
 33:                                               ; preds = %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15, !noalias !30
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !30
   call void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef 1), !noalias !30
   invoke void @_ZNK4cvc58internal7IntegermiERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Integer") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %34 unwind label %38
@@ -2955,12 +2949,12 @@ _ZNK4cvc58internal11Cardinality8isFiniteEv.exit:  ; preds = %24
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit2.i15:          ; preds = %38
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15, !noalias !30
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !30
   br label %common.resume
 
 _ZNK4cvc58internal11Cardinality20getFiniteCardinalityEv.exit: ; preds = %34
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15, !noalias !30
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !30
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZNK4cvc58internal7Integer8toStringB5cxx11Ei(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 10)
           to label %.noexc unwind label %67
 
@@ -3010,11 +3004,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3.
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i4.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.body
 
 63:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %7)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit unwind label %64
 
@@ -3026,7 +3020,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i: ; preds = %_Z
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %63
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %91
 
 67:                                               ; preds = %_ZNK4cvc58internal11Cardinality20getFiniteCardinalityEv.exit
@@ -3047,11 +3041,11 @@ _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %63
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit16:             ; preds = %.body
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 72:                                               ; preds = %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZNK4cvc58internal11Cardinality13getBethNumberEv(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Integer") align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %1)
   invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %_ZN4cvc58internal15CardinalityBethC2ERKNS0_7IntegerE.exit unwind label %81
@@ -3083,7 +3077,7 @@ _ZN4cvc58internal15CardinalityBethD2Ev.exit:      ; preds = %74
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit18:             ; preds = %_ZN4cvc58internal15CardinalityBethD2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %91
 
 81:                                               ; preds = %72
@@ -3117,7 +3111,7 @@ _ZN4cvc58internal15CardinalityBethD2Ev.exit19:    ; preds = %83, %81
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit20:             ; preds = %_ZN4cvc58internal15CardinalityBethD2Ev.exit19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 91:                                               ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit, %_ZN4cvc58internal7IntegerD2Ev.exit18, %20
@@ -3128,11 +3122,11 @@ _ZN4cvc58internal7IntegerD2Ev.exit20:             ; preds = %_ZN4cvc58internal15
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #0 align 2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoNS0_15CardinalityBethE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoNS0_15CardinalityBethE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca i8, align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.7, i64 noundef 5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK4cvc58internal7Integer8toStringB5cxx11Ei(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 10)
   %6 = load ptr, ptr %4, align 8, !tbaa !25
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3179,12 +3173,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3.
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i4.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %18
 
 _ZN4cvc58internallsERSoRKNS0_7IntegerE.exit:      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 93, ptr %3, align 1, !tbaa !19
   %26 = load ptr, ptr %9, align 8, !tbaa !26
   %27 = getelementptr i8, ptr %26, i64 -24
@@ -3204,14 +3198,14 @@ _ZN4cvc58internallsERSoRKNS0_7IntegerE.exit:      ; preds = %_ZNKSt7__cxx1112bas
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %32, %34
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %0
 }
 
 declare void @__gmpz_init_set_si(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare void @__gmpz_init(ptr noundef) local_unnamed_addr #9
+declare void @__gmpz_init(ptr noundef) local_unnamed_addr #8
 
 declare void @__gmpz_init_set_ui(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -3226,13 +3220,13 @@ declare void @_ZNK4cvc58internal7Integer8toStringB5cxx11Ei(ptr dead_on_unwind wr
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
-declare void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #9
+declare void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #9
+declare void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #8
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -3241,7 +3235,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERK
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8), i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_cardinality.cpp() #11 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_cardinality.cpp() #10 section ".text.startup" personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.cvc5::internal::CardinalityBeth", align 8
   %2 = alloca %"class.cvc5::internal::Integer", align 8
   %3 = alloca %"class.cvc5::internal::CardinalityBeth", align 8
@@ -3260,8 +3254,8 @@ define internal void @_GLOBAL__sub_I_cardinality.cpp() #11 section ".text.startu
   %11 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4cvc58internal7IntegerD2Ev, ptr nonnull @_ZN4cvc58internal11Cardinality10s_realCardE, ptr nonnull @__dso_handle) #15
   tail call void @_ZN4cvc58internal7IntegerC1EPKcj(ptr noundef nonnull align 8 dereferenceable(16) @_ZN4cvc58internal11Cardinality17s_largeFiniteCardE, ptr noundef nonnull @.str, i32 noundef 10)
   %12 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4cvc58internal7IntegerD2Ev, ptr nonnull @_ZN4cvc58internal11Cardinality17s_largeFiniteCardE, ptr nonnull @__dso_handle) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN4cvc58internal15CardinalityBethC2ERKNS0_7IntegerE.exit.i unwind label %20
@@ -3327,15 +3321,15 @@ common.resume:                                    ; preds = %_ZN4cvc58internal7I
   resume { ptr, i32 } %common.resume.op
 
 _ZN4cvc58internal7IntegerD2Ev.exit4.i:            ; preds = %_ZN4cvc58internal15CardinalityBethD2Ev.exit3.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 __cxx_global_var_init.4.exit:                     ; preds = %_ZN4cvc58internal15CardinalityBethD2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %30 = call i32 @__cxa_atexit(ptr nonnull @_ZN4cvc58internal11CardinalityD2Ev, ptr nonnull @_ZN4cvc58internal11Cardinality8INTEGERSE, ptr nonnull @__dso_handle) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef 1)
   invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %_ZN4cvc58internal15CardinalityBethC2ERKNS0_7IntegerE.exit.i4 unwind label %38
@@ -3397,17 +3391,23 @@ _ZN4cvc58internal15CardinalityBethD2Ev.exit3.i1:  ; preds = %40, %38
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit4.i3:           ; preds = %_ZN4cvc58internal15CardinalityBethD2Ev.exit3.i1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %common.resume
 
 __cxx_global_var_init.5.exit:                     ; preds = %_ZN4cvc58internal15CardinalityBethD2Ev.exit.i5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %48 = call i32 @__cxa_atexit(ptr nonnull @_ZN4cvc58internal11CardinalityD2Ev, ptr nonnull @_ZN4cvc58internal11Cardinality5REALSE, ptr nonnull @__dso_handle) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) @_ZN4cvc58internal11Cardinality12UNKNOWN_CARDE) #15
   %49 = call i32 @__cxa_atexit(ptr nonnull @_ZN4cvc58internal11CardinalityD2Ev, ptr nonnull @_ZN4cvc58internal11Cardinality12UNKNOWN_CARDE, ptr nonnull @__dso_handle) #15
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12
@@ -3418,15 +3418,15 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nosync nounwind memory(none) }
-attributes #7 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold nofree noreturn }
-attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nosync nounwind memory(none) }
+attributes #6 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold nofree noreturn }
+attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #14 = { noreturn nounwind }

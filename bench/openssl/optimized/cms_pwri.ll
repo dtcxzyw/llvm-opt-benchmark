@@ -45,25 +45,19 @@ define range(i32 0, 2) i32 @CMS_RecipientInfo_set0_password(ptr noundef readonly
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @ERR_new() local_unnamed_addr #1
 
-declare void @ERR_new() local_unnamed_addr #2
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @CMS_add0_recipient_password(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call ptr @ossl_cms_get0_cmsctx(ptr noundef %0) #5
   %10 = tail call ptr @ossl_cms_get0_env_enc_content(ptr noundef %0) #5
   %11 = icmp eq ptr %10, null
@@ -298,64 +292,64 @@ define ptr @CMS_add0_recipient_password(ptr noundef %0, i32 noundef %1, i32 noun
 
 104:                                              ; preds = %98, %12, %7, %103, %23, %22
   %.0 = phi ptr [ null, %22 ], [ null, %23 ], [ null, %103 ], [ null, %7 ], [ null, %12 ], [ %63, %98 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.0
 }
 
-declare ptr @ossl_cms_get0_cmsctx(ptr noundef) local_unnamed_addr #2
+declare ptr @ossl_cms_get0_cmsctx(ptr noundef) local_unnamed_addr #1
 
-declare ptr @ossl_cms_get0_env_enc_content(ptr noundef) local_unnamed_addr #2
+declare ptr @ossl_cms_get0_env_enc_content(ptr noundef) local_unnamed_addr #1
 
-declare ptr @CMS_get0_RecipientInfos(ptr noundef) local_unnamed_addr #2
+declare ptr @CMS_get0_RecipientInfos(ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_ALGOR_new() local_unnamed_addr #2
+declare ptr @X509_ALGOR_new() local_unnamed_addr #1
 
-declare ptr @EVP_CIPHER_CTX_new() local_unnamed_addr #2
+declare ptr @EVP_CIPHER_CTX_new() local_unnamed_addr #1
 
-declare i32 @EVP_EncryptInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_EncryptInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_CIPHER_CTX_get_iv_length(ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_CIPHER_CTX_get_iv_length(ptr noundef) local_unnamed_addr #1
 
-declare i32 @RAND_bytes_ex(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @RAND_bytes_ex(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @ossl_cms_ctx_get0_libctx(ptr noundef) local_unnamed_addr #2
+declare ptr @ossl_cms_ctx_get0_libctx(ptr noundef) local_unnamed_addr #1
 
-declare ptr @ASN1_TYPE_new() local_unnamed_addr #2
+declare ptr @ASN1_TYPE_new() local_unnamed_addr #1
 
-declare i32 @EVP_CIPHER_param_to_asn1(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_CIPHER_param_to_asn1(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #2
+declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #1
 
-declare i32 @EVP_CIPHER_get_type(ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_CIPHER_get_type(ptr noundef) local_unnamed_addr #1
 
-declare ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef) local_unnamed_addr #2
+declare ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef) local_unnamed_addr #1
 
-declare void @EVP_CIPHER_CTX_free(ptr noundef) local_unnamed_addr #2
+declare void @EVP_CIPHER_CTX_free(ptr noundef) local_unnamed_addr #1
 
-declare ptr @ASN1_item_new(ptr noundef) local_unnamed_addr #2
+declare ptr @ASN1_item_new(ptr noundef) local_unnamed_addr #1
 
-declare ptr @CMS_RecipientInfo_it() local_unnamed_addr #2
+declare ptr @CMS_RecipientInfo_it() local_unnamed_addr #1
 
-declare ptr @CMS_PasswordRecipientInfo_it() local_unnamed_addr #2
+declare ptr @CMS_PasswordRecipientInfo_it() local_unnamed_addr #1
 
-declare void @X509_ALGOR_free(ptr noundef) local_unnamed_addr #2
+declare void @X509_ALGOR_free(ptr noundef) local_unnamed_addr #1
 
-declare ptr @ASN1_item_pack(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ASN1_item_pack(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_ALGOR_it() local_unnamed_addr #2
+declare ptr @X509_ALGOR_it() local_unnamed_addr #1
 
-declare ptr @PKCS5_pbkdf2_set(i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @PKCS5_pbkdf2_set(i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_cms_RecipientInfo_pwri_crypt(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [50 x i8], align 16
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call ptr @ossl_cms_get0_cmsctx(ptr noundef %0) #5
   %7 = tail call ptr @ossl_cms_get0_env_enc_content(ptr noundef %0) #5
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -559,35 +553,35 @@ define range(i32 0, 2) i32 @ossl_cms_RecipientInfo_pwri_crypt(ptr noundef %0, pt
 
 107:                                              ; preds = %106, %27, %20, %13
   %.0 = phi i32 [ 0, %13 ], [ 0, %20 ], [ 0, %27 ], [ %.059, %106 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #2
+declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #1
 
-declare ptr @ASN1_TYPE_unpack_sequence(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ASN1_TYPE_unpack_sequence(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @OBJ_obj2txt(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @OBJ_obj2txt(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @EVP_CIPHER_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @EVP_CIPHER_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @ossl_cms_ctx_get0_propq(ptr noundef) local_unnamed_addr #2
+declare ptr @ossl_cms_ctx_get0_propq(ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_CipherInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @EVP_CipherInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @EVP_CIPHER_CTX_set_padding(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @EVP_CIPHER_CTX_set_padding(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @EVP_CIPHER_asn1_to_param(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_CIPHER_asn1_to_param(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_PBE_CipherInit(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @EVP_PBE_CipherInit(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @kek_wrap_key(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef nonnull %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = tail call i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef nonnull %4) #5
   %.fr44 = freeze i32 %8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = icmp eq i32 %.fr44, 0
   br i1 %9, label %48, label %10
 
@@ -656,18 +650,18 @@ define internal fastcc range(i32 0, 2) i32 @kek_wrap_key(ptr noundef %0, ptr nou
 
 48:                                               ; preds = %42, %45, %36, %10, %6, %47
   %.0 = phi i32 [ 1, %47 ], [ 0, %6 ], [ 0, %10 ], [ 0, %36 ], [ 0, %45 ], [ 0, %42 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
-declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @kek_unwrap_key(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = tail call i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef nonnull %4) #5
   %8 = sext i32 %7 to i64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = icmp eq i32 %7, 0
   br i1 %9, label %63, label %10
 
@@ -761,32 +755,38 @@ define internal fastcc range(i32 0, 2) i32 @kek_unwrap_key(ptr noundef nonnull w
 
 63:                                               ; preds = %15, %13, %10, %5, %62
   %.047 = phi i32 [ %.0, %62 ], [ 0, %5 ], [ 0, %10 ], [ 0, %13 ], [ 0, %15 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.047
 }
 
-declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #2
+declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #1
 
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare i32 @EVP_EncryptUpdate(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @EVP_EncryptUpdate(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @EVP_DecryptUpdate(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @EVP_DecryptUpdate(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @EVP_DecryptInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_DecryptInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 attributes #6 = { nounwind willreturn memory(read) }
 

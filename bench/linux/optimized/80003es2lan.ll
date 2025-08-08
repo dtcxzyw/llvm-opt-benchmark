@@ -135,25 +135,19 @@ define internal i32 @e1000_get_variants_80003es2lan(ptr noundef initializes((151
   ret i32 %76
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @e1000e_check_for_serdes_link(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_check_for_serdes_link(ptr noundef) #2
+declare dso_local i32 @e1000e_setup_fiber_serdes_link(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_setup_fiber_serdes_link(ptr noundef) #2
-
-; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_check_for_copper_link(ptr noundef) #2
+declare dso_local i32 @e1000e_check_for_copper_link(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @e1000_setup_copper_link_80003es2lan(ptr noundef %0) #0 align 16 {
   %2 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4) #4, !srcloc !5
@@ -201,12 +195,12 @@ define internal i32 @e1000_setup_copper_link_80003es2lan(ptr noundef %0) #0 alig
 
 31:                                               ; preds = %29, %26, %21, %18, %13, %10, %1
   %32 = phi i32 [ %30, %29 ], [ %8, %1 ], [ %11, %10 ], [ %16, %13 ], [ %19, %18 ], [ %24, %21 ], [ %27, %26 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %32
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__ew32(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local void @__ew32(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -13, 1) i32 @e1000_write_kmrn_reg_80003es2lan(ptr noundef %0, i32 noundef range(i32 0, 32) %1, i16 noundef zeroext range(i16 16, 5) %2) unnamed_addr #0 align 16 {
@@ -341,7 +335,7 @@ define internal fastcc noundef range(i32 -13, 1) i32 @e1000_read_kmrn_reg_80003e
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @e1000_copper_link_setup_gg82563_80003es2lan(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i16 0, ptr %2, align 2, !annotation !7
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %4 = load ptr, ptr %3, align 8
@@ -503,24 +497,24 @@ define internal fastcc i32 @e1000_copper_link_setup_gg82563_80003es2lan(ptr noun
 
 104:                                              ; preds = %99, %95, %89, %85, %79, %66, %60, %56, %51, %48, %45, %40, %35, %14, %7, %1
   %105 = phi i32 [ %5, %1 ], [ %12, %7 ], [ %16, %14 ], [ %38, %35 ], [ %43, %40 ], [ %46, %45 ], [ %49, %48 ], [ %54, %51 ], [ %58, %56 ], [ %64, %60 ], [ %73, %66 ], [ %83, %79 ], [ %87, %85 ], [ %93, %89 ], [ %97, %95 ], [ %103, %99 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %105
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_setup_copper_link(ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @e1000e_setup_copper_link(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__const_udelay(i64 noundef) local_unnamed_addr #2
+declare dso_local void @__const_udelay(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_get_hw_semaphore(ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @e1000e_get_hw_semaphore(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @e1000e_put_hw_semaphore(ptr noundef) local_unnamed_addr #2
+declare dso_local void @e1000e_put_hw_semaphore(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @e1000_power_up_phy_copper(ptr noundef) #2
+declare dso_local void @e1000_power_up_phy_copper(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @e1000_power_down_phy_copper_80003es2lan(ptr noundef %0) #0 align 16 {
@@ -545,22 +539,22 @@ define internal void @e1000_power_down_phy_copper_80003es2lan(ptr noundef %0) #0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_get_phy_id(ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @e1000e_get_phy_id(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @e1000_power_down_phy_copper(ptr noundef) local_unnamed_addr #2
+declare dso_local void @e1000_power_down_phy_copper(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_id_led_init_generic(ptr noundef) #2
+declare dso_local i32 @e1000e_id_led_init_generic(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_blink_led_generic(ptr noundef) #2
+declare dso_local i32 @e1000e_blink_led_generic(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local zeroext i1 @e1000e_check_mng_mode_generic(ptr noundef) #2
+declare dso_local zeroext i1 @e1000e_check_mng_mode_generic(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_cleanup_led_generic(ptr noundef) #2
+declare dso_local i32 @e1000e_cleanup_led_generic(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @e1000_clear_hw_cntrs_80003es2lan(ptr noundef %0) #0 align 16 {
@@ -660,13 +654,13 @@ define internal void @e1000_clear_hw_cntrs_80003es2lan(ptr noundef %0) #0 align 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @e1000_clear_vfta_generic(ptr noundef) #2
+declare dso_local void @e1000_clear_vfta_generic(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_get_bus_info_pcie(ptr noundef) #2
+declare dso_local i32 @e1000e_get_bus_info_pcie(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @e1000_set_lan_id_multi_port_pcie(ptr noundef) #2
+declare dso_local void @e1000_set_lan_id_multi_port_pcie(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @e1000_get_link_up_info_80003es2lan(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
@@ -692,18 +686,18 @@ define internal i32 @e1000_get_link_up_info_80003es2lan(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_led_on_generic(ptr noundef) #2
+declare dso_local i32 @e1000e_led_on_generic(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_led_off_generic(ptr noundef) #2
+declare dso_local i32 @e1000e_led_off_generic(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @e1000e_update_mc_addr_list_generic(ptr noundef, ptr noundef, i32 noundef) #2
+declare dso_local void @e1000e_update_mc_addr_list_generic(ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @e1000_reset_hw_80003es2lan(ptr noundef %0) #0 align 16 {
   %2 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call i32 @e1000e_disable_pcie_master(ptr noundef %0) #4
   tail call void @__ew32(ptr noundef %0, i64 noundef 216, i32 noundef -1) #4
   tail call void @__ew32(ptr noundef %0, i64 noundef 256, i32 noundef 0) #4
@@ -796,7 +790,7 @@ define internal i32 @e1000_reset_hw_80003es2lan(ptr noundef %0) #0 align 16 {
 
 e1000_acquire_phy_80003es2lan.exit.thread:        ; preds = %25, %15, %28, %53, %50
   %58 = phi i32 [ %57, %53 ], [ %51, %50 ], [ -13, %28 ], [ -13, %15 ], [ -13, %25 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %58
 }
 
@@ -805,8 +799,8 @@ define internal i32 @e1000_init_hw_80003es2lan(ptr noundef %0) #0 align 16 {
   %2 = alloca i16, align 2
   %3 = alloca i16, align 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 14376
@@ -949,25 +943,25 @@ define internal i32 @e1000_init_hw_80003es2lan(ptr noundef %0) #0 align 16 {
 
 105:                                              ; preds = %104, %54
   %106 = phi i32 [ %97, %104 ], [ %58, %54 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %106
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_setup_link_generic(ptr noundef) #2
+declare dso_local i32 @e1000e_setup_link_generic(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_setup_led_generic(ptr noundef) #2
+declare dso_local i32 @e1000e_setup_led_generic(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @e1000_write_vfta_generic(ptr noundef, i32 noundef, i32 noundef) #2
+declare dso_local void @e1000_write_vfta_generic(ptr noundef, i32 noundef, i32 noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @e1000e_config_collision_dist_generic(ptr noundef) #2
+declare dso_local void @e1000e_config_collision_dist_generic(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_rar_set_generic(ptr noundef, ptr noundef, i32 noundef) #2
+declare dso_local i32 @e1000e_rar_set_generic(ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @e1000_read_mac_addr_80003es2lan(ptr noundef %0) #0 align 16 {
@@ -985,19 +979,19 @@ define internal i32 @e1000_read_mac_addr_80003es2lan(ptr noundef %0) #0 align 16
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_rar_get_count_generic(ptr noundef) #2
+declare dso_local i32 @e1000e_rar_get_count_generic(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @e1000e_clear_hw_cntrs_base(ptr noundef) local_unnamed_addr #2
+declare dso_local void @e1000e_clear_hw_cntrs_base(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_get_speed_and_duplex_copper(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @e1000e_get_speed_and_duplex_copper(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_get_speed_and_duplex_fiber_serdes(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @e1000e_get_speed_and_duplex_fiber_serdes(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_disable_pcie_master(ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @e1000e_disable_pcie_master(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -13, 1) i32 @e1000_acquire_phy_80003es2lan(ptr noundef %0) #0 align 16 {
@@ -1070,19 +1064,19 @@ define internal void @e1000_release_phy_80003es2lan(ptr noundef %0) #0 align 16 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_get_auto_rd_done(ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @e1000e_get_auto_rd_done(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000_check_alt_mac_addr_generic(ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @e1000_check_alt_mac_addr_generic(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @usleep_range_state(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare dso_local void @usleep_range_state(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @e1000e_init_rx_addrs(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
+declare dso_local void @e1000e_init_rx_addrs(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000_read_mac_addr_generic(ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @e1000_read_mac_addr_generic(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @e1000_cfg_on_link_up_80003es2lan(ptr noundef %0) #0 align 16 {
@@ -1092,8 +1086,8 @@ define internal i32 @e1000_cfg_on_link_up_80003es2lan(ptr noundef %0) #0 align 1
   %5 = alloca i16, align 2
   %6 = alloca i16, align 2
   %7 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1036
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 1
@@ -1112,8 +1106,8 @@ define internal i32 @e1000_cfg_on_link_up_80003es2lan(ptr noundef %0) #0 align 1
   br i1 %16, label %17, label %50
 
 17:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 0, ptr %5, align 2, !annotation !7
   store i16 0, ptr %4, align 2
   %18 = call fastcc i32 @e1000_write_kmrn_reg_80003es2lan(ptr noundef %0, i32 noundef 16, i16 noundef zeroext 0), !range !6
@@ -1163,14 +1157,14 @@ define internal i32 @e1000_cfg_on_link_up_80003es2lan(ptr noundef %0) #0 align 1
 
 .loopexit:                                        ; preds = %33, %28, %44, %17
   %49 = phi i32 [ %48, %44 ], [ %18, %17 ], [ %35, %33 ], [ %31, %28 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %87
 
 50:                                               ; preds = %14
   %51 = load i16, ptr %7, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 0, ptr %3, align 2, !annotation !7
   store i16 4, ptr %2, align 2
   %52 = call fastcc i32 @e1000_write_kmrn_reg_80003es2lan(ptr noundef %0, i32 noundef 16, i16 noundef zeroext 4), !range !6
@@ -1223,33 +1217,33 @@ define internal i32 @e1000_cfg_on_link_up_80003es2lan(ptr noundef %0) #0 align 1
 
 .loopexit7:                                       ; preds = %67, %62, %78, %50
   %86 = phi i32 [ %85, %78 ], [ %52, %50 ], [ %69, %67 ], [ %65, %62 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %87
 
 87:                                               ; preds = %.loopexit7, %.loopexit, %11, %1
   %88 = phi i32 [ %12, %11 ], [ %49, %.loopexit ], [ %86, %.loopexit7 ], [ 0, %1 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %88
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000_check_polarity_m88(ptr noundef) #2
+declare dso_local i32 @e1000_check_polarity_m88(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_check_reset_block_generic(ptr noundef) #2
+declare dso_local i32 @e1000e_check_reset_block_generic(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_phy_sw_reset(ptr noundef) #2
+declare dso_local i32 @e1000e_phy_sw_reset(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @e1000_phy_force_speed_duplex_80003es2lan(ptr noundef %0) #0 align 16 {
   %2 = alloca i16, align 2
   %3 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i16 0, ptr %2, align 2, !annotation !7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1, !annotation !7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %5 = load ptr, ptr %4, align 8
@@ -1333,8 +1327,8 @@ define internal i32 @e1000_phy_force_speed_duplex_80003es2lan(ptr noundef %0) #0
 
 57:                                               ; preds = %45, %41, %38, %35, %29, %19, %15, %8, %1
   %58 = phi i32 [ %56, %45 ], [ %6, %1 ], [ %13, %8 ], [ %17, %15 ], [ %23, %19 ], [ %30, %29 ], [ %36, %35 ], [ %39, %38 ], [ %43, %41 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %58
 }
 
@@ -1370,7 +1364,7 @@ define internal noundef range(i32 -9, 1) i32 @e1000_get_cfg_done_80003es2lan(ptr
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @e1000_get_cable_length_80003es2lan(ptr noundef %0) #0 align 16 {
   %2 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i16 0, ptr %2, align 2, !annotation !7
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %4 = load ptr, ptr %3, align 8
@@ -1407,17 +1401,17 @@ define internal i32 @e1000_get_cable_length_80003es2lan(ptr noundef %0) #0 align
 
 27:                                               ; preds = %11, %7, %1
   %28 = phi i32 [ 0, %11 ], [ %5, %1 ], [ -2, %7 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %28
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_get_phy_info_m88(ptr noundef) #2
+declare dso_local i32 @e1000e_get_phy_info_m88(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @e1000_read_phy_reg_gg82563_80003es2lan(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1156
   %6 = load i16, ptr %5, align 4
   %7 = icmp eq i16 %6, 0
@@ -1549,20 +1543,20 @@ define internal i32 @e1000_read_phy_reg_gg82563_80003es2lan(ptr noundef %0, i32 
 
 e1000_acquire_phy_80003es2lan.exit.thread:        ; preds = %21, %11, %24, %77
   %84 = phi i32 [ %80, %77 ], [ -13, %24 ], [ -13, %11 ], [ -13, %21 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %84
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_phy_hw_reset_generic(ptr noundef) #2
+declare dso_local i32 @e1000e_phy_hw_reset_generic(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_set_d3_lplu_state(ptr noundef, i1 noundef zeroext) #2
+declare dso_local i32 @e1000e_set_d3_lplu_state(ptr noundef, i1 noundef zeroext) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @e1000_write_phy_reg_gg82563_80003es2lan(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2) #0 align 16 {
   %4 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1156
   %6 = load i16, ptr %5, align 4
   %7 = icmp eq i16 %6, 0
@@ -1694,24 +1688,24 @@ define internal i32 @e1000_write_phy_reg_gg82563_80003es2lan(ptr noundef %0, i32
 
 e1000_acquire_phy_80003es2lan.exit.thread:        ; preds = %21, %11, %24, %77
   %84 = phi i32 [ %80, %77 ], [ -13, %24 ], [ -13, %11 ], [ -13, %21 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %84
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @e1000e_phy_force_speed_duplex_setup(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local void @e1000e_phy_force_speed_duplex_setup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_phy_has_link_generic(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @e1000e_phy_has_link_generic(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_phy_reset_dsp(ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @e1000e_phy_reset_dsp(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_write_phy_reg_mdic(ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #2
+declare dso_local i32 @e1000e_write_phy_reg_mdic(ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_read_phy_reg_mdic(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @e1000e_read_phy_reg_mdic(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @e1000_acquire_nvm_80003es2lan(ptr noundef %0) #0 align 16 {
@@ -1771,7 +1765,7 @@ define internal i32 @e1000_acquire_nvm_80003es2lan(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_read_nvm_eerd(ptr noundef, i16 noundef zeroext, i16 noundef zeroext, ptr noundef) #2
+declare dso_local i32 @e1000e_read_nvm_eerd(ptr noundef, i16 noundef zeroext, i16 noundef zeroext, ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @e1000_release_nvm_80003es2lan(ptr noundef %0) #0 align 16 {
@@ -1795,16 +1789,16 @@ define internal void @e1000_release_nvm_80003es2lan(ptr noundef %0) #0 align 16 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @e1000e_reload_nvm_generic(ptr noundef) #2
+declare dso_local void @e1000e_reload_nvm_generic(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_update_nvm_checksum_generic(ptr noundef) #2
+declare dso_local i32 @e1000e_update_nvm_checksum_generic(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_valid_led_default(ptr noundef, ptr noundef) #2
+declare dso_local i32 @e1000e_valid_led_default(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_validate_nvm_checksum_generic(ptr noundef) #2
+declare dso_local i32 @e1000e_validate_nvm_checksum_generic(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @e1000_write_nvm_80003es2lan(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3) #0 align 16 {
@@ -1813,21 +1807,27 @@ define internal i32 @e1000_write_nvm_80003es2lan(ptr noundef %0, i16 noundef zer
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_acquire_nvm(ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @e1000e_acquire_nvm(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @e1000e_release_nvm(ptr noundef) local_unnamed_addr #2
+declare dso_local void @e1000e_release_nvm(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e1000e_write_nvm_spi(ptr noundef, i16 noundef zeroext, i16 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare dso_local i32 @e1000e_write_nvm_spi(ptr noundef, i16 noundef zeroext, i16 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #3
+declare i16 @llvm.umin.i16(i16, i16) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

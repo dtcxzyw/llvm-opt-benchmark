@@ -172,11 +172,11 @@ define void @_ZNK15UrlLinkDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK11Q
   br i1 %.not, label %57, label %19
 
 19:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 -1, ptr %7, align 8
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 -1, ptr %23, align 4
@@ -186,9 +186,9 @@ define void @_ZNK15UrlLinkDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK11Q
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load ptr, ptr %26, align 8
   call void %27(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %6, ptr noundef align 8 dereferenceable_or_null(16) %21, i32 noundef %22, i32 noundef %14, ptr noundef nonnull align 8 dereferenceable(24) %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %28 = load ptr, ptr %20, align 8
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 144
@@ -199,8 +199,8 @@ define void @_ZNK15UrlLinkDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK11Q
 
 32:                                               ; preds = %19
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %9) #12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %33 = load ptr, ptr %17, align 8
   invoke void @_ZNK18QRegularExpression5matchERK7QStringxNS_9MatchTypeE6QFlagsINS_11MatchOptionEE(ptr dead_on_unwind nonnull writable sret(%class.QRegularExpressionMatch) align 8 %10, ptr noundef align 8 dereferenceable_or_null(8) %33, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef 0, i32 noundef 0, i32 0)
           to label %34 unwind label %40
@@ -211,7 +211,7 @@ define void @_ZNK15UrlLinkDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK11Q
 
 36:                                               ; preds = %34
   call void @_ZN23QRegularExpressionMatchD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %10) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %35, label %47, label %37
 
 37:                                               ; preds = %36
@@ -222,7 +222,7 @@ define void @_ZNK15UrlLinkDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK11Q
   %39 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %9) #12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN7QStringD2Ev.exit32
 
 40:                                               ; preds = %32
@@ -238,7 +238,7 @@ define void @_ZNK15UrlLinkDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK11Q
 
 44:                                               ; preds = %42, %40
   %.pn = phi { ptr, i32 } [ %43, %42 ], [ %41, %40 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %52
 
 45:                                               ; preds = %37
@@ -262,8 +262,8 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %47
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %47, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %50
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %35, label %57, label %80
 
 52:                                               ; preds = %45, %44
@@ -284,12 +284,12 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i30:    ; preds = %52
 
 _ZN7QStringD2Ev.exit32:                           ; preds = %55, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i30, %52, %38
   %.pn21.pn = phi { ptr, i32 } [ %39, %38 ], [ %.pn21, %52 ], [ %.pn21, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i30 ], [ %.pn21, %55 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %89
 
 57:                                               ; preds = %_ZN7QStringD2Ev.exit, %16, %4
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN20QStyleOptionViewItemC2ERKS_(ptr noundef nonnull align 8 dereferenceable_or_null(208) %11, ptr noundef align 8 dereferenceable(208) %2)
   %58 = load ptr, ptr %0, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 184
@@ -303,14 +303,14 @@ _ZN7QStringD2Ev.exit32:                           ; preds = %55, %_ZN17QArrayDat
           to label %63 unwind label %81
 
 63:                                               ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   invoke void @_ZN10ColorUtils14themeLinkBrushEv(ptr dead_on_unwind nonnull writable sret(%class.QBrush) align 8 %12)
           to label %64 unwind label %83
 
 64:                                               ; preds = %63
   %65 = load ptr, ptr %12, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable_or_null(8) %5, ptr noundef nonnull align 4 dereferenceable(14) %66, i32 noundef 1)
           to label %.noexc unwind label %85
 
@@ -323,14 +323,14 @@ _ZN7QStringD2Ev.exit32:                           ; preds = %55, %_ZN17QArrayDat
   %69 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %5) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.body
 
 70:                                               ; preds = %.noexc
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %5) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %12) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   invoke void @_ZNK19QStyledItemDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(16) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(208) %11, ptr noundef align 8 dereferenceable(24) %3)
           to label %71 unwind label %81
 
@@ -359,7 +359,7 @@ _ZN20QStyleOptionViewItemD2Ev.exit:               ; preds = %71, %_ZN17QArrayDat
   call void @_ZN7QLocaleD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %79) #12
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(12) %62) #12
   call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(208) %11) #12
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %80
 
 80:                                               ; preds = %_ZN7QStringD2Ev.exit, %_ZN20QStyleOptionViewItemD2Ev.exit
@@ -387,25 +387,19 @@ _ZN20QStyleOptionViewItemD2Ev.exit:               ; preds = %71, %_ZN17QArrayDat
 
 87:                                               ; preds = %.body, %83
   %.pn24 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %84, %83 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %88
 
 88:                                               ; preds = %87, %81
   %.pn26 = phi { ptr, i32 } [ %82, %81 ], [ %.pn24, %87 ]
   call void @_ZN20QStyleOptionViewItemD2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(208) %11) #12
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %89
 
 89:                                               ; preds = %88, %_ZN7QStringD2Ev.exit32
   %.pn26.pn = phi { ptr, i32 } [ %.pn26, %88 ], [ %.pn21.pn, %_ZN7QStringD2Ev.exit32 ]
   resume { ptr, i32 } %.pn26.pn
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare void @_ZNK8QVariant8toStringEv(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef align 8 dereferenceable_or_null(32)) local_unnamed_addr #1
@@ -426,7 +420,7 @@ declare void @_ZN23QRegularExpressionMatchD1Ev(ptr noundef align 8 dereferenceab
 declare void @_ZNK19QStyledItemDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef, ptr noundef align 8 dereferenceable(208), ptr noundef align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
-define linkonce_odr void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #7 comdat align 2 {
+define linkonce_odr void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #6 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %_ZN17QArrayDataPointerIDsED2Ev.exit, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i
@@ -573,7 +567,7 @@ declare void @_ZN10ColorUtils14themeLinkBrushEv(ptr dead_on_unwind writable sret
 declare void @_ZN6QBrushD1Ev(ptr noundef align 8 dereferenceable_or_null(8)) unnamed_addr #4
 
 ; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
-define linkonce_odr void @_ZN20QStyleOptionViewItemD2Ev(ptr noundef align 8 dereferenceable_or_null(208) %0) unnamed_addr #7 comdat align 2 {
+define linkonce_odr void @_ZN20QStyleOptionViewItemD2Ev(ptr noundef align 8 dereferenceable_or_null(208) %0) unnamed_addr #6 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   tail call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %2) #12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -699,7 +693,7 @@ declare void @_ZN12QStyleOptionD2Ev(ptr noundef align 8 dereferenceable_or_null(
 declare noundef align 8 dereferenceable(64) ptr @_ZN12QStyleOptionaSERKS_(ptr noundef align 8 dereferenceable_or_null(64), ptr noundef align 8 dereferenceable(64)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare noundef align 8 dereferenceable(12) ptr @_ZN5QFontaSERKS_(ptr noundef align 8 dereferenceable_or_null(12), ptr noundef align 8 dereferenceable(12)) local_unnamed_addr #1
@@ -722,6 +716,12 @@ declare void @_ZN8QPalette8setBrushENS_10ColorGroupENS_9ColorRoleERK6QBrush(ptr 
 ; Function Attrs: null_pointer_is_valid
 declare void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef align 8 dereferenceable_or_null(8), ptr noundef align 4 dereferenceable(14), i32 noundef) unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
@@ -731,9 +731,9 @@ attributes #2 = { nobuiltin null_pointer_is_valid allocsize(0) "no-trapping-math
 attributes #3 = { nobuiltin nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { builtin allocsize(0) }
 attributes #11 = { builtin nounwind }

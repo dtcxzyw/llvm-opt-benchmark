@@ -152,26 +152,20 @@ define hidden void @dissect_zbee_zdp_req_mgmt_nwk_disc(ptr noundef %0, ptr nound
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare void @zdp_dump_excess(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @zdp_dump_excess(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @dissect_zbee_zdp_req_mgmt_lqi(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -200,7 +194,7 @@ define hidden void @dissect_zbee_zdp_req_mgmt_bind(ptr noundef %0, ptr noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @dissect_zbee_zdp_req_mgmt_leave(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   %6 = load i32, ptr @hf_zbee_zdp_ext_addr, align 4
   %7 = call i64 @zbee_parse_eui64(ptr noundef %2, i32 noundef %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef 8, ptr noundef null)
@@ -222,26 +216,26 @@ define hidden void @dissect_zbee_zdp_req_mgmt_leave(ptr noundef %0, ptr noundef 
   call void (ptr, ptr, ptr, ...) @zbee_append_info(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef %16)
   %17 = load i32, ptr %5, align 4
   call void @zdp_dump_excess(ptr noundef %0, i32 noundef %17, ptr noundef %1, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @zbee_parse_eui64(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @zbee_parse_eui64(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_tree_add_bitmask_list(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_tree_add_bitmask_list(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @zbee_append_info(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @zbee_append_info(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @eui64_to_display(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @eui64_to_display(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @dissect_zbee_zdp_req_mgmt_direct_join(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %5 = load i32, ptr @hf_zbee_zdp_ext_addr, align 4
   %6 = call i64 @zbee_parse_eui64(ptr noundef %2, i32 noundef %5, ptr noundef %0, ptr noundef nonnull %4, i32 noundef 8, ptr noundef null)
@@ -253,12 +247,12 @@ define hidden void @dissect_zbee_zdp_req_mgmt_direct_join(ptr noundef %0, ptr no
   call void (ptr, ptr, ptr, ...) @zbee_append_info(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef %11)
   %12 = load i32, ptr %4, align 4
   call void @zdp_dump_excess(ptr noundef %0, i32 noundef %12, ptr noundef %1, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i8 @zdp_parse_cinfo(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i8 @zdp_parse_cinfo(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @dissect_zbee_zdp_req_mgmt_permit_join(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -280,10 +274,10 @@ define hidden void @dissect_zbee_zdp_req_mgmt_permit_join(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_zbee_tlvs(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare i32 @dissect_zbee_tlvs(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @dissect_zbee_zdp_req_mgmt_cache(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -297,9 +291,9 @@ define hidden void @dissect_zbee_zdp_req_mgmt_cache(ptr noundef %0, ptr noundef 
 define hidden void @dissect_zbee_zdp_req_mgmt_nwkupdate(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr @hf_zbee_zdp_channel_page, align 4
   %7 = load i32, ptr @hf_zbee_zdp_channel_mask, align 4
   %8 = call i32 @zdp_parse_chanmask(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4, i32 noundef %6, i32 noundef %7)
@@ -349,25 +343,25 @@ define hidden void @dissect_zbee_zdp_req_mgmt_nwkupdate(ptr noundef %0, ptr noun
 32:                                               ; preds = %.sink.split, %25
   %33 = phi i32 [ %13, %25 ], [ %31, %.sink.split ]
   call void @zdp_dump_excess(ptr noundef %0, i32 noundef %33, ptr noundef %1, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @zdp_parse_chanmask(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @zdp_parse_chanmask(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @dissect_zbee_zdp_req_mgmt_nwkupdate_enh(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_zbee_zdp_channel_page_count, align 4
   %8 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %6)
   store i32 1, ptr %4, align 4
@@ -436,9 +430,9 @@ define hidden void @dissect_zbee_zdp_req_mgmt_nwkupdate_enh(ptr noundef %0, ptr 
 39:                                               ; preds = %.sink.split, %32
   %40 = phi i32 [ %20, %32 ], [ %38, %.sink.split ]
   call void @zdp_dump_excess(ptr noundef %0, i32 noundef %40, ptr noundef %1, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -460,19 +454,19 @@ define hidden void @dissect_zbee_zdp_req_mgmt_nwk_beacon_survey(ptr noundef %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @dissect_zbee_zdp_rsp_mgmt_nwk_beacon_survey(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %5 = call zeroext i8 @zdp_parse_status(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4)
   %6 = load i32, ptr %4, align 4
   %7 = call i32 @dissect_zbee_tlvs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %6, ptr noundef null, i8 noundef zeroext 3, i32 noundef 32828)
   store i32 %7, ptr %4, align 4
   call void @zdp_dump_excess(ptr noundef %0, i32 noundef %7, ptr noundef %1, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i8 @zdp_parse_status(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i8 @zdp_parse_status(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @dissect_zbee_zdp_req_security_start_key_negotiation(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -535,7 +529,7 @@ define hidden void @dissect_zbee_zdp_req_security_get_configuration(ptr noundef 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @dissect_zbee_zdp_req_security_start_key_update(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -562,9 +556,9 @@ define hidden void @dissect_zbee_zdp_req_security_challenge(ptr noundef %0, ptr 
 define hidden void @dissect_zbee_zdp_rsp_mgmt_nwk_disc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call zeroext i8 @zdp_parse_status(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %5)
   %8 = load i32, ptr @hf_zbee_zdp_table_size, align 4
   %9 = load i32, ptr %5, align 4
@@ -667,25 +661,25 @@ zdp_parse_nwk_desc.exit:                          ; preds = %30, %59
   call void (ptr, ptr, ptr, ...) @zbee_append_info(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @.str.7, ptr noundef %69)
   %70 = load i32, ptr %5, align 4
   call void @zdp_dump_excess(ptr noundef %0, i32 noundef %70, ptr noundef %1, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @zdp_status_name(i8 noundef zeroext) local_unnamed_addr #2
+declare ptr @zdp_status_name(i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @dissect_zbee_zdp_rsp_mgmt_lqi(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call zeroext i8 @zdp_parse_status(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %6)
   %9 = load i32, ptr @hf_zbee_zdp_table_size, align 4
   %10 = load i32, ptr %6, align 4
@@ -726,7 +720,7 @@ define hidden void @dissect_zbee_zdp_rsp_mgmt_lqi(ptr noundef %0, ptr noundef %1
 30:                                               ; preds = %.lr.ph, %zdp_parse_neighbor_table_entry.exit
   %31 = phi i32 [ %.pre, %.lr.ph ], [ %87, %zdp_parse_neighbor_table_entry.exit ]
   %.020 = phi i32 [ 0, %.lr.ph ], [ %88, %zdp_parse_neighbor_table_entry.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %32 = load i32, ptr @ett_zbee_zdp_table_entry, align 4
   %33 = call ptr @proto_tree_add_subtree(ptr noundef %25, ptr noundef %0, i32 noundef %31, i32 noundef %..i, i32 noundef %32, ptr noundef nonnull %5, ptr noundef nonnull @.str.15)
@@ -807,7 +801,7 @@ zdp_parse_neighbor_table_entry.exit:              ; preds = %78, %84
   %86 = load i32, ptr %6, align 4
   %87 = add i32 %86, %83
   store i32 %87, ptr %6, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %88 = add nuw i32 %.020, 1
   %89 = load i32, ptr %7, align 4
   %90 = icmp ult i32 %88, %89
@@ -818,8 +812,8 @@ zdp_parse_neighbor_table_entry.exit:              ; preds = %78, %84
   call void (ptr, ptr, ptr, ...) @zbee_append_info(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @.str.7, ptr noundef %91)
   %92 = load i32, ptr %6, align 4
   call void @zdp_dump_excess(ptr noundef %0, i32 noundef %92, ptr noundef %1, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -827,9 +821,9 @@ zdp_parse_neighbor_table_entry.exit:              ; preds = %78, %84
 define hidden void @dissect_zbee_zdp_rsp_mgmt_rtg(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call zeroext i8 @zdp_parse_status(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4)
   %7 = load i32, ptr @hf_zbee_zdp_table_size, align 4
   %8 = load i32, ptr %4, align 4
@@ -915,21 +909,21 @@ define hidden void @dissect_zbee_zdp_rsp_mgmt_rtg(ptr noundef %0, ptr noundef %1
   call void (ptr, ptr, ptr, ...) @zbee_append_info(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @.str.7, ptr noundef %63)
   %64 = load i32, ptr %4, align 4
   call void @zdp_dump_excess(ptr noundef %0, i32 noundef %64, ptr noundef %1, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @dissect_zbee_zdp_rsp_mgmt_bind(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call zeroext i8 @zdp_parse_status(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %5)
   %8 = load i32, ptr @hf_zbee_zdp_table_size, align 4
   %9 = load i32, ptr %5, align 4
@@ -978,53 +972,53 @@ define hidden void @dissect_zbee_zdp_rsp_mgmt_bind(ptr noundef %0, ptr noundef %
   call void (ptr, ptr, ptr, ...) @zbee_append_info(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @.str.7, ptr noundef %32)
   %33 = load i32, ptr %5, align 4
   call void @zdp_dump_excess(ptr noundef %0, i32 noundef %33, ptr noundef %1, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @zdp_parse_bind_table_entry(ptr noundef, ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare void @zdp_parse_bind_table_entry(ptr noundef, ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @dissect_zbee_zdp_rsp_mgmt_leave(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %5 = call zeroext i8 @zdp_parse_status(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4)
   %6 = call ptr @zdp_status_name(i8 noundef zeroext %5)
   call void (ptr, ptr, ptr, ...) @zbee_append_info(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @.str.7, ptr noundef %6)
   %7 = load i32, ptr %4, align 4
   call void @zdp_dump_excess(ptr noundef %0, i32 noundef %7, ptr noundef %1, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @dissect_zbee_zdp_rsp_mgmt_direct_join(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %5 = call zeroext i8 @zdp_parse_status(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4)
   %6 = call ptr @zdp_status_name(i8 noundef zeroext %5)
   call void (ptr, ptr, ptr, ...) @zbee_append_info(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @.str.7, ptr noundef %6)
   %7 = load i32, ptr %4, align 4
   call void @zdp_dump_excess(ptr noundef %0, i32 noundef %7, ptr noundef %1, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @dissect_zbee_zdp_rsp_mgmt_permit_join(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %5 = call zeroext i8 @zdp_parse_status(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4)
   %6 = call ptr @zdp_status_name(i8 noundef zeroext %5)
   call void (ptr, ptr, ptr, ...) @zbee_append_info(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @.str.7, ptr noundef %6)
   %7 = load i32, ptr %4, align 4
   call void @zdp_dump_excess(ptr noundef %0, i32 noundef %7, ptr noundef %1, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1032,9 +1026,9 @@ define hidden void @dissect_zbee_zdp_rsp_mgmt_permit_join(ptr noundef %0, ptr no
 define hidden void @dissect_zbee_zdp_rsp_mgmt_cache(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call zeroext i8 @zdp_parse_status(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4)
   %7 = load i32, ptr @hf_zbee_zdp_table_size, align 4
   %8 = load i32, ptr %4, align 4
@@ -1092,24 +1086,24 @@ define hidden void @dissect_zbee_zdp_rsp_mgmt_cache(ptr noundef %0, ptr noundef 
   call void (ptr, ptr, ptr, ...) @zbee_append_info(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @.str.7, ptr noundef %38)
   %39 = load i32, ptr %4, align 4
   call void @zdp_dump_excess(ptr noundef %0, i32 noundef %39, ptr noundef %1, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @dissect_zbee_zdp_not_mgmt_nwkupdate(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call zeroext i8 @zdp_parse_status(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4)
   %7 = load i32, ptr @hf_zbee_zdp_channel_page, align 4
   %8 = load i32, ptr @hf_zbee_zdp_channel_mask, align 4
@@ -1168,8 +1162,8 @@ define hidden void @dissect_zbee_zdp_not_mgmt_nwkupdate(ptr noundef %0, ptr noun
 41:                                               ; preds = %27, %38
   %42 = phi i32 [ %24, %27 ], [ %39, %38 ]
   call void @zdp_dump_excess(ptr noundef %0, i32 noundef %42, ptr noundef %1, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1178,9 +1172,9 @@ define hidden void @dissect_zbee_zdp_rsp_mgmt_ieee_join_list(ptr noundef %0, ptr
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %7 = call zeroext i8 @zdp_parse_status(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %6)
   %8 = icmp eq i8 %7, 0
@@ -1238,16 +1232,16 @@ define hidden void @dissect_zbee_zdp_rsp_mgmt_ieee_join_list(ptr noundef %0, ptr
 .loopexit:                                        ; preds = %.loopexit.loopexit, %23, %9, %3
   %38 = phi i32 [ %.pre, %.loopexit.loopexit ], [ %31, %23 ], [ %21, %9 ], [ %.pre21, %3 ]
   call void @zdp_dump_excess(ptr noundef %0, i32 noundef %38, ptr noundef %1, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @dissect_zbee_zdp_not_mgmt_unsolicited_nwkupdate(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %5 = call zeroext i8 @zdp_parse_status(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4)
   %6 = load i32, ptr @hf_zbee_zdp_channel_page, align 4
@@ -1275,129 +1269,134 @@ define hidden void @dissect_zbee_zdp_not_mgmt_unsolicited_nwkupdate(ptr noundef 
   %25 = add i32 %24, 1
   store i32 %25, ptr %4, align 4
   call void @zdp_dump_excess(ptr noundef %0, i32 noundef %25, ptr noundef %1, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @dissect_zbee_zdp_rsp_security_start_key_negotiation(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %5 = call zeroext i8 @zdp_parse_status(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4)
   %6 = load i32, ptr %4, align 4
   %7 = call i32 @dissect_zbee_tlvs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %6, ptr noundef null, i8 noundef zeroext 3, i32 noundef 32832)
   store i32 %7, ptr %4, align 4
   call void @zdp_dump_excess(ptr noundef %0, i32 noundef %7, ptr noundef %1, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @dissect_zbee_zdp_rsp_security_get_auth_token(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %5 = call zeroext i8 @zdp_parse_status(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4)
   %6 = load i32, ptr %4, align 4
   %7 = call i32 @dissect_zbee_tlvs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %6, ptr noundef null, i8 noundef zeroext 3, i32 noundef 32833)
   store i32 %7, ptr %4, align 4
   call void @zdp_dump_excess(ptr noundef %0, i32 noundef %7, ptr noundef %1, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @dissect_zbee_zdp_rsp_security_get_auth_level(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %5 = call zeroext i8 @zdp_parse_status(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4)
   %6 = load i32, ptr %4, align 4
   %7 = call i32 @dissect_zbee_tlvs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %6, ptr noundef null, i8 noundef zeroext 3, i32 noundef 32834)
   store i32 %7, ptr %4, align 4
   call void @zdp_dump_excess(ptr noundef %0, i32 noundef %7, ptr noundef %1, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @dissect_zbee_zdp_rsp_security_set_configuration(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %5 = call zeroext i8 @zdp_parse_status(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4)
   %6 = load i32, ptr %4, align 4
   %7 = call i32 @dissect_zbee_tlvs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %6, ptr noundef null, i8 noundef zeroext 3, i32 noundef 32835)
   store i32 %7, ptr %4, align 4
   call void @zdp_dump_excess(ptr noundef %0, i32 noundef %7, ptr noundef %1, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @dissect_zbee_zdp_rsp_security_get_configuration(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %5 = call zeroext i8 @zdp_parse_status(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4)
   %6 = load i32, ptr %4, align 4
   %7 = call i32 @dissect_zbee_tlvs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %6, ptr noundef null, i8 noundef zeroext 3, i32 noundef 32836)
   store i32 %7, ptr %4, align 4
   call void @zdp_dump_excess(ptr noundef %0, i32 noundef %7, ptr noundef %1, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @dissect_zbee_zdp_rsp_security_start_key_update(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %5 = call zeroext i8 @zdp_parse_status(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4)
   %6 = load i32, ptr %4, align 4
   %7 = call i32 @dissect_zbee_tlvs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %6, ptr noundef null, i8 noundef zeroext 3, i32 noundef 32837)
   store i32 %7, ptr %4, align 4
   call void @zdp_dump_excess(ptr noundef %0, i32 noundef %7, ptr noundef %1, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @dissect_zbee_zdp_rsp_security_decommission(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %5 = call zeroext i8 @zdp_parse_status(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4)
   %6 = load i32, ptr %4, align 4
   %7 = call i32 @dissect_zbee_tlvs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %6, ptr noundef null, i8 noundef zeroext 3, i32 noundef 32838)
   store i32 %7, ptr %4, align 4
   call void @zdp_dump_excess(ptr noundef %0, i32 noundef %7, ptr noundef %1, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @dissect_zbee_zdp_rsp_security_challenge(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %5 = call zeroext i8 @zdp_parse_status(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4)
   %6 = load i32, ptr %4, align 4
   %7 = call i32 @dissect_zbee_tlvs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %6, ptr noundef null, i8 noundef zeroext 3, i32 noundef 32839)
   store i32 %7, ptr %4, align 4
   call void @zdp_dump_excess(ptr noundef %0, i32 noundef %7, ptr noundef %1, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

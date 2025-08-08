@@ -422,32 +422,26 @@ HeapTupleHeaderGetXvac.exit136:                   ; preds = %24
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @TransactionIdIsInProgress(i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @TransactionIdIsInProgress(i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @TransactionIdDidCommit(i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @TransactionIdDidCommit(i32 noundef) local_unnamed_addr #3
+declare i32 @HeapTupleHeaderGetCmin(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare zeroext i1 @MultiXactIdIsRunning(i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare i32 @HeapTupleHeaderGetCmin(ptr noundef) local_unnamed_addr #3
+declare i32 @HeapTupleGetUpdateXid(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @MultiXactIdIsRunning(i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare i32 @HeapTupleHeaderGetCmax(ptr noundef) local_unnamed_addr #2
 
-declare i32 @HeapTupleGetUpdateXid(ptr noundef) local_unnamed_addr #3
-
-declare i32 @HeapTupleHeaderGetCmax(ptr noundef) local_unnamed_addr #3
-
-declare zeroext i1 @ItemPointerEquals(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @ItemPointerEquals(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 5) i32 @HeapTupleSatisfiesVacuum(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @HeapTupleSatisfiesVacuumHorizon(ptr noundef %0, i32 noundef %2, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 2
   br i1 %6, label %7, label %10
@@ -460,7 +454,7 @@ define dso_local range(i32 0, 5) i32 @HeapTupleSatisfiesVacuum(ptr noundef reado
 
 10:                                               ; preds = %7, %3
   %.0 = phi i32 [ %5, %3 ], [ %spec.select, %7 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -740,7 +734,7 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %54, %56
   ret i32 %.0
 }
 
-declare zeroext i1 @TransactionIdPrecedes(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @TransactionIdPrecedes(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @HeapTupleHeaderIsOnlyLocked(ptr noundef %0) local_unnamed_addr #0 {
@@ -820,7 +814,7 @@ define dso_local zeroext i1 @HeapTupleIsSurelyDead(ptr noundef readonly captures
   ret i1 %.0
 }
 
-declare zeroext i1 @GlobalVisTestIsRemovableXid(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @GlobalVisTestIsRemovableXid(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -1735,7 +1729,7 @@ HeapTupleHeaderGetXmin.exit.thread.i58:           ; preds = %HeapTupleHeaderGetX
   %429 = load ptr, ptr %428, align 8
   %430 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %431 = load i32, ptr %430, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %427, ptr %7, align 4
   %.not.i.i = icmp eq i32 %431, 0
   br i1 %.not.i.i, label %.loopexit79.i, label %.lr.ph.i.i.preheader.i
@@ -1770,12 +1764,12 @@ HeapTupleHeaderGetXmin.exit.thread.i58:           ; preds = %HeapTupleHeaderGetX
   br i1 %443, label %.lr.ph.i.i.i, label %.loopexit79.i, !llvm.loop !4
 
 444:                                              ; preds = %439
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %445 = getelementptr i8, ptr %422, i64 8
   %.val58.i = load i32, ptr %445, align 4
   store i32 %.val58.i, ptr %8, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 -1, ptr %9, align 4
   %446 = call ptr @HistoricSnapshotGetTupleCids() #4
   %447 = call zeroext i1 @ResolveCminCmaxDuringDecoding(ptr noundef %446, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %9) #4
@@ -1786,12 +1780,12 @@ HeapTupleHeaderGetXmin.exit.thread.i58:           ; preds = %HeapTupleHeaderGetX
   %450 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %451 = load i32, ptr %450, align 8
   %.not49.i = icmp ult i32 %449, %451
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.not49.i, label %480, label %HeapTupleSatisfiesMVCC.exit
 
 .loopexit79.i:                                    ; preds = %442, %HeapTupleHeaderGetXmin.exit.thread.i58
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %452 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %453 = load i32, ptr %452, align 4
   %454 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %427, i32 noundef %453) #4
@@ -1818,7 +1812,7 @@ HeapTupleHeaderGetXmin.exit.thread.i58:           ; preds = %HeapTupleHeaderGetX
   %465 = load ptr, ptr %464, align 8
   %466 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %467 = load i32, ptr %466, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %427, ptr %6, align 4
   %.not.i60.i = icmp eq i32 %467, 0
   br i1 %.not.i60.i, label %TransactionIdInArray.exit67.thread.i, label %.lr.ph.i.i61.preheader.i
@@ -1853,11 +1847,11 @@ HeapTupleHeaderGetXmin.exit.thread.i58:           ; preds = %HeapTupleHeaderGetX
   br i1 %479, label %.lr.ph.i.i61.i, label %TransactionIdInArray.exit67.thread.i, !llvm.loop !4
 
 TransactionIdInArray.exit67.thread.i:             ; preds = %478, %463
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %HeapTupleSatisfiesMVCC.exit
 
 TransactionIdInArray.exit67.i:                    ; preds = %475
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %480
 
 480:                                              ; preds = %TransactionIdInArray.exit67.i, %457, %455, %448
@@ -1888,7 +1882,7 @@ TransactionIdInArray.exit67.i:                    ; preds = %475
   %.046.i = phi i32 [ %493, %492 ], [ %.val5777.i, %490 ]
   %495 = load ptr, ptr %428, align 8
   %496 = load i32, ptr %430, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %.046.i, ptr %5, align 4
   %.not.i68.i = icmp eq i32 %496, 0
   br i1 %.not.i68.i, label %.loopexit.i, label %.lr.ph.i.i69.preheader.i
@@ -1923,9 +1917,9 @@ TransactionIdInArray.exit67.i:                    ; preds = %475
   br i1 %508, label %.lr.ph.i.i69.i, label %.loopexit.i, !llvm.loop !4
 
 509:                                              ; preds = %504
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %510 = getelementptr i8, ptr %422, i64 8
   %.val59.i = load i32, ptr %510, align 4
   store i32 %.val59.i, ptr %11, align 4
@@ -1944,12 +1938,12 @@ TransactionIdInArray.exit67.i:                    ; preds = %475
 
 518:                                              ; preds = %515, %509
   %.2.i = phi i1 [ true, %509 ], [ %.not.i61, %515 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %HeapTupleSatisfiesMVCC.exit
 
 .loopexit.i:                                      ; preds = %507, %494
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %519 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %520 = load i32, ptr %519, align 4
   %521 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %.046.i, i32 noundef %520) #4
@@ -1983,12 +1977,12 @@ TransactionIdInArray.exit67.i:                    ; preds = %475
   br label %HeapTupleSatisfiesMVCC.exit
 
 .critedge.i:                                      ; preds = %444
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %HeapTupleSatisfiesMVCC.exit
 
 539:                                              ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %540 = call i32 @HeapTupleSatisfiesVacuumHorizon(ptr noundef readonly %0, i32 noundef %2, ptr noundef nonnull %4)
   %541 = icmp eq i32 %540, 2
   br i1 %541, label %542, label %HeapTupleSatisfiesNonVacuumable.exit
@@ -2004,7 +1998,7 @@ TransactionIdInArray.exit67.i:                    ; preds = %475
 HeapTupleSatisfiesNonVacuumable.exit:             ; preds = %539, %542
   %.0.i64 = phi i32 [ %540, %539 ], [ %spec.select.i, %542 ]
   %547 = icmp ne i32 %.0.i64, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %HeapTupleSatisfiesMVCC.exit
 
 HeapTupleSatisfiesMVCC.exit:                      ; preds = %.critedge.i, %532, %528, %525, %522, %518, %483, %480, %TransactionIdInArray.exit67.thread.i, %459, %457, %448, %HeapTupleHeaderGetXmin.exit.i56, %419, %417, %408, %404, %396, %386, %381, %380, %375, %373, %365, %359, %356, %352, %337, %334, %331, %322, %319, %315, %308, %300, %HeapTupleHeaderGetXvac.exit.i49, %288, %HeapTupleHeaderGetXmin.exit.thread.i, %HeapTupleHeaderGetXmin.exit.i, %278, %273, %267, %HeapTupleHeaderGetXvac.exit.i37, %255, %249, %247, %238, %233, %225, %220, %218, %215, %213, %205, %199, %196, %191, %188, %185, %182, %173, %170, %166, %159, %151, %HeapTupleHeaderGetXvac.exit.i31, %139, %134, %132, %128, %124, %120, %113, %111, %107, %95, %92, %90, %84, %79, %76, %73, %67, %64, %55, %52, %48, %44, %37, %29, %HeapTupleHeaderGetXvac.exit.i, %17, %3, %HeapTupleSatisfiesNonVacuumable.exit, %250
@@ -2012,17 +2006,17 @@ HeapTupleSatisfiesMVCC.exit:                      ; preds = %.critedge.i, %532, 
   ret i1 %.0
 }
 
-declare i64 @TransactionIdGetCommitLSN(i32 noundef) local_unnamed_addr #3
+declare i64 @TransactionIdGetCommitLSN(i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @BufferIsPermanent(i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @BufferIsPermanent(i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @XLogNeedsFlush(i64 noundef) local_unnamed_addr #3
+declare zeroext i1 @XLogNeedsFlush(i64 noundef) local_unnamed_addr #2
 
-declare i64 @BufferGetLSNAtomic(i32 noundef) local_unnamed_addr #3
+declare i64 @BufferGetLSNAtomic(i32 noundef) local_unnamed_addr #2
 
-declare void @MarkBufferDirtyHint(i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @MarkBufferDirtyHint(i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare zeroext i1 @XidInMVCCSnapshot(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @XidInMVCCSnapshot(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @TransactionIdInArray(i32 noundef %0, ptr noundef %1, i64 noundef range(i64 -2147483648, 4294967296) %2) unnamed_addr #0 {
@@ -2061,18 +2055,24 @@ bsearch.exit:                                     ; preds = %14, %11, %3
   ret i1 %16
 }
 
-declare zeroext i1 @ResolveCminCmaxDuringDecoding(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @ResolveCminCmaxDuringDecoding(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @HistoricSnapshotGetTupleCids() local_unnamed_addr #3
+declare ptr @HistoricSnapshotGetTupleCids() local_unnamed_addr #2
 
-declare zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @xidComparator(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @xidComparator(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

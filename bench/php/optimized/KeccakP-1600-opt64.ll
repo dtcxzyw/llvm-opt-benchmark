@@ -27,7 +27,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @KeccakP1600_AddBytesInLane(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   switch i32 %4, label %10 [
     i32 0, label %20
     i32 1, label %7
@@ -58,21 +58,15 @@ define hidden void @KeccakP1600_AddBytesInLane(ptr noundef captures(none) %0, i3
   br label %20
 
 20:                                               ; preds = %5, %12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @KeccakP1600_AddLanes(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #5 {
+define hidden void @KeccakP1600_AddLanes(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #4 {
   %.not77 = icmp ult i32 %2, 8
   br i1 %.not77, label %.preheader76, label %.lr.ph
 
@@ -238,7 +232,7 @@ define hidden void @KeccakP1600_AddLanes(ptr noundef captures(none) %0, ptr noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @KeccakP1600_AddBytes(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define hidden void @KeccakP1600_AddBytes(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = icmp eq i32 %2, 0
@@ -251,7 +245,7 @@ define hidden void @KeccakP1600_AddBytes(ptr noundef captures(none) %0, ptr noun
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 %11
   %13 = and i32 %3, 7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   switch i32 %13, label %17 [
     i32 0, label %KeccakP1600_AddBytesInLane.exit
     i32 1, label %14
@@ -279,7 +273,7 @@ define hidden void @KeccakP1600_AddBytes(ptr noundef captures(none) %0, ptr noun
   br label %KeccakP1600_AddBytesInLane.exit
 
 KeccakP1600_AddBytesInLane.exit:                  ; preds = %8, %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
 24:                                               ; preds = %4
@@ -298,7 +292,7 @@ KeccakP1600_AddBytesInLane.exit:                  ; preds = %8, %19
   %.03037 = phi i32 [ %40, %KeccakP1600_AddBytesInLane.exit35 ], [ %3, %.lr.ph.preheader ]
   %27 = sub nuw nsw i32 8, %.02839
   %spec.select = tail call i32 @llvm.umin.i32(i32 %27, i32 %.03037)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %cond = icmp eq i32 %spec.select, 1
   br i1 %cond, label %28, label %31
 
@@ -325,7 +319,7 @@ KeccakP1600_AddBytesInLane.exit35:                ; preds = %31, %28
   %38 = load i64, ptr %37, align 8, !tbaa !4
   %39 = xor i64 %38, %35
   store i64 %39, ptr %37, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %40 = sub i32 %.03037, %spec.select
   %41 = add i32 %.02938, 1
   %42 = getelementptr inbounds nuw i8, ptr %.02740, i64 %.pre-phi
@@ -337,7 +331,7 @@ KeccakP1600_AddBytesInLane.exit35:                ; preds = %31, %28
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @KeccakP1600_OverwriteBytesInLane(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #5 {
+define hidden void @KeccakP1600_OverwriteBytesInLane(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 {
   switch i32 %1, label %17 [
     i32 20, label %6
     i32 17, label %6
@@ -386,7 +380,7 @@ define hidden void @KeccakP1600_OverwriteBytesInLane(ptr noundef writeonly captu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @KeccakP1600_OverwriteLanes(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #5 {
+define hidden void @KeccakP1600_OverwriteLanes(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #4 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -430,7 +424,7 @@ define hidden void @KeccakP1600_OverwriteLanes(ptr noundef writeonly captures(no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @KeccakP1600_OverwriteBytes(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define hidden void @KeccakP1600_OverwriteBytes(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = icmp eq i32 %2, 0
   br i1 %5, label %6, label %35
 
@@ -587,7 +581,7 @@ KeccakP1600_OverwriteBytesInLane.exit:            ; preds = %KeccakP1600_Overwri
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @KeccakP1600_OverwriteWithZeroes(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
+define hidden void @KeccakP1600_OverwriteWithZeroes(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = lshr i32 %1, 3
   %.not49 = icmp ult i32 %1, 8
   br i1 %.not49, label %._crit_edge, label %.lr.ph.preheader
@@ -661,7 +655,7 @@ switch.early.test47:                              ; preds = %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @KeccakP1600_Permute_Nrounds(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
+define hidden void @KeccakP1600_Permute_Nrounds(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = load i64, ptr %0, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !4
@@ -6321,13 +6315,13 @@ define hidden void @KeccakP1600_ExtractBytesInLane(ptr noundef readonly captures
 
 12:                                               ; preds = %5, %10
   %.0 = phi i64 [ %11, %10 ], [ %9, %5 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %.0, ptr %6, align 8, !tbaa !4
   %13 = zext i32 %3 to i64
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 %13
   %15 = zext i32 %4 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 1 %14, i64 %15, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -6391,7 +6385,7 @@ define hidden void @KeccakP1600_ExtractLanes(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @KeccakP1600_ExtractBytes(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define hidden void @KeccakP1600_ExtractBytes(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = alloca [1 x i64], align 8
   %.sroa.0 = alloca i64, align 8
   %6 = icmp eq i32 %2, 0
@@ -6483,11 +6477,11 @@ KeccakP1600_ExtractBytesInLane.exit:              ; preds = %KeccakP1600_Extract
   %53 = phi i32 [ %50, %48 ], [ %44, %KeccakP1600_ExtractLanes.exit ]
   %54 = phi ptr [ %51, %48 ], [ %43, %KeccakP1600_ExtractLanes.exit ]
   %.0.i = phi i64 [ %52, %48 ], [ %47, %KeccakP1600_ExtractLanes.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   store i64 %.0.i, ptr %.sroa.0, align 8, !tbaa !4
   %55 = zext nneg i32 %53 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %54, ptr nonnull align 8 %.sroa.0, i64 %55, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   br label %.loopexit
 
 56:                                               ; preds = %4
@@ -6524,13 +6518,13 @@ KeccakP1600_ExtractBytesInLane.exit:              ; preds = %KeccakP1600_Extract
 
 KeccakP1600_ExtractBytesInLane.exit34:            ; preds = %.lr.ph, %63
   %.0.i33 = phi i64 [ %64, %63 ], [ %62, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.0.i33, ptr %5, align 8, !tbaa !4
   %65 = zext nneg i32 %.02838 to i64
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 %65
   %67 = zext nneg i32 %spec.select to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.02739, ptr noundef nonnull align 1 dereferenceable(1) %66, i64 %67, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %68 = sub i32 %.03036, %spec.select
   %69 = add i32 %.02937, 1
   %70 = getelementptr inbounds nuw i8, ptr %.02739, i64 %67
@@ -6542,7 +6536,7 @@ KeccakP1600_ExtractBytesInLane.exit34:            ; preds = %.lr.ph, %63
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @KeccakP1600_ExtractAndAddBytesInLane(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #5 {
+define hidden void @KeccakP1600_ExtractAndAddBytesInLane(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #4 {
   %7 = alloca [1 x i64], align 8
   %8 = zext i32 %1 to i64
   %9 = getelementptr inbounds nuw i64, ptr %0, i64 %8
@@ -6562,7 +6556,7 @@ define hidden void @KeccakP1600_ExtractAndAddBytesInLane(ptr noundef readonly ca
 
 13:                                               ; preds = %6, %11
   %.027 = phi i64 [ %12, %11 ], [ %10, %6 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.027, ptr %7, align 8, !tbaa !4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
@@ -6588,12 +6582,12 @@ define hidden void @KeccakP1600_ExtractAndAddBytesInLane(ptr noundef readonly ca
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @KeccakP1600_ExtractAndAddLanes(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #5 {
+define hidden void @KeccakP1600_ExtractAndAddLanes(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #4 {
   %.not28 = icmp eq i32 %3, 0
   br i1 %.not28, label %._crit_edge.thread, label %.lr.ph.preheader
 
@@ -6670,7 +6664,7 @@ define hidden void @KeccakP1600_ExtractAndAddLanes(ptr noundef readonly captures
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @KeccakP1600_ExtractAndAddBytes(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #5 {
+define hidden void @KeccakP1600_ExtractAndAddBytes(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = alloca [1 x i64], align 8
   %7 = alloca [1 x i64], align 8
   %8 = icmp eq i32 %3, 0
@@ -6789,7 +6783,7 @@ KeccakP1600_ExtractAndAddLanes.exit:              ; preds = %24, %29, %34, %39, 
   %70 = phi ptr [ %65, %62 ], [ %58, %KeccakP1600_ExtractAndAddLanes.exit ], [ %2, %KeccakP1600_ExtractAndAddLanes.exit.thread59 ]
   %71 = phi ptr [ %66, %62 ], [ %57, %KeccakP1600_ExtractAndAddLanes.exit ], [ %1, %KeccakP1600_ExtractAndAddLanes.exit.thread59 ]
   %.027.i = phi i64 [ %67, %62 ], [ %61, %KeccakP1600_ExtractAndAddLanes.exit ], [ %13, %KeccakP1600_ExtractAndAddLanes.exit.thread59 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.027.i, ptr %7, align 8, !tbaa !4
   %.not.i41 = icmp eq i32 %69, 0
   br i1 %.not.i41, label %KeccakP1600_ExtractAndAddBytesInLane.exit, label %.lr.ph.preheader.i42
@@ -6812,7 +6806,7 @@ KeccakP1600_ExtractAndAddLanes.exit:              ; preds = %24, %29, %34, %39, 
   br i1 %exitcond.not.i47, label %KeccakP1600_ExtractAndAddBytesInLane.exit, label %.lr.ph.i44
 
 KeccakP1600_ExtractAndAddBytesInLane.exit:        ; preds = %.lr.ph.i44, %68
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
 78:                                               ; preds = %5
@@ -6850,7 +6844,7 @@ KeccakP1600_ExtractAndAddBytesInLane.exit:        ; preds = %.lr.ph.i44, %68
 
 .lr.ph.preheader.i51:                             ; preds = %.lr.ph, %85
   %.027.i49 = phi i64 [ %86, %85 ], [ %84, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %.027.i49, ptr %6, align 8, !tbaa !4
   %wide.trip.count.i52 = zext nneg i32 %spec.select to i64
   br label %.lr.ph.i53
@@ -6872,7 +6866,7 @@ KeccakP1600_ExtractAndAddBytesInLane.exit:        ; preds = %.lr.ph.i44, %68
   br i1 %exitcond.not.i56, label %KeccakP1600_ExtractAndAddBytesInLane.exit58, label %.lr.ph.i53
 
 KeccakP1600_ExtractAndAddBytesInLane.exit58:      ; preds = %.lr.ph.i53
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %96 = sub i32 %.03861, %spec.select
   %97 = add i32 %.03762, 1
   %98 = getelementptr inbounds nuw i8, ptr %.03564, i64 %wide.trip.count.i52
@@ -6885,7 +6879,7 @@ KeccakP1600_ExtractAndAddBytesInLane.exit58:      ; preds = %.lr.ph.i53
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden i64 @KeccakF1600_FastLoop_Absorb(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #5 {
+define hidden i64 @KeccakF1600_FastLoop_Absorb(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #4 {
   %5 = load i64, ptr %0, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !4
@@ -10698,6 +10692,12 @@ define hidden i64 @KeccakF1600_FastLoop_Absorb(ptr noundef captures(none) %0, i3
   ret i64 %3618
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #7
 
@@ -10707,12 +10707,11 @@ declare i32 @llvm.umin.i32(i32, i32) #7
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -454,7 +454,7 @@ _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversi
   %28 = getelementptr inbounds nuw [5 x i8], ptr @_ZN10open_spiel9dou_dizhuL9kSuitCharE, i64 0, i64 %27
   %29 = sext i32 %14 to i64
   %30 = getelementptr inbounds [14 x i8], ptr @_ZN10open_spiel9dou_dizhuL9kRankCharE, i64 0, i64 %29
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.sroa.0.0.copyload.i.i.i.i = load i8, ptr %28, align 1, !noalias !4
   %.sroa.0.0.insert.ext.i.i.i.i = zext i8 %.sroa.0.0.copyload.i.i.i.i to i64
   %31 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i.i to ptr
@@ -469,7 +469,7 @@ _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversi
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIcEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %35, align 8, !noalias !4
   call void @_ZN4absl7debian219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull @.str.13, i64 4, ptr nonnull %3, i64 2)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %36
 
 36:                                               ; preds = %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067ELS3_131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067ELS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit, %_ZN10open_spiel9dou_dizhu10CardToRankEi.exit.thread
@@ -1426,8 +1426,8 @@ common.resume:                                    ; preds = %34, %18
 _ZNK4absl7debian24SpanIKiEixEm.exit16:            ; preds = %20
   %24 = getelementptr inbounds i32, ptr %0, i64 %21
   %25 = load i32, ptr %24, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %switch.tableidx = add i32 %25, -1
   %26 = icmp ult i32 %switch.tableidx, 4
   br i1 %26, label %switch.lookup, label %27
@@ -1464,8 +1464,8 @@ switch.lookup:                                    ; preds = %_ZNK4absl7debian24S
   %35 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN10open_spiel9dou_dizhu23SearchSingleRankActionsEPSt6vectorIlSaIlEEN4absl7debian24SpanIKiEEi, i64 0, i64 %35
   %switch.load = load i32, ptr %switch.gep, align 4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %36 = add nsw i32 %switch.load, %spec.select15
   ret i32 %36
 }
@@ -1611,10 +1611,10 @@ _ZNK4absl7debian24SpanIKiEixEm.exit30.preheader.us: ; preds = %40
   %.056.us = phi i32 [ 0, %.lr.ph.us ], [ %86, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit.us ]
   %46 = add nsw i32 %45, 1
   store i32 %46, ptr %90, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %_ZNK4absl7debian24SpanIKiEixEm.exit.i.us
 
 _ZNK4absl7debian24SpanIKiEixEm.exit.i.us:         ; preds = %_ZNK4absl7debian24SpanIKiEixEm.exit.i.us, %44
@@ -1646,8 +1646,8 @@ _ZNK4absl7debian24SpanIKiEixEm.exit16.i.us:       ; preds = %53
   %55 = zext nneg i32 %spec.select15.i.us to i64
   %56 = getelementptr inbounds nuw i32, ptr %11, i64 %55
   %57 = load i32, ptr %56, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %switch.tableidx = add i32 %57, -1
   %58 = icmp ult i32 %switch.tableidx, 4
   br i1 %58, label %switch.lookup, label %.split70.us
@@ -1656,13 +1656,13 @@ switch.lookup:                                    ; preds = %_ZNK4absl7debian24S
   %59 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN10open_spiel9dou_dizhu23SearchSingleRankActionsEPSt6vectorIlSaIlEEN4absl7debian24SpanIKiEEi, i64 0, i64 %59
   %switch.load = load i32, ptr %switch.gep, align 4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %60 = add nuw nsw i32 %switch.load, %spec.select15.i.us
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %61 = zext nneg i32 %60 to i64
   %62 = load ptr, ptr %32, align 8
   %63 = load ptr, ptr %33, align 8
@@ -2187,8 +2187,8 @@ define { i64, i32 } @_ZN10open_spiel9dou_dizhu22GetChainOnlyHandParamsEi(i32 nou
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca i32, align 4
   %8 = tail call noundef i32 @_ZN10open_spiel9dou_dizhu18GetNumCardsPerRankEi(i32 noundef %0)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = icmp samesign ult i32 %8, 4
   br i1 %9, label %switch.lookup, label %10
 
@@ -2232,8 +2232,8 @@ switch.lookup:                                    ; preds = %1
   %19 = zext nneg i32 %switch.tableidx to i64
   %switch.gep39 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN10open_spiel9dou_dizhu23ChainOnlyHandToActionIdEN4absl7debian24SpanIKiEE, i64 0, i64 %19
   %switch.load40 = load i32, ptr %switch.gep39, align 4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i32 %0, ptr %4, align 4
   store i32 %switch.load, ptr %5, align 4
   %.not = icmp slt i32 %0, %switch.load
@@ -2486,8 +2486,8 @@ _ZNK4absl7debian24SpanIKiEixEm.exit52:            ; preds = %39
   br label %common.resume
 
 59:                                               ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %switch.tableidx = add i32 %.135, -1
   %60 = icmp ult i32 %switch.tableidx, 3
   br i1 %60, label %switch.lookup, label %61
@@ -2531,8 +2531,8 @@ switch.lookup:                                    ; preds = %59
   %70 = zext nneg i32 %switch.tableidx to i64
   %switch.gep91 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN10open_spiel9dou_dizhu23ChainOnlyHandToActionIdEN4absl7debian24SpanIKiEE.2, i64 0, i64 %70
   %switch.load92 = load i32, ptr %switch.gep91, align 4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %71 = icmp slt i32 %.139, %switch.load
   br i1 %71, label %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit, label %.preheader
 
@@ -2559,14 +2559,14 @@ switch.lookup:                                    ; preds = %59
   br label %._crit_edge
 
 _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit: ; preds = %switch.lookup
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.sroa.0.0.insert.ext.i.i.i.i = zext nneg i32 %switch.load to i64
   %87 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i.i to ptr
   store ptr %87, ptr %3, align 8, !noalias !35
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %88, align 8, !noalias !35
   call void @_ZN4absl7debian219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr nonnull @.str.32, i64 41, ptr nonnull %3, i64 1)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %14) #21
           to label %89 unwind label %90
 
@@ -2860,8 +2860,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit57:        ; preds = %_ZNSt6vectorIiSaIiE
 .lr.ph144:                                        ; preds = %.lr.ph144.preheader, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
   %.sroa.064.0143 = phi ptr [ %106, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ], [ %.sroa.070.5200, %.lr.ph144.preheader ]
   %62 = load i32, ptr %.sroa.064.0143, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %switch.tableidx = add i32 %62, -1
   %63 = icmp ult i32 %switch.tableidx, 3
   br i1 %63, label %switch.lookup, label %64
@@ -2898,8 +2898,8 @@ switch.lookup:                                    ; preds = %.lr.ph144
   %72 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN10open_spiel9dou_dizhu22SearchChainOnlyActionsEPSt6vectorIlSaIlEEN4absl7debian24SpanIKiEEi, i64 0, i64 %72
   %switch.load = load i64, ptr %switch.gep, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not42 = icmp samesign ult i64 %indvars.iv165, %switch.load
   br i1 %.not42, label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit, label %73
 
@@ -5383,8 +5383,8 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %38, label %224, label %236
 
 224:                                              ; preds = %223
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %225 = icmp ult i32 %switch.tableidx, 4
   br i1 %225, label %switch.lookup, label %226
 
@@ -5423,13 +5423,13 @@ switch.lookup:                                    ; preds = %224
   %235 = zext nneg i32 %switch.tableidx to i64
   %switch.gep461 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN10open_spiel9dou_dizhu26AirplaneCombHandToActionIdEN4absl7debian24SpanIKiEEiNS0_10KickerTypeE.3, i64 0, i64 %235
   %switch.load462 = load i32, ptr %switch.gep461, align 4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.lr.ph305.preheader
 
 236:                                              ; preds = %223
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %237 = icmp ult i32 %switch.tableidx, 3
   br i1 %237, label %switch.lookup463, label %238
 
@@ -5468,8 +5468,8 @@ switch.lookup463:                                 ; preds = %236
   %247 = zext nneg i32 %switch.tableidx to i64
   %switch.gep467 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN10open_spiel9dou_dizhu26AirplaneCombHandToActionIdEN4absl7debian24SpanIKiEEiNS0_10KickerTypeE.5, i64 0, i64 %247
   %switch.load468 = load i32, ptr %switch.gep467, align 4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.lr.ph305.preheader
 
 .lr.ph305.preheader:                              ; preds = %switch.lookup, %switch.lookup463
@@ -6625,10 +6625,10 @@ define internal void @_GLOBAL__sub_I_dou_dizhu_utils.cc() #15 section ".text.sta
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17

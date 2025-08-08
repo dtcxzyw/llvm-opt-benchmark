@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define void @proj_geod(ptr dead_on_unwind noalias writable sret(%union.PJ_COORD) align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef readonly byval(%union.PJ_COORD) align 8 captures(none) %2, ptr noundef readonly byval(%union.PJ_COORD) align 8 captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %union.PJ_COORD, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %.not = icmp eq ptr %7, null
@@ -40,31 +40,25 @@ define void @proj_geod(ptr dead_on_unwind noalias writable sret(%union.PJ_COORD)
   br label %26
 
 26:                                               ; preds = %9, %8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @_Z16proj_coord_errorv(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8) local_unnamed_addr #1
 
-declare void @_Z16proj_coord_errorv(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8) local_unnamed_addr #2
-
-declare void @geod_inverse(ptr noundef, double noundef, double noundef, double noundef, double noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @geod_inverse(ptr noundef, double noundef, double noundef, double noundef, double noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
 define double @proj_lp_dist(ptr noundef readonly captures(none) %0, ptr noundef readonly byval(%union.PJ_COORD) align 8 captures(none) %1, ptr noundef readonly byval(%union.PJ_COORD) align 8 captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca double, align 8
   %5 = alloca double, align 8
   %6 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %.not = icmp eq ptr %8, null
@@ -91,9 +85,9 @@ define double @proj_lp_dist(ptr noundef readonly captures(none) %0, ptr noundef 
 
 25:                                               ; preds = %3, %9
   %.0 = phi double [ %24, %9 ], [ 0x7FF0000000000000, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret double %.0
 }
 
@@ -116,9 +110,9 @@ define double @proj_lpz_dist(ptr noundef readonly captures(none) %0, ptr noundef
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.0.sroa.2.0.copyload = load double, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
   %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %13 = load ptr, ptr %12, align 8, !tbaa !3
   %.not.i = icmp eq ptr %13, null
@@ -139,9 +133,9 @@ define double @proj_lpz_dist(ptr noundef readonly captures(none) %0, ptr noundef
 
 proj_lp_dist.exit:                                ; preds = %11, %14
   %.0.i = phi double [ %23, %14 ], [ 0x7FF0000000000000, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %24 = load double, ptr %.sroa.04.sroa.3.0..sroa_idx, align 8, !tbaa !36
   %25 = load double, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !tbaa !36
   %26 = fsub double %24, %25
@@ -154,10 +148,10 @@ proj_lp_dist.exit:                                ; preds = %11, %14
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @hypot(double noundef, double noundef) local_unnamed_addr #4
+declare double @hypot(double noundef, double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable
-define double @proj_xy_dist(ptr noundef readonly byval(%union.PJ_COORD) align 8 captures(none) %0, ptr noundef readonly byval(%union.PJ_COORD) align 8 captures(none) %1) local_unnamed_addr #5 {
+define double @proj_xy_dist(ptr noundef readonly byval(%union.PJ_COORD) align 8 captures(none) %0, ptr noundef readonly byval(%union.PJ_COORD) align 8 captures(none) %1) local_unnamed_addr #4 {
   %3 = load double, ptr %0, align 8, !tbaa !36
   %4 = load double, ptr %1, align 8, !tbaa !36
   %5 = fsub double %3, %4
@@ -171,7 +165,7 @@ define double @proj_xy_dist(ptr noundef readonly byval(%union.PJ_COORD) align 8 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable
-define double @proj_xyz_dist(ptr noundef readonly byval(%union.PJ_COORD) align 8 captures(none) %0, ptr noundef readonly byval(%union.PJ_COORD) align 8 captures(none) %1) local_unnamed_addr #5 {
+define double @proj_xyz_dist(ptr noundef readonly byval(%union.PJ_COORD) align 8 captures(none) %0, ptr noundef readonly byval(%union.PJ_COORD) align 8 captures(none) %1) local_unnamed_addr #4 {
   %.sroa.01.sroa.0.0.copyload = load double, ptr %0, align 8
   %.sroa.01.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.01.sroa.2.0.copyload = load double, ptr %.sroa.01.sroa.2.0..sroa_idx, align 8
@@ -190,12 +184,18 @@ define double @proj_xyz_dist(ptr noundef readonly byval(%union.PJ_COORD) align 8
   ret double %9
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

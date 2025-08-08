@@ -69,17 +69,17 @@ define internal void @_ZL12_ISO2022OpenP10UConverterP18UConverterLoadArgsP10UErr
   %4 = alloca [7 x i8], align 1
   %5 = alloca %struct.UConverterNamePieces, align 4
   %6 = alloca %struct.UConverterLoadArgs, align 8
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %4, ptr noundef nonnull align 1 dereferenceable(7) @__const._ZL12_ISO2022OpenP10UConverterP18UConverterLoadArgsP10UErrorCode.myLocale, i64 7, i1 false)
-  %7 = tail call noalias dereferenceable_or_null(152) ptr @uprv_malloc_77(i64 noundef 152) #13
+  %7 = tail call noalias dereferenceable_or_null(152) ptr @uprv_malloc_77(i64 noundef 152) #12
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %8, align 8, !tbaa !3
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %174, label %9
 
 9:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
   store i32 40, ptr %6, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -103,7 +103,7 @@ define internal void @_ZL12_ISO2022OpenP10UConverterP18UConverterLoadArgsP10UErr
   br label %.thread143
 
 20:                                               ; preds = %9
-  %21 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %15, i64 noundef 6) #12
+  %21 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %15, i64 noundef 6) #13
   %.pre = load i8, ptr %4, align 1, !tbaa !23
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %23 = load i32, ptr %22, align 4, !tbaa !17
@@ -177,9 +177,9 @@ define internal void @_ZL12_ISO2022OpenP10UConverterP18UConverterLoadArgsP10UErr
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr @_ZN12_GLOBAL__N_114_ISO2022JPDataE, ptr %50, align 8, !tbaa !27
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 143
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %51, ptr noundef nonnull align 1 dereferenceable(3) @.str.5, i64 3, i1 false) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %51, ptr noundef nonnull align 1 dereferenceable(3) @.str.5, i64 3, i1 false) #13
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 113
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %52, ptr noundef nonnull align 1 dereferenceable(28) @.str.6, i64 28, i1 false) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %52, ptr noundef nonnull align 1 dereferenceable(28) @.str.6, i64 28, i1 false) #13
   %53 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %52) #14
   %54 = load i32, ptr %25, align 4, !tbaa !18
   %55 = trunc i32 %54 to i8
@@ -252,7 +252,7 @@ define internal void @_ZL12_ISO2022OpenP10UConverterP18UConverterLoadArgsP10UErr
   br i1 %70, label %84, label %94
 
 84:                                               ; preds = %82
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %83, ptr noundef nonnull align 1 dereferenceable(29) @.str.9, i64 29, i1 false) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %83, ptr noundef nonnull align 1 dereferenceable(29) @.str.9, i64 29, i1 false) #13
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %86 = load ptr, ptr %85, align 8, !tbaa !29
   %87 = getelementptr inbounds nuw i8, ptr %77, i64 40
@@ -267,7 +267,7 @@ define internal void @_ZL12_ISO2022OpenP10UConverterP18UConverterLoadArgsP10UErr
   br label %95
 
 94:                                               ; preds = %82
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %83, ptr noundef nonnull align 1 dereferenceable(29) @.str.10, i64 29, i1 false) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %83, ptr noundef nonnull align 1 dereferenceable(29) @.str.10, i64 29, i1 false) #13
   br label %95
 
 95:                                               ; preds = %94, %84
@@ -317,7 +317,7 @@ _ZL28setInitialStateFromUnicodeKRP10UConverterP21UConverterDataISO2022.exit: ; p
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr @_ZN12_GLOBAL__N_114_ISO2022KRDataE, ptr %115, align 8, !tbaa !27
   %116 = getelementptr inbounds nuw i8, ptr %7, i64 143
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %116, ptr noundef nonnull align 1 dereferenceable(3) @.str.11, i64 3, i1 false) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %116, ptr noundef nonnull align 1 dereferenceable(3) @.str.11, i64 3, i1 false) #13
   br label %150
 
 117:                                              ; preds = %20
@@ -370,14 +370,14 @@ _ZL28setInitialStateFromUnicodeKRP10UConverterP21UConverterDataISO2022.exit: ; p
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr @_ZN12_GLOBAL__N_114_ISO2022CNDataE, ptr %141, align 8, !tbaa !27
   %142 = getelementptr inbounds nuw i8, ptr %7, i64 143
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %142, ptr noundef nonnull align 1 dereferenceable(3) @.str.14, i64 3, i1 false) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %142, ptr noundef nonnull align 1 dereferenceable(3) @.str.14, i64 3, i1 false) #13
   %143 = icmp eq i32 %24, 0
   br i1 %143, label %144, label %146
 
 144:                                              ; preds = %138
   store i32 0, ptr %25, align 4, !tbaa !18
   %145 = getelementptr inbounds nuw i8, ptr %7, i64 113
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %145, ptr noundef nonnull align 1 dereferenceable(29) @.str.15, i64 29, i1 false) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %145, ptr noundef nonnull align 1 dereferenceable(29) @.str.15, i64 29, i1 false) #13
   br label %150
 
 146:                                              ; preds = %138
@@ -386,12 +386,12 @@ _ZL28setInitialStateFromUnicodeKRP10UConverterP21UConverterDataISO2022.exit: ; p
 
 148:                                              ; preds = %146
   store i32 1, ptr %25, align 4, !tbaa !18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %147, ptr noundef nonnull align 1 dereferenceable(29) @.str.16, i64 29, i1 false) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %147, ptr noundef nonnull align 1 dereferenceable(29) @.str.16, i64 29, i1 false) #13
   br label %150
 
 149:                                              ; preds = %146
   store i32 2, ptr %25, align 4, !tbaa !18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %147, ptr noundef nonnull align 1 dereferenceable(29) @.str.17, i64 29, i1 false) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %147, ptr noundef nonnull align 1 dereferenceable(29) @.str.17, i64 29, i1 false) #13
   br label %150
 
 .thread143:                                       ; preds = %.thread147, %63, %60, %29, %26, %125, %122
@@ -452,8 +452,8 @@ _ZL28setInitialStateFromUnicodeKRP10UConverterP21UConverterDataISO2022.exit: ; p
   br label %.critedge
 
 .critedge:                                        ; preds = %172, %167, %161, %159
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %175
 
 174:                                              ; preds = %3
@@ -461,12 +461,12 @@ _ZL28setInitialStateFromUnicodeKRP10UConverterP21UConverterDataISO2022.exit: ; p
   br label %175
 
 .critedge133:                                     ; preds = %73, %81, %.thread143, %130, %68, %34
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %175
 
 175:                                              ; preds = %174, %.critedge, %.critedge133
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -640,7 +640,7 @@ define internal void @_ZL18_ISO_2022_WriteSubP25UConverterFromUnicodeArgsiP10UEr
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 98
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !29
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 89
@@ -821,14 +821,14 @@ define internal void @_ZL18_ISO_2022_WriteSubP25UConverterFromUnicodeArgsiP10UEr
   br label %97
 
 97:                                               ; preds = %62, %87, %92
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @_ZL19_ISO_2022_SafeClonePK10UConverterPvPiP10UErrorCode(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr %3, align 4, !tbaa !24
   %7 = icmp slt i32 %6, 1
   br i1 %7, label %8, label %.loopexit
@@ -887,7 +887,7 @@ define internal noundef ptr @_ZL19_ISO_2022_SafeClonePK10UConverterPvPiP10UError
 
 .loopexit:                                        ; preds = %30, %20, %4, %11
   %.023 = phi ptr [ null, %11 ], [ null, %4 ], [ null, %20 ], [ %1, %30 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.023
 }
 
@@ -1028,41 +1028,35 @@ define internal void @_ZL23_ISO_2022_GetUnicodeSetPK10UConverterPK9USetAdder20UC
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #5
+declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #7
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
 
-declare ptr @ucnv_loadSharedData_77(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @ucnv_loadSharedData_77(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare signext i8 @ucnv_canCreateConverter_77(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare signext i8 @ucnv_canCreateConverter_77(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @uprv_free_77(ptr noundef) local_unnamed_addr #7
 
-declare void @uprv_free_77(ptr noundef) local_unnamed_addr #8
-
-declare ptr @ucnv_open_77(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @ucnv_open_77(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL46UConverter_toUnicode_ISO_2022_JP_OFFSETS_LOGICP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca [2 x i8], align 1
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !74
   store ptr %6, ptr %4, align 8, !tbaa !76
@@ -1638,8 +1632,8 @@ _ZL17toUnicodeCallbackP10UConverterjjP10UErrorCode.exit: ; preds = %288, %291
   br label %300
 
 300:                                              ; preds = %.loopexit, %.thread252
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1661,12 +1655,12 @@ define internal void @_ZL48UConverter_fromUnicode_ISO_2022_JP_OFFSETS_LOGICP25UC
   %16 = load ptr, ptr %15, align 8, !tbaa !90
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !91
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = load ptr, ptr %19, align 8, !tbaa !92
   store ptr %20, ptr %5, align 8, !tbaa !93
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 98
@@ -1890,7 +1884,7 @@ define internal void @_ZL48UConverter_fromUnicode_ISO_2022_JP_OFFSETS_LOGICP25UC
   %.0257375 = phi i8 [ 0, %.lr.ph ], [ %.1258, %_ZL24MBCS_SINGLE_FROM_UCHAR32P20UConverterSharedDataiPja.exit ]
   %.0261371 = phi i8 [ %109, %.lr.ph ], [ %.1262, %_ZL24MBCS_SINGLE_FROM_UCHAR32P20UConverterSharedDataiPja.exit ]
   %.3266368 = phi i32 [ %.2265, %.lr.ph ], [ %.4267, %_ZL24MBCS_SINGLE_FROM_UCHAR32P20UConverterSharedDataiPja.exit ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %138 = getelementptr inbounds nuw [10 x i8], ptr %7, i64 0, i64 %indvars.iv390
   %139 = load i8, ptr %138, align 1, !tbaa !23
   switch i8 %139, label %250 [
@@ -2239,7 +2233,7 @@ _ZL17_2022FromGR94DBCSj.exit:                     ; preds = %297
   %.4267.ph = phi i32 [ %128, %146 ], [ %129, %145 ], [ 92, %151 ], [ %.1235, %150 ], [ %132, %141 ], [ %.1235, %140 ], [ 126, %._crit_edge.thread422.loopexit ]
   %.1258.ph = phi i8 [ %spec.store.select, %146 ], [ 8, %145 ], [ %139, %151 ], [ %139, %150 ], [ %139, %141 ], [ %139, %140 ], [ 3, %._crit_edge.thread422.loopexit ]
   %.1256.ph = phi i8 [ 0, %146 ], [ 1, %145 ], [ 0, %151 ], [ 0, %150 ], [ 2, %141 ], [ 0, %140 ], [ 0, %._crit_edge.thread422.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %307
 
 _ZL24MBCS_SINGLE_FROM_UCHAR32P20UConverterSharedDataiPja.exit: ; preds = %297, %293, %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread393, %151, %150, %150, %279, %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit324.thread401, %285, %240, %242, %215, %143, %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit324.thread, %303, %_ZL17_2022FromGR94DBCSj.exit, %248, %244, %196, %210, %209, %206, %142, %141, %140
@@ -2248,7 +2242,7 @@ _ZL24MBCS_SINGLE_FROM_UCHAR32P20UConverterSharedDataiPja.exit: ; preds = %297, %
   %.1258 = phi i8 [ %.0257375, %_ZL17_2022FromGR94DBCSj.exit ], [ %.0257375, %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit324.thread ], [ %.0257375, %140 ], [ %.0257375, %141 ], [ %.0257375, %142 ], [ 4, %196 ], [ 4, %210 ], [ %.0257375, %209 ], [ %.0257375, %206 ], [ 2, %248 ], [ %.0257375, %244 ], [ %.0257375, %143 ], [ %.0257375, %215 ], [ %.0257375, %242 ], [ %.0257375, %240 ], [ %.0257375, %285 ], [ %139, %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit324.thread401 ], [ 7, %303 ], [ %.0257375, %279 ], [ %.0257375, %150 ], [ %.0257375, %150 ], [ %.0257375, %151 ], [ %.0257375, %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread393 ], [ %.0257375, %293 ], [ %.0257375, %297 ]
   %.1256 = phi i8 [ %.0255378, %_ZL17_2022FromGR94DBCSj.exit ], [ %.0255378, %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit324.thread ], [ %.0255378, %140 ], [ %.0255378, %141 ], [ %.0255378, %142 ], [ 0, %196 ], [ 0, %210 ], [ %.0255378, %209 ], [ %.0255378, %206 ], [ 2, %248 ], [ %.0255378, %244 ], [ %.0255378, %143 ], [ %.0255378, %215 ], [ %.0255378, %242 ], [ %.0255378, %240 ], [ %.0255378, %285 ], [ 0, %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit324.thread401 ], [ 0, %303 ], [ %.0255378, %279 ], [ %.0255378, %150 ], [ %.0255378, %150 ], [ %.0255378, %151 ], [ %.0255378, %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread393 ], [ %.0255378, %293 ], [ %.0255378, %297 ]
   %.1238 = phi i32 [ %.0237381, %_ZL17_2022FromGR94DBCSj.exit ], [ %.0237381, %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit324.thread ], [ %.0237381, %140 ], [ %.0237381, %141 ], [ %.0237381, %142 ], [ %.0.i311349, %196 ], [ -2, %210 ], [ 0, %209 ], [ %.0237381, %206 ], [ %.0.i313.ph, %248 ], [ %.0237381, %244 ], [ %.0237381, %143 ], [ %.0237381, %215 ], [ %.0237381, %242 ], [ %.0237381, %240 ], [ %.0237381, %285 ], [ %.0.i318358, %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit324.thread401 ], [ %.0.i318358, %303 ], [ %.0237381, %279 ], [ %.0237381, %150 ], [ %.0237381, %150 ], [ %.0237381, %151 ], [ %.0237381, %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread393 ], [ %.0237381, %293 ], [ %.0237381, %297 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next391 = add nuw nsw i64 %indvars.iv390, 1
   %304 = icmp samesign ult i64 %indvars.iv.next391, %134
   %305 = icmp slt i32 %.1238, 1
@@ -2436,11 +2430,11 @@ _ZL24MBCS_SINGLE_FROM_UCHAR32P20UConverterSharedDataiPja.exit: ; preds = %297, %
   %.neg = select i1 %393, i64 4294967295, i64 4294967294
   %394 = add nuw i64 %392, %.neg
   %395 = trunc i64 %394 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.3336, ptr %4, align 8, !tbaa !76
   call void @ucnv_fromUWriteBytes_77(ptr noundef %10, ptr noundef nonnull %6, i32 noundef range(i32 -127, 133) %349, ptr noundef nonnull %4, ptr noundef %14, ptr noundef nonnull %5, i32 noundef %395, ptr noundef %1)
   %396 = load ptr, ptr %4, align 8, !tbaa !76
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %397 = load i32, ptr %1, align 4, !tbaa !24
   %398 = icmp slt i32 %397, 1
   br i1 %398, label %27, label %.thread436, !llvm.loop !104
@@ -2541,11 +2535,11 @@ _ZL24MBCS_SINGLE_FROM_UCHAR32P20UConverterSharedDataiPja.exit: ; preds = %297, %
 
 447:                                              ; preds = %421, %429, %438, %445
   %.0233 = phi i32 [ %446, %445 ], [ %430, %438 ], [ %430, %429 ], [ -1, %421 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %.2335.ph, ptr %3, align 8, !tbaa !76
   call void @ucnv_fromUWriteBytes_77(ptr noundef nonnull %10, ptr noundef nonnull %6, i32 noundef range(i32 -127, 133) %.5, ptr noundef nonnull %3, ptr noundef %14, ptr noundef nonnull %5, i32 noundef %.0233, ptr noundef nonnull %1)
   %448 = load ptr, ptr %3, align 8, !tbaa !76
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread436
 
 .thread436:                                       ; preds = %53, %59, %._crit_edge.thread, %399, %387, %.thread, %447, %410, %407, %405, %400
@@ -2553,14 +2547,14 @@ _ZL24MBCS_SINGLE_FROM_UCHAR32P20UConverterSharedDataiPja.exit: ; preds = %297, %
   %.4337 = phi ptr [ %.2335.ph, %400 ], [ %.2335.ph, %405 ], [ %.2335.ph, %407 ], [ %448, %447 ], [ %.2335.ph, %410 ], [ %.0333, %.thread ], [ %.3336, %59 ], [ %396, %387 ], [ %.1334, %399 ], [ %.1334, %53 ], [ %.3336, %._crit_edge.thread ]
   store ptr %.2439, ptr %15, align 8, !tbaa !90
   store ptr %.4337, ptr %11, align 8, !tbaa !88
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL16changeState_2022P10UConverterPPKcS2_11Variant2022P10UErrorCode(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readnone captures(address) %2, i32 noundef range(i32 1, 4) %3, ptr noundef captures(none) %4) unnamed_addr #10 {
+define internal fastcc void @_ZL16changeState_2022P10UConverterPPKcS2_11Variant2022P10UErrorCode(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readnone captures(address) %2, i32 noundef range(i32 1, 4) %3, ptr noundef captures(none) %4) unnamed_addr #9 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 104
@@ -2887,19 +2881,19 @@ default.unreachable142:                           ; preds = %48
   ret void
 }
 
-declare i32 @ucnv_MBCSSimpleGetNextUChar_77(ptr noundef, ptr noundef, i32 noundef, i8 noundef signext) local_unnamed_addr #8
+declare i32 @ucnv_MBCSSimpleGetNextUChar_77(ptr noundef, ptr noundef, i32 noundef, i8 noundef signext) local_unnamed_addr #7
 
-declare i32 @ucnv_extSimpleMatchFromU_77(ptr noundef, i32 noundef, ptr noundef, i8 noundef signext) local_unnamed_addr #8
+declare i32 @ucnv_extSimpleMatchFromU_77(ptr noundef, i32 noundef, ptr noundef, i8 noundef signext) local_unnamed_addr #7
 
-declare void @ucnv_fromUWriteBytes_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare void @ucnv_fromUWriteBytes_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL46UConverter_toUnicode_ISO_2022_KR_OFFSETS_LOGICP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.UConverterToUnicodeArgs, align 8
   %4 = alloca [2 x i8], align 1
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !74
   store ptr %7, ptr %5, align 8, !tbaa !76
@@ -2918,7 +2912,7 @@ define internal void @_ZL46UConverter_toUnicode_ISO_2022_KR_OFFSETS_LOGICP23UCon
   br i1 %19, label %20, label %116
 
 20:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = load i16, ptr %0, align 8, !tbaa !110
   %narrow.i = tail call i16 @llvm.umin.i16(i16 %21, i16 56)
   %22 = zext nneg i16 %narrow.i to i64
@@ -3113,7 +3107,7 @@ _ZL19getEndOfBuffer_2022PPKcS0_a.exit.i:          ; preds = %39, %.lr.ph.i.i
   br label %28, !llvm.loop !113
 
 _ZL50UConverter_toUnicode_ISO_2022_KR_OFFSETS_LOGIC_IBMP23UConverterToUnicodeArgsP10UErrorCode.exit: ; preds = %28, %31, %107, %110
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %240
 
 116:                                              ; preds = %2
@@ -3386,8 +3380,8 @@ _ZL17toUnicodeCallbackP10UConverterjjP10UErrorCode.exit: ; preds = %229, %232
   br label %240
 
 240:                                              ; preds = %.loopexit, %161, %.split129.us, %_ZL50UConverter_toUnicode_ISO_2022_KR_OFFSETS_LOGIC_IBMP23UConverterToUnicodeArgsP10UErrorCode.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3404,11 +3398,11 @@ define internal void @_ZL48UConverter_fromUnicode_ISO_2022_KR_OFFSETS_LOGICP25UC
   %11 = load ptr, ptr %10, align 8, !tbaa !88
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !89
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8, !tbaa !92
   store ptr %15, ptr %4, align 8, !tbaa !93
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !56
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !52
@@ -3893,11 +3887,11 @@ thread-pre-split:                                 ; preds = %120, %114
 
 283:                                              ; preds = %257, %265, %274, %281
   %.0 = phi i32 [ %282, %281 ], [ %266, %274 ], [ %266, %265 ], [ -1, %257 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %.2155, ptr %3, align 8, !tbaa !76
   call void @ucnv_fromUWriteBytes_77(ptr noundef nonnull %253, ptr noundef nonnull @_ZL12SHIFT_IN_STR, i32 noundef 1, ptr noundef nonnull %3, ptr noundef %13, ptr noundef nonnull %4, i32 noundef %.0, ptr noundef nonnull %1)
   %284 = load ptr, ptr %3, align 8, !tbaa !76
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %285
 
 285:                                              ; preds = %283, %252, %249, %.loopexit
@@ -3912,21 +3906,21 @@ thread-pre-split:                                 ; preds = %120, %114
   br label %289
 
 289:                                              ; preds = %285, %_ZL52UConverter_fromUnicode_ISO_2022_KR_OFFSETS_LOGIC_IBMP25UConverterFromUnicodeArgsP10UErrorCode.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare void @ucnv_MBCSToUnicodeWithOffsets_77(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @ucnv_MBCSToUnicodeWithOffsets_77(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @ucnv_MBCSFromUnicodeWithOffsets_77(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @ucnv_MBCSFromUnicodeWithOffsets_77(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL46UConverter_toUnicode_ISO_2022_CN_OFFSETS_LOGICP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca [3 x i8], align 1
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !74
   store ptr %6, ptr %4, align 8, !tbaa !76
@@ -4378,8 +4372,8 @@ _ZL17toUnicodeCallbackP10UConverterjjP10UErrorCode.exit: ; preds = %221, %224
   br label %232
 
 232:                                              ; preds = %.loopexit, %77, %.split214.us
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -4401,12 +4395,12 @@ define internal void @_ZL48UConverter_fromUnicode_ISO_2022_CN_OFFSETS_LOGICP25UC
   %16 = load ptr, ptr %15, align 8, !tbaa !90
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !91
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = load ptr, ptr %19, align 8, !tbaa !92
   store ptr %20, ptr %5, align 8, !tbaa !93
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 98
@@ -4620,7 +4614,7 @@ define internal void @_ZL48UConverter_fromUnicode_ISO_2022_CN_OFFSETS_LOGICP25UC
   br i1 %110, label %111, label %221
 
 111:                                              ; preds = %107
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %112 = icmp samesign ugt i8 %109, 31
   br i1 %112, label %113, label %178
 
@@ -4829,7 +4823,7 @@ _ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread.thread: ;
   %.5 = phi i32 [ %169, %173 ], [ %.2167270, %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread ], [ %.0.i224253, %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit230.thread292 ], [ %.2167270, %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit230.thread ], [ %169, %167 ], [ %.., %174 ], [ %.2167270, %159 ], [ %.2167270, %213 ], [ %.2167270, %207 ]
   %.2161 = phi i8 [ 34, %173 ], [ %.0159274, %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread ], [ %109, %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit230.thread292 ], [ %.0159274, %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit230.thread ], [ 33, %167 ], [ %175, %174 ], [ %.0159274, %159 ], [ %.0159274, %213 ], [ %.0159274, %207 ]
   %.2158 = phi i8 [ 2, %173 ], [ %.0156277, %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread ], [ 1, %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit230.thread292 ], [ %.0156277, %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit230.thread ], [ 1, %167 ], [ %..0156, %174 ], [ %.0156277, %159 ], [ %.0156277, %213 ], [ %.0156277, %207 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %221
 
 221:                                              ; preds = %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread.thread, %107
@@ -5001,11 +4995,11 @@ _ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread.thread: ;
   %.neg = select i1 %300, i64 4294967295, i64 4294967294
   %301 = add nuw i64 %299, %.neg
   %302 = trunc i64 %301 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.3241, ptr %4, align 8, !tbaa !76
   call void @ucnv_fromUWriteBytes_77(ptr noundef %10, ptr noundef nonnull %6, i32 noundef range(i32 -127, 133) %.1166, ptr noundef nonnull %4, ptr noundef %14, ptr noundef nonnull %5, i32 noundef %302, ptr noundef %1)
   %303 = load ptr, ptr %4, align 8, !tbaa !76
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %304 = load i32, ptr %1, align 4, !tbaa !24
   %305 = icmp slt i32 %304, 1
   br i1 %305, label %27, label %.thread306, !llvm.loop !121
@@ -5079,11 +5073,11 @@ _ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread.thread: ;
 
 344:                                              ; preds = %318, %326, %335, %342
   %.0 = phi i32 [ %343, %342 ], [ %327, %335 ], [ %327, %326 ], [ -1, %318 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %.2240.ph, ptr %3, align 8, !tbaa !76
   call void @ucnv_fromUWriteBytes_77(ptr noundef nonnull %10, ptr noundef nonnull @_ZL12SHIFT_IN_STR, i32 noundef 1, ptr noundef nonnull %3, ptr noundef %14, ptr noundef nonnull %5, i32 noundef %.0, ptr noundef nonnull %1)
   %345 = load ptr, ptr %3, align 8, !tbaa !76
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread306
 
 .thread306:                                       ; preds = %53, %61, %306, %294, %.thread, %._crit_edge.thread, %344, %315, %312, %309, %307
@@ -5091,25 +5085,31 @@ _ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread.thread: ;
   %.4242 = phi ptr [ %.2240.ph, %307 ], [ %.2240.ph, %309 ], [ %.2240.ph, %312 ], [ %345, %344 ], [ %.2240.ph, %315 ], [ %.0238, %.thread ], [ %.3241, %._crit_edge.thread ], [ %.3241, %61 ], [ %303, %294 ], [ %.1239, %306 ], [ %.1239, %53 ]
   store ptr %.2309, ptr %15, align 8, !tbaa !90
   store ptr %.4242, ptr %11, align 8, !tbaa !88
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare void @ucnv_unloadSharedDataIfReady_77(ptr noundef) local_unnamed_addr #8
+declare void @ucnv_unloadSharedDataIfReady_77(ptr noundef) local_unnamed_addr #7
 
-declare void @ucnv_close_77(ptr noundef) local_unnamed_addr #8
+declare void @ucnv_close_77(ptr noundef) local_unnamed_addr #7
 
-declare void @ucnv_cbFromUWriteSub_77(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare void @ucnv_cbFromUWriteSub_77(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @ucnv_cbFromUWriteBytes_77(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare void @ucnv_cbFromUWriteBytes_77(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @ucnv_safeClone_77(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @ucnv_safeClone_77(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @ucnv_incrementRefCount_77(ptr noundef) local_unnamed_addr #8
+declare void @ucnv_incrementRefCount_77(ptr noundef) local_unnamed_addr #7
 
-declare void @ucnv_MBCSGetFilteredUnicodeSetForUnicode_77(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare void @ucnv_MBCSGetFilteredUnicodeSetForUnicode_77(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #11
@@ -5123,17 +5123,17 @@ declare i16 @llvm.umin.i16(i16, i16) #11
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
-attributes #13 = { allocsize(0) }
+attributes #12 = { allocsize(0) }
+attributes #13 = { nounwind }
 attributes #14 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}

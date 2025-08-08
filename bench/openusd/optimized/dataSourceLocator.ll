@@ -6324,7 +6324,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit58, %185, %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit, %202, %225, %61
   %.1 = phi i1 [ false, %61 ], [ true, %225 ], [ true, %202 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit.thread ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit58 ], [ true, %185 ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br i1 %53, label %243, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit59
 
 243:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit.thread
@@ -6336,7 +6336,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit59
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit59: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit.thread, %243
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_.exit.thread: ; preds = %._crit_edge, %26, %38, %.lr.ph106, %12, %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit59
@@ -6522,7 +6522,7 @@ _ZSt7advanceIPKN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorElEvRT_T0
 
 _ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit28: ; preds = %89, %76, %72, %.loopexit
   %99 = phi i1 [ false, %.loopexit ], [ true, %72 ], [ false, %76 ], [ %97, %89 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br i1 %44, label %100, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 100:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit28
@@ -6534,7 +6534,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit28, %100
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit, %19, %30, %7, %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
@@ -7031,7 +7031,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit
           to label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetC2ERKS0_.exit92 unwind label %182
 
 _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetC2ERKS0_.exit92: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoraSERKS0_.exit73
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br i1 %83, label %225, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 225:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetC2ERKS0_.exit92
@@ -7043,12 +7043,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetC2ERKS0_.exit92: ; 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetC2ERKS0_.exit92, %225
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %230
 
 227:                                              ; preds = %224, %182
   %.pn.pn = phi { ptr, i32 } [ %.pn, %224 ], [ %183, %182 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %83, label %228, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit93
 
 228:                                              ; preds = %227
@@ -7060,7 +7060,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZN32
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit93
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit93: ; preds = %227, %228
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %231
 
 230:                                              ; preds = %._crit_edge, %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit, %.critedge
@@ -7929,7 +7929,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
   br label %15
 
 15:                                               ; preds = %.lr.ph, %13
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9GetStringB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull readonly align 8 dereferenceable(56) %.01316, ptr noundef nonnull @.str)
   %16 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKNS_19HdDataSourceLocatorE.exit unwind label %17
@@ -7942,7 +7942,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
 
 _ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKNS_19HdDataSourceLocatorE.exit: ; preds = %15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = getelementptr inbounds nuw i8, ptr %.01316, i64 56
   %.not = icmp eq ptr %19, %12
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -8352,10 +8352,10 @@ define linkonce_odr void @_ZSt16__introsort_loopIPN32pxrInternal_v0_24__pxrReser
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZSt11__make_heapIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_RT0_(ptr noundef %0, ptr noundef %.016, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.lr.ph.i5.i
 
 .lr.ph.i5.i:                                      ; preds = %14, %.lr.ph.i5.i
@@ -8368,7 +8368,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIPN32pxrInternal_v0_24__pxrReser
   br i1 %18, label %.lr.ph.i5.i, label %_ZSt14__partial_sortIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_T0_.exit, !llvm.loop !44
 
 _ZSt14__partial_sortIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_T0_.exit: ; preds = %.lr.ph.i5.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
 19:                                               ; preds = %11
@@ -11310,10 +11310,10 @@ declare i64 @llvm.smin.i64(i64, i64) #17
 declare i32 @llvm.umin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }

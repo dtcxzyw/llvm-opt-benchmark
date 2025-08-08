@@ -5255,7 +5255,7 @@ _ZNK10Node_ArrayixEj.exit54:                      ; preds = %_ZNK10Node_ArrayixE
   br i1 %.not.i, label %.critedge3, label %32
 
 32:                                               ; preds = %_ZNK10Node_ArrayixEj.exit54
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %33 = load ptr, ptr %22, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.045, i64 40
   %35 = load i32, ptr %34, align 8
@@ -5350,7 +5350,7 @@ _ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i.i:    ; preds = %62, %32
 
 _ZNK16MemoryGraphFixer12mem_is_validEP4NodeS1_.exit: ; preds = %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i.i, %74, %78, %83, %88, %90
   %.0.i.i = phi ptr [ %89, %88 ], [ %91, %90 ], [ %.0.i.i.i.i, %83 ], [ %.0.i.i.i.i, %78 ], [ %.0.i.i.i.i, %74 ], [ %.0.i.i.i.i, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %92 = icmp eq ptr %.0.i.i, %.0
   br i1 %92, label %.critedge, label %93
 
@@ -5371,7 +5371,7 @@ _ZNK16MemoryGraphFixer12mem_is_validEP4NodeS1_.exit: ; preds = %_ZN14PhaseIdealL
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load ptr, ptr %105, align 8
   %107 = load ptr, ptr %106, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %108 = load ptr, ptr %22, align 8
   %109 = load i32, ptr %34, align 8
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 32
@@ -5464,7 +5464,7 @@ _ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i:      ; preds = %136, %98
 
 _ZNK16MemoryGraphFixer8get_ctrlEP4Node.exit:      ; preds = %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i, %147, %151, %156, %161, %163
   %.0.i = phi ptr [ %162, %161 ], [ %164, %163 ], [ %.0.i.i.i, %156 ], [ %.0.i.i.i, %151 ], [ %.0.i.i.i, %147 ], [ %.0.i.i.i, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not = icmp eq ptr %107, %.0.i
   br i1 %.not, label %.critedge, label %.critedge3
 
@@ -5533,7 +5533,7 @@ _ZNK10Node_ArrayixEj.exit54.backedge:             ; preds = %_ZNK14PhaseIdealLoo
   br i1 %.not50, label %.critedge10, label %203
 
 203:                                              ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %204 = load ptr, ptr %22, align 8
   %205 = load i32, ptr %34, align 8
   %206 = getelementptr inbounds nuw i8, ptr %204, i64 32
@@ -5630,7 +5630,7 @@ _ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i.i57:  ; preds = %232, %203
 
 _ZNK16MemoryGraphFixer12mem_is_validEP4NodeS1_.exit67: ; preds = %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i.i57, %243, %247, %252, %259, %262
   %.0.i.i60 = phi ptr [ %261, %259 ], [ %264, %262 ], [ %.0.i.i.i.i58, %252 ], [ %.0.i.i.i.i58, %247 ], [ %.0.i.i.i.i58, %243 ], [ %.0.i.i.i.i58, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i.i57 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %265 = icmp eq ptr %.0.i.i60, %.0
   br i1 %265, label %.preheader, label %.critedge10
 
@@ -5807,7 +5807,7 @@ _Z8next_memP4Nodei.exit:                          ; preds = %316, %325, %332, %3
 
 .thread122:                                       ; preds = %.critedge5, %361
   %.3125 = phi ptr [ %364, %361 ], [ %.2.lcssa, %.critedge5 ]
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %365 = load ptr, ptr %22, align 8
   %366 = getelementptr inbounds nuw i8, ptr %.3125, i64 40
   %367 = load i32, ptr %366, align 8
@@ -5906,7 +5906,7 @@ _ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i.i80:  ; preds = %394, %.thread122
 
 _ZNK16MemoryGraphFixer8get_ctrlEP4Node.exit.i82:  ; preds = %425, %422, %415, %410, %406, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i.i80
   %.0.i.i83 = phi ptr [ %424, %422 ], [ %427, %425 ], [ %.0.i.i.i.i81, %415 ], [ %.0.i.i.i.i81, %410 ], [ %.0.i.i.i.i81, %406 ], [ %.0.i.i.i.i81, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i.i80 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %428 = icmp eq ptr %.0.i.i83, %.0
   br i1 %428, label %.critedge10, label %.critedge12.preheader
 
@@ -5983,7 +5983,7 @@ _ZNK10Node_ArrayixEj.exit96:                      ; preds = %_ZNK14PhaseIdealLoo
   br i1 %.not.i97, label %.critedge12.backedge, label %474
 
 474:                                              ; preds = %_ZNK10Node_ArrayixEj.exit96
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %475 = load ptr, ptr %22, align 8
   %476 = getelementptr inbounds nuw i8, ptr %473, i64 40
   %477 = load i32, ptr %476, align 8
@@ -6078,7 +6078,7 @@ _ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i.i99:  ; preds = %504, %474
 
 _ZNK16MemoryGraphFixer12mem_is_validEP4NodeS1_.exit109: ; preds = %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i.i99, %516, %520, %525, %530, %532
   %.0.i.i102 = phi ptr [ %531, %530 ], [ %533, %532 ], [ %.0.i.i.i.i100, %525 ], [ %.0.i.i.i.i100, %520 ], [ %.0.i.i.i.i100, %516 ], [ %.0.i.i.i.i100, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i.i99 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %534 = icmp eq ptr %.0.i.i102, %.0.lcssa.i.i.i91
   br i1 %534, label %.critedge10, label %_ZNK16MemoryGraphFixer12mem_is_validEP4NodeS1_.exit109.thread
 
@@ -6099,7 +6099,7 @@ _ZNK16MemoryGraphFixer12mem_is_validEP4NodeS1_.exit109.thread: ; preds = %_ZNK16
   %546 = getelementptr inbounds nuw i8, ptr %545, i64 8
   %547 = load ptr, ptr %546, align 8
   %548 = load ptr, ptr %547, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %549 = load ptr, ptr %22, align 8
   %550 = getelementptr inbounds nuw i8, ptr %473, i64 40
   %551 = load i32, ptr %550, align 8
@@ -6194,7 +6194,7 @@ _ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i111:   ; preds = %578, %539
 
 _ZNK16MemoryGraphFixer8get_ctrlEP4Node.exit120:   ; preds = %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i111, %590, %594, %599, %604, %606
   %.0.i113 = phi ptr [ %605, %604 ], [ %607, %606 ], [ %.0.i.i.i112, %599 ], [ %.0.i.i.i112, %594 ], [ %.0.i.i.i112, %590 ], [ %.0.i.i.i112, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i111 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not52 = icmp eq ptr %548, %.0.i113
   br i1 %.not52, label %.critedge10, label %.critedge12.backedge
 
@@ -12965,7 +12965,7 @@ _ZNK10Node_ArrayixEj.exit:                        ; preds = %170, %175
   br i1 %.not.i293, label %_ZNK16MemoryGraphFixer12mem_is_validEP4NodeS1_.exit.thread, label %228
 
 228:                                              ; preds = %227
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %229 = load ptr, ptr %132, align 8
   %230 = getelementptr inbounds nuw i8, ptr %180, i64 40
   %231 = load i32, ptr %230, align 8
@@ -13060,7 +13060,7 @@ _ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i.i:    ; preds = %258, %228
 
 _ZNK16MemoryGraphFixer12mem_is_validEP4NodeS1_.exit: ; preds = %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i.i, %270, %274, %279, %284, %286
   %.0.i.i = phi ptr [ %285, %284 ], [ %287, %286 ], [ %.0.i.i.i.i, %279 ], [ %.0.i.i.i.i, %274 ], [ %.0.i.i.i.i, %270 ], [ %.0.i.i.i.i, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %288 = icmp eq ptr %.0.i.i, %160
   br i1 %288, label %289, label %_ZNK16MemoryGraphFixer12mem_is_validEP4NodeS1_.exit.thread
 
@@ -13232,7 +13232,7 @@ _ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit: ; p
   br i1 %.not.i293, label %_ZNK16MemoryGraphFixer12mem_is_validEP4NodeS1_.exit309.thread, label %382
 
 382:                                              ; preds = %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %383 = load ptr, ptr %132, align 8
   %384 = getelementptr inbounds nuw i8, ptr %180, i64 40
   %385 = load i32, ptr %384, align 8
@@ -13327,7 +13327,7 @@ _ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i.i299: ; preds = %412, %382
 
 _ZNK16MemoryGraphFixer12mem_is_validEP4NodeS1_.exit309: ; preds = %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i.i299, %424, %428, %433, %438, %440
   %.0.i.i302 = phi ptr [ %439, %438 ], [ %441, %440 ], [ %.0.i.i.i.i300, %433 ], [ %.0.i.i.i.i300, %428 ], [ %.0.i.i.i.i300, %424 ], [ %.0.i.i.i.i300, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i.i299 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %442 = icmp eq ptr %.0.i.i302, %160
   br i1 %442, label %.preheader545.preheader, label %_ZNK16MemoryGraphFixer12mem_is_validEP4NodeS1_.exit309.thread
 
@@ -13540,7 +13540,7 @@ _ZNK16MemoryGraphFixer11has_mem_phiEP4Node.exit:  ; preds = %208, %184, %.loopex
   br i1 %.not.i326, label %_ZNK16MemoryGraphFixer12mem_is_validEP4NodeS1_.exit338.thread, label %553
 
 553:                                              ; preds = %_ZNK16MemoryGraphFixer11has_mem_phiEP4Node.exit
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %554 = load ptr, ptr %132, align 8
   %555 = getelementptr inbounds nuw i8, ptr %180, i64 40
   %556 = load i32, ptr %555, align 8
@@ -13635,7 +13635,7 @@ _ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i.i328: ; preds = %583, %553
 
 _ZNK16MemoryGraphFixer12mem_is_validEP4NodeS1_.exit338: ; preds = %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i.i328, %595, %599, %604, %609, %611
   %.0.i.i331 = phi ptr [ %610, %609 ], [ %612, %611 ], [ %.0.i.i.i.i329, %604 ], [ %.0.i.i.i.i329, %599 ], [ %.0.i.i.i.i329, %595 ], [ %.0.i.i.i.i329, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i.i328 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %613 = icmp eq ptr %.0.i.i331, %160
   br i1 %613, label %_ZN16Unique_Node_List4pushEP4Node.exit325, label %_ZNK16MemoryGraphFixer12mem_is_validEP4NodeS1_.exit338.thread
 
@@ -18128,7 +18128,7 @@ _ZN10Node_Stack4pushEP4Nodej.exit256:             ; preds = %215, %221
   br i1 %or.cond316, label %303, label %237
 
 237:                                              ; preds = %230
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %238 = load ptr, ptr %49, align 8
   %239 = getelementptr inbounds nuw i8, ptr %71, i64 40
   %240 = load i32, ptr %239, align 8
@@ -18222,7 +18222,7 @@ _ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i:      ; preds = %267, %237
 
 _ZNK16MemoryGraphFixer8get_ctrlEP4Node.exit:      ; preds = %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i, %278, %282, %287, %292, %294
   %.0.i = phi ptr [ %293, %292 ], [ %295, %294 ], [ %.0.i.i.i258, %287 ], [ %.0.i.i.i258, %282 ], [ %.0.i.i.i258, %278 ], [ %.0.i.i.i258, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %296 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   %297 = load i32, ptr %296, align 8
   %298 = load i32, ptr %65, align 8
@@ -19026,7 +19026,7 @@ _ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit.i:     ; preds = %720
   br i1 %.not.i287, label %_ZNK16MemoryGraphFixer12ctrl_or_selfEP4Node.exit, label %734
 
 734:                                              ; preds = %_ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit.i
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %735 = and i64 %732, -2
   %736 = inttoptr i64 %735 to ptr
   %737 = getelementptr inbounds nuw i8, ptr %736, i64 8
@@ -19107,7 +19107,7 @@ _ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i.i:    ; preds = %752, %734
 
 _ZNK16MemoryGraphFixer8get_ctrlEP4Node.exit.i:    ; preds = %779, %777, %772, %767, %763, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i.i
   %.0.i.i290 = phi ptr [ %778, %777 ], [ %780, %779 ], [ %.0.i.i.i.i289, %772 ], [ %.0.i.i.i.i289, %767 ], [ %.0.i.i.i.i289, %763 ], [ %.0.i.i.i.i289, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZNK16MemoryGraphFixer12ctrl_or_selfEP4Node.exit
 
 _ZNK16MemoryGraphFixer12ctrl_or_selfEP4Node.exit: ; preds = %720, %_ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit.i, %_ZNK16MemoryGraphFixer8get_ctrlEP4Node.exit.i
@@ -19850,7 +19850,7 @@ _ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit:       ; preds = %2
   br i1 %.not, label %_ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit.thread, label %18
 
 18:                                               ; preds = %_ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %19 = and i64 %16, -2
   %20 = inttoptr i64 %19 to ptr
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -19936,7 +19936,7 @@ _ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i:      ; preds = %36, %18
 
 _ZNK16MemoryGraphFixer8get_ctrlEP4Node.exit:      ; preds = %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i, %48, %52, %57, %64, %67
   %.0.i = phi ptr [ %66, %64 ], [ %69, %67 ], [ %.0.i.i.i, %57 ], [ %.0.i.i.i, %52 ], [ %.0.i.i.i, %48 ], [ %.0.i.i.i, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit.thread
 
 _ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit.thread: ; preds = %2, %_ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit, %_ZNK16MemoryGraphFixer8get_ctrlEP4Node.exit
@@ -20830,7 +20830,7 @@ define hidden noundef zeroext i1 @_ZNK16MemoryGraphFixer12mem_is_validEP4NodeS1_
   br i1 %.not, label %71, label %5
 
 5:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -20930,7 +20930,7 @@ _ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i:      ; preds = %36, %5
 
 _ZNK16MemoryGraphFixer8get_ctrlEP4Node.exit:      ; preds = %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i, %48, %52, %57, %64, %67
   %.0.i = phi ptr [ %66, %64 ], [ %69, %67 ], [ %.0.i.i.i, %57 ], [ %.0.i.i.i, %52 ], [ %.0.i.i.i, %48 ], [ %.0.i.i.i, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %70 = icmp eq ptr %.0.i, %2
   br label %71
 
@@ -21861,7 +21861,7 @@ define hidden noundef ptr @_ZN34ShenandoahLoadReferenceBarrierNode8IdentityEP8Ph
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 800
@@ -21900,7 +21900,7 @@ _ZN34ShenandoahLoadReferenceBarrierNode13needs_barrierEP8PhaseGVNP4Node.exit: ; 
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 0, ptr %27, align 8
   %28 = call noundef zeroext i1 @_ZN34ShenandoahLoadReferenceBarrierNode18needs_barrier_implEP8PhaseGVNP4NodeR16Unique_Node_List(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(68) %3)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %. = select i1 %28, ptr %0, ptr %7
   ret ptr %.
 }
@@ -22455,10 +22455,10 @@ declare void @llvm.assume(i1 noundef) #8
 declare i32 @llvm.ctpop.i32(i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

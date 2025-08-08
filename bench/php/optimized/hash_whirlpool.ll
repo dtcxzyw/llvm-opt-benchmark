@@ -175,15 +175,12 @@ define dso_local void @PHP_WHIRLPOOLUpdate(ptr noundef captures(none) %0, ptr no
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @WhirlpoolTransform(ptr noundef captures(none) %0) unnamed_addr #2 {
   %2 = alloca [8 x i64], align 16
   %3 = alloca [8 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %5
 
@@ -940,13 +937,10 @@ define internal fastcc void @WhirlpoolTransform(ptr noundef captures(none) %0) u
   %718 = xor i64 %717, %82
   store i64 %718, ptr %81, align 8, !tbaa !12
   call void @explicit_bzero(ptr noundef nonnull %3, i64 noundef 64) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PHP_WHIRLPOOLFinal(ptr noundef writeonly captures(none) %0, ptr noundef %1) #2 {
@@ -1056,14 +1050,14 @@ define dso_local void @PHP_WHIRLPOOLFinal(ptr noundef writeonly captures(none) %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind
-declare void @explicit_bzero(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @explicit_bzero(ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare i32 @php_hash_copy(ptr noundef, ptr noundef, ptr noundef) #6
+declare i32 @php_hash_copy(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare i32 @php_hash_serialize(ptr noundef, ptr noundef, ptr noundef) #6
+declare i32 @php_hash_serialize(ptr noundef, ptr noundef, ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @php_whirlpool_unserialize(ptr noundef %0, i64 noundef %1, ptr noundef %2) #2 {
@@ -1099,15 +1093,21 @@ define internal i32 @php_whirlpool_unserialize(ptr noundef %0, i64 noundef %1, p
   ret i32 %.012
 }
 
-declare i32 @php_hash_unserialize_spec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @php_hash_unserialize_spec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

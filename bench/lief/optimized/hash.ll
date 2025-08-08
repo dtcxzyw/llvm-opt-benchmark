@@ -347,7 +347,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN4LIEF3ART4Hash4hashERKNS_6ObjectE(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %"class.LIEF::ART::Hash", align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN4LIEF4HashC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #5
   store ptr getelementptr inbounds nuw inrange(-16, 1312) (i8, ptr @_ZTVN4LIEF3ART4HashE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %0, align 8, !tbaa !3
@@ -357,7 +357,7 @@ define noundef i64 @_ZN4LIEF3ART4Hash4hashERKNS_6ObjectE(ptr noundef nonnull ali
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %7 = load i64, ptr %6, align 8, !tbaa !6
   call void @_ZN4LIEF3ART4HashD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %7
 }
 
@@ -376,7 +376,7 @@ declare noundef nonnull align 8 dereferenceable(96) ptr @_ZNK4LIEF3ART4File6head
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN4LIEF3ART4Hash5visitERKNS0_6HeaderE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #1 align 2 {
   %3 = alloca %"struct.std::array", align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i32 @_ZNK4LIEF3ART6Header5magicEv(ptr noundef nonnull align 8 dereferenceable(96) %1) #5
   store i32 %4, ptr %3, align 4
   br label %.lr.ph.i.i
@@ -395,7 +395,7 @@ define void @_ZN4LIEF3ART4Hash5visitERKNS0_6HeaderE(ptr noundef nonnull align 8 
   br i1 %.not.i.i, label %_ZN4LIEF4Hash7processIhLm4EEERS0_RKSt5arrayIT_XT0_EE.exit, label %.lr.ph.i.i, !llvm.loop !22
 
 _ZN4LIEF4Hash7processIhLm4EEERS0_RKSt5arrayIT_XT0_EE.exit: ; preds = %.lr.ph.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %11 = tail call noundef i32 @_ZNK4LIEF3ART6Header7versionEv(ptr noundef nonnull align 8 dereferenceable(96) %1) #5
   %12 = zext i32 %11 to i64
   %13 = load ptr, ptr %0, align 8, !tbaa !3
@@ -519,13 +519,7 @@ _ZN4LIEF4Hash7processIhLm4EEERS0_RKSt5arrayIT_XT0_EE.exit: ; preds = %.lr.ph.i.i
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 declare i32 @_ZNK4LIEF3ART6Header5magicEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 declare noundef i32 @_ZNK4LIEF3ART6Header7versionEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #3
 
@@ -1344,6 +1338,12 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN4LIEF4Hash7processER
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN4LIEF4Hash7processEN3tcb4spanIKhLm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(64), ptr, i64) unnamed_addr #3
 
 declare void @_ZN4LIEF4HashC2Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

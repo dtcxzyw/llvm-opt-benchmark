@@ -51,17 +51,14 @@ define noundef i32 @uidna_toASCII_77(ptr noundef %0, i32 noundef %1, ptr noundef
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @usprep_openByType_77(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @usprep_openByType_77(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef i32 @_ZL17_internal_toASCIIPKDsiPDsiiP18UStringPrepProfileP11UParseErrorP10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %7) unnamed_addr #0 {
   %9 = alloca [100 x i16], align 16
   %10 = alloca [100 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = and i32 %4, 1
   %12 = and i32 %4, 2
   %.not = icmp eq i32 %12, 0
@@ -80,7 +77,7 @@ define internal fastcc noundef i32 @_ZL17_internal_toASCIIPKDsiPDsiiP18UStringPr
 18:                                               ; preds = %16
   %19 = shl nuw nsw i32 %.0125, 1
   %20 = zext nneg i32 %19 to i64
-  %21 = tail call noalias ptr @uprv_malloc_77(i64 noundef %20) #7
+  %21 = tail call noalias ptr @uprv_malloc_77(i64 noundef %20) #6
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.thread166.sink.split, label %.lr.ph.preheader
 
@@ -128,7 +125,7 @@ define internal fastcc noundef i32 @_ZL17_internal_toASCIIPKDsiPDsiiP18UStringPr
 37:                                               ; preds = %36, %35
   %38 = shl nsw i32 %32, 1
   %39 = sext i32 %38 to i64
-  %40 = call noalias ptr @uprv_malloc_77(i64 noundef %39) #7
+  %40 = call noalias ptr @uprv_malloc_77(i64 noundef %39) #6
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.thread166.sink.split, label %42
 
@@ -294,7 +291,7 @@ _ZL16startsWithPrefixPKDsi.exit.thread:           ; preds = %82, %_ZL16startsWit
 93:                                               ; preds = %_ZL16startsWithPrefixPKDsi.exit.thread
   %94 = shl nsw i32 %90, 1
   %95 = sext i32 %94 to i64
-  %96 = call noalias ptr @uprv_malloc_77(i64 noundef %95) #7
+  %96 = call noalias ptr @uprv_malloc_77(i64 noundef %95) #6
   %97 = icmp eq ptr %96, null
   br i1 %97, label %98, label %99
 
@@ -375,15 +372,12 @@ _ZL16startsWithPrefixPKDsi.exit.thread:           ; preds = %82, %_ZL16startsWit
 119:                                              ; preds = %118, %117
   call void @uprv_free_77(ptr noundef null)
   %120 = call i32 @u_terminateUChars_77(ptr noundef %2, i32 noundef %3, i32 noundef %.0138172, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %120
 }
 
-declare void @usprep_close_77(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @usprep_close_77(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @uidna_toUnicode_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
@@ -435,9 +429,9 @@ define internal fastcc noundef i32 @_ZL19_internal_toUnicodePKDsiPDsiiP18UString
   %10 = alloca [100 x i16], align 16
   %11 = alloca [100 x i16], align 16
   %12 = and i32 %4, 1
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %13 = icmp eq i32 %1, -1
   br i1 %13, label %.preheader, label %19
 
@@ -493,7 +487,7 @@ define internal fastcc noundef i32 @_ZL19_internal_toUnicodePKDsiPDsiiP18UString
 30:                                               ; preds = %.thread
   %31 = shl nsw i32 %27, 1
   %32 = sext i32 %31 to i64
-  %33 = call noalias ptr @uprv_malloc_77(i64 noundef %32) #7
+  %33 = call noalias ptr @uprv_malloc_77(i64 noundef %32) #6
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %36
 
@@ -551,7 +545,7 @@ _ZL16startsWithPrefixPKDsi.exit:                  ; preds = %.preheader.i
 54:                                               ; preds = %48
   %55 = shl nsw i32 %51, 1
   %56 = sext i32 %55 to i64
-  %57 = call noalias ptr @uprv_malloc_77(i64 noundef %56) #7
+  %57 = call noalias ptr @uprv_malloc_77(i64 noundef %56) #6
   %58 = icmp eq ptr %57, null
   br i1 %58, label %59, label %60
 
@@ -601,7 +595,7 @@ uidna_toASCII_77.exit:                            ; preds = %62, %71, %67
 75:                                               ; preds = %uidna_toASCII_77.exit
   %76 = shl nsw i32 %.0.i, 1
   %77 = sext i32 %76 to i64
-  %78 = call noalias ptr @uprv_malloc_77(i64 noundef %77) #7
+  %78 = call noalias ptr @uprv_malloc_77(i64 noundef %77) #6
   %79 = icmp eq ptr %78, null
   br i1 %79, label %80, label %81
 
@@ -758,9 +752,9 @@ uidna_toASCII_77.exit159.thread:                  ; preds = %85, %84, %uidna_toA
 
 124:                                              ; preds = %19, %122
   %.0119 = phi i32 [ %123, %122 ], [ 0, %19 ]
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0119
 }
 
@@ -963,7 +957,7 @@ _ZL16getNextSeparatorPDsiPS_Pa.exit.thread:       ; preds = %_ZL16isLabelSeparat
   ret i32 %.065
 }
 
-declare i32 @u_terminateUChars_77(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @u_terminateUChars_77(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define i32 @uidna_IDNToUnicode_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
@@ -1162,9 +1156,9 @@ define i32 @uidna_compare_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32
   br i1 %13, label %14, label %56
 
 14:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %15 = call i32 @uidna_IDNToASCII_77(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %7, i32 noundef 256, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %5)
   %16 = load i32, ptr %5, align 4, !tbaa !3
   %17 = icmp eq i32 %16, 15
@@ -1173,7 +1167,7 @@ define i32 @uidna_compare_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32
 18:                                               ; preds = %14
   %19 = shl nsw i32 %15, 1
   %20 = sext i32 %19 to i64
-  %21 = call noalias ptr @uprv_malloc_77(i64 noundef %20) #7
+  %21 = call noalias ptr @uprv_malloc_77(i64 noundef %20) #6
   %22 = icmp eq ptr %21, null
   br i1 %22, label %_ZL27compareCaseInsensitiveASCIIPKDsiS0_i.exit.thread, label %23
 
@@ -1197,7 +1191,7 @@ _ZL27compareCaseInsensitiveASCIIPKDsiS0_i.exit.thread: ; preds = %18
 29:                                               ; preds = %25
   %30 = shl nsw i32 %26, 1
   %31 = sext i32 %30 to i64
-  %32 = call noalias ptr @uprv_malloc_77(i64 noundef %31) #7
+  %32 = call noalias ptr @uprv_malloc_77(i64 noundef %31) #6
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %35
 
@@ -1275,9 +1269,9 @@ _ZL27compareCaseInsensitiveASCIIPKDsiS0_i.exit:   ; preds = %51, %43, %37, %34
   br label %55
 
 55:                                               ; preds = %54, %53
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %56
 
 56:                                               ; preds = %6, %11, %55
@@ -1286,23 +1280,29 @@ _ZL27compareCaseInsensitiveASCIIPKDsiS0_i.exit:   ; preds = %51, %43, %37, %34
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #3
+declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #2
 
-declare void @uprv_free_77(ptr noundef) local_unnamed_addr #2
+declare void @uprv_free_77(ptr noundef) local_unnamed_addr #1
 
-declare i32 @u_strlen_77(ptr noundef) local_unnamed_addr #2
+declare i32 @u_strlen_77(ptr noundef) local_unnamed_addr #1
 
-declare i32 @usprep_prepare_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @usprep_prepare_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @uprv_syntaxError_77(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @uprv_syntaxError_77(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @u_memmove_77(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @u_memmove_77(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @u_strToPunycode_77(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @u_strToPunycode_77(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @u_memcpy_77(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @u_memcpy_77(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @u_strFromPunycode_77(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @u_strFromPunycode_77(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
@@ -1314,13 +1314,12 @@ declare i32 @llvm.smin.i32(i32, i32) #5
 declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #5
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
-attributes #7 = { allocsize(0) }
+attributes #6 = { allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

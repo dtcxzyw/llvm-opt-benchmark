@@ -74,7 +74,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 define range(i32 0, 2) i32 @ossl_json_flush_cleanup(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i64, ptr %4, align 8, !tbaa !14
@@ -119,7 +119,7 @@ define range(i32 0, 2) i32 @ossl_json_flush_cleanup(ptr noundef captures(address
 
 ossl_json_flush.exit:                             ; preds = %15, %._crit_edge.i.i
   %.017.i.i = phi i32 [ 0, %15 ], [ 1, %._crit_edge.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %26 = load ptr, ptr %25, align 8, !tbaa !13
   call void @CRYPTO_free(ptr noundef %26, ptr noundef nonnull @.str, i32 noundef 36) #10
@@ -139,14 +139,11 @@ ossl_json_cleanup.exit:                           ; preds = %ossl_json_flush.exi
   ret i32 %.017.i.i
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_json_flush(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i64, ptr %4, align 8, !tbaa !14
@@ -191,15 +188,12 @@ define range(i32 0, 2) i32 @ossl_json_flush(ptr noundef captures(none) %0) local
 
 wbuf_flush.exit:                                  ; preds = %15, %._crit_edge.i
   %.017.i = phi i32 [ 0, %15 ], [ 1, %._crit_edge.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.017.i
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ossl_json_reset(ptr noundef writeonly captures(none) initializes((4, 6), (64, 80)) %0) local_unnamed_addr #4 {
+define noundef i32 @ossl_json_reset(ptr noundef writeonly captures(none) initializes((4, 6), (64, 80)) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 5
   store i8 0, ptr %3, align 1, !tbaa !22
@@ -210,14 +204,14 @@ define noundef i32 @ossl_json_reset(ptr noundef writeonly captures(none) initial
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ossl_json_set0_sink(ptr noundef writeonly captures(none) initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef i32 @ossl_json_set0_sink(ptr noundef writeonly captures(none) initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %3, align 8, !tbaa !16
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 256) i32 @ossl_json_in_error(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define range(i32 0, 256) i32 @ossl_json_in_error(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i8, ptr %2, align 4, !tbaa !23
   %4 = zext i8 %3 to i32
@@ -357,7 +351,7 @@ json_undefer.exit.i:                              ; preds = %58, %55
   br i1 %62, label %63, label %wbuf_write_char.exit.i
 
 63:                                               ; preds = %json_undefer.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !19
   %.not24.i.i.i = icmp eq i64 %.val.i.i, 0
   br i1 %.not24.i.i.i, label %wbuf_flush.exit.i.i, label %.lr.ph.i.i.i
@@ -385,7 +379,7 @@ json_undefer.exit.i:                              ; preds = %58, %55
   br i1 %76, label %65, label %wbuf_flush.exit.i.i, !llvm.loop !20
 
 wbuf_flush.exit.i.i:                              ; preds = %73, %63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %wbuf_write_char.exit.i
 
 wbuf_write_char.exit.i:                           ; preds = %wbuf_flush.exit.i.i, %json_undefer.exit.i
@@ -404,7 +398,7 @@ wbuf_write_char.exit.i:                           ; preds = %wbuf_flush.exit.i.i
   %85 = sub i64 %72, %.023.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %83, ptr align 1 %84, i64 %85, i1 false)
   store i64 0, ptr %61, align 8, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i8 1, ptr %53, align 4, !tbaa !23
   br label %json_write_char.exit
 
@@ -537,7 +531,7 @@ json_undefer.exit.i:                              ; preds = %48, %.thread
   br i1 %52, label %53, label %wbuf_write_char.exit.i
 
 53:                                               ; preds = %json_undefer.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !19
   %.not24.i.i.i = icmp eq i64 %.val.i.i, 0
   br i1 %.not24.i.i.i, label %wbuf_flush.exit.i.i, label %.lr.ph.i.i.i
@@ -565,7 +559,7 @@ json_undefer.exit.i:                              ; preds = %48, %.thread
   br i1 %66, label %55, label %wbuf_flush.exit.i.i, !llvm.loop !20
 
 wbuf_flush.exit.i.i:                              ; preds = %63, %53
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %wbuf_write_char.exit.i
 
 wbuf_write_char.exit.i:                           ; preds = %wbuf_flush.exit.i.i, %json_undefer.exit.i
@@ -584,7 +578,7 @@ wbuf_write_char.exit.i:                           ; preds = %wbuf_flush.exit.i.i
   %75 = sub i64 %62, %.023.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %73, ptr align 1 %74, i64 %75, i1 false)
   store i64 0, ptr %51, align 8, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i8 1, ptr %7, align 4, !tbaa !23
   br label %json_write_char.exit
 
@@ -682,7 +676,7 @@ json_undefer.exit.i:                              ; preds = %33, %30
   br i1 %37, label %38, label %wbuf_write_char.exit.i
 
 38:                                               ; preds = %json_undefer.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !19
   %.not24.i.i.i = icmp eq i64 %.val.i.i, 0
   br i1 %.not24.i.i.i, label %wbuf_flush.exit.i.i, label %.lr.ph.i.i.i
@@ -710,7 +704,7 @@ json_undefer.exit.i:                              ; preds = %33, %30
   br i1 %51, label %40, label %wbuf_flush.exit.i.i, !llvm.loop !20
 
 wbuf_flush.exit.i.i:                              ; preds = %48, %38
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %wbuf_write_char.exit.i
 
 wbuf_write_char.exit.i:                           ; preds = %wbuf_flush.exit.i.i, %json_undefer.exit.i
@@ -729,7 +723,7 @@ wbuf_write_char.exit.i:                           ; preds = %wbuf_flush.exit.i.i
   %60 = sub i64 %47, %.023.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %58, ptr align 1 %59, i64 %60, i1 false)
   store i64 0, ptr %36, align 8, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i8 1, ptr %4, align 4, !tbaa !23
   br label %json_write_char.exit
 
@@ -800,7 +794,7 @@ json_undefer.exit:                                ; preds = %6, %9
   br i1 %13, label %14, label %wbuf_write_char.exit
 
 14:                                               ; preds = %json_undefer.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !19
   %.not24.i.i = icmp eq i64 %.val.i, 0
   br i1 %.not24.i.i, label %wbuf_flush.exit.i, label %.lr.ph.i.i
@@ -828,7 +822,7 @@ json_undefer.exit:                                ; preds = %6, %9
   br i1 %27, label %16, label %wbuf_flush.exit.i, !llvm.loop !20
 
 wbuf_flush.exit.i:                                ; preds = %24, %14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %wbuf_write_char.exit
 
 wbuf_write_char.exit:                             ; preds = %json_undefer.exit, %wbuf_flush.exit.i
@@ -847,7 +841,7 @@ wbuf_write_char.exit:                             ; preds = %json_undefer.exit, 
   %36 = sub i64 %23, %.023.i.i
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %34, ptr align 1 %35, i64 %36, i1 false)
   store i64 0, ptr %12, align 8, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i8 1, ptr %4, align 4, !tbaa !23
   br label %37
 
@@ -882,7 +876,7 @@ json_undefer.exit.i:                              ; preds = %6
   br i1 %12, label %13, label %wbuf_write_char.exit.i
 
 13:                                               ; preds = %json_undefer.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !19
   %.not24.i.i.i = icmp eq i64 %.val.i.i, 0
   br i1 %.not24.i.i.i, label %wbuf_flush.exit.i.i, label %.lr.ph.i.i.i
@@ -910,7 +904,7 @@ json_undefer.exit.i:                              ; preds = %6
   br i1 %26, label %15, label %wbuf_flush.exit.i.i, !llvm.loop !20
 
 wbuf_flush.exit.i.i:                              ; preds = %23, %13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %wbuf_write_char.exit.i
 
 wbuf_write_char.exit.i:                           ; preds = %json_undefer.exit.i, %wbuf_flush.exit.i.i
@@ -929,7 +923,7 @@ wbuf_write_char.exit.i:                           ; preds = %json_undefer.exit.i
   %35 = sub i64 %22, %.023.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %33, ptr align 1 %34, i64 %35, i1 false)
   store i64 0, ptr %11, align 8, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i8 1, ptr %7, align 4, !tbaa !23
   br label %json_write_char.exit
 
@@ -979,7 +973,7 @@ json_write_char.exit:                             ; preds = %wbuf_write_char.exi
   br i1 %54, label %55, label %wbuf_write_char.exit.i11
 
 55:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !19
   %.not24.i.i.i13 = icmp eq i64 %.val.i.i9, 0
   br i1 %.not24.i.i.i13, label %wbuf_flush.exit.i.i17, label %.lr.ph.i.i.i14
@@ -1003,7 +997,7 @@ json_write_char.exit:                             ; preds = %wbuf_write_char.exi
   br i1 %66, label %.lr.ph.i.i.i14, label %wbuf_flush.exit.i.i17, !llvm.loop !20
 
 wbuf_flush.exit.i.i17:                            ; preds = %63, %55
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %wbuf_write_char.exit.i11
 
 wbuf_write_char.exit.i11:                         ; preds = %wbuf_flush.exit.i.i17, %52
@@ -1023,7 +1017,7 @@ wbuf_write_char.exit.i11:                         ; preds = %wbuf_flush.exit.i.i
   %75 = sub i64 %62, %.023.i.i.i15
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %73, ptr align 1 %74, i64 %75, i1 false)
   store i64 0, ptr %46, align 8, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i8 1, ptr %7, align 4, !tbaa !23
   br label %json_write_str.exit
 
@@ -1125,7 +1119,7 @@ json_undefer.exit.i:                              ; preds = %32, %29
   br i1 %36, label %37, label %json_write_char.exit
 
 37:                                               ; preds = %json_undefer.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !19
   %.not24.i.i.i = icmp eq i64 %.val.i.i, 0
   br i1 %.not24.i.i.i, label %wbuf_flush.exit.i.i, label %.lr.ph.i.i.i
@@ -1153,7 +1147,7 @@ json_undefer.exit.i:                              ; preds = %32, %29
   br i1 %50, label %39, label %wbuf_flush.exit.i.i, !llvm.loop !20
 
 wbuf_flush.exit.i.i:                              ; preds = %47, %37
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %json_write_char.exit
 
 json_write_char.exit.thread:                      ; preds = %39
@@ -1162,7 +1156,7 @@ json_write_char.exit.thread:                      ; preds = %39
   %53 = sub i64 %46, %.023.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %51, ptr align 1 %52, i64 %53, i1 false)
   store i64 0, ptr %35, align 8, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i8 1, ptr %3, align 4, !tbaa !23
   br label %65
 
@@ -1268,7 +1262,7 @@ json_undefer.exit:                                ; preds = %.lr.ph, %11, %9, %6
   br i1 %29, label %30, label %wbuf_write_char.exit.i
 
 30:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !19
   %.not24.i.i.i = icmp eq i64 %.val.i.i6, 0
   br i1 %.not24.i.i.i, label %wbuf_flush.exit.i.i, label %.lr.ph.i.i.i
@@ -1292,7 +1286,7 @@ json_undefer.exit:                                ; preds = %.lr.ph, %11, %9, %6
   br i1 %41, label %.lr.ph.i.i.i, label %wbuf_flush.exit.i.i, !llvm.loop !20
 
 wbuf_flush.exit.i.i:                              ; preds = %38, %30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %wbuf_write_char.exit.i
 
 wbuf_write_char.exit.i:                           ; preds = %wbuf_flush.exit.i.i, %26
@@ -1312,7 +1306,7 @@ wbuf_write_char.exit.i:                           ; preds = %wbuf_flush.exit.i.i
   %50 = sub i64 %37, %.023.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %48, ptr align 1 %49, i64 %50, i1 false)
   store i64 0, ptr %24, align 8, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i8 1, ptr %4, align 4, !tbaa !23
   br label %wbuf_write_str.exit.thread
 
@@ -1373,7 +1367,7 @@ json_undefer.exit.i:                              ; preds = %19, %16
   br i1 %23, label %24, label %wbuf_write_char.exit.i
 
 24:                                               ; preds = %json_undefer.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !19
   %.not24.i.i.i = icmp eq i64 %.val.i.i, 0
   br i1 %.not24.i.i.i, label %wbuf_flush.exit.i.i, label %.lr.ph.i.i.i
@@ -1401,7 +1395,7 @@ json_undefer.exit.i:                              ; preds = %19, %16
   br i1 %37, label %26, label %wbuf_flush.exit.i.i, !llvm.loop !20
 
 wbuf_flush.exit.i.i:                              ; preds = %34, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %wbuf_write_char.exit.i
 
 wbuf_write_char.exit.i:                           ; preds = %wbuf_flush.exit.i.i, %json_undefer.exit.i
@@ -1420,7 +1414,7 @@ wbuf_write_char.exit.i:                           ; preds = %wbuf_flush.exit.i.i
   %46 = sub i64 %33, %.023.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %44, ptr align 1 %45, i64 %46, i1 false)
   store i64 0, ptr %22, align 8, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i8 1, ptr %14, align 4, !tbaa !23
   br label %json_write_char.exit
 
@@ -1456,7 +1450,7 @@ define internal fastcc void @json_u64(ptr noundef captures(none) %0, i64 noundef
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca [22 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 22, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 21
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %8, label %.thread
@@ -1505,7 +1499,7 @@ json_undefer.exit.i:                              ; preds = %20, %17
   br i1 %24, label %25, label %wbuf_write_char.exit.i
 
 25:                                               ; preds = %json_undefer.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !19
   %.not24.i.i.i = icmp eq i64 %.val.i.i, 0
   br i1 %.not24.i.i.i, label %wbuf_flush.exit.i.i, label %.lr.ph.i.i.i
@@ -1533,7 +1527,7 @@ json_undefer.exit.i:                              ; preds = %20, %17
   br i1 %38, label %27, label %wbuf_flush.exit.i.i, !llvm.loop !20
 
 wbuf_flush.exit.i.i:                              ; preds = %35, %25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %wbuf_write_char.exit.i
 
 wbuf_write_char.exit.i:                           ; preds = %wbuf_flush.exit.i.i, %json_undefer.exit.i
@@ -1552,7 +1546,7 @@ wbuf_write_char.exit.i:                           ; preds = %wbuf_flush.exit.i.i
   %47 = sub i64 %34, %.023.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %45, ptr align 1 %46, i64 %47, i1 false)
   store i64 0, ptr %23, align 8, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i8 1, ptr %15, align 4, !tbaa !23
   br label %json_write_char.exit
 
@@ -1610,7 +1604,7 @@ json_undefer.exit.i23:                            ; preds = %64, %61
   br i1 %68, label %69, label %wbuf_write_char.exit.i26
 
 69:                                               ; preds = %json_undefer.exit.i23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !19
   %.not24.i.i.i27 = icmp eq i64 %.val.i.i24, 0
   br i1 %.not24.i.i.i27, label %wbuf_flush.exit.i.i31, label %.lr.ph.i.i.i28
@@ -1638,7 +1632,7 @@ json_undefer.exit.i23:                            ; preds = %64, %61
   br i1 %82, label %71, label %wbuf_flush.exit.i.i31, !llvm.loop !20
 
 wbuf_flush.exit.i.i31:                            ; preds = %79, %69
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %wbuf_write_char.exit.i26
 
 wbuf_write_char.exit.i26:                         ; preds = %wbuf_flush.exit.i.i31, %json_undefer.exit.i23
@@ -1657,7 +1651,7 @@ wbuf_write_char.exit.i26:                         ; preds = %wbuf_flush.exit.i.i
   %91 = sub i64 %78, %.023.i.i.i29
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %89, ptr align 1 %90, i64 %91, i1 false)
   store i64 0, ptr %67, align 8, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i8 1, ptr %59, align 4, !tbaa !23
   br label %json_write_char.exit32
 
@@ -1666,7 +1660,7 @@ json_write_char.exit32:                           ; preds = %88, %wbuf_write_cha
   br label %92
 
 92:                                               ; preds = %.thread, %8, %json_write_char.exit32
-  call void @llvm.lifetime.end.p0(i64 22, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -1722,7 +1716,7 @@ json_undefer.exit.i:                              ; preds = %20, %17
   br i1 %24, label %25, label %json_write_char.exit
 
 25:                                               ; preds = %json_undefer.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !19
   %.not24.i.i.i = icmp eq i64 %.val.i.i, 0
   br i1 %.not24.i.i.i, label %wbuf_flush.exit.i.i, label %.lr.ph.i.i.i
@@ -1750,7 +1744,7 @@ json_undefer.exit.i:                              ; preds = %20, %17
   br i1 %38, label %27, label %wbuf_flush.exit.i.i, !llvm.loop !20
 
 wbuf_flush.exit.i.i:                              ; preds = %35, %25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %json_write_char.exit
 
 39:                                               ; preds = %27
@@ -1759,7 +1753,7 @@ wbuf_flush.exit.i.i:                              ; preds = %35, %25
   %42 = sub i64 %34, %.023.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %40, ptr align 1 %41, i64 %42, i1 false)
   store i64 0, ptr %23, align 8, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i8 1, ptr %14, align 4, !tbaa !23
   br label %json_write_char.exit29
 
@@ -1791,7 +1785,7 @@ json_undefer.exit.i20:                            ; preds = %50, %48
   br i1 %51, label %52, label %wbuf_write_char.exit.i23
 
 52:                                               ; preds = %json_undefer.exit.i20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !19
   %.not24.i.i.i24 = icmp eq i64 %.val.i.i21, 0
   br i1 %.not24.i.i.i24, label %wbuf_flush.exit.i.i28, label %.lr.ph.i.i.i25
@@ -1815,7 +1809,7 @@ json_undefer.exit.i20:                            ; preds = %50, %48
   br i1 %63, label %.lr.ph.i.i.i25, label %wbuf_flush.exit.i.i28, !llvm.loop !20
 
 wbuf_flush.exit.i.i28:                            ; preds = %60, %52
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %wbuf_write_char.exit.i23
 
 wbuf_write_char.exit.i23:                         ; preds = %wbuf_flush.exit.i.i28, %json_undefer.exit.i20
@@ -1833,7 +1827,7 @@ wbuf_write_char.exit.i23:                         ; preds = %wbuf_flush.exit.i.i
   %71 = sub i64 %59, %.023.i.i.i26
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %69, ptr align 1 %70, i64 %71, i1 false)
   store i64 0, ptr %23, align 8, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i8 1, ptr %14, align 4, !tbaa !23
   br label %json_write_char.exit29
 
@@ -1864,7 +1858,7 @@ json_undefer.exit.i32:                            ; preds = %77, %74
   br i1 %81, label %82, label %wbuf_write_char.exit.i35
 
 82:                                               ; preds = %json_undefer.exit.i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !19
   %.not24.i.i.i36 = icmp eq i64 %.val.i.i33, 0
   br i1 %.not24.i.i.i36, label %wbuf_flush.exit.i.i40, label %.lr.ph.i.i.i37
@@ -1892,7 +1886,7 @@ json_undefer.exit.i32:                            ; preds = %77, %74
   br i1 %95, label %84, label %wbuf_flush.exit.i.i40, !llvm.loop !20
 
 wbuf_flush.exit.i.i40:                            ; preds = %92, %82
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %wbuf_write_char.exit.i35
 
 wbuf_write_char.exit.i35:                         ; preds = %wbuf_flush.exit.i.i40, %json_undefer.exit.i32
@@ -1911,7 +1905,7 @@ wbuf_write_char.exit.i35:                         ; preds = %wbuf_flush.exit.i.i
   %104 = sub i64 %91, %.023.i.i.i38
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %102, ptr align 1 %103, i64 %104, i1 false)
   store i64 0, ptr %80, align 8, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i8 1, ptr %14, align 4, !tbaa !23
   br label %json_write_char.exit41
 
@@ -1938,7 +1932,7 @@ json_undefer.exit.i44:                            ; preds = %108, %105
   br i1 %112, label %113, label %wbuf_write_char.exit.i47
 
 113:                                              ; preds = %json_undefer.exit.i44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !19
   %.not24.i.i.i48 = icmp eq i64 %.val.i.i45, 0
   br i1 %.not24.i.i.i48, label %wbuf_flush.exit.i.i52, label %.lr.ph.i.i.i49
@@ -1966,7 +1960,7 @@ json_undefer.exit.i44:                            ; preds = %108, %105
   br i1 %126, label %115, label %wbuf_flush.exit.i.i52, !llvm.loop !20
 
 wbuf_flush.exit.i.i52:                            ; preds = %123, %113
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %wbuf_write_char.exit.i47
 
 wbuf_write_char.exit.i47:                         ; preds = %wbuf_flush.exit.i.i52, %json_undefer.exit.i44
@@ -1985,7 +1979,7 @@ wbuf_write_char.exit.i47:                         ; preds = %wbuf_flush.exit.i.i
   %135 = sub i64 %122, %.023.i.i.i50
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %133, ptr align 1 %134, i64 %135, i1 false)
   store i64 0, ptr %111, align 8, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i8 1, ptr %14, align 4, !tbaa !23
   br label %json_write_char.exit53
 
@@ -2001,7 +1995,7 @@ json_write_char.exit41:                           ; preds = %101, %wbuf_write_ch
 ; Function Attrs: nounwind uwtable
 define void @ossl_json_f64(ptr noundef captures(none) %0, double noundef %1) local_unnamed_addr #0 {
   %3 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call fastcc i32 @json_pre_item(ptr noundef %0)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %10, label %5
@@ -2023,12 +2017,12 @@ define void @ossl_json_f64(ptr noundef captures(none) %0, double noundef %1) loc
   br label %10
 
 10:                                               ; preds = %7, %2, %.critedge
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #6
+declare double @llvm.fabs.f64(double) #5
 
 declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -2099,7 +2093,7 @@ json_undefer.exit.i:                              ; preds = %16, %13
   br i1 %20, label %21, label %wbuf_write_char.exit.i
 
 21:                                               ; preds = %json_undefer.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !19
   %.not24.i.i.i = icmp eq i64 %.val.i.i, 0
   br i1 %.not24.i.i.i, label %wbuf_flush.exit.i.i, label %.lr.ph.i.i.i
@@ -2127,7 +2121,7 @@ json_undefer.exit.i:                              ; preds = %16, %13
   br i1 %34, label %23, label %wbuf_flush.exit.i.i, !llvm.loop !20
 
 wbuf_flush.exit.i.i:                              ; preds = %31, %21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %wbuf_write_char.exit.i
 
 wbuf_write_char.exit.i:                           ; preds = %wbuf_flush.exit.i.i, %json_undefer.exit.i
@@ -2152,7 +2146,7 @@ json_write_char.exit.thread:                      ; preds = %23
   %42 = sub i64 %30, %.023.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %40, ptr align 1 %41, i64 %42, i1 false)
   store i64 0, ptr %19, align 8, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store i8 1, ptr %11, align 4, !tbaa !23
   br label %json_write_char.exit49
 
@@ -2193,7 +2187,7 @@ json_undefer.exit.i16:                            ; preds = %58, %56
   br i1 %59, label %60, label %json_write_char.exit25
 
 60:                                               ; preds = %json_undefer.exit.i16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !19
   %.not24.i.i.i20 = icmp eq i64 %.val.i.i17, 0
   br i1 %.not24.i.i.i20, label %wbuf_flush.exit.i.i24, label %.lr.ph.i.i.i21
@@ -2217,7 +2211,7 @@ json_undefer.exit.i16:                            ; preds = %58, %56
   br i1 %71, label %.lr.ph.i.i.i21, label %wbuf_flush.exit.i.i24, !llvm.loop !20
 
 wbuf_flush.exit.i.i24:                            ; preds = %68, %60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %json_write_char.exit25
 
 72:                                               ; preds = %.lr.ph.i.i.i21
@@ -2226,7 +2220,7 @@ wbuf_flush.exit.i.i24:                            ; preds = %68, %60
   %75 = sub i64 %67, %.023.i.i.i22
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %73, ptr align 1 %74, i64 %75, i1 false)
   store i64 0, ptr %46, align 8, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i8 1, ptr %11, align 4, !tbaa !23
   br label %json_write_char.exit37
 
@@ -2262,7 +2256,7 @@ json_undefer.exit.i28:                            ; preds = %87, %85
   br i1 %88, label %89, label %wbuf_write_char.exit.i31
 
 89:                                               ; preds = %json_undefer.exit.i28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !19
   %.not24.i.i.i32 = icmp eq i64 %.val.i.i29, 0
   br i1 %.not24.i.i.i32, label %wbuf_flush.exit.i.i36, label %.lr.ph.i.i.i33
@@ -2286,7 +2280,7 @@ json_undefer.exit.i28:                            ; preds = %87, %85
   br i1 %100, label %.lr.ph.i.i.i33, label %wbuf_flush.exit.i.i36, !llvm.loop !20
 
 wbuf_flush.exit.i.i36:                            ; preds = %97, %89
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %wbuf_write_char.exit.i31
 
 wbuf_write_char.exit.i31:                         ; preds = %wbuf_flush.exit.i.i36, %json_undefer.exit.i28
@@ -2304,7 +2298,7 @@ wbuf_write_char.exit.i31:                         ; preds = %wbuf_flush.exit.i.i
   %108 = sub i64 %96, %.023.i.i.i34
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %106, ptr align 1 %107, i64 %108, i1 false)
   store i64 0, ptr %46, align 8, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i8 1, ptr %11, align 4, !tbaa !23
   br label %json_write_char.exit37
 
@@ -2342,7 +2336,7 @@ json_undefer.exit.i40:                            ; preds = %115, %112
   br i1 %119, label %120, label %wbuf_write_char.exit.i43
 
 120:                                              ; preds = %json_undefer.exit.i40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !19
   %.not24.i.i.i44 = icmp eq i64 %.val.i.i41, 0
   br i1 %.not24.i.i.i44, label %wbuf_flush.exit.i.i48, label %.lr.ph.i.i.i45
@@ -2370,7 +2364,7 @@ json_undefer.exit.i40:                            ; preds = %115, %112
   br i1 %133, label %122, label %wbuf_flush.exit.i.i48, !llvm.loop !20
 
 wbuf_flush.exit.i.i48:                            ; preds = %130, %120
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %wbuf_write_char.exit.i43
 
 wbuf_write_char.exit.i43:                         ; preds = %wbuf_flush.exit.i.i48, %json_undefer.exit.i40
@@ -2389,7 +2383,7 @@ wbuf_write_char.exit.i43:                         ; preds = %wbuf_flush.exit.i.i
   %142 = sub i64 %129, %.023.i.i.i46
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %140, ptr align 1 %141, i64 %142, i1 false)
   store i64 0, ptr %118, align 8, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i8 1, ptr %11, align 4, !tbaa !23
   br label %json_write_char.exit49
 
@@ -2406,7 +2400,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare i32 @BIO_write_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2451,12 +2445,12 @@ json_indent.exit:                                 ; preds = %.lr.ph, %6, %4, %1
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @json_write_qstring_inner(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #8 {
+define internal fastcc void @json_write_qstring_inner(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #7 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca [7 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i8, ptr %9, align 4, !tbaa !23
   %.not = icmp eq i8 %10, 0
@@ -2482,7 +2476,7 @@ json_undefer.exit.i:                              ; preds = %14, %11
   br i1 %18, label %19, label %wbuf_write_char.exit.i
 
 19:                                               ; preds = %json_undefer.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !19
   %.not24.i.i.i = icmp eq i64 %.val.i.i, 0
   br i1 %.not24.i.i.i, label %wbuf_flush.exit.i.i, label %.lr.ph.i.i.i
@@ -2510,7 +2504,7 @@ json_undefer.exit.i:                              ; preds = %14, %11
   br i1 %32, label %21, label %wbuf_flush.exit.i.i, !llvm.loop !20
 
 wbuf_flush.exit.i.i:                              ; preds = %29, %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %wbuf_write_char.exit.i
 
 wbuf_write_char.exit.i:                           ; preds = %wbuf_flush.exit.i.i, %json_undefer.exit.i
@@ -2529,7 +2523,7 @@ wbuf_write_char.exit.i:                           ; preds = %wbuf_flush.exit.i.i
   %41 = sub i64 %28, %.023.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %39, ptr align 1 %40, i64 %41, i1 false)
   store i64 0, ptr %17, align 8, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store i8 1, ptr %9, align 4, !tbaa !23
   br label %json_write_char.exit
 
@@ -2753,7 +2747,7 @@ json_undefer.exit.i93:                            ; preds = %134, %132
   br i1 %135, label %136, label %wbuf_write_char.exit.i96
 
 136:                                              ; preds = %json_undefer.exit.i93
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !19
   %.not24.i.i.i97 = icmp eq i64 %.val.i.i94, 0
   br i1 %.not24.i.i.i97, label %wbuf_flush.exit.i.i101, label %.lr.ph.i.i.i98
@@ -2777,7 +2771,7 @@ json_undefer.exit.i93:                            ; preds = %134, %132
   br i1 %147, label %.lr.ph.i.i.i98, label %wbuf_flush.exit.i.i101, !llvm.loop !20
 
 wbuf_flush.exit.i.i101:                           ; preds = %144, %136
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %wbuf_write_char.exit.i96
 
 wbuf_write_char.exit.i96:                         ; preds = %wbuf_flush.exit.i.i101, %json_undefer.exit.i93
@@ -2795,7 +2789,7 @@ wbuf_write_char.exit.i96:                         ; preds = %wbuf_flush.exit.i.i
   %155 = sub i64 %143, %.023.i.i.i99
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %153, ptr align 1 %154, i64 %155, i1 false)
   store i64 0, ptr %17, align 8, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i8 1, ptr %9, align 4, !tbaa !23
   br label %json_write_char.exit102
 
@@ -2835,7 +2829,7 @@ json_undefer.exit.i105:                           ; preds = %162, %160
   br i1 %163, label %164, label %wbuf_write_char.exit.i108
 
 164:                                              ; preds = %json_undefer.exit.i105
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !19
   %.not24.i.i.i109 = icmp eq i64 %.val.i.i106, 0
   br i1 %.not24.i.i.i109, label %wbuf_flush.exit.i.i113, label %.lr.ph.i.i.i110
@@ -2863,7 +2857,7 @@ json_undefer.exit.i105:                           ; preds = %162, %160
   br i1 %177, label %166, label %wbuf_flush.exit.i.i113, !llvm.loop !20
 
 wbuf_flush.exit.i.i113:                           ; preds = %174, %164
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %wbuf_write_char.exit.i108
 
 wbuf_write_char.exit.i108:                        ; preds = %wbuf_flush.exit.i.i113, %json_undefer.exit.i105
@@ -2882,31 +2876,37 @@ wbuf_write_char.exit.i108:                        ; preds = %wbuf_flush.exit.i.i
   %186 = sub i64 %173, %.023.i.i.i111
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %184, ptr align 1 %185, i64 %186, i1 false)
   store i64 0, ptr %17, align 8, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i8 1, ptr %9, align 4, !tbaa !23
   br label %json_write_char.exit114
 
 json_write_char.exit114:                          ; preds = %183, %wbuf_write_char.exit.i108, %._crit_edge, %4
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nounwind }
 attributes #11 = { "function-inline-cost-multiplier"="2" }
 attributes #12 = { memory(none) }

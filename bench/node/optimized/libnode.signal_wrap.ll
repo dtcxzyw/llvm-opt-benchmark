@@ -757,12 +757,12 @@ _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exi
   br i1 %cmp.i.i.i27.not, label %if.end39, label %if.then36
 
 if.then36:                                        ; preds = %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %warning.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %warning.i)
   call void @_ZN4node11SPrintFImplB5cxx11EPKc(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %warning.i, ptr noundef nonnull @.str.17)
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %warning.i) #16
   %call1.i28 = call i16 @_ZN4node25ProcessEmitWarningGenericEPNS_11EnvironmentEPKcS3_S3_(ptr noundef nonnull %retval.0.i.i, ptr noundef %call.i, ptr noundef null, ptr noundef null) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %warning.i) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %warning.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %warning.i)
   br label %return
 
 if.end39:                                         ; preds = %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit, %if.then.i82
@@ -848,7 +848,7 @@ if.then11:                                        ; preds = %do.end
   store i8 0, ptr %active_, align 8
   %signum = getelementptr inbounds nuw i8, ptr %retval.i11.0.i, i64 192
   %12 = load i32, ptr %signum, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %signum.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %signum.addr.i)
   store i32 %12, ptr %signum.addr.i, align 4
   tail call void @uv_mutex_lock(ptr noundef nonnull @_ZN4node12_GLOBAL__N_121handled_signals_mutexE) #16
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIilSt4lessIiESaISt4pairIKilEEEixERS3_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN4node12_GLOBAL__N_115handled_signalsE, ptr noundef nonnull align 4 dereferenceable(4) %signum.addr.i)
@@ -873,7 +873,7 @@ if.then7.i:                                       ; preds = %do.end5.i
 
 _ZN4node26DecreaseSignalHandlerCountEi.exit:      ; preds = %do.end5.i, %if.then7.i
   call void @uv_mutex_unlock(ptr noundef nonnull @_ZN4node12_GLOBAL__N_121handled_signals_mutexE) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %signum.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %signum.addr.i)
   br label %if.end13
 
 if.end13:                                         ; preds = %_ZN4node26DecreaseSignalHandlerCountEi.exit, %do.end
@@ -1041,7 +1041,7 @@ entry:
 if.then:                                          ; preds = %entry
   %signum = getelementptr inbounds nuw i8, ptr %this, i64 192
   %1 = load i32, ptr %signum, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %signum.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %signum.addr.i)
   store i32 %1, ptr %signum.addr.i, align 4
   tail call void @uv_mutex_lock(ptr noundef nonnull @_ZN4node12_GLOBAL__N_121handled_signals_mutexE) #16
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIilSt4lessIiESaISt4pairIKilEEEixERS3_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN4node12_GLOBAL__N_115handled_signalsE, ptr noundef nonnull align 4 dereferenceable(4) %signum.addr.i)
@@ -1066,7 +1066,7 @@ if.then7.i:                                       ; preds = %do.end5.i
 
 _ZN4node26DecreaseSignalHandlerCountEi.exit:      ; preds = %do.end5.i, %if.then7.i
   call void @uv_mutex_unlock(ptr noundef nonnull @_ZN4node12_GLOBAL__N_121handled_signals_mutexE) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %signum.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %signum.addr.i)
   store i8 0, ptr %active_, align 8
   br label %if.end
 
@@ -1252,8 +1252,8 @@ define internal void @_ZZN4node12_GLOBAL__N_110SignalWrap5StartERKN2v820Function
 entry:
   %handle_scope.i = alloca %"class.v8::HandleScope", align 8
   %arg.i = alloca %"class.v8::Local.0", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %handle_scope.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %arg.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %handle_scope.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arg.i)
   %0 = ptrtoint ptr %handle to i64
   %sub.i.i.i = add i64 %0, -88
   %1 = inttoptr i64 %sub.i.i.i to ptr
@@ -1327,8 +1327,8 @@ if.end44.i.i.i:                                   ; preds = %if.end.i.i.i
 _ZZN4node12_GLOBAL__N_110SignalWrap5StartERKN2v820FunctionCallbackInfoINS2_5ValueEEEENKUlP11uv_signal_siE_clES9_i.exit: ; preds = %_ZNK4node10BaseObject6objectEv.exit.i.i.i, %if.end.i.i.i, %if.end44.i.i.i
   call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %call2.i.i) #16
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i) #16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arg.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %handle_scope.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arg.i)
   ret void
 }
 
@@ -1735,10 +1735,10 @@ __cxx_global_var_init.1.exit:                     ; preds = %entry
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #14

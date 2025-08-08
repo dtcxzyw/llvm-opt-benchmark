@@ -2450,9 +2450,9 @@ define internal void @Eval5InputsFloat(ptr noundef readonly captures(none) %0, p
   %34 = sext i32 %30 to i64
   %35 = getelementptr inbounds float, ptr %13, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %37 = load float, ptr %36, align 4
   %38 = fcmp olt float %37, 0x3E112E0BE0000000
   %39 = fcmp uno float %37, 0.000000e+00
@@ -2519,14 +2519,14 @@ define internal void @Eval5InputsFloat(ptr noundef readonly captures(none) %0, p
   br i1 %exitcond.not, label %Eval4InputsFloat.exit, label %.lr.ph.i, !llvm.loop !27
 
 Eval4InputsFloat.exit:                            ; preds = %.lr.ph.i, %3
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %66 = sext i32 %33 to i64
   %67 = getelementptr inbounds float, ptr %13, i64 %66
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %.sroa.3.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx40, align 8
@@ -2554,9 +2554,9 @@ Eval4InputsFloat.exit:                            ; preds = %.lr.ph.i, %3
   br i1 %.not.i, label %Eval4InputsFloat.exit37.thread, label %.lr.ph.i34.preheader
 
 Eval4InputsFloat.exit37.thread:                   ; preds = %Eval4InputsFloat.exit
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %._crit_edge
 
 .lr.ph.i34.preheader:                             ; preds = %Eval4InputsFloat.exit
@@ -2578,9 +2578,9 @@ Eval4InputsFloat.exit37.thread:                   ; preds = %Eval4InputsFloat.ex
   br i1 %exitcond76.not, label %.lr.ph.preheader, label %.lr.ph.i34, !llvm.loop !27
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i34
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -2782,9 +2782,9 @@ define internal void @Eval6Inputs(ptr noundef readonly captures(none) %0, ptr no
   %30 = sext i32 %26 to i64
   %31 = getelementptr inbounds i16, ptr %13, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %33 = load i16, ptr %32, align 2
   %34 = zext i16 %33 to i32
   %35 = mul i32 %.sroa.742.80.copyload, %34
@@ -2853,14 +2853,14 @@ define internal void @Eval6Inputs(ptr noundef readonly captures(none) %0, ptr no
   br i1 %exitcond.not, label %Eval5Inputs.exit, label %.lr.ph.i, !llvm.loop !34
 
 Eval5Inputs.exit:                                 ; preds = %.lr.ph.i, %3
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %64 = sext i32 %29 to i64
   %65 = getelementptr inbounds i16, ptr %13, i64 %64
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %.sroa.3.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx35, align 8
@@ -2888,9 +2888,9 @@ Eval5Inputs.exit:                                 ; preds = %.lr.ph.i, %3
   br i1 %.not28.i, label %Eval5Inputs.exit32.thread, label %.lr.ph.i29.preheader
 
 Eval5Inputs.exit32.thread:                        ; preds = %Eval5Inputs.exit
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %._crit_edge
 
 .lr.ph.i29.preheader:                             ; preds = %Eval5Inputs.exit
@@ -2918,9 +2918,9 @@ Eval5Inputs.exit32.thread:                        ; preds = %Eval5Inputs.exit
   br i1 %exitcond72.not, label %.lr.ph.preheader, label %.lr.ph.i29, !llvm.loop !34
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i29
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -2996,9 +2996,9 @@ define internal void @Eval7InputsFloat(ptr noundef readonly captures(none) %0, p
   %34 = sext i32 %30 to i64
   %35 = getelementptr inbounds float, ptr %13, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %37 = load float, ptr %36, align 4
   %38 = fcmp olt float %37, 0x3E112E0BE0000000
   %39 = fcmp uno float %37, 0.000000e+00
@@ -3065,14 +3065,14 @@ define internal void @Eval7InputsFloat(ptr noundef readonly captures(none) %0, p
   br i1 %exitcond.not, label %Eval6InputsFloat.exit, label %.lr.ph.i, !llvm.loop !35
 
 Eval6InputsFloat.exit:                            ; preds = %.lr.ph.i, %3
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %66 = sext i32 %33 to i64
   %67 = getelementptr inbounds float, ptr %13, i64 %66
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %.sroa.3.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx40, align 8
@@ -3100,9 +3100,9 @@ Eval6InputsFloat.exit:                            ; preds = %.lr.ph.i, %3
   br i1 %.not.i, label %Eval6InputsFloat.exit37.thread, label %.lr.ph.i34.preheader
 
 Eval6InputsFloat.exit37.thread:                   ; preds = %Eval6InputsFloat.exit
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %._crit_edge
 
 .lr.ph.i34.preheader:                             ; preds = %Eval6InputsFloat.exit
@@ -3124,9 +3124,9 @@ Eval6InputsFloat.exit37.thread:                   ; preds = %Eval6InputsFloat.ex
   br i1 %exitcond76.not, label %.lr.ph.preheader, label %.lr.ph.i34, !llvm.loop !35
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i34
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3328,9 +3328,9 @@ define internal void @Eval8Inputs(ptr noundef readonly captures(none) %0, ptr no
   %30 = sext i32 %26 to i64
   %31 = getelementptr inbounds i16, ptr %13, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %33 = load i16, ptr %32, align 2
   %34 = zext i16 %33 to i32
   %35 = mul i32 %.sroa.742.80.copyload, %34
@@ -3399,14 +3399,14 @@ define internal void @Eval8Inputs(ptr noundef readonly captures(none) %0, ptr no
   br i1 %exitcond.not, label %Eval7Inputs.exit, label %.lr.ph.i, !llvm.loop !38
 
 Eval7Inputs.exit:                                 ; preds = %.lr.ph.i, %3
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %64 = sext i32 %29 to i64
   %65 = getelementptr inbounds i16, ptr %13, i64 %64
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %.sroa.3.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx35, align 8
@@ -3434,9 +3434,9 @@ Eval7Inputs.exit:                                 ; preds = %.lr.ph.i, %3
   br i1 %.not28.i, label %Eval7Inputs.exit32.thread, label %.lr.ph.i29.preheader
 
 Eval7Inputs.exit32.thread:                        ; preds = %Eval7Inputs.exit
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %._crit_edge
 
 .lr.ph.i29.preheader:                             ; preds = %Eval7Inputs.exit
@@ -3464,9 +3464,9 @@ Eval7Inputs.exit32.thread:                        ; preds = %Eval7Inputs.exit
   br i1 %exitcond72.not, label %.lr.ph.preheader, label %.lr.ph.i29, !llvm.loop !38
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i29
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3542,9 +3542,9 @@ define internal void @Eval9InputsFloat(ptr noundef readonly captures(none) %0, p
   %34 = sext i32 %30 to i64
   %35 = getelementptr inbounds float, ptr %13, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %37 = load float, ptr %36, align 4
   %38 = fcmp olt float %37, 0x3E112E0BE0000000
   %39 = fcmp uno float %37, 0.000000e+00
@@ -3611,14 +3611,14 @@ define internal void @Eval9InputsFloat(ptr noundef readonly captures(none) %0, p
   br i1 %exitcond.not, label %Eval8InputsFloat.exit, label %.lr.ph.i, !llvm.loop !39
 
 Eval8InputsFloat.exit:                            ; preds = %.lr.ph.i, %3
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %66 = sext i32 %33 to i64
   %67 = getelementptr inbounds float, ptr %13, i64 %66
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %.sroa.3.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx40, align 8
@@ -3646,9 +3646,9 @@ Eval8InputsFloat.exit:                            ; preds = %.lr.ph.i, %3
   br i1 %.not.i, label %Eval8InputsFloat.exit37.thread, label %.lr.ph.i34.preheader
 
 Eval8InputsFloat.exit37.thread:                   ; preds = %Eval8InputsFloat.exit
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %._crit_edge
 
 .lr.ph.i34.preheader:                             ; preds = %Eval8InputsFloat.exit
@@ -3670,9 +3670,9 @@ Eval8InputsFloat.exit37.thread:                   ; preds = %Eval8InputsFloat.ex
   br i1 %exitcond76.not, label %.lr.ph.preheader, label %.lr.ph.i34, !llvm.loop !39
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i34
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3874,9 +3874,9 @@ define internal void @Eval10Inputs(ptr noundef readonly captures(none) %0, ptr n
   %30 = sext i32 %26 to i64
   %31 = getelementptr inbounds i16, ptr %13, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %33 = load i16, ptr %32, align 2
   %34 = zext i16 %33 to i32
   %35 = mul i32 %.sroa.742.80.copyload, %34
@@ -3945,14 +3945,14 @@ define internal void @Eval10Inputs(ptr noundef readonly captures(none) %0, ptr n
   br i1 %exitcond.not, label %Eval9Inputs.exit, label %.lr.ph.i, !llvm.loop !42
 
 Eval9Inputs.exit:                                 ; preds = %.lr.ph.i, %3
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %64 = sext i32 %29 to i64
   %65 = getelementptr inbounds i16, ptr %13, i64 %64
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %.sroa.3.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx35, align 8
@@ -3980,9 +3980,9 @@ Eval9Inputs.exit:                                 ; preds = %.lr.ph.i, %3
   br i1 %.not28.i, label %Eval9Inputs.exit32.thread, label %.lr.ph.i29.preheader
 
 Eval9Inputs.exit32.thread:                        ; preds = %Eval9Inputs.exit
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %._crit_edge
 
 .lr.ph.i29.preheader:                             ; preds = %Eval9Inputs.exit
@@ -4010,9 +4010,9 @@ Eval9Inputs.exit32.thread:                        ; preds = %Eval9Inputs.exit
   br i1 %exitcond72.not, label %.lr.ph.preheader, label %.lr.ph.i29, !llvm.loop !42
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i29
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -4088,9 +4088,9 @@ define internal void @Eval11InputsFloat(ptr noundef readonly captures(none) %0, 
   %34 = sext i32 %30 to i64
   %35 = getelementptr inbounds float, ptr %13, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %37 = load float, ptr %36, align 4
   %38 = fcmp olt float %37, 0x3E112E0BE0000000
   %39 = fcmp uno float %37, 0.000000e+00
@@ -4157,14 +4157,14 @@ define internal void @Eval11InputsFloat(ptr noundef readonly captures(none) %0, 
   br i1 %exitcond.not, label %Eval10InputsFloat.exit, label %.lr.ph.i, !llvm.loop !43
 
 Eval10InputsFloat.exit:                           ; preds = %.lr.ph.i, %3
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %66 = sext i32 %33 to i64
   %67 = getelementptr inbounds float, ptr %13, i64 %66
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %.sroa.3.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx40, align 8
@@ -4192,9 +4192,9 @@ Eval10InputsFloat.exit:                           ; preds = %.lr.ph.i, %3
   br i1 %.not.i, label %Eval10InputsFloat.exit37.thread, label %.lr.ph.i34.preheader
 
 Eval10InputsFloat.exit37.thread:                  ; preds = %Eval10InputsFloat.exit
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %._crit_edge
 
 .lr.ph.i34.preheader:                             ; preds = %Eval10InputsFloat.exit
@@ -4216,9 +4216,9 @@ Eval10InputsFloat.exit37.thread:                  ; preds = %Eval10InputsFloat.e
   br i1 %exitcond76.not, label %.lr.ph.preheader, label %.lr.ph.i34, !llvm.loop !43
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i34
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -4420,9 +4420,9 @@ define internal void @Eval12Inputs(ptr noundef readonly captures(none) %0, ptr n
   %30 = sext i32 %26 to i64
   %31 = getelementptr inbounds i16, ptr %13, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %33 = load i16, ptr %32, align 2
   %34 = zext i16 %33 to i32
   %35 = mul i32 %.sroa.742.80.copyload, %34
@@ -4491,14 +4491,14 @@ define internal void @Eval12Inputs(ptr noundef readonly captures(none) %0, ptr n
   br i1 %exitcond.not, label %Eval11Inputs.exit, label %.lr.ph.i, !llvm.loop !46
 
 Eval11Inputs.exit:                                ; preds = %.lr.ph.i, %3
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %64 = sext i32 %29 to i64
   %65 = getelementptr inbounds i16, ptr %13, i64 %64
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %.sroa.3.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx35, align 8
@@ -4526,9 +4526,9 @@ Eval11Inputs.exit:                                ; preds = %.lr.ph.i, %3
   br i1 %.not28.i, label %Eval11Inputs.exit32.thread, label %.lr.ph.i29.preheader
 
 Eval11Inputs.exit32.thread:                       ; preds = %Eval11Inputs.exit
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %._crit_edge
 
 .lr.ph.i29.preheader:                             ; preds = %Eval11Inputs.exit
@@ -4556,9 +4556,9 @@ Eval11Inputs.exit32.thread:                       ; preds = %Eval11Inputs.exit
   br i1 %exitcond72.not, label %.lr.ph.preheader, label %.lr.ph.i29, !llvm.loop !46
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i29
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -4634,9 +4634,9 @@ define internal void @Eval13InputsFloat(ptr noundef readonly captures(none) %0, 
   %34 = sext i32 %30 to i64
   %35 = getelementptr inbounds float, ptr %13, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %37 = load float, ptr %36, align 4
   %38 = fcmp olt float %37, 0x3E112E0BE0000000
   %39 = fcmp uno float %37, 0.000000e+00
@@ -4703,14 +4703,14 @@ define internal void @Eval13InputsFloat(ptr noundef readonly captures(none) %0, 
   br i1 %exitcond.not, label %Eval12InputsFloat.exit, label %.lr.ph.i, !llvm.loop !47
 
 Eval12InputsFloat.exit:                           ; preds = %.lr.ph.i, %3
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %66 = sext i32 %33 to i64
   %67 = getelementptr inbounds float, ptr %13, i64 %66
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %.sroa.3.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx40, align 8
@@ -4738,9 +4738,9 @@ Eval12InputsFloat.exit:                           ; preds = %.lr.ph.i, %3
   br i1 %.not.i, label %Eval12InputsFloat.exit37.thread, label %.lr.ph.i34.preheader
 
 Eval12InputsFloat.exit37.thread:                  ; preds = %Eval12InputsFloat.exit
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %._crit_edge
 
 .lr.ph.i34.preheader:                             ; preds = %Eval12InputsFloat.exit
@@ -4762,9 +4762,9 @@ Eval12InputsFloat.exit37.thread:                  ; preds = %Eval12InputsFloat.e
   br i1 %exitcond76.not, label %.lr.ph.preheader, label %.lr.ph.i34, !llvm.loop !47
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i34
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -4967,9 +4967,9 @@ define internal void @Eval14Inputs(ptr noundef readonly captures(none) %0, ptr n
   %30 = sext i32 %26 to i64
   %31 = getelementptr inbounds i16, ptr %13, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %33 = load i16, ptr %32, align 2
   %34 = zext i16 %33 to i32
   %35 = mul i32 %.sroa.742.80.copyload, %34
@@ -5038,14 +5038,14 @@ define internal void @Eval14Inputs(ptr noundef readonly captures(none) %0, ptr n
   br i1 %exitcond.not, label %Eval13Inputs.exit, label %.lr.ph.i, !llvm.loop !50
 
 Eval13Inputs.exit:                                ; preds = %.lr.ph.i, %3
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %64 = sext i32 %29 to i64
   %65 = getelementptr inbounds i16, ptr %13, i64 %64
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %.sroa.3.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx35, align 8
@@ -5073,9 +5073,9 @@ Eval13Inputs.exit:                                ; preds = %.lr.ph.i, %3
   br i1 %.not28.i, label %Eval13Inputs.exit32.thread, label %.lr.ph.i29.preheader
 
 Eval13Inputs.exit32.thread:                       ; preds = %Eval13Inputs.exit
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %._crit_edge
 
 .lr.ph.i29.preheader:                             ; preds = %Eval13Inputs.exit
@@ -5103,9 +5103,9 @@ Eval13Inputs.exit32.thread:                       ; preds = %Eval13Inputs.exit
   br i1 %exitcond74.not, label %.lr.ph.preheader, label %.lr.ph.i29, !llvm.loop !50
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i29
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -5181,9 +5181,9 @@ define internal void @Eval15InputsFloat(ptr noundef readonly captures(none) %0, 
   %34 = sext i32 %30 to i64
   %35 = getelementptr inbounds float, ptr %13, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %37 = load float, ptr %36, align 4
   %38 = fcmp olt float %37, 0x3E112E0BE0000000
   %39 = fcmp uno float %37, 0.000000e+00
@@ -5250,14 +5250,14 @@ define internal void @Eval15InputsFloat(ptr noundef readonly captures(none) %0, 
   br i1 %exitcond.not, label %Eval14InputsFloat.exit, label %.lr.ph.i, !llvm.loop !51
 
 Eval14InputsFloat.exit:                           ; preds = %.lr.ph.i, %3
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %66 = sext i32 %33 to i64
   %67 = getelementptr inbounds float, ptr %13, i64 %66
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %.sroa.3.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx40, align 8
@@ -5285,9 +5285,9 @@ Eval14InputsFloat.exit:                           ; preds = %.lr.ph.i, %3
   br i1 %.not.i, label %Eval14InputsFloat.exit37.thread, label %.lr.ph.i34.preheader
 
 Eval14InputsFloat.exit37.thread:                  ; preds = %Eval14InputsFloat.exit
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %._crit_edge
 
 .lr.ph.i34.preheader:                             ; preds = %Eval14InputsFloat.exit
@@ -5309,9 +5309,9 @@ Eval14InputsFloat.exit37.thread:                  ; preds = %Eval14InputsFloat.e
   br i1 %exitcond78.not, label %.lr.ph.preheader, label %.lr.ph.i34, !llvm.loop !51
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i34
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -5416,10 +5416,10 @@ declare float @llvm.fmuladd.f32(float, float, float) #5
 declare float @llvm.floor.f32(float) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

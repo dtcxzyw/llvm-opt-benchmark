@@ -201,7 +201,7 @@ define ptr @Java_sun_awt_FcFontManager_getFontPathNative(ptr noundef %0, ptr nou
   br i1 %8, label %9, label %256
 
 9:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = tail call ptr @getenv(ptr noundef nonnull @.str.86) #13
   %.not.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i, label %.tail.thread.i.i.i, label %sub_0.i.i.i
@@ -365,7 +365,7 @@ openFontConfig.exit.i.i:                          ; preds = %25, %22
 
 getFontConfigLocations.exit.i:                    ; preds = %81, %43, %19, %.tail.i.i.i
   %.0.i.i = phi ptr [ null, %43 ], [ %.067.i.i, %81 ], [ null, %.tail.i.i.i ], [ null, %19 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i = icmp eq i8 %3, 0
   br i1 %.not.i, label %182, label %83
 
@@ -416,7 +416,7 @@ getFontConfigLocations.exit.i:                    ; preds = %81, %43, %19, %.tai
   br i1 %.not49.i, label %153, label %110
 
 110:                                              ; preds = %108
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %111 = load ptr, ptr @awt_display, align 8
   %112 = call ptr @XGetFontPath(ptr noundef %111, ptr noundef nonnull %5) #13
   %113 = load i32, ptr %5, align 4
@@ -515,7 +515,7 @@ getFontConfigLocations.exit.i:                    ; preds = %81, %43, %19, %.tai
 
 getX11FontPath.exit.i:                            ; preds = %152, %._crit_edge.i65.i, %110
   %.0.i57.i = phi ptr [ null, %110 ], [ null, %152 ], [ %116, %._crit_edge.i65.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %153
 
 153:                                              ; preds = %getX11FontPath.exit.i, %108
@@ -1968,10 +1968,10 @@ declare i32 @dlclose(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

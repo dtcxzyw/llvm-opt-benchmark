@@ -326,35 +326,29 @@ define range(i32 -1, 1) i32 @H5G_loc_real(ptr noundef %0, i32 noundef %1, ptr no
   ret i32 %.049
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @H5G__init_package() local_unnamed_addr #1
 
-declare i32 @H5G__init_package() local_unnamed_addr #2
+declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @H5G_root_loc(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @H5G_root_loc(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @H5G_oloc(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @H5G_nameof(ptr noundef) local_unnamed_addr #1
 
-declare ptr @H5G_oloc(ptr noundef) local_unnamed_addr #2
+declare ptr @H5T_get_actual_type(ptr noundef) local_unnamed_addr #1
 
-declare ptr @H5G_nameof(ptr noundef) local_unnamed_addr #2
+declare ptr @H5T_oloc(ptr noundef) local_unnamed_addr #1
 
-declare ptr @H5T_get_actual_type(ptr noundef) local_unnamed_addr #2
+declare ptr @H5T_nameof(ptr noundef) local_unnamed_addr #1
 
-declare ptr @H5T_oloc(ptr noundef) local_unnamed_addr #2
+declare ptr @H5D_oloc(ptr noundef) local_unnamed_addr #1
 
-declare ptr @H5T_nameof(ptr noundef) local_unnamed_addr #2
+declare ptr @H5D_nameof(ptr noundef) local_unnamed_addr #1
 
-declare ptr @H5D_oloc(ptr noundef) local_unnamed_addr #2
+declare ptr @H5A_oloc(ptr noundef) local_unnamed_addr #1
 
-declare ptr @H5D_nameof(ptr noundef) local_unnamed_addr #2
-
-declare ptr @H5A_oloc(ptr noundef) local_unnamed_addr #2
-
-declare ptr @H5A_nameof(ptr noundef) local_unnamed_addr #2
+declare ptr @H5A_nameof(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5G_loc(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -420,9 +414,9 @@ define range(i32 -1, 1) i32 @H5G_loc(i64 noundef %0, ptr noundef %1) local_unnam
   ret i32 %.0
 }
 
-declare ptr @H5VL_object(i64 noundef) local_unnamed_addr #2
+declare ptr @H5VL_object(i64 noundef) local_unnamed_addr #1
 
-declare i32 @H5I_get_type(i64 noundef) local_unnamed_addr #2
+declare i32 @H5I_get_type(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5G_loc_copy(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -493,9 +487,9 @@ define range(i32 -1, 1) i32 @H5G_loc_copy(ptr noundef readonly captures(none) %0
   ret i32 %.0
 }
 
-declare i32 @H5O_loc_copy(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @H5O_loc_copy(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @H5G_name_copy(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @H5G_name_copy(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5G_loc_reset(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -563,9 +557,9 @@ define range(i32 -1, 1) i32 @H5G_loc_reset(ptr noundef readonly captures(none) %
   ret i32 %.0
 }
 
-declare i32 @H5O_loc_reset(ptr noundef) local_unnamed_addr #2
+declare i32 @H5O_loc_reset(ptr noundef) local_unnamed_addr #1
 
-declare i32 @H5G_name_reset(ptr noundef) local_unnamed_addr #2
+declare i32 @H5G_name_reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5G_loc_free(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -633,14 +627,14 @@ define range(i32 -1, 1) i32 @H5G_loc_free(ptr noundef readonly captures(none) %0
   ret i32 %.0
 }
 
-declare i32 @H5G_name_free(ptr noundef) local_unnamed_addr #2
+declare i32 @H5G_name_free(ptr noundef) local_unnamed_addr #1
 
-declare i32 @H5O_loc_free(ptr noundef) local_unnamed_addr #2
+declare i32 @H5O_loc_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5G_loc_find(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.H5G_loc_fnd_t, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i8, ptr @H5G_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %6 = trunc nuw i8 %5 to i1
   %7 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -700,11 +694,11 @@ define range(i32 -1, 1) i32 @H5G_loc_find(ptr noundef %0, ptr noundef %1, ptr no
 
 33:                                               ; preds = %13, %22, %29, %26, %17
   %.0 = phi i32 [ -1, %13 ], [ -1, %29 ], [ 0, %26 ], [ -1, %22 ], [ 0, %17 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare i32 @H5G_traverse(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5G_traverse(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5G__loc_find_cb(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5) #0 {
@@ -740,7 +734,7 @@ define internal range(i32 -1, 1) i32 @H5G__loc_find_cb(ptr readnone captures(non
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5G_loc_find_by_idx(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.H5G_loc_fbi_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i8, ptr @H5G_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %9 = trunc nuw i8 %8 to i1
   %10 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -795,7 +789,7 @@ define range(i32 -1, 1) i32 @H5G_loc_find_by_idx(ptr noundef %0, ptr noundef %1,
 
 33:                                               ; preds = %16, %29, %23, %20
   %.0 = phi i32 [ -1, %16 ], [ -1, %29 ], [ 0, %23 ], [ 0, %20 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -803,8 +797,8 @@ define range(i32 -1, 1) i32 @H5G_loc_find_by_idx(ptr noundef %0, ptr noundef %1,
 define internal range(i32 -1, 1) i32 @H5G__loc_find_by_idx_cb(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5) #0 {
   %7 = alloca %struct.H5O_link_t, align 8
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 0, ptr %8, align 1, !tbaa !3
   %9 = load i8, ptr @H5G_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %10 = trunc nuw i8 %9 to i1
@@ -888,15 +882,15 @@ define internal range(i32 -1, 1) i32 @H5G__loc_find_by_idx_cb(ptr readnone captu
 
 60:                                               ; preds = %.thread32, %6
   %.0 = phi i32 [ %.2, %.thread32 ], [ 0, %6 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5G__loc_insert(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.H5O_link_t, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i8, ptr @H5G_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %8 = trunc nuw i8 %7 to i1
   %9 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -948,13 +942,13 @@ define range(i32 -1, 1) i32 @H5G__loc_insert(ptr noundef readonly captures(none)
 
 40:                                               ; preds = %25, %36, %29, %5
   %.0 = phi i32 [ -1, %25 ], [ -1, %36 ], [ 0, %29 ], [ 0, %5 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-declare i32 @H5G_obj_insert(ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5G_obj_insert(ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @H5G_name_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5G_name_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5G_loc_exists(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1009,7 +1003,7 @@ define range(i32 -1, 1) i32 @H5G_loc_exists(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5G__loc_exists_cb(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readnone captures(address_is_null) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) #3 {
+define internal noundef i32 @H5G__loc_exists_cb(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readnone captures(address_is_null) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) #2 {
   %7 = load i8, ptr @H5G_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %8 = trunc nuw i8 %7 to i1
   %9 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -1056,7 +1050,7 @@ define range(i32 -1, 1) i32 @H5G__loc_addr(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5G__loc_addr_cb(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) #4 {
+define internal noundef i32 @H5G__loc_addr_cb(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) #3 {
   %7 = load i8, ptr @H5G_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %8 = trunc nuw i8 %7 to i1
   %9 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -1088,7 +1082,7 @@ define internal noundef i32 @H5G__loc_addr_cb(ptr readnone captures(none) %0, pt
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5G_loc_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.H5G_loc_info_t, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i8, ptr @H5G_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %7 = trunc nuw i8 %6 to i1
   %8 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -1139,7 +1133,7 @@ define range(i32 -1, 1) i32 @H5G_loc_info(ptr noundef %0, ptr noundef %1, ptr no
 
 29:                                               ; preds = %14, %25, %21, %18
   %.0 = phi i32 [ -1, %14 ], [ -1, %25 ], [ 0, %21 ], [ 0, %18 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -1191,7 +1185,7 @@ define internal range(i32 -1, 1) i32 @H5G__loc_info_cb(ptr readnone captures(non
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5G_loc_native_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.H5G_loc_native_info_t, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i8, ptr @H5G_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %7 = trunc nuw i8 %6 to i1
   %8 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -1242,7 +1236,7 @@ define range(i32 -1, 1) i32 @H5G_loc_native_info(ptr noundef %0, ptr noundef %1,
 
 29:                                               ; preds = %14, %25, %21, %18
   %.0 = phi i32 [ -1, %14 ], [ -1, %25 ], [ 0, %21 ], [ 0, %18 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -1294,7 +1288,7 @@ define internal range(i32 -1, 1) i32 @H5G__loc_native_info_cb(ptr readnone captu
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5G_loc_set_comment(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.H5G_loc_sc_t, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i8, ptr @H5G_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %6 = trunc nuw i8 %5 to i1
   %7 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -1343,14 +1337,14 @@ define range(i32 -1, 1) i32 @H5G_loc_set_comment(ptr noundef %0, ptr noundef %1,
 
 27:                                               ; preds = %13, %23, %20, %17
   %.0 = phi i32 [ -1, %13 ], [ -1, %23 ], [ 0, %20 ], [ 0, %17 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5G__loc_set_comment_cb(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5) #0 {
   %7 = alloca %struct.H5O_name_t, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8
   %8 = load i8, ptr @H5G_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %9 = trunc nuw i8 %8 to i1
@@ -1441,14 +1435,14 @@ define internal range(i32 -1, 1) i32 @H5G__loc_set_comment_cb(ptr readnone captu
 
 58:                                               ; preds = %56, %6
   %.0 = phi i32 [ %.1, %56 ], [ 0, %6 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5G_loc_get_comment(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.H5G_loc_gc_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i8, ptr @H5G_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %8 = trunc nuw i8 %7 to i1
   %9 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -1510,14 +1504,14 @@ define range(i32 -1, 1) i32 @H5G_loc_get_comment(ptr noundef %0, ptr noundef %1,
 
 34:                                               ; preds = %15, %27, %32, %31, %19
   %.0 = phi i32 [ -1, %15 ], [ -1, %27 ], [ 0, %32 ], [ 0, %31 ], [ 0, %19 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5G__loc_get_comment_cb(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef captures(none) %4, ptr noundef writeonly captures(none) %5) #0 {
   %7 = alloca %struct.H5O_name_t, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i8, ptr @H5G_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %9 = trunc nuw i8 %8 to i1
   %10 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -1592,51 +1586,57 @@ define internal range(i32 -1, 1) i32 @H5G__loc_get_comment_cb(ptr readnone captu
 
 45:                                               ; preds = %44, %6
   %.0 = phi i32 [ %.1, %44 ], [ 0, %6 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
-declare i32 @H5G_obj_lookup_by_idx(ptr noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5G_obj_lookup_by_idx(ptr noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @H5G__link_to_loc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5G__link_to_loc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @H5G__traverse_special(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5G__traverse_special(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @H5O_msg_reset(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5O_msg_reset(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @H5O_get_info(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @H5O_get_info(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @H5O_get_native_info(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @H5O_get_native_info(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @H5O_msg_exists(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @H5O_msg_exists(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @H5O_msg_remove(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @H5O_msg_remove(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #5
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
-declare i32 @H5O_msg_create(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5O_msg_create(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
-declare ptr @H5O_msg_read(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @H5O_msg_read(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #7
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind willreturn memory(read) }
 

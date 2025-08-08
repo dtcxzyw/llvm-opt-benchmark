@@ -210,7 +210,7 @@ define void @_ZThn24_N3zmq11io_thread_tD0Ev(ptr noundef %0) unnamed_addr #7 alig
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq11io_thread_t5startEv(ptr noundef nonnull align 8 dereferenceable(224) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = tail call noundef i32 @_ZNK3zmq8object_t7get_tidEv(ptr noundef nonnull align 8 dereferenceable(20) %0)
   %4 = add i32 %3, -2
@@ -218,15 +218,12 @@ define void @_ZN3zmq11io_thread_t5startEv(ptr noundef nonnull align 8 dereferenc
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %7 = load ptr, ptr %6, align 8, !tbaa !31
   call void @_ZN3zmq20worker_poller_base_t5startEPKc(ptr noundef nonnull align 8 dereferenceable(192) %7, ptr noundef nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
@@ -234,9 +231,6 @@ declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 
 declare noundef i32 @_ZNK3zmq8object_t7get_tidEv(ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #1
 
 declare void @_ZN3zmq20worker_poller_base_t5startEPKc(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq11io_thread_t4stopEv(ptr noundef nonnull align 8 dereferenceable(224) %0) local_unnamed_addr #0 align 2 {
@@ -247,7 +241,7 @@ define void @_ZN3zmq11io_thread_t4stopEv(ptr noundef nonnull align 8 dereference
 declare void @_ZN3zmq8object_t9send_stopEv(ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN3zmq11io_thread_t11get_mailboxEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(224) %0) local_unnamed_addr #10 align 2 {
+define noundef nonnull ptr @_ZN3zmq11io_thread_t11get_mailboxEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(224) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   ret ptr %2
 }
@@ -265,7 +259,7 @@ declare noundef i32 @_ZNK3zmq13poller_base_t8get_loadEv(ptr noundef nonnull alig
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq11io_thread_t8in_eventEv(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"struct.zmq::command_t", align 64
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %.critedge
 
@@ -300,14 +294,14 @@ define void @_ZN3zmq11io_thread_t8in_eventEv(ptr noundef nonnull align 8 derefer
   br label %.loopexit
 
 .loopexit:                                        ; preds = %6, %10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 declare noundef i32 @_ZN3zmq9mailbox_t4recvEPNS_9command_tEi(ptr noundef nonnull align 8 dereferenceable(176), ptr noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #11
+declare ptr @__errno_location() local_unnamed_addr #10
 
 declare void @_ZN3zmq8object_t15process_commandERKNS_9command_tE(ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 64 dereferenceable(64)) local_unnamed_addr #1
 
@@ -315,14 +309,14 @@ declare void @_ZN3zmq8object_t15process_commandERKNS_9command_tE(ptr noundef non
 declare ptr @strerror(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: uwtable
-define void @_ZThn24_N3zmq11io_thread_t8in_eventEv(ptr noundef %0) unnamed_addr #12 align 2 {
+define void @_ZThn24_N3zmq11io_thread_t8in_eventEv(ptr noundef %0) unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -24
   tail call void @_ZN3zmq11io_thread_t8in_eventEv(ptr noundef nonnull align 8 dereferenceable(224) %2)
   ret void
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq11io_thread_t9out_eventEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #13 align 2 {
+define void @_ZN3zmq11io_thread_t9out_eventEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr @stderr, align 8, !tbaa !32
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 74) #16
   %4 = load ptr, ptr @stderr, align 8, !tbaa !32
@@ -332,13 +326,13 @@ define void @_ZN3zmq11io_thread_t9out_eventEv(ptr nonnull readnone align 8 captu
 }
 
 ; Function Attrs: cold uwtable
-define void @_ZThn24_N3zmq11io_thread_t9out_eventEv(ptr noundef readnone captures(none) %0) unnamed_addr #14 align 2 {
+define void @_ZThn24_N3zmq11io_thread_t9out_eventEv(ptr noundef readnone captures(none) %0) unnamed_addr #13 align 2 {
   tail call void @_ZN3zmq11io_thread_t9out_eventEv(ptr nonnull align 8 poison)
   ret void
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq11io_thread_t11timer_eventEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #13 align 2 {
+define void @_ZN3zmq11io_thread_t11timer_eventEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #12 align 2 {
   %3 = load ptr, ptr @stderr, align 8, !tbaa !32
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 80) #16
   %5 = load ptr, ptr @stderr, align 8, !tbaa !32
@@ -348,7 +342,7 @@ define void @_ZN3zmq11io_thread_t11timer_eventEi(ptr nonnull readnone align 8 ca
 }
 
 ; Function Attrs: cold uwtable
-define void @_ZThn24_N3zmq11io_thread_t11timer_eventEi(ptr noundef readnone captures(none) %0, i32 %1) unnamed_addr #14 align 2 {
+define void @_ZThn24_N3zmq11io_thread_t11timer_eventEi(ptr noundef readnone captures(none) %0, i32 %1) unnamed_addr #13 align 2 {
   tail call void @_ZN3zmq11io_thread_t11timer_eventEi(ptr nonnull align 8 poison, i32 poison)
   ret void
 }
@@ -444,6 +438,12 @@ declare void @_ZN3zmq8object_t19process_conn_failedEv(ptr noundef nonnull align 
 
 declare void @_ZN3zmq8object_t14process_seqnumEv(ptr noundef nonnull align 8 dereferenceable(20)) unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
+
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nobuiltin nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -452,13 +452,13 @@ attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buf
 attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { cold mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { cold uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { cold mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { cold uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { builtin nounwind allocsize(0) }
 attributes #16 = { cold nounwind }
 attributes #17 = { builtin nounwind }

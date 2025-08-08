@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 define internal range(i32 -2, 2) i32 @tls13_set_crypto_state(ptr noundef captures(none) initializes((4288, 4296)) %0, i32 %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr readnone captures(none) %6, i64 %7, ptr noundef %8, i64 noundef %9, i32 noundef %10, ptr noundef %11, ptr readnone captures(none) %12) #0 {
   %14 = alloca [2 x %struct.ossl_param_st], align 16
   %15 = alloca %struct.ossl_param_st, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %17 = load i32, ptr %16, align 4, !tbaa !3
   %18 = icmp eq i32 %17, 1
@@ -78,10 +78,10 @@ define internal range(i32 -2, 2) i32 @tls13_set_crypto_state(ptr noundef capture
   %45 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %46 = tail call ptr @EVP_MD_get0_name(ptr noundef nonnull %11) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %14, ptr noundef nonnull @.str.3, ptr noundef %46, i64 noundef 0) #6
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %15) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 40, i1 false), !tbaa.struct !28
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %47 = call i32 @EVP_MAC_init(ptr noundef nonnull %40, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %14) #6
   %.not = icmp eq i32 %47, 0
   br i1 %.not, label %48, label %72
@@ -140,7 +140,7 @@ define internal range(i32 -2, 2) i32 @tls13_set_crypto_state(ptr noundef capture
 
 72:                                               ; preds = %44, %68, %23, %13, %71, %53, %48, %43
   %.0 = phi i32 [ -2, %43 ], [ -2, %48 ], [ -2, %53 ], [ -2, %71 ], [ -2, %13 ], [ -2, %23 ], [ 1, %68 ], [ 1, %44 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.0
 }
 
@@ -153,14 +153,14 @@ define internal range(i32 0, 2) i32 @tls13_cipher(ptr noundef %0, ptr noundef ca
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca %struct.wpacket_st, align 8
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4096
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %.not = icmp eq i64 %2, 1
   br i1 %.not, label %16, label %15
 
@@ -515,13 +515,13 @@ define internal range(i32 0, 2) i32 @tls13_cipher(ptr noundef %0, ptr noundef ca
 
 197:                                              ; preds = %50, %179, %193, %155, %160, %163, %172, %75, %52, %192, %152, %137, %133, %101, %63, %33, %28, %15
   %.0106 = phi i32 [ 0, %15 ], [ 0, %28 ], [ 1, %33 ], [ 0, %63 ], [ 0, %101 ], [ %.0, %133 ], [ 0, %137 ], [ 0, %152 ], [ 0, %192 ], [ 0, %50 ], [ 0, %52 ], [ 0, %75 ], [ %.mux, %179 ], [ 0, %172 ], [ 0, %163 ], [ 0, %160 ], [ 0, %155 ], [ 1, %193 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0106
 }
 
@@ -821,13 +821,10 @@ declare i32 @tls_prepare_for_encryption_default(ptr noundef, i64 noundef, ptr no
 
 declare i32 @tls_post_encryption_processing_default(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @EVP_CIPHER_is_a(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -847,9 +844,6 @@ declare void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind writable sret(
 
 declare ptr @EVP_MD_get0_name(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 declare void @OSSL_PARAM_construct_end(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8) local_unnamed_addr #1
 
 declare i32 @EVP_MAC_init(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
@@ -865,7 +859,7 @@ declare i32 @EVP_CIPHER_CTX_ctrl(ptr noundef, i32 noundef, i32 noundef, ptr noun
 declare void @ossl_rlayer_fatal(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 declare i64 @EVP_MAC_CTX_get_mac_size(ptr noundef) local_unnamed_addr #1
 
@@ -903,6 +897,12 @@ declare i32 @tls13_common_post_process_record(ptr noundef, ptr noundef) local_un
 
 declare i32 @WPACKET_memset(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #5
 
@@ -912,8 +912,8 @@ declare i64 @llvm.umin.i64(i64, i64) #5
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

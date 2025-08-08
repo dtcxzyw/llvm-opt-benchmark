@@ -60,17 +60,17 @@ define hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h71f
   br i1 %8, label %_ZN3std4sync6poison4once4Once15call_once_force17h299e884ddcf6b63cE.exit, label %9, !prof !16
 
 9:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !13
   store ptr %1, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %3, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !13
   store ptr %5, ptr %4, align 8, !noalias !13
   call void @_ZN3std3sys4sync4once5futex4Once4call17he8434ff5d5597359E(ptr noundef nonnull align 4 %6, i1 noundef zeroext true, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(40) @anon.5f52548b160c067b79d02fbbd8f74cbf.0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5f52548b160c067b79d02fbbd8f74cbf.2), !noalias !13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !13
   br label %_ZN3std4sync6poison4once4Once15call_once_force17h299e884ddcf6b63cE.exit
 
 _ZN3std4sync6poison4once4Once15call_once_force17h299e884ddcf6b63cE.exit: ; preds = %2, %9
@@ -127,10 +127,10 @@ declare void @_ZN3std3sys4sync4once5futex4Once4call17he8434ff5d5597359E(ptr noun
 declare void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #6

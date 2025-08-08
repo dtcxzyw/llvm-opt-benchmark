@@ -1071,7 +1071,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesReprDescC2ERKS0_.exit: ; pre
   br label %_ZNSt5arrayIN32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesReprDescELm1EED2Ev.exit
 
 _ZNSt5arrayIN32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesReprDescELm1EED2Ev.exit: ; preds = %38, %42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %7, label %46, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 46:                                               ; preds = %_ZNSt5arrayIN32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesReprDescELm1EED2Ev.exit
@@ -1083,7 +1083,7 @@ _ZNSt5arrayIN32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesReprDescELm1EED2Ev
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZNSt5arrayIN32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesReprDescELm1EED2Ev.exit, %46
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 48:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesReprDescC2ERKS0_.exit
@@ -1103,7 +1103,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZNSt
 
 _ZNSt5arrayIN32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesReprDescELm1EED2Ev.exit5: ; preds = %53, %48, %24
   %.pn = phi { ptr, i32 } [ %25, %24 ], [ %49, %48 ], [ %49, %53 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br i1 %7, label %57, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit6
 
 57:                                               ; preds = %_ZNSt5arrayIN32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesReprDescELm1EED2Ev.exit5
@@ -1115,7 +1115,7 @@ _ZNSt5arrayIN32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesReprDescELm1EED2Ev
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit6
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit6: ; preds = %_ZNSt5arrayIN32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesReprDescELm1EED2Ev.exit5, %57
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
 
@@ -1335,7 +1335,7 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt5arrayINS0_21HdBasisCur
 define void @_ZN32pxrInternal_v0_24__pxrReserved__13HdBasisCurves12_GetReprDescERKNS_7TfTokenE(ptr dead_on_unwind noalias writable sret(%"struct.std::array") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13HdBasisCurves15_reprDescConfigE, align 8, !noalias !14
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13HdBasisCurves15_reprDescConfigE, i64 8), align 8, !noalias !14
   %.not21.i = icmp eq ptr %4, %5
@@ -1408,7 +1408,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %28, 
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7HdRprim16_ReprDescConfigsINS_21HdBasisCurvesReprDescELi1EE4FindERKNS_7TfTokenE.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7HdRprim16_ReprDescConfigsINS_21HdBasisCurvesReprDescELi1EE4FindERKNS_7TfTokenE.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt4pairINS_7TfTokenESt5arrayINS_21HdBasisCurvesReprDescELm1EEESaIS7_EELb0EEptEv.exit7.i, %16, %21, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1702,10 +1702,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 declare void @llvm.assume(i1 noundef) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

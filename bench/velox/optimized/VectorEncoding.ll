@@ -403,11 +403,11 @@ cleanup.action:                                   ; preds = %ehcleanup51.thread5
   br label %eh.resume
 
 if.end:                                           ; preds = %land.rhs.i.i.i, %if.end.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i36)
   call void @_ZN5folly3f146detail11F14BasicMapINS1_21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8facebook5velox14VectorEncoding6SimpleEvvvSt17integral_constantIbLb1EEEEE11try_emplaceIJEEESt4pairINS1_23VectorContainerIteratorIPSJ_IKS9_SD_EEEbERSL_DpOT_(ptr nonnull sret(%"struct.std::pair.21") align 8 %ref.tmp.i36, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN8facebook5velox14VectorEncoding15mapNameToSimpleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10vecNameMapB5cxx11, ptr noundef nonnull align 8 dereferenceable(32) %name)
   %28 = load ptr, ptr %ref.tmp.i36, align 8
   %second.i = getelementptr inbounds nuw i8, ptr %28, i64 32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i36)
   %29 = load i32, ptr %second.i, align 4
   ret i32 %29
 
@@ -913,7 +913,7 @@ if.end3.i:                                        ; preds = %if.end.i, %entry
 
 while.body.i:                                     ; preds = %if.end3.i, %_ZN5folly6detail20callWithExtractedKeyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8facebook5velox14VectorEncoding6SimpleENS_3f146detail11F14BasicMapINSD_21VectorContainerPolicyIS7_SB_vvvSt17integral_constantIbLb1EEEEE11UsableAsKeyESaISt4pairIKS7_SB_EEZNSJ_7emplaceIJRKSN_EEESL_INSD_23VectorContainerIteratorIPSN_EEbEDpOT_EUlSY_E_SM_SB_EEDaRT2_OT3_RKSL_IT4_T5_E.exit.i.i
   %first.addr.i.07 = phi ptr [ %incdec.ptr.i, %_ZN5folly6detail20callWithExtractedKeyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8facebook5velox14VectorEncoding6SimpleENS_3f146detail11F14BasicMapINSD_21VectorContainerPolicyIS7_SB_vvvSt17integral_constantIbLb1EEEEE11UsableAsKeyESaISt4pairIKS7_SB_EEZNSJ_7emplaceIJRKSN_EEESL_INSD_23VectorContainerIteratorIPSN_EEbEDpOT_EUlSY_E_SM_SB_EEDaRT2_OT3_RKSL_IT4_T5_E.exit.i.i ], [ %first, %if.end3.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %rv.i.i), !noalias !12
+  call void @llvm.lifetime.start.p0(ptr nonnull %rv.i.i), !noalias !12
   %call.i.i.i.i.i.i.i.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(36) %first.addr.i.07) #23, !noalias !15
   %call2.i.i.i.i.i.i.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(36) %first.addr.i.07) #23, !noalias !15
   %call.i2.i.i.i.i.i.i.i.i.i.i = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef %call.i.i.i.i.i.i.i.i.i.i, i64 noundef %call2.i.i.i.i.i.i.i.i.i.i, i64 noundef 3339675911)
@@ -931,7 +931,7 @@ _ZN5folly6detail20callWithExtractedKeyINSt7__cxx1112basic_stringIcSt11char_trait
   %shr.i.i.i.i.i.i.i.i = lshr i64 %call.i2.i.i.i.i.i.i.i.i.i.i, 56
   %or.i.i.i.i.i.i.i.i = or i64 %shr.i.i.i.i.i.i.i.i, 128
   call void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8facebook5velox14VectorEncoding6SimpleEvvvSt17integral_constantIbLb1EEEEE19tryEmplaceValueImplIS9_JRKS9_RKSD_EEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEbESN_ImmERKT_DpOT0_(ptr nonnull sret(%"struct.std::pair.29") align 8 %rv.i.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 %call.i2.i.i.i.i.i.i.i.i.i.i, i64 %or.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(36) %first.addr.i.07, ptr noundef nonnull align 8 dereferenceable(36) %first.addr.i.07, ptr noundef nonnull align 4 dereferenceable(4) %second.i.i.i), !noalias !28
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %rv.i.i), !noalias !12
+  call void @llvm.lifetime.end.p0(ptr nonnull %rv.i.i), !noalias !12
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %first.addr.i.07, i64 40
   %cmp4.i.not = icmp eq ptr %incdec.ptr.i, %last
   br i1 %cmp4.i.not, label %_ZN5folly3f146detail11F14BasicMapINS1_21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8facebook5velox14VectorEncoding6SimpleEvvvSt17integral_constantIbLb1EEEEE10bulkInsertIPKSt4pairIKS9_SD_EEEvT_SO_b.exit, label %while.body.i, !llvm.loop !29
@@ -2418,10 +2418,10 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare i16 @llvm.cttz.i16(i16, i1 immarg) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }

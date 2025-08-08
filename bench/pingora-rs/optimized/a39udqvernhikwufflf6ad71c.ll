@@ -13,10 +13,10 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3std3sys9backtrace28__rust_begin_short_backtrace17h0c48767f91754214E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #0 {
   %2 = alloca [32 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2), !noalias !3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull readonly align 8 dereferenceable(32) %0, i64 32, i1 false)
   call void @_ZN3std6thread9spawnhook15ChildSpawnHooks3run17h692e11753cc66cd2E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2), !noalias !3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2), !noalias !3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !3
   tail call void asm sideeffect "", "~{memory}"() #8, !srcloc !6
   ret void
 }
@@ -34,7 +34,7 @@ define void @_ZN3std3sys9backtrace28__rust_begin_short_backtrace17hcb65e53b4588c
 ; Function Attrs: nonlazybind uwtable
 define { ptr, ptr } @"_ZN76_$LT$pingora_timeout..TokioTimeout$u20$as$u20$pingora_timeout..ToTimeout$GT$7timeout17h9e09f257491f373bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [112 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load i64, ptr %0, align 8, !noundef !7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !range !8, !noundef !7
@@ -68,7 +68,7 @@ define { ptr, ptr } @"_ZN76_$LT$pingora_timeout..TokioTimeout$u20$as$u20$pingora
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h1c7cc830a495b8c1E.exit": ; preds = %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 8 dereferenceable(112) %2, i64 112, i1 false)
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %15 = insertvalue { ptr, ptr } poison, ptr %7, 0
   %16 = insertvalue { ptr, ptr } %15, ptr @anon.ceac958c52a1a9836b9b118c6fafa1c8.3, 1
   ret { ptr, ptr } %16
@@ -127,10 +127,10 @@ declare void @_ZN5tokio4time5sleep5sleep17h52566c5558762b97E(ptr dead_on_unwind 
 declare noundef zeroext i1 @"_ZN74_$LT$tokio..time..sleep..Sleep$u20$as$u20$core..future..future..Future$GT$4poll17h1022cc46dd5cf8eeE"(ptr noundef nonnull align 8, ptr noalias noundef align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

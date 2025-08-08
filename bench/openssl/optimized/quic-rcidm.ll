@@ -30,10 +30,10 @@ define dso_local range(i32 -1, 1) i32 @FuzzerTestOneInput(ptr noundef readonly c
   %4 = alloca %struct.quic_conn_id_st, align 1
   %5 = alloca %struct.quic_conn_id_st, align 1
   %6 = alloca %struct.ossl_quic_frame_new_conn_id_st, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %5) #4
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp slt i64 %1, 0
   br i1 %7, label %PACKET_buf_init.exit.thread, label %PACKET_buf_init.exit
 
@@ -368,15 +368,12 @@ PACKET_buf_init.exit.thread:                      ; preds = %26, %31, %208, %14,
   %.015 = phi i32 [ 0, %PACKET_buf_init.exit ], [ 0, %2 ], [ 0, %.preheader ], [ 0, %26 ], [ 0, %31 ], [ 0, %208 ], [ -1, %14 ], [ -1, %PACKET_get_1.exit.i ], [ -1, %18 ], [ -1, %23 ], [ -1, %PACKET_get_1.exit.i36 ], [ -1, %34 ], [ -1, %39 ], [ -1, %PACKET_get_1.exit.i41 ], [ -1, %46 ], [ -1, %51 ], [ -1, %58 ], [ -1, %60 ], [ -1, %PACKET_get_1.exit.i51 ], [ -1, %100 ], [ -1, %144 ], [ -1, %152 ], [ -1, %201 ]
   %.0 = phi ptr [ null, %PACKET_buf_init.exit ], [ null, %2 ], [ %8, %.preheader ], [ null, %26 ], [ null, %31 ], [ %.2, %208 ], [ %.1138, %14 ], [ %.1138, %PACKET_get_1.exit.i ], [ %.1138, %18 ], [ %.1138, %23 ], [ %.1138, %PACKET_get_1.exit.i36 ], [ %.1138, %34 ], [ %.1138, %39 ], [ %.1138, %PACKET_get_1.exit.i41 ], [ %.1138, %46 ], [ %.1138, %51 ], [ %.1138, %58 ], [ %.1138, %60 ], [ %.1138, %PACKET_get_1.exit.i51 ], [ %.1138, %100 ], [ %.1138, %144 ], [ %.1138, %152 ], [ %.1138, %201 ]
   call void @ossl_quic_rcidm_free(ptr noundef %.0) #4
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.015
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @ossl_quic_rcidm_new(ptr noundef) local_unnamed_addr #1
 
@@ -402,9 +399,6 @@ declare i32 @ossl_quic_rcidm_get_preferred_tx_dcid(ptr noundef, ptr noundef) loc
 
 declare i32 @ossl_quic_rcidm_get_preferred_tx_dcid_changed(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind uwtable
 define dso_local void @FuzzerCleanup() local_unnamed_addr #0 {
   tail call void @FuzzerClearRand() #4
@@ -414,12 +408,18 @@ define dso_local void @FuzzerCleanup() local_unnamed_addr #0 {
 declare void @FuzzerClearRand() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

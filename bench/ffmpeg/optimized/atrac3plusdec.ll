@@ -35,7 +35,7 @@ define internal range(i32 -2147483648, 1) i32 @atrac3p_decode_init(ptr noundef %
   %2 = alloca float, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 380
   %6 = load i32, ptr %5, align 4, !tbaa !27
   %.not = icmp eq i32 %6, 0
@@ -147,7 +147,7 @@ define internal range(i32 -2147483648, 1) i32 @atrac3p_decode_init(ptr noundef %
 
 61:                                               ; preds = %22, %18, %13, %8, %._crit_edge, %7
   %.076 = phi i32 [ 0, %._crit_edge ], [ -22, %7 ], [ %11, %8 ], [ %16, %13 ], [ %20, %18 ], [ -12, %22 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.076
 }
 
@@ -280,7 +280,7 @@ define internal i32 @atrac3p_decode_frame(ptr noundef %0, ptr noundef initialize
 75:                                               ; preds = %69
   %76 = load ptr, ptr %33, align 8, !tbaa !36
   %77 = getelementptr inbounds nuw %struct.Atrac3pChanUnitCtx, ptr %76, i64 %indvars.iv108
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 20
   %79 = load i32, ptr %78, align 4, !tbaa !73
@@ -507,7 +507,7 @@ define internal i32 @atrac3p_decode_frame(ptr noundef %0, ptr noundef initialize
 
 decode_residual_spectrum.exit:                    ; preds = %.loopexit.i, %.preheader10.preheader.i, %149
   %wide.trip.count.i78.pre-phi = phi i64 [ %.pre, %.preheader10.preheader.i ], [ %wide.trip.count54.i, %149 ], [ %wide.trip.count54.i, %.loopexit.i ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %175 = load ptr, ptr %33, align 8, !tbaa !36
   %176 = getelementptr inbounds nuw %struct.Atrac3pChanUnitCtx, ptr %175, i64 %indvars.iv108
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
@@ -748,14 +748,11 @@ define internal noundef i32 @atrac3p_decode_close(ptr noundef readonly captures(
   ret i32 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @av_tx_init(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @av_tx_init(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
-
-declare void @ff_atrac_init_gain_compensation(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @ff_atrac_init_gain_compensation(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold nounwind optsize uwtable
 define internal fastcc range(i32 -1094995529, 1) i32 @set_channel_params(ptr noundef writeonly captures(none) initializes((65828, 65833)) %0, ptr noundef %1) unnamed_addr #0 {
@@ -904,11 +901,11 @@ define internal fastcc range(i32 -1094995529, 1) i32 @set_channel_params(ptr nou
   ret i32 %.0
 }
 
-declare noalias ptr @av_calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @av_calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @avpriv_float_dsp_alloc(i32 noundef) local_unnamed_addr #3
+declare ptr @avpriv_float_dsp_alloc(i32 noundef) local_unnamed_addr #2
 
-declare i32 @pthread_once(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @pthread_once(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold nounwind optsize uwtable
 define internal void @atrac3p_init_static() #0 {
@@ -917,40 +914,43 @@ define internal void @atrac3p_init_static() #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare void @av_channel_layout_uninit(ptr noundef) local_unnamed_addr #3
+declare void @av_channel_layout_uninit(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare void @ff_atrac3p_init_vlcs() local_unnamed_addr #3
+declare void @ff_atrac3p_init_vlcs() local_unnamed_addr #2
 
-declare void @ff_atrac3p_init_dsp_static() local_unnamed_addr #3
+declare void @ff_atrac3p_init_dsp_static() local_unnamed_addr #2
 
-declare i32 @ff_get_buffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @ff_get_buffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @avpriv_report_missing_feature(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @avpriv_report_missing_feature(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @ff_atrac3p_decode_channel_unit(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ff_atrac3p_decode_channel_unit(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ff_atrac3p_power_compensation(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @ff_atrac3p_power_compensation(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ff_atrac3p_imdct(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @ff_atrac3p_imdct(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ff_atrac_gain_compensation(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @ff_atrac_gain_compensation(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ff_atrac3p_generate_tones(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @ff_atrac3p_generate_tones(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ff_atrac3p_ipqf(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @ff_atrac3p_ipqf(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @av_freep(ptr noundef) local_unnamed_addr #3
+declare void @av_freep(ptr noundef) local_unnamed_addr #2
 
-declare void @av_tx_uninit(ptr noundef) local_unnamed_addr #3
+declare void @av_tx_uninit(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #6
@@ -963,10 +963,10 @@ declare i32 @llvm.smin.i32(i32, i32) #6
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 attributes #8 = { cold }

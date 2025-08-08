@@ -89,20 +89,14 @@ mi_segment_raw_page_start.exit:                   ; preds = %mi_segment_raw_page
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_segments_collect(i1 noundef zeroext %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
+define hidden void @_mi_segments_collect(i1 noundef zeroext %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   tail call fastcc void @mi_pages_try_purge(i1 noundef zeroext %0, ptr noundef %1) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mi_pages_try_purge(i1 noundef zeroext %0, ptr noundef captures(none) %1) unnamed_addr #2 {
+define internal fastcc void @mi_pages_try_purge(i1 noundef zeroext %0, ptr noundef captures(none) %1) unnamed_addr #1 {
   %3 = tail call i64 @mi_option_get(i32 noundef 15) #8
   %4 = icmp slt i64 %3, 0
   br i1 %4, label %77, label %5
@@ -273,7 +267,7 @@ mi_page_purge.exit:                               ; preds = %mi_page_purge_remov
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_segment_page_free(ptr noundef %0, i1 noundef zeroext %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #2 {
+define hidden void @_mi_segment_page_free(ptr noundef %0, i1 noundef zeroext %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = ptrtoint ptr %0 to i64
   %5 = add i64 %4, -1
   %6 = and i64 %5, -4194304
@@ -345,7 +339,7 @@ mi_segment_insert_in_free_queue.exit:             ; preds = %32, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mi_segment_page_clear(ptr noundef %0, ptr noundef initializes((6, 26), (28, 32), (48, 80)) %1, ptr noundef captures(none) %2) unnamed_addr #2 {
+define internal fastcc void @mi_segment_page_clear(ptr noundef %0, ptr noundef initializes((6, 26), (28, 32), (48, 80)) %1, ptr noundef captures(none) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %5 = load i16, ptr %4, align 2, !tbaa !48
   %6 = zext i16 %5 to i64
@@ -488,7 +482,7 @@ mi_segment_schedule_purge.exit:                   ; preds = %3, %37, %mi_segment
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mi_segment_free(ptr noundef %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 {
+define internal fastcc void @mi_segment_free(ptr noundef %0, ptr noundef captures(address_is_null) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 65
   %4 = load i8, ptr %3, align 1, !tbaa !54, !range !37, !noundef !38
   %5 = trunc nuw i8 %4 to i1
@@ -784,7 +778,7 @@ mi_segment_os_free.exit:                          ; preds = %116, %mi_segment_ra
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mi_segment_abandon(ptr noundef %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 {
+define internal fastcc void @mi_segment_abandon(ptr noundef %0, ptr noundef captures(address_is_null) %1) unnamed_addr #1 {
   tail call fastcc void @mi_pages_try_purge(i1 noundef zeroext false, ptr noundef %1) #7
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !65
@@ -1177,7 +1171,7 @@ mi_segments_track_size.exit:                      ; preds = %150, %157
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_segment_page_abandon(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #2 {
+define hidden void @_mi_segment_page_abandon(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = ptrtoint ptr %0 to i64
   %4 = add i64 %3, -1
   %5 = and i64 %4, -4194304
@@ -1206,10 +1200,10 @@ define hidden void @_mi_segment_page_abandon(ptr noundef %0, ptr noundef capture
   ret void
 }
 
-declare void @_mi_stat_increase(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @_mi_stat_increase(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @_mi_segment_attempt_reclaim(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define hidden noundef zeroext i1 @_mi_segment_attempt_reclaim(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %4 = load atomic i64, ptr %3 monotonic, align 8
   %.not = icmp eq i64 %4, 0
@@ -1272,14 +1266,14 @@ define hidden noundef zeroext i1 @_mi_segment_attempt_reclaim(ptr noundef %0, pt
   ret i1 %.0
 }
 
-declare zeroext i1 @_mi_heap_memid_is_suitable(ptr noundef, ptr noundef byval(%struct.mi_memid_s) align 8) local_unnamed_addr #3
+declare zeroext i1 @_mi_heap_memid_is_suitable(ptr noundef, ptr noundef byval(%struct.mi_memid_s) align 8) local_unnamed_addr #2
 
-declare i64 @_mi_option_get_fast(i32 noundef) local_unnamed_addr #3
+declare i64 @_mi_option_get_fast(i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @_mi_arena_segment_clear_abandoned(ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @_mi_arena_segment_clear_abandoned(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @mi_segment_reclaim(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 0, 1048577) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) unnamed_addr #2 {
+define internal fastcc noundef ptr @mi_segment_reclaim(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 0, 1048577) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) unnamed_addr #1 {
   %6 = icmp ne ptr %3, null
   br i1 %6, label %7, label %8
 
@@ -1495,9 +1489,9 @@ mi_segment_insert_in_free_queue.exit:             ; preds = %106, %108
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_abandoned_reclaim_all(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #2 {
+define hidden void @_mi_abandoned_reclaim_all(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = alloca %struct.mi_arena_field_cursor_s, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %5 = load ptr, ptr %4, align 8, !tbaa !87
   call void @_mi_arena_field_cursor_init(ptr noundef %0, ptr noundef %5, i1 noundef zeroext true, ptr noundef nonnull %3) #8
@@ -1514,18 +1508,18 @@ define hidden void @_mi_abandoned_reclaim_all(ptr noundef %0, ptr noundef captur
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   call void @_mi_arena_field_cursor_done(ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare void @_mi_arena_field_cursor_init(ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
+declare void @_mi_arena_field_cursor_init(ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
-declare ptr @_mi_arena_segment_clear_abandoned_next(ptr noundef) local_unnamed_addr #3
+declare ptr @_mi_arena_segment_clear_abandoned_next(ptr noundef) local_unnamed_addr #2
 
-declare void @_mi_arena_field_cursor_done(ptr noundef) local_unnamed_addr #3
+declare void @_mi_arena_field_cursor_done(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mi_collect_reduce(i64 noundef %0) local_unnamed_addr #2 {
+define hidden void @mi_collect_reduce(i64 noundef %0) local_unnamed_addr #1 {
   tail call void @mi_collect(i1 noundef zeroext true) #8
   %2 = tail call ptr @mi_heap_get_default() #8
   %3 = load ptr, ptr %2, align 8, !tbaa !70
@@ -1544,14 +1538,14 @@ define hidden void @mi_collect_reduce(i64 noundef %0) local_unnamed_addr #2 {
   ret void
 }
 
-declare void @mi_collect(i1 noundef zeroext) local_unnamed_addr #3
+declare void @mi_collect(i1 noundef zeroext) local_unnamed_addr #2
 
-declare ptr @mi_heap_get_default() local_unnamed_addr #3
+declare ptr @mi_heap_get_default() local_unnamed_addr #2
 
-declare i64 @mi_option_get_clamp(i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @mi_option_get_clamp(i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mi_segments_try_abandon_to_target(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #2 {
+define internal fastcc void @mi_segments_try_abandon_to_target(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #1 {
   %4 = icmp ult i64 %1, 2
   br i1 %4, label %.critedge, label %5
 
@@ -1667,7 +1661,7 @@ mi_segment_force_abandon.exit:                    ; preds = %46, %50, %51
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_segment_huge_page_reset(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #2 {
+define hidden void @_mi_segment_huge_page_reset(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 8, !tbaa !93, !range !37, !noundef !38
   %6 = trunc nuw i8 %5 to i1
@@ -1695,12 +1689,12 @@ define hidden void @_mi_segment_huge_page_reset(ptr noundef readonly captures(no
   ret void
 }
 
-declare i64 @mi_usable_size(ptr noundef) local_unnamed_addr #3
+declare i64 @mi_usable_size(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @_mi_os_reset(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare zeroext i1 @_mi_os_reset(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_mi_segment_page_alloc(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #2 {
+define hidden ptr @_mi_segment_page_alloc(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #1 {
   %5 = icmp ugt i64 %2, 2097152
   br i1 %5, label %6, label %10, !prof !94
 
@@ -1752,7 +1746,7 @@ mi_segment_large_page_alloc.exit:                 ; preds = %23, %20, %12, %25, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mi_segment_huge_page_alloc(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) unnamed_addr #2 {
+define internal fastcc ptr @mi_segment_huge_page_alloc(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) unnamed_addr #1 {
   %5 = tail call fastcc ptr @mi_segment_alloc(i64 noundef %0, i32 noundef 3, i64 noundef 23, i64 noundef %1, i32 noundef %2, ptr noundef %3) #7
   %6 = icmp eq ptr %5, null
   br i1 %6, label %55, label %7
@@ -1844,7 +1838,7 @@ _mi_align_up.exit:                                ; preds = %45, %48
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @_mi_segment_visit_blocks(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 {
+define hidden noundef zeroext i1 @_mi_segment_visit_blocks(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = alloca %struct.mi_heap_area_s, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load i64, ptr %7, align 8, !tbaa !43
@@ -1878,11 +1872,11 @@ define hidden noundef zeroext i1 @_mi_segment_visit_blocks(ptr noundef %0, i32 n
   br i1 %23, label %mi_segment_visit_page.exit.us, label %.critedge.us
 
 mi_segment_visit_page.exit.us:                    ; preds = %19, %18
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_mi_heap_area_init(ptr noundef nonnull %6, ptr noundef nonnull %14) #8
   %24 = load i64, ptr %12, align 8, !tbaa !96
   %25 = call zeroext i1 %3(ptr noundef null, ptr noundef nonnull %6, ptr noundef null, i64 noundef %24, ptr noundef %4) #8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %25, label %mi_segment_visit_page.exit.us..critedge.us_crit_edge, label %._crit_edge
 
 mi_segment_visit_page.exit.us..critedge.us_crit_edge: ; preds = %mi_segment_visit_page.exit.us
@@ -1909,7 +1903,7 @@ mi_segment_visit_page.exit.us..critedge.us_crit_edge: ; preds = %mi_segment_visi
   br i1 %.not.us25, label %.critedge.us27, label %33
 
 33:                                               ; preds = %.lr.ph.split.split.us
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_mi_heap_area_init(ptr noundef nonnull %6, ptr noundef nonnull %29) #8
   %34 = load i64, ptr %12, align 8, !tbaa !96
   %35 = call zeroext i1 %3(ptr noundef null, ptr noundef nonnull %6, ptr noundef null, i64 noundef %34, ptr noundef %4) #8
@@ -1917,7 +1911,7 @@ mi_segment_visit_page.exit.us..critedge.us_crit_edge: ; preds = %mi_segment_visi
 
 36:                                               ; preds = %33
   %37 = call zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef nonnull %6, ptr noundef nonnull %29, ptr noundef %3, ptr noundef %4) #8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %37, label %..critedge.us27_crit_edge, label %._crit_edge
 
 ..critedge.us27_crit_edge:                        ; preds = %36
@@ -1948,7 +1942,7 @@ mi_segment_visit_page.exit.us..critedge.us_crit_edge: ; preds = %mi_segment_visi
   br i1 %49, label %50, label %.critedge
 
 50:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_mi_heap_area_init(ptr noundef nonnull %6, ptr noundef nonnull %41) #8
   %51 = load i64, ptr %12, align 8, !tbaa !96
   %52 = call zeroext i1 %3(ptr noundef null, ptr noundef nonnull %6, ptr noundef null, i64 noundef %51, ptr noundef %4) #8
@@ -1956,7 +1950,7 @@ mi_segment_visit_page.exit.us..critedge.us_crit_edge: ; preds = %mi_segment_visi
 
 53:                                               ; preds = %50
   %54 = call zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef nonnull %6, ptr noundef nonnull %41, ptr noundef %3, ptr noundef %4) #8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %54, label %..critedge_crit_edge, label %._crit_edge
 
 ..critedge_crit_edge:                             ; preds = %53
@@ -1970,7 +1964,7 @@ mi_segment_visit_page.exit.us..critedge.us_crit_edge: ; preds = %mi_segment_visi
   br i1 %.not34, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !100
 
 ._crit_edge.sink.split:                           ; preds = %50, %33
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.critedge.us, %mi_segment_visit_page.exit.us, %.critedge, %53, %.critedge.us27, %36, %._crit_edge.sink.split, %5
@@ -1978,41 +1972,41 @@ mi_segment_visit_page.exit.us..critedge.us_crit_edge: ; preds = %mi_segment_visi
   ret i1 %.lcssa
 }
 
-declare i64 @mi_option_get(i32 noundef) local_unnamed_addr #3
+declare i64 @mi_option_get(i32 noundef) local_unnamed_addr #2
 
-declare i64 @_mi_clock_now() local_unnamed_addr #3
+declare i64 @_mi_clock_now() local_unnamed_addr #2
 
-declare zeroext i1 @_mi_os_purge(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare zeroext i1 @_mi_os_purge(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @_mi_stat_decrease(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @_mi_stat_decrease(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare void @_mi_segment_map_freed_at(ptr noundef) local_unnamed_addr #3
+declare void @_mi_segment_map_freed_at(ptr noundef) local_unnamed_addr #2
 
-declare void @_mi_arena_free(ptr noundef, i64 noundef, i64 noundef, ptr noundef byval(%struct.mi_memid_s) align 8) local_unnamed_addr #3
+declare void @_mi_arena_free(ptr noundef, i64 noundef, i64 noundef, ptr noundef byval(%struct.mi_memid_s) align 8) local_unnamed_addr #2
 
-declare zeroext i1 @mi_option_is_enabled(i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @mi_option_is_enabled(i32 noundef) local_unnamed_addr #2
 
-declare void @_mi_arena_segment_mark_abandoned(ptr noundef) local_unnamed_addr #3
+declare void @_mi_arena_segment_mark_abandoned(ptr noundef) local_unnamed_addr #2
 
-declare i64 @_mi_thread_id() local_unnamed_addr #3
+declare i64 @_mi_thread_id() local_unnamed_addr #2
 
-declare ptr @_mi_heap_by_tag(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
+declare ptr @_mi_heap_by_tag(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
-declare void @_mi_error_message(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @_mi_error_message(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @_mi_page_use_delayed_free(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @_mi_page_use_delayed_free(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @_mi_page_free_collect(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @_mi_page_free_collect(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @_mi_page_reclaim(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @_mi_page_reclaim(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @_mi_page_force_abandon(ptr noundef) local_unnamed_addr #3
+declare void @_mi_page_force_abandon(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mi_segment_alloc(i64 noundef %0, i32 noundef range(i32 0, 4) %1, i64 noundef range(i64 16, 24) %2, i64 noundef %3, i32 noundef %4, ptr noundef captures(none) %5) unnamed_addr #2 {
+define internal fastcc ptr @mi_segment_alloc(i64 noundef %0, i32 noundef range(i32 0, 4) %1, i64 noundef range(i64 16, 24) %2, i64 noundef %3, i32 noundef %4, ptr noundef captures(none) %5) unnamed_addr #1 {
   %7 = alloca %struct.mi_memid_s, align 8
   %8 = icmp eq i32 %1, 3
   %9 = lshr i64 4194304, %2
@@ -2047,7 +2041,7 @@ define internal fastcc ptr @mi_segment_alloc(i64 noundef %0, i32 noundef range(i
 28:                                               ; preds = %.thread, %22
   %not..i = phi i1 [ false, %22 ], [ true, %.thread ]
   %29 = phi i1 [ false, %22 ], [ %27, %.thread ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not.i = icmp eq i64 %3, 0
   %30 = sub nuw nsw i64 4194304, %12
   %.035.i = select i1 %.not.i, i64 0, i64 4194304
@@ -2141,12 +2135,12 @@ define internal fastcc ptr @mi_segment_alloc(i64 noundef %0, i32 noundef range(i
   br label %79
 
 mi_segment_os_alloc.exit.thread:                  ; preds = %40, %28
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %115
 
 79:                                               ; preds = %78, %71
   call void @_mi_segment_map_allocated_at(ptr noundef nonnull %32) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %80 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %81 = add nsw i64 %12, -48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %80, i8 0, i64 %81, i1 false)
@@ -2242,7 +2236,7 @@ mi_segment_insert_in_free_queue.exit:             ; preds = %112, %114
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mi_segment_find_free(ptr noundef nonnull %0, ptr noundef captures(none) %1) unnamed_addr #2 {
+define internal fastcc ptr @mi_segment_find_free(ptr noundef nonnull %0, ptr noundef captures(none) %1) unnamed_addr #1 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load i64, ptr %4, align 8, !tbaa !43
@@ -2373,7 +2367,7 @@ mi_segment_raw_page_size.exit.i.i.i:              ; preds = %50, %48
 mi_segment_raw_page_start.exit.i.i:               ; preds = %59, %mi_segment_raw_page_size.exit.i.i.i
   %.012.i.i.i = phi i64 [ %62, %59 ], [ %53, %mi_segment_raw_page_size.exit.i.i.i ]
   %.0.i.i.i = phi ptr [ %61, %59 ], [ %57, %mi_segment_raw_page_size.exit.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1, !tbaa !83
   %63 = call zeroext i1 @_mi_os_commit(ptr noundef nonnull %.0.i.i.i, i64 noundef %.012.i.i.i, ptr noundef nonnull %3) #8
   br i1 %63, label %mi_page_ensure_committed.exit.thread19.i, label %102
@@ -2389,7 +2383,7 @@ mi_page_ensure_committed.exit.thread19.i:         ; preds = %mi_segment_raw_page
   %69 = and i8 %64, -7
   %70 = or disjoint i8 %69, 2
   %71 = or disjoint i8 %68, %70
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre47 = load i64, ptr %4, align 8, !tbaa !43
   br label %mi_page_ensure_committed.exit.thread.i
 
@@ -2473,7 +2467,7 @@ mi_segment_queue_remove.exit.i.i:                 ; preds = %100, %96
   br label %.thread25
 
 102:                                              ; preds = %mi_segment_raw_page_start.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre46 = load i64, ptr %4, align 8, !tbaa !43
   br label %103
 
@@ -2488,19 +2482,19 @@ mi_segment_queue_remove.exit.i.i:                 ; preds = %100, %96
   ret ptr %spec.select
 }
 
-declare i64 @_mi_current_thread_count() local_unnamed_addr #3
+declare i64 @_mi_current_thread_count() local_unnamed_addr #2
 
-declare ptr @_mi_arena_alloc_aligned(i64 noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @_mi_arena_alloc_aligned(i64 noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @_mi_os_commit(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @_mi_os_commit(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare void @_mi_segment_map_allocated_at(ptr noundef) local_unnamed_addr #3
+declare void @_mi_segment_map_allocated_at(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mi_segment_page_alloc(ptr noundef %0, i64 noundef range(i64 0, 65537) %1, i32 noundef range(i32 0, 2) %2, i64 noundef range(i64 16, 20) %3, ptr noundef captures(address_is_null) %4) unnamed_addr #2 {
+define internal fastcc ptr @mi_segment_page_alloc(ptr noundef %0, i64 noundef range(i64 0, 65537) %1, i32 noundef range(i32 0, 2) %2, i64 noundef range(i64 16, 20) %3, ptr noundef captures(address_is_null) %4) unnamed_addr #1 {
   %switch.not.not.i = icmp eq i32 %2, 0
   %spec.select14.idx.i = select i1 %switch.not.not.i, i64 0, i64 16
   %spec.select14.i = getelementptr inbounds nuw i8, ptr %4, i64 %spec.select14.idx.i
@@ -2581,7 +2575,7 @@ mi_segment_page_try_alloc_in_queue.exit.thread:   ; preds = %14, %5, %mi_segment
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mi_segment_reclaim_or_alloc(ptr noundef %0, i64 noundef range(i64 0, 1048577) %1, i32 noundef range(i32 0, 3) %2, i64 noundef range(i64 16, 23) %3, ptr noundef captures(address_is_null) %4) unnamed_addr #2 {
+define internal fastcc ptr @mi_segment_reclaim_or_alloc(ptr noundef %0, i64 noundef range(i64 0, 1048577) %1, i32 noundef range(i32 0, 3) %2, i64 noundef range(i64 16, 23) %3, ptr noundef captures(address_is_null) %4) unnamed_addr #1 {
   %6 = alloca %struct.mi_arena_field_cursor_s, align 8
   %7 = alloca i8, align 1
   %8 = tail call i64 @mi_option_get_clamp(i32 noundef 35, i64 noundef 0, i64 noundef 1024) #8
@@ -2599,7 +2593,7 @@ segment_count_is_within_target.exit.i:            ; preds = %5
   br label %mi_segments_try_abandon.exit
 
 mi_segments_try_abandon.exit:                     ; preds = %5, %segment_count_is_within_target.exit.i, %13
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !83
   %14 = tail call i64 @mi_option_get_clamp(i32 noundef 21, i64 noundef 0, i64 noundef 100) #8
   %15 = icmp eq i64 %14, 0
@@ -2634,7 +2628,7 @@ mi_segment_get_reclaim_tries.exit.i:              ; preds = %26, %23
   %33 = icmp ugt i64 %19, 8
   %or.cond.i.i = and i1 %33, %32
   %spec.store.select.i.i = select i1 %or.cond.i.i, i64 8, i64 %31
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_mi_arena_field_cursor_init(ptr noundef %0, ptr noundef nonnull %18, i1 noundef zeroext false, ptr noundef nonnull %6) #8
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 56
   br label %.outer
@@ -2775,7 +2769,7 @@ mi_segment_check_free.exit.thread.i:              ; preds = %mi_segment_check_fr
 
 mi_segment_try_reclaim.exit.thread18:             ; preds = %segment_count_is_within_target.exit.i13, %segment_count_is_within_target.exit.thread.i, %41
   call void @_mi_arena_field_cursor_done(ptr noundef nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread
 
 mi_segment_try_reclaim.exit:                      ; preds = %81
@@ -2783,7 +2777,7 @@ mi_segment_try_reclaim.exit:                      ; preds = %81
   %.pre.pre = load i8, ptr %7, align 1, !tbaa !83, !range !37
   %93 = trunc nuw i8 %.pre.pre to i1
   call void @_mi_arena_field_cursor_done(ptr noundef nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %93, label %98, label %94
 
 94:                                               ; preds = %mi_segment_try_reclaim.exit
@@ -2798,15 +2792,21 @@ mi_segment_try_reclaim.exit:                      ; preds = %81
 
 98:                                               ; preds = %94, %mi_segment_try_reclaim.exit, %.thread
   %.0 = phi ptr [ %97, %.thread ], [ null, %mi_segment_try_reclaim.exit ], [ %92, %94 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
 
-declare zeroext i1 @_mi_arena_memid_is_suitable(ptr noundef byval(%struct.mi_memid_s) align 8, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @_mi_arena_memid_is_suitable(ptr noundef byval(%struct.mi_memid_s) align 8, i32 noundef) local_unnamed_addr #2
 
-declare void @_mi_heap_area_init(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @_mi_heap_area_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #6
@@ -2818,15 +2818,14 @@ declare i64 @llvm.ctpop.i64(i64) #6
 declare i64 @llvm.umin.i64(i64, i64) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { "no-builtin-malloc" }
 attributes #8 = { nounwind "no-builtin-malloc" }
-attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

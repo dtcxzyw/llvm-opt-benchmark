@@ -183,8 +183,8 @@ define hidden void @print_message(ptr noundef captures(none) %0, ptr noundef %1,
   %6 = alloca [8704 x i8], align 16
   %7 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8704, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8704, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = call i32 @vsnprintf(ptr noundef nonnull %5, i64 noundef 8704, ptr noundef readonly %3, ptr noundef nonnull %7) #10
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8703
   store i8 0, ptr %9, align 1
@@ -192,8 +192,8 @@ define hidden void @print_message(ptr noundef captures(none) %0, ptr noundef %1,
   %11 = trunc i64 %10 to i32
   %12 = call i32 @utf8ToPlatform(ptr noundef nonnull %5, i32 noundef %11, ptr noundef nonnull %6, i32 noundef 8704) #10
   %13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.166, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %2) #10
-  call void @llvm.lifetime.end.p0(i64 8704, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8704, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.va_end.p0(ptr nonnull %7)
   ret void
 }
@@ -211,8 +211,8 @@ define hidden void @error_message(ptr noundef readonly captures(none) %0, ...) l
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = load ptr, ptr @stderr, align 8
-  call void @llvm.lifetime.start.p0(i64 8704, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 8704, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = call i32 @vsnprintf(ptr noundef nonnull %2, i64 noundef 8704, ptr noundef readonly %0, ptr noundef nonnull %4) #10
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8703
   store i8 0, ptr %7, align 1
@@ -220,8 +220,8 @@ define hidden void @error_message(ptr noundef readonly captures(none) %0, ...) l
   %9 = trunc i64 %8 to i32
   %10 = call i32 @utf8ToPlatform(ptr noundef nonnull %2, i32 noundef %9, ptr noundef nonnull %3, i32 noundef 8704) #10
   %11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.166, ptr noundef nonnull @.str, ptr noundef nonnull %3, ptr noundef nonnull @.str.1) #12
-  call void @llvm.lifetime.end.p0(i64 8704, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8704, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %4)
   %12 = load ptr, ptr @gdata, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 22
@@ -554,8 +554,8 @@ define hidden void @tty_message(ptr noundef readonly captures(none) %0, ...) loc
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = load ptr, ptr @stdout, align 8
-  call void @llvm.lifetime.start.p0(i64 8704, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 8704, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = call i32 @vsnprintf(ptr noundef nonnull %2, i64 noundef 8704, ptr noundef readonly %0, ptr noundef nonnull %4) #10
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8703
   store i8 0, ptr %7, align 1
@@ -563,8 +563,8 @@ define hidden void @tty_message(ptr noundef readonly captures(none) %0, ...) loc
   %9 = trunc i64 %8 to i32
   %10 = call i32 @utf8ToPlatform(ptr noundef nonnull %2, i32 noundef %9, ptr noundef nonnull %3, i32 noundef 8704) #10
   %11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.166, ptr noundef nonnull @.str.6, ptr noundef nonnull %3, ptr noundef nonnull @.str.1) #10
-  call void @llvm.lifetime.end.p0(i64 8704, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8704, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %4)
   %12 = load ptr, ptr @stdout, align 8
   %13 = call i32 @fflush(ptr noundef %12)
@@ -910,10 +910,10 @@ declare i32 @utf8ToPlatform(ptr noundef, i32 noundef, ptr noundef, i32 noundef) 
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn }

@@ -177,25 +177,19 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 declare i32 @__gxx_personality_v0(...)
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3 align 2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9OutputMgr13set_curr_funcERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN9OutputMgr13set_curr_funcERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #4 align 2 {
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9OutputMgr10curr_func_B5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN9OutputMgr17is_monitored_funcEv() local_unnamed_addr #5 align 2 {
+define dso_local noundef zeroext i1 @_ZN9OutputMgr17is_monitored_funcEv() local_unnamed_addr #4 align 2 {
   %1 = load ptr, ptr @_ZN9OutputMgr16monitored_funcs_B5cxx11E, align 8, !tbaa !21
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9OutputMgr16monitored_funcs_B5cxx11E, i64 8), align 8, !tbaa !21
   %3 = icmp eq ptr %1, %2
@@ -213,32 +207,32 @@ define dso_local noundef zeroext i1 @_ZN9OutputMgr17is_monitored_funcEv() local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN9OutputMgrC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
+define dso_local void @_ZN9OutputMgrC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV9OutputMgr, i64 16), ptr %0, align 8, !tbaa !22
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN9OutputMgrD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local void @_ZN9OutputMgrD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #6 align 2 {
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN9OutputMgrD0Ev(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) unnamed_addr #8 align 2 {
+define dso_local void @_ZN9OutputMgrD0Ev(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) unnamed_addr #7 align 2 {
   tail call void @llvm.trap() #19
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #9
+declare void @llvm.trap() #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9OutputMgr10OutputMainERSo(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9OutputMgr10OutputMainERSo(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %class.CGContext, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call noundef ptr @_Z16GetFirstFunctionv()
   call void @_ZN9CGContextC1EP8FunctionRK6EffectPS2_(ptr noundef nonnull align 8 dereferenceable(216) %4, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(74) @_ZN6Effect12empty_effectE, ptr noundef null)
   %8 = invoke noundef ptr @_Z16GetFirstFunctionv()
@@ -331,10 +325,10 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i86: ; preds = %.noexc89, %38
           to label %_ZNSolsEPFRSoS_E.exit37 unwind label %73
 
 _ZNSolsEPFRSoS_E.exit37:                          ; preds = %.noexc91
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %48, ptr %5, align 8, !tbaa !47
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 40, ptr %3, align 8, !tbaa !48
   %49 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
           to label %.noexc unwind label %75
@@ -348,7 +342,7 @@ _ZNSolsEPFRSoS_E.exit37:                          ; preds = %.noexc91
   store i64 %50, ptr %51, align 8, !tbaa !16
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 %50
   store i8 0, ptr %52, align 1, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %53 = load ptr, ptr %0, align 8, !tbaa !22
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %55 = load ptr, ptr %54, align 8
@@ -373,7 +367,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN12ExtensionMgr10OutputInitERSo(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %63 unwind label %73
 
@@ -435,7 +429,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i38
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i38, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i39, %75
   %.pn = phi { ptr, i32 } [ %76, %75 ], [ %78, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i39 ], [ %78, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i38 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50
 
 ._crit_edge.i.i41:                                ; preds = %._crit_edge.i.i41.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47
@@ -823,7 +817,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit75: ; preds = %241
   br i1 %.not.i.i.i160, label %.invoke, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i161
 
 .invoke:                                          ; preds = %_ZNSolsEPFRSoS_E.exit, %11, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit75, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit71, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit67, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit63, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit59, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit55, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-  invoke void @_ZSt16__throw_bad_castv() #21
+  invoke void @_ZSt16__throw_bad_castv() #20
           to label %.cont unwind label %73
 
 .cont:                                            ; preds = %.invoke
@@ -868,18 +862,18 @@ _ZNSolsEPFRSoS_E.exit77:                          ; preds = %.noexc168
   %263 = load ptr, ptr %10, align 8, !tbaa !22
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 8
   %265 = load ptr, ptr %264, align 8
-  call void %265(ptr noundef nonnull align 8 dereferenceable(56) %10) #20
+  call void %265(ptr noundef nonnull align 8 dereferenceable(56) %10) #21
   br label %266
 
 266:                                              ; preds = %262, %_ZNSolsEPFRSoS_E.exit77
-  call void @_ZN9CGContextD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %4) #20
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %4) #20
+  call void @_ZN9CGContextD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i49, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i48, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40, %73
   %.pn34.pn = phi { ptr, i32 } [ %74, %73 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40 ], [ %105, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i49 ], [ %105, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i48 ]
-  call void @_ZN9CGContextD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %4) #20
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %4) #20
+  call void @_ZN9CGContextD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn34.pn
 }
 
@@ -906,7 +900,7 @@ declare noundef zeroext i1 @_ZN9CGOptions12compute_hashEv() local_unnamed_addr #
 declare noundef zeroext i1 @_ZN9CGOptions20dangling_global_ptrsEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9OutputMgr15OutputPtrResetsERSoRKSt6vectorIPK8VariableSaIS4_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9OutputMgr15OutputPtrResetsERSoRKSt6vectorIPK8VariableSaIS4_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.Constant, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -932,9 +926,9 @@ define dso_local void @_ZN9OutputMgr15OutputPtrResetsERSoRKSt6vectorIPK8Variable
   br i1 %18, label %._crit_edge.i.i, label %41
 
 ._crit_edge.i.i:                                  ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %19 = call noundef ptr @_Z12get_int_typev()
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %9, ptr %5, align 8, !tbaa !47
   store i8 48, ptr %9, align 8, !tbaa !17
   store i64 1, ptr %10, align 8, !tbaa !16
@@ -960,7 +954,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %27 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN8Variable18get_last_ctrl_varsEv()
           to label %28 unwind label %38
 
@@ -969,8 +963,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %29 unwind label %38
 
 29:                                               ; preds = %28
-  call void @_ZN8ConstantD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #20
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #20
+  call void @_ZN8ConstantD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %52
 
 30:                                               ; preds = %._crit_edge.i.i
@@ -993,18 +987,18 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %40
 
 38:                                               ; preds = %28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8ConstantD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #20
+  call void @_ZN8ConstantD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #21
   br label %40
 
 40:                                               ; preds = %38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25
   %.pn21 = phi { ptr, i32 } [ %39, %38 ], [ %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn21
 
 41:                                               ; preds = %12
@@ -1041,7 +1035,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %_ZN
 declare noundef zeroext i1 @_ZN9CGOptions17step_hash_by_stmtEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9OutputMgr24OutputHashFuncInvocationERSoi(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN9OutputMgr24OutputHashFuncInvocationERSoi(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %.not1.i = icmp eq i32 %1, 0
   br i1 %.not1.i, label %_ZN9OutputMgr11output_tab_ERSoi.exit, label %.lr.ph.i
 
@@ -1069,7 +1063,7 @@ _ZN9OutputMgr11output_tab_ERSoi.exit:             ; preds = %.lr.ph.i, %2
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
 
 14:                                               ; preds = %_ZN9OutputMgr11output_tab_ERSoi.exit
-  %15 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #20
+  %15 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #21
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %5, i64 noundef %15)
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
 
@@ -1085,7 +1079,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %6, %14
   br i1 %.not.i.i.i, label %24, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 24:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
@@ -1122,7 +1116,7 @@ declare void @_ZN12ExtensionMgr10OutputTailERSo(ptr noundef nonnull align 8 dere
 declare void @_ZN9CGContextD1Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9OutputMgr11output_tab_ERSoi(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN9OutputMgr11output_tab_ERSoi(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %.not1 = icmp eq i32 %1, 0
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
@@ -1138,7 +1132,7 @@ define dso_local void @_ZN9OutputMgr11output_tab_ERSoi(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9OutputMgr28OutputStepHashFuncInvocationERSoii(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN9OutputMgr28OutputStepHashFuncInvocationERSoii(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = load ptr, ptr @_ZN9OutputMgr16monitored_funcs_B5cxx11E, align 8, !tbaa !21
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9OutputMgr16monitored_funcs_B5cxx11E, i64 8), align 8, !tbaa !21
   %6 = icmp eq ptr %4, %5
@@ -1178,7 +1172,7 @@ _ZN9OutputMgr11output_tab_ERSoi.exit:             ; preds = %.lr.ph.i, %_ZN9Outp
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
 
 20:                                               ; preds = %_ZN9OutputMgr11output_tab_ERSoi.exit
-  %21 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #20
+  %21 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #21
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %11, i64 noundef %21)
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
 
@@ -1196,7 +1190,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %12, %20
   br i1 %.not.i.i.i, label %32, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 32:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
@@ -1231,7 +1225,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %35, 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9OutputMgr21OutputStepHashFuncDefERSo(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN9OutputMgr21OutputStepHashFuncDefERSo(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !22
   %3 = getelementptr i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -1242,7 +1236,7 @@ define dso_local void @_ZN9OutputMgr21OutputStepHashFuncDefERSo(ptr noundef nonn
   br i1 %.not.i.i.i, label %8, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 8:                                                ; preds = %1
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %1
@@ -1285,7 +1279,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %11, 
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
 
 31:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
-  %32 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #20
+  %32 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #21
   %33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %22, i64 noundef %32)
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
 
@@ -1301,7 +1295,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %23, %31
   br i1 %.not.i.i.i52, label %41, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i53
 
 41:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i53: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
@@ -1338,7 +1332,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit56: ; preds = %44
   br i1 %.not.i.i.i57, label %61, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i58
 
 61:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit56
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i58: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit56
@@ -1376,7 +1370,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit61: ; preds = %64
   br i1 %.not.i.i.i62, label %82, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i63
 
 82:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit61
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i63: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit61
@@ -1416,7 +1410,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit66: ; preds = %85
   br i1 %.not.i.i.i67, label %104, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i68
 
 104:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit66
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i68: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit66
@@ -1454,7 +1448,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit71: ; preds = %10
   br i1 %.not.i.i.i72, label %125, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i73
 
 125:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit71
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i73: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit71
@@ -1492,7 +1486,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit76: ; preds = %12
   br i1 %.not.i.i.i77, label %146, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i78
 
 146:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit76
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i78: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit76
@@ -1539,7 +1533,7 @@ _ZN9OutputMgr11output_tab_ERSoi.exit43:           ; preds = %.lr.ph.i40
   br i1 %.not.i.i.i82, label %168, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i83
 
 168:                                              ; preds = %_ZN9OutputMgr11output_tab_ERSoi.exit43
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i83: ; preds = %_ZN9OutputMgr11output_tab_ERSoi.exit43
@@ -1577,7 +1571,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit86: ; preds = %17
   br i1 %.not.i.i.i87, label %189, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i88
 
 189:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit86
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i88: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit86
@@ -1615,7 +1609,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit91: ; preds = %19
   br i1 %.not.i.i.i92, label %210, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i93
 
 210:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit91
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i93: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit91
@@ -1652,7 +1646,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit96: ; preds = %21
   br i1 %.not.i.i.i97, label %230, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i98
 
 230:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit96
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i98: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit96
@@ -1682,7 +1676,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit101: ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9OutputMgr18OutputHashFuncDeclERSo(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN9OutputMgr18OutputHashFuncDeclERSo(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #4 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.17, i64 noundef 5)
   %3 = load ptr, ptr @_ZN9OutputMgr14hash_func_nameE, align 8, !tbaa !78
   %.not.i = icmp eq ptr %3, null
@@ -1700,7 +1694,7 @@ define dso_local void @_ZN9OutputMgr18OutputHashFuncDeclERSo(ptr noundef nonnull
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
 
 12:                                               ; preds = %1
-  %13 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #20
+  %13 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #21
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3, i64 noundef %13)
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
 
@@ -1716,7 +1710,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %4, %12
   br i1 %.not.i.i.i, label %22, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 22:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
@@ -1752,7 +1746,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %25, 
   br i1 %.not.i.i.i2, label %41, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i3
 
 41:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i3: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
@@ -1782,7 +1776,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit6: ; preds = %44,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9OutputMgr22OutputStepHashFuncDeclERSo(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN9OutputMgr22OutputStepHashFuncDeclERSo(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #4 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.17, i64 noundef 5)
   %3 = load ptr, ptr @_ZN9OutputMgr19step_hash_func_nameE, align 8, !tbaa !78
   %.not.i = icmp eq ptr %3, null
@@ -1800,7 +1794,7 @@ define dso_local void @_ZN9OutputMgr22OutputStepHashFuncDeclERSo(ptr noundef non
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
 
 12:                                               ; preds = %1
-  %13 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #20
+  %13 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #21
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3, i64 noundef %13)
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
 
@@ -1816,7 +1810,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %4, %12
   br i1 %.not.i.i.i, label %22, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 22:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
@@ -1852,7 +1846,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %25, 
   br i1 %.not.i.i.i2, label %41, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i3
 
 41:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i3: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
@@ -1882,7 +1876,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit6: ; preds = %44,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9OutputMgr17OutputHashFuncDefERSo(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN9OutputMgr17OutputHashFuncDefERSo(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #4 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.17, i64 noundef 5)
   %3 = load ptr, ptr @_ZN9OutputMgr14hash_func_nameE, align 8, !tbaa !78
   %.not.i = icmp eq ptr %3, null
@@ -1900,7 +1894,7 @@ define dso_local void @_ZN9OutputMgr17OutputHashFuncDefERSo(ptr noundef nonnull 
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
 
 12:                                               ; preds = %1
-  %13 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #20
+  %13 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #21
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3, i64 noundef %13)
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
 
@@ -1916,7 +1910,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %4, %12
   br i1 %.not.i.i.i, label %22, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 22:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
@@ -1953,7 +1947,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %25, 
   br i1 %.not.i.i.i7, label %42, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i8
 
 42:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i8: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
@@ -2001,7 +1995,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit11: ; preds = %45
   br i1 %.not.i.i.i12, label %66, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i13
 
 66:                                               ; preds = %58
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i13: ; preds = %58
@@ -2037,7 +2031,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN8Variable17get_new_c
 declare void @_Z19OutputArrayCtrlVarsRKSt6vectorIPK8VariableSaIS2_EERSomi(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9OutputMgr10OutputTailERSo(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN9OutputMgr10OutputTailERSo(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
   %3 = tail call noundef zeroext i1 @_ZN9CGOptions7conciseEv()
   br i1 %3, label %83, label %4
 
@@ -2052,7 +2046,7 @@ define dso_local void @_ZN9OutputMgr10OutputTailERSo(ptr noundef nonnull readnon
   br i1 %.not.i.i.i, label %11, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 11:                                               ; preds = %4
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %4
@@ -2089,7 +2083,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %14, 
   br i1 %.not.i.i.i4, label %31, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i5
 
 31:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i5: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
@@ -2127,7 +2121,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit8: ; preds = %34,
   br i1 %.not.i.i.i9, label %51, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i10
 
 51:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit8
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i10: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit8
@@ -2163,7 +2157,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit13: ; preds = %54
   br i1 %.not.i.i.i14, label %70, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i15
 
 70:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit13
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i15: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit13
@@ -2200,7 +2194,7 @@ declare noundef zeroext i1 @_ZN9CGOptions7conciseEv() local_unnamed_addr #0
 declare void @_ZN10Bookkeeper17output_statisticsERSo(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9OutputMgr12OutputHeaderEiPPcm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN9OutputMgr12OutputHeaderEiPPcm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) unnamed_addr #4 align 2 {
   %5 = load ptr, ptr %0, align 8, !tbaa !22
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load ptr, ptr %6, align 8
@@ -2241,7 +2235,7 @@ define dso_local void @_ZN9OutputMgr12OutputHeaderEiPPcm(ptr noundef nonnull ali
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
 
 26:                                               ; preds = %.preheader
-  %27 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #20
+  %27 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #21
   %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %17, i64 noundef %27)
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
 
@@ -2261,7 +2255,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %18, %26
   br i1 %.not.i.i.i, label %35, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 35:                                               ; preds = %.loopexit
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %.loopexit
@@ -2295,7 +2289,7 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %.loopexit
   br i1 %.not.i.i.i52, label %54, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i53
 
 54:                                               ; preds = %46
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i53: ; preds = %46
@@ -2332,7 +2326,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit56: ; preds = %57
   br i1 %.not.i.i.i57, label %74, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i58
 
 74:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit56
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i58: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit56
@@ -2369,7 +2363,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit61: ; preds = %77
   br i1 %.not.i.i.i62, label %94, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i63
 
 94:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit61
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i63: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit61
@@ -2407,7 +2401,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit66: ; preds = %97
   br i1 %.not.i.i.i67, label %115, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i68
 
 115:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit66
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i68: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit66
@@ -2434,7 +2428,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit71: ; preds = %11
   %126 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %8, i8 noundef signext %.0.i.i.i70)
   %127 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %126)
   %128 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.40, i64 noundef 16)
-  %129 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) @git_version) #20
+  %129 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) @git_version) #21
   %130 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @git_version, i64 noundef %129)
   %131 = load ptr, ptr %8, align 8, !tbaa !22
   %132 = getelementptr i8, ptr %131, i64 -24
@@ -2446,7 +2440,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit71: ; preds = %11
   br i1 %.not.i.i.i72, label %137, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i73
 
 137:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit71
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i73: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit71
@@ -2504,7 +2498,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit76: ; preds = %14
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit51
 
 165:                                              ; preds = %.preheader167
-  %166 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %156) #20
+  %166 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %156) #21
   %167 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %156, i64 noundef %166)
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit51
 
@@ -2524,7 +2518,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit51: ; preds = %157, 
   br i1 %.not.i.i.i77, label %174, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i78
 
 174:                                              ; preds = %.loopexit168
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i78: ; preds = %.loopexit168
@@ -2562,7 +2556,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit81: ; preds = %17
   br i1 %.not.i.i.i82, label %195, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i83
 
 195:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit81
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i83: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit81
@@ -2599,7 +2593,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit86: ; preds = %19
   br i1 %.not.i.i.i87, label %215, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i88
 
 215:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit86
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i88: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit86
@@ -2635,7 +2629,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit91: ; preds = %21
   br i1 %.not.i.i.i92, label %234, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i93
 
 234:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit91
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i93: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit91
@@ -2675,7 +2669,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %240,
   br i1 %.not.i.i.i97, label %255, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i98
 
 255:                                              ; preds = %248
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i98: ; preds = %248
@@ -2712,7 +2706,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit101: ; preds = %2
   br i1 %.not.i.i.i102, label %275, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i103
 
 275:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit101
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i103: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit101
@@ -2748,7 +2742,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit106: ; preds = %2
   br i1 %.not.i.i.i107, label %294, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i108
 
 294:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit106
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i108: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit106
@@ -2798,7 +2792,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit111: ; preds = %2
   br i1 %.not.i.i.i112, label %320, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i113
 
 320:                                              ; preds = %312
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i113: ; preds = %312
@@ -2833,7 +2827,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit116: ; preds = %3
 
 336:                                              ; preds = %334
   %337 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.47, i64 noundef 18)
-  %338 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZN8Variable13sink_var_nameE) #20
+  %338 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZN8Variable13sink_var_nameE) #21
   %339 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @_ZN8Variable13sink_var_nameE, i64 noundef %338)
   %340 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.48, i64 noundef 5)
   %341 = load ptr, ptr %8, align 8, !tbaa !22
@@ -2846,7 +2840,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit116: ; preds = %3
   br i1 %.not.i.i.i117, label %347, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i118
 
 347:                                              ; preds = %336
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i118: ; preds = %336
@@ -2870,7 +2864,7 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i118: ; preds = %336
 
 358:                                              ; preds = %334
   %359 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.49, i64 noundef 18)
-  %360 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZN8Variable13sink_var_nameE) #20
+  %360 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZN8Variable13sink_var_nameE) #21
   %361 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @_ZN8Variable13sink_var_nameE, i64 noundef %360)
   %362 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.48, i64 noundef 5)
   %363 = load ptr, ptr %8, align 8, !tbaa !22
@@ -2883,7 +2877,7 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i118: ; preds = %336
   br i1 %.not.i.i.i122, label %369, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i123
 
 369:                                              ; preds = %358
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i123: ; preds = %358
@@ -2922,7 +2916,7 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i123: ; preds = %358
   br i1 %.not.i.i.i127, label %389, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i128
 
 389:                                              ; preds = %382
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i128: ; preds = %382
@@ -2959,7 +2953,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit131: ; preds = %3
   br i1 %.not.i.i.i132, label %409, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i133
 
 409:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit131
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i133: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit131
@@ -2995,7 +2989,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit136: ; preds = %4
   br i1 %.not.i.i.i137, label %428, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i138
 
 428:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit136
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i138: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit136
@@ -3036,7 +3030,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit141: ; preds = %4
   br i1 %.not.i.i.i142, label %450, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i143
 
 450:                                              ; preds = %442
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i143: ; preds = %442
@@ -3073,7 +3067,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit146: ; preds = %4
   br i1 %.not.i.i.i147, label %470, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i148
 
 470:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit146
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i148: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit146
@@ -3109,7 +3103,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit151: ; preds = %4
   br i1 %.not.i.i.i152, label %489, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i153
 
 489:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit151
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i153: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit151
@@ -3153,7 +3147,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit156: ; preds = %4
   br i1 %.not.i.i.i157, label %512, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i158
 
 512:                                              ; preds = %504
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i158: ; preds = %504
@@ -3197,7 +3191,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit161: ; preds = %5
   br i1 %.not.i.i.i162, label %535, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i163
 
 535:                                              ; preds = %527
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i163: ; preds = %527
@@ -3253,7 +3247,7 @@ declare noundef zeroext i1 @_ZN9CGOptions14wrap_volatilesEv() local_unnamed_addr
 declare noundef zeroext i1 @_ZN9CGOptions11access_onceEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9OutputMgr19output_comment_lineERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN9OutputMgr19output_comment_lineERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #4 align 2 {
   %4 = tail call noundef zeroext i1 @_ZN9CGOptions5quietEv()
   br i1 %4, label %14, label %5
 
@@ -3292,7 +3286,7 @@ declare void @_ZNK13ArrayVariable11output_initERSoPK10ExpressionRKSt6vectorIPK8V
 declare void @_ZN8ConstantD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9OutputMgr10output_tabERSoi(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN9OutputMgr10output_tabERSoi(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2) unnamed_addr #4 align 2 {
   %.not1.i = icmp eq i32 %2, 0
   br i1 %.not1.i, label %_ZN9OutputMgr11output_tab_ERSoi.exit, label %.lr.ph.i
 
@@ -3308,7 +3302,7 @@ _ZN9OutputMgr11output_tab_ERSoi.exit:             ; preds = %.lr.ph.i, %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9OutputMgr15really_outputlnERSo(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN9OutputMgr15really_outputlnERSo(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !22
   %3 = getelementptr i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -3319,7 +3313,7 @@ define dso_local void @_ZN9OutputMgr15really_outputlnERSo(ptr noundef nonnull al
   br i1 %.not.i.i.i, label %8, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 8:                                                ; preds = %1
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %1
@@ -3356,7 +3350,7 @@ define linkonce_odr dso_local void @_ZN9OutputMgr18OutputStructUnionsERSo(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN9OutputMgr8outputlnERSo(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr dso_local void @_ZN9OutputMgr8outputlnERSo(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #4 comdat align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !22
   %4 = getelementptr i8, ptr %3, i64 -24
   %5 = load i64, ptr %4, align 8
@@ -3367,7 +3361,7 @@ define linkonce_odr dso_local void @_ZN9OutputMgr8outputlnERSo(ptr noundef nonnu
   br i1 %.not.i.i.i, label %9, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 9:                                                ; preds = %2
-  tail call void @_ZSt16__throw_bad_castv() #21
+  tail call void @_ZSt16__throw_bad_castv() #20
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %2
@@ -3397,29 +3391,29 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %12, 
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8), i8 noundef signext) local_unnamed_addr #0
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt16__throw_bad_castv() local_unnamed_addr #11
+declare void @_ZSt16__throw_bad_castv() local_unnamed_addr #10
 
 declare void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570)) local_unnamed_addr #0
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIKS7_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %0, ptr %1, ptr %2) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIKS7_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %0, ptr %1, ptr %2) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %0 to i64
   %6 = sub i64 %4, %5
@@ -3618,17 +3612,23 @@ declare void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr no
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_OutputMgr.cpp() #14 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_OutputMgr.cpp() #13 section ".text.startup" personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #20
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN9OutputMgr16monitored_funcs_B5cxx11E, i8 0, i64 24, i1 false)
-  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev, ptr nonnull @_ZN9OutputMgr16monitored_funcs_B5cxx11E, ptr nonnull @__dso_handle) #20
+  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev, ptr nonnull @_ZN9OutputMgr16monitored_funcs_B5cxx11E, ptr nonnull @__dso_handle) #21
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN9OutputMgr10curr_func_B5cxx11E, i64 16), ptr @_ZN9OutputMgr10curr_func_B5cxx11E, align 8, !tbaa !47
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9OutputMgr10curr_func_B5cxx11E, i64 8), align 8, !tbaa !16
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9OutputMgr10curr_func_B5cxx11E, i64 16), align 8, !tbaa !17
-  %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN9OutputMgr10curr_func_B5cxx11E, ptr nonnull @__dso_handle) #20
+  %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN9OutputMgr10curr_func_B5cxx11E, ptr nonnull @__dso_handle) #21
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #15
@@ -3643,24 +3643,24 @@ attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #18 = { builtin nounwind }
 attributes #19 = { noreturn nounwind }
-attributes #20 = { nounwind }
-attributes #21 = { noreturn }
+attributes #20 = { noreturn }
+attributes #21 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -1498,7 +1498,7 @@ define hidden noundef zeroext i1 @_ZN14CompilerOracle15parse_from_lineEPc(ptr no
 19:                                               ; preds = %1
   %20 = tail call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef nonnull %0, i8 noundef zeroext 9) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %14, i8 0, i64 1024, i1 false)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %13, align 4
   %21 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.21, ptr noundef nonnull %11, ptr noundef nonnull %13) #19
   %22 = icmp sgt i32 %21, 0
@@ -1524,7 +1524,7 @@ define hidden noundef zeroext i1 @_ZN14CompilerOracle15parse_from_lineEPc(ptr no
 
 _ZL17match_option_namePKcPiPci.exit.thread:       ; preds = %29, %19, %23
   %30 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %14, i64 noundef 1024, ptr noundef nonnull @.str.79, ptr noundef nonnull %11) #19
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %31 = load i32, ptr %13, align 4
   %32 = load ptr, ptr %12, align 8
   %33 = sext i32 %31 to i64
@@ -1546,7 +1546,7 @@ _ZL17match_option_namePKcPiPci.exit.thread:       ; preds = %29, %19, %23
 
 _ZL17match_option_namePKcPiPci.exit:              ; preds = %.preheader.i
   %47 = trunc nuw nsw i64 %indvars.iv.i to i32
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %48 = load i32, ptr %13, align 4
   %49 = load ptr, ptr %12, align 8
   %50 = sext i32 %48 to i64
@@ -1784,7 +1784,7 @@ _ZL10skip_commaRPc.exit:                          ; preds = %162, %165
   br label %313
 
 170:                                              ; preds = %_ZL10skip_commaRPc.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4
   %171 = load ptr, ptr %12, align 8
   %172 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %171, ptr noundef nonnull @.str.115, ptr noundef nonnull %10) #19
@@ -1793,7 +1793,7 @@ _ZL10skip_commaRPc.exit:                          ; preds = %162, %165
   %175 = sext i32 %173 to i64
   %176 = getelementptr inbounds i8, ptr %174, i64 %175
   store ptr %176, ptr %12, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %177 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %176, ptr noundef nonnull @.str.21, ptr noundef nonnull %15, ptr noundef nonnull %13) #19
   %178 = icmp eq i32 %177, 1
   br i1 %178, label %.lr.ph, label %._crit_edge
@@ -1827,9 +1827,9 @@ _ZN14CompilerOracle17parse_option_typeEPKc.exit:  ; preds = %184
 
 191:                                              ; preds = %_ZN14CompilerOracle17parse_option_typeEPKc.exit
   %192 = load ptr, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %13, align 4
   store i32 0, ptr %7, align 4
   %193 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %192, ptr noundef nonnull @.str.116, ptr noundef nonnull %8, ptr noundef nonnull %7) #19
@@ -1843,17 +1843,17 @@ _ZN14CompilerOracle17parse_option_typeEPKc.exit:  ; preds = %184
   %199 = load i32, ptr %13, align 4
   %200 = add nsw i32 %199, %196
   store i32 %200, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %201 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %198, ptr noundef nonnull @.str.115, ptr noundef nonnull %6) #19
   %202 = load i32, ptr %6, align 4
   %203 = sext i32 %202 to i64
   %204 = getelementptr inbounds i8, ptr %198, i64 %203
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %205 = load i32, ptr %13, align 4
   %206 = add nsw i32 %205, %202
   store i32 %206, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %9, align 4
   %207 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %8, ptr noundef nonnull @.str.21, ptr noundef nonnull %5, ptr noundef nonnull %9) #19
   %208 = icmp sgt i32 %207, 0
@@ -1879,12 +1879,12 @@ _ZN14CompilerOracle17parse_option_typeEPKc.exit:  ; preds = %184
 
 _ZL17match_option_namePKcPiPci.exit.thread.i:     ; preds = %215, %209, %195
   %216 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %14, i64 noundef 1024, ptr noundef nonnull @.str.79, ptr noundef nonnull %5) #19
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZL21scan_option_and_value10OptionTypePcRiP24TypedMethodOptionMatcherS0_i.exit
 
 _ZL17match_option_namePKcPiPci.exit.i:            ; preds = %.preheader.i.i
   %217 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %218 = icmp eq i64 %indvars.iv.i.i, 40
   br i1 %218, label %_ZL21scan_option_and_value10OptionTypePcRiP24TypedMethodOptionMatcherS0_i.exit, label %219
 
@@ -1920,9 +1920,9 @@ _ZL17match_option_namePKcPiPci.exit.i:            ; preds = %.preheader.i.i
   br label %_ZL21scan_option_and_value10OptionTypePcRiP24TypedMethodOptionMatcherS0_i.exit
 
 _ZL21scan_option_and_value10OptionTypePcRiP24TypedMethodOptionMatcherS0_i.exit: ; preds = %_ZL17match_option_namePKcPiPci.exit.thread.i, %_ZL17match_option_namePKcPiPci.exit.i, %223, %231, %232
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %237 = load i8, ptr %14, align 16
   %.not35 = icmp eq i8 %237, 0
   br i1 %.not35, label %239, label %238
@@ -1940,7 +1940,7 @@ _ZL21scan_option_and_value10OptionTypePcRiP24TypedMethodOptionMatcherS0_i.exit: 
   br label %270
 
 _ZN14CompilerOracle17parse_option_typeEPKc.exit.thread: ; preds = %189, %_ZN14CompilerOracle17parse_option_typeEPKc.exit
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %16, align 4
   %244 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %15, ptr noundef nonnull @.str.21, ptr noundef nonnull %4, ptr noundef nonnull %16) #19
   %245 = icmp sgt i32 %244, 0
@@ -1966,12 +1966,12 @@ _ZN14CompilerOracle17parse_option_typeEPKc.exit.thread: ; preds = %189, %_ZN14Co
 
 _ZL17match_option_namePKcPiPci.exit48.thread:     ; preds = %_ZN14CompilerOracle17parse_option_typeEPKc.exit.thread, %246, %252
   %253 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %14, i64 noundef 1024, ptr noundef nonnull @.str.79, ptr noundef nonnull %4) #19
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 _ZL17match_option_namePKcPiPci.exit48:            ; preds = %.preheader.i43
   %254 = trunc nuw nsw i64 %indvars.iv.i44 to i32
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %255 = icmp eq i64 %indvars.iv.i44, 40
   br i1 %255, label %.loopexit, label %256
 
@@ -2006,7 +2006,7 @@ _ZL17match_option_namePKcPiPci.exit48:            ; preds = %.preheader.i43
 
 270:                                              ; preds = %260, %239
   %271 = phi ptr [ %.pre, %260 ], [ %243, %239 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
   %272 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %271, ptr noundef nonnull @.str.115, ptr noundef nonnull %3) #19
   %273 = load i32, ptr %3, align 4
@@ -2014,7 +2014,7 @@ _ZL17match_option_namePKcPiPci.exit48:            ; preds = %.preheader.i43
   %275 = sext i32 %273 to i64
   %276 = getelementptr inbounds i8, ptr %274, i64 %275
   store ptr %276, ptr %12, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %277 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %276, ptr noundef nonnull @.str.21, ptr noundef nonnull %15, ptr noundef nonnull %13) #19
   %278 = icmp eq i32 %277, 1
   br i1 %278, label %.lr.ph, label %._crit_edge, !llvm.loop !12
@@ -2049,7 +2049,7 @@ _ZL10skip_commaRPc.exit49:                        ; preds = %279, %285
   br label %313
 
 290:                                              ; preds = %_ZL10skip_commaRPc.exit49
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4
   %291 = load ptr, ptr %12, align 8
   %292 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %291, ptr noundef nonnull @.str.115, ptr noundef nonnull %2) #19
@@ -2058,7 +2058,7 @@ _ZL10skip_commaRPc.exit49:                        ; preds = %279, %285
   %295 = sext i32 %293 to i64
   %296 = getelementptr inbounds i8, ptr %294, i64 %295
   store ptr %296, ptr %12, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %297 = load i8, ptr %296, align 1
   %298 = icmp eq i8 %297, 0
   br i1 %298, label %299, label %310
@@ -2357,13 +2357,13 @@ define internal fastcc void @_ZL10scan_value10OptionTypePcRiP24TypedMethodOption
   %19 = sext i32 %0 to i64
   %20 = getelementptr inbounds [6 x ptr], ptr @_ZL16optiontype_names, i64 0, i64 %19
   %21 = load ptr, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %22 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %1, ptr noundef nonnull @.str.115, ptr noundef nonnull %8) #19
   %23 = load i32, ptr %8, align 4
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i8, ptr %1, i64 %24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %26 = load i32, ptr %2, align 4
   %27 = add nsw i32 %26, %23
   store i32 %27, ptr %2, align 4
@@ -2381,7 +2381,7 @@ define internal fastcc void @_ZL10scan_value10OptionTypePcRiP24TypedMethodOption
   br i1 %29, label %30, label %_ZL13parseMemLimitPKcRlRiPci.exit
 
 30:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %31 = load i8, ptr %25, align 1
   %32 = sext i8 %31 to i32
   %isdigittmp.i.i = add nsw i32 %32, -48
@@ -2470,13 +2470,13 @@ _Z14multiply_by_1kImEbRT_.exit19.thread.i.i:      ; preds = %54
   br label %61
 
 60:                                               ; preds = %56, %54, %52, %50, %45, %_Z18parse_integer_implImTnNSt9enable_ifIXcvbntsr3std9is_signedIT_EE5valueEiE4typeELi0ETnNS0_IXcvbeqstS1_Li8EEiE4typeELi0EEbPKcPPciPS1_.exit.i.i, %40, %30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZL13parseMemLimitPKcRlRiPci.exit.thread.sink.split
 
 61:                                               ; preds = %57, %48
   %.015.i = phi i64 [ %42, %48 ], [ %58, %57 ]
   %.014.i = phi ptr [ %46, %48 ], [ %59, %57 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %62 = ptrtoint ptr %.014.i to i64
   %63 = ptrtoint ptr %25 to i64
   %64 = sub i64 %62, %63
@@ -3153,7 +3153,7 @@ define hidden noundef zeroext i1 @_Z19compilerOracle_initv() local_unnamed_addr 
   %3 = alloca %class.MemoryInput, align 8
   %4 = alloca %struct.stat, align 8
   %5 = load ptr, ptr @CompileCommand, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #21
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV11MemoryInput, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3163,9 +3163,9 @@ define hidden noundef zeroext i1 @_Z19compilerOracle_initv() local_unnamed_addr 
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %9, align 8
   %10 = call noundef zeroext i1 @_ZN14CompilerOracle16parse_from_inputEPN11inputStream5InputEPFbPcE(ptr noundef nonnull %3, ptr noundef nonnull @_ZN14CompilerOracle15parse_from_lineEPc)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %11 = load ptr, ptr @CompileOnly, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #21
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV11MemoryInput, i64 16), ptr %2, align 8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -3175,20 +3175,20 @@ define hidden noundef zeroext i1 @_Z19compilerOracle_initv() local_unnamed_addr 
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %15, align 8
   %16 = call noundef zeroext i1 @_ZN14CompilerOracle16parse_from_inputEPN11inputStream5InputEPFbPcE(ptr noundef nonnull %2, ptr noundef nonnull @_ZN14CompilerOracle18parse_compile_onlyEPc)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %narrow = and i1 %10, %16
   %17 = load ptr, ptr @CompileCommandFile, align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %27, label %18
 
 18:                                               ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %19 = call noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef nonnull %17, ptr noundef nonnull @.str.24) #19
   %20 = icmp eq ptr %19, null
   br i1 %20, label %_ZN14CompilerOracle15parse_from_fileEv.exit.thread, label %_ZN14CompilerOracle15parse_from_fileEv.exit
 
 _ZN14CompilerOracle15parse_from_fileEv.exit.thread: ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %26
 
 _ZN14CompilerOracle15parse_from_fileEv.exit:      ; preds = %18
@@ -3205,7 +3205,7 @@ _ZN14CompilerOracle15parse_from_fileEv.exit:      ; preds = %18
   %25 = call noundef zeroext i1 @_ZN14CompilerOracle16parse_from_inputEPN11inputStream5InputEPFbPcE(ptr noundef nonnull %1, ptr noundef nonnull @_ZN14CompilerOracle15parse_from_lineEPc)
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV9FileInput, i64 16), ptr %1, align 8
   call void @_ZN10fileStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(65) %22) #19
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %_ZN14CompilerOracle15parse_from_fileEv.exit.thread, %_ZN14CompilerOracle15parse_from_fileEv.exit
@@ -3372,7 +3372,7 @@ define hidden noundef i32 @_ZN14CompilerOracle16string_to_optionEPKc(ptr noundef
   %3 = alloca i32, align 4
   %4 = alloca [1024 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %4, i8 0, i64 1024, i1 false)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %3, align 4
   %5 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef readonly %0, ptr noundef nonnull @.str.21, ptr noundef nonnull %2, ptr noundef nonnull %3) #19
   %6 = icmp sgt i32 %5, 0
@@ -3406,7 +3406,7 @@ define hidden noundef i32 @_ZN14CompilerOracle16string_to_optionEPKc(ptr noundef
 
 _ZL17match_option_namePKcPiPci.exit:              ; preds = %.loopexit.i, %.loopexit12.loopexit.i
   %.010.i = phi i32 [ 40, %.loopexit.i ], [ %15, %.loopexit12.loopexit.i ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.010.i
 }
 
@@ -3663,10 +3663,10 @@ declare void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(
 declare i64 @llvm.umin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

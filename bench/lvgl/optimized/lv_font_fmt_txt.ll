@@ -421,13 +421,7 @@ default.unreachable:                              ; preds = %.lr.ph230
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @lv_draw_buf_width_to_stride(i32 noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @lv_draw_buf_width_to_stride(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @lv_font_get_glyph_dsc_fmt_txt(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -470,7 +464,7 @@ define noundef zeroext i1 @lv_font_get_glyph_dsc_fmt_txt(ptr noundef readonly ca
 
 27:                                               ; preds = %23
   %28 = load ptr, ptr %22, align 8, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %10, ptr %5, align 4, !tbaa !38
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %15, ptr %29, align 4, !tbaa !40
@@ -492,7 +486,7 @@ define noundef zeroext i1 @lv_font_get_glyph_dsc_fmt_txt(ptr noundef readonly ca
 
 41:                                               ; preds = %32, %27
   %.0.i = phi i8 [ %40, %32 ], [ 0, %27 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %get_kern_value.exit
 
 42:                                               ; preds = %23
@@ -502,7 +496,7 @@ define noundef zeroext i1 @lv_font_get_glyph_dsc_fmt_txt(ptr noundef readonly ca
 
 44:                                               ; preds = %42
   %45 = load ptr, ptr %22, align 8, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %10, ptr %6, align 4, !tbaa !38
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %15, ptr %46, align 4, !tbaa !40
@@ -525,7 +519,7 @@ define noundef zeroext i1 @lv_font_get_glyph_dsc_fmt_txt(ptr noundef readonly ca
 
 59:                                               ; preds = %50, %44
   %.2.i = phi i8 [ %58, %50 ], [ 0, %44 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %get_kern_value.exit
 
 60:                                               ; preds = %16
@@ -710,7 +704,7 @@ define internal fastcc i32 @get_glyph_dsc_id(ptr noundef readonly captures(none)
   br label %.thread96
 
 42:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %43 = trunc nuw i32 %17 to i16
   store i16 %43, ptr %3, align 2, !tbaa !64
   %44 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -740,11 +734,11 @@ define internal fastcc i32 @get_glyph_dsc_id(ptr noundef readonly captures(none)
 
 64:                                               ; preds = %50, %42
   %.270 = phi i32 [ %63, %50 ], [ 0, %42 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread96
 
 65:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %66 = trunc nuw i32 %17 to i16
   store i16 %66, ptr %4, align 2, !tbaa !64
   %67 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -777,7 +771,7 @@ define internal fastcc i32 @get_glyph_dsc_id(ptr noundef readonly captures(none)
 
 90:                                               ; preds = %73, %65
   %.371 = phi i32 [ %89, %73 ], [ 0, %65 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread96
 
 .thread92:                                        ; preds = %14, %29
@@ -790,10 +784,10 @@ define internal fastcc i32 @get_glyph_dsc_id(ptr noundef readonly captures(none)
   ret i32 %.0
 }
 
-declare ptr @lv_utils_bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lv_utils_bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -65535, 65536) i32 @unicode_list_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
+define internal range(i32 -65535, 65536) i32 @unicode_list_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load i16, ptr %0, align 2, !tbaa !64
   %4 = zext i16 %3 to i32
   %5 = load i16, ptr %1, align 2, !tbaa !64
@@ -803,7 +797,7 @@ define internal range(i32 -65535, 65536) i32 @unicode_list_compare(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @kern_pair_8_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
+define internal i32 @kern_pair_8_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load i32, ptr %0, align 4, !tbaa !38
   %4 = load i8, ptr %1, align 1, !tbaa !19
   %5 = zext i8 %4 to i32
@@ -829,7 +823,7 @@ define internal i32 @kern_pair_8_compare(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @kern_pair_16_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
+define internal i32 @kern_pair_16_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load i32, ptr %0, align 4, !tbaa !38
   %4 = load i16, ptr %1, align 2, !tbaa !64
   %5 = zext i16 %4 to i32
@@ -854,10 +848,16 @@ define internal i32 @kern_pair_16_compare(ptr noundef readonly captures(none) %0
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

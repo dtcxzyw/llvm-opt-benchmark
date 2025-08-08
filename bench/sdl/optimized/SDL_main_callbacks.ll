@@ -59,9 +59,6 @@ define hidden i32 @SDL_InitMainCallbacks(i32 noundef %0, ptr noundef %1, ptr nou
 
 declare i32 @SDL_SetAtomicInt_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare zeroext i1 @SDL_CompareAndSwapAtomicInt_REAL(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 declare zeroext i1 @SDL_InitSubSystem_REAL(i32 noundef) local_unnamed_addr #2
@@ -103,9 +100,6 @@ SDL_DispatchMainCallbackEvent.exit:               ; preds = %3, %6
 
 declare i32 @SDL_GetAtomicInt_REAL(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nounwind uwtable
 define hidden i32 @SDL_IterateMainCallbacks(i1 noundef zeroext %0) local_unnamed_addr #1 {
   br i1 %0, label %2, label %3
@@ -141,7 +135,7 @@ declare void @SDL_PumpEvents_REAL() local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @SDL_DispatchMainCallbackEvents() unnamed_addr #1 {
   %1 = alloca [16 x %union.SDL_Event], align 16
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %1) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = call i32 @SDL_PeepEvents_REAL(ptr noundef nonnull %1, i32 noundef 16, i32 noundef 2, i32 noundef 0, i32 noundef 65535) #4
   %3 = icmp slt i32 %2, 1
   br i1 %3, label %._crit_edge, label %.preheader
@@ -182,7 +176,7 @@ SDL_DispatchMainCallbackEvent.exit:               ; preds = %12, %9, %7
   br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !3
 
 ._crit_edge:                                      ; preds = %.loopexit, %0
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -202,6 +196,12 @@ declare void @SDL_RemoveEventWatch_REAL(ptr noundef, ptr noundef) local_unnamed_
 declare void @SDL_Quit_REAL() local_unnamed_addr #2
 
 declare i32 @SDL_PeepEvents_REAL(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -294,14 +294,14 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFuncti
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_BaseTypeInfos", align 8
   %5 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_TypeCastFunctions", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @_ZTIN32pxrInternal_v0_24__pxrReserved__10ArResolverE, ptr %4, align 8
   store ptr @_ZN32pxrInternal_v0_24__pxrReserved__15Tf_CastToParentINS_13_TestResolverENS_10ArResolverEEEPvS3_b, ptr %5, align 8
   %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__6TfType11_DefineImplERKSt9type_infoPPS2_PPFPvS6_bEmmbb(ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__13_TestResolverE, ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 1, i64 noundef 8, i1 noundef zeroext false, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #17
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__18Ar_ResolverFactoryINS_13_TestResolverEEE, i64 16), ptr %7, align 8
   store ptr %7, ptr %3, align 8
@@ -338,7 +338,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__6TfType11FactoryBaseESt14de
   resume { ptr, i32 } %14
 
 _ZN32pxrInternal_v0_24__pxrReserved__17Ar_DefineResolverINS_13_TestResolverEJNS_10ArResolverEEEEvv.exit: ; preds = %8, %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__6TfType11FactoryBaseEEclEPS2_.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -441,7 +441,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L18_Tf_RegistryAdd264
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction264EPNS_6TfTypeEPv(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__6TfType11_DefineImplERKSt9type_infoPPS2_PPFPvS6_bEmmbb(ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__28_TestResolverPluginInterfaceE, ptr noundef null, ptr noundef null, i64 noundef 0, i64 noundef 8, i1 noundef zeroext false, i1 noundef zeroext false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #17
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__21Plug_InterfaceFactory16SingletonFactoryINS_28_TestResolverPluginInterfaceENS_23_TestResolverPluginImplEEE, i64 16), ptr %5, align 8
   store ptr %5, ptr %3, align 8
@@ -478,7 +478,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__6TfType11FactoryBaseESt14de
   resume { ptr, i32 } %12
 
 _ZNK32pxrInternal_v0_24__pxrReserved__6TfType10SetFactoryINS_21Plug_InterfaceFactory16SingletonFactoryINS_28_TestResolverPluginInterfaceENS_23_TestResolverPluginImplEEEEEvv.exit: ; preds = %6, %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__6TfType11FactoryBaseEEclEPS2_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -560,11 +560,11 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolverC2
   %3 = alloca %"struct.std::__detail::_Prime_rehash_policy", align 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__10ArResolverC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
   store ptr getelementptr inbounds nuw inrange(-16, 184) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__13_TestResolverE, i64 16), ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver25_configNameToAssetPathMapB5cxx11E, i64 32), i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver25_configNameToAssetPathMapB5cxx11E, i64 32), ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver32_pendingConfigNameToAssetPathMapB5cxx11E, i64 32), i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver32_pendingConfigNameToAssetPathMapB5cxx11E, i64 32), ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %4 = load ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver25_configNameToAssetPathMapB5cxx11E, align 8
   %5 = icmp eq ptr %4, getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver25_configNameToAssetPathMapB5cxx11E, i64 48)
   %6 = load ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver32_pendingConfigNameToAssetPathMapB5cxx11E, align 8
@@ -638,11 +638,11 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_S5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S5_EEES7_S9_SaISA_ISB_SE_EEE4swapERSH_.exit
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_S5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S5_EEES7_S9_SaISA_ISB_SE_EEE4swapERSH_.exit: ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St13unordered_mapIS5_S5_St4hashIS5_ESt8equal_toIS5_ESaIS6_IS7_S5_EEEESaISG_ENSt8__detail10_Select1stESC_SA_NSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_update_bbeginEv.exit.i.i, %29
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver23_configNameToVersionMapB5cxx11E, i64 32), i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver23_configNameToVersionMapB5cxx11E, i64 32), ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver30_pendingConfigNameToVersionMapB5cxx11E, i64 32), i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver30_pendingConfigNameToVersionMapB5cxx11E, i64 32), ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %36 = load ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver23_configNameToVersionMapB5cxx11E, align 8
   %37 = icmp eq ptr %36, getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver23_configNameToVersionMapB5cxx11E, i64 48)
   %38 = load ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver30_pendingConfigNameToVersionMapB5cxx11E, align 8
@@ -3502,10 +3502,10 @@ define internal void @_GLOBAL__sub_I_TestUsdResolverChangedResolver.cpp() #14 se
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16

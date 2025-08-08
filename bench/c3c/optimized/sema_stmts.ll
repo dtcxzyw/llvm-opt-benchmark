@@ -905,7 +905,7 @@ context_labels_exist_in_scope.exit.i:             ; preds = %.lr.ph.i.i119
   br label %.sink.split
 
 234:                                              ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 248
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %235, i64 48, i1 false)
   tail call void @context_change_scope_with_flags(ptr noundef nonnull %0, i32 noundef 0) #9
@@ -951,7 +951,7 @@ sema_analyse_compound_stmt.exit:                  ; preds = %248, %234
   %253 = and i8 %252, -3
   %254 = or disjoint i8 %253, %.lobit.i
   store i8 %254, ptr %24, align 4
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.0.i.i104.lcssa, label %sema_analyse_statement_inner.exit.thread196, label %.sink.split
 
 255:                                              ; preds = %23
@@ -1333,7 +1333,7 @@ sema_analyse_then_overwrite.exit.i94:             ; preds = %.lr.ph864, %.lr.ph3
   %437 = load ptr, ptr @ast_arena, align 8
   %438 = zext i32 %436 to i64
   %439 = getelementptr inbounds nuw %struct.Ast_, ptr %437, i64 %438
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %440 = getelementptr inbounds nuw i8, ptr %439, i64 12
   %441 = load i8, ptr %440, align 4
   %442 = icmp eq i8 %441, 18
@@ -1342,7 +1342,7 @@ sema_analyse_then_overwrite.exit.i94:             ; preds = %.lr.ph864, %.lr.ph3
 sema_analyse_defer_stmt_body.exit.i.thread:       ; preds = %434
   %443 = load i64, ptr %439, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %443, ptr noundef nonnull @.str.38) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.sink.split
 
 sema_analyse_defer_stmt_body.exit.i:              ; preds = %434
@@ -1387,7 +1387,7 @@ sema_analyse_defer_stmt_body.exit.i:              ; preds = %434
   store i32 %457, ptr %456, align 8
   store ptr %461, ptr %460, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %444, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %463, label %464, label %.sink.split
 
 464:                                              ; preds = %sema_analyse_defer_stmt_body.exit.i
@@ -1453,10 +1453,10 @@ sema_analyse_defer_stmt_body.exit.i:              ; preds = %434
   br label %sema_analyse_statement_inner.exit.thread196
 
 497:                                              ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %498 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %499 = load i32, ptr %498, align 8
   %500 = load ptr, ptr @decl_arena, align 8
@@ -2403,10 +2403,10 @@ sema_analyse_defer_stmt_body.exit.i:              ; preds = %434
   br label %sema_analyse_foreach_stmt.exit
 
 sema_analyse_foreach_stmt.exit.thread:            ; preds = %.critedge.i77, %552, %582, %587, %600, %708, %746, %759, %630, %663, %623, %561, %547, %541, %564, %643, %639, %635, %694, %732, %795, %806, %839, %859, %858, %975
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.sink.split
 
 sema_analyse_foreach_stmt.exit:                   ; preds = %1027, %1052
@@ -2428,10 +2428,10 @@ sema_analyse_foreach_stmt.exit:                   ; preds = %1027, %1052
   store i32 %1067, ptr %503, align 4
   store i8 20, ptr %20, align 4
   %1068 = call fastcc zeroext i1 @sema_analyse_for_stmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %1068, label %sema_analyse_statement_inner.exit.thread196, label %.sink.split
 
 1069:                                             ; preds = %23
@@ -2439,10 +2439,10 @@ sema_analyse_foreach_stmt.exit:                   ; preds = %1027, %1052
   br i1 %1070, label %sema_analyse_statement_inner.exit.thread196, label %.sink.split
 
 1071:                                             ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %1072 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %1073 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %1074 = load i32, ptr %1073, align 8
@@ -2908,17 +2908,17 @@ sema_unwrappable_from_catch_in_else.exit136.i:    ; preds = %1239, %1268, %1250,
   br label %sema_analyse_if_stmt.exit.thread
 
 sema_analyse_if_stmt.exit.thread:                 ; preds = %1225, %1273, %1269, %sema_unwrappable_from_catch_in_else.exit136.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %sema_analyse_statement_inner.exit.thread196
 
 sema_analyse_if_stmt.exit:                        ; preds = %.thread186, %1086, %.loopexit222
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.sink.split
 
 1276:                                             ; preds = %23
@@ -2926,9 +2926,9 @@ sema_analyse_if_stmt.exit:                        ; preds = %.thread186, %1086, 
   unreachable
 
 1277:                                             ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %1278 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %1279 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %1280 = load ptr, ptr %1279, align 8
@@ -3102,7 +3102,7 @@ sema_return_optional_check_is_valid_in_scope.exit.thread.i.i: ; preds = %1344, %
   br i1 %.not.i.i46, label %1446, label %1368
 
 1368:                                             ; preds = %sema_return_optional_check_is_valid_in_scope.exit.thread.i.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   br i1 %.not48.i.i, label %sema_analyse_macro_constant_ensures.exit.thread.i.i, label %1369
 
 1369:                                             ; preds = %1368
@@ -3244,19 +3244,19 @@ sema_return_optional_check_is_valid_in_scope.exit.thread.i.i: ; preds = %1344, %
   br i1 %exitcond.not.i58.i.i, label %..loopexit_crit_edge.i.i.i, label %1409, !llvm.loop !21
 
 sema_analyse_macro_constant_ensures.exit.thread.i.i: ; preds = %.critedge.i.i.i, %1382, %1369, %1368
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %1446
 
 sema_analyse_macro_constant_ensures.exit.thread64.i.i: ; preds = %1419, %1435, %1416
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1278, ptr noundef nonnull align 8 dereferenceable(48) %13, i64 48, i1 false)
   store ptr %1391, ptr %1390, align 8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %sema_analyse_return_stmt.exit.thread
 
 sema_analyse_macro_constant_ensures.exit.i.i:     ; preds = %.backedge.i.i.i, %1385
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1278, ptr noundef nonnull align 8 dereferenceable(48) %13, i64 48, i1 false)
   store ptr %1391, ptr %1390, align 8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %1446
 
 .critedge.i.i:                                    ; preds = %1300
@@ -3681,15 +3681,15 @@ sema_return_optional_check_is_valid_in_scope.exit.i: ; preds = %1590, %1570
   br label %sema_analyse_return_stmt.exit
 
 sema_analyse_return_stmt.exit.thread:             ; preds = %1634, %1281, %1603, %1496, %sema_return_optional_check_is_valid_in_scope.exit.i, %1515, %1543, %1358, %1296, %1298, %sema_return_optional_check_is_valid_in_scope.exit.i.i, %sema_analyse_macro_constant_ensures.exit.thread64.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.sink.split
 
 sema_analyse_return_stmt.exit:                    ; preds = %1472, %1606, %.loopexit.i50, %1616, %1621, %._crit_edge.i52, %1646, %1647
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %sema_analyse_statement_inner.exit.thread196
 
 1648:                                             ; preds = %23
@@ -4577,7 +4577,7 @@ sema_analyse_then_overwrite.exit.i:               ; preds = %1971, %1968, %1959,
   unreachable
 
 2108:                                             ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %2109 = tail call i32 @sema_context_push_ct_stack(ptr noundef nonnull %0) #9
   %2110 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2111 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -4789,7 +4789,7 @@ sema_analyse_then_overwrite.exit.i:               ; preds = %1971, %1968, %1959,
   br label %2210
 
 2210:                                             ; preds = %2205, %2204
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(48) %2191, i64 48, i1 false)
   tail call void @context_change_scope_with_flags(ptr noundef %0, i32 noundef 0) #9
   %2211 = icmp eq ptr %2193, null
@@ -4843,7 +4843,7 @@ sema_analyse_compound_statement_no_scope.exit:    ; preds = %2228, %2216
   %2233 = and i8 %2232, -3
   %2234 = or disjoint i8 %2233, %.lobit.i.i
   store i8 %2234, ptr %24, align 4
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br i1 %.0.i147.lcssa, label %2235, label %.loopexit228
 
 2235:                                             ; preds = %sema_analyse_compound_statement_no_scope.exit
@@ -4875,15 +4875,15 @@ sema_analyse_compound_statement_no_scope.exit:    ; preds = %2228, %2216
   br label %sema_analyse_ct_foreach_stmt.exit
 
 sema_analyse_ct_foreach_stmt.exit.thread:         ; preds = %._crit_edge, %2148
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %sema_analyse_statement_inner.exit.thread196
 
 sema_analyse_ct_foreach_stmt.exit:                ; preds = %2108, %.loopexit228
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.sink.split
 
 2243:                                             ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %2244 = tail call i32 @sema_context_push_ct_stack(ptr noundef nonnull %0) #9
   %2245 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2246 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -5091,7 +5091,7 @@ sema_analyse_statement_inner.exit.thread198:      ; preds = %._crit_edge416, %23
   store i8 6, ptr %20, align 4
   %.0..0..0..0..i = load i32, ptr %19, align 4
   store i32 %.0..0..0..0..i, ptr %2245, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %sema_analyse_statement_inner.exit.thread196
 
 2348:                                             ; preds = %23
@@ -5108,7 +5108,7 @@ sema_analyse_statement_inner.exit.sink.split:     ; preds = %2263, %2269, %2301
 
 sema_analyse_statement_inner.exit:                ; preds = %2273, %2275, %2296, %sema_analyse_compound_statement_no_scope.exit.i, %.lr.ph415, %sema_analyse_statement_inner.exit.sink.split
   tail call void @sema_context_pop_ct_stack(ptr noundef %0, i32 noundef %2244) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %.sink.split
 
 sema_analyse_statement_inner.exit.thread196:      ; preds = %73, %.thread, %sema_analyse_then_overwrite.exit.i.thread, %1735, %.loopexit.i, %1864, %1807, %1715, %496, %486, %482, %493, %489, %479, %464, %431, %427, %sema_analyse_then_overwrite.exit.i94.thread, %282, %218, %138, %173, %147, %62, %._crit_edge.thread.i, %._crit_edge.i146, %23, %sema_analyse_ct_foreach_stmt.exit.thread, %sema_analyse_return_stmt.exit, %sema_analyse_if_stmt.exit.thread, %sema_analyse_statement_inner.exit.thread198, %1648, %1069, %sema_analyse_foreach_stmt.exit, %419, %295, %sema_analyse_compound_stmt.exit
@@ -6293,7 +6293,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_switch_stmt(ptr noundef 
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %81 = load ptr, ptr %80, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %82 = tail call zeroext i1 @type_is_comparable(ptr noundef %79) #9
   br i1 %82, label %.preheader, label %83
 
@@ -6467,7 +6467,7 @@ type_flatten.exit:                                ; preds = %.preheader
   br i1 %exitcond.not.i91, label %sema_check_type_case.exit, label %148, !llvm.loop !45
 
 170:                                              ; preds = %130
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %171 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %172 = load i32, ptr %171, align 8
   %173 = load ptr, ptr @expr_arena, align 8
@@ -6660,13 +6660,13 @@ extend_span_with_token.exit77.i:                  ; preds = %231, %230
 
 sema_check_value_case.exit.thread:                ; preds = %170, %183, %extend_span_with_token.exit77.i, %271, %extend_span_with_token.exit.i
   %.3.ph = phi i8 [ %.0122157, %extend_span_with_token.exit.i ], [ 0, %extend_span_with_token.exit77.i ], [ %.2124, %271 ], [ %.0122157, %183 ], [ %.0122157, %170 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %sema_check_type_case.exit.thread
 
 .loopexit141:                                     ; preds = %274, %.thread80.i, %185
   %.3 = phi i8 [ %.2124, %.thread80.i ], [ %.0122157, %185 ], [ %.2124, %274 ]
   %.2 = phi i1 [ %.0119158, %.thread80.i ], [ true, %185 ], [ %.0119158, %274 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %sema_check_type_case.exit
 
 275:                                              ; preds = %122
@@ -7207,7 +7207,7 @@ sema_analyse_compound_statement_no_scope.exit:    ; preds = %437, %422
   br label %sema_analyse_switch_body.exit
 
 sema_analyse_switch_body.exit.thread:             ; preds = %.cont.cont, %380, %83
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %519
 
 sema_analyse_switch_body.exit:                    ; preds = %._crit_edge191, %508
@@ -7222,7 +7222,7 @@ sema_analyse_switch_body.exit:                    ; preds = %._crit_edge191, %50
   %517 = or i8 %516, %514
   store i8 %517, ptr %511, align 4
   %518 = trunc nuw i8 %.4.i to i1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %518, label %520, label %519
 
 519:                                              ; preds = %sema_analyse_switch_body.exit.thread, %sema_analyse_switch_body.exit
@@ -8918,10 +8918,10 @@ declare void @context_pop_defers(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8

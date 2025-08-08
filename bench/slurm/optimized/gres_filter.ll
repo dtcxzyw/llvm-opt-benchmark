@@ -30,9 +30,9 @@ define dso_local void @gres_filter_sock_core(ptr noundef readonly captures(none)
   %23 = alloca i16, align 2
   %24 = alloca i16, align 2
   %25 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store ptr null, ptr %22, align 8
   store i32 -2, ptr %9, align 4
   %26 = load i32, ptr %8, align 4
@@ -127,8 +127,8 @@ define dso_local void @gres_filter_sock_core(ptr noundef readonly captures(none)
   %.05971004 = phi i32 [ %10, %.lr.ph1006 ], [ %.1, %919 ]
   %.15991003 = phi i32 [ %.0598.lcssa, %.lr.ph1006 ], [ %.2, %919 ]
   %.06011002 = phi i8 [ 0, %.lr.ph1006 ], [ %.2603, %919 ]
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %23) #5
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %24) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 72
   %74 = load i64, ptr %73, align 8
   %.not721 = icmp eq i64 %74, 0
@@ -183,7 +183,7 @@ define dso_local void @gres_filter_sock_core(ptr noundef readonly captures(none)
   br i1 %.not726.not, label %.thread, label %98
 
 98:                                               ; preds = %95
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %99 = call ptr @bit_copy(ptr noundef nonnull %97) #5
   store ptr %99, ptr %25, align 8
   call void @bit_and(ptr noundef %99, ptr noundef %13) #5
@@ -227,7 +227,7 @@ define dso_local void @gres_filter_sock_core(ptr noundef readonly captures(none)
   br label %118
 
 118:                                              ; preds = %117, %._crit_edge893
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %.thread
 
 .thread:                                          ; preds = %87, %92, %84, %118, %95
@@ -1871,16 +1871,16 @@ _shared_gres_task_limit.exit:                     ; preds = %496, %531, %465, %4
 
 .thread844:                                       ; preds = %563, %.thread844.sink.split
   %.2603.ph = phi i8 [ %.2603.ph.ph, %.thread844.sink.split ], [ %.3604, %563 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %24) #5
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %23) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %.loopexit866
 
 919:                                              ; preds = %917, %913, %630, %636, %633, %81
   %.2603 = phi i8 [ %.06011002, %81 ], [ %.3604, %633 ], [ %.3604, %636 ], [ %.3604, %630 ], [ 0, %913 ], [ %.3604, %917 ]
   %.2 = phi i32 [ %.15991003, %81 ], [ %.3.lcssa, %633 ], [ %.3.lcssa, %636 ], [ %.3.lcssa, %630 ], [ %.3.lcssa, %913 ], [ %.3.lcssa, %917 ]
   %.1 = phi i32 [ %.05971004, %81 ], [ %119, %633 ], [ %119, %636 ], [ %119, %630 ], [ %119, %913 ], [ %119, %917 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %24) #5
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %23) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %920 = call ptr @list_next(ptr noundef %39) #5
   %.not720 = icmp eq ptr %920, null
   br i1 %.not720, label %.loopexit866, label %71
@@ -1957,23 +1957,17 @@ _shared_gres_task_limit.exit:                     ; preds = %496, %531, %465, %4
   br label %952
 
 952:                                              ; preds = %933, %940, %943, %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @bit_set_count_range(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @bit_set_count_range(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @_sock_gres_sort(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
@@ -2029,9 +2023,9 @@ define internal i32 @_sock_gres_sort(ptr noundef readonly captures(none) %0, ptr
 
 33:                                               ; preds = %26, %30
   %34 = phi ptr [ %32, %30 ], [ null, %26 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %.not28 = icmp eq ptr %13, null
   br i1 %.not28, label %39, label %35
@@ -2092,29 +2086,29 @@ define internal i32 @_sock_gres_sort(ptr noundef readonly captures(none) %0, ptr
 
 56:                                               ; preds = %55, %52, %50
   %57 = call i32 @slurm_sort_int_list_asc(ptr noundef nonnull %3, ptr noundef nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %57
 }
 
-declare ptr @list_iterator_create(ptr noundef) local_unnamed_addr #2
+declare ptr @list_iterator_create(ptr noundef) local_unnamed_addr #1
 
-declare ptr @list_next(ptr noundef) local_unnamed_addr #2
+declare ptr @list_next(ptr noundef) local_unnamed_addr #1
 
-declare i32 @gres_get_gpu_plugin_id() local_unnamed_addr #2
+declare i32 @gres_get_gpu_plugin_id() local_unnamed_addr #1
 
-declare ptr @bit_copy(ptr noundef) local_unnamed_addr #2
+declare ptr @bit_copy(ptr noundef) local_unnamed_addr #1
 
-declare void @bit_and(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @bit_and(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @slurm_xfree(ptr noundef) local_unnamed_addr #2
+declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
-declare void @slurm_bit_free(ptr noundef) local_unnamed_addr #2
+declare void @slurm_bit_free(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @gres_id_shared(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @gres_id_shared(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @_sort_sockets_by_avail_cores(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
@@ -2129,11 +2123,11 @@ define internal i32 @_sort_sockets_by_avail_cores(ptr noundef readonly captures(
   ret i32 %10
 }
 
-declare i32 @slurm_bit_test(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @slurm_bit_test(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @bit_clear(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @bit_clear(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @bit_nclear(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare void @bit_nclear(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_reduce_restricted_cores(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef %4, ptr noundef captures(none) %5, i64 noundef %6, i16 noundef zeroext %7, i16 noundef zeroext %8, i16 noundef zeroext %9, ptr noundef readonly captures(none) %10, i1 noundef zeroext %11, i1 noundef zeroext %12) unnamed_addr #0 {
@@ -2335,19 +2329,25 @@ select.unfold86.us:                               ; preds = %60, %.backedge
   ret void
 }
 
-declare i32 @get_log_level() local_unnamed_addr #2
+declare i32 @get_log_level() local_unnamed_addr #1
 
-declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #2
+declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #1
 
-declare i32 @slurm_sort_int_list_asc(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @slurm_sort_int_list_asc(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @slurm_sort_uint16_list_desc(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @slurm_sort_uint16_list_desc(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @bit_overlap_any(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @bit_overlap_any(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4
@@ -2374,9 +2374,9 @@ declare i32 @llvm.umin.i32(i32, i32) #4
 declare i32 @llvm.smin.i32(i32, i32) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 

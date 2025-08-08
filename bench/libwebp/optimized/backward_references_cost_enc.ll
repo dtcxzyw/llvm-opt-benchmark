@@ -33,7 +33,7 @@ define hidden range(i32 0, 2) i32 @VP8LBackwardReferencesTraceBackwards(i32 noun
   %21 = shl nsw i64 %20, 2
   %22 = add nsw i64 %21, 3240
   %23 = tail call ptr @WebPSafeCalloc(i64 noundef 1, i64 noundef %22) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %24 = tail call ptr @WebPSafeCalloc(i64 noundef 1, i64 noundef 33224) #7
   %25 = icmp eq ptr %23, null
   %26 = icmp eq ptr %24, null
@@ -52,7 +52,7 @@ define hidden range(i32 0, 2) i32 @VP8LBackwardReferencesTraceBackwards(i32 noun
   br i1 %.not.i, label %BackwardReferencesHashChainDistanceOnly.exit, label %32
 
 32:                                               ; preds = %30, %27
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @VP8LRefsCursorInit(ptr dead_on_unwind nonnull writable sret(%struct.VP8LRefsCursor) align 8 %9, ptr noundef %5) #7
   %33 = call ptr @VP8LAllocateHistogram(i32 noundef %3) #7
   %34 = icmp eq ptr %33, null
@@ -467,12 +467,12 @@ VP8LFastLog2.exit24.i87.i.i:                      ; preds = %195, %191
 
 CostModelBuild.exit.i:                            ; preds = %32
   call void @VP8LFreeHistogram(ptr noundef null) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %520
 
 .loopexit165.i:                                   ; preds = %VP8LFastLog2.exit24.i87.i.i, %._crit_edge.thread.i90.i.i
   call void @VP8LFreeHistogram(ptr noundef nonnull %33) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %201 = getelementptr inbounds nuw i8, ptr %24, i64 32792
   store ptr null, ptr %201, align 8, !tbaa !24
   %202 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -1145,7 +1145,7 @@ BackwardReferencesHashChainDistanceOnly.exit:     ; preds = %15, %30, %520, %521
   call fastcc void @CostManagerClear(ptr noundef %24)
   call void @WebPSafeFree(ptr noundef %23) #7
   call void @WebPSafeFree(ptr noundef %24) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.not = icmp eq i32 %.081163.i, 0
   br i1 %.not, label %586, label %522
 
@@ -1178,7 +1178,7 @@ TraceBackwards.exit:                              ; preds = %.lr.ph.i21, %522
   %532 = sub i64 %530, %531
   %533 = lshr exact i64 %532, 1
   %534 = trunc i64 %533 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br i1 %16, label %537, label %535
 
 535:                                              ; preds = %TraceBackwards.exit
@@ -1350,7 +1350,7 @@ TraceBackwards.exit:                              ; preds = %.lr.ph.i21, %522
 
 BackwardReferencesHashChainFollowChosenPath.exit: ; preds = %._crit_edge.i33.thread, %535, %._crit_edge.i33, %585
   %.04371.shrunk.i = phi i1 [ %.not5291.i, %585 ], [ %.not52.i, %._crit_edge.i33 ], [ false, %535 ], [ %.not52.i36, %._crit_edge.i33.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %spec.select = zext i1 %.04371.shrunk.i to i32
   br label %586
 
@@ -1360,24 +1360,18 @@ BackwardReferencesHashChainFollowChosenPath.exit: ; preds = %._crit_edge.i33.thr
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #1
 
-declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #2
+declare ptr @WebPSafeCalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @VP8LColorCacheInit(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @WebPSafeCalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
-
-declare i32 @VP8LColorCacheInit(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @VP8LDistanceToPlaneCode(i32 noundef, i32 noundef) #2
+declare i32 @VP8LDistanceToPlaneCode(i32 noundef, i32 noundef) #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @PushInterval(ptr noundef nonnull captures(address) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 {
+define internal fastcc void @PushInterval(ptr noundef nonnull captures(address) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !29
   %7 = icmp slt i32 %3, 10
@@ -1561,7 +1555,7 @@ PopInterval.exit:                                 ; preds = %70, %71
   ret void
 }
 
-declare void @VP8LColorCacheClear(ptr noundef) local_unnamed_addr #2
+declare void @VP8LColorCacheClear(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @CostManagerClear(ptr noundef %0) unnamed_addr #0 {
@@ -1654,26 +1648,26 @@ CostManagerInitFreeList.exit:                     ; preds = %30
   ret void
 }
 
-declare void @VP8LRefsCursorInit(ptr dead_on_unwind writable sret(%struct.VP8LRefsCursor) align 8, ptr noundef) local_unnamed_addr #2
+declare void @VP8LRefsCursorInit(ptr dead_on_unwind writable sret(%struct.VP8LRefsCursor) align 8, ptr noundef) local_unnamed_addr #1
 
-declare ptr @VP8LAllocateHistogram(i32 noundef) local_unnamed_addr #2
+declare ptr @VP8LAllocateHistogram(i32 noundef) local_unnamed_addr #1
 
-declare void @VP8LHistogramInit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @VP8LHistogramInit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @VP8LHistogramAddSinglePixOrCopy(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @VP8LHistogramAddSinglePixOrCopy(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @VP8LFreeHistogram(ptr noundef) local_unnamed_addr #2
+declare void @VP8LFreeHistogram(ptr noundef) local_unnamed_addr #1
 
-declare void @VP8LRefsCursorNextBlock(ptr noundef) local_unnamed_addr #2
+declare void @VP8LRefsCursorNextBlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #5
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #4
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @InsertInterval(ptr noundef nonnull captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #3 {
+define internal fastcc void @InsertInterval(ptr noundef nonnull captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #2 {
   %.not = icmp slt i32 %4, %5
   br i1 %.not, label %7, label %UpdateCostPerInterval.exit
 
@@ -1869,19 +1863,25 @@ UpdateCostPerInterval.exit:                       ; preds = %UpdateCost.exit.i43
   ret void
 }
 
-declare void @VP8LClearBackwardRefs(ptr noundef) local_unnamed_addr #2
+declare void @VP8LClearBackwardRefs(ptr noundef) local_unnamed_addr #1
 
-declare void @VP8LBackwardRefsCursorAdd(ptr noundef, i64) local_unnamed_addr #2
+declare void @VP8LBackwardRefsCursorAdd(ptr noundef, i64) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 

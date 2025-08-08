@@ -12,11 +12,11 @@ define range(i32 -16, 1) i32 @PaPulseAudio_updateTimeInfo(ptr noundef %0, ptr no
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !7
   %7 = call i32 @pa_stream_get_time(ptr noundef %0, ptr noundef nonnull %5) #5
   %8 = icmp eq i32 %7, -16
@@ -53,21 +53,15 @@ define range(i32 -16, 1) i32 @PaPulseAudio_updateTimeInfo(ptr noundef %0, ptr no
 
 27:                                               ; preds = %25, %22, %9, %3
   %.0 = phi i32 [ -16, %3 ], [ -16, %9 ], [ 0, %22 ], [ 0, %25 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @pa_stream_get_time(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @pa_stream_get_time(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @pa_stream_get_latency(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @pa_stream_get_latency(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @PaPulseAudio_ReleaseOperation(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -156,9 +150,9 @@ define void @PaPulseAudio_Lock(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare i32 @pa_operation_get_state(ptr noundef) local_unnamed_addr #2
+declare i32 @pa_operation_get_state(ptr noundef) local_unnamed_addr #1
 
-declare void @pa_threaded_mainloop_wait(ptr noundef) local_unnamed_addr #2
+declare void @pa_threaded_mainloop_wait(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @PaPulseAudio_UnLock(ptr noundef %0) local_unnamed_addr #0 {
@@ -174,13 +168,13 @@ define void @PaPulseAudio_UnLock(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @pa_operation_unref(ptr noundef) local_unnamed_addr #2
+declare void @pa_operation_unref(ptr noundef) local_unnamed_addr #1
 
-declare i32 @pa_threaded_mainloop_in_thread(ptr noundef) local_unnamed_addr #2
+declare i32 @pa_threaded_mainloop_in_thread(ptr noundef) local_unnamed_addr #1
 
-declare void @pa_threaded_mainloop_lock(ptr noundef) local_unnamed_addr #2
+declare void @pa_threaded_mainloop_lock(ptr noundef) local_unnamed_addr #1
 
-declare void @pa_threaded_mainloop_unlock(ptr noundef) local_unnamed_addr #2
+declare void @pa_threaded_mainloop_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @_PaPulseAudio_WriteRingBuffer(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -190,9 +184,9 @@ define void @_PaPulseAudio_WriteRingBuffer(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 768800, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = call i64 @PaUtil_ReadRingBuffer(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %2) #5
-  call void @llvm.lifetime.end.p0(i64 768800, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %9
 
 9:                                                ; preds = %7, %3
@@ -200,11 +194,11 @@ define void @_PaPulseAudio_WriteRingBuffer(ptr noundef %0, ptr noundef %1, i64 n
   ret void
 }
 
-declare i64 @PaUtil_GetRingBufferWriteAvailable(ptr noundef) local_unnamed_addr #2
+declare i64 @PaUtil_GetRingBufferWriteAvailable(ptr noundef) local_unnamed_addr #1
 
-declare i64 @PaUtil_ReadRingBuffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @PaUtil_ReadRingBuffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @PaUtil_WriteRingBuffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @PaUtil_WriteRingBuffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @_PaPulseAudio_Read(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -212,7 +206,7 @@ define void @_PaPulseAudio_Read(ptr noundef %0, i64 noundef %1) local_unnamed_ad
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   store i64 %1, ptr %4, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %7 = load ptr, ptr %6, align 8, !tbaa !33
@@ -229,9 +223,9 @@ define void @_PaPulseAudio_Read(ptr noundef %0, i64 noundef %1) local_unnamed_ad
   br i1 %14, label %15, label %_PaPulseAudio_WriteRingBuffer.exit
 
 15:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 768800, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i64 @PaUtil_ReadRingBuffer(ptr noundef nonnull %10, ptr noundef nonnull %3, i64 noundef %12) #5
-  call void @llvm.lifetime.end.p0(i64 768800, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_PaPulseAudio_WriteRingBuffer.exit
 
 _PaPulseAudio_WriteRingBuffer.exit:               ; preds = %9, %15
@@ -241,22 +235,22 @@ _PaPulseAudio_WriteRingBuffer.exit:               ; preds = %9, %15
 18:                                               ; preds = %2, %_PaPulseAudio_WriteRingBuffer.exit
   %19 = load ptr, ptr %6, align 8, !tbaa !33
   %20 = call i32 @pa_stream_drop(ptr noundef %19) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare i32 @pa_stream_peek(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @pa_stream_peek(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @pa_stream_drop(ptr noundef) local_unnamed_addr #2
+declare i32 @pa_stream_drop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @PaPulseAudio_StreamRecordCb(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [768800 x i8], align 16
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %1, ptr %5, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 472
   %8 = load ptr, ptr %7, align 8, !tbaa !33
@@ -273,9 +267,9 @@ define void @PaPulseAudio_StreamRecordCb(ptr readnone captures(none) %0, i64 nou
   br i1 %15, label %16, label %_PaPulseAudio_WriteRingBuffer.exit.i
 
 16:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 768800, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = call i64 @PaUtil_ReadRingBuffer(ptr noundef nonnull %11, ptr noundef nonnull %4, i64 noundef %13) #5
-  call void @llvm.lifetime.end.p0(i64 768800, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_PaPulseAudio_WriteRingBuffer.exit.i
 
 _PaPulseAudio_WriteRingBuffer.exit.i:             ; preds = %16, %10
@@ -285,8 +279,8 @@ _PaPulseAudio_WriteRingBuffer.exit.i:             ; preds = %16, %10
 _PaPulseAudio_Read.exit:                          ; preds = %3, %_PaPulseAudio_WriteRingBuffer.exit.i
   %19 = load ptr, ptr %7, align 8, !tbaa !33
   %20 = call i32 @pa_stream_drop(ptr noundef %19) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 392
   %22 = load ptr, ptr %21, align 8, !tbaa !45
   %.not = icmp eq ptr %22, null
@@ -316,14 +310,14 @@ define internal fastcc void @_PaPulseAudio_ProcessAudio(ptr noundef %0, i64 noun
   %11 = alloca i32, align 4
   %12 = alloca ptr, align 8
   %13 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 768800, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %16 = load i64, ptr %15, align 8, !tbaa !47
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8, !tbaa !32
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %18, label %22
@@ -540,11 +534,11 @@ define internal fastcc void @_PaPulseAudio_ProcessAudio(ptr noundef %0, i64 noun
   br i1 %.not130, label %136, label %121
 
 121:                                              ; preds = %119
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !7
   %122 = call i32 @pa_stream_get_time(ptr noundef nonnull %120, ptr noundef nonnull %7) #5
   %123 = icmp eq i32 %122, -16
@@ -569,9 +563,9 @@ define internal fastcc void @_PaPulseAudio_ProcessAudio(ptr noundef %0, i64 noun
   br label %PaPulseAudio_updateTimeInfo.exit
 
 PaPulseAudio_updateTimeInfo.exit:                 ; preds = %121, %124, %130
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %136
 
 136:                                              ; preds = %PaPulseAudio_updateTimeInfo.exit, %119
@@ -580,11 +574,11 @@ PaPulseAudio_updateTimeInfo.exit:                 ; preds = %121, %124, %130
   br i1 %.not131, label %153, label %138
 
 138:                                              ; preds = %136
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !7
   %139 = call i32 @pa_stream_get_time(ptr noundef nonnull %137, ptr noundef nonnull %4) #5
   %140 = icmp eq i32 %139, -16
@@ -609,9 +603,9 @@ PaPulseAudio_updateTimeInfo.exit:                 ; preds = %121, %124, %130
   br label %PaPulseAudio_updateTimeInfo.exit137
 
 PaPulseAudio_updateTimeInfo.exit137:              ; preds = %138, %141, %147
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %153
 
 153:                                              ; preds = %PaPulseAudio_updateTimeInfo.exit137, %136
@@ -631,7 +625,7 @@ PaPulseAudio_updateTimeInfo.exit137:              ; preds = %138, %141, %147
   br i1 %.not112, label %169, label %159
 
 159:                                              ; preds = %158
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 %.186, ptr %13, align 8, !tbaa !7
   %160 = load ptr, ptr %23, align 8, !tbaa !49
   %161 = call i32 @pa_stream_begin_write(ptr noundef %160, ptr noundef nonnull %12, ptr noundef nonnull %13) #5
@@ -640,7 +634,7 @@ PaPulseAudio_updateTimeInfo.exit137:              ; preds = %138, %141, %147
   br i1 %.not132.not, label %.thread139, label %163
 
 .thread139:                                       ; preds = %159
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.critedge
 
 163:                                              ; preds = %159
@@ -651,7 +645,7 @@ PaPulseAudio_updateTimeInfo.exit137:              ; preds = %138, %141, %147
   %166 = load ptr, ptr %12, align 8, !tbaa !32
   %167 = call i32 @pa_stream_write(ptr noundef %165, ptr noundef %166, i64 noundef %.186, ptr noundef null, i64 noundef 0, i32 noundef 0) #5
   %168 = add i64 %.082, %.186
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %169
 
 169:                                              ; preds = %163, %158
@@ -661,14 +655,14 @@ PaPulseAudio_updateTimeInfo.exit137:              ; preds = %138, %141, %147
   br label %69
 
 .critedge:                                        ; preds = %99, %101, %87, %91, %96, %117, %114, %112, %.thread139, %58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #5
-  call void @llvm.lifetime.end.p0(i64 768800, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
-declare void @pa_threaded_mainloop_signal(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @pa_threaded_mainloop_signal(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @PaPulseAudio_StreamPlaybackCb(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef %2) #0 {
@@ -701,7 +695,7 @@ define noundef i32 @PaPulseAudio_CloseStreamCb(ptr noundef %0) local_unnamed_add
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8, !tbaa !60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 648
   store volatile i32 0, ptr %5, align 8, !tbaa !54
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 652
@@ -939,13 +933,13 @@ PaPulseAudio_UnLock.exit83:                       ; preds = %83, %86
   %103 = load ptr, ptr %102, align 8, !tbaa !64
   tail call void @PaUtil_FreeMemory(ptr noundef %103) #5
   tail call void @PaUtil_FreeMemory(ptr noundef nonnull %0) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 0
 }
 
-declare i32 @pa_stream_get_state(ptr noundef) local_unnamed_addr #2
+declare i32 @pa_stream_get_state(ptr noundef) local_unnamed_addr #1
 
-declare ptr @pa_stream_cork(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @pa_stream_cork(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @PaPulseAudio_CorkSuccessCb(ptr readnone captures(none) %0, i32 %1, ptr noundef readonly captures(none) %2) #0 {
@@ -955,17 +949,17 @@ define internal void @PaPulseAudio_CorkSuccessCb(ptr readnone captures(none) %0,
   ret void
 }
 
-declare i32 @pa_stream_disconnect(ptr noundef) local_unnamed_addr #2
+declare i32 @pa_stream_disconnect(ptr noundef) local_unnamed_addr #1
 
-declare void @pa_stream_unref(ptr noundef) local_unnamed_addr #2
+declare void @pa_stream_unref(ptr noundef) local_unnamed_addr #1
 
-declare i32 @usleep(i32 noundef) local_unnamed_addr #2
+declare i32 @usleep(i32 noundef) local_unnamed_addr #1
 
-declare void @PaUtil_TerminateBufferProcessor(ptr noundef) local_unnamed_addr #2
+declare void @PaUtil_TerminateBufferProcessor(ptr noundef) local_unnamed_addr #1
 
-declare void @PaUtil_TerminateStreamRepresentation(ptr noundef) local_unnamed_addr #2
+declare void @PaUtil_TerminateStreamRepresentation(ptr noundef) local_unnamed_addr #1
 
-declare void @PaUtil_FreeMemory(ptr noundef) local_unnamed_addr #2
+declare void @PaUtil_FreeMemory(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -10000, 1) i32 @_PaPulseAudio_WaitStreamState(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1024,7 +1018,7 @@ define range(i32 -10000, 1) i32 @PaPulseAudio_StartStreamCb(ptr noundef %0) loca
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %6 = load ptr, ptr %5, align 8, !tbaa !60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %8 = load i32, ptr %7, align 8, !tbaa !66
@@ -1079,7 +1073,7 @@ PaPulseAudio_UnLock.exit:                         ; preds = %PaPulseAudio_Lock.e
   %32 = tail call i64 @pa_usec_to_bytes(i64 noundef %30, ptr noundef nonnull %31) #6
   %33 = trunc i64 %32 to i32
   store i32 %33, ptr %22, align 4, !tbaa !68
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %35 = load i32, ptr %34, align 4, !tbaa !69
   %36 = call i32 @PaUtil_DeviceIndexToHostApiDeviceIndex(ptr noundef nonnull %3, i32 noundef %35, ptr noundef nonnull %6) #5
@@ -1142,11 +1136,11 @@ PaPulseAudio_UnLock.exit121:                      ; preds = %57, %58
   br i1 %.not99, label %.critedge, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %PaPulseAudio_UnLock.exit121, %29, %55, %56
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %121
 
 .critedge:                                        ; preds = %PaPulseAudio_UnLock.exit121
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %62
 
 62:                                               ; preds = %.critedge, %PaPulseAudio_UnLock.exit
@@ -1199,7 +1193,7 @@ PaPulseAudio_UnLock.exit125:                      ; preds = %PaPulseAudio_Lock.e
   br label %116
 
 84:                                               ; preds = %72, %65
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %86 = load i32, ptr %85, align 8, !tbaa !73
   %87 = call i32 @PaUtil_DeviceIndexToHostApiDeviceIndex(ptr noundef nonnull %4, i32 noundef %86, ptr noundef nonnull %6) #5
@@ -1266,11 +1260,11 @@ PaPulseAudio_Lock.exit127:                        ; preds = %98, %101
   br i1 %.not105, label %.critedge111, label %.critedge111.thread
 
 .critedge111.thread:                              ; preds = %112, %84, %109, %111
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %121
 
 .critedge111:                                     ; preds = %112
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %116
 
 116:                                              ; preds = %.critedge111, %PaPulseAudio_UnLock.exit125
@@ -1301,26 +1295,26 @@ PaPulseAudio_Lock.exit127:                        ; preds = %98, %101
 
 122:                                              ; preds = %121, %120, %118
   %.091 = phi i32 [ 0, %120 ], [ 0, %118 ], [ -10000, %121 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.091
 }
 
-declare void @PaUtil_ResetBufferProcessor(ptr noundef) local_unnamed_addr #2
+declare void @PaUtil_ResetBufferProcessor(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @pa_usec_to_bytes(i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @pa_usec_to_bytes(i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @PaUtil_DeviceIndexToHostApiDeviceIndex(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PaUtil_DeviceIndexToHostApiDeviceIndex(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @pa_stream_connect_record(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @pa_stream_connect_record(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @pa_stream_is_corked(ptr noundef) local_unnamed_addr #2
+declare i32 @pa_stream_is_corked(ptr noundef) local_unnamed_addr #1
 
-declare void @pa_stream_set_write_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @pa_stream_set_write_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @pa_stream_connect_playback(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @pa_stream_connect_playback(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @pa_stream_set_read_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @pa_stream_set_read_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @PaPulseAudio_AbortStreamCb(ptr noundef %0) local_unnamed_addr #0 {
@@ -1339,7 +1333,7 @@ define internal fastcc void @RequestStop(ptr noundef %0, i32 noundef range(i32 0
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %5 = load ptr, ptr %4, align 8, !tbaa !60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 82216
   %7 = load ptr, ptr %6, align 8, !tbaa !17
   %8 = tail call i32 @pa_threaded_mainloop_in_thread(ptr noundef %7) #5
@@ -1417,42 +1411,48 @@ PaPulseAudio_UnLock.exit26:                       ; preds = %PaPulseAudio_Lock.e
   store volatile i32 1, ptr %11, align 4, !tbaa !57
   store volatile i32 0, ptr %12, align 8, !tbaa !55
   store volatile i32 1, ptr %13, align 4, !tbaa !61
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare i32 @pa_stream_write(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @pa_stream_write(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @pa_context_get_state(ptr noundef) local_unnamed_addr #2
+declare i32 @pa_context_get_state(ptr noundef) local_unnamed_addr #1
 
-declare i64 @PaUtil_GetRingBufferReadAvailable(ptr noundef) local_unnamed_addr #2
+declare i64 @PaUtil_GetRingBufferReadAvailable(ptr noundef) local_unnamed_addr #1
 
-declare void @PaUtil_BeginCpuLoadMeasurement(ptr noundef) local_unnamed_addr #2
+declare void @PaUtil_BeginCpuLoadMeasurement(ptr noundef) local_unnamed_addr #1
 
-declare void @PaUtil_BeginBufferProcessing(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @PaUtil_BeginBufferProcessing(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @PaUtil_SetInterleavedInputChannels(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @PaUtil_SetInterleavedInputChannels(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @PaUtil_SetInputFrameCount(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @PaUtil_SetInputFrameCount(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @pa_stream_begin_write(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @pa_stream_begin_write(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @PaUtil_SetInterleavedOutputChannels(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @PaUtil_SetInterleavedOutputChannels(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @PaUtil_SetOutputFrameCount(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @PaUtil_SetOutputFrameCount(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @PaUtil_EndBufferProcessing(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @PaUtil_EndBufferProcessing(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @PaUtil_EndCpuLoadMeasurement(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @PaUtil_EndCpuLoadMeasurement(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 attributes #6 = { nounwind willreturn memory(read) }
 

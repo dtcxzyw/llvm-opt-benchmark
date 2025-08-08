@@ -315,13 +315,13 @@ define hidden noundef zeroext i1 @socketcan_set_source_and_destination_columns(p
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load i16, ptr %4, align 4
   %6 = load i32, ptr %1, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = load ptr, ptr @data_sender_receiver, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %ht_lookup_sender_receiver_config.exit.thread20, label %9
 
 ht_lookup_sender_receiver_config.exit.thread20:   ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %27
 
 9:                                                ; preds = %2
@@ -335,14 +335,14 @@ ht_lookup_sender_receiver_config.exit.thread20:   ; preds = %2
   br i1 %15, label %ht_lookup_sender_receiver_config.exit, label %ht_lookup_sender_receiver_config.exit.thread
 
 ht_lookup_sender_receiver_config.exit.thread:     ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %18
 
 ht_lookup_sender_receiver_config.exit:            ; preds = %9
   store i64 %12, ptr %3, align 8
   %16 = load ptr, ptr @data_sender_receiver, align 8
   %17 = call ptr @g_hash_table_lookup(ptr noundef %16, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.not = icmp eq ptr %17, null
   br i1 %.not.not, label %27, label %18
 
@@ -366,14 +366,8 @@ ht_lookup_sender_receiver_config.exit:            ; preds = %9
   ret i1 %.not18
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: null_pointer_is_valid
-declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef zeroext i1 @socketcan_call_subdissectors(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
@@ -422,13 +416,13 @@ define hidden noundef zeroext i1 @socketcan_call_subdissectors(ptr noundef %0, p
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissector_try_uint_with_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare i32 @dissector_try_uint_with_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissector_try_payload_with_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare i32 @dissector_try_payload_with_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @dissector_try_heuristic(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @dissector_try_heuristic(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_socketcan() local_unnamed_addr #0 {
@@ -481,10 +475,10 @@ define hidden void @proto_register_socketcan() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_socketcan_classic(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
@@ -523,37 +517,37 @@ define internal i32 @dissect_socketcan_xl(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @prefs_register_obsolete_preference(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @prefs_register_obsolete_preference(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @register_decode_as_next_proto(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @register_decode_as_next_proto(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @register_heur_dissector_list_with_description(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @register_heur_dissector_list_with_description(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @uat_fld_chk_num_hex(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare zeroext i1 @uat_fld_chk_num_hex(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @interface_configs_interface_id_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
@@ -569,14 +563,14 @@ define internal void @interface_configs_interface_id_tostr_cb(ptr noundef readon
   %6 = load i32, ptr %0, align 8
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.201, i32 noundef %6)
   store ptr %7, ptr %1, align 8
-  %8 = tail call i64 @strlen(ptr noundef %7) #8
+  %8 = tail call i64 @strlen(ptr noundef %7) #7
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %2, align 4
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @uat_fld_chk_str(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare zeroext i1 @uat_fld_chk_str(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @interface_configs_interface_name_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
@@ -600,7 +594,7 @@ define internal void @interface_configs_interface_name_tostr_cb(ptr noundef read
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #8
+  %11 = tail call i64 @strlen(ptr noundef %10) #7
   %12 = trunc i64 %11 to i32
   br label %15
 
@@ -631,14 +625,14 @@ define internal void @interface_configs_bus_id_tostr_cb(ptr noundef readonly cap
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.201, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #8
+  %9 = tail call i64 @strlen(ptr noundef %8) #7
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef ptr @copy_interface_config_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 4), (8, 20)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
@@ -789,7 +783,7 @@ define internal void @reset_can_interfaces_cb() #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @prefs_register_uat_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @prefs_register_uat_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @sender_receiver_configs_bus_id_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
@@ -805,7 +799,7 @@ define internal void @sender_receiver_configs_bus_id_tostr_cb(ptr noundef readon
   %6 = load i32, ptr %0, align 8
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.201, i32 noundef %6)
   store ptr %7, ptr %1, align 8
-  %8 = tail call i64 @strlen(ptr noundef %7) #8
+  %8 = tail call i64 @strlen(ptr noundef %7) #7
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %2, align 4
   ret void
@@ -827,7 +821,7 @@ define internal void @sender_receiver_configs_can_id_tostr_cb(ptr noundef readon
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.201, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef %8) #8
+  %9 = tail call i64 @strlen(ptr noundef %8) #7
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
@@ -855,7 +849,7 @@ define internal void @sender_receiver_configs_sender_name_tostr_cb(ptr noundef r
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #8
+  %11 = tail call i64 @strlen(ptr noundef %10) #7
   %12 = trunc i64 %11 to i32
   br label %15
 
@@ -892,7 +886,7 @@ define internal void @sender_receiver_configs_receiver_name_tostr_cb(ptr noundef
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef %10) #8
+  %11 = tail call i64 @strlen(ptr noundef %10) #7
   %12 = trunc i64 %11 to i32
   br label %15
 
@@ -977,7 +971,7 @@ define internal void @post_update_sender_receiver_cb() #0 {
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %6 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc(i64 noundef 8) #9
+  %6 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc(i64 noundef 8) #8
   %7 = load ptr, ptr @sender_receiver_configs, align 8
   %8 = getelementptr %struct._sender_receiver_config, ptr %7, i64 %indvars.iv
   %9 = load i32, ptr %8, align 8
@@ -1030,10 +1024,10 @@ define hidden void @proto_reg_handoff_socketcan() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_socketcan_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 4) %4) unnamed_addr #0 {
@@ -1041,7 +1035,7 @@ define internal fastcc i32 @dissect_socketcan_common(ptr noundef %0, ptr noundef
   %7 = alloca i64, align 8
   %8 = alloca %struct.can_info, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = icmp eq i32 %4, 3
   br i1 %10, label %11, label %.thread
 
@@ -1257,13 +1251,13 @@ proto_item_set_hidden.exit186:                    ; preds = %110, %107, %103, %p
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %115, i32 noundef 25, ptr noundef nonnull @.str.190, i32 noundef %116, i32 noundef %116, i32 noundef %118, i32 noundef %118)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %102, ptr noundef nonnull @.str.191, i32 noundef %116, i32 noundef %116, i32 noundef %118, i32 noundef %118)
   tail call void @proto_tree_add_bitmask_list(ptr noundef %102, ptr noundef %0, i32 noundef 4, i32 noundef 1, ptr noundef nonnull @dissect_socketcan_common.canxl_flag_fields, i32 noundef -2147483648)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %119 = load ptr, ptr @data_sender_receiver, align 8
   %120 = icmp eq ptr %119, null
   br i1 %120, label %ht_lookup_sender_receiver_config.exit.thread20.i, label %121
 
 ht_lookup_sender_receiver_config.exit.thread20.i: ; preds = %proto_item_set_hidden.exit186
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %socketcan_set_source_and_destination_columns.exit
 
 121:                                              ; preds = %proto_item_set_hidden.exit186
@@ -1275,14 +1269,14 @@ ht_lookup_sender_receiver_config.exit.thread20.i: ; preds = %proto_item_set_hidd
   br i1 %125, label %ht_lookup_sender_receiver_config.exit.i, label %ht_lookup_sender_receiver_config.exit.thread.i
 
 ht_lookup_sender_receiver_config.exit.thread.i:   ; preds = %121
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %128
 
 ht_lookup_sender_receiver_config.exit.i:          ; preds = %121
   store i64 0, ptr %7, align 8
   %126 = load ptr, ptr @data_sender_receiver, align 8
   %127 = call ptr @g_hash_table_lookup(ptr noundef %126, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.not.i = icmp eq ptr %127, null
   br i1 %.not.not.i, label %socketcan_set_source_and_destination_columns.exit, label %128
 
@@ -1301,7 +1295,7 @@ ht_lookup_sender_receiver_config.exit.i:          ; preds = %121
   br label %socketcan_set_source_and_destination_columns.exit
 
 socketcan_set_source_and_destination_columns.exit: ; preds = %ht_lookup_sender_receiver_config.exit.thread20.i, %ht_lookup_sender_receiver_config.exit.i, %128
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %136 = load i32, ptr @hf_canxl_sdu_type, align 4
   %137 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %102, i32 noundef %136, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9)
   %138 = load i32, ptr @hf_canxl_len, align 4
@@ -1341,7 +1335,7 @@ socketcan_set_source_and_destination_columns.exit: ; preds = %ht_lookup_sender_r
   br label %163
 
 163:                                              ; preds = %158, %153
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %322
 
 164:                                              ; preds = %get_bus_id.exit
@@ -1436,13 +1430,13 @@ proto_item_set_hidden.exit192:                    ; preds = %194, %191, %187, %1
 207:                                              ; preds = %proto_item_set_hidden.exit192, %202, %204
   %208 = phi i32 [ %198, %202 ], [ %205, %204 ], [ %198, %proto_item_set_hidden.exit192 ]
   %.0160 = phi ptr [ %203, %202 ], [ %206, %204 ], [ @dissect_socketcan_common.can_err_flags, %proto_item_set_hidden.exit192 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %209 = load ptr, ptr @data_sender_receiver, align 8
   %210 = icmp eq ptr %209, null
   br i1 %210, label %ht_lookup_sender_receiver_config.exit.thread20.i198, label %211
 
 ht_lookup_sender_receiver_config.exit.thread20.i198: ; preds = %207
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %socketcan_set_source_and_destination_columns.exit199
 
 211:                                              ; preds = %207
@@ -1456,14 +1450,14 @@ ht_lookup_sender_receiver_config.exit.thread20.i198: ; preds = %207
   br i1 %217, label %ht_lookup_sender_receiver_config.exit.i196, label %ht_lookup_sender_receiver_config.exit.thread.i193
 
 ht_lookup_sender_receiver_config.exit.thread.i193: ; preds = %211
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %220
 
 ht_lookup_sender_receiver_config.exit.i196:       ; preds = %211
   store i64 %214, ptr %6, align 8
   %218 = load ptr, ptr @data_sender_receiver, align 8
   %219 = call ptr @g_hash_table_lookup(ptr noundef %218, ptr noundef nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.not.i197 = icmp eq ptr %219, null
   br i1 %.not.not.i197, label %socketcan_set_source_and_destination_columns.exit199, label %220
 
@@ -1664,137 +1658,142 @@ socketcan_set_source_and_destination_columns.exit199: ; preds = %ht_lookup_sende
 
 324:                                              ; preds = %20, %31, %37, %322
   %.1 = phi i32 [ %323, %322 ], [ %21, %20 ], [ %32, %31 ], [ %38, %37 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.1
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
+declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_tree_add_bitmask_list(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_tree_add_bitmask_list(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_get_uint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_get_uint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_registrar_get_nth(i32 noundef) local_unnamed_addr #2
+declare ptr @proto_registrar_get_nth(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @epan_get_interface_name(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @epan_get_interface_name(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @ws_hexstrtou32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @ws_hexstrtou32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_free(ptr noundef) #2
+declare void @g_free(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #2
+declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none)
-declare i32 @g_direct_hash(ptr noundef) #4
+declare i32 @g_direct_hash(ptr noundef) #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none)
-declare i32 @g_direct_equal(ptr noundef, ptr noundef) #4
+declare i32 @g_direct_equal(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_str_hash(ptr noundef) #2
+declare i32 @g_str_hash(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_str_equal(ptr noundef, ptr noundef) #2
+declare i32 @g_str_equal(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_int64_hash(ptr noundef) #2
+declare i32 @g_int64_hash(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_int64_equal(ptr noundef, ptr noundef) #2
+declare i32 @g_int64_equal(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #5
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
-attributes #9 = { allocsize(0) }
+attributes #7 = { nounwind willreturn memory(read) }
+attributes #8 = { allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

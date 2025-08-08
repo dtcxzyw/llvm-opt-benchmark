@@ -165,14 +165,8 @@ define dso_local noalias noundef ptr @callReplyCreatePromise(ptr noundef %0) loc
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: allocsize(0)
-declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @callReplyType(ptr noundef %0) local_unnamed_addr #0 {
@@ -188,7 +182,7 @@ define dso_local i32 @callReplyType(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %7, label %callReplyParse.exit
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !25
   store ptr %9, ptr %2, align 8, !tbaa !26
@@ -198,7 +192,7 @@ define dso_local i32 @callReplyType(ptr noundef %0) local_unnamed_addr #0 {
   %12 = load i32, ptr %4, align 4, !tbaa !5
   %13 = or i32 %12, 2
   store i32 %13, ptr %4, align 4, !tbaa !5
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %callReplyParse.exit
 
 callReplyParse.exit:                              ; preds = %3, %7
@@ -221,7 +215,7 @@ define dso_local ptr @callReplyGetString(ptr noundef %0, ptr noundef writeonly c
   br i1 %.not.i, label %7, label %callReplyParse.exit
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !25
   store ptr %9, ptr %3, align 8, !tbaa !26
@@ -231,7 +225,7 @@ define dso_local ptr @callReplyGetString(ptr noundef %0, ptr noundef writeonly c
   %12 = load i32, ptr %4, align 4, !tbaa !5
   %13 = or i32 %12, 2
   store i32 %13, ptr %4, align 4, !tbaa !5
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %callReplyParse.exit
 
 callReplyParse.exit:                              ; preds = %2, %7
@@ -270,7 +264,7 @@ define dso_local i64 @callReplyGetLongLong(ptr noundef %0) local_unnamed_addr #0
   br i1 %.not.i, label %6, label %callReplyParse.exit
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !25
   store ptr %8, ptr %2, align 8, !tbaa !26
@@ -280,7 +274,7 @@ define dso_local i64 @callReplyGetLongLong(ptr noundef %0) local_unnamed_addr #0
   %11 = load i32, ptr %3, align 4, !tbaa !5
   %12 = or i32 %11, 2
   store i32 %12, ptr %3, align 4, !tbaa !5
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %callReplyParse.exit
 
 callReplyParse.exit:                              ; preds = %1, %6
@@ -309,7 +303,7 @@ define dso_local double @callReplyGetDouble(ptr noundef %0) local_unnamed_addr #
   br i1 %.not.i, label %6, label %callReplyParse.exit
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !25
   store ptr %8, ptr %2, align 8, !tbaa !26
@@ -319,7 +313,7 @@ define dso_local double @callReplyGetDouble(ptr noundef %0) local_unnamed_addr #
   %11 = load i32, ptr %3, align 4, !tbaa !5
   %12 = or i32 %11, 2
   store i32 %12, ptr %3, align 4, !tbaa !5
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %callReplyParse.exit
 
 callReplyParse.exit:                              ; preds = %1, %6
@@ -348,7 +342,7 @@ define dso_local i32 @callReplyGetBool(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %6, label %callReplyParse.exit
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !25
   store ptr %8, ptr %2, align 8, !tbaa !26
@@ -358,7 +352,7 @@ define dso_local i32 @callReplyGetBool(ptr noundef %0) local_unnamed_addr #0 {
   %11 = load i32, ptr %3, align 4, !tbaa !5
   %12 = or i32 %11, 2
   store i32 %12, ptr %3, align 4, !tbaa !5
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %callReplyParse.exit
 
 callReplyParse.exit:                              ; preds = %1, %6
@@ -388,7 +382,7 @@ define dso_local i64 @callReplyGetLen(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %6, label %callReplyParse.exit
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !25
   store ptr %8, ptr %2, align 8, !tbaa !26
@@ -398,7 +392,7 @@ define dso_local i64 @callReplyGetLen(ptr noundef %0) local_unnamed_addr #0 {
   %11 = load i32, ptr %3, align 4, !tbaa !5
   %12 = or i32 %11, 2
   store i32 %12, ptr %3, align 4, !tbaa !5
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %callReplyParse.exit
 
 callReplyParse.exit:                              ; preds = %1, %6
@@ -433,7 +427,7 @@ define dso_local ptr @callReplyGetArrayElement(ptr noundef %0, i64 noundef %1) l
   br i1 %.not.i, label %7, label %callReplyParse.exit
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !25
   store ptr %9, ptr %3, align 8, !tbaa !26
@@ -443,7 +437,7 @@ define dso_local ptr @callReplyGetArrayElement(ptr noundef %0, i64 noundef %1) l
   %12 = load i32, ptr %4, align 4, !tbaa !5
   %13 = or i32 %12, 2
   store i32 %13, ptr %4, align 4, !tbaa !5
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %callReplyParse.exit
 
 callReplyParse.exit:                              ; preds = %2, %7
@@ -479,7 +473,7 @@ define dso_local ptr @callReplyGetSetElement(ptr noundef %0, i64 noundef %1) loc
   br i1 %.not.i, label %7, label %callReplyParse.exit
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !25
   store ptr %9, ptr %3, align 8, !tbaa !26
@@ -489,7 +483,7 @@ define dso_local ptr @callReplyGetSetElement(ptr noundef %0, i64 noundef %1) loc
   %12 = load i32, ptr %4, align 4, !tbaa !5
   %13 = or i32 %12, 2
   store i32 %13, ptr %4, align 4, !tbaa !5
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %callReplyParse.exit
 
 callReplyParse.exit:                              ; preds = %2, %7
@@ -525,7 +519,7 @@ define dso_local range(i32 -1, 1) i32 @callReplyGetMapElement(ptr noundef %0, i6
   br i1 %.not.i.i, label %9, label %callReplyParse.exit.i
 
 9:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !25
   store ptr %11, ptr %5, align 8, !tbaa !26
@@ -535,7 +529,7 @@ define dso_local range(i32 -1, 1) i32 @callReplyGetMapElement(ptr noundef %0, i6
   %14 = load i32, ptr %6, align 4, !tbaa !5
   %15 = or i32 %14, 2
   store i32 %15, ptr %6, align 4, !tbaa !5
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %callReplyParse.exit.i
 
 callReplyParse.exit.i:                            ; preds = %9, %4
@@ -599,7 +593,7 @@ callReplyGetMapElementInternal.exit:              ; preds = %callReplyParse.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @callReplyGetAttribute(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define dso_local ptr @callReplyGetAttribute(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !23
   ret ptr %3
@@ -615,7 +609,7 @@ define dso_local range(i32 -1, 1) i32 @callReplyGetAttributeElement(ptr noundef 
   br i1 %.not.i.i, label %9, label %callReplyParse.exit.i
 
 9:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !25
   store ptr %11, ptr %5, align 8, !tbaa !26
@@ -625,7 +619,7 @@ define dso_local range(i32 -1, 1) i32 @callReplyGetAttributeElement(ptr noundef 
   %14 = load i32, ptr %6, align 4, !tbaa !5
   %15 = or i32 %14, 2
   store i32 %15, ptr %6, align 4, !tbaa !5
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %callReplyParse.exit.i
 
 callReplyParse.exit.i:                            ; preds = %9, %4
@@ -698,7 +692,7 @@ define dso_local ptr @callReplyGetBigNumber(ptr noundef %0, ptr noundef writeonl
   br i1 %.not.i, label %7, label %callReplyParse.exit
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !25
   store ptr %9, ptr %3, align 8, !tbaa !26
@@ -708,7 +702,7 @@ define dso_local ptr @callReplyGetBigNumber(ptr noundef %0, ptr noundef writeonl
   %12 = load i32, ptr %4, align 4, !tbaa !5
   %13 = or i32 %12, 2
   store i32 %13, ptr %4, align 4, !tbaa !5
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %callReplyParse.exit
 
 callReplyParse.exit:                              ; preds = %2, %7
@@ -740,7 +734,7 @@ define dso_local ptr @callReplyGetVerbatim(ptr noundef %0, ptr noundef writeonly
   br i1 %.not.i, label %8, label %callReplyParse.exit
 
 8:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !25
   store ptr %10, ptr %4, align 8, !tbaa !26
@@ -750,7 +744,7 @@ define dso_local ptr @callReplyGetVerbatim(ptr noundef %0, ptr noundef writeonly
   %13 = load i32, ptr %5, align 4, !tbaa !5
   %14 = or i32 %13, 2
   store i32 %14, ptr %5, align 4, !tbaa !5
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %callReplyParse.exit
 
 callReplyParse.exit:                              ; preds = %3, %8
@@ -783,7 +777,7 @@ callReplyParse.exit:                              ; preds = %3, %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local ptr @callReplyGetProto(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #5 {
+define dso_local ptr @callReplyGetProto(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8, !tbaa !34
   store i64 %4, ptr %1, align 8, !tbaa !31
@@ -793,13 +787,13 @@ define dso_local ptr @callReplyGetProto(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @callReplyGetPrivateData(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define dso_local ptr @callReplyGetPrivateData(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8, !tbaa !24
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 5) i32 @callReplyIsResp3(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define dso_local range(i32 0, 5) i32 @callReplyIsResp3(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4, !tbaa !5
   %4 = and i32 %3, 4
@@ -807,7 +801,7 @@ define dso_local range(i32 0, 5) i32 @callReplyIsResp3(ptr noundef readonly capt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @callReplyDeferredErrorList(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define dso_local ptr @callReplyDeferredErrorList(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   ret ptr %3
@@ -965,12 +959,12 @@ declare ptr @listAddNodeTail(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @sdsnew(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @parseReply(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @callReplyNullArray(ptr noundef writeonly captures(none) initializes((16, 36)) %0, ptr noundef %1, i64 noundef %2) #7 {
+define internal void @callReplyNullArray(ptr noundef writeonly captures(none) initializes((16, 36)) %0, ptr noundef %1, i64 noundef %2) #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 4, ptr %4, align 8, !tbaa !15
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -981,7 +975,7 @@ define internal void @callReplyNullArray(ptr noundef writeonly captures(none) in
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @callReplyNullBulkString(ptr noundef writeonly captures(none) initializes((16, 36)) %0, ptr noundef %1, i64 noundef %2) #7 {
+define internal void @callReplyNullBulkString(ptr noundef writeonly captures(none) initializes((16, 36)) %0, ptr noundef %1, i64 noundef %2) #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 4, ptr %4, align 8, !tbaa !15
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -992,7 +986,7 @@ define internal void @callReplyNullBulkString(ptr noundef writeonly captures(non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @callReplyBulkString(ptr noundef writeonly captures(none) initializes((16, 36), (40, 56)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #7 {
+define internal void @callReplyBulkString(ptr noundef writeonly captures(none) initializes((16, 36), (40, 56)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #6 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %6, align 8, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1007,7 +1001,7 @@ define internal void @callReplyBulkString(ptr noundef writeonly captures(none) i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @callReplyError(ptr noundef writeonly captures(none) initializes((16, 36), (40, 56)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #7 {
+define internal void @callReplyError(ptr noundef writeonly captures(none) initializes((16, 36), (40, 56)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #6 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 1, ptr %6, align 8, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1022,7 +1016,7 @@ define internal void @callReplyError(ptr noundef writeonly captures(none) initia
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @callReplySimpleStr(ptr noundef writeonly captures(none) initializes((16, 36), (40, 56)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #7 {
+define internal void @callReplySimpleStr(ptr noundef writeonly captures(none) initializes((16, 36), (40, 56)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #6 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %6, align 8, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1037,7 +1031,7 @@ define internal void @callReplySimpleStr(ptr noundef writeonly captures(none) in
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @callReplyLong(ptr noundef writeonly captures(none) initializes((16, 36), (48, 56)) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) #7 {
+define internal void @callReplyLong(ptr noundef writeonly captures(none) initializes((16, 36), (48, 56)) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) #6 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 2, ptr %5, align 8, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1254,7 +1248,7 @@ callReplyParseCollection.exit:                    ; preds = %13, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @callReplyBool(ptr noundef captures(none) initializes((16, 36), (48, 56)) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) #5 {
+define internal void @callReplyBool(ptr noundef captures(none) initializes((16, 36), (48, 56)) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 7, ptr %5, align 8, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1272,7 +1266,7 @@ define internal void @callReplyBool(ptr noundef captures(none) initializes((16, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @callReplyDouble(ptr noundef captures(none) initializes((16, 36), (48, 56)) %0, double noundef %1, ptr noundef %2, i64 noundef %3) #5 {
+define internal void @callReplyDouble(ptr noundef captures(none) initializes((16, 36), (48, 56)) %0, double noundef %1, ptr noundef %2, i64 noundef %3) #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 8, ptr %5, align 8, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1289,7 +1283,7 @@ define internal void @callReplyDouble(ptr noundef captures(none) initializes((16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @callReplyBigNumber(ptr noundef captures(none) initializes((16, 36), (40, 56)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #5 {
+define internal void @callReplyBigNumber(ptr noundef captures(none) initializes((16, 36), (40, 56)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #4 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 9, ptr %6, align 8, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1308,7 +1302,7 @@ define internal void @callReplyBigNumber(ptr noundef captures(none) initializes(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @callReplyVerbatimString(ptr noundef captures(none) initializes((16, 36), (40, 64)) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) #5 {
+define internal void @callReplyVerbatimString(ptr noundef captures(none) initializes((16, 36), (40, 64)) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) #4 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 10, ptr %7, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1425,7 +1419,7 @@ callReplyParseCollection.exit:                    ; preds = %15, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @callReplyNull(ptr noundef captures(none) initializes((16, 36)) %0, ptr noundef %1, i64 noundef %2) #5 {
+define internal void @callReplyNull(ptr noundef captures(none) initializes((16, 36)) %0, ptr noundef %1, i64 noundef %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 4, ptr %4, align 8, !tbaa !15
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1440,23 +1434,29 @@ define internal void @callReplyNull(ptr noundef captures(none) initializes((16, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @callReplyParseError(ptr noundef writeonly captures(none) initializes((32, 36)) %0) #7 {
+define internal void @callReplyParseError(ptr noundef writeonly captures(none) initializes((32, 36)) %0) #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 -1, ptr %2, align 8, !tbaa !15
   ret void
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @zcalloc(i64 noundef) local_unnamed_addr #3
+declare noalias ptr @zcalloc(i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind allocsize(0) }
 

@@ -203,8 +203,8 @@ entry:
   %start_count_.i = getelementptr inbounds nuw i8, ptr %o, i64 72
   %call2.i4 = call noundef i64 @_ZNK6google8protobuf2io17ArrayOutputStream9ByteCountEv(ptr noundef nonnull align 8 dereferenceable(32) %array_stream)
   store i64 %call2.i4, ptr %start_count_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %size.i.i)
   %call.i.i5 = call noundef zeroext i1 @_ZN6google8protobuf2io17ArrayOutputStream4NextEPPvPi(ptr noundef nonnull align 8 dereferenceable(32) %array_stream, ptr noundef nonnull %data.i.i, ptr noundef nonnull %size.i.i)
   %2 = load i32, ptr %size.i.i, align 4
   %cmp.i.i = icmp sgt i32 %2, 0
@@ -232,8 +232,8 @@ if.then.i.i:                                      ; preds = %entry
 
 invoke.cont2:                                     ; preds = %entry.invoke.cont2_crit_edge, %if.then.i.i
   %5 = phi ptr [ %.pre, %entry.invoke.cont2_crit_edge ], [ %retval.0.i.i.i, %if.then.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %size.i.i)
   %is_deterministic = getelementptr inbounds nuw i8, ptr %output, i64 8
   %6 = load i8, ptr %is_deterministic, align 8
   %frombool.i.i6 = and i8 %6, 1
@@ -644,10 +644,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

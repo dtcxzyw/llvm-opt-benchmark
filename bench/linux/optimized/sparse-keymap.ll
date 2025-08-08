@@ -49,12 +49,6 @@ define dso_local noundef ptr @sparse_keymap_entry_from_scancode(ptr noundef read
   ret ptr %15
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define dso_local noundef ptr @sparse_keymap_entry_from_keycode(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -86,7 +80,7 @@ define dso_local noundef ptr @sparse_keymap_entry_from_keycode(ptr noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @sparse_keymap_setup(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #2 align 16 {
+define dso_local i32 @sparse_keymap_setup(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #1 align 16 {
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %.loopexit6, label %.preheader
@@ -223,10 +217,10 @@ define dso_local i32 @sparse_keymap_setup(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
-declare dso_local ptr @devm_kmemdup(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local ptr @devm_kmemdup(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @sparse_keymap_getkeycode(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @sparse_keymap_getkeycode(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %5 = load ptr, ptr %4, align 8
@@ -234,7 +228,7 @@ define internal noundef range(i32 -22, 1) i32 @sparse_keymap_getkeycode(ptr noun
   br i1 %6, label %74, label %7
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !annotation !14
   %8 = load i8, ptr %1, align 4
   %9 = and i8 %8, 1
@@ -292,12 +286,12 @@ define internal noundef range(i32 -22, 1) i32 @sparse_keymap_getkeycode(ptr noun
   br i1 %40, label %.thread, label %.preheader, !llvm.loop !5
 
 .thread:                                          ; preds = %15, %37, %25, %28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %74
 
 .loopexit:                                        ; preds = %19, %.preheader
   %41 = phi ptr [ %33, %.preheader ], [ %16, %19 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %42 = icmp eq ptr %41, null
   br i1 %42, label %74, label %43
 
@@ -363,7 +357,7 @@ define internal noundef range(i32 -22, 1) i32 @sparse_keymap_getkeycode(ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @sparse_keymap_setkeycode(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @sparse_keymap_setkeycode(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) #1 align 16 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %6 = load ptr, ptr %5, align 8
@@ -371,7 +365,7 @@ define internal noundef range(i32 -22, 1) i32 @sparse_keymap_setkeycode(ptr noun
   br i1 %7, label %72, label %8
 
 8:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !annotation !14
   %9 = load i8, ptr %1, align 4
   %10 = and i8 %9, 1
@@ -429,12 +423,12 @@ define internal noundef range(i32 -22, 1) i32 @sparse_keymap_setkeycode(ptr noun
   br i1 %41, label %.thread, label %.preheader, !llvm.loop !5
 
 .thread:                                          ; preds = %16, %38, %26, %29
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %72
 
 .loopexit:                                        ; preds = %20, %.preheader
   %42 = phi ptr [ %34, %.preheader ], [ %17, %20 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %43 = icmp eq ptr %42, null
   br i1 %43, label %72, label %44
 
@@ -494,7 +488,7 @@ define internal noundef range(i32 -22, 1) i32 @sparse_keymap_setkeycode(ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @sparse_keymap_report_entry(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i1 noundef zeroext %3) #2 align 16 {
+define dso_local void @sparse_keymap_report_entry(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i1 noundef zeroext %3) #1 align 16 {
   %5 = load i32, ptr %1, align 4
   switch i32 %5, label %30 [
     i32 1, label %6
@@ -547,10 +541,10 @@ define dso_local void @sparse_keymap_report_entry(ptr noundef %0, ptr noundef re
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @input_event(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare dso_local void @input_event(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @sparse_keymap_report_event(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) #2 align 16 {
+define dso_local noundef zeroext i1 @sparse_keymap_report_event(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) #1 align 16 {
   %5 = alloca %struct.key_entry, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %7 = load ptr, ptr %6, align 8
@@ -572,13 +566,13 @@ define dso_local noundef zeroext i1 @sparse_keymap_report_event(ptr noundef %0, 
   br i1 %17, label %.thread, label %.preheader, !llvm.loop !5
 
 .thread:                                          ; preds = %14, %4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %18, align 4, !annotation !14
   br label %22
 
 19:                                               ; preds = %.preheader
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %20, align 4, !annotation !14
   %.not = icmp eq ptr %10, null
@@ -599,18 +593,24 @@ define dso_local noundef zeroext i1 @sparse_keymap_report_event(ptr noundef %0, 
 
 25:                                               ; preds = %22, %21
   %26 = phi i1 [ false, %22 ], [ true, %21 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %26
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @input_scancode_to_scalar(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local i32 @input_scancode_to_scalar(ptr noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #3 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #4 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #1 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind allocsize(2) }
 attributes #6 = { nounwind }
 

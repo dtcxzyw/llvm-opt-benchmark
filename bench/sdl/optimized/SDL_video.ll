@@ -251,10 +251,7 @@ SDL_GetWindowProperties_REAL.exit:                ; preds = %5, %9, %11, %15
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @SDL_GetPointerProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetPointerProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @SDL_GetWindowProperties_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -290,10 +287,7 @@ define hidden i32 @SDL_GetWindowProperties_REAL(ptr noundef %0) local_unnamed_ad
   ret i32 %.0
 }
 
-declare zeroext i1 @SDL_SetRenderVSync_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare zeroext i1 @SDL_SetRenderVSync_REAL(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_UninitializedVideo() local_unnamed_addr #0 {
@@ -301,7 +295,7 @@ define hidden zeroext i1 @SDL_UninitializedVideo() local_unnamed_addr #0 {
   ret i1 %1
 }
 
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483647, -2147483648) i32 @SDL_GetNumVideoDrivers_REAL() local_unnamed_addr #0 {
@@ -363,7 +357,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @SDL_GetNumVideoDrivers_RE
   ret i32 %.012
 }
 
-declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GetVideoDriver_REAL(i32 noundef %0) local_unnamed_addr #0 {
@@ -803,27 +797,27 @@ SDL_EnableScreenSaver_REAL.exit:                  ; preds = %4, %6, %13, %15
   ret void
 }
 
-declare void @SDL_InitTicks() local_unnamed_addr #2
+declare void @SDL_InitTicks() local_unnamed_addr #1
 
-declare zeroext i1 @SDL_InitSubSystem_REAL(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_InitSubSystem_REAL(i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_InitKeyboard() local_unnamed_addr #2
+declare zeroext i1 @SDL_InitKeyboard() local_unnamed_addr #1
 
-declare zeroext i1 @SDL_PreInitMouse() local_unnamed_addr #2
+declare zeroext i1 @SDL_PreInitMouse() local_unnamed_addr #1
 
-declare zeroext i1 @SDL_InitTouch() local_unnamed_addr #2
+declare zeroext i1 @SDL_InitTouch() local_unnamed_addr #1
 
-declare zeroext i1 @SDL_InitPen() local_unnamed_addr #2
+declare zeroext i1 @SDL_InitPen() local_unnamed_addr #1
 
-declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_strchr_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_strchr_REAL(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #2
+declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_strncasecmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @SDL_strncasecmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @SDL_GetCurrentThreadID_REAL() local_unnamed_addr #2
+declare i64 @SDL_GetCurrentThreadID_REAL() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_GL_ResetAttributes_REAL() local_unnamed_addr #0 {
@@ -894,7 +888,7 @@ define hidden void @SDL_GL_ResetAttributes_REAL() local_unnamed_addr #0 {
   ret void
 }
 
-declare zeroext i1 @SDL_AddHintCallback_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_AddHintCallback_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @SDL_SyncHintWatcher(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
@@ -904,7 +898,7 @@ define internal void @SDL_SyncHintWatcher(ptr readnone captures(none) %0, ptr re
   ret void
 }
 
-declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_DisableScreenSaver_REAL() local_unnamed_addr #0 {
@@ -942,17 +936,17 @@ define hidden zeroext i1 @SDL_DisableScreenSaver_REAL() local_unnamed_addr #0 {
   ret i1 %.0
 }
 
-declare void @SDL_PostInitMouse() local_unnamed_addr #2
+declare void @SDL_PostInitMouse() local_unnamed_addr #1
 
-declare void @SDL_QuitPen() local_unnamed_addr #2
+declare void @SDL_QuitPen() local_unnamed_addr #1
 
-declare void @SDL_QuitTouch() local_unnamed_addr #2
+declare void @SDL_QuitTouch() local_unnamed_addr #1
 
-declare void @SDL_QuitMouse() local_unnamed_addr #2
+declare void @SDL_QuitMouse() local_unnamed_addr #1
 
-declare void @SDL_QuitKeyboard() local_unnamed_addr #2
+declare void @SDL_QuitKeyboard() local_unnamed_addr #1
 
-declare void @SDL_QuitSubSystem_REAL(i32 noundef) local_unnamed_addr #2
+declare void @SDL_QuitSubSystem_REAL(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GetCurrentVideoDriver_REAL() local_unnamed_addr #0 {
@@ -974,7 +968,7 @@ define hidden ptr @SDL_GetCurrentVideoDriver_REAL() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden ptr @SDL_GetVideoDevice() local_unnamed_addr #3 {
+define hidden ptr @SDL_GetVideoDevice() local_unnamed_addr #2 {
   %1 = load ptr, ptr @_this, align 8
   ret ptr %1
 }
@@ -1019,10 +1013,10 @@ define hidden void @SDL_SetSystemTheme(i32 noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @SDL_SendSystemThemeChangedEvent() local_unnamed_addr #2
+declare void @SDL_SendSystemThemeChangedEvent() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @SDL_GetSystemTheme_REAL() local_unnamed_addr #4 {
+define hidden i32 @SDL_GetSystemTheme_REAL() local_unnamed_addr #3 {
   %1 = load ptr, ptr @_this, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %2
@@ -1041,7 +1035,7 @@ define hidden i32 @SDL_GetSystemTheme_REAL() local_unnamed_addr #4 {
 define hidden void @SDL_UpdateDesktopBounds() local_unnamed_addr #0 {
   %1 = alloca %struct.SDL_Rect, align 4
   %2 = alloca %struct.SDL_Rect, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %3 = load ptr, ptr @_this, align 8
   %.not.i = icmp eq ptr %3, null
@@ -1100,7 +1094,7 @@ SDL_GetDisplays_REAL.exit:                        ; preds = %17, %13
 .lr.ph:                                           ; preds = %SDL_GetDisplays_REAL.exit, %31
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %SDL_GetDisplays_REAL.exit ]
   %24 = phi i32 [ %33, %31 ], [ %23, %SDL_GetDisplays_REAL.exit ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %25 = call zeroext i1 @SDL_GetDisplayBounds_REAL(i32 noundef %24, ptr noundef nonnull %2)
   br i1 %25, label %26, label %31
 
@@ -1117,7 +1111,7 @@ SDL_GetDisplays_REAL.exit:                        ; preds = %17, %13
   br label %31
 
 31:                                               ; preds = %28, %29, %.lr.ph
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.next
   %33 = load i32, ptr %32, align 4
@@ -1128,12 +1122,12 @@ SDL_GetDisplays_REAL.exit.thread:                 ; preds = %6, %4, %._crit_edge
   %34 = load ptr, ptr @_this, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 816
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden noalias ptr @SDL_GetDisplays_REAL(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -1384,16 +1378,16 @@ SDL_GetVideoDisplay.exit.thread:                  ; preds = %9, %._crit_edge.i.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare zeroext i1 @SDL_GetRectUnion_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetRectUnion_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @SDL_AddBasicVideoDisplay(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.SDL_VideoDisplay, align 8
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2, i8 0, i64 136, i1 false)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
@@ -1405,7 +1399,7 @@ define hidden i32 @SDL_AddBasicVideoDisplay(ptr noundef readonly captures(addres
 
 5:                                                ; preds = %3, %1
   %6 = call i32 @SDL_AddVideoDisplay(ptr noundef nonnull %2, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %6
 }
 
@@ -1460,10 +1454,10 @@ define hidden i32 @SDL_AddVideoDisplay(ptr noundef readonly captures(none) %0, i
   br label %34
 
 31:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %32 = call ptr @SDL_itoa_REAL(i32 noundef %24, ptr noundef nonnull %3, i32 noundef 10) #19
   %33 = call noalias ptr @SDL_strdup_REAL(ptr noundef nonnull %3) #19
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %34
 
 34:                                               ; preds = %31, %29
@@ -1640,16 +1634,16 @@ SDL_GetDisplayProperties_REAL.exit:               ; preds = %100, %._crit_edge.i
   ret i32 %.040
 }
 
-declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(1)
-declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #6
 
-declare i32 @SDL_GetNextObjectID() local_unnamed_addr #2
+declare i32 @SDL_GetNextObjectID() local_unnamed_addr #1
 
-declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_itoa_REAL(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_itoa_REAL(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @SDL_GetDisplayProperties_REAL(i32 noundef %0) local_unnamed_addr #0 {
@@ -1713,9 +1707,9 @@ SDL_GetVideoDisplay.exit.thread:                  ; preds = %20, %24, %8, %._cri
   ret i32 %.0
 }
 
-declare zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @SDL_SendDisplayEvent(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @SDL_SendDisplayEvent(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_OnDisplayAdded(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
@@ -2042,7 +2036,7 @@ define hidden range(i32 -2147483648, 2147483647) i32 @SDL_GetDisplayIndex(i32 no
   ret i32 %.06
 }
 
-declare void @SDL_DestroyProperties_REAL(i32 noundef) local_unnamed_addr #2
+declare void @SDL_DestroyProperties_REAL(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_ResetFullscreenDisplayModes(ptr noundef %0) local_unnamed_addr #0 {
@@ -2082,7 +2076,7 @@ define hidden void @SDL_ResetFullscreenDisplayModes(ptr noundef %0) local_unname
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GetVideoDisplay(i32 noundef %0) local_unnamed_addr #0 {
@@ -2410,7 +2404,7 @@ SDL_GetDisplayDriverData.exit:                    ; preds = %9, %._crit_edge.i.i
   ret ptr %.0.i
 }
 
-declare i32 @SDL_CreateProperties_REAL() local_unnamed_addr #2
+declare i32 @SDL_CreateProperties_REAL() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GetDisplayName_REAL(i32 noundef %0) local_unnamed_addr #0 {
@@ -2925,9 +2919,9 @@ SDL_GetWindowProperties_REAL.exit:                ; preds = %15, %19, %21, %25
   ret void
 }
 
-declare zeroext i1 @SDL_SetFloatProperty_REAL(i32 noundef, ptr noundef, float noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetFloatProperty_REAL(i32 noundef, ptr noundef, float noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SendWindowEvent(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SendWindowEvent(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_SetDisplayHDRProperties(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -3011,7 +3005,7 @@ define hidden void @SDL_SetDisplayHDRProperties(ptr noundef captures(none) %0, p
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_AddFullscreenDisplayMode(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.SDL_DisplayMode, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   %4 = load i32, ptr %0, align 8
   store i32 %4, ptr %3, align 8
@@ -3166,12 +3160,12 @@ SDL_FinalizeDisplayMode.exit:                     ; preds = %18, %27
 
 .loopexit:                                        ; preds = %.lr.ph, %48, %70
   %.0 = phi i1 [ true, %70 ], [ false, %48 ], [ false, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @cmpmodes(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
+define internal i32 @cmpmodes(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load float, ptr %3, align 4
   %5 = fmul float %4, 1.000000e+02
@@ -3294,7 +3288,7 @@ define internal i32 @cmpmodes(ptr noundef readonly captures(none) %0, ptr nounde
   ret i32 %.0
 }
 
-declare void @SDL_qsort_REAL(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_qsort_REAL(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GetFullscreenDisplayModes_REAL(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
@@ -3619,7 +3613,7 @@ SDL_UpdateFullscreenDisplayModes.exit:            ; preds = %35, %42
   ret i1 %.0
 }
 
-declare float @SDL_fabsf_REAL(float noundef) local_unnamed_addr #2
+declare float @SDL_fabsf_REAL(float noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_SetDesktopDisplayMode(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -4123,7 +4117,7 @@ SDL_SetCurrentDisplayMode.exit:                   ; preds = %DisplayModeChanged.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @SDL_RelativeToGlobalForWindow(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
+define hidden void @SDL_RelativeToGlobalForWindow(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #8 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 786432
@@ -4175,7 +4169,7 @@ define hidden void @SDL_RelativeToGlobalForWindow(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @SDL_GlobalToRelativeForWindow(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
+define hidden void @SDL_GlobalToRelativeForWindow(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #8 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 786432
@@ -4251,7 +4245,7 @@ define hidden i32 @SDL_GetDisplayForPoint_REAL(ptr noundef readonly captures(add
 define internal fastcc i32 @GetDisplayForRect(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.SDL_Point, align 8
   %6 = alloca %struct.SDL_Rect, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = sdiv i32 %2, 2
   %8 = add nsw i32 %7, %0
   store i32 %8, ptr %5, align 8
@@ -4284,7 +4278,7 @@ define internal fastcc i32 @GetDisplayForRect(i32 noundef %0, i32 noundef %1, i3
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %25 = load i32, ptr %24, align 8
   %26 = call zeroext i1 @SDL_GetDisplayBounds_REAL(i32 noundef %25, ptr noundef nonnull %6)
   %27 = call zeroext i1 @SDL_GetRectEnclosingPoints_REAL(ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %6, ptr noundef null) #19
@@ -4329,13 +4323,13 @@ define internal fastcc i32 @GetDisplayForRect(i32 noundef %0, i32 noundef %1, i3
 
 49:                                               ; preds = %19
   %50 = load i32, ptr %24, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %59
 
 51:                                               ; preds = %.sink.split.i, %47
   %.124.ph = phi i32 [ %.02340, %.sink.split.i ], [ %45, %47 ]
   %.222.ph = phi i32 [ %.12141, %.sink.split.i ], [ %48, %47 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load ptr, ptr @_this, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 800
@@ -4354,7 +4348,7 @@ define internal fastcc i32 @GetDisplayForRect(i32 noundef %0, i32 noundef %1, i3
 
 59:                                               ; preds = %49, %._crit_edge, %.thread35
   %.2 = phi i32 [ %50, %49 ], [ 0, %.thread35 ], [ %.222.ph, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.2
 }
 
@@ -4501,7 +4495,7 @@ SDL_GetPrimaryDisplay_REAL.exit:                  ; preds = %SDL_RelativeToGloba
   ret i32 %.011
 }
 
-declare zeroext i1 @SDL_ObjectValid(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_ObjectValid(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GetVideoDisplayForFullscreenWindow(ptr noundef %0) local_unnamed_addr #0 {
@@ -4622,16 +4616,16 @@ SDL_GetVideoDisplay.exit:                         ; preds = %SDL_GetDisplayIndex
   ret ptr %.0
 }
 
-declare zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_ClearProperty_REAL(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_ClearProperty_REAL(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden float @SDL_GetWindowPixelDensity_REAL(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr @_this, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %7
@@ -4680,8 +4674,8 @@ define hidden float @SDL_GetWindowPixelDensity_REAL(ptr noundef %0) local_unname
 
 SDL_GetWindowSize_REAL.exit.thread:               ; preds = %13, %17, %19, %23, %9, %5
   %.05 = phi float [ 0.000000e+00, %9 ], [ 0.000000e+00, %5 ], [ %27, %23 ], [ 1.000000e+00, %19 ], [ 1.000000e+00, %17 ], [ 1.000000e+00, %13 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret float %.05
 }
 
@@ -4731,7 +4725,7 @@ define hidden noundef zeroext i1 @SDL_GetWindowSize_REAL(ptr noundef %0, ptr nou
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr @_this, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
@@ -4960,7 +4954,7 @@ SDL_GetCurrentDisplayMode_REAL.exit.thread49:     ; preds = %SDL_GetDesktopDispl
 
 SDL_GetCurrentDisplayMode_REAL.exit.thread:       ; preds = %79, %._crit_edge.i.i.i36, %SDL_GetDesktopDisplayMode_REAL.exit, %51, %._crit_edge.i.i.i, %SDL_GetVideoDisplay.exit.i, %16, %SDL_GetCurrentDisplayMode_REAL.exit.thread49, %SDL_GetCurrentDisplayMode_REAL.exit, %10, %6
   %.022 = phi i1 [ false, %10 ], [ false, %6 ], [ true, %SDL_GetCurrentDisplayMode_REAL.exit ], [ true, %SDL_GetCurrentDisplayMode_REAL.exit.thread49 ], [ true, %16 ], [ true, %SDL_GetVideoDisplay.exit.i ], [ true, %._crit_edge.i.i.i ], [ true, %51 ], [ true, %SDL_GetDesktopDisplayMode_REAL.exit ], [ true, %._crit_edge.i.i.i36 ], [ true, %79 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.022
 }
 
@@ -5223,7 +5217,7 @@ SDL_GetWindowFullscreenMode_REAL.exit.thread:     ; preds = %SDL_GetWindowFullsc
   br i1 %.not238, label %99, label %124
 
 99:                                               ; preds = %94
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not150 = icmp eq ptr %.0123218.ph, null
   %100 = getelementptr inbounds nuw i8, ptr %.1125165211.ph, i64 40
   %101 = getelementptr inbounds nuw i8, ptr %.1125165211.ph, i64 44
@@ -5270,7 +5264,7 @@ SDL_GetWindowFullscreenMode_REAL.exit.thread:     ; preds = %SDL_GetWindowFullsc
   br label %123
 
 123:                                              ; preds = %122, %120
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre333 = load ptr, ptr @_this, align 8
   %.phi.trans.insert = getelementptr i8, ptr %.pre333, i64 908
   %.val157.pre = load i32, ptr %.phi.trans.insert, align 4
@@ -5581,18 +5575,18 @@ define hidden void @SDL_OnWindowResized(ptr noundef %0) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   tail call fastcc void @SDL_CheckWindowDisplayChanged(ptr noundef %0)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %5 = call zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %6 = load i32, ptr %3, align 4
   %7 = load i32, ptr %4, align 4
   %8 = call zeroext i1 @SDL_SendWindowEvent(ptr noundef %0, i32 noundef 519, i32 noundef %6, i32 noundef %7) #19
   call fastcc void @SDL_CheckWindowDisplayScaleChanged(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %10 = load i32, ptr %9, align 4
   store i32 %10, ptr %2, align 4
@@ -5627,7 +5621,7 @@ define hidden void @SDL_OnWindowResized(ptr noundef %0) local_unnamed_addr #0 {
   br label %SDL_CheckWindowSafeAreaChanged.exit
 
 SDL_CheckWindowSafeAreaChanged.exit:              ; preds = %1, %30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %33 = load i64, ptr %32, align 8
   %34 = and i64 %33, 1073741824
@@ -5663,8 +5657,8 @@ SDL_CheckWindowSafeAreaChanged.exit:              ; preds = %1, %30
 define internal fastcc void @SDL_RestoreMousePosition(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca float, align 4
   %3 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call ptr @SDL_GetMouse() #19
   %5 = tail call ptr @SDL_GetMouseFocus_REAL() #19
   %6 = icmp eq ptr %0, %5
@@ -5682,8 +5676,8 @@ define internal fastcc void @SDL_RestoreMousePosition(ptr noundef %0) unnamed_ad
   br label %13
 
 13:                                               ; preds = %7, %1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -5791,7 +5785,7 @@ SDL_SyncIfRequired.exit:                          ; preds = %46, %42, %40, %36, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @SDL_GetFullscreenModeMatch(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca %struct.SDL_DisplayMode, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp slt i32 %4, 1
@@ -6008,7 +6002,7 @@ SDL_GetVideoDisplay.exit.thread.sink.split:       ; preds = %71, %.preheader.i.i
 
 SDL_GetVideoDisplay.exit.thread:                  ; preds = %102, %103, %SDL_GetVideoDisplay.exit.thread.sink.split, %.preheader, %SDL_GetVideoDisplay.exit, %.loopexit, %1, %6
   %.023 = phi ptr [ null, %6 ], [ null, %1 ], [ %97, %.loopexit ], [ null, %SDL_GetVideoDisplay.exit ], [ null, %.preheader ], [ null, %SDL_GetVideoDisplay.exit.thread.sink.split ], [ null, %102 ], [ %104, %103 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.023
 }
 
@@ -6443,14 +6437,14 @@ switch.early.test:                                ; preds = %67
   ]
 
 71:                                               ; preds = %switch.early.test, %switch.early.test
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   switch i32 %68, label %74 [
     i32 805240832, label %72
     i32 536805376, label %72
   ]
 
 .sink.split:                                      ; preds = %67, %67
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %72
 
 72:                                               ; preds = %.sink.split, %71, %71
@@ -6583,7 +6577,7 @@ SDL_GetPrimaryDisplay_REAL.exit:                  ; preds = %85, %99, %97
 132:                                              ; preds = %121, %123
   %.1131 = phi i32 [ %130, %123 ], [ %26, %121 ]
   %.1126 = phi i8 [ %131, %123 ], [ 0, %121 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %133
 
 133:                                              ; preds = %switch.early.test, %132
@@ -6761,7 +6755,7 @@ SDL_GL_LoadLibrary_REAL.exit:                     ; preds = %151
   br i1 %.not193, label %232, label %213
 
 213:                                              ; preds = %209, %207
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br i1 %.not165, label %216, label %214
 
 214:                                              ; preds = %213
@@ -6791,7 +6785,7 @@ SDL_GL_LoadLibrary_REAL.exit:                     ; preds = %151
   %230 = or i64 %229, 1
   store i64 %230, ptr %228, align 8
   %231 = or i64 %.0132, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre194 = load ptr, ptr @_this, align 8
   br label %232
 
@@ -6878,13 +6872,13 @@ SDL_GL_LoadLibrary_REAL.exit.thread:              ; preds = %163, %160, %259, %2
   ret ptr %.0
 }
 
-declare ptr @SDL_GetStringProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetStringProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @SDL_GetNumberProperty_REAL(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @SDL_GetNumberProperty_REAL(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GetBooleanProperty_REAL(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetBooleanProperty_REAL(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_Init_REAL(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_Init_REAL(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_GL_LoadLibrary_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -7018,12 +7012,12 @@ define hidden zeroext i1 @SDL_Vulkan_LoadLibrary_REAL(ptr noundef %0) local_unna
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #10
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #9
 
-declare void @SDL_SetObjectValid(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @SDL_SetObjectValid(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @SDL_UpdateWindowHierarchy(ptr noundef %0, ptr noundef %1) unnamed_addr #11 {
+define internal fastcc void @SDL_UpdateWindowHierarchy(ptr noundef %0, ptr noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -7690,21 +7684,21 @@ SDL_SetWindowProgressValue_REAL.exit:             ; preds = %52, %47, %37, %40, 
 define hidden void @SDL_CheckWindowPixelSizeChanged(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
   %4 = call zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %5 = load i32, ptr %2, align 4
   %6 = load i32, ptr %3, align 4
   %7 = call zeroext i1 @SDL_SendWindowEvent(ptr noundef %0, i32 noundef 519, i32 noundef %5, i32 noundef %6) #19
   call fastcc void @SDL_CheckWindowDisplayScaleChanged(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare zeroext i1 @SDL_ClearError_REAL() local_unnamed_addr #2
+declare zeroext i1 @SDL_ClearError_REAL() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @SDL_CreateWindow_REAL(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
@@ -7732,7 +7726,7 @@ define hidden noundef ptr @SDL_CreateWindow_REAL(ptr noundef %0, i32 noundef %1,
   ret ptr %16
 }
 
-declare zeroext i1 @SDL_SetStringProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetStringProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @SDL_CreatePopupWindow_REAL(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
@@ -7765,7 +7759,7 @@ define hidden noundef ptr @SDL_CreatePopupWindow_REAL(ptr noundef %0, i32 nounde
   ret ptr %.0
 }
 
-declare zeroext i1 @SDL_SetPointerProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetPointerProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_RecreateWindow(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -8613,7 +8607,7 @@ define hidden void @SDL_Vulkan_UnloadLibrary_REAL() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @SDL_HasWindows() local_unnamed_addr #4 {
+define hidden zeroext i1 @SDL_HasWindows() local_unnamed_addr #3 {
   %1 = load ptr, ptr @_this, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %2
@@ -8838,9 +8832,9 @@ define hidden zeroext i1 @SDL_SetWindowIcon_REAL(ptr noundef %0, ptr noundef %1)
   ret i1 %.0
 }
 
-declare void @SDL_DestroySurface_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_DestroySurface_REAL(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_ConvertSurface_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_ConvertSurface_REAL(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_SetWindowPosition_REAL(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -8902,7 +8896,7 @@ define hidden zeroext i1 @SDL_SetWindowPosition_REAL(ptr noundef %0, i32 noundef
   br i1 %or.cond, label %35, label %90
 
 35:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %36 = and i32 %.045, 65535
   %.not57 = icmp ne i32 %36, 0
   %or.cond69.not = and i1 %32, %.not57
@@ -9019,7 +9013,7 @@ SDL_GetPrimaryDisplay_REAL.exit:                  ; preds = %46, %60, %58
 
 89:                                               ; preds = %81, %82
   %.250 = phi i32 [ %88, %82 ], [ %.048, %81 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %90
 
 90:                                               ; preds = %89, %30
@@ -9083,7 +9077,7 @@ SDL_GetPrimaryDisplay_REAL.exit:                  ; preds = %46, %60, %58
   br label %SDL_SyncIfRequired.exit
 
 .critedge:                                        ; preds = %72
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %SDL_SyncIfRequired.exit
 
 SDL_SyncIfRequired.exit:                          ; preds = %116, %112, %110, %106, %101, %118, %.critedge, %99, %10, %6
@@ -9139,7 +9133,7 @@ define hidden noundef zeroext i1 @SDL_GetWindowPosition_REAL(ptr noundef %0, ptr
   br i1 %.not37, label %44, label %22
 
 22:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %23 = call zeroext i1 @SDL_GetDisplayBounds_REAL(i32 noundef %21, ptr noundef nonnull %4)
   br i1 %.not35, label %26, label %24
@@ -9159,7 +9153,7 @@ define hidden noundef zeroext i1 @SDL_GetWindowPosition_REAL(ptr noundef %0, ptr
   br label %30
 
 30:                                               ; preds = %27, %26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %44
 
 31:                                               ; preds = %12
@@ -9524,7 +9518,7 @@ SDL_SyncIfRequired.exit:                          ; preds = %74, %70, %68, %64, 
   ret i1 %.0
 }
 
-declare float @SDL_roundf_REAL(float noundef) local_unnamed_addr #2
+declare float @SDL_roundf_REAL(float noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_SetWindowAspectRatio_REAL(ptr noundef %0, float noundef %1, float noundef %2) local_unnamed_addr #0 {
@@ -9618,7 +9612,7 @@ define hidden noundef zeroext i1 @SDL_GetWindowAspectRatio_REAL(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_GetWindowBordersSize_REAL(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %.not = icmp eq ptr %1, null
   %spec.store.select = select i1 %.not, ptr %6, ptr %1
@@ -9665,11 +9659,11 @@ define hidden zeroext i1 @SDL_GetWindowBordersSize_REAL(ptr noundef %0, ptr noun
 
 22:                                               ; preds = %20, %18, %12, %8
   %.0 = phi i1 [ %21, %20 ], [ %19, %18 ], [ false, %12 ], [ false, %8 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
-declare float @SDL_ceilf_REAL(float noundef) local_unnamed_addr #2
+declare float @SDL_ceilf_REAL(float noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_SetWindowMinimumSize_REAL(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -10048,9 +10042,9 @@ define hidden noundef zeroext i1 @SDL_ShowWindow_REAL(ptr noundef %0) local_unna
   ret i1 %.017
 }
 
-declare void @SDL_SetMouseFocus(ptr noundef) local_unnamed_addr #2
+declare void @SDL_SetMouseFocus(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetKeyboardFocus(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetKeyboardFocus(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_RaiseWindow_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -10472,14 +10466,14 @@ define hidden ptr @SDL_GetWindowSurface_REAL(ptr noundef %0) local_unnamed_addr 
   br label %27
 
 27:                                               ; preds = %22, %19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %28 = call zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %29 = load ptr, ptr @_this, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 784
@@ -10524,7 +10518,7 @@ define hidden ptr @SDL_GetWindowSurface_REAL(ptr noundef %0) local_unnamed_addr 
   br i1 %51, label %52, label %ShouldAttemptTextureFramebuffer.exit.thread15.i
 
 52:                                               ; preds = %48
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %53 = call i32 @stat(ptr noundef nonnull @.str.160, ptr noundef nonnull %2) #19
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %58, label %55
@@ -10535,11 +10529,11 @@ define hidden ptr @SDL_GetWindowSurface_REAL(ptr noundef %0) local_unnamed_addr 
   br i1 %57, label %58, label %.thread.i
 
 .thread.i:                                        ; preds = %55
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %ShouldAttemptTextureFramebuffer.exit.thread15.i
 
 58:                                               ; preds = %55, %52
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %ShouldAttemptTextureFramebuffer.exit.thread.i
 
 ShouldAttemptTextureFramebuffer.exit.i:           ; preds = %41
@@ -10600,20 +10594,20 @@ ShouldAttemptTextureFramebuffer.exit.thread.i:    ; preds = %ShouldAttemptTextur
   br i1 %.not10.i, label %SDL_CreateWindowFramebuffer.exit, label %SDL_CreateWindowFramebuffer.exit.thread18
 
 SDL_CreateWindowFramebuffer.exit.thread18:        ; preds = %80
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %81, ptr %20, align 8
   br label %88
 
 SDL_CreateWindowFramebuffer.exit.thread:          ; preds = %76, %78
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr null, ptr %20, align 8
   br label %92
 
@@ -10624,11 +10618,11 @@ SDL_CreateWindowFramebuffer.exit:                 ; preds = %80
   %85 = load ptr, ptr %4, align 8
   %86 = load i32, ptr %5, align 4
   %87 = call ptr @SDL_CreateSurfaceFrom_REAL(i32 noundef %82, i32 noundef %83, i32 noundef %84, ptr noundef %85, i32 noundef %86) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %87, ptr %20, align 8
   %.not15 = icmp eq ptr %87, null
   br i1 %.not15, label %92, label %88
@@ -10731,7 +10725,7 @@ define hidden zeroext i1 @SDL_GetWindowSurfaceVSync_REAL(ptr noundef %0, ptr nou
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_UpdateWindowSurface_REAL(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.SDL_Rect, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @_this, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -10790,7 +10784,7 @@ define hidden zeroext i1 @SDL_UpdateWindowSurface_REAL(ptr noundef %0) local_unn
 
 SDL_UpdateWindowSurfaceRects_REAL.exit:           ; preds = %28, %26, %20, %16, %8, %4
   %.0 = phi i1 [ false, %8 ], [ false, %4 ], [ %32, %28 ], [ %27, %26 ], [ false, %20 ], [ false, %16 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0
 }
 
@@ -11017,7 +11011,7 @@ define hidden zeroext i1 @SDL_SetWindowParent_REAL(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @SDL_ShouldRelinquishPopupFocus(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #9 {
+define hidden zeroext i1 @SDL_ShouldRelinquishPopupFocus(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -11072,7 +11066,7 @@ define hidden zeroext i1 @SDL_ShouldRelinquishPopupFocus(ptr noundef readonly ca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @SDL_ShouldFocusPopup(ptr noundef readonly captures(address) %0) local_unnamed_addr #12 {
+define hidden zeroext i1 @SDL_ShouldFocusPopup(ptr noundef readonly captures(address) %0) local_unnamed_addr #11 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -11288,7 +11282,7 @@ define hidden void @SDL_UpdateWindowGrab(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare ptr @SDL_GetMouse() local_unnamed_addr #2
+declare ptr @SDL_GetMouse() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_SetWindowKeyboardGrab_REAL(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
@@ -11519,7 +11513,7 @@ define hidden zeroext i1 @SDL_GetWindowMouseGrab_REAL(ptr noundef %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @SDL_GetGrabbedWindow_REAL() local_unnamed_addr #4 {
+define hidden ptr @SDL_GetGrabbedWindow_REAL() local_unnamed_addr #3 {
   %1 = load ptr, ptr @_this, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 840
   %3 = load ptr, ptr %2, align 8
@@ -11698,7 +11692,7 @@ SDL_GetWindowRelativeMouseMode_REAL.exit:         ; preds = %12
   ret i1 %.0
 }
 
-declare void @SDL_DisableMouseWarpEmulation() local_unnamed_addr #2
+declare void @SDL_DisableMouseWarpEmulation() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_GetWindowRelativeMouseMode_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -11730,7 +11724,7 @@ define hidden zeroext i1 @SDL_GetWindowRelativeMouseMode_REAL(ptr noundef %0) lo
   ret i1 %.0
 }
 
-declare void @SDL_UpdateRelativeMouseMode() local_unnamed_addr #2
+declare void @SDL_UpdateRelativeMouseMode() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_FlashWindow_REAL(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -12142,17 +12136,17 @@ define hidden void @SDL_OnWindowDisplayChanged(ptr noundef %0) local_unnamed_add
   br label %46
 
 46:                                               ; preds = %41, %44, %7, %1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
   %47 = call zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %48 = load i32, ptr %2, align 4
   %49 = load i32, ptr %3, align 4
   %50 = call zeroext i1 @SDL_SendWindowEvent(ptr noundef nonnull %0, i32 noundef 519, i32 noundef %48, i32 noundef %49) #19
   call fastcc void @SDL_CheckWindowDisplayScaleChanged(ptr noundef nonnull %0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -12163,7 +12157,7 @@ define hidden void @SDL_OnWindowMoved(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @SDL_OnWindowPixelSizeChanged(ptr noundef writeonly captures(none) initializes((264, 265)) %0) local_unnamed_addr #13 {
+define hidden void @SDL_OnWindowPixelSizeChanged(ptr noundef writeonly captures(none) initializes((264, 265)) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store i8 0, ptr %2, align 8
   ret void
@@ -12187,11 +12181,11 @@ define hidden void @SDL_OnWindowLiveResizeUpdate(ptr noundef %0) local_unnamed_a
   ret void
 }
 
-declare zeroext i1 @SDL_HasMainCallbacks() local_unnamed_addr #2
+declare zeroext i1 @SDL_HasMainCallbacks() local_unnamed_addr #1
 
-declare i32 @SDL_IterateMainCallbacks(i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @SDL_IterateMainCallbacks(i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @SDL_PumpEventMaintenance() local_unnamed_addr #2
+declare void @SDL_PumpEventMaintenance() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_SetWindowSafeAreaInsets(ptr noundef initializes((276, 292)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -12204,7 +12198,7 @@ define hidden void @SDL_SetWindowSafeAreaInsets(ptr noundef initializes((276, 29
   store i32 %3, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i32 %4, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %1, ptr %6, align 4
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %3, ptr %11, align 4
@@ -12231,7 +12225,7 @@ define hidden void @SDL_SetWindowSafeAreaInsets(ptr noundef initializes((276, 29
   br label %SDL_CheckWindowSafeAreaChanged.exit
 
 SDL_CheckWindowSafeAreaChanged.exit:              ; preds = %5, %24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -12314,7 +12308,7 @@ define hidden void @SDL_OnWindowMinimized(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @SDL_OnWindowMaximized(ptr noundef readnone captures(none) %0) local_unnamed_addr #14 {
+define hidden void @SDL_OnWindowMaximized(ptr noundef readnone captures(none) %0) local_unnamed_addr #13 {
   ret void
 }
 
@@ -12351,7 +12345,7 @@ define hidden void @SDL_OnWindowEnter(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @SDL_OnWindowLeave(ptr noundef readnone captures(none) %0) local_unnamed_addr #14 {
+define hidden void @SDL_OnWindowLeave(ptr noundef readnone captures(none) %0) local_unnamed_addr #13 {
   ret void
 }
 
@@ -12450,7 +12444,7 @@ define hidden ptr @SDL_GetToplevelForKeyboardFocus() local_unnamed_addr #0 {
   ret ptr %.0
 }
 
-declare ptr @SDL_GetKeyboardFocus_REAL() local_unnamed_addr #2
+declare ptr @SDL_GetKeyboardFocus_REAL() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_AddWindowRenderer(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -12480,7 +12474,7 @@ define hidden noundef zeroext i1 @SDL_AddWindowRenderer(ptr noundef captures(non
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @SDL_RemoveWindowRenderer(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #15 {
+define hidden void @SDL_RemoveWindowRenderer(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 380
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -12531,13 +12525,13 @@ define hidden void @SDL_RemoveWindowRenderer(ptr noundef captures(none) %0, ptr 
   ret void
 }
 
-declare ptr @SDL_GetRenderer_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetRenderer_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_DestroyRendererWithoutFreeing(ptr noundef) local_unnamed_addr #2
+declare void @SDL_DestroyRendererWithoutFreeing(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_UpdateMouseCapture(i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_UpdateMouseCapture(i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @SDL_GetMouseFocus_REAL() local_unnamed_addr #2
+declare ptr @SDL_GetMouseFocus_REAL() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_GL_MakeCurrent_REAL(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -12646,10 +12640,10 @@ SDL_GL_GetCurrentContext_REAL.exit:               ; preds = %11, %13
   ret i1 %.0
 }
 
-declare zeroext i1 @SDL_CompareAndSwapAtomicPointer_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_CompareAndSwapAtomicPointer_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @SDL_ScreenSaverEnabled_REAL() local_unnamed_addr #4 {
+define hidden zeroext i1 @SDL_ScreenSaverEnabled_REAL() local_unnamed_addr #3 {
   %1 = load ptr, ptr @_this, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %2
@@ -12702,7 +12696,7 @@ define hidden zeroext i1 @SDL_EnableScreenSaver_REAL() local_unnamed_addr #0 {
   ret i1 %.0
 }
 
-declare void @SDL_CancelClipboardData(i32 noundef) local_unnamed_addr #2
+declare void @SDL_CancelClipboardData(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GL_GetProcAddress_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -12773,7 +12767,7 @@ define hidden ptr @SDL_EGL_GetProcAddress_REAL(ptr noundef %0) local_unnamed_add
   ret ptr %.03
 }
 
-declare ptr @SDL_EGL_GetProcAddressInternal(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_EGL_GetProcAddressInternal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_GL_ExtensionSupported_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -12843,7 +12837,7 @@ isAtLeastGL3.exit:                                ; preds = %28
   br i1 %31, label %32, label %isAtLeastGL3.exit.thread
 
 32:                                               ; preds = %isAtLeastGL3.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4
   %33 = load ptr, ptr @_this, align 8
   %.not.i49 = icmp eq ptr %33, null
@@ -12937,7 +12931,7 @@ SDL_GL_GetProcAddress_REAL.exit58:                ; preds = %55
 
 SDL_GL_GetProcAddress_REAL.exit58.thread:         ; preds = %.lr.ph, %69, %66, %60, %58, %50, %SDL_GL_GetProcAddress_REAL.exit58
   %.1 = phi i1 [ false, %SDL_GL_GetProcAddress_REAL.exit58 ], [ false, %50 ], [ false, %58 ], [ false, %60 ], [ false, %66 ], [ %.not47, %69 ], [ %.not47, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %SDL_GL_GetProcAddress_REAL.exit.thread
 
 isAtLeastGL3.exit.thread:                         ; preds = %28, %isAtLeastGL3.exit
@@ -12980,7 +12974,7 @@ SDL_GL_GetProcAddress_REAL.exit.thread:           ; preds = %85, %85, %87, %.pre
   ret i1 %.0
 }
 
-declare ptr @SDL_strstr_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_strstr_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_GL_DeduceMaxSupportedESProfile(ptr noundef writeonly captures(none) initializes((0, 4)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #0 {
@@ -13005,7 +12999,7 @@ define hidden void @SDL_GL_DeduceMaxSupportedESProfile(ptr noundef writeonly cap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @SDL_EGL_SetAttributeCallbacks_REAL(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #16 {
+define hidden void @SDL_EGL_SetAttributeCallbacks_REAL(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #15 {
   %5 = load ptr, ptr @_this, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %11, label %6
@@ -13334,13 +13328,13 @@ define hidden zeroext i1 @SDL_GL_GetAttribute_REAL(i32 noundef %0, ptr noundef %
   br label %81
 
 30:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %31 = call zeroext i1 @SDL_GL_GetAttribute_REAL(i32 noundef 0, ptr noundef nonnull %3)
   br i1 %31, label %32, label %46
@@ -13370,10 +13364,10 @@ define hidden zeroext i1 @SDL_GL_GetAttribute_REAL(i32 noundef %0, ptr noundef %
 
 46:                                               ; preds = %36, %34, %32, %30, %38
   %.1 = phi i1 [ true, %38 ], [ false, %30 ], [ false, %32 ], [ false, %34 ], [ false, %36 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge82
 
 47:                                               ; preds = %15
@@ -13488,7 +13482,7 @@ isAtLeastGL3.exit:                                ; preds = %96
   br i1 %99, label %100, label %isAtLeastGL3.exit.thread
 
 100:                                              ; preds = %isAtLeastGL3.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %101 = load ptr, ptr @_this, align 8
   %.not.i84 = icmp eq ptr %101, null
@@ -13613,7 +13607,7 @@ SDL_GL_GetProcAddress_REAL.exit98:                ; preds = %142
   br label %155
 
 155:                                              ; preds = %154, %151
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 33304, ptr %8, align 4
   %or.cond6 = or i1 %82, %83
   br i1 %or.cond6, label %156, label %.thread
@@ -13643,8 +13637,8 @@ SDL_GL_GetProcAddress_REAL.exit98:                ; preds = %142
   br label %162
 
 162:                                              ; preds = %161, %158
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %179
 
 isAtLeastGL3.exit.thread:                         ; preds = %96, %isAtLeastGL3.exit, %95
@@ -13753,7 +13747,7 @@ SDL_GL_GetProcAddress_REAL.exit108:               ; preds = %186
   br label %.critedge82
 
 .critedge:                                        ; preds = %147, %145, %137, %SDL_GL_GetProcAddress_REAL.exit98
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge82
 
 .critedge82:                                      ; preds = %191, %189, %181, %174, %172, %164, %91, %89, %SDL_GL_GetProcAddress_REAL.exit103, %203, %205, %SDL_GL_GetProcAddress_REAL.exit108, %.critedge, %SDL_GL_GetProcAddress_REAL.exit, %201, %199, %197, %79, %76, %73, %70, %67, %64, %61, %58, %55, %52, %47, %46, %13, %9
@@ -13816,7 +13810,7 @@ define hidden ptr @SDL_GL_CreateContext_REAL(ptr noundef %0) local_unnamed_addr 
   ret ptr %.0
 }
 
-declare zeroext i1 @SDL_SetTLS_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetTLS_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GL_GetCurrentWindow_REAL() local_unnamed_addr #0 {
@@ -13858,7 +13852,7 @@ define hidden ptr @SDL_GL_GetCurrentContext_REAL() local_unnamed_addr #0 {
   ret ptr %.0
 }
 
-declare ptr @SDL_GetTLS_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetTLS_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_EGL_GetCurrentDisplay_REAL() local_unnamed_addr #0 {
@@ -14179,7 +14173,7 @@ define hidden i32 @SDL_GetTextInputCapitalization(i32 noundef %0) local_unnamed_
   ret i32 %.0
 }
 
-declare zeroext i1 @SDL_HasProperty_REAL(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_HasProperty_REAL(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_GetTextInputAutocorrect(i32 noundef %0) local_unnamed_addr #0 {
@@ -14354,7 +14348,7 @@ SDL_ScreenKeyboardShown_REAL.exit.thread:         ; preds = %SDL_ScreenKeyboardS
   ret i1 %.0
 }
 
-declare zeroext i1 @SDL_CopyProperties_REAL(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_CopyProperties_REAL(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_ScreenKeyboardShown_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -14688,14 +14682,14 @@ define hidden i32 @SDL_GetMessageBoxCount() local_unnamed_addr #0 {
   ret i32 %1
 }
 
-declare i32 @SDL_GetAtomicInt_REAL(ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_GetAtomicInt_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_ShowMessageBox_REAL(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca %struct.SDL_MessageBoxData, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #19
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %7
 
@@ -14997,31 +14991,31 @@ SDL_RaiseWindow_REAL.exit:                        ; preds = %125, %121, %117, %1
 
 .critedge128:                                     ; preds = %36, %37, %131, %132, %21, %11, %5
   %.0 = phi i1 [ %12, %11 ], [ %6, %5 ], [ %.078137, %131 ], [ %.078137, %132 ], [ false, %21 ], [ false, %37 ], [ false, %36 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
-declare i32 @SDL_AddAtomicInt_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_AddAtomicInt_REAL(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetRelativeMouseMode(i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetRelativeMouseMode(i1 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_CursorVisible_REAL() local_unnamed_addr #2
+declare zeroext i1 @SDL_CursorVisible_REAL() local_unnamed_addr #1
 
-declare zeroext i1 @SDL_ShowCursor_REAL() local_unnamed_addr #2
+declare zeroext i1 @SDL_ShowCursor_REAL() local_unnamed_addr #1
 
-declare void @SDL_ResetKeyboard_REAL() local_unnamed_addr #2
+declare void @SDL_ResetKeyboard_REAL() local_unnamed_addr #1
 
-declare ptr @SDL_GetError_REAL() local_unnamed_addr #2
+declare ptr @SDL_GetError_REAL() local_unnamed_addr #1
 
-declare zeroext i1 @SDL_HideCursor_REAL() local_unnamed_addr #2
+declare zeroext i1 @SDL_HideCursor_REAL() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_ShowSimpleMessageBox_REAL(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.SDL_MessageBoxData, align 8
   %6 = alloca %struct.SDL_MessageBoxButtonData, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   store i32 %0, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -15039,8 +15033,8 @@ define hidden zeroext i1 @SDL_ShowSimpleMessageBox_REAL(i32 noundef %0, ptr noun
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @.str.100, ptr %12, align 8
   %13 = call zeroext i1 @SDL_ShowMessageBox_REAL(ptr noundef nonnull %5, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #19
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %13
 }
 
@@ -15230,7 +15224,7 @@ SDL_GetWindowProperties_REAL.exit.thread:         ; preds = %18, %22, %36, %30, 
   ret i1 %.0
 }
 
-declare zeroext i1 @SDL_SetSurfaceProperty(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetSurfaceProperty(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_OnApplicationWillTerminate_REAL() local_unnamed_addr #0 {
@@ -15238,7 +15232,7 @@ define hidden void @SDL_OnApplicationWillTerminate_REAL() local_unnamed_addr #0 
   ret void
 }
 
-declare void @SDL_SendAppEvent(i32 noundef) local_unnamed_addr #2
+declare void @SDL_SendAppEvent(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_OnApplicationDidReceiveMemoryWarning_REAL() local_unnamed_addr #0 {
@@ -15654,7 +15648,7 @@ define hidden ptr @SDL_Metal_GetLayer_REAL(ptr noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef nonnull ptr @SDL_GetCSSCursorName(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #13 {
+define hidden noundef nonnull ptr @SDL_GetCSSCursorName(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #12 {
   switch i32 %0, label %25 [
     i32 19, label %24
     i32 1, label %26
@@ -15759,21 +15753,21 @@ define hidden noundef nonnull ptr @SDL_GetCSSCursorName(i32 noundef %0, ptr noun
   ret ptr %.0
 }
 
-declare zeroext i1 @SDL_GetStringBoolean(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetStringBoolean(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @SDL_CalculateFraction(float noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_CalculateFraction(float noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_sscanf_REAL(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @SDL_sscanf_REAL(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GetRectEnclosingPoints_REAL(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetRectEnclosingPoints_REAL(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetMouseState_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_GetMouseState_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_WarpMouseInWindow_REAL(ptr noundef, float noundef, float noundef) local_unnamed_addr #2
+declare void @SDL_WarpMouseInWindow_REAL(ptr noundef, float noundef, float noundef) local_unnamed_addr #1
 
-declare i32 @SDL_memcmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @SDL_memcmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_EventEnabled_REAL(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_EventEnabled_REAL(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @SDL_CreateWindowTexture(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) #0 {
@@ -15811,8 +15805,8 @@ SDL_GetWindowProperties_REAL.exit:                ; preds = %9, %13, %15, %19
   %21 = tail call ptr @SDL_GetPointerProperty_REAL(i32 noundef %.0.i, ptr noundef nonnull @.str, ptr noundef null) #19
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %23 = load i64, ptr %22, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = call zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %25, label %SDL_GetWindowProperties_REAL.exit._crit_edge
@@ -16129,8 +16123,8 @@ switch.edge:                                      ; preds = %94
 
 .thread261:                                       ; preds = %.thread237, %._crit_edge278, %68, %71, %.loopexit, %73, %120, %134
   %.4 = phi i1 [ true, %134 ], [ false, %120 ], [ false, %73 ], [ false, %.loopexit ], [ false, %.thread237 ], [ %66, %._crit_edge278 ], [ false, %68 ], [ false, %71 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.4
 }
 
@@ -16188,9 +16182,9 @@ define internal zeroext i1 @SDL_UpdateWindowTexture(ptr readnone captures(none) 
   %5 = alloca %struct.SDL_Rect, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %9 = load ptr, ptr @_this, align 8
   %.not.i = icmp eq ptr %9, null
@@ -16274,9 +16268,9 @@ SDL_GetWindowProperties_REAL.exit:                ; preds = %10, %14, %16, %20
 
 57:                                               ; preds = %28, %54, %50, %32, %26
   %.0 = phi i1 [ %27, %26 ], [ false, %32 ], [ false, %50 ], [ true, %54 ], [ true, %28 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
 
@@ -16315,22 +16309,22 @@ SDL_GetWindowProperties_REAL.exit:                ; preds = %4, %8, %10, %14
   ret void
 }
 
-declare ptr @SDL_CreateSurfaceFrom_REAL(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_CreateSurfaceFrom_REAL(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_strcasecmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_strcasecmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #17
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #16
 
-declare ptr @SDL_CreateRenderer_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_CreateRenderer_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetNumRenderDrivers_REAL() local_unnamed_addr #2
+declare i32 @SDL_GetNumRenderDrivers_REAL() local_unnamed_addr #1
 
-declare ptr @SDL_GetRenderDriver_REAL(i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_GetRenderDriver_REAL(i32 noundef) local_unnamed_addr #1
 
-declare void @SDL_DestroyRenderer_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_DestroyRenderer_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetPointerPropertyWithCleanup_REAL(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetPointerPropertyWithCleanup_REAL(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @SDL_CleanupWindowTextureData(ptr readnone captures(none) %0, ptr noundef %1) #0 {
@@ -16360,27 +16354,33 @@ define internal void @SDL_CleanupWindowTextureData(ptr readnone captures(none) %
   ret void
 }
 
-declare i32 @SDL_GetRendererProperties_REAL(ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_GetRendererProperties_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_DestroyTexture_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_DestroyTexture_REAL(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_CreateTexture_REAL(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_CreateTexture_REAL(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetRenderViewport_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetRenderViewport_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GetRenderVSync_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetRenderVSync_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GetSpanEnclosingRect(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetSpanEnclosingRect(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_UpdateTexture_REAL(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_UpdateTexture_REAL(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_RenderTexture_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_RenderTexture_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_RenderPresent_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_RenderPresent_REAL(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_atoi_REAL(ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_atoi_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_HasKeyboard_REAL() local_unnamed_addr #2
+declare zeroext i1 @SDL_HasKeyboard_REAL() local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #18
@@ -16398,23 +16398,23 @@ declare i32 @llvm.smin.i32(i32, i32) #18
 declare i32 @llvm.umax.i32(i32, i32) #18
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { nounwind }
 attributes #20 = { nounwind allocsize(1) }

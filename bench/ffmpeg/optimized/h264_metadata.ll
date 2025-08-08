@@ -224,14 +224,8 @@ declare void @ff_cbs_bsf_generic_close(ptr noundef) #1
 
 declare ptr @av_default_item_name(ptr noundef) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -415,8 +409,8 @@ h264_metadata_insert_aud.exit:                    ; preds = %30, %17, %64, %32
   br i1 %.not170.i, label %112, label %87
 
 87:                                               ; preds = %84
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %88 = sext i32 %83 to i64
   %89 = sext i32 %86 to i64
   %90 = call i32 @av_reduce(ptr noundef nonnull %8, ptr noundef nonnull %9, i64 noundef %88, i64 noundef %89, i64 noundef 65535) #9
@@ -462,8 +456,8 @@ h264_metadata_insert_aud.exit:                    ; preds = %30, %17, %64, %32
 110:                                              ; preds = %.thread.i, %102
   %111 = getelementptr inbounds nuw i8, ptr %80, i64 1860
   store i8 1, ptr %111, align 4, !tbaa !60
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %112
 
 112:                                              ; preds = %110, %84, %78
@@ -619,8 +613,8 @@ h264_metadata_insert_aud.exit:                    ; preds = %30, %17, %64, %32
   br i1 %.not172.i, label %197, label %188
 
 188:                                              ; preds = %185
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %189 = sext i32 %184 to i64
   %190 = sext i32 %187 to i64
   %191 = call i32 @av_reduce(ptr noundef nonnull %10, ptr noundef nonnull %11, i64 noundef %189, i64 noundef %190, i64 noundef 4294967295) #9
@@ -632,8 +626,8 @@ h264_metadata_insert_aud.exit:                    ; preds = %30, %17, %64, %32
   store i32 %194, ptr %195, align 4, !tbaa !83
   %196 = getelementptr inbounds nuw i8, ptr %80, i64 1878
   store i8 1, ptr %196, align 2, !tbaa !84
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %197
 
 197:                                              ; preds = %188, %185, %182
@@ -1047,7 +1041,7 @@ h264_metadata_update_sps.exit:                    ; preds = %367, %366, %73
 
 415:                                              ; preds = %412
   %416 = load ptr, ptr %12, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !125
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 24
   br label %418
@@ -1113,7 +1107,7 @@ h264_metadata_update_sps.exit:                    ; preds = %367, %366, %73
 
 454:                                              ; preds = %451
   %455 = getelementptr inbounds nuw i8, ptr %416, i64 228
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %456 = call ptr @av_packet_get_side_data(ptr noundef nonnull %1, i32 noundef 5, ptr noundef nonnull %5) #9
   %457 = icmp ne ptr %456, null
   %458 = load i64, ptr %5, align 8
@@ -1122,8 +1116,8 @@ h264_metadata_update_sps.exit:                    ; preds = %367, %366, %73
   br i1 %or.cond.i, label %460, label %518
 
 460:                                              ; preds = %454
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %6, ptr noundef nonnull align 1 dereferenceable(36) %456, i64 36, i1 false)
   br label %461
 
@@ -1220,8 +1214,8 @@ h264_metadata_update_sps.exit:                    ; preds = %367, %366, %73
 
 517:                                              ; preds = %504, %503
   %.182.i = phi i32 [ 0, %503 ], [ 1, %504 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %518
 
 518:                                              ; preds = %517, %454
@@ -1279,21 +1273,21 @@ h264_metadata_update_sps.exit:                    ; preds = %367, %366, %73
   br i1 %546, label %547, label %.thread115.i
 
 .thread115.i:                                     ; preds = %542, %541
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %h264_metadata_handle_display_orientation.exit
 
 547:                                              ; preds = %542
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.93) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %h264_metadata_handle_display_orientation.exit.thread
 
 h264_metadata_handle_display_orientation.exit.thread: ; preds = %422, %547, %447
   %.2.i82.ph = phi i32 [ -12, %447 ], [ %545, %547 ], [ -12, %422 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
 h264_metadata_handle_display_orientation.exit:    ; preds = %448, %451, %.thread115.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %548
 
 548:                                              ; preds = %412, %h264_metadata_handle_display_orientation.exit
@@ -1313,7 +1307,7 @@ declare i32 @ff_cbs_sei_add_message(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare void @ff_cbs_sei_delete_message_type(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @ff_cbs_insert_unit_content(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1336,13 +1330,19 @@ declare void @av_free(ptr noundef) local_unnamed_addr #1
 declare ptr @av_packet_get_side_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare double @hypot(double noundef, double noundef) local_unnamed_addr #5
+declare double @hypot(double noundef, double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.atan2.f64(double, double) #6
+declare double @llvm.atan2.f64(double, double) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.rint.f64(double) #6
+declare double @llvm.rint.f64(double) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #7
@@ -1352,11 +1352,11 @@ declare double @llvm.fabs.f64(double) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind willreturn memory(read) }
 attributes #9 = { nounwind }

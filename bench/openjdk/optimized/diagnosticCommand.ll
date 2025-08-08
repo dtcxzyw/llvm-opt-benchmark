@@ -5101,7 +5101,7 @@ define hidden void @_ZN12EventLogDCmd7executeE10DCmdSourceP10JavaThread(ptr noun
   br i1 %.not, label %63, label %7
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = load i8, ptr %6, align 1
   %9 = sext i8 %8 to i32
   %isdigittmp.i.i = add nsw i32 %9, -48
@@ -5217,12 +5217,12 @@ _Z14multiply_by_1kIiEbRT_.exit19.thread.i.i:      ; preds = %51
   br label %_ZL13parse_integerIiEbPKcPT_.exit
 
 _ZL13parse_integerIiEbPKcPT_.exit.thread:         ; preds = %7, %31, %39, %45, %48, %51, %54
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %60
 
 _ZL13parse_integerIiEbPKcPT_.exit:                ; preds = %43, %56
   %58 = phi i8 [ %44, %43 ], [ %.pr, %56 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %59 = icmp eq i8 %58, 0
   br i1 %59, label %63, label %60
 
@@ -9947,10 +9947,10 @@ declare i64 @llvm.umax.i64(i64, i64) #15
 declare i32 @llvm.umax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

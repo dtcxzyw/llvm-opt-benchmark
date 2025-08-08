@@ -236,12 +236,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit9:                ; preds = %61, %63
 
 declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -306,7 +300,7 @@ define internal void @_ZN12_GLOBAL__N_116LibcxxTestModule17addCheckFactoriesERN5
   %9 = alloca %"class.std::function", align 8
   %10 = alloca %"class.std::function", align 8
   %11 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 16, i1 false)
@@ -354,8 +348,8 @@ common.resume:                                    ; preds = %157, %160, %140, %1
   resume { ptr, i32 } %common.resume.op
 
 _ZN5clang4tidy23ClangTidyCheckFactories13registerCheckIN6libcpp18abi_tag_on_virtualEEEvN4llvm9StringRefE.exit: ; preds = %14, %16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 16, i1 false)
@@ -399,8 +393,8 @@ _ZN5clang4tidy23ClangTidyCheckFactories13registerCheckIN6libcpp18abi_tag_on_virt
   unreachable
 
 _ZN5clang4tidy23ClangTidyCheckFactories13registerCheckIN6libcpp30header_exportable_declarationsEEEvN4llvm9StringRefE.exit: ; preds = %31, %33
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 16, i1 false)
@@ -444,8 +438,8 @@ _ZN5clang4tidy23ClangTidyCheckFactories13registerCheckIN6libcpp30header_exportab
   unreachable
 
 _ZN5clang4tidy23ClangTidyCheckFactories13registerCheckIN6libcpp13hide_from_abiEEEvN4llvm9StringRefE.exit: ; preds = %48, %50
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %63 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 16, i1 false)
@@ -489,8 +483,8 @@ _ZN5clang4tidy23ClangTidyCheckFactories13registerCheckIN6libcpp13hide_from_abiEE
   unreachable
 
 _ZN5clang4tidy23ClangTidyCheckFactories13registerCheckIN6libcpp16internal_ftm_useEEEvN4llvm9StringRefE.exit: ; preds = %65, %67
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 16, i1 false)
@@ -534,8 +528,8 @@ _ZN5clang4tidy23ClangTidyCheckFactories13registerCheckIN6libcpp16internal_ftm_us
   unreachable
 
 _ZN5clang4tidy23ClangTidyCheckFactories13registerCheckIN6libcpp18nodebug_on_aliasesEEEvN4llvm9StringRefE.exit: ; preds = %82, %84
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %97 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %98 = getelementptr inbounds nuw i8, ptr %6, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 16, i1 false)
@@ -579,8 +573,8 @@ _ZN5clang4tidy23ClangTidyCheckFactories13registerCheckIN6libcpp18nodebug_on_alia
   unreachable
 
 _ZN5clang4tidy23ClangTidyCheckFactories13registerCheckIN6libcpp21proper_version_checksEEEvN4llvm9StringRefE.exit: ; preds = %99, %101
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %114 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false)
@@ -624,8 +618,8 @@ _ZN5clang4tidy23ClangTidyCheckFactories13registerCheckIN6libcpp21proper_version_
   unreachable
 
 _ZN5clang4tidy23ClangTidyCheckFactories13registerCheckIN6libcpp24robust_against_adl_checkEEEvN4llvm9StringRefE.exit: ; preds = %116, %118
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %131 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %132 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 16, i1 false)
@@ -669,8 +663,8 @@ _ZN5clang4tidy23ClangTidyCheckFactories13registerCheckIN6libcpp24robust_against_
   unreachable
 
 _ZN5clang4tidy23ClangTidyCheckFactories13registerCheckIN6libcpp33robust_against_operator_ampersandEEEvN4llvm9StringRefE.exit: ; preds = %133, %135
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %148 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %149 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -714,7 +708,7 @@ _ZN5clang4tidy23ClangTidyCheckFactories13registerCheckIN6libcpp33robust_against_
   unreachable
 
 _ZN5clang4tidy23ClangTidyCheckFactories13registerCheckIN6libcpp17uglify_attributesEEEvN4llvm9StringRefE.exit: ; preds = %150, %152
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1129,6 +1123,12 @@ define internal void @_GLOBAL__sub_I_libcpp_module.cpp() #12 section ".text.star
   store ptr getelementptr inbounds nuw (i8, ptr @libcpp_module, i64 40), ptr @_ZN4llvm8RegistryIN5clang4tidy15ClangTidyModuleEE4TailE, align 8, !tbaa !141
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13

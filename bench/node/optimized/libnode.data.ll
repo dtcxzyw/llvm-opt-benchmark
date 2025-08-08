@@ -797,7 +797,7 @@ entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic9QuicErrorE, i64 16), ptr %this, align 8
   %reason_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   %call.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %reason.coerce0, ptr %reason.coerce1) #16
   %0 = extractvalue { i64, ptr } %call.i, 0
   %1 = extractvalue { i64, ptr } %call.i, 1
@@ -806,7 +806,7 @@ entry:
   %3 = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 8
   %4 = load ptr, ptr %3, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %reason_, i64 %2, ptr %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #16
   %error_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %error_, i8 0, i64 40, i1 false)
@@ -1130,10 +1130,10 @@ entry:
   %ptr_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load ptr, ptr %ptr_.i, align 8
   %1 = load i32, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp4.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp6.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp6.i)
   switch i32 %1, label %do.body.i [
     i32 1, label %sw.bb.i
     i32 0, label %sw.bb1.i
@@ -1165,7 +1165,7 @@ sw.bb3.i:                                         ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i) #16, !noalias !5
   %call.i4.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef %call.i4.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i8)
   store i64 19, ptr %__dnew.i8, align 8
   %call2.i9 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i8, i64 noundef 0) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef %call2.i9) #16
@@ -1175,7 +1175,7 @@ sw.bb3.i:                                         ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i10, ptr noundef nonnull @.str.21, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.21, i64 19)) #16
   %3 = load i64, ptr %__dnew.i8, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i64 noundef %3) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__dnew.i8)
   br label %_ZN4node4quic12_GLOBAL__N_18TypeNameB5cxx11ENS0_9QuicError4TypeE.exit
 
 sw.bb5.i:                                         ; preds = %entry
@@ -1196,10 +1196,10 @@ do.body.i:                                        ; preds = %entry
 _ZN4node4quic12_GLOBAL__N_18TypeNameB5cxx11ENS0_9QuicError4TypeE.exit: ; preds = %sw.bb.i, %sw.bb1.i, %sw.bb3.i, %sw.bb5.i
   %ref.tmp6.sink.i = phi ptr [ %ref.tmp6.i, %sw.bb5.i ], [ %ref.tmp4.i, %sw.bb3.i ], [ %ref.tmp2.i, %sw.bb1.i ], [ %ref.tmp.i, %sw.bb.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.sink.i) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp4.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp6.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp6.i)
   %call.i2 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.10) #16, !noalias !8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %call.i2) #16
   %call4 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #16
@@ -1216,8 +1216,8 @@ _ZN4node4quic12_GLOBAL__N_18TypeNameB5cxx11ENS0_9QuicError4TypeE.exit: ; preds =
   br i1 %call8, label %nrvo.skipdtor, label %if.then
 
 if.then:                                          ; preds = %_ZN4node4quic12_GLOBAL__N_18TypeNameB5cxx11ENS0_9QuicError4TypeE.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i4)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp1.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp1.i)
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13get_allocatorEv(ptr nonnull sret(%"class.std::allocator.95") align 1 %ref.tmp1.i, ptr noundef nonnull align 8 dereferenceable(32) %reason_) #16, !noalias !11
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #16, !noalias !11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i4) #16
@@ -1228,8 +1228,8 @@ if.then:                                          ; preds = %_ZN4node4quic12_GLO
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9, i64 noundef %add.i) #16
   %call3.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9, ptr noundef nonnull @.str.11, i64 noundef 2) #16
   %call4.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9, ptr noundef nonnull align 8 dereferenceable(32) %reason_) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp1.i)
   %call11 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #16
   br label %nrvo.skipdtor
@@ -1392,11 +1392,11 @@ define dso_local void @_ZN4node4quic9QuicError12ForTransportEmSt17basic_string_v
 entry:
   %agg.tmp.i.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp.i = alloca %"class.std::allocator.95", align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic9QuicErrorE, i64 16), ptr %agg.result, align 8
   %reason_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   %call.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %reason.coerce0, ptr %reason.coerce1) #16
   %0 = extractvalue { i64, ptr } %call.i.i, 0
   %1 = extractvalue { i64, ptr } %call.i.i, 1
@@ -1405,13 +1405,13 @@ entry:
   %3 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 8
   %4 = load ptr, ptr %3, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %reason_.i, i64 %2, ptr %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #16
   %error_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %error_.i, i8 0, i64 40, i1 false)
   %ptr_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 80
   store ptr %error_.i, ptr %ptr_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %reason_.i) #16
   call void @ngtcp2_connection_close_error_set_transport_error(ptr noundef nonnull %error_.i, i64 noundef %code, ptr noundef %call.i, i64 noundef %reason.coerce0) #16
   ret void
@@ -1432,11 +1432,11 @@ define dso_local void @_ZN4node4quic9QuicError14ForApplicationEmSt17basic_string
 entry:
   %agg.tmp.i.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp.i = alloca %"class.std::allocator.95", align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic9QuicErrorE, i64 16), ptr %agg.result, align 8
   %reason_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   %call.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %reason.coerce0, ptr %reason.coerce1) #16
   %0 = extractvalue { i64, ptr } %call.i.i, 0
   %1 = extractvalue { i64, ptr } %call.i.i, 1
@@ -1445,13 +1445,13 @@ entry:
   %3 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 8
   %4 = load ptr, ptr %3, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %reason_.i, i64 %2, ptr %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #16
   %error_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %error_.i, i8 0, i64 40, i1 false)
   %ptr_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 80
   store ptr %error_.i, ptr %ptr_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %reason_.i) #16
   call void @ngtcp2_connection_close_error_set_application_error(ptr noundef nonnull %error_.i, i64 noundef %code, ptr noundef %call.i, i64 noundef %reason.coerce0) #16
   ret void
@@ -1465,11 +1465,11 @@ entry:
   %agg.tmp.i.i.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp.i.i = alloca %"class.std::allocator.95", align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !20
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !20
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic9QuicErrorE, i64 16), ptr %agg.result, align 8, !alias.scope !20
   %reason_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #16, !noalias !20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i.i), !noalias !20
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i.i), !noalias !20
   %call.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %reason.coerce0, ptr %reason.coerce1) #16, !noalias !20
   %0 = extractvalue { i64, ptr } %call.i.i.i, 0
   %1 = extractvalue { i64, ptr } %call.i.i.i, 1
@@ -1478,13 +1478,13 @@ entry:
   %3 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 8
   %4 = load ptr, ptr %3, align 8, !noalias !20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %reason_.i.i, i64 %2, ptr %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i), !noalias !20
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i.i), !noalias !20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #16
   %error_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %error_.i.i, i8 0, i64 40, i1 false), !alias.scope !20
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 80
   store ptr %error_.i.i, ptr %ptr_.i.i, align 8, !alias.scope !20
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !20
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !20
   %call.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %reason_.i.i) #16
   call void @ngtcp2_connection_close_error_set_transport_error_liberr(ptr noundef nonnull %error_.i.i, i32 noundef -229, ptr noundef %call.i.i, i64 noundef %reason.coerce0) #16
   ret void
@@ -1495,11 +1495,11 @@ define dso_local void @_ZN4node4quic9QuicError14ForNgtcp2ErrorEiSt17basic_string
 entry:
   %agg.tmp.i.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp.i = alloca %"class.std::allocator.95", align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic9QuicErrorE, i64 16), ptr %agg.result, align 8
   %reason_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   %call.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %reason.coerce0, ptr %reason.coerce1) #16
   %0 = extractvalue { i64, ptr } %call.i.i, 0
   %1 = extractvalue { i64, ptr } %call.i.i, 1
@@ -1508,13 +1508,13 @@ entry:
   %3 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 8
   %4 = load ptr, ptr %3, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %reason_.i, i64 %2, ptr %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #16
   %error_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %error_.i, i8 0, i64 40, i1 false)
   %ptr_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 80
   store ptr %error_.i, ptr %ptr_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %reason_.i) #16
   call void @ngtcp2_connection_close_error_set_transport_error_liberr(ptr noundef nonnull %error_.i, i32 noundef %code, ptr noundef %call.i, i64 noundef %reason.coerce0) #16
   ret void
@@ -1526,11 +1526,11 @@ entry:
   %agg.tmp.i.i.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp.i.i = alloca %"class.std::allocator.95", align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !23
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !23
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic9QuicErrorE, i64 16), ptr %agg.result, align 8, !alias.scope !23
   %reason_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #16, !noalias !23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i.i), !noalias !23
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i.i), !noalias !23
   %call.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %reason.coerce0, ptr %reason.coerce1) #16, !noalias !23
   %0 = extractvalue { i64, ptr } %call.i.i.i, 0
   %1 = extractvalue { i64, ptr } %call.i.i.i, 1
@@ -1539,13 +1539,13 @@ entry:
   %3 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 8
   %4 = load ptr, ptr %3, align 8, !noalias !23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %reason_.i.i, i64 %2, ptr %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i), !noalias !23
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i.i), !noalias !23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #16
   %error_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %error_.i.i, i8 0, i64 40, i1 false), !alias.scope !23
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 80
   store ptr %error_.i.i, ptr %ptr_.i.i, align 8, !alias.scope !23
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !23
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !23
   %call.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %reason_.i.i) #16
   call void @ngtcp2_connection_close_error_set_transport_error_liberr(ptr noundef nonnull %error_.i.i, i32 noundef -248, ptr noundef %call.i.i, i64 noundef %reason.coerce0) #16
   ret void
@@ -1558,11 +1558,11 @@ define dso_local void @_ZN4node4quic9QuicError11ForTlsAlertEiSt17basic_string_vi
 entry:
   %agg.tmp.i.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp.i = alloca %"class.std::allocator.95", align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic9QuicErrorE, i64 16), ptr %agg.result, align 8
   %reason_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   %call.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %reason.coerce0, ptr %reason.coerce1) #16
   %0 = extractvalue { i64, ptr } %call.i.i, 0
   %1 = extractvalue { i64, ptr } %call.i.i, 1
@@ -1571,13 +1571,13 @@ entry:
   %3 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 8
   %4 = load ptr, ptr %3, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %reason_.i, i64 %2, ptr %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #16
   %error_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %error_.i, i8 0, i64 40, i1 false)
   %ptr_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 80
   store ptr %error_.i, ptr %ptr_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %conv = trunc i32 %code to i8
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %reason_.i) #16
   call void @ngtcp2_connection_close_error_set_transport_error_tls_alert(ptr noundef nonnull %error_.i, i8 noundef zeroext %conv, ptr noundef %call.i, i64 noundef %reason.coerce0) #16
@@ -1591,11 +1591,11 @@ define dso_local void @_ZN4node4quic9QuicError19FromConnectionCloseEP11ngtcp2_co
 entry:
   %agg.tmp.i.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp.i = alloca %"class.std::allocator.95", align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic9QuicErrorE, i64 16), ptr %agg.result, align 8
   %reason_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   %call.i.i1 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 0, ptr nonnull @.str.13) #16
   %0 = extractvalue { i64, ptr } %call.i.i1, 0
   %1 = extractvalue { i64, ptr } %call.i.i1, 1
@@ -1604,13 +1604,13 @@ entry:
   %3 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 8
   %4 = load ptr, ptr %3, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %reason_.i, i64 %2, ptr %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #16
   %error_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %error_.i, i8 0, i64 40, i1 false)
   %ptr_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 80
   store ptr %error_.i, ptr %ptr_.i, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   call void @ngtcp2_conn_get_connection_close_error(ptr noundef %session, ptr noundef nonnull %error_.i) #16
   ret void
 }
@@ -2145,7 +2145,7 @@ entry:
   br i1 %cmp.not.i, label %_ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #19
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
   %retainer_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
@@ -2217,7 +2217,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i: ; preds = %_ZNK4node13Memory
   br label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i
 
 _ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i:   ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i, %_ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   br label %_ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit
 
 _ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit: ; preds = %entry, %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i
@@ -2356,10 +2356,10 @@ entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit) #16
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i), !noalias !29
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !29
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic9QuicErrorE, i64 16), ptr @_ZN4node4quic9QuicError18TRANSPORT_NO_ERRORE, align 8, !alias.scope !29
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #16, !noalias !29
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i.i.i), !noalias !29
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i.i.i), !noalias !29
   %call.i.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 0, ptr nonnull @.str.13) #16, !noalias !29
   %1 = extractvalue { i64, ptr } %call.i.i.i.i, 0
   %2 = extractvalue { i64, ptr } %call.i.i.i.i, 1
@@ -2368,19 +2368,19 @@ entry:
   %4 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i.i, i64 8
   %5 = load ptr, ptr %4, align 8, !noalias !29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node4quic9QuicError18TRANSPORT_NO_ERRORE, i64 8), i64 %3, ptr %5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i.i), !noalias !29
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i.i.i), !noalias !29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_ZN4node4quic9QuicError18TRANSPORT_NO_ERRORE, i64 40), i8 0, i64 40, i1 false), !alias.scope !29
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN4node4quic9QuicError18TRANSPORT_NO_ERRORE, i64 40), ptr getelementptr inbounds nuw (i8, ptr @_ZN4node4quic9QuicError18TRANSPORT_NO_ERRORE, i64 80), align 8, !alias.scope !29
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i), !noalias !29
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !29
   %call.i.i1.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node4quic9QuicError18TRANSPORT_NO_ERRORE, i64 8)) #16
   call void @ngtcp2_connection_close_error_set_transport_error(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4node4quic9QuicError18TRANSPORT_NO_ERRORE, i64 40), i64 noundef 0, ptr noundef %call.i.i1.i, i64 noundef 0) #16
   %6 = call i32 @__cxa_atexit(ptr nonnull @_ZN4node4quic9QuicErrorD2Ev, ptr nonnull @_ZN4node4quic9QuicError18TRANSPORT_NO_ERRORE, ptr nonnull @__dso_handle) #16
   call void @llvm.experimental.noalias.scope.decl(metadata !32)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i2), !noalias !32
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i2), !noalias !32
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic9QuicErrorE, i64 16), ptr @_ZN4node4quic9QuicError20APPLICATION_NO_ERRORE, align 8, !alias.scope !32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i2) #16, !noalias !32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i.i.i1), !noalias !32
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i.i.i1), !noalias !32
   %call.i.i.i.i3 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 0, ptr nonnull @.str.13) #16, !noalias !32
   %7 = extractvalue { i64, ptr } %call.i.i.i.i3, 0
   %8 = extractvalue { i64, ptr } %call.i.i.i.i3, 1
@@ -2389,20 +2389,20 @@ entry:
   %10 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i.i1, i64 8
   %11 = load ptr, ptr %10, align 8, !noalias !32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node4quic9QuicError20APPLICATION_NO_ERRORE, i64 8), i64 %9, ptr %11, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i2) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i.i1), !noalias !32
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i.i.i1), !noalias !32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i2) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_ZN4node4quic9QuicError20APPLICATION_NO_ERRORE, i64 40), i8 0, i64 40, i1 false), !alias.scope !32
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN4node4quic9QuicError20APPLICATION_NO_ERRORE, i64 40), ptr getelementptr inbounds nuw (i8, ptr @_ZN4node4quic9QuicError20APPLICATION_NO_ERRORE, i64 80), align 8, !alias.scope !32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i2), !noalias !32
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i2), !noalias !32
   %call.i.i1.i4 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node4quic9QuicError20APPLICATION_NO_ERRORE, i64 8)) #16
   call void @ngtcp2_connection_close_error_set_application_error(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4node4quic9QuicError20APPLICATION_NO_ERRORE, i64 40), i64 noundef 65280, ptr noundef %call.i.i1.i4, i64 noundef 0) #16
   %12 = call i32 @__cxa_atexit(ptr nonnull @_ZN4node4quic9QuicErrorD2Ev, ptr nonnull @_ZN4node4quic9QuicError20APPLICATION_NO_ERRORE, ptr nonnull @__dso_handle) #16
   call void @llvm.experimental.noalias.scope.decl(metadata !35)
   call void @llvm.experimental.noalias.scope.decl(metadata !38)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i), !noalias !41
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !41
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic9QuicErrorE, i64 16), ptr @_ZN4node4quic9QuicError19VERSION_NEGOTIATIONE, align 8, !alias.scope !41
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #16, !noalias !41
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i.i.i.i), !noalias !41
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i.i.i.i), !noalias !41
   %call.i.i.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 0, ptr nonnull @.str.13) #16, !noalias !41
   %13 = extractvalue { i64, ptr } %call.i.i.i.i.i, 0
   %14 = extractvalue { i64, ptr } %call.i.i.i.i.i, 1
@@ -2411,20 +2411,20 @@ entry:
   %16 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i.i.i, i64 8
   %17 = load ptr, ptr %16, align 8, !noalias !41
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node4quic9QuicError19VERSION_NEGOTIATIONE, i64 8), i64 %15, ptr %17, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i.i.i), !noalias !41
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i.i.i.i), !noalias !41
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_ZN4node4quic9QuicError19VERSION_NEGOTIATIONE, i64 40), i8 0, i64 40, i1 false), !alias.scope !41
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN4node4quic9QuicError19VERSION_NEGOTIATIONE, i64 40), ptr getelementptr inbounds nuw (i8, ptr @_ZN4node4quic9QuicError19VERSION_NEGOTIATIONE, i64 80), align 8, !alias.scope !41
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i), !noalias !41
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !41
   %call.i.i.i.i5 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node4quic9QuicError19VERSION_NEGOTIATIONE, i64 8)) #16
   call void @ngtcp2_connection_close_error_set_transport_error_liberr(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4node4quic9QuicError19VERSION_NEGOTIATIONE, i64 40), i32 noundef -229, ptr noundef %call.i.i.i.i5, i64 noundef 0) #16
   %18 = call i32 @__cxa_atexit(ptr nonnull @_ZN4node4quic9QuicErrorD2Ev, ptr nonnull @_ZN4node4quic9QuicError19VERSION_NEGOTIATIONE, ptr nonnull @__dso_handle) #16
   call void @llvm.experimental.noalias.scope.decl(metadata !42)
   call void @llvm.experimental.noalias.scope.decl(metadata !45)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i7), !noalias !48
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i7), !noalias !48
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic9QuicErrorE, i64 16), ptr @_ZN4node4quic9QuicError10IDLE_CLOSEE, align 8, !alias.scope !48
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i7) #16, !noalias !48
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i.i.i.i6), !noalias !48
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i.i.i.i6), !noalias !48
   %call.i.i.i.i.i8 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 0, ptr nonnull @.str.13) #16, !noalias !48
   %19 = extractvalue { i64, ptr } %call.i.i.i.i.i8, 0
   %20 = extractvalue { i64, ptr } %call.i.i.i.i.i8, 1
@@ -2433,19 +2433,19 @@ entry:
   %22 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i.i.i6, i64 8
   %23 = load ptr, ptr %22, align 8, !noalias !48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node4quic9QuicError10IDLE_CLOSEE, i64 8), i64 %21, ptr %23, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i7) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i.i.i6), !noalias !48
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i.i.i.i6), !noalias !48
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i7) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_ZN4node4quic9QuicError10IDLE_CLOSEE, i64 40), i8 0, i64 40, i1 false), !alias.scope !48
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN4node4quic9QuicError10IDLE_CLOSEE, i64 40), ptr getelementptr inbounds nuw (i8, ptr @_ZN4node4quic9QuicError10IDLE_CLOSEE, i64 80), align 8, !alias.scope !48
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i7), !noalias !48
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i7), !noalias !48
   %call.i.i.i.i9 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node4quic9QuicError10IDLE_CLOSEE, i64 8)) #16
   call void @ngtcp2_connection_close_error_set_transport_error_liberr(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4node4quic9QuicError10IDLE_CLOSEE, i64 40), i32 noundef -248, ptr noundef %call.i.i.i.i9, i64 noundef 0) #16
   %24 = call i32 @__cxa_atexit(ptr nonnull @_ZN4node4quic9QuicErrorD2Ev, ptr nonnull @_ZN4node4quic9QuicError10IDLE_CLOSEE, ptr nonnull @__dso_handle) #16
   call void @llvm.experimental.noalias.scope.decl(metadata !49)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i11), !noalias !49
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i11), !noalias !49
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic9QuicErrorE, i64 16), ptr @_ZN4node4quic9QuicError14INTERNAL_ERRORE, align 8, !alias.scope !49
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i11) #16, !noalias !49
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i.i.i10), !noalias !49
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i.i.i10), !noalias !49
   %call.i.i.i.i12 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 0, ptr nonnull @.str.13) #16, !noalias !49
   %25 = extractvalue { i64, ptr } %call.i.i.i.i12, 0
   %26 = extractvalue { i64, ptr } %call.i.i.i.i12, 1
@@ -2454,11 +2454,11 @@ entry:
   %28 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i.i10, i64 8
   %29 = load ptr, ptr %28, align 8, !noalias !49
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node4quic9QuicError14INTERNAL_ERRORE, i64 8), i64 %27, ptr %29, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i11) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i.i10), !noalias !49
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i.i.i10), !noalias !49
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i11) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_ZN4node4quic9QuicError14INTERNAL_ERRORE, i64 40), i8 0, i64 40, i1 false), !alias.scope !49
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN4node4quic9QuicError14INTERNAL_ERRORE, i64 40), ptr getelementptr inbounds nuw (i8, ptr @_ZN4node4quic9QuicError14INTERNAL_ERRORE, i64 80), align 8, !alias.scope !49
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i11), !noalias !49
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i11), !noalias !49
   %call.i.i1.i13 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node4quic9QuicError14INTERNAL_ERRORE, i64 8)) #16
   call void @ngtcp2_connection_close_error_set_transport_error_liberr(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4node4quic9QuicError14INTERNAL_ERRORE, i64 40), i32 noundef -238, ptr noundef %call.i.i1.i13, i64 noundef 0) #16
   %30 = call i32 @__cxa_atexit(ptr nonnull @_ZN4node4quic9QuicErrorD2Ev, ptr nonnull @_ZN4node4quic9QuicError14INTERNAL_ERRORE, ptr nonnull @__dso_handle) #16
@@ -2469,10 +2469,10 @@ entry:
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #15

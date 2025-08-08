@@ -33,27 +33,21 @@ cbs_get.exit:                                     ; preds = %2, %6
   ret i32 %.0.i
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @CBS_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define hidden ptr @CBS_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !6
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @CBS_len(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define hidden i64 @CBS_len(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !13
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @CBS_stow(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @CBS_stow(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #3 {
   %4 = load ptr, ptr %1, align 8, !tbaa !14
   tail call void @free(ptr noundef %4) #15
   store ptr null, ptr %1, align 8, !tbaa !14
@@ -81,12 +75,12 @@ define hidden range(i32 0, 2) i32 @CBS_stow(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
-declare ptr @BUF_memdup(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare ptr @BUF_memdup(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @CBS_strdup(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @CBS_strdup(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %1, align 8, !tbaa !14
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -106,10 +100,10 @@ define hidden range(i32 0, 2) i32 @CBS_strdup(ptr noundef readonly captures(none
   ret i32 %11
 }
 
-declare ptr @BUF_strndup(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare ptr @BUF_strndup(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @CBS_contains_zero_byte(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @CBS_contains_zero_byte(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load ptr, ptr %0, align 8, !tbaa !6
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !13
@@ -120,10 +114,10 @@ define hidden range(i32 0, 2) i32 @CBS_contains_zero_byte(ptr noundef readonly c
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #8
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @CBS_mem_equal(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @CBS_mem_equal(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !13
   %.not = icmp eq i64 %2, %5
@@ -141,10 +135,10 @@ define hidden range(i32 0, 2) i32 @CBS_mem_equal(ptr noundef readonly captures(n
   ret i32 %.0
 }
 
-declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @CBS_get_u8(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #9 {
+define hidden range(i32 0, 2) i32 @CBS_get_u8(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !13
   %5 = icmp eq i64 %4, 0
@@ -166,7 +160,7 @@ cbs_get.exit.thread:                              ; preds = %2, %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @CBS_get_u16(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #10 {
+define hidden range(i32 0, 2) i32 @CBS_get_u16(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !13
   %5 = icmp ult i64 %4, 2
@@ -202,7 +196,7 @@ cbs_get_u.exit.thread:                            ; preds = %2, %cbs_get_u.exit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @CBS_get_u24(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #10 {
+define hidden range(i32 0, 2) i32 @CBS_get_u24(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !13
   %5 = icmp ult i64 %4, 3
@@ -238,7 +232,7 @@ cbs_get_u.exit:                                   ; preds = %2, %16
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @CBS_get_u32(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #10 {
+define hidden range(i32 0, 2) i32 @CBS_get_u32(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !13
   %5 = icmp ult i64 %4, 4
@@ -297,7 +291,7 @@ cbs_get.exit.thread:                              ; preds = %3, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @CBS_copy_bytes(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #11 {
+define hidden range(i32 0, 2) i32 @CBS_copy_bytes(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #10 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !13
   %6 = icmp ult i64 %5, %2
@@ -318,10 +312,10 @@ cbs_get.exit.thread:                              ; preds = %3, %7
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @CBS_get_u8_length_prefixed(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #9 {
+define hidden range(i32 0, 2) i32 @CBS_get_u8_length_prefixed(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !13
   %5 = icmp eq i64 %4, 0
@@ -354,7 +348,7 @@ cbs_get_length_prefixed.exit:                     ; preds = %2, %cbs_get.exit.i.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @CBS_get_u16_length_prefixed(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #10 {
+define hidden range(i32 0, 2) i32 @CBS_get_u16_length_prefixed(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !13
   %5 = icmp ult i64 %4, 2
@@ -401,7 +395,7 @@ cbs_get_length_prefixed.exit:                     ; preds = %2, %cbs_get_u.exit.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @CBS_get_u24_length_prefixed(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #10 {
+define hidden range(i32 0, 2) i32 @CBS_get_u24_length_prefixed(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !13
   %5 = icmp ult i64 %4, 3
@@ -448,7 +442,7 @@ cbs_get_length_prefixed.exit:                     ; preds = %2, %cbs_get_u.exit.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @CBS_get_any_asn1_element(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #10 {
+define hidden range(i32 0, 2) i32 @CBS_get_any_asn1_element(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #9 {
   %.sroa.067.0.copyload.i = load ptr, ptr %0, align 8, !tbaa !14
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.9.0.copyload.i = load i64, ptr %.sroa.9.0..sroa_idx.i, align 8, !tbaa !15
@@ -557,7 +551,7 @@ cbs_get_any_asn1_element.exit:                    ; preds = %4, %6, %21, %cbs_ge
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @CBS_get_any_ber_asn1_element(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #10 {
+define hidden range(i32 0, 2) i32 @CBS_get_any_ber_asn1_element(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #9 {
   %.sroa.067.0.copyload.i = load ptr, ptr %0, align 8, !tbaa !14
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.9.0.copyload.i = load i64, ptr %.sroa.9.0..sroa_idx.i, align 8, !tbaa !15
@@ -698,7 +692,7 @@ cbs_get_any_asn1_element.exit:                    ; preds = %4, %7, %10, %31, %.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @CBS_get_asn1(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #10 {
+define hidden range(i32 0, 2) i32 @CBS_get_asn1(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = icmp eq ptr %1, null
   %.sroa.067.0.copyload.i.i.i = load ptr, ptr %0, align 8, !tbaa !14
   %.sroa.9.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -809,7 +803,7 @@ cbs_get_asn1.exit:                                ; preds = %CBS_get_any_asn1_el
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @CBS_get_asn1_element(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #10 {
+define hidden range(i32 0, 2) i32 @CBS_get_asn1_element(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = icmp eq ptr %1, null
   %.sroa.067.0.copyload.i.i.i = load ptr, ptr %0, align 8, !tbaa !14
   %.sroa.9.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -905,7 +899,7 @@ cbs_get_asn1.exit:                                ; preds = %CBS_get_any_asn1_el
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @CBS_peek_asn1_tag(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #13 {
+define hidden range(i32 0, 2) i32 @CBS_peek_asn1_tag(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !13
   %5 = icmp eq i64 %4, 0
@@ -925,7 +919,7 @@ define hidden range(i32 0, 2) i32 @CBS_peek_asn1_tag(ptr noundef readonly captur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @CBS_get_asn1_uint64(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #10 {
+define hidden range(i32 0, 2) i32 @CBS_get_asn1_uint64(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #9 {
   %.sroa.067.0.copyload.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !14
   %.sroa.9.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.9.0.copyload.i.i.i.i = load i64, ptr %.sroa.9.0..sroa_idx.i.i.i.i, align 8, !tbaa !15
@@ -1057,7 +1051,7 @@ CBS_get_asn1.exit.thread:                         ; preds = %.lr.ph, %56, %38, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @CBS_get_optional_asn1(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #10 {
+define hidden range(i32 0, 2) i32 @CBS_get_optional_asn1(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #9 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !13
   %7 = icmp eq i64 %6, 0
@@ -1178,7 +1172,7 @@ CBS_get_asn1.exit.thread:                         ; preds = %CBS_get_any_asn1_el
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @CBS_get_optional_asn1_octet_string(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #10 {
+define hidden range(i32 0, 2) i32 @CBS_get_optional_asn1_octet_string(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #9 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !13
   %7 = icmp eq i64 %6, 0
@@ -1386,9 +1380,9 @@ CBS_get_optional_asn1.exit.thread:                ; preds = %CBS_get_any_asn1_el
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @CBS_get_optional_asn1_uint64(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #10 {
+define hidden range(i32 0, 2) i32 @CBS_get_optional_asn1_uint64(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #9 {
   %5 = alloca %struct.cbs_st, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !13
   %8 = icmp eq i64 %7, 0
@@ -1498,12 +1492,12 @@ CBS_get_bytes.exit.sink.split.i.i.i.i.i:          ; preds = %42, %22
 
 CBS_get_optional_asn1.exit.thread:                ; preds = %47, %12, %24, %cbs_get_u.exit.i.i.i.i.i, %36, %CBS_get_bytes.exit.sink.split.i.i.i.i.i, %13, %51, %57
   %.0 = phi i32 [ 1, %57 ], [ 0, %51 ], [ 0, %13 ], [ 0, %CBS_get_bytes.exit.sink.split.i.i.i.i.i ], [ 0, %36 ], [ 0, %cbs_get_u.exit.i.i.i.i.i ], [ 0, %24 ], [ 0, %12 ], [ 0, %47 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @CBS_get_optional_asn1_bool(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #10 {
+define hidden range(i32 0, 2) i32 @CBS_get_optional_asn1_bool(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #9 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !13
   %7 = icmp eq i64 %6, 0
@@ -1695,23 +1689,29 @@ CBS_get_optional_asn1.exit.thread:                ; preds = %CBS_get_optional_as
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #15 = { nounwind }
 attributes #16 = { nounwind willreturn memory(read) }

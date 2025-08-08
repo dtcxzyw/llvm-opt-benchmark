@@ -27,9 +27,9 @@ define dso_local ptr @rewind_parseTimeLineHistory(ptr noundef %0, i32 noundef %1
   %.05395 = phi i32 [ 0, %3 ], [ %.154, %.thread ]
   %.05594 = phi i32 [ 0, %3 ], [ %.156, %.thread ]
   %.05793 = phi ptr [ null, %3 ], [ %.158, %.thread ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %8
 
 8:                                                ; preds = %10, %7
@@ -57,7 +57,7 @@ define dso_local ptr @rewind_parseTimeLineHistory(ptr noundef %0, i32 noundef %1
   br i1 %.not6891, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.loopexit
-  %15 = tail call ptr @__ctype_b_loc() #7
+  %15 = tail call ptr @__ctype_b_loc() #6
   %16 = load ptr, ptr %15, align 8
   br label %20
 
@@ -82,13 +82,13 @@ define dso_local ptr @rewind_parseTimeLineHistory(ptr noundef %0, i32 noundef %1
   br i1 %cond, label %.thread, label %27
 
 27:                                               ; preds = %26
-  %28 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.04997, ptr noundef nonnull @.str, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #6
+  %28 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.04997, ptr noundef nonnull @.str, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #7
   %29 = icmp slt i32 %28, 1
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %27
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull %.04997) #6
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.2) #6
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull %.04997) #7
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.2) #7
   call void @exit(i32 noundef 1) #8
   unreachable
 
@@ -97,8 +97,8 @@ define dso_local ptr @rewind_parseTimeLineHistory(ptr noundef %0, i32 noundef %1
   br i1 %.not70, label %33, label %32
 
 32:                                               ; preds = %31
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull %.04997) #6
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.3) #6
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull %.04997) #7
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.3) #7
   call void @exit(i32 noundef 1) #8
   unreachable
 
@@ -110,8 +110,8 @@ define dso_local ptr @rewind_parseTimeLineHistory(ptr noundef %0, i32 noundef %1
   br i1 %or.cond, label %36, label %35
 
 35:                                               ; preds = %33
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %.04997) #6
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.5) #6
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %.04997) #7
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.5) #7
   call void @exit(i32 noundef 1) #8
   unreachable
 
@@ -119,7 +119,7 @@ define dso_local ptr @rewind_parseTimeLineHistory(ptr noundef %0, i32 noundef %1
   %37 = add i32 %.05594, 1
   %38 = sext i32 %37 to i64
   %39 = mul nsw i64 %38, 24
-  %40 = call ptr @pg_realloc(ptr noundef %.05793, i64 noundef %39) #6
+  %40 = call ptr @pg_realloc(ptr noundef %.05793, i64 noundef %39) #7
   %41 = sext i32 %.05594 to i64
   %42 = getelementptr inbounds %struct.TimeLineHistoryEntry, ptr %40, i64 %41
   %43 = load i32, ptr %4, align 4
@@ -141,9 +141,9 @@ define dso_local ptr @rewind_parseTimeLineHistory(ptr noundef %0, i32 noundef %1
   %.156 = phi i32 [ %37, %36 ], [ %.05594, %26 ], [ %.05594, %.loopexit ], [ %.05594, %17 ]
   %.154 = phi i32 [ %34, %36 ], [ %.05395, %26 ], [ %.05395, %.loopexit ], [ %.05395, %17 ]
   %.152 = phi i64 [ %50, %36 ], [ %.05196, %26 ], [ %.05196, %.loopexit ], [ %.05196, %17 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.1, label %52, label %7
 
 52:                                               ; preds = %.thread
@@ -153,8 +153,8 @@ define dso_local ptr @rewind_parseTimeLineHistory(ptr noundef %0, i32 noundef %1
   br i1 %or.cond73, label %54, label %53
 
 53:                                               ; preds = %52
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.6) #6
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.7) #6
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.6) #7
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.7) #7
   call void @exit(i32 noundef 1) #8
   unreachable
 
@@ -165,11 +165,11 @@ define dso_local ptr @rewind_parseTimeLineHistory(ptr noundef %0, i32 noundef %1
 56:                                               ; preds = %54
   %57 = sext i32 %55 to i64
   %58 = mul nsw i64 %57, 24
-  %59 = call ptr @pg_realloc(ptr noundef nonnull %.158, i64 noundef %58) #6
+  %59 = call ptr @pg_realloc(ptr noundef nonnull %.158, i64 noundef %58) #7
   br label %62
 
 60:                                               ; preds = %54
-  %61 = call ptr @pg_malloc(i64 noundef 24) #6
+  %61 = call ptr @pg_malloc(i64 noundef 24) #7
   br label %62
 
 62:                                               ; preds = %60, %56
@@ -185,35 +185,35 @@ define dso_local ptr @rewind_parseTimeLineHistory(ptr noundef %0, i32 noundef %1
   ret ptr %.259
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #2
+declare ptr @__ctype_b_loc() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
-declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #5
+declare void @exit(i32 noundef) local_unnamed_addr #4
 
-declare ptr @pg_realloc(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @pg_realloc(ptr noundef, i64 noundef) local_unnamed_addr #3
+
+declare ptr @pg_malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
-declare ptr @pg_malloc(i64 noundef) local_unnamed_addr #4
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind willreturn memory(none) }
+attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind willreturn memory(none) }
+attributes #7 = { nounwind }
 attributes #8 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

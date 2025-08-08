@@ -259,9 +259,9 @@ define internal range(i64 0, 21) i64 @ossl_ssl_session_eq(i64 noundef %0, i64 no
   unreachable
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = call ptr @SSL_SESSION_get_id(ptr noundef nonnull %5, ptr noundef nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = call ptr @SSL_SESSION_get_id(ptr noundef nonnull %9, ptr noundef nonnull %4) #4
   %15 = call i32 @SSL_SESSION_get_protocol_version(ptr noundef nonnull %5) #4
   %16 = call i32 @SSL_SESSION_get_protocol_version(ptr noundef nonnull %9) #4
@@ -275,15 +275,15 @@ define internal range(i64 0, 21) i64 @ossl_ssl_session_eq(i64 noundef %0, i64 no
   br i1 %.not7.i, label %ossl_SSL_SESSION_cmp.exit, label %ossl_SSL_SESSION_cmp.exit.thread
 
 ossl_SSL_SESSION_cmp.exit.thread:                 ; preds = %12, %17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %22
 
 ossl_SSL_SESSION_cmp.exit:                        ; preds = %17
   %20 = zext i32 %18 to i64
   %21 = call i32 @CRYPTO_memcmp(ptr noundef %13, ptr noundef %14, i64 noundef %20) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.fr = freeze i32 %21
   %cond = icmp eq i32 %.fr, 0
   %spec.select = select i1 %cond, i64 20, i64 0
@@ -491,7 +491,7 @@ ossl_ssl_session_get_timeout.exit:                ; preds = %19, %22
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ssl_session_get_id(i64 noundef %0) #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !19
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ssl_session_type) #4
   %.not = icmp eq ptr %3, null
@@ -507,14 +507,14 @@ define internal i64 @ossl_ssl_session_get_id(i64 noundef %0) #0 {
   %8 = load i32, ptr %2, align 4, !tbaa !19
   %9 = zext i32 %8 to i64
   %10 = call i64 @rb_str_new(ptr noundef %7, i64 noundef %9) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %10
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ssl_session_to_der(i64 noundef %0) #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ssl_session_type) #4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -568,7 +568,7 @@ RSTRING_PTR.exit15:                               ; preds = %RSTRING_PTR.exit, %
   %25 = ptrtoint ptr %.sroa.2.0.i14 to i64
   %26 = sub i64 %24, %25
   call void @rb_str_set_len(i64 noundef %13, i64 noundef %26) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %13
 }
 
@@ -652,20 +652,14 @@ declare void @SSL_SESSION_free(ptr noundef) local_unnamed_addr #1
 
 declare i64 @rb_data_typed_object_wrap(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: noreturn
-declare void @ossl_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @ossl_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 declare i64 @rb_obj_is_instance_of(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 declare ptr @rb_check_typeddata(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @SSL_get1_session(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @ossl_obj2bio(ptr noundef) local_unnamed_addr #1
 
@@ -688,7 +682,7 @@ declare ptr @ASN1_dup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @i2d_SSL_SESSION(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: noreturn
-declare void @rb_error_frozen_object(i64 noundef) local_unnamed_addr #3
+declare void @rb_error_frozen_object(i64 noundef) local_unnamed_addr #2
 
 declare void @rb_str_modify(i64 noundef) local_unnamed_addr #1
 
@@ -728,10 +722,16 @@ declare i64 @ossl_membio2str(ptr noundef) local_unnamed_addr #1
 
 declare i32 @SSL_SESSION_print(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 attributes #5 = { noreturn nounwind }
 

@@ -19,7 +19,7 @@ define { ptr, i64 } @_ZN8pyo3_ffi32_cstr_from_utf8_with_nul_checked17h7d192abfde
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %11, %2
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @anon.fe2dfb2430887b0c20779cfd110d9044.8, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %7, align 8
@@ -61,7 +61,7 @@ define { ptr, i64 } @_ZN8pyo3_ffi32_cstr_from_utf8_with_nul_checked17h7d192abfde
   br i1 %22, label %23, label %16
 
 23:                                               ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @anon.fe2dfb2430887b0c20779cfd110d9044.4, ptr %3, align 8
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %24, align 8
@@ -79,7 +79,7 @@ define { ptr, i64 } @_ZN8pyo3_ffi32_cstr_from_utf8_with_nul_checked17h7d192abfde
 declare void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias noundef align 8 captures(none) dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

@@ -38,8 +38,8 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 define internal range(i32 0, 2) i32 @cast_test_vector(i32 noundef %0) #0 {
   %2 = alloca %struct.cast_key_st, align 4
   %3 = alloca [80 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = sext i32 %0 to i64
   %5 = getelementptr inbounds [3 x i32], ptr @k_len, i64 0, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !4
@@ -67,8 +67,8 @@ define internal range(i32 0, 2) i32 @cast_test_vector(i32 noundef %0) #0 {
 
 13:                                               ; preds = %12, %10
   %.1 = phi i32 [ %.0, %10 ], [ 0, %12 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.1
 }
 
@@ -80,10 +80,10 @@ define internal range(i32 0, 2) i32 @cast_test_iterations() #0 {
   %2 = alloca %struct.cast_key_st, align 4
   %3 = alloca [16 x i8], align 16
   %4 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %1) #4
-  call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) @in_b, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) @in_b, i64 16, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -117,15 +117,12 @@ define internal range(i32 0, 2) i32 @cast_test_iterations() #0 {
 
 14:                                               ; preds = %13, %11
   %.0 = phi i32 [ 1, %11 ], [ 0, %13 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %2) #4
-  call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @CAST_set_key(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -135,16 +132,19 @@ declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr
 
 declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

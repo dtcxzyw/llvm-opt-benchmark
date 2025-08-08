@@ -16,7 +16,7 @@ define dso_local noundef ptr @ExecInitMergeAppend(ptr noundef %0, ptr noundef %1
   %4 = alloca ptr, align 8
   %5 = tail call noundef ptr @palloc0(i64 noundef 264) #3
   store i32 397, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -205,12 +205,9 @@ list_length.exit79:                               ; preds = %32, %33
 ._crit_edge84:                                    ; preds = %89, %74
   %112 = getelementptr inbounds nuw i8, ptr %5, i64 240
   store i8 0, ptr %112, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %5
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @ExecMergeAppend(ptr noundef captures(none) %0) #0 {
@@ -404,20 +401,17 @@ ExecProcNode.exit47:                              ; preds = %64, %75
   ret ptr %.040
 }
 
-declare ptr @ExecInitPartitionExecPruning(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ExecInitPartitionExecPruning(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @bms_num_members(ptr noundef) local_unnamed_addr #2
+declare i32 @bms_num_members(ptr noundef) local_unnamed_addr #1
 
-declare ptr @bms_add_range(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @bms_add_range(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
-
-declare ptr @binaryheap_allocate(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @binaryheap_allocate(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @heap_compare_slots(i64 noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #0 {
@@ -548,15 +542,15 @@ ApplySortComparator.exit.thread:                  ; preds = %48, %ApplySortCompa
   ret i32 %.2
 }
 
-declare i32 @bms_next_member(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @bms_next_member(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @ExecInitNode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @ExecInitNode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @ExecGetCommonSlotOps(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @ExecGetCommonSlotOps(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @ExecInitResultTupleSlotTL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecInitResultTupleSlotTL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @PrepareSortSupportFromOrderingOp(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @PrepareSortSupportFromOrderingOp(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecEndMergeAppend(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -584,7 +578,7 @@ define dso_local void @ExecEndMergeAppend(ptr noundef readonly captures(none) %0
   ret void
 }
 
-declare void @ExecEndNode(ptr noundef) local_unnamed_addr #2
+declare void @ExecEndNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecReScanMergeAppend(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -658,35 +652,41 @@ define dso_local void @ExecReScanMergeAppend(ptr noundef captures(none) %0) loca
   ret void
 }
 
-declare zeroext i1 @bms_overlap(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @bms_overlap(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @bms_free(ptr noundef) local_unnamed_addr #2
+declare void @bms_free(ptr noundef) local_unnamed_addr #1
 
-declare void @UpdateChangedParamSet(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @UpdateChangedParamSet(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecReScan(ptr noundef) local_unnamed_addr #2
+declare void @ExecReScan(ptr noundef) local_unnamed_addr #1
 
-declare void @binaryheap_reset(ptr noundef) local_unnamed_addr #2
+declare void @binaryheap_reset(ptr noundef) local_unnamed_addr #1
 
-declare void @ProcessInterrupts() local_unnamed_addr #2
+declare void @ProcessInterrupts() local_unnamed_addr #1
 
-declare ptr @ExecFindMatchingSubPlans(ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare ptr @ExecFindMatchingSubPlans(ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
-declare void @binaryheap_add_unordered(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @binaryheap_add_unordered(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @binaryheap_build(ptr noundef) local_unnamed_addr #2
+declare void @binaryheap_build(ptr noundef) local_unnamed_addr #1
 
-declare i64 @binaryheap_first(ptr noundef) local_unnamed_addr #2
+declare i64 @binaryheap_first(ptr noundef) local_unnamed_addr #1
 
-declare void @binaryheap_replace_first(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @binaryheap_replace_first(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @binaryheap_remove_first(ptr noundef) local_unnamed_addr #2
+declare i64 @binaryheap_remove_first(ptr noundef) local_unnamed_addr #1
 
-declare void @slot_getsomeattrs_int(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @slot_getsomeattrs_int(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

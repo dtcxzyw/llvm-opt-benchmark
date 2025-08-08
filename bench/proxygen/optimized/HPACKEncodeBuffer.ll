@@ -405,7 +405,7 @@ cleanup.done:                                     ; preds = %entry
 if.then:                                          ; preds = %cleanup.done
   %4 = trunc nuw i64 %value to i8
   %conv28 = or i8 %instruction, %4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %byte.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %byte.addr.i)
   store i8 %conv28, ptr %byte.addr.i, align 1
   %5 = load ptr, ptr %second.i.i.i.i.i, align 8
   %6 = load ptr, ptr %buf_.i, align 8
@@ -472,13 +472,13 @@ _ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i: ; preds = %if.end.i.i.i.i, %i
   br i1 %cmp4.not.i.i.i, label %_ZN8proxygen17HPACKEncodeBuffer6appendEh.exit, label %while.body.i.i.i, !llvm.loop !4
 
 _ZN8proxygen17HPACKEncodeBuffer6appendEh.exit:    ; preds = %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i, %if.end.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %byte.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %byte.addr.i)
   br label %return
 
 if.end:                                           ; preds = %cleanup.done
   %or3118 = or i8 %3, %instruction
   %sub = sub nuw i64 %value, %conv25
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %byte.addr.i19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %byte.addr.i19)
   store i8 %or3118, ptr %byte.addr.i19, align 1
   %18 = load ptr, ptr %second.i.i.i.i.i, align 8
   %19 = load ptr, ptr %buf_.i, align 8
@@ -545,7 +545,7 @@ _ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i44: ; preds = %if.end.i.i.i.i51
   br i1 %cmp4.not.i.i.i50, label %_ZN8proxygen17HPACKEncodeBuffer6appendEh.exit53, label %while.body.i.i.i28, !llvm.loop !4
 
 _ZN8proxygen17HPACKEncodeBuffer6appendEh.exit53:  ; preds = %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i44, %if.end.i.i.i23
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %byte.addr.i19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %byte.addr.i19)
   %cmp35124 = icmp ugt i64 %sub, 127
   br i1 %cmp35124, label %while.body36.lr.ph, label %while.end41
 
@@ -559,7 +559,7 @@ while.body36:                                     ; preds = %while.body36.lr.ph,
   %value.addr.0125 = phi i64 [ %sub, %while.body36.lr.ph ], [ %shr, %_ZN8proxygen17HPACKEncodeBuffer6appendEh.exit88 ]
   %31 = trunc i64 %value.addr.0125 to i8
   %conv39 = or i8 %31, -128
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %byte.addr.i54)
+  call void @llvm.lifetime.start.p0(ptr nonnull %byte.addr.i54)
   store i8 %conv39, ptr %byte.addr.i54, align 1
   %32 = load ptr, ptr %second.i.i.i.i.i, align 8
   %33 = load ptr, ptr %buf_.i, align 8
@@ -621,7 +621,7 @@ _ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i79: ; preds = %if.end.i.i.i.i86
   br i1 %cmp4.not.i.i.i85, label %_ZN8proxygen17HPACKEncodeBuffer6appendEh.exit88, label %while.body.i.i.i63, !llvm.loop !4
 
 _ZN8proxygen17HPACKEncodeBuffer6appendEh.exit88:  ; preds = %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i79, %if.end.i.i.i58
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %byte.addr.i54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %byte.addr.i54)
   %shr = lshr i64 %value.addr.0125, 7
   %inc40 = add nuw nsw i32 %count.0126, 1
   %cmp35 = icmp ugt i64 %value.addr.0125, 16383
@@ -635,7 +635,7 @@ while.end41:                                      ; preds = %while.end41.loopexi
   %value.addr.0.lcssa = phi i64 [ %sub, %_ZN8proxygen17HPACKEncodeBuffer6appendEh.exit53 ], [ %shr, %while.end41.loopexit ]
   %count.0.lcssa = phi i32 [ 2, %_ZN8proxygen17HPACKEncodeBuffer6appendEh.exit53 ], [ %45, %while.end41.loopexit ]
   %conv42 = trunc nuw nsw i64 %value.addr.0.lcssa to i8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %byte.addr.i89)
+  call void @llvm.lifetime.start.p0(ptr nonnull %byte.addr.i89)
   store i8 %conv42, ptr %byte.addr.i89, align 1
   %46 = load ptr, ptr %second.i.i.i.i.i, align 8
   %47 = load ptr, ptr %buf_.i, align 8
@@ -702,7 +702,7 @@ _ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i114: ; preds = %if.end.i.i.i.i1
   br i1 %cmp4.not.i.i.i120, label %_ZN8proxygen17HPACKEncodeBuffer6appendEh.exit123, label %while.body.i.i.i98, !llvm.loop !4
 
 _ZN8proxygen17HPACKEncodeBuffer6appendEh.exit123: ; preds = %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i114, %if.end.i.i.i93
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %byte.addr.i89)
+  call void @llvm.lifetime.end.p0(ptr nonnull %byte.addr.i89)
   br label %return
 
 return:                                           ; preds = %_ZN8proxygen17HPACKEncodeBuffer6appendEh.exit123, %_ZN8proxygen17HPACKEncodeBuffer6appendEh.exit
@@ -976,10 +976,10 @@ declare i32 @llvm.umax.i32(i32, i32) #9
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -208,7 +208,7 @@ define noundef range(i32 0, 1114113) i32 @"_ZN66_$LT$$RF$str$u20$as$u20$fish_pri
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !3
   %8 = getelementptr i8, ptr %5, i64 %7
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = icmp ugt i64 %1, 31
   br i1 %9, label %10, label %.loopexit.i
 
@@ -248,7 +248,7 @@ define noundef range(i32 0, 1114113) i32 @"_ZN66_$LT$$RF$str$u20$as$u20$fish_pri
   %.sroa.0.237.i = phi i64 [ %1, %.lr.ph.i ], [ %26, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcc65d5bcc0d5b6b0E.exit.i" ]
   %.sroa.06.036.i = phi i64 [ 0, %.lr.ph.i ], [ %24, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcc65d5bcc0d5b6b0E.exit.i" ]
   %.sroa.0.02835.i = phi ptr [ %5, %.lr.ph.i ], [ %23, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcc65d5bcc0d5b6b0E.exit.i" ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %4, i8 0, i64 32, i1 false), !noalias !5
   br label %29
 
@@ -276,7 +276,7 @@ define noundef range(i32 0, 1114113) i32 @"_ZN66_$LT$$RF$str$u20$as$u20$fish_pri
   call void @"_ZN129_$LT$$u5b$core..mem..maybe_uninit..MaybeUninit$LT$T$GT$$u3b$$u20$N$u5d$$u20$as$u20$core..array..iter..iter_inner..PartialDrop$GT$12partial_drop17h65f9812c17a7eaccE"(ptr noalias noundef nonnull align 1 dereferenceable(32) %.sroa.5.0..sroa_idx.i, i64 noundef 32, i64 noundef 32), !noalias !5
   %25 = zext i8 %22 to i64
   %26 = sub i64 %.sroa.0.237.i, %25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !5
   %27 = icmp ult i64 %26, 33
   %28 = icmp eq ptr %23, %11
   %or.cond.i = select i1 %27, i1 true, i1 %28
@@ -327,12 +327,12 @@ define noundef range(i32 0, 1114113) i32 @"_ZN66_$LT$$RF$str$u20$as$u20$fish_pri
   br i1 %.not20.i, label %.loopexit, label %40
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17ha1b3d23be590f52eE.exit": ; preds = %40
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN4core3str11validations15next_code_point17h4fe5aabfe0335b9bE.exit
 
 .loopexit:                                        ; preds = %41, %.loopexit.i
   %.sroa.0.3.ph = phi ptr [ %.sroa.0.06, %.loopexit.i ], [ %50, %41 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %.sroa.0.3.ph, %8
   br i1 %.not, label %_ZN4core3str11validations15next_code_point17h4fe5aabfe0335b9bE.exit, label %51
 
@@ -479,7 +479,7 @@ define void @"_ZN66_$LT$$RF$str$u20$as$u20$fish_printf..printf_impl..FormatStrin
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 51:                                               ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @anon.06514d8631aac3abcaef8726b053ce7c.29, ptr %3, align 8
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %52, align 8
@@ -682,7 +682,7 @@ define { ptr, i64 } @"_ZN66_$LT$$RF$str$u20$as$u20$fish_printf..printf_impl..For
   %.sroa.0.0.i.i11 = phi i64 [ 0, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0d91c4da6649dfddE.exit.thread" ], [ 0, %54 ], [ %.sroa.01.022.i.i.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cb4e8776eb6df79E.exit.thread.i.i.i10" ], [ %.sroa.01.022.i.i.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cb4e8776eb6df79E.exit.i.i.i14" ], [ %99, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h96cf58f4b44dfbf4E.exit.i.i.i" ]
   %100 = and i64 %.sroa.0.0.i.i11, -2
   %101 = add i64 %100, %.sroa.0.0.i.i2334
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %102 = icmp eq i64 %101, 0
   br i1 %102, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16split_at_checked17hed3c508f63182950E.exit", label %103
 
@@ -718,7 +718,7 @@ define { ptr, i64 } @"_ZN66_$LT$$RF$str$u20$as$u20$fish_printf..printf_impl..For
   %116 = load ptr, ptr %115, align 8, !nonnull !3, !align !4, !noundef !3
   %117 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %118 = load i64, ptr %117, align 8, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %116, ptr %0, align 8
   store i64 %118, ptr %5, align 8
   %119 = sub i64 %114, %112
@@ -778,10 +778,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @_ZN4core3str16slice_error_fail17hc6990271b5365929E(ptr noalias noundef nonnull readonly align 1, i64 noundef, i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10

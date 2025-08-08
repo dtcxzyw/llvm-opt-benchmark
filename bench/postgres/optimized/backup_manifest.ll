@@ -108,11 +108,8 @@ declare ptr @pg_cryptohash_create(i32 noundef) local_unnamed_addr #2
 
 declare i32 @pg_cryptohash_init(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
@@ -168,9 +165,6 @@ define internal fastcc void @AppendStringToManifest(ptr noundef captures(none) %
 
 declare void @pfree(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nounwind uwtable
 define dso_local void @FreeBackupManifest(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -189,8 +183,8 @@ define dso_local void @AddFileToBackupManifest(ptr noundef captures(none) %0, i3
   %9 = alloca %struct.StringInfoData, align 8
   %10 = alloca [64 x i8], align 16
   store i64 %4, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.val = load ptr, ptr %0, align 8
   %.not26 = icmp eq ptr %.val, null
   br i1 %.not26, label %75, label %11
@@ -278,7 +272,7 @@ define dso_local void @AddFileToBackupManifest(ptr noundef captures(none) %0, i3
   br i1 %.not25, label %72, label %53
 
 53:                                               ; preds = %41
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %54 = call i32 @pg_checksum_final(ptr noundef nonnull %5, ptr noundef nonnull %10) #8
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %56, label %59
@@ -307,7 +301,7 @@ define dso_local void @AddFileToBackupManifest(ptr noundef captures(none) %0, i3
   %71 = add i32 %69, %70
   store i32 %71, ptr %43, align 8
   call void @appendStringInfoChar(ptr noundef nonnull %9, i8 noundef signext 34) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %72
 
 72:                                               ; preds = %59, %41
@@ -319,8 +313,8 @@ define dso_local void @AddFileToBackupManifest(ptr noundef captures(none) %0, i3
   br label %75
 
 75:                                               ; preds = %6, %72
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -333,7 +327,7 @@ declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unname
 declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare zeroext i1 @pg_verify_mbstr(i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
@@ -474,8 +468,8 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 define dso_local void @SendBackupManifest(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [32 x i8], align 16
   %4 = alloca [65 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.val = load ptr, ptr %0, align 8
   %.not28 = icmp eq ptr %.val, null
   br i1 %.not28, label %49, label %5
@@ -561,8 +555,8 @@ define dso_local void @SendBackupManifest(ptr noundef captures(none) %0, ptr nou
   br label %49
 
 49:                                               ; preds = %2, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -580,6 +574,12 @@ declare i32 @pg_cryptohash_update(ptr noundef, ptr noundef, i64 noundef) local_u
 
 declare void @BufFileWrite(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #6
 
@@ -589,9 +589,9 @@ declare i64 @llvm.umin.i64(i64, i64) #7
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }

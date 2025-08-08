@@ -82,12 +82,6 @@ define ptr @av_tree_find(ptr noundef readonly captures(address_is_null) %0, ptr 
   ret ptr %.1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind uwtable
 define ptr @av_tree_insert(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [2 x ptr], align 16
@@ -126,14 +120,14 @@ define ptr @av_tree_insert(ptr noundef captures(none) %0, ptr noundef %1, ptr no
 20:                                               ; preds = %17, %15
   %.sroa.sel.idx.sroa.phi = phi ptr [ %.sroa.sel.idx.sroa.gep, %17 ], [ %5, %15 ]
   %.neg = sext i1 %.not93 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %21 = zext i1 %.not93 to i64
   %22 = getelementptr inbounds nuw [2 x ptr], ptr %6, i64 0, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !10
   %24 = call ptr @av_tree_find(ptr noundef %23, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5)
   %25 = load ptr, ptr %.sroa.sel.idx.sroa.phi, align 8, !tbaa !12
   store ptr %25, ptr %8, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %27
 
 26:                                               ; preds = %17
@@ -346,6 +340,12 @@ define void @av_tree_enumerate(ptr noundef readonly captures(address_is_null) %0
 ._crit_edge:                                      ; preds = %.thread20, %15, %.thread21.us, %4
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

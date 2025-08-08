@@ -18,7 +18,7 @@ define zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..functi
   tail call void @llvm.assume(i1 %5)
   %.val = load ptr, ptr %4, align 8, !nonnull !3, !align !4, !noundef !3
   %.val1 = load ptr, ptr %1, align 8, !nonnull !3, !align !4, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = load ptr, ptr %.val, align 8, !nonnull !3, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !3
@@ -27,7 +27,7 @@ define zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..functi
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %9, ptr %10, align 8
   %11 = call zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hb844b111d5be2405E"(ptr nonnull align 8 %3, ptr nonnull align 8 %.val1)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %11
 }
 
@@ -38,7 +38,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   tail call void @llvm.assume(i1 %5)
   %.val = load ptr, ptr %1, align 8, !nonnull !3, !align !4, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %7 = load i64, ptr %6, align 8, !noalias !5, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %.val, i64 16
@@ -54,7 +54,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -260,10 +260,10 @@ declare void @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb3c73e2bde1503e3E"(
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #6

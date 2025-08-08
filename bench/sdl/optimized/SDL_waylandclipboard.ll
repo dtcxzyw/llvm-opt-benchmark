@@ -81,21 +81,15 @@ define hidden zeroext i1 @Wayland_SetClipboardData(ptr noundef %0) local_unnamed
   ret i1 %.022
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @Wayland_data_source_create(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Wayland_data_source_create(ptr noundef) local_unnamed_addr #2
+declare void @Wayland_data_source_set_callback(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @Wayland_data_source_set_callback(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @Wayland_data_device_set_selection(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @Wayland_data_device_set_selection(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @Wayland_data_source_destroy(ptr noundef) local_unnamed_addr #1
 
-declare void @Wayland_data_source_destroy(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare zeroext i1 @Wayland_data_device_clear_selection(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @Wayland_data_device_clear_selection(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @Wayland_GetClipboardData(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -138,11 +132,11 @@ define hidden ptr @Wayland_GetClipboardData(ptr noundef %0, ptr noundef %1, ptr 
   ret ptr %.0
 }
 
-declare ptr @SDL_GetInternalClipboardData(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetInternalClipboardData(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @Wayland_data_offer_has_mime(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @Wayland_data_offer_has_mime(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @Wayland_data_offer_receive(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Wayland_data_offer_receive(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @Wayland_HasClipboardData(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -180,10 +174,10 @@ define hidden zeroext i1 @Wayland_HasClipboardData(ptr noundef %0, ptr noundef %
   ret i1 %.0
 }
 
-declare zeroext i1 @SDL_HasInternalClipboardData(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_HasInternalClipboardData(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef nonnull ptr @Wayland_GetTextMimeTypes(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #3 {
+define hidden noundef nonnull ptr @Wayland_GetTextMimeTypes(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #2 {
   store i64 5, ptr %1, align 8
   ret ptr @text_mime_types
 }
@@ -246,21 +240,21 @@ define hidden zeroext i1 @Wayland_SetPrimarySelectionText(ptr noundef %0, ptr no
   ret i1 %.1.in
 }
 
-declare ptr @Wayland_primary_selection_source_create(ptr noundef) local_unnamed_addr #2
+declare ptr @Wayland_primary_selection_source_create(ptr noundef) local_unnamed_addr #1
 
-declare void @Wayland_primary_selection_source_set_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Wayland_primary_selection_source_set_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_ClipboardTextCallback(ptr noundef, ptr noundef, ptr noundef) #2
+declare ptr @SDL_ClipboardTextCallback(ptr noundef, ptr noundef, ptr noundef) #1
 
-declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @Wayland_primary_selection_device_set_selection(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare zeroext i1 @Wayland_primary_selection_device_set_selection(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @Wayland_primary_selection_source_destroy(ptr noundef) local_unnamed_addr #2
+declare void @Wayland_primary_selection_source_destroy(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @Wayland_primary_selection_device_clear_selection(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @Wayland_primary_selection_device_clear_selection(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @Wayland_GetPrimarySelectionText(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -269,7 +263,7 @@ define hidden ptr @Wayland_GetPrimarySelectionText(ptr noundef readonly captures
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 280
   %6 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %.thread, label %7
@@ -325,15 +319,15 @@ define hidden ptr @Wayland_GetPrimarySelectionText(ptr noundef readonly captures
 
 30:                                               ; preds = %.thread, %28
   %.3 = phi ptr [ %.014, %28 ], [ %29, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.3
 }
 
-declare ptr @Wayland_primary_selection_source_get_data(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Wayland_primary_selection_source_get_data(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @Wayland_primary_selection_offer_has_mime(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @Wayland_primary_selection_offer_has_mime(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @Wayland_primary_selection_offer_receive(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Wayland_primary_selection_offer_receive(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @Wayland_HasPrimarySelectionText(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -376,10 +370,16 @@ define hidden noundef zeroext i1 @Wayland_HasPrimarySelectionText(ptr noundef re
   ret i1 %.012
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

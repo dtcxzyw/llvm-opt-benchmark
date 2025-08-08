@@ -37,11 +37,11 @@ define dso_local range(i32 0, 2) i32 @main() local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca double, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store double -1.000000e+01, ptr %1, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @SUNContext_Create(i32 noundef 0, ptr noundef nonnull %4) #7
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %check_flag.exit, label %9
@@ -186,26 +186,23 @@ check_flag.exit61:                                ; preds = %.lr.ph
 
 81:                                               ; preds = %check_flag.exit59, %check_flag.exit57, %check_flag.exit55, %check_flag.exit53, %check_flag.exit51, %check_flag.exit49, %check_flag.exit47, %check_flag.exit, %.loopexit
   %.033 = phi i32 [ 0, %.loopexit ], [ 1, %check_flag.exit ], [ 1, %check_flag.exit47 ], [ 1, %check_flag.exit49 ], [ 1, %check_flag.exit51 ], [ 1, %check_flag.exit53 ], [ 1, %check_flag.exit55 ], [ 1, %check_flag.exit57 ], [ 1, %check_flag.exit59 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.033
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @SUNContext_Create(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNContext_Create(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
-declare ptr @N_VNew_Serial(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @N_VNew_Serial(i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @LSRKStepCreateSSP(ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @LSRKStepCreateSSP(ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @f(double noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
@@ -223,30 +220,30 @@ define internal noundef i32 @f(double noundef %0, ptr noundef %1, ptr noundef %2
   ret i32 0
 }
 
-declare i32 @ARKodeSetUserData(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetUserData(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ARKodeSStolerances(ptr noundef, double noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSStolerances(ptr noundef, double noundef, double noundef) local_unnamed_addr #1
 
-declare i32 @ARKodeSetMaxNumSteps(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMaxNumSteps(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @LSRKStepSetSSPMethod(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @LSRKStepSetSSPMethod(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @LSRKStepSetNumSSPStages(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
+declare i32 @LSRKStepSetNumSSPStages(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
-
-declare ptr @N_VGetArrayPointer(ptr noundef) local_unnamed_addr #2
-
-declare i32 @ARKodeEvolve(ptr noundef, double noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
-declare i32 @ARKodePrintAllStats(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @N_VGetArrayPointer(ptr noundef) local_unnamed_addr #1
+
+declare i32 @ARKodeEvolve(ptr noundef, double noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
+
+declare i32 @ARKodePrintAllStats(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @compute_error(ptr noundef %0, double noundef %1) unnamed_addr #0 {
@@ -260,23 +257,26 @@ define internal fastcc void @compute_error(ptr noundef %0, double noundef %1) un
   ret void
 }
 
-declare void @N_VDestroy(ptr noundef) local_unnamed_addr #2
+declare void @N_VDestroy(ptr noundef) local_unnamed_addr #1
 
-declare void @ARKodeFree(ptr noundef) local_unnamed_addr #2
+declare void @ARKodeFree(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNContext_Free(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @SUNContext_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #4
+declare double @llvm.fmuladd.f64(double, double, double) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @atan(double noundef) local_unnamed_addr #5
+declare double @atan(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #4
+declare double @llvm.fabs.f64(double) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #6
@@ -285,11 +285,11 @@ declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_add
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nofree nounwind }
 attributes #7 = { nounwind }
 attributes #8 = { cold nounwind }

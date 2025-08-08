@@ -266,8 +266,8 @@ define hidden void @_ZN9xmlStream4elemEPKcz(ptr noundef nonnull align 8 derefere
   %4 = alloca i64, align 8
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = call noundef ptr @_ZN12outputStream12do_vsnprintfEPcmPKcP13__va_list_tagbRm(ptr noundef nonnull %3, i64 noundef 2048, ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %4) #8
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -281,8 +281,8 @@ define hidden void @_ZN9xmlStream4elemEPKcz(ptr noundef nonnull align 8 derefere
   call void %13(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %6, i64 noundef %10) #8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 2, ptr %14, align 8
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull @.str.9, i64 noundef 3) #8
   store i32 0, ptr %14, align 8
   call void @llvm.va_end.p0(ptr nonnull %5)
@@ -293,8 +293,8 @@ define hidden void @_ZN9xmlStream4elemEPKcz(ptr noundef nonnull align 8 derefere
 define hidden void @_ZN9xmlStream7va_elemEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca [2048 x i8], align 16
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call noundef ptr @_ZN12outputStream12do_vsnprintfEPcmPKcP13__va_list_tagbRm(ptr noundef nonnull %4, i64 noundef 2048, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %5) #8
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -308,8 +308,8 @@ define hidden void @_ZN9xmlStream7va_elemEPKcP13__va_list_tag(ptr noundef nonnul
   call void %13(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %6, i64 noundef %10) #8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 2, ptr %14, align 8
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull @.str.9, i64 noundef 3) #8
   store i32 0, ptr %14, align 8
   ret void
@@ -319,8 +319,8 @@ define hidden void @_ZN9xmlStream7va_elemEPKcP13__va_list_tag(ptr noundef nonnul
 define hidden void @_ZN9xmlStream13va_begin_elemEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca [2048 x i8], align 16
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call noundef ptr @_ZN12outputStream12do_vsnprintfEPcmPKcP13__va_list_tagbRm(ptr noundef nonnull %4, i64 noundef 2048, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %5) #8
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -334,8 +334,8 @@ define hidden void @_ZN9xmlStream13va_begin_elemEPKcP13__va_list_tag(ptr noundef
   call void %13(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %6, i64 noundef %10) #8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 2, ptr %14, align 8
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -353,8 +353,8 @@ define hidden void @_ZN9xmlStream10begin_elemEPKcz(ptr noundef nonnull align 8 d
   %4 = alloca i64, align 8
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = call noundef ptr @_ZN12outputStream12do_vsnprintfEPcmPKcP13__va_list_tagbRm(ptr noundef nonnull %3, i64 noundef 2048, ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %4) #8
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -368,8 +368,8 @@ define hidden void @_ZN9xmlStream10begin_elemEPKcz(ptr noundef nonnull align 8 d
   call void %13(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %6, i64 noundef %10) #8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 2, ptr %14, align 8
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.va_end.p0(ptr nonnull %5)
   ret void
 }
@@ -396,8 +396,8 @@ define hidden void @_ZN9xmlStream4headEPKcz(ptr noundef nonnull align 8 derefere
   %4 = alloca i64, align 8
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = call noundef ptr @_ZN12outputStream12do_vsnprintfEPcmPKcP13__va_list_tagbRm(ptr noundef nonnull %3, i64 noundef 2048, ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %4) #8
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -411,8 +411,8 @@ define hidden void @_ZN9xmlStream4headEPKcz(ptr noundef nonnull align 8 derefere
   call void %13(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %6, i64 noundef %10) #8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 1, ptr %14, align 8
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull @.str.10, i64 noundef 2) #8
   store i32 0, ptr %14, align 8
   call void @llvm.va_end.p0(ptr nonnull %5)
@@ -423,8 +423,8 @@ define hidden void @_ZN9xmlStream4headEPKcz(ptr noundef nonnull align 8 derefere
 define hidden void @_ZN9xmlStream7va_headEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca [2048 x i8], align 16
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call noundef ptr @_ZN12outputStream12do_vsnprintfEPcmPKcP13__va_list_tagbRm(ptr noundef nonnull %4, i64 noundef 2048, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %5) #8
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -438,8 +438,8 @@ define hidden void @_ZN9xmlStream7va_headEPKcP13__va_list_tag(ptr noundef nonnul
   call void %13(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %6, i64 noundef %10) #8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 1, ptr %14, align 8
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull @.str.10, i64 noundef 2) #8
   store i32 0, ptr %14, align 8
   ret void
@@ -449,8 +449,8 @@ define hidden void @_ZN9xmlStream7va_headEPKcP13__va_list_tag(ptr noundef nonnul
 define hidden void @_ZN9xmlStream13va_begin_headEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca [2048 x i8], align 16
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call noundef ptr @_ZN12outputStream12do_vsnprintfEPcmPKcP13__va_list_tagbRm(ptr noundef nonnull %4, i64 noundef 2048, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %5) #8
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -464,8 +464,8 @@ define hidden void @_ZN9xmlStream13va_begin_headEPKcP13__va_list_tag(ptr noundef
   call void %13(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %6, i64 noundef %10) #8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 1, ptr %14, align 8
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -483,8 +483,8 @@ define hidden void @_ZN9xmlStream10begin_headEPKcz(ptr noundef nonnull align 8 d
   %4 = alloca i64, align 8
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = call noundef ptr @_ZN12outputStream12do_vsnprintfEPcmPKcP13__va_list_tagbRm(ptr noundef nonnull %3, i64 noundef 2048, ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %4) #8
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -498,8 +498,8 @@ define hidden void @_ZN9xmlStream10begin_headEPKcz(ptr noundef nonnull align 8 d
   call void %13(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %6, i64 noundef %10) #8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 1, ptr %14, align 8
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.va_end.p0(ptr nonnull %5)
   ret void
 }
@@ -576,8 +576,8 @@ define hidden void @_ZN9xmlStream7va_doneEPKcP13__va_list_tag(ptr noundef nonnul
 
 23:                                               ; preds = %21, %14
   %.0 = phi i64 [ %17, %14 ], [ %7, %21 ]
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %24 = call noundef ptr @_ZN12outputStream12do_vsnprintfEPcmPKcP13__va_list_tagbRm(ptr noundef nonnull %4, i64 noundef 2048, ptr noundef nonnull %6, ptr noundef %2, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %5) #8
   %25 = load ptr, ptr %0, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
@@ -591,8 +591,8 @@ define hidden void @_ZN9xmlStream7va_doneEPKcP13__va_list_tag(ptr noundef nonnul
   call void %31(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %24, i64 noundef %28) #8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 2, ptr %32, align 8
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull @.str.20, i64 noundef 8) #8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %34 = load ptr, ptr %33, align 8
@@ -1260,10 +1260,10 @@ declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

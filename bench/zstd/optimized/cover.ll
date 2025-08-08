@@ -72,14 +72,8 @@ define i64 @COVER_sum(ptr noundef readonly captures(none) %0, i32 noundef %1) lo
   ret i64 %.06.lcssa
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree nounwind uwtable
-define void @COVER_warnOnSmallCorpus(i64 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define void @COVER_warnOnSmallCorpus(i64 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = uitofp i64 %1 to double
   %5 = uitofp i64 %0 to double
   %6 = fdiv double %4, %5
@@ -102,13 +96,13 @@ define void @COVER_warnOnSmallCorpus(i64 noundef %0, i64 noundef %1, i32 noundef
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @COVER_computeEpochs(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
+define i64 @COVER_computeEpochs(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = mul i32 %2, 10
   %6 = udiv i32 %0, %2
   %7 = icmp ugt i32 %3, %6
@@ -140,11 +134,11 @@ define i64 @COVER_computeEpochs(i32 noundef %0, i32 noundef %1, i32 noundef %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZDICT_trainFromBuffer_cover(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 captures(none) initializes((16, 24)) %5) local_unnamed_addr #5 {
+define i64 @ZDICT_trainFromBuffer_cover(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 captures(none) initializes((16, 24)) %5) local_unnamed_addr #4 {
   %7 = alloca %struct.COVER_ctx_t, align 8
   %8 = alloca %struct.COVER_map_s, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7) #22
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double 1.000000e+00, ptr %9, align 8, !tbaa !12
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -170,7 +164,7 @@ define i64 @ZDICT_trainFromBuffer_cover(ptr noundef %0, i64 noundef %1, ptr noun
 
 25:                                               ; preds = %23
   %26 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %27 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 27, i64 1, ptr %26) #23
+  %27 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 27, i64 1, ptr %26) #22
   %28 = load ptr, ptr @stderr, align 8, !tbaa !9
   %29 = tail call i32 @fflush(ptr noundef %28)
   br label %COVER_ctx_destroy.exit
@@ -185,7 +179,7 @@ COVER_checkParameters.exit:                       ; preds = %6
 
 33:                                               ; preds = %31
   %34 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %35 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 40, i64 1, ptr %34) #23
+  %35 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 40, i64 1, ptr %34) #22
   %36 = load ptr, ptr @stderr, align 8, !tbaa !9
   %37 = tail call i32 @fflush(ptr noundef %36)
   br label %COVER_ctx_destroy.exit
@@ -247,7 +241,7 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
   store i32 %73, ptr %74, align 8, !tbaa !29
   %75 = zext i32 %71 to i64
   %76 = shl nuw nsw i64 %75, 3
-  %77 = call noalias ptr @malloc(i64 noundef %76) #24
+  %77 = call noalias ptr @malloc(i64 noundef %76) #23
   store ptr %77, ptr %8, align 8, !tbaa !30
   %.not.i = icmp eq ptr %77, null
   br i1 %.not.i, label %78, label %102
@@ -259,7 +253,7 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
 
 81:                                               ; preds = %78
   %82 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %83 = call i64 @fwrite(ptr nonnull @.str.4, i64 43, i64 1, ptr %82) #23
+  %83 = call i64 @fwrite(ptr nonnull @.str.4, i64 43, i64 1, ptr %82) #22
   %84 = load ptr, ptr @stderr, align 8, !tbaa !9
   %85 = call i32 @fflush(ptr noundef %84)
   br label %86
@@ -271,7 +265,7 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
   br i1 %.not.i33, label %90, label %89
 
 89:                                               ; preds = %86
-  call void @free(ptr noundef nonnull %88) #22
+  call void @free(ptr noundef nonnull %88) #24
   store ptr null, ptr %87, align 8, !tbaa !31
   br label %90
 
@@ -282,7 +276,7 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
   br i1 %.not17.i, label %94, label %93
 
 93:                                               ; preds = %90
-  call void @free(ptr noundef nonnull %92) #22
+  call void @free(ptr noundef nonnull %92) #24
   store ptr null, ptr %91, align 8, !tbaa !32
   br label %94
 
@@ -293,7 +287,7 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
   br i1 %.not18.i, label %98, label %97
 
 97:                                               ; preds = %94
-  call void @free(ptr noundef nonnull %96) #22
+  call void @free(ptr noundef nonnull %96) #24
   store ptr null, ptr %95, align 8, !tbaa !33
   br label %98
 
@@ -304,7 +298,7 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
   br i1 %.not19.i, label %COVER_ctx_destroy.exit, label %101
 
 101:                                              ; preds = %98
-  call void @free(ptr noundef nonnull %100) #22
+  call void @free(ptr noundef nonnull %100) #24
   br label %COVER_ctx_destroy.exit
 
 102:                                              ; preds = %COVER_warnOnSmallCorpus.exit
@@ -315,7 +309,7 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
 
 105:                                              ; preds = %102
   %106 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %107 = call i64 @fwrite(ptr nonnull @.str.5, i64 20, i64 1, ptr %106) #23
+  %107 = call i64 @fwrite(ptr nonnull @.str.5, i64 20, i64 1, ptr %106) #22
   %108 = load ptr, ptr @stderr, align 8, !tbaa !9
   %109 = call i32 @fflush(ptr noundef %108)
   br label %110
@@ -326,7 +320,7 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
   %113 = call fastcc i64 @COVER_buildDictionary(ptr noundef nonnull %7, ptr noundef %112, ptr noundef %8, ptr noundef %0, i64 noundef %1, i32 %16, i32 %14)
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 %113
   %115 = sub i64 %1, %113
-  %116 = call i64 @ZDICT_finalizeDictionary(ptr noundef %0, i64 noundef %1, ptr noundef %114, i64 noundef %115, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull byval(%struct.ZDICT_params_t) align 8 %10) #22
+  %116 = call i64 @ZDICT_finalizeDictionary(ptr noundef %0, i64 noundef %1, ptr noundef %114, i64 noundef %115, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull byval(%struct.ZDICT_params_t) align 8 %10) #24
   %117 = icmp ult i64 %116, -119
   %118 = load i32, ptr @g_displayLevel, align 4
   %119 = icmp sgt i32 %118, 1
@@ -348,7 +342,7 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
   br i1 %.not.i34, label %130, label %129
 
 129:                                              ; preds = %126
-  call void @free(ptr noundef nonnull %128) #22
+  call void @free(ptr noundef nonnull %128) #24
   store ptr null, ptr %127, align 8, !tbaa !31
   br label %130
 
@@ -358,7 +352,7 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
   br i1 %.not17.i35, label %133, label %132
 
 132:                                              ; preds = %130
-  call void @free(ptr noundef nonnull %131) #22
+  call void @free(ptr noundef nonnull %131) #24
   store ptr null, ptr %111, align 8, !tbaa !32
   br label %133
 
@@ -369,7 +363,7 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
   br i1 %.not18.i36, label %137, label %136
 
 136:                                              ; preds = %133
-  call void @free(ptr noundef nonnull %135) #22
+  call void @free(ptr noundef nonnull %135) #24
   store ptr null, ptr %134, align 8, !tbaa !33
   br label %137
 
@@ -380,22 +374,22 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
   br i1 %.not19.i37, label %COVER_map_destroy.exit, label %140
 
 140:                                              ; preds = %137
-  call void @free(ptr noundef nonnull %139) #22
+  call void @free(ptr noundef nonnull %139) #24
   br label %COVER_map_destroy.exit
 
 COVER_map_destroy.exit:                           ; preds = %137, %140
-  call void @free(ptr noundef nonnull %77) #22
+  call void @free(ptr noundef nonnull %77) #24
   br label %COVER_ctx_destroy.exit
 
 COVER_ctx_destroy.exit:                           ; preds = %101, %98, %40, %42, %31, %33, %23, %25, %47, %COVER_map_destroy.exit
   %.0 = phi i64 [ %116, %COVER_map_destroy.exit ], [ %48, %47 ], [ -42, %25 ], [ -42, %23 ], [ -72, %33 ], [ -72, %31 ], [ -70, %42 ], [ -70, %40 ], [ -64, %98 ], [ -64, %101 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -72, 1) i64 @COVER_ctx_init(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 0) %3, i32 noundef %4, double noundef %5) unnamed_addr #5 {
+define internal fastcc range(i64 -72, 1) i64 @COVER_ctx_init(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 0) %3, i32 noundef %4, double noundef %5) unnamed_addr #4 {
   %wide.trip.count.i = zext i32 %3 to i64
   br label %.lr.ph.i
 
@@ -555,16 +549,16 @@ COVER_sum.exit104:                                ; preds = %.lr.ph.i108, %.loop
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %84, ptr %85, align 8, !tbaa !20
   %86 = shl i64 %84, 2
-  %87 = tail call noalias ptr @malloc(i64 noundef %86) #24
+  %87 = tail call noalias ptr @malloc(i64 noundef %86) #23
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %87, ptr %88, align 8, !tbaa !31
-  %89 = tail call noalias ptr @malloc(i64 noundef %86) #24
+  %89 = tail call noalias ptr @malloc(i64 noundef %86) #23
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %89, ptr %90, align 8, !tbaa !33
   %91 = add i32 %3, 1
   %92 = zext i32 %91 to i64
   %93 = shl nuw nsw i64 %92, 3
-  %94 = tail call noalias ptr @malloc(i64 noundef %93) #24
+  %94 = tail call noalias ptr @malloc(i64 noundef %93) #23
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %94, ptr %95, align 8, !tbaa !34
   %.not = icmp eq ptr %87, null
@@ -583,7 +577,7 @@ COVER_sum.exit104:                                ; preds = %.lr.ph.i108, %.loop
 
 100:                                              ; preds = %97
   %101 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %102 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 35, i64 1, ptr %101) #23
+  %102 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 35, i64 1, ptr %101) #22
   %103 = load ptr, ptr @stderr, align 8, !tbaa !9
   %104 = tail call i32 @fflush(ptr noundef %103)
   %.pre128 = load ptr, ptr %88, align 8, !tbaa !31
@@ -595,7 +589,7 @@ COVER_sum.exit104:                                ; preds = %.lr.ph.i108, %.loop
   br i1 %.not.i115, label %108, label %107
 
 107:                                              ; preds = %105
-  tail call void @free(ptr noundef nonnull %106) #22
+  tail call void @free(ptr noundef nonnull %106) #24
   store ptr null, ptr %88, align 8, !tbaa !31
   br label %108
 
@@ -606,7 +600,7 @@ COVER_sum.exit104:                                ; preds = %.lr.ph.i108, %.loop
   br i1 %.not17.i, label %112, label %111
 
 111:                                              ; preds = %108
-  tail call void @free(ptr noundef nonnull %110) #22
+  tail call void @free(ptr noundef nonnull %110) #24
   store ptr null, ptr %109, align 8, !tbaa !32
   br label %112
 
@@ -616,7 +610,7 @@ COVER_sum.exit104:                                ; preds = %.lr.ph.i108, %.loop
   br i1 %.not18.i, label %115, label %114
 
 114:                                              ; preds = %112
-  tail call void @free(ptr noundef nonnull %113) #22
+  tail call void @free(ptr noundef nonnull %113) #24
   store ptr null, ptr %90, align 8, !tbaa !33
   br label %115
 
@@ -626,7 +620,7 @@ COVER_sum.exit104:                                ; preds = %.lr.ph.i108, %.loop
   br i1 %.not19.i, label %COVER_ctx_destroy.exit, label %117
 
 117:                                              ; preds = %115
-  tail call void @free(ptr noundef nonnull %116) #22
+  tail call void @free(ptr noundef nonnull %116) #24
   store ptr null, ptr %95, align 8, !tbaa !34
   br label %COVER_ctx_destroy.exit
 
@@ -660,7 +654,7 @@ COVER_sum.exit104:                                ; preds = %.lr.ph.i108, %.loop
 
 131:                                              ; preds = %128
   %132 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %133 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 34, i64 1, ptr %132) #23
+  %133 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 34, i64 1, ptr %132) #22
   %134 = load ptr, ptr @stderr, align 8, !tbaa !9
   %135 = tail call i32 @fflush(ptr noundef %134)
   %.pre = load i64, ptr %85, align 8, !tbaa !20
@@ -687,14 +681,14 @@ COVER_sum.exit104:                                ; preds = %.lr.ph.i108, %.loop
   %143 = load i32, ptr %120, align 8, !tbaa !40
   %144 = icmp ult i32 %143, 9
   %145 = select i1 %144, ptr @COVER_strict_cmp8, ptr @COVER_strict_cmp
-  tail call void @qsort_r(ptr noundef %.pre127, i64 noundef %137, i64 noundef 4, ptr noundef nonnull %145, ptr noundef nonnull %0) #22
+  tail call void @qsort_r(ptr noundef %.pre127, i64 noundef %137, i64 noundef 4, ptr noundef nonnull %145, ptr noundef nonnull %0) #24
   %146 = load i32, ptr @g_displayLevel, align 4, !tbaa !18
   %147 = icmp sgt i32 %146, 1
   br i1 %147, label %148, label %153
 
 148:                                              ; preds = %._crit_edge
   %149 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %150 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 22, i64 1, ptr %149) #23
+  %150 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 22, i64 1, ptr %149) #22
   %151 = load ptr, ptr @stderr, align 8, !tbaa !9
   %152 = tail call i32 @fflush(ptr noundef %151)
   br label %153
@@ -725,7 +719,7 @@ COVER_sum.exit104:                                ; preds = %.lr.ph.i108, %.loop
 
 162:                                              ; preds = %161
   %.1.i = add i64 %.1.in.i, 1
-  %163 = tail call i32 %158(ptr noundef nonnull %0, ptr noundef %.0201.i, ptr noundef nonnull %.0.i) #22, !callees !43
+  %163 = tail call i32 %158(ptr noundef nonnull %0, ptr noundef %.0201.i, ptr noundef nonnull %.0.i) #24, !callees !43
   %164 = icmp eq i32 %163, 0
   br i1 %164, label %161, label %.critedge.i, !llvm.loop !44
 
@@ -822,7 +816,7 @@ COVER_ctx_destroy.exit:                           ; preds = %117, %115, %53, %56
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @COVER_buildDictionary(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i64 noundef %4, i32 %.0.val, i32 %.4.val) unnamed_addr #5 {
+define internal fastcc i64 @COVER_buildDictionary(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i64 noundef %4, i32 %.0.val, i32 %.4.val) unnamed_addr #4 {
   %6 = trunc i64 %4 to i32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i64, ptr %7, align 8, !tbaa !20
@@ -1187,7 +1181,7 @@ COVER_selectSegment.exit:                         ; preds = %.lr.ph24.i, %.prehe
   br i1 %190, label %191, label %.thread
 
 191:                                              ; preds = %184
-  %192 = tail call i64 @clock() #22
+  %192 = tail call i64 @clock() #24
   %193 = load i64, ptr @g_time, align 8, !tbaa !3
   %194 = sub nsw i64 %192, %193
   %195 = icmp sgt i64 %194, 150000
@@ -1197,7 +1191,7 @@ COVER_selectSegment.exit:                         ; preds = %.lr.ph24.i, %.prehe
   br i1 %or.cond, label %198, label %.thread
 
 198:                                              ; preds = %191
-  %199 = tail call i64 @clock() #22
+  %199 = tail call i64 @clock() #24
   store i64 %199, ptr @g_time, align 8, !tbaa !3
   %200 = load ptr, ptr @stderr, align 8, !tbaa !9
   %201 = sub i64 %4, %185
@@ -1239,10 +1233,10 @@ COVER_selectSegment.exit.thread:                  ; preds = %37, %COVER_selectSe
   ret i64 %.045.lcssa
 }
 
-declare i64 @ZDICT_finalizeDictionary(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef byval(%struct.ZDICT_params_t) align 8) local_unnamed_addr #6
+declare i64 @ZDICT_finalizeDictionary(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef byval(%struct.ZDICT_params_t) align 8) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i64 @COVER_checkTotalCompressedSize(ptr noundef readonly byval(%struct.ZDICT_cover_params_t) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7) local_unnamed_addr #5 {
+define i64 @COVER_checkTotalCompressedSize(ptr noundef readonly byval(%struct.ZDICT_cover_params_t) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7) local_unnamed_addr #4 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load double, ptr %9, align 8, !tbaa !12
   %11 = fcmp olt double %10, 1.000000e+00
@@ -1262,12 +1256,12 @@ define i64 @COVER_checkTotalCompressedSize(ptr noundef readonly byval(%struct.ZD
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   %.045.lcssa = phi i64 [ 0, %8 ], [ %..045, %.lr.ph ]
-  %17 = tail call i64 @ZSTD_compressBound(i64 noundef %.045.lcssa) #22
-  %18 = tail call noalias ptr @malloc(i64 noundef %17) #24
-  %19 = tail call ptr @ZSTD_createCCtx() #22
+  %17 = tail call i64 @ZSTD_compressBound(i64 noundef %.045.lcssa) #24
+  %18 = tail call noalias ptr @malloc(i64 noundef %17) #23
+  %19 = tail call ptr @ZSTD_createCCtx() #24
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i32, ptr %20, align 8, !tbaa !56
-  %22 = tail call ptr @ZSTD_createCDict(ptr noundef %6, i64 noundef %7, i32 noundef %21) #22
+  %22 = tail call ptr @ZSTD_createCDict(ptr noundef %6, i64 noundef %7, i32 noundef %21) #24
   %23 = icmp eq ptr %18, null
   %24 = icmp eq ptr %19, null
   %or.cond.not = select i1 %23, i1 true, i1 %24
@@ -1285,7 +1279,7 @@ define i64 @COVER_checkTotalCompressedSize(ptr noundef readonly byval(%struct.ZD
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 %27
   %29 = getelementptr inbounds nuw i64, ptr %1, i64 %.158
   %30 = load i64, ptr %29, align 8, !tbaa !3
-  %31 = tail call i64 @ZSTD_compress_usingCDict(ptr noundef nonnull %19, ptr noundef nonnull %18, i64 noundef %17, ptr noundef %28, i64 noundef %30, ptr noundef nonnull %22) #22
+  %31 = tail call i64 @ZSTD_compress_usingCDict(ptr noundef nonnull %19, ptr noundef nonnull %18, i64 noundef %17, ptr noundef %28, i64 noundef %30, ptr noundef nonnull %22) #24
   %32 = icmp ult i64 %31, -119
   br i1 %32, label %33, label %.loopexit
 
@@ -1297,45 +1291,45 @@ define i64 @COVER_checkTotalCompressedSize(ptr noundef readonly byval(%struct.ZD
 
 .loopexit:                                        ; preds = %33, %.lr.ph59, %._crit_edge
   %.047 = phi i64 [ %.mux, %._crit_edge ], [ %34, %33 ], [ %31, %.lr.ph59 ]
-  %36 = tail call i64 @ZSTD_freeCCtx(ptr noundef %19) #22
-  %37 = tail call i64 @ZSTD_freeCDict(ptr noundef %22) #22
+  %36 = tail call i64 @ZSTD_freeCCtx(ptr noundef %19) #24
+  %37 = tail call i64 @ZSTD_freeCDict(ptr noundef %22) #24
   br i1 %23, label %39, label %38
 
 38:                                               ; preds = %.loopexit
-  tail call void @free(ptr noundef nonnull %18) #22
+  tail call void @free(ptr noundef nonnull %18) #24
   br label %39
 
 39:                                               ; preds = %.loopexit, %38
   ret i64 %.047
 }
 
-declare i64 @ZSTD_compressBound(i64 noundef) local_unnamed_addr #6
+declare i64 @ZSTD_compressBound(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
-declare ptr @ZSTD_createCCtx() local_unnamed_addr #6
+declare ptr @ZSTD_createCCtx() local_unnamed_addr #5
 
-declare ptr @ZSTD_createCDict(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
+declare ptr @ZSTD_createCDict(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
 
-declare i64 @ZSTD_compress_usingCDict(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #6
+declare i64 @ZSTD_compress_usingCDict(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
-declare i64 @ZSTD_freeCCtx(ptr noundef) local_unnamed_addr #6
+declare i64 @ZSTD_freeCCtx(ptr noundef) local_unnamed_addr #5
 
-declare i64 @ZSTD_freeCDict(ptr noundef) local_unnamed_addr #6
+declare i64 @ZSTD_freeCDict(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define void @COVER_best_init(ptr noundef %0) local_unnamed_addr #5 {
+define void @COVER_best_init(ptr noundef %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %0, ptr noundef null) #22
+  %4 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %0, ptr noundef null) #24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = tail call i32 @pthread_cond_init(ptr noundef nonnull %5, ptr noundef null) #22
+  %6 = tail call i32 @pthread_cond_init(ptr noundef nonnull %5, ptr noundef null) #24
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
@@ -1349,21 +1343,21 @@ define void @COVER_best_init(ptr noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #9
+declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare i32 @pthread_cond_init(ptr noundef, ptr noundef) local_unnamed_addr #9
+declare i32 @pthread_cond_init(ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define void @COVER_best_wait(ptr noundef %0) local_unnamed_addr #5 {
+define void @COVER_best_wait(ptr noundef %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #22
+  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i64, ptr %4, align 8, !tbaa !60
   %.not67 = icmp eq i64 %5, 0
@@ -1374,13 +1368,13 @@ define void @COVER_best_wait(ptr noundef %0) local_unnamed_addr #5 {
   br label %7
 
 7:                                                ; preds = %.lr.ph, %7
-  %8 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %6, ptr noundef nonnull %0) #22
+  %8 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %6, ptr noundef nonnull %0) #24
   %9 = load i64, ptr %4, align 8, !tbaa !60
   %.not6 = icmp eq i64 %9, 0
   br i1 %.not6, label %._crit_edge, label %7, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %7, %2
-  %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #22
+  %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #24
   br label %11
 
 11:                                               ; preds = %1, %._crit_edge
@@ -1388,20 +1382,20 @@ define void @COVER_best_wait(ptr noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #9
+declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #8
 
-declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #9
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define void @COVER_best_destroy(ptr noundef %0) local_unnamed_addr #5 {
+define void @COVER_best_destroy(ptr noundef %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %18, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #22
+  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i64, ptr %4, align 8, !tbaa !60
   %.not67.i = icmp eq i64 %5, 0
@@ -1412,26 +1406,26 @@ define void @COVER_best_destroy(ptr noundef %0) local_unnamed_addr #5 {
   br label %7
 
 7:                                                ; preds = %7, %.lr.ph.i
-  %8 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %6, ptr noundef nonnull %0) #22
+  %8 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %6, ptr noundef nonnull %0) #24
   %9 = load i64, ptr %4, align 8, !tbaa !60
   %.not6.i = icmp eq i64 %9, 0
   br i1 %.not6.i, label %COVER_best_wait.exit, label %7, !llvm.loop !61
 
 COVER_best_wait.exit:                             ; preds = %7, %2
-  %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #22
+  %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load ptr, ptr %11, align 8, !tbaa !62
   %.not7 = icmp eq ptr %12, null
   br i1 %.not7, label %14, label %13
 
 13:                                               ; preds = %COVER_best_wait.exit
-  tail call void @free(ptr noundef nonnull %12) #22
+  tail call void @free(ptr noundef nonnull %12) #24
   br label %14
 
 14:                                               ; preds = %13, %COVER_best_wait.exit
-  %15 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %0) #22
+  %15 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %0) #24
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %17 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %16) #22
+  %17 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %16) #24
   br label %18
 
 18:                                               ; preds = %1, %14
@@ -1439,23 +1433,23 @@ COVER_best_wait.exit:                             ; preds = %7, %2
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #9
+declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare i32 @pthread_cond_destroy(ptr noundef) local_unnamed_addr #9
+declare i32 @pthread_cond_destroy(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define void @COVER_best_start(ptr noundef %0) local_unnamed_addr #5 {
+define void @COVER_best_start(ptr noundef %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #22
+  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i64, ptr %4, align 8, !tbaa !60
   %6 = add i64 %5, 1
   store i64 %6, ptr %4, align 8, !tbaa !60
-  %7 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #22
+  %7 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #24
   br label %8
 
 8:                                                ; preds = %1, %2
@@ -1463,7 +1457,7 @@ define void @COVER_best_start(ptr noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @COVER_best_finish(ptr noundef %0, ptr noundef readonly byval(%struct.ZDICT_cover_params_t) align 8 captures(none) %1, ptr noundef readonly byval(%struct.COVER_dictSelection) align 8 captures(none) %2) local_unnamed_addr #5 {
+define void @COVER_best_finish(ptr noundef %0, ptr noundef readonly byval(%struct.ZDICT_cover_params_t) align 8 captures(none) %1, ptr noundef readonly byval(%struct.COVER_dictSelection) align 8 captures(none) %2) local_unnamed_addr #4 {
   %4 = load ptr, ptr %2, align 8, !tbaa !63
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !65
@@ -1473,7 +1467,7 @@ define void @COVER_best_finish(ptr noundef %0, ptr noundef readonly byval(%struc
   br i1 %.not, label %41, label %9
 
 9:                                                ; preds = %3
-  %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #22
+  %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %12 = load i64, ptr %11, align 8, !tbaa !60
   %13 = add i64 %12, -1
@@ -1496,11 +1490,11 @@ define void @COVER_best_finish(ptr noundef %0, ptr noundef readonly byval(%struc
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %20
-  tail call void @free(ptr noundef nonnull %19) #22
+  tail call void @free(ptr noundef nonnull %19) #24
   br label %.thread
 
 .thread:                                          ; preds = %17, %24
-  %25 = tail call noalias ptr @malloc(i64 noundef %8) #24
+  %25 = tail call noalias ptr @malloc(i64 noundef %8) #23
   store ptr %25, ptr %18, align 8, !tbaa !62
   %.not36 = icmp eq ptr %25, null
   br i1 %.not36, label %26, label %30
@@ -1510,7 +1504,7 @@ define void @COVER_best_finish(ptr noundef %0, ptr noundef readonly byval(%struc
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 0, ptr %27, align 8, !tbaa !67
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %29 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %28) #22
+  %29 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %28) #24
   br label %.sink.split
 
 30:                                               ; preds = %.thread, %20
@@ -1533,11 +1527,11 @@ define void @COVER_best_finish(ptr noundef %0, ptr noundef readonly byval(%struc
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %39 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %38) #22
+  %39 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %38) #24
   br label %.sink.split
 
 .sink.split:                                      ; preds = %35, %37, %26
-  %40 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #22
+  %40 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #24
   br label %41
 
 41:                                               ; preds = %.sink.split, %3
@@ -1545,16 +1539,16 @@ define void @COVER_best_finish(ptr noundef %0, ptr noundef readonly byval(%struc
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #9
+declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: nounwind
-declare i32 @pthread_cond_broadcast(ptr noundef) local_unnamed_addr #9
+declare i32 @pthread_cond_broadcast(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @COVER_dictSelectionError(ptr dead_on_unwind noalias writable writeonly sret(%struct.COVER_dictSelection) align 8 captures(none) initializes((0, 24)) %0, i64 noundef %1) local_unnamed_addr #12 {
+define void @COVER_dictSelectionError(ptr dead_on_unwind noalias writable writeonly sret(%struct.COVER_dictSelection) align 8 captures(none) initializes((0, 24)) %0, i64 noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store i64 %1, ptr %3, align 8, !tbaa !65, !alias.scope !70
@@ -1562,7 +1556,7 @@ define void @COVER_dictSelectionError(ptr dead_on_unwind noalias writable writeo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @COVER_dictSelectionIsError(ptr noundef readonly byval(%struct.COVER_dictSelection) align 8 captures(none) %0) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @COVER_dictSelectionIsError(ptr noundef readonly byval(%struct.COVER_dictSelection) align 8 captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !tbaa !65
   %4 = icmp ugt i64 %3, -120
@@ -1574,17 +1568,17 @@ define range(i32 0, 2) i32 @COVER_dictSelectionIsError(ptr noundef readonly byva
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @COVER_dictSelectionFree(ptr noundef readonly byval(%struct.COVER_dictSelection) align 8 captures(none) %0) local_unnamed_addr #14 {
+define void @COVER_dictSelectionFree(ptr noundef readonly byval(%struct.COVER_dictSelection) align 8 captures(none) %0) local_unnamed_addr #13 {
   %2 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @free(ptr noundef %2) #22
+  tail call void @free(ptr noundef %2) #24
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @COVER_selectDict(ptr dead_on_unwind noalias writable writeonly sret(%struct.COVER_dictSelection) align 8 captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i64 noundef %8, ptr noundef readonly byval(%struct.ZDICT_cover_params_t) align 8 captures(none) %9, ptr noundef readonly captures(none) %10, i64 %11) local_unnamed_addr #5 {
+define void @COVER_selectDict(ptr dead_on_unwind noalias writable writeonly sret(%struct.COVER_dictSelection) align 8 captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i64 noundef %8, ptr noundef readonly byval(%struct.ZDICT_cover_params_t) align 8 captures(none) %9, ptr noundef readonly captures(none) %10, i64 %11) local_unnamed_addr #4 {
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 %3
-  %14 = tail call noalias ptr @malloc(i64 noundef %2) #24
-  %15 = tail call noalias ptr @malloc(i64 noundef %2) #24
+  %14 = tail call noalias ptr @malloc(i64 noundef %2) #23
+  %15 = tail call noalias ptr @malloc(i64 noundef %2) #23
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %17 = load i32, ptr %16, align 4, !tbaa !73
   %18 = uitofp i32 %17 to double
@@ -1596,8 +1590,8 @@ define void @COVER_selectDict(ptr dead_on_unwind noalias writable writeonly sret
   br i1 %or.cond, label %25, label %23
 
 23:                                               ; preds = %12
-  tail call void @free(ptr noundef %14) #22
-  tail call void @free(ptr noundef %15) #22
+  tail call void @free(ptr noundef %14) #24
+  tail call void @free(ptr noundef %15) #24
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !74
   store i64 %3, ptr %24, align 8, !tbaa !65, !alias.scope !77
@@ -1606,14 +1600,14 @@ define void @COVER_selectDict(ptr dead_on_unwind noalias writable writeonly sret
 25:                                               ; preds = %12
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr align 1 %1, i64 %3, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %27 = tail call i64 @ZDICT_finalizeDictionary(ptr noundef nonnull %14, i64 noundef %2, ptr noundef %1, i64 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull byval(%struct.ZDICT_params_t) align 8 %26) #22
-  %28 = tail call i32 @ZDICT_isError(i64 noundef %27) #22
+  %27 = tail call i64 @ZDICT_finalizeDictionary(ptr noundef nonnull %14, i64 noundef %2, ptr noundef %1, i64 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull byval(%struct.ZDICT_params_t) align 8 %26) #24
+  %28 = tail call i32 @ZDICT_isError(i64 noundef %27) #24
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %31, label %29
 
 29:                                               ; preds = %25
-  tail call void @free(ptr noundef nonnull %14) #22
-  tail call void @free(ptr noundef nonnull %15) #22
+  tail call void @free(ptr noundef nonnull %14) #24
+  tail call void @free(ptr noundef nonnull %15) #24
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !80
   store i64 %27, ptr %30, align 8, !tbaa !65, !alias.scope !83
@@ -1625,8 +1619,8 @@ define void @COVER_selectDict(ptr dead_on_unwind noalias writable writeonly sret
   br i1 %33, label %36, label %34
 
 34:                                               ; preds = %31
-  tail call void @free(ptr noundef nonnull %14) #22
-  tail call void @free(ptr noundef nonnull %15) #22
+  tail call void @free(ptr noundef nonnull %14) #24
+  tail call void @free(ptr noundef nonnull %15) #24
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !86
   store i64 %32, ptr %35, align 8, !tbaa !65, !alias.scope !89
@@ -1648,7 +1642,7 @@ define void @COVER_selectDict(ptr dead_on_unwind noalias writable writeonly sret
   br label %46
 
 43:                                               ; preds = %36
-  tail call void @free(ptr noundef nonnull %15) #22
+  tail call void @free(ptr noundef nonnull %15) #24
   store ptr %14, ptr %0, align 8, !tbaa !63, !alias.scope !93
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %27, ptr %44, align 8, !tbaa !66, !alias.scope !93
@@ -1661,14 +1655,14 @@ define void @COVER_selectDict(ptr dead_on_unwind noalias writable writeonly sret
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull align 1 %14, i64 %27, i1 false)
   %47 = sub i64 0, %.092
   %48 = getelementptr inbounds i8, ptr %13, i64 %47
-  %49 = tail call i64 @ZDICT_finalizeDictionary(ptr noundef nonnull %15, i64 noundef %2, ptr noundef %48, i64 noundef %.092, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull byval(%struct.ZDICT_params_t) align 8 %26) #22
-  %50 = tail call i32 @ZDICT_isError(i64 noundef %49) #22
+  %49 = tail call i64 @ZDICT_finalizeDictionary(ptr noundef nonnull %15, i64 noundef %2, ptr noundef %48, i64 noundef %.092, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull byval(%struct.ZDICT_params_t) align 8 %26) #24
+  %50 = tail call i32 @ZDICT_isError(i64 noundef %49) #24
   %.not86 = icmp eq i32 %50, 0
   br i1 %.not86, label %53, label %51
 
 51:                                               ; preds = %46
-  tail call void @free(ptr noundef %14) #22
-  tail call void @free(ptr noundef nonnull %15) #22
+  tail call void @free(ptr noundef %14) #24
+  tail call void @free(ptr noundef nonnull %15) #24
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !96
   store i64 %49, ptr %52, align 8, !tbaa !65, !alias.scope !99
@@ -1680,8 +1674,8 @@ define void @COVER_selectDict(ptr dead_on_unwind noalias writable writeonly sret
   br i1 %55, label %58, label %56
 
 56:                                               ; preds = %53
-  tail call void @free(ptr noundef %14) #22
-  tail call void @free(ptr noundef nonnull %15) #22
+  tail call void @free(ptr noundef %14) #24
+  tail call void @free(ptr noundef nonnull %15) #24
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !102
   store i64 %54, ptr %57, align 8, !tbaa !65, !alias.scope !105
@@ -1693,7 +1687,7 @@ define void @COVER_selectDict(ptr dead_on_unwind noalias writable writeonly sret
   br i1 %60, label %64, label %61
 
 61:                                               ; preds = %58
-  tail call void @free(ptr noundef %14) #22
+  tail call void @free(ptr noundef %14) #24
   store ptr %15, ptr %0, align 8, !tbaa !63, !alias.scope !108
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %49, ptr %62, align 8, !tbaa !66, !alias.scope !108
@@ -1707,7 +1701,7 @@ define void @COVER_selectDict(ptr dead_on_unwind noalias writable writeonly sret
   br i1 %66, label %46, label %._crit_edge, !llvm.loop !111
 
 ._crit_edge:                                      ; preds = %64, %.preheader
-  tail call void @free(ptr noundef nonnull %15) #22
+  tail call void @free(ptr noundef nonnull %15) #24
   store ptr %14, ptr %0, align 8, !tbaa !63, !alias.scope !112
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %27, ptr %67, align 8, !tbaa !66, !alias.scope !112
@@ -1719,10 +1713,10 @@ define void @COVER_selectDict(ptr dead_on_unwind noalias writable writeonly sret
   ret void
 }
 
-declare i32 @ZDICT_isError(i64 noundef) local_unnamed_addr #6
+declare i32 @ZDICT_isError(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #5 {
+define i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #4 {
   %7 = alloca %struct.COVER_best_s, align 8
   %8 = alloca %struct.COVER_ctx_t, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -1756,7 +1750,7 @@ define i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr noundef writeonly captures(n
   %34 = shl nuw nsw i32 %32, %33
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %36 = load i32, ptr %35, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %37 = fcmp ogt double %14, 1.000000e+00
   br i1 %37, label %38, label %45
 
@@ -1766,7 +1760,7 @@ define i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr noundef writeonly captures(n
 
 40:                                               ; preds = %38
   %41 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %42 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 21, i64 1, ptr %41) #23
+  %42 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 21, i64 1, ptr %41) #22
   %43 = load ptr, ptr @stderr, align 8, !tbaa !9
   %44 = tail call i32 @fflush(ptr noundef %43)
   br label %266
@@ -1783,7 +1777,7 @@ define i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr noundef writeonly captures(n
 
 50:                                               ; preds = %48
   %51 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %52 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 21, i64 1, ptr %51) #23
+  %52 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 21, i64 1, ptr %51) #22
   %53 = load ptr, ptr @stderr, align 8, !tbaa !9
   %54 = tail call i32 @fflush(ptr noundef %53)
   br label %266
@@ -1799,7 +1793,7 @@ define i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr noundef writeonly captures(n
 
 60:                                               ; preds = %57
   %61 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %62 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 40, i64 1, ptr %61) #23
+  %62 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 40, i64 1, ptr %61) #22
   %63 = load ptr, ptr @stderr, align 8, !tbaa !9
   %64 = tail call i32 @fflush(ptr noundef %63)
   br label %266
@@ -1826,15 +1820,15 @@ define i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr noundef writeonly captures(n
 
 77:                                               ; preds = %75
   %78 = zext i32 %10 to i64
-  %79 = tail call ptr @POOL_create(i64 noundef %78, i64 noundef 1) #22
+  %79 = tail call ptr @POOL_create(i64 noundef %78, i64 noundef 1) #24
   %.not = icmp eq ptr %79, null
   br i1 %.not, label %266, label %80
 
 80:                                               ; preds = %77, %75
   %.0125 = phi ptr [ %79, %77 ], [ null, %75 ]
-  %81 = call i32 @pthread_mutex_init(ptr noundef nonnull %7, ptr noundef null) #22
+  %81 = call i32 @pthread_mutex_init(ptr noundef nonnull %7, ptr noundef null) #24
   %82 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %83 = call i32 @pthread_cond_init(ptr noundef nonnull %82, ptr noundef null) #22
+  %83 = call i32 @pthread_cond_init(ptr noundef nonnull %82, ptr noundef null) #24
   %84 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %84, i8 0, i64 24, i1 false)
@@ -1875,7 +1869,7 @@ define i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr noundef writeonly captures(n
   %.0113200 = phi i32 [ 1, %.lr.ph202 ], [ %.3116.ph, %240 ]
   %.0117199 = phi i32 [ %18, %.lr.ph202 ], [ %241, %240 ]
   %.not146198 = phi i1 [ true, %.lr.ph202 ], [ false, %240 ]
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br i1 %95, label %106, label %111
 
 106:                                              ; preds = %105
@@ -1895,37 +1889,37 @@ define i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr noundef writeonly captures(n
 
 115:                                              ; preds = %114
   %116 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %117 = call i64 @fwrite(ptr nonnull @.str.10, i64 29, i64 1, ptr %116) #23
+  %117 = call i64 @fwrite(ptr nonnull @.str.10, i64 29, i64 1, ptr %116) #22
   %118 = load ptr, ptr @stderr, align 8, !tbaa !9
   %119 = call i32 @fflush(ptr noundef %118)
   br label %120
 
 120:                                              ; preds = %115, %114
-  %121 = call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #22
+  %121 = call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #24
   %122 = load i64, ptr %84, align 8, !tbaa !60
   %.not67.i.i = icmp eq i64 %122, 0
   br i1 %.not67.i.i, label %COVER_best_wait.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %120, %.lr.ph.i.i
-  %123 = call i32 @pthread_cond_wait(ptr noundef nonnull %82, ptr noundef nonnull %7) #22
+  %123 = call i32 @pthread_cond_wait(ptr noundef nonnull %82, ptr noundef nonnull %7) #24
   %124 = load i64, ptr %84, align 8, !tbaa !60
   %.not6.i.i = icmp eq i64 %124, 0
   br i1 %.not6.i.i, label %COVER_best_wait.exit.i, label %.lr.ph.i.i, !llvm.loop !61
 
 COVER_best_wait.exit.i:                           ; preds = %.lr.ph.i.i, %120
-  %125 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #22
+  %125 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #24
   %126 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %127 = load ptr, ptr %126, align 8, !tbaa !62
   %.not7.i = icmp eq ptr %127, null
   br i1 %.not7.i, label %129, label %128
 
 128:                                              ; preds = %COVER_best_wait.exit.i
-  call void @free(ptr noundef nonnull %127) #22
+  call void @free(ptr noundef nonnull %127) #24
   br label %129
 
 129:                                              ; preds = %128, %COVER_best_wait.exit.i
-  %130 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %7) #22
-  %131 = call i32 @pthread_cond_destroy(ptr noundef nonnull %82) #22
+  %130 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %7) #24
+  %131 = call i32 @pthread_cond_destroy(ptr noundef nonnull %82) #24
   br label %COVER_ctx_destroy.exit163
 
 132:                                              ; preds = %111
@@ -1954,7 +1948,7 @@ COVER_best_wait.exit.i:                           ; preds = %.lr.ph.i.i, %120
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %222
   %.2115196 = phi i32 [ %.3116.ph, %222 ], [ %.0113200, %.lr.ph.preheader ]
   %.0118195 = phi i32 [ %223, %222 ], [ %22, %.lr.ph.preheader ]
-  %145 = call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #24
+  %145 = call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #23
   br i1 %95, label %146, label %151
 
 146:                                              ; preds = %.lr.ph
@@ -1973,43 +1967,43 @@ COVER_best_wait.exit.i:                           ; preds = %.lr.ph.i.i, %120
 
 153:                                              ; preds = %152
   %154 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %155 = call i64 @fwrite(ptr nonnull @.str.12, i64 30, i64 1, ptr %154) #23
+  %155 = call i64 @fwrite(ptr nonnull @.str.12, i64 30, i64 1, ptr %154) #22
   %156 = load ptr, ptr @stderr, align 8, !tbaa !9
   %157 = call i32 @fflush(ptr noundef %156)
   br label %158
 
 158:                                              ; preds = %153, %152
-  %159 = call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #22
+  %159 = call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #24
   %160 = load i64, ptr %84, align 8, !tbaa !60
   %.not67.i.i151 = icmp eq i64 %160, 0
   br i1 %.not67.i.i151, label %COVER_best_wait.exit.i154, label %.lr.ph.i.i152
 
 .lr.ph.i.i152:                                    ; preds = %158, %.lr.ph.i.i152
-  %161 = call i32 @pthread_cond_wait(ptr noundef nonnull %82, ptr noundef nonnull %7) #22
+  %161 = call i32 @pthread_cond_wait(ptr noundef nonnull %82, ptr noundef nonnull %7) #24
   %162 = load i64, ptr %84, align 8, !tbaa !60
   %.not6.i.i153 = icmp eq i64 %162, 0
   br i1 %.not6.i.i153, label %COVER_best_wait.exit.i154, label %.lr.ph.i.i152, !llvm.loop !61
 
 COVER_best_wait.exit.i154:                        ; preds = %.lr.ph.i.i152, %158
-  %163 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #22
+  %163 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #24
   %164 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %165 = load ptr, ptr %164, align 8, !tbaa !62
   %.not7.i155 = icmp eq ptr %165, null
   br i1 %.not7.i155, label %COVER_best_destroy.exit156, label %166
 
 166:                                              ; preds = %COVER_best_wait.exit.i154
-  call void @free(ptr noundef nonnull %165) #22
+  call void @free(ptr noundef nonnull %165) #24
   br label %COVER_best_destroy.exit156
 
 COVER_best_destroy.exit156:                       ; preds = %COVER_best_wait.exit.i154, %166
-  %167 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %7) #22
-  %168 = call i32 @pthread_cond_destroy(ptr noundef nonnull %82) #22
+  %167 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %7) #24
+  %168 = call i32 @pthread_cond_destroy(ptr noundef nonnull %82) #24
   %169 = load ptr, ptr %101, align 8, !tbaa !31
   %.not.i = icmp eq ptr %169, null
   br i1 %.not.i, label %171, label %170
 
 170:                                              ; preds = %COVER_best_destroy.exit156
-  call void @free(ptr noundef nonnull %169) #22
+  call void @free(ptr noundef nonnull %169) #24
   store ptr null, ptr %101, align 8, !tbaa !31
   br label %171
 
@@ -2019,7 +2013,7 @@ COVER_best_destroy.exit156:                       ; preds = %COVER_best_wait.exi
   br i1 %.not17.i, label %174, label %173
 
 173:                                              ; preds = %171
-  call void @free(ptr noundef nonnull %172) #22
+  call void @free(ptr noundef nonnull %172) #24
   store ptr null, ptr %102, align 8, !tbaa !32
   br label %174
 
@@ -2029,7 +2023,7 @@ COVER_best_destroy.exit156:                       ; preds = %COVER_best_wait.exi
   br i1 %.not18.i, label %177, label %176
 
 176:                                              ; preds = %174
-  call void @free(ptr noundef nonnull %175) #22
+  call void @free(ptr noundef nonnull %175) #24
   store ptr null, ptr %103, align 8, !tbaa !33
   br label %177
 
@@ -2039,7 +2033,7 @@ COVER_best_destroy.exit156:                       ; preds = %COVER_best_wait.exi
   br i1 %.not19.i, label %COVER_ctx_destroy.exit163, label %179
 
 179:                                              ; preds = %177
-  call void @free(ptr noundef nonnull %178) #22
+  call void @free(ptr noundef nonnull %178) #24
   store ptr null, ptr %104, align 8, !tbaa !34
   br label %COVER_ctx_destroy.exit163
 
@@ -2075,25 +2069,25 @@ COVER_checkParameters.exit.thread:                ; preds = %180
 
 194:                                              ; preds = %COVER_checkParameters.exit.thread
   %195 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %196 = call i64 @fwrite(ptr nonnull @.str.1, i64 27, i64 1, ptr %195) #23
+  %196 = call i64 @fwrite(ptr nonnull @.str.1, i64 27, i64 1, ptr %195) #22
   %197 = load ptr, ptr @stderr, align 8, !tbaa !9
   %198 = call i32 @fflush(ptr noundef %197)
   br label %199
 
 199:                                              ; preds = %194, %COVER_checkParameters.exit.thread
-  call void @free(ptr noundef nonnull %145) #22
+  call void @free(ptr noundef nonnull %145) #24
   br label %222
 
 COVER_checkParameters.exit:                       ; preds = %180
-  %200 = call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #22
+  %200 = call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #24
   %201 = load i64, ptr %84, align 8, !tbaa !60
   %202 = add i64 %201, 1
   store i64 %202, ptr %84, align 8, !tbaa !60
-  %203 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #22
+  %203 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #24
   br i1 %.not150, label %205, label %204
 
 204:                                              ; preds = %COVER_checkParameters.exit
-  call void @POOL_add(ptr noundef nonnull %.0125, ptr noundef nonnull @COVER_tryParameters, ptr noundef nonnull %145) #22
+  call void @POOL_add(ptr noundef nonnull %.0125, ptr noundef nonnull @COVER_tryParameters, ptr noundef nonnull %145) #24
   br label %206
 
 205:                                              ; preds = %COVER_checkParameters.exit
@@ -2104,7 +2098,7 @@ COVER_checkParameters.exit:                       ; preds = %180
   br i1 %88, label %207, label %220
 
 207:                                              ; preds = %206
-  %208 = call i64 @clock() #22
+  %208 = call i64 @clock() #24
   %209 = load i64, ptr @g_time, align 8, !tbaa !3
   %210 = sub nsw i64 %208, %209
   %211 = icmp sgt i64 %210, 150000
@@ -2112,7 +2106,7 @@ COVER_checkParameters.exit:                       ; preds = %180
   br i1 %or.cond4, label %212, label %220
 
 212:                                              ; preds = %207
-  %213 = call i64 @clock() #22
+  %213 = call i64 @clock() #24
   store i64 %213, ptr @g_time, align 8, !tbaa !3
   %214 = load ptr, ptr @stderr, align 8, !tbaa !9
   %215 = mul i32 %.2115196, 100
@@ -2133,25 +2127,25 @@ COVER_checkParameters.exit:                       ; preds = %180
   br i1 %.not147, label %._crit_edge, label %.lr.ph, !llvm.loop !129
 
 ._crit_edge:                                      ; preds = %222
-  %224 = call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #22
+  %224 = call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #24
   %225 = load i64, ptr %84, align 8, !tbaa !60
   %.not67.i = icmp eq i64 %225, 0
   br i1 %.not67.i, label %COVER_best_wait.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
-  %226 = call i32 @pthread_cond_wait(ptr noundef nonnull %82, ptr noundef nonnull %7) #22
+  %226 = call i32 @pthread_cond_wait(ptr noundef nonnull %82, ptr noundef nonnull %7) #24
   %227 = load i64, ptr %84, align 8, !tbaa !60
   %.not6.i = icmp eq i64 %227, 0
   br i1 %.not6.i, label %COVER_best_wait.exit, label %.lr.ph.i, !llvm.loop !61
 
 COVER_best_wait.exit:                             ; preds = %.lr.ph.i, %._crit_edge
-  %228 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #22
+  %228 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #24
   %229 = load ptr, ptr %101, align 8, !tbaa !31
   %.not.i159 = icmp eq ptr %229, null
   br i1 %.not.i159, label %231, label %230
 
 230:                                              ; preds = %COVER_best_wait.exit
-  call void @free(ptr noundef nonnull %229) #22
+  call void @free(ptr noundef nonnull %229) #24
   store ptr null, ptr %101, align 8, !tbaa !31
   br label %231
 
@@ -2161,7 +2155,7 @@ COVER_best_wait.exit:                             ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not17.i160, label %234, label %233
 
 233:                                              ; preds = %231
-  call void @free(ptr noundef nonnull %232) #22
+  call void @free(ptr noundef nonnull %232) #24
   store ptr null, ptr %102, align 8, !tbaa !32
   br label %234
 
@@ -2171,7 +2165,7 @@ COVER_best_wait.exit:                             ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not18.i161, label %237, label %236
 
 236:                                              ; preds = %234
-  call void @free(ptr noundef nonnull %235) #22
+  call void @free(ptr noundef nonnull %235) #24
   store ptr null, ptr %103, align 8, !tbaa !33
   br label %237
 
@@ -2181,17 +2175,17 @@ COVER_best_wait.exit:                             ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not19.i162, label %240, label %239
 
 239:                                              ; preds = %237
-  call void @free(ptr noundef nonnull %238) #22
+  call void @free(ptr noundef nonnull %238) #24
   br label %240
 
 COVER_ctx_destroy.exit163:                        ; preds = %177, %179, %129
   %.3 = phi i64 [ %112, %129 ], [ -64, %179 ], [ -64, %177 ]
-  call void @POOL_free(ptr noundef %.0125) #22
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %8) #22
+  call void @POOL_free(ptr noundef %.0125) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %266
 
 240:                                              ; preds = %237, %239
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %241 = add i32 %.0117199, 2
   %.not143 = icmp ugt i32 %241, %19
   br i1 %.not143, label %._crit_edge203, label %105, !llvm.loop !130
@@ -2212,32 +2206,32 @@ COVER_ctx_destroy.exit163:                        ; preds = %177, %179, %129
   br i1 %249, label %261, label %250
 
 250:                                              ; preds = %247
-  %251 = call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #22
+  %251 = call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #24
   %252 = load i64, ptr %84, align 8, !tbaa !60
   %.not67.i.i165 = icmp eq i64 %252, 0
   br i1 %.not67.i.i165, label %COVER_best_wait.exit.i168, label %.lr.ph.i.i166
 
 .lr.ph.i.i166:                                    ; preds = %250, %.lr.ph.i.i166
-  %253 = call i32 @pthread_cond_wait(ptr noundef nonnull %82, ptr noundef nonnull %7) #22
+  %253 = call i32 @pthread_cond_wait(ptr noundef nonnull %82, ptr noundef nonnull %7) #24
   %254 = load i64, ptr %84, align 8, !tbaa !60
   %.not6.i.i167 = icmp eq i64 %254, 0
   br i1 %.not6.i.i167, label %COVER_best_wait.exit.i168, label %.lr.ph.i.i166, !llvm.loop !61
 
 COVER_best_wait.exit.i168:                        ; preds = %.lr.ph.i.i166, %250
-  %255 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #22
+  %255 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #24
   %256 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %257 = load ptr, ptr %256, align 8, !tbaa !62
   %.not7.i169 = icmp eq ptr %257, null
   br i1 %.not7.i169, label %COVER_best_destroy.exit170, label %258
 
 258:                                              ; preds = %COVER_best_wait.exit.i168
-  call void @free(ptr noundef nonnull %257) #22
+  call void @free(ptr noundef nonnull %257) #24
   br label %COVER_best_destroy.exit170
 
 COVER_best_destroy.exit170:                       ; preds = %COVER_best_wait.exit.i168, %258
-  %259 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %7) #22
-  %260 = call i32 @pthread_cond_destroy(ptr noundef nonnull %82) #22
-  call void @POOL_free(ptr noundef %.0125) #22
+  %259 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %7) #24
+  %260 = call i32 @pthread_cond_destroy(ptr noundef nonnull %82) #24
+  call void @POOL_free(ptr noundef %.0125) #24
   br label %266
 
 261:                                              ; preds = %247
@@ -2248,23 +2242,23 @@ COVER_best_destroy.exit170:                       ; preds = %COVER_best_wait.exi
   %265 = load ptr, ptr %264, align 8, !tbaa !62
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %265, i64 %263, i1 false)
   call void @COVER_best_destroy(ptr noundef nonnull %7)
-  call void @POOL_free(ptr noundef %.0125) #22
+  call void @POOL_free(ptr noundef %.0125) #24
   br label %266
 
 266:                                              ; preds = %COVER_ctx_destroy.exit163, %COVER_best_destroy.exit170, %261, %77, %67, %70, %57, %60, %48, %50, %38, %40
   %.0 = phi i64 [ %.3, %COVER_ctx_destroy.exit163 ], [ -42, %40 ], [ -42, %38 ], [ -42, %50 ], [ -42, %48 ], [ -72, %60 ], [ -72, %57 ], [ -70, %70 ], [ -70, %67 ], [ -64, %77 ], [ %248, %COVER_best_destroy.exit170 ], [ %263, %261 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
 }
 
-declare ptr @POOL_create(i64 noundef, i64 noundef) local_unnamed_addr #6
+declare ptr @POOL_create(i64 noundef, i64 noundef) local_unnamed_addr #5
 
-declare void @POOL_free(ptr noundef) local_unnamed_addr #6
+declare void @POOL_free(ptr noundef) local_unnamed_addr #5
 
-declare void @POOL_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @POOL_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @COVER_tryParameters(ptr noundef captures(none) %0) #5 {
+define internal void @COVER_tryParameters(ptr noundef captures(none) %0) #4 {
   %2 = alloca %struct.ZDICT_cover_params_t, align 8
   %3 = alloca %struct.COVER_map_s, align 8
   %4 = alloca %struct.COVER_dictSelection, align 8
@@ -2273,12 +2267,12 @@ define internal void @COVER_tryParameters(ptr noundef captures(none) %0) #5 {
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !122
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #22
-  %9 = tail call noalias ptr @malloc(i64 noundef %8) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %9 = tail call noalias ptr @malloc(i64 noundef %8) #23
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %11 = load i64, ptr %10, align 8, !tbaa !20
   %12 = shl i64 %11, 2
-  %13 = tail call noalias ptr @malloc(i64 noundef %12) #24
+  %13 = tail call noalias ptr @malloc(i64 noundef %12) #23
   %14 = load i32, ptr %2, align 8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %16 = load i32, ptr %15, align 4
@@ -2297,7 +2291,7 @@ define internal void @COVER_tryParameters(ptr noundef captures(none) %0) #5 {
   store i32 %25, ptr %26, align 8, !tbaa !29
   %27 = zext i32 %23 to i64
   %28 = shl nuw nsw i64 %27, 3
-  %29 = tail call noalias ptr @malloc(i64 noundef %28) #24
+  %29 = tail call noalias ptr @malloc(i64 noundef %28) #23
   store ptr %29, ptr %3, align 8, !tbaa !30
   %.not.i = icmp eq ptr %29, null
   br i1 %.not.i, label %30, label %36
@@ -2309,7 +2303,7 @@ define internal void @COVER_tryParameters(ptr noundef captures(none) %0) #5 {
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %35 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 43, i64 1, ptr %34) #23
+  %35 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 43, i64 1, ptr %34) #22
   br label %.sink.split
 
 36:                                               ; preds = %1
@@ -2326,7 +2320,7 @@ define internal void @COVER_tryParameters(ptr noundef captures(none) %0) #5 {
 
 42:                                               ; preds = %39
   %43 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %44 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 42, i64 1, ptr %43) #23
+  %44 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 42, i64 1, ptr %43) #22
   br label %.sink.split
 
 45:                                               ; preds = %36
@@ -2334,7 +2328,7 @@ define internal void @COVER_tryParameters(ptr noundef captures(none) %0) #5 {
   %47 = load ptr, ptr %46, align 8, !tbaa !32
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %13, ptr align 4 %47, i64 %12, i1 false)
   %48 = call fastcc i64 @COVER_buildDictionary(ptr noundef nonnull %5, ptr noundef nonnull %13, ptr noundef %3, ptr noundef nonnull %9, i64 noundef %8, i32 %14, i32 %16)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 %48
   %50 = sub i64 %8, %48
   %51 = load ptr, ptr %5, align 8, !tbaa !35
@@ -2353,7 +2347,7 @@ define internal void @COVER_tryParameters(ptr noundef captures(none) %0) #5 {
   %.sroa.7.0.copyload = load i64, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !3
   %.sroa.745.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.745.0.copyload = load i64, ptr %.sroa.745.0..sroa_idx, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %61 = icmp ugt i64 %.sroa.745.0.copyload, -120
   %.not.i36 = icmp eq ptr %.sroa.0.0.copyload, null
   %62 = select i1 %61, i1 true, i1 %.not.i36
@@ -2364,7 +2358,7 @@ define internal void @COVER_tryParameters(ptr noundef captures(none) %0) #5 {
 
 65:                                               ; preds = %45
   %66 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %67 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 28, i64 1, ptr %66) #23
+  %67 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 28, i64 1, ptr %66) #22
   br label %.sink.split
 
 .sink.split:                                      ; preds = %33, %42, %65
@@ -2379,14 +2373,14 @@ define internal void @COVER_tryParameters(ptr noundef captures(none) %0) #5 {
   %.sroa.0.0 = phi ptr [ null, %30 ], [ %.sroa.0.0.copyload, %45 ], [ null, %39 ], [ %.sroa.0.0.ph, %.sink.split ]
   %.sroa.7.0 = phi i64 [ 0, %30 ], [ %.sroa.7.0.copyload, %45 ], [ 0, %39 ], [ %.sroa.7.0.ph, %.sink.split ]
   %.sroa.745.0 = phi i64 [ -1, %30 ], [ %.sroa.745.0.copyload, %45 ], [ -1, %39 ], [ %.sroa.745.0.ph, %.sink.split ]
-  tail call void @free(ptr noundef %9) #22
+  tail call void @free(ptr noundef %9) #24
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %72 = load ptr, ptr %71, align 8, !tbaa !121
   %.not.i37 = icmp eq ptr %72, null
   br i1 %.not.i37, label %COVER_best_finish.exit, label %73
 
 73:                                               ; preds = %70
-  %74 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %72) #22
+  %74 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %72) #24
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 88
   %76 = load i64, ptr %75, align 8, !tbaa !60
   %77 = add i64 %76, -1
@@ -2409,11 +2403,11 @@ define internal void @COVER_tryParameters(ptr noundef captures(none) %0) #5 {
   br i1 %87, label %88, label %94
 
 88:                                               ; preds = %84
-  tail call void @free(ptr noundef nonnull %83) #22
+  tail call void @free(ptr noundef nonnull %83) #24
   br label %.thread.i
 
 .thread.i:                                        ; preds = %88, %81
-  %89 = tail call noalias ptr @malloc(i64 noundef %.sroa.7.0) #24
+  %89 = tail call noalias ptr @malloc(i64 noundef %.sroa.7.0) #23
   store ptr %89, ptr %82, align 8, !tbaa !62
   %.not36.i = icmp eq ptr %89, null
   br i1 %.not36.i, label %90, label %94
@@ -2423,7 +2417,7 @@ define internal void @COVER_tryParameters(ptr noundef captures(none) %0) #5 {
   %91 = getelementptr inbounds nuw i8, ptr %72, i64 104
   store i64 0, ptr %91, align 8, !tbaa !67
   %92 = getelementptr inbounds nuw i8, ptr %72, i64 40
-  %93 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %92) #22
+  %93 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %92) #24
   br label %.sink.split.i
 
 94:                                               ; preds = %.thread.i, %84
@@ -2446,33 +2440,33 @@ define internal void @COVER_tryParameters(ptr noundef captures(none) %0) #5 {
 
 101:                                              ; preds = %99
   %102 = getelementptr inbounds nuw i8, ptr %72, i64 40
-  %103 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %102) #22
+  %103 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %102) #24
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %101, %99, %90
-  %104 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %72) #22
+  %104 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %72) #24
   br label %COVER_best_finish.exit
 
 COVER_best_finish.exit:                           ; preds = %70, %.sink.split.i
-  tail call void @free(ptr noundef nonnull %0) #22
+  tail call void @free(ptr noundef nonnull %0) #24
   br i1 %.not.i, label %COVER_map_destroy.exit, label %105
 
 105:                                              ; preds = %COVER_best_finish.exit
-  tail call void @free(ptr noundef nonnull %29) #22
+  tail call void @free(ptr noundef nonnull %29) #24
   br label %COVER_map_destroy.exit
 
 COVER_map_destroy.exit:                           ; preds = %COVER_best_finish.exit, %105
-  tail call void @free(ptr noundef %.sroa.0.0) #22
-  tail call void @free(ptr noundef %13) #22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #22
+  tail call void @free(ptr noundef %.sroa.0.0) #24
+  tail call void @free(ptr noundef %13) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i64 @clock() local_unnamed_addr #9
+declare i64 @clock() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @COVER_cmp8(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #15 {
+define internal range(i32 -1, 2) i32 @COVER_cmp8(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #14 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load i32, ptr %4, align 8, !tbaa !40
   %6 = icmp eq i32 %5, 8
@@ -2497,7 +2491,7 @@ define internal range(i32 -1, 2) i32 @COVER_cmp8(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @COVER_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #16 {
+define internal i32 @COVER_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #15 {
   %4 = load i32, ptr %1, align 4, !tbaa !18
   %5 = load i32, ptr %2, align 4, !tbaa !18
   %6 = load ptr, ptr %0, align 8, !tbaa !35
@@ -2512,10 +2506,10 @@ define internal i32 @COVER_cmp(ptr noundef readonly captures(none) %0, ptr nound
   ret i32 %14
 }
 
-declare void @qsort_r(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @qsort_r(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @COVER_strict_cmp8(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2) #15 {
+define internal range(i32 -1, 2) i32 @COVER_strict_cmp8(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2) #14 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %5 = load i32, ptr %4, align 8, !tbaa !40
   %6 = icmp eq i32 %5, 8
@@ -2544,7 +2538,7 @@ define internal range(i32 -1, 2) i32 @COVER_strict_cmp8(ptr noundef readonly cap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @COVER_strict_cmp(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2) #16 {
+define internal i32 @COVER_strict_cmp(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2) #15 {
   %4 = load i32, ptr %0, align 4, !tbaa !18
   %5 = load i32, ptr %1, align 4, !tbaa !18
   %6 = load ptr, ptr %2, align 8, !tbaa !35
@@ -2564,10 +2558,16 @@ define internal i32 @COVER_strict_cmp(ptr noundef readonly captures(address) %0,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #17
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #18
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #17
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #19
@@ -2591,30 +2591,30 @@ declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #19
 declare i64 @llvm.umin.i64(i64, i64) #19
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { nofree nounwind }
 attributes #21 = { cold nounwind }
-attributes #22 = { nounwind }
-attributes #23 = { cold }
-attributes #24 = { nounwind allocsize(0) }
+attributes #22 = { cold }
+attributes #23 = { nounwind allocsize(0) }
+attributes #24 = { nounwind }
 attributes #25 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}

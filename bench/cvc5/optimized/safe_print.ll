@@ -39,22 +39,16 @@ define void @_ZN4cvc58internal10safe_printINSt7__cxx1112basic_stringIcSt11char_t
   unreachable
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #2
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @abort() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree uwtable
 define void @_ZN4cvc58internal10safe_printIlEEviRKT_(i32 noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 {
   %3 = alloca [20 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i64, ptr %1, align 8, !tbaa !14
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %6, label %9
@@ -117,26 +111,26 @@ _ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit19: ; preds = %11
   unreachable
 
 _ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit: ; preds = %6, %25
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree uwtable
 define void @_ZN4cvc58internal10safe_printIiEEviRKT_(i32 noundef %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i32, ptr %1, align 4, !tbaa !17
   %5 = sext i32 %4 to i64
   store i64 %5, ptr %3, align 8, !tbaa !14
   call void @_ZN4cvc58internal10safe_printIlEEviRKT_(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree uwtable
 define void @_ZN4cvc58internal10safe_printImEEviRKT_(i32 noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 {
   %3 = alloca [20 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i64, ptr %1, align 8, !tbaa !14
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %6, label %.preheader
@@ -178,7 +172,7 @@ define void @_ZN4cvc58internal10safe_printImEEviRKT_(i32 noundef %0, ptr noundef
   unreachable
 
 _ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit: ; preds = %6, %18
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -186,7 +180,7 @@ _ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit: ; preds = %6, %18
 define void @_ZN4cvc58internal10safe_printIjEEviRKT_(i32 noundef %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #0 {
   %3 = alloca [20 x i8], align 16
   %4 = load i32, ptr %1, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %7, label %.preheader.i.preheader
 
@@ -231,7 +225,7 @@ define void @_ZN4cvc58internal10safe_printIjEEviRKT_(i32 noundef %0, ptr noundef
   unreachable
 
 _ZN4cvc58internal10safe_printImEEviRKT_.exit:     ; preds = %7, %19
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -239,9 +233,9 @@ _ZN4cvc58internal10safe_printImEEviRKT_.exit:     ; preds = %7, %19
 define void @_ZN4cvc58internal10safe_printIdEEviRKT_(i32 noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 {
   %3 = alloca [20 x i8], align 16
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load double, ptr %1, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = fptosi double %5 to i64
   store i64 %6, ptr %4, align 8, !tbaa !14
   call void @_ZN4cvc58internal10safe_printIlEEviRKT_(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -294,20 +288,20 @@ _ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit: ; preds = %_ZN4cvc58internal
   unreachable
 
 28:                                               ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree uwtable
 define void @_ZN4cvc58internal10safe_printIfEEviRKT_(i32 noundef %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load float, ptr %1, align 4, !tbaa !23
   %5 = fpext float %4 to double
   store double %5, ptr %3, align 8, !tbaa !20
   call void @_ZN4cvc58internal10safe_printIdEEviRKT_(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -350,7 +344,7 @@ define void @_ZN4cvc58internal10safe_printIPvEEviRKT_(i32 noundef %0, ptr nounde
 ; Function Attrs: mustprogress nofree uwtable
 define hidden void @_ZN4cvc58internal14safe_print_hexEim(i32 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [20 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i64 @write(i32 noundef %0, ptr noundef nonnull @.str.5, i64 noundef 2)
   %.not.i = icmp eq i64 %4, 2
   br i1 %.not.i, label %_ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit, label %5
@@ -404,7 +398,7 @@ _ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit: ; preds = %2
   unreachable
 
 _ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit: ; preds = %7, %22
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -413,7 +407,7 @@ define void @_ZN4cvc58internal10safe_printI8timespecEEviRKT_(i32 noundef %0, ptr
   %3 = alloca [20 x i8], align 16
   %4 = alloca [20 x i8], align 16
   %5 = load i64, ptr %1, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %7, label %.preheader.i
 
@@ -454,7 +448,7 @@ define void @_ZN4cvc58internal10safe_printI8timespecEEviRKT_(i32 noundef %0, ptr
   unreachable
 
 _ZN4cvc58internal10safe_printImEEviRKT_.exit:     ; preds = %7, %19
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %25 = tail call i64 @write(i32 noundef %0, ptr noundef nonnull @.str.2, i64 noundef 1)
   %.not.i4 = icmp eq i64 %25, 1
   br i1 %.not.i4, label %_ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit, label %26
@@ -466,7 +460,7 @@ _ZN4cvc58internal10safe_printImEEviRKT_.exit:     ; preds = %7, %19
 _ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit: ; preds = %_ZN4cvc58internal10safe_printImEEviRKT_.exit
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load i64, ptr %27, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %3, i8 48, i64 9, i1 false), !tbaa !15
   %.not23.i = icmp eq i64 %28, 0
   br i1 %.not23.i, label %._crit_edge.i, label %.lr.ph22.i
@@ -496,14 +490,14 @@ _ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit: ; preds = %_ZN4cvc58internal
   unreachable
 
 _ZN4cvc58internal24safe_print_right_alignedEiml.exit: ; preds = %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree uwtable
 define hidden void @_ZN4cvc58internal24safe_print_right_alignedEiml(i32 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [20 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call i64 @llvm.smin.i64(i64 %2, i64 20)
   %6 = icmp sgt i64 %2, 0
   br i1 %6, label %.preheader, label %._crit_edge
@@ -538,11 +532,17 @@ define hidden void @_ZN4cvc58internal24safe_print_right_alignedEiml(i32 noundef 
   unreachable
 
 17:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 declare i32 @__gxx_personality_v0(...)
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #4
@@ -551,13 +551,12 @@ declare i64 @llvm.smin.i64(i64, i64) #4
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { mustprogress nofree uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { noreturn nounwind }
-attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

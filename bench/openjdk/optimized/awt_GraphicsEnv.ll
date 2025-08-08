@@ -3468,8 +3468,8 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsDevice_initXrandrExten
   br i1 %.not29, label %135, label %34
 
 34:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
   %35 = call ptr @dlopen(ptr noundef nonnull @.str.52, i32 noundef 1) #17
@@ -3698,8 +3698,8 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsDevice_initXrandrExten
 
 X11GD_InitXrandrFuncs.exit:                       ; preds = %40, %43, %48, %58, %64, %68, %73, %78, %83, %88, %93, %98, %103, %108, %113, %118, %123, %128, %130, %133
   %.040.i = phi i8 [ 0, %40 ], [ 0, %43 ], [ 0, %64 ], [ 0, %68 ], [ 0, %73 ], [ 0, %78 ], [ 0, %83 ], [ 0, %88 ], [ 0, %93 ], [ 0, %98 ], [ 0, %103 ], [ 0, %108 ], [ 0, %113 ], [ 0, %118 ], [ 0, %123 ], [ 0, %128 ], [ 0, %133 ], [ 0, %58 ], [ 0, %48 ], [ 1, %130 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %135
 
 135:                                              ; preds = %30, %X11GD_InitXrandrFuncs.exit
@@ -4729,10 +4729,10 @@ declare i32 @XSendEvent(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr 
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.smax.i16(i16, i16) #16

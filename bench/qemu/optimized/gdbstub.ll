@@ -83,17 +83,17 @@ define dso_local range(i32 0, 9) i32 @riscv_cpu_gdb_read_register(ptr noundef %0
 
 21:                                               ; preds = %18
   %22 = trunc i64 %.0 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %22, ptr %5, align 4
   %23 = call ptr @g_byte_array_append(ptr noundef %1, ptr noundef nonnull %5, i32 noundef 4) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %27
 
 24:                                               ; preds = %18, %18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.0, ptr %4, align 8
   %25 = call ptr @g_byte_array_append(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 8) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %27
 
 26:                                               ; preds = %18
@@ -105,14 +105,8 @@ define dso_local range(i32 0, 9) i32 @riscv_cpu_gdb_read_register(ptr noundef %0
   ret i32 %.013
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: noreturn
-declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 4, 9) i32 @riscv_cpu_gdb_write_register(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -214,7 +208,7 @@ define dso_local void @riscv_cpu_register_gdb_regs_for_features(ptr noundef %0) 
   %23 = load i16, ptr %22, align 8
   %24 = zext i16 %23 to i32
   %25 = shl nuw nsw i32 %24, 3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !6
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 16440
   call void @gdb_feature_builder_init(ptr noundef nonnull %3, ptr noundef nonnull %26, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef %20) #7
@@ -265,7 +259,7 @@ define dso_local void @riscv_cpu_register_gdb_regs_for_features(ptr noundef %0) 
 
 ricsv_gen_dynamic_vector_feature.exit:            ; preds = %44
   call void @gdb_feature_builder_end(ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @gdb_register_coprocessor(ptr noundef nonnull %0, ptr noundef nonnull @riscv_gdb_get_vector, ptr noundef nonnull @riscv_gdb_set_vector, ptr noundef nonnull %26, i32 noundef 0) #7
   br label %47
 
@@ -298,7 +292,7 @@ switch.lookup:                                    ; preds = %47
   %61 = call ptr @object_class_dynamic_cast_assert(ptr noundef %60, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 56, ptr noundef nonnull @__func__.RISCV_CPU_GET_CLASS) #7
   %62 = call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 56, ptr noundef nonnull @__func__.RISCV_CPU) #7
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 11200
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !6
   %64 = call i32 @riscv_cpu_max_xlen(ptr noundef %61) #7
   %spec.store.select.i = call i32 @llvm.smin.i32(i32 %64, i32 64)
@@ -350,7 +344,7 @@ switch.lookup:                                    ; preds = %47
 
 riscv_gen_dynamic_csr_feature.exit:               ; preds = %86
   call void @gdb_feature_builder_end(ptr noundef nonnull %2) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @gdb_register_coprocessor(ptr noundef %0, ptr noundef nonnull @riscv_gdb_get_csr, ptr noundef nonnull @riscv_gdb_set_csr, ptr noundef nonnull %65, i32 noundef 0) #7
   br label %87
 
@@ -358,7 +352,7 @@ riscv_gen_dynamic_csr_feature.exit:               ; preds = %86
   ret void
 }
 
-declare void @gdb_register_coprocessor(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @gdb_register_coprocessor(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 0, 9) i32 @riscv_gdb_get_fpu(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
@@ -381,10 +375,10 @@ define internal range(i32 0, 9) i32 @riscv_gdb_get_fpu(ptr noundef %0, ptr nound
   %15 = sext i32 %2 to i64
   %16 = getelementptr inbounds [32 x i64], ptr %14, i64 0, i64 %15
   %17 = load i64, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %17, ptr %5, align 8
   %18 = call ptr @g_byte_array_append(ptr noundef %1, ptr noundef nonnull %5, i32 noundef 8) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %28
 
 19:                                               ; preds = %8
@@ -398,10 +392,10 @@ define internal range(i32 0, 9) i32 @riscv_gdb_get_fpu(ptr noundef %0, ptr nound
   %24 = getelementptr inbounds [32 x i64], ptr %22, i64 0, i64 %23
   %25 = load i64, ptr %24, align 8
   %26 = trunc i64 %25 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %26, ptr %4, align 4
   %27 = call ptr @g_byte_array_append(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 4) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %28
 
 28:                                               ; preds = %3, %19, %21, %13
@@ -428,7 +422,7 @@ define internal range(i32 0, 9) i32 @riscv_gdb_set_fpu(ptr noundef %0, ptr nound
   ret i32 %.0
 }
 
-declare ptr @gdb_find_static_feature(ptr noundef) local_unnamed_addr #3
+declare ptr @gdb_find_static_feature(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 -2147483640, -2147483648) i32 @riscv_gdb_get_vector(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
@@ -456,10 +450,10 @@ define internal range(i32 -2147483640, -2147483648) i32 @riscv_gdb_get_vector(pt
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds [512 x i64], ptr %10, i64 0, i64 %15
   %17 = load i64, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %17, ptr %4, align 8
   %18 = call ptr @g_byte_array_append(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 8) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %19 = add nuw nsw i32 %.019, 8
   %20 = icmp samesign ult i32 %19, %9
   br i1 %20, label %12, label %.loopexit.loopexit, !llvm.loop !12
@@ -520,10 +514,10 @@ define internal range(i32 0, 9) i32 @riscv_gdb_get_virtual(ptr readnone captures
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %7 = call ptr @g_byte_array_append(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 8) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %8
 
 8:                                                ; preds = %3, %6
@@ -532,7 +526,7 @@ define internal range(i32 0, 9) i32 @riscv_gdb_get_virtual(ptr readnone captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef range(i32 0, 9) i32 @riscv_gdb_set_virtual(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2) #4 {
+define internal noundef range(i32 0, 9) i32 @riscv_gdb_set_virtual(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2) #3 {
   %4 = icmp eq i32 %2, 0
   %. = select i1 %4, i32 8, i32 0
   ret i32 %.
@@ -548,7 +542,7 @@ define internal range(i32 0, 9) i32 @riscv_gdb_get_csr(ptr noundef %0, ptr nound
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 11200
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
   %10 = call i32 @riscv_csrrw_debug(ptr noundef nonnull %9, i32 noundef %2, ptr noundef nonnull %5, i64 noundef 0, i64 noundef 0) #7
   %.not = icmp eq i32 %10, -1
@@ -556,15 +550,15 @@ define internal range(i32 0, 9) i32 @riscv_gdb_get_csr(ptr noundef %0, ptr nound
 
 11:                                               ; preds = %8
   %12 = load i64, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %12, ptr %4, align 8
   %13 = call ptr @g_byte_array_append(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 8) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %8, %11
   %.1.ph = phi i32 [ 8, %11 ], [ 0, %8 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %14
 
 14:                                               ; preds = %.sink.split, %3
@@ -593,40 +587,46 @@ define internal range(i32 0, 9) i32 @riscv_gdb_set_csr(ptr noundef %0, ptr nound
   ret i32 %.1
 }
 
-declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @object_get_class(ptr noundef) local_unnamed_addr #3
+declare ptr @object_get_class(ptr noundef) local_unnamed_addr #2
 
-declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @g_byte_array_append(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @g_byte_array_append(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare void @gdb_feature_builder_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @gdb_feature_builder_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @gdb_feature_builder_append_tag(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @gdb_feature_builder_append_tag(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @gdb_feature_builder_append_reg(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @gdb_feature_builder_append_reg(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #3
+declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @gdb_feature_builder_end(ptr noundef) local_unnamed_addr #3
+declare void @gdb_feature_builder_end(ptr noundef) local_unnamed_addr #2
 
-declare i32 @riscv_csrrw_debug(ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @riscv_csrrw_debug(ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @riscv_cpu_max_xlen(ptr noundef) local_unnamed_addr #3
+declare i32 @riscv_cpu_max_xlen(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 attributes #8 = { noreturn nounwind }

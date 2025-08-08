@@ -130,9 +130,6 @@ define void @Init_coverage() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare i64 @rb_define_module(ptr noundef) local_unnamed_addr #2
 
 declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -564,7 +561,7 @@ rb_coverage_suspend.exit:                         ; preds = %33
 define internal i64 @rb_coverage_peek_result(i64 %0) #0 {
   %2 = alloca i64, align 8
   %3 = tail call i64 @rb_get_coverages() #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = tail call i64 @rb_hash_new() #9
   store i64 %4, ptr %2, align 8, !tbaa !10
   %5 = and i64 %3, -5
@@ -593,7 +590,7 @@ define internal i64 @rb_coverage_peek_result(i64 %0) #0 {
   %13 = phi i64 [ %.pre, %11 ], [ %4, %8 ]
   %14 = call i64 @rb_hash_freeze(i64 noundef %13) #9
   %15 = load i64, ptr %2, align 8, !tbaa !10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %15
 }
 
@@ -649,7 +646,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i13, %.lr.ph
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal range(i64 0, 21) i64 @rb_coverage_running(i64 %0) #4 {
+define internal range(i64 0, 21) i64 @rb_coverage_running(i64 %0) #3 {
   %2 = load i32, ptr @current_state, align 4, !tbaa !6
   %3 = icmp eq i32 %2, 2
   %4 = select i1 %3, i64 20, i64 0
@@ -657,9 +654,6 @@ define internal range(i64 0, 21) i64 @rb_coverage_running(i64 %0) #4 {
 }
 
 declare void @rb_global_variable(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare i64 @rb_sym2id(i64 noundef) local_unnamed_addr #2
 
@@ -685,7 +679,7 @@ declare void @rb_set_coverages(i64 noundef, i32 noundef, i64 noundef) local_unna
 declare void @rb_error_arity(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare void @rb_warn(ptr noundef, ...) local_unnamed_addr #5
+declare void @rb_warn(ptr noundef, ...) local_unnamed_addr #4
 
 declare void @rb_clear_coverages() local_unnamed_addr #2
 
@@ -826,7 +820,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %RARRAY_A
 RARRAY_AREF.exit.i:                               ; preds = %61, %59
   %.0.i.i.i = phi ptr [ %60, %59 ], [ %63, %61 ]
   %64 = load i64, ptr %.0.i.i.i, align 8, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 8, !tbaa !17
   %65 = tail call i64 @rb_hash_new() #9
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -854,7 +848,7 @@ branch_coverage.exit:                             ; preds = %69, %71
   %77 = ptrtoint ptr %4 to i64
   call void @rb_hash_foreach(i64 noundef %64, ptr noundef nonnull @branch_coverage_i, i64 noundef %77) #9
   %78 = load i64, ptr %66, align 8, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %79 = call i64 @rb_hash_aset(i64 noundef %20, i64 noundef %55, i64 noundef %78) #9
   %.pre38 = load i32, ptr @current_mode, align 4, !tbaa !6
   br label %80
@@ -925,7 +919,7 @@ rbimpl_RB_TYPE_P_fastpath.exit52:                 ; preds = %13
   br i1 %or.cond, label %22, label %rbimpl_RB_TYPE_P_fastpath.exit52.thread
 
 22:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit52
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.pr.i = load i64, ptr @method_coverage_i.rbimpl_id, align 8, !tbaa !10
   %.not4.i = icmp eq i64 %.pr.i, 0
   br i1 %.not4.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
@@ -1000,11 +994,11 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %26, %rbimpl_RB_TYPE
   %66 = or disjoint i64 %65, 1
   %.1 = select i1 %64, i64 %66, i64 9223372036854775807
   %67 = call i64 @rb_hash_aset(i64 noundef %47, i64 noundef %55, i64 noundef %.1) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %rbimpl_RB_TYPE_P_fastpath.exit52.thread
 
 68:                                               ; preds = %43, %rbimpl_RB_TYPE_P_fastpath.exit.thread, %rbimpl_intern_const.exit
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %70
 
 rbimpl_RB_TYPE_P_fastpath.exit52.thread:          ; preds = %13, %.critedge, %rbimpl_RB_TYPE_P_fastpath.exit52
@@ -1173,11 +1167,17 @@ declare void @rb_asan_unpoison_object(i64 noundef, i1 noundef zeroext) local_unn
 declare ptr @rb_resolve_me_location(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold noreturn
-declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #6
+declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #5
 
 declare i64 @rb_hash_aref(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 declare void @rb_asan_poison_object(i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #7
@@ -1185,10 +1185,10 @@ declare i32 @llvm.umax.i32(i32, i32) #7
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { noreturn nounwind }
 attributes #9 = { nounwind }

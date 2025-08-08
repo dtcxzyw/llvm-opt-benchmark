@@ -21,7 +21,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_loop(ptr noundef %0) local_unnamed_add
   %7 = zext i16 %6 to i32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %2, align 8, !tbaa !29
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %10, align 8, !tbaa !33
@@ -86,20 +86,17 @@ define hidden range(i32 0, 2) i32 @lj_opt_loop(ptr noundef %0) local_unnamed_add
 
 45:                                               ; preds = %1, %.critedge
   %.1 = phi i32 [ 1, %.critedge ], [ 0, %1 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare hidden i32 @lj_vm_cpcall(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden i32 @lj_vm_cpcall(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @cploop_opt(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(none) initializes((8, 20)) %2) #0 {
   %4 = alloca [64 x i16], align 16
   %5 = load ptr, ptr %2, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %7 = load i32, ptr %6, align 4, !tbaa !4
   %8 = add i32 %7, -32768
@@ -1064,7 +1061,7 @@ loop_subst_snap.exit.i:                           ; preds = %.lr.ph93.i.i, %._cr
   br i1 %exitcond245.not.i.i, label %loop_unroll.exit, label %484, !llvm.loop !87
 
 loop_unroll.exit:                                 ; preds = %511, %.preheader170.lr.ph.i.i, %.preheader.i165.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr null
 }
 
@@ -1146,31 +1143,34 @@ define internal fastcc void @loop_undo(ptr noundef initializes((10, 12), (44, 48
   ret void
 }
 
+; Function Attrs: noreturn
+declare hidden void @lj_err_throw(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+declare hidden ptr @lj_mem_realloc(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
+
+declare hidden i32 @lj_ir_emit(ptr noundef) local_unnamed_addr #1
+
+declare hidden i32 @lj_opt_fold(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: noreturn
+declare hidden void @lj_trace_err(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+declare hidden void @lj_snap_grow_buf_(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare hidden void @lj_snap_grow_map_(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare hidden void @lj_ir_rollback(ptr noundef, i32 noundef) local_unnamed_addr #1
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
-; Function Attrs: noreturn
-declare hidden void @lj_err_throw(ptr noundef, i32 noundef) local_unnamed_addr #3
-
-declare hidden ptr @lj_mem_realloc(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
-
-declare hidden i32 @lj_ir_emit(ptr noundef) local_unnamed_addr #2
-
-declare hidden i32 @lj_opt_fold(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: noreturn
-declare hidden void @lj_trace_err(ptr noundef, i32 noundef) local_unnamed_addr #3
-
-declare hidden void @lj_snap_grow_buf_(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare hidden void @lj_snap_grow_map_(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare hidden void @lj_ir_rollback(ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 attributes #5 = { noreturn nounwind }
 

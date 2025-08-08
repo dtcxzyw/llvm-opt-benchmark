@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qrtas_get_time_of_day(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [8 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !4
   %6 = tail call i64 @guest_alloc(ptr noundef %1, i64 noundef 0) #4
   %7 = tail call i64 @guest_alloc(ptr noundef %1, i64 noundef 32) #4
@@ -70,15 +70,12 @@ qrtas_call.exit:                                  ; preds = %9
 
 38:                                               ; preds = %qrtas_call.exit, %15
   %.0 = phi i32 [ %16, %15 ], [ %14, %qrtas_call.exit ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @qrtas_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 6) %3, ptr noundef readonly captures(none) %4, i32 noundef range(i32 1, 9) %5, ptr noundef nonnull writeonly captures(none) %6) unnamed_addr #0 {
@@ -128,15 +125,12 @@ qrtas_copy_ret.exit:                              ; preds = %19
   ret i64 %18
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qrtas_ibm_read_pci_config(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [4 x i32], align 16
   %7 = alloca [2 x i32], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !annotation !4
   store i32 %3, ptr %6, align 16
   %8 = lshr i64 %2, 32
@@ -157,8 +151,8 @@ define dso_local i32 @qrtas_ibm_read_pci_config(ptr noundef %0, ptr noundef %1, 
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %18 = load i32, ptr %17, align 4
   %.0 = select i1 %or.cond, i32 %18, i32 -1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -166,8 +160,8 @@ define dso_local i32 @qrtas_ibm_read_pci_config(ptr noundef %0, ptr noundef %1, 
 define dso_local range(i32 -1, 1) i32 @qrtas_ibm_write_pci_config(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca [5 x i32], align 16
   %8 = alloca [1 x i32], align 4
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !annotation !4
   store i32 %3, ptr %7, align 16
   %9 = lshr i64 %2, 32
@@ -188,25 +182,31 @@ define dso_local range(i32 -1, 1) i32 @qrtas_ibm_write_pci_config(ptr noundef %0
   %.not8 = icmp ne i32 %18, 0
   %narrow = select i1 %.not, i1 true, i1 %.not8
   %.0 = sext i1 %narrow to i32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
-declare i64 @guest_alloc(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @guest_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i64 @qtest_rtas_call(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @qtest_rtas_call(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @guest_free(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @guest_free(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @qtest_writel(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare void @qtest_writel(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @qtest_readl(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @qtest_readl(ptr noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

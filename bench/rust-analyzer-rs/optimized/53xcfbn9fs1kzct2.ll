@@ -223,7 +223,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
   br i1 %41, label %.lr.ph.split.us.i.i.i, label %42
 
 42:                                               ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !43
   store ptr %.sroa.8.150, ptr %4, align 8, !noalias !43
   store i64 %.sroa.10.153, ptr %8, align 8, !noalias !43
   store ptr getelementptr inbounds nuw (i8, ptr @anon.d4739f4442136ec9c59c44b5f8840570.23, i64 1), ptr %9, align 8, !noalias !43
@@ -242,7 +242,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
 
 .lr.ph.i.i:                                       ; preds = %42, %57
   %.06545.i.i = phi i64 [ %58, %57 ], [ 0, %42 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !43
   store i64 0, ptr %3, align 8, !noalias !43
   %47 = getelementptr i8, ptr %.sroa.8.150, i64 %.06545.i.i
   br label %48
@@ -265,7 +265,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
 
 57:                                               ; preds = %66
   %58 = add i64 %.06545.i.i, 64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !43
   %59 = add i64 %.06545.i.i, 129
   %60 = icmp uge i64 %59, %.sroa.10.153
   %61 = trunc nuw i8 %.3.i.i to i1
@@ -363,7 +363,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
 
 "_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h04515ee06e6bece1E.exit": ; preds = %._crit_edge.i.i, %96
   %.4.i.i = phi i8 [ %.168.lcssa.i.i, %._crit_edge.i.i ], [ %99, %96 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !43
   %102 = trunc nuw i8 %.4.i.i to i1
   br i1 %102, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h04515ee06e6bece1E.exit.thread", label %thread-pre-split.backedge
 
@@ -476,17 +476,17 @@ declare void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 nou
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.cttz.i16(i16, i1 immarg) #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
-
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #3
 
 ; Function Attrs: nonlazybind uwtable
 declare { ptr, i64 } @_ZN6parser9lexed_str8LexedStr10range_text17h658e8b3e85b21e8eE(ptr noalias noundef readonly align 8 dereferenceable(88), i64 noundef, i64 noundef) unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6

@@ -97,20 +97,14 @@ define i64 @ossl_x509ext_new(ptr noundef %0) local_unnamed_addr #0 {
   ret i64 %3
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @rb_data_typed_object_wrap(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @rb_data_typed_object_wrap(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @X509_EXTENSION_new() local_unnamed_addr #1
 
-declare ptr @X509_EXTENSION_new() local_unnamed_addr #2
-
-declare ptr @X509_EXTENSION_dup(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_EXTENSION_dup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @ossl_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @ossl_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define nonnull ptr @GetX509ExtPtr(i64 noundef %0) local_unnamed_addr #0 {
@@ -127,7 +121,7 @@ define nonnull ptr @GetX509ExtPtr(i64 noundef %0) local_unnamed_addr #0 {
   ret ptr %2
 }
 
-declare ptr @rb_check_typeddata(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @rb_check_typeddata(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define void @Init_ossl_x509ext() local_unnamed_addr #0 {
@@ -195,9 +189,9 @@ define void @Init_ossl_x509ext() local_unnamed_addr #0 {
   ret void
 }
 
-declare i64 @rb_define_class_under(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_define_class_under(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @rb_define_alloc_func(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @rb_define_alloc_func(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_x509extfactory_alloc(i64 noundef %0) #0 {
@@ -220,7 +214,7 @@ define internal i64 @ossl_x509extfactory_alloc(i64 noundef %0) #0 {
   ret i64 %2
 }
 
-declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_x509extfactory_initialize(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef returned %2) #0 {
@@ -229,10 +223,10 @@ define internal noundef i64 @ossl_x509extfactory_initialize(i32 noundef %0, ptr 
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca [4 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %4, ptr %8, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %5, ptr %9, align 8, !tbaa !15
@@ -376,16 +370,16 @@ ossl_x509extfactory_set_crl.exit:                 ; preds = %61
   br label %68
 
 68:                                               ; preds = %ossl_x509extfactory_set_crl.exit, %58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %2
 }
 
-declare void @rb_attr(i64 noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @rb_attr(i64 noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @rb_intern(ptr noundef) local_unnamed_addr #2
+declare i64 @rb_intern(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_x509extfactory_set_issuer_cert(i64 noundef %0, i64 noundef returned %1) #0 {
@@ -470,10 +464,10 @@ define internal i64 @ossl_x509extfactory_create_ext(i32 noundef %0, ptr noundef 
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca [3 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %4, ptr %8, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %5, ptr %9, align 8, !tbaa !15
@@ -604,10 +598,10 @@ RSTRING_PTR.exit:                                 ; preds = %50, %57
   %65 = inttoptr i64 %45 to ptr
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   store ptr %58, ptr %66, align 8, !tbaa !10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %45
 }
 
@@ -638,11 +632,11 @@ define internal noundef i64 @ossl_x509ext_initialize(i32 noundef %0, ptr noundef
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca [3 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_x509ext_type) #5
   store ptr %10, ptr %8, align 8, !tbaa !36
   %.not = icmp eq ptr %10, null
@@ -799,11 +793,11 @@ rbimpl_intern_const.exit27:                       ; preds = %.lr.ph.i25, %63
   br label %67
 
 67:                                               ; preds = %rbimpl_intern_const.exit21, %rbimpl_intern_const.exit27, %RSTRING_PTR.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %2
 }
 
@@ -1124,7 +1118,7 @@ define internal range(i64 0, 21) i64 @ossl_x509ext_get_critical(i64 noundef %0) 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_x509ext_to_der(i64 noundef %0) #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_x509ext_type) #5
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -1187,7 +1181,7 @@ RSTRING_PTR.exit14:                               ; preds = %23, %27
   %29 = ptrtoint ptr %.sroa.2.0.i13 to i64
   %30 = sub i64 %28, %29
   call void @rb_str_set_len(i64 noundef %13, i64 noundef %30) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %13
 }
 
@@ -1197,13 +1191,13 @@ define internal void @ossl_x509ext_free(ptr noundef %0) #0 {
   ret void
 }
 
-declare void @X509_EXTENSION_free(ptr noundef) local_unnamed_addr #2
+declare void @X509_EXTENSION_free(ptr noundef) local_unnamed_addr #1
 
-declare ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @X509V3_set_ctx(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @X509V3_set_ctx(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @rb_iv_set(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_iv_set(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @ossl_x509extfactory_free(ptr noundef %0) #0 {
@@ -1211,94 +1205,100 @@ define internal void @ossl_x509extfactory_free(ptr noundef %0) #0 {
   ret void
 }
 
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @rb_error_arity(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @rb_error_arity(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @GetX509CertPtr(i64 noundef) local_unnamed_addr #2
+declare ptr @GetX509CertPtr(i64 noundef) local_unnamed_addr #1
 
-declare ptr @GetX509ReqPtr(i64 noundef) local_unnamed_addr #2
+declare ptr @GetX509ReqPtr(i64 noundef) local_unnamed_addr #1
 
-declare ptr @GetX509CRLPtr(i64 noundef) local_unnamed_addr #2
+declare ptr @GetX509CRLPtr(i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_string_value(ptr noundef) local_unnamed_addr #2
+declare i64 @rb_string_value(ptr noundef) local_unnamed_addr #1
 
-declare ptr @rb_string_value_cstr(ptr noundef) local_unnamed_addr #2
+declare ptr @rb_string_value_cstr(ptr noundef) local_unnamed_addr #1
 
-declare i32 @OBJ_ln2nid(ptr noundef) local_unnamed_addr #2
+declare i32 @OBJ_ln2nid(ptr noundef) local_unnamed_addr #1
 
-declare ptr @OBJ_nid2sn(i32 noundef) local_unnamed_addr #2
+declare ptr @OBJ_nid2sn(i32 noundef) local_unnamed_addr #1
 
-declare i64 @rb_str_new_cstr(ptr noundef) local_unnamed_addr #2
+declare i64 @rb_str_new_cstr(ptr noundef) local_unnamed_addr #1
 
-declare i64 @rb_str_append(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_str_append(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_iv_get(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @rb_iv_get(i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @GetConfig(i64 noundef) local_unnamed_addr #2
+declare ptr @GetConfig(i64 noundef) local_unnamed_addr #1
 
-declare void @X509V3_set_nconf(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @X509V3_set_nconf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509V3_EXT_nconf(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @X509V3_EXT_nconf(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @ossl_to_der_if_possible(i64 noundef) local_unnamed_addr #2
+declare i64 @ossl_to_der_if_possible(i64 noundef) local_unnamed_addr #1
 
-declare ptr @d2i_X509_EXTENSION(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @d2i_X509_EXTENSION(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_funcall(i64 noundef, i64 noundef, i32 noundef, ...) local_unnamed_addr #2
+declare i64 @rb_funcall(i64 noundef, i64 noundef, i32 noundef, ...) local_unnamed_addr #1
 
-declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @rb_error_frozen_object(i64 noundef) local_unnamed_addr #3
+declare void @rb_error_frozen_object(i64 noundef) local_unnamed_addr #2
 
-declare void @rb_str_modify(i64 noundef) local_unnamed_addr #2
+declare void @rb_str_modify(i64 noundef) local_unnamed_addr #1
 
-declare ptr @OBJ_txt2obj(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @OBJ_txt2obj(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @X509_EXTENSION_set_object(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @X509_EXTENSION_set_object(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ASN1_OBJECT_free(ptr noundef) local_unnamed_addr #2
+declare void @ASN1_OBJECT_free(ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_EXTENSION_get_data(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_EXTENSION_get_data(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ASN1_OCTET_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ASN1_OCTET_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn
-declare void @rb_out_of_int(i64 noundef) local_unnamed_addr #4
+declare void @rb_out_of_int(i64 noundef) local_unnamed_addr #3
 
-declare i32 @X509_EXTENSION_set_critical(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @X509_EXTENSION_set_critical(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @X509_EXTENSION_get_object(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_EXTENSION_get_object(ptr noundef) local_unnamed_addr #1
 
-declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #2
+declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #1
 
-declare ptr @BIO_new(ptr noundef) local_unnamed_addr #2
+declare ptr @BIO_new(ptr noundef) local_unnamed_addr #1
 
-declare ptr @BIO_s_mem() local_unnamed_addr #2
+declare ptr @BIO_s_mem() local_unnamed_addr #1
 
-declare i32 @i2a_ASN1_OBJECT(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @i2a_ASN1_OBJECT(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @ossl_membio2str(ptr noundef) local_unnamed_addr #2
+declare i64 @ossl_membio2str(ptr noundef) local_unnamed_addr #1
 
-declare i32 @X509V3_EXT_print(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @X509V3_EXT_print(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ASN1_STRING_print(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ASN1_STRING_print(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @rb_str_new(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_str_new(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @X509_EXTENSION_get_critical(ptr noundef) local_unnamed_addr #2
+declare i32 @X509_EXTENSION_get_critical(ptr noundef) local_unnamed_addr #1
 
-declare i32 @i2d_X509_EXTENSION(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @i2d_X509_EXTENSION(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @rb_str_set_len(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare void @rb_str_set_len(i64 noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 attributes #6 = { noreturn nounwind }
 attributes #7 = { cold noreturn nounwind }

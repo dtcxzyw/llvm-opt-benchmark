@@ -931,7 +931,7 @@ if.then2.i.i:                                     ; preds = %if.then
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit
 
 if.else.i.i:                                      ; preds = %if.then
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ts.i.i.i)
   %call.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i.i) #15
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, 22
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i
@@ -946,7 +946,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i: ; preds = %if.then.i.i.i, %
   %4 = load i64, ptr %ts.i.i.i, align 8
   %mul.i.i.i = mul i64 %4, 1000000000
   %add.i.i.i = add i64 %mul.i.i.i, %3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ts.i.i.i)
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit
 
 _ZN2EA4StdC9Stopwatch7RestartEv.exit:             ; preds = %if.then2.i.i, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i
@@ -1786,10 +1786,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i64 @llvm.smin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 attributes #0 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

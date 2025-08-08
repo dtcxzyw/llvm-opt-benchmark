@@ -6168,7 +6168,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %unicodeExtensionAttributes = getelementptr inbounds nuw i8, ptr %this, i64 144
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__an.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__an.i.i.i)
   store ptr %unicodeExtensionAttributes, ptr %__an.i.i.i, align 8
   %call3.i.i.i.i = call noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %unicodeExtensionAttributes, ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %__an.i.i.i)
   br label %while.cond.i.i.i.i.i.i
@@ -6196,7 +6196,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEES5_St9_Ide
   %_M_node_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = load i64, ptr %_M_node_count.i.i.i.i, align 8
   store i64 %5, ptr %_M_node_count.i.i.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__an.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__an.i.i.i)
   store ptr %call3.i.i.i.i, ptr %_M_parent.i.i.i.i.i, align 8
   br label %_ZNSt3setINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEESt4lessIS5_ESaIS5_EEC2ERKS9_.exit
 
@@ -6218,7 +6218,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEESt4lessIS5_ESaI
 
 if.then.i.i14:                                    ; preds = %_ZNSt3setINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEESt4lessIS5_ESaIS5_EEC2ERKS9_.exit
   %unicodeExtensionKeywords = getelementptr inbounds nuw i8, ptr %this, i64 192
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__an.i.i.i7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__an.i.i.i7)
   store ptr %unicodeExtensionKeywords, ptr %__an.i.i.i7, align 8
   %call3.i.i.i.i15 = call noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE7_M_copyILb0ENSE_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESJ_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %unicodeExtensionKeywords, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(8) %__an.i.i.i7)
   br label %while.cond.i.i.i.i.i.i16
@@ -6246,7 +6246,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEESt4pairIKS
   %_M_node_count.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %10 = load i64, ptr %_M_node_count.i.i.i.i24, align 8
   store i64 %10, ptr %_M_node_count.i.i.i.i.i11, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__an.i.i.i7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__an.i.i.i7)
   store ptr %call3.i.i.i.i15, ptr %_M_parent.i.i.i.i.i8, align 8
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit
 
@@ -6271,7 +6271,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEES5_St4lessIS5_E
 
 if.then.i.i32:                                    ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit
   %transformedExtensionFields = getelementptr inbounds nuw i8, ptr %this, i64 384
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__an.i.i.i25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__an.i.i.i25)
   store ptr %transformedExtensionFields, ptr %__an.i.i.i25, align 8
   %call3.i.i.i.i33 = call noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE7_M_copyILb0ENSE_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESJ_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %transformedExtensionFields, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(8) %__an.i.i.i25)
   br label %while.cond.i.i.i.i.i.i34
@@ -6299,7 +6299,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEESt4pairIKS
   %_M_node_count.i.i.i.i44 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %15 = load i64, ptr %_M_node_count.i.i.i.i44, align 8
   store i64 %15, ptr %_M_node_count.i.i.i.i.i29, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__an.i.i.i25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__an.i.i.i25)
   store ptr %call3.i.i.i.i33, ptr %_M_parent.i.i.i.i.i26, align 8
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit45
 
@@ -6321,7 +6321,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEES5_St4lessIS5_E
 
 if.then.i.i53:                                    ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit45
   %otherExtensionMap = getelementptr inbounds nuw i8, ptr %this, i64 432
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__an.i.i.i46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__an.i.i.i46)
   store ptr %otherExtensionMap, ptr %__an.i.i.i46, align 8
   %call3.i.i.i.i54 = call noundef ptr @_ZNSt8_Rb_treeIDsSt4pairIKDsNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEESt10_Select1stIS8_ESt4lessIDsESaIS8_EE7_M_copyILb0ENSE_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESJ_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %otherExtensionMap, ptr noundef nonnull %17, ptr noundef nonnull %16, ptr noundef nonnull align 8 dereferenceable(8) %__an.i.i.i46)
   br label %while.cond.i.i.i.i.i.i55
@@ -6349,7 +6349,7 @@ _ZNSt8_Rb_treeIDsSt4pairIKDsNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDs
   %_M_node_count.i.i.i.i63 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %20 = load i64, ptr %_M_node_count.i.i.i.i63, align 8
   store i64 %20, ptr %_M_node_count.i.i.i.i.i50, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__an.i.i.i46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__an.i.i.i46)
   store ptr %call3.i.i.i.i54, ptr %_M_parent.i.i.i.i.i47, align 8
   br label %_ZNSt3mapIDsNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEESt4lessIDsESaISt4pairIKDsS5_EEEC2ERKSC_.exit
 
@@ -6564,7 +6564,7 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEC2ERKS4_.exit33: ; preds
 
 if.then.i.i34:                                    ; preds = %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEC2ERKS4_.exit33
   %variantSubtagList = getelementptr inbounds nuw i8, ptr %this, i64 96
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__an.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__an.i.i.i)
   store ptr %variantSubtagList, ptr %__an.i.i.i, align 8
   %call3.i.i.i.i = call noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %variantSubtagList, ptr noundef nonnull %17, ptr noundef nonnull %16, ptr noundef nonnull align 8 dereferenceable(8) %__an.i.i.i)
   br label %while.cond.i.i.i.i.i.i
@@ -6592,7 +6592,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEES5_St9_Ide
   %_M_node_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 136
   %20 = load i64, ptr %_M_node_count.i.i.i.i, align 8
   store i64 %20, ptr %_M_node_count.i.i.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__an.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__an.i.i.i)
   store ptr %call3.i.i.i.i, ptr %_M_parent.i.i.i.i.i, align 8
   br label %_ZNSt3setINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEESt4lessIS5_ESaIS5_EEC2ERKS9_.exit
 
@@ -8262,10 +8262,10 @@ declare i64 @llvm.umax.i64(i64, i64) #11
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

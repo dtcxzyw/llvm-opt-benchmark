@@ -46,69 +46,69 @@ define void @_ZN6open3d1t9pipelines6kernel24FillInRigidAlignmentTermERNS_4core6T
   tail call void @_ZN6open3d4core12tensor_check18AssertTensorDtype_EPKciS3_RKNS0_6TensorERKNS0_5DtypeE(ptr noundef nonnull @.str, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel24FillInRigidAlignmentTermERNS_4core6TensorES5_S5_RKS4_S7_S7_iif, ptr noundef nonnull align 8 dereferenceable(160) %3, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core7Float32E)
   tail call void @_ZN6open3d4core12tensor_check18AssertTensorDtype_EPKciS3_RKNS0_6TensorERKNS0_5DtypeE(ptr noundef nonnull @.str, i32 noundef 31, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel24FillInRigidAlignmentTermERNS_4core6TensorES5_S5_RKS4_S7_S7_iif, ptr noundef nonnull align 8 dereferenceable(160) %4, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core7Float32E)
   tail call void @_ZN6open3d4core12tensor_check18AssertTensorDtype_EPKciS3_RKNS0_6TensorERKNS0_5DtypeE(ptr noundef nonnull @.str, i32 noundef 32, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel24FillInRigidAlignmentTermERNS_4core6TensorES5_S5_RKS4_S7_S7_iif, ptr noundef nonnull align 8 dereferenceable(160) %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core7Float32E)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %15 = load ptr, ptr %0, align 8, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i64 %17(ptr noundef nonnull align 8 dereferenceable(160) %0)
   store i64 %18, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %19 = load ptr, ptr %1, align 8, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i64 %21(ptr noundef nonnull align 8 dereferenceable(160) %1)
   store i64 %22, ptr %11, align 8
   %23 = call noundef zeroext i1 @_ZNK6open3d4core6DeviceneERKS1_(ptr noundef nonnull align 4 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(8) %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %9
-  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 36, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel24FillInRigidAlignmentTermERNS_4core6TensorES5_S5_RKS4_S7_S7_iif, ptr noundef nonnull @.str.1) #11
+  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 36, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel24FillInRigidAlignmentTermERNS_4core6TensorES5_S5_RKS4_S7_S7_iif, ptr noundef nonnull @.str.1) #10
   unreachable
 
 25:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %26 = load ptr, ptr %3, align 8, !tbaa !4
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = call i64 %28(ptr noundef nonnull align 8 dereferenceable(160) %3)
   store i64 %29, ptr %12, align 8
   %30 = call noundef zeroext i1 @_ZNK6open3d4core6DeviceneERKS1_(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %25
-  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel24FillInRigidAlignmentTermERNS_4core6TensorES5_S5_RKS4_S7_S7_iif, ptr noundef nonnull @.str.2) #11
+  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel24FillInRigidAlignmentTermERNS_4core6TensorES5_S5_RKS4_S7_S7_iif, ptr noundef nonnull @.str.2) #10
   unreachable
 
 32:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %33 = load ptr, ptr %4, align 8, !tbaa !4
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = call i64 %35(ptr noundef nonnull align 8 dereferenceable(160) %4)
   store i64 %36, ptr %13, align 8
   %37 = call noundef zeroext i1 @_ZNK6open3d4core6DeviceneERKS1_(ptr noundef nonnull align 4 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(8) %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %37, label %38, label %39
 
 38:                                               ; preds = %32
-  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 44, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel24FillInRigidAlignmentTermERNS_4core6TensorES5_S5_RKS4_S7_S7_iif, ptr noundef nonnull @.str.3) #11
+  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 44, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel24FillInRigidAlignmentTermERNS_4core6TensorES5_S5_RKS4_S7_S7_iif, ptr noundef nonnull @.str.3) #10
   unreachable
 
 39:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %40 = load ptr, ptr %5, align 8, !tbaa !4
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = call i64 %42(ptr noundef nonnull align 8 dereferenceable(160) %5)
   store i64 %43, ptr %14, align 8
   %44 = call noundef zeroext i1 @_ZNK6open3d4core6DeviceneERKS1_(ptr noundef nonnull align 4 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(8) %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %44, label %45, label %46
 
 45:                                               ; preds = %39
-  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 48, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel24FillInRigidAlignmentTermERNS_4core6TensorES5_S5_RKS4_S7_S7_iif, ptr noundef nonnull @.str.4) #11
+  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 48, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel24FillInRigidAlignmentTermERNS_4core6TensorES5_S5_RKS4_S7_S7_iif, ptr noundef nonnull @.str.4) #10
   unreachable
 
 46:                                               ; preds = %39
@@ -122,7 +122,7 @@ define void @_ZN6open3d1t9pipelines6kernel24FillInRigidAlignmentTermERNS_4core6T
 
 53:                                               ; preds = %46
   call void @_ZN6open3d1t9pipelines6kernel27FillInRigidAlignmentTermCPUERNS_4core6TensorES5_S5_RKS4_S7_S7_iif(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef nonnull align 8 dereferenceable(160) %2, ptr noundef nonnull align 8 dereferenceable(160) %3, ptr noundef nonnull align 8 dereferenceable(160) %4, ptr noundef nonnull align 8 dereferenceable(160) %5, i32 noundef %6, i32 noundef %7, float noundef %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 54:                                               ; preds = %46
@@ -135,42 +135,36 @@ define void @_ZN6open3d1t9pipelines6kernel24FillInRigidAlignmentTermERNS_4core6T
   br i1 %60, label %61, label %62
 
 61:                                               ; preds = %54
-  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 62, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel24FillInRigidAlignmentTermERNS_4core6TensorES5_S5_RKS4_S7_S7_iif, ptr noundef nonnull @.str.5) #11
+  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 62, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel24FillInRigidAlignmentTermERNS_4core6TensorES5_S5_RKS4_S7_S7_iif, ptr noundef nonnull @.str.5) #10
   unreachable
 
 62:                                               ; preds = %54
-  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 65, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel24FillInRigidAlignmentTermERNS_4core6TensorES5_S5_RKS4_S7_S7_iif, ptr noundef nonnull @.str.6) #11
+  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 65, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel24FillInRigidAlignmentTermERNS_4core6TensorES5_S5_RKS4_S7_S7_iif, ptr noundef nonnull @.str.6) #10
   unreachable
 }
 
 declare void @_ZN6open3d4core12tensor_check18AssertTensorDtype_EPKciS3_RKNS0_6TensorERKNS0_5DtypeE(ptr noundef, i32 noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(160), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare noundef zeroext i1 @_ZNK6open3d4core6DeviceneERKS1_(ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress noreturn ssp uwtable
-define linkonce_odr void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6open3d7utility6Logger11GetInstanceEv()
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %8, ptr %6, align 8, !tbaa !7
   %9 = icmp eq ptr %3, null
   br i1 %9, label %.noexc, label %10
 
 .noexc:                                           ; preds = %4
-  call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.7) #11
+  call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.7) #10
   unreachable
 
 10:                                               ; preds = %4
-  %11 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  %11 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %11, ptr %5, align 8, !tbaa !12
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i, label %._crit_edge.i.i
@@ -205,8 +199,8 @@ define linkonce_odr void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpO
   %22 = load ptr, ptr %6, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %20
   store i8 0, ptr %23, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
-  invoke void @_ZNK6open3d7utility6Logger6VErrorEPKciS3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  invoke void @_ZNK6open3d7utility6Logger6VErrorEPKciS3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %6) #10
           to label %24 unwind label %25
 
 24:                                               ; preds = %19
@@ -232,7 +226,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %26
 }
 
@@ -241,23 +235,23 @@ declare void @_ZN6open3d1t9pipelines6kernel27FillInRigidAlignmentTermCPUERNS_4co
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6open3d7utility6Logger11GetInstanceEv() local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZNK6open3d7utility6Logger6VErrorEPKciS3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i32 noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
+declare void @_ZNK6open3d7utility6Logger6VErrorEPKciS3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i32 noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #4
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress ssp uwtable
 define void @_ZN6open3d1t9pipelines6kernel23FillInSLACAlignmentTermERNS_4core6TensorES5_S5_RKS4_S7_S7_S7_S7_S7_S7_S7_S7_iiif(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef nonnull align 8 dereferenceable(160) %2, ptr noundef nonnull align 8 dereferenceable(160) %3, ptr noundef nonnull align 8 dereferenceable(160) %4, ptr noundef nonnull align 8 dereferenceable(160) %5, ptr noundef nonnull align 8 dereferenceable(160) %6, ptr noundef nonnull align 8 dereferenceable(160) %7, ptr noundef nonnull align 8 dereferenceable(160) %8, ptr noundef nonnull align 8 dereferenceable(160) %9, ptr noundef nonnull align 8 dereferenceable(160) %10, ptr noundef nonnull align 8 dereferenceable(160) %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, float noundef %15) local_unnamed_addr #0 {
@@ -274,69 +268,69 @@ define void @_ZN6open3d1t9pipelines6kernel23FillInSLACAlignmentTermERNS_4core6Te
   tail call void @_ZN6open3d4core12tensor_check18AssertTensorDtype_EPKciS3_RKNS0_6TensorERKNS0_5DtypeE(ptr noundef nonnull @.str, i32 noundef 90, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel23FillInSLACAlignmentTermERNS_4core6TensorES5_S5_RKS4_S7_S7_S7_S7_S7_S7_S7_S7_iiif, ptr noundef nonnull align 8 dereferenceable(160) %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core7Float32E)
   tail call void @_ZN6open3d4core12tensor_check18AssertTensorDtype_EPKciS3_RKNS0_6TensorERKNS0_5DtypeE(ptr noundef nonnull @.str, i32 noundef 91, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel23FillInSLACAlignmentTermERNS_4core6TensorES5_S5_RKS4_S7_S7_S7_S7_S7_S7_S7_S7_iiif, ptr noundef nonnull align 8 dereferenceable(160) %6, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core7Float32E)
   tail call void @_ZN6open3d4core12tensor_check18AssertTensorDtype_EPKciS3_RKNS0_6TensorERKNS0_5DtypeE(ptr noundef nonnull @.str, i32 noundef 92, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel23FillInSLACAlignmentTermERNS_4core6TensorES5_S5_RKS4_S7_S7_S7_S7_S7_S7_S7_S7_iiif, ptr noundef nonnull align 8 dereferenceable(160) %7, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core7Float32E)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %22 = load ptr, ptr %0, align 8, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i64 %24(ptr noundef nonnull align 8 dereferenceable(160) %0)
   store i64 %25, ptr %17, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %26 = load ptr, ptr %1, align 8, !tbaa !4
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i64 %28(ptr noundef nonnull align 8 dereferenceable(160) %1)
   store i64 %29, ptr %18, align 8
   %30 = call noundef zeroext i1 @_ZNK6open3d4core6DeviceneERKS1_(ptr noundef nonnull align 4 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(8) %17)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %16
-  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 96, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel23FillInSLACAlignmentTermERNS_4core6TensorES5_S5_RKS4_S7_S7_S7_S7_S7_S7_S7_S7_iiif, ptr noundef nonnull @.str.1) #11
+  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 96, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel23FillInSLACAlignmentTermERNS_4core6TensorES5_S5_RKS4_S7_S7_S7_S7_S7_S7_S7_S7_iiif, ptr noundef nonnull @.str.1) #10
   unreachable
 
 32:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %33 = load ptr, ptr %3, align 8, !tbaa !4
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = call i64 %35(ptr noundef nonnull align 8 dereferenceable(160) %3)
   store i64 %36, ptr %19, align 8
   %37 = call noundef zeroext i1 @_ZNK6open3d4core6DeviceneERKS1_(ptr noundef nonnull align 4 dereferenceable(8) %19, ptr noundef nonnull align 4 dereferenceable(8) %17)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br i1 %37, label %38, label %39
 
 38:                                               ; preds = %32
-  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 100, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel23FillInSLACAlignmentTermERNS_4core6TensorES5_S5_RKS4_S7_S7_S7_S7_S7_S7_S7_S7_iiif, ptr noundef nonnull @.str.2) #11
+  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 100, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel23FillInSLACAlignmentTermERNS_4core6TensorES5_S5_RKS4_S7_S7_S7_S7_S7_S7_S7_S7_iiif, ptr noundef nonnull @.str.2) #10
   unreachable
 
 39:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %40 = load ptr, ptr %4, align 8, !tbaa !4
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = call i64 %42(ptr noundef nonnull align 8 dereferenceable(160) %4)
   store i64 %43, ptr %20, align 8
   %44 = call noundef zeroext i1 @_ZNK6open3d4core6DeviceneERKS1_(ptr noundef nonnull align 4 dereferenceable(8) %20, ptr noundef nonnull align 4 dereferenceable(8) %17)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br i1 %44, label %45, label %46
 
 45:                                               ; preds = %39
-  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 104, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel23FillInSLACAlignmentTermERNS_4core6TensorES5_S5_RKS4_S7_S7_S7_S7_S7_S7_S7_S7_iiif, ptr noundef nonnull @.str.3) #11
+  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 104, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel23FillInSLACAlignmentTermERNS_4core6TensorES5_S5_RKS4_S7_S7_S7_S7_S7_S7_S7_S7_iiif, ptr noundef nonnull @.str.3) #10
   unreachable
 
 46:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %47 = load ptr, ptr %6, align 8, !tbaa !4
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = call i64 %49(ptr noundef nonnull align 8 dereferenceable(160) %6)
   store i64 %50, ptr %21, align 8
   %51 = call noundef zeroext i1 @_ZNK6open3d4core6DeviceneERKS1_(ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 4 dereferenceable(8) %17)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br i1 %51, label %52, label %53
 
 52:                                               ; preds = %46
-  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 108, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel23FillInSLACAlignmentTermERNS_4core6TensorES5_S5_RKS4_S7_S7_S7_S7_S7_S7_S7_S7_iiif, ptr noundef nonnull @.str.4) #11
+  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 108, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel23FillInSLACAlignmentTermERNS_4core6TensorES5_S5_RKS4_S7_S7_S7_S7_S7_S7_S7_S7_iiif, ptr noundef nonnull @.str.4) #10
   unreachable
 
 53:                                               ; preds = %46
@@ -350,7 +344,7 @@ define void @_ZN6open3d1t9pipelines6kernel23FillInSLACAlignmentTermERNS_4core6Te
 
 60:                                               ; preds = %53
   call void @_ZN6open3d1t9pipelines6kernel26FillInSLACAlignmentTermCPUERNS_4core6TensorES5_S5_RKS4_S7_S7_S7_S7_S7_S7_S7_S7_iiif(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef nonnull align 8 dereferenceable(160) %2, ptr noundef nonnull align 8 dereferenceable(160) %3, ptr noundef nonnull align 8 dereferenceable(160) %4, ptr noundef nonnull align 8 dereferenceable(160) %5, ptr noundef nonnull align 8 dereferenceable(160) %6, ptr noundef nonnull align 8 dereferenceable(160) %7, ptr noundef nonnull align 8 dereferenceable(160) %8, ptr noundef nonnull align 8 dereferenceable(160) %9, ptr noundef nonnull align 8 dereferenceable(160) %11, ptr noundef nonnull align 8 dereferenceable(160) %10, i32 noundef %12, i32 noundef %13, i32 noundef %14, float noundef %15)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret void
 
 61:                                               ; preds = %53
@@ -363,11 +357,11 @@ define void @_ZN6open3d1t9pipelines6kernel23FillInSLACAlignmentTermERNS_4core6Te
   br i1 %67, label %68, label %69
 
 68:                                               ; preds = %61
-  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel23FillInSLACAlignmentTermERNS_4core6TensorES5_S5_RKS4_S7_S7_S7_S7_S7_S7_S7_S7_iiif, ptr noundef nonnull @.str.5) #11
+  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel23FillInSLACAlignmentTermERNS_4core6TensorES5_S5_RKS4_S7_S7_S7_S7_S7_S7_S7_S7_iiif, ptr noundef nonnull @.str.5) #10
   unreachable
 
 69:                                               ; preds = %61
-  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 129, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel23FillInSLACAlignmentTermERNS_4core6TensorES5_S5_RKS4_S7_S7_S7_S7_S7_S7_S7_S7_iiif, ptr noundef nonnull @.str.6) #11
+  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 129, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel23FillInSLACAlignmentTermERNS_4core6TensorES5_S5_RKS4_S7_S7_S7_S7_S7_S7_S7_S7_iiif, ptr noundef nonnull @.str.6) #10
   unreachable
 }
 
@@ -380,24 +374,24 @@ define void @_ZN6open3d1t9pipelines6kernel25FillInSLACRegularizerTermERNS_4core6
   tail call void @_ZN6open3d4core12tensor_check18AssertTensorDtype_EPKciS3_RKNS0_6TensorERKNS0_5DtypeE(ptr noundef nonnull @.str, i32 noundef 144, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel25FillInSLACRegularizerTermERNS_4core6TensorES5_S5_RKS4_S7_S7_S7_S7_fii, ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core7Float32E)
   tail call void @_ZN6open3d4core12tensor_check18AssertTensorDtype_EPKciS3_RKNS0_6TensorERKNS0_5DtypeE(ptr noundef nonnull @.str, i32 noundef 145, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel25FillInSLACRegularizerTermERNS_4core6TensorES5_S5_RKS4_S7_S7_S7_S7_fii, ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core7Float32E)
   tail call void @_ZN6open3d4core12tensor_check18AssertTensorDtype_EPKciS3_RKNS0_6TensorERKNS0_5DtypeE(ptr noundef nonnull @.str, i32 noundef 146, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel25FillInSLACRegularizerTermERNS_4core6TensorES5_S5_RKS4_S7_S7_S7_S7_fii, ptr noundef nonnull align 8 dereferenceable(160) %2, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core7Float32E)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %14 = load ptr, ptr %0, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i64 %16(ptr noundef nonnull align 8 dereferenceable(160) %0)
   store i64 %17, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %18 = load ptr, ptr %1, align 8, !tbaa !4
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i64 %20(ptr noundef nonnull align 8 dereferenceable(160) %1)
   store i64 %21, ptr %13, align 8
   %22 = call noundef zeroext i1 @_ZNK6open3d4core6DeviceneERKS1_(ptr noundef nonnull align 4 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(8) %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %11
-  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 150, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel25FillInSLACRegularizerTermERNS_4core6TensorES5_S5_RKS4_S7_S7_S7_S7_fii, ptr noundef nonnull @.str.1) #11
+  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 150, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel25FillInSLACRegularizerTermERNS_4core6TensorES5_S5_RKS4_S7_S7_S7_S7_fii, ptr noundef nonnull @.str.1) #10
   unreachable
 
 24:                                               ; preds = %11
@@ -411,7 +405,7 @@ define void @_ZN6open3d1t9pipelines6kernel25FillInSLACRegularizerTermERNS_4core6
 
 31:                                               ; preds = %24
   call void @_ZN6open3d1t9pipelines6kernel28FillInSLACRegularizerTermCPUERNS_4core6TensorES5_S5_RKS4_S7_S7_S7_S7_fii(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef nonnull align 8 dereferenceable(160) %2, ptr noundef nonnull align 8 dereferenceable(160) %3, ptr noundef nonnull align 8 dereferenceable(160) %4, ptr noundef nonnull align 8 dereferenceable(160) %5, ptr noundef nonnull align 8 dereferenceable(160) %6, ptr noundef nonnull align 8 dereferenceable(160) %7, float noundef %8, i32 noundef %9, i32 noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 
 32:                                               ; preds = %24
@@ -424,18 +418,18 @@ define void @_ZN6open3d1t9pipelines6kernel25FillInSLACRegularizerTermERNS_4core6
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %32
-  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 165, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel25FillInSLACRegularizerTermERNS_4core6TensorES5_S5_RKS4_S7_S7_S7_S7_fii, ptr noundef nonnull @.str.5) #11
+  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 165, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel25FillInSLACRegularizerTermERNS_4core6TensorES5_S5_RKS4_S7_S7_S7_S7_fii, ptr noundef nonnull @.str.5) #10
   unreachable
 
 40:                                               ; preds = %32
-  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 168, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel25FillInSLACRegularizerTermERNS_4core6TensorES5_S5_RKS4_S7_S7_S7_S7_fii, ptr noundef nonnull @.str.6) #11
+  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 168, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t9pipelines6kernel25FillInSLACRegularizerTermERNS_4core6TensorES5_S5_RKS4_S7_S7_S7_S7_fii, ptr noundef nonnull @.str.6) #10
   unreachable
 }
 
 declare void @_ZN6open3d1t9pipelines6kernel28FillInSLACRegularizerTermCPUERNS_4core6TensorES5_S5_RKS4_S7_S7_S7_S7_fii(ptr noundef nonnull align 8 dereferenceable(160), ptr noundef nonnull align 8 dereferenceable(160), ptr noundef nonnull align 8 dereferenceable(160), ptr noundef nonnull align 8 dereferenceable(160), ptr noundef nonnull align 8 dereferenceable(160), ptr noundef nonnull align 8 dereferenceable(160), ptr noundef nonnull align 8 dereferenceable(160), ptr noundef nonnull align 8 dereferenceable(160), float noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal void @__cxx_global_var_init() #8 section ".text.startup" comdat($_ZN3fmt3v1012format_facetISt6localeE2idE) {
+define internal void @__cxx_global_var_init() #7 section ".text.startup" comdat($_ZN3fmt3v1012format_facetISt6localeE2idE) {
   %1 = load i8, ptr @_ZGVN3fmt3v1012format_facetISt6localeE2idE, align 8
   %2 = icmp eq i8 %1, 0
   br i1 %2, label %3, label %4
@@ -448,21 +442,27 @@ define internal void @__cxx_global_var_init() #8 section ".text.startup" comdat(
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #9
 
 attributes #0 = { mustprogress ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress noreturn ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress noreturn ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { nounwind }
-attributes #11 = { noreturn }
+attributes #10 = { noreturn }
+attributes #11 = { nounwind }
 attributes #12 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

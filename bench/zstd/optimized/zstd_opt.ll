@@ -90,7 +90,7 @@ define internal fastcc i64 @ZSTD_compressBlock_opt0(ptr noundef initializes((224
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %33, i32 4095)
   %34 = icmp eq i32 %.val, 3
   %35 = select i1 %34, i32 3, i32 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %37 = load i32, ptr %36, align 4, !tbaa !17
   store i32 %37, ptr %9, align 4, !tbaa !23
@@ -98,8 +98,8 @@ define internal fastcc i64 @ZSTD_compressBlock_opt0(ptr noundef initializes((224
   %39 = load ptr, ptr %38, align 8, !tbaa !24
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %41 = load ptr, ptr %40, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.19.i)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.19.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.19.i, i8 0, i64 12, i1 false)
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %43 = load ptr, ptr %42, align 8, !tbaa !26
@@ -174,7 +174,7 @@ define internal fastcc i64 @ZSTD_compressBlock_opt0(ptr noundef initializes((224
   %86 = trunc i64 %85 to i32
   %.not490.i = icmp eq i32 %86, 0
   %87 = zext i1 %.not490.i to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %88 = call i32 %31(ptr noundef %41, ptr noundef %0, ptr noundef nonnull %9, ptr noundef %.0.i239, ptr noundef %14, ptr noundef %2, i32 noundef %87, i32 noundef %35) #12
   store i32 %88, ptr %11, align 4, !tbaa !23
   %89 = sub i64 %83, %50
@@ -188,7 +188,7 @@ define internal fastcc i64 @ZSTD_compressBlock_opt0(ptr noundef initializes((224
 
 .thread66:                                        ; preds = %82
   %94 = getelementptr inbounds nuw i8, ptr %.0.i239, i64 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %747
 
 95:                                               ; preds = %82
@@ -269,7 +269,7 @@ ZSTD_litLengthPrice.exit:                         ; preds = %98, %105, %ZSTD_LLc
 
 .thread147:                                       ; preds = %ZSTD_litLengthPrice.exit
   %142 = load i32, ptr %139, align 4, !tbaa !44
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %531
 
 .preheader189:                                    ; preds = %ZSTD_litLengthPrice.exit, %.preheader189
@@ -420,7 +420,7 @@ ZSTD_litLengthPrice.exit17:                       ; preds = %190, %193
   %228 = zext i32 %.2469.i.lcssa to i64
   %229 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %228
   store i32 1073741824, ptr %229, align 4, !tbaa !41
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not493.i220 = icmp eq i32 %227, 0
   br i1 %.not493.i220, label %.loopexit, label %.lr.ph224
 
@@ -629,7 +629,7 @@ ZSTD_litLengthPrice.exit27._crit_edge:            ; preds = %ZSTD_litLengthPrice
   %353 = load i32, ptr %352, align 4, !tbaa !46
   %354 = getelementptr inbounds nuw i8, ptr %350, i64 12
   %355 = load i32, ptr %354, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull readonly align 4 dereferenceable(12) %351, i64 12, i1 false)
   %356 = icmp ugt i32 %353, 3
   br i1 %356, label %357, label %361
@@ -686,7 +686,7 @@ ZSTD_litLengthPrice.exit27._crit_edge:            ; preds = %ZSTD_litLengthPrice
 ZSTD_newRep.exit:                                 ; preds = %.ZSTD_updateRep.exit_crit_edge.i, %.sink.split.i.i
   %.sroa.2.0.copyload.i = phi i32 [ %.sroa.2.0.copyload.pre.i, %.ZSTD_updateRep.exit_crit_edge.i ], [ %.sroa.2.0.copyload4.i, %.sink.split.i.i ]
   %.sroa.0.0.copyload.i = load i64, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %377 = getelementptr inbounds nuw i8, ptr %338, i64 16
   store i64 %.sroa.0.0.copyload.i, ptr %377, align 4
   %.sroa.481.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %338, i64 24
@@ -734,7 +734,7 @@ ZSTD_litLengthPrice.exit32:                       ; preds = %.split473.i, %390
   %.0.i31 = phi i32 [ %397, %390 ], [ 0, %.split473.i ]
   %398 = zext i1 %344 to i32
   %399 = add nsw i32 %.0.i31, %342
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %400 = getelementptr inbounds nuw i8, ptr %338, i64 16
   %401 = call i32 %31(ptr noundef %41, ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef %231, ptr noundef %14, ptr noundef nonnull %400, i32 noundef %398, i32 noundef %35) #12
   store i32 %401, ptr %12, align 4, !tbaa !23
@@ -749,7 +749,7 @@ ZSTD_litLengthPrice.exit32:                       ; preds = %.split473.i, %390
   br i1 %.not496.i, label %.thread129, label %408
 
 .thread129:                                       ; preds = %ZSTD_litLengthPrice.exit32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread113
 
 408:                                              ; preds = %ZSTD_litLengthPrice.exit32
@@ -975,7 +975,7 @@ ZSTD_MLcode.exit33:                               ; preds = %475, %478
   br i1 %exitcond275.not, label %515, label %418, !llvm.loop !63
 
 515:                                              ; preds = %._crit_edge209
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %516 = add i32 %.13.i.lcssa, 1
   %517 = zext i32 %516 to i64
   %518 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %517
@@ -1008,7 +1008,7 @@ ZSTD_MLcode.exit33:                               ; preds = %475, %478
 .thread300:                                       ; preds = %408
   %523 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %41, i64 %410
   %524 = load i32, ptr %523, align 4, !tbaa !44
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %525 = icmp eq i32 %412, 0
   br i1 %525, label %526, label %._crit_edge277
 
@@ -1041,7 +1041,7 @@ ZSTD_MLcode.exit33:                               ; preds = %475, %478
   %.sroa.0214.2.i146154 = phi i32 [ %.sroa.0214.0.i237, %.thread147 ], [ %.sroa.0214.2.i313320, %._crit_edge277 ]
   %533 = zext i32 %.4452.i142161 to i64
   %534 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %533, i32 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull readonly align 4 dereferenceable(12) %534, i64 12, i1 false)
   %535 = icmp ugt i32 %.sroa.6217.4.i145156, 3
   br i1 %535, label %536, label %540
@@ -1098,7 +1098,7 @@ ZSTD_MLcode.exit33:                               ; preds = %475, %478
 .thread162:                                       ; preds = %.sink.split.i.i37, %.ZSTD_updateRep.exit_crit_edge.i44
   %.sroa.2.0.copyload.i40 = phi i32 [ %.sroa.2.0.copyload.pre.i46, %.ZSTD_updateRep.exit_crit_edge.i44 ], [ %.sroa.2.0.copyload4.i38, %.sink.split.i.i37 ]
   %.sroa.0.0.copyload.i41 = load i64, ptr %7, align 8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store i64 %.sroa.0.0.copyload.i41, ptr %2, align 4
   store i32 %.sroa.2.0.copyload.i40, ptr %.sroa.443.0..sroa_idx.i, align 4
   %556 = add i32 %.4452.i142161, 2
@@ -1521,9 +1521,9 @@ ZSTD_compressBlock_opt_generic.exit.loopexit:     ; preds = %747
 ZSTD_compressBlock_opt_generic.exit:              ; preds = %ZSTD_compressBlock_opt_generic.exit.loopexit, %46
   %.pre-phi = phi i64 [ %.pre284, %ZSTD_compressBlock_opt_generic.exit.loopexit ], [ %50, %46 ]
   %749 = sub i64 %51, %.pre-phi
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.19.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.19.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i64 %749
 }
 
@@ -1570,7 +1570,7 @@ define internal fastcc i64 @ZSTD_compressBlock_opt2(ptr noundef initializes((224
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %34, i32 4095)
   %35 = icmp eq i32 %.val, 3
   %36 = select i1 %35, i32 3, i32 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %38 = load i32, ptr %37, align 4, !tbaa !17
   store i32 %38, ptr %10, align 4, !tbaa !23
@@ -1578,8 +1578,8 @@ define internal fastcc i64 @ZSTD_compressBlock_opt2(ptr noundef initializes((224
   %40 = load ptr, ptr %39, align 8, !tbaa !24
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %42 = load ptr, ptr %41, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.19.i)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.19.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.19.i, i8 0, i64 12, i1 false)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %44 = load ptr, ptr %43, align 8, !tbaa !26
@@ -1656,7 +1656,7 @@ define internal fastcc i64 @ZSTD_compressBlock_opt2(ptr noundef initializes((224
   %88 = trunc i64 %87 to i32
   %.not490.i = icmp eq i32 %88, 0
   %89 = zext i1 %.not490.i to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %90 = call i32 %32(ptr noundef %42, ptr noundef %0, ptr noundef nonnull %10, ptr noundef %.0.i353, ptr noundef %15, ptr noundef %2, i32 noundef %89, i32 noundef %36) #12
   store i32 %90, ptr %12, align 4, !tbaa !23
   %91 = sub i64 %85, %51
@@ -1670,7 +1670,7 @@ define internal fastcc i64 @ZSTD_compressBlock_opt2(ptr noundef initializes((224
 
 .thread131:                                       ; preds = %84
   %96 = getelementptr inbounds nuw i8, ptr %.0.i353, i64 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %983
 
 97:                                               ; preds = %84
@@ -1761,7 +1761,7 @@ ZSTD_litLengthPrice.exit:                         ; preds = %100, %110, %ZSTD_LL
 
 .thread220:                                       ; preds = %ZSTD_litLengthPrice.exit
   %154 = load i32, ptr %151, align 4, !tbaa !44
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %755
 
 .preheader308:                                    ; preds = %ZSTD_litLengthPrice.exit, %.preheader308
@@ -1919,7 +1919,7 @@ ZSTD_litLengthPrice.exit17:                       ; preds = %201, %204
   %246 = zext i32 %.2469.i.lcssa to i64
   %247 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %40, i64 %246
   store i32 1073741824, ptr %247, align 4, !tbaa !41
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.not493.i334 = icmp eq i32 %245, 0
   br i1 %.not493.i334, label %.loopexit, label %.lr.ph338
 
@@ -2358,7 +2358,7 @@ ZSTD_litLengthPrice.exit76:                       ; preds = %491, %ZSTD_LLcode.e
   %537 = getelementptr inbounds nuw i8, ptr %536, i64 16
   %538 = getelementptr inbounds nuw i8, ptr %536, i64 12
   %539 = load i32, ptr %538, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull readonly align 4 dereferenceable(12) %537, i64 12, i1 false)
   %540 = icmp ugt i32 %.sroa.5.0.copyload.i, 3
   br i1 %540, label %541, label %545
@@ -2415,7 +2415,7 @@ ZSTD_litLengthPrice.exit76:                       ; preds = %491, %ZSTD_LLcode.e
 ZSTD_newRep.exit:                                 ; preds = %.ZSTD_updateRep.exit_crit_edge.i, %.sink.split.i.i
   %.sroa.2.0.copyload.i = phi i32 [ %.sroa.2.0.copyload.pre.i, %.ZSTD_updateRep.exit_crit_edge.i ], [ %.sroa.2.0.copyload4.i, %.sink.split.i.i ]
   %.sroa.0.0.copyload.i = load i64, ptr %9, align 8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.sroa.5.0..sroa_idx98.i = getelementptr inbounds nuw i8, ptr %530, i64 4
   store i32 %.sroa.5.0.copyload.i, ptr %.sroa.5.0..sroa_idx98.i, align 4, !tbaa !23
   %.sroa.6100.0..sroa_idx101.i = getelementptr inbounds nuw i8, ptr %530, i64 8
@@ -2448,7 +2448,7 @@ ZSTD_litLengthPrice.exit42.thread:                ; preds = %383, %ZSTD_litLengt
   %572 = load i32, ptr %571, align 4, !tbaa !46
   %573 = getelementptr inbounds nuw i8, ptr %569, i64 12
   %574 = load i32, ptr %573, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull readonly align 4 dereferenceable(12) %570, i64 12, i1 false)
   %575 = icmp ugt i32 %572, 3
   br i1 %575, label %576, label %580
@@ -2505,7 +2505,7 @@ ZSTD_litLengthPrice.exit42.thread:                ; preds = %383, %ZSTD_litLengt
 ZSTD_newRep.exit92:                               ; preds = %.ZSTD_updateRep.exit_crit_edge.i88, %.sink.split.i.i81
   %.sroa.2.0.copyload.i84 = phi i32 [ %.sroa.2.0.copyload.pre.i90, %.ZSTD_updateRep.exit_crit_edge.i88 ], [ %.sroa.2.0.copyload4.i82, %.sink.split.i.i81 ]
   %.sroa.0.0.copyload.i85 = load i64, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %596 = getelementptr inbounds nuw i8, ptr %381, i64 16
   store i64 %.sroa.0.0.copyload.i85, ptr %596, align 4
   %.sroa.481.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %381, i64 24
@@ -2543,7 +2543,7 @@ ZSTD_litLengthPrice.exit97:                       ; preds = %601, %604
   %.0.i96 = phi i32 [ %615, %604 ], [ 256, %601 ]
   %616 = zext i1 %563 to i32
   %617 = add nsw i32 %.0.i96, %561
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %618 = getelementptr inbounds nuw i8, ptr %381, i64 16
   %619 = call i32 %32(ptr noundef %42, ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef %249, ptr noundef %15, ptr noundef nonnull %618, i32 noundef %616, i32 noundef %36) #12
   store i32 %619, ptr %13, align 4, !tbaa !23
@@ -2558,7 +2558,7 @@ ZSTD_litLengthPrice.exit97:                       ; preds = %601, %604
   br i1 %.not496.i, label %.thread202, label %626
 
 .thread202:                                       ; preds = %ZSTD_litLengthPrice.exit97
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.thread186
 
 626:                                              ; preds = %ZSTD_litLengthPrice.exit97
@@ -2792,7 +2792,7 @@ ZSTD_MLcode.exit98:                               ; preds = %694, %697
   br i1 %exitcond390.not, label %738, label %.preheader, !llvm.loop !63
 
 738:                                              ; preds = %._crit_edge327
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %739 = add i32 %.13.i.lcssa, 1
   %740 = zext i32 %739 to i64
   %741 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %40, i64 %740
@@ -2825,7 +2825,7 @@ ZSTD_MLcode.exit98:                               ; preds = %694, %697
 .thread417:                                       ; preds = %626
   %747 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %42, i64 %628
   %748 = load i32, ptr %747, align 4, !tbaa !44
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %749 = icmp eq i32 %630, 0
   br i1 %749, label %750, label %._crit_edge392
 
@@ -2858,7 +2858,7 @@ ZSTD_MLcode.exit98:                               ; preds = %694, %697
   %.sroa.0214.2.i219227 = phi i32 [ %.sroa.0214.0.i351, %.thread220 ], [ %.sroa.0214.2.i430437, %._crit_edge392 ]
   %757 = zext i32 %.4452.i215234 to i64
   %758 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %40, i64 %757, i32 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull readonly align 4 dereferenceable(12) %758, i64 12, i1 false)
   %759 = icmp ugt i32 %.sroa.6217.4.i218229, 3
   br i1 %759, label %760, label %764
@@ -2915,7 +2915,7 @@ ZSTD_MLcode.exit98:                               ; preds = %694, %697
 .thread235:                                       ; preds = %.sink.split.i.i102, %.ZSTD_updateRep.exit_crit_edge.i109
   %.sroa.2.0.copyload.i105 = phi i32 [ %.sroa.2.0.copyload.pre.i111, %.ZSTD_updateRep.exit_crit_edge.i109 ], [ %.sroa.2.0.copyload4.i103, %.sink.split.i.i102 ]
   %.sroa.0.0.copyload.i106 = load i64, ptr %7, align 8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store i64 %.sroa.0.0.copyload.i106, ptr %2, align 4
   store i32 %.sroa.2.0.copyload.i105, ptr %.sroa.443.0..sroa_idx.i, align 4
   %780 = add i32 %.4452.i215234, 2
@@ -3350,9 +3350,9 @@ ZSTD_compressBlock_opt_generic.exit.loopexit:     ; preds = %983
 ZSTD_compressBlock_opt_generic.exit:              ; preds = %ZSTD_compressBlock_opt_generic.exit.loopexit, %47
   %.pre-phi = phi i64 [ %.pre399, %ZSTD_compressBlock_opt_generic.exit.loopexit ], [ %51, %47 ]
   %985 = sub i64 %52, %.pre-phi
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11) #12
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.19.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.19.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i64 %985
 }
 
@@ -3392,7 +3392,7 @@ define i64 @ZSTD_compressBlock_btultra2(ptr noundef initializes((224, 228)) %0, 
   br i1 %or.cond, label %30, label %39
 
 30:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull readonly align 4 dereferenceable(12) %2, i64 12, i1 false)
   %31 = call fastcc i64 @ZSTD_compressBlock_opt2(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef %3, i64 noundef range(i64 9, 0) %4, i32 noundef 0)
   call void @ZSTD_resetSeqStore(ptr noundef nonnull %1) #12
@@ -3407,19 +3407,13 @@ define i64 @ZSTD_compressBlock_btultra2(ptr noundef initializes((224, 228)) %0, 
   store i32 %37, ptr %24, align 4, !tbaa !92
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %37, ptr %38, align 4, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %39
 
 39:                                               ; preds = %30, %27, %21, %16, %5
   %40 = call fastcc i64 @ZSTD_compressBlock_opt2(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef 0)
   ret i64 %40
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define i64 @ZSTD_compressBlock_btopt_dictMatchState(ptr noundef initializes((224, 228)) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
@@ -3530,7 +3524,7 @@ ZSTD_hashPtr.exit:                                ; preds = %13, %18, %23, %28, 
   %62 = zext i32 %61 to i64
   %63 = getelementptr inbounds nuw i32, ptr %39, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %65 = load i32, ptr %8, align 4, !tbaa !98
   %66 = getelementptr i8, ptr %0, i64 28
   %.val149 = load i32, ptr %66, align 4, !tbaa !92
@@ -3765,12 +3759,12 @@ ZSTD_count.exit:                                  ; preds = %93, %.thread63.i, %
   %168 = add i32 %reass.sub, -8
   %169 = tail call i32 @llvm.umax.i32(i32 %167, i32 %168)
   %spec.select193 = select i1 %164, i32 %169, i32 %168
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %spec.select193
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i64 @ZSTD_count_2segments(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #4 {
+define internal fastcc i64 @ZSTD_count_2segments(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #3 {
   %6 = ptrtoint ptr %3 to i64
   %7 = ptrtoint ptr %1 to i64
   %8 = sub i64 %6, %7
@@ -3990,19 +3984,19 @@ ZSTD_count.exit49:                                ; preds = %58, %.thread63.i48,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #5
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #5
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr noundef nonnull captures(none) initializes((40, 48)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #8 {
+define internal fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr noundef nonnull captures(none) initializes((40, 48)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8, !tbaa !103
   %6 = icmp eq i64 %5, 0
@@ -4361,7 +4355,7 @@ define internal fastcc void @ZSTD_rescaleFreqs(ptr noundef captures(none) initia
   br i1 %.not, label %sum_u32.exit, label %103
 
 103:                                              ; preds = %102
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 255, ptr %5, align 4, !tbaa !23
   %104 = load ptr, ptr %0, align 8, !tbaa !57
   %105 = call i32 @HIST_count_simple(ptr noundef %104, ptr noundef nonnull %5, ptr noundef %1, i64 noundef %2) #12
@@ -4386,7 +4380,7 @@ define internal fastcc void @ZSTD_rescaleFreqs(ptr noundef captures(none) initia
 ZSTD_downscaleStats.exit:                         ; preds = %.split.us.i
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %113, ptr %114, align 8, !tbaa !68
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %sum_u32.exit
 
 sum_u32.exit:                                     ; preds = %ZSTD_downscaleStats.exit, %102
@@ -4678,7 +4672,7 @@ ZSTD_setBasePrices.exit:                          ; preds = %219, %241
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ZSTD_optLdm_processMatchCandidate(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1, ptr noundef nonnull captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 3, 5) %5) unnamed_addr #8 {
+define internal fastcc void @ZSTD_optLdm_processMatchCandidate(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1, ptr noundef nonnull captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 3, 5) %5) unnamed_addr #7 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8, !tbaa !103
   %9 = icmp eq i64 %8, 0
@@ -4883,7 +4877,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %64 = getelementptr inbounds nuw i32, ptr %43, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %66 = add i32 %.pre-phi167, 9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 268
   %68 = load i32, ptr %67, align 4, !tbaa !100
   %69 = shl nuw i32 1, %68
@@ -5447,7 +5441,7 @@ ZSTD_insertBtAndGetAllMatches.exit.sink.split:    ; preds = %.thread96, %232
 
 ZSTD_insertBtAndGetAllMatches.exit:               ; preds = %143, %ZSTD_insertBtAndGetAllMatches.exit.sink.split
   %.3.i = phi i32 [ %.3.i.ph, %ZSTD_insertBtAndGetAllMatches.exit.sink.split ], [ %150, %143 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %ZSTD_btGetAllMatches_internal.exit
 
 ZSTD_btGetAllMatches_internal.exit:               ; preds = %8, %ZSTD_insertBtAndGetAllMatches.exit
@@ -5539,7 +5533,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %64 = getelementptr inbounds nuw i32, ptr %43, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %66 = add i32 %.pre-phi125, 9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 268
   %68 = load i32, ptr %67, align 4, !tbaa !100
   %69 = shl nuw i32 1, %68
@@ -5927,7 +5921,7 @@ ZSTD_count.exit45:                                ; preds = %170, %.thread63.i44
 
 ZSTD_insertBtAndGetAllMatches.exit:               ; preds = %143, %.thread59
   %.3.i = phi i32 [ %.10423.i, %.thread59 ], [ %150, %143 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %ZSTD_btGetAllMatches_internal.exit
 
 ZSTD_btGetAllMatches_internal.exit:               ; preds = %8, %ZSTD_insertBtAndGetAllMatches.exit
@@ -6019,7 +6013,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %64 = getelementptr inbounds nuw i32, ptr %43, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %66 = add i32 %.pre-phi125, 9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 268
   %68 = load i32, ptr %67, align 4, !tbaa !100
   %69 = shl nuw i32 1, %68
@@ -6407,7 +6401,7 @@ ZSTD_count.exit45:                                ; preds = %170, %.thread63.i44
 
 ZSTD_insertBtAndGetAllMatches.exit:               ; preds = %143, %.thread59
   %.3.i = phi i32 [ %.10423.i, %.thread59 ], [ %150, %143 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %ZSTD_btGetAllMatches_internal.exit
 
 ZSTD_btGetAllMatches_internal.exit:               ; preds = %8, %ZSTD_insertBtAndGetAllMatches.exit
@@ -6499,7 +6493,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %64 = getelementptr inbounds nuw i32, ptr %43, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %66 = add i32 %.pre-phi125, 9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 268
   %68 = load i32, ptr %67, align 4, !tbaa !100
   %69 = shl nuw i32 1, %68
@@ -6887,7 +6881,7 @@ ZSTD_count.exit45:                                ; preds = %170, %.thread63.i44
 
 ZSTD_insertBtAndGetAllMatches.exit:               ; preds = %143, %.thread59
   %.3.i = phi i32 [ %.10423.i, %.thread59 ], [ %150, %143 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %ZSTD_btGetAllMatches_internal.exit
 
 ZSTD_btGetAllMatches_internal.exit:               ; preds = %8, %ZSTD_insertBtAndGetAllMatches.exit
@@ -6985,7 +6979,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %69 = getelementptr inbounds nuw i32, ptr %43, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %71 = add i32 %.pre-phi174, 9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 268
   %73 = load i32, ptr %72, align 4, !tbaa !100
   %74 = shl nuw i32 1, %73
@@ -7604,7 +7598,7 @@ ZSTD_insertBtAndGetAllMatches.exit.sink.split:    ; preds = %.thread101, %255
 
 ZSTD_insertBtAndGetAllMatches.exit:               ; preds = %162, %ZSTD_insertBtAndGetAllMatches.exit.sink.split
   %.3.i = phi i32 [ %.3.i.ph, %ZSTD_insertBtAndGetAllMatches.exit.sink.split ], [ %169, %162 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %ZSTD_btGetAllMatches_internal.exit
 
 ZSTD_btGetAllMatches_internal.exit:               ; preds = %8, %ZSTD_insertBtAndGetAllMatches.exit
@@ -7701,7 +7695,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %69 = getelementptr inbounds nuw i32, ptr %43, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %71 = add i32 %.pre-phi130, 9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 268
   %73 = load i32, ptr %72, align 4, !tbaa !100
   %74 = shl nuw i32 1, %73
@@ -8133,7 +8127,7 @@ ZSTD_count.exit50:                                ; preds = %191, %.thread63.i49
 
 ZSTD_insertBtAndGetAllMatches.exit:               ; preds = %162, %.thread64
   %.3.i = phi i32 [ %.10423.i, %.thread64 ], [ %169, %162 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %ZSTD_btGetAllMatches_internal.exit
 
 ZSTD_btGetAllMatches_internal.exit:               ; preds = %8, %ZSTD_insertBtAndGetAllMatches.exit
@@ -8230,7 +8224,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %69 = getelementptr inbounds nuw i32, ptr %43, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %71 = add i32 %.pre-phi130, 9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 268
   %73 = load i32, ptr %72, align 4, !tbaa !100
   %74 = shl nuw i32 1, %73
@@ -8662,7 +8656,7 @@ ZSTD_count.exit50:                                ; preds = %191, %.thread63.i49
 
 ZSTD_insertBtAndGetAllMatches.exit:               ; preds = %162, %.thread64
   %.3.i = phi i32 [ %.10423.i, %.thread64 ], [ %169, %162 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %ZSTD_btGetAllMatches_internal.exit
 
 ZSTD_btGetAllMatches_internal.exit:               ; preds = %8, %ZSTD_insertBtAndGetAllMatches.exit
@@ -8759,7 +8753,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %69 = getelementptr inbounds nuw i32, ptr %43, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %71 = add i32 %.pre-phi130, 9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 268
   %73 = load i32, ptr %72, align 4, !tbaa !100
   %74 = shl nuw i32 1, %73
@@ -9191,7 +9185,7 @@ ZSTD_count.exit50:                                ; preds = %191, %.thread63.i49
 
 ZSTD_insertBtAndGetAllMatches.exit:               ; preds = %162, %.thread64
   %.3.i = phi i32 [ %.10423.i, %.thread64 ], [ %169, %162 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %ZSTD_btGetAllMatches_internal.exit
 
 ZSTD_btGetAllMatches_internal.exit:               ; preds = %8, %ZSTD_insertBtAndGetAllMatches.exit
@@ -9286,7 +9280,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %66 = getelementptr inbounds nuw i32, ptr %43, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = add i32 %.pre-phi221, 9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 268
   %70 = load i32, ptr %69, align 4, !tbaa !100
   %71 = shl nuw i32 1, %70
@@ -10014,7 +10008,7 @@ ZSTD_insertBtAndGetAllMatches.exit.sink.split:    ; preds = %.thread114, %272
 
 ZSTD_insertBtAndGetAllMatches.exit:               ; preds = %183, %ZSTD_insertBtAndGetAllMatches.exit.sink.split
   %.3.i = phi i32 [ %.3.i.ph, %ZSTD_insertBtAndGetAllMatches.exit.sink.split ], [ %190, %183 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %ZSTD_btGetAllMatches_internal.exit
 
 ZSTD_btGetAllMatches_internal.exit:               ; preds = %8, %ZSTD_insertBtAndGetAllMatches.exit
@@ -10108,7 +10102,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %66 = getelementptr inbounds nuw i32, ptr %43, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = add i32 %.pre-phi177, 9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 268
   %70 = load i32, ptr %69, align 4, !tbaa !100
   %71 = shl nuw i32 1, %70
@@ -10658,7 +10652,7 @@ ZSTD_count.exit50:                                ; preds = %210, %.thread63.i49
 
 ZSTD_insertBtAndGetAllMatches.exit:               ; preds = %183, %.thread77
   %.3.i = phi i32 [ %.13.i, %.thread77 ], [ %190, %183 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %ZSTD_btGetAllMatches_internal.exit
 
 ZSTD_btGetAllMatches_internal.exit:               ; preds = %8, %ZSTD_insertBtAndGetAllMatches.exit
@@ -10752,7 +10746,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %66 = getelementptr inbounds nuw i32, ptr %43, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = add i32 %.pre-phi177, 9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 268
   %70 = load i32, ptr %69, align 4, !tbaa !100
   %71 = shl nuw i32 1, %70
@@ -11300,7 +11294,7 @@ ZSTD_count.exit50:                                ; preds = %210, %.thread63.i49
 
 ZSTD_insertBtAndGetAllMatches.exit:               ; preds = %183, %.thread77
   %.3.i = phi i32 [ %.13.i, %.thread77 ], [ %190, %183 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %ZSTD_btGetAllMatches_internal.exit
 
 ZSTD_btGetAllMatches_internal.exit:               ; preds = %8, %ZSTD_insertBtAndGetAllMatches.exit
@@ -11394,7 +11388,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %66 = getelementptr inbounds nuw i32, ptr %43, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = add i32 %.pre-phi177, 9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 268
   %70 = load i32, ptr %69, align 4, !tbaa !100
   %71 = shl nuw i32 1, %70
@@ -11942,7 +11936,7 @@ ZSTD_count.exit50:                                ; preds = %210, %.thread63.i49
 
 ZSTD_insertBtAndGetAllMatches.exit:               ; preds = %183, %.thread77
   %.3.i = phi i32 [ %.13.i, %.thread77 ], [ %190, %183 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %ZSTD_btGetAllMatches_internal.exit
 
 ZSTD_btGetAllMatches_internal.exit:               ; preds = %8, %ZSTD_insertBtAndGetAllMatches.exit
@@ -11950,11 +11944,17 @@ ZSTD_btGetAllMatches_internal.exit:               ; preds = %8, %ZSTD_insertBtAn
   ret i32 %.0.i
 }
 
-declare i32 @HUF_getNbBitsFromCTable(ptr noundef, i32 noundef) local_unnamed_addr #9
+declare i32 @HUF_getNbBitsFromCTable(ptr noundef, i32 noundef) local_unnamed_addr #8
 
-declare i32 @HIST_count_simple(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #9
+declare i32 @HIST_count_simple(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
 
-declare void @ZSTD_resetSeqStore(ptr noundef) local_unnamed_addr #9
+declare void @ZSTD_resetSeqStore(ptr noundef) local_unnamed_addr #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #10
@@ -11974,13 +11974,13 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { inlinehint nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nounwind }

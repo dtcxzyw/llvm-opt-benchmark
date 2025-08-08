@@ -246,22 +246,19 @@ define dso_local noundef i64 @xml_in(ptr noundef readnone captures(none) %0) loc
   unreachable
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #3
+declare i32 @errcode(i32 noundef) local_unnamed_addr #2
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @xml_out(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define dso_local i64 @xml_out(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -270,9 +267,6 @@ define dso_local i64 @xml_out(ptr noundef readonly captures(none) %0) local_unna
   %7 = ptrtoint ptr %6 to i64
   ret i64 %7
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @xml_recv(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
@@ -286,13 +280,13 @@ define dso_local noundef i64 @xml_recv(ptr noundef readnone captures(none) %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @xml_send(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define dso_local i64 @xml_send(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = alloca %struct.StringInfoData, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = tail call i32 @pg_get_client_encoding() #12
   %8 = tail call ptr @text_to_cstring(ptr noundef %6) #12
   call void @pq_begintypsend(ptr noundef nonnull %2) #12
@@ -302,22 +296,22 @@ define dso_local i64 @xml_send(ptr noundef readonly captures(none) %0) local_unn
   call void @pfree(ptr noundef nonnull %8) #12
   %11 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #12
   %12 = ptrtoint ptr %11 to i64
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %12
 }
 
-declare i32 @pg_get_client_encoding() local_unnamed_addr #3
+declare i32 @pg_get_client_encoding() local_unnamed_addr #2
 
-declare void @pq_begintypsend(ptr noundef) local_unnamed_addr #3
+declare void @pq_begintypsend(ptr noundef) local_unnamed_addr #2
 
-declare void @pq_sendtext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @pq_sendtext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
-declare void @pfree(ptr noundef) local_unnamed_addr #3
+declare void @pfree(ptr noundef) local_unnamed_addr #2
 
-declare ptr @pq_endtypsend(ptr noundef) local_unnamed_addr #3
+declare ptr @pq_endtypsend(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @xmlcomment(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
@@ -353,7 +347,7 @@ define dso_local noalias noundef nonnull ptr @xmlconcat(ptr readnone captures(no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @xmlconcat2(ptr noundef captures(none) %0) local_unnamed_addr #4 {
+define dso_local i64 @xmlconcat2(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i8, ptr %3, align 8, !range !4, !noundef !5
@@ -406,7 +400,7 @@ define dso_local i64 @xmlconcat2(ptr noundef captures(none) %0) local_unnamed_ad
   ret i64 %.0
 }
 
-declare ptr @list_make2_impl(i32 noundef, ptr, ptr) local_unnamed_addr #3
+declare ptr @list_make2_impl(i32 noundef, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @texttoxml(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -418,7 +412,7 @@ define dso_local noundef i64 @texttoxml(ptr noundef readonly captures(none) %0) 
   unreachable
 }
 
-declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #3
+declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noalias noundef nonnull ptr @xmlparse(ptr readnone captures(none) %0, i32 %1, i1 zeroext %2) local_unnamed_addr #0 {
@@ -432,7 +426,7 @@ define dso_local noalias noundef nonnull ptr @xmlparse(ptr readnone captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @xmltotext(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define dso_local i64 @xmltotext(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -442,7 +436,7 @@ define dso_local i64 @xmltotext(ptr noundef readonly captures(none) %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @xmltotext_with_options(ptr noundef readnone returned captures(ret: address, provenance) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 {
+define dso_local noundef ptr @xmltotext_with_options(ptr noundef readnone returned captures(ret: address, provenance) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #3 {
   %4 = icmp eq i32 %1, 0
   %or.cond = or i1 %4, %2
   br i1 %or.cond, label %6, label %5
@@ -526,11 +520,11 @@ define dso_local noalias noundef nonnull ptr @map_sql_identifier_to_xml_name(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @map_xml_name_to_sql_identifier(ptr noundef %0) local_unnamed_addr #4 {
+define dso_local ptr @map_xml_name_to_sql_identifier(ptr noundef %0) local_unnamed_addr #3 {
   %2 = alloca %struct.StringInfoData, align 8
   %3 = alloca [17 x i8], align 16
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @initStringInfo(ptr noundef nonnull %2) #12
   br label %5
 
@@ -597,14 +591,14 @@ define dso_local ptr @map_xml_name_to_sql_identifier(ptr noundef %0) local_unnam
   br i1 %44, label %45, label %48
 
 45:                                               ; preds = %41
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %3) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %46 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %14, ptr noundef nonnull @.str.4, ptr noundef nonnull %4) #12
   %47 = load i32, ptr %4, align 4
   call void @pg_unicode_to_server(i32 noundef %47, ptr noundef nonnull %3) #12
   call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull %3) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %50
 
 48:                                               ; preds = %5, %41, %34, %27, %20, %11, %7
@@ -621,28 +615,28 @@ define dso_local ptr @map_xml_name_to_sql_identifier(ptr noundef %0) local_unnam
 
 54:                                               ; preds = %5
   %55 = load ptr, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %55
 }
 
-declare void @initStringInfo(ptr noundef) local_unnamed_addr #3
+declare void @initStringInfo(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #6
+declare ptr @__ctype_b_loc() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
-declare void @pg_unicode_to_server(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @pg_unicode_to_server(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @appendBinaryStringInfo(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @appendBinaryStringInfo(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @pg_mblen(ptr noundef) local_unnamed_addr #3
+declare i32 @pg_mblen(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @map_sql_value_to_xml_value(i64 noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 {
+define dso_local ptr @map_sql_value_to_xml_value(i64 noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #3 {
   %4 = alloca i16, align 2
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
@@ -667,13 +661,13 @@ define dso_local ptr @map_sql_value_to_xml_value(i64 noundef %0, i32 noundef %1,
   br i1 %.not, label %53, label %24
 
 24:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %25 = inttoptr i64 %0 to ptr
   %26 = tail call ptr @pg_detoast_datum(ptr noundef %25) #12
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 12
@@ -723,18 +717,18 @@ define dso_local ptr @map_sql_value_to_xml_value(i64 noundef %0, i32 noundef %1,
   %51 = load ptr, ptr %9, align 8
   call void @pfree(ptr noundef %51) #12
   %52 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %113
 
 53:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %54 = tail call i32 @getBaseType(i32 noundef %1) #12
   switch i32 %54, label %106 [
     i32 16, label %55
@@ -749,8 +743,8 @@ define dso_local ptr @map_sql_value_to_xml_value(i64 noundef %0, i32 noundef %1,
   br label %112
 
 56:                                               ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %13) #12
-  call void @llvm.lifetime.start.p0(i64 129, ptr nonnull %14) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %57 = trunc i64 %0 to i32
   %58 = add i32 %57, -2147483647
   %or.cond = icmp ult i32 %58, 2
@@ -773,14 +767,14 @@ define dso_local ptr @map_sql_value_to_xml_value(i64 noundef %0, i32 noundef %1,
   call void @j2date(i32 noundef %65, ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef nonnull %68) #12
   call void @EncodeDateOnly(ptr noundef nonnull %13, i32 noundef 4, ptr noundef nonnull %14) #12
   %69 = call ptr @pstrdup(ptr noundef nonnull %14) #12
-  call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %14) #12
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %112
 
 70:                                               ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %15) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #12
-  call void @llvm.lifetime.start.p0(i64 129, ptr nonnull %17) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %71 = add i64 %0, -9223372036854775807
   %or.cond3 = icmp ult i64 %71, 2
   br i1 %or.cond3, label %72, label %77
@@ -803,9 +797,9 @@ define dso_local ptr @map_sql_value_to_xml_value(i64 noundef %0, i32 noundef %1,
   %81 = load i32, ptr %16, align 4
   call void @EncodeDateTime(ptr noundef nonnull %15, i32 noundef %81, i1 noundef zeroext false, i32 noundef 0, ptr noundef null, i32 noundef 4, ptr noundef nonnull %17) #12
   %82 = call ptr @pstrdup(ptr noundef nonnull %17) #12
-  call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %17) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #12
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %15) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %112
 
 83:                                               ; preds = %77
@@ -817,12 +811,12 @@ define dso_local ptr @map_sql_value_to_xml_value(i64 noundef %0, i32 noundef %1,
   unreachable
 
 87:                                               ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %18) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr null, ptr %21, align 8
-  call void @llvm.lifetime.start.p0(i64 129, ptr nonnull %22) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %88 = add i64 %0, -9223372036854775807
   %or.cond5 = icmp ult i64 %88, 2
   br i1 %or.cond5, label %89, label %94
@@ -847,11 +841,11 @@ define dso_local ptr @map_sql_value_to_xml_value(i64 noundef %0, i32 noundef %1,
   %100 = load ptr, ptr %21, align 8
   call void @EncodeDateTime(ptr noundef nonnull %18, i32 noundef %98, i1 noundef zeroext true, i32 noundef %99, ptr noundef %100, i32 noundef 4, ptr noundef nonnull %22) #12
   %101 = call ptr @pstrdup(ptr noundef nonnull %22) #12
-  call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %22) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #12
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %18) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %112
 
 102:                                              ; preds = %94
@@ -876,8 +870,8 @@ define dso_local ptr @map_sql_value_to_xml_value(i64 noundef %0, i32 noundef %1,
 
 112:                                              ; preds = %106, %55, %110, %97, %80, %64
   %.1 = phi ptr [ %111, %110 ], [ %69, %64 ], [ %82, %80 ], [ %101, %97 ], [ %.str.7..str.8, %55 ], [ %108, %106 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %113
 
 113:                                              ; preds = %112, %._crit_edge
@@ -885,34 +879,34 @@ define dso_local ptr @map_sql_value_to_xml_value(i64 noundef %0, i32 noundef %1,
   ret ptr %.0
 }
 
-declare i32 @get_base_element_type(i32 noundef) local_unnamed_addr #3
+declare i32 @get_base_element_type(i32 noundef) local_unnamed_addr #2
 
-declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #3
+declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #2
 
-declare void @get_typlenbyvalalign(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @get_typlenbyvalalign(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @deconstruct_array(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i8 noundef signext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @deconstruct_array(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i8 noundef signext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @getBaseType(i32 noundef) local_unnamed_addr #3
+declare i32 @getBaseType(i32 noundef) local_unnamed_addr #2
 
-declare void @j2date(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @j2date(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @EncodeDateOnly(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @EncodeDateOnly(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @pstrdup(ptr noundef) local_unnamed_addr #3
+declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
 
-declare i32 @timestamp2tm(i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @timestamp2tm(i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @EncodeDateTime(ptr noundef, i32 noundef, i1 noundef zeroext, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @EncodeDateTime(ptr noundef, i32 noundef, i1 noundef zeroext, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @getTypeOutputInfo(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @getTypeOutputInfo(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @OidOutputFunctionCall(i32 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @OidOutputFunctionCall(i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @escape_xml(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define dso_local ptr @escape_xml(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = alloca %struct.StringInfoData, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @initStringInfo(ptr noundef nonnull %2) #12
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -976,14 +970,14 @@ define dso_local ptr @escape_xml(ptr noundef readonly captures(none) %0) local_u
 
 27:                                               ; preds = %5
   %28 = load ptr, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %28
 }
 
-declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #3
+declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @table_to_xml(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define dso_local i64 @table_to_xml(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = alloca %struct.StringInfoData, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -996,7 +990,7 @@ define dso_local i64 @table_to_xml(ptr noundef readonly captures(none) %0) local
   %11 = inttoptr i64 %10 to ptr
   %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #12
   %13 = tail call ptr @text_to_cstring(ptr noundef %12) #12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @initStringInfo(ptr noundef nonnull %2) #12
   %14 = and i64 %4, 4294967295
   %15 = call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @regclassout, i32 noundef 0, i64 noundef %14) #12
@@ -1005,7 +999,7 @@ define dso_local i64 @table_to_xml(ptr noundef readonly captures(none) %0) local
   %17 = load ptr, ptr %2, align 8
   %18 = call ptr @get_rel_name(i32 noundef %5) #12
   %19 = call fastcc ptr @query_to_xml_internal(ptr noundef %17, ptr noundef %18, ptr noundef null, i1 noundef zeroext %8, ptr noundef %13, i1 noundef zeroext true)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.val = load ptr, ptr %19, align 8
   %20 = getelementptr i8, ptr %19, i64 8
   %.val7 = load i32, ptr %20, align 8
@@ -1014,10 +1008,10 @@ define dso_local i64 @table_to_xml(ptr noundef readonly captures(none) %0) local
   ret i64 %22
 }
 
-declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #3
+declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @query_to_xml(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define dso_local i64 @query_to_xml(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1041,7 +1035,7 @@ define dso_local i64 @query_to_xml(ptr noundef readonly captures(none) %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @query_to_xml_internal(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #4 {
+define internal fastcc ptr @query_to_xml_internal(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %7
 
@@ -1137,7 +1131,7 @@ xmldata_root_element_start.exit:                  ; preds = %21, %23, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @cursor_to_xml(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define dso_local i64 @cursor_to_xml(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = alloca %struct.StringInfoData, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -1154,7 +1148,7 @@ define dso_local i64 @cursor_to_xml(ptr noundef readonly captures(none) %0) loca
   %15 = inttoptr i64 %14 to ptr
   %16 = tail call ptr @pg_detoast_datum_packed(ptr noundef %15) #12
   %17 = tail call ptr @text_to_cstring(ptr noundef %16) #12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @initStringInfo(ptr noundef nonnull %2) #12
   br i1 %12, label %20, label %18
 
@@ -1218,18 +1212,18 @@ xmldata_root_element_start.exit:                  ; preds = %18, %19
   %.val19 = load i32, ptr %37, align 8
   %38 = call ptr @cstring_to_text_with_len(ptr noundef %.val, i32 noundef %.val19) #12
   %39 = ptrtoint ptr %38 to i64
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %39
 }
 
-declare i32 @SPI_connect() local_unnamed_addr #3
+declare i32 @SPI_connect() local_unnamed_addr #2
 
-declare ptr @SPI_cursor_find(ptr noundef) local_unnamed_addr #3
+declare ptr @SPI_cursor_find(ptr noundef) local_unnamed_addr #2
 
-declare void @SPI_cursor_fetch(ptr noundef, i1 noundef zeroext, i64 noundef) local_unnamed_addr #3
+declare void @SPI_cursor_fetch(ptr noundef, i1 noundef zeroext, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @SPI_sql_row_to_xmlelement(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, i1 noundef zeroext %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #4 {
+define internal fastcc void @SPI_sql_row_to_xmlelement(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, i1 noundef zeroext %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %6
 
@@ -1289,10 +1283,10 @@ define internal fastcc void @SPI_sql_row_to_xmlelement(ptr noundef %0, ptr nound
   ret void
 }
 
-declare i32 @SPI_finish() local_unnamed_addr #3
+declare i32 @SPI_finish() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @table_to_xmlschema(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define dso_local i64 @table_to_xmlschema(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -1314,12 +1308,12 @@ define dso_local i64 @table_to_xmlschema(ptr noundef readonly captures(none) %0)
   ret i64 %18
 }
 
-declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @map_sql_table_to_xmlschema(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #4 {
+define internal fastcc ptr @map_sql_table_to_xmlschema(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #3 {
   %5 = alloca %struct.StringInfoData, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @initStringInfo(ptr noundef nonnull %5) #12
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %14, label %6
@@ -1401,14 +1395,14 @@ xsd_schema_element_start.exit:                    ; preds = %14, %15
 33:                                               ; preds = %32, %31
   call void @appendStringInfoString(ptr noundef nonnull %5, ptr noundef nonnull @.str.102) #12
   %34 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %34
 }
 
-declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @query_to_xmlschema(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define dso_local i64 @query_to_xmlschema(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1461,16 +1455,16 @@ define dso_local i64 @query_to_xmlschema(ptr noundef readonly captures(none) %0)
   ret i64 %36
 }
 
-declare ptr @SPI_prepare(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @SPI_prepare(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @SPI_cursor_open(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare ptr @SPI_cursor_open(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @SPI_cursor_close(ptr noundef) local_unnamed_addr #3
+declare void @SPI_cursor_close(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @cursor_to_xmlschema(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define dso_local i64 @cursor_to_xmlschema(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1524,7 +1518,7 @@ define dso_local i64 @cursor_to_xmlschema(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @table_to_xml_and_xmlschema(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define dso_local i64 @table_to_xml_and_xmlschema(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = alloca %struct.StringInfoData, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -1542,7 +1536,7 @@ define dso_local i64 @table_to_xml_and_xmlschema(ptr noundef readonly captures(n
   %16 = load ptr, ptr %15, align 8
   %17 = tail call fastcc ptr @map_sql_table_to_xmlschema(ptr noundef %16, i32 noundef %5, i1 noundef zeroext %8, ptr noundef %13)
   tail call void @table_close(ptr noundef %14, i32 noundef 0) #12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @initStringInfo(ptr noundef nonnull %2) #12
   %18 = and i64 %4, 4294967295
   %19 = call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @regclassout, i32 noundef 0, i64 noundef %18) #12
@@ -1551,7 +1545,7 @@ define dso_local i64 @table_to_xml_and_xmlschema(ptr noundef readonly captures(n
   %21 = load ptr, ptr %2, align 8
   %22 = call ptr @get_rel_name(i32 noundef %5) #12
   %23 = call fastcc ptr @query_to_xml_internal(ptr noundef %21, ptr noundef %22, ptr noundef %17, i1 noundef zeroext %8, ptr noundef %13, i1 noundef zeroext true)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.val = load ptr, ptr %23, align 8
   %24 = getelementptr i8, ptr %23, i64 8
   %.val15 = load i32, ptr %24, align 8
@@ -1561,7 +1555,7 @@ define dso_local i64 @table_to_xml_and_xmlschema(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @query_to_xml_and_xmlschema(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define dso_local i64 @query_to_xml_and_xmlschema(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1634,10 +1628,10 @@ define dso_local noundef i64 @schema_to_xml(ptr noundef readonly captures(none) 
   unreachable
 }
 
-declare i32 @LookupExplicitNamespace(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare i32 @LookupExplicitNamespace(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local noundef i64 @schema_to_xmlschema(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
+define dso_local noundef i64 @schema_to_xmlschema(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1651,7 +1645,7 @@ define dso_local noundef i64 @schema_to_xmlschema(ptr noundef readonly captures(
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @schema_to_xmlschema_internal(ptr noundef %0, ptr noundef %1) unnamed_addr #8 {
+define internal fastcc void @schema_to_xmlschema_internal(ptr noundef %0, ptr noundef %1) unnamed_addr #7 {
   %3 = alloca %struct.StringInfoData, align 8
   %4 = tail call ptr @makeStringInfo() #12
   %5 = tail call i32 @LookupExplicitNamespace(ptr noundef %0, i1 noundef zeroext false) #12
@@ -1667,12 +1661,12 @@ define internal fastcc void @schema_to_xmlschema_internal(ptr noundef %0, ptr no
 xsd_schema_element_start.exit:                    ; preds = %2, %6
   tail call void @appendStringInfoString(ptr noundef %4, ptr noundef nonnull @.str.36) #12
   %7 = tail call i32 @SPI_connect() #12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @initStringInfo(ptr noundef nonnull %3) #12
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.32, i32 noundef %5) #12
   %8 = load ptr, ptr %3, align 8
   %9 = call fastcc ptr @query_to_oid_list(ptr noundef %8)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %.critedge, label %.lr.ph
@@ -1710,7 +1704,7 @@ xsd_schema_element_start.exit:                    ; preds = %2, %6
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local noundef i64 @schema_to_xml_and_xmlschema(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
+define dso_local noundef i64 @schema_to_xml_and_xmlschema(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1738,7 +1732,7 @@ define dso_local noundef i64 @database_to_xml(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local noundef i64 @database_to_xmlschema(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
+define dso_local noundef i64 @database_to_xmlschema(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1749,7 +1743,7 @@ define dso_local noundef i64 @database_to_xmlschema(ptr noundef readonly capture
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @database_to_xmlschema_internal(ptr noundef %0) unnamed_addr #8 {
+define internal fastcc void @database_to_xmlschema_internal(ptr noundef %0) unnamed_addr #7 {
   %2 = tail call ptr @makeStringInfo() #12
   tail call void @appendStringInfoString(ptr noundef %2, ptr noundef nonnull @.str.34) #12
   %char0.i = load i8, ptr %0, align 1
@@ -1802,7 +1796,7 @@ xsd_schema_element_start.exit:                    ; preds = %1, %3
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local noundef i64 @database_to_xml_and_xmlschema(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
+define dso_local noundef i64 @database_to_xml_and_xmlschema(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1878,31 +1872,31 @@ define dso_local noundef i64 @xml_is_well_formed_content(ptr noundef readnone ca
   unreachable
 }
 
-declare ptr @cstring_to_text_with_len(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @cstring_to_text_with_len(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i64 @regclassout(ptr noundef) #3
+declare i64 @regclassout(ptr noundef) #2
 
-declare ptr @get_rel_name(i32 noundef) local_unnamed_addr #3
+declare ptr @get_rel_name(i32 noundef) local_unnamed_addr #2
 
-declare ptr @makeStringInfo() local_unnamed_addr #3
+declare ptr @makeStringInfo() local_unnamed_addr #2
 
-declare i32 @SPI_execute(ptr noundef, i1 noundef zeroext, i64 noundef) local_unnamed_addr #3
+declare i32 @SPI_execute(ptr noundef, i1 noundef zeroext, i64 noundef) local_unnamed_addr #2
 
-declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #3
+declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #2
 
-declare ptr @SPI_palloc(i64 noundef) local_unnamed_addr #3
+declare ptr @SPI_palloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
-declare ptr @get_namespace_name(i32 noundef) local_unnamed_addr #3
+declare ptr @get_namespace_name(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @query_to_oid_list(ptr noundef %0) unnamed_addr #4 {
+define internal fastcc ptr @query_to_oid_list(ptr noundef %0) unnamed_addr #3 {
   %2 = alloca i8, align 1
   %3 = tail call i32 @SPI_execute(ptr noundef %0, i1 noundef zeroext true, i64 noundef 0) #12
   %.not = icmp eq i32 %3, 5
@@ -1924,7 +1918,7 @@ define internal fastcc ptr @query_to_oid_list(ptr noundef %0) unnamed_addr #4 {
 .lr.ph:                                           ; preds = %.preheader, %21
   %.012 = phi i64 [ %22, %21 ], [ 0, %.preheader ]
   %.0911 = phi ptr [ %.1, %21 ], [ null, %.preheader ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = load ptr, ptr @SPI_tuptable, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -1943,7 +1937,7 @@ define internal fastcc ptr @query_to_oid_list(ptr noundef %0) unnamed_addr #4 {
 
 21:                                               ; preds = %18, %.lr.ph
   %.1 = phi ptr [ %.0911, %.lr.ph ], [ %20, %18 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %22 = add nuw i64 %.012, 1
   %23 = load i64, ptr @SPI_processed, align 8
   %24 = icmp ult i64 %22, %23
@@ -1954,22 +1948,22 @@ define internal fastcc ptr @query_to_oid_list(ptr noundef %0) unnamed_addr #4 {
   ret ptr %.09.lcssa
 }
 
-declare ptr @SPI_result_code_string(i32 noundef) local_unnamed_addr #3
+declare ptr @SPI_result_code_string(i32 noundef) local_unnamed_addr #2
 
-declare i64 @SPI_getbinval(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @SPI_getbinval(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @CreateTupleDescCopy(ptr noundef) local_unnamed_addr #3
+declare ptr @CreateTupleDescCopy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #4 {
+define internal fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #3 {
   %2 = alloca %struct.StringInfoData, align 8
   %3 = alloca i32, align 4
   %4 = alloca %struct.StringInfoData, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge49.thread, label %.lr.ph57
@@ -2091,7 +2085,7 @@ define internal fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef read
   %53 = load ptr, ptr %44, align 8
   %54 = getelementptr inbounds nuw %union.ListCell, ptr %53, i64 %indvars.iv88100
   %55 = load i32, ptr %54, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %56 = call fastcc ptr @map_sql_type_to_xml_name(i32 noundef %55, i32 noundef -1)
   call void @initStringInfo(ptr noundef nonnull %2) #12
   %57 = icmp eq i32 %55, 142
@@ -2176,20 +2170,20 @@ define internal fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef read
   br i1 %79, label %80, label %map_sql_type_to_xmlschema_type.exit
 
 80:                                               ; preds = %77
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 -1, ptr %3, align 4
   %81 = call i32 @getBaseTypeAndTypmod(i32 noundef %55, ptr noundef nonnull %3) #12
   %82 = load i32, ptr %3, align 4
   %83 = call fastcc ptr @map_sql_type_to_xml_name(i32 noundef %81, i32 noundef %82)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.62, ptr noundef %83) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %map_sql_type_to_xmlschema_type.exit
 
 map_sql_type_to_xmlschema_type.exit:              ; preds = %.lr.ph101, %58, %59, %60, %64, %65, %66, %67, %68, %69, %70, %73, %76, %77, %80
   %.str.63.sink.i = phi ptr [ @.str.38, %.lr.ph101 ], [ @.str.63, %58 ], [ @.str.63, %77 ], [ @.str.63, %80 ], [ @.str.63, %76 ], [ @.str.63, %73 ], [ @.str.63, %70 ], [ @.str.63, %69 ], [ @.str.63, %68 ], [ @.str.63, %67 ], [ @.str.63, %66 ], [ @.str.63, %65 ], [ @.str.63, %64 ], [ @.str.63, %60 ], [ @.str.63, %59 ]
   call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull %.str.63.sink.i) #12
   %84 = load ptr, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.37, ptr noundef %84) #12
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88100, 1
   %85 = load i32, ptr %43, align 4
@@ -2199,14 +2193,14 @@ map_sql_type_to_xmlschema_type.exit:              ; preds = %.lr.ph101, %58, %59
 
 .critedge51:                                      ; preds = %map_sql_type_to_xmlschema_type.exit, %.lr.ph79, %.critedge49.thread, %.critedge49
   %88 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %88
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
 define internal fastcc void @map_sql_schema_to_xmlschema_types(i32 noundef %0) unnamed_addr #0 {
   %2 = alloca %struct.StringInfoData, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load i32, ptr @MyDatabaseId, align 4
   %4 = tail call ptr @get_database_name(i32 noundef %3) #12
   %5 = tail call ptr @get_namespace_name(i32 noundef %0) #12
@@ -2215,13 +2209,13 @@ define internal fastcc void @map_sql_schema_to_xmlschema_types(i32 noundef %0) u
   unreachable
 }
 
-declare ptr @list_append_unique_oid(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @list_append_unique_oid(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @map_sql_type_to_xml_name(i32 noundef %0, i32 noundef %1) unnamed_addr #4 {
+define internal fastcc ptr @map_sql_type_to_xml_name(i32 noundef %0, i32 noundef %1) unnamed_addr #3 {
   %3 = alloca %struct.StringInfoData, align 8
   %4 = alloca %struct.StringInfoData, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @initStringInfo(ptr noundef nonnull %4) #12
   switch i32 %0, label %46 [
     i32 1042, label %5
@@ -2387,29 +2381,29 @@ define internal fastcc ptr @map_sql_type_to_xml_name(i32 noundef %0, i32 noundef
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 68
   %61 = load i32, ptr %60, align 4
   %62 = call ptr @get_namespace_name(i32 noundef %61) #12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @initStringInfo(ptr noundef nonnull %3) #12
   %63 = call ptr @map_sql_identifier_to_xml_name(ptr nonnull readnone poison, i1 zeroext poison, i1 zeroext poison)
   unreachable
 
 64:                                               ; preds = %42, %43, %38, %39, %34, %35, %30, %31, %17, %18, %12, %13, %7, %8, %45, %44, %27, %26, %25, %24, %23, %22
   %65 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %65
 }
 
-declare signext i8 @get_typtype(i32 noundef) local_unnamed_addr #3
+declare signext i8 @get_typtype(i32 noundef) local_unnamed_addr #2
 
-declare i32 @getBaseTypeAndTypmod(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @getBaseTypeAndTypmod(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @get_database_name(i32 noundef) local_unnamed_addr #3
+declare ptr @get_database_name(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold noreturn nounwind uwtable
 define internal fastcc void @map_sql_catalog_to_xmlschema_types() unnamed_addr #0 {
   %1 = alloca %struct.StringInfoData, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load i32, ptr @MyDatabaseId, align 4
   %3 = tail call ptr @get_database_name(i32 noundef %2) #12
   call void @initStringInfo(ptr noundef nonnull %1) #12
@@ -2417,23 +2411,29 @@ define internal fastcc void @map_sql_catalog_to_xmlschema_types() unnamed_addr #
   unreachable
 }
 
-declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #3
+declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #2
 
-declare ptr @SPI_fname(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @SPI_fname(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #10
 
 attributes #0 = { cold noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #11 = { cold nounwind }
 attributes #12 = { nounwind }

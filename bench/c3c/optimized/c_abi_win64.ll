@@ -509,8 +509,8 @@ define dso_local void @c_abi_func_create_win64(ptr noundef captures(none) initia
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv53.i
   %50 = load ptr, ptr %49, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %2, align 8
   store i32 0, ptr %3, align 4
   %51 = call fastcc ptr @type_lowering(ptr noundef readonly %48)
@@ -538,8 +538,8 @@ define dso_local void @c_abi_func_create_win64(ptr noundef captures(none) initia
 win64_reclassify_hva_arg.exit.i:                  ; preds = %59, %57, %55, %.preheader.i
   %62 = phi i32 [ %60, %59 ], [ %46, %57 ], [ %46, %55 ], [ %46, %.preheader.i ]
   %.0.i.i = phi ptr [ %61, %59 ], [ %50, %57 ], [ %50, %55 ], [ %50, %.preheader.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %.0.i.i, ptr %49, align 8
   %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
   %exitcond57.not.i = icmp eq i64 %indvars.iv.next54.i, %32
@@ -632,10 +632,10 @@ declare ptr @type_get_flexible_array(ptr noundef) local_unnamed_addr #1
 declare i64 @llvm.ctpop.i64(i64) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

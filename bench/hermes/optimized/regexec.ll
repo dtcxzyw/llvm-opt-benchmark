@@ -43,7 +43,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp5, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %if.end3
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %mv.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %mv.i)
   %5 = load i64, ptr %firststate.i, align 8
   %add.i = add nsw i64 %5, 1
   %6 = load i64, ptr %laststate.i, align 8
@@ -580,11 +580,11 @@ return.sink.split.i:                              ; preds = %if.end215.i, %if.th
 
 smatcher.exit:                                    ; preds = %if.then73.i, %if.end7.i, %for.end.i, %if.end215.i, %return.sink.split.i
   %retval.0.i = phi i32 [ 16, %if.end7.i ], [ 1, %for.end.i ], [ 0, %if.end215.i ], [ %retval.0.ph.i, %return.sink.split.i ], [ 12, %if.then73.i ]
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %mv.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %mv.i)
   br label %return
 
 if.else:                                          ; preds = %if.end3
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %mv.i12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %mv.i12)
   %62 = load i64, ptr %firststate.i, align 8
   %add.i14 = add nsw i64 %62, 1
   %63 = load i64, ptr %laststate.i, align 8
@@ -1168,7 +1168,7 @@ return.sink.split.i79:                            ; preds = %if.then110.i, %retu
 
 lmatcher.exit:                                    ; preds = %if.end7.i24, %for.end.i33, %if.end34.i36, %return.sink.split.i79
   %retval.0.i81 = phi i32 [ 16, %if.end7.i24 ], [ 1, %for.end.i33 ], [ 12, %if.end34.i36 ], [ %retval.0.ph.i80, %return.sink.split.i79 ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %mv.i12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %mv.i12)
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %lor.lhs.false, %lmatcher.exit, %smatcher.exit
@@ -3668,10 +3668,10 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

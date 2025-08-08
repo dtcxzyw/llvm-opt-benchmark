@@ -92,19 +92,19 @@ _ZN17double_conversionL18NormalizedExponentEmi.exit: ; preds = %.lr.ph.i, %42
   br label %179
 
 62:                                               ; preds = %_ZN17double_conversionL18NormalizedExponentEmi.exit
-  call void @llvm.lifetime.start.p0(i64 516, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i16 0, ptr %8, align 4, !tbaa !10
   %63 = getelementptr inbounds nuw i8, ptr %8, i64 2
   store i16 0, ptr %63, align 2, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 516, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i16 0, ptr %9, align 4, !tbaa !10
   %64 = getelementptr inbounds nuw i8, ptr %9, i64 2
   store i16 0, ptr %64, align 2, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 516, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i16 0, ptr %10, align 4, !tbaa !10
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 2
   store i16 0, ptr %65, align 2, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 516, ptr nonnull %11) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i16 0, ptr %11, align 4, !tbaa !10
   %66 = getelementptr inbounds nuw i8, ptr %11, i64 2
   store i16 0, ptr %66, align 2, !tbaa !13
@@ -397,7 +397,7 @@ _ZN17double_conversionL15FixupMultiply10EibPiPNS_6BignumES2_S2_S2_.exit: ; preds
   br label %_ZN17double_conversionL22GenerateShortestDigitsEPNS_6BignumES1_S1_S1_bNS_6VectorIcEEPi.exit
 
 175:                                              ; preds = %_ZN17double_conversionL15FixupMultiply10EibPiPNS_6BignumES2_S2_S2_.exit
-  call void @abort() #6
+  call void @abort() #5
   unreachable
 
 _ZN17double_conversionL22GenerateShortestDigitsEPNS_6BignumES1_S1_S1_bNS_6VectorIcEEPi.exit: ; preds = %172, %171, %168, %161, %150, %149, %147, %144, %142, %133, %174
@@ -405,21 +405,15 @@ _ZN17double_conversionL22GenerateShortestDigitsEPNS_6BignumES1_S1_S1_bNS_6Vector
   %177 = sext i32 %176 to i64
   %178 = getelementptr inbounds i8, ptr %3, i64 %177
   store i8 0, ptr %178, align 1, !tbaa !5
-  call void @llvm.lifetime.end.p0(i64 516, ptr nonnull %11) #5
-  call void @llvm.lifetime.end.p0(i64 516, ptr nonnull %10) #5
-  call void @llvm.lifetime.end.p0(i64 516, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 516, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %179
 
 179:                                              ; preds = %_ZN17double_conversionL22GenerateShortestDigitsEPNS_6BignumES1_S1_S1_bNS_6VectorIcEEPi.exit, %60
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN17double_conversionL21GenerateCountedDigitsEiPiPNS_6BignumES2_NS_6VectorIcEES0_(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr captures(none) %4, ptr noundef writeonly captures(none) %5) unnamed_addr #0 {
@@ -509,41 +503,46 @@ define internal fastcc void @_ZN17double_conversionL21GenerateCountedDigitsEiPiP
 }
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #2
+declare void @abort() local_unnamed_addr #1
 
-declare noundef zeroext i16 @_ZN17double_conversion6Bignum21DivideModuloIntBignumERKS0_(ptr noundef nonnull align 4 dereferenceable(516), ptr noundef nonnull align 4 dereferenceable(516)) local_unnamed_addr #3
+declare noundef zeroext i16 @_ZN17double_conversion6Bignum21DivideModuloIntBignumERKS0_(ptr noundef nonnull align 4 dereferenceable(516), ptr noundef nonnull align 4 dereferenceable(516)) local_unnamed_addr #2
 
-declare noundef i32 @_ZN17double_conversion6Bignum11PlusCompareERKS0_S2_S2_(ptr noundef nonnull align 4 dereferenceable(516), ptr noundef nonnull align 4 dereferenceable(516), ptr noundef nonnull align 4 dereferenceable(516)) local_unnamed_addr #3
+declare noundef i32 @_ZN17double_conversion6Bignum11PlusCompareERKS0_S2_S2_(ptr noundef nonnull align 4 dereferenceable(516), ptr noundef nonnull align 4 dereferenceable(516), ptr noundef nonnull align 4 dereferenceable(516)) local_unnamed_addr #2
 
-declare noundef i32 @_ZN17double_conversion6Bignum7CompareERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(516), ptr noundef nonnull align 4 dereferenceable(516)) local_unnamed_addr #3
+declare noundef i32 @_ZN17double_conversion6Bignum7CompareERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(516), ptr noundef nonnull align 4 dereferenceable(516)) local_unnamed_addr #2
 
-declare void @_ZN17double_conversion6Bignum16MultiplyByUInt32Ej(ptr noundef nonnull align 4 dereferenceable(516), i32 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #4
+declare void @_ZN17double_conversion6Bignum16MultiplyByUInt32Ej(ptr noundef nonnull align 4 dereferenceable(516), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.ceil.f64(double) #4
+declare double @llvm.fmuladd.f64(double, double, double) #3
 
-declare void @_ZN17double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516), i32 noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.ceil.f64(double) #3
 
-declare void @_ZN17double_conversion6Bignum12AssignUInt64Em(ptr noundef nonnull align 4 dereferenceable(516), i64 noundef) local_unnamed_addr #3
+declare void @_ZN17double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516), i32 noundef) local_unnamed_addr #2
 
-declare void @_ZN17double_conversion6Bignum17AssignPowerUInt16Eti(ptr noundef nonnull align 4 dereferenceable(516), i16 noundef zeroext, i32 noundef) local_unnamed_addr #3
+declare void @_ZN17double_conversion6Bignum12AssignUInt64Em(ptr noundef nonnull align 4 dereferenceable(516), i64 noundef) local_unnamed_addr #2
 
-declare void @_ZN17double_conversion6Bignum12AssignUInt16Et(ptr noundef nonnull align 4 dereferenceable(516), i16 noundef zeroext) local_unnamed_addr #3
+declare void @_ZN17double_conversion6Bignum17AssignPowerUInt16Eti(ptr noundef nonnull align 4 dereferenceable(516), i16 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
-declare void @_ZN17double_conversion6Bignum12AssignBignumERKS0_(ptr noundef nonnull align 4 dereferenceable(516), ptr noundef nonnull align 4 dereferenceable(516)) local_unnamed_addr #3
+declare void @_ZN17double_conversion6Bignum12AssignUInt16Et(ptr noundef nonnull align 4 dereferenceable(516), i16 noundef zeroext) local_unnamed_addr #2
 
-declare void @_ZN17double_conversion6Bignum16MultiplyByUInt64Em(ptr noundef nonnull align 4 dereferenceable(516), i64 noundef) local_unnamed_addr #3
+declare void @_ZN17double_conversion6Bignum12AssignBignumERKS0_(ptr noundef nonnull align 4 dereferenceable(516), ptr noundef nonnull align 4 dereferenceable(516)) local_unnamed_addr #2
+
+declare void @_ZN17double_conversion6Bignum16MultiplyByUInt64Em(ptr noundef nonnull align 4 dereferenceable(516), i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
-attributes #6 = { noreturn nounwind }
+attributes #1 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

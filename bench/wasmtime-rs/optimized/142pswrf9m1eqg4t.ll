@@ -663,7 +663,7 @@ define hidden zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17hfd1d9837b467f34
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = load i64, ptr %5, align 16, !range !5, !noundef !4
   %7 = icmp eq i64 %6, 2
   br i1 %7, label %8, label %"_ZN14cranelift_isle6parser6Parser8is_const28_$u7b$$u7b$closure$u7d$$u7d$17h26fd6cb3fe2d0805E.exit"
@@ -682,7 +682,7 @@ define hidden zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17hfd1d9837b467f34
 
 "_ZN14cranelift_isle6parser6Parser8is_const28_$u7b$$u7b$closure$u7d$$u7d$17h26fd6cb3fe2d0805E.exit": ; preds = %4, %8
   %.0.i = phi i1 [ %16, %8 ], [ false, %4 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %17
 
 17:                                               ; preds = %1, %"_ZN14cranelift_isle6parser6Parser8is_const28_$u7b$$u7b$closure$u7d$$u7d$17h26fd6cb3fe2d0805E.exit"
@@ -864,10 +864,10 @@ declare zeroext i1 @"_ZN72_$LT$core..num..error..TryFromIntError$u20$as$u20$core
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

@@ -1621,7 +1621,7 @@ define void @_Z21orthogonal_procrustesRKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEERS
   %.sroa.5.0.copyload = load <2 x double>, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 136
   %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %14
 
@@ -1676,7 +1676,7 @@ define void @_Z21orthogonal_procrustesRKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEERS
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %52 = load double, ptr %51, align 16
   store double %52, ptr %50, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %53 = extractelement <2 x double> %41, i64 0
   %54 = extractelement <2 x double> %46, i64 0
   %55 = extractelement <2 x double> %49, i64 1
@@ -1710,7 +1710,7 @@ define void @_Z21orthogonal_procrustesRKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEERS
   %80 = load double, ptr %79, align 8
   %81 = fneg double %80
   store double %81, ptr %79, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %82 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %83
 
@@ -1761,7 +1761,7 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_7ProductIS1_NS_9TransposeIS1_EELi0E
   %115 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %116 = load double, ptr %115, align 16
   store double %116, ptr %50, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %117
 
 117:                                              ; preds = %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_7ProductIS1_NS_9TransposeIS1_EELi0EEEEERS1_RKNS_9DenseBaseIT_EE.exit10, %40
@@ -2060,7 +2060,7 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_13CwiseBinaryOpINS_8internal18scala
 
 175:                                              ; preds = %._crit_edge221, %171
   %176 = phi double [ %.pre, %._crit_edge221 ], [ %172, %171 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %177 = load double, ptr %161, align 8
   store double %177, ptr %4, align 16, !noalias !13
   store double %168, ptr %133, align 16
@@ -2160,7 +2160,7 @@ _ZN5Eigen8internal19real_2x2_jacobi_svdINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEdlEEvR
   %230 = tail call double @llvm.fmuladd.f64(double %.sroa.037.0.i, double %.sink.i.i.i, double %229)
   %231 = fmul double %.sroa.4.0.i, %.sink.i.i.i
   %232 = tail call double @llvm.fmuladd.f64(double %.sroa.037.0.i, double %228, double %231)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %233 = fcmp oeq double %230, 1.000000e+00
   %234 = fcmp oeq double %232, 0.000000e+00
   %or.cond.i.i = and i1 %233, %234
@@ -2486,10 +2486,10 @@ define internal void @_GLOBAL__sub_I_orthogonal_procrustes.cpp() #7 section ".te
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #10

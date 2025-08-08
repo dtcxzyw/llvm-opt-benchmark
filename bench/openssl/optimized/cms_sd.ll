@@ -309,7 +309,7 @@ define ptr @CMS_add1_signer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   br i1 %50, label %51, label %64
 
 51:                                               ; preds = %48
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %52 = call i32 @EVP_PKEY_get_default_digest_nid(ptr noundef %2, ptr noundef nonnull %6) #7
   %53 = icmp slt i32 %52, 1
   br i1 %53, label %54, label %56
@@ -336,11 +336,11 @@ define ptr @CMS_add1_signer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   br label %.thread174
 
 .thread174:                                       ; preds = %54, %61
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %ossl_cms_set1_SignerIdentifier.exit.thread
 
 63:                                               ; preds = %56
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %64
 
 64:                                               ; preds = %63, %48
@@ -356,8 +356,8 @@ define ptr @CMS_add1_signer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
 
 .lr.ph:                                           ; preds = %64, %76
   %.0116186 = phi i32 [ %77, %76 ], [ 0, %64 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %71 = load ptr, ptr %67, align 8, !tbaa !52
   %72 = call ptr @OPENSSL_sk_value(ptr noundef %71, i32 noundef %.0116186) #7
   call void @X509_ALGOR_get0(ptr noundef nonnull %7, ptr noundef null, ptr noundef null, ptr noundef %72) #7
@@ -365,8 +365,8 @@ define ptr @CMS_add1_signer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %74 = call i32 @OBJ_obj2txt(ptr noundef nonnull %8, i32 noundef 50, ptr noundef %73, i32 noundef 0) #7
   %75 = call i32 @EVP_MD_is_a(ptr noundef nonnull %.0119, ptr noundef nonnull %8) #7
   %.not138 = icmp eq i32 %75, 0
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not138, label %76, label %._crit_edge
 
 76:                                               ; preds = %.lr.ph
@@ -454,7 +454,7 @@ define ptr @CMS_add1_signer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   br i1 %.not145, label %108, label %115
 
 108:                                              ; preds = %106
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !57
   %109 = call i32 @CMS_add_standard_smimecap(ptr noundef nonnull %9)
   %.not146 = icmp eq i32 %109, 0
@@ -468,7 +468,7 @@ define ptr @CMS_add1_signer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   br i1 %113, label %114, label %.thread178
 
 .thread178:                                       ; preds = %111
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %115
 
 .critedge:                                        ; preds = %108
@@ -479,7 +479,7 @@ define ptr @CMS_add1_signer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 456, ptr noundef nonnull @__func__.CMS_add1_signer) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 524334, ptr noundef null) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %ossl_cms_set1_SignerIdentifier.exit.thread
 
 115:                                              ; preds = %.thread178, %106
@@ -651,9 +651,6 @@ ossl_cms_set1_SignerIdentifier.exit.thread:       ; preds = %132, %127, %122, %4
   ret ptr %.0114
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare ptr @ossl_cms_get0_cmsctx(ptr noundef) local_unnamed_addr #1
 
 declare i32 @X509_check_private_key(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -677,9 +674,6 @@ declare i32 @EVP_PKEY_get_id(ptr noundef) local_unnamed_addr #1
 declare ptr @EVP_get_digestbyname(ptr noundef) local_unnamed_addr #1
 
 declare ptr @OBJ_nid2sn(i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare void @X509_ALGOR_set_md(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1008,7 +1002,7 @@ cms_add_cipher_smcap.exit.thread:                 ; preds = %82, %73, %67, %58, 
 ; Function Attrs: nounwind uwtable
 define i32 @CMS_add_smimecap(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !72
   %4 = call i32 @i2d_X509_ALGORS(ptr noundef %1, ptr noundef nonnull %3) #7
   %5 = icmp slt i32 %4, 1
@@ -1023,7 +1017,7 @@ define i32 @CMS_add_smimecap(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 
 10:                                               ; preds = %2, %6
   %.0 = phi i32 [ %8, %6 ], [ 0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -1034,7 +1028,7 @@ declare ptr @OSSL_ESS_signing_cert_new_init(ptr noundef, ptr noundef, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @ossl_cms_add1_signing_cert(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i32 @i2d_ESS_SIGNING_CERT(ptr noundef nonnull %1, ptr noundef null) #7
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %18, label %6
@@ -1070,7 +1064,7 @@ define internal fastcc i32 @ossl_cms_add1_signing_cert(ptr noundef nonnull %0, p
 
 18:                                               ; preds = %2, %6, %16, %15
   %.0 = phi i32 [ %17, %16 ], [ 0, %15 ], [ 0, %6 ], [ 0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -1081,7 +1075,7 @@ declare ptr @OSSL_ESS_signing_cert_v2_new_init(ptr noundef, ptr noundef, ptr nou
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @ossl_cms_add1_signing_cert_v2(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i32 @i2d_ESS_SIGNING_CERT_V2(ptr noundef nonnull %1, ptr noundef null) #7
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %18, label %6
@@ -1117,7 +1111,7 @@ define internal fastcc i32 @ossl_cms_add1_signing_cert_v2(ptr noundef nonnull %0
 
 18:                                               ; preds = %2, %6, %16, %15
   %.0 = phi i32 [ %17, %16 ], [ 0, %15 ], [ 0, %6 ], [ 0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -1221,14 +1215,14 @@ define range(i32 0, 2) i32 @CMS_SignerInfo_sign(ptr noundef %0) local_unnamed_ad
   %5 = alloca [50 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8, !tbaa !45
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !77
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load ptr, ptr %8, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !51
   %12 = load ptr, ptr %11, align 8, !tbaa !73
@@ -1357,10 +1351,10 @@ cms_add1_signingTime.exit:                        ; preds = %24
 
 78:                                               ; preds = %1, %75, %68
   %.0 = phi i32 [ 0, %75 ], [ 1, %68 ], [ 0, %1 ]
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -1472,14 +1466,14 @@ cms_get0_signed.exit:                             ; preds = %1
 declare i32 @ERR_pop_to_mark() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @CMS_SignerInfo_get0_pkey_ctx(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define ptr @CMS_SignerInfo_get0_pkey_ctx(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !tbaa !46
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @CMS_SignerInfo_get0_md_ctx(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define ptr @CMS_SignerInfo_get0_md_ctx(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !45
   ret ptr %3
@@ -1488,7 +1482,7 @@ define ptr @CMS_SignerInfo_get0_md_ctx(ptr noundef readonly captures(none) %0) l
 ; Function Attrs: nounwind uwtable
 define ptr @CMS_get0_signers(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !83
   %3 = load ptr, ptr %0, align 8, !tbaa !21
   %4 = tail call i32 @OBJ_obj2nid(ptr noundef %3) #7
@@ -1548,7 +1542,7 @@ CMS_get0_SignerInfos.exit:                        ; preds = %cms_get0_signed.exi
 
 ._crit_edge:                                      ; preds = %CMS_get0_SignerInfos.exit, %._crit_edge.loopexit, %18
   %.08 = phi ptr [ null, %18 ], [ %.pre, %._crit_edge.loopexit ], [ null, %CMS_get0_SignerInfos.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.08
 }
 
@@ -1853,7 +1847,7 @@ CMS_SignerInfo_cert_cmp.exit44.thread:            ; preds = %56, %CMS_SignerInfo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @CMS_SignerInfo_get0_algs(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #5 {
+define void @CMS_SignerInfo_get0_algs(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %6
 
@@ -1898,7 +1892,7 @@ define void @CMS_SignerInfo_get0_algs(ptr noundef readonly captures(none) %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @CMS_SignerInfo_get0_signature(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define ptr @CMS_SignerInfo_get0_signature(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !81
   ret ptr %3
@@ -1947,7 +1941,7 @@ CMS_get0_SignerInfos.exit:                        ; preds = %cms_get0_signed.exi
 22:                                               ; preds = %.lr.ph, %cms_SignerInfo_content_sign.exit
   %.031 = phi i32 [ 0, %.lr.ph ], [ %101, %cms_SignerInfo_content_sign.exit ]
   %23 = call ptr @OPENSSL_sk_value(ptr noundef %17, i32 noundef %.031) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %3, ptr %5, align 4, !tbaa !50
   %24 = call ptr @EVP_MD_CTX_new() #7
   %25 = call ptr @ossl_cms_get0_cmsctx(ptr noundef nonnull %0) #7
@@ -1958,7 +1952,7 @@ cms_SignerInfo_content_sign.exit.thread:          ; preds = %22
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 733, ptr noundef nonnull @__func__.cms_SignerInfo_content_sign) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 524334, ptr noundef null) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %109
 
 27:                                               ; preds = %22
@@ -1997,7 +1991,7 @@ cms_SignerInfo_content_sign.exit.thread:          ; preds = %22
   br i1 %43, label %44, label %57
 
 44:                                               ; preds = %41
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br i1 %20, label %45, label %47
 
 45:                                               ; preds = %44
@@ -2031,11 +2025,11 @@ cms_SignerInfo_content_sign.exit.thread:          ; preds = %22
   br i1 %.not66.i, label %.thread.i, label %56
 
 .thread.i:                                        ; preds = %54, %50, %47, %45
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
 
 56:                                               ; preds = %54
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %cms_SignerInfo_content_sign.exit
 
 57:                                               ; preds = %41
@@ -2044,8 +2038,8 @@ cms_SignerInfo_content_sign.exit.thread:          ; preds = %22
   br i1 %.not59.i, label %81, label %59
 
 59:                                               ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %37, align 8, !tbaa !46
   br i1 %20, label %60, label %62
 
@@ -2080,8 +2074,8 @@ cms_SignerInfo_content_sign.exit.thread:          ; preds = %22
   br label %.thread77.i
 
 .thread77.i:                                      ; preds = %67, %62, %60, %75
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge
 
 76:                                               ; preds = %70
@@ -2090,12 +2084,12 @@ cms_SignerInfo_content_sign.exit.thread:          ; preds = %22
   %79 = load i64, ptr %7, align 8, !tbaa !80
   %80 = trunc i64 %79 to i32
   call void @ASN1_STRING_set0(ptr noundef %78, ptr noundef nonnull %68, i32 noundef %80) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %cms_SignerInfo_content_sign.exit
 
 81:                                               ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br i1 %20, label %83, label %82
 
 82:                                               ; preds = %81
@@ -2133,7 +2127,7 @@ cms_SignerInfo_content_sign.exit.thread:          ; preds = %22
   br label %.thread81.i
 
 .thread81.i:                                      ; preds = %87, %83, %96, %82
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge
 
 97:                                               ; preds = %91
@@ -2141,14 +2135,14 @@ cms_SignerInfo_content_sign.exit.thread:          ; preds = %22
   %99 = load ptr, ptr %98, align 8, !tbaa !81
   %100 = load i32, ptr %9, align 4, !tbaa !50
   call void @ASN1_STRING_set0(ptr noundef %99, ptr noundef nonnull %89, i32 noundef %100) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %cms_SignerInfo_content_sign.exit
 
 cms_SignerInfo_content_sign.exit:                 ; preds = %56, %76, %97
   %.048.i = phi ptr [ null, %56 ], [ %58, %76 ], [ null, %97 ]
   call void @EVP_MD_CTX_free(ptr noundef nonnull %24) #7
   call void @EVP_PKEY_CTX_free(ptr noundef %.048.i) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %101 = add nuw nsw i32 %.031, 1
   %102 = call i32 @OPENSSL_sk_num(ptr noundef %17) #7
   %103 = icmp slt i32 %101, %102
@@ -2167,7 +2161,7 @@ cms_SignerInfo_content_sign.exit:                 ; preds = %56, %76, %97
   %.048.i.ph = phi ptr [ null, %.thread81.i ], [ %58, %.thread77.i ], [ null, %.thread.i ], [ null, %31 ], [ null, %39 ], [ null, %32 ]
   call void @EVP_MD_CTX_free(ptr noundef nonnull %24) #7
   call void @EVP_PKEY_CTX_free(ptr noundef %.048.i.ph) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %109
 
 109:                                              ; preds = %.critedge, %cms_SignerInfo_content_sign.exit.thread, %._crit_edge
@@ -2199,9 +2193,9 @@ declare void @ASN1_STRING_set0(ptr noundef, ptr noundef, i32 noundef) local_unna
 define i32 @CMS_SignerInfo_verify(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca [50 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8, !tbaa !33
   %6 = tail call ptr @ossl_cms_ctx_get0_libctx(ptr noundef %5) #7
@@ -2342,8 +2336,8 @@ define i32 @CMS_SignerInfo_verify(ptr noundef %0) local_unnamed_addr #0 {
 
 76:                                               ; preds = %12, %74, %28, %11
   %.0 = phi i32 [ -1, %11 ], [ -1, %28 ], [ %.041, %74 ], [ -1, %12 ]
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -2596,8 +2590,8 @@ define range(i32 -1, -2147483648) i32 @CMS_SignerInfo_verify_content(ptr noundef
   %3 = alloca [64 x i8], align 16
   %4 = alloca i32, align 4
   %5 = tail call ptr @EVP_MD_CTX_new() #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %8
 
@@ -2727,8 +2721,8 @@ define range(i32 -1, -2147483648) i32 @CMS_SignerInfo_verify_content(ptr noundef
   %.035 = phi i32 [ -1, %7 ], [ -1, %15 ], [ -1, %23 ], [ -1, %28 ], [ 0, %33 ], [ -1, %16 ], [ 1, %29 ], [ %62, %53 ], [ 0, %64 ], [ -1, %47 ], [ -1, %44 ], [ -1, %34 ], [ -1, %50 ]
   call void @EVP_PKEY_CTX_free(ptr noundef %.036) #7
   call void @EVP_MD_CTX_free(ptr noundef %5) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.035
 }
 
@@ -2991,7 +2985,7 @@ define internal fastcc i32 @cms_generic_sign(ptr noundef readonly captures(none)
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8, !tbaa !43
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = tail call i32 @EVP_PKEY_get_id(ptr noundef %6) #7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !51
@@ -3037,7 +3031,7 @@ define internal fastcc i32 @cms_generic_sign(ptr noundef readonly captures(none)
 
 31:                                               ; preds = %25, %16, %4, %13, %27
   %.1 = phi i32 [ %30, %27 ], [ -1, %13 ], [ -1, %4 ], [ -1, %16 ], [ -1, %25 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %32
 
 32:                                               ; preds = %2, %31
@@ -3079,15 +3073,21 @@ declare void @ASN1_TIME_free(ptr noundef) local_unnamed_addr #1
 
 declare ptr @EVP_get_cipherbyname(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #7 = { nounwind }
 

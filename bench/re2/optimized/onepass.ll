@@ -463,7 +463,7 @@ entry:
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %s.i)
   %str_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call2.i1 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %str_.i.i, ptr noundef nonnull @.str.5)
           to label %call2.i.noexc unwind label %terminate.lpad
@@ -479,7 +479,7 @@ _ZN10LogMessage5FlushEv.exit:                     ; preds = %call2.i.noexc
   %call5.i = call i64 @fwrite(ptr noundef %call4.i, i64 noundef 1, i64 noundef %call3.i, ptr noundef %1) #17
   store i8 1, ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s.i) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %s.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %s.i)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN10LogMessage5FlushEv.exit, %entry
@@ -705,7 +705,7 @@ invoke.cont45:                                    ; preds = %if.then5.i.i.i, %if
   %21 = load i64, ptr %nodes, align 8
   %data_.i.i.i = getelementptr inbounds nuw i8, ptr %nodes, i64 8
   %22 = load ptr, ptr %data_.i.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %dealias.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %dealias.i)
   %shr.i.i.i = lshr i64 %21, 1
   %and.i.i.i = and i64 %21, 1
   %tobool.i.not.i.i = icmp eq i64 %and.i.i.i, 0
@@ -716,7 +716,7 @@ invoke.cont45:                                    ; preds = %if.then5.i.i.i, %if
           to label %invoke.cont52 unwind label %lpad42.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont52:                                    ; preds = %invoke.cont45
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %dealias.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dealias.i)
   %23 = load i32, ptr %tovisit, align 8
   %cmp58.not586 = icmp eq i32 %23, 0
   br i1 %cmp58.not586, label %for.end318, label %for.body.lr.ph
@@ -984,7 +984,7 @@ invoke.cont118:                                   ; preds = %if.then5.i.i.i199, 
   store i32 %nalloc.2.ph440, ptr %arrayidx123, align 4
   %58 = load i64, ptr %nodes, align 8
   %59 = load ptr, ptr %data_.i.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %dealias.i219)
+  call void @llvm.lifetime.start.p0(ptr nonnull %dealias.i219)
   %shr.i.i.i217 = lshr i64 %58, 1
   %and.i.i.i213 = and i64 %58, 1
   %tobool.i.not.i.i214 = icmp eq i64 %and.i.i.i213, 0
@@ -995,7 +995,7 @@ invoke.cont118:                                   ; preds = %if.then5.i.i.i199, 
           to label %invoke.cont128 unwind label %lpad42.loopexit
 
 invoke.cont128:                                   ; preds = %invoke.cont118
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %dealias.i219)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dealias.i219)
   %inc124 = add nsw i32 %nalloc.2.ph440, 1
   %60 = load i64, ptr %nodes, align 8
   %and.i.i238 = and i64 %60, 1
@@ -1817,10 +1817,10 @@ return:                                           ; preds = %invoke.cont83, %_ZN
 declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15

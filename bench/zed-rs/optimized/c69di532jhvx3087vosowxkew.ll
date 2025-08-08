@@ -2023,10 +2023,10 @@ define hidden void @_ZN15live_kit_server5proto17auto_track_egress6Output6encode1
   unreachable
 
 14:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8), !noalias !202
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !202
   store i8 18, ptr %8, align 1, !noalias !202
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17hf36ac597b5e9d725E.llvm.12860031636858333160"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 1 %8, i64 noundef 1), !noalias !210
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8), !noalias !202
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !202
   %15 = call noundef i64 @"_ZN76_$LT$live_kit_server..proto..S3Upload$u20$as$u20$prost..message..Message$GT$11encoded_len17h4b1a5fe135d815d1E.llvm.11538535937534900153"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %0)
   %16 = icmp ult i64 %15, 128
   br i1 %16, label %_ZN5prost8encoding7message6encode17h9203a2d4f1e63af3E.exit, label %.lr.ph.i
@@ -2035,10 +2035,10 @@ define hidden void @_ZN15live_kit_server5proto17auto_track_egress6Output6encode1
   %.sroa.0.04.i = phi i64 [ %19, %.lr.ph.i ], [ %15, %14 ]
   %17 = trunc i64 %.sroa.0.04.i to i8
   %18 = or i8 %17, -128
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7), !noalias !211
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !211
   store i8 %18, ptr %7, align 1, !noalias !211
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17hf36ac597b5e9d725E.llvm.12860031636858333160"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 1 %7, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7), !noalias !211
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !211
   %19 = lshr i64 %.sroa.0.04.i, 7
   %20 = icmp ult i64 %.sroa.0.04.i, 16384
   br i1 %20, label %_ZN5prost8encoding7message6encode17h9203a2d4f1e63af3E.exit, label %.lr.ph.i
@@ -2046,10 +2046,10 @@ define hidden void @_ZN15live_kit_server5proto17auto_track_egress6Output6encode1
 _ZN5prost8encoding7message6encode17h9203a2d4f1e63af3E.exit: ; preds = %.lr.ph.i, %14
   %.sroa.0.0.lcssa.i = phi i64 [ %15, %14 ], [ %19, %.lr.ph.i ]
   %21 = trunc nuw nsw i64 %.sroa.0.0.lcssa.i to i8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6), !noalias !214
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !214
   store i8 %21, ptr %6, align 1, !noalias !214
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17hf36ac597b5e9d725E.llvm.12860031636858333160"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 1 %6, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !214
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !214
   call void @"_ZN76_$LT$live_kit_server..proto..S3Upload$u20$as$u20$prost..message..Message$GT$10encode_raw17h95068078e7cd0fc5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   br label %33
 
@@ -2060,10 +2060,10 @@ _ZN5prost8encoding7message6encode17h9203a2d4f1e63af3E.exit: ; preds = %.lr.ph.i,
 
 24:                                               ; preds = %2
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5), !noalias !217
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !217
   store i8 34, ptr %5, align 1, !noalias !217
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17hf36ac597b5e9d725E.llvm.12860031636858333160"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 1 %5, i64 noundef 1), !noalias !225
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !217
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !217
   %26 = call noundef i64 @"_ZN83_$LT$live_kit_server..proto..AzureBlobUpload$u20$as$u20$prost..message..Message$GT$11encoded_len17hd30f3470c9407e42E.llvm.11538535937534900153"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %25)
   %27 = icmp ult i64 %26, 128
   br i1 %27, label %_ZN5prost8encoding7message6encode17h1a1e719a12732f36E.exit, label %.lr.ph.i1
@@ -2072,10 +2072,10 @@ _ZN5prost8encoding7message6encode17h9203a2d4f1e63af3E.exit: ; preds = %.lr.ph.i,
   %.sroa.0.04.i2 = phi i64 [ %30, %.lr.ph.i1 ], [ %26, %24 ]
   %28 = trunc i64 %.sroa.0.04.i2 to i8
   %29 = or i8 %28, -128
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !226
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !226
   store i8 %29, ptr %4, align 1, !noalias !226
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17hf36ac597b5e9d725E.llvm.12860031636858333160"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 1 %4, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !226
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !226
   %30 = lshr i64 %.sroa.0.04.i2, 7
   %31 = icmp ult i64 %.sroa.0.04.i2, 16384
   br i1 %31, label %_ZN5prost8encoding7message6encode17h1a1e719a12732f36E.exit, label %.lr.ph.i1
@@ -2083,10 +2083,10 @@ _ZN5prost8encoding7message6encode17h9203a2d4f1e63af3E.exit: ; preds = %.lr.ph.i,
 _ZN5prost8encoding7message6encode17h1a1e719a12732f36E.exit: ; preds = %.lr.ph.i1, %24
   %.sroa.0.0.lcssa.i3 = phi i64 [ %26, %24 ], [ %30, %.lr.ph.i1 ]
   %32 = trunc nuw nsw i64 %.sroa.0.0.lcssa.i3 to i8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !229
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !229
   store i8 %32, ptr %3, align 1, !noalias !229
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17hf36ac597b5e9d725E.llvm.12860031636858333160"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 1 %3, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3), !noalias !229
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !229
   call void @"_ZN83_$LT$live_kit_server..proto..AzureBlobUpload$u20$as$u20$prost..message..Message$GT$10encode_raw17h639bd9cdb79cade5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %25, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   br label %33
 
@@ -2118,23 +2118,17 @@ declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #12
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare void @_ZN5alloc7raw_vec12handle_error17hc0e4a0ae60df49a1E(i64 noundef, i64) unnamed_addr #13
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
-
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @"_ZN86_$LT$live_kit_server..proto..auto_track_egress..Output$u20$as$u20$core..fmt..Debug$GT$3fmt17h72e43ed76cd2af48E"(ptr noalias noundef readonly align 8 dereferenceable(120), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #0
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17hf36ac597b5e9d725E.llvm.12860031636858333160"(ptr noalias noundef align 8 dereferenceable(24), ptr noundef, i64 noundef) unnamed_addr #15
+declare hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17hf36ac597b5e9d725E.llvm.12860031636858333160"(ptr noalias noundef align 8 dereferenceable(24), ptr noundef, i64 noundef) unnamed_addr #14
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden noundef i64 @"_ZN83_$LT$live_kit_server..proto..AzureBlobUpload$u20$as$u20$prost..message..Message$GT$11encoded_len17hd30f3470c9407e42E.llvm.11538535937534900153"(ptr noalias noundef readonly align 8 dereferenceable(72)) unnamed_addr #15
+declare hidden noundef i64 @"_ZN83_$LT$live_kit_server..proto..AzureBlobUpload$u20$as$u20$prost..message..Message$GT$11encoded_len17hd30f3470c9407e42E.llvm.11538535937534900153"(ptr noalias noundef readonly align 8 dereferenceable(72)) unnamed_addr #14
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden noundef i64 @"_ZN76_$LT$live_kit_server..proto..S3Upload$u20$as$u20$prost..message..Message$GT$11encoded_len17h4b1a5fe135d815d1E.llvm.11538535937534900153"(ptr noalias noundef readonly align 8 dereferenceable(120)) unnamed_addr #15
+declare hidden noundef i64 @"_ZN76_$LT$live_kit_server..proto..S3Upload$u20$as$u20$prost..message..Message$GT$11encoded_len17h4b1a5fe135d815d1E.llvm.11538535937534900153"(ptr noalias noundef readonly align 8 dereferenceable(120)) unnamed_addr #14
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @_ZN5prost8encoding7message6encode17hfdeb7eeb80e6a46fE(i32 noundef, ptr noalias noundef readonly align 8 dereferenceable(48), ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #0
@@ -2144,6 +2138,12 @@ declare hidden void @"_ZN76_$LT$live_kit_server..proto..S3Upload$u20$as$u20$pros
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN83_$LT$live_kit_server..proto..AzureBlobUpload$u20$as$u20$prost..message..Message$GT$10encode_raw17h639bd9cdb79cade5E"(ptr noalias noundef readonly align 8 dereferenceable(72), ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16
@@ -2165,8 +2165,8 @@ attributes #10 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"
 attributes #11 = { nounwind nonlazybind allockind("realloc,aligned") allocsize(3) uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #14 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nounwind }

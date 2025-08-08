@@ -462,7 +462,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @VULKAN_CreateRenderer(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
-  tail call void @SDL_SetupRendererColorspace(ptr noundef %0, i32 noundef %2) #8
+  tail call void @SDL_SetupRendererColorspace(ptr noundef %0, i32 noundef %2) #7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %6 [
@@ -471,7 +471,7 @@ define internal zeroext i1 @VULKAN_CreateRenderer(ptr noundef %0, ptr noundef %1
   ]
 
 6:                                                ; preds = %3
-  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #8
+  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #7
   br label %64
 
 8:                                                ; preds = %3, %3
@@ -481,17 +481,17 @@ define internal zeroext i1 @VULKAN_CreateRenderer(ptr noundef %0, ptr noundef %1
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 10540
-  tail call void @MatrixIdentity(ptr dead_on_unwind nonnull writable sret(%struct.Float4X4) align 4 %11) #8
+  tail call void @MatrixIdentity(ptr dead_on_unwind nonnull writable sret(%struct.Float4X4) align 4 %11) #7
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 10604
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  %13 = tail call i32 @SDL_CreateProperties_REAL() #8
+  %13 = tail call i32 @SDL_CreateProperties_REAL() #7
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 1776
   store i32 %13, ptr %14, align 8
-  %15 = tail call zeroext i1 @SDL_CopyProperties_REAL(i32 noundef %2, i32 noundef %13) #8
+  %15 = tail call zeroext i1 @SDL_CopyProperties_REAL(i32 noundef %2, i32 noundef %13) #7
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %10
-  tail call void @SDL_free_REAL(ptr noundef nonnull %9) #8
+  tail call void @SDL_free_REAL(ptr noundef nonnull %9) #7
   br label %64
 
 17:                                               ; preds = %10
@@ -547,12 +547,12 @@ define internal zeroext i1 @VULKAN_CreateRenderer(ptr noundef %0, ptr noundef %1
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VULKAN_RenderDriver, i64 8), align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr %42, ptr %43, align 8
-  %44 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 372645892) #8
-  %45 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 376840196) #8
-  %46 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 376905732) #8
-  %47 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 438321160) #8
-  %48 = tail call i32 @SDL_GetRendererProperties_REAL(ptr noundef nonnull %0) #8
-  %49 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %48, ptr noundef nonnull @.str.2, i64 noundef 16384) #8
+  %44 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 372645892) #7
+  %45 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 376840196) #7
+  %46 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 376905732) #7
+  %47 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 438321160) #7
+  %48 = tail call i32 @SDL_GetRendererProperties_REAL(ptr noundef nonnull %0) #7
+  %49 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %48, ptr noundef nonnull @.str.2, i64 noundef 16384) #7
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr %1, ptr %50, align 8
   %51 = tail call fastcc i32 @VULKAN_CreateDeviceResources(ptr noundef nonnull %0, i32 noundef %2)
@@ -571,11 +571,11 @@ define internal zeroext i1 @VULKAN_CreateRenderer(ptr noundef %0, ptr noundef %1
   br i1 %57, label %58, label %64
 
 58:                                               ; preds = %54
-  %59 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 842094169) #8
-  %60 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 1448433993) #8
-  %61 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 842094158) #8
-  %62 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 825382478) #8
-  %63 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 808530000) #8
+  %59 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 842094169) #7
+  %60 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 1448433993) #7
+  %61 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 842094158) #7
+  %62 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 825382478) #7
+  %63 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 808530000) #7
   br label %64
 
 64:                                               ; preds = %54, %58, %52, %17, %8, %16, %6
@@ -583,32 +583,26 @@ define internal zeroext i1 @VULKAN_CreateRenderer(ptr noundef %0, ptr noundef %1
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @SDL_SetupRendererColorspace(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @SDL_SetupRendererColorspace(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @MatrixIdentity(ptr dead_on_unwind writable sret(%struct.Float4X4) align 4) local_unnamed_addr #2
+declare void @MatrixIdentity(ptr dead_on_unwind writable sret(%struct.Float4X4) align 4) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @SDL_CreateProperties_REAL() local_unnamed_addr #1
 
-declare i32 @SDL_CreateProperties_REAL() local_unnamed_addr #2
+declare zeroext i1 @SDL_CopyProperties_REAL(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_CopyProperties_REAL(i32 noundef, i32 noundef) local_unnamed_addr #2
-
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @VULKAN_WindowEvent(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+define internal void @VULKAN_WindowEvent(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp eq i32 %3, 519
   br i1 %4, label %5, label %9
@@ -627,12 +621,12 @@ define internal void @VULKAN_WindowEvent(ptr noundef readonly captures(none) %0,
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @VULKAN_SupportsBlendMode(ptr readnone captures(none) %0, i32 noundef %1) #0 {
 GetBlendFactor.exit:
-  %2 = tail call i32 @SDL_GetBlendModeSrcColorFactor(i32 noundef %1) #8
-  %3 = tail call i32 @SDL_GetBlendModeSrcAlphaFactor(i32 noundef %1) #8
-  %4 = tail call i32 @SDL_GetBlendModeColorOperation(i32 noundef %1) #8
-  %5 = tail call i32 @SDL_GetBlendModeDstColorFactor(i32 noundef %1) #8
-  %6 = tail call i32 @SDL_GetBlendModeDstAlphaFactor(i32 noundef %1) #8
-  %7 = tail call i32 @SDL_GetBlendModeAlphaOperation(i32 noundef %1) #8
+  %2 = tail call i32 @SDL_GetBlendModeSrcColorFactor(i32 noundef %1) #7
+  %3 = tail call i32 @SDL_GetBlendModeSrcAlphaFactor(i32 noundef %1) #7
+  %4 = tail call i32 @SDL_GetBlendModeColorOperation(i32 noundef %1) #7
+  %5 = tail call i32 @SDL_GetBlendModeDstColorFactor(i32 noundef %1) #7
+  %6 = tail call i32 @SDL_GetBlendModeDstAlphaFactor(i32 noundef %1) #7
+  %7 = tail call i32 @SDL_GetBlendModeAlphaOperation(i32 noundef %1) #7
   %.off = add i32 %2, -1
   %switch = icmp ult i32 %.off, 10
   %.off27 = add i32 %3, -1
@@ -728,7 +722,7 @@ SDLPixelFormatToVkTextureFormat.exit:             ; preds = %3, %18, %19, %21, %
   br i1 %.not, label %36, label %38
 
 36:                                               ; preds = %SDLPixelFormatToVkTextureFormat.exit
-  %37 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #8
+  %37 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
   br label %353
 
 38:                                               ; preds = %SDLPixelFormatToVkTextureFormat.exit
@@ -736,7 +730,7 @@ SDLPixelFormatToVkTextureFormat.exit:             ; preds = %3, %18, %19, %21, %
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %38
-  %41 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @__FUNCTION__.VULKAN_CreateTexture, i32 noundef %15) #8
+  %41 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @__FUNCTION__.VULKAN_CreateTexture, i32 noundef %15) #7
   br label %353
 
 42:                                               ; preds = %38
@@ -770,11 +764,11 @@ SDLPixelFormatToVkTextureFormat.exit:             ; preds = %3, %18, %19, %21, %
   br i1 %55, label %57, label %.thread104
 
 .thread104:                                       ; preds = %52
-  %56 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.5) #8
+  %56 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.5) #7
   br label %353
 
 57:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 64, i1 false)
   store i32 1000156000, ptr %10, align 8
   %58 = add i32 %30, 1
@@ -832,7 +826,7 @@ SDLPixelFormatToVkTextureFormat.exit:             ; preds = %3, %18, %19, %21, %
   br label %81
 
 79:                                               ; preds = %57
-  %80 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.6, i32 noundef %63) #8
+  %80 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.6, i32 noundef %63) #7
   br label %.thread109
 
 81:                                               ; preds = %78, %77, %68, %66, %64
@@ -882,27 +876,27 @@ SDLPixelFormatToVkTextureFormat.exit:             ; preds = %3, %18, %19, %21, %
   %97 = load ptr, ptr @vkCreateSamplerYcbcrConversionKHR, align 8
   %98 = load ptr, ptr %34, align 8
   %99 = getelementptr inbounds nuw i8, ptr %43, i64 128
-  %100 = call i32 %97(ptr noundef %98, ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull %99) #8
+  %100 = call i32 %97(ptr noundef %98, ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull %99) #7
   %.not98 = icmp eq i32 %100, 0
   br i1 %.not98, label %108, label %101
 
 101:                                              ; preds = %92
-  %102 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %102 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %102, label %103, label %105
 
 103:                                              ; preds = %101
-  %104 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %100) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef %104) #8
+  %104 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %100) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef %104) #7
   call void @llvm.debugtrap()
   br label %105
 
 105:                                              ; preds = %103, %101
-  %106 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %100) #8
-  %107 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef %106) #8
+  %106 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %100) #7
+  %107 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef %106) #7
   br label %.thread109
 
 108:                                              ; preds = %92
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %11, i8 0, i64 80, i1 false)
   store i32 31, ptr %11, align 8
   %109 = getelementptr inbounds nuw i8, ptr %11, i64 20
@@ -915,7 +909,7 @@ SDLPixelFormatToVkTextureFormat.exit:             ; preds = %3, %18, %19, %21, %
   store float 1.000000e+00, ptr %112, align 4
   %113 = getelementptr inbounds nuw i8, ptr %11, i64 68
   store float 1.000000e+03, ptr %113, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 16, i1 false)
   store i32 1000156001, ptr %12, align 8
   %114 = load ptr, ptr %99, align 8
@@ -926,31 +920,31 @@ SDLPixelFormatToVkTextureFormat.exit:             ; preds = %3, %18, %19, %21, %
   %117 = load ptr, ptr @vkCreateSampler, align 8
   %118 = load ptr, ptr %34, align 8
   %119 = getelementptr inbounds nuw i8, ptr %43, i64 136
-  %120 = call i32 %117(ptr noundef %118, ptr noundef nonnull %11, ptr noundef null, ptr noundef nonnull %119) #8
+  %120 = call i32 %117(ptr noundef %118, ptr noundef nonnull %11, ptr noundef null, ptr noundef nonnull %119) #7
   %.not99 = icmp eq i32 %120, 0
   br i1 %.not99, label %127, label %121
 
 121:                                              ; preds = %108
-  %122 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %122 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %122, label %123, label %.thread112
 
 123:                                              ; preds = %121
-  %124 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %120) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.10, ptr noundef %124) #8
+  %124 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %120) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.10, ptr noundef %124) #7
   call void @llvm.debugtrap()
   br label %.thread112
 
 .thread112:                                       ; preds = %121, %123
-  %125 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %120) #8
-  %126 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.10, ptr noundef %125) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #8
+  %125 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %120) #7
+  %126 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.10, ptr noundef %125) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %353
 
 .thread109:                                       ; preds = %79, %105
   %.2.ph = phi i1 [ false, %105 ], [ %80, %79 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %353
 
 127:                                              ; preds = %108
@@ -959,9 +953,9 @@ SDLPixelFormatToVkTextureFormat.exit:             ; preds = %3, %18, %19, %21, %
   %130 = getelementptr inbounds nuw i8, ptr %43, i64 152
   %131 = call fastcc i32 @VULKAN_CreateDescriptorSetAndPipelineLayout(ptr noundef nonnull %14, ptr noundef %128, ptr noundef nonnull %129, ptr noundef nonnull %130)
   %.not100 = icmp eq i32 %131, 0
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %.not100, label %132, label %353
 
 132:                                              ; preds = %44, %127
@@ -975,12 +969,12 @@ SDLPixelFormatToVkTextureFormat.exit:             ; preds = %3, %18, %19, %21, %
   %136 = load i32, ptr %135, align 4
   %137 = getelementptr inbounds nuw i8, ptr %43, i64 128
   %138 = load ptr, ptr %137, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %43, i8 0, i64 40, i1 false)
   %139 = getelementptr inbounds nuw i8, ptr %43, i64 36
   store i32 %.0.i, ptr %139, align 4
-  %140 = call i64 @SDL_GetNumberProperty_REAL(i32 noundef %2, ptr noundef nonnull @.str.12, i64 noundef 0) #8
+  %140 = call i64 @SDL_GetNumberProperty_REAL(i32 noundef %2, ptr noundef nonnull @.str.12, i64 noundef 0) #7
   %141 = inttoptr i64 %140 to ptr
   %142 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr %141, ptr %142, align 8
@@ -991,7 +985,7 @@ SDLPixelFormatToVkTextureFormat.exit:             ; preds = %3, %18, %19, %21, %
   %145 = icmp eq i32 %136, 2
   %spec.select = select i1 %145, i32 23, i32 7
   store i8 1, ptr %43, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, i8 0, i64 88, i1 false)
   store i32 14, ptr %5, align 8
   %146 = getelementptr inbounds nuw i8, ptr %5, i64 20
@@ -1014,7 +1008,7 @@ SDLPixelFormatToVkTextureFormat.exit:             ; preds = %3, %18, %19, %21, %
   store i32 %spec.select, ptr %154, align 8
   %155 = load ptr, ptr @vkCreateImage, align 8
   %156 = load ptr, ptr %34, align 8
-  %157 = call i32 %155(ptr noundef %156, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %142) #8
+  %157 = call i32 %155(ptr noundef %156, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %142) #7
   %.not.i = icmp eq i32 %157, 0
   br i1 %.not.i, label %187, label %158
 
@@ -1027,7 +1021,7 @@ SDLPixelFormatToVkTextureFormat.exit:             ; preds = %3, %18, %19, %21, %
 161:                                              ; preds = %158
   %162 = load ptr, ptr @vkDestroyImageView, align 8
   %163 = load ptr, ptr %34, align 8
-  call void %162(ptr noundef %163, ptr noundef nonnull %160, ptr noundef null) #8
+  call void %162(ptr noundef %163, ptr noundef nonnull %160, ptr noundef null) #7
   store ptr null, ptr %159, align 8
   br label %164
 
@@ -1044,7 +1038,7 @@ SDLPixelFormatToVkTextureFormat.exit:             ; preds = %3, %18, %19, %21, %
 169:                                              ; preds = %166
   %170 = load ptr, ptr @vkDestroyImage, align 8
   %171 = load ptr, ptr %34, align 8
-  call void %170(ptr noundef %171, ptr noundef nonnull %165, ptr noundef null) #8
+  call void %170(ptr noundef %171, ptr noundef nonnull %165, ptr noundef null) #7
   br label %172
 
 172:                                              ; preds = %169, %166
@@ -1065,32 +1059,32 @@ SDLPixelFormatToVkTextureFormat.exit:             ; preds = %3, %18, %19, %21, %
 179:                                              ; preds = %176
   %180 = load ptr, ptr @vkFreeMemory, align 8
   %181 = load ptr, ptr %34, align 8
-  call void %180(ptr noundef %181, ptr noundef nonnull %175, ptr noundef null) #8
+  call void %180(ptr noundef %181, ptr noundef nonnull %175, ptr noundef null) #7
   br label %VULKAN_DestroyImage.exit.i
 
 VULKAN_DestroyImage.exit.i:                       ; preds = %179, %176, %173
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %43, i8 0, i64 40, i1 false)
-  %182 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %182 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %182, label %183, label %.thread.i
 
 183:                                              ; preds = %VULKAN_DestroyImage.exit.i
-  %184 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %157) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.16, ptr noundef %184) #8
+  %184 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %157) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.16, ptr noundef %184) #7
   call void @llvm.debugtrap()
   br label %.thread.i
 
 .thread.i:                                        ; preds = %183, %VULKAN_DestroyImage.exit.i
-  %185 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %157) #8
-  %186 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.16, ptr noundef %185) #8
+  %185 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %157) #7
+  %186 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.16, ptr noundef %185) #7
   br label %VULKAN_AllocateImage.exit.thread
 
 187:                                              ; preds = %144
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %188 = load ptr, ptr @vkGetImageMemoryRequirements, align 8
   %189 = load ptr, ptr %34, align 8
   %190 = load ptr, ptr %142, align 8
-  call void %188(ptr noundef %189, ptr noundef %190, ptr noundef nonnull %6) #8
+  call void %188(ptr noundef %189, ptr noundef %190, ptr noundef nonnull %6) #7
   %191 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %192 = load i32, ptr %191, align 8
   %193 = getelementptr inbounds nuw i8, ptr %14, i64 872
@@ -1141,16 +1135,16 @@ VULKAN_DestroyImage.exit.i:                       ; preds = %179, %176, %173
   br i1 %.not27.i.i, label %235, label %.loopexit.thread.i.i
 
 .loopexit.thread.i.i:                             ; preds = %.critedge.i.i, %.loopexit.i.i
-  %208 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %208 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %208, label %209, label %210
 
 209:                                              ; preds = %.loopexit.thread.i.i
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22) #8
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22) #7
   call void @llvm.debugtrap()
   br label %210
 
 210:                                              ; preds = %209, %.loopexit.thread.i.i
-  %211 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22) #8
+  %211 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22) #7
   %212 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %213 = load ptr, ptr %212, align 8
   %.not.i77.i = icmp eq ptr %213, null
@@ -1159,7 +1153,7 @@ VULKAN_DestroyImage.exit.i:                       ; preds = %179, %176, %173
 214:                                              ; preds = %210
   %215 = load ptr, ptr @vkDestroyImageView, align 8
   %216 = load ptr, ptr %34, align 8
-  call void %215(ptr noundef %216, ptr noundef nonnull %213, ptr noundef null) #8
+  call void %215(ptr noundef %216, ptr noundef nonnull %213, ptr noundef null) #7
   store ptr null, ptr %212, align 8
   br label %217
 
@@ -1176,7 +1170,7 @@ VULKAN_DestroyImage.exit.i:                       ; preds = %179, %176, %173
 222:                                              ; preds = %219
   %223 = load ptr, ptr @vkDestroyImage, align 8
   %224 = load ptr, ptr %34, align 8
-  call void %223(ptr noundef %224, ptr noundef nonnull %218, ptr noundef null) #8
+  call void %223(ptr noundef %224, ptr noundef nonnull %218, ptr noundef null) #7
   br label %225
 
 225:                                              ; preds = %222, %219
@@ -1197,16 +1191,16 @@ VULKAN_DestroyImage.exit.i:                       ; preds = %179, %176, %173
 232:                                              ; preds = %229
   %233 = load ptr, ptr @vkFreeMemory, align 8
   %234 = load ptr, ptr %34, align 8
-  call void %233(ptr noundef %234, ptr noundef nonnull %228, ptr noundef null) #8
+  call void %233(ptr noundef %234, ptr noundef nonnull %228, ptr noundef null) #7
   br label %.thread95.i
 
 .thread95.i:                                      ; preds = %232, %229, %226
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %43, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %VULKAN_AllocateImage.exit.thread
 
 235:                                              ; preds = %.loopexit.i.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   store i32 5, ptr %7, align 8
   %236 = load i64, ptr %6, align 8
@@ -1217,7 +1211,7 @@ VULKAN_DestroyImage.exit.i:                       ; preds = %179, %176, %173
   %239 = load ptr, ptr @vkAllocateMemory, align 8
   %240 = load ptr, ptr %34, align 8
   %241 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %242 = call i32 %239(ptr noundef %240, ptr noundef nonnull %7, ptr noundef null, ptr noundef nonnull %241) #8
+  %242 = call i32 %239(ptr noundef %240, ptr noundef nonnull %7, ptr noundef null, ptr noundef nonnull %241) #7
   %.not72.i = icmp eq i32 %242, 0
   br i1 %.not72.i, label %267, label %243
 
@@ -1230,7 +1224,7 @@ VULKAN_DestroyImage.exit.i:                       ; preds = %179, %176, %173
 246:                                              ; preds = %243
   %247 = load ptr, ptr @vkDestroyImageView, align 8
   %248 = load ptr, ptr %34, align 8
-  call void %247(ptr noundef %248, ptr noundef nonnull %245, ptr noundef null) #8
+  call void %247(ptr noundef %248, ptr noundef nonnull %245, ptr noundef null) #7
   store ptr null, ptr %244, align 8
   br label %249
 
@@ -1247,7 +1241,7 @@ VULKAN_DestroyImage.exit.i:                       ; preds = %179, %176, %173
 254:                                              ; preds = %251
   %255 = load ptr, ptr @vkDestroyImage, align 8
   %256 = load ptr, ptr %34, align 8
-  call void %255(ptr noundef %256, ptr noundef nonnull %250, ptr noundef null) #8
+  call void %255(ptr noundef %256, ptr noundef nonnull %250, ptr noundef null) #7
   br label %257
 
 257:                                              ; preds = %254, %251
@@ -1267,12 +1261,12 @@ VULKAN_DestroyImage.exit.i:                       ; preds = %179, %176, %173
 263:                                              ; preds = %260
   %264 = load ptr, ptr @vkFreeMemory, align 8
   %265 = load ptr, ptr %34, align 8
-  call void %264(ptr noundef %265, ptr noundef nonnull %259, ptr noundef null) #8
+  call void %264(ptr noundef %265, ptr noundef nonnull %259, ptr noundef null) #7
   br label %VULKAN_DestroyImage.exit84.i
 
 VULKAN_DestroyImage.exit84.i:                     ; preds = %263, %260, %258
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %43, i8 0, i64 40, i1 false)
-  %266 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %266 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %266, label %.thread98.sink.split.i, label %.thread98.i
 
 267:                                              ; preds = %235
@@ -1280,36 +1274,36 @@ VULKAN_DestroyImage.exit84.i:                     ; preds = %263, %260, %258
   %269 = load ptr, ptr %34, align 8
   %270 = load ptr, ptr %142, align 8
   %271 = load ptr, ptr %241, align 8
-  %272 = call i32 %268(ptr noundef %269, ptr noundef %270, ptr noundef %271, i64 noundef 0) #8
+  %272 = call i32 %268(ptr noundef %269, ptr noundef %270, ptr noundef %271, i64 noundef 0) #7
   %.not73.i = icmp eq i32 %272, 0
   br i1 %.not73.i, label %278, label %273
 
 273:                                              ; preds = %267
   call fastcc void @VULKAN_DestroyImage(ptr noundef nonnull readonly %14, ptr noundef nonnull %43)
-  %274 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %274 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %274, label %.thread98.sink.split.i, label %.thread98.i
 
 .thread98.sink.split.i:                           ; preds = %273, %VULKAN_DestroyImage.exit84.i
   %.sink113.i = phi i32 [ %242, %VULKAN_DestroyImage.exit84.i ], [ %272, %273 ]
   %.str.19.sink.i = phi ptr [ @.str.18, %VULKAN_DestroyImage.exit84.i ], [ @.str.19, %273 ]
-  %275 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %.sink113.i) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull %.str.19.sink.i, ptr noundef %275) #8
+  %275 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %.sink113.i) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull %.str.19.sink.i, ptr noundef %275) #7
   call void @llvm.debugtrap()
   br label %.thread98.i
 
 .thread98.i:                                      ; preds = %.thread98.sink.split.i, %273, %VULKAN_DestroyImage.exit84.i
   %.sink112.i = phi i32 [ %242, %VULKAN_DestroyImage.exit84.i ], [ %272, %273 ], [ %.sink113.i, %.thread98.sink.split.i ]
   %.str.18.sink.i = phi ptr [ @.str.18, %VULKAN_DestroyImage.exit84.i ], [ @.str.19, %273 ], [ %.str.19.sink.i, %.thread98.sink.split.i ]
-  %276 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %.sink112.i) #8
-  %277 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull %.str.18.sink.i, ptr noundef %276) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
+  %276 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %.sink112.i) #7
+  %277 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull %.str.18.sink.i, ptr noundef %276) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %VULKAN_AllocateImage.exit.thread
 
 278:                                              ; preds = %267
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre.i = load ptr, ptr %142, align 8
   br label %281
 
@@ -1320,7 +1314,7 @@ VULKAN_DestroyImage.exit84.i:                     ; preds = %263, %260, %258
 
 281:                                              ; preds = %279, %278
   %282 = phi ptr [ %.pre.i, %278 ], [ %141, %279 ]
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 0, i64 80, i1 false)
   store i32 15, ptr %8, align 8
   %283 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -1352,7 +1346,7 @@ VULKAN_DestroyImage.exit84.i:                     ; preds = %263, %260, %258
   %294 = load ptr, ptr @vkCreateImageView, align 8
   %295 = load ptr, ptr %34, align 8
   %296 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %297 = call i32 %294(ptr noundef %295, ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %296) #8
+  %297 = call i32 %294(ptr noundef %295, ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %296) #7
   %.not75.i = icmp eq i32 %297, 0
   br i1 %.not75.i, label %333, label %298
 
@@ -1364,7 +1358,7 @@ VULKAN_DestroyImage.exit84.i:                     ; preds = %263, %260, %258
 300:                                              ; preds = %298
   %301 = load ptr, ptr @vkDestroyImageView, align 8
   %302 = load ptr, ptr %34, align 8
-  call void %301(ptr noundef %302, ptr noundef nonnull %299, ptr noundef null) #8
+  call void %301(ptr noundef %302, ptr noundef nonnull %299, ptr noundef null) #7
   store ptr null, ptr %296, align 8
   br label %303
 
@@ -1381,7 +1375,7 @@ VULKAN_DestroyImage.exit84.i:                     ; preds = %263, %260, %258
 308:                                              ; preds = %305
   %309 = load ptr, ptr @vkDestroyImage, align 8
   %310 = load ptr, ptr %34, align 8
-  call void %309(ptr noundef %310, ptr noundef nonnull %304, ptr noundef null) #8
+  call void %309(ptr noundef %310, ptr noundef nonnull %304, ptr noundef null) #7
   br label %311
 
 311:                                              ; preds = %308, %305
@@ -1402,55 +1396,55 @@ VULKAN_DestroyImage.exit84.i:                     ; preds = %263, %260, %258
 318:                                              ; preds = %315
   %319 = load ptr, ptr @vkFreeMemory, align 8
   %320 = load ptr, ptr %34, align 8
-  call void %319(ptr noundef %320, ptr noundef nonnull %314, ptr noundef null) #8
+  call void %319(ptr noundef %320, ptr noundef nonnull %314, ptr noundef null) #7
   br label %VULKAN_DestroyImage.exit88.i
 
 VULKAN_DestroyImage.exit88.i:                     ; preds = %318, %315, %312
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %43, i8 0, i64 40, i1 false)
-  %321 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %321 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %321, label %322, label %VULKAN_AllocateImage.exit
 
 322:                                              ; preds = %VULKAN_DestroyImage.exit88.i
-  %323 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %297) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.20, ptr noundef %323) #8
+  %323 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %297) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.20, ptr noundef %323) #7
   call void @llvm.debugtrap()
   br label %VULKAN_AllocateImage.exit
 
 VULKAN_AllocateImage.exit.thread:                 ; preds = %.thread.i, %.thread95.i, %.thread98.i
   %.4.i103.ph = phi i32 [ %.sink112.i, %.thread98.i ], [ -13, %.thread95.i ], [ %157, %.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %326
 
 VULKAN_AllocateImage.exit:                        ; preds = %VULKAN_DestroyImage.exit88.i, %322
-  %324 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %297) #8
-  %325 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.20, ptr noundef %324) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #8
+  %324 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %297) #7
+  %325 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.20, ptr noundef %324) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %326
 
 326:                                              ; preds = %VULKAN_AllocateImage.exit, %VULKAN_AllocateImage.exit.thread
   %.4.i103115 = phi i32 [ %.4.i103.ph, %VULKAN_AllocateImage.exit.thread ], [ %297, %VULKAN_AllocateImage.exit ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
-  %327 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %327 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %327, label %328, label %330
 
 328:                                              ; preds = %326
-  %329 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %.4.i103115) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.11, ptr noundef %329) #8
+  %329 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %.4.i103115) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.11, ptr noundef %329) #7
   call void @llvm.debugtrap()
   br label %330
 
 330:                                              ; preds = %328, %326
-  %331 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %.4.i103115) #8
-  %332 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.11, ptr noundef %331) #8
+  %331 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %.4.i103115) #7
+  %332 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.11, ptr noundef %331) #7
   br label %353
 
 333:                                              ; preds = %293
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
-  %334 = call i32 @SDL_GetTextureProperties_REAL(ptr noundef nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %334 = call i32 @SDL_GetTextureProperties_REAL(ptr noundef nonnull %1) #7
   %335 = load ptr, ptr %142, align 8
   %336 = ptrtoint ptr %335 to i64
-  %337 = call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %334, ptr noundef nonnull @.str.12, i64 noundef %336) #8
+  %337 = call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %334, ptr noundef nonnull @.str.12, i64 noundef %336) #7
   %338 = load i32, ptr %135, align 4
   %339 = icmp eq i32 %338, 2
   br i1 %339, label %340, label %353
@@ -1466,18 +1460,18 @@ VULKAN_AllocateImage.exit:                        ; preds = %VULKAN_DestroyImage
   br i1 %.not102, label %353, label %346
 
 346:                                              ; preds = %340
-  %347 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %347 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %347, label %348, label %350
 
 348:                                              ; preds = %346
-  %349 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %345) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.13, ptr noundef %349) #8
+  %349 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %345) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.13, ptr noundef %349) #7
   call void @llvm.debugtrap()
   br label %350
 
 350:                                              ; preds = %348, %346
-  %351 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %345) #8
-  %352 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.13, ptr noundef %351) #8
+  %351 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %345) #7
+  %352 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.13, ptr noundef %351) #7
   br label %353
 
 353:                                              ; preds = %.thread112, %.thread109, %.thread104, %330, %333, %340, %350, %42, %127, %40, %36
@@ -1495,7 +1489,7 @@ define internal zeroext i1 @VULKAN_UpdateTexture(ptr noundef readonly captures(n
   br i1 %.not, label %10, label %12
 
 10:                                               ; preds = %5
-  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.25) #8
+  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.25) #7
   br label %.loopexit
 
 12:                                               ; preds = %5
@@ -1603,7 +1597,7 @@ define internal zeroext i1 @VULKAN_UpdateTextureYUV(ptr noundef readonly capture
   br i1 %.not, label %14, label %16
 
 14:                                               ; preds = %9
-  %15 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.25) #8
+  %15 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.25) #7
   br label %54
 
 16:                                               ; preds = %9
@@ -1665,7 +1659,7 @@ define internal zeroext i1 @VULKAN_UpdateTextureNV(ptr noundef readonly captures
   br i1 %.not, label %12, label %14
 
 12:                                               ; preds = %7
-  %13 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.25) #8
+  %13 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.25) #7
   br label %42
 
 14:                                               ; preds = %7
@@ -1715,7 +1709,7 @@ define internal zeroext i1 @VULKAN_LockTexture(ptr noundef readonly captures(non
   br i1 %.not, label %10, label %12
 
 10:                                               ; preds = %5
-  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.25) #8
+  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.25) #7
   br label %38
 
 12:                                               ; preds = %5
@@ -1725,7 +1719,7 @@ define internal zeroext i1 @VULKAN_LockTexture(ptr noundef readonly captures(non
   br i1 %.not20, label %17, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.30) #8
+  %16 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.30) #7
   br label %38
 
 17:                                               ; preds = %12
@@ -1802,12 +1796,12 @@ define internal void @VULKAN_UnlockTexture(ptr noundef readonly captures(none) %
   %17 = load ptr, ptr @vkCmdEndRenderPass, align 8
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 1688
   %19 = load ptr, ptr %18, align 8
-  tail call void %17(ptr noundef %19) #8
+  tail call void %17(ptr noundef %19) #7
   store ptr null, ptr %14, align 8
   br label %VULKAN_RecordPipelineImageBarrier.exit
 
 VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %8, %16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false)
   store i32 45, ptr %4, align 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1834,10 +1828,10 @@ VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %8, %16
   %31 = load ptr, ptr @vkCmdPipelineBarrier, align 8
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 1688
   %33 = load ptr, ptr %32, align 8
-  call void %31(ptr noundef %33, i32 noundef 5248, i32 noundef 4096, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %4) #8
+  call void %31(ptr noundef %33, i32 noundef 5248, i32 noundef 4096, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %4) #7
   store i32 7, ptr %13, align 4
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 0, ptr %35, align 8
@@ -1873,7 +1867,7 @@ VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %8, %16
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %11, align 8
-  call void %52(ptr noundef %53, ptr noundef %56, ptr noundef %57, i32 noundef 7, i32 noundef 1, ptr noundef nonnull %5) #8
+  call void %52(ptr noundef %53, ptr noundef %56, ptr noundef %57, i32 noundef 7, i32 noundef 1, ptr noundef nonnull %5) #7
   %58 = load ptr, ptr %11, align 8
   %59 = load ptr, ptr %14, align 8
   %.not.i21 = icmp eq ptr %59, null
@@ -1882,12 +1876,12 @@ VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %8, %16
 60:                                               ; preds = %VULKAN_RecordPipelineImageBarrier.exit
   %61 = load ptr, ptr @vkCmdEndRenderPass, align 8
   %62 = load ptr, ptr %32, align 8
-  call void %61(ptr noundef %62) #8
+  call void %61(ptr noundef %62) #7
   store ptr null, ptr %14, align 8
   br label %VULKAN_RecordPipelineImageBarrier.exit22
 
 VULKAN_RecordPipelineImageBarrier.exit22:         ; preds = %VULKAN_RecordPipelineImageBarrier.exit, %60
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i32 45, ptr %3, align 8
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1913,9 +1907,9 @@ VULKAN_RecordPipelineImageBarrier.exit22:         ; preds = %VULKAN_RecordPipeli
   store i32 1, ptr %73, align 8
   %74 = load ptr, ptr @vkCmdPipelineBarrier, align 8
   %75 = load ptr, ptr %32, align 8
-  call void %74(ptr noundef %75, i32 noundef 4096, i32 noundef 128, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %3) #8
+  call void %74(ptr noundef %75, i32 noundef 4096, i32 noundef 128, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %3) #7
   store i32 5, ptr %13, align 4
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %76 = call fastcc i32 @VULKAN_IssueBatch(ptr noundef nonnull %10)
   %77 = load ptr, ptr %55, align 8
   %.not.i23 = icmp eq ptr %77, null
@@ -1925,7 +1919,7 @@ VULKAN_RecordPipelineImageBarrier.exit22:         ; preds = %VULKAN_RecordPipeli
   %79 = load ptr, ptr @vkDestroyBuffer, align 8
   %80 = getelementptr inbounds nuw i8, ptr %10, i64 1632
   %81 = load ptr, ptr %80, align 8
-  call void %79(ptr noundef %81, ptr noundef nonnull %77, ptr noundef null) #8
+  call void %79(ptr noundef %81, ptr noundef nonnull %77, ptr noundef null) #7
   store ptr null, ptr %55, align 8
   br label %82
 
@@ -1938,12 +1932,12 @@ VULKAN_RecordPipelineImageBarrier.exit22:         ; preds = %VULKAN_RecordPipeli
   %85 = load ptr, ptr @vkFreeMemory, align 8
   %86 = getelementptr inbounds nuw i8, ptr %10, i64 1632
   %87 = load ptr, ptr %86, align 8
-  call void %85(ptr noundef %87, ptr noundef nonnull %83, ptr noundef null) #8
+  call void %85(ptr noundef %87, ptr noundef nonnull %83, ptr noundef null) #7
   br label %VULKAN_DestroyBuffer.exit
 
 VULKAN_DestroyBuffer.exit:                        ; preds = %82, %84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, i8 0, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %88
 
 88:                                               ; preds = %2, %VULKAN_DestroyBuffer.exit
@@ -1979,12 +1973,12 @@ define internal zeroext i1 @VULKAN_SetRenderTarget(ptr noundef readonly captures
   %17 = load ptr, ptr @vkCmdEndRenderPass, align 8
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 1688
   %19 = load ptr, ptr %18, align 8
-  tail call void %17(ptr noundef %19) #8
+  tail call void %17(ptr noundef %19) #7
   store ptr null, ptr %14, align 8
   br label %VULKAN_RecordPipelineImageBarrier.exit
 
 VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %10, %16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false)
   store i32 45, ptr %4, align 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2011,9 +2005,9 @@ VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %10, %16
   %31 = load ptr, ptr @vkCmdPipelineBarrier, align 8
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 1688
   %33 = load ptr, ptr %32, align 8
-  call void %31(ptr noundef %33, i32 noundef 5248, i32 noundef 128, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %4) #8
+  call void %31(ptr noundef %33, i32 noundef 5248, i32 noundef 128, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %4) #7
   store i32 5, ptr %13, align 4
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %34
 
 34:                                               ; preds = %VULKAN_RecordPipelineImageBarrier.exit, %7
@@ -2029,7 +2023,7 @@ VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %10, %16
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %35
-  %42 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.31) #8
+  %42 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.31) #7
   br label %68
 
 43:                                               ; preds = %35
@@ -2047,12 +2041,12 @@ VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %10, %16
   %51 = load ptr, ptr @vkCmdEndRenderPass, align 8
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 1688
   %53 = load ptr, ptr %52, align 8
-  tail call void %51(ptr noundef %53) #8
+  tail call void %51(ptr noundef %53) #7
   store ptr null, ptr %48, align 8
   br label %VULKAN_RecordPipelineImageBarrier.exit20
 
 VULKAN_RecordPipelineImageBarrier.exit20:         ; preds = %43, %50
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i32 45, ptr %3, align 8
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2079,9 +2073,9 @@ VULKAN_RecordPipelineImageBarrier.exit20:         ; preds = %43, %50
   %65 = load ptr, ptr @vkCmdPipelineBarrier, align 8
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 1688
   %67 = load ptr, ptr %66, align 8
-  call void %65(ptr noundef %67, i32 noundef 5248, i32 noundef 5248, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %3) #8
+  call void %65(ptr noundef %67, i32 noundef 5248, i32 noundef 5248, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %3) #7
   store i32 2, ptr %47, align 4
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %68
 
 68:                                               ; preds = %VULKAN_RecordPipelineImageBarrier.exit20, %41, %34
@@ -2090,7 +2084,7 @@ VULKAN_RecordPipelineImageBarrier.exit20:         ; preds = %43, %50
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @VULKAN_QueueNoOp(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #6 {
+define internal noundef zeroext i1 @VULKAN_QueueNoOp(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #5 {
   ret i1 true
 }
 
@@ -2099,8 +2093,8 @@ define internal noundef zeroext i1 @VULKAN_QueueDrawPoints(ptr noundef %0, ptr n
   %5 = sext i32 %3 to i64
   %6 = shl nsw i64 %5, 5
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = tail call ptr @SDL_AllocateRenderVertices(ptr noundef %0, i64 noundef %6, i64 noundef 0, ptr noundef nonnull %7) #8
-  %9 = tail call zeroext i1 @SDL_RenderingLinearSpace(ptr noundef %0) #8
+  %8 = tail call ptr @SDL_AllocateRenderVertices(ptr noundef %0, i64 noundef %6, i64 noundef 0, ptr noundef nonnull %7) #7
+  %9 = tail call zeroext i1 @SDL_RenderingLinearSpace(ptr noundef %0) #7
   %.not = icmp ne ptr %8, null
   br i1 %.not, label %10, label %.loopexit
 
@@ -2133,7 +2127,7 @@ define internal noundef zeroext i1 @VULKAN_QueueDrawPoints(ptr noundef %0, ptr n
   store float 0.000000e+00, ptr %22, align 4
   %23 = getelementptr inbounds nuw i8, ptr %.02426.us, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %23, ptr noundef nonnull align 4 dereferenceable(16) %13, i64 16, i1 false)
-  tail call void @SDL_ConvertToLinear(ptr noundef nonnull %23) #8
+  tail call void @SDL_ConvertToLinear(ptr noundef nonnull %23) #7
   %24 = getelementptr inbounds nuw i8, ptr %.02426.us, i64 32
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond34.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count33
@@ -2173,8 +2167,8 @@ define internal noundef zeroext i1 @VULKAN_QueueGeometry(ptr noundef %0, ptr nou
   %17 = sext i32 %16 to i64
   %18 = shl nsw i64 %17, 5
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = tail call ptr @SDL_AllocateRenderVertices(ptr noundef %0, i64 noundef %18, i64 noundef 0, ptr noundef nonnull %19) #8
-  %21 = tail call zeroext i1 @SDL_RenderingLinearSpace(ptr noundef %0) #8
+  %20 = tail call ptr @SDL_AllocateRenderVertices(ptr noundef %0, i64 noundef %18, i64 noundef 0, ptr noundef nonnull %19) #7
+  %21 = tail call zeroext i1 @SDL_RenderingLinearSpace(ptr noundef %0) #7
   %.not68 = icmp eq ptr %2, null
   br i1 %.not68, label %.thread73, label %22
 
@@ -2266,7 +2260,7 @@ define internal noundef zeroext i1 @VULKAN_QueueGeometry(ptr noundef %0, ptr nou
   br i1 %21, label %72, label %73
 
 72:                                               ; preds = %58
-  tail call void @SDL_ConvertToLinear(ptr noundef nonnull %68) #8
+  tail call void @SDL_ConvertToLinear(ptr noundef nonnull %68) #7
   br label %73
 
 73:                                               ; preds = %72, %58
@@ -2327,7 +2321,7 @@ define internal noundef zeroext i1 @VULKAN_QueueGeometry(ptr noundef %0, ptr nou
   %101 = sext i32 %100 to i64
   %102 = getelementptr inbounds i8, ptr %5, i64 %101
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %99, ptr noundef nonnull align 4 dereferenceable(16) %102, i64 16, i1 false)
-  tail call void @SDL_ConvertToLinear(ptr noundef nonnull %99) #8
+  tail call void @SDL_ConvertToLinear(ptr noundef nonnull %99) #7
   %103 = mul nsw i32 %.061.us79, %8
   %104 = sext i32 %103 to i64
   %105 = getelementptr inbounds i8, ptr %7, i64 %104
@@ -2412,7 +2406,7 @@ define internal noundef zeroext i1 @VULKAN_QueueGeometry(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @VULKAN_InvalidateCachedState(ptr noundef readonly captures(none) %0) #5 {
+define internal void @VULKAN_InvalidateCachedState(ptr noundef readonly captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 10344
@@ -2448,7 +2442,7 @@ define internal zeroext i1 @VULKAN_RunCommandQueue(ptr noundef %0, ptr noundef %
 
 VULKAN_GetRotationForCurrentRenderTarget.exit:    ; preds = %4, %19
   %.0.i = phi i32 [ %21, %19 ], [ 1, %4 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 1632
   %23 = load ptr, ptr %22, align 8
@@ -2456,7 +2450,7 @@ VULKAN_GetRotationForCurrentRenderTarget.exit:    ; preds = %4, %19
   br i1 %.not, label %24, label %26
 
 24:                                               ; preds = %VULKAN_GetRotationForCurrentRenderTarget.exit
-  %25 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #8
+  %25 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
   br label %.loopexit
 
 26:                                               ; preds = %VULKAN_GetRotationForCurrentRenderTarget.exit
@@ -2485,7 +2479,7 @@ VULKAN_GetRotationForCurrentRenderTarget.exit:    ; preds = %4, %19
   %37 = getelementptr i8, ptr %.val.pre120, i64 1616
   %.val.i = load ptr, ptr %37, align 8
   %38 = load ptr, ptr @vkQueueWaitIdle, align 8
-  %39 = tail call i32 %38(ptr noundef %.val.i) #8
+  %39 = tail call i32 %38(ptr noundef %.val.i) #7
   %40 = tail call fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr noundef nonnull %0)
   %.not95 = icmp eq i32 %40, 0
   br i1 %.not95, label %41, label %.loopexit
@@ -2514,7 +2508,7 @@ VULKAN_GetRotationForCurrentRenderTarget.exit:    ; preds = %4, %19
   br i1 %.not.i108, label %54, label %52
 
 52:                                               ; preds = %50
-  %53 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.32) #8
+  %53 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.32) #7
   br i1 %53, label %.preheader, label %.loopexit
 
 54:                                               ; preds = %50, %46
@@ -2531,7 +2525,7 @@ VULKAN_GetRotationForCurrentRenderTarget.exit:    ; preds = %4, %19
   %63 = getelementptr i8, ptr %.val, i64 1616
   %.val.i107 = load ptr, ptr %63, align 8
   %64 = load ptr, ptr @vkQueueWaitIdle, align 8
-  %65 = tail call i32 %64(ptr noundef %.val.i107) #8
+  %65 = tail call i32 %64(ptr noundef %.val.i107) #7
   %66 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %67 = load ptr, ptr %66, align 8
   %.not.i.i.i = icmp eq ptr %67, null
@@ -2541,7 +2535,7 @@ VULKAN_GetRotationForCurrentRenderTarget.exit:    ; preds = %4, %19
   %69 = load ptr, ptr @vkDestroyBuffer, align 8
   %70 = getelementptr inbounds nuw i8, ptr %.val, i64 1632
   %71 = load ptr, ptr %70, align 8
-  tail call void %69(ptr noundef %71, ptr noundef nonnull %67, ptr noundef null) #8
+  tail call void %69(ptr noundef %71, ptr noundef nonnull %67, ptr noundef null) #7
   store ptr null, ptr %66, align 8
   br label %72
 
@@ -2554,7 +2548,7 @@ VULKAN_GetRotationForCurrentRenderTarget.exit:    ; preds = %4, %19
   %75 = load ptr, ptr @vkFreeMemory, align 8
   %76 = getelementptr inbounds nuw i8, ptr %.val, i64 1632
   %77 = load ptr, ptr %76, align 8
-  tail call void %75(ptr noundef %77, ptr noundef nonnull %73, ptr noundef null) #8
+  tail call void %75(ptr noundef %77, ptr noundef nonnull %73, ptr noundef null) #7
   br label %VULKAN_CreateVertexBuffer.exit.i
 
 VULKAN_CreateVertexBuffer.exit.i:                 ; preds = %74, %72
@@ -2661,7 +2655,7 @@ VULKAN_CreateVertexBuffer.exit.i:                 ; preds = %74, %72
 
 147:                                              ; preds = %145
   %148 = getelementptr inbounds nuw i8, ptr %.092117, i64 16
-  %149 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %101, ptr noundef nonnull %148, i64 noundef 16) #8
+  %149 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %101, ptr noundef nonnull %148, i64 noundef 16) #7
   %.not99 = icmp eq i32 %149, 0
   br i1 %.not99, label %398, label %150
 
@@ -2685,7 +2679,7 @@ VULKAN_CreateVertexBuffer.exit.i:                 ; preds = %74, %72
   br label %157
 
 157:                                              ; preds = %156, %151
-  %158 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %100, ptr noundef nonnull %153, i64 noundef 16) #8
+  %158 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %100, ptr noundef nonnull %153, i64 noundef 16) #7
   %.not98 = icmp eq i32 %158, 0
   br i1 %.not98, label %398, label %159
 
@@ -2695,14 +2689,14 @@ VULKAN_CreateVertexBuffer.exit.i:                 ; preds = %74, %72
   br label %398
 
 160:                                              ; preds = %145
-  %161 = call zeroext i1 @SDL_RenderingLinearSpace(ptr noundef %0) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #8
+  %161 = call zeroext i1 @SDL_RenderingLinearSpace(ptr noundef %0) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %162 = getelementptr inbounds nuw i8, ptr %.092117, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) %162, i64 16, i1 false)
   br i1 %161, label %163, label %164
 
 163:                                              ; preds = %160
-  call void @SDL_ConvertToLinear(ptr noundef nonnull %14) #8
+  call void @SDL_ConvertToLinear(ptr noundef nonnull %14) #7
   br label %164
 
 164:                                              ; preds = %163, %160
@@ -2729,7 +2723,7 @@ VULKAN_CreateVertexBuffer.exit.i:                 ; preds = %74, %72
   %178 = load ptr, ptr @vkCmdEndRenderPass, align 8
   %179 = getelementptr inbounds nuw i8, ptr %.val101, i64 1688
   %180 = load ptr, ptr %179, align 8
-  call void %178(ptr noundef %180) #8
+  call void %178(ptr noundef %180) #7
   store ptr null, ptr %174, align 8
   br label %181
 
@@ -2768,7 +2762,7 @@ VULKAN_CreateVertexBuffer.exit.i:                 ; preds = %74, %72
 200:                                              ; preds = %193, %191
   %.in35.i.i = phi ptr [ %192, %191 ], [ %199, %193 ]
   %201 = load ptr, ptr %.in35.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 56, i1 false)
   store i32 43, ptr %10, align 8
   store ptr %190, ptr %92, align 8
@@ -2776,7 +2770,7 @@ VULKAN_CreateVertexBuffer.exit.i:                 ; preds = %74, %72
   store i32 %.0.i.i, ptr %94, align 8
   store i32 %.025.i.i, ptr %95, align 4
   store i32 1, ptr %96, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store float %168, ptr %11, align 4
   store float %170, ptr %.sroa.4.0..sroa_idx, align 4
   store float %172, ptr %.sroa.5.0..sroa_idx, align 4
@@ -2785,24 +2779,24 @@ VULKAN_CreateVertexBuffer.exit.i:                 ; preds = %74, %72
   %202 = load ptr, ptr @vkCmdBeginRenderPass, align 8
   %203 = getelementptr inbounds nuw i8, ptr %.val101, i64 1688
   %204 = load ptr, ptr %203, align 8
-  call void %202(ptr noundef %204, ptr noundef nonnull %10, i32 noundef 0) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #8
+  call void %202(ptr noundef %204, ptr noundef nonnull %10, i32 noundef 0) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %205 = load ptr, ptr %13, align 8
   %.not13.i = icmp eq ptr %205, null
   br i1 %.not13.i, label %VULKAN_ActivateCommandBuffer.exit, label %206
 
 206:                                              ; preds = %200
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8
   %207 = load ptr, ptr @vkCmdBindVertexBuffers, align 8
   %208 = load ptr, ptr %203, align 8
-  call void %207(ptr noundef %208, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %13, ptr noundef nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #8
+  call void %207(ptr noundef %208, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %13, ptr noundef nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %VULKAN_ActivateCommandBuffer.exit
 
 VULKAN_ActivateCommandBuffer.exit:                ; preds = %200, %206
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %398
 
 209:                                              ; preds = %145
@@ -2820,7 +2814,7 @@ VULKAN_ActivateCommandBuffer.exit:                ; preds = %200, %206
   %218 = load ptr, ptr @vkCmdDraw, align 8
   %219 = trunc i64 %212 to i32
   %220 = trunc i64 %214 to i32
-  call void %218(ptr noundef %.val102.val, i32 noundef %219, i32 noundef 1, i32 noundef %220, i32 noundef 0) #8
+  call void %218(ptr noundef %.val102.val, i32 noundef %219, i32 noundef 1, i32 noundef %220, i32 noundef 0) #7
   br label %398
 
 221:                                              ; preds = %145
@@ -2839,7 +2833,7 @@ VULKAN_ActivateCommandBuffer.exit:                ; preds = %200, %206
   %231 = load ptr, ptr @vkCmdDraw, align 8
   %232 = trunc i64 %224 to i32
   %233 = trunc i64 %226 to i32
-  call void %231(ptr noundef %.val103.val, i32 noundef %232, i32 noundef 1, i32 noundef %233, i32 noundef 0) #8
+  call void %231(ptr noundef %.val103.val, i32 noundef %232, i32 noundef 1, i32 noundef %233, i32 noundef 0) #7
   %234 = load float, ptr %227, align 4
   %235 = add i64 %224, -1
   %236 = getelementptr inbounds nuw %struct.VULKAN_VertexPositionColor, ptr %227, i64 %235
@@ -2865,7 +2859,7 @@ VULKAN_ActivateCommandBuffer.exit:                ; preds = %200, %206
   %.val104.val = load ptr, ptr %249, align 8
   %250 = load ptr, ptr @vkCmdDraw, align 8
   %251 = trunc i64 %248 to i32
-  call void %250(ptr noundef %.val104.val, i32 noundef 1, i32 noundef 1, i32 noundef %251, i32 noundef 0) #8
+  call void %250(ptr noundef %.val104.val, i32 noundef 1, i32 noundef 1, i32 noundef %251, i32 noundef 0) #7
   br label %398
 
 252:                                              ; preds = %145
@@ -2883,7 +2877,7 @@ VULKAN_ActivateCommandBuffer.exit:                ; preds = %200, %206
   %261 = load ptr, ptr %15, align 8
   %262 = getelementptr inbounds nuw i8, ptr %255, i64 280
   %263 = load ptr, ptr %262, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 144
   %265 = load ptr, ptr %264, align 8
   %.not.i109 = icmp eq ptr %265, null
@@ -2909,7 +2903,7 @@ VULKAN_ActivateCommandBuffer.exit:                ; preds = %200, %206
 276:                                              ; preds = %273, %269
   %277 = phi ptr [ %275, %273 ], [ %272, %269 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %103, i8 0, i64 40, i1 false)
-  %278 = call zeroext i1 @SDL_RenderingLinearSpace(ptr noundef nonnull %0) #8
+  %278 = call zeroext i1 @SDL_RenderingLinearSpace(ptr noundef nonnull %0) #7
   %279 = uitofp i1 %278 to float
   store float %279, ptr %9, align 4
   %280 = getelementptr inbounds nuw i8, ptr %.092117, i64 24
@@ -3006,7 +3000,7 @@ VULKAN_SetupShaderConstants.exit.i:               ; preds = %311, %303
   br i1 %.not.i42.i, label %330, label %VULKAN_GetSampler.exit.thread2.i
 
 330:                                              ; preds = %VULKAN_SetupShaderConstants.exit.i
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 0, i64 80, i1 false)
   store i32 31, ptr %8, align 8
   store i32 2, ptr %116, align 8
@@ -3023,8 +3017,8 @@ VULKAN_SetupShaderConstants.exit.i:               ; preds = %311, %303
   br label %333
 
 .critedge.i.i:                                    ; preds = %330
-  %332 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.38, i32 noundef %292) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #8
+  %332 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.38, i32 noundef %292) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %VULKAN_SetCopyState.exit
 
 333:                                              ; preds = %331, %330
@@ -3033,28 +3027,28 @@ VULKAN_SetupShaderConstants.exit.i:               ; preds = %311, %303
   %334 = load ptr, ptr @vkCreateSampler, align 8
   %335 = getelementptr inbounds nuw i8, ptr %261, i64 1632
   %336 = load ptr, ptr %335, align 8
-  %337 = call i32 %334(ptr noundef %336, ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %328) #8
+  %337 = call i32 %334(ptr noundef %336, ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %328) #7
   %.not18.i.i = icmp eq i32 %337, 0
   br i1 %.not18.i.i, label %VULKAN_GetSampler.exit.i, label %338
 
 338:                                              ; preds = %333
-  %339 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %339 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %339, label %340, label %342
 
 340:                                              ; preds = %338
-  %341 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %337) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.10, ptr noundef %341) #8
+  %341 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %337) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.10, ptr noundef %341) #7
   call void @llvm.debugtrap()
   br label %342
 
 342:                                              ; preds = %340, %338
-  %343 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %337) #8
-  %344 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.10, ptr noundef %343) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #8
+  %343 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %337) #7
+  %344 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.10, ptr noundef %343) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %VULKAN_SetCopyState.exit
 
 VULKAN_GetSampler.exit.i:                         ; preds = %333
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre.i.i = load ptr, ptr %328, align 8
   %345 = icmp eq ptr %.pre.i.i, null
   br i1 %345, label %VULKAN_SetCopyState.exit, label %VULKAN_GetSampler.exit.thread2.i
@@ -3076,11 +3070,11 @@ VULKAN_RecordPipelineImageBarrier.exit.i:         ; preds = %348
   %351 = load ptr, ptr @vkCmdEndRenderPass, align 8
   %352 = getelementptr inbounds nuw i8, ptr %261, i64 1688
   %353 = load ptr, ptr %352, align 8
-  call void %351(ptr noundef %353) #8
+  call void %351(ptr noundef %353) #7
   store ptr null, ptr %349, align 8
   %354 = getelementptr inbounds nuw i8, ptr %263, i64 8
   %355 = load ptr, ptr %354, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, i8 0, i64 72, i1 false)
   store i32 45, ptr %7, align 8
   store i32 4512, ptr %121, align 8
@@ -3096,9 +3090,9 @@ VULKAN_RecordPipelineImageBarrier.exit.i:         ; preds = %348
   store i32 1, ptr %130, align 8
   %357 = load ptr, ptr @vkCmdPipelineBarrier, align 8
   %358 = load ptr, ptr %352, align 8
-  call void %357(ptr noundef %358, i32 noundef 5248, i32 noundef 128, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %7) #8
+  call void %357(ptr noundef %358, i32 noundef 5248, i32 noundef 128, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %7) #7
   store i32 5, ptr %346, align 4
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %359 = getelementptr inbounds nuw i8, ptr %261, i64 10376
   %360 = getelementptr inbounds nuw i8, ptr %261, i64 10380
   %361 = getelementptr inbounds nuw i8, ptr %261, i64 10488
@@ -3133,7 +3127,7 @@ VULKAN_RecordPipelineImageBarrier.exit.i:         ; preds = %348
 VULKAN_BeginRenderPass.exit.i:                    ; preds = %370, %368
   %.in35.i.i115 = phi ptr [ %369, %368 ], [ %376, %370 ]
   %377 = load ptr, ptr %.in35.i.i115, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   store i32 43, ptr %6, align 8
   store ptr %367, ptr %131, align 8
@@ -3142,14 +3136,14 @@ VULKAN_BeginRenderPass.exit.i:                    ; preds = %370, %368
   store i32 %.025.i.i113, ptr %134, align 4
   %378 = load ptr, ptr @vkCmdBeginRenderPass, align 8
   %379 = load ptr, ptr %352, align 8
-  call void %378(ptr noundef %379, ptr noundef nonnull %6, i32 noundef 0) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #8
+  call void %378(ptr noundef %379, ptr noundef nonnull %6, i32 noundef 0) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %385
 
 VULKAN_RecordPipelineImageBarrier.exit48.i:       ; preds = %348
   %380 = getelementptr inbounds nuw i8, ptr %263, i64 8
   %381 = load ptr, ptr %380, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
   store i32 45, ptr %5, align 8
   store i32 4512, ptr %135, align 8
@@ -3165,9 +3159,9 @@ VULKAN_RecordPipelineImageBarrier.exit48.i:       ; preds = %348
   %382 = load ptr, ptr @vkCmdPipelineBarrier, align 8
   %383 = getelementptr inbounds nuw i8, ptr %261, i64 1688
   %384 = load ptr, ptr %383, align 8
-  call void %382(ptr noundef %384, i32 noundef 5248, i32 noundef 128, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %5) #8
+  call void %382(ptr noundef %384, i32 noundef 5248, i32 noundef 128, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %5) #7
   store i32 5, ptr %346, align 4
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %385
 
 385:                                              ; preds = %VULKAN_RecordPipelineImageBarrier.exit48.i, %VULKAN_BeginRenderPass.exit.i, %VULKAN_GetSampler.exit.thread2.i
@@ -3179,7 +3173,7 @@ VULKAN_RecordPipelineImageBarrier.exit48.i:       ; preds = %348
   br label %VULKAN_SetCopyState.exit
 
 VULKAN_SetCopyState.exit:                         ; preds = %.critedge.i.i, %342, %VULKAN_GetSampler.exit.i, %385
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %393
 
 390:                                              ; preds = %252
@@ -3195,7 +3189,7 @@ VULKAN_SetCopyState.exit:                         ; preds = %.critedge.i.i, %342
   %395 = load ptr, ptr @vkCmdDraw, align 8
   %396 = trunc i64 %257 to i32
   %397 = trunc i64 %259 to i32
-  call void %395(ptr noundef %.val105.val, i32 noundef %396, i32 noundef 1, i32 noundef %397, i32 noundef 0) #8
+  call void %395(ptr noundef %.val105.val, i32 noundef %396, i32 noundef 1, i32 noundef %397, i32 noundef 0) #7
   br label %398
 
 398:                                              ; preds = %239, %245, %157, %159, %147, %150, %393, %209, %VULKAN_ActivateCommandBuffer.exit, %145
@@ -3206,7 +3200,7 @@ VULKAN_SetCopyState.exit:                         ; preds = %.critedge.i.i, %342
 
 .loopexit:                                        ; preds = %398, %.preheader, %52, %36, %24
   %.0 = phi i1 [ %25, %24 ], [ false, %36 ], [ false, %52 ], [ true, %.preheader ], [ true, %398 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i1 %.0
 }
 
@@ -3218,7 +3212,7 @@ define internal ptr @VULKAN_RenderReadPixels(ptr noundef readonly captures(none)
   %6 = alloca %struct.VkBufferImageCopy, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call fastcc void @VULKAN_EnsureCommandBuffer(ptr noundef %8)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1808
   %10 = load ptr, ptr %9, align 8
@@ -3229,7 +3223,7 @@ define internal ptr @VULKAN_RenderReadPixels(ptr noundef readonly captures(none)
   %12 = load ptr, ptr @vkCmdEndRenderPass, align 8
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 1688
   %14 = load ptr, ptr %13, align 8
-  tail call void %12(ptr noundef %14) #8
+  tail call void %12(ptr noundef %14) #7
   store ptr null, ptr %9, align 8
   br label %15
 
@@ -3302,12 +3296,12 @@ VULKAN_GetBytesPerPixel.exit:                     ; preds = %33, %34, %35, %36
   %49 = load ptr, ptr @vkCmdEndRenderPass, align 8
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 1688
   %51 = load ptr, ptr %50, align 8
-  call void %49(ptr noundef %51) #8
+  call void %49(ptr noundef %51) #7
   store ptr null, ptr %9, align 8
   br label %VULKAN_RecordPipelineImageBarrier.exit
 
 VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %46, %48
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false)
   store i32 45, ptr %4, align 8
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3334,10 +3328,10 @@ VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %46, %48
   %63 = load ptr, ptr @vkCmdPipelineBarrier, align 8
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 1688
   %65 = load ptr, ptr %64, align 8
-  call void %63(ptr noundef %65, i32 noundef 5248, i32 noundef 4096, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %4) #8
+  call void %63(ptr noundef %65, i32 noundef 5248, i32 noundef 4096, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %4) #7
   store i32 6, ptr %.046, align 4
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 0, ptr %67, align 8
@@ -3368,7 +3362,7 @@ VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %46, %48
   %82 = load ptr, ptr %64, align 8
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %84 = load ptr, ptr %83, align 8
-  call void %81(ptr noundef %82, ptr noundef %.045, i32 noundef 6, ptr noundef %84, i32 noundef 1, ptr noundef nonnull %6) #8
+  call void %81(ptr noundef %82, ptr noundef %.045, i32 noundef 6, ptr noundef %84, i32 noundef 1, ptr noundef nonnull %6) #7
   %85 = call fastcc i32 @VULKAN_IssueBatch(ptr noundef nonnull %8)
   %86 = load ptr, ptr %9, align 8
   %.not.i52 = icmp eq ptr %86, null
@@ -3377,12 +3371,12 @@ VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %46, %48
 87:                                               ; preds = %VULKAN_RecordPipelineImageBarrier.exit
   %88 = load ptr, ptr @vkCmdEndRenderPass, align 8
   %89 = load ptr, ptr %64, align 8
-  call void %88(ptr noundef %89) #8
+  call void %88(ptr noundef %89) #7
   store ptr null, ptr %9, align 8
   br label %VULKAN_RecordPipelineImageBarrier.exit53
 
 VULKAN_RecordPipelineImageBarrier.exit53:         ; preds = %VULKAN_RecordPipelineImageBarrier.exit, %87
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i32 45, ptr %3, align 8
   %90 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -3408,9 +3402,9 @@ VULKAN_RecordPipelineImageBarrier.exit53:         ; preds = %VULKAN_RecordPipeli
   store i32 1, ptr %100, align 8
   %101 = load ptr, ptr @vkCmdPipelineBarrier, align 8
   %102 = load ptr, ptr %64, align 8
-  call void %101(ptr noundef %102, i32 noundef 4096, i32 noundef 5248, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %3) #8
+  call void %101(ptr noundef %102, i32 noundef 4096, i32 noundef 5248, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %3) #7
   store i32 2, ptr %.046, align 4
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %103 = load i32, ptr %37, align 4
   %104 = load i32, ptr %41, align 4
   switch i32 %.044, label %108 [
@@ -3444,7 +3438,7 @@ VULKAN_VkFormatToSDLPixelFormat.exit:             ; preds = %VULKAN_RecordPipeli
   %114 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %115 = load ptr, ptr %114, align 8
   %116 = trunc i64 %40 to i32
-  %117 = call ptr @SDL_DuplicatePixels(i32 noundef %103, i32 noundef %104, i32 noundef %.0.i54, i32 noundef %113, ptr noundef %115, i32 noundef %116) #8
+  %117 = call ptr @SDL_DuplicatePixels(i32 noundef %103, i32 noundef %104, i32 noundef %.0.i54, i32 noundef %113, ptr noundef %115, i32 noundef %116) #7
   %118 = load ptr, ptr %83, align 8
   %.not.i55 = icmp eq ptr %118, null
   br i1 %.not.i55, label %123, label %119
@@ -3453,7 +3447,7 @@ VULKAN_VkFormatToSDLPixelFormat.exit:             ; preds = %VULKAN_RecordPipeli
   %120 = load ptr, ptr @vkDestroyBuffer, align 8
   %121 = getelementptr inbounds nuw i8, ptr %8, i64 1632
   %122 = load ptr, ptr %121, align 8
-  call void %120(ptr noundef %122, ptr noundef nonnull %118, ptr noundef null) #8
+  call void %120(ptr noundef %122, ptr noundef nonnull %118, ptr noundef null) #7
   store ptr null, ptr %83, align 8
   br label %123
 
@@ -3466,16 +3460,16 @@ VULKAN_VkFormatToSDLPixelFormat.exit:             ; preds = %VULKAN_RecordPipeli
   %126 = load ptr, ptr @vkFreeMemory, align 8
   %127 = getelementptr inbounds nuw i8, ptr %8, i64 1632
   %128 = load ptr, ptr %127, align 8
-  call void %126(ptr noundef %128, ptr noundef nonnull %124, ptr noundef null) #8
+  call void %126(ptr noundef %128, ptr noundef nonnull %124, ptr noundef null) #7
   br label %VULKAN_DestroyBuffer.exit
 
 VULKAN_DestroyBuffer.exit:                        ; preds = %123, %125
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %129
 
 129:                                              ; preds = %VULKAN_GetBytesPerPixel.exit, %VULKAN_DestroyBuffer.exit
   %.0 = phi ptr [ %117, %VULKAN_DestroyBuffer.exit ], [ null, %VULKAN_GetBytesPerPixel.exit ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -3604,7 +3598,7 @@ define internal zeroext i1 @VULKAN_RenderPresent(ptr noundef %0) #0 {
   br i1 %.not, label %10, label %12
 
 10:                                               ; preds = %1
-  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #8
+  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #7
   br label %189
 
 12:                                               ; preds = %1
@@ -3635,14 +3629,14 @@ define internal zeroext i1 @VULKAN_RenderPresent(ptr noundef %0) #0 {
 
 30:                                               ; preds = %15
   %31 = load ptr, ptr @vkCmdEndRenderPass, align 8
-  tail call void %31(ptr noundef nonnull %14) #8
+  tail call void %31(ptr noundef nonnull %14) #7
   store ptr null, ptr %28, align 8
   %.pre = load ptr, ptr %13, align 8
   br label %VULKAN_RecordPipelineImageBarrier.exit
 
 VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %15, %30
   %32 = phi ptr [ %14, %15 ], [ %.pre, %30 ]
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 72, i1 false)
   store i32 45, ptr %2, align 8
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -3667,12 +3661,12 @@ VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %15, %30
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 1, ptr %43, align 8
   %44 = load ptr, ptr @vkCmdPipelineBarrier, align 8
-  call void %44(ptr noundef %32, i32 noundef 1024, i32 noundef 1024, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %2) #8
+  call void %44(ptr noundef %32, i32 noundef 1024, i32 noundef 1024, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %2) #7
   store i32 1000001002, ptr %27, align 4
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %45 = load ptr, ptr @vkEndCommandBuffer, align 8
   %46 = load ptr, ptr %13, align 8
-  %47 = call i32 %45(ptr noundef %46) #8
+  %47 = call i32 %45(ptr noundef %46) #7
   %48 = load ptr, ptr @vkResetFences, align 8
   %49 = load ptr, ptr %8, align 8
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 1696
@@ -3681,29 +3675,29 @@ VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %15, %30
   %53 = load i32, ptr %52, align 8
   %54 = zext i32 %53 to i64
   %55 = getelementptr inbounds nuw ptr, ptr %51, i64 %54
-  %56 = call i32 %48(ptr noundef %49, i32 noundef 1, ptr noundef %55) #8
+  %56 = call i32 %48(ptr noundef %49, i32 noundef 1, ptr noundef %55) #7
   %.not91 = icmp eq i32 %56, 0
   br i1 %.not91, label %64, label %57
 
 57:                                               ; preds = %VULKAN_RecordPipelineImageBarrier.exit
-  %58 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %58 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %57
-  %60 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %56) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.39, ptr noundef %60) #8
+  %60 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %56) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.39, ptr noundef %60) #7
   call void @llvm.debugtrap()
   br label %61
 
 61:                                               ; preds = %59, %57
-  %62 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %56) #8
-  %63 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.39, ptr noundef %62) #8
+  %62 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %56) #7
+  %63 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.39, ptr noundef %62) #7
   br label %189
 
 64:                                               ; preds = %VULKAN_RecordPipelineImageBarrier.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 65536, ptr %3, align 4
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 64, i1 false)
   store i32 4, ptr %4, align 8
   %65 = getelementptr inbounds nuw i8, ptr %7, i64 10464
@@ -3812,7 +3806,7 @@ VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %15, %30
   %126 = load ptr, ptr %50, align 8
   %127 = getelementptr inbounds nuw ptr, ptr %126, i64 %.pre-phi
   %128 = load ptr, ptr %127, align 8
-  %129 = call i32 %123(ptr noundef %125, i32 noundef 1, ptr noundef nonnull %4, ptr noundef %128) #8
+  %129 = call i32 %123(ptr noundef %125, i32 noundef 1, ptr noundef nonnull %4, ptr noundef %128) #7
   switch i32 %129, label %134 [
     i32 0, label %141
     i32 -4, label %130
@@ -3823,29 +3817,29 @@ VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %15, %30
   br i1 %131, label %132, label %.critedge
 
 132:                                              ; preds = %130
-  %133 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.40) #8
+  %133 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.40) #7
   br label %.critedge
 
 134:                                              ; preds = %121
-  %135 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %135 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %135, label %136, label %138
 
 136:                                              ; preds = %134
-  %137 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %129) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.41, ptr noundef %137) #8
+  %137 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %129) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.41, ptr noundef %137) #7
   call void @llvm.debugtrap()
   br label %138
 
 138:                                              ; preds = %136, %134
-  %139 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %129) #8
-  %140 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.41, ptr noundef %139) #8
+  %139 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %129) #7
+  %140 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.41, ptr noundef %139) #7
   br label %.critedge
 
 141:                                              ; preds = %121
   store ptr null, ptr %13, align 8
   %142 = getelementptr inbounds nuw i8, ptr %7, i64 10432
   store ptr null, ptr %142, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   store i32 1000001001, ptr %5, align 8
   %143 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -3867,7 +3861,7 @@ VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %15, %30
   %154 = load ptr, ptr @vkQueuePresentKHR, align 8
   %155 = getelementptr inbounds nuw i8, ptr %7, i64 1624
   %156 = load ptr, ptr %155, align 8
-  %157 = call i32 %154(ptr noundef %156, ptr noundef nonnull %5) #8
+  %157 = call i32 %154(ptr noundef %156, ptr noundef nonnull %5) #7
   switch i32 %157, label %158 [
     i32 -1000000000, label %165
     i32 -1000001004, label %165
@@ -3876,18 +3870,18 @@ VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %15, %30
   ]
 
 158:                                              ; preds = %141
-  %159 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %159 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %159, label %160, label %162
 
 160:                                              ; preds = %158
-  %161 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %157) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.42, ptr noundef %161) #8
+  %161 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %157) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.42, ptr noundef %161) #7
   call void @llvm.debugtrap()
   br label %162
 
 162:                                              ; preds = %160, %158
-  %163 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %157) #8
-  %164 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.42, ptr noundef %163) #8
+  %163 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %157) #7
+  %164 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.42, ptr noundef %163) #7
   br label %.critedge99
 
 165:                                              ; preds = %141, %141, %141, %141
@@ -3902,7 +3896,7 @@ VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %15, %30
   %173 = load ptr, ptr %50, align 8
   %174 = zext i32 %170 to i64
   %175 = getelementptr inbounds nuw ptr, ptr %173, i64 %174
-  %176 = call i32 %171(ptr noundef %172, i32 noundef 1, ptr noundef %175, i32 noundef 1, i64 noundef -1) #8
+  %176 = call i32 %171(ptr noundef %172, i32 noundef 1, ptr noundef %175, i32 noundef 1, i64 noundef -1) #7
   switch i32 %176, label %181 [
     i32 0, label %188
     i32 -4, label %177
@@ -3913,40 +3907,40 @@ VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %15, %30
   br i1 %178, label %179, label %.critedge99
 
 179:                                              ; preds = %177
-  %180 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.40) #8
+  %180 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.40) #7
   br label %.critedge99
 
 181:                                              ; preds = %165
-  %182 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %182 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %182, label %183, label %185
 
 183:                                              ; preds = %181
-  %184 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %176) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.43, ptr noundef %184) #8
+  %184 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %176) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.43, ptr noundef %184) #7
   call void @llvm.debugtrap()
   br label %185
 
 185:                                              ; preds = %183, %181
-  %186 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %176) #8
-  %187 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.43, ptr noundef %186) #8
+  %186 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %176) #7
+  %187 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.43, ptr noundef %186) #7
   br label %.critedge99
 
 188:                                              ; preds = %165
   call fastcc void @VULKAN_AcquireNextSwapchainImage(ptr noundef nonnull %0)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %189
 
 .critedge:                                        ; preds = %138, %130, %132
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %189
 
 .critedge99:                                      ; preds = %185, %177, %179, %162
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %189
 
 189:                                              ; preds = %12, %188, %.critedge99, %.critedge, %61, %10
@@ -3968,7 +3962,7 @@ define internal void @VULKAN_DestroyTexture(ptr noundef readonly captures(none) 
   %9 = getelementptr i8, ptr %4, i64 1616
   %.val = load ptr, ptr %9, align 8
   %10 = load ptr, ptr @vkQueueWaitIdle, align 8
-  %11 = tail call i32 %10(ptr noundef %.val) #8
+  %11 = tail call i32 %10(ptr noundef %.val) #7
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
@@ -3978,7 +3972,7 @@ define internal void @VULKAN_DestroyTexture(ptr noundef readonly captures(none) 
   %15 = load ptr, ptr @vkDestroyImageView, align 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 1632
   %17 = load ptr, ptr %16, align 8
-  tail call void %15(ptr noundef %17, ptr noundef nonnull %13, ptr noundef null) #8
+  tail call void %15(ptr noundef %17, ptr noundef nonnull %13, ptr noundef null) #7
   store ptr null, ptr %12, align 8
   br label %18
 
@@ -3997,7 +3991,7 @@ define internal void @VULKAN_DestroyTexture(ptr noundef readonly captures(none) 
   %25 = load ptr, ptr @vkDestroyImage, align 8
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 1632
   %27 = load ptr, ptr %26, align 8
-  tail call void %25(ptr noundef %27, ptr noundef nonnull %20, ptr noundef null) #8
+  tail call void %25(ptr noundef %27, ptr noundef nonnull %20, ptr noundef null) #7
   br label %28
 
 28:                                               ; preds = %24, %21
@@ -4019,7 +4013,7 @@ define internal void @VULKAN_DestroyTexture(ptr noundef readonly captures(none) 
   %36 = load ptr, ptr @vkFreeMemory, align 8
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 1632
   %38 = load ptr, ptr %37, align 8
-  tail call void %36(ptr noundef %38, ptr noundef nonnull %31, ptr noundef null) #8
+  tail call void %36(ptr noundef %38, ptr noundef nonnull %31, ptr noundef null) #7
   br label %VULKAN_DestroyImage.exit
 
 VULKAN_DestroyImage.exit:                         ; preds = %29, %32, %35
@@ -4033,7 +4027,7 @@ VULKAN_DestroyImage.exit:                         ; preds = %29, %32, %35
   %42 = load ptr, ptr @vkDestroySamplerYcbcrConversionKHR, align 8
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 1632
   %44 = load ptr, ptr %43, align 8
-  tail call void %42(ptr noundef %44, ptr noundef nonnull %40, ptr noundef null) #8
+  tail call void %42(ptr noundef %44, ptr noundef nonnull %40, ptr noundef null) #7
   store ptr null, ptr %39, align 8
   br label %45
 
@@ -4047,7 +4041,7 @@ VULKAN_DestroyImage.exit:                         ; preds = %29, %32, %35
   %49 = load ptr, ptr @vkDestroySampler, align 8
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 1632
   %51 = load ptr, ptr %50, align 8
-  tail call void %49(ptr noundef %51, ptr noundef nonnull %47, ptr noundef null) #8
+  tail call void %49(ptr noundef %51, ptr noundef nonnull %47, ptr noundef null) #7
   store ptr null, ptr %46, align 8
   br label %52
 
@@ -4061,7 +4055,7 @@ VULKAN_DestroyImage.exit:                         ; preds = %29, %32, %35
   %56 = load ptr, ptr @vkDestroyPipelineLayout, align 8
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 1632
   %58 = load ptr, ptr %57, align 8
-  tail call void %56(ptr noundef %58, ptr noundef nonnull %54, ptr noundef null) #8
+  tail call void %56(ptr noundef %58, ptr noundef nonnull %54, ptr noundef null) #7
   store ptr null, ptr %53, align 8
   br label %59
 
@@ -4075,7 +4069,7 @@ VULKAN_DestroyImage.exit:                         ; preds = %29, %32, %35
   %63 = load ptr, ptr @vkDestroyDescriptorSetLayout, align 8
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 1632
   %65 = load ptr, ptr %64, align 8
-  tail call void %63(ptr noundef %65, ptr noundef nonnull %61, ptr noundef null) #8
+  tail call void %63(ptr noundef %65, ptr noundef nonnull %61, ptr noundef null) #7
   store ptr null, ptr %60, align 8
   br label %66
 
@@ -4090,7 +4084,7 @@ VULKAN_DestroyImage.exit:                         ; preds = %29, %32, %35
   %71 = load ptr, ptr @vkDestroyBuffer, align 8
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 1632
   %73 = load ptr, ptr %72, align 8
-  tail call void %71(ptr noundef %73, ptr noundef nonnull %69, ptr noundef null) #8
+  tail call void %71(ptr noundef %73, ptr noundef nonnull %69, ptr noundef null) #7
   store ptr null, ptr %68, align 8
   br label %74
 
@@ -4103,7 +4097,7 @@ VULKAN_DestroyImage.exit:                         ; preds = %29, %32, %35
   %77 = load ptr, ptr @vkFreeMemory, align 8
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 1632
   %79 = load ptr, ptr %78, align 8
-  tail call void %77(ptr noundef %79, ptr noundef nonnull %75, ptr noundef null) #8
+  tail call void %77(ptr noundef %79, ptr noundef nonnull %75, ptr noundef null) #7
   br label %VULKAN_DestroyBuffer.exit
 
 VULKAN_DestroyBuffer.exit:                        ; preds = %74, %76
@@ -4117,7 +4111,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %74, %76
   %83 = load ptr, ptr @vkDestroyFramebuffer, align 8
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 1632
   %85 = load ptr, ptr %84, align 8
-  tail call void %83(ptr noundef %85, ptr noundef nonnull %81, ptr noundef null) #8
+  tail call void %83(ptr noundef %85, ptr noundef nonnull %81, ptr noundef null) #7
   store ptr null, ptr %80, align 8
   br label %86
 
@@ -4127,7 +4121,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %74, %76
   br label %90
 
 89:                                               ; preds = %97
-  tail call void @SDL_free_REAL(ptr noundef nonnull %6) #8
+  tail call void @SDL_free_REAL(ptr noundef nonnull %6) #7
   store ptr null, ptr %5, align 8
   br label %98
 
@@ -4142,7 +4136,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %74, %76
 94:                                               ; preds = %90
   %95 = load ptr, ptr @vkDestroyRenderPass, align 8
   %96 = load ptr, ptr %88, align 8
-  tail call void %95(ptr noundef %96, ptr noundef nonnull %93, ptr noundef null) #8
+  tail call void %95(ptr noundef %96, ptr noundef nonnull %93, ptr noundef null) #7
   store ptr null, ptr %92, align 8
   br label %97
 
@@ -4168,12 +4162,12 @@ define internal void @VULKAN_DestroyRenderer(ptr noundef readonly captures(addre
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr @vkDeviceWaitIdle, align 8
-  %9 = tail call i32 %8(ptr noundef nonnull %6) #8
+  %9 = tail call i32 %8(ptr noundef nonnull %6) #7
   tail call fastcc void @VULKAN_DestroyAll(ptr noundef nonnull %0)
   br label %10
 
 10:                                               ; preds = %7, %4
-  tail call void @SDL_free_REAL(ptr noundef nonnull %3) #8
+  tail call void @SDL_free_REAL(ptr noundef nonnull %3) #7
   br label %11
 
 11:                                               ; preds = %10, %1
@@ -4191,7 +4185,7 @@ define internal zeroext i1 @VULKAN_SetVSync(ptr noundef readonly captures(none) 
   ]
 
 5:                                                ; preds = %2
-  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.46) #8
+  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.46) #7
   br label %12
 
 7:                                                ; preds = %2, %2, %2
@@ -4211,11 +4205,11 @@ define internal zeroext i1 @VULKAN_SetVSync(ptr noundef readonly captures(none) 
   ret i1 %.0
 }
 
-declare zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetRendererProperties_REAL(ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_GetRendererProperties_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @VULKAN_CreateDeviceResources(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
@@ -4229,15 +4223,15 @@ define internal fastcc i32 @VULKAN_CreateDeviceResources(ptr noundef %0, i32 nou
   %10 = alloca %struct.VkShaderModuleCreateInfo, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call ptr @SDL_GetVideoDevice() #8
-  %14 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  %13 = tail call ptr @SDL_GetVideoDevice() #7
+  %14 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 ptrtoint (ptr @.str.52 to i64), ptr %3, align 8
-  %15 = tail call zeroext i1 @SDL_Vulkan_LoadLibrary_REAL(ptr noundef null) #8
+  %15 = tail call zeroext i1 @SDL_Vulkan_LoadLibrary_REAL(ptr noundef null) #7
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %2
-  tail call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 6, ptr noundef nonnull @.str.53) #8
+  tail call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 6, ptr noundef nonnull @.str.53) #7
   br label %381
 
 17:                                               ; preds = %2
@@ -4251,51 +4245,51 @@ define internal fastcc i32 @VULKAN_CreateDeviceResources(ptr noundef %0, i32 nou
   br i1 %.not180, label %.thread, label %21
 
 .thread:                                          ; preds = %17, %18
-  tail call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 6, ptr noundef nonnull @.str.54) #8
+  tail call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 6, ptr noundef nonnull @.str.54) #7
   br label %381
 
 21:                                               ; preds = %18
   store ptr %20, ptr %12, align 8
-  %22 = tail call ptr %20(ptr noundef null, ptr noundef nonnull @.str.75) #8
+  %22 = tail call ptr %20(ptr noundef null, ptr noundef nonnull @.str.75) #7
   store ptr %22, ptr @vkCreateInstance, align 8
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %23, label %25
 
 23:                                               ; preds = %21
-  %24 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %24 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %24, label %.sink.split.sink.split.i, label %VULKAN_LoadGlobalFunctions.exit
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %12, align 8
-  %27 = tail call ptr %26(ptr noundef null, ptr noundef nonnull @.str.77) #8
+  %27 = tail call ptr %26(ptr noundef null, ptr noundef nonnull @.str.77) #7
   store ptr %27, ptr @vkEnumerateInstanceExtensionProperties, align 8
   %.not4.i = icmp eq ptr %27, null
   br i1 %.not4.i, label %28, label %30
 
 28:                                               ; preds = %25
-  %29 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %29 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %29, label %.sink.split.sink.split.i, label %VULKAN_LoadGlobalFunctions.exit
 
 30:                                               ; preds = %25
   %31 = load ptr, ptr %12, align 8
-  %32 = tail call ptr %31(ptr noundef null, ptr noundef nonnull @.str.79) #8
+  %32 = tail call ptr %31(ptr noundef null, ptr noundef nonnull @.str.79) #7
   store ptr %32, ptr @vkEnumerateInstanceLayerProperties, align 8
   %.not5.i = icmp eq ptr %32, null
   br i1 %.not5.i, label %33, label %36
 
 33:                                               ; preds = %30
-  %34 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %34 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %34, label %.sink.split.sink.split.i, label %VULKAN_LoadGlobalFunctions.exit
 
 .sink.split.sink.split.i:                         ; preds = %33, %28, %23
   %.str.80.sink6.i = phi ptr [ @.str.76, %23 ], [ @.str.78, %28 ], [ @.str.80, %33 ]
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull %.str.80.sink6.i) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull %.str.80.sink6.i) #7
   tail call void @llvm.debugtrap()
   br label %VULKAN_LoadGlobalFunctions.exit
 
 VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sink.split.sink.split.i
   %.str.80.sink.i = phi ptr [ @.str.76, %23 ], [ @.str.78, %28 ], [ @.str.80, %33 ], [ %.str.80.sink6.i, %.sink.split.sink.split.i ]
-  %35 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull %.str.80.sink.i) #8
+  %35 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull %.str.80.sink.i) #7
   br label %381
 
 36:                                               ; preds = %30
@@ -4315,7 +4309,7 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
   br i1 %41, label %45, label %43
 
 43:                                               ; preds = %40
-  %44 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.55) #8
+  %44 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.55) #7
   br label %381
 
 45:                                               ; preds = %36, %40
@@ -4323,7 +4317,7 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
   %47 = getelementptr inbounds nuw i8, ptr %12, i64 10353
   %48 = zext i1 %46 to i8
   store i8 %48, ptr %47, align 1
-  %49 = tail call ptr @SDL_GetPointerProperty_REAL(i32 noundef %1, ptr noundef nonnull @.str.58, ptr noundef null) #8
+  %49 = tail call ptr @SDL_GetPointerProperty_REAL(i32 noundef %1, ptr noundef nonnull @.str.58, ptr noundef null) #7
   %50 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %49, ptr %50, align 8
   %.not181 = icmp eq ptr %49, null
@@ -4335,9 +4329,9 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
   br label %97
 
 53:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false)
   store i32 4194304, ptr %54, align 4
@@ -4345,7 +4339,7 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %5, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %57 = call ptr @SDL_Vulkan_GetInstanceExtensions_REAL(ptr noundef nonnull %56) #8
+  %57 = call ptr @SDL_Vulkan_GetInstanceExtensions_REAL(ptr noundef nonnull %56) #7
   %58 = load i32, ptr %56, align 8
   %59 = add i32 %58, 2
   %60 = zext i32 %59 to i64
@@ -4413,248 +4407,248 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
 
 87:                                               ; preds = %84, %82, %80
   %88 = load ptr, ptr @vkCreateInstance, align 8
-  %89 = call i32 %88(ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull %50) #8
-  call void @SDL_free_REAL(ptr noundef %61) #8
+  %89 = call i32 %88(ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull %50) #7
+  call void @SDL_free_REAL(ptr noundef %61) #7
   %.not182 = icmp eq i32 %89, 0
   br i1 %.not182, label %.critedge, label %90
 
 90:                                               ; preds = %87
-  %91 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %91 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %91, label %92, label %94
 
 92:                                               ; preds = %90
-  %93 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %89) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.59, ptr noundef %93) #8
+  %93 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %89) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.59, ptr noundef %93) #7
   call void @llvm.debugtrap()
   br label %94
 
 94:                                               ; preds = %92, %90
-  %95 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %89) #8
-  %96 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.59, ptr noundef %95) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #8
+  %95 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %89) #7
+  %96 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.59, ptr noundef %95) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %381
 
 .critedge:                                        ; preds = %87
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load ptr, ptr %50, align 8
   br label %97
 
 97:                                               ; preds = %.critedge, %51
   %98 = phi ptr [ %.pre, %.critedge ], [ %49, %51 ]
   %99 = load ptr, ptr %12, align 8
-  %100 = call ptr %99(ptr noundef %98, ptr noundef nonnull @.str.82) #8
+  %100 = call ptr %99(ptr noundef %98, ptr noundef nonnull @.str.82) #7
   store ptr %100, ptr @vkCreateDevice, align 8
   %.not.i196 = icmp eq ptr %100, null
   br i1 %.not.i196, label %101, label %103
 
 101:                                              ; preds = %97
-  %102 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %102 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %102, label %.sink.split, label %187
 
 103:                                              ; preds = %97
   %104 = load ptr, ptr %12, align 8
   %105 = load ptr, ptr %50, align 8
-  %106 = call ptr %104(ptr noundef %105, ptr noundef nonnull @.str.84) #8
+  %106 = call ptr %104(ptr noundef %105, ptr noundef nonnull @.str.84) #7
   store ptr %106, ptr @vkDestroyInstance, align 8
   %.not41.i = icmp eq ptr %106, null
   br i1 %.not41.i, label %107, label %109
 
 107:                                              ; preds = %103
-  %108 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %108 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %108, label %.sink.split, label %187
 
 109:                                              ; preds = %103
   %110 = load ptr, ptr %12, align 8
   %111 = load ptr, ptr %50, align 8
-  %112 = call ptr %110(ptr noundef %111, ptr noundef nonnull @.str.86) #8
+  %112 = call ptr %110(ptr noundef %111, ptr noundef nonnull @.str.86) #7
   store ptr %112, ptr @vkDestroySurfaceKHR, align 8
   %.not42.i = icmp eq ptr %112, null
   br i1 %.not42.i, label %113, label %115
 
 113:                                              ; preds = %109
-  %114 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %114 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %114, label %.sink.split, label %187
 
 115:                                              ; preds = %109
   %116 = load ptr, ptr %12, align 8
   %117 = load ptr, ptr %50, align 8
-  %118 = call ptr %116(ptr noundef %117, ptr noundef nonnull @.str.88) #8
+  %118 = call ptr %116(ptr noundef %117, ptr noundef nonnull @.str.88) #7
   store ptr %118, ptr @vkEnumerateDeviceExtensionProperties, align 8
   %.not43.i = icmp eq ptr %118, null
   br i1 %.not43.i, label %119, label %121
 
 119:                                              ; preds = %115
-  %120 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %120 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %120, label %.sink.split, label %187
 
 121:                                              ; preds = %115
   %122 = load ptr, ptr %12, align 8
   %123 = load ptr, ptr %50, align 8
-  %124 = call ptr %122(ptr noundef %123, ptr noundef nonnull @.str.90) #8
+  %124 = call ptr %122(ptr noundef %123, ptr noundef nonnull @.str.90) #7
   store ptr %124, ptr @vkEnumeratePhysicalDevices, align 8
   %.not44.i = icmp eq ptr %124, null
   br i1 %.not44.i, label %125, label %127
 
 125:                                              ; preds = %121
-  %126 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %126 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %126, label %.sink.split, label %187
 
 127:                                              ; preds = %121
   %128 = load ptr, ptr %12, align 8
   %129 = load ptr, ptr %50, align 8
-  %130 = call ptr %128(ptr noundef %129, ptr noundef nonnull @.str.92) #8
+  %130 = call ptr %128(ptr noundef %129, ptr noundef nonnull @.str.92) #7
   store ptr %130, ptr @vkGetDeviceProcAddr, align 8
   %.not45.i = icmp eq ptr %130, null
   br i1 %.not45.i, label %131, label %133
 
 131:                                              ; preds = %127
-  %132 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %132 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %132, label %.sink.split, label %187
 
 133:                                              ; preds = %127
   %134 = load ptr, ptr %12, align 8
   %135 = load ptr, ptr %50, align 8
-  %136 = call ptr %134(ptr noundef %135, ptr noundef nonnull @.str.94) #8
+  %136 = call ptr %134(ptr noundef %135, ptr noundef nonnull @.str.94) #7
   store ptr %136, ptr @vkGetPhysicalDeviceFeatures, align 8
   %.not46.i = icmp eq ptr %136, null
   br i1 %.not46.i, label %137, label %139
 
 137:                                              ; preds = %133
-  %138 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %138 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %138, label %.sink.split, label %187
 
 139:                                              ; preds = %133
   %140 = load ptr, ptr %12, align 8
   %141 = load ptr, ptr %50, align 8
-  %142 = call ptr %140(ptr noundef %141, ptr noundef nonnull @.str.96) #8
+  %142 = call ptr %140(ptr noundef %141, ptr noundef nonnull @.str.96) #7
   store ptr %142, ptr @vkGetPhysicalDeviceProperties, align 8
   %.not47.i = icmp eq ptr %142, null
   br i1 %.not47.i, label %143, label %145
 
 143:                                              ; preds = %139
-  %144 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %144 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %144, label %.sink.split, label %187
 
 145:                                              ; preds = %139
   %146 = load ptr, ptr %12, align 8
   %147 = load ptr, ptr %50, align 8
-  %148 = call ptr %146(ptr noundef %147, ptr noundef nonnull @.str.98) #8
+  %148 = call ptr %146(ptr noundef %147, ptr noundef nonnull @.str.98) #7
   store ptr %148, ptr @vkGetPhysicalDeviceMemoryProperties, align 8
   %.not48.i = icmp eq ptr %148, null
   br i1 %.not48.i, label %149, label %151
 
 149:                                              ; preds = %145
-  %150 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %150 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %150, label %.sink.split, label %187
 
 151:                                              ; preds = %145
   %152 = load ptr, ptr %12, align 8
   %153 = load ptr, ptr %50, align 8
-  %154 = call ptr %152(ptr noundef %153, ptr noundef nonnull @.str.100) #8
+  %154 = call ptr %152(ptr noundef %153, ptr noundef nonnull @.str.100) #7
   store ptr %154, ptr @vkGetPhysicalDeviceQueueFamilyProperties, align 8
   %.not49.i = icmp eq ptr %154, null
   br i1 %.not49.i, label %155, label %157
 
 155:                                              ; preds = %151
-  %156 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %156 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %156, label %.sink.split, label %187
 
 157:                                              ; preds = %151
   %158 = load ptr, ptr %12, align 8
   %159 = load ptr, ptr %50, align 8
-  %160 = call ptr %158(ptr noundef %159, ptr noundef nonnull @.str.102) #8
+  %160 = call ptr %158(ptr noundef %159, ptr noundef nonnull @.str.102) #7
   store ptr %160, ptr @vkGetPhysicalDeviceSurfaceCapabilitiesKHR, align 8
   %.not50.i = icmp eq ptr %160, null
   br i1 %.not50.i, label %161, label %163
 
 161:                                              ; preds = %157
-  %162 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %162 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %162, label %.sink.split, label %187
 
 163:                                              ; preds = %157
   %164 = load ptr, ptr %12, align 8
   %165 = load ptr, ptr %50, align 8
-  %166 = call ptr %164(ptr noundef %165, ptr noundef nonnull @.str.104) #8
+  %166 = call ptr %164(ptr noundef %165, ptr noundef nonnull @.str.104) #7
   store ptr %166, ptr @vkGetPhysicalDeviceSurfaceFormatsKHR, align 8
   %.not51.i = icmp eq ptr %166, null
   br i1 %.not51.i, label %167, label %169
 
 167:                                              ; preds = %163
-  %168 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %168 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %168, label %.sink.split, label %187
 
 169:                                              ; preds = %163
   %170 = load ptr, ptr %12, align 8
   %171 = load ptr, ptr %50, align 8
-  %172 = call ptr %170(ptr noundef %171, ptr noundef nonnull @.str.106) #8
+  %172 = call ptr %170(ptr noundef %171, ptr noundef nonnull @.str.106) #7
   store ptr %172, ptr @vkGetPhysicalDeviceSurfacePresentModesKHR, align 8
   %.not52.i = icmp eq ptr %172, null
   br i1 %.not52.i, label %173, label %175
 
 173:                                              ; preds = %169
-  %174 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %174 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %174, label %.sink.split, label %187
 
 175:                                              ; preds = %169
   %176 = load ptr, ptr %12, align 8
   %177 = load ptr, ptr %50, align 8
-  %178 = call ptr %176(ptr noundef %177, ptr noundef nonnull @.str.108) #8
+  %178 = call ptr %176(ptr noundef %177, ptr noundef nonnull @.str.108) #7
   store ptr %178, ptr @vkGetPhysicalDeviceSurfaceSupportKHR, align 8
   %.not53.i = icmp eq ptr %178, null
   br i1 %.not53.i, label %179, label %181
 
 179:                                              ; preds = %175
-  %180 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %180 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %180, label %.sink.split, label %187
 
 181:                                              ; preds = %175
   %182 = load ptr, ptr %12, align 8
   %183 = load ptr, ptr %50, align 8
-  %184 = call ptr %182(ptr noundef %183, ptr noundef nonnull @.str.110) #8
+  %184 = call ptr %182(ptr noundef %183, ptr noundef nonnull @.str.110) #7
   store ptr %184, ptr @vkQueueWaitIdle, align 8
   %.not54.i = icmp eq ptr %184, null
   br i1 %.not54.i, label %185, label %189
 
 185:                                              ; preds = %181
-  %186 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %186 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %186, label %.sink.split, label %187
 
 .sink.split:                                      ; preds = %185, %179, %173, %167, %161, %155, %149, %143, %137, %131, %125, %119, %113, %107, %101
   %.str.111.sink234 = phi ptr [ @.str.83, %101 ], [ @.str.85, %107 ], [ @.str.87, %113 ], [ @.str.89, %119 ], [ @.str.91, %125 ], [ @.str.93, %131 ], [ @.str.95, %137 ], [ @.str.97, %143 ], [ @.str.99, %149 ], [ @.str.101, %155 ], [ @.str.103, %161 ], [ @.str.105, %167 ], [ @.str.107, %173 ], [ @.str.109, %179 ], [ @.str.111, %185 ]
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull %.str.111.sink234) #8
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull %.str.111.sink234) #7
   call void @llvm.debugtrap()
   br label %187
 
 187:                                              ; preds = %.sink.split, %185, %179, %173, %167, %161, %155, %149, %143, %137, %131, %125, %119, %113, %107, %101
   %.str.111.sink = phi ptr [ @.str.83, %101 ], [ @.str.85, %107 ], [ @.str.87, %113 ], [ @.str.89, %119 ], [ @.str.91, %125 ], [ @.str.93, %131 ], [ @.str.95, %137 ], [ @.str.97, %143 ], [ @.str.99, %149 ], [ @.str.101, %155 ], [ @.str.103, %161 ], [ @.str.105, %167 ], [ @.str.107, %173 ], [ @.str.109, %179 ], [ @.str.111, %185 ], [ %.str.111.sink234, %.sink.split ]
-  %188 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull %.str.111.sink) #8
+  %188 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull %.str.111.sink) #7
   call fastcc void @VULKAN_DestroyAll(ptr noundef nonnull %0)
   br label %381
 
 189:                                              ; preds = %181
   %190 = load ptr, ptr %12, align 8
   %191 = load ptr, ptr %50, align 8
-  %192 = call ptr %190(ptr noundef %191, ptr noundef nonnull @.str.112) #8
+  %192 = call ptr %190(ptr noundef %191, ptr noundef nonnull @.str.112) #7
   store ptr %192, ptr @vkGetPhysicalDeviceFeatures2KHR, align 8
   %193 = load ptr, ptr %12, align 8
   %194 = load ptr, ptr %50, align 8
-  %195 = call ptr %193(ptr noundef %194, ptr noundef nonnull @.str.113) #8
+  %195 = call ptr %193(ptr noundef %194, ptr noundef nonnull @.str.113) #7
   store ptr %195, ptr @vkGetPhysicalDeviceFormatProperties2KHR, align 8
   %196 = load ptr, ptr %12, align 8
   %197 = load ptr, ptr %50, align 8
-  %198 = call ptr %196(ptr noundef %197, ptr noundef nonnull @.str.114) #8
+  %198 = call ptr %196(ptr noundef %197, ptr noundef nonnull @.str.114) #7
   store ptr %198, ptr @vkGetPhysicalDeviceImageFormatProperties2KHR, align 8
   %199 = load ptr, ptr %12, align 8
   %200 = load ptr, ptr %50, align 8
-  %201 = call ptr %199(ptr noundef %200, ptr noundef nonnull @.str.115) #8
+  %201 = call ptr %199(ptr noundef %200, ptr noundef nonnull @.str.115) #7
   store ptr %201, ptr @vkGetPhysicalDeviceMemoryProperties2KHR, align 8
   %202 = load ptr, ptr %12, align 8
   %203 = load ptr, ptr %50, align 8
-  %204 = call ptr %202(ptr noundef %203, ptr noundef nonnull @.str.116) #8
+  %204 = call ptr %202(ptr noundef %203, ptr noundef nonnull @.str.116) #7
   store ptr %204, ptr @vkGetPhysicalDeviceProperties2KHR, align 8
-  %205 = call i64 @SDL_GetNumberProperty_REAL(i32 noundef %1, ptr noundef nonnull @.str.60, i64 noundef 0) #8
+  %205 = call i64 @SDL_GetNumberProperty_REAL(i32 noundef %1, ptr noundef nonnull @.str.60, i64 noundef 0) #7
   %206 = inttoptr i64 %205 to ptr
   %207 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %206, ptr %207, align 8
@@ -4676,25 +4670,25 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %215 = load ptr, ptr %214, align 8
   %216 = load ptr, ptr %50, align 8
-  %217 = call zeroext i1 %212(ptr noundef nonnull %13, ptr noundef %215, ptr noundef %216, ptr noundef null, ptr noundef nonnull %207) #8
+  %217 = call zeroext i1 %212(ptr noundef nonnull %13, ptr noundef %215, ptr noundef %216, ptr noundef null, ptr noundef nonnull %207) #7
   br i1 %217, label %223, label %218
 
 218:                                              ; preds = %213, %210
   call fastcc void @VULKAN_DestroyAll(ptr noundef nonnull %0)
-  %219 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %219 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %219, label %220, label %221
 
 220:                                              ; preds = %218
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.61) #8
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.61) #7
   call void @llvm.debugtrap()
   br label %221
 
 221:                                              ; preds = %220, %218
-  %222 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.61) #8
+  %222 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.61) #7
   br label %381
 
 223:                                              ; preds = %213, %208
-  %224 = call ptr @SDL_GetPointerProperty_REAL(i32 noundef %1, ptr noundef nonnull @.str.62, ptr noundef null) #8
+  %224 = call ptr @SDL_GetPointerProperty_REAL(i32 noundef %1, ptr noundef nonnull @.str.62, ptr noundef null) #7
   %225 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store ptr %224, ptr %225, align 8
   %.not185 = icmp eq ptr %224, null
@@ -4703,11 +4697,11 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
 226:                                              ; preds = %223
   %227 = load ptr, ptr @vkGetPhysicalDeviceMemoryProperties, align 8
   %228 = getelementptr inbounds nuw i8, ptr %12, i64 872
-  call void %227(ptr noundef nonnull %224, ptr noundef nonnull %228) #8
+  call void %227(ptr noundef nonnull %224, ptr noundef nonnull %228) #7
   %229 = load ptr, ptr @vkGetPhysicalDeviceFeatures, align 8
   %230 = load ptr, ptr %225, align 8
   %231 = getelementptr inbounds nuw i8, ptr %12, i64 1392
-  call void %229(ptr noundef %230, ptr noundef nonnull %231) #8
+  call void %229(ptr noundef %230, ptr noundef nonnull %231) #7
   br label %235
 
 232:                                              ; preds = %223
@@ -4720,22 +4714,22 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
   br label %381
 
 235:                                              ; preds = %232, %226
-  %236 = call zeroext i1 @SDL_HasProperty_REAL(i32 noundef %1, ptr noundef nonnull @.str.63) #8
+  %236 = call zeroext i1 @SDL_HasProperty_REAL(i32 noundef %1, ptr noundef nonnull @.str.63) #7
   br i1 %236, label %237, label %241
 
 237:                                              ; preds = %235
-  %238 = call i64 @SDL_GetNumberProperty_REAL(i32 noundef %1, ptr noundef nonnull @.str.63, i64 noundef 0) #8
+  %238 = call i64 @SDL_GetNumberProperty_REAL(i32 noundef %1, ptr noundef nonnull @.str.63, i64 noundef 0) #7
   %239 = trunc i64 %238 to i32
   %240 = getelementptr inbounds nuw i8, ptr %12, i64 1644
   store i32 %239, ptr %240, align 4
   br label %241
 
 241:                                              ; preds = %237, %235
-  %242 = call zeroext i1 @SDL_HasProperty_REAL(i32 noundef %1, ptr noundef nonnull @.str.64) #8
+  %242 = call zeroext i1 @SDL_HasProperty_REAL(i32 noundef %1, ptr noundef nonnull @.str.64) #7
   br i1 %242, label %243, label %247
 
 243:                                              ; preds = %241
-  %244 = call i64 @SDL_GetNumberProperty_REAL(i32 noundef %1, ptr noundef nonnull @.str.64, i64 noundef 0) #8
+  %244 = call i64 @SDL_GetNumberProperty_REAL(i32 noundef %1, ptr noundef nonnull @.str.64, i64 noundef 0) #7
   %245 = trunc i64 %244 to i32
   %246 = getelementptr inbounds nuw i8, ptr %12, i64 1648
   store i32 %245, ptr %246, align 8
@@ -4756,7 +4750,7 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
   br label %254
 
 254:                                              ; preds = %252, %250, %247
-  %255 = call ptr @SDL_GetPointerProperty_REAL(i32 noundef %1, ptr noundef nonnull @.str.65, ptr noundef null) #8
+  %255 = call ptr @SDL_GetPointerProperty_REAL(i32 noundef %1, ptr noundef nonnull @.str.65, ptr noundef null) #7
   %256 = getelementptr inbounds nuw i8, ptr %12, i64 1632
   store ptr %255, ptr %256, align 8
   %.not187 = icmp eq ptr %255, null
@@ -4768,11 +4762,11 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
   br label %297
 
 259:                                              ; preds = %254
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %7, i8 0, i64 80, i1 false)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 0, i64 56, i1 false)
   store i32 3, ptr %8, align 8
   %260 = getelementptr inbounds nuw i8, ptr %8, i64 20
@@ -4831,33 +4825,33 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
 286:                                              ; preds = %282, %281
   %287 = load ptr, ptr @vkCreateDevice, align 8
   %288 = load ptr, ptr %225, align 8
-  %289 = call i32 %287(ptr noundef %288, ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %256) #8
+  %289 = call i32 %287(ptr noundef %288, ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %256) #7
   %.not189 = icmp eq i32 %289, 0
   br i1 %.not189, label %.thread201, label %290
 
 .thread201:                                       ; preds = %286
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %297
 
 290:                                              ; preds = %286
-  %291 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %291 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %291, label %292, label %294
 
 292:                                              ; preds = %290
-  %293 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %289) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.66, ptr noundef %293) #8
+  %293 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %289) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.66, ptr noundef %293) #7
   call void @llvm.debugtrap()
   br label %294
 
 294:                                              ; preds = %290, %292
-  %295 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %289) #8
-  %296 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.66, ptr noundef %295) #8
+  %295 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %289) #7
+  %296 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.66, ptr noundef %295) #7
   call fastcc void @VULKAN_DestroyAll(ptr noundef nonnull %0)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %381
 
 297:                                              ; preds = %.thread201, %257
@@ -4874,7 +4868,7 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
   %303 = getelementptr inbounds nuw i8, ptr %12, i64 1644
   %304 = load i32, ptr %303, align 4
   %305 = getelementptr inbounds nuw i8, ptr %12, i64 1616
-  call void %301(ptr noundef %302, i32 noundef %304, i32 noundef 0, ptr noundef nonnull %305) #8
+  call void %301(ptr noundef %302, i32 noundef %304, i32 noundef 0, ptr noundef nonnull %305) #7
   %306 = load i32, ptr %303, align 4
   %307 = getelementptr inbounds nuw i8, ptr %12, i64 1648
   %308 = load i32, ptr %307, align 8
@@ -4885,7 +4879,7 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
   %310 = load ptr, ptr @vkGetDeviceQueue, align 8
   %311 = load ptr, ptr %256, align 8
   %312 = getelementptr inbounds nuw i8, ptr %12, i64 1624
-  call void %310(ptr noundef %311, i32 noundef %308, i32 noundef 0, ptr noundef nonnull %312) #8
+  call void %310(ptr noundef %311, i32 noundef %308, i32 noundef 0, ptr noundef nonnull %312) #7
   %.pre229 = load i32, ptr %303, align 4
   br label %316
 
@@ -4897,7 +4891,7 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
 
 316:                                              ; preds = %313, %309
   %317 = phi i32 [ %306, %313 ], [ %.pre229, %309 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 16, i1 false)
   store i32 39, ptr %9, align 8
   %318 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -4907,24 +4901,24 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
   %320 = load ptr, ptr @vkCreateCommandPool, align 8
   %321 = load ptr, ptr %256, align 8
   %322 = getelementptr inbounds nuw i8, ptr %12, i64 1664
-  %323 = call i32 %320(ptr noundef %321, ptr noundef nonnull %9, ptr noundef null, ptr noundef nonnull %322) #8
+  %323 = call i32 %320(ptr noundef %321, ptr noundef nonnull %9, ptr noundef null, ptr noundef nonnull %322) #7
   %.not191 = icmp eq i32 %323, 0
   br i1 %.not191, label %331, label %324
 
 324:                                              ; preds = %316
   call fastcc void @VULKAN_DestroyAll(ptr noundef nonnull %0)
-  %325 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %325 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %325, label %326, label %328
 
 326:                                              ; preds = %324
-  %327 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %323) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.67, ptr noundef %327) #8
+  %327 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %323) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.67, ptr noundef %327) #7
   call void @llvm.debugtrap()
   br label %328
 
 328:                                              ; preds = %326, %324
-  %329 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %323) #8
-  %330 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.67, ptr noundef %329) #8
+  %329 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %323) #7
+  %330 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.67, ptr noundef %329) #7
   br label %380
 
 331:                                              ; preds = %316
@@ -4945,55 +4939,55 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
 
 338:                                              ; preds = %.preheader208, %353
   %indvars.iv221 = phi i64 [ 0, %.preheader208 ], [ %indvars.iv.next222, %353 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false)
   store i32 16, ptr %10, align 8
   %339 = trunc nuw nsw i64 %indvars.iv221 to i32
-  call void @VULKAN_GetVertexShader(i32 noundef %339, ptr noundef nonnull %333, ptr noundef nonnull %334) #8
+  call void @VULKAN_GetVertexShader(i32 noundef %339, ptr noundef nonnull %333, ptr noundef nonnull %334) #7
   %340 = load ptr, ptr @vkCreateShaderModule, align 8
   %341 = load ptr, ptr %256, align 8
   %342 = getelementptr inbounds nuw [3 x ptr], ptr %335, i64 0, i64 %indvars.iv221
-  %343 = call i32 %340(ptr noundef %341, ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull %342) #8
+  %343 = call i32 %340(ptr noundef %341, ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull %342) #7
   %.not193 = icmp eq i32 %343, 0
   br i1 %.not193, label %346, label %344
 
 344:                                              ; preds = %338
   call fastcc void @VULKAN_DestroyAll(ptr noundef %0)
-  %345 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %345 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %345, label %.sink.split235, label %355
 
 346:                                              ; preds = %338
-  call void @VULKAN_GetPixelShader(i32 noundef %339, ptr noundef nonnull %333, ptr noundef nonnull %334) #8
+  call void @VULKAN_GetPixelShader(i32 noundef %339, ptr noundef nonnull %333, ptr noundef nonnull %334) #7
   %347 = load ptr, ptr @vkCreateShaderModule, align 8
   %348 = load ptr, ptr %256, align 8
   %349 = getelementptr inbounds nuw [3 x ptr], ptr %336, i64 0, i64 %indvars.iv221
-  %350 = call i32 %347(ptr noundef %348, ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull %349) #8
+  %350 = call i32 %347(ptr noundef %348, ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull %349) #7
   %.not194 = icmp eq i32 %350, 0
   br i1 %.not194, label %353, label %351
 
 351:                                              ; preds = %346
   call fastcc void @VULKAN_DestroyAll(ptr noundef %0)
-  %352 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %352 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %352, label %.sink.split235, label %355
 
 353:                                              ; preds = %346
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
   %exitcond224 = icmp eq i64 %indvars.iv.next222, 3
   br i1 %exitcond224, label %358, label %338, !llvm.loop !18
 
 .sink.split235:                                   ; preds = %351, %344
   %.lcssa232.sink = phi i32 [ %343, %344 ], [ %350, %351 ]
-  %354 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %.lcssa232.sink) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.68, ptr noundef %354) #8
+  %354 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %.lcssa232.sink) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.68, ptr noundef %354) #7
   call void @llvm.debugtrap()
   br label %355
 
 355:                                              ; preds = %.sink.split235, %351, %344
   %.lcssa.sink = phi i32 [ %343, %344 ], [ %350, %351 ], [ %.lcssa232.sink, %.sink.split235 ]
-  %356 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %.lcssa.sink) #8
-  %357 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.68, ptr noundef %356) #8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #8
+  %356 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %.lcssa.sink) #7
+  %357 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.68, ptr noundef %356) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %380
 
 358:                                              ; preds = %353
@@ -5008,22 +5002,22 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
   br label %380
 
 363:                                              ; preds = %.preheader
-  %364 = call i32 @SDL_GetRendererProperties_REAL(ptr noundef %0) #8
+  %364 = call i32 @SDL_GetRendererProperties_REAL(ptr noundef %0) #7
   %365 = load ptr, ptr %50, align 8
-  %366 = call zeroext i1 @SDL_SetPointerProperty_REAL(i32 noundef %364, ptr noundef nonnull @.str.69, ptr noundef %365) #8
+  %366 = call zeroext i1 @SDL_SetPointerProperty_REAL(i32 noundef %364, ptr noundef nonnull @.str.69, ptr noundef %365) #7
   %367 = load ptr, ptr %207, align 8
   %368 = ptrtoint ptr %367 to i64
-  %369 = call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %364, ptr noundef nonnull @.str.70, i64 noundef %368) #8
+  %369 = call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %364, ptr noundef nonnull @.str.70, i64 noundef %368) #7
   %370 = load ptr, ptr %225, align 8
-  %371 = call zeroext i1 @SDL_SetPointerProperty_REAL(i32 noundef %364, ptr noundef nonnull @.str.71, ptr noundef %370) #8
+  %371 = call zeroext i1 @SDL_SetPointerProperty_REAL(i32 noundef %364, ptr noundef nonnull @.str.71, ptr noundef %370) #7
   %372 = load ptr, ptr %256, align 8
-  %373 = call zeroext i1 @SDL_SetPointerProperty_REAL(i32 noundef %364, ptr noundef nonnull @.str.72, ptr noundef %372) #8
+  %373 = call zeroext i1 @SDL_SetPointerProperty_REAL(i32 noundef %364, ptr noundef nonnull @.str.72, ptr noundef %372) #7
   %374 = load i32, ptr %303, align 4
   %375 = zext i32 %374 to i64
-  %376 = call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %364, ptr noundef nonnull @.str.73, i64 noundef %375) #8
+  %376 = call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %364, ptr noundef nonnull @.str.73, i64 noundef %375) #7
   %377 = load i32, ptr %307, align 8
   %378 = zext i32 %377 to i64
-  %379 = call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %364, ptr noundef nonnull @.str.74, i64 noundef %378) #8
+  %379 = call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %364, ptr noundef nonnull @.str.74, i64 noundef %378) #7
   br label %380
 
 .preheader:                                       ; preds = %358, %.preheader
@@ -5035,12 +5029,12 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
 
 380:                                              ; preds = %355, %363, %362, %337, %328
   %.5 = phi i32 [ %323, %328 ], [ 0, %337 ], [ %361, %362 ], [ 0, %363 ], [ %.lcssa.sink, %355 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %381
 
 381:                                              ; preds = %294, %94, %VULKAN_LoadGlobalFunctions.exit, %380, %299, %234, %221, %187, %43, %.thread, %16
   %.0 = phi i32 [ %.5, %380 ], [ -13, %299 ], [ %289, %294 ], [ -13, %234 ], [ -13, %221 ], [ -13, %187 ], [ %89, %94 ], [ -13, %43 ], [ -13, %.thread ], [ -13, %16 ], [ -13, %VULKAN_LoadGlobalFunctions.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -5055,16 +5049,16 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %10 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %11 = tail call fastcc i32 @VULKAN_IssueBatch(ptr noundef %10)
   %12 = getelementptr i8, ptr %10, i64 1616
   %.val = load ptr, ptr %12, align 8
   %13 = load ptr, ptr @vkQueueWaitIdle, align 8
-  %14 = tail call i32 %13(ptr noundef %.val) #8
+  %14 = tail call i32 %13(ptr noundef %.val) #7
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %16 = load ptr, ptr %15, align 8
-  %17 = call zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef %16, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
+  %17 = call zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef %16, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
   %18 = load i32, ptr %7, align 4
   %19 = load i32, ptr %8, align 4
   %20 = load ptr, ptr %9, align 8
@@ -5074,23 +5068,23 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 1704
-  %27 = call i32 %21(ptr noundef %23, ptr noundef %25, ptr noundef nonnull %26) #8
+  %27 = call i32 %21(ptr noundef %23, ptr noundef %25, ptr noundef nonnull %26) #7
   %.not.i = icmp eq i32 %27, 0
   br i1 %.not.i, label %35, label %28
 
 28:                                               ; preds = %1
-  %29 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %29 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %28
-  %31 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %27) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.265, ptr noundef %31) #8
+  %31 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %27) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.265, ptr noundef %31) #7
   call void @llvm.debugtrap()
   br label %32
 
 32:                                               ; preds = %30, %28
-  %33 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %27) #8
-  %34 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.265, ptr noundef %33) #8
+  %33 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %27) #7
+  %34 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.265, ptr noundef %33) #7
   br label %VULKAN_CreateSwapChain.exit.thread
 
 35:                                               ; preds = %1
@@ -5115,7 +5109,7 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader61
   %41 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %37, %.preheader61 ]
-  call void @SDL_free_REAL(ptr noundef %41) #8
+  call void @SDL_free_REAL(ptr noundef %41) #7
   store ptr null, ptr %36, align 8
   br label %51
 
@@ -5126,7 +5120,7 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
   %45 = load ptr, ptr %36, align 8
   %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8
-  call void %43(ptr noundef %44, ptr noundef %47, ptr noundef null) #8
+  call void %43(ptr noundef %44, ptr noundef %47, ptr noundef null) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load i32, ptr %38, align 4
   %49 = zext i32 %48 to i64
@@ -5155,7 +5149,7 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
 
 ._crit_edge72:                                    ; preds = %._crit_edge72.loopexit, %.preheader60
   %57 = phi ptr [ %.pre228, %._crit_edge72.loopexit ], [ %53, %.preheader60 ]
-  call void @SDL_free_REAL(ptr noundef %57) #8
+  call void @SDL_free_REAL(ptr noundef %57) #7
   store ptr null, ptr %52, align 8
   br label %70
 
@@ -5171,7 +5165,7 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
 63:                                               ; preds = %58
   %64 = load ptr, ptr @vkDestroyFence, align 8
   %65 = load ptr, ptr %56, align 8
-  call void %64(ptr noundef %65, ptr noundef nonnull %62, ptr noundef null) #8
+  call void %64(ptr noundef %65, ptr noundef nonnull %62, ptr noundef null) #7
   %.pre227 = load i32, ptr %54, align 4
   br label %66
 
@@ -5194,9 +5188,9 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %20, i64 1664
   %78 = load ptr, ptr %77, align 8
-  %79 = call i32 %74(ptr noundef %76, ptr noundef %78, i32 noundef 0) #8
+  %79 = call i32 %74(ptr noundef %76, ptr noundef %78, i32 noundef 0) #7
   %80 = load ptr, ptr %71, align 8
-  call void @SDL_free_REAL(ptr noundef %80) #8
+  call void @SDL_free_REAL(ptr noundef %80) #7
   store ptr null, ptr %71, align 8
   %81 = getelementptr inbounds nuw i8, ptr %20, i64 1688
   store ptr null, ptr %81, align 8
@@ -5226,7 +5220,7 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
 
 ._crit_edge75:                                    ; preds = %._crit_edge75.loopexit, %.preheader59
   %89 = phi ptr [ %.pre230, %._crit_edge75.loopexit ], [ %85, %.preheader59 ]
-  call void @SDL_free_REAL(ptr noundef %89) #8
+  call void @SDL_free_REAL(ptr noundef %89) #7
   store ptr null, ptr %84, align 8
   br label %102
 
@@ -5242,7 +5236,7 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
 95:                                               ; preds = %90
   %96 = load ptr, ptr @vkDestroyFramebuffer, align 8
   %97 = load ptr, ptr %88, align 8
-  call void %96(ptr noundef %97, ptr noundef nonnull %94, ptr noundef null) #8
+  call void %96(ptr noundef %97, ptr noundef nonnull %94, ptr noundef null) #7
   %.pre229 = load i32, ptr %86, align 4
   br label %98
 
@@ -5284,11 +5278,11 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
 
 ._crit_edge80:                                    ; preds = %._crit_edge80.loopexit, %.preheader58
   %112 = phi ptr [ %.pre232, %._crit_edge80.loopexit ], [ %104, %.preheader58 ]
-  call void @SDL_free_REAL(ptr noundef %112) #8
+  call void @SDL_free_REAL(ptr noundef %112) #7
   store ptr null, ptr %103, align 8
   %113 = getelementptr inbounds nuw i8, ptr %20, i64 10312
   %114 = load ptr, ptr %113, align 8
-  call void @SDL_free_REAL(ptr noundef %114) #8
+  call void @SDL_free_REAL(ptr noundef %114) #7
   store ptr null, ptr %113, align 8
   br label %136
 
@@ -5296,7 +5290,7 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
   %115 = load ptr, ptr %103, align 8
   %116 = getelementptr inbounds nuw ptr, ptr %115, i64 %indvars.iv171
   %117 = load ptr, ptr %116, align 8
-  call void @SDL_free_REAL(ptr noundef %117) #8
+  call void @SDL_free_REAL(ptr noundef %117) #7
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
   %118 = load i32, ptr %105, align 4
   %119 = zext i32 %118 to i64
@@ -5317,7 +5311,7 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
 127:                                              ; preds = %.lr.ph77
   %128 = load ptr, ptr @vkDestroyDescriptorPool, align 8
   %129 = load ptr, ptr %108, align 8
-  call void %128(ptr noundef %129, ptr noundef nonnull %126, ptr noundef null) #8
+  call void %128(ptr noundef %129, ptr noundef nonnull %126, ptr noundef null) #7
   %.pre231 = load ptr, ptr %107, align 8
   br label %130
 
@@ -5352,7 +5346,7 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
 
 ._crit_edge83:                                    ; preds = %._crit_edge83.loopexit, %.preheader56
   %142 = phi ptr [ %.pre234, %._crit_edge83.loopexit ], [ %138, %.preheader56 ]
-  call void @SDL_free_REAL(ptr noundef %142) #8
+  call void @SDL_free_REAL(ptr noundef %142) #7
   store ptr null, ptr %137, align 8
   br label %155
 
@@ -5368,7 +5362,7 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
 148:                                              ; preds = %143
   %149 = load ptr, ptr @vkDestroySemaphore, align 8
   %150 = load ptr, ptr %141, align 8
-  call void %149(ptr noundef %150, ptr noundef nonnull %147, ptr noundef null) #8
+  call void %149(ptr noundef %150, ptr noundef nonnull %147, ptr noundef null) #7
   %.pre233 = load i32, ptr %139, align 4
   br label %151
 
@@ -5401,7 +5395,7 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
 
 ._crit_edge86:                                    ; preds = %._crit_edge86.loopexit, %.preheader55
   %161 = phi ptr [ %.pre236, %._crit_edge86.loopexit ], [ %157, %.preheader55 ]
-  call void @SDL_free_REAL(ptr noundef %161) #8
+  call void @SDL_free_REAL(ptr noundef %161) #7
   store ptr null, ptr %156, align 8
   br label %174
 
@@ -5417,7 +5411,7 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
 167:                                              ; preds = %162
   %168 = load ptr, ptr @vkDestroySemaphore, align 8
   %169 = load ptr, ptr %160, align 8
-  call void %168(ptr noundef %169, ptr noundef nonnull %166, ptr noundef null) #8
+  call void %168(ptr noundef %169, ptr noundef nonnull %166, ptr noundef null) #7
   %.pre235 = load i32, ptr %158, align 4
   br label %170
 
@@ -5454,7 +5448,7 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
 
 ._crit_edge89:                                    ; preds = %._crit_edge89.loopexit, %.preheader54
   %180 = phi ptr [ %.pre237, %._crit_edge89.loopexit ], [ %176, %.preheader54 ]
-  call void @SDL_free_REAL(ptr noundef %180) #8
+  call void @SDL_free_REAL(ptr noundef %180) #7
   store ptr null, ptr %175, align 8
   br label %203
 
@@ -5462,7 +5456,7 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
   %182 = load ptr, ptr %175, align 8
   %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %indvars.iv183
   %184 = load ptr, ptr %183, align 8
-  call void @SDL_free_REAL(ptr noundef %184) #8
+  call void @SDL_free_REAL(ptr noundef %184) #7
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %185 = load i32, ptr %177, align 4
   %186 = zext i32 %185 to i64
@@ -5483,7 +5477,7 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
 195:                                              ; preds = %188
   %196 = load ptr, ptr @vkDestroyBuffer, align 8
   %197 = load ptr, ptr %179, align 8
-  call void %196(ptr noundef %197, ptr noundef nonnull %194, ptr noundef null) #8
+  call void %196(ptr noundef %197, ptr noundef nonnull %194, ptr noundef null) #7
   store ptr null, ptr %193, align 8
   br label %198
 
@@ -5495,7 +5489,7 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
 200:                                              ; preds = %198
   %201 = load ptr, ptr @vkFreeMemory, align 8
   %202 = load ptr, ptr %179, align 8
-  call void %201(ptr noundef %202, ptr noundef nonnull %199, ptr noundef null) #8
+  call void %201(ptr noundef %202, ptr noundef nonnull %199, ptr noundef null) #7
   br label %VULKAN_DestroyBuffer.exit11
 
 VULKAN_DestroyBuffer.exit11:                      ; preds = %198, %200
@@ -5535,11 +5529,11 @@ VULKAN_DestroyBuffer.exit11:                      ; preds = %198, %200
 
 ._crit_edge94:                                    ; preds = %._crit_edge94.loopexit, %.preheader52
   %213 = phi ptr [ %.pre238, %._crit_edge94.loopexit ], [ %205, %.preheader52 ]
-  call void @SDL_free_REAL(ptr noundef %213) #8
+  call void @SDL_free_REAL(ptr noundef %213) #7
   store ptr null, ptr %204, align 8
   %214 = getelementptr inbounds nuw i8, ptr %20, i64 10224
   %215 = load ptr, ptr %214, align 8
-  call void @SDL_free_REAL(ptr noundef %215) #8
+  call void @SDL_free_REAL(ptr noundef %215) #7
   store ptr null, ptr %214, align 8
   br label %241
 
@@ -5547,7 +5541,7 @@ VULKAN_DestroyBuffer.exit11:                      ; preds = %198, %200
   %216 = load ptr, ptr %204, align 8
   %217 = getelementptr inbounds nuw ptr, ptr %216, i64 %indvars.iv189
   %218 = load ptr, ptr %217, align 8
-  call void @SDL_free_REAL(ptr noundef %218) #8
+  call void @SDL_free_REAL(ptr noundef %218) #7
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %219 = load i32, ptr %206, align 4
   %220 = zext i32 %219 to i64
@@ -5568,7 +5562,7 @@ VULKAN_DestroyBuffer.exit11:                      ; preds = %198, %200
 228:                                              ; preds = %.lr.ph91
   %229 = load ptr, ptr @vkDestroyBuffer, align 8
   %230 = load ptr, ptr %209, align 8
-  call void %229(ptr noundef %230, ptr noundef nonnull %227, ptr noundef null) #8
+  call void %229(ptr noundef %230, ptr noundef nonnull %227, ptr noundef null) #7
   store ptr null, ptr %226, align 8
   br label %231
 
@@ -5580,7 +5574,7 @@ VULKAN_DestroyBuffer.exit11:                      ; preds = %198, %200
 233:                                              ; preds = %231
   %234 = load ptr, ptr @vkFreeMemory, align 8
   %235 = load ptr, ptr %209, align 8
-  call void %234(ptr noundef %235, ptr noundef nonnull %232, ptr noundef null) #8
+  call void %234(ptr noundef %235, ptr noundef nonnull %232, ptr noundef null) #7
   br label %VULKAN_DestroyBuffer.exit
 
 VULKAN_DestroyBuffer.exit:                        ; preds = %231, %233
@@ -5748,28 +5742,28 @@ thread-pre-split:                                 ; preds = %299, %305
   br i1 %313, label %314, label %356
 
 314:                                              ; preds = %310
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4
   %315 = load ptr, ptr @vkGetPhysicalDeviceSurfacePresentModesKHR, align 8
   %316 = load ptr, ptr %22, align 8
   %317 = load ptr, ptr %24, align 8
-  %318 = call i32 %315(ptr noundef %316, ptr noundef %317, ptr noundef nonnull %2, ptr noundef null) #8
+  %318 = call i32 %315(ptr noundef %316, ptr noundef %317, ptr noundef nonnull %2, ptr noundef null) #7
   %.not494.i = icmp eq i32 %318, 0
   br i1 %.not494.i, label %326, label %319
 
 319:                                              ; preds = %314
-  %320 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %320 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %320, label %321, label %323
 
 321:                                              ; preds = %319
-  %322 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %318) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.266, ptr noundef %322) #8
+  %322 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %318) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.266, ptr noundef %322) #7
   call void @llvm.debugtrap()
   br label %323
 
 323:                                              ; preds = %321, %319
-  %324 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %318) #8
-  %325 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.266, ptr noundef %324) #8
+  %324 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %318) #7
+  %325 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.266, ptr noundef %324) #7
   br label %.thread
 
 326:                                              ; preds = %314
@@ -5783,24 +5777,24 @@ thread-pre-split:                                 ; preds = %299, %305
   %331 = load ptr, ptr @vkGetPhysicalDeviceSurfacePresentModesKHR, align 8
   %332 = load ptr, ptr %22, align 8
   %333 = load ptr, ptr %24, align 8
-  %334 = call i32 %331(ptr noundef %332, ptr noundef %333, ptr noundef nonnull %2, ptr noundef %330) #8
+  %334 = call i32 %331(ptr noundef %332, ptr noundef %333, ptr noundef nonnull %2, ptr noundef %330) #7
   %.not496.i = icmp eq i32 %334, 0
   br i1 %.not496.i, label %342, label %335
 
 335:                                              ; preds = %328
-  %336 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %336 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %336, label %337, label %339
 
 337:                                              ; preds = %335
-  %338 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %334) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.266, ptr noundef %338) #8
+  %338 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %334) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.266, ptr noundef %338) #7
   call void @llvm.debugtrap()
   br label %339
 
 339:                                              ; preds = %337, %335
-  %340 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %334) #8
-  %341 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.266, ptr noundef %340) #8
-  call void @SDL_free_REAL(ptr noundef %330) #8
+  %340 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %334) #7
+  %341 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.266, ptr noundef %340) #7
+  call void @SDL_free_REAL(ptr noundef %330) #7
   br label %.thread
 
 342:                                              ; preds = %328
@@ -5867,22 +5861,22 @@ thread-pre-split:                                 ; preds = %299, %305
 
 .thread:                                          ; preds = %323, %339
   %.3.i.ph = phi i32 [ %334, %339 ], [ %318, %323 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %VULKAN_CreateSwapChain.exit.thread
 
 .sink.split.sink.split:                           ; preds = %352, %.lr.ph99, %351, %.lr.ph104, %.preheader46, %.preheader47, %342
   %.0419.i.ph.ph = phi i32 [ 2, %342 ], [ 2, %.preheader46 ], [ 2, %.preheader47 ], [ %347, %.lr.ph104 ], [ %.6425.i, %351 ], [ 3, %.lr.ph99 ], [ 2, %352 ]
-  call void @SDL_free_REAL(ptr noundef %330) #8
+  call void @SDL_free_REAL(ptr noundef %330) #7
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %326
   %.0419.i.ph = phi i32 [ 2, %326 ], [ %.0419.i.ph.ph, %.sink.split.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %356
 
 356:                                              ; preds = %.sink.split, %310
   %.0419.i = phi i32 [ 2, %310 ], [ %.0419.i.ph, %.sink.split ]
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3, i8 0, i64 104, i1 false)
   store i32 1000001000, ptr %3, align 8
   %357 = load ptr, ptr %24, align 8
@@ -5928,7 +5922,7 @@ thread-pre-split:                                 ; preds = %299, %305
   %384 = load ptr, ptr @vkCreateSwapchainKHR, align 8
   %385 = getelementptr inbounds nuw i8, ptr %20, i64 1632
   %386 = load ptr, ptr %385, align 8
-  %387 = call i32 %384(ptr noundef %386, ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %381) #8
+  %387 = call i32 %384(ptr noundef %386, ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %381) #7
   %388 = load ptr, ptr %383, align 8
   %.not499.i = icmp eq ptr %388, null
   br i1 %.not499.i, label %392, label %389
@@ -5936,7 +5930,7 @@ thread-pre-split:                                 ; preds = %299, %305
 389:                                              ; preds = %356
   %390 = load ptr, ptr @vkDestroySwapchainKHR, align 8
   %391 = load ptr, ptr %385, align 8
-  call void %390(ptr noundef %391, ptr noundef nonnull %388, ptr noundef null) #8
+  call void %390(ptr noundef %391, ptr noundef nonnull %388, ptr noundef null) #7
   br label %392
 
 392:                                              ; preds = %389, %356
@@ -5945,83 +5939,83 @@ thread-pre-split:                                 ; preds = %299, %305
 
 393:                                              ; preds = %392
   store ptr null, ptr %381, align 8
-  %394 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %394 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %394, label %395, label %397
 
 395:                                              ; preds = %393
-  %396 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %387) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.267, ptr noundef %396) #8
+  %396 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %387) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.267, ptr noundef %396) #7
   call void @llvm.debugtrap()
   br label %397
 
 397:                                              ; preds = %395, %393
-  %398 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %387) #8
-  %399 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.267, ptr noundef %398) #8
+  %398 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %387) #7
+  %399 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.267, ptr noundef %398) #7
   br label %VULKAN_CreateSwapChain.exit.thread39
 
 400:                                              ; preds = %392
   %401 = getelementptr inbounds nuw i8, ptr %20, i64 10392
   %402 = load ptr, ptr %401, align 8
-  call void @SDL_free_REAL(ptr noundef %402) #8
+  call void @SDL_free_REAL(ptr noundef %402) #7
   store ptr null, ptr %401, align 8
   %403 = load ptr, ptr @vkGetSwapchainImagesKHR, align 8
   %404 = load ptr, ptr %385, align 8
   %405 = load ptr, ptr %381, align 8
   %406 = getelementptr inbounds nuw i8, ptr %20, i64 10388
-  %407 = call i32 %403(ptr noundef %404, ptr noundef %405, ptr noundef nonnull %406, ptr noundef null) #8
+  %407 = call i32 %403(ptr noundef %404, ptr noundef %405, ptr noundef nonnull %406, ptr noundef null) #7
   %.not501.i = icmp eq i32 %407, 0
   br i1 %.not501.i, label %415, label %408
 
 408:                                              ; preds = %400
   store i32 0, ptr %406, align 4
-  %409 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %409 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %409, label %410, label %412
 
 410:                                              ; preds = %408
-  %411 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %407) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.268, ptr noundef %411) #8
+  %411 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %407) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.268, ptr noundef %411) #7
   call void @llvm.debugtrap()
   br label %412
 
 412:                                              ; preds = %410, %408
-  %413 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %407) #8
-  %414 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.268, ptr noundef %413) #8
+  %413 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %407) #7
+  %414 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.268, ptr noundef %413) #7
   br label %VULKAN_CreateSwapChain.exit.thread39
 
 415:                                              ; preds = %400
   %416 = load i32, ptr %406, align 4
   %417 = zext i32 %416 to i64
   %418 = shl nuw nsw i64 %417, 3
-  %419 = call noalias ptr @SDL_malloc_REAL(i64 noundef %418) #8
+  %419 = call noalias ptr @SDL_malloc_REAL(i64 noundef %418) #7
   store ptr %419, ptr %401, align 8
   %420 = load ptr, ptr @vkGetSwapchainImagesKHR, align 8
   %421 = load ptr, ptr %385, align 8
   %422 = load ptr, ptr %381, align 8
-  %423 = call i32 %420(ptr noundef %421, ptr noundef %422, ptr noundef nonnull %406, ptr noundef %419) #8
+  %423 = call i32 %420(ptr noundef %421, ptr noundef %422, ptr noundef nonnull %406, ptr noundef %419) #7
   %.not502.i = icmp eq i32 %423, 0
   br i1 %.not502.i, label %432, label %424
 
 424:                                              ; preds = %415
   %425 = load ptr, ptr %401, align 8
-  call void @SDL_free_REAL(ptr noundef %425) #8
+  call void @SDL_free_REAL(ptr noundef %425) #7
   store ptr null, ptr %401, align 8
   store i32 0, ptr %406, align 4
-  %426 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %426 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %426, label %427, label %429
 
 427:                                              ; preds = %424
-  %428 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %423) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.268, ptr noundef %428) #8
+  %428 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %423) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.268, ptr noundef %428) #7
   call void @llvm.debugtrap()
   br label %429
 
 429:                                              ; preds = %427, %424
-  %430 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %423) #8
-  %431 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.268, ptr noundef %430) #8
+  %430 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %423) #7
+  %431 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.268, ptr noundef %430) #7
   br label %VULKAN_CreateSwapChain.exit.thread39
 
 432:                                              ; preds = %415
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false)
   store i32 15, ptr %4, align 8
   %433 = load i32, ptr %361, align 8
@@ -6045,7 +6039,7 @@ thread-pre-split:                                 ; preds = %299, %305
   store ptr %443, ptr %36, align 8
   %444 = getelementptr inbounds nuw i8, ptr %20, i64 10408
   %445 = load ptr, ptr %444, align 8
-  call void @SDL_free_REAL(ptr noundef %445) #8
+  call void @SDL_free_REAL(ptr noundef %445) #7
   %446 = load i32, ptr %406, align 4
   %447 = zext i32 %446 to i64
   %448 = call noalias ptr @SDL_calloc_REAL(i64 noundef %447, i64 noundef 4) #11
@@ -6068,25 +6062,25 @@ thread-pre-split:                                 ; preds = %299, %305
   %456 = load ptr, ptr %385, align 8
   %457 = load ptr, ptr %36, align 8
   %458 = getelementptr inbounds nuw ptr, ptr %457, i64 %indvars.iv206
-  %459 = call i32 %455(ptr noundef %456, ptr noundef nonnull %4, ptr noundef null, ptr noundef %458) #8
+  %459 = call i32 %455(ptr noundef %456, ptr noundef nonnull %4, ptr noundef null, ptr noundef %458) #7
   %.not503.i = icmp eq i32 %459, 0
   br i1 %.not503.i, label %466, label %460
 
 460:                                              ; preds = %451
   call fastcc void @VULKAN_DestroyAll(ptr noundef %0)
-  %461 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %461 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %461, label %462, label %.thread21
 
 462:                                              ; preds = %460
-  %463 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %459) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.20, ptr noundef %463) #8
+  %463 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %459) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.20, ptr noundef %463) #7
   call void @llvm.debugtrap()
   br label %.thread21
 
 .thread21:                                        ; preds = %460, %462
-  %464 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %459) #8
-  %465 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.20, ptr noundef %464) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  %464 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %459) #7
+  %465 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.20, ptr noundef %464) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %VULKAN_CreateSwapChain.exit.thread39
 
 466:                                              ; preds = %451
@@ -6101,8 +6095,8 @@ thread-pre-split:                                 ; preds = %299, %305
 
 ._crit_edge112:                                   ; preds = %466, %432
   %471 = phi i32 [ 0, %432 ], [ %469, %466 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false)
   store i32 40, ptr %5, align 8
   %472 = getelementptr inbounds nuw i8, ptr %20, i64 1664
@@ -6118,24 +6112,24 @@ thread-pre-split:                                 ; preds = %299, %305
   store ptr %478, ptr %71, align 8
   %479 = load ptr, ptr @vkAllocateCommandBuffers, align 8
   %480 = load ptr, ptr %385, align 8
-  %481 = call i32 %479(ptr noundef %480, ptr noundef nonnull %5, ptr noundef %478) #8
+  %481 = call i32 %479(ptr noundef %480, ptr noundef nonnull %5, ptr noundef %478) #7
   %.not505.i = icmp eq i32 %481, 0
   br i1 %.not505.i, label %489, label %482
 
 482:                                              ; preds = %._crit_edge112
   call fastcc void @VULKAN_DestroyAll(ptr noundef %0)
-  %483 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %483 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %483, label %484, label %486
 
 484:                                              ; preds = %482
-  %485 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %481) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.269, ptr noundef %485) #8
+  %485 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %481) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.269, ptr noundef %485) #7
   call void @llvm.debugtrap()
   br label %486
 
 486:                                              ; preds = %484, %482
-  %487 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %481) #8
-  %488 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.269, ptr noundef %487) #8
+  %487 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %481) #7
+  %488 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.269, ptr noundef %487) #7
   br label %VULKAN_CreateSwapChain.exit.thread43
 
 489:                                              ; preds = %._crit_edge112
@@ -6157,7 +6151,7 @@ thread-pre-split:                                 ; preds = %299, %305
 
 496:                                              ; preds = %.lr.ph116, %508
   %indvars.iv209 = phi i64 [ 0, %.lr.ph116 ], [ %indvars.iv.next210, %508 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store i32 8, ptr %6, align 8
   store i32 1, ptr %494, align 8
@@ -6165,29 +6159,29 @@ thread-pre-split:                                 ; preds = %299, %305
   %498 = load ptr, ptr %385, align 8
   %499 = load ptr, ptr %52, align 8
   %500 = getelementptr inbounds nuw ptr, ptr %499, i64 %indvars.iv209
-  %501 = call i32 %497(ptr noundef %498, ptr noundef nonnull %6, ptr noundef null, ptr noundef %500) #8
+  %501 = call i32 %497(ptr noundef %498, ptr noundef nonnull %6, ptr noundef null, ptr noundef %500) #7
   %.not506.i = icmp eq i32 %501, 0
   br i1 %.not506.i, label %508, label %502
 
 502:                                              ; preds = %496
   call fastcc void @VULKAN_DestroyAll(ptr noundef %0)
-  %503 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %503 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %503, label %504, label %.thread26
 
 504:                                              ; preds = %502
-  %505 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %501) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.270, ptr noundef %505) #8
+  %505 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %501) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.270, ptr noundef %505) #7
   call void @llvm.debugtrap()
   br label %.thread26
 
 .thread26:                                        ; preds = %504, %502
-  %506 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %501) #8
-  %507 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.270, ptr noundef %506) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
+  %506 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %501) #7
+  %507 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.270, ptr noundef %506) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %VULKAN_CreateSwapChain.exit.thread43
 
 508:                                              ; preds = %496
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
   %509 = load i32, ptr %406, align 4
   %510 = zext i32 %509 to i64
@@ -6220,7 +6214,7 @@ thread-pre-split:                                 ; preds = %299, %305
 525:                                              ; preds = %521
   %526 = load ptr, ptr @vkDestroyRenderPass, align 8
   %527 = load ptr, ptr %385, align 8
-  call void %526(ptr noundef %527, ptr noundef nonnull %524, ptr noundef null) #8
+  call void %526(ptr noundef %527, ptr noundef nonnull %524, ptr noundef null) #7
   store ptr null, ptr %523, align 8
   br label %528
 
@@ -6229,18 +6223,18 @@ thread-pre-split:                                 ; preds = %299, %305
 
 529:                                              ; preds = %511
   call fastcc void @VULKAN_DestroyAll(ptr noundef nonnull %0)
-  %530 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %530 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %530, label %531, label %533
 
 531:                                              ; preds = %529
-  %532 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %520) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.13, ptr noundef %532) #8
+  %532 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %520) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.13, ptr noundef %532) #7
   call void @llvm.debugtrap()
   br label %533
 
 533:                                              ; preds = %531, %529
-  %534 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %520) #8
-  %535 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.13, ptr noundef %534) #8
+  %534 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %520) #7
+  %535 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.13, ptr noundef %534) #7
   br label %VULKAN_CreateSwapChain.exit.thread43
 
 536:                                              ; preds = %511
@@ -6349,7 +6343,7 @@ thread-pre-split:                                 ; preds = %299, %305
 ._crit_edge131:                                   ; preds = %.lr.ph130, %._crit_edge127
   %587 = getelementptr inbounds nuw i8, ptr %20, i64 10208
   %588 = load ptr, ptr %587, align 8
-  call void @SDL_free_REAL(ptr noundef %588) #8
+  call void @SDL_free_REAL(ptr noundef %588) #7
   %589 = load i32, ptr %406, align 4
   %590 = zext i32 %589 to i64
   %591 = call noalias ptr @SDL_calloc_REAL(i64 noundef %590, i64 noundef 4) #11
@@ -6408,13 +6402,13 @@ thread-pre-split:                                 ; preds = %299, %305
 
 VULKAN_CreateSwapChain.exit.thread39:             ; preds = %397, %412, %429, %.thread21
   %.7.i.ph = phi i32 [ %459, %.thread21 ], [ %423, %429 ], [ %407, %412 ], [ %387, %397 ]
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %VULKAN_CreateSwapChain.exit.thread
 
 VULKAN_CreateSwapChain.exit.thread43:             ; preds = %486, %533, %.thread26, %.thread31, %582, %573
   %.9.i.ph = phi i32 [ %617, %.thread31 ], [ %501, %.thread26 ], [ %520, %533 ], [ %481, %486 ], [ -13, %582 ], [ -13, %573 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %VULKAN_CreateSwapChain.exit.thread
 
 VULKAN_CreateSwapChain.exit:                      ; preds = %606, %._crit_edge131
@@ -6423,12 +6417,12 @@ VULKAN_CreateSwapChain.exit:                      ; preds = %606, %._crit_edge13
   %619 = getelementptr inbounds nuw i8, ptr %20, i64 10232
   store i32 0, ptr %619, align 8
   call fastcc void @VULKAN_AcquireNextSwapchainImage(ptr noundef %0)
-  %620 = call i32 @SDL_GetRendererProperties_REAL(ptr noundef %0) #8
+  %620 = call i32 @SDL_GetRendererProperties_REAL(ptr noundef %0) #7
   %621 = load i32, ptr %406, align 4
   %622 = zext i32 %621 to i64
-  %623 = call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %620, ptr noundef nonnull @.str.271, i64 noundef %622) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #8
+  %623 = call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %620, ptr noundef nonnull @.str.271, i64 noundef %622) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %625
 
 VULKAN_CreateSwapChain.exit.thread:               ; preds = %thread-pre-split, %.thread, %32, %VULKAN_CreateSwapChain.exit.thread43, %VULKAN_CreateSwapChain.exit.thread39
@@ -6441,34 +6435,34 @@ VULKAN_CreateSwapChain.exit.thread:               ; preds = %thread-pre-split, %
   %.0.i37 = phi i32 [ %.0.i36, %VULKAN_CreateSwapChain.exit.thread ], [ 0, %VULKAN_CreateSwapChain.exit ]
   %626 = getelementptr inbounds nuw i8, ptr %10, i64 10536
   store i8 1, ptr %626, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0.i37
 }
 
-declare i32 @SDL_GetBlendModeSrcColorFactor(i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_GetBlendModeSrcColorFactor(i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetBlendModeSrcAlphaFactor(i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_GetBlendModeSrcAlphaFactor(i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetBlendModeColorOperation(i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_GetBlendModeColorOperation(i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetBlendModeDstColorFactor(i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_GetBlendModeDstColorFactor(i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetBlendModeDstAlphaFactor(i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_GetBlendModeDstAlphaFactor(i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetBlendModeAlphaOperation(i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_GetBlendModeAlphaOperation(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
-declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @SDL_LogError_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @SDL_LogError_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @SDL_Vulkan_GetResultString(i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_Vulkan_GetResultString(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @llvm.debugtrap() #8
+declare void @llvm.debugtrap() #7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @VULKAN_CreateDescriptorSetAndPipelineLayout(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
@@ -6478,12 +6472,12 @@ define internal fastcc i32 @VULKAN_CreateDescriptorSetAndPipelineLayout(ptr noun
   %8 = alloca %struct.VkPipelineLayoutCreateInfo, align 8
   %9 = alloca %struct.VkPushConstantRange, align 4
   store ptr %1, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 16, i1 false)
   store i32 32, ptr %6, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 1, ptr %7, align 16
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 1, ptr %11, align 8
@@ -6512,29 +6506,29 @@ define internal fastcc i32 @VULKAN_CreateDescriptorSetAndPipelineLayout(ptr noun
   %22 = load ptr, ptr @vkCreateDescriptorSetLayout, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1632
   %24 = load ptr, ptr %23, align 8
-  %25 = call i32 %22(ptr noundef %24, ptr noundef nonnull %6, ptr noundef null, ptr noundef %2) #8
+  %25 = call i32 %22(ptr noundef %24, ptr noundef nonnull %6, ptr noundef null, ptr noundef %2) #7
   %.not16 = icmp eq i32 %25, 0
   br i1 %.not16, label %33, label %26
 
 26:                                               ; preds = %4
-  %27 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %27 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %26
-  %29 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %25) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.14, ptr noundef %29) #8
+  %29 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %25) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.14, ptr noundef %29) #7
   call void @llvm.debugtrap()
   br label %30
 
 30:                                               ; preds = %28, %26
-  %31 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %25) #8
-  %32 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.14, ptr noundef %31) #8
+  %31 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %25) #7
+  %32 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.14, ptr noundef %31) #7
   br label %51
 
 33:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 128, ptr %34, align 4
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -6551,38 +6545,38 @@ define internal fastcc i32 @VULKAN_CreateDescriptorSetAndPipelineLayout(ptr noun
   store ptr %9, ptr %39, align 8
   %40 = load ptr, ptr @vkCreatePipelineLayout, align 8
   %41 = load ptr, ptr %23, align 8
-  %42 = call i32 %40(ptr noundef %41, ptr noundef nonnull %8, ptr noundef null, ptr noundef %3) #8
+  %42 = call i32 %40(ptr noundef %41, ptr noundef nonnull %8, ptr noundef null, ptr noundef %3) #7
   %.not17 = icmp eq i32 %42, 0
   br i1 %.not17, label %50, label %43
 
 43:                                               ; preds = %33
-  %44 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %44 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %43
-  %46 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %42) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.15, ptr noundef %46) #8
+  %46 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %42) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.15, ptr noundef %46) #7
   call void @llvm.debugtrap()
   br label %47
 
 47:                                               ; preds = %45, %43
-  %48 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %42) #8
-  %49 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.15, ptr noundef %48) #8
+  %48 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %42) #7
+  %49 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.15, ptr noundef %48) #7
   br label %50
 
 50:                                               ; preds = %33, %47
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %51
 
 51:                                               ; preds = %50, %30
   %.0 = phi i32 [ %25, %30 ], [ %42, %50 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-declare i32 @SDL_GetTextureProperties_REAL(ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_GetTextureProperties_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @VULKAN_CreateFramebuffersAndRenderPasses(ptr readonly captures(none) %.696.val, i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
@@ -6592,7 +6586,7 @@ define internal fastcc i32 @VULKAN_CreateFramebuffersAndRenderPasses(ptr readonl
   %11 = alloca %struct.VkSubpassDependency, align 4
   %12 = alloca %struct.VkRenderPassCreateInfo, align 8
   %13 = alloca %struct.VkFramebufferCreateInfo, align 8
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %2, ptr %14, align 4
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 12
@@ -6610,9 +6604,9 @@ define internal fastcc i32 @VULKAN_CreateFramebuffersAndRenderPasses(ptr readonl
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 1, ptr %21, align 4
   store i32 0, ptr %8, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 8589934592, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 64, i1 false)
   store i32 1, ptr %22, align 8
@@ -6622,7 +6616,7 @@ define internal fastcc i32 @VULKAN_CreateFramebuffersAndRenderPasses(ptr readonl
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store ptr null, ptr %25, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %24, i8 0, i64 20, i1 false)
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 -1, ptr %11, align 4
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 0, ptr %26, align 4
@@ -6636,7 +6630,7 @@ define internal fastcc i32 @VULKAN_CreateFramebuffersAndRenderPasses(ptr readonl
   store i32 384, ptr %30, align 4
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 1, ptr %31, align 4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, i8 0, i64 56, i1 false)
   store i32 38, ptr %12, align 8
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 20
@@ -6654,23 +6648,23 @@ define internal fastcc i32 @VULKAN_CreateFramebuffersAndRenderPasses(ptr readonl
   %38 = load ptr, ptr @vkCreateRenderPass, align 8
   %39 = getelementptr inbounds nuw i8, ptr %.696.val, i64 1632
   %40 = load ptr, ptr %39, align 8
-  %41 = call i32 %38(ptr noundef %40, ptr noundef nonnull %12, ptr noundef null, ptr noundef %6) #8
+  %41 = call i32 %38(ptr noundef %40, ptr noundef nonnull %12, ptr noundef null, ptr noundef %6) #7
   %.not = icmp eq i32 %41, 0
   br i1 %.not, label %49, label %42
 
 42:                                               ; preds = %7
-  %43 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %43 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %42
-  %45 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %41) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.23, ptr noundef %45) #8
+  %45 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %41) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.23, ptr noundef %45) #7
   call void @llvm.debugtrap()
   br label %46
 
 46:                                               ; preds = %44, %42
-  %47 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %41) #8
-  %48 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.23, ptr noundef %47) #8
+  %47 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %41) #7
+  %48 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.23, ptr noundef %47) #7
   br label %84
 
 49:                                               ; preds = %7
@@ -6678,27 +6672,27 @@ define internal fastcc i32 @VULKAN_CreateFramebuffersAndRenderPasses(ptr readonl
   %50 = load ptr, ptr @vkCreateRenderPass, align 8
   %51 = load ptr, ptr %39, align 8
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %53 = call i32 %50(ptr noundef %51, ptr noundef nonnull %12, ptr noundef null, ptr noundef nonnull %52) #8
+  %53 = call i32 %50(ptr noundef %51, ptr noundef nonnull %12, ptr noundef null, ptr noundef nonnull %52) #7
   %.not40 = icmp eq i32 %53, 0
   br i1 %.not40, label %61, label %54
 
 54:                                               ; preds = %49
-  %55 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %55 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %54
-  %57 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %53) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.23, ptr noundef %57) #8
+  %57 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %53) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.23, ptr noundef %57) #7
   call void @llvm.debugtrap()
   br label %58
 
 58:                                               ; preds = %56, %54
-  %59 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %53) #8
-  %60 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.23, ptr noundef %59) #8
+  %59 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %53) #7
+  %60 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.23, ptr noundef %59) #7
   br label %84
 
 61:                                               ; preds = %49
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, i8 0, i64 64, i1 false)
   store i32 37, ptr %13, align 8
   %62 = getelementptr inbounds nuw i8, ptr %.696.val, i64 1792
@@ -6733,41 +6727,41 @@ define internal fastcc i32 @VULKAN_CreateFramebuffersAndRenderPasses(ptr readonl
   %73 = load ptr, ptr @vkCreateFramebuffer, align 8
   %74 = load ptr, ptr %39, align 8
   %75 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  %76 = call i32 %73(ptr noundef %74, ptr noundef nonnull %13, ptr noundef null, ptr noundef %75) #8
+  %76 = call i32 %73(ptr noundef %74, ptr noundef nonnull %13, ptr noundef null, ptr noundef %75) #7
   %.not41 = icmp eq i32 %76, 0
   br i1 %.not41, label %70, label %77
 
 77:                                               ; preds = %71
-  %78 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %78 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %77
-  %80 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %76) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.24, ptr noundef %80) #8
+  %80 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %76) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.24, ptr noundef %80) #7
   call void @llvm.debugtrap()
   br label %81
 
 81:                                               ; preds = %79, %77
-  %82 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %76) #8
-  %83 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.24, ptr noundef %82) #8
+  %82 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %76) #7
+  %83 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.24, ptr noundef %82) #7
   br label %.loopexit
 
 .loopexit:                                        ; preds = %70, %61, %81
   %spec.select = phi i32 [ %76, %81 ], [ 0, %61 ], [ 0, %70 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %84
 
 84:                                               ; preds = %.loopexit, %58, %46
   %.033 = phi i32 [ %41, %46 ], [ %53, %58 ], [ %spec.select, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.033
 }
 
-declare i64 @SDL_GetNumberProperty_REAL(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @SDL_GetNumberProperty_REAL(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @VULKAN_DestroyImage(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) initializes((1, 8), (32, 40)) %1) unnamed_addr #0 {
@@ -6780,7 +6774,7 @@ define internal fastcc void @VULKAN_DestroyImage(ptr noundef readonly captures(n
   %6 = load ptr, ptr @vkDestroyImageView, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1632
   %8 = load ptr, ptr %7, align 8
-  tail call void %6(ptr noundef %8, ptr noundef nonnull %4, ptr noundef null) #8
+  tail call void %6(ptr noundef %8, ptr noundef nonnull %4, ptr noundef null) #7
   store ptr null, ptr %3, align 8
   br label %9
 
@@ -6799,7 +6793,7 @@ define internal fastcc void @VULKAN_DestroyImage(ptr noundef readonly captures(n
   %16 = load ptr, ptr @vkDestroyImage, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1632
   %18 = load ptr, ptr %17, align 8
-  tail call void %16(ptr noundef %18, ptr noundef nonnull %11, ptr noundef null) #8
+  tail call void %16(ptr noundef %18, ptr noundef nonnull %11, ptr noundef null) #7
   br label %19
 
 19:                                               ; preds = %15, %12
@@ -6821,7 +6815,7 @@ define internal fastcc void @VULKAN_DestroyImage(ptr noundef readonly captures(n
   %27 = load ptr, ptr @vkFreeMemory, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 1632
   %29 = load ptr, ptr %28, align 8
-  tail call void %27(ptr noundef %29, ptr noundef nonnull %22, ptr noundef null) #8
+  tail call void %27(ptr noundef %29, ptr noundef nonnull %22, ptr noundef null) #7
   br label %30
 
 30:                                               ; preds = %23, %26, %20
@@ -6928,12 +6922,12 @@ VULKAN_VkFormatGetNumPlanes.exit:                 ; preds = %VULKAN_GetBytesPerP
   %57 = load ptr, ptr @vkCmdEndRenderPass, align 8
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 1688
   %59 = load ptr, ptr %58, align 8
-  tail call void %57(ptr noundef %59) #8
+  tail call void %57(ptr noundef %59) #7
   store ptr null, ptr %54, align 8
   br label %VULKAN_RecordPipelineImageBarrier.exit
 
 VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %.loopexit, %56
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %13) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %13, i8 0, i64 72, i1 false)
   store i32 45, ptr %13, align 8
   %60 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -6960,10 +6954,10 @@ VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %.loopexit, %56
   %71 = load ptr, ptr @vkCmdPipelineBarrier, align 8
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 1688
   %73 = load ptr, ptr %72, align 8
-  call void %71(ptr noundef %73, i32 noundef 5248, i32 noundef 4096, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %13) #8
+  call void %71(ptr noundef %73, i32 noundef 5248, i32 noundef 4096, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %13) #7
   store i32 7, ptr %10, align 4
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %13) #8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %14) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %74 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %75 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 0, ptr %75, align 8
@@ -6991,7 +6985,7 @@ VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %.loopexit, %56
   %86 = load ptr, ptr %72, align 8
   %87 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %88 = load ptr, ptr %87, align 8
-  call void %85(ptr noundef %86, ptr noundef %88, ptr noundef %1, i32 noundef 7, i32 noundef 1, ptr noundef nonnull %14) #8
+  call void %85(ptr noundef %86, ptr noundef %88, ptr noundef %1, i32 noundef 7, i32 noundef 1, ptr noundef nonnull %14) #7
   %89 = load ptr, ptr %54, align 8
   %.not.i65 = icmp eq ptr %89, null
   br i1 %.not.i65, label %VULKAN_RecordPipelineImageBarrier.exit66, label %90
@@ -6999,12 +6993,12 @@ VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %.loopexit, %56
 90:                                               ; preds = %VULKAN_RecordPipelineImageBarrier.exit
   %91 = load ptr, ptr @vkCmdEndRenderPass, align 8
   %92 = load ptr, ptr %72, align 8
-  call void %91(ptr noundef %92) #8
+  call void %91(ptr noundef %92) #7
   store ptr null, ptr %54, align 8
   br label %VULKAN_RecordPipelineImageBarrier.exit66
 
 VULKAN_RecordPipelineImageBarrier.exit66:         ; preds = %VULKAN_RecordPipelineImageBarrier.exit, %90
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %12, i8 0, i64 72, i1 false)
   store i32 45, ptr %12, align 8
   %93 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -7030,9 +7024,9 @@ VULKAN_RecordPipelineImageBarrier.exit66:         ; preds = %VULKAN_RecordPipeli
   store i32 1, ptr %103, align 8
   %104 = load ptr, ptr @vkCmdPipelineBarrier, align 8
   %105 = load ptr, ptr %72, align 8
-  call void %104(ptr noundef %105, i32 noundef 4096, i32 noundef 128, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %12) #8
+  call void %104(ptr noundef %105, i32 noundef 4096, i32 noundef 128, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %12) #7
   store i32 5, ptr %10, align 4
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %106 = load ptr, ptr %30, align 8
   %107 = load i32, ptr %32, align 8
   %108 = zext i32 %107 to i64
@@ -7053,7 +7047,7 @@ VULKAN_RecordPipelineImageBarrier.exit66:         ; preds = %VULKAN_RecordPipeli
   br label %120
 
 120:                                              ; preds = %118, %VULKAN_RecordPipelineImageBarrier.exit66
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %121
 
 121:                                              ; preds = %VULKAN_VkFormatGetNumPlanes.exit, %120
@@ -7102,14 +7096,14 @@ define internal fastcc void @VULKAN_EnsureCommandBuffer(ptr noundef captures(non
 30:                                               ; preds = %23
   %31 = load ptr, ptr @vkCmdEndRenderPass, align 8
   %32 = load ptr, ptr %4, align 8
-  tail call void %31(ptr noundef %32) #8
+  tail call void %31(ptr noundef %32) #7
   store ptr null, ptr %28, align 8
   %.pre21 = load i32, ptr %20, align 4
   br label %VULKAN_RecordPipelineImageBarrier.exit
 
 VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %23, %30
   %33 = phi i32 [ 0, %23 ], [ %.pre21, %30 ]
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i32 45, ptr %3, align 8
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 20
@@ -7132,9 +7126,9 @@ VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %23, %30
   store i32 1, ptr %42, align 8
   %43 = load ptr, ptr @vkCmdPipelineBarrier, align 8
   %44 = load ptr, ptr %4, align 8
-  call void %43(ptr noundef %44, i32 noundef 1, i32 noundef 1024, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %3) #8
+  call void %43(ptr noundef %44, i32 noundef 1, i32 noundef 1024, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %3) #7
   store i32 2, ptr %20, align 4
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %73
 
 45:                                               ; preds = %7
@@ -7158,14 +7152,14 @@ VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %23, %30
 57:                                               ; preds = %50
   %58 = load ptr, ptr @vkCmdEndRenderPass, align 8
   %59 = load ptr, ptr %4, align 8
-  tail call void %58(ptr noundef %59) #8
+  tail call void %58(ptr noundef %59) #7
   store ptr null, ptr %55, align 8
   %.pre = load i32, ptr %20, align 4
   br label %VULKAN_RecordPipelineImageBarrier.exit20
 
 VULKAN_RecordPipelineImageBarrier.exit20:         ; preds = %50, %57
   %60 = phi i32 [ %21, %50 ], [ %.pre, %57 ]
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 72, i1 false)
   store i32 45, ptr %2, align 8
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -7190,9 +7184,9 @@ VULKAN_RecordPipelineImageBarrier.exit20:         ; preds = %50, %57
   store i32 1, ptr %70, align 8
   %71 = load ptr, ptr @vkCmdPipelineBarrier, align 8
   %72 = load ptr, ptr %4, align 8
-  call void %71(ptr noundef %72, i32 noundef 1024, i32 noundef 1024, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %2) #8
+  call void %71(ptr noundef %72, i32 noundef 1024, i32 noundef 1024, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %2) #7
   store i32 2, ptr %20, align 4
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %73
 
 73:                                               ; preds = %VULKAN_RecordPipelineImageBarrier.exit, %VULKAN_RecordPipelineImageBarrier.exit20, %45, %1
@@ -7204,7 +7198,7 @@ define internal fastcc i32 @VULKAN_AllocateBuffer(ptr noundef readonly captures(
   %5 = alloca %struct.VkBufferCreateInfo, align 8
   %6 = alloca %struct.VkMemoryRequirements, align 8
   %7 = alloca %struct.VkMemoryAllocateInfo, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   store i32 12, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -7215,32 +7209,32 @@ define internal fastcc i32 @VULKAN_AllocateBuffer(ptr noundef readonly captures(
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1632
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %14 = call i32 %10(ptr noundef %12, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %13) #8
+  %14 = call i32 %10(ptr noundef %12, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %13) #7
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %22, label %15
 
 15:                                               ; preds = %4
-  %16 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %16 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %15
-  %18 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %14) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.26, ptr noundef %18) #8
+  %18 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %14) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.26, ptr noundef %18) #7
   call void @llvm.debugtrap()
   br label %19
 
 19:                                               ; preds = %17, %15
-  %20 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %14) #8
-  %21 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.26, ptr noundef %20) #8
+  %20 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %14) #7
+  %21 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.26, ptr noundef %20) #7
   br label %123
 
 22:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %23 = load ptr, ptr @vkGetBufferMemoryRequirements, align 8
   %24 = load ptr, ptr %11, align 8
   %25 = load ptr, ptr %13, align 8
-  call void %23(ptr noundef %24, ptr noundef %25, ptr noundef nonnull %6) #8
+  call void %23(ptr noundef %24, ptr noundef %25, ptr noundef nonnull %6) #7
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 872
@@ -7298,16 +7292,16 @@ define internal fastcc i32 @VULKAN_AllocateBuffer(ptr noundef readonly captures(
   br i1 %.not27.i, label %61, label %.loopexit.thread.i
 
 .loopexit.thread.i:                               ; preds = %.critedge.i, %.loopexit.i
-  %48 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %48 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %.loopexit.thread.i
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22) #8
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22) #7
   call void @llvm.debugtrap()
   br label %50
 
 50:                                               ; preds = %49, %.loopexit.thread.i
-  %51 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22) #8
+  %51 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22) #7
   %52 = load ptr, ptr %13, align 8
   %.not.i60 = icmp eq ptr %52, null
   br i1 %.not.i60, label %56, label %53
@@ -7315,7 +7309,7 @@ define internal fastcc i32 @VULKAN_AllocateBuffer(ptr noundef readonly captures(
 53:                                               ; preds = %50
   %54 = load ptr, ptr @vkDestroyBuffer, align 8
   %55 = load ptr, ptr %11, align 8
-  call void %54(ptr noundef %55, ptr noundef nonnull %52, ptr noundef null) #8
+  call void %54(ptr noundef %55, ptr noundef nonnull %52, ptr noundef null) #7
   store ptr null, ptr %13, align 8
   br label %56
 
@@ -7327,7 +7321,7 @@ define internal fastcc i32 @VULKAN_AllocateBuffer(ptr noundef readonly captures(
 58:                                               ; preds = %56
   %59 = load ptr, ptr @vkFreeMemory, align 8
   %60 = load ptr, ptr %11, align 8
-  call void %59(ptr noundef %60, ptr noundef nonnull %57, ptr noundef null) #8
+  call void %59(ptr noundef %60, ptr noundef nonnull %57, ptr noundef null) #7
   br label %VULKAN_DestroyBuffer.exit
 
 VULKAN_DestroyBuffer.exit:                        ; preds = %56, %58
@@ -7335,7 +7329,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %56, %58
   br label %122
 
 61:                                               ; preds = %.loopexit.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   store i32 5, ptr %7, align 8
   %62 = load i64, ptr %6, align 8
@@ -7345,7 +7339,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %56, %58
   store i32 %.1.i, ptr %64, align 8
   %65 = load ptr, ptr @vkAllocateMemory, align 8
   %66 = load ptr, ptr %11, align 8
-  %67 = call i32 %65(ptr noundef %66, ptr noundef nonnull %7, ptr noundef null, ptr noundef %3) #8
+  %67 = call i32 %65(ptr noundef %66, ptr noundef nonnull %7, ptr noundef null, ptr noundef %3) #7
   %.not57 = icmp eq i32 %67, 0
   br i1 %.not57, label %84, label %68
 
@@ -7357,7 +7351,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %56, %58
 70:                                               ; preds = %68
   %71 = load ptr, ptr @vkDestroyBuffer, align 8
   %72 = load ptr, ptr %11, align 8
-  call void %71(ptr noundef %72, ptr noundef nonnull %69, ptr noundef null) #8
+  call void %71(ptr noundef %72, ptr noundef nonnull %69, ptr noundef null) #7
   store ptr null, ptr %13, align 8
   br label %73
 
@@ -7369,23 +7363,23 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %56, %58
 75:                                               ; preds = %73
   %76 = load ptr, ptr @vkFreeMemory, align 8
   %77 = load ptr, ptr %11, align 8
-  call void %76(ptr noundef %77, ptr noundef nonnull %74, ptr noundef null) #8
+  call void %76(ptr noundef %77, ptr noundef nonnull %74, ptr noundef null) #7
   br label %VULKAN_DestroyBuffer.exit63
 
 VULKAN_DestroyBuffer.exit63:                      ; preds = %73, %75
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
-  %78 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %78 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %VULKAN_DestroyBuffer.exit63
-  %80 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %67) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.18, ptr noundef %80) #8
+  %80 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %67) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.18, ptr noundef %80) #7
   call void @llvm.debugtrap()
   br label %81
 
 81:                                               ; preds = %79, %VULKAN_DestroyBuffer.exit63
-  %82 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %67) #8
-  %83 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.18, ptr noundef %82) #8
+  %82 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %67) #7
+  %83 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.18, ptr noundef %82) #7
   br label %121
 
 84:                                               ; preds = %61
@@ -7393,7 +7387,7 @@ VULKAN_DestroyBuffer.exit63:                      ; preds = %73, %75
   %86 = load ptr, ptr %11, align 8
   %87 = load ptr, ptr %13, align 8
   %88 = load ptr, ptr %3, align 8
-  %89 = call i32 %85(ptr noundef %86, ptr noundef %87, ptr noundef %88, i64 noundef 0) #8
+  %89 = call i32 %85(ptr noundef %86, ptr noundef %87, ptr noundef %88, i64 noundef 0) #7
   %.not58 = icmp eq i32 %89, 0
   br i1 %.not58, label %106, label %90
 
@@ -7405,7 +7399,7 @@ VULKAN_DestroyBuffer.exit63:                      ; preds = %73, %75
 92:                                               ; preds = %90
   %93 = load ptr, ptr @vkDestroyBuffer, align 8
   %94 = load ptr, ptr %11, align 8
-  call void %93(ptr noundef %94, ptr noundef nonnull %91, ptr noundef null) #8
+  call void %93(ptr noundef %94, ptr noundef nonnull %91, ptr noundef null) #7
   store ptr null, ptr %13, align 8
   br label %95
 
@@ -7417,23 +7411,23 @@ VULKAN_DestroyBuffer.exit63:                      ; preds = %73, %75
 97:                                               ; preds = %95
   %98 = load ptr, ptr @vkFreeMemory, align 8
   %99 = load ptr, ptr %11, align 8
-  call void %98(ptr noundef %99, ptr noundef nonnull %96, ptr noundef null) #8
+  call void %98(ptr noundef %99, ptr noundef nonnull %96, ptr noundef null) #7
   br label %VULKAN_DestroyBuffer.exit66
 
 VULKAN_DestroyBuffer.exit66:                      ; preds = %95, %97
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
-  %100 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %100 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %100, label %101, label %103
 
 101:                                              ; preds = %VULKAN_DestroyBuffer.exit66
-  %102 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %89) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.28, ptr noundef %102) #8
+  %102 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %89) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.28, ptr noundef %102) #7
   call void @llvm.debugtrap()
   br label %103
 
 103:                                              ; preds = %101, %VULKAN_DestroyBuffer.exit66
-  %104 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %89) #8
-  %105 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.28, ptr noundef %104) #8
+  %104 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %89) #7
+  %105 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.28, ptr noundef %104) #7
   br label %121
 
 106:                                              ; preds = %84
@@ -7441,24 +7435,24 @@ VULKAN_DestroyBuffer.exit66:                      ; preds = %95, %97
   %108 = load ptr, ptr %11, align 8
   %109 = load ptr, ptr %3, align 8
   %110 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %111 = call i32 %107(ptr noundef %108, ptr noundef %109, i64 noundef 0, i64 noundef %1, i32 noundef 0, ptr noundef nonnull %110) #8
+  %111 = call i32 %107(ptr noundef %108, ptr noundef %109, i64 noundef 0, i64 noundef %1, i32 noundef 0, ptr noundef nonnull %110) #7
   %.not59 = icmp eq i32 %111, 0
   br i1 %.not59, label %119, label %112
 
 112:                                              ; preds = %106
   call fastcc void @VULKAN_DestroyBuffer(ptr noundef nonnull %0, ptr noundef nonnull %3)
-  %113 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %113 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %113, label %114, label %116
 
 114:                                              ; preds = %112
-  %115 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %111) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.29, ptr noundef %115) #8
+  %115 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %111) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.29, ptr noundef %115) #7
   call void @llvm.debugtrap()
   br label %116
 
 116:                                              ; preds = %114, %112
-  %117 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %111) #8
-  %118 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.29, ptr noundef %117) #8
+  %117 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %111) #7
+  %118 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.29, ptr noundef %117) #7
   br label %121
 
 119:                                              ; preds = %106
@@ -7468,17 +7462,17 @@ VULKAN_DestroyBuffer.exit66:                      ; preds = %95, %97
 
 121:                                              ; preds = %119, %116, %103, %81
   %.3 = phi i32 [ %67, %81 ], [ %89, %103 ], [ %111, %116 ], [ 0, %119 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %122
 
 122:                                              ; preds = %121, %VULKAN_DestroyBuffer.exit
   %.2 = phi i32 [ %.3, %121 ], [ -13, %VULKAN_DestroyBuffer.exit ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %123
 
 123:                                              ; preds = %122, %19
   %.0 = phi i32 [ %14, %19 ], [ %.2, %122 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -7499,7 +7493,7 @@ define internal fastcc i32 @VULKAN_IssueBatch(ptr noundef %0) unnamed_addr #0 {
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr @vkCmdEndRenderPass, align 8
-  tail call void %11(ptr noundef nonnull %5) #8
+  tail call void %11(ptr noundef nonnull %5) #7
   store ptr null, ptr %8, align 8
   %.pre = load ptr, ptr %4, align 8
   br label %12
@@ -7511,10 +7505,10 @@ define internal fastcc i32 @VULKAN_IssueBatch(ptr noundef %0) unnamed_addr #0 {
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 10536
   store i8 1, ptr %15, align 8
   %16 = load ptr, ptr @vkEndCommandBuffer, align 8
-  %17 = tail call i32 %16(ptr noundef %13) #8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #8
+  %17 = tail call i32 %16(ptr noundef %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 72, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 65536, ptr %3, align 4
   store i32 4, ptr %2, align 8
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -7579,15 +7573,15 @@ define internal fastcc i32 @VULKAN_IssueBatch(ptr noundef %0) unnamed_addr #0 {
   %51 = load ptr, ptr @vkQueueSubmit, align 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 1616
   %53 = load ptr, ptr %52, align 8
-  %54 = call i32 %51(ptr noundef %53, i32 noundef 1, ptr noundef nonnull %2, ptr noundef null) #8
+  %54 = call i32 %51(ptr noundef %53, i32 noundef 1, ptr noundef nonnull %2, ptr noundef null) #7
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 10432
   store ptr null, ptr %55, align 8
   %.val = load ptr, ptr %52, align 8
   %56 = load ptr, ptr @vkQueueWaitIdle, align 8
-  %57 = call i32 %56(ptr noundef %.val) #8
+  %57 = call i32 %56(ptr noundef %.val) #7
   call fastcc void @VULKAN_ResetCommandList(ptr noundef nonnull %0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %58
 
 58:                                               ; preds = %1, %50
@@ -7601,7 +7595,7 @@ define internal fastcc void @VULKAN_ResetCommandList(ptr noundef captures(none) 
   %3 = load ptr, ptr @vkResetCommandBuffer, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1688
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call i32 %3(ptr noundef %5, i32 noundef 0) #8
+  %6 = tail call i32 %3(ptr noundef %5, i32 noundef 0) #7
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 10312
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1680
   %9 = load ptr, ptr %7, align 8
@@ -7618,12 +7612,12 @@ define internal fastcc void @VULKAN_ResetCommandList(ptr noundef captures(none) 
   br label %36
 
 ._crit_edge:                                      ; preds = %36, %1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   store i32 42, ptr %2, align 8
   %16 = load ptr, ptr @vkBeginCommandBuffer, align 8
   %17 = load ptr, ptr %4, align 8
-  %18 = call i32 %16(ptr noundef %17, ptr noundef nonnull %2) #8
+  %18 = call i32 %16(ptr noundef %17, ptr noundef nonnull %2) #7
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 10344
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 10620
@@ -7664,7 +7658,7 @@ define internal fastcc void @VULKAN_ResetCommandList(ptr noundef captures(none) 
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8
-  %45 = tail call i32 %38(ptr noundef %39, ptr noundef %44, i32 noundef 0) #8
+  %45 = tail call i32 %38(ptr noundef %39, ptr noundef %44, i32 noundef 0) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load ptr, ptr %7, align 8
   %47 = load i32, ptr %8, align 8
@@ -7680,7 +7674,7 @@ define internal fastcc void @VULKAN_ResetCommandList(ptr noundef captures(none) 
   %.lcssa30 = phi ptr [ %28, %._crit_edge ], [ %70, %VULKAN_DestroyBuffer.exit ]
   %53 = getelementptr inbounds nuw i32, ptr %.lcssa30, i64 %.lcssa31
   store i32 0, ptr %53, align 4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 54:                                               ; preds = %.lr.ph34, %VULKAN_DestroyBuffer.exit
@@ -7698,7 +7692,7 @@ define internal fastcc void @VULKAN_ResetCommandList(ptr noundef captures(none) 
 62:                                               ; preds = %54
   %63 = load ptr, ptr @vkDestroyBuffer, align 8
   %64 = load ptr, ptr %35, align 8
-  call void %63(ptr noundef %64, ptr noundef nonnull %61, ptr noundef null) #8
+  call void %63(ptr noundef %64, ptr noundef nonnull %61, ptr noundef null) #7
   store ptr null, ptr %60, align 8
   br label %65
 
@@ -7710,7 +7704,7 @@ define internal fastcc void @VULKAN_ResetCommandList(ptr noundef captures(none) 
 67:                                               ; preds = %65
   %68 = load ptr, ptr @vkFreeMemory, align 8
   %69 = load ptr, ptr %35, align 8
-  call void %68(ptr noundef %69, ptr noundef nonnull %66, ptr noundef null) #8
+  call void %68(ptr noundef %69, ptr noundef nonnull %66, ptr noundef null) #7
   br label %VULKAN_DestroyBuffer.exit
 
 VULKAN_DestroyBuffer.exit:                        ; preds = %65, %67
@@ -7737,7 +7731,7 @@ define internal fastcc void @VULKAN_DestroyBuffer(ptr noundef readonly captures(
   %6 = load ptr, ptr @vkDestroyBuffer, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1632
   %8 = load ptr, ptr %7, align 8
-  tail call void %6(ptr noundef %8, ptr noundef nonnull %4, ptr noundef null) #8
+  tail call void %6(ptr noundef %8, ptr noundef nonnull %4, ptr noundef null) #7
   store ptr null, ptr %3, align 8
   br label %9
 
@@ -7750,7 +7744,7 @@ define internal fastcc void @VULKAN_DestroyBuffer(ptr noundef readonly captures(
   %12 = load ptr, ptr @vkFreeMemory, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1632
   %14 = load ptr, ptr %13, align 8
-  tail call void %12(ptr noundef %14, ptr noundef nonnull %10, ptr noundef null) #8
+  tail call void %12(ptr noundef %14, ptr noundef nonnull %10, ptr noundef null) #7
   br label %15
 
 15:                                               ; preds = %11, %9
@@ -7758,13 +7752,13 @@ define internal fastcc void @VULKAN_DestroyBuffer(ptr noundef readonly captures(
   ret void
 }
 
-declare ptr @SDL_AllocateRenderVertices(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_AllocateRenderVertices(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_RenderingLinearSpace(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_RenderingLinearSpace(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_ConvertToLinear(ptr noundef) local_unnamed_addr #2
+declare void @SDL_ConvertToLinear(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_memcmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @SDL_memcmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @VULKAN_SetDrawState(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 4) %6, ptr noundef %7, ptr noundef %8, ptr noundef nonnull %9) unnamed_addr #0 {
@@ -7801,8 +7795,8 @@ define internal fastcc void @VULKAN_SetDrawState(ptr noundef %0, ptr noundef non
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 10368
   %42 = load i32, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 10540
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %34) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   tail call fastcc void @VULKAN_EnsureCommandBuffer(ptr noundef %38)
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 1808
   %45 = load ptr, ptr %44, align 8
@@ -7845,7 +7839,7 @@ define internal fastcc void @VULKAN_SetDrawState(ptr noundef %0, ptr noundef non
 66:                                               ; preds = %59, %57
   %.in35.i.i = phi ptr [ %58, %57 ], [ %65, %59 ]
   %67 = load ptr, ptr %.in35.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %32) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %32, i8 0, i64 64, i1 false)
   store i32 43, ptr %32, align 8
   %68 = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -7859,8 +7853,8 @@ define internal fastcc void @VULKAN_SetDrawState(ptr noundef %0, ptr noundef non
   %72 = load ptr, ptr @vkCmdBeginRenderPass, align 8
   %73 = getelementptr inbounds nuw i8, ptr %38, i64 1688
   %74 = load ptr, ptr %73, align 8
-  call void %72(ptr noundef %74, ptr noundef nonnull %32, i32 noundef 0) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %32) #8
+  call void %72(ptr noundef %74, ptr noundef nonnull %32, i32 noundef 0) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %75
 
 75:                                               ; preds = %66, %10
@@ -7869,13 +7863,13 @@ define internal fastcc void @VULKAN_SetDrawState(ptr noundef %0, ptr noundef non
   br i1 %.not13.i, label %VULKAN_ActivateCommandBuffer.exit, label %77
 
 77:                                               ; preds = %75
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i64 0, ptr %33, align 8
   %78 = load ptr, ptr @vkCmdBindVertexBuffers, align 8
   %79 = getelementptr inbounds nuw i8, ptr %38, i64 1688
   %80 = load ptr, ptr %79, align 8
-  call void %78(ptr noundef %80, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %9, ptr noundef nonnull %33) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #8
+  call void %78(ptr noundef %80, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %9, ptr noundef nonnull %33) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %VULKAN_ActivateCommandBuffer.exit
 
 VULKAN_ActivateCommandBuffer.exit:                ; preds = %75, %77
@@ -7976,28 +7970,28 @@ VULKAN_ActivateCommandBuffer.exit:                ; preds = %75, %77
 
 ._crit_edge:                                      ; preds = %130, %100
   %.val163 = load ptr, ptr %37, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr null, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %17, i8 0, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %19) #8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %21) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %23) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, i8 0, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %24) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %24, i8 0, i64 64, i1 false)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %25) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %25, i8 0, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %26) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %26, i8 0, i64 104, i1 false)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %27) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %27, i8 0, i64 56, i1 false)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %28) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %28, i8 0, i64 144, i1 false)
   store i32 28, ptr %28, align 8
   %131 = getelementptr inbounds nuw i8, ptr %28, i64 32
@@ -8076,7 +8070,7 @@ VULKAN_ActivateCommandBuffer.exit:                ; preds = %75, %77
   %167 = getelementptr inbounds nuw i8, ptr %23, i64 20
   store i32 1, ptr %167, align 4
   store i32 27, ptr %22, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i64 4294967296, ptr %29, align 8
   %168 = getelementptr inbounds nuw i8, ptr %22, i64 20
   store i32 2, ptr %168, align 4
@@ -8088,14 +8082,14 @@ VULKAN_ActivateCommandBuffer.exit:                ; preds = %75, %77
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %170, i8 0, i64 36, i1 false)
   store float 1.000000e+00, ptr %171, align 8
   store i32 24, ptr %25, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i32 -1, ptr %30, align 4
   %172 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr %30, ptr %172, align 8
   %173 = getelementptr inbounds nuw i8, ptr %25, i64 20
   store i32 1, ptr %173, align 4
   store i32 25, ptr %26, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %174 = getelementptr inbounds nuw i8, ptr %31, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %174, i8 0, i64 28, i1 false)
   store i32 26, ptr %27, align 8
@@ -8104,7 +8098,7 @@ VULKAN_ActivateCommandBuffer.exit:                ; preds = %75, %77
   %176 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr %31, ptr %176, align 8
   store i32 1, ptr %31, align 4
-  %177 = call i32 @SDL_GetBlendModeSrcColorFactor(i32 noundef %40) #8
+  %177 = call i32 @SDL_GetBlendModeSrcColorFactor(i32 noundef %40) #7
   %switch.tableidx = add i32 %177, -1
   %178 = icmp ult i32 %switch.tableidx, 10
   br i1 %178, label %switch.lookup, label %GetBlendFactor.exit.i
@@ -8118,7 +8112,7 @@ switch.lookup:                                    ; preds = %144
 GetBlendFactor.exit.i:                            ; preds = %144, %switch.lookup
   %.0.i.i166 = phi i32 [ %switch.load, %switch.lookup ], [ 2147483647, %144 ]
   store i32 %.0.i.i166, ptr %174, align 4
-  %180 = call i32 @SDL_GetBlendModeSrcAlphaFactor(i32 noundef %40) #8
+  %180 = call i32 @SDL_GetBlendModeSrcAlphaFactor(i32 noundef %40) #7
   %switch.tableidx3 = add i32 %180, -1
   %181 = icmp ult i32 %switch.tableidx3, 10
   br i1 %181, label %switch.lookup2, label %GetBlendFactor.exit60.i
@@ -8133,13 +8127,13 @@ GetBlendFactor.exit60.i:                          ; preds = %GetBlendFactor.exit
   %.0.i59.i = phi i32 [ %switch.load5, %switch.lookup2 ], [ 2147483647, %GetBlendFactor.exit.i ]
   %183 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i32 %.0.i59.i, ptr %183, align 4
-  %184 = call i32 @SDL_GetBlendModeColorOperation(i32 noundef %40) #8
+  %184 = call i32 @SDL_GetBlendModeColorOperation(i32 noundef %40) #7
   %switch.tableidx7 = add i32 %184, -1
   %185 = icmp ult i32 %switch.tableidx7, 5
   %switch.tableidx7. = select i1 %185, i32 %switch.tableidx7, i32 2147483647
   %186 = getelementptr inbounds nuw i8, ptr %31, i64 12
   store i32 %switch.tableidx7., ptr %186, align 4
-  %187 = call i32 @SDL_GetBlendModeDstColorFactor(i32 noundef %40) #8
+  %187 = call i32 @SDL_GetBlendModeDstColorFactor(i32 noundef %40) #7
   %switch.tableidx17 = add i32 %187, -1
   %188 = icmp ult i32 %switch.tableidx17, 10
   br i1 %188, label %switch.lookup16, label %GetBlendFactor.exit63.i
@@ -8154,7 +8148,7 @@ GetBlendFactor.exit63.i:                          ; preds = %GetBlendFactor.exit
   %.0.i62.i = phi i32 [ %switch.load19, %switch.lookup16 ], [ 2147483647, %GetBlendFactor.exit60.i ]
   %190 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 %.0.i62.i, ptr %190, align 4
-  %191 = call i32 @SDL_GetBlendModeDstAlphaFactor(i32 noundef %40) #8
+  %191 = call i32 @SDL_GetBlendModeDstAlphaFactor(i32 noundef %40) #7
   %switch.tableidx9 = add i32 %191, -1
   %192 = icmp ult i32 %switch.tableidx9, 10
   br i1 %192, label %switch.lookup8, label %GetBlendFactor.exit65.i
@@ -8169,7 +8163,7 @@ GetBlendFactor.exit65.i:                          ; preds = %GetBlendFactor.exit
   %.0.i64.i = phi i32 [ %switch.load11, %switch.lookup8 ], [ 2147483647, %GetBlendFactor.exit63.i ]
   %194 = getelementptr inbounds nuw i8, ptr %31, i64 20
   store i32 %.0.i64.i, ptr %194, align 4
-  %195 = call i32 @SDL_GetBlendModeAlphaOperation(i32 noundef %40) #8
+  %195 = call i32 @SDL_GetBlendModeAlphaOperation(i32 noundef %40) #7
   %switch.tableidx13 = add i32 %195, -1
   %196 = icmp ult i32 %switch.tableidx13, 5
   %switch.tableidx13. = select i1 %196, i32 %switch.tableidx13, i32 2147483647
@@ -8188,7 +8182,7 @@ GetBlendFactor.exit65.i:                          ; preds = %GetBlendFactor.exit
   %204 = load ptr, ptr @vkCreateGraphicsPipelines, align 8
   %205 = getelementptr inbounds nuw i8, ptr %.val163, i64 1632
   %206 = load ptr, ptr %205, align 8
-  %207 = call i32 %204(ptr noundef %206, ptr noundef null, i32 noundef 1, ptr noundef nonnull %28, ptr noundef null, ptr noundef nonnull %16) #8
+  %207 = call i32 %204(ptr noundef %206, ptr noundef null, i32 noundef 1, ptr noundef nonnull %28, ptr noundef null, ptr noundef nonnull %16) #7
   %.not.i = icmp eq i32 %207, 0
   br i1 %.not.i, label %222, label %215
 
@@ -8209,18 +8203,18 @@ GetBlendFactor.exit65.i:                          ; preds = %GetBlendFactor.exit
   br i1 %209, label %208, label %144, !llvm.loop !46
 
 215:                                              ; preds = %GetBlendFactor.exit65.i
-  %216 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %216 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %216, label %217, label %219
 
 217:                                              ; preds = %215
-  %218 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %207) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.35, ptr noundef %218) #8
+  %218 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %207) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.35, ptr noundef %218) #7
   call void @llvm.debugtrap()
   br label %219
 
 219:                                              ; preds = %217, %215
-  %220 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %207) #8
-  %221 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.35, ptr noundef %220) #8
+  %220 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %207) #7
+  %221 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.35, ptr noundef %220) #7
   br label %.thread10
 
 222:                                              ; preds = %GetBlendFactor.exit65.i
@@ -8236,24 +8230,24 @@ GetBlendFactor.exit65.i:                          ; preds = %GetBlendFactor.exit
   br i1 %.not58.i, label %.thread10, label %232
 
 .thread10:                                        ; preds = %219, %222
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %31) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %28) #8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %27) #8
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %26) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %25) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %24) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %23) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22) #8
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %21) #8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %19) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   store ptr null, ptr %81, align 8
-  %231 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.33) #8
+  %231 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.33) #7
   br label %486
 
 232:                                              ; preds = %222
@@ -8293,22 +8287,22 @@ GetBlendFactor.exit65.i:                          ; preds = %GetBlendFactor.exit
   store i32 %257, ptr %225, align 8
   %258 = sext i32 %256 to i64
   %259 = getelementptr inbounds %struct.VULKAN_PipelineState, ptr %230, i64 %258
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %31) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %28) #8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %27) #8
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %26) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %25) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %24) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %23) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22) #8
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %21) #8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %19) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.thread7
 
 .thread7:                                         ; preds = %126, %232
@@ -8319,7 +8313,7 @@ GetBlendFactor.exit65.i:                          ; preds = %GetBlendFactor.exit
   %263 = load ptr, ptr %262, align 8
   %264 = getelementptr inbounds nuw i8, ptr %260, i64 80
   %265 = load ptr, ptr %264, align 8
-  call void %261(ptr noundef %263, i32 noundef 0, ptr noundef %265) #8
+  call void %261(ptr noundef %263, i32 noundef 0, ptr noundef %265) #7
   br label %266
 
 266:                                              ; preds = %.thread7, %97
@@ -8332,8 +8326,8 @@ GetBlendFactor.exit65.i:                          ; preds = %GetBlendFactor.exit
 270:                                              ; preds = %266
   %.val164 = load ptr, ptr %37, align 8
   %271 = getelementptr inbounds nuw i8, ptr %.val164, i64 10516
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %272 = getelementptr inbounds nuw i8, ptr %.val164, i64 10488
   %273 = load ptr, ptr %272, align 8
   %.not.i.i167 = icmp eq ptr %273, null
@@ -8365,19 +8359,19 @@ VULKAN_GetRotationForCurrentRenderTarget.exit.i:  ; preds = %274, %270
   ]
 
 285:                                              ; preds = %284
-  call void @MatrixRotationZ(ptr dead_on_unwind nonnull writable sret(%struct.Float4X4) align 4 %12, float noundef 0x3FF921FB60000000) #8
+  call void @MatrixRotationZ(ptr dead_on_unwind nonnull writable sret(%struct.Float4X4) align 4 %12, float noundef 0x3FF921FB60000000) #7
   br label %289
 
 286:                                              ; preds = %284
-  call void @MatrixRotationZ(ptr dead_on_unwind nonnull writable sret(%struct.Float4X4) align 4 %12, float noundef 0x400921FB60000000) #8
+  call void @MatrixRotationZ(ptr dead_on_unwind nonnull writable sret(%struct.Float4X4) align 4 %12, float noundef 0x400921FB60000000) #7
   br label %289
 
 287:                                              ; preds = %284
-  call void @MatrixRotationZ(ptr dead_on_unwind nonnull writable sret(%struct.Float4X4) align 4 %12, float noundef 0xBFF921FB60000000) #8
+  call void @MatrixRotationZ(ptr dead_on_unwind nonnull writable sret(%struct.Float4X4) align 4 %12, float noundef 0xBFF921FB60000000) #7
   br label %289
 
 288:                                              ; preds = %284
-  call void @MatrixIdentity(ptr dead_on_unwind nonnull writable sret(%struct.Float4X4) align 4 %12) #8
+  call void @MatrixIdentity(ptr dead_on_unwind nonnull writable sret(%struct.Float4X4) align 4 %12) #7
   br label %289
 
 289:                                              ; preds = %288, %287, %286, %285
@@ -8400,11 +8394,11 @@ VULKAN_GetRotationForCurrentRenderTarget.exit.i:  ; preds = %274, %270
   %300 = getelementptr inbounds nuw i8, ptr %13, i64 60
   store float 1.000000e+00, ptr %300, align 4
   %301 = getelementptr inbounds nuw i8, ptr %.val164, i64 10136
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #8
-  call void @MatrixMultiply(ptr dead_on_unwind nonnull writable sret(%struct.Float4X4) align 4 %14, ptr noundef nonnull byval(%struct.Float4X4) align 8 %13, ptr noundef nonnull byval(%struct.Float4X4) align 8 %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @MatrixMultiply(ptr dead_on_unwind nonnull writable sret(%struct.Float4X4) align 4 %14, ptr noundef nonnull byval(%struct.Float4X4) align 8 %13, ptr noundef nonnull byval(%struct.Float4X4) align 8 %12) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %301, ptr noundef nonnull align 4 dereferenceable(64) %14, i64 64, i1 false)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   switch i32 %.0.i.i168, label %306 [
     i32 8, label %302
     i32 2, label %302
@@ -8447,16 +8441,16 @@ VULKAN_GetRotationForCurrentRenderTarget.exit.i:  ; preds = %274, %270
   %319 = load ptr, ptr @vkCmdSetViewport, align 8
   %320 = getelementptr inbounds nuw i8, ptr %.val164, i64 1688
   %321 = load ptr, ptr %320, align 8
-  call void %319(ptr noundef %321, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %15) #8
+  call void %319(ptr noundef %321, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %15) #7
   %322 = getelementptr inbounds nuw i8, ptr %.val164, i64 10536
   store i8 0, ptr %322, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %VULKAN_GetRotationForCurrentRenderTarget.exit.i, %280, %310
   %.1132.ph = phi i1 [ true, %310 ], [ %.0131, %280 ], [ %.0131, %VULKAN_GetRotationForCurrentRenderTarget.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %323
 
 323:                                              ; preds = %.sink.split, %266
@@ -8481,7 +8475,7 @@ VULKAN_GetRotationForCurrentRenderTarget.exit.i:  ; preds = %274, %270
 
 VULKAN_GetRotationForCurrentRenderTarget.exit.i170: ; preds = %331, %327
   %.0.i.i171 = phi i32 [ %333, %331 ], [ 1, %327 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %334 = getelementptr inbounds nuw i8, ptr %.val165, i64 10497
   %335 = load i8, ptr %334, align 1, !range !3, !noundef !4
   %336 = trunc nuw i8 %335 to i1
@@ -8536,10 +8530,10 @@ VULKAN_UpdateClipRect.exit:                       ; preds = %350, %356
   %357 = load ptr, ptr @vkCmdSetScissor, align 8
   %358 = getelementptr inbounds nuw i8, ptr %.val165, i64 1688
   %359 = load ptr, ptr %358, align 8
-  call void %357(ptr noundef %359, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %11) #8
+  call void %357(ptr noundef %359, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %11) #7
   %360 = getelementptr inbounds nuw i8, ptr %.val165, i64 10496
   store i8 0, ptr %360, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %361
 
 361:                                              ; preds = %VULKAN_UpdateClipRect.exit, %323
@@ -8547,7 +8541,7 @@ VULKAN_UpdateClipRect.exit:                       ; preds = %350, %356
 
 362:                                              ; preds = %361
   %363 = getelementptr inbounds nuw i8, ptr %38, i64 10072
-  %364 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %363, ptr noundef nonnull %43, i64 noundef 64) #8
+  %364 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %363, ptr noundef nonnull %43, i64 noundef 64) #7
   %.not157 = icmp eq i32 %364, 0
   br i1 %.not157, label %373, label %365
 
@@ -8560,7 +8554,7 @@ VULKAN_UpdateClipRect.exit:                       ; preds = %350, %356
   %370 = load ptr, ptr %81, align 8
   %371 = getelementptr inbounds nuw i8, ptr %370, i64 64
   %372 = load ptr, ptr %371, align 8
-  call void %367(ptr noundef %369, ptr noundef %372, i32 noundef 1, i32 noundef 0, i32 noundef 128, ptr noundef nonnull %366) #8
+  call void %367(ptr noundef %369, ptr noundef %372, i32 noundef 1, i32 noundef 0, i32 noundef 128, ptr noundef nonnull %366) #7
   br label %373
 
 373:                                              ; preds = %365, %362
@@ -8570,7 +8564,7 @@ VULKAN_UpdateClipRect.exit:                       ; preds = %350, %356
 374:                                              ; preds = %373
   %375 = getelementptr inbounds nuw i8, ptr %34, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %375, i8 0, i64 44, i1 false)
-  %376 = call zeroext i1 @SDL_RenderingLinearSpace(ptr noundef %0) #8
+  %376 = call zeroext i1 @SDL_RenderingLinearSpace(ptr noundef %0) #7
   %377 = uitofp i1 %376 to float
   store float %377, ptr %34, align 4
   %378 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -8602,7 +8596,7 @@ VULKAN_UpdateClipRect.exit:                       ; preds = %350, %356
   %spec.select162 = zext nneg i32 %narrow to i64
   %397 = load ptr, ptr %81, align 8
   %398 = getelementptr inbounds nuw i8, ptr %397, i64 4
-  %399 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %.0130, ptr noundef nonnull %398, i64 noundef 48) #8
+  %399 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %.0130, ptr noundef nonnull %398, i64 noundef 48) #7
   %.not159 = icmp eq i32 %399, 0
   br i1 %.not159, label %476, label %thread-pre-split14
 
@@ -8645,7 +8639,7 @@ thread-pre-split14:                               ; preds = %396
   br i1 %.not160, label %.thread18, label %422
 
 422:                                              ; preds = %413
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %36) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %423 = call fastcc i32 @VULKAN_AllocateBuffer(ptr noundef nonnull %38, i64 noundef 65536, i32 noundef 16, ptr noundef nonnull %36)
   %.not161 = icmp eq i32 %423, 0
   br i1 %.not161, label %424, label %460
@@ -8683,7 +8677,7 @@ thread-pre-split14:                               ; preds = %396
   %452 = zext i32 %451 to i64
   %453 = getelementptr inbounds nuw ptr, ptr %450, i64 %452
   store ptr %441, ptr %453, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %.pre = load i32, ptr %384, align 8
   %.pre25 = zext i32 %.pre to i64
   br label %.thread18
@@ -8701,7 +8695,7 @@ thread-pre-split14:                               ; preds = %396
   br label %461
 
 460:                                              ; preds = %422
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %486
 
 461:                                              ; preds = %.thread18, %.thread16, %403
@@ -8740,12 +8734,12 @@ thread-pre-split14:                               ; preds = %396
   %483 = load ptr, ptr %81, align 8
   %484 = getelementptr inbounds nuw i8, ptr %483, i64 64
   %485 = load ptr, ptr %484, align 8
-  call void %480(ptr noundef %482, i32 noundef 0, ptr noundef %485, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %35, i32 noundef 0, ptr noundef null) #8
+  call void %480(ptr noundef %482, i32 noundef 0, ptr noundef %485, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %35, i32 noundef 0, ptr noundef null) #7
   br label %486
 
 486:                                              ; preds = %460, %476, %479, %.thread10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %34) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   ret void
 }
 
@@ -8762,7 +8756,7 @@ define internal fastcc void @VULKAN_CreateVertexBuffer(ptr noundef %0, i64 nound
   %9 = load ptr, ptr @vkDestroyBuffer, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1632
   %11 = load ptr, ptr %10, align 8
-  tail call void %9(ptr noundef %11, ptr noundef nonnull %7, ptr noundef null) #8
+  tail call void %9(ptr noundef %11, ptr noundef nonnull %7, ptr noundef null) #7
   store ptr null, ptr %6, align 8
   br label %12
 
@@ -8775,7 +8769,7 @@ define internal fastcc void @VULKAN_CreateVertexBuffer(ptr noundef %0, i64 nound
   %15 = load ptr, ptr @vkFreeMemory, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1632
   %17 = load ptr, ptr %16, align 8
-  tail call void %15(ptr noundef %17, ptr noundef nonnull %13, ptr noundef null) #8
+  tail call void %15(ptr noundef %17, ptr noundef nonnull %13, ptr noundef null) #7
   br label %VULKAN_DestroyBuffer.exit
 
 VULKAN_DestroyBuffer.exit:                        ; preds = %12, %14
@@ -8785,7 +8779,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %12, %14
 }
 
 ; Function Attrs: allocsize(1)
-declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #9
+declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @VULKAN_AllocateDescriptorSet(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef range(i64 -2147483648, 2147483648) %4, ptr noundef %5) unnamed_addr #0 {
@@ -8810,7 +8804,7 @@ define internal fastcc ptr @VULKAN_AllocateDescriptorSet(ptr noundef readonly ca
   %24 = zext i32 %16 to i64
   %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 32, i1 false)
   store i32 34, ptr %8, align 8
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -8819,7 +8813,7 @@ define internal fastcc ptr @VULKAN_AllocateDescriptorSet(ptr noundef readonly ca
   store ptr %26, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %7, ptr %29, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 10324
   %31 = load i32, ptr %30, align 4
@@ -8830,7 +8824,7 @@ define internal fastcc ptr @VULKAN_AllocateDescriptorSet(ptr noundef readonly ca
   %34 = load ptr, ptr @vkAllocateDescriptorSets, align 8
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 1632
   %36 = load ptr, ptr %35, align 8
-  %37 = call i32 %34(ptr noundef %36, ptr noundef nonnull %8, ptr noundef nonnull %9) #8
+  %37 = call i32 %34(ptr noundef %36, ptr noundef nonnull %8, ptr noundef nonnull %9) #7
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %._crit_edge, label %..thread_crit_edge
 
@@ -8865,12 +8859,12 @@ define internal fastcc ptr @VULKAN_AllocateDescriptorSet(ptr noundef readonly ca
   %53 = load ptr, ptr @vkAllocateDescriptorSets, align 8
   %54 = getelementptr inbounds nuw i8, ptr %14, i64 1632
   %55 = load ptr, ptr %54, align 8
-  %56 = call i32 %53(ptr noundef %55, ptr noundef nonnull %8, ptr noundef nonnull %9) #8
+  %56 = call i32 %53(ptr noundef %55, ptr noundef nonnull %8, ptr noundef nonnull %9) #7
   %.not = icmp eq i32 %56, 0
   br i1 %.not, label %59, label %57
 
 57:                                               ; preds = %46
-  %58 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.36) #8
+  %58 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.36) #7
   br label %128
 
 59:                                               ; preds = %46
@@ -8926,15 +8920,15 @@ define internal fastcc ptr @VULKAN_AllocateDescriptorSet(ptr noundef readonly ca
 96:                                               ; preds = %._crit_edge, %59
   %97 = phi i32 [ %39, %._crit_edge ], [ 1, %59 ]
   store i32 %97, ptr %30, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %3, ptr %11, align 8
   %98 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %4, ptr %98, align 8
   %99 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 48, ptr %99, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %12, i8 0, i64 128, i1 false)
   store i32 35, ptr %12, align 16
   %100 = load ptr, ptr %9, align 8
@@ -8988,32 +8982,32 @@ define internal fastcc ptr @VULKAN_AllocateDescriptorSet(ptr noundef readonly ca
   %124 = load ptr, ptr @vkUpdateDescriptorSets, align 8
   %125 = getelementptr inbounds nuw i8, ptr %14, i64 1632
   %126 = load ptr, ptr %125, align 8
-  call void %124(ptr noundef %126, i32 noundef %.0, ptr noundef nonnull %12, i32 noundef 0, ptr noundef null) #8
+  call void %124(ptr noundef %126, i32 noundef %.0, ptr noundef nonnull %12, i32 noundef 0, ptr noundef null) #7
   %127 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %128
 
 128:                                              ; preds = %60, %123, %64, %57
   %.059 = phi ptr [ null, %57 ], [ %127, %123 ], [ %95, %64 ], [ null, %60 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.059
 }
 
-declare void @MatrixRotationZ(ptr dead_on_unwind writable sret(%struct.Float4X4) align 4, float noundef) local_unnamed_addr #2
+declare void @MatrixRotationZ(ptr dead_on_unwind writable sret(%struct.Float4X4) align 4, float noundef) local_unnamed_addr #1
 
-declare void @MatrixMultiply(ptr dead_on_unwind writable sret(%struct.Float4X4) align 4, ptr noundef byval(%struct.Float4X4) align 8, ptr noundef byval(%struct.Float4X4) align 8) local_unnamed_addr #2
+declare void @MatrixMultiply(ptr dead_on_unwind writable sret(%struct.Float4X4) align 4, ptr noundef byval(%struct.Float4X4) align 8, ptr noundef byval(%struct.Float4X4) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @VULKAN_AllocateDescriptorPool(ptr %.1632.val) unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca [3 x %struct.VkDescriptorPoolSize], align 16
   %3 = alloca %struct.VkDescriptorPoolCreateInfo, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 4096, ptr %4, align 4
   store i32 0, ptr %2, align 16
@@ -9025,7 +9019,7 @@ define internal fastcc ptr @VULKAN_AllocateDescriptorPool(ptr %.1632.val) unname
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 4096, ptr %8, align 4
   store i32 6, ptr %7, align 16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   store i32 33, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -9035,23 +9029,23 @@ define internal fastcc ptr @VULKAN_AllocateDescriptorPool(ptr %.1632.val) unname
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 4096, ptr %11, align 4
   %12 = load ptr, ptr @vkCreateDescriptorPool, align 8
-  %13 = call i32 %12(ptr noundef %.1632.val, ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %1) #8
+  %13 = call i32 %12(ptr noundef %.1632.val, ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %1) #7
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %21, label %14
 
 14:                                               ; preds = %0
-  %15 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %15 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %14
-  %17 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %13) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.37, ptr noundef %17) #8
+  %17 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %13) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.37, ptr noundef %17) #7
   call void @llvm.debugtrap()
   br label %18
 
 18:                                               ; preds = %16, %14
-  %19 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %13) #8
-  %20 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.37, ptr noundef %19) #8
+  %19 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %13) #7
+  %20 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.37, ptr noundef %19) #7
   br label %23
 
 21:                                               ; preds = %0
@@ -9060,13 +9054,13 @@ define internal fastcc ptr @VULKAN_AllocateDescriptorPool(ptr %.1632.val) unname
 
 23:                                               ; preds = %21, %18
   %.0 = phi ptr [ null, %18 ], [ %22, %21 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %.0
 }
 
-declare ptr @SDL_DuplicatePixels(i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_DuplicatePixels(i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @VULKAN_HandleDeviceLost(ptr noundef %0) unnamed_addr #0 {
@@ -9086,23 +9080,23 @@ define internal fastcc noundef zeroext i1 @VULKAN_HandleDeviceLost(ptr noundef %
   br i1 %11, label %14, label %12
 
 12:                                               ; preds = %1, %9
-  %13 = tail call ptr @SDL_GetError_REAL() #8
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.44, ptr noundef %13) #8
+  %13 = tail call ptr @SDL_GetError_REAL() #7
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.44, ptr noundef %13) #7
   tail call fastcc void @VULKAN_DestroyAll(ptr noundef nonnull %0)
   br label %14
 
 14:                                               ; preds = %9, %12
   %.09 = phi i1 [ false, %12 ], [ true, %9 ]
   %15 = phi i32 [ 8194, %12 ], [ 8193, %9 ]
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %2, i8 0, i64 128, i1 false)
   store i32 %15, ptr %2, align 8
-  %16 = tail call ptr @SDL_GetRenderWindow_REAL(ptr noundef nonnull %0) #8
-  %17 = tail call i32 @SDL_GetWindowID_REAL(ptr noundef %16) #8
+  %16 = tail call ptr @SDL_GetRenderWindow_REAL(ptr noundef nonnull %0) #7
+  %17 = tail call i32 @SDL_GetWindowID_REAL(ptr noundef %16) #7
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %17, ptr %18, align 8
-  %19 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #8
+  %19 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.09
 }
 
@@ -9125,7 +9119,7 @@ define internal fastcc void @VULKAN_AcquireNextSwapchainImage(ptr noundef %0) un
   %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 10440
-  %18 = tail call i32 %5(ptr noundef %7, ptr noundef %9, i64 noundef -1, ptr noundef %16, ptr noundef null, ptr noundef nonnull %17) #8
+  %18 = tail call i32 %5(ptr noundef %7, ptr noundef %9, i64 noundef -1, ptr noundef %16, ptr noundef null, ptr noundef nonnull %17) #7
   switch i32 %18, label %21 [
     i32 -1000000000, label %19
     i32 -1000001004, label %19
@@ -9138,18 +9132,18 @@ define internal fastcc void @VULKAN_AcquireNextSwapchainImage(ptr noundef %0) un
   br label %34
 
 21:                                               ; preds = %1
-  %22 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %22 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %21
-  %24 = tail call ptr @SDL_Vulkan_GetResultString(i32 noundef %18) #8
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.45, ptr noundef %24) #8
+  %24 = tail call ptr @SDL_Vulkan_GetResultString(i32 noundef %18) #7
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.45, ptr noundef %24) #7
   tail call void @llvm.debugtrap()
   br label %25
 
 25:                                               ; preds = %23, %21
-  %26 = tail call ptr @SDL_Vulkan_GetResultString(i32 noundef %18) #8
-  %27 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.45, ptr noundef %26) #8
+  %26 = tail call ptr @SDL_Vulkan_GetResultString(i32 noundef %18) #7
+  %27 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.45, ptr noundef %26) #7
   br label %34
 
 28:                                               ; preds = %1, %1
@@ -9197,7 +9191,7 @@ define internal fastcc void @VULKAN_DestroyAll(ptr noundef readonly captures(add
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 12:                                               ; preds = %._crit_edge
-  tail call void @SDL_free_REAL(ptr noundef nonnull %10) #8
+  tail call void @SDL_free_REAL(ptr noundef nonnull %10) #7
   store ptr null, ptr %9, align 8
   br label %13
 
@@ -9208,7 +9202,7 @@ define internal fastcc void @VULKAN_DestroyAll(ptr noundef readonly captures(add
   br i1 %.not272, label %17, label %16
 
 16:                                               ; preds = %13
-  tail call void @SDL_free_REAL(ptr noundef nonnull %15) #8
+  tail call void @SDL_free_REAL(ptr noundef nonnull %15) #7
   store ptr null, ptr %14, align 8
   br label %17
 
@@ -9219,7 +9213,7 @@ define internal fastcc void @VULKAN_DestroyAll(ptr noundef readonly captures(add
   br i1 %.not273, label %21, label %20
 
 20:                                               ; preds = %17
-  tail call void @SDL_free_REAL(ptr noundef nonnull %19) #8
+  tail call void @SDL_free_REAL(ptr noundef nonnull %19) #7
   store ptr null, ptr %18, align 8
   br label %21
 
@@ -9230,7 +9224,7 @@ define internal fastcc void @VULKAN_DestroyAll(ptr noundef readonly captures(add
   br i1 %.not274, label %26, label %24
 
 24:                                               ; preds = %21
-  tail call void @SDL_free_REAL(ptr noundef nonnull %23) #8
+  tail call void @SDL_free_REAL(ptr noundef nonnull %23) #7
   store ptr null, ptr %22, align 8
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 10356
   store i32 0, ptr %25, align 4
@@ -9243,7 +9237,7 @@ define internal fastcc void @VULKAN_DestroyAll(ptr noundef readonly captures(add
   br i1 %.not275, label %30, label %29
 
 29:                                               ; preds = %26
-  tail call void @SDL_free_REAL(ptr noundef nonnull %28) #8
+  tail call void @SDL_free_REAL(ptr noundef nonnull %28) #7
   store ptr null, ptr %27, align 8
   br label %30
 
@@ -9257,7 +9251,7 @@ define internal fastcc void @VULKAN_DestroyAll(ptr noundef readonly captures(add
   %34 = load ptr, ptr @vkDestroySwapchainKHR, align 8
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 1632
   %36 = load ptr, ptr %35, align 8
-  tail call void %34(ptr noundef %36, ptr noundef nonnull %32, ptr noundef null) #8
+  tail call void %34(ptr noundef %36, ptr noundef nonnull %32, ptr noundef null) #7
   store ptr null, ptr %31, align 8
   br label %37
 
@@ -9283,7 +9277,7 @@ define internal fastcc void @VULKAN_DestroyAll(ptr noundef readonly captures(add
 
 ._crit_edge328:                                   ; preds = %._crit_edge328.loopexit, %.preheader319
   %43 = phi ptr [ %.pre422, %._crit_edge328.loopexit ], [ %39, %.preheader319 ]
-  tail call void @SDL_free_REAL(ptr noundef %43) #8
+  tail call void @SDL_free_REAL(ptr noundef %43) #7
   store ptr null, ptr %38, align 8
   br label %58
 
@@ -9299,7 +9293,7 @@ define internal fastcc void @VULKAN_DestroyAll(ptr noundef readonly captures(add
 49:                                               ; preds = %44
   %50 = load ptr, ptr @vkDestroyFence, align 8
   %51 = load ptr, ptr %42, align 8
-  tail call void %50(ptr noundef %51, ptr noundef nonnull %48, ptr noundef null) #8
+  tail call void %50(ptr noundef %51, ptr noundef nonnull %48, ptr noundef null) #7
   %52 = load ptr, ptr %38, align 8
   %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv
   store ptr null, ptr %53, align 8
@@ -9335,7 +9329,7 @@ define internal fastcc void @VULKAN_DestroyAll(ptr noundef readonly captures(add
 
 ._crit_edge331:                                   ; preds = %._crit_edge331.loopexit, %.preheader318
   %64 = phi ptr [ %.pre424, %._crit_edge331.loopexit ], [ %60, %.preheader318 ]
-  tail call void @SDL_free_REAL(ptr noundef %64) #8
+  tail call void @SDL_free_REAL(ptr noundef %64) #7
   store ptr null, ptr %59, align 8
   br label %77
 
@@ -9351,7 +9345,7 @@ define internal fastcc void @VULKAN_DestroyAll(ptr noundef readonly captures(add
 70:                                               ; preds = %65
   %71 = load ptr, ptr @vkDestroyImageView, align 8
   %72 = load ptr, ptr %63, align 8
-  tail call void %71(ptr noundef %72, ptr noundef nonnull %69, ptr noundef null) #8
+  tail call void %71(ptr noundef %72, ptr noundef nonnull %69, ptr noundef null) #7
   %.pre423 = load i32, ptr %61, align 4
   br label %73
 
@@ -9369,7 +9363,7 @@ define internal fastcc void @VULKAN_DestroyAll(ptr noundef readonly captures(add
   br i1 %.not279, label %81, label %80
 
 80:                                               ; preds = %77
-  tail call void @SDL_free_REAL(ptr noundef nonnull %79) #8
+  tail call void @SDL_free_REAL(ptr noundef nonnull %79) #7
   store ptr null, ptr %78, align 8
   br label %81
 
@@ -9395,7 +9389,7 @@ define internal fastcc void @VULKAN_DestroyAll(ptr noundef readonly captures(add
 
 ._crit_edge334:                                   ; preds = %._crit_edge334.loopexit, %.preheader317
   %87 = phi ptr [ %.pre426, %._crit_edge334.loopexit ], [ %83, %.preheader317 ]
-  tail call void @SDL_free_REAL(ptr noundef %87) #8
+  tail call void @SDL_free_REAL(ptr noundef %87) #7
   store ptr null, ptr %82, align 8
   br label %100
 
@@ -9411,7 +9405,7 @@ define internal fastcc void @VULKAN_DestroyAll(ptr noundef readonly captures(add
 93:                                               ; preds = %88
   %94 = load ptr, ptr @vkDestroyFramebuffer, align 8
   %95 = load ptr, ptr %86, align 8
-  tail call void %94(ptr noundef %95, ptr noundef nonnull %92, ptr noundef null) #8
+  tail call void %94(ptr noundef %95, ptr noundef nonnull %92, ptr noundef null) #7
   %.pre425 = load i32, ptr %84, align 4
   br label %96
 
@@ -9441,7 +9435,7 @@ define internal fastcc void @VULKAN_DestroyAll(ptr noundef readonly captures(add
 107:                                              ; preds = %104
   %108 = load ptr, ptr @vkDestroySampler, align 8
   %109 = load ptr, ptr %102, align 8
-  tail call void %108(ptr noundef %109, ptr noundef nonnull %106, ptr noundef null) #8
+  tail call void %108(ptr noundef %109, ptr noundef nonnull %106, ptr noundef null) #7
   store ptr null, ptr %105, align 8
   br label %110
 
@@ -9466,7 +9460,7 @@ define internal fastcc void @VULKAN_DestroyAll(ptr noundef readonly captures(add
 117:                                              ; preds = %113
   %118 = load ptr, ptr @vkDestroyBuffer, align 8
   %119 = load ptr, ptr %102, align 8
-  tail call void %118(ptr noundef %119, ptr noundef nonnull %116, ptr noundef null) #8
+  tail call void %118(ptr noundef %119, ptr noundef nonnull %116, ptr noundef null) #7
   store ptr null, ptr %115, align 8
   br label %120
 
@@ -9478,7 +9472,7 @@ define internal fastcc void @VULKAN_DestroyAll(ptr noundef readonly captures(add
 122:                                              ; preds = %120
   %123 = load ptr, ptr @vkFreeMemory, align 8
   %124 = load ptr, ptr %102, align 8
-  tail call void %123(ptr noundef %124, ptr noundef nonnull %121, ptr noundef null) #8
+  tail call void %123(ptr noundef %124, ptr noundef nonnull %121, ptr noundef null) #7
   br label %VULKAN_DestroyBuffer.exit
 
 VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
@@ -9510,7 +9504,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
 134:                                              ; preds = %130
   %135 = load ptr, ptr @vkDestroyRenderPass, align 8
   %136 = load ptr, ptr %102, align 8
-  tail call void %135(ptr noundef %136, ptr noundef nonnull %133, ptr noundef null) #8
+  tail call void %135(ptr noundef %136, ptr noundef nonnull %133, ptr noundef null) #7
   store ptr null, ptr %132, align 8
   br label %137
 
@@ -9523,7 +9517,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
 
 ._crit_edge340:                                   ; preds = %._crit_edge340.loopexit, %.preheader315
   %138 = phi ptr [ %.pre428, %._crit_edge340.loopexit ], [ %127, %.preheader315 ]
-  tail call void @SDL_free_REAL(ptr noundef %138) #8
+  tail call void @SDL_free_REAL(ptr noundef %138) #7
   store ptr null, ptr %126, align 8
   br label %150
 
@@ -9539,7 +9533,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
 143:                                              ; preds = %.lr.ph339
   %144 = load ptr, ptr @vkDestroySemaphore, align 8
   %145 = load ptr, ptr %102, align 8
-  tail call void %144(ptr noundef %145, ptr noundef nonnull %142, ptr noundef null) #8
+  tail call void %144(ptr noundef %145, ptr noundef nonnull %142, ptr noundef null) #7
   %.pre427 = load i32, ptr %128, align 4
   br label %146
 
@@ -9568,7 +9562,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
 
 ._crit_edge343:                                   ; preds = %._crit_edge343.loopexit, %.preheader314
   %155 = phi ptr [ %.pre430, %._crit_edge343.loopexit ], [ %152, %.preheader314 ]
-  tail call void @SDL_free_REAL(ptr noundef %155) #8
+  tail call void @SDL_free_REAL(ptr noundef %155) #7
   store ptr null, ptr %151, align 8
   br label %167
 
@@ -9584,7 +9578,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
 160:                                              ; preds = %.lr.ph342
   %161 = load ptr, ptr @vkDestroySemaphore, align 8
   %162 = load ptr, ptr %102, align 8
-  tail call void %161(ptr noundef %162, ptr noundef nonnull %159, ptr noundef null) #8
+  tail call void %161(ptr noundef %162, ptr noundef nonnull %159, ptr noundef null) #7
   %.pre429 = load i32, ptr %153, align 4
   br label %163
 
@@ -9608,9 +9602,9 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
   %174 = load ptr, ptr %173, align 8
   %175 = getelementptr inbounds nuw i8, ptr %5, i64 10388
   %176 = load i32, ptr %175, align 4
-  tail call void %171(ptr noundef %172, ptr noundef %174, i32 noundef %176, ptr noundef nonnull %169) #8
+  tail call void %171(ptr noundef %172, ptr noundef %174, i32 noundef %176, ptr noundef nonnull %169) #7
   %177 = load ptr, ptr %168, align 8
-  tail call void @SDL_free_REAL(ptr noundef %177) #8
+  tail call void @SDL_free_REAL(ptr noundef %177) #7
   store ptr null, ptr %168, align 8
   %178 = getelementptr inbounds nuw i8, ptr %5, i64 1688
   store ptr null, ptr %178, align 8
@@ -9627,7 +9621,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
 183:                                              ; preds = %180
   %184 = load ptr, ptr @vkDestroyCommandPool, align 8
   %185 = load ptr, ptr %102, align 8
-  tail call void %184(ptr noundef %185, ptr noundef nonnull %182, ptr noundef null) #8
+  tail call void %184(ptr noundef %185, ptr noundef nonnull %182, ptr noundef null) #7
   store ptr null, ptr %181, align 8
   br label %186
 
@@ -9661,11 +9655,11 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
 
 ._crit_edge348:                                   ; preds = %._crit_edge348.loopexit, %.preheader313
   %195 = phi ptr [ %.pre432, %._crit_edge348.loopexit ], [ %188, %.preheader313 ]
-  tail call void @SDL_free_REAL(ptr noundef %195) #8
+  tail call void @SDL_free_REAL(ptr noundef %195) #7
   store ptr null, ptr %187, align 8
   %196 = getelementptr inbounds nuw i8, ptr %5, i64 10312
   %197 = load ptr, ptr %196, align 8
-  tail call void @SDL_free_REAL(ptr noundef %197) #8
+  tail call void @SDL_free_REAL(ptr noundef %197) #7
   store ptr null, ptr %196, align 8
   br label %219
 
@@ -9673,7 +9667,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
   %198 = load ptr, ptr %187, align 8
   %199 = getelementptr inbounds nuw ptr, ptr %198, i64 %indvars.iv400
   %200 = load ptr, ptr %199, align 8
-  tail call void @SDL_free_REAL(ptr noundef %200) #8
+  tail call void @SDL_free_REAL(ptr noundef %200) #7
   %indvars.iv.next401 = add nuw nsw i64 %indvars.iv400, 1
   %201 = load i32, ptr %189, align 4
   %202 = zext i32 %201 to i64
@@ -9694,7 +9688,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
 210:                                              ; preds = %.lr.ph345
   %211 = load ptr, ptr @vkDestroyDescriptorPool, align 8
   %212 = load ptr, ptr %102, align 8
-  tail call void %211(ptr noundef %212, ptr noundef nonnull %209, ptr noundef null) #8
+  tail call void %211(ptr noundef %212, ptr noundef nonnull %209, ptr noundef null) #7
   %.pre431 = load ptr, ptr %191, align 8
   br label %213
 
@@ -9728,7 +9722,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
 228:                                              ; preds = %225
   %229 = load ptr, ptr @vkDestroyShaderModule, align 8
   %230 = load ptr, ptr %102, align 8
-  tail call void %229(ptr noundef %230, ptr noundef nonnull %227, ptr noundef null) #8
+  tail call void %229(ptr noundef %230, ptr noundef nonnull %227, ptr noundef null) #7
   store ptr null, ptr %226, align 8
   br label %231
 
@@ -9741,7 +9735,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
 234:                                              ; preds = %231
   %235 = load ptr, ptr @vkDestroyShaderModule, align 8
   %236 = load ptr, ptr %102, align 8
-  tail call void %235(ptr noundef %236, ptr noundef nonnull %233, ptr noundef null) #8
+  tail call void %235(ptr noundef %236, ptr noundef nonnull %233, ptr noundef null) #7
   store ptr null, ptr %232, align 8
   br label %237
 
@@ -9753,7 +9747,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
 238:                                              ; preds = %222
   %239 = load ptr, ptr @vkDestroyDescriptorSetLayout, align 8
   %240 = load ptr, ptr %102, align 8
-  tail call void %239(ptr noundef %240, ptr noundef nonnull %224, ptr noundef null) #8
+  tail call void %239(ptr noundef %240, ptr noundef nonnull %224, ptr noundef null) #7
   store ptr null, ptr %223, align 8
   br label %241
 
@@ -9766,7 +9760,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
 244:                                              ; preds = %241
   %245 = load ptr, ptr @vkDestroyPipelineLayout, align 8
   %246 = load ptr, ptr %102, align 8
-  tail call void %245(ptr noundef %246, ptr noundef nonnull %243, ptr noundef null) #8
+  tail call void %245(ptr noundef %246, ptr noundef nonnull %243, ptr noundef null) #7
   store ptr null, ptr %242, align 8
   br label %247
 
@@ -9783,7 +9777,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
 ._crit_edge353:                                   ; preds = %259, %247
   %252 = getelementptr inbounds nuw i8, ptr %5, i64 10336
   %253 = load ptr, ptr %252, align 8
-  tail call void @SDL_free_REAL(ptr noundef %253) #8
+  tail call void @SDL_free_REAL(ptr noundef %253) #7
   store ptr null, ptr %252, align 8
   store i32 0, ptr %248, align 8
   %254 = getelementptr inbounds nuw i8, ptr %5, i64 10208
@@ -9808,7 +9802,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
   %262 = load ptr, ptr %251, align 8
   %263 = getelementptr inbounds nuw %struct.VULKAN_PipelineState, ptr %262, i64 %indvars.iv407, i32 7
   %264 = load ptr, ptr %263, align 8
-  tail call void %260(ptr noundef %261, ptr noundef %264, ptr noundef null) #8
+  tail call void %260(ptr noundef %261, ptr noundef %264, ptr noundef null) #7
   %indvars.iv.next408 = add nuw nsw i64 %indvars.iv407, 1
   %265 = load i32, ptr %248, align 8
   %266 = sext i32 %265 to i64
@@ -9826,10 +9820,10 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
 ._crit_edge358:                                   ; preds = %._crit_edge356, %.preheader311
   %272 = getelementptr inbounds nuw i8, ptr %5, i64 10200
   %273 = load ptr, ptr %272, align 8
-  tail call void @SDL_free_REAL(ptr noundef %273) #8
+  tail call void @SDL_free_REAL(ptr noundef %273) #7
   store ptr null, ptr %272, align 8
   %274 = load ptr, ptr %254, align 8
-  tail call void @SDL_free_REAL(ptr noundef %274) #8
+  tail call void @SDL_free_REAL(ptr noundef %274) #7
   store ptr null, ptr %254, align 8
   br label %300
 
@@ -9837,7 +9831,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
   %275 = load ptr, ptr %258, align 8
   %276 = getelementptr inbounds nuw ptr, ptr %275, i64 %indvars.iv413
   %277 = load ptr, ptr %276, align 8
-  tail call void @SDL_free_REAL(ptr noundef %277) #8
+  tail call void @SDL_free_REAL(ptr noundef %277) #7
   %indvars.iv.next414 = add nuw nsw i64 %indvars.iv413, 1
   %278 = load i32, ptr %256, align 4
   %279 = zext i32 %278 to i64
@@ -9858,7 +9852,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
 287:                                              ; preds = %.lr.ph355
   %288 = load ptr, ptr @vkDestroyBuffer, align 8
   %289 = load ptr, ptr %102, align 8
-  tail call void %288(ptr noundef %289, ptr noundef nonnull %286, ptr noundef null) #8
+  tail call void %288(ptr noundef %289, ptr noundef nonnull %286, ptr noundef null) #7
   store ptr null, ptr %285, align 8
   br label %290
 
@@ -9870,7 +9864,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
 292:                                              ; preds = %290
   %293 = load ptr, ptr @vkFreeMemory, align 8
   %294 = load ptr, ptr %102, align 8
-  tail call void %293(ptr noundef %294, ptr noundef nonnull %291, ptr noundef null) #8
+  tail call void %293(ptr noundef %294, ptr noundef nonnull %291, ptr noundef null) #7
   br label %VULKAN_DestroyBuffer.exit305
 
 VULKAN_DestroyBuffer.exit305:                     ; preds = %290, %292
@@ -9913,11 +9907,11 @@ VULKAN_DestroyBuffer.exit305:                     ; preds = %290, %292
 
 ._crit_edge363:                                   ; preds = %._crit_edge363.loopexit, %.preheader309
   %309 = phi ptr [ %.pre433, %._crit_edge363.loopexit ], [ %302, %.preheader309 ]
-  tail call void @SDL_free_REAL(ptr noundef %309) #8
+  tail call void @SDL_free_REAL(ptr noundef %309) #7
   store ptr null, ptr %301, align 8
   %310 = getelementptr inbounds nuw i8, ptr %5, i64 10224
   %311 = load ptr, ptr %310, align 8
-  tail call void @SDL_free_REAL(ptr noundef %311) #8
+  tail call void @SDL_free_REAL(ptr noundef %311) #7
   store ptr null, ptr %310, align 8
   br label %337
 
@@ -9925,7 +9919,7 @@ VULKAN_DestroyBuffer.exit305:                     ; preds = %290, %292
   %312 = load ptr, ptr %301, align 8
   %313 = getelementptr inbounds nuw ptr, ptr %312, i64 %indvars.iv419
   %314 = load ptr, ptr %313, align 8
-  tail call void @SDL_free_REAL(ptr noundef %314) #8
+  tail call void @SDL_free_REAL(ptr noundef %314) #7
   %indvars.iv.next420 = add nuw nsw i64 %indvars.iv419, 1
   %315 = load i32, ptr %303, align 4
   %316 = zext i32 %315 to i64
@@ -9946,7 +9940,7 @@ VULKAN_DestroyBuffer.exit305:                     ; preds = %290, %292
 324:                                              ; preds = %.lr.ph360
   %325 = load ptr, ptr @vkDestroyBuffer, align 8
   %326 = load ptr, ptr %102, align 8
-  tail call void %325(ptr noundef %326, ptr noundef nonnull %323, ptr noundef null) #8
+  tail call void %325(ptr noundef %326, ptr noundef nonnull %323, ptr noundef null) #7
   store ptr null, ptr %322, align 8
   br label %327
 
@@ -9958,7 +9952,7 @@ VULKAN_DestroyBuffer.exit305:                     ; preds = %290, %292
 329:                                              ; preds = %327
   %330 = load ptr, ptr @vkFreeMemory, align 8
   %331 = load ptr, ptr %102, align 8
-  tail call void %330(ptr noundef %331, ptr noundef nonnull %328, ptr noundef null) #8
+  tail call void %330(ptr noundef %331, ptr noundef nonnull %328, ptr noundef null) #7
   br label %VULKAN_DestroyBuffer.exit308
 
 VULKAN_DestroyBuffer.exit308:                     ; preds = %327, %329
@@ -9984,7 +9978,7 @@ VULKAN_DestroyBuffer.exit308:                     ; preds = %327, %329
 
 343:                                              ; preds = %339
   %344 = load ptr, ptr @vkDestroyDevice, align 8
-  tail call void %344(ptr noundef nonnull %338, ptr noundef null) #8
+  tail call void %344(ptr noundef nonnull %338, ptr noundef null) #7
   store ptr null, ptr %102, align 8
   br label %345
 
@@ -10004,7 +9998,7 @@ VULKAN_DestroyBuffer.exit308:                     ; preds = %327, %329
   %353 = load ptr, ptr @vkDestroySurfaceKHR, align 8
   %354 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %355 = load ptr, ptr %354, align 8
-  tail call void %353(ptr noundef %355, ptr noundef nonnull %347, ptr noundef null) #8
+  tail call void %353(ptr noundef %355, ptr noundef nonnull %347, ptr noundef null) #7
   store ptr null, ptr %346, align 8
   br label %356
 
@@ -10022,7 +10016,7 @@ VULKAN_DestroyBuffer.exit308:                     ; preds = %327, %329
 
 363:                                              ; preds = %359
   %364 = load ptr, ptr @vkDestroyInstance, align 8
-  tail call void %364(ptr noundef nonnull %358, ptr noundef null) #8
+  tail call void %364(ptr noundef nonnull %358, ptr noundef null) #7
   store ptr null, ptr %357, align 8
   br label %365
 
@@ -10030,42 +10024,42 @@ VULKAN_DestroyBuffer.exit308:                     ; preds = %327, %329
   ret void
 }
 
-declare ptr @SDL_GetError_REAL() local_unnamed_addr #2
+declare ptr @SDL_GetError_REAL() local_unnamed_addr #1
 
-declare i32 @SDL_GetWindowID_REAL(ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_GetWindowID_REAL(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GetRenderWindow_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetRenderWindow_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_PushEvent_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_PushEvent_REAL(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GetVideoDevice() local_unnamed_addr #2
+declare ptr @SDL_GetVideoDevice() local_unnamed_addr #1
 
-declare zeroext i1 @SDL_Vulkan_LoadLibrary_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_Vulkan_LoadLibrary_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_LogDebug_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @SDL_LogDebug_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @VULKAN_InstanceExtensionFound(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @vkEnumerateInstanceExtensionProperties, align 8
-  %4 = call i32 %3(ptr noundef null, ptr noundef nonnull %2, ptr noundef null) #8
+  %4 = call i32 %3(ptr noundef null, ptr noundef nonnull %2, ptr noundef null) #7
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %1
-  %6 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %6 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %5
-  %8 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %4) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.81, ptr noundef %8) #8
+  %8 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %4) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.81, ptr noundef %8) #7
   call void @llvm.debugtrap()
   br label %9
 
 9:                                                ; preds = %7, %5
-  %10 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %4) #8
-  %11 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.81, ptr noundef %10) #8
+  %10 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %4) #7
+  %11 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.81, ptr noundef %10) #7
   br label %.critedge28
 
 12:                                               ; preds = %1
@@ -10077,7 +10071,7 @@ define internal fastcc noundef zeroext i1 @VULKAN_InstanceExtensionFound(ptr nou
   %15 = zext i32 %13 to i64
   %16 = call noalias ptr @SDL_calloc_REAL(i64 noundef %15, i64 noundef 260) #11
   %17 = load ptr, ptr @vkEnumerateInstanceExtensionProperties, align 8
-  %18 = call i32 %17(ptr noundef null, ptr noundef nonnull %2, ptr noundef %16) #8
+  %18 = call i32 %17(ptr noundef null, ptr noundef nonnull %2, ptr noundef %16) #7
   %.not25 = icmp eq i32 %18, 0
   br i1 %.not25, label %.preheader, label %20
 
@@ -10087,19 +10081,19 @@ define internal fastcc noundef zeroext i1 @VULKAN_InstanceExtensionFound(ptr nou
   br i1 %.not261.not, label %.critedge, label %.lr.ph
 
 20:                                               ; preds = %14
-  %21 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %21 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %20
-  %23 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %18) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.81, ptr noundef %23) #8
+  %23 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %18) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.81, ptr noundef %23) #7
   call void @llvm.debugtrap()
   br label %24
 
 24:                                               ; preds = %22, %20
-  %25 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %18) #8
-  %26 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.81, ptr noundef %25) #8
-  call void @SDL_free_REAL(ptr noundef %16) #8
+  %25 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %18) #7
+  %26 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.81, ptr noundef %25) #7
+  call void @SDL_free_REAL(ptr noundef %16) #7
   br label %.critedge28
 
 27:                                               ; preds = %.lr.ph
@@ -10112,35 +10106,35 @@ define internal fastcc noundef zeroext i1 @VULKAN_InstanceExtensionFound(ptr nou
 .lr.ph:                                           ; preds = %.preheader, %27
   %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %.preheader ]
   %30 = getelementptr inbounds nuw %struct.VkExtensionProperties, ptr %16, i64 %indvars.iv
-  %31 = call i32 @SDL_strcmp_REAL(ptr noundef %30, ptr noundef %0) #8
+  %31 = call i32 @SDL_strcmp_REAL(ptr noundef %30, ptr noundef %0) #7
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %27
 
 33:                                               ; preds = %.lr.ph
-  call void @SDL_free_REAL(ptr noundef %16) #8
+  call void @SDL_free_REAL(ptr noundef %16) #7
   br label %.critedge28
 
 .critedge:                                        ; preds = %27, %.preheader
-  call void @SDL_free_REAL(ptr noundef %16) #8
+  call void @SDL_free_REAL(ptr noundef %16) #7
   br label %.critedge28
 
 .critedge28:                                      ; preds = %33, %24, %12, %.critedge, %9
   %.018 = phi i1 [ false, %9 ], [ false, %.critedge ], [ false, %12 ], [ true, %33 ], [ false, %24 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.018
 }
 
-declare ptr @SDL_GetPointerProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetPointerProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_Vulkan_GetInstanceExtensions_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_Vulkan_GetInstanceExtensions_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @VULKAN_ValidationLayersFound() unnamed_addr #0 {
   %1 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 0, ptr %1, align 4
   %2 = load ptr, ptr @vkEnumerateInstanceLayerProperties, align 8
-  %3 = call i32 %2(ptr noundef nonnull %1, ptr noundef null) #8
+  %3 = call i32 %2(ptr noundef nonnull %1, ptr noundef null) #7
   %4 = load i32, ptr %1, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %17, label %5
@@ -10149,7 +10143,7 @@ define internal fastcc noundef zeroext i1 @VULKAN_ValidationLayersFound() unname
   %6 = zext i32 %4 to i64
   %7 = call noalias ptr @SDL_calloc_REAL(i64 noundef %6, i64 noundef 520) #11
   %8 = load ptr, ptr @vkEnumerateInstanceLayerProperties, align 8
-  %9 = call i32 %8(ptr noundef nonnull %1, ptr noundef %7) #8
+  %9 = call i32 %8(ptr noundef nonnull %1, ptr noundef %7) #7
   %10 = load i32, ptr %1, align 4
   %.not12 = icmp eq i32 %10, 0
   br i1 %.not12, label %._crit_edge, label %.lr.ph
@@ -10164,18 +10158,18 @@ define internal fastcc noundef zeroext i1 @VULKAN_ValidationLayersFound() unname
 .lr.ph:                                           ; preds = %5, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %5 ]
   %15 = getelementptr inbounds nuw %struct.VkLayerProperties, ptr %7, i64 %indvars.iv
-  %16 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull @.str.52, ptr noundef %15) #8
+  %16 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull @.str.52, ptr noundef %15) #7
   %.not8 = icmp eq i32 %16, 0
   br i1 %.not8, label %._crit_edge, label %11
 
 ._crit_edge:                                      ; preds = %11, %.lr.ph, %5
   %.lcssa = phi i1 [ false, %5 ], [ %.not8, %.lr.ph ], [ %.not8, %11 ]
-  call void @SDL_free_REAL(ptr noundef %7) #8
+  call void @SDL_free_REAL(ptr noundef %7) #7
   br label %17
 
 17:                                               ; preds = %._crit_edge, %0
   %.06 = phi i1 [ %.lcssa, %._crit_edge ], [ false, %0 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i1 %.06
 }
 
@@ -10185,28 +10179,28 @@ define internal fastcc i32 @VULKAN_FindPhysicalDevice(ptr noundef %0) unnamed_ad
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4
   %6 = load ptr, ptr @vkEnumeratePhysicalDevices, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = call i32 %6(ptr noundef %8, ptr noundef nonnull %2, ptr noundef null) #8
+  %9 = call i32 %6(ptr noundef %8, ptr noundef nonnull %2, ptr noundef null) #7
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %17, label %10
 
 10:                                               ; preds = %1
-  %11 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %11 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %10
-  %13 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %9) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.117, ptr noundef %13) #8
+  %13 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %9) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.117, ptr noundef %13) #7
   call void @llvm.debugtrap()
   br label %14
 
 14:                                               ; preds = %12, %10
-  %15 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %9) #8
-  %16 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.117, ptr noundef %15) #8
+  %15 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %9) #7
+  %16 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.117, ptr noundef %15) #7
   br label %153
 
 17:                                               ; preds = %1
@@ -10215,42 +10209,42 @@ define internal fastcc i32 @VULKAN_FindPhysicalDevice(ptr noundef %0) unnamed_ad
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %17
-  %21 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %21 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %20
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.118) #8
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.118) #7
   call void @llvm.debugtrap()
   br label %23
 
 23:                                               ; preds = %22, %20
-  %24 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.118) #8
+  %24 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.118) #7
   br label %153
 
 25:                                               ; preds = %17
   %26 = zext i32 %18 to i64
   %27 = shl nuw nsw i64 %26, 3
-  %28 = call noalias ptr @SDL_malloc_REAL(i64 noundef %27) #8
+  %28 = call noalias ptr @SDL_malloc_REAL(i64 noundef %27) #7
   %29 = load ptr, ptr @vkEnumeratePhysicalDevices, align 8
   %30 = load ptr, ptr %7, align 8
-  %31 = call i32 %29(ptr noundef %30, ptr noundef nonnull %2, ptr noundef %28) #8
+  %31 = call i32 %29(ptr noundef %30, ptr noundef nonnull %2, ptr noundef %28) #7
   %.not126 = icmp eq i32 %31, 0
   br i1 %.not126, label %39, label %32
 
 32:                                               ; preds = %25
-  call void @SDL_free_REAL(ptr noundef %28) #8
-  %33 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  call void @SDL_free_REAL(ptr noundef %28) #7
+  %33 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32
-  %35 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %31) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.117, ptr noundef %35) #8
+  %35 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %31) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.117, ptr noundef %35) #7
   call void @llvm.debugtrap()
   br label %36
 
 36:                                               ; preds = %34, %32
-  %37 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %31) #8
-  %38 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.117, ptr noundef %37) #8
+  %37 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %31) #7
+  %38 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.117, ptr noundef %37) #7
   br label %153
 
 39:                                               ; preds = %25
@@ -10275,25 +10269,25 @@ define internal fastcc i32 @VULKAN_FindPhysicalDevice(ptr noundef %0) unnamed_ad
   %.0102203 = phi ptr [ null, %.lr.ph206 ], [ %.2104.ph, %.loopexit ]
   %.0106202 = phi i32 [ 0, %.lr.ph206 ], [ %.1107.ph, %.loopexit ]
   %.0109201 = phi ptr [ null, %.lr.ph206 ], [ %.2111.ph, %.loopexit ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %49 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv240
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr @vkGetPhysicalDeviceProperties, align 8
-  call void %51(ptr noundef %50, ptr noundef nonnull %42) #8
+  call void %51(ptr noundef %50, ptr noundef nonnull %42) #7
   %52 = load i32, ptr %42, align 8
   %53 = icmp ult i32 %52, 4194304
   br i1 %53, label %.loopexit, label %54
 
 54:                                               ; preds = %48
   %55 = load ptr, ptr @vkGetPhysicalDeviceMemoryProperties, align 8
-  call void %55(ptr noundef %50, ptr noundef nonnull %43) #8
+  call void %55(ptr noundef %50, ptr noundef nonnull %43) #7
   %56 = load ptr, ptr @vkGetPhysicalDeviceFeatures, align 8
-  call void %56(ptr noundef %50, ptr noundef nonnull %44) #8
+  call void %56(ptr noundef %50, ptr noundef nonnull %44) #7
   %57 = load ptr, ptr @vkGetPhysicalDeviceQueueFamilyProperties, align 8
-  call void %57(ptr noundef %50, ptr noundef nonnull %3, ptr noundef null) #8
+  call void %57(ptr noundef %50, ptr noundef nonnull %3, ptr noundef null) #7
   %58 = load i32, ptr %3, align 4
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %.loopexit, label %60
@@ -10303,24 +10297,24 @@ define internal fastcc i32 @VULKAN_FindPhysicalDevice(ptr noundef %0) unnamed_ad
   br i1 %61, label %62, label %68
 
 62:                                               ; preds = %60
-  call void @SDL_free_REAL(ptr noundef %.0109201) #8
+  call void @SDL_free_REAL(ptr noundef %.0109201) #7
   %63 = load i32, ptr %3, align 4
   %64 = zext i32 %63 to i64
   %65 = mul nuw nsw i64 %64, 24
-  %66 = call noalias ptr @SDL_malloc_REAL(i64 noundef %65) #8
+  %66 = call noalias ptr @SDL_malloc_REAL(i64 noundef %65) #7
   %.not127 = icmp eq ptr %66, null
   br i1 %.not127, label %67, label %68
 
 67:                                               ; preds = %62
-  call void @SDL_free_REAL(ptr noundef nonnull %28) #8
-  call void @SDL_free_REAL(ptr noundef %.0102203) #8
+  call void @SDL_free_REAL(ptr noundef nonnull %28) #7
+  call void @SDL_free_REAL(ptr noundef %.0102203) #7
   br label %.critedge.thread159
 
 68:                                               ; preds = %62, %60
   %.3112 = phi ptr [ %66, %62 ], [ %.0109201, %60 ]
   %.2108 = phi i32 [ %63, %62 ], [ %.0106202, %60 ]
   %69 = load ptr, ptr @vkGetPhysicalDeviceQueueFamilyProperties, align 8
-  call void %69(ptr noundef %50, ptr noundef nonnull %3, ptr noundef %.3112) #8
+  call void %69(ptr noundef %50, ptr noundef nonnull %3, ptr noundef %.3112) #7
   %70 = load i32, ptr %3, align 4
   store i32 %70, ptr %45, align 4
   store i32 %70, ptr %46, align 8
@@ -10330,7 +10324,7 @@ define internal fastcc i32 @VULKAN_FindPhysicalDevice(ptr noundef %0) unnamed_ad
 .lr.ph:                                           ; preds = %68, %95
   %71 = phi i32 [ %96, %95 ], [ %70, %68 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %95 ], [ 0, %68 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   %72 = getelementptr inbounds nuw %struct.VkQueueFamilyProperties, ptr %.3112, i64 %indvars.iv
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
@@ -10352,27 +10346,27 @@ define internal fastcc i32 @VULKAN_FindPhysicalDevice(ptr noundef %0) unnamed_ad
 ._crit_edge245:                                   ; preds = %76, %79
   %80 = load ptr, ptr @vkGetPhysicalDeviceSurfaceSupportKHR, align 8
   %81 = load ptr, ptr %47, align 8
-  %82 = call i32 %80(ptr noundef %50, i32 noundef %.pre, ptr noundef %81, ptr noundef nonnull %5) #8
+  %82 = call i32 %80(ptr noundef %50, i32 noundef %.pre, ptr noundef %81, ptr noundef nonnull %5) #7
   %.not129 = icmp eq i32 %82, 0
   br i1 %.not129, label %89, label %83
 
 83:                                               ; preds = %._crit_edge245
-  call void @SDL_free_REAL(ptr noundef %28) #8
-  call void @SDL_free_REAL(ptr noundef nonnull %.3112) #8
-  call void @SDL_free_REAL(ptr noundef %.0102203) #8
-  %84 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  call void @SDL_free_REAL(ptr noundef %28) #7
+  call void @SDL_free_REAL(ptr noundef nonnull %.3112) #7
+  call void @SDL_free_REAL(ptr noundef %.0102203) #7
+  %84 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %84, label %85, label %.thread139
 
 85:                                               ; preds = %83
-  %86 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %82) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.119, ptr noundef %86) #8
+  %86 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %82) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.119, ptr noundef %86) #7
   call void @llvm.debugtrap()
   br label %.thread139
 
 .thread139:                                       ; preds = %83, %85
-  %87 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %82) #8
-  %88 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.119, ptr noundef %87) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
+  %87 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %82) #7
+  %88 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.119, ptr noundef %87) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge.thread159
 
 89:                                               ; preds = %._crit_edge245
@@ -10393,12 +10387,12 @@ define internal fastcc i32 @VULKAN_FindPhysicalDevice(ptr noundef %0) unnamed_ad
   br i1 %.not131, label %95, label %94
 
 94:                                               ; preds = %91
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit166
 
 95:                                               ; preds = %._crit_edge, %91, %.lr.ph
   %96 = phi i32 [ %.pre243, %._crit_edge ], [ %.pre244, %91 ], [ %71, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %97 = zext i32 %96 to i64
   %98 = icmp samesign ult i64 %indvars.iv.next, %97
@@ -10417,26 +10411,26 @@ define internal fastcc i32 @VULKAN_FindPhysicalDevice(ptr noundef %0) unnamed_ad
 
 105:                                              ; preds = %102
   %106 = load ptr, ptr @vkEnumerateDeviceExtensionProperties, align 8
-  %107 = call i32 %106(ptr noundef %50, ptr noundef null, ptr noundef nonnull %4, ptr noundef null) #8
+  %107 = call i32 %106(ptr noundef %50, ptr noundef null, ptr noundef nonnull %4, ptr noundef null) #7
   %.not132 = icmp eq i32 %107, 0
   br i1 %.not132, label %115, label %108
 
 108:                                              ; preds = %105
-  call void @SDL_free_REAL(ptr noundef %28) #8
-  call void @SDL_free_REAL(ptr noundef %.3112) #8
-  call void @SDL_free_REAL(ptr noundef %.0102203) #8
-  %109 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  call void @SDL_free_REAL(ptr noundef %28) #7
+  call void @SDL_free_REAL(ptr noundef %.3112) #7
+  call void @SDL_free_REAL(ptr noundef %.0102203) #7
+  %109 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %109, label %110, label %112
 
 110:                                              ; preds = %108
-  %111 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %107) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.120, ptr noundef %111) #8
+  %111 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %107) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.120, ptr noundef %111) #7
   call void @llvm.debugtrap()
   br label %112
 
 112:                                              ; preds = %110, %108
-  %113 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %107) #8
-  %114 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.120, ptr noundef %113) #8
+  %113 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %107) #7
+  %114 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.120, ptr noundef %113) #7
   br label %.critedge.thread159
 
 115:                                              ; preds = %105
@@ -10449,24 +10443,24 @@ define internal fastcc i32 @VULKAN_FindPhysicalDevice(ptr noundef %0) unnamed_ad
   br i1 %119, label %120, label %126
 
 120:                                              ; preds = %118
-  call void @SDL_free_REAL(ptr noundef %.0102203) #8
+  call void @SDL_free_REAL(ptr noundef %.0102203) #7
   %121 = load i32, ptr %4, align 4
   %122 = zext i32 %121 to i64
   %123 = mul nuw nsw i64 %122, 260
-  %124 = call noalias ptr @SDL_malloc_REAL(i64 noundef %123) #8
+  %124 = call noalias ptr @SDL_malloc_REAL(i64 noundef %123) #7
   %.not133 = icmp eq ptr %124, null
   br i1 %.not133, label %125, label %126
 
 125:                                              ; preds = %120
-  call void @SDL_free_REAL(ptr noundef %28) #8
-  call void @SDL_free_REAL(ptr noundef %.3112) #8
+  call void @SDL_free_REAL(ptr noundef %28) #7
+  call void @SDL_free_REAL(ptr noundef %.3112) #7
   br label %.critedge.thread159
 
 126:                                              ; preds = %120, %118
   %.3105 = phi ptr [ %124, %120 ], [ %.0102203, %118 ]
   %.2101 = phi i32 [ %121, %120 ], [ %.099204, %118 ]
   %127 = load ptr, ptr @vkEnumerateDeviceExtensionProperties, align 8
-  %128 = call i32 %127(ptr noundef %50, ptr noundef null, ptr noundef nonnull %4, ptr noundef %.3105) #8
+  %128 = call i32 %127(ptr noundef %50, ptr noundef null, ptr noundef nonnull %4, ptr noundef %.3105) #7
   %.not134 = icmp eq i32 %128, 0
   br i1 %.not134, label %.preheader, label %130
 
@@ -10476,21 +10470,21 @@ define internal fastcc i32 @VULKAN_FindPhysicalDevice(ptr noundef %0) unnamed_ad
   br i1 %.not210, label %.loopexit, label %.lr.ph200
 
 130:                                              ; preds = %126
-  call void @SDL_free_REAL(ptr noundef %28) #8
-  call void @SDL_free_REAL(ptr noundef %.3112) #8
-  call void @SDL_free_REAL(ptr noundef %.3105) #8
-  %131 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  call void @SDL_free_REAL(ptr noundef %28) #7
+  call void @SDL_free_REAL(ptr noundef %.3112) #7
+  call void @SDL_free_REAL(ptr noundef %.3105) #7
+  %131 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %131, label %132, label %134
 
 132:                                              ; preds = %130
-  %133 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %128) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.120, ptr noundef %133) #8
+  %133 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %128) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.120, ptr noundef %133) #7
   call void @llvm.debugtrap()
   br label %134
 
 134:                                              ; preds = %132, %130
-  %135 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %128) #8
-  %136 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.120, ptr noundef %135) #8
+  %135 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %128) #7
+  %136 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.120, ptr noundef %135) #7
   br label %.critedge.thread159
 
 137:                                              ; preds = %.lr.ph200
@@ -10503,20 +10497,20 @@ define internal fastcc i32 @VULKAN_FindPhysicalDevice(ptr noundef %0) unnamed_ad
 .lr.ph200:                                        ; preds = %.preheader, %137
   %indvars.iv237 = phi i64 [ %indvars.iv.next238, %137 ], [ 0, %.preheader ]
   %141 = getelementptr inbounds nuw %struct.VkExtensionProperties, ptr %.3105, i64 %indvars.iv237
-  %142 = call i32 @SDL_strcmp_REAL(ptr noundef %141, ptr noundef nonnull @.str.47) #8
+  %142 = call i32 @SDL_strcmp_REAL(ptr noundef %141, ptr noundef nonnull @.str.47) #7
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %.critedge, label %137
 
 .critedge.thread159:                              ; preds = %112, %134, %125, %67, %.thread139
   %.2.ph158 = phi i32 [ -13, %.thread139 ], [ -13, %67 ], [ -13, %125 ], [ %128, %134 ], [ -13, %112 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %153
 
 .critedge:                                        ; preds = %.lr.ph200
   store ptr %50, ptr %40, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit167
 
 .loopexit:                                        ; preds = %137, %.preheader, %48, %54, %.loopexit166, %102, %115
@@ -10524,8 +10518,8 @@ define internal fastcc i32 @VULKAN_FindPhysicalDevice(ptr noundef %0) unnamed_ad
   %.1107.ph = phi i32 [ %.2108, %115 ], [ %.2108, %102 ], [ %.2108, %.loopexit166 ], [ %.0106202, %54 ], [ %.0106202, %48 ], [ %.2108, %.preheader ], [ %.2108, %137 ]
   %.2104.ph = phi ptr [ %.0102203, %115 ], [ %.0102203, %102 ], [ %.0102203, %.loopexit166 ], [ %.0102203, %54 ], [ %.0102203, %48 ], [ %.3105, %.preheader ], [ %.3105, %137 ]
   %.1100.ph = phi i32 [ %.099204, %115 ], [ %.099204, %102 ], [ %.099204, %.loopexit166 ], [ %.099204, %54 ], [ %.099204, %48 ], [ %.2101, %.preheader ], [ %.2101, %137 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
   %144 = load i32, ptr %2, align 4
   %145 = zext i32 %144 to i64
@@ -10535,58 +10529,58 @@ define internal fastcc i32 @VULKAN_FindPhysicalDevice(ptr noundef %0) unnamed_ad
 .loopexit167:                                     ; preds = %.loopexit, %39, %.critedge
   %.1110 = phi ptr [ %.3112, %.critedge ], [ null, %39 ], [ %.2111.ph, %.loopexit ]
   %.1103 = phi ptr [ %.3105, %.critedge ], [ null, %39 ], [ %.2104.ph, %.loopexit ]
-  call void @SDL_free_REAL(ptr noundef %28) #8
-  call void @SDL_free_REAL(ptr noundef %.1110) #8
-  call void @SDL_free_REAL(ptr noundef %.1103) #8
+  call void @SDL_free_REAL(ptr noundef %28) #7
+  call void @SDL_free_REAL(ptr noundef %.1110) #7
+  call void @SDL_free_REAL(ptr noundef %.1103) #7
   %147 = load ptr, ptr %40, align 8
   %.not135 = icmp eq ptr %147, null
   br i1 %.not135, label %148, label %153
 
 148:                                              ; preds = %.loopexit167
-  %149 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %149 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %149, label %150, label %151
 
 150:                                              ; preds = %148
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.121) #8
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.121) #7
   call void @llvm.debugtrap()
   br label %151
 
 151:                                              ; preds = %150, %148
-  %152 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.121) #8
+  %152 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.121) #7
   br label %153
 
 153:                                              ; preds = %.critedge.thread159, %.loopexit167, %151, %36, %23, %14
   %.0 = phi i32 [ %9, %14 ], [ -13, %23 ], [ %31, %36 ], [ -13, %151 ], [ 0, %.loopexit167 ], [ %.2.ph158, %.critedge.thread159 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
-declare zeroext i1 @SDL_HasProperty_REAL(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_HasProperty_REAL(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @VULKAN_DeviceExtensionsFound(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @vkEnumerateDeviceExtensionProperties, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = call i32 %3(ptr noundef %5, ptr noundef null, ptr noundef nonnull %2, ptr noundef null) #8
+  %6 = call i32 %3(ptr noundef %5, ptr noundef null, ptr noundef nonnull %2, ptr noundef null) #7
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %14, label %7
 
 7:                                                ; preds = %1
-  %8 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %8 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
-  %10 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %6) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.120, ptr noundef %10) #8
+  %10 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %6) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.120, ptr noundef %10) #7
   call void @llvm.debugtrap()
   br label %11
 
 11:                                               ; preds = %9, %7
-  %12 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %6) #8
-  %13 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.120, ptr noundef %12) #8
+  %12 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %6) #7
+  %13 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.120, ptr noundef %12) #7
   br label %40
 
 14:                                               ; preds = %1
@@ -10599,7 +10593,7 @@ define internal fastcc noundef zeroext i1 @VULKAN_DeviceExtensionsFound(ptr noun
   %18 = call noalias ptr @SDL_calloc_REAL(i64 noundef %17, i64 noundef 260) #11
   %19 = load ptr, ptr @vkEnumerateDeviceExtensionProperties, align 8
   %20 = load ptr, ptr %4, align 8
-  %21 = call i32 %19(ptr noundef %20, ptr noundef null, ptr noundef nonnull %2, ptr noundef %18) #8
+  %21 = call i32 %19(ptr noundef %20, ptr noundef null, ptr noundef nonnull %2, ptr noundef %18) #7
   %.not35 = icmp eq i32 %21, 0
   br i1 %.not35, label %.preheader2, label %23
 
@@ -10609,19 +10603,19 @@ define internal fastcc noundef zeroext i1 @VULKAN_DeviceExtensionsFound(ptr noun
   br i1 %.not8, label %.split, label %.lr.ph
 
 23:                                               ; preds = %16
-  %24 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %24 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %24, label %25, label %.thread
 
 25:                                               ; preds = %23
-  %26 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %21) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.120, ptr noundef %26) #8
+  %26 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %21) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.120, ptr noundef %26) #7
   call void @llvm.debugtrap()
   br label %.thread
 
 .thread:                                          ; preds = %23, %25
-  %27 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %21) #8
-  %28 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.120, ptr noundef %27) #8
-  call void @SDL_free_REAL(ptr noundef %18) #8
+  %27 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %21) #7
+  %28 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.120, ptr noundef %27) #7
+  call void @SDL_free_REAL(ptr noundef %18) #7
   br label %40
 
 .preheaderthread-pre-split:                       ; preds = %._crit_edge
@@ -10646,7 +10640,7 @@ define internal fastcc noundef zeroext i1 @VULKAN_DeviceExtensionsFound(ptr noun
 35:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %36 = getelementptr inbounds nuw %struct.VkExtensionProperties, ptr %18, i64 %indvars.iv
-  %37 = call i32 @SDL_strcmp_REAL(ptr noundef %36, ptr noundef %30) #8
+  %37 = call i32 @SDL_strcmp_REAL(ptr noundef %36, ptr noundef %30) #7
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %._crit_edge, label %31
 
@@ -10656,12 +10650,12 @@ define internal fastcc noundef zeroext i1 @VULKAN_DeviceExtensionsFound(ptr noun
 
 .split:                                           ; preds = %.preheaderthread-pre-split, %._crit_edge, %31, %.preheader2
   %.us-phi = phi i1 [ false, %.preheader2 ], [ false, %31 ], [ %39, %._crit_edge ], [ %39, %.preheaderthread-pre-split ]
-  call void @SDL_free_REAL(ptr noundef %18) #8
+  call void @SDL_free_REAL(ptr noundef %18) #7
   br label %40
 
 40:                                               ; preds = %14, %.split, %.thread, %11
   %.027 = phi i1 [ false, %11 ], [ false, %.thread ], [ %.us-phi, %.split ], [ true, %14 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.027
 }
 
@@ -10670,1481 +10664,1481 @@ define internal fastcc noundef zeroext i1 @VULKAN_LoadDeviceFunctions(ptr nounde
   %2 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1632
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call ptr %2(ptr noundef %4, ptr noundef nonnull @.str.122) #8
+  %5 = tail call ptr %2(ptr noundef %4, ptr noundef nonnull @.str.122) #7
   store ptr %5, ptr @vkAcquireNextImageKHR, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %11
 
 6:                                                ; preds = %1
-  %7 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %7 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %6
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.123) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.123) #7
   tail call void @llvm.debugtrap()
   br label %9
 
 9:                                                ; preds = %8, %6
-  %10 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.123) #8
+  %10 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.123) #7
   br label %639
 
 11:                                               ; preds = %1
   %12 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %13 = load ptr, ptr %3, align 8
-  %14 = tail call ptr %12(ptr noundef %13, ptr noundef nonnull @.str.124) #8
+  %14 = tail call ptr %12(ptr noundef %13, ptr noundef nonnull @.str.124) #7
   store ptr %14, ptr @vkAllocateCommandBuffers, align 8
   %.not73 = icmp eq ptr %14, null
   br i1 %.not73, label %15, label %20
 
 15:                                               ; preds = %11
-  %16 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %16 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %15
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.125) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.125) #7
   tail call void @llvm.debugtrap()
   br label %18
 
 18:                                               ; preds = %17, %15
-  %19 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.125) #8
+  %19 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.125) #7
   br label %639
 
 20:                                               ; preds = %11
   %21 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %22 = load ptr, ptr %3, align 8
-  %23 = tail call ptr %21(ptr noundef %22, ptr noundef nonnull @.str.126) #8
+  %23 = tail call ptr %21(ptr noundef %22, ptr noundef nonnull @.str.126) #7
   store ptr %23, ptr @vkAllocateDescriptorSets, align 8
   %.not74 = icmp eq ptr %23, null
   br i1 %.not74, label %24, label %29
 
 24:                                               ; preds = %20
-  %25 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %25 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %24
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.127) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.127) #7
   tail call void @llvm.debugtrap()
   br label %27
 
 27:                                               ; preds = %26, %24
-  %28 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.127) #8
+  %28 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.127) #7
   br label %639
 
 29:                                               ; preds = %20
   %30 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %31 = load ptr, ptr %3, align 8
-  %32 = tail call ptr %30(ptr noundef %31, ptr noundef nonnull @.str.128) #8
+  %32 = tail call ptr %30(ptr noundef %31, ptr noundef nonnull @.str.128) #7
   store ptr %32, ptr @vkAllocateMemory, align 8
   %.not75 = icmp eq ptr %32, null
   br i1 %.not75, label %33, label %38
 
 33:                                               ; preds = %29
-  %34 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %34 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %33
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.129) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.129) #7
   tail call void @llvm.debugtrap()
   br label %36
 
 36:                                               ; preds = %35, %33
-  %37 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.129) #8
+  %37 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.129) #7
   br label %639
 
 38:                                               ; preds = %29
   %39 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %40 = load ptr, ptr %3, align 8
-  %41 = tail call ptr %39(ptr noundef %40, ptr noundef nonnull @.str.130) #8
+  %41 = tail call ptr %39(ptr noundef %40, ptr noundef nonnull @.str.130) #7
   store ptr %41, ptr @vkBeginCommandBuffer, align 8
   %.not76 = icmp eq ptr %41, null
   br i1 %.not76, label %42, label %47
 
 42:                                               ; preds = %38
-  %43 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %43 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %43, label %44, label %45
 
 44:                                               ; preds = %42
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.131) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.131) #7
   tail call void @llvm.debugtrap()
   br label %45
 
 45:                                               ; preds = %44, %42
-  %46 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.131) #8
+  %46 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.131) #7
   br label %639
 
 47:                                               ; preds = %38
   %48 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %49 = load ptr, ptr %3, align 8
-  %50 = tail call ptr %48(ptr noundef %49, ptr noundef nonnull @.str.132) #8
+  %50 = tail call ptr %48(ptr noundef %49, ptr noundef nonnull @.str.132) #7
   store ptr %50, ptr @vkBindBufferMemory, align 8
   %.not77 = icmp eq ptr %50, null
   br i1 %.not77, label %51, label %56
 
 51:                                               ; preds = %47
-  %52 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %52 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %52, label %53, label %54
 
 53:                                               ; preds = %51
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.133) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.133) #7
   tail call void @llvm.debugtrap()
   br label %54
 
 54:                                               ; preds = %53, %51
-  %55 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.133) #8
+  %55 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.133) #7
   br label %639
 
 56:                                               ; preds = %47
   %57 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %58 = load ptr, ptr %3, align 8
-  %59 = tail call ptr %57(ptr noundef %58, ptr noundef nonnull @.str.134) #8
+  %59 = tail call ptr %57(ptr noundef %58, ptr noundef nonnull @.str.134) #7
   store ptr %59, ptr @vkBindImageMemory, align 8
   %.not78 = icmp eq ptr %59, null
   br i1 %.not78, label %60, label %65
 
 60:                                               ; preds = %56
-  %61 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %61 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %61, label %62, label %63
 
 62:                                               ; preds = %60
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.135) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.135) #7
   tail call void @llvm.debugtrap()
   br label %63
 
 63:                                               ; preds = %62, %60
-  %64 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.135) #8
+  %64 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.135) #7
   br label %639
 
 65:                                               ; preds = %56
   %66 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %67 = load ptr, ptr %3, align 8
-  %68 = tail call ptr %66(ptr noundef %67, ptr noundef nonnull @.str.136) #8
+  %68 = tail call ptr %66(ptr noundef %67, ptr noundef nonnull @.str.136) #7
   store ptr %68, ptr @vkCmdBeginRenderPass, align 8
   %.not79 = icmp eq ptr %68, null
   br i1 %.not79, label %69, label %74
 
 69:                                               ; preds = %65
-  %70 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %70 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %69
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.137) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.137) #7
   tail call void @llvm.debugtrap()
   br label %72
 
 72:                                               ; preds = %71, %69
-  %73 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.137) #8
+  %73 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.137) #7
   br label %639
 
 74:                                               ; preds = %65
   %75 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %76 = load ptr, ptr %3, align 8
-  %77 = tail call ptr %75(ptr noundef %76, ptr noundef nonnull @.str.138) #8
+  %77 = tail call ptr %75(ptr noundef %76, ptr noundef nonnull @.str.138) #7
   store ptr %77, ptr @vkCmdBindDescriptorSets, align 8
   %.not80 = icmp eq ptr %77, null
   br i1 %.not80, label %78, label %83
 
 78:                                               ; preds = %74
-  %79 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %79 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %79, label %80, label %81
 
 80:                                               ; preds = %78
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.139) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.139) #7
   tail call void @llvm.debugtrap()
   br label %81
 
 81:                                               ; preds = %80, %78
-  %82 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.139) #8
+  %82 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.139) #7
   br label %639
 
 83:                                               ; preds = %74
   %84 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %85 = load ptr, ptr %3, align 8
-  %86 = tail call ptr %84(ptr noundef %85, ptr noundef nonnull @.str.140) #8
+  %86 = tail call ptr %84(ptr noundef %85, ptr noundef nonnull @.str.140) #7
   store ptr %86, ptr @vkCmdBindPipeline, align 8
   %.not81 = icmp eq ptr %86, null
   br i1 %.not81, label %87, label %92
 
 87:                                               ; preds = %83
-  %88 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %88 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %88, label %89, label %90
 
 89:                                               ; preds = %87
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.141) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.141) #7
   tail call void @llvm.debugtrap()
   br label %90
 
 90:                                               ; preds = %89, %87
-  %91 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.141) #8
+  %91 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.141) #7
   br label %639
 
 92:                                               ; preds = %83
   %93 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %94 = load ptr, ptr %3, align 8
-  %95 = tail call ptr %93(ptr noundef %94, ptr noundef nonnull @.str.142) #8
+  %95 = tail call ptr %93(ptr noundef %94, ptr noundef nonnull @.str.142) #7
   store ptr %95, ptr @vkCmdBindVertexBuffers, align 8
   %.not82 = icmp eq ptr %95, null
   br i1 %.not82, label %96, label %101
 
 96:                                               ; preds = %92
-  %97 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %97 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %97, label %98, label %99
 
 98:                                               ; preds = %96
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.143) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.143) #7
   tail call void @llvm.debugtrap()
   br label %99
 
 99:                                               ; preds = %98, %96
-  %100 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.143) #8
+  %100 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.143) #7
   br label %639
 
 101:                                              ; preds = %92
   %102 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %103 = load ptr, ptr %3, align 8
-  %104 = tail call ptr %102(ptr noundef %103, ptr noundef nonnull @.str.144) #8
+  %104 = tail call ptr %102(ptr noundef %103, ptr noundef nonnull @.str.144) #7
   store ptr %104, ptr @vkCmdClearColorImage, align 8
   %.not83 = icmp eq ptr %104, null
   br i1 %.not83, label %105, label %110
 
 105:                                              ; preds = %101
-  %106 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %106 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %106, label %107, label %108
 
 107:                                              ; preds = %105
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.145) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.145) #7
   tail call void @llvm.debugtrap()
   br label %108
 
 108:                                              ; preds = %107, %105
-  %109 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.145) #8
+  %109 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.145) #7
   br label %639
 
 110:                                              ; preds = %101
   %111 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %112 = load ptr, ptr %3, align 8
-  %113 = tail call ptr %111(ptr noundef %112, ptr noundef nonnull @.str.146) #8
+  %113 = tail call ptr %111(ptr noundef %112, ptr noundef nonnull @.str.146) #7
   store ptr %113, ptr @vkCmdCopyBufferToImage, align 8
   %.not84 = icmp eq ptr %113, null
   br i1 %.not84, label %114, label %119
 
 114:                                              ; preds = %110
-  %115 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %115 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %115, label %116, label %117
 
 116:                                              ; preds = %114
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.147) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.147) #7
   tail call void @llvm.debugtrap()
   br label %117
 
 117:                                              ; preds = %116, %114
-  %118 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.147) #8
+  %118 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.147) #7
   br label %639
 
 119:                                              ; preds = %110
   %120 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %121 = load ptr, ptr %3, align 8
-  %122 = tail call ptr %120(ptr noundef %121, ptr noundef nonnull @.str.148) #8
+  %122 = tail call ptr %120(ptr noundef %121, ptr noundef nonnull @.str.148) #7
   store ptr %122, ptr @vkCmdCopyImageToBuffer, align 8
   %.not85 = icmp eq ptr %122, null
   br i1 %.not85, label %123, label %128
 
 123:                                              ; preds = %119
-  %124 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %124 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %124, label %125, label %126
 
 125:                                              ; preds = %123
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.149) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.149) #7
   tail call void @llvm.debugtrap()
   br label %126
 
 126:                                              ; preds = %125, %123
-  %127 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.149) #8
+  %127 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.149) #7
   br label %639
 
 128:                                              ; preds = %119
   %129 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %130 = load ptr, ptr %3, align 8
-  %131 = tail call ptr %129(ptr noundef %130, ptr noundef nonnull @.str.150) #8
+  %131 = tail call ptr %129(ptr noundef %130, ptr noundef nonnull @.str.150) #7
   store ptr %131, ptr @vkCmdDraw, align 8
   %.not86 = icmp eq ptr %131, null
   br i1 %.not86, label %132, label %137
 
 132:                                              ; preds = %128
-  %133 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %133 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %133, label %134, label %135
 
 134:                                              ; preds = %132
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.151) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.151) #7
   tail call void @llvm.debugtrap()
   br label %135
 
 135:                                              ; preds = %134, %132
-  %136 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.151) #8
+  %136 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.151) #7
   br label %639
 
 137:                                              ; preds = %128
   %138 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %139 = load ptr, ptr %3, align 8
-  %140 = tail call ptr %138(ptr noundef %139, ptr noundef nonnull @.str.152) #8
+  %140 = tail call ptr %138(ptr noundef %139, ptr noundef nonnull @.str.152) #7
   store ptr %140, ptr @vkCmdEndRenderPass, align 8
   %.not87 = icmp eq ptr %140, null
   br i1 %.not87, label %141, label %146
 
 141:                                              ; preds = %137
-  %142 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %142 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %142, label %143, label %144
 
 143:                                              ; preds = %141
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.153) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.153) #7
   tail call void @llvm.debugtrap()
   br label %144
 
 144:                                              ; preds = %143, %141
-  %145 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.153) #8
+  %145 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.153) #7
   br label %639
 
 146:                                              ; preds = %137
   %147 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %148 = load ptr, ptr %3, align 8
-  %149 = tail call ptr %147(ptr noundef %148, ptr noundef nonnull @.str.154) #8
+  %149 = tail call ptr %147(ptr noundef %148, ptr noundef nonnull @.str.154) #7
   store ptr %149, ptr @vkCmdPipelineBarrier, align 8
   %.not88 = icmp eq ptr %149, null
   br i1 %.not88, label %150, label %155
 
 150:                                              ; preds = %146
-  %151 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %151 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %151, label %152, label %153
 
 152:                                              ; preds = %150
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.155) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.155) #7
   tail call void @llvm.debugtrap()
   br label %153
 
 153:                                              ; preds = %152, %150
-  %154 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.155) #8
+  %154 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.155) #7
   br label %639
 
 155:                                              ; preds = %146
   %156 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %157 = load ptr, ptr %3, align 8
-  %158 = tail call ptr %156(ptr noundef %157, ptr noundef nonnull @.str.156) #8
+  %158 = tail call ptr %156(ptr noundef %157, ptr noundef nonnull @.str.156) #7
   store ptr %158, ptr @vkCmdPushConstants, align 8
   %.not89 = icmp eq ptr %158, null
   br i1 %.not89, label %159, label %164
 
 159:                                              ; preds = %155
-  %160 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %160 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %160, label %161, label %162
 
 161:                                              ; preds = %159
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.157) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.157) #7
   tail call void @llvm.debugtrap()
   br label %162
 
 162:                                              ; preds = %161, %159
-  %163 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.157) #8
+  %163 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.157) #7
   br label %639
 
 164:                                              ; preds = %155
   %165 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %166 = load ptr, ptr %3, align 8
-  %167 = tail call ptr %165(ptr noundef %166, ptr noundef nonnull @.str.158) #8
+  %167 = tail call ptr %165(ptr noundef %166, ptr noundef nonnull @.str.158) #7
   store ptr %167, ptr @vkCmdSetScissor, align 8
   %.not90 = icmp eq ptr %167, null
   br i1 %.not90, label %168, label %173
 
 168:                                              ; preds = %164
-  %169 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %169 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %169, label %170, label %171
 
 170:                                              ; preds = %168
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.159) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.159) #7
   tail call void @llvm.debugtrap()
   br label %171
 
 171:                                              ; preds = %170, %168
-  %172 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.159) #8
+  %172 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.159) #7
   br label %639
 
 173:                                              ; preds = %164
   %174 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %175 = load ptr, ptr %3, align 8
-  %176 = tail call ptr %174(ptr noundef %175, ptr noundef nonnull @.str.160) #8
+  %176 = tail call ptr %174(ptr noundef %175, ptr noundef nonnull @.str.160) #7
   store ptr %176, ptr @vkCmdSetViewport, align 8
   %.not91 = icmp eq ptr %176, null
   br i1 %.not91, label %177, label %182
 
 177:                                              ; preds = %173
-  %178 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %178 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %178, label %179, label %180
 
 179:                                              ; preds = %177
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.161) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.161) #7
   tail call void @llvm.debugtrap()
   br label %180
 
 180:                                              ; preds = %179, %177
-  %181 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.161) #8
+  %181 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.161) #7
   br label %639
 
 182:                                              ; preds = %173
   %183 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %184 = load ptr, ptr %3, align 8
-  %185 = tail call ptr %183(ptr noundef %184, ptr noundef nonnull @.str.162) #8
+  %185 = tail call ptr %183(ptr noundef %184, ptr noundef nonnull @.str.162) #7
   store ptr %185, ptr @vkCreateBuffer, align 8
   %.not92 = icmp eq ptr %185, null
   br i1 %.not92, label %186, label %191
 
 186:                                              ; preds = %182
-  %187 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %187 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %187, label %188, label %189
 
 188:                                              ; preds = %186
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.163) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.163) #7
   tail call void @llvm.debugtrap()
   br label %189
 
 189:                                              ; preds = %188, %186
-  %190 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.163) #8
+  %190 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.163) #7
   br label %639
 
 191:                                              ; preds = %182
   %192 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %193 = load ptr, ptr %3, align 8
-  %194 = tail call ptr %192(ptr noundef %193, ptr noundef nonnull @.str.164) #8
+  %194 = tail call ptr %192(ptr noundef %193, ptr noundef nonnull @.str.164) #7
   store ptr %194, ptr @vkCreateCommandPool, align 8
   %.not93 = icmp eq ptr %194, null
   br i1 %.not93, label %195, label %200
 
 195:                                              ; preds = %191
-  %196 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %196 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %196, label %197, label %198
 
 197:                                              ; preds = %195
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.165) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.165) #7
   tail call void @llvm.debugtrap()
   br label %198
 
 198:                                              ; preds = %197, %195
-  %199 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.165) #8
+  %199 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.165) #7
   br label %639
 
 200:                                              ; preds = %191
   %201 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %202 = load ptr, ptr %3, align 8
-  %203 = tail call ptr %201(ptr noundef %202, ptr noundef nonnull @.str.166) #8
+  %203 = tail call ptr %201(ptr noundef %202, ptr noundef nonnull @.str.166) #7
   store ptr %203, ptr @vkCreateDescriptorPool, align 8
   %.not94 = icmp eq ptr %203, null
   br i1 %.not94, label %204, label %209
 
 204:                                              ; preds = %200
-  %205 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %205 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %205, label %206, label %207
 
 206:                                              ; preds = %204
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.167) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.167) #7
   tail call void @llvm.debugtrap()
   br label %207
 
 207:                                              ; preds = %206, %204
-  %208 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.167) #8
+  %208 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.167) #7
   br label %639
 
 209:                                              ; preds = %200
   %210 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %211 = load ptr, ptr %3, align 8
-  %212 = tail call ptr %210(ptr noundef %211, ptr noundef nonnull @.str.168) #8
+  %212 = tail call ptr %210(ptr noundef %211, ptr noundef nonnull @.str.168) #7
   store ptr %212, ptr @vkCreateDescriptorSetLayout, align 8
   %.not95 = icmp eq ptr %212, null
   br i1 %.not95, label %213, label %218
 
 213:                                              ; preds = %209
-  %214 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %214 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %214, label %215, label %216
 
 215:                                              ; preds = %213
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.169) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.169) #7
   tail call void @llvm.debugtrap()
   br label %216
 
 216:                                              ; preds = %215, %213
-  %217 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.169) #8
+  %217 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.169) #7
   br label %639
 
 218:                                              ; preds = %209
   %219 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %220 = load ptr, ptr %3, align 8
-  %221 = tail call ptr %219(ptr noundef %220, ptr noundef nonnull @.str.170) #8
+  %221 = tail call ptr %219(ptr noundef %220, ptr noundef nonnull @.str.170) #7
   store ptr %221, ptr @vkCreateFence, align 8
   %.not96 = icmp eq ptr %221, null
   br i1 %.not96, label %222, label %227
 
 222:                                              ; preds = %218
-  %223 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %223 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %223, label %224, label %225
 
 224:                                              ; preds = %222
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.171) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.171) #7
   tail call void @llvm.debugtrap()
   br label %225
 
 225:                                              ; preds = %224, %222
-  %226 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.171) #8
+  %226 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.171) #7
   br label %639
 
 227:                                              ; preds = %218
   %228 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %229 = load ptr, ptr %3, align 8
-  %230 = tail call ptr %228(ptr noundef %229, ptr noundef nonnull @.str.172) #8
+  %230 = tail call ptr %228(ptr noundef %229, ptr noundef nonnull @.str.172) #7
   store ptr %230, ptr @vkCreateFramebuffer, align 8
   %.not97 = icmp eq ptr %230, null
   br i1 %.not97, label %231, label %236
 
 231:                                              ; preds = %227
-  %232 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %232 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %232, label %233, label %234
 
 233:                                              ; preds = %231
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.173) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.173) #7
   tail call void @llvm.debugtrap()
   br label %234
 
 234:                                              ; preds = %233, %231
-  %235 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.173) #8
+  %235 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.173) #7
   br label %639
 
 236:                                              ; preds = %227
   %237 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %238 = load ptr, ptr %3, align 8
-  %239 = tail call ptr %237(ptr noundef %238, ptr noundef nonnull @.str.174) #8
+  %239 = tail call ptr %237(ptr noundef %238, ptr noundef nonnull @.str.174) #7
   store ptr %239, ptr @vkCreateGraphicsPipelines, align 8
   %.not98 = icmp eq ptr %239, null
   br i1 %.not98, label %240, label %245
 
 240:                                              ; preds = %236
-  %241 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %241 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %241, label %242, label %243
 
 242:                                              ; preds = %240
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.175) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.175) #7
   tail call void @llvm.debugtrap()
   br label %243
 
 243:                                              ; preds = %242, %240
-  %244 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.175) #8
+  %244 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.175) #7
   br label %639
 
 245:                                              ; preds = %236
   %246 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %247 = load ptr, ptr %3, align 8
-  %248 = tail call ptr %246(ptr noundef %247, ptr noundef nonnull @.str.176) #8
+  %248 = tail call ptr %246(ptr noundef %247, ptr noundef nonnull @.str.176) #7
   store ptr %248, ptr @vkCreateImage, align 8
   %.not99 = icmp eq ptr %248, null
   br i1 %.not99, label %249, label %254
 
 249:                                              ; preds = %245
-  %250 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %250 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %250, label %251, label %252
 
 251:                                              ; preds = %249
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.177) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.177) #7
   tail call void @llvm.debugtrap()
   br label %252
 
 252:                                              ; preds = %251, %249
-  %253 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.177) #8
+  %253 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.177) #7
   br label %639
 
 254:                                              ; preds = %245
   %255 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %256 = load ptr, ptr %3, align 8
-  %257 = tail call ptr %255(ptr noundef %256, ptr noundef nonnull @.str.178) #8
+  %257 = tail call ptr %255(ptr noundef %256, ptr noundef nonnull @.str.178) #7
   store ptr %257, ptr @vkCreateImageView, align 8
   %.not100 = icmp eq ptr %257, null
   br i1 %.not100, label %258, label %263
 
 258:                                              ; preds = %254
-  %259 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %259 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %259, label %260, label %261
 
 260:                                              ; preds = %258
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.179) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.179) #7
   tail call void @llvm.debugtrap()
   br label %261
 
 261:                                              ; preds = %260, %258
-  %262 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.179) #8
+  %262 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.179) #7
   br label %639
 
 263:                                              ; preds = %254
   %264 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %265 = load ptr, ptr %3, align 8
-  %266 = tail call ptr %264(ptr noundef %265, ptr noundef nonnull @.str.180) #8
+  %266 = tail call ptr %264(ptr noundef %265, ptr noundef nonnull @.str.180) #7
   store ptr %266, ptr @vkCreatePipelineLayout, align 8
   %.not101 = icmp eq ptr %266, null
   br i1 %.not101, label %267, label %272
 
 267:                                              ; preds = %263
-  %268 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %268 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %268, label %269, label %270
 
 269:                                              ; preds = %267
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.181) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.181) #7
   tail call void @llvm.debugtrap()
   br label %270
 
 270:                                              ; preds = %269, %267
-  %271 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.181) #8
+  %271 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.181) #7
   br label %639
 
 272:                                              ; preds = %263
   %273 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %274 = load ptr, ptr %3, align 8
-  %275 = tail call ptr %273(ptr noundef %274, ptr noundef nonnull @.str.182) #8
+  %275 = tail call ptr %273(ptr noundef %274, ptr noundef nonnull @.str.182) #7
   store ptr %275, ptr @vkCreateRenderPass, align 8
   %.not102 = icmp eq ptr %275, null
   br i1 %.not102, label %276, label %281
 
 276:                                              ; preds = %272
-  %277 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %277 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %277, label %278, label %279
 
 278:                                              ; preds = %276
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.183) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.183) #7
   tail call void @llvm.debugtrap()
   br label %279
 
 279:                                              ; preds = %278, %276
-  %280 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.183) #8
+  %280 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.183) #7
   br label %639
 
 281:                                              ; preds = %272
   %282 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %283 = load ptr, ptr %3, align 8
-  %284 = tail call ptr %282(ptr noundef %283, ptr noundef nonnull @.str.184) #8
+  %284 = tail call ptr %282(ptr noundef %283, ptr noundef nonnull @.str.184) #7
   store ptr %284, ptr @vkCreateSampler, align 8
   %.not103 = icmp eq ptr %284, null
   br i1 %.not103, label %285, label %290
 
 285:                                              ; preds = %281
-  %286 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %286 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %286, label %287, label %288
 
 287:                                              ; preds = %285
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.185) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.185) #7
   tail call void @llvm.debugtrap()
   br label %288
 
 288:                                              ; preds = %287, %285
-  %289 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.185) #8
+  %289 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.185) #7
   br label %639
 
 290:                                              ; preds = %281
   %291 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %292 = load ptr, ptr %3, align 8
-  %293 = tail call ptr %291(ptr noundef %292, ptr noundef nonnull @.str.186) #8
+  %293 = tail call ptr %291(ptr noundef %292, ptr noundef nonnull @.str.186) #7
   store ptr %293, ptr @vkCreateSemaphore, align 8
   %.not104 = icmp eq ptr %293, null
   br i1 %.not104, label %294, label %299
 
 294:                                              ; preds = %290
-  %295 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %295 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %295, label %296, label %297
 
 296:                                              ; preds = %294
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.187) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.187) #7
   tail call void @llvm.debugtrap()
   br label %297
 
 297:                                              ; preds = %296, %294
-  %298 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.187) #8
+  %298 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.187) #7
   br label %639
 
 299:                                              ; preds = %290
   %300 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %301 = load ptr, ptr %3, align 8
-  %302 = tail call ptr %300(ptr noundef %301, ptr noundef nonnull @.str.188) #8
+  %302 = tail call ptr %300(ptr noundef %301, ptr noundef nonnull @.str.188) #7
   store ptr %302, ptr @vkCreateShaderModule, align 8
   %.not105 = icmp eq ptr %302, null
   br i1 %.not105, label %303, label %308
 
 303:                                              ; preds = %299
-  %304 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %304 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %304, label %305, label %306
 
 305:                                              ; preds = %303
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.189) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.189) #7
   tail call void @llvm.debugtrap()
   br label %306
 
 306:                                              ; preds = %305, %303
-  %307 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.189) #8
+  %307 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.189) #7
   br label %639
 
 308:                                              ; preds = %299
   %309 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %310 = load ptr, ptr %3, align 8
-  %311 = tail call ptr %309(ptr noundef %310, ptr noundef nonnull @.str.190) #8
+  %311 = tail call ptr %309(ptr noundef %310, ptr noundef nonnull @.str.190) #7
   store ptr %311, ptr @vkCreateSwapchainKHR, align 8
   %.not106 = icmp eq ptr %311, null
   br i1 %.not106, label %312, label %317
 
 312:                                              ; preds = %308
-  %313 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %313 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %313, label %314, label %315
 
 314:                                              ; preds = %312
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.191) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.191) #7
   tail call void @llvm.debugtrap()
   br label %315
 
 315:                                              ; preds = %314, %312
-  %316 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.191) #8
+  %316 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.191) #7
   br label %639
 
 317:                                              ; preds = %308
   %318 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %319 = load ptr, ptr %3, align 8
-  %320 = tail call ptr %318(ptr noundef %319, ptr noundef nonnull @.str.192) #8
+  %320 = tail call ptr %318(ptr noundef %319, ptr noundef nonnull @.str.192) #7
   store ptr %320, ptr @vkDestroyBuffer, align 8
   %.not107 = icmp eq ptr %320, null
   br i1 %.not107, label %321, label %326
 
 321:                                              ; preds = %317
-  %322 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %322 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %322, label %323, label %324
 
 323:                                              ; preds = %321
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.193) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.193) #7
   tail call void @llvm.debugtrap()
   br label %324
 
 324:                                              ; preds = %323, %321
-  %325 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.193) #8
+  %325 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.193) #7
   br label %639
 
 326:                                              ; preds = %317
   %327 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %328 = load ptr, ptr %3, align 8
-  %329 = tail call ptr %327(ptr noundef %328, ptr noundef nonnull @.str.194) #8
+  %329 = tail call ptr %327(ptr noundef %328, ptr noundef nonnull @.str.194) #7
   store ptr %329, ptr @vkDestroyCommandPool, align 8
   %.not108 = icmp eq ptr %329, null
   br i1 %.not108, label %330, label %335
 
 330:                                              ; preds = %326
-  %331 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %331 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %331, label %332, label %333
 
 332:                                              ; preds = %330
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.195) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.195) #7
   tail call void @llvm.debugtrap()
   br label %333
 
 333:                                              ; preds = %332, %330
-  %334 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.195) #8
+  %334 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.195) #7
   br label %639
 
 335:                                              ; preds = %326
   %336 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %337 = load ptr, ptr %3, align 8
-  %338 = tail call ptr %336(ptr noundef %337, ptr noundef nonnull @.str.196) #8
+  %338 = tail call ptr %336(ptr noundef %337, ptr noundef nonnull @.str.196) #7
   store ptr %338, ptr @vkDestroyDevice, align 8
   %.not109 = icmp eq ptr %338, null
   br i1 %.not109, label %339, label %344
 
 339:                                              ; preds = %335
-  %340 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %340 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %340, label %341, label %342
 
 341:                                              ; preds = %339
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.197) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.197) #7
   tail call void @llvm.debugtrap()
   br label %342
 
 342:                                              ; preds = %341, %339
-  %343 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.197) #8
+  %343 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.197) #7
   br label %639
 
 344:                                              ; preds = %335
   %345 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %346 = load ptr, ptr %3, align 8
-  %347 = tail call ptr %345(ptr noundef %346, ptr noundef nonnull @.str.198) #8
+  %347 = tail call ptr %345(ptr noundef %346, ptr noundef nonnull @.str.198) #7
   store ptr %347, ptr @vkDestroyDescriptorPool, align 8
   %.not110 = icmp eq ptr %347, null
   br i1 %.not110, label %348, label %353
 
 348:                                              ; preds = %344
-  %349 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %349 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %349, label %350, label %351
 
 350:                                              ; preds = %348
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.199) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.199) #7
   tail call void @llvm.debugtrap()
   br label %351
 
 351:                                              ; preds = %350, %348
-  %352 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.199) #8
+  %352 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.199) #7
   br label %639
 
 353:                                              ; preds = %344
   %354 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %355 = load ptr, ptr %3, align 8
-  %356 = tail call ptr %354(ptr noundef %355, ptr noundef nonnull @.str.200) #8
+  %356 = tail call ptr %354(ptr noundef %355, ptr noundef nonnull @.str.200) #7
   store ptr %356, ptr @vkDestroyDescriptorSetLayout, align 8
   %.not111 = icmp eq ptr %356, null
   br i1 %.not111, label %357, label %362
 
 357:                                              ; preds = %353
-  %358 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %358 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %358, label %359, label %360
 
 359:                                              ; preds = %357
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.201) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.201) #7
   tail call void @llvm.debugtrap()
   br label %360
 
 360:                                              ; preds = %359, %357
-  %361 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.201) #8
+  %361 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.201) #7
   br label %639
 
 362:                                              ; preds = %353
   %363 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %364 = load ptr, ptr %3, align 8
-  %365 = tail call ptr %363(ptr noundef %364, ptr noundef nonnull @.str.202) #8
+  %365 = tail call ptr %363(ptr noundef %364, ptr noundef nonnull @.str.202) #7
   store ptr %365, ptr @vkDestroyFence, align 8
   %.not112 = icmp eq ptr %365, null
   br i1 %.not112, label %366, label %371
 
 366:                                              ; preds = %362
-  %367 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %367 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %367, label %368, label %369
 
 368:                                              ; preds = %366
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.203) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.203) #7
   tail call void @llvm.debugtrap()
   br label %369
 
 369:                                              ; preds = %368, %366
-  %370 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.203) #8
+  %370 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.203) #7
   br label %639
 
 371:                                              ; preds = %362
   %372 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %373 = load ptr, ptr %3, align 8
-  %374 = tail call ptr %372(ptr noundef %373, ptr noundef nonnull @.str.204) #8
+  %374 = tail call ptr %372(ptr noundef %373, ptr noundef nonnull @.str.204) #7
   store ptr %374, ptr @vkDestroyFramebuffer, align 8
   %.not113 = icmp eq ptr %374, null
   br i1 %.not113, label %375, label %380
 
 375:                                              ; preds = %371
-  %376 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %376 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %376, label %377, label %378
 
 377:                                              ; preds = %375
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.205) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.205) #7
   tail call void @llvm.debugtrap()
   br label %378
 
 378:                                              ; preds = %377, %375
-  %379 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.205) #8
+  %379 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.205) #7
   br label %639
 
 380:                                              ; preds = %371
   %381 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %382 = load ptr, ptr %3, align 8
-  %383 = tail call ptr %381(ptr noundef %382, ptr noundef nonnull @.str.206) #8
+  %383 = tail call ptr %381(ptr noundef %382, ptr noundef nonnull @.str.206) #7
   store ptr %383, ptr @vkDestroyImage, align 8
   %.not114 = icmp eq ptr %383, null
   br i1 %.not114, label %384, label %389
 
 384:                                              ; preds = %380
-  %385 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %385 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %385, label %386, label %387
 
 386:                                              ; preds = %384
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.207) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.207) #7
   tail call void @llvm.debugtrap()
   br label %387
 
 387:                                              ; preds = %386, %384
-  %388 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.207) #8
+  %388 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.207) #7
   br label %639
 
 389:                                              ; preds = %380
   %390 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %391 = load ptr, ptr %3, align 8
-  %392 = tail call ptr %390(ptr noundef %391, ptr noundef nonnull @.str.208) #8
+  %392 = tail call ptr %390(ptr noundef %391, ptr noundef nonnull @.str.208) #7
   store ptr %392, ptr @vkDestroyImageView, align 8
   %.not115 = icmp eq ptr %392, null
   br i1 %.not115, label %393, label %398
 
 393:                                              ; preds = %389
-  %394 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %394 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %394, label %395, label %396
 
 395:                                              ; preds = %393
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.209) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.209) #7
   tail call void @llvm.debugtrap()
   br label %396
 
 396:                                              ; preds = %395, %393
-  %397 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.209) #8
+  %397 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.209) #7
   br label %639
 
 398:                                              ; preds = %389
   %399 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %400 = load ptr, ptr %3, align 8
-  %401 = tail call ptr %399(ptr noundef %400, ptr noundef nonnull @.str.210) #8
+  %401 = tail call ptr %399(ptr noundef %400, ptr noundef nonnull @.str.210) #7
   store ptr %401, ptr @vkDestroyPipeline, align 8
   %.not116 = icmp eq ptr %401, null
   br i1 %.not116, label %402, label %407
 
 402:                                              ; preds = %398
-  %403 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %403 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %403, label %404, label %405
 
 404:                                              ; preds = %402
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.211) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.211) #7
   tail call void @llvm.debugtrap()
   br label %405
 
 405:                                              ; preds = %404, %402
-  %406 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.211) #8
+  %406 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.211) #7
   br label %639
 
 407:                                              ; preds = %398
   %408 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %409 = load ptr, ptr %3, align 8
-  %410 = tail call ptr %408(ptr noundef %409, ptr noundef nonnull @.str.212) #8
+  %410 = tail call ptr %408(ptr noundef %409, ptr noundef nonnull @.str.212) #7
   store ptr %410, ptr @vkDestroyPipelineLayout, align 8
   %.not117 = icmp eq ptr %410, null
   br i1 %.not117, label %411, label %416
 
 411:                                              ; preds = %407
-  %412 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %412 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %412, label %413, label %414
 
 413:                                              ; preds = %411
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.213) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.213) #7
   tail call void @llvm.debugtrap()
   br label %414
 
 414:                                              ; preds = %413, %411
-  %415 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.213) #8
+  %415 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.213) #7
   br label %639
 
 416:                                              ; preds = %407
   %417 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %418 = load ptr, ptr %3, align 8
-  %419 = tail call ptr %417(ptr noundef %418, ptr noundef nonnull @.str.214) #8
+  %419 = tail call ptr %417(ptr noundef %418, ptr noundef nonnull @.str.214) #7
   store ptr %419, ptr @vkDestroyRenderPass, align 8
   %.not118 = icmp eq ptr %419, null
   br i1 %.not118, label %420, label %425
 
 420:                                              ; preds = %416
-  %421 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %421 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %421, label %422, label %423
 
 422:                                              ; preds = %420
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.215) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.215) #7
   tail call void @llvm.debugtrap()
   br label %423
 
 423:                                              ; preds = %422, %420
-  %424 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.215) #8
+  %424 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.215) #7
   br label %639
 
 425:                                              ; preds = %416
   %426 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %427 = load ptr, ptr %3, align 8
-  %428 = tail call ptr %426(ptr noundef %427, ptr noundef nonnull @.str.216) #8
+  %428 = tail call ptr %426(ptr noundef %427, ptr noundef nonnull @.str.216) #7
   store ptr %428, ptr @vkDestroySampler, align 8
   %.not119 = icmp eq ptr %428, null
   br i1 %.not119, label %429, label %434
 
 429:                                              ; preds = %425
-  %430 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %430 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %430, label %431, label %432
 
 431:                                              ; preds = %429
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.217) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.217) #7
   tail call void @llvm.debugtrap()
   br label %432
 
 432:                                              ; preds = %431, %429
-  %433 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.217) #8
+  %433 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.217) #7
   br label %639
 
 434:                                              ; preds = %425
   %435 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %436 = load ptr, ptr %3, align 8
-  %437 = tail call ptr %435(ptr noundef %436, ptr noundef nonnull @.str.218) #8
+  %437 = tail call ptr %435(ptr noundef %436, ptr noundef nonnull @.str.218) #7
   store ptr %437, ptr @vkDestroySemaphore, align 8
   %.not120 = icmp eq ptr %437, null
   br i1 %.not120, label %438, label %443
 
 438:                                              ; preds = %434
-  %439 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %439 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %439, label %440, label %441
 
 440:                                              ; preds = %438
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.219) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.219) #7
   tail call void @llvm.debugtrap()
   br label %441
 
 441:                                              ; preds = %440, %438
-  %442 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.219) #8
+  %442 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.219) #7
   br label %639
 
 443:                                              ; preds = %434
   %444 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %445 = load ptr, ptr %3, align 8
-  %446 = tail call ptr %444(ptr noundef %445, ptr noundef nonnull @.str.220) #8
+  %446 = tail call ptr %444(ptr noundef %445, ptr noundef nonnull @.str.220) #7
   store ptr %446, ptr @vkDestroyShaderModule, align 8
   %.not121 = icmp eq ptr %446, null
   br i1 %.not121, label %447, label %452
 
 447:                                              ; preds = %443
-  %448 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %448 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %448, label %449, label %450
 
 449:                                              ; preds = %447
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.221) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.221) #7
   tail call void @llvm.debugtrap()
   br label %450
 
 450:                                              ; preds = %449, %447
-  %451 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.221) #8
+  %451 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.221) #7
   br label %639
 
 452:                                              ; preds = %443
   %453 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %454 = load ptr, ptr %3, align 8
-  %455 = tail call ptr %453(ptr noundef %454, ptr noundef nonnull @.str.222) #8
+  %455 = tail call ptr %453(ptr noundef %454, ptr noundef nonnull @.str.222) #7
   store ptr %455, ptr @vkDestroySwapchainKHR, align 8
   %.not122 = icmp eq ptr %455, null
   br i1 %.not122, label %456, label %461
 
 456:                                              ; preds = %452
-  %457 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %457 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %457, label %458, label %459
 
 458:                                              ; preds = %456
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.223) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.223) #7
   tail call void @llvm.debugtrap()
   br label %459
 
 459:                                              ; preds = %458, %456
-  %460 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.223) #8
+  %460 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.223) #7
   br label %639
 
 461:                                              ; preds = %452
   %462 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %463 = load ptr, ptr %3, align 8
-  %464 = tail call ptr %462(ptr noundef %463, ptr noundef nonnull @.str.224) #8
+  %464 = tail call ptr %462(ptr noundef %463, ptr noundef nonnull @.str.224) #7
   store ptr %464, ptr @vkDeviceWaitIdle, align 8
   %.not123 = icmp eq ptr %464, null
   br i1 %.not123, label %465, label %470
 
 465:                                              ; preds = %461
-  %466 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %466 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %466, label %467, label %468
 
 467:                                              ; preds = %465
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.225) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.225) #7
   tail call void @llvm.debugtrap()
   br label %468
 
 468:                                              ; preds = %467, %465
-  %469 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.225) #8
+  %469 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.225) #7
   br label %639
 
 470:                                              ; preds = %461
   %471 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %472 = load ptr, ptr %3, align 8
-  %473 = tail call ptr %471(ptr noundef %472, ptr noundef nonnull @.str.226) #8
+  %473 = tail call ptr %471(ptr noundef %472, ptr noundef nonnull @.str.226) #7
   store ptr %473, ptr @vkEndCommandBuffer, align 8
   %.not124 = icmp eq ptr %473, null
   br i1 %.not124, label %474, label %479
 
 474:                                              ; preds = %470
-  %475 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %475 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %475, label %476, label %477
 
 476:                                              ; preds = %474
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.227) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.227) #7
   tail call void @llvm.debugtrap()
   br label %477
 
 477:                                              ; preds = %476, %474
-  %478 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.227) #8
+  %478 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.227) #7
   br label %639
 
 479:                                              ; preds = %470
   %480 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %481 = load ptr, ptr %3, align 8
-  %482 = tail call ptr %480(ptr noundef %481, ptr noundef nonnull @.str.228) #8
+  %482 = tail call ptr %480(ptr noundef %481, ptr noundef nonnull @.str.228) #7
   store ptr %482, ptr @vkFreeCommandBuffers, align 8
   %.not125 = icmp eq ptr %482, null
   br i1 %.not125, label %483, label %488
 
 483:                                              ; preds = %479
-  %484 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %484 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %484, label %485, label %486
 
 485:                                              ; preds = %483
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.229) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.229) #7
   tail call void @llvm.debugtrap()
   br label %486
 
 486:                                              ; preds = %485, %483
-  %487 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.229) #8
+  %487 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.229) #7
   br label %639
 
 488:                                              ; preds = %479
   %489 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %490 = load ptr, ptr %3, align 8
-  %491 = tail call ptr %489(ptr noundef %490, ptr noundef nonnull @.str.230) #8
+  %491 = tail call ptr %489(ptr noundef %490, ptr noundef nonnull @.str.230) #7
   store ptr %491, ptr @vkFreeMemory, align 8
   %.not126 = icmp eq ptr %491, null
   br i1 %.not126, label %492, label %497
 
 492:                                              ; preds = %488
-  %493 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %493 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %493, label %494, label %495
 
 494:                                              ; preds = %492
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.231) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.231) #7
   tail call void @llvm.debugtrap()
   br label %495
 
 495:                                              ; preds = %494, %492
-  %496 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.231) #8
+  %496 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.231) #7
   br label %639
 
 497:                                              ; preds = %488
   %498 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %499 = load ptr, ptr %3, align 8
-  %500 = tail call ptr %498(ptr noundef %499, ptr noundef nonnull @.str.232) #8
+  %500 = tail call ptr %498(ptr noundef %499, ptr noundef nonnull @.str.232) #7
   store ptr %500, ptr @vkGetBufferMemoryRequirements, align 8
   %.not127 = icmp eq ptr %500, null
   br i1 %.not127, label %501, label %506
 
 501:                                              ; preds = %497
-  %502 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %502 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %502, label %503, label %504
 
 503:                                              ; preds = %501
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.233) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.233) #7
   tail call void @llvm.debugtrap()
   br label %504
 
 504:                                              ; preds = %503, %501
-  %505 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.233) #8
+  %505 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.233) #7
   br label %639
 
 506:                                              ; preds = %497
   %507 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %508 = load ptr, ptr %3, align 8
-  %509 = tail call ptr %507(ptr noundef %508, ptr noundef nonnull @.str.234) #8
+  %509 = tail call ptr %507(ptr noundef %508, ptr noundef nonnull @.str.234) #7
   store ptr %509, ptr @vkGetImageMemoryRequirements, align 8
   %.not128 = icmp eq ptr %509, null
   br i1 %.not128, label %510, label %515
 
 510:                                              ; preds = %506
-  %511 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %511 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %511, label %512, label %513
 
 512:                                              ; preds = %510
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.235) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.235) #7
   tail call void @llvm.debugtrap()
   br label %513
 
 513:                                              ; preds = %512, %510
-  %514 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.235) #8
+  %514 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.235) #7
   br label %639
 
 515:                                              ; preds = %506
   %516 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %517 = load ptr, ptr %3, align 8
-  %518 = tail call ptr %516(ptr noundef %517, ptr noundef nonnull @.str.236) #8
+  %518 = tail call ptr %516(ptr noundef %517, ptr noundef nonnull @.str.236) #7
   store ptr %518, ptr @vkGetDeviceQueue, align 8
   %.not129 = icmp eq ptr %518, null
   br i1 %.not129, label %519, label %524
 
 519:                                              ; preds = %515
-  %520 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %520 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %520, label %521, label %522
 
 521:                                              ; preds = %519
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.237) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.237) #7
   tail call void @llvm.debugtrap()
   br label %522
 
 522:                                              ; preds = %521, %519
-  %523 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.237) #8
+  %523 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.237) #7
   br label %639
 
 524:                                              ; preds = %515
   %525 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %526 = load ptr, ptr %3, align 8
-  %527 = tail call ptr %525(ptr noundef %526, ptr noundef nonnull @.str.238) #8
+  %527 = tail call ptr %525(ptr noundef %526, ptr noundef nonnull @.str.238) #7
   store ptr %527, ptr @vkGetFenceStatus, align 8
   %.not130 = icmp eq ptr %527, null
   br i1 %.not130, label %528, label %533
 
 528:                                              ; preds = %524
-  %529 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %529 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %529, label %530, label %531
 
 530:                                              ; preds = %528
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.239) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.239) #7
   tail call void @llvm.debugtrap()
   br label %531
 
 531:                                              ; preds = %530, %528
-  %532 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.239) #8
+  %532 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.239) #7
   br label %639
 
 533:                                              ; preds = %524
   %534 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %535 = load ptr, ptr %3, align 8
-  %536 = tail call ptr %534(ptr noundef %535, ptr noundef nonnull @.str.240) #8
+  %536 = tail call ptr %534(ptr noundef %535, ptr noundef nonnull @.str.240) #7
   store ptr %536, ptr @vkGetSwapchainImagesKHR, align 8
   %.not131 = icmp eq ptr %536, null
   br i1 %.not131, label %537, label %542
 
 537:                                              ; preds = %533
-  %538 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %538 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %538, label %539, label %540
 
 539:                                              ; preds = %537
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.241) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.241) #7
   tail call void @llvm.debugtrap()
   br label %540
 
 540:                                              ; preds = %539, %537
-  %541 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.241) #8
+  %541 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.241) #7
   br label %639
 
 542:                                              ; preds = %533
   %543 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %544 = load ptr, ptr %3, align 8
-  %545 = tail call ptr %543(ptr noundef %544, ptr noundef nonnull @.str.242) #8
+  %545 = tail call ptr %543(ptr noundef %544, ptr noundef nonnull @.str.242) #7
   store ptr %545, ptr @vkMapMemory, align 8
   %.not132 = icmp eq ptr %545, null
   br i1 %.not132, label %546, label %551
 
 546:                                              ; preds = %542
-  %547 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %547 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %547, label %548, label %549
 
 548:                                              ; preds = %546
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.243) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.243) #7
   tail call void @llvm.debugtrap()
   br label %549
 
 549:                                              ; preds = %548, %546
-  %550 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.243) #8
+  %550 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.243) #7
   br label %639
 
 551:                                              ; preds = %542
   %552 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %553 = load ptr, ptr %3, align 8
-  %554 = tail call ptr %552(ptr noundef %553, ptr noundef nonnull @.str.244) #8
+  %554 = tail call ptr %552(ptr noundef %553, ptr noundef nonnull @.str.244) #7
   store ptr %554, ptr @vkQueuePresentKHR, align 8
   %.not133 = icmp eq ptr %554, null
   br i1 %.not133, label %555, label %560
 
 555:                                              ; preds = %551
-  %556 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %556 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %556, label %557, label %558
 
 557:                                              ; preds = %555
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.245) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.245) #7
   tail call void @llvm.debugtrap()
   br label %558
 
 558:                                              ; preds = %557, %555
-  %559 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.245) #8
+  %559 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.245) #7
   br label %639
 
 560:                                              ; preds = %551
   %561 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %562 = load ptr, ptr %3, align 8
-  %563 = tail call ptr %561(ptr noundef %562, ptr noundef nonnull @.str.246) #8
+  %563 = tail call ptr %561(ptr noundef %562, ptr noundef nonnull @.str.246) #7
   store ptr %563, ptr @vkQueueSubmit, align 8
   %.not134 = icmp eq ptr %563, null
   br i1 %.not134, label %564, label %569
 
 564:                                              ; preds = %560
-  %565 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %565 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %565, label %566, label %567
 
 566:                                              ; preds = %564
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.247) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.247) #7
   tail call void @llvm.debugtrap()
   br label %567
 
 567:                                              ; preds = %566, %564
-  %568 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.247) #8
+  %568 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.247) #7
   br label %639
 
 569:                                              ; preds = %560
   %570 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %571 = load ptr, ptr %3, align 8
-  %572 = tail call ptr %570(ptr noundef %571, ptr noundef nonnull @.str.248) #8
+  %572 = tail call ptr %570(ptr noundef %571, ptr noundef nonnull @.str.248) #7
   store ptr %572, ptr @vkResetCommandBuffer, align 8
   %.not135 = icmp eq ptr %572, null
   br i1 %.not135, label %573, label %578
 
 573:                                              ; preds = %569
-  %574 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %574 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %574, label %575, label %576
 
 575:                                              ; preds = %573
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.249) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.249) #7
   tail call void @llvm.debugtrap()
   br label %576
 
 576:                                              ; preds = %575, %573
-  %577 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.249) #8
+  %577 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.249) #7
   br label %639
 
 578:                                              ; preds = %569
   %579 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %580 = load ptr, ptr %3, align 8
-  %581 = tail call ptr %579(ptr noundef %580, ptr noundef nonnull @.str.250) #8
+  %581 = tail call ptr %579(ptr noundef %580, ptr noundef nonnull @.str.250) #7
   store ptr %581, ptr @vkResetCommandPool, align 8
   %.not136 = icmp eq ptr %581, null
   br i1 %.not136, label %582, label %587
 
 582:                                              ; preds = %578
-  %583 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %583 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %583, label %584, label %585
 
 584:                                              ; preds = %582
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.251) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.251) #7
   tail call void @llvm.debugtrap()
   br label %585
 
 585:                                              ; preds = %584, %582
-  %586 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.251) #8
+  %586 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.251) #7
   br label %639
 
 587:                                              ; preds = %578
   %588 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %589 = load ptr, ptr %3, align 8
-  %590 = tail call ptr %588(ptr noundef %589, ptr noundef nonnull @.str.252) #8
+  %590 = tail call ptr %588(ptr noundef %589, ptr noundef nonnull @.str.252) #7
   store ptr %590, ptr @vkResetDescriptorPool, align 8
   %.not137 = icmp eq ptr %590, null
   br i1 %.not137, label %591, label %596
 
 591:                                              ; preds = %587
-  %592 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %592 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %592, label %593, label %594
 
 593:                                              ; preds = %591
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.253) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.253) #7
   tail call void @llvm.debugtrap()
   br label %594
 
 594:                                              ; preds = %593, %591
-  %595 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.253) #8
+  %595 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.253) #7
   br label %639
 
 596:                                              ; preds = %587
   %597 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %598 = load ptr, ptr %3, align 8
-  %599 = tail call ptr %597(ptr noundef %598, ptr noundef nonnull @.str.254) #8
+  %599 = tail call ptr %597(ptr noundef %598, ptr noundef nonnull @.str.254) #7
   store ptr %599, ptr @vkResetFences, align 8
   %.not138 = icmp eq ptr %599, null
   br i1 %.not138, label %600, label %605
 
 600:                                              ; preds = %596
-  %601 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %601 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %601, label %602, label %603
 
 602:                                              ; preds = %600
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.255) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.255) #7
   tail call void @llvm.debugtrap()
   br label %603
 
 603:                                              ; preds = %602, %600
-  %604 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.255) #8
+  %604 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.255) #7
   br label %639
 
 605:                                              ; preds = %596
   %606 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %607 = load ptr, ptr %3, align 8
-  %608 = tail call ptr %606(ptr noundef %607, ptr noundef nonnull @.str.256) #8
+  %608 = tail call ptr %606(ptr noundef %607, ptr noundef nonnull @.str.256) #7
   store ptr %608, ptr @vkUnmapMemory, align 8
   %.not139 = icmp eq ptr %608, null
   br i1 %.not139, label %609, label %614
 
 609:                                              ; preds = %605
-  %610 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %610 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %610, label %611, label %612
 
 611:                                              ; preds = %609
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.257) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.257) #7
   tail call void @llvm.debugtrap()
   br label %612
 
 612:                                              ; preds = %611, %609
-  %613 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.257) #8
+  %613 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.257) #7
   br label %639
 
 614:                                              ; preds = %605
   %615 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %616 = load ptr, ptr %3, align 8
-  %617 = tail call ptr %615(ptr noundef %616, ptr noundef nonnull @.str.258) #8
+  %617 = tail call ptr %615(ptr noundef %616, ptr noundef nonnull @.str.258) #7
   store ptr %617, ptr @vkUpdateDescriptorSets, align 8
   %.not140 = icmp eq ptr %617, null
   br i1 %.not140, label %618, label %623
 
 618:                                              ; preds = %614
-  %619 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %619 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %619, label %620, label %621
 
 620:                                              ; preds = %618
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.259) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.259) #7
   tail call void @llvm.debugtrap()
   br label %621
 
 621:                                              ; preds = %620, %618
-  %622 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.259) #8
+  %622 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.259) #7
   br label %639
 
 623:                                              ; preds = %614
   %624 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %625 = load ptr, ptr %3, align 8
-  %626 = tail call ptr %624(ptr noundef %625, ptr noundef nonnull @.str.260) #8
+  %626 = tail call ptr %624(ptr noundef %625, ptr noundef nonnull @.str.260) #7
   store ptr %626, ptr @vkWaitForFences, align 8
   %.not141 = icmp eq ptr %626, null
   br i1 %.not141, label %627, label %632
 
 627:                                              ; preds = %623
-  %628 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %628 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %628, label %629, label %630
 
 629:                                              ; preds = %627
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.261) #8
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.261) #7
   tail call void @llvm.debugtrap()
   br label %630
 
 630:                                              ; preds = %629, %627
-  %631 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.261) #8
+  %631 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.261) #7
   br label %639
 
 632:                                              ; preds = %623
   %633 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %634 = load ptr, ptr %3, align 8
-  %635 = tail call ptr %633(ptr noundef %634, ptr noundef nonnull @.str.262) #8
+  %635 = tail call ptr %633(ptr noundef %634, ptr noundef nonnull @.str.262) #7
   store ptr %635, ptr @vkCreateSamplerYcbcrConversionKHR, align 8
   %636 = load ptr, ptr @vkGetDeviceProcAddr, align 8
   %637 = load ptr, ptr %3, align 8
-  %638 = tail call ptr %636(ptr noundef %637, ptr noundef nonnull @.str.263) #8
+  %638 = tail call ptr %636(ptr noundef %637, ptr noundef nonnull @.str.263) #7
   store ptr %638, ptr @vkDestroySamplerYcbcrConversionKHR, align 8
   br label %639
 
@@ -12161,13 +12155,13 @@ define internal fastcc noundef i32 @VULKAN_GetSurfaceFormats(ptr noundef %0) unn
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 10360
-  %8 = tail call i32 %2(ptr noundef %4, ptr noundef %6, ptr noundef nonnull %7, ptr noundef null) #8
+  %8 = tail call i32 %2(ptr noundef %4, ptr noundef %6, ptr noundef nonnull %7, ptr noundef null) #7
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %1
   store i32 0, ptr %7, align 8
-  %10 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %10 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %10, label %.sink.split.sink.split, label %.sink.split
 
 11:                                               ; preds = %1
@@ -12186,11 +12180,11 @@ define internal fastcc noundef i32 @VULKAN_GetSurfaceFormats(ptr noundef %0) unn
   store i32 %12, ptr %13, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1760
   %18 = load ptr, ptr %17, align 8
-  tail call void @SDL_free_REAL(ptr noundef %18) #8
+  tail call void @SDL_free_REAL(ptr noundef %18) #7
   %19 = load i32, ptr %13, align 4
   %20 = zext i32 %19 to i64
   %21 = shl nuw nsw i64 %20, 3
-  %22 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %21) #8
+  %22 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %21) #7
   store ptr %22, ptr %17, align 8
   br label %23
 
@@ -12199,26 +12193,26 @@ define internal fastcc noundef i32 @VULKAN_GetSurfaceFormats(ptr noundef %0) unn
   %25 = load ptr, ptr @vkGetPhysicalDeviceSurfaceFormatsKHR, align 8
   %26 = load ptr, ptr %3, align 8
   %27 = load ptr, ptr %5, align 8
-  %28 = tail call i32 %25(ptr noundef %26, ptr noundef %27, ptr noundef nonnull %7, ptr noundef %24) #8
+  %28 = tail call i32 %25(ptr noundef %26, ptr noundef %27, ptr noundef nonnull %7, ptr noundef %24) #7
   %.not27 = icmp eq i32 %28, 0
   br i1 %.not27, label %34, label %29
 
 29:                                               ; preds = %23
   store i32 0, ptr %7, align 8
-  %30 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %30 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %30, label %.sink.split.sink.split, label %.sink.split
 
 .sink.split.sink.split:                           ; preds = %29, %9
   %.sink29 = phi i32 [ %8, %9 ], [ %28, %29 ]
-  %31 = tail call ptr @SDL_Vulkan_GetResultString(i32 noundef %.sink29) #8
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.264, ptr noundef %31) #8
+  %31 = tail call ptr @SDL_Vulkan_GetResultString(i32 noundef %.sink29) #7
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.264, ptr noundef %31) #7
   tail call void @llvm.debugtrap()
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %29, %9
   %.sink28 = phi i32 [ %8, %9 ], [ %28, %29 ], [ %.sink29, %.sink.split.sink.split ]
-  %32 = tail call ptr @SDL_Vulkan_GetResultString(i32 noundef %.sink28) #8
-  %33 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.264, ptr noundef %32) #8
+  %32 = tail call ptr @SDL_Vulkan_GetResultString(i32 noundef %.sink28) #7
+  %33 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.264, ptr noundef %32) #7
   br label %34
 
 34:                                               ; preds = %.sink.split, %23
@@ -12226,45 +12220,45 @@ define internal fastcc noundef i32 @VULKAN_GetSurfaceFormats(ptr noundef %0) unn
   ret i32 %.0
 }
 
-declare void @VULKAN_GetVertexShader(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @VULKAN_GetVertexShader(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @VULKAN_GetPixelShader(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @VULKAN_GetPixelShader(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetPointerProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetPointerProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @VULKAN_CreateSemaphore(ptr %.1632.val) unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca %struct.VkSemaphoreCreateInfo, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   store i32 9, ptr %2, align 8
   %3 = load ptr, ptr @vkCreateSemaphore, align 8
-  %4 = call i32 %3(ptr noundef %.1632.val, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %1) #8
+  %4 = call i32 %3(ptr noundef %.1632.val, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %1) #7
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %0
-  %6 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #8
+  %6 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %5
-  %8 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %4) #8
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.272, ptr noundef %8) #8
+  %8 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %4) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.272, ptr noundef %8) #7
   call void @llvm.debugtrap()
   br label %9
 
 9:                                                ; preds = %7, %5
-  %10 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %4) #8
-  %11 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.272, ptr noundef %10) #8
+  %10 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %4) #7
+  %11 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.272, ptr noundef %10) #7
   br label %14
 
 12:                                               ; preds = %0
@@ -12273,10 +12267,16 @@ define internal fastcc ptr @VULKAN_CreateSemaphore(ptr %.1632.val) unnamed_addr 
 
 14:                                               ; preds = %12, %9
   %.0 = phi ptr [ null, %9 ], [ %13, %12 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10
@@ -12288,15 +12288,15 @@ declare i32 @llvm.smax.i32(i32, i32) #10
 declare i64 @llvm.umin.i64(i64, i64) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nounwind }
-attributes #9 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nounwind }
+attributes #8 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind allocsize(0,1) }
 attributes #12 = { nounwind allocsize(1) }

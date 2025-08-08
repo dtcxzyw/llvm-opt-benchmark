@@ -63,12 +63,9 @@ define dso_local noundef ptr @dsa_create_ext(i32 noundef %0, i64 noundef %1, i64
   ret ptr %7
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @dsm_create(i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @dsm_create(i64 noundef, i32 noundef) local_unnamed_addr #2
-
-declare void @dsm_pin_segment(ptr noundef) local_unnamed_addr #2
+declare void @dsm_pin_segment(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @create_internal(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, i64 noundef %6) unnamed_addr #0 {
@@ -203,11 +200,11 @@ contiguous_pages_to_segment_bin.exit80:           ; preds = %contiguous_pages_to
   ret ptr %44
 }
 
-declare ptr @dsm_segment_address(ptr noundef) local_unnamed_addr #2
+declare ptr @dsm_segment_address(ptr noundef) local_unnamed_addr #1
 
-declare i32 @dsm_segment_handle(ptr noundef) local_unnamed_addr #2
+declare i32 @dsm_segment_handle(ptr noundef) local_unnamed_addr #1
 
-declare void @on_dsm_detach(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @on_dsm_detach(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @dsa_on_dsm_detach_release_in_place(ptr readnone captures(none) %0, i64 noundef %1) #0 {
@@ -250,9 +247,6 @@ dsa_release_in_place.exit:                        ; preds = %17, %2
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @dsa_create_in_place_ext(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = tail call fastcc ptr @create_internal(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef 0, ptr noundef null, i64 noundef %4, i64 noundef %5)
@@ -269,7 +263,7 @@ define dso_local noundef ptr @dsa_create_in_place_ext(ptr noundef %0, i64 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @dsa_get_handle(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define dso_local i32 @dsa_get_handle(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4 = load i32, ptr %3, align 8
@@ -299,16 +293,16 @@ define dso_local noundef ptr @dsa_attach(i32 noundef %0) local_unnamed_addr #0 {
   ret ptr %10
 }
 
-declare ptr @dsm_attach(i32 noundef) local_unnamed_addr #2
+declare ptr @dsm_attach(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @attach_internal(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
@@ -455,11 +449,11 @@ dsa_release_in_place.exit:                        ; preds = %17, %2
   ret void
 }
 
-declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @dsm_unpin_segment(i32 noundef) local_unnamed_addr #2
+declare void @dsm_unpin_segment(i32 noundef) local_unnamed_addr #1
 
-declare void @LWLockRelease(ptr noundef) local_unnamed_addr #2
+declare void @LWLockRelease(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @dsa_pin_mapping(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -497,7 +491,7 @@ define dso_local void @dsa_pin_mapping(ptr noundef captures(none) %0) local_unna
   ret void
 }
 
-declare void @dsm_pin_mapping(ptr noundef) local_unnamed_addr #2
+declare void @dsm_pin_mapping(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @dsa_allocate_extended(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -528,7 +522,7 @@ define dso_local i64 @dsa_allocate_extended(ptr noundef %0, i64 noundef %1, i32 
 16:                                               ; preds = %14
   %17 = add i64 %1, 4095
   %18 = lshr i64 %17, 12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %19 = load ptr, ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4336
   %21 = tail call fastcc i64 @alloc_object(ptr noundef nonnull %0, i32 noundef 0)
@@ -673,7 +667,7 @@ dsa_get_address.exit:                             ; preds = %77, %97
 
 100:                                              ; preds = %55, %dsa_get_address.exit, %39, %22
   %.0 = phi i64 [ 0, %22 ], [ 0, %39 ], [ %66, %dsa_get_address.exit ], [ %66, %55 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %154
 
 101:                                              ; preds = %14
@@ -779,10 +773,10 @@ dsa_get_address.exit92:                           ; preds = %check_for_freed_seg
   ret i64 %.1
 }
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc i64 @alloc_object(ptr noundef %0, i32 noundef range(i32 0, 65536) %1) unnamed_addr #5 {
+define internal fastcc i64 @alloc_object(ptr noundef %0, i32 noundef range(i32 0, 65536) %1) unnamed_addr #4 {
   %3 = alloca i64, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4288
@@ -797,7 +791,7 @@ define internal fastcc i64 @alloc_object(ptr noundef %0, i32 noundef range(i32 0
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw [38 x i16], ptr @dsa_size_classes, i64 0, i64 %6
   %13 = load i16, ptr %12, align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = icmp eq i32 %1, 0
   br i1 %14, label %15, label %18
 
@@ -1137,11 +1131,11 @@ dsa_get_address.exit46:                           ; preds = %check_for_freed_seg
   br i1 %exitcond.not, label %.loopexit, label %179, !llvm.loop !14
 
 ensure_active_superblock.exit:                    ; preds = %144, %155
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %250
 
 .loopexit:                                        ; preds = %179, %._crit_edge, %._crit_edge.thread, %141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pr = load i64, ptr %9, align 8
   %.not.i31 = icmp ne i64 %.pr, 0
   call void @llvm.assume(i1 %.not.i31)
@@ -1271,7 +1265,7 @@ dsa_get_address.exit39:                           ; preds = %231, %check_for_fre
   ret i64 %.0
 }
 
-declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @get_best_segment(ptr noundef captures(ret: address, provenance) %0, i64 noundef range(i64 0, 4503599627370496) %1) unnamed_addr #0 {
@@ -2101,7 +2095,7 @@ add_span_to_fullness_class.exit:                  ; preds = %dsa_get_address.exi
   ret void
 }
 
-declare zeroext i1 @FreePageManagerGet(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @FreePageManagerGet(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @init_span(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef range(i64 0, 4503599627370496) %4, i16 noundef zeroext %5) unnamed_addr #0 {
@@ -2305,7 +2299,7 @@ check_for_freed_segments.exit:                    ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc nonnull ptr @get_segment_by_index(ptr noundef captures(ret: address, provenance) %0, i64 noundef range(i64 0, -1) %1) unnamed_addr #0 {
@@ -2373,7 +2367,7 @@ define internal fastcc nonnull ptr @get_segment_by_index(ptr noundef captures(re
   ret ptr %4
 }
 
-declare void @FreePageManagerPut(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare void @FreePageManagerPut(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @rebin_segment(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
@@ -3544,10 +3538,10 @@ define internal fastcc void @check_for_freed_segments_locked(ptr noundef capture
   ret void
 }
 
-declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @dsa_minimum_size() local_unnamed_addr #7 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @dsa_minimum_size() local_unnamed_addr #6 {
   br label %1
 
 1:                                                ; preds = %0, %1
@@ -3597,18 +3591,18 @@ define dso_local void @dsa_detach(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @dsm_detach(ptr noundef) local_unnamed_addr #2
+declare void @dsm_detach(ptr noundef) local_unnamed_addr #1
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
-declare void @LWLockInitialize(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @LWLockInitialize(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @FreePageManagerInitialize(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @FreePageManagerInitialize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #8
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @transfer_first_span(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef range(i32 0, 3) %2, i32 noundef range(i32 1, 4) %3) unnamed_addr #0 {
@@ -3760,6 +3754,12 @@ dsa_get_address.exit43:                           ; preds = %check_for_freed_seg
   ret i1 %.not
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #9
 
@@ -3770,14 +3770,14 @@ declare i64 @llvm.umin.i64(i64, i64) #10
 declare i32 @llvm.umin.i32(i32, i32) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind }

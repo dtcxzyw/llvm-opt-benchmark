@@ -494,11 +494,11 @@ for.inc:                                          ; preds = %for.body.tail, %_ZN
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ret.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bytecode.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %disas.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp142.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ret.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %bytecode.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %disas.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp142.i)
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %fileBufs.sroa.8.1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %fileBufs.sroa.0.1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -2865,11 +2865,11 @@ _ZSt8_DestroyISt6vectorIlSaIlEEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.
 
 _ZL9diffFilesRKSt6vectorISt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EESaIS5_EERKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEb.exit: ; preds = %_ZSt8_DestroyISt6vectorIlSaIlEEEvPT_.exit.i.i.i.i.i, %_ZNSt6vectorISt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEESaIS9_EED2Ev.exit.i
   call void @_ZdlPv(ptr noundef nonnull %fileSizes.sroa.0.0995100110951116.i) #25
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ret.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bytecode.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %disas.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp142.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ret.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %bytecode.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %disas.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp142.i)
   br label %cleanup26
 
 cleanup26:                                        ; preds = %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit, %_ZL9diffFilesRKSt6vectorISt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EESaIS5_EERKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEb.exit
@@ -3763,10 +3763,10 @@ while.body:                                       ; preds = %entry, %if.end
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__comp.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__comp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i.i)
   call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIjjESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_RT0_(ptr %__first.coerce, ptr %storemerge8, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__comp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__comp.i.i)
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.then, %while.body.i.i
@@ -3779,7 +3779,7 @@ while.body.i.i:                                   ; preds = %if.then, %while.bod
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIjjESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_T0_.exit, !llvm.loop !41
 
 _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIjjESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_T0_.exit: ; preds = %while.body.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__comp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__comp.i)
   br label %while.end
 
 if.end:                                           ; preds = %while.body
@@ -4661,10 +4661,10 @@ declare void @llvm.assume(i1 noundef) #19
 declare double @exp2(double) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
 attributes #0 = { mustprogress norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -72,20 +72,14 @@ define dso_local noundef ptr @cmsysProcess_New() local_unnamed_addr #0 {
   ret ptr %calloc
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @cmsysProcess_Delete(ptr noundef %0) local_unnamed_addr #4 {
+define dso_local void @cmsysProcess_Delete(ptr noundef %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %53, label %2
 
@@ -237,7 +231,7 @@ cmsysProcess_SetPipeFile.exit24:                  ; preds = %cmsysProcess_SetPip
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @cmsysProcess_Disown(ptr noundef %0) local_unnamed_addr #4 {
+define dso_local void @cmsysProcess_Disown(ptr noundef %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %2
 
@@ -276,7 +270,7 @@ define dso_local void @cmsysProcess_Disown(ptr noundef %0) local_unnamed_addr #4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @cmsysProcess_WaitForExit(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @cmsysProcess_WaitForExit(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -602,7 +596,7 @@ kwsysProcessSetExitExceptionByIndex.exit:         ; preds = %80, %79, %78, %77, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @cmsysProcess_SetCommand(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @cmsysProcess_SetCommand(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %22, label %.preheader
 
@@ -670,7 +664,7 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_SetCommand(ptr noundef %0, pt
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local range(i32 0, 2) i32 @cmsysProcess_SetWorkingDirectory(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @cmsysProcess_SetWorkingDirectory(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %18, label %3
 
@@ -718,7 +712,7 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_SetWorkingDirectory(ptr nound
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local range(i32 0, 2) i32 @cmsysProcess_SetPipeFile(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @cmsysProcess_SetPipeFile(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %cmsysProcess_SetPipeShared.exit, label %4
 
@@ -794,10 +788,10 @@ cmsysProcess_SetPipeShared.exit:                  ; preds = %4, %12, %23, %19, %
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @cmsysProcess_AddCommand(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @cmsysProcess_AddCommand(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -972,13 +966,13 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_AddCommand(ptr noundef %0, pt
   ret i32 %.063
 }
 
-declare ptr @cmsysSystem_Parse_CommandForUnix(ptr noundef, i32 noundef) local_unnamed_addr #7
+declare ptr @cmsysSystem_Parse_CommandForUnix(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #8
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @cmsysProcess_SetTimeout(ptr noundef writeonly captures(address_is_null) %0, double noundef %1) local_unnamed_addr #9 {
+define dso_local void @cmsysProcess_SetTimeout(ptr noundef writeonly captures(address_is_null) %0, double noundef %1) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 
@@ -996,10 +990,10 @@ define dso_local void @cmsysProcess_SetTimeout(ptr noundef writeonly captures(ad
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @cmsysProcess_SetPipeNative(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #5 {
+define dso_local void @cmsysProcess_SetPipeNative(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %cmsysProcess_SetPipeShared.exit, label %4
 
@@ -1073,7 +1067,7 @@ cmsysProcess_SetPipeShared.exit:                  ; preds = %4, %23, %21, %19, %
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @cmsysProcess_SetPipeShared(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define dso_local void @cmsysProcess_SetPipeShared(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %cmsysProcess_SetPipeNative.exit, label %4
 
@@ -1140,7 +1134,7 @@ cmsysProcess_SetPipeNative.exit:                  ; preds = %cmsysProcess_SetPip
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local i32 @cmsysProcess_GetOption(ptr noundef %0, i32 noundef %1) local_unnamed_addr #11 {
+define dso_local i32 @cmsysProcess_GetOption(ptr noundef %0, i32 noundef %1) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %3
 
@@ -1178,7 +1172,7 @@ define dso_local i32 @cmsysProcess_GetOption(ptr noundef %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local void @cmsysProcess_SetOption(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 {
+define dso_local void @cmsysProcess_SetOption(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %4
 
@@ -1215,7 +1209,7 @@ define dso_local void @cmsysProcess_SetOption(ptr noundef %0, i32 noundef %1, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local i32 @cmsysProcess_GetState(ptr noundef %0) local_unnamed_addr #11 {
+define dso_local i32 @cmsysProcess_GetState(ptr noundef %0) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1230,7 +1224,7 @@ define dso_local i32 @cmsysProcess_GetState(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local i32 @cmsysProcess_GetExitException(ptr noundef %0) local_unnamed_addr #13 {
+define dso_local i32 @cmsysProcess_GetExitException(ptr noundef %0) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %2
 
@@ -1260,7 +1254,7 @@ define dso_local i32 @cmsysProcess_GetExitException(ptr noundef %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local i32 @cmsysProcess_GetExitCode(ptr noundef %0) local_unnamed_addr #13 {
+define dso_local i32 @cmsysProcess_GetExitCode(ptr noundef %0) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %2
 
@@ -1290,7 +1284,7 @@ define dso_local i32 @cmsysProcess_GetExitCode(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local i32 @cmsysProcess_GetExitValue(ptr noundef %0) local_unnamed_addr #13 {
+define dso_local i32 @cmsysProcess_GetExitValue(ptr noundef %0) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %2
 
@@ -1320,7 +1314,7 @@ define dso_local i32 @cmsysProcess_GetExitValue(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local nonnull ptr @cmsysProcess_GetErrorString(ptr noundef %0) local_unnamed_addr #11 {
+define dso_local nonnull ptr @cmsysProcess_GetErrorString(ptr noundef %0) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -1338,7 +1332,7 @@ define dso_local nonnull ptr @cmsysProcess_GetErrorString(ptr noundef %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local ptr @cmsysProcess_GetExceptionString(ptr noundef %0) local_unnamed_addr #11 {
+define dso_local ptr @cmsysProcess_GetExceptionString(ptr noundef %0) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %18, label %2
 
@@ -1373,7 +1367,7 @@ define dso_local ptr @cmsysProcess_GetExceptionString(ptr noundef %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local i32 @cmsysProcess_GetStateByIndex(ptr noundef %0, i32 noundef %1) local_unnamed_addr #13 {
+define dso_local i32 @cmsysProcess_GetStateByIndex(ptr noundef %0, i32 noundef %1) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %3
 
@@ -1399,7 +1393,7 @@ define dso_local i32 @cmsysProcess_GetStateByIndex(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local i32 @cmsysProcess_GetExitExceptionByIndex(ptr noundef %0, i32 noundef %1) local_unnamed_addr #13 {
+define dso_local i32 @cmsysProcess_GetExitExceptionByIndex(ptr noundef %0, i32 noundef %1) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %3
 
@@ -1425,7 +1419,7 @@ define dso_local i32 @cmsysProcess_GetExitExceptionByIndex(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local i32 @cmsysProcess_GetExitValueByIndex(ptr noundef %0, i32 noundef %1) local_unnamed_addr #13 {
+define dso_local i32 @cmsysProcess_GetExitValueByIndex(ptr noundef %0, i32 noundef %1) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %3
 
@@ -1451,7 +1445,7 @@ define dso_local i32 @cmsysProcess_GetExitValueByIndex(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local i32 @cmsysProcess_GetExitCodeByIndex(ptr noundef %0, i32 noundef %1) local_unnamed_addr #13 {
+define dso_local i32 @cmsysProcess_GetExitCodeByIndex(ptr noundef %0, i32 noundef %1) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %3
 
@@ -1477,7 +1471,7 @@ define dso_local i32 @cmsysProcess_GetExitCodeByIndex(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local nonnull ptr @cmsysProcess_GetExceptionStringByIndex(ptr noundef %0, i32 noundef %1) local_unnamed_addr #13 {
+define dso_local nonnull ptr @cmsysProcess_GetExceptionStringByIndex(ptr noundef %0, i32 noundef %1) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %3
 
@@ -1506,7 +1500,7 @@ define dso_local nonnull ptr @cmsysProcess_GetExceptionStringByIndex(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @cmsysProcess_Execute(ptr noundef %0) local_unnamed_addr #4 {
+define dso_local void @cmsysProcess_Execute(ptr noundef %0) local_unnamed_addr #3 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.__sigset_t, align 8
   %4 = alloca %struct.__sigset_t, align 8
@@ -1693,7 +1687,7 @@ kwsysProcessInitialize.exit:                      ; preds = %76
   br i1 %.not127, label %97, label %kwsysProcessesAdd.exit
 
 97:                                               ; preds = %.critedge152
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %98 = call i32 @pipe(ptr noundef nonnull %5) #25
   %99 = icmp slt i32 %98, 0
   br i1 %99, label %.thread.i, label %100
@@ -1735,14 +1729,14 @@ kwsysProcessSetNonBlocking.exit28.i:              ; preds = %111
   br i1 %121, label %.thread.i, label %122
 
 .thread.i:                                        ; preds = %118, %kwsysProcessSetNonBlocking.exit28.i, %111, %kwsysProcessSetNonBlocking.exit.i, %100, %97
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %181
 
 122:                                              ; preds = %118
   %123 = load i32, ptr %103, align 4, !tbaa !35
   %124 = call i32 (i32, i32, ...) @fcntl(i32 noundef %123, i32 noundef 2, i32 noundef 1) #25
   %125 = icmp sgt i32 %124, -1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %125, label %126, label %181
 
 126:                                              ; preds = %122
@@ -1779,8 +1773,8 @@ kwsysProcessSetNonBlocking.exit28.i:              ; preds = %111
   %141 = sext i32 %.sroa.0.0.copyload.i to i64
   %142 = getelementptr inbounds ptr, ptr %.sroa.9.0.i, i64 %141
   store ptr %0, ptr %142, align 8, !tbaa !64
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #25
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %143 = call i32 @sigemptyset(ptr noundef nonnull %3) #25
   %144 = call i32 @sigaddset(ptr noundef nonnull %3, i32 noundef 17) #25
   %145 = call i32 @sigaddset(ptr noundef nonnull %3, i32 noundef 2) #25
@@ -1790,8 +1784,8 @@ kwsysProcessSetNonBlocking.exit28.i:              ; preds = %111
   store i32 %.sroa.7.0.i, ptr @kwsysProcesses.1, align 4, !tbaa !35
   store ptr %.sroa.9.0.i, ptr @kwsysProcesses.2, align 8, !tbaa !62
   %148 = call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull %4, ptr noundef null) #25
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #25
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not23.i = icmp eq ptr %.sroa.9.0.i, %.sroa.10.0.copyload.i
   br i1 %.not23.i, label %150, label %149
 
@@ -1804,7 +1798,7 @@ kwsysProcessSetNonBlocking.exit28.i:              ; preds = %111
   br i1 %151, label %152, label %kwsysProcessesAdd.exit
 
 152:                                              ; preds = %150
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %153 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %153, i8 0, i64 144, i1 false)
   store ptr @kwsysProcessesSignalHandler, ptr %6, align 8, !tbaa !54
@@ -1857,7 +1851,7 @@ kwsysProcessSetNonBlocking.exit28.i:              ; preds = %111
   br i1 %180, label %174, label %.critedge4.i, !llvm.loop !70
 
 .critedge4.i:                                     ; preds = %177, %174
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %kwsysProcessesAdd.exit
 
 181:                                              ; preds = %122, %.thread.i, %128
@@ -1930,7 +1924,7 @@ kwsysProcessesAdd.exit:                           ; preds = %.critedge4.i, %150,
   br label %213
 
 213:                                              ; preds = %196, %206, %212, %189
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %214 = call i32 @pipe(ptr noundef nonnull %7) #25
   %215 = icmp slt i32 %214, 0
   br i1 %215, label %.critedge155, label %216
@@ -1959,7 +1953,7 @@ kwsysProcessesAdd.exit:                           ; preds = %.critedge4.i, %150,
   br i1 %.not131, label %.critedge155, label %230
 
 230:                                              ; preds = %227
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 2352
   %232 = load ptr, ptr %231, align 8, !tbaa !72
   %.not132 = icmp eq ptr %232, null
@@ -2002,7 +1996,7 @@ kwsysProcessesAdd.exit:                           ; preds = %.critedge4.i, %150,
   br label %.critedge153
 
 248:                                              ; preds = %239, %244, %240, %233
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %249 = call i32 @pipe(ptr noundef nonnull %8) #25
   %250 = icmp slt i32 %249, 0
   br i1 %250, label %.critedge157, label %251
@@ -2032,7 +2026,7 @@ kwsysProcessesAdd.exit:                           ; preds = %.critedge4.i, %150,
   br i1 %.not136, label %.critedge157, label %266
 
 266:                                              ; preds = %263
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %267 = getelementptr inbounds nuw i8, ptr %0, i64 2360
   %268 = load ptr, ptr %267, align 8, !tbaa !73
   %.not137 = icmp eq ptr %268, null
@@ -2075,22 +2069,22 @@ kwsysProcessesAdd.exit:                           ; preds = %.critedge4.i, %150,
   br label %.critedge153
 
 284:                                              ; preds = %275, %280, %276, %269
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %285 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #25
   %286 = load i64, ptr %2, align 8, !tbaa !74
   %287 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %288 = load i64, ptr %287, align 8, !tbaa !76
   %289 = sdiv i64 %288, 1000
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i64 %286, ptr %25, align 8, !tbaa !77
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1128
   store i64 %289, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !77
   %290 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %290, i8 -1, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %291 = getelementptr inbounds nuw i8, ptr %9, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %291, i8 -1, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %292 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %293 = load i32, ptr %292, align 8, !tbaa !35
   %294 = load volatile i32, ptr %17, align 8, !tbaa !22
@@ -2125,7 +2119,7 @@ kwsysProcessesAdd.exit:                           ; preds = %.critedge4.i, %150,
   br label %331
 
 309:                                              ; preds = %302
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 -1, ptr %11, align 8
   %310 = call i32 @pipe(ptr noundef nonnull %11) #25
   %311 = icmp slt i32 %310, 0
@@ -2163,7 +2157,7 @@ kwsysProcessesAdd.exit:                           ; preds = %.critedge4.i, %150,
   %329 = load i32, ptr %11, align 8, !tbaa !35
   %330 = load i32, ptr %295, align 4, !tbaa !35
   store i32 %330, ptr %296, align 4, !tbaa !81
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %331
 
 331:                                              ; preds = %328, %307
@@ -2236,17 +2230,17 @@ kwsysProcessesAdd.exit:                           ; preds = %.critedge4.i, %150,
 
 .critedge159:                                     ; preds = %.critedge159.sink.split, %322, %312
   call fastcc void @kwsysProcessCleanup(ptr noundef %0, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %355
 
 355:                                              ; preds = %354, %.critedge159
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge153
 
 ._crit_edge:                                      ; preds = %299, %284
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %356
 
 356:                                              ; preds = %._crit_edge, %356
@@ -2292,12 +2286,12 @@ kwsysProcessesAdd.exit:                           ; preds = %.critedge4.i, %150,
 
 .critedge155:                                     ; preds = %227, %216, %223, %213
   call fastcc void @kwsysProcessCleanup(ptr noundef %0, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge153
 
 .critedge157:                                     ; preds = %263, %251, %259, %248
   call fastcc void @kwsysProcessCleanup(ptr noundef %0, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge153
 
 .critedge153:                                     ; preds = %355, %.critedge, %87, %.critedge157, %.critedge155, %1, %12, %369, %283, %271, %247, %235, %211, %192, %188, %181, %80, %20
@@ -2305,10 +2299,10 @@ kwsysProcessesAdd.exit:                           ; preds = %.critedge4.i, %150,
 }
 
 ; Function Attrs: nounwind
-declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #14
+declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #4 {
+define internal fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #3 {
   %3 = alloca %struct.__sigset_t, align 8
   %4 = alloca %struct.__sigset_t, align 8
   %5 = alloca i32, align 4
@@ -2337,7 +2331,7 @@ define internal fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 nou
   br i1 %.not34, label %43, label %19
 
 19:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load volatile i32, ptr %20, align 8, !tbaa !22
   %22 = icmp sgt i32 %21, 0
@@ -2380,7 +2374,7 @@ define internal fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 nou
   br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %.critedge, %19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %43
 
 43:                                               ; preds = %._crit_edge, %15
@@ -2500,8 +2494,8 @@ define internal fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 nou
 87:                                               ; preds = %.critedge4.i, %._crit_edge.i
   %.sroa.9.0.i = phi ptr [ null, %.critedge4.i ], [ %.sroa.9.0.copyload.i, %._crit_edge.i ]
   %.sroa.8.0.i = phi i32 [ 0, %.critedge4.i ], [ %.sroa.8.0.copyload.i, %._crit_edge.i ]
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #25
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %88 = call i32 @sigemptyset(ptr noundef nonnull %3) #25
   %89 = call i32 @sigaddset(ptr noundef nonnull %3, i32 noundef 17) #25
   %90 = call i32 @sigaddset(ptr noundef nonnull %3, i32 noundef 2) #25
@@ -2511,8 +2505,8 @@ define internal fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 nou
   store i32 %.sroa.8.0.i, ptr @kwsysProcesses.1, align 4, !tbaa !35
   store ptr %.sroa.9.0.i, ptr @kwsysProcesses.2, align 8, !tbaa !62
   %93 = call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull %4, ptr noundef null) #25
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #25
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %60, %87, %55
@@ -2629,21 +2623,21 @@ kwsysProcessCleanupDescriptor.exit44:             ; preds = %126, %.critedge.i43
 }
 
 ; Function Attrs: nounwind
-declare i32 @chdir(ptr noundef) local_unnamed_addr #14
+declare i32 @chdir(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #15
+declare ptr @__errno_location() local_unnamed_addr #14
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #16
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #15
 
-declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #7
+declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i32 @pipe(ptr noundef) local_unnamed_addr #14
+declare i32 @pipe(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @kwsysProcessSetNonBlocking(i32 noundef %0) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @kwsysProcessSetNonBlocking(i32 noundef %0) unnamed_addr #3 {
   %2 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %0, i32 noundef 3) #25
   %3 = icmp sgt i32 %2, -1
   br i1 %3, label %4, label %9
@@ -2661,7 +2655,7 @@ define internal fastcc range(i32 0, 2) i32 @kwsysProcessSetNonBlocking(i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @kwsysProcessSetupOutputPipeFile(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @kwsysProcessSetupOutputPipeFile(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = load i32, ptr %0, align 4, !tbaa !35
   %4 = icmp sgt i32 %3, 2
   br i1 %4, label %.preheader.i, label %kwsysProcessCleanupDescriptor.exit
@@ -2706,7 +2700,7 @@ kwsysProcessCleanupDescriptor.exit:               ; preds = %2, %.critedge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @kwsysProcessCleanupDescriptor(ptr noundef nonnull captures(none) %0) unnamed_addr #4 {
+define internal fastcc void @kwsysProcessCleanupDescriptor(ptr noundef nonnull captures(none) %0) unnamed_addr #3 {
   %2 = load i32, ptr %0, align 4, !tbaa !35
   %3 = icmp sgt i32 %2, 2
   br i1 %3, label %.preheader, label %11
@@ -2732,7 +2726,7 @@ define internal fastcc void @kwsysProcessCleanupDescriptor(ptr noundef nonnull c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @kwsysProcessSetupOutputPipeNative(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @kwsysProcessSetupOutputPipeNative(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = load i32, ptr %0, align 4, !tbaa !35
   %4 = icmp sgt i32 %3, 2
   br i1 %4, label %.preheader.i, label %kwsysProcessCleanupDescriptor.exit
@@ -2777,12 +2771,12 @@ kwsysProcessCleanupDescriptor.exit:               ; preds = %2, %.critedge.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
-declare i32 @close(i32 noundef) local_unnamed_addr #7
+declare i32 @close(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @kwsysProcessCreate(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @kwsysProcessCreate(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #3 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca %struct.sigaction, align 8
   %6 = alloca i32, align 4
@@ -2792,10 +2786,10 @@ define internal fastcc range(i32 0, 2) i32 @kwsysProcessCreate(ptr noundef nonnu
   %10 = alloca %struct.__sigset_t, align 8
   %11 = alloca [2 x i32], align 4
   %12 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #25
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %10) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #25
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %14 = tail call i32 @pipe(ptr noundef nonnull %13) #25
   %15 = icmp slt i32 %14, 0
@@ -3046,7 +3040,7 @@ kwsysProcessCleanupDescriptor.exit86:             ; preds = %kwsysProcessCleanup
   br i1 %135, label %136, label %147
 
 136:                                              ; preds = %134
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %137 = call i32 @fork() #25
   store i32 %137, ptr %6, align 4, !tbaa !35
   %138 = icmp eq i32 %137, 0
@@ -3069,12 +3063,12 @@ kwsysProcessCleanupDescriptor.exit86:             ; preds = %kwsysProcessCleanup
   unreachable
 
 146:                                              ; preds = %136
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %kwsysProcessFork.exit
 
 147:                                              ; preds = %134
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %148
 
 148:                                              ; preds = %152, %147
@@ -3105,8 +3099,8 @@ kwsysProcessCleanupDescriptor.exit86:             ; preds = %kwsysProcessCleanup
 
 .critedge4.i:                                     ; preds = %158, %.critedge2.i
   %162 = load i32, ptr %7, align 4, !tbaa !35
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %kwsysProcessFork.exit
 
 kwsysProcessFork.exit:                            ; preds = %130, %146, %.critedge4.i
@@ -3255,7 +3249,7 @@ kwsysProcessCleanupDescriptor.exit100:            ; preds = %kwsysProcessCleanup
   %238 = call i32 (i32, i32, ...) @fcntl(i32 noundef 0, i32 noundef 2, i32 noundef 0) #25
   %239 = call i32 (i32, i32, ...) @fcntl(i32 noundef 1, i32 noundef 2, i32 noundef 0) #25
   %240 = call i32 (i32, i32, ...) @fcntl(i32 noundef 2, i32 noundef 2, i32 noundef 0) #25
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %5, i8 0, i64 152, i1 false)
   %241 = call i32 @sigaction(i32 noundef 1, ptr noundef nonnull %5, ptr noundef null) #25
   %242 = call i32 @sigaction(i32 noundef 2, ptr noundef nonnull %5, ptr noundef null) #25
@@ -3289,7 +3283,7 @@ kwsysProcessCleanupDescriptor.exit100:            ; preds = %kwsysProcessCleanup
   %270 = call i32 @sigaction(i32 noundef 29, ptr noundef nonnull %5, ptr noundef null) #25
   %271 = call i32 @sigaction(i32 noundef 30, ptr noundef nonnull %5, ptr noundef null) #25
   %272 = call i32 @sigaction(i32 noundef 31, ptr noundef nonnull %5, ptr noundef null) #25
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %273 = call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull %10, ptr noundef null) #25
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   %275 = load volatile i32, ptr %274, align 8, !tbaa !53
@@ -3313,7 +3307,7 @@ kwsysProcessCleanupDescriptor.exit100:            ; preds = %kwsysProcessCleanup
   %285 = load ptr, ptr %284, align 8, !tbaa !26
   %286 = call i32 @execvp(ptr noundef %285, ptr noundef nonnull %284) #25
   %287 = load i32, ptr %40, align 4, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %288 = tail call ptr @__errno_location() #28
   %289 = load i32, ptr %288, align 4, !tbaa !35
   %290 = call ptr @strerror(i32 noundef %289) #25
@@ -3511,15 +3505,15 @@ kwsysProcessCleanupDescriptor.exit121:            ; preds = %.loopexit, %.crited
 
 kwsysProcessCleanupDescriptor.exit65:             ; preds = %.preheader.i113, %335, %.preheader.i101, %205, %.preheader.i87, %126, %.preheader.i75, %83, %kwsysProcessCleanupDescriptor.exit112, %kwsysProcessCleanupDescriptor.exit100, %kwsysProcessCleanupDescriptor.exit86, %kwsysProcessCleanupDescriptor.exit74, %.critedge.i64, %kwsysProcessCleanupDescriptor.exit, %kwsysProcessCleanupDescriptor.exit121, %3, %351
   %.052 = phi i32 [ 0, %351 ], [ 0, %3 ], [ %spec.select62, %kwsysProcessCleanupDescriptor.exit121 ], [ 0, %kwsysProcessCleanupDescriptor.exit ], [ 0, %.critedge.i64 ], [ 0, %kwsysProcessCleanupDescriptor.exit74 ], [ 0, %kwsysProcessCleanupDescriptor.exit86 ], [ 0, %kwsysProcessCleanupDescriptor.exit100 ], [ 0, %kwsysProcessCleanupDescriptor.exit112 ], [ 0, %83 ], [ 0, %.preheader.i75 ], [ 0, %126 ], [ 0, %.preheader.i87 ], [ 0, %205 ], [ 0, %.preheader.i101 ], [ 0, %335 ], [ 0, %.preheader.i113 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #25
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.052
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @kwsysProcessClosePipes(ptr noundef nonnull captures(none) %0) unnamed_addr #4 {
+define internal fastcc void @kwsysProcessClosePipes(ptr noundef nonnull captures(none) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3604,7 +3598,7 @@ kwsysProcessCleanupDescriptor.exit:               ; preds = %.critedge, %.crited
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cmsysProcess_WaitForData(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #4 {
+define dso_local i32 @cmsysProcess_WaitForData(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.__sigset_t, align 8
@@ -3613,7 +3607,7 @@ define dso_local i32 @cmsysProcess_WaitForData(ptr noundef %0, ptr noundef write
   %10 = alloca %struct.timespec, align 8
   %11 = alloca %struct.timespec, align 8
   %12 = alloca %struct.kwsysProcessWaitData_s, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, i8 0, i64 40, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %3, ptr %13, align 8, !tbaa !106
@@ -3648,13 +3642,13 @@ define dso_local i32 @cmsysProcess_WaitForData(ptr noundef %0, ptr noundef write
   br label %kwsysProcessGetTimeoutTime.exit
 
 .split26:                                         ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %26 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %11) #25
   %27 = load i64, ptr %11, align 8, !tbaa !74
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !76
   %30 = sdiv i64 %29, 1000
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %33 = load double, ptr %32, align 8, !tbaa !49
@@ -3692,13 +3686,13 @@ define dso_local i32 @cmsysProcess_WaitForData(ptr noundef %0, ptr noundef write
 54:                                               ; preds = %.split26, %35, %39
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false), !tbaa.struct !109
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %56 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #25
   %57 = load i64, ptr %10, align 8, !tbaa !74
   %58 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %59 = load i64, ptr %58, align 8, !tbaa !76
   %60 = sdiv i64 %59, 1000
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %61 = load double, ptr %3, align 8, !tbaa !110
   %62 = fptosi double %61 to i64
   %63 = sitofp i64 %62 to double
@@ -3773,7 +3767,7 @@ kwsysProcessGetTimeoutTime.exit:                  ; preds = %80, %74, %.split
   br label %108
 
 108:                                              ; preds = %.lr.ph, %kwsysProcessWaitForPipe.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %109
 
 109:                                              ; preds = %.loopexit45, %108
@@ -3824,8 +3818,8 @@ kwsysProcessGetTimeoutTime.exit:                  ; preds = %80, %74, %.split
   br i1 %133, label %134, label %181
 
 134:                                              ; preds = %132
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #25
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %135 = call i32 @sigemptyset(ptr noundef nonnull %7) #25
   %136 = call i32 @sigaddset(ptr noundef nonnull %7, i32 noundef 2) #25
   %137 = call i32 @sigaddset(ptr noundef nonnull %7, i32 noundef 15) #25
@@ -3920,8 +3914,8 @@ kwsysProcessCleanupDescriptor.exit.i.i:           ; preds = %174, %172, %.crited
   br label %kwsysProcessDestroy.exit.i
 
 kwsysProcessDestroy.exit.i:                       ; preds = %._crit_edge.i.i, %134
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit45
 
 181:                                              ; preds = %132
@@ -3988,12 +3982,12 @@ kwsysProcessGetTimeoutLeft.exit.i.preheader:      ; preds = %.thread24.i.i, %199
   br label %kwsysProcessGetTimeoutLeft.exit.i
 
 200:                                              ; preds = %199
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %201 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #25
   %202 = load i64, ptr %6, align 8, !tbaa !74
   %203 = load i64, ptr %101, align 8, !tbaa !76
   %.neg.i.i = sdiv i64 %203, -1000
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %204 = sub i64 %98, %202
   %205 = add i64 %103, %.neg.i.i
   %.lobit.i.i.i = ashr i64 %205, 63
@@ -4087,11 +4081,11 @@ kwsysProcessGetTimeoutLeft.exit.i:                ; preds = %kwsysProcessGetTime
   br label %kwsysProcessWaitForPipe.exit
 
 kwsysProcessWaitForPipe.exit.thread:              ; preds = %198, %227, %213, %238, %182, %185, %186
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge
 
 kwsysProcessWaitForPipe.exit:                     ; preds = %.critedge3.i, %239
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %242 = load i32, ptr %81, align 4, !tbaa !85
   %243 = icmp sgt i32 %242, 0
   br i1 %243, label %108, label %.critedge, !llvm.loop !122
@@ -4100,13 +4094,13 @@ kwsysProcessWaitForPipe.exit:                     ; preds = %.critedge3.i, %239
   br i1 %.not33, label %260, label %244
 
 244:                                              ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %245 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #25
   %246 = load i64, ptr %5, align 8, !tbaa !74
   %247 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %248 = load i64, ptr %247, align 8, !tbaa !76
   %249 = sdiv i64 %248, 1000
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %250 = sub i64 %246, %.sroa.05.0
   %251 = sub nsw i64 %249, %.sroa.5.0
   %252 = icmp slt i64 %251, 0
@@ -4147,12 +4141,12 @@ kwsysProcessWaitForPipe.exit:                     ; preds = %.critedge3.i, %239
 
 267:                                              ; preds = %263, %265, %260, %4, %14, %17, %20, %266
   %.0 = phi i32 [ 0, %266 ], [ 0, %20 ], [ 0, %17 ], [ 0, %14 ], [ 0, %4 ], [ %262, %260 ], [ 255, %265 ], [ 0, %263 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @kwsysProcessGetTimeoutTime(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull captures(none) initializes((0, 16)) %2) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @kwsysProcessGetTimeoutTime(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull captures(none) initializes((0, 16)) %2) unnamed_addr #3 {
   %4 = alloca %struct.timespec, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %6 = load double, ptr %5, align 8, !tbaa !49
@@ -4194,13 +4188,13 @@ define internal fastcc range(i32 0, 2) i32 @kwsysProcessGetTimeoutTime(ptr nound
   br i1 %.not, label %.thread, label %29
 
 29:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %30 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #25
   %31 = load i64, ptr %4, align 8, !tbaa !74
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !76
   %34 = sdiv i64 %33, 1000
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %35 = load double, ptr %1, align 8, !tbaa !110
   %36 = fptosi double %35 to i64
   %37 = sitofp i64 %36 to double
@@ -4240,7 +4234,7 @@ define internal fastcc range(i32 0, 2) i32 @kwsysProcessGetTimeoutTime(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @cmsysProcess_Kill(ptr noundef %0) local_unnamed_addr #4 {
+define dso_local void @cmsysProcess_Kill(ptr noundef %0) local_unnamed_addr #3 {
   %2 = alloca i32, align 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %44, label %3
@@ -4288,7 +4282,7 @@ kwsysProcessCleanupDescriptor.exit:               ; preds = %6, %.critedge.i
 
 22:                                               ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %23 = load volatile ptr, ptr %21, align 8, !tbaa !55
   %24 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
   %25 = load volatile i32, ptr %24, align 4, !tbaa !35
@@ -4317,7 +4311,7 @@ kwsysProcessCleanupDescriptor.exit:               ; preds = %6, %.critedge.i
   br i1 %39, label %30, label %.critedge, !llvm.loop !123
 
 .critedge:                                        ; preds = %36, %30, %22
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = load volatile i32, ptr %18, align 8, !tbaa !22
   %41 = sext i32 %40 to i64
@@ -4334,7 +4328,7 @@ kwsysProcessCleanupDescriptor.exit:               ; preds = %6, %.critedge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @cmsysProcess_Interrupt(ptr noundef %0) local_unnamed_addr #4 {
+define dso_local void @cmsysProcess_Interrupt(ptr noundef %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2
 
@@ -4406,10 +4400,10 @@ define dso_local void @cmsysProcess_Interrupt(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind
-declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #14
+declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @kwsysProcessKill(i32 noundef %0) unnamed_addr #4 {
+define internal fastcc void @kwsysProcessKill(i32 noundef %0) unnamed_addr #3 {
   %2 = alloca [4096 x i8], align 16
   %3 = alloca [1025 x i8], align 16
   %4 = alloca i32, align 4
@@ -4423,15 +4417,15 @@ define internal fastcc void @kwsysProcessKill(i32 noundef %0) unnamed_addr #4 {
   br i1 %.not, label %43, label %11
 
 11:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #25
-  call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = tail call ptr @readdir(ptr noundef nonnull %10) #25
   %.not2733 = icmp eq ptr %12, null
   br i1 %.not2733, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %40
   %.034 = phi ptr [ %41, %40 ], [ %12, %11 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = getelementptr inbounds nuw i8, ptr %.034, i64 19
   %14 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %13, ptr noundef nonnull @.str.41, ptr noundef nonnull %4) #25
   %15 = icmp eq i32 %14, 1
@@ -4441,7 +4435,7 @@ define internal fastcc void @kwsysProcessKill(i32 noundef %0) unnamed_addr #4 {
   br i1 %or.cond, label %18, label %40
 
 18:                                               ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 4096, ptr noundef nonnull @.str.42, i32 noundef %16) #25
   %20 = call i32 @stat(ptr noundef nonnull %2, ptr noundef nonnull %5) #25
   %21 = icmp eq i32 %20, 0
@@ -4462,7 +4456,7 @@ define internal fastcc void @kwsysProcessKill(i32 noundef %0) unnamed_addr #4 {
 
 28:                                               ; preds = %24
   %29 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 41) #26
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not30 = icmp eq ptr %29, null
   br i1 %.not30, label %38, label %30
 
@@ -4481,23 +4475,23 @@ define internal fastcc void @kwsysProcessKill(i32 noundef %0) unnamed_addr #4 {
   br label %38
 
 38:                                               ; preds = %36, %30, %28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %39
 
 39:                                               ; preds = %22, %38, %24, %18
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %40
 
 40:                                               ; preds = %39, %.lr.ph
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %41 = call ptr @readdir(ptr noundef nonnull %10) #25
   %.not27 = icmp eq ptr %41, null
   br i1 %.not27, label %._crit_edge, label %.lr.ph, !llvm.loop !126
 
 ._crit_edge:                                      ; preds = %40, %11
   %42 = call i32 @closedir(ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %3) #25
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.critedge
 
 43:                                               ; preds = %1
@@ -4511,8 +4505,8 @@ define internal fastcc void @kwsysProcessKill(i32 noundef %0) unnamed_addr #4 {
   br i1 %.not26, label %57, label %47
 
 47:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %48 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %44, ptr noundef nonnull @.str.47, ptr noundef nonnull %7, ptr noundef nonnull %8) #25
   %49 = icmp eq i32 %48, 2
   br i1 %49, label %.lr.ph36, label %._crit_edge37
@@ -4533,8 +4527,8 @@ define internal fastcc void @kwsysProcessKill(i32 noundef %0) unnamed_addr #4 {
   br i1 %56, label %.lr.ph36, label %._crit_edge37, !llvm.loop !127
 
 ._crit_edge37:                                    ; preds = %54, %47
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %57
 
 57:                                               ; preds = %45, %._crit_edge37
@@ -4546,30 +4540,30 @@ define internal fastcc void @kwsysProcessKill(i32 noundef %0) unnamed_addr #4 {
   ret void
 }
 
-declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
+declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @cmsysProcess_KillPID(i64 noundef %0) local_unnamed_addr #4 {
+define dso_local void @cmsysProcess_KillPID(i64 noundef %0) local_unnamed_addr #3 {
   %2 = trunc i64 %0 to i32
   tail call fastcc void @kwsysProcessKill(i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @cmsysProcess_ResetStartTime(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define dso_local void @cmsysProcess_ResetStartTime(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = alloca %struct.timespec, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #25
   %6 = load i64, ptr %2, align 8, !tbaa !74
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !76
   %9 = sdiv i64 %8, 1000
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i64 %6, ptr %4, align 8, !tbaa !77
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1128
   store i64 %9, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !77
@@ -4580,38 +4574,38 @@ define dso_local void @cmsysProcess_ResetStartTime(ptr noundef writeonly capture
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #16
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #15
 
-declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
+declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #18
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #14
+declare ptr @strerror(i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
-declare i32 @sigemptyset(ptr noundef) local_unnamed_addr #14
+declare i32 @sigemptyset(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
-declare i32 @sigaddset(ptr noundef, i32 noundef) local_unnamed_addr #14
+declare i32 @sigaddset(ptr noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
-declare i32 @sigprocmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #14
+declare i32 @sigprocmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
-declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #14
+declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
-declare i32 @dup2(i32 noundef, i32 noundef) local_unnamed_addr #14
+declare i32 @dup2(i32 noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
-declare i32 @setsid() local_unnamed_addr #14
+declare i32 @setsid() local_unnamed_addr #13
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @kwsysProcessChildErrorExit(i32 noundef %0) unnamed_addr #19 {
+define internal fastcc void @kwsysProcessChildErrorExit(i32 noundef %0) unnamed_addr #18 {
   %2 = alloca [1024 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @__errno_location() #28
   %4 = load i32, ptr %3, align 4, !tbaa !35
   %5 = tail call ptr @strerror(i32 noundef %4) #25
@@ -4625,70 +4619,70 @@ define internal fastcc void @kwsysProcessChildErrorExit(i32 noundef %0) unnamed_
 }
 
 ; Function Attrs: nofree nounwind
-declare i32 @execvp(ptr noundef, ptr noundef) local_unnamed_addr #20
+declare i32 @execvp(ptr noundef, ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare i32 @fork() local_unnamed_addr #20
+declare i32 @fork() local_unnamed_addr #19
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #16
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: noreturn
-declare void @_exit(i32 noundef) local_unnamed_addr #21
+declare void @_exit(i32 noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #14
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #22
+declare double @llvm.fmuladd.f64(double, double, double) #21
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #20
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #20
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #19
 
-declare ptr @readdir(ptr noundef) local_unnamed_addr #7
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #20
+declare ptr @readdir(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #20
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #20
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #20
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #20
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #19
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #10
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #20
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @popen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #20
+declare noalias noundef ptr @popen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #19
 
-declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #7
+declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @pclose(ptr noundef captures(none)) local_unnamed_addr #20
+declare noundef i32 @pclose(ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nounwind uwtable
-define internal void @kwsysProcessesSignalHandler(i32 noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #4 {
+define internal void @kwsysProcessesSignalHandler(i32 noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #3 {
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1
   %6 = alloca %struct.sigaction, align 8
   %7 = alloca %struct.__sigset_t, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = tail call ptr @__errno_location() #28
   %9 = load i32, ptr %8, align 4, !tbaa !35
   switch i32 %0, label %.loopexit [
@@ -4704,7 +4698,7 @@ define internal void @kwsysProcessesSignalHandler(i32 noundef %0, ptr readnone c
 
 .lr.ph38:                                         ; preds = %.preheader, %.lr.ph38
   %indvars.iv43 = phi i64 [ %indvars.iv.next44, %.lr.ph38 ], [ 0, %.preheader ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 1, ptr %5, align 1, !tbaa !54
   %12 = load ptr, ptr @kwsysProcesses.2, align 8, !tbaa !130
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv43
@@ -4715,7 +4709,7 @@ define internal void @kwsysProcessesSignalHandler(i32 noundef %0, ptr readnone c
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 36
   %19 = load i32, ptr %18, align 4, !tbaa !61
   %20 = call i64 @write(i32 noundef %19, ptr noundef nonnull %5, i64 noundef 1) #25
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %21 = load i32, ptr @kwsysProcesses.0, align 8, !tbaa !128
   %22 = sext i32 %21 to i64
@@ -4813,8 +4807,8 @@ define internal void @kwsysProcessesSignalHandler(i32 noundef %0, ptr readnone c
   br i1 %.not, label %65, label %.preheader31.backedge
 
 65:                                               ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %6) #25
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %6, i8 0, i64 152, i1 false)
   %67 = call i32 @sigemptyset(ptr noundef nonnull %66) #25
@@ -4840,14 +4834,20 @@ define internal void @kwsysProcessesSignalHandler(i32 noundef %0, ptr readnone c
 
 .loopexit:                                        ; preds = %.lr.ph38, %.preheader, %3
   store i32 %9, ptr %8, align 4, !tbaa !35
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare i32 @wait(ptr noundef) local_unnamed_addr #7
+declare i32 @wait(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i32 @raise(i32 noundef) local_unnamed_addr #14
+declare i32 @raise(i32 noundef) local_unnamed_addr #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #23
@@ -4856,28 +4856,28 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare i32 @llvm.smax.i32(i32, i32) #24
 
 attributes #0 = { nofree nounwind memory(readwrite, argmem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #23 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #25 = { nounwind }

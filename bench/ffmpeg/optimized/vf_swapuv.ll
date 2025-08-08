@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal i32 @query_formats(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !4
   %5 = tail call ptr @av_pix_fmt_desc_get(i32 noundef 0) #3
   %.not19 = icmp eq ptr %5, null
@@ -101,7 +101,7 @@ is_planar_yuv.exit.thread:                        ; preds = %29, %26, %22, %.lr.
 
 .loopexit:                                        ; preds = %is_planar_yuv.exit, %._crit_edge
   %.2 = phi i32 [ %37, %._crit_edge ], [ %32, %is_planar_yuv.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.2
 }
 
@@ -158,25 +158,25 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   ret i32 %20
 }
 
+declare ptr @ff_default_get_video_buffer(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @ff_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @av_pix_fmt_desc_get(i32 noundef) local_unnamed_addr #1
+
+declare i32 @ff_add_format(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare i32 @ff_set_common_formats2(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @ff_default_get_video_buffer(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @ff_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @av_pix_fmt_desc_get(i32 noundef) local_unnamed_addr #2
-
-declare i32 @ff_add_format(ptr noundef, i64 noundef) local_unnamed_addr #2
-
-declare i32 @ff_set_common_formats2(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

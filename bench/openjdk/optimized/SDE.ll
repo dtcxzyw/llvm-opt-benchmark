@@ -231,7 +231,7 @@ define internal fastcc void @loadDebugInfo(ptr noundef %0, ptr noundef %1) unnam
   br i1 %40, label %41, label %sdeRead.exit.i
 
 41:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %42 = ptrtoint ptr %38 to i64
   %43 = ptrtoint ptr %34 to i64
   %44 = sub i64 %42, %43
@@ -253,7 +253,7 @@ sdeRead.exit.i:                                   ; preds = %37
   br i1 %50, label %51, label %sdeRead.exit5.i
 
 51:                                               ; preds = %48
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %52 = ptrtoint ptr %47 to i64
   %53 = ptrtoint ptr %34 to i64
   %54 = sub i64 %52, %53
@@ -275,7 +275,7 @@ sdeRead.exit5.i:                                  ; preds = %48
   br i1 %60, label %61, label %sdeRead.exit6.i
 
 61:                                               ; preds = %58
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %62 = ptrtoint ptr %57 to i64
   %63 = ptrtoint ptr %34 to i64
   %64 = sub i64 %62, %63
@@ -297,7 +297,7 @@ sdeRead.exit6.i:                                  ; preds = %58
   br i1 %70, label %71, label %sdeRead.exit7.i
 
 71:                                               ; preds = %68
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %72 = ptrtoint ptr %67 to i64
   %73 = ptrtoint ptr %34 to i64
   %74 = sub i64 %72, %73
@@ -333,7 +333,7 @@ sdeRead.exit7.i:                                  ; preds = %68
 
 ._crit_edge.i:                                    ; preds = %fileSection.exit.i, %78
   %.lcssa38.i = phi ptr [ %83, %78 ], [ %223, %fileSection.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %86 = load ptr, ptr @sourceDebugExtension, align 8
   %87 = ptrtoint ptr %.lcssa38.i to i64
   %88 = ptrtoint ptr %86 to i64
@@ -353,7 +353,7 @@ sdeRead.exit8.i:                                  ; preds = %78, %fileSection.ex
   br i1 %.not4.i, label %102, label %95
 
 95:                                               ; preds = %sdeRead.exit8.i
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %96 = load ptr, ptr @sourceDebugExtension, align 8
   %97 = ptrtoint ptr %94 to i64
   %98 = ptrtoint ptr %96 to i64
@@ -370,7 +370,7 @@ sdeRead.exit8.i:                                  ; preds = %78, %fileSection.ex
   br i1 %104, label %105, label %sdeRead.exit9.i
 
 105:                                              ; preds = %102
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %106 = load ptr, ptr @sourceDebugExtension, align 8
   %107 = ptrtoint ptr %94 to i64
   %108 = ptrtoint ptr %106 to i64
@@ -411,7 +411,7 @@ sdeRead.exit9.i:                                  ; preds = %102
   ]
 
 119:                                              ; preds = %116
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %120 = load ptr, ptr @sourceDebugExtension, align 8
   %121 = ptrtoint ptr %117 to i64
   %122 = ptrtoint ptr %120 to i64
@@ -458,7 +458,7 @@ fileLine.exit.i.i:                                ; preds = %132, %129
   ]
 
 138:                                              ; preds = %135
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %139 = load ptr, ptr @sourceDebugExtension, align 8
   %140 = ptrtoint ptr %136 to i64
   %141 = ptrtoint ptr %139 to i64
@@ -479,7 +479,7 @@ fileLine.exit.i.i:                                ; preds = %132, %129
   ]
 
 149:                                              ; preds = %145
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %150 = load ptr, ptr @sourceDebugExtension, align 8
   %151 = ptrtoint ptr %147 to i64
   %152 = ptrtoint ptr %150 to i64
@@ -508,7 +508,7 @@ fileLine.exit.i.i:                                ; preds = %132, %129
   ]
 
 162:                                              ; preds = %159
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %163 = load ptr, ptr @sourceDebugExtension, align 8
   %164 = ptrtoint ptr %161 to i64
   %165 = ptrtoint ptr %163 to i64
@@ -535,7 +535,7 @@ fileLine.exit.i.i:                                ; preds = %132, %129
   br i1 %175, label %176, label %sdeRead.exit.i.i.i
 
 176:                                              ; preds = %172
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %177 = load ptr, ptr @sourceDebugExtension, align 8
   %178 = ptrtoint ptr %174 to i64
   %179 = ptrtoint ptr %177 to i64
@@ -554,7 +554,7 @@ sdeRead.exit.i.i.i:                               ; preds = %172
 
 184:                                              ; preds = %sdeRead.exit.i.i.i
   %185 = getelementptr inbounds nuw i8, ptr %174, i64 1
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %186 = load ptr, ptr @sourceDebugExtension, align 8
   %187 = ptrtoint ptr %185 to i64
   %188 = ptrtoint ptr %186 to i64
@@ -575,7 +575,7 @@ sdeRead.exit.i.i.i:                               ; preds = %172
   ]
 
 196:                                              ; preds = %192
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %197 = load ptr, ptr @sourceDebugExtension, align 8
   %198 = ptrtoint ptr %194 to i64
   %199 = ptrtoint ptr %197 to i64
@@ -619,7 +619,7 @@ lineLine.exit.i.i:                                ; preds = %203, %192
   ], !llvm.loop !11
 
 215:                                              ; preds = %.preheader.i
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %216 = load ptr, ptr @sourceDebugExtension, align 8
   %217 = ptrtoint ptr %213 to i64
   %218 = ptrtoint ptr %216 to i64
@@ -888,7 +888,7 @@ define internal fastcc void @ignoreLine() unnamed_addr #0 {
   br i1 %7, label %8, label %sdeRead.exit
 
 8:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = load ptr, ptr @sourceDebugExtension, align 8
   %10 = ptrtoint ptr %5 to i64
   %11 = ptrtoint ptr %9 to i64
@@ -915,7 +915,7 @@ sdeRead.exit:                                     ; preds = %4
   ]
 
 18:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %19 = load ptr, ptr @sourceDebugExtension, align 8
   %20 = ptrtoint ptr %15 to i64
   %21 = ptrtoint ptr %19 to i64
@@ -945,7 +945,7 @@ sdeRead.exit:                                     ; preds = %4
   ]
 
 29:                                               ; preds = %.loopexit
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %30 = load ptr, ptr @sourceDebugExtension, align 8
   %31 = ptrtoint ptr %27 to i64
   %32 = ptrtoint ptr %30 to i64
@@ -982,7 +982,7 @@ define internal fastcc noundef ptr @readLine() unnamed_addr #0 {
   ]
 
 7:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = load ptr, ptr @sourceDebugExtension, align 8
   %9 = ptrtoint ptr %5 to i64
   %10 = ptrtoint ptr %8 to i64
@@ -1008,7 +1008,7 @@ ignoreWhite.exit:                                 ; preds = %4, %25
   ]
 
 18:                                               ; preds = %ignoreWhite.exit
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %19 = load ptr, ptr @sourceDebugExtension, align 8
   %20 = ptrtoint ptr %17 to i64
   %21 = ptrtoint ptr %19 to i64
@@ -1056,7 +1056,7 @@ ignoreWhite.exit:                                 ; preds = %4, %25
   ]
 
 38:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %39 = load ptr, ptr @sourceDebugExtension, align 8
   %40 = ptrtoint ptr %36 to i64
   %41 = ptrtoint ptr %39 to i64
@@ -1331,7 +1331,7 @@ define internal fastcc i32 @readNumber() unnamed_addr #0 {
   ]
 
 6:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = load ptr, ptr @sourceDebugExtension, align 8
   %8 = ptrtoint ptr %sdePos.promoted to i64
   %9 = ptrtoint ptr %7 to i64
@@ -1348,7 +1348,7 @@ define internal fastcc i32 @readNumber() unnamed_addr #0 {
   br label %4, !llvm.loop !16
 
 ignoreWhite.exit._crit_edge:                      ; preds = %ignoreWhite.exit
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %15 = load ptr, ptr @sourceDebugExtension, align 8
   %16 = ptrtoint ptr %26 to i64
   %17 = ptrtoint ptr %15 to i64
@@ -1388,7 +1388,7 @@ ignoreWhite.exit:                                 ; preds = %sdePeek.exit
   ]
 
 34:                                               ; preds = %.preheader
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %35 = load ptr, ptr @sourceDebugExtension, align 8
   %36 = ptrtoint ptr %33 to i64
   %37 = ptrtoint ptr %35 to i64
@@ -1416,7 +1416,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

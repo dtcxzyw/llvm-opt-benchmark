@@ -31,10 +31,10 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops20float_sorted_arg
   ], !prof !5
 
 9:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %7, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %4, ptr %2, align 8
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd0373c8e72872164E", ptr %.sroa.43.0..sroa_idx, align 8
@@ -78,10 +78,10 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops20float_sorted_arg
   ], !prof !5
 
 9:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %7, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %4, ptr %2, align 8
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd0373c8e72872164E", ptr %.sroa.43.0..sroa_idx, align 8
@@ -289,7 +289,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hb3a027330886b1b5E.exit.i.
   br i1 %24, label %30, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$17new_uninitialized17hdb5d95dd974f5aa1E.exit"
 
 25:                                               ; preds = %19, %13, %8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !40
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !40
   store ptr @anon.abf7c02616da35ad0a48790f131c5fc6.9, ptr %3, align 8, !noalias !40
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %26, align 8, !noalias !40
@@ -578,7 +578,7 @@ declare void @_ZN5alloc5alloc18handle_alloc_error17h5f7bf8e66d463adeE(i64 nounde
 declare i16 @llvm.cttz.i16(i16, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10

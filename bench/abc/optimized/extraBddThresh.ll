@@ -40,17 +40,11 @@ define void @Extra_ThreshPrintChow(i32 noundef %0, ptr noundef readonly captures
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @Extra_ThreshComputeChow(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #3 {
+define i32 @Extra_ThreshComputeChow(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #2 {
   %4 = sext i32 %1 to i64
   %5 = shl nsw i64 %4, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %5, i1 false)
@@ -153,10 +147,10 @@ define i32 @Extra_ThreshComputeChow(ptr noundef readonly captures(none) %0, i32 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Extra_ThreshSortByChow(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #3 {
+define void @Extra_ThreshSortByChow(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #2 {
   %4 = icmp slt i32 %1, 7
   %5 = add nsw i32 %1, -6
   %6 = shl nuw i32 1, %5
@@ -321,7 +315,7 @@ Abc_TtSwapAdjacent.exit.us.us:                    ; preds = %._crit_edge.us.i.us
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Extra_ThreshSortByChowInverted(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #3 {
+define void @Extra_ThreshSortByChowInverted(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #2 {
   %4 = icmp slt i32 %1, 7
   %5 = add nsw i32 %1, -6
   %6 = shl nuw i32 1, %5
@@ -486,9 +480,9 @@ Abc_TtSwapAdjacent.exit.us.us:                    ; preds = %._crit_edge.us.i.us
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -2147483647, -2147483648) i32 @Extra_ThreshInitializeChow(i32 noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
+define range(i32 -2147483647, -2147483648) i32 @Extra_ThreshInitializeChow(i32 noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca [16 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = icmp sgt i32 %0, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -529,12 +523,12 @@ define range(i32 -2147483647, -2147483648) i32 @Extra_ThreshInitializeChow(i32 n
 
 ._crit_edge:                                      ; preds = %2, %.lr.ph26.preheader
   %.0.lcssa32 = phi i32 [ %5, %.lr.ph26.preheader ], [ 1, %2 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0.lcssa32
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -2147483647, 10001) i32 @Extra_ThreshSelectWeights3(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) initializes((8, 12)) %2) local_unnamed_addr #3 {
+define range(i32 -2147483647, 10001) i32 @Extra_ThreshSelectWeights3(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) initializes((8, 12)) %2) local_unnamed_addr #2 {
   %4 = shl nuw i32 1, %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 1, ptr %5, align 4, !tbaa !3
@@ -670,7 +664,7 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us: ; preds = %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -2147483647, 10001) i32 @Extra_ThreshSelectWeights4(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) initializes((12, 16)) %2) local_unnamed_addr #3 {
+define range(i32 -2147483647, 10001) i32 @Extra_ThreshSelectWeights4(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) initializes((12, 16)) %2) local_unnamed_addr #2 {
   %4 = shl nuw i32 1, %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 1, ptr %5, align 4, !tbaa !3
@@ -819,7 +813,7 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us: ; preds = %27
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -2147483647, 10001) i32 @Extra_ThreshSelectWeights5(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) initializes((16, 20)) %2) local_unnamed_addr #3 {
+define range(i32 -2147483647, 10001) i32 @Extra_ThreshSelectWeights5(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) initializes((16, 20)) %2) local_unnamed_addr #2 {
   %4 = shl nuw i32 1, %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 1, ptr %5, align 4, !tbaa !3
@@ -981,7 +975,7 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us: ; preds = %28
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -2147483647, 10001) i32 @Extra_ThreshSelectWeights6(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) initializes((20, 24)) %2) local_unnamed_addr #3 {
+define range(i32 -2147483647, 10001) i32 @Extra_ThreshSelectWeights6(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) initializes((20, 24)) %2) local_unnamed_addr #2 {
   %4 = shl nuw i32 1, %1
   %5 = add i32 %1, 3
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -1187,7 +1181,7 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us: ; preds = %43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -2147483647, 10001) i32 @Extra_ThreshSelectWeights7(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) initializes((24, 28)) %2) local_unnamed_addr #3 {
+define range(i32 -2147483647, 10001) i32 @Extra_ThreshSelectWeights7(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) initializes((24, 28)) %2) local_unnamed_addr #2 {
   %4 = shl nuw i32 1, %1
   %5 = add i32 %1, 6
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -1406,7 +1400,7 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us: ; preds = %44
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -2147483647, 10001) i32 @Extra_ThreshSelectWeights8(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) initializes((28, 32)) %2) local_unnamed_addr #3 {
+define range(i32 -2147483647, 10001) i32 @Extra_ThreshSelectWeights8(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) initializes((28, 32)) %2) local_unnamed_addr #2 {
   %4 = shl nuw i32 1, %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 1, ptr %5, align 4, !tbaa !3
@@ -1637,7 +1631,7 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us: ; preds = %44
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -2147483647, 10001) i32 @Extra_ThreshSelectWeights(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #3 {
+define range(i32 -2147483647, 10001) i32 @Extra_ThreshSelectWeights(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #2 {
   %4 = icmp slt i32 %1, 3
   br i1 %4, label %5, label %10
 
@@ -2053,7 +2047,7 @@ Extra_ThreshSelectWeights3.exit:                  ; preds = %.split151.us.us.i, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Extra_ThreshIncrementWeights(i32 noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
+define void @Extra_ThreshIncrementWeights(i32 noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = icmp slt i32 %2, %0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -2077,7 +2071,7 @@ define void @Extra_ThreshIncrementWeights(i32 noundef %0, ptr noundef captures(n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Extra_ThreshDecrementWeights(i32 noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
+define void @Extra_ThreshDecrementWeights(i32 noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = icmp slt i32 %2, %0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -2164,13 +2158,13 @@ define void @Extra_ThreshPrintInequalities(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Extra_ThreshCreateInequalities(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr readnone captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #5 {
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
+define void @Extra_ThreshCreateInequalities(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr readnone captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #4 {
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
   %11 = add nsw i32 %2, 3
   %12 = sext i32 %11 to i64
   %13 = udiv i64 %10, %12
   %14 = trunc i64 %13 to i32
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
+  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   %16 = udiv i64 %15, %12
   %17 = trunc i64 %16 to i32
   %18 = mul nsw i32 %17, %14
@@ -2208,7 +2202,7 @@ define void @Extra_ThreshCreateInequalities(ptr noundef readonly captures(none) 
   br i1 %29, label %.preheader73.us, label %.preheader72, !llvm.loop !83
 
 .preheader72:                                     ; preds = %._crit_edge.us, %9
-  %30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
+  %30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
   %31 = trunc i64 %30 to i32
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.preheader71.lr.ph, label %.preheader69
@@ -2247,7 +2241,7 @@ define void @Extra_ThreshCreateInequalities(ptr noundef readonly captures(none) 
 ._crit_edge79.us:                                 ; preds = %.preheader70.us84, %._crit_edge79.us.loopexit
   %.us-phi.us = phi i32 [ %39, %._crit_edge79.us.loopexit ], [ %36, %.preheader70.us84 ]
   %indvars.iv.next125 = add nsw i64 %indvars.iv124, %12
-  %40 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
+  %40 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
   %sext = shl i64 %40, 32
   %41 = ashr exact i64 %sext, 32
   %42 = icmp slt i64 %indvars.iv.next125, %41
@@ -2302,7 +2296,7 @@ define void @Extra_ThreshCreateInequalities(ptr noundef readonly captures(none) 
 .preheader68.us:                                  ; preds = %.preheader68.us.preheader, %._crit_edge93.split.us.us
   %.296.us = phi i32 [ %66, %._crit_edge93.split.us.us ], [ 0, %.preheader68.us.preheader ]
   %.26495.us = phi i32 [ %.3.lcssa.us, %._crit_edge93.split.us.us ], [ 0, %.preheader68.us.preheader ]
-  %61 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
+  %61 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   %62 = trunc i64 %61 to i32
   %63 = icmp sgt i32 %62, 0
   br i1 %63, label %.preheader.us.us.preheader, label %._crit_edge93.split.us.us
@@ -2354,7 +2348,7 @@ define void @Extra_ThreshCreateInequalities(ptr noundef readonly captures(none) 
 ._crit_edge.us94.us:                              ; preds = %80
   %indvars.iv.next135 = add nsw i64 %indvars.iv134, 1
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, %60
-  %81 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
+  %81 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   %82 = trunc i64 %81 to i32
   %83 = trunc nuw i64 %indvars.iv.next133 to i32
   %84 = icmp slt i32 %83, %82
@@ -2365,10 +2359,10 @@ define void @Extra_ThreshCreateInequalities(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Extra_ThreshSimplifyInequalities(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #7 {
+define void @Extra_ThreshSimplifyInequalities(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #6 {
   %5 = icmp sgt i32 %0, 0
   %6 = icmp sgt i32 %1, 0
   %or.cond = and i1 %5, %6
@@ -2432,24 +2426,24 @@ define void @Extra_ThreshSimplifyInequalities(i32 noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, 1001) i32 @Extra_ThreshAssignWeights(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #8 {
+define range(i32 -2147483647, 1001) i32 @Extra_ThreshAssignWeights(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #7 {
   %9 = shl nsw i32 %3, 1
   %10 = sext i32 %6 to i64
   %11 = shl nsw i64 %10, 2
-  %12 = tail call noalias ptr @malloc(i64 noundef %11) #19
-  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
+  %12 = tail call noalias ptr @malloc(i64 noundef %11) #18
+  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   %14 = add nsw i32 %3, 3
   %15 = sext i32 %14 to i64
   %16 = udiv i64 %13, %15
   %17 = trunc i64 %16 to i32
-  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #18
+  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
   %19 = udiv i64 %18, %15
   %20 = trunc i64 %19 to i32
   %21 = mul nsw i32 %20, %17
   %.fr260 = freeze i32 %21
   %22 = sext i32 %.fr260 to i64
   %23 = shl nsw i64 %22, 3
-  %24 = tail call noalias ptr @malloc(i64 noundef %23) #19
+  %24 = tail call noalias ptr @malloc(i64 noundef %23) #18
   %25 = icmp sgt i32 %.fr260, 0
   br i1 %25, label %.lr.ph, label %._crit_edge198.thread
 
@@ -2460,7 +2454,7 @@ define range(i32 -2147483647, 1001) i32 @Extra_ThreshAssignWeights(ptr readnone 
 
 27:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %28 = tail call noalias ptr @malloc(i64 noundef %26) #19
+  %28 = tail call noalias ptr @malloc(i64 noundef %26) #18
   %29 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
   store ptr %28, ptr %29, align 8, !tbaa !76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2468,20 +2462,20 @@ define range(i32 -2147483647, 1001) i32 @Extra_ThreshAssignWeights(ptr readnone 
   br i1 %exitcond.not, label %.lr.ph197, label %27, !llvm.loop !94
 
 ._crit_edge198.thread:                            ; preds = %8
-  %30 = tail call noalias ptr @malloc(i64 noundef %23) #19
+  %30 = tail call noalias ptr @malloc(i64 noundef %23) #18
   tail call void @Extra_ThreshCreateInequalities(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, ptr poison, ptr noundef %5, i32 noundef %6, i32 poison, ptr noundef %24, ptr noundef %30)
   %31 = icmp sgt i32 %6, 0
   br label %Extra_ThreshSimplifyInequalities.exit
 
 .lr.ph197:                                        ; preds = %27
-  %32 = tail call noalias ptr @malloc(i64 noundef %23) #19
+  %32 = tail call noalias ptr @malloc(i64 noundef %23) #18
   %33 = shl nsw i64 %10, 3
   %wide.trip.count272 = zext nneg i32 %.fr260 to i64
   br label %34
 
 34:                                               ; preds = %.lr.ph197, %34
   %indvars.iv269 = phi i64 [ 0, %.lr.ph197 ], [ %indvars.iv.next270, %34 ]
-  %35 = tail call noalias ptr @malloc(i64 noundef %33) #19
+  %35 = tail call noalias ptr @malloc(i64 noundef %33) #18
   %36 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv269
   store ptr %35, ptr %36, align 8, !tbaa !76
   %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
@@ -2705,17 +2699,17 @@ Extra_ThreshCubeWeightedSum4.exit.loopexit.us.us: ; preds = %76
   %indvars.iv284 = phi i64 [ 0, %.lr.ph242.preheader ], [ %indvars.iv.next285, %.lr.ph242 ]
   %107 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv284
   %108 = load ptr, ptr %107, align 8, !tbaa !76
-  tail call void @free(ptr noundef %108) #17
+  tail call void @free(ptr noundef %108) #19
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
   %exitcond288.not = icmp eq i64 %indvars.iv.next285, %wide.trip.count287
   br i1 %exitcond288.not, label %.lr.ph246.preheader, label %.lr.ph242, !llvm.loop !101
 
 ._crit_edge243.thread:                            ; preds = %.lr.ph211, %.critedge
-  tail call void @free(ptr noundef %24) #17
+  tail call void @free(ptr noundef %24) #19
   br label %._crit_edge247
 
 .lr.ph246.preheader:                              ; preds = %.lr.ph242
-  tail call void @free(ptr noundef nonnull %24) #17
+  tail call void @free(ptr noundef nonnull %24) #19
   %wide.trip.count292 = zext nneg i32 %.fr260 to i64
   br label %.lr.ph246
 
@@ -2723,14 +2717,14 @@ Extra_ThreshCubeWeightedSum4.exit.loopexit.us.us: ; preds = %76
   %indvars.iv289 = phi i64 [ 0, %.lr.ph246.preheader ], [ %indvars.iv.next290, %.lr.ph246 ]
   %109 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv289
   %110 = load ptr, ptr %109, align 8, !tbaa !76
-  tail call void @free(ptr noundef %110) #17
+  tail call void @free(ptr noundef %110) #19
   %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
   %exitcond293.not = icmp eq i64 %indvars.iv.next290, %wide.trip.count292
   br i1 %exitcond293.not, label %._crit_edge247, label %.lr.ph246, !llvm.loop !102
 
 ._crit_edge247:                                   ; preds = %.lr.ph246, %._crit_edge243.thread
-  tail call void @free(ptr noundef %57) #17
-  %111 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
+  tail call void @free(ptr noundef %57) #19
+  %111 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   %112 = trunc i64 %111 to i32
   %113 = icmp sgt i32 %112, 0
   br i1 %113, label %.lr.ph251, label %.preheader190
@@ -2783,7 +2777,7 @@ Extra_ThreshCubeWeightedSum1.exit.loopexit.us:    ; preds = %129
 
 .preheader190:                                    ; preds = %Extra_ThreshCubeWeightedSum1.exit.loopexit.us, %.lr.ph251, %._crit_edge247
   %.0139.lcssa = phi i32 [ 1000, %._crit_edge247 ], [ 0, %.lr.ph251 ], [ %131, %Extra_ThreshCubeWeightedSum1.exit.loopexit.us ]
-  %134 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #18
+  %134 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
   %135 = trunc i64 %134 to i32
   %136 = icmp sgt i32 %135, 0
   br i1 %136, label %.lr.ph254, label %.preheader
@@ -2858,17 +2852,17 @@ Extra_ThreshCubeWeightedSum2.exit.loopexit.us:    ; preds = %152
 
 ._crit_edge259:                                   ; preds = %.lr.ph258, %.lr.ph254, %.preheader
   %.0140.lcssa307 = phi i32 [ %.0140.lcssa, %.preheader ], [ 0, %.lr.ph254 ], [ %.0140.lcssa, %.lr.ph258 ]
-  tail call void @free(ptr noundef %12) #17
+  tail call void @free(ptr noundef %12) #19
   %164 = icmp sgt i32 %.0139.lcssa, %.0140.lcssa307
   %.0 = select i1 %164, i32 %.0139.lcssa, i32 0
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Extra_ThreshPrintWeights(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -2907,9 +2901,9 @@ define void @Extra_ThreshPrintWeights(i32 noundef %0, ptr noundef readonly captu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -2147483647, 10001) i32 @Extra_ThreshCheck(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #3 {
+define range(i32 -2147483647, 10001) i32 @Extra_ThreshCheck(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #2 {
   %4 = alloca [16 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call fastcc i32 @Abc_TtIsUnate(ptr noundef %0, i32 noundef %1)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %34, label %6
@@ -2998,12 +2992,12 @@ Extra_ThreshComputeChow.exit:                     ; preds = %.lr.ph.i, %.lr.ph34
 
 34:                                               ; preds = %3, %Extra_ThreshComputeChow.exit
   %.0 = phi i32 [ %33, %Extra_ThreshComputeChow.exit ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @Abc_TtIsUnate(ptr noundef readonly captures(address) %0, i32 noundef %1) unnamed_addr #11 {
+define internal fastcc range(i32 0, 2) i32 @Abc_TtIsUnate(ptr noundef readonly captures(address) %0, i32 noundef %1) unnamed_addr #10 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %Abc_TtPosVar.exit.thread38
 
@@ -3216,7 +3210,7 @@ Abc_TtPosVar.exit.thread38:                       ; preds = %Abc_TtNegVar.exit.t
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @Abc_TtMakePosUnate(ptr noundef captures(address) %0, i32 noundef %1) unnamed_addr #12 {
+define internal fastcc void @Abc_TtMakePosUnate(ptr noundef captures(address) %0, i32 noundef %1) unnamed_addr #11 {
   %3 = icmp slt i32 %1, 7
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
@@ -3429,10 +3423,10 @@ Abc_TtFlip.exit:                                  ; preds = %24, %._crit_edge.us
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, 1001) i32 @Extra_ThreshHeuristic(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #8 {
+define range(i32 -2147483647, 1001) i32 @Extra_ThreshHeuristic(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #7 {
   %4 = alloca [16 x i32], align 16
   %5 = alloca [16 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp slt i32 %1, 2
   br i1 %6, label %75, label %7
 
@@ -3515,21 +3509,21 @@ define range(i32 -2147483647, 1001) i32 @Extra_ThreshHeuristic(ptr noundef %0, i
 
 Extra_ThreshComputeChow.exit:                     ; preds = %.lr.ph.i
   call void @Extra_ThreshSortByChowInverted(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %.lr.ph.i69
 
 .lr.ph.preheader:                                 ; preds = %50
   %35 = add nsw i32 %.024.sink.i, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 16 %4, i64 %11, i1 false), !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #17
-  %36 = tail call ptr (...) @Abc_FrameReadManDd() #17
-  %37 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %36 = tail call ptr (...) @Abc_FrameReadManDd() #19
+  %37 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   %spec.store.select.i = tail call i32 @llvm.umax.i32(i32 range(i32 2, -2147483648) %1, i32 16)
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 0, ptr %38, align 4, !tbaa !123
   store i32 %spec.store.select.i, ptr %37, align 8, !tbaa !126
   %39 = zext nneg i32 %spec.store.select.i to i64
-  %40 = tail call noalias ptr @malloc(i64 noundef %39) #19
+  %40 = tail call noalias ptr @malloc(i64 noundef %39) #18
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %40, ptr %41, align 8, !tbaa !127
   %smax = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
@@ -3561,15 +3555,15 @@ Extra_ThreshComputeChow.exit:                     ; preds = %.lr.ph.i
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.06481 = phi i32 [ %53, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %52 = tail call ptr @Cudd_bddIthVar(ptr noundef %36, i32 noundef %.06481) #17
+  %52 = tail call ptr @Cudd_bddIthVar(ptr noundef %36, i32 noundef %.06481) #19
   %53 = add nuw nsw i32 %.06481, 1
   %exitcond.not = icmp eq i32 %53, %smax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !128
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %54 = tail call ptr @Kit_TruthToBdd(ptr noundef %36, ptr noundef %0, i32 noundef %1, i32 noundef 0) #17
-  tail call void @Cudd_Ref(ptr noundef %54) #17
-  %55 = tail call ptr @Abc_ConvertBddToSop(ptr noundef null, ptr noundef %36, ptr noundef %54, ptr noundef %54, i32 noundef %1, i32 noundef 1, ptr noundef nonnull %37, i32 noundef 1) #17
+  %54 = tail call ptr @Kit_TruthToBdd(ptr noundef %36, ptr noundef %0, i32 noundef %1, i32 noundef 0) #19
+  tail call void @Cudd_Ref(ptr noundef %54) #19
+  %55 = tail call ptr @Abc_ConvertBddToSop(ptr noundef null, ptr noundef %36, ptr noundef %54, ptr noundef %54, i32 noundef %1, i32 noundef 1, ptr noundef nonnull %37, i32 noundef 1) #19
   %56 = icmp samesign ult i32 %1, 6
   %57 = add nsw i32 %1, -5
   %58 = shl nuw i32 1, %57
@@ -3592,11 +3586,11 @@ Extra_ThreshComputeChow.exit:                     ; preds = %.lr.ph.i
   br i1 %exitcond.not.i80, label %Abc_TtNot.exit, label %.lr.ph.i77, !llvm.loop !129
 
 Abc_TtNot.exit:                                   ; preds = %.lr.ph.i77, %._crit_edge
-  %64 = tail call ptr @Kit_TruthToBdd(ptr noundef %36, ptr noundef %0, i32 noundef %1, i32 noundef 0) #17
-  tail call void @Cudd_Ref(ptr noundef %64) #17
-  %65 = tail call ptr @Abc_ConvertBddToSop(ptr noundef null, ptr noundef %36, ptr noundef %64, ptr noundef %64, i32 noundef %1, i32 noundef 1, ptr noundef nonnull %37, i32 noundef 1) #17
-  tail call void @Cudd_RecursiveDeref(ptr noundef %36, ptr noundef %54) #17
-  tail call void @Cudd_RecursiveDeref(ptr noundef %36, ptr noundef %64) #17
+  %64 = tail call ptr @Kit_TruthToBdd(ptr noundef %36, ptr noundef %0, i32 noundef %1, i32 noundef 0) #19
+  tail call void @Cudd_Ref(ptr noundef %64) #19
+  %65 = tail call ptr @Abc_ConvertBddToSop(ptr noundef null, ptr noundef %36, ptr noundef %64, ptr noundef %64, i32 noundef %1, i32 noundef 1, ptr noundef nonnull %37, i32 noundef 1) #19
+  tail call void @Cudd_RecursiveDeref(ptr noundef %36, ptr noundef %54) #19
+  tail call void @Cudd_RecursiveDeref(ptr noundef %36, ptr noundef %64) #19
   %66 = call i32 @Extra_ThreshAssignWeights(ptr poison, ptr noundef %55, ptr noundef %65, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef %35, i32 noundef 1)
   %67 = icmp sgt i32 %1, 5
   %68 = icmp eq i32 %66, 0
@@ -3614,46 +3608,46 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i77, %._crit
 
 .critedge:                                        ; preds = %.lr.ph84.split, %Abc_TtNot.exit
   %.065.lcssa = phi i32 [ %66, %Abc_TtNot.exit ], [ %69, %.lr.ph84.split ]
-  tail call void @free(ptr noundef %55) #17
-  tail call void @free(ptr noundef %65) #17
+  tail call void @free(ptr noundef %55) #19
+  tail call void @free(ptr noundef %65) #19
   %73 = load ptr, ptr %41, align 8, !tbaa !127
   %.not.i = icmp eq ptr %73, null
   br i1 %.not.i, label %Vec_StrFree.exit, label %74
 
 74:                                               ; preds = %.critedge
-  tail call void @free(ptr noundef nonnull %73) #17
+  tail call void @free(ptr noundef nonnull %73) #19
   br label %Vec_StrFree.exit
 
 Vec_StrFree.exit:                                 ; preds = %.critedge, %74
-  tail call void @free(ptr noundef nonnull %37) #17
+  tail call void @free(ptr noundef nonnull %37) #19
   br label %75
 
 75:                                               ; preds = %7, %3, %Vec_StrFree.exit
   %.0 = phi i32 [ %.065.lcssa, %Vec_StrFree.exit ], [ 1, %3 ], [ 0, %7 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-declare ptr @Abc_FrameReadManDd(...) local_unnamed_addr #13
+declare ptr @Abc_FrameReadManDd(...) local_unnamed_addr #12
 
-declare ptr @Cudd_bddIthVar(ptr noundef, i32 noundef) local_unnamed_addr #13
+declare ptr @Cudd_bddIthVar(ptr noundef, i32 noundef) local_unnamed_addr #12
 
-declare ptr @Kit_TruthToBdd(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #13
+declare ptr @Kit_TruthToBdd(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #12
 
-declare void @Cudd_Ref(ptr noundef) local_unnamed_addr #13
+declare void @Cudd_Ref(ptr noundef) local_unnamed_addr #12
 
-declare ptr @Abc_ConvertBddToSop(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #13
+declare ptr @Abc_ConvertBddToSop(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #12
 
-declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) local_unnamed_addr #13
+declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Extra_ThreshCheckTest() local_unnamed_addr #0 {
   %1 = alloca [16 x i32], align 16
   %2 = alloca [16 x i32], align 16
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1) #17
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 -6302637592877692800, ptr %3, align 8, !tbaa !9
   br label %4
 
@@ -3763,18 +3757,18 @@ Extra_ThreshPrintChow.exit:                       ; preds = %.lr.ph.i13
   br label %48
 
 48:                                               ; preds = %47, %Extra_ThreshPrintChow.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Extra_ThreshHeuristicTest() local_unnamed_addr #8 {
+define void @Extra_ThreshHeuristicTest() local_unnamed_addr #7 {
   %1 = alloca [16 x i32], align 16
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 -6302637592877692800, ptr %2, align 8, !tbaa !9
   %3 = call i32 @Extra_ThreshHeuristic(ptr noundef nonnull %2, i32 noundef 6, ptr noundef nonnull %1)
   %4 = icmp eq i32 %3, 0
@@ -3803,10 +3797,16 @@ define void @Extra_ThreshHeuristicTest() local_unnamed_addr #8 {
   br label %Extra_ThreshPrintWeights.exit
 
 Extra_ThreshPrintWeights.exit:                    ; preds = %6, %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #14
@@ -3827,25 +3827,25 @@ declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_add
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
 attributes #0 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { inlinehint nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { inlinehint nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nofree nounwind }
 attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nounwind }
-attributes #18 = { nounwind willreturn memory(read) }
-attributes #19 = { nounwind allocsize(0) }
+attributes #17 = { nounwind willreturn memory(read) }
+attributes #18 = { nounwind allocsize(0) }
+attributes #19 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

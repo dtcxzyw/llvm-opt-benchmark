@@ -753,7 +753,7 @@ define hidden void @_ZN22ObjectSampleCheckpoint16write_stacktraceEPK13JfrStackTr
   %21 = ptrtoint ptr %20 to i64
   %22 = sub i64 %16, %21
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %26 = load ptr, ptr %25, align 8
@@ -761,7 +761,7 @@ define hidden void @_ZN22ObjectSampleCheckpoint16write_stacktraceEPK13JfrStackTr
   %27 = load ptr, ptr %3, align 8
   store ptr %27, ptr %23, align 8
   %.not5.i.i.i = icmp eq ptr %27, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %19
@@ -931,7 +931,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %38
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %39 = tail call noundef ptr @_ZNK13ObjectSampler4lastEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #11
   %40 = load ptr, ptr %3, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 800
@@ -984,7 +984,7 @@ _ZL15iterate_samplesI23StackTraceBlobInstallerEvRT_b.exit.i: ; preds = %.lr.ph.i
   br label %_ZL20install_stack_tracesPK13ObjectSampler.exit
 
 _ZL20install_stack_tracesPK13ObjectSampler.exit:  ; preds = %58, %60
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %61
 
 61:                                               ; preds = %_ZL20install_stack_tracesPK13ObjectSampler.exit
@@ -1177,7 +1177,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %10, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
@@ -1185,7 +1185,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %21 = load ptr, ptr %3, align 8
   store ptr %21, ptr %17, align 8
   %.not5.i.i = icmp eq ptr %21, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %13
@@ -1384,7 +1384,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %10, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
@@ -1392,7 +1392,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %21 = load ptr, ptr %3, align 8
   store ptr %21, ptr %17, align 8
   %.not5.i.i = icmp eq ptr %21, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %13
@@ -1521,8 +1521,8 @@ define hidden void @_ZN22ObjectSampleCheckpoint5writeEPK13ObjectSamplerP9EdgeSto
   %6 = alloca %class.BlobWriter, align 8
   %7 = alloca %class.JfrCheckpointWriter, align 8
   %8 = alloca %class.ObjectSampleWriter, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br i1 %2, label %11, label %9
 
 9:                                                ; preds = %4
@@ -1551,8 +1551,8 @@ define hidden void @_ZN22ObjectSampleCheckpoint5writeEPK13ObjectSamplerP9EdgeSto
 
 _ZL18write_sample_blobsPK13ObjectSamplerbP6Thread.exit: ; preds = %.lr.ph.i.i.i, %11
   call void @_ZN19JfrCheckpointWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(73) %5) #11
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %18 = call noundef zeroext i1 @_ZNK9EdgeStore8is_emptyEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
   br i1 %18, label %33, label %19
 
@@ -1937,7 +1937,7 @@ define linkonce_odr hidden void @_ZN23StackTraceBlobInstallerC2Ev(ptr noundef no
   %4 = icmp eq i32 %3, 0
   %narrow = select i1 %4, i32 1009, i32 %3
   %5 = sext i32 %narrow to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %5, ptr %6, align 8
@@ -1958,7 +1958,7 @@ _ZN9BlobCacheC2Em.exit:                           ; preds = %1, %11
   %13 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSRK15NativeCallStackN17AllocFailStrategy13AllocFailEnumE(i64 noundef %12, i8 noundef zeroext 16, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 0) #11
   store ptr %13, ptr %0, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, i8 0, i64 %12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %0, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2321,7 +2321,7 @@ define linkonce_odr hidden void @_ZNK7JfrBlob15exclusive_writeI19JfrCheckpointWr
   %22 = ptrtoint ptr %21 to i64
   %23 = sub i64 %17, %22
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load ptr, ptr %26, align 8
@@ -2329,7 +2329,7 @@ define linkonce_odr hidden void @_ZNK7JfrBlob15exclusive_writeI19JfrCheckpointWr
   %28 = load ptr, ptr %3, align 8
   store ptr %28, ptr %24, align 8
   %.not5.i.i = icmp eq ptr %28, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %20
@@ -2596,10 +2596,10 @@ declare i32 @llvm.ctpop.i32(i32) #8
 declare void @llvm.experimental.noalias.scope.decl(metadata) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }

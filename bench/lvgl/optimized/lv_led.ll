@@ -48,7 +48,7 @@ define internal void @lv_led_event(ptr readnone captures(none) %0, ptr noundef %
 
 12:                                               ; preds = %9
   %13 = tail call ptr @lv_event_get_layer(ptr noundef %1) #5
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @lv_draw_rect_dsc_init(ptr noundef nonnull %3) #5
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %13, ptr %14, align 8, !tbaa !17
@@ -142,7 +142,7 @@ define internal void @lv_led_event(ptr readnone captures(none) %0, ptr noundef %
   store i32 %69, ptr %66, align 8, !tbaa !24
   %70 = getelementptr inbounds nuw i8, ptr %10, i64 40
   call void @lv_draw_rect(ptr noundef %13, ptr noundef nonnull %3, ptr noundef nonnull %70) #5
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %71
 
 71:                                               ; preds = %.thread, %9, %12, %6
@@ -156,15 +156,9 @@ define noundef ptr @lv_led_create(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_led_set_color(ptr noundef %0, i24 %1) local_unnamed_addr #0 {
@@ -181,7 +175,7 @@ define void @lv_led_set_color(ptr noundef %0, i24 %1) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @lv_obj_invalidate(ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_invalidate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_led_set_brightness(ptr noundef %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
@@ -272,7 +266,7 @@ lv_led_get_brightness.exit:                       ; preds = %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i8 @lv_led_get_brightness(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define zeroext i8 @lv_led_get_brightness(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -285,35 +279,41 @@ define zeroext i8 @lv_led_get_brightness(ptr noundef readonly captures(address_i
   ret i8 %4
 }
 
-declare i24 @lv_theme_get_color_primary(ptr noundef) local_unnamed_addr #2
+declare i24 @lv_theme_get_color_primary(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_event_get_code(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_event_get_code(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_event_base(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_event_base(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_event_get_current_target(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_current_target(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_event_get_layer(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_layer(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_draw_rect_dsc_init(ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_rect_dsc_init(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_init_draw_rect_dsc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_init_draw_rect_dsc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i24 @lv_color_mix(i24, i24, i8 noundef zeroext) local_unnamed_addr #2
+declare i24 @lv_color_mix(i24, i24, i8 noundef zeroext) local_unnamed_addr #1
 
-declare i24 @lv_color_black() local_unnamed_addr #2
+declare i24 @lv_color_black() local_unnamed_addr #1
 
-declare zeroext i8 @lv_color_brightness(i24) local_unnamed_addr #2
+declare zeroext i8 @lv_color_brightness(i24) local_unnamed_addr #1
 
-declare void @lv_draw_rect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_rect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 

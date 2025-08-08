@@ -108,7 +108,7 @@ mi_bin.exit:                                      ; preds = %3, %9, %12
   br label %_mi_align_up.exit
 
 25:                                               ; preds = %1
-  %26 = tail call i64 @_mi_os_page_size() #8
+  %26 = tail call i64 @_mi_os_page_size() #7
   %27 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %26)
   %28 = icmp samesign ult i64 %27, 2
   %29 = add i64 %0, -1
@@ -324,9 +324,6 @@ mi_heap_queue_first_update.exit:                  ; preds = %.lr.ph.i, %90, %32,
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nounwind uwtable
 define hidden void @_mi_page_use_delayed_free(ptr noundef captures(none) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -364,9 +361,6 @@ define hidden void @_mi_page_use_delayed_free(ptr noundef captures(none) %0, i32
 19:                                               ; preds = %12, %16
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @_mi_page_free_collect(ptr noundef captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #1 {
@@ -425,7 +419,7 @@ define hidden void @_mi_page_free_collect(ptr noundef captures(none) %0, i1 noun
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %._crit_edge.i
-  tail call void (i32, ptr, ...) @_mi_error_message(i32 noundef 14, ptr noundef nonnull @.str.1) #8
+  tail call void (i32, ptr, ...) @_mi_error_message(i32 noundef 14, ptr noundef nonnull @.str.1) #7
   br label %_mi_page_thread_free_collect.exit
 
 32:                                               ; preds = %._crit_edge.i
@@ -493,13 +487,13 @@ define hidden void @_mi_page_reclaim(ptr noundef captures(address) %0, ptr nound
   br label %mi_page_block_size.exit
 
 9:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = ptrtoint ptr %1 to i64
   %11 = and i64 %10, -67108864
   %12 = inttoptr i64 %11 to ptr
-  %13 = call ptr @_mi_segment_page_start(ptr noundef %12, ptr noundef nonnull %1, ptr noundef nonnull %3) #8
+  %13 = call ptr @_mi_segment_page_start(ptr noundef %12, ptr noundef nonnull %1, ptr noundef nonnull %3) #7
   %14 = load i64, ptr %3, align 8, !tbaa !37
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %mi_page_block_size.exit
 
 mi_page_block_size.exit:                          ; preds = %7, %9
@@ -544,7 +538,7 @@ mi_page_queue.exit:                               ; preds = %mi_page_block_size.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @mi_page_queue_push(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef initializes((56, 72)) %2) unnamed_addr #4 {
+define internal fastcc void @mi_page_queue_push(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef initializes((56, 72)) %2) unnamed_addr #3 {
   %4 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %4, align 8, !tbaa !3
   %5 = icmp eq i64 %.val, 131088
@@ -723,7 +717,7 @@ define hidden void @_mi_heap_delayed_free(ptr noundef captures(none) %0) local_u
   %.329 = phi ptr [ %11, %.loopexit ], [ %.1, %.critedge ]
   %.3.val = load i64, ptr %.329, align 8, !tbaa !28
   %11 = inttoptr i64 %.3.val to ptr
-  %12 = tail call zeroext i1 @_mi_free_delayed_block(ptr noundef nonnull %.329) #8
+  %12 = tail call zeroext i1 @_mi_free_delayed_block(ptr noundef nonnull %.329) #7
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %.lr.ph
@@ -750,7 +744,7 @@ define hidden void @_mi_heap_delayed_free(ptr noundef captures(none) %0) local_u
 declare zeroext i1 @_mi_free_delayed_block(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_mi_page_unfull(ptr noundef %0) local_unnamed_addr #5 {
+define hidden void @_mi_page_unfull(ptr noundef %0) local_unnamed_addr #4 {
   %2 = getelementptr i8, ptr %0, i64 14
   %.val = load i8, ptr %2, align 2
   %3 = and i8 %.val, 1
@@ -809,7 +803,7 @@ mi_heap_page_queue_of.exit:                       ; preds = %4, %17, %20, %22
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @mi_page_queue_enqueue_from(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef %2) unnamed_addr #5 {
+define internal fastcc void @mi_page_queue_enqueue_from(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef %2) unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %5 = load atomic i64, ptr %4 monotonic, align 8
   %6 = inttoptr i64 %5 to ptr
@@ -1116,12 +1110,12 @@ define hidden void @_mi_page_abandon(ptr noundef %0, ptr noundef captures(addres
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   tail call fastcc void @mi_page_queue_remove(ptr noundef %1, ptr noundef %0)
   store atomic i64 0, ptr %3 release, align 8
-  tail call void @_mi_segment_page_abandon(ptr noundef %0, ptr noundef nonnull %7) #8
+  tail call void @_mi_segment_page_abandon(ptr noundef %0, ptr noundef nonnull %7) #7
   ret void
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @mi_page_queue_remove(ptr noundef captures(address) %0, ptr noundef captures(address) %1) unnamed_addr #5 {
+define internal fastcc void @mi_page_queue_remove(ptr noundef captures(address) %0, ptr noundef captures(address) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load atomic i64, ptr %3 monotonic, align 8
   %5 = inttoptr i64 %4 to ptr
@@ -1305,7 +1299,7 @@ define hidden void @_mi_page_free(ptr noundef %0, ptr noundef captures(address) 
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   tail call fastcc void @mi_page_queue_remove(ptr noundef %1, ptr noundef %0)
   store atomic i64 0, ptr %7 release, align 8
-  tail call void @_mi_segment_page_free(ptr noundef %0, i1 noundef zeroext %2, ptr noundef nonnull %11) #8
+  tail call void @_mi_segment_page_free(ptr noundef %0, i1 noundef zeroext %2, ptr noundef nonnull %11) #7
   ret void
 }
 
@@ -1426,7 +1420,7 @@ mi_page_queue_of.exit:                            ; preds = %6, %15, %20
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 32
   tail call fastcc void @mi_page_queue_remove(ptr noundef nonnull %71, ptr noundef nonnull %0)
   store atomic i64 0, ptr %72 release, align 8
-  tail call void @_mi_segment_page_free(ptr noundef nonnull %0, i1 noundef zeroext false, ptr noundef nonnull %76) #8
+  tail call void @_mi_segment_page_free(ptr noundef nonnull %0, i1 noundef zeroext false, ptr noundef nonnull %76) #7
   br label %77
 
 77:                                               ; preds = %66, %70, %.critedge
@@ -1488,7 +1482,7 @@ define hidden void @_mi_heap_collect_retired(ptr noundef captures(address) %0, i
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   tail call fastcc void @mi_page_queue_remove(ptr noundef nonnull %8, ptr noundef %23)
   store atomic i64 0, ptr %27 release, align 8
-  tail call void @_mi_segment_page_free(ptr noundef %23, i1 noundef zeroext true, ptr noundef nonnull %31) #8
+  tail call void @_mi_segment_page_free(ptr noundef %23, i1 noundef zeroext true, ptr noundef nonnull %31) #7
   br label %32
 
 32:                                               ; preds = %18, %16, %10, %.lr.ph.split.us
@@ -1547,7 +1541,7 @@ define hidden void @_mi_heap_collect_retired(ptr noundef captures(address) %0, i
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 32
   tail call fastcc void @mi_page_queue_remove(ptr noundef nonnull %35, ptr noundef %50)
   store atomic i64 0, ptr %54 release, align 8
-  tail call void @_mi_segment_page_free(ptr noundef %50, i1 noundef zeroext false, ptr noundef nonnull %58) #8
+  tail call void @_mi_segment_page_free(ptr noundef %50, i1 noundef zeroext false, ptr noundef nonnull %58) #7
   br label %62
 
 59:                                               ; preds = %43
@@ -1590,7 +1584,7 @@ define hidden void @_mi_deferred_free(ptr noundef readonly captures(none) %0, i1
   %12 = load volatile ptr, ptr @deferred_free, align 8, !tbaa !63
   %13 = load atomic i64, ptr @deferred_arg monotonic, align 8
   %14 = inttoptr i64 %13 to ptr
-  tail call void %12(i1 noundef zeroext %1, i64 noundef %5, ptr noundef %14) #8
+  tail call void %12(i1 noundef zeroext %1, i64 noundef %5, ptr noundef %14) #7
   %15 = load ptr, ptr %0, align 8, !tbaa !47
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i8 0, ptr %16, align 8, !tbaa !64
@@ -1601,7 +1595,7 @@ define hidden void @_mi_deferred_free(ptr noundef readonly captures(none) %0, i1
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, argmem: none) uwtable
-define hidden void @mi_register_deferred_free(ptr noundef %0, ptr noundef %1) local_unnamed_addr #6 {
+define hidden void @mi_register_deferred_free(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
   store volatile ptr %0, ptr @deferred_free, align 8, !tbaa !63
   %3 = ptrtoint ptr %1 to i64
   store atomic i64 %3, ptr @deferred_arg release, align 8
@@ -1614,7 +1608,7 @@ define hidden noalias ptr @_mi_malloc_generic(ptr noundef %0, i64 noundef %1) lo
   br i1 %.not, label %3, label %6, !prof !25
 
 3:                                                ; preds = %2
-  tail call void @mi_thread_init() #8
+  tail call void @mi_thread_init() #7
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %5 = load ptr, ptr %4, align 8, !tbaa !67
   %.not22 = icmp eq ptr %5, @_mi_heap_empty
@@ -1641,7 +1635,7 @@ define hidden noalias ptr @_mi_malloc_generic(ptr noundef %0, i64 noundef %1) lo
   %16 = load volatile ptr, ptr @deferred_free, align 8, !tbaa !63
   %17 = load atomic i64, ptr @deferred_arg monotonic, align 8
   %18 = inttoptr i64 %17 to ptr
-  tail call void %16(i1 noundef zeroext false, i64 noundef %9, ptr noundef %18) #8
+  tail call void %16(i1 noundef zeroext false, i64 noundef %9, ptr noundef %18) #7
   %19 = load ptr, ptr %.017, align 8, !tbaa !47
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i8 0, ptr %20, align 8, !tbaa !64
@@ -1676,7 +1670,7 @@ _mi_deferred_free.exit:                           ; preds = %6, %11, %15
   %.329.i = phi ptr [ %30, %.loopexit.i ], [ %.1.i, %.critedge.i ]
   %.3.val.i = load i64, ptr %.329.i, align 8, !tbaa !28
   %30 = inttoptr i64 %.3.val.i to ptr
-  %31 = tail call zeroext i1 @_mi_free_delayed_block(ptr noundef nonnull %.329.i) #8
+  %31 = tail call zeroext i1 @_mi_free_delayed_block(ptr noundef nonnull %.329.i) #7
   br i1 %31, label %.loopexit.i, label %32
 
 32:                                               ; preds = %.lr.ph.i
@@ -1702,18 +1696,18 @@ _mi_heap_delayed_free.exit:                       ; preds = %.loopexit.i, %_mi_d
   br i1 %40, label %41, label %.thread, !prof !25
 
 41:                                               ; preds = %_mi_heap_delayed_free.exit
-  tail call void @mi_heap_collect(ptr noundef nonnull %.017, i1 noundef zeroext true) #8
+  tail call void @mi_heap_collect(ptr noundef nonnull %.017, i1 noundef zeroext true) #7
   %42 = tail call fastcc ptr @mi_find_page(ptr noundef nonnull %.017, i64 noundef %1)
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %.thread, !prof !68
 
 44:                                               ; preds = %41
-  tail call void (i32, ptr, ...) @_mi_error_message(i32 noundef 12, ptr noundef nonnull @.str, i64 noundef %1) #8
+  tail call void (i32, ptr, ...) @_mi_error_message(i32 noundef 12, ptr noundef nonnull @.str, i64 noundef %1) #7
   br label %46
 
 .thread:                                          ; preds = %_mi_heap_delayed_free.exit, %41
   %.01621 = phi ptr [ %42, %41 ], [ %39, %_mi_heap_delayed_free.exit ]
-  %45 = tail call ptr @_mi_page_malloc(ptr noundef nonnull %.017, ptr noundef nonnull %.01621, i64 noundef %1) #8
+  %45 = tail call ptr @_mi_page_malloc(ptr noundef nonnull %.017, ptr noundef nonnull %.01621, i64 noundef %1) #7
   br label %46
 
 46:                                               ; preds = %44, %.thread, %3
@@ -1734,7 +1728,7 @@ define internal fastcc ptr @mi_find_page(ptr noundef %0, i64 noundef %1) unnamed
   br i1 %6, label %7, label %8, !prof !25
 
 7:                                                ; preds = %5
-  tail call void (i32, ptr, ...) @_mi_error_message(i32 noundef 75, ptr noundef nonnull @.str.2, i64 noundef %1) #8
+  tail call void (i32, ptr, ...) @_mi_error_message(i32 noundef 75, ptr noundef nonnull @.str.2, i64 noundef %1) #7
   br label %mi_find_free_page.exit
 
 8:                                                ; preds = %5
@@ -1829,7 +1823,7 @@ mi_page_queue.exit.i:                             ; preds = %19, %16, %10
   br i1 %59, label %60, label %61
 
 60:                                               ; preds = %._crit_edge.i.i.i
-  tail call void (i32, ptr, ...) @_mi_error_message(i32 noundef 14, ptr noundef nonnull @.str.1) #8
+  tail call void (i32, ptr, ...) @_mi_error_message(i32 noundef 14, ptr noundef nonnull @.str.1) #7
   br label %_mi_page_thread_free_collect.exit.i.i
 
 61:                                               ; preds = %._crit_edge.i.i.i
@@ -1935,7 +1929,7 @@ tailrecurse.i.i:                                  ; preds = %_mi_heap_collect_re
   br i1 %107, label %108, label %109
 
 108:                                              ; preds = %._crit_edge.i.i.i.i
-  tail call void (i32, ptr, ...) @_mi_error_message(i32 noundef 14, ptr noundef nonnull @.str.1) #8
+  tail call void (i32, ptr, ...) @_mi_error_message(i32 noundef 14, ptr noundef nonnull @.str.1) #7
   br label %_mi_page_thread_free_collect.exit.i.i.i
 
 109:                                              ; preds = %._crit_edge.i.i.i.i
@@ -1984,11 +1978,11 @@ _mi_page_free_collect.exit.i.i:                   ; preds = %_mi_page_thread_fre
 
 129:                                              ; preds = %123
   %130 = getelementptr inbounds nuw i8, ptr %.02651.i.i, i64 12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %131 = ptrtoint ptr %.02651.i.i to i64
   %132 = and i64 %131, -67108864
   %133 = inttoptr i64 %132 to ptr
-  %134 = call ptr @_mi_segment_page_start(ptr noundef %133, ptr noundef nonnull %.02651.i.i, ptr noundef nonnull %3) #8
+  %134 = call ptr @_mi_segment_page_start(ptr noundef %133, ptr noundef nonnull %.02651.i.i, ptr noundef nonnull %3) #7
   %135 = getelementptr inbounds nuw i8, ptr %.02651.i.i, i64 28
   %136 = load i32, ptr %135, align 4, !tbaa !36
   %137 = zext nneg i32 %136 to i64
@@ -2031,7 +2025,7 @@ _mi_page_free_collect.exit.i.i:                   ; preds = %_mi_page_thread_fre
   br label %mi_page_extend_free.exit.i.i
 
 mi_page_extend_free.exit.i.i:                     ; preds = %158, %150
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %mi_page_queue_find_free_ex.exit.sink.split.i
 
 162:                                              ; preds = %123
@@ -2096,7 +2090,7 @@ mi_page_extend_free.exit.i.i:                     ; preds = %158, %150
   br i1 %193, label %194, label %_mi_page_thread_free_collect.exit.i.i.thread.i.i
 
 194:                                              ; preds = %._crit_edge.i.i.i.i.i
-  tail call void (i32, ptr, ...) @_mi_error_message(i32 noundef 14, ptr noundef nonnull @.str.1) #8
+  tail call void (i32, ptr, ...) @_mi_error_message(i32 noundef 14, ptr noundef nonnull @.str.1) #7
   br label %_mi_page_thread_free_collect.exit.i.i.i.i
 
 _mi_page_thread_free_collect.exit.i.i.thread.i.i: ; preds = %._crit_edge.i.i.i.i.i
@@ -2183,7 +2177,7 @@ mi_page_to_full.exit.i.i:                         ; preds = %.sink.split.i.i.i.i
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 32
   tail call fastcc void @mi_page_queue_remove(ptr noundef nonnull %209, ptr noundef %224)
   store atomic i64 0, ptr %228 release, align 8
-  tail call void @_mi_segment_page_free(ptr noundef %224, i1 noundef zeroext false, ptr noundef nonnull %232) #8
+  tail call void @_mi_segment_page_free(ptr noundef %224, i1 noundef zeroext false, ptr noundef nonnull %232) #7
   br label %236
 
 233:                                              ; preds = %217
@@ -2235,20 +2229,20 @@ declare void @_mi_error_message(i32 noundef, ptr noundef, ...) local_unnamed_add
 declare ptr @_mi_page_malloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #7
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #6
 
 ; Function Attrs: nounwind
-declare void @llvm.x86.sse2.pause() #8
+declare void @llvm.x86.sse2.pause() #7
 
 declare ptr @_mi_segment_page_start(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #7
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @mi_large_huge_page_alloc(ptr noundef %0, i64 noundef range(i64 131073, -9223372036854775808) %1) unnamed_addr #1 {
   %3 = alloca i64, align 8
-  %4 = tail call i64 @_mi_os_good_alloc_size(i64 noundef %1) #8
+  %4 = tail call i64 @_mi_os_good_alloc_size(i64 noundef %1) #7
   %5 = icmp ugt i64 %4, 33554432
   br i1 %5, label %.thread, label %6
 
@@ -2310,12 +2304,12 @@ define internal fastcc ptr @mi_large_huge_page_alloc(ptr noundef %0, i64 noundef
   br i1 %39, label %mi_page_usable_block_size.exit, label %40, !prof !34
 
 40:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %41 = ptrtoint ptr %36 to i64
   %42 = and i64 %41, -67108864
   %43 = inttoptr i64 %42 to ptr
-  %44 = call ptr @_mi_segment_page_start(ptr noundef %43, ptr noundef nonnull %36, ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  %44 = call ptr @_mi_segment_page_start(ptr noundef %43, ptr noundef nonnull %36, ptr noundef nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %mi_page_usable_block_size.exit
 
 mi_page_usable_block_size.exit:                   ; preds = %35, %40, %.thread, %28
@@ -2332,7 +2326,7 @@ define internal fastcc ptr @mi_page_fresh_alloc(ptr noundef %0, ptr noundef capt
   %6 = load ptr, ptr %0, align 8, !tbaa !47
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 944
-  %9 = tail call ptr @_mi_segment_page_alloc(ptr noundef nonnull %0, i64 noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
+  %9 = tail call ptr @_mi_segment_page_alloc(ptr noundef nonnull %0, i64 noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
   %10 = icmp eq ptr %9, null
   br i1 %10, label %66, label %11
 
@@ -2347,8 +2341,8 @@ define internal fastcc ptr @mi_page_fresh_alloc(ptr noundef %0, ptr noundef capt
   %18 = trunc nuw i64 %17 to i32
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 28
   store i32 %18, ptr %19, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  %20 = call ptr @_mi_segment_page_start(ptr noundef %14, ptr noundef nonnull %9, ptr noundef nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %20 = call ptr @_mi_segment_page_start(ptr noundef %14, ptr noundef nonnull %9, ptr noundef nonnull %5) #7
   %21 = load i64, ptr %5, align 8, !tbaa !37
   %22 = udiv i64 %21, %2
   %23 = trunc i64 %22 to i16
@@ -2375,8 +2369,8 @@ define internal fastcc ptr @mi_page_fresh_alloc(ptr noundef %0, ptr noundef capt
   br i1 %.not26.i.i, label %38, label %mi_page_init.exit
 
 38:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
-  %39 = call ptr @_mi_segment_page_start(ptr noundef %14, ptr noundef nonnull %9, ptr noundef nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %39 = call ptr @_mi_segment_page_start(ptr noundef %14, ptr noundef nonnull %9, ptr noundef nonnull %4) #7
   %40 = load i32, ptr %19, align 4, !tbaa !36
   %41 = zext nneg i32 %40 to i64
   %42 = load i64, ptr %4, align 8
@@ -2416,11 +2410,11 @@ define internal fastcc ptr @mi_page_fresh_alloc(ptr noundef %0, ptr noundef capt
   br label %64
 
 64:                                               ; preds = %61, %54
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %mi_page_init.exit
 
 mi_page_init.exit:                                ; preds = %11, %35, %64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %66, label %65
 
@@ -2435,11 +2429,11 @@ mi_page_init.exit:                                ; preds = %11, %35, %64
 declare ptr @_mi_segment_page_alloc(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc void @mi_page_free_list_extend(ptr noundef nonnull %0, i64 noundef %1, i64 noundef range(i64 0, 4097) %2) unnamed_addr #9 {
+define internal fastcc void @mi_page_free_list_extend(ptr noundef nonnull %0, i64 noundef %1, i64 noundef range(i64 0, 4097) %2) unnamed_addr #8 {
   %4 = ptrtoint ptr %0 to i64
   %5 = and i64 %4, -67108864
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call ptr @_mi_segment_page_start(ptr noundef %6, ptr noundef nonnull %0, ptr noundef null) #8
+  %7 = tail call ptr @_mi_segment_page_start(ptr noundef %6, ptr noundef nonnull %0, ptr noundef null) #7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %9 = load i16, ptr %8, align 2, !tbaa !27
   %10 = zext i16 %9 to i64
@@ -2469,6 +2463,12 @@ define internal fastcc void @mi_page_free_list_extend(ptr noundef nonnull %0, i6
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #10
 
@@ -2484,13 +2484,13 @@ declare i64 @llvm.umax.i64(i64, i64) #10
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nounwind memory(readwrite, argmem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nounwind memory(readwrite, argmem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
+attributes #8 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 

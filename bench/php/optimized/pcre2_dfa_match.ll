@@ -31,9 +31,9 @@ define dso_local i32 @php_pcre2_dfa_match(ptr noundef %0, ptr noundef %1, i64 no
   %10 = alloca %struct.pcre2_callout_block_8, align 8
   %11 = alloca %struct.dfa_match_block_8, align 8
   %12 = alloca [7680 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %10) #7
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %11) #7
-  call void @llvm.lifetime.start.p0(i64 30720, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 16, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 7680, ptr %13, align 8, !tbaa !11
@@ -1272,31 +1272,25 @@ define dso_local i32 @php_pcre2_dfa_match(ptr noundef %0, ptr noundef %1, i64 no
 
 .thread722:                                       ; preds = %630, %.thread732, %180, %197, %566, %133, %93, %50, %52, %56, %41, %38, %._crit_edge, %33, %29, %27, %18, %9
   %.0 = phi i32 [ -34, %9 ], [ -51, %18 ], [ -43, %27 ], [ -33, %29 ], [ -34, %33 ], [ -66, %._crit_edge ], [ -31, %38 ], [ -32, %41 ], [ -38, %56 ], [ -38, %52 ], [ -38, %50 ], [ -56, %93 ], [ -44, %133 ], [ -48, %566 ], [ -36, %180 ], [ %195, %197 ], [ %.0541, %.thread732 ], [ %.0541, %630 ]
-  call void @llvm.lifetime.end.p0(i64 30720, ptr nonnull %12) #7
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %11) #7
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i64 @_pcre2_strlen_8(ptr noundef) local_unnamed_addr #2
+declare i64 @_pcre2_strlen_8(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @_pcre2_valid_utf_8(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @_pcre2_valid_utf_8(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @_pcre2_is_newline_8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @_pcre2_is_newline_8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @_pcre2_was_newline_8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @_pcre2_was_newline_8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @internal_dfa_match(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef range(i32 0, 131071) %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9) unnamed_addr #0 {
@@ -1306,7 +1300,7 @@ define internal fastcc i32 @internal_dfa_match(ptr noundef nonnull %0, ptr nound
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !56
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4797,7 +4791,7 @@ switch.early.test3485:                            ; preds = %.thread4295, %1686
   br i1 %1905, label %1906, label %.thread3604
 
 1906:                                             ; preds = %1904
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !21
   %1907 = zext nneg i32 %.131234190 to i64
   %1908 = getelementptr inbounds nuw i8, ptr %.128544197, i64 %1907
@@ -4823,11 +4817,11 @@ switch.early.test3485:                            ; preds = %.thread4295, %1686
   %1919 = getelementptr inbounds nuw i8, ptr %.527824199, i64 8
   store i32 %1918, ptr %1919, align 4, !tbaa !103
   %1920 = getelementptr inbounds nuw i8, ptr %.527824199, i64 12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread3604
 
 1921:                                             ; preds = %1906
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.critedge3471
 
 1922:                                             ; preds = %473, %473, %473
@@ -5343,7 +5337,7 @@ switch.early.test3485:                            ; preds = %.thread4295, %1686
   br i1 %2174, label %2175, label %.thread3604
 
 2175:                                             ; preds = %2170
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !21
   switch i32 %.03186, label %2177 [
     i32 416, label %2176
@@ -5373,11 +5367,11 @@ switch.early.test3485:                            ; preds = %.thread4295, %1686
   %2186 = getelementptr inbounds nuw i8, ptr %.527824199, i64 8
   store i32 %2185, ptr %2186, align 4, !tbaa !103
   %2187 = getelementptr inbounds nuw i8, ptr %.527824199, i64 12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.thread3604
 
 2188:                                             ; preds = %2177
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.critedge3471
 
 2189:                                             ; preds = %473, %473, %473
@@ -5916,7 +5910,7 @@ switch.early.test3485:                            ; preds = %.thread4295, %1686
   br i1 %2444, label %2445, label %.thread3604
 
 2445:                                             ; preds = %2441
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %14, align 4, !tbaa !21
   %2446 = icmp eq i32 %.03186, 417
   %2447 = sext i1 %2446 to i32
@@ -5943,7 +5937,7 @@ switch.early.test3485:                            ; preds = %.thread4295, %1686
   br i1 %2456, label %2457, label %.thread3694
 
 .thread3694:                                      ; preds = %2455
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.critedge3471
 
 2457:                                             ; preds = %2455
@@ -5968,7 +5962,7 @@ switch.early.test3485:                            ; preds = %.thread4295, %1686
   store i32 %2469, ptr %2470, align 4, !tbaa !103
   %.303004 = add nsw i32 %.629804194, 1
   %.312808 = getelementptr inbounds nuw i8, ptr %.527824199, i64 12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.thread3604
 
 2471:                                             ; preds = %473, %473, %473, %473
@@ -6380,7 +6374,7 @@ switch.early.test3485:                            ; preds = %.thread4295, %1686
   br i1 %2673, label %2674, label %.thread3604
 
 2674:                                             ; preds = %2672
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4, !tbaa !21
   %2675 = zext nneg i32 %.131234190 to i64
   %2676 = getelementptr inbounds nuw i8, ptr %.128544197, i64 %2675
@@ -6411,11 +6405,11 @@ switch.early.test3485:                            ; preds = %.thread4295, %1686
   %2688 = getelementptr inbounds nuw i8, ptr %.527824199, i64 8
   store i32 %2687, ptr %2688, align 4, !tbaa !103
   %2689 = getelementptr inbounds nuw i8, ptr %.527824199, i64 12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.thread3604
 
 2690:                                             ; preds = %2682
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.critedge3471
 
 2691:                                             ; preds = %473
@@ -7849,7 +7843,7 @@ do_callout_dfa.exit:                              ; preds = %3402, %3407
   %3473 = zext i8 %3472 to i64
   %3474 = getelementptr inbounds nuw i8, ptr %3429, i64 %3470
   %3475 = getelementptr inbounds nuw i8, ptr %3474, i64 %3473
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %.126904202, ptr %16, align 8, !tbaa !118
   %3476 = getelementptr inbounds nuw i8, ptr %.126904202, i64 12
   %3477 = load i32, ptr %3476, align 4, !tbaa !12
@@ -7940,7 +7934,7 @@ do_callout_dfa.exit:                              ; preds = %3402, %3407
 
 .thread3831:                                      ; preds = %3479, %._crit_edge4156, %3521, %3527
   %.45.ph = phi i32 [ -43, %3527 ], [ -43, %3521 ], [ %3510, %._crit_edge4156 ], [ %3480, %3479 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.critedge3471
 
 3531:                                             ; preds = %3522, %3528
@@ -7950,7 +7944,7 @@ do_callout_dfa.exit:                              ; preds = %3402, %3407
   store i32 0, ptr %3532, align 4, !tbaa !102
   %.892962 = add nsw i32 %.028734195, 1
   %.89 = getelementptr inbounds nuw i8, ptr %.027164200, i64 12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.thread3604
 
 3533:                                             ; preds = %473
@@ -8820,17 +8814,17 @@ do_callout_dfa.exit3545:                          ; preds = %3951, %3956
 
 .critedge3471:                                    ; preds = %158, %.thread, %335, %462, %475, %482, %.thread3598.thread4280, %537, %567, %600, %._crit_edge4176, %._crit_edge4171, %677, %718, %726, %729, %738, %747, %795, %804, %841, %844, %891, %916, %958, %983, %1014, %1031, %1049, %1388, %1446, %1455, %1512, %1519, %1576, %1647, %1653, %1658, %1729, %1734, %1743, %1897, %1926, %1960, %1990, %2017, %2167, %2190, %2218, %2242, %2266, %2434, %2472, %2521, %2566, %2613, %2625, %2665, %2697, %2706, %2719, %2726, %2735, %2745, %2755, %2765, %2774, %2822, %2876, %2925, %3035, %473, %1233, %1377, %1884, %1945, %1975, %2005, %2159, %2210, %2234, %2258, %2428, %2422, %2513, %2506, %2558, %2551, %2603, %2596, %2651, %2808, %2867, %2917, %2966, %3028, %3021, %3094, %3089, %3242, %3245, %3249, %3208, %3189, %3182, %.thread3792, %3166, %3154, %3147, %.thread3922, %do_callout_dfa.exit3545, %._crit_edge4161, %3334, %3285, %3270, %do_callout_dfa.exit, %3427, %3427, %3427, %3430, %3438, %3445, %3457, %3460, %._crit_edge4135, %3663, %3576, %3561, %._crit_edge4121, %3749, %.loopexit3989, %3685, %3670, %3903, %3895, %.loopexit3992, %3868, %3858, %3790, %3775, %3610, %3645, %3654, %.lr.ph4185, %547, %3999, %3996, %3994, %1921, %2188, %2690, %.thread3694, %.thread3831, %4007, %4005, %34, %10
   %.0 = phi i32 [ -47, %10 ], [ -53, %34 ], [ %.13046.lcssa4307, %4005 ], [ %spec.select3514, %4007 ], [ -43, %.thread3694 ], [ -43, %2690 ], [ -43, %2188 ], [ -43, %1921 ], [ %.45.ph, %.thread3831 ], [ -2, %3994 ], [ -2, %3996 ], [ -2, %3999 ], [ -43, %547 ], [ -43, %.lr.ph4185 ], [ -43, %3654 ], [ -43, %3645 ], [ -52, %3610 ], [ -48, %3790 ], [ -63, %3775 ], [ %3818, %3903 ], [ -43, %3858 ], [ -43, %3868 ], [ -43, %.loopexit3992 ], [ -43, %3895 ], [ -48, %3685 ], [ -63, %3670 ], [ %.lcssa4004, %._crit_edge4121 ], [ -43, %3749 ], [ -43, %.loopexit3989 ], [ -48, %3576 ], [ -63, %3561 ], [ -39, %._crit_edge4135 ], [ %3618, %3663 ], [ -40, %3445 ], [ -43, %3457 ], [ -43, %3460 ], [ -40, %3427 ], [ -40, %3427 ], [ -40, %3427 ], [ -43, %3430 ], [ -43, %3438 ], [ %3423, %do_callout_dfa.exit ], [ -48, %3285 ], [ -63, %3270 ], [ %3326, %._crit_edge4161 ], [ -43, %3334 ], [ -43, %335 ], [ -42, %462 ], [ -43, %475 ], [ -43, %482 ], [ %.43049358935964277, %.thread3598.thread4280 ], [ -43, %537 ], [ -43, %567 ], [ -43, %600 ], [ -43, %._crit_edge4176 ], [ -43, %._crit_edge4171 ], [ -43, %677 ], [ -43, %718 ], [ -2, %726 ], [ -43, %729 ], [ -43, %738 ], [ -43, %747 ], [ -43, %795 ], [ -43, %804 ], [ -2, %841 ], [ -43, %844 ], [ -43, %891 ], [ -43, %916 ], [ -43, %958 ], [ -43, %983 ], [ -43, %1014 ], [ -43, %1031 ], [ -43, %1049 ], [ -43, %1388 ], [ -43, %1446 ], [ -43, %1455 ], [ -43, %1512 ], [ -43, %1519 ], [ -43, %1576 ], [ -43, %1647 ], [ -43, %1653 ], [ -43, %1658 ], [ -43, %1729 ], [ -43, %1734 ], [ -43, %1743 ], [ -43, %1897 ], [ -43, %1926 ], [ -43, %1960 ], [ -43, %1990 ], [ -43, %2017 ], [ -43, %2167 ], [ -43, %2190 ], [ -43, %2218 ], [ -43, %2242 ], [ -43, %2266 ], [ -43, %2434 ], [ -43, %2472 ], [ -43, %2521 ], [ -43, %2566 ], [ -43, %2613 ], [ -43, %2625 ], [ -43, %2665 ], [ -43, %2697 ], [ -43, %2706 ], [ -43, %2719 ], [ -43, %2726 ], [ -43, %2735 ], [ -43, %2745 ], [ -43, %2755 ], [ -43, %2765 ], [ -43, %2774 ], [ -43, %2822 ], [ -43, %2876 ], [ -43, %2925 ], [ -43, %3035 ], [ -42, %473 ], [ -43, %1233 ], [ -43, %1377 ], [ -43, %1884 ], [ -43, %1945 ], [ -43, %1975 ], [ -43, %2005 ], [ -43, %2159 ], [ -43, %2210 ], [ -43, %2234 ], [ -43, %2258 ], [ -43, %2422 ], [ -43, %2428 ], [ -43, %2506 ], [ -43, %2513 ], [ -43, %2551 ], [ -43, %2558 ], [ -43, %2596 ], [ -43, %2603 ], [ -43, %2651 ], [ -43, %2808 ], [ -43, %2867 ], [ -43, %2917 ], [ -43, %2966 ], [ -43, %3021 ], [ -43, %3028 ], [ -43, %3089 ], [ -43, %3094 ], [ -43, %3147 ], [ -43, %3154 ], [ -43, %3166 ], [ -43, %.thread3792 ], [ -43, %3182 ], [ -43, %3189 ], [ -43, %3208 ], [ -43, %3249 ], [ -43, %3242 ], [ -43, %3245 ], [ %3972, %do_callout_dfa.exit3545 ], [ -43, %.thread3922 ], [ -43, %.thread ], [ -43, %158 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
 }
 
-declare ptr @_pcre2_memmove8(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @_pcre2_memmove8(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @_pcre2_extuni_8(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_pcre2_extuni_8(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @_pcre2_xclass_8(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @_pcre2_xclass_8(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @_pcre2_eclass_8(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @_pcre2_eclass_8(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -63, 1) i32 @more_workspace(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 4, 2001) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
@@ -8900,6 +8894,12 @@ define internal fastcc range(i32 -63, 1) i32 @more_workspace(ptr noundef nonnull
   ret i32 %.133
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5
 
@@ -8916,10 +8916,10 @@ declare i32 @llvm.smax.i32(i32, i32) #5
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { nounwind }

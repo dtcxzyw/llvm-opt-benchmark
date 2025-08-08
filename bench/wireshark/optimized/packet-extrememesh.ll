@@ -892,9 +892,6 @@ declare ptr @find_dissector(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1100,7 +1097,7 @@ define internal fastcc void @dissect_extrememesh_ps(ptr noundef %0, ptr noundef 
 17:                                               ; preds = %3
   %18 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4
   tail call void @col_set_str(ptr noundef %.val, i32 noundef 25, ptr noundef nonnull @.str.309)
   %19 = load i32, ptr @proto_extrememesh_ps_areq, align 4
@@ -1157,13 +1154,13 @@ define internal fastcc void @dissect_extrememesh_ps(ptr noundef %0, ptr noundef 
   br i1 %48, label %.lr.ph.i, label %dissect_extrememesh_ps_areq.exit, !llvm.loop !25
 
 dissect_extrememesh_ps_areq.exit:                 ; preds = %38, %.backedge.i, %17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %dissect_extrememesh_ps_perr.exit
 
 49:                                               ; preds = %3
   %50 = getelementptr i8, ptr %1, i64 8
   %.val47 = load ptr, ptr %50, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %14, align 4
   tail call void @col_set_str(ptr noundef %.val47, i32 noundef 25, ptr noundef nonnull @.str.312)
   %51 = load i32, ptr @proto_extrememesh_ps_arep, align 4
@@ -1218,13 +1215,13 @@ dissect_extrememesh_ps_areq.exit:                 ; preds = %38, %.backedge.i, %
   br i1 %80, label %.lr.ph.i61, label %dissect_extrememesh_ps_arep.exit, !llvm.loop !26
 
 dissect_extrememesh_ps_arep.exit:                 ; preds = %70, %.backedge.i63, %49
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %dissect_extrememesh_ps_perr.exit
 
 81:                                               ; preds = %3
   %82 = getelementptr i8, ptr %1, i64 8
   %.val48 = load ptr, ptr %82, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4
   tail call void @col_set_str(ptr noundef %.val48, i32 noundef 25, ptr noundef nonnull @.str.315)
   %83 = load i32, ptr @proto_extrememesh_ps_breq, align 4
@@ -1336,13 +1333,13 @@ dissect_extrememesh_ps_arep.exit:                 ; preds = %70, %.backedge.i63,
   br i1 %131, label %.lr.ph10.i, label %dissect_extrememesh_ps_breq.exit, !llvm.loop !30
 
 dissect_extrememesh_ps_breq.exit:                 ; preds = %102, %.backedge.i67, %81
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %dissect_extrememesh_ps_perr.exit
 
 132:                                              ; preds = %3
   %133 = getelementptr i8, ptr %1, i64 8
   %.val49 = load ptr, ptr %133, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4
   tail call void @col_set_str(ptr noundef %.val49, i32 noundef 25, ptr noundef nonnull @.str.318)
   %134 = load i32, ptr @proto_extrememesh_ps_brep, align 4
@@ -1388,13 +1385,13 @@ dissect_extrememesh_ps_breq.exit:                 ; preds = %102, %.backedge.i67
   br i1 %160, label %.lr.ph.i69, label %dissect_extrememesh_ps_brep.exit, !llvm.loop !31
 
 dissect_extrememesh_ps_brep.exit:                 ; preds = %.lr.ph.i69, %.backedge.i71, %132
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %dissect_extrememesh_ps_perr.exit
 
 161:                                              ; preds = %3
   %162 = getelementptr i8, ptr %1, i64 8
   %.val50 = load ptr, ptr %162, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4
   tail call void @col_set_str(ptr noundef %.val50, i32 noundef 25, ptr noundef nonnull @.str.321)
   %163 = load i32, ptr @proto_extrememesh_ps_bann, align 4
@@ -1471,13 +1468,13 @@ dissect_extrememesh_ps_brep.exit:                 ; preds = %.lr.ph.i69, %.backe
   br i1 %200, label %.lr.ph.i73, label %dissect_extrememesh_ps_bann.exit, !llvm.loop !33
 
 dissect_extrememesh_ps_bann.exit:                 ; preds = %182, %.backedge.i77, %161
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %dissect_extrememesh_ps_perr.exit
 
 201:                                              ; preds = %3
   %202 = getelementptr i8, ptr %1, i64 8
   %.val51 = load ptr, ptr %202, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4
   tail call void @col_set_str(ptr noundef %.val51, i32 noundef 25, ptr noundef nonnull @.str.324)
   %203 = load i32, ptr @proto_extrememesh_ps_bred, align 4
@@ -1526,13 +1523,13 @@ dissect_extrememesh_ps_bann.exit:                 ; preds = %182, %.backedge.i77
   br i1 %232, label %.lr.ph.i82, label %dissect_extrememesh_ps_bred.exit, !llvm.loop !34
 
 dissect_extrememesh_ps_bred.exit:                 ; preds = %222, %.backedge.i84, %201
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %dissect_extrememesh_ps_perr.exit
 
 233:                                              ; preds = %3
   %234 = getelementptr i8, ptr %1, i64 8
   %.val52 = load ptr, ptr %234, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   tail call void @col_set_str(ptr noundef %.val52, i32 noundef 25, ptr noundef nonnull @.str.327)
   %235 = load i32, ptr @proto_extrememesh_ps_sreq, align 4
@@ -1583,13 +1580,13 @@ dissect_extrememesh_ps_bred.exit:                 ; preds = %222, %.backedge.i84
   br i1 %266, label %.lr.ph.i86, label %dissect_extrememesh_ps_sreq.exit, !llvm.loop !35
 
 dissect_extrememesh_ps_sreq.exit:                 ; preds = %256, %.backedge.i89, %233
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %dissect_extrememesh_ps_perr.exit
 
 267:                                              ; preds = %3
   %268 = getelementptr i8, ptr %1, i64 8
   %.val53 = load ptr, ptr %268, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   tail call void @col_set_str(ptr noundef %.val53, i32 noundef 25, ptr noundef nonnull @.str.330)
   %269 = load i32, ptr @proto_extrememesh_ps_srep, align 4
@@ -1648,13 +1645,13 @@ dissect_extrememesh_ps_sreq.exit:                 ; preds = %256, %.backedge.i89
   br i1 %308, label %.lr.ph.i91, label %dissect_extrememesh_ps_srep.exit, !llvm.loop !36
 
 dissect_extrememesh_ps_srep.exit:                 ; preds = %298, %.backedge.i94, %267
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %dissect_extrememesh_ps_perr.exit
 
 309:                                              ; preds = %3
   %310 = getelementptr i8, ptr %1, i64 8
   %.val54 = load ptr, ptr %310, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   tail call void @col_set_str(ptr noundef %.val54, i32 noundef 25, ptr noundef nonnull @.str.333)
   %311 = load i32, ptr @proto_extrememesh_ps_preq, align 4
@@ -1773,13 +1770,13 @@ dissect_extrememesh_ps_srep.exit:                 ; preds = %298, %.backedge.i94
   br i1 %393, label %.lr.ph.i96, label %dissect_extrememesh_ps_preq.exit, !llvm.loop !38
 
 dissect_extrememesh_ps_preq.exit:                 ; preds = %376, %.backedge.i100, %309
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %dissect_extrememesh_ps_perr.exit
 
 394:                                              ; preds = %3
   %395 = getelementptr i8, ptr %1, i64 8
   %.val55 = load ptr, ptr %395, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   tail call void @col_set_str(ptr noundef %.val55, i32 noundef 25, ptr noundef nonnull @.str.336)
   %396 = load i32, ptr @proto_extrememesh_ps_prep, align 4
@@ -1890,7 +1887,7 @@ dissect_extrememesh_ps_preq.exit:                 ; preds = %376, %.backedge.i10
   br i1 %470, label %.lr.ph.i105, label %dissect_extrememesh_ps_prep.exit, !llvm.loop !40
 
 dissect_extrememesh_ps_prep.exit:                 ; preds = %453, %.backedge.i109, %394
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %dissect_extrememesh_ps_perr.exit
 
 471:                                              ; preds = %3
@@ -1955,7 +1952,7 @@ dissect_extrememesh_ps_prep.exit:                 ; preds = %453, %.backedge.i10
 515:                                              ; preds = %3
   %516 = getelementptr i8, ptr %1, i64 8
   %.val58 = load ptr, ptr %516, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   tail call void @col_set_str(ptr noundef %.val58, i32 noundef 25, ptr noundef nonnull @.str.345)
   %517 = load i32, ptr @proto_extrememesh_ps_prem, align 4
@@ -2029,7 +2026,7 @@ dissect_extrememesh_ps_prep.exit:                 ; preds = %453, %.backedge.i10
   br i1 %555, label %.lr.ph.i116, label %dissect_extrememesh_ps_prem.exit, !llvm.loop !44
 
 dissect_extrememesh_ps_prem.exit:                 ; preds = %536, %.backedge.i120, %515
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dissect_extrememesh_ps_perr.exit
 
 556:                                              ; preds = %3
@@ -2073,7 +2070,7 @@ dissect_extrememesh_ps_prem.exit:                 ; preds = %536, %.backedge.i12
 583:                                              ; preds = %3
   %584 = getelementptr i8, ptr %1, i64 8
   %.val60 = load ptr, ptr %584, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   tail call void @col_set_str(ptr noundef %.val60, i32 noundef 25, ptr noundef nonnull @.str.351)
   %585 = load i32, ptr @proto_extrememesh_ps_prer, align 4
@@ -2128,7 +2125,7 @@ dissect_extrememesh_ps_prem.exit:                 ; preds = %536, %.backedge.i12
   br i1 %620, label %.lr.ph.i129, label %dissect_extrememesh_ps_prer.exit, !llvm.loop !46
 
 dissect_extrememesh_ps_prer.exit:                 ; preds = %610, %.backedge.i132, %583
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %dissect_extrememesh_ps_perr.exit
 
 dissect_extrememesh_ps_perr.exit:                 ; preds = %.lr.ph.i126, %.lr.ph.i114, %556, %471, %3, %dissect_extrememesh_ps_prer.exit, %dissect_extrememesh_ps_prem.exit, %497, %dissect_extrememesh_ps_prep.exit, %dissect_extrememesh_ps_preq.exit, %dissect_extrememesh_ps_srep.exit, %dissect_extrememesh_ps_sreq.exit, %dissect_extrememesh_ps_bred.exit, %dissect_extrememesh_ps_bann.exit, %dissect_extrememesh_ps_brep.exit, %dissect_extrememesh_ps_breq.exit, %dissect_extrememesh_ps_arep.exit, %dissect_extrememesh_ps_areq.exit
@@ -2166,9 +2163,6 @@ define internal fastcc void @dissect_extrememesh_probe(ptr noundef %0, ptr %.8.v
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
@@ -2182,7 +2176,7 @@ declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr 
 declare signext i8 @tvb_get_int8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
@@ -2197,16 +2191,22 @@ declare void @tvb_set_child_real_data_tvbuff(ptr noundef, ptr noundef) local_unn
 declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
-declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #5
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #6 = { allocsize(1) }
 attributes #7 = { nounwind }

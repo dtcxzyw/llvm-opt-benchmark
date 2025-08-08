@@ -23,7 +23,7 @@ define hidden void @_cmsAllocOptimizationPluginChunk(ptr noundef captures(none) 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %1, i64 112
   %.val = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.02.i = load ptr, ptr %.val, align 8
   %.not3.i = icmp eq ptr %.02.i, null
   br i1 %.not3.i, label %._crit_edge.i, label %.lr.ph.i
@@ -71,7 +71,7 @@ define hidden void @_cmsAllocOptimizationPluginChunk(ptr noundef captures(none) 
   br label %DupPluginOptimizationList.exit
 
 DupPluginOptimizationList.exit:                   ; preds = %7, %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %28
 
 23:                                               ; preds = %2
@@ -555,7 +555,7 @@ _Remove2Op.exit69:                                ; preds = %.preheader.i60, %14
   %.015.i67.ph.ph.ph = phi i32 [ %.1.i65, %141 ], [ %.021.i61, %.preheader.i60 ]
   %.pr94.pr.pr = load ptr, ptr %0, align 8
   %142 = or i32 %.015.i67.ph.ph.ph, %121
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %143 = icmp eq ptr %.pr94.pr.pr, null
   br i1 %143, label %_MultiplyMatrix.exit, label %.preheader.i70
 
@@ -633,7 +633,7 @@ _Remove2Op.exit69:                                ; preds = %.preheader.i60, %14
   %185 = load ptr, ptr %184, align 8
   store ptr %185, ptr %.03046.i, align 8
   call void @cmsStageFree(ptr noundef %183) #10
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_cmsMAT3identity(ptr noundef nonnull %2) #10
   br label %.preheader.i.i
 
@@ -665,12 +665,12 @@ _Remove2Op.exit69:                                ; preds = %.preheader.i60, %14
   br i1 %exitcond19.not.i.i, label %isFloatMatrixIdentity.exit.i, label %.preheader.i.i, !llvm.loop !14
 
 isFloatMatrixIdentity.exit.i:                     ; preds = %197
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pr.pre.i74 = load ptr, ptr %.03046.i, align 8
   br label %204
 
 198:                                              ; preds = %189
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %199 = load ptr, ptr %4, align 8
   %200 = call ptr @cmsStageAllocMatrix(ptr noundef %199, i32 noundef 3, i32 noundef 3, ptr noundef nonnull %3, ptr noundef null) #10
   %201 = icmp eq ptr %200, null
@@ -691,13 +691,13 @@ isFloatMatrixIdentity.exit.i:                     ; preds = %197
 
 _MultiplyMatrix.exit.sink.split:                  ; preds = %_Remove2Op.exit, %_Remove2Op.exit29, %_Remove2Op.exit49, %_Remove2Op.exit39, %_Remove1Op.exit, %.split, %_Remove2Op.exit59
   %.ph = phi i32 [ %121, %_Remove2Op.exit59 ], [ %79, %_Remove2Op.exit39 ], [ %100, %_Remove2Op.exit49 ], [ %.1.i, %_Remove1Op.exit ], [ 0, %.split ], [ %58, %_Remove2Op.exit29 ], [ %37, %_Remove2Op.exit ]
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %_MultiplyMatrix.exit
 
 _MultiplyMatrix.exit:                             ; preds = %.preheader.i70, %156, %162, %165, %168, %171, %174, %198, %204, %_MultiplyMatrix.exit.sink.split, %_Remove2Op.exit69
   %205 = phi i32 [ %142, %_Remove2Op.exit69 ], [ %.ph, %_MultiplyMatrix.exit.sink.split ], [ %142, %204 ], [ %142, %198 ], [ %142, %174 ], [ %142, %171 ], [ %142, %168 ], [ %142, %165 ], [ %142, %162 ], [ %142, %156 ], [ %142, %.preheader.i70 ]
   %.0.i = phi i32 [ 0, %_Remove2Op.exit69 ], [ 0, %_MultiplyMatrix.exit.sink.split ], [ %.03145.i, %.preheader.i70 ], [ 0, %156 ], [ 0, %162 ], [ 0, %165 ], [ 0, %168 ], [ 0, %171 ], [ 0, %174 ], [ 0, %198 ], [ %.132.i, %204 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %206 = or i32 %.0.i, %205
   %.not = icmp eq i32 %206, 0
   br i1 %.not, label %.split126, label %.splitthread-pre-split, !llvm.loop !16
@@ -4013,10 +4013,10 @@ declare i32 @cmsIsToneCurveDescending(ptr noundef) local_unnamed_addr #1
 declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8

@@ -603,7 +603,7 @@ declare void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(p
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZN10open_spiel4file6RemoveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #6 {
   %2 = alloca %struct.stat, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
   %4 = call i32 @stat(ptr noundef %3, ptr noundef nonnull %2) #17
   %5 = icmp eq i32 %4, 0
@@ -612,7 +612,7 @@ define noundef zeroext i1 @_ZN10open_spiel4file6RemoveERKNSt7__cxx1112basic_stri
   %8 = and i32 %7, 16384
   %9 = icmp ne i32 %8, 0
   %10 = select i1 %5, i1 %9, i1 false
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %11 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
   br i1 %10, label %12, label %14
 
@@ -904,10 +904,10 @@ define internal void @_GLOBAL__sub_I_file.cc() #15 section ".text.startup" {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

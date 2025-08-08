@@ -117,12 +117,6 @@ _ZL24getASCIIPropertyNameCharPKc.exit25:          ; preds = %21, %24
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress uwtable
 define range(i32 -255, 256) i32 @uprv_compareEBCDICPropertyNames_77(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   br label %3
@@ -237,7 +231,7 @@ _ZL25getEBCDICPropertyNameCharPKc.exit25:         ; preds = %17, %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN6icu_7712PropNameData12findPropertyEi(i32 noundef %0) local_unnamed_addr #2 align 2 {
+define noundef i32 @_ZN6icu_7712PropNameData12findPropertyEi(i32 noundef %0) local_unnamed_addr #1 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %14
@@ -278,7 +272,7 @@ define noundef i32 @_ZN6icu_7712PropNameData12findPropertyEi(i32 noundef %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN6icu_7712PropNameData26findPropertyValueNameGroupEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define noundef i32 @_ZN6icu_7712PropNameData26findPropertyValueNameGroupEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = icmp eq i32 %0, 0
   br i1 %3, label %.thread70, label %4
 
@@ -367,7 +361,7 @@ define noundef i32 @_ZN6icu_7712PropNameData26findPropertyValueNameGroupEii(i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN6icu_7712PropNameData7getNameEPKci(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define noundef ptr @_ZN6icu_7712PropNameData7getNameEPKci(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %11, label %4
 
@@ -464,12 +458,12 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712PropNameData12containsName
   ret i8 %.021
 }
 
-declare signext i8 @uprv_asciitolower_77(i8 noundef signext) local_unnamed_addr #4
+declare signext i8 @uprv_asciitolower_77(i8 noundef signext) local_unnamed_addr #3
 
-declare noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28), i32 noundef) local_unnamed_addr #4
+declare noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @_ZN6icu_7712PropNameData15getPropertyNameEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define noundef ptr @_ZN6icu_7712PropNameData15getPropertyNameEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   br label %3
 
 3:                                                ; preds = %15, %2
@@ -548,7 +542,7 @@ _ZN6icu_7712PropNameData7getNameEPKci.exit:       ; preds = %3, %15, %._crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @_ZN6icu_7712PropNameData20getPropertyValueNameEiii(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define noundef ptr @_ZN6icu_7712PropNameData20getPropertyValueNameEiii(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   br label %4
 
 4:                                                ; preds = %16, %3
@@ -714,7 +708,7 @@ _ZN6icu_7712PropNameData7getNameEPKci.exit:       ; preds = %4, %16, %69, %63, %
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6icu_7712PropNameData22getPropertyOrValueEnumEiPKc(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.icu_77::BytesTrie", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = sext i32 %0 to i64
   %5 = getelementptr inbounds i8, ptr @_ZN6icu_7712PropNameData10bytesTriesE, i64 %4
   store ptr null, ptr %3, align 8, !tbaa !17
@@ -809,20 +803,20 @@ _ZN6icu_7712PropNameData12containsNameERNS_9BytesTrieEPKc.exit: ; preds = %.noex
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit11, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp12, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN6icu_779BytesTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %3) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %lpad.phi
 
 _ZNK6icu_779BytesTrie8getValueEv.exit:            ; preds = %20, %2, %.preheader.i, %26, %_ZN6icu_7712PropNameData12containsNameERNS_9BytesTrieEPKc.exit
   %.0 = phi i32 [ -1, %_ZN6icu_7712PropNameData12containsNameERNS_9BytesTrieEPKc.exit ], [ %32, %26 ], [ -1, %.preheader.i ], [ -1, %2 ], [ -1, %20 ]
   call void @_ZN6icu_779BytesTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %3) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_779BytesTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28)) unnamed_addr #5
+declare void @_ZN6icu_779BytesTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6icu_7712PropNameData15getPropertyEnumEPKc(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 align 2 {
@@ -888,7 +882,7 @@ _ZN6icu_7712PropNameData12findPropertyEi.exit.thread: ; preds = %3, %15, %25, %_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @u_getPropertyName_77(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define ptr @u_getPropertyName_77(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   br label %3
 
 3:                                                ; preds = %15, %2
@@ -973,7 +967,7 @@ define noundef i32 @u_getPropertyEnum_77(ptr noundef readonly captures(address_i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @u_getPropertyValueName_77(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define noundef ptr @u_getPropertyValueName_77(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = tail call noundef ptr @_ZN6icu_7712PropNameData20getPropertyValueNameEiii(i32 noundef %0, i32 noundef %1, i32 noundef %2)
   ret ptr %4
 }
@@ -1036,30 +1030,36 @@ _ZN6icu_7712PropNameData20getPropertyValueEnumEiPKc.exit: ; preds = %3, %15, %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @uscript_getName_77(i32 noundef %0) local_unnamed_addr #2 {
+define noundef ptr @uscript_getName_77(i32 noundef %0) local_unnamed_addr #1 {
   %2 = tail call noundef ptr @_ZN6icu_7712PropNameData20getPropertyValueNameEiii(i32 noundef 4106, i32 noundef %0, i32 noundef 1)
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @uscript_getShortName_77(i32 noundef %0) local_unnamed_addr #2 {
+define noundef ptr @uscript_getShortName_77(i32 noundef %0) local_unnamed_addr #1 {
   %2 = tail call noundef ptr @_ZN6icu_7712PropNameData20getPropertyValueNameEiii(i32 noundef 4106, i32 noundef %0, i32 noundef 0)
   ret ptr %2
 }
 
-declare signext i8 @uprv_ebcdictolower_77(i8 noundef signext) local_unnamed_addr #4
+declare signext i8 @uprv_ebcdictolower_77(i8 noundef signext) local_unnamed_addr #3
 
-declare noundef i32 @_ZN6icu_779BytesTrie9readValueEPKhi(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare noundef i32 @_ZN6icu_779BytesTrie9readValueEPKhi(ptr noundef, i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr captures(none)) local_unnamed_addr #6
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #7 = { nounwind }
 

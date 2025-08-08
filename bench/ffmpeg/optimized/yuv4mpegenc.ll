@@ -56,8 +56,8 @@ define internal range(i32 -2147483648, 1) i32 @yuv4_write_header(ptr noundef %0)
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8, !tbaa !24
   %8 = load ptr, ptr %7, align 8, !tbaa !25
@@ -246,8 +246,8 @@ switch.lookup:                                    ; preds = %1
 
 76:                                               ; preds = %70, %75
   %.0 = phi i32 [ %73, %75 ], [ 0, %70 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -444,27 +444,27 @@ define internal range(i32 -1094995529, 1) i32 @yuv4_init(ptr noundef %0) #0 {
   ret i32 %.0
 }
 
+declare i32 @av_reduce(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
+
+declare i32 @avio_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+
+declare void @avio_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare ptr @av_pix_fmt_desc_get(i32 noundef) local_unnamed_addr #1
+
+declare ptr @av_get_pix_fmt_name(i32 noundef) local_unnamed_addr #1
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @av_reduce(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
-
-declare i32 @avio_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @avio_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare ptr @av_pix_fmt_desc_get(i32 noundef) local_unnamed_addr #2
-
-declare ptr @av_get_pix_fmt_name(i32 noundef) local_unnamed_addr #2
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

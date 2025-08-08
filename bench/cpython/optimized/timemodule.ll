@@ -266,7 +266,7 @@ time_module_clear.exit:                           ; preds = %1, %4, %6, %9
 ; Function Attrs: nounwind uwtable
 define internal ptr @time_time(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @PyTime_Time(ptr noundef nonnull %3) #11
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %10, label %6
@@ -279,14 +279,14 @@ define internal ptr @time_time(ptr readnone captures(none) %0, ptr readnone capt
 
 10:                                               ; preds = %2, %6
   %.0 = phi ptr [ %9, %6 ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @time_time_ns(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @PyTime_Time(ptr noundef nonnull %3) #11
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %9, label %6
@@ -298,7 +298,7 @@ define internal ptr @time_time_ns(ptr readnone captures(none) %0, ptr readnone c
 
 9:                                                ; preds = %2, %6
   %.0 = phi ptr [ %8, %6 ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -323,7 +323,7 @@ time_clockid_converter.exit:                      ; preds = %6
   br label %25
 
 12:                                               ; preds = %6, %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = call i32 @clock_gettime(i32 noundef %4, ptr noundef nonnull %3) #11
   %.not.i3 = icmp eq i32 %13, 0
   br i1 %.not.i3, label %17, label %14
@@ -345,7 +345,7 @@ time_clockid_converter.exit:                      ; preds = %6
 
 time_clock_gettime_impl.exit:                     ; preds = %14, %17
   %.0.i4 = phi ptr [ null, %14 ], [ %24, %17 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %25
 
 25:                                               ; preds = %time_clockid_converter.exit, %time_clock_gettime_impl.exit
@@ -375,7 +375,7 @@ time_clockid_converter.exit:                      ; preds = %7
   br label %25
 
 13:                                               ; preds = %7, %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = call i32 @clock_gettime(i32 noundef %5, ptr noundef nonnull %3) #11
   %.not.i3 = icmp eq i32 %14, 0
   br i1 %.not.i3, label %18, label %15
@@ -386,7 +386,7 @@ time_clockid_converter.exit:                      ; preds = %7
   br label %time_clock_gettime_ns_impl.exit
 
 18:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %19 = call i32 @_PyTime_FromTimespec(ptr noundef nonnull %4, ptr noundef nonnull %3) #11
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %24, label %21
@@ -398,12 +398,12 @@ time_clockid_converter.exit:                      ; preds = %7
 
 24:                                               ; preds = %21, %18
   %.1.i = phi ptr [ %23, %21 ], [ null, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %time_clock_gettime_ns_impl.exit
 
 time_clock_gettime_ns_impl.exit:                  ; preds = %15, %24
   %.0.i4 = phi ptr [ null, %15 ], [ %.1.i, %24 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %25
 
 25:                                               ; preds = %time_clockid_converter.exit, %time_clock_gettime_ns_impl.exit
@@ -417,10 +417,10 @@ define internal noundef ptr @time_clock_settime(ptr readnone captures(none) %0, 
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.28, ptr noundef nonnull %3, ptr noundef nonnull %4) #11
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %22, label %8
@@ -450,10 +450,10 @@ define internal noundef ptr @time_clock_settime(ptr readnone captures(none) %0, 
 
 22:                                               ; preds = %16, %12, %8, %2, %19
   %.0 = phi ptr [ null, %19 ], [ null, %2 ], [ null, %8 ], [ null, %12 ], [ @_Py_NoneStruct, %16 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -463,10 +463,10 @@ define internal noundef ptr @time_clock_settime_ns(ptr readnone captures(none) %
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.28, ptr noundef nonnull %3, ptr noundef nonnull %4) #11
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %22, label %8
@@ -496,10 +496,10 @@ define internal noundef ptr @time_clock_settime_ns(ptr readnone captures(none) %
 
 22:                                               ; preds = %16, %12, %8, %2, %19
   %.0 = phi ptr [ null, %19 ], [ null, %2 ], [ null, %8 ], [ null, %12 ], [ @_Py_NoneStruct, %16 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -507,8 +507,8 @@ define internal noundef ptr @time_clock_settime_ns(ptr readnone captures(none) %
 define internal ptr @time_clock_getres(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.29, ptr noundef nonnull %3) #11
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %20, label %6
@@ -536,8 +536,8 @@ define internal ptr @time_clock_getres(ptr readnone captures(none) %0, ptr nound
 
 20:                                               ; preds = %2, %12, %9
   %.0 = phi ptr [ null, %9 ], [ %19, %12 ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -545,8 +545,8 @@ define internal ptr @time_clock_getres(ptr readnone captures(none) %0, ptr nound
 define internal ptr @time_pthread_getcpuclockid(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.30, ptr noundef nonnull %3) #11
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %17, label %6
@@ -572,8 +572,8 @@ define internal ptr @time_pthread_getcpuclockid(ptr readnone captures(none) %0, 
 
 17:                                               ; preds = %2, %13, %9
   %.0 = phi ptr [ null, %9 ], [ %16, %13 ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -587,7 +587,7 @@ define internal noundef ptr @time_sleep(ptr readnone captures(none) %0, ptr noun
   br i1 %7, label %33, label %8
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = call i32 @_PyTime_FromSecondsObject(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 3) #11
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %32
@@ -603,8 +603,8 @@ define internal noundef ptr @time_sleep(ptr readnone captures(none) %0, ptr noun
   br label %32
 
 15:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %16 = call i32 @PyTime_Monotonic(ptr noundef nonnull %4) #11
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %pysleep.exit.thread, label %18
@@ -638,18 +638,18 @@ define internal noundef ptr @time_sleep(ptr readnone captures(none) %0, ptr noun
   br i1 %.not10.i, label %.preheader.i, label %pysleep.exit.thread
 
 pysleep.exit.thread:                              ; preds = %29, %15, %18, %25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %32
 
 31:                                               ; preds = %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %32
 
 32:                                               ; preds = %31, %pysleep.exit.thread, %8, %13
   %.1 = phi ptr [ null, %13 ], [ null, %8 ], [ @_Py_NoneStruct, %31 ], [ null, %pysleep.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %33
 
 33:                                               ; preds = %2, %32
@@ -662,10 +662,10 @@ define internal ptr @time_gmtime(ptr noundef readonly captures(none) %0, ptr nou
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca %struct.tm, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.34, ptr noundef nonnull %3) #11
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %parse_time_t_args.exit.thread, label %7
@@ -691,14 +691,14 @@ define internal ptr @time_gmtime(ptr noundef readonly captures(none) %0, ptr nou
   br label %16
 
 parse_time_t_args.exit.thread:                    ; preds = %2, %13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %22
 
 16:                                               ; preds = %._crit_edge.i, %11
   %.06 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %12, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = tail call ptr @__errno_location() #12
   store i32 0, ptr %17, align 4, !tbaa !25
   %18 = call i32 @_PyTime_gmtime(i64 noundef %.06, ptr noundef nonnull %5) #11
@@ -714,7 +714,7 @@ parse_time_t_args.exit.thread:                    ; preds = %2, %13
 
 22:                                               ; preds = %parse_time_t_args.exit.thread, %16, %19
   %.0 = phi ptr [ %21, %19 ], [ null, %16 ], [ null, %parse_time_t_args.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -723,10 +723,10 @@ define internal ptr @time_localtime(ptr noundef readonly captures(none) %0, ptr 
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca %struct.tm, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.36, ptr noundef nonnull %3) #11
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %parse_time_t_args.exit.thread, label %7
@@ -752,14 +752,14 @@ define internal ptr @time_localtime(ptr noundef readonly captures(none) %0, ptr 
   br label %16
 
 parse_time_t_args.exit.thread:                    ; preds = %2, %13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %21
 
 16:                                               ; preds = %._crit_edge.i, %11
   %.06 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %12, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = call i32 @_PyTime_localtime(i64 noundef %.06, ptr noundef nonnull %5) #11
   %.not4 = icmp eq i32 %17, 0
   br i1 %.not4, label %18, label %21
@@ -773,7 +773,7 @@ parse_time_t_args.exit.thread:                    ; preds = %2, %13
 
 21:                                               ; preds = %parse_time_t_args.exit.thread, %16, %18
   %.0 = phi ptr [ %20, %18 ], [ null, %16 ], [ null, %parse_time_t_args.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -781,9 +781,9 @@ parse_time_t_args.exit.thread:                    ; preds = %2, %13
 define internal ptr @time_asctime(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.tm, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 (ptr, ptr, i64, i64, ...) @PyArg_UnpackTuple(ptr noundef %1, ptr noundef nonnull @.str.11, i64 noundef 0, i64 noundef 1, ptr noundef nonnull %3) #11
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %37, label %6
@@ -835,8 +835,8 @@ define internal ptr @time_asctime(ptr noundef readonly captures(none) %0, ptr no
 
 37:                                               ; preds = %17, %9, %15, %12, %2
   %.0 = phi ptr [ null, %2 ], [ %36, %17 ], [ null, %9 ], [ null, %15 ], [ null, %12 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -845,10 +845,10 @@ define internal ptr @time_ctime(ptr readnone captures(none) %0, ptr noundef %1) 
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca %struct.tm, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.48, ptr noundef nonnull %3) #11
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %parse_time_t_args.exit.thread, label %7
@@ -874,14 +874,14 @@ define internal ptr @time_ctime(ptr readnone captures(none) %0, ptr noundef %1) 
   br label %16
 
 parse_time_t_args.exit.thread:                    ; preds = %2, %13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %38
 
 16:                                               ; preds = %._crit_edge.i, %11
   %.03 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %12, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = call i32 @_PyTime_localtime(i64 noundef %.03, ptr noundef nonnull %5) #11
   %.not2 = icmp eq i32 %17, 0
   br i1 %.not2, label %18, label %38
@@ -910,14 +910,14 @@ parse_time_t_args.exit.thread:                    ; preds = %2, %13
 
 38:                                               ; preds = %parse_time_t_args.exit.thread, %16, %18
   %.0 = phi ptr [ %37, %18 ], [ null, %16 ], [ null, %parse_time_t_args.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @time_mktime(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.tm, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %4, align 8, !tbaa !4
   %5 = call fastcc i32 @gettmarg(ptr noundef %.val, ptr noundef %1, ptr noundef %3, ptr noundef nonnull @.str.49)
@@ -946,7 +946,7 @@ define internal ptr @time_mktime(ptr noundef readonly captures(none) %0, ptr nou
 
 17:                                               ; preds = %2, %14, %12
   %.0 = phi ptr [ null, %12 ], [ %16, %14 ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -955,10 +955,10 @@ define internal ptr @time_strftime(ptr noundef readonly captures(none) %0, ptr n
   %3 = alloca ptr, align 8
   %4 = alloca %struct.tm, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   %6 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.51, ptr noundef nonnull %5, ptr noundef nonnull %3) #11
   %.not = icmp eq i32 %6, 0
@@ -1316,9 +1316,9 @@ PyUnicode_READ_CHAR.exit97._crit_edge:            ; preds = %118, %_PyUnicode_DA
 
 135:                                              ; preds = %28, %35, %10, %16, %13, %.thread118, %132, %2
   %.0 = phi ptr [ null, %2 ], [ null, %28 ], [ null, %35 ], [ null, %10 ], [ null, %16 ], [ null, %13 ], [ null, %.thread118 ], [ %133, %132 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -1390,7 +1390,7 @@ Py_DECREF.exit:                                   ; preds = %8, %10, %13
 ; Function Attrs: nounwind uwtable
 define internal ptr @time_monotonic(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @PyTime_Monotonic(ptr noundef nonnull %3) #11
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %10, label %6
@@ -1403,14 +1403,14 @@ define internal ptr @time_monotonic(ptr readnone captures(none) %0, ptr readnone
 
 10:                                               ; preds = %2, %6
   %.0 = phi ptr [ %9, %6 ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @time_monotonic_ns(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @PyTime_Monotonic(ptr noundef nonnull %3) #11
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %9, label %6
@@ -1422,7 +1422,7 @@ define internal ptr @time_monotonic_ns(ptr readnone captures(none) %0, ptr readn
 
 9:                                                ; preds = %2, %6
   %.0 = phi ptr [ %8, %6 ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -1431,7 +1431,7 @@ define internal ptr @time_process_time(ptr noundef readonly captures(none) %0, p
   %3 = alloca i64, align 8
   %4 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %4, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = call fastcc i32 @py_process_time(ptr noundef %.val, ptr noundef %3, ptr noundef null)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %11, label %7
@@ -1444,7 +1444,7 @@ define internal ptr @time_process_time(ptr noundef readonly captures(none) %0, p
 
 11:                                               ; preds = %2, %7
   %.0 = phi ptr [ %10, %7 ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -1453,7 +1453,7 @@ define internal ptr @time_process_time_ns(ptr noundef readonly captures(none) %0
   %3 = alloca i64, align 8
   %4 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %4, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = call fastcc i32 @py_process_time(ptr noundef %.val, ptr noundef %3, ptr noundef null)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %10, label %7
@@ -1465,7 +1465,7 @@ define internal ptr @time_process_time_ns(ptr noundef readonly captures(none) %0
 
 10:                                               ; preds = %2, %7
   %.0 = phi ptr [ %9, %7 ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -1473,8 +1473,8 @@ define internal ptr @time_process_time_ns(ptr noundef readonly captures(none) %0
 define internal ptr @time_thread_time(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = call i32 @clock_gettime(i32 noundef 3, ptr noundef nonnull %3) #11
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %_PyTime_GetThreadTimeWithInfo.exit, label %_PyTime_GetThreadTimeWithInfo.exit.thread
@@ -1482,12 +1482,12 @@ define internal ptr @time_thread_time(ptr readnone captures(none) %0, ptr readno
 _PyTime_GetThreadTimeWithInfo.exit.thread:        ; preds = %2
   %6 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !20
   %7 = call ptr @PyErr_SetFromErrno(ptr noundef %6) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %14
 
 _PyTime_GetThreadTimeWithInfo.exit:               ; preds = %2
   %8 = call i32 @_PyTime_FromTimespec(ptr noundef nonnull %4, ptr noundef nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %14, label %10
 
@@ -1499,7 +1499,7 @@ _PyTime_GetThreadTimeWithInfo.exit:               ; preds = %2
 
 14:                                               ; preds = %_PyTime_GetThreadTimeWithInfo.exit.thread, %_PyTime_GetThreadTimeWithInfo.exit, %10
   %.0 = phi ptr [ %13, %10 ], [ null, %_PyTime_GetThreadTimeWithInfo.exit ], [ null, %_PyTime_GetThreadTimeWithInfo.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -1507,8 +1507,8 @@ _PyTime_GetThreadTimeWithInfo.exit:               ; preds = %2
 define internal ptr @time_thread_time_ns(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = call i32 @clock_gettime(i32 noundef 3, ptr noundef nonnull %3) #11
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %_PyTime_GetThreadTimeWithInfo.exit, label %_PyTime_GetThreadTimeWithInfo.exit.thread
@@ -1516,12 +1516,12 @@ define internal ptr @time_thread_time_ns(ptr readnone captures(none) %0, ptr rea
 _PyTime_GetThreadTimeWithInfo.exit.thread:        ; preds = %2
   %6 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !20
   %7 = call ptr @PyErr_SetFromErrno(ptr noundef %6) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %13
 
 _PyTime_GetThreadTimeWithInfo.exit:               ; preds = %2
   %8 = call i32 @_PyTime_FromTimespec(ptr noundef nonnull %4, ptr noundef nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %13, label %10
 
@@ -1532,14 +1532,14 @@ _PyTime_GetThreadTimeWithInfo.exit:               ; preds = %2
 
 13:                                               ; preds = %_PyTime_GetThreadTimeWithInfo.exit.thread, %_PyTime_GetThreadTimeWithInfo.exit, %10
   %.0 = phi ptr [ %12, %10 ], [ null, %_PyTime_GetThreadTimeWithInfo.exit ], [ null, %_PyTime_GetThreadTimeWithInfo.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @time_perf_counter(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @PyTime_PerfCounter(ptr noundef nonnull %3) #11
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %10, label %6
@@ -1552,14 +1552,14 @@ define internal ptr @time_perf_counter(ptr readnone captures(none) %0, ptr readn
 
 10:                                               ; preds = %2, %6
   %.0 = phi ptr [ %9, %6 ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @time_perf_counter_ns(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @PyTime_PerfCounter(ptr noundef nonnull %3) #11
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %9, label %6
@@ -1571,7 +1571,7 @@ define internal ptr @time_perf_counter_ns(ptr readnone captures(none) %0, ptr re
 
 9:                                                ; preds = %2, %6
   %.0 = phi ptr [ %8, %6 ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -1582,9 +1582,9 @@ define internal ptr @time_get_clock_info(ptr noundef readonly captures(none) %0,
   %5 = alloca ptr, align 8
   %6 = alloca %struct._Py_clock_info_t, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.68, ptr noundef nonnull %5) #11
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %Py_DECREF.exit58, label %9
@@ -1645,7 +1645,7 @@ define internal ptr @time_get_clock_info(ptr noundef readonly captures(none) %0,
   br i1 %40, label %41, label %59
 
 41:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %42 = call i32 @clock_gettime(i32 noundef 3, ptr noundef nonnull %3) #11
   %.not.i66 = icmp eq i32 %42, 0
   br i1 %.not.i66, label %46, label %43
@@ -1656,7 +1656,7 @@ define internal ptr @time_get_clock_info(ptr noundef readonly captures(none) %0,
   br label %_PyTime_GetThreadTimeWithInfo.exit.thread
 
 46:                                               ; preds = %41
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @.str.67, ptr %6, align 8, !tbaa !49
   store i32 1, ptr %10, align 8, !tbaa !52
   store i32 0, ptr %11, align 4, !tbaa !53
@@ -1667,11 +1667,11 @@ define internal ptr @time_get_clock_info(ptr noundef readonly captures(none) %0,
 48:                                               ; preds = %46
   %49 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !20
   %50 = call ptr @PyErr_SetFromErrno(ptr noundef %49) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_PyTime_GetThreadTimeWithInfo.exit.thread
 
 _PyTime_GetThreadTimeWithInfo.exit.thread:        ; preds = %43, %48
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %Py_DECREF.exit58
 
 _PyTime_GetThreadTimeWithInfo.exit:               ; preds = %46
@@ -1682,9 +1682,9 @@ _PyTime_GetThreadTimeWithInfo.exit:               ; preds = %46
   %55 = sitofp i64 %54 to double
   %56 = call double @llvm.fmuladd.f64(double %55, double 1.000000e-09, double %52)
   store double %56, ptr %12, align 8, !tbaa !54
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %57 = call i32 @_PyTime_FromTimespec(ptr noundef nonnull %7, ptr noundef nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %58 = icmp slt i32 %57, 0
   br i1 %58, label %Py_DECREF.exit58, label %61
 
@@ -1857,19 +1857,13 @@ Py_DECREF.exit60:                                 ; preds = %121, %123, %126
 
 Py_DECREF.exit58:                                 ; preds = %132, %129, %127, %Py_DECREF.exit60, %120, %117, %Py_DECREF.exit56, %_PyTime_GetThreadTimeWithInfo.exit.thread, %61, %_PyTime_GetThreadTimeWithInfo.exit, %28, %22, %16, %2, %34, %59
   %.0 = phi ptr [ null, %34 ], [ null, %59 ], [ null, %2 ], [ null, %16 ], [ null, %22 ], [ null, %28 ], [ null, %_PyTime_GetThreadTimeWithInfo.exit ], [ null, %61 ], [ null, %_PyTime_GetThreadTimeWithInfo.exit.thread ], [ %115, %Py_DECREF.exit56 ], [ %115, %117 ], [ %115, %120 ], [ null, %Py_DECREF.exit60 ], [ null, %127 ], [ null, %129 ], [ null, %132 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @PyTime_Time(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare double @PyTime_AsSecondsDouble(i64 noundef) local_unnamed_addr #1
 
@@ -1886,12 +1880,12 @@ declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @_PyType_Name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 declare ptr @PyErr_SetFromErrno(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #4
+declare double @llvm.fmuladd.f64(double, double, double) #3
 
 declare i32 @_PyTime_FromTimespec(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1902,18 +1896,18 @@ declare i32 @_PyTime_FromSecondsObject(ptr noundef, ptr noundef, i32 noundef) lo
 declare i32 @_PyTime_AsTimespec(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @clock_settime(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @clock_settime(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 declare i32 @_PyTime_FromLong(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @clock_getres(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @clock_getres(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @pthread_getcpuclockid(i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @pthread_getcpuclockid(i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #5
+declare ptr @__errno_location() local_unnamed_addr #4
 
 declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
 
@@ -2214,7 +2208,7 @@ Py_DECREF.exit.thread:                            ; preds = %127, %121, %123, %1
 }
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #3
+declare i64 @time(ptr noundef) local_unnamed_addr #2
 
 declare i32 @_PyTime_ObjectToTime_t(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2233,7 +2227,7 @@ declare i32 @PyArg_UnpackTuple(ptr noundef, ptr noundef, i64 noundef, i64 nounde
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @gettmarg(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef nonnull initializes((0, 56)) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %2, i8 0, i64 56, i1 false)
   %6 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %6, align 8, !tbaa !21
@@ -2319,7 +2313,7 @@ define internal fastcc range(i32 0, 2) i32 @gettmarg(ptr noundef readonly captur
 
 48:                                               ; preds = %25, %.critedge, %38, %44, %11, %23, %9
   %.029 = phi i32 [ 0, %23 ], [ 0, %9 ], [ 0, %11 ], [ 0, %44 ], [ 0, %38 ], [ 1, %.critedge ], [ 1, %25 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.029
 }
 
@@ -2430,7 +2424,7 @@ define internal fastcc range(i32 0, 2) i32 @checktm(ptr noundef nonnull captures
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare ptr @PyStructSequence_GetItem(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -2441,7 +2435,7 @@ declare i64 @PyLong_AsLong(ptr noundef) local_unnamed_addr #1
 declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 
@@ -2462,7 +2456,7 @@ declare void @PyUnicodeWriter_Discard(ptr noundef) local_unnamed_addr #1
 declare ptr @PyMem_Realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i64 @wcsftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @wcsftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare ptr @PyUnicode_FromWideChar(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -2473,16 +2467,16 @@ declare ptr @PyObject_Call(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare ptr @PyImport_ImportModule(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @tzset() local_unnamed_addr #3
+declare void @tzset() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @init_timezone(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca %struct.tm, align 8
   %3 = alloca [10 x i8], align 1
   %4 = alloca [10 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call i64 @time(ptr noundef null) #11
   %.fr = freeze i64 %5
   %6 = srem i64 %.fr, 31557600
@@ -2586,9 +2580,9 @@ define internal fastcc range(i32 -1, 1) i32 @init_timezone(ptr noundef %0) unnam
 
 63:                                               ; preds = %28, %32, %36, %43, %47, %51, %58, %61, %20
   %.034 = phi i32 [ -1, %20 ], [ -1, %28 ], [ -1, %32 ], [ -1, %36 ], [ -1, %43 ], [ -1, %47 ], [ -1, %51 ], [ -1, %58 ], [ %., %61 ]
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.034
 }
 
@@ -2599,7 +2593,7 @@ declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @PyModule_Add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #8
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @py_process_time(ptr noundef %0, ptr noundef nonnull %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 {
@@ -2609,7 +2603,7 @@ define internal fastcc range(i32 -1, 1) i32 @py_process_time(ptr noundef %0, ptr
   %7 = alloca %struct.rusage, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @clock_gettime(i32 noundef 2, ptr noundef nonnull %5) #11
   %.not30 = icmp eq i32 %10, 0
   br i1 %.not30, label %11, label %28
@@ -2619,7 +2613,7 @@ define internal fastcc range(i32 -1, 1) i32 @py_process_time(ptr noundef %0, ptr
   br i1 %.not, label %26, label %12
 
 12:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @.str.62, ptr %2, align 8, !tbaa !49
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 1, ptr %13, align 8, !tbaa !52
@@ -2638,13 +2632,13 @@ define internal fastcc range(i32 -1, 1) i32 @py_process_time(ptr noundef %0, ptr
   %21 = call double @llvm.fmuladd.f64(double %20, double 1.000000e-09, double %17)
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store double %21, ptr %22, align 8, !tbaa !54
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %26
 
 23:                                               ; preds = %12
   %24 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !20
   %25 = call ptr @PyErr_SetFromErrno(ptr noundef %24) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread35
 
 26:                                               ; preds = %.thread, %11
@@ -2653,14 +2647,14 @@ define internal fastcc range(i32 -1, 1) i32 @py_process_time(ptr noundef %0, ptr
   br label %.thread35
 
 28:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %29 = call i32 @getrusage(i32 noundef 0, ptr noundef nonnull %7) #11
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %48
 
 31:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.not32 = icmp eq ptr %2, null
   br i1 %.not32, label %36, label %32
 
@@ -2694,13 +2688,13 @@ define internal fastcc range(i32 -1, 1) i32 @py_process_time(ptr noundef %0, ptr
 
 47:                                               ; preds = %39, %36, %43
   %.3 = phi i32 [ 0, %43 ], [ -1, %36 ], [ -1, %39 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %py_clock.exit
 
 48:                                               ; preds = %28
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %50 = call i64 @times(ptr noundef nonnull %4) #11
   %51 = icmp eq i64 %50, -1
   br i1 %51, label %64, label %52
@@ -2728,11 +2722,11 @@ process_time_times.exit:                          ; preds = %52, %53
   %62 = call i64 @_PyTimeFraction_Mul(i64 noundef %61, ptr noundef nonnull %49) #11
   %63 = add i64 %62, %59
   store i64 %63, ptr %1, align 8, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %py_clock.exit
 
 64:                                               ; preds = %48
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not.i33 = icmp eq ptr %2, null
   br i1 %.not.i33, label %71, label %66
@@ -2765,34 +2759,34 @@ process_time_times.exit:                          ; preds = %52, %53
 
 py_clock.exit:                                    ; preds = %76, %74, %process_time_times.exit, %47
   %.4 = phi i32 [ %.3, %47 ], [ 0, %process_time_times.exit ], [ -1, %74 ], [ 0, %76 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread35
 
 .thread35:                                        ; preds = %26, %23, %py_clock.exit
   %.2 = phi i32 [ %.4, %py_clock.exit ], [ %.lobit, %26 ], [ -1, %23 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.2
 }
 
 ; Function Attrs: nounwind
-declare i32 @getrusage(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @getrusage(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 declare i32 @_PyTime_FromTimeval(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @times(ptr noundef captures(none)) local_unnamed_addr #9
+declare noundef i64 @times(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare double @_PyTimeFraction_Resolution(ptr noundef) local_unnamed_addr #1
 
 declare i64 @_PyTimeFraction_Mul(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i64 @clock() local_unnamed_addr #3
+declare i64 @clock() local_unnamed_addr #2
 
 declare i32 @PyTime_PerfCounter(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 declare i32 @_PyTime_TimeWithInfo(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2871,7 +2865,7 @@ define internal range(i32 -1, 1) i32 @time_exec(ptr noundef %0) #0 {
   br i1 %.not17, label %34, label %55
 
 34:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %35 = call i32 @_Py_GetTicksPerSecond(ptr noundef nonnull %2) #11
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %37, label %39
@@ -2906,7 +2900,7 @@ define internal range(i32 -1, 1) i32 @time_exec(ptr noundef %0) #0 {
 
 54:                                               ; preds = %47, %51, %44, %37
   %.1 = phi i32 [ -1, %37 ], [ -1, %44 ], [ -1, %51 ], [ 0, %47 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %55
 
 55:                                               ; preds = %32, %29, %27, %24, %21, %18, %15, %12, %9, %6, %1, %54
@@ -2922,17 +2916,23 @@ declare i32 @_Py_GetTicksPerSecond(ptr noundef) local_unnamed_addr #1
 
 declare i32 @_PyTimeFraction_Set(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind willreturn memory(none) }
 attributes #13 = { nounwind willreturn memory(read) }

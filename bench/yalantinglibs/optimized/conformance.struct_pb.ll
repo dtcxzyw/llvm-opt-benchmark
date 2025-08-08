@@ -360,7 +360,7 @@ if.end:                                           ; preds = %if.end82.i139, %if.
   br i1 %cond, label %sw.bb, label %sw.default
 
 sw.bb:                                            ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %tmp_str, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #15
   store ptr %0, ptr %tmp_str, align 8
@@ -368,7 +368,7 @@ sw.bb:                                            ; preds = %if.end
   store i64 0, ptr %_M_string_length.i.i.i, align 8
   %14 = load ptr, ptr %tmp_str, align 8
   store i8 0, ptr %14, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp.i = icmp ult i64 %pos.promoted204, %size
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i
 
@@ -2435,7 +2435,7 @@ sw.bb:                                            ; preds = %if.end
 
 if.then3:                                         ; preds = %sw.bb
   call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_S8_EE8_M_resetEv(ptr noundef nonnull align 8 dereferenceable(33) %t)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(33) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #15
   store ptr %1, ptr %t, align 8
@@ -2443,7 +2443,7 @@ if.then3:                                         ; preds = %sw.bb
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i905, align 8
   %16 = load ptr, ptr %t, align 8
   store i8 0, ptr %16, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i)
   store i8 1, ptr %_M_index.i902, align 8
   %.pre1186 = load i64, ptr %pos, align 8
   br label %if.end6
@@ -2718,7 +2718,7 @@ sw.bb21:                                          ; preds = %if.end
 
 if.then25:                                        ; preds = %sw.bb21
   call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_S8_EE8_M_resetEv(ptr noundef nonnull align 8 dereferenceable(33) %t)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i816)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i816)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i816) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(33) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i816) #15
   store ptr %1, ptr %t, align 8
@@ -2726,7 +2726,7 @@ if.then25:                                        ; preds = %sw.bb21
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i905, align 8
   %42 = load ptr, ptr %t, align 8
   store i8 0, ptr %42, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i816)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i816)
   store i8 2, ptr %_M_index.i902, align 8
   %.pre1184 = load i64, ptr %pos, align 8
   br label %if.end28
@@ -3001,7 +3001,7 @@ sw.bb46:                                          ; preds = %if.end
 
 if.then50:                                        ; preds = %sw.bb46
   call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_S8_EE8_M_resetEv(ptr noundef nonnull align 8 dereferenceable(33) %t)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i860)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i860)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i860) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(33) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i860) #15
   store ptr %1, ptr %t, align 8
@@ -3009,7 +3009,7 @@ if.then50:                                        ; preds = %sw.bb46
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i905, align 8
   %68 = load ptr, ptr %t, align 8
   store i8 0, ptr %68, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i860)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i860)
   store i8 3, ptr %_M_index.i902, align 8
   %.pre1182 = load i64, ptr %pos, align 8
   br label %if.end53
@@ -3284,7 +3284,7 @@ sw.bb71:                                          ; preds = %if.end
 
 if.then75:                                        ; preds = %sw.bb71
   call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_S8_EE8_M_resetEv(ptr noundef nonnull align 8 dereferenceable(33) %t)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i904)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i904)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i904) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(33) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i904) #15
   store ptr %1, ptr %t, align 8
@@ -3292,7 +3292,7 @@ if.then75:                                        ; preds = %sw.bb71
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i905, align 8
   %94 = load ptr, ptr %t, align 8
   store i8 0, ptr %94, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i904)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i904)
   store i8 4, ptr %_M_index.i902, align 8
   %.pre1180 = load i64, ptr %pos, align 8
   br label %if.end78
@@ -4311,7 +4311,7 @@ if.end135:                                        ; preds = %if.end82.i1171, %if
   %188 = phi i64 [ %inc.i1199, %if.then.i1196 ], [ %inc6.i1102, %if.then5.i1101 ], [ %inc13.i1108, %if.end12.i1107 ], [ %inc20.i1116, %if.end19.i1115 ], [ %inc29.i1124, %if.end28.i1123 ], [ %inc38.i1132, %if.end37.i1131 ], [ %inc47.i1140, %if.end46.i1139 ], [ %inc56.i1148, %if.end55.i1147 ], [ %inc65.i1156, %if.end64.i1155 ], [ %inc74.i1164, %if.end73.i1163 ], [ %inc96.i1089, %if.end104.i1079 ], [ %inc83.i1172, %if.end82.i1171 ]
   %sz130.0 = phi i64 [ %conv.i1193, %if.then.i1196 ], [ %and9.i1105, %if.then5.i1101 ], [ %or.i1113, %if.end12.i1107 ], [ %or25.i1121, %if.end19.i1115 ], [ %or34.i1129, %if.end28.i1123 ], [ %or43.i1137, %if.end37.i1131 ], [ %or52.i1145, %if.end46.i1139 ], [ %or61.i1153, %if.end55.i1147 ], [ %or70.i1161, %if.end64.i1155 ], [ %or79.i1169, %if.end73.i1163 ], [ %or110.i1085, %if.end104.i1079 ], [ %or88.i1177, %if.end82.i1171 ]
   %add.ptr138 = getelementptr inbounds i8, ptr %data, i64 %188
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %unknown_fields.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %unknown_fields.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i, i8 0, i64 24, i1 false)
   %call.i975 = invoke noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN11conformance18JspbEncodingConfigEEEbRT_PKcmRNS_13UnknownFieldsE(ptr noundef nonnull align 1 dereferenceable(1) %173, ptr noundef %add.ptr138, i64 noundef %sz130.0, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -4340,7 +4340,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit3.i:         ; preds = %if.then.i.i.i.i2.i,
   resume { ptr, i32 } %190
 
 _ZN9struct_pb8internal14deserialize_toIN11conformance18JspbEncodingConfigEEEbRT_PKcm.exit: ; preds = %invoke.cont.i, %if.then.i.i.i.i.i976
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %unknown_fields.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %unknown_fields.i)
   br i1 %call.i975, label %if.end143, label %return
 
 if.end143:                                        ; preds = %_ZN9struct_pb8internal14deserialize_toIN11conformance18JspbEncodingConfigEEEbRT_PKcm.exit
@@ -5808,11 +5808,11 @@ sw.bb:                                            ; preds = %if.end
   br i1 %cmp2.not, label %if.end6, label %if.then3
 
 if.then3:                                         ; preds = %sw.bb
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
   call void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_S9_S9_S9_S9_S9_S9_S9_EE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %t)
   store i8 -1, ptr %_M_index.i1159, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(33) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #15
   store ptr %0, ptr %t, align 8
@@ -5820,7 +5820,7 @@ if.then3:                                         ; preds = %sw.bb
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i1164, align 8
   %18 = load ptr, ptr %t, align 8
   store i8 0, ptr %18, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i)
   store i8 1, ptr %_M_index.i1159, align 8
   %.pre1450 = load i64, ptr %pos, align 8
   br label %if.end6
@@ -6085,11 +6085,11 @@ sw.bb21:                                          ; preds = %if.end
   br i1 %cmp24.not, label %if.end28, label %if.then25
 
 if.then25:                                        ; preds = %sw.bb21
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i846)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i846)
   call void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_S9_S9_S9_S9_S9_S9_S9_EE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i846, ptr noundef nonnull align 8 dereferenceable(33) %t)
   store i8 -1, ptr %_M_index.i1159, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i846)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i845)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i846)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i845)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i845) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(33) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i845) #15
   store ptr %0, ptr %t, align 8
@@ -6097,7 +6097,7 @@ if.then25:                                        ; preds = %sw.bb21
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i1164, align 8
   %42 = load ptr, ptr %t, align 8
   store i8 0, ptr %42, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i845)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i845)
   store i8 2, ptr %_M_index.i1159, align 8
   %.pre1448 = load i64, ptr %pos, align 8
   br label %if.end28
@@ -6362,11 +6362,11 @@ sw.bb46:                                          ; preds = %if.end
   br i1 %cmp49.not, label %if.end53, label %if.then50
 
 if.then50:                                        ; preds = %sw.bb46
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i891)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i891)
   call void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_S9_S9_S9_S9_S9_S9_S9_EE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i891, ptr noundef nonnull align 8 dereferenceable(33) %t)
   store i8 -1, ptr %_M_index.i1159, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i891)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i890)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i891)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i890)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i890) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(33) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i890) #15
   store ptr %0, ptr %t, align 8
@@ -6374,7 +6374,7 @@ if.then50:                                        ; preds = %sw.bb46
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i1164, align 8
   %66 = load ptr, ptr %t, align 8
   store i8 0, ptr %66, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i890)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i890)
   store i8 3, ptr %_M_index.i1159, align 8
   %.pre1446 = load i64, ptr %pos, align 8
   br label %if.end53
@@ -6639,11 +6639,11 @@ sw.bb71:                                          ; preds = %if.end
   br i1 %cmp74.not, label %if.end78, label %if.then75
 
 if.then75:                                        ; preds = %sw.bb71
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i936)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i936)
   call void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_S9_S9_S9_S9_S9_S9_S9_EE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i936, ptr noundef nonnull align 8 dereferenceable(33) %t)
   store i8 -1, ptr %_M_index.i1159, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i936)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i935)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i936)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i935)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i935) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(33) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i935) #15
   store ptr %0, ptr %t, align 8
@@ -6651,7 +6651,7 @@ if.then75:                                        ; preds = %sw.bb71
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i1164, align 8
   %90 = load ptr, ptr %t, align 8
   store i8 0, ptr %90, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i935)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i935)
   store i8 4, ptr %_M_index.i1159, align 8
   %.pre1444 = load i64, ptr %pos, align 8
   br label %if.end78
@@ -6916,11 +6916,11 @@ sw.bb96:                                          ; preds = %if.end
   br i1 %cmp99.not, label %if.end103, label %if.then100
 
 if.then100:                                       ; preds = %sw.bb96
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i981)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i981)
   call void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_S9_S9_S9_S9_S9_S9_S9_EE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i981, ptr noundef nonnull align 8 dereferenceable(33) %t)
   store i8 -1, ptr %_M_index.i1159, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i981)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i980)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i981)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i980)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i980) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(33) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i980) #15
   store ptr %0, ptr %t, align 8
@@ -6928,7 +6928,7 @@ if.then100:                                       ; preds = %sw.bb96
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i1164, align 8
   %114 = load ptr, ptr %t, align 8
   store i8 0, ptr %114, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i980)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i980)
   store i8 5, ptr %_M_index.i1159, align 8
   %.pre1442 = load i64, ptr %pos, align 8
   br label %if.end103
@@ -7193,11 +7193,11 @@ sw.bb121:                                         ; preds = %if.end
   br i1 %cmp124.not, label %if.end128, label %if.then125
 
 if.then125:                                       ; preds = %sw.bb121
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i1026)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i1026)
   call void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_S9_S9_S9_S9_S9_S9_S9_EE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i1026, ptr noundef nonnull align 8 dereferenceable(33) %t)
   store i8 -1, ptr %_M_index.i1159, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i1026)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i1025)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i1026)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i1025)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1025) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(33) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1025) #15
   store ptr %0, ptr %t, align 8
@@ -7205,7 +7205,7 @@ if.then125:                                       ; preds = %sw.bb121
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i1164, align 8
   %138 = load ptr, ptr %t, align 8
   store i8 0, ptr %138, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i1025)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i1025)
   store i8 6, ptr %_M_index.i1159, align 8
   %.pre1440 = load i64, ptr %pos, align 8
   br label %if.end128
@@ -7470,11 +7470,11 @@ sw.bb146:                                         ; preds = %if.end
   br i1 %cmp149.not, label %if.end153, label %if.then150
 
 if.then150:                                       ; preds = %sw.bb146
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i1071)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i1071)
   call void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_S9_S9_S9_S9_S9_S9_S9_EE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i1071, ptr noundef nonnull align 8 dereferenceable(33) %t)
   store i8 -1, ptr %_M_index.i1159, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i1071)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i1070)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i1071)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i1070)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1070) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(33) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1070) #15
   store ptr %0, ptr %t, align 8
@@ -7482,7 +7482,7 @@ if.then150:                                       ; preds = %sw.bb146
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i1164, align 8
   %162 = load ptr, ptr %t, align 8
   store i8 0, ptr %162, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i1070)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i1070)
   store i8 7, ptr %_M_index.i1159, align 8
   %.pre1438 = load i64, ptr %pos, align 8
   br label %if.end153
@@ -7747,11 +7747,11 @@ sw.bb171:                                         ; preds = %if.end
   br i1 %cmp174.not, label %if.end178, label %if.then175
 
 if.then175:                                       ; preds = %sw.bb171
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i1116)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i1116)
   call void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_S9_S9_S9_S9_S9_S9_S9_EE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i1116, ptr noundef nonnull align 8 dereferenceable(33) %t)
   store i8 -1, ptr %_M_index.i1159, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i1116)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i1115)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i1116)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i1115)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1115) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(33) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1115) #15
   store ptr %0, ptr %t, align 8
@@ -7759,7 +7759,7 @@ if.then175:                                       ; preds = %sw.bb171
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i1164, align 8
   %186 = load ptr, ptr %t, align 8
   store i8 0, ptr %186, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i1115)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i1115)
   store i8 8, ptr %_M_index.i1159, align 8
   %.pre1436 = load i64, ptr %pos, align 8
   br label %if.end178
@@ -8024,11 +8024,11 @@ sw.bb196:                                         ; preds = %if.end
   br i1 %cmp199.not, label %if.end203, label %if.then200
 
 if.then200:                                       ; preds = %sw.bb196
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i1162)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i1162)
   call void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_S9_S9_S9_S9_S9_S9_S9_EE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i1162, ptr noundef nonnull align 8 dereferenceable(33) %t)
   store i8 -1, ptr %_M_index.i1159, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i1162)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i1161)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i1162)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i1161)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1161) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(33) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1161) #15
   store ptr %0, ptr %t, align 8
@@ -8036,7 +8036,7 @@ if.then200:                                       ; preds = %sw.bb196
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i1164, align 8
   %210 = load ptr, ptr %t, align 8
   store i8 0, ptr %210, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i1161)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i1161)
   store i8 9, ptr %_M_index.i1159, align 8
   %.pre = load i64, ptr %pos, align 8
   br label %if.end203
@@ -9391,10 +9391,10 @@ declare i64 @llvm.umax.i64(i64, i64) #11
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

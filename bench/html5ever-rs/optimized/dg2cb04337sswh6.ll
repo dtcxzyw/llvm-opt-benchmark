@@ -177,7 +177,7 @@ switch.lookup:
   %5 = alloca { ptr, i64 }, align 8
   %6 = load ptr, ptr %0, align 8, !nonnull !5, !align !8, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !12
   %7 = load i64, ptr %6, align 8, !range !4, !alias.scope !9, !noalias !14, !noundef !5
   %8 = and i64 %7, 3
   %9 = and i64 %7, 3
@@ -188,9 +188,9 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %switch.load, ptr %5, align 8, !noalias !12
   store i64 %switch.load2, ptr %10, align 8, !noalias !12
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !12
   store ptr %6, ptr %2, align 8, !noalias !12
   store ptr %2, ptr %3, align 8, !noalias !12
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -209,10 +209,10 @@ switch.lookup:
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 2, ptr %17, align 8, !alias.scope !15, !noalias !18
   %18 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !12
   ret i1 %18
 }
 
@@ -225,7 +225,7 @@ switch.lookup:
   %5 = alloca { ptr, i64 }, align 8
   %6 = load ptr, ptr %0, align 8, !nonnull !5, !align !8, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !23
   %7 = load i64, ptr %6, align 8, !range !4, !alias.scope !20, !noalias !25, !noundef !5
   %8 = and i64 %7, 3
   %9 = and i64 %7, 3
@@ -236,9 +236,9 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %switch.load, ptr %5, align 8, !noalias !23
   store i64 %switch.load2, ptr %10, align 8, !noalias !23
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !23
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !23
   store ptr %6, ptr %2, align 8, !noalias !23
   store ptr %2, ptr %3, align 8, !noalias !23
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -257,10 +257,10 @@ switch.lookup:
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 2, ptr %17, align 8, !alias.scope !26, !noalias !29
   %18 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !23
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !23
   ret i1 %18
 }
 
@@ -549,33 +549,33 @@ declare noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE
 ; Function Attrs: nonlazybind uwtable
 declare void @_ZN12string_cache11dynamic_set3Set6remove17h355379461556d4f0E(ptr noalias noundef readonly align 8 dereferenceable(16), ptr noundef) unnamed_addr #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nonlazybind uwtable
 declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #3
+declare void @llvm.assume(i1 noundef) #2
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17h811edb334e38b6b5E.llvm.9547364939642047668(ptr noundef, i8 noundef) unnamed_addr #4
+declare hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17h811edb334e38b6b5E.llvm.9547364939642047668(ptr noundef, i8 noundef) unnamed_addr #3
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hee5d833d57c6652aE"(ptr noundef nonnull align 8, ptr noundef nonnull align 8) unnamed_addr #5
+declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hee5d833d57c6652aE"(ptr noundef nonnull align 8, ptr noundef nonnull align 8) unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #6
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #4 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #5 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #3 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #4 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #7 = { noreturn }
 

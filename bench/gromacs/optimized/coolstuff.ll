@@ -1514,7 +1514,7 @@ define void @_ZN3gmx7bromacsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%
   br i1 %5, label %6, label %._crit_edge.i.i4
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = tail call i64 @time(ptr noundef null) #7
   store i64 %7, ptr %3, align 8, !tbaa !4
   br label %8
@@ -1560,12 +1560,12 @@ define void @_ZN3gmx7bromacsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%
 _ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit: ; preds = %16, %..loopexit_crit_edge.i.i.i.i
   %.0.i.i.i = phi i64 [ %extract.t16.i.i.i.i, %16 ], [ %extract.t20.le.i.i.i.i, %..loopexit_crit_edge.i.i.i.i ]
   %27 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx7bromacsB5cxx11Ev.bromacsArray, i64 %.0.i.i.i
-  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %28 = load ptr, ptr %27, align 8, !tbaa !13
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %29, ptr %0, align 8, !tbaa !16
   %30 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %30, ptr %2, align 8, !tbaa !4
   %31 = icmp ugt i64 %30, 15
   br i1 %31, label %.noexc.i, label %._crit_edge.i.i
@@ -1600,7 +1600,7 @@ _ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit: 
   %41 = load ptr, ptr %0, align 8, !tbaa !18
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %39
   store i8 0, ptr %42, align 1, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %46
 
 ._crit_edge.i.i4:                                 ; preds = %1
@@ -1617,22 +1617,16 @@ _ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit: 
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #4
+declare i64 @time(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %0) local_unnamed_addr #0 comdat align 2 {
@@ -1735,9 +1729,9 @@ _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #6
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx12getCoolQuoteB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -1748,7 +1742,7 @@ define void @_ZN3gmx12getCoolQuoteB5cxx11Ev(ptr dead_on_unwind noalias writable 
   br i1 %5, label %6, label %.noexc.i
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = tail call i64 @time(ptr noundef null) #7
   store i64 %7, ptr %3, align 8, !tbaa !4
   br label %8
@@ -1794,7 +1788,7 @@ define void @_ZN3gmx12getCoolQuoteB5cxx11Ev(ptr dead_on_unwind noalias writable 
 _ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIZNS_12getCoolQuoteB5cxx11EvE5QuoteEERKT_NS_8ArrayRefIS4_EE.exit: ; preds = %16, %..loopexit_crit_edge.i.i.i.i
   %.0.i.i.i = phi i64 [ %extract.t16.i.i.i.i, %16 ], [ %extract.t20.le.i.i.i.i, %..loopexit_crit_edge.i.i.i.i ]
   %27 = getelementptr inbounds nuw %struct.Quote, ptr @__const._ZN3gmx12getCoolQuoteB5cxx11Ev.quoteArray, i64 %.0.i.i.i
-  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.sroa.0.0.copyload = load ptr, ptr %27, align 16, !tbaa !13
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !13
@@ -1804,7 +1798,7 @@ _ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIZNS_12getCoolQuoteB5cxx11EvE5Quote
 .noexc.i:                                         ; preds = %1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %28, ptr %0, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 41, ptr %2, align 8, !tbaa !4
   %29 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
   store ptr %29, ptr %0, align 8, !tbaa !18
@@ -1815,22 +1809,28 @@ _ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIZNS_12getCoolQuoteB5cxx11EvE5Quote
   store i64 %30, ptr %31, align 8, !tbaa !21
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 %30
   store i8 0, ptr %32, align 1, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %33
 
 33:                                               ; preds = %.noexc.i, %_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIZNS_12getCoolQuoteB5cxx11EvE5QuoteEERKT_NS_8ArrayRefIS4_EE.exit
   ret void
 }
 
-declare void @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ...) local_unnamed_addr #6
+declare void @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ...) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

@@ -71,17 +71,11 @@ SDL_CalculateDrawLineFunc.exit:                   ; preds = %19, %14
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare zeroext i1 @SDL_SurfaceValid(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SurfaceValid(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
-
-declare zeroext i1 @SDL_GetRectAndLineIntersection_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare zeroext i1 @SDL_GetRectAndLineIntersection_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_DrawLines(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -89,10 +83,10 @@ define hidden zeroext i1 @SDL_DrawLines(ptr noundef %0, ptr noundef readonly cap
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call zeroext i1 @SDL_SurfaceValid(ptr noundef %0) #6
   br i1 %9, label %12, label %10
 
@@ -211,17 +205,17 @@ SDL_CalculateDrawLineFunc.exit:                   ; preds = %12, %17, %21
 
 64:                                               ; preds = %56, %61, %24, %10
   %.0 = phi i1 [ %25, %24 ], [ %11, %10 ], [ true, %61 ], [ true, %56 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
 
-declare zeroext i1 @SDL_DrawPoint(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_DrawPoint(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @SDL_DrawLine1(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #3 {
+define internal void @SDL_DrawLine1(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #2 {
   %8 = icmp eq i32 %2, %4
   br i1 %8, label %9, label %36
 
@@ -658,10 +652,10 @@ define internal void @SDL_DrawLine2(ptr noundef readonly captures(none) %0, i32 
   br i1 %.not408, label %.loopexit, label %111, !llvm.loop !11
 
 114:                                              ; preds = %76
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -881,10 +875,10 @@ define internal void @SDL_DrawLine2(ptr noundef readonly captures(none) %0, i32 
   br i1 %exitcond462.not, label %.loopexit425, label %198, !llvm.loop !14
 
 .loopexit425:                                     ; preds = %170, %142, %198, %162, %134, %190
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %111, %73, %39, %107, %35, %.loopexit425
@@ -1074,10 +1068,10 @@ define internal void @SDL_DrawLine4(ptr noundef readonly captures(none) %0, i32 
   br i1 %.not408, label %.loopexit, label %107, !llvm.loop !17
 
 110:                                              ; preds = %73
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1303,10 +1297,10 @@ define internal void @SDL_DrawLine4(ptr noundef readonly captures(none) %0, i32 
   br i1 %exitcond.not, label %.loopexit425, label %199, !llvm.loop !20
 
 .loopexit425:                                     ; preds = %199, %168, %141, %192, %161, %134
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %107, %70, %.lr.ph453, %104, %35, %.loopexit425
@@ -1314,18 +1308,24 @@ define internal void @SDL_DrawLine4(ptr noundef readonly captures(none) %0, i32 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare void @SDL_GetRGBA_REAL(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_GetRGBA_REAL(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

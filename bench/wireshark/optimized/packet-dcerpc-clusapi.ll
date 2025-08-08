@@ -2819,20 +2819,14 @@ define hidden i32 @clusapi_dissect_struct_RPC_SECURITY_DESCRIPTOR(ptr noundef %0
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_struct_RPC_SECURITY_ATTRIBUTES(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
@@ -3038,7 +3032,7 @@ define hidden i32 @clusapi_dissect_struct_IDL_CLUSTER_SET_PASSWORD_STATUS(ptr no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_IDL_CLUSTER_SET_PASSWORD_FLAGS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -3057,12 +3051,12 @@ define hidden i32 @clusapi_dissect_enum_IDL_CLUSTER_SET_PASSWORD_FLAGS(ptr nound
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_uint1632(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_uint1632(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_struct_CLUSTER_CREATE_GROUP_INFO_RPC(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
@@ -3122,7 +3116,7 @@ define hidden i32 @clusapi_dissect_struct_CLUSTER_CREATE_GROUP_INFO_RPC(ptr noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_bitmap_ClusterEnumType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
@@ -3160,18 +3154,18 @@ define hidden i32 @clusapi_dissect_bitmap_ClusterEnumType(ptr noundef %0, i32 no
   br label %29
 
 29:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %22
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_struct_ENUM_ENTRY(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
@@ -3685,7 +3679,7 @@ define hidden i32 @clusapi_dissect_struct_RESOURCE_ENUM_LIST(ptr noundef %0, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_CreateResourceFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -3704,14 +3698,14 @@ define hidden i32 @clusapi_dissect_enum_CreateResourceFlags(ptr noundef %0, i32 
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_ClusterResourceState(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -3730,14 +3724,14 @@ define hidden i32 @clusapi_dissect_enum_ClusterResourceState(ptr noundef %0, i32
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_ClusterGroupState(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -3756,14 +3750,14 @@ define hidden i32 @clusapi_dissect_enum_ClusterGroupState(ptr noundef %0, i32 no
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_bitmap_ClusterGroupEnumType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
@@ -3801,14 +3795,14 @@ define hidden i32 @clusapi_dissect_bitmap_ClusterGroupEnumType(ptr noundef %0, i
   br label %29
 
 29:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %22
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_ClusterNodeState(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -3827,14 +3821,14 @@ define hidden i32 @clusapi_dissect_enum_ClusterNodeState(ptr noundef %0, i32 nou
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_ResourceClass(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -3853,7 +3847,7 @@ define hidden i32 @clusapi_dissect_enum_ResourceClass(ptr noundef %0, i32 nounde
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -3882,10 +3876,10 @@ define hidden i32 @clusapi_dissect_struct_CLUS_RESOURCE_CLASS_INFO(ptr noundef %
   %.030 = phi ptr [ %17, %16 ], [ null, %8 ]
   %.029 = phi ptr [ %19, %16 ], [ null, %8 ]
   %21 = load i32, ptr @hf_clusapi_CLUS_RESOURCE_CLASS_INFO_Class, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %22 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef %4, ptr noundef %5, i32 noundef %21, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %23 = load i32, ptr @hf_clusapi_CLUS_RESOURCE_CLASS_INFO_SubClass, align 4
   %24 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.029, ptr noundef %4, ptr noundef %5, i32 noundef %23, i32 noundef 0)
   %25 = sub i32 %24, %.0
@@ -3919,7 +3913,7 @@ define hidden i32 @clusapi_dissect_struct_CLUS_RESOURCE_CLASS_INFO(ptr noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_ResourceControlCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -3938,14 +3932,14 @@ define hidden i32 @clusapi_dissect_enum_ResourceControlCode(ptr noundef %0, i32 
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_ResourceTypeControlCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -3964,14 +3958,14 @@ define hidden i32 @clusapi_dissect_enum_ResourceTypeControlCode(ptr noundef %0, 
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_GroupControlCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -3990,14 +3984,14 @@ define hidden i32 @clusapi_dissect_enum_GroupControlCode(ptr noundef %0, i32 nou
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_NodeControlCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -4016,14 +4010,14 @@ define hidden i32 @clusapi_dissect_enum_NodeControlCode(ptr noundef %0, i32 noun
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_ClusterNetworkState(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -4042,14 +4036,14 @@ define hidden i32 @clusapi_dissect_enum_ClusterNetworkState(ptr noundef %0, i32 
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_ClusterNetInterfaceState(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -4068,14 +4062,14 @@ define hidden i32 @clusapi_dissect_enum_ClusterNetInterfaceState(ptr noundef %0,
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_bitmap_ClusterResTypeEnumType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
@@ -4113,14 +4107,14 @@ define hidden i32 @clusapi_dissect_bitmap_ClusterResTypeEnumType(ptr noundef %0,
   br label %29
 
 29:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %22
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_ClusterControlCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -4139,14 +4133,14 @@ define hidden i32 @clusapi_dissect_enum_ClusterControlCode(ptr noundef %0, i32 n
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_CLUSTER_PROPERTY_SYNTAX(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -4165,14 +4159,14 @@ define hidden i32 @clusapi_dissect_enum_CLUSTER_PROPERTY_SYNTAX(ptr noundef %0, 
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_bitmap_DesiredAccessMask(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
@@ -4210,7 +4204,7 @@ define hidden i32 @clusapi_dissect_bitmap_DesiredAccessMask(ptr noundef %0, i32 
   br label %29
 
 29:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %22
 }
 
@@ -4706,7 +4700,7 @@ define hidden i32 @clusapi_dissect_struct_NOTIFICATION_DATA_ASYNC_RPC(ptr nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_CLUSDSK_DISKID_ENUM(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -4725,14 +4719,14 @@ define hidden i32 @clusapi_dissect_enum_CLUSDSK_DISKID_ENUM(ptr noundef %0, i32 
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_CLUSTER_PROPERTY_TYPE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -4751,14 +4745,14 @@ define hidden i32 @clusapi_dissect_enum_CLUSTER_PROPERTY_TYPE(ptr noundef %0, i3
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_CLUSTER_PROPERTY_FORMAT(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -4777,14 +4771,14 @@ define hidden i32 @clusapi_dissect_enum_CLUSTER_PROPERTY_FORMAT(ptr noundef %0, 
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_CLUS_CHARACTERISTICS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -4803,14 +4797,14 @@ define hidden i32 @clusapi_dissect_enum_CLUS_CHARACTERISTICS(ptr noundef %0, i32
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_CLUS_FLAGS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -4829,14 +4823,14 @@ define hidden i32 @clusapi_dissect_enum_CLUS_FLAGS(ptr noundef %0, i32 noundef %
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_MAINTENANCE_MODE_TYPE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -4855,14 +4849,14 @@ define hidden i32 @clusapi_dissect_enum_MAINTENANCE_MODE_TYPE(ptr noundef %0, i3
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -4881,14 +4875,14 @@ define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE(ptr noundef %0, i32 nound
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_CLUSTER_REG_BATCH_COMMAND(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -4907,14 +4901,14 @@ define hidden i32 @clusapi_dissect_enum_CLUSTER_REG_BATCH_COMMAND(ptr noundef %0
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_CLUSTER_QUORUM_VALUE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -4933,14 +4927,14 @@ define hidden i32 @clusapi_dissect_enum_CLUSTER_QUORUM_VALUE(ptr noundef %0, i32
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_CLUSTER_OBJECT_TYPE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -4959,14 +4953,14 @@ define hidden i32 @clusapi_dissect_enum_CLUSTER_OBJECT_TYPE(ptr noundef %0, i32 
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_CLUSTER_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -4985,14 +4979,14 @@ define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_CLUSTER_V2(ptr noundef %0
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_GROUP_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -5011,14 +5005,14 @@ define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_GROUP_V2(ptr noundef %0, 
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_RESOURCE_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -5037,14 +5031,14 @@ define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_RESOURCE_V2(ptr noundef %
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_CHANGE_RESOURCE_TYPE_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -5063,14 +5057,14 @@ define hidden i32 @clusapi_dissect_enum_CHANGE_RESOURCE_TYPE_V2(ptr noundef %0, 
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_NETINTERFACE_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -5089,14 +5083,14 @@ define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_NETINTERFACE_V2(ptr nound
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_NETWORK_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -5115,14 +5109,14 @@ define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_NETWORK_V2(ptr noundef %0
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_NODE_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -5141,14 +5135,14 @@ define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_NODE_V2(ptr noundef %0, i
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_REGISTRY_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -5167,14 +5161,14 @@ define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_REGISTRY_V2(ptr noundef %
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_QUORUM_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -5193,14 +5187,14 @@ define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_QUORUM_V2(ptr noundef %0,
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_SHARED_VOLUME_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -5219,7 +5213,7 @@ define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_SHARED_VOLUME_V2(ptr noun
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -5233,13 +5227,13 @@ define hidden void @proto_register_dcerpc_clusapi() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_dcerpc_clusapi() local_unnamed_addr #0 {
@@ -5251,10 +5245,10 @@ define hidden void @proto_reg_handoff_dcerpc_clusapi() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dcerpc_init_uuid(i32 noundef, i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @dcerpc_init_uuid(i32 noundef, i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_embedded_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_embedded_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_RPC_SECURITY_DESCRIPTOR_lpSecurityDescriptor_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -5263,7 +5257,7 @@ define internal i32 @clusapi_dissect_element_RPC_SECURITY_DESCRIPTOR_lpSecurityD
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_ucvarray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_ucvarray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_RPC_SECURITY_DESCRIPTOR_lpSecurityDescriptor__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -5273,28 +5267,28 @@ define internal i32 @clusapi_dissect_element_RPC_SECURITY_DESCRIPTOR_lpSecurityD
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @PIDL_dissect_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PIDL_dissect_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @PIDL_dissect_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PIDL_dissect_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_ENUM_ENTRY_Name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_ENUM_ENTRY_Name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_cvstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_cvstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_ucarray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_ucarray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_ENUM_LIST_Entry_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -5306,36 +5300,36 @@ define internal i32 @clusapi_dissect_element_ENUM_LIST_Entry_(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_GROUP_ENUM_ENTRY_Name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_GROUP_ENUM_ENTRY_Name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_GROUP_ENUM_ENTRY_Id_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_GROUP_ENUM_ENTRY_Id, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_GROUP_ENUM_ENTRY_Owner_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_GROUP_ENUM_ENTRY_Owner, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -5368,48 +5362,48 @@ define internal i32 @clusapi_dissect_element_GROUP_ENUM_ENTRY_RoProperties__(ptr
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_RESOURCE_ENUM_ENTRY_Name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_RESOURCE_ENUM_ENTRY_Name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_RESOURCE_ENUM_ENTRY_Id_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_RESOURCE_ENUM_ENTRY_Id, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_RESOURCE_ENUM_ENTRY_OwnerName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_RESOURCE_ENUM_ENTRY_OwnerName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_RESOURCE_ENUM_ENTRY_OwnerId_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_RESOURCE_ENUM_ENTRY_OwnerId, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -5454,7 +5448,7 @@ define internal i32 @clusapi_dissect_element_RESOURCE_ENUM_LIST_Entry_(ptr nound
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_uint64(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_uint64(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_NOTIFICATION_DATA_RPC_buffer_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -5472,48 +5466,48 @@ define internal i32 @clusapi_dissect_element_NOTIFICATION_DATA_RPC_buffer__(ptr 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_NOTIFICATION_DATA_RPC_ObjectId_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_NOTIFICATION_DATA_RPC_ObjectId, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_NOTIFICATION_DATA_RPC_ParentId_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_NOTIFICATION_DATA_RPC_ParentId, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_NOTIFICATION_DATA_RPC_Name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_NOTIFICATION_DATA_RPC_Name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_NOTIFICATION_DATA_RPC_Type_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_NOTIFICATION_DATA_RPC_Type, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -5527,12 +5521,12 @@ define internal i32 @clusapi_dissect_element_NOTIFICATION_RPC_dwNotifyKey_(ptr n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_CLUSTER_MRR_NODE_RESPONSE_pszNodeName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_CLUSTER_MRR_NODE_RESPONSE_pszNodeName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -5565,17 +5559,17 @@ define internal i32 @clusapi_dissect_element_CLUSTER_MRR_RESPONSE_pNodes__(ptr n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_NOTIFICATION_DATA_ASYNC_RPC_Name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_NOTIFICATION_DATA_ASYNC_RPC_Name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @clusapi_dissect_OpenCluster_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @clusapi_dissect_OpenCluster_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1496, ptr %7, align 8
   ret i32 %1
@@ -5607,7 +5601,7 @@ define internal i32 @clusapi_dissect_CloseCluster_request(ptr noundef %0, i32 no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_CloseCluster_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1497, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CloseCluster_Cluster, align 4
@@ -5627,7 +5621,7 @@ define internal i32 @clusapi_dissect_CloseCluster_response(ptr noundef %0, i32 n
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -5644,7 +5638,7 @@ define internal i32 @clusapi_dissect_SetClusterName_request(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_SetClusterName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1498, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_SetClusterName_rpc_status, align 4
@@ -5664,12 +5658,12 @@ define internal i32 @clusapi_dissect_SetClusterName_response(ptr noundef %0, i32
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @clusapi_dissect_GetClusterName_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @clusapi_dissect_GetClusterName_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1499, ptr %7, align 8
   ret i32 %1
@@ -5678,7 +5672,7 @@ define internal noundef i32 @clusapi_dissect_GetClusterName_request(ptr readnone
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_GetClusterName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1499, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetClusterName_ClusterName, align 4
@@ -5701,12 +5695,12 @@ define internal i32 @clusapi_dissect_GetClusterName_response(ptr noundef %0, i32
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @clusapi_dissect_GetClusterVersion_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @clusapi_dissect_GetClusterVersion_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1500, ptr %7, align 8
   ret i32 %1
@@ -5715,7 +5709,7 @@ define internal noundef i32 @clusapi_dissect_GetClusterVersion_request(ptr readn
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_GetClusterVersion_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1500, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetClusterVersion_lpwMajorVersion, align 4
@@ -5747,12 +5741,12 @@ define internal i32 @clusapi_dissect_GetClusterVersion_response(ptr noundef %0, 
   br label %31
 
 31:                                               ; preds = %27, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @clusapi_dissect_GetQuorumResource_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @clusapi_dissect_GetQuorumResource_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1501, ptr %7, align 8
   ret i32 %1
@@ -5761,7 +5755,7 @@ define internal noundef i32 @clusapi_dissect_GetQuorumResource_request(ptr readn
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_GetQuorumResource_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1501, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetQuorumResource_lpszResourceName, align 4
@@ -5790,7 +5784,7 @@ define internal i32 @clusapi_dissect_GetQuorumResource_response(ptr noundef %0, 
   br label %28
 
 28:                                               ; preds = %24, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %22
 }
 
@@ -5813,7 +5807,7 @@ define internal i32 @clusapi_dissect_SetQuorumResource_request(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_SetQuorumResource_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1502, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_SetQuorumResource_rpc_status, align 4
@@ -5833,7 +5827,7 @@ define internal i32 @clusapi_dissect_SetQuorumResource_response(ptr noundef %0, 
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -5850,7 +5844,7 @@ define internal i32 @clusapi_dissect_CreateEnum_request(ptr noundef %0, i32 noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_CreateEnum_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1503, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CreateEnum_ReturnEnum, align 4
@@ -5873,7 +5867,7 @@ define internal i32 @clusapi_dissect_CreateEnum_response(ptr noundef %0, i32 nou
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -5918,10 +5912,10 @@ define internal i32 @clusapi_dissect_CreateResource_request(ptr noundef %0, i32 
   %16 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CreateResource_lpszResourceType_, i32 noundef 1, ptr noundef nonnull @.str.1699, i32 noundef %15)
   %17 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %16, ptr noundef %4, ptr noundef %5)
   %18 = load i32, ptr @hf_clusapi_clusapi_CreateResource_dwFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %19 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %18, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %20 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %19, ptr noundef %4, ptr noundef %5)
   ret i32 %20
 }
@@ -5955,7 +5949,7 @@ define internal i32 @clusapi_dissect_DeleteResource_request(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_DeleteResource_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1506, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_DeleteResource_rpc_status, align 4
@@ -5975,7 +5969,7 @@ define internal i32 @clusapi_dissect_DeleteResource_response(ptr noundef %0, i32
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -5992,7 +5986,7 @@ define internal i32 @clusapi_dissect_CloseResource_request(ptr noundef %0, i32 n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_CloseResource_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1507, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CloseResource_Resource, align 4
@@ -6012,7 +6006,7 @@ define internal i32 @clusapi_dissect_CloseResource_response(ptr noundef %0, i32 
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -6029,7 +6023,7 @@ define internal i32 @clusapi_dissect_GetResourceState_request(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_GetResourceState_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1508, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetResourceState_State, align 4
@@ -6058,7 +6052,7 @@ define internal i32 @clusapi_dissect_GetResourceState_response(ptr noundef %0, i
   br label %28
 
 28:                                               ; preds = %24, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %22
 }
 
@@ -6078,7 +6072,7 @@ define internal i32 @clusapi_dissect_SetResourceName_request(ptr noundef %0, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_SetResourceName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1509, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_SetResourceName_rpc_status, align 4
@@ -6098,7 +6092,7 @@ define internal i32 @clusapi_dissect_SetResourceName_response(ptr noundef %0, i3
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -6115,7 +6109,7 @@ define internal i32 @clusapi_dissect_GetResourceId_request(ptr noundef %0, i32 n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_GetResourceId_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1510, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetResourceId_pGuid, align 4
@@ -6138,7 +6132,7 @@ define internal i32 @clusapi_dissect_GetResourceId_response(ptr noundef %0, i32 
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -6155,7 +6149,7 @@ define internal i32 @clusapi_dissect_GetResourceType_request(ptr noundef %0, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_GetResourceType_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1511, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetResourceType_lpszResourceType, align 4
@@ -6178,7 +6172,7 @@ define internal i32 @clusapi_dissect_GetResourceType_response(ptr noundef %0, i3
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -6195,7 +6189,7 @@ define internal i32 @clusapi_dissect_FailResource_request(ptr noundef %0, i32 no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_FailResource_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1512, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_FailResource_rpc_status, align 4
@@ -6215,7 +6209,7 @@ define internal i32 @clusapi_dissect_FailResource_response(ptr noundef %0, i32 n
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -6232,7 +6226,7 @@ define internal i32 @clusapi_dissect_OnlineResource_request(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_OnlineResource_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1513, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_OnlineResource_rpc_status, align 4
@@ -6252,7 +6246,7 @@ define internal i32 @clusapi_dissect_OnlineResource_response(ptr noundef %0, i32
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -6269,7 +6263,7 @@ define internal i32 @clusapi_dissect_OfflineResource_request(ptr noundef %0, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_OfflineResource_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1514, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_OfflineResource_rpc_status, align 4
@@ -6289,7 +6283,7 @@ define internal i32 @clusapi_dissect_OfflineResource_response(ptr noundef %0, i3
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -6309,7 +6303,7 @@ define internal i32 @clusapi_dissect_AddResourceDependency_request(ptr noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_AddResourceDependency_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1515, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_AddResourceDependency_rpc_status, align 4
@@ -6329,7 +6323,7 @@ define internal i32 @clusapi_dissect_AddResourceDependency_response(ptr noundef 
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -6349,7 +6343,7 @@ define internal i32 @clusapi_dissect_RemoveResourceDependency_request(ptr nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_RemoveResourceDependency_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1516, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_RemoveResourceDependency_rpc_status, align 4
@@ -6369,7 +6363,7 @@ define internal i32 @clusapi_dissect_RemoveResourceDependency_response(ptr nound
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -6389,7 +6383,7 @@ define internal i32 @clusapi_dissect_CanResourceBeDependent_request(ptr noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_CanResourceBeDependent_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1517, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CanResourceBeDependent_rpc_status, align 4
@@ -6409,7 +6403,7 @@ define internal i32 @clusapi_dissect_CanResourceBeDependent_response(ptr noundef
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -6429,7 +6423,7 @@ define internal i32 @clusapi_dissect_CreateResEnum_request(ptr noundef %0, i32 n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_CreateResEnum_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1518, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CreateResEnum_ReturnEnum, align 4
@@ -6452,7 +6446,7 @@ define internal i32 @clusapi_dissect_CreateResEnum_response(ptr noundef %0, i32 
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -6472,7 +6466,7 @@ define internal i32 @clusapi_dissect_AddResourceNode_request(ptr noundef %0, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_AddResourceNode_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1519, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_AddResourceNode_rpc_status, align 4
@@ -6492,7 +6486,7 @@ define internal i32 @clusapi_dissect_AddResourceNode_response(ptr noundef %0, i3
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -6512,7 +6506,7 @@ define internal i32 @clusapi_dissect_RemoveResourceNode_request(ptr noundef %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_RemoveResourceNode_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1520, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_RemoveResourceNode_rpc_status, align 4
@@ -6532,7 +6526,7 @@ define internal i32 @clusapi_dissect_RemoveResourceNode_response(ptr noundef %0,
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -6552,7 +6546,7 @@ define internal i32 @clusapi_dissect_ChangeResourceGroup_request(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_ChangeResourceGroup_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1521, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ChangeResourceGroup_rpc_status, align 4
@@ -6572,7 +6566,7 @@ define internal i32 @clusapi_dissect_ChangeResourceGroup_response(ptr noundef %0
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -6601,7 +6595,7 @@ define internal i32 @clusapi_dissect_CreateResourceType_request(ptr noundef %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_CreateResourceType_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1522, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CreateResourceType_rpc_status, align 4
@@ -6621,7 +6615,7 @@ define internal i32 @clusapi_dissect_CreateResourceType_response(ptr noundef %0,
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -6638,7 +6632,7 @@ define internal i32 @clusapi_dissect_DeleteResourceType_request(ptr noundef %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_DeleteResourceType_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1523, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_DeleteResourceType_rpc_status, align 4
@@ -6658,7 +6652,7 @@ define internal i32 @clusapi_dissect_DeleteResourceType_response(ptr noundef %0,
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -6777,7 +6771,7 @@ define internal i32 @clusapi_dissect_EnumKey_request(ptr noundef %0, i32 noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_EnumKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1527, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_EnumKey_KeyName, align 4
@@ -6803,7 +6797,7 @@ define internal i32 @clusapi_dissect_EnumKey_response(ptr noundef %0, i32 nounde
   br label %25
 
 25:                                               ; preds = %21, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %19
 }
 
@@ -6832,7 +6826,7 @@ define internal i32 @clusapi_dissect_SetValue_request(ptr noundef %0, i32 nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_SetValue_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1528, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_SetValue_rpc_status, align 4
@@ -6852,7 +6846,7 @@ define internal i32 @clusapi_dissect_SetValue_response(ptr noundef %0, i32 nound
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -6872,7 +6866,7 @@ define internal i32 @clusapi_dissect_DeleteValue_request(ptr noundef %0, i32 nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_DeleteValue_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1529, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_DeleteValue_rpc_status, align 4
@@ -6892,7 +6886,7 @@ define internal i32 @clusapi_dissect_DeleteValue_response(ptr noundef %0, i32 no
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -6915,7 +6909,7 @@ define internal i32 @clusapi_dissect_QueryValue_request(ptr noundef %0, i32 noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_QueryValue_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1530, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_QueryValue_lpValueType, align 4
@@ -6944,7 +6938,7 @@ define internal i32 @clusapi_dissect_QueryValue_response(ptr noundef %0, i32 nou
   br label %28
 
 28:                                               ; preds = %24, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %22
 }
 
@@ -6964,7 +6958,7 @@ define internal i32 @clusapi_dissect_DeleteKey_request(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_DeleteKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1531, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_DeleteKey_rpc_status, align 4
@@ -6984,7 +6978,7 @@ define internal i32 @clusapi_dissect_DeleteKey_response(ptr noundef %0, i32 noun
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -7007,7 +7001,7 @@ define internal i32 @clusapi_dissect_EnumValue_request(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_EnumValue_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1532, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_EnumValue_lpValueName, align 4
@@ -7042,7 +7036,7 @@ define internal i32 @clusapi_dissect_EnumValue_response(ptr noundef %0, i32 noun
   br label %34
 
 34:                                               ; preds = %30, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %28
 }
 
@@ -7059,7 +7053,7 @@ define internal i32 @clusapi_dissect_CloseKey_request(ptr noundef %0, i32 nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_CloseKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1533, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CloseKey_pKey, align 4
@@ -7079,7 +7073,7 @@ define internal i32 @clusapi_dissect_CloseKey_response(ptr noundef %0, i32 nound
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -7096,7 +7090,7 @@ define internal i32 @clusapi_dissect_QueryInfoKey_request(ptr noundef %0, i32 no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_QueryInfoKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1534, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_QueryInfoKey_lpcSubKeys, align 4
@@ -7137,7 +7131,7 @@ define internal i32 @clusapi_dissect_QueryInfoKey_response(ptr noundef %0, i32 n
   br label %40
 
 40:                                               ; preds = %36, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %34
 }
 
@@ -7160,7 +7154,7 @@ define internal i32 @clusapi_dissect_SetKeySecurity_request(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_SetKeySecurity_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1535, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_SetKeySecurity_rpc_status, align 4
@@ -7180,7 +7174,7 @@ define internal i32 @clusapi_dissect_SetKeySecurity_response(ptr noundef %0, i32
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -7203,7 +7197,7 @@ define internal i32 @clusapi_dissect_GetKeySecurity_request(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_GetKeySecurity_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1536, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetKeySecurity_pRpcSecurityDescriptor, align 4
@@ -7226,7 +7220,7 @@ define internal i32 @clusapi_dissect_GetKeySecurity_response(ptr noundef %0, i32
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -7298,7 +7292,7 @@ define internal i32 @clusapi_dissect_DeleteGroup_request(ptr noundef %0, i32 nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_DeleteGroup_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1539, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_DeleteGroup_rpc_status, align 4
@@ -7318,7 +7312,7 @@ define internal i32 @clusapi_dissect_DeleteGroup_response(ptr noundef %0, i32 no
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -7335,7 +7329,7 @@ define internal i32 @clusapi_dissect_CloseGroup_request(ptr noundef %0, i32 noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_CloseGroup_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1540, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CloseGroup_Group, align 4
@@ -7355,7 +7349,7 @@ define internal i32 @clusapi_dissect_CloseGroup_response(ptr noundef %0, i32 nou
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -7372,7 +7366,7 @@ define internal i32 @clusapi_dissect_GetGroupState_request(ptr noundef %0, i32 n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_GetGroupState_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1541, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetGroupState_State, align 4
@@ -7398,7 +7392,7 @@ define internal i32 @clusapi_dissect_GetGroupState_response(ptr noundef %0, i32 
   br label %25
 
 25:                                               ; preds = %21, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %19
 }
 
@@ -7418,7 +7412,7 @@ define internal i32 @clusapi_dissect_SetGroupName_request(ptr noundef %0, i32 no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_SetGroupName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1542, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_SetGroupName_rpc_status, align 4
@@ -7438,7 +7432,7 @@ define internal i32 @clusapi_dissect_SetGroupName_response(ptr noundef %0, i32 n
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -7455,7 +7449,7 @@ define internal i32 @clusapi_dissect_GetGroupId_request(ptr noundef %0, i32 noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_GetGroupId_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1543, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetGroupId_pGuid, align 4
@@ -7478,7 +7472,7 @@ define internal i32 @clusapi_dissect_GetGroupId_response(ptr noundef %0, i32 nou
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -7495,7 +7489,7 @@ define internal i32 @clusapi_dissect_GetNodeId_request(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_GetNodeId_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1544, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetNodeId_pGuid, align 4
@@ -7518,7 +7512,7 @@ define internal i32 @clusapi_dissect_GetNodeId_response(ptr noundef %0, i32 noun
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -7535,7 +7529,7 @@ define internal i32 @clusapi_dissect_OnlineGroup_request(ptr noundef %0, i32 nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_OnlineGroup_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1545, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_OnlineGroup_rpc_status, align 4
@@ -7555,7 +7549,7 @@ define internal i32 @clusapi_dissect_OnlineGroup_response(ptr noundef %0, i32 no
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -7572,7 +7566,7 @@ define internal i32 @clusapi_dissect_OfflineGroup_request(ptr noundef %0, i32 no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_OfflineGroup_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1546, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_OfflineGroup_rpc_status, align 4
@@ -7592,7 +7586,7 @@ define internal i32 @clusapi_dissect_OfflineGroup_response(ptr noundef %0, i32 n
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -7609,7 +7603,7 @@ define internal i32 @clusapi_dissect_MoveGroup_request(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_MoveGroup_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1547, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_MoveGroup_rpc_status, align 4
@@ -7629,7 +7623,7 @@ define internal i32 @clusapi_dissect_MoveGroup_response(ptr noundef %0, i32 noun
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -7649,7 +7643,7 @@ define internal i32 @clusapi_dissect_MoveGroupToNode_request(ptr noundef %0, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_MoveGroupToNode_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1548, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_MoveGroupToNode_rpc_status, align 4
@@ -7669,7 +7663,7 @@ define internal i32 @clusapi_dissect_MoveGroupToNode_response(ptr noundef %0, i3
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -7689,7 +7683,7 @@ define internal i32 @clusapi_dissect_CreateGroupResourceEnum_request(ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_CreateGroupResourceEnum_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1549, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CreateGroupResourceEnum_ReturnEnum, align 4
@@ -7712,7 +7706,7 @@ define internal i32 @clusapi_dissect_CreateGroupResourceEnum_response(ptr nounde
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -7735,7 +7729,7 @@ define internal i32 @clusapi_dissect_SetGroupNodeList_request(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_SetGroupNodeList_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1550, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_SetGroupNodeList_rpc_status, align 4
@@ -7755,12 +7749,12 @@ define internal i32 @clusapi_dissect_SetGroupNodeList_response(ptr noundef %0, i
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @clusapi_dissect_CreateNotify_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @clusapi_dissect_CreateNotify_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1551, ptr %7, align 8
   ret i32 %1
@@ -7795,7 +7789,7 @@ define internal i32 @clusapi_dissect_CloseNotify_request(ptr noundef %0, i32 nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_CloseNotify_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1552, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CloseNotify_Notify, align 4
@@ -7815,7 +7809,7 @@ define internal i32 @clusapi_dissect_CloseNotify_response(ptr noundef %0, i32 no
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -7841,7 +7835,7 @@ define internal i32 @clusapi_dissect_AddNotifyCluster_request(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_AddNotifyCluster_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1553, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_AddNotifyCluster_rpc_status, align 4
@@ -7861,7 +7855,7 @@ define internal i32 @clusapi_dissect_AddNotifyCluster_response(ptr noundef %0, i
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -7887,7 +7881,7 @@ define internal i32 @clusapi_dissect_AddNotifyNode_request(ptr noundef %0, i32 n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_AddNotifyNode_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1554, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_AddNotifyNode_dwStateSequence, align 4
@@ -7910,7 +7904,7 @@ define internal i32 @clusapi_dissect_AddNotifyNode_response(ptr noundef %0, i32 
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -7936,7 +7930,7 @@ define internal i32 @clusapi_dissect_AddNotifyGroup_request(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_AddNotifyGroup_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1555, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_AddNotifyGroup_dwStateSequence, align 4
@@ -7959,7 +7953,7 @@ define internal i32 @clusapi_dissect_AddNotifyGroup_response(ptr noundef %0, i32
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -7985,7 +7979,7 @@ define internal i32 @clusapi_dissect_AddNotifyResource_request(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_AddNotifyResource_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1556, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_AddNotifyResource_dwStateSequence, align 4
@@ -8008,7 +8002,7 @@ define internal i32 @clusapi_dissect_AddNotifyResource_response(ptr noundef %0, 
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -8037,7 +8031,7 @@ define internal i32 @clusapi_dissect_AddNotifyKey_request(ptr noundef %0, i32 no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_AddNotifyKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1557, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_AddNotifyKey_rpc_status, align 4
@@ -8057,7 +8051,7 @@ define internal i32 @clusapi_dissect_AddNotifyKey_response(ptr noundef %0, i32 n
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -8086,7 +8080,7 @@ define internal i32 @clusapi_dissect_ReAddNotifyNode_request(ptr noundef %0, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_ReAddNotifyNode_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1558, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ReAddNotifyNode_rpc_status, align 4
@@ -8106,7 +8100,7 @@ define internal i32 @clusapi_dissect_ReAddNotifyNode_response(ptr noundef %0, i3
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -8135,7 +8129,7 @@ define internal i32 @clusapi_dissect_ReAddNotifyGroup_request(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_ReAddNotifyGroup_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1559, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ReAddNotifyGroup_rpc_status, align 4
@@ -8155,7 +8149,7 @@ define internal i32 @clusapi_dissect_ReAddNotifyGroup_response(ptr noundef %0, i
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -8184,7 +8178,7 @@ define internal i32 @clusapi_dissect_ReAddNotifyResource_request(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_ReAddNotifyResource_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1560, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ReAddNotifyResource_rpc_status, align 4
@@ -8204,7 +8198,7 @@ define internal i32 @clusapi_dissect_ReAddNotifyResource_response(ptr noundef %0
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -8221,7 +8215,7 @@ define internal i32 @clusapi_dissect_GetNotify_request(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_GetNotify_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1561, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetNotify_dwNotifyKey, align 4
@@ -8253,7 +8247,7 @@ define internal i32 @clusapi_dissect_GetNotify_response(ptr noundef %0, i32 noun
   br label %31
 
 31:                                               ; preds = %27, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %25
 }
 
@@ -8296,7 +8290,7 @@ define internal i32 @clusapi_dissect_CloseNode_request(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_CloseNode_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1563, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CloseNode_Node, align 4
@@ -8316,7 +8310,7 @@ define internal i32 @clusapi_dissect_CloseNode_response(ptr noundef %0, i32 noun
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -8333,7 +8327,7 @@ define internal i32 @clusapi_dissect_GetNodeState_request(ptr noundef %0, i32 no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_GetNodeState_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1564, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetNodeState_State, align 4
@@ -8356,7 +8350,7 @@ define internal i32 @clusapi_dissect_GetNodeState_response(ptr noundef %0, i32 n
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -8373,7 +8367,7 @@ define internal i32 @clusapi_dissect_PauseNode_request(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_PauseNode_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1565, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_PauseNode_rpc_status, align 4
@@ -8393,7 +8387,7 @@ define internal i32 @clusapi_dissect_PauseNode_response(ptr noundef %0, i32 noun
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -8410,7 +8404,7 @@ define internal i32 @clusapi_dissect_ResumeNode_request(ptr noundef %0, i32 noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_ResumeNode_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1566, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ResumeNode_rpc_status, align 4
@@ -8430,7 +8424,7 @@ define internal i32 @clusapi_dissect_ResumeNode_response(ptr noundef %0, i32 nou
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -8447,7 +8441,7 @@ define internal i32 @clusapi_dissect_EvictNode_request(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_EvictNode_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1567, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_EvictNode_rpc_status, align 4
@@ -8467,7 +8461,7 @@ define internal i32 @clusapi_dissect_EvictNode_response(ptr noundef %0, i32 noun
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -8499,7 +8493,7 @@ define internal i32 @clusapi_dissect_NodeResourceControl_request(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_NodeResourceControl_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1568, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_NodeResourceControl_lpOutBuffer, align 4
@@ -8528,7 +8522,7 @@ define internal i32 @clusapi_dissect_NodeResourceControl_response(ptr noundef %0
   br label %28
 
 28:                                               ; preds = %24, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %22
 }
 
@@ -8541,10 +8535,10 @@ define internal i32 @clusapi_dissect_ResourceControl_request(ptr noundef %0, i32
   %10 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, i32 noundef 0)
   %11 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %10, ptr noundef %4, ptr noundef %5)
   %12 = load i32, ptr @hf_clusapi_clusapi_ResourceControl_dwControlCode, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %13 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %11, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %12, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %14 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %13, ptr noundef %4, ptr noundef %5)
   %15 = load i32, ptr @hf_clusapi_clusapi_ResourceControl_lpInBuffer, align 4
   %16 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_ResourceControl_lpInBuffer_, i32 noundef 2, ptr noundef nonnull @.str.1741, i32 noundef %15)
@@ -8561,7 +8555,7 @@ define internal i32 @clusapi_dissect_ResourceControl_request(ptr noundef %0, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_ResourceControl_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1569, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ResourceControl_lpOutBuffer, align 4
@@ -8590,7 +8584,7 @@ define internal i32 @clusapi_dissect_ResourceControl_response(ptr noundef %0, i3
   br label %28
 
 28:                                               ; preds = %24, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %22
 }
 
@@ -8625,7 +8619,7 @@ define internal i32 @clusapi_dissect_NodeResourceTypeControl_request(ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_NodeResourceTypeControl_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1570, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_NodeResourceTypeControl_lpOutBuffer, align 4
@@ -8654,7 +8648,7 @@ define internal i32 @clusapi_dissect_NodeResourceTypeControl_response(ptr nounde
   br label %28
 
 28:                                               ; preds = %24, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %22
 }
 
@@ -8670,10 +8664,10 @@ define internal i32 @clusapi_dissect_ResourceTypeControl_request(ptr noundef %0,
   %13 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %11, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_ResourceTypeControl_lpszResourceTypeName_, i32 noundef 1, ptr noundef nonnull @.str.1744, i32 noundef %12)
   %14 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %13, ptr noundef %4, ptr noundef %5)
   %15 = load i32, ptr @hf_clusapi_clusapi_ResourceTypeControl_dwControlCode, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %16 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %17 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %16, ptr noundef %4, ptr noundef %5)
   %18 = load i32, ptr @hf_clusapi_clusapi_ResourceTypeControl_lpInBuffer, align 4
   %19 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_ResourceTypeControl_lpInBuffer_, i32 noundef 2, ptr noundef nonnull @.str.1741, i32 noundef %18)
@@ -8690,7 +8684,7 @@ define internal i32 @clusapi_dissect_ResourceTypeControl_request(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_ResourceTypeControl_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1571, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ResourceTypeControl_lpOutBuffer, align 4
@@ -8719,7 +8713,7 @@ define internal i32 @clusapi_dissect_ResourceTypeControl_response(ptr noundef %0
   br label %28
 
 28:                                               ; preds = %24, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %22
 }
 
@@ -8751,7 +8745,7 @@ define internal i32 @clusapi_dissect_NodeGroupControl_request(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_NodeGroupControl_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1572, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_NodeGroupControl_lpOutBuffer, align 4
@@ -8780,7 +8774,7 @@ define internal i32 @clusapi_dissect_NodeGroupControl_response(ptr noundef %0, i
   br label %28
 
 28:                                               ; preds = %24, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %22
 }
 
@@ -8793,10 +8787,10 @@ define internal i32 @clusapi_dissect_GroupControl_request(ptr noundef %0, i32 no
   %10 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, i32 noundef 0)
   %11 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %10, ptr noundef %4, ptr noundef %5)
   %12 = load i32, ptr @hf_clusapi_clusapi_GroupControl_dwControlCode, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %13 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %11, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %12, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %14 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %13, ptr noundef %4, ptr noundef %5)
   %15 = load i32, ptr @hf_clusapi_clusapi_GroupControl_lpInBuffer, align 4
   %16 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GroupControl_lpInBuffer_, i32 noundef 2, ptr noundef nonnull @.str.1741, i32 noundef %15)
@@ -8813,7 +8807,7 @@ define internal i32 @clusapi_dissect_GroupControl_request(ptr noundef %0, i32 no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_GroupControl_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1573, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GroupControl_lpOutBuffer, align 4
@@ -8842,7 +8836,7 @@ define internal i32 @clusapi_dissect_GroupControl_response(ptr noundef %0, i32 n
   br label %28
 
 28:                                               ; preds = %24, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %22
 }
 
@@ -8874,7 +8868,7 @@ define internal i32 @clusapi_dissect_NodeNodeControl_request(ptr noundef %0, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_NodeNodeControl_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1574, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_NodeNodeControl_lpOutBuffer, align 4
@@ -8903,7 +8897,7 @@ define internal i32 @clusapi_dissect_NodeNodeControl_response(ptr noundef %0, i3
   br label %28
 
 28:                                               ; preds = %24, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %22
 }
 
@@ -8916,10 +8910,10 @@ define internal i32 @clusapi_dissect_NodeControl_request(ptr noundef %0, i32 nou
   %10 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, i32 noundef 0)
   %11 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %10, ptr noundef %4, ptr noundef %5)
   %12 = load i32, ptr @hf_clusapi_clusapi_NodeControl_dwControlCode, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %13 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %11, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %12, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %14 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %13, ptr noundef %4, ptr noundef %5)
   %15 = load i32, ptr @hf_clusapi_clusapi_NodeControl_lpInBuffer, align 4
   %16 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_NodeControl_lpInBuffer_, i32 noundef 2, ptr noundef nonnull @.str.1741, i32 noundef %15)
@@ -8936,7 +8930,7 @@ define internal i32 @clusapi_dissect_NodeControl_request(ptr noundef %0, i32 nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_NodeControl_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1575, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_NodeControl_lpOutBuffer, align 4
@@ -8965,12 +8959,12 @@ define internal i32 @clusapi_dissect_NodeControl_response(ptr noundef %0, i32 no
   br label %28
 
 28:                                               ; preds = %24, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @clusapi_dissect_Opnum80NotUsedOnWire_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @clusapi_dissect_Opnum80NotUsedOnWire_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1576, ptr %7, align 8
   ret i32 %1
@@ -8979,7 +8973,7 @@ define internal noundef i32 @clusapi_dissect_Opnum80NotUsedOnWire_request(ptr re
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_Opnum80NotUsedOnWire_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1576, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
@@ -8996,7 +8990,7 @@ define internal i32 @clusapi_dissect_Opnum80NotUsedOnWire_response(ptr noundef %
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -9039,7 +9033,7 @@ define internal i32 @clusapi_dissect_CloseNetwork_request(ptr noundef %0, i32 no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_CloseNetwork_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1578, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CloseNetwork_Network, align 4
@@ -9059,7 +9053,7 @@ define internal i32 @clusapi_dissect_CloseNetwork_response(ptr noundef %0, i32 n
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -9076,7 +9070,7 @@ define internal i32 @clusapi_dissect_GetNetworkState_request(ptr noundef %0, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_GetNetworkState_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1579, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetNetworkState_State, align 4
@@ -9099,7 +9093,7 @@ define internal i32 @clusapi_dissect_GetNetworkState_response(ptr noundef %0, i3
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -9119,7 +9113,7 @@ define internal i32 @clusapi_dissect_SetNetworkName_request(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_SetNetworkName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1580, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_SetNetworkName_rpc_status, align 4
@@ -9139,7 +9133,7 @@ define internal i32 @clusapi_dissect_SetNetworkName_response(ptr noundef %0, i32
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -9159,7 +9153,7 @@ define internal i32 @clusapi_dissect_CreateNetworkEnum_request(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_CreateNetworkEnum_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1581, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CreateNetworkEnum_ReturnEnum, align 4
@@ -9182,7 +9176,7 @@ define internal i32 @clusapi_dissect_CreateNetworkEnum_response(ptr noundef %0, 
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -9199,7 +9193,7 @@ define internal i32 @clusapi_dissect_GetNetworkId_request(ptr noundef %0, i32 no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_GetNetworkId_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1582, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetNetworkId_pGuid, align 4
@@ -9222,7 +9216,7 @@ define internal i32 @clusapi_dissect_GetNetworkId_response(ptr noundef %0, i32 n
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -9234,12 +9228,12 @@ define internal i32 @clusapi_dissect_SetNetworkPriorityOrder_request(ptr noundef
   %9 = load i32, ptr @hf_clusapi_clusapi_SetNetworkPriorityOrder_NetworkCount, align 4
   %10 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, i32 noundef 0)
   %11 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %10, ptr noundef %4, ptr noundef %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = load i32, ptr @hf_clusapi_clusapi_SetNetworkPriorityOrder_NetworkIdList, align 4
   %13 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %11, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %12, i1 noundef zeroext false, ptr noundef nonnull %7)
   %14 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %15 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %13, ptr noundef %4, ptr noundef %5)
   ret i32 %15
 }
@@ -9247,7 +9241,7 @@ define internal i32 @clusapi_dissect_SetNetworkPriorityOrder_request(ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_SetNetworkPriorityOrder_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1583, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_SetNetworkPriorityOrder_rpc_status, align 4
@@ -9267,7 +9261,7 @@ define internal i32 @clusapi_dissect_SetNetworkPriorityOrder_response(ptr nounde
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -9299,7 +9293,7 @@ define internal i32 @clusapi_dissect_NodeNetworkControl_request(ptr noundef %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_NodeNetworkControl_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1584, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_NodeNetworkControl_lpOutBuffer, align 4
@@ -9328,7 +9322,7 @@ define internal i32 @clusapi_dissect_NodeNetworkControl_response(ptr noundef %0,
   br label %28
 
 28:                                               ; preds = %24, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %22
 }
 
@@ -9357,7 +9351,7 @@ define internal i32 @clusapi_dissect_NetworkControl_request(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_NetworkControl_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1585, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_NetworkControl_lpOutBuffer, align 4
@@ -9386,7 +9380,7 @@ define internal i32 @clusapi_dissect_NetworkControl_response(ptr noundef %0, i32
   br label %28
 
 28:                                               ; preds = %24, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %22
 }
 
@@ -9412,7 +9406,7 @@ define internal i32 @clusapi_dissect_AddNotifyNetwork_request(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_AddNotifyNetwork_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1586, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_AddNotifyNetwork_dwStateSequence, align 4
@@ -9435,7 +9429,7 @@ define internal i32 @clusapi_dissect_AddNotifyNetwork_response(ptr noundef %0, i
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -9464,7 +9458,7 @@ define internal i32 @clusapi_dissect_ReAddNotifyNetwork_request(ptr noundef %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_ReAddNotifyNetwork_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1587, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ReAddNotifyNetwork_rpc_status, align 4
@@ -9484,7 +9478,7 @@ define internal i32 @clusapi_dissect_ReAddNotifyNetwork_response(ptr noundef %0,
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -9527,7 +9521,7 @@ define internal i32 @clusapi_dissect_CloseNetInterface_request(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_CloseNetInterface_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1589, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CloseNetInterface_NetInterface, align 4
@@ -9547,7 +9541,7 @@ define internal i32 @clusapi_dissect_CloseNetInterface_response(ptr noundef %0, 
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -9564,7 +9558,7 @@ define internal i32 @clusapi_dissect_GetNetInterfaceState_request(ptr noundef %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_GetNetInterfaceState_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1590, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetNetInterfaceState_State, align 4
@@ -9587,7 +9581,7 @@ define internal i32 @clusapi_dissect_GetNetInterfaceState_response(ptr noundef %
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -9607,7 +9601,7 @@ define internal i32 @clusapi_dissect_GetNetInterface_request(ptr noundef %0, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_GetNetInterface_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1591, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetNetInterface_lppszInterfaceName, align 4
@@ -9630,7 +9624,7 @@ define internal i32 @clusapi_dissect_GetNetInterface_response(ptr noundef %0, i3
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -9647,7 +9641,7 @@ define internal i32 @clusapi_dissect_GetNetInterfaceId_request(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_GetNetInterfaceId_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1592, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetNetInterfaceId_pGuid, align 4
@@ -9670,7 +9664,7 @@ define internal i32 @clusapi_dissect_GetNetInterfaceId_response(ptr noundef %0, 
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -9702,7 +9696,7 @@ define internal i32 @clusapi_dissect_NodeNetInterfaceControl_request(ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_NodeNetInterfaceControl_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1593, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_NodeNetInterfaceControl_lpOutBuffer, align 4
@@ -9731,7 +9725,7 @@ define internal i32 @clusapi_dissect_NodeNetInterfaceControl_response(ptr nounde
   br label %28
 
 28:                                               ; preds = %24, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %22
 }
 
@@ -9760,7 +9754,7 @@ define internal i32 @clusapi_dissect_NetInterfaceControl_request(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_NetInterfaceControl_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1594, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_NetInterfaceControl_lpOutBuffer, align 4
@@ -9789,7 +9783,7 @@ define internal i32 @clusapi_dissect_NetInterfaceControl_response(ptr noundef %0
   br label %28
 
 28:                                               ; preds = %24, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %22
 }
 
@@ -9815,7 +9809,7 @@ define internal i32 @clusapi_dissect_AddNotifyNetInterface_request(ptr noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_AddNotifyNetInterface_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1595, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_AddNotifyNetInterface_dwStateSequence, align 4
@@ -9838,7 +9832,7 @@ define internal i32 @clusapi_dissect_AddNotifyNetInterface_response(ptr noundef 
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -9867,7 +9861,7 @@ define internal i32 @clusapi_dissect_ReAddNotifyNetInterface_request(ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_ReAddNotifyNetInterface_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1596, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ReAddNotifyNetInterface_rpc_status, align 4
@@ -9887,7 +9881,7 @@ define internal i32 @clusapi_dissect_ReAddNotifyNetInterface_response(ptr nounde
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -9907,7 +9901,7 @@ define internal i32 @clusapi_dissect_CreateNodeEnum_request(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_CreateNodeEnum_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1597, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CreateNodeEnum_ReturnEnum, align 4
@@ -9930,12 +9924,12 @@ define internal i32 @clusapi_dissect_CreateNodeEnum_response(ptr noundef %0, i32
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @clusapi_dissect_GetClusterVersion2_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @clusapi_dissect_GetClusterVersion2_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1598, ptr %7, align 8
   ret i32 %1
@@ -9944,7 +9938,7 @@ define internal noundef i32 @clusapi_dissect_GetClusterVersion2_request(ptr read
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_GetClusterVersion2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1598, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetClusterVersion2_lpwMajorVersion, align 4
@@ -9982,7 +9976,7 @@ define internal i32 @clusapi_dissect_GetClusterVersion2_response(ptr noundef %0,
   br label %37
 
 37:                                               ; preds = %33, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %31
 }
 
@@ -10002,7 +9996,7 @@ define internal i32 @clusapi_dissect_CreateResTypeEnum_request(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_CreateResTypeEnum_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1599, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CreateResTypeEnum_ReturnEnum, align 4
@@ -10025,7 +10019,7 @@ define internal i32 @clusapi_dissect_CreateResTypeEnum_response(ptr noundef %0, 
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -10042,7 +10036,7 @@ define internal i32 @clusapi_dissect_BackupClusterDatabase_request(ptr noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_BackupClusterDatabase_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1600, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_BackupClusterDatabase_rpc_status, align 4
@@ -10062,7 +10056,7 @@ define internal i32 @clusapi_dissect_BackupClusterDatabase_response(ptr noundef 
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -10094,7 +10088,7 @@ define internal i32 @clusapi_dissect_NodeClusterControl_request(ptr noundef %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_NodeClusterControl_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1601, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_NodeClusterControl_lpOutBuffer, align 4
@@ -10123,7 +10117,7 @@ define internal i32 @clusapi_dissect_NodeClusterControl_response(ptr noundef %0,
   br label %28
 
 28:                                               ; preds = %24, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %22
 }
 
@@ -10136,10 +10130,10 @@ define internal i32 @clusapi_dissect_ClusterControl_request(ptr noundef %0, i32 
   %10 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, i32 noundef 0)
   %11 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %10, ptr noundef %4, ptr noundef %5)
   %12 = load i32, ptr @hf_clusapi_clusapi_ClusterControl_dwControlCode, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %13 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %11, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %12, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %14 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %13, ptr noundef %4, ptr noundef %5)
   %15 = load i32, ptr @hf_clusapi_clusapi_ClusterControl_lpInBuffer, align 4
   %16 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_ClusterControl_lpInBuffer_, i32 noundef 2, ptr noundef nonnull @.str.1741, i32 noundef %15)
@@ -10156,7 +10150,7 @@ define internal i32 @clusapi_dissect_ClusterControl_request(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_ClusterControl_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1602, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ClusterControl_lpOutBuffer, align 4
@@ -10185,7 +10179,7 @@ define internal i32 @clusapi_dissect_ClusterControl_response(ptr noundef %0, i32
   br label %28
 
 28:                                               ; preds = %24, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %22
 }
 
@@ -10202,7 +10196,7 @@ define internal i32 @clusapi_dissect_UnblockGetNotifyCall_request(ptr noundef %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_UnblockGetNotifyCall_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1603, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
@@ -10219,7 +10213,7 @@ define internal i32 @clusapi_dissect_UnblockGetNotifyCall_response(ptr noundef %
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -10232,10 +10226,10 @@ define internal i32 @clusapi_dissect_SetServiceAccountPassword_request(ptr nound
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_SetServiceAccountPassword_lpszNewPassword_, i32 noundef 1, ptr noundef nonnull @.str.1756, i32 noundef %9)
   %11 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %10, ptr noundef %4, ptr noundef %5)
   %12 = load i32, ptr @hf_clusapi_clusapi_SetServiceAccountPassword_dwFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %13 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %11, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %12, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %14 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %13, ptr noundef %4, ptr noundef %5)
   %15 = load i32, ptr @hf_clusapi_clusapi_SetServiceAccountPassword_ReturnStatusBufferSize, align 4
   %16 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %15, i32 noundef 0)
@@ -10246,7 +10240,7 @@ define internal i32 @clusapi_dissect_SetServiceAccountPassword_request(ptr nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_SetServiceAccountPassword_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1604, ptr %8, align 8
   %9 = tail call i32 @dissect_ndr_ucvarray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_SetServiceAccountPassword_ReturnStatusBufferPtr_)
@@ -10271,7 +10265,7 @@ define internal i32 @clusapi_dissect_SetServiceAccountPassword_response(ptr noun
   br label %24
 
 24:                                               ; preds = %20, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %18
 }
 
@@ -10291,7 +10285,7 @@ define internal i32 @clusapi_dissect_SetResourceDependencyExpression_request(ptr
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_SetResourceDependencyExpression_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1605, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_SetResourceDependencyExpression_rpc_status, align 4
@@ -10311,7 +10305,7 @@ define internal i32 @clusapi_dissect_SetResourceDependencyExpression_response(pt
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -10328,7 +10322,7 @@ define internal i32 @clusapi_dissect_GetResourceDependencyExpression_request(ptr
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_GetResourceDependencyExpression_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1606, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetResourceDependencyExpression_lpszDependencyExpression, align 4
@@ -10351,12 +10345,12 @@ define internal i32 @clusapi_dissect_GetResourceDependencyExpression_response(pt
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @clusapi_dissect_Opnum111NotUsedOnWire_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @clusapi_dissect_Opnum111NotUsedOnWire_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1607, ptr %7, align 8
   ret i32 %1
@@ -10365,7 +10359,7 @@ define internal noundef i32 @clusapi_dissect_Opnum111NotUsedOnWire_request(ptr r
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_Opnum111NotUsedOnWire_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1607, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
@@ -10382,7 +10376,7 @@ define internal i32 @clusapi_dissect_Opnum111NotUsedOnWire_response(ptr noundef 
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -10399,7 +10393,7 @@ define internal i32 @clusapi_dissect_GetResourceNetworkName_request(ptr noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_GetResourceNetworkName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1608, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetResourceNetworkName_lpszName, align 4
@@ -10422,7 +10416,7 @@ define internal i32 @clusapi_dissect_GetResourceNetworkName_response(ptr noundef
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -10445,7 +10439,7 @@ define internal i32 @clusapi_dissect_ExecuteBatch_request(ptr noundef %0, i32 no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_ExecuteBatch_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1609, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ExecuteBatch_pdwFailedCommand, align 4
@@ -10468,7 +10462,7 @@ define internal i32 @clusapi_dissect_ExecuteBatch_response(ptr noundef %0, i32 n
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -10485,7 +10479,7 @@ define internal i32 @clusapi_dissect_CreateBatchPort_request(ptr noundef %0, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_CreateBatchPort_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1610, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CreateBatchPort_phBatchPort, align 4
@@ -10508,7 +10502,7 @@ define internal i32 @clusapi_dissect_CreateBatchPort_response(ptr noundef %0, i3
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -10525,7 +10519,7 @@ define internal i32 @clusapi_dissect_GetBatchNotification_request(ptr noundef %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_GetBatchNotification_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1611, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetBatchNotification_cbData, align 4
@@ -10548,7 +10542,7 @@ define internal i32 @clusapi_dissect_GetBatchNotification_response(ptr noundef %
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -10565,7 +10559,7 @@ define internal i32 @clusapi_dissect_CloseBatchPort_request(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_CloseBatchPort_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1612, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CloseBatchPort_phBatchPort, align 4
@@ -10585,7 +10579,7 @@ define internal i32 @clusapi_dissect_CloseBatchPort_response(ptr noundef %0, i32
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -10791,7 +10785,7 @@ define internal i32 @clusapi_dissect_ChangeCsvState_request(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_ChangeCsvState_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1619, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ChangeCsvState_rpc_status, align 4
@@ -10811,7 +10805,7 @@ define internal i32 @clusapi_dissect_ChangeCsvState_response(ptr noundef %0, i32
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -10834,7 +10828,7 @@ define internal i32 @clusapi_dissect_CreateNodeEnumEx_request(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_CreateNodeEnumEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1620, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CreateNodeEnumEx_ReturnIdEnum, align 4
@@ -10860,7 +10854,7 @@ define internal i32 @clusapi_dissect_CreateNodeEnumEx_response(ptr noundef %0, i
   br label %25
 
 25:                                               ; preds = %21, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %19
 }
 
@@ -10883,7 +10877,7 @@ define internal i32 @clusapi_dissect_CreateEnumEx_request(ptr noundef %0, i32 no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_CreateEnumEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1621, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CreateEnumEx_ReturnIdEnum, align 4
@@ -10909,7 +10903,7 @@ define internal i32 @clusapi_dissect_CreateEnumEx_response(ptr noundef %0, i32 n
   br label %25
 
 25:                                               ; preds = %21, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %19
 }
 
@@ -10932,7 +10926,7 @@ define internal i32 @clusapi_dissect_PauseNodeEx_request(ptr noundef %0, i32 nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_PauseNodeEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1622, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_PauseNodeEx_rpc_status, align 4
@@ -10952,7 +10946,7 @@ define internal i32 @clusapi_dissect_PauseNodeEx_response(ptr noundef %0, i32 no
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -10975,7 +10969,7 @@ define internal i32 @clusapi_dissect_PauseNodeWithDrainTarget_request(ptr nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_PauseNodeWithDrainTarget_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1623, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_PauseNodeWithDrainTarget_rpc_status, align 4
@@ -10995,7 +10989,7 @@ define internal i32 @clusapi_dissect_PauseNodeWithDrainTarget_response(ptr nound
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -11018,7 +11012,7 @@ define internal i32 @clusapi_dissect_ResumeNodeEx_request(ptr noundef %0, i32 no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_ResumeNodeEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1624, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ResumeNodeEx_rpc_status, align 4
@@ -11038,7 +11032,7 @@ define internal i32 @clusapi_dissect_ResumeNodeEx_response(ptr noundef %0, i32 n
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -11093,7 +11087,7 @@ define internal i32 @clusapi_dissect_OnlineGroupEx_request(ptr noundef %0, i32 n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_OnlineGroupEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1626, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_OnlineGroupEx_rpc_status, align 4
@@ -11113,7 +11107,7 @@ define internal i32 @clusapi_dissect_OnlineGroupEx_response(ptr noundef %0, i32 
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -11139,7 +11133,7 @@ define internal i32 @clusapi_dissect_OfflineGroupEx_request(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_OfflineGroupEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1627, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_OfflineGroupEx_rpc_status, align 4
@@ -11159,7 +11153,7 @@ define internal i32 @clusapi_dissect_OfflineGroupEx_response(ptr noundef %0, i32
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -11185,7 +11179,7 @@ define internal i32 @clusapi_dissect_MoveGroupEx_request(ptr noundef %0, i32 nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_MoveGroupEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1628, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_MoveGroupEx_rpc_status, align 4
@@ -11205,7 +11199,7 @@ define internal i32 @clusapi_dissect_MoveGroupEx_response(ptr noundef %0, i32 no
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -11234,7 +11228,7 @@ define internal i32 @clusapi_dissect_MoveGroupToNodeEx_request(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_MoveGroupToNodeEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1629, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_MoveGroupToNodeEx_rpc_status, align 4
@@ -11254,7 +11248,7 @@ define internal i32 @clusapi_dissect_MoveGroupToNodeEx_response(ptr noundef %0, 
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -11274,7 +11268,7 @@ define internal i32 @clusapi_dissect_CancelClusterGroupOperation_request(ptr nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_CancelClusterGroupOperation_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1630, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CancelClusterGroupOperation_rpc_status, align 4
@@ -11294,7 +11288,7 @@ define internal i32 @clusapi_dissect_CancelClusterGroupOperation_response(ptr no
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -11320,7 +11314,7 @@ define internal i32 @clusapi_dissect_OnlineResourceEx_request(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_OnlineResourceEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1631, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_OnlineResourceEx_rpc_status, align 4
@@ -11340,7 +11334,7 @@ define internal i32 @clusapi_dissect_OnlineResourceEx_response(ptr noundef %0, i
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -11366,7 +11360,7 @@ define internal i32 @clusapi_dissect_OfflineResourceEx_request(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_OfflineResourceEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1632, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_OfflineResourceEx_rpc_status, align 4
@@ -11386,12 +11380,12 @@ define internal i32 @clusapi_dissect_OfflineResourceEx_response(ptr noundef %0, 
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @clusapi_dissect_CreateNotifyV2_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @clusapi_dissect_CreateNotifyV2_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1633, ptr %7, align 8
   ret i32 %1
@@ -11441,7 +11435,7 @@ define internal i32 @clusapi_dissect_AddNotifyV2_request(ptr noundef %0, i32 nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_AddNotifyV2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1634, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_AddNotifyV2_rpc_status, align 4
@@ -11461,7 +11455,7 @@ define internal i32 @clusapi_dissect_AddNotifyV2_response(ptr noundef %0, i32 no
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -11478,7 +11472,7 @@ define internal i32 @clusapi_dissect_GetNotifyV2_request(ptr noundef %0, i32 nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_GetNotifyV2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1635, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetNotifyV2_Notifications, align 4
@@ -11501,7 +11495,7 @@ define internal i32 @clusapi_dissect_GetNotifyV2_response(ptr noundef %0, i32 no
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -11518,7 +11512,7 @@ define internal i32 @clusapi_dissect_QueryAllValues_request(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_QueryAllValues_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1636, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_QueryAllValues_pcbData, align 4
@@ -11544,7 +11538,7 @@ define internal i32 @clusapi_dissect_QueryAllValues_response(ptr noundef %0, i32
   br label %25
 
 25:                                               ; preds = %21, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %19
 }
 
@@ -11573,7 +11567,7 @@ define internal i32 @clusapi_dissect_StmFindDisk_request(ptr noundef %0, i32 nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_StmFindDisk_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1637, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_StmFindDisk_pDiskId, align 4
@@ -11599,7 +11593,7 @@ define internal i32 @clusapi_dissect_StmFindDisk_response(ptr noundef %0, i32 no
   br label %25
 
 25:                                               ; preds = %21, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %19
 }
 
@@ -11637,7 +11631,7 @@ define internal i32 @clusapi_dissect_ClusterMrr_request(ptr noundef %0, i32 noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_ClusterMrr_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1638, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ClusterMrr_ppInfo, align 4
@@ -11660,7 +11654,7 @@ define internal i32 @clusapi_dissect_ClusterMrr_response(ptr noundef %0, i32 nou
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -11689,7 +11683,7 @@ define internal i32 @clusapi_dissect_CreateGroupEnum_request(ptr noundef %0, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_CreateGroupEnum_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1639, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CreateGroupEnum_ppResultList, align 4
@@ -11712,7 +11706,7 @@ define internal i32 @clusapi_dissect_CreateGroupEnum_response(ptr noundef %0, i3
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -11741,7 +11735,7 @@ define internal i32 @clusapi_dissect_CreateResourceEnum_request(ptr noundef %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_CreateResourceEnum_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1640, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CreateResourceEnum_ppResultList, align 4
@@ -11764,7 +11758,7 @@ define internal i32 @clusapi_dissect_CreateResourceEnum_response(ptr noundef %0,
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -11787,7 +11781,7 @@ define internal i32 @clusapi_dissect_ExecuteReadBatch_request(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_ExecuteReadBatch_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1641, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ExecuteReadBatch_cbOutData, align 4
@@ -11813,7 +11807,7 @@ define internal i32 @clusapi_dissect_ExecuteReadBatch_response(ptr noundef %0, i
   br label %25
 
 25:                                               ; preds = %21, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %19
 }
 
@@ -11833,7 +11827,7 @@ define internal i32 @clusapi_dissect_RestartResource_request(ptr noundef %0, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_RestartResource_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1642, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_RestartResource_rpc_status, align 4
@@ -11853,7 +11847,7 @@ define internal i32 @clusapi_dissect_RestartResource_response(ptr noundef %0, i3
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -11870,7 +11864,7 @@ define internal i32 @clusapi_dissect_GetNotifyAsync_request(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_GetNotifyAsync_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1643, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetNotifyAsync_Notifications, align 4
@@ -11893,12 +11887,12 @@ define internal i32 @clusapi_dissect_GetNotifyAsync_response(ptr noundef %0, i32
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @clusapi_dissect_Opnum148NotUsedOnWire_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @clusapi_dissect_Opnum148NotUsedOnWire_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1644, ptr %7, align 8
   ret i32 %1
@@ -11907,7 +11901,7 @@ define internal noundef i32 @clusapi_dissect_Opnum148NotUsedOnWire_request(ptr r
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_Opnum148NotUsedOnWire_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1644, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
@@ -11924,12 +11918,12 @@ define internal i32 @clusapi_dissect_Opnum148NotUsedOnWire_response(ptr noundef 
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @clusapi_dissect_Opnum149otUsedOnWire_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @clusapi_dissect_Opnum149otUsedOnWire_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1645, ptr %7, align 8
   ret i32 %1
@@ -11938,7 +11932,7 @@ define internal noundef i32 @clusapi_dissect_Opnum149otUsedOnWire_request(ptr re
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_Opnum149otUsedOnWire_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1645, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
@@ -11955,12 +11949,12 @@ define internal i32 @clusapi_dissect_Opnum149otUsedOnWire_response(ptr noundef %
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @clusapi_dissect_Opnum150NotUsedOnWire_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @clusapi_dissect_Opnum150NotUsedOnWire_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1646, ptr %7, align 8
   ret i32 %1
@@ -11969,7 +11963,7 @@ define internal noundef i32 @clusapi_dissect_Opnum150NotUsedOnWire_request(ptr r
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_Opnum150NotUsedOnWire_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1646, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
@@ -11986,12 +11980,12 @@ define internal i32 @clusapi_dissect_Opnum150NotUsedOnWire_response(ptr noundef 
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @clusapi_dissect_Opnum151NotUsedOnWire_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @clusapi_dissect_Opnum151NotUsedOnWire_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1647, ptr %7, align 8
   ret i32 %1
@@ -12000,7 +11994,7 @@ define internal noundef i32 @clusapi_dissect_Opnum151NotUsedOnWire_request(ptr r
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_Opnum151NotUsedOnWire_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1647, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
@@ -12017,12 +12011,12 @@ define internal i32 @clusapi_dissect_Opnum151NotUsedOnWire_response(ptr noundef 
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @clusapi_dissect_Opnum152NotUsedOnWire_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @clusapi_dissect_Opnum152NotUsedOnWire_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1648, ptr %7, align 8
   ret i32 %1
@@ -12031,7 +12025,7 @@ define internal noundef i32 @clusapi_dissect_Opnum152NotUsedOnWire_request(ptr r
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_Opnum152NotUsedOnWire_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1648, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
@@ -12048,12 +12042,12 @@ define internal i32 @clusapi_dissect_Opnum152NotUsedOnWire_response(ptr noundef 
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @clusapi_dissect_Opnum153NotUsedOnWire_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @clusapi_dissect_Opnum153NotUsedOnWire_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1649, ptr %7, align 8
   ret i32 %1
@@ -12062,7 +12056,7 @@ define internal noundef i32 @clusapi_dissect_Opnum153NotUsedOnWire_request(ptr r
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_Opnum153NotUsedOnWire_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1649, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
@@ -12079,12 +12073,12 @@ define internal i32 @clusapi_dissect_Opnum153NotUsedOnWire_response(ptr noundef 
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @clusapi_dissect_Opnum154NotUsedOnWire_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @clusapi_dissect_Opnum154NotUsedOnWire_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1650, ptr %7, align 8
   ret i32 %1
@@ -12093,7 +12087,7 @@ define internal noundef i32 @clusapi_dissect_Opnum154NotUsedOnWire_request(ptr r
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_Opnum154NotUsedOnWire_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1650, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
@@ -12110,7 +12104,7 @@ define internal i32 @clusapi_dissect_Opnum154NotUsedOnWire_response(ptr noundef 
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -12139,7 +12133,7 @@ define internal i32 @clusapi_dissect_AddNotifyResourceTypeV2_request(ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_AddNotifyResourceTypeV2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1651, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_AddNotifyResourceTypeV2_rpc_status, align 4
@@ -12159,12 +12153,12 @@ define internal i32 @clusapi_dissect_AddNotifyResourceTypeV2_response(ptr nounde
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @clusapi_dissect_Opnum156NotUsedOnWire_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @clusapi_dissect_Opnum156NotUsedOnWire_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1652, ptr %7, align 8
   ret i32 %1
@@ -12173,7 +12167,7 @@ define internal noundef i32 @clusapi_dissect_Opnum156NotUsedOnWire_request(ptr r
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_Opnum156NotUsedOnWire_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1652, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
@@ -12190,7 +12184,7 @@ define internal i32 @clusapi_dissect_Opnum156NotUsedOnWire_response(ptr noundef 
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -12216,7 +12210,7 @@ define internal i32 @clusapi_dissect_ExecuteReadBatchEx_request(ptr noundef %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_ExecuteReadBatchEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1653, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ExecuteReadBatchEx_cbOutData, align 4
@@ -12242,12 +12236,12 @@ define internal i32 @clusapi_dissect_ExecuteReadBatchEx_response(ptr noundef %0,
   br label %25
 
 25:                                               ; preds = %21, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @clusapi_dissect_Opnum158NotUsedOnWire_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @clusapi_dissect_Opnum158NotUsedOnWire_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1654, ptr %7, align 8
   ret i32 %1
@@ -12256,7 +12250,7 @@ define internal noundef i32 @clusapi_dissect_Opnum158NotUsedOnWire_request(ptr r
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_Opnum158NotUsedOnWire_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1654, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
@@ -12273,12 +12267,12 @@ define internal i32 @clusapi_dissect_Opnum158NotUsedOnWire_response(ptr noundef 
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @clusapi_dissect_Opnum159NotUsedOnWire_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @clusapi_dissect_Opnum159NotUsedOnWire_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1655, ptr %7, align 8
   ret i32 %1
@@ -12287,7 +12281,7 @@ define internal noundef i32 @clusapi_dissect_Opnum159NotUsedOnWire_request(ptr r
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_Opnum159NotUsedOnWire_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1655, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
@@ -12304,12 +12298,12 @@ define internal i32 @clusapi_dissect_Opnum159NotUsedOnWire_response(ptr noundef 
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @clusapi_dissect_Opnum160NotUsedOnWire_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @clusapi_dissect_Opnum160NotUsedOnWire_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1656, ptr %7, align 8
   ret i32 %1
@@ -12318,7 +12312,7 @@ define internal noundef i32 @clusapi_dissect_Opnum160NotUsedOnWire_request(ptr r
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_Opnum160NotUsedOnWire_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1656, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
@@ -12335,12 +12329,12 @@ define internal i32 @clusapi_dissect_Opnum160NotUsedOnWire_response(ptr noundef 
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @clusapi_dissect_Opnum161NotUsedOnWire_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @clusapi_dissect_Opnum161NotUsedOnWire_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1657, ptr %7, align 8
   ret i32 %1
@@ -12349,7 +12343,7 @@ define internal noundef i32 @clusapi_dissect_Opnum161NotUsedOnWire_request(ptr r
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_Opnum161NotUsedOnWire_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1657, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
@@ -12366,12 +12360,12 @@ define internal i32 @clusapi_dissect_Opnum161NotUsedOnWire_response(ptr noundef 
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @clusapi_dissect_Opnum162NotUsedOnWire_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @clusapi_dissect_Opnum162NotUsedOnWire_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1658, ptr %7, align 8
   ret i32 %1
@@ -12380,7 +12374,7 @@ define internal noundef i32 @clusapi_dissect_Opnum162NotUsedOnWire_request(ptr r
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_Opnum162NotUsedOnWire_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1658, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
@@ -12397,7 +12391,7 @@ define internal i32 @clusapi_dissect_Opnum162NotUsedOnWire_response(ptr noundef 
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -12466,7 +12460,7 @@ define internal i32 @clusapi_dissect_CloseGroupSet_request(ptr noundef %0, i32 n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_CloseGroupSet_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1661, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CloseGroupSet_GroupSet, align 4
@@ -12486,7 +12480,7 @@ define internal i32 @clusapi_dissect_CloseGroupSet_response(ptr noundef %0, i32 
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -12503,7 +12497,7 @@ define internal i32 @clusapi_dissect_DeleteGroupSet_request(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_DeleteGroupSet_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1662, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_DeleteGroupSet_rpc_status, align 4
@@ -12523,7 +12517,7 @@ define internal i32 @clusapi_dissect_DeleteGroupSet_response(ptr noundef %0, i32
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -12543,7 +12537,7 @@ define internal i32 @clusapi_dissect_AddGroupToGroupSet_request(ptr noundef %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_AddGroupToGroupSet_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1663, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_AddGroupToGroupSet_rpc_status, align 4
@@ -12563,7 +12557,7 @@ define internal i32 @clusapi_dissect_AddGroupToGroupSet_response(ptr noundef %0,
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -12580,7 +12574,7 @@ define internal i32 @clusapi_dissect_RemoveGroupFromGroupSet_request(ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_RemoveGroupFromGroupSet_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1664, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_RemoveGroupFromGroupSet_rpc_status, align 4
@@ -12600,7 +12594,7 @@ define internal i32 @clusapi_dissect_RemoveGroupFromGroupSet_response(ptr nounde
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -12620,7 +12614,7 @@ define internal i32 @clusapi_dissect_MoveGroupToGroupSet_request(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_MoveGroupToGroupSet_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1665, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_MoveGroupToGroupSet_rpc_status, align 4
@@ -12640,12 +12634,12 @@ define internal i32 @clusapi_dissect_MoveGroupToGroupSet_response(ptr noundef %0
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @clusapi_dissect_Opnum170NotUsedOnWire_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @clusapi_dissect_Opnum170NotUsedOnWire_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1666, ptr %7, align 8
   ret i32 %1
@@ -12654,7 +12648,7 @@ define internal noundef i32 @clusapi_dissect_Opnum170NotUsedOnWire_request(ptr r
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_Opnum170NotUsedOnWire_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1666, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
@@ -12671,7 +12665,7 @@ define internal i32 @clusapi_dissect_Opnum170NotUsedOnWire_response(ptr noundef 
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -12691,7 +12685,7 @@ define internal i32 @clusapi_dissect_AddGroupSetDependency_request(ptr noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_AddGroupSetDependency_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1667, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_AddGroupSetDependency_rpc_status, align 4
@@ -12711,7 +12705,7 @@ define internal i32 @clusapi_dissect_AddGroupSetDependency_response(ptr noundef 
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -12731,7 +12725,7 @@ define internal i32 @clusapi_dissect_AddGroupToGroupSetDependency_request(ptr no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_AddGroupToGroupSetDependency_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1668, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_AddGroupToGroupSetDependency_rpc_status, align 4
@@ -12751,7 +12745,7 @@ define internal i32 @clusapi_dissect_AddGroupToGroupSetDependency_response(ptr n
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -12783,7 +12777,7 @@ define internal i32 @clusapi_dissect_NodeGroupSetControl_request(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_NodeGroupSetControl_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1669, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_NodeGroupSetControl_lpOutBuffer, align 4
@@ -12812,7 +12806,7 @@ define internal i32 @clusapi_dissect_NodeGroupSetControl_response(ptr noundef %0
   br label %28
 
 28:                                               ; preds = %24, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %22
 }
 
@@ -12841,7 +12835,7 @@ define internal i32 @clusapi_dissect_GroupSetControl_request(ptr noundef %0, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_GroupSetControl_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1670, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GroupSetControl_lpOutBuffer, align 4
@@ -12870,7 +12864,7 @@ define internal i32 @clusapi_dissect_GroupSetControl_response(ptr noundef %0, i3
   br label %28
 
 28:                                               ; preds = %24, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %22
 }
 
@@ -12890,7 +12884,7 @@ define internal i32 @clusapi_dissect_SetGroupDependencyExpression_request(ptr no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_SetGroupDependencyExpression_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1671, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_SetGroupDependencyExpression_rpc_status, align 4
@@ -12910,7 +12904,7 @@ define internal i32 @clusapi_dissect_SetGroupDependencyExpression_response(ptr n
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -12930,7 +12924,7 @@ define internal i32 @clusapi_dissect_RemoveClusterGroupDependency_request(ptr no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_RemoveClusterGroupDependency_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1672, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_RemoveClusterGroupDependency_rpc_status, align 4
@@ -12950,7 +12944,7 @@ define internal i32 @clusapi_dissect_RemoveClusterGroupDependency_response(ptr n
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -12970,7 +12964,7 @@ define internal i32 @clusapi_dissect_SetGroupSetDependencyExpression_request(ptr
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_SetGroupSetDependencyExpression_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1673, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_SetGroupSetDependencyExpression_rpc_status, align 4
@@ -12990,7 +12984,7 @@ define internal i32 @clusapi_dissect_SetGroupSetDependencyExpression_response(pt
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -13010,7 +13004,7 @@ define internal i32 @clusapi_dissect_RemoveGroupSetDependency_request(ptr nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_RemoveGroupSetDependency_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1674, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_RemoveGroupSetDependency_rpc_status, align 4
@@ -13030,7 +13024,7 @@ define internal i32 @clusapi_dissect_RemoveGroupSetDependency_response(ptr nound
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -13050,7 +13044,7 @@ define internal i32 @clusapi_dissect_RemoveClusterGroupToGroupSetDependency_requ
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_RemoveClusterGroupToGroupSetDependency_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1675, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_RemoveClusterGroupToGroupSetDependency_rpc_status, align 4
@@ -13070,7 +13064,7 @@ define internal i32 @clusapi_dissect_RemoveClusterGroupToGroupSetDependency_resp
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -13087,7 +13081,7 @@ define internal i32 @clusapi_dissect_CreateGroupSetEnum_request(ptr noundef %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_CreateGroupSetEnum_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1676, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CreateGroupSetEnum_ReturnEnum, align 4
@@ -13110,7 +13104,7 @@ define internal i32 @clusapi_dissect_CreateGroupSetEnum_response(ptr noundef %0,
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -13133,7 +13127,7 @@ define internal i32 @clusapi_dissect_CreateNetInterfaceEnum_request(ptr noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_CreateNetInterfaceEnum_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1677, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CreateNetInterfaceEnum_ReturnEnum, align 4
@@ -13156,7 +13150,7 @@ define internal i32 @clusapi_dissect_CreateNetInterfaceEnum_response(ptr noundef
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -13179,7 +13173,7 @@ define internal i32 @clusapi_dissect_ChangeCsvStateEx_request(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_ChangeCsvStateEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1678, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ChangeCsvStateEx_rpc_status, align 4
@@ -13199,7 +13193,7 @@ define internal i32 @clusapi_dissect_ChangeCsvStateEx_response(ptr noundef %0, i
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -13231,7 +13225,7 @@ define internal i32 @clusapi_dissect_AddGroupToGroupSetEx_request(ptr noundef %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_AddGroupToGroupSetEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.1679, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_AddGroupToGroupSetEx_rpc_status, align 4
@@ -13251,15 +13245,15 @@ define internal i32 @clusapi_dissect_AddGroupToGroupSetEx_response(ptr noundef %
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_deferred_pointers(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_deferred_pointers(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_toplevel_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_toplevel_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_OpenCluster_Status_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -13276,7 +13270,7 @@ define internal i32 @clusapi_dissect_element_OpenCluster_Cluster_(ptr noundef %0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @PIDL_dissect_policy_hnd(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PIDL_dissect_policy_hnd(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_CloseCluster_Cluster_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -13286,20 +13280,20 @@ define internal i32 @clusapi_dissect_element_CloseCluster_Cluster_(ptr noundef %
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_SetClusterName_NewClusterName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_SetClusterName_NewClusterName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -13320,12 +13314,12 @@ define internal i32 @clusapi_dissect_element_GetClusterName_ClusterName_(ptr nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_GetClusterName_ClusterName__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_GetClusterName_ClusterName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -13339,12 +13333,12 @@ define internal i32 @clusapi_dissect_element_GetClusterName_NodeName_(ptr nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_GetClusterName_NodeName__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_GetClusterName_NodeName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -13356,7 +13350,7 @@ define internal i32 @clusapi_dissect_element_GetClusterVersion_lpwMajorVersion_(
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @PIDL_dissect_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PIDL_dissect_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_GetClusterVersion_lpwMinorVersion_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -13382,12 +13376,12 @@ define internal i32 @clusapi_dissect_element_GetClusterVersion_lpszVendorId_(ptr
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_GetClusterVersion_lpszVendorId__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_GetClusterVersion_lpszVendorId, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -13401,12 +13395,12 @@ define internal i32 @clusapi_dissect_element_GetClusterVersion_lpszCSDVersion_(p
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_GetClusterVersion_lpszCSDVersion__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_GetClusterVersion_lpszCSDVersion, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -13420,12 +13414,12 @@ define internal i32 @clusapi_dissect_element_GetQuorumResource_lpszResourceName_
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_GetQuorumResource_lpszResourceName__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_GetQuorumResource_lpszResourceName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -13439,12 +13433,12 @@ define internal i32 @clusapi_dissect_element_GetQuorumResource_lpszDeviceName_(p
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_GetQuorumResource_lpszDeviceName__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_GetQuorumResource_lpszDeviceName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -13465,12 +13459,12 @@ define internal i32 @clusapi_dissect_element_GetQuorumResource_rpc_status_(ptr n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_SetQuorumResource_lpszDeviceName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_SetQuorumResource_lpszDeviceName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -13505,12 +13499,12 @@ define internal i32 @clusapi_dissect_element_CreateEnum_rpc_status_(ptr noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_OpenResource_lpszResourceName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenResource_lpszResourceName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -13538,24 +13532,24 @@ define internal i32 @clusapi_dissect_element_OpenResource_hResource_(ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_CreateResource_lpszResourceName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateResource_lpszResourceName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_CreateResource_lpszResourceType_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateResource_lpszResourceType, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -13598,10 +13592,10 @@ define internal i32 @clusapi_dissect_element_CloseResource_Resource_(ptr noundef
 define internal i32 @clusapi_dissect_element_GetResourceState_State_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_clusapi_clusapi_GetResourceState_State, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %9 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -13615,12 +13609,12 @@ define internal i32 @clusapi_dissect_element_GetResourceState_NodeName_(ptr noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_GetResourceState_NodeName__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_GetResourceState_NodeName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -13634,12 +13628,12 @@ define internal i32 @clusapi_dissect_element_GetResourceState_GroupName_(ptr nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_GetResourceState_GroupName__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_GetResourceState_GroupName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -13653,12 +13647,12 @@ define internal i32 @clusapi_dissect_element_GetResourceState_rpc_status_(ptr no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_SetResourceName_lpszResourceName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_SetResourceName_lpszResourceName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -13679,12 +13673,12 @@ define internal i32 @clusapi_dissect_element_GetResourceId_pGuid_(ptr noundef %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_GetResourceId_pGuid__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_GetResourceId_pGuid, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -13705,12 +13699,12 @@ define internal i32 @clusapi_dissect_element_GetResourceType_lpszResourceType_(p
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_GetResourceType_lpszResourceType__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_GetResourceType_lpszResourceType, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -13808,36 +13802,36 @@ define internal i32 @clusapi_dissect_element_ChangeResourceGroup_rpc_status_(ptr
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_CreateResourceType_lpszTypeName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateResourceType_lpszTypeName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_CreateResourceType_lpszDisplayName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateResourceType_lpszDisplayName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_CreateResourceType_lpszDllName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateResourceType_lpszDllName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -13851,12 +13845,12 @@ define internal i32 @clusapi_dissect_element_CreateResourceType_rpc_status_(ptr 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_DeleteResourceType_lpszTypeName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_DeleteResourceType_lpszTypeName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -13868,7 +13862,7 @@ define internal i32 @clusapi_dissect_element_DeleteResourceType_rpc_status_(ptr 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @winreg_dissect_bitmap_AccessMask(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @winreg_dissect_bitmap_AccessMask(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_GetRootKey_Status_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -13894,12 +13888,12 @@ define internal i32 @clusapi_dissect_element_GetRootKey_phKey_(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_CreateKey_lpSubKey_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateKey_lpSubKey, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -13941,12 +13935,12 @@ define internal i32 @clusapi_dissect_element_CreateKey_phKey_(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_OpenKey_lpSubKey_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenKey_lpSubKey, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -13981,12 +13975,12 @@ define internal i32 @clusapi_dissect_element_EnumKey_KeyName_(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_EnumKey_KeyName__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_EnumKey_KeyName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -13998,7 +13992,7 @@ define internal i32 @clusapi_dissect_element_EnumKey_lpftLastWriteTime_(ptr noun
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_nt_NTTIME(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_nt_NTTIME(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_EnumKey_rpc_status_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -14010,17 +14004,17 @@ define internal i32 @clusapi_dissect_element_EnumKey_rpc_status_(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_SetValue_lpValueName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_SetValue_lpValueName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @misc_dissect_enum_winreg_Type(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @misc_dissect_enum_winreg_Type(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_SetValue_lpData_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -14045,12 +14039,12 @@ define internal i32 @clusapi_dissect_element_SetValue_rpc_status_(ptr noundef %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_DeleteValue_lpValueName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_DeleteValue_lpValueName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -14064,12 +14058,12 @@ define internal i32 @clusapi_dissect_element_DeleteValue_rpc_status_(ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_QueryValue_lpValueName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_QueryValue_lpValueName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -14110,12 +14104,12 @@ define internal i32 @clusapi_dissect_element_QueryValue_rpc_status_(ptr noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_DeleteKey_lpSubKey_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_DeleteKey_lpSubKey, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -14143,12 +14137,12 @@ define internal i32 @clusapi_dissect_element_EnumValue_lpValueName_(ptr noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_EnumValue_lpValueName__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_EnumValue_lpValueName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -14280,12 +14274,12 @@ define internal i32 @clusapi_dissect_element_GetKeySecurity_rpc_status_(ptr noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_OpenGroup_lpszGroupName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenGroup_lpszGroupName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -14313,12 +14307,12 @@ define internal i32 @clusapi_dissect_element_OpenGroup_hGroup_(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_CreateGroup_lpszGroupName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateGroup_lpszGroupName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -14361,10 +14355,10 @@ define internal i32 @clusapi_dissect_element_CloseGroup_Group_(ptr noundef %0, i
 define internal i32 @clusapi_dissect_element_GetGroupState_State_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_clusapi_clusapi_GetGroupState_State, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %9 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -14378,12 +14372,12 @@ define internal i32 @clusapi_dissect_element_GetGroupState_NodeName_(ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_GetGroupState_NodeName__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_GetGroupState_NodeName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -14397,12 +14391,12 @@ define internal i32 @clusapi_dissect_element_GetGroupState_rpc_status_(ptr nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_SetGroupName_lpszGroupName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_SetGroupName_lpszGroupName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -14423,12 +14417,12 @@ define internal i32 @clusapi_dissect_element_GetGroupId_pGuid_(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_GetGroupId_pGuid__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_GetGroupId_pGuid, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -14449,12 +14443,12 @@ define internal i32 @clusapi_dissect_element_GetNodeId_pGuid_(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_GetNodeId_pGuid__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_GetNodeId_pGuid, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -14670,12 +14664,12 @@ define internal i32 @clusapi_dissect_element_GetNotify_Name_(ptr noundef %0, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_GetNotify_Name__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_GetNotify_Name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -14689,12 +14683,12 @@ define internal i32 @clusapi_dissect_element_GetNotify_rpc_status_(ptr noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_OpenNode_lpszNodeName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenNode_lpszNodeName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -14730,10 +14724,10 @@ define internal i32 @clusapi_dissect_element_CloseNode_Node_(ptr noundef %0, i32
 define internal i32 @clusapi_dissect_element_GetNodeState_State_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_clusapi_clusapi_GetNodeState_State, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %9 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -14862,12 +14856,12 @@ define internal i32 @clusapi_dissect_element_ResourceControl_rpc_status_(ptr nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_NodeResourceTypeControl_lpszResourceTypeName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_NodeResourceTypeControl_lpszResourceTypeName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -14921,12 +14915,12 @@ define internal i32 @clusapi_dissect_element_NodeResourceTypeControl_rpc_status_
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_ResourceTypeControl_lpszResourceTypeName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_ResourceTypeControl_lpszResourceTypeName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -15168,12 +15162,12 @@ define internal i32 @clusapi_dissect_element_NodeControl_rpc_status_(ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_OpenNetwork_lpszNetworkName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenNetwork_lpszNetworkName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -15209,10 +15203,10 @@ define internal i32 @clusapi_dissect_element_CloseNetwork_Network_(ptr noundef %
 define internal i32 @clusapi_dissect_element_GetNetworkState_State_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_clusapi_clusapi_GetNetworkState_State, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %9 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -15226,12 +15220,12 @@ define internal i32 @clusapi_dissect_element_GetNetworkState_rpc_status_(ptr nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_SetNetworkName_lpszNetworkName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_SetNetworkName_lpszNetworkName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -15273,12 +15267,12 @@ define internal i32 @clusapi_dissect_element_GetNetworkId_pGuid_(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_GetNetworkId_pGuid__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_GetNetworkId_pGuid, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -15414,12 +15408,12 @@ define internal i32 @clusapi_dissect_element_ReAddNotifyNetwork_rpc_status_(ptr 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_OpenNetInterface_lpszNetInterfaceName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenNetInterface_lpszNetInterfaceName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -15455,10 +15449,10 @@ define internal i32 @clusapi_dissect_element_CloseNetInterface_NetInterface_(ptr
 define internal i32 @clusapi_dissect_element_GetNetInterfaceState_State_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_clusapi_clusapi_GetNetInterfaceState_State, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %9 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -15472,24 +15466,24 @@ define internal i32 @clusapi_dissect_element_GetNetInterfaceState_rpc_status_(pt
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_GetNetInterface_lpszNodeName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_GetNetInterface_lpszNodeName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_GetNetInterface_lpszNetworkName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_GetNetInterface_lpszNetworkName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -15503,12 +15497,12 @@ define internal i32 @clusapi_dissect_element_GetNetInterface_lppszInterfaceName_
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_GetNetInterface_lppszInterfaceName__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_GetNetInterface_lppszInterfaceName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -15529,12 +15523,12 @@ define internal i32 @clusapi_dissect_element_GetNetInterfaceId_pGuid_(ptr nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_GetNetInterfaceId_pGuid__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_GetNetInterfaceId_pGuid, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -15712,12 +15706,12 @@ define internal i32 @clusapi_dissect_element_GetClusterVersion2_lpszVendorId_(pt
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_GetClusterVersion2_lpszVendorId__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_GetClusterVersion2_lpszVendorId, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -15731,12 +15725,12 @@ define internal i32 @clusapi_dissect_element_GetClusterVersion2_lpszCSDVersion_(
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_GetClusterVersion2_lpszCSDVersion__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_GetClusterVersion2_lpszCSDVersion, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -15764,12 +15758,12 @@ define internal i32 @clusapi_dissect_element_GetClusterVersion2_rpc_status_(ptr 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_CreateResTypeEnum_lpszTypeName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateResTypeEnum_lpszTypeName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -15797,12 +15791,12 @@ define internal i32 @clusapi_dissect_element_CreateResTypeEnum_rpc_status_(ptr n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_BackupClusterDatabase_lpszPathName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_BackupClusterDatabase_lpszPathName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -15910,12 +15904,12 @@ define internal i32 @clusapi_dissect_element_ClusterControl_rpc_status_(ptr noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_SetServiceAccountPassword_lpszNewPassword_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_SetServiceAccountPassword_lpszNewPassword, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -15943,12 +15937,12 @@ define internal i32 @clusapi_dissect_element_SetServiceAccountPassword_ExpectedB
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_SetResourceDependencyExpression_lpszDependencyExpression_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_SetResourceDependencyExpression_lpszDependencyExpression, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -15969,12 +15963,12 @@ define internal i32 @clusapi_dissect_element_GetResourceDependencyExpression_lps
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_GetResourceDependencyExpression_lpszDependencyExpression__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_GetResourceDependencyExpression_lpszDependencyExpression, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -15995,12 +15989,12 @@ define internal i32 @clusapi_dissect_element_GetResourceNetworkName_lpszName_(pt
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_GetResourceNetworkName_lpszName__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_GetResourceNetworkName_lpszName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -16110,12 +16104,12 @@ define internal i32 @clusapi_dissect_element_OpenClusterEx_hCluster_(ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_OpenNodeEx_lpszNodeName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenNodeEx_lpszNodeName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -16150,12 +16144,12 @@ define internal i32 @clusapi_dissect_element_OpenNodeEx_hNode_(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_OpenGroupEx_lpszGroupName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenGroupEx_lpszGroupName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -16190,12 +16184,12 @@ define internal i32 @clusapi_dissect_element_OpenGroupEx_hGroup_(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_OpenResourceEx_lpszResourceName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenResourceEx_lpszResourceName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -16230,12 +16224,12 @@ define internal i32 @clusapi_dissect_element_OpenResourceEx_hResource_(ptr nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_OpenNetworkEx_lpszNetworkName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenNetworkEx_lpszNetworkName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -16270,12 +16264,12 @@ define internal i32 @clusapi_dissect_element_OpenNetworkEx_hNetwork_(ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_OpenNetInterfaceEx_lpszNetInterfaceName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenNetInterfaceEx_lpszNetInterfaceName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -16408,12 +16402,12 @@ define internal i32 @clusapi_dissect_element_ResumeNodeEx_rpc_status_(ptr nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_CreateGroupEx_lpszGroupName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateGroupEx_lpszGroupName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -16697,12 +16691,12 @@ define internal i32 @clusapi_dissect_element_StmFindDisk_ppszDeviceName_(ptr nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_StmFindDisk_ppszDeviceName__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_StmFindDisk_ppszDeviceName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -16937,12 +16931,12 @@ define internal i32 @clusapi_dissect_element_GetNotifyAsync_dwNumNotifications_(
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_AddNotifyResourceTypeV2_resTypeName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_AddNotifyResourceTypeV2_resTypeName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -17003,12 +16997,12 @@ define internal i32 @clusapi_dissect_element_ExecuteReadBatchEx_rpc_status_(ptr 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_CreateGroupSet_lpszGroupSetName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateGroupSet_lpszGroupSetName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -17036,12 +17030,12 @@ define internal i32 @clusapi_dissect_element_CreateGroupSet_hGroupSet_(ptr nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_OpenGroupSet_lpszGroupSetName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenGroupSet_lpszGroupSetName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -17212,12 +17206,12 @@ define internal i32 @clusapi_dissect_element_GroupSetControl_rpc_status_(ptr nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_SetGroupDependencyExpression_lpszDependencyExpression_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_SetGroupDependencyExpression_lpszDependencyExpression, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -17238,12 +17232,12 @@ define internal i32 @clusapi_dissect_element_RemoveClusterGroupDependency_rpc_st
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_SetGroupSetDependencyExpression_lpszDependencyExpression_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_SetGroupSetDependencyExpression_lpszDependencyExpression, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -17292,24 +17286,24 @@ define internal i32 @clusapi_dissect_element_CreateGroupSetEnum_rpc_status_(ptr 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_CreateNetInterfaceEnum_lpszNodeName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateNetInterfaceEnum_lpszNodeName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_CreateNetInterfaceEnum_lpszNetworkName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateNetInterfaceEnum_lpszNetworkName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -17337,12 +17331,12 @@ define internal i32 @clusapi_dissect_element_CreateNetInterfaceEnum_rpc_status_(
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @clusapi_dissect_element_ChangeCsvStateEx_lpszVolumeName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_clusapi_clusapi_ChangeCsvStateEx_lpszVolumeName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1443, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -17367,11 +17361,16 @@ define internal i32 @clusapi_dissect_element_AddGroupToGroupSetEx_rpc_status_(pt
   ret i32 %8
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

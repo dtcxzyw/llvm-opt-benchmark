@@ -114,8 +114,8 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive78_$LT$impl$u20$rayon..range_inc
   br label %15
 
 13:                                               ; preds = %8
-  %narrow.i.i.i.i.i26 = sub nuw nsw i8 %5, %3
-  %.sink4.i.i.i.i.i = zext i8 %narrow.i.i.i.i.i26 to i64
+  %narrow.i.i.i.i.i25 = sub nuw nsw i8 %5, %3
+  %.sink4.i.i.i.i.i = zext i8 %narrow.i.i.i.i.i25 to i64
   %14 = add nuw nsw i64 %.sink4.i.i.i.i.i, 1
   br label %15
 
@@ -170,8 +170,8 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inc
   %.not.i = icmp ugt i16 %2, %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i8, ptr %5, align 2, !range !11, !alias.scope !50
-  %.not27 = icmp ne i8 %6, 0
-  %.not = select i1 %.not.i, i1 true, i1 %.not27
+  %.not26 = icmp ne i8 %6, 0
+  %.not = select i1 %.not.i, i1 true, i1 %.not26
   br i1 %.not, label %14, label %7
 
 7:                                                ; preds = %1
@@ -186,8 +186,8 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inc
   br label %14
 
 12:                                               ; preds = %7
-  %narrow.i.i.i.i.i26 = sub nuw nsw i16 %4, %2
-  %.sink4.i.i.i.i.i = zext i16 %narrow.i.i.i.i.i26 to i64
+  %narrow.i.i.i.i.i25 = sub nuw nsw i16 %4, %2
+  %.sink4.i.i.i.i.i = zext i16 %narrow.i.i.i.i.i25 to i64
   %13 = add nuw nsw i64 %.sink4.i.i.i.i.i, 1
   br label %14
 
@@ -243,11 +243,11 @@ define noundef range(i64 -254, 257) i64 @"_ZN5rayon15range_inclusive85_$LT$impl$
   %.sink11.i.i = phi i64 [ %16, %12 ], [ 0, %1 ], [ 0, %7 ]
   %.sroa.03.0.sink.i.i = phi i64 [ %.sroa.03.0.i.i, %12 ], [ 1, %1 ], [ 1, %7 ]
   %.sink.i.i = phi i64 [ %19, %12 ], [ 0, %1 ], [ 0, %7 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !53
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !53
   store i64 %.sroa.03.0.sink.i.i, ptr %4, align 8, !noalias !53
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.sink.i.i, ptr %20, align 8, !noalias !53
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !53
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !53
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.sink11.i.i, ptr %21, align 8, !noalias !53
   store i64 1, ptr %3, align 8, !noalias !53
@@ -257,14 +257,14 @@ define noundef range(i64 -254, 257) i64 @"_ZN5rayon15range_inclusive85_$LT$impl$
   br i1 %.0.i, label %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h4be8c75358d8f93cE.exit, label %23
 
 23:                                               ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h8d2464da7fe50bcaE.exit.i"
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !53
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !53
   store ptr null, ptr %2, align 8, !noalias !53
   call void @_ZN4core9panicking13assert_failed17h94904da2cd0a0a24E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.97fc90d330a912cf015a353b43f9b78d.1) #11, !noalias !53
   unreachable
 
 _ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h4be8c75358d8f93cE.exit: ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h8d2464da7fe50bcaE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !53
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !53
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !53
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !53
   ret i64 %.sink11.i.i
 }
 
@@ -355,11 +355,11 @@ define noundef range(i64 -65534, 65537) i64 @"_ZN5rayon15range_inclusive86_$LT$i
   %.sink11.i.i = phi i64 [ %16, %12 ], [ 0, %1 ], [ 0, %8 ]
   %.sroa.03.0.sink.i.i = phi i64 [ %.sroa.03.0.i.i, %12 ], [ 1, %1 ], [ 1, %8 ]
   %.sink.i.i = phi i64 [ %19, %12 ], [ 0, %1 ], [ 0, %8 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !73
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !73
   store i64 %.sroa.03.0.sink.i.i, ptr %4, align 8, !noalias !73
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.sink.i.i, ptr %20, align 8, !noalias !73
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !73
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !73
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.sink11.i.i, ptr %21, align 8, !noalias !73
   store i64 1, ptr %3, align 8, !noalias !73
@@ -369,14 +369,14 @@ define noundef range(i64 -65534, 65537) i64 @"_ZN5rayon15range_inclusive86_$LT$i
   br i1 %.0.i, label %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h01ec6519ebae4e75E.exit, label %23
 
 23:                                               ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h389648f455d80c73E.exit.i"
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !73
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !73
   store ptr null, ptr %2, align 8, !noalias !73
   call void @_ZN4core9panicking13assert_failed17h94904da2cd0a0a24E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.97fc90d330a912cf015a353b43f9b78d.1) #11, !noalias !73
   unreachable
 
 _ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h01ec6519ebae4e75E.exit: ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h389648f455d80c73E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !73
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !73
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !73
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !73
   ret i64 %.sink11.i.i
 }
 
@@ -388,8 +388,8 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inc
   %.not.i = icmp sgt i16 %2, %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i8, ptr %5, align 2, !range !11, !alias.scope !90
-  %.not26 = icmp ne i8 %6, 0
-  %.not = select i1 %.not.i, i1 true, i1 %.not26
+  %.not25 = icmp ne i8 %6, 0
+  %.not = select i1 %.not.i, i1 true, i1 %.not25
   br i1 %.not, label %22, label %7
 
 7:                                                ; preds = %1
@@ -771,14 +771,14 @@ declare { i32, i1 } @llvm.uadd.with.overflow.i32(i32, i32) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i32, i1 } @llvm.sadd.with.overflow.i32(i32, i32) #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
-
 ; Function Attrs: nonlazybind uwtable
 declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #8

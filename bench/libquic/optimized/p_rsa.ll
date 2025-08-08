@@ -202,7 +202,7 @@ define internal i32 @pkey_rsa_sign(ptr noundef readonly captures(none) %0, ptr n
   br i1 %.not44, label %58, label %23
 
 23:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %24 = tail call i64 @EVP_MD_size(ptr noundef nonnull %22) #9
   %.not45 = icmp eq i64 %4, %24
   br i1 %.not45, label %26, label %25
@@ -270,7 +270,7 @@ define internal i32 @pkey_rsa_sign(ptr noundef readonly captures(none) %0, ptr n
 
 57:                                               ; preds = %53, %31, %42, %44, %34, %39, %30, %25
   %.1 = phi i32 [ 0, %25 ], [ 0, %30 ], [ 1, %39 ], [ 0, %34 ], [ 0, %44 ], [ 0, %42 ], [ 0, %31 ], [ %spec.select, %53 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %62
 
 58:                                               ; preds = %20
@@ -293,7 +293,7 @@ define internal i32 @pkey_rsa_verify(ptr noundef readonly captures(none) %0, ptr
   %10 = load ptr, ptr %9, align 8, !tbaa !29
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %13 = tail call i32 @EVP_PKEY_size(ptr noundef %10) #9
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -382,7 +382,7 @@ setup_tbuf.exit49.thread:                         ; preds = %40, %setup_tbuf.exi
 
 55:                                               ; preds = %52, %32, %setup_tbuf.exit49, %setup_tbuf.exit49.thread, %17, %setup_tbuf.exit, %setup_tbuf.exit.thread, %20
   %.0 = phi i32 [ %22, %20 ], [ 0, %setup_tbuf.exit.thread ], [ 0, %setup_tbuf.exit ], [ 0, %17 ], [ 0, %setup_tbuf.exit49.thread ], [ 0, %setup_tbuf.exit49 ], [ %spec.select, %32 ], [ %spec.select44, %52 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -462,16 +462,16 @@ setup_tbuf.exit.thread:                           ; preds = %24, %setup_tbuf.exi
   br i1 %.not45, label %49, label %81
 
 49:                                               ; preds = %46
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %50 = tail call i32 @EVP_MD_type(ptr noundef nonnull %33) #9
   %51 = call i32 @RSA_add_pkcs1_prefix(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %50, ptr noundef null, i64 noundef 0) #9
   %.not46 = icmp eq i32 %51, 0
   br i1 %.not46, label %80, label %52
 
 52:                                               ; preds = %49
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %53 = load ptr, ptr %25, align 8, !tbaa !28
   %54 = call i32 @RSA_verify_raw(ptr noundef %15, ptr noundef nonnull %9, ptr noundef %53, i64 noundef %17, ptr noundef %3, i64 noundef %4, i32 noundef 1) #9
   %.not47 = icmp eq i32 %54, 0
@@ -526,14 +526,14 @@ setup_tbuf.exit.thread:                           ; preds = %24, %setup_tbuf.exi
 
 79:                                               ; preds = %75, %69, %68
   %.3 = phi i32 [ 0, %68 ], [ 1, %75 ], [ 0, %69 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %80
 
 80:                                               ; preds = %49, %79
   %.2 = phi i32 [ %.3, %79 ], [ 0, %49 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %81
 
 81:                                               ; preds = %46, %43, %35, %setup_tbuf.exit, %80, %23, %19
@@ -655,7 +655,7 @@ define internal i32 @pkey_rsa_decrypt(ptr noundef readonly captures(none) %0, pt
   br i1 %23, label %24, label %51
 
 24:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %26 = load ptr, ptr %25, align 8, !tbaa !28
   %.not.i = icmp eq ptr %26, null
@@ -700,7 +700,7 @@ setup_tbuf.exit.thread:                           ; preds = %24, %setup_tbuf.exi
 
 50:                                               ; preds = %33, %setup_tbuf.exit, %setup_tbuf.exit.thread, %48
   %.1 = phi i32 [ 1, %48 ], [ 0, %setup_tbuf.exit.thread ], [ 0, %setup_tbuf.exit ], [ 0, %33 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %53
 
 51:                                               ; preds = %20
@@ -1069,7 +1069,7 @@ define hidden i32 @EVP_PKEY_CTX_set0_rsa_oaep_label(ptr noundef %0, ptr noundef 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @EVP_PKEY_CTX_get0_rsa_oaep_label(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca %struct.cbs_st, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @EVP_PKEY_CTX_ctrl(ptr noundef %0, i32 noundef 6, i32 noundef 192, i32 noundef 4108, i32 noundef 0, ptr noundef nonnull %3) #9
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %13, label %5
@@ -1092,12 +1092,9 @@ define hidden i32 @EVP_PKEY_CTX_get0_rsa_oaep_label(ptr noundef %0, ptr noundef 
 
 13:                                               ; preds = %2, %9, %8
   %.0 = phi i32 [ -1, %8 ], [ %12, %9 ], [ -1, %2 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i64 @CBS_len(ptr noundef) local_unnamed_addr #2
 
@@ -1105,19 +1102,16 @@ declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, 
 
 declare ptr @CBS_data(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @BN_dup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @BUF_memdup(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -1181,7 +1175,7 @@ declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 declare i32 @RSA_public_decrypt(i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare i32 @RSA_add_pkcs1_prefix(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -1197,17 +1191,23 @@ declare ptr @EVP_sha1() local_unnamed_addr #2
 
 declare void @CBS_init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind allocsize(0) }

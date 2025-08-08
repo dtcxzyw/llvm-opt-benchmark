@@ -52,12 +52,12 @@ define dso_local ptr @LogicalTapeSetCreate(i1 noundef zeroext %0, ptr noundef %1
   br i1 %15, label %19, label %23
 
 19:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %20 = trunc i32 %2 to i16
   %21 = call i32 @pg_itoa(i16 noundef signext %20, ptr noundef nonnull %4) #10
   %22 = call ptr @BufFileCreateFileSet(ptr noundef nonnull %1, ptr noundef nonnull %4) #10
   store ptr %22, ptr %6, align 8
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %25
 
 23:                                               ; preds = %18
@@ -69,24 +69,18 @@ define dso_local ptr @LogicalTapeSetCreate(i1 noundef zeroext %0, ptr noundef %1
   ret ptr %6
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare i32 @pg_itoa(i16 noundef signext, ptr noundef) local_unnamed_addr #1
 
-declare i32 @pg_itoa(i16 noundef signext, ptr noundef) local_unnamed_addr #2
+declare ptr @BufFileCreateFileSet(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @BufFileCreateFileSet(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @BufFileCreateTemp(i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @BufFileCreateTemp(i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @LogicalTapeImport(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call ptr @palloc(i64 noundef 88) #10
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -142,15 +136,15 @@ define dso_local noundef ptr @LogicalTapeImport(ptr noundef %0, i32 noundef %1, 
   store i64 %36, ptr %29, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %36, ptr %37, align 8
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %5
 }
 
-declare ptr @BufFileOpenFileSet(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @BufFileOpenFileSet(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare i64 @BufFileSize(ptr noundef) local_unnamed_addr #2
+declare i64 @BufFileSize(ptr noundef) local_unnamed_addr #1
 
-declare i64 @BufFileAppend(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @BufFileAppend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @LogicalTapeSetClose(ptr noundef %0) local_unnamed_addr #0 {
@@ -163,9 +157,9 @@ define dso_local void @LogicalTapeSetClose(ptr noundef %0) local_unnamed_addr #0
   ret void
 }
 
-declare void @BufFileClose(ptr noundef) local_unnamed_addr #2
+declare void @BufFileClose(ptr noundef) local_unnamed_addr #1
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @LogicalTapeCreate(ptr noundef %0) local_unnamed_addr #0 {
@@ -208,11 +202,11 @@ define dso_local noundef ptr @LogicalTapeCreate(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @LogicalTapeClose(ptr noundef %0) local_unnamed_addr #0 {
@@ -231,7 +225,7 @@ define dso_local void @LogicalTapeClose(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @LogicalTapeSetForgetFreeSpace(ptr noundef writeonly captures(none) initializes((48, 49)) %0) local_unnamed_addr #4 {
+define dso_local void @LogicalTapeSetForgetFreeSpace(ptr noundef writeonly captures(none) initializes((48, 49)) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 1, ptr %2, align 8
   ret void
@@ -598,10 +592,10 @@ define internal fastcc void @ltsWriteBlock(ptr noundef captures(none) %0, i64 no
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %8 = phi i64 [ %9, %.lr.ph ], [ %6, %3 ]
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4096 dereferenceable(8192) %4, i8 0, i64 8192, i1 false)
   call fastcc void @ltsWriteBlock(ptr noundef nonnull %0, i64 noundef %8, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %9 = load i64, ptr %5, align 8
   %10 = icmp sgt i64 %1, %9
   br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !9
@@ -637,7 +631,7 @@ define internal fastcc void @ltsWriteBlock(ptr noundef captures(none) %0, i64 no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @LogicalTapeRewindForRead(ptr noundef captures(none) initializes((56, 60)) %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -1145,7 +1139,7 @@ ltsReadBlock.exit:                                ; preds = %40
   ret void
 }
 
-declare void @BufFileExportFileSet(ptr noundef) local_unnamed_addr #2
+declare void @BufFileExportFileSet(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @LogicalTapeBackspace(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -1386,7 +1380,7 @@ define dso_local void @LogicalTapeTell(ptr noundef captures(none) %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @LogicalTapeSetBlocks(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define dso_local i64 @LogicalTapeSetBlocks(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1395,20 +1389,26 @@ define dso_local i64 @LogicalTapeSetBlocks(ptr noundef readonly captures(none) %
   ret i64 %6
 }
 
-declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
-declare i32 @BufFileSeekBlock(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @BufFileSeekBlock(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @errcode_for_file_access() local_unnamed_addr #2
+declare i32 @errcode_for_file_access() local_unnamed_addr #1
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @BufFileWrite(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @BufFileWrite(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @BufFileReadExact(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @BufFileReadExact(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #8
@@ -1426,13 +1426,13 @@ declare i32 @llvm.smin.i32(i32, i32) #9
 declare i64 @llvm.smax.i64(i64, i64) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }

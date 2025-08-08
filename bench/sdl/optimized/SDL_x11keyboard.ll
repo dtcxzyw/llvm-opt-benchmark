@@ -55,8 +55,8 @@ define hidden i64 @X11_KeyCodeToSym(ptr noundef readonly captures(none) %0, i8 n
   %6 = alloca [16 x i32], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1696
   %10 = load ptr, ptr %9, align 8
@@ -117,19 +117,13 @@ define hidden i64 @X11_KeyCodeToSym(ptr noundef readonly captures(none) %0, i8 n
 
 ._crit_edge:                                      ; preds = %27, %37
   %41 = phi i64 [ %40, %37 ], [ %spec.select, %27 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %41
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @X11_InitKeyboard(ptr noundef %0) local_unnamed_addr #0 {
@@ -147,15 +141,15 @@ define hidden noundef zeroext i1 @X11_InitKeyboard(ptr noundef %0) local_unnamed
   %13 = alloca i32, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %15 = load ptr, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %8, ptr noundef nonnull align 16 dereferenceable(144) @__const.X11_InitKeyboard.fingerprint, i64 144, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 1, ptr %10, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4
   %16 = load ptr, ptr @X11_XkbQueryExtension, align 8
   %17 = load ptr, ptr %15, align 8
@@ -176,8 +170,8 @@ define hidden noundef zeroext i1 @X11_InitKeyboard(ptr noundef %0) local_unnamed
   %26 = load ptr, ptr @X11_XkbSetDetectableAutoRepeat, align 8
   %27 = load ptr, ptr %15, align 8
   %28 = call i32 %26(ptr noundef %27, i32 noundef 1, ptr noundef nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %29 = load i32, ptr @SDL_X11_HAVE_UTF8, align 4
   %.not100 = icmp eq i32 %29, 0
   br i1 %.not100, label %53, label %30
@@ -257,7 +251,7 @@ define hidden noundef zeroext i1 @X11_InitKeyboard(ptr noundef %0) local_unnamed
   %indvars.iv141 = phi i64 [ %indvars.iv.next142, %84 ], [ 0, %57 ]
   %.077128 = phi i32 [ %spec.select112, %84 ], [ 7, %57 ]
   %.081127 = phi i32 [ %spec.select111, %84 ], [ -1, %57 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %68 = getelementptr inbounds nuw [4 x i32], ptr @scancode_set, i64 0, i64 %indvars.iv141
   %69 = load i32, ptr %68, align 4
   %70 = call ptr @SDL_GetScancodeTable(i32 noundef %69, ptr noundef nonnull %12) #9
@@ -296,7 +290,7 @@ define hidden noundef zeroext i1 @X11_InitKeyboard(ptr noundef %0) local_unnamed
   %86 = trunc nuw nsw i64 %indvars.iv141 to i32
   %spec.select111 = select i1 %85, i32 %86, i32 %.081127
   %spec.select112 = call i32 @llvm.smin.i32(i32 %spec.select, i32 %.077128)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next142, 4
   br i1 %exitcond144.not, label %87, label %.preheader123, !llvm.loop !6
@@ -328,7 +322,7 @@ define hidden noundef zeroext i1 @X11_InitKeyboard(ptr noundef %0) local_unnamed
   br i1 %or.cond3, label %101, label %147
 
 101:                                              ; preds = %99
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %102 = zext nneg i32 %.283 to i64
   %103 = getelementptr inbounds nuw [4 x i32], ptr @scancode_set, i64 0, i64 %102
   %104 = load i32, ptr %103, align 4
@@ -363,8 +357,8 @@ define hidden noundef zeroext i1 @X11_InitKeyboard(ptr noundef %0) local_unnamed
   %119 = trunc nsw i64 %indvars.iv148 to i32
   %120 = trunc i64 %indvars.iv148 to i8
   %.val = load ptr, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   %121 = getelementptr inbounds nuw i8, ptr %.val, i64 1696
   %122 = load ptr, ptr %121, align 8
@@ -385,14 +379,14 @@ define hidden noundef zeroext i1 @X11_InitKeyboard(ptr noundef %0) local_unnamed
   br label %X11_KeyCodeToSym.exit.i
 
 X11_KeyCodeToSym.exit.thread.i:                   ; preds = %124
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %X11_KeyCodeToSDLScancode.exit
 
 X11_KeyCodeToSym.exit.i:                          ; preds = %128, %124
   %131 = phi i64 [ %130, %128 ], [ %.pre.i.i, %124 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %132 = icmp eq i64 %131, 0
   br i1 %132, label %X11_KeyCodeToSDLScancode.exit, label %133
 
@@ -442,7 +436,7 @@ X11_ScancodeIsRemappable.exit:                    ; preds = %143, %143, %143, %1
   br i1 %.not106.not, label %.lr.ph135, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %X11_ScancodeIsRemappable.exit, %114
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit
 
 147:                                              ; preds = %99
@@ -461,8 +455,8 @@ X11_ScancodeIsRemappable.exit:                    ; preds = %143, %143, %143, %1
   %153 = trunc nsw i64 %indvars.iv145 to i32
   %154 = trunc i64 %indvars.iv145 to i8
   %.val113 = load ptr, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, i8 0, i64 64, i1 false)
   %155 = getelementptr inbounds nuw i8, ptr %.val113, i64 1696
   %156 = load ptr, ptr %155, align 8
@@ -483,14 +477,14 @@ X11_ScancodeIsRemappable.exit:                    ; preds = %143, %143, %143, %1
   br label %X11_KeyCodeToSym.exit.i117
 
 X11_KeyCodeToSym.exit.thread.i119:                ; preds = %158
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %X11_KeyCodeToSDLScancode.exit120
 
 X11_KeyCodeToSym.exit.i117:                       ; preds = %162, %158
   %165 = phi i64 [ %164, %162 ], [ %.pre.i.i116, %158 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %166 = icmp eq i64 %165, 0
   br i1 %166, label %X11_KeyCodeToSDLScancode.exit120, label %167
 
@@ -514,26 +508,26 @@ X11_KeyCodeToSDLScancode.exit120:                 ; preds = %X11_KeyCodeToSym.ex
   call void @X11_UpdateKeymap(ptr noundef %0, i1 noundef zeroext false)
   %174 = call zeroext i1 @SDL_SetScancodeName_REAL(i32 noundef 101, ptr noundef nonnull @.str.1) #9
   call void @X11_ReconcileKeyboardState(ptr noundef %0) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind
-declare ptr @setlocale(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @setlocale(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #5
+declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #4
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #5
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #4
 
-declare ptr @SDL_GetScancodeTable(i32 noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @SDL_GetScancodeTable(i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @SDL_GetKeymapKeycode(ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #5
+declare i32 @SDL_GetKeymapKeycode(ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @X11_UpdateKeymap(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
@@ -549,7 +543,7 @@ define hidden void @X11_UpdateKeymap(ptr noundef readonly captures(none) %0, i1 
   br i1 %.not, label %24, label %11
 
 11:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = load ptr, ptr @X11_XkbGetUpdatedMap, align 8
   %13 = load ptr, ptr %7, align 8
   %14 = tail call i32 %12(ptr noundef %13, i32 noundef 7, ptr noundef nonnull %10) #9
@@ -567,7 +561,7 @@ define hidden void @X11_UpdateKeymap(ptr noundef readonly captures(none) %0, i1 
   br label %23
 
 23:                                               ; preds = %19, %11
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %24
 
 24:                                               ; preds = %23, %2
@@ -714,8 +708,8 @@ X11_GetScrollLockModifierMask.exit:               ; preds = %..split.loop.exit1_
   %87 = trunc i32 %86 to i8
   %88 = load i32, ptr %28, align 4
   %89 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 1696
   %91 = load ptr, ptr %90, align 8
@@ -773,14 +767,14 @@ X11_GetScrollLockModifierMask.exit:               ; preds = %..split.loop.exit1_
   br label %X11_KeyCodeToSym.exit
 
 X11_KeyCodeToSym.exit.thread:                     ; preds = %107
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %133
 
 X11_KeyCodeToSym.exit:                            ; preds = %107, %117
   %121 = phi i64 [ %120, %117 ], [ %.pre.i, %107 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not40 = icmp eq i64 %121, 0
   br i1 %.not40, label %133, label %122
 
@@ -823,17 +817,17 @@ X11_KeyCodeToSym.exit:                            ; preds = %107, %117
   br i1 %exitcond.not, label %78, label %79, !llvm.loop !15
 }
 
-declare zeroext i1 @SDL_SetScancodeName_REAL(i32 noundef, ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @SDL_SetScancodeName_REAL(i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @X11_ReconcileKeyboardState(ptr noundef) local_unnamed_addr #5
+declare void @X11_ReconcileKeyboardState(ptr noundef) local_unnamed_addr #4
 
-declare ptr @SDL_CreateKeymap(i1 noundef zeroext) local_unnamed_addr #5
+declare ptr @SDL_CreateKeymap(i1 noundef zeroext) local_unnamed_addr #4
 
-declare i32 @SDL_GetKeyCodeFromKeySym(i32 noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #5
+declare i32 @SDL_GetKeyCodeFromKeySym(i32 noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #4
 
-declare void @SDL_SetKeymapEntry(ptr noundef, i32 noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #5
+declare void @SDL_SetKeymapEntry(ptr noundef, i32 noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #4
 
-declare void @SDL_SetKeymap(ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
+declare void @SDL_SetKeymap(ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @X11_QuitKeyboard(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -883,7 +877,7 @@ define hidden void @X11_ClearComposition(ptr noundef captures(none) %0) local_un
   ret void
 }
 
-declare void @SDL_SendEditingText(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare void @SDL_SendEditingText(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @X11_CreateInputContext(ptr noundef %0) local_unnamed_addr #0 {
@@ -914,19 +908,19 @@ define hidden void @X11_CreateInputContext(ptr noundef %0) local_unnamed_addr #0
   br i1 %.not23, label %33, label %16
 
 16:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %2, align 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @preedit_draw_callback, ptr %17, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @preedit_start_callback, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @preedit_done_callback, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @preedit_caret_callback, ptr %20, align 8
@@ -948,10 +942,10 @@ define hidden void @X11_CreateInputContext(ptr noundef %0) local_unnamed_addr #0
   br label %32
 
 32:                                               ; preds = %23, %16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %33
 
 33:                                               ; preds = %32, %14, %12
@@ -980,9 +974,9 @@ define hidden void @X11_CreateInputContext(ptr noundef %0) local_unnamed_addr #0
   ret void
 }
 
-declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #5
+declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #4
 
-declare ptr @SDL_strstr_REAL(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @SDL_strstr_REAL(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @preedit_draw_callback(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
@@ -1007,7 +1001,7 @@ define internal void @preedit_draw_callback(ptr readnone captures(none) %0, ptr 
   br i1 %16, label %.thread, label %19
 
 .thread:                                          ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %4, align 8
@@ -1018,7 +1012,7 @@ define internal void @preedit_draw_callback(ptr readnone captures(none) %0, ptr 
   %21 = load i32, ptr %20, align 8
   %22 = sub nsw i32 %21, %13
   %.136 = tail call i32 @llvm.smin.i32(i32 %15, i32 %22)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %24 = load ptr, ptr %23, align 8
   store ptr %24, ptr %4, align 8
@@ -1039,11 +1033,11 @@ define internal void @preedit_draw_callback(ptr readnone captures(none) %0, ptr 
   br i1 %or.cond137, label %29, label %.lr.ph153.preheader
 
 .critedge2.thread:                                ; preds = %29, %.preheader
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %.critedge2.thread162
 
 .lr.ph153.preheader:                              ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %26, ptr %5, align 8
   br label %.lr.ph153
 
@@ -1101,7 +1095,7 @@ define internal void @preedit_draw_callback(ptr readnone captures(none) %0, ptr 
   %55 = load i32, ptr %20, align 8
   %56 = sub nsw i32 %55, %.136
   store i32 %56, ptr %20, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %57
 
 57:                                               ; preds = %.thread, %.critedge2.thread162, %19
@@ -1345,17 +1339,17 @@ define internal void @preedit_draw_callback(ptr readnone captures(none) %0, ptr 
   br label %X11_SendEditingEvent.exit
 
 X11_SendEditingEvent.exit:                        ; preds = %147, %151, %167
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @preedit_start_callback(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #6 {
+define internal noundef i32 @preedit_start_callback(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #5 {
   ret i32 -1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @preedit_done_callback(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #6 {
+define internal void @preedit_done_callback(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #5 {
   ret void
 }
 
@@ -1502,7 +1496,7 @@ X11_ResetXIM.exit:                                ; preds = %6, %9, %12
   br i1 %.not15.i, label %X11_UpdateTextInputArea.exit, label %18
 
 18:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 316
   %20 = load i32, ptr %19, align 4
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 332
@@ -1552,7 +1546,7 @@ X11_ResetXIM.exit:                                ; preds = %6, %9, %12
   br label %50
 
 50:                                               ; preds = %48, %34
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %X11_UpdateTextInputArea.exit
 
 X11_UpdateTextInputArea.exit:                     ; preds = %3, %X11_ResetXIM.exit, %15, %50
@@ -1574,7 +1568,7 @@ define hidden noundef zeroext i1 @X11_UpdateTextInputArea(ptr noundef readnone c
   br i1 %.not15, label %42, label %9
 
 9:                                                ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 316
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 332
@@ -1624,7 +1618,7 @@ define hidden noundef zeroext i1 @X11_UpdateTextInputArea(ptr noundef readnone c
   br label %41
 
 41:                                               ; preds = %39, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %42
 
 42:                                               ; preds = %41, %6, %2
@@ -1660,7 +1654,7 @@ X11_ResetXIM.exit:                                ; preds = %2, %4, %7, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @X11_HasScreenKeyboardSupport(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+define hidden zeroext i1 @X11_HasScreenKeyboardSupport(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1760
@@ -1680,7 +1674,7 @@ define hidden void @X11_ShowScreenKeyboard(ptr noundef readonly captures(none) %
   br i1 %9, label %10, label %20
 
 10:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = tail call i32 @SDL_GetTextInputType(i32 noundef %2) #9
   %switch.tableidx = add i32 %11, -2
   %12 = icmp ult i32 %switch.tableidx, 7
@@ -1707,20 +1701,20 @@ switch.lookup:                                    ; preds = %10
   %18 = call zeroext i1 @SDL_OpenURL_REAL(ptr noundef nonnull %4) #9
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 1761
   store i8 1, ptr %19, align 1
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %20
 
 20:                                               ; preds = %16, %3
   ret void
 }
 
-declare i32 @SDL_GetTextInputType(i32 noundef) local_unnamed_addr #5
+declare i32 @SDL_GetTextInputType(i32 noundef) local_unnamed_addr #4
 
-declare zeroext i1 @SDL_GetTextInputMultiline(i32 noundef) local_unnamed_addr #5
+declare zeroext i1 @SDL_GetTextInputMultiline(i32 noundef) local_unnamed_addr #4
 
-declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #5
+declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
-declare zeroext i1 @SDL_OpenURL_REAL(ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @SDL_OpenURL_REAL(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @X11_HideScreenKeyboard(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
@@ -1742,7 +1736,7 @@ define hidden void @X11_HideScreenKeyboard(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @X11_IsScreenKeyboardShown(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #7 {
+define hidden zeroext i1 @X11_IsScreenKeyboardShown(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1761
@@ -1751,30 +1745,36 @@ define hidden zeroext i1 @X11_IsScreenKeyboardShown(ptr noundef readonly capture
   ret i1 %7
 }
 
-declare i32 @SDL_GetScancodeFromKeySym(i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @SDL_GetScancodeFromKeySym(i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @SDL_StepUTF8_REAL(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @SDL_StepUTF8_REAL(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #5
+declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
-declare i64 @SDL_utf8strlen_REAL(ptr noundef) local_unnamed_addr #5
+declare i64 @SDL_utf8strlen_REAL(ptr noundef) local_unnamed_addr #4
 
-declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #5
+declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
 

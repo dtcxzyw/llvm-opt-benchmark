@@ -86,8 +86,8 @@ define hidden ptr @PKCS5_pbe2_set_iv(ptr noundef %0, i32 noundef %1, ptr noundef
   %8 = alloca %struct.evp_cipher_ctx_st, align 8
   %9 = alloca [16 x i8], align 16
   store i32 %5, ptr %7, align 4, !tbaa !6
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %8) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = tail call i32 @EVP_CIPHER_nid(ptr noundef %0) #5
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %13
@@ -234,13 +234,10 @@ param_to_asn1.exit:                               ; preds = %31, %39, %40
 
 69:                                               ; preds = %68, %65
   %.0 = phi ptr [ null, %68 ], [ %56, %65 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @EVP_CIPHER_nid(ptr noundef) local_unnamed_addr #1
 
@@ -253,7 +250,7 @@ declare ptr @ASN1_TYPE_new() local_unnamed_addr #1
 declare i32 @EVP_CIPHER_iv_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @RAND_bytes(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -398,9 +395,6 @@ declare ptr @X509_ALGOR_new() local_unnamed_addr #1
 
 declare ptr @ASN1_item_pack(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind uwtable
 define hidden ptr @PKCS5_pbe2_set(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @PKCS5_pbe2_set_iv(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef null, i32 noundef -1)
@@ -410,7 +404,7 @@ define hidden ptr @PKCS5_pbe2_set(ptr noundef %0, i32 noundef %1, ptr noundef re
 declare ptr @ASN1_STRING_type_new(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 declare i32 @ASN1_INTEGER_set(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -697,11 +691,17 @@ declare i64 @ASN1_INTEGER_get(ptr noundef) local_unnamed_addr #1
 
 declare i32 @PKCS5_PBKDF2_HMAC_SHA1(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 attributes #6 = { nounwind allocsize(0) }
 

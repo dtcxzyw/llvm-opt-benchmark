@@ -26,8 +26,8 @@ define void @Ptngc_comp_conv_to_mtf_partial(ptr noundef readonly captures(none) 
   br label %.lr.ph.us
 
 ._crit_edge.us:                                   ; preds = %48
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %14
 
 14:                                               ; preds = %14, %._crit_edge.us
@@ -140,15 +140,15 @@ define void @Ptngc_comp_conv_to_mtf_partial(ptr noundef readonly captures(none) 
   br label %48
 
 .lr.ph32.us:                                      ; preds = %39
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %55 = shl nuw nsw i32 %.034.us, 3
   br label %41
 
 .preheader:                                       ; preds = %3, %comp_conv_to_mtf_byte.exit
   %.034 = phi i32 [ %61, %comp_conv_to_mtf_byte.exit ], [ 0, %3 ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %56
 
 56:                                               ; preds = %56, %.preheader
@@ -170,8 +170,8 @@ define void @Ptngc_comp_conv_to_mtf_partial(ptr noundef readonly captures(none) 
   br i1 %exitcond53.not.i, label %comp_conv_to_mtf_byte.exit, label %.preheader.i, !llvm.loop !9
 
 comp_conv_to_mtf_byte.exit:                       ; preds = %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %61 = add nuw nsw i32 %.034, 1
   %exitcond.not = icmp eq i32 %61, 3
   br i1 %exitcond.not, label %.split36.us, label %.preheader, !llvm.loop !17
@@ -181,19 +181,13 @@ comp_conv_to_mtf_byte.exit:                       ; preds = %.preheader.i
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @Ptngc_warnmalloc_x(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @Ptngc_warnmalloc_x(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @Ptngc_comp_conv_to_mtf_partial3(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
@@ -207,8 +201,8 @@ define void @Ptngc_comp_conv_to_mtf_partial3(ptr noundef readonly captures(none)
   br i1 %8, label %.lr.ph.us, label %.preheader
 
 ._crit_edge.us:                                   ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %10
 
 10:                                               ; preds = %10, %._crit_edge.us
@@ -299,8 +293,8 @@ define void @Ptngc_comp_conv_to_mtf_partial3(ptr noundef readonly captures(none)
   br i1 %exitcond42.not, label %._crit_edge.us, label %38, !llvm.loop !18
 
 comp_conv_to_mtf_byte.exit.loopexit.us:           ; preds = %37
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next44, 3
   br i1 %exitcond46.not, label %.split23.us, label %.lr.ph.us, !llvm.loop !19
@@ -313,8 +307,8 @@ comp_conv_to_mtf_byte.exit.loopexit.us:           ; preds = %37
 
 .preheader:                                       ; preds = %3, %comp_conv_to_mtf_byte.exit
   %.021 = phi i32 [ %50, %comp_conv_to_mtf_byte.exit ], [ 0, %3 ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %45
 
 45:                                               ; preds = %45, %.preheader
@@ -336,8 +330,8 @@ comp_conv_to_mtf_byte.exit.loopexit.us:           ; preds = %37
   br i1 %exitcond53.not.i, label %comp_conv_to_mtf_byte.exit, label %.preheader.i, !llvm.loop !9
 
 comp_conv_to_mtf_byte.exit:                       ; preds = %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %50 = add nuw nsw i32 %.021, 1
   %exitcond.not = icmp eq i32 %50, 3
   br i1 %exitcond.not, label %.split23.us, label %.preheader, !llvm.loop !20
@@ -368,8 +362,8 @@ define void @Ptngc_comp_conv_from_mtf_partial(ptr noundef readonly captures(none
   br label %.lr.ph.us
 
 ._crit_edge.us:                                   ; preds = %49
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %14
 
 14:                                               ; preds = %14, %._crit_edge.us
@@ -483,15 +477,15 @@ define void @Ptngc_comp_conv_from_mtf_partial(ptr noundef readonly captures(none
   br label %49
 
 .lr.ph32.us:                                      ; preds = %40
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %56 = shl nuw nsw i32 %.034.us, 3
   br label %42
 
 .preheader:                                       ; preds = %3, %comp_conv_from_mtf_byte.exit
   %.034 = phi i32 [ %62, %comp_conv_from_mtf_byte.exit ], [ 0, %3 ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %57
 
 57:                                               ; preds = %57, %.preheader
@@ -513,8 +507,8 @@ define void @Ptngc_comp_conv_from_mtf_partial(ptr noundef readonly captures(none
   br i1 %exitcond47.not.i, label %comp_conv_from_mtf_byte.exit, label %.preheader.i, !llvm.loop !22
 
 comp_conv_from_mtf_byte.exit:                     ; preds = %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %62 = add nuw nsw i32 %.034, 1
   %exitcond.not = icmp eq i32 %62, 3
   br i1 %exitcond.not, label %.split36.us, label %.preheader, !llvm.loop !28
@@ -539,8 +533,8 @@ define void @Ptngc_comp_conv_from_mtf_partial3(ptr noundef readonly captures(non
 
 .split.us:                                        ; preds = %3, %._crit_edge.us
   %indvars.iv42 = phi i64 [ %indvars.iv.next43, %._crit_edge.us ], [ 0, %3 ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %11
 
 11:                                               ; preds = %11, %.split.us
@@ -639,16 +633,16 @@ define void @Ptngc_comp_conv_from_mtf_partial3(ptr noundef readonly captures(non
   br i1 %exitcond41.not, label %._crit_edge.us, label %40, !llvm.loop !30
 
 .lr.ph.us:                                        ; preds = %39
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv42.tr = trunc i64 %indvars.iv42 to i32
   %48 = shl i32 %indvars.iv42.tr, 3
   br label %40
 
 .split.split:                                     ; preds = %3, %comp_conv_from_mtf_byte.exit
   %.022 = phi i32 [ %54, %comp_conv_from_mtf_byte.exit ], [ 0, %3 ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %49
 
 49:                                               ; preds = %49, %.split.split
@@ -670,8 +664,8 @@ define void @Ptngc_comp_conv_from_mtf_partial3(ptr noundef readonly captures(non
   br i1 %exitcond47.not.i, label %comp_conv_from_mtf_byte.exit, label %.preheader.i, !llvm.loop !22
 
 comp_conv_from_mtf_byte.exit:                     ; preds = %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %54 = add nuw nsw i32 %.022, 1
   %exitcond.not = icmp eq i32 %54, 3
   br i1 %exitcond.not, label %.split24.us, label %.split.split, !llvm.loop !31
@@ -857,11 +851,17 @@ define void @Ptngc_comp_conv_from_mtf(ptr noundef readonly captures(none) %0, i3
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

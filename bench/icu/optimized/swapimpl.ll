@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef i32 @udata_swap(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca [4 x i8], align 4
   %7 = alloca [4 x i16], align 2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = icmp eq ptr %4, null
   br i1 %8, label %111, label %9
 
@@ -56,7 +56,7 @@ define noundef i32 @udata_swap(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   br i1 %15, label %16, label %111
 
 16:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %18 = load i8, ptr %17, align 2, !tbaa !7
   %19 = zext i8 %18 to i16
@@ -89,7 +89,7 @@ define noundef i32 @udata_swap(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   br label %35
 
 35:                                               ; preds = %34, %33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %37
 
 36:                                               ; preds = %37
@@ -191,38 +191,32 @@ define noundef i32 @udata_swap(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
 
 111:                                              ; preds = %46, %70, %67, %12, %5, %9, %91
   %.0 = phi i32 [ 0, %91 ], [ 0, %9 ], [ 0, %5 ], [ 0, %12 ], [ %43, %67 ], [ %43, %70 ], [ %43, %46 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @udata_swapDataHeader_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @udata_swapDataHeader_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare signext i8 @uprv_isInvariantUString_77(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare signext i8 @uprv_isInvariantUString_77(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @u_UCharsToChars_77(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @u_UCharsToChars_77(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @udata_printError_77(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @u_errorName_77(i32 noundef) local_unnamed_addr #1
 
-declare void @udata_printError_77(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @ures_swap_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
-declare ptr @u_errorName_77(i32 noundef) local_unnamed_addr #2
+declare i32 @ucnv_swap_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
-declare i32 @ures_swap_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
+declare i32 @ucnv_swapAliases_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
-declare i32 @ucnv_swap_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
-
-declare i32 @ucnv_swapAliases_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
-
-declare i32 @usprep_swap_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
+declare i32 @usprep_swap_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL11uprops_swapPK12UDataSwapperPKviPvP10UErrorCode(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca [16 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i32 @udata_swapDataHeader_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   %8 = icmp eq ptr %4, null
   br i1 %8, label %150, label %9
@@ -442,14 +436,14 @@ define internal noundef i32 @_ZL11uprops_swapPK12UDataSwapperPKviPvP10UErrorCode
 
 150:                                              ; preds = %146, %.thread, %5, %9, %58, %._crit_edge
   %.0 = phi i32 [ 0, %58 ], [ 0, %._crit_edge ], [ 0, %9 ], [ 0, %5 ], [ %149, %.thread ], [ 0, %146 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL10ucase_swapPK12UDataSwapperPKviPvP10UErrorCode(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca [16 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i32 @udata_swapDataHeader_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   %8 = icmp eq ptr %4, null
   br i1 %8, label %105, label %9
@@ -610,14 +604,14 @@ define internal noundef i32 @_ZL10ucase_swapPK12UDataSwapperPKviPvP10UErrorCode(
 
 105:                                              ; preds = %5, %9, %103, %74, %61, %.thread
   %.0 = phi i32 [ 0, %61 ], [ 0, %74 ], [ %104, %103 ], [ 0, %.thread ], [ 0, %9 ], [ 0, %5 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL10ubidi_swapPK12UDataSwapperPKviPvP10UErrorCode(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca [16 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i32 @udata_swapDataHeader_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   %8 = icmp eq ptr %4, null
   br i1 %8, label %98, label %9
@@ -771,14 +765,14 @@ define internal noundef i32 @_ZL10ubidi_swapPK12UDataSwapperPKviPvP10UErrorCode(
 
 98:                                               ; preds = %5, %9, %96, %71, %58, %.thread
   %.0 = phi i32 [ 0, %58 ], [ 0, %71 ], [ %97, %96 ], [ 0, %.thread ], [ 0, %9 ], [ 0, %5 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL10unorm_swapPK12UDataSwapperPKviPvP10UErrorCode(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca [32 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i32 @udata_swapDataHeader_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   %8 = icmp eq ptr %4, null
   br i1 %8, label %118, label %9
@@ -957,11 +951,11 @@ define internal noundef i32 @_ZL10unorm_swapPK12UDataSwapperPKviPvP10UErrorCode(
 
 118:                                              ; preds = %5, %9, %116, %81, %51, %._crit_edge
   %.0 = phi i32 [ 0, %51 ], [ 0, %81 ], [ %117, %116 ], [ 0, %._crit_edge ], [ 0, %9 ], [ 0, %5 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-declare i32 @unorm2_swap_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
+declare i32 @unorm2_swap_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL12ulayout_swapPK12UDataSwapperPKviPvP10UErrorCode(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
@@ -1050,7 +1044,7 @@ define internal noundef i32 @_ZL12ulayout_swapPK12UDataSwapperPKviPvP10UErrorCod
   br label %91
 
 57:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %62
 
 58:                                               ; preds = %62
@@ -1122,7 +1116,7 @@ define internal noundef i32 @_ZL12ulayout_swapPK12UDataSwapperPKviPvP10UErrorCod
 
 90:                                               ; preds = %.loopexit, %69
   %.4 = phi i32 [ 0, %69 ], [ %89, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %91
 
 91:                                               ; preds = %._crit_edge, %56, %90, %51, %5, %9
@@ -1218,7 +1212,7 @@ define internal noundef i32 @_ZL11uemoji_swapPK12UDataSwapperPKviPvP10UErrorCode
   br label %102
 
 58:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %63
 
 59:                                               ; preds = %63
@@ -1293,7 +1287,7 @@ define internal noundef i32 @_ZL11uemoji_swapPK12UDataSwapperPKviPvP10UErrorCode
 
 101:                                              ; preds = %99, %70
   %.4 = phi i32 [ 0, %70 ], [ %100, %99 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %102
 
 102:                                              ; preds = %._crit_edge, %56, %101, %51, %5, %9
@@ -1301,13 +1295,13 @@ define internal noundef i32 @_ZL11uemoji_swapPK12UDataSwapperPKviPvP10UErrorCode
   ret i32 %.0
 }
 
-declare i32 @ucol_swap_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
+declare i32 @ucol_swap_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
-declare i32 @ucol_swapInverseUCA_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
+declare i32 @ucol_swapInverseUCA_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
-declare i32 @ubrk_swap_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
+declare i32 @ubrk_swap_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
-declare i32 @udict_swap_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
+declare i32 @udict_swap_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL11upname_swapPK12UDataSwapperPKviPvP10UErrorCode(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
@@ -1429,9 +1423,9 @@ define internal noundef i32 @_ZL11upname_swapPK12UDataSwapperPKviPvP10UErrorCode
   ret i32 %.0
 }
 
-declare i32 @uchar_swapNames_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
+declare i32 @uchar_swapNames_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
-declare i32 @uspoof_swap_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
+declare i32 @uspoof_swap_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef range(i32 -2147483641, -2147483648) i32 @_ZL9test_swapPK12UDataSwapperPKviPvP10UErrorCode(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
@@ -1534,24 +1528,29 @@ define internal noundef range(i32 -2147483641, -2147483648) i32 @_ZL9test_swapPK
   ret i32 %.0
 }
 
-declare i32 @udata_readInt32_77(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @udata_readInt32_77(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare i32 @utrie_swapAnyVersion_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @utrie_swapAnyVersion_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @utrie_swap_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @utrie_swap_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -44,13 +44,13 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local range(i32 -1, 1) i32 @reserve_port_config(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str) #9
+  %6 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str) #8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.thread, label %27
 
@@ -60,12 +60,12 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_config(ptr noundef %0, ptr n
   br i1 %.not31, label %203, label %9
 
 9:                                                ; preds = %.thread
-  %10 = tail call i32 @get_log_level() #8
+  %10 = tail call i32 @get_log_level() #9
   %11 = icmp sgt i32 %10, 2
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %9
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.1) #8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.1) #9
   br label %13
 
 13:                                               ; preds = %12, %9
@@ -83,7 +83,7 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_config(ptr noundef %0, ptr n
   br i1 %.not32, label %21, label %20
 
 20:                                               ; preds = %.lr.ph38
-  tail call void @slurm_bit_free(ptr noundef nonnull %18) #8
+  tail call void @slurm_bit_free(ptr noundef nonnull %18) #9
   %.pre = load ptr, ptr @port_resv_table, align 8
   %.pre44 = load i32, ptr @port_resv_cnt, align 4
   br label %21
@@ -99,7 +99,7 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_config(ptr noundef %0, ptr n
   br i1 %26, label %.lr.ph38, label %._crit_edge39, !llvm.loop !8
 
 ._crit_edge39:                                    ; preds = %21, %13
-  tail call void @slurm_xfree(ptr noundef nonnull @port_resv_table) #8
+  tail call void @slurm_xfree(ptr noundef nonnull @port_resv_table) #9
   store i32 0, ptr @port_resv_cnt, align 4
   store i32 0, ptr @port_resv_max, align 4
   store i32 0, ptr @port_resv_min, align 4
@@ -107,7 +107,7 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_config(ptr noundef %0, ptr n
 
 27:                                               ; preds = %5
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 6
-  %29 = call i64 @strtol(ptr noundef nonnull %28, ptr noundef nonnull %4, i32 noundef 10) #8
+  %29 = call i64 @strtol(ptr noundef nonnull %28, ptr noundef nonnull %4, i32 noundef 10) #9
   %30 = trunc i64 %29 to i32
   %31 = icmp slt i32 %30, 1
   br i1 %31, label %35, label %32
@@ -119,29 +119,29 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_config(ptr noundef %0, ptr n
   br i1 %.not30, label %39, label %35
 
 35:                                               ; preds = %32, %27
-  %36 = tail call i32 @get_log_level() #8
+  %36 = tail call i32 @get_log_level() #9
   %37 = icmp sgt i32 %36, 2
   br i1 %37, label %38, label %203
 
 38:                                               ; preds = %35
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull %0) #8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull %0) #9
   br label %203
 
 39:                                               ; preds = %32
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 1
   store ptr %40, ptr %4, align 8
-  %41 = tail call i64 @strtol(ptr noundef nonnull captures(none) %40, ptr noundef null, i32 noundef 10) #8
+  %41 = tail call i64 @strtol(ptr noundef nonnull captures(none) %40, ptr noundef null, i32 noundef 10) #9
   %42 = trunc i64 %41 to i32
   %43 = icmp slt i32 %42, %30
   br i1 %43, label %44, label %48
 
 44:                                               ; preds = %39
-  %45 = tail call i32 @get_log_level() #8
+  %45 = tail call i32 @get_log_level() #9
   %46 = icmp sgt i32 %45, 2
   br i1 %46, label %47, label %203
 
 47:                                               ; preds = %44
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull %0) #8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull %0) #9
   br label %203
 
 48:                                               ; preds = %39
@@ -158,22 +158,22 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_config(ptr noundef %0, ptr n
   %reass.sub = sub nsw i32 %42, %30
   %54 = add nsw i32 %reass.sub, 1
   store i32 %54, ptr @port_resv_cnt, align 4
-  %55 = tail call i32 @get_log_level() #8
+  %55 = tail call i32 @get_log_level() #9
   %56 = icmp sgt i32 %55, 4
   br i1 %56, label %57, label %60
 
 57:                                               ; preds = %53
   %58 = load i32, ptr @port_resv_min, align 4
   %59 = load i32, ptr @port_resv_max, align 4
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.3, i32 noundef %58, i32 noundef %59) #8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.3, i32 noundef %58, i32 noundef %59) #9
   br label %60
 
 60:                                               ; preds = %57, %53
-  tail call void @slurm_xfree(ptr noundef nonnull @port_resv_table) #8
+  tail call void @slurm_xfree(ptr noundef nonnull @port_resv_table) #9
   %61 = load i32, ptr @port_resv_cnt, align 4
   %62 = sext i32 %61 to i64
   %63 = shl nsw i64 %62, 3
-  %64 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %63, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 258, ptr noundef nonnull @__func__.reserve_port_config) #8
+  %64 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %63, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 258, ptr noundef nonnull @__func__.reserve_port_config) #9
   store ptr %64, ptr @port_resv_table, align 8
   %65 = load i32, ptr @port_resv_cnt, align 4
   %66 = icmp sgt i32 %65, 0
@@ -183,7 +183,7 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_config(ptr noundef %0, ptr n
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %60 ]
   %67 = load i32, ptr @node_record_count, align 4
   %68 = sext i32 %67 to i64
-  %69 = tail call ptr @bit_alloc(i64 noundef %68) #8
+  %69 = tail call ptr @bit_alloc(i64 noundef %68) #9
   %70 = load ptr, ptr @port_resv_table, align 8
   %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv
   store ptr %69, ptr %71, align 8
@@ -194,8 +194,8 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_config(ptr noundef %0, ptr n
   br i1 %74, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %60
-  %75 = tail call ptr @list_iterator_create(ptr noundef %1) #8
-  %76 = tail call ptr @list_next(ptr noundef %75) #8
+  %75 = tail call ptr @list_iterator_create(ptr noundef %1) #9
+  %76 = tail call ptr @list_next(ptr noundef %75) #9
   %.not29.i = icmp eq ptr %76, null
   br i1 %.not29.i, label %_make_all_resv.exit, label %.lr.ph31.i
 
@@ -274,7 +274,7 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_config(ptr noundef %0, ptr n
   %117 = zext nneg i32 %115 to i64
   %118 = getelementptr inbounds nuw ptr, ptr %116, i64 %117
   %119 = load ptr, ptr %118, align 8
-  call void @bit_or(ptr noundef %119, ptr noundef %88) #8
+  call void @bit_or(ptr noundef %119, ptr noundef %88) #9
   %.pre33.i.i.i = load i32, ptr @port_resv_min, align 4
   %.pre35.i.i.i = load i32, ptr @port_resv_max, align 4
   %.pre37.i.i.i = load i16, ptr %91, align 2
@@ -295,15 +295,15 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_config(ptr noundef %0, ptr n
 127:                                              ; preds = %126, %102
   %.str.6.sink.i.i = phi ptr [ @.str.6, %126 ], [ @.str.5, %102 ]
   %128 = load ptr, ptr %89, align 8
-  %129 = call i32 (ptr, ...) @error(ptr noundef nonnull %.str.6.sink.i.i, ptr noundef nonnull %77, ptr noundef %128) #8
-  call void @slurm_xfree(ptr noundef nonnull %89) #8
+  %129 = call i32 (ptr, ...) @error(ptr noundef nonnull %.str.6.sink.i.i, ptr noundef nonnull %77, ptr noundef %128) #9
+  call void @slurm_xfree(ptr noundef nonnull %89) #9
   br label %_make_job_resv.exit.i
 
 _make_job_resv.exit.i:                            ; preds = %120, %127, %104, %96, %86, %82, %.lr.ph31.i
   %130 = getelementptr inbounds nuw i8, ptr %77, i64 936
   %131 = load ptr, ptr %130, align 8
-  %132 = call ptr @list_iterator_create(ptr noundef %131) #8
-  %133 = call ptr @list_next(ptr noundef %132) #8
+  %132 = call ptr @list_iterator_create(ptr noundef %131) #9
+  %133 = call ptr @list_next(ptr noundef %132) #9
   %.not1028.i = icmp eq ptr %133, null
   br i1 %.not1028.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -338,28 +338,28 @@ _make_job_resv.exit.i:                            ; preds = %120, %127, %104, %9
   br i1 %153, label %154, label %.lr.ph.preheader.i.i12.i
 
 154:                                              ; preds = %151
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
-  %155 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.21, ptr noundef nonnull %142) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %155 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.21, ptr noundef nonnull %142) #9
   store ptr %155, ptr %3, align 8
-  %156 = call ptr @hostlist_create(ptr noundef %155) #8
-  call void @slurm_xfree(ptr noundef nonnull %3) #8
+  %156 = call ptr @hostlist_create(ptr noundef %155) #9
+  call void @slurm_xfree(ptr noundef nonnull %3) #9
   %.not.i24.i = icmp eq ptr %156, null
   br i1 %.not.i24.i, label %198, label %157
 
 157:                                              ; preds = %154
   %158 = load i16, ptr %143, align 2
   %159 = zext i16 %158 to i64
-  %160 = call ptr @slurm_xcalloc(i64 noundef %159, i64 noundef %159, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 97, ptr noundef nonnull @__func__._rebuild_port_array) #8
+  %160 = call ptr @slurm_xcalloc(i64 noundef %159, i64 noundef %159, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 97, ptr noundef nonnull @__func__._rebuild_port_array) #9
   store ptr %160, ptr %144, align 8
   store i16 0, ptr %143, align 2
-  %161 = call ptr @hostlist_shift(ptr noundef nonnull %156) #8
+  %161 = call ptr @hostlist_shift(ptr noundef nonnull %156) #9
   store ptr %161, ptr %3, align 8
   %.not1617.i.i = icmp eq ptr %161, null
   br i1 %.not1617.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %157, %172
   %162 = phi ptr [ %174, %172 ], [ %161, %157 ]
-  %163 = call i64 @strtol(ptr noundef nonnull captures(none) %162, ptr noundef null, i32 noundef 10) #8
+  %163 = call i64 @strtol(ptr noundef nonnull captures(none) %162, ptr noundef null, i32 noundef 10) #9
   %164 = trunc i64 %163 to i32
   %165 = icmp sgt i32 %164, 0
   br i1 %165, label %166, label %172
@@ -376,17 +376,17 @@ _make_job_resv.exit.i:                            ; preds = %120, %127, %104, %9
 
 172:                                              ; preds = %166, %.lr.ph.i.i
   %173 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %173) #8
-  %174 = call ptr @hostlist_shift(ptr noundef nonnull %156) #8
+  call void @free(ptr noundef %173) #9
+  %174 = call ptr @hostlist_shift(ptr noundef nonnull %156) #9
   store ptr %174, ptr %3, align 8
   %.not16.i.i = icmp eq ptr %174, null
   br i1 %.not16.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !13
 
 ._crit_edge.i.i:                                  ; preds = %172, %157
-  call void @hostlist_destroy(ptr noundef nonnull %156) #8
+  call void @hostlist_destroy(ptr noundef nonnull %156) #9
   %175 = load i16, ptr %143, align 2
   %176 = icmp eq i16 %175, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %176, label %_rebuild_port_array.exit.i, label %.lr.ph.preheader.i.i12.i
 
 .lr.ph.preheader.i.i12.i:                         ; preds = %._crit_edge.i.i, %151
@@ -414,7 +414,7 @@ _make_job_resv.exit.i:                            ; preds = %120, %127, %104, %9
   %189 = zext nneg i32 %187 to i64
   %190 = getelementptr inbounds nuw ptr, ptr %188, i64 %189
   %191 = load ptr, ptr %190, align 8
-  call void @bit_or(ptr noundef %191, ptr noundef %140) #8
+  call void @bit_or(ptr noundef %191, ptr noundef %140) #9
   %.pre33.i.i18.i = load i32, ptr @port_resv_min, align 4
   %.pre35.i.i19.i = load i32, ptr @port_resv_max, align 4
   %.pre37.i.i20.i = load i16, ptr %143, align 2
@@ -430,60 +430,54 @@ _make_job_resv.exit.i:                            ; preds = %120, %127, %104, %9
   br i1 %197, label %.lr.ph.i.i15.i, label %.backedge.i, !llvm.loop !12
 
 198:                                              ; preds = %154
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_rebuild_port_array.exit.i
 
 _rebuild_port_array.exit.i:                       ; preds = %198, %._crit_edge.i.i
   %.str.20.sink.i.i = phi ptr [ @.str.20, %198 ], [ @.str.19, %._crit_edge.i.i ]
   %199 = load ptr, ptr %141, align 8
-  %200 = call i32 (ptr, ...) @error(ptr noundef nonnull %.str.20.sink.i.i, ptr noundef nonnull %134, ptr noundef %199) #8
-  call void @slurm_xfree(ptr noundef nonnull %141) #8
+  %200 = call i32 (ptr, ...) @error(ptr noundef nonnull %.str.20.sink.i.i, ptr noundef nonnull %134, ptr noundef %199) #9
+  call void @slurm_xfree(ptr noundef nonnull %141) #9
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %192, %_rebuild_port_array.exit.i, %148, %138, %.lr.ph.i
-  %201 = call ptr @list_next(ptr noundef %132) #8
+  %201 = call ptr @list_next(ptr noundef %132) #9
   %.not10.i = icmp eq ptr %201, null
   br i1 %.not10.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %.backedge.i, %_make_job_resv.exit.i
-  call void @list_iterator_destroy(ptr noundef %132) #8
-  %202 = call ptr @list_next(ptr noundef %75) #8
+  call void @list_iterator_destroy(ptr noundef %132) #9
+  %202 = call ptr @list_next(ptr noundef %75) #9
   %.not.i = icmp eq ptr %202, null
   br i1 %.not.i, label %_make_all_resv.exit, label %.lr.ph31.i, !llvm.loop !15
 
 _make_all_resv.exit:                              ; preds = %._crit_edge.i, %._crit_edge
-  call void @list_iterator_destroy(ptr noundef %75) #8
+  call void @list_iterator_destroy(ptr noundef %75) #9
   br label %203
 
 203:                                              ; preds = %48, %44, %47, %35, %38, %.thread, %._crit_edge39, %_make_all_resv.exit
   %.0 = phi i32 [ 0, %_make_all_resv.exit ], [ 0, %._crit_edge39 ], [ 0, %.thread ], [ -1, %38 ], [ -1, %35 ], [ -1, %47 ], [ -1, %44 ], [ 0, %48 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
-declare i32 @get_log_level() local_unnamed_addr #3
+declare i32 @get_log_level() local_unnamed_addr #2
 
-declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @slurm_bit_free(ptr noundef) local_unnamed_addr #3
+declare void @slurm_bit_free(ptr noundef) local_unnamed_addr #2
 
-declare void @slurm_xfree(ptr noundef) local_unnamed_addr #3
+declare void @slurm_xfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
-declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @bit_alloc(i64 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @bit_alloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @reserve_port_stepmgr_init(ptr noundef %0) local_unnamed_addr #0 {
@@ -498,12 +492,12 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_stepmgr_init(ptr noundef %0)
   br i1 %.not40, label %.loopexit, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i32 @get_log_level() #8
+  %8 = tail call i32 @get_log_level() #9
   %9 = icmp sgt i32 %8, 2
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.1) #8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.1) #9
   br label %11
 
 11:                                               ; preds = %10, %7
@@ -521,7 +515,7 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_stepmgr_init(ptr noundef %0)
   br i1 %.not41, label %19, label %18
 
 18:                                               ; preds = %.lr.ph46
-  tail call void @slurm_bit_free(ptr noundef nonnull %16) #8
+  tail call void @slurm_bit_free(ptr noundef nonnull %16) #9
   %.pre55 = load ptr, ptr @port_resv_table, align 8
   %.pre56 = load i32, ptr @port_resv_cnt, align 4
   br label %19
@@ -537,7 +531,7 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_stepmgr_init(ptr noundef %0)
   br i1 %24, label %.lr.ph46, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %19, %11
-  tail call void @slurm_xfree(ptr noundef nonnull @port_resv_table) #8
+  tail call void @slurm_xfree(ptr noundef nonnull @port_resv_table) #9
   store i32 0, ptr @port_resv_cnt, align 4
   store i32 0, ptr @port_resv_max, align 4
   store i32 0, ptr @port_resv_min, align 4
@@ -567,8 +561,8 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_stepmgr_init(ptr noundef %0)
 32:                                               ; preds = %28, %31
   %.str.6.sink = phi ptr [ @.str.6, %31 ], [ @.str.5, %28 ]
   %33 = load ptr, ptr %2, align 8
-  %34 = tail call i32 (ptr, ...) @error(ptr noundef nonnull %.str.6.sink, ptr noundef nonnull %0, ptr noundef %33) #8
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #8
+  %34 = tail call i32 (ptr, ...) @error(ptr noundef nonnull %.str.6.sink, ptr noundef nonnull %0, ptr noundef %33) #9
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #9
   br label %.loopexit
 
 35:                                               ; preds = %._crit_edge51, %25
@@ -593,22 +587,22 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_stepmgr_init(ptr noundef %0)
   %reass.sub = sub i32 %43, %37
   %49 = add i32 %reass.sub, 1
   store i32 %49, ptr @port_resv_cnt, align 4
-  %50 = tail call i32 @get_log_level() #8
+  %50 = tail call i32 @get_log_level() #9
   %51 = icmp sgt i32 %50, 4
   br i1 %51, label %52, label %55
 
 52:                                               ; preds = %48
   %53 = load i32, ptr @port_resv_min, align 4
   %54 = load i32, ptr @port_resv_max, align 4
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.3, i32 noundef %53, i32 noundef %54) #8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.3, i32 noundef %53, i32 noundef %54) #9
   br label %55
 
 55:                                               ; preds = %52, %48
-  tail call void @slurm_xfree(ptr noundef nonnull @port_resv_table) #8
+  tail call void @slurm_xfree(ptr noundef nonnull @port_resv_table) #9
   %56 = load i32, ptr @port_resv_cnt, align 4
   %57 = sext i32 %56 to i64
   %58 = shl nsw i64 %57, 3
-  %59 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %58, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 315, ptr noundef nonnull @__func__.reserve_port_stepmgr_init) #8
+  %59 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %58, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 315, ptr noundef nonnull @__func__.reserve_port_stepmgr_init) #9
   store ptr %59, ptr @port_resv_table, align 8
   %60 = load i32, ptr @port_resv_cnt, align 4
   %61 = icmp sgt i32 %60, 0
@@ -635,8 +629,8 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_stepmgr_init(ptr noundef %0)
 
 71:                                               ; preds = %63
   %72 = load ptr, ptr %62, align 8
-  %73 = tail call i64 @bit_size(ptr noundef %72) #8
-  %74 = tail call ptr @bit_alloc(i64 noundef %73) #8
+  %73 = tail call i64 @bit_size(ptr noundef %72) #9
+  %74 = tail call ptr @bit_alloc(i64 noundef %73) #9
   %75 = load ptr, ptr @port_resv_table, align 8
   %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv
   store ptr %74, ptr %76, align 8
@@ -662,28 +656,28 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_stepmgr_init(ptr noundef %0)
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 2061) i32 @_rebuild_port_array(ptr noundef nonnull %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
-  %5 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.21, ptr noundef nonnull %0) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %5 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.21, ptr noundef nonnull %0) #9
   store ptr %5, ptr %4, align 8
-  %6 = tail call ptr @hostlist_create(ptr noundef %5) #8
-  call void @slurm_xfree(ptr noundef nonnull %4) #8
+  %6 = tail call ptr @hostlist_create(ptr noundef %5) #9
+  call void @slurm_xfree(ptr noundef nonnull %4) #9
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %27, label %7
 
 7:                                                ; preds = %3
   %8 = load i16, ptr %1, align 2
   %9 = zext i16 %8 to i64
-  %10 = call ptr @slurm_xcalloc(i64 noundef %9, i64 noundef %9, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 97, ptr noundef nonnull @__func__._rebuild_port_array) #8
+  %10 = call ptr @slurm_xcalloc(i64 noundef %9, i64 noundef %9, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 97, ptr noundef nonnull @__func__._rebuild_port_array) #9
   store ptr %10, ptr %2, align 8
   store i16 0, ptr %1, align 2
-  %11 = call ptr @hostlist_shift(ptr noundef nonnull %6) #8
+  %11 = call ptr @hostlist_shift(ptr noundef nonnull %6) #9
   store ptr %11, ptr %4, align 8
   %.not1617 = icmp eq ptr %11, null
   br i1 %.not1617, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %22
   %12 = phi ptr [ %24, %22 ], [ %11, %7 ]
-  %13 = call i64 @strtol(ptr noundef nonnull captures(none) %12, ptr noundef null, i32 noundef 10) #8
+  %13 = call i64 @strtol(ptr noundef nonnull captures(none) %12, ptr noundef null, i32 noundef 10) #9
   %14 = trunc i64 %13 to i32
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %16, label %22
@@ -700,14 +694,14 @@ define internal fastcc range(i32 -1, 2061) i32 @_rebuild_port_array(ptr noundef 
 
 22:                                               ; preds = %16, %.lr.ph
   %23 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %23) #8
-  %24 = call ptr @hostlist_shift(ptr noundef nonnull %6) #8
+  call void @free(ptr noundef %23) #9
+  %24 = call ptr @hostlist_shift(ptr noundef nonnull %6) #9
   store ptr %24, ptr %4, align 8
   %.not16 = icmp eq ptr %24, null
   br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %22, %7
-  call void @hostlist_destroy(ptr noundef nonnull %6) #8
+  call void @hostlist_destroy(ptr noundef nonnull %6) #9
   %25 = load i16, ptr %1, align 2
   %26 = icmp eq i16 %25, 0
   %. = select i1 %26, i32 2060, i32 0
@@ -715,18 +709,18 @@ define internal fastcc range(i32 -1, 2061) i32 @_rebuild_port_array(ptr noundef 
 
 27:                                               ; preds = %._crit_edge, %3
   %.0 = phi i32 [ -1, %3 ], [ %., %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare i32 @error(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
 
-declare i64 @bit_size(ptr noundef) local_unnamed_addr #3
+declare i64 @bit_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef range(i32 0, 2061) i32 @resv_port_step_alloc(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -738,9 +732,9 @@ define dso_local noundef range(i32 0, 2061) i32 @resv_port_step_alloc(ptr nounde
 
 ._crit_edge:                                      ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %8 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.7, ptr noundef nonnull %0, ptr noundef %6) #8
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #8
-  tail call void @slurm_xfree(ptr noundef nonnull %7) #8
+  %8 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.7, ptr noundef nonnull %0, ptr noundef %6) #9
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #9
+  tail call void @slurm_xfree(ptr noundef nonnull %7) #9
   br label %9
 
 9:                                                ; preds = %1, %._crit_edge
@@ -756,7 +750,7 @@ define dso_local noundef range(i32 0, 2061) i32 @resv_port_step_alloc(ptr nounde
   ]
 
 16:                                               ; preds = %9
-  %17 = tail call i32 @get_log_level() #8
+  %17 = tail call i32 @get_log_level() #9
   %18 = icmp sgt i32 %17, 2
   br i1 %18, label %19, label %30
 
@@ -764,11 +758,11 @@ define dso_local noundef range(i32 0, 2061) i32 @resv_port_step_alloc(ptr nounde
   %20 = load i16, ptr %10, align 8
   %21 = zext i16 %20 to i32
   %22 = load i32, ptr @port_resv_cnt, align 4
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.8, ptr noundef nonnull %0, i32 noundef %21, i32 noundef %22) #8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.8, ptr noundef nonnull %0, i32 noundef %21, i32 noundef %22) #9
   br label %30
 
 23:                                               ; preds = %9
-  %24 = tail call i32 @get_log_level() #8
+  %24 = tail call i32 @get_log_level() #9
   %25 = icmp sgt i32 %24, 2
   br i1 %25, label %26, label %30
 
@@ -776,21 +770,21 @@ define dso_local noundef range(i32 0, 2061) i32 @resv_port_step_alloc(ptr nounde
   %27 = load i32, ptr %2, align 4
   %28 = load i16, ptr %10, align 8
   %29 = zext i16 %28 to i32
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.9, ptr noundef nonnull %0, i32 noundef %27, i32 noundef %29) #8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.9, ptr noundef nonnull %0, i32 noundef %27, i32 noundef %29) #9
   br label %30
 
 30:                                               ; preds = %9, %26, %23, %16, %19
-  %31 = tail call i32 @get_log_level() #8
+  %31 = tail call i32 @get_log_level() #9
   %32 = icmp sgt i32 %31, 4
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr %14, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.10, ptr noundef %34, ptr noundef nonnull %0) #8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.10, ptr noundef %34, ptr noundef nonnull %0) #9
   br label %35
 
 35:                                               ; preds = %33, %30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %15
 }
 
@@ -798,8 +792,8 @@ define dso_local noundef range(i32 0, 2061) i32 @resv_port_step_alloc(ptr nounde
 define internal fastcc range(i32 0, 2061) i32 @_resv_port_alloc(i16 noundef zeroext %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = zext i16 %0 to i32
   %9 = load i32, ptr @port_resv_cnt, align 4
   %10 = icmp slt i32 %9, %8
@@ -808,7 +802,7 @@ define internal fastcc range(i32 0, 2061) i32 @_resv_port_alloc(i16 noundef zero
 11:                                               ; preds = %5
   %12 = zext i16 %0 to i64
   %13 = shl nuw nsw i64 %12, 2
-  %14 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %13, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 351, ptr noundef nonnull @__func__._resv_port_alloc) #8
+  %14 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %13, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 351, ptr noundef nonnull @__func__._resv_port_alloc) #9
   store ptr %14, ptr %6, align 8
   store i32 0, ptr %4, align 4
   %15 = load i32, ptr @port_resv_cnt, align 4
@@ -835,7 +829,7 @@ define internal fastcc range(i32 0, 2061) i32 @_resv_port_alloc(i16 noundef zero
   br i1 %.not27, label %32, label %24
 
 24:                                               ; preds = %.lr.ph
-  %25 = tail call i32 @bit_overlap_any(ptr noundef %1, ptr noundef nonnull %23) #8
+  %25 = tail call i32 @bit_overlap_any(ptr noundef %1, ptr noundef nonnull %23) #9
   %.not28 = icmp eq i32 %25, 0
   %.pre = load i32, ptr @_resv_port_alloc.last_port_alloc, align 4
   br i1 %.not28, label %26, label %32
@@ -868,11 +862,11 @@ define internal fastcc range(i32 0, 2061) i32 @_resv_port_alloc(i16 noundef zero
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %._crit_edge
-  call void @slurm_xfree(ptr noundef nonnull %6) #8
+  call void @slurm_xfree(ptr noundef nonnull %6) #9
   br label %59
 
 40:                                               ; preds = %._crit_edge
-  %41 = tail call ptr @hostlist_create(ptr noundef null) #8
+  %41 = tail call ptr @hostlist_create(ptr noundef null) #9
   %42 = load i32, ptr %4, align 4
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %.lr.ph34, label %._crit_edge35
@@ -885,13 +879,13 @@ define internal fastcc range(i32 0, 2061) i32 @_resv_port_alloc(i16 noundef zero
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds ptr, ptr %44, i64 %47
   %49 = load ptr, ptr %48, align 8
-  call void @bit_or(ptr noundef %49, ptr noundef %1) #8
+  call void @bit_or(ptr noundef %49, ptr noundef %1) #9
   %50 = load i32, ptr @port_resv_min, align 4
   %51 = load i32, ptr %45, align 4
   %52 = add nsw i32 %51, %50
   store i32 %52, ptr %45, align 4
-  %53 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 16, ptr noundef nonnull @.str.22, i32 noundef %52) #8
-  %54 = call i32 @hostlist_push_host(ptr noundef %41, ptr noundef nonnull %7) #8
+  %53 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 16, ptr noundef nonnull @.str.22, i32 noundef %52) #9
+  %54 = call i32 @hostlist_push_host(ptr noundef %41, ptr noundef nonnull %7) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load i32, ptr %4, align 4
   %56 = sext i32 %55 to i64
@@ -899,24 +893,24 @@ define internal fastcc range(i32 0, 2061) i32 @_resv_port_alloc(i16 noundef zero
   br i1 %57, label %.lr.ph34, label %._crit_edge35, !llvm.loop !19
 
 ._crit_edge35:                                    ; preds = %.lr.ph34, %40
-  call void @hostlist_sort(ptr noundef %41) #8
-  %58 = call ptr @hostlist_ranged_string_xmalloc_dims(ptr noundef %41, i32 noundef 1, i32 noundef 0) #8
+  call void @hostlist_sort(ptr noundef %41) #9
+  %58 = call ptr @hostlist_ranged_string_xmalloc_dims(ptr noundef %41, i32 noundef 1, i32 noundef 0) #9
   store ptr %58, ptr %2, align 8
-  call void @hostlist_destroy(ptr noundef %41) #8
+  call void @hostlist_destroy(ptr noundef %41) #9
   store ptr %14, ptr %3, align 8
   br label %59
 
 59:                                               ; preds = %5, %._crit_edge35, %39
   %.0 = phi i32 [ 2059, %39 ], [ 0, %._crit_edge35 ], [ 2060, %5 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef range(i32 0, 2061) i32 @resv_port_job_alloc(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -928,9 +922,9 @@ define dso_local noundef range(i32 0, 2061) i32 @resv_port_job_alloc(ptr noundef
 
 ._crit_edge:                                      ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 832
-  %8 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.11, ptr noundef nonnull %0, ptr noundef %6) #8
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #8
-  tail call void @slurm_xfree(ptr noundef nonnull %7) #8
+  %8 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.11, ptr noundef nonnull %0, ptr noundef %6) #9
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #9
+  tail call void @slurm_xfree(ptr noundef nonnull %7) #9
   br label %9
 
 9:                                                ; preds = %1, %._crit_edge
@@ -946,7 +940,7 @@ define dso_local noundef range(i32 0, 2061) i32 @resv_port_job_alloc(ptr noundef
   ]
 
 16:                                               ; preds = %9
-  %17 = tail call i32 @get_log_level() #8
+  %17 = tail call i32 @get_log_level() #9
   %18 = icmp sgt i32 %17, 2
   br i1 %18, label %19, label %30
 
@@ -954,11 +948,11 @@ define dso_local noundef range(i32 0, 2061) i32 @resv_port_job_alloc(ptr noundef
   %20 = load i16, ptr %10, align 8
   %21 = zext i16 %20 to i32
   %22 = load i32, ptr @port_resv_cnt, align 4
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.12, ptr noundef nonnull %0, i32 noundef %21, i32 noundef %22) #8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.12, ptr noundef nonnull %0, i32 noundef %21, i32 noundef %22) #9
   br label %30
 
 23:                                               ; preds = %9
-  %24 = tail call i32 @get_log_level() #8
+  %24 = tail call i32 @get_log_level() #9
   %25 = icmp sgt i32 %24, 2
   br i1 %25, label %26, label %30
 
@@ -966,21 +960,21 @@ define dso_local noundef range(i32 0, 2061) i32 @resv_port_job_alloc(ptr noundef
   %27 = load i32, ptr %2, align 4
   %28 = load i16, ptr %10, align 8
   %29 = zext i16 %28 to i32
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.13, ptr noundef nonnull %0, i32 noundef %27, i32 noundef %29) #8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.13, ptr noundef nonnull %0, i32 noundef %27, i32 noundef %29) #9
   br label %30
 
 30:                                               ; preds = %9, %26, %23, %16, %19
-  %31 = tail call i32 @get_log_level() #8
+  %31 = tail call i32 @get_log_level() #9
   %32 = icmp sgt i32 %31, 4
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr %14, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.14, ptr noundef %34, ptr noundef nonnull %0) #8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.14, ptr noundef %34, ptr noundef nonnull %0) #9
   br label %35
 
 35:                                               ; preds = %33, %30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %15
 }
 
@@ -1000,7 +994,7 @@ define dso_local range(i32 0, 2061) i32 @resv_port_check_job_request_cnt(ptr nou
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1248), align 8
-  %10 = tail call ptr @xstrstr(ptr noundef %9, ptr noundef nonnull @.str.15) #8
+  %10 = tail call ptr @xstrstr(ptr noundef %9, ptr noundef nonnull @.str.15) #9
   %.not7 = icmp eq ptr %10, null
   br i1 %.not7, label %11, label %._crit_edge
 
@@ -1009,7 +1003,7 @@ define dso_local range(i32 0, 2061) i32 @resv_port_check_job_request_cnt(ptr nou
   br label %13
 
 11:                                               ; preds = %8
-  %12 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.16, ptr noundef nonnull %0) #8
+  %12 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.16, ptr noundef nonnull %0) #9
   br label %25
 
 13:                                               ; preds = %._crit_edge, %4, %1
@@ -1020,7 +1014,7 @@ define dso_local range(i32 0, 2061) i32 @resv_port_check_job_request_cnt(ptr nou
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %13
-  %19 = tail call i32 @get_log_level() #8
+  %19 = tail call i32 @get_log_level() #9
   %20 = icmp sgt i32 %19, 2
   br i1 %20, label %21, label %25
 
@@ -1028,7 +1022,7 @@ define dso_local range(i32 0, 2061) i32 @resv_port_check_job_request_cnt(ptr nou
   %22 = load i16, ptr %2, align 8
   %23 = zext i16 %22 to i32
   %24 = load i32, ptr @port_resv_cnt, align 4
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.12, ptr noundef nonnull %0, i32 noundef %23, i32 noundef %24) #8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.12, ptr noundef nonnull %0, i32 noundef %23, i32 noundef %24) #9
   br label %25
 
 25:                                               ; preds = %13, %18, %21, %11
@@ -1036,10 +1030,10 @@ define dso_local range(i32 0, 2061) i32 @resv_port_check_job_request_cnt(ptr nou
   ret i32 %.0
 }
 
-declare ptr @xstrstr(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @xstrstr(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i32 @resv_port_get_resv_port_cnt() local_unnamed_addr #5 {
+define dso_local i32 @resv_port_get_resv_port_cnt() local_unnamed_addr #4 {
   %1 = load i32, ptr @port_resv_cnt, align 4
   ret i32 %1
 }
@@ -1088,7 +1082,7 @@ define dso_local void @resv_port_step_free(ptr noundef %0) local_unnamed_addr #0
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds ptr, ptr %17, i64 %22
   %24 = load ptr, ptr %23, align 8
-  tail call void @bit_and_not(ptr noundef %24, ptr noundef %9) #8
+  tail call void @bit_and_not(ptr noundef %24, ptr noundef %9) #9
   %.pre.i = load i32, ptr @port_resv_min, align 4
   %.pre20.i = load i32, ptr @port_resv_max, align 4
   br label %25
@@ -1101,15 +1095,15 @@ define dso_local void @resv_port_step_free(ptr noundef %0) local_unnamed_addr #0
   br i1 %exitcond.not.i, label %_resv_port_free.exit, label %.lr.ph.i, !llvm.loop !20
 
 _resv_port_free.exit:                             ; preds = %25, %5
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #8
-  %28 = tail call i32 @get_log_level() #8
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #9
+  %28 = tail call i32 @get_log_level() #9
   %29 = icmp sgt i32 %28, 5
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %_resv_port_free.exit
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %32 = load ptr, ptr %31, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.17, ptr noundef %32, ptr noundef nonnull %0) #8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.17, ptr noundef %32, ptr noundef nonnull %0) #9
   br label %33
 
 33:                                               ; preds = %30, %_resv_port_free.exit, %1
@@ -1160,7 +1154,7 @@ define dso_local void @resv_port_job_free(ptr noundef %0) local_unnamed_addr #0 
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds ptr, ptr %17, i64 %22
   %24 = load ptr, ptr %23, align 8
-  tail call void @bit_and_not(ptr noundef %24, ptr noundef %9) #8
+  tail call void @bit_and_not(ptr noundef %24, ptr noundef %9) #9
   %.pre.i = load i32, ptr @port_resv_min, align 4
   %.pre20.i = load i32, ptr @port_resv_max, align 4
   br label %25
@@ -1173,63 +1167,69 @@ define dso_local void @resv_port_job_free(ptr noundef %0) local_unnamed_addr #0 
   br i1 %exitcond.not.i, label %_resv_port_free.exit, label %.lr.ph.i, !llvm.loop !20
 
 _resv_port_free.exit:                             ; preds = %25, %5
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #8
-  %28 = tail call i32 @get_log_level() #8
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #9
+  %28 = tail call i32 @get_log_level() #9
   %29 = icmp sgt i32 %28, 5
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %_resv_port_free.exit
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %32 = load ptr, ptr %31, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.18, ptr noundef %32, ptr noundef nonnull %0) #8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.18, ptr noundef %32, ptr noundef nonnull %0) #9
   br label %33
 
 33:                                               ; preds = %30, %_resv_port_free.exit, %1
   ret void
 }
 
-declare ptr @list_iterator_create(ptr noundef) local_unnamed_addr #3
+declare ptr @list_iterator_create(ptr noundef) local_unnamed_addr #2
 
-declare ptr @list_next(ptr noundef) local_unnamed_addr #3
+declare ptr @list_next(ptr noundef) local_unnamed_addr #2
 
-declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #3
+declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #2
 
-declare void @bit_or(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @bit_or(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #3
+declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @hostlist_create(ptr noundef) local_unnamed_addr #3
+declare ptr @hostlist_create(ptr noundef) local_unnamed_addr #2
 
-declare ptr @hostlist_shift(ptr noundef) local_unnamed_addr #3
+declare ptr @hostlist_shift(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
-declare void @hostlist_destroy(ptr noundef) local_unnamed_addr #3
+declare void @hostlist_destroy(ptr noundef) local_unnamed_addr #2
 
-declare i32 @bit_overlap_any(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @bit_overlap_any(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
-declare i32 @hostlist_push_host(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @hostlist_push_host(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @hostlist_sort(ptr noundef) local_unnamed_addr #3
+declare void @hostlist_sort(ptr noundef) local_unnamed_addr #2
 
-declare ptr @hostlist_ranged_string_xmalloc_dims(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @hostlist_ranged_string_xmalloc_dims(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @bit_and_not(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @bit_and_not(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind willreturn memory(read) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nounwind willreturn memory(read) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 

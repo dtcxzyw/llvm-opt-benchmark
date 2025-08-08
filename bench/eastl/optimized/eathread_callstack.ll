@@ -154,9 +154,9 @@ entry:
   %pLimitTemp.i = alloca ptr, align 8
   %attr.i = alloca %union.pthread_attr_t, align 8
   %stackSize.i = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pLimitTemp.i)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %attr.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %stackSize.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pLimitTemp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %attr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %stackSize.i)
   store ptr null, ptr %pLimitTemp.i, align 8
   %call.i = call i32 @pthread_attr_init(ptr noundef nonnull %attr.i) #14
   %call1.i = tail call i64 @pthread_self() #15
@@ -182,16 +182,16 @@ if.then:                                          ; preds = %if.then.i
   %add.i = add i64 %2, %1
   %3 = inttoptr i64 %add.i to ptr
   %call8.i = call i32 @pthread_attr_destroy(ptr noundef nonnull %attr.i) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pLimitTemp.i)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %attr.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %stackSize.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pLimitTemp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %attr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %stackSize.i)
   br label %return
 
 if.end:                                           ; preds = %if.else.i, %entry
   %call8.i3 = call i32 @pthread_attr_destroy(ptr noundef nonnull %attr.i) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pLimitTemp.i)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %attr.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %stackSize.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pLimitTemp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %attr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %stackSize.i)
   %call1 = call noundef ptr @_ZN2EA6Thread18ThreadLocalStorage8GetValueEv(ptr noundef nonnull align 4 dereferenceable(8) @_ZN2EA6Thread10sStackBaseE)
   br label %return
 
@@ -265,9 +265,9 @@ entry:
   %attr.i = alloca %union.pthread_attr_t, align 8
   %stackSize.i = alloca i64, align 8
   %stackLocation = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pLimitTemp.i)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %attr.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %stackSize.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pLimitTemp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %attr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %stackSize.i)
   store ptr null, ptr %pLimitTemp.i, align 8
   %call.i = call i32 @pthread_attr_init(ptr noundef nonnull %attr.i) #14
   %call1.i = tail call i64 @pthread_self() #15
@@ -290,16 +290,16 @@ if.else.i:                                        ; preds = %if.then.i
 if.then:                                          ; preds = %if.then.i
   %call8.i = call i32 @pthread_attr_destroy(ptr noundef nonnull %attr.i) #14
   %1 = load ptr, ptr %pLimitTemp.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pLimitTemp.i)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %attr.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %stackSize.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pLimitTemp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %attr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %stackSize.i)
   br label %return
 
 if.end:                                           ; preds = %if.else.i, %entry
   %call8.i2 = call i32 @pthread_attr_destroy(ptr noundef nonnull %attr.i) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pLimitTemp.i)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %attr.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %stackSize.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pLimitTemp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %attr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %stackSize.i)
   %2 = ptrtoint ptr %stackLocation to i64
   %and = and i64 %2, -4096
   %3 = inttoptr i64 %and to ptr
@@ -334,10 +334,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -123,17 +123,11 @@ define ptr @d2i_OSSL_IETF_ATTR_SYNTAX(ptr noundef %0, ptr noundef %1, i64 nounde
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare ptr @ASN1_item_d2i(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
 
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare void @ERR_new() local_unnamed_addr #2
 
@@ -166,7 +160,7 @@ define i32 @OSSL_IETF_ATTR_SYNTAX_get_value_num(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_IETF_ATTR_SYNTAX_get0_policyAuthority(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define ptr @OSSL_IETF_ATTR_SYNTAX_get0_policyAuthority(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8, !tbaa !18
   ret ptr %2
 }
@@ -341,7 +335,7 @@ OSSL_IETF_ATTR_SYNTAX_get_value_num.exit:         ; preds = %.loopexit, %46
   br i1 %28, label %29, label %.critedge
 
 29:                                               ; preds = %OSSL_IETF_ATTR_SYNTAX_get_value_num.exit
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %30 = load ptr, ptr %23, align 8, !tbaa !3
   %31 = call ptr @OPENSSL_sk_value(ptr noundef %30, i32 noundef %.138) #5
   %32 = icmp eq ptr %31, null
@@ -377,11 +371,11 @@ OSSL_IETF_ATTR_SYNTAX_get0_value.exit:            ; preds = %33
   br label %46
 
 OSSL_IETF_ATTR_SYNTAX_get0_value.exit.thread:     ; preds = %33, %29, %37, %OSSL_IETF_ATTR_SYNTAX_get0_value.exit
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit36
 
 46:                                               ; preds = %44, %41
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %47 = add nuw nsw i32 %.138, 1
   %48 = load ptr, ptr %23, align 8, !tbaa !3
   %49 = icmp eq ptr %48, null
@@ -416,11 +410,17 @@ declare ptr @ASN1_UTF8STRING_it() #2
 
 declare ptr @GENERAL_NAME_it() #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

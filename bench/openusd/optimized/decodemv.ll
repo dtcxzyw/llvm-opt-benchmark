@@ -791,11 +791,11 @@ av1_allow_intrabc.exit.i:                         ; preds = %210
   br i1 %.not94.i, label %av1_allow_intrabc.exit.thread.i, label %217
 
 217:                                              ; preds = %av1_allow_intrabc.exit.i
-  call void @llvm.lifetime.start.p0(i64 58, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %218 = load ptr, ptr %12, align 8
   %219 = load ptr, ptr %218, align 8
   %220 = load ptr, ptr %27, align 8
@@ -1072,11 +1072,11 @@ assign_dv.exit.i.i:                               ; preds = %372
   br label %read_intrabc_info.exit.i
 
 read_intrabc_info.exit.i:                         ; preds = %.critedge.i.i, %assign_dv.exit.i.i, %aom_read_symbol_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 58, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.val.i = load i16, ptr %78, align 1
   %399 = and i16 %.val.i, 128
   %.not95.i = icmp eq i16 %399, 0
@@ -2016,13 +2016,13 @@ read_is_inter_block.exit:                         ; preds = %192, %segfeature_ac
   br i1 %.0, label %2303, label %261
 
 261:                                              ; preds = %239
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 58, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %262 = load i8, ptr %14, align 8
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 49005
   %264 = load i8, ptr %263, align 1
@@ -5321,8 +5321,8 @@ aom_read_literal_.exit.i:                         ; preds = %2079, %.thread588.i
   %2131 = getelementptr inbounds nuw i8, ptr %0, i64 73216
   %2132 = load i8, ptr %2131, align 16
   %.not598.i = icmp eq i8 %2132, 0
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %.sroa.0.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %.sroa.5.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i)
   %2133 = load ptr, ptr %267, align 8
   %2134 = load ptr, ptr %12, align 8
   %2135 = load ptr, ptr %2134, align 8
@@ -5571,8 +5571,8 @@ aom_read_symbol_.exit.i471.i:                     ; preds = %._crit_edge.loopexi
   br label %read_mb_interp_filter.exit.i
 
 read_mb_interp_filter.exit.i:                     ; preds = %.loopexit.i472.i, %2172, %av1_is_interp_needed.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.0.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.5.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i)
   %2259 = load i8, ptr %1663, align 8
   %2260 = icmp eq i8 %2259, 2
   br i1 %2260, label %2261, label %2283
@@ -5650,13 +5650,13 @@ read_inter_block_mode_info.exit:                  ; preds = %2283, %2287, %2291,
   %.0.i478.i = phi i32 [ 0, %2283 ], [ 1, %2287 ], [ 0, %is_inter_block.exit.i.i ], [ %2301, %2297 ], [ 0, %2291 ]
   %2302 = getelementptr inbounds nuw i8, ptr %1, i64 47792
   store i32 %.0.i478.i, ptr %2302, align 16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 58, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %2563
 
 2303:                                             ; preds = %239
@@ -6859,8 +6859,8 @@ aom_read_symbol_.exit49:                          ; preds = %75, %._crit_edge.lo
   store i8 %113, ptr %114, align 2
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 25256
   %116 = load i32, ptr %115, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %117 = call i32 @av1_get_palette_cache(ptr noundef %1, i32 noundef 0, ptr noundef nonnull %6) #9
   %118 = load i8, ptr %114, align 2
   %119 = zext i8 %118 to i32
@@ -7092,8 +7092,8 @@ av1_ceil_log2.exit74.i:                           ; preds = %.lr.ph.i70.i, %av1_
   br label %read_palette_colors_y.exit
 
 read_palette_colors_y.exit:                       ; preds = %201, %.loopexit.i, %203
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %206
 
 206:                                              ; preds = %aom_read_symbol_.exit, %read_palette_colors_y.exit, %3
@@ -7240,8 +7240,8 @@ aom_read_symbol_.exit76:                          ; preds = %255, %._crit_edge.l
   store i8 %294, ptr %295, align 1
   %296 = getelementptr inbounds nuw i8, ptr %0, i64 25256
   %297 = load i32, ptr %296, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %298 = zext i8 %294 to i32
   %299 = call i32 @av1_get_palette_cache(ptr noundef %1, i32 noundef 1, ptr noundef nonnull %4) #9
   %300 = icmp sgt i32 %299, 0
@@ -7607,8 +7607,8 @@ aom_read_literal_.exit150.thread.i:               ; preds = %420, %aom_read_lite
   br i1 %exitcond203.not.i, label %read_palette_colors_uv.exit, label %415, !llvm.loop !26
 
 read_palette_colors_uv.exit:                      ; preds = %aom_read_literal_.exit150.thread.i, %aom_read_literal_.exit157.loopexit.us.i, %.preheader.i, %aom_read_literal_.exit157.preheader.i, %aom_read_literal_.exit143.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %434
 
 434:                                              ; preds = %aom_read_symbol_.exit65, %read_palette_colors_uv.exit, %211, %207, %206
@@ -9369,10 +9369,10 @@ declare i8 @llvm.umin.i8(i8, i8) #7
 declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.abs.i16(i16, i1 immarg) #7

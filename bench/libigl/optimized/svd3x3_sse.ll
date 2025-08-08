@@ -13,10 +13,10 @@ define weak_odr dso_local void @_ZN3igl10svd3x3_sseIfEEvRKN5Eigen6MatrixIT_Li12E
   %6 = alloca [9 x [4 x float]], align 16
   %7 = alloca [9 x [4 x float]], align 16
   %8 = alloca [3 x [4 x float]], align 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #3
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #3
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #3
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %.preheader1481
 
 .preheader1481:                                   ; preds = %4, %61
@@ -832,10 +832,10 @@ define weak_odr dso_local void @_ZN3igl10svd3x3_sseIfEEvRKN5Eigen6MatrixIT_Li12E
   br label %726
 
 724:                                              ; preds = %725
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #3
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #3
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 725:                                              ; preds = %726
@@ -855,24 +855,23 @@ define weak_odr dso_local void @_ZN3igl10svd3x3_sseIfEEvRKN5Eigen6MatrixIT_Li12E
   br i1 %exitcond1535.not, label %725, label %726, !llvm.loop !18
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
+declare <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float>) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float>) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #2
+declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #1
 
 declare i32 @__gxx_personality_v0(...)
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #3 = { nounwind }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

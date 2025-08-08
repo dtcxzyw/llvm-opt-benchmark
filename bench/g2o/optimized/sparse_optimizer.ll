@@ -456,12 +456,6 @@ define void @_ZN3g2o15SparseOptimizer19computeActiveErrorsEv(ptr noundef nonnull
   br i1 %39, label %.lr.ph14, label %._crit_edge, !llvm.loop !92
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress uwtable
 define noundef double @_ZNK3g2o15SparseOptimizer10activeChi2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(409) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -493,7 +487,7 @@ define noundef double @_ZNK3g2o15SparseOptimizer10activeChi2Ev(ptr noundef nonnu
 ; Function Attrs: mustprogress uwtable
 define noundef double @_ZNK3g2o15SparseOptimizer16activeRobustChi2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(409) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.Eigen::Matrix", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %4 = load ptr, ptr %3, align 8, !tbaa !93
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -503,7 +497,7 @@ define noundef double @_ZNK3g2o15SparseOptimizer16activeRobustChi2Ev(ptr noundef
 
 ._crit_edge:                                      ; preds = %19, %1
   %.0.lcssa = phi double [ 0.000000e+00, %1 ], [ %.1, %19 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret double %.0.lcssa
 
 .lr.ph:                                           ; preds = %1, %19
@@ -824,7 +818,7 @@ define void @_ZN3g2o15SparseOptimizer17clearIndexMappingEv(ptr noundef nonnull r
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN3g2o15SparseOptimizer22initializeOptimizationEi(ptr noundef nonnull align 8 dereferenceable(409) %0, i32 noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::set.70", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %4, align 8, !tbaa !156
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -935,7 +929,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
   unreachable
 
 _ZNSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EED2Ev.exit: ; preds = %38
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %13
 
 43:                                               ; preds = %._crit_edge
@@ -946,7 +940,7 @@ _ZNSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EED2Ev.exit: ; preds = %38
 45:                                               ; preds = %43, %14
   %.pn = phi { ptr, i32 } [ %15, %14 ], [ %44, %43 ]
   call void @_ZNSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #26
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
 
@@ -1070,7 +1064,7 @@ _ZNSt6vectorIPN3g2o16OptimizableGraph6VertexESaIS3_EE7reserveEm.exit: ; preds = 
   br label %_ZNSt6vectorIPN3g2o16OptimizableGraph4EdgeESaIS3_EE5clearEv.exit
 
 _ZNSt6vectorIPN3g2o16OptimizableGraph4EdgeESaIS3_EE5clearEv.exit: ; preds = %_ZNSt6vectorIPN3g2o16OptimizableGraph6VertexESaIS3_EE7reserveEm.exit, %51
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %52, align 8, !tbaa !156
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1565,7 +1559,7 @@ _ZN3g2o15SparseOptimizer20sortVectorContainersEv.exit: ; preds = %_ZSt4sortIN9__
   unreachable
 
 _ZNSt3setIPN3g2o16OptimizableGraph4EdgeESt4lessIS3_ESaIS3_EED2Ev.exit: ; preds = %235
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %243
 
 240:                                              ; preds = %231, %_ZN3g2o15SparseOptimizer20sortVectorContainersEv.exit
@@ -1576,7 +1570,7 @@ _ZNSt3setIPN3g2o16OptimizableGraph4EdgeESt4lessIS3_ESaIS3_EED2Ev.exit: ; preds =
 242:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit76, %.loopexit.split-lp77, %144, %240, %197
   %.pn.pn.pn = phi { ptr, i32 } [ %241, %240 ], [ %198, %197 ], [ %145, %144 ], [ %lpad.loopexit78, %.loopexit76 ], [ %lpad.loopexit.split-lp79, %.loopexit.split-lp77 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt3setIPN3g2o16OptimizableGraph4EdgeESt4lessIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #26
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn.pn.pn
 
 243:                                              ; preds = %3, %_ZNSt3setIPN3g2o16OptimizableGraph4EdgeESt4lessIS3_ESaIS3_EED2Ev.exit
@@ -1745,7 +1739,7 @@ _ZNSt12_Vector_baseIPN3g2o16OptimizableGraph4EdgeESaIS3_EE13_M_deallocateEPS3_m.
   br label %_ZNSt6vectorIPN3g2o16OptimizableGraph4EdgeESaIS3_EE7reserveEm.exit
 
 _ZNSt6vectorIPN3g2o16OptimizableGraph4EdgeESaIS3_EE7reserveEm.exit: ; preds = %35, %_ZNSt12_Vector_baseIPN3g2o16OptimizableGraph4EdgeESaIS3_EE13_M_deallocateEPS3_m.exit.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %47, align 8, !tbaa !156
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2179,7 +2173,7 @@ _ZN3g2o15SparseOptimizer20sortVectorContainersEv.exit: ; preds = %_ZSt4sortIN9__
   unreachable
 
 _ZNSt3setIPN3g2o16OptimizableGraph6VertexESt4lessIS3_ESaIS3_EED2Ev.exit: ; preds = %204
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %199
 
 209:                                              ; preds = %200, %_ZN3g2o15SparseOptimizer20sortVectorContainersEv.exit
@@ -2190,7 +2184,7 @@ _ZNSt3setIPN3g2o16OptimizableGraph6VertexESt4lessIS3_ESaIS3_EED2Ev.exit: ; preds
 211:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit46, %.loopexit.split-lp47, %82, %139, %209, %166
   %.pn.pn = phi { ptr, i32 } [ %210, %209 ], [ %167, %166 ], [ %140, %139 ], [ %83, %82 ], [ %lpad.loopexit48, %.loopexit46 ], [ %lpad.loopexit.split-lp49, %.loopexit.split-lp47 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt3setIPN3g2o16OptimizableGraph6VertexESt4lessIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #26
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -2244,13 +2238,13 @@ define void @_ZN3g2o15SparseOptimizer11setToOriginEv(ptr noundef nonnull readonl
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3g2o15SparseOptimizer19computeInitialGuessEv(ptr noundef nonnull align 8 dereferenceable(409) %0) unnamed_addr #4 align 2 {
   %2 = alloca %"class.g2o::EstimatePropagatorCost", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN3g2o22EstimatePropagatorCostC1EPNS_15SparseOptimizerE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %0)
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 240
   %5 = load ptr, ptr %4, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(409) %0, ptr noundef nonnull align 8 dereferenceable(16) %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -2263,7 +2257,7 @@ define void @_ZN3g2o15SparseOptimizer19computeInitialGuessERNS_22EstimatePropaga
   %5 = alloca %"class.std::set.70", align 8
   %6 = alloca %"class.g2o::EstimatePropagator", align 8
   %7 = alloca %"struct.g2o::EstimatePropagator::PropagateAction", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %8, align 8, !tbaa !156
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2274,7 +2268,7 @@ define void @_ZN3g2o15SparseOptimizer19computeInitialGuessERNS_22EstimatePropaga
   store ptr %8, ptr %11, align 8, !tbaa !157
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 0, ptr %12, align 8, !tbaa !84
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %13, align 8, !tbaa !156
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2285,7 +2279,7 @@ define void @_ZN3g2o15SparseOptimizer19computeInitialGuessERNS_22EstimatePropaga
   store ptr %13, ptr %16, align 8, !tbaa !157
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 0, ptr %17, align 8, !tbaa !84
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %18, align 8, !tbaa !156
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -2304,7 +2298,7 @@ define void @_ZN3g2o15SparseOptimizer19computeInitialGuessERNS_22EstimatePropaga
   br i1 %.not128149, label %._crit_edge153, label %.lr.ph152
 
 ._crit_edge153:                                   ; preds = %._crit_edge, %2
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN3g2o18EstimatePropagatorC1EPNS_16OptimizableGraphE(ptr noundef nonnull align 8 dereferenceable(112) %6, ptr noundef nonnull %0)
           to label %162 unwind label %168
 
@@ -2647,13 +2641,13 @@ _ZNSt3setIPN3g2o16OptimizableGraph6VertexESt4lessIS3_ESaIS3_EE6insertERKS3_.exit
   br i1 %161, label %.lr.ph148, label %._crit_edge.loopexit, !llvm.loop !178
 
 162:                                              ; preds = %._crit_edge153
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVN3g2o18EstimatePropagator15PropagateActionE, i64 16), ptr %7, align 8, !tbaa !3
   invoke void @_ZN3g2o18EstimatePropagator9propagateERSt3setIPNS_10HyperGraph6VertexESt4lessIS4_ESaIS4_EERKNS_22EstimatePropagatorCostERKNS0_15PropagateActionEdd(ptr noundef nonnull align 8 dereferenceable(112) %6, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %7, double noundef 0x7FEFFFFFFFFFFFFF, double noundef 0x7FEFFFFFFFFFFFFF)
           to label %163 unwind label %170
 
 163:                                              ; preds = %162
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %164 = load ptr, ptr %15, align 8, !tbaa !85
   %.not129154 = icmp eq ptr %164, %13
   br i1 %.not129154, label %._crit_edge158, label %.lr.ph157
@@ -2672,7 +2666,7 @@ _ZNSt3setIPN3g2o16OptimizableGraph6VertexESt4lessIS3_ESaIS3_EE6insertERKS3_.exit
 170:                                              ; preds = %162
   %171 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit.split-lp
 
 .lr.ph157:                                        ; preds = %163, %177
@@ -2948,7 +2942,7 @@ _ZNSt10_HashtableIPN3g2o16OptimizableGraph6VertexESt4pairIKS3_NS0_18EstimateProp
   br label %_ZN3g2o18EstimatePropagatorD2Ev.exit
 
 _ZN3g2o18EstimatePropagatorD2Ev.exit:             ; preds = %_ZNSt10_HashtableIPN3g2o16OptimizableGraph6VertexESt4pairIKS3_NS0_18EstimatePropagator17AdjacencyMapEntryEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ENS6_20VertexIDHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i, %283
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %286 = load ptr, ptr %19, align 8, !tbaa !74
   invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %286)
           to label %_ZNSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EED2Ev.exit unwind label %287
@@ -2961,7 +2955,7 @@ _ZN3g2o18EstimatePropagatorD2Ev.exit:             ; preds = %_ZNSt10_HashtableIP
   unreachable
 
 _ZNSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EED2Ev.exit: ; preds = %_ZN3g2o18EstimatePropagatorD2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %290 = load ptr, ptr %14, align 8, !tbaa !74
   invoke void @_ZNSt8_Rb_treeIPN3g2o16OptimizableGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %290)
           to label %_ZNSt3setIPN3g2o16OptimizableGraph6VertexESt4lessIS3_ESaIS3_EED2Ev.exit unwind label %291
@@ -2974,7 +2968,7 @@ _ZNSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EED2Ev.exit: ; preds = %_Z
   unreachable
 
 _ZNSt3setIPN3g2o16OptimizableGraph6VertexESt4lessIS3_ESaIS3_EED2Ev.exit: ; preds = %_ZNSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EED2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %294 = load ptr, ptr %9, align 8, !tbaa !74
   invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %294)
           to label %_ZNSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EED2Ev.exit99 unwind label %295
@@ -2987,7 +2981,7 @@ _ZNSt3setIPN3g2o16OptimizableGraph6VertexESt4lessIS3_ESaIS3_EED2Ev.exit: ; preds
   unreachable
 
 _ZNSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EED2Ev.exit99: ; preds = %_ZNSt3setIPN3g2o16OptimizableGraph6VertexESt4lessIS3_ESaIS3_EED2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %179, %170
@@ -2997,17 +2991,17 @@ _ZNSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EED2Ev.exit99: ; preds = %
 
 298:                                              ; preds = %.loopexit.split-lp, %168
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.loopexit.split-lp ], [ %169, %168 ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %299
 
 299:                                              ; preds = %63, %152, %113, %111, %298
   %.pn29.pn = phi { ptr, i32 } [ %.pn.pn, %298 ], [ %153, %152 ], [ %64, %63 ], [ %114, %113 ], [ %112, %111 ]
   call void @_ZNSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #26
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZNSt3setIPN3g2o16OptimizableGraph6VertexESt4lessIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #26
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZNSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #26
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn29.pn
 }
 
@@ -3279,7 +3273,7 @@ _ZN3g2o15SparseOptimizer9terminateEv.exit:        ; preds = %38, %40
 _ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit: ; preds = %.lr.ph14.i, %.loopexit.i
   %118 = phi ptr [ %97, %.loopexit.i ], [ %111, %.lr.ph14.i ]
   %119 = phi ptr [ %98, %.loopexit.i ], [ %112, %.lr.ph14.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not1112.i = icmp eq ptr %119, %118
   br i1 %.not1112.i, label %_ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit, label %.lr.ph.i42
 
@@ -3314,7 +3308,7 @@ _ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit: ; preds = %.lr.ph14.i, %.l
 
 _ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit: ; preds = %132, %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit
   %.0.lcssa.i = phi double [ 0.000000e+00, %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit ], [ %.1.i, %132 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %135 = load ptr, ptr %19, align 8, !tbaa !77
   %136 = getelementptr inbounds nuw %"struct.g2o::G2OBatchStatistics", ptr %135, i64 %indvars.iv, i32 3
   store double %.0.lcssa.i, ptr %136, align 8, !tbaa !213
@@ -3406,7 +3400,7 @@ _ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit54: ; preds = %.lr.ph14.i50,
   %193 = and i32 %192, -261
   %194 = or disjoint i32 %193, 4
   store i32 %194, ptr %191, align 4, !tbaa !216
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %195 = load ptr, ptr %32, align 8, !tbaa !93
   %196 = load ptr, ptr %33, align 8, !tbaa !93
   %.not1112.i55 = icmp eq ptr %195, %196
@@ -3443,7 +3437,7 @@ _ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit54: ; preds = %.lr.ph14.i50,
 
 _ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit64: ; preds = %209, %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit54
   %.0.lcssa.i63 = phi double [ 0.000000e+00, %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit54 ], [ %.1.i61, %209 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %212 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %185, double noundef %.0.lcssa.i63)
   %213 = load ptr, ptr %212, align 8, !tbaa !3
   %214 = getelementptr i8, ptr %213, i64 -24
@@ -3600,7 +3594,7 @@ _ZNSt6vectorIN3g2o18G2OBatchStatisticsESaIS1_EE5clearEv.exit: ; preds = %11, %6,
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN3g2o15SparseOptimizer20updateInitializationERSt3setIPNS_10HyperGraph6VertexESt4lessIS4_ESaIS4_EERS1_IPNS2_4EdgeES5_ISB_ESaISB_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(409) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.46", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load i64, ptr %5, align 8, !tbaa !84
@@ -4179,7 +4173,7 @@ _ZNSt6vectorIPN3g2o16OptimizableGraph6VertexESaIS3_EE9push_backERKS3_.exit48: ; 
   br label %_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EED2Ev.exit: ; preds = %223, %225
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %123
 
 230:                                              ; preds = %117
@@ -4204,7 +4198,7 @@ _ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EED2Ev.exit: ; preds = %223, %225
   br label %_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EED2Ev.exit51
 
 _ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EED2Ev.exit51: ; preds = %232, %234
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn20
 }
 
@@ -4511,7 +4505,7 @@ define noundef zeroext i1 @_ZN3g2o15SparseOptimizer16computeMarginalsERNS_17Spar
   br i1 %7, label %33, label %8
 
 8:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.sroa.2.0.insert.ext.i = zext nneg i32 %6 to i64
   %.sroa.2.0.insert.shift.i = shl nuw nsw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.2.0.insert.ext.i
@@ -4545,7 +4539,7 @@ _ZN3g2o15SparseOptimizer16computeMarginalsERNS_17SparseBlockMatrixIN5Eigen6Matri
   br label %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit
 
 _ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit:        ; preds = %_ZN3g2o15SparseOptimizer16computeMarginalsERNS_17SparseBlockMatrixIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEERKSt6vectorISt4pairIiiESaIS9_EE.exit, %20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %33
 
 25:                                               ; preds = %8
@@ -4564,7 +4558,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit:        ; preds = %_ZN3g2o15SparseOpti
   br label %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit11
 
 _ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit11:      ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %26
 
 33:                                               ; preds = %3, %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit
@@ -4575,7 +4569,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit11:      ; preds = %28, %25
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN3g2o15SparseOptimizer16computeMarginalsERNS_17SparseBlockMatrixIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEERKSt6vectorIPNS_16OptimizableGraph6VertexESaISA_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(409) %0, ptr noundef nonnull align 1 %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.126", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !147
@@ -4755,7 +4749,7 @@ _ZN3g2o15SparseOptimizer16computeMarginalsERNS_17SparseBlockMatrixIN5Eigen6Matri
   br label %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit
 
 _ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit:        ; preds = %_ZN3g2o15SparseOptimizer16computeMarginalsERNS_17SparseBlockMatrixIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEERKSt6vectorISt4pairIiiESaIS9_EE.exit, %65
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %24
 
 70:                                               ; preds = %.loopexit, %.loopexit.split-lp, %25
@@ -4774,7 +4768,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit:        ; preds = %_ZN3g2o15SparseOpti
   br label %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit14
 
 _ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit14:      ; preds = %70, %72
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 }
 
@@ -5617,9 +5611,9 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   br i1 %13, label %14, label %64
 
 14:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPN3g2o16OptimizableGraph6VertexESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_15VertexIDCompareEEEEvT_SF_RT0_(ptr %0, ptr %storemerge23, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %14, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN3g2o16OptimizableGraph6VertexESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_15VertexIDCompareEEEEvT_SF_SF_RT0_.exit.i.i
@@ -6172,9 +6166,9 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   br i1 %13, label %14, label %64
 
 14:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPN3g2o16OptimizableGraph4EdgeESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_13EdgeIDCompareEEEEvT_SF_RT0_(ptr %0, ptr %storemerge23, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %14, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN3g2o16OptimizableGraph4EdgeESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_13EdgeIDCompareEEEEvT_SF_SF_RT0_.exit.i.i
@@ -6837,6 +6831,12 @@ define internal void @_GLOBAL__sub_I_sparse_optimizer.cpp() #20 section ".text.s
   %4 = tail call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZN5EigenL3allE)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #21

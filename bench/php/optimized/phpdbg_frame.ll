@@ -75,7 +75,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden ptr @phpdbg_compile_stackframe(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [32 x i8], align 16
   %3 = alloca %struct.smart_str, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !4
@@ -334,7 +334,7 @@ smart_str_appendc_ex.exit:                        ; preds = %123, %132
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 24
   %140 = load i32, ptr %139, align 8, !tbaa !55
   %141 = zext i32 %140 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %142 = getelementptr inbounds nuw i8, ptr %2, i64 31
   store i8 0, ptr %142, align 1, !tbaa !27
   br label %143
@@ -376,7 +376,7 @@ smart_str_append_unsigned_ex.exit:                ; preds = %149, %155
   %160 = load ptr, ptr %3, align 8, !tbaa !45
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 16
   store i64 %153, ptr %161, align 8, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %170
 
 162:                                              ; preds = %smart_str_appendc_ex.exit61
@@ -403,18 +403,15 @@ smart_str_alloc.exit41:                           ; preds = %162, %164
 
 170:                                              ; preds = %smart_str_alloc.exit41, %smart_str_append_unsigned_ex.exit
   %171 = phi ptr [ %166, %smart_str_alloc.exit41 ], [ %160, %smart_str_append_unsigned_ex.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %171
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @phpdbg_append_individual_arg(ptr noundef nonnull %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) unnamed_addr #3 {
+define internal fastcc void @phpdbg_append_individual_arg(ptr noundef nonnull %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !27
   %.not = icmp eq i32 %1, 0
@@ -569,9 +566,6 @@ smart_str_alloc.exit:                             ; preds = %64, %70
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define hidden void @phpdbg_print_cur_frame_info() local_unnamed_addr #0 {
 zend_string_alloc.exit:
@@ -599,16 +593,16 @@ zend_string_alloc.exit:
   ret void
 }
 
-declare ptr @zend_get_executed_filename() local_unnamed_addr #4
+declare ptr @zend_get_executed_filename() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
-declare void @phpdbg_list_file(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @phpdbg_list_file(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @zend_get_executed_lineno() local_unnamed_addr #4
+declare i32 @zend_get_executed_lineno() local_unnamed_addr #3
 
-declare void @_efree(ptr noundef) local_unnamed_addr #4
+declare void @_efree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @phpdbg_restore_frame() local_unnamed_addr #0 {
@@ -650,7 +644,7 @@ define hidden void @phpdbg_restore_frame() local_unnamed_addr #0 {
   ret void
 }
 
-declare ptr @zend_generator_freeze_call_stack(ptr noundef) local_unnamed_addr #4
+declare ptr @zend_generator_freeze_call_stack(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @phpdbg_switch_frame(i32 noundef %0) local_unnamed_addr #0 {
@@ -669,7 +663,7 @@ define hidden void @phpdbg_switch_frame(i32 noundef %0) local_unnamed_addr #0 {
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 760), align 8
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2176), align 8, !tbaa !113
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2176), align 8, !tbaa !113
   %13 = call i32 @__sigsetjmp(ptr noundef nonnull %2, i32 noundef 0) #14
   %14 = icmp eq i32 %13, 0
@@ -711,20 +705,20 @@ define hidden void @phpdbg_switch_frame(i32 noundef %0) local_unnamed_addr #0 {
   store ptr %12, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2176), align 8, !tbaa !113
   %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !111
   %26 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %25, ptr noundef nonnull @.str.4) #11
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %89
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph.loopexit, %.lr.ph.preheader
   %.037.lcssa = phi ptr [ %15, %.lr.ph.preheader ], [ %21, %.lr.ph.loopexit ]
   store ptr %12, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2176), align 8, !tbaa !113
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 744), align 8, !tbaa !60
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %phpdbg_restore_frame.exit, label %31
 
 .thread31:                                        ; preds = %.preheader, %.preheader33
   store ptr %12, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2176), align 8, !tbaa !113
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !111
   %30 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %29, ptr noundef nonnull @.str.5, i32 noundef %0) #11
   br label %89
@@ -772,7 +766,7 @@ phpdbg_restore_frame.exit:                        ; preds = %.lr.ph._crit_edge, 
 
 48:                                               ; preds = %46, %phpdbg_restore_frame.exit
   %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2176), align 8, !tbaa !113
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2176), align 8, !tbaa !113
   %50 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 0) #14
   %51 = icmp eq i32 %50, 0
@@ -823,7 +817,7 @@ phpdbg_restore_frame.exit:                        ; preds = %.lr.ph._crit_edge, 
 
 zend_string_release.exit:                         ; preds = %72, %71, %64, %52, %73
   store ptr %49, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2176), align 8, !tbaa !113
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %76 = call ptr @zend_get_executed_filename() #11
   %77 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %76) #12
   %78 = and i64 %77, -8
@@ -851,19 +845,19 @@ zend_string_release.exit:                         ; preds = %72, %71, %64, %52, 
   ret void
 }
 
-declare i32 @phpdbg_print(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare i32 @phpdbg_print(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define hidden void @phpdbg_dump_backtrace(i64 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = alloca %struct._zend_output_globals, align 8
   %4 = alloca [1 x %struct.__jmp_buf_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = trunc i64 %0 to i32
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) @output_globals, i64 56, i1 false), !tbaa.struct !115
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) @output_globals, i8 0, i64 56, i1 false)
   %6 = call i32 @php_output_activate() #11
@@ -879,7 +873,7 @@ define hidden void @phpdbg_dump_backtrace(i64 noundef %0) local_unnamed_addr #0 
 
 11:                                               ; preds = %1
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2176), align 8, !tbaa !113
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2176), align 8, !tbaa !113
   %13 = call i32 @__sigsetjmp(ptr noundef nonnull %4, i32 noundef 0) #14
   %14 = icmp eq i32 %13, 0
@@ -889,13 +883,13 @@ define hidden void @phpdbg_dump_backtrace(i64 noundef %0) local_unnamed_addr #0 
   store ptr %12, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2176), align 8, !tbaa !113
   %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !111
   %17 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %16, ptr noundef nonnull @.str.9) #11
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %92
 
 18:                                               ; preds = %11
   call void @zend_fetch_debug_backtrace(ptr noundef nonnull %2, i32 noundef 0, i32 noundef 0, i32 noundef %5) #11
   store ptr %12, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2176), align 8, !tbaa !113
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %19 = call i32 @zend_get_executed_lineno() #11
   %20 = zext i32 %19 to i64
   %21 = call ptr @zend_get_executed_filename_ex() #11
@@ -1043,29 +1037,29 @@ zval_ptr_dtor_nogc.exit:                          ; preds = %82, %85, %90
   br label %92
 
 92:                                               ; preds = %15, %zval_ptr_dtor_nogc.exit, %8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
-declare i32 @php_output_activate() local_unnamed_addr #4
+declare i32 @php_output_activate() local_unnamed_addr #3
 
-declare void @php_output_deactivate() local_unnamed_addr #4
+declare void @php_output_deactivate() local_unnamed_addr #3
 
-declare void @zend_fetch_debug_backtrace(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @zend_fetch_debug_backtrace(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @zend_get_executed_filename_ex() local_unnamed_addr #4
+declare ptr @zend_get_executed_filename_ex() local_unnamed_addr #3
 
-declare i32 @phpdbg_out_internal(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare i32 @phpdbg_out_internal(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @phpdbg_dump_prototype(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %.sroa.0 = alloca i64, align 8
   %2 = alloca [1 x %struct.__jmp_buf_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   %3 = load ptr, ptr %0, align 8, !tbaa !27
   %4 = load ptr, ptr @zend_known_strings, align 8, !tbaa !121
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1135,7 +1129,7 @@ define internal fastcc void @phpdbg_dump_prototype(ptr noundef readonly captures
 
 50:                                               ; preds = %44
   %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2176), align 8, !tbaa !113
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2176), align 8, !tbaa !113
   %52 = call i32 @__sigsetjmp(ptr noundef nonnull %2, i32 noundef 0) #14
   %53 = icmp eq i32 %52, 0
@@ -1159,14 +1153,14 @@ define internal fastcc void @phpdbg_dump_prototype(ptr noundef readonly captures
 
 .thread81:                                        ; preds = %60, %50
   store ptr %51, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2176), align 8, !tbaa !113
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %70
 
 63:                                               ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 40
   %65 = load ptr, ptr %64, align 8, !tbaa !27
   store ptr %51, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2176), align 8, !tbaa !113
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %67 = load i32, ptr %66, align 8, !tbaa !27
   %68 = freeze i32 %67
@@ -1355,11 +1349,11 @@ define internal fastcc void @phpdbg_dump_prototype(ptr noundef readonly captures
 ._crit_edge.thread:                               ; preds = %112, %93, %70, %._crit_edge, %152, %44
   %155 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !111
   %156 = call i32 (i32, ptr, ...) @phpdbg_out_internal(i32 noundef %155, ptr noundef nonnull @.str.26) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   ret void
 }
 
-declare ptr @zend_hash_find(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @zend_hash_find(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @phpdbg_open_generator_frame(ptr noundef %0) local_unnamed_addr #0 {
@@ -1481,38 +1475,44 @@ zend_string_release.exit:                         ; preds = %24, %40, %47, %48
   ret void
 }
 
-declare void @zend_generator_restore_call_stack(ptr noundef) local_unnamed_addr #4
+declare void @zend_generator_restore_call_stack(ptr noundef) local_unnamed_addr #3
 
-declare void @smart_str_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @smart_str_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @phpdbg_short_zval_print(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @phpdbg_short_zval_print(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #8
+declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #10
+declare void @llvm.assume(i1 noundef) #9
 
-declare ptr @phpdbg_get_function(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @phpdbg_get_function(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i64 @php_printf(ptr noundef, ...) local_unnamed_addr #4
+declare i64 @php_printf(ptr noundef, ...) local_unnamed_addr #3
 
-declare void @rc_dtor_func(ptr noundef) local_unnamed_addr #4
+declare void @rc_dtor_func(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind willreturn memory(read) }
 attributes #13 = { nounwind allocsize(0) }

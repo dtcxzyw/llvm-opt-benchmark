@@ -761,9 +761,9 @@ define hidden void @OGLContext_GetExtensionInfo(ptr noundef %0, ptr noundef capt
   br label %31
 
 31:                                               ; preds = %28, %26, %24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %32 = tail call zeroext i8 @OGLContext_IsExtensionAvailable(ptr noundef readonly %11, ptr noundef nonnull @.str.30)
   %.not.i = icmp eq i8 %32, 0
   br i1 %.not.i, label %OGLContext_IsFBObjectExtensionAvailable.exit.thread, label %33
@@ -807,9 +807,9 @@ define hidden void @OGLContext_GetExtensionInfo(ptr noundef %0, ptr noundef capt
   br label %OGLContext_IsFBObjectExtensionAvailable.exit.thread
 
 OGLContext_IsFBObjectExtensionAvailable.exit.thread: ; preds = %48, %38, %31, %33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %56
 
 50:                                               ; preds = %39
@@ -820,16 +820,16 @@ OGLContext_IsFBObjectExtensionAvailable.exit.thread: ; preds = %48, %38, %31, %3
   %53 = load ptr, ptr @j2d_glDeleteFramebuffersEXT, align 8
   call void %53(i32 noundef 1, ptr noundef nonnull %4) #8
   call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 3, i8 noundef zeroext 1, ptr noundef nonnull @.str.37) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %54 = load i32, ptr %1, align 4
   %55 = or i32 %54, 12
   store i32 %55, ptr %1, align 4
   br label %56
 
 56:                                               ; preds = %OGLContext_IsFBObjectExtensionAvailable.exit.thread, %50
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not.i45 = icmp eq i8 %12, 0
   br i1 %.not.i45, label %OGLContext_IsGradShaderSupportAvailable.exit.thread, label %57
 
@@ -852,7 +852,7 @@ OGLContext_IsFBObjectExtensionAvailable.exit.thread: ; preds = %48, %38, %31, %3
 
 .thread:                                          ; preds = %60, %64
   call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 3, i8 noundef zeroext 1, ptr noundef nonnull @.str.41) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %65 = load i32, ptr %1, align 4
   %66 = or i32 %65, 131200
   store i32 %66, ptr %1, align 4
@@ -860,7 +860,7 @@ OGLContext_IsFBObjectExtensionAvailable.exit.thread: ; preds = %48, %38, %31, %3
 
 67:                                               ; preds = %57
   call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 3, i8 noundef zeroext 1, ptr noundef nonnull @.str.39) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %OGLContext_IsBIOpShaderSupportAvailable.exit
 
 OGLContext_IsBIOpShaderSupportAvailable.exit:     ; preds = %.thread, %67
@@ -878,7 +878,7 @@ OGLContext_IsBIOpShaderSupportAvailable.exit:     ; preds = %.thread, %67
   br label %OGLContext_IsGradShaderSupportAvailable.exit
 
 OGLContext_IsGradShaderSupportAvailable.exit.thread: ; preds = %56
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %78
 
 OGLContext_IsGradShaderSupportAvailable.exit:     ; preds = %OGLContext_IsBIOpShaderSupportAvailable.exit, %70
@@ -1134,10 +1134,10 @@ declare zeroext i8 @OGLSD_InitFBObject(ptr noundef, ptr noundef, i32 noundef, i3
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

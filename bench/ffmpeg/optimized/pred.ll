@@ -183,8 +183,8 @@ define internal void @intra_pred_2_9(ptr noundef readonly captures(none) %0, ptr
   %.in.i.v = select i1 %33, i64 280, i64 284
   %.in.i = getelementptr inbounds nuw i8, ptr %0, i64 %.in.i.v
   %67 = load i32, ptr %.in.i, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 31284
@@ -1255,8 +1255,8 @@ define internal void @intra_pred_2_9(ptr noundef readonly captures(none) %0, ptr
   br label %intra_pred_9.exit
 
 intra_pred_9.exit:                                ; preds = %607, %610, %613
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -1333,10 +1333,10 @@ define internal void @intra_pred_3_9(ptr noundef readonly captures(none) %0, ptr
   %.in.i.v = select i1 %35, i64 280, i64 284
   %.in.i = getelementptr inbounds nuw i8, ptr %0, i64 %.in.i.v
   %69 = load i32, ptr %.in.i, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 2
@@ -2559,10 +2559,10 @@ define internal void @intra_pred_3_9(ptr noundef readonly captures(none) %0, ptr
   br label %intra_pred_9.exit
 
 intra_pred_9.exit:                                ; preds = %697, %.thread19, %702
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -2639,10 +2639,10 @@ define internal void @intra_pred_4_9(ptr noundef readonly captures(none) %0, ptr
   %.in.i.v = select i1 %35, i64 280, i64 284
   %.in.i = getelementptr inbounds nuw i8, ptr %0, i64 %.in.i.v
   %69 = load i32, ptr %.in.i, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 2
@@ -3902,10 +3902,10 @@ define internal void @intra_pred_4_9(ptr noundef readonly captures(none) %0, ptr
   br label %intra_pred_9.exit
 
 intra_pred_9.exit:                                ; preds = %721, %.thread19, %726
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -3982,10 +3982,10 @@ define internal void @intra_pred_5_9(ptr noundef readonly captures(none) %0, ptr
   %.in.i.v = select i1 %35, i64 280, i64 284
   %.in.i = getelementptr inbounds nuw i8, ptr %0, i64 %.in.i.v
   %69 = load i32, ptr %.in.i, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 2
@@ -5327,10 +5327,10 @@ define internal void @intra_pred_5_9(ptr noundef readonly captures(none) %0, ptr
   br label %intra_pred_9.exit
 
 intra_pred_9.exit:                                ; preds = %774, %.thread19, %779
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -5683,7 +5683,7 @@ define internal void @pred_angular_0_9(ptr noundef writeonly captures(none) %0, 
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds [33 x i32], ptr @pred_angular_8.intra_pred_angle, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = ashr i32 %11, 3
   %14 = icmp sgt i32 %5, 17
@@ -6005,7 +6005,7 @@ define internal void @pred_angular_0_9(ptr noundef writeonly captures(none) %0, 
   br label %pred_angular_9.exit
 
 pred_angular_9.exit:                              ; preds = %104, %.preheader25, %100, %163
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -6016,7 +6016,7 @@ define internal void @pred_angular_1_9(ptr noundef writeonly captures(none) %0, 
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds [33 x i32], ptr @pred_angular_8.intra_pred_angle, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %13 = ashr i32 %11, 2
   %14 = icmp sgt i32 %5, 17
@@ -6371,7 +6371,7 @@ define internal void @pred_angular_1_9(ptr noundef writeonly captures(none) %0, 
   br i1 %177, label %176, label %pred_angular_9.exit, !llvm.loop !174
 
 pred_angular_9.exit:                              ; preds = %176, %113, %109, %172
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -6382,7 +6382,7 @@ define internal void @pred_angular_2_9(ptr noundef writeonly captures(none) %0, 
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds [33 x i32], ptr @pred_angular_8.intra_pred_angle, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %13 = ashr i32 %11, 1
   %14 = icmp sgt i32 %5, 17
@@ -6743,7 +6743,7 @@ define internal void @pred_angular_2_9(ptr noundef writeonly captures(none) %0, 
   br i1 %236, label %176, label %pred_angular_9.exit, !llvm.loop !174
 
 pred_angular_9.exit:                              ; preds = %176, %113, %109, %172
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -6754,7 +6754,7 @@ define internal void @pred_angular_3_9(ptr noundef writeonly captures(none) %0, 
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds [33 x i32], ptr @pred_angular_8.intra_pred_angle, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %13 = icmp sgt i32 %5, 17
   %14 = add nsw i64 %9, -9
@@ -7007,7 +7007,7 @@ define internal void @pred_angular_3_9(ptr noundef writeonly captures(none) %0, 
   br i1 %exitcond47.not, label %pred_angular_9.exit, label %125, !llvm.loop !172
 
 pred_angular_9.exit:                              ; preds = %.loopexit11, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -7082,8 +7082,8 @@ define internal void @intra_pred_2_10(ptr noundef readonly captures(none) %0, pt
   %.in.i.v = select i1 %33, i64 280, i64 284
   %.in.i = getelementptr inbounds nuw i8, ptr %0, i64 %.in.i.v
   %67 = load i32, ptr %.in.i, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 31284
@@ -8154,8 +8154,8 @@ define internal void @intra_pred_2_10(ptr noundef readonly captures(none) %0, pt
   br label %intra_pred_10.exit
 
 intra_pred_10.exit:                               ; preds = %607, %610, %613
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -8232,10 +8232,10 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   %.in.i.v = select i1 %35, i64 280, i64 284
   %.in.i = getelementptr inbounds nuw i8, ptr %0, i64 %.in.i.v
   %69 = load i32, ptr %.in.i, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 2
@@ -9458,10 +9458,10 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   br label %intra_pred_10.exit
 
 intra_pred_10.exit:                               ; preds = %697, %.thread18, %702
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -9538,10 +9538,10 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   %.in.i.v = select i1 %35, i64 280, i64 284
   %.in.i = getelementptr inbounds nuw i8, ptr %0, i64 %.in.i.v
   %69 = load i32, ptr %.in.i, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 2
@@ -10801,10 +10801,10 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   br label %intra_pred_10.exit
 
 intra_pred_10.exit:                               ; preds = %721, %.thread18, %726
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -10881,10 +10881,10 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   %.in.i.v = select i1 %35, i64 280, i64 284
   %.in.i = getelementptr inbounds nuw i8, ptr %0, i64 %.in.i.v
   %69 = load i32, ptr %.in.i, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 2
@@ -12226,10 +12226,10 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   br label %intra_pred_10.exit
 
 intra_pred_10.exit:                               ; preds = %774, %.thread18, %779
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -12582,7 +12582,7 @@ define internal void @pred_angular_0_10(ptr noundef writeonly captures(none) %0,
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds [33 x i32], ptr @pred_angular_8.intra_pred_angle, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = ashr i32 %11, 3
   %14 = icmp sgt i32 %5, 17
@@ -12904,7 +12904,7 @@ define internal void @pred_angular_0_10(ptr noundef writeonly captures(none) %0,
   br label %pred_angular_10.exit
 
 pred_angular_10.exit:                             ; preds = %104, %.preheader11, %100, %163
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -12915,7 +12915,7 @@ define internal void @pred_angular_1_10(ptr noundef writeonly captures(none) %0,
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds [33 x i32], ptr @pred_angular_8.intra_pred_angle, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %13 = ashr i32 %11, 2
   %14 = icmp sgt i32 %5, 17
@@ -13270,7 +13270,7 @@ define internal void @pred_angular_1_10(ptr noundef writeonly captures(none) %0,
   br i1 %177, label %176, label %pred_angular_10.exit, !llvm.loop !224
 
 pred_angular_10.exit:                             ; preds = %176, %113, %109, %172
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -13281,7 +13281,7 @@ define internal void @pred_angular_2_10(ptr noundef writeonly captures(none) %0,
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds [33 x i32], ptr @pred_angular_8.intra_pred_angle, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %13 = ashr i32 %11, 1
   %14 = icmp sgt i32 %5, 17
@@ -13642,7 +13642,7 @@ define internal void @pred_angular_2_10(ptr noundef writeonly captures(none) %0,
   br i1 %236, label %176, label %pred_angular_10.exit, !llvm.loop !224
 
 pred_angular_10.exit:                             ; preds = %176, %113, %109, %172
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -13653,7 +13653,7 @@ define internal void @pred_angular_3_10(ptr noundef writeonly captures(none) %0,
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds [33 x i32], ptr @pred_angular_8.intra_pred_angle, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %13 = icmp sgt i32 %5, 17
   %14 = add nsw i64 %9, -9
@@ -13906,7 +13906,7 @@ define internal void @pred_angular_3_10(ptr noundef writeonly captures(none) %0,
   br i1 %exitcond47.not, label %pred_angular_10.exit, label %125, !llvm.loop !222
 
 pred_angular_10.exit:                             ; preds = %.loopexit11, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -13981,8 +13981,8 @@ define internal void @intra_pred_2_12(ptr noundef readonly captures(none) %0, pt
   %.in.i.v = select i1 %33, i64 280, i64 284
   %.in.i = getelementptr inbounds nuw i8, ptr %0, i64 %.in.i.v
   %67 = load i32, ptr %.in.i, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 31284
@@ -15053,8 +15053,8 @@ define internal void @intra_pred_2_12(ptr noundef readonly captures(none) %0, pt
   br label %intra_pred_12.exit
 
 intra_pred_12.exit:                               ; preds = %607, %610, %613
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -15131,10 +15131,10 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   %.in.i.v = select i1 %35, i64 280, i64 284
   %.in.i = getelementptr inbounds nuw i8, ptr %0, i64 %.in.i.v
   %69 = load i32, ptr %.in.i, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 2
@@ -16357,10 +16357,10 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   br label %intra_pred_12.exit
 
 intra_pred_12.exit:                               ; preds = %697, %.thread18, %702
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -16437,10 +16437,10 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   %.in.i.v = select i1 %35, i64 280, i64 284
   %.in.i = getelementptr inbounds nuw i8, ptr %0, i64 %.in.i.v
   %69 = load i32, ptr %.in.i, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 2
@@ -17700,10 +17700,10 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   br label %intra_pred_12.exit
 
 intra_pred_12.exit:                               ; preds = %721, %.thread18, %726
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -17780,10 +17780,10 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   %.in.i.v = select i1 %35, i64 280, i64 284
   %.in.i = getelementptr inbounds nuw i8, ptr %0, i64 %.in.i.v
   %69 = load i32, ptr %.in.i, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 2
@@ -19125,10 +19125,10 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   br label %intra_pred_12.exit
 
 intra_pred_12.exit:                               ; preds = %774, %.thread18, %779
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -19481,7 +19481,7 @@ define internal void @pred_angular_0_12(ptr noundef writeonly captures(none) %0,
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds [33 x i32], ptr @pred_angular_8.intra_pred_angle, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = ashr i32 %11, 3
   %14 = icmp sgt i32 %5, 17
@@ -19803,7 +19803,7 @@ define internal void @pred_angular_0_12(ptr noundef writeonly captures(none) %0,
   br label %pred_angular_12.exit
 
 pred_angular_12.exit:                             ; preds = %104, %.preheader11, %100, %163
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -19814,7 +19814,7 @@ define internal void @pred_angular_1_12(ptr noundef writeonly captures(none) %0,
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds [33 x i32], ptr @pred_angular_8.intra_pred_angle, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %13 = ashr i32 %11, 2
   %14 = icmp sgt i32 %5, 17
@@ -20169,7 +20169,7 @@ define internal void @pred_angular_1_12(ptr noundef writeonly captures(none) %0,
   br i1 %177, label %176, label %pred_angular_12.exit, !llvm.loop !274
 
 pred_angular_12.exit:                             ; preds = %176, %113, %109, %172
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -20180,7 +20180,7 @@ define internal void @pred_angular_2_12(ptr noundef writeonly captures(none) %0,
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds [33 x i32], ptr @pred_angular_8.intra_pred_angle, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %13 = ashr i32 %11, 1
   %14 = icmp sgt i32 %5, 17
@@ -20541,7 +20541,7 @@ define internal void @pred_angular_2_12(ptr noundef writeonly captures(none) %0,
   br i1 %236, label %176, label %pred_angular_12.exit, !llvm.loop !274
 
 pred_angular_12.exit:                             ; preds = %176, %113, %109, %172
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -20552,7 +20552,7 @@ define internal void @pred_angular_3_12(ptr noundef writeonly captures(none) %0,
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds [33 x i32], ptr @pred_angular_8.intra_pred_angle, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %13 = icmp sgt i32 %5, 17
   %14 = add nsw i64 %9, -9
@@ -20805,7 +20805,7 @@ define internal void @pred_angular_3_12(ptr noundef writeonly captures(none) %0,
   br i1 %exitcond47.not, label %pred_angular_12.exit, label %125, !llvm.loop !272
 
 pred_angular_12.exit:                             ; preds = %.loopexit11, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -20879,8 +20879,8 @@ define internal void @intra_pred_2_8(ptr noundef readonly captures(none) %0, ptr
   %.in.i.v = select i1 %33, i64 280, i64 284
   %.in.i = getelementptr inbounds nuw i8, ptr %0, i64 %.in.i.v
   %66 = load i32, ptr %.in.i, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 31284
@@ -21945,8 +21945,8 @@ define internal void @intra_pred_2_8(ptr noundef readonly captures(none) %0, ptr
   br label %intra_pred_8.exit
 
 intra_pred_8.exit:                                ; preds = %600, %603, %606
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -22022,10 +22022,10 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   %.in.i.v = select i1 %35, i64 280, i64 284
   %.in.i = getelementptr inbounds nuw i8, ptr %0, i64 %.in.i.v
   %68 = load i32, ptr %.in.i, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 1
@@ -23229,10 +23229,10 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   br label %intra_pred_8.exit
 
 intra_pred_8.exit:                                ; preds = %688, %.thread18, %693
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -23308,10 +23308,10 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   %.in.i.v = select i1 %35, i64 280, i64 284
   %.in.i = getelementptr inbounds nuw i8, ptr %0, i64 %.in.i.v
   %68 = load i32, ptr %.in.i, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 1
@@ -24554,10 +24554,10 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   br label %intra_pred_8.exit
 
 intra_pred_8.exit:                                ; preds = %709, %.thread18, %714
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -24633,10 +24633,10 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   %.in.i.v = select i1 %35, i64 280, i64 284
   %.in.i = getelementptr inbounds nuw i8, ptr %0, i64 %.in.i.v
   %68 = load i32, ptr %.in.i, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 1
@@ -25961,10 +25961,10 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   br label %intra_pred_8.exit
 
 intra_pred_8.exit:                                ; preds = %762, %.thread18, %767
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -26316,7 +26316,7 @@ define internal void @pred_angular_0_8(ptr noundef writeonly captures(none) %0, 
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds [33 x i32], ptr @pred_angular_8.intra_pred_angle, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %13 = ashr i32 %11, 3
   %14 = icmp sgt i32 %5, 17
@@ -26650,7 +26650,7 @@ define internal void @pred_angular_0_8(ptr noundef writeonly captures(none) %0, 
   br label %pred_angular_8.exit
 
 pred_angular_8.exit:                              ; preds = %105, %.preheader25.split, %101, %164
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -26661,7 +26661,7 @@ define internal void @pred_angular_1_8(ptr noundef writeonly captures(none) %0, 
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds [33 x i32], ptr @pred_angular_8.intra_pred_angle, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = ashr i32 %11, 2
   %14 = icmp sgt i32 %5, 17
@@ -27026,7 +27026,7 @@ define internal void @pred_angular_1_8(ptr noundef writeonly captures(none) %0, 
   br i1 %176, label %175, label %pred_angular_8.exit, !llvm.loop !322
 
 pred_angular_8.exit:                              ; preds = %175, %113, %109, %171
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -27037,7 +27037,7 @@ define internal void @pred_angular_2_8(ptr noundef writeonly captures(none) %0, 
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds [33 x i32], ptr @pred_angular_8.intra_pred_angle, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %13 = ashr i32 %11, 1
   %14 = icmp sgt i32 %5, 17
@@ -27408,7 +27408,7 @@ define internal void @pred_angular_2_8(ptr noundef writeonly captures(none) %0, 
   br i1 %231, label %175, label %pred_angular_8.exit, !llvm.loop !322
 
 pred_angular_8.exit:                              ; preds = %175, %113, %109, %171
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -27419,7 +27419,7 @@ define internal void @pred_angular_3_8(ptr noundef writeonly captures(none) %0, 
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds [33 x i32], ptr @pred_angular_8.intra_pred_angle, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %13 = icmp sgt i32 %5, 17
   %14 = add nsw i64 %9, -9
@@ -27672,21 +27672,21 @@ define internal void @pred_angular_3_8(ptr noundef writeonly captures(none) %0, 
   br i1 %exitcond47.not, label %pred_angular_8.exit, label %125, !llvm.loop !320
 
 pred_angular_8.exit:                              ; preds = %.loopexit11, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
@@ -27707,9 +27707,9 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 

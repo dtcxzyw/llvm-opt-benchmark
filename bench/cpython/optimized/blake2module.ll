@@ -148,22 +148,16 @@ define hidden void @detect_cpu_features(ptr noundef captures(none) %0) local_unn
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
-define ptr @PyInit__blake2() local_unnamed_addr #2 {
+define ptr @PyInit__blake2() local_unnamed_addr #1 {
   %1 = tail call ptr @PyModuleDef_Init(ptr noundef nonnull @blake2_module) #9
   ret ptr %1
 }
 
-declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #3
+declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_blake2_traverse(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #2 {
+define internal i32 @_blake2_traverse(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #1 {
   %4 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %4, align 8, !tbaa !20
   %5 = load ptr, ptr %.val, align 8, !tbaa !27
@@ -195,7 +189,7 @@ define internal i32 @_blake2_traverse(ptr noundef readonly captures(none) %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_blake2_clear(ptr noundef readonly captures(none) %0) #2 {
+define internal noundef i32 @_blake2_clear(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %2, align 8, !tbaa !20
   %3 = load ptr, ptr %.val, align 8, !tbaa !30
@@ -245,7 +239,7 @@ Py_DECREF.exit14:                                 ; preds = %17, %14, %12, %Py_D
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_blake2_free(ptr noundef readonly captures(none) %0) #2 {
+define internal void @_blake2_free(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr i8, ptr %0, i64 32
   %.val.i = load ptr, ptr %2, align 8, !tbaa !20
   %3 = load ptr, ptr %.val.i, align 8, !tbaa !30
@@ -295,7 +289,7 @@ _blake2_clear.exit:                               ; preds = %Py_DECREF.exit.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @blake2_exec(ptr noundef %0) #2 {
+define internal range(i32 -1, 1) i32 @blake2_exec(ptr noundef %0) #1 {
   %2 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %2, align 8, !tbaa !20
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 24
@@ -625,18 +619,18 @@ Py_DECREF.exit137:                                ; preds = %145, %149, %152
   ret i32 %.0
 }
 
-declare ptr @PyType_FromModuleAndSpec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @PyType_FromModuleAndSpec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @PyModule_AddType(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @PyModule_AddType(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #3
+declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #2
 
-declare i32 @PyDict_SetItemString(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @PyDict_SetItemString(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @PyModule_AddIntConstant(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @PyModule_AddIntConstant(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @py_blake2_clear(ptr noundef captures(none) %0) #2 {
+define internal noundef i32 @py_blake2_clear(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8, !tbaa !42
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -689,7 +683,7 @@ define internal noundef i32 @py_blake2_clear(ptr noundef captures(none) %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @py_blake2_dealloc(ptr noundef %0) #2 {
+define internal void @py_blake2_dealloc(ptr noundef %0) #1 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8, !tbaa !45
   tail call void @PyObject_GC_UnTrack(ptr noundef %0) #9
@@ -763,7 +757,7 @@ Py_DECREF.exit:                                   ; preds = %py_blake2_clear.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @py_blake2_traverse(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #2 {
+define internal i32 @py_blake2_traverse(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #1 {
   %4 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %4, align 8, !tbaa !45
   %.not = icmp eq ptr %.val, null
@@ -783,14 +777,14 @@ define internal i32 @py_blake2_traverse(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = alloca [13 x ptr], align 16
   %5 = alloca %struct.Py_buffer, align 8
   %6 = alloca %struct.Py_buffer, align 8
   %7 = alloca %struct.Py_buffer, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %10, align 8, !tbaa !47
   %.not = icmp eq ptr %2, null
@@ -804,15 +798,15 @@ define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef 
 13:                                               ; preds = %3, %11
   %14 = phi i64 [ %.val151, %11 ], [ 0, %3 ]
   %15 = add i64 %14, %.val
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 80, i1 false)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 80, i1 false)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, i8 0, i64 80, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !52
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8, !tbaa !53
   %16 = icmp ult i64 %.val, 2
   %or.cond3 = select i1 %.not, i1 %16, i1 false
@@ -1107,27 +1101,27 @@ define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %139
 
 139:                                              ; preds = %138, %135
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.088
 }
 
-declare void @python_hashlib_Hacl_Hash_Blake2b_Simd256_free(ptr noundef) local_unnamed_addr #3
+declare void @python_hashlib_Hacl_Hash_Blake2b_Simd256_free(ptr noundef) local_unnamed_addr #2
 
-declare void @python_hashlib_Hacl_Hash_Blake2s_Simd128_free(ptr noundef) local_unnamed_addr #3
+declare void @python_hashlib_Hacl_Hash_Blake2s_Simd128_free(ptr noundef) local_unnamed_addr #2
 
-declare void @python_hashlib_Hacl_Hash_Blake2b_free(ptr noundef) local_unnamed_addr #3
+declare void @python_hashlib_Hacl_Hash_Blake2b_free(ptr noundef) local_unnamed_addr #2
 
-declare void @python_hashlib_Hacl_Hash_Blake2s_free(ptr noundef) local_unnamed_addr #3
+declare void @python_hashlib_Hacl_Hash_Blake2s_free(ptr noundef) local_unnamed_addr #2
 
-declare void @PyObject_GC_UnTrack(ptr noundef) local_unnamed_addr #3
+declare void @PyObject_GC_UnTrack(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_blake2_blake2b_copy(ptr noundef %0, ptr readnone captures(none) %1) #2 {
+define internal ptr @_blake2_blake2b_copy(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %3, align 8, !tbaa !45
   %4 = tail call ptr @_PyObject_GC_New(ptr noundef %.val.i) #9
@@ -1212,9 +1206,9 @@ _blake2_blake2b_copy_impl.exit:                   ; preds = %2, %31, %36, %40
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_blake2_blake2b_digest(ptr noundef %0, ptr readnone captures(none) %1) #2 {
+define internal ptr @_blake2_blake2b_digest(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i8, ptr %4, align 4, !tbaa !59, !range !8, !noundef !9
   %6 = trunc nuw i8 %5 to i1
@@ -1280,14 +1274,14 @@ _PyMutex_Lock.exit.i:                             ; preds = %11, %7, %2
 _blake2_blake2b_digest_impl.exit:                 ; preds = %25, %28, %32
   %33 = zext i8 %.0.i to i64
   %34 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %3, i64 noundef %33) #9
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_blake2_blake2b_hexdigest(ptr noundef %0, ptr readnone captures(none) %1) #2 {
+define internal ptr @_blake2_blake2b_hexdigest(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i8, ptr %4, align 4, !tbaa !59, !range !8, !noundef !9
   %6 = trunc nuw i8 %5 to i1
@@ -1353,14 +1347,14 @@ _PyMutex_Lock.exit.i:                             ; preds = %11, %7, %2
 _blake2_blake2b_hexdigest_impl.exit:              ; preds = %25, %28, %32
   %33 = zext i8 %.0.i to i64
   %34 = call ptr @_Py_strhex(ptr noundef nonnull %3, i64 noundef %33) #9
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_blake2_blake2b_update(ptr noundef %0, ptr noundef %1) #2 {
+define internal noundef ptr @_blake2_blake2b_update(ptr noundef %0, ptr noundef %1) #1 {
   %3 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %4, align 8, !tbaa !45
   %5 = getelementptr i8, ptr %.val, i64 168
@@ -1457,53 +1451,53 @@ _PyMutex_Unlock.exit:                             ; preds = %_PyMutex_Lock.exit,
 
 45:                                               ; preds = %13, %44, %20, %11, %7
   %.0 = phi ptr [ null, %7 ], [ null, %20 ], [ @_Py_NoneStruct, %44 ], [ null, %11 ], [ null, %13 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
-declare ptr @python_hashlib_Hacl_Hash_Blake2b_Simd256_copy(ptr noundef) local_unnamed_addr #3
+declare ptr @python_hashlib_Hacl_Hash_Blake2b_Simd256_copy(ptr noundef) local_unnamed_addr #2
 
-declare ptr @python_hashlib_Hacl_Hash_Blake2s_Simd128_copy(ptr noundef) local_unnamed_addr #3
+declare ptr @python_hashlib_Hacl_Hash_Blake2s_Simd128_copy(ptr noundef) local_unnamed_addr #2
 
-declare ptr @python_hashlib_Hacl_Hash_Blake2b_copy(ptr noundef) local_unnamed_addr #3
+declare ptr @python_hashlib_Hacl_Hash_Blake2b_copy(ptr noundef) local_unnamed_addr #2
 
-declare ptr @python_hashlib_Hacl_Hash_Blake2s_copy(ptr noundef) local_unnamed_addr #3
+declare ptr @python_hashlib_Hacl_Hash_Blake2s_copy(ptr noundef) local_unnamed_addr #2
 
-declare ptr @_PyObject_GC_New(ptr noundef) local_unnamed_addr #3
+declare ptr @_PyObject_GC_New(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare void @PyObject_GC_Track(ptr noundef) local_unnamed_addr #3
+declare void @PyObject_GC_Track(ptr noundef) local_unnamed_addr #2
 
-declare void @PyMutex_Lock(ptr noundef) local_unnamed_addr #3
+declare void @PyMutex_Lock(ptr noundef) local_unnamed_addr #2
 
-declare void @PyMutex_Unlock(ptr noundef) local_unnamed_addr #3
+declare void @PyMutex_Unlock(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i8 @python_hashlib_Hacl_Hash_Blake2b_Simd256_digest(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i8 @python_hashlib_Hacl_Hash_Blake2b_Simd256_digest(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i8 @python_hashlib_Hacl_Hash_Blake2s_Simd128_digest(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i8 @python_hashlib_Hacl_Hash_Blake2s_Simd128_digest(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i8 @python_hashlib_Hacl_Hash_Blake2b_digest(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i8 @python_hashlib_Hacl_Hash_Blake2b_digest(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i8 @python_hashlib_Hacl_Hash_Blake2s_digest(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i8 @python_hashlib_Hacl_Hash_Blake2s_digest(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @_Py_strhex(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @_Py_strhex(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @PyObject_CheckBuffer(ptr noundef) local_unnamed_addr #3
+declare i32 @PyObject_CheckBuffer(ptr noundef) local_unnamed_addr #2
 
-declare i32 @PyObject_GetBuffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @PyObject_GetBuffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @PyBuffer_Release(ptr noundef) local_unnamed_addr #3
+declare void @PyBuffer_Release(ptr noundef) local_unnamed_addr #2
 
-declare ptr @PyEval_SaveThread() local_unnamed_addr #3
+declare ptr @PyEval_SaveThread() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @update(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #2 {
+define internal fastcc void @update(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8, !tbaa !42
   %6 = icmp sgt i64 %2, 4294967295
@@ -1625,18 +1619,18 @@ define internal fastcc void @update(ptr noundef readonly captures(none) %0, ptr 
   ret void
 }
 
-declare void @PyEval_RestoreThread(ptr noundef) local_unnamed_addr #3
+declare void @PyEval_RestoreThread(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i8 @python_hashlib_Hacl_Hash_Blake2b_Simd256_update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i8 @python_hashlib_Hacl_Hash_Blake2b_Simd256_update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i8 @python_hashlib_Hacl_Hash_Blake2s_Simd128_update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i8 @python_hashlib_Hacl_Hash_Blake2s_Simd128_update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i8 @python_hashlib_Hacl_Hash_Blake2b_update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i8 @python_hashlib_Hacl_Hash_Blake2b_update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i8 @python_hashlib_Hacl_Hash_Blake2s_update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i8 @python_hashlib_Hacl_Hash_Blake2s_update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @py_blake2b_get_name(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #2 {
+define internal ptr @py_blake2b_get_name(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !42
   %5 = and i32 %4, -3
@@ -1647,7 +1641,7 @@ define internal ptr @py_blake2b_get_name(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @py_blake2b_get_block_size(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #2 {
+define internal ptr @py_blake2b_get_block_size(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !42
   %5 = and i32 %4, -3
@@ -1658,7 +1652,7 @@ define internal ptr @py_blake2b_get_block_size(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @py_blake2b_get_digest_size(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #2 {
+define internal ptr @py_blake2b_get_digest_size(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !42
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1698,38 +1692,38 @@ define internal ptr @py_blake2b_get_digest_size(ptr noundef readonly captures(no
   ret ptr %19
 }
 
-declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #3
+declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #2
 
-declare i24 @python_hashlib_Hacl_Hash_Blake2b_Simd256_info(ptr noundef) local_unnamed_addr #3
+declare i24 @python_hashlib_Hacl_Hash_Blake2b_Simd256_info(ptr noundef) local_unnamed_addr #2
 
-declare i24 @python_hashlib_Hacl_Hash_Blake2s_Simd128_info(ptr noundef) local_unnamed_addr #3
+declare i24 @python_hashlib_Hacl_Hash_Blake2s_Simd128_info(ptr noundef) local_unnamed_addr #2
 
-declare i24 @python_hashlib_Hacl_Hash_Blake2b_info(ptr noundef) local_unnamed_addr #3
+declare i24 @python_hashlib_Hacl_Hash_Blake2b_info(ptr noundef) local_unnamed_addr #2
 
-declare i24 @python_hashlib_Hacl_Hash_Blake2s_info(ptr noundef) local_unnamed_addr #3
+declare i24 @python_hashlib_Hacl_Hash_Blake2s_info(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @PyLong_AsInt(ptr noundef) local_unnamed_addr #3
+declare i32 @PyLong_AsInt(ptr noundef) local_unnamed_addr #2
 
-declare ptr @PyErr_Occurred() local_unnamed_addr #3
+declare ptr @PyErr_Occurred() local_unnamed_addr #2
 
-declare i32 @_PyLong_UnsignedLong_Converter(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @_PyLong_UnsignedLong_Converter(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @_PyLong_UnsignedLongLong_Converter(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @_PyLong_UnsignedLongLong_Converter(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @PyObject_IsTrue(ptr noundef) local_unnamed_addr #3
+declare i32 @PyObject_IsTrue(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @py_blake2b_or_s_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef nonnull readonly captures(none) %4, ptr noundef nonnull readonly captures(none) %5, i32 noundef %6, i32 noundef %7, i64 noundef %8, i64 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef range(i32 0, -2147483648) %12) unnamed_addr #2 {
+define internal fastcc ptr @py_blake2b_or_s_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef nonnull readonly captures(none) %4, ptr noundef nonnull readonly captures(none) %5, i32 noundef %6, i32 noundef %7, i64 noundef %8, i64 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef range(i32 0, -2147483648) %12) unnamed_addr #1 {
   %14 = alloca %struct.Py_buffer, align 8
   %15 = alloca [16 x i8], align 16
   %16 = alloca [16 x i8], align 16
   %17 = alloca %struct.Hacl_Hash_Blake2b_blake2_params_s, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %14) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %18 = tail call ptr @_PyObject_GC_New(ptr noundef %0) #9
   %19 = icmp eq ptr %18, null
   br i1 %19, label %Py_XDECREF.exit, label %20
@@ -2120,34 +2114,34 @@ type_to_impl.exit:                                ; preds = %53
 
 Py_XDECREF.exit:                                  ; preds = %209, %206, %204, %13, %173, %203
   %.0 = phi ptr [ %18, %203 ], [ %18, %173 ], [ null, %13 ], [ null, %204 ], [ null, %206 ], [ null, %209 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret ptr %.0
 }
 
-declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @python_hashlib_Hacl_Hash_Blake2b_Simd256_malloc_with_params_and_key(ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
+declare ptr @python_hashlib_Hacl_Hash_Blake2b_Simd256_malloc_with_params_and_key(ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
-declare ptr @python_hashlib_Hacl_Hash_Blake2s_Simd128_malloc_with_params_and_key(ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
+declare ptr @python_hashlib_Hacl_Hash_Blake2s_Simd128_malloc_with_params_and_key(ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
-declare ptr @python_hashlib_Hacl_Hash_Blake2b_malloc_with_params_and_key(ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
+declare ptr @python_hashlib_Hacl_Hash_Blake2b_malloc_with_params_and_key(ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
-declare ptr @python_hashlib_Hacl_Hash_Blake2s_malloc_with_params_and_key(ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
+declare ptr @python_hashlib_Hacl_Hash_Blake2s_malloc_with_params_and_key(ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
-declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #3
+declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = alloca [13 x ptr], align 16
   %5 = alloca %struct.Py_buffer, align 8
   %6 = alloca %struct.Py_buffer, align 8
   %7 = alloca %struct.Py_buffer, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %10, align 8, !tbaa !47
   %.not = icmp eq ptr %2, null
@@ -2161,15 +2155,15 @@ define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef 
 13:                                               ; preds = %3, %11
   %14 = phi i64 [ %.val151, %11 ], [ 0, %3 ]
   %15 = add i64 %14, %.val
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 80, i1 false)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 80, i1 false)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, i8 0, i64 80, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !52
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8, !tbaa !53
   %16 = icmp ult i64 %.val, 2
   %or.cond3 = select i1 %.not, i1 %16, i1 false
@@ -2464,25 +2458,31 @@ define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %139
 
 139:                                              ; preds = %138, %135
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.088
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #7
 
 attributes #0 = { nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #8 = { nounwind memory(none) }
 attributes #9 = { nounwind }

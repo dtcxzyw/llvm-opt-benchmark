@@ -113,16 +113,10 @@ _.exit:                                           ; preds = %.critedge, %16
   ret i32 %.014
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @error(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @create_diagnostics_archive(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -132,9 +126,9 @@ define dso_local i32 @create_diagnostics_archive(ptr noundef %0, ptr noundef rea
   %7 = alloca %struct.statvfs, align 8
   %8 = alloca %struct.strvec, align 8
   %9 = alloca %struct.strbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) @__const.create_diagnostics_archive.archiver_args, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) @__const.add_directory_to_archiver.abspath, i64 24, i1 false)
   %10 = icmp eq i32 %2, 0
   br i1 %10, label %.thread56, label %11
@@ -200,9 +194,9 @@ strbuf_setlen.exit:                               ; preds = %30, %34
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %36 = load ptr, ptr %35, align 8, !tbaa !23
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %9, ptr noundef nonnull @.str.11, ptr noundef %36) #12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @__const.add_directory_to_archiver.abspath, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %37 = call ptr @strbuf_realpath(ptr noundef nonnull %6, ptr noundef nonnull @.str.27, i32 noundef 1) #12
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !19
@@ -240,8 +234,8 @@ _.exit.i:                                         ; preds = %44, %42
 
 get_disk_info.exit:                               ; preds = %_.exit.i, %48
   call void @strbuf_release(ptr noundef nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %56 = load ptr, ptr %32, align 8, !tbaa !19
   %57 = load i64, ptr %31, align 8, !tbaa !21
   call void @write_or_die(i32 noundef %12, ptr noundef %56, i64 noundef %57) #12
@@ -283,8 +277,8 @@ strbuf_setlen.exit43:                             ; preds = %get_disk_info.exit,
 strbuf_setlen.exit46:                             ; preds = %strbuf_setlen.exit43, %74
   call void @strbuf_add(ptr noundef nonnull %9, ptr noundef nonnull @.str.14, i64 noundef 37) #12
   %75 = call ptr @opendir(ptr noundef nonnull @.str.15)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.add_directory_to_archiver.abspath, i64 24, i1 false)
   %.not.i = icmp eq ptr %75, null
   br i1 %.not.i, label %loose_objs_stats.exit, label %76
@@ -417,8 +411,8 @@ count_files.exit.i:                               ; preds = %._crit_edge.i.i, %s
   br label %loose_objs_stats.exit
 
 loose_objs_stats.exit:                            ; preds = %strbuf_setlen.exit46, %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %120 = load ptr, ptr %32, align 8, !tbaa !19
   %121 = call ptr @strvec_push(ptr noundef nonnull %8, ptr noundef %120) #12
   %122 = icmp eq i32 %2, 2
@@ -509,35 +503,35 @@ _.exit52:                                         ; preds = %149, %151
   call void @free(ptr noundef %.02961) #12
   call void @strvec_clear(ptr noundef nonnull %8) #12
   call void @strbuf_release(ptr noundef nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.02662
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind
-declare i32 @dup(i32 noundef) local_unnamed_addr #5
+declare i32 @dup(i32 noundef) local_unnamed_addr #4
 
-declare i32 @error_errno(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @error_errno(ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @xopen(ptr noundef, i32 noundef, ...) local_unnamed_addr #3
+declare i32 @xopen(ptr noundef, i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @dup2(i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @dup2(i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @init_zip_archiver() local_unnamed_addr #3
+declare void @init_zip_archiver() local_unnamed_addr #2
 
-declare void @strvec_pushl(ptr noundef, ...) local_unnamed_addr #3
+declare void @strvec_pushl(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @get_version_info(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @get_version_info(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @write_or_die(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @write_or_die(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @strvec_pushf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare ptr @strvec_pushf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dir_file_stats(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
@@ -549,9 +543,9 @@ define internal noundef i32 @dir_file_stats(ptr noundef readonly captures(none) 
   ret i32 0
 }
 
-declare i32 @foreach_alt_odb(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @foreach_alt_odb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @strvec_push(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @strvec_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @add_directory_to_archiver(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
@@ -559,7 +553,7 @@ define internal fastcc range(i32 -1, 1) i32 @add_directory_to_archiver(ptr nound
   %5 = alloca %struct.strbuf, align 8
   %6 = load i8, ptr %1, align 1, !tbaa !22
   %.not = icmp eq i8 %6, 0
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.add_directory_to_archiver.abspath, i64 24, i1 false)
   %7 = select i1 %.not, ptr @.str.27, ptr %1
   %8 = tail call ptr @opendir(ptr noundef nonnull %7)
@@ -622,7 +616,7 @@ _.exit36:                                         ; preds = %17, %18
 
 .critedge45:                                      ; preds = %60, %_.exit39, %52
   call void @strbuf_release(ptr noundef nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.backedge
 
 31:                                               ; preds = %.backedge, %23
@@ -631,7 +625,7 @@ _.exit36:                                         ; preds = %17, %18
   br i1 %.not31, label %.critedge, label %33
 
 33:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.add_directory_to_archiver.abspath, i64 24, i1 false)
   call void @strbuf_add_absolute_path(ptr noundef nonnull %5, ptr noundef nonnull %7) #12
   %34 = load i64, ptr %5, align 8, !tbaa !63
@@ -719,7 +713,7 @@ _.exit39:                                         ; preds = %55, %57
   %63 = call fastcc i32 @add_directory_to_archiver(ptr noundef %0, ptr noundef %62, i32 noundef %2)
   %64 = icmp eq i32 %63, 0
   call void @strbuf_release(ptr noundef nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %64, label %.backedge, label %.critedge
 
 .backedge:                                        ; preds = %61, %.critedge45
@@ -733,52 +727,52 @@ _.exit39:                                         ; preds = %55, %57
 
 66:                                               ; preds = %.critedge, %_.exit36, %_.exit
   %.0 = phi i32 [ %.024.lcssa, %.critedge ], [ 0, %_.exit ], [ -1, %_.exit36 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare ptr @oid_to_hex(ptr noundef) local_unnamed_addr #3
+declare ptr @oid_to_hex(ptr noundef) local_unnamed_addr #2
 
-declare ptr @xmemdupz(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @xmemdupz(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @write_archive(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @write_archive(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
-declare i32 @close(i32 noundef) local_unnamed_addr #3
+declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
-declare void @strvec_clear(ptr noundef) local_unnamed_addr #3
+declare void @strvec_clear(ptr noundef) local_unnamed_addr #2
 
-declare void @strbuf_release(ptr noundef) local_unnamed_addr #3
+declare void @strbuf_release(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
-declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #8
+declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #7
 
-declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
-declare ptr @strbuf_realpath(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @strbuf_realpath(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @statvfs64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i32 @statvfs64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
-declare void @strbuf_humanise_bytes(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @strbuf_humanise_bytes(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @for_each_file_in_pack_dir(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @for_each_file_in_pack_dir(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @dir_file_stats_objects(ptr noundef readonly captures(none) %0, i64 %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.stat, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 @stat64(ptr noundef %0, ptr noundef nonnull %5) #12
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %10
@@ -790,47 +784,53 @@ define internal void @dir_file_stats_objects(ptr noundef readonly captures(none)
   br label %10
 
 10:                                               ; preds = %7, %4
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #6
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
-declare void @strbuf_add_absolute_path(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @strbuf_add_absolute_path(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @readdir_skip_dot_and_dotdot(ptr noundef) local_unnamed_addr #3
+declare ptr @readdir_skip_dot_and_dotdot(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i8 @get_dtype(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i8 @get_dtype(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @hex_to_bytes(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @hex_to_bytes(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #5
 
-declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #9
+declare ptr @__errno_location() local_unnamed_addr #8
 
-declare void @warning(ptr noundef, ...) local_unnamed_addr #3
+declare void @warning(ptr noundef, ...) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind willreturn memory(read) }
 attributes #12 = { nounwind }

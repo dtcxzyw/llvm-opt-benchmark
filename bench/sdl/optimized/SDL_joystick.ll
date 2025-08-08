@@ -153,17 +153,11 @@ define hidden void @SDL_UnlockJoysticks_REAL() local_unnamed_addr #1 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @SDL_GetAtomicInt_REAL(ptr noundef) local_unnamed_addr #2
 
 declare void @SDL_UnlockMutex_REAL(ptr noundef) local_unnamed_addr #2
 
 declare void @SDL_DestroyMutex_REAL(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden zeroext i1 @SDL_JoysticksLocked() local_unnamed_addr #0 {
@@ -173,7 +167,7 @@ define hidden zeroext i1 @SDL_JoysticksLocked() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @SDL_AssertJoysticksLocked() local_unnamed_addr #4 {
+define hidden void @SDL_AssertJoysticksLocked() local_unnamed_addr #3 {
   ret void
 }
 
@@ -2020,7 +2014,7 @@ SDL_GetJoystickVirtualGamepadInfoForID.exit.thread: ; preds = %SDL_JoystickAxesC
   br i1 %237, label %SDL_LoadVIDPIDListFromHints.exit.i, label %ShouldAttemptSensorFusion.exit
 
 SDL_LoadVIDPIDListFromHints.exit.i:               ; preds = %235, %233
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 72, i1 false)
   %238 = tail call { i64, i64 } @SDL_GetJoystickGUID_REAL(ptr noundef nonnull %47)
   %239 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2132,7 +2126,7 @@ SDL_VIDPIDInList.exit.i:                          ; preds = %263, %267, %.prehea
   br label %SDL_FreeVIDPIDList.exit.i
 
 SDL_FreeVIDPIDList.exit.i:                        ; preds = %283, %280
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.0.i.i, label %ShouldAttemptSensorFusion.exit.thread146, label %284
 
 284:                                              ; preds = %SDL_FreeVIDPIDList.exit.i, %233, %231
@@ -2314,7 +2308,7 @@ SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i123, %35
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 declare void @SDL_SetObjectValid(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
@@ -2325,7 +2319,7 @@ declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
 declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_CloseJoystick_REAL(ptr noundef %0) local_unnamed_addr #1 {
@@ -5979,7 +5973,7 @@ declare void @SDL_DestroyProperties_REAL(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_PrivateJoystickRemoved(i32 noundef %0) local_unnamed_addr #1 {
   %2 = alloca %union.SDL_Event, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.016 = load ptr, ptr @SDL_joysticks, align 8
   %.not17 = icmp eq ptr %.016, null
   br i1 %.not17, label %.loopexit, label %.lr.ph
@@ -6064,7 +6058,7 @@ SDL_GetPlayerIndexForJoystickID.exit:             ; preds = %17, %._crit_edge.lo
   br label %SDL_GetPlayerIndexForJoystickID.exit.thread
 
 SDL_GetPlayerIndexForJoystickID.exit.thread:      ; preds = %25, %29, %SDL_GetPlayerIndexForJoystickID.exit
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -6158,7 +6152,7 @@ define hidden void @SDL_PrivateJoystickAddTouchpad(ptr noundef captures(none) %0
 }
 
 ; Function Attrs: allocsize(1)
-declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_PrivateJoystickAddSensor(ptr noundef captures(none) %0, i32 noundef %1, float noundef %2) local_unnamed_addr #1 {
@@ -6190,10 +6184,10 @@ define hidden void @SDL_PrivateJoystickAddSensor(ptr noundef captures(none) %0, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @SDL_PrivateJoystickSensorRate(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2) local_unnamed_addr #9 {
+define hidden void @SDL_PrivateJoystickSensorRate(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
@@ -6330,7 +6324,7 @@ SDL_FindFreePlayerIndex.exit.thread:              ; preds = %16, %28, %21, %SDL_
   br label %SDL_FindFreePlayerIndex.exit.thread31
 
 SDL_FindFreePlayerIndex.exit.thread31:            ; preds = %26, %SDL_FindFreePlayerIndex.exit.thread, %SDL_FindFreePlayerIndex.exit
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 1541, ptr %2, align 8
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %40, align 8
@@ -6344,7 +6338,7 @@ SDL_FindFreePlayerIndex.exit.thread31:            ; preds = %26, %SDL_FindFreePl
   br label %45
 
 45:                                               ; preds = %42, %SDL_FindFreePlayerIndex.exit.thread31
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i1 false, ptr @SDL_joystick_being_added, align 1
   %46 = call zeroext i1 @SDL_IsGamepad_REAL(i32 noundef %0) #13
   br i1 %46, label %47, label %48
@@ -6488,7 +6482,7 @@ SDL_PrivateJoystickShouldIgnoreEvent.exit.thread.i: ; preds = %62, %60, %59
   br i1 %66, label %67, label %SDL_SendJoystickHat.exit
 
 67:                                               ; preds = %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread.i
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 1538, ptr %3, align 8
   store i64 %4, ptr %33, align 8
   %68 = load i32, ptr %0, align 8
@@ -6496,7 +6490,7 @@ SDL_PrivateJoystickShouldIgnoreEvent.exit.thread.i: ; preds = %62, %60, %59
   store i8 %.244, ptr %35, align 4
   store i8 0, ptr %36, align 1
   %69 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %SDL_SendJoystickHat.exit
 
 SDL_SendJoystickHat.exit:                         ; preds = %53, %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread.i, %67
@@ -6593,7 +6587,7 @@ SDL_PrivateJoystickShouldIgnoreEvent.exit.thread.i38: ; preds = %113, %111, %110
   br i1 %116, label %117, label %SDL_SendJoystickTouchpad.exit
 
 117:                                              ; preds = %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread.i38
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 1624, ptr %2, align 8
   store i64 %4, ptr %46, align 8
   %118 = load i32, ptr %0, align 8
@@ -6604,7 +6598,7 @@ SDL_PrivateJoystickShouldIgnoreEvent.exit.thread.i38: ; preds = %113, %111, %110
   store float %.258.i, ptr %51, align 8
   store float 0.000000e+00, ptr %52, align 4
   %119 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %2) #13
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %SDL_SendJoystickTouchpad.exit
 
 SDL_SendJoystickTouchpad.exit:                    ; preds = %107, %.lr.ph47.split, %85, %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread.i38, %117
@@ -6774,7 +6768,7 @@ SDL_PrivateJoystickShouldIgnoreEvent.exit.thread: ; preds = %58, %60, %57, %75, 
   br i1 %80, label %81, label %88
 
 81:                                               ; preds = %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 1536, ptr %5, align 8
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %0, ptr %82, align 8
@@ -6786,7 +6780,7 @@ SDL_PrivateJoystickShouldIgnoreEvent.exit.thread: ; preds = %58, %60, %57, %75, 
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i16 %3, ptr %86, align 8
   %87 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %88
 
 88:                                               ; preds = %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread, %81, %SDL_PrivateJoystickShouldIgnoreEvent.exit, %70, %75, %50, %34, %4
@@ -6797,7 +6791,7 @@ SDL_PrivateJoystickShouldIgnoreEvent.exit.thread: ; preds = %58, %60, %57, %75, 
 define hidden void @SDL_SendJoystickButton(i64 noundef %0, ptr noundef captures(none) %1, i8 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #1 {
   %5 = alloca %union.SDL_Event, align 8
   %6 = zext i1 %3 to i8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %. = select i1 %3, i32 1539, i32 1540
   store i32 %., ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -6862,7 +6856,7 @@ SDL_PrivateJoystickShouldIgnoreEvent.exit.thread: ; preds = %22, %24, %21
   br label %38
 
 38:                                               ; preds = %24, %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread, %31, %14, %4
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -6909,7 +6903,7 @@ SDL_PrivateJoystickShouldIgnoreEvent.exit.thread: ; preds = %17, %19, %16
   br i1 %26, label %27, label %34
 
 27:                                               ; preds = %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 1538, ptr %5, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %0, ptr %28, align 8
@@ -6921,7 +6915,7 @@ SDL_PrivateJoystickShouldIgnoreEvent.exit.thread: ; preds = %17, %19, %16
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 21
   store i8 %3, ptr %32, align 1
   %33 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %34
 
 34:                                               ; preds = %19, %9, %4, %27, %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread
@@ -7072,7 +7066,7 @@ SDL_PrivateJoystickShouldIgnoreEvent.exit.thread: ; preds = %68, %70, %.thread
   br i1 %77, label %78, label %88
 
 78:                                               ; preds = %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %.0, ptr %9, align 8
   %79 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %0, ptr %79, align 8
@@ -7090,7 +7084,7 @@ SDL_PrivateJoystickShouldIgnoreEvent.exit.thread: ; preds = %68, %70, %.thread
   %86 = getelementptr inbounds nuw i8, ptr %9, i64 36
   store float %.160, ptr %86, align 4
   %87 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %88
 
 88:                                               ; preds = %70, %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread, %78, %54, %63, %15, %21, %8, %12
@@ -7102,7 +7096,7 @@ declare void @SDL_PrivateGamepadRemoved(i32 noundef) local_unnamed_addr #2
 declare i32 @SDL_abs_REAL(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden zeroext i1 @SDL_IsJoystickVIRTUAL(i64 %0, i64 %1) local_unnamed_addr #4 {
+define hidden zeroext i1 @SDL_IsJoystickVIRTUAL(i64 %0, i64 %1) local_unnamed_addr #3 {
   %3 = and i64 %1, 71776119061217280
   %4 = icmp eq i64 %3, 33214047251857408
   ret i1 %4
@@ -7149,7 +7143,7 @@ define hidden void @SDL_SendJoystickBall(i64 noundef %0, ptr noundef readonly ca
   br i1 %29, label %30, label %SDL_PrivateJoystickShouldIgnoreEvent.exit
 
 30:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 1537, ptr %6, align 8
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %0, ptr %31, align 8
@@ -7163,7 +7157,7 @@ define hidden void @SDL_SendJoystickBall(i64 noundef %0, ptr noundef readonly ca
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 26
   store i16 %4, ptr %36, align 2
   %37 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %SDL_PrivateJoystickShouldIgnoreEvent.exit
 
 SDL_PrivateJoystickShouldIgnoreEvent.exit:        ; preds = %13, %5, %30, %16
@@ -7287,13 +7281,13 @@ SDL_GetJoystickVirtualGamepadInfoForID.exit.thread.i: ; preds = %SDL_GetJoystick
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %46, %40
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %1) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %1, i8 0, i64 128, i1 false)
   store i32 1627, ptr %1, align 8
   %48 = load i32, ptr %.01527.i, align 8
   store i32 %48, ptr %12, align 8
   %49 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %1) #13
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %1) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %50
 
 50:                                               ; preds = %.critedge.i, %SDL_GetJoystickVirtualGamepadInfoForID.exit.thread.i, %36, %13
@@ -7430,14 +7424,14 @@ SendSteamHandleUpdateEvents.exit:                 ; preds = %50, %11, %4
   br i1 %.not57, label %117, label %114
 
 114:                                              ; preds = %111
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 1544, ptr %2, align 8
   store i64 %113, ptr %109, align 8
   %115 = load i32, ptr %.178, align 8
   store i32 %115, ptr %110, align 8
   %116 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %2) #13
   store i64 0, ptr %112, align 8
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %117
 
 117:                                              ; preds = %111, %114
@@ -7539,7 +7533,7 @@ define hidden zeroext i1 @SDL_JoystickEventsEnabled_REAL() local_unnamed_addr #1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @SDL_GetJoystickGUIDInfo_REAL(i64 %0, i64 %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #10 {
+define hidden void @SDL_GetJoystickGUIDInfo_REAL(i64 %0, i64 %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #9 {
   %.sroa.0.0.extract.trunc = trunc i64 %0 to i32
   %.sroa.2.0.extract.shift = lshr i64 %0, 16
   %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i16
@@ -7777,7 +7771,7 @@ declare i64 @SDL_strlcpy_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define hidden { i64, i64 } @SDL_CreateJoystickGUIDForName(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.SDL_GUID, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false)
   %.not44.i = icmp eq ptr %0, null
@@ -7805,33 +7799,33 @@ SDL_CreateJoystickGUID.exit:                      ; preds = %.thread, %5
   %.fca.0.load.i = load i64, ptr %2, align 8
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %.fca.0.load.i, 0
   %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %.fca.1.load.i, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret { i64, i64 } %.fca.1.insert.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @SDL_SetJoystickGUIDVendor(ptr noundef writeonly captures(none) initializes((4, 6)) %0, i16 noundef zeroext %1) local_unnamed_addr #10 {
+define hidden void @SDL_SetJoystickGUIDVendor(ptr noundef writeonly captures(none) initializes((4, 6)) %0, i16 noundef zeroext %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i16 %1, ptr %3, align 2
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @SDL_SetJoystickGUIDProduct(ptr noundef writeonly captures(none) initializes((8, 10)) %0, i16 noundef zeroext %1) local_unnamed_addr #10 {
+define hidden void @SDL_SetJoystickGUIDProduct(ptr noundef writeonly captures(none) initializes((8, 10)) %0, i16 noundef zeroext %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %1, ptr %3, align 2
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @SDL_SetJoystickGUIDVersion(ptr noundef writeonly captures(none) initializes((12, 14)) %0, i16 noundef zeroext %1) local_unnamed_addr #10 {
+define hidden void @SDL_SetJoystickGUIDVersion(ptr noundef writeonly captures(none) initializes((12, 14)) %0, i16 noundef zeroext %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i16 %1, ptr %3, align 2
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @SDL_SetJoystickGUIDCRC(ptr noundef writeonly captures(none) initializes((2, 4)) %0, i16 noundef zeroext %1) local_unnamed_addr #10 {
+define hidden void @SDL_SetJoystickGUIDCRC(ptr noundef writeonly captures(none) initializes((2, 4)) %0, i16 noundef zeroext %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %1, ptr %3, align 2
   ret void
@@ -7975,7 +7969,7 @@ declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @SDL_strstr_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @SDL_IsJoystickGameCube(i16 noundef zeroext %0, i16 noundef zeroext %1) local_unnamed_addr #11 {
+define hidden noundef zeroext i1 @SDL_IsJoystickGameCube(i16 noundef zeroext %0, i16 noundef zeroext %1) local_unnamed_addr #10 {
   %3 = zext i16 %0 to i32
   %4 = shl nuw i32 %3, 16
   %5 = zext i16 %1 to i32
@@ -8070,14 +8064,14 @@ SDL_GetJoystickGUIDInfo_REAL.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden zeroext i1 @SDL_IsJoystickXInput(i64 %0, i64 %1) local_unnamed_addr #4 {
+define hidden zeroext i1 @SDL_IsJoystickXInput(i64 %0, i64 %1) local_unnamed_addr #3 {
   %3 = and i64 %1, 71776119061217280
   %4 = icmp eq i64 %3, 33776997205278720
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden zeroext i1 @SDL_IsJoystickHIDAPI(i64 %0, i64 %1) local_unnamed_addr #4 {
+define hidden zeroext i1 @SDL_IsJoystickHIDAPI(i64 %0, i64 %1) local_unnamed_addr #3 {
   %3 = and i64 %1, 71776119061217280
   %4 = icmp eq i64 %3, 29273397577908224
   ret i1 %4
@@ -8086,7 +8080,7 @@ define hidden zeroext i1 @SDL_IsJoystickHIDAPI(i64 %0, i64 %1) local_unnamed_add
 declare i32 @HIDAPI_GetGamepadTypeFromGUID(i64, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden zeroext i1 @SDL_JoystickGUIDUsesVersion(i64 %0, i64 %1) local_unnamed_addr #4 {
+define hidden zeroext i1 @SDL_JoystickGUIDUsesVersion(i64 %0, i64 %1) local_unnamed_addr #3 {
   %3 = and i64 %1, 71776119061217280
   %4 = icmp eq i64 %3, 30680772461461504
   br i1 %4, label %16, label %SDL_GetJoystickGUIDInfo_REAL.exit
@@ -8116,7 +8110,7 @@ SDL_GetJoystickGUIDInfo_REAL.exit:                ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden zeroext i1 @SDL_IsJoystickMFI(i64 %0, i64 %1) local_unnamed_addr #4 {
+define hidden zeroext i1 @SDL_IsJoystickMFI(i64 %0, i64 %1) local_unnamed_addr #3 {
   %3 = and i64 %1, 71776119061217280
   %4 = icmp eq i64 %3, 30680772461461504
   ret i1 %4
@@ -8132,7 +8126,7 @@ define hidden zeroext i1 @SDL_IsJoystickXboxOne(i16 noundef zeroext %0, i16 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @SDL_IsJoystickXboxOneElite(i16 noundef zeroext %0, i16 noundef zeroext %1) local_unnamed_addr #4 {
+define hidden noundef zeroext i1 @SDL_IsJoystickXboxOneElite(i16 noundef zeroext %0, i16 noundef zeroext %1) local_unnamed_addr #3 {
   %3 = icmp eq i16 %0, 1118
   br i1 %3, label %4, label %5
 
@@ -8153,7 +8147,7 @@ define hidden noundef zeroext i1 @SDL_IsJoystickXboxOneElite(i16 noundef zeroext
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @SDL_IsJoystickXboxSeriesX(i16 noundef zeroext %0, i16 noundef zeroext %1) local_unnamed_addr #11 {
+define hidden noundef zeroext i1 @SDL_IsJoystickXboxSeriesX(i16 noundef zeroext %0, i16 noundef zeroext %1) local_unnamed_addr #10 {
   %3 = zext i16 %0 to i32
   %4 = shl nuw i32 %3, 16
   %5 = zext i16 %1 to i32
@@ -8205,7 +8199,7 @@ SDL_VIDPIDInList.exit:                            ; preds = %14, %18, %.preheade
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @SDL_VIDPIDInList(i16 noundef zeroext %0, i16 noundef zeroext %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #11 {
+define hidden noundef zeroext i1 @SDL_VIDPIDInList(i16 noundef zeroext %0, i16 noundef zeroext %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #10 {
   %4 = zext i16 %0 to i32
   %5 = shl nuw i32 %4, 16
   %6 = zext i16 %1 to i32
@@ -8261,7 +8255,7 @@ define hidden noundef zeroext i1 @SDL_VIDPIDInList(i16 noundef zeroext %0, i16 n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @SDL_IsJoystickBluetoothXboxOne(i16 noundef zeroext %0, i16 noundef zeroext %1) local_unnamed_addr #4 {
+define hidden noundef zeroext i1 @SDL_IsJoystickBluetoothXboxOne(i16 noundef zeroext %0, i16 noundef zeroext %1) local_unnamed_addr #3 {
   %3 = icmp eq i16 %0, 1118
   br i1 %3, label %4, label %5
 
@@ -8304,7 +8298,7 @@ define hidden zeroext i1 @SDL_IsJoystickPS5(i16 noundef zeroext %0, i16 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @SDL_IsJoystickDualSenseEdge(i16 noundef zeroext %0, i16 noundef zeroext %1) local_unnamed_addr #4 {
+define hidden noundef zeroext i1 @SDL_IsJoystickDualSenseEdge(i16 noundef zeroext %0, i16 noundef zeroext %1) local_unnamed_addr #3 {
   %3 = icmp eq i16 %0, 1356
   %4 = icmp eq i16 %1, 3570
   %or.cond = and i1 %3, %4
@@ -8360,7 +8354,7 @@ define hidden zeroext i1 @SDL_IsJoystickNintendoSwitchJoyConRight(i16 noundef ze
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @SDL_IsJoystickNintendoSwitchJoyConGrip(i16 noundef zeroext %0, i16 noundef zeroext %1) local_unnamed_addr #4 {
+define hidden noundef zeroext i1 @SDL_IsJoystickNintendoSwitchJoyConGrip(i16 noundef zeroext %0, i16 noundef zeroext %1) local_unnamed_addr #3 {
   %3 = icmp eq i16 %0, 1406
   %4 = icmp eq i16 %1, 8206
   %5 = and i1 %3, %4
@@ -8368,7 +8362,7 @@ define hidden noundef zeroext i1 @SDL_IsJoystickNintendoSwitchJoyConGrip(i16 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @SDL_IsJoystickNintendoSwitchJoyConPair(i16 noundef zeroext %0, i16 noundef zeroext %1) local_unnamed_addr #4 {
+define hidden noundef zeroext i1 @SDL_IsJoystickNintendoSwitchJoyConPair(i16 noundef zeroext %0, i16 noundef zeroext %1) local_unnamed_addr #3 {
   %3 = icmp eq i16 %0, 1406
   %4 = icmp eq i16 %1, 8200
   %5 = and i1 %3, %4
@@ -8376,7 +8370,7 @@ define hidden noundef zeroext i1 @SDL_IsJoystickNintendoSwitchJoyConPair(i16 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @SDL_IsJoystickAmazonLunaController(i16 noundef zeroext %0, i16 noundef zeroext %1) local_unnamed_addr #4 {
+define hidden noundef zeroext i1 @SDL_IsJoystickAmazonLunaController(i16 noundef zeroext %0, i16 noundef zeroext %1) local_unnamed_addr #3 {
   %3 = icmp eq i16 %0, 6473
   %4 = icmp eq i16 %1, 1049
   %or.cond = and i1 %3, %4
@@ -8393,7 +8387,7 @@ define hidden noundef zeroext i1 @SDL_IsJoystickAmazonLunaController(i16 noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @SDL_IsJoystickGoogleStadiaController(i16 noundef zeroext %0, i16 noundef zeroext %1) local_unnamed_addr #4 {
+define hidden noundef zeroext i1 @SDL_IsJoystickGoogleStadiaController(i16 noundef zeroext %0, i16 noundef zeroext %1) local_unnamed_addr #3 {
   %3 = icmp eq i16 %0, 6353
   %4 = icmp eq i16 %1, -27648
   %5 = and i1 %3, %4
@@ -8401,7 +8395,7 @@ define hidden noundef zeroext i1 @SDL_IsJoystickGoogleStadiaController(i16 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @SDL_IsJoystickNVIDIASHIELDController(i16 noundef zeroext %0, i16 noundef zeroext %1) local_unnamed_addr #4 {
+define hidden noundef zeroext i1 @SDL_IsJoystickNVIDIASHIELDController(i16 noundef zeroext %0, i16 noundef zeroext %1) local_unnamed_addr #3 {
   %3 = icmp eq i16 %0, 2389
   %4 = and i16 %1, -5
   %5 = icmp eq i16 %4, 29200
@@ -8410,7 +8404,7 @@ define hidden noundef zeroext i1 @SDL_IsJoystickNVIDIASHIELDController(i16 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @SDL_IsJoystickSteamVirtualGamepad(i16 noundef zeroext %0, i16 noundef zeroext %1, i16 noundef zeroext %2) local_unnamed_addr #4 {
+define hidden noundef zeroext i1 @SDL_IsJoystickSteamVirtualGamepad(i16 noundef zeroext %0, i16 noundef zeroext %1, i16 noundef zeroext %2) local_unnamed_addr #3 {
   %4 = icmp eq i16 %0, 10462
   %5 = icmp eq i16 %1, 4607
   %6 = and i1 %4, %5
@@ -8428,7 +8422,7 @@ define hidden zeroext i1 @SDL_IsJoystickSteamController(i16 noundef zeroext %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @SDL_IsJoystickHoriSteamController(i16 noundef zeroext %0, i16 noundef zeroext %1) local_unnamed_addr #4 {
+define hidden noundef zeroext i1 @SDL_IsJoystickHoriSteamController(i16 noundef zeroext %0, i16 noundef zeroext %1) local_unnamed_addr #3 {
   %3 = icmp eq i16 %0, 3853
   br i1 %3, label %4, label %8
 
@@ -8453,21 +8447,21 @@ define hidden zeroext i1 @SDL_IsJoystickSteamDeck(i16 noundef zeroext %0, i16 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden zeroext i1 @SDL_IsJoystickWGI(i64 %0, i64 %1) local_unnamed_addr #4 {
+define hidden zeroext i1 @SDL_IsJoystickWGI(i64 %0, i64 %1) local_unnamed_addr #3 {
   %3 = and i64 %1, 71776119061217280
   %4 = icmp eq i64 %3, 33495522228568064
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden zeroext i1 @SDL_IsJoystickRAWINPUT(i64 %0, i64 %1) local_unnamed_addr #4 {
+define hidden zeroext i1 @SDL_IsJoystickRAWINPUT(i64 %0, i64 %1) local_unnamed_addr #3 {
   %3 = and i64 %1, 71776119061217280
   %4 = icmp eq i64 %3, 32088147345014784
   ret i1 %4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @SDL_IsJoystickWheel(i16 noundef zeroext %0, i16 noundef zeroext %1) local_unnamed_addr #11 {
+define hidden noundef zeroext i1 @SDL_IsJoystickWheel(i16 noundef zeroext %0, i16 noundef zeroext %1) local_unnamed_addr #10 {
   %3 = zext i16 %0 to i32
   %4 = shl nuw i32 %3, 16
   %5 = zext i16 %1 to i32
@@ -9912,7 +9906,7 @@ define hidden void @SDL_SendJoystickPowerInfo(ptr noundef captures(none) %0, i32
   br i1 %12, label %13, label %20
 
 13:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 1543, ptr %4, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %14, align 8
@@ -9924,7 +9918,7 @@ define hidden void @SDL_SendJoystickPowerInfo(ptr noundef captures(none) %0, i32
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %2, ptr %18, align 8
   %19 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %20
 
 20:                                               ; preds = %10, %13, %7
@@ -10161,7 +10155,7 @@ SDL_PrivateJoystickShouldIgnoreEvent.exit:        ; preds = %8, %10, %6
   br i1 %32, label %33, label %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread
 
 33:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 1625, ptr %7, align 8
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %0, ptr %34, align 8
@@ -10176,7 +10170,7 @@ SDL_PrivateJoystickShouldIgnoreEvent.exit:        ; preds = %8, %10, %6
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i64 %3, ptr %39, align 8
   %40 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread
 
 SDL_PrivateJoystickShouldIgnoreEvent.exit.thread: ; preds = %18, %SDL_PrivateJoystickShouldIgnoreEvent.exit, %26, %33, %22, %10
@@ -10228,7 +10222,7 @@ define hidden void @SDL_LoadVIDPIDListFromHints(ptr noundef captures(none) initi
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @SDL_LoadVIDPIDListFromHint(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %6
 
@@ -10310,7 +10304,7 @@ define internal fastcc void @SDL_LoadVIDPIDListFromHint(ptr noundef %0, ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %4, %._crit_edge, %42, %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -10465,6 +10459,12 @@ declare ptr @SDL_LoadFile_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare i64 @SDL_strtol_REAL(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #12
 
@@ -10474,15 +10474,15 @@ declare i64 @llvm.umax.i64(i64, i64) #12
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nounwind }
 attributes #14 = { nounwind allocsize(0,1) }

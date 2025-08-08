@@ -41,7 +41,7 @@ define internal i32 @webvtt_encode_frame(ptr noundef %0, ptr noundef %1, i32 nou
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   tail call void @av_bprint_init_for_buffer(ptr noundef nonnull %8, ptr noundef %1, i32 noundef %2) #6
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -108,7 +108,7 @@ define internal i32 @webvtt_encode_frame(ptr noundef %0, ptr noundef %1, i32 nou
 
 .thread:                                          ; preds = %19, %.thread.sink.split, %36, %._crit_edge
   %.2 = phi i32 [ 0, %._crit_edge ], [ %35, %36 ], [ %.2.ph, %.thread.sink.split ], [ -12, %19 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.2
 }
 
@@ -122,19 +122,13 @@ define internal noundef i32 @webvtt_encode_close(ptr noundef readonly captures(n
   ret i32 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare ptr @ff_ass_split(ptr noundef) local_unnamed_addr #2
 
-declare ptr @ff_ass_split(ptr noundef) local_unnamed_addr #3
+declare void @av_bprint_init_for_buffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @av_bprint_init_for_buffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
-
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
-
-declare ptr @ff_ass_split_dialog(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @ff_ass_split_dialog(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @webvtt_style_apply(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
@@ -214,31 +208,31 @@ webvtt_stack_push.exit18:                         ; preds = %35, %31, %webvtt_st
   ret void
 }
 
-declare i32 @ff_ass_split_override_codes(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ff_ass_split_override_codes(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ff_ass_free_dialog(ptr noundef) local_unnamed_addr #3
+declare void @ff_ass_free_dialog(ptr noundef) local_unnamed_addr #2
 
-declare ptr @ff_ass_style_get(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @ff_ass_style_get(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @webvtt_print(ptr noundef %0, ptr noundef %1, ...) unnamed_addr #1 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @av_vbprintf(ptr noundef nonnull %4, ptr noundef %1, ptr noundef nonnull %3) #6
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #4
+declare void @llvm.va_start.p0(ptr) #3
 
-declare void @av_vbprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @av_vbprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #4
+declare void @llvm.va_end.p0(ptr) #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @webvtt_text_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1 {
@@ -431,18 +425,24 @@ webvtt_stack_push_pop.exit:                       ; preds = %webvtt_stack_pop.ex
   ret void
 }
 
-declare void @av_bprint_append_data(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @av_bprint_append_data(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ff_ass_split_free(ptr noundef) local_unnamed_addr #3
+declare void @ff_ass_split_free(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

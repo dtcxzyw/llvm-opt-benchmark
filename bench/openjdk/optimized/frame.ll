@@ -533,7 +533,7 @@ _ZNK16stackChunkHandleclEv.exit:                  ; preds = %1
   br i1 %.not, label %_ZNK16stackChunkHandleclEv.exit.thread, label %_ZNK16stackChunkHandleclEv.exit1
 
 _ZNK16stackChunkHandleclEv.exit1:                 ; preds = %_ZNK16stackChunkHandleclEv.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = load i8, ptr @UseZGC, align 1
   %8 = trunc i8 %7 to i1
   %.not.i = xor i1 %8, true
@@ -562,7 +562,7 @@ _ZNK16stackChunkHandleclEv.exit1:                 ; preds = %_ZNK16stackChunkHan
 
 _ZNK17stackChunkOopDesc4contEv.exit:              ; preds = %12, %20
   %.0.i = phi ptr [ %23, %20 ], [ %19, %12 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZNK16stackChunkHandleclEv.exit.thread
 
 _ZNK16stackChunkHandleclEv.exit.thread:           ; preds = %1, %_ZNK16stackChunkHandleclEv.exit, %_ZNK17stackChunkOopDesc4contEv.exit
@@ -2408,12 +2408,12 @@ declare noundef ptr @_ZNK5frame24interpreter_frame_tos_atEi(ptr noundef nonnull 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN5frame27interpreter_callee_receiverEP6Symbol(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.ArgumentSizeComputer, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN20ArgumentSizeComputerC1EP6Symbol(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef %1) #21
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = call noundef ptr @_ZNK5frame24interpreter_frame_tos_atEi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %5) #21
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %7 = load ptr, ptr %6, align 8
   ret ptr %7
 }
@@ -2619,8 +2619,8 @@ _ZNK15Bytecode_invoke12has_receiverEv.exit:       ; preds = %88, %_ZNK15Bytecode
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %125 = load i64, ptr %124, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %126 = zext i1 %96 to i8
   store ptr %89, ptr %6, align 8
   %127 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2640,7 +2640,7 @@ _ZNK15Bytecode_invoke12has_receiverEv.exit:       ; preds = %88, %_ZNK15Bytecode
   store ptr %0, ptr %135, align 8
   %136 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 %133, ptr %136, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %96, label %137, label %_ZNK5frame29oops_interpreted_arguments_doEP6SymbolbP10OopClosure.exit
 
 137:                                              ; preds = %115
@@ -2654,7 +2654,7 @@ _ZNK15Bytecode_invoke12has_receiverEv.exit:       ; preds = %88, %_ZNK15Bytecode
 
 _ZNK5frame29oops_interpreted_arguments_doEP6SymbolbP10OopClosure.exit: ; preds = %115, %137
   call void @_ZN17SignatureIterator16do_parameters_onI28InterpretedArgumentOopFinderEEvPT_(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %6)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %142 = load ptr, ptr %119, align 8
   %.not.i.i.i.i = icmp eq ptr %142, null
   br i1 %.not.i.i.i.i, label %144, label %143
@@ -2721,7 +2721,7 @@ declare noundef ptr @_ZNK19Bytecode_member_ref9signatureEv(ptr noundef nonnull a
 define hidden void @_ZNK5frame29oops_interpreted_arguments_doEP6SymbolbP10OopClosure(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.ArgumentSizeComputer, align 8
   %6 = alloca %class.InterpretedArgumentOopFinder, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = zext i1 %2 to i8
   store ptr %1, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2741,7 +2741,7 @@ define hidden void @_ZNK5frame29oops_interpreted_arguments_doEP6SymbolbP10OopClo
   store ptr %0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 %14, ptr %17, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %2, label %18, label %_ZN28InterpretedArgumentOopFinder7oops_doEv.exit
 
 18:                                               ; preds = %4
@@ -2897,8 +2897,8 @@ define hidden void @_ZNK5frame26oops_compiled_arguments_doEP6SymbolbbPK11Registe
   %9 = alloca %class.CompiledArgumentOopFinder, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %0, i64 56, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %11 = zext i1 %2 to i8
   %12 = zext i1 %3 to i8
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -2930,8 +2930,8 @@ define hidden void @_ZNK5frame26oops_compiled_arguments_doEP6SymbolbbPK11Registe
   %28 = call noundef ptr @_ZN13SharedRuntime21find_callee_argumentsEP6SymbolbbPi(ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef nonnull %8) #21
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 120
   store ptr %28, ptr %29, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %2, label %30, label %91
 
 30:                                               ; preds = %6
@@ -3255,7 +3255,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %10, %_ZN26GrowableA
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %.sroa.0.0.copyload.i.i = load i32, ptr %51, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %52 = trunc i32 %.sroa.0.0.copyload.i.i to i8
   %53 = lshr i8 %52, 3
   %54 = and i8 %53, 1
@@ -3274,7 +3274,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %10, %_ZN26GrowableA
   %61 = load i32, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i32 %61, ptr %62, align 4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %1, ptr %57, align 8
   %63 = trunc i8 %53 to i1
   br i1 %63, label %_ZN19EntryFrameOopFinder12arguments_doEP10OopClosure.exit, label %64
@@ -5549,10 +5549,10 @@ declare i32 @llvm.ctpop.i32(i32) #17
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20

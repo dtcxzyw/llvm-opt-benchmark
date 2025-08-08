@@ -19,9 +19,9 @@ define hidden range(i32 0, 2) i32 @main() local_unnamed_addr #0 {
   br i1 %7, label %trivial.exit.thread, label %8
 
 8:                                                ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -559038737, ptr %4, align 4, !tbaa !6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
   %9 = call ptr @pitem_new(ptr noundef nonnull %5, ptr noundef nonnull %4) #5
   %10 = icmp eq ptr %9, null
@@ -58,21 +58,21 @@ define hidden range(i32 0, 2) i32 @main() local_unnamed_addr #0 {
   br i1 %.not20.i, label %23, label %trivial.exit.thread6
 
 trivial.exit.thread6:                             ; preds = %21, %19, %17, %15, %13, %11, %8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %trivial.exit.thread
 
 23:                                               ; preds = %21
   call void @pitem_free(ptr noundef nonnull %9) #5
   call fastcc void @clear_and_free_queue(ptr noundef %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %1, ptr noundef nonnull align 16 dereferenceable(40) @__const.fixed_random.ordering, i64 40, i1 false)
   %24 = call ptr @pqueue_new() #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %25 = icmp eq ptr %24, null
   br i1 %25, label %fixed_random.exit.thread, label %.preheader48.i
 
@@ -150,16 +150,16 @@ trivial.exit.thread6:                             ; preds = %21, %19, %17, %15, 
   br i1 %.not38.i, label %.preheader.i, label %fixed_random.exit.thread
 
 fixed_random.exit.thread:                         ; preds = %34, %28, %41, %.preheader46.i, %52, %23, %44, %46
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %trivial.exit.thread
 
 59:                                               ; preds = %.preheader.i
   call fastcc void @clear_and_free_queue(ptr noundef %24)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %trivial.exit.thread
 
@@ -169,9 +169,6 @@ trivial.exit.thread:                              ; preds = %0, %fixed_random.ex
 }
 
 declare void @CRYPTO_library_init() local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @pqueue_new() local_unnamed_addr #1
 
@@ -205,25 +202,28 @@ define internal fastcc void @clear_and_free_queue(ptr noundef nonnull %0) unname
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare void @pqueue_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @pqueue_iterator(ptr noundef) local_unnamed_addr #1
 
 declare ptr @pqueue_next(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nofree nounwind }
 attributes #5 = { nounwind }
 

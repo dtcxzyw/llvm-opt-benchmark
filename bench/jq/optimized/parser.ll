@@ -271,9 +271,6 @@ define dso_local noundef i32 @yylex(ptr noundef %0, ptr noundef %1, ptr readnone
   ret i32 %8
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @jq_yylex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare { i64, ptr } @jv_invalid_get_msg(i64, ptr) local_unnamed_addr #2
@@ -283,12 +280,9 @@ declare { i64, ptr } @jv_copy(i64, ptr) local_unnamed_addr #2
 declare i32 @jv_get_kind(i64, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @jv_string_value(i64, ptr) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare void @jv_free(i64, ptr) local_unnamed_addr #2
 
@@ -319,16 +313,16 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %24 = alloca %struct.location, align 8
   %25 = alloca %struct.location, align 8
   %26 = alloca %struct.location, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %7) #10
-  call void @llvm.lifetime.start.p0(i64 3200, ptr nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 1600, ptr nonnull %9) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0616)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %10) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0616)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 128, ptr %11, align 8, !tbaa !12
   store i64 0, ptr %9, align 16
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -785,14 +779,14 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   br i1 %.not1243, label %185, label %191
 
 185:                                              ; preds = %179
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %.sroa.28.0.insert.ext1442 = zext i32 %.sroa.28.0 to i64
   %.sroa.28.0.insert.shift1443 = shl nuw i64 %.sroa.28.0.insert.ext1442, 32
   %.sroa.01266.0.insert.ext1340 = zext i32 %.sroa.01266.0 to i64
   %.sroa.01266.0.insert.insert1342 = or disjoint i64 %.sroa.28.0.insert.shift1443, %.sroa.01266.0.insert.ext1340
   store i64 %.sroa.01266.0.insert.insert1342, ptr %12, align 8
   call void @yyerror(ptr noundef nonnull %12, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %186 = call { ptr, ptr } (...) @gen_noop() #10
   %187 = extractvalue { ptr, ptr } %186, 0
   %188 = extractvalue { ptr, ptr } %186, 1
@@ -810,14 +804,14 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   br i1 %.not1244, label %201, label %195
 
 195:                                              ; preds = %191
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %.sroa.28.0.insert.ext1447 = zext i32 %.sroa.28.0 to i64
   %.sroa.28.0.insert.shift1448 = shl nuw i64 %.sroa.28.0.insert.ext1447, 32
   %.sroa.01266.0.insert.ext1344 = zext i32 %.sroa.01266.0 to i64
   %.sroa.01266.0.insert.insert1346 = or disjoint i64 %.sroa.28.0.insert.shift1448, %.sroa.01266.0.insert.ext1344
   store i64 %.sroa.01266.0.insert.insert1346, ptr %13, align 8
   call void @yyerror(ptr noundef nonnull %13, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %196 = call { ptr, ptr } (...) @gen_noop() #10
   %197 = extractvalue { ptr, ptr } %196, 0
   %198 = extractvalue { ptr, ptr } %196, 1
@@ -995,14 +989,14 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   br label %2001
 
 333:                                              ; preds = %132
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %.sroa.28.0.insert.ext1437 = zext i32 %.sroa.28.0 to i64
   %.sroa.28.0.insert.shift1438 = shl nuw i64 %.sroa.28.0.insert.ext1437, 32
   %.sroa.01266.0.insert.ext1336 = zext i32 %.sroa.01266.0 to i64
   %.sroa.01266.0.insert.insert1338 = or disjoint i64 %.sroa.28.0.insert.shift1438, %.sroa.01266.0.insert.ext1336
   store i64 %.sroa.01266.0.insert.insert1338, ptr %15, align 8
   call void @yyerror(ptr noundef nonnull %15, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %334 = getelementptr inbounds i8, ptr %.21183, i64 -32
   %335 = load i64, ptr %334, align 8, !tbaa !20
   store i64 %335, ptr %.sroa.0616, align 8, !tbaa !20
@@ -1038,14 +1032,14 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   br label %2001
 
 357:                                              ; preds = %132
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %.sroa.28.0.insert.ext1432 = zext i32 %.sroa.28.0 to i64
   %.sroa.28.0.insert.shift1433 = shl nuw i64 %.sroa.28.0.insert.ext1432, 32
   %.sroa.01266.0.insert.ext1332 = zext i32 %.sroa.01266.0 to i64
   %.sroa.01266.0.insert.insert1334 = or disjoint i64 %.sroa.28.0.insert.shift1433, %.sroa.01266.0.insert.ext1332
   store i64 %.sroa.01266.0.insert.insert1334, ptr %16, align 8
   call void @yyerror(ptr noundef nonnull %16, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %358 = getelementptr inbounds i8, ptr %.21183, i64 -32
   %359 = load i64, ptr %358, align 8, !tbaa !20
   store i64 %359, ptr %.sroa.0616, align 8, !tbaa !20
@@ -1492,14 +1486,14 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   br i1 %.not1241, label %698, label %708
 
 698:                                              ; preds = %692
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %.sroa.28.0.insert.ext1422 = zext i32 %.sroa.28.0 to i64
   %.sroa.28.0.insert.shift1423 = shl nuw i64 %.sroa.28.0.insert.ext1422, 32
   %.sroa.01266.0.insert.ext1324 = zext i32 %.sroa.01266.0 to i64
   %.sroa.01266.0.insert.insert1326 = or disjoint i64 %.sroa.28.0.insert.shift1423, %.sroa.01266.0.insert.ext1324
   store i64 %.sroa.01266.0.insert.insert1326, ptr %17, align 8
   call void @yyerror(ptr noundef nonnull %17, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %699 = call { ptr, ptr } (...) @gen_noop() #10
   %700 = extractvalue { ptr, ptr } %699, 0
   %701 = extractvalue { ptr, ptr } %699, 1
@@ -1522,14 +1516,14 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   br i1 %.not1242, label %722, label %712
 
 712:                                              ; preds = %708
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %.sroa.28.0.insert.ext1427 = zext i32 %.sroa.28.0 to i64
   %.sroa.28.0.insert.shift1428 = shl nuw i64 %.sroa.28.0.insert.ext1427, 32
   %.sroa.01266.0.insert.ext1328 = zext i32 %.sroa.01266.0 to i64
   %.sroa.01266.0.insert.insert1330 = or disjoint i64 %.sroa.28.0.insert.shift1428, %.sroa.01266.0.insert.ext1328
   store i64 %.sroa.01266.0.insert.insert1330, ptr %18, align 8
   call void @yyerror(ptr noundef nonnull %18, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %713 = call { ptr, ptr } (...) @gen_noop() #10
   %714 = extractvalue { ptr, ptr } %713, 0
   %715 = extractvalue { ptr, ptr } %713, 1
@@ -1636,14 +1630,14 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   br i1 %.not1240, label %790, label %799
 
 790:                                              ; preds = %785
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %.sroa.28.0.insert.ext1417 = zext i32 %.sroa.28.0 to i64
   %.sroa.28.0.insert.shift1418 = shl nuw i64 %.sroa.28.0.insert.ext1417, 32
   %.sroa.01266.0.insert.ext1320 = zext i32 %.sroa.01266.0 to i64
   %.sroa.01266.0.insert.insert1322 = or disjoint i64 %.sroa.28.0.insert.shift1418, %.sroa.01266.0.insert.ext1320
   store i64 %.sroa.01266.0.insert.insert1322, ptr %19, align 8
   call void @yyerror(ptr noundef nonnull %19, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %791 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.13) #10
   %792 = extractvalue { i64, ptr } %791, 0
   %793 = extractvalue { i64, ptr } %791, 1
@@ -1959,14 +1953,14 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   br label %2001
 
 1013:                                             ; preds = %132
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %.sroa.28.0.insert.ext1412 = zext i32 %.sroa.28.0 to i64
   %.sroa.28.0.insert.shift1413 = shl nuw i64 %.sroa.28.0.insert.ext1412, 32
   %.sroa.01266.0.insert.ext1316 = zext i32 %.sroa.01266.0 to i64
   %.sroa.01266.0.insert.insert1318 = or disjoint i64 %.sroa.28.0.insert.shift1413, %.sroa.01266.0.insert.ext1316
   store i64 %.sroa.01266.0.insert.insert1318, ptr %20, align 8
   call void @yyerror(ptr noundef nonnull %20, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.17)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %1014 = call { ptr, ptr } (...) @gen_noop() #10
   %1015 = extractvalue { ptr, ptr } %1014, 0
   %1016 = extractvalue { ptr, ptr } %1014, 1
@@ -2098,14 +2092,14 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   br label %2001
 
 1117:                                             ; preds = %132
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %.sroa.28.0.insert.ext1407 = zext i32 %.sroa.28.0 to i64
   %.sroa.28.0.insert.shift1408 = shl nuw i64 %.sroa.28.0.insert.ext1407, 32
   %.sroa.01266.0.insert.ext1312 = zext i32 %.sroa.01266.0 to i64
   %.sroa.01266.0.insert.insert1314 = or disjoint i64 %.sroa.28.0.insert.shift1408, %.sroa.01266.0.insert.ext1312
   store i64 %.sroa.01266.0.insert.insert1314, ptr %21, align 8
   call void @yyerror(ptr noundef nonnull %21, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.18)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %1118 = call { ptr, ptr } (...) @gen_noop() #10
   %1119 = extractvalue { ptr, ptr } %1118, 0
   %1120 = extractvalue { ptr, ptr } %1118, 1
@@ -2118,14 +2112,14 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1124 = getelementptr inbounds i8, ptr %.21183, i64 -8
   %1125 = load ptr, ptr %1124, align 8
   call void @jv_free(i64 %1123, ptr %1125) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %.sroa.28.0.insert.ext1402 = zext i32 %.sroa.28.0 to i64
   %.sroa.28.0.insert.shift1403 = shl nuw i64 %.sroa.28.0.insert.ext1402, 32
   %.sroa.01266.0.insert.ext1308 = zext i32 %.sroa.01266.0 to i64
   %.sroa.01266.0.insert.insert1310 = or disjoint i64 %.sroa.28.0.insert.shift1403, %.sroa.01266.0.insert.ext1308
   store i64 %.sroa.01266.0.insert.insert1310, ptr %22, align 8
   call void @yyerror(ptr noundef nonnull %22, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.18)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %1126 = call { ptr, ptr } (...) @gen_noop() #10
   %1127 = extractvalue { ptr, ptr } %1126, 0
   %1128 = extractvalue { ptr, ptr } %1126, 1
@@ -2916,7 +2910,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   br i1 %.not1541, label %1710, label %1708
 
 1708:                                             ; preds = %1699
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %.sroa.28.0.insert.ext1397 = zext i32 %.sroa.28.0 to i64
   %.sroa.28.0.insert.shift1398 = shl nuw i64 %.sroa.28.0.insert.ext1397, 32
   %.sroa.01266.0.insert.ext1304 = zext i32 %.sroa.01266.0 to i64
@@ -2924,7 +2918,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   store i64 %.sroa.01266.0.insert.insert1306, ptr %23, align 8
   %1709 = call ptr @jv_string_value(i64 %1705, ptr %1706) #10
   call void @yyerror(ptr noundef nonnull %23, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef %1709)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %1710
 
 1710:                                             ; preds = %1708, %1699
@@ -2941,14 +2935,14 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   br label %2001
 
 1719:                                             ; preds = %132
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %.sroa.28.0.insert.ext1392 = zext i32 %.sroa.28.0 to i64
   %.sroa.28.0.insert.shift1393 = shl nuw i64 %.sroa.28.0.insert.ext1392, 32
   %.sroa.01266.0.insert.ext1300 = zext i32 %.sroa.01266.0 to i64
   %.sroa.01266.0.insert.insert1302 = or disjoint i64 %.sroa.28.0.insert.shift1393, %.sroa.01266.0.insert.ext1300
   store i64 %.sroa.01266.0.insert.insert1302, ptr %24, align 8
   call void @yyerror(ptr noundef nonnull %24, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.22)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %1720 = load i64, ptr %.21183, align 8, !tbaa !20
   store i64 %1720, ptr %.sroa.0616, align 8, !tbaa !20
   %.sroa.181.0..sroa_idx649 = getelementptr inbounds nuw i8, ptr %.21183, i64 8
@@ -3332,7 +3326,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   br i1 %.not1540, label %1990, label %1988
 
 1988:                                             ; preds = %1979
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %.sroa.28.0.insert.ext1387 = zext i32 %.sroa.28.0 to i64
   %.sroa.28.0.insert.shift1388 = shl nuw i64 %.sroa.28.0.insert.ext1387, 32
   %.sroa.01266.0.insert.ext1296 = zext i32 %.sroa.01266.0 to i64
@@ -3340,7 +3334,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   store i64 %.sroa.01266.0.insert.insert1298, ptr %25, align 8
   %1989 = call ptr @jv_string_value(i64 %1985, ptr %1986) #10
   call void @yyerror(ptr noundef nonnull %25, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef %1989)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %1990
 
 1990:                                             ; preds = %1988, %1979
@@ -3357,14 +3351,14 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   br label %2001
 
 1999:                                             ; preds = %132
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %.sroa.28.0.insert.ext1382 = zext i32 %.sroa.28.0 to i64
   %.sroa.28.0.insert.shift1383 = shl nuw i64 %.sroa.28.0.insert.ext1382, 32
   %.sroa.01266.0.insert.ext1292 = zext i32 %.sroa.01266.0 to i64
   %.sroa.01266.0.insert.insert1294 = or disjoint i64 %.sroa.28.0.insert.shift1383, %.sroa.01266.0.insert.ext1292
   store i64 %.sroa.01266.0.insert.insert1294, ptr %26, align 8
   call void @yyerror(ptr noundef nonnull %26, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.22)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %2000 = load i64, ptr %.21183, align 8, !tbaa !20
   store i64 %2000, ptr %.sroa.0616, align 8, !tbaa !20
   %.sroa.181.0..sroa_idx655 = getelementptr inbounds nuw i8, ptr %.21183, i64 8
@@ -3662,14 +3656,14 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   br label %2116
 
 2116:                                             ; preds = %2114, %2115
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %10) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0616)
-  call void @llvm.lifetime.end.p0(i64 1600, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 3200, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0616)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.012041508
 }
 
@@ -4187,7 +4181,7 @@ define internal fastcc { i64, ptr } @check_object_key(ptr %0, ptr %1) unnamed_ad
   br i1 %.not9, label %15, label %7
 
 7:                                                ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = tail call i32 @block_const_kind(ptr %0, ptr %1) #10
   %9 = tail call ptr @jv_kind_name(i32 noundef %8) #10
   %10 = tail call { i64, ptr } @block_const(ptr %0, ptr %1) #10
@@ -4195,7 +4189,7 @@ define internal fastcc { i64, ptr } @check_object_key(ptr %0, ptr %1) unnamed_ad
   %12 = extractvalue { i64, ptr } %10, 1
   %13 = call ptr @jv_dump_string_trunc(i64 %11, ptr %12, ptr noundef nonnull %3, i64 noundef 15) #10
   %14 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.65, ptr noundef %9, ptr noundef %13) #10
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %17
 
 15:                                               ; preds = %5, %2
@@ -4210,12 +4204,12 @@ define internal fastcc { i64, ptr } @check_object_key(ptr %0, ptr %1) unnamed_ad
 declare { ptr, ptr } @gen_dictpair(ptr, ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr noundef nonnull captures(none) %0, ptr %.0.val, ptr readonly captures(none) %.0.val1, i32 %.8.val) unnamed_addr #6 {
+define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr noundef nonnull captures(none) %0, ptr %.0.val, ptr readonly captures(none) %.0.val1, i32 %.8.val) unnamed_addr #5 {
   %2 = alloca [5 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not.i = icmp eq i32 %.8.val, -2
   br i1 %.not.i, label %yy_syntax_error_arguments.exit.thread6, label %3
 
@@ -4469,7 +4463,7 @@ yytnamerr.exit68:                                 ; preds = %68, %.preheader, %.
 
 yy_syntax_error_arguments.exit.thread8:           ; preds = %yytnamerr.exit, %.preheader, %.critedge.i.i, %65, %yy_syntax_error_arguments.exit
   %.041 = phi i32 [ -2, %yy_syntax_error_arguments.exit ], [ -1, %65 ], [ %.2.i.i, %.critedge.i.i ], [ 0, %.preheader ], [ -2, %yytnamerr.exit ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.041
 }
 
@@ -4750,7 +4744,7 @@ define internal fastcc void @yydestruct(i32 noundef range(i32 -128, 128) %0, ptr
 define dso_local i32 @jq_parse(ptr noundef %0, ptr noundef captures(none) initializes((0, 16)) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.lexer_param, align 8
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = call i32 @jq_yylex_init_extra(i32 noundef 0, ptr noundef nonnull %3) #10
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !31
@@ -4758,7 +4752,7 @@ define dso_local i32 @jq_parse(ptr noundef %0, ptr noundef captures(none) initia
   %9 = load i32, ptr %8, align 8, !tbaa !36
   %10 = load ptr, ptr %3, align 8, !tbaa !8
   %11 = call ptr @jq_yy_scan_bytes(ptr noundef %7, i32 noundef %9, ptr noundef %10) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !4
   %12 = call { ptr, ptr } (...) @gen_noop() #10
   %13 = extractvalue { ptr, ptr } %12, 0
@@ -4787,8 +4781,8 @@ define dso_local i32 @jq_parse(ptr noundef %0, ptr noundef captures(none) initia
   br label %27
 
 27:                                               ; preds = %21, %2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %19
 }
 
@@ -4873,7 +4867,13 @@ declare ptr @jv_dump_string_trunc(i64, ptr, ptr noundef, i64 noundef) local_unna
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @stpcpy(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
+declare ptr @stpcpy(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #8
@@ -4887,11 +4887,11 @@ declare i32 @llvm.usub.sat.i32(i32, i32) #8
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind willreturn memory(read) }
 attributes #10 = { nounwind }

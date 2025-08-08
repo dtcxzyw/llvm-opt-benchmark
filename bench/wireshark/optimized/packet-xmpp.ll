@@ -786,32 +786,29 @@ define hidden void @proto_register_xmpp() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_xmpp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
@@ -991,8 +988,8 @@ define internal i32 @dissect_xmpp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   unreachable
 
 sub_0:                                            ; preds = %102
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @except_setup_clean(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @cleanup_xmpp, ptr noundef nonnull %103)
   %105 = load ptr, ptr %103, align 8
   %106 = load i8, ptr %105, align 1
@@ -1035,7 +1032,7 @@ sub_1198:                                         ; preds = %sub_1, %.tail, %sub
 
 .tail196.thread:                                  ; preds = %sub_0, %sub_1198, %sub_0197, %.tail196
   %118 = phi ptr [ %112, %.tail196 ], [ %112, %sub_1198 ], [ %.pre, %sub_0197 ], [ %105, %sub_0 ]
-  %119 = call i32 @strcmp(ptr noundef %118, ptr noundef nonnull dereferenceable(8) @.str.456) #9
+  %119 = call i32 @strcmp(ptr noundef %118, ptr noundef nonnull dereferenceable(8) @.str.456) #8
   %120 = icmp eq i32 %119, 0
   br i1 %120, label %121, label %122
 
@@ -1088,7 +1085,7 @@ proto_item_set_hidden.exit.tail:                  ; preds = %sub_1202
   br label %194
 
 proto_item_set_hidden.exit.tail.thread:           ; preds = %sub_1202, %proto_item_set_hidden.exit, %proto_item_set_hidden.exit.tail
-  %140 = call i32 @strcmp(ptr noundef %132, ptr noundef nonnull dereferenceable(9) @.str.457) #9
+  %140 = call i32 @strcmp(ptr noundef %132, ptr noundef nonnull dereferenceable(9) @.str.457) #8
   %141 = icmp eq i32 %140, 0
   br i1 %141, label %142, label %143
 
@@ -1097,7 +1094,7 @@ proto_item_set_hidden.exit.tail.thread:           ; preds = %sub_1202, %proto_it
   br label %194
 
 143:                                              ; preds = %proto_item_set_hidden.exit.tail.thread
-  %144 = call i32 @strcmp(ptr noundef %132, ptr noundef nonnull dereferenceable(8) @.str.456) #9
+  %144 = call i32 @strcmp(ptr noundef %132, ptr noundef nonnull dereferenceable(8) @.str.456) #8
   %145 = icmp eq i32 %144, 0
   br i1 %145, label %146, label %147
 
@@ -1106,7 +1103,7 @@ proto_item_set_hidden.exit.tail.thread:           ; preds = %sub_1202, %proto_it
   br label %194
 
 147:                                              ; preds = %143
-  %148 = call i32 @strcmp(ptr noundef %132, ptr noundef nonnull dereferenceable(5) @.str.458) #9
+  %148 = call i32 @strcmp(ptr noundef %132, ptr noundef nonnull dereferenceable(5) @.str.458) #8
   %149 = icmp eq i32 %148, 0
   br i1 %149, label %150, label %151
 
@@ -1115,7 +1112,7 @@ proto_item_set_hidden.exit.tail.thread:           ; preds = %sub_1202, %proto_it
   br label %194
 
 151:                                              ; preds = %147
-  %152 = call i32 @strcmp(ptr noundef %132, ptr noundef nonnull dereferenceable(10) @.str.459) #9
+  %152 = call i32 @strcmp(ptr noundef %132, ptr noundef nonnull dereferenceable(10) @.str.459) #8
   %153 = icmp eq i32 %152, 0
   br i1 %153, label %154, label %156
 
@@ -1125,7 +1122,7 @@ proto_item_set_hidden.exit.tail.thread:           ; preds = %sub_1202, %proto_it
   br label %194
 
 156:                                              ; preds = %151
-  %157 = call i32 @strcmp(ptr noundef %132, ptr noundef nonnull dereferenceable(9) @.str.460) #9
+  %157 = call i32 @strcmp(ptr noundef %132, ptr noundef nonnull dereferenceable(9) @.str.460) #8
   %158 = icmp eq i32 %157, 0
   br i1 %158, label %159, label %161
 
@@ -1135,7 +1132,7 @@ proto_item_set_hidden.exit.tail.thread:           ; preds = %sub_1202, %proto_it
   br label %194
 
 161:                                              ; preds = %156
-  %162 = call i32 @strcmp(ptr noundef %132, ptr noundef nonnull dereferenceable(8) @.str.461) #9
+  %162 = call i32 @strcmp(ptr noundef %132, ptr noundef nonnull dereferenceable(8) @.str.461) #8
   %163 = icmp eq i32 %162, 0
   br i1 %163, label %164, label %166
 
@@ -1145,7 +1142,7 @@ proto_item_set_hidden.exit.tail.thread:           ; preds = %sub_1202, %proto_it
   br label %194
 
 166:                                              ; preds = %161
-  %167 = call i32 @strcmp(ptr noundef %132, ptr noundef nonnull dereferenceable(8) @.str.462) #9
+  %167 = call i32 @strcmp(ptr noundef %132, ptr noundef nonnull dereferenceable(8) @.str.462) #8
   %168 = icmp eq i32 %167, 0
   br i1 %168, label %169, label %170
 
@@ -1154,7 +1151,7 @@ proto_item_set_hidden.exit.tail.thread:           ; preds = %sub_1202, %proto_it
   br label %194
 
 170:                                              ; preds = %166
-  %171 = call i32 @strcmp(ptr noundef %132, ptr noundef nonnull dereferenceable(4) @.str.448) #9
+  %171 = call i32 @strcmp(ptr noundef %132, ptr noundef nonnull dereferenceable(4) @.str.448) #8
   %172 = icmp eq i32 %171, 0
   br i1 %172, label %173, label %174
 
@@ -1163,7 +1160,7 @@ proto_item_set_hidden.exit.tail.thread:           ; preds = %sub_1202, %proto_it
   br label %194
 
 174:                                              ; preds = %170
-  %175 = call i32 @strcmp(ptr noundef %132, ptr noundef nonnull dereferenceable(7) @.str.463) #9
+  %175 = call i32 @strcmp(ptr noundef %132, ptr noundef nonnull dereferenceable(7) @.str.463) #8
   %176 = icmp eq i32 %175, 0
   br i1 %176, label %177, label %178
 
@@ -1172,7 +1169,7 @@ proto_item_set_hidden.exit.tail.thread:           ; preds = %sub_1202, %proto_it
   br label %194
 
 178:                                              ; preds = %174
-  %179 = call i32 @strcmp(ptr noundef %132, ptr noundef nonnull dereferenceable(9) @.str.464) #9
+  %179 = call i32 @strcmp(ptr noundef %132, ptr noundef nonnull dereferenceable(9) @.str.464) #8
   %180 = icmp eq i32 %179, 0
   br i1 %180, label %181, label %182
 
@@ -1181,7 +1178,7 @@ proto_item_set_hidden.exit.tail.thread:           ; preds = %sub_1202, %proto_it
   br label %194
 
 182:                                              ; preds = %178
-  %183 = call i32 @strcmp(ptr noundef %132, ptr noundef nonnull dereferenceable(9) @.str.465) #9
+  %183 = call i32 @strcmp(ptr noundef %132, ptr noundef nonnull dereferenceable(9) @.str.465) #8
   %184 = icmp eq i32 %183, 0
   br i1 %184, label %185, label %186
 
@@ -1190,7 +1187,7 @@ proto_item_set_hidden.exit.tail.thread:           ; preds = %sub_1202, %proto_it
   br label %194
 
 186:                                              ; preds = %182
-  %187 = call i32 @strcmp(ptr noundef %132, ptr noundef nonnull dereferenceable(8) @.str.466) #9
+  %187 = call i32 @strcmp(ptr noundef %132, ptr noundef nonnull dereferenceable(8) @.str.466) #8
   %188 = icmp eq i32 %187, 0
   br i1 %188, label %189, label %190
 
@@ -1235,8 +1232,8 @@ proto_item_set_hidden.exit.tail.thread:           ; preds = %sub_1202, %proto_it
   %206 = load ptr, ptr %6, align 8
   %207 = load ptr, ptr %101, align 8
   call void %206(ptr noundef %207)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %208 = getelementptr inbounds nuw i8, ptr %.0174205, i64 40
   %209 = load ptr, ptr %208, align 8
   %.not190 = icmp eq ptr %209, null
@@ -1252,10 +1249,7 @@ proto_item_set_hidden.exit.tail.thread:           ; preds = %sub_1202, %proto_it
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_init_parsers() local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @xmpp_init_parsers() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_xmpp() local_unnamed_addr #0 {
@@ -1268,85 +1262,85 @@ define hidden void @proto_reg_handoff_xmpp() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissector_handle_get_protocol_index(ptr noundef) local_unnamed_addr #2
+declare i32 @dissector_handle_get_protocol_index(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
+declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @proto_is_protocol_enabled(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @proto_is_protocol_enabled(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @find_protocol_by_id(i32 noundef) local_unnamed_addr #2
+declare ptr @find_protocol_by_id(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @xmpp_stream_close(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @xmpp_stream_close(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_proto_tree_hide_first_child(ptr noundef) local_unnamed_addr #2
+declare void @xmpp_proto_tree_hide_first_child(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #2
+declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_file_scope() local_unnamed_addr #2
+declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_tree_new(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @wmem_tree_new(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @xmpp_xml_frame_to_element_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @xmpp_xml_frame_to_element_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #4
+declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare void @except_setup_clean(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @except_setup_clean(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @cleanup_xmpp(ptr noundef %0) #0 {
@@ -1355,84 +1349,89 @@ define internal void @cleanup_xmpp(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_iq_reqresp_track(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @xmpp_iq_reqresp_track(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_jingle_session_track(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @xmpp_jingle_session_track(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_gtalk_session_track(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @xmpp_gtalk_session_track(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_ibb_session_track(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @xmpp_ibb_session_track(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_iq(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @xmpp_iq(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_presence(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @xmpp_presence(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_message(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @xmpp_message(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_auth(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @xmpp_auth(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_challenge_response_success(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @xmpp_challenge_response_success(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_failure(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @xmpp_failure(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_xml_header(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @xmpp_xml_header(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_stream(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @xmpp_stream(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_features(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @xmpp_features(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_starttls(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @xmpp_starttls(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_proceed(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @xmpp_proceed(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_proto_tree_show_first_child(ptr noundef) local_unnamed_addr #2
+declare void @xmpp_proto_tree_show_first_child(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @xmpp_get_attr(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @xmpp_get_attr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @except_pop() local_unnamed_addr #2
+declare ptr @except_pop() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_element_t_tree_free(ptr noundef) local_unnamed_addr #2
+declare void @xmpp_element_t_tree_free(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { allocsize(1) }
 attributes #7 = { noreturn }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind willreturn memory(read) }
+attributes #8 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

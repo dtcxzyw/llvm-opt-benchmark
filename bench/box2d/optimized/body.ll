@@ -229,17 +229,11 @@ define hidden { <2 x float>, <2 x float> } @b2GetBodyTransformQuick(ptr noundef 
   ret { <2 x float>, <2 x float> } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden { <2 x float>, <2 x float> } @b2GetBodyTransform(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
+define hidden { <2 x float>, <2 x float> } @b2GetBodyTransform(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %.val = load ptr, ptr %3, align 8, !tbaa !10
   %4 = sext i32 %1 to i64
@@ -1215,7 +1209,7 @@ define i32 @b2Body_GetContactData(i64 %0, ptr noundef writeonly captures(none) %
 declare ptr @b2GetContactSim(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define { <2 x float>, <2 x float> } @b2Body_ComputeAABB(i64 %0) local_unnamed_addr #8 {
+define { <2 x float>, <2 x float> } @b2Body_ComputeAABB(i64 %0) local_unnamed_addr #7 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %2 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = and i32 %2, 65535
@@ -1312,7 +1306,7 @@ define { <2 x float>, <2 x float> } @b2Body_ComputeAABB(i64 %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @b2UpdateBodyMassData(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((88, 96)) %1) local_unnamed_addr #8 {
+define hidden void @b2UpdateBodyMassData(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((88, 96)) %1) local_unnamed_addr #7 {
   %3 = alloca %struct.b2MassData, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -1411,7 +1405,7 @@ define hidden void @b2UpdateBodyMassData(ptr noundef readonly captures(none) %0,
   br i1 %54, label %67, label %55, !llvm.loop !196
 
 55:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %56 = tail call { <2 x float>, <2 x float> } @b2ComputeShapeMass(ptr noundef nonnull %49) #10
   %57 = extractvalue { <2 x float>, <2 x float> } %56, 0
   store <2 x float> %57, ptr %3, align 8
@@ -1429,7 +1423,7 @@ define hidden void @b2UpdateBodyMassData(ptr noundef readonly captures(none) %0,
   %65 = load float, ptr %14, align 4, !tbaa !141
   %66 = fadd float %64, %65
   store float %66, ptr %14, align 4, !tbaa !141
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %67
 
 67:                                               ; preds = %47, %55
@@ -1583,7 +1577,7 @@ declare <2 x float> @b2ComputeShapeExtent(ptr noundef, <2 x float>) local_unname
 declare { <2 x float>, <2 x float> } @b2ComputeShapeMass(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define <2 x float> @b2Body_GetPosition(i64 %0) local_unnamed_addr #8 {
+define <2 x float> @b2Body_GetPosition(i64 %0) local_unnamed_addr #7 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %2 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = and i32 %2, 65535
@@ -1612,7 +1606,7 @@ define <2 x float> @b2Body_GetPosition(i64 %0) local_unnamed_addr #8 {
 declare ptr @b2GetWorld(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define <2 x float> @b2Body_GetRotation(i64 %0) local_unnamed_addr #8 {
+define <2 x float> @b2Body_GetRotation(i64 %0) local_unnamed_addr #7 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %2 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = and i32 %2, 65535
@@ -1639,7 +1633,7 @@ define <2 x float> @b2Body_GetRotation(i64 %0) local_unnamed_addr #8 {
 }
 
 ; Function Attrs: nounwind uwtable
-define { <2 x float>, <2 x float> } @b2Body_GetTransform(i64 %0) local_unnamed_addr #8 {
+define { <2 x float>, <2 x float> } @b2Body_GetTransform(i64 %0) local_unnamed_addr #7 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %2 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = and i32 %2, 65535
@@ -1670,7 +1664,7 @@ define { <2 x float>, <2 x float> } @b2Body_GetTransform(i64 %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define <2 x float> @b2Body_GetLocalPoint(i64 %0, <2 x float> %1) local_unnamed_addr #8 {
+define <2 x float> @b2Body_GetLocalPoint(i64 %0, <2 x float> %1) local_unnamed_addr #7 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %3 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %4 = and i32 %3, 65535
@@ -1714,7 +1708,7 @@ define <2 x float> @b2Body_GetLocalPoint(i64 %0, <2 x float> %1) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define <2 x float> @b2Body_GetWorldPoint(i64 %0, <2 x float> %1) local_unnamed_addr #8 {
+define <2 x float> @b2Body_GetWorldPoint(i64 %0, <2 x float> %1) local_unnamed_addr #7 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %3 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %4 = and i32 %3, 65535
@@ -1760,7 +1754,7 @@ define <2 x float> @b2Body_GetWorldPoint(i64 %0, <2 x float> %1) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define <2 x float> @b2Body_GetLocalVector(i64 %0, <2 x float> %1) local_unnamed_addr #8 {
+define <2 x float> @b2Body_GetLocalVector(i64 %0, <2 x float> %1) local_unnamed_addr #7 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %3 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %4 = and i32 %3, 65535
@@ -1800,7 +1794,7 @@ define <2 x float> @b2Body_GetLocalVector(i64 %0, <2 x float> %1) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define <2 x float> @b2Body_GetWorldVector(i64 %0, <2 x float> %1) local_unnamed_addr #8 {
+define <2 x float> @b2Body_GetWorldVector(i64 %0, <2 x float> %1) local_unnamed_addr #7 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %3 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %4 = and i32 %3, 65535
@@ -1840,7 +1834,7 @@ define <2 x float> @b2Body_GetWorldVector(i64 %0, <2 x float> %1) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @b2Body_SetTransform(i64 %0, <2 x float> %1, <2 x float> %2) local_unnamed_addr #8 {
+define void @b2Body_SetTransform(i64 %0, <2 x float> %1, <2 x float> %2) local_unnamed_addr #7 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %4 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %5 = and i32 %4, 65535
@@ -1980,7 +1974,7 @@ declare { <2 x float>, <2 x float> } @b2ComputeShapeAABB(ptr noundef, <2 x float
 declare void @b2BroadPhase_MoveProxy(ptr noundef, i32 noundef, <2 x float>, <2 x float>) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define <2 x float> @b2Body_GetLinearVelocity(i64 %0) local_unnamed_addr #8 {
+define <2 x float> @b2Body_GetLinearVelocity(i64 %0) local_unnamed_addr #7 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %2 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = and i32 %2, 65535
@@ -2056,7 +2050,7 @@ b2GetBodyState.exit.thread:                       ; preds = %1, %b2GetBodyState.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @b2Body_SetLinearVelocity(i64 %0, <2 x float> %1) local_unnamed_addr #8 {
+define void @b2Body_SetLinearVelocity(i64 %0, <2 x float> %1) local_unnamed_addr #7 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %3 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %4 = and i32 %3, 65535
@@ -2181,7 +2175,7 @@ b2GetBodyState.exit.thread:                       ; preds = %b2WakeBody.exit, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define <2 x float> @b2Body_GetLocalPointVelocity(i64 %0, <2 x float> %1) local_unnamed_addr #8 {
+define <2 x float> @b2Body_GetLocalPointVelocity(i64 %0, <2 x float> %1) local_unnamed_addr #7 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %3 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %4 = and i32 %3, 65535
@@ -2249,7 +2243,7 @@ b2GetBodyState.exit.thread:                       ; preds = %2, %b2GetBodyState.
 }
 
 ; Function Attrs: nounwind uwtable
-define <2 x float> @b2Body_GetWorldPointVelocity(i64 %0, <2 x float> %1) local_unnamed_addr #8 {
+define <2 x float> @b2Body_GetWorldPointVelocity(i64 %0, <2 x float> %1) local_unnamed_addr #7 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %3 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %4 = and i32 %3, 65535
@@ -2305,7 +2299,7 @@ b2GetBodyState.exit.thread:                       ; preds = %2, %b2GetBodyState.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @b2Body_ApplyForce(i64 %0, <2 x float> %1, <2 x float> %2, i1 noundef zeroext %3) local_unnamed_addr #8 {
+define void @b2Body_ApplyForce(i64 %0, <2 x float> %1, <2 x float> %2, i1 noundef zeroext %3) local_unnamed_addr #7 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %5 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %6 = and i32 %5, 65535
@@ -2368,7 +2362,7 @@ b2WakeBody.exit:                                  ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define void @b2Body_ApplyForceToCenter(i64 %0, <2 x float> %1, i1 noundef zeroext %2) local_unnamed_addr #8 {
+define void @b2Body_ApplyForceToCenter(i64 %0, <2 x float> %1, i1 noundef zeroext %2) local_unnamed_addr #7 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %4 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %5 = and i32 %4, 65535
@@ -2464,7 +2458,7 @@ b2WakeBody.exit:                                  ; preds = %11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @b2Body_ApplyLinearImpulse(i64 %0, <2 x float> %1, <2 x float> %2, i1 noundef zeroext %3) local_unnamed_addr #8 {
+define void @b2Body_ApplyLinearImpulse(i64 %0, <2 x float> %1, <2 x float> %2, i1 noundef zeroext %3) local_unnamed_addr #7 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %5 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %6 = and i32 %5, 65535
@@ -2543,7 +2537,7 @@ b2WakeBody.exit:                                  ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define void @b2Body_ApplyLinearImpulseToCenter(i64 %0, <2 x float> %1, i1 noundef zeroext %2) local_unnamed_addr #8 {
+define void @b2Body_ApplyLinearImpulseToCenter(i64 %0, <2 x float> %1, i1 noundef zeroext %2) local_unnamed_addr #7 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %4 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %5 = and i32 %4, 65535
@@ -2674,7 +2668,7 @@ define i32 @b2Body_GetType(i64 %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @b2Body_SetType(i64 %0, i32 noundef %1) local_unnamed_addr #8 {
+define void @b2Body_SetType(i64 %0, i32 noundef %1) local_unnamed_addr #7 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %3 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %4 = and i32 %3, 65535
@@ -3310,7 +3304,7 @@ define float @b2Body_GetRotationalInertia(i64 %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define <2 x float> @b2Body_GetLocalCenterOfMass(i64 %0) local_unnamed_addr #8 {
+define <2 x float> @b2Body_GetLocalCenterOfMass(i64 %0) local_unnamed_addr #7 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %2 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = and i32 %2, 65535
@@ -3337,7 +3331,7 @@ define <2 x float> @b2Body_GetLocalCenterOfMass(i64 %0) local_unnamed_addr #8 {
 }
 
 ; Function Attrs: nounwind uwtable
-define <2 x float> @b2Body_GetWorldCenterOfMass(i64 %0) local_unnamed_addr #8 {
+define <2 x float> @b2Body_GetWorldCenterOfMass(i64 %0) local_unnamed_addr #7 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %2 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = and i32 %2, 65535
@@ -3364,7 +3358,7 @@ define <2 x float> @b2Body_GetWorldCenterOfMass(i64 %0) local_unnamed_addr #8 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @b2Body_SetMassData(i64 %0, <2 x float> %1, <2 x float> %2) local_unnamed_addr #8 {
+define void @b2Body_SetMassData(i64 %0, <2 x float> %1, <2 x float> %2) local_unnamed_addr #7 {
   %4 = alloca %struct.b2MassData, align 8
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   store <2 x float> %1, ptr %4, align 8
@@ -4100,7 +4094,7 @@ b2RemoveBodyFromIsland.exit:                      ; preds = %b2DestroyBodyContac
 declare void @b2ValidateConnectivity(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @b2Body_Enable(i64 %0) local_unnamed_addr #8 {
+define void @b2Body_Enable(i64 %0) local_unnamed_addr #7 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %2 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = and i32 %2, 65535
@@ -4628,7 +4622,7 @@ define range(i32 0, -2147483648) i32 @b2Body_GetJoints(i64 %0, ptr noundef write
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @b2ShouldBodiesCollide(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #9 {
+define hidden noundef zeroext i1 @b2ShouldBodiesCollide(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %5 = load i32, ptr %4, align 8, !tbaa !145
   %.not = icmp eq i32 %5, 2
@@ -4705,16 +4699,22 @@ declare void @b2DestroyIsland(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare void @b2ValidateIsland(ptr noundef, i32 noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

@@ -108,7 +108,7 @@ define internal range(i32 0, 2) i32 @tok_underflow_readline(ptr noundef %0) #0 {
   br label %14
 
 14:                                               ; preds = %10, %6, %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2800
   %16 = load ptr, ptr %15, align 8, !tbaa !21
   %17 = tail call ptr @PyObject_CallNoArgs(ptr noundef %16) #5
@@ -256,11 +256,11 @@ Py_XDECREF.exit.i:                                ; preds = %51, %49
   br label %tok_readline_string.exit.thread
 
 tok_readline_string.exit.thread:                  ; preds = %Py_XDECREF.exit.i, %80, %83, %70, %75, %78, %42, %23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %121
 
 84:                                               ; preds = %69, %66, %55, %22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %86 = load ptr, ptr %85, align 8, !tbaa !13
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -361,10 +361,10 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

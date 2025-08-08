@@ -421,8 +421,8 @@ rb_check_frozen_inline.exit:                      ; preds = %rbimpl_RB_TYPE_P_fa
 define internal noundef i64 @ossl_ocspreq_initialize(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef returned %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp slt i32 %0, 0
   br i1 %6, label %9, label %.preheader.split.split
 
@@ -491,15 +491,15 @@ RSTRING_PTR.exit:                                 ; preds = %15, %23
   br label %rb_scan_args_set.exit.thread
 
 rb_scan_args_set.exit.thread:                     ; preds = %.preheader.split.split, %29, %rb_scan_args_set.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_ocspreq_add_nonce(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef returned %2) #0 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp slt i32 %0, 0
   br i1 %5, label %8, label %.preheader.split.split
 
@@ -591,7 +591,7 @@ RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
   unreachable
 
 37:                                               ; preds = %34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %2
 }
 
@@ -745,11 +745,11 @@ define internal noundef i64 @ossl_ocspreq_sign(i32 noundef %0, ptr noundef reado
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca [5 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %4, ptr %9, align 8, !tbaa !31
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %5, ptr %10, align 8, !tbaa !31
@@ -900,11 +900,11 @@ rb_num2int_inline.exit:                           ; preds = %49, %51
   unreachable
 
 70:                                               ; preds = %66
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %2
 }
 
@@ -914,9 +914,9 @@ define internal range(i64 0, 21) i64 @ossl_ocspreq_verify(i32 noundef %0, ptr no
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca [3 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %4, ptr %7, align 8, !tbaa !31
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %5, ptr %8, align 8, !tbaa !31
@@ -1014,16 +1014,16 @@ rb_num2int_inline.exit:                           ; preds = %32, %34
 44:                                               ; preds = %43, %37
   %45 = icmp sgt i32 %41, 0
   %46 = select i1 %45, i64 20, i64 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %46
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ocspreq_to_der(i64 noundef %0) #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ocsp_request_type) #5
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -1086,7 +1086,7 @@ RSTRING_PTR.exit14:                               ; preds = %23, %27
   %29 = ptrtoint ptr %.sroa.2.0.i13 to i64
   %30 = sub i64 %28, %29
   call void @rb_str_set_len(i64 noundef %13, i64 noundef %30) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %13
 }
 
@@ -1235,8 +1235,8 @@ rb_check_frozen_inline.exit:                      ; preds = %rbimpl_RB_TYPE_P_fa
 define internal noundef i64 @ossl_ocspres_initialize(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef returned %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp slt i32 %0, 0
   br i1 %6, label %9, label %.preheader.split.split
 
@@ -1305,8 +1305,8 @@ RSTRING_PTR.exit:                                 ; preds = %15, %23
   br label %rb_scan_args_set.exit.thread
 
 rb_scan_args_set.exit.thread:                     ; preds = %.preheader.split.split, %29, %rb_scan_args_set.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %2
 }
 
@@ -1380,7 +1380,7 @@ define internal i64 @ossl_ocspres_get_basic(i64 noundef %0) #0 {
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ocspres_to_der(i64 noundef %0) #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ocsp_response_type) #5
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -1443,7 +1443,7 @@ RSTRING_PTR.exit14:                               ; preds = %23, %27
   %29 = ptrtoint ptr %.sroa.2.0.i13 to i64
   %30 = sub i64 %28, %29
   call void @rb_str_set_len(i64 noundef %13, i64 noundef %30) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %13
 }
 
@@ -1541,8 +1541,8 @@ rb_check_frozen_inline.exit:                      ; preds = %rbimpl_RB_TYPE_P_fa
 define internal noundef i64 @ossl_ocspbres_initialize(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef returned %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp slt i32 %0, 0
   br i1 %6, label %9, label %.preheader.split.split
 
@@ -1611,8 +1611,8 @@ RSTRING_PTR.exit:                                 ; preds = %15, %23
   br label %rb_scan_args_set.exit.thread
 
 rb_scan_args_set.exit.thread:                     ; preds = %.preheader.split.split, %29, %rb_scan_args_set.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %2
 }
 
@@ -1648,7 +1648,7 @@ define internal range(i64 1, 0) i64 @ossl_ocspbres_copy_nonce(i64 noundef %0, i6
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_ocspbres_add_nonce(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef returned %2) #0 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp slt i32 %0, 0
   br i1 %5, label %8, label %.preheader.split.split
 
@@ -1740,14 +1740,14 @@ RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
   unreachable
 
 37:                                               ; preds = %34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_ocspbres_add_status(i64 noundef returned %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7) #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !57
   %10 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ocsp_basicresp_type) #5
   %.not = icmp eq ptr %10, null
@@ -1974,7 +1974,7 @@ rb_array_const_ptr.exit83:                        ; preds = %rb_array_len.exit80
   unreachable
 
 104:                                              ; preds = %.critedge
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i64 %0
 }
 
@@ -1984,10 +1984,10 @@ define internal i64 @ossl_ocspbres_get_status(i64 noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ocsp_basicresp_type) #5
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %9
@@ -2103,10 +2103,10 @@ ossl_ocspcertid_new.exit:                         ; preds = %17
   br i1 %exitcond50.not, label %._crit_edge49, label %.lr.ph48, !llvm.loop !65
 
 ._crit_edge49:                                    ; preds = %64, %9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %10
 }
 
@@ -2215,11 +2215,11 @@ define internal noundef i64 @ossl_ocspbres_sign(i32 noundef %0, ptr noundef read
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca [5 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %4, ptr %9, align 8, !tbaa !31
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %5, ptr %10, align 8, !tbaa !31
@@ -2370,11 +2370,11 @@ rb_num2int_inline.exit:                           ; preds = %49, %51
   unreachable
 
 70:                                               ; preds = %66
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %2
 }
 
@@ -2384,9 +2384,9 @@ define internal range(i64 0, 21) i64 @ossl_ocspbres_verify(i32 noundef %0, ptr n
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca [3 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %4, ptr %7, align 8, !tbaa !31
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %5, ptr %8, align 8, !tbaa !31
@@ -2484,16 +2484,16 @@ rb_num2int_inline.exit:                           ; preds = %32, %34
 44:                                               ; preds = %43, %37
   %45 = icmp sgt i32 %41, 0
   %46 = select i1 %45, i64 20, i64 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %46
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ocspbres_to_der(i64 noundef %0) #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ocsp_basicresp_type) #5
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -2556,7 +2556,7 @@ RSTRING_PTR.exit14:                               ; preds = %23, %27
   %29 = ptrtoint ptr %.sroa.2.0.i13 to i64
   %30 = sub i64 %28, %29
   call void @rb_str_set_len(i64 noundef %13, i64 noundef %30) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %13
 }
 
@@ -2654,7 +2654,7 @@ rb_check_frozen_inline.exit:                      ; preds = %rbimpl_RB_TYPE_P_fa
 define internal noundef i64 @ossl_ocspsres_initialize(i64 noundef returned %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call i64 @ossl_to_der_if_possible(i64 noundef %1) #5
   store i64 %5, ptr %3, align 8, !tbaa !6
   %6 = call i64 @rb_string_value(ptr noundef nonnull %3) #5
@@ -2699,7 +2699,7 @@ RSTRING_PTR.exit:                                 ; preds = %10, %16
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr %19, ptr %24, align 8, !tbaa !10
   call void @OCSP_SINGLERESP_free(ptr noundef nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %0
 }
 
@@ -2710,10 +2710,10 @@ define internal range(i64 0, 21) i64 @ossl_ocspsres_check_validity(i32 noundef %
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca [2 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %6, ptr %8, align 8, !tbaa !31
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %7, ptr %9, align 8, !tbaa !31
@@ -2847,10 +2847,10 @@ rb_num2int_inline.exit15:                         ; preds = %42, %44
 
 62:                                               ; preds = %57, %61
   %.0 = phi i64 [ 0, %61 ], [ 20, %57 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 }
 
@@ -2916,7 +2916,7 @@ define internal range(i64 1, 4294967296) i64 @ossl_ocspsres_get_cert_status(i64 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ocspsres_get_this_update(i64 noundef %0) #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ocsp_singleresp_type) #5
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -2947,14 +2947,14 @@ define internal i64 @ossl_ocspsres_get_this_update(i64 noundef %0) #0 {
 
 15:                                               ; preds = %11, %13
   %.0 = phi i64 [ %14, %13 ], [ 4, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ocspsres_get_next_update(i64 noundef %0) #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ocsp_singleresp_type) #5
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -2985,14 +2985,14 @@ define internal i64 @ossl_ocspsres_get_next_update(i64 noundef %0) #0 {
 
 15:                                               ; preds = %11, %13
   %.0 = phi i64 [ %14, %13 ], [ 4, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ocspsres_get_revocation_time(i64 noundef %0) #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ocsp_singleresp_type) #5
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -3032,14 +3032,14 @@ define internal i64 @ossl_ocspsres_get_revocation_time(i64 noundef %0) #0 {
 
 18:                                               ; preds = %14, %16
   %.0 = phi i64 [ %17, %16 ], [ 4, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 0) i64 @ossl_ocspsres_get_revocation_reason(i64 noundef %0) #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ocsp_singleresp_type) #5
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -3073,7 +3073,7 @@ define internal range(i64 1, 0) i64 @ossl_ocspsres_get_revocation_reason(i64 nou
   %16 = sext i32 %15 to i64
   %17 = shl nsw i64 %16, 1
   %18 = or disjoint i64 %17, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %18
 }
 
@@ -3111,7 +3111,7 @@ define internal i64 @ossl_ocspsres_get_extensions(i64 noundef %0) #0 {
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ocspsres_to_der(i64 noundef %0) #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ocsp_singleresp_type) #5
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -3174,7 +3174,7 @@ RSTRING_PTR.exit14:                               ; preds = %23, %27
   %29 = ptrtoint ptr %.sroa.2.0.i13 to i64
   %30 = sub i64 %28, %29
   call void @rb_str_set_len(i64 noundef %13, i64 noundef %30) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %13
 }
 
@@ -3274,8 +3274,8 @@ define internal noundef i64 @ossl_ocspcid_initialize(i32 noundef %0, ptr noundef
   %6 = alloca [3 x ptr], align 8
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_ocsp_certid_type) #5
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %10, label %12
@@ -3346,8 +3346,8 @@ rb_scan_args_set.exit:                            ; preds = %32
   br i1 %35, label %36, label %51
 
 36:                                               ; preds = %rb_scan_args_set.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %37 = call i64 @ossl_to_der_if_possible(i64 noundef %16) #5
   store i64 %37, ptr %7, align 8, !tbaa !6
   %38 = call i64 @rb_string_value(ptr noundef nonnull %7) #5
@@ -3378,8 +3378,8 @@ RSTRING_PTR.exit:                                 ; preds = %36, %44
   unreachable
 
 50:                                               ; preds = %RSTRING_PTR.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %64
 
 51:                                               ; preds = %rb_scan_args_set.exit
@@ -3411,8 +3411,8 @@ RSTRING_PTR.exit:                                 ; preds = %36, %44
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   store ptr %.0, ptr %66, align 8, !tbaa !10
   call void @OCSP_CERTID_free(ptr noundef nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %2
 }
 
@@ -3475,7 +3475,7 @@ define internal range(i64 0, 21) i64 @ossl_ocspcid_cmp_issuer(i64 noundef %0, i6
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ocspcid_get_serial(i64 noundef %0) #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ocsp_certid_type) #5
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -3489,14 +3489,14 @@ define internal i64 @ossl_ocspcid_get_serial(i64 noundef %0) #0 {
   %7 = call i32 @OCSP_id_get0_info(ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %3) #5
   %8 = load ptr, ptr %2, align 8, !tbaa !62
   %9 = call i64 @asn1integer_to_num(ptr noundef %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ocspcid_get_issuer_name_hash(i64 noundef %0) #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ocsp_certid_type) #5
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -3532,14 +3532,14 @@ RSTRING_PTR.exit:                                 ; preds = %6, %20
   %21 = load i32, ptr %13, align 8, !tbaa !86
   %22 = sext i32 %21 to i64
   call void @ossl_bin2hex(ptr noundef %15, ptr noundef %.sroa.2.0.i, i64 noundef %22) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ocspcid_get_issuer_key_hash(i64 noundef %0) #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ocsp_certid_type) #5
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -3575,14 +3575,14 @@ RSTRING_PTR.exit:                                 ; preds = %6, %20
   %21 = load i32, ptr %13, align 8, !tbaa !86
   %22 = sext i32 %21 to i64
   call void @ossl_bin2hex(ptr noundef %15, ptr noundef %.sroa.2.0.i, i64 noundef %22) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ocspcid_get_hash_algorithm(i64 noundef %0) #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ocsp_certid_type) #5
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -3618,14 +3618,14 @@ define internal i64 @ossl_ocspcid_get_hash_algorithm(i64 noundef %0) #0 {
 
 18:                                               ; preds = %12
   %19 = call i64 @ossl_membio2str(ptr noundef nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %19
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ocspcid_to_der(i64 noundef %0) #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ocsp_certid_type) #5
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -3688,24 +3688,18 @@ RSTRING_PTR.exit14:                               ; preds = %23, %27
   %29 = ptrtoint ptr %.sroa.2.0.i13 to i64
   %30 = sub i64 %28, %29
   call void @rb_str_set_len(i64 noundef %13, i64 noundef %30) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %13
 }
 
 declare void @rb_define_const(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i64 @rb_data_typed_object_wrap(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @OCSP_REQUEST_new() local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @ossl_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @ossl_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @ossl_ocsp_request_free(ptr noundef %0) #0 {
@@ -3722,7 +3716,7 @@ declare ptr @ASN1_item_dup(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @OCSP_REQUEST_it() local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @rb_error_frozen_object(i64 noundef) local_unnamed_addr #3
+declare void @rb_error_frozen_object(i64 noundef) local_unnamed_addr #2
 
 declare void @rb_str_modify(i64 noundef) local_unnamed_addr #1
 
@@ -3735,12 +3729,12 @@ declare ptr @d2i_OCSP_REQUEST(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare i64 @rb_ary_new() local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @rb_error_arity(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @rb_error_arity(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 declare i32 @OCSP_request_add1_nonce(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn
-declare void @rb_out_of_int(i64 noundef) local_unnamed_addr #4
+declare void @rb_out_of_int(i64 noundef) local_unnamed_addr #3
 
 declare i32 @OCSP_check_nonce(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3911,7 +3905,7 @@ declare i32 @OCSP_SINGLERESP_add_ext(ptr noundef, ptr noundef, i32 noundef) loca
 declare void @ASN1_TIME_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @rb_jump_tag(i32 noundef) local_unnamed_addr #3
+declare void @rb_jump_tag(i32 noundef) local_unnamed_addr #2
 
 declare ptr @X509_gmtime_adj(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -3989,11 +3983,17 @@ declare i64 @ossl_membio2str(ptr noundef) local_unnamed_addr #1
 
 declare i32 @i2d_OCSP_CERTID(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 attributes #6 = { noreturn nounwind }
 attributes #7 = { cold noreturn nounwind }

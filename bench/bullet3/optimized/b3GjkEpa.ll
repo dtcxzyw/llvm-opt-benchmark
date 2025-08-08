@@ -56,9 +56,9 @@ define dso_local noundef i32 @_ZN15b3GjkEpaSolver220StackSizeRequirementEv() loc
 define dso_local noundef zeroext i1 @_ZN15b3GjkEpaSolver28DistanceERK11b3TransformS2_PK22b3ConvexPolyhedronDataS5_RK20b3AlignedObjectArrayI9b3Vector3ESA_RKS7_RNS_8sResultsE(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(64) %0, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(64) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(25) %4, ptr noundef nonnull align 8 dereferenceable(25) %5, ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull writeonly align 16 captures(none) dereferenceable(80) initializes((0, 4), (16, 48)) %7) local_unnamed_addr #1 align 2 {
   %9 = alloca %"struct.gjkepa2_impl2::b3MinkowskiDiff", align 16
   %10 = alloca %"struct.gjkepa2_impl2::b3GJK", align 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call fastcc void @_ZN13gjkepa2_impl2L10InitializeERK11b3TransformS2_PK22b3ConvexPolyhedronDataS5_RK20b3AlignedObjectArrayI9b3Vector3ESA_RN15b3GjkEpaSolver28sResultsERNS_15b3MinkowskiDiffEb(ptr noundef nonnull align 16 dereferenceable(64) %0, ptr noundef nonnull align 16 dereferenceable(64) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 16 dereferenceable(80) %7, ptr noundef nonnull align 16 dereferenceable(129) %9, i1 noundef zeroext false)
-  call void @llvm.lifetime.start.p0(i64 496, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 144
   store ptr %4, ptr %11, align 16, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 152
@@ -511,16 +511,13 @@ _ZNK13gjkepa2_impl215b3MinkowskiDiff8Support1ERK9b3Vector3RK20b3AlignedObjectArr
   br label %293
 
 293:                                              ; preds = %290, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 496, ptr nonnull %10) #10
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %19
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN13gjkepa2_impl2L10InitializeERK11b3TransformS2_PK22b3ConvexPolyhedronDataS5_RK20b3AlignedObjectArrayI9b3Vector3ESA_RN15b3GjkEpaSolver28sResultsERNS_15b3MinkowskiDiffEb(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(64) %0, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(64) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull writeonly align 16 captures(none) dereferenceable(80) initializes((0, 4), (16, 48)) %4, ptr noundef nonnull writeonly align 16 captures(none) dereferenceable(129) initializes((0, 129)) %5, i1 noundef zeroext %6) unnamed_addr #3 {
+define internal fastcc void @_ZN13gjkepa2_impl2L10InitializeERK11b3TransformS2_PK22b3ConvexPolyhedronDataS5_RK20b3AlignedObjectArrayI9b3Vector3ESA_RN15b3GjkEpaSolver28sResultsERNS_15b3MinkowskiDiffEb(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(64) %0, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(64) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull writeonly align 16 captures(none) dereferenceable(80) initializes((0, 4), (16, 48)) %4, ptr noundef nonnull writeonly align 16 captures(none) dereferenceable(129) initializes((0, 129)) %5, i1 noundef zeroext %6) unnamed_addr #2 {
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %4, align 16, !tbaa !44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, i8 0, i64 32, i1 false)
@@ -725,7 +722,7 @@ define linkonce_odr dso_local noundef i32 @_ZN13gjkepa2_impl25b3GJK8EvaluateERKN
   %6 = alloca [4 x %class.b3Vector3], align 16
   %7 = alloca [4 x float], align 16
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store ptr %9, ptr %10, align 16, !tbaa !38
@@ -920,7 +917,7 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit: ; pred
   %.pn.i.i.i.i = phi { <2 x float>, <2 x float> } [ zeroinitializer, %72 ], [ zeroinitializer, %92 ], [ %117, %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i.i.i.i ]
   %118 = extractvalue { <2 x float>, <2 x float> } %.pn.i.i.i.i, 0
   %119 = extractvalue { <2 x float>, <2 x float> } %.pn.i.i.i.i, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %120 = fneg float %60
   %121 = fneg float %61
   %122 = fneg float %62
@@ -936,7 +933,7 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit: ; pred
   %127 = fsub <2 x float> %119, %126
   %.sroa.0.4.vec.insert.i.i6.i.i.i = fsub <2 x float> %118, %125
   %.sroa.3.12.vec.insert.i.i7.i.i.i200 = insertelement <2 x float> %127, float 0.000000e+00, i64 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store <2 x float> %.sroa.0.4.vec.insert.i.i6.i.i.i, ptr %128, align 16
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 424
@@ -1112,7 +1109,7 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit116: ; p
   %.pn.i.i.i.i79 = phi { <2 x float>, <2 x float> } [ zeroinitializer, %179 ], [ zeroinitializer, %199 ], [ %224, %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i.i.i.i101 ]
   %225 = extractvalue { <2 x float>, <2 x float> } %.pn.i.i.i.i79, 0
   %226 = extractvalue { <2 x float>, <2 x float> } %.pn.i.i.i.i79, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %227 = fneg float %168
   %228 = fneg float %169
   %229 = fneg float %170
@@ -1127,7 +1124,7 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit116: ; p
   %233 = fsub <2 x float> %226, %232
   %.sroa.0.4.vec.insert.i.i6.i.i.i90 = fsub <2 x float> %225, %231
   %.sroa.3.12.vec.insert.i.i7.i.i.i91201 = insertelement <2 x float> %233, float 0.000000e+00, i64 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %234 = getelementptr inbounds nuw i8, ptr %164, i64 16
   store <2 x float> %.sroa.0.4.vec.insert.i.i6.i.i.i90, ptr %234, align 16
   %.sroa.4.0..sroa_idx.i.i92 = getelementptr inbounds nuw i8, ptr %164, i64 24
@@ -1226,8 +1223,8 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit116: ; p
   br label %.thread
 
 304:                                              ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !62
   switch i32 %235, label %_ZN13gjkepa2_impl25b3GJK13projectoriginERK9b3Vector3S3_PfRj.exit [
     i32 2, label %305
@@ -1366,8 +1363,8 @@ _ZN13gjkepa2_impl25b3GJK13projectoriginERK9b3Vector3S3_PfRj.exit: ; preds = %345
   %390 = icmp ult i32 %389, 128
   %spec.select = select i1 %390, i32 %388, i32 2
   store i32 %spec.select, ptr %19, align 16, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %391 = icmp eq i32 %spec.select, 0
   br i1 %391, label %136, label %.loopexit, !llvm.loop !63
 
@@ -1448,8 +1445,8 @@ _ZN13gjkepa2_impl25b3GJK13projectoriginERK9b3Vector3S3_PfRj.exit: ; preds = %345
   %443 = zext i32 %441 to i64
   %444 = getelementptr inbounds nuw [4 x ptr], ptr %10, i64 0, i64 %443
   store ptr %440, ptr %444, align 8, !tbaa !38
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %445 = load i32, ptr %19, align 16
   br label %.loopexit
 
@@ -1485,15 +1482,12 @@ _ZN13gjkepa2_impl25b3GJK13projectoriginERK9b3Vector3S3_PfRj.exit: ; preds = %345
   br label %457
 
 457:                                              ; preds = %.sink.split, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %447
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN15b3GjkEpaSolver211PenetrationERK11b3TransformS2_PK22b3ConvexPolyhedronDataS5_RK20b3AlignedObjectArrayI9b3Vector3ESA_RKS7_RNS_8sResultsEb(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(64) %0, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(64) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(25) %4, ptr noundef nonnull align 8 dereferenceable(25) %5, ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull writeonly align 16 captures(none) dereferenceable(80) initializes((0, 4), (16, 48)) %7, i1 noundef zeroext %8) local_unnamed_addr #1 align 2 {
@@ -1501,9 +1495,9 @@ define dso_local noundef zeroext i1 @_ZN15b3GjkEpaSolver211PenetrationERK11b3Tra
   %11 = alloca %"struct.gjkepa2_impl2::b3GJK", align 16
   %12 = alloca %"struct.gjkepa2_impl2::b3EPA", align 16
   %13 = alloca %class.b3Vector3, align 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call fastcc void @_ZN13gjkepa2_impl2L10InitializeERK11b3TransformS2_PK22b3ConvexPolyhedronDataS5_RK20b3AlignedObjectArrayI9b3Vector3ESA_RN15b3GjkEpaSolver28sResultsERNS_15b3MinkowskiDiffEb(ptr noundef nonnull align 16 dereferenceable(64) %0, ptr noundef nonnull align 16 dereferenceable(64) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 16 dereferenceable(80) %7, ptr noundef nonnull align 16 dereferenceable(129) %10, i1 noundef zeroext %8)
-  call void @llvm.lifetime.start.p0(i64 496, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 144
   store ptr %4, ptr %14, align 16, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 152
@@ -1525,7 +1519,7 @@ define dso_local noundef zeroext i1 @_ZN15b3GjkEpaSolver211PenetrationERK11b3Tra
   ]
 
 22:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 14480, ptr nonnull %12) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 14440
   store ptr null, ptr %23, align 8, !tbaa !65
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 14448
@@ -1565,7 +1559,7 @@ _ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit.i.i: ; preds = %35
 _ZN13gjkepa2_impl25b3EPAC2Ev.exit:                ; preds = %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit.i.i
   %37 = getelementptr inbounds nuw i8, ptr %12, i64 14464
   store i32 128, ptr %37, align 16, !tbaa !68
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %38 = load float, ptr %6, align 16, !tbaa !33
   %39 = fneg float %38
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -1581,7 +1575,7 @@ _ZN13gjkepa2_impl25b3EPAC2Ev.exit:                ; preds = %_ZN13gjkepa2_impl25
   %46 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i.i, ptr %46, align 8
   %47 = call noundef i32 @_ZN13gjkepa2_impl25b3EPA8EvaluateERNS_5b3GJKERK9b3Vector3(ptr noundef nonnull align 16 dereferenceable(14472) %12, ptr noundef nonnull align 16 dereferenceable(484) %11, ptr noundef nonnull align 16 dereferenceable(16) %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.not = icmp eq i32 %47, 9
   br i1 %.not, label %.thread, label %.preheader
 
@@ -1787,7 +1781,7 @@ _ZNK13gjkepa2_impl215b3MinkowskiDiff7SupportERK9b3Vector3jRK20b3AlignedObjectArr
 
 .thread:                                          ; preds = %_ZN13gjkepa2_impl25b3EPAC2Ev.exit
   store i32 3, ptr %7, align 16, !tbaa !44
-  call void @llvm.lifetime.end.p0(i64 14480, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %212
 
 ._crit_edge:                                      ; preds = %_ZNK13gjkepa2_impl215b3MinkowskiDiff7SupportERK9b3Vector3jRK20b3AlignedObjectArrayIS1_ES7_.exit, %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i.i.loopexit83.us, %_ZNK13gjkepa2_impl215b3MinkowskiDiff7SupportERK9b3Vector3jRK20b3AlignedObjectArrayIS1_ES7_.exit.us, %.preheader
@@ -1896,7 +1890,7 @@ _ZNK13gjkepa2_impl215b3MinkowskiDiff7SupportERK9b3Vector3jRK20b3AlignedObjectArr
   %209 = fneg float %169
   %210 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store float %209, ptr %210, align 16, !tbaa !34
-  call void @llvm.lifetime.end.p0(i64 14480, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %212
 
 211:                                              ; preds = %9
@@ -1905,8 +1899,8 @@ _ZNK13gjkepa2_impl215b3MinkowskiDiff7SupportERK9b3Vector3jRK20b3AlignedObjectArr
 
 212:                                              ; preds = %211, %9, %.thread, %._crit_edge
   %.1 = phi i1 [ true, %._crit_edge ], [ false, %.thread ], [ false, %9 ], [ false, %211 ]
-  call void @llvm.lifetime.end.p0(i64 496, ptr nonnull %11) #10
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i1 %.1
 }
 
@@ -2215,7 +2209,7 @@ _ZN13gjkepa2_impl25b3EPA8findbestEv.exit:         ; preds = %.lr.ph.i, %123
   br i1 %167, label %168, label %316
 
 168:                                              ; preds = %165
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5, i8 0, i64 20, i1 false)
   %169 = add nuw nsw i32 %166, 1
   store i32 %169, ptr %43, align 16, !tbaa !72
@@ -2341,7 +2335,7 @@ _ZNK13gjkepa2_impl25b3GJK10getsupportERK9b3Vector3RNS0_3sSVE.exit: ; preds = %19
   %.pn.i.i.i = phi { <2 x float>, <2 x float> } [ zeroinitializer, %195 ], [ zeroinitializer, %215 ], [ %240, %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i.i.i ]
   %241 = extractvalue { <2 x float>, <2 x float> } %.pn.i.i.i, 0
   %242 = extractvalue { <2 x float>, <2 x float> } %.pn.i.i.i, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %243 = fneg float %184
   %244 = fneg float %185
   %245 = fneg float %186
@@ -2361,7 +2355,7 @@ _ZNK13gjkepa2_impl25b3GJK10getsupportERK9b3Vector3RNS0_3sSVE.exit: ; preds = %19
   %254 = extractelement <2 x float> %253, i64 0
   %.sroa.0.4.vec.insert.i.i6.i.i = shufflevector <2 x float> %249, <2 x float> %251, <2 x i32> <i32 0, i32 3>
   %.sroa.3.12.vec.insert.i.i7.i.i372 = insertelement <2 x float> %253, float 0.000000e+00, i64 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %255 = getelementptr inbounds nuw i8, ptr %171, i64 16
   store <2 x float> %.sroa.0.4.vec.insert.i.i6.i.i, ptr %255, align 16
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %171, i64 24
@@ -2495,7 +2489,7 @@ _ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit105: ; preds = %_ZN
 .thread:                                          ; preds = %_ZNK13gjkepa2_impl25b3GJK10getsupportERK9b3Vector3RNS0_3sSVE.exit, %268
   %storemerge268 = phi i32 [ 9, %268 ], [ 7, %_ZNK13gjkepa2_impl25b3GJK10getsupportERK9b3Vector3RNS0_3sSVE.exit ]
   store i32 %storemerge268, ptr %0, align 16, !tbaa !69
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit270
 
 316:                                              ; preds = %165
@@ -2519,7 +2513,7 @@ _ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit105: ; preds = %_ZN
   %.sroa.13.0.copyload243 = load ptr, ptr %.sroa.13.0..0.lcssa.i119.sroa_idx, align 16
   %.sroa.16.0..0.lcssa.i119.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.lcssa.i119, i64 40
   %.sroa.16.0.copyload246 = load ptr, ptr %.sroa.16.0..0.lcssa.i119.sroa_idx, align 8, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %exitcond.not = icmp eq i32 %172, 255
   br i1 %exitcond.not, label %.loopexit270, label %165, !llvm.loop !91
 
@@ -2707,19 +2701,19 @@ _ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit105: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #5
+declare float @llvm.fmuladd.f32(float, float, float) #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef float @_ZN13gjkepa2_impl25b3GJK13projectoriginERK9b3Vector3S3_S3_PfRj(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 comdat align 2 {
   %6 = alloca [3 x ptr], align 16
   %7 = alloca [3 x %class.b3Vector3], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 16, !tbaa !93
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %8, align 8, !tbaa !93
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %2, ptr %9, align 16, !tbaa !93
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = load float, ptr %0, align 16, !tbaa !33
   %11 = load float, ptr %1, align 16, !tbaa !33
   %12 = fsub float %10, %11
@@ -2987,8 +2981,8 @@ _ZN13gjkepa2_impl25b3GJK13projectoriginERK9b3Vector3S3_PfRj.exit: ; preds = %81,
 
 201:                                              ; preds = %55, %145, %5
   %.0 = phi float [ -1.000000e+00, %5 ], [ %158, %145 ], [ %.2, %55 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret float %.0
 }
 
@@ -2998,7 +2992,7 @@ define linkonce_odr dso_local noundef float @_ZN13gjkepa2_impl25b3GJK13projector
   %8 = alloca [3 x %class.b3Vector3], align 16
   %9 = alloca [3 x float], align 4
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %0, ptr %7, align 16, !tbaa !93
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %1, ptr %11, align 8, !tbaa !93
@@ -3006,7 +3000,7 @@ define linkonce_odr dso_local noundef float @_ZN13gjkepa2_impl25b3GJK13projector
   store ptr %2, ptr %12, align 16, !tbaa !93
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %3, ptr %13, align 8, !tbaa !93
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14 = load float, ptr %0, align 16, !tbaa !33
   %15 = load float, ptr %3, align 16, !tbaa !33
   %16 = fsub float %14, %15
@@ -3096,9 +3090,9 @@ define linkonce_odr dso_local noundef float @_ZN13gjkepa2_impl25b3GJK13projector
   br i1 %or.cond101, label %84, label %236
 
 84:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, i8 0, i64 12, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !62
   %85 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %86 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -3284,19 +3278,19 @@ define linkonce_odr dso_local noundef float @_ZN13gjkepa2_impl25b3GJK13projector
 
 235:                                              ; preds = %154, %88
   %.3 = phi float [ 0.000000e+00, %154 ], [ %.1, %88 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #10
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %236
 
 236:                                              ; preds = %6, %235
   %.0 = phi float [ %.3, %235 ], [ -1.000000e+00, %6 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret float %.0
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK13gjkepa2_impl215b3MinkowskiDiff8Support1ERK9b3Vector3RK20b3AlignedObjectArrayIS1_E(ptr noundef nonnull align 16 dereferenceable(129) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(25) %2) local_unnamed_addr #6 comdat align 2 {
+define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK13gjkepa2_impl215b3MinkowskiDiff8Support1ERK9b3Vector3RK20b3AlignedObjectArrayIS1_E(ptr noundef nonnull align 16 dereferenceable(129) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(25) %2) local_unnamed_addr #5 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load i8, ptr %4, align 16, !tbaa !26, !range !27, !noundef !28
   %6 = trunc nuw i8 %5 to i1
@@ -3474,7 +3468,7 @@ _Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3A
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN13gjkepa2_impl25b3GJK13EncloseOriginEv(ptr noundef nonnull align 16 dereferenceable(484) %0) local_unnamed_addr #1 comdat align 2 {
@@ -3516,7 +3510,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN13gjkepa2_impl25b3GJK13Encl
   %26 = phi i32 [ 1, %.preheader ], [ %200, %.critedge ]
   %27 = phi ptr [ %11, %.preheader ], [ %197, %.critedge ]
   %indvars.iv355 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next356, %.critedge ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %28 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv355
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %28, align 4, !tbaa !37
@@ -3647,7 +3641,7 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit: ; pred
   %.pn.i.i.i.i = phi { <2 x float>, <2 x float> } [ zeroinitializer, %56 ], [ zeroinitializer, %76 ], [ %101, %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i.i.i.i ]
   %102 = extractvalue { <2 x float>, <2 x float> } %.pn.i.i.i.i, 0
   %103 = extractvalue { <2 x float>, <2 x float> } %.pn.i.i.i.i, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %104 = fneg float %45
   %105 = fneg float %46
   %106 = fneg float %47
@@ -3662,7 +3656,7 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit: ; pred
   %110 = fsub <2 x float> %103, %109
   %.sroa.0.4.vec.insert.i.i6.i.i.i = fsub <2 x float> %102, %108
   %.sroa.3.12.vec.insert.i.i7.i.i.i377 = insertelement <2 x float> %110, float 0.000000e+00, i64 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %111 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store <2 x float> %.sroa.0.4.vec.insert.i.i6.i.i.i, ptr %111, align 16
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %35, i64 24
@@ -3796,7 +3790,7 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit70: ; pr
   %.pn.i.i.i.i33 = phi { <2 x float>, <2 x float> } [ zeroinitializer, %140 ], [ zeroinitializer, %160 ], [ %185, %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i.i.i.i55 ]
   %186 = extractvalue { <2 x float>, <2 x float> } %.pn.i.i.i.i33, 0
   %187 = extractvalue { <2 x float>, <2 x float> } %.pn.i.i.i.i33, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %188 = fneg float %129
   %189 = fneg float %130
   %190 = fneg float %131
@@ -3811,7 +3805,7 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit70: ; pr
   %194 = fsub <2 x float> %187, %193
   %.sroa.0.4.vec.insert.i.i6.i.i.i44 = fsub <2 x float> %186, %192
   %.sroa.3.12.vec.insert.i.i7.i.i.i45378 = insertelement <2 x float> %194, float 0.000000e+00, i64 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %195 = getelementptr inbounds nuw i8, ptr %120, i64 16
   store <2 x float> %.sroa.0.4.vec.insert.i.i6.i.i.i44, ptr %195, align 16
   %.sroa.4.0..sroa_idx.i.i46 = getelementptr inbounds nuw i8, ptr %120, i64 24
@@ -3834,13 +3828,13 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit70: ; pr
   %206 = zext i32 %204 to i64
   %207 = getelementptr inbounds nuw [4 x ptr], ptr %15, i64 0, i64 %206
   store ptr %203, ptr %207, align 8, !tbaa !38
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next356 = add nuw nsw i64 %indvars.iv355, 1
   %exitcond358.not = icmp eq i64 %indvars.iv.next356, 3
   br i1 %exitcond358.not, label %.thread, label %24, !llvm.loop !96
 
 208:                                              ; preds = %_ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit, %_ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit70
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %717
 
 209:                                              ; preds = %1
@@ -3876,7 +3870,7 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit70: ; pr
 237:                                              ; preds = %209, %434
   %238 = phi ptr [ %11, %209 ], [ %435, %434 ]
   %indvars.iv = phi i64 [ 0, %209 ], [ %indvars.iv.next, %434 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %239 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %239, align 4, !tbaa !37
@@ -4023,7 +4017,7 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit118: ; p
   %.pn.i.i.i.i81 = phi { <2 x float>, <2 x float> } [ zeroinitializer, %281 ], [ zeroinitializer, %301 ], [ %326, %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i.i.i.i103 ]
   %327 = extractvalue { <2 x float>, <2 x float> } %.pn.i.i.i.i81, 0
   %328 = extractvalue { <2 x float>, <2 x float> } %.pn.i.i.i.i81, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %329 = fneg float %270
   %330 = fneg float %271
   %331 = fneg float %272
@@ -4038,7 +4032,7 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit118: ; p
   %335 = fsub <2 x float> %328, %334
   %.sroa.0.4.vec.insert.i.i6.i.i.i92 = fsub <2 x float> %327, %333
   %.sroa.3.12.vec.insert.i.i7.i.i.i93375 = insertelement <2 x float> %335, float 0.000000e+00, i64 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %336 = getelementptr inbounds nuw i8, ptr %266, i64 16
   store <2 x float> %.sroa.0.4.vec.insert.i.i6.i.i.i92, ptr %336, align 16
   %.sroa.4.0..sroa_idx.i.i94 = getelementptr inbounds nuw i8, ptr %266, i64 24
@@ -4172,7 +4166,7 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit166: ; p
   %.pn.i.i.i.i129 = phi { <2 x float>, <2 x float> } [ zeroinitializer, %365 ], [ zeroinitializer, %385 ], [ %410, %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i.i.i.i151 ]
   %411 = extractvalue { <2 x float>, <2 x float> } %.pn.i.i.i.i129, 0
   %412 = extractvalue { <2 x float>, <2 x float> } %.pn.i.i.i.i129, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %413 = fneg float %354
   %414 = fneg float %355
   %415 = fneg float %356
@@ -4187,7 +4181,7 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit166: ; p
   %419 = fsub <2 x float> %412, %418
   %.sroa.0.4.vec.insert.i.i6.i.i.i140 = fsub <2 x float> %411, %417
   %.sroa.3.12.vec.insert.i.i7.i.i.i141376 = insertelement <2 x float> %419, float 0.000000e+00, i64 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %420 = getelementptr inbounds nuw i8, ptr %345, i64 16
   store <2 x float> %.sroa.0.4.vec.insert.i.i6.i.i.i140, ptr %420, align 16
   %.sroa.4.0..sroa_idx.i.i142 = getelementptr inbounds nuw i8, ptr %345, i64 24
@@ -4214,13 +4208,13 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit166: ; p
 
 434:                                              ; preds = %237, %422
   %435 = phi ptr [ %238, %237 ], [ %423, %422 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.thread, label %237, !llvm.loop !97
 
 436:                                              ; preds = %_ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit118, %_ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit166
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %717
 
 437:                                              ; preds = %1
@@ -4393,7 +4387,7 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit224: ; p
   %.pn.i.i.i.i187 = phi { <2 x float>, <2 x float> } [ zeroinitializer, %505 ], [ zeroinitializer, %525 ], [ %550, %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i.i.i.i209 ]
   %551 = extractvalue { <2 x float>, <2 x float> } %.pn.i.i.i.i187, 0
   %552 = extractvalue { <2 x float>, <2 x float> } %.pn.i.i.i.i187, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %553 = fneg float %491
   %554 = fneg float %492
   %555 = fneg float %493
@@ -4409,7 +4403,7 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit224: ; p
   %560 = fsub <2 x float> %552, %559
   %.sroa.0.4.vec.insert.i.i6.i.i.i198 = fsub <2 x float> %551, %558
   %.sroa.3.12.vec.insert.i.i7.i.i.i199373 = insertelement <2 x float> %560, float 0.000000e+00, i64 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %561 = getelementptr inbounds nuw i8, ptr %488, i64 16
   store <2 x float> %.sroa.0.4.vec.insert.i.i6.i.i.i198, ptr %561, align 16
   %.sroa.4.0..sroa_idx.i.i200 = getelementptr inbounds nuw i8, ptr %488, i64 24
@@ -4543,7 +4537,7 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit272: ; p
   %.pn.i.i.i.i235 = phi { <2 x float>, <2 x float> } [ zeroinitializer, %590 ], [ zeroinitializer, %610 ], [ %635, %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i.i.i.i257 ]
   %636 = extractvalue { <2 x float>, <2 x float> } %.pn.i.i.i.i235, 0
   %637 = extractvalue { <2 x float>, <2 x float> } %.pn.i.i.i.i235, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %638 = fneg float %579
   %639 = fneg float %580
   %640 = fneg float %581
@@ -4559,7 +4553,7 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit272: ; p
   %645 = fsub <2 x float> %637, %644
   %.sroa.0.4.vec.insert.i.i6.i.i.i246 = fsub <2 x float> %636, %643
   %.sroa.3.12.vec.insert.i.i7.i.i.i247374 = insertelement <2 x float> %645, float 0.000000e+00, i64 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %646 = getelementptr inbounds nuw i8, ptr %570, i64 16
   store <2 x float> %.sroa.0.4.vec.insert.i.i6.i.i.i246, ptr %646, align 16
   %.sroa.4.0..sroa_idx.i.i248 = getelementptr inbounds nuw i8, ptr %570, i64 24
@@ -4879,7 +4873,7 @@ _ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit50: ; preds = %_ZN1
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN13gjkepa2_impl25b3EPA6expandEjPNS_5b3GJK3sSVEPNS0_5sFaceEjRNS0_8sHorizonE(ptr noundef nonnull align 16 dereferenceable(14472) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(20) %5) local_unnamed_addr #8 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN13gjkepa2_impl25b3EPA6expandEjPNS_5b3GJK3sSVEPNS0_5sFaceEjRNS0_8sHorizonE(ptr noundef nonnull align 16 dereferenceable(14472) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(20) %5) local_unnamed_addr #7 comdat align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 91
   %8 = load i8, ptr %7, align 1, !tbaa !86
   %9 = zext i8 %8 to i32
@@ -5145,6 +5139,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN13gjkepa2_impl25b3EPA11gete
   ret i1 %38
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9
 
@@ -5153,15 +5153,14 @@ declare float @llvm.sqrt.f32(float) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { inlinehint mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { inlinehint mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

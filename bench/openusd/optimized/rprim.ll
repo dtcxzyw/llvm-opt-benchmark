@@ -974,7 +974,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK32pxrInternal_v0_24_
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorC2ERKNS_7TfTokenE.exit.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorC2ERKNS_7TfTokenE.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorC2ERKNS_7TfTokenE.exit.thread: ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorC2ERKNS_7TfTokenE.exit: ; preds = %2
@@ -986,7 +986,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorC2ERKNS_7TfTokenE.
   %15 = select i1 %.not1.i.i.i, i64 %11, i64 %9
   %.pre = and i64 %15, 7
   %16 = icmp eq i64 %.pre, 0
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br i1 %16, label %22, label %17
 
 17:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorC2ERKNS_7TfTokenE.exit
@@ -1034,7 +1034,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorC2ERKNS_7TfTokenE.
   br label %.body
 
 41:                                               ; preds = %28, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.pre-phi16, label %_ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorD2Ev.exit, label %42
 
 42:                                               ; preds = %41
@@ -2310,10 +2310,10 @@ _ZN9__gnu_cxx5__ops10_Iter_predIN32pxrInternal_v0_24__pxrReserved__7HdRprim15_Re
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

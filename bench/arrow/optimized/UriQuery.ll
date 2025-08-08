@@ -69,9 +69,6 @@ uriComposeQueryCharsRequiredExA.exit:             ; preds = %20, %22, %2
   ret i32 %.0.i
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define range(i32 0, 5) i32 @uriComposeQueryCharsRequiredExA(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
@@ -137,17 +134,14 @@ uriComposeQueryEngineA.exit:                      ; preds = %25, %27, %4
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 5) i32 @uriComposeQueryA(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 {
+define range(i32 0, 5) i32 @uriComposeQueryA(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #1 {
   %5 = tail call i32 @uriComposeQueryExA(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef 1, i32 noundef 1)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 5) i32 @uriComposeQueryExA(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define range(i32 0, 5) i32 @uriComposeQueryExA(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp eq ptr %0, null
   %8 = icmp eq ptr %1, null
   %or.cond = or i1 %7, %8
@@ -270,19 +264,19 @@ uriComposeQueryEngineA.exit:                      ; preds = %50, %33, %31, %64, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriComposeQueryMallocA(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
+define range(i32 0, 11) i32 @uriComposeQueryMallocA(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = tail call range(i32 0, 11) i32 @uriComposeQueryMallocExMmA(ptr noundef %0, ptr noundef readonly %1, i32 noundef 1, i32 noundef 1, ptr noundef null)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriComposeQueryMallocExA(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define range(i32 0, 11) i32 @uriComposeQueryMallocExA(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = tail call i32 @uriComposeQueryMallocExMmA(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef null)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriComposeQueryMallocExMmA(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #2 {
+define range(i32 0, 11) i32 @uriComposeQueryMallocExMmA(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %uriComposeQueryCharsRequiredExA.exit.thread, label %7
 
@@ -379,10 +373,10 @@ uriComposeQueryCharsRequiredExA.exit.thread:      ; preds = %31, %11, %uriCompos
   ret i32 %.0
 }
 
-declare i32 @uriMemoryManagerIsComplete(ptr noundef) local_unnamed_addr #3
+declare i32 @uriMemoryManagerIsComplete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @uriFreeQueryListA(ptr noundef %0) local_unnamed_addr #2 {
+define void @uriFreeQueryListA(ptr noundef %0) local_unnamed_addr #1 {
   %.not1718.i = icmp eq ptr %0, null
   br i1 %.not1718.i, label %uriFreeQueryListMmA.exit, label %.lr.ph.i
 
@@ -407,7 +401,7 @@ uriFreeQueryListMmA.exit:                         ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriFreeQueryListMmA(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 11) i32 @uriFreeQueryListMmA(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %6, label %4
 
@@ -447,23 +441,23 @@ define range(i32 0, 11) i32 @uriFreeQueryListMmA(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriDissectQueryMallocA(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) local_unnamed_addr #2 {
+define range(i32 0, 11) i32 @uriDissectQueryMallocA(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) local_unnamed_addr #1 {
   %5 = tail call range(i32 0, 11) i32 @uriDissectQueryMallocExMmA(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3, i32 noundef 1, i32 noundef 3, ptr noundef null)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriDissectQueryMallocExA(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define range(i32 0, 11) i32 @uriDissectQueryMallocExA(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = tail call i32 @uriDissectQueryMallocExMmA(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef null)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriDissectQueryMallocExMmA(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #2 {
+define range(i32 0, 11) i32 @uriDissectQueryMallocExMmA(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #1 {
   %8 = ptrtoint ptr %2 to i64
   %9 = ptrtoint ptr %3 to i64
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = icmp eq ptr %1, null
   %12 = select i1 %11, ptr %10, ptr %1
   %13 = icmp eq ptr %0, null
@@ -751,12 +745,12 @@ uriAppendQueryItemA.exit103.thread117:            ; preds = %97, %108, %uriAppen
 
 uriFreeQueryListMmA.exit:                         ; preds = %68, %128, %.split83, %118, %uriAppendQueryItemA.exit103.thread117, %uriAppendQueryItemA.exit.thread113, %uriAppendQueryItemA.exit103, %20, %16, %7
   %.0 = phi i32 [ 2, %7 ], [ 9, %16 ], [ 10, %20 ], [ 0, %uriAppendQueryItemA.exit103 ], [ 3, %uriAppendQueryItemA.exit.thread113 ], [ 3, %uriAppendQueryItemA.exit103.thread117 ], [ 0, %118 ], [ 0, %.split83 ], [ 3, %128 ], [ 3, %68 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriAppendQueryItemA(ptr noundef nonnull captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @uriAppendQueryItemA(ptr noundef nonnull captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) unnamed_addr #1 {
   %10 = ptrtoint ptr %3 to i64
   %11 = ptrtoint ptr %2 to i64
   %12 = sub i64 %10, %11
@@ -1006,13 +1000,13 @@ uriComposeQueryEngineW.exit:                      ; preds = %25, %27, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 5) i32 @uriComposeQueryW(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 {
+define range(i32 0, 5) i32 @uriComposeQueryW(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #1 {
   %5 = tail call i32 @uriComposeQueryExW(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef 1, i32 noundef 1)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 5) i32 @uriComposeQueryExW(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define range(i32 0, 5) i32 @uriComposeQueryExW(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp eq ptr %0, null
   %8 = icmp eq ptr %1, null
   %or.cond = or i1 %7, %8
@@ -1138,19 +1132,19 @@ uriComposeQueryEngineW.exit:                      ; preds = %51, %33, %31, %67, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriComposeQueryMallocW(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
+define range(i32 0, 11) i32 @uriComposeQueryMallocW(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = tail call range(i32 0, 11) i32 @uriComposeQueryMallocExMmW(ptr noundef %0, ptr noundef readonly %1, i32 noundef 1, i32 noundef 1, ptr noundef null)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriComposeQueryMallocExW(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define range(i32 0, 11) i32 @uriComposeQueryMallocExW(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = tail call i32 @uriComposeQueryMallocExMmW(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef null)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriComposeQueryMallocExMmW(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #2 {
+define range(i32 0, 11) i32 @uriComposeQueryMallocExMmW(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %uriComposeQueryCharsRequiredExW.exit.thread, label %7
 
@@ -1249,7 +1243,7 @@ uriComposeQueryCharsRequiredExW.exit.thread:      ; preds = %31, %11, %uriCompos
 }
 
 ; Function Attrs: nounwind uwtable
-define void @uriFreeQueryListW(ptr noundef %0) local_unnamed_addr #2 {
+define void @uriFreeQueryListW(ptr noundef %0) local_unnamed_addr #1 {
   %.not1718.i = icmp eq ptr %0, null
   br i1 %.not1718.i, label %uriFreeQueryListMmW.exit, label %.lr.ph.i
 
@@ -1274,7 +1268,7 @@ uriFreeQueryListMmW.exit:                         ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriFreeQueryListMmW(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 11) i32 @uriFreeQueryListMmW(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %6, label %4
 
@@ -1314,21 +1308,21 @@ define range(i32 0, 11) i32 @uriFreeQueryListMmW(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriDissectQueryMallocW(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) local_unnamed_addr #2 {
+define range(i32 0, 11) i32 @uriDissectQueryMallocW(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) local_unnamed_addr #1 {
   %5 = tail call range(i32 0, 11) i32 @uriDissectQueryMallocExMmW(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3, i32 noundef 1, i32 noundef 3, ptr noundef null)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriDissectQueryMallocExW(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define range(i32 0, 11) i32 @uriDissectQueryMallocExW(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = tail call i32 @uriDissectQueryMallocExMmW(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef null)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriDissectQueryMallocExMmW(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #2 {
+define range(i32 0, 11) i32 @uriDissectQueryMallocExMmW(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #1 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp eq ptr %1, null
   %10 = select i1 %9, ptr %8, ptr %1
   %11 = icmp eq ptr %0, null
@@ -1620,12 +1614,12 @@ uriAppendQueryItemW.exit103.thread117:            ; preds = %100, %112, %uriAppe
 
 uriFreeQueryListMmW.exit:                         ; preds = %68, %133, %.split83, %123, %uriAppendQueryItemW.exit103.thread117, %uriAppendQueryItemW.exit.thread113, %uriAppendQueryItemW.exit103, %18, %14, %7
   %.0 = phi i32 [ 2, %7 ], [ 9, %14 ], [ 10, %18 ], [ 0, %uriAppendQueryItemW.exit103 ], [ 3, %uriAppendQueryItemW.exit.thread113 ], [ 3, %uriAppendQueryItemW.exit103.thread117 ], [ 0, %123 ], [ 0, %.split83 ], [ 3, %133 ], [ 3, %68 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriAppendQueryItemW(ptr noundef nonnull captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @uriAppendQueryItemW(ptr noundef nonnull captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) unnamed_addr #1 {
   %10 = ptrtoint ptr %3 to i64
   %11 = ptrtoint ptr %2 to i64
   %12 = sub i64 %10, %11
@@ -1754,28 +1748,34 @@ define internal fastcc range(i32 0, 2) i32 @uriAppendQueryItemW(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
-declare ptr @uriEscapeExA(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @uriEscapeExA(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare ptr @uriUnescapeInPlaceExA(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @uriUnescapeInPlaceExA(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #3
 
-declare ptr @uriEscapeExW(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @uriEscapeExW(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @uriUnescapeInPlaceExW(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @uriUnescapeInPlaceExW(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind willreturn memory(read) }
 attributes #7 = { nounwind }
 

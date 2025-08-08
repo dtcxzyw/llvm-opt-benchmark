@@ -3869,7 +3869,7 @@ define internal fastcc noundef zeroext i1 @scan_digit(ptr noundef %0) unnamed_ad
   ]
 
 .thread:                                          ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %.lr.ph.i48.preheader
 
 13:                                               ; preds = %10, %10
@@ -3900,7 +3900,7 @@ define internal fastcc noundef zeroext i1 @scan_digit(ptr noundef %0) unnamed_ad
   br i1 %exitcond.not.i, label %skip.exit, label %16, !llvm.loop !11
 
 skip.exit:                                        ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %27 = load i8, ptr %25, align 1
   %28 = zext i8 %27 to i64
   %29 = getelementptr inbounds nuw [256 x i8], ptr @hex_conv, i64 0, i64 %28
@@ -4182,7 +4182,7 @@ return_token.exit.i:                              ; preds = %126, %116
 
 scan_hex.exit:                                    ; preds = %31, %50, %58, %81, %85, %backtrack.exit.i, %97, %return_token.exit.i
   %.0.i = phi i1 [ false, %50 ], [ false, %58 ], [ false, %81 ], [ false, %backtrack.exit.i ], [ true, %return_token.exit.i ], [ false, %31 ], [ false, %85 ], [ false, %97 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %395
 
 138:                                              ; preds = %10, %10
@@ -4213,7 +4213,7 @@ scan_hex.exit:                                    ; preds = %31, %50, %58, %81, 
   br i1 %exitcond.not.i12, label %skip.exit14, label %141, !llvm.loop !11
 
 skip.exit14:                                      ; preds = %149
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %152 = load i8, ptr %150, align 1
   %153 = and i8 %152, -8
   %154 = icmp eq i8 %153, 48
@@ -4338,7 +4338,7 @@ return_token.exit.i18:                            ; preds = %208, %198
 
 scan_oct.exit:                                    ; preds = %155, %170, %177, %178, %183, %return_token.exit.i18
   %.0.i15 = phi i1 [ false, %170 ], [ false, %177 ], [ false, %183 ], [ true, %return_token.exit.i18 ], [ false, %155 ], [ false, %178 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %395
 
 220:                                              ; preds = %10, %10
@@ -4369,7 +4369,7 @@ scan_oct.exit:                                    ; preds = %155, %170, %177, %1
   br i1 %exitcond.not.i25, label %skip.exit27, label %223, !llvm.loop !11
 
 skip.exit27:                                      ; preds = %231
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %234 = load i8, ptr %232, align 1
   %235 = and i8 %234, -2
   %236 = icmp eq i8 %235, 48
@@ -4494,11 +4494,11 @@ return_token.exit.i31:                            ; preds = %285, %275
 
 scan_binary.exit:                                 ; preds = %237, %250, %254, %255, %260, %return_token.exit.i31
   %.0.i28 = phi i1 [ false, %250 ], [ false, %254 ], [ false, %260 ], [ true, %return_token.exit.i31 ], [ false, %237 ], [ false, %255 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %395
 
 297:                                              ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %298 = icmp eq i8 %8, 95
   %299 = add i8 %8, -48
   %300 = icmp ult i8 %299, 10
@@ -4690,7 +4690,7 @@ return_token.exit.i41:                            ; preds = %383, %372
 
 scan_dec.exit:                                    ; preds = %309, %323, %331, %339, %backtrack.exit.i45, %352, %return_token.exit.i41
   %.0.i39 = phi i1 [ false, %309 ], [ false, %323 ], [ false, %331 ], [ false, %backtrack.exit.i45 ], [ true, %return_token.exit.i41 ], [ false, %339 ], [ false, %352 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %395
 
 395:                                              ; preds = %scan_dec.exit, %scan_binary.exit, %scan_oct.exit, %scan_hex.exit
@@ -5324,10 +5324,10 @@ declare i32 @llvm.umin.i32(i32, i32) #7
 declare void @llvm.experimental.noalias.scope.decl(metadata) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn }

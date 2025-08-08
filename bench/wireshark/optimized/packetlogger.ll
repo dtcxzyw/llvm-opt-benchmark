@@ -20,7 +20,7 @@ define hidden range(i32 -1, 2) i32 @packetlogger_open(ptr noundef %0, ptr nounde
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca %struct.packetlogger_header, align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load ptr, ptr %0, align 8
   %8 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %7, ptr noundef nonnull %6, i32 noundef 4, ptr noundef %1, ptr noundef %2)
   br i1 %8, label %9, label %packetlogger_read_header.exit.thread
@@ -56,20 +56,20 @@ packetlogger_read_header.exit.thread:             ; preds = %9, %3, %packetlogge
   br label %25
 
 packetlogger_byte_swap_header.exit:               ; preds = %16
-  %20 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %17) #5, !srcloc !6
+  %20 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %17) #4, !srcloc !6
   store i32 %20, ptr %6, align 4
   %21 = load i32, ptr %10, align 4
-  %22 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %21) #5, !srcloc !7
+  %22 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %21) #4, !srcloc !7
   store i32 %22, ptr %10, align 4
   %23 = load i32, ptr %12, align 4
-  %24 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %23) #5, !srcloc !8
+  %24 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %23) #4, !srcloc !8
   store i32 %24, ptr %12, align 4
   br label %25
 
 25:                                               ; preds = %._crit_edge, %packetlogger_byte_swap_header.exit
   %.val67 = phi i32 [ %24, %packetlogger_byte_swap_header.exit ], [ %.val67.pre, %._crit_edge ]
   %.val = phi i32 [ %20, %packetlogger_byte_swap_header.exit ], [ %17, %._crit_edge ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %26 = add i32 %.val, -65536
   %or.cond.i = icmp ult i32 %26, -65528
   %27 = icmp ugt i32 %.val67, 999999
@@ -117,23 +117,23 @@ packetlogger_byte_swap_header.exit:               ; preds = %16
   br i1 %38, label %packetlogger_check_record.exit.thread104, label %packetlogger_check_record.exit.thread84
 
 packetlogger_check_record.exit.thread84:          ; preds = %36
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pr106 = load i32, ptr %1, align 4
   %39 = icmp eq i32 %.pr106, -12
   br i1 %39, label %.thread97, label %.thread
 
 packetlogger_check_record.exit.thread:            ; preds = %25, %32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
 packetlogger_check_record.exit.thread104:         ; preds = %36, %34, %28
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %41
 
 packetlogger_check_record.exit:                   ; preds = %29
   %40 = load i32, ptr %1, align 4
   %.not18.i.not = icmp ne i32 %40, -12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %spec.select107 = sext i1 %.not18.i.not to i32
   br label %.thread
 
@@ -154,13 +154,13 @@ packetlogger_check_record.exit:                   ; preds = %29
 
 packetlogger_read_header.exit73.thread87:         ; preds = %46
   %48 = load i32, ptr %6, align 4
-  %49 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %48) #5, !srcloc !6
+  %49 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %48) #4, !srcloc !6
   store i32 %49, ptr %6, align 4
   %50 = load i32, ptr %10, align 4
-  %51 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %50) #5, !srcloc !7
+  %51 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %50) #4, !srcloc !7
   store i32 %51, ptr %10, align 4
   %52 = load i32, ptr %12, align 4
-  %53 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %52) #5, !srcloc !8
+  %53 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %52) #4, !srcloc !8
   store i32 %53, ptr %12, align 4
   br label %56
 
@@ -185,7 +185,7 @@ packetlogger_read_header.exit73.thread:           ; preds = %44, %41, %packetlog
 56:                                               ; preds = %packetlogger_read_header.exit73._crit_edge, %packetlogger_read_header.exit73.thread87
   %.val69 = phi i32 [ %.val69.pre, %packetlogger_read_header.exit73._crit_edge ], [ %53, %packetlogger_read_header.exit73.thread87 ]
   %.val68 = phi i32 [ %.val68.pre, %packetlogger_read_header.exit73._crit_edge ], [ %49, %packetlogger_read_header.exit73.thread87 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %57 = add i32 %.val68, -65536
   %or.cond.i74 = icmp ult i32 %57, -65528
   %58 = icmp ugt i32 %.val69, 999999
@@ -233,25 +233,25 @@ packetlogger_read_header.exit73.thread:           ; preds = %44, %41, %packetlog
   br i1 %69, label %packetlogger_check_record.exit81.thread92, label %packetlogger_check_record.exit81.thread90
 
 packetlogger_check_record.exit81.thread90:        ; preds = %67
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pr = load i32, ptr %1, align 4
   %70 = icmp eq i32 %.pr, -12
   br i1 %70, label %.thread97, label %.thread
 
 packetlogger_check_record.exit81.thread92:        ; preds = %59, %65, %67
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %71 = add nuw nsw i32 %.053100, 1
   %exitcond.not = icmp eq i32 %71, 5
   br i1 %exitcond.not, label %.thread97, label %41, !llvm.loop !9
 
 packetlogger_check_record.exit81.thread:          ; preds = %56, %63
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 packetlogger_check_record.exit81:                 ; preds = %60
   %72 = load i32, ptr %1, align 4
   %.not18.i77.not = icmp ne i32 %72, -12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %spec.select = sext i1 %.not18.i77.not to i32
   br label %.thread
 
@@ -262,7 +262,7 @@ packetlogger_check_record.exit81:                 ; preds = %60
   br i1 %75, label %.thread, label %76
 
 76:                                               ; preds = %.thread97
-  %77 = call noalias dereferenceable_or_null(1) ptr @g_malloc(i64 noundef 1) #6
+  %77 = call noalias dereferenceable_or_null(1) ptr @g_malloc(i64 noundef 1) #5
   %78 = zext i1 %or.cond.not to i8
   store i8 %78, ptr %77, align 1
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -283,21 +283,15 @@ packetlogger_check_record.exit81:                 ; preds = %60
 
 .thread:                                          ; preds = %packetlogger_check_record.exit, %packetlogger_check_record.exit81, %packetlogger_read_header.exit73.thread, %packetlogger_check_record.exit81.thread, %55, %packetlogger_check_record.exit.thread, %packetlogger_read_header.exit.thread, %.thread97, %packetlogger_check_record.exit.thread84, %packetlogger_check_record.exit81.thread90, %76
   %.0 = phi i32 [ 1, %76 ], [ -1, %packetlogger_check_record.exit81.thread90 ], [ -1, %packetlogger_check_record.exit.thread84 ], [ -1, %.thread97 ], [ %15, %packetlogger_read_header.exit.thread ], [ 0, %packetlogger_check_record.exit.thread ], [ 0, %packetlogger_check_record.exit81.thread ], [ 0, %55 ], [ -1, %packetlogger_read_header.exit73.thread ], [ %spec.select, %packetlogger_check_record.exit81 ], [ %spec.select107, %packetlogger_check_record.exit ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: null_pointer_is_valid
-declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #3
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @packetlogger_read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4) #0 {
@@ -343,7 +337,7 @@ define internal noundef zeroext i1 @packetlogger_seek_read(ptr noundef readonly 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wtap_add_generated_idb(ptr noundef) local_unnamed_addr #2
+declare void @wtap_add_generated_idb(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @register_packetlogger() local_unnamed_addr #0 {
@@ -354,18 +348,18 @@ define hidden void @register_packetlogger() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_register_file_type_subtype(ptr noundef) local_unnamed_addr #2
+declare i32 @wtap_register_file_type_subtype(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @file_tell(ptr noundef) local_unnamed_addr #2
+declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc zeroext i1 @packetlogger_read_packet(i8 %.96.val.0.val, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.packetlogger_header, align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = trunc nuw i8 %.96.val.0.val to i1
   %7 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 4, ptr noundef %2, ptr noundef %3)
   br i1 %7, label %8, label %packetlogger_read_header.exit.thread
@@ -383,13 +377,13 @@ define internal fastcc zeroext i1 @packetlogger_read_packet(i8 %.96.val.0.val, p
 
 packetlogger_read_header.exit.thread2:            ; preds = %11
   %14 = load i32, ptr %5, align 4
-  %15 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %14) #5, !srcloc !6
+  %15 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %14) #4, !srcloc !6
   store i32 %15, ptr %5, align 4
   %16 = load i32, ptr %9, align 4
-  %17 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %16) #5, !srcloc !7
+  %17 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %16) #4, !srcloc !7
   store i32 %17, ptr %9, align 4
   %18 = load i32, ptr %12, align 4
-  %19 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %18) #5, !srcloc !8
+  %19 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %18) #4, !srcloc !8
   store i32 %19, ptr %12, align 4
   br label %20
 
@@ -450,32 +444,37 @@ packetlogger_read_header.exit._crit_edge:         ; preds = %packetlogger_read_h
 
 packetlogger_read_header.exit.thread:             ; preds = %8, %4, %packetlogger_read_header.exit, %31, %28, %23
   %.0 = phi i1 [ false, %23 ], [ false, %28 ], [ %46, %31 ], [ false, %packetlogger_read_header.exit ], [ false, %4 ], [ false, %8 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #2
+declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wtap_read_bytes_buffer(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @wtap_read_bytes_buffer(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { nounwind memory(none) }
-attributes #6 = { allocsize(0) }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind memory(none) }
+attributes #5 = { allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

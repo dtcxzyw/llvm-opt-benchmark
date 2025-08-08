@@ -63,14 +63,8 @@ define hidden range(i32 -2147483528, -2147483648) i32 @VP8LDistanceToPlaneCode(i
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @VP8LClearBackwardRefs(ptr noundef %0) local_unnamed_addr #2 {
+define hidden void @VP8LClearBackwardRefs(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !6
   %.not = icmp eq ptr %3, null
@@ -95,7 +89,7 @@ define hidden void @VP8LClearBackwardRefs(ptr noundef %0) local_unnamed_addr #2 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @VP8LBackwardRefsClear(ptr noundef %0) local_unnamed_addr #3 {
+define hidden void @VP8LBackwardRefsClear(ptr noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !6
   %.not.i = icmp eq ptr %3, null
@@ -131,10 +125,10 @@ VP8LClearBackwardRefs.exit:                       ; preds = %1, %4
   ret void
 }
 
-declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #4
+declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @VP8LBackwardRefsInit(ptr noundef initializes((0, 40)) %0, i32 noundef %1) local_unnamed_addr #5 {
+define hidden void @VP8LBackwardRefsInit(ptr noundef initializes((0, 40)) %0, i32 noundef %1) local_unnamed_addr #4 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -145,10 +139,10 @@ define hidden void @VP8LBackwardRefsInit(ptr noundef initializes((0, 40)) %0, i3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @VP8LRefsCursorInit(ptr dead_on_unwind noalias writable writeonly sret(%struct.VP8LRefsCursor) align 8 captures(none) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
+define hidden void @VP8LRefsCursorInit(ptr dead_on_unwind noalias writable writeonly sret(%struct.VP8LRefsCursor) align 8 captures(none) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -175,7 +169,7 @@ define hidden void @VP8LRefsCursorInit(ptr dead_on_unwind noalias writable write
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @VP8LRefsCursorNextBlock(ptr noundef captures(none) initializes((0, 8), (16, 24)) %0) local_unnamed_addr #7 {
+define hidden void @VP8LRefsCursorNextBlock(ptr noundef captures(none) initializes((0, 8), (16, 24)) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !21
   %4 = load ptr, ptr %3, align 8, !tbaa !16
@@ -202,7 +196,7 @@ define hidden void @VP8LRefsCursorNextBlock(ptr noundef captures(none) initializ
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @VP8LBackwardRefsCursorAdd(ptr noundef captures(none) %0, i64 %1) local_unnamed_addr #3 {
+define hidden void @VP8LBackwardRefsCursorAdd(ptr noundef captures(none) %0, i64 %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !15
   %5 = icmp eq ptr %4, null
@@ -278,10 +272,10 @@ BackwardRefsNewBlock.exit:                        ; preds = %24, %27
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @VP8LHashChainInit(ptr noundef writeonly captures(none) initializes((0, 8)) %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @VP8LHashChainInit(ptr noundef writeonly captures(none) initializes((0, 8)) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = sext i32 %1 to i64
   %4 = tail call ptr @WebPSafeMalloc(i64 noundef %3, i64 noundef 4) #11
   store ptr %4, ptr %0, align 8, !tbaa !28
@@ -298,10 +292,10 @@ define hidden range(i32 0, 2) i32 @VP8LHashChainInit(ptr noundef writeonly captu
   ret i32 %.0
 }
 
-declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @VP8LHashChainClear(ptr noundef captures(none) initializes((8, 12)) %0) local_unnamed_addr #3 {
+define hidden void @VP8LHashChainClear(ptr noundef captures(none) initializes((8, 12)) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !28
   tail call void @WebPSafeFree(ptr noundef %2) #11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -311,7 +305,7 @@ define hidden void @VP8LHashChainClear(ptr noundef captures(none) initializes((8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @VP8LHashChainFill(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8) local_unnamed_addr #3 {
+define hidden i32 @VP8LHashChainFill(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8) local_unnamed_addr #2 {
   %10 = mul i32 %4, %3
   %11 = mul nsw i32 %1, %1
   %12 = lshr i32 %11, 7
@@ -749,12 +743,12 @@ FindMatchLength.exit271:                          ; preds = %FindMatchLength.exi
   ret i32 %.0
 }
 
-declare i32 @WebPEncodingSetError(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @WebPEncodingSetError(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @WebPReportProgress(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @WebPReportProgress(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @VP8LGetBackwardReferences(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef %11, i32 noundef %12, ptr noundef %13) local_unnamed_addr #3 {
+define hidden i32 @VP8LGetBackwardReferences(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef %11, i32 noundef %12, ptr noundef %13) local_unnamed_addr #2 {
   %15 = alloca %struct.VP8LBackwardRefs, align 8
   %16 = alloca %struct.VP8LBackwardRefs, align 8
   %17 = alloca %struct.VP8LColorCache, align 8
@@ -887,11 +881,11 @@ GetBackwardReferencesLowEffort.exit:              ; preds = %72, %VP8LRefsCursor
   br label %830
 
 84:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i64 0, ptr %23, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %24, i8 -1, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %85 = icmp ne i32 %7, 0
   %86 = select i1 %85, i64 2, i64 1
   %87 = getelementptr inbounds nuw %struct.VP8LBackwardRefs, ptr %9, i64 %86
@@ -1324,9 +1318,9 @@ BackwardReferencesRle.exit.i:                     ; preds = %VP8LBackwardRefsCur
 
 289:                                              ; preds = %286
   store i32 %90, ptr %92, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %21) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %21, i8 0, i64 128, i1 false)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %22) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %22, i8 0, i64 128, i1 false)
   %290 = call ptr @WebPSafeMalloc(i64 noundef %91, i64 noundef 2) #11
   %291 = icmp eq ptr %290, null
@@ -1650,8 +1644,8 @@ VP8LDistanceToPlaneCode.exit.thread.i.i:          ; preds = %328, %VP8LDistanceT
 
 BackwardReferencesLz77Box.exit.i:                 ; preds = %._crit_edge.i.i, %289
   %.0.i131.i = phi i32 [ %419, %._crit_edge.i.i ], [ 0, %289 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %22) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %21) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %420
 
 420:                                              ; preds = %BackwardReferencesLz77Box.exit.i, %284, %BackwardReferencesRle.exit.i
@@ -1673,9 +1667,9 @@ BackwardReferencesLz77Box.exit.i:                 ; preds = %._crit_edge.i.i, %2
   br i1 %425, label %426, label %.thread218.i
 
 426:                                              ; preds = %424
-  call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %18) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(44) %18, i8 0, i64 44, i1 false)
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %19) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %427 = load ptr, ptr %101, align 8, !tbaa !14, !noalias !64
   %.not.i.i134.i = icmp eq ptr %427, null
   br i1 %.not.i.i134.i, label %VP8LRefsCursorInit.exit.i.i45, label %428
@@ -1692,7 +1686,7 @@ BackwardReferencesLz77Box.exit.i:                 ; preds = %._crit_edge.i.i, %2
 VP8LRefsCursorInit.exit.i.i45:                    ; preds = %428, %426
   %.sink2.i.i.i = phi ptr [ %430, %428 ], [ null, %426 ]
   %.sink.i.i.i = phi ptr [ %434, %428 ], [ null, %426 ]
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %20) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %20, i8 0, i64 88, i1 false)
   br i1 %107, label %CalculateBestCacheSize.exit.thread.i, label %.preheader127.i.i
 
@@ -2005,15 +1999,15 @@ VP8LRefsCursorNext.exit.i.i46:                    ; preds = %563, %.loopexit123.
 
 CalculateBestCacheSize.exit.thread.i:             ; preds = %.preheader.i141.i, %VP8LRefsCursorInit.exit.i.i45
   %.4.ph.i = phi i32 [ 0, %VP8LRefsCursorInit.exit.i.i45 ], [ %422, %.preheader.i141.i ]
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %20) #11
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %19) #11
-  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %18) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %583
 
 CalculateBestCacheSize.exit.i:                    ; preds = %580
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %20) #11
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %19) #11
-  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %18) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br i1 %.not124290.i, label %.critedge, label %583
 
 583:                                              ; preds = %CalculateBestCacheSize.exit.i, %CalculateBestCacheSize.exit.thread.i
@@ -2023,7 +2017,7 @@ CalculateBestCacheSize.exit.i:                    ; preds = %580
 
 585:                                              ; preds = %583
   %.val128.i = load ptr, ptr %101, align 8, !tbaa !14, !noalias !81
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %.not.i.i146.i = icmp eq ptr %.val128.i, null
   br i1 %.not.i.i146.i, label %VP8LRefsCursorInit.exit.thread.i.i, label %VP8LRefsCursorInit.exit.i147.i
 
@@ -2149,12 +2143,12 @@ VP8LRefsCursorNext.exit.i156.i:                   ; preds = %627, %.loopexit.i15
   br i1 %.not2.i.i, label %BackwardRefsWithLocalCache.exit.i, label %.lr.ph12.i.i, !llvm.loop !89
 
 BackwardRefsWithLocalCache.exit.thread.i:         ; preds = %VP8LRefsCursorInit.exit.thread.i.i, %VP8LRefsCursorInit.exit.i147.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.critedge
 
 BackwardRefsWithLocalCache.exit.i:                ; preds = %VP8LRefsCursorNext.exit.i156.i, %624, %.preheader4.i.i, %VP8LRefsCursorInit.exit.thread.i.i
   call void @VP8LColorCacheClear(ptr noundef nonnull %17) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %634
 
 634:                                              ; preds = %BackwardRefsWithLocalCache.exit.i, %583
@@ -2275,7 +2269,7 @@ BackwardRefsClone.exit.i:                         ; preds = %649
   %.not16.i.i = icmp ne ptr %679, null
   %680 = icmp eq ptr %679, %114
   %681 = select i1 %.not16.i.i, i1 %680, i1 false
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %87, i64 40, i1 false), !tbaa.struct !92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %87, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %16, i64 40, i1 false), !tbaa.struct !92
@@ -2293,7 +2287,7 @@ BackwardRefsClone.exit.i:                         ; preds = %649
   br label %BackwardRefsSwap.exit.i
 
 BackwardRefsSwap.exit.i:                          ; preds = %684, %683
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %BackwardRefsClone.exit.thread.i
 
 BackwardRefsClone.exit.thread.i:                  ; preds = %660, %BackwardRefsSwap.exit.i
@@ -2374,7 +2368,7 @@ BackwardRefsClone.exit.thread.i:                  ; preds = %660, %BackwardRefsS
   %719 = getelementptr inbounds nuw i8, ptr %706, i64 8
   %720 = icmp eq ptr %718, %719
   %721 = select i1 %.not16.i173.i, i1 %720, i1 false
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %87, i64 40, i1 false), !tbaa.struct !92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %87, ptr noundef nonnull align 8 dereferenceable(40) %706, i64 40, i1 false), !tbaa.struct !92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %706, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 40, i1 false), !tbaa.struct !92
@@ -2392,7 +2386,7 @@ BackwardRefsClone.exit.thread.i:                  ; preds = %660, %BackwardRefsS
   br label %BackwardRefsSwap.exit174.i
 
 BackwardRefsSwap.exit174.i:                       ; preds = %724, %723
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.thread234.i
 
 .thread234.i:                                     ; preds = %BackwardRefsSwap.exit174.i, %708, %698, %696
@@ -2604,9 +2598,9 @@ GetBackwardReferences.exit:                       ; preds = %821, %806, %VP8LCle
   store i32 0, ptr %823, align 8, !tbaa !31
   store ptr null, ptr %25, align 8, !tbaa !28
   call void @VP8LFreeHistogram(ptr noundef nonnull %88) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %GetBackwardReferencesLowEffort.exit.thread
 
 .critedge:                                        ; preds = %286, %129, %420, %CalculateBestCacheSize.exit.i, %704, %BackwardRefsWithLocalCache.exit.thread.i, %BackwardRefsClone.exit.i, %BackwardRefsClone.exit199.i, %84
@@ -2616,9 +2610,9 @@ GetBackwardReferences.exit:                       ; preds = %821, %806, %VP8LCle
   store i32 0, ptr %825, align 8, !tbaa !31
   store ptr null, ptr %25, align 8, !tbaa !28
   call void @VP8LFreeHistogram(ptr noundef %88) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %826 = call i32 @WebPEncodingSetError(ptr noundef %11, i32 noundef 1) #11
   br label %830
 
@@ -2634,7 +2628,7 @@ GetBackwardReferencesLowEffort.exit.thread:       ; preds = %GetBackwardReferenc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @BackwardReferencesLz77(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @BackwardReferencesLz77(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #2 {
   %6 = mul nsw i32 %1, %0
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !6
@@ -2893,24 +2887,30 @@ AddSingleLiteral.exit:                            ; preds = %106, %BackwardRefsN
   ret i32 %118
 }
 
-declare i32 @VP8LColorCacheInit(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @VP8LColorCacheInit(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @VP8LColorCacheClear(ptr noundef) local_unnamed_addr #4
+declare void @VP8LColorCacheClear(ptr noundef) local_unnamed_addr #3
 
-declare ptr @VP8LAllocateHistogram(i32 noundef) local_unnamed_addr #4
+declare ptr @VP8LAllocateHistogram(i32 noundef) local_unnamed_addr #3
 
-declare void @VP8LHistogramCreate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @VP8LHistogramCreate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i64 @VP8LHistogramEstimateBits(ptr noundef) local_unnamed_addr #4
+declare i64 @VP8LHistogramEstimateBits(ptr noundef) local_unnamed_addr #3
 
-declare i32 @VP8LBackwardReferencesTraceBackwards(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @VP8LBackwardReferencesTraceBackwards(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @VP8LFreeHistogram(ptr noundef) local_unnamed_addr #4
+declare void @VP8LFreeHistogram(ptr noundef) local_unnamed_addr #3
 
-declare void @VP8LHistogramInit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @VP8LHistogramInit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
@@ -2925,15 +2925,15 @@ declare i32 @llvm.smin.i32(i32, i32) #10
 declare i16 @llvm.umin.i16(i16, i16) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind }
 

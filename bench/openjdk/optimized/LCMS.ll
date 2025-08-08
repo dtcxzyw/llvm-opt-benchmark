@@ -523,7 +523,7 @@ define ptr @Java_sun_java2d_cmm_lcms_LCMS_getTagNative(ptr noundef %0, ptr nound
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   %22 = call i32 @cmsSaveProfileToMem(ptr noundef %21, ptr noundef null, ptr noundef nonnull %5) #8
   %23 = icmp eq i32 %22, 0
@@ -546,7 +546,7 @@ define ptr @Java_sun_java2d_cmm_lcms_LCMS_getTagNative(ptr noundef %0, ptr nound
 _getHeaderInfo.exit:                              ; preds = %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %18, ptr noundef nonnull align 1 dereferenceable(128) %28, i64 128, i1 false)
   call void @free(ptr noundef nonnull %28) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 1536
   %34 = load ptr, ptr %33, align 8
@@ -558,7 +558,7 @@ _getHeaderInfo.exit:                              ; preds = %30
   br label %.critedge
 
 .critedge:                                        ; preds = %20, %26, %.critedge61
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %35 = load ptr, ptr %0, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 1536
   %37 = load ptr, ptr %36, align 8
@@ -700,8 +700,8 @@ define void @Java_sun_java2d_cmm_lcms_LCMS_setTagDataNative(ptr noundef %0, ptr 
   br i1 %40, label %42, label %74
 
 42:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %43 = icmp slt i32 %33, 128
   br i1 %43, label %.critedge, label %_setHeaderInfo.exit
 
@@ -745,8 +745,8 @@ _setHeaderInfo.exit:                              ; preds = %42
   %69 = load i32, ptr %68, align 8
   %70 = call i32 @_cmsAdjustEndianess32(i32 noundef %69) #8
   call void @cmsSetEncodedICCversion(ptr noundef %41, i32 noundef %70) #8
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %71 = load ptr, ptr %0, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 1536
   %73 = load ptr, ptr %72, align 8
@@ -754,8 +754,8 @@ _setHeaderInfo.exit:                              ; preds = %42
   br label %ThrowIllegalArgumentException.exit
 
 74:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %6, align 4
   %75 = tail call i32 @cmsGetTagCount(ptr noundef %41) #8
   %76 = tail call ptr @cmsCreateProfilePlaceholder(ptr noundef null) #8
@@ -921,8 +921,8 @@ _setHeaderInfo.exit:                              ; preds = %42
 
 151:                                              ; preds = %147, %145, %141, %.critedge.i, %110, %74
   %.0.i34 = phi ptr [ null, %110 ], [ null, %.critedge.i ], [ null, %141 ], [ null, %145 ], [ %150, %147 ], [ null, %74 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not = icmp eq ptr %.0.i34, null
   %152 = load ptr, ptr %0, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 1536
@@ -931,8 +931,8 @@ _setHeaderInfo.exit:                              ; preds = %42
   br i1 %.not, label %158, label %176
 
 .critedge:                                        ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %155 = load ptr, ptr %0, align 8
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 1536
   %157 = load ptr, ptr %156, align 8
@@ -1124,10 +1124,10 @@ declare i32 @cmsGetTagSignature(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare ptr @cmsReadTag(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

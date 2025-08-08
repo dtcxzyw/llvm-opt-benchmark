@@ -77,7 +77,7 @@ define dso_local i32 @jsonquoted(ptr noundef readonly captures(address) %0, i64 
   br label %32
 
 27:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %28 = add i8 %7, -65
   %29 = icmp ult i8 %28, 26
   %or.cond5 = and i1 %3, %29
@@ -85,7 +85,7 @@ define dso_local i32 @jsonquoted(ptr noundef readonly captures(address) %0, i64 
   %spec.select = select i1 %or.cond5, i8 %30, i8 %7
   store i8 %spec.select, ptr %5, align 1, !tbaa !4
   %31 = call i32 @curlx_dyn_addn(ptr noundef %2, ptr noundef nonnull %5, i64 noundef 1) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %32
 
 32:                                               ; preds = %9, %11, %13, %15, %17, %19, %21, %27, %25
@@ -101,20 +101,14 @@ define dso_local i32 @jsonquoted(ptr noundef readonly captures(address) %0, i64 
   ret i32 %.0.lcssa
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @curlx_dyn_addn(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @curlx_dyn_addn(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
-
-declare i32 @curlx_dyn_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @curlx_dyn_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @jsonWriteString(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.dynbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @curlx_dyn_init(ptr noundef nonnull %4, i64 noundef 100000) #6
   %5 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
   %6 = call i32 @jsonquoted(ptr noundef nonnull %1, i64 noundef %5, ptr noundef nonnull %4, i1 noundef zeroext %2)
@@ -138,26 +132,26 @@ define dso_local void @jsonWriteString(ptr noundef captures(none) %0, ptr nounde
 
 15:                                               ; preds = %13, %3
   call void @curlx_dyn_free(ptr noundef nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare void @curlx_dyn_init(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @curlx_dyn_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
-declare i64 @curlx_dyn_len(ptr noundef) local_unnamed_addr #2
+declare i64 @curlx_dyn_len(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
-declare ptr @curlx_dyn_ptr(ptr noundef) local_unnamed_addr #2
+declare ptr @curlx_dyn_ptr(ptr noundef) local_unnamed_addr #1
 
-declare void @curlx_dyn_free(ptr noundef) local_unnamed_addr #2
+declare void @curlx_dyn_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ourWriteOutJSON(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -195,16 +189,16 @@ define dso_local void @ourWriteOutJSON(ptr noundef %0, ptr noundef %1, i64 nound
   ret void
 }
 
-declare i32 @curl_mfprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @curl_mfprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @curl_version() local_unnamed_addr #2
+declare ptr @curl_version() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @headerJSON(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = alloca %struct.dynbuf, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call i32 @fputc(i32 noundef 123, ptr noundef %0)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !15
@@ -252,7 +246,7 @@ define dso_local void @headerJSON(ptr noundef captures(none) %0, ptr noundef rea
   %28 = load ptr, ptr %5, align 8, !tbaa !30
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @curlx_dyn_init(ptr noundef nonnull %4, i64 noundef 100000) #6
   %31 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %30) #7
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 %31
@@ -310,10 +304,10 @@ define dso_local void @headerJSON(ptr noundef captures(none) %0, ptr noundef rea
   br label %55
 
 53:                                               ; preds = %49
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 %33, ptr %3, align 1, !tbaa !4
   %54 = call i32 @curlx_dyn_addn(ptr noundef nonnull %4, ptr noundef nonnull %3, i64 noundef 1) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %55
 
 55:                                               ; preds = %53, %51, %47, %45, %43, %41, %39, %37, %35
@@ -344,7 +338,7 @@ jsonquoted.exit.thread:                           ; preds = %27, %jsonquoted.exi
 
 jsonWriteString.exit:                             ; preds = %jsonquoted.exit, %64
   call void @curlx_dyn_free(ptr noundef nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %exitcond.not = icmp eq i64 %.023, %26
   br i1 %exitcond.not, label %71, label %66
 
@@ -393,22 +387,28 @@ jsonWriteString.exit:                             ; preds = %jsonquoted.exit, %6
 
 ._crit_edge:                                      ; preds = %86, %2
   %89 = call i64 @fwrite(ptr nonnull @.str.13, i64 2, i64 1, ptr %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare ptr @curl_easy_nextheader(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @curl_easy_nextheader(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @curl_easy_header(ptr noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @curl_easy_header(ptr noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nofree nounwind }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(read) }

@@ -1691,12 +1691,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit192.thread: ; 
 
 .noexc195:                                        ; preds = %.noexc194
   %773 = getelementptr inbounds nuw i8, ptr %769, i64 160
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %774 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(104) %773, ptr noundef nonnull align 1 dereferenceable(1) %16)
           to label %.noexc196 unwind label %1402
 
 .noexc196:                                        ; preds = %.noexc195
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %.not = icmp eq ptr %772, %774
   br i1 %.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit, label %775
 
@@ -1866,12 +1866,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit214.thread: ; 
 
 .noexc217:                                        ; preds = %.noexc216
   %845 = getelementptr inbounds nuw i8, ptr %841, i64 160
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %846 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(104) %845, ptr noundef nonnull align 1 dereferenceable(1) %15)
           to label %.noexc218 unwind label %1402
 
 .noexc218:                                        ; preds = %.noexc217
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.not337 = icmp eq ptr %844, %846
   br i1 %.not337, label %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220, label %847
 
@@ -1882,7 +1882,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit214.thread: ; 
 _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %.noexc218, %847
   store i64 4575657221408423936, ptr %76, align 8
   store i64 4863887597560135680, ptr %77, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %857, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220
@@ -1913,11 +1913,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
   ]
 
 .thread:                                          ; preds = %859
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %896
 
 .thread420:                                       ; preds = %857, %859
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %890
 
 860:                                              ; preds = %859
@@ -1965,7 +1965,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
 
 888:                                              ; preds = %873, %.noexc221, %852
   %.0.i = phi float [ %854, %852 ], [ %872, %.noexc221 ], [ %887, %873 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %889 = fcmp oeq float %.0.i, 0.000000e+00
   br i1 %889, label %896, label %890
 
@@ -1983,7 +1983,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
           to label %896 unwind label %1402
 
 896:                                              ; preds = %.thread, %890, %888
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   br label %.preheader.i222
 
 .preheader.i222:                                  ; preds = %905, %896
@@ -2067,7 +2067,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
 
 940:                                              ; preds = %925, %.noexc228, %.thread.thread.i225, %908, %900
   %.0.i226 = phi float [ %902, %900 ], [ %909, %908 ], [ %911, %.thread.thread.i225 ], [ %924, %.noexc228 ], [ %939, %925 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %941 = fcmp oeq float %.0.i226, 2.560000e+02
   br i1 %941, label %948, label %942
 
@@ -2085,7 +2085,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
           to label %948 unwind label %1402
 
 948:                                              ; preds = %942, %940
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br label %.preheader.i230
 
 .preheader.i230:                                  ; preds = %957, %948
@@ -2169,7 +2169,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
 
 992:                                              ; preds = %977, %.noexc236, %.thread.thread.i233, %960, %952
   %.0.i234 = phi float [ %954, %952 ], [ %961, %960 ], [ %963, %.thread.thread.i233 ], [ %976, %.noexc236 ], [ %991, %977 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %993 = fcmp ogt float %.0.i234, 6.300000e+01
   br i1 %993, label %1000, label %994
 
@@ -2187,7 +2187,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
           to label %1000 unwind label %1402
 
 1000:                                             ; preds = %994, %992
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br label %.preheader.i238
 
 .preheader.i238:                                  ; preds = %1009, %1000
@@ -2271,7 +2271,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
 
 1044:                                             ; preds = %1029, %.noexc244, %.thread.thread.i241, %1012, %1004
   %.0.i242 = phi float [ %1006, %1004 ], [ %1013, %1012 ], [ %1015, %.thread.thread.i241 ], [ %1028, %.noexc244 ], [ %1043, %1029 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %1045 = fcmp olt float %.0.i242, 6.500000e+01
   br i1 %1045, label %1052, label %1046
 
@@ -2289,7 +2289,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
           to label %1052 unwind label %1402
 
 1052:                                             ; preds = %1046, %1044
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %.preheader.i246
 
 .preheader.i246:                                  ; preds = %1061, %1052
@@ -2373,7 +2373,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
 
 1096:                                             ; preds = %1081, %.noexc252, %.thread.thread.i249, %1064, %1056
   %.0.i250 = phi float [ %1058, %1056 ], [ %1065, %1064 ], [ %1067, %.thread.thread.i249 ], [ %1080, %.noexc252 ], [ %1095, %1081 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %1097 = fcmp ogt float %.0.i250, 1.270000e+02
   br i1 %1097, label %1104, label %1098
 
@@ -2391,7 +2391,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
           to label %1104 unwind label %1402
 
 1104:                                             ; preds = %1098, %1096
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %.preheader.i254
 
 .preheader.i254:                                  ; preds = %1113, %1104
@@ -2475,7 +2475,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
 
 1148:                                             ; preds = %1133, %.noexc260, %.thread.thread.i257, %1116, %1108
   %.0.i258 = phi float [ %1110, %1108 ], [ %1117, %1116 ], [ %1119, %.thread.thread.i257 ], [ %1132, %.noexc260 ], [ %1147, %1133 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %1149 = fcmp olt float %.0.i258, 1.290000e+02
   br i1 %1149, label %1156, label %1150
 
@@ -2493,7 +2493,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
           to label %1156 unwind label %1402
 
 1156:                                             ; preds = %1150, %1148
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %.preheader.i262
 
 .preheader.i262:                                  ; preds = %1165, %1156
@@ -2577,7 +2577,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
 
 1200:                                             ; preds = %1185, %.noexc268, %.thread.thread.i265, %1168, %1160
   %.0.i266 = phi float [ %1162, %1160 ], [ %1169, %1168 ], [ %1171, %.thread.thread.i265 ], [ %1184, %.noexc268 ], [ %1199, %1185 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %1201 = fcmp ogt float %.0.i266, 1.910000e+02
   br i1 %1201, label %1208, label %1202
 
@@ -2595,7 +2595,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
           to label %1208 unwind label %1402
 
 1208:                                             ; preds = %1202, %1200
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %.preheader.i270
 
 .preheader.i270:                                  ; preds = %1217, %1208
@@ -2679,7 +2679,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
 
 1252:                                             ; preds = %1237, %.noexc276, %.thread.thread.i273, %1220, %1212
   %.0.i274 = phi float [ %1214, %1212 ], [ %1221, %1220 ], [ %1223, %.thread.thread.i273 ], [ %1236, %.noexc276 ], [ %1251, %1237 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %1253 = fcmp olt float %.0.i274, 1.930000e+02
   br i1 %1253, label %1260, label %1254
 
@@ -2697,7 +2697,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
           to label %1260 unwind label %1402
 
 1260:                                             ; preds = %1254, %1252
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %.preheader.i278
 
 .preheader.i278:                                  ; preds = %1269, %1260
@@ -2781,7 +2781,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
 
 1304:                                             ; preds = %1289, %.noexc284, %.thread.thread.i281, %1272, %1264
   %.0.i282 = phi float [ %1266, %1264 ], [ %1273, %1272 ], [ %1275, %.thread.thread.i281 ], [ %1288, %.noexc284 ], [ %1303, %1289 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %1305 = fcmp oeq float %.0.i282, 0.000000e+00
   br i1 %1305, label %1312, label %1306
 
@@ -2799,7 +2799,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
           to label %1312 unwind label %1402
 
 1312:                                             ; preds = %1306, %1304
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %.preheader.i286
 
 .preheader.i286:                                  ; preds = %1321, %1312
@@ -2883,7 +2883,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
 
 1356:                                             ; preds = %1341, %.noexc292, %.thread.thread.i289, %1324, %1316
   %.0.i290 = phi float [ %1318, %1316 ], [ %1325, %1324 ], [ %1327, %.thread.thread.i289 ], [ %1340, %.noexc292 ], [ %1355, %1341 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %1357 = fcmp oeq float %.0.i290, 2.560000e+02
   br i1 %1357, label %1364, label %1358
 
@@ -2932,7 +2932,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit297: ; preds =
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit297.thread unwind label %1402
 
 _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit297.thread: ; preds = %.noexc295, %1371, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit297
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @.str.25, ptr %4, align 8
   %1377 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__24HdResampleRawTimeSamplesIfEET_fmPKfPKS1_, ptr %1377, align 8
@@ -2946,7 +2946,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit297.thread: ; 
           to label %1381 unwind label %1402
 
 1381:                                             ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit297.thread
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %1382 = invoke noundef nonnull align 8 dereferenceable(481) ptr @_ZN32pxrInternal_v0_24__pxrReserved__11TfSingletonINS_15TfDiagnosticMgrEE11GetInstanceEv()
           to label %.noexc302 unwind label %1402
 
@@ -2992,12 +2992,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit304.thread: ; 
 
 .noexc307:                                        ; preds = %.noexc306
   %1398 = getelementptr inbounds nuw i8, ptr %1394, i64 160
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %1399 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(104) %1398, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc308 unwind label %1402
 
 .noexc308:                                        ; preds = %.noexc307
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not338 = icmp eq ptr %1397, %1399
   br i1 %.not338, label %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit310, label %1400
 
@@ -3282,7 +3282,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread: ; pr
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread3: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread3_crit_edge, %6
   %.pre-phi = phi i64 [ %.pre4, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread3_crit_edge ], [ %5, %6 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %17 = and i64 %.pre-phi, 4
   %.not.i.i.i = icmp eq i64 %17, 0
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13UncheckedSwapIfEENSt9enable_ifIXsr3std7is_sameIT_NS_17Vt_ValueGetStoredIS3_E4TypeEEE5valueEvE4typeERS3_.exit.i, label %18
@@ -3326,7 +3326,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit.i.i.i: ; preds = %23, 
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValue13UncheckedSwapIfEENSt9enable_ifIXsr3std7is_sameIT_NS_17Vt_ValueGetStoredIS3_E4TypeEEE5valueEvE4typeERS3_.exit.i: ; preds = %29, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %37 = load float, ptr %0, align 8
   %38 = load ptr, ptr %3, align 8
   %39 = ptrtoint ptr %38 to i64
@@ -4087,10 +4087,10 @@ declare i64 @llvm.bswap.i64(i64) #13
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 attributes #0 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

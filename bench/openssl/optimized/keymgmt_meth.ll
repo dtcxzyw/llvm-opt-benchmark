@@ -547,13 +547,13 @@ EVP_KEYMGMT_free.exit208:                         ; preds = %CRYPTO_DOWN_REF.exi
   br i1 %.not172, label %.thread, label %248
 
 .thread:                                          ; preds = %246
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %get_legacy_alg_type_from_keymgmt.exit
 
 248:                                              ; preds = %246
   %249 = tail call i32 @ossl_provider_up_ref(ptr noundef nonnull %2) #5
   %.pr = load ptr, ptr %247, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !51
   %.not.i.i = icmp eq ptr %.pr, null
   br i1 %.not.i.i, label %get_legacy_alg_type_from_keymgmt.exit, label %250
@@ -566,7 +566,7 @@ EVP_KEYMGMT_free.exit208:                         ; preds = %CRYPTO_DOWN_REF.exi
 
 get_legacy_alg_type_from_keymgmt.exit:            ; preds = %.thread, %248, %250
   %253 = phi i32 [ 0, %248 ], [ %.pre.i, %250 ], [ 0, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %254 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %253, ptr %254, align 8, !tbaa !52
   br label %EVP_KEYMGMT_free.exit
@@ -631,12 +631,6 @@ define noundef i32 @EVP_KEYMGMT_up_ref(ptr noundef captures(none) %0) local_unna
   ret i32 1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nounwind uwtable
 define void @EVP_KEYMGMT_free(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
@@ -675,35 +669,35 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @ossl_provider_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_KEYMGMT_get0_provider(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define ptr @EVP_KEYMGMT_get0_provider(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @evp_keymgmt_get_number(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define i32 @evp_keymgmt_get_number(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !12
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @evp_keymgmt_get_legacy_alg(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define i32 @evp_keymgmt_get_legacy_alg(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !52
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_KEYMGMT_get0_description(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define ptr @EVP_KEYMGMT_get0_description(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !19
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_KEYMGMT_get0_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define ptr @EVP_KEYMGMT_get0_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !16
   ret ptr %3
@@ -925,7 +919,7 @@ define void @evp_keymgmt_gen_cleanup(ptr noundef readonly captures(none) %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @evp_keymgmt_has_load(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @evp_keymgmt_has_load(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -1206,11 +1200,17 @@ define internal void @help_get_legacy_alg_type_from_keymgmt(ptr noundef %0, ptr 
 
 declare i32 @evp_pkey_name2type(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

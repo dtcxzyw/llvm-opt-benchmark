@@ -113,12 +113,9 @@ define dso_local ptr @json_parse_manifest_incremental_init(ptr noundef %0) local
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
-
-declare ptr @makeJsonLexContextIncremental(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @makeJsonLexContextIncremental(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @json_manifest_object_start(ptr noundef captures(none) %0) #0 {
@@ -178,8 +175,8 @@ define internal noundef i32 @json_manifest_object_end(ptr noundef captures(none)
 
 11:                                               ; preds = %1
   %12 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
@@ -550,13 +547,13 @@ hexdecode_string.exit102.i:                       ; preds = %hexdecode_string.ex
   br label %json_manifest_finalize_file.exit
 
 json_manifest_finalize_file.exit:                 ; preds = %177, %179
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %250
 
 180:                                              ; preds = %1
   %181 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %183 = load ptr, ptr %182, align 8
   %184 = icmp eq ptr %183, null
@@ -609,8 +606,8 @@ json_manifest_finalize_file.exit:                 ; preds = %177, %179
 
 211:                                              ; preds = %202
   %212 = load ptr, ptr %189, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %213 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef readonly %212, ptr noundef nonnull @.str.20, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   %.not.i.i = icmp eq i32 %213, 2
   br i1 %.not.i.i, label %parse_xlogrecptr.exit.thread.i, label %218
@@ -618,18 +615,18 @@ json_manifest_finalize_file.exit:                 ; preds = %177, %179
 parse_xlogrecptr.exit.thread.i:                   ; preds = %211
   %214 = load i32, ptr %4, align 4
   %215 = load i32, ptr %5, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %216 = load ptr, ptr %196, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %217 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef readonly %216, ptr noundef nonnull @.str.20, ptr noundef nonnull %2, ptr noundef nonnull %3) #8
   %.not.i33.i = icmp eq i32 %217, 2
   br i1 %.not.i33.i, label %parse_xlogrecptr.exit34.thread.i, label %235
 
 218:                                              ; preds = %211
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %219 = load ptr, ptr %0, align 8
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 40
   %221 = load ptr, ptr %220, align 8
@@ -647,8 +644,8 @@ parse_xlogrecptr.exit34.thread.i:                 ; preds = %parse_xlogrecptr.ex
   %229 = load i32, ptr %3, align 4
   %230 = zext i32 %229 to i64
   %231 = or disjoint i64 %228, %230
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %232 = getelementptr inbounds nuw i8, ptr %181, i64 32
   %233 = load ptr, ptr %232, align 8
   call void %233(ptr noundef %181, i32 noundef %204, i64 noundef %225, i64 noundef %231) #8
@@ -657,8 +654,8 @@ parse_xlogrecptr.exit34.thread.i:                 ; preds = %parse_xlogrecptr.ex
   br i1 %.not26.i, label %240, label %239
 
 235:                                              ; preds = %parse_xlogrecptr.exit.thread.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %236 = load ptr, ptr %0, align 8
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 40
   %238 = load ptr, ptr %237, align 8
@@ -691,7 +688,7 @@ parse_xlogrecptr.exit34.thread.i:                 ; preds = %parse_xlogrecptr.ex
   br label %json_manifest_finalize_wal_range.exit
 
 json_manifest_finalize_wal_range.exit:            ; preds = %243, %245
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %250
 
 246:                                              ; preds = %1
@@ -932,7 +929,7 @@ define internal noundef i32 @json_manifest_scalar(ptr noundef captures(none) %0,
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %1, ptr %9, align 8
   %10 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %5, i32 noundef 10) #8
   %12 = trunc i64 %11 to i32
   %13 = load ptr, ptr %5, align 8
@@ -963,7 +960,7 @@ json_manifest_finalize_version.exit:              ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef %10, i32 noundef %12) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i32 2, ptr %6, align 8
   br label %68
 
@@ -971,7 +968,7 @@ json_manifest_finalize_version.exit:              ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %1, ptr %27, align 8
   %28 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %29 = call i64 @strtoul(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 10) #8
   %30 = load ptr, ptr %4, align 8
   %31 = load i8, ptr %30, align 1
@@ -989,7 +986,7 @@ json_manifest_finalize_system_identifier.exit:    ; preds = %26
   %36 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef %28, i64 noundef %29) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i32 2, ptr %6, align 8
   br label %68
 
@@ -1073,12 +1070,9 @@ switch.lookup:                                    ; preds = %53
   ret i32 0
 }
 
-declare ptr @pg_cryptohash_create(i32 noundef) local_unnamed_addr #2
+declare ptr @pg_cryptohash_create(i32 noundef) local_unnamed_addr #1
 
-declare i32 @pg_cryptohash_init(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @pg_cryptohash_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @json_parse_manifest_incremental_shutdown(ptr noundef %0) local_unnamed_addr #0 {
@@ -1090,9 +1084,9 @@ define dso_local void @json_parse_manifest_incremental_shutdown(ptr noundef %0) 
   ret void
 }
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
-declare void @freeJsonLexContext(ptr noundef) local_unnamed_addr #2
+declare void @freeJsonLexContext(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @json_parse_manifest_incremental_chunk(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
@@ -1150,19 +1144,19 @@ define dso_local void @json_parse_manifest_incremental_chunk(ptr noundef %0, ptr
   ret void
 }
 
-declare i32 @pg_parse_json_incremental(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @pg_parse_json_incremental(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @json_errdetail(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @json_errdetail(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @pg_cryptohash_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @pg_cryptohash_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @verify_manifest_checksum(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
   %7 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not60 = icmp eq i64 %2, 0
   br i1 %.not60, label %._crit_edge.thread, label %.lr.ph
 
@@ -1366,8 +1360,8 @@ hexdecode_string.exit:                            ; preds = %hexdecode_char.exit
 
 98:                                               ; preds = %94
   call void @pg_cryptohash_free(ptr noundef nonnull %.0) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -1375,8 +1369,8 @@ hexdecode_string.exit:                            ; preds = %hexdecode_char.exit
 define dso_local void @json_parse_manifest(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.JsonSemAction, align 8
   %5 = alloca %struct.JsonManifestParseState, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %6, align 8
@@ -1423,35 +1417,41 @@ define dso_local void @json_parse_manifest(ptr noundef %0, ptr noundef %1, i64 n
 26:                                               ; preds = %21
   call fastcc void @verify_manifest_checksum(ptr noundef nonnull %5, ptr noundef %1, i64 noundef %2, ptr noundef null)
   call void @freeJsonLexContext(ptr noundef %8) #8
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare ptr @makeJsonLexContextCstringLen(ptr noundef, ptr noundef, i64 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @makeJsonLexContextCstringLen(ptr noundef, ptr noundef, i64 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @pg_parse_json(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @pg_parse_json(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
-declare zeroext i1 @pg_checksum_parse_type(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @pg_checksum_parse_type(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
-declare i32 @pg_cryptohash_final(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @pg_cryptohash_final(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @pg_cryptohash_free(ptr noundef) local_unnamed_addr #2
+declare void @pg_cryptohash_free(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
@@ -1460,11 +1460,11 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nounwind }

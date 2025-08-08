@@ -109,7 +109,7 @@ entry:
   %parsed_value.i = alloca double, align 8
   %buffer = alloca [32 x i8], align 16
   %ref.tmp = alloca %"class.std::allocator", align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %parsed_value.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %parsed_value.i)
   %cmp.i = fcmp oeq double %value, 0x7FF0000000000000
   %0 = bitcast double %value to i64
   %1 = inttoptr i64 %0 to ptr
@@ -136,7 +136,7 @@ if.then9.i:                                       ; preds = %if.else7.i
   br label %_ZN6google8protobuf2io12_GLOBAL__N_114DoubleToBufferEdPc.exit
 
 if.end13.i:                                       ; preds = %if.else7.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   store ptr inttoptr (i64 15 to ptr), ptr %ref.tmp.i.i, align 8
   %dispatcher_.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i.i, align 8
@@ -145,8 +145,8 @@ if.end13.i:                                       ; preds = %if.else7.i
   %dispatcher_.i.i2.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIdEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i2.i.i, align 8
   %call5.i.i = call noundef i32 @_ZN4absl12lts_2023080219str_format_internal8SnprintFEPcmNS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr noundef nonnull %buffer, i64 noundef 32, ptr nonnull @.str.3, i64 4, ptr nonnull %ref.tmp.i.i, i64 2)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ret.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ret.i.i)
   store double 0.000000e+00, ptr %ret.i.i, align 8
   %strlen.i.i = call i64 @strlen(ptr nonnull dereferenceable(1) %buffer)
   %strchr.i.i = getelementptr inbounds i8, ptr %buffer, i64 %strlen.i.i
@@ -169,14 +169,14 @@ if.end9.sink.split.i.i:                           ; preds = %if.else.i.i
 
 _ZN6google8protobuf2io14NoLocaleStrtodEPKcPPc.exit.i: ; preds = %if.end9.sink.split.i.i, %if.else.i.i, %if.then.i.i, %if.end13.i
   %4 = phi double [ %.pre.i, %if.end13.i ], [ %.pre.i, %if.else.i.i ], [ 0x7FF0000000000000, %if.then.i.i ], [ 0xFFF0000000000000, %if.end9.sink.split.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ret.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ret.i.i)
   store volatile double %4, ptr %parsed_value.i, align 8
   %parsed_value.i.0.parsed_value.i.0.parsed_value.i.0.parsed_value.0.parsed_value.0.parsed_value.0..i = load volatile double, ptr %parsed_value.i, align 8
   %cmp18.i = fcmp une double %parsed_value.i.0.parsed_value.i.0.parsed_value.i.0.parsed_value.0.parsed_value.0.parsed_value.0..i, %value
   br i1 %cmp18.i, label %if.then19.i, label %if.end23.i
 
 if.then19.i:                                      ; preds = %_ZN6google8protobuf2io14NoLocaleStrtodEPKcPPc.exit.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i30.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i30.i)
   store ptr inttoptr (i64 17 to ptr), ptr %ref.tmp.i30.i, align 8
   %dispatcher_.i.i.i36.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i30.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i36.i, align 8
@@ -185,7 +185,7 @@ if.then19.i:                                      ; preds = %_ZN6google8protobuf
   %dispatcher_.i.i2.i39.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i30.i, i64 24
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIdEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i2.i39.i, align 8
   %call5.i40.i = call noundef i32 @_ZN4absl12lts_2023080219str_format_internal8SnprintFEPcmNS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr noundef nonnull %buffer, i64 noundef 32, ptr nonnull @.str.3, i64 4, ptr nonnull %ref.tmp.i30.i, i64 2)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i30.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i30.i)
   br label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.then19.i, %_ZN6google8protobuf2io14NoLocaleStrtodEPKcPPc.exit.i
@@ -193,7 +193,7 @@ if.end23.i:                                       ; preds = %if.then19.i, %_ZN6g
   br label %_ZN6google8protobuf2io12_GLOBAL__N_114DoubleToBufferEdPc.exit
 
 _ZN6google8protobuf2io12_GLOBAL__N_114DoubleToBufferEdPc.exit: ; preds = %if.then.i, %if.then4.i, %if.then9.i, %if.end23.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %parsed_value.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %parsed_value.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
   %call.i3 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %call.i.noexc unwind label %lpad
@@ -269,7 +269,7 @@ if.then10.i:                                      ; preds = %if.else8.i
   br label %_ZN6google8protobuf2io12_GLOBAL__N_113FloatToBufferEfPc.exit
 
 if.end14.i:                                       ; preds = %if.else8.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   store ptr inttoptr (i64 6 to ptr), ptr %ref.tmp.i.i, align 8
   %dispatcher_.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i.i, align 8
@@ -281,8 +281,8 @@ if.end14.i:                                       ; preds = %if.else8.i
   %dispatcher_.i.i3.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIfEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i3.i.i, align 8
   %call5.i.i = call noundef i32 @_ZN4absl12lts_2023080219str_format_internal8SnprintFEPcmNS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr noundef nonnull %buffer, i64 noundef 24, ptr nonnull @.str.3, i64 4, ptr nonnull %ref.tmp.i.i, i64 2)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %endptr.i.i)
   %call.i.i = tail call ptr @__errno_location() #14
   store i32 0, ptr %call.i.i, align 4
   %call1.i.i = call float @strtof(ptr noundef nonnull %buffer, ptr noundef nonnull %endptr.i.i) #13
@@ -297,19 +297,19 @@ land.lhs.true.i.i:                                ; preds = %if.end14.i
   br i1 %cmp3.i.i, label %_ZN6google8protobuf2io12_GLOBAL__N_111safe_strtofEPKcPf.exit.i, label %_ZN6google8protobuf2io12_GLOBAL__N_111safe_strtofEPKcPf.exit.thread.i
 
 _ZN6google8protobuf2io12_GLOBAL__N_111safe_strtofEPKcPf.exit.thread.i: ; preds = %land.lhs.true.i.i, %if.end14.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endptr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %endptr.i.i)
   br label %if.then20.i
 
 _ZN6google8protobuf2io12_GLOBAL__N_111safe_strtofEPKcPf.exit.i: ; preds = %land.lhs.true.i.i
   %6 = load i32, ptr %call.i.i, align 4
   %cmp5.i.i = icmp ne i32 %6, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endptr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %endptr.i.i)
   %cmp19.i = fcmp une float %call1.i.i, %value
   %or.cond.i = select i1 %cmp5.i.i, i1 true, i1 %cmp19.i
   br i1 %or.cond.i, label %if.then20.i, label %if.end24.i
 
 if.then20.i:                                      ; preds = %_ZN6google8protobuf2io12_GLOBAL__N_111safe_strtofEPKcPf.exit.i, %_ZN6google8protobuf2io12_GLOBAL__N_111safe_strtofEPKcPf.exit.thread.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i30.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i30.i)
   store ptr inttoptr (i64 9 to ptr), ptr %ref.tmp.i30.i, align 8
   %dispatcher_.i.i.i36.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i30.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i36.i, align 8
@@ -318,7 +318,7 @@ if.then20.i:                                      ; preds = %_ZN6google8protobuf
   %dispatcher_.i.i3.i40.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i30.i, i64 24
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIfEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i3.i40.i, align 8
   %call5.i41.i = call noundef i32 @_ZN4absl12lts_2023080219str_format_internal8SnprintFEPcmNS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr noundef nonnull %buffer, i64 noundef 24, ptr nonnull @.str.3, i64 4, ptr nonnull %ref.tmp.i30.i, i64 2)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i30.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i30.i)
   br label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.then20.i, %_ZN6google8protobuf2io12_GLOBAL__N_111safe_strtofEPKcPf.exit.i
@@ -561,10 +561,10 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

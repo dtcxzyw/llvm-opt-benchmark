@@ -9,9 +9,9 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @FT_Get_BDF_Charset_ID(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #2
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #2
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !3
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %23, label %6
@@ -60,16 +60,10 @@ define i32 @FT_Get_BDF_Charset_ID(ptr noundef %0, ptr noundef writeonly captures
 
 23:                                               ; preds = %20, %21, %3
   %.015 = phi i32 [ 35, %3 ], [ %.016, %21 ], [ %.016, %20 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #2
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.015
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @FT_Get_BDF_Property(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -109,6 +103,12 @@ define i32 @FT_Get_BDF_Property(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %.015 = phi i32 [ 35, %3 ], [ 6, %4 ], [ %17, %16 ], [ 6, %13 ], [ 6, %11 ], [ 6, %5 ]
   ret i32 %.015
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #1
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

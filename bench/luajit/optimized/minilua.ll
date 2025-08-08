@@ -570,12 +570,12 @@ luaH_getnum.exit.i.i:                             ; preds = %120
   br i1 %.not.i16.i, label %luaH_getnum.exit.thread.i.i, label %luaH_setnum.exit.i
 
 luaH_getnum.exit.thread.i.i:                      ; preds = %124, %luaH_getnum.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store double 0.000000e+00, ptr %5, align 8, !tbaa !46
   %127 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 3, ptr %127, align 8, !tbaa !69
   %128 = call fastcc ptr @newkey(ptr noundef nonnull %.0.i5.i, ptr noundef %113, ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %luaH_setnum.exit.i
 
 luaH_setnum.exit.i:                               ; preds = %luaH_getnum.exit.thread.i.i, %luaH_getnum.exit.i.i
@@ -625,7 +625,7 @@ lua_rawseti.exit:                                 ; preds = %luaH_setnum.exit.i,
   %153 = phi ptr [ %.pre.i, %148 ], [ %133, %143 ], [ %133, %137 ], [ %133, %luaH_setnum.exit.i ]
   %154 = getelementptr inbounds i8, ptr %153, i64 -16
   store ptr %154, ptr %51, align 8, !tbaa !62
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %155 = getelementptr inbounds nuw i8, ptr %.0.i5.i, i64 120
   %156 = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %.0.i5.i, ptr noundef nonnull @.str.1, i64 noundef 3)
   store ptr %156, ptr %4, align 8, !tbaa !46
@@ -637,7 +637,7 @@ lua_rawseti.exit:                                 ; preds = %luaH_setnum.exit.i,
   %160 = load ptr, ptr %51, align 8, !tbaa !62
   %161 = getelementptr inbounds i8, ptr %160, i64 -16
   store ptr %161, ptr %51, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %162 = load ptr, ptr %108, align 8, !tbaa !70
   %163 = tail call fastcc i32 @luaL_loadfile(ptr noundef nonnull %.0.i5.i, ptr noundef %162)
   %.not = icmp eq i32 %163, 0
@@ -662,7 +662,7 @@ lua_rawseti.exit:                                 ; preds = %luaH_setnum.exit.i,
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %166 = load ptr, ptr %51, align 8, !tbaa !62
   %narrow.i = sub nsw i32 1, %0
   %167 = sext i32 %narrow.i to i64
@@ -676,14 +676,14 @@ lua_rawseti.exit:                                 ; preds = %luaH_setnum.exit.i,
   %173 = ptrtoint ptr %171 to i64
   %174 = sub i64 %172, %173
   %175 = call fastcc i32 @luaD_pcall(ptr noundef nonnull %.0.i5.i, ptr noundef nonnull @f_call, ptr noundef %3, i64 noundef %174, i64 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not22 = icmp eq i32 %175, 0
   br i1 %.not22, label %180, label %176
 
 176:                                              ; preds = %._crit_edge, %lua_rawseti.exit
   %177 = load ptr, ptr @stderr, align 8, !tbaa !81
   %178 = call fastcc ptr @lua_tolstring(ptr noundef nonnull %.0.i5.i, i32 noundef -1, ptr noundef null)
-  %179 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %177, ptr noundef nonnull @.str.2, ptr noundef %178) #36
+  %179 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %177, ptr noundef nonnull @.str.2, ptr noundef %178) #35
   br label %196
 
 180:                                              ; preds = %._crit_edge
@@ -725,9 +725,6 @@ lua_close.exit:                                   ; preds = %192
   ret i32 %.020
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @luaL_register(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.lua_TValue, align 8
@@ -753,11 +750,11 @@ define internal fastcc void @luaL_register(ptr noundef %0, ptr noundef %1, ptr n
 libsize.exit.i:                                   ; preds = %.lr.ph.i.i, %7
   %.0.lcssa.i.i = phi i32 [ 0, %7 ], [ %9, %.lr.ph.i.i ]
   %12 = tail call fastcc ptr @luaL_findtable(ptr noundef %0, i32 noundef -10000, ptr noundef nonnull @.str.257, i32 noundef 1)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !62
   %15 = getelementptr inbounds i8, ptr %14, i64 -16
-  %16 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #37
+  %16 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #36
   %17 = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, i64 noundef %16)
   store ptr %17, ptr %6, align 8, !tbaa !46
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -767,7 +764,7 @@ libsize.exit.i:                                   ; preds = %.lr.ph.i.i, %7
   %20 = load ptr, ptr %13, align 8, !tbaa !62
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %21, ptr %13, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %22 = icmp eq ptr %20, @luaO_nilobject_
   br i1 %22, label %lua_type.exit.thread.i, label %lua_type.exit.i
 
@@ -799,9 +796,9 @@ lua_type.exit.thread.i:                           ; preds = %lua_type.exit.i, %l
   %35 = load ptr, ptr %13, align 8, !tbaa !62
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %36, ptr %13, align 8, !tbaa !62
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %37 = getelementptr inbounds i8, ptr %35, i64 -32
-  %38 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #37
+  %38 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #36
   %39 = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, i64 noundef %38)
   store ptr %39, ptr %5, align 8, !tbaa !46
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -812,7 +809,7 @@ lua_type.exit.thread.i:                           ; preds = %lua_type.exit.i, %l
   %43 = load ptr, ptr %13, align 8, !tbaa !62
   %44 = getelementptr inbounds i8, ptr %43, i64 -16
   store ptr %44, ptr %13, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %45
 
 45:                                               ; preds = %28, %lua_type.exit.i
@@ -869,10 +866,10 @@ lua_remove.exit.i:                                ; preds = %.lr.ph.i37.i
   %70 = load ptr, ptr %69, align 8, !tbaa !63
   tail call fastcc void @lua_pushcclosure(ptr noundef %0, ptr noundef %70, i32 noundef 0)
   %71 = load ptr, ptr %.03242.i, align 8, !tbaa !60
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %72 = load ptr, ptr %66, align 8, !tbaa !62
   %73 = getelementptr inbounds i8, ptr %72, i64 -32
-  %74 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %71) #37
+  %74 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %71) #36
   %75 = tail call fastcc ptr @luaS_newlstr(ptr noundef %0, ptr noundef nonnull readonly %71, i64 noundef %74)
   store ptr %75, ptr %4, align 8, !tbaa !46
   store i32 4, ptr %67, align 8, !tbaa !69
@@ -882,7 +879,7 @@ lua_remove.exit.i:                                ; preds = %.lr.ph.i37.i
   %78 = load ptr, ptr %66, align 8, !tbaa !62
   %79 = getelementptr inbounds i8, ptr %78, i64 -16
   store ptr %79, ptr %66, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %80 = getelementptr inbounds nuw i8, ptr %.03242.i, i64 16
   %81 = load ptr, ptr %80, align 8, !tbaa !60
   %.not36.i = icmp eq ptr %81, null
@@ -907,7 +904,7 @@ define internal fastcc void @lua_pushstring(ptr noundef %0, ptr noundef readonly
   br label %58
 
 9:                                                ; preds = %2
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #37
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #36
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !29
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 120
@@ -1125,12 +1122,12 @@ luaH_getnum.exit.luaH_getnum.exit.thread_crit_edge.i: ; preds = %luaH_getnum.exi
 
 luaH_getnum.exit.thread.i:                        ; preds = %74, %luaH_getnum.exit.luaH_getnum.exit.thread_crit_edge.i
   %.pre-phi.i = phi double [ %.pre.i, %luaH_getnum.exit.luaH_getnum.exit.thread_crit_edge.i ], [ %50, %74 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store double %.pre-phi.i, ptr %4, align 8, !tbaa !46
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 3, ptr %77, align 8, !tbaa !69
   %78 = call fastcc ptr @newkey(ptr noundef %0, ptr noundef %39, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %luaH_setnum.exit
 
 luaH_setnum.exit:                                 ; preds = %luaH_getnum.exit.i, %luaH_getnum.exit.thread.i
@@ -1189,7 +1186,7 @@ define internal fastcc i32 @luaL_loadfile(ptr noundef %0, ptr noundef %1) unname
   %3 = alloca %struct.SParser, align 8
   %4 = alloca %struct.Zio, align 8
   %5 = alloca %struct.LoadF, align 8
-  call void @llvm.lifetime.start.p0(i64 8208, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %6, align 8, !tbaa !62
   %7 = getelementptr i8, ptr %0, i64 24
@@ -1334,7 +1331,7 @@ lua_pushlstring.exit:                             ; preds = %15, %luaC_step.exit
   br i1 %or.cond, label %84, label %90
 
 84:                                               ; preds = %81
-  %85 = tail call ptr @freopen(ptr noundef nonnull %1, ptr noundef nonnull @.str.276, ptr noundef %71) #35
+  %85 = tail call ptr @freopen(ptr noundef nonnull %1, ptr noundef nonnull @.str.276, ptr noundef %71) #37
   store ptr %85, ptr %72, align 8, !tbaa !99
   %86 = icmp eq ptr %85, null
   br i1 %86, label %87, label %.preheader
@@ -1360,7 +1357,7 @@ lua_pushlstring.exit:                             ; preds = %15, %luaC_step.exit
   %.1 = phi i32 [ %88, %89 ], [ %.030, %81 ], [ -1, %.thread ]
   %93 = tail call i32 @ungetc(i32 noundef %.1, ptr noundef %91)
   %94 = tail call fastcc ptr @lua_tolstring(ptr noundef nonnull %0, i32 noundef -1, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not.i36 = icmp eq ptr %94, null
   %spec.store.select.i = select i1 %.not.i36, ptr @.str.122, ptr %94
   %95 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1370,7 +1367,7 @@ lua_pushlstring.exit:                             ; preds = %15, %luaC_step.exit
   %97 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %5, ptr %97, align 8, !tbaa !103
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8, !tbaa !104
   %98 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %spec.store.select.i, ptr %98, align 8, !tbaa !107
@@ -1395,15 +1392,15 @@ lua_pushlstring.exit:                             ; preds = %15, %luaC_step.exit
   %115 = load ptr, ptr %114, align 8, !tbaa !43
   %116 = getelementptr inbounds nuw i8, ptr %113, i64 24
   %117 = load ptr, ptr %116, align 8, !tbaa !44
-  %118 = call ptr %115(ptr noundef %117, ptr noundef %110, i64 noundef %111, i64 noundef 0) #35
+  %118 = call ptr %115(ptr noundef %117, ptr noundef %110, i64 noundef %111, i64 noundef 0) #37
   %119 = getelementptr inbounds nuw i8, ptr %113, i64 120
   %120 = load i64, ptr %119, align 8, !tbaa !54
   %121 = sub i64 %120, %111
   store i64 %121, ptr %119, align 8, !tbaa !54
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #35
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %122 = load ptr, ptr %72, align 8, !tbaa !99
-  %123 = call i32 @ferror(ptr noundef %122) #35
+  %123 = call i32 @ferror(ptr noundef %122) #37
   br i1 %92, label %124, label %126
 
 124:                                              ; preds = %90
@@ -1548,12 +1545,12 @@ lua_remove.exit:                                  ; preds = %.lr.ph.i37, %index2
 
 199:                                              ; preds = %lua_remove.exit, %lua_settop.exit, %87, %69
   %.0 = phi i32 [ 6, %87 ], [ 6, %lua_settop.exit ], [ %109, %lua_remove.exit ], [ 6, %69 ]
-  call void @llvm.lifetime.end.p0(i64 8208, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @lua_tolstring(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 {
@@ -1651,14 +1648,14 @@ index2adr.exit:                                   ; preds = %6, %16, %22, %26, %
   br label %156
 
 57:                                               ; preds = %index2adr.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = load double, ptr %.1.i, align 8, !tbaa !46
-  %59 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %58) #35
-  %60 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #37
+  %59 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %58) #37
+  %60 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #36
   %61 = call fastcc ptr @luaS_newlstr(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %60)
   store ptr %61, ptr %.1.i, align 8, !tbaa !46
   store i32 4, ptr %53, align 8, !tbaa !69
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %63 = load ptr, ptr %62, align 8, !tbaa !29
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 120
@@ -1824,16 +1821,13 @@ index2adr.exit26:                                 ; preds = %index2adr.exit, %13
   ret ptr %.016
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noalias noundef ptr @l_alloc(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i64 %2, i64 noundef %3) #3 {
+define internal noalias noundef ptr @l_alloc(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i64 %2, i64 noundef %3) #2 {
   %5 = icmp eq i64 %3, 0
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %4
-  tail call void @free(ptr noundef %1) #35
+  tail call void @free(ptr noundef %1) #37
   br label %9
 
 7:                                                ; preds = %4
@@ -1846,17 +1840,17 @@ define internal noalias noundef ptr @l_alloc(ptr readnone captures(none) %0, ptr
 }
 
 ; Function Attrs: cold nounwind uwtable
-define internal noundef i32 @panic(ptr noundef %0) #4 {
+define internal noundef i32 @panic(ptr noundef %0) #3 {
   %2 = load ptr, ptr @stderr, align 8, !tbaa !81
   %3 = tail call fastcc ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef null)
-  %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.93, ptr noundef %3) #36
+  %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.93, ptr noundef %3) #35
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @luaD_rawrunprotected(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.lua_longjmp, align 8
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 208
   store volatile i32 0, ptr %5, align 8, !tbaa !112
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -1869,14 +1863,14 @@ define internal fastcc i32 @luaD_rawrunprotected(ptr noundef %0, ptr noundef rea
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %3
-  call void %1(ptr noundef nonnull %0, ptr noundef %2) #35, !callees !115
+  call void %1(ptr noundef nonnull %0, ptr noundef %2) #37, !callees !115
   br label %12
 
 12:                                               ; preds = %11, %3
   %13 = load ptr, ptr %4, align 8, !tbaa !114
   store ptr %13, ptr %6, align 8, !tbaa !32
   %14 = load volatile i32, ptr %5, align 8, !tbaa !112
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %14
 }
 
@@ -1888,7 +1882,7 @@ define internal void @f_luaopen(ptr noundef %0, ptr readnone captures(none) %1) 
   %6 = load ptr, ptr %5, align 8, !tbaa !43
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !44
-  %9 = tail call ptr %6(ptr noundef %8, ptr noundef null, i64 noundef 0, i64 noundef 320) #35
+  %9 = tail call ptr %6(ptr noundef %8, ptr noundef null, i64 noundef 0, i64 noundef 320) #37
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %luaM_realloc_.exit.i
 
@@ -1919,7 +1913,7 @@ define internal void @f_luaopen(ptr noundef %0, ptr readnone captures(none) %1) 
   %23 = load ptr, ptr %3, align 8, !tbaa !29
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 152
   %25 = load ptr, ptr %24, align 8, !tbaa !49
-  %26 = tail call i32 %25(ptr noundef nonnull %0) #35
+  %26 = tail call i32 %25(ptr noundef nonnull %0) #37
   br label %27
 
 27:                                               ; preds = %22, %17
@@ -1945,7 +1939,7 @@ luaM_realloc_.exit.i:                             ; preds = %2
   %38 = load ptr, ptr %37, align 8, !tbaa !43
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %40 = load ptr, ptr %39, align 8, !tbaa !44
-  %41 = tail call ptr %38(ptr noundef %40, ptr noundef null, i64 noundef 0, i64 noundef 720) #35
+  %41 = tail call ptr %38(ptr noundef %40, ptr noundef null, i64 noundef 0, i64 noundef 720) #37
   %42 = icmp eq ptr %41, null
   br i1 %42, label %43, label %stack_init.exit
 
@@ -1976,7 +1970,7 @@ luaM_realloc_.exit.i:                             ; preds = %2
   %55 = load ptr, ptr %3, align 8, !tbaa !29
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 152
   %57 = load ptr, ptr %56, align 8, !tbaa !49
-  %58 = tail call i32 %57(ptr noundef nonnull %0) #35
+  %58 = tail call i32 %57(ptr noundef nonnull %0) #37
   br label %59
 
 59:                                               ; preds = %54, %49
@@ -2027,7 +2021,7 @@ stack_init.exit:                                  ; preds = %luaM_realloc_.exit.
   %indvars.iv.i = phi i64 [ 0, %stack_init.exit ], [ %indvars.iv.next.i, %82 ]
   %83 = getelementptr inbounds nuw [17 x ptr], ptr @luaT_init.luaT_eventname, i64 0, i64 %indvars.iv.i
   %84 = load ptr, ptr %83, align 8, !tbaa !70
-  %85 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %84) #37
+  %85 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %84) #36
   %86 = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull %84, i64 noundef %85)
   %87 = load ptr, ptr %3, align 8, !tbaa !29
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 296
@@ -2045,7 +2039,7 @@ luaT_init.exit:                                   ; preds = %82, %luaT_init.exit
   %indvars.iv.i17 = phi i64 [ %indvars.iv.next.i18, %luaT_init.exit ], [ 0, %82 ]
   %93 = getelementptr inbounds nuw [32 x ptr], ptr @luaX_tokens, i64 0, i64 %indvars.iv.i17
   %94 = load ptr, ptr %93, align 8, !tbaa !70
-  %95 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %94) #37
+  %95 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %94) #36
   %96 = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull %94, i64 noundef %95)
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 9
   %98 = load i8, ptr %97, align 1, !tbaa !46
@@ -2110,7 +2104,7 @@ luaC_freeall.exit:                                ; preds = %.lr.ph.i, %1
   %26 = load ptr, ptr %25, align 8, !tbaa !43
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %28 = load ptr, ptr %27, align 8, !tbaa !44
-  %29 = tail call ptr %26(ptr noundef %28, ptr noundef %20, i64 noundef %24, i64 noundef 0) #35
+  %29 = tail call ptr %26(ptr noundef %28, ptr noundef %20, i64 noundef %24, i64 noundef 0) #37
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 120
   %31 = load i64, ptr %30, align 8, !tbaa !54
   %32 = sub i64 %31, %24
@@ -2124,7 +2118,7 @@ luaC_freeall.exit:                                ; preds = %.lr.ph.i, %1
   %39 = load ptr, ptr %38, align 8, !tbaa !43
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %41 = load ptr, ptr %40, align 8, !tbaa !44
-  %42 = tail call ptr %39(ptr noundef %41, ptr noundef %34, i64 noundef %36, i64 noundef 0) #35
+  %42 = tail call ptr %39(ptr noundef %41, ptr noundef %34, i64 noundef %36, i64 noundef 0) #37
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 120
   %44 = load i64, ptr %43, align 8, !tbaa !54
   %45 = sub i64 %44, %36
@@ -2142,7 +2136,7 @@ luaC_freeall.exit:                                ; preds = %.lr.ph.i, %1
   %54 = load ptr, ptr %53, align 8, !tbaa !43
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %56 = load ptr, ptr %55, align 8, !tbaa !44
-  %57 = tail call ptr %54(ptr noundef %56, ptr noundef %47, i64 noundef %51, i64 noundef 0) #35
+  %57 = tail call ptr %54(ptr noundef %56, ptr noundef %47, i64 noundef %51, i64 noundef 0) #37
   %58 = getelementptr inbounds nuw i8, ptr %52, i64 120
   %59 = load i64, ptr %58, align 8, !tbaa !54
   %60 = sub i64 %59, %51
@@ -2157,7 +2151,7 @@ luaC_freeall.exit:                                ; preds = %.lr.ph.i, %1
   %68 = load ptr, ptr %67, align 8, !tbaa !43
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %70 = load ptr, ptr %69, align 8, !tbaa !44
-  %71 = tail call ptr %68(ptr noundef %70, ptr noundef %61, i64 noundef %65, i64 noundef 0) #35
+  %71 = tail call ptr %68(ptr noundef %70, ptr noundef %61, i64 noundef %65, i64 noundef 0) #37
   %72 = getelementptr inbounds nuw i8, ptr %66, i64 120
   %73 = load i64, ptr %72, align 8, !tbaa !54
   %74 = sub i64 %73, %65
@@ -2166,12 +2160,12 @@ luaC_freeall.exit:                                ; preds = %.lr.ph.i, %1
   %76 = load ptr, ptr %75, align 8, !tbaa !43
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %78 = load ptr, ptr %77, align 8, !tbaa !44
-  %79 = tail call ptr %76(ptr noundef %78, ptr noundef nonnull %0, i64 noundef 616, i64 noundef 0) #35
+  %79 = tail call ptr %76(ptr noundef %78, ptr noundef nonnull %0, i64 noundef 616, i64 noundef 0) #37
   ret void
 }
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @_setjmp(ptr noundef) local_unnamed_addr #5
+declare i32 @_setjmp(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @luaH_new(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
@@ -2181,7 +2175,7 @@ define internal fastcc ptr @luaH_new(ptr noundef %0, i32 noundef %1, i32 noundef
   %7 = load ptr, ptr %6, align 8, !tbaa !43
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !44
-  %10 = tail call ptr %7(ptr noundef %9, ptr noundef null, i64 noundef 0, i64 noundef 64) #35
+  %10 = tail call ptr %7(ptr noundef %9, ptr noundef null, i64 noundef 0, i64 noundef 64) #37
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %luaM_realloc_.exit
 
@@ -2212,7 +2206,7 @@ define internal fastcc ptr @luaH_new(ptr noundef %0, i32 noundef %1, i32 noundef
   %24 = load ptr, ptr %4, align 8, !tbaa !29
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 152
   %26 = load ptr, ptr %25, align 8, !tbaa !49
-  %27 = tail call i32 %26(ptr noundef nonnull %0) #35
+  %27 = tail call i32 %26(ptr noundef nonnull %0) #37
   br label %28
 
 28:                                               ; preds = %23, %18
@@ -2273,7 +2267,7 @@ define internal fastcc void @luaS_resize(ptr noundef %0, i32 noundef range(i32 -
   %14 = load ptr, ptr %13, align 8, !tbaa !43
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !44
-  %17 = tail call ptr %14(ptr noundef %16, ptr noundef null, i64 noundef 0, i64 noundef %12) #35
+  %17 = tail call ptr %14(ptr noundef %16, ptr noundef null, i64 noundef 0, i64 noundef %12) #37
   %18 = icmp eq ptr %17, null
   %19 = icmp ne i32 %1, 0
   %or.cond.i = and i1 %19, %18
@@ -2306,7 +2300,7 @@ define internal fastcc void @luaS_resize(ptr noundef %0, i32 noundef range(i32 -
   %32 = load ptr, ptr %3, align 8, !tbaa !29
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 152
   %34 = load ptr, ptr %33, align 8, !tbaa !49
-  %35 = tail call i32 %34(ptr noundef nonnull %0) #35
+  %35 = tail call i32 %34(ptr noundef nonnull %0) #37
   br label %36
 
 36:                                               ; preds = %31, %26
@@ -2393,7 +2387,7 @@ define internal fastcc void @luaS_resize(ptr noundef %0, i32 noundef range(i32 -
   %68 = load ptr, ptr %67, align 8, !tbaa !43
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %70 = load ptr, ptr %69, align 8, !tbaa !44
-  %71 = tail call ptr %68(ptr noundef %70, ptr noundef %65, i64 noundef %66, i64 noundef 0) #35
+  %71 = tail call ptr %68(ptr noundef %70, ptr noundef %65, i64 noundef %66, i64 noundef 0) #37
   %72 = getelementptr inbounds nuw i8, ptr %64, i64 120
   %73 = load i64, ptr %72, align 8, !tbaa !54
   %74 = sub i64 %73, %66
@@ -2497,7 +2491,7 @@ define internal fastcc ptr @luaS_newlstr(ptr noundef %0, ptr noundef readonly ca
   %48 = load ptr, ptr %47, align 8, !tbaa !43
   %49 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %50 = load ptr, ptr %49, align 8, !tbaa !44
-  %51 = tail call ptr %48(ptr noundef %50, ptr noundef null, i64 noundef 0, i64 noundef %46) #35
+  %51 = tail call ptr %48(ptr noundef %50, ptr noundef null, i64 noundef 0, i64 noundef %46) #37
   %52 = icmp eq ptr %51, null
   %53 = icmp ne i64 %46, 0
   %or.cond.i.i = and i1 %53, %52
@@ -2530,7 +2524,7 @@ define internal fastcc ptr @luaS_newlstr(ptr noundef %0, ptr noundef readonly ca
   %66 = load ptr, ptr %16, align 8, !tbaa !29
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 152
   %68 = load ptr, ptr %67, align 8, !tbaa !49
-  %69 = tail call i32 %68(ptr noundef nonnull %0) #35
+  %69 = tail call i32 %68(ptr noundef nonnull %0) #37
   br label %70
 
 70:                                               ; preds = %65, %60
@@ -2594,7 +2588,7 @@ newlstr.exit:                                     ; preds = %31, %39, %102, %lua
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @longjmp(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare void @longjmp(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @resetstack(ptr noundef initializes((24, 32), (40, 48)) %0, i32 noundef range(i32 2, 6) %1) unnamed_addr #0 {
@@ -2677,7 +2671,7 @@ restore_stack_limit.exit:                         ; preds = %luaD_seterrorobj.ex
 }
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #7
+declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @luaF_close(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 {
@@ -2733,7 +2727,7 @@ luaF_freeupval.exit:                              ; preds = %21, %22
   %31 = load ptr, ptr %30, align 8, !tbaa !43
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !44
-  %34 = tail call ptr %31(ptr noundef %33, ptr noundef nonnull %9, i64 noundef 40, i64 noundef 0) #35
+  %34 = tail call ptr %31(ptr noundef %33, ptr noundef nonnull %9, i64 noundef 40, i64 noundef 0) #37
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 120
   %36 = load i64, ptr %35, align 8, !tbaa !54
   %37 = add i64 %36, -40
@@ -2823,10 +2817,10 @@ luaC_linkupval.exit:                              ; preds = %76, %71, %70, %61, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @reallymarkobject(ptr noundef %0, ptr noundef %1) unnamed_addr #9 {
+define internal fastcc void @reallymarkobject(ptr noundef %0, ptr noundef %1) unnamed_addr #8 {
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 9
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !46
   br label %tailrecurse
@@ -2965,7 +2959,7 @@ define internal fastcc void @luaD_reallocCI(ptr noundef %0, i32 noundef range(i3
   %16 = load ptr, ptr %15, align 8, !tbaa !43
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !44
-  %19 = tail call ptr %16(ptr noundef %18, ptr noundef %4, i64 noundef %10, i64 noundef %12) #35
+  %19 = tail call ptr %16(ptr noundef %18, ptr noundef %4, i64 noundef %10, i64 noundef %12) #37
   %20 = icmp eq ptr %19, null
   %21 = icmp ne i32 %1, 0
   %or.cond.i = and i1 %21, %20
@@ -2998,7 +2992,7 @@ define internal fastcc void @luaD_reallocCI(ptr noundef %0, i32 noundef range(i3
   %34 = load ptr, ptr %13, align 8, !tbaa !29
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 152
   %36 = load ptr, ptr %35, align 8, !tbaa !49
-  %37 = tail call i32 %36(ptr noundef nonnull %0) #35
+  %37 = tail call i32 %36(ptr noundef nonnull %0) #37
   br label %38
 
 38:                                               ; preds = %33, %28
@@ -3033,10 +3027,10 @@ luaM_realloc_.exit:                               ; preds = %6
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal void @luaG_runerror(ptr noundef %0, ptr noundef %1, ...) unnamed_addr #10 {
+define internal void @luaG_runerror(ptr noundef %0, ptr noundef %1, ...) unnamed_addr #9 {
   %3 = alloca [60 x i8], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = call fastcc ptr @luaO_pushvfstring(ptr noundef %0, ptr noundef %1, ptr noundef %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3056,7 +3050,7 @@ define internal void @luaG_runerror(ptr noundef %0, ptr noundef %1, ...) unnamed
   br i1 %.not.i, label %currentpc.exit.i, label %addinfo.exit
 
 currentpc.exit.i:                                 ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8, !tbaa !142
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -3098,7 +3092,7 @@ getluaproto.exit:                                 ; preds = %currentpc.exit.i, %
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   call fastcc void @luaO_chunkid(ptr noundef %3, ptr noundef nonnull %42, i64 noundef 60)
   %43 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %3, i32 noundef %.0.i.ph, ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %addinfo.exit
 
 addinfo.exit:                                     ; preds = %2, %13, %getluaproto.exit
@@ -3108,7 +3102,7 @@ addinfo.exit:                                     ; preds = %2, %13, %getluaprot
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #11
+declare void @llvm.va_start.p0(ptr) #10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc nonnull ptr @luaO_pushvfstring(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
@@ -3144,7 +3138,7 @@ pushstr.exit:                                     ; preds = %pushstr.exit.sink.s
   %22 = load ptr, ptr %7, align 8, !tbaa !62
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %23, ptr %7, align 8, !tbaa !62
-  %24 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 37) #37
+  %24 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 37) #36
   %25 = icmp eq ptr %24, null
   br i1 %25, label %._crit_edge, label %.lr.ph
 
@@ -3227,7 +3221,7 @@ luaD_growstack.exit:                              ; preds = %luaD_growstack.exit
   %68 = icmp eq ptr %67, null
   %spec.store.select = select i1 %68, ptr @.str.12, ptr %67
   %69 = load ptr, ptr %7, align 8, !tbaa !62
-  %70 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #37
+  %70 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #36
   %71 = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull %spec.store.select, i64 noundef %70)
   store ptr %71, ptr %69, align 8, !tbaa !46
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
@@ -3256,7 +3250,7 @@ pushstr.exit64:                                   ; preds = %pushstr.exit64.sink
   br label %226
 
 84:                                               ; preds = %luaD_growstack.exit
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %85 = load i32, ptr %2, align 8
   %86 = icmp ult i32 %85, 41
   br i1 %86, label %87, label %92
@@ -3282,7 +3276,7 @@ pushstr.exit64:                                   ; preds = %pushstr.exit64.sink
   store i8 %98, ptr %4, align 1, !tbaa !46
   store i8 0, ptr %30, align 1, !tbaa !46
   %99 = load ptr, ptr %7, align 8, !tbaa !62
-  %100 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #37
+  %100 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #36
   %101 = call fastcc ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef %100)
   store ptr %101, ptr %99, align 8, !tbaa !46
   %102 = getelementptr inbounds nuw i8, ptr %99, i64 8
@@ -3308,7 +3302,7 @@ pushstr.exit67:                                   ; preds = %pushstr.exit67.sink
   %112 = load ptr, ptr %7, align 8, !tbaa !62
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
   store ptr %113, ptr %7, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %226
 
 114:                                              ; preds = %luaD_growstack.exit
@@ -3409,7 +3403,7 @@ luaD_growstack.exit71:                            ; preds = %luaD_growstack.exit
   br label %226
 
 167:                                              ; preds = %luaD_growstack.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %168 = load i32, ptr %2, align 8
   %169 = icmp ult i32 %168, 41
   br i1 %169, label %170, label %175
@@ -3431,9 +3425,9 @@ luaD_growstack.exit71:                            ; preds = %luaD_growstack.exit
 178:                                              ; preds = %175, %170
   %179 = phi ptr [ %173, %170 ], [ %176, %175 ]
   %180 = load ptr, ptr %179, align 8, !tbaa !154
-  %181 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef %180) #35
+  %181 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef %180) #37
   %182 = load ptr, ptr %7, align 8, !tbaa !62
-  %183 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #37
+  %183 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #36
   %184 = call fastcc ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef %183)
   store ptr %184, ptr %182, align 8, !tbaa !46
   %185 = getelementptr inbounds nuw i8, ptr %182, i64 8
@@ -3459,7 +3453,7 @@ pushstr.exit74:                                   ; preds = %pushstr.exit74.sink
   %195 = load ptr, ptr %7, align 8, !tbaa !62
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 16
   store ptr %196, ptr %7, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %226
 
 197:                                              ; preds = %luaD_growstack.exit
@@ -3491,11 +3485,11 @@ pushstr.exit77:                                   ; preds = %pushstr.exit77.sink
   br label %226
 
 211:                                              ; preds = %luaD_growstack.exit
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %6) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 37, ptr %6, align 1, !tbaa !46
   store i8 %53, ptr %31, align 1, !tbaa !46
   store i8 0, ptr %32, align 1, !tbaa !46
-  %212 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #37
+  %212 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #36
   %213 = call fastcc ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %212)
   store ptr %213, ptr %51, align 8, !tbaa !46
   %214 = getelementptr inbounds nuw i8, ptr %50, i64 24
@@ -3521,14 +3515,14 @@ pushstr.exit80:                                   ; preds = %pushstr.exit80.sink
   %224 = load ptr, ptr %7, align 8, !tbaa !62
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 16
   store ptr %225, ptr %7, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %226
 
 226:                                              ; preds = %pushstr.exit64, %pushstr.exit67, %luaD_growstack.exit69, %luaD_growstack.exit71, %pushstr.exit74, %pushstr.exit77, %pushstr.exit80
   %227 = phi ptr [ %83, %pushstr.exit64 ], [ %113, %pushstr.exit67 ], [ %140, %luaD_growstack.exit69 ], [ %166, %luaD_growstack.exit71 ], [ %196, %pushstr.exit74 ], [ %210, %pushstr.exit77 ], [ %225, %pushstr.exit80 ]
   %228 = add nuw nsw i32 %.05390, 2
   %229 = getelementptr inbounds nuw i8, ptr %35, i64 2
-  %230 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %229, i32 noundef 37) #37
+  %230 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %229, i32 noundef 37) #36
   %231 = icmp eq ptr %230, null
   br i1 %231, label %._crit_edge, label %33
 
@@ -3536,7 +3530,7 @@ pushstr.exit80:                                   ; preds = %pushstr.exit80.sink
   %232 = phi ptr [ %23, %pushstr.exit ], [ %227, %226 ]
   %.053.lcssa = phi i32 [ 1, %pushstr.exit ], [ %228, %226 ]
   %.0.lcssa = phi ptr [ %1, %pushstr.exit ], [ %229, %226 ]
-  %233 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.lcssa) #37
+  %233 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.lcssa) #36
   %234 = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull %.0.lcssa, i64 noundef %233)
   store ptr %234, ptr %232, align 8, !tbaa !46
   %235 = getelementptr inbounds nuw i8, ptr %232, i64 8
@@ -3585,10 +3579,10 @@ pushstr.exit83:                                   ; preds = %pushstr.exit83.sink
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #11
+declare void @llvm.va_end.p0(ptr) #10
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @luaG_errormsg(ptr noundef %0) unnamed_addr #10 {
+define internal fastcc void @luaG_errormsg(ptr noundef %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load i64, ptr %2, align 8, !tbaa !41
   %.not = icmp eq i64 %3, 0
@@ -3674,7 +3668,7 @@ resetstack.exit:                                  ; preds = %23, %41, %50
   %51 = load ptr, ptr %19, align 8, !tbaa !29
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 152
   %53 = load ptr, ptr %52, align 8, !tbaa !49
-  %54 = tail call i32 %53(ptr noundef nonnull %0) #35
+  %54 = tail call i32 %53(ptr noundef nonnull %0) #37
   br label %55
 
 55:                                               ; preds = %resetstack.exit, %17
@@ -3800,7 +3794,7 @@ resetstack.exit28:                                ; preds = %95, %117, %126
   %127 = load ptr, ptr %91, align 8, !tbaa !29
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 152
   %129 = load ptr, ptr %128, align 8, !tbaa !49
-  %130 = tail call i32 %129(ptr noundef nonnull %0) #35
+  %130 = tail call i32 %129(ptr noundef nonnull %0) #37
   br label %131
 
 131:                                              ; preds = %resetstack.exit28, %89
@@ -3809,7 +3803,7 @@ resetstack.exit28:                                ; preds = %95, %117, %126
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @luaO_chunkid(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 60, 81) %2) unnamed_addr #12 {
+define internal fastcc void @luaO_chunkid(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 60, 81) %2) unnamed_addr #11 {
   %4 = load i8, ptr %1, align 1, !tbaa !46
   switch i8 %4, label %20 [
     i8 61, label %5
@@ -3818,7 +3812,7 @@ define internal fastcc void @luaO_chunkid(ptr noundef nonnull %0, ptr noundef re
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %7 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %6, i64 noundef %2) #35
+  %7 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %6, i64 noundef %2) #37
   %8 = getelementptr i8, ptr %0, i64 %2
   %9 = getelementptr i8, ptr %8, i64 -1
   store i8 0, ptr %9, align 1, !tbaa !46
@@ -3827,7 +3821,7 @@ define internal fastcc void @luaO_chunkid(ptr noundef nonnull %0, ptr noundef re
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %12 = add nsw i64 %2, -8
-  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #37
+  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #36
   store i8 0, ptr %0, align 1
   %14 = icmp ugt i64 %13, %12
   br i1 %14, label %15, label %18
@@ -3842,28 +3836,28 @@ define internal fastcc void @luaO_chunkid(ptr noundef nonnull %0, ptr noundef re
 
 18:                                               ; preds = %15, %10
   %.033 = phi ptr [ %17, %15 ], [ %11, %10 ]
-  %19 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %.033) #35
+  %19 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %.033) #37
   br label %30
 
 20:                                               ; preds = %3
-  %21 = tail call i64 @strcspn(ptr noundef nonnull %1, ptr noundef nonnull @.str.9) #37
+  %21 = tail call i64 @strcspn(ptr noundef nonnull %1, ptr noundef nonnull @.str.9) #36
   %22 = add nsw i64 %2, -17
   %spec.select = tail call i64 @llvm.umin.i64(i64 %21, i64 %22)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull align 1 dereferenceable(10) @.str.10, i64 10, i1 false) #35
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull align 1 dereferenceable(10) @.str.10, i64 10, i1 false) #37
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select
   %24 = load i8, ptr %23, align 1, !tbaa !46
   %.not = icmp eq i8 %24, 0
   br i1 %.not, label %27, label %25
 
 25:                                               ; preds = %20
-  %26 = tail call ptr @strncat(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull %1, i64 noundef %spec.select) #35
+  %26 = tail call ptr @strncat(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull %1, i64 noundef %spec.select) #37
   %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %0)
   %endptr = getelementptr inbounds i8, ptr %0, i64 %strlen
   store i32 3026478, ptr %endptr, align 1
   br label %29
 
 27:                                               ; preds = %20
-  %28 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #35
+  %28 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #37
   br label %29
 
 29:                                               ; preds = %27, %25
@@ -3879,34 +3873,34 @@ define internal fastcc void @luaO_chunkid(ptr noundef nonnull %0, ptr noundef re
 ; Function Attrs: nounwind uwtable
 define internal nonnull ptr @luaO_pushfstring(ptr noundef %0, ptr noundef %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = call fastcc ptr @luaO_pushvfstring(ptr noundef %0, ptr noundef %1, ptr noundef %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #13
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #13
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #14
+declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #13
+declare ptr @strncat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #14
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @luaV_concat(ptr noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1, i32 noundef range(i32 -2147483648, 2147483647) %2) unnamed_addr #0 {
@@ -3944,14 +3938,14 @@ define internal fastcc void @luaV_concat(ptr noundef %0, i32 noundef range(i32 -
   br label %31
 
 luaV_tostring.exit:                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %20 = load double, ptr %12, align 8, !tbaa !46
-  %21 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %20) #35
-  %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #37
+  %21 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %20) #37
+  %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #36
   %23 = call fastcc ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %22)
   store ptr %23, ptr %12, align 8, !tbaa !46
   store i32 4, ptr %18, align 8, !tbaa !69
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %31
 
 luaV_tostring.exit.thread:                        ; preds = %17, %9
@@ -3993,14 +3987,14 @@ luaG_typeerror.exit:                              ; preds = %luaV_tostring.exit.
   br i1 %cond, label %40, label %luaV_tostring.exit74
 
 40:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %41 = load double, ptr %14, align 8, !tbaa !46
-  %42 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %41) #35
-  %43 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #37
+  %42 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %41) #37
+  %43 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #36
   %44 = call fastcc ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef %43)
   store ptr %44, ptr %14, align 8, !tbaa !46
   store i32 4, ptr %15, align 8, !tbaa !69
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %luaV_tostring.exit74
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %59
@@ -4021,14 +4015,14 @@ luaG_typeerror.exit:                              ; preds = %luaV_tostring.exit.
   br label %.critedge2
 
 luaV_tostring.exit76:                             ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %50 = load double, ptr %47, align 8, !tbaa !46
-  %51 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %50) #35
-  %52 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #37
+  %51 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %50) #37
+  %52 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #36
   %53 = call fastcc ptr @luaS_newlstr(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %52)
   store ptr %53, ptr %47, align 8, !tbaa !46
   store i32 4, ptr %48, align 8, !tbaa !69
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.lr.ph..critedge2_crit_edge, %luaV_tostring.exit76
@@ -4079,7 +4073,7 @@ luaV_tostring.exit76:                             ; preds = %.lr.ph
   %73 = load ptr, ptr %72, align 8, !tbaa !43
   %74 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %75 = load ptr, ptr %74, align 8, !tbaa !44
-  %76 = tail call ptr %73(ptr noundef %75, ptr noundef %71, i64 noundef %65, i64 noundef %spec.store.select.i) #35
+  %76 = tail call ptr %73(ptr noundef %75, ptr noundef %71, i64 noundef %65, i64 noundef %spec.store.select.i) #37
   %77 = icmp eq ptr %76, null
   br i1 %77, label %78, label %luaM_realloc_.exit
 
@@ -4110,7 +4104,7 @@ luaV_tostring.exit76:                             ; preds = %.lr.ph
   %90 = load ptr, ptr %8, align 8, !tbaa !29
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 152
   %92 = load ptr, ptr %91, align 8, !tbaa !49
-  %93 = tail call i32 %92(ptr noundef nonnull %0) #35
+  %93 = tail call i32 %92(ptr noundef nonnull %0) #37
   br label %94
 
 94:                                               ; preds = %89, %84
@@ -4195,7 +4189,7 @@ define internal fastcc void @luaD_reallocstack(ptr noundef %0, i32 noundef %1) u
   %17 = load ptr, ptr %16, align 8, !tbaa !43
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !44
-  %20 = tail call ptr %17(ptr noundef %19, ptr noundef %4, i64 noundef %11, i64 noundef %13) #35
+  %20 = tail call ptr %17(ptr noundef %19, ptr noundef %4, i64 noundef %11, i64 noundef %13) #37
   %21 = icmp eq ptr %20, null
   %22 = icmp ne i32 %5, 0
   %or.cond.i = and i1 %22, %21
@@ -4228,7 +4222,7 @@ define internal fastcc void @luaD_reallocstack(ptr noundef %0, i32 noundef %1) u
   %35 = load ptr, ptr %14, align 8, !tbaa !29
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 152
   %37 = load ptr, ptr %36, align 8, !tbaa !49
-  %38 = tail call i32 %37(ptr noundef nonnull %0) #35
+  %38 = tail call i32 %37(ptr noundef nonnull %0) #37
   br label %39
 
 39:                                               ; preds = %34, %29
@@ -4610,7 +4604,7 @@ define internal fastcc void @luaD_call(ptr noundef %0, ptr noundef %1, i32 nound
   %32 = load ptr, ptr %27, align 8, !tbaa !29
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 152
   %34 = load ptr, ptr %33, align 8, !tbaa !49
-  %35 = tail call i32 %34(ptr noundef nonnull %0) #35
+  %35 = tail call i32 %34(ptr noundef nonnull %0) #37
   br label %36
 
 36:                                               ; preds = %31, %25
@@ -4777,7 +4771,7 @@ define internal fastcc void @luaD_call(ptr noundef %0, ptr noundef %1, i32 nound
   br label %.backedge.backedge
 
 110:                                              ; preds = %.backedge
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %111 = lshr i32 %65, 14
   %112 = zext nneg i32 %111 to i64
   %113 = getelementptr inbounds nuw %struct.lua_TValue, ptr %61, i64 %112
@@ -4787,7 +4781,7 @@ define internal fastcc void @luaD_call(ptr noundef %0, ptr noundef %1, i32 nound
   store ptr %64, ptr %40, align 8, !tbaa !142
   call fastcc void @luaV_gettable(ptr noundef %0, ptr noundef nonnull %8, ptr noundef %113, ptr noundef %69)
   %115 = load ptr, ptr %42, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.backedge.backedge
 
 116:                                              ; preds = %.backedge
@@ -4807,7 +4801,7 @@ define internal fastcc void @luaD_call(ptr noundef %0, ptr noundef %1, i32 nound
   br label %.backedge.backedge
 
 126:                                              ; preds = %.backedge
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %127 = load ptr, ptr %62, align 8, !tbaa !170
   store ptr %127, ptr %9, align 8, !tbaa !46
   store i32 5, ptr %49, align 8, !tbaa !69
@@ -4817,7 +4811,7 @@ define internal fastcc void @luaD_call(ptr noundef %0, ptr noundef %1, i32 nound
   %130 = getelementptr inbounds nuw %struct.lua_TValue, ptr %61, i64 %129
   call fastcc void @luaV_settable(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %130, ptr noundef %69)
   %131 = load ptr, ptr %42, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.backedge.backedge
 
 132:                                              ; preds = %.backedge
@@ -5254,7 +5248,7 @@ luaC_step.exit19:                                 ; preds = %luaC_step.exit19.si
 412:                                              ; preds = %408
   %413 = load double, ptr %399, align 8, !tbaa !46
   %414 = load double, ptr %404, align 8, !tbaa !46
-  %415 = tail call double @pow(double noundef %413, double noundef %414) #35, !tbaa !150
+  %415 = tail call double @pow(double noundef %413, double noundef %414) #37, !tbaa !150
   store double %415, ptr %69, align 8, !tbaa !46
   %416 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i32 3, ptr %416, align 8, !tbaa !69
@@ -5891,7 +5885,7 @@ luaV_equalval.exit:                               ; preds = %luaT_gettm.exit36.i
   %776 = load ptr, ptr %750, align 8, !tbaa !46
   %777 = getelementptr inbounds nuw i8, ptr %775, i64 24
   %778 = getelementptr inbounds nuw i8, ptr %776, i64 24
-  %779 = tail call i32 @strcoll(ptr noundef nonnull readonly %777, ptr noundef nonnull readonly %778) #37
+  %779 = tail call i32 @strcoll(ptr noundef nonnull readonly %777, ptr noundef nonnull readonly %778) #36
   %.not52.i.i = icmp eq i32 %779, 0
   br i1 %.not52.i.i, label %.lr.ph.preheader.i.i, label %l_strcmp.exit.i
 
@@ -5907,7 +5901,7 @@ luaV_equalval.exit:                               ; preds = %luaT_gettm.exit36.i
   %.03255.i.i = phi ptr [ %795, %791 ], [ %778, %.lr.ph.preheader.i.i ]
   %.03554.i.i = phi i64 [ %794, %791 ], [ %783, %.lr.ph.preheader.i.i ]
   %.03853.i.i = phi ptr [ %793, %791 ], [ %777, %.lr.ph.preheader.i.i ]
-  %784 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.03853.i.i) #37
+  %784 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.03853.i.i) #36
   %785 = icmp eq i64 %784, %.02956.i.i
   br i1 %785, label %786, label %789
 
@@ -5926,7 +5920,7 @@ luaV_equalval.exit:                               ; preds = %luaT_gettm.exit36.i
   %794 = sub i64 %.03554.i.i, %792
   %795 = getelementptr inbounds nuw i8, ptr %.03255.i.i, i64 %792
   %796 = sub i64 %.02956.i.i, %792
-  %797 = tail call i32 @strcoll(ptr noundef nonnull %793, ptr noundef %795) #37
+  %797 = tail call i32 @strcoll(ptr noundef nonnull %793, ptr noundef %795) #36
   %.not.i.i = icmp eq i32 %797, 0
   br i1 %.not.i.i, label %.lr.ph.i.i28, label %l_strcmp.exit.i
 
@@ -6826,14 +6820,14 @@ luaD_poscall.exit.thread:                         ; preds = %1210
 1269:                                             ; preds = %1264
   %1270 = load ptr, ptr %69, align 8, !tbaa !46
   %1271 = getelementptr inbounds nuw i8, ptr %1270, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #35
-  %1272 = call double @strtod(ptr noundef nonnull %1271, ptr noundef nonnull %7) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  %1272 = call double @strtod(ptr noundef nonnull %1271, ptr noundef nonnull %7) #37
   %1273 = load ptr, ptr %7, align 8, !tbaa !70
   %1274 = icmp eq ptr %1273, %1271
   br i1 %1274, label %luaO_str2d.exit.thread.i, label %1275
 
 luaO_str2d.exit.thread.i:                         ; preds = %1269
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %luaV_tonumber.exit
 
 1275:                                             ; preds = %1269
@@ -6844,7 +6838,7 @@ luaO_str2d.exit.thread.i:                         ; preds = %1269
   ]
 
 1277:                                             ; preds = %1275, %1275
-  %1278 = call i64 @strtoul(ptr noundef nonnull %1271, ptr noundef nonnull %7, i32 noundef 16) #35
+  %1278 = call i64 @strtoul(ptr noundef nonnull %1271, ptr noundef nonnull %7, i32 noundef 16) #37
   %1279 = uitofp i64 %1278 to double
   %.pre.i.i = load ptr, ptr %7, align 8, !tbaa !70
   %.pre11.i.i = load i8, ptr %.pre.i.i, align 1, !tbaa !46
@@ -6858,7 +6852,7 @@ luaO_str2d.exit.thread.i:                         ; preds = %1269
   br i1 %1282, label %luaO_str2d.exit.thread14.i, label %.preheader.i.i
 
 luaO_str2d.exit.thread14.i:                       ; preds = %1280
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %1293
 
 .preheader.i.i:                                   ; preds = %1280
@@ -6879,7 +6873,7 @@ luaO_str2d.exit.thread14.i:                       ; preds = %1280
 
 luaO_str2d.exit.i:                                ; preds = %1285
   %.not8.i.not.i = icmp eq i8 %1287, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not8.i.not.i, label %1293, label %luaV_tonumber.exit
 
 1293:                                             ; preds = %luaO_str2d.exit.i, %luaO_str2d.exit.thread14.i
@@ -6902,14 +6896,14 @@ luaV_tonumber.exit.thread:                        ; preds = %1264, %1293
 1296:                                             ; preds = %luaV_tonumber.exit.thread
   %1297 = load ptr, ptr %1265, align 8, !tbaa !46
   %1298 = getelementptr inbounds nuw i8, ptr %1297, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #35
-  %1299 = call double @strtod(ptr noundef nonnull %1298, ptr noundef nonnull %6) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  %1299 = call double @strtod(ptr noundef nonnull %1298, ptr noundef nonnull %6) #37
   %1300 = load ptr, ptr %6, align 8, !tbaa !70
   %1301 = icmp eq ptr %1300, %1298
   br i1 %1301, label %luaO_str2d.exit.thread.i45, label %1302
 
 luaO_str2d.exit.thread.i45:                       ; preds = %1296
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %luaV_tonumber.exit46
 
 1302:                                             ; preds = %1296
@@ -6920,7 +6914,7 @@ luaO_str2d.exit.thread.i45:                       ; preds = %1296
   ]
 
 1304:                                             ; preds = %1302, %1302
-  %1305 = call i64 @strtoul(ptr noundef nonnull %1298, ptr noundef nonnull %6, i32 noundef 16) #35
+  %1305 = call i64 @strtoul(ptr noundef nonnull %1298, ptr noundef nonnull %6, i32 noundef 16) #37
   %1306 = uitofp i64 %1305 to double
   %.pre.i.i35 = load ptr, ptr %6, align 8, !tbaa !70
   %.pre11.i.i36 = load i8, ptr %.pre.i.i35, align 1, !tbaa !46
@@ -6934,7 +6928,7 @@ luaO_str2d.exit.thread.i45:                       ; preds = %1296
   br i1 %1309, label %luaO_str2d.exit.thread14.i44, label %.preheader.i.i39
 
 luaO_str2d.exit.thread14.i44:                     ; preds = %1307
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %1320
 
 .preheader.i.i39:                                 ; preds = %1307
@@ -6955,7 +6949,7 @@ luaO_str2d.exit.thread14.i44:                     ; preds = %1307
 
 luaO_str2d.exit.i41:                              ; preds = %1312
   %.not8.i.not.i42 = icmp eq i8 %1314, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not8.i.not.i42, label %1320, label %luaV_tonumber.exit46
 
 1320:                                             ; preds = %luaO_str2d.exit.i41, %luaO_str2d.exit.thread14.i44
@@ -6982,14 +6976,14 @@ luaV_tonumber.exit46.thread.luaV_tonumber.exit58.thread_crit_edge: ; preds = %lu
 1323:                                             ; preds = %luaV_tonumber.exit46.thread
   %1324 = load ptr, ptr %1266, align 8, !tbaa !46
   %1325 = getelementptr inbounds nuw i8, ptr %1324, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #35
-  %1326 = call double @strtod(ptr noundef nonnull %1325, ptr noundef nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %1326 = call double @strtod(ptr noundef nonnull %1325, ptr noundef nonnull %5) #37
   %1327 = load ptr, ptr %5, align 8, !tbaa !70
   %1328 = icmp eq ptr %1327, %1325
   br i1 %1328, label %luaO_str2d.exit.thread.i57, label %1329
 
 luaO_str2d.exit.thread.i57:                       ; preds = %1323
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %luaV_tonumber.exit58
 
 1329:                                             ; preds = %1323
@@ -7000,7 +6994,7 @@ luaO_str2d.exit.thread.i57:                       ; preds = %1323
   ]
 
 1331:                                             ; preds = %1329, %1329
-  %1332 = call i64 @strtoul(ptr noundef nonnull %1325, ptr noundef nonnull %5, i32 noundef 16) #35
+  %1332 = call i64 @strtoul(ptr noundef nonnull %1325, ptr noundef nonnull %5, i32 noundef 16) #37
   %1333 = uitofp i64 %1332 to double
   %.pre.i.i47 = load ptr, ptr %5, align 8, !tbaa !70
   %.pre11.i.i48 = load i8, ptr %.pre.i.i47, align 1, !tbaa !46
@@ -7014,7 +7008,7 @@ luaO_str2d.exit.thread.i57:                       ; preds = %1323
   br i1 %1336, label %luaO_str2d.exit.thread14.i56, label %.preheader.i.i51
 
 luaO_str2d.exit.thread14.i56:                     ; preds = %1334
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %1347
 
 .preheader.i.i51:                                 ; preds = %1334
@@ -7035,7 +7029,7 @@ luaO_str2d.exit.thread14.i56:                     ; preds = %1334
 
 luaO_str2d.exit.i53:                              ; preds = %1339
   %.not8.i.not.i54 = icmp eq i8 %1341, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not8.i.not.i54, label %1347, label %luaV_tonumber.exit58
 
 1347:                                             ; preds = %luaO_str2d.exit.i53, %luaO_str2d.exit.thread14.i56
@@ -7273,11 +7267,11 @@ luaH_getnum.exit.i.luaH_getnum.exit.i.thread_crit_edge: ; preds = %luaH_getnum.e
 
 luaH_getnum.exit.i.thread:                        ; preds = %1478, %luaH_getnum.exit.i.luaH_getnum.exit.i.thread_crit_edge
   %.pre-phi = phi double [ %.pre260, %luaH_getnum.exit.i.luaH_getnum.exit.i.thread_crit_edge ], [ %1457, %1478 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store double %.pre-phi, ptr %4, align 8, !tbaa !46
   store i32 3, ptr %48, align 8, !tbaa !69
   %1481 = call fastcc ptr @newkey(ptr noundef %0, ptr noundef %1421, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %luaH_setnum.exit
 
 luaH_setnum.exit:                                 ; preds = %luaH_getnum.exit.i, %luaH_getnum.exit.i.thread
@@ -7344,7 +7338,7 @@ luaH_setnum.exit:                                 ; preds = %luaH_getnum.exit.i,
   %1519 = load ptr, ptr %1518, align 8, !tbaa !43
   %1520 = getelementptr inbounds nuw i8, ptr %1517, i64 24
   %1521 = load ptr, ptr %1520, align 8, !tbaa !44
-  %1522 = tail call ptr %1519(ptr noundef %1521, ptr noundef null, i64 noundef 0, i64 noundef %1516) #35
+  %1522 = tail call ptr %1519(ptr noundef %1521, ptr noundef null, i64 noundef 0, i64 noundef %1516) #37
   %1523 = icmp eq ptr %1522, null
   br i1 %1523, label %1524, label %luaM_realloc_.exit
 
@@ -7375,7 +7369,7 @@ luaH_setnum.exit:                                 ; preds = %luaH_getnum.exit.i,
   %1536 = load ptr, ptr %46, align 8, !tbaa !29
   %1537 = getelementptr inbounds nuw i8, ptr %1536, i64 152
   %1538 = load ptr, ptr %1537, align 8, !tbaa !49
-  %1539 = tail call i32 %1538(ptr noundef nonnull %0) #35
+  %1539 = tail call i32 %1538(ptr noundef nonnull %0) #37
   br label %1540
 
 1540:                                             ; preds = %1535, %1530
@@ -7483,7 +7477,7 @@ luaF_newLclosure.exit.thread:                     ; preds = %luaM_realloc_.exit
   %1592 = load ptr, ptr %1591, align 8, !tbaa !43
   %1593 = getelementptr inbounds nuw i8, ptr %1573, i64 24
   %1594 = load ptr, ptr %1593, align 8, !tbaa !44
-  %1595 = tail call ptr %1592(ptr noundef %1594, ptr noundef null, i64 noundef 0, i64 noundef 40) #35
+  %1595 = tail call ptr %1592(ptr noundef %1594, ptr noundef null, i64 noundef 0, i64 noundef 40) #37
   %1596 = icmp eq ptr %1595, null
   br i1 %1596, label %1597, label %luaM_realloc_.exit116
 
@@ -7514,7 +7508,7 @@ luaF_newLclosure.exit.thread:                     ; preds = %luaM_realloc_.exit
   %1609 = load ptr, ptr %46, align 8, !tbaa !29
   %1610 = getelementptr inbounds nuw i8, ptr %1609, i64 152
   %1611 = load ptr, ptr %1610, align 8, !tbaa !49
-  %1612 = tail call i32 %1611(ptr noundef nonnull %0) #35
+  %1612 = tail call i32 %1611(ptr noundef nonnull %0) #37
   br label %1613
 
 1613:                                             ; preds = %1608, %1603
@@ -8206,7 +8200,7 @@ luaD_growstack.exit94:                            ; preds = %luaD_growstack.exit
   %222 = load ptr, ptr %221, align 8, !tbaa !46
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 32
   %224 = load ptr, ptr %223, align 8, !tbaa !46
-  %225 = tail call i32 %224(ptr noundef nonnull %0) #35
+  %225 = tail call i32 %224(ptr noundef nonnull %0) #37
   %226 = icmp slt i32 %225, 0
   br i1 %226, label %256, label %227
 
@@ -8313,7 +8307,7 @@ define internal fastcc nonnull ptr @growCI(ptr noundef %0) unnamed_addr #0 {
   %18 = load ptr, ptr %13, align 8, !tbaa !29
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 152
   %20 = load ptr, ptr %19, align 8, !tbaa !49
-  %21 = tail call i32 %20(ptr noundef nonnull %0) #35
+  %21 = tail call i32 %20(ptr noundef nonnull %0) #37
   br label %22
 
 22:                                               ; preds = %17, %11
@@ -8596,8 +8590,8 @@ callTMres.exit:                                   ; preds = %100, %luaD_growstac
 define internal fastcc void @luaV_settable(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %.sroa.0 = alloca ptr, align 8
   %.sroa.4 = alloca i32, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
   %.0.sroa.gep = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = getelementptr i8, ptr %0, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -8899,8 +8893,8 @@ callTM.exit:                                      ; preds = %callTM.exit.sink.sp
   unreachable
 
 .critedge:                                        ; preds = %77, %73, %68, %luaT_gettm.exit.thread, %callTM.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
   ret void
 }
 
@@ -8910,7 +8904,7 @@ define internal fastcc void @Arith(ptr noundef %0, ptr noundef %1, ptr noundef r
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %.sroa.086 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.086)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.086)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !69
   switch i32 %10, label %luaV_tonumber.exit [
@@ -8921,14 +8915,14 @@ define internal fastcc void @Arith(ptr noundef %0, ptr noundef %1, ptr noundef r
 11:                                               ; preds = %5
   %12 = load ptr, ptr %2, align 8, !tbaa !46
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #35
-  %14 = call double @strtod(ptr noundef nonnull %13, ptr noundef nonnull %8) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  %14 = call double @strtod(ptr noundef nonnull %13, ptr noundef nonnull %8) #37
   %15 = load ptr, ptr %8, align 8, !tbaa !70
   %16 = icmp eq ptr %15, %13
   br i1 %16, label %luaO_str2d.exit.thread.i, label %17
 
 luaO_str2d.exit.thread.i:                         ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %luaV_tonumber.exit
 
 17:                                               ; preds = %11
@@ -8939,7 +8933,7 @@ luaO_str2d.exit.thread.i:                         ; preds = %11
   ]
 
 19:                                               ; preds = %17, %17
-  %20 = call i64 @strtoul(ptr noundef nonnull %13, ptr noundef nonnull %8, i32 noundef 16) #35
+  %20 = call i64 @strtoul(ptr noundef nonnull %13, ptr noundef nonnull %8, i32 noundef 16) #37
   %21 = uitofp i64 %20 to double
   %.pre.i.i = load ptr, ptr %8, align 8, !tbaa !70
   %.pre11.i.i = load i8, ptr %.pre.i.i, align 1, !tbaa !46
@@ -8953,7 +8947,7 @@ luaO_str2d.exit.thread.i:                         ; preds = %11
   br i1 %24, label %luaO_str2d.exit.thread14.i, label %.preheader.i.i
 
 luaO_str2d.exit.thread14.i:                       ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %35
 
 .preheader.i.i:                                   ; preds = %22
@@ -8974,7 +8968,7 @@ luaO_str2d.exit.thread14.i:                       ; preds = %22
 
 luaO_str2d.exit.i:                                ; preds = %27
   %.not8.i.not.i = icmp eq i8 %29, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.not8.i.not.i, label %35, label %luaV_tonumber.exit
 
 35:                                               ; preds = %luaO_str2d.exit.i, %luaO_str2d.exit.thread14.i
@@ -8997,14 +8991,14 @@ luaO_str2d.exit.i:                                ; preds = %27
 39:                                               ; preds = %36
   %40 = load ptr, ptr %3, align 8, !tbaa !46
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #35
-  %42 = call double @strtod(ptr noundef nonnull %41, ptr noundef nonnull %7) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  %42 = call double @strtod(ptr noundef nonnull %41, ptr noundef nonnull %7) #37
   %43 = load ptr, ptr %7, align 8, !tbaa !70
   %44 = icmp eq ptr %43, %41
   br i1 %44, label %luaO_str2d.exit.thread.i61, label %45
 
 luaO_str2d.exit.thread.i61:                       ; preds = %39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %luaV_tonumber.exit
 
 45:                                               ; preds = %39
@@ -9015,7 +9009,7 @@ luaO_str2d.exit.thread.i61:                       ; preds = %39
   ]
 
 47:                                               ; preds = %45, %45
-  %48 = call i64 @strtoul(ptr noundef nonnull %41, ptr noundef nonnull %7, i32 noundef 16) #35
+  %48 = call i64 @strtoul(ptr noundef nonnull %41, ptr noundef nonnull %7, i32 noundef 16) #37
   %49 = uitofp i64 %48 to double
   %.pre.i.i51 = load ptr, ptr %7, align 8, !tbaa !70
   %.pre11.i.i52 = load i8, ptr %.pre.i.i51, align 1, !tbaa !46
@@ -9029,7 +9023,7 @@ luaO_str2d.exit.thread.i61:                       ; preds = %39
   br i1 %52, label %luaO_str2d.exit.thread14.i60, label %.preheader.i.i55
 
 luaO_str2d.exit.thread14.i60:                     ; preds = %50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %63
 
 .preheader.i.i55:                                 ; preds = %50
@@ -9050,7 +9044,7 @@ luaO_str2d.exit.thread14.i60:                     ; preds = %50
 
 luaO_str2d.exit.i57:                              ; preds = %55
   %.not8.i.not.i58 = icmp eq i8 %57, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not8.i.not.i58, label %63, label %luaV_tonumber.exit
 
 63:                                               ; preds = %luaO_str2d.exit.thread14.i60, %luaO_str2d.exit.i57, %._crit_edge
@@ -9090,7 +9084,7 @@ luaO_str2d.exit.i57:                              ; preds = %55
   br label %.sink.split
 
 79:                                               ; preds = %63
-  %80 = tail call double @pow(double noundef %65, double noundef %64) #35, !tbaa !150
+  %80 = tail call double @pow(double noundef %65, double noundef %64) #37, !tbaa !150
   br label %.sink.split
 
 81:                                               ; preds = %63
@@ -9115,14 +9109,14 @@ luaV_tonumber.exit:                               ; preds = %luaO_str2d.exit.i57
 86:                                               ; preds = %84
   %87 = load ptr, ptr %2, align 8, !tbaa !46
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #35
-  %89 = call double @strtod(ptr noundef nonnull %88, ptr noundef nonnull %6) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  %89 = call double @strtod(ptr noundef nonnull %88, ptr noundef nonnull %6) #37
   %90 = load ptr, ptr %6, align 8, !tbaa !70
   %91 = icmp eq ptr %90, %88
   br i1 %91, label %luaO_str2d.exit.thread.i73, label %92
 
 luaO_str2d.exit.thread.i73:                       ; preds = %86
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %109
 
 92:                                               ; preds = %86
@@ -9133,7 +9127,7 @@ luaO_str2d.exit.thread.i73:                       ; preds = %86
   ]
 
 94:                                               ; preds = %92, %92
-  %95 = call i64 @strtoul(ptr noundef nonnull %88, ptr noundef nonnull %6, i32 noundef 16) #35
+  %95 = call i64 @strtoul(ptr noundef nonnull %88, ptr noundef nonnull %6, i32 noundef 16) #37
   %.pre.i.i63 = load ptr, ptr %6, align 8, !tbaa !70
   %.pre11.i.i64 = load i8, ptr %.pre.i.i63, align 1, !tbaa !46
   br label %96
@@ -9145,7 +9139,7 @@ luaO_str2d.exit.thread.i73:                       ; preds = %86
   br i1 %98, label %luaO_str2d.exit.thread14.i72, label %.preheader.i.i67
 
 luaO_str2d.exit.thread14.i72:                     ; preds = %96
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %luaV_tonumber.exit74
 
 .preheader.i.i67:                                 ; preds = %96
@@ -9166,7 +9160,7 @@ luaO_str2d.exit.thread14.i72:                     ; preds = %96
 
 luaO_str2d.exit.i69:                              ; preds = %101
   %.not8.i.not.i70 = icmp eq i8 %103, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not8.i.not.i70, label %luaV_tonumber.exit74, label %109
 
 109:                                              ; preds = %luaO_str2d.exit.i69, %luaO_str2d.exit.thread.i73, %84
@@ -9190,21 +9184,21 @@ luaV_tonumber.exit74:                             ; preds = %luaO_str2d.exit.thr
   br label %116
 
 116:                                              ; preds = %.sink.split, %luaV_tonumber.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.086)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.086)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.floor.f64(double) #15
+declare double @llvm.floor.f64(double) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #15
+declare double @llvm.fmuladd.f64(double, double, double) #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #16
+declare double @pow(double noundef, double noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @luaH_getn(ptr noundef readonly captures(none) %0) unnamed_addr #17 {
+define internal fastcc i32 @luaH_getn(ptr noundef readonly captures(none) %0) unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8, !tbaa !94
   %.not = icmp eq i32 %3, 0
@@ -9510,7 +9504,7 @@ define internal fastcc range(i32 0, 2) i32 @luaV_lessthan(ptr noundef %0, ptr no
   %30 = load ptr, ptr %2, align 8, !tbaa !46
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %33 = tail call i32 @strcoll(ptr noundef nonnull readonly %31, ptr noundef nonnull readonly %32) #37
+  %33 = tail call i32 @strcoll(ptr noundef nonnull readonly %31, ptr noundef nonnull readonly %32) #36
   %.not52.i = icmp eq i32 %33, 0
   br i1 %.not52.i, label %.lr.ph.preheader.i, label %l_strcmp.exit
 
@@ -9526,7 +9520,7 @@ define internal fastcc range(i32 0, 2) i32 @luaV_lessthan(ptr noundef %0, ptr no
   %.03255.i = phi ptr [ %46, %42 ], [ %32, %.lr.ph.preheader.i ]
   %.03554.i = phi i64 [ %45, %42 ], [ %37, %.lr.ph.preheader.i ]
   %.03853.i = phi ptr [ %44, %42 ], [ %31, %.lr.ph.preheader.i ]
-  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.03853.i) #37
+  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.03853.i) #36
   %39 = icmp eq i64 %38, %.02956.i
   br i1 %39, label %l_strcmp.exit, label %40
 
@@ -9540,7 +9534,7 @@ define internal fastcc range(i32 0, 2) i32 @luaV_lessthan(ptr noundef %0, ptr no
   %45 = sub i64 %.03554.i, %43
   %46 = getelementptr inbounds nuw i8, ptr %.03255.i, i64 %43
   %47 = sub i64 %.02956.i, %43
-  %48 = tail call i32 @strcoll(ptr noundef nonnull %44, ptr noundef %46) #37
+  %48 = tail call i32 @strcoll(ptr noundef nonnull %44, ptr noundef %46) #36
   %.not.i = icmp eq i32 %48, 0
   br i1 %.not.i, label %.lr.ph.i, label %l_strcmp.exit
 
@@ -9820,7 +9814,7 @@ luaG_ordererror.exit:                             ; preds = %.fold.split.i, %195
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @luaH_get(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #17 {
+define internal fastcc ptr @luaH_get(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !69
   switch i32 %4, label %112 [
@@ -10205,7 +10199,7 @@ mainposition.exit:                                ; preds = %16, %.critedge.i.i,
   br i1 %85, label %getfreepos.exit, label %78, !llvm.loop !207
 
 86:                                               ; preds = %78
-  call void @llvm.lifetime.start.p0(i64 124, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(124) %4, i8 0, i64 124, i1 false), !tbaa !150
   %87 = load i32, ptr %9, align 8, !tbaa !94
   br label %88
@@ -10431,7 +10425,7 @@ rehash.exit:                                      ; preds = %.lr.ph.i17.i, %179,
   %184 = add i32 %183, %.0.lcssa.i.i
   %185 = sub i32 %184, %.118.i.i
   tail call fastcc void @resize(ptr noundef %0, ptr noundef %1, i32 noundef %.1.i16.i, i32 noundef %185)
-  call void @llvm.lifetime.end.p0(i64 124, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %186 = tail call fastcc ptr @luaH_get(ptr noundef %1, ptr noundef %2)
   store i8 0, ptr %11, align 2, !tbaa !129
   %.not.i = icmp eq ptr %186, @luaO_nilobject_
@@ -10716,11 +10710,11 @@ luaH_getnum.exit.luaH_getnum.exit.thread_crit_edge: ; preds = %luaH_getnum.exit
 
 luaH_getnum.exit.thread:                          ; preds = %53, %luaH_getnum.exit.luaH_getnum.exit.thread_crit_edge
   %.pre-phi79 = phi double [ %.pre78, %luaH_getnum.exit.luaH_getnum.exit.thread_crit_edge ], [ %32, %53 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store double %.pre-phi79, ptr %5, align 8, !tbaa !46
   store i32 3, ptr %18, align 8, !tbaa !69
   %56 = call fastcc ptr @newkey(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %luaH_setnum.exit
 
 luaH_setnum.exit:                                 ; preds = %luaH_getnum.exit, %luaH_getnum.exit.thread
@@ -10752,7 +10746,7 @@ luaH_setnum.exit:                                 ; preds = %luaH_getnum.exit, %
   %70 = load ptr, ptr %69, align 8, !tbaa !43
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %72 = load ptr, ptr %71, align 8, !tbaa !44
-  %73 = tail call ptr %70(ptr noundef %72, ptr noundef %63, i64 noundef %65, i64 noundef %66) #35
+  %73 = tail call ptr %70(ptr noundef %72, ptr noundef %63, i64 noundef %65, i64 noundef %66) #37
   %74 = icmp eq ptr %73, null
   %75 = icmp ne i32 %2, 0
   %or.cond.i = and i1 %75, %74
@@ -10785,7 +10779,7 @@ luaH_setnum.exit:                                 ; preds = %luaH_getnum.exit, %
   %88 = load ptr, ptr %67, align 8, !tbaa !29
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 152
   %90 = load ptr, ptr %89, align 8, !tbaa !49
-  %91 = tail call i32 %90(ptr noundef nonnull %0) #35
+  %91 = tail call i32 %90(ptr noundef nonnull %0) #37
   br label %92
 
 92:                                               ; preds = %87, %82
@@ -10881,7 +10875,7 @@ luaH_set.exit:                                    ; preds = %110, %119
   %131 = load ptr, ptr %130, align 8, !tbaa !43
   %132 = getelementptr inbounds nuw i8, ptr %129, i64 24
   %133 = load ptr, ptr %132, align 8, !tbaa !44
-  %134 = tail call ptr %131(ptr noundef %133, ptr noundef %11, i64 noundef %127, i64 noundef 0) #35
+  %134 = tail call ptr %131(ptr noundef %133, ptr noundef %11, i64 noundef %127, i64 noundef 0) #37
   %135 = getelementptr inbounds nuw i8, ptr %129, i64 120
   %136 = load i64, ptr %135, align 8, !tbaa !54
   %137 = sub i64 %136, %127
@@ -10912,7 +10906,7 @@ define internal fastcc void @setarrayvector(ptr noundef %0, ptr noundef captures
   %17 = load ptr, ptr %16, align 8, !tbaa !43
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !44
-  %20 = tail call ptr %17(ptr noundef %19, ptr noundef %7, i64 noundef %11, i64 noundef %13) #35
+  %20 = tail call ptr %17(ptr noundef %19, ptr noundef %7, i64 noundef %11, i64 noundef %13) #37
   %21 = icmp eq ptr %20, null
   %22 = icmp ne i32 %2, 0
   %or.cond.i = and i1 %22, %21
@@ -10945,7 +10939,7 @@ define internal fastcc void @setarrayvector(ptr noundef %0, ptr noundef captures
   %35 = load ptr, ptr %14, align 8, !tbaa !29
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 152
   %37 = load ptr, ptr %36, align 8, !tbaa !49
-  %38 = tail call i32 %37(ptr noundef nonnull %0) #35
+  %38 = tail call i32 %37(ptr noundef nonnull %0) #37
   br label %39
 
 39:                                               ; preds = %34, %29
@@ -11044,7 +11038,7 @@ luaO_log2.exit:                                   ; preds = %.lr.ph.i, %7
   %33 = load ptr, ptr %32, align 8, !tbaa !43
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !44
-  %36 = tail call ptr %33(ptr noundef %35, ptr noundef null, i64 noundef 0, i64 noundef %29) #35
+  %36 = tail call ptr %33(ptr noundef %35, ptr noundef null, i64 noundef 0, i64 noundef %29) #37
   %37 = icmp eq ptr %36, null
   %38 = icmp ult i32 %18, 32
   %or.cond.i = and i1 %38, %37
@@ -11077,7 +11071,7 @@ luaO_log2.exit:                                   ; preds = %.lr.ph.i, %7
   %51 = load ptr, ptr %30, align 8, !tbaa !29
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 152
   %53 = load ptr, ptr %52, align 8, !tbaa !49
-  %54 = tail call i32 %53(ptr noundef nonnull %0) #35
+  %54 = tail call i32 %53(ptr noundef nonnull %0) #37
   br label %55
 
 55:                                               ; preds = %50, %45
@@ -11139,16 +11133,16 @@ luaM_realloc_.exit:                               ; preds = %27
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
-declare i32 @strcoll(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #18
+declare i32 @strcoll(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #19
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #19
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #20
+declare ptr @__ctype_b_loc() local_unnamed_addr #19
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @singlestep(ptr noundef %0) unnamed_addr #0 {
@@ -11677,7 +11671,7 @@ atomic.exit:                                      ; preds = %._crit_edge.i.i, %p
   %248 = load ptr, ptr %247, align 8, !tbaa !43
   %249 = getelementptr inbounds nuw i8, ptr %246, i64 24
   %250 = load ptr, ptr %249, align 8, !tbaa !44
-  %251 = tail call ptr %248(ptr noundef %250, ptr noundef %245, i64 noundef %241, i64 noundef %244) #35
+  %251 = tail call ptr %248(ptr noundef %250, ptr noundef %245, i64 noundef %241, i64 noundef %244) #37
   %252 = icmp eq ptr %251, null
   br i1 %252, label %253, label %luaM_realloc_.exit
 
@@ -11708,7 +11702,7 @@ atomic.exit:                                      ; preds = %._crit_edge.i.i, %p
   %265 = load ptr, ptr %2, align 8, !tbaa !29
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 152
   %267 = load ptr, ptr %266, align 8, !tbaa !49
-  %268 = tail call i32 %267(ptr noundef nonnull %0) #35
+  %268 = tail call i32 %267(ptr noundef nonnull %0) #37
   br label %269
 
 269:                                              ; preds = %264, %259
@@ -11868,9 +11862,9 @@ luaH_getstr.exit.i.i:                             ; preds = %44, %40
 51:                                               ; preds = %luaH_getstr.exit.i.i
   %52 = load ptr, ptr %.010.i.i.i, align 8, !tbaa !46
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  %54 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %53, i32 noundef 107) #37
+  %54 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %53, i32 noundef 107) #36
   %55 = icmp ne ptr %54, null
-  %56 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %53, i32 noundef 118) #37
+  %56 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %53, i32 noundef 118) #36
   %57 = icmp ne ptr %56, null
   %or.cond.i = select i1 %55, i1 true, i1 %57
   br i1 %or.cond.i, label %58, label %.thread76.i
@@ -12630,7 +12624,7 @@ define internal fastcc noundef ptr @sweeplist(ptr noundef readonly captures(none
   %47 = load ptr, ptr %46, align 8, !tbaa !43
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %49 = load ptr, ptr %48, align 8, !tbaa !44
-  %50 = tail call ptr %47(ptr noundef %49, ptr noundef %40, i64 noundef %44, i64 noundef 0) #35
+  %50 = tail call ptr %47(ptr noundef %49, ptr noundef %40, i64 noundef %44, i64 noundef 0) #37
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 120
   %52 = load i64, ptr %51, align 8, !tbaa !54
   %53 = sub i64 %52, %44
@@ -12646,7 +12640,7 @@ define internal fastcc noundef ptr @sweeplist(ptr noundef readonly captures(none
   %62 = load ptr, ptr %61, align 8, !tbaa !43
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %64 = load ptr, ptr %63, align 8, !tbaa !44
-  %65 = tail call ptr %62(ptr noundef %64, ptr noundef %55, i64 noundef %59, i64 noundef 0) #35
+  %65 = tail call ptr %62(ptr noundef %64, ptr noundef %55, i64 noundef %59, i64 noundef 0) #37
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 120
   %67 = load i64, ptr %66, align 8, !tbaa !54
   %68 = sub i64 %67, %59
@@ -12662,7 +12656,7 @@ define internal fastcc noundef ptr @sweeplist(ptr noundef readonly captures(none
   %77 = load ptr, ptr %76, align 8, !tbaa !43
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %79 = load ptr, ptr %78, align 8, !tbaa !44
-  %80 = tail call ptr %77(ptr noundef %79, ptr noundef %70, i64 noundef %74, i64 noundef 0) #35
+  %80 = tail call ptr %77(ptr noundef %79, ptr noundef %70, i64 noundef %74, i64 noundef 0) #37
   %81 = getelementptr inbounds nuw i8, ptr %75, i64 120
   %82 = load i64, ptr %81, align 8, !tbaa !54
   %83 = sub i64 %82, %74
@@ -12678,7 +12672,7 @@ define internal fastcc noundef ptr @sweeplist(ptr noundef readonly captures(none
   %92 = load ptr, ptr %91, align 8, !tbaa !43
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 24
   %94 = load ptr, ptr %93, align 8, !tbaa !44
-  %95 = tail call ptr %92(ptr noundef %94, ptr noundef %85, i64 noundef %89, i64 noundef 0) #35
+  %95 = tail call ptr %92(ptr noundef %94, ptr noundef %85, i64 noundef %89, i64 noundef 0) #37
   %96 = getelementptr inbounds nuw i8, ptr %90, i64 120
   %97 = load i64, ptr %96, align 8, !tbaa !54
   %98 = sub i64 %97, %89
@@ -12694,7 +12688,7 @@ define internal fastcc noundef ptr @sweeplist(ptr noundef readonly captures(none
   %107 = load ptr, ptr %106, align 8, !tbaa !43
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 24
   %109 = load ptr, ptr %108, align 8, !tbaa !44
-  %110 = tail call ptr %107(ptr noundef %109, ptr noundef %100, i64 noundef %104, i64 noundef 0) #35
+  %110 = tail call ptr %107(ptr noundef %109, ptr noundef %100, i64 noundef %104, i64 noundef 0) #37
   %111 = getelementptr inbounds nuw i8, ptr %105, i64 120
   %112 = load i64, ptr %111, align 8, !tbaa !54
   %113 = sub i64 %112, %104
@@ -12710,7 +12704,7 @@ define internal fastcc noundef ptr @sweeplist(ptr noundef readonly captures(none
   %122 = load ptr, ptr %121, align 8, !tbaa !43
   %123 = getelementptr inbounds nuw i8, ptr %120, i64 24
   %124 = load ptr, ptr %123, align 8, !tbaa !44
-  %125 = tail call ptr %122(ptr noundef %124, ptr noundef %115, i64 noundef %119, i64 noundef 0) #35
+  %125 = tail call ptr %122(ptr noundef %124, ptr noundef %115, i64 noundef %119, i64 noundef 0) #37
   %126 = getelementptr inbounds nuw i8, ptr %120, i64 120
   %127 = load i64, ptr %126, align 8, !tbaa !54
   %128 = sub i64 %127, %119
@@ -12720,7 +12714,7 @@ define internal fastcc noundef ptr @sweeplist(ptr noundef readonly captures(none
   %131 = load ptr, ptr %130, align 8, !tbaa !43
   %132 = getelementptr inbounds nuw i8, ptr %129, i64 24
   %133 = load ptr, ptr %132, align 8, !tbaa !44
-  %134 = tail call ptr %131(ptr noundef %133, ptr noundef nonnull %12, i64 noundef 120, i64 noundef 0) #35
+  %134 = tail call ptr %131(ptr noundef %133, ptr noundef nonnull %12, i64 noundef 120, i64 noundef 0) #37
   %135 = getelementptr inbounds nuw i8, ptr %129, i64 120
   %136 = load i64, ptr %135, align 8, !tbaa !54
   %137 = add i64 %136, -120
@@ -12743,7 +12737,7 @@ define internal fastcc noundef ptr @sweeplist(ptr noundef readonly captures(none
   %148 = load ptr, ptr %147, align 8, !tbaa !43
   %149 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
   %150 = load ptr, ptr %149, align 8, !tbaa !44
-  %151 = tail call ptr %148(ptr noundef %150, ptr noundef nonnull %12, i64 noundef %146, i64 noundef 0) #35
+  %151 = tail call ptr %148(ptr noundef %150, ptr noundef nonnull %12, i64 noundef %146, i64 noundef 0) #37
   %152 = getelementptr inbounds nuw i8, ptr %.val.i, i64 120
   %153 = load i64, ptr %152, align 8, !tbaa !54
   %154 = sub i64 %153, %146
@@ -12774,7 +12768,7 @@ luaF_freeupval.exit.i:                            ; preds = %159, %155
   %168 = load ptr, ptr %167, align 8, !tbaa !43
   %169 = getelementptr inbounds nuw i8, ptr %166, i64 24
   %170 = load ptr, ptr %169, align 8, !tbaa !44
-  %171 = tail call ptr %168(ptr noundef %170, ptr noundef nonnull %12, i64 noundef 40, i64 noundef 0) #35
+  %171 = tail call ptr %168(ptr noundef %170, ptr noundef nonnull %12, i64 noundef 40, i64 noundef 0) #37
   %172 = getelementptr inbounds nuw i8, ptr %166, i64 120
   %173 = load i64, ptr %172, align 8, !tbaa !54
   %174 = add i64 %173, -40
@@ -12797,7 +12791,7 @@ luaF_freeupval.exit.i:                            ; preds = %159, %155
   %184 = load ptr, ptr %183, align 8, !tbaa !43
   %185 = getelementptr inbounds nuw i8, ptr %.pre30, i64 24
   %186 = load ptr, ptr %185, align 8, !tbaa !44
-  %187 = tail call ptr %184(ptr noundef %186, ptr noundef %177, i64 noundef %182, i64 noundef 0) #35
+  %187 = tail call ptr %184(ptr noundef %186, ptr noundef %177, i64 noundef %182, i64 noundef 0) #37
   %188 = getelementptr inbounds nuw i8, ptr %.pre30, i64 120
   %189 = load i64, ptr %188, align 8, !tbaa !54
   %190 = sub i64 %189, %182
@@ -12817,7 +12811,7 @@ luaH_free.exit.i:                                 ; preds = %178, %175
   %199 = load ptr, ptr %198, align 8, !tbaa !43
   %200 = getelementptr inbounds nuw i8, ptr %191, i64 24
   %201 = load ptr, ptr %200, align 8, !tbaa !44
-  %202 = tail call ptr %199(ptr noundef %201, ptr noundef %193, i64 noundef %197, i64 noundef 0) #35
+  %202 = tail call ptr %199(ptr noundef %201, ptr noundef %193, i64 noundef %197, i64 noundef 0) #37
   %203 = getelementptr inbounds nuw i8, ptr %191, i64 120
   %204 = load i64, ptr %203, align 8, !tbaa !54
   %205 = sub i64 %204, %197
@@ -12827,7 +12821,7 @@ luaH_free.exit.i:                                 ; preds = %178, %175
   %208 = load ptr, ptr %207, align 8, !tbaa !43
   %209 = getelementptr inbounds nuw i8, ptr %206, i64 24
   %210 = load ptr, ptr %209, align 8, !tbaa !44
-  %211 = tail call ptr %208(ptr noundef %210, ptr noundef nonnull %12, i64 noundef 64, i64 noundef 0) #35
+  %211 = tail call ptr %208(ptr noundef %210, ptr noundef nonnull %12, i64 noundef 64, i64 noundef 0) #37
   %212 = getelementptr inbounds nuw i8, ptr %206, i64 120
   %213 = load i64, ptr %212, align 8, !tbaa !54
   %214 = add i64 %213, -64
@@ -12849,7 +12843,7 @@ luaH_free.exit.i:                                 ; preds = %178, %175
   %226 = load ptr, ptr %225, align 8, !tbaa !43
   %227 = getelementptr inbounds nuw i8, ptr %224, i64 24
   %228 = load ptr, ptr %227, align 8, !tbaa !44
-  %229 = tail call ptr %226(ptr noundef %228, ptr noundef %219, i64 noundef %223, i64 noundef 0) #35
+  %229 = tail call ptr %226(ptr noundef %228, ptr noundef %219, i64 noundef %223, i64 noundef 0) #37
   %230 = getelementptr inbounds nuw i8, ptr %224, i64 120
   %231 = load i64, ptr %230, align 8, !tbaa !54
   %232 = sub i64 %231, %223
@@ -12864,7 +12858,7 @@ luaH_free.exit.i:                                 ; preds = %178, %175
   %240 = load ptr, ptr %239, align 8, !tbaa !43
   %241 = getelementptr inbounds nuw i8, ptr %238, i64 24
   %242 = load ptr, ptr %241, align 8, !tbaa !44
-  %243 = tail call ptr %240(ptr noundef %242, ptr noundef %233, i64 noundef %237, i64 noundef 0) #35
+  %243 = tail call ptr %240(ptr noundef %242, ptr noundef %233, i64 noundef %237, i64 noundef 0) #37
   %244 = getelementptr inbounds nuw i8, ptr %238, i64 120
   %245 = load i64, ptr %244, align 8, !tbaa !54
   %246 = sub i64 %245, %237
@@ -12874,7 +12868,7 @@ luaH_free.exit.i:                                 ; preds = %178, %175
   %249 = load ptr, ptr %248, align 8, !tbaa !43
   %250 = getelementptr inbounds nuw i8, ptr %247, i64 24
   %251 = load ptr, ptr %250, align 8, !tbaa !44
-  %252 = tail call ptr %249(ptr noundef %251, ptr noundef nonnull %12, i64 noundef 184, i64 noundef 0) #35
+  %252 = tail call ptr %249(ptr noundef %251, ptr noundef nonnull %12, i64 noundef 184, i64 noundef 0) #37
   %253 = getelementptr inbounds nuw i8, ptr %247, i64 120
   %254 = load i64, ptr %253, align 8, !tbaa !54
   %255 = add i64 %254, -184
@@ -12894,7 +12888,7 @@ luaH_free.exit.i:                                 ; preds = %178, %175
   %265 = load ptr, ptr %264, align 8, !tbaa !43
   %266 = getelementptr inbounds nuw i8, ptr %257, i64 24
   %267 = load ptr, ptr %266, align 8, !tbaa !44
-  %268 = tail call ptr %265(ptr noundef %267, ptr noundef nonnull %12, i64 noundef %263, i64 noundef 0) #35
+  %268 = tail call ptr %265(ptr noundef %267, ptr noundef nonnull %12, i64 noundef %263, i64 noundef 0) #37
   %269 = getelementptr inbounds nuw i8, ptr %257, i64 120
   %270 = load i64, ptr %269, align 8, !tbaa !54
   %271 = sub i64 %270, %263
@@ -12910,7 +12904,7 @@ luaH_free.exit.i:                                 ; preds = %178, %175
   %278 = load ptr, ptr %277, align 8, !tbaa !43
   %279 = getelementptr inbounds nuw i8, ptr %276, i64 24
   %280 = load ptr, ptr %279, align 8, !tbaa !44
-  %281 = tail call ptr %278(ptr noundef %280, ptr noundef nonnull %12, i64 noundef %275, i64 noundef 0) #35
+  %281 = tail call ptr %278(ptr noundef %280, ptr noundef nonnull %12, i64 noundef %275, i64 noundef 0) #37
   %282 = getelementptr inbounds nuw i8, ptr %276, i64 120
   %283 = load i64, ptr %282, align 8, !tbaa !54
   %284 = sub i64 %283, %275
@@ -13059,7 +13053,7 @@ luaT_gettm.exit.thread:                           ; preds = %58, %26, %11, %luaT
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @luaC_separateudata(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #21 {
+define internal fastcc i64 @luaC_separateudata(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #20 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !29
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
@@ -13196,10 +13190,10 @@ luaT_gettm.exit:                                  ; preds = %luaH_getstr.exit.i
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #22
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #23
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #22
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @lua_pushcclosure(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 4) %2) unnamed_addr #0 {
@@ -13301,7 +13295,7 @@ getcurrenv.exit:                                  ; preds = %51, %53
   %63 = load ptr, ptr %62, align 8, !tbaa !43
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %65 = load ptr, ptr %64, align 8, !tbaa !44
-  %66 = tail call ptr %63(ptr noundef %65, ptr noundef null, i64 noundef 0, i64 noundef %60) #35
+  %66 = tail call ptr %63(ptr noundef %65, ptr noundef null, i64 noundef 0, i64 noundef %60) #37
   %67 = icmp eq ptr %66, null
   br i1 %67, label %68, label %luaF_newCclosure.exit
 
@@ -13332,7 +13326,7 @@ getcurrenv.exit:                                  ; preds = %51, %53
   %80 = load ptr, ptr %4, align 8, !tbaa !29
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 152
   %82 = load ptr, ptr %81, align 8, !tbaa !49
-  %83 = tail call i32 %82(ptr noundef nonnull %0) #35
+  %83 = tail call i32 %82(ptr noundef nonnull %0) #37
   br label %84
 
 84:                                               ; preds = %79, %74
@@ -13428,7 +13422,7 @@ define internal noundef i32 @luaopen_base(ptr noundef %0) #0 {
   %15 = load ptr, ptr %9, align 8, !tbaa !62
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %16, ptr %9, align 8, !tbaa !62
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = tail call fastcc ptr @luaS_newlstr(ptr noundef %0, ptr noundef nonnull @.str.96, i64 noundef 2)
   store ptr %17, ptr %7, align 8, !tbaa !46
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -13439,7 +13433,7 @@ define internal noundef i32 @luaopen_base(ptr noundef %0) #0 {
   %21 = load ptr, ptr %9, align 8, !tbaa !62
   %22 = getelementptr inbounds i8, ptr %21, i64 -16
   store ptr %22, ptr %9, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   tail call fastcc void @luaL_register(ptr noundef %0, ptr noundef nonnull @.str.96, ptr noundef nonnull @base_funcs)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8, !tbaa !29
@@ -13518,7 +13512,7 @@ lua_pushlstring.exit.i:                           ; preds = %luaC_step.exit.i.i,
   %67 = load ptr, ptr %9, align 8, !tbaa !62
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr %68, ptr %9, align 8, !tbaa !62
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %69 = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull @.str.98, i64 noundef 8)
   store ptr %69, ptr %6, align 8, !tbaa !46
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -13529,10 +13523,10 @@ lua_pushlstring.exit.i:                           ; preds = %luaC_step.exit.i.i,
   %73 = load ptr, ptr %9, align 8, !tbaa !62
   %74 = getelementptr inbounds i8, ptr %73, i64 -16
   store ptr %74, ptr %9, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   tail call fastcc void @lua_pushcclosure(ptr noundef nonnull %0, ptr noundef nonnull @ipairsaux, i32 noundef 0)
   tail call fastcc void @lua_pushcclosure(ptr noundef nonnull %0, ptr noundef nonnull @luaB_ipairs, i32 noundef 1)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %75 = load ptr, ptr %9, align 8, !tbaa !62
   %76 = getelementptr inbounds i8, ptr %75, i64 -32
   %77 = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull readonly @.str.99, i64 noundef 6)
@@ -13545,10 +13539,10 @@ lua_pushlstring.exit.i:                           ; preds = %luaC_step.exit.i.i,
   %81 = load ptr, ptr %9, align 8, !tbaa !62
   %82 = getelementptr inbounds i8, ptr %81, i64 -16
   store ptr %82, ptr %9, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   tail call fastcc void @lua_pushcclosure(ptr noundef nonnull %0, ptr noundef nonnull @luaB_next, i32 noundef 0)
   tail call fastcc void @lua_pushcclosure(ptr noundef nonnull %0, ptr noundef nonnull @luaB_pairs, i32 noundef 1)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %83 = load ptr, ptr %9, align 8, !tbaa !62
   %84 = getelementptr inbounds i8, ptr %83, i64 -32
   %85 = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull readonly @.str.100, i64 noundef 5)
@@ -13561,7 +13555,7 @@ lua_pushlstring.exit.i:                           ; preds = %luaC_step.exit.i.i,
   %89 = load ptr, ptr %9, align 8, !tbaa !62
   %90 = getelementptr inbounds i8, ptr %89, i64 -16
   store ptr %90, ptr %9, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %91 = load ptr, ptr %23, align 8, !tbaa !29
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 120
   %93 = load i64, ptr %92, align 8, !tbaa !54
@@ -13725,7 +13719,7 @@ base_open.exit:                                   ; preds = %lua_createtable.exi
   %185 = load ptr, ptr %9, align 8, !tbaa !62
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 16
   store ptr %186, ptr %9, align 8, !tbaa !62
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %187 = getelementptr inbounds i8, ptr %185, i64 -16
   %188 = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull @.str.51, i64 noundef 6)
   store ptr %188, ptr %3, align 8, !tbaa !46
@@ -13737,9 +13731,9 @@ base_open.exit:                                   ; preds = %lua_createtable.exi
   %192 = load ptr, ptr %9, align 8, !tbaa !62
   %193 = getelementptr inbounds i8, ptr %192, i64 -16
   store ptr %193, ptr %9, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   tail call fastcc void @lua_pushcclosure(ptr noundef nonnull %0, ptr noundef nonnull @luaB_newproxy, i32 noundef 1)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %194 = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull @.str.102, i64 noundef 8)
   store ptr %194, ptr %2, align 8, !tbaa !46
   %195 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -13750,7 +13744,7 @@ base_open.exit:                                   ; preds = %lua_createtable.exi
   %198 = load ptr, ptr %9, align 8, !tbaa !62
   %199 = getelementptr inbounds i8, ptr %198, i64 -16
   store ptr %199, ptr %9, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 1
 }
 
@@ -13767,7 +13761,7 @@ define internal noundef i32 @luaopen_io(ptr noundef %0) #0 {
   %4 = alloca %struct.lua_TValue, align 8
   %5 = alloca %struct.lua_TValue, align 8
   %6 = alloca %struct.lua_TValue, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !29
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 160
@@ -13781,7 +13775,7 @@ define internal noundef i32 @luaopen_io(ptr noundef %0) #0 {
   %14 = load ptr, ptr %12, align 8, !tbaa !62
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %15, ptr %12, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %16 = icmp eq ptr %14, @luaO_nilobject_
   br i1 %16, label %luaL_newmetatable.exit.i, label %lua_type.exit.i.i
 
@@ -13879,7 +13873,7 @@ lua_createtable.exit.i.i:                         ; preds = %luaC_step.exit.i.i.
   %70 = load ptr, ptr %12, align 8, !tbaa !62
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store ptr %71, ptr %12, align 8, !tbaa !62
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %72 = load ptr, ptr %7, align 8, !tbaa !29
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 160
   %74 = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull @.str.201, i64 noundef 5)
@@ -13892,7 +13886,7 @@ lua_createtable.exit.i.i:                         ; preds = %luaC_step.exit.i.i.
   %78 = load ptr, ptr %12, align 8, !tbaa !62
   %79 = getelementptr inbounds i8, ptr %78, i64 -16
   store ptr %79, ptr %12, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %luaL_newmetatable.exit.i
 
 luaL_newmetatable.exit.i:                         ; preds = %lua_createtable.exit.i.i, %lua_type.exit.i.i, %1
@@ -13907,7 +13901,7 @@ luaL_newmetatable.exit.i:                         ; preds = %lua_createtable.exi
   %86 = load ptr, ptr %12, align 8, !tbaa !62
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
   store ptr %87, ptr %12, align 8, !tbaa !62
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %88 = getelementptr inbounds i8, ptr %86, i64 -16
   %89 = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull @.str.48, i64 noundef 7)
   store ptr %89, ptr %4, align 8, !tbaa !46
@@ -13919,7 +13913,7 @@ luaL_newmetatable.exit.i:                         ; preds = %lua_createtable.exi
   %93 = load ptr, ptr %12, align 8, !tbaa !62
   %94 = getelementptr inbounds i8, ptr %93, i64 -16
   store ptr %94, ptr %12, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %95 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %96
 
@@ -13929,10 +13923,10 @@ luaL_newmetatable.exit.i:                         ; preds = %lua_createtable.exi
   %98 = load ptr, ptr %97, align 8, !tbaa !63
   tail call fastcc void @lua_pushcclosure(ptr noundef nonnull %0, ptr noundef %98, i32 noundef 0)
   %99 = load ptr, ptr %.03242.i.i.i, align 8, !tbaa !60
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %100 = load ptr, ptr %12, align 8, !tbaa !62
   %101 = getelementptr inbounds i8, ptr %100, i64 -32
-  %102 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %99) #37
+  %102 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %99) #36
   %103 = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull readonly %99, i64 noundef %102)
   store ptr %103, ptr %3, align 8, !tbaa !46
   store i32 4, ptr %95, align 8, !tbaa !69
@@ -13942,7 +13936,7 @@ luaL_newmetatable.exit.i:                         ; preds = %lua_createtable.exi
   %106 = load ptr, ptr %12, align 8, !tbaa !62
   %107 = getelementptr inbounds i8, ptr %106, i64 -16
   store ptr %107, ptr %12, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %108 = getelementptr inbounds nuw i8, ptr %.03242.i.i.i, i64 16
   %109 = load ptr, ptr %108, align 8, !tbaa !60
   %.not36.i.i.i = icmp eq ptr %109, null
@@ -14035,7 +14029,7 @@ lua_replace.exit:                                 ; preds = %.thread.i, %133, %1
   %159 = load ptr, ptr %12, align 8, !tbaa !62
   %160 = getelementptr i8, ptr %159, i64 -16
   store ptr %160, ptr %12, align 8, !tbaa !62
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %161 = getelementptr i8, ptr %159, i64 -32
   %162 = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull @.str.200, i64 noundef 5)
   store ptr %162, ptr %2, align 8, !tbaa !46
@@ -14046,7 +14040,7 @@ lua_replace.exit:                                 ; preds = %.thread.i, %133, %1
   %165 = load ptr, ptr %12, align 8, !tbaa !62
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 16
   store ptr %166, ptr %12, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   tail call fastcc void @newfenv(ptr noundef nonnull %0, ptr noundef nonnull @io_pclose)
   %167 = load ptr, ptr %12, align 8, !tbaa !62
   %168 = getelementptr inbounds i8, ptr %167, i64 -32
@@ -14318,7 +14312,7 @@ createmetatable.exit:                             ; preds = %lua_createtable.exi
   %109 = load ptr, ptr %44, align 8, !tbaa !62
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
   store ptr %110, ptr %44, align 8, !tbaa !62
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %111 = getelementptr inbounds i8, ptr %109, i64 -16
   %112 = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull @.str.48, i64 noundef 7)
   store ptr %112, ptr %2, align 8, !tbaa !46
@@ -14328,7 +14322,7 @@ createmetatable.exit:                             ; preds = %lua_createtable.exi
   %115 = getelementptr inbounds i8, ptr %114, i64 -16
   call fastcc void @luaV_settable(ptr noundef nonnull %0, ptr noundef nonnull %111, ptr noundef nonnull %2, ptr noundef nonnull %115)
   %116 = load ptr, ptr %44, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %117 = getelementptr i8, ptr %116, i64 -32
   store ptr %117, ptr %44, align 8, !tbaa !62
   ret i32 1
@@ -14421,14 +14415,14 @@ define internal range(i32 0, 3) i32 @ipairsaux(ptr noundef %0) #0 {
 13:                                               ; preds = %5
   %14 = load ptr, ptr %.luaO_nilobject_.i.i9, align 8, !tbaa !46
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
-  %16 = call double @strtod(ptr noundef nonnull %15, ptr noundef nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %16 = call double @strtod(ptr noundef nonnull %15, ptr noundef nonnull %2) #37
   %17 = load ptr, ptr %2, align 8, !tbaa !70
   %18 = icmp eq ptr %17, %15
   br i1 %18, label %luaO_str2d.exit.thread.i.i, label %19
 
 luaO_str2d.exit.thread.i.i:                       ; preds = %13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %luaV_tonumber.exit.i
 
 19:                                               ; preds = %13
@@ -14439,7 +14433,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %13
   ]
 
 21:                                               ; preds = %19, %19
-  %22 = call i64 @strtoul(ptr noundef nonnull %15, ptr noundef nonnull %2, i32 noundef 16) #35
+  %22 = call i64 @strtoul(ptr noundef nonnull %15, ptr noundef nonnull %2, i32 noundef 16) #37
   %.pre.i.i.i = load ptr, ptr %2, align 8, !tbaa !70
   %.pre11.i.i.i = load i8, ptr %.pre.i.i.i, align 1, !tbaa !46
   br label %23
@@ -14451,7 +14445,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %13
   br i1 %25, label %luaO_str2d.exit.thread14.i.i, label %.preheader.i.i.i
 
 luaO_str2d.exit.thread14.i.i:                     ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %luaL_checkinteger.exit
 
 .preheader.i.i.i:                                 ; preds = %23
@@ -14472,7 +14466,7 @@ luaO_str2d.exit.thread14.i.i:                     ; preds = %23
 
 luaO_str2d.exit.i.i:                              ; preds = %28
   %.not8.i.not.i.i = icmp eq i8 %30, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not8.i.not.i.i, label %luaL_checkinteger.exit, label %luaV_tonumber.exit.i
 
 luaV_tonumber.exit.i:                             ; preds = %5, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
@@ -15075,7 +15069,7 @@ lua_next.exit:                                    ; preds = %187, %213
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @lua_setmetatable(ptr noundef captures(none) %0, i32 noundef range(i32 -2, 3) %1) unnamed_addr #9 {
+define internal fastcc void @lua_setmetatable(ptr noundef captures(none) %0, i32 noundef range(i32 -2, 3) %1) unnamed_addr #8 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %4, label %12
 
@@ -15655,7 +15649,7 @@ lua_toboolean.exit.thread11:                      ; preds = %lua_type.exit.i, %l
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @luaB_error(ptr noundef %0) #10 {
+define internal noundef i32 @luaB_error(ptr noundef %0) #9 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !86
@@ -15694,14 +15688,14 @@ lua_type.exit.i:                                  ; preds = %1
 21:                                               ; preds = %15
   %22 = load ptr, ptr %.luaO_nilobject_.i.i12, align 8, !tbaa !46
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
-  %24 = call double @strtod(ptr noundef nonnull %23, ptr noundef nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %24 = call double @strtod(ptr noundef nonnull %23, ptr noundef nonnull %2) #37
   %25 = load ptr, ptr %2, align 8, !tbaa !70
   %26 = icmp eq ptr %25, %23
   br i1 %26, label %luaO_str2d.exit.thread.i.i, label %27
 
 luaO_str2d.exit.thread.i.i:                       ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %luaV_tonumber.exit.i
 
 27:                                               ; preds = %21
@@ -15712,7 +15706,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %21
   ]
 
 29:                                               ; preds = %27, %27
-  %30 = call i64 @strtoul(ptr noundef nonnull %23, ptr noundef nonnull %2, i32 noundef 16) #35
+  %30 = call i64 @strtoul(ptr noundef nonnull %23, ptr noundef nonnull %2, i32 noundef 16) #37
   %.pre.i.i.i = load ptr, ptr %2, align 8, !tbaa !70
   %.pre11.i.i.i = load i8, ptr %.pre.i.i.i, align 1, !tbaa !46
   br label %31
@@ -15724,7 +15718,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %21
   br i1 %33, label %luaO_str2d.exit.thread14.i.i, label %.preheader.i.i.i
 
 luaO_str2d.exit.thread14.i.i:                     ; preds = %31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %luaL_optinteger.exit
 
 .preheader.i.i.i:                                 ; preds = %31
@@ -15745,7 +15739,7 @@ luaO_str2d.exit.thread14.i.i:                     ; preds = %31
 
 luaO_str2d.exit.i.i:                              ; preds = %36
   %.not8.i.not.i.i = icmp eq i8 %38, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not8.i.not.i.i, label %luaL_optinteger.exit, label %luaV_tonumber.exit.i
 
 luaV_tonumber.exit.i:                             ; preds = %15, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
@@ -15961,7 +15955,7 @@ define internal range(i32 1, 3) i32 @luaB_loadstring(ptr noundef %0) #0 {
   %3 = alloca %struct.Zio, align 8
   %4 = alloca %struct.LoadS, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call fastcc ptr @lua_tolstring(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %5)
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %luaL_checklstring.exit
@@ -16004,11 +15998,11 @@ luaL_optlstring.exit:                             ; preds = %.luaL_optlstring.ex
   %20 = phi ptr [ %.pre, %.luaL_optlstring.exit_crit_edge ], [ %12, %lua_type.exit.i ], [ %12, %luaL_checklstring.exit ]
   %.0.i = phi ptr [ %18, %.luaL_optlstring.exit_crit_edge ], [ %6, %lua_type.exit.i ], [ %6, %luaL_checklstring.exit ]
   %21 = load i64, ptr %5, align 8, !tbaa !111
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8, !tbaa !263
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %21, ptr %22, align 8, !tbaa !265
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %0, ptr %23, align 8, !tbaa !100
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -16016,7 +16010,7 @@ luaL_optlstring.exit:                             ; preds = %.luaL_optlstring.ex
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %4, ptr %25, align 8, !tbaa !103
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8, !tbaa !104
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %.0.i, ptr %26, align 8, !tbaa !107
@@ -16040,14 +16034,14 @@ luaL_optlstring.exit:                             ; preds = %.luaL_optlstring.ex
   %42 = load ptr, ptr %41, align 8, !tbaa !43
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %44 = load ptr, ptr %43, align 8, !tbaa !44
-  %45 = call ptr %42(ptr noundef %44, ptr noundef %37, i64 noundef %38, i64 noundef 0) #35
+  %45 = call ptr %42(ptr noundef %44, ptr noundef %37, i64 noundef %38, i64 noundef 0) #37
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 120
   %47 = load i64, ptr %46, align 8, !tbaa !54
   %48 = sub i64 %47, %38
   store i64 %48, ptr %46, align 8, !tbaa !54
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #35
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %49 = icmp eq i32 %36, 0
   br i1 %49, label %load_aux.exit, label %50
 
@@ -16084,7 +16078,7 @@ lua_insert.exit.i:                                ; preds = %.lr.ph.i.i
 
 load_aux.exit:                                    ; preds = %luaL_optlstring.exit, %lua_insert.exit.i
   %.0.i8 = phi i32 [ 2, %lua_insert.exit.i ], [ 1, %luaL_optlstring.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i8
 }
 
@@ -16114,7 +16108,7 @@ luaL_checkany.exit:                               ; preds = %lua_type.exit.i
   %11 = ptrtoint ptr %6 to i64
   %12 = ptrtoint ptr %4 to i64
   %.neg = sub i64 %12, %11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.neg9 = shl i64 %.neg, 28
   %13 = ashr i64 %.neg9, 32
   %14 = getelementptr inbounds %struct.lua_TValue, ptr %6, i64 %13
@@ -16140,7 +16134,7 @@ luaL_checkany.exit:                               ; preds = %lua_type.exit.i
   br label %lua_pcall.exit
 
 lua_pcall.exit:                                   ; preds = %luaL_checkany.exit, %27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %28 = icmp eq i32 %21, 0
   %29 = zext i1 %28 to i32
   store i32 %29, ptr %22, align 8, !tbaa !46
@@ -16303,7 +16297,7 @@ lua_type.exit.i14:                                ; preds = %luaL_checktype.exit
   br label %getfunc.exit
 
 lua_type.exit.thread.i15:                         ; preds = %lua_type.exit.i14, %luaL_checktype.exit
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = tail call fastcc i64 @lua_tointeger(ptr noundef nonnull %0, i32 noundef 1)
   %24 = icmp eq i64 %23, 0
   br i1 %24, label %25, label %luaL_checkinteger.exit.i
@@ -16323,14 +16317,14 @@ lua_type.exit.thread.i15:                         ; preds = %lua_type.exit.i14, 
 30:                                               ; preds = %25
   %31 = load ptr, ptr %.luaO_nilobject_.i.i19.i, align 8, !tbaa !46
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
-  %33 = call double @strtod(ptr noundef nonnull %32, ptr noundef nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %33 = call double @strtod(ptr noundef nonnull %32, ptr noundef nonnull %3) #37
   %34 = load ptr, ptr %3, align 8, !tbaa !70
   %35 = icmp eq ptr %34, %32
   br i1 %35, label %luaO_str2d.exit.thread.i.i.i, label %36
 
 luaO_str2d.exit.thread.i.i.i:                     ; preds = %30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %luaV_tonumber.exit.i.i
 
 36:                                               ; preds = %30
@@ -16341,7 +16335,7 @@ luaO_str2d.exit.thread.i.i.i:                     ; preds = %30
   ]
 
 38:                                               ; preds = %36, %36
-  %39 = call i64 @strtoul(ptr noundef nonnull %32, ptr noundef nonnull %3, i32 noundef 16) #35
+  %39 = call i64 @strtoul(ptr noundef nonnull %32, ptr noundef nonnull %3, i32 noundef 16) #37
   %.pre.i.i.i.i = load ptr, ptr %3, align 8, !tbaa !70
   %.pre11.i.i.i.i = load i8, ptr %.pre.i.i.i.i, align 1, !tbaa !46
   br label %40
@@ -16353,7 +16347,7 @@ luaO_str2d.exit.thread.i.i.i:                     ; preds = %30
   br i1 %42, label %luaO_str2d.exit.thread14.i.i.i, label %.preheader.i.i.i.i
 
 luaO_str2d.exit.thread14.i.i.i:                   ; preds = %40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge.i.thread29.i
 
 .preheader.i.i.i.i:                               ; preds = %40
@@ -16374,7 +16368,7 @@ luaO_str2d.exit.thread14.i.i.i:                   ; preds = %40
 
 luaO_str2d.exit.i.i.i:                            ; preds = %45
   %.not8.i.not.i.i.i = icmp eq i8 %47, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not8.i.not.i.i.i, label %.critedge.i.thread29.i, label %luaV_tonumber.exit.i.i
 
 luaV_tonumber.exit.i.i:                           ; preds = %luaO_str2d.exit.i.i.i, %luaO_str2d.exit.thread.i.i.i, %25
@@ -16480,7 +16474,7 @@ lua_type.exit17.i:                                ; preds = %lua_getstack.exit.i
   unreachable
 
 lua_type.exit17.thread.i:                         ; preds = %lua_type.exit17.i, %lua_getstack.exit.i
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %getfunc.exit
 
 getfunc.exit:                                     ; preds = %17, %lua_type.exit17.thread.i
@@ -16511,14 +16505,14 @@ getfunc.exit:                                     ; preds = %17, %lua_type.exit1
 111:                                              ; preds = %getfunc.exit
   %112 = load ptr, ptr %.luaO_nilobject_.i.i19, align 8, !tbaa !46
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
-  %114 = call double @strtod(ptr noundef nonnull %113, ptr noundef nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %114 = call double @strtod(ptr noundef nonnull %113, ptr noundef nonnull %2) #37
   %115 = load ptr, ptr %2, align 8, !tbaa !70
   %116 = icmp eq ptr %115, %113
   br i1 %116, label %luaO_str2d.exit.thread.i.i, label %117
 
 luaO_str2d.exit.thread.i.i:                       ; preds = %111
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %lua_isnumber.exit.thread
 
 117:                                              ; preds = %111
@@ -16529,7 +16523,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %111
   ]
 
 119:                                              ; preds = %117, %117
-  %120 = call i64 @strtoul(ptr noundef nonnull %113, ptr noundef nonnull %2, i32 noundef 16) #35
+  %120 = call i64 @strtoul(ptr noundef nonnull %113, ptr noundef nonnull %2, i32 noundef 16) #37
   %.pre.i.i.i = load ptr, ptr %2, align 8, !tbaa !70
   %.pre11.i.i.i = load i8, ptr %.pre.i.i.i, align 1, !tbaa !46
   br label %121
@@ -16541,7 +16535,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %111
   br i1 %123, label %luaO_str2d.exit.thread14.i.i, label %.preheader.i.i.i
 
 luaO_str2d.exit.thread14.i.i:                     ; preds = %121
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %lua_isnumber.exit
 
 .preheader.i.i.i:                                 ; preds = %121
@@ -16562,7 +16556,7 @@ luaO_str2d.exit.thread14.i.i:                     ; preds = %121
 
 luaO_str2d.exit.i.i:                              ; preds = %126
   %.not8.i.not.i.i = icmp eq i8 %128, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not8.i.not.i.i, label %lua_isnumber.exit, label %lua_isnumber.exit.thread
 
 lua_isnumber.exit:                                ; preds = %luaO_str2d.exit.thread14.i.i, %luaO_str2d.exit.i.i, %getfunc.exit
@@ -16817,7 +16811,7 @@ luaL_checktype.exit:                              ; preds = %lua_type.exit.i
   ]
 
 16:                                               ; preds = %luaL_checktype.exit
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8, !tbaa !83
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -16840,7 +16834,7 @@ luaL_checktype.exit:                              ; preds = %lua_type.exit.i
   call fastcc void @lua_getinfo(ptr noundef nonnull %0, ptr noundef nonnull @.str.119, ptr noundef %2)
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !269
-  %32 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(7) @.str.120) #37
+  %32 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(7) @.str.120) #36
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !270
   %35 = icmp eq ptr %34, null
@@ -16987,14 +16981,14 @@ lua_type.exit.i:                                  ; preds = %1
 24:                                               ; preds = %18
   %25 = load ptr, ptr %.luaO_nilobject_.i.i25, align 8, !tbaa !46
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
-  %27 = call double @strtod(ptr noundef nonnull %26, ptr noundef nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %27 = call double @strtod(ptr noundef nonnull %26, ptr noundef nonnull %2) #37
   %28 = load ptr, ptr %2, align 8, !tbaa !70
   %29 = icmp eq ptr %28, %26
   br i1 %29, label %luaO_str2d.exit.thread.i.i34, label %30
 
 luaO_str2d.exit.thread.i.i34:                     ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %luaV_tonumber.exit.i35
 
 30:                                               ; preds = %24
@@ -17005,7 +16999,7 @@ luaO_str2d.exit.thread.i.i34:                     ; preds = %24
   ]
 
 32:                                               ; preds = %30, %30
-  %33 = call i64 @strtoul(ptr noundef nonnull %26, ptr noundef nonnull %2, i32 noundef 16) #35
+  %33 = call i64 @strtoul(ptr noundef nonnull %26, ptr noundef nonnull %2, i32 noundef 16) #37
   %.pre.i.i.i26 = load ptr, ptr %2, align 8, !tbaa !70
   %.pre11.i.i.i27 = load i8, ptr %.pre.i.i.i26, align 1, !tbaa !46
   br label %34
@@ -17017,7 +17011,7 @@ luaO_str2d.exit.thread.i.i34:                     ; preds = %24
   br i1 %36, label %luaO_str2d.exit.thread14.i.i33, label %.preheader.i.i.i29
 
 luaO_str2d.exit.thread14.i.i33:                   ; preds = %34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %luaL_optinteger.exit.thread39
 
 .preheader.i.i.i29:                               ; preds = %34
@@ -17038,7 +17032,7 @@ luaO_str2d.exit.thread14.i.i33:                   ; preds = %34
 
 luaO_str2d.exit.i.i31:                            ; preds = %39
   %.not8.i.not.i.i32 = icmp eq i8 %41, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not8.i.not.i.i32, label %luaL_optinteger.exit.thread39, label %luaV_tonumber.exit.i35
 
 luaV_tonumber.exit.i35:                           ; preds = %18, %luaO_str2d.exit.i.i31, %luaO_str2d.exit.thread.i.i34
@@ -17079,14 +17073,14 @@ lua_type.exit.thread.i:                           ; preds = %lua_type.exit.i23, 
 54:                                               ; preds = %lua_type.exit.i23
   %55 = load ptr, ptr %50, align 8, !tbaa !46
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #35
-  %57 = call double @strtod(ptr noundef nonnull %56, ptr noundef nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %57 = call double @strtod(ptr noundef nonnull %56, ptr noundef nonnull %4) #37
   %58 = load ptr, ptr %4, align 8, !tbaa !70
   %59 = icmp eq ptr %58, %56
   br i1 %59, label %luaO_str2d.exit.thread.i.i, label %60
 
 luaO_str2d.exit.thread.i.i:                       ; preds = %54
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %lua_isnumber.exit.thread
 
 60:                                               ; preds = %54
@@ -17097,7 +17091,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %54
   ]
 
 62:                                               ; preds = %60, %60
-  %63 = call i64 @strtoul(ptr noundef nonnull %56, ptr noundef nonnull %4, i32 noundef 16) #35
+  %63 = call i64 @strtoul(ptr noundef nonnull %56, ptr noundef nonnull %4, i32 noundef 16) #37
   %.pre.i.i.i = load ptr, ptr %4, align 8, !tbaa !70
   %.pre11.i.i.i = load i8, ptr %.pre.i.i.i, align 1, !tbaa !46
   br label %64
@@ -17109,7 +17103,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %54
   br i1 %66, label %luaO_str2d.exit.thread14.i.i, label %.preheader.i.i.i
 
 luaO_str2d.exit.thread14.i.i:                     ; preds = %64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %lua_isnumber.exit
 
 .preheader.i.i.i:                                 ; preds = %64
@@ -17130,7 +17124,7 @@ luaO_str2d.exit.thread14.i.i:                     ; preds = %64
 
 luaO_str2d.exit.i.i:                              ; preds = %69
   %.not8.i.not.i.i = icmp eq i8 %71, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not8.i.not.i.i, label %lua_isnumber.exit, label %lua_isnumber.exit.thread
 
 lua_isnumber.exit:                                ; preds = %lua_type.exit.i23, %luaO_str2d.exit.thread14.i.i, %luaO_str2d.exit.i.i
@@ -17155,13 +17149,13 @@ luaL_optinteger.exit.thread39:                    ; preds = %luaO_str2d.exit.thr
   unreachable
 
 luaL_checklstring.exit:                           ; preds = %luaL_optinteger.exit.thread39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %85 = add i32 %82, -2
   %or.cond = icmp ult i32 %85, 35
   br i1 %or.cond, label %110, label %86
 
 86:                                               ; preds = %luaL_checklstring.exit
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %88 = load ptr, ptr %87, align 8, !tbaa !83
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -17184,7 +17178,7 @@ luaL_checklstring.exit:                           ; preds = %luaL_optinteger.exi
   call fastcc void @lua_getinfo(ptr noundef nonnull %0, ptr noundef nonnull @.str.119, ptr noundef %3)
   %100 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %101 = load ptr, ptr %100, align 8, !tbaa !269
-  %102 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %101, ptr noundef nonnull dereferenceable(7) @.str.120) #37
+  %102 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %101, ptr noundef nonnull dereferenceable(7) @.str.120) #36
   %103 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %104 = load ptr, ptr %103, align 8, !tbaa !270
   %105 = icmp eq ptr %104, null
@@ -17202,7 +17196,7 @@ luaL_checklstring.exit:                           ; preds = %luaL_optinteger.exi
   unreachable
 
 110:                                              ; preds = %luaL_checklstring.exit
-  %111 = call i64 @strtoul(ptr noundef nonnull %83, ptr noundef nonnull %5, i32 noundef %82) #35
+  %111 = call i64 @strtoul(ptr noundef nonnull %83, ptr noundef nonnull %5, i32 noundef %82) #37
   %112 = load ptr, ptr %5, align 8, !tbaa !70
   %.not = icmp eq ptr %83, %112
   br i1 %.not, label %130, label %.preheader
@@ -17236,11 +17230,11 @@ luaL_checklstring.exit:                           ; preds = %luaL_optinteger.exi
   %128 = load ptr, ptr %9, align 8, !tbaa !62
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
   store ptr %129, ptr %9, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %134
 
 130:                                              ; preds = %110, %123
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %lua_isnumber.exit.thread
 
 lua_isnumber.exit.thread:                         ; preds = %lua_type.exit.i23, %luaO_str2d.exit.thread.i.i, %luaO_str2d.exit.i.i, %130
@@ -17341,14 +17335,14 @@ lua_type.exit.i25:                                ; preds = %luaL_checktype.exit
 25:                                               ; preds = %19
   %26 = load ptr, ptr %.luaO_nilobject_.i.i44, align 8, !tbaa !46
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
-  %28 = call double @strtod(ptr noundef nonnull %27, ptr noundef nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %28 = call double @strtod(ptr noundef nonnull %27, ptr noundef nonnull %3) #37
   %29 = load ptr, ptr %3, align 8, !tbaa !70
   %30 = icmp eq ptr %29, %27
   br i1 %30, label %luaO_str2d.exit.thread.i.i, label %31
 
 luaO_str2d.exit.thread.i.i:                       ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %luaV_tonumber.exit.i
 
 31:                                               ; preds = %25
@@ -17359,7 +17353,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %25
   ]
 
 33:                                               ; preds = %31, %31
-  %34 = call i64 @strtoul(ptr noundef nonnull %27, ptr noundef nonnull %3, i32 noundef 16) #35
+  %34 = call i64 @strtoul(ptr noundef nonnull %27, ptr noundef nonnull %3, i32 noundef 16) #37
   %.pre.i.i.i = load ptr, ptr %3, align 8, !tbaa !70
   %.pre11.i.i.i = load i8, ptr %.pre.i.i.i, align 1, !tbaa !46
   br label %35
@@ -17371,7 +17365,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %25
   br i1 %37, label %luaO_str2d.exit.thread14.i.i, label %.preheader.i.i.i
 
 luaO_str2d.exit.thread14.i.i:                     ; preds = %35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %luaL_optinteger.exit
 
 .preheader.i.i.i:                                 ; preds = %35
@@ -17392,7 +17386,7 @@ luaO_str2d.exit.thread14.i.i:                     ; preds = %35
 
 luaO_str2d.exit.i.i:                              ; preds = %40
   %.not8.i.not.i.i = icmp eq i8 %42, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not8.i.not.i.i, label %luaL_optinteger.exit, label %luaV_tonumber.exit.i
 
 luaV_tonumber.exit.i:                             ; preds = %19, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
@@ -17441,14 +17435,14 @@ lua_type.exit.thread:                             ; preds = %luaL_optinteger.exi
 67:                                               ; preds = %61
   %68 = load ptr, ptr %.luaO_nilobject_.i.i47, align 8, !tbaa !46
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
-  %70 = call double @strtod(ptr noundef nonnull %69, ptr noundef nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %70 = call double @strtod(ptr noundef nonnull %69, ptr noundef nonnull %2) #37
   %71 = load ptr, ptr %2, align 8, !tbaa !70
   %72 = icmp eq ptr %71, %69
   br i1 %72, label %luaO_str2d.exit.thread.i.i57, label %73
 
 luaO_str2d.exit.thread.i.i57:                     ; preds = %67
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %luaV_tonumber.exit.i58
 
 73:                                               ; preds = %67
@@ -17459,7 +17453,7 @@ luaO_str2d.exit.thread.i.i57:                     ; preds = %67
   ]
 
 75:                                               ; preds = %73, %73
-  %76 = call i64 @strtoul(ptr noundef nonnull %69, ptr noundef nonnull %2, i32 noundef 16) #35
+  %76 = call i64 @strtoul(ptr noundef nonnull %69, ptr noundef nonnull %2, i32 noundef 16) #37
   %.pre.i.i.i49 = load ptr, ptr %2, align 8, !tbaa !70
   %.pre11.i.i.i50 = load i8, ptr %.pre.i.i.i49, align 1, !tbaa !46
   br label %77
@@ -17471,7 +17465,7 @@ luaO_str2d.exit.thread.i.i57:                     ; preds = %67
   br i1 %79, label %luaO_str2d.exit.thread14.i.i56, label %.preheader.i.i.i52
 
 luaO_str2d.exit.thread14.i.i56:                   ; preds = %77
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %luaL_checkinteger.exit
 
 .preheader.i.i.i52:                               ; preds = %77
@@ -17492,7 +17486,7 @@ luaO_str2d.exit.thread14.i.i56:                   ; preds = %77
 
 luaO_str2d.exit.i.i54:                            ; preds = %82
   %.not8.i.not.i.i55 = icmp eq i8 %84, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not8.i.not.i.i55, label %luaL_checkinteger.exit, label %luaV_tonumber.exit.i58
 
 luaV_tonumber.exit.i58:                           ; preds = %61, %luaO_str2d.exit.i.i54, %luaO_str2d.exit.thread.i.i57
@@ -17742,9 +17736,9 @@ lua_rawgeti.exit42:                               ; preds = %206, %210, %180
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal void @luaL_error(ptr noundef %0, ptr noundef %1, ...) unnamed_addr #10 {
+define internal void @luaL_error(ptr noundef %0, ptr noundef %1, ...) unnamed_addr #9 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   call fastcc void @luaL_where(ptr noundef %0, i32 noundef 1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -17905,9 +17899,9 @@ lua_concat.exit:                                  ; preds = %lua_pushvfstring.ex
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @luaL_argerror(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #10 {
+define internal fastcc void @luaL_argerror(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #9 {
   %4 = alloca %struct.lua_Debug, align 8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !83
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -17930,7 +17924,7 @@ define internal fastcc void @luaL_argerror(ptr noundef %0, i32 noundef %1, ptr n
   call fastcc void @lua_getinfo(ptr noundef nonnull %0, ptr noundef nonnull @.str.119, ptr noundef %4)
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !269
-  %20 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(7) @.str.120) #37
+  %20 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(7) @.str.120) #36
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %28
 
@@ -18227,7 +18221,7 @@ currentline.exit.i:                               ; preds = %125, %122, %current
 auxgetinfo.exit:                                  ; preds = %.preheader.split.i, %.preheader.split.us.i
   %.043 = phi ptr [ %24, %.preheader.split.us.i ], [ %1, %.preheader.split.i ]
   %.02840 = phi ptr [ %25, %.preheader.split.us.i ], [ %18, %.preheader.split.i ]
-  %136 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.043, i32 noundef 102) #37
+  %136 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.043, i32 noundef 102) #36
   %.not31 = icmp eq ptr %136, null
   br i1 %.not31, label %.thread85, label %151
 
@@ -18251,7 +18245,7 @@ auxgetinfo.exit.thread:                           ; preds = %11, %.thread, %.thr
   tail call fastcc void @luaO_chunkid(ptr noundef %144, ptr noundef nonnull @.str.125, i64 noundef 60)
   %145 = getelementptr inbounds nuw i8, ptr %2, i64 44
   store i32 0, ptr %145, align 4, !tbaa !273
-  %146 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.044, i32 noundef 102) #37
+  %146 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.044, i32 noundef 102) #36
   %.not3168 = icmp eq ptr %146, null
   br i1 %.not3168, label %173, label %147
 
@@ -18305,12 +18299,12 @@ auxgetinfo.exit.thread:                           ; preds = %11, %.thread, %.thr
   %.0284072 = phi ptr [ null, %auxgetinfo.exit.thread ], [ %.028407181, %170 ]
   %.04370 = phi ptr [ %.044, %auxgetinfo.exit.thread ], [ %.0436983, %170 ]
   %174 = phi i1 [ true, %auxgetinfo.exit.thread ], [ %156, %170 ]
-  %175 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.04370, i32 noundef 76) #37
+  %175 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.04370, i32 noundef 76) #36
   %.not32 = icmp eq ptr %175, null
   br i1 %.not32, label %259, label %177
 
 .thread85:                                        ; preds = %auxgetinfo.exit
-  %176 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.043, i32 noundef 76) #37
+  %176 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.043, i32 noundef 76) #36
   %.not3289 = icmp eq ptr %176, null
   br i1 %.not3289, label %259, label %.thread93
 
@@ -18423,11 +18417,11 @@ luaH_getnum.exit.luaH_getnum.exit.thread_crit_edge.i.i: ; preds = %luaH_getnum.e
 
 luaH_getnum.exit.thread.i.i:                      ; preds = %230, %luaH_getnum.exit.luaH_getnum.exit.thread_crit_edge.i.i
   %.pre-phi.i.i = phi double [ %.pre.i.i, %luaH_getnum.exit.luaH_getnum.exit.thread_crit_edge.i.i ], [ %209, %230 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store double %.pre-phi.i.i, ptr %4, align 8, !tbaa !46
   store i32 3, ptr %197, align 8, !tbaa !69
   %233 = call fastcc ptr @newkey(ptr noundef %0, ptr noundef %185, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %luaH_setnum.exit.i
 
 luaH_setnum.exit.i:                               ; preds = %luaH_getnum.exit.thread.i.i, %luaH_getnum.exit.i.i
@@ -18486,12 +18480,12 @@ collectvalidlines.exit:                           ; preds = %243, %251
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #14
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @luaL_where(ptr noundef %0, i32 noundef range(i32 1, -2147483648) %1) unnamed_addr #0 {
   %3 = alloca %struct.lua_Debug, align 8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !83
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -18639,7 +18633,7 @@ lua_pushlstring.exit:                             ; preds = %lua_getstack.exit.t
   br label %88
 
 88:                                               ; preds = %lua_pushlstring.exit, %38
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -18760,7 +18754,7 @@ luaC_step.exit:                                   ; preds = %32, %35, %38
 ; Function Attrs: nounwind uwtable
 define internal nonnull ptr @lua_pushfstring(ptr noundef %0, ptr noundef %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !29
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 120
@@ -18833,12 +18827,12 @@ luaC_step.exit:                                   ; preds = %31, %34, %37
   call void @llvm.va_start.p0(ptr nonnull %3)
   %46 = call fastcc ptr @luaO_pushvfstring(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %46
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @luaL_typerror(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #10 {
+define internal fastcc void @luaL_typerror(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #9 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %5, label %13
 
@@ -18976,7 +18970,7 @@ luaL_checkinteger.exit:                           ; preds = %3, %18, %15, %lua_t
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc i64 @lua_tointeger(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #24 {
+define internal fastcc i64 @lua_tointeger(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #23 {
   %3 = alloca ptr, align 8
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %5, label %13
@@ -19069,14 +19063,14 @@ index2adr.exit.luaV_tonumber.exit.thread_crit_edge: ; preds = %index2adr.exit
 54:                                               ; preds = %index2adr.exit
   %55 = load ptr, ptr %.1.i, align 8, !tbaa !46
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
-  %57 = call double @strtod(ptr noundef nonnull %56, ptr noundef nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %57 = call double @strtod(ptr noundef nonnull %56, ptr noundef nonnull %3) #37
   %58 = load ptr, ptr %3, align 8, !tbaa !70
   %59 = icmp eq ptr %58, %56
   br i1 %59, label %luaO_str2d.exit.thread.i, label %60
 
 luaO_str2d.exit.thread.i:                         ; preds = %54
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %luaV_tonumber.exit
 
 60:                                               ; preds = %54
@@ -19087,7 +19081,7 @@ luaO_str2d.exit.thread.i:                         ; preds = %54
   ]
 
 62:                                               ; preds = %60, %60
-  %63 = call i64 @strtoul(ptr noundef nonnull %56, ptr noundef nonnull %3, i32 noundef 16) #35
+  %63 = call i64 @strtoul(ptr noundef nonnull %56, ptr noundef nonnull %3, i32 noundef 16) #37
   %64 = uitofp i64 %63 to double
   %.pre.i.i = load ptr, ptr %3, align 8, !tbaa !70
   %.pre11.i.i = load i8, ptr %.pre.i.i, align 1, !tbaa !46
@@ -19101,7 +19095,7 @@ luaO_str2d.exit.thread.i:                         ; preds = %54
   br i1 %67, label %luaO_str2d.exit.thread14.i, label %.preheader.i.i
 
 luaO_str2d.exit.thread14.i:                       ; preds = %65
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %luaV_tonumber.exit.thread
 
 .preheader.i.i:                                   ; preds = %65
@@ -19122,7 +19116,7 @@ luaO_str2d.exit.thread14.i:                       ; preds = %65
 
 luaO_str2d.exit.i:                                ; preds = %70
   %.not8.i.not.i = icmp eq i8 %72, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not8.i.not.i, label %luaV_tonumber.exit.thread, label %luaV_tonumber.exit
 
 luaV_tonumber.exit.thread:                        ; preds = %luaO_str2d.exit.thread14.i, %luaO_str2d.exit.i, %index2adr.exit.luaV_tonumber.exit.thread_crit_edge
@@ -19136,7 +19130,7 @@ luaV_tonumber.exit:                               ; preds = %index2adr.exit, %lu
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @lua_isnumber(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #24 {
+define internal fastcc range(i32 0, 2) i32 @lua_isnumber(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #23 {
   %3 = alloca ptr, align 8
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %5, label %13
@@ -19225,14 +19219,14 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
 54:                                               ; preds = %index2adr.exit
   %55 = load ptr, ptr %.1.i, align 8, !tbaa !46
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
-  %57 = call double @strtod(ptr noundef nonnull %56, ptr noundef nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %57 = call double @strtod(ptr noundef nonnull %56, ptr noundef nonnull %3) #37
   %58 = load ptr, ptr %3, align 8, !tbaa !70
   %59 = icmp eq ptr %58, %56
   br i1 %59, label %luaO_str2d.exit.thread.i, label %60
 
 luaO_str2d.exit.thread.i:                         ; preds = %54
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %78
 
 60:                                               ; preds = %54
@@ -19243,7 +19237,7 @@ luaO_str2d.exit.thread.i:                         ; preds = %54
   ]
 
 62:                                               ; preds = %60, %60
-  %63 = call i64 @strtoul(ptr noundef nonnull %56, ptr noundef nonnull %3, i32 noundef 16) #35
+  %63 = call i64 @strtoul(ptr noundef nonnull %56, ptr noundef nonnull %3, i32 noundef 16) #37
   %.pre.i.i = load ptr, ptr %3, align 8, !tbaa !70
   %.pre11.i.i = load i8, ptr %.pre.i.i, align 1, !tbaa !46
   br label %64
@@ -19255,7 +19249,7 @@ luaO_str2d.exit.thread.i:                         ; preds = %54
   br i1 %66, label %luaO_str2d.exit.thread14.i, label %.preheader.i.i
 
 luaO_str2d.exit.thread14.i:                       ; preds = %64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %77
 
 .preheader.i.i:                                   ; preds = %64
@@ -19276,7 +19270,7 @@ luaO_str2d.exit.thread14.i:                       ; preds = %64
 
 luaO_str2d.exit.i:                                ; preds = %69
   %.not8.i.not.i = icmp eq i8 %71, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not8.i.not.i, label %77, label %78
 
 77:                                               ; preds = %luaO_str2d.exit.i, %luaO_str2d.exit.thread14.i
@@ -19291,7 +19285,7 @@ luaV_tonumber.exit:                               ; preds = %index2adr.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal ptr @getS(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2) #25 {
+define internal ptr @getS(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2) #24 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !265
   %6 = icmp eq i64 %5, 0
@@ -19478,11 +19472,11 @@ luaC_step.exit:                                   ; preds = %33, %36, %39
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %51 = load ptr, ptr %50, align 8, !tbaa !107
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #35
-  call void @llvm.lifetime.start.p0(i64 600, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %49, ptr %52, align 8, !tbaa !284
-  %53 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %51) #37
+  %53 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %51) #36
   %54 = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull readonly %51, i64 noundef %53)
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store i8 46, ptr %55, align 8, !tbaa !289
@@ -19508,7 +19502,7 @@ luaC_step.exit:                                   ; preds = %33, %36, %39
   %68 = load ptr, ptr %67, align 8, !tbaa !43
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %70 = load ptr, ptr %69, align 8, !tbaa !44
-  %71 = tail call ptr %68(ptr noundef %70, ptr noundef %63, i64 noundef %65, i64 noundef 32) #35
+  %71 = tail call ptr %68(ptr noundef %70, ptr noundef %63, i64 noundef %65, i64 noundef 32) #37
   %72 = icmp eq ptr %71, null
   br i1 %72, label %73, label %luaM_realloc_.exit.i.i
 
@@ -19539,7 +19533,7 @@ luaC_step.exit:                                   ; preds = %33, %36, %39
   %85 = load ptr, ptr %6, align 8, !tbaa !29
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 152
   %87 = load ptr, ptr %86, align 8, !tbaa !49
-  %88 = tail call i32 %87(ptr noundef nonnull %0) #35
+  %88 = tail call i32 %87(ptr noundef nonnull %0) #37
   br label %89
 
 89:                                               ; preds = %84, %79
@@ -19570,14 +19564,14 @@ luaM_realloc_.exit.i.i:                           ; preds = %47
   br label %luaX_setinput.exit.i
 
 101:                                              ; preds = %luaM_realloc_.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %102 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %103 = load ptr, ptr %102, align 8, !tbaa !100
   %104 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %105 = load ptr, ptr %104, align 8, !tbaa !102
   %106 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %107 = load ptr, ptr %106, align 8, !tbaa !103
-  %108 = call ptr %105(ptr noundef %103, ptr noundef %107, ptr noundef nonnull %3) #35
+  %108 = call ptr %105(ptr noundef %103, ptr noundef %107, ptr noundef nonnull %3) #37
   %109 = icmp eq ptr %108, null
   %110 = load i64, ptr %3, align 8
   %111 = icmp eq i64 %110, 0
@@ -19596,7 +19590,7 @@ luaM_realloc_.exit.i.i:                           ; preds = %47
 
 luaZ_fill.exit.i.i:                               ; preds = %112, %101
   %.0.i.i.i = phi i32 [ %117, %112 ], [ -1, %101 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %luaX_setinput.exit.i
 
 luaX_setinput.exit.i:                             ; preds = %luaZ_fill.exit.i.i, %95
@@ -19640,8 +19634,8 @@ luaX_next.exit.i:                                 ; preds = %125, %124
 luaY_parser.exit:                                 ; preds = %luaX_next.exit.i
   call fastcc void @close_func(ptr noundef %4)
   %133 = load ptr, ptr %5, align 8, !tbaa !300
-  call void @llvm.lifetime.end.p0(i64 600, ptr nonnull %5) #35
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 112
   %135 = load i8, ptr %134, align 8, !tbaa !183
   %136 = zext i8 %135 to i32
@@ -19655,7 +19649,7 @@ luaY_parser.exit:                                 ; preds = %luaX_next.exit.i
   %144 = load ptr, ptr %143, align 8, !tbaa !43
   %145 = getelementptr inbounds nuw i8, ptr %142, i64 24
   %146 = load ptr, ptr %145, align 8, !tbaa !44
-  %147 = call ptr %144(ptr noundef %146, ptr noundef null, i64 noundef 0, i64 noundef %141) #35
+  %147 = call ptr %144(ptr noundef %146, ptr noundef null, i64 noundef 0, i64 noundef %141) #37
   %148 = icmp eq ptr %147, null
   br i1 %148, label %149, label %luaM_realloc_.exit.i
 
@@ -19686,7 +19680,7 @@ luaY_parser.exit:                                 ; preds = %luaX_next.exit.i
   %161 = load ptr, ptr %6, align 8, !tbaa !29
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 152
   %163 = load ptr, ptr %162, align 8, !tbaa !49
-  %164 = call i32 %163(ptr noundef nonnull %0) #35
+  %164 = call i32 %163(ptr noundef nonnull %0) #37
   br label %165
 
 165:                                              ; preds = %160, %155
@@ -19748,7 +19742,7 @@ luaF_newLclosure.exit:                            ; preds = %luaM_realloc_.exit.
   %191 = load ptr, ptr %190, align 8, !tbaa !43
   %192 = getelementptr inbounds nuw i8, ptr %189, i64 24
   %193 = load ptr, ptr %192, align 8, !tbaa !44
-  %194 = call ptr %191(ptr noundef %193, ptr noundef null, i64 noundef 0, i64 noundef 40) #35
+  %194 = call ptr %191(ptr noundef %193, ptr noundef null, i64 noundef 0, i64 noundef 40) #37
   %195 = icmp eq ptr %194, null
   br i1 %195, label %196, label %luaF_newupval.exit
 
@@ -19779,7 +19773,7 @@ luaF_newLclosure.exit:                            ; preds = %luaM_realloc_.exit.
   %208 = load ptr, ptr %6, align 8, !tbaa !29
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 152
   %210 = load ptr, ptr %209, align 8, !tbaa !49
-  %211 = call i32 %210(ptr noundef nonnull %0) #35
+  %211 = call i32 %210(ptr noundef nonnull %0) #37
   br label %212
 
 212:                                              ; preds = %207, %202
@@ -19859,7 +19853,7 @@ define internal fastcc void @open_func(ptr noundef nonnull %0, ptr noundef nonnu
   %8 = load ptr, ptr %7, align 8, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !44
-  %11 = tail call ptr %8(ptr noundef %10, ptr noundef null, i64 noundef 0, i64 noundef 120) #35
+  %11 = tail call ptr %8(ptr noundef %10, ptr noundef null, i64 noundef 0, i64 noundef 120) #37
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %luaF_newproto.exit
 
@@ -19890,7 +19884,7 @@ define internal fastcc void @open_func(ptr noundef nonnull %0, ptr noundef nonnu
   %25 = load ptr, ptr %5, align 8, !tbaa !29
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 152
   %27 = load ptr, ptr %26, align 8, !tbaa !49
-  %28 = tail call i32 %27(ptr noundef nonnull %4) #35
+  %28 = tail call i32 %27(ptr noundef nonnull %4) #37
   br label %29
 
 29:                                               ; preds = %24, %19
@@ -20144,7 +20138,7 @@ enterlevel.exit.preheader:                        ; preds = %1
   br label %luaX_next.exit153
 
 luaX_next.exit153:                                ; preds = %95, %96
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %98 = call fastcc i32 @subexpr(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 0)
   %99 = load i32, ptr %2, align 8, !tbaa !315
   %100 = icmp eq i32 %99, 1
@@ -20158,7 +20152,7 @@ cond.exit151:                                     ; preds = %luaX_next.exit153, 
   %102 = load ptr, ptr %37, align 8, !tbaa !293
   call fastcc void @luaK_goiftrue(ptr noundef %102, ptr noundef %2)
   %103 = load i32, ptr %71, align 4, !tbaa !317
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %104 = load i32, ptr %32, align 8, !tbaa !305
   %.not.i.i145 = icmp eq i32 %104, 274
   br i1 %.not.i.i145, label %check.exit.i147, label %105
@@ -20189,7 +20183,7 @@ check.exit.i147:                                  ; preds = %cond.exit151
 
 checknext.exit150:                                ; preds = %111, %112
   %114 = load ptr, ptr %37, align 8, !tbaa !293
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 -1, ptr %72, align 8, !tbaa !318
   store i8 0, ptr %73, align 2, !tbaa !320
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 74
@@ -20202,7 +20196,7 @@ checknext.exit150:                                ; preds = %111, %112
   store ptr %3, ptr %117, align 8, !tbaa !313
   call fastcc void @chunk(ptr noundef nonnull %0)
   call fastcc void @leaveblock(ptr noundef %114)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %119 = getelementptr inbounds nuw i8, ptr %93, i64 56
   %120 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %121 = getelementptr inbounds nuw i8, ptr %93, i64 48
@@ -20403,7 +20397,7 @@ luaK_patchtohere.exit.i90:                        ; preds = %fixjump.exit.i.i28.
   br label %luaX_next.exit144
 
 luaX_next.exit144:                                ; preds = %212, %213
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %215 = call fastcc i32 @subexpr(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef 0)
   %216 = load i32, ptr %4, align 8, !tbaa !315
   %217 = icmp eq i32 %216, 1
@@ -20417,7 +20411,7 @@ cond.exit:                                        ; preds = %luaX_next.exit144, 
   %219 = load ptr, ptr %37, align 8, !tbaa !293
   call fastcc void @luaK_goiftrue(ptr noundef %219, ptr noundef %4)
   %220 = load i32, ptr %76, align 4, !tbaa !317
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %221 = load i32, ptr %32, align 8, !tbaa !305
   %.not.i.i137 = icmp eq i32 %221, 274
   br i1 %.not.i.i137, label %check.exit.i139, label %222
@@ -20448,7 +20442,7 @@ check.exit.i139:                                  ; preds = %cond.exit
 
 checknext.exit142:                                ; preds = %228, %229
   %231 = load ptr, ptr %37, align 8, !tbaa !293
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 -1, ptr %77, align 8, !tbaa !318
   store i8 0, ptr %78, align 2, !tbaa !320
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 74
@@ -20461,7 +20455,7 @@ checknext.exit142:                                ; preds = %228, %229
   store ptr %5, ptr %234, align 8, !tbaa !313
   call fastcc void @chunk(ptr noundef nonnull %0)
   call fastcc void @leaveblock(ptr noundef %231)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %123, !llvm.loop !326
 
 236:                                              ; preds = %123
@@ -20650,7 +20644,7 @@ luaK_patchtohere.exit56.i:                        ; preds = %fixjump.exit.i.i55.
 
 luaX_next.exit.i77:                               ; preds = %324, %323
   %326 = load ptr, ptr %37, align 8, !tbaa !293
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 -1, ptr %81, align 8, !tbaa !318
   store i8 0, ptr %82, align 2, !tbaa !320
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 74
@@ -20663,7 +20657,7 @@ luaX_next.exit.i77:                               ; preds = %324, %323
   store ptr %8, ptr %329, align 8, !tbaa !313
   call fastcc void @chunk(ptr noundef nonnull %0)
   call fastcc void @leaveblock(ptr noundef %326)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %luaK_concat.exit66.i
 
 331:                                              ; preds = %123
@@ -20789,7 +20783,7 @@ ifstat.exit:                                      ; preds = %luaK_concat.exit66.
 
 388:                                              ; preds = %90
   %389 = load ptr, ptr %37, align 8, !tbaa !293
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %91, ptr %34, align 8, !tbaa !295
   %390 = load i32, ptr %35, align 8, !tbaa !291
   %.not.i.i52 = icmp eq i32 %390, 287
@@ -20810,7 +20804,7 @@ luaX_next.exit.i53:                               ; preds = %392, %391
   %395 = load i32, ptr %394, align 8, !tbaa !310
   %396 = getelementptr inbounds nuw i8, ptr %389, i64 52
   store i32 %395, ptr %396, align 4, !tbaa !311
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %397 = call fastcc i32 @subexpr(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef 0)
   %398 = load i32, ptr %10, align 8, !tbaa !315
   %399 = icmp eq i32 %398, 1
@@ -20824,7 +20818,7 @@ cond.exit.i54:                                    ; preds = %400, %luaX_next.exi
   %401 = load ptr, ptr %37, align 8, !tbaa !293
   call fastcc void @luaK_goiftrue(ptr noundef %401, ptr noundef %10)
   %402 = load i32, ptr %62, align 4, !tbaa !317
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   store i32 -1, ptr %63, align 8, !tbaa !318
   store i8 1, ptr %64, align 2, !tbaa !320
   %403 = getelementptr inbounds nuw i8, ptr %389, i64 74
@@ -20865,7 +20859,7 @@ check.exit.i.i56:                                 ; preds = %cond.exit.i54
 
 checknext.exit.i:                                 ; preds = %415, %414
   %417 = load ptr, ptr %37, align 8, !tbaa !293
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 -1, ptr %67, align 8, !tbaa !318
   store i8 0, ptr %68, align 2, !tbaa !320
   %418 = getelementptr inbounds nuw i8, ptr %417, i64 74
@@ -20878,7 +20872,7 @@ checknext.exit.i:                                 ; preds = %415, %414
   store ptr %9, ptr %420, align 8, !tbaa !313
   call fastcc void @chunk(ptr noundef nonnull %0)
   call fastcc void @leaveblock(ptr noundef %417)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %422 = getelementptr inbounds nuw i8, ptr %389, i64 56
   %423 = load i32, ptr %422, align 8, !tbaa !312
   store i32 -1, ptr %422, align 8, !tbaa !312
@@ -21068,7 +21062,7 @@ fixjump.exit.i.i22.i:                             ; preds = %505
   br label %whilestat.exit
 
 whilestat.exit:                                   ; preds = %luaK_patchlist.exit.i66, %495, %fixjump.exit.i.i22.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %statement.exit
 
 519:                                              ; preds = %90
@@ -21089,7 +21083,7 @@ whilestat.exit:                                   ; preds = %luaK_patchlist.exit
 
 luaX_next.exit51:                                 ; preds = %521, %522
   %524 = load ptr, ptr %37, align 8, !tbaa !293
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 -1, ptr %58, align 8, !tbaa !318
   store i8 0, ptr %59, align 2, !tbaa !320
   %525 = getelementptr inbounds nuw i8, ptr %524, i64 74
@@ -21102,13 +21096,13 @@ luaX_next.exit51:                                 ; preds = %521, %522
   store ptr %12, ptr %527, align 8, !tbaa !313
   call fastcc void @chunk(ptr noundef nonnull %0)
   call fastcc void @leaveblock(ptr noundef %524)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call fastcc void @check_match(ptr noundef nonnull %0, i32 noundef 262, i32 noundef 259, i32 noundef %91)
   br label %statement.exit
 
 529:                                              ; preds = %90
   %530 = load ptr, ptr %37, align 8, !tbaa !293
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 -1, ptr %52, align 8, !tbaa !318
   store i8 1, ptr %53, align 2, !tbaa !320
   %531 = getelementptr inbounds nuw i8, ptr %530, i64 74
@@ -21216,11 +21210,11 @@ str_checkname.exit.i48:                           ; preds = %548, %547
 
 testnext.exit136:                                 ; preds = %551
   %567 = load i32, ptr %553, align 4, !tbaa !327
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store double 1.000000e+00, ptr %6, align 8, !tbaa !46
   store i32 3, ptr %57, align 8, !tbaa !69
   %568 = call fastcc i32 @addk(ptr noundef nonnull %552, ptr noundef %6, ptr noundef %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %569 = shl i32 %567, 6
   %570 = shl i32 %568, 14
   %571 = or i32 %569, %570
@@ -21266,7 +21260,7 @@ fornum.exit.i:                                    ; preds = %luaK_reserveregs.ex
 
 593:                                              ; preds = %str_checkname.exit.i48, %str_checkname.exit.i48
   %594 = load ptr, ptr %37, align 8, !tbaa !293
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %595 = getelementptr inbounds nuw i8, ptr %594, i64 60
   %596 = load i32, ptr %595, align 4, !tbaa !327
   %597 = call fastcc ptr @luaX_newstring(ptr noundef nonnull %0, ptr noundef nonnull @.str.171, i64 noundef 15)
@@ -21492,7 +21486,7 @@ explist1.exit:                                    ; preds = %luaK_exp2nextreg.ex
 
 luaK_checkstack.exit:                             ; preds = %explist1.exit, %691
   call fastcc void @forbody(ptr noundef nonnull %0, i32 noundef %596, i32 noundef %633, i32 noundef %.0.i.i49.lcssa, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %forstat.exit
 
 693:                                              ; preds = %str_checkname.exit.i48
@@ -21502,7 +21496,7 @@ luaK_checkstack.exit:                             ; preds = %explist1.exit, %691
 forstat.exit:                                     ; preds = %fornum.exit.i, %luaK_checkstack.exit
   call fastcc void @check_match(ptr noundef nonnull %0, i32 noundef 262, i32 noundef 264, i32 noundef %91)
   call fastcc void @leaveblock(ptr noundef %530)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %statement.exit
 
 694:                                              ; preds = %90
@@ -21511,8 +21505,8 @@ forstat.exit:                                     ; preds = %fornum.exit.i, %lua
   %697 = load i32, ptr %696, align 8, !tbaa !310
   %698 = getelementptr inbounds nuw i8, ptr %695, i64 52
   store i32 %697, ptr %698, align 4, !tbaa !311
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #35
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 -1, ptr %43, align 8, !tbaa !318
   store i8 1, ptr %44, align 2, !tbaa !320
   %699 = getelementptr inbounds nuw i8, ptr %695, i64 74
@@ -21546,7 +21540,7 @@ forstat.exit:                                     ; preds = %fornum.exit.i, %lua
 luaX_next.exit.i38:                               ; preds = %705, %704
   call fastcc void @chunk(ptr noundef nonnull %0)
   call fastcc void @check_match(ptr noundef nonnull %0, i32 noundef 276, i32 noundef 272, i32 noundef %91)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %707 = call fastcc i32 @subexpr(ptr noundef nonnull %0, ptr noundef nonnull %15, i32 noundef 0)
   %708 = load i32, ptr %15, align 8, !tbaa !315
   %709 = icmp eq i32 %708, 1
@@ -21560,7 +21554,7 @@ cond.exit.i:                                      ; preds = %710, %luaX_next.exi
   %711 = load ptr, ptr %37, align 8, !tbaa !293
   call fastcc void @luaK_goiftrue(ptr noundef %711, ptr noundef %15)
   %712 = load i32, ptr %51, align 4, !tbaa !317
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %713 = load i8, ptr %50, align 1, !tbaa !323
   %.not.i39 = icmp eq i8 %713, 0
   br i1 %.not.i39, label %714, label %752
@@ -21836,13 +21830,13 @@ fixjump.exit.i.i.i35.i:                           ; preds = %843
 
 repeatstat.exit:                                  ; preds = %825, %833, %fixjump.exit.i.i.i35.i, %857, %719, %727, %fixjump.exit.i.i.i.i, %751
   call fastcc void @leaveblock(ptr noundef nonnull %695)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %statement.exit
 
 858:                                              ; preds = %90
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18) #35
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 %91, ptr %34, align 8, !tbaa !295
   %859 = load i32, ptr %35, align 8, !tbaa !291
   %.not.i.i33 = icmp eq i32 %859, 287
@@ -21875,7 +21869,7 @@ luaX_next.exit.i34:                               ; preds = %861, %860
 
 .critedge191:                                     ; preds = %863
   call fastcc void @field(ptr noundef nonnull %0, ptr noundef nonnull %18)
-  call void @llvm.lifetime.start.p0(i64 600, ptr nonnull %7) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call fastcc void @open_func(ptr noundef nonnull %0, ptr noundef %7)
   %866 = load ptr, ptr %7, align 8, !tbaa !300
   %867 = getelementptr inbounds nuw i8, ptr %866, i64 96
@@ -21904,7 +21898,7 @@ luaX_next.exit.i34:                               ; preds = %861, %860
   br label %body.exit
 
 funcstat.exit:                                    ; preds = %863
-  call void @llvm.lifetime.start.p0(i64 600, ptr nonnull %7) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call fastcc void @open_func(ptr noundef nonnull %0, ptr noundef %7)
   %884 = load ptr, ptr %7, align 8, !tbaa !300
   %885 = getelementptr inbounds nuw i8, ptr %884, i64 96
@@ -21923,7 +21917,7 @@ body.exit:                                        ; preds = %.critedge191, %func
   call fastcc void @check_match(ptr noundef nonnull %0, i32 noundef 262, i32 noundef 265, i32 noundef %91)
   call fastcc void @close_func(ptr noundef nonnull %0)
   call fastcc void @pushclosure(ptr noundef nonnull %0, ptr noundef %7, ptr noundef nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 600, ptr nonnull %7) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %889 = load ptr, ptr %37, align 8, !tbaa !293
   call fastcc void @luaK_storevar(ptr noundef %889, ptr noundef %18, ptr noundef %19)
   %890 = load ptr, ptr %37, align 8, !tbaa !293
@@ -21936,8 +21930,8 @@ body.exit:                                        ; preds = %.critedge191, %func
   %894 = getelementptr i32, ptr %.val.val.i, i64 %893
   %895 = getelementptr i8, ptr %894, i64 -4
   store i32 %91, ptr %895, align 4, !tbaa !150
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19) #35
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %statement.exit
 
 896:                                              ; preds = %90
@@ -21982,8 +21976,8 @@ luaX_next.exit32:                                 ; preds = %898, %899
 
 909:                                              ; preds = %906, %907
   %910 = phi i32 [ %.pr177, %906 ], [ %908, %907 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21) #35
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %911 = load ptr, ptr %37, align 8, !tbaa !293
   %.not.i.i.i19 = icmp eq i32 %910, 285
   br i1 %.not.i.i.i19, label %check.exit.i.i20, label %912
@@ -22067,7 +22061,7 @@ luaK_reserveregs.exit.i:                          ; preds = %936, %str_checkname
   %952 = getelementptr inbounds nuw %struct.LocVar, ptr %945, i64 %951, i32 1
   store i32 %942, ptr %952, align 8, !tbaa !331
   %953 = load i32, ptr %33, align 4, !tbaa !294
-  call void @llvm.lifetime.start.p0(i64 600, ptr nonnull %20) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call fastcc void @open_func(ptr noundef nonnull %0, ptr noundef %20)
   %954 = load ptr, ptr %20, align 8, !tbaa !300
   %955 = getelementptr inbounds nuw i8, ptr %954, i64 96
@@ -22083,7 +22077,7 @@ luaK_reserveregs.exit.i:                          ; preds = %936, %str_checkname
   call fastcc void @check_match(ptr noundef nonnull %0, i32 noundef 262, i32 noundef 265, i32 noundef %953)
   call fastcc void @close_func(ptr noundef nonnull %0)
   call fastcc void @pushclosure(ptr noundef nonnull %0, ptr noundef %20, ptr noundef nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 600, ptr nonnull %20) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call fastcc void @luaK_storevar(ptr noundef nonnull %911, ptr noundef %21, ptr noundef %22)
   %959 = getelementptr inbounds nuw i8, ptr %911, i64 48
   %960 = load i32, ptr %959, align 8, !tbaa !310
@@ -22100,12 +22094,12 @@ luaK_reserveregs.exit.i:                          ; preds = %936, %str_checkname
   %971 = zext i16 %970 to i64
   %972 = getelementptr inbounds nuw %struct.LocVar, ptr %963, i64 %971, i32 1
   store i32 %960, ptr %972, align 8, !tbaa !331
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22) #35
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %statement.exit
 
 testnext.exit30:                                  ; preds = %luaX_next.exit32
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %.not.i.i.i317 = icmp eq i32 %901, 285
   br i1 %.not.i.i.i317, label %check.exit.i.i, label %testnext.exit30._crit_edge
 
@@ -22309,12 +22303,12 @@ explist1.exit.i17:                                ; preds = %luaK_exp2nextreg.ex
   br i1 %.not.i18.i, label %localstat.exit, label %1053, !llvm.loop !334
 
 localstat.exit:                                   ; preds = %1053
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %statement.exit
 
 1059:                                             ; preds = %90
   %1060 = load ptr, ptr %37, align 8, !tbaa !293
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i32 %91, ptr %34, align 8, !tbaa !295
   %1061 = load i32, ptr %35, align 8, !tbaa !291
   %.not.i.i11 = icmp eq i32 %1061, 287
@@ -22602,7 +22596,7 @@ retstat.exit:                                     ; preds = %luaX_next.exit.i, %
   %1205 = getelementptr inbounds nuw i8, ptr %1204, i64 8
   %1206 = load i32, ptr %1205, align 8, !tbaa !295
   %1207 = call fastcc i32 @luaK_code(ptr noundef %1060, i32 noundef %1202, i32 noundef %1206)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %statement.exit
 
 1208:                                             ; preds = %90
@@ -22627,7 +22621,7 @@ luaX_next.exit:                                   ; preds = %1210, %1211
 
 1213:                                             ; preds = %90
   %1214 = load ptr, ptr %37, align 8, !tbaa !293
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call fastcc void @primaryexp(ptr noundef nonnull %0, ptr noundef %85)
   %1215 = load i32, ptr %85, align 8, !tbaa !335
   %1216 = icmp eq i32 %1215, 13
@@ -22652,7 +22646,7 @@ luaX_next.exit:                                   ; preds = %1210, %1211
   br label %exprstat.exit
 
 exprstat.exit:                                    ; preds = %1217, %1227
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %statement.exit
 
 statement.exit:                                   ; preds = %ifstat.exit, %whilestat.exit, %luaX_next.exit51, %forstat.exit, %repeatstat.exit, %body.exit, %luaK_reserveregs.exit.i, %localstat.exit, %retstat.exit, %luaX_next.exit, %exprstat.exit
@@ -22758,7 +22752,7 @@ removevars.exit:                                  ; preds = %1, %._crit_edge.i
   %40 = load ptr, ptr %39, align 8, !tbaa !43
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %42 = load ptr, ptr %41, align 8, !tbaa !44
-  %43 = tail call ptr %40(ptr noundef %42, ptr noundef %30, i64 noundef %34, i64 noundef %36) #35
+  %43 = tail call ptr %40(ptr noundef %42, ptr noundef %30, i64 noundef %34, i64 noundef %36) #37
   %44 = icmp eq ptr %43, null
   %45 = icmp ne i32 %26, 0
   %or.cond.i = and i1 %45, %44
@@ -22791,7 +22785,7 @@ removevars.exit:                                  ; preds = %1, %._crit_edge.i
   %58 = load ptr, ptr %37, align 8, !tbaa !29
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 152
   %60 = load ptr, ptr %59, align 8, !tbaa !49
-  %61 = tail call i32 %60(ptr noundef nonnull %3) #35
+  %61 = tail call i32 %60(ptr noundef nonnull %3) #37
   br label %62
 
 62:                                               ; preds = %57, %52
@@ -22828,7 +22822,7 @@ luaM_realloc_.exit:                               ; preds = %28
   %81 = load ptr, ptr %80, align 8, !tbaa !43
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %83 = load ptr, ptr %82, align 8, !tbaa !44
-  %84 = tail call ptr %81(ptr noundef %83, ptr noundef %72, i64 noundef %76, i64 noundef %78) #35
+  %84 = tail call ptr %81(ptr noundef %83, ptr noundef %72, i64 noundef %76, i64 noundef %78) #37
   %85 = icmp eq ptr %84, null
   %86 = icmp ne i32 %67, 0
   %or.cond.i64 = and i1 %86, %85
@@ -22861,7 +22855,7 @@ luaM_realloc_.exit:                               ; preds = %28
   %99 = load ptr, ptr %37, align 8, !tbaa !29
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 152
   %101 = load ptr, ptr %100, align 8, !tbaa !49
-  %102 = tail call i32 %101(ptr noundef nonnull %3) #35
+  %102 = tail call i32 %101(ptr noundef nonnull %3) #37
   br label %103
 
 103:                                              ; preds = %98, %93
@@ -22900,7 +22894,7 @@ luaM_realloc_.exit67:                             ; preds = %70
   %124 = load ptr, ptr %123, align 8, !tbaa !43
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 24
   %126 = load ptr, ptr %125, align 8, !tbaa !44
-  %127 = tail call ptr %124(ptr noundef %126, ptr noundef %115, i64 noundef %119, i64 noundef %121) #35
+  %127 = tail call ptr %124(ptr noundef %126, ptr noundef %115, i64 noundef %119, i64 noundef %121) #37
   %128 = icmp eq ptr %127, null
   %129 = icmp ne i32 %110, 0
   %or.cond.i69 = and i1 %129, %128
@@ -22933,7 +22927,7 @@ luaM_realloc_.exit67:                             ; preds = %70
   %142 = load ptr, ptr %37, align 8, !tbaa !29
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 152
   %144 = load ptr, ptr %143, align 8, !tbaa !49
-  %145 = tail call i32 %144(ptr noundef nonnull %3) #35
+  %145 = tail call i32 %144(ptr noundef nonnull %3) #37
   br label %146
 
 146:                                              ; preds = %141, %136
@@ -22972,7 +22966,7 @@ luaM_realloc_.exit72:                             ; preds = %113
   %167 = load ptr, ptr %166, align 8, !tbaa !43
   %168 = getelementptr inbounds nuw i8, ptr %165, i64 24
   %169 = load ptr, ptr %168, align 8, !tbaa !44
-  %170 = tail call ptr %167(ptr noundef %169, ptr noundef %158, i64 noundef %162, i64 noundef %164) #35
+  %170 = tail call ptr %167(ptr noundef %169, ptr noundef %158, i64 noundef %162, i64 noundef %164) #37
   %171 = icmp eq ptr %170, null
   %172 = icmp ne i32 %153, 0
   %or.cond.i74 = and i1 %172, %171
@@ -23005,7 +22999,7 @@ luaM_realloc_.exit72:                             ; preds = %113
   %185 = load ptr, ptr %37, align 8, !tbaa !29
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 152
   %187 = load ptr, ptr %186, align 8, !tbaa !49
-  %188 = tail call i32 %187(ptr noundef nonnull %3) #35
+  %188 = tail call i32 %187(ptr noundef nonnull %3) #37
   br label %189
 
 189:                                              ; preds = %184, %179
@@ -23045,7 +23039,7 @@ luaM_realloc_.exit77:                             ; preds = %156
   %211 = load ptr, ptr %210, align 8, !tbaa !43
   %212 = getelementptr inbounds nuw i8, ptr %209, i64 24
   %213 = load ptr, ptr %212, align 8, !tbaa !44
-  %214 = tail call ptr %211(ptr noundef %213, ptr noundef %203, i64 noundef %207, i64 noundef %208) #35
+  %214 = tail call ptr %211(ptr noundef %213, ptr noundef %203, i64 noundef %207, i64 noundef %208) #37
   %215 = icmp eq ptr %214, null
   %216 = icmp ne i16 %196, 0
   %or.cond.i79 = and i1 %216, %215
@@ -23078,7 +23072,7 @@ luaM_realloc_.exit77:                             ; preds = %156
   %229 = load ptr, ptr %37, align 8, !tbaa !29
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 152
   %231 = load ptr, ptr %230, align 8, !tbaa !49
-  %232 = tail call i32 %231(ptr noundef nonnull %3) #35
+  %232 = tail call i32 %231(ptr noundef nonnull %3) #37
   br label %233
 
 233:                                              ; preds = %228, %223
@@ -23110,7 +23104,7 @@ luaM_realloc_.exit82:                             ; preds = %201
   %252 = load ptr, ptr %251, align 8, !tbaa !43
   %253 = getelementptr inbounds nuw i8, ptr %250, i64 24
   %254 = load ptr, ptr %253, align 8, !tbaa !44
-  %255 = tail call ptr %252(ptr noundef %254, ptr noundef %243, i64 noundef %247, i64 noundef %249) #35
+  %255 = tail call ptr %252(ptr noundef %254, ptr noundef %243, i64 noundef %247, i64 noundef %249) #37
   %256 = icmp eq ptr %255, null
   %257 = icmp ne i8 %241, 0
   %or.cond.i84 = and i1 %257, %256
@@ -23147,7 +23141,7 @@ luaM_realloc_.exit82:                             ; preds = %201
   %271 = load ptr, ptr %37, align 8, !tbaa !29
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 152
   %273 = load ptr, ptr %272, align 8, !tbaa !49
-  %274 = tail call i32 %273(ptr noundef nonnull %3) #35
+  %274 = tail call i32 %273(ptr noundef nonnull %3) #37
   br label %275
 
 275:                                              ; preds = %270, %265
@@ -23193,14 +23187,14 @@ anchor_token.exit:                                ; preds = %luaM_realloc_.exit8
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 256) i32 @luaZ_fill(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !100
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !102
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !103
-  %9 = call ptr %6(ptr noundef %4, ptr noundef %8, ptr noundef nonnull %2) #35
+  %9 = call ptr %6(ptr noundef %4, ptr noundef %8, ptr noundef nonnull %2) #37
   %10 = icmp eq ptr %9, null
   %11 = load i64, ptr %2, align 8
   %12 = icmp eq i64 %11, 0
@@ -23219,7 +23213,7 @@ define internal fastcc range(i32 -1, 256) i32 @luaZ_fill(ptr noundef captures(no
 
 19:                                               ; preds = %1, %13
   %.0 = phi i32 [ %18, %13 ], [ -1, %1 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -23297,14 +23291,14 @@ thread-pre-split.backedge:                        ; preds = %.thread, %.thread, 
   br label %56
 
 39:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %41 = load ptr, ptr %40, align 8, !tbaa !100
   %42 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !102
   %44 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %45 = load ptr, ptr %44, align 8, !tbaa !103
-  %46 = call ptr %43(ptr noundef %41, ptr noundef %45, ptr noundef nonnull %21) #35
+  %46 = call ptr %43(ptr noundef %41, ptr noundef %45, ptr noundef nonnull %21) #37
   %47 = icmp eq ptr %46, null
   %48 = load i64, ptr %21, align 8
   %49 = icmp eq i64 %48, 0
@@ -23323,7 +23317,7 @@ thread-pre-split.backedge:                        ; preds = %.thread, %.thread, 
 
 luaZ_fill.exit:                                   ; preds = %39, %50
   %.0.i = phi i32 [ %55, %50 ], [ -1, %39 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %56
 
 56:                                               ; preds = %luaZ_fill.exit, %33
@@ -23350,14 +23344,14 @@ luaZ_fill.exit:                                   ; preds = %39, %50
   br label %85
 
 68:                                               ; preds = %58
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %69 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %70 = load ptr, ptr %69, align 8, !tbaa !100
   %71 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %72 = load ptr, ptr %71, align 8, !tbaa !102
   %73 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %74 = load ptr, ptr %73, align 8, !tbaa !103
-  %75 = call ptr %72(ptr noundef %70, ptr noundef %74, ptr noundef nonnull %20) #35
+  %75 = call ptr %72(ptr noundef %70, ptr noundef %74, ptr noundef nonnull %20) #37
   %76 = icmp eq ptr %75, null
   %77 = load i64, ptr %20, align 8
   %78 = icmp eq i64 %77, 0
@@ -23376,7 +23370,7 @@ luaZ_fill.exit:                                   ; preds = %39, %50
 
 luaZ_fill.exit157:                                ; preds = %68, %79
   %.0.i156 = phi i32 [ %84, %79 ], [ -1, %68 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %85
 
 85:                                               ; preds = %luaZ_fill.exit157, %62
@@ -23434,14 +23428,14 @@ luaZ_fill.exit157:                                ; preds = %68, %79
   br label %124
 
 107:                                              ; preds = %97
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %108 = getelementptr inbounds nuw i8, ptr %98, i64 32
   %109 = load ptr, ptr %108, align 8, !tbaa !100
   %110 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %111 = load ptr, ptr %110, align 8, !tbaa !102
   %112 = getelementptr inbounds nuw i8, ptr %98, i64 24
   %113 = load ptr, ptr %112, align 8, !tbaa !103
-  %114 = call ptr %111(ptr noundef %109, ptr noundef %113, ptr noundef nonnull %19) #35
+  %114 = call ptr %111(ptr noundef %109, ptr noundef %113, ptr noundef nonnull %19) #37
   %115 = icmp eq ptr %114, null
   %116 = load i64, ptr %19, align 8
   %117 = icmp eq i64 %116, 0
@@ -23460,7 +23454,7 @@ luaZ_fill.exit157:                                ; preds = %68, %79
 
 luaZ_fill.exit160:                                ; preds = %107, %118
   %.0.i159 = phi i32 [ %123, %118 ], [ -1, %107 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %124
 
 124:                                              ; preds = %luaZ_fill.exit160, %101
@@ -23503,14 +23497,14 @@ luaZ_fill.exit160:                                ; preds = %107, %118
   br label %159
 
 142:                                              ; preds = %132
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %143 = getelementptr inbounds nuw i8, ptr %133, i64 32
   %144 = load ptr, ptr %143, align 8, !tbaa !100
   %145 = getelementptr inbounds nuw i8, ptr %133, i64 16
   %146 = load ptr, ptr %145, align 8, !tbaa !102
   %147 = getelementptr inbounds nuw i8, ptr %133, i64 24
   %148 = load ptr, ptr %147, align 8, !tbaa !103
-  %149 = call ptr %146(ptr noundef %144, ptr noundef %148, ptr noundef nonnull %18) #35
+  %149 = call ptr %146(ptr noundef %144, ptr noundef %148, ptr noundef nonnull %18) #37
   %150 = icmp eq ptr %149, null
   %151 = load i64, ptr %18, align 8
   %152 = icmp eq i64 %151, 0
@@ -23529,7 +23523,7 @@ luaZ_fill.exit160:                                ; preds = %107, %118
 
 luaZ_fill.exit163:                                ; preds = %142, %153
   %.0.i162 = phi i32 [ %158, %153 ], [ -1, %142 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %159
 
 159:                                              ; preds = %luaZ_fill.exit163, %136
@@ -23582,14 +23576,14 @@ luaZ_fill.exit163:                                ; preds = %142, %153
   br label %202
 
 185:                                              ; preds = %175
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %186 = getelementptr inbounds nuw i8, ptr %176, i64 32
   %187 = load ptr, ptr %186, align 8, !tbaa !100
   %188 = getelementptr inbounds nuw i8, ptr %176, i64 16
   %189 = load ptr, ptr %188, align 8, !tbaa !102
   %190 = getelementptr inbounds nuw i8, ptr %176, i64 24
   %191 = load ptr, ptr %190, align 8, !tbaa !103
-  %192 = call ptr %189(ptr noundef %187, ptr noundef %191, ptr noundef nonnull %17) #35
+  %192 = call ptr %189(ptr noundef %187, ptr noundef %191, ptr noundef nonnull %17) #37
   %193 = icmp eq ptr %192, null
   %194 = load i64, ptr %17, align 8
   %195 = icmp eq i64 %194, 0
@@ -23608,7 +23602,7 @@ luaZ_fill.exit163:                                ; preds = %142, %153
 
 luaZ_fill.exit166:                                ; preds = %185, %196
   %.0.i165 = phi i32 [ %201, %196 ], [ -1, %185 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %202
 
 202:                                              ; preds = %luaZ_fill.exit166, %179
@@ -23661,14 +23655,14 @@ luaZ_fill.exit166:                                ; preds = %185, %196
   br label %245
 
 228:                                              ; preds = %218
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %229 = getelementptr inbounds nuw i8, ptr %219, i64 32
   %230 = load ptr, ptr %229, align 8, !tbaa !100
   %231 = getelementptr inbounds nuw i8, ptr %219, i64 16
   %232 = load ptr, ptr %231, align 8, !tbaa !102
   %233 = getelementptr inbounds nuw i8, ptr %219, i64 24
   %234 = load ptr, ptr %233, align 8, !tbaa !103
-  %235 = call ptr %232(ptr noundef %230, ptr noundef %234, ptr noundef nonnull %16) #35
+  %235 = call ptr %232(ptr noundef %230, ptr noundef %234, ptr noundef nonnull %16) #37
   %236 = icmp eq ptr %235, null
   %237 = load i64, ptr %16, align 8
   %238 = icmp eq i64 %237, 0
@@ -23687,7 +23681,7 @@ luaZ_fill.exit166:                                ; preds = %185, %196
 
 luaZ_fill.exit169:                                ; preds = %228, %239
   %.0.i168 = phi i32 [ %244, %239 ], [ -1, %228 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %245
 
 245:                                              ; preds = %luaZ_fill.exit169, %222
@@ -23740,14 +23734,14 @@ luaZ_fill.exit169:                                ; preds = %228, %239
   br label %288
 
 271:                                              ; preds = %261
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %272 = getelementptr inbounds nuw i8, ptr %262, i64 32
   %273 = load ptr, ptr %272, align 8, !tbaa !100
   %274 = getelementptr inbounds nuw i8, ptr %262, i64 16
   %275 = load ptr, ptr %274, align 8, !tbaa !102
   %276 = getelementptr inbounds nuw i8, ptr %262, i64 24
   %277 = load ptr, ptr %276, align 8, !tbaa !103
-  %278 = call ptr %275(ptr noundef %273, ptr noundef %277, ptr noundef nonnull %15) #35
+  %278 = call ptr %275(ptr noundef %273, ptr noundef %277, ptr noundef nonnull %15) #37
   %279 = icmp eq ptr %278, null
   %280 = load i64, ptr %15, align 8
   %281 = icmp eq i64 %280, 0
@@ -23766,7 +23760,7 @@ luaZ_fill.exit169:                                ; preds = %228, %239
 
 luaZ_fill.exit172:                                ; preds = %271, %282
   %.0.i171 = phi i32 [ %287, %282 ], [ -1, %271 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %288
 
 288:                                              ; preds = %luaZ_fill.exit172, %265
@@ -23820,14 +23814,14 @@ luaZ_fill.exit172:                                ; preds = %271, %282
   br label %331
 
 314:                                              ; preds = %304
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %315 = getelementptr inbounds nuw i8, ptr %305, i64 32
   %316 = load ptr, ptr %315, align 8, !tbaa !100
   %317 = getelementptr inbounds nuw i8, ptr %305, i64 16
   %318 = load ptr, ptr %317, align 8, !tbaa !102
   %319 = getelementptr inbounds nuw i8, ptr %305, i64 24
   %320 = load ptr, ptr %319, align 8, !tbaa !103
-  %321 = call ptr %318(ptr noundef %316, ptr noundef %320, ptr noundef nonnull %14) #35
+  %321 = call ptr %318(ptr noundef %316, ptr noundef %320, ptr noundef nonnull %14) #37
   %322 = icmp eq ptr %321, null
   %323 = load i64, ptr %14, align 8
   %324 = icmp eq i64 %323, 0
@@ -23846,7 +23840,7 @@ luaZ_fill.exit172:                                ; preds = %271, %282
 
 luaZ_fill.exit.i:                                 ; preds = %325, %314
   %.0.i.i = phi i32 [ %330, %325 ], [ -1, %314 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %331
 
 331:                                              ; preds = %luaZ_fill.exit.i, %308
@@ -23894,14 +23888,14 @@ thread-pre-split.i:                               ; preds = %477, %449, %406, %3
   br label %363
 
 346:                                              ; preds = %336
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %347 = getelementptr inbounds nuw i8, ptr %337, i64 32
   %348 = load ptr, ptr %347, align 8, !tbaa !100
   %349 = getelementptr inbounds nuw i8, ptr %337, i64 16
   %350 = load ptr, ptr %349, align 8, !tbaa !102
   %351 = getelementptr inbounds nuw i8, ptr %337, i64 24
   %352 = load ptr, ptr %351, align 8, !tbaa !103
-  %353 = call ptr %350(ptr noundef %348, ptr noundef %352, ptr noundef nonnull %13) #35
+  %353 = call ptr %350(ptr noundef %348, ptr noundef %352, ptr noundef nonnull %13) #37
   %354 = icmp eq ptr %353, null
   %355 = load i64, ptr %13, align 8
   %356 = icmp eq i64 %355, 0
@@ -23920,7 +23914,7 @@ thread-pre-split.i:                               ; preds = %477, %449, %406, %3
 
 luaZ_fill.exit73.i:                               ; preds = %357, %346
   %.0.i72.i = phi i32 [ %362, %357 ], [ -1, %346 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %363
 
 363:                                              ; preds = %luaZ_fill.exit73.i, %340
@@ -23991,14 +23985,14 @@ luaZ_fill.exit73.i:                               ; preds = %357, %346
   br label %406
 
 389:                                              ; preds = %379
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %390 = getelementptr inbounds nuw i8, ptr %380, i64 32
   %391 = load ptr, ptr %390, align 8, !tbaa !100
   %392 = getelementptr inbounds nuw i8, ptr %380, i64 16
   %393 = load ptr, ptr %392, align 8, !tbaa !102
   %394 = getelementptr inbounds nuw i8, ptr %380, i64 24
   %395 = load ptr, ptr %394, align 8, !tbaa !103
-  %396 = call ptr %393(ptr noundef %391, ptr noundef %395, ptr noundef nonnull %12) #35
+  %396 = call ptr %393(ptr noundef %391, ptr noundef %395, ptr noundef nonnull %12) #37
   %397 = icmp eq ptr %396, null
   %398 = load i64, ptr %12, align 8
   %399 = icmp eq i64 %398, 0
@@ -24017,7 +24011,7 @@ luaZ_fill.exit73.i:                               ; preds = %357, %346
 
 luaZ_fill.exit76.i:                               ; preds = %400, %389
   %.0.i75.i = phi i32 [ %405, %400 ], [ -1, %389 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %406
 
 406:                                              ; preds = %luaZ_fill.exit76.i, %383
@@ -24049,14 +24043,14 @@ luaZ_fill.exit76.i:                               ; preds = %400, %389
   br label %438
 
 421:                                              ; preds = %.preheader.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %422 = getelementptr inbounds nuw i8, ptr %412, i64 32
   %423 = load ptr, ptr %422, align 8, !tbaa !100
   %424 = getelementptr inbounds nuw i8, ptr %412, i64 16
   %425 = load ptr, ptr %424, align 8, !tbaa !102
   %426 = getelementptr inbounds nuw i8, ptr %412, i64 24
   %427 = load ptr, ptr %426, align 8, !tbaa !103
-  %428 = call ptr %425(ptr noundef %423, ptr noundef %427, ptr noundef nonnull %11) #35
+  %428 = call ptr %425(ptr noundef %423, ptr noundef %427, ptr noundef nonnull %11) #37
   %429 = icmp eq ptr %428, null
   %430 = load i64, ptr %11, align 8
   %431 = icmp eq i64 %430, 0
@@ -24075,7 +24069,7 @@ luaZ_fill.exit76.i:                               ; preds = %400, %389
 
 luaZ_fill.exit79.i:                               ; preds = %432, %421
   %.0.i78.i = phi i32 [ %437, %432 ], [ -1, %421 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %438
 
 438:                                              ; preds = %luaZ_fill.exit79.i, %415
@@ -24126,14 +24120,14 @@ luaZ_fill.exit79.i:                               ; preds = %432, %421
   br label %477
 
 460:                                              ; preds = %450
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %461 = getelementptr inbounds nuw i8, ptr %451, i64 32
   %462 = load ptr, ptr %461, align 8, !tbaa !100
   %463 = getelementptr inbounds nuw i8, ptr %451, i64 16
   %464 = load ptr, ptr %463, align 8, !tbaa !102
   %465 = getelementptr inbounds nuw i8, ptr %451, i64 24
   %466 = load ptr, ptr %465, align 8, !tbaa !103
-  %467 = call ptr %464(ptr noundef %462, ptr noundef %466, ptr noundef nonnull %10) #35
+  %467 = call ptr %464(ptr noundef %462, ptr noundef %466, ptr noundef nonnull %10) #37
   %468 = icmp eq ptr %467, null
   %469 = load i64, ptr %10, align 8
   %470 = icmp eq i64 %469, 0
@@ -24152,7 +24146,7 @@ luaZ_fill.exit79.i:                               ; preds = %432, %421
 
 luaZ_fill.exit82.i:                               ; preds = %471, %460
   %.0.i81.i = phi i32 [ %476, %471 ], [ -1, %460 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %477
 
 477:                                              ; preds = %luaZ_fill.exit82.i, %454
@@ -24179,14 +24173,14 @@ luaZ_fill.exit82.i:                               ; preds = %471, %460
   br label %506
 
 489:                                              ; preds = %479
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %490 = getelementptr inbounds nuw i8, ptr %480, i64 32
   %491 = load ptr, ptr %490, align 8, !tbaa !100
   %492 = getelementptr inbounds nuw i8, ptr %480, i64 16
   %493 = load ptr, ptr %492, align 8, !tbaa !102
   %494 = getelementptr inbounds nuw i8, ptr %480, i64 24
   %495 = load ptr, ptr %494, align 8, !tbaa !103
-  %496 = call ptr %493(ptr noundef %491, ptr noundef %495, ptr noundef nonnull %9) #35
+  %496 = call ptr %493(ptr noundef %491, ptr noundef %495, ptr noundef nonnull %9) #37
   %497 = icmp eq ptr %496, null
   %498 = load i64, ptr %9, align 8
   %499 = icmp eq i64 %498, 0
@@ -24205,7 +24199,7 @@ luaZ_fill.exit82.i:                               ; preds = %471, %460
 
 luaZ_fill.exit85.i:                               ; preds = %500, %489
   %.0.i84.i = phi i32 [ %505, %500 ], [ -1, %489 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %506
 
 506:                                              ; preds = %luaZ_fill.exit85.i, %483
@@ -24237,14 +24231,14 @@ luaZ_fill.exit85.i:                               ; preds = %500, %489
   br label %read_string.exit
 
 517:                                              ; preds = %._crit_edge.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %518 = getelementptr inbounds nuw i8, ptr %508, i64 32
   %519 = load ptr, ptr %518, align 8, !tbaa !100
   %520 = getelementptr inbounds nuw i8, ptr %508, i64 16
   %521 = load ptr, ptr %520, align 8, !tbaa !102
   %522 = getelementptr inbounds nuw i8, ptr %508, i64 24
   %523 = load ptr, ptr %522, align 8, !tbaa !103
-  %524 = call ptr %521(ptr noundef %519, ptr noundef %523, ptr noundef nonnull %8) #35
+  %524 = call ptr %521(ptr noundef %519, ptr noundef %523, ptr noundef nonnull %8) #37
   %525 = icmp eq ptr %524, null
   %526 = load i64, ptr %8, align 8
   %527 = icmp eq i64 %526, 0
@@ -24263,7 +24257,7 @@ luaZ_fill.exit85.i:                               ; preds = %500, %489
 
 luaZ_fill.exit88.i:                               ; preds = %528, %517
   %.0.i87.i = phi i32 [ %533, %528 ], [ -1, %517 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %read_string.exit
 
 read_string.exit:                                 ; preds = %511, %luaZ_fill.exit88.i
@@ -24298,14 +24292,14 @@ read_string.exit:                                 ; preds = %511, %luaZ_fill.exi
   br label %569
 
 552:                                              ; preds = %542
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %553 = getelementptr inbounds nuw i8, ptr %543, i64 32
   %554 = load ptr, ptr %553, align 8, !tbaa !100
   %555 = getelementptr inbounds nuw i8, ptr %543, i64 16
   %556 = load ptr, ptr %555, align 8, !tbaa !102
   %557 = getelementptr inbounds nuw i8, ptr %543, i64 24
   %558 = load ptr, ptr %557, align 8, !tbaa !103
-  %559 = call ptr %556(ptr noundef %554, ptr noundef %558, ptr noundef nonnull %7) #35
+  %559 = call ptr %556(ptr noundef %554, ptr noundef %558, ptr noundef nonnull %7) #37
   %560 = icmp eq ptr %559, null
   %561 = load i64, ptr %7, align 8
   %562 = icmp eq i64 %561, 0
@@ -24324,7 +24318,7 @@ read_string.exit:                                 ; preds = %511, %luaZ_fill.exi
 
 luaZ_fill.exit176:                                ; preds = %552, %563
   %.0.i175 = phi i32 [ %568, %563 ], [ -1, %552 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %569
 
 569:                                              ; preds = %luaZ_fill.exit176, %546
@@ -24355,14 +24349,14 @@ luaZ_fill.exit176:                                ; preds = %552, %563
   br label %599
 
 582:                                              ; preds = %572
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %583 = getelementptr inbounds nuw i8, ptr %573, i64 32
   %584 = load ptr, ptr %583, align 8, !tbaa !100
   %585 = getelementptr inbounds nuw i8, ptr %573, i64 16
   %586 = load ptr, ptr %585, align 8, !tbaa !102
   %587 = getelementptr inbounds nuw i8, ptr %573, i64 24
   %588 = load ptr, ptr %587, align 8, !tbaa !103
-  %589 = call ptr %586(ptr noundef %584, ptr noundef %588, ptr noundef nonnull %6) #35
+  %589 = call ptr %586(ptr noundef %584, ptr noundef %588, ptr noundef nonnull %6) #37
   %590 = icmp eq ptr %589, null
   %591 = load i64, ptr %6, align 8
   %592 = icmp eq i64 %591, 0
@@ -24381,7 +24375,7 @@ luaZ_fill.exit176:                                ; preds = %552, %563
 
 luaZ_fill.exit.i180:                              ; preds = %593, %582
   %.0.i.i181 = phi i32 [ %598, %593 ], [ -1, %582 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %599
 
 599:                                              ; preds = %luaZ_fill.exit.i180, %576
@@ -24412,14 +24406,14 @@ luaZ_fill.exit.i180:                              ; preds = %593, %582
   br label %check_next.exit188
 
 612:                                              ; preds = %602
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %613 = getelementptr inbounds nuw i8, ptr %603, i64 32
   %614 = load ptr, ptr %613, align 8, !tbaa !100
   %615 = getelementptr inbounds nuw i8, ptr %603, i64 16
   %616 = load ptr, ptr %615, align 8, !tbaa !102
   %617 = getelementptr inbounds nuw i8, ptr %603, i64 24
   %618 = load ptr, ptr %617, align 8, !tbaa !103
-  %619 = call ptr %616(ptr noundef %614, ptr noundef %618, ptr noundef nonnull %5) #35
+  %619 = call ptr %616(ptr noundef %614, ptr noundef %618, ptr noundef nonnull %5) #37
   %620 = icmp eq ptr %619, null
   %621 = load i64, ptr %5, align 8
   %622 = icmp eq i64 %621, 0
@@ -24438,7 +24432,7 @@ luaZ_fill.exit.i180:                              ; preds = %593, %582
 
 luaZ_fill.exit.i186:                              ; preds = %623, %612
   %.0.i.i187 = phi i32 [ %628, %623 ], [ -1, %612 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %check_next.exit188
 
 check_next.exit188:                               ; preds = %606, %luaZ_fill.exit.i186
@@ -24489,14 +24483,14 @@ check_next.exit188:                               ; preds = %606, %luaZ_fill.exi
   br label %673
 
 656:                                              ; preds = %646
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %657 = getelementptr inbounds nuw i8, ptr %647, i64 32
   %658 = load ptr, ptr %657, align 8, !tbaa !100
   %659 = getelementptr inbounds nuw i8, ptr %647, i64 16
   %660 = load ptr, ptr %659, align 8, !tbaa !102
   %661 = getelementptr inbounds nuw i8, ptr %647, i64 24
   %662 = load ptr, ptr %661, align 8, !tbaa !103
-  %663 = call ptr %660(ptr noundef %658, ptr noundef %662, ptr noundef nonnull %4) #35
+  %663 = call ptr %660(ptr noundef %658, ptr noundef %662, ptr noundef nonnull %4) #37
   %664 = icmp eq ptr %663, null
   %665 = load i64, ptr %4, align 8
   %666 = icmp eq i64 %665, 0
@@ -24515,7 +24509,7 @@ check_next.exit188:                               ; preds = %606, %luaZ_fill.exi
 
 luaZ_fill.exit191:                                ; preds = %656, %667
   %.0.i190 = phi i32 [ %672, %667 ], [ -1, %656 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %673
 
 673:                                              ; preds = %luaZ_fill.exit191, %650
@@ -24559,14 +24553,14 @@ luaZ_fill.exit191:                                ; preds = %656, %667
   br label %708
 
 691:                                              ; preds = %.critedge2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %692 = getelementptr inbounds nuw i8, ptr %682, i64 32
   %693 = load ptr, ptr %692, align 8, !tbaa !100
   %694 = getelementptr inbounds nuw i8, ptr %682, i64 16
   %695 = load ptr, ptr %694, align 8, !tbaa !102
   %696 = getelementptr inbounds nuw i8, ptr %682, i64 24
   %697 = load ptr, ptr %696, align 8, !tbaa !103
-  %698 = call ptr %695(ptr noundef %693, ptr noundef %697, ptr noundef nonnull %3) #35
+  %698 = call ptr %695(ptr noundef %693, ptr noundef %697, ptr noundef nonnull %3) #37
   %699 = icmp eq ptr %698, null
   %700 = load i64, ptr %3, align 8
   %701 = icmp eq i64 %700, 0
@@ -24585,7 +24579,7 @@ luaZ_fill.exit191:                                ; preds = %656, %667
 
 luaZ_fill.exit194:                                ; preds = %691, %702
   %.0.i193 = phi i32 [ %707, %702 ], [ -1, %691 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %708
 
 708:                                              ; preds = %luaZ_fill.exit194, %685
@@ -24675,14 +24669,14 @@ define internal fastcc void @inclinenumber(ptr noundef nonnull captures(none) %0
   br label %32
 
 15:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !100
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !102
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !103
-  %22 = call ptr %19(ptr noundef %17, ptr noundef %21, ptr noundef nonnull %3) #35
+  %22 = call ptr %19(ptr noundef %17, ptr noundef %21, ptr noundef nonnull %3) #37
   %23 = icmp eq ptr %22, null
   %24 = load i64, ptr %3, align 8
   %25 = icmp eq i64 %24, 0
@@ -24701,7 +24695,7 @@ define internal fastcc void @inclinenumber(ptr noundef nonnull captures(none) %0
 
 luaZ_fill.exit:                                   ; preds = %15, %26
   %.0.i = phi i32 [ %31, %26 ], [ -1, %15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %32
 
 32:                                               ; preds = %luaZ_fill.exit, %9
@@ -24734,14 +24728,14 @@ luaZ_fill.exit:                                   ; preds = %15, %26
   br label %62
 
 45:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %46 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %47 = load ptr, ptr %46, align 8, !tbaa !100
   %48 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !102
   %50 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %51 = load ptr, ptr %50, align 8, !tbaa !103
-  %52 = call ptr %49(ptr noundef %47, ptr noundef %51, ptr noundef nonnull %2) #35
+  %52 = call ptr %49(ptr noundef %47, ptr noundef %51, ptr noundef nonnull %2) #37
   %53 = icmp eq ptr %52, null
   %54 = load i64, ptr %2, align 8
   %55 = icmp eq i64 %54, 0
@@ -24760,7 +24754,7 @@ luaZ_fill.exit:                                   ; preds = %15, %26
 
 luaZ_fill.exit18:                                 ; preds = %45, %56
   %.0.i17 = phi i32 [ %61, %56 ], [ -1, %45 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %62
 
 62:                                               ; preds = %luaZ_fill.exit18, %39
@@ -24810,14 +24804,14 @@ define internal fastcc i32 @skip_sep(ptr noundef nonnull captures(none) %0) unna
   br label %32
 
 15:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !100
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !102
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !103
-  %22 = call ptr %19(ptr noundef %17, ptr noundef %21, ptr noundef nonnull %3) #35
+  %22 = call ptr %19(ptr noundef %17, ptr noundef %21, ptr noundef nonnull %3) #37
   %23 = icmp eq ptr %22, null
   %24 = load i64, ptr %3, align 8
   %25 = icmp eq i64 %24, 0
@@ -24836,7 +24830,7 @@ define internal fastcc i32 @skip_sep(ptr noundef nonnull captures(none) %0) unna
 
 luaZ_fill.exit:                                   ; preds = %15, %26
   %.0.i = phi i32 [ %31, %26 ], [ -1, %15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %32
 
 32:                                               ; preds = %luaZ_fill.exit, %9
@@ -24865,14 +24859,14 @@ luaZ_fill.exit:                                   ; preds = %15, %26
   br label %61
 
 44:                                               ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %45 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %46 = load ptr, ptr %45, align 8, !tbaa !100
   %47 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !102
   %49 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %50 = load ptr, ptr %49, align 8, !tbaa !103
-  %51 = call ptr %48(ptr noundef %46, ptr noundef %50, ptr noundef nonnull %2) #35
+  %51 = call ptr %48(ptr noundef %46, ptr noundef %50, ptr noundef nonnull %2) #37
   %52 = icmp eq ptr %51, null
   %53 = load i64, ptr %2, align 8
   %54 = icmp eq i64 %53, 0
@@ -24891,7 +24885,7 @@ luaZ_fill.exit:                                   ; preds = %15, %26
 
 luaZ_fill.exit22:                                 ; preds = %44, %55
   %.0.i21 = phi i32 [ %60, %55 ], [ -1, %44 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %61
 
 61:                                               ; preds = %luaZ_fill.exit22, %38
@@ -24938,14 +24932,14 @@ define internal fastcc void @read_long_string(ptr noundef nonnull captures(none)
   br label %38
 
 21:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !100
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !102
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %27 = load ptr, ptr %26, align 8, !tbaa !103
-  %28 = call ptr %25(ptr noundef %23, ptr noundef %27, ptr noundef nonnull %9) #35
+  %28 = call ptr %25(ptr noundef %23, ptr noundef %27, ptr noundef nonnull %9) #37
   %29 = icmp eq ptr %28, null
   %30 = load i64, ptr %9, align 8
   %31 = icmp eq i64 %30, 0
@@ -24964,7 +24958,7 @@ define internal fastcc void @read_long_string(ptr noundef nonnull captures(none)
 
 luaZ_fill.exit:                                   ; preds = %21, %32
   %.0.i = phi i32 [ %37, %32 ], [ -1, %21 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %38
 
 38:                                               ; preds = %luaZ_fill.exit, %15
@@ -25025,14 +25019,14 @@ luaZ_fill.exit:                                   ; preds = %21, %32
   br label %80
 
 63:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %64 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %65 = load ptr, ptr %64, align 8, !tbaa !100
   %66 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %67 = load ptr, ptr %66, align 8, !tbaa !102
   %68 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %69 = load ptr, ptr %68, align 8, !tbaa !103
-  %70 = call ptr %67(ptr noundef %65, ptr noundef %69, ptr noundef nonnull %8) #35
+  %70 = call ptr %67(ptr noundef %65, ptr noundef %69, ptr noundef nonnull %8) #37
   %71 = icmp eq ptr %70, null
   %72 = load i64, ptr %8, align 8
   %73 = icmp eq i64 %72, 0
@@ -25051,7 +25045,7 @@ luaZ_fill.exit:                                   ; preds = %21, %32
 
 luaZ_fill.exit52:                                 ; preds = %63, %74
   %.0.i51 = phi i32 [ %79, %74 ], [ -1, %63 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %80
 
 80:                                               ; preds = %luaZ_fill.exit52, %57
@@ -25091,7 +25085,7 @@ luaZ_fill.exit52:                                 ; preds = %63, %74
   %100 = load ptr, ptr %99, align 8, !tbaa !43
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 24
   %102 = load ptr, ptr %101, align 8, !tbaa !44
-  %103 = call ptr %100(ptr noundef %102, ptr noundef %96, i64 noundef %88, i64 noundef %94) #35
+  %103 = call ptr %100(ptr noundef %102, ptr noundef %96, i64 noundef %88, i64 noundef %94) #37
   %104 = icmp eq ptr %103, null
   %105 = icmp ne i64 %88, 0
   %or.cond.i.i = and i1 %105, %104
@@ -25125,7 +25119,7 @@ luaZ_fill.exit52:                                 ; preds = %63, %74
   %119 = load ptr, ptr %107, align 8, !tbaa !29
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 152
   %121 = load ptr, ptr %120, align 8, !tbaa !49
-  %122 = call i32 %121(ptr noundef nonnull %95) #35
+  %122 = call i32 %121(ptr noundef nonnull %95) #37
   br label %123
 
 123:                                              ; preds = %118, %113
@@ -25168,14 +25162,14 @@ save.exit:                                        ; preds = %._crit_edge.i, %lua
   br label %157
 
 140:                                              ; preds = %save.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %141 = getelementptr inbounds nuw i8, ptr %131, i64 32
   %142 = load ptr, ptr %141, align 8, !tbaa !100
   %143 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %144 = load ptr, ptr %143, align 8, !tbaa !102
   %145 = getelementptr inbounds nuw i8, ptr %131, i64 24
   %146 = load ptr, ptr %145, align 8, !tbaa !103
-  %147 = call ptr %144(ptr noundef %142, ptr noundef %146, ptr noundef nonnull %7) #35
+  %147 = call ptr %144(ptr noundef %142, ptr noundef %146, ptr noundef nonnull %7) #37
   %148 = icmp eq ptr %147, null
   %149 = load i64, ptr %7, align 8
   %150 = icmp eq i64 %149, 0
@@ -25194,7 +25188,7 @@ save.exit:                                        ; preds = %._crit_edge.i, %lua
 
 luaZ_fill.exit.i:                                 ; preds = %151, %140
   %.0.i.i = phi i32 [ %156, %151 ], [ -1, %140 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %157
 
 157:                                              ; preds = %luaZ_fill.exit.i, %134
@@ -25227,14 +25221,14 @@ luaZ_fill.exit.i:                                 ; preds = %151, %140
   br label %187
 
 170:                                              ; preds = %160
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %171 = getelementptr inbounds nuw i8, ptr %161, i64 32
   %172 = load ptr, ptr %171, align 8, !tbaa !100
   %173 = getelementptr inbounds nuw i8, ptr %161, i64 16
   %174 = load ptr, ptr %173, align 8, !tbaa !102
   %175 = getelementptr inbounds nuw i8, ptr %161, i64 24
   %176 = load ptr, ptr %175, align 8, !tbaa !103
-  %177 = call ptr %174(ptr noundef %172, ptr noundef %176, ptr noundef nonnull %6) #35
+  %177 = call ptr %174(ptr noundef %172, ptr noundef %176, ptr noundef nonnull %6) #37
   %178 = icmp eq ptr %177, null
   %179 = load i64, ptr %6, align 8
   %180 = icmp eq i64 %179, 0
@@ -25253,7 +25247,7 @@ luaZ_fill.exit.i:                                 ; preds = %151, %140
 
 luaZ_fill.exit18.i:                               ; preds = %181, %170
   %.0.i17.i = phi i32 [ %186, %181 ], [ -1, %170 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %187
 
 187:                                              ; preds = %luaZ_fill.exit18.i, %164
@@ -25305,14 +25299,14 @@ inclinenumber.exit:                               ; preds = %189
   br label %227
 
 210:                                              ; preds = %200
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %211 = getelementptr inbounds nuw i8, ptr %201, i64 32
   %212 = load ptr, ptr %211, align 8, !tbaa !100
   %213 = getelementptr inbounds nuw i8, ptr %201, i64 16
   %214 = load ptr, ptr %213, align 8, !tbaa !102
   %215 = getelementptr inbounds nuw i8, ptr %201, i64 24
   %216 = load ptr, ptr %215, align 8, !tbaa !103
-  %217 = call ptr %214(ptr noundef %212, ptr noundef %216, ptr noundef nonnull %5) #35
+  %217 = call ptr %214(ptr noundef %212, ptr noundef %216, ptr noundef nonnull %5) #37
   %218 = icmp eq ptr %217, null
   %219 = load i64, ptr %5, align 8
   %220 = icmp eq i64 %219, 0
@@ -25331,7 +25325,7 @@ inclinenumber.exit:                               ; preds = %189
 
 luaZ_fill.exit56:                                 ; preds = %210, %221
   %.0.i55 = phi i32 [ %226, %221 ], [ -1, %210 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %227
 
 227:                                              ; preds = %luaZ_fill.exit56, %204
@@ -25360,14 +25354,14 @@ luaZ_fill.exit56:                                 ; preds = %210, %221
   br label %256
 
 239:                                              ; preds = %229
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %240 = getelementptr inbounds nuw i8, ptr %230, i64 32
   %241 = load ptr, ptr %240, align 8, !tbaa !100
   %242 = getelementptr inbounds nuw i8, ptr %230, i64 16
   %243 = load ptr, ptr %242, align 8, !tbaa !102
   %244 = getelementptr inbounds nuw i8, ptr %230, i64 24
   %245 = load ptr, ptr %244, align 8, !tbaa !103
-  %246 = call ptr %243(ptr noundef %241, ptr noundef %245, ptr noundef nonnull %4) #35
+  %246 = call ptr %243(ptr noundef %241, ptr noundef %245, ptr noundef nonnull %4) #37
   %247 = icmp eq ptr %246, null
   %248 = load i64, ptr %4, align 8
   %249 = icmp eq i64 %248, 0
@@ -25386,7 +25380,7 @@ luaZ_fill.exit56:                                 ; preds = %210, %221
 
 luaZ_fill.exit59:                                 ; preds = %239, %250
   %.0.i58 = phi i32 [ %255, %250 ], [ -1, %239 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %256
 
 256:                                              ; preds = %luaZ_fill.exit59, %233
@@ -25414,9 +25408,9 @@ luaZ_fill.exit59:                                 ; preds = %239, %250
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @luaX_lexerror(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #10 {
+define internal fastcc void @luaX_lexerror(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #9 {
   %4 = alloca [80 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8, !tbaa !296
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -25552,7 +25546,7 @@ resetstack.exit:                                  ; preds = %51, %73, %82
   %83 = load ptr, ptr %47, align 8, !tbaa !29
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 152
   %85 = load ptr, ptr %84, align 8, !tbaa !49
-  %86 = call i32 %85(ptr noundef nonnull %39) #35
+  %86 = call i32 %85(ptr noundef nonnull %39) #37
   br label %87
 
 87:                                               ; preds = %resetstack.exit, %45
@@ -25595,7 +25589,7 @@ define internal fastcc void @save(ptr noundef readonly captures(none) %0, i32 no
   %22 = load ptr, ptr %21, align 8, !tbaa !43
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !44
-  %25 = tail call ptr %22(ptr noundef %24, ptr noundef %18, i64 noundef %9, i64 noundef %15) #35
+  %25 = tail call ptr %22(ptr noundef %24, ptr noundef %18, i64 noundef %9, i64 noundef %15) #37
   %26 = icmp eq ptr %25, null
   %27 = icmp ne i64 %9, 0
   %or.cond.i = and i1 %27, %26
@@ -25628,7 +25622,7 @@ define internal fastcc void @save(ptr noundef readonly captures(none) %0, i32 no
   %40 = load ptr, ptr %19, align 8, !tbaa !29
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 152
   %42 = load ptr, ptr %41, align 8, !tbaa !49
-  %43 = tail call i32 %42(ptr noundef nonnull %17) #35
+  %43 = tail call i32 %42(ptr noundef nonnull %17) #37
   br label %44
 
 44:                                               ; preds = %39, %34
@@ -25688,14 +25682,14 @@ define internal fastcc void @read_numeral(ptr noundef nonnull captures(none) %0,
   br label %36
 
 19:                                               ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %21 = load ptr, ptr %20, align 8, !tbaa !100
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !102
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !103
-  %26 = call ptr %23(ptr noundef %21, ptr noundef %25, ptr noundef nonnull %7) #35
+  %26 = call ptr %23(ptr noundef %21, ptr noundef %25, ptr noundef nonnull %7) #37
   %27 = icmp eq ptr %26, null
   %28 = load i64, ptr %7, align 8
   %29 = icmp eq i64 %28, 0
@@ -25714,7 +25708,7 @@ define internal fastcc void @read_numeral(ptr noundef nonnull captures(none) %0,
 
 luaZ_fill.exit:                                   ; preds = %19, %30
   %.0.i = phi i32 [ %35, %30 ], [ -1, %19 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %36
 
 36:                                               ; preds = %luaZ_fill.exit, %13
@@ -25758,14 +25752,14 @@ luaZ_fill.exit:                                   ; preds = %19, %30
   br label %73
 
 56:                                               ; preds = %.split
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %57 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %58 = load ptr, ptr %57, align 8, !tbaa !100
   %59 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %60 = load ptr, ptr %59, align 8, !tbaa !102
   %61 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %62 = load ptr, ptr %61, align 8, !tbaa !103
-  %63 = call ptr %60(ptr noundef %58, ptr noundef %62, ptr noundef nonnull %6) #35
+  %63 = call ptr %60(ptr noundef %58, ptr noundef %62, ptr noundef nonnull %6) #37
   %64 = icmp eq ptr %63, null
   %65 = load i64, ptr %6, align 8
   %66 = icmp eq i64 %65, 0
@@ -25784,7 +25778,7 @@ luaZ_fill.exit:                                   ; preds = %19, %30
 
 luaZ_fill.exit.i:                                 ; preds = %67, %56
   %.0.i.i = phi i32 [ %72, %67 ], [ -1, %56 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %73
 
 73:                                               ; preds = %luaZ_fill.exit.i, %50
@@ -25818,14 +25812,14 @@ luaZ_fill.exit.i:                                 ; preds = %67, %56
   br label %106
 
 89:                                               ; preds = %79
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %90 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %91 = load ptr, ptr %90, align 8, !tbaa !100
   %92 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %93 = load ptr, ptr %92, align 8, !tbaa !102
   %94 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %95 = load ptr, ptr %94, align 8, !tbaa !103
-  %96 = call ptr %93(ptr noundef %91, ptr noundef %95, ptr noundef nonnull %5) #35
+  %96 = call ptr %93(ptr noundef %91, ptr noundef %95, ptr noundef nonnull %5) #37
   %97 = icmp eq ptr %96, null
   %98 = load i64, ptr %5, align 8
   %99 = icmp eq i64 %98, 0
@@ -25844,7 +25838,7 @@ luaZ_fill.exit.i:                                 ; preds = %67, %56
 
 luaZ_fill.exit.i38:                               ; preds = %100, %89
   %.0.i.i39 = phi i32 [ %105, %100 ], [ -1, %89 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %106
 
 106:                                              ; preds = %luaZ_fill.exit.i38, %83
@@ -25884,14 +25878,14 @@ check_next.exit40:                                ; preds = %45, %106, %73
   br label %142
 
 125:                                              ; preds = %.critedge2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %126 = getelementptr inbounds nuw i8, ptr %116, i64 32
   %127 = load ptr, ptr %126, align 8, !tbaa !100
   %128 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %129 = load ptr, ptr %128, align 8, !tbaa !102
   %130 = getelementptr inbounds nuw i8, ptr %116, i64 24
   %131 = load ptr, ptr %130, align 8, !tbaa !103
-  %132 = call ptr %129(ptr noundef %127, ptr noundef %131, ptr noundef nonnull %4) #35
+  %132 = call ptr %129(ptr noundef %127, ptr noundef %131, ptr noundef nonnull %4) #37
   %133 = icmp eq ptr %132, null
   %134 = load i64, ptr %4, align 8
   %135 = icmp eq i64 %134, 0
@@ -25910,7 +25904,7 @@ check_next.exit40:                                ; preds = %45, %106, %73
 
 luaZ_fill.exit43:                                 ; preds = %125, %136
   %.0.i42 = phi i32 [ %141, %136 ], [ -1, %125 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %142
 
 142:                                              ; preds = %luaZ_fill.exit43, %119
@@ -25961,15 +25955,15 @@ buffreplace.exit.loopexit:                        ; preds = %159
 
 buffreplace.exit:                                 ; preds = %buffreplace.exit.loopexit, %._crit_edge
   %160 = phi ptr [ %.pre68, %buffreplace.exit.loopexit ], [ %.val.val, %._crit_edge ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
-  %161 = call double @strtod(ptr noundef %160, ptr noundef nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %161 = call double @strtod(ptr noundef %160, ptr noundef nonnull %3) #37
   store double %161, ptr %1, align 8, !tbaa !152
   %162 = load ptr, ptr %3, align 8, !tbaa !70
   %163 = icmp eq ptr %162, %160
   br i1 %163, label %luaO_str2d.exit.thread, label %164
 
 luaO_str2d.exit.thread:                           ; preds = %buffreplace.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %181
 
 164:                                              ; preds = %buffreplace.exit
@@ -25980,7 +25974,7 @@ luaO_str2d.exit.thread:                           ; preds = %buffreplace.exit
   ]
 
 166:                                              ; preds = %164, %164
-  %167 = call i64 @strtoul(ptr noundef %160, ptr noundef nonnull %3, i32 noundef 16) #35
+  %167 = call i64 @strtoul(ptr noundef %160, ptr noundef nonnull %3, i32 noundef 16) #37
   %168 = uitofp i64 %167 to double
   store double %168, ptr %1, align 8, !tbaa !152
   %.pre.i = load ptr, ptr %3, align 8, !tbaa !70
@@ -25994,7 +25988,7 @@ luaO_str2d.exit.thread:                           ; preds = %buffreplace.exit
   br i1 %171, label %luaO_str2d.exit.thread52, label %.preheader.i
 
 luaO_str2d.exit.thread52:                         ; preds = %169
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %182
 
 .preheader.i:                                     ; preds = %169
@@ -26014,7 +26008,7 @@ luaO_str2d.exit.thread52:                         ; preds = %169
 
 luaO_str2d.exit:                                  ; preds = %173
   %.not8.i46.not = icmp eq i8 %175, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not8.i46.not, label %182, label %181
 
 181:                                              ; preds = %luaO_str2d.exit.thread, %luaO_str2d.exit
@@ -26074,12 +26068,12 @@ luaH_getstr.exit.i:                               ; preds = %26
   br i1 %.not.i, label %luaH_getstr.exit.thread.i, label %luaH_setstr.exit
 
 luaH_getstr.exit.thread.i:                        ; preds = %30, %luaH_getstr.exit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %7, ptr %4, align 8, !tbaa !46
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 4, ptr %33, align 8, !tbaa !69
   %34 = call fastcc ptr @newkey(ptr noundef %6, ptr noundef %11, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %luaH_setstr.exit
 
 luaH_setstr.exit:                                 ; preds = %luaH_getstr.exit.i, %luaH_getstr.exit.thread.i
@@ -26791,7 +26785,7 @@ luaX_next.exit:                                   ; preds = %25, %26
   %29 = tail call fastcc i32 @subexpr(ptr noundef %0, ptr noundef %1, i32 noundef 8)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %31 = load ptr, ptr %30, align 8, !tbaa !293
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 -1, ptr %32, align 4, !tbaa !317
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -27089,7 +27083,7 @@ default.unreachable110:                           ; preds = %luaX_next.exit
   unreachable
 
 luaK_prefix.exit:                                 ; preds = %patchtestreg.exit.i36.i.i, %removevalues.exit.i.i, %codenot.exit.sink.split.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %simpleexp.exitthread-pre-split
 
 164:                                              ; preds = %enterlevel.exit
@@ -27110,12 +27104,12 @@ luaK_prefix.exit:                                 ; preds = %patchtestreg.exit.i
   %172 = load ptr, ptr %171, align 8, !tbaa !46
   %173 = getelementptr i8, ptr %0, i64 48
   %.val.i = load ptr, ptr %173, align 8, !tbaa !293
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %172, ptr %4, align 8, !tbaa !46
   %174 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 4, ptr %174, align 8, !tbaa !69
   %175 = call fastcc i32 @addk(ptr noundef %.val.i, ptr noundef %4, ptr noundef %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %176 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 -1, ptr %176, align 8, !tbaa !332
   %177 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -27213,7 +27207,7 @@ luaK_prefix.exit:                                 ; preds = %patchtestreg.exit.i
 
 luaX_next.exit52:                                 ; preds = %215, %216
   %219 = phi i32 [ %211, %215 ], [ %.pre, %216 ]
-  call void @llvm.lifetime.start.p0(i64 600, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call fastcc void @open_func(ptr noundef nonnull %0, ptr noundef %5)
   %220 = load ptr, ptr %5, align 8, !tbaa !300
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 96
@@ -27229,7 +27223,7 @@ luaX_next.exit52:                                 ; preds = %215, %216
   call fastcc void @check_match(ptr noundef nonnull %0, i32 noundef 262, i32 noundef 265, i32 noundef %219)
   call fastcc void @close_func(ptr noundef nonnull %0)
   call fastcc void @pushclosure(ptr noundef nonnull %0, ptr noundef %5, ptr noundef nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 600, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %simpleexp.exitthread-pre-split
 
 225:                                              ; preds = %enterlevel.exit
@@ -27348,7 +27342,7 @@ simpleexp.exit:                                   ; preds = %simpleexp.exitthrea
   br i1 %267, label %268, label %.critedge
 
 268:                                              ; preds = %263
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %269 = load i32, ptr %251, align 4, !tbaa !294
   store i32 %269, ptr %252, align 8, !tbaa !295
   %270 = load i32, ptr %253, align 8, !tbaa !291
@@ -28267,7 +28261,7 @@ default.unreachable:                              ; preds = %luaK_infix.exit
 
 luaK_posfix.exit:                                 ; preds = %luaK_concat.exit.i, %luaK_concat.exit78.i, %freeexp.exit.i, %luaK_exp2nextreg.exit.i41, %531, %532, %533, %534, %535, %536, %codecomp.exit.i, %codecomp.exit89.i, %codecomp.exit95.i, %codecomp.exit101.i, %codecomp.exit107.i, %codecomp.exit113.i
   %717 = phi i32 [ %278, %luaK_concat.exit.i ], [ %355, %luaK_concat.exit78.i ], [ %465, %freeexp.exit.i ], [ %465, %luaK_exp2nextreg.exit.i41 ], [ %405, %531 ], [ %405, %532 ], [ %405, %533 ], [ %405, %534 ], [ %405, %535 ], [ %405, %536 ], [ %405, %codecomp.exit.i ], [ %405, %codecomp.exit89.i ], [ %405, %codecomp.exit95.i ], [ %405, %codecomp.exit101.i ], [ %405, %codecomp.exit107.i ], [ %405, %codecomp.exit113.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not27 = icmp eq i32 %717, 15
   br i1 %.not27, label %.critedge, label %263, !llvm.loop !360
 
@@ -28459,7 +28453,7 @@ isnumeral.exit29.i:                               ; preds = %16
   br label %48
 
 44:                                               ; preds = %22
-  %45 = tail call double @pow(double noundef %24, double noundef %26) #35, !tbaa !150
+  %45 = tail call double @pow(double noundef %24, double noundef %26) #37, !tbaa !150
   br label %48
 
 46:                                               ; preds = %22
@@ -29181,7 +29175,7 @@ define internal fastcc ptr @luaM_growaux_(ptr noundef %0, ptr noundef %1, ptr no
   %21 = load ptr, ptr %20, align 8, !tbaa !43
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !44
-  %24 = tail call ptr %21(ptr noundef %23, ptr noundef %1, i64 noundef %15, i64 noundef %17) #35
+  %24 = tail call ptr %21(ptr noundef %23, ptr noundef %1, i64 noundef %15, i64 noundef %17) #37
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %luaM_realloc_.exit
 
@@ -29212,7 +29206,7 @@ define internal fastcc ptr @luaM_growaux_(ptr noundef %0, ptr noundef %1, ptr no
   %38 = load ptr, ptr %18, align 8, !tbaa !29
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 152
   %40 = load ptr, ptr %39, align 8, !tbaa !49
-  %41 = tail call i32 %40(ptr noundef nonnull %0) #35
+  %41 = tail call i32 %40(ptr noundef nonnull %0) #37
   br label %42
 
 42:                                               ; preds = %37, %32
@@ -29347,7 +29341,7 @@ fixjump.exit16:                                   ; preds = %49, %fixjump.exit
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #15
+declare i32 @llvm.abs.i32(i32, i1 immarg) #14
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @discharge2reg(ptr noundef captures(none) %0, ptr noundef nonnull captures(none) %1, i32 noundef %2) unnamed_addr #0 {
@@ -29458,12 +29452,12 @@ define internal fastcc void @discharge2reg(ptr noundef captures(none) %0, ptr no
 72:                                               ; preds = %3
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %74 = load double, ptr %73, align 8, !tbaa !46
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store double %74, ptr %4, align 8, !tbaa !46
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 3, ptr %75, align 8, !tbaa !69
   %76 = call fastcc i32 @addk(ptr noundef %0, ptr noundef %4, ptr noundef %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %77 = shl i32 %2, 6
   %78 = shl i32 %76, 14
   %79 = or i32 %77, %78
@@ -29713,8 +29707,8 @@ luaK_exp2val.exit:                                ; preds = %11, %13
   ]
 
 20:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #35
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %21, align 8, !tbaa !69
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -29723,30 +29717,30 @@ luaK_exp2val.exit:                                ; preds = %11, %13
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 5, ptr %24, align 8, !tbaa !69
   %25 = call fastcc i32 @addk(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %36
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load double, ptr %27, align 8, !tbaa !46
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store double %28, ptr %4, align 8, !tbaa !46
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 3, ptr %29, align 8, !tbaa !69
   %30 = call fastcc i32 @addk(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %36
 
 31:                                               ; preds = %19
   %32 = icmp eq i32 %14, 2
   %33 = zext i1 %32 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %33, ptr %3, align 8, !tbaa !46
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 1, ptr %34, align 8, !tbaa !69
   %35 = call fastcc i32 @addk(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %36
 
 36:                                               ; preds = %26, %31, %20
@@ -29788,7 +29782,7 @@ define internal fastcc void @constructor(ptr noundef nonnull %0, ptr noundef non
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !295
   %12 = tail call fastcc i32 @luaK_code(ptr noundef %5, i32 noundef 10, i32 noundef %11)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 0, ptr %13, align 8, !tbaa !363
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -30412,7 +30406,7 @@ luaO_int2fb.exit53:                               ; preds = %luaO_int2fb.exit, %
   %347 = and i32 %346, 8372224
   %348 = or disjoint i32 %347, %342
   store i32 %348, ptr %318, align 4, !tbaa !150
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -30500,7 +30494,7 @@ prefixexp.exit:                                   ; preds = %luaX_next.exit28, %
   br label %.backedge
 
 42:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %43 = call fastcc i32 @luaK_exp2anyreg(ptr noundef %7, ptr noundef %1)
   %44 = load i32, ptr %29, align 4, !tbaa !294
   store i32 %44, ptr %30, align 8, !tbaa !295
@@ -30539,11 +30533,11 @@ luaK_exp2val.exit:                                ; preds = %53, %55
   %56 = call fastcc i32 @luaK_exp2RK(ptr noundef %7, ptr noundef nonnull %4)
   store i32 %56, ptr %25, align 4, !tbaa !46
   store i32 9, ptr %1, align 8, !tbaa !315
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.backedge
 
 57:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %58 = load i32, ptr %29, align 4, !tbaa !294
   store i32 %58, ptr %30, align 8, !tbaa !295
   %59 = load i32, ptr %31, align 8, !tbaa !291
@@ -30594,11 +30588,11 @@ check.exit.i.i:                                   ; preds = %luaX_next.exit
 
 checkname.exit:                                   ; preds = %72, %73
   %.val.i = load ptr, ptr %6, align 8, !tbaa !293
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %69, ptr %3, align 8, !tbaa !46
   store i32 4, ptr %33, align 8, !tbaa !69
   %75 = call fastcc i32 @addk(ptr noundef %.val.i, ptr noundef %3, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i32 -1, ptr %34, align 8, !tbaa !332
   store i32 -1, ptr %35, align 4, !tbaa !317
   store i32 4, ptr %5, align 8, !tbaa !315
@@ -30692,7 +30686,7 @@ luaK_self.exit:                                   ; preds = %luaK_reserveregs.ex
   store i32 %88, ptr %24, align 8, !tbaa !46
   store i32 12, ptr %1, align 8, !tbaa !315
   call fastcc void @funcargs(ptr noundef %0, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.backedge
 
 126:                                              ; preds = %39, %39, %39
@@ -30881,8 +30875,8 @@ define internal fastcc void @recfield(ptr noundef nonnull %0, ptr noundef nonnul
   %7 = load ptr, ptr %6, align 8, !tbaa !293
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 60
   %9 = load i32, ptr %8, align 4, !tbaa !327
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #35
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8, !tbaa !305
   %12 = icmp eq i32 %11, 285
@@ -30943,12 +30937,12 @@ check.exit.i.i:                                   ; preds = %13
 
 checkname.exit:                                   ; preds = %39, %40
   %.val.i = phi ptr [ %7, %39 ], [ %.val.i.pre, %40 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %33, ptr %3, align 8, !tbaa !46
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 4, ptr %42, align 8, !tbaa !69
   %43 = call fastcc i32 @addk(ptr noundef %.val.i, ptr noundef %3, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 -1, ptr %44, align 8, !tbaa !332
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -31026,8 +31020,8 @@ luaK_exp2val.exit:                                ; preds = %63, %65
   %86 = load i32, ptr %85, align 8, !tbaa !295
   %87 = call fastcc i32 @luaK_code(ptr noundef nonnull %7, i32 noundef %82, i32 noundef %86)
   store i32 %9, ptr %8, align 4, !tbaa !327
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #35
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -31496,7 +31490,7 @@ define internal fastcc void @field(ptr noundef nonnull captures(address_is_null)
   %4 = alloca %struct.expdesc, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !293
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call fastcc i32 @luaK_exp2anyreg(ptr noundef %6, ptr noundef %1)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !294
@@ -31554,12 +31548,12 @@ check.exit.i.i:                                   ; preds = %luaX_next.exit
 
 checkname.exit:                                   ; preds = %28, %29
   %.val.i = load ptr, ptr %5, align 8, !tbaa !293
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %25, ptr %3, align 8, !tbaa !46
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 4, ptr %31, align 8, !tbaa !69
   %32 = call fastcc i32 @addk(ptr noundef %.val.i, ptr noundef %3, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 -1, ptr %33, align 8, !tbaa !332
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -31571,7 +31565,7 @@ checkname.exit:                                   ; preds = %28, %29
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %36, ptr %37, align 4, !tbaa !46
   store i32 9, ptr %1, align 8, !tbaa !315
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -31581,7 +31575,7 @@ define internal fastcc void @funcargs(ptr noundef nonnull %0, ptr noundef nonnul
   %4 = alloca %struct.expdesc, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !293
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !294
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -31802,12 +31796,12 @@ luaK_setreturns.exit:                             ; preds = %luaK_reserveregs.ex
 117:                                              ; preds = %2
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %119 = load ptr, ptr %118, align 8, !tbaa !46
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %119, ptr %3, align 8, !tbaa !46
   %120 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 4, ptr %120, align 8, !tbaa !69
   %121 = call fastcc i32 @addk(ptr noundef %6, ptr noundef %3, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %122 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 -1, ptr %122, align 8, !tbaa !332
   %123 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -31944,7 +31938,7 @@ luaK_exp2nextreg.exit:                            ; preds = %freeexp.exit.i, %16
   %190 = add nsw i32 %134, 1
   %191 = getelementptr inbounds nuw i8, ptr %6, i64 60
   store i32 %190, ptr %191, align 4, !tbaa !327
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -31994,12 +31988,12 @@ str_checkname.exit:                               ; preds = %18, %19
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %str_checkname.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %12, ptr %3, align 8, !tbaa !46
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 4, ptr %26, align 8, !tbaa !69
   %27 = call fastcc i32 @addk(ptr noundef %22, ptr noundef %3, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %27, ptr %28, align 8, !tbaa !46
   br label %29
@@ -32573,7 +32567,7 @@ luaK_patchtohere.exit:                            ; preds = %36, %52, %fixjump.e
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @exp1(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca %struct.expdesc, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call fastcc i32 @subexpr(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 0)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !293
@@ -32634,7 +32628,7 @@ freeexp.exit.i:                                   ; preds = %16, %12, %8, %1
 luaK_exp2nextreg.exit:                            ; preds = %freeexp.exit.i, %34
   store i32 %22, ptr %20, align 4, !tbaa !327
   call fastcc void @exp2reg(ptr noundef nonnull %5, ptr noundef nonnull %2, i32 noundef %21)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -32642,7 +32636,7 @@ luaK_exp2nextreg.exit:                            ; preds = %freeexp.exit.i, %34
 define internal fastcc void @forbody(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 -2147483648, 2147483645) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca %struct.BlockCnt, align 8
   %7 = alloca %struct.BlockCnt, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8, !tbaa !293
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 74
@@ -32855,7 +32849,7 @@ adjustlocalvars.exit35:                           ; preds = %104, %luaK_jump.exi
 
 luaK_reserveregs.exit:                            ; preds = %adjustlocalvars.exit35, %125
   store i32 %112, ptr %110, align 4, !tbaa !327
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %127 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 -1, ptr %127, align 8, !tbaa !318
   %128 = getelementptr inbounds nuw i8, ptr %6, i64 14
@@ -32870,7 +32864,7 @@ luaK_reserveregs.exit:                            ; preds = %adjustlocalvars.exi
   store ptr %6, ptr %131, align 8, !tbaa !313
   call fastcc void @chunk(ptr noundef nonnull %0)
   call fastcc void @leaveblock(ptr noundef nonnull %.val)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call fastcc void @leaveblock(ptr noundef nonnull %9)
   %133 = load i32, ptr %13, align 8, !tbaa !310
   %134 = getelementptr inbounds nuw i8, ptr %9, i64 52
@@ -33096,7 +33090,7 @@ fixjump.exit.i.i.i:                               ; preds = %241
   br label %luaK_patchlist.exit
 
 luaK_patchlist.exit:                              ; preds = %225, %231, %fixjump.exit.i.i.i, %255
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -33495,7 +33489,7 @@ freeexp.exit25:                                   ; preds = %66, %62, %58, %55, 
 define internal fastcc void @assignment(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.expdesc, align 8
   %5 = alloca %struct.LHS_assign, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !335
   %8 = add i32 %7, -6
@@ -33534,7 +33528,7 @@ define internal fastcc void @assignment(ptr noundef nonnull %0, ptr noundef nonn
   br label %24
 
 24:                                               ; preds = %20, %21
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 8, !tbaa !338
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call fastcc void @primaryexp(ptr noundef %0, ptr noundef %25)
@@ -33682,7 +33676,7 @@ check_conflict.exit:                              ; preds = %luaK_reserveregs.ex
 99:                                               ; preds = %check_conflict.exit
   %100 = add nsw i32 %2, 1
   call fastcc void @assignment(ptr noundef %0, ptr noundef %5, i32 noundef %100)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
 testnext.exit:                                    ; preds = %12
@@ -33859,12 +33853,12 @@ explist1.exit:                                    ; preds = %luaK_exp2nextreg.ex
 192:                                              ; preds = %160, %162, %173, %.thread
   %.sink = phi ptr [ %185, %.thread ], [ %152, %173 ], [ %152, %162 ], [ %152, %160 ]
   call fastcc void @luaK_storevar(ptr noundef %.sink, ptr noundef %6, ptr noundef %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc double @lua_tonumber(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #24 {
+define internal fastcc double @lua_tonumber(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #23 {
   %3 = alloca ptr, align 8
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %5, label %13
@@ -33957,14 +33951,14 @@ index2adr.exit.luaV_tonumber.exit.thread_crit_edge: ; preds = %index2adr.exit
 54:                                               ; preds = %index2adr.exit
   %55 = load ptr, ptr %.1.i, align 8, !tbaa !46
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
-  %57 = call double @strtod(ptr noundef nonnull %56, ptr noundef nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %57 = call double @strtod(ptr noundef nonnull %56, ptr noundef nonnull %3) #37
   %58 = load ptr, ptr %3, align 8, !tbaa !70
   %59 = icmp eq ptr %58, %56
   br i1 %59, label %luaO_str2d.exit.thread.i, label %60
 
 luaO_str2d.exit.thread.i:                         ; preds = %54
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %luaV_tonumber.exit
 
 60:                                               ; preds = %54
@@ -33975,7 +33969,7 @@ luaO_str2d.exit.thread.i:                         ; preds = %54
   ]
 
 62:                                               ; preds = %60, %60
-  %63 = call i64 @strtoul(ptr noundef nonnull %56, ptr noundef nonnull %3, i32 noundef 16) #35
+  %63 = call i64 @strtoul(ptr noundef nonnull %56, ptr noundef nonnull %3, i32 noundef 16) #37
   %64 = uitofp i64 %63 to double
   %.pre.i.i = load ptr, ptr %3, align 8, !tbaa !70
   %.pre11.i.i = load i8, ptr %.pre.i.i, align 1, !tbaa !46
@@ -33989,7 +33983,7 @@ luaO_str2d.exit.thread.i:                         ; preds = %54
   br i1 %67, label %luaO_str2d.exit.thread14.i, label %.preheader.i.i
 
 luaO_str2d.exit.thread14.i:                       ; preds = %65
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %luaV_tonumber.exit
 
 .preheader.i.i:                                   ; preds = %65
@@ -34010,7 +34004,7 @@ luaO_str2d.exit.thread14.i:                       ; preds = %65
 
 luaO_str2d.exit.i:                                ; preds = %70
   %.not8.i.not.i = icmp eq i8 %72, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not8.i.not.i, label %luaV_tonumber.exit.thread, label %luaV_tonumber.exit
 
 luaV_tonumber.exit.thread:                        ; preds = %luaO_str2d.exit.i
@@ -34129,14 +34123,14 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
   br label %73
 
 66:                                               ; preds = %index2adr.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %67 = load double, ptr %.1.i, align 8, !tbaa !46
-  %68 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %67) #35
-  %69 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #37
+  %68 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %67) #37
+  %69 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #36
   %70 = call fastcc ptr @luaS_newlstr(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %69)
   store ptr %70, ptr %.1.i, align 8, !tbaa !46
   store i32 4, ptr %52, align 8, !tbaa !69
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load i64, ptr %71, align 8, !tbaa !46
   br label %73
@@ -34244,7 +34238,7 @@ getcurrenv.exit:                                  ; preds = %50, %52
   %60 = load ptr, ptr %59, align 8, !tbaa !43
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %62 = load ptr, ptr %61, align 8, !tbaa !44
-  %63 = tail call ptr %60(ptr noundef %62, ptr noundef null, i64 noundef 0, i64 noundef %57) #35
+  %63 = tail call ptr %60(ptr noundef %62, ptr noundef null, i64 noundef 0, i64 noundef %57) #37
   %64 = icmp eq ptr %63, null
   br i1 %64, label %65, label %luaS_newudata.exit
 
@@ -34275,7 +34269,7 @@ getcurrenv.exit:                                  ; preds = %50, %52
   %77 = load ptr, ptr %3, align 8, !tbaa !29
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 152
   %79 = load ptr, ptr %78, align 8, !tbaa !49
-  %80 = tail call i32 %79(ptr noundef nonnull %0) #35
+  %80 = tail call i32 %79(ptr noundef nonnull %0) #37
   br label %81
 
 81:                                               ; preds = %76, %71
@@ -34330,8 +34324,8 @@ define internal noundef i32 @tconcat(ptr noundef %0) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.luaL_Buffer, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8216, ptr nonnull %6) #35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !86
   %10 = getelementptr i8, ptr %9, i64 16
@@ -34419,14 +34413,14 @@ lua_type.exit.i23:                                ; preds = %luaL_checktype.exit
 39:                                               ; preds = %33
   %40 = load ptr, ptr %.luaO_nilobject_.i.i, align 8, !tbaa !46
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #35
-  %42 = call double @strtod(ptr noundef nonnull %41, ptr noundef nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %42 = call double @strtod(ptr noundef nonnull %41, ptr noundef nonnull %5) #37
   %43 = load ptr, ptr %5, align 8, !tbaa !70
   %44 = icmp eq ptr %43, %41
   br i1 %44, label %luaO_str2d.exit.thread.i.i, label %45
 
 luaO_str2d.exit.thread.i.i:                       ; preds = %39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %luaV_tonumber.exit.i
 
 45:                                               ; preds = %39
@@ -34437,7 +34431,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %39
   ]
 
 47:                                               ; preds = %45, %45
-  %48 = call i64 @strtoul(ptr noundef nonnull %41, ptr noundef nonnull %5, i32 noundef 16) #35
+  %48 = call i64 @strtoul(ptr noundef nonnull %41, ptr noundef nonnull %5, i32 noundef 16) #37
   %.pre.i.i.i = load ptr, ptr %5, align 8, !tbaa !70
   %.pre11.i.i.i = load i8, ptr %.pre.i.i.i, align 1, !tbaa !46
   br label %49
@@ -34449,7 +34443,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %39
   br i1 %51, label %luaO_str2d.exit.thread14.i.i, label %.preheader.i.i.i
 
 luaO_str2d.exit.thread14.i.i:                     ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %luaL_optinteger.exit
 
 .preheader.i.i.i:                                 ; preds = %49
@@ -34470,7 +34464,7 @@ luaO_str2d.exit.thread14.i.i:                     ; preds = %49
 
 luaO_str2d.exit.i.i:                              ; preds = %54
   %.not8.i.not.i.i = icmp eq i8 %56, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not8.i.not.i.i, label %luaL_optinteger.exit, label %luaV_tonumber.exit.i
 
 luaV_tonumber.exit.i:                             ; preds = %33, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
@@ -34519,14 +34513,14 @@ lua_type.exit.thread:                             ; preds = %luaL_optinteger.exi
 81:                                               ; preds = %75
   %82 = load ptr, ptr %.luaO_nilobject_.i.i31, align 8, !tbaa !46
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #35
-  %84 = call double @strtod(ptr noundef nonnull %83, ptr noundef nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %84 = call double @strtod(ptr noundef nonnull %83, ptr noundef nonnull %4) #37
   %85 = load ptr, ptr %4, align 8, !tbaa !70
   %86 = icmp eq ptr %85, %83
   br i1 %86, label %luaO_str2d.exit.thread.i.i41, label %87
 
 luaO_str2d.exit.thread.i.i41:                     ; preds = %81
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %luaV_tonumber.exit.i42
 
 87:                                               ; preds = %81
@@ -34537,7 +34531,7 @@ luaO_str2d.exit.thread.i.i41:                     ; preds = %81
   ]
 
 89:                                               ; preds = %87, %87
-  %90 = call i64 @strtoul(ptr noundef nonnull %83, ptr noundef nonnull %4, i32 noundef 16) #35
+  %90 = call i64 @strtoul(ptr noundef nonnull %83, ptr noundef nonnull %4, i32 noundef 16) #37
   %.pre.i.i.i33 = load ptr, ptr %4, align 8, !tbaa !70
   %.pre11.i.i.i34 = load i8, ptr %.pre.i.i.i33, align 1, !tbaa !46
   br label %91
@@ -34549,7 +34543,7 @@ luaO_str2d.exit.thread.i.i41:                     ; preds = %81
   br i1 %93, label %luaO_str2d.exit.thread14.i.i40, label %.preheader.i.i.i36
 
 luaO_str2d.exit.thread14.i.i40:                   ; preds = %91
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %luaL_checkinteger.exit
 
 .preheader.i.i.i36:                               ; preds = %91
@@ -34570,7 +34564,7 @@ luaO_str2d.exit.thread14.i.i40:                   ; preds = %91
 
 luaO_str2d.exit.i.i38:                            ; preds = %96
   %.not8.i.not.i.i39 = icmp eq i8 %98, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not8.i.not.i.i39, label %luaL_checkinteger.exit, label %luaV_tonumber.exit.i42
 
 luaV_tonumber.exit.i42:                           ; preds = %75, %luaO_str2d.exit.i.i38, %luaO_str2d.exit.thread.i.i41
@@ -34739,14 +34733,14 @@ luaC_step.exit.i.i:                               ; preds = %154, %151, %148
   br label %lua_objlen.exit.i
 
 191:                                              ; preds = %172
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %192 = load double, ptr %176, align 8, !tbaa !46
-  %193 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %192) #35
-  %194 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #37
+  %193 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %192) #37
+  %194 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #36
   %195 = call fastcc ptr @luaS_newlstr(ptr noundef nonnull %173, ptr noundef nonnull %3, i64 noundef %194)
   store ptr %195, ptr %176, align 8, !tbaa !46
   store i32 4, ptr %177, align 8, !tbaa !69
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 16
   %197 = load i64, ptr %196, align 8, !tbaa !46
   br label %lua_objlen.exit.i
@@ -34844,14 +34838,14 @@ index2adr.exit.i49:                               ; preds = %209, %221, %214, %2
   br label %lua_objlen.exit
 
 248:                                              ; preds = %index2adr.exit.i49
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %249 = load double, ptr %.1.i.i, align 8, !tbaa !46
-  %250 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %249) #35
-  %251 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #37
+  %250 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %249) #37
+  %251 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #36
   %252 = call fastcc ptr @luaS_newlstr(ptr noundef nonnull %173, ptr noundef nonnull %2, i64 noundef %251)
   store ptr %252, ptr %.1.i.i, align 8, !tbaa !46
   store i32 4, ptr %234, align 8, !tbaa !69
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 16
   %254 = load i64, ptr %253, align 8, !tbaa !46
   br label %lua_objlen.exit
@@ -34999,8 +34993,8 @@ luaL_addlstring.exit.loopexit:                    ; preds = %luaL_prepbuffer.exi
   %331 = load ptr, ptr %105, align 8, !tbaa !382
   %332 = load i32, ptr %107, align 8, !tbaa !385
   call fastcc void @lua_concat(ptr noundef %331, i32 noundef %332)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #35
-  call void @llvm.lifetime.end.p0(i64 8216, ptr nonnull %6) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 1
 }
 
@@ -35063,14 +35057,14 @@ luaL_checktype.exit:                              ; preds = %lua_type.exit.i
 27:                                               ; preds = %21
   %28 = load ptr, ptr %.luaO_nilobject_.i.i27, align 8, !tbaa !46
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
-  %30 = call double @strtod(ptr noundef nonnull %29, ptr noundef nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %30 = call double @strtod(ptr noundef nonnull %29, ptr noundef nonnull %2) #37
   %31 = load ptr, ptr %2, align 8, !tbaa !70
   %32 = icmp eq ptr %31, %29
   br i1 %32, label %luaO_str2d.exit.thread.i.i, label %33
 
 luaO_str2d.exit.thread.i.i:                       ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %luaV_tonumber.exit.i
 
 33:                                               ; preds = %27
@@ -35081,7 +35075,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %27
   ]
 
 35:                                               ; preds = %33, %33
-  %36 = call i64 @strtoul(ptr noundef nonnull %29, ptr noundef nonnull %2, i32 noundef 16) #35
+  %36 = call i64 @strtoul(ptr noundef nonnull %29, ptr noundef nonnull %2, i32 noundef 16) #37
   %.pre.i.i.i = load ptr, ptr %2, align 8, !tbaa !70
   %.pre11.i.i.i = load i8, ptr %.pre.i.i.i, align 1, !tbaa !46
   br label %37
@@ -35093,7 +35087,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %27
   br i1 %39, label %luaO_str2d.exit.thread14.i.i, label %.preheader.i.i.i
 
 luaO_str2d.exit.thread14.i.i:                     ; preds = %37
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %luaL_checkinteger.exit
 
 .preheader.i.i.i:                                 ; preds = %37
@@ -35114,7 +35108,7 @@ luaO_str2d.exit.thread14.i.i:                     ; preds = %37
 
 luaO_str2d.exit.i.i:                              ; preds = %42
   %.not8.i.not.i.i = icmp eq i8 %44, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not8.i.not.i.i, label %luaL_checkinteger.exit, label %luaV_tonumber.exit.i
 
 luaV_tonumber.exit.i:                             ; preds = %21, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
@@ -35293,14 +35287,14 @@ lua_type.exit.i24:                                ; preds = %luaL_checktype.exit
 29:                                               ; preds = %23
   %30 = load ptr, ptr %.luaO_nilobject_.i.i37, align 8, !tbaa !46
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
-  %32 = call double @strtod(ptr noundef nonnull %31, ptr noundef nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %32 = call double @strtod(ptr noundef nonnull %31, ptr noundef nonnull %2) #37
   %33 = load ptr, ptr %2, align 8, !tbaa !70
   %34 = icmp eq ptr %33, %31
   br i1 %34, label %luaO_str2d.exit.thread.i.i, label %35
 
 luaO_str2d.exit.thread.i.i:                       ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %luaV_tonumber.exit.i
 
 35:                                               ; preds = %29
@@ -35311,7 +35305,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %29
   ]
 
 37:                                               ; preds = %35, %35
-  %38 = call i64 @strtoul(ptr noundef nonnull %31, ptr noundef nonnull %2, i32 noundef 16) #35
+  %38 = call i64 @strtoul(ptr noundef nonnull %31, ptr noundef nonnull %2, i32 noundef 16) #37
   %.pre.i.i.i = load ptr, ptr %2, align 8, !tbaa !70
   %.pre11.i.i.i = load i8, ptr %.pre.i.i.i, align 1, !tbaa !46
   br label %39
@@ -35323,7 +35317,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %29
   br i1 %41, label %luaO_str2d.exit.thread14.i.i, label %.preheader.i.i.i
 
 luaO_str2d.exit.thread14.i.i:                     ; preds = %39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %luaL_optinteger.exit.thread
 
 .preheader.i.i.i:                                 ; preds = %39
@@ -35344,7 +35338,7 @@ luaO_str2d.exit.thread14.i.i:                     ; preds = %39
 
 luaO_str2d.exit.i.i:                              ; preds = %44
   %.not8.i.not.i.i = icmp eq i8 %46, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not8.i.not.i.i, label %luaL_optinteger.exit.thread, label %luaV_tonumber.exit.i
 
 luaV_tonumber.exit.i:                             ; preds = %23, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
@@ -35747,7 +35741,7 @@ lua_typename.exit:                                ; preds = %lua_rawgeti.exit, %
 64:                                               ; preds = %lua_isstring.exit
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %66 = load ptr, ptr %65, align 8, !tbaa !382
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %67 = call fastcc ptr @lua_tolstring(ptr noundef %66, i32 noundef -1, ptr noundef nonnull %4)
   %68 = load i64, ptr %4, align 8, !tbaa !111
   %69 = load ptr, ptr %1, align 8, !tbaa !384
@@ -35814,7 +35808,7 @@ lua_insert.exit.i:                                ; preds = %.lr.ph.i.i
   br label %luaL_addvalue.exit
 
 luaL_addvalue.exit:                               ; preds = %74, %95
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -35963,14 +35957,14 @@ define internal fastcc void @adjuststack(ptr noundef nonnull captures(none) %0) 
   br label %lua_objlen.exit.preheader
 
 26:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %27 = load double, ptr %11, align 8, !tbaa !46
-  %28 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %27) #35
-  %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #37
+  %28 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %27) #37
+  %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #36
   %30 = call fastcc ptr @luaS_newlstr(ptr noundef nonnull %8, ptr noundef nonnull %2, i64 noundef %29)
   store ptr %30, ptr %11, align 8, !tbaa !46
   store i32 4, ptr %12, align 8, !tbaa !69
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i64, ptr %31, align 8, !tbaa !46
   br label %lua_objlen.exit.preheader
@@ -37260,11 +37254,11 @@ luaH_getnum.exit.luaH_getnum.exit.thread_crit_edge.i.i247: ; preds = %luaH_getnu
 
 luaH_getnum.exit.thread.i.i236:                   ; preds = %679, %luaH_getnum.exit.luaH_getnum.exit.thread_crit_edge.i.i247
   %.pre-phi.i.i237 = phi double [ %.pre.i.i248, %luaH_getnum.exit.luaH_getnum.exit.thread_crit_edge.i.i247 ], [ %655, %679 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store double %.pre-phi.i.i237, ptr %4, align 8, !tbaa !46
   store i32 3, ptr %9, align 8, !tbaa !69
   %682 = call fastcc ptr @newkey(ptr noundef %0, ptr noundef %645, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %luaH_setnum.exit.i238
 
 luaH_setnum.exit.i238:                            ; preds = %luaH_getnum.exit.thread.i.i236, %luaH_getnum.exit.i.i244
@@ -37392,11 +37386,11 @@ luaH_getnum.exit.luaH_getnum.exit.thread_crit_edge.i.i: ; preds = %luaH_getnum.e
 
 luaH_getnum.exit.thread.i.i:                      ; preds = %745, %luaH_getnum.exit.luaH_getnum.exit.thread_crit_edge.i.i
   %.pre-phi.i.i = phi double [ %.pre.i.i, %luaH_getnum.exit.luaH_getnum.exit.thread_crit_edge.i.i ], [ %721, %745 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store double %.pre-phi.i.i, ptr %5, align 8, !tbaa !46
   store i32 3, ptr %11, align 8, !tbaa !69
   %748 = call fastcc ptr @newkey(ptr noundef %0, ptr noundef %711, ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %luaH_setnum.exit.i
 
 luaH_setnum.exit.i:                               ; preds = %luaH_getnum.exit.thread.i.i, %luaH_getnum.exit.i.i
@@ -37657,7 +37651,7 @@ lua_createtable.exit:                             ; preds = %2, %luaC_step.exit.
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store ptr %50, ptr %45, align 8, !tbaa !62
   tail call fastcc void @lua_pushcclosure(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %51 = load ptr, ptr %45, align 8, !tbaa !62
   %52 = getelementptr inbounds i8, ptr %51, i64 -32
   %53 = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull @.str.208, i64 noundef 7)
@@ -37670,7 +37664,7 @@ lua_createtable.exit:                             ; preds = %2, %luaC_step.exit.
   %57 = load ptr, ptr %45, align 8, !tbaa !62
   %58 = getelementptr inbounds i8, ptr %57, i64 -16
   store ptr %58, ptr %45, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -37696,7 +37690,7 @@ define internal range(i32 1, 4) i32 @io_fclose(ptr noundef %0) #0 {
   store i32 0, ptr %11, align 8, !tbaa !69
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %12, ptr %5, align 8, !tbaa !62
-  %13 = tail call ptr @strerror(i32 noundef %10) #35
+  %13 = tail call ptr @strerror(i32 noundef %10) #37
   %14 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef nonnull %0, ptr noundef nonnull @.str.115, ptr noundef %13)
   %15 = load ptr, ptr %5, align 8, !tbaa !62
   %16 = sitofp i32 %10 to double
@@ -37809,7 +37803,7 @@ define internal fastcc void @createstdfile(ptr noundef %0, ptr noundef %1, i32 n
   %6 = alloca %struct.lua_TValue, align 8
   %7 = tail call fastcc ptr @lua_newuserdata(ptr noundef %0, i64 noundef 8)
   store ptr null, ptr %7, align 8, !tbaa !81
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !29
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 160
@@ -37823,7 +37817,7 @@ define internal fastcc void @createstdfile(ptr noundef %0, ptr noundef %1, i32 n
   %15 = load ptr, ptr %13, align 8, !tbaa !62
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %16, ptr %13, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   tail call fastcc void @lua_setmetatable(ptr noundef nonnull %0, i32 noundef -2)
   store ptr %1, ptr %7, align 8, !tbaa !81
   %.not = icmp eq i32 %2, 0
@@ -37930,9 +37924,9 @@ lua_setfenv.exit:                                 ; preds = %26, %51, %58, %67, 
   %74 = load ptr, ptr %13, align 8, !tbaa !62
   %75 = getelementptr inbounds i8, ptr %74, i64 -16
   store ptr %75, ptr %13, align 8, !tbaa !62
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %76 = getelementptr inbounds i8, ptr %74, i64 -64
-  %77 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #37
+  %77 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #36
   %78 = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull readonly %3, i64 noundef %77)
   store ptr %78, ptr %5, align 8, !tbaa !46
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -37943,7 +37937,7 @@ lua_setfenv.exit:                                 ; preds = %26, %51, %58, %67, 
   %82 = load ptr, ptr %13, align 8, !tbaa !62
   %83 = getelementptr inbounds i8, ptr %82, i64 -16
   store ptr %83, ptr %13, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -37959,7 +37953,7 @@ define internal noundef range(i32 1, 4) i32 @io_pclose(ptr noundef %0) #0 {
   store i32 0, ptr %7, align 8, !tbaa !69
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %8, ptr %5, align 8, !tbaa !62
-  %9 = tail call ptr @strerror(i32 noundef %4) #35
+  %9 = tail call ptr @strerror(i32 noundef %4) #37
   %10 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef nonnull %0, ptr noundef nonnull @.str.115, ptr noundef %9)
   %11 = load ptr, ptr %5, align 8, !tbaa !62
   %12 = sitofp i32 %4 to double
@@ -38111,7 +38105,7 @@ aux_close.exit:                                   ; preds = %tofile.exit, %63, %
   %78 = load ptr, ptr %5, align 8, !tbaa !62
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
   store ptr %79, ptr %5, align 8, !tbaa !62
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %80 = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull @.str.208, i64 noundef 7)
   store ptr %80, ptr %2, align 8, !tbaa !46
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -38121,7 +38115,7 @@ aux_close.exit:                                   ; preds = %tofile.exit, %63, %
   %83 = load ptr, ptr %5, align 8, !tbaa !62
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
   store ptr %84, ptr %5, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %86 = load i32, ptr %85, align 8, !tbaa !69
   %87 = icmp eq i32 %86, 6
@@ -38133,7 +38127,7 @@ aux_close.exit:                                   ; preds = %tofile.exit, %63, %
   tail call void @llvm.assume(i1 %.not.i.i)
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 32
   %92 = load ptr, ptr %91, align 8, !tbaa !46
-  %93 = tail call i32 %92(ptr noundef nonnull %0) #35
+  %93 = tail call i32 %92(ptr noundef nonnull %0) #37
   ret i32 %93
 }
 
@@ -38166,7 +38160,7 @@ tofile.exit:                                      ; preds = %1
   store i32 0, ptr %13, align 8, !tbaa !69
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %14, ptr %7, align 8, !tbaa !62
-  %15 = tail call ptr @strerror(i32 noundef %12) #35
+  %15 = tail call ptr @strerror(i32 noundef %12) #37
   %16 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef nonnull %0, ptr noundef nonnull @.str.115, ptr noundef %15)
   %17 = load ptr, ptr %7, align 8, !tbaa !62
   %18 = sitofp i32 %12 to double
@@ -38306,7 +38300,7 @@ aux_close.exit:                                   ; preds = %5, %12, %16, %20
   %27 = load ptr, ptr %8, align 8, !tbaa !62
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %28, ptr %8, align 8, !tbaa !62
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %29 = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull @.str.208, i64 noundef 7)
   store ptr %29, ptr %2, align 8, !tbaa !46
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -38316,7 +38310,7 @@ aux_close.exit:                                   ; preds = %5, %12, %16, %20
   %32 = load ptr, ptr %8, align 8, !tbaa !62
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %33, ptr %8, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load i32, ptr %34, align 8, !tbaa !69
   %36 = icmp eq i32 %35, 6
@@ -38328,7 +38322,7 @@ aux_close.exit:                                   ; preds = %5, %12, %16, %20
   tail call void @llvm.assume(i1 %.not.i.i)
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %41 = load ptr, ptr %40, align 8, !tbaa !46
-  %42 = tail call i32 %41(ptr noundef nonnull %0) #35
+  %42 = tail call i32 %41(ptr noundef nonnull %0) #37
   br label %43
 
 43:                                               ; preds = %aux_close.exit, %1
@@ -38384,7 +38378,7 @@ lua_touserdata.exit:                              ; preds = %1
   %24 = load ptr, ptr %5, align 8, !tbaa !62
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %25, ptr %5, align 8, !tbaa !62
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = load ptr, ptr %26, align 8, !tbaa !29
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 160
@@ -38397,7 +38391,7 @@ lua_touserdata.exit:                              ; preds = %1
   %32 = load ptr, ptr %5, align 8, !tbaa !62
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %33, ptr %5, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = getelementptr i8, ptr %32, i64 -16
   %35 = icmp eq ptr %32, @luaO_nilobject_
   %36 = icmp eq ptr %34, @luaO_nilobject_
@@ -38476,13 +38470,13 @@ lua_typename.exit.i:                              ; preds = %64, %lua_type.exit.
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #20
+declare ptr @__errno_location() local_unnamed_addr #19
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #26
+declare ptr @strerror(i32 noundef) local_unnamed_addr #25
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @io_readline(ptr noundef %0) #0 {
@@ -38510,7 +38504,7 @@ lua_touserdata.exit:
 
 .split:                                           ; preds = %lua_touserdata.exit
   %16 = tail call fastcc i32 @read_line(ptr noundef nonnull %0, ptr noundef nonnull %14)
-  %17 = tail call i32 @ferror(ptr noundef nonnull %14) #35
+  %17 = tail call i32 @ferror(ptr noundef nonnull %14) #37
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %22, label %18
 
@@ -38521,7 +38515,7 @@ lua_touserdata.exit:
 18:                                               ; preds = %.split
   %19 = tail call ptr @__errno_location() #42
   %20 = load i32, ptr %19, align 4, !tbaa !150
-  %21 = tail call ptr @strerror(i32 noundef %20) #35
+  %21 = tail call ptr @strerror(i32 noundef %20) #37
   tail call void (ptr, ptr, ...) @luaL_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.115, ptr noundef %21)
   unreachable
 
@@ -38625,7 +38619,7 @@ aux_close.exit:                                   ; preds = %lua_settop.exit, %5
   %72 = load ptr, ptr %35, align 8, !tbaa !62
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
   store ptr %73, ptr %35, align 8, !tbaa !62
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %74 = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull @.str.208, i64 noundef 7)
   store ptr %74, ptr %1, align 8, !tbaa !46
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -38635,7 +38629,7 @@ aux_close.exit:                                   ; preds = %lua_settop.exit, %5
   %77 = load ptr, ptr %35, align 8, !tbaa !62
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
   store ptr %78, ptr %35, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %80 = load i32, ptr %79, align 8, !tbaa !69
   %81 = icmp eq i32 %80, 6
@@ -38647,7 +38641,7 @@ aux_close.exit:                                   ; preds = %lua_settop.exit, %5
   tail call void @llvm.assume(i1 %.not.i.i19)
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %86 = load ptr, ptr %85, align 8, !tbaa !46
-  %87 = tail call i32 %86(ptr noundef nonnull %0) #35
+  %87 = tail call i32 %86(ptr noundef nonnull %0) #37
   br label %lua_toboolean.exit.thread
 
 lua_toboolean.exit.thread:                        ; preds = %23, %lua_toboolean.exit, %aux_close.exit, %22
@@ -38659,7 +38653,7 @@ lua_toboolean.exit.thread:                        ; preds = %23, %lua_toboolean.
 define internal fastcc range(i32 0, 2) i32 @read_line(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = alloca [32 x i8], align 16
   %4 = alloca %struct.luaL_Buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 8216, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %0, ptr %5, align 8, !tbaa !382
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -38719,14 +38713,14 @@ luaL_prepbuffer.exit:                             ; preds = %8, %10
   br label %lua_objlen.exit
 
 34:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %35 = load double, ptr %19, align 8, !tbaa !46
-  %36 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %35) #35
-  %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #37
+  %36 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %35) #37
+  %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #36
   %38 = call fastcc ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %37)
   store ptr %38, ptr %19, align 8, !tbaa !46
   store i32 4, ptr %20, align 8, !tbaa !69
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i64, ptr %39, align 8, !tbaa !46
   br label %lua_objlen.exit
@@ -38738,7 +38732,7 @@ lua_objlen.exit:                                  ; preds = %13, %22, %26, %30, 
   br label %59
 
 43:                                               ; preds = %luaL_prepbuffer.exit
-  %44 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #37
+  %44 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #36
   %45 = icmp eq i64 %44, 0
   br i1 %45, label %56, label %46
 
@@ -38767,15 +38761,15 @@ lua_objlen.exit:                                  ; preds = %13, %22, %26, %30, 
 
 59:                                               ; preds = %lua_objlen.exit, %50
   %.1.ph = phi i32 [ 1, %50 ], [ %42, %lua_objlen.exit ]
-  call void @llvm.lifetime.end.p0(i64 8216, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1.ph
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #27
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #26
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2147483647) i32 @g_read(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 3) %2) unnamed_addr #0 {
@@ -38789,7 +38783,7 @@ define internal fastcc range(i32 -2147483648, 2147483647) i32 @g_read(ptr nounde
   %9 = sub i64 %7, %8
   %10 = lshr exact i64 %9, 4
   %11 = trunc i64 %10 to i32
-  tail call void @clearerr(ptr noundef %1) #35
+  tail call void @clearerr(ptr noundef %1) #37
   %12 = icmp eq i32 %11, 1
   br i1 %12, label %13, label %16
 
@@ -39000,8 +38994,8 @@ lua_type.exit.thread:                             ; preds = %55, %lua_type.exit
   ]
 
 130:                                              ; preds = %127
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #35
-  %131 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %1, ptr noundef nonnull @.str.214, ptr noundef nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %131 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %1, ptr noundef nonnull @.str.214, ptr noundef nonnull %4) #37
   %132 = icmp eq i32 %131, 1
   br i1 %132, label %133, label %138
 
@@ -39025,7 +39019,7 @@ read_number.exit:                                 ; preds = %133, %138
   %.0.i = phi i32 [ 0, %138 ], [ 1, %133 ]
   %storemerge = getelementptr inbounds nuw i8, ptr %.pn, i64 16
   store ptr %storemerge, ptr %5, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %145
 
 141:                                              ; preds = %127
@@ -39056,7 +39050,7 @@ read_number.exit:                                 ; preds = %133, %138
 .loopexit:                                        ; preds = %.loopexit.loopexit, %13
   %.049 = phi i32 [ %14, %13 ], [ %.4, %.loopexit.loopexit ]
   %.047 = phi i32 [ %15, %13 ], [ %150, %.loopexit.loopexit ]
-  %151 = call i32 @ferror(ptr noundef %1) #35
+  %151 = call i32 @ferror(ptr noundef %1) #37
   %.not56 = icmp eq i32 %151, 0
   br i1 %.not56, label %165, label %152
 
@@ -39068,7 +39062,7 @@ read_number.exit:                                 ; preds = %133, %138
   store i32 0, ptr %156, align 8, !tbaa !69
   %157 = getelementptr inbounds nuw i8, ptr %155, i64 16
   store ptr %157, ptr %5, align 8, !tbaa !62
-  %158 = call ptr @strerror(i32 noundef %154) #35
+  %158 = call ptr @strerror(i32 noundef %154) #37
   %159 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef nonnull %0, ptr noundef nonnull @.str.115, ptr noundef %158)
   %160 = load ptr, ptr %5, align 8, !tbaa !62
   %161 = sitofp i32 %154 to double
@@ -39101,13 +39095,13 @@ read_number.exit:                                 ; preds = %133, %138
 }
 
 ; Function Attrs: nofree nounwind
-declare void @clearerr(ptr noundef captures(none)) local_unnamed_addr #2
+declare void @clearerr(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @read_chars(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef range(i64 1, 0) %2) unnamed_addr #0 {
   %4 = alloca [32 x i8], align 16
   %5 = alloca %struct.luaL_Buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 8216, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %0, ptr %6, align 8, !tbaa !382
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -39180,14 +39174,14 @@ luaL_prepbuffer.exit:                             ; preds = %9, %11
   br label %lua_objlen.exit
 
 42:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %43 = load double, ptr %27, align 8, !tbaa !46
-  %44 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %43) #35
-  %45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #37
+  %44 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %43) #37
+  %45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #36
   %46 = call fastcc ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef %45)
   store ptr %46, ptr %27, align 8, !tbaa !46
   store i32 4, ptr %28, align 8, !tbaa !69
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load i64, ptr %47, align 8, !tbaa !46
   br label %lua_objlen.exit
@@ -39200,20 +39194,20 @@ lua_objlen.exit:                                  ; preds = %24, %30, %34, %38, 
 
 51:                                               ; preds = %lua_objlen.exit, %19
   %52 = phi i32 [ 1, %19 ], [ %50, %lua_objlen.exit ]
-  call void @llvm.lifetime.end.p0(i64 8216, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %52
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @ungetc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i32 @ungetc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
-declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #28
+declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #27
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 1, 4) i32 @g_write(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef range(i32 1, 3) %2) unnamed_addr #0 {
@@ -39261,13 +39255,13 @@ lua_type.exit:                                    ; preds = %.lr.ph
 22:                                               ; preds = %21
   %23 = trunc nuw nsw i64 %indvars.iv to i32
   %24 = call fastcc double @lua_tonumber(ptr noundef %0, i32 noundef %23)
-  %25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.16, double noundef %24) #35
+  %25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.16, double noundef %24) #37
   %26 = icmp sgt i32 %25, 0
   %27 = zext i1 %26 to i32
   br label %38
 
 lua_type.exit.thread:                             ; preds = %.lr.ph, %lua_type.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %28 = trunc nuw nsw i64 %indvars.iv to i32
   %29 = call fastcc ptr @lua_tolstring(ptr noundef %0, i32 noundef %28, ptr noundef nonnull %4)
   %.not.i = icmp eq ptr %29, null
@@ -39290,7 +39284,7 @@ luaL_checklstring.exit:                           ; preds = %lua_type.exit.threa
 
 36:                                               ; preds = %31, %luaL_checklstring.exit
   %37 = phi i32 [ 0, %luaL_checklstring.exit ], [ %35, %31 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %38
 
 38:                                               ; preds = %22, %36
@@ -39332,7 +39326,7 @@ luaL_checklstring.exit:                           ; preds = %lua_type.exit.threa
   store i32 0, ptr %44, align 8, !tbaa !69
   %45 = getelementptr inbounds nuw i8, ptr %.pre39, i64 16
   store ptr %45, ptr %5, align 8, !tbaa !62
-  %46 = call ptr @strerror(i32 noundef %43) #35
+  %46 = call ptr @strerror(i32 noundef %43) #37
   %47 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef nonnull %0, ptr noundef nonnull @.str.115, ptr noundef %46)
   %48 = load ptr, ptr %5, align 8, !tbaa !62
   %49 = sitofp i32 %43 to double
@@ -39351,10 +39345,10 @@ pushresult.exit:                                  ; preds = %._crit_edge.thread,
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 1, 4) i32 @io_flush(ptr noundef initializes((136, 148)) %0) #0 {
@@ -39456,7 +39450,7 @@ getiofile.exit:                                   ; preds = %lua_rawgeti.exit.i
   store i32 0, ptr %59, align 8, !tbaa !69
   %60 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store ptr %60, ptr %39, align 8, !tbaa !62
-  %61 = tail call ptr @strerror(i32 noundef %58) #35
+  %61 = tail call ptr @strerror(i32 noundef %58) #37
   %62 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef nonnull %0, ptr noundef nonnull @.str.115, ptr noundef %61)
   %63 = load ptr, ptr %39, align 8, !tbaa !62
   %64 = sitofp i32 %58 to double
@@ -39591,7 +39585,7 @@ f_lines.exit:                                     ; preds = %lua_rawgeti.exit
 luaL_checklstring.exit:                           ; preds = %58
   %61 = tail call fastcc ptr @lua_newuserdata(ptr noundef nonnull %0, i64 noundef 8)
   store ptr null, ptr %61, align 8, !tbaa !81
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %63 = load ptr, ptr %62, align 8, !tbaa !29
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 160
@@ -39604,7 +39598,7 @@ luaL_checklstring.exit:                           ; preds = %58
   %68 = load ptr, ptr %5, align 8, !tbaa !62
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   store ptr %69, ptr %5, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   tail call fastcc void @lua_setmetatable(ptr noundef nonnull %0, i32 noundef -2)
   %70 = tail call noalias ptr @fopen(ptr noundef nonnull %59, ptr noundef nonnull @.str.220)
   store ptr %70, ptr %61, align 8, !tbaa !81
@@ -39614,7 +39608,7 @@ luaL_checklstring.exit:                           ; preds = %58
 72:                                               ; preds = %luaL_checklstring.exit
   %73 = tail call ptr @__errno_location() #42
   %74 = load i32, ptr %73, align 4, !tbaa !150
-  %75 = tail call ptr @strerror(i32 noundef %74) #35
+  %75 = tail call ptr @strerror(i32 noundef %74) #37
   %76 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef nonnull %0, ptr noundef nonnull @.str.209, ptr noundef nonnull %59, ptr noundef %75)
   %77 = tail call fastcc ptr @lua_tolstring(ptr noundef nonnull %0, i32 noundef -1, ptr noundef null)
   tail call fastcc void @luaL_argerror(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %77)
@@ -39761,7 +39755,7 @@ luaL_optlstring.exit:                             ; preds = %luaL_checklstring.e
   %.0.i = phi ptr [ %15, %14 ], [ @.str.220, %lua_type.exit.i ], [ @.str.220, %luaL_checklstring.exit ]
   %17 = tail call fastcc ptr @lua_newuserdata(ptr noundef nonnull %0, i64 noundef 8)
   store ptr null, ptr %17, align 8, !tbaa !81
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !29
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 160
@@ -39774,7 +39768,7 @@ luaL_optlstring.exit:                             ; preds = %luaL_checklstring.e
   %24 = load ptr, ptr %8, align 8, !tbaa !62
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %25, ptr %8, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   tail call fastcc void @lua_setmetatable(ptr noundef nonnull %0, i32 noundef -2)
   %26 = tail call noalias ptr @fopen(ptr noundef nonnull %3, ptr noundef nonnull %.0.i)
   store ptr %26, ptr %17, align 8, !tbaa !81
@@ -39789,7 +39783,7 @@ pushresult.exit:                                  ; preds = %luaL_optlstring.exi
   store i32 0, ptr %31, align 8, !tbaa !69
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %32, ptr %8, align 8, !tbaa !62
-  %33 = tail call ptr @strerror(i32 noundef %29) #35
+  %33 = tail call ptr @strerror(i32 noundef %29) #37
   %34 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef nonnull %0, ptr noundef nonnull @.str.209, ptr noundef nonnull %3, ptr noundef %33)
   %35 = load ptr, ptr %8, align 8, !tbaa !62
   %36 = sitofp i32 %29 to double
@@ -39935,7 +39929,7 @@ lua_type.exit.thread.i:                           ; preds = %lua_type.exit.i, %1
 
 lua_touserdata.exit:                              ; preds = %lua_type.exit.i, %10, %13
   %.0.i = phi ptr [ %12, %10 ], [ %14, %13 ], [ null, %lua_type.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !29
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 160
@@ -39948,7 +39942,7 @@ lua_touserdata.exit:                              ; preds = %lua_type.exit.i, %1
   %21 = load ptr, ptr %5, align 8, !tbaa !62
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %22, ptr %5, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %23 = icmp eq ptr %.0.i, null
   br i1 %23, label %lua_getmetatable.exit.thread, label %24
 
@@ -40321,7 +40315,7 @@ lua_type.exit:                                    ; preds = %3
 15:                                               ; preds = %13
   %16 = tail call fastcc ptr @lua_newuserdata(ptr noundef nonnull %0, i64 noundef 8)
   store ptr null, ptr %16, align 8, !tbaa !81
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !29
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 160
@@ -40334,7 +40328,7 @@ lua_type.exit:                                    ; preds = %3
   %23 = load ptr, ptr %7, align 8, !tbaa !62
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %24, ptr %7, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   tail call fastcc void @lua_setmetatable(ptr noundef nonnull %0, i32 noundef -2)
   %25 = tail call noalias ptr @fopen(ptr noundef nonnull %14, ptr noundef %2)
   store ptr %25, ptr %16, align 8, !tbaa !81
@@ -40344,7 +40338,7 @@ lua_type.exit:                                    ; preds = %3
 27:                                               ; preds = %15
   %28 = tail call ptr @__errno_location() #42
   %29 = load i32, ptr %28, align 4, !tbaa !150
-  %30 = tail call ptr @strerror(i32 noundef %29) #35
+  %30 = tail call ptr @strerror(i32 noundef %29) #37
   %31 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef nonnull %0, ptr noundef nonnull @.str.209, ptr noundef nonnull %14, ptr noundef %30)
   %32 = tail call fastcc ptr @lua_tolstring(ptr noundef nonnull %0, i32 noundef -1, ptr noundef null)
   tail call fastcc void @luaL_argerror(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %32)
@@ -40458,10 +40452,10 @@ lua_rawgeti.exit:                                 ; preds = %83, %87, %60
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @os_exit(ptr noundef %0) #10 {
+define internal noundef i32 @os_exit(ptr noundef %0) #9 {
   %2 = tail call fastcc i64 @luaL_optinteger(ptr noundef %0, i32 noundef 1, i64 noundef 0)
   %3 = trunc i64 %2 to i32
   tail call void @exit(i32 noundef %3) #40
@@ -40479,7 +40473,7 @@ define internal range(i32 1, 4) i32 @os_remove(ptr noundef %0) #0 {
   unreachable
 
 luaL_checklstring.exit:                           ; preds = %1
-  %4 = tail call i32 @remove(ptr noundef nonnull %2) #35
+  %4 = tail call i32 @remove(ptr noundef nonnull %2) #37
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %11
 
@@ -40503,7 +40497,7 @@ luaL_checklstring.exit:                           ; preds = %1
   store i32 0, ptr %16, align 8, !tbaa !69
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %17, ptr %14, align 8, !tbaa !62
-  %18 = tail call ptr @strerror(i32 noundef %13) #35
+  %18 = tail call ptr @strerror(i32 noundef %13) #37
   %19 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %0, ptr noundef nonnull @.str.209, ptr noundef nonnull %2, ptr noundef %18)
   %20 = load ptr, ptr %14, align 8, !tbaa !62
   %21 = sitofp i32 %13 to double
@@ -40521,14 +40515,14 @@ os_pushresult.exit:                               ; preds = %5, %11
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @remove(ptr noundef readonly captures(none)) local_unnamed_addr #2
+declare noundef i32 @remove(ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483648, 8001) i32 @str_byte(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call fastcc ptr @lua_tolstring(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %4)
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %6, label %luaL_checklstring.exit
@@ -40576,14 +40570,14 @@ lua_type.exit.i:                                  ; preds = %luaL_checklstring.e
 25:                                               ; preds = %19
   %26 = load ptr, ptr %.luaO_nilobject_.i.i, align 8, !tbaa !46
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
-  %28 = call double @strtod(ptr noundef nonnull %27, ptr noundef nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %28 = call double @strtod(ptr noundef nonnull %27, ptr noundef nonnull %3) #37
   %29 = load ptr, ptr %3, align 8, !tbaa !70
   %30 = icmp eq ptr %29, %27
   br i1 %30, label %luaO_str2d.exit.thread.i.i, label %31
 
 luaO_str2d.exit.thread.i.i:                       ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %luaV_tonumber.exit.i
 
 31:                                               ; preds = %25
@@ -40594,7 +40588,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %25
   ]
 
 33:                                               ; preds = %31, %31
-  %34 = call i64 @strtoul(ptr noundef nonnull %27, ptr noundef nonnull %3, i32 noundef 16) #35
+  %34 = call i64 @strtoul(ptr noundef nonnull %27, ptr noundef nonnull %3, i32 noundef 16) #37
   %.pre.i.i.i = load ptr, ptr %3, align 8, !tbaa !70
   %.pre11.i.i.i = load i8, ptr %.pre.i.i.i, align 1, !tbaa !46
   br label %35
@@ -40606,7 +40600,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %25
   br i1 %37, label %luaO_str2d.exit.thread14.i.i, label %.preheader.i.i.i
 
 luaO_str2d.exit.thread14.i.i:                     ; preds = %35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %luaL_optinteger.exit.thread
 
 .preheader.i.i.i:                                 ; preds = %35
@@ -40627,7 +40621,7 @@ luaO_str2d.exit.thread14.i.i:                     ; preds = %35
 
 luaO_str2d.exit.i.i:                              ; preds = %40
   %.not8.i.not.i.i = icmp eq i8 %42, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not8.i.not.i.i, label %luaL_optinteger.exit.thread, label %luaV_tonumber.exit.i
 
 luaV_tonumber.exit.i:                             ; preds = %19, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
@@ -40690,14 +40684,14 @@ lua_type.exit.i31:                                ; preds = %53
 75:                                               ; preds = %69
   %76 = load ptr, ptr %.luaO_nilobject_.i.i38, align 8, !tbaa !46
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
-  %78 = call double @strtod(ptr noundef nonnull %77, ptr noundef nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %78 = call double @strtod(ptr noundef nonnull %77, ptr noundef nonnull %2) #37
   %79 = load ptr, ptr %2, align 8, !tbaa !70
   %80 = icmp eq ptr %79, %77
   br i1 %80, label %luaO_str2d.exit.thread.i.i47, label %81
 
 luaO_str2d.exit.thread.i.i47:                     ; preds = %75
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %luaV_tonumber.exit.i48
 
 81:                                               ; preds = %75
@@ -40708,7 +40702,7 @@ luaO_str2d.exit.thread.i.i47:                     ; preds = %75
   ]
 
 83:                                               ; preds = %81, %81
-  %84 = call i64 @strtoul(ptr noundef nonnull %77, ptr noundef nonnull %2, i32 noundef 16) #35
+  %84 = call i64 @strtoul(ptr noundef nonnull %77, ptr noundef nonnull %2, i32 noundef 16) #37
   %.pre.i.i.i39 = load ptr, ptr %2, align 8, !tbaa !70
   %.pre11.i.i.i40 = load i8, ptr %.pre.i.i.i39, align 1, !tbaa !46
   br label %85
@@ -40720,7 +40714,7 @@ luaO_str2d.exit.thread.i.i47:                     ; preds = %75
   br i1 %87, label %luaO_str2d.exit.thread14.i.i46, label %.preheader.i.i.i42
 
 luaO_str2d.exit.thread14.i.i46:                   ; preds = %85
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %luaL_optinteger.exit33.thread
 
 .preheader.i.i.i42:                               ; preds = %85
@@ -40741,7 +40735,7 @@ luaO_str2d.exit.thread14.i.i46:                   ; preds = %85
 
 luaO_str2d.exit.i.i44:                            ; preds = %90
   %.not8.i.not.i.i45 = icmp eq i8 %92, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not8.i.not.i.i45, label %luaL_optinteger.exit33.thread, label %luaV_tonumber.exit.i48
 
 luaV_tonumber.exit.i48:                           ; preds = %69, %luaO_str2d.exit.i.i44, %luaO_str2d.exit.thread.i.i47
@@ -40858,7 +40852,7 @@ lua_checkstack.exit.i:                            ; preds = %113, %111
 
 .loopexit:                                        ; preds = %146, %122, %luaL_optinteger.exit33.thread
   %.024 = phi i32 [ 0, %luaL_optinteger.exit33.thread ], [ %107, %122 ], [ %107, %146 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.024
 }
 
@@ -40874,7 +40868,7 @@ define internal noundef i32 @str_char(ptr noundef %0) #0 {
   %7 = sub i64 %5, %6
   %8 = lshr exact i64 %7, 4
   %9 = trunc i64 %8 to i32
-  call void @llvm.lifetime.start.p0(i64 8216, ptr nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %0, ptr %10, align 8, !tbaa !382
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -40942,7 +40936,7 @@ luaL_prepbuffer.exit:                             ; preds = %29, %27, %luaL_chec
   %34 = load ptr, ptr %10, align 8, !tbaa !382
   %35 = load i32, ptr %12, align 8, !tbaa !385
   call fastcc void @lua_concat(ptr noundef %34, i32 noundef %35)
-  call void @llvm.lifetime.end.p0(i64 8216, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 1
 }
 
@@ -40970,7 +40964,7 @@ define internal noundef range(i32 0, 2) i32 @str_format(ptr noundef %0) #0 {
   %13 = sub i64 %11, %12
   %14 = lshr exact i64 %13, 4
   %15 = trunc i64 %14 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %16 = call fastcc ptr @lua_tolstring(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %4)
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %17, label %luaL_checklstring.exit
@@ -40982,7 +40976,7 @@ define internal noundef range(i32 0, 2) i32 @str_format(ptr noundef %0) #0 {
 luaL_checklstring.exit:                           ; preds = %1
   %18 = load i64, ptr %4, align 8, !tbaa !111
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 %18
-  call void @llvm.lifetime.start.p0(i64 8216, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %0, ptr %20, align 8, !tbaa !382
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -41064,8 +41058,8 @@ luaL_prepbuffer.exit51:                           ; preds = %52, %50, %47
   br label %.backedge
 
 57:                                               ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %6) #35
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %58 = add nsw i32 %.04094, 1
   %.not45 = icmp slt i32 %.04094, %15
   br i1 %.not45, label %60, label %59
@@ -41176,7 +41170,7 @@ scanformat.exit:                                  ; preds = %101
   %108 = ptrtoint ptr %.3.i to i64
   %109 = sub i64 %108, %71
   %110 = add nsw i64 %109, 1
-  %111 = call ptr @strncpy(ptr noundef nonnull %24, ptr noundef nonnull %44, i64 noundef %110) #35
+  %111 = call ptr @strncpy(ptr noundef nonnull %24, ptr noundef nonnull %44, i64 noundef %110) #37
   %112 = getelementptr inbounds i8, ptr %24, i64 %110
   store i8 0, ptr %112, align 1, !tbaa !46
   %113 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
@@ -41214,11 +41208,11 @@ scanformat.exit:                                  ; preds = %101
 
 luaL_checknumber.exit:                            ; preds = %115, %118
   %121 = fptosi double %116 to i32
-  %122 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %6, i32 noundef %121) #35
+  %122 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %6, i32 noundef %121) #37
   br label %302
 
 123:                                              ; preds = %scanformat.exit, %scanformat.exit
-  %124 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #37
+  %124 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #36
   %125 = getelementptr i8, ptr %6, i64 %124
   %126 = getelementptr i8, ptr %125, i64 -1
   %127 = load i8, ptr %126, align 1, !tbaa !46
@@ -41241,11 +41235,11 @@ luaL_checknumber.exit:                            ; preds = %115, %118
 
 luaL_checknumber.exit55:                          ; preds = %123, %131
   %134 = fptosi double %129 to i64
-  %135 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %6, i64 noundef %134) #35
+  %135 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %6, i64 noundef %134) #37
   br label %302
 
 136:                                              ; preds = %scanformat.exit, %scanformat.exit, %scanformat.exit, %scanformat.exit
-  %137 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #37
+  %137 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #36
   %138 = getelementptr i8, ptr %6, i64 %137
   %139 = getelementptr i8, ptr %138, i64 -1
   %140 = load i8, ptr %139, align 1, !tbaa !46
@@ -41268,7 +41262,7 @@ luaL_checknumber.exit55:                          ; preds = %123, %131
 
 luaL_checknumber.exit57:                          ; preds = %136, %144
   %147 = fptoui double %142 to i64
-  %148 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %6, i64 noundef %147) #35
+  %148 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %6, i64 noundef %147) #37
   br label %302
 
 149:                                              ; preds = %scanformat.exit, %scanformat.exit, %scanformat.exit, %scanformat.exit, %scanformat.exit
@@ -41286,11 +41280,11 @@ luaL_checknumber.exit57:                          ; preds = %136, %144
   unreachable
 
 luaL_checknumber.exit59:                          ; preds = %149, %152
-  %155 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %6, double noundef %150) #35
+  %155 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %6, double noundef %150) #37
   br label %302
 
 156:                                              ; preds = %scanformat.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %157 = call fastcc ptr @lua_tolstring(ptr noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %58, ptr noundef nonnull %3)
   %.not.i.i = icmp eq ptr %157, null
   br i1 %.not.i.i, label %158, label %luaL_checklstring.exit.i
@@ -41463,11 +41457,11 @@ addquoted.exit:                                   ; preds = %._crit_edge.i, %211
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 1
   store ptr %215, ptr %5, align 8, !tbaa !384
   store i8 34, ptr %214, align 1, !tbaa !46
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %luaL_addlstring.exit, !llvm.loop !401
 
 216:                                              ; preds = %scanformat.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %217 = call fastcc ptr @lua_tolstring(ptr noundef %0, i32 noundef %58, ptr noundef nonnull %8)
   %.not.i62 = icmp eq ptr %217, null
   br i1 %.not.i62, label %218, label %luaL_checklstring.exit63
@@ -41477,7 +41471,7 @@ addquoted.exit:                                   ; preds = %._crit_edge.i, %211
   unreachable
 
 luaL_checklstring.exit63:                         ; preds = %216
-  %219 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 46) #37
+  %219 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 46) #36
   %220 = icmp ne ptr %219, null
   %221 = load i64, ptr %8, align 8
   %222 = icmp ult i64 %221, 100
@@ -41561,7 +41555,7 @@ lua_pushvalue.exit:                               ; preds = %237, %225, %233, %2
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 16
   store ptr %268, ptr %9, align 8, !tbaa !62
   %269 = load ptr, ptr %20, align 8, !tbaa !382
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %270 = call fastcc ptr @lua_tolstring(ptr noundef %269, i32 noundef -1, ptr noundef nonnull %2)
   %271 = load i64, ptr %2, align 8, !tbaa !111
   %272 = load ptr, ptr %5, align 8, !tbaa !384
@@ -41624,13 +41618,13 @@ lua_insert.exit.i:                                ; preds = %.lr.ph.i.i
   br label %300
 
 .thread:                                          ; preds = %luaL_checklstring.exit63
-  %299 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull %217) #35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #35
+  %299 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull %217) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %302
 
 300:                                              ; preds = %296, %275
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %luaL_addlstring.exit
 
 luaL_addlstring.exit.thread74:                    ; preds = %scanformat.exit
@@ -41639,7 +41633,7 @@ luaL_addlstring.exit.thread74:                    ; preds = %scanformat.exit
   unreachable
 
 302:                                              ; preds = %.thread, %luaL_checknumber.exit59, %luaL_checknumber.exit57, %luaL_checknumber.exit55, %luaL_checknumber.exit
-  %303 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #37
+  %303 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #36
   %.not6.i = icmp eq i64 %303, 0
   br i1 %.not6.i, label %luaL_addlstring.exit.thread, label %.lr.ph.i66
 
@@ -41671,13 +41665,13 @@ luaL_prepbuffer.exit.i69:                         ; preds = %309, %307, %.lr.ph.
   br i1 %.not.i70, label %luaL_addlstring.exit.thread, label %.lr.ph.i66, !llvm.loop !388
 
 luaL_addlstring.exit.thread:                      ; preds = %luaL_prepbuffer.exit.i69, %302
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7) #35
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %6) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.backedge
 
 luaL_addlstring.exit:                             ; preds = %300, %addquoted.exit
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7) #35
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %6) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.backedge
 
 .backedge:                                        ; preds = %luaL_prepbuffer.exit, %luaL_prepbuffer.exit51, %luaL_addlstring.exit.thread, %luaL_addlstring.exit
@@ -41691,8 +41685,8 @@ luaL_addlstring.exit:                             ; preds = %300, %addquoted.exi
   %316 = load ptr, ptr %20, align 8, !tbaa !382
   %317 = load i32, ptr %22, align 8, !tbaa !385
   call fastcc void @lua_concat(ptr noundef %316, i32 noundef %317)
-  call void @llvm.lifetime.end.p0(i64 8216, ptr nonnull %5) #35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 1
 }
 
@@ -41754,7 +41748,7 @@ define internal noundef i32 @str_gsub(ptr noundef %0) #0 {
   %7 = alloca i64, align 8
   %8 = alloca %struct.MatchState, align 8
   %9 = alloca %struct.luaL_Buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = call fastcc ptr @lua_tolstring(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %7)
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %11, label %luaL_checklstring.exit
@@ -41827,14 +41821,14 @@ lua_type.exit.i:                                  ; preds = %lua_type.exit
 41:                                               ; preds = %35
   %42 = load ptr, ptr %.luaO_nilobject_.i.i, align 8, !tbaa !46
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
-  %44 = call double @strtod(ptr noundef nonnull %43, ptr noundef nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %44 = call double @strtod(ptr noundef nonnull %43, ptr noundef nonnull %2) #37
   %45 = load ptr, ptr %2, align 8, !tbaa !70
   %46 = icmp eq ptr %45, %43
   br i1 %46, label %luaO_str2d.exit.thread.i.i, label %47
 
 luaO_str2d.exit.thread.i.i:                       ; preds = %41
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %luaV_tonumber.exit.i
 
 47:                                               ; preds = %41
@@ -41845,7 +41839,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %41
   ]
 
 49:                                               ; preds = %47, %47
-  %50 = call i64 @strtoul(ptr noundef nonnull %43, ptr noundef nonnull %2, i32 noundef 16) #35
+  %50 = call i64 @strtoul(ptr noundef nonnull %43, ptr noundef nonnull %2, i32 noundef 16) #37
   %.pre.i.i.i60 = load ptr, ptr %2, align 8, !tbaa !70
   %.pre11.i.i.i = load i8, ptr %.pre.i.i.i60, align 1, !tbaa !46
   br label %51
@@ -41857,7 +41851,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %41
   br i1 %53, label %luaO_str2d.exit.thread14.i.i, label %.preheader.i.i.i
 
 luaO_str2d.exit.thread14.i.i:                     ; preds = %51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %luaL_optinteger.exit
 
 .preheader.i.i.i:                                 ; preds = %51
@@ -41878,7 +41872,7 @@ luaO_str2d.exit.thread14.i.i:                     ; preds = %51
 
 luaO_str2d.exit.i.i:                              ; preds = %56
   %.not8.i.not.i.i = icmp eq i8 %58, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not8.i.not.i.i, label %luaL_optinteger.exit, label %luaV_tonumber.exit.i
 
 luaV_tonumber.exit.i:                             ; preds = %35, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
@@ -41892,12 +41886,12 @@ luaL_optinteger.exit:                             ; preds = %luaO_str2d.exit.thr
   %.not47 = icmp eq i8 %66, 94
   %spec.select.idx = zext i1 %.not47 to i64
   %spec.select = getelementptr inbounds nuw i8, ptr %12, i64 %spec.select.idx
-  call void @llvm.lifetime.start.p0(i64 544, ptr nonnull %8) #35
-  call void @llvm.lifetime.start.p0(i64 8216, ptr nonnull %9) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br i1 %or.cond5, label %91, label %67
 
 67:                                               ; preds = %luaL_optinteger.exit
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %6) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %69 = load ptr, ptr %68, align 8, !tbaa !83
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -41920,7 +41914,7 @@ luaL_optinteger.exit:                             ; preds = %luaO_str2d.exit.thr
   call fastcc void @lua_getinfo(ptr noundef nonnull %0, ptr noundef nonnull @.str.119, ptr noundef %6)
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %82 = load ptr, ptr %81, align 8, !tbaa !269
-  %83 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull dereferenceable(7) @.str.120) #37
+  %83 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull dereferenceable(7) @.str.120) #36
   %84 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !270
   %86 = icmp eq ptr %85, null
@@ -41992,7 +41986,7 @@ lua_type.exit.i52:                                ; preds = %105
   ]
 
 116:                                              ; preds = %lua_type.exit.i52, %lua_type.exit.i52
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %117 = call fastcc ptr @lua_tolstring(ptr noundef nonnull %107, i32 noundef 3, ptr noundef nonnull %5)
   %118 = load i64, ptr %5, align 8, !tbaa !111
   %.not38.i.i = icmp eq i64 %118, 0
@@ -42108,7 +42102,7 @@ luaL_prepbuffer.exit.i.i.i:                       ; preds = %161, %159, %.lr.ph.
   %168 = add nsw i32 %167, -49
   call fastcc void @push_onecapture(ptr noundef nonnull readonly %8, i32 noundef %168, ptr noundef nonnull %.039, ptr noundef nonnull %104)
   %169 = load ptr, ptr %92, align 8, !tbaa !382
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %170 = call fastcc ptr @lua_tolstring(ptr noundef %169, i32 noundef -1, ptr noundef nonnull %4)
   %171 = load i64, ptr %4, align 8, !tbaa !111
   %172 = load ptr, ptr %9, align 8, !tbaa !384
@@ -42171,7 +42165,7 @@ lua_insert.exit.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
   br label %luaL_addvalue.exit.i.i
 
 luaL_addvalue.exit.i.i:                           ; preds = %196, %175
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %luaL_addlstring.exit.i.i
 
 luaL_addlstring.exit.i.i:                         ; preds = %luaL_prepbuffer.exit.i.i.i, %luaL_addvalue.exit.i.i, %155, %luaL_prepbuffer.exit34.i.i, %luaL_prepbuffer.exit.i.i
@@ -42181,7 +42175,7 @@ luaL_addlstring.exit.i.i:                         ; preds = %luaL_prepbuffer.exi
   br i1 %200, label %122, label %add_s.exit.i, !llvm.loop !407
 
 add_s.exit.i:                                     ; preds = %luaL_addlstring.exit.i.i, %116
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %add_value.exit
 
 201:                                              ; preds = %lua_type.exit.i52
@@ -42338,7 +42332,7 @@ lua_typename.exit.i:                              ; preds = %lua_toboolean.exit.
 
 279:                                              ; preds = %lua_isstring.exit.i, %lua_pushlstring.exit.i
   %280 = load ptr, ptr %92, align 8, !tbaa !382
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %281 = call fastcc ptr @lua_tolstring(ptr noundef %280, i32 noundef -1, ptr noundef nonnull %3)
   %282 = load i64, ptr %3, align 8, !tbaa !111
   %283 = load ptr, ptr %9, align 8, !tbaa !384
@@ -42401,7 +42395,7 @@ lua_insert.exit.i.i:                              ; preds = %.lr.ph.i.i36.i
   br label %luaL_addvalue.exit.i
 
 luaL_addvalue.exit.i:                             ; preds = %307, %286
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %add_value.exit
 
 add_value.exit:                                   ; preds = %luaL_addvalue.exit.i, %add_s.exit.i
@@ -42492,9 +42486,9 @@ luaL_addlstring.exit:                             ; preds = %luaL_prepbuffer.exi
   %344 = load ptr, ptr %17, align 8, !tbaa !62
   %345 = getelementptr inbounds nuw i8, ptr %344, i64 16
   store ptr %345, ptr %17, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 8216, ptr nonnull %9) #35
-  call void @llvm.lifetime.end.p0(i64 544, ptr nonnull %8) #35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 2
 }
 
@@ -42502,8 +42496,8 @@ luaL_addlstring.exit:                             ; preds = %luaL_prepbuffer.exi
 define internal noundef i32 @str_lower(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.luaL_Buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
-  call void @llvm.lifetime.start.p0(i64 8216, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call fastcc ptr @lua_tolstring(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %5, label %luaL_checklstring.exit
@@ -42564,8 +42558,8 @@ luaL_prepbuffer.exit:                             ; preds = %16, %14, %11
   %29 = load ptr, ptr %6, align 8, !tbaa !382
   %30 = load i32, ptr %8, align 8, !tbaa !385
   call fastcc void @lua_concat(ptr noundef %29, i32 noundef %30)
-  call void @llvm.lifetime.end.p0(i64 8216, ptr nonnull %3) #35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 1
 }
 
@@ -42582,8 +42576,8 @@ define internal noundef i32 @str_rep(ptr noundef %0) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca %struct.luaL_Buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #35
-  call void @llvm.lifetime.start.p0(i64 8216, ptr nonnull %6) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call fastcc ptr @lua_tolstring(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %5)
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %8, label %luaL_checklstring.exit
@@ -42615,14 +42609,14 @@ luaL_checklstring.exit:                           ; preds = %1
 19:                                               ; preds = %11
   %20 = load ptr, ptr %.luaO_nilobject_.i.i, align 8, !tbaa !46
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #35
-  %22 = call double @strtod(ptr noundef nonnull %21, ptr noundef nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %22 = call double @strtod(ptr noundef nonnull %21, ptr noundef nonnull %4) #37
   %23 = load ptr, ptr %4, align 8, !tbaa !70
   %24 = icmp eq ptr %23, %21
   br i1 %24, label %luaO_str2d.exit.thread.i.i, label %25
 
 luaO_str2d.exit.thread.i.i:                       ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %luaV_tonumber.exit.i
 
 25:                                               ; preds = %19
@@ -42633,7 +42627,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %19
   ]
 
 27:                                               ; preds = %25, %25
-  %28 = call i64 @strtoul(ptr noundef nonnull %21, ptr noundef nonnull %4, i32 noundef 16) #35
+  %28 = call i64 @strtoul(ptr noundef nonnull %21, ptr noundef nonnull %4, i32 noundef 16) #37
   %.pre.i.i.i = load ptr, ptr %4, align 8, !tbaa !70
   %.pre11.i.i.i = load i8, ptr %.pre.i.i.i, align 1, !tbaa !46
   br label %29
@@ -42645,7 +42639,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %19
   br i1 %31, label %luaO_str2d.exit.thread14.i.i, label %.preheader.i.i.i
 
 luaO_str2d.exit.thread14.i.i:                     ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %luaL_checkinteger.exit.thread
 
 .preheader.i.i.i:                                 ; preds = %29
@@ -42666,7 +42660,7 @@ luaO_str2d.exit.thread14.i.i:                     ; preds = %29
 
 luaO_str2d.exit.i.i:                              ; preds = %34
   %.not8.i.not.i.i = icmp eq i8 %36, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not8.i.not.i.i, label %luaL_checkinteger.exit.thread, label %luaV_tonumber.exit.i
 
 luaV_tonumber.exit.i:                             ; preds = %11, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
@@ -42834,14 +42828,14 @@ luaC_step.exit.i.i:                               ; preds = %94, %91, %88
   br label %lua_objlen.exit.i
 
 131:                                              ; preds = %112
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %132 = load double, ptr %116, align 8, !tbaa !46
-  %133 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %132) #35
-  %134 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #37
+  %133 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %132) #37
+  %134 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #36
   %135 = call fastcc ptr @luaS_newlstr(ptr noundef nonnull %113, ptr noundef nonnull %3, i64 noundef %134)
   store ptr %135, ptr %116, align 8, !tbaa !46
   store i32 4, ptr %117, align 8, !tbaa !69
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 16
   %137 = load i64, ptr %136, align 8, !tbaa !46
   br label %lua_objlen.exit.i
@@ -42939,14 +42933,14 @@ index2adr.exit.i:                                 ; preds = %149, %161, %154, %1
   br label %lua_objlen.exit
 
 188:                                              ; preds = %index2adr.exit.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %189 = load double, ptr %.1.i.i, align 8, !tbaa !46
-  %190 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %189) #35
-  %191 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #37
+  %190 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %189) #37
+  %191 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #36
   %192 = call fastcc ptr @luaS_newlstr(ptr noundef nonnull %113, ptr noundef nonnull %2, i64 noundef %191)
   store ptr %192, ptr %.1.i.i, align 8, !tbaa !46
   store i32 4, ptr %174, align 8, !tbaa !69
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 16
   %194 = load i64, ptr %193, align 8, !tbaa !46
   br label %lua_objlen.exit
@@ -43089,8 +43083,8 @@ luaL_addlstring.exit.loopexit:                    ; preds = %luaL_prepbuffer.exi
   %273 = load i32, ptr %269, align 8, !tbaa !385
   call fastcc void @lua_concat(ptr noundef %272, i32 noundef %273)
   store i32 1, ptr %269, align 8, !tbaa !385
-  call void @llvm.lifetime.end.p0(i64 8216, ptr nonnull %6) #35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 1
 }
 
@@ -43099,7 +43093,7 @@ define internal noundef i32 @str_sub(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call fastcc ptr @lua_tolstring(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %4)
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %6, label %luaL_checklstring.exit
@@ -43131,14 +43125,14 @@ luaL_checklstring.exit:                           ; preds = %1
 17:                                               ; preds = %9
   %18 = load ptr, ptr %.luaO_nilobject_.i.i, align 8, !tbaa !46
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
-  %20 = call double @strtod(ptr noundef nonnull %19, ptr noundef nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %20 = call double @strtod(ptr noundef nonnull %19, ptr noundef nonnull %3) #37
   %21 = load ptr, ptr %3, align 8, !tbaa !70
   %22 = icmp eq ptr %21, %19
   br i1 %22, label %luaO_str2d.exit.thread.i.i, label %23
 
 luaO_str2d.exit.thread.i.i:                       ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %luaV_tonumber.exit.i
 
 23:                                               ; preds = %17
@@ -43149,7 +43143,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %17
   ]
 
 25:                                               ; preds = %23, %23
-  %26 = call i64 @strtoul(ptr noundef nonnull %19, ptr noundef nonnull %3, i32 noundef 16) #35
+  %26 = call i64 @strtoul(ptr noundef nonnull %19, ptr noundef nonnull %3, i32 noundef 16) #37
   %.pre.i.i.i = load ptr, ptr %3, align 8, !tbaa !70
   %.pre11.i.i.i = load i8, ptr %.pre.i.i.i, align 1, !tbaa !46
   br label %27
@@ -43161,7 +43155,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %17
   br i1 %29, label %luaO_str2d.exit.thread14.i.i, label %.preheader.i.i.i
 
 luaO_str2d.exit.thread14.i.i:                     ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %luaL_checkinteger.exit
 
 .preheader.i.i.i:                                 ; preds = %27
@@ -43182,7 +43176,7 @@ luaO_str2d.exit.thread14.i.i:                     ; preds = %27
 
 luaO_str2d.exit.i.i:                              ; preds = %32
   %.not8.i.not.i.i = icmp eq i8 %34, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not8.i.not.i.i, label %luaL_checkinteger.exit, label %luaV_tonumber.exit.i
 
 luaV_tonumber.exit.i:                             ; preds = %9, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
@@ -43233,14 +43227,14 @@ lua_type.exit.i:                                  ; preds = %luaL_checkinteger.e
 62:                                               ; preds = %56
   %63 = load ptr, ptr %.luaO_nilobject_.i.i25, align 8, !tbaa !46
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
-  %65 = call double @strtod(ptr noundef nonnull %64, ptr noundef nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %65 = call double @strtod(ptr noundef nonnull %64, ptr noundef nonnull %2) #37
   %66 = load ptr, ptr %2, align 8, !tbaa !70
   %67 = icmp eq ptr %66, %64
   br i1 %67, label %luaO_str2d.exit.thread.i.i34, label %68
 
 luaO_str2d.exit.thread.i.i34:                     ; preds = %62
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %luaV_tonumber.exit.i35
 
 68:                                               ; preds = %62
@@ -43251,7 +43245,7 @@ luaO_str2d.exit.thread.i.i34:                     ; preds = %62
   ]
 
 70:                                               ; preds = %68, %68
-  %71 = call i64 @strtoul(ptr noundef nonnull %64, ptr noundef nonnull %2, i32 noundef 16) #35
+  %71 = call i64 @strtoul(ptr noundef nonnull %64, ptr noundef nonnull %2, i32 noundef 16) #37
   %.pre.i.i.i26 = load ptr, ptr %2, align 8, !tbaa !70
   %.pre11.i.i.i27 = load i8, ptr %.pre.i.i.i26, align 1, !tbaa !46
   br label %72
@@ -43263,7 +43257,7 @@ luaO_str2d.exit.thread.i.i34:                     ; preds = %62
   br i1 %74, label %luaO_str2d.exit.thread14.i.i33, label %.preheader.i.i.i29
 
 luaO_str2d.exit.thread14.i.i33:                   ; preds = %72
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %luaL_optinteger.exit.thread
 
 .preheader.i.i.i29:                               ; preds = %72
@@ -43284,7 +43278,7 @@ luaO_str2d.exit.thread14.i.i33:                   ; preds = %72
 
 luaO_str2d.exit.i.i31:                            ; preds = %77
   %.not8.i.not.i.i32 = icmp eq i8 %79, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not8.i.not.i.i32, label %luaL_optinteger.exit.thread, label %luaV_tonumber.exit.i35
 
 luaV_tonumber.exit.i35:                           ; preds = %56, %luaO_str2d.exit.i.i31, %luaO_str2d.exit.thread.i.i34
@@ -43467,7 +43461,7 @@ lua_pushlstring.exit23:                           ; preds = %137, %luaC_step.exi
   %.pn = load ptr, ptr %47, align 8, !tbaa !62
   %storemerge = getelementptr inbounds nuw i8, ptr %.pn, i64 16
   store ptr %storemerge, ptr %47, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 1
 }
 
@@ -43475,8 +43469,8 @@ lua_pushlstring.exit23:                           ; preds = %137, %luaC_step.exi
 define internal noundef i32 @str_upper(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.luaL_Buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
-  call void @llvm.lifetime.start.p0(i64 8216, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call fastcc ptr @lua_tolstring(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %5, label %luaL_checklstring.exit
@@ -43537,8 +43531,8 @@ luaL_prepbuffer.exit:                             ; preds = %16, %14, %11
   %29 = load ptr, ptr %6, align 8, !tbaa !382
   %30 = load i32, ptr %8, align 8, !tbaa !385
   call fastcc void @lua_concat(ptr noundef %29, i32 noundef %30)
-  call void @llvm.lifetime.end.p0(i64 8216, ptr nonnull %3) #35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 1
 }
 
@@ -43548,8 +43542,8 @@ define internal fastcc range(i32 -2147483648, 8003) i32 @str_find_aux(ptr nounde
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca %struct.MatchState, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = call fastcc ptr @lua_tolstring(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %4)
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %8, label %luaL_checklstring.exit
@@ -43606,14 +43600,14 @@ lua_type.exit.i:                                  ; preds = %luaL_checklstring.e
 29:                                               ; preds = %23
   %30 = load ptr, ptr %.luaO_nilobject_.i.i66, align 8, !tbaa !46
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
-  %32 = call double @strtod(ptr noundef nonnull %31, ptr noundef nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %32 = call double @strtod(ptr noundef nonnull %31, ptr noundef nonnull %3) #37
   %33 = load ptr, ptr %3, align 8, !tbaa !70
   %34 = icmp eq ptr %33, %31
   br i1 %34, label %luaO_str2d.exit.thread.i.i, label %35
 
 luaO_str2d.exit.thread.i.i:                       ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %luaV_tonumber.exit.i
 
 35:                                               ; preds = %29
@@ -43624,7 +43618,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %29
   ]
 
 37:                                               ; preds = %35, %35
-  %38 = call i64 @strtoul(ptr noundef nonnull %31, ptr noundef nonnull %3, i32 noundef 16) #35
+  %38 = call i64 @strtoul(ptr noundef nonnull %31, ptr noundef nonnull %3, i32 noundef 16) #37
   %.pre.i.i.i = load ptr, ptr %3, align 8, !tbaa !70
   %.pre11.i.i.i = load i8, ptr %.pre.i.i.i, align 1, !tbaa !46
   br label %39
@@ -43636,7 +43630,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %29
   br i1 %41, label %luaO_str2d.exit.thread14.i.i, label %.preheader.i.i.i
 
 luaO_str2d.exit.thread14.i.i:                     ; preds = %39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %luaL_optinteger.exit.thread
 
 .preheader.i.i.i:                                 ; preds = %39
@@ -43657,7 +43651,7 @@ luaO_str2d.exit.thread14.i.i:                     ; preds = %39
 
 luaO_str2d.exit.i.i:                              ; preds = %44
   %.not8.i.not.i.i = icmp eq i8 %46, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not8.i.not.i.i, label %luaL_optinteger.exit.thread, label %luaV_tonumber.exit.i
 
 luaV_tonumber.exit.i:                             ; preds = %23, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
@@ -43708,7 +43702,7 @@ lua_toboolean.exit:                               ; preds = %62
   br i1 %.not81, label %lua_toboolean.exit.thread, label %lua_toboolean.exit.thread70
 
 lua_toboolean.exit.thread:                        ; preds = %62, %lua_toboolean.exit
-  %69 = call ptr @strpbrk(ptr noundef nonnull %9, ptr noundef nonnull @.str.239) #37
+  %69 = call ptr @strpbrk(ptr noundef nonnull %9, ptr noundef nonnull @.str.239) #36
   %70 = icmp eq ptr %69, null
   br i1 %70, label %lua_toboolean.exit.thread70, label %105
 
@@ -43738,7 +43732,7 @@ lua_toboolean.exit.thread70:                      ; preds = %62, %lua_toboolean.
 83:                                               ; preds = %88, %.lr.ph.i
   %.02029.i = phi i64 [ %79, %.lr.ph.i ], [ %91, %88 ]
   %.02128.i = phi ptr [ %71, %.lr.ph.i ], [ %86, %88 ]
-  %84 = call ptr @memchr(ptr noundef %.02128.i, i32 noundef %81, i64 noundef %.02029.i) #37
+  %84 = call ptr @memchr(ptr noundef %.02128.i, i32 noundef %81, i64 noundef %.02029.i) #36
   %.not25.i = icmp eq ptr %84, null
   br i1 %.not25.i, label %.critedge, label %85
 
@@ -43780,7 +43774,7 @@ lmemfind.exit.thread74:                           ; preds = %85, %lua_toboolean.
   br label %140
 
 105:                                              ; preds = %lua_toboolean.exit.thread, %56
-  call void @llvm.lifetime.start.p0(i64 544, ptr nonnull %6) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %106 = load i8, ptr %9, align 1, !tbaa !46
   %.fr94 = freeze i8 %106
   %.not95 = icmp eq i8 %.fr94, 94
@@ -43851,7 +43845,7 @@ lmemfind.exit.thread74:                           ; preds = %85, %lua_toboolean.
   br i1 %136, label %.split, label %.split92, !llvm.loop !413
 
 .split92:                                         ; preds = %133, %.split.us
-  call void @llvm.lifetime.end.p0(i64 544, ptr nonnull %6) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre = load ptr, ptr %14, align 8, !tbaa !62
   br label %.critedge
 
@@ -43865,18 +43859,18 @@ lmemfind.exit.thread74:                           ; preds = %85, %lua_toboolean.
 
 .critedge60:                                      ; preds = %131, %114
   %.3.ph = phi i32 [ %132, %131 ], [ %130, %114 ]
-  call void @llvm.lifetime.end.p0(i64 544, ptr nonnull %6) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %140
 
 140:                                              ; preds = %lmemfind.exit.thread74, %.critedge60, %.critedge
   %.1 = phi i32 [ 1, %.critedge ], [ 2, %lmemfind.exit.thread74 ], [ %.3.ph, %.critedge60 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #14
+declare ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @match(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
@@ -44927,10 +44921,10 @@ lua_checkstack.exit.i:                            ; preds = %11, %3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #14
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 8193) i32 @match_class(i32 noundef range(i32 0, 256) %0, i32 noundef range(i32 0, 256) %1) unnamed_addr #29 {
+define internal fastcc range(i32 0, 8193) i32 @match_class(i32 noundef range(i32 0, 256) %0, i32 noundef range(i32 0, 256) %1) unnamed_addr #28 {
   %3 = tail call ptr @__ctype_tolower_loc() #42
   %4 = load ptr, ptr %3, align 8, !tbaa !408
   %5 = zext nneg i32 %1 to i64
@@ -45070,7 +45064,7 @@ define internal fastcc range(i32 0, 8193) i32 @match_class(i32 noundef range(i32
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_tolower_loc() local_unnamed_addr #20
+declare ptr @__ctype_tolower_loc() local_unnamed_addr #19
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @push_onecapture(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
@@ -45298,8 +45292,8 @@ lua_pushlstring.exit27:                           ; preds = %85, %luaC_step.exit
 define internal range(i32 -2147483648, 8001) i32 @gmatch_aux(ptr noundef %0) #0 {
   %2 = alloca %struct.MatchState, align 8
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 544, ptr nonnull %2) #35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call fastcc ptr @lua_tolstring(ptr noundef %0, i32 noundef -10003, ptr noundef nonnull %3)
   %5 = call fastcc ptr @lua_tolstring(ptr noundef %0, i32 noundef -10004, ptr noundef null)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -45419,13 +45413,13 @@ define internal range(i32 -2147483648, 8001) i32 @gmatch_aux(ptr noundef %0) #0 
 
 .loopexit:                                        ; preds = %74, %1, %70
   %.2 = phi i32 [ %73, %70 ], [ 0, %1 ], [ 0, %74 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
-  call void @llvm.lifetime.end.p0(i64 544, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.2
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_toupper_loc() local_unnamed_addr #20
+declare ptr @__ctype_toupper_loc() local_unnamed_addr #19
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @luaL_findtable(ptr noundef %0, i32 noundef range(i32 -10002, -9999) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
@@ -45481,12 +45475,12 @@ lua_pushvalue.exit:                               ; preds = %5, %9, %19
 30:                                               ; preds = %lua_remove.exit, %lua_pushvalue.exit
   %31 = phi ptr [ %28, %lua_pushvalue.exit ], [ %216, %lua_remove.exit ]
   %.029 = phi ptr [ %2, %lua_pushvalue.exit ], [ %217, %lua_remove.exit ]
-  %32 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.029, i32 noundef 46) #37
+  %32 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.029, i32 noundef 46) #36
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %30
-  %35 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.029) #37
+  %35 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.029) #36
   %36 = getelementptr inbounds nuw i8, ptr %.029, i64 %35
   br label %37
 
@@ -45834,14 +45828,14 @@ define internal noundef i32 @tobit(ptr noundef %0) #0 {
 13:                                               ; preds = %6
   %14 = load ptr, ptr %.luaO_nilobject_.i.i, align 8, !tbaa !46
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
-  %16 = call double @strtod(ptr noundef nonnull %15, ptr noundef nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %16 = call double @strtod(ptr noundef nonnull %15, ptr noundef nonnull %2) #37
   %17 = load ptr, ptr %2, align 8, !tbaa !70
   %18 = icmp eq ptr %17, %15
   br i1 %18, label %luaO_str2d.exit.thread.i.i, label %19
 
 luaO_str2d.exit.thread.i.i:                       ; preds = %13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %luaV_tonumber.exit.i
 
 19:                                               ; preds = %13
@@ -45852,7 +45846,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %13
   ]
 
 21:                                               ; preds = %19, %19
-  %22 = call i64 @strtoul(ptr noundef nonnull %15, ptr noundef nonnull %2, i32 noundef 16) #35
+  %22 = call i64 @strtoul(ptr noundef nonnull %15, ptr noundef nonnull %2, i32 noundef 16) #37
   %.pre.i.i.i = load ptr, ptr %2, align 8, !tbaa !70
   %.pre11.i.i.i = load i8, ptr %.pre.i.i.i, align 1, !tbaa !46
   br label %23
@@ -45864,7 +45858,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %13
   br i1 %25, label %luaO_str2d.exit.thread14.i.i, label %.preheader.i.i.i
 
 luaO_str2d.exit.thread14.i.i:                     ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %barg.exit
 
 .preheader.i.i.i:                                 ; preds = %23
@@ -45885,7 +45879,7 @@ luaO_str2d.exit.thread14.i.i:                     ; preds = %23
 
 luaO_str2d.exit.i.i:                              ; preds = %28
   %.not8.i.not.i.i = icmp eq i8 %30, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not8.i.not.i.i, label %barg.exit, label %luaV_tonumber.exit.i
 
 luaV_tonumber.exit.i:                             ; preds = %6, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
@@ -45932,14 +45926,14 @@ define internal noundef i32 @bnot(ptr noundef %0) #0 {
 13:                                               ; preds = %6
   %14 = load ptr, ptr %.luaO_nilobject_.i.i, align 8, !tbaa !46
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
-  %16 = call double @strtod(ptr noundef nonnull %15, ptr noundef nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %16 = call double @strtod(ptr noundef nonnull %15, ptr noundef nonnull %2) #37
   %17 = load ptr, ptr %2, align 8, !tbaa !70
   %18 = icmp eq ptr %17, %15
   br i1 %18, label %luaO_str2d.exit.thread.i.i, label %19
 
 luaO_str2d.exit.thread.i.i:                       ; preds = %13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %luaV_tonumber.exit.i
 
 19:                                               ; preds = %13
@@ -45950,7 +45944,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %13
   ]
 
 21:                                               ; preds = %19, %19
-  %22 = call i64 @strtoul(ptr noundef nonnull %15, ptr noundef nonnull %2, i32 noundef 16) #35
+  %22 = call i64 @strtoul(ptr noundef nonnull %15, ptr noundef nonnull %2, i32 noundef 16) #37
   %.pre.i.i.i = load ptr, ptr %2, align 8, !tbaa !70
   %.pre11.i.i.i = load i8, ptr %.pre.i.i.i, align 1, !tbaa !46
   br label %23
@@ -45962,7 +45956,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %13
   br i1 %25, label %luaO_str2d.exit.thread14.i.i, label %.preheader.i.i.i
 
 luaO_str2d.exit.thread14.i.i:                     ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %barg.exit
 
 .preheader.i.i.i:                                 ; preds = %23
@@ -45983,7 +45977,7 @@ luaO_str2d.exit.thread14.i.i:                     ; preds = %23
 
 luaO_str2d.exit.i.i:                              ; preds = %28
   %.not8.i.not.i.i = icmp eq i8 %30, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not8.i.not.i.i, label %barg.exit, label %luaV_tonumber.exit.i
 
 luaV_tonumber.exit.i:                             ; preds = %6, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
@@ -46031,14 +46025,14 @@ define internal noundef i32 @band(ptr noundef %0) #0 {
 13:                                               ; preds = %6
   %14 = load ptr, ptr %.luaO_nilobject_.i.i, align 8, !tbaa !46
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
-  %16 = call double @strtod(ptr noundef nonnull %15, ptr noundef nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %16 = call double @strtod(ptr noundef nonnull %15, ptr noundef nonnull %2) #37
   %17 = load ptr, ptr %2, align 8, !tbaa !70
   %18 = icmp eq ptr %17, %15
   br i1 %18, label %luaO_str2d.exit.thread.i.i, label %19
 
 luaO_str2d.exit.thread.i.i:                       ; preds = %13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %luaV_tonumber.exit.i
 
 19:                                               ; preds = %13
@@ -46049,7 +46043,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %13
   ]
 
 21:                                               ; preds = %19, %19
-  %22 = call i64 @strtoul(ptr noundef nonnull %15, ptr noundef nonnull %2, i32 noundef 16) #35
+  %22 = call i64 @strtoul(ptr noundef nonnull %15, ptr noundef nonnull %2, i32 noundef 16) #37
   %.pre.i.i.i = load ptr, ptr %2, align 8, !tbaa !70
   %.pre11.i.i.i = load i8, ptr %.pre.i.i.i, align 1, !tbaa !46
   br label %23
@@ -46061,7 +46055,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %13
   br i1 %25, label %luaO_str2d.exit.thread14.i.i, label %.preheader.i.i.i
 
 luaO_str2d.exit.thread14.i.i:                     ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %barg.exit
 
 .preheader.i.i.i:                                 ; preds = %23
@@ -46082,7 +46076,7 @@ luaO_str2d.exit.thread14.i.i:                     ; preds = %23
 
 luaO_str2d.exit.i.i:                              ; preds = %28
   %.not8.i.not.i.i = icmp eq i8 %30, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not8.i.not.i.i, label %barg.exit, label %luaV_tonumber.exit.i
 
 luaV_tonumber.exit.i:                             ; preds = %6, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
@@ -46171,14 +46165,14 @@ define internal noundef i32 @bor(ptr noundef %0) #0 {
 13:                                               ; preds = %6
   %14 = load ptr, ptr %.luaO_nilobject_.i.i, align 8, !tbaa !46
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
-  %16 = call double @strtod(ptr noundef nonnull %15, ptr noundef nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %16 = call double @strtod(ptr noundef nonnull %15, ptr noundef nonnull %2) #37
   %17 = load ptr, ptr %2, align 8, !tbaa !70
   %18 = icmp eq ptr %17, %15
   br i1 %18, label %luaO_str2d.exit.thread.i.i, label %19
 
 luaO_str2d.exit.thread.i.i:                       ; preds = %13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %luaV_tonumber.exit.i
 
 19:                                               ; preds = %13
@@ -46189,7 +46183,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %13
   ]
 
 21:                                               ; preds = %19, %19
-  %22 = call i64 @strtoul(ptr noundef nonnull %15, ptr noundef nonnull %2, i32 noundef 16) #35
+  %22 = call i64 @strtoul(ptr noundef nonnull %15, ptr noundef nonnull %2, i32 noundef 16) #37
   %.pre.i.i.i = load ptr, ptr %2, align 8, !tbaa !70
   %.pre11.i.i.i = load i8, ptr %.pre.i.i.i, align 1, !tbaa !46
   br label %23
@@ -46201,7 +46195,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %13
   br i1 %25, label %luaO_str2d.exit.thread14.i.i, label %.preheader.i.i.i
 
 luaO_str2d.exit.thread14.i.i:                     ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %barg.exit
 
 .preheader.i.i.i:                                 ; preds = %23
@@ -46222,7 +46216,7 @@ luaO_str2d.exit.thread14.i.i:                     ; preds = %23
 
 luaO_str2d.exit.i.i:                              ; preds = %28
   %.not8.i.not.i.i = icmp eq i8 %30, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not8.i.not.i.i, label %barg.exit, label %luaV_tonumber.exit.i
 
 luaV_tonumber.exit.i:                             ; preds = %6, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
@@ -46311,14 +46305,14 @@ define internal noundef i32 @bxor(ptr noundef %0) #0 {
 13:                                               ; preds = %6
   %14 = load ptr, ptr %.luaO_nilobject_.i.i, align 8, !tbaa !46
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
-  %16 = call double @strtod(ptr noundef nonnull %15, ptr noundef nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %16 = call double @strtod(ptr noundef nonnull %15, ptr noundef nonnull %2) #37
   %17 = load ptr, ptr %2, align 8, !tbaa !70
   %18 = icmp eq ptr %17, %15
   br i1 %18, label %luaO_str2d.exit.thread.i.i, label %19
 
 luaO_str2d.exit.thread.i.i:                       ; preds = %13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %luaV_tonumber.exit.i
 
 19:                                               ; preds = %13
@@ -46329,7 +46323,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %13
   ]
 
 21:                                               ; preds = %19, %19
-  %22 = call i64 @strtoul(ptr noundef nonnull %15, ptr noundef nonnull %2, i32 noundef 16) #35
+  %22 = call i64 @strtoul(ptr noundef nonnull %15, ptr noundef nonnull %2, i32 noundef 16) #37
   %.pre.i.i.i = load ptr, ptr %2, align 8, !tbaa !70
   %.pre11.i.i.i = load i8, ptr %.pre.i.i.i, align 1, !tbaa !46
   br label %23
@@ -46341,7 +46335,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %13
   br i1 %25, label %luaO_str2d.exit.thread14.i.i, label %.preheader.i.i.i
 
 luaO_str2d.exit.thread14.i.i:                     ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %barg.exit
 
 .preheader.i.i.i:                                 ; preds = %23
@@ -46362,7 +46356,7 @@ luaO_str2d.exit.thread14.i.i:                     ; preds = %23
 
 luaO_str2d.exit.i.i:                              ; preds = %28
   %.not8.i.not.i.i = icmp eq i8 %30, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not8.i.not.i.i, label %barg.exit, label %luaV_tonumber.exit.i
 
 luaV_tonumber.exit.i:                             ; preds = %6, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
@@ -46452,14 +46446,14 @@ define internal noundef i32 @lshift(ptr noundef %0) #0 {
 14:                                               ; preds = %7
   %15 = load ptr, ptr %.luaO_nilobject_.i.i, align 8, !tbaa !46
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
-  %17 = call double @strtod(ptr noundef nonnull %16, ptr noundef nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %17 = call double @strtod(ptr noundef nonnull %16, ptr noundef nonnull %3) #37
   %18 = load ptr, ptr %3, align 8, !tbaa !70
   %19 = icmp eq ptr %18, %16
   br i1 %19, label %luaO_str2d.exit.thread.i.i, label %20
 
 luaO_str2d.exit.thread.i.i:                       ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %luaV_tonumber.exit.i
 
 20:                                               ; preds = %14
@@ -46470,7 +46464,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %14
   ]
 
 22:                                               ; preds = %20, %20
-  %23 = call i64 @strtoul(ptr noundef nonnull %16, ptr noundef nonnull %3, i32 noundef 16) #35
+  %23 = call i64 @strtoul(ptr noundef nonnull %16, ptr noundef nonnull %3, i32 noundef 16) #37
   %.pre.i.i.i = load ptr, ptr %3, align 8, !tbaa !70
   %.pre11.i.i.i = load i8, ptr %.pre.i.i.i, align 1, !tbaa !46
   br label %24
@@ -46482,7 +46476,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %14
   br i1 %26, label %luaO_str2d.exit.thread14.i.i, label %.preheader.i.i.i
 
 luaO_str2d.exit.thread14.i.i:                     ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %barg.exit
 
 .preheader.i.i.i:                                 ; preds = %24
@@ -46503,7 +46497,7 @@ luaO_str2d.exit.thread14.i.i:                     ; preds = %24
 
 luaO_str2d.exit.i.i:                              ; preds = %29
   %.not8.i.not.i.i = icmp eq i8 %31, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not8.i.not.i.i, label %barg.exit, label %luaV_tonumber.exit.i
 
 luaV_tonumber.exit.i:                             ; preds = %7, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
@@ -46534,14 +46528,14 @@ barg.exit:                                        ; preds = %luaO_str2d.exit.thr
 48:                                               ; preds = %40
   %49 = load ptr, ptr %.luaO_nilobject_.i.i7, align 8, !tbaa !46
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
-  %51 = call double @strtod(ptr noundef nonnull %50, ptr noundef nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %51 = call double @strtod(ptr noundef nonnull %50, ptr noundef nonnull %2) #37
   %52 = load ptr, ptr %2, align 8, !tbaa !70
   %53 = icmp eq ptr %52, %50
   br i1 %53, label %luaO_str2d.exit.thread.i.i16, label %54
 
 luaO_str2d.exit.thread.i.i16:                     ; preds = %48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %luaV_tonumber.exit.i17
 
 54:                                               ; preds = %48
@@ -46552,7 +46546,7 @@ luaO_str2d.exit.thread.i.i16:                     ; preds = %48
   ]
 
 56:                                               ; preds = %54, %54
-  %57 = call i64 @strtoul(ptr noundef nonnull %50, ptr noundef nonnull %2, i32 noundef 16) #35
+  %57 = call i64 @strtoul(ptr noundef nonnull %50, ptr noundef nonnull %2, i32 noundef 16) #37
   %.pre.i.i.i8 = load ptr, ptr %2, align 8, !tbaa !70
   %.pre11.i.i.i9 = load i8, ptr %.pre.i.i.i8, align 1, !tbaa !46
   br label %58
@@ -46564,7 +46558,7 @@ luaO_str2d.exit.thread.i.i16:                     ; preds = %48
   br i1 %60, label %luaO_str2d.exit.thread14.i.i15, label %.preheader.i.i.i11
 
 luaO_str2d.exit.thread14.i.i15:                   ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %barg.exit5
 
 .preheader.i.i.i11:                               ; preds = %58
@@ -46585,7 +46579,7 @@ luaO_str2d.exit.thread14.i.i15:                   ; preds = %58
 
 luaO_str2d.exit.i.i13:                            ; preds = %63
   %.not8.i.not.i.i14 = icmp eq i8 %65, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not8.i.not.i.i14, label %barg.exit5, label %luaV_tonumber.exit.i17
 
 luaV_tonumber.exit.i17:                           ; preds = %40, %luaO_str2d.exit.i.i13, %luaO_str2d.exit.thread.i.i16
@@ -46637,14 +46631,14 @@ define internal noundef i32 @rshift(ptr noundef %0) #0 {
 14:                                               ; preds = %7
   %15 = load ptr, ptr %.luaO_nilobject_.i.i, align 8, !tbaa !46
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
-  %17 = call double @strtod(ptr noundef nonnull %16, ptr noundef nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %17 = call double @strtod(ptr noundef nonnull %16, ptr noundef nonnull %3) #37
   %18 = load ptr, ptr %3, align 8, !tbaa !70
   %19 = icmp eq ptr %18, %16
   br i1 %19, label %luaO_str2d.exit.thread.i.i, label %20
 
 luaO_str2d.exit.thread.i.i:                       ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %luaV_tonumber.exit.i
 
 20:                                               ; preds = %14
@@ -46655,7 +46649,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %14
   ]
 
 22:                                               ; preds = %20, %20
-  %23 = call i64 @strtoul(ptr noundef nonnull %16, ptr noundef nonnull %3, i32 noundef 16) #35
+  %23 = call i64 @strtoul(ptr noundef nonnull %16, ptr noundef nonnull %3, i32 noundef 16) #37
   %.pre.i.i.i = load ptr, ptr %3, align 8, !tbaa !70
   %.pre11.i.i.i = load i8, ptr %.pre.i.i.i, align 1, !tbaa !46
   br label %24
@@ -46667,7 +46661,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %14
   br i1 %26, label %luaO_str2d.exit.thread14.i.i, label %.preheader.i.i.i
 
 luaO_str2d.exit.thread14.i.i:                     ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %barg.exit
 
 .preheader.i.i.i:                                 ; preds = %24
@@ -46688,7 +46682,7 @@ luaO_str2d.exit.thread14.i.i:                     ; preds = %24
 
 luaO_str2d.exit.i.i:                              ; preds = %29
   %.not8.i.not.i.i = icmp eq i8 %31, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not8.i.not.i.i, label %barg.exit, label %luaV_tonumber.exit.i
 
 luaV_tonumber.exit.i:                             ; preds = %7, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
@@ -46719,14 +46713,14 @@ barg.exit:                                        ; preds = %luaO_str2d.exit.thr
 48:                                               ; preds = %40
   %49 = load ptr, ptr %.luaO_nilobject_.i.i7, align 8, !tbaa !46
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
-  %51 = call double @strtod(ptr noundef nonnull %50, ptr noundef nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %51 = call double @strtod(ptr noundef nonnull %50, ptr noundef nonnull %2) #37
   %52 = load ptr, ptr %2, align 8, !tbaa !70
   %53 = icmp eq ptr %52, %50
   br i1 %53, label %luaO_str2d.exit.thread.i.i16, label %54
 
 luaO_str2d.exit.thread.i.i16:                     ; preds = %48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %luaV_tonumber.exit.i17
 
 54:                                               ; preds = %48
@@ -46737,7 +46731,7 @@ luaO_str2d.exit.thread.i.i16:                     ; preds = %48
   ]
 
 56:                                               ; preds = %54, %54
-  %57 = call i64 @strtoul(ptr noundef nonnull %50, ptr noundef nonnull %2, i32 noundef 16) #35
+  %57 = call i64 @strtoul(ptr noundef nonnull %50, ptr noundef nonnull %2, i32 noundef 16) #37
   %.pre.i.i.i8 = load ptr, ptr %2, align 8, !tbaa !70
   %.pre11.i.i.i9 = load i8, ptr %.pre.i.i.i8, align 1, !tbaa !46
   br label %58
@@ -46749,7 +46743,7 @@ luaO_str2d.exit.thread.i.i16:                     ; preds = %48
   br i1 %60, label %luaO_str2d.exit.thread14.i.i15, label %.preheader.i.i.i11
 
 luaO_str2d.exit.thread14.i.i15:                   ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %barg.exit5
 
 .preheader.i.i.i11:                               ; preds = %58
@@ -46770,7 +46764,7 @@ luaO_str2d.exit.thread14.i.i15:                   ; preds = %58
 
 luaO_str2d.exit.i.i13:                            ; preds = %63
   %.not8.i.not.i.i14 = icmp eq i8 %65, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not8.i.not.i.i14, label %barg.exit5, label %luaV_tonumber.exit.i17
 
 luaV_tonumber.exit.i17:                           ; preds = %40, %luaO_str2d.exit.i.i13, %luaO_str2d.exit.thread.i.i16
@@ -46822,14 +46816,14 @@ define internal noundef i32 @arshift(ptr noundef %0) #0 {
 14:                                               ; preds = %7
   %15 = load ptr, ptr %.luaO_nilobject_.i.i, align 8, !tbaa !46
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
-  %17 = call double @strtod(ptr noundef nonnull %16, ptr noundef nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %17 = call double @strtod(ptr noundef nonnull %16, ptr noundef nonnull %3) #37
   %18 = load ptr, ptr %3, align 8, !tbaa !70
   %19 = icmp eq ptr %18, %16
   br i1 %19, label %luaO_str2d.exit.thread.i.i, label %20
 
 luaO_str2d.exit.thread.i.i:                       ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %luaV_tonumber.exit.i
 
 20:                                               ; preds = %14
@@ -46840,7 +46834,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %14
   ]
 
 22:                                               ; preds = %20, %20
-  %23 = call i64 @strtoul(ptr noundef nonnull %16, ptr noundef nonnull %3, i32 noundef 16) #35
+  %23 = call i64 @strtoul(ptr noundef nonnull %16, ptr noundef nonnull %3, i32 noundef 16) #37
   %.pre.i.i.i = load ptr, ptr %3, align 8, !tbaa !70
   %.pre11.i.i.i = load i8, ptr %.pre.i.i.i, align 1, !tbaa !46
   br label %24
@@ -46852,7 +46846,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %14
   br i1 %26, label %luaO_str2d.exit.thread14.i.i, label %.preheader.i.i.i
 
 luaO_str2d.exit.thread14.i.i:                     ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %barg.exit
 
 .preheader.i.i.i:                                 ; preds = %24
@@ -46873,7 +46867,7 @@ luaO_str2d.exit.thread14.i.i:                     ; preds = %24
 
 luaO_str2d.exit.i.i:                              ; preds = %29
   %.not8.i.not.i.i = icmp eq i8 %31, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not8.i.not.i.i, label %barg.exit, label %luaV_tonumber.exit.i
 
 luaV_tonumber.exit.i:                             ; preds = %7, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
@@ -46904,14 +46898,14 @@ barg.exit:                                        ; preds = %luaO_str2d.exit.thr
 48:                                               ; preds = %40
   %49 = load ptr, ptr %.luaO_nilobject_.i.i7, align 8, !tbaa !46
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
-  %51 = call double @strtod(ptr noundef nonnull %50, ptr noundef nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %51 = call double @strtod(ptr noundef nonnull %50, ptr noundef nonnull %2) #37
   %52 = load ptr, ptr %2, align 8, !tbaa !70
   %53 = icmp eq ptr %52, %50
   br i1 %53, label %luaO_str2d.exit.thread.i.i16, label %54
 
 luaO_str2d.exit.thread.i.i16:                     ; preds = %48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %luaV_tonumber.exit.i17
 
 54:                                               ; preds = %48
@@ -46922,7 +46916,7 @@ luaO_str2d.exit.thread.i.i16:                     ; preds = %48
   ]
 
 56:                                               ; preds = %54, %54
-  %57 = call i64 @strtoul(ptr noundef nonnull %50, ptr noundef nonnull %2, i32 noundef 16) #35
+  %57 = call i64 @strtoul(ptr noundef nonnull %50, ptr noundef nonnull %2, i32 noundef 16) #37
   %.pre.i.i.i8 = load ptr, ptr %2, align 8, !tbaa !70
   %.pre11.i.i.i9 = load i8, ptr %.pre.i.i.i8, align 1, !tbaa !46
   br label %58
@@ -46934,7 +46928,7 @@ luaO_str2d.exit.thread.i.i16:                     ; preds = %48
   br i1 %60, label %luaO_str2d.exit.thread14.i.i15, label %.preheader.i.i.i11
 
 luaO_str2d.exit.thread14.i.i15:                   ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %barg.exit5
 
 .preheader.i.i.i11:                               ; preds = %58
@@ -46955,7 +46949,7 @@ luaO_str2d.exit.thread14.i.i15:                   ; preds = %58
 
 luaO_str2d.exit.i.i13:                            ; preds = %63
   %.not8.i.not.i.i14 = icmp eq i8 %65, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not8.i.not.i.i14, label %barg.exit5, label %luaV_tonumber.exit.i17
 
 luaV_tonumber.exit.i17:                           ; preds = %40, %luaO_str2d.exit.i.i13, %luaO_str2d.exit.thread.i.i16
@@ -47007,14 +47001,14 @@ define internal noundef i32 @rol(ptr noundef %0) #0 {
 14:                                               ; preds = %7
   %15 = load ptr, ptr %.luaO_nilobject_.i.i, align 8, !tbaa !46
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
-  %17 = call double @strtod(ptr noundef nonnull %16, ptr noundef nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %17 = call double @strtod(ptr noundef nonnull %16, ptr noundef nonnull %3) #37
   %18 = load ptr, ptr %3, align 8, !tbaa !70
   %19 = icmp eq ptr %18, %16
   br i1 %19, label %luaO_str2d.exit.thread.i.i, label %20
 
 luaO_str2d.exit.thread.i.i:                       ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %luaV_tonumber.exit.i
 
 20:                                               ; preds = %14
@@ -47025,7 +47019,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %14
   ]
 
 22:                                               ; preds = %20, %20
-  %23 = call i64 @strtoul(ptr noundef nonnull %16, ptr noundef nonnull %3, i32 noundef 16) #35
+  %23 = call i64 @strtoul(ptr noundef nonnull %16, ptr noundef nonnull %3, i32 noundef 16) #37
   %.pre.i.i.i = load ptr, ptr %3, align 8, !tbaa !70
   %.pre11.i.i.i = load i8, ptr %.pre.i.i.i, align 1, !tbaa !46
   br label %24
@@ -47037,7 +47031,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %14
   br i1 %26, label %luaO_str2d.exit.thread14.i.i, label %.preheader.i.i.i
 
 luaO_str2d.exit.thread14.i.i:                     ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %barg.exit
 
 .preheader.i.i.i:                                 ; preds = %24
@@ -47058,7 +47052,7 @@ luaO_str2d.exit.thread14.i.i:                     ; preds = %24
 
 luaO_str2d.exit.i.i:                              ; preds = %29
   %.not8.i.not.i.i = icmp eq i8 %31, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not8.i.not.i.i, label %barg.exit, label %luaV_tonumber.exit.i
 
 luaV_tonumber.exit.i:                             ; preds = %7, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
@@ -47089,14 +47083,14 @@ barg.exit:                                        ; preds = %luaO_str2d.exit.thr
 48:                                               ; preds = %40
   %49 = load ptr, ptr %.luaO_nilobject_.i.i9, align 8, !tbaa !46
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
-  %51 = call double @strtod(ptr noundef nonnull %50, ptr noundef nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %51 = call double @strtod(ptr noundef nonnull %50, ptr noundef nonnull %2) #37
   %52 = load ptr, ptr %2, align 8, !tbaa !70
   %53 = icmp eq ptr %52, %50
   br i1 %53, label %luaO_str2d.exit.thread.i.i18, label %54
 
 luaO_str2d.exit.thread.i.i18:                     ; preds = %48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %luaV_tonumber.exit.i19
 
 54:                                               ; preds = %48
@@ -47107,7 +47101,7 @@ luaO_str2d.exit.thread.i.i18:                     ; preds = %48
   ]
 
 56:                                               ; preds = %54, %54
-  %57 = call i64 @strtoul(ptr noundef nonnull %50, ptr noundef nonnull %2, i32 noundef 16) #35
+  %57 = call i64 @strtoul(ptr noundef nonnull %50, ptr noundef nonnull %2, i32 noundef 16) #37
   %.pre.i.i.i10 = load ptr, ptr %2, align 8, !tbaa !70
   %.pre11.i.i.i11 = load i8, ptr %.pre.i.i.i10, align 1, !tbaa !46
   br label %58
@@ -47119,7 +47113,7 @@ luaO_str2d.exit.thread.i.i18:                     ; preds = %48
   br i1 %60, label %luaO_str2d.exit.thread14.i.i17, label %.preheader.i.i.i13
 
 luaO_str2d.exit.thread14.i.i17:                   ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %barg.exit7
 
 .preheader.i.i.i13:                               ; preds = %58
@@ -47140,7 +47134,7 @@ luaO_str2d.exit.thread14.i.i17:                   ; preds = %58
 
 luaO_str2d.exit.i.i15:                            ; preds = %63
   %.not8.i.not.i.i16 = icmp eq i8 %65, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not8.i.not.i.i16, label %barg.exit7, label %luaV_tonumber.exit.i19
 
 luaV_tonumber.exit.i19:                           ; preds = %40, %luaO_str2d.exit.i.i15, %luaO_str2d.exit.thread.i.i18
@@ -47191,14 +47185,14 @@ define internal noundef i32 @ror(ptr noundef %0) #0 {
 14:                                               ; preds = %7
   %15 = load ptr, ptr %.luaO_nilobject_.i.i, align 8, !tbaa !46
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
-  %17 = call double @strtod(ptr noundef nonnull %16, ptr noundef nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %17 = call double @strtod(ptr noundef nonnull %16, ptr noundef nonnull %3) #37
   %18 = load ptr, ptr %3, align 8, !tbaa !70
   %19 = icmp eq ptr %18, %16
   br i1 %19, label %luaO_str2d.exit.thread.i.i, label %20
 
 luaO_str2d.exit.thread.i.i:                       ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %luaV_tonumber.exit.i
 
 20:                                               ; preds = %14
@@ -47209,7 +47203,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %14
   ]
 
 22:                                               ; preds = %20, %20
-  %23 = call i64 @strtoul(ptr noundef nonnull %16, ptr noundef nonnull %3, i32 noundef 16) #35
+  %23 = call i64 @strtoul(ptr noundef nonnull %16, ptr noundef nonnull %3, i32 noundef 16) #37
   %.pre.i.i.i = load ptr, ptr %3, align 8, !tbaa !70
   %.pre11.i.i.i = load i8, ptr %.pre.i.i.i, align 1, !tbaa !46
   br label %24
@@ -47221,7 +47215,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %14
   br i1 %26, label %luaO_str2d.exit.thread14.i.i, label %.preheader.i.i.i
 
 luaO_str2d.exit.thread14.i.i:                     ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %barg.exit
 
 .preheader.i.i.i:                                 ; preds = %24
@@ -47242,7 +47236,7 @@ luaO_str2d.exit.thread14.i.i:                     ; preds = %24
 
 luaO_str2d.exit.i.i:                              ; preds = %29
   %.not8.i.not.i.i = icmp eq i8 %31, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not8.i.not.i.i, label %barg.exit, label %luaV_tonumber.exit.i
 
 luaV_tonumber.exit.i:                             ; preds = %7, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
@@ -47273,14 +47267,14 @@ barg.exit:                                        ; preds = %luaO_str2d.exit.thr
 48:                                               ; preds = %40
   %49 = load ptr, ptr %.luaO_nilobject_.i.i9, align 8, !tbaa !46
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
-  %51 = call double @strtod(ptr noundef nonnull %50, ptr noundef nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %51 = call double @strtod(ptr noundef nonnull %50, ptr noundef nonnull %2) #37
   %52 = load ptr, ptr %2, align 8, !tbaa !70
   %53 = icmp eq ptr %52, %50
   br i1 %53, label %luaO_str2d.exit.thread.i.i18, label %54
 
 luaO_str2d.exit.thread.i.i18:                     ; preds = %48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %luaV_tonumber.exit.i19
 
 54:                                               ; preds = %48
@@ -47291,7 +47285,7 @@ luaO_str2d.exit.thread.i.i18:                     ; preds = %48
   ]
 
 56:                                               ; preds = %54, %54
-  %57 = call i64 @strtoul(ptr noundef nonnull %50, ptr noundef nonnull %2, i32 noundef 16) #35
+  %57 = call i64 @strtoul(ptr noundef nonnull %50, ptr noundef nonnull %2, i32 noundef 16) #37
   %.pre.i.i.i10 = load ptr, ptr %2, align 8, !tbaa !70
   %.pre11.i.i.i11 = load i8, ptr %.pre.i.i.i10, align 1, !tbaa !46
   br label %58
@@ -47303,7 +47297,7 @@ luaO_str2d.exit.thread.i.i18:                     ; preds = %48
   br i1 %60, label %luaO_str2d.exit.thread14.i.i17, label %.preheader.i.i.i13
 
 luaO_str2d.exit.thread14.i.i17:                   ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %barg.exit7
 
 .preheader.i.i.i13:                               ; preds = %58
@@ -47324,7 +47318,7 @@ luaO_str2d.exit.thread14.i.i17:                   ; preds = %58
 
 luaO_str2d.exit.i.i15:                            ; preds = %63
   %.not8.i.not.i.i16 = icmp eq i8 %65, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not8.i.not.i.i16, label %barg.exit7, label %luaV_tonumber.exit.i19
 
 luaV_tonumber.exit.i19:                           ; preds = %40, %luaO_str2d.exit.i.i15, %luaO_str2d.exit.thread.i.i18
@@ -47374,14 +47368,14 @@ define internal noundef i32 @bswap(ptr noundef %0) #0 {
 13:                                               ; preds = %6
   %14 = load ptr, ptr %.luaO_nilobject_.i.i, align 8, !tbaa !46
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
-  %16 = call double @strtod(ptr noundef nonnull %15, ptr noundef nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %16 = call double @strtod(ptr noundef nonnull %15, ptr noundef nonnull %2) #37
   %17 = load ptr, ptr %2, align 8, !tbaa !70
   %18 = icmp eq ptr %17, %15
   br i1 %18, label %luaO_str2d.exit.thread.i.i, label %19
 
 luaO_str2d.exit.thread.i.i:                       ; preds = %13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %luaV_tonumber.exit.i
 
 19:                                               ; preds = %13
@@ -47392,7 +47386,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %13
   ]
 
 21:                                               ; preds = %19, %19
-  %22 = call i64 @strtoul(ptr noundef nonnull %15, ptr noundef nonnull %2, i32 noundef 16) #35
+  %22 = call i64 @strtoul(ptr noundef nonnull %15, ptr noundef nonnull %2, i32 noundef 16) #37
   %.pre.i.i.i = load ptr, ptr %2, align 8, !tbaa !70
   %.pre11.i.i.i = load i8, ptr %.pre.i.i.i, align 1, !tbaa !46
   br label %23
@@ -47404,7 +47398,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %13
   br i1 %25, label %luaO_str2d.exit.thread14.i.i, label %.preheader.i.i.i
 
 luaO_str2d.exit.thread14.i.i:                     ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %barg.exit
 
 .preheader.i.i.i:                                 ; preds = %23
@@ -47425,7 +47419,7 @@ luaO_str2d.exit.thread14.i.i:                     ; preds = %23
 
 luaO_str2d.exit.i.i:                              ; preds = %28
   %.not8.i.not.i.i = icmp eq i8 %30, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not8.i.not.i.i, label %barg.exit, label %luaV_tonumber.exit.i
 
 luaV_tonumber.exit.i:                             ; preds = %6, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
@@ -47475,14 +47469,14 @@ define internal noundef i32 @tohex(ptr noundef %0) #0 {
 15:                                               ; preds = %8
   %16 = load ptr, ptr %.luaO_nilobject_.i.i, align 8, !tbaa !46
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
-  %18 = call double @strtod(ptr noundef nonnull %17, ptr noundef nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %18 = call double @strtod(ptr noundef nonnull %17, ptr noundef nonnull %3) #37
   %19 = load ptr, ptr %3, align 8, !tbaa !70
   %20 = icmp eq ptr %19, %17
   br i1 %20, label %luaO_str2d.exit.thread.i.i, label %21
 
 luaO_str2d.exit.thread.i.i:                       ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %luaV_tonumber.exit.i
 
 21:                                               ; preds = %15
@@ -47493,7 +47487,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %15
   ]
 
 23:                                               ; preds = %21, %21
-  %24 = call i64 @strtoul(ptr noundef nonnull %17, ptr noundef nonnull %3, i32 noundef 16) #35
+  %24 = call i64 @strtoul(ptr noundef nonnull %17, ptr noundef nonnull %3, i32 noundef 16) #37
   %.pre.i.i.i = load ptr, ptr %3, align 8, !tbaa !70
   %.pre11.i.i.i = load i8, ptr %.pre.i.i.i, align 1, !tbaa !46
   br label %25
@@ -47505,7 +47499,7 @@ luaO_str2d.exit.thread.i.i:                       ; preds = %15
   br i1 %27, label %luaO_str2d.exit.thread14.i.i, label %.preheader.i.i.i
 
 luaO_str2d.exit.thread14.i.i:                     ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %barg.exit
 
 .preheader.i.i.i:                                 ; preds = %25
@@ -47526,7 +47520,7 @@ luaO_str2d.exit.thread14.i.i:                     ; preds = %25
 
 luaO_str2d.exit.i.i:                              ; preds = %30
   %.not8.i.not.i.i = icmp eq i8 %32, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not8.i.not.i.i, label %barg.exit, label %luaV_tonumber.exit.i
 
 luaV_tonumber.exit.i:                             ; preds = %8, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread.i.i
@@ -47575,14 +47569,14 @@ lua_type.exit:                                    ; preds = %barg.exit
 59:                                               ; preds = %53
   %60 = load ptr, ptr %.luaO_nilobject_.i.i25, align 8, !tbaa !46
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
-  %62 = call double @strtod(ptr noundef nonnull %61, ptr noundef nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %62 = call double @strtod(ptr noundef nonnull %61, ptr noundef nonnull %2) #37
   %63 = load ptr, ptr %2, align 8, !tbaa !70
   %64 = icmp eq ptr %63, %61
   br i1 %64, label %luaO_str2d.exit.thread.i.i35, label %65
 
 luaO_str2d.exit.thread.i.i35:                     ; preds = %59
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %luaV_tonumber.exit.i36
 
 65:                                               ; preds = %59
@@ -47593,7 +47587,7 @@ luaO_str2d.exit.thread.i.i35:                     ; preds = %59
   ]
 
 67:                                               ; preds = %65, %65
-  %68 = call i64 @strtoul(ptr noundef nonnull %61, ptr noundef nonnull %2, i32 noundef 16) #35
+  %68 = call i64 @strtoul(ptr noundef nonnull %61, ptr noundef nonnull %2, i32 noundef 16) #37
   %.pre.i.i.i27 = load ptr, ptr %2, align 8, !tbaa !70
   %.pre11.i.i.i28 = load i8, ptr %.pre.i.i.i27, align 1, !tbaa !46
   br label %69
@@ -47605,7 +47599,7 @@ luaO_str2d.exit.thread.i.i35:                     ; preds = %59
   br i1 %71, label %luaO_str2d.exit.thread14.i.i34, label %.preheader.i.i.i30
 
 luaO_str2d.exit.thread14.i.i34:                   ; preds = %69
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %lua_type.exit.thread
 
 .preheader.i.i.i30:                               ; preds = %69
@@ -47626,7 +47620,7 @@ luaO_str2d.exit.thread14.i.i34:                   ; preds = %69
 
 luaO_str2d.exit.i.i32:                            ; preds = %74
   %.not8.i.not.i.i33 = icmp eq i8 %76, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not8.i.not.i.i33, label %lua_type.exit.thread, label %luaV_tonumber.exit.i36
 
 luaV_tonumber.exit.i36:                           ; preds = %53, %luaO_str2d.exit.i.i32, %luaO_str2d.exit.thread.i.i35
@@ -47634,13 +47628,13 @@ luaV_tonumber.exit.i36:                           ; preds = %53, %luaO_str2d.exi
   unreachable
 
 .thread:                                          ; preds = %barg.exit, %lua_type.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %.lr.ph.preheader
 
 lua_type.exit.thread:                             ; preds = %49, %53, %luaO_str2d.exit.i.i32, %luaO_str2d.exit.thread14.i.i34
   %82 = bitcast double %51 to i64
   %83 = trunc i64 %82 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %84 = icmp slt i32 %83, 0
   %spec.select50 = select i1 %84, ptr @.str.272, ptr @.str.271
   %.not = icmp eq i32 %83, 0
@@ -47753,7 +47747,7 @@ lua_pushlstring.exit:                             ; preds = %._crit_edge, %luaC_
   %142 = load ptr, ptr %43, align 8, !tbaa !62
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
   store ptr %143, ptr %43, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 1
 }
 
@@ -47761,7 +47755,7 @@ lua_pushlstring.exit:                             ; preds = %._crit_edge, %luaC_
 define internal fastcc void @errfile(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -2147483647, -2147483648) %2) unnamed_addr #0 {
   %4 = tail call ptr @__errno_location() #42
   %5 = load i32, ptr %4, align 4, !tbaa !150
-  %6 = tail call ptr @strerror(i32 noundef %5) #35
+  %6 = tail call ptr @strerror(i32 noundef %5) #37
   %7 = tail call fastcc ptr @lua_tolstring(ptr noundef %0, i32 noundef %2, ptr noundef null)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %9 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %0, ptr noundef nonnull @.str.278, ptr noundef %1, ptr noundef nonnull %8, ptr noundef %6)
@@ -47869,10 +47863,10 @@ lua_remove.exit:                                  ; preds = %.lr.ph.i, %index2ad
   ret void
 }
 
-declare ptr @freopen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #28
+declare ptr @freopen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #27
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef ptr @getF(ptr readnone captures(none) %0, ptr noundef captures(ret: address, provenance) %1, ptr noundef writeonly captures(none) %2) #24 {
+define internal noundef ptr @getF(ptr readnone captures(none) %0, ptr noundef captures(ret: address, provenance) %1, ptr noundef writeonly captures(none) %2) #23 {
   %4 = load i32, ptr %1, align 8, !tbaa !97
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
@@ -47885,7 +47879,7 @@ define internal noundef ptr @getF(ptr readnone captures(none) %0, ptr noundef ca
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !99
-  %9 = tail call i32 @feof(ptr noundef %8) #35
+  %9 = tail call i32 @feof(ptr noundef %8) #37
   %.not11 = icmp eq i32 %9, 0
   br i1 %.not11, label %10, label %15
 
@@ -47904,7 +47898,7 @@ define internal noundef ptr @getF(ptr readnone captures(none) %0, ptr noundef ca
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @f_call(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
@@ -47935,6 +47929,12 @@ define internal void @callallgcTM(ptr noundef %0, ptr readnone captures(none) %1
 luaC_callGCTM.exit:                               ; preds = %.lr.ph.i, %2
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #29
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #29
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #30
@@ -47976,43 +47976,43 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #34
 declare i64 @llvm.smin.i64(i64, i64) #31
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #12 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #29 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #11 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #30 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #31 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #32 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #33 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #34 = { nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #35 = { nounwind }
-attributes #36 = { cold nounwind }
-attributes #37 = { nounwind willreturn memory(read) }
+attributes #35 = { cold nounwind }
+attributes #36 = { nounwind willreturn memory(read) }
+attributes #37 = { nounwind }
 attributes #38 = { nounwind allocsize(1) }
 attributes #39 = { nounwind returns_twice }
 attributes #40 = { noreturn nounwind }

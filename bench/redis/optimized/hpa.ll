@@ -45,16 +45,10 @@ define hidden noundef zeroext i1 @je_hpa_central_init(ptr noundef %0, ptr nounde
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-declare zeroext i1 @je_malloc_mutex_init(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @je_malloc_mutex_init(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @je_hpa_central_extract(ptr noundef %0, ptr noundef %1, i64 %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3) local_unnamed_addr #1 {
@@ -131,7 +125,7 @@ malloc_mutex_lock.exit:                           ; preds = %10, %16
   br label %68
 
 40:                                               ; preds = %malloc_mutex_lock.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 1, ptr %4, align 1, !tbaa !24
   %41 = call ptr @je_pages_map(ptr noundef null, i64 noundef 268435456, i64 noundef 2097152, ptr noundef nonnull %4) #8
   %42 = icmp eq ptr %41, null
@@ -152,7 +146,7 @@ malloc_mutex_lock.exit:                           ; preds = %10, %16
   store ptr %41, ptr %20, align 8, !tbaa !26
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store i64 268435456, ptr %49, align 8, !tbaa !27
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %54
 
 50:                                               ; preds = %22
@@ -194,7 +188,7 @@ malloc_mutex_lock.exit:                           ; preds = %10, %16
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 216
   store atomic i8 0, ptr %66 monotonic, align 1
   %67 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %68
 
 68:                                               ; preds = %.critedge, %54, %51, %33, %30
@@ -202,11 +196,11 @@ malloc_mutex_lock.exit:                           ; preds = %10, %16
   ret ptr %.0
 }
 
-declare void @je_hpdata_init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @je_hpdata_init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @je_pages_map(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @je_pages_map(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @je_pages_unmap(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @je_pages_unmap(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @je_hpa_shard_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #1 {
@@ -262,9 +256,9 @@ define hidden noundef zeroext i1 @je_hpa_shard_init(ptr noundef %0, ptr noundef 
   ret i1 %.0
 }
 
-declare void @je_edata_cache_fast_init(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @je_edata_cache_fast_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @je_psset_init(ptr noundef) local_unnamed_addr #3
+declare void @je_psset_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @hpa_alloc(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4, i1 zeroext %5, i1 zeroext %6, ptr noundef writeonly captures(none) %7) #1 {
@@ -275,11 +269,11 @@ tsdn_witness_tsdp_get.exit:
   br i1 %or.cond, label %12, label %10
 
 10:                                               ; preds = %tsdn_witness_tsdp_get.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !61
   %11 = call i64 @hpa_alloc_batch(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef 1, ptr noundef nonnull %8, ptr noundef %7)
   %.val = load ptr, ptr %8, align 8, !tbaa !61
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %12
 
 12:                                               ; preds = %tsdn_witness_tsdp_get.exit, %10
@@ -297,7 +291,7 @@ tsdn_witness_tsdp_get.exit14:
   br i1 %9, label %tsdn_witness_tsdp_get.exit, label %10
 
 10:                                               ; preds = %tsdn_witness_tsdp_get.exit14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1, !tbaa !24
   %11 = call fastcc i64 @hpa_try_alloc_batch_no_grow(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef %6, i64 noundef %3, ptr noundef %4, ptr noundef %5)
   %12 = icmp eq i64 %11, %3
@@ -405,7 +399,7 @@ malloc_mutex_lock.exit57.i:                       ; preds = %54, %48
 
 hpa_alloc_batch_psset.exit:                       ; preds = %10, %.sink.split.i
   %.0.i = phi i64 [ %11, %10 ], [ %.0.ph.i, %.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %tsdn_witness_tsdp_get.exit
 
 tsdn_witness_tsdp_get.exit:                       ; preds = %hpa_alloc_batch_psset.exit, %tsdn_witness_tsdp_get.exit14
@@ -427,14 +421,14 @@ define internal noundef zeroext i1 @hpa_shrink(ptr readnone captures(none) %0, p
 define internal void @hpa_dalloc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) #1 {
 edata_list_active_append.exit:
   %4 = alloca %struct.edata_list_active_t, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %2, ptr %5, align 8, !tbaa !64
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %2, ptr %6, align 8, !tbaa !64
   store ptr %2, ptr %4, align 8, !tbaa !61
   call void @hpa_dalloc_batch(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -597,7 +591,7 @@ hpdata_changing_state_get.exit.thread.i.i:        ; preds = %hpdata_changing_sta
   br i1 %77, label %85, label %78
 
 78:                                               ; preds = %75
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %79 = load ptr, ptr %35, align 8, !tbaa !28
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 296
   %81 = load ptr, ptr %80, align 8, !tbaa !79
@@ -607,7 +601,7 @@ hpdata_changing_state_get.exit.thread.i.i:        ; preds = %hpdata_changing_sta
   store i8 1, ptr %83, align 4, !tbaa !80
   %84 = getelementptr inbounds nuw i8, ptr %.val.i29, i64 24
   store i64 %82, ptr %84, align 8, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.val15.pre.i.i = load i64, ptr %69, align 8, !tbaa !75
   br label %85
 
@@ -758,7 +752,7 @@ malloc_mutex_lock.exit:                           ; preds = %9, %15
   br i1 %.not, label %36, label %21
 
 21:                                               ; preds = %malloc_mutex_lock.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %22 = getelementptr i8, ptr %20, i64 24
   %.val = load i64, ptr %22, align 8, !tbaa !51
   store i64 %.val, ptr %3, align 8
@@ -775,14 +769,14 @@ malloc_mutex_lock.exit:                           ; preds = %9, %15
 .thread:                                          ; preds = %21
   %31 = sub nuw i64 %29, %27
   %32 = mul i64 %31, 1000000
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %36
 
 33:                                               ; preds = %21
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 168
   store atomic i8 0, ptr %34 monotonic, align 1
   %35 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %96
 
 36:                                               ; preds = %.thread, %malloc_mutex_lock.exit
@@ -932,7 +926,7 @@ define hidden void @je_hpa_shard_stats_accum(ptr noundef %0, ptr noundef %1) loc
   ret void
 }
 
-declare void @je_psset_stats_accum(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @je_psset_stats_accum(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @je_hpa_shard_stats_merge(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
@@ -1074,7 +1068,7 @@ malloc_mutex_lock.exit:                           ; preds = %8, %14
   ret void
 }
 
-declare void @je_edata_cache_fast_disable(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @je_edata_cache_fast_disable(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @je_hpa_shard_destroy(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
@@ -1103,9 +1097,9 @@ define hidden void @je_hpa_shard_destroy(ptr noundef readnone captures(none) %0,
   ret void
 }
 
-declare ptr @je_psset_pick_alloc(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @je_psset_pick_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @je_psset_remove(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @je_psset_remove(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @je_hpa_shard_set_deferral_allowed(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
@@ -1295,7 +1289,7 @@ hpa_should_purge.exit:                            ; preds = %hpa_ndirty_max.exit
   %79 = getelementptr i8, ptr %72, i64 16
   %.val.i28 = load i8, ptr %79, align 8, !tbaa !78, !range !63, !noundef !72
   %80 = trunc nuw i8 %.val.i28 to i1
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %81 = call i64 @je_hpdata_purge_begin(ptr noundef nonnull %72, ptr noundef nonnull %7) #8
   %82 = load i64, ptr %17, align 8, !tbaa !53
   %83 = add i64 %82, %81
@@ -1313,8 +1307,8 @@ hpa_should_purge.exit:                            ; preds = %hpa_ndirty_max.exit
   br label %89
 
 89:                                               ; preds = %85, %74
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %90 = call zeroext i1 @je_hpdata_purge_next(ptr noundef nonnull %72, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #8
   br i1 %90, label %.lr.ph.i, label %._crit_edge.i
 
@@ -1416,7 +1410,7 @@ hpdata_changing_state_get.exit.thread.i.i:        ; preds = %hpdata_changing_sta
   br i1 %129, label %136, label %130
 
 130:                                              ; preds = %128
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %131 = load ptr, ptr %24, align 8, !tbaa !28
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 296
   %133 = load ptr, ptr %132, align 8, !tbaa !79
@@ -1425,7 +1419,7 @@ hpdata_changing_state_get.exit.thread.i.i:        ; preds = %hpdata_changing_sta
   store i8 1, ptr %77, align 4, !tbaa !80
   %135 = getelementptr inbounds nuw i8, ptr %72, i64 24
   store i64 %134, ptr %135, align 8, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.val15.pre.i.i = load i64, ptr %123, align 8, !tbaa !75
   br label %136
 
@@ -1440,9 +1434,9 @@ hpdata_changing_state_get.exit.thread.i.i:        ; preds = %hpdata_changing_sta
 
 hpa_update_purge_hugify_eligibility.exit.i:       ; preds = %.sink.split.i.i, %136
   call void @je_psset_update_end(ptr noundef nonnull %20, ptr noundef nonnull %72) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %hpa_try_purge.exit
 
 hpa_try_purge.exit:                               ; preds = %71, %hpa_update_purge_hugify_eligibility.exit.i
@@ -1500,7 +1494,7 @@ hpa_hugify_blocked_by_ndirty.exit.thread.i:       ; preds = %hpa_hugify_blocked_
   br i1 %159, label %hpa_try_hugify.exit.thread, label %160
 
 160:                                              ; preds = %hpa_hugify_blocked_by_ndirty.exit.thread.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %161 = getelementptr i8, ptr %158, i64 24
   %.val.i36 = load i64, ptr %161, align 8, !tbaa !51
   store i64 %.val.i36, ptr %5, align 8
@@ -1588,7 +1582,7 @@ hpdata_changing_state_get.exit.i.i41:             ; preds = %malloc_mutex_lock.e
   br i1 %196, label %202, label %197
 
 197:                                              ; preds = %194
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %198 = load ptr, ptr %24, align 8, !tbaa !28
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 296
   %200 = load ptr, ptr %199, align 8, !tbaa !79
@@ -1596,7 +1590,7 @@ hpdata_changing_state_get.exit.i.i41:             ; preds = %malloc_mutex_lock.e
   %201 = load i64, ptr %4, align 8
   store i8 1, ptr %170, align 4, !tbaa !80
   store i64 %201, ptr %161, align 8, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.val15.pre.i.i45 = load i64, ptr %189, align 8, !tbaa !75
   br label %202
 
@@ -1610,12 +1604,12 @@ hpdata_changing_state_get.exit.i.i41:             ; preds = %malloc_mutex_lock.e
   br label %204
 
 hpa_try_hugify.exit:                              ; preds = %160
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %hpa_try_hugify.exit.thread
 
 204:                                              ; preds = %202, %.sink.split.i.i48
   call void @je_psset_update_end(ptr noundef nonnull %20, ptr noundef nonnull %158) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %205 = add i64 %.1, 1
   br label %hpa_try_hugify.exit.thread
 
@@ -1678,7 +1672,7 @@ define hidden void @je_hpa_shard_prefork3(ptr noundef %0, ptr noundef %1) local_
   ret void
 }
 
-declare void @je_malloc_mutex_prefork(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @je_malloc_mutex_prefork(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @je_hpa_shard_prefork4(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
@@ -1696,7 +1690,7 @@ define hidden void @je_hpa_shard_postfork_parent(ptr noundef %0, ptr noundef %1)
   ret void
 }
 
-declare void @je_malloc_mutex_postfork_parent(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @je_malloc_mutex_postfork_parent(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @je_hpa_shard_postfork_child(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
@@ -1707,19 +1701,19 @@ define hidden void @je_hpa_shard_postfork_child(ptr noundef %0, ptr noundef %1) 
   ret void
 }
 
-declare void @je_malloc_mutex_postfork_child(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @je_malloc_mutex_postfork_child(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @je_malloc_mutex_lock_slow(ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: nounwind
-declare i32 @pthread_mutex_trylock(ptr noundef) local_unnamed_addr #5
-
-declare ptr @je_base_alloc(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare void @je_malloc_mutex_lock_slow(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #5
+declare i32 @pthread_mutex_trylock(ptr noundef) local_unnamed_addr #4
 
-declare void @je_nstime_copy(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @je_base_alloc(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
+
+declare void @je_nstime_copy(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @hpa_try_alloc_batch_no_grow(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull writeonly captures(none) %3, i64 noundef %4, ptr noundef captures(none) %5, ptr noundef writeonly captures(none) %6) unnamed_addr #1 {
@@ -1878,7 +1872,7 @@ hpdata_changing_state_get.exit.thread.i.i:        ; preds = %hpdata_changing_sta
   br i1 %85, label %93, label %86
 
 86:                                               ; preds = %83
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %87 = load ptr, ptr %30, align 8, !tbaa !28
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 296
   %89 = load ptr, ptr %88, align 8, !tbaa !79
@@ -1888,7 +1882,7 @@ hpdata_changing_state_get.exit.thread.i.i:        ; preds = %hpdata_changing_sta
   store i8 1, ptr %91, align 4, !tbaa !80
   %92 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store i64 %90, ptr %92, align 8, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.val15.pre.i.i = load i64, ptr %40, align 8, !tbaa !75
   br label %93
 
@@ -2033,37 +2027,43 @@ hpa_shard_has_deferred_work.exit:                 ; preds = %.loopexit, %hpa_ndi
   ret i64 %.02031
 }
 
-declare void @je_psset_insert(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @je_psset_insert(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @je_edata_cache_fast_get(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @je_edata_cache_fast_get(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @je_edata_cache_fast_put(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @je_edata_cache_fast_put(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @je_psset_update_begin(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @je_psset_update_begin(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @je_hpdata_reserve_alloc(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @je_hpdata_reserve_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @je_emap_register_boundary(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare zeroext i1 @je_emap_register_boundary(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @je_hpdata_unreserve(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @je_hpdata_unreserve(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @je_psset_update_end(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @je_psset_update_end(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @je_psset_pick_hugify(ptr noundef) local_unnamed_addr #3
+declare ptr @je_psset_pick_hugify(ptr noundef) local_unnamed_addr #2
 
-declare void @je_emap_deregister_boundary(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @je_emap_deregister_boundary(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @je_psset_pick_purge(ptr noundef) local_unnamed_addr #3
+declare ptr @je_psset_pick_purge(ptr noundef) local_unnamed_addr #2
 
-declare i64 @je_hpdata_purge_begin(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @je_hpdata_purge_begin(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @je_hpdata_purge_next(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @je_hpdata_purge_next(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @je_hpdata_dehugify(ptr noundef) local_unnamed_addr #3
+declare void @je_hpdata_dehugify(ptr noundef) local_unnamed_addr #2
 
-declare void @je_hpdata_purge_end(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @je_hpdata_purge_end(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @je_hpdata_hugify(ptr noundef) local_unnamed_addr #3
+declare void @je_hpdata_hugify(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
@@ -2073,10 +2073,10 @@ declare i64 @llvm.umin.i64(i64, i64) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }

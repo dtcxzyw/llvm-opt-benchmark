@@ -68,17 +68,11 @@ define range(i32 0, 2) i32 @ssl3_do_change_cipher_spec(ptr noundef %0) local_unn
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @ERR_new() local_unnamed_addr #1
 
-declare void @ERR_new() local_unnamed_addr #2
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ssl3_send_alert(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -184,11 +178,11 @@ define i32 @ssl3_send_alert(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
   ret i32 %.0
 }
 
-declare i32 @tls13_alert_code(i32 noundef) local_unnamed_addr #2
+declare i32 @tls13_alert_code(i32 noundef) local_unnamed_addr #1
 
-declare i32 @SSL_CTX_remove_session(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SSL_CTX_remove_session(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @RECORD_LAYER_write_pending(ptr noundef) local_unnamed_addr #2
+declare i32 @RECORD_LAYER_write_pending(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ssl3_dispatch_alert(ptr noundef %0) local_unnamed_addr #0 {
@@ -202,7 +196,7 @@ define i32 @ssl3_dispatch_alert(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %6, label %.thread68, label %7
 
 .thread68:                                        ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %12
 
 7:                                                ; preds = %4
@@ -211,12 +205,12 @@ define i32 @ssl3_dispatch_alert(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.thread, label %9
 
 .thread:                                          ; preds = %1, %7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %103
 
 9:                                                ; preds = %7
   %10 = tail call ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef nonnull %0) #3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %11 = icmp eq ptr %10, null
   br i1 %11, label %103, label %12
 
@@ -380,23 +374,29 @@ define i32 @ssl3_dispatch_alert(ptr noundef %0) local_unnamed_addr #0 {
 
 103:                                              ; preds = %.thread, %69, %.thread69, %91, %49, %9, %58, %48, %18
   %.0 = phi i32 [ 1, %18 ], [ -1, %48 ], [ 1, %58 ], [ -1, %9 ], [ -1, %49 ], [ %67, %91 ], [ %67, %.thread69 ], [ %67, %69 ], [ -1, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
-declare ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef) local_unnamed_addr #2
+declare ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SSL_get_state(ptr noundef) local_unnamed_addr #2
+declare i32 @SSL_get_state(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SSL_version(ptr noundef) local_unnamed_addr #2
+declare i32 @SSL_version(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_tls_handle_rlayer_return(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ossl_tls_handle_rlayer_return(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

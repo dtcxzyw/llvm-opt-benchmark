@@ -88,7 +88,7 @@ define dso_local void @_ZN10SubprocessD2Ev(ptr noundef nonnull align 8 captures(
   br i1 %.not, label %19, label %11
 
 11:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = invoke i32 @waitpid(i32 noundef %10, ptr noundef nonnull %2, i32 noundef 0)
           to label %.noexc unwind label %28
 
@@ -98,9 +98,9 @@ define dso_local void @_ZN10SubprocessD2Ev(ptr noundef nonnull align 8 captures(
 
 14:                                               ; preds = %.noexc
   %15 = load i32, ptr %9, align 4, !tbaa !18
-  %16 = tail call ptr @__errno_location() #23
+  %16 = tail call ptr @__errno_location() #22
   %17 = load i32, ptr %16, align 4, !tbaa !20
-  %18 = call ptr @strerror(i32 noundef %17) #22
+  %18 = call ptr @strerror(i32 noundef %17) #23
   invoke void (ptr, ...) @_Z5FatalPKcz(ptr noundef nonnull @.str.15, i32 noundef %15, ptr noundef %18) #24
           to label %.noexc1 unwind label %28
 
@@ -109,7 +109,7 @@ define dso_local void @_ZN10SubprocessD2Ev(ptr noundef nonnull align 8 captures(
 
 _ZN10Subprocess6FinishEv.exit:                    ; preds = %.noexc
   store i32 -1, ptr %9, align 4, !tbaa !18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %19
 
 19:                                               ; preds = %_ZN10Subprocess6FinishEv.exit, %8
@@ -148,7 +148,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #22
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #23
   tail call void @_ZSt9terminatev() #26
   unreachable
 }
@@ -161,7 +161,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef range(i32 -2147483520, -2147483648) i32 @_ZN10Subprocess6FinishEv(ptr noundef nonnull align 8 captures(none) dereferenceable(41) %0) local_unnamed_addr #5 align 2 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4, !tbaa !18
   %5 = call i32 @waitpid(i32 noundef %4, ptr noundef nonnull %2, i32 noundef 0)
@@ -170,9 +170,9 @@ define dso_local noundef range(i32 -2147483520, -2147483648) i32 @_ZN10Subproces
 
 7:                                                ; preds = %1
   %8 = load i32, ptr %3, align 4, !tbaa !18
-  %9 = tail call ptr @__errno_location() #23
+  %9 = tail call ptr @__errno_location() #22
   %10 = load i32, ptr %9, align 4, !tbaa !20
-  %11 = call ptr @strerror(i32 noundef %10) #22
+  %11 = call ptr @strerror(i32 noundef %10) #23
   call void (ptr, ...) @_Z5FatalPKcz(ptr noundef nonnull @.str.15, i32 noundef %8, ptr noundef %11) #24
   unreachable
 
@@ -207,7 +207,7 @@ define dso_local noundef range(i32 -2147483520, -2147483648) i32 @_ZN10Subproces
 
 25:                                               ; preds = %22, %22, %22, %23, %16
   %.0 = phi i32 [ %18, %16 ], [ %24, %23 ], [ 130, %22 ], [ 130, %22 ], [ 130, %22 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -217,15 +217,15 @@ define dso_local noundef zeroext i1 @_ZN10Subprocess5StartEP13SubprocessSetRKNSt
   %5 = alloca %struct.posix_spawn_file_actions_t, align 8
   %6 = alloca %struct.posix_spawnattr_t, align 8
   %7 = alloca [4 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
-  %8 = call i32 @pipe(ptr noundef nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %8 = call i32 @pipe(ptr noundef nonnull %4) #23
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %3
-  %11 = tail call ptr @__errno_location() #23
+  %11 = tail call ptr @__errno_location() #22
   %12 = load i32, ptr %11, align 4, !tbaa !20
-  %13 = call ptr @strerror(i32 noundef %12) #22
+  %13 = call ptr @strerror(i32 noundef %12) #23
   call void (ptr, ...) @_Z5FatalPKcz(ptr noundef nonnull @.str, ptr noundef %13) #24
   unreachable
 
@@ -234,46 +234,46 @@ define dso_local noundef zeroext i1 @_ZN10Subprocess5StartEP13SubprocessSetRKNSt
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %15, ptr %16, align 8, !tbaa !14
   call void @_Z14SetCloseOnExeci(i32 noundef %15)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #22
-  %17 = call i32 @posix_spawn_file_actions_init(ptr noundef nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %17 = call i32 @posix_spawn_file_actions_init(ptr noundef nonnull %5) #23
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %20, label %18
 
 18:                                               ; preds = %14
-  %19 = call ptr @strerror(i32 noundef %17) #22
+  %19 = call ptr @strerror(i32 noundef %17) #23
   call void (ptr, ...) @_Z5FatalPKcz(ptr noundef nonnull @.str.1, ptr noundef %19) #24
   unreachable
 
 20:                                               ; preds = %14
   %21 = load i32, ptr %4, align 4, !tbaa !20
-  %22 = call i32 @posix_spawn_file_actions_addclose(ptr noundef nonnull %5, i32 noundef %21) #22
+  %22 = call i32 @posix_spawn_file_actions_addclose(ptr noundef nonnull %5, i32 noundef %21) #23
   %.not42 = icmp eq i32 %22, 0
   br i1 %.not42, label %25, label %23
 
 23:                                               ; preds = %20
-  %24 = call ptr @strerror(i32 noundef %22) #22
+  %24 = call ptr @strerror(i32 noundef %22) #23
   call void (ptr, ...) @_Z5FatalPKcz(ptr noundef nonnull @.str.2, ptr noundef %24) #24
   unreachable
 
 25:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %6) #22
-  %26 = call i32 @posix_spawnattr_init(ptr noundef nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  %26 = call i32 @posix_spawnattr_init(ptr noundef nonnull %6) #23
   %.not43 = icmp eq i32 %26, 0
   br i1 %.not43, label %29, label %27
 
 27:                                               ; preds = %25
-  %28 = call ptr @strerror(i32 noundef %26) #22
+  %28 = call ptr @strerror(i32 noundef %26) #23
   call void (ptr, ...) @_Z5FatalPKcz(ptr noundef nonnull @.str.3, ptr noundef %28) #24
   unreachable
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 560
-  %31 = call i32 @posix_spawnattr_setsigmask(ptr noundef nonnull %6, ptr noundef nonnull %30) #22
+  %31 = call i32 @posix_spawnattr_setsigmask(ptr noundef nonnull %6, ptr noundef nonnull %30) #23
   %.not44 = icmp eq i32 %31, 0
   br i1 %.not44, label %34, label %32
 
 32:                                               ; preds = %29
-  %33 = call ptr @strerror(i32 noundef %31) #22
+  %33 = call ptr @strerror(i32 noundef %31) #23
   call void (ptr, ...) @_Z5FatalPKcz(ptr noundef nonnull @.str.4, ptr noundef %33) #24
   unreachable
 
@@ -284,62 +284,62 @@ define dso_local noundef zeroext i1 @_ZN10Subprocess5StartEP13SubprocessSetRKNSt
   br i1 %37, label %58, label %38
 
 38:                                               ; preds = %34
-  %39 = call i32 @posix_spawn_file_actions_addopen(ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull @.str.5, i32 noundef 0, i32 noundef 0) #22
+  %39 = call i32 @posix_spawn_file_actions_addopen(ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull @.str.5, i32 noundef 0, i32 noundef 0) #23
   %.not45 = icmp eq i32 %39, 0
   br i1 %.not45, label %42, label %40
 
 40:                                               ; preds = %38
-  %41 = call ptr @strerror(i32 noundef %39) #22
+  %41 = call ptr @strerror(i32 noundef %39) #23
   call void (ptr, ...) @_Z5FatalPKcz(ptr noundef nonnull @.str.6, ptr noundef %41) #24
   unreachable
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %44 = load i32, ptr %43, align 4, !tbaa !20
-  %45 = call i32 @posix_spawn_file_actions_adddup2(ptr noundef nonnull %5, i32 noundef %44, i32 noundef 1) #22
+  %45 = call i32 @posix_spawn_file_actions_adddup2(ptr noundef nonnull %5, i32 noundef %44, i32 noundef 1) #23
   %.not46 = icmp eq i32 %45, 0
   br i1 %.not46, label %48, label %46
 
 46:                                               ; preds = %42
-  %47 = call ptr @strerror(i32 noundef %45) #22
+  %47 = call ptr @strerror(i32 noundef %45) #23
   call void (ptr, ...) @_Z5FatalPKcz(ptr noundef nonnull @.str.7, ptr noundef %47) #24
   unreachable
 
 48:                                               ; preds = %42
   %49 = load i32, ptr %43, align 4, !tbaa !20
-  %50 = call i32 @posix_spawn_file_actions_adddup2(ptr noundef nonnull %5, i32 noundef %49, i32 noundef 2) #22
+  %50 = call i32 @posix_spawn_file_actions_adddup2(ptr noundef nonnull %5, i32 noundef %49, i32 noundef 2) #23
   %.not47 = icmp eq i32 %50, 0
   br i1 %.not47, label %53, label %51
 
 51:                                               ; preds = %48
-  %52 = call ptr @strerror(i32 noundef %50) #22
+  %52 = call ptr @strerror(i32 noundef %50) #23
   call void (ptr, ...) @_Z5FatalPKcz(ptr noundef nonnull @.str.7, ptr noundef %52) #24
   unreachable
 
 53:                                               ; preds = %48
   %54 = load i32, ptr %43, align 4, !tbaa !20
-  %55 = call i32 @posix_spawn_file_actions_addclose(ptr noundef nonnull %5, i32 noundef %54) #22
+  %55 = call i32 @posix_spawn_file_actions_addclose(ptr noundef nonnull %5, i32 noundef %54) #23
   %.not48 = icmp eq i32 %55, 0
   br i1 %.not48, label %58, label %56
 
 56:                                               ; preds = %53
-  %57 = call ptr @strerror(i32 noundef %55) #22
+  %57 = call ptr @strerror(i32 noundef %55) #23
   call void (ptr, ...) @_Z5FatalPKcz(ptr noundef nonnull @.str.2, ptr noundef %57) #24
   unreachable
 
 58:                                               ; preds = %53, %34
   %.0 = phi i16 [ 72, %34 ], [ 74, %53 ]
-  %59 = call i32 @posix_spawnattr_setflags(ptr noundef nonnull %6, i16 noundef signext %.0) #22
+  %59 = call i32 @posix_spawnattr_setflags(ptr noundef nonnull %6, i16 noundef signext %.0) #23
   %.not49 = icmp eq i32 %59, 0
   br i1 %.not49, label %62, label %60
 
 60:                                               ; preds = %58
-  %61 = call ptr @strerror(i32 noundef %59) #22
+  %61 = call ptr @strerror(i32 noundef %59) #23
   call void (ptr, ...) @_Z5FatalPKcz(ptr noundef nonnull @.str.8, ptr noundef %61) #24
   unreachable
 
 62:                                               ; preds = %58
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @.str.9, ptr %7, align 16, !tbaa !24
   %63 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @.str.10, ptr %63, align 8, !tbaa !24
@@ -355,27 +355,27 @@ define dso_local noundef zeroext i1 @_ZN10Subprocess5StartEP13SubprocessSetRKNSt
   br i1 %.not50, label %72, label %70
 
 70:                                               ; preds = %62
-  %71 = call ptr @strerror(i32 noundef %69) #22
+  %71 = call ptr @strerror(i32 noundef %69) #23
   call void (ptr, ...) @_Z5FatalPKcz(ptr noundef nonnull @.str.11, ptr noundef %71) #24
   unreachable
 
 72:                                               ; preds = %62
-  %73 = call i32 @posix_spawnattr_destroy(ptr noundef nonnull %6) #22
+  %73 = call i32 @posix_spawnattr_destroy(ptr noundef nonnull %6) #23
   %.not51 = icmp eq i32 %73, 0
   br i1 %.not51, label %76, label %74
 
 74:                                               ; preds = %72
-  %75 = call ptr @strerror(i32 noundef %73) #22
+  %75 = call ptr @strerror(i32 noundef %73) #23
   call void (ptr, ...) @_Z5FatalPKcz(ptr noundef nonnull @.str.12, ptr noundef %75) #24
   unreachable
 
 76:                                               ; preds = %72
-  %77 = call i32 @posix_spawn_file_actions_destroy(ptr noundef nonnull %5) #22
+  %77 = call i32 @posix_spawn_file_actions_destroy(ptr noundef nonnull %5) #23
   %.not52 = icmp eq i32 %77, 0
   br i1 %.not52, label %80, label %78
 
 78:                                               ; preds = %76
-  %79 = call ptr @strerror(i32 noundef %77) #22
+  %79 = call ptr @strerror(i32 noundef %77) #23
   call void (ptr, ...) @_Z5FatalPKcz(ptr noundef nonnull @.str.13, ptr noundef %79) #24
   unreachable
 
@@ -383,66 +383,60 @@ define dso_local noundef zeroext i1 @_ZN10Subprocess5StartEP13SubprocessSetRKNSt
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %82 = load i32, ptr %81, align 4, !tbaa !20
   %83 = call i32 @close(i32 noundef %82)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 true
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
 ; Function Attrs: nounwind
-declare i32 @pipe(ptr noundef) local_unnamed_addr #7
+declare i32 @pipe(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: noreturn
-declare void @_Z5FatalPKcz(ptr noundef, ...) local_unnamed_addr #8
+declare void @_Z5FatalPKcz(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #7
+declare ptr @strerror(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #9
+declare ptr @__errno_location() local_unnamed_addr #8
 
 declare void @_Z14SetCloseOnExeci(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @posix_spawn_file_actions_init(ptr noundef) local_unnamed_addr #7
+declare i32 @posix_spawn_file_actions_init(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i32 @posix_spawn_file_actions_addclose(ptr noundef, i32 noundef) local_unnamed_addr #7
+declare i32 @posix_spawn_file_actions_addclose(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i32 @posix_spawnattr_init(ptr noundef) local_unnamed_addr #7
+declare i32 @posix_spawnattr_init(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i32 @posix_spawnattr_setsigmask(ptr noundef, ptr noundef) local_unnamed_addr #7
+declare i32 @posix_spawnattr_setsigmask(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i32 @posix_spawn_file_actions_addopen(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
+declare i32 @posix_spawn_file_actions_addopen(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i32 @posix_spawn_file_actions_adddup2(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
+declare i32 @posix_spawn_file_actions_adddup2(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i32 @posix_spawnattr_setflags(ptr noundef, i16 noundef signext) local_unnamed_addr #7
+declare i32 @posix_spawnattr_setflags(ptr noundef, i16 noundef signext) local_unnamed_addr #6
 
 declare i32 @posix_spawn(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @posix_spawnattr_destroy(ptr noundef) local_unnamed_addr #7
+declare i32 @posix_spawnattr_destroy(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i32 @posix_spawn_file_actions_destroy(ptr noundef) local_unnamed_addr #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare i32 @posix_spawn_file_actions_destroy(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN10Subprocess11OnPipeReadyEv(ptr noundef nonnull align 8 dereferenceable(41) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [4096 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8, !tbaa !14
   %5 = call i64 @read(i32 noundef %4, ptr noundef nonnull %2, i64 noundef 4096)
@@ -469,9 +463,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %14
-  %17 = tail call ptr @__errno_location() #23
+  %17 = tail call ptr @__errno_location() #22
   %18 = load i32, ptr %17, align 4, !tbaa !20
-  %19 = tail call ptr @strerror(i32 noundef %18) #22
+  %19 = tail call ptr @strerror(i32 noundef %18) #23
   tail call void (ptr, ...) @_Z5FatalPKcz(ptr noundef nonnull @.str.14, ptr noundef %19) #24
   unreachable
 
@@ -482,17 +476,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
   br label %23
 
 23:                                               ; preds = %20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK10Subprocess4DoneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0) local_unnamed_addr #11 align 2 {
+define dso_local noundef zeroext i1 @_ZNK10Subprocess4DoneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8, !tbaa !14
   %4 = icmp eq i32 %3, -1
@@ -500,12 +494,12 @@ define dso_local noundef zeroext i1 @_ZNK10Subprocess4DoneEv(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK10Subprocess9GetOutputB5cxx11Ev(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(41) %0) local_unnamed_addr #12 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK10Subprocess9GetOutputB5cxx11Ev(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(41) %0) local_unnamed_addr #11 align 2 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @_ZN13SubprocessSet18SetInterruptedFlagEi(i32 noundef %0) #13 align 2 {
+define dso_local void @_ZN13SubprocessSet18SetInterruptedFlagEi(i32 noundef %0) #12 align 2 {
   store i32 %0, ptr @_ZN13SubprocessSet12interrupted_E, align 4, !tbaa !20
   ret void
 }
@@ -513,9 +507,9 @@ define dso_local void @_ZN13SubprocessSet18SetInterruptedFlagEi(i32 noundef %0) 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN13SubprocessSet25HandlePendingInterruptionEv() local_unnamed_addr #1 align 2 {
   %1 = alloca %struct.__sigset_t, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %1) #22
-  %2 = call i32 @sigemptyset(ptr noundef nonnull %1) #22
-  %3 = call i32 @sigpending(ptr noundef nonnull %1) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  %2 = call i32 @sigemptyset(ptr noundef nonnull %1) #23
+  %3 = call i32 @sigpending(ptr noundef nonnull %1) #23
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %5, label %6
 
@@ -524,7 +518,7 @@ define dso_local void @_ZN13SubprocessSet25HandlePendingInterruptionEv() local_u
   br label %15
 
 6:                                                ; preds = %0
-  %7 = call i32 @sigismember(ptr noundef nonnull %1, i32 noundef 2) #22
+  %7 = call i32 @sigismember(ptr noundef nonnull %1, i32 noundef 2) #23
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %9, label %8
 
@@ -533,7 +527,7 @@ define dso_local void @_ZN13SubprocessSet25HandlePendingInterruptionEv() local_u
   br label %15
 
 9:                                                ; preds = %6
-  %10 = call i32 @sigismember(ptr noundef nonnull %1, i32 noundef 15) #22
+  %10 = call i32 @sigismember(ptr noundef nonnull %1, i32 noundef 15) #23
   %.not1 = icmp eq i32 %10, 0
   br i1 %.not1, label %12, label %11
 
@@ -542,7 +536,7 @@ define dso_local void @_ZN13SubprocessSet25HandlePendingInterruptionEv() local_u
   br label %15
 
 12:                                               ; preds = %9
-  %13 = call i32 @sigismember(ptr noundef nonnull %1, i32 noundef 1) #22
+  %13 = call i32 @sigismember(ptr noundef nonnull %1, i32 noundef 1) #23
   %.not2 = icmp eq i32 %13, 0
   br i1 %.not2, label %15, label %14
 
@@ -551,21 +545,21 @@ define dso_local void @_ZN13SubprocessSet25HandlePendingInterruptionEv() local_u
   br label %15
 
 15:                                               ; preds = %8, %12, %14, %11, %5
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %1) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @sigemptyset(ptr noundef) local_unnamed_addr #7
+declare i32 @sigemptyset(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i32 @sigpending(ptr noundef) local_unnamed_addr #7
+declare i32 @sigpending(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #14
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
-declare i32 @sigismember(ptr noundef, i32 noundef) local_unnamed_addr #7
+declare i32 @sigismember(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN13SubprocessSetC2Ev(ptr noundef nonnull align 8 dereferenceable(688) initializes((0, 104)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
@@ -577,20 +571,20 @@ define dso_local void @_ZN13SubprocessSetC2Ev(ptr noundef nonnull align 8 derefe
           to label %_ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEEC2IS4_vEEv.exit unwind label %17
 
 _ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEEC2IS4_vEEv.exit: ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #22
-  %5 = call i32 @sigemptyset(ptr noundef nonnull %2) #22
-  %6 = call i32 @sigaddset(ptr noundef nonnull %2, i32 noundef 2) #22
-  %7 = call i32 @sigaddset(ptr noundef nonnull %2, i32 noundef 15) #22
-  %8 = call i32 @sigaddset(ptr noundef nonnull %2, i32 noundef 1) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %5 = call i32 @sigemptyset(ptr noundef nonnull %2) #23
+  %6 = call i32 @sigaddset(ptr noundef nonnull %2, i32 noundef 2) #23
+  %7 = call i32 @sigaddset(ptr noundef nonnull %2, i32 noundef 15) #23
+  %8 = call i32 @sigaddset(ptr noundef nonnull %2, i32 noundef 1) #23
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %10 = call i32 @sigprocmask(i32 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %9) #22
+  %10 = call i32 @sigprocmask(i32 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %9) #23
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %12, label %21
 
 12:                                               ; preds = %_ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEEC2IS4_vEEv.exit
-  %13 = tail call ptr @__errno_location() #23
+  %13 = tail call ptr @__errno_location() #22
   %14 = load i32, ptr %13, align 4, !tbaa !20
-  %15 = call ptr @strerror(i32 noundef %14) #22
+  %15 = call ptr @strerror(i32 noundef %14) #23
   invoke void (ptr, ...) @_Z5FatalPKcz(ptr noundef nonnull @.str.17, ptr noundef %15) #24
           to label %16 unwind label %19
 
@@ -608,37 +602,37 @@ _ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEEC2IS4_vEEv.exit: ; preds = %1
   br label %40
 
 21:                                               ; preds = %_ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEEC2IS4_vEEv.exit
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %22, i8 0, i64 144, i1 false)
   store ptr @_ZN13SubprocessSet18SetInterruptedFlagEi, ptr %3, align 8, !tbaa !13
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %24 = call i32 @sigaction(i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %23) #22
+  %24 = call i32 @sigaction(i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %23) #23
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %.invoke, label %28
 
 26:                                               ; preds = %.invoke
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %40
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %30 = call i32 @sigaction(i32 noundef 15, ptr noundef nonnull %3, ptr noundef nonnull %29) #22
+  %30 = call i32 @sigaction(i32 noundef 15, ptr noundef nonnull %3, ptr noundef nonnull %29) #23
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %.invoke, label %32
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %34 = call i32 @sigaction(i32 noundef 1, ptr noundef nonnull %3, ptr noundef nonnull %33) #22
+  %34 = call i32 @sigaction(i32 noundef 1, ptr noundef nonnull %3, ptr noundef nonnull %33) #23
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %.invoke, label %39
 
 .invoke:                                          ; preds = %32, %28, %21
-  %36 = tail call ptr @__errno_location() #23
+  %36 = tail call ptr @__errno_location() #22
   %37 = load i32, ptr %36, align 4, !tbaa !20
-  %38 = call ptr @strerror(i32 noundef %37) #22
+  %38 = call ptr @strerror(i32 noundef %37) #23
   invoke void (ptr, ...) @_Z5FatalPKcz(ptr noundef nonnull @.str.18, ptr noundef %38) #24
           to label %.cont unwind label %26
 
@@ -646,14 +640,14 @@ _ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEEC2IS4_vEEv.exit: ; preds = %1
   unreachable
 
 39:                                               ; preds = %32
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3) #22
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 40:                                               ; preds = %26, %19
   %.pn = phi { ptr, i32 } [ %20, %19 ], [ %27, %26 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #22
-  call void @_ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @_ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #23
   br label %41
 
 41:                                               ; preds = %40, %17
@@ -676,19 +670,19 @@ _ZNSt6vectorIP10SubprocessSaIS1_EED2Ev.exit:      ; preds = %41, %43
 }
 
 ; Function Attrs: nounwind
-declare i32 @sigaddset(ptr noundef, i32 noundef) local_unnamed_addr #7
+declare i32 @sigaddset(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i32 @sigprocmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
+declare i32 @sigprocmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nounwind
-declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
+declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !32
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %_ZNSt5dequeIP10SubprocessSaIS1_EED2Ev.exit, label %3
@@ -753,7 +747,7 @@ define dso_local void @_ZN13SubprocessSetD2Ev(ptr noundef nonnull align 8 derefe
   %12 = load i32, ptr %11, align 4, !tbaa !18
   %13 = sub nsw i32 0, %12
   %14 = load i32, ptr @_ZN13SubprocessSet12interrupted_E, align 4, !tbaa !20
-  %15 = tail call i32 @kill(i32 noundef %13, i32 noundef %14) #22
+  %15 = tail call i32 @kill(i32 noundef %13, i32 noundef %14) #23
   %.pre.i = load ptr, ptr %3, align 8, !tbaa !39
   br label %16
 
@@ -780,7 +774,7 @@ define dso_local void @_ZN13SubprocessSetD2Ev(ptr noundef nonnull align 8 derefe
   br i1 %23, label %25, label %24
 
 24:                                               ; preds = %.lr.ph16.i
-  tail call void @_ZN10SubprocessD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %22) #22
+  tail call void @_ZN10SubprocessD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %22) #23
   tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef 48) #25
   %.pre20.i = load ptr, ptr %3, align 8, !tbaa !39
   br label %25
@@ -793,33 +787,33 @@ define dso_local void @_ZN13SubprocessSetD2Ev(ptr noundef nonnull align 8 derefe
 
 _ZN13SubprocessSet5ClearEv.exit:                  ; preds = %1, %._crit_edge.i, %._crit_edge17.i, %20
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %29 = tail call i32 @sigaction(i32 noundef 2, ptr noundef nonnull %28, ptr noundef null) #22
+  %29 = tail call i32 @sigaction(i32 noundef 2, ptr noundef nonnull %28, ptr noundef null) #23
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %.invoke, label %31
 
 31:                                               ; preds = %_ZN13SubprocessSet5ClearEv.exit
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %33 = tail call i32 @sigaction(i32 noundef 15, ptr noundef nonnull %32, ptr noundef null) #22
+  %33 = tail call i32 @sigaction(i32 noundef 15, ptr noundef nonnull %32, ptr noundef null) #23
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %.invoke, label %35
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %37 = tail call i32 @sigaction(i32 noundef 1, ptr noundef nonnull %36, ptr noundef null) #22
+  %37 = tail call i32 @sigaction(i32 noundef 1, ptr noundef nonnull %36, ptr noundef null) #23
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %.invoke, label %39
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %41 = tail call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull %40, ptr noundef null) #22
+  %41 = tail call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull %40, ptr noundef null) #23
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %.invoke, label %47
 
 .invoke:                                          ; preds = %39, %35, %31, %_ZN13SubprocessSet5ClearEv.exit
   %43 = phi ptr [ @.str.18, %_ZN13SubprocessSet5ClearEv.exit ], [ @.str.18, %31 ], [ @.str.18, %35 ], [ @.str.17, %39 ]
-  %44 = tail call ptr @__errno_location() #23
+  %44 = tail call ptr @__errno_location() #22
   %45 = load i32, ptr %44, align 4, !tbaa !20
-  %46 = tail call ptr @strerror(i32 noundef %45) #22
+  %46 = tail call ptr @strerror(i32 noundef %45) #23
   invoke void (ptr, ...) @_Z5FatalPKcz(ptr noundef nonnull %43, ptr noundef %46) #24
           to label %.cont unwind label %71
 
@@ -913,7 +907,7 @@ define dso_local void @_ZN13SubprocessSet5ClearEv(ptr noundef nonnull align 8 ca
   %12 = load i32, ptr %11, align 4, !tbaa !18
   %13 = sub nsw i32 0, %12
   %14 = load i32, ptr @_ZN13SubprocessSet12interrupted_E, align 4, !tbaa !20
-  %15 = tail call i32 @kill(i32 noundef %13, i32 noundef %14) #22
+  %15 = tail call i32 @kill(i32 noundef %13, i32 noundef %14) #23
   %.pre = load ptr, ptr %3, align 8, !tbaa !39
   br label %16
 
@@ -943,7 +937,7 @@ _ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit:  ; preds = %1, %._crit_edge, %.
   br i1 %23, label %25, label %24
 
 24:                                               ; preds = %.lr.ph16
-  tail call void @_ZN10SubprocessD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %22) #22
+  tail call void @_ZN10SubprocessD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %22) #23
   tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef 48) #25
   %.pre20 = load ptr, ptr %3, align 8, !tbaa !39
   br label %25
@@ -1037,10 +1031,10 @@ _ZNSt6vectorIP10SubprocessSaIS1_EE9push_backERKS1_.exit: ; preds = %16, %_ZNSt6v
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #17
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #18
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN13SubprocessSet6DoWorkEv(ptr noundef nonnull align 8 dereferenceable(688) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
@@ -1170,7 +1164,7 @@ _ZNSt6vectorI6pollfdSaIS0_EE9push_backERKS0_.exit: ; preds = %_ZNSt6vectorI6poll
   br i1 %38, label %39, label %48
 
 39:                                               ; preds = %37
-  %40 = tail call ptr @__errno_location() #23
+  %40 = tail call ptr @__errno_location() #22
   %41 = load i32, ptr %40, align 4, !tbaa !20
   %.not21 = icmp eq i32 %41, 4
   br i1 %.not21, label %45, label %42
@@ -1376,12 +1370,12 @@ _ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEE3popEv.exit: ; preds = %12, %14
 }
 
 ; Function Attrs: nounwind
-declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #7
+declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #6
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt11_Deque_baseIP10SubprocessSaIS1_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1417,7 +1411,7 @@ _ZNSt11_Deque_baseIP10SubprocessSaIS1_EE16_M_allocate_nodeEv.exit.i: ; preds = %
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  %18 = tail call ptr @__cxa_begin_catch(ptr %17) #22
+  %18 = tail call ptr @__cxa_begin_catch(ptr %17) #23
   %19 = icmp ult ptr %10, %.011.i
   br i1 %19, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIP10SubprocessSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i
 
@@ -1451,7 +1445,7 @@ _ZNSt11_Deque_baseIP10SubprocessSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i: ; pr
 
 .body:                                            ; preds = %23
   %29 = extractvalue { ptr, i32 } %24, 0
-  %30 = tail call ptr @__cxa_begin_catch(ptr %29) #22
+  %30 = tail call ptr @__cxa_begin_catch(ptr %29) #23
   %31 = load ptr, ptr %0, align 8, !tbaa !32
   %32 = load i64, ptr %5, align 8, !tbaa !42
   %33 = shl i64 %32, 3
@@ -1511,13 +1505,13 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #8
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #7
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #8
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #19
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt5dequeIP10SubprocessSaIS1_EE16_M_push_back_auxIJRKS1_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #5 comdat align 2 {
@@ -1709,6 +1703,12 @@ _ZSt4copyIPPP10SubprocessS3_ET0_T_S5_S4_.exit:    ; preds = %32, %31, %28, %27, 
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #20
 
@@ -1724,24 +1724,24 @@ attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #3 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { cold nofree noreturn }
 attributes #5 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #16 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { nounwind }
-attributes #23 = { nounwind willreturn memory(none) }
+attributes #22 = { nounwind willreturn memory(none) }
+attributes #23 = { nounwind }
 attributes #24 = { noreturn }
 attributes #25 = { builtin nounwind }
 attributes #26 = { noreturn nounwind }

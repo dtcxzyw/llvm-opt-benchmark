@@ -64,8 +64,8 @@ declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 define internal noundef ptr @xx_roj(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.7, ptr noundef nonnull %3, ptr noundef nonnull %4) #4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %_Py_NewRef.exit, label %6
@@ -82,8 +82,8 @@ define internal noundef ptr @xx_roj(ptr readnone captures(none) %0, ptr noundef 
 
 _Py_NewRef.exit:                                  ; preds = %9, %6, %2
   %.0 = phi ptr [ null, %2 ], [ @_Py_NoneStruct, %6 ], [ @_Py_NoneStruct, %9 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -91,8 +91,8 @@ _Py_NewRef.exit:                                  ; preds = %9, %6, %2
 define internal ptr @xx_foo(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.8, ptr noundef nonnull %3, ptr noundef nonnull %4) #4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %11, label %6
@@ -106,8 +106,8 @@ define internal ptr @xx_foo(ptr readnone captures(none) %0, ptr noundef %1) #0 {
 
 11:                                               ; preds = %2, %6
   %.0 = phi ptr [ %10, %6 ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -133,13 +133,7 @@ newXxoObject.exit:                                ; preds = %8, %4, %2
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @PyArg_ParseTuple(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
 
@@ -272,7 +266,7 @@ declare i32 @PyModule_AddObject(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare ptr @PyType_FromSpec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @null_richcompare(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2) #3 {
+define internal noundef nonnull ptr @null_richcompare(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2) #2 {
   ret ptr @_Py_NotImplementedStruct
 }
 
@@ -461,7 +455,7 @@ declare i32 @PyDict_SetItemString(ptr noundef, ptr noundef, ptr noundef) local_u
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @Xxo_demo(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !8
   %4 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.26, ptr noundef nonnull %3) #4
   %.not = icmp eq i32 %4, 0
@@ -500,16 +494,22 @@ _Py_NewRef.exit.sink.split:                       ; preds = %15, %11
 
 _Py_NewRef.exit:                                  ; preds = %_Py_NewRef.exit.sink.split, %15, %11, %2
   %.0 = phi ptr [ null, %2 ], [ %12, %11 ], [ @_Py_NoneStruct, %15 ], [ %_Py_NoneStruct.sink, %_Py_NewRef.exit.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
 declare i64 @PyType_GetFlags(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

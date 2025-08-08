@@ -45,14 +45,8 @@ define void @resetPCanonPermArray(ptr noundef writeonly captures(none) %0, i32 n
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i64 0, -9223372036854775808) i64 @Abc_allFlip(i64 noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
+define range(i64 0, -9223372036854775808) i64 @Abc_allFlip(i64 noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %.not = icmp sgt i64 %0, -1
   br i1 %.not, label %7, label %3
 
@@ -69,7 +63,7 @@ define range(i64 0, -9223372036854775808) i64 @Abc_allFlip(i64 noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @adjustInfoAfterSwap(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
+define i32 @adjustInfoAfterSwap(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = icmp ult i32 %3, 4
   br i1 %5, label %6, label %9
 
@@ -112,7 +106,7 @@ define i32 @adjustInfoAfterSwap(ptr noundef captures(none) %0, i32 noundef %1, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @Extra_Truth6SwapAdjacent(i64 noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define i64 @Extra_Truth6SwapAdjacent(i64 noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %3
   %5 = load i64, ptr %4, align 8, !tbaa !10
@@ -133,7 +127,7 @@ define i64 @Extra_Truth6SwapAdjacent(i64 noundef %0, i32 noundef %1) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @Extra_Truth6ChangePhase(i64 noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define i64 @Extra_Truth6ChangePhase(i64 noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %3
   %5 = load i64, ptr %4, align 8, !tbaa !10
@@ -149,7 +143,7 @@ define i64 @Extra_Truth6ChangePhase(i64 noundef %0, i32 noundef %1) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @Extra_Truth6MinimumRoundOne(i64 noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #3 {
+define i64 @Extra_Truth6MinimumRoundOne(i64 noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #2 {
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !10
@@ -286,7 +280,7 @@ adjustInfoAfterSwap.exit:                         ; preds = %69, %97, %85, %82
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @Extra_Truth6MinimumRoundOne_noEBFC(i64 noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #3 {
+define i64 @Extra_Truth6MinimumRoundOne_noEBFC(i64 noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #2 {
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !10
@@ -333,7 +327,7 @@ adjustInfoAfterSwap.exit:                         ; preds = %4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i64 @Extra_Truth6MinimumRoundMany(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #5 {
+define i64 @Extra_Truth6MinimumRoundMany(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #4 {
   br label %5
 
 5:                                                ; preds = %109, %4
@@ -500,7 +494,7 @@ Extra_Truth6MinimumRoundOne.exit:                 ; preds = %74, %88, %91, %104
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i64 @Extra_Truth6MinimumRoundMany_noEBFC(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #5 {
+define i64 @Extra_Truth6MinimumRoundMany_noEBFC(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #4 {
   br label %5
 
 5:                                                ; preds = %41, %4
@@ -573,11 +567,11 @@ Extra_Truth6MinimumRoundOne_noEBFC.exit:          ; preds = %adjustInfoAfterSwap
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i64 @Extra_Truth6MinimumRoundMany1(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #5 {
+define i64 @Extra_Truth6MinimumRoundMany1(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #4 {
   %5 = alloca [16 x i8], align 16
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr %3, align 4, !tbaa !8
   %8 = lshr i32 %7, 7
   switch i32 %8, label %136 [
@@ -831,16 +825,16 @@ Extra_Truth6MinimumRoundMany_noEBFC.exit74:       ; preds = %127
 
 Extra_Truth6MinimumRoundMany_noEBFC.exit:         ; preds = %46, %129, %Extra_Truth6MinimumRoundMany_noEBFC.exit74, %136, %134, %128, %47
   %.0 = phi i64 [ %137, %136 ], [ %48, %47 ], [ %.0.i61, %128 ], [ %133, %134 ], [ %.0.i47, %Extra_Truth6MinimumRoundMany_noEBFC.exit74 ], [ %131, %129 ], [ %.0.i, %46 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define i64 @luckyCanonicizer_final_fast_6Vars(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) initializes((0, 4)) %3) local_unnamed_addr #7 {
+define i64 @luckyCanonicizer_final_fast_6Vars(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) initializes((0, 4)) %3) local_unnamed_addr #6 {
   %5 = alloca i64, align 8
   store i64 %0, ptr %5, align 8, !tbaa !10
   %6 = call i32 @Kit_TruthSemiCanonicize_Yasha1(ptr noundef nonnull %5, i32 noundef 6, ptr noundef %2, ptr noundef %1) #10
@@ -850,10 +844,10 @@ define i64 @luckyCanonicizer_final_fast_6Vars(i64 noundef %0, ptr noundef %1, pt
   ret i64 %8
 }
 
-declare i32 @Kit_TruthSemiCanonicize_Yasha1(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Kit_TruthSemiCanonicize_Yasha1(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define i64 @luckyCanonicizer_final_fast_6Vars1(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) initializes((0, 4)) %3) local_unnamed_addr #7 {
+define i64 @luckyCanonicizer_final_fast_6Vars1(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) initializes((0, 4)) %3) local_unnamed_addr #6 {
   %5 = alloca i64, align 8
   store i64 %0, ptr %5, align 8, !tbaa !10
   %6 = call i32 @Kit_TruthSemiCanonicize_Yasha1(ptr noundef nonnull %5, i32 noundef 6, ptr noundef %2, ptr noundef %1) #10
@@ -875,20 +869,26 @@ define i64 @luckyCanonicizer_final_fast_6Vars1(i64 noundef %0, ptr noundef %1, p
   ret i64 %12
 }
 
-declare void @Kit_TruthChangePhase_64bit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Kit_TruthChangePhase_64bit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }
 

@@ -992,8 +992,8 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit55: ; preds = %346, %373
   %406 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %405, i32 noundef 0) #14
   store i32 0, ptr %406, align 4
   tail call void @_ZN11PhaseOutput16shorten_branchesEPj(ptr noundef nonnull align 8 dereferenceable(700) %0, ptr noundef nonnull %406)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 472, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %407 = load ptr, ptr %5, align 8
   %408 = getelementptr inbounds nuw i8, ptr %407, i64 32
   %409 = load ptr, ptr %408, align 8
@@ -1026,8 +1026,8 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit55: ; preds = %346, %373
 
 _ZN11PhaseOutput17ScheduleAndBundleEv.exit:       ; preds = %398, %410, %414, %418
   %423 = phi ptr [ %407, %398 ], [ %407, %410 ], [ %407, %414 ], [ %.pre63, %418 ]
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 472, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %424 = getelementptr inbounds nuw i8, ptr %423, i64 352
   %425 = load ptr, ptr %424, align 8
   %426 = getelementptr inbounds nuw i8, ptr %425, i64 88
@@ -11624,10 +11624,10 @@ declare i32 @llvm.ctpop.i32(i32) #11
 declare i32 @llvm.umax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

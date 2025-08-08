@@ -55,14 +55,14 @@ define { i64, i64 } @f128_rem(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr
   br i1 %.not176, label %159, label %29
 
 29:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @softfloat_normSubnormalF128Sig(ptr dead_on_unwind nonnull writable sret(%struct.exp32_sig128) align 8 %5, i64 noundef %14, i64 noundef %2) #4
   %.sroa.086.0.copyload = load i64, ptr %5, align 8, !tbaa !3
   %.sroa.689.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.689.sroa.0.0.copyload = load i64, ptr %.sroa.689.0..sroa_idx, align 8, !tbaa !3
   %.sroa.689.sroa.6.0..sroa.689.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.689.sroa.6.0.copyload = load i64, ptr %.sroa.689.sroa.6.0..sroa.689.0..sroa_idx.sroa_idx, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %30
 
 30:                                               ; preds = %21, %29
@@ -83,14 +83,14 @@ define { i64, i64 } @f128_rem(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr
   br label %163
 
 36:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @softfloat_normSubnormalF128Sig(ptr dead_on_unwind nonnull writable sret(%struct.exp32_sig128) align 8 %6, i64 noundef %11, i64 noundef %0) #4
   %.sroa.086.0.copyload88 = load i64, ptr %6, align 8, !tbaa !3
   %.sroa.689.0..sroa_idx90 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.689.sroa.0.0.copyload118 = load i64, ptr %.sroa.689.0..sroa_idx90, align 8, !tbaa !3
   %.sroa.689.sroa.6.0..sroa.689.0..sroa_idx90.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.689.sroa.6.0.copyload120 = load i64, ptr %.sroa.689.sroa.6.0..sroa.689.0..sroa_idx90.sroa_idx, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %37
 
 37:                                               ; preds = %36, %30
@@ -328,26 +328,26 @@ softfloat_le128.exit.thread:                      ; preds = %52, %softfloat_le12
   ret { i64, i64 } %.fca.1.insert.merged
 }
 
+declare void @softfloat_normSubnormalF128Sig(ptr dead_on_unwind writable sret(%struct.exp32_sig128) align 8, i64 noundef, i64 noundef) local_unnamed_addr #1
+
+declare { i64, i64 } @softfloat_normRoundPackToF128(i1 noundef zeroext, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
+
+declare { i64, i64 } @softfloat_propagateNaNF128UI(i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
+
+declare void @softfloat_raiseFlags(i8 noundef zeroext) local_unnamed_addr #1
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @softfloat_normSubnormalF128Sig(ptr dead_on_unwind writable sret(%struct.exp32_sig128) align 8, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare { i64, i64 } @softfloat_normRoundPackToF128(i1 noundef zeroext, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
-
-declare { i64, i64 } @softfloat_propagateNaNF128UI(i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
-
-declare void @softfloat_raiseFlags(i8 noundef zeroext) local_unnamed_addr #2
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nounwind }
 

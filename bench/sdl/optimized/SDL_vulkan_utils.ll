@@ -257,7 +257,7 @@ define hidden noundef nonnull ptr @SDL_Vulkan_GetResultString(i32 noundef %0) lo
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_Vulkan_CreateInstanceExtensionsList(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
   %4 = call i32 %0(ptr noundef null, ptr noundef nonnull %3, ptr noundef null) #7
   switch i32 %4, label %7 [
@@ -300,22 +300,16 @@ define hidden ptr @SDL_Vulkan_CreateInstanceExtensionsList(ptr noundef readonly 
 
 20:                                               ; preds = %10, %18, %15, %7, %5
   %.016 = phi ptr [ null, %5 ], [ null, %7 ], [ null, %15 ], [ %12, %18 ], [ null, %10 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.016
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #3
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
@@ -333,8 +327,8 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
   %16 = tail call ptr %0(ptr noundef %1, ptr noundef nonnull @.str.48) #7
   %17 = tail call ptr %0(ptr noundef %1, ptr noundef nonnull @.str.49) #7
   %18 = tail call ptr %0(ptr noundef %1, ptr noundef nonnull @.str.50) #7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %19 = icmp ne ptr %12, null
   %20 = icmp ne ptr %13, null
@@ -409,13 +403,13 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
   %.1201281 = phi i32 [ %.2202.ph, %207 ], [ %.0200, %.preheader262 ]
   %50 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %10, i8 0, i64 68, i1 false)
   %52 = call i32 %13(ptr noundef %51, ptr noundef nonnull %7, ptr noundef null) #7
   %53 = icmp ne i32 %52, 0
@@ -601,7 +595,7 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
 
 146:                                              ; preds = %.lr.ph289, %185
   %indvars.iv323 = phi i64 [ 0, %.lr.ph289 ], [ %indvars.iv.next324, %185 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4
   %147 = getelementptr inbounds nuw %struct.VkDisplayPlanePropertiesKHR, ptr %134, i64 %indvars.iv323
   %148 = load ptr, ptr %147, align 8
@@ -695,11 +689,11 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
 
 .thread246:                                       ; preds = %156, %166, %176
   call void @SDL_free_REAL(ptr noundef nonnull %134) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread252
 
 185:                                              ; preds = %146, %150, %.critedge, %182, %180, %178
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %indvars.iv.next324 = add nuw nsw i64 %indvars.iv323, 1
   %186 = load i32, ptr %9, align 4
   %187 = zext i32 %186 to i64
@@ -708,7 +702,7 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
 
 189:                                              ; preds = %182
   call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 5, ptr noundef nonnull @.str.69, i32 noundef %151, i32 noundef %179, i32 noundef %181, i32 noundef %183, i32 noundef %184) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %190 = icmp slt i32 %151, 0
   br i1 %190, label %.thread249, label %192
 
@@ -748,10 +742,10 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
   br label %.loopexit
 
 .thread252:                                       ; preds = %71, %84, %96, %113, %128, %144, %.thread249, %62, %86, %130, %.thread246
-  call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %224
 
 .loopexit:                                        ; preds = %199, %204
@@ -761,18 +755,18 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
   store i32 %.sroa.0.0.copyload, ptr %206, align 4
   %.sroa.8.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i32 %.sroa.8.0.copyload, ptr %.sroa.8.0..sroa_idx41, align 8
-  call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit263
 
 207:                                              ; preds = %60, %.lr.ph
   %.2202.ph = phi i32 [ %.1201281, %.lr.ph ], [ %61, %60 ]
-  call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %208 = load i32, ptr %6, align 4
   %209 = zext i32 %208 to i64
@@ -820,21 +814,21 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
 
 225:                                              ; preds = %224, %223
   %.0188 = phi i1 [ false, %224 ], [ true, %223 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0188
 }
 
-declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #3
+declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #2
 
-declare i32 @SDL_atoi_REAL(ptr noundef) local_unnamed_addr #3
+declare i32 @SDL_atoi_REAL(ptr noundef) local_unnamed_addr #2
 
-declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #3
+declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare void @SDL_LogDebug_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @SDL_LogDebug_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_Vulkan_DestroySurface_Internal(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
@@ -850,15 +844,21 @@ define hidden void @SDL_Vulkan_DestroySurface_Internal(ptr noundef readonly capt
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind allocsize(0,1) }

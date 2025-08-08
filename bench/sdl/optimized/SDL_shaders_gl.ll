@@ -242,17 +242,14 @@ define hidden noundef ptr @GL_CreateShaderContext() local_unnamed_addr #0 {
   ret ptr %.044
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GL_ExtensionSupported_REAL(ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_GL_ExtensionSupported_REAL(ptr noundef) local_unnamed_addr #2
 
-declare ptr @SDL_GL_GetProcAddress_REAL(ptr noundef) local_unnamed_addr #3
+declare ptr @SDL_GL_GetProcAddress_REAL(ptr noundef) local_unnamed_addr #2
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @CompileShaderProgram(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 -2147483648, 11) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
@@ -320,7 +317,7 @@ define internal fastcc zeroext i1 @CompileShaderProgram(ptr noundef nonnull read
 
 48:                                               ; preds = %32, %56
   %.04147 = phi i32 [ 0, %32 ], [ %57, %56 ]
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %49 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %4, i64 noundef 10, ptr noundef nonnull @.str.31, i32 noundef %.04147) #5
   %50 = load ptr, ptr %46, align 8
   %51 = load i32, ptr %2, align 4
@@ -334,7 +331,7 @@ define internal fastcc zeroext i1 @CompileShaderProgram(ptr noundef nonnull read
   br label %56
 
 56:                                               ; preds = %54, %48
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %57 = add nuw nsw i32 %.04147, 1
   %exitcond.not = icmp eq i32 %57, 4
   br i1 %exitcond.not, label %58, label %48, !llvm.loop !7
@@ -380,9 +377,6 @@ define hidden void @GL_DestroyShaderContext(ptr noundef %0) local_unnamed_addr #
   tail call void @SDL_free_REAL(ptr noundef nonnull %0) #5
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @GL_SelectShader(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -517,8 +511,8 @@ define internal fastcc noundef zeroext i1 @CompileShader(ptr noundef nonnull rea
   %6 = alloca i32, align 4
   %7 = alloca [3 x ptr], align 16
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 16
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %3, ptr %9, align 8
@@ -538,7 +532,7 @@ define internal fastcc noundef zeroext i1 @CompileShader(ptr noundef nonnull rea
   br i1 %18, label %35, label %19
 
 19:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %20 = load ptr, ptr %15, align 8
   call void %20(i32 noundef %1, i32 noundef 35716, ptr noundef nonnull %8) #5
   %21 = load i32, ptr %8, align 4
@@ -577,25 +571,31 @@ define internal fastcc noundef zeroext i1 @CompileShader(ptr noundef nonnull rea
   br label %34
 
 34:                                               ; preds = %33, %28, %26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %35
 
 35:                                               ; preds = %5, %34
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %18
 }
 
-declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #3
+declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #2
 
-declare void @SDL_LogError_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @SDL_LogError_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind allocsize(0,1) }
 attributes #5 = { nounwind }
 

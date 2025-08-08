@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef ptr @vzone_openID_77(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.icu_77::UnicodeString", align 8
   %4 = alloca %"class.icu_77::ConstChar16Ptr", align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = icmp eq i32 %1, -1
   %6 = zext i1 %5 to i8
   store ptr %0, ptr %4, align 8, !tbaa !3
@@ -31,7 +31,7 @@ define noundef ptr @vzone_openID_77(ptr noundef %0, i32 noundef %1) local_unname
 
 10:                                               ; preds = %7
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %9
 
 11:                                               ; preds = %2
@@ -49,30 +49,24 @@ define noundef ptr @vzone_openID_77(ptr noundef %0, i32 noundef %1) local_unname
 
 16:                                               ; preds = %14, %11
   %.pn = phi { ptr, i32 } [ %15, %14 ], [ %12, %11 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64), i8 noundef signext, ptr noundef, i32 noundef) unnamed_addr #2
+declare void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64), i8 noundef signext, ptr noundef, i32 noundef) unnamed_addr #1
 
 declare i32 @__gxx_personality_v0(...)
 
-declare noundef ptr @_ZN6icu_779VTimeZone19createVTimeZoneByIDERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #2
+declare noundef ptr @_ZN6icu_779VTimeZone19createVTimeZoneByIDERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @vzone_openData_77(ptr noundef %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.icu_77::UnicodeString", align 8
   %5 = alloca %"class.icu_77::ConstChar16Ptr", align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = icmp eq i32 %1, -1
   %7 = zext i1 %6 to i8
   store ptr %0, ptr %5, align 8, !tbaa !3
@@ -87,7 +81,7 @@ define noundef ptr @vzone_openData_77(ptr noundef %0, i32 noundef %1, ptr nounde
 
 11:                                               ; preds = %8
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %10
 
 12:                                               ; preds = %3
@@ -105,14 +99,14 @@ define noundef ptr @vzone_openData_77(ptr noundef %0, i32 noundef %1, ptr nounde
 
 17:                                               ; preds = %15, %12
   %.pn = phi { ptr, i32 } [ %16, %15 ], [ %13, %12 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 }
 
-declare noundef ptr @_ZN6icu_779VTimeZone15createVTimeZoneERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
+declare noundef ptr @_ZN6icu_779VTimeZone15createVTimeZoneERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @vzone_close_77(ptr noundef %0) local_unnamed_addr #4 {
+define void @vzone_close_77(ptr noundef %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -133,7 +127,7 @@ define noundef ptr @vzone_clone_77(ptr noundef nonnull %0) local_unnamed_addr #0
   ret ptr %2
 }
 
-declare noundef ptr @_ZNK6icu_779VTimeZone5cloneEv(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #2
+declare noundef ptr @_ZNK6icu_779VTimeZone5cloneEv(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define signext range(i8 0, 2) i8 @vzone_equals_77(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -148,7 +142,7 @@ define signext range(i8 0, 2) i8 @vzone_equals_77(ptr noundef %0, ptr noundef %1
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @vzone_getTZURL_77(ptr noundef nonnull %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.icu_77::UnicodeString", align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %4, align 8, !tbaa !10
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i16 2, ptr %5, align 8, !tbaa !12
@@ -188,27 +182,27 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %7, %19, %21
   %24 = sext i32 %14 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %15, ptr align 2 %.0.i, i64 %24, i1 false)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i8 %6
 
 25:                                               ; preds = %3
   %26 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %26
 }
 
-declare noundef signext i8 @_ZNK6icu_779VTimeZone8getTZURLERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(288), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #2
+declare noundef signext i8 @_ZNK6icu_779VTimeZone8getTZURLERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(288), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define void @vzone_setTZURL_77(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.icu_77::UnicodeString", align 8
   %5 = alloca %"class.icu_77::ConstChar16Ptr", align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = icmp eq i32 %2, -1
   %7 = zext i1 %6 to i8
   store ptr %1, ptr %5, align 8, !tbaa !3
@@ -223,7 +217,7 @@ define void @vzone_setTZURL_77(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
 
 10:                                               ; preds = %8
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 11:                                               ; preds = %3
@@ -241,11 +235,11 @@ define void @vzone_setTZURL_77(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
 
 16:                                               ; preds = %14, %11
   %.pn = phi { ptr, i32 } [ %15, %14 ], [ %12, %11 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 }
 
-declare void @_ZN6icu_779VTimeZone8setTZURLERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(288), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #2
+declare void @_ZN6icu_779VTimeZone8setTZURLERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(288), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @vzone_getLastModified_77(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 {
@@ -253,7 +247,7 @@ define noundef signext i8 @vzone_getLastModified_77(ptr noundef nonnull %0, ptr 
   ret i8 %3
 }
 
-declare noundef signext i8 @_ZNK6icu_779VTimeZone15getLastModifiedERd(ptr noundef nonnull align 8 dereferenceable(288), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
+declare noundef signext i8 @_ZNK6icu_779VTimeZone15getLastModifiedERd(ptr noundef nonnull align 8 dereferenceable(288), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define void @vzone_setLastModified_77(ptr noundef nonnull %0, double noundef %1) local_unnamed_addr #0 {
@@ -261,12 +255,12 @@ define void @vzone_setLastModified_77(ptr noundef nonnull %0, double noundef %1)
   ret void
 }
 
-declare void @_ZN6icu_779VTimeZone15setLastModifiedEd(ptr noundef nonnull align 8 dereferenceable(288), double noundef) local_unnamed_addr #2
+declare void @_ZN6icu_779VTimeZone15setLastModifiedEd(ptr noundef nonnull align 8 dereferenceable(288), double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define void @vzone_write_77(ptr noundef nonnull %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.icu_77::UnicodeString", align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !10
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i16 2, ptr %6, align 8, !tbaa !12
@@ -313,26 +307,26 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %17, %22, %24
   %28 = sext i32 %27 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %16, ptr align 2 %.0.i, i64 %28, i1 false)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 29:                                               ; preds = %7, %4
   %30 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %30
 }
 
-declare void @_ZNK6icu_779VTimeZone5writeERNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
+declare void @_ZNK6icu_779VTimeZone5writeERNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #6
+declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define void @vzone_writeFromStart_77(ptr noundef nonnull %0, double noundef %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.icu_77::UnicodeString", align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %6, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i16 2, ptr %7, align 8, !tbaa !12
@@ -379,23 +373,23 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %18, %23, %25
   %29 = sext i32 %28 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %17, ptr align 2 %.0.i, i64 %29, i1 false)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 30:                                               ; preds = %8, %5
   %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %31
 }
 
-declare void @_ZNK6icu_779VTimeZone5writeEdRNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288), double noundef, ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
+declare void @_ZNK6icu_779VTimeZone5writeEdRNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288), double noundef, ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define void @vzone_writeSimple_77(ptr noundef nonnull %0, double noundef %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.icu_77::UnicodeString", align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %6, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i16 2, ptr %7, align 8, !tbaa !12
@@ -442,18 +436,18 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %18, %23, %25
   %29 = sext i32 %28 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %17, ptr align 2 %.0.i, i64 %29, i1 false)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 30:                                               ; preds = %8, %5
   %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %31
 }
 
-declare void @_ZNK6icu_779VTimeZone11writeSimpleEdRNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288), double noundef, ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
+declare void @_ZNK6icu_779VTimeZone11writeSimpleEdRNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288), double noundef, ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @vzone_getOffset_77(ptr noundef nonnull %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5, i32 noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %7) local_unnamed_addr #0 {
@@ -461,7 +455,7 @@ define noundef i32 @vzone_getOffset_77(ptr noundef nonnull %0, i8 noundef zeroex
   ret i32 %9
 }
 
-declare noundef i32 @_ZNK6icu_779VTimeZone9getOffsetEhiiihiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288), i8 noundef zeroext, i32 noundef, i32 noundef, i32 noundef, i8 noundef zeroext, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+declare noundef i32 @_ZNK6icu_779VTimeZone9getOffsetEhiiihiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288), i8 noundef zeroext, i32 noundef, i32 noundef, i32 noundef, i8 noundef zeroext, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @vzone_getOffset2_77(ptr noundef nonnull %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5, i32 noundef %6, i32 noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %8) local_unnamed_addr #0 {
@@ -469,7 +463,7 @@ define noundef i32 @vzone_getOffset2_77(ptr noundef nonnull %0, i8 noundef zeroe
   ret i32 %10
 }
 
-declare noundef i32 @_ZNK6icu_779VTimeZone9getOffsetEhiiihiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288), i8 noundef zeroext, i32 noundef, i32 noundef, i32 noundef, i8 noundef zeroext, i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+declare noundef i32 @_ZNK6icu_779VTimeZone9getOffsetEhiiihiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288), i8 noundef zeroext, i32 noundef, i32 noundef, i32 noundef, i8 noundef zeroext, i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define void @vzone_getOffset3_77(ptr noundef nonnull %0, double noundef %1, i8 noundef signext %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5) local_unnamed_addr #0 {
@@ -477,7 +471,7 @@ define void @vzone_getOffset3_77(ptr noundef nonnull %0, double noundef %1, i8 n
   ret void
 }
 
-declare void @_ZNK6icu_779VTimeZone9getOffsetEdaRiS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288), double noundef, i8 noundef signext, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+declare void @_ZNK6icu_779VTimeZone9getOffsetEdaRiS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288), double noundef, i8 noundef signext, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define void @vzone_setRawOffset_77(ptr noundef nonnull %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -485,7 +479,7 @@ define void @vzone_setRawOffset_77(ptr noundef nonnull %0, i32 noundef %1) local
   ret void
 }
 
-declare void @_ZN6icu_779VTimeZone12setRawOffsetEi(ptr noundef nonnull align 8 dereferenceable(288), i32 noundef) unnamed_addr #2
+declare void @_ZN6icu_779VTimeZone12setRawOffsetEi(ptr noundef nonnull align 8 dereferenceable(288), i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @vzone_getRawOffset_77(ptr noundef nonnull %0) local_unnamed_addr #0 {
@@ -493,7 +487,7 @@ define noundef i32 @vzone_getRawOffset_77(ptr noundef nonnull %0) local_unnamed_
   ret i32 %2
 }
 
-declare noundef i32 @_ZNK6icu_779VTimeZone12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #2
+declare noundef i32 @_ZNK6icu_779VTimeZone12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @vzone_useDaylightTime_77(ptr noundef nonnull %0) local_unnamed_addr #0 {
@@ -501,7 +495,7 @@ define noundef signext i8 @vzone_useDaylightTime_77(ptr noundef nonnull %0) loca
   ret i8 %2
 }
 
-declare noundef signext i8 @_ZNK6icu_779VTimeZone15useDaylightTimeEv(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #2
+declare noundef signext i8 @_ZNK6icu_779VTimeZone15useDaylightTimeEv(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @vzone_inDaylightTime_77(ptr noundef nonnull %0, double noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #0 {
@@ -509,7 +503,7 @@ define noundef signext i8 @vzone_inDaylightTime_77(ptr noundef nonnull %0, doubl
   ret i8 %4
 }
 
-declare noundef signext i8 @_ZNK6icu_779VTimeZone14inDaylightTimeEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288), double noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+declare noundef signext i8 @_ZNK6icu_779VTimeZone14inDaylightTimeEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288), double noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @vzone_hasSameRules_77(ptr noundef nonnull %0, ptr noundef nonnull %1) local_unnamed_addr #0 {
@@ -517,7 +511,7 @@ define noundef signext i8 @vzone_hasSameRules_77(ptr noundef nonnull %0, ptr nou
   ret i8 %3
 }
 
-declare noundef signext i8 @_ZNK6icu_779VTimeZone12hasSameRulesERKNS_8TimeZoneE(ptr noundef nonnull align 8 dereferenceable(288), ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
+declare noundef signext i8 @_ZNK6icu_779VTimeZone12hasSameRulesERKNS_8TimeZoneE(ptr noundef nonnull align 8 dereferenceable(288), ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @vzone_getNextTransition_77(ptr noundef nonnull %0, double noundef %1, i8 noundef signext %2, ptr noundef nonnull %3) local_unnamed_addr #0 {
@@ -525,7 +519,7 @@ define noundef signext i8 @vzone_getNextTransition_77(ptr noundef nonnull %0, do
   ret i8 %5
 }
 
-declare noundef signext i8 @_ZNK6icu_779VTimeZone17getNextTransitionEdaRNS_18TimeZoneTransitionE(ptr noundef nonnull align 8 dereferenceable(288), double noundef, i8 noundef signext, ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare noundef signext i8 @_ZNK6icu_779VTimeZone17getNextTransitionEdaRNS_18TimeZoneTransitionE(ptr noundef nonnull align 8 dereferenceable(288), double noundef, i8 noundef signext, ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @vzone_getPreviousTransition_77(ptr noundef nonnull %0, double noundef %1, i8 noundef signext %2, ptr noundef nonnull %3) local_unnamed_addr #0 {
@@ -533,7 +527,7 @@ define noundef signext i8 @vzone_getPreviousTransition_77(ptr noundef nonnull %0
   ret i8 %5
 }
 
-declare noundef signext i8 @_ZNK6icu_779VTimeZone21getPreviousTransitionEdaRNS_18TimeZoneTransitionE(ptr noundef nonnull align 8 dereferenceable(288), double noundef, i8 noundef signext, ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare noundef signext i8 @_ZNK6icu_779VTimeZone21getPreviousTransitionEdaRNS_18TimeZoneTransitionE(ptr noundef nonnull align 8 dereferenceable(288), double noundef, i8 noundef signext, ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @vzone_countTransitionRules_77(ptr noundef nonnull %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #0 {
@@ -541,7 +535,7 @@ define noundef i32 @vzone_countTransitionRules_77(ptr noundef nonnull %0, ptr no
   ret i32 %3
 }
 
-declare noundef i32 @_ZNK6icu_779VTimeZone20countTransitionRulesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+declare noundef i32 @_ZNK6icu_779VTimeZone20countTransitionRulesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @vzone_getStaticClassID_77(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
@@ -549,7 +543,7 @@ define noundef ptr @vzone_getStaticClassID_77(ptr noundef readnone captures(none
   ret ptr %2
 }
 
-declare noundef ptr @_ZN6icu_779VTimeZone16getStaticClassIDEv() local_unnamed_addr #2
+declare noundef ptr @_ZN6icu_779VTimeZone16getStaticClassIDEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @vzone_getDynamicClassID_77(ptr noundef nonnull %0) local_unnamed_addr #0 {
@@ -557,15 +551,21 @@ define noundef ptr @vzone_getDynamicClassID_77(ptr noundef nonnull %0) local_unn
   ret ptr %2
 }
 
-declare noundef ptr @_ZNK6icu_779VTimeZone17getDynamicClassIDEv(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #2
+declare noundef ptr @_ZNK6icu_779VTimeZone17getDynamicClassIDEv(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 attributes #8 = { allocsize(0) }
 

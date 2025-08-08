@@ -100,7 +100,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_fifd(i32 noundef %0) #0 {
   %2 = alloca %struct.info_st, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %2, i8 0, i64 208, i1 false)
   store ptr %2, ptr @cur_info, align 8, !tbaa !4
   store i1 false, ptr @cb_fail, align 4
@@ -237,15 +237,12 @@ define internal range(i32 0, 2) i32 @test_fifd(i32 noundef %0) #0 {
 
 69:                                               ; preds = %65
   store ptr null, ptr @cur_info, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -254,7 +251,7 @@ declare i32 @ossl_statm_init(ptr noundef) local_unnamed_addr #1
 declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal i64 @fake_now(ptr readnone captures(none) %0) #4 {
+define internal i64 @fake_now(ptr readnone captures(none) %0) #3 {
   %.sroa.0.0.copyload = load i64, ptr @cur_time.0, align 8, !tbaa !30
   ret i64 %.sroa.0.0.copyload
 }
@@ -270,7 +267,7 @@ declare ptr @ossl_quic_txpim_new() local_unnamed_addr #1
 declare i32 @ossl_quic_fifd_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define internal ptr @get_sstream_by_id(i64 noundef %0, i32 %1, ptr readnone captures(none) %2) #5 {
+define internal ptr @get_sstream_by_id(i64 noundef %0, i32 %1, ptr readnone captures(none) %2) #4 {
   %4 = and i64 %0, -2
   %or.cond.i = icmp eq i64 %4, 42
   br i1 %or.cond.i, label %5, label %11
@@ -293,7 +290,7 @@ sstream_expect.exit:                              ; preds = %5, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal void @regen_frame(i64 noundef %0, i64 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #6 {
+define internal void @regen_frame(i64 noundef %0, i64 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #5 {
   %5 = load i64, ptr @regen_count, align 8, !tbaa !30
   %6 = getelementptr inbounds nuw [16 x i64], ptr @regen_frame_type, i64 0, i64 %5
   store i64 %0, ptr %6, align 8, !tbaa !30
@@ -305,12 +302,12 @@ define internal void @regen_frame(i64 noundef %0, i64 noundef %1, ptr readnone c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @confirm_frame(i64 %0, i64 %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #7 {
+define internal void @confirm_frame(i64 %0, i64 %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #6 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @sstream_updated(i64 %0, ptr readnone captures(none) %1) #7 {
+define internal void @sstream_updated(i64 %0, ptr readnone captures(none) %1) #6 {
   ret void
 }
 
@@ -327,17 +324,17 @@ define internal fastcc range(i32 0, 2) i32 @test_generic(ptr noundef nonnull %0,
   %7 = alloca %struct.quic_txpim_chunk_st, align 8
   %8 = alloca %struct.ossl_quic_frame_ack_st, align 8
   %9 = alloca [1 x %struct.ossl_quic_ack_range_st], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !30
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) @__const.test_generic.chunk, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 56, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = icmp eq i32 %1, 2
   %11 = select i1 %10, i32 1, i32 2
@@ -812,13 +809,13 @@ define internal fastcc range(i32 0, 2) i32 @test_generic(ptr noundef nonnull %0,
 
 .loopexit:                                        ; preds = %78, %69, %35, %41, %48, %51, %54, %58, %22, %29, %.preheader127, %188, %191, %.preheader, %268, %126, %265, %258, %243, %250, %255, %239, %194, %197, %200, %203, %206, %209, %212, %215, %218, %221, %224, %227, %230, %233, %236, %158, %172, %154, %151, %148, %141, %127, %122, %115, %90, %95, %2
   %.0 = phi i32 [ 0, %126 ], [ 0, %151 ], [ 0, %148 ], [ 0, %141 ], [ 0, %127 ], [ 0, %255 ], [ 0, %250 ], [ 0, %243 ], [ 0, %239 ], [ 0, %236 ], [ 0, %233 ], [ 0, %230 ], [ 0, %227 ], [ 0, %224 ], [ 0, %221 ], [ 0, %218 ], [ 0, %215 ], [ 0, %212 ], [ 0, %209 ], [ 0, %206 ], [ 0, %203 ], [ 0, %200 ], [ 0, %197 ], [ 0, %194 ], [ 0, %172 ], [ 0, %158 ], [ 0, %154 ], [ 0, %265 ], [ 0, %258 ], [ 0, %122 ], [ 0, %115 ], [ 0, %95 ], [ 0, %90 ], [ 0, %2 ], [ %spec.select, %268 ], [ 0, %.preheader ], [ 0, %191 ], [ 0, %188 ], [ 0, %.preheader127 ], [ 0, %29 ], [ 0, %22 ], [ 0, %58 ], [ 0, %54 ], [ 0, %51 ], [ 0, %48 ], [ 0, %41 ], [ 0, %35 ], [ 0, %69 ], [ 0, %78 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -836,11 +833,8 @@ declare void @ossl_statm_destroy(ptr noundef) local_unnamed_addr #1
 
 declare void @ossl_quic_sstream_free(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare ptr @ossl_quic_txpim_pkt_alloc(ptr noundef) local_unnamed_addr #1
 
@@ -867,7 +861,7 @@ declare i32 @ossl_quic_txpim_pkt_append_chunk(ptr noundef, ptr noundef) local_un
 declare ptr @ossl_quic_cfq_add_frame(ptr noundef, i32 noundef, i32 noundef, i64 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @cfq_free_cb_(ptr noundef readnone captures(address) %0, i64 noundef %1, ptr readnone captures(none) %2) #9 {
+define internal void @cfq_free_cb_(ptr noundef readnone captures(address) %0, i64 noundef %1, ptr readnone captures(none) %2) #8 {
   %4 = icmp eq ptr %0, @placeholder_data
   %5 = icmp eq i64 %1, 12
   %or.cond = and i1 %4, %5
@@ -899,19 +893,25 @@ declare i32 @ossl_ackm_on_pkt_space_discarded(ptr noundef, i32 noundef) local_un
 
 declare i64 @ossl_quic_txpim_get_in_use(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.uadd.sat.i64(i64, i64) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind }
 

@@ -31,7 +31,7 @@ define void @lv_draw_sw_blend(ptr noundef %0, ptr noundef readonly captures(none
   br i1 %15, label %214, label %16
 
 16:                                               ; preds = %12, %9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %17 = load ptr, ptr %1, align 8, !tbaa !13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %19 = call zeroext i1 @lv_area_intersect(ptr noundef nonnull %3, ptr noundef %17, ptr noundef nonnull %18) #4
@@ -50,7 +50,7 @@ define void @lv_draw_sw_blend(ptr noundef %0, ptr noundef readonly captures(none
   br i1 %29, label %30, label %105
 
 30:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %31 = call i32 @lv_area_get_width(ptr noundef nonnull %3) #4
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %31, ptr %32, align 8, !tbaa !25
@@ -190,7 +190,7 @@ define void @lv_draw_sw_blend(ptr noundef %0, ptr noundef readonly captures(none
   br label %104
 
 104:                                              ; preds = %94, %103, %102, %101, %100, %99, %98, %97
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %213
 
 105:                                              ; preds = %20
@@ -210,7 +210,7 @@ define void @lv_draw_sw_blend(ptr noundef %0, ptr noundef readonly captures(none
   br i1 %113, label %114, label %213
 
 114:                                              ; preds = %112, %109
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %115 = call i32 @lv_area_get_width(ptr noundef nonnull %3) #4
   %116 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %115, ptr %116, align 8, !tbaa !45
@@ -384,66 +384,66 @@ define void @lv_draw_sw_blend(ptr noundef %0, ptr noundef readonly captures(none
   br label %212
 
 212:                                              ; preds = %.thread, %211, %210, %209, %208, %207, %206, %205
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %213
 
 213:                                              ; preds = %105, %112, %212, %104, %16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %214
 
 214:                                              ; preds = %12, %2, %213
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare zeroext i1 @lv_area_intersect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @lv_area_intersect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lv_area_get_width(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_area_get_width(ptr noundef) local_unnamed_addr #2
-
-declare i32 @lv_area_get_height(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_area_get_height(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare void @lv_area_move(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_area_move(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lv_draw_layer_go_to_xy(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @lv_draw_layer_go_to_xy(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_draw_sw_blend_color_to_rgb565(ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_sw_blend_color_to_rgb565(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_draw_sw_blend_color_to_argb8888(ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_sw_blend_color_to_argb8888(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_draw_sw_blend_color_to_rgb888(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_draw_sw_blend_color_to_rgb888(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_draw_sw_blend_color_to_l8(ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_sw_blend_color_to_l8(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_draw_sw_blend_color_to_al88(ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_sw_blend_color_to_al88(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_draw_sw_blend_color_to_i1(ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_sw_blend_color_to_i1(ptr noundef) local_unnamed_addr #1
+
+declare zeroext i8 @lv_color_format_get_bpp(i32 noundef) local_unnamed_addr #1
+
+declare void @lv_draw_sw_blend_image_to_rgb565(ptr noundef) local_unnamed_addr #1
+
+declare void @lv_draw_sw_blend_image_to_argb8888(ptr noundef) local_unnamed_addr #1
+
+declare void @lv_draw_sw_blend_image_to_rgb888(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare void @lv_draw_sw_blend_image_to_l8(ptr noundef) local_unnamed_addr #1
+
+declare void @lv_draw_sw_blend_image_to_al88(ptr noundef) local_unnamed_addr #1
+
+declare void @lv_draw_sw_blend_image_to_i1(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
-declare zeroext i8 @lv_color_format_get_bpp(i32 noundef) local_unnamed_addr #2
-
-declare void @lv_draw_sw_blend_image_to_rgb565(ptr noundef) local_unnamed_addr #2
-
-declare void @lv_draw_sw_blend_image_to_argb8888(ptr noundef) local_unnamed_addr #2
-
-declare void @lv_draw_sw_blend_image_to_rgb888(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare void @lv_draw_sw_blend_image_to_l8(ptr noundef) local_unnamed_addr #2
-
-declare void @lv_draw_sw_blend_image_to_al88(ptr noundef) local_unnamed_addr #2
-
-declare void @lv_draw_sw_blend_image_to_i1(ptr noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

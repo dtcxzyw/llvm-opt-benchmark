@@ -248,7 +248,7 @@ define hidden void @_ZN6Events4initEv() local_unnamed_addr #0 align 2 {
 14:                                               ; preds = %0
   %15 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 160, i8 noundef zeroext 9, i32 noundef 0) #10
   %16 = load i32, ptr @LogEventsBufferEntries, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8EventLog, i64 16), ptr %15, align 8
   call void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #10
   %17 = load ptr, ptr @_ZN6Events5_logsE, align 8
@@ -256,7 +256,7 @@ define hidden void @_ZN6Events4initEv() local_unnamed_addr #0 align 2 {
   store ptr %17, ptr %18, align 8
   store ptr %15, ptr @_ZN6Events5_logsE, align 8
   call void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV12EventLogBaseI22FormatStringLogMessageILm256EEE, i64 16), ptr %15, align 8
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
   call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %19, i32 noundef 0, ptr noundef nonnull @.str.4, i1 noundef zeroext true) #10
@@ -300,7 +300,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit: ; preds = %34, %14
   store ptr %15, ptr @_ZN6Events9_messagesE, align 8
   %41 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 160, i8 noundef zeroext 9, i32 noundef 0) #10
   %42 = load i32, ptr @LogEventsBufferEntries, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8EventLog, i64 16), ptr %41, align 8
   call void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #10
   %43 = load ptr, ptr @_ZN6Events5_logsE, align 8
@@ -308,7 +308,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit: ; preds = %34, %14
   store ptr %43, ptr %44, align 8
   store ptr %41, ptr @_ZN6Events5_logsE, align 8
   call void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV12EventLogBaseI22FormatStringLogMessageILm256EEE, i64 16), ptr %41, align 8
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 16
   call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %45, i32 noundef 0, ptr noundef nonnull @.str.6, i1 noundef zeroext true) #10
@@ -352,7 +352,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit33: ; preds = %60, %_ZN20FormatS
   store ptr %41, ptr @_ZN6Events23_nmethod_flush_messagesE, align 8
   %67 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 160, i8 noundef zeroext 9, i32 noundef 0) #10
   %68 = load i32, ptr @LogEventsBufferEntries, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8EventLog, i64 16), ptr %67, align 8
   call void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #10
   %69 = load ptr, ptr @_ZN6Events5_logsE, align 8
@@ -360,7 +360,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit33: ; preds = %60, %_ZN20FormatS
   store ptr %69, ptr %70, align 8
   store ptr %67, ptr @_ZN6Events5_logsE, align 8
   call void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV12EventLogBaseI22FormatStringLogMessageILm256EEE, i64 16), ptr %67, align 8
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 16
   call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %71, i32 noundef 0, ptr noundef nonnull @.str.8, i1 noundef zeroext true) #10
@@ -404,7 +404,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit34: ; preds = %86, %_ZN20FormatS
   store ptr %67, ptr @_ZN6Events20_memprotect_messagesE, align 8
   %93 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 160, i8 noundef zeroext 9, i32 noundef 0) #10
   %94 = load i32, ptr @LogEventsBufferEntries, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8EventLog, i64 16), ptr %93, align 8
   call void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #10
   %95 = load ptr, ptr @_ZN6Events5_logsE, align 8
@@ -412,7 +412,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit34: ; preds = %86, %_ZN20FormatS
   store ptr %95, ptr %96, align 8
   store ptr %93, ptr @_ZN6Events5_logsE, align 8
   call void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV12EventLogBaseI22FormatStringLogMessageILm256EEE, i64 16), ptr %93, align 8
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 16
   call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %97, i32 noundef 0, ptr noundef nonnull @.str.10, i1 noundef zeroext true) #10
@@ -461,7 +461,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit35: ; preds = %112, %_ZN20Format
 121:                                              ; preds = %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit35
   %122 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 160, i8 noundef zeroext 9, i32 noundef 0) #10
   %123 = load i32, ptr @LogEventsBufferEntries, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8EventLog, i64 16), ptr %122, align 8
   call void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #10
   %124 = load ptr, ptr @_ZN6Events5_logsE, align 8
@@ -469,7 +469,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit35: ; preds = %112, %_ZN20Format
   store ptr %124, ptr %125, align 8
   store ptr %122, ptr @_ZN6Events5_logsE, align 8
   call void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV12EventLogBaseI22FormatStringLogMessageILm256EEE, i64 16), ptr %122, align 8
   %126 = getelementptr inbounds nuw i8, ptr %122, i64 16
   call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %126, i32 noundef 0, ptr noundef nonnull @.str.12, i1 noundef zeroext true) #10
@@ -516,7 +516,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit36: ; preds = %141, %121
 148:                                              ; preds = %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit36, %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit35
   %149 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 160, i8 noundef zeroext 9, i32 noundef 0) #10
   %150 = load i32, ptr @LogEventsBufferEntries, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8EventLog, i64 16), ptr %149, align 8
   call void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #10
   %151 = load ptr, ptr @_ZN6Events5_logsE, align 8
@@ -524,7 +524,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit36: ; preds = %141, %121
   store ptr %151, ptr %152, align 8
   store ptr %149, ptr @_ZN6Events5_logsE, align 8
   call void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV12EventLogBaseI22FormatStringLogMessageILm512EEE, i64 16), ptr %149, align 8
   %153 = getelementptr inbounds nuw i8, ptr %149, i64 16
   call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %153, i32 noundef 0, ptr noundef nonnull @.str.14, i1 noundef zeroext true) #10
@@ -568,7 +568,7 @@ _ZN18ExceptionsEventLogC2EPKcS1_i.exit:           ; preds = %168, %148
   store ptr %149, ptr @_ZN6Events11_exceptionsE, align 8
   %175 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 160, i8 noundef zeroext 9, i32 noundef 0) #10
   %176 = load i32, ptr @LogEventsBufferEntries, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8EventLog, i64 16), ptr %175, align 8
   call void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #10
   %177 = load ptr, ptr @_ZN6Events5_logsE, align 8
@@ -576,7 +576,7 @@ _ZN18ExceptionsEventLogC2EPKcS1_i.exit:           ; preds = %168, %148
   store ptr %177, ptr %178, align 8
   store ptr %175, ptr @_ZN6Events5_logsE, align 8
   call void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV12EventLogBaseI22FormatStringLogMessageILm256EEE, i64 16), ptr %175, align 8
   %179 = getelementptr inbounds nuw i8, ptr %175, i64 16
   call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %179, i32 noundef 0, ptr noundef nonnull @.str.16, i1 noundef zeroext true) #10
@@ -620,7 +620,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit37: ; preds = %194, %_ZN18Except
   store ptr %175, ptr @_ZN6Events14_redefinitionsE, align 8
   %201 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 160, i8 noundef zeroext 9, i32 noundef 0) #10
   %202 = load i32, ptr @LogEventsBufferEntries, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8EventLog, i64 16), ptr %201, align 8
   call void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #10
   %203 = load ptr, ptr @_ZN6Events5_logsE, align 8
@@ -628,7 +628,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit37: ; preds = %194, %_ZN18Except
   store ptr %203, ptr %204, align 8
   store ptr %201, ptr @_ZN6Events5_logsE, align 8
   call void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV12EventLogBaseI22FormatStringLogMessageILm256EEE, i64 16), ptr %201, align 8
   %205 = getelementptr inbounds nuw i8, ptr %201, i64 16
   call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %205, i32 noundef 0, ptr noundef nonnull @.str.18, i1 noundef zeroext true) #10
@@ -672,7 +672,7 @@ _ZN17UnloadingEventLogC2EPKcS1_i.exit:            ; preds = %220, %_ZN20FormatSt
   store ptr %201, ptr @_ZN6Events16_class_unloadingE, align 8
   %227 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 160, i8 noundef zeroext 9, i32 noundef 0) #10
   %228 = load i32, ptr @LogEventsBufferEntries, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8EventLog, i64 16), ptr %227, align 8
   call void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #10
   %229 = load ptr, ptr @_ZN6Events5_logsE, align 8
@@ -680,7 +680,7 @@ _ZN17UnloadingEventLogC2EPKcS1_i.exit:            ; preds = %220, %_ZN20FormatSt
   store ptr %229, ptr %230, align 8
   store ptr %227, ptr @_ZN6Events5_logsE, align 8
   call void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV12EventLogBaseI22FormatStringLogMessageILm256EEE, i64 16), ptr %227, align 8
   %231 = getelementptr inbounds nuw i8, ptr %227, i64 16
   call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %231, i32 noundef 0, ptr noundef nonnull @.str.20, i1 noundef zeroext true) #10
@@ -724,7 +724,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit38: ; preds = %246, %_ZN17Unload
   store ptr %227, ptr @_ZN6Events14_class_loadingE, align 8
   %253 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 160, i8 noundef zeroext 9, i32 noundef 0) #10
   %254 = load i32, ptr @LogEventsBufferEntries, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8EventLog, i64 16), ptr %253, align 8
   call void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #10
   %255 = load ptr, ptr @_ZN6Events5_logsE, align 8
@@ -732,7 +732,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit38: ; preds = %246, %_ZN17Unload
   store ptr %255, ptr %256, align 8
   store ptr %253, ptr @_ZN6Events5_logsE, align 8
   call void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV12EventLogBaseI22FormatStringLogMessageILm256EEE, i64 16), ptr %253, align 8
   %257 = getelementptr inbounds nuw i8, ptr %253, i64 16
   call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %257, i32 noundef 0, ptr noundef nonnull @.str.22, i1 noundef zeroext true) #10
@@ -776,7 +776,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit39: ; preds = %272, %_ZN20Format
   store ptr %253, ptr @_ZN6Events15_deopt_messagesE, align 8
   %279 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 160, i8 noundef zeroext 9, i32 noundef 0) #10
   %280 = load i32, ptr @LogEventsBufferEntries, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV8EventLog, i64 16), ptr %279, align 8
   call void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #10
   %281 = load ptr, ptr @_ZN6Events5_logsE, align 8
@@ -784,7 +784,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit39: ; preds = %272, %_ZN20Format
   store ptr %281, ptr %282, align 8
   store ptr %279, ptr @_ZN6Events5_logsE, align 8
   call void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV12EventLogBaseI22FormatStringLogMessageILm256EEE, i64 16), ptr %279, align 8
   %283 = getelementptr inbounds nuw i8, ptr %279, i64 16
   call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %283, i32 noundef 0, ptr noundef nonnull @.str.24, i1 noundef zeroext true) #10
@@ -1729,10 +1729,10 @@ declare void @llvm.va_end.p0(ptr) #8
 declare noundef double @_ZN2os11elapsedTimeEv() local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

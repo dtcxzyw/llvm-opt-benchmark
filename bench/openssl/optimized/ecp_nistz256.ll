@@ -37,14 +37,8 @@ define noundef ptr @EC_nistz256_pre_comp_dup(ptr noundef returned captures(addre
   ret ptr %0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
-define void @EC_nistz256_pre_comp_free(ptr noundef %0) local_unnamed_addr #2 {
+define void @EC_nistz256_pre_comp_free(ptr noundef %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %11, label %3
 
@@ -73,45 +67,45 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %3
   ret void
 }
 
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @EC_GFp_nistz256_method() local_unnamed_addr #4 {
+define noundef nonnull ptr @EC_GFp_nistz256_method() local_unnamed_addr #3 {
   ret ptr @EC_GFp_nistz256_method.ret
 }
 
-declare i32 @ossl_ec_GFp_mont_group_init(ptr noundef) #3
+declare i32 @ossl_ec_GFp_mont_group_init(ptr noundef) #2
 
-declare void @ossl_ec_GFp_mont_group_finish(ptr noundef) #3
+declare void @ossl_ec_GFp_mont_group_finish(ptr noundef) #2
 
-declare void @ossl_ec_GFp_mont_group_clear_finish(ptr noundef) #3
+declare void @ossl_ec_GFp_mont_group_clear_finish(ptr noundef) #2
 
-declare i32 @ossl_ec_GFp_mont_group_copy(ptr noundef, ptr noundef) #3
+declare i32 @ossl_ec_GFp_mont_group_copy(ptr noundef, ptr noundef) #2
 
-declare i32 @ossl_ec_GFp_mont_group_set_curve(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare i32 @ossl_ec_GFp_mont_group_set_curve(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @ossl_ec_GFp_simple_group_get_curve(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare i32 @ossl_ec_GFp_simple_group_get_curve(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @ossl_ec_GFp_simple_group_get_degree(ptr noundef) #3
+declare i32 @ossl_ec_GFp_simple_group_get_degree(ptr noundef) #2
 
-declare i32 @ossl_ec_group_simple_order_bits(ptr noundef) #3
+declare i32 @ossl_ec_group_simple_order_bits(ptr noundef) #2
 
-declare i32 @ossl_ec_GFp_simple_group_check_discriminant(ptr noundef, ptr noundef) #3
+declare i32 @ossl_ec_GFp_simple_group_check_discriminant(ptr noundef, ptr noundef) #2
 
-declare i32 @ossl_ec_GFp_simple_point_init(ptr noundef) #3
+declare i32 @ossl_ec_GFp_simple_point_init(ptr noundef) #2
 
-declare void @ossl_ec_GFp_simple_point_finish(ptr noundef) #3
+declare void @ossl_ec_GFp_simple_point_finish(ptr noundef) #2
 
-declare void @ossl_ec_GFp_simple_point_clear_finish(ptr noundef) #3
+declare void @ossl_ec_GFp_simple_point_clear_finish(ptr noundef) #2
 
-declare i32 @ossl_ec_GFp_simple_point_copy(ptr noundef, ptr noundef) #3
+declare i32 @ossl_ec_GFp_simple_point_copy(ptr noundef, ptr noundef) #2
 
-declare i32 @ossl_ec_GFp_simple_point_set_to_infinity(ptr noundef, ptr noundef) #3
+declare i32 @ossl_ec_GFp_simple_point_set_to_infinity(ptr noundef, ptr noundef) #2
 
-declare i32 @ossl_ec_GFp_simple_point_set_affine_coordinates(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare i32 @ossl_ec_GFp_simple_point_set_affine_coordinates(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ecp_nistz256_get_affine(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #2 {
+define internal range(i32 0, 2) i32 @ecp_nistz256_get_affine(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = alloca [4 x i64], align 16
   %7 = alloca [4 x i64], align 16
   %8 = alloca [4 x i64], align 16
@@ -127,15 +121,15 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_get_affine(ptr noundef %0, ptr
   %18 = alloca [4 x i64], align 16
   %19 = alloca [4 x i64], align 16
   %20 = alloca [4 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18) #7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %21 = tail call i32 @EC_POINT_is_at_infinity(ptr noundef %0, ptr noundef %1) #7
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %23, label %22
@@ -174,12 +168,12 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_get_affine(ptr noundef %0, ptr
   br label %63
 
 36:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %18) #7
   call void @ecp_nistz256_mul_mont(ptr noundef nonnull %6, ptr noundef nonnull %11, ptr noundef nonnull %18) #7
   call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %6) #7
@@ -282,12 +276,12 @@ ecp_nistz256_mod_inverse.exit:                    ; preds = %55
   call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #7
   call void @ecp_nistz256_mul_mont(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %18) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %13, ptr noundef nonnull align 16 dereferenceable(32) %11, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %12, ptr noundef nonnull %13) #7
   call void @ecp_nistz256_mul_mont(ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull %16) #7
   %.not14 = icmp eq ptr %2, null
@@ -316,43 +310,43 @@ ecp_nistz256_mod_inverse.exit:                    ; preds = %55
 
 63:                                               ; preds = %60, %57, %62, %35, %22
   %.0 = phi i32 [ 0, %22 ], [ 1, %62 ], [ 0, %35 ], [ 0, %57 ], [ 0, %60 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
 }
 
-declare i32 @ossl_ec_GFp_simple_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare i32 @ossl_ec_GFp_simple_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @ossl_ec_GFp_simple_dbl(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare i32 @ossl_ec_GFp_simple_dbl(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @ossl_ec_GFp_simple_invert(ptr noundef, ptr noundef, ptr noundef) #3
+declare i32 @ossl_ec_GFp_simple_invert(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @ossl_ec_GFp_simple_is_at_infinity(ptr noundef, ptr noundef) #3
+declare i32 @ossl_ec_GFp_simple_is_at_infinity(ptr noundef, ptr noundef) #2
 
-declare i32 @ossl_ec_GFp_simple_is_on_curve(ptr noundef, ptr noundef, ptr noundef) #3
+declare i32 @ossl_ec_GFp_simple_is_on_curve(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @ossl_ec_GFp_simple_cmp(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare i32 @ossl_ec_GFp_simple_cmp(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @ossl_ec_GFp_simple_make_affine(ptr noundef, ptr noundef, ptr noundef) #3
+declare i32 @ossl_ec_GFp_simple_make_affine(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #3
+declare i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef %6) #2 {
+define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef %6) #1 {
   %8 = alloca [33 x i8], align 16
   %9 = alloca %union.anon, align 32
   %10 = alloca %union.anon, align 32
-  call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(33) %8, i8 0, i64 33, i1 false)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %9) #7
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = add i64 %3, 1
   %or.cond = icmp ugt i64 %3, 268435454
   br i1 %or.cond, label %12, label %13
@@ -1187,14 +1181,14 @@ is_one.exit:                                      ; preds = %485, %490
 
 507:                                              ; preds = %.thread, %12
   %.0 = phi i32 [ 0, %12 ], [ %.0133, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ecp_nistz256_mult_precompute(ptr noundef %0, ptr noundef %1) #2 {
+define internal range(i32 0, 2) i32 @ecp_nistz256_mult_precompute(ptr noundef %0, ptr noundef %1) #1 {
   %3 = alloca %struct.P256_POINT_AFFINE, align 8
   tail call void @EC_pre_comp_free(ptr noundef %0) #7
   %4 = tail call ptr @EC_GROUP_get0_generator(ptr noundef %0) #7
@@ -1298,7 +1292,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_mult_precompute(ptr noundef %0
 
 .preheader:                                       ; preds = %48, %69
   %indvars.iv = phi i64 [ %indvars.iv.next, %69 ], [ 0, %48 ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %50 = load ptr, ptr %0, align 8, !tbaa !50
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 208
   %52 = load ptr, ptr %51, align 8, !tbaa !51
@@ -1345,11 +1339,11 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_mult_precompute(ptr noundef %0
   br i1 %.not97, label %.thread, label %65
 
 .thread:                                          ; preds = %54, %.preheader, %67, %62
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
 69:                                               ; preds = %65
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next, 37
   br i1 %exitcond109.not, label %70, label %.preheader, !llvm.loop !54
@@ -1418,7 +1412,7 @@ ecp_nistz256_pre_comp_new.exit.thread:            ; preds = %10, %9, %7, %EC_nis
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ecp_nistz256_window_have_precompute_mult(ptr noundef %0) #2 {
+define internal range(i32 0, 2) i32 @ecp_nistz256_window_have_precompute_mult(ptr noundef %0) #1 {
   %2 = tail call ptr @EC_GROUP_get0_generator(ptr noundef %0) #7
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %3
@@ -1446,44 +1440,44 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_window_have_precompute_mult(pt
   ret i32 %.0
 }
 
-declare i32 @ossl_ec_GFp_mont_field_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare i32 @ossl_ec_GFp_mont_field_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @ossl_ec_GFp_mont_field_sqr(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare i32 @ossl_ec_GFp_mont_field_sqr(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @ossl_ec_GFp_mont_field_inv(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare i32 @ossl_ec_GFp_mont_field_inv(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @ossl_ec_GFp_mont_field_encode(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare i32 @ossl_ec_GFp_mont_field_encode(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @ossl_ec_GFp_mont_field_decode(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare i32 @ossl_ec_GFp_mont_field_decode(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @ossl_ec_GFp_mont_field_set_to_one(ptr noundef, ptr noundef, ptr noundef) #3
+declare i32 @ossl_ec_GFp_mont_field_set_to_one(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i64 @ossl_ec_key_simple_priv2oct(ptr noundef, ptr noundef, i64 noundef) #3
+declare i64 @ossl_ec_key_simple_priv2oct(ptr noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @ossl_ec_key_simple_oct2priv(ptr noundef, ptr noundef, i64 noundef) #3
+declare i32 @ossl_ec_key_simple_oct2priv(ptr noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @ossl_ec_key_simple_generate_key(ptr noundef) #3
+declare i32 @ossl_ec_key_simple_generate_key(ptr noundef) #2
 
-declare i32 @ossl_ec_key_simple_check_key(ptr noundef) #3
+declare i32 @ossl_ec_key_simple_check_key(ptr noundef) #2
 
-declare i32 @ossl_ec_key_simple_generate_public_key(ptr noundef) #3
+declare i32 @ossl_ec_key_simple_generate_public_key(ptr noundef) #2
 
-declare i32 @ossl_ecdh_simple_compute_key(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare i32 @ossl_ecdh_simple_compute_key(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @ossl_ecdsa_simple_sign_setup(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare i32 @ossl_ecdsa_simple_sign_setup(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @ossl_ecdsa_simple_sign_sig(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare ptr @ossl_ecdsa_simple_sign_sig(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @ossl_ecdsa_simple_verify_sig(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #3
+declare i32 @ossl_ecdsa_simple_verify_sig(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ecp_nistz256_inv_mod_ord(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+define internal range(i32 0, 2) i32 @ecp_nistz256_inv_mod_ord(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = alloca [15 x [4 x i64]], align 16
   %6 = alloca [4 x i64], align 16
   %7 = alloca [4 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call ptr @bn_wexpand(ptr noundef %1, i32 noundef 4) #7
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
@@ -1594,14 +1588,14 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_inv_mod_ord(ptr noundef readon
 
 50:                                               ; preds = %23, %48, %10, %25
   %.018 = phi i32 [ 0, %10 ], [ 0, %25 ], [ 0, %23 ], [ %spec.select, %48 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.018
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ecp_nistz256group_full_init(ptr noundef %0, ptr noundef %1) #2 {
+define internal range(i32 0, 2) i32 @ecp_nistz256group_full_init(ptr noundef %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8, !tbaa !48
   %5 = tail call ptr @BN_CTX_new_ex(ptr noundef %4) #7
@@ -1834,44 +1828,44 @@ define internal range(i32 0, 2) i32 @ecp_nistz256group_full_init(ptr noundef %0,
   ret i32 %.071
 }
 
-declare i32 @EC_POINT_is_at_infinity(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @EC_POINT_is_at_infinity(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ERR_new() local_unnamed_addr #3
+declare void @ERR_new() local_unnamed_addr #2
 
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @ecp_nistz256_sqr_mont(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @ecp_nistz256_sqr_mont(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ecp_nistz256_mul_mont(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @ecp_nistz256_mul_mont(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ecp_nistz256_from_mont(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @ecp_nistz256_from_mont(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @bn_set_words(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @bn_set_words(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @bn_copy_words(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @bn_copy_words(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-declare void @BN_CTX_start(ptr noundef) local_unnamed_addr #3
+declare void @BN_CTX_start(ptr noundef) local_unnamed_addr #2
 
-declare ptr @EC_GROUP_get0_generator(ptr noundef) local_unnamed_addr #3
+declare ptr @EC_GROUP_get0_generator(ptr noundef) local_unnamed_addr #2
 
-declare ptr @EC_POINT_new(ptr noundef) local_unnamed_addr #3
+declare ptr @EC_POINT_new(ptr noundef) local_unnamed_addr #2
 
-declare void @ecp_nistz256_gather_w7(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @ecp_nistz256_gather_w7(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @EC_POINT_free(ptr noundef) local_unnamed_addr #3
+declare void @EC_POINT_free(ptr noundef) local_unnamed_addr #2
 
-declare i32 @EC_POINT_cmp(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @EC_POINT_cmp(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ecp_nistz256_is_affine_G(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @ecp_nistz256_is_affine_G(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = tail call i32 @bn_get_top(ptr noundef %3) #7
@@ -1954,93 +1948,99 @@ is_one.exit:                                      ; preds = %45, %39, %25, %11, 
   ret i32 %61
 }
 
-declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #3
+declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_is_negative(ptr noundef) local_unnamed_addr #3
+declare i32 @BN_is_negative(ptr noundef) local_unnamed_addr #2
 
-declare ptr @BN_CTX_get(ptr noundef) local_unnamed_addr #3
+declare ptr @BN_CTX_get(ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_nnmod(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_nnmod(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @bn_get_top(ptr noundef) local_unnamed_addr #3
+declare i32 @bn_get_top(ptr noundef) local_unnamed_addr #2
 
-declare ptr @bn_get_words(ptr noundef) local_unnamed_addr #3
+declare ptr @bn_get_words(ptr noundef) local_unnamed_addr #2
 
-declare void @ecp_nistz256_neg(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @ecp_nistz256_neg(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ecp_nistz256_point_add_affine(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @ecp_nistz256_point_add_affine(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ecp_nistz256_point_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @ecp_nistz256_point_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #3
+declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #2
 
-declare void @ecp_nistz256_scatter_w5(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @ecp_nistz256_scatter_w5(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ecp_nistz256_point_double(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @ecp_nistz256_point_double(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ecp_nistz256_gather_w5(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @ecp_nistz256_gather_w5(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @EC_pre_comp_free(ptr noundef) local_unnamed_addr #3
+declare void @EC_pre_comp_free(ptr noundef) local_unnamed_addr #2
 
-declare ptr @BN_CTX_new_ex(ptr noundef) local_unnamed_addr #3
+declare ptr @BN_CTX_new_ex(ptr noundef) local_unnamed_addr #2
 
-declare ptr @EC_GROUP_get0_order(ptr noundef) local_unnamed_addr #3
+declare ptr @EC_GROUP_get0_order(ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #3
+declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #2
 
-declare i32 @EC_POINT_copy(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @EC_POINT_copy(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ecp_nistz256_scatter_w7(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @ecp_nistz256_scatter_w7(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @EC_POINT_dbl(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @EC_POINT_dbl(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @EC_POINT_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @EC_POINT_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #3
+declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #2
 
-declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @bn_wexpand(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @bn_wexpand(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ecp_nistz256_ord_mul_mont(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @ecp_nistz256_ord_mul_mont(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ecp_nistz256_ord_sqr_mont(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @ecp_nistz256_ord_sqr_mont(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i64 @EC_GROUP_set_seed(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @EC_GROUP_set_seed(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @BN_bin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @BN_bin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @BN_MONT_CTX_new() local_unnamed_addr #3
+declare ptr @BN_MONT_CTX_new() local_unnamed_addr #2
 
-declare i32 @ossl_bn_mont_ctx_set(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @ossl_bn_mont_ctx_set(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @BN_new() local_unnamed_addr #3
+declare ptr @BN_new() local_unnamed_addr #2
 
-declare i32 @BN_to_montgomery(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_to_montgomery(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @BN_value_one() local_unnamed_addr #3
+declare ptr @BN_value_one() local_unnamed_addr #2
 
-declare i32 @ossl_ec_GFp_simple_group_set_curve(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ossl_ec_GFp_simple_group_set_curve(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @EC_POINT_set_affine_coordinates(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @EC_POINT_set_affine_coordinates(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_set_word(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @BN_set_word(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @BN_copy(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @BN_copy(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @BN_MONT_CTX_free(ptr noundef) local_unnamed_addr #3
+declare void @BN_MONT_CTX_free(ptr noundef) local_unnamed_addr #2
 
-declare void @BN_free(ptr noundef) local_unnamed_addr #3
+declare void @BN_free(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

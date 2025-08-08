@@ -428,21 +428,18 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 declare noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS8_S8_NS0_12CodeLocationEPKvPFvvESD_PNS0_15TestFactoryBaseE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @__gxx_personality_v0(...)
 
 declare noundef ptr @_ZN7testing8internal13GetTestTypeIdEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.testing::internal::GTestLog", align 4
   %4 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
   br i1 %4, label %24, label %5
 
 5:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN7testing8internal8GTestLogC1ENS0_16GTestLogSeverityEPKci(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 3, ptr noundef nonnull @.str.12, i32 noundef 513)
   %6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.13, i64 noundef 50)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %22
@@ -481,14 +478,14 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit13: ; preds = %_ZStl
 
 21:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit13
   call void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %3) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %24
 
 22:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit11, %16, %8, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %5, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit13
   %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %3) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %23
 
 24:                                               ; preds = %2, %21
@@ -496,13 +493,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit13: ; preds = %_ZStl
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.testing::internal::GTestLog", align 4
   %4 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
   br i1 %4, label %24, label %5
 
 5:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN7testing8internal8GTestLogC1ENS0_16GTestLogSeverityEPKci(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 3, ptr noundef nonnull @.str.12, i32 noundef 534)
   %6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.13, i64 noundef 50)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %22
@@ -541,14 +538,14 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit13: ; preds = %_ZStl
 
 21:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit13
   call void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %3) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %24
 
 22:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit11, %16, %8, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %5, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit13
   %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %3) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %23
 
 24:                                               ; preds = %2, %21
@@ -556,16 +553,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit13: ; preds = %_ZStl
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #3
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
@@ -577,7 +571,7 @@ define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_133std
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_133std_mt19937_64_Compatibility_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_133std_mt19937_64_Compatibility_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %3 unwind label %4
@@ -607,7 +601,7 @@ declare void @_ZN7testing4Test5SetUpEv(ptr noundef nonnull align 8 dereferenceab
 declare void @_ZN7testing4Test8TearDownEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_133std_mt19937_64_Compatibility_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_133std_mt19937_64_Compatibility_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.absl::uint128", align 16
   %3 = alloca %"class.absl::uint128", align 16
   %4 = alloca %"class.absl::uint128", align 16
@@ -655,7 +649,7 @@ define internal void @_ZN12_GLOBAL__N_133std_mt19937_64_Compatibility_Test8TestB
   %46 = alloca %"class.std::mersenne_twister_engine", align 8
   %47 = alloca %"class.std::mersenne_twister_engine", align 8
   %48 = alloca %"class.std::mersenne_twister_engine", align 8
-  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %48) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   store i64 5489, ptr %48, align 8, !tbaa !20
   br label %49
 
@@ -1154,7 +1148,7 @@ _ZN4absl7UniformIdNS_21IntervalClosedOpenTagERSt23mersenne_twister_engineImLm64E
   br i1 %322, label %.lr.ph.i.i.i.i.i.i169.i.i, label %.loopexit206.i.i, !llvm.loop !26
 
 .loopexit206.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.i169.i.i, %317, %.noexc170.i.i
-  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %46) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   store i64 5489, ptr %46, align 8, !tbaa !20
   br label %323
 
@@ -1192,8 +1186,8 @@ _ZN4absl7UniformIdNS_21IntervalClosedOpenTagERSt23mersenne_twister_engineImLm64E
   br i1 %341, label %.lr.ph.i.i.i.i.i.i175.i.i, label %.loopexit.i.i, !llvm.loop !26
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i175.i.i, %336, %.noexc176.i.i
-  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %46) #19
-  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %47) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   store i64 5489, ptr %47, align 8, !tbaa !20
   br label %342
 
@@ -1233,7 +1227,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %361, label %.split.i.i.i181.i.i, label %_ZN12_GLOBAL__N_111TestUniformISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i
 
 _ZN12_GLOBAL__N_111TestUniformISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i183.i.i, %.split.i.i.i181.i.i
-  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %47) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %362 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
   %363 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %362, i1 false)
   %364 = trunc nuw nsw i64 %363 to i32
@@ -1273,7 +1267,7 @@ cdce.call1:                                       ; preds = %cdce.end.i.i
   br label %cdce.end5.i.i
 
 cdce.end5.i.i:                                    ; preds = %cdce.call1, %cdce.end.i.i
-  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %45) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store i64 5489, ptr %45, align 8, !tbaa !20
   br label %387
 
@@ -1311,64 +1305,64 @@ cdce.call3:                                       ; preds = %_ZNSt23mersenne_twi
   br label %_ZN12_GLOBAL__N_115TestExponentialISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i
 
 _ZN12_GLOBAL__N_115TestExponentialISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i: ; preds = %cdce.call3, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEC2Ev.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %45) #19
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %43) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   store double 1.000000e+00, ptr %43, align 8, !tbaa !33
   %407 = getelementptr inbounds nuw i8, ptr %43, i64 40
   store i32 1, ptr %407, align 8, !tbaa !36
   %408 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store double 0x3FD78B56362CEF38, ptr %408, align 8, !tbaa !37
   %409 = call noundef i32 @_ZN4absl20poisson_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %43, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(49) %43)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %43) #19
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %42) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store double 1.000000e+00, ptr %42, align 8, !tbaa !38
   %410 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store i32 1, ptr %410, align 8, !tbaa !40
   %411 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store double 0x3FD78B56362CEF38, ptr %411, align 8, !tbaa !37
   %412 = call noundef signext i16 @_ZN4absl20poisson_distributionIsEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %42, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(49) %42)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %42) #19
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %41) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store double 1.000000e+00, ptr %41, align 8, !tbaa !41
   %413 = getelementptr inbounds nuw i8, ptr %41, i64 40
   store i32 1, ptr %413, align 8, !tbaa !43
   %414 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store double 0x3FD78B56362CEF38, ptr %414, align 8, !tbaa !37
   %415 = call noundef zeroext i16 @_ZN4absl20poisson_distributionItEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %41, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(49) %41)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %41) #19
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %40) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store double 1.000000e+00, ptr %40, align 8, !tbaa !33
   %416 = getelementptr inbounds nuw i8, ptr %40, i64 40
   store i32 1, ptr %416, align 8, !tbaa !36
   %417 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store double 0x3FD78B56362CEF38, ptr %417, align 8, !tbaa !37
   %418 = call noundef i32 @_ZN4absl20poisson_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %40, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(49) %40)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %40) #19
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %39) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store double 1.000000e+00, ptr %39, align 8, !tbaa !44
   %419 = getelementptr inbounds nuw i8, ptr %39, i64 40
   store i32 1, ptr %419, align 8, !tbaa !46
   %420 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store double 0x3FD78B56362CEF38, ptr %420, align 8, !tbaa !37
   %421 = call noundef i32 @_ZN4absl20poisson_distributionIjEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %39, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(49) %39)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %39) #19
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %38) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store double 1.000000e+00, ptr %38, align 8, !tbaa !47
   %422 = getelementptr inbounds nuw i8, ptr %38, i64 40
   store i32 1, ptr %422, align 8, !tbaa !49
   %423 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store double 0x3FD78B56362CEF38, ptr %423, align 8, !tbaa !37
   %424 = call noundef i64 @_ZN4absl20poisson_distributionIlEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %38, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(49) %38)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %38) #19
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %37) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store double 1.000000e+00, ptr %37, align 8, !tbaa !50
   %425 = getelementptr inbounds nuw i8, ptr %37, i64 40
   store i32 1, ptr %425, align 8, !tbaa !52
   %426 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store double 0x3FD78B56362CEF38, ptr %426, align 8, !tbaa !37
   %427 = call noundef i64 @_ZN4absl20poisson_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %37, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(49) %37)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %37) #19
-  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %44) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store i64 5489, ptr %44, align 8, !tbaa !20
   br label %428
 
@@ -1388,34 +1382,34 @@ _ZN12_GLOBAL__N_115TestExponentialISt23mersenne_twister_engineImLm64ELm312ELm156
 _ZN12_GLOBAL__N_111TestPoissonISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i: ; preds = %428
   %436 = getelementptr inbounds nuw i8, ptr %44, i64 2496
   store i64 312, ptr %436, align 8, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %36) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store double 1.000000e+00, ptr %36, align 8, !tbaa !50
   %437 = getelementptr inbounds nuw i8, ptr %36, i64 40
   store i32 1, ptr %437, align 8, !tbaa !52
   %438 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store double 0x3FD78B56362CEF38, ptr %438, align 8, !tbaa !37
   %439 = call noundef i64 @_ZN4absl20poisson_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %36, ptr noundef nonnull align 8 dereferenceable(2504) %44, ptr noundef nonnull align 8 dereferenceable(49) %36)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %36) #19
-  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %44) #19
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %35) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store double 1.000000e+00, ptr %35, align 8, !tbaa !53
   %440 = getelementptr inbounds nuw i8, ptr %35, i64 40
   store i32 1, ptr %440, align 8, !tbaa !55
   %441 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store double 0x3FD78B56362CEF38, ptr %441, align 8, !tbaa !37
   %442 = call { i64, i64 } @_ZN4absl20poisson_distributionINS_6int128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %35, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(49) %35)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %35) #19
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %34) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store double 1.000000e+00, ptr %34, align 8, !tbaa !56
   %443 = getelementptr inbounds nuw i8, ptr %34, i64 40
   store i32 1, ptr %443, align 8, !tbaa !58
   %444 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store double 0x3FD78B56362CEF38, ptr %444, align 8, !tbaa !37
   %445 = call { i64, i64 } @_ZN4absl20poisson_distributionINS_7uint128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %34, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(49) %34)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %34) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %446 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
   %447 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %32) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i32 100, ptr %32, align 8, !tbaa !59
   %448 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store double 2.000000e+00, ptr %448, align 8, !tbaa !61
@@ -1432,8 +1426,8 @@ _ZN12_GLOBAL__N_111TestPoissonISt23mersenne_twister_engineImLm64ELm312ELm156ELm3
   %454 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store double 0x3FDD89D89D89D898, ptr %454, align 8, !tbaa !67
   %455 = call noundef i32 @_ZN4absl17zipf_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %32, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(64) %32)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %32) #19
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %31) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i8 100, ptr %31, align 8, !tbaa !68
   %456 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store double 2.000000e+00, ptr %456, align 8, !tbaa !70
@@ -1450,8 +1444,8 @@ _ZN12_GLOBAL__N_111TestPoissonISt23mersenne_twister_engineImLm64ELm312ELm156ELm3
   %462 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store double 0x3FDD89D89D89D898, ptr %462, align 8, !tbaa !76
   %463 = call noundef signext i8 @_ZN4absl17zipf_distributionIaEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEaRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(64) %31)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %31) #19
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %30) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i16 100, ptr %30, align 8, !tbaa !77
   %464 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store double 2.000000e+00, ptr %464, align 8, !tbaa !80
@@ -1468,8 +1462,8 @@ _ZN12_GLOBAL__N_111TestPoissonISt23mersenne_twister_engineImLm64ELm312ELm156ELm3
   %470 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store double 0x3FDD89D89D89D898, ptr %470, align 8, !tbaa !86
   %471 = call noundef signext i16 @_ZN4absl17zipf_distributionIsEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %30, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(64) %30)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %30) #19
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %29) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i16 100, ptr %29, align 8, !tbaa !87
   %472 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store double 2.000000e+00, ptr %472, align 8, !tbaa !89
@@ -1486,8 +1480,8 @@ _ZN12_GLOBAL__N_111TestPoissonISt23mersenne_twister_engineImLm64ELm312ELm156ELm3
   %478 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store double 0x3FDD89D89D89D898, ptr %478, align 8, !tbaa !95
   %479 = call noundef zeroext i16 @_ZN4absl17zipf_distributionItEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %29, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(64) %29)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %29) #19
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %28) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store i32 1024, ptr %28, align 8, !tbaa !59
   %480 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store double 2.000000e+00, ptr %480, align 8, !tbaa !61
@@ -1504,8 +1498,8 @@ _ZN12_GLOBAL__N_111TestPoissonISt23mersenne_twister_engineImLm64ELm312ELm156ELm3
   %486 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store double 0x3FDD89D89D89D898, ptr %486, align 8, !tbaa !67
   %487 = call noundef i32 @_ZN4absl17zipf_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %28, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(64) %28)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %28) #19
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %27) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i32 1024, ptr %27, align 8, !tbaa !96
   %488 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store double 2.000000e+00, ptr %488, align 8, !tbaa !98
@@ -1522,8 +1516,8 @@ _ZN12_GLOBAL__N_111TestPoissonISt23mersenne_twister_engineImLm64ELm312ELm156ELm3
   %494 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store double 0x3FDD89D89D89D898, ptr %494, align 8, !tbaa !104
   %495 = call noundef i32 @_ZN4absl17zipf_distributionIjEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %27, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(64) %27)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %27) #19
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %26) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i64 1024, ptr %26, align 8, !tbaa !105
   %496 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store double 2.000000e+00, ptr %496, align 8, !tbaa !107
@@ -1540,8 +1534,8 @@ _ZN12_GLOBAL__N_111TestPoissonISt23mersenne_twister_engineImLm64ELm312ELm156ELm3
   %502 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store double 0x3FDD89D89D89D898, ptr %502, align 8, !tbaa !113
   %503 = call noundef i64 @_ZN4absl17zipf_distributionIlEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %26, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(64) %26)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %26) #19
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %25) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i64 1024, ptr %25, align 8, !tbaa !114
   %504 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store double 2.000000e+00, ptr %504, align 8, !tbaa !116
@@ -1558,8 +1552,8 @@ _ZN12_GLOBAL__N_111TestPoissonISt23mersenne_twister_engineImLm64ELm312ELm156ELm3
   %510 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store double 0x3FDD89D89D89D898, ptr %510, align 8, !tbaa !122
   %511 = call noundef i64 @_ZN4absl17zipf_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %25, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(64) %25)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %25) #19
-  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %33) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i64 5489, ptr %33, align 8, !tbaa !20
   br label %512
 
@@ -1579,7 +1573,7 @@ _ZN12_GLOBAL__N_111TestPoissonISt23mersenne_twister_engineImLm64ELm312ELm156ELm3
 _ZN12_GLOBAL__N_18TestZipfISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i: ; preds = %512
   %520 = getelementptr inbounds nuw i8, ptr %33, i64 2496
   store i64 312, ptr %520, align 8, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %24) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i64 1024, ptr %24, align 8, !tbaa !114
   %521 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store double 2.000000e+00, ptr %521, align 8, !tbaa !116
@@ -1596,9 +1590,9 @@ _ZN12_GLOBAL__N_18TestZipfISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm
   %527 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store double 0x3FDD89D89D89D898, ptr %527, align 8, !tbaa !122
   %528 = call noundef i64 @_ZN4absl17zipf_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(2504) %33, ptr noundef nonnull align 8 dereferenceable(64) %24)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %24) #19
-  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %33) #19
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %23) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i64 1024, ptr %23, align 16
   %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8, !tbaa !123
@@ -1617,8 +1611,8 @@ _ZN12_GLOBAL__N_18TestZipfISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm
   %535 = getelementptr inbounds nuw i8, ptr %23, i64 40
   store double 0x3FDD89D89D89D898, ptr %535, align 8, !tbaa !133
   %536 = call { i64, i64 } @_ZN4absl17zipf_distributionINS_6int128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %23, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 16 dereferenceable(80) %23)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %23) #19
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %22) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i64 1024, ptr %22, align 16, !tbaa !20
   %.sroa.3.0..sroa_idx.i12.i.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 0, ptr %.sroa.3.0..sroa_idx.i12.i.i, align 8, !tbaa !20
@@ -1637,22 +1631,22 @@ _ZN12_GLOBAL__N_18TestZipfISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm
   %543 = getelementptr inbounds nuw i8, ptr %22, i64 40
   store double 0x3FDD89D89D89D898, ptr %543, align 8, !tbaa !142
   %544 = call { i64, i64 } @_ZN4absl17zipf_distributionINS_7uint128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %22, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 16 dereferenceable(80) %22)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #19
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %545 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store float 1.000000e+00, ptr %545, align 4, !tbaa !143
   %546 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store float 1.000000e+00, ptr %546, align 4, !tbaa !146
   %547 = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_(ptr noundef nonnull align 4 dereferenceable(12) %20, ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #19
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %548 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store double 1.000000e+00, ptr %548, align 8, !tbaa !147
   %549 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store double 1.000000e+00, ptr %549, align 8, !tbaa !149
   %550 = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19) #19
-  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %21) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i64 5489, ptr %21, align 8, !tbaa !20
   br label %551
 
@@ -1672,15 +1666,15 @@ _ZN12_GLOBAL__N_18TestZipfISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm
 _ZN12_GLOBAL__N_112TestGaussianISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i: ; preds = %551
   %559 = getelementptr inbounds nuw i8, ptr %21, i64 2496
   store i64 312, ptr %559, align 8, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %560 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store double 1.000000e+00, ptr %560, align 8, !tbaa !147
   %561 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store double 1.000000e+00, ptr %561, align 8, !tbaa !149
   %562 = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(2504) %21)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #19
-  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %21) #19
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %16) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 0, ptr %16, align 4, !tbaa !150
   %563 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 100, ptr %563, align 4, !tbaa !152
@@ -1691,8 +1685,8 @@ _ZN12_GLOBAL__N_112TestGaussianISt23mersenne_twister_engineImLm64ELm312ELm156ELm
   %566 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 7, ptr %566, align 4, !tbaa !155
   %567 = call noundef i32 @_ZN4absl28log_uniform_int_distributionIiE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 4 dereferenceable(20) %16)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %16) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i8 0, ptr %15, align 4, !tbaa !156
   %568 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store i8 100, ptr %568, align 1, !tbaa !158
@@ -1703,8 +1697,8 @@ _ZN12_GLOBAL__N_112TestGaussianISt23mersenne_twister_engineImLm64ELm312ELm156ELm
   %571 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 7, ptr %571, align 4, !tbaa !161
   %572 = call noundef zeroext i8 @_ZN4absl28log_uniform_int_distributionIaE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEhRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 4 dereferenceable(8) %15)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #19
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %14) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i16 0, ptr %14, align 4, !tbaa !162
   %573 = getelementptr inbounds nuw i8, ptr %14, i64 2
   store i16 100, ptr %573, align 2, !tbaa !164
@@ -1715,8 +1709,8 @@ _ZN12_GLOBAL__N_112TestGaussianISt23mersenne_twister_engineImLm64ELm312ELm156ELm
   %576 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 7, ptr %576, align 4, !tbaa !167
   %577 = call noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionIsE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 4 dereferenceable(12) %14)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14) #19
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %13) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i16 0, ptr %13, align 4, !tbaa !168
   %578 = getelementptr inbounds nuw i8, ptr %13, i64 2
   store i16 100, ptr %578, align 2, !tbaa !170
@@ -1727,8 +1721,8 @@ _ZN12_GLOBAL__N_112TestGaussianISt23mersenne_twister_engineImLm64ELm312ELm156ELm
   %581 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 7, ptr %581, align 4, !tbaa !173
   %582 = call noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionItE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 4 dereferenceable(12) %13)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #19
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %12) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !150
   %583 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 1024, ptr %583, align 4, !tbaa !152
@@ -1739,8 +1733,8 @@ _ZN12_GLOBAL__N_112TestGaussianISt23mersenne_twister_engineImLm64ELm312ELm156ELm
   %586 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 11, ptr %586, align 4, !tbaa !155
   %587 = call noundef i32 @_ZN4absl28log_uniform_int_distributionIiE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 4 dereferenceable(20) %12)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %12) #19
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %11) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !174
   %588 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 1024, ptr %588, align 4, !tbaa !176
@@ -1751,8 +1745,8 @@ _ZN12_GLOBAL__N_112TestGaussianISt23mersenne_twister_engineImLm64ELm312ELm156ELm
   %591 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 11, ptr %591, align 4, !tbaa !179
   %592 = call noundef i32 @_ZN4absl28log_uniform_int_distributionIjE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %11, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 4 dereferenceable(20) %11)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %11) #19
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 0, ptr %10, align 8, !tbaa !180
   %593 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 1024, ptr %593, align 8, !tbaa !182
@@ -1763,8 +1757,8 @@ _ZN12_GLOBAL__N_112TestGaussianISt23mersenne_twister_engineImLm64ELm312ELm156ELm
   %596 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i32 11, ptr %596, align 8, !tbaa !185
   %597 = call noundef i64 @_ZN4absl28log_uniform_int_distributionIlE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(40) %10)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #19
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8, !tbaa !186
   %598 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 1024, ptr %598, align 8, !tbaa !188
@@ -1775,8 +1769,8 @@ _ZN12_GLOBAL__N_112TestGaussianISt23mersenne_twister_engineImLm64ELm312ELm156ELm
   %601 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i32 11, ptr %601, align 8, !tbaa !191
   %602 = call noundef i64 @_ZN4absl28log_uniform_int_distributionImE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(40) %9)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #19
-  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %17) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 5489, ptr %17, align 8, !tbaa !20
   br label %603
 
@@ -1796,7 +1790,7 @@ _ZN12_GLOBAL__N_112TestGaussianISt23mersenne_twister_engineImLm64ELm312ELm156ELm
 _ZN12_GLOBAL__N_117CompatibilityTestISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvv.exit: ; preds = %603
   %611 = getelementptr inbounds nuw i8, ptr %17, i64 2496
   store i64 312, ptr %611, align 8, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !186
   %612 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1024, ptr %612, align 8, !tbaa !188
@@ -1807,23 +1801,23 @@ _ZN12_GLOBAL__N_117CompatibilityTestISt23mersenne_twister_engineImLm64ELm312ELm1
   %615 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 11, ptr %615, align 8, !tbaa !191
   %616 = call noundef i64 @_ZN4absl28log_uniform_int_distributionImE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(2504) %17, ptr noundef nonnull align 8 dereferenceable(40) %8)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #19
-  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %17) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i128 2, ptr %7, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store i64 1024, ptr %6, align 16
   %617 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %617, align 8
   %618 = call { i64, i64 } @_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_28log_uniform_int_distributionINS_6int128EEEJRS7_S9_S9_EEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_(ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 16 dereferenceable(16) %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 2, ptr %4, align 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %.sroa.2.0..sroa_idx.i.i, align 8
@@ -1832,10 +1826,10 @@ _ZN12_GLOBAL__N_117CompatibilityTestISt23mersenne_twister_engineImLm64ELm312ELm1
   %619 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %619, align 8
   %620 = call { i64, i64 } @_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_28log_uniform_int_distributionINS_7uint128EEEJRS7_S9_S9_EEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_(ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %48) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   ret void
 }
 
@@ -1845,7 +1839,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing4Test5SetupEv(ptr noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef double @_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_(ptr noundef nonnull align 8 dereferenceable(2504) %0, double noundef %1, double noundef %2) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef double @_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_(ptr noundef nonnull align 8 dereferenceable(2504) %0, double noundef %1, double noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef double @nextafter(double noundef %1, double noundef %2) #19, !tbaa !32
   %5 = fcmp ole double %4, %2
   %6 = fsub double %2, %4
@@ -1909,7 +1903,7 @@ _ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64E
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef double @_ZN4absl7UniformIvNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEidEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENS5_IXsr4absl11disjunctionINS_15random_internal23is_widening_convertibleIT2_T3_EENS8_ISA_S9_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleIS9_SA_EE5valueESA_S9_E4typeEE4typeEE4typeET0_OT1_S9_SA_(ptr noundef nonnull align 8 dereferenceable(2504) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef double @_ZN4absl7UniformIvNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEidEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENS5_IXsr4absl11disjunctionINS_15random_internal23is_widening_convertibleIT2_T3_EENS8_ISA_S9_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleIS9_SA_EE5valueESA_S9_E4typeEE4typeEE4typeET0_OT1_S9_SA_(ptr noundef nonnull align 8 dereferenceable(2504) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %4 = sitofp i32 %1 to double
   %5 = tail call noundef double @nextafter(double noundef %4, double noundef %2) #19, !tbaa !32
   %6 = fcmp ole double %5, %2
@@ -1974,7 +1968,7 @@ _ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64E
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef double @_ZN4absl7UniformIdNS_23IntervalClosedClosedTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_(ptr noundef nonnull align 8 dereferenceable(2504) %0, double noundef %1, double noundef %2) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef double @_ZN4absl7UniformIdNS_23IntervalClosedClosedTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_(ptr noundef nonnull align 8 dereferenceable(2504) %0, double noundef %1, double noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef double @nextafter(double noundef %2, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !32
   %5 = fcmp ole double %1, %4
   %6 = fsub double %4, %1
@@ -2038,7 +2032,7 @@ _ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64E
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef double @_ZN4absl7UniformIdNS_21IntervalOpenClosedTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_(ptr noundef nonnull align 8 dereferenceable(2504) %0, double noundef %1, double noundef %2) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef double @_ZN4absl7UniformIdNS_21IntervalOpenClosedTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_(ptr noundef nonnull align 8 dereferenceable(2504) %0, double noundef %1, double noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef double @nextafter(double noundef %1, double noundef %2) #19, !tbaa !32
   %5 = tail call noundef double @nextafter(double noundef %2, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !32
   %6 = fcmp ole double %4, %5
@@ -2104,7 +2098,7 @@ _ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64E
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %0) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2496
   %3 = load i64, ptr %2, align 8, !tbaa !23
   %4 = icmp ugt i64 %3, 311
@@ -2237,7 +2231,7 @@ declare double @log(double noundef) local_unnamed_addr #11
 declare double @llvm.ceil.f64(double) #10
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl20poisson_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef i32 @_ZN4absl20poisson_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !36
   %.not = icmp eq i32 %5, 0
@@ -2476,7 +2470,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 declare double @llvm.floor.f64(double) #10
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef signext i16 @_ZN4absl20poisson_distributionIsEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef signext i16 @_ZN4absl20poisson_distributionIsEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !40
   %.not = icmp eq i32 %5, 0
@@ -2712,7 +2706,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl20poisson_distributionItEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl20poisson_distributionItEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !43
   %.not = icmp eq i32 %5, 0
@@ -2948,7 +2942,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl20poisson_distributionIjEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef i32 @_ZN4absl20poisson_distributionIjEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !46
   %.not = icmp eq i32 %5, 0
@@ -3184,7 +3178,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl20poisson_distributionIlEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef i64 @_ZN4absl20poisson_distributionIlEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !49
   %.not = icmp eq i32 %5, 0
@@ -3420,7 +3414,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl20poisson_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef i64 @_ZN4absl20poisson_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !52
   %.not = icmp eq i32 %5, 0
@@ -3656,7 +3650,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl20poisson_distributionINS_6int128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl20poisson_distributionINS_6int128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !55
   %.not = icmp eq i32 %5, 0
@@ -3908,7 +3902,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl20poisson_distributionINS_7uint128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl20poisson_distributionINS_7uint128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::uint128", align 16
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %6 = load i32, ptr %5, align 8, !tbaa !58
@@ -4162,7 +4156,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 declare void @_ZN4absl7uint128C1Ed(ptr noundef nonnull align 16 dereferenceable(16), double noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl17zipf_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef i32 @_ZN4absl17zipf_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2496
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %1, i64 1248
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2488
@@ -4375,7 +4369,7 @@ _ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit: ; preds = %1
 declare double @llvm.rint.f64(double) #10
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef signext i8 @_ZN4absl17zipf_distributionIaEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEaRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef signext i8 @_ZN4absl17zipf_distributionIaEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEaRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2496
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %1, i64 1248
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2488
@@ -4585,7 +4579,7 @@ _ZNK4absl17zipf_distributionIaE10param_type14pow_negative_qEd.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef signext i16 @_ZN4absl17zipf_distributionIsEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef signext i16 @_ZN4absl17zipf_distributionIsEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2496
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %1, i64 1248
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2488
@@ -4795,7 +4789,7 @@ _ZNK4absl17zipf_distributionIsE10param_type14pow_negative_qEd.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl17zipf_distributionItEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl17zipf_distributionItEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2496
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %1, i64 1248
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2488
@@ -5005,7 +4999,7 @@ _ZNK4absl17zipf_distributionItE10param_type14pow_negative_qEd.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl17zipf_distributionIjEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef i32 @_ZN4absl17zipf_distributionIjEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2496
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %1, i64 1248
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2488
@@ -5215,7 +5209,7 @@ _ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl17zipf_distributionIlEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef i64 @_ZN4absl17zipf_distributionIlEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2496
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %1, i64 1248
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2488
@@ -5425,7 +5419,7 @@ _ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl17zipf_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef i64 @_ZN4absl17zipf_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2496
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %1, i64 1248
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2488
@@ -5635,7 +5629,7 @@ _ZNK4absl17zipf_distributionImE10param_type14pow_negative_qEd.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl17zipf_distributionINS_6int128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 16 dereferenceable(72) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl17zipf_distributionINS_6int128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 16 dereferenceable(72) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2496
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %1, i64 1248
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2488
@@ -5856,7 +5850,7 @@ _ZNK4absl17zipf_distributionINS_6int128EE10param_type14pow_negative_qEd.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl17zipf_distributionINS_7uint128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 16 dereferenceable(72) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl17zipf_distributionINS_7uint128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 16 dereferenceable(72) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::uint128", align 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2496
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %1, i64 1248
@@ -6367,7 +6361,7 @@ select.unfold:                                    ; preds = %186, %3, %_ZN4absl1
 declare double @llvm.fabs.f64(double) #10
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl28log_uniform_int_distributionIiE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 4 dereferenceable(20) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZN4absl28log_uniform_int_distributionIiE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 4 dereferenceable(20) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 4, !tbaa !155
   %6 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %1)
@@ -6509,7 +6503,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
 declare double @pow(double noundef, double noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i8 @_ZN4absl28log_uniform_int_distributionIaE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEhRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i8 @_ZN4absl28log_uniform_int_distributionIaE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEhRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !161
   %6 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %1)
@@ -6651,7 +6645,7 @@ _ZN4absl24uniform_int_distributionIaEclISt23mersenne_twister_engineImLm64ELm312E
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionIsE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 4 dereferenceable(12) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionIsE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 4 dereferenceable(12) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i32, ptr %4, align 4, !tbaa !167
   %6 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %1)
@@ -6793,7 +6787,7 @@ _ZN4absl24uniform_int_distributionIsEclISt23mersenne_twister_engineImLm64ELm312E
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionItE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 4 dereferenceable(12) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionItE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 4 dereferenceable(12) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i32, ptr %4, align 4, !tbaa !173
   %6 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %1)
@@ -6935,7 +6929,7 @@ _ZN4absl24uniform_int_distributionItEclISt23mersenne_twister_engineImLm64ELm312E
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl28log_uniform_int_distributionIjE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 4 dereferenceable(20) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZN4absl28log_uniform_int_distributionIjE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 4 dereferenceable(20) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 4, !tbaa !179
   %6 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %1)
@@ -7074,7 +7068,7 @@ _ZN4absl24uniform_int_distributionIjEclISt23mersenne_twister_engineImLm64ELm312E
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl28log_uniform_int_distributionIlE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(36) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef i64 @_ZN4absl28log_uniform_int_distributionIlE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(36) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load i32, ptr %4, align 8, !tbaa !185
   %6 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %1)
@@ -7212,7 +7206,7 @@ _ZN4absl24uniform_int_distributionIlEclISt23mersenne_twister_engineImLm64ELm312E
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl28log_uniform_int_distributionImE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(36) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef i64 @_ZN4absl28log_uniform_int_distributionImE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(36) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load i32, ptr %4, align 8, !tbaa !191
   %6 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %1)
@@ -7350,9 +7344,9 @@ _ZN4absl24uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312E
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_28log_uniform_int_distributionINS_6int128EEEJRS7_S9_S9_EEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_(ptr noundef %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_28log_uniform_int_distributionINS_6int128EEEJRS7_S9_S9_EEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_(ptr noundef %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.absl::log_uniform_int_distribution.61", align 16
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.sroa.01.0.copyload = load i64, ptr %1, align 16
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !123
@@ -7435,12 +7429,12 @@ _ZN4absl28log_uniform_int_distributionINS_6int128EEC2ES1_S1_S1_.exit: ; preds = 
   %.sroa.010.0.extract.trunc.i.i = trunc i128 %.sroa.03.0.insert.insert.i.i.i to i64
   %.fca.0.insert.i.i = insertvalue { i64, i64 } poison, i64 %.sroa.010.0.extract.trunc.i.i, 0
   %.fca.1.insert.i.i = insertvalue { i64, i64 } %.fca.0.insert.i.i, i64 %.narrow.i.i.i10, 1
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret { i64, i64 } %.fca.1.insert.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl28log_uniform_int_distributionINS_6int128EE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENS_7uint128ERT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 16 dereferenceable(68) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl28log_uniform_int_distributionINS_6int128EE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENS_7uint128ERT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 16 dereferenceable(68) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = alloca %"class.absl::uint128", align 16
   %5 = alloca %"class.absl::uint128", align 16
   %6 = alloca %"class.absl::uniform_int_distribution.62", align 16
@@ -7538,7 +7532,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
   %.sroa.0125.0.insert.insert = or disjoint i128 %.sroa.22.0.insert.shift.i, %.sroa.0125.0.insert.ext
   %48 = sitofp i128 %.sroa.0125.0.insert.insert to double
   %49 = tail call double @llvm.fmuladd.f64(double %47, double %48, double -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %50 = fcmp ogt double %47, 0x47F0000000000000
   br i1 %50, label %52, label %51
 
@@ -7552,8 +7546,8 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
 52:                                               ; preds = %44, %51
   %.sroa.630.0.copyload = phi i64 [ %.sroa.630.0.copyload.pre, %51 ], [ -1, %44 ]
   %.sroa.029.0.copyload = phi i64 [ %.sroa.029.0.copyload.pre, %51 ], [ -1, %44 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = fcmp ogt double %49, 0x47F0000000000000
   br i1 %53, label %55, label %54
 
@@ -7567,7 +7561,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
 55:                                               ; preds = %52, %54
   %.sroa.6.0.copyload = phi i64 [ %.sroa.6.0.copyload.pre, %54 ], [ -1, %52 ]
   %.sroa.027.0.copyload = phi i64 [ %.sroa.027.0.copyload.pre, %54 ], [ -1, %52 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %56
 
 56:                                               ; preds = %55, %43
@@ -7597,7 +7591,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
   %.not141 = icmp ult i128 %.sroa.01.0.insert.insert.i.i98, %.sroa.0.0.insert.insert.i.i
   %.sroa.09.0 = select i1 %.not141, i64 %.sroa.027.0, i64 %.sroa.0.0.copyload.i80
   %.sroa.5.0 = select i1 %.not141, i64 %.sroa.6.0, i64 %.sroa.2.0.copyload.i82
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.sroa.2.0.insert.ext.i108 = zext i64 %spec.select140 to i128
   %.sroa.2.0.insert.shift.i109 = shl nuw i128 %.sroa.2.0.insert.ext.i108, 64
   store i64 %spec.select, ptr %6, align 16
@@ -7625,7 +7619,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
   %.tr.i.i.i = trunc nuw i128 %64 to i64
   %.narrow.i.i.i119 = add i64 %63, %.tr.i.i.i
   %.sroa.017.0.extract.trunc.i.i = trunc i128 %.sroa.03.0.insert.insert.i.i.i to i64
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %65
 
 65:                                               ; preds = %_ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit, %56
@@ -7637,7 +7631,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl24uniform_int_distributionINS_6int128EE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENS_7uint128ERT_S6_(ptr noundef nonnull align 16 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, i64 %2, i64 %3) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl24uniform_int_distributionINS_6int128EE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENS_7uint128ERT_S6_(ptr noundef nonnull align 16 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, i64 %2, i64 %3) local_unnamed_addr #3 comdat align 2 {
   %5 = alloca %"struct.absl::random_internal::U256", align 16
   %6 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %1)
   %7 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %1)
@@ -7721,13 +7715,13 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4absl24uniform_int_distributionIN
 23:                                               ; preds = %.lr.ph, %23
   %24 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %1)
   %25 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %1)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4absl15random_internal13wide_multiplyINS_7uint128EE8multiplyES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::random_internal::U256") align 16 %5, i64 %25, i64 %24, i64 %.sroa.0.0.extract.trunc.i, i64 %.tr.i)
   %.sroa.0155.0.copyload157 = load i64, ptr %5, align 16, !tbaa !20
   %.sroa.7.0.copyload162 = load i64, ptr %.sroa.7.0..sroa_idx161, align 8, !tbaa !20
   %.sroa.8.0.copyload168 = load i64, ptr %.sroa.8.0..sroa_idx167, align 16, !tbaa !20
   %.sroa.9.0.copyload174 = load i64, ptr %.sroa.9.0..sroa_idx173, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.22.0.insert.ext.i140 = zext i64 %.sroa.9.0.copyload174 to i128
   %.sroa.22.0.insert.shift.i141 = shl nuw i128 %.sroa.22.0.insert.ext.i140, 64
   %.sroa.01.0.insert.ext.i142 = zext i64 %.sroa.8.0.copyload168 to i128
@@ -7744,7 +7738,7 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4absl24uniform_int_distributionIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN4absl15random_internal13wide_multiplyINS_7uint128EE8multiplyES2_S2_(ptr dead_on_unwind noalias writable sret(%"struct.absl::random_internal::U256") align 16 %0, i64 %1, i64 %2, i64 %3, i64 %4) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local void @_ZN4absl15random_internal13wide_multiplyINS_7uint128EE8multiplyES2_S2_(ptr dead_on_unwind noalias writable sret(%"struct.absl::random_internal::U256") align 16 %0, i64 %1, i64 %2, i64 %3, i64 %4) local_unnamed_addr #3 comdat align 2 {
   %.sroa.22.0.insert.ext.i.i = zext i64 %2 to i128
   %.sroa.01.0.insert.ext.i.i = zext i64 %1 to i128
   %.sroa.22.0.insert.ext.i65.i = zext i64 %4 to i128
@@ -7784,9 +7778,9 @@ define linkonce_odr dso_local void @_ZN4absl15random_internal13wide_multiplyINS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_28log_uniform_int_distributionINS_7uint128EEEJRS7_S9_S9_EEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_(ptr noundef %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_28log_uniform_int_distributionINS_7uint128EEEJRS7_S9_S9_EEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_(ptr noundef %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.absl::log_uniform_int_distribution.64", align 16
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.sroa.01.0.copyload = load i64, ptr %1, align 16, !tbaa !20
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !20
@@ -7877,12 +7871,12 @@ _ZN4absl28log_uniform_int_distributionINS_7uint128EEC2ES1_S1_S1_.exit: ; preds =
   %.narrow.i.i.i12 = add i64 %36, %.tr.i.i.i
   %.fca.0.insert.i8.i.i = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.extract.trunc.i.i.i11, 0
   %.fca.1.insert.i9.i.i = insertvalue { i64, i64 } %.fca.0.insert.i8.i.i, i64 %.narrow.i.i.i12, 1
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret { i64, i64 } %.fca.1.insert.i9.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl28log_uniform_int_distributionINS_7uint128EE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 16 dereferenceable(68) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl28log_uniform_int_distributionINS_7uint128EE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 16 dereferenceable(68) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = alloca %"class.absl::uint128", align 16
   %5 = alloca %"class.absl::uint128", align 16
   %6 = alloca %"class.absl::uniform_int_distribution.65", align 16
@@ -7978,7 +7972,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
   %48 = sitofp i32 %33 to double
   %49 = tail call noundef double @pow(double noundef %47, double noundef %48) #19, !tbaa !32
   %50 = tail call double @llvm.fmuladd.f64(double %49, double %47, double -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = fcmp ogt double %49, 0x47F0000000000000
   br i1 %51, label %53, label %52
 
@@ -7992,8 +7986,8 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
 53:                                               ; preds = %44, %52
   %.sroa.628.0.copyload = phi i64 [ %.sroa.628.0.copyload.pre, %52 ], [ -1, %44 ]
   %.sroa.027.0.copyload = phi i64 [ %.sroa.027.0.copyload.pre, %52 ], [ -1, %44 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %54 = fcmp ogt double %50, 0x47F0000000000000
   br i1 %54, label %56, label %55
 
@@ -8007,7 +8001,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
 56:                                               ; preds = %53, %55
   %.sroa.6.0.copyload = phi i64 [ %.sroa.6.0.copyload.pre, %55 ], [ -1, %53 ]
   %.sroa.025.0.copyload = phi i64 [ %.sroa.025.0.copyload.pre, %55 ], [ -1, %53 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %57
 
 57:                                               ; preds = %56, %43
@@ -8037,7 +8031,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
   %.not128 = icmp ult i128 %.sroa.01.0.insert.insert.i.i96, %.sroa.0.0.insert.insert.i.i
   %.sroa.5.0 = select i1 %.not128, i64 %.sroa.6.0, i64 %.sroa.2.0.copyload.i80
   %.sroa.07.0 = select i1 %.not128, i64 %.sroa.025.0, i64 %.sroa.0.0.copyload.i78
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %spec.select, ptr %6, align 16, !tbaa !20
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %spec.select127, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !tbaa !20
@@ -8065,7 +8059,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
   %65 = lshr i128 %.sroa.03.0.insert.insert.i.i.i, 64
   %.tr.i.i.i = trunc nuw i128 %65 to i64
   %.narrow.i.i.i110 = add i64 %64, %.tr.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %66
 
 66:                                               ; preds = %_ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit, %57
@@ -8077,7 +8071,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl24uniform_int_distributionINS_7uint128EE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_S1_(ptr noundef nonnull align 16 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, i64 %2, i64 %3) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl24uniform_int_distributionINS_7uint128EE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_S1_(ptr noundef nonnull align 16 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, i64 %2, i64 %3) local_unnamed_addr #3 comdat align 2 {
   %5 = alloca %"struct.absl::random_internal::U256", align 16
   %6 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %1)
   %7 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %1)
@@ -8161,13 +8155,13 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4absl24uniform_int_distributionIN
 23:                                               ; preds = %.lr.ph, %23
   %24 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %1)
   %25 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %1)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4absl15random_internal13wide_multiplyINS_7uint128EE8multiplyES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::random_internal::U256") align 16 %5, i64 %25, i64 %24, i64 %.sroa.0.0.extract.trunc.i, i64 %.tr.i)
   %.sroa.0155.0.copyload157 = load i64, ptr %5, align 16, !tbaa !20
   %.sroa.7.0.copyload162 = load i64, ptr %.sroa.7.0..sroa_idx161, align 8, !tbaa !20
   %.sroa.8.0.copyload168 = load i64, ptr %.sroa.8.0..sroa_idx167, align 16, !tbaa !20
   %.sroa.9.0.copyload174 = load i64, ptr %.sroa.9.0..sroa_idx173, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.22.0.insert.ext.i140 = zext i64 %.sroa.9.0.copyload174 to i128
   %.sroa.22.0.insert.shift.i141 = shl nuw i128 %.sroa.22.0.insert.ext.i140, 64
   %.sroa.01.0.insert.ext.i142 = zext i64 %.sroa.8.0.copyload168 to i128
@@ -8190,7 +8184,7 @@ define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_125Bit
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_125BitGen_Compatibility_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_125BitGen_Compatibility_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %3 unwind label %4
@@ -8214,7 +8208,7 @@ define internal void @_ZN12_GLOBAL__N_125BitGen_Compatibility_TestD0Ev(ptr nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_125BitGen_Compatibility_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_125BitGen_Compatibility_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.absl::uint128", align 16
   %3 = alloca %"class.absl::uint128", align 16
   %4 = alloca %"class.absl::uint128", align 16
@@ -8349,9 +8343,9 @@ define internal void @_ZN12_GLOBAL__N_125BitGen_Compatibility_Test8TestBodyEv(pt
   %133 = alloca %"class.absl::random_internal::NonsecureURBGBase", align 8
   %134 = alloca %"class.absl::random_internal::RandenPoolSeedSeq", align 1
   %135 = alloca %"class.absl::random_internal::NonsecureURBGBase", align 8
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %135) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %135)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !271)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %134) #19, !noalias !271
+  call void @llvm.lifetime.start.p0(ptr nonnull %134), !noalias !271
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 272
   call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %136)
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 264
@@ -8361,42 +8355,42 @@ define internal void @_ZN12_GLOBAL__N_125BitGen_Compatibility_Test8TestBodyEv(pt
   %140 = getelementptr inbounds nuw i8, ptr %135, i64 %139
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %140, i8 0, i64 256, i1 false), !alias.scope !271
   call void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 1 dereferenceable(1) %134)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %134) #19, !noalias !271
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %130)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %131)
+  call void @llvm.lifetime.end.p0(ptr nonnull %134), !noalias !271
+  call void @llvm.lifetime.start.p0(ptr nonnull %130)
+  call void @llvm.lifetime.start.p0(ptr nonnull %131)
   store i32 0, ptr %130, align 4, !tbaa !32
   store i32 100, ptr %131, align 4, !tbaa !32
   %141 = call noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIiEEJRiSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 4 dereferenceable(4) %130, ptr noundef nonnull align 4 dereferenceable(4) %131)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %130)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %131)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %128) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %130)
+  call void @llvm.lifetime.end.p0(ptr nonnull %131)
+  call void @llvm.lifetime.start.p0(ptr nonnull %128)
   store double 0.000000e+00, ptr %128, align 8, !tbaa !37
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %129) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %129)
   store double 1.000000e+00, ptr %129, align 8, !tbaa !37
   %142 = call noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJddEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 8 dereferenceable(8) %128, ptr noundef nonnull align 8 dereferenceable(8) %129)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %129) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %128) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %126) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %129)
+  call void @llvm.lifetime.end.p0(ptr nonnull %128)
+  call void @llvm.lifetime.start.p0(ptr nonnull %126)
   store double 0.000000e+00, ptr %126, align 8, !tbaa !37
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %127) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %127)
   store double 1.000000e+00, ptr %127, align 8, !tbaa !37
   %143 = call noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJddEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 8 dereferenceable(8) %126, ptr noundef nonnull align 8 dereferenceable(8) %127)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %127) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %126) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %124)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %125)
+  call void @llvm.lifetime.end.p0(ptr nonnull %127)
+  call void @llvm.lifetime.end.p0(ptr nonnull %126)
+  call void @llvm.lifetime.start.p0(ptr nonnull %124)
+  call void @llvm.lifetime.start.p0(ptr nonnull %125)
   store double 0.000000e+00, ptr %124, align 8, !tbaa !37
   store double 1.000000e+00, ptr %125, align 8, !tbaa !37
   %144 = call noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRdSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 8 dereferenceable(8) %124, ptr noundef nonnull align 8 dereferenceable(8) %125)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %124)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %125)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %123) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %124)
+  call void @llvm.lifetime.end.p0(ptr nonnull %125)
+  call void @llvm.lifetime.start.p0(ptr nonnull %123)
   store i64 -1, ptr %123, align 8, !tbaa !278
   %145 = getelementptr inbounds nuw i8, ptr %123, i64 8
   store i64 1, ptr %145, align 8, !tbaa !280
   %146 = call noundef i64 @_ZN4absl24uniform_int_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEElRT_(ptr noundef nonnull align 8 dereferenceable(16) %123, ptr noundef nonnull align 8 dereferenceable(288) %135)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %123) #19
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %122) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %123)
+  call void @llvm.lifetime.start.p0(ptr nonnull %122)
   %147 = load i64, ptr %137, align 8, !tbaa !274
   %148 = icmp ugt i64 %147, 31
   br i1 %148, label %149, label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i.i.i
@@ -8439,10 +8433,10 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
   br i1 %167, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN4absl7UniformIiNS_23IntervalClosedClosedTagERNS_15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESA_E4typeET0_OT1_SA_SA_.exit.i.i, !llvm.loop !285
 
 _ZN4absl7UniformIiNS_23IntervalClosedClosedTagERNS_15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESA_E4typeET0_OT1_SA_SA_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %163, %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %122) #19
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %119)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %120)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %121)
+  call void @llvm.lifetime.end.p0(ptr nonnull %122)
+  call void @llvm.lifetime.start.p0(ptr nonnull %119)
+  call void @llvm.lifetime.start.p0(ptr nonnull %120)
+  call void @llvm.lifetime.start.p0(ptr nonnull %121)
   store double 0.000000e+00, ptr %120, align 8, !tbaa !37
   store double 1.000000e+00, ptr %121, align 8, !tbaa !37
   %168 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #19, !tbaa !32
@@ -8458,24 +8452,24 @@ _ZN4absl7UniformIiNS_23IntervalClosedClosedTagERNS_15random_internal17NonsecureU
   br label %_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESA_E4typeET0_OT1_SA_SA_.exit.i.i
 
 _ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESA_E4typeET0_OT1_SA_SA_.exit.i.i: ; preds = %174, %_ZN4absl7UniformIiNS_23IntervalClosedClosedTagERNS_15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESA_E4typeET0_OT1_SA_SA_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %119)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %120)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %121)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %118) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %119)
+  call void @llvm.lifetime.end.p0(ptr nonnull %120)
+  call void @llvm.lifetime.end.p0(ptr nonnull %121)
+  call void @llvm.lifetime.start.p0(ptr nonnull %118)
   store i64 0, ptr %118, align 8, !tbaa !286
   %176 = getelementptr inbounds nuw i8, ptr %118, i64 8
   store i64 4, ptr %176, align 8, !tbaa !288
   %177 = call noundef i64 @_ZN4absl24uniform_int_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_(ptr noundef nonnull align 8 dereferenceable(16) %118, ptr noundef nonnull align 8 dereferenceable(288) %135)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %118) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %117) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %118)
+  call void @llvm.lifetime.start.p0(ptr nonnull %117)
   store i64 0, ptr %117, align 8, !tbaa !286
   %178 = getelementptr inbounds nuw i8, ptr %117, i64 8
   store i64 4, ptr %178, align 8, !tbaa !288
   %179 = call noundef i64 @_ZN4absl24uniform_int_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(288) %135)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %117) #19
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %114)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %115)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %116)
+  call void @llvm.lifetime.end.p0(ptr nonnull %117)
+  call void @llvm.lifetime.start.p0(ptr nonnull %114)
+  call void @llvm.lifetime.start.p0(ptr nonnull %115)
+  call void @llvm.lifetime.start.p0(ptr nonnull %116)
   store double -1.000000e+00, ptr %115, align 8, !tbaa !37
   store double 1.000000e+00, ptr %116, align 8, !tbaa !37
   %180 = call noundef double @nextafter(double noundef -1.000000e+00, double noundef 1.000000e+00) #19, !tbaa !32
@@ -8491,10 +8485,10 @@ _ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGB
   br label %188
 
 188:                                              ; preds = %186, %_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESA_E4typeET0_OT1_SA_SA_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %114)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %115)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %116)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %111)
+  call void @llvm.lifetime.end.p0(ptr nonnull %114)
+  call void @llvm.lifetime.end.p0(ptr nonnull %115)
+  call void @llvm.lifetime.end.p0(ptr nonnull %116)
+  call void @llvm.lifetime.start.p0(ptr nonnull %111)
   %189 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #19, !tbaa !32
   %190 = fcmp ole double %189, 1.000000e+00
   %191 = fsub double 1.000000e+00, %189
@@ -8504,125 +8498,125 @@ _ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGB
   br i1 %194, label %.noexc47.i.i, label %196
 
 .noexc47.i.i:                                     ; preds = %188
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %112) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %112)
   store double 0.000000e+00, ptr %112, align 8, !tbaa !37
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %113) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %113)
   store double 1.000000e+00, ptr %113, align 8, !tbaa !37
   %195 = call noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagEddEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 1 dereferenceable(1) %111, ptr noundef nonnull align 8 dereferenceable(8) %112, ptr noundef nonnull align 8 dereferenceable(8) %113)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %113) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %112) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %113)
+  call void @llvm.lifetime.end.p0(ptr nonnull %112)
   br label %196
 
 196:                                              ; preds = %.noexc47.i.i, %188
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %111)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %109)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %110)
+  call void @llvm.lifetime.end.p0(ptr nonnull %111)
+  call void @llvm.lifetime.start.p0(ptr nonnull %109)
+  call void @llvm.lifetime.start.p0(ptr nonnull %110)
   store i32 0, ptr %109, align 4, !tbaa !32
   store i32 100, ptr %110, align 4, !tbaa !32
   %197 = call noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIiEEJRiSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 4 dereferenceable(4) %109, ptr noundef nonnull align 4 dereferenceable(4) %110)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %109)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %110)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %108) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %109)
+  call void @llvm.lifetime.end.p0(ptr nonnull %110)
+  call void @llvm.lifetime.start.p0(ptr nonnull %108)
   store i8 0, ptr %108, align 2, !tbaa !289
   %198 = getelementptr inbounds nuw i8, ptr %108, i64 1
   store i8 99, ptr %198, align 1, !tbaa !291
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %107) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %107)
   %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i16, ptr %108, align 2
   store i16 %.sroa.0.0.copyload.i.i.i.i.i.i.i, ptr %107, align 2
   %199 = call noundef signext i8 @_ZN4absl24uniform_int_distributionIaEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEaRT_RKNS1_10param_typeE(ptr noundef nonnull align 1 dereferenceable(2) %108, ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 1 dereferenceable(2) %107)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %107) #19
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %108) #19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %106) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %107)
+  call void @llvm.lifetime.end.p0(ptr nonnull %108)
+  call void @llvm.lifetime.start.p0(ptr nonnull %106)
   store i16 0, ptr %106, align 4, !tbaa !292
   %200 = getelementptr inbounds nuw i8, ptr %106, i64 2
   store i16 99, ptr %200, align 2, !tbaa !294
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %105) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %105)
   %.sroa.0.0.copyload.i.i.i.i.i52.i.i = load i32, ptr %106, align 4
   store i32 %.sroa.0.0.copyload.i.i.i.i.i52.i.i, ptr %105, align 4
   %201 = call noundef signext i16 @_ZN4absl24uniform_int_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 2 dereferenceable(4) %106, ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 2 dereferenceable(4) %105)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %105) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %106) #19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %104) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
+  call void @llvm.lifetime.start.p0(ptr nonnull %104)
   store i16 0, ptr %104, align 4, !tbaa !295
   %202 = getelementptr inbounds nuw i8, ptr %104, i64 2
   store i16 99, ptr %202, align 2, !tbaa !297
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %103) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %103)
   %.sroa.0.0.copyload.i.i.i.i.i55.i.i = load i32, ptr %104, align 4
   store i32 %.sroa.0.0.copyload.i.i.i.i.i55.i.i, ptr %103, align 4
   %203 = call noundef zeroext i16 @_ZN4absl24uniform_int_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 2 dereferenceable(4) %104, ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 2 dereferenceable(4) %103)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %103) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %104) #19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %101)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %102)
+  call void @llvm.lifetime.end.p0(ptr nonnull %103)
+  call void @llvm.lifetime.end.p0(ptr nonnull %104)
+  call void @llvm.lifetime.start.p0(ptr nonnull %101)
+  call void @llvm.lifetime.start.p0(ptr nonnull %102)
   store i32 0, ptr %101, align 4, !tbaa !32
   store i32 1024, ptr %102, align 4, !tbaa !32
   %204 = call noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIiEEJRiSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 4 dereferenceable(4) %101, ptr noundef nonnull align 4 dereferenceable(4) %102)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %101)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %102)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %99)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %100)
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
+  call void @llvm.lifetime.end.p0(ptr nonnull %102)
+  call void @llvm.lifetime.start.p0(ptr nonnull %99)
+  call void @llvm.lifetime.start.p0(ptr nonnull %100)
   store i32 0, ptr %99, align 4, !tbaa !32
   store i32 1024, ptr %100, align 4, !tbaa !32
   %205 = call noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIjEEJRjSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 4 dereferenceable(4) %99, ptr noundef nonnull align 4 dereferenceable(4) %100)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %99)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %100)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %98) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
+  call void @llvm.lifetime.start.p0(ptr nonnull %98)
   store i64 0, ptr %98, align 8, !tbaa !278
   %206 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store i64 1023, ptr %206, align 8, !tbaa !280
   %207 = call noundef i64 @_ZN4absl24uniform_int_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEElRT_(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull align 8 dereferenceable(288) %135)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %98) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %97) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
+  call void @llvm.lifetime.start.p0(ptr nonnull %97)
   store i64 0, ptr %97, align 8, !tbaa !286
   %208 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store i64 1023, ptr %208, align 8, !tbaa !288
   %209 = call noundef i64 @_ZN4absl24uniform_int_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_(ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull align 8 dereferenceable(288) %135)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %97) #19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %95)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %96)
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
+  call void @llvm.lifetime.start.p0(ptr nonnull %95)
+  call void @llvm.lifetime.start.p0(ptr nonnull %96)
   store float 0.000000e+00, ptr %95, align 4, !tbaa !298
   store float 1.000000e+00, ptr %96, align 4, !tbaa !298
   %210 = call noundef float @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIfEEJRfSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 4 dereferenceable(4) %95, ptr noundef nonnull align 4 dereferenceable(4) %96)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %95)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %96)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %93)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %94)
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
+  call void @llvm.lifetime.start.p0(ptr nonnull %93)
+  call void @llvm.lifetime.start.p0(ptr nonnull %94)
   store float 0.000000e+00, ptr %93, align 4, !tbaa !298
   store float 1.000000e+00, ptr %94, align 4, !tbaa !298
   %211 = call noundef float @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIfEEJRfSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 4 dereferenceable(4) %93, ptr noundef nonnull align 4 dereferenceable(4) %94)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %93)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %94)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %91)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %92)
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
+  call void @llvm.lifetime.end.p0(ptr nonnull %94)
+  call void @llvm.lifetime.start.p0(ptr nonnull %91)
+  call void @llvm.lifetime.start.p0(ptr nonnull %92)
   store float -1.000000e+00, ptr %91, align 4, !tbaa !298
   store float 1.000000e+00, ptr %92, align 4, !tbaa !298
   %212 = call noundef float @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIfEEJRfSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 4 dereferenceable(4) %91, ptr noundef nonnull align 4 dereferenceable(4) %92)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %91)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %92)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %89)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %90)
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
+  call void @llvm.lifetime.start.p0(ptr nonnull %89)
+  call void @llvm.lifetime.start.p0(ptr nonnull %90)
   store double 0.000000e+00, ptr %89, align 8, !tbaa !37
   store double 1.000000e+00, ptr %90, align 8, !tbaa !37
   %213 = call noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRdSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 8 dereferenceable(8) %89, ptr noundef nonnull align 8 dereferenceable(8) %90)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %89)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %90)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %87)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %88)
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
+  call void @llvm.lifetime.start.p0(ptr nonnull %87)
+  call void @llvm.lifetime.start.p0(ptr nonnull %88)
   store float -1.000000e+00, ptr %87, align 4, !tbaa !298
   store float 0.000000e+00, ptr %88, align 4, !tbaa !298
   %214 = call noundef float @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIfEEJRfSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 4 dereferenceable(4) %87, ptr noundef nonnull align 4 dereferenceable(4) %88)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %87)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %88)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %85)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %86)
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
+  call void @llvm.lifetime.start.p0(ptr nonnull %85)
+  call void @llvm.lifetime.start.p0(ptr nonnull %86)
   store double -1.000000e+00, ptr %85, align 8, !tbaa !37
   store double 0.000000e+00, ptr %86, align 8, !tbaa !37
   %215 = call noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRdSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 8 dereferenceable(8) %85, ptr noundef nonnull align 8 dereferenceable(8) %86)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %85)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %86)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %82)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %83)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %84)
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
+  call void @llvm.lifetime.start.p0(ptr nonnull %82)
+  call void @llvm.lifetime.start.p0(ptr nonnull %83)
+  call void @llvm.lifetime.start.p0(ptr nonnull %84)
   store double 0.000000e+00, ptr %83, align 8, !tbaa !37
   store double 1.000000e+00, ptr %84, align 8, !tbaa !37
   %216 = call noundef double @nextafter(double noundef 1.000000e+00, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !32
@@ -8634,21 +8628,21 @@ _ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGB
   br label %220
 
 220:                                              ; preds = %218, %196
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %82)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %83)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %84)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %79)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %80)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %81)
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
+  call void @llvm.lifetime.start.p0(ptr nonnull %81)
   store double 0.000000e+00, ptr %80, align 8, !tbaa !37
   store double 1.000000e+00, ptr %81, align 8, !tbaa !37
   %221 = call noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_21IntervalClosedOpenTagERdSD_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 1 dereferenceable(1) %79, ptr noundef nonnull align 8 dereferenceable(8) %80, ptr noundef nonnull align 8 dereferenceable(8) %81)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %79)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %80)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %81)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %76)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %77)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %78)
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
   store double 0.000000e+00, ptr %77, align 8, !tbaa !37
   store double 1.000000e+00, ptr %78, align 8, !tbaa !37
   %222 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #19, !tbaa !32
@@ -8664,12 +8658,12 @@ _ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGB
   br label %230
 
 230:                                              ; preds = %228, %220
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %76)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %77)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %78)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %73)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %74)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %75)
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
   store double 0.000000e+00, ptr %74, align 8, !tbaa !37
   store double 1.000000e+00, ptr %75, align 8, !tbaa !37
   %231 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #19, !tbaa !32
@@ -8686,12 +8680,12 @@ _ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGB
   br label %240
 
 240:                                              ; preds = %238, %230
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %73)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %74)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %75)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %70)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %71)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %72)
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
   store double 0.000000e+00, ptr %71, align 8, !tbaa !37
   store double 1.000000e+00, ptr %72, align 8, !tbaa !37
   %241 = call noundef double @nextafter(double noundef 1.000000e+00, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !32
@@ -8703,12 +8697,12 @@ _ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGB
   br label %245
 
 245:                                              ; preds = %243, %240
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %70)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %71)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %72)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %67)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %68)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %69)
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
   store double 0.000000e+00, ptr %68, align 8, !tbaa !37
   store double 1.000000e+00, ptr %69, align 8, !tbaa !37
   %246 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #19, !tbaa !32
@@ -8724,10 +8718,10 @@ _ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGB
   br label %254
 
 254:                                              ; preds = %252, %245
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %67)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %66) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
   %255 = load i64, ptr %137, align 8, !tbaa !274
   %256 = icmp ugt i64 %255, 31
   br i1 %256, label %257, label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i99.i.i
@@ -8775,8 +8769,8 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
 
 .loopexit154.i.i:                                 ; preds = %.loopexit154.loopexit.i.i, %271, %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i99.i.i
   %276 = phi i64 [ %.pre.i.i, %.loopexit154.loopexit.i.i ], [ %265, %271 ], [ %265, %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i99.i.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %66) #19
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %65) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
   %277 = icmp ugt i64 %276, 31
   br i1 %277, label %278, label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i.i
 
@@ -8818,17 +8812,17 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
   br i1 %296, label %.lr.ph.i.i.i.i.i.i.i, label %.loopexit153.i.i, !llvm.loop !285
 
 .loopexit153.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.i.i, %292, %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %65) #19
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %62)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %63)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %64)
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
   store i32 0, ptr %63, align 4, !tbaa !32
   store i32 100, ptr %64, align 4, !tbaa !32
   %297 = call noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIiEEJRNS_19IntervalOpenOpenTagERiSD_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 1 dereferenceable(1) %62, ptr noundef nonnull align 4 dereferenceable(4) %63, ptr noundef nonnull align 4 dereferenceable(4) %64)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %62)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %63)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %64)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %61) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   %298 = load i64, ptr %137, align 8, !tbaa !274
   %299 = icmp ugt i64 %298, 31
   br i1 %299, label %300, label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i114.i.i
@@ -8876,8 +8870,8 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
 
 .loopexit.i.i:                                    ; preds = %.loopexit.loopexit.i.i, %314, %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i114.i.i
   %319 = phi i64 [ %.pre155.i.i, %.loopexit.loopexit.i.i ], [ %308, %314 ], [ %308, %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i114.i.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %61) #19
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %60) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
   %320 = icmp ugt i64 %319, 31
   br i1 %320, label %321, label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i122.i.i
 
@@ -8919,19 +8913,19 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
   br i1 %339, label %.lr.ph.i.i.i.i.i.i126.i.i, label %_ZN12_GLOBAL__N_111TestUniformIN4absl15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i, !llvm.loop !285
 
 _ZN12_GLOBAL__N_111TestUniformIN4absl15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i126.i.i, %335, %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i122.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %60) #19
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %57)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %58)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %59)
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   store i32 0, ptr %58, align 4, !tbaa !32
   store i32 100, ptr %59, align 4, !tbaa !32
   %340 = call noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIiEEJRNS_19IntervalOpenOpenTagERiSD_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull align 4 dereferenceable(4) %58, ptr noundef nonnull align 4 dereferenceable(4) %59)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %57)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %58)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %59)
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %132) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
+  call void @llvm.lifetime.start.p0(ptr nonnull %132)
   call void @llvm.experimental.noalias.scope.decl(metadata !299)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %56) #19, !noalias !299
+  call void @llvm.lifetime.start.p0(ptr nonnull %56), !noalias !299
   %341 = getelementptr inbounds nuw i8, ptr %132, i64 272
   call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %341)
   %342 = getelementptr inbounds nuw i8, ptr %132, i64 264
@@ -8941,18 +8935,18 @@ _ZN12_GLOBAL__N_111TestUniformIN4absl15random_internal17NonsecureURBGBaseINS2_13
   %345 = getelementptr inbounds nuw i8, ptr %132, i64 %344
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %345, i8 0, i64 256, i1 false), !alias.scope !299
   call void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %132, ptr noundef nonnull align 1 dereferenceable(1) %56)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %56) #19, !noalias !299
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %54)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56), !noalias !299
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i32 0, ptr %54, align 4, !tbaa !32
   store i32 100, ptr %55, align 4, !tbaa !32
   %346 = call noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIiEEJRiSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %132, ptr noundef nonnull align 4 dereferenceable(4) %54, ptr noundef nonnull align 4 dereferenceable(4) %55)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %54)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %55)
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %132) #19
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %133) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %132)
+  call void @llvm.lifetime.start.p0(ptr nonnull %133)
   call void @llvm.experimental.noalias.scope.decl(metadata !302)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %53) #19, !noalias !302
+  call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !302
   %347 = getelementptr inbounds nuw i8, ptr %133, i64 272
   call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %347)
   %348 = getelementptr inbounds nuw i8, ptr %133, i64 264
@@ -8962,15 +8956,15 @@ _ZN12_GLOBAL__N_111TestUniformIN4absl15random_internal17NonsecureURBGBaseINS2_13
   %351 = getelementptr inbounds nuw i8, ptr %133, i64 %350
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %351, i8 0, i64 256, i1 false), !alias.scope !302
   call void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %133, ptr noundef nonnull align 1 dereferenceable(1) %53)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %53) #19, !noalias !302
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53), !noalias !302
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   store double 0.000000e+00, ptr %51, align 8, !tbaa !37
   store double 1.000000e+00, ptr %52, align 8, !tbaa !37
   %352 = call noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRdSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %133, ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull align 8 dereferenceable(8) %52)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52)
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %133) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %133)
   %353 = load i64, ptr %137, align 8, !tbaa !274
   %354 = icmp ugt i64 %353, 31
   br i1 %354, label %355, label %_ZN4absl11ExponentialIfRNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S8_.exit.i.i
@@ -9059,9 +9053,9 @@ cdce.call1:                                       ; preds = %_ZN4absl11Exponenti
   br label %cdce.end5.i.i
 
 cdce.end5.i.i:                                    ; preds = %cdce.call1, %_ZN4absl11ExponentialIdRNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S8_.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %50) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   call void @llvm.experimental.noalias.scope.decl(metadata !305)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %49) #19, !noalias !305
+  call void @llvm.lifetime.start.p0(ptr nonnull %49), !noalias !305
   %401 = getelementptr inbounds nuw i8, ptr %50, i64 272
   call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %401)
   %402 = getelementptr inbounds nuw i8, ptr %50, i64 264
@@ -9071,7 +9065,7 @@ cdce.end5.i.i:                                    ; preds = %cdce.call1, %_ZN4ab
   %405 = getelementptr inbounds nuw i8, ptr %50, i64 %404
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %405, i8 0, i64 256, i1 false), !alias.scope !305
   call void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %50, ptr noundef nonnull align 1 dereferenceable(1) %49)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %49) #19, !noalias !305
+  call void @llvm.lifetime.end.p0(ptr nonnull %49), !noalias !305
   %406 = load i64, ptr %402, align 8, !tbaa !274
   %407 = icmp ugt i64 %406, 31
   br i1 %407, label %408, label %_ZN4absl11ExponentialIdNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S7_.exit.i.i
@@ -9115,66 +9109,66 @@ cdce.call3:                                       ; preds = %_ZN4absl11Exponenti
   br label %_ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i
 
 _ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i: ; preds = %cdce.call3, %_ZN4absl11ExponentialIdNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S7_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %50) #19
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %47) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   store double 1.000000e+00, ptr %47, align 8, !tbaa !33
   %429 = getelementptr inbounds nuw i8, ptr %47, i64 40
   store i32 1, ptr %429, align 8, !tbaa !36
   %430 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store double 0x3FD78B56362CEF38, ptr %430, align 8, !tbaa !37
   %431 = call noundef i32 @_ZN4absl20poisson_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %47, ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 8 dereferenceable(49) %47)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %47) #19
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %46) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   store double 1.000000e+00, ptr %46, align 8, !tbaa !38
   %432 = getelementptr inbounds nuw i8, ptr %46, i64 40
   store i32 1, ptr %432, align 8, !tbaa !40
   %433 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store double 0x3FD78B56362CEF38, ptr %433, align 8, !tbaa !37
   %434 = call noundef signext i16 @_ZN4absl20poisson_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %46, ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 8 dereferenceable(49) %46)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %46) #19
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %45) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store double 1.000000e+00, ptr %45, align 8, !tbaa !41
   %435 = getelementptr inbounds nuw i8, ptr %45, i64 40
   store i32 1, ptr %435, align 8, !tbaa !43
   %436 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store double 0x3FD78B56362CEF38, ptr %436, align 8, !tbaa !37
   %437 = call noundef zeroext i16 @_ZN4absl20poisson_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %45, ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 8 dereferenceable(49) %45)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %45) #19
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %44) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store double 1.000000e+00, ptr %44, align 8, !tbaa !33
   %438 = getelementptr inbounds nuw i8, ptr %44, i64 40
   store i32 1, ptr %438, align 8, !tbaa !36
   %439 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store double 0x3FD78B56362CEF38, ptr %439, align 8, !tbaa !37
   %440 = call noundef i32 @_ZN4absl20poisson_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %44, ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 8 dereferenceable(49) %44)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %44) #19
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %43) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   store double 1.000000e+00, ptr %43, align 8, !tbaa !44
   %441 = getelementptr inbounds nuw i8, ptr %43, i64 40
   store i32 1, ptr %441, align 8, !tbaa !46
   %442 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store double 0x3FD78B56362CEF38, ptr %442, align 8, !tbaa !37
   %443 = call noundef i32 @_ZN4absl20poisson_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %43, ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 8 dereferenceable(49) %43)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %43) #19
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %42) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store double 1.000000e+00, ptr %42, align 8, !tbaa !47
   %444 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store i32 1, ptr %444, align 8, !tbaa !49
   %445 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store double 0x3FD78B56362CEF38, ptr %445, align 8, !tbaa !37
   %446 = call noundef i64 @_ZN4absl20poisson_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %42, ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 8 dereferenceable(49) %42)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %42) #19
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %41) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store double 1.000000e+00, ptr %41, align 8, !tbaa !50
   %447 = getelementptr inbounds nuw i8, ptr %41, i64 40
   store i32 1, ptr %447, align 8, !tbaa !52
   %448 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store double 0x3FD78B56362CEF38, ptr %448, align 8, !tbaa !37
   %449 = call noundef i64 @_ZN4absl20poisson_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %41, ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 8 dereferenceable(49) %41)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %41) #19
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %48) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   call void @llvm.experimental.noalias.scope.decl(metadata !308)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %40) #19, !noalias !308
+  call void @llvm.lifetime.start.p0(ptr nonnull %40), !noalias !308
   %450 = getelementptr inbounds nuw i8, ptr %48, i64 272
   call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %450)
   %451 = getelementptr inbounds nuw i8, ptr %48, i64 264
@@ -9184,32 +9178,32 @@ _ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS
   %454 = getelementptr inbounds nuw i8, ptr %48, i64 %453
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %454, i8 0, i64 256, i1 false), !alias.scope !308
   call void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %48, ptr noundef nonnull align 1 dereferenceable(1) %40)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %40) #19, !noalias !308
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %39) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %40), !noalias !308
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store double 1.000000e+00, ptr %39, align 8, !tbaa !50
   %455 = getelementptr inbounds nuw i8, ptr %39, i64 40
   store i32 1, ptr %455, align 8, !tbaa !52
   %456 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store double 0x3FD78B56362CEF38, ptr %456, align 8, !tbaa !37
   %457 = call noundef i64 @_ZN4absl20poisson_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %39, ptr noundef nonnull align 8 dereferenceable(288) %48, ptr noundef nonnull align 8 dereferenceable(49) %39)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %39) #19
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %48) #19
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %38) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store double 1.000000e+00, ptr %38, align 8, !tbaa !53
   %458 = getelementptr inbounds nuw i8, ptr %38, i64 40
   store i32 1, ptr %458, align 8, !tbaa !55
   %459 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store double 0x3FD78B56362CEF38, ptr %459, align 8, !tbaa !37
   %460 = call { i64, i64 } @_ZN4absl20poisson_distributionINS_6int128EEclINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %38, ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 8 dereferenceable(49) %38)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %38) #19
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %37) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store double 1.000000e+00, ptr %37, align 8, !tbaa !56
   %461 = getelementptr inbounds nuw i8, ptr %37, i64 40
   store i32 1, ptr %461, align 8, !tbaa !58
   %462 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store double 0x3FD78B56362CEF38, ptr %462, align 8, !tbaa !37
   %463 = call { i64, i64 } @_ZN4absl20poisson_distributionINS_7uint128EEclINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %37, ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 8 dereferenceable(49) %37)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %37) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   %464 = getelementptr inbounds nuw i8, ptr %135, i64 280
   %.pre.i.i.i.i.i.i.i = load i64, ptr %137, align 8, !tbaa !274
   %465 = icmp ugt i64 %.pre.i.i.i.i.i.i.i, 31
@@ -9256,7 +9250,7 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   %481 = load i64, ptr %137, align 8, !tbaa !274
   %482 = add i64 %481, 1
   store i64 %482, ptr %137, align 8, !tbaa !274
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %35) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store i32 100, ptr %35, align 8, !tbaa !59
   %483 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store double 2.000000e+00, ptr %483, align 8, !tbaa !61
@@ -9273,8 +9267,8 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   %489 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store double 0x3FDD89D89D89D898, ptr %489, align 8, !tbaa !67
   %490 = call noundef i32 @_ZN4absl17zipf_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %35, ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 8 dereferenceable(64) %35)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %35) #19
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %34) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store i8 100, ptr %34, align 8, !tbaa !68
   %491 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store double 2.000000e+00, ptr %491, align 8, !tbaa !70
@@ -9291,8 +9285,8 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   %497 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store double 0x3FDD89D89D89D898, ptr %497, align 8, !tbaa !76
   %498 = call noundef signext i8 @_ZN4absl17zipf_distributionIaEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEaRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %34, ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 8 dereferenceable(64) %34)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %34) #19
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %33) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i16 100, ptr %33, align 8, !tbaa !77
   %499 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store double 2.000000e+00, ptr %499, align 8, !tbaa !80
@@ -9309,8 +9303,8 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   %505 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store double 0x3FDD89D89D89D898, ptr %505, align 8, !tbaa !86
   %506 = call noundef signext i16 @_ZN4absl17zipf_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %33, ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 8 dereferenceable(64) %33)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %33) #19
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %32) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i16 100, ptr %32, align 8, !tbaa !87
   %507 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store double 2.000000e+00, ptr %507, align 8, !tbaa !89
@@ -9327,8 +9321,8 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   %513 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store double 0x3FDD89D89D89D898, ptr %513, align 8, !tbaa !95
   %514 = call noundef zeroext i16 @_ZN4absl17zipf_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %32, ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 8 dereferenceable(64) %32)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %32) #19
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %31) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i32 1024, ptr %31, align 8, !tbaa !59
   %515 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store double 2.000000e+00, ptr %515, align 8, !tbaa !61
@@ -9345,8 +9339,8 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   %521 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store double 0x3FDD89D89D89D898, ptr %521, align 8, !tbaa !67
   %522 = call noundef i32 @_ZN4absl17zipf_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 8 dereferenceable(64) %31)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %31) #19
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %30) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i32 1024, ptr %30, align 8, !tbaa !96
   %523 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store double 2.000000e+00, ptr %523, align 8, !tbaa !98
@@ -9363,8 +9357,8 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   %529 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store double 0x3FDD89D89D89D898, ptr %529, align 8, !tbaa !104
   %530 = call noundef i32 @_ZN4absl17zipf_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %30, ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 8 dereferenceable(64) %30)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %30) #19
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %29) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i64 1024, ptr %29, align 8, !tbaa !105
   %531 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store double 2.000000e+00, ptr %531, align 8, !tbaa !107
@@ -9381,8 +9375,8 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   %537 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store double 0x3FDD89D89D89D898, ptr %537, align 8, !tbaa !113
   %538 = call noundef i64 @_ZN4absl17zipf_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %29, ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 8 dereferenceable(64) %29)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %29) #19
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %28) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store i64 1024, ptr %28, align 8, !tbaa !114
   %539 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store double 2.000000e+00, ptr %539, align 8, !tbaa !116
@@ -9399,10 +9393,10 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   %545 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store double 0x3FDD89D89D89D898, ptr %545, align 8, !tbaa !122
   %546 = call noundef i64 @_ZN4absl17zipf_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %28, ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 8 dereferenceable(64) %28)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %28) #19
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %36) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   call void @llvm.experimental.noalias.scope.decl(metadata !311)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %27) #19, !noalias !311
+  call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !311
   %547 = getelementptr inbounds nuw i8, ptr %36, i64 272
   call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %547)
   %548 = getelementptr inbounds nuw i8, ptr %36, i64 264
@@ -9412,8 +9406,8 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   %551 = getelementptr inbounds nuw i8, ptr %36, i64 %550
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %551, i8 0, i64 256, i1 false), !alias.scope !311
   call void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %36, ptr noundef nonnull align 1 dereferenceable(1) %27)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %27) #19, !noalias !311
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %26) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !311
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i64 1024, ptr %26, align 8, !tbaa !114
   %552 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store double 2.000000e+00, ptr %552, align 8, !tbaa !116
@@ -9430,9 +9424,9 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   %558 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store double 0x3FDD89D89D89D898, ptr %558, align 8, !tbaa !122
   %559 = call noundef i64 @_ZN4absl17zipf_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %26, ptr noundef nonnull align 8 dereferenceable(288) %36, ptr noundef nonnull align 8 dereferenceable(64) %26)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %26) #19
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %36) #19
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %25) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i64 1024, ptr %25, align 16
   %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 0, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8, !tbaa !123
@@ -9451,8 +9445,8 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   %566 = getelementptr inbounds nuw i8, ptr %25, i64 40
   store double 0x3FDD89D89D89D898, ptr %566, align 8, !tbaa !133
   %567 = call { i64, i64 } @_ZN4absl17zipf_distributionINS_6int128EEclINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %25, ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 16 dereferenceable(80) %25)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %25) #19
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %24) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i64 1024, ptr %24, align 16, !tbaa !20
   %.sroa.3.0..sroa_idx.i12.i.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 0, ptr %.sroa.3.0..sroa_idx.i12.i.i, align 8, !tbaa !20
@@ -9471,24 +9465,24 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   %574 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store double 0x3FDD89D89D89D898, ptr %574, align 8, !tbaa !142
   %575 = call { i64, i64 } @_ZN4absl17zipf_distributionINS_7uint128EEclINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %24, ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 16 dereferenceable(80) %24)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #19
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %576 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store float 1.000000e+00, ptr %576, align 4, !tbaa !143
   %577 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store float 1.000000e+00, ptr %577, align 4, !tbaa !146
   %578 = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEdRT_(ptr noundef nonnull align 4 dereferenceable(12) %22, ptr noundef nonnull align 8 dereferenceable(288) %135)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #19
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %579 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store double 1.000000e+00, ptr %579, align 8, !tbaa !147
   %580 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store double 1.000000e+00, ptr %580, align 8, !tbaa !149
   %581 = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEdRT_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(288) %135)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21) #19
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %23) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.experimental.noalias.scope.decl(metadata !314)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %20) #19, !noalias !314
+  call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !314
   %582 = getelementptr inbounds nuw i8, ptr %23, i64 272
   call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %582)
   %583 = getelementptr inbounds nuw i8, ptr %23, i64 264
@@ -9498,16 +9492,16 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   %586 = getelementptr inbounds nuw i8, ptr %23, i64 %585
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %586, i8 0, i64 256, i1 false), !alias.scope !314
   call void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %23, ptr noundef nonnull align 1 dereferenceable(1) %20)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20) #19, !noalias !314
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !314
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %587 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store double 1.000000e+00, ptr %587, align 8, !tbaa !147
   %588 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store double 1.000000e+00, ptr %588, align 8, !tbaa !149
   %589 = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEdRT_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(288) %23)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19) #19
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %23) #19
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %17) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 0, ptr %17, align 4, !tbaa !150
   %590 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 100, ptr %590, align 4, !tbaa !152
@@ -9518,8 +9512,8 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   %593 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 7, ptr %593, align 4, !tbaa !155
   %594 = call noundef i32 @_ZN4absl28log_uniform_int_distributionIiE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %17, ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 4 dereferenceable(20) %17)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %17) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i8 0, ptr %16, align 4, !tbaa !156
   %595 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store i8 100, ptr %595, align 1, !tbaa !158
@@ -9530,8 +9524,8 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   %598 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 7, ptr %598, align 4, !tbaa !161
   %599 = call noundef zeroext i8 @_ZN4absl28log_uniform_int_distributionIaE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEhRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 4 dereferenceable(8) %16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #19
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i16 0, ptr %15, align 4, !tbaa !162
   %600 = getelementptr inbounds nuw i8, ptr %15, i64 2
   store i16 100, ptr %600, align 2, !tbaa !164
@@ -9542,8 +9536,8 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   %603 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 7, ptr %603, align 4, !tbaa !167
   %604 = call noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionIsE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %15, ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 4 dereferenceable(12) %15)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #19
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %14) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i16 0, ptr %14, align 4, !tbaa !168
   %605 = getelementptr inbounds nuw i8, ptr %14, i64 2
   store i16 100, ptr %605, align 2, !tbaa !170
@@ -9554,8 +9548,8 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   %608 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 7, ptr %608, align 4, !tbaa !173
   %609 = call noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionItE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 4 dereferenceable(12) %14)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14) #19
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %13) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !150
   %610 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 1024, ptr %610, align 4, !tbaa !152
@@ -9566,8 +9560,8 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   %613 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 11, ptr %613, align 4, !tbaa !155
   %614 = call noundef i32 @_ZN4absl28log_uniform_int_distributionIiE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %13, ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 4 dereferenceable(20) %13)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %13) #19
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %12) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !174
   %615 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 1024, ptr %615, align 4, !tbaa !176
@@ -9578,8 +9572,8 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   %618 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 11, ptr %618, align 4, !tbaa !179
   %619 = call noundef i32 @_ZN4absl28log_uniform_int_distributionIjE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 4 dereferenceable(20) %12)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %12) #19
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 0, ptr %11, align 8, !tbaa !180
   %620 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 1024, ptr %620, align 8, !tbaa !182
@@ -9590,8 +9584,8 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   %623 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i32 11, ptr %623, align 8, !tbaa !185
   %624 = call noundef i64 @_ZN4absl28log_uniform_int_distributionIlE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 8 dereferenceable(40) %11)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #19
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 0, ptr %10, align 8, !tbaa !186
   %625 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 1024, ptr %625, align 8, !tbaa !188
@@ -9602,10 +9596,10 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   %628 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i32 11, ptr %628, align 8, !tbaa !191
   %629 = call noundef i64 @_ZN4absl28log_uniform_int_distributionImE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 8 dereferenceable(40) %10)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #19
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %18) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.experimental.noalias.scope.decl(metadata !317)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #19, !noalias !317
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !317
   %630 = getelementptr inbounds nuw i8, ptr %18, i64 272
   call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %630)
   %631 = getelementptr inbounds nuw i8, ptr %18, i64 264
@@ -9615,8 +9609,8 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   %634 = getelementptr inbounds nuw i8, ptr %18, i64 %633
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %634, i8 0, i64 256, i1 false), !alias.scope !317
   call void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %18, ptr noundef nonnull align 1 dereferenceable(1) %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #19, !noalias !317
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !317
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !186
   %635 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1024, ptr %635, align 8, !tbaa !188
@@ -9627,23 +9621,23 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   %638 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 11, ptr %638, align 8, !tbaa !191
   %639 = call noundef i64 @_ZN4absl28log_uniform_int_distributionImE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(288) %18, ptr noundef nonnull align 8 dereferenceable(40) %8)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #19
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %18) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i128 2, ptr %7, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store i64 1024, ptr %6, align 16
   %640 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %640, align 8
   %641 = call { i64, i64 } @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_28log_uniform_int_distributionINS_6int128EEEJRSA_SC_SC_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 16 dereferenceable(16) %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 2, ptr %4, align 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %.sroa.2.0..sroa_idx.i.i, align 8
@@ -9652,20 +9646,20 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   %642 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %642, align 8
   %643 = call { i64, i64 } @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_28log_uniform_int_distributionINS_7uint128EEEJRSA_SC_SC_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %135, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %135) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %135)
   ret void
 }
 
 declare void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) local_unnamed_addr #3 comdat align 2 {
 _ZN4absl15random_internal17RandenPoolSeedSeq8generateIPjEEvT_S4_.exit:
   %2 = alloca [60 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %scevgep = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(208) %scevgep, i8 0, i64 208, i1 false), !tbaa !32
   call void @_ZN4absl15random_internal10RandenPoolIhE4FillENS_4SpanIhEE(ptr nonnull %2, i64 32)
@@ -9730,7 +9724,7 @@ _ZN4absl15random_internal17RandenPoolSeedSeq8generateIPjEEvT_S4_.exit:
 _ZNK4absl15random_internal6Randen6AbsorbEPKvPv.exit: ; preds = %38, %39
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store i64 32, ptr %40, align 8, !tbaa !274
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -9741,7 +9735,7 @@ declare void @_ZN4absl15random_internal11RandenHwAes6AbsorbEPKvPv(ptr noundef, p
 declare void @_ZN4absl15random_internal10RandenSlow6AbsorbEPKvPv(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIiEEJRiSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIiEEJRiSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = alloca %"class.absl::random_internal::FastUniformBits", align 1
   %5 = load i32, ptr %1, align 4, !tbaa !32
   %6 = load i32, ptr %2, align 4, !tbaa !32
@@ -9750,7 +9744,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18Distributi
   %9 = sub i32 %6, %5
   %10 = add i32 %9, %8
   %.sroa.4.0.insert.ext = zext i32 %10 to i64
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = ptrtoint ptr %0 to i64
   %12 = and i64 %11, 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %12
@@ -9821,13 +9815,13 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
 _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit: ; preds = %32, %.loopexit.i.i.i
   %.0.i.i.in.i = phi i64 [ %33, %32 ], [ %49, %.loopexit.i.i.i ]
   %.0.i.i.i = trunc nuw i64 %.0.i.i.in.i to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %50 = add i32 %5, %.0.i.i.i
   ret i32 %50
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(288) %1) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(288) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %4
@@ -9868,7 +9862,7 @@ declare void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef,
 declare void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJddEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJddEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load double, ptr %1, align 8, !tbaa !37
   %5 = load double, ptr %2, align 8, !tbaa !37
   %6 = fsub double %5, %4
@@ -9979,7 +9973,7 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(288) %1) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef i64 @_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(288) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %4
@@ -10015,7 +10009,7 @@ _ZN4absl15random_internal15FastUniformBitsImE8GenerateINS0_17NonsecureURBGBaseIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRdSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRdSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load double, ptr %1, align 8, !tbaa !37
   %5 = load double, ptr %2, align 8, !tbaa !37
   %6 = fsub double %5, %4
@@ -10126,12 +10120,12 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl24uniform_int_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEElRT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(288) %1) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef i64 @_ZN4absl24uniform_int_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEElRT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(288) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = alloca %"class.absl::random_internal::FastUniformBits.11", align 1
   %.sroa.0.0.copyload.i = load i64, ptr %0, align 8, !tbaa !20
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %5
@@ -10203,13 +10197,13 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
 
 _ZN4absl24uniform_int_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEElRT_RKNS1_10param_typeE.exit: ; preds = %25, %27, %30, %..loopexit_crit_edge.i.i
   %.0.i.i = phi i64 [ %26, %25 ], [ %.sroa.2.0.extract.trunc.i.i.i.i, %27 ], [ %.sroa.2.0.extract.trunc.i.i30.le.i.i, %..loopexit_crit_edge.i.i ], [ %.sroa.2.0.extract.trunc.i.i.i.i, %30 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %37 = add i64 %.0.i.i, %.sroa.0.0.copyload.i
   ret i64 %37
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagERdSD_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagERdSD_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load double, ptr %2, align 8, !tbaa !37
   %6 = load double, ptr %3, align 8, !tbaa !37
   %7 = tail call noundef double @nextafter(double noundef %5, double noundef %6) #19, !tbaa !32
@@ -10320,12 +10314,12 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl24uniform_int_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(288) %1) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef i64 @_ZN4absl24uniform_int_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(288) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = alloca %"class.absl::random_internal::FastUniformBits.11", align 1
   %.sroa.0.0.copyload.i = load i64, ptr %0, align 8, !tbaa !20
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %5
@@ -10397,13 +10391,13 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
 
 _ZN4absl24uniform_int_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE.exit: ; preds = %25, %27, %30, %..loopexit_crit_edge.i.i
   %.0.i.i = phi i64 [ %26, %25 ], [ %.sroa.2.0.extract.trunc.i.i.i.i, %27 ], [ %.sroa.2.0.extract.trunc.i.i30.le.i.i, %..loopexit_crit_edge.i.i ], [ %.sroa.2.0.extract.trunc.i.i.i.i, %30 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %37 = add i64 %.0.i.i, %.sroa.0.0.copyload.i
   ret i64 %37
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagEddEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagEddEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load double, ptr %2, align 8, !tbaa !37
   %6 = load double, ptr %3, align 8, !tbaa !37
   %7 = tail call noundef double @nextafter(double noundef %5, double noundef %6) #19, !tbaa !32
@@ -10514,12 +10508,12 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef signext i8 @_ZN4absl24uniform_int_distributionIaEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEaRT_RKNS1_10param_typeE(ptr noundef nonnull align 1 dereferenceable(2) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 1 dereferenceable(2) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef signext i8 @_ZN4absl24uniform_int_distributionIaEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEaRT_RKNS1_10param_typeE(ptr noundef nonnull align 1 dereferenceable(2) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 1 dereferenceable(2) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = alloca %"class.absl::random_internal::FastUniformBits.18", align 1
   %5 = load i8, ptr %2, align 1, !tbaa !289
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %7 = load i8, ptr %6, align 1, !tbaa !291
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = ptrtoint ptr %1 to i64
   %9 = and i64 %8, 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %9
@@ -10593,13 +10587,13 @@ _ZN4absl15random_internal15FastUniformBitsIhEclINS0_17NonsecureURBGBaseINS0_13ra
 
 _ZN4absl24uniform_int_distributionIaE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEhRT_h.exit: ; preds = %29, %.loopexit.i
   %.0.i = phi i8 [ %31, %29 ], [ %49, %.loopexit.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %50 = add i8 %.0.i, %5
   ret i8 %50
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i8 @_ZN4absl15random_internal15FastUniformBitsIhEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEhRT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(288) %1) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i8 @_ZN4absl15random_internal15FastUniformBitsIhEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEhRT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(288) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %4
@@ -10636,12 +10630,12 @@ _ZN4absl15random_internal15FastUniformBitsIhE8GenerateINS0_17NonsecureURBGBaseIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef signext i16 @_ZN4absl24uniform_int_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 2 dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 2 dereferenceable(4) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef signext i16 @_ZN4absl24uniform_int_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 2 dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 2 dereferenceable(4) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = alloca %"class.absl::random_internal::FastUniformBits.21", align 1
   %5 = load i16, ptr %2, align 2, !tbaa !292
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %7 = load i16, ptr %6, align 2, !tbaa !294
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = ptrtoint ptr %1 to i64
   %9 = and i64 %8, 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %9
@@ -10715,13 +10709,13 @@ _ZN4absl15random_internal15FastUniformBitsItEclINS0_17NonsecureURBGBaseINS0_13ra
 
 _ZN4absl24uniform_int_distributionIsE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEtRT_t.exit: ; preds = %30, %.loopexit.i
   %.0.i = phi i16 [ %32, %30 ], [ %50, %.loopexit.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %51 = add i16 %.0.i, %5
   ret i16 %51
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl15random_internal15FastUniformBitsItEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEtRT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(288) %1) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl15random_internal15FastUniformBitsItEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEtRT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(288) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %4
@@ -10758,12 +10752,12 @@ _ZN4absl15random_internal15FastUniformBitsItE8GenerateINS0_17NonsecureURBGBaseIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl24uniform_int_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 2 dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 2 dereferenceable(4) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl24uniform_int_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 2 dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 2 dereferenceable(4) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = alloca %"class.absl::random_internal::FastUniformBits.21", align 1
   %5 = load i16, ptr %2, align 2, !tbaa !295
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %7 = load i16, ptr %6, align 2, !tbaa !297
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = ptrtoint ptr %1 to i64
   %9 = and i64 %8, 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %9
@@ -10837,13 +10831,13 @@ _ZN4absl15random_internal15FastUniformBitsItEclINS0_17NonsecureURBGBaseINS0_13ra
 
 _ZN4absl24uniform_int_distributionItE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEtRT_t.exit: ; preds = %30, %.loopexit.i
   %.0.i = phi i16 [ %32, %30 ], [ %50, %.loopexit.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %51 = add i16 %.0.i, %5
   ret i16 %51
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIjEEJRjSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIjEEJRjSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = alloca %"class.absl::random_internal::FastUniformBits", align 1
   %5 = load i32, ptr %1, align 4, !tbaa !32
   %6 = load i32, ptr %2, align 4, !tbaa !32
@@ -10852,7 +10846,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18Distributi
   %9 = sub i32 %6, %5
   %10 = add i32 %9, %8
   %.sroa.4.0.insert.ext = zext i32 %10 to i64
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = ptrtoint ptr %0 to i64
   %12 = and i64 %11, 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %12
@@ -10923,13 +10917,13 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
 _ZN4absl24uniform_int_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEjRT_.exit: ; preds = %32, %.loopexit.i.i.i
   %.0.i.i.in.i = phi i64 [ %33, %32 ], [ %49, %.loopexit.i.i.i ]
   %.0.i.i.i = trunc nuw i64 %.0.i.i.in.i to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %50 = add i32 %5, %.0.i.i.i
   ret i32 %50
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef float @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIfEEJRfSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef float @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIfEEJRfSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load float, ptr %1, align 4, !tbaa !298
   %5 = load float, ptr %2, align 4, !tbaa !298
   %6 = fsub float %5, %4
@@ -11044,7 +11038,7 @@ _ZN4absl25uniform_real_distributionIfEclINS_15random_internal17NonsecureURBGBase
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_23IntervalClosedClosedTagERdSD_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_23IntervalClosedClosedTagERdSD_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load double, ptr %2, align 8, !tbaa !37
   %.fr = freeze double %5
   %6 = load double, ptr %3, align 8, !tbaa !37
@@ -11156,7 +11150,7 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_21IntervalClosedOpenTagERdSD_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_21IntervalClosedOpenTagERdSD_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load double, ptr %2, align 8, !tbaa !37
   %6 = load double, ptr %3, align 8, !tbaa !37
   %7 = fsub double %6, %5
@@ -11267,7 +11261,7 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_21IntervalOpenClosedTagERdSD_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_21IntervalOpenClosedTagERdSD_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load double, ptr %2, align 8, !tbaa !37
   %6 = load double, ptr %3, align 8, !tbaa !37
   %7 = tail call noundef double @nextafter(double noundef %5, double noundef %6) #19, !tbaa !32
@@ -11379,7 +11373,7 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIiEEJRNS_19IntervalOpenOpenTagERiSD_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIiEEJRNS_19IntervalOpenOpenTagERiSD_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #3 comdat align 2 {
   %5 = alloca %"class.absl::random_internal::FastUniformBits", align 1
   %6 = load i32, ptr %2, align 4, !tbaa !32
   %7 = load i32, ptr %3, align 4, !tbaa !32
@@ -11391,7 +11385,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18Distributi
   %13 = add nsw i32 %7, %12
   %14 = sub i32 %13, %10
   %.sroa.4.0.insert.ext = zext i32 %14 to i64
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = ptrtoint ptr %0 to i64
   %16 = and i64 %15, 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 %16
@@ -11462,13 +11456,13 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
 _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit: ; preds = %36, %.loopexit.i.i.i
   %.0.i.i.in.i = phi i64 [ %37, %36 ], [ %53, %.loopexit.i.i.i ]
   %.0.i.i.i = trunc nuw i64 %.0.i.i.in.i to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = add i32 %10, %.0.i.i.i
   ret i32 %54
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl20poisson_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef i32 @_ZN4absl20poisson_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !36
   %.not = icmp eq i32 %5, 0
@@ -11694,7 +11688,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef signext i16 @_ZN4absl20poisson_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef signext i16 @_ZN4absl20poisson_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !40
   %.not = icmp eq i32 %5, 0
@@ -11920,7 +11914,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl20poisson_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl20poisson_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !43
   %.not = icmp eq i32 %5, 0
@@ -12146,7 +12140,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl20poisson_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef i32 @_ZN4absl20poisson_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !46
   %.not = icmp eq i32 %5, 0
@@ -12372,7 +12366,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl20poisson_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef i64 @_ZN4absl20poisson_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !49
   %.not = icmp eq i32 %5, 0
@@ -12598,7 +12592,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl20poisson_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef i64 @_ZN4absl20poisson_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !52
   %.not = icmp eq i32 %5, 0
@@ -12824,7 +12818,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl20poisson_distributionINS_6int128EEclINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl20poisson_distributionINS_6int128EEclINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !55
   %.not = icmp eq i32 %5, 0
@@ -13063,7 +13057,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl20poisson_distributionINS_7uint128EEclINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl20poisson_distributionINS_7uint128EEclINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::uint128", align 16
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %6 = load i32, ptr %5, align 8, !tbaa !58
@@ -13305,7 +13299,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl17zipf_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef i32 @_ZN4absl17zipf_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %5
@@ -13452,7 +13446,7 @@ _ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit: ; preds = %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef signext i8 @_ZN4absl17zipf_distributionIaEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEaRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef signext i8 @_ZN4absl17zipf_distributionIaEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEaRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %5
@@ -13599,7 +13593,7 @@ _ZNK4absl17zipf_distributionIaE10param_type14pow_negative_qEd.exit: ; preds = %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef signext i16 @_ZN4absl17zipf_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef signext i16 @_ZN4absl17zipf_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %5
@@ -13746,7 +13740,7 @@ _ZNK4absl17zipf_distributionIsE10param_type14pow_negative_qEd.exit: ; preds = %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl17zipf_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl17zipf_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %5
@@ -13893,7 +13887,7 @@ _ZNK4absl17zipf_distributionItE10param_type14pow_negative_qEd.exit: ; preds = %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl17zipf_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef i32 @_ZN4absl17zipf_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %5
@@ -14040,7 +14034,7 @@ _ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit: ; preds = %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl17zipf_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef i64 @_ZN4absl17zipf_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %5
@@ -14187,7 +14181,7 @@ _ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit: ; preds = %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl17zipf_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef i64 @_ZN4absl17zipf_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %5
@@ -14334,7 +14328,7 @@ _ZNK4absl17zipf_distributionImE10param_type14pow_negative_qEd.exit: ; preds = %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl17zipf_distributionINS_6int128EEclINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 16 dereferenceable(72) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl17zipf_distributionINS_6int128EEclINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 16 dereferenceable(72) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %5
@@ -14492,7 +14486,7 @@ _ZNK4absl17zipf_distributionINS_6int128EE10param_type14pow_negative_qEd.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl17zipf_distributionINS_7uint128EEclINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 16 dereferenceable(72) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl17zipf_distributionINS_7uint128EEclINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 16 dereferenceable(72) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::uint128", align 16
   %5 = ptrtoint ptr %1 to i64
   %6 = and i64 %5, 8
@@ -14867,13 +14861,13 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl28log_uniform_int_distributionIiE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 4 dereferenceable(20) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZN4absl28log_uniform_int_distributionIiE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 4 dereferenceable(20) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = alloca %"class.absl::random_internal::FastUniformBits", align 1
   %5 = alloca %"class.absl::random_internal::FastUniformBits", align 1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load i32, ptr %6, align 4, !tbaa !155
   %.sroa.445.0.insert.ext = zext i32 %7 to i64
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = ptrtoint ptr %1 to i64
   %9 = and i64 %8, 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %9
@@ -14944,7 +14938,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
 _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit: ; preds = %29, %.loopexit.i.i.i
   %.0.i.i.in.i = phi i64 [ %30, %29 ], [ %46, %.loopexit.i.i.i ]
   %.0.i.i.i = trunc nuw i64 %.0.i.i.in.i to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %47 = icmp eq i64 %.0.i.i.in.i, 0
   br i1 %47, label %111, label %48
 
@@ -14991,7 +14985,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   %73 = call i32 @llvm.umin.i32(i32 %.028, i32 %72)
   %74 = sub i32 %73, %spec.select
   %.sroa.4.0.insert.ext = zext i32 %74 to i64
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %75 = load i64, ptr %11, align 8, !tbaa !274
   %76 = icmp ugt i64 %75, 31
   br i1 %76, label %77, label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i36
@@ -15058,7 +15052,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
 _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit43: ; preds = %92, %.loopexit.i.i.i37
   %.0.i.i.in.i39 = phi i64 [ %93, %92 ], [ %109, %.loopexit.i.i.i37 ]
   %.0.i.i.i40 = trunc nuw i64 %.0.i.i.in.i39 to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %110 = add i32 %spec.select, %.0.i.i.i40
   br label %111
 
@@ -15068,14 +15062,14 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i8 @_ZN4absl28log_uniform_int_distributionIaE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEhRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i8 @_ZN4absl28log_uniform_int_distributionIaE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEhRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = alloca %"class.absl::uniform_int_distribution<signed char>::param_type", align 2
   %5 = alloca %"class.absl::random_internal::FastUniformBits", align 1
   %6 = alloca %"class.absl::uniform_int_distribution.17", align 2
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !161
   %.sroa.4.0.insert.ext = zext i32 %8 to i64
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = ptrtoint ptr %1 to i64
   %10 = and i64 %9, 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 %10
@@ -15146,7 +15140,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
 _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit: ; preds = %30, %.loopexit.i.i.i
   %.0.i.i.in.i = phi i64 [ %31, %30 ], [ %47, %.loopexit.i.i.i ]
   %.0.i.i.i = trunc nuw i64 %.0.i.i.in.i to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %48 = icmp eq i64 %.0.i.i.in.i, 0
   br i1 %48, label %78, label %49
 
@@ -15191,17 +15185,17 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   %73 = load i8, ptr %72, align 1, !tbaa !160
   %spec.select = call i8 @llvm.umin.i8(i8 %.027, i8 %73)
   %74 = call i8 @llvm.umin.i8(i8 %.028, i8 %73)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 %spec.select, ptr %6, align 2, !tbaa !289
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %76 = sub i8 %74, %spec.select
   store i8 %76, ptr %75, align 1, !tbaa !291
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.sroa.0.0.copyload.i.i33 = load i16, ptr %6, align 2
   store i16 %.sroa.0.0.copyload.i.i33, ptr %4, align 2
   %77 = call noundef signext i8 @_ZN4absl24uniform_int_distributionIaEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEaRT_RKNS1_10param_typeE(ptr noundef nonnull align 1 dereferenceable(2) %6, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 1 dereferenceable(2) %4)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #19
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %78
 
 78:                                               ; preds = %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit, %71
@@ -15210,14 +15204,14 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionIsE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 4 dereferenceable(12) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionIsE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 4 dereferenceable(12) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = alloca %"class.absl::uniform_int_distribution<short>::param_type", align 4
   %5 = alloca %"class.absl::random_internal::FastUniformBits", align 1
   %6 = alloca %"class.absl::uniform_int_distribution.20", align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i32, ptr %7, align 4, !tbaa !167
   %.sroa.4.0.insert.ext = zext i32 %8 to i64
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = ptrtoint ptr %1 to i64
   %10 = and i64 %9, 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 %10
@@ -15288,7 +15282,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
 _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit: ; preds = %30, %.loopexit.i.i.i
   %.0.i.i.in.i = phi i64 [ %31, %30 ], [ %47, %.loopexit.i.i.i ]
   %.0.i.i.i = trunc nuw i64 %.0.i.i.in.i to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %48 = icmp eq i64 %.0.i.i.in.i, 0
   br i1 %48, label %78, label %49
 
@@ -15333,17 +15327,17 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   %73 = load i16, ptr %72, align 2, !tbaa !166
   %spec.select = call i16 @llvm.umin.i16(i16 %.027, i16 %73)
   %74 = call i16 @llvm.umin.i16(i16 %.028, i16 %73)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i16 %spec.select, ptr %6, align 4, !tbaa !292
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %76 = sub i16 %74, %spec.select
   store i16 %76, ptr %75, align 2, !tbaa !294
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.sroa.0.0.copyload.i.i33 = load i32, ptr %6, align 4
   store i32 %.sroa.0.0.copyload.i.i33, ptr %4, align 4
   %77 = call noundef signext i16 @_ZN4absl24uniform_int_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 2 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 2 dereferenceable(4) %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %78
 
 78:                                               ; preds = %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit, %71
@@ -15352,14 +15346,14 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionItE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 4 dereferenceable(12) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionItE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 4 dereferenceable(12) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = alloca %"class.absl::uniform_int_distribution<unsigned short>::param_type", align 4
   %5 = alloca %"class.absl::random_internal::FastUniformBits", align 1
   %6 = alloca %"class.absl::uniform_int_distribution.23", align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i32, ptr %7, align 4, !tbaa !173
   %.sroa.4.0.insert.ext = zext i32 %8 to i64
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = ptrtoint ptr %1 to i64
   %10 = and i64 %9, 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 %10
@@ -15430,7 +15424,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
 _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit: ; preds = %30, %.loopexit.i.i.i
   %.0.i.i.in.i = phi i64 [ %31, %30 ], [ %47, %.loopexit.i.i.i ]
   %.0.i.i.i = trunc nuw i64 %.0.i.i.in.i to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %48 = icmp eq i64 %.0.i.i.in.i, 0
   br i1 %48, label %78, label %49
 
@@ -15475,17 +15469,17 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   %73 = load i16, ptr %72, align 2, !tbaa !172
   %spec.select = call i16 @llvm.umin.i16(i16 %.027, i16 %73)
   %74 = call i16 @llvm.umin.i16(i16 %.028, i16 %73)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i16 %spec.select, ptr %6, align 4, !tbaa !295
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %76 = sub i16 %74, %spec.select
   store i16 %76, ptr %75, align 2, !tbaa !297
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.sroa.0.0.copyload.i.i33 = load i32, ptr %6, align 4
   store i32 %.sroa.0.0.copyload.i.i33, ptr %4, align 4
   %77 = call noundef zeroext i16 @_ZN4absl24uniform_int_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 2 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 2 dereferenceable(4) %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %78
 
 78:                                               ; preds = %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit, %71
@@ -15494,13 +15488,13 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl28log_uniform_int_distributionIjE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 4 dereferenceable(20) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZN4absl28log_uniform_int_distributionIjE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 4 dereferenceable(20) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = alloca %"class.absl::random_internal::FastUniformBits", align 1
   %5 = alloca %"class.absl::random_internal::FastUniformBits", align 1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load i32, ptr %6, align 4, !tbaa !179
   %.sroa.444.0.insert.ext = zext i32 %7 to i64
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = ptrtoint ptr %1 to i64
   %9 = and i64 %8, 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %9
@@ -15571,7 +15565,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
 _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit: ; preds = %29, %.loopexit.i.i.i
   %.0.i.i.in.i = phi i64 [ %30, %29 ], [ %46, %.loopexit.i.i.i ]
   %.0.i.i.i = trunc nuw i64 %.0.i.i.in.i to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %47 = icmp eq i64 %.0.i.i.in.i, 0
   br i1 %47, label %111, label %48
 
@@ -15618,7 +15612,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   %73 = call i32 @llvm.umin.i32(i32 %.028, i32 %72)
   %74 = sub i32 %73, %spec.select
   %.sroa.4.0.insert.ext = zext i32 %74 to i64
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %75 = load i64, ptr %11, align 8, !tbaa !274
   %76 = icmp ugt i64 %75, 31
   br i1 %76, label %77, label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i36
@@ -15685,7 +15679,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
 _ZN4absl24uniform_int_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEjRT_.exit: ; preds = %92, %.loopexit.i.i.i37
   %.0.i.i.in.i39 = phi i64 [ %93, %92 ], [ %109, %.loopexit.i.i.i37 ]
   %.0.i.i.i40 = trunc nuw i64 %.0.i.i.in.i39 to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %110 = add i32 %spec.select, %.0.i.i.i40
   br label %111
 
@@ -15695,13 +15689,13 @@ _ZN4absl24uniform_int_distributionIjEclINS_15random_internal17NonsecureURBGBaseI
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl28log_uniform_int_distributionIlE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(36) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef i64 @_ZN4absl28log_uniform_int_distributionIlE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(36) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = alloca %"class.absl::random_internal::FastUniformBits", align 1
   %5 = alloca %"class.absl::uniform_int_distribution.13", align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %7 = load i32, ptr %6, align 8, !tbaa !185
   %.sroa.4.0.insert.ext = zext i32 %7 to i64
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = ptrtoint ptr %1 to i64
   %9 = and i64 %8, 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %9
@@ -15772,7 +15766,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
 _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit: ; preds = %29, %.loopexit.i.i.i
   %.0.i.i.in.i = phi i64 [ %30, %29 ], [ %46, %.loopexit.i.i.i ]
   %.0.i.i.i = trunc nuw i64 %.0.i.i.in.i to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %47 = icmp eq i64 %.0.i.i.in.i, 0
   br i1 %47, label %77, label %48
 
@@ -15816,13 +15810,13 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   %72 = load i64, ptr %71, align 8, !tbaa !184
   %spec.select = call i64 @llvm.umin.i64(i64 %.027, i64 %72)
   %73 = call i64 @llvm.umin.i64(i64 %.028, i64 %72)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %spec.select, ptr %5, align 8, !tbaa !278
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %75 = sub i64 %73, %spec.select
   store i64 %75, ptr %74, align 8, !tbaa !280
   %76 = call noundef i64 @_ZN4absl24uniform_int_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEElRT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(288) %1)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %77
 
 77:                                               ; preds = %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit, %70
@@ -15831,13 +15825,13 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl28log_uniform_int_distributionImE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(36) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef i64 @_ZN4absl28log_uniform_int_distributionImE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(36) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = alloca %"class.absl::random_internal::FastUniformBits", align 1
   %5 = alloca %"class.absl::uniform_int_distribution.15", align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %7 = load i32, ptr %6, align 8, !tbaa !191
   %.sroa.4.0.insert.ext = zext i32 %7 to i64
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = ptrtoint ptr %1 to i64
   %9 = and i64 %8, 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %9
@@ -15908,7 +15902,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
 _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit: ; preds = %29, %.loopexit.i.i.i
   %.0.i.i.in.i = phi i64 [ %30, %29 ], [ %46, %.loopexit.i.i.i ]
   %.0.i.i.i = trunc nuw i64 %.0.i.i.in.i to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %47 = icmp eq i64 %.0.i.i.in.i, 0
   br i1 %47, label %77, label %48
 
@@ -15952,13 +15946,13 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   %72 = load i64, ptr %71, align 8, !tbaa !190
   %spec.select = call i64 @llvm.umin.i64(i64 %.027, i64 %72)
   %73 = call i64 @llvm.umin.i64(i64 %.028, i64 %72)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %spec.select, ptr %5, align 8, !tbaa !286
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %75 = sub i64 %73, %spec.select
   store i64 %75, ptr %74, align 8, !tbaa !288
   %76 = call noundef i64 @_ZN4absl24uniform_int_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(288) %1)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %77
 
 77:                                               ; preds = %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit, %70
@@ -15967,9 +15961,9 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_28log_uniform_int_distributionINS_6int128EEEJRSA_SC_SC_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_28log_uniform_int_distributionINS_6int128EEEJRSA_SC_SC_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.absl::log_uniform_int_distribution.61", align 16
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.sroa.01.0.copyload = load i64, ptr %1, align 16
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !123
@@ -16052,12 +16046,12 @@ _ZN4absl28log_uniform_int_distributionINS_6int128EEC2ES1_S1_S1_.exit: ; preds = 
   %.sroa.010.0.extract.trunc.i.i = trunc i128 %.sroa.03.0.insert.insert.i.i.i to i64
   %.fca.0.insert.i.i = insertvalue { i64, i64 } poison, i64 %.sroa.010.0.extract.trunc.i.i, 0
   %.fca.1.insert.i.i = insertvalue { i64, i64 } %.fca.0.insert.i.i, i64 %.narrow.i.i.i10, 1
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret { i64, i64 } %.fca.1.insert.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl28log_uniform_int_distributionINS_6int128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEENS_7uint128ERT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 16 dereferenceable(68) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl28log_uniform_int_distributionINS_6int128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEENS_7uint128ERT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 16 dereferenceable(68) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = alloca %"class.absl::random_internal::FastUniformBits", align 1
   %5 = alloca %"class.absl::uint128", align 16
   %6 = alloca %"class.absl::uint128", align 16
@@ -16065,7 +16059,7 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4absl28log_uniform_int_distributi
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %9 = load i32, ptr %8, align 16, !tbaa !262
   %.sroa.4138.0.insert.ext = zext i32 %9 to i64
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = ptrtoint ptr %1 to i64
   %11 = and i64 %10, 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 %11
@@ -16136,7 +16130,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
 _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit: ; preds = %31, %.loopexit.i.i.i
   %.0.i.i.in.i = phi i64 [ %32, %31 ], [ %48, %.loopexit.i.i.i ]
   %.0.i.i.i = trunc nuw i64 %.0.i.i.in.i to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %49 = icmp eq i64 %.0.i.i.in.i, 0
   br i1 %49, label %83, label %50
 
@@ -16188,7 +16182,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   %.sroa.0125.0.insert.insert = or disjoint i128 %.sroa.22.0.insert.shift.i, %.sroa.0125.0.insert.ext
   %66 = sitofp i128 %.sroa.0125.0.insert.insert to double
   %67 = call double @llvm.fmuladd.f64(double %65, double %66, double -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %68 = fcmp ogt double %65, 0x47F0000000000000
   br i1 %68, label %70, label %69
 
@@ -16202,8 +16196,8 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 70:                                               ; preds = %62, %69
   %.sroa.630.0.copyload = phi i64 [ %.sroa.630.0.copyload.pre, %69 ], [ -1, %62 ]
   %.sroa.029.0.copyload = phi i64 [ %.sroa.029.0.copyload.pre, %69 ], [ -1, %62 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %71 = fcmp ogt double %67, 0x47F0000000000000
   br i1 %71, label %73, label %72
 
@@ -16217,7 +16211,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 73:                                               ; preds = %70, %72
   %.sroa.6.0.copyload = phi i64 [ %.sroa.6.0.copyload.pre, %72 ], [ -1, %70 ]
   %.sroa.027.0.copyload = phi i64 [ %.sroa.027.0.copyload.pre, %72 ], [ -1, %70 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %74
 
 74:                                               ; preds = %73, %61
@@ -16247,7 +16241,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   %.not141 = icmp ult i128 %.sroa.01.0.insert.insert.i.i98, %.sroa.0.0.insert.insert.i.i
   %.sroa.09.0 = select i1 %.not141, i64 %.sroa.027.0, i64 %.sroa.0.0.copyload.i80
   %.sroa.5.0 = select i1 %.not141, i64 %.sroa.6.0, i64 %.sroa.2.0.copyload.i82
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.sroa.2.0.insert.ext.i108 = zext i64 %spec.select140 to i128
   %.sroa.2.0.insert.shift.i109 = shl nuw i128 %.sroa.2.0.insert.ext.i108, 64
   store i64 %spec.select, ptr %7, align 16
@@ -16275,7 +16269,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   %.tr.i.i.i = trunc nuw i128 %82 to i64
   %.narrow.i.i.i119 = add i64 %81, %.tr.i.i.i
   %.sroa.017.0.extract.trunc.i.i = trunc i128 %.sroa.03.0.insert.insert.i.i.i to i64
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %83
 
 83:                                               ; preds = %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit, %74
@@ -16287,10 +16281,10 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl24uniform_int_distributionINS_6int128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEENS_7uint128ERT_SA_(ptr noundef nonnull align 16 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, i64 %2, i64 %3) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl24uniform_int_distributionINS_6int128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEENS_7uint128ERT_SA_(ptr noundef nonnull align 16 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, i64 %2, i64 %3) local_unnamed_addr #3 comdat align 2 {
   %5 = alloca %"class.absl::random_internal::FastUniformBits.63", align 1
   %6 = alloca %"struct.absl::random_internal::U256", align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = ptrtoint ptr %1 to i64
   %8 = and i64 %7, 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 %8
@@ -16429,13 +16423,13 @@ _ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBa
   %54 = call { i64, i64 } @_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(288) %1)
   %55 = extractvalue { i64, i64 } %54, 0
   %56 = extractvalue { i64, i64 } %54, 1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4absl15random_internal13wide_multiplyINS_7uint128EE8multiplyES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::random_internal::U256") align 16 %6, i64 %55, i64 %56, i64 %.sroa.0.0.extract.trunc.i, i64 %.tr.i)
   %.sroa.0153.0.copyload155 = load i64, ptr %6, align 16, !tbaa !20
   %.sroa.7.0.copyload160 = load i64, ptr %.sroa.7.0..sroa_idx159, align 8, !tbaa !20
   %.sroa.8.0.copyload166 = load i64, ptr %.sroa.8.0..sroa_idx165, align 16, !tbaa !20
   %.sroa.9.0.copyload172 = load i64, ptr %.sroa.9.0..sroa_idx171, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.22.0.insert.ext.i140 = zext i64 %.sroa.9.0.copyload172 to i128
   %.sroa.22.0.insert.shift.i141 = shl nuw i128 %.sroa.22.0.insert.ext.i140, 64
   %.sroa.01.0.insert.ext.i142 = zext i64 %.sroa.8.0.copyload166 to i128
@@ -16448,12 +16442,12 @@ _ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBa
   %.sroa.2.0.extract.trunc.i88.pn = phi i64 [ %.sroa.2.0.extract.trunc.i88, %40 ], [ %.tr.i205.i.i, %42 ], [ %.tr.i205.i.i, %50 ], [ %.sroa.7.0.copyload160, %53 ]
   %.fca.0.insert.i89.pn = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.extract.trunc.i86.pn, 0
   %.pn = insertvalue { i64, i64 } %.fca.0.insert.i89.pn, i64 %.sroa.2.0.extract.trunc.i88.pn, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret { i64, i64 } %.pn
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(288) %1) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(288) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %4
@@ -16517,9 +16511,9 @@ _ZN4absl15random_internal15FastUniformBitsINS_7uint128EE8GenerateINS0_17Nonsecur
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_28log_uniform_int_distributionINS_7uint128EEEJRSA_SC_SC_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_28log_uniform_int_distributionINS_7uint128EEEJRSA_SC_SC_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.absl::log_uniform_int_distribution.64", align 16
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.sroa.01.0.copyload = load i64, ptr %1, align 16, !tbaa !20
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !20
@@ -16610,12 +16604,12 @@ _ZN4absl28log_uniform_int_distributionINS_7uint128EEC2ES1_S1_S1_.exit: ; preds =
   %.narrow.i.i.i12 = add i64 %36, %.tr.i.i.i
   %.fca.0.insert.i8.i.i = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.extract.trunc.i.i.i11, 0
   %.fca.1.insert.i9.i.i = insertvalue { i64, i64 } %.fca.0.insert.i8.i.i, i64 %.narrow.i.i.i12, 1
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret { i64, i64 } %.fca.1.insert.i9.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl28log_uniform_int_distributionINS_7uint128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 16 dereferenceable(68) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl28log_uniform_int_distributionINS_7uint128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 16 dereferenceable(68) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = alloca %"class.absl::random_internal::FastUniformBits", align 1
   %5 = alloca %"class.absl::uint128", align 16
   %6 = alloca %"class.absl::uint128", align 16
@@ -16623,7 +16617,7 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4absl28log_uniform_int_distributi
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %9 = load i32, ptr %8, align 16, !tbaa !268
   %.sroa.4125.0.insert.ext = zext i32 %9 to i64
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = ptrtoint ptr %1 to i64
   %11 = and i64 %10, 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 %11
@@ -16694,7 +16688,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
 _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit: ; preds = %31, %.loopexit.i.i.i
   %.0.i.i.in.i = phi i64 [ %32, %31 ], [ %48, %.loopexit.i.i.i ]
   %.0.i.i.i = trunc nuw i64 %.0.i.i.in.i to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %49 = icmp eq i64 %.0.i.i.in.i, 0
   br i1 %49, label %84, label %50
 
@@ -16744,7 +16738,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   %66 = sitofp i32 %51 to double
   %67 = call noundef double @pow(double noundef %65, double noundef %66) #19, !tbaa !32
   %68 = call double @llvm.fmuladd.f64(double %67, double %65, double -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %69 = fcmp ogt double %67, 0x47F0000000000000
   br i1 %69, label %71, label %70
 
@@ -16758,8 +16752,8 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 71:                                               ; preds = %62, %70
   %.sroa.628.0.copyload = phi i64 [ %.sroa.628.0.copyload.pre, %70 ], [ -1, %62 ]
   %.sroa.027.0.copyload = phi i64 [ %.sroa.027.0.copyload.pre, %70 ], [ -1, %62 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %72 = fcmp ogt double %68, 0x47F0000000000000
   br i1 %72, label %74, label %73
 
@@ -16773,7 +16767,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 74:                                               ; preds = %71, %73
   %.sroa.6.0.copyload = phi i64 [ %.sroa.6.0.copyload.pre, %73 ], [ -1, %71 ]
   %.sroa.025.0.copyload = phi i64 [ %.sroa.025.0.copyload.pre, %73 ], [ -1, %71 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %75
 
 75:                                               ; preds = %74, %61
@@ -16803,7 +16797,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   %.not128 = icmp ult i128 %.sroa.01.0.insert.insert.i.i96, %.sroa.0.0.insert.insert.i.i
   %.sroa.5.0 = select i1 %.not128, i64 %.sroa.6.0, i64 %.sroa.2.0.copyload.i80
   %.sroa.07.0 = select i1 %.not128, i64 %.sroa.025.0, i64 %.sroa.0.0.copyload.i78
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %spec.select, ptr %7, align 16, !tbaa !20
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %spec.select127, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !tbaa !20
@@ -16831,7 +16825,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   %83 = lshr i128 %.sroa.03.0.insert.insert.i.i.i, 64
   %.tr.i.i.i = trunc nuw i128 %83 to i64
   %.narrow.i.i.i110 = add i64 %82, %.tr.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %84
 
 84:                                               ; preds = %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit, %75
@@ -16843,10 +16837,10 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl24uniform_int_distributionINS_7uint128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_S1_(ptr noundef nonnull align 16 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, i64 %2, i64 %3) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl24uniform_int_distributionINS_7uint128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_S1_(ptr noundef nonnull align 16 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, i64 %2, i64 %3) local_unnamed_addr #3 comdat align 2 {
   %5 = alloca %"class.absl::random_internal::FastUniformBits.63", align 1
   %6 = alloca %"struct.absl::random_internal::U256", align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = ptrtoint ptr %1 to i64
   %8 = and i64 %7, 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 %8
@@ -16985,13 +16979,13 @@ _ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBa
   %54 = call { i64, i64 } @_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEES2_RT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(288) %1)
   %55 = extractvalue { i64, i64 } %54, 0
   %56 = extractvalue { i64, i64 } %54, 1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4absl15random_internal13wide_multiplyINS_7uint128EE8multiplyES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::random_internal::U256") align 16 %6, i64 %55, i64 %56, i64 %.sroa.0.0.extract.trunc.i, i64 %.tr.i)
   %.sroa.0153.0.copyload155 = load i64, ptr %6, align 16, !tbaa !20
   %.sroa.7.0.copyload160 = load i64, ptr %.sroa.7.0..sroa_idx159, align 8, !tbaa !20
   %.sroa.8.0.copyload166 = load i64, ptr %.sroa.8.0..sroa_idx165, align 16, !tbaa !20
   %.sroa.9.0.copyload172 = load i64, ptr %.sroa.9.0..sroa_idx171, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.22.0.insert.ext.i140 = zext i64 %.sroa.9.0.copyload172 to i128
   %.sroa.22.0.insert.shift.i141 = shl nuw i128 %.sroa.22.0.insert.ext.i140, 64
   %.sroa.01.0.insert.ext.i142 = zext i64 %.sroa.8.0.copyload166 to i128
@@ -17004,7 +16998,7 @@ _ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBa
   %.sroa.2.0.extract.trunc.i88.pn = phi i64 [ %.sroa.2.0.extract.trunc.i88, %40 ], [ %.tr.i205.i.i, %42 ], [ %.tr.i205.i.i, %50 ], [ %.sroa.7.0.copyload160, %53 ]
   %.fca.0.insert.i89.pn = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.extract.trunc.i86.pn, 0
   %.pn = insertvalue { i64, i64 } %.fca.0.insert.i89.pn, i64 %.sroa.2.0.extract.trunc.i88.pn, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret { i64, i64 } %.pn
 }
 
@@ -17020,7 +17014,7 @@ define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_133Ins
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_133InsecureBitGen_Compatibility_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_133InsecureBitGen_Compatibility_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %3 unwind label %4
@@ -17047,7 +17041,7 @@ define internal void @_ZN12_GLOBAL__N_133InsecureBitGen_Compatibility_TestD0Ev(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_133InsecureBitGen_Compatibility_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_133InsecureBitGen_Compatibility_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.absl::uint128", align 16
   %3 = alloca %"class.absl::uint128", align 16
   %4 = alloca %"class.absl::uint128", align 16
@@ -17103,8 +17097,8 @@ define internal void @_ZN12_GLOBAL__N_133InsecureBitGen_Compatibility_Test8TestB
   %54 = alloca double, align 8
   %55 = alloca [4 x i32], align 16
   %56 = alloca %"class.absl::random_internal::NonsecureURBGBase.66", align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %56) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %55) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   call void @_ZN4absl15random_internal10RandenPoolIhE4FillENS_4SpanIhEE(ptr nonnull %55, i64 16)
   %57 = load i32, ptr %55, align 16, !tbaa !32
   %58 = zext i32 %57 to i64
@@ -17147,7 +17141,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %69 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i, 64
   %.tr.i.i.i.i.i.i.i.i = trunc nuw i128 %69 to i64
   %.narrow.i.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i, 6364136223846793005
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   %70 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i.i.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i.i.i.i.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 64
@@ -17938,9 +17932,9 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   store i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i451.i.i, ptr %56, align 16, !tbaa !20
   store i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i453.lcssa.i.i, ptr %70, align 8, !tbaa !20
   %351 = call noundef double @_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESD_E4typeET0_OT1_SD_SD_(ptr noundef nonnull align 16 dereferenceable(16) %56, double noundef 0.000000e+00, double noundef 1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %52)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54)
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   store double 0.000000e+00, ptr %53, align 8, !tbaa !37
   store double 1.000000e+00, ptr %54, align 8, !tbaa !37
   %352 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #19, !tbaa !32
@@ -17957,9 +17951,9 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %361
 
 361:                                              ; preds = %359, %.critedge720.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %52)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
   %362 = call noundef double @_ZN4absl7UniformIdNS_23IntervalClosedClosedTagERNS_15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESD_E4typeET0_OT1_SD_SD_(ptr noundef nonnull align 16 dereferenceable(16) %56, double noundef 0.000000e+00, double noundef 1.000000e+00)
   %363 = call noundef double @_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESD_E4typeET0_OT1_SD_SD_(ptr noundef nonnull align 16 dereferenceable(16) %56, double noundef 0.000000e+00, double noundef 1.000000e+00)
   %.sroa.01.0.copyload.i.i.i.i.i.i.i.i.i.i458.i.i = load i64, ptr %56, align 16, !tbaa !20
@@ -18245,12 +18239,12 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.noexc629.i.i
 
 .noexc629.i.i:                                    ; preds = %..loopexit_crit_edge.i.i.i.i.i.i627.i.i, %451, %..loopexit_crit_edge.i.i.i.i.i.i598.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %51) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   call void @_ZN4absl15random_internal10RandenPoolIhE4FillENS_4SpanIhEE(ptr nonnull %51, i64 16)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %51) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   call void @_ZN4absl15random_internal10RandenPoolIhE4FillENS_4SpanIhEE(ptr nonnull %50, i64 16)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   %.sroa.01.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %56, align 16, !tbaa !20
   %.sroa.22.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %70, align 8, !tbaa !20
   %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i1.i = zext i64 %.sroa.22.0.copyload.i.i.i.i.i.i.i.i.i.i.i to i128
@@ -18318,7 +18312,7 @@ cdce.call1:                                       ; preds = %cdce.end.i.i
   br label %cdce.end29.i.i
 
 cdce.end29.i.i:                                   ; preds = %cdce.call1, %cdce.end.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   call void @_ZN4absl15random_internal10RandenPoolIhE4FillENS_4SpanIhEE(ptr nonnull %49, i64 16)
   %491 = load i32, ptr %49, align 16, !tbaa !32
   %492 = zext i32 %491 to i64
@@ -18361,7 +18355,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %503 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i, 64
   %.tr.i.i.i.i.i.i.i.i.i = trunc nuw i128 %503 to i64
   %.narrow.i.i.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i.i, 6364136223846793005
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i18.i.i = zext i64 %.narrow.i.i.i.i.i.i.i.i.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i.i.i19.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i18.i.i, 64
   %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i20.i.i = and i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i, 18446744073709551615
@@ -18392,64 +18386,64 @@ cdce.call3:                                       ; preds = %_ZN4absl15random_in
   br label %_ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i
 
 _ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i: ; preds = %cdce.call3, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %47) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   store double 1.000000e+00, ptr %47, align 8, !tbaa !33
   %518 = getelementptr inbounds nuw i8, ptr %47, i64 40
   store i32 1, ptr %518, align 8, !tbaa !36
   %519 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store double 0x3FD78B56362CEF38, ptr %519, align 8, !tbaa !37
   %520 = call noundef i32 @_ZN4absl20poisson_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %47, ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(49) %47)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %47) #19
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %46) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   store double 1.000000e+00, ptr %46, align 8, !tbaa !38
   %521 = getelementptr inbounds nuw i8, ptr %46, i64 40
   store i32 1, ptr %521, align 8, !tbaa !40
   %522 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store double 0x3FD78B56362CEF38, ptr %522, align 8, !tbaa !37
   %523 = call noundef signext i16 @_ZN4absl20poisson_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %46, ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(49) %46)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %46) #19
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %45) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store double 1.000000e+00, ptr %45, align 8, !tbaa !41
   %524 = getelementptr inbounds nuw i8, ptr %45, i64 40
   store i32 1, ptr %524, align 8, !tbaa !43
   %525 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store double 0x3FD78B56362CEF38, ptr %525, align 8, !tbaa !37
   %526 = call noundef zeroext i16 @_ZN4absl20poisson_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %45, ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(49) %45)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %45) #19
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %44) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store double 1.000000e+00, ptr %44, align 8, !tbaa !33
   %527 = getelementptr inbounds nuw i8, ptr %44, i64 40
   store i32 1, ptr %527, align 8, !tbaa !36
   %528 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store double 0x3FD78B56362CEF38, ptr %528, align 8, !tbaa !37
   %529 = call noundef i32 @_ZN4absl20poisson_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %44, ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(49) %44)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %44) #19
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %43) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   store double 1.000000e+00, ptr %43, align 8, !tbaa !44
   %530 = getelementptr inbounds nuw i8, ptr %43, i64 40
   store i32 1, ptr %530, align 8, !tbaa !46
   %531 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store double 0x3FD78B56362CEF38, ptr %531, align 8, !tbaa !37
   %532 = call noundef i32 @_ZN4absl20poisson_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %43, ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(49) %43)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %43) #19
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %42) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store double 1.000000e+00, ptr %42, align 8, !tbaa !47
   %533 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store i32 1, ptr %533, align 8, !tbaa !49
   %534 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store double 0x3FD78B56362CEF38, ptr %534, align 8, !tbaa !37
   %535 = call noundef i64 @_ZN4absl20poisson_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %42, ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(49) %42)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %42) #19
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %41) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store double 1.000000e+00, ptr %41, align 8, !tbaa !50
   %536 = getelementptr inbounds nuw i8, ptr %41, i64 40
   store i32 1, ptr %536, align 8, !tbaa !52
   %537 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store double 0x3FD78B56362CEF38, ptr %537, align 8, !tbaa !37
   %538 = call noundef i64 @_ZN4absl20poisson_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %41, ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(49) %41)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %41) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %48) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   call void @_ZN4absl15random_internal10RandenPoolIhE4FillENS_4SpanIhEE(ptr nonnull %40, i64 16)
   %539 = load i32, ptr %40, align 16, !tbaa !32
   %540 = zext i32 %539 to i64
@@ -18493,35 +18487,35 @@ _ZN12_GLOBAL__N_111TestPoissonIN4absl15random_internal17NonsecureURBGBaseINS2_10
   %551 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i39.i, 64
   %.tr.i.i.i.i.i.i.i.i40.i = trunc nuw i128 %551 to i64
   %.narrow.i.i.i.i.i.i.i.i41.i = add i64 %.tr.i.i.i.i.i.i.i.i40.i, 6364136223846793005
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   store i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i, ptr %48, align 16
   %552 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i64 %.narrow.i.i.i.i.i.i.i.i41.i, ptr %552, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %39) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store double 1.000000e+00, ptr %39, align 8, !tbaa !50
   %553 = getelementptr inbounds nuw i8, ptr %39, i64 40
   store i32 1, ptr %553, align 8, !tbaa !52
   %554 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store double 0x3FD78B56362CEF38, ptr %554, align 8, !tbaa !37
   %555 = call noundef i64 @_ZN4absl20poisson_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %39, ptr noundef nonnull align 16 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(49) %39)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %39) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48) #19
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %38) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store double 1.000000e+00, ptr %38, align 8, !tbaa !53
   %556 = getelementptr inbounds nuw i8, ptr %38, i64 40
   store i32 1, ptr %556, align 8, !tbaa !55
   %557 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store double 0x3FD78B56362CEF38, ptr %557, align 8, !tbaa !37
   %558 = call { i64, i64 } @_ZN4absl20poisson_distributionINS_6int128EEclINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %38, ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(49) %38)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %38) #19
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %37) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store double 1.000000e+00, ptr %37, align 8, !tbaa !56
   %559 = getelementptr inbounds nuw i8, ptr %37, i64 40
   store i32 1, ptr %559, align 8, !tbaa !58
   %560 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store double 0x3FD78B56362CEF38, ptr %560, align 8, !tbaa !37
   %561 = call { i64, i64 } @_ZN4absl20poisson_distributionINS_7uint128EEclINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %37, ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(49) %37)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %37) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   %.promoted.i.i.i.i.i.i43.i = load i64, ptr %56, align 16, !tbaa !20
   %.sroa.22.0..sroa_idx.i.i.i.i.promoted.i.i.i.i.i.i44.i = load i64, ptr %70, align 8, !tbaa !20
   %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i45.i = zext i64 %.sroa.22.0..sroa_idx.i.i.i.i.promoted.i.i.i.i.i.i44.i to i128
@@ -18545,7 +18539,7 @@ _ZN12_GLOBAL__N_111TestPoissonIN4absl15random_internal17NonsecureURBGBaseINS2_10
   %.narrow.i.i.i.i.i.i.i.i.i.i.i15.i.i = add i64 %.tr.i.i.i.i.i.i.i.i.i.i.i14.i.i, 6364136223846793005
   store i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i13.i.i, ptr %56, align 16, !tbaa !20
   store i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i15.i.i, ptr %70, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %35) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store i32 100, ptr %35, align 8, !tbaa !59
   %566 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store double 2.000000e+00, ptr %566, align 8, !tbaa !61
@@ -18562,8 +18556,8 @@ _ZN12_GLOBAL__N_111TestPoissonIN4absl15random_internal17NonsecureURBGBaseINS2_10
   %572 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store double 0x3FDD89D89D89D898, ptr %572, align 8, !tbaa !67
   %573 = call noundef i32 @_ZN4absl17zipf_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %35, ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(64) %35)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %35) #19
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %34) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store i8 100, ptr %34, align 8, !tbaa !68
   %574 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store double 2.000000e+00, ptr %574, align 8, !tbaa !70
@@ -18580,8 +18574,8 @@ _ZN12_GLOBAL__N_111TestPoissonIN4absl15random_internal17NonsecureURBGBaseINS2_10
   %580 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store double 0x3FDD89D89D89D898, ptr %580, align 8, !tbaa !76
   %581 = call noundef signext i8 @_ZN4absl17zipf_distributionIaEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEaRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %34, ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(64) %34)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %34) #19
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %33) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i16 100, ptr %33, align 8, !tbaa !77
   %582 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store double 2.000000e+00, ptr %582, align 8, !tbaa !80
@@ -18598,8 +18592,8 @@ _ZN12_GLOBAL__N_111TestPoissonIN4absl15random_internal17NonsecureURBGBaseINS2_10
   %588 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store double 0x3FDD89D89D89D898, ptr %588, align 8, !tbaa !86
   %589 = call noundef signext i16 @_ZN4absl17zipf_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %33, ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(64) %33)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %33) #19
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %32) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i16 100, ptr %32, align 8, !tbaa !87
   %590 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store double 2.000000e+00, ptr %590, align 8, !tbaa !89
@@ -18616,8 +18610,8 @@ _ZN12_GLOBAL__N_111TestPoissonIN4absl15random_internal17NonsecureURBGBaseINS2_10
   %596 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store double 0x3FDD89D89D89D898, ptr %596, align 8, !tbaa !95
   %597 = call noundef zeroext i16 @_ZN4absl17zipf_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %32, ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(64) %32)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %32) #19
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %31) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i32 1024, ptr %31, align 8, !tbaa !59
   %598 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store double 2.000000e+00, ptr %598, align 8, !tbaa !61
@@ -18634,8 +18628,8 @@ _ZN12_GLOBAL__N_111TestPoissonIN4absl15random_internal17NonsecureURBGBaseINS2_10
   %604 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store double 0x3FDD89D89D89D898, ptr %604, align 8, !tbaa !67
   %605 = call noundef i32 @_ZN4absl17zipf_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(64) %31)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %31) #19
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %30) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i32 1024, ptr %30, align 8, !tbaa !96
   %606 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store double 2.000000e+00, ptr %606, align 8, !tbaa !98
@@ -18652,8 +18646,8 @@ _ZN12_GLOBAL__N_111TestPoissonIN4absl15random_internal17NonsecureURBGBaseINS2_10
   %612 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store double 0x3FDD89D89D89D898, ptr %612, align 8, !tbaa !104
   %613 = call noundef i32 @_ZN4absl17zipf_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %30, ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(64) %30)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %30) #19
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %29) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i64 1024, ptr %29, align 8, !tbaa !105
   %614 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store double 2.000000e+00, ptr %614, align 8, !tbaa !107
@@ -18670,8 +18664,8 @@ _ZN12_GLOBAL__N_111TestPoissonIN4absl15random_internal17NonsecureURBGBaseINS2_10
   %620 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store double 0x3FDD89D89D89D898, ptr %620, align 8, !tbaa !113
   %621 = call noundef i64 @_ZN4absl17zipf_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %29, ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(64) %29)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %29) #19
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %28) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store i64 1024, ptr %28, align 8, !tbaa !114
   %622 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store double 2.000000e+00, ptr %622, align 8, !tbaa !116
@@ -18688,9 +18682,9 @@ _ZN12_GLOBAL__N_111TestPoissonIN4absl15random_internal17NonsecureURBGBaseINS2_10
   %628 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store double 0x3FDD89D89D89D898, ptr %628, align 8, !tbaa !122
   %629 = call noundef i64 @_ZN4absl17zipf_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %28, ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(64) %28)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %28) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @_ZN4absl15random_internal10RandenPoolIhE4FillENS_4SpanIhEE(ptr nonnull %27, i64 16)
   %630 = load i32, ptr %27, align 16, !tbaa !32
   %631 = zext i32 %630 to i64
@@ -18734,11 +18728,11 @@ _ZN12_GLOBAL__N_18TestZipfIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_
   %642 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i73.i, 64
   %.tr.i.i.i.i.i.i.i.i75.i = trunc nuw i128 %642 to i64
   %.narrow.i.i.i.i.i.i.i.i76.i = add i64 %.tr.i.i.i.i.i.i.i.i75.i, 6364136223846793005
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   store i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i74.i, ptr %36, align 16
   %643 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i64 %.narrow.i.i.i.i.i.i.i.i76.i, ptr %643, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %26) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i64 1024, ptr %26, align 8, !tbaa !114
   %644 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store double 2.000000e+00, ptr %644, align 8, !tbaa !116
@@ -18755,9 +18749,9 @@ _ZN12_GLOBAL__N_18TestZipfIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_
   %650 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store double 0x3FDD89D89D89D898, ptr %650, align 8, !tbaa !122
   %651 = call noundef i64 @_ZN4absl17zipf_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %26, ptr noundef nonnull align 16 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(64) %26)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %26) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36) #19
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %25) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i64 1024, ptr %25, align 16
   %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 0, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8, !tbaa !123
@@ -18776,8 +18770,8 @@ _ZN12_GLOBAL__N_18TestZipfIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_
   %658 = getelementptr inbounds nuw i8, ptr %25, i64 40
   store double 0x3FDD89D89D89D898, ptr %658, align 8, !tbaa !133
   %659 = call { i64, i64 } @_ZN4absl17zipf_distributionINS_6int128EEclINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %25, ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 16 dereferenceable(80) %25)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %25) #19
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %24) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i64 1024, ptr %24, align 16, !tbaa !20
   %.sroa.3.0..sroa_idx.i12.i.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 0, ptr %.sroa.3.0..sroa_idx.i12.i.i, align 8, !tbaa !20
@@ -18796,23 +18790,23 @@ _ZN12_GLOBAL__N_18TestZipfIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_
   %666 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store double 0x3FDD89D89D89D898, ptr %666, align 8, !tbaa !142
   %667 = call { i64, i64 } @_ZN4absl17zipf_distributionINS_7uint128EEclINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %24, ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 16 dereferenceable(80) %24)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #19
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %668 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store float 1.000000e+00, ptr %668, align 4, !tbaa !143
   %669 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store float 1.000000e+00, ptr %669, align 4, !tbaa !146
   %670 = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEEEdRT_(ptr noundef nonnull align 4 dereferenceable(12) %22, ptr noundef nonnull align 16 dereferenceable(16) %56)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #19
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %671 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store double 1.000000e+00, ptr %671, align 8, !tbaa !147
   %672 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store double 1.000000e+00, ptr %672, align 8, !tbaa !149
   %673 = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEEEdRT_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 16 dereferenceable(16) %56)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @_ZN4absl15random_internal10RandenPoolIhE4FillENS_4SpanIhEE(ptr nonnull %20, i64 16)
   %674 = load i32, ptr %20, align 16, !tbaa !32
   %675 = zext i32 %674 to i64
@@ -18856,19 +18850,19 @@ _ZN12_GLOBAL__N_112TestGaussianIN4absl15random_internal17NonsecureURBGBaseINS2_1
   %686 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i98.i, 64
   %.tr.i.i.i.i.i.i.i.i100.i = trunc nuw i128 %686 to i64
   %.narrow.i.i.i.i.i.i.i.i101.i = add i64 %.tr.i.i.i.i.i.i.i.i100.i, 6364136223846793005
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   store i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i99.i, ptr %23, align 16
   %687 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 %.narrow.i.i.i.i.i.i.i.i101.i, ptr %687, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %688 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store double 1.000000e+00, ptr %688, align 8, !tbaa !147
   %689 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store double 1.000000e+00, ptr %689, align 8, !tbaa !149
   %690 = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEEEdRT_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 16 dereferenceable(16) %23)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #19
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %17) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 0, ptr %17, align 4, !tbaa !150
   %691 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 100, ptr %691, align 4, !tbaa !152
@@ -18879,8 +18873,8 @@ _ZN12_GLOBAL__N_112TestGaussianIN4absl15random_internal17NonsecureURBGBaseINS2_1
   %694 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 7, ptr %694, align 4, !tbaa !155
   %695 = call noundef i32 @_ZN4absl28log_uniform_int_distributionIiE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %17, ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 4 dereferenceable(20) %17)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %17) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i8 0, ptr %16, align 4, !tbaa !156
   %696 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store i8 100, ptr %696, align 1, !tbaa !158
@@ -18891,8 +18885,8 @@ _ZN12_GLOBAL__N_112TestGaussianIN4absl15random_internal17NonsecureURBGBaseINS2_1
   %699 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 7, ptr %699, align 4, !tbaa !161
   %700 = call noundef zeroext i8 @_ZN4absl28log_uniform_int_distributionIaE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEhRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %16, ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 4 dereferenceable(8) %16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #19
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i16 0, ptr %15, align 4, !tbaa !162
   %701 = getelementptr inbounds nuw i8, ptr %15, i64 2
   store i16 100, ptr %701, align 2, !tbaa !164
@@ -18903,8 +18897,8 @@ _ZN12_GLOBAL__N_112TestGaussianIN4absl15random_internal17NonsecureURBGBaseINS2_1
   %704 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 7, ptr %704, align 4, !tbaa !167
   %705 = call noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionIsE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %15, ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 4 dereferenceable(12) %15)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #19
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %14) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i16 0, ptr %14, align 4, !tbaa !168
   %706 = getelementptr inbounds nuw i8, ptr %14, i64 2
   store i16 100, ptr %706, align 2, !tbaa !170
@@ -18915,8 +18909,8 @@ _ZN12_GLOBAL__N_112TestGaussianIN4absl15random_internal17NonsecureURBGBaseINS2_1
   %709 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 7, ptr %709, align 4, !tbaa !173
   %710 = call noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionItE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %14, ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 4 dereferenceable(12) %14)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14) #19
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %13) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !150
   %711 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 1024, ptr %711, align 4, !tbaa !152
@@ -18927,8 +18921,8 @@ _ZN12_GLOBAL__N_112TestGaussianIN4absl15random_internal17NonsecureURBGBaseINS2_1
   %714 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 11, ptr %714, align 4, !tbaa !155
   %715 = call noundef i32 @_ZN4absl28log_uniform_int_distributionIiE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %13, ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 4 dereferenceable(20) %13)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %13) #19
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %12) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !174
   %716 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 1024, ptr %716, align 4, !tbaa !176
@@ -18939,8 +18933,8 @@ _ZN12_GLOBAL__N_112TestGaussianIN4absl15random_internal17NonsecureURBGBaseINS2_1
   %719 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 11, ptr %719, align 4, !tbaa !179
   %720 = call noundef i32 @_ZN4absl28log_uniform_int_distributionIjE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %12, ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 4 dereferenceable(20) %12)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %12) #19
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 0, ptr %11, align 8, !tbaa !180
   %721 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 1024, ptr %721, align 8, !tbaa !182
@@ -18951,8 +18945,8 @@ _ZN12_GLOBAL__N_112TestGaussianIN4absl15random_internal17NonsecureURBGBaseINS2_1
   %724 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i32 11, ptr %724, align 8, !tbaa !185
   %725 = call noundef i64 @_ZN4absl28log_uniform_int_distributionIlE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(40) %11)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #19
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 0, ptr %10, align 8, !tbaa !186
   %726 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 1024, ptr %726, align 8, !tbaa !188
@@ -18963,9 +18957,9 @@ _ZN12_GLOBAL__N_112TestGaussianIN4absl15random_internal17NonsecureURBGBaseINS2_1
   %729 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i32 11, ptr %729, align 8, !tbaa !191
   %730 = call noundef i64 @_ZN4absl28log_uniform_int_distributionImE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(40) %10)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN4absl15random_internal10RandenPoolIhE4FillENS_4SpanIhEE(ptr nonnull %9, i64 16)
   %731 = load i32, ptr %9, align 16, !tbaa !32
   %732 = zext i32 %731 to i64
@@ -19009,11 +19003,11 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   %743 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i123.i, 64
   %.tr.i.i.i.i.i.i.i.i125.i = trunc nuw i128 %743 to i64
   %.narrow.i.i.i.i.i.i.i.i126.i = add i64 %.tr.i.i.i.i.i.i.i.i125.i, 6364136223846793005
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i124.i, ptr %18, align 16
   %744 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %.narrow.i.i.i.i.i.i.i.i126.i, ptr %744, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !186
   %745 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1024, ptr %745, align 8, !tbaa !188
@@ -19024,23 +19018,23 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   %748 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 11, ptr %748, align 8, !tbaa !191
   %749 = call noundef i64 @_ZN4absl28log_uniform_int_distributionImE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 16 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(40) %8)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i128 2, ptr %7, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store i64 1024, ptr %6, align 16
   %750 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %750, align 8
   %751 = call { i64, i64 } @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_28log_uniform_int_distributionINS_6int128EEEJRSD_SF_SF_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_(ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 16 dereferenceable(16) %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 2, ptr %4, align 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %.sroa.2.0..sroa_idx.i.i, align 8
@@ -19049,15 +19043,15 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   %752 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %752, align 8
   %753 = call { i64, i64 } @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_28log_uniform_int_distributionINS_7uint128EEEJRSD_SF_SF_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_(ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %56) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef double @_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESD_E4typeET0_OT1_SD_SD_(ptr noundef nonnull align 16 dereferenceable(16) %0, double noundef %1, double noundef %2) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef double @_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESD_E4typeET0_OT1_SD_SD_(ptr noundef nonnull align 16 dereferenceable(16) %0, double noundef %1, double noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef double @nextafter(double noundef %1, double noundef %2) #19, !tbaa !32
   %5 = fcmp ole double %4, %2
   %6 = fsub double %2, %4
@@ -19158,7 +19152,7 @@ _ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef double @_ZN4absl7UniformIvNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEidEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENSC_IXsr4absl11disjunctionINS2_23is_widening_convertibleIT2_T3_EENSE_ISG_SF_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleISF_SG_EE5valueESG_SF_E4typeEE4typeEE4typeET0_OT1_SF_SG_(ptr noundef nonnull align 16 dereferenceable(16) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef double @_ZN4absl7UniformIvNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEidEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENSC_IXsr4absl11disjunctionINS2_23is_widening_convertibleIT2_T3_EENSE_ISG_SF_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleISF_SG_EE5valueESG_SF_E4typeEE4typeEE4typeET0_OT1_SF_SG_(ptr noundef nonnull align 16 dereferenceable(16) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %4 = sitofp i32 %1 to double
   %5 = tail call noundef double @nextafter(double noundef %4, double noundef %2) #19, !tbaa !32
   %6 = fcmp ole double %5, %2
@@ -19260,7 +19254,7 @@ _ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef double @_ZN4absl7UniformIdNS_23IntervalClosedClosedTagERNS_15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESD_E4typeET0_OT1_SD_SD_(ptr noundef nonnull align 16 dereferenceable(16) %0, double noundef %1, double noundef %2) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef double @_ZN4absl7UniformIdNS_23IntervalClosedClosedTagERNS_15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESD_E4typeET0_OT1_SD_SD_(ptr noundef nonnull align 16 dereferenceable(16) %0, double noundef %1, double noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef double @nextafter(double noundef %2, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !32
   %5 = fcmp ole double %1, %4
   %6 = fsub double %4, %1
@@ -19361,7 +19355,7 @@ _ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_21IntervalOpenClosedTagERdSG_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_(ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_21IntervalOpenClosedTagERdSG_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_(ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load double, ptr %2, align 8, !tbaa !37
   %6 = load double, ptr %3, align 8, !tbaa !37
   %7 = tail call noundef double @nextafter(double noundef %5, double noundef %6) #19, !tbaa !32
@@ -19452,7 +19446,7 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl20poisson_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef i32 @_ZN4absl20poisson_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !36
   %.not = icmp eq i32 %5, 0
@@ -19647,7 +19641,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef signext i16 @_ZN4absl20poisson_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef signext i16 @_ZN4absl20poisson_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !40
   %.not = icmp eq i32 %5, 0
@@ -19842,7 +19836,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl20poisson_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl20poisson_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !43
   %.not = icmp eq i32 %5, 0
@@ -20037,7 +20031,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl20poisson_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef i32 @_ZN4absl20poisson_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !46
   %.not = icmp eq i32 %5, 0
@@ -20232,7 +20226,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl20poisson_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef i64 @_ZN4absl20poisson_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !49
   %.not = icmp eq i32 %5, 0
@@ -20427,7 +20421,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl20poisson_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef i64 @_ZN4absl20poisson_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !52
   %.not = icmp eq i32 %5, 0
@@ -20622,7 +20616,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl20poisson_distributionINS_6int128EEclINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl20poisson_distributionINS_6int128EEclINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !55
   %.not = icmp eq i32 %5, 0
@@ -20830,7 +20824,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl20poisson_distributionINS_7uint128EEclINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl20poisson_distributionINS_7uint128EEclINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::uint128", align 16
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %6 = load i32, ptr %5, align 8, !tbaa !58
@@ -21041,7 +21035,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl17zipf_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef i32 @_ZN4absl17zipf_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.22.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %5 = load double, ptr %4, align 8, !tbaa !65
@@ -21175,7 +21169,7 @@ _ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit: ; preds = %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef signext i8 @_ZN4absl17zipf_distributionIaEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEaRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef signext i8 @_ZN4absl17zipf_distributionIaEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEaRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.22.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %5 = load double, ptr %4, align 8, !tbaa !74
@@ -21309,7 +21303,7 @@ _ZNK4absl17zipf_distributionIaE10param_type14pow_negative_qEd.exit: ; preds = %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef signext i16 @_ZN4absl17zipf_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef signext i16 @_ZN4absl17zipf_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.22.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %5 = load double, ptr %4, align 8, !tbaa !84
@@ -21443,7 +21437,7 @@ _ZNK4absl17zipf_distributionIsE10param_type14pow_negative_qEd.exit: ; preds = %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl17zipf_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl17zipf_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.22.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %5 = load double, ptr %4, align 8, !tbaa !93
@@ -21577,7 +21571,7 @@ _ZNK4absl17zipf_distributionItE10param_type14pow_negative_qEd.exit: ; preds = %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl17zipf_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef i32 @_ZN4absl17zipf_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.22.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %5 = load double, ptr %4, align 8, !tbaa !102
@@ -21711,7 +21705,7 @@ _ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit: ; preds = %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl17zipf_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef i64 @_ZN4absl17zipf_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.22.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %5 = load double, ptr %4, align 8, !tbaa !111
@@ -21845,7 +21839,7 @@ _ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit: ; preds = %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl17zipf_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef i64 @_ZN4absl17zipf_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.22.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %5 = load double, ptr %4, align 8, !tbaa !120
@@ -21979,7 +21973,7 @@ _ZNK4absl17zipf_distributionImE10param_type14pow_negative_qEd.exit: ; preds = %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl17zipf_distributionINS_6int128EEclINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(72) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl17zipf_distributionINS_6int128EEclINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(72) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.22.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %5 = load double, ptr %4, align 8, !tbaa !131
@@ -22124,7 +22118,7 @@ _ZNK4absl17zipf_distributionINS_6int128EE10param_type14pow_negative_qEd.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl17zipf_distributionINS_7uint128EEclINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(72) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl17zipf_distributionINS_7uint128EEclINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(72) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::uint128", align 16
   %.sroa.22.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -22433,7 +22427,7 @@ select.unfold:                                    ; preds = %select.unfold.loope
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl28log_uniform_int_distributionIiE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(20) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZN4absl28log_uniform_int_distributionIiE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(20) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 4, !tbaa !155
   %.sroa.01.0.copyload.i.i.i.i.i.i.i = load i64, ptr %1, align 16, !tbaa !20
@@ -22645,7 +22639,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i8 @_ZN4absl28log_uniform_int_distributionIaE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEhRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i8 @_ZN4absl28log_uniform_int_distributionIaE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEhRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !161
   %.sroa.01.0.copyload.i.i.i.i.i.i.i = load i64, ptr %1, align 16, !tbaa !20
@@ -22860,7 +22854,7 @@ _ZN4absl24uniform_int_distributionIaEclINS_15random_internal17NonsecureURBGBaseI
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionIsE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(12) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionIsE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(12) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i32, ptr %4, align 4, !tbaa !167
   %.sroa.01.0.copyload.i.i.i.i.i.i.i = load i64, ptr %1, align 16, !tbaa !20
@@ -23075,7 +23069,7 @@ _ZN4absl24uniform_int_distributionIsEclINS_15random_internal17NonsecureURBGBaseI
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionItE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(12) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionItE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(12) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i32, ptr %4, align 4, !tbaa !173
   %.sroa.01.0.copyload.i.i.i.i.i.i.i = load i64, ptr %1, align 16, !tbaa !20
@@ -23290,7 +23284,7 @@ _ZN4absl24uniform_int_distributionItEclINS_15random_internal17NonsecureURBGBaseI
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl28log_uniform_int_distributionIjE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(20) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZN4absl28log_uniform_int_distributionIjE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(20) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 4, !tbaa !179
   %.sroa.01.0.copyload.i.i.i.i.i.i.i = load i64, ptr %1, align 16, !tbaa !20
@@ -23502,7 +23496,7 @@ _ZN4absl24uniform_int_distributionIjEclINS_15random_internal17NonsecureURBGBaseI
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl28log_uniform_int_distributionIlE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(36) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef i64 @_ZN4absl28log_uniform_int_distributionIlE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(36) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load i32, ptr %4, align 8, !tbaa !185
   %.sroa.01.0.copyload.i.i.i.i.i.i.i = load i64, ptr %1, align 16, !tbaa !20
@@ -23710,7 +23704,7 @@ _ZN4absl24uniform_int_distributionIlEclINS_15random_internal17NonsecureURBGBaseI
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl28log_uniform_int_distributionImE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(36) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local noundef i64 @_ZN4absl28log_uniform_int_distributionImE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(36) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load i32, ptr %4, align 8, !tbaa !191
   %.sroa.01.0.copyload.i.i.i.i.i.i.i = load i64, ptr %1, align 16, !tbaa !20
@@ -23918,9 +23912,9 @@ _ZN4absl24uniform_int_distributionImEclINS_15random_internal17NonsecureURBGBaseI
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_28log_uniform_int_distributionINS_6int128EEEJRSD_SF_SF_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_(ptr noundef %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_28log_uniform_int_distributionINS_6int128EEEJRSD_SF_SF_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_(ptr noundef %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.absl::log_uniform_int_distribution.61", align 16
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.sroa.01.0.copyload = load i64, ptr %1, align 16
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !123
@@ -24003,12 +23997,12 @@ _ZN4absl28log_uniform_int_distributionINS_6int128EEC2ES1_S1_S1_.exit: ; preds = 
   %.sroa.010.0.extract.trunc.i.i = trunc i128 %.sroa.03.0.insert.insert.i.i.i to i64
   %.fca.0.insert.i.i = insertvalue { i64, i64 } poison, i64 %.sroa.010.0.extract.trunc.i.i, 0
   %.fca.1.insert.i.i = insertvalue { i64, i64 } %.fca.0.insert.i.i, i64 %.narrow.i.i.i10, 1
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret { i64, i64 } %.fca.1.insert.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl28log_uniform_int_distributionINS_6int128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEENS_7uint128ERT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(68) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl28log_uniform_int_distributionINS_6int128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEENS_7uint128ERT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(68) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = alloca %"class.absl::uint128", align 16
   %5 = alloca %"class.absl::uint128", align 16
   %6 = alloca %"class.absl::uniform_int_distribution.62", align 16
@@ -24142,7 +24136,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   %.sroa.0125.0.insert.insert = or disjoint i128 %.sroa.22.0.insert.shift.i, %.sroa.0125.0.insert.ext
   %54 = sitofp i128 %.sroa.0125.0.insert.insert to double
   %55 = tail call double @llvm.fmuladd.f64(double %53, double %54, double -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %56 = fcmp ogt double %53, 0x47F0000000000000
   br i1 %56, label %58, label %57
 
@@ -24156,8 +24150,8 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 58:                                               ; preds = %50, %57
   %.sroa.630.0.copyload = phi i64 [ %.sroa.630.0.copyload.pre, %57 ], [ -1, %50 ]
   %.sroa.029.0.copyload = phi i64 [ %.sroa.029.0.copyload.pre, %57 ], [ -1, %50 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %59 = fcmp ogt double %55, 0x47F0000000000000
   br i1 %59, label %61, label %60
 
@@ -24171,7 +24165,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 61:                                               ; preds = %58, %60
   %.sroa.6.0.copyload = phi i64 [ %.sroa.6.0.copyload.pre, %60 ], [ -1, %58 ]
   %.sroa.027.0.copyload = phi i64 [ %.sroa.027.0.copyload.pre, %60 ], [ -1, %58 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %62
 
 62:                                               ; preds = %61, %49
@@ -24201,7 +24195,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   %.not141 = icmp ult i128 %.sroa.01.0.insert.insert.i.i98, %.sroa.0.0.insert.insert.i.i
   %.sroa.09.0 = select i1 %.not141, i64 %.sroa.027.0, i64 %.sroa.0.0.copyload.i80
   %.sroa.5.0 = select i1 %.not141, i64 %.sroa.6.0, i64 %.sroa.2.0.copyload.i82
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.sroa.2.0.insert.ext.i108 = zext i64 %spec.select140 to i128
   %.sroa.2.0.insert.shift.i109 = shl nuw i128 %.sroa.2.0.insert.ext.i108, 64
   store i64 %spec.select, ptr %6, align 16
@@ -24229,7 +24223,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   %.tr.i.i.i = trunc nuw i128 %70 to i64
   %.narrow.i.i.i119 = add i64 %69, %.tr.i.i.i
   %.sroa.017.0.extract.trunc.i.i = trunc i128 %.sroa.03.0.insert.insert.i.i.i to i64
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %71
 
 71:                                               ; preds = %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit, %62
@@ -24241,10 +24235,10 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl24uniform_int_distributionINS_6int128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEENS_7uint128ERT_SD_(ptr noundef nonnull align 16 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, i64 %2, i64 %3) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl24uniform_int_distributionINS_6int128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEENS_7uint128ERT_SD_(ptr noundef nonnull align 16 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, i64 %2, i64 %3) local_unnamed_addr #3 comdat align 2 {
   %5 = alloca %"class.absl::random_internal::FastUniformBits.63", align 1
   %6 = alloca %"struct.absl::random_internal::U256", align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.sroa.01.0.copyload.i.i.i.i = load i64, ptr %1, align 16, !tbaa !20
   %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.22.0.copyload.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !20
@@ -24357,13 +24351,13 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4absl24uniform_int_distributionIN
   %31 = call { i64, i64 } @_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEEES2_RT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 16 dereferenceable(16) %1)
   %32 = extractvalue { i64, i64 } %31, 0
   %33 = extractvalue { i64, i64 } %31, 1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4absl15random_internal13wide_multiplyINS_7uint128EE8multiplyES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::random_internal::U256") align 16 %6, i64 %32, i64 %33, i64 %.sroa.0.0.extract.trunc.i, i64 %.tr.i)
   %.sroa.0153.0.copyload155 = load i64, ptr %6, align 16, !tbaa !20
   %.sroa.7.0.copyload160 = load i64, ptr %.sroa.7.0..sroa_idx159, align 8, !tbaa !20
   %.sroa.8.0.copyload166 = load i64, ptr %.sroa.8.0..sroa_idx165, align 16, !tbaa !20
   %.sroa.9.0.copyload172 = load i64, ptr %.sroa.9.0..sroa_idx171, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.22.0.insert.ext.i140 = zext i64 %.sroa.9.0.copyload172 to i128
   %.sroa.22.0.insert.shift.i141 = shl nuw i128 %.sroa.22.0.insert.ext.i140, 64
   %.sroa.01.0.insert.ext.i142 = zext i64 %.sroa.8.0.copyload166 to i128
@@ -24376,12 +24370,12 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4absl24uniform_int_distributionIN
   %.sroa.2.0.extract.trunc.i88.pn = phi i64 [ %.sroa.2.0.extract.trunc.i88, %17 ], [ %.tr.i205.i.i, %19 ], [ %.tr.i205.i.i, %27 ], [ %.sroa.7.0.copyload160, %30 ]
   %.fca.0.insert.i89.pn = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.extract.trunc.i86.pn, 0
   %.pn = insertvalue { i64, i64 } %.fca.0.insert.i89.pn, i64 %.sroa.2.0.extract.trunc.i88.pn, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret { i64, i64 } %.pn
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEEES2_RT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 16 dereferenceable(16) %1) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEEES2_RT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 16 dereferenceable(16) %1) local_unnamed_addr #3 comdat align 2 {
   %.sroa.01.0.copyload.i.i.i = load i64, ptr %1, align 16, !tbaa !20
   %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.22.0.copyload.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !20
@@ -24419,9 +24413,9 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal15FastUnifo
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_28log_uniform_int_distributionINS_7uint128EEEJRSD_SF_SF_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_(ptr noundef %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_28log_uniform_int_distributionINS_7uint128EEEJRSD_SF_SF_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_(ptr noundef %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.absl::log_uniform_int_distribution.64", align 16
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.sroa.01.0.copyload = load i64, ptr %1, align 16, !tbaa !20
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !20
@@ -24512,12 +24506,12 @@ _ZN4absl28log_uniform_int_distributionINS_7uint128EEC2ES1_S1_S1_.exit: ; preds =
   %.narrow.i.i.i12 = add i64 %36, %.tr.i.i.i
   %.fca.0.insert.i8.i.i = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.extract.trunc.i.i.i11, 0
   %.fca.1.insert.i9.i.i = insertvalue { i64, i64 } %.fca.0.insert.i8.i.i, i64 %.narrow.i.i.i12, 1
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret { i64, i64 } %.fca.1.insert.i9.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl28log_uniform_int_distributionINS_7uint128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(68) %2) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl28log_uniform_int_distributionINS_7uint128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(68) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = alloca %"class.absl::uint128", align 16
   %5 = alloca %"class.absl::uint128", align 16
   %6 = alloca %"class.absl::uniform_int_distribution.65", align 16
@@ -24649,7 +24643,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   %54 = sitofp i32 %39 to double
   %55 = tail call noundef double @pow(double noundef %53, double noundef %54) #19, !tbaa !32
   %56 = tail call double @llvm.fmuladd.f64(double %55, double %53, double -1.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %57 = fcmp ogt double %55, 0x47F0000000000000
   br i1 %57, label %59, label %58
 
@@ -24663,8 +24657,8 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 59:                                               ; preds = %50, %58
   %.sroa.628.0.copyload = phi i64 [ %.sroa.628.0.copyload.pre, %58 ], [ -1, %50 ]
   %.sroa.027.0.copyload = phi i64 [ %.sroa.027.0.copyload.pre, %58 ], [ -1, %50 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %60 = fcmp ogt double %56, 0x47F0000000000000
   br i1 %60, label %62, label %61
 
@@ -24678,7 +24672,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 62:                                               ; preds = %59, %61
   %.sroa.6.0.copyload = phi i64 [ %.sroa.6.0.copyload.pre, %61 ], [ -1, %59 ]
   %.sroa.025.0.copyload = phi i64 [ %.sroa.025.0.copyload.pre, %61 ], [ -1, %59 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %63
 
 63:                                               ; preds = %62, %49
@@ -24708,7 +24702,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   %.not128 = icmp ult i128 %.sroa.01.0.insert.insert.i.i96, %.sroa.0.0.insert.insert.i.i
   %.sroa.5.0 = select i1 %.not128, i64 %.sroa.6.0, i64 %.sroa.2.0.copyload.i80
   %.sroa.07.0 = select i1 %.not128, i64 %.sroa.025.0, i64 %.sroa.0.0.copyload.i78
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %spec.select, ptr %6, align 16, !tbaa !20
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %spec.select127, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !tbaa !20
@@ -24736,7 +24730,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   %71 = lshr i128 %.sroa.03.0.insert.insert.i.i.i, 64
   %.tr.i.i.i = trunc nuw i128 %71 to i64
   %.narrow.i.i.i110 = add i64 %70, %.tr.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %72
 
 72:                                               ; preds = %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit, %63
@@ -24748,10 +24742,10 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl24uniform_int_distributionINS_7uint128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_S1_(ptr noundef nonnull align 16 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, i64 %2, i64 %3) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl24uniform_int_distributionINS_7uint128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_S1_(ptr noundef nonnull align 16 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, i64 %2, i64 %3) local_unnamed_addr #3 comdat align 2 {
   %5 = alloca %"class.absl::random_internal::FastUniformBits.63", align 1
   %6 = alloca %"struct.absl::random_internal::U256", align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.sroa.01.0.copyload.i.i.i.i = load i64, ptr %1, align 16, !tbaa !20
   %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.22.0.copyload.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !20
@@ -24864,13 +24858,13 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4absl24uniform_int_distributionIN
   %31 = call { i64, i64 } @_ZN4absl15random_internal15FastUniformBitsINS_7uint128EEclINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEEES2_RT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 16 dereferenceable(16) %1)
   %32 = extractvalue { i64, i64 } %31, 0
   %33 = extractvalue { i64, i64 } %31, 1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4absl15random_internal13wide_multiplyINS_7uint128EE8multiplyES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::random_internal::U256") align 16 %6, i64 %32, i64 %33, i64 %.sroa.0.0.extract.trunc.i, i64 %.tr.i)
   %.sroa.0153.0.copyload155 = load i64, ptr %6, align 16, !tbaa !20
   %.sroa.7.0.copyload160 = load i64, ptr %.sroa.7.0..sroa_idx159, align 8, !tbaa !20
   %.sroa.8.0.copyload166 = load i64, ptr %.sroa.8.0..sroa_idx165, align 16, !tbaa !20
   %.sroa.9.0.copyload172 = load i64, ptr %.sroa.9.0..sroa_idx171, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.22.0.insert.ext.i140 = zext i64 %.sroa.9.0.copyload172 to i128
   %.sroa.22.0.insert.shift.i141 = shl nuw i128 %.sroa.22.0.insert.ext.i140, 64
   %.sroa.01.0.insert.ext.i142 = zext i64 %.sroa.8.0.copyload166 to i128
@@ -24883,7 +24877,7 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4absl24uniform_int_distributionIN
   %.sroa.2.0.extract.trunc.i88.pn = phi i64 [ %.sroa.2.0.extract.trunc.i88, %17 ], [ %.tr.i205.i.i, %19 ], [ %.tr.i205.i.i, %27 ], [ %.sroa.7.0.copyload160, %30 ]
   %.fca.0.insert.i89.pn = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.extract.trunc.i86.pn, 0
   %.pn = insertvalue { i64, i64 } %.fca.0.insert.i89.pn, i64 %.sroa.2.0.extract.trunc.i88.pn, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret { i64, i64 } %.pn
 }
 
@@ -24921,9 +24915,9 @@ define internal void @_GLOBAL__sub_I_generators_test.cc() #15 section ".text.sta
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %13 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %14, ptr %10, align 8, !tbaa !407
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %14, ptr noundef nonnull align 1 dereferenceable(14) @.str, i64 14, i1 false)
@@ -24933,7 +24927,7 @@ define internal void @_GLOBAL__sub_I_generators_test.cc() #15 section ".text.sta
   store i8 0, ptr %16, align 2, !tbaa !412
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %17, ptr %12, align 8, !tbaa !407
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 129, ptr %9, align 8, !tbaa !20
   %18 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(8) %9, i64 noundef 0)
           to label %.noexc9.i unwind label %61
@@ -24947,7 +24941,7 @@ define internal void @_GLOBAL__sub_I_generators_test.cc() #15 section ".text.sta
   store i64 %19, ptr %20, align 8, !tbaa !410
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 %19
   store i8 0, ptr %21, align 1, !tbaa !412
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %22, ptr %11, align 8, !tbaa !407
   %23 = load ptr, ptr %12, align 8, !tbaa !413
@@ -25115,12 +25109,12 @@ common.resume:                                    ; preds = %_ZNKSt7__cxx1112bas
 __cxx_global_var_init.1.exit:                     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i13.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12.i
   store ptr %41, ptr @_ZN12_GLOBAL__N_133std_mt19937_64_Compatibility_Test10test_info_E, align 8, !tbaa !416
   %83 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_133std_mt19937_64_Compatibility_Test10test_info_E)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %84 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %84, ptr %6, align 8, !tbaa !407
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %84, ptr noundef nonnull align 1 dereferenceable(6) @.str.5, i64 6, i1 false)
@@ -25130,7 +25124,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %86, align 2, !tbaa !412
   %87 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %87, ptr %8, align 8, !tbaa !407
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 129, ptr %5, align 8, !tbaa !20
   %88 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 0)
           to label %.noexc7.i unwind label %131
@@ -25144,7 +25138,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNKSt7__cxx1112bas
   store i64 %89, ptr %90, align 8, !tbaa !410
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 %89
   store i8 0, ptr %91, align 1, !tbaa !412
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %92, ptr %7, align 8, !tbaa !407
   %93 = load ptr, ptr %8, align 8, !tbaa !413
@@ -25308,12 +25302,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19
 __cxx_global_var_init.4.exit:                     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i11.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10.i
   store ptr %111, ptr @_ZN12_GLOBAL__N_125BitGen_Compatibility_Test10test_info_E, align 8, !tbaa !416
   %153 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_125BitGen_Compatibility_Test10test_info_E)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %154 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %154, ptr %2, align 8, !tbaa !407
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %154, ptr noundef nonnull align 1 dereferenceable(14) @.str.7, i64 14, i1 false)
@@ -25323,7 +25317,7 @@ __cxx_global_var_init.4.exit:                     ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %156, align 2, !tbaa !412
   %157 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %157, ptr %4, align 8, !tbaa !407
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 129, ptr %1, align 8, !tbaa !20
   %158 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef 0)
           to label %.noexc7.i14 unwind label %201
@@ -25337,7 +25331,7 @@ __cxx_global_var_init.4.exit:                     ; preds = %_ZNKSt7__cxx1112bas
   store i64 %159, ptr %160, align 8, !tbaa !410
   %161 = getelementptr inbounds nuw i8, ptr %158, i64 %159
   store i8 0, ptr %161, align 1, !tbaa !412
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %162 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %162, ptr %3, align 8, !tbaa !407
   %163 = load ptr, ptr %4, align 8, !tbaa !413
@@ -25501,11 +25495,17 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19
 __cxx_global_var_init.6.exit:                     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i11.i28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10.i27
   store ptr %181, ptr @_ZN12_GLOBAL__N_133InsecureBitGen_Compatibility_Test10test_info_E, align 8, !tbaa !416
   %223 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_133InsecureBitGen_Compatibility_Test10test_info_E)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #16
@@ -25534,10 +25534,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

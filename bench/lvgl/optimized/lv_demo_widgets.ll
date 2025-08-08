@@ -600,7 +600,7 @@ profile_create.exit:                              ; preds = %78, %79, %80
   br label %analytics_create.exit
 
 analytics_create.exit:                            ; preds = %131, %134
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %1) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @lv_anim_init(ptr noundef nonnull %1) #5
   call void @lv_anim_set_values(ptr noundef nonnull %1, i32 noundef 20, i32 noundef 100) #5
   call void @lv_anim_set_repeat_count(ptr noundef nonnull %1, i32 noundef -1) #5
@@ -838,7 +838,7 @@ analytics_create.exit:                            ; preds = %131, %134
   call void @lv_obj_align_to(ptr noundef %221, ptr noundef %226, i32 noundef 21, i32 noundef 10, i32 noundef 0) #5
   %227 = load ptr, ptr @scale3, align 8, !tbaa !10
   %228 = call ptr @lv_obj_add_event_cb(ptr noundef %227, ptr noundef nonnull @scale3_size_changed_event_cb, i32 noundef 49, ptr noundef null) #5
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %1) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void @lv_obj_set_flex_flow(ptr noundef %24, i32 noundef 4) #5
   %229 = call ptr @lv_obj_create(ptr noundef %24) #5
   %230 = call i32 @lv_pct(i32 noundef 100) #5
@@ -1331,9 +1331,6 @@ declare i32 @lv_display_get_horizontal_resolution(ptr noundef) local_unnamed_add
 
 declare ptr @lv_display_get_default() local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @lv_theme_default_init(ptr noundef, i24, i24, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 declare i24 @lv_palette_main(i32 noundef) local_unnamed_addr #1
@@ -1403,9 +1400,6 @@ declare void @lv_obj_align_to(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 
 declare void @lv_label_set_text_static(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind uwtable
 define void @lv_demo_widgets_start_slideshow() local_unnamed_addr #0 {
   %1 = alloca %struct._lv_anim_t, align 8
@@ -1417,7 +1411,7 @@ define void @lv_demo_widgets_start_slideshow() local_unnamed_addr #0 {
   %6 = tail call i32 @lv_obj_get_scroll_bottom(ptr noundef %5) #5
   %7 = tail call i32 @lv_display_get_dpi(ptr noundef null) #5
   %8 = tail call i32 @lv_anim_speed(i32 noundef %7) #5
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %1) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @lv_anim_init(ptr noundef nonnull %1) #5
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %1, ptr noundef nonnull @scroll_anim_y_cb) #5
   call void @lv_anim_set_duration(ptr noundef nonnull %1, i32 noundef %8) #5
@@ -1426,7 +1420,7 @@ define void @lv_demo_widgets_start_slideshow() local_unnamed_addr #0 {
   call void @lv_anim_set_var(ptr noundef nonnull %1, ptr noundef %5) #5
   call void @lv_anim_set_completed_cb(ptr noundef nonnull %1, ptr noundef nonnull @slideshow_anim_completed_cb) #5
   %9 = call ptr @lv_anim_start(ptr noundef nonnull %1) #5
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %1) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -1481,7 +1475,7 @@ define internal void @slideshow_anim_completed_cb(ptr readnone captures(none) %0
   %12 = tail call i32 @lv_obj_get_scroll_bottom(ptr noundef %10) #5
   %13 = tail call i32 @lv_display_get_dpi(ptr noundef null) #5
   %14 = tail call i32 @lv_anim_speed(i32 noundef %13) #5
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @lv_anim_init(ptr noundef nonnull %2) #5
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %2, ptr noundef nonnull @scroll_anim_y_cb) #5
   call void @lv_anim_set_duration(ptr noundef nonnull %2, i32 noundef %14) #5
@@ -1490,7 +1484,7 @@ define internal void @slideshow_anim_completed_cb(ptr readnone captures(none) %0
   call void @lv_anim_set_var(ptr noundef nonnull %2, ptr noundef %10) #5
   call void @lv_anim_set_completed_cb(ptr noundef nonnull %2, ptr noundef nonnull @slideshow_anim_completed_cb) #5
   %15 = call ptr @lv_anim_start(ptr noundef nonnull %2) #5
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -1697,14 +1691,14 @@ define internal void @slider_event_cb(ptr noundef %0) #0 {
   br i1 %25, label %26, label %.critedge
 
 26:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %27 = tail call i32 @lv_slider_get_value(ptr noundef %10) #5
   %28 = call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %2, i64 noundef 8, ptr noundef nonnull @.str.38, i32 noundef %27) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %29 = load ptr, ptr @font_normal, align 8, !tbaa !7
   call void @lv_text_get_size(ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef %29, i32 noundef 0, i32 noundef 0, i32 noundef 536870911, i32 noundef 0) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @lv_draw_task_get_area(ptr noundef nonnull %15, ptr noundef nonnull %5) #5
   %30 = load i32, ptr %5, align 4, !tbaa !25
   %31 = call i32 @lv_area_get_width(ptr noundef nonnull %5) #5
@@ -1727,7 +1721,7 @@ define internal void @slider_event_cb(ptr noundef %0) #0 {
   %44 = sub nsw i32 %40, %43
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %44, ptr %45, align 4, !tbaa !30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %46 = call i32 @lv_display_get_dpi(ptr noundef null) #5
   %47 = icmp sgt i32 %46, 29
   br i1 %47, label %48, label %52
@@ -1791,7 +1785,7 @@ define internal void @slider_event_cb(ptr noundef %0) #0 {
   %83 = add nsw i32 %82, %40
   %84 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %83, ptr %84, align 4, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @lv_draw_rect_dsc_init(ptr noundef nonnull %7) #5
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 53
   %86 = call i24 @lv_palette_darken(i32 noundef 18, i8 noundef zeroext 3) #5
@@ -1814,7 +1808,7 @@ define internal void @slider_event_cb(ptr noundef %0) #0 {
   %97 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %98 = load ptr, ptr %97, align 8, !tbaa !34
   call void @lv_draw_rect(ptr noundef %98, ptr noundef nonnull %7, ptr noundef nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @lv_draw_label_dsc_init(ptr noundef nonnull %8) #5
   %99 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %100 = call i24 @lv_color_white() #5
@@ -1830,13 +1824,13 @@ define internal void @slider_event_cb(ptr noundef %0) #0 {
   store i8 %106, ptr %104, align 8
   %107 = load ptr, ptr %97, align 8, !tbaa !34
   call void @lv_draw_label(ptr noundef %107, ptr noundef nonnull %8, ptr noundef nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.critedge
 
 .critedge:                                        ; preds = %17, %14, %11, %1, %19, %24, %94
@@ -1904,9 +1898,9 @@ define internal void @calendar_event_cb(ptr noundef %0) #0 {
   br i1 %7, label %8, label %22
 
 8:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = call i32 @lv_calendar_get_pressed_date(ptr noundef %6, ptr noundef nonnull %2) #5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %11 = load i8, ptr %10, align 1, !tbaa !40
   %12 = sext i8 %11 to i32
@@ -1924,8 +1918,8 @@ define internal void @calendar_event_cb(ptr noundef %0) #0 {
   call void @lv_obj_remove_flag(ptr noundef %20, i32 noundef 2) #5
   %21 = call ptr @lv_layer_top() #5
   call void @lv_obj_set_style_bg_opa(ptr noundef %21, i8 noundef zeroext 0, i32 noundef 0) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %22
 
 22:                                               ; preds = %8, %1
@@ -2416,7 +2410,7 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
   br i1 %or.cond3, label %28, label %129
 
 28:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @lv_obj_get_coords(ptr noundef %18, ptr noundef nonnull %2) #5
   %29 = call ptr @lv_chart_get_series_next(ptr noundef %18, ptr noundef null) #5
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 12
@@ -2430,7 +2424,7 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
 
 35:                                               ; preds = %33, %28
   %.0 = phi ptr [ %34, %33 ], [ %29, %28 ]
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @lv_draw_triangle_dsc_init(ptr noundef nonnull %3) #5
   %36 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %37 = load float, ptr %36, align 8, !tbaa !47
@@ -2512,7 +2506,7 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
   %100 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %101 = load ptr, ptr %100, align 8, !tbaa !59
   call void @lv_draw_triangle(ptr noundef %101, ptr noundef nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @lv_draw_rect_dsc_init(ptr noundef nonnull %4) #5
   %102 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %103 = getelementptr inbounds nuw i8, ptr %4, i64 67
@@ -2533,7 +2527,7 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
   store i8 -1, ptr %112, align 1, !tbaa !58
   %113 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 0, ptr %113, align 8, !tbaa !56
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %114 = load float, ptr %36, align 8, !tbaa !47
   %115 = fptosi float %114 to i32
   store i32 %115, ptr %5, align 4, !tbaa !25
@@ -2554,10 +2548,10 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
   store i32 %126, ptr %127, align 4, !tbaa !31
   %128 = load ptr, ptr %100, align 8, !tbaa !59
   call void @lv_draw_rect(ptr noundef %128, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pr = load i32, ptr %24, align 8, !tbaa !45
   br label %129
 
@@ -2579,7 +2573,7 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
   br i1 %139, label %140, label %148
 
 140:                                              ; preds = %137
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @lv_draw_rect_dsc_init(ptr noundef nonnull %6) #5
   %141 = getelementptr inbounds nuw i8, ptr %6, i64 52
   store i8 0, ptr %141, align 4, !tbaa !61
@@ -2590,13 +2584,13 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
   store i32 2, ptr %144, align 8, !tbaa !62
   %145 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 32767, ptr %145, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @lv_draw_task_get_area(ptr noundef %21, ptr noundef nonnull %7) #5
   %146 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %147 = load ptr, ptr %146, align 8, !tbaa !59
   call void @lv_draw_rect(ptr noundef %147, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %148
 
 148:                                              ; preds = %137, %140, %132, %129
@@ -2631,7 +2625,7 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
 
 .thread:                                          ; preds = %163
   %166 = call ptr @lv_draw_task_get_draw_dsc(ptr noundef %21) #5
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @lv_draw_rect_dsc_init(ptr noundef nonnull %8) #5
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 48
   %168 = load i32, ptr %167, align 8, !tbaa !63
@@ -2644,13 +2638,13 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
   store i24 %172, ptr %171, align 1
   %173 = getelementptr inbounds nuw i8, ptr %8, i64 124
   store i32 15, ptr %173, align 4, !tbaa !65
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @lv_draw_task_get_area(ptr noundef %21, ptr noundef nonnull %9) #5
   %174 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %175 = load ptr, ptr %174, align 8, !tbaa !59
   call void @lv_draw_rect(ptr noundef %175, ptr noundef nonnull %8, ptr noundef nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %177
 
 176:                                              ; preds = %163, %151, %148
@@ -2669,7 +2663,7 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
 
 184:                                              ; preds = %182, %177
   %.0101 = phi ptr [ %183, %182 ], [ %178, %177 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %185 = call ptr @lv_chart_get_series_y_array(ptr noundef %18, ptr noundef %.0101) #5
   %186 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %187 = load i32, ptr %186, align 8, !tbaa !60
@@ -2677,11 +2671,11 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
   %189 = getelementptr inbounds nuw i32, ptr %185, i64 %188
   %190 = load i32, ptr %189, align 4, !tbaa !3
   %191 = call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %10, i64 noundef 8, ptr noundef nonnull @.str.38, i32 noundef %190) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %192 = load ptr, ptr @font_normal, align 8, !tbaa !7
   call void @lv_text_get_size(ptr noundef nonnull %11, ptr noundef nonnull %10, ptr noundef %192, i32 noundef 0, i32 noundef 0, i32 noundef 536870911, i32 noundef 0) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @lv_draw_task_get_area(ptr noundef %21, ptr noundef nonnull %13) #5
   %193 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %194 = load i32, ptr %193, align 4, !tbaa !30
@@ -2716,7 +2710,7 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
   %214 = add nsw i32 %213, %210
   %215 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %214, ptr %215, align 4, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %216 = call i32 @lv_display_get_dpi(ptr noundef null) #5
   %217 = icmp sgt i32 %216, 29
   br i1 %217, label %218, label %222
@@ -2780,7 +2774,7 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
   %253 = add nsw i32 %252, %202
   %254 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 %253, ptr %254, align 4, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %15) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @lv_draw_rect_dsc_init(ptr noundef nonnull %15) #5
   %255 = getelementptr inbounds nuw i8, ptr %15, i64 53
   %256 = call i24 @lv_chart_get_series_color(ptr noundef %18, ptr noundef %.0101) #5
@@ -2803,7 +2797,7 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
   %267 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %268 = load ptr, ptr %267, align 8, !tbaa !59
   call void @lv_draw_rect(ptr noundef %268, ptr noundef nonnull %15, ptr noundef nonnull %14) #5
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %16) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @lv_draw_label_dsc_init(ptr noundef nonnull %16) #5
   %269 = getelementptr inbounds nuw i8, ptr %16, i64 80
   %270 = call i24 @lv_color_white() #5
@@ -2819,13 +2813,13 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
   store i8 %276, ptr %274, align 8
   %277 = load ptr, ptr %267, align 8, !tbaa !59
   call void @lv_draw_label(ptr noundef %277, ptr noundef nonnull %16, ptr noundef nonnull %12) #5
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %16) #5
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %15) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %278
 
 278:                                              ; preds = %176, %264, %1, %19
@@ -2885,7 +2879,7 @@ declare void @lv_scale_set_image_needle_value(ptr noundef, ptr noundef, i32 noun
 declare void @lv_obj_set_style_text_color(ptr noundef, i24, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @shop_chart_event_cb(ptr readnone captures(none) %0) #3 {
+define internal void @shop_chart_event_cb(ptr readnone captures(none) %0) #2 {
   ret void
 }
 
@@ -2943,14 +2937,14 @@ define internal void @color_event_cb(ptr noundef %0) #0 {
   br i1 %11, label %12, label %29
 
 12:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @lv_anim_init(ptr noundef nonnull %2) #5
   call void @lv_anim_set_var(ptr noundef nonnull %2, ptr noundef %6) #5
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %2, ptr noundef nonnull @color_changer_anim_cb) #5
   call void @lv_anim_set_values(ptr noundef nonnull %2, i32 noundef 0, i32 noundef 256) #5
   call void @lv_anim_set_duration(ptr noundef nonnull %2, i32 noundef 200) #5
   %13 = call ptr @lv_anim_start(ptr noundef nonnull %2) #5
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %29
 
 14:                                               ; preds = %1
@@ -2996,25 +2990,25 @@ define internal void @color_changer_event_cb(ptr noundef %0) #0 {
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @lv_anim_init(ptr noundef nonnull %2) #5
   call void @lv_anim_set_var(ptr noundef nonnull %2, ptr noundef %7) #5
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %2, ptr noundef nonnull @color_changer_anim_cb) #5
   call void @lv_anim_set_values(ptr noundef nonnull %2, i32 noundef 0, i32 noundef 256) #5
   call void @lv_anim_set_duration(ptr noundef nonnull %2, i32 noundef 200) #5
   %14 = call ptr @lv_anim_start(ptr noundef nonnull %2) #5
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %17
 
 15:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @lv_anim_init(ptr noundef nonnull %3) #5
   call void @lv_anim_set_var(ptr noundef nonnull %3, ptr noundef %7) #5
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %3, ptr noundef nonnull @color_changer_anim_cb) #5
   call void @lv_anim_set_values(ptr noundef nonnull %3, i32 noundef 256, i32 noundef 0) #5
   call void @lv_anim_set_duration(ptr noundef nonnull %3, i32 noundef 200) #5
   %16 = call ptr @lv_anim_start(ptr noundef nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %13, %15, %1
@@ -3171,6 +3165,12 @@ declare i32 @lv_tabview_get_tab_active(ptr noundef) local_unnamed_addr #1
 
 declare void @lv_tabview_set_active(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #4
 
@@ -3179,8 +3179,8 @@ declare i32 @llvm.smax.i32(i32, i32) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 

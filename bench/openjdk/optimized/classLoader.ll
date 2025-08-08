@@ -1611,7 +1611,7 @@ _ZN19ClassPathImageEntryC2EP10JImageFilePKc.exit: ; preds = %44
   br label %70
 
 53:                                               ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %54 = call noundef i32 @_ZN2os4statEPKcP4stat(ptr noundef %31, ptr noundef nonnull %3) #21
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %56, label %_ZN11ClassLoader28update_class_path_entry_listEP10JavaThreadPKcbbb.exit
@@ -1657,7 +1657,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i.i: ; preds = %61, %59
   br label %_ZN11ClassLoader28update_class_path_entry_listEP10JavaThreadPKcbbb.exit
 
 _ZN11ClassLoader28update_class_path_entry_listEP10JavaThreadPKcbbb.exit: ; preds = %53, %56, %68, %69
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %70
 
 70:                                               ; preds = %52, %_ZN19ClassPathImageEntryC2EP10JImageFilePKc.exit, %35, %_ZN11ClassLoader28update_class_path_entry_listEP10JavaThreadPKcbbb.exit
@@ -2942,7 +2942,7 @@ define hidden void @_ZN11ClassLoader17load_java_libraryEv() local_unnamed_addr #
   br i1 %4, label %.split3, label %.split
 
 .split:                                           ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = tail call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %3, ptr noundef nonnull @.str.34) #21
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %_ZN11ClassLoader10dll_lookupEPvPKcS2_.exit
@@ -2954,12 +2954,12 @@ define hidden void @_ZN11ClassLoader17load_java_libraryEv() local_unnamed_addr #
   br label %_ZN11ClassLoader10dll_lookupEPvPKcS2_.exit
 
 _ZN11ClassLoader10dll_lookupEPvPKcS2_.exit:       ; preds = %.split, %7
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %13
 
 .split3:                                          ; preds = %0
   tail call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull @.str.33, ptr noundef null) #21
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %9 = tail call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef null, ptr noundef nonnull @.str.34) #21
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN11ClassLoader10dll_lookupEPvPKcS2_.exit4
@@ -2971,7 +2971,7 @@ _ZN11ClassLoader10dll_lookupEPvPKcS2_.exit:       ; preds = %.split, %7
   br label %_ZN11ClassLoader10dll_lookupEPvPKcS2_.exit4
 
 _ZN11ClassLoader10dll_lookupEPvPKcS2_.exit4:      ; preds = %.split3, %11
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %13
 
 13:                                               ; preds = %_ZN11ClassLoader10dll_lookupEPvPKcS2_.exit, %_ZN11ClassLoader10dll_lookupEPvPKcS2_.exit4
@@ -3005,7 +3005,7 @@ define hidden void @_ZN11ClassLoader19load_jimage_libraryEv() local_unnamed_addr
   br i1 %16, label %.split6, label %.split
 
 .split:                                           ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %17 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %15, ptr noundef nonnull @.str.37) #21
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %_ZN11ClassLoader10dll_lookupEPvPKcS2_.exit
@@ -3017,9 +3017,9 @@ define hidden void @_ZN11ClassLoader19load_jimage_libraryEv() local_unnamed_addr
   br label %_ZN11ClassLoader10dll_lookupEPvPKcS2_.exit
 
 _ZN11ClassLoader10dll_lookupEPvPKcS2_.exit:       ; preds = %.split, %19
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store ptr %17, ptr @_ZL10JImageOpen, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %21 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %15, ptr noundef nonnull @.str.38) #21
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %_ZN11ClassLoader10dll_lookupEPvPKcS2_.exit9
@@ -3031,9 +3031,9 @@ _ZN11ClassLoader10dll_lookupEPvPKcS2_.exit:       ; preds = %.split, %19
   br label %_ZN11ClassLoader10dll_lookupEPvPKcS2_.exit9
 
 _ZN11ClassLoader10dll_lookupEPvPKcS2_.exit9:      ; preds = %_ZN11ClassLoader10dll_lookupEPvPKcS2_.exit, %23
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %21, ptr @_ZL11JImageClose, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %25 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %15, ptr noundef nonnull @.str.39) #21
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %_ZN11ClassLoader10dll_lookupEPvPKcS2_.exit10
@@ -3045,9 +3045,9 @@ _ZN11ClassLoader10dll_lookupEPvPKcS2_.exit9:      ; preds = %_ZN11ClassLoader10d
   br label %_ZN11ClassLoader10dll_lookupEPvPKcS2_.exit10
 
 _ZN11ClassLoader10dll_lookupEPvPKcS2_.exit10:     ; preds = %_ZN11ClassLoader10dll_lookupEPvPKcS2_.exit9, %27
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %25, ptr @_ZL18JImageFindResource, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %29 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %15, ptr noundef nonnull @.str.40) #21
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %_ZN11ClassLoader10dll_lookupEPvPKcS2_.exit11
@@ -3059,12 +3059,12 @@ _ZN11ClassLoader10dll_lookupEPvPKcS2_.exit10:     ; preds = %_ZN11ClassLoader10d
   br label %_ZN11ClassLoader10dll_lookupEPvPKcS2_.exit11
 
 _ZN11ClassLoader10dll_lookupEPvPKcS2_.exit11:     ; preds = %_ZN11ClassLoader10dll_lookupEPvPKcS2_.exit10, %31
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %49
 
 .split6:                                          ; preds = %0, %14
   call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull @.str.36, ptr noundef nonnull %9) #21
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %33 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef null, ptr noundef nonnull @.str.37) #21
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %_ZN11ClassLoader10dll_lookupEPvPKcS2_.exit12
@@ -3076,9 +3076,9 @@ _ZN11ClassLoader10dll_lookupEPvPKcS2_.exit11:     ; preds = %_ZN11ClassLoader10d
   br label %_ZN11ClassLoader10dll_lookupEPvPKcS2_.exit12
 
 _ZN11ClassLoader10dll_lookupEPvPKcS2_.exit12:     ; preds = %.split6, %35
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %33, ptr @_ZL10JImageOpen, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %37 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef null, ptr noundef nonnull @.str.38) #21
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %_ZN11ClassLoader10dll_lookupEPvPKcS2_.exit13
@@ -3090,9 +3090,9 @@ _ZN11ClassLoader10dll_lookupEPvPKcS2_.exit12:     ; preds = %.split6, %35
   br label %_ZN11ClassLoader10dll_lookupEPvPKcS2_.exit13
 
 _ZN11ClassLoader10dll_lookupEPvPKcS2_.exit13:     ; preds = %_ZN11ClassLoader10dll_lookupEPvPKcS2_.exit12, %39
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %37, ptr @_ZL11JImageClose, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %41 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef null, ptr noundef nonnull @.str.39) #21
   %42 = icmp eq ptr %41, null
   br i1 %42, label %43, label %_ZN11ClassLoader10dll_lookupEPvPKcS2_.exit14
@@ -3104,9 +3104,9 @@ _ZN11ClassLoader10dll_lookupEPvPKcS2_.exit13:     ; preds = %_ZN11ClassLoader10d
   br label %_ZN11ClassLoader10dll_lookupEPvPKcS2_.exit14
 
 _ZN11ClassLoader10dll_lookupEPvPKcS2_.exit14:     ; preds = %_ZN11ClassLoader10dll_lookupEPvPKcS2_.exit13, %43
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr %41, ptr @_ZL18JImageFindResource, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %45 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef null, ptr noundef nonnull @.str.40) #21
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %_ZN11ClassLoader10dll_lookupEPvPKcS2_.exit15
@@ -3118,7 +3118,7 @@ _ZN11ClassLoader10dll_lookupEPvPKcS2_.exit14:     ; preds = %_ZN11ClassLoader10d
   br label %_ZN11ClassLoader10dll_lookupEPvPKcS2_.exit15
 
 _ZN11ClassLoader10dll_lookupEPvPKcS2_.exit15:     ; preds = %_ZN11ClassLoader10dll_lookupEPvPKcS2_.exit14, %47
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %49
 
 49:                                               ; preds = %_ZN11ClassLoader10dll_lookupEPvPKcS2_.exit11, %_ZN11ClassLoader10dll_lookupEPvPKcS2_.exit15
@@ -4441,7 +4441,7 @@ define hidden noundef ptr @_ZN11ClassLoader17lookup_vm_optionsEv() local_unnamed
 
 _ZL25get_jimage_version_stringv.exit:             ; preds = %11, %14
   %18 = phi ptr [ %9, %11 ], [ %.pre, %14 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %19 = load ptr, ptr @_ZL18JImageFindResource, align 8
   %20 = call noundef i64 %19(ptr noundef %18, ptr noundef nonnull @.str.19, ptr noundef nonnull @_ZZL25get_jimage_version_stringvE14version_string, ptr noundef nonnull @.str.80, ptr noundef nonnull %1) #21
   %21 = icmp eq i64 %20, 0
@@ -4461,7 +4461,7 @@ _ZL25get_jimage_version_stringv.exit:             ; preds = %11, %14
 
 _ZL18lookup_vm_resourceP10JImageFilePKcS2_.exit:  ; preds = %_ZL25get_jimage_version_stringv.exit, %22
   %.0.i = phi ptr [ %25, %22 ], [ null, %_ZL25get_jimage_version_stringv.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %31
 
 31:                                               ; preds = %0, %_ZL18lookup_vm_resourceP10JImageFilePKcS2_.exit
@@ -6743,10 +6743,10 @@ declare void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferen
 declare i32 @llvm.ctpop.i32(i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

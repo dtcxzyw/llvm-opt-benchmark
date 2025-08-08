@@ -398,8 +398,8 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
   %102 = load i32, ptr %.sroa.067.0200, align 4
   %103 = getelementptr inbounds nuw i8, ptr %.sroa.067.0200, i64 4
   %104 = load i32, ptr %103, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %105 = invoke { i64, i64 } @"_ZN14ruff_text_size5range122_$LT$impl$u20$core..convert..From$LT$ruff_text_size..range..TextRange$GT$$u20$for$u20$core..ops..range..Range$LT$T$GT$$GT$4from17h1499bc8572f215f9E"(i32 %102, i32 %104)
           to label %.noexc unwind label %.thread110.loopexit.loopexit.split-lp
 
@@ -442,8 +442,8 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
   br label %.thread104
 
 119:                                              ; preds = %.noexc75
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %120 = xor i1 %115, true
   br label %.outer.backedge
 
@@ -451,8 +451,8 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
   %122 = load i32, ptr %.sroa.067.0200, align 4
   %123 = getelementptr inbounds nuw i8, ptr %.sroa.067.0200, i64 4
   %124 = load i32, ptr %123, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %125 = invoke { i64, i64 } @"_ZN14ruff_text_size5range122_$LT$impl$u20$core..convert..From$LT$ruff_text_size..range..TextRange$GT$$u20$for$u20$core..ops..range..Range$LT$T$GT$$GT$4from17h1499bc8572f215f9E"(i32 %122, i32 %124)
           to label %.noexc79 unwind label %.thread110.loopexit.loopexit
 
@@ -483,8 +483,8 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
           to label %136 unwind label %.thread110.loopexit.loopexit
 
 136:                                              ; preds = %.noexc81
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %137 = xor i1 %135, true
   %138 = or i1 %.sroa.045.0.shrunk199, %137
   %139 = icmp eq ptr %.sroa.067.1201, %33
@@ -529,8 +529,8 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
   %151 = load i32, ptr %.sroa.067.0200, align 4
   %152 = getelementptr inbounds nuw i8, ptr %.sroa.067.0200, i64 4
   %153 = load i32, ptr %152, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %154 = invoke { i64, i64 } @"_ZN14ruff_text_size5range122_$LT$impl$u20$core..convert..From$LT$ruff_text_size..range..TextRange$GT$$u20$for$u20$core..ops..range..Range$LT$T$GT$$GT$4from17h1499bc8572f215f9E"(i32 %151, i32 %153)
           to label %.noexc86 unwind label %.thread110.loopexit.loopexit.split-lp
 
@@ -573,8 +573,8 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
   br label %.thread104
 
 168:                                              ; preds = %.noexc88
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %169 = xor i1 %164, true
   br label %.outer.backedge
 
@@ -613,8 +613,8 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
   %181 = load i32, ptr %.sroa.067.0200, align 4
   %182 = getelementptr inbounds nuw i8, ptr %.sroa.067.0200, i64 4
   %183 = load i32, ptr %182, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %184 = invoke { i64, i64 } @"_ZN14ruff_text_size5range122_$LT$impl$u20$core..convert..From$LT$ruff_text_size..range..TextRange$GT$$u20$for$u20$core..ops..range..Range$LT$T$GT$$GT$4from17h1499bc8572f215f9E"(i32 %181, i32 %183)
           to label %.noexc93 unwind label %.thread110.loopexit.loopexit.split-lp
 
@@ -666,8 +666,8 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
   br label %.thread104
 
 200:                                              ; preds = %.noexc95
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %201 = xor i1 %194, true
   br label %.outer.backedge
 
@@ -865,10 +865,10 @@ declare align 8 ptr @_ZN4core3fmt8builders10DebugTuple5field17h090e461c162ae9ffE
 declare zeroext i1 @_ZN4core3fmt8builders10DebugTuple6finish17h84c7b5697523884aE(ptr align 8) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

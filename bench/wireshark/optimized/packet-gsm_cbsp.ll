@@ -344,8 +344,8 @@ define internal i32 @dissect_cbsp_message(ptr noundef %0, ptr noundef %1, ptr no
 43:                                               ; preds = %353, %.lr.ph.i
   %.0151190.i = phi i8 [ 1, %.lr.ph.i ], [ %.2153.i, %353 ]
   %.0156189.i = phi i32 [ 4, %.lr.ph.i ], [ %354, %353 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %44 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0156189.i)
   %45 = add i32 %.0156189.i, 1
   %46 = zext i8 %44 to i64
@@ -359,8 +359,8 @@ define internal i32 @dissect_cbsp_message(ptr noundef %0, ptr noundef %1, ptr no
   ]
 
 .thread.i:                                        ; preds = %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %dissect_cbsp_tlvs.exit
 
 49:                                               ; preds = %43
@@ -428,7 +428,7 @@ define internal i32 @dissect_cbsp_message(ptr noundef %0, ptr noundef %1, ptr no
 
 73:                                               ; preds = %71
   %74 = load ptr, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %75 = load i32, ptr @hf_cbsp_user_info_length, align 4
   %76 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %75, ptr noundef %0, i32 noundef %72, i32 noundef 1, i32 noundef 0)
   %77 = load i32, ptr @hf_cbsp_cb_msg_page, align 4
@@ -452,7 +452,7 @@ define internal i32 @dissect_cbsp_message(ptr noundef %0, ptr noundef %1, ptr no
   br label %dissect_cbsp_content_ie.exit.i
 
 dissect_cbsp_content_ie.exit.i:                   ; preds = %83, %73
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %353
 
 91:                                               ; preds = %71
@@ -481,8 +481,8 @@ dissect_cbsp_content_ie.exit.i:                   ; preds = %83, %73
   br label %353
 
 107:                                              ; preds = %71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %21, ptr noundef nonnull align 16 dereferenceable(24) @__const.dissect_cbsp_tlvs.cbsp_rep_period_crumbs, i64 24, i1 false)
   %108 = load i32, ptr @hf_cbsp_rep_period, align 4
   %109 = shl i32 %72, 3
@@ -492,8 +492,8 @@ dissect_cbsp_content_ie.exit.i:                   ; preds = %83, %73
   %113 = trunc i64 %112 to i32
   %114 = and i32 %113, 65535
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %111, ptr noundef nonnull @.str.156, i32 noundef %114)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %353
 
 115:                                              ; preds = %71
@@ -690,7 +690,7 @@ cbsp_warn_period_to_secs.exit160.i:               ; preds = %223, %221, %218, %2
 
 229:                                              ; preds = %71
   %230 = load ptr, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %231 = load i32, ptr @hf_cbsp_cell_id_disc, align 4
   %232 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %65, i32 noundef %231, ptr noundef %0, i32 noundef %72, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %15)
   %233 = load i32, ptr %15, align 4
@@ -708,7 +708,7 @@ cbsp_warn_period_to_secs.exit160.i:               ; preds = %223, %221, %218, %2
   br i1 %238, label %239, label %dissect_cell_id_list_ie.exit.i
 
 239:                                              ; preds = %236
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %240 = trunc i32 %.pre31.i.i to i8
   %241 = icmp ult i8 %240, 7
   br i1 %241, label %switch.lookup, label %cell_id_len.exit.i.i
@@ -731,7 +731,7 @@ cell_id_len.exit.i.i:                             ; preds = %239, %switch.lookup
   %249 = icmp slt i32 %248, 1
   %250 = add i32 %248, %.025.i.i
   %251 = add i32 %.026.i.i, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br i1 %249, label %cell_id_len.exit._crit_edge.i.i, label %236
 
 cell_id_len.exit._crit_edge.i.i:                  ; preds = %cell_id_len.exit.i.i
@@ -742,12 +742,12 @@ dissect_cell_id_list_ie.exit.i:                   ; preds = %236, %cell_id_len.e
   %252 = phi i32 [ %.pre.i.i, %cell_id_len.exit._crit_edge.i.i ], [ %.pre31.i.i, %236 ]
   %253 = call ptr @val_to_str_const(i32 noundef %252, ptr noundef nonnull @cbsp_cell_id_disc_vals, ptr noundef nonnull @.str.155)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %230, ptr noundef nonnull @.str.162, ptr noundef %253, i32 noundef %.026.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %353
 
 254:                                              ; preds = %71
   %255 = load ptr, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %256 = load i32, ptr @hf_cbsp_cell_id_disc, align 4
   %257 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %65, i32 noundef %256, ptr noundef %0, i32 noundef %72, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %11)
   %258 = load i32, ptr %11, align 4
@@ -763,9 +763,9 @@ dissect_cell_id_list_ie.exit.i:                   ; preds = %236, %cell_id_len.e
 .lr.ph.i.i:                                       ; preds = %273, %.lr.ph.preheader.i.i
   %.03245.i.i = phi i32 [ %279, %273 ], [ %261, %.lr.ph.preheader.i.i ]
   %.03344.i.i = phi i32 [ %285, %273 ], [ 0, %.lr.ph.preheader.i.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %262 = load i32, ptr %11, align 4
   %263 = trunc i32 %262 to i8
   %264 = icmp ult i8 %263, 7
@@ -790,9 +790,9 @@ cell_id_len.exit.i161.i:                          ; preds = %.lr.ph.i.i, %switch
   br i1 %272, label %.thread.i.i, label %273
 
 .thread.i.i:                                      ; preds = %cell_id_len.exit.i161.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %dissect_bc_compl_list_ie.exit.i
 
 273:                                              ; preds = %cell_id_len.exit.i161.i
@@ -809,9 +809,9 @@ cell_id_len.exit.i161.i:                          ; preds = %.lr.ph.i.i, %switch
   %284 = call ptr @val_to_str_const(i32 noundef %283, ptr noundef nonnull @cbsp_num_bcast_shortinfo_vals, ptr noundef nonnull @.str.155)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %281, ptr noundef nonnull @.str.169, i32 noundef %282, ptr noundef %284)
   %285 = add i32 %.03344.i.i, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %286 = sub i32 %279, %72
   %287 = icmp ult i32 %286, %.0155.i
   br i1 %287, label %.lr.ph.i.i, label %dissect_bc_compl_list_ie.exit.i
@@ -821,7 +821,7 @@ dissect_bc_compl_list_ie.exit.i:                  ; preds = %273, %.thread.i.i, 
   %288 = load i32, ptr %11, align 4
   %289 = call ptr @val_to_str_const(i32 noundef %288, ptr noundef nonnull @cbsp_cell_id_disc_vals, ptr noundef nonnull @.str.155)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %255, ptr noundef nonnull @.str.162, ptr noundef %289, i32 noundef %.03343.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %353
 
 290:                                              ; preds = %71
@@ -832,8 +832,8 @@ dissect_bc_compl_list_ie.exit.i:                  ; preds = %273, %.thread.i.i, 
 .lr.ph.i164.i:                                    ; preds = %290, %304
   %.03144.i.i = phi i32 [ %307, %304 ], [ %72, %290 ]
   %.03243.i.i = phi i32 [ %312, %304 ], [ 0, %290 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %292 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.03144.i.i)
   %293 = and i8 %292, 15
   %294 = icmp samesign ult i8 %293, 7
@@ -858,8 +858,8 @@ cell_id_len.exit.i165.i:                          ; preds = %.lr.ph.i164.i, %swi
   br i1 %303, label %.thread.i167.i, label %304
 
 .thread.i167.i:                                   ; preds = %cell_id_len.exit.i165.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %dissect_failure_list_ie.exit.i
 
 304:                                              ; preds = %cell_id_len.exit.i165.i
@@ -872,8 +872,8 @@ cell_id_len.exit.i165.i:                          ; preds = %.lr.ph.i164.i, %swi
   %311 = call ptr @val_to_str_const(i32 noundef %310, ptr noundef nonnull @cbsp_cause_vals, ptr noundef nonnull @.str.176)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %309, ptr noundef nonnull @.str.175, ptr noundef %311)
   %312 = add i32 %.03243.i.i, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %313 = sub i32 %307, %72
   %314 = icmp ult i32 %313, %.0155.i
   br i1 %314, label %.lr.ph.i164.i, label %dissect_failure_list_ie.exit.i
@@ -885,7 +885,7 @@ dissect_failure_list_ie.exit.i:                   ; preds = %304, %.thread.i167.
 
 315:                                              ; preds = %71
   %316 = load ptr, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %317 = load i32, ptr @hf_cbsp_cell_id_disc, align 4
   %318 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %65, i32 noundef %317, ptr noundef %0, i32 noundef %72, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5)
   %319 = load i32, ptr %5, align 4
@@ -901,9 +901,9 @@ dissect_failure_list_ie.exit.i:                   ; preds = %304, %.thread.i167.
 .lr.ph.i170.i:                                    ; preds = %334, %.lr.ph.preheader.i169.i
   %.03144.i171.i = phi i32 [ %340, %334 ], [ %322, %.lr.ph.preheader.i169.i ]
   %.03243.i172.i = phi i32 [ %345, %334 ], [ 0, %.lr.ph.preheader.i169.i ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %323 = load i32, ptr %5, align 4
   %324 = trunc i32 %323 to i8
   %325 = icmp ult i8 %324, 7
@@ -928,9 +928,9 @@ cell_id_len.exit.i173.i:                          ; preds = %.lr.ph.i170.i, %swi
   br i1 %333, label %.thread.i175.i, label %334
 
 .thread.i175.i:                                   ; preds = %cell_id_len.exit.i173.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %dissect_rr_load_list_ie.exit.i
 
 334:                                              ; preds = %cell_id_len.exit.i173.i
@@ -946,9 +946,9 @@ cell_id_len.exit.i173.i:                          ; preds = %.lr.ph.i170.i, %swi
   %344 = load i32, ptr %7, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %342, ptr noundef nonnull @.str.179, i32 noundef %343, i32 noundef %344)
   %345 = add i32 %.03243.i172.i, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %346 = sub i32 %340, %72
   %347 = icmp ult i32 %346, %.0155.i
   br i1 %347, label %.lr.ph.i170.i, label %dissect_rr_load_list_ie.exit.i
@@ -958,7 +958,7 @@ dissect_rr_load_list_ie.exit.i:                   ; preds = %334, %.thread.i175.
   %348 = load i32, ptr %5, align 4
   %349 = call ptr @val_to_str_const(i32 noundef %348, ptr noundef nonnull @cbsp_cell_id_disc_vals, ptr noundef nonnull @.str.155)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %316, ptr noundef nonnull @.str.162, ptr noundef %349, i32 noundef %.03242.i168.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %353
 
 350:                                              ; preds = %71
@@ -969,8 +969,8 @@ dissect_rr_load_list_ie.exit.i:                   ; preds = %334, %.thread.i175.
 353:                                              ; preds = %350, %dissect_rr_load_list_ie.exit.i, %dissect_failure_list_ie.exit.i, %dissect_bc_compl_list_ie.exit.i, %dissect_cell_id_list_ie.exit.i, %cbsp_warn_period_to_secs.exit160.i, %cbsp_warn_period_to_secs.exit.i, %169, %166, %163, %158, %152, %149, %143, %138, %135, %126, %120, %115, %107, %101, %96, %91, %dissect_cbsp_content_ie.exit.i
   %.2153.i = phi i8 [ %.0151190.i, %350 ], [ %.0151190.i, %dissect_cbsp_content_ie.exit.i ], [ %.0151190.i, %91 ], [ %.0151190.i, %96 ], [ %.0151190.i, %101 ], [ %.0151190.i, %107 ], [ %.0151190.i, %115 ], [ %.0151190.i, %120 ], [ %132, %126 ], [ %.0151190.i, %135 ], [ %.0151190.i, %138 ], [ %.0151190.i, %143 ], [ %.0151190.i, %149 ], [ %.0151190.i, %152 ], [ %.0151190.i, %158 ], [ %.0151190.i, %163 ], [ %.0151190.i, %166 ], [ %.0151190.i, %169 ], [ %.0151190.i, %cbsp_warn_period_to_secs.exit.i ], [ %.0151190.i, %cbsp_warn_period_to_secs.exit160.i ], [ %.0151190.i, %dissect_cell_id_list_ie.exit.i ], [ %.0151190.i, %dissect_bc_compl_list_ie.exit.i ], [ %.0151190.i, %dissect_failure_list_ie.exit.i ], [ %.0151190.i, %dissect_rr_load_list_ie.exit.i ]
   %354 = add i32 %72, %.0155.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %355 = add i32 %354, -4
   %356 = icmp slt i32 %355, %40
   br i1 %356, label %43, label %dissect_cbsp_tlvs.exit, !llvm.loop !6
@@ -983,14 +983,8 @@ dissect_cbsp_tlvs.exit:                           ; preds = %353, %.thread.i, %3
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_uint24(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -1038,7 +1032,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_split_bits_item_ret_val(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1062,8 +1056,8 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 define internal fastcc noundef i32 @dissect_cell_id_elem(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   switch i8 %0, label %48 [
     i8 0, label %9
     i8 1, label %20
@@ -1132,19 +1126,24 @@ define internal fastcc noundef i32 @dissect_cell_id_elem(i8 noundef zeroext %0, 
 
 48:                                               ; preds = %6, %46
   %.0 = phi i32 [ %47, %46 ], [ -1, %6 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @dissect_e212_mcc_mnc_wmem_packet_str(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

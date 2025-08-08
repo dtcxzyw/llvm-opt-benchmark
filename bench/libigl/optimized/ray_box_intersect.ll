@@ -119,14 +119,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl17ray_box_intersectIN5Eigen
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local noundef zeroext i1 @_ZN3igl17ray_box_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_dEEbRKNS1_10MatrixBaseIT_EERKNS4_IT0_EESC_RKNS1_10AlignedBoxIT1_Li3EEERKSE_SJ_RSE_SK_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
+define weak_odr dso_local noundef zeroext i1 @_ZN3igl17ray_box_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_dEEbRKNS1_10MatrixBaseIT_EERKNS4_IT0_EESC_RKNS1_10AlignedBoxIT1_Li3EEERKSE_SJ_RSE_SK_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) local_unnamed_addr #1 comdat personality ptr @__gxx_personality_v0 {
   %9 = load double, ptr %1, align 8, !tbaa !8
   %10 = fcmp uge double %9, 0.000000e+00
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -231,7 +225,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl17ray_box_intersectIN5Eigen
   %14 = getelementptr i8, ptr %1, i64 8
   %15 = load float, ptr %14, align 4, !tbaa !4
   %16 = fdiv float 1.000000e+00, %15
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store float %10, ptr %8, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 4
   store float %13, ptr %.sroa.5.0..sroa_idx, align 4
@@ -319,11 +313,11 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl17ray_box_intersectIN5Eigen
 
 _ZN3igl17ray_box_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEENS2_IfLi1ELi3ELi1ELi1ELi3EEEfEEbRKNS1_10MatrixBaseIT_EERKNS5_IT0_EESD_RKNS1_10AlignedBoxIT1_Li3EEERKSF_SK_RSF_SL_.exit: ; preds = %7, %47, %64
   %.0.i = phi i1 [ %75, %64 ], [ false, %7 ], [ false, %47 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0.i
 }
 
-declare void @_ZN3igl13increment_ulpIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEEEEvRNS1_10MatrixBaseIT_EEi(ptr noundef nonnull align 1 dereferenceable(1), i32 noundef) local_unnamed_addr #3
+declare void @_ZN3igl13increment_ulpIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEEEEvRNS1_10MatrixBaseIT_EEi(ptr noundef nonnull align 1 dereferenceable(1), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZN3igl17ray_box_intersectIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEES3_fEEbRKNS1_10MatrixBaseIT_EERKNS4_IT0_EERKNS1_10AlignedBoxIT1_Li3EEERKSE_SJ_RSE_SK_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 4 dereferenceable(24) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -336,7 +330,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl17ray_box_intersectIN5Eigen
   %14 = getelementptr i8, ptr %1, i64 8
   %15 = load float, ptr %14, align 4, !tbaa !4
   %16 = fdiv float 1.000000e+00, %15
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store float %10, ptr %8, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 4
   store float %13, ptr %.sroa.5.0..sroa_idx, align 4
@@ -424,19 +418,19 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl17ray_box_intersectIN5Eigen
 
 _ZN3igl17ray_box_intersectIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEES3_fEEbRKNS1_10MatrixBaseIT_EERKNS4_IT0_EESC_RKNS1_10AlignedBoxIT1_Li3EEERKSE_SJ_RSE_SK_.exit: ; preds = %7, %47, %64
   %.0.i = phi i1 [ %75, %64 ], [ false, %7 ], [ false, %47 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local noundef zeroext i1 @_ZN3igl17ray_box_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_dEEbRKNS1_10MatrixBaseIT_EERKNS4_IT0_EERKNS1_10AlignedBoxIT1_Li3EEERKSE_SJ_RSE_SK_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
+define weak_odr dso_local noundef zeroext i1 @_ZN3igl17ray_box_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_dEEbRKNS1_10MatrixBaseIT_EERKNS4_IT0_EERKNS1_10AlignedBoxIT1_Li3EEERKSE_SJ_RSE_SK_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) local_unnamed_addr #1 comdat personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.Eigen::Matrix.27", align 16
   %9 = load <2 x double>, ptr %1, align 1, !tbaa !10
   %10 = fdiv <2 x double> splat (double 1.000000e+00), %9
   %11 = getelementptr i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8, !tbaa !8
   %13 = fdiv double 1.000000e+00, %12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store <2 x double> %10, ptr %8, align 16
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   store double %13, ptr %.sroa.7.0..sroa_idx, align 16, !tbaa !10
@@ -525,19 +519,24 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl17ray_box_intersectIN5Eigen
 
 _ZN3igl17ray_box_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_dEEbRKNS1_10MatrixBaseIT_EERKNS4_IT0_EESC_RKNS1_10AlignedBoxIT1_Li3EEERKSE_SJ_RSE_SK_.exit: ; preds = %7, %41, %58
   %.0.i = phi i1 [ %69, %58 ], [ false, %7 ], [ false, %41 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0.i
 }
 
-declare void @_ZN3igl13increment_ulpIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEEvRNS1_10MatrixBaseIT_EEi(ptr noundef nonnull align 1 dereferenceable(1), i32 noundef) local_unnamed_addr #3
+declare void @_ZN3igl13increment_ulpIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEEvRNS1_10MatrixBaseIT_EEi(ptr noundef nonnull align 1 dereferenceable(1), i32 noundef) local_unnamed_addr #2
 
 declare i32 @__gxx_personality_v0(...)
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
+attributes #1 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

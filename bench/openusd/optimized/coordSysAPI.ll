@@ -250,13 +250,13 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L17_Tf_RegistryAdd17E
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction17EPNS_6TfTypeEPv(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_BaseTypeInfos", align 8
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_TypeCastFunctions", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @_ZTIN32pxrInternal_v0_24__pxrReserved__16UsdAPISchemaBaseE, ptr %3, align 8
   store ptr @_ZN32pxrInternal_v0_24__pxrReserved__15Tf_CastToParentINS_19UsdShadeCoordSysAPIENS_16UsdAPISchemaBaseEEEPvS3_b, ptr %4, align 8
   %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__6TfType11_DefineImplERKSt9type_infoPPS2_PPFPvS6_bEmmbb(ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPIE, ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 1, i64 noundef 32, i1 noundef zeroext false, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -500,7 +500,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit30: ; preds = %68
   br label %196
 
 106:                                              ; preds = %60
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %107 = load ptr, ptr %12, align 8
   %.not.i.i.i.i.i31 = icmp eq ptr %107, null
   br i1 %.not.i.i.i.i.i31, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8UsdStageEE13_FetchPointerEv.exit.thread.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i
@@ -531,7 +531,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8UsdSta
   unreachable
 
 116:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath11GetPrimPathEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %11, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %117 unwind label %103
 
@@ -3296,7 +3296,7 @@ define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfSt
 
 4:                                                ; preds = %0
   %5 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC1EPKcNS0_12_ImmortalTagE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull @.str.5, i32 noundef 0)
           to label %.noexc.i.i.i unwind label %105
 
@@ -3525,7 +3525,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit18.i.i.i.i: ; preds = %94,
   resume { ptr, i32 } %eh.lpad-body.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeEE3NewEv.exit.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %107 = ptrtoint ptr %5 to i64
   %108 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__L7_tokensE, i64 0, i64 %107 seq_cst seq_cst, align 8
   %109 = extractvalue { i64, i1 } %108, 1
@@ -4899,7 +4899,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI7BindingE
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI7BindingESaIS2_EED2Ev.exit81
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI7BindingESaIS2_EED2Ev.exit81: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI7BindingES2_EvT_S4_RSaIT0_E.exit.i79, %513
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %16, label %519, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 519:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI7BindingESaIS2_EED2Ev.exit81
@@ -4911,14 +4911,14 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI7BindingESa
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI7BindingESaIS2_EED2Ev.exit81, %519
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 521:                                              ; preds = %471, %435, %.body30, %.body17, %.body, %72, %70
   %.pn14 = phi { ptr, i32 } [ %36, %.body ], [ %73, %72 ], [ %.pn.pn, %435 ], [ %472, %471 ], [ %eh.lpad-body31, %.body30 ], [ %77, %.body17 ], [ %71, %70 ]
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #19
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI7BindingESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br i1 %16, label %522, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit82
 
 522:                                              ; preds = %521
@@ -4930,7 +4930,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZNSt
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit82
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit82: ; preds = %521, %522
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn14
 }
 
@@ -5660,7 +5660,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject11GetPrimPathEv.exit.i: ; preds 
 
 _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetNameEv.exit: ; preds = %.lr.ph, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject11GetPrimPathEv.exit.i
   %179 = phi ptr [ %178, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject11GetPrimPathEv.exit.i ], [ %38, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %180 = load ptr, ptr %179, align 8, !noalias !45
   %181 = ptrtoint ptr %180 to i64
   %182 = and i64 %181, -8
@@ -5745,7 +5745,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
 
 214:                                              ; preds = %.noexc64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) %4) #19
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %215 = load ptr, ptr %.sroa.095.0150, align 8
   %216 = ptrtoint ptr %215 to i64
   %217 = load ptr, ptr %9, align 8
@@ -7482,7 +7482,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__11UsdPropertyC2ERKS0_.exit: ; preds = %_ZN3
   br i1 %332, label %333, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject2AsINS_15UsdRelationshipEEET_v.exit.thread
 
 333:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__11UsdPropertyC2ERKS0_.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 4, ptr %15, align 8
   store ptr %303, ptr %160, align 8
   br i1 %.not.i.i.i.i.i53, label %_ZN32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandleC2ERKS0_.exit.i, label %334
@@ -7586,7 +7586,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject2AsINS_15UsdRelationshipEEET_v.e
   br label %375
 
 _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject2AsINS_15UsdRelationshipEEET_v.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i, %._crit_edge9.i, %363
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pr = load i32, ptr %15, align 8
   switch i32 %.pr, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit62.thread [
     i32 4, label %thread-pre-split
@@ -8341,7 +8341,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI7BindingE
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI7BindingESaIS2_EED2Ev.exit119
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI7BindingESaIS2_EED2Ev.exit119: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI7BindingES2_EvT_S4_RSaIT0_E.exit.i117, %717
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %21, label %723, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 723:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI7BindingESaIS2_EED2Ev.exit119
@@ -8353,14 +8353,14 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI7BindingESa
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI7BindingESaIS2_EED2Ev.exit119, %723
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 725:                                              ; preds = %676, %640, %149, %79, %77, %75
   %.pn22 = phi { ptr, i32 } [ %80, %79 ], [ %78, %77 ], [ %.pn.pn.pn.pn, %640 ], [ %677, %676 ], [ %150, %149 ], [ %76, %75 ]
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #19
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI7BindingESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %21, label %726, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit120
 
 726:                                              ; preds = %725
@@ -8372,7 +8372,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZNSt
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit120
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit120: ; preds = %725, %726
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn22
 }
 
@@ -10507,7 +10507,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__11UsdPropertyES1_EvT_S3_RSaIT0
 
 _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %341, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__11UsdPropertyES1_EvT_S3_RSaIT0_E.exit.i, %74, %71, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit41
   %.0 = phi i1 [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit41 ], [ %41, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i ], [ %41, %71 ], [ %41, %74 ], [ %337, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__11UsdPropertyES1_EvT_S3_RSaIT0_E.exit.i ], [ %337, %341 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br i1 %11, label %351, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 351:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit
@@ -10519,12 +10519,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %341, %_ZSt8_D
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit, %351
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 
 353:                                              ; preds = %350, %.body45, %.body30, %.body, %77, %75
   %.pn21 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %78, %77 ], [ %.pn.pn, %350 ], [ %eh.lpad-body46, %.body45 ], [ %eh.lpad-body31, %.body30 ], [ %76, %75 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br i1 %11, label %354, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit83
 
 354:                                              ; preds = %353
@@ -10536,7 +10536,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZN32
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit83
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit83: ; preds = %353, %354
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn21
 }
 
@@ -11085,7 +11085,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread85: ; preds = %
   br i1 %237, label %238, label %249
 
 238:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread85
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @.str.2, ptr %6, align 8
   %239 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__35_WarnOnUseOfDeprecatedNonAppliedAPIEPKc, ptr %239, align 8
@@ -11099,7 +11099,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread85: ; preds = %
           to label %_ZN32pxrInternal_v0_24__pxrReserved__35_WarnOnUseOfDeprecatedNonAppliedAPIEPKc.exit unwind label %247
 
 _ZN32pxrInternal_v0_24__pxrReserved__35_WarnOnUseOfDeprecatedNonAppliedAPIEPKc.exit: ; preds = %238
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %249
 
 243:                                              ; preds = %182
@@ -11333,7 +11333,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipD2Ev.exit: ; preds = %_ZN3
 
 _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %341, %_ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipD2Ev.exit, %72, %69, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i
   %.021 = phi i1 [ %38, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i ], [ %38, %69 ], [ %38, %72 ], [ %.120.in, %_ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipD2Ev.exit ], [ %.120.in, %341 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %17, label %354, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 354:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit
@@ -11345,12 +11345,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %341, %_ZN32px
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit, %354
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.021
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit70: ; preds = %350, %346, %172, %.body, %81, %75, %73
   %.pn28.pn = phi { ptr, i32 } [ %.pn28, %81 ], [ %76, %75 ], [ %.pn, %172 ], [ %eh.lpad-body, %.body ], [ %74, %73 ], [ %.pn24.pn.pn, %346 ], [ %.pn24.pn.pn, %350 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %17, label %356, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit71
 
 356:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit70
@@ -11362,7 +11362,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit70: ; preds = %350, %346, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit71
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit71: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit70, %356
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn28.pn
 }
 
@@ -12315,7 +12315,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread76: ; preds = %
   br i1 %236, label %237, label %248
 
 237:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread76
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @.str.2, ptr %6, align 8
   %238 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__35_WarnOnUseOfDeprecatedNonAppliedAPIEPKc, ptr %238, align 8
@@ -12329,7 +12329,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread76: ; preds = %
           to label %_ZN32pxrInternal_v0_24__pxrReserved__35_WarnOnUseOfDeprecatedNonAppliedAPIEPKc.exit unwind label %246
 
 _ZN32pxrInternal_v0_24__pxrReserved__35_WarnOnUseOfDeprecatedNonAppliedAPIEPKc.exit: ; preds = %237
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %248
 
 242:                                              ; preds = %181
@@ -12450,7 +12450,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipD2Ev.exit: ; preds = %_ZN3
 
 _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %288, %_ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipD2Ev.exit, %71, %68, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i
   %.019 = phi i1 [ %37, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i ], [ %37, %68 ], [ %37, %71 ], [ %.118.in, %_ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipD2Ev.exit ], [ %.118.in, %288 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %16, label %300, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 300:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit
@@ -12462,12 +12462,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %288, %_ZN32px
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit, %300
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.019
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit61: ; preds = %296, %292, %171, %.body, %80, %74, %72
   %.pn24.pn = phi { ptr, i32 } [ %.pn24, %80 ], [ %75, %74 ], [ %.pn, %171 ], [ %eh.lpad-body, %.body ], [ %73, %72 ], [ %.pn22, %292 ], [ %.pn22, %296 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %16, label %302, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit62
 
 302:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit61
@@ -12479,7 +12479,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit61: ; preds = %296, %292, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit62
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit62: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit61, %302
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn24.pn
 }
 
@@ -13120,7 +13120,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread79: ; preds = %
   br i1 %236, label %237, label %248
 
 237:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread79
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @.str.2, ptr %5, align 8
   %238 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__35_WarnOnUseOfDeprecatedNonAppliedAPIEPKc, ptr %238, align 8
@@ -13134,7 +13134,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread79: ; preds = %
           to label %_ZN32pxrInternal_v0_24__pxrReserved__35_WarnOnUseOfDeprecatedNonAppliedAPIEPKc.exit unwind label %246
 
 _ZN32pxrInternal_v0_24__pxrReserved__35_WarnOnUseOfDeprecatedNonAppliedAPIEPKc.exit: ; preds = %237
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %248
 
 242:                                              ; preds = %181
@@ -13325,7 +13325,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipD2Ev.exit: ; preds = %_ZN3
 
 _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %319, %_ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipD2Ev.exit, %71, %68, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i
   %.018 = phi i1 [ %37, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i ], [ %37, %68 ], [ %37, %71 ], [ %.117.in, %_ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipD2Ev.exit ], [ %.117.in, %319 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %24, label %332, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 332:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit
@@ -13337,12 +13337,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %319, %_ZN32px
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit, %332
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.018
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit64: ; preds = %328, %324, %171, %.body, %80, %74
   %.pn24.pn = phi { ptr, i32 } [ %.pn24, %80 ], [ %75, %74 ], [ %.pn, %171 ], [ %eh.lpad-body, %.body ], [ %.pn21.pn, %324 ], [ %.pn21.pn, %328 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br i1 %24, label %334, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit65
 
 334:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit64
@@ -13354,7 +13354,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit64: ; preds = %328, %324, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit65
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit65: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit64, %334
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %336
 
 336:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit65, %72
@@ -15739,10 +15739,10 @@ define internal void @_GLOBAL__sub_I_coordSysAPI.cpp() #7 section ".text.startup
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15

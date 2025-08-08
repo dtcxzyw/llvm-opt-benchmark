@@ -50,7 +50,7 @@ define internal void @"_ZN4core3ptr23drop_in_place$LT$u8$GT$17h9b24efa904add09dE
 define noundef zeroext i1 @"_ZN57_$LT$grep_matcher..BitSet$u20$as$u20$core..fmt..Debug$GT$3fmt17hade77178fc3c48aeE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
   %3 = alloca i8, align 1
   %4 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4core3fmt9Formatter9debug_set17h2ae33b7930f14437E(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %5
 
@@ -58,7 +58,7 @@ define noundef zeroext i1 @"_ZN57_$LT$grep_matcher..BitSet$u20$as$u20$core..fmt.
   %.sroa.5.012 = phi i8 [ 0, %2 ], [ %7, %20 ]
   %6 = icmp eq i8 %.sroa.5.012, -1
   %7 = add nuw i8 %.sroa.5.012, 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 %.sroa.5.012, ptr %3, align 1
   %8 = lshr i8 %.sroa.5.012, 6
   %9 = zext nneg i8 %8 to i64
@@ -73,7 +73,7 @@ define noundef zeroext i1 @"_ZN57_$LT$grep_matcher..BitSet$u20$as$u20$core..fmt.
 
 16:                                               ; preds = %20
   %17 = call noundef zeroext i1 @_ZN4core3fmt8builders8DebugSet6finish17h05eb3b4316072867E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %17
 
 18:                                               ; preds = %5
@@ -81,7 +81,7 @@ define noundef zeroext i1 @"_ZN57_$LT$grep_matcher..BitSet$u20$as$u20$core..fmt.
   br label %20
 
 20:                                               ; preds = %5, %18
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %6, label %16, label %5
 }
 
@@ -93,7 +93,7 @@ define { ptr, i64 } @"_ZN60_$LT$grep_matcher..NoError$u20$as$u20$core..error..Er
 ; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef zeroext i1 @"_ZN60_$LT$grep_matcher..NoError$u20$as$u20$core..fmt..Display$GT$3fmt17h6b1bd9d98e2d14faE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef readnone align 8 captures(none) dereferenceable(64) %1) unnamed_addr #4 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @anon.d1b9525942f9ba567902bbdf202cce7f.5, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %4, align 8
@@ -129,10 +129,10 @@ declare noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders8DebugSet5
 declare void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef align 8 captures(none) dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

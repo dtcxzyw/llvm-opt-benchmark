@@ -21,14 +21,14 @@ define range(i32 -1, 31) i32 @ASN1_mbstring_ncopy(ptr noundef captures(address_i
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
   store i64 %4, ptr %9, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = icmp eq i32 %2, -1
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %7
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #6
   %15 = trunc i64 %14 to i32
   br label %16
 
@@ -59,9 +59,9 @@ define range(i32 -1, 31) i32 @ASN1_mbstring_ncopy(ptr noundef captures(address_i
   br i1 %.not69, label %24, label %23
 
 23:                                               ; preds = %21
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 66, ptr noundef nonnull @__func__.ASN1_mbstring_ncopy) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 129, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 66, ptr noundef nonnull @__func__.ASN1_mbstring_ncopy) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 129, ptr noundef null) #7
   br label %110
 
 24:                                               ; preds = %21
@@ -74,9 +74,9 @@ define range(i32 -1, 31) i32 @ASN1_mbstring_ncopy(ptr noundef captures(address_i
   br i1 %.not68, label %29, label %28
 
 28:                                               ; preds = %26
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 74, ptr noundef nonnull @__func__.ASN1_mbstring_ncopy) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 133, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 74, ptr noundef nonnull @__func__.ASN1_mbstring_ncopy) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 133, ptr noundef null) #7
   br label %110
 
 29:                                               ; preds = %26
@@ -84,7 +84,7 @@ define range(i32 -1, 31) i32 @ASN1_mbstring_ncopy(ptr noundef captures(address_i
   br label %45
 
 31:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not34.i = icmp eq i32 %.060, 0
   br i1 %.not34.i, label %traverse_string.exit, label %.lr.ph.split.split.i
 
@@ -92,7 +92,7 @@ define range(i32 -1, 31) i32 @ASN1_mbstring_ncopy(ptr noundef captures(address_i
   %.1 = phi i32 [ %40, %39 ], [ 0, %31 ]
   %.02636.i = phi ptr [ %42, %39 ], [ %1, %31 ]
   %.02735.i = phi i32 [ %43, %39 ], [ %.060, %31 ]
-  %32 = call i32 @UTF8_getc(ptr noundef %.02636.i, i32 noundef %.02735.i, ptr noundef nonnull %8) #6
+  %32 = call i32 @UTF8_getc(ptr noundef %.02636.i, i32 noundef %.02735.i, ptr noundef nonnull %8) #7
   %33 = icmp slt i32 %32, 0
   br i1 %33, label %in_utf8.exit.thread, label %34
 
@@ -114,20 +114,20 @@ define range(i32 -1, 31) i32 @ASN1_mbstring_ncopy(ptr noundef captures(address_i
 
 traverse_string.exit:                             ; preds = %39, %31
   %.2 = phi i32 [ 0, %31 ], [ %40, %39 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %45
 
 in_utf8.exit.thread:                              ; preds = %34, %.lr.ph.split.split.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
-  call void @ERR_new() #6
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 85, ptr noundef nonnull @__func__.ASN1_mbstring_ncopy) #6
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 134, ptr noundef null) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @ERR_new() #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 85, ptr noundef nonnull @__func__.ASN1_mbstring_ncopy) #7
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 134, ptr noundef null) #7
   br label %110
 
 44:                                               ; preds = %20
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 95, ptr noundef nonnull @__func__.ASN1_mbstring_ncopy) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 160, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 95, ptr noundef nonnull @__func__.ASN1_mbstring_ncopy) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 160, ptr noundef null) #7
   br label %110
 
 45:                                               ; preds = %20, %traverse_string.exit, %29, %24
@@ -139,9 +139,9 @@ in_utf8.exit.thread:                              ; preds = %34, %.lr.ph.split.s
   br i1 %or.cond, label %49, label %50
 
 49:                                               ; preds = %45
-  call void @ERR_new() #6
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 100, ptr noundef nonnull @__func__.ASN1_mbstring_ncopy) #6
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 152, ptr noundef nonnull @.str.1, i64 noundef %5) #6
+  call void @ERR_new() #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 100, ptr noundef nonnull @__func__.ASN1_mbstring_ncopy) #7
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 152, ptr noundef nonnull @.str.1, i64 noundef %5) #7
   br label %110
 
 50:                                               ; preds = %45
@@ -151,9 +151,9 @@ in_utf8.exit.thread:                              ; preds = %34, %.lr.ph.split.s
   br i1 %or.cond85, label %53, label %54
 
 53:                                               ; preds = %50
-  call void @ERR_new() #6
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @__func__.ASN1_mbstring_ncopy) #6
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 151, ptr noundef nonnull @.str.2, i64 noundef %6) #6
+  call void @ERR_new() #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @__func__.ASN1_mbstring_ncopy) #7
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 151, ptr noundef nonnull @.str.2, i64 noundef %6) #7
   br label %110
 
 54:                                               ; preds = %50
@@ -162,9 +162,9 @@ in_utf8.exit.thread:                              ; preds = %34, %.lr.ph.split.s
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %54
-  call void @ERR_new() #6
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 113, ptr noundef nonnull @__func__.ASN1_mbstring_ncopy) #6
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 124, ptr noundef null) #6
+  call void @ERR_new() #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 113, ptr noundef nonnull @__func__.ASN1_mbstring_ncopy) #7
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 124, ptr noundef null) #7
   br label %110
 
 58:                                               ; preds = %54
@@ -212,20 +212,20 @@ in_utf8.exit.thread:                              ; preds = %34, %.lr.ph.split.s
   br i1 %.not77.not.not, label %76, label %74
 
 74:                                               ; preds = %72
-  call void @ASN1_STRING_set0(ptr noundef nonnull %73, ptr noundef null, i32 noundef 0) #6
+  call void @ASN1_STRING_set0(ptr noundef nonnull %73, ptr noundef null, i32 noundef 0) #7
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 4
   store i32 %.059, ptr %75, align 4, !tbaa !14
   br label %81
 
 76:                                               ; preds = %72
-  %77 = call ptr @ASN1_STRING_type_new(i32 noundef %.059) #6
+  %77 = call ptr @ASN1_STRING_type_new(i32 noundef %.059) #7
   %78 = icmp eq ptr %77, null
   br i1 %78, label %79, label %80
 
 79:                                               ; preds = %76
-  call void @ERR_new() #6
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 148, ptr noundef nonnull @__func__.ASN1_mbstring_ncopy) #6
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 524301, ptr noundef null) #6
+  call void @ERR_new() #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 148, ptr noundef nonnull @__func__.ASN1_mbstring_ncopy) #7
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 524301, ptr noundef null) #7
   br label %110
 
 80:                                               ; preds = %76
@@ -238,7 +238,7 @@ in_utf8.exit.thread:                              ; preds = %34, %.lr.ph.split.s
   br i1 %82, label %83, label %88
 
 83:                                               ; preds = %81
-  %84 = call i32 @ASN1_STRING_set(ptr noundef nonnull %.055, ptr noundef %1, i32 noundef %.060) #6
+  %84 = call i32 @ASN1_STRING_set(ptr noundef nonnull %.055, ptr noundef %1, i32 noundef %.060) #7
   %.not79 = icmp eq i32 %84, 0
   br i1 %.not79, label %85, label %110
 
@@ -246,14 +246,14 @@ in_utf8.exit.thread:                              ; preds = %34, %.lr.ph.split.s
   br i1 %.not77.not.not, label %86, label %87
 
 86:                                               ; preds = %85
-  call void @ASN1_STRING_free(ptr noundef nonnull %.055) #6
+  call void @ASN1_STRING_free(ptr noundef nonnull %.055) #7
   store ptr null, ptr %0, align 8, !tbaa !11
   br label %87
 
 87:                                               ; preds = %86, %85
-  call void @ERR_new() #6
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 160, ptr noundef nonnull @__func__.ASN1_mbstring_ncopy) #6
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 524301, ptr noundef null) #6
+  call void @ERR_new() #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 160, ptr noundef nonnull @__func__.ASN1_mbstring_ncopy) #7
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 524301, ptr noundef null) #7
   br label %110
 
 88:                                               ; preds = %81
@@ -289,7 +289,7 @@ in_utf8.exit.thread:                              ; preds = %34, %.lr.ph.split.s
   %.0 = phi ptr [ null, %88 ], [ @cpy_asc, %89 ], [ @cpy_bmp, %90 ], [ @cpy_univ, %92 ], [ @cpy_utf8, %94 ]
   %98 = add nsw i32 %97, 1
   %99 = sext i32 %98 to i64
-  %100 = call noalias ptr @CRYPTO_malloc(i64 noundef %99, ptr noundef nonnull @.str, i32 noundef 189) #6
+  %100 = call noalias ptr @CRYPTO_malloc(i64 noundef %99, ptr noundef nonnull @.str, i32 noundef 189) #7
   store ptr %100, ptr %11, align 8, !tbaa !17
   %101 = icmp eq ptr %100, null
   br i1 %101, label %102, label %104
@@ -298,7 +298,7 @@ in_utf8.exit.thread:                              ; preds = %34, %.lr.ph.split.s
   br i1 %.not77.not.not, label %103, label %110
 
 103:                                              ; preds = %102
-  call void @ASN1_STRING_free(ptr noundef nonnull %.055) #6
+  call void @ASN1_STRING_free(ptr noundef nonnull %.055) #7
   store ptr null, ptr %0, align 8, !tbaa !11
   br label %110
 
@@ -315,27 +315,24 @@ in_utf8.exit.thread:                              ; preds = %34, %.lr.ph.split.s
 
 110:                                              ; preds = %102, %103, %83, %71, %18, %104, %87, %79, %57, %53, %49, %44, %in_utf8.exit.thread, %28, %23
   %.058 = phi i32 [ -1, %44 ], [ -1, %23 ], [ -1, %49 ], [ -1, %53 ], [ -1, %57 ], [ -1, %87 ], [ %.059, %104 ], [ -1, %79 ], [ -1, %28 ], [ -1, %in_utf8.exit.thread ], [ -1, %18 ], [ %.059, %71 ], [ %.059, %83 ], [ -1, %103 ], [ -1, %102 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.058
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
-declare void @ERR_new() local_unnamed_addr #3
+declare void @ERR_new() local_unnamed_addr #2
 
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2) i32 @traverse_string(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not34 = icmp eq i32 %1, 0
   br i1 %.not34, label %._crit_edge, label %.lr.ph
 
@@ -357,7 +354,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @traverse_string(ptr nounde
 9:                                                ; preds = %.lr.ph.split.us
   %10 = load i8, ptr %.02636.us, align 1, !tbaa !20
   %11 = zext i8 %10 to i64
-  %12 = tail call i32 %3(i64 noundef %11, ptr noundef nonnull %4) #6
+  %12 = tail call i32 %3(i64 noundef %11, ptr noundef nonnull %4) #7
   %13 = icmp slt i32 %12, 1
   br i1 %13, label %._crit_edge, label %14
 
@@ -380,7 +377,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @traverse_string(ptr nounde
   %22 = load i8, ptr %21, align 1, !tbaa !20
   %23 = zext i8 %22 to i64
   %24 = or disjoint i64 %20, %23
-  %25 = tail call i32 %3(i64 noundef %24, ptr noundef nonnull %4) #6
+  %25 = tail call i32 %3(i64 noundef %24, ptr noundef nonnull %4) #7
   %26 = icmp slt i32 %25, 1
   br i1 %26, label %._crit_edge, label %27
 
@@ -413,7 +410,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @traverse_string(ptr nounde
   %45 = load i8, ptr %44, align 1, !tbaa !20
   %46 = zext i8 %45 to i64
   %47 = or disjoint i64 %43, %46
-  %48 = tail call i32 %3(i64 noundef %47, ptr noundef nonnull %4) #6
+  %48 = tail call i32 %3(i64 noundef %47, ptr noundef nonnull %4) #7
   %49 = icmp slt i32 %48, 1
   br i1 %49, label %._crit_edge, label %50
 
@@ -427,7 +424,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @traverse_string(ptr nounde
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %53
   %.02636.us62 = phi ptr [ %56, %53 ], [ %0, %.lr.ph.split ]
   %.02735.us63 = phi i32 [ %54, %53 ], [ %1, %.lr.ph.split ]
-  %51 = call i32 @UTF8_getc(ptr noundef %.02636.us62, i32 noundef %.02735.us63, ptr noundef nonnull %6) #6
+  %51 = call i32 @UTF8_getc(ptr noundef %.02636.us62, i32 noundef %.02735.us63, ptr noundef nonnull %6) #7
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %._crit_edge, label %53
 
@@ -441,13 +438,13 @@ define internal fastcc range(i32 -2147483648, 2) i32 @traverse_string(ptr nounde
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %63
   %.02636 = phi ptr [ %65, %63 ], [ %0, %.lr.ph.split ]
   %.02735 = phi i32 [ %66, %63 ], [ %1, %.lr.ph.split ]
-  %57 = call i32 @UTF8_getc(ptr noundef %.02636, i32 noundef %.02735, ptr noundef nonnull %6) #6
+  %57 = call i32 @UTF8_getc(ptr noundef %.02636, i32 noundef %.02735, ptr noundef nonnull %6) #7
   %58 = icmp slt i32 %57, 0
   br i1 %58, label %._crit_edge, label %59
 
 59:                                               ; preds = %.lr.ph.split.split
   %60 = load i64, ptr %6, align 8, !tbaa !3
-  %61 = call i32 %3(i64 noundef %60, ptr noundef nonnull %4) #6
+  %61 = call i32 %3(i64 noundef %60, ptr noundef nonnull %4) #7
   %62 = icmp slt i32 %61, 1
   br i1 %62, label %._crit_edge, label %63
 
@@ -460,7 +457,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @traverse_string(ptr nounde
 
 ._crit_edge:                                      ; preds = %30, %50, %17, %27, %9, %14, %.lr.ph.split.split, %59, %63, %.lr.ph.split.split.us, %53, %5
   %.0 = phi i32 [ 1, %5 ], [ 1, %53 ], [ -1, %.lr.ph.split.split.us ], [ 1, %63 ], [ %61, %59 ], [ -1, %.lr.ph.split.split ], [ 1, %14 ], [ %12, %9 ], [ 1, %27 ], [ %25, %17 ], [ 1, %50 ], [ %48, %30 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -474,7 +471,7 @@ define internal range(i32 -1, 2) i32 @type_str(i64 noundef %0, ptr noundef captu
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i32 @ossl_isdigit(i32 noundef %5) #6
+  %8 = tail call i32 @ossl_isdigit(i32 noundef %5) #7
   %9 = icmp ne i32 %8, 0
   %10 = icmp eq i64 %0, 32
   %or.cond = or i1 %10, %9
@@ -489,7 +486,7 @@ define internal range(i32 -1, 2) i32 @type_str(i64 noundef %0, ptr noundef captu
   br i1 %.not31, label %17, label %14
 
 14:                                               ; preds = %12
-  %15 = tail call i32 @ossl_ctype_check(i32 noundef %5, i32 noundef 2048) #6
+  %15 = tail call i32 @ossl_ctype_check(i32 noundef %5, i32 noundef 2048) #7
   %.not32 = icmp eq i32 %15, 0
   %16 = and i64 %.030, -3
   %spec.select37 = select i1 %.not32, i64 %16, i64 %.030
@@ -533,16 +530,16 @@ select.unfold:                                    ; preds = %25, %17
   ret i32 %.0
 }
 
-declare void @ASN1_STRING_set0(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @ASN1_STRING_set0(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @ASN1_STRING_type_new(i32 noundef) local_unnamed_addr #3
+declare ptr @ASN1_STRING_type_new(i32 noundef) local_unnamed_addr #2
 
-declare i32 @ASN1_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @ASN1_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ASN1_STRING_free(ptr noundef) local_unnamed_addr #3
+declare void @ASN1_STRING_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @cpy_asc(i64 noundef %0, ptr noundef captures(none) %1) #4 {
+define internal noundef i32 @cpy_asc(i64 noundef %0, ptr noundef captures(none) %1) #3 {
   %3 = load ptr, ptr %1, align 8, !tbaa !17
   %4 = trunc i64 %0 to i8
   store i8 %4, ptr %3, align 1, !tbaa !20
@@ -553,7 +550,7 @@ define internal noundef i32 @cpy_asc(i64 noundef %0, ptr noundef captures(none) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @cpy_bmp(i64 noundef %0, ptr noundef captures(none) %1) #4 {
+define internal noundef i32 @cpy_bmp(i64 noundef %0, ptr noundef captures(none) %1) #3 {
   %3 = load ptr, ptr %1, align 8, !tbaa !17
   %4 = lshr i64 %0, 8
   %5 = trunc i64 %4 to i8
@@ -568,7 +565,7 @@ define internal noundef i32 @cpy_bmp(i64 noundef %0, ptr noundef captures(none) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @cpy_univ(i64 noundef %0, ptr noundef captures(none) %1) #4 {
+define internal noundef i32 @cpy_univ(i64 noundef %0, ptr noundef captures(none) %1) #3 {
   %3 = load ptr, ptr %1, align 8, !tbaa !17
   %4 = lshr i64 %0, 24
   %5 = trunc i64 %4 to i8
@@ -592,7 +589,7 @@ define internal noundef i32 @cpy_univ(i64 noundef %0, ptr noundef captures(none)
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483648, 2) i32 @out_utf8(i64 noundef %0, ptr noundef captures(none) %1) #0 {
-  %3 = tail call i32 @UTF8_putc(ptr noundef null, i32 noundef -1, i64 noundef %0) #6
+  %3 = tail call i32 @UTF8_putc(ptr noundef null, i32 noundef -1, i64 noundef %0) #7
   %4 = icmp slt i32 %3, 1
   br i1 %4, label %8, label %5
 
@@ -610,7 +607,7 @@ define internal range(i32 -2147483648, 2) i32 @out_utf8(i64 noundef %0, ptr noun
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @cpy_utf8(i64 noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !17
-  %4 = tail call i32 @UTF8_putc(ptr noundef %3, i32 noundef 255, i64 noundef %0) #6
+  %4 = tail call i32 @UTF8_putc(ptr noundef %3, i32 noundef 255, i64 noundef %0) #7
   %5 = load ptr, ptr %1, align 8, !tbaa !17
   %6 = sext i32 %4 to i64
   %7 = getelementptr inbounds i8, ptr %5, i64 %6
@@ -618,30 +615,33 @@ define internal noundef i32 @cpy_utf8(i64 noundef %0, ptr noundef captures(none)
   ret i32 1
 }
 
-declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+declare i32 @UTF8_getc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+declare i32 @UTF8_putc(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+
+declare i32 @ossl_isdigit(i32 noundef) local_unnamed_addr #2
+
+declare i32 @ossl_ctype_check(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
-declare i32 @UTF8_getc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
-
-declare i32 @UTF8_putc(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
-
-declare i32 @ossl_isdigit(i32 noundef) local_unnamed_addr #3
-
-declare i32 @ossl_ctype_check(i32 noundef, i32 noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind willreturn memory(read) }
+attributes #6 = { nounwind willreturn memory(read) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

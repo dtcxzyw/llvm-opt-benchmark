@@ -40,13 +40,7 @@ define void @b2DistanceJoint_SetLength(i64 %0, float noundef %1) local_unnamed_a
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @b2GetJointSimCheckType(i64, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @b2GetJointSimCheckType(i64, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define float @b2DistanceJoint_GetLength(i64 %0) local_unnamed_addr #0 {
@@ -122,7 +116,7 @@ define float @b2DistanceJoint_GetMaxLength(i64 %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define float @b2DistanceJoint_GetCurrentLength(i64 %0) local_unnamed_addr #3 {
+define float @b2DistanceJoint_GetCurrentLength(i64 %0) local_unnamed_addr #2 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %2 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 0) #9
@@ -191,9 +185,9 @@ define float @b2DistanceJoint_GetCurrentLength(i64 %0) local_unnamed_addr #3 {
   ret float %.0
 }
 
-declare ptr @b2GetWorld(i32 noundef) local_unnamed_addr #2
+declare ptr @b2GetWorld(i32 noundef) local_unnamed_addr #1
 
-declare { <2 x float>, <2 x float> } @b2GetBodyTransform(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare { <2 x float>, <2 x float> } @b2GetBodyTransform(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @b2DistanceJoint_EnableSpring(i64 %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
@@ -321,7 +315,7 @@ define float @b2DistanceJoint_GetMaxMotorForce(i64 %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden <2 x float> @b2GetDistanceJointForce(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
+define hidden <2 x float> @b2GetDistanceJointForce(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !72
   %5 = tail call { <2 x float>, <2 x float> } @b2GetBodyTransform(ptr noundef %0, i32 noundef %4) #9
@@ -409,7 +403,7 @@ b2Normalize.exit:                                 ; preds = %2, %41
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @b2PrepareDistanceJoint(ptr noundef captures(none) initializes((32, 48), (92, 140)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
+define hidden void @b2PrepareDistanceJoint(ptr noundef captures(none) initializes((32, 48), (92, 140)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !72
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -609,10 +603,10 @@ b2MakeSoft.exit:                                  ; preds = %b2Normalize.exit, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @b2WarmStartDistanceJoint(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
+define hidden void @b2WarmStartDistanceJoint(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = alloca %struct.b2BodyState, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load float, ptr %4, align 4, !tbaa !102
@@ -622,7 +616,7 @@ define hidden void @b2WarmStartDistanceJoint(ptr noundef readonly captures(none)
   %9 = load float, ptr %8, align 4, !tbaa !104
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %11 = load float, ptr %10, align 4, !tbaa !105
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %3, ptr noundef nonnull align 4 dereferenceable(32) @__const.b2SolveDistanceJoint.dummyState, i64 32, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %13 = load i32, ptr %12, align 4, !tbaa !106
@@ -768,12 +762,12 @@ b2Normalize.exit:                                 ; preds = %30, %74
   %113 = load float, ptr %112, align 4, !tbaa !112
   %114 = fadd float %111, %113
   store float %114, ptr %112, align 4, !tbaa !112
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @b2SolveDistanceJoint(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #6 {
+define hidden void @b2SolveDistanceJoint(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #5 {
   %4 = alloca %struct.b2BodyState, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load float, ptr %5, align 4, !tbaa !102
@@ -783,7 +777,7 @@ define hidden void @b2SolveDistanceJoint(ptr noundef captures(none) %0, ptr noun
   %10 = load float, ptr %9, align 4, !tbaa !104
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %12 = load float, ptr %11, align 4, !tbaa !105
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %4, ptr noundef nonnull align 4 dereferenceable(32) @__const.b2SolveDistanceJoint.dummyState, i64 32, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 92
@@ -1316,12 +1310,12 @@ b2Normalize.exit:                                 ; preds = %32, %80
   store float %.2, ptr %34, align 4, !tbaa !112
   store <2 x float> %.sroa.0147.2, ptr %33, align 4
   store float %.2279, ptr %36, align 4, !tbaa !112
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @b2DrawDistanceJoint(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, <2 x float> %2, <2 x float> %3, <2 x float> %4, <2 x float> %5) local_unnamed_addr #3 {
+define hidden void @b2DrawDistanceJoint(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, <2 x float> %2, <2 x float> %3, <2 x float> %4, <2 x float> %5) local_unnamed_addr #2 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load <2 x float>, ptr %8, align 4
@@ -1523,6 +1517,12 @@ b2Normalize.exit:                                 ; preds = %6, %36
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #7
 
@@ -1530,12 +1530,12 @@ declare float @llvm.sqrt.f32(float) #7
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { nounwind }

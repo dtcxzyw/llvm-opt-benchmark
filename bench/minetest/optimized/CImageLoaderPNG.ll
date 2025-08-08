@@ -75,16 +75,10 @@ if.end:                                           ; preds = %entry
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @png_get_io_ptr(ptr noundef) local_unnamed_addr #2
+declare ptr @png_get_io_ptr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @png_error(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @png_error(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZNK3irr5video15CImageLoaderPng24isALoadableFileExtensionERKNS_4core6stringIcEE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename) unnamed_addr #0 align 2 {
@@ -92,7 +86,7 @@ entry:
   %ref.tmp = alloca %"class.irr::core::string", align 8
   %ref.tmp2 = alloca %"class.irr::core::string", align 8
   %ref.tmp3 = alloca %"class.irr::core::string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %0 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store ptr %0, ptr %ref.tmp, align 8, !tbaa !6
   %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
@@ -107,14 +101,14 @@ entry:
   %3 = load ptr, ptr %ref.tmp, align 8, !tbaa !14
   %arrayidx.i.i.i.2 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 103, ptr %arrayidx.i.i.i.2, align 1, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2)
   %4 = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 16
   store ptr %4, ptr %ref.tmp2, align 8, !tbaa !6
   %_M_string_length.i.i.i.i4 = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i4, align 8, !tbaa !10
   store i8 0, ptr %4, align 8, !tbaa !13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i64 noundef 0, i8 noundef signext 0) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3)
   %5 = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 16
   store ptr %5, ptr %ref.tmp3, align 8, !tbaa !6
   %_M_string_length.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 8
@@ -137,7 +131,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZN3irr4core6stringIcED2Ev.exit
 
 _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3)
   %8 = load ptr, ptr %ref.tmp2, align 8, !tbaa !14
   %cmp.i.i.i.i27 = icmp eq ptr %8, %4
   br i1 %cmp.i.i.i.i27, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i29, label %if.then.i.i.i28
@@ -153,7 +147,7 @@ if.then.i.i.i28:                                  ; preds = %_ZN3irr4core6string
   br label %_ZN3irr4core6stringIcED2Ev.exit32
 
 _ZN3irr4core6stringIcED2Ev.exit32:                ; preds = %if.then.i.i.i28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i29
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2)
   %10 = load ptr, ptr %ref.tmp, align 8, !tbaa !14
   %cmp.i.i.i.i33 = icmp eq ptr %10, %0
   br i1 %cmp.i.i.i.i33, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i35, label %if.then.i.i.i34
@@ -170,7 +164,7 @@ if.then.i.i.i34:                                  ; preds = %_ZN3irr4core6string
 
 _ZN3irr4core6stringIcED2Ev.exit38:                ; preds = %if.then.i.i.i34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i35
   %cmp.i = icmp sgt i32 %call.i, 0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   ret i1 %cmp.i
 }
 
@@ -182,7 +176,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buffer) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer)
   %vtable = load ptr, ptr %file, align 8, !tbaa !3
   %0 = load ptr, ptr %vtable, align 8
   %call = call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %file, ptr noundef nonnull %buffer, i64 noundef 8) #15
@@ -196,7 +190,7 @@ if.end3:                                          ; preds = %if.end
 
 cleanup:                                          ; preds = %if.end3, %if.end
   %retval.0 = phi i1 [ %tobool6.not, %if.end3 ], [ false, %if.end ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer)
   br label %return
 
 return:                                           ; preds = %cleanup, %entry
@@ -204,7 +198,7 @@ return:                                           ; preds = %cleanup, %entry
   ret i1 %retval.1
 }
 
-declare i32 @png_sig_cmp(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @png_sig_cmp(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef ptr @_ZNK3irr5video15CImageLoaderPng9loadImageEPNS_2io9IReadFileE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %file) unnamed_addr #0 align 2 {
@@ -226,7 +220,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buffer) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer)
   %vtable = load ptr, ptr %file, align 8, !tbaa !3
   %0 = load ptr, ptr %vtable, align 8
   %call = call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %file, ptr noundef nonnull %buffer, i64 noundef 8) #15
@@ -255,7 +249,7 @@ if.then10:                                        ; preds = %if.end6
   br label %cleanup131
 
 if.end14:                                         ; preds = %if.end6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %png_ptr) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %png_ptr)
   %call15 = call noalias ptr @png_create_read_struct(ptr noundef nonnull @.str.5, ptr noundef null, ptr noundef nonnull @_ZN3irr5videoL18png_cpexcept_errorEP14png_struct_defPKc, ptr noundef nonnull @_ZN3irr5videoL17png_cpexcept_warnEP14png_struct_defPKc) #15
   store ptr %call15, ptr %png_ptr, align 8, !tbaa !15
   %tobool16.not = icmp eq ptr %call15, null
@@ -270,7 +264,7 @@ if.then17:                                        ; preds = %if.end14
   br label %cleanup130
 
 if.end21:                                         ; preds = %if.end14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %info_ptr) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %info_ptr)
   %call22 = call noalias ptr @png_create_info_struct(ptr noundef nonnull %call15) #15
   store ptr %call22, ptr %info_ptr, align 8, !tbaa !15
   %tobool23.not = icmp eq ptr %call22, null
@@ -304,17 +298,17 @@ if.end34:                                         ; preds = %if.end28
   %8 = load ptr, ptr %png_ptr, align 8, !tbaa !15
   %9 = load ptr, ptr %info_ptr, align 8, !tbaa !15
   call void @png_read_info(ptr noundef %8, ptr noundef %9) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %BitDepth) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ColorType) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %w) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %h) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %BitDepth)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ColorType)
+  call void @llvm.lifetime.start.p0(ptr nonnull %w)
+  call void @llvm.lifetime.start.p0(ptr nonnull %h)
   %10 = load ptr, ptr %png_ptr, align 8, !tbaa !15
   %11 = load ptr, ptr %info_ptr, align 8, !tbaa !15
   %call35 = call i32 @png_get_IHDR(ptr noundef %10, ptr noundef %11, ptr noundef nonnull %w, ptr noundef nonnull %h, ptr noundef nonnull %BitDepth, ptr noundef nonnull %ColorType, ptr noundef null, ptr noundef null, ptr noundef null) #15
   %12 = load i32, ptr %w, align 4, !tbaa !16
   %13 = load i32, ptr %h, align 4, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %h) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %w) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %h)
+  call void @llvm.lifetime.end.p0(ptr nonnull %w)
   %cmp.i = icmp ult i32 %12, 23001
   %cmp1.i = icmp ult i32 %13, 23001
   %14 = and i1 %cmp.i, %cmp1.i
@@ -389,7 +383,7 @@ if.then59:                                        ; preds = %if.end55
   br label %if.end60
 
 if.end60:                                         ; preds = %if.then59, %if.end55
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %intent) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %intent)
   %30 = load ptr, ptr %png_ptr, align 8, !tbaa !15
   %31 = load ptr, ptr %info_ptr, align 8, !tbaa !15
   %call61 = call i32 @png_get_sRGB(ptr noundef %30, ptr noundef %31, ptr noundef nonnull %intent) #15
@@ -402,7 +396,7 @@ if.then63:                                        ; preds = %if.end60
   br label %if.end70
 
 if.else64:                                        ; preds = %if.end60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %image_gamma) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %image_gamma)
   %33 = load ptr, ptr %png_ptr, align 8, !tbaa !15
   %34 = load ptr, ptr %info_ptr, align 8, !tbaa !15
   %call65 = call i32 @png_get_gAMA(ptr noundef %33, ptr noundef %34, ptr noundef nonnull %image_gamma) #15
@@ -411,22 +405,22 @@ if.else64:                                        ; preds = %if.end60
   %36 = load double, ptr %image_gamma, align 8
   %.sink = select i1 %tobool66.not, double 4.545500e-01, double %36
   call void @png_set_gamma(ptr noundef %35, double noundef 2.200000e+00, double noundef %.sink) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %image_gamma) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %image_gamma)
   br label %if.end70
 
 if.end70:                                         ; preds = %if.else64, %if.then63
   %37 = load ptr, ptr %png_ptr, align 8, !tbaa !15
   %38 = load ptr, ptr %info_ptr, align 8, !tbaa !15
   call void @png_read_update_info(ptr noundef %37, ptr noundef %38) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %w71) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %h72) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %w71)
+  call void @llvm.lifetime.start.p0(ptr nonnull %h72)
   %39 = load ptr, ptr %png_ptr, align 8, !tbaa !15
   %40 = load ptr, ptr %info_ptr, align 8, !tbaa !15
   %call73 = call i32 @png_get_IHDR(ptr noundef %39, ptr noundef %40, ptr noundef nonnull %w71, ptr noundef nonnull %h72, ptr noundef nonnull %BitDepth, ptr noundef nonnull %ColorType, ptr noundef null, ptr noundef null, ptr noundef null) #15
   %41 = load i32, ptr %w71, align 4, !tbaa !16
   %42 = load i32, ptr %h72, align 4, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %h72) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %w71) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %h72)
+  call void @llvm.lifetime.end.p0(ptr nonnull %w71)
   %43 = load i32, ptr %ColorType, align 4, !tbaa !16
   %cmp74 = icmp eq i32 %43, 6
   br i1 %cmp74, label %if.end76, label %if.else80
@@ -440,22 +434,22 @@ if.end76:                                         ; preds = %if.end70
 
 if.then78:                                        ; preds = %if.end76
   %call79 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   store i32 %41, ptr %ref.tmp, align 4, !tbaa !18
   %Height.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
   store i32 %42, ptr %Height.i, align 4, !tbaa !20
   call void @_ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(50) %call79, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br label %if.end89
 
 if.else80:                                        ; preds = %if.end76, %if.end70
   %call81 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp82) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp82)
   store i32 %41, ptr %ref.tmp82, align 4, !tbaa !18
   %Height.i155 = getelementptr inbounds nuw i8, ptr %ref.tmp82, i64 4
   store i32 %42, ptr %Height.i155, align 4, !tbaa !20
   call void @_ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(50) %call81, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp82) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp82) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp82)
   br label %if.end89
 
 if.end89:                                         ; preds = %if.else80, %if.then78
@@ -556,24 +550,24 @@ if.end118:                                        ; preds = %for.cond.cleanup
 
 cleanup122:                                       ; preds = %if.end118, %if.then109
   %retval.0 = phi ptr [ null, %if.then109 ], [ %image.0, %if.end118 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %intent) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ColorType) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %BitDepth) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %intent)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ColorType)
+  call void @llvm.lifetime.end.p0(ptr nonnull %BitDepth)
   br label %cleanup129
 
 cleanup129:                                       ; preds = %cleanup122, %if.then33, %if.then24
   %retval.2 = phi ptr [ null, %if.then33 ], [ %retval.0, %cleanup122 ], [ null, %if.then24 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %info_ptr) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %info_ptr)
   br label %cleanup130
 
 cleanup130:                                       ; preds = %cleanup129, %if.then17
   %retval.3 = phi ptr [ %retval.2, %cleanup129 ], [ null, %if.then17 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %png_ptr) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %png_ptr)
   br label %cleanup131
 
 cleanup131:                                       ; preds = %cleanup130, %if.then10, %if.then2
   %retval.4 = phi ptr [ null, %if.then2 ], [ null, %if.then10 ], [ %retval.3, %cleanup130 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer)
   br label %return
 
 return:                                           ; preds = %cleanup131, %entry
@@ -581,12 +575,12 @@ return:                                           ; preds = %cleanup131, %entry
   ret ptr %retval.5
 }
 
-declare void @_ZN3irr2os7Printer3logEPKcRKNS_4core6stringIcEENS_10ELOG_LEVELE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #2
+declare void @_ZN3irr2os7Printer3logEPKcRKNS_4core6stringIcEENS_10ELOG_LEVELE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #1
 
-declare noalias ptr @png_create_read_struct(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare noalias ptr @png_create_read_struct(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal void @_ZN3irr5videoL18png_cpexcept_errorEP14png_struct_defPKc(ptr noundef %png_ptr, ptr noundef %msg) #4 {
+define internal void @_ZN3irr5videoL18png_cpexcept_errorEP14png_struct_defPKc(ptr noundef %png_ptr, ptr noundef %msg) #3 {
 entry:
   tail call void @_ZN3irr2os7Printer3logEPKcS3_NS_10ELOG_LEVELE(ptr noundef nonnull @.str.11, ptr noundef %msg, i32 noundef 3) #15
   %call = tail call ptr @png_set_longjmp_fn(ptr noundef %png_ptr, ptr noundef nonnull @longjmp, i64 noundef 200) #15
@@ -601,64 +595,64 @@ entry:
   ret void
 }
 
-declare noalias ptr @png_create_info_struct(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @png_create_info_struct(ptr noundef) local_unnamed_addr #1
 
-declare void @png_destroy_read_struct(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @png_destroy_read_struct(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @_setjmp(ptr noundef) local_unnamed_addr #5
+declare i32 @_setjmp(ptr noundef) local_unnamed_addr #4
 
-declare ptr @png_set_longjmp_fn(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @png_set_longjmp_fn(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind
-declare void @longjmp(ptr noundef, i32 noundef) #6
+declare void @longjmp(ptr noundef, i32 noundef) #5
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #7
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 
-declare void @png_set_read_fn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @png_set_read_fn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @png_set_sig_bytes(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @png_set_sig_bytes(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @png_read_info(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @png_read_info(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @png_get_IHDR(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @png_get_IHDR(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @png_set_palette_to_rgb(ptr noundef) local_unnamed_addr #2
+declare void @png_set_palette_to_rgb(ptr noundef) local_unnamed_addr #1
 
-declare void @png_set_expand_gray_1_2_4_to_8(ptr noundef) local_unnamed_addr #2
+declare void @png_set_expand_gray_1_2_4_to_8(ptr noundef) local_unnamed_addr #1
 
-declare void @png_set_packing(ptr noundef) local_unnamed_addr #2
+declare void @png_set_packing(ptr noundef) local_unnamed_addr #1
 
-declare i32 @png_get_valid(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @png_get_valid(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @png_set_tRNS_to_alpha(ptr noundef) local_unnamed_addr #2
+declare void @png_set_tRNS_to_alpha(ptr noundef) local_unnamed_addr #1
 
-declare void @png_set_strip_16(ptr noundef) local_unnamed_addr #2
+declare void @png_set_strip_16(ptr noundef) local_unnamed_addr #1
 
-declare void @png_set_gray_to_rgb(ptr noundef) local_unnamed_addr #2
+declare void @png_set_gray_to_rgb(ptr noundef) local_unnamed_addr #1
 
-declare i32 @png_get_sRGB(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @png_get_sRGB(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @png_set_gamma(ptr noundef, double noundef, double noundef) local_unnamed_addr #2
+declare void @png_set_gamma(ptr noundef, double noundef, double noundef) local_unnamed_addr #1
 
-declare i32 @png_get_gAMA(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @png_get_gAMA(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @png_read_update_info(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @png_read_update_info(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @png_set_bgr(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
-
-declare void @_ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(50), i32 noundef, ptr noundef nonnull align 4 dereferenceable(8)) unnamed_addr #2
+declare void @png_set_bgr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #8
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 
-declare void @png_read_image(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @_ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(50), i32 noundef, ptr noundef nonnull align 4 dereferenceable(8)) unnamed_addr #1
 
-declare void @png_read_end(ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: nobuiltin allocsize(0)
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #7
+
+declare void @png_read_image(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @png_read_end(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noalias noundef nonnull ptr @_ZN3irr5video20createImageLoaderPNGEv() local_unnamed_addr #0 {
@@ -675,59 +669,59 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr5video12IImageLoaderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZN3irr5video12IImageLoaderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #9 comdat align 2 {
 entry:
   tail call void @llvm.trap() #16
   unreachable
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr5video12IImageLoaderD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZN3irr5video12IImageLoaderD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #9 comdat align 2 {
 entry:
   tail call void @llvm.trap() #16
   unreachable
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3irr5video12IImageLoaderD1Ev(ptr noundef %this) unnamed_addr #11 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3irr5video12IImageLoaderD1Ev(ptr noundef %this) unnamed_addr #10 comdat align 2 {
 entry:
   tail call void @llvm.trap() #16
   unreachable
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3irr5video12IImageLoaderD0Ev(ptr noundef %this) unnamed_addr #11 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3irr5video12IImageLoaderD0Ev(ptr noundef %this) unnamed_addr #10 comdat align 2 {
 entry:
   tail call void @llvm.trap() #16
   unreachable
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr5video15CImageLoaderPngD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZN3irr5video15CImageLoaderPngD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #9 comdat align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr5video15CImageLoaderPngD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZN3irr5video15CImageLoaderPngD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #9 comdat align 2 {
 entry:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #17
   ret void
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3irr5video15CImageLoaderPngD1Ev(ptr noundef %this) unnamed_addr #11 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3irr5video15CImageLoaderPngD1Ev(ptr noundef %this) unnamed_addr #10 comdat align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3irr5video15CImageLoaderPngD0Ev(ptr noundef %this) unnamed_addr #11 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3irr5video15CImageLoaderPngD0Ev(ptr noundef %this) unnamed_addr #10 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
@@ -738,7 +732,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZN3irr4core15isFileExtensionERKNS0_6stringIcEES4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(32) %ext0, ptr noundef nonnull align 8 dereferenceable(32) %ext1, ptr noundef nonnull align 8 dereferenceable(32) %ext2) local_unnamed_addr #10 comdat {
+define linkonce_odr noundef i32 @_ZN3irr4core15isFileExtensionERKNS0_6stringIcEES4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(32) %ext0, ptr noundef nonnull align 8 dereferenceable(32) %ext1, ptr noundef nonnull align 8 dereferenceable(32) %ext2) local_unnamed_addr #9 comdat {
 entry:
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEcm(ptr noundef nonnull align 8 dereferenceable(32) %filename, i8 noundef signext 46, i64 noundef -1) #15
   %conv.i4.i = trunc i64 %call2.i to i32
@@ -908,36 +902,42 @@ cleanup:                                          ; preds = %for.body.i69, %land
 }
 
 ; Function Attrs: nounwind
-declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEcm(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext, i64 noundef) local_unnamed_addr #12
+declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEcm(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext, i64 noundef) local_unnamed_addr #11
 
-declare void @_ZN3irr2os7Printer3logEPKcS3_NS_10ELOG_LEVELE(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @_ZN3irr2os7Printer3logEPKcS3_NS_10ELOG_LEVELE(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #13
+declare void @llvm.trap() #12
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #2
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #14
+declare void @llvm.assume(i1 noundef) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nounwind }
 attributes #16 = { noreturn nounwind }
 attributes #17 = { builtin nounwind }

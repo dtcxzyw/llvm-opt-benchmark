@@ -15,7 +15,7 @@ define { double, double } @_Z6pj_inv5PJ_XYP8PJconsts(double %0, double %1, ptr n
   %7 = alloca %union.PJ_COORD, align 8
   %8 = alloca %union.PJ_COORD, align 8
   %9 = alloca %union.PJ_COORD, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   store double %0, ptr %4, align 8, !tbaa !3
@@ -41,12 +41,12 @@ define { double, double } @_Z6pj_inv5PJ_XYP8PJconsts(double %0, double %1, ptr n
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %5)
   %.sroa.020.0.copyload = load double, ptr %5, align 8, !tbaa !3
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %51
 
 21:                                               ; preds = %17
@@ -71,10 +71,10 @@ define { double, double } @_Z6pj_inv5PJ_XYP8PJconsts(double %0, double %1, ptr n
   br i1 %.not33, label %32, label %31
 
 31:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void %30(ptr dead_on_unwind nonnull writable sret(%struct.PJ_LPZ) align 8 %6, ptr noundef nonnull byval(%struct.PJ_XYZ) align 8 %4, ptr noundef nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !65
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %thread-pre-split
 
 32:                                               ; preds = %28
@@ -89,12 +89,12 @@ define { double, double } @_Z6pj_inv5PJ_XYP8PJconsts(double %0, double %1, ptr n
 
 36:                                               ; preds = %32
   %37 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 4098)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %7)
   %.sroa.020.0.copyload21 = load double, ptr %7, align 8, !tbaa !3
   %.sroa.5.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.5.0.copyload25 = load double, ptr %.sroa.5.0..sroa_idx24, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %51
 
 thread-pre-split:                                 ; preds = %35, %31
@@ -107,12 +107,12 @@ thread-pre-split:                                 ; preds = %35, %31
   br i1 %40, label %41, label %42
 
 41:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %8)
   %.sroa.020.0.copyload22 = load double, ptr %8, align 8, !tbaa !3
   %.sroa.5.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.5.0.copyload27 = load double, ptr %.sroa.5.0..sroa_idx26, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %51
 
 42:                                               ; preds = %38
@@ -126,7 +126,7 @@ thread-pre-split:                                 ; preds = %35, %31
   br label %46
 
 46:                                               ; preds = %45, %42
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.val = load ptr, ptr %2, align 8, !tbaa !7
   %47 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %48 = load i32, ptr %47, align 8, !tbaa !37, !noalias !68
@@ -146,26 +146,23 @@ _ZL14error_or_coordP8PJconsts8PJ_COORDi.exit:     ; preds = %49, %50
   %.sroa.020.0.copyload23 = load double, ptr %9, align 8, !tbaa !3
   %.sroa.5.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.5.0.copyload29 = load double, ptr %.sroa.5.0..sroa_idx28, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %51
 
 51:                                               ; preds = %_ZL14error_or_coordP8PJconsts8PJ_COORDi.exit, %41, %36, %20
   %.sroa.020.0 = phi double [ %.sroa.020.0.copyload, %20 ], [ %.sroa.020.0.copyload22, %41 ], [ %.sroa.020.0.copyload23, %_ZL14error_or_coordP8PJconsts8PJ_COORDi.exit ], [ %.sroa.020.0.copyload21, %36 ]
   %.sroa.5.0 = phi double [ %.sroa.5.0.copyload, %20 ], [ %.sroa.5.0.copyload27, %41 ], [ %.sroa.5.0.copyload29, %_ZL14error_or_coordP8PJconsts8PJ_COORDi.exit ], [ %.sroa.5.0.copyload25, %36 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.020.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.5.0, 1
   ret { double, double } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL11inv_prepareP8PJconstsR8PJ_COORD(ptr noundef %0, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %1) unnamed_addr #0 {
@@ -190,10 +187,10 @@ define internal fastcc void @_ZL11inv_prepareP8PJconstsR8PJ_COORD(ptr noundef %0
 
 16:                                               ; preds = %12, %8, %2
   %17 = tail call i32 @proj_errno_set(ptr noundef %0, i32 noundef 2050)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !71
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %86
 
 18:                                               ; preds = %12
@@ -219,10 +216,10 @@ define internal fastcc void @_ZL11inv_prepareP8PJconstsR8PJ_COORD(ptr noundef %0
   br i1 %.not47, label %30, label %29
 
 29:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @proj_trans(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %4, ptr noundef nonnull %28, i32 noundef -1, ptr noundef nonnull byval(%union.PJ_COORD) align 8 %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !71
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %30
 
 30:                                               ; preds = %29, %26
@@ -255,12 +252,12 @@ define internal fastcc void @_ZL11inv_prepareP8PJconstsR8PJ_COORD(ptr noundef %0
   br i1 %.not48, label %86, label %46
 
 46:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %48 = load ptr, ptr %47, align 8, !tbaa !77
   call void @proj_trans(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %5, ptr noundef %48, i32 noundef -1, ptr noundef nonnull byval(%union.PJ_COORD) align 8 %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !71
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %86
 
 49:                                               ; preds = %30, %30
@@ -316,12 +313,9 @@ define internal fastcc void @_ZL11inv_prepareP8PJconstsR8PJ_COORD(ptr noundef %0
   ret void
 }
 
-declare void @_Z16proj_coord_errorv(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8) local_unnamed_addr #4
+declare void @_Z16proj_coord_errorv(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @proj_errno_set(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @proj_errno_set(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL12inv_finalizeP8PJconstsR8PJ_COORD(ptr noundef %0, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %1) unnamed_addr #0 {
@@ -338,10 +332,10 @@ define internal fastcc void @_ZL12inv_finalizeP8PJconstsR8PJ_COORD(ptr noundef %
 
 12:                                               ; preds = %2
   %13 = tail call i32 @proj_errno_set(ptr noundef %0, i32 noundef 2050)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !71
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %14
 
 14:                                               ; preds = %12, %2
@@ -377,10 +371,10 @@ define internal fastcc void @_ZL12inv_finalizeP8PJconstsR8PJ_COORD(ptr noundef %
   br i1 %.not, label %36, label %35
 
 35:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @proj_trans(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %4, ptr noundef nonnull %34, i32 noundef -1, ptr noundef nonnull byval(%union.PJ_COORD) align 8 %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !71
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load double, ptr %1, align 8, !tbaa !62
   br label %36
 
@@ -396,10 +390,10 @@ define internal fastcc void @_ZL12inv_finalizeP8PJconstsR8PJ_COORD(ptr noundef %
   br i1 %.not38, label %43, label %42
 
 42:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @proj_trans(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %5, ptr noundef nonnull %41, i32 noundef 1, ptr noundef nonnull byval(%union.PJ_COORD) align 8 %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !71
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %59
 
 43:                                               ; preds = %39
@@ -427,28 +421,28 @@ define internal fastcc void @_ZL12inv_finalizeP8PJconstsR8PJ_COORD(ptr noundef %
 
 52:                                               ; preds = %._crit_edge, %49
   %53 = phi ptr [ %.pre44, %._crit_edge ], [ %51, %49 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @proj_trans(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %6, ptr noundef %53, i32 noundef 1, ptr noundef nonnull byval(%union.PJ_COORD) align 8 %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !71
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %54 = load ptr, ptr %44, align 8, !tbaa !72
   %.not42 = icmp eq ptr %54, null
   br i1 %.not42, label %56, label %55
 
 55:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @proj_trans(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %7, ptr noundef nonnull %54, i32 noundef 1, ptr noundef nonnull byval(%union.PJ_COORD) align 8 %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !71
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %56
 
 56:                                               ; preds = %55, %52
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %58 = load ptr, ptr %57, align 8, !tbaa !89
   call void @proj_trans(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %8, ptr noundef %58, i32 noundef -1, ptr noundef nonnull byval(%union.PJ_COORD) align 8 %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !tbaa.struct !71
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %59
 
 59:                                               ; preds = %46, %49, %56, %42
@@ -463,10 +457,10 @@ define internal fastcc void @_ZL12inv_finalizeP8PJconstsR8PJ_COORD(ptr noundef %
   br i1 %.not43, label %66, label %65
 
 65:                                               ; preds = %62
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_Z22pj_geocentric_latitudePK8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %9, ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull byval(%union.PJ_COORD) align 8 %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !tbaa.struct !71
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %66
 
 66:                                               ; preds = %62, %65, %59, %36, %14
@@ -481,7 +475,7 @@ define hidden void @_Z8pj_inv3d6PJ_XYZP8PJconsts(ptr dead_on_unwind noalias writ
   %7 = alloca %union.PJ_COORD, align 8
   %8 = alloca %union.PJ_COORD, align 8
   %9 = alloca %union.PJ_COORD, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %10, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !65
@@ -504,10 +498,10 @@ define hidden void @_Z8pj_inv3d6PJ_XYZP8PJconsts(ptr dead_on_unwind noalias writ
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !65
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %51
 
 21:                                               ; preds = %17
@@ -517,10 +511,10 @@ define hidden void @_Z8pj_inv3d6PJ_XYZP8PJconsts(ptr dead_on_unwind noalias writ
   br i1 %.not20, label %25, label %24
 
 24:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void %23(ptr dead_on_unwind nonnull writable sret(%struct.PJ_LPZ) align 8 %6, ptr noundef nonnull byval(%struct.PJ_XYZ) align 8 %4, ptr noundef nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !65
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %thread-pre-split
 
 25:                                               ; preds = %21
@@ -551,10 +545,10 @@ define hidden void @_Z8pj_inv3d6PJ_XYZP8PJconsts(ptr dead_on_unwind noalias writ
 
 36:                                               ; preds = %29
   %37 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 4098)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !tbaa.struct !65
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %51
 
 thread-pre-split:                                 ; preds = %24, %28
@@ -567,10 +561,10 @@ thread-pre-split:                                 ; preds = %24, %28
   br i1 %40, label %41, label %42
 
 41:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !65
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %51
 
 42:                                               ; preds = %38
@@ -584,7 +578,7 @@ thread-pre-split:                                 ; preds = %24, %28
   br label %46
 
 46:                                               ; preds = %45, %42
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.val = load ptr, ptr %2, align 8, !tbaa !7
   %47 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %48 = load i32, ptr %47, align 8, !tbaa !37, !noalias !91
@@ -602,11 +596,11 @@ thread-pre-split:                                 ; preds = %24, %28
 
 _ZL14error_or_coordP8PJconsts8PJ_COORDi.exit:     ; preds = %49, %50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !tbaa.struct !65
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %51
 
 51:                                               ; preds = %_ZL14error_or_coordP8PJconsts8PJ_COORDi.exit, %41, %36, %20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -636,10 +630,10 @@ define hidden noundef zeroext i1 @_Z8pj_inv4dR8PJ_COORDP8PJconsts(ptr noundef no
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !71
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %49
 
 18:                                               ; preds = %14
@@ -659,10 +653,10 @@ define hidden noundef zeroext i1 @_Z8pj_inv4dR8PJ_COORDP8PJconsts(ptr noundef no
   br i1 %.not37, label %26, label %25
 
 25:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void %24(ptr dead_on_unwind nonnull writable sret(%struct.PJ_LPZ) align 8 %4, ptr noundef nonnull byval(%struct.PJ_XYZ) align 8 %0, ptr noundef nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !65
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %thread-pre-split
 
 26:                                               ; preds = %22
@@ -683,10 +677,10 @@ define hidden noundef zeroext i1 @_Z8pj_inv4dR8PJ_COORDP8PJconsts(ptr noundef no
 
 33:                                               ; preds = %26
   %34 = tail call i32 @proj_errno_set(ptr noundef nonnull %1, i32 noundef 4098)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !71
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %49
 
 thread-pre-split:                                 ; preds = %21, %25
@@ -699,10 +693,10 @@ thread-pre-split:                                 ; preds = %21, %25
   br i1 %37, label %38, label %39
 
 38:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !71
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %49
 
 39:                                               ; preds = %35
@@ -723,10 +717,10 @@ thread-pre-split:                                 ; preds = %21, %25
   br i1 %.not40, label %48, label %47
 
 47:                                               ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !71
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %49
 
 48:                                               ; preds = %43
@@ -738,22 +732,27 @@ thread-pre-split:                                 ; preds = %21, %25
   ret i1 %.0
 }
 
-declare void @proj_trans(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8, ptr noundef, i32 noundef, ptr noundef byval(%union.PJ_COORD) align 8) local_unnamed_addr #4
+declare void @proj_trans(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8, ptr noundef, i32 noundef, ptr noundef byval(%union.PJ_COORD) align 8) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #5
+declare double @llvm.fmuladd.f64(double, double, double) #4
 
-declare noundef double @_Z6adjlond(double noundef) local_unnamed_addr #4
+declare noundef double @_Z6adjlond(double noundef) local_unnamed_addr #3
 
-declare void @_Z22pj_geocentric_latitudePK8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8, ptr noundef, i32 noundef, ptr noundef byval(%union.PJ_COORD) align 8) local_unnamed_addr #4
+declare void @_Z22pj_geocentric_latitudePK8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8, ptr noundef, i32 noundef, ptr noundef byval(%union.PJ_COORD) align 8) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

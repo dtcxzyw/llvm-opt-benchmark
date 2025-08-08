@@ -226,8 +226,8 @@ define internal i32 @dissect_nbifom(ptr noundef %0, ptr noundef readonly capture
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
@@ -290,9 +290,9 @@ define internal i32 @dissect_nbifom(ptr noundef %0, ptr noundef readonly capture
 
 47:                                               ; preds = %44, %.lr.ph
   %48 = load i32, ptr %9, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %49 = icmp sgt i32 %48, 0
   br i1 %49, label %.lr.ph.i, label %dissect_nbifom_routing_rules.exit
 
@@ -526,9 +526,9 @@ dissect_nbifom_routing_rules.exit.loopexit:       ; preds = %167
 
 dissect_nbifom_routing_rules.exit:                ; preds = %dissect_nbifom_routing_rules.exit.loopexit, %47
   %170 = phi i32 [ %.pre, %dissect_nbifom_routing_rules.exit.loopexit ], [ %48, %47 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %171 = add i32 %170, %30
   br label %191
 
@@ -586,13 +586,10 @@ dissect_nbifom_routing_rules.exit:                ; preds = %dissect_nbifom_rout
 
 ._crit_edge:                                      ; preds = %199, %4
   %203 = call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %203
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
@@ -615,9 +612,6 @@ declare void @proto_tree_add_bitmask_list(ptr noundef, ptr noundef, i32 noundef,
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -627,10 +621,15 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

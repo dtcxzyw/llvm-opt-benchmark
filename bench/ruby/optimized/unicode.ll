@@ -730,7 +730,7 @@ onigenc_unicode_ctype_code_range.exit:            ; preds = %4, %6
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 -223, 65536) i32 @onigenc_unicode_property_name_to_ctype(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [46 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 46, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp ult ptr %1, %2
   br i1 %5, label %.lr.ph, label %uniname2ctype.exit.thread
 
@@ -932,17 +932,11 @@ uniname2ctype.exit:                               ; preds = %116
 
 uniname2ctype.exit.thread:                        ; preds = %14, %12, %3, %._crit_edge, %116, %112, %107, %102, %uniname2ctype_hash.exit.i.i, %uniname2ctype.exit
   %.0 = phi i32 [ %121, %uniname2ctype.exit ], [ -223, %uniname2ctype_hash.exit.i.i ], [ -223, %102 ], [ -223, %107 ], [ -223, %112 ], [ -223, %116 ], [ -223, %._crit_edge ], [ -223, %3 ], [ -223, %12 ], [ -223, %14 ]
-  call void @llvm.lifetime.end.p0(i64 46, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @onigenc_mbclen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @onigenc_unicode_mbc_case_fold(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -1077,7 +1071,7 @@ onigenc_unicode_CaseFold_11_lookup.exit:          ; preds = %25, %47, %52, %19
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @onigenc_unicode_apply_all_case_fold(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %6
 
 6:                                                ; preds = %4, %._crit_edge216
@@ -1262,7 +1256,7 @@ define dso_local i32 @onigenc_unicode_apply_all_case_fold(i32 noundef %0, ptr no
 
 .loopexit:                                        ; preds = %17, %13, %22, %.lr.ph, %35, %40, %.critedge192, %52, %57, %.critedge, %45, %27, %25
   %.0164 = phi i32 [ %26, %25 ], [ %28, %27 ], [ %46, %45 ], [ 0, %.critedge ], [ %59, %57 ], [ %55, %52 ], [ 0, %.critedge192 ], [ %42, %40 ], [ %38, %35 ], [ %24, %22 ], [ %21, %.lr.ph ], [ %18, %17 ], [ %16, %13 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0164
 }
 
@@ -1442,8 +1436,8 @@ onigenc_unicode_CaseUnfold_11_lookup.exit:        ; preds = %92
   br i1 %.not256, label %onigenc_unicode_CaseUnfold_11_lookup.exit.thread, label %113
 
 113:                                              ; preds = %111
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #7
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %114 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %wide.trip.count436 = zext nneg i32 %56 to i64
   br label %115
@@ -1881,8 +1875,8 @@ onigenc_unicode_CaseUnfold_13_lookup.exit:        ; preds = %326
 
 .thread:                                          ; preds = %344, %263, %onigenc_unicode_CaseUnfold_12_lookup.exit, %onigenc_unicode_CaseUnfold_13_lookup.exit, %205, %._crit_edge395, %245, %241, %235, %209, %270, %266, %._crit_edge, %326, %323, %317, %312, %274
   %.7235 = phi i32 [ %.3231.lcssa, %onigenc_unicode_CaseUnfold_12_lookup.exit ], [ %.8236.lcssa, %onigenc_unicode_CaseUnfold_13_lookup.exit ], [ %.3231.lcssa, %205 ], [ %.3231.lcssa, %._crit_edge395 ], [ %.3231.lcssa, %245 ], [ %.3231.lcssa, %241 ], [ %.3231.lcssa, %235 ], [ %.3231.lcssa, %209 ], [ %.8236.lcssa, %270 ], [ %.8236.lcssa, %266 ], [ %.8236.lcssa, %._crit_edge ], [ %.8236.lcssa, %326 ], [ %.8236.lcssa, %323 ], [ %.8236.lcssa, %317 ], [ %.8236.lcssa, %312 ], [ %.8236.lcssa, %274 ], [ %.6234, %263 ], [ %.12, %344 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %onigenc_unicode_CaseUnfold_13_lookup.exit321.thread
 
 .thread23.i:                                      ; preds = %23, %45, %50, %20
@@ -2725,7 +2719,13 @@ onigenc_unicode_CaseUnfold_11_lookup.exit.thread: ; preds = %onigenc_unicode_Cas
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #5
@@ -2736,8 +2736,8 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }

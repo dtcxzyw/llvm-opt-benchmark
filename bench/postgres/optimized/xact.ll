@@ -220,12 +220,6 @@ define dso_local zeroext i1 @IsTransactionState() local_unnamed_addr #0 {
   ret i1 %4
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @IsAbortedTransactionBlockState() local_unnamed_addr #0 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
@@ -238,7 +232,7 @@ define dso_local zeroext i1 @IsAbortedTransactionBlockState() local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @GetTopTransactionId() local_unnamed_addr #2 {
+define dso_local i32 @GetTopTransactionId() local_unnamed_addr #1 {
   %1 = load i64, ptr @XactTopFullTransactionId.0, align 8
   %2 = and i64 %1, 4294967295
   %.not = icmp eq i64 %2, 0
@@ -256,7 +250,7 @@ define dso_local i32 @GetTopTransactionId() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @AssignTransactionId(ptr noundef captures(none) %0) unnamed_addr #2 {
+define internal fastcc void @AssignTransactionId(ptr noundef captures(none) %0) unnamed_addr #1 {
   %2 = alloca %struct.xl_xact_assignment, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
@@ -390,7 +384,7 @@ IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMod
   br i1 %or.cond9.not, label %76, label %65
 
 65:                                               ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %66 = load i64, ptr @XactTopFullTransactionId.0, align 8
   %67 = and i64 %66, 4294967295
   %.not.i49 = icmp eq i64 %67, 0
@@ -417,7 +411,7 @@ GetTopTransactionId.exit:                         ; preds = %65, %68
   %75 = call i64 @XLogInsert(i8 noundef zeroext 1, i8 noundef zeroext 80) #21
   store i32 0, ptr @nUnreportedXids, align 4
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @TopTransactionStateData, i64 98), align 2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %76
 
 76:                                               ; preds = %GetTopTransactionId.exit, %57, %49
@@ -425,14 +419,14 @@ GetTopTransactionId.exit:                         ; preds = %65, %68
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i32 @GetTopTransactionIdIfAny() local_unnamed_addr #3 {
+define dso_local i32 @GetTopTransactionIdIfAny() local_unnamed_addr #2 {
   %1 = load i64, ptr @XactTopFullTransactionId.0, align 8
   %2 = trunc i64 %1 to i32
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @GetCurrentTransactionId() local_unnamed_addr #2 {
+define dso_local i32 @GetCurrentTransactionId() local_unnamed_addr #1 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = load i64, ptr %1, align 8
   %3 = and i64 %2, 4294967295
@@ -459,7 +453,7 @@ define dso_local i32 @GetCurrentTransactionIdIfAny() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @GetTopFullTransactionId() local_unnamed_addr #2 {
+define dso_local i64 @GetTopFullTransactionId() local_unnamed_addr #1 {
   %1 = load i64, ptr @XactTopFullTransactionId.0, align 8
   %2 = and i64 %1, 4294967295
   %.not = icmp eq i64 %2, 0
@@ -476,16 +470,16 @@ define dso_local i64 @GetTopFullTransactionId() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i64 @GetTopFullTransactionIdIfAny() local_unnamed_addr #3 {
+define dso_local i64 @GetTopFullTransactionIdIfAny() local_unnamed_addr #2 {
   %.sroa.0.0.copyload = load i64, ptr @XactTopFullTransactionId.0, align 8
   ret i64 %.sroa.0.0.copyload
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @GetCurrentFullTransactionId() local_unnamed_addr #2 {
+define dso_local i64 @GetCurrentFullTransactionId() local_unnamed_addr #1 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = load i64, ptr %1, align 8
   %3 = and i64 %2, 4294967295
@@ -510,7 +504,7 @@ define dso_local i64 @GetCurrentFullTransactionIdIfAny() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @MarkCurrentTransactionIdLoggedIfAny() local_unnamed_addr #5 {
+define dso_local void @MarkCurrentTransactionIdLoggedIfAny() local_unnamed_addr #4 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = load i64, ptr %1, align 8
   %3 = and i64 %2, 4294967295
@@ -570,7 +564,7 @@ define dso_local zeroext i1 @IsSubTransaction() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @MarkSubxactTopXidLogged() local_unnamed_addr #6 {
+define dso_local void @MarkSubxactTopXidLogged() local_unnamed_addr #5 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 106
   store i8 1, ptr %2, align 2
@@ -578,7 +572,7 @@ define dso_local void @MarkSubxactTopXidLogged() local_unnamed_addr #6 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @GetStableLatestTransactionId() local_unnamed_addr #2 {
+define dso_local i32 @GetStableLatestTransactionId() local_unnamed_addr #1 {
   %1 = load i32, ptr @GetStableLatestTransactionId.lxid, align 4
   %2 = load ptr, ptr @MyProc, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -618,7 +612,7 @@ define dso_local i32 @GetCurrentSubTransactionId() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @SubTransactionIsActive(i32 noundef %0) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @SubTransactionIsActive(i32 noundef %0) local_unnamed_addr #6 {
   %.06 = load ptr, ptr @CurrentTransactionState, align 8
   %.not7.not = icmp eq ptr %.06, null
   br i1 %.not7.not, label %._crit_edge, label %.lr.ph
@@ -648,7 +642,7 @@ define dso_local noundef zeroext i1 @SubTransactionIsActive(i32 noundef %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @GetCurrentCommandId(i1 noundef zeroext %0) local_unnamed_addr #2 {
+define dso_local i32 @GetCurrentCommandId(i1 noundef zeroext %0) local_unnamed_addr #1 {
   br i1 %0, label %2, label %10
 
 2:                                                ; preds = %1
@@ -674,37 +668,37 @@ define dso_local i32 @GetCurrentCommandId(i1 noundef zeroext %0) local_unnamed_a
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #8
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #7
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #9
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #8
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #9
+declare i32 @errcode(i32 noundef) local_unnamed_addr #8
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #9
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #8
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @SetParallelStartTimestamps(i64 noundef %0, i64 noundef %1) local_unnamed_addr #10 {
+define dso_local void @SetParallelStartTimestamps(i64 noundef %0, i64 noundef %1) local_unnamed_addr #9 {
   store i64 %0, ptr @xactStartTimestamp, align 8
   store i64 %1, ptr @stmtStartTimestamp, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i64 @GetCurrentTransactionStartTimestamp() local_unnamed_addr #3 {
+define dso_local i64 @GetCurrentTransactionStartTimestamp() local_unnamed_addr #2 {
   %1 = load i64, ptr @xactStartTimestamp, align 8
   ret i64 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i64 @GetCurrentStatementStartTimestamp() local_unnamed_addr #3 {
+define dso_local i64 @GetCurrentStatementStartTimestamp() local_unnamed_addr #2 {
   %1 = load i64, ptr @stmtStartTimestamp, align 8
   ret i64 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @GetCurrentTransactionStopTimestamp() local_unnamed_addr #2 {
+define dso_local i64 @GetCurrentTransactionStopTimestamp() local_unnamed_addr #1 {
   %1 = load i64, ptr @xactStopTimestamp, align 8
   %2 = icmp eq i64 %1, 0
   br i1 %2, label %3, label %5
@@ -719,10 +713,10 @@ define dso_local i64 @GetCurrentTransactionStopTimestamp() local_unnamed_addr #2
   ret i64 %6
 }
 
-declare i64 @GetCurrentTimestamp() local_unnamed_addr #9
+declare i64 @GetCurrentTimestamp() local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @SetCurrentStatementStartTimestamp() local_unnamed_addr #2 {
+define dso_local void @SetCurrentStatementStartTimestamp() local_unnamed_addr #1 {
   %1 = load i32, ptr @ParallelWorkerNumber, align 4
   %2 = icmp sgt i32 %1, -1
   br i1 %2, label %5, label %3
@@ -745,7 +739,7 @@ define dso_local i32 @GetCurrentTransactionNestLevel() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %0) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %0) local_unnamed_addr #1 {
   %2 = icmp ugt i32 %0, 2
   br i1 %2, label %3, label %.critedge
 
@@ -852,7 +846,7 @@ define dso_local noundef zeroext i1 @TransactionIdIsCurrentTransactionId(i32 nou
   ret i1 %.0
 }
 
-declare zeroext i1 @TransactionIdPrecedes(i32 noundef, i32 noundef) local_unnamed_addr #9
+declare zeroext i1 @TransactionIdPrecedes(i32 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @TransactionStartedDuringRecovery() local_unnamed_addr #0 {
@@ -864,7 +858,7 @@ define dso_local zeroext i1 @TransactionStartedDuringRecovery() local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @EnterParallelMode() local_unnamed_addr #5 {
+define dso_local void @EnterParallelMode() local_unnamed_addr #4 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %3 = load i32, ptr %2, align 4
@@ -874,7 +868,7 @@ define dso_local void @EnterParallelMode() local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @ExitParallelMode() local_unnamed_addr #5 {
+define dso_local void @ExitParallelMode() local_unnamed_addr #4 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %3 = load i32, ptr %2, align 4
@@ -903,7 +897,7 @@ define dso_local zeroext i1 @IsInParallelMode() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @CommandCounterIncrement() local_unnamed_addr #2 {
+define dso_local void @CommandCounterIncrement() local_unnamed_addr #1 {
   %.b2 = load i1, ptr @currentCommandIdUsed, align 1
   br i1 %.b2, label %1, label %22
 
@@ -958,16 +952,16 @@ IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMod
   ret void
 }
 
-declare void @SnapshotSetCommandId(i32 noundef) local_unnamed_addr #9
+declare void @SnapshotSetCommandId(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @ForceSyncCommit() local_unnamed_addr #10 {
+define dso_local void @ForceSyncCommit() local_unnamed_addr #9 {
   store i1 true, ptr @forceSyncCommit, align 1
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @StartTransactionCommand() local_unnamed_addr #2 {
+define dso_local void @StartTransactionCommand() local_unnamed_addr #1 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %3 = load i32, ptr %2, align 8
@@ -1010,7 +1004,7 @@ define dso_local void @StartTransactionCommand() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @StartTransaction() unnamed_addr #2 {
+define internal fastcc void @StartTransaction() unnamed_addr #1 {
   store ptr @TopTransactionStateData, ptr @CurrentTransactionState, align 8
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @TopTransactionStateData, i64 28), align 4
   store i64 0, ptr @TopTransactionStateData, align 8
@@ -1153,10 +1147,10 @@ ShowTransactionState.exit:                        ; preds = %52, %54
   ret void
 }
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #9
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef nonnull ptr @BlockStateAsString(i32 noundef %0) unnamed_addr #11 {
+define internal fastcc noundef nonnull ptr @BlockStateAsString(i32 noundef %0) unnamed_addr #10 {
   %2 = icmp ult i32 %0, 20
   br i1 %2, label %switch.lookup, label %4
 
@@ -1172,7 +1166,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @SaveTransactionCharacteristics(ptr noundef writeonly captures(none) initializes((0, 6)) %0) local_unnamed_addr #12 {
+define dso_local void @SaveTransactionCharacteristics(ptr noundef writeonly captures(none) initializes((0, 6)) %0) local_unnamed_addr #11 {
   %2 = load i32, ptr @XactIsoLevel, align 4
   store i32 %2, ptr %0, align 4
   %3 = load i8, ptr @XactReadOnly, align 1, !range !4, !noundef !5
@@ -1185,7 +1179,7 @@ define dso_local void @SaveTransactionCharacteristics(ptr noundef writeonly capt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define dso_local void @RestoreTransactionCharacteristics(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
+define dso_local void @RestoreTransactionCharacteristics(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load i32, ptr %0, align 4
   store i32 %2, ptr @XactIsoLevel, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1198,7 +1192,7 @@ define dso_local void @RestoreTransactionCharacteristics(ptr noundef readonly ca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @CommitTransactionCommand() local_unnamed_addr #2 {
+define dso_local void @CommitTransactionCommand() local_unnamed_addr #1 {
   br label %1
 
 1:                                                ; preds = %CommitTransactionCommandInternal.exit, %0
@@ -1424,7 +1418,7 @@ CommitTransactionCommandInternal.exit:            ; preds = %1, %62
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @AbortCurrentTransaction() local_unnamed_addr #2 {
+define dso_local void @AbortCurrentTransaction() local_unnamed_addr #1 {
   br label %1
 
 1:                                                ; preds = %AbortCurrentTransactionInternal.exit, %0
@@ -1535,7 +1529,7 @@ AbortCurrentTransactionInternal.exit:             ; preds = %1, %1, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PreventInTransactionBlock(i1 noundef zeroext %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @PreventInTransactionBlock(i1 noundef zeroext %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr @CurrentTransactionState, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load i32, ptr %4, align 8
@@ -1592,7 +1586,7 @@ define dso_local zeroext i1 @IsTransactionBlock() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @WarnNoTransactionBlock(i1 noundef zeroext %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @WarnNoTransactionBlock(i1 noundef zeroext %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr @CurrentTransactionState, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load i32, ptr %4, align 8
@@ -1621,7 +1615,7 @@ CheckTransactionBlock.exit:                       ; preds = %10, %12, %2, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RequireTransactionBlock(i1 noundef zeroext %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @RequireTransactionBlock(i1 noundef zeroext %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr @CurrentTransactionState, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load i32, ptr %4, align 8
@@ -1669,7 +1663,7 @@ define dso_local zeroext i1 @IsInTransactionBlock(i1 noundef zeroext %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RegisterXactCallback(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @RegisterXactCallback(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr @TopMemoryContext, align 8
   %4 = tail call ptr @MemoryContextAlloc(ptr noundef %3, i64 noundef 24) #21
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1682,10 +1676,10 @@ define dso_local void @RegisterXactCallback(ptr noundef %0, ptr noundef %1) loca
   ret void
 }
 
-declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #9
+declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @UnregisterXactCallback(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #2 {
+define dso_local void @UnregisterXactCallback(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #1 {
   %.01216 = load ptr, ptr @Xact_callbacks, align 8
   %.not17 = icmp eq ptr %.01216, null
   br i1 %.not17, label %.loopexit, label %.lr.ph
@@ -1721,10 +1715,10 @@ define dso_local void @UnregisterXactCallback(ptr noundef readnone captures(addr
   ret void
 }
 
-declare void @pfree(ptr noundef) local_unnamed_addr #9
+declare void @pfree(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RegisterSubXactCallback(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @RegisterSubXactCallback(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr @TopMemoryContext, align 8
   %4 = tail call ptr @MemoryContextAlloc(ptr noundef %3, i64 noundef 24) #21
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1738,7 +1732,7 @@ define dso_local void @RegisterSubXactCallback(ptr noundef %0, ptr noundef %1) l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @UnregisterSubXactCallback(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #2 {
+define dso_local void @UnregisterSubXactCallback(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #1 {
   %.01216 = load ptr, ptr @SubXact_callbacks, align 8
   %.not17 = icmp eq ptr %.01216, null
   br i1 %.not17, label %.loopexit, label %.lr.ph
@@ -1775,7 +1769,7 @@ define dso_local void @UnregisterSubXactCallback(ptr noundef readnone captures(a
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @BeginTransactionBlock() local_unnamed_addr #2 {
+define dso_local void @BeginTransactionBlock() local_unnamed_addr #1 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %3 = load i32, ptr %2, align 8
@@ -1834,7 +1828,7 @@ define dso_local void @BeginTransactionBlock() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @PrepareTransactionBlock(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @PrepareTransactionBlock(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call zeroext i1 @EndTransactionBlock(i1 noundef zeroext false)
   br i1 %2, label %3, label %15
 
@@ -1868,7 +1862,7 @@ define dso_local noundef zeroext i1 @PrepareTransactionBlock(ptr noundef %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @EndTransactionBlock(i1 noundef zeroext %0) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @EndTransactionBlock(i1 noundef zeroext %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @CurrentTransactionState, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load i32, ptr %3, align 8
@@ -2097,10 +2091,10 @@ define dso_local noundef zeroext i1 @EndTransactionBlock(i1 noundef zeroext %0) 
   ret i1 %.0
 }
 
-declare ptr @MemoryContextStrdup(ptr noundef, ptr noundef) local_unnamed_addr #9
+declare ptr @MemoryContextStrdup(ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @UserAbortTransactionBlock(i1 noundef zeroext %0) local_unnamed_addr #2 {
+define dso_local void @UserAbortTransactionBlock(i1 noundef zeroext %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @CurrentTransactionState, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load i32, ptr %3, align 8
@@ -2253,7 +2247,7 @@ define dso_local void @UserAbortTransactionBlock(i1 noundef zeroext %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @BeginImplicitTransactionBlock() local_unnamed_addr #5 {
+define dso_local void @BeginImplicitTransactionBlock() local_unnamed_addr #4 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %3 = load i32, ptr %2, align 8
@@ -2269,7 +2263,7 @@ define dso_local void @BeginImplicitTransactionBlock() local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @EndImplicitTransactionBlock() local_unnamed_addr #5 {
+define dso_local void @EndImplicitTransactionBlock() local_unnamed_addr #4 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %3 = load i32, ptr %2, align 8
@@ -2285,7 +2279,7 @@ define dso_local void @EndImplicitTransactionBlock() local_unnamed_addr #5 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @DefineSavepoint(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local void @DefineSavepoint(ptr noundef %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @CurrentTransactionState, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 100
   %4 = load i32, ptr %3, align 4
@@ -2370,7 +2364,7 @@ IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMod
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @PushTransaction() unnamed_addr #2 {
+define internal fastcc void @PushTransaction() unnamed_addr #1 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = load ptr, ptr @TopTransactionContext, align 8
   %3 = tail call ptr @MemoryContextAllocZero(ptr noundef %2, i64 noundef 120) #21
@@ -2445,7 +2439,7 @@ define internal fastcc void @PushTransaction() unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ReleaseSavepoint(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local void @ReleaseSavepoint(ptr noundef %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @CurrentTransactionState, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 100
   %4 = load i32, ptr %3, align 4
@@ -2575,10 +2569,10 @@ IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMod
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #14
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RollbackToSavepoint(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local void @RollbackToSavepoint(ptr noundef %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @CurrentTransactionState, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 100
   %4 = load i32, ptr %3, align 4
@@ -2759,7 +2753,7 @@ IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMod
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @BeginInternalSubTransaction(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local void @BeginInternalSubTransaction(ptr noundef %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @CurrentTransactionState, align 8
   %3 = load i8, ptr @ExitOnAnyError, align 1, !range !4, !noundef !5
   store i8 1, ptr @ExitOnAnyError, align 1
@@ -2855,7 +2849,7 @@ StartTransactionCommand.exit:                     ; preds = %17, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ReleaseCurrentSubTransaction() local_unnamed_addr #2 {
+define dso_local void @ReleaseCurrentSubTransaction() local_unnamed_addr #1 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %3 = load i32, ptr %2, align 8
@@ -2879,7 +2873,7 @@ define dso_local void @ReleaseCurrentSubTransaction() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @CommitSubTransaction() unnamed_addr #2 {
+define internal fastcc void @CommitSubTransaction() unnamed_addr #1 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = tail call zeroext i1 @message_level_is_interesting(i32 noundef 10) #21
   br i1 %2, label %3, label %ShowTransactionState.exit
@@ -3208,7 +3202,7 @@ AtSubCommit_Memory.exit:                          ; preds = %141, %177
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RollbackAndReleaseCurrentSubTransaction() local_unnamed_addr #2 {
+define dso_local void @RollbackAndReleaseCurrentSubTransaction() local_unnamed_addr #1 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %3 = load i32, ptr %2, align 8
@@ -3253,7 +3247,7 @@ define dso_local void @RollbackAndReleaseCurrentSubTransaction() local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @AbortSubTransaction() unnamed_addr #2 {
+define internal fastcc void @AbortSubTransaction() unnamed_addr #1 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = load volatile i32, ptr @InterruptHoldoffCount, align 4
   %3 = add i32 %2, 1
@@ -3440,7 +3434,7 @@ CallSubXactCallbacks.exit:                        ; preds = %.lr.ph.i, %54
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @CleanupSubTransaction() unnamed_addr #2 {
+define internal fastcc void @CleanupSubTransaction() unnamed_addr #1 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = tail call zeroext i1 @message_level_is_interesting(i32 noundef 10) #21
   br i1 %2, label %3, label %ShowTransactionState.exit
@@ -3533,7 +3527,7 @@ AtSubCleanup_Memory.exit:                         ; preds = %34, %37
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @AbortOutOfAnyTransaction() local_unnamed_addr #2 {
+define dso_local void @AbortOutOfAnyTransaction() local_unnamed_addr #1 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = load ptr, ptr @TransactionAbortContext, align 8
   %.not.i = icmp eq ptr %2, null
@@ -3643,7 +3637,7 @@ define dso_local void @AbortOutOfAnyTransaction() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @AbortTransaction() unnamed_addr #2 {
+define internal fastcc void @AbortTransaction() unnamed_addr #1 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = load volatile i32, ptr @InterruptHoldoffCount, align 4
   %3 = add i32 %2, 1
@@ -3817,7 +3811,7 @@ CallXactCallbacks.exit:                           ; preds = %.lr.ph.i21, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @CleanupTransaction() unnamed_addr #2 {
+define internal fastcc void @CleanupTransaction() unnamed_addr #1 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %3 = load i32, ptr %2, align 4
@@ -3894,9 +3888,9 @@ AtCleanup_Memory.exit:                            ; preds = %19, %21
   ret void
 }
 
-declare void @AtAbort_Portals() local_unnamed_addr #9
+declare void @AtAbort_Portals() local_unnamed_addr #8
 
-declare void @AtSubAbort_Portals(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
+declare void @AtSubAbort_Portals(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @IsTransactionOrTransactionBlock() local_unnamed_addr #0 {
@@ -3908,7 +3902,7 @@ define dso_local zeroext i1 @IsTransactionOrTransactionBlock() local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local signext range(i8 69, 85) i8 @TransactionBlockStatusCode() local_unnamed_addr #2 {
+define dso_local signext range(i8 69, 85) i8 @TransactionBlockStatusCode() local_unnamed_addr #1 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %3 = load i32, ptr %2, align 8
@@ -3932,7 +3926,7 @@ switch.lookup:                                    ; preds = %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @EstimateTransactionStateSpace() local_unnamed_addr #2 {
+define dso_local i64 @EstimateTransactionStateSpace() local_unnamed_addr #1 {
   %.09 = load ptr, ptr @CurrentTransactionState, align 8
   %.not10 = icmp eq ptr %.09, null
   br i1 %.not10, label %._crit_edge, label %.lr.ph
@@ -3967,12 +3961,12 @@ define dso_local i64 @EstimateTransactionStateSpace() local_unnamed_addr #2 {
   ret i64 %12
 }
 
-declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #9
+declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #8
 
-declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #9
+declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @SerializeTransactionState(i64 noundef %0, ptr noundef writeonly captures(none) initializes((0, 5), (8, 28)) %1) local_unnamed_addr #2 {
+define dso_local void @SerializeTransactionState(i64 noundef %0, ptr noundef writeonly captures(none) initializes((0, 5), (8, 28)) %1) local_unnamed_addr #1 {
   %3 = load i32, ptr @XactIsoLevel, align 4
   store i32 %3, ptr %1, align 8
   %4 = load i8, ptr @XactDeferrable, align 1, !range !4, !noundef !5
@@ -4085,14 +4079,14 @@ define dso_local void @SerializeTransactionState(i64 noundef %0, ptr noundef wri
   ret void
 }
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #9
+declare ptr @palloc(i64 noundef) local_unnamed_addr #8
 
-declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #9
+declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #8
 
-declare i32 @xidComparator(ptr noundef, ptr noundef) #9
+declare i32 @xidComparator(ptr noundef, ptr noundef) #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @StartParallelWorkerTransaction(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local void @StartParallelWorkerTransaction(ptr noundef %0) local_unnamed_addr #1 {
   tail call fastcc void @StartTransaction()
   %2 = load i32, ptr %0, align 8
   store i32 %2, ptr @XactIsoLevel, align 4
@@ -4121,7 +4115,7 @@ define dso_local void @StartParallelWorkerTransaction(ptr noundef %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @EndParallelWorkerTransaction() local_unnamed_addr #2 {
+define dso_local void @EndParallelWorkerTransaction() local_unnamed_addr #1 {
   tail call fastcc void @CommitTransaction()
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -4130,7 +4124,7 @@ define dso_local void @EndParallelWorkerTransaction() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @CommitTransaction() unnamed_addr #2 {
+define internal fastcc void @CommitTransaction() unnamed_addr #1 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
@@ -4276,12 +4270,12 @@ CallXactCallbacks.exit:                           ; preds = %.lr.ph.i, %28
   %58 = load i64, ptr @XactTopFullTransactionId.0, align 8
   %59 = trunc i64 %58 to i32
   %.not60.i = icmp eq i32 %59, 0
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1
   %60 = load i32, ptr @wal_level, align 4
   %61 = icmp sgt i32 %60, 1
@@ -4484,10 +4478,10 @@ GetCurrentTransactionStopTimestamp.exit52.i:      ; preds = %120, %.thread58.i
   br label %RecordTransactionCommit.exit
 
 RecordTransactionCommit.exit:                     ; preds = %151, %152
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %156
 
 154:                                              ; preds = %56
@@ -4578,7 +4572,7 @@ CallXactCallbacks.exit38:                         ; preds = %.lr.ph.i35, %156
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @xactGetCommittedChildren(ptr noundef writeonly captures(none) initializes((0, 8)) %0) local_unnamed_addr #15 {
+define dso_local i32 @xactGetCommittedChildren(ptr noundef writeonly captures(none) initializes((0, 8)) %0) local_unnamed_addr #14 {
   %2 = load ptr, ptr @CurrentTransactionState, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %4 = load i32, ptr %3, align 8
@@ -4598,7 +4592,7 @@ define dso_local i32 @xactGetCommittedChildren(ptr noundef writeonly captures(no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @XactLogCommitRecord(i64 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, i1 noundef zeroext %9, i32 noundef %10, i32 noundef %11, ptr noundef %12) local_unnamed_addr #2 {
+define dso_local i64 @XactLogCommitRecord(i64 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, i1 noundef zeroext %9, i32 noundef %10, i32 noundef %11, ptr noundef %12) local_unnamed_addr #1 {
   %14 = alloca %struct.xl_xact_commit, align 8
   %15 = alloca %struct.xl_xact_xinfo, align 4
   %16 = alloca %struct.xl_xact_dbinfo, align 4
@@ -4608,15 +4602,15 @@ define dso_local i64 @XactLogCommitRecord(i64 noundef %0, i32 noundef %1, ptr no
   %20 = alloca %struct.xl_xact_invals, align 4
   %21 = alloca %struct.xl_xact_twophase, align 4
   %22 = alloca %struct.xl_xact_origin, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #21
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i32 0, ptr %15, align 4
   %.not = icmp eq i32 %11, 0
   %. = select i1 %.not, i8 0, i8 48
@@ -4854,31 +4848,31 @@ define dso_local i64 @XactLogCommitRecord(i64 noundef %0, i32 noundef %1, ptr no
   %spec.select = select i1 %.not37, i8 %.1, i8 %121
   call void @XLogSetRecordFlags(i8 noundef zeroext 1) #21
   %122 = call i64 @XLogInsert(i8 noundef zeroext 1, i8 noundef zeroext %spec.select) #21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i64 %122
 }
 
-declare void @XLogBeginInsert() local_unnamed_addr #9
+declare void @XLogBeginInsert() local_unnamed_addr #8
 
-declare void @XLogRegisterData(ptr noundef, i32 noundef) local_unnamed_addr #9
+declare void @XLogRegisterData(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
-declare void @XLogSetRecordFlags(i8 noundef zeroext) local_unnamed_addr #9
+declare void @XLogSetRecordFlags(i8 noundef zeroext) local_unnamed_addr #8
 
-declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #9
+declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @XactLogAbortRecord(i64 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9) local_unnamed_addr #2 {
+define dso_local i64 @XactLogAbortRecord(i64 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9) local_unnamed_addr #1 {
   %11 = alloca %struct.xl_xact_abort, align 8
   %12 = alloca %struct.xl_xact_xinfo, align 4
   %13 = alloca %struct.xl_xact_subxacts, align 4
@@ -4887,14 +4881,14 @@ define dso_local i64 @XactLogAbortRecord(i64 noundef %0, i32 noundef %1, ptr nou
   %16 = alloca %struct.xl_xact_twophase, align 4
   %17 = alloca %struct.xl_xact_dbinfo, align 4
   %18 = alloca %struct.xl_xact_origin, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #21
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr %12, align 4
   %.not38 = icmp eq i32 %8, 0
   %. = select i1 %.not38, i8 32, i8 64
@@ -5074,19 +5068,19 @@ define dso_local i64 @XactLogAbortRecord(i64 noundef %0, i32 noundef %1, ptr nou
   %spec.select = select i1 %.not29, i8 %.1, i8 %89
   call void @XLogSetRecordFlags(i8 noundef zeroext 1) #21
   %90 = call i64 @XLogInsert(i8 noundef zeroext 1, i8 noundef zeroext %spec.select) #21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i64 %90
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @xact_redo(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define dso_local void @xact_redo(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca %struct.xl_xact_parsed_commit, align 8
   %3 = alloca %struct.xl_xact_parsed_commit, align 8
   %4 = alloca %struct.xl_xact_parsed_abort, align 8
@@ -5111,7 +5105,7 @@ define dso_local void @xact_redo(ptr noundef readonly captures(none) %0) local_u
 12:                                               ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %14 = load ptr, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 328, ptr nonnull %2) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @ParseCommitRecord(i8 noundef zeroext %9, ptr noundef %14, ptr noundef nonnull %2) #21
   %15 = load ptr, ptr %6, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 44
@@ -5121,13 +5115,13 @@ define dso_local void @xact_redo(ptr noundef readonly captures(none) %0) local_u
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %21 = load i16, ptr %20, align 8
   call fastcc void @xact_redo_commit(ptr noundef %2, i32 noundef %17, i64 noundef %19, i16 noundef zeroext %21)
-  call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %2) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %92
 
 22:                                               ; preds = %1
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %24 = load ptr, ptr %23, align 8
-  call void @llvm.lifetime.start.p0(i64 328, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @ParseCommitRecord(i8 noundef zeroext %9, ptr noundef %24, ptr noundef nonnull %3) #21
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %26 = load i32, ptr %25, align 8
@@ -5145,13 +5139,13 @@ define dso_local void @xact_redo(ptr noundef readonly captures(none) %0) local_u
   %36 = load ptr, ptr @MainLWLockArray, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 2304
   call void @LWLockRelease(ptr noundef nonnull %37) #21
-  call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %92
 
 38:                                               ; preds = %1
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %40 = load ptr, ptr %39, align 8
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @ParseAbortRecord(i8 noundef zeroext %9, ptr noundef %40, ptr noundef nonnull %4) #21
   %41 = load ptr, ptr %6, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 44
@@ -5161,13 +5155,13 @@ define dso_local void @xact_redo(ptr noundef readonly captures(none) %0) local_u
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 64
   %47 = load i16, ptr %46, align 8
   call fastcc void @xact_redo_abort(ptr noundef %4, i32 noundef %43, i64 noundef %45, i16 noundef zeroext %47)
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %92
 
 48:                                               ; preds = %1
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %50 = load ptr, ptr %49, align 8
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @ParseAbortRecord(i8 noundef zeroext %9, ptr noundef %50, ptr noundef nonnull %5) #21
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %52 = load i32, ptr %51, align 8
@@ -5185,7 +5179,7 @@ define dso_local void @xact_redo(ptr noundef readonly captures(none) %0) local_u
   %62 = load ptr, ptr @MainLWLockArray, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 2304
   call void @LWLockRelease(ptr noundef nonnull %63) #21
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %92
 
 64:                                               ; preds = %1
@@ -5237,10 +5231,10 @@ default.unreachable:                              ; preds = %1
   ret void
 }
 
-declare void @ParseCommitRecord(i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #9
+declare void @ParseCommitRecord(i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xact_redo_commit(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, i64 noundef %2, i16 noundef zeroext %3) unnamed_addr #2 {
+define internal fastcc void @xact_redo_commit(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, i64 noundef %2, i16 noundef zeroext %3) unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5362,16 +5356,16 @@ define internal fastcc void @xact_redo_commit(ptr noundef nonnull readonly captu
   ret void
 }
 
-declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #9
+declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #8
 
-declare void @PrepareRedoRemove(i32 noundef, i1 noundef zeroext) local_unnamed_addr #9
+declare void @PrepareRedoRemove(i32 noundef, i1 noundef zeroext) local_unnamed_addr #8
 
-declare void @LWLockRelease(ptr noundef) local_unnamed_addr #9
+declare void @LWLockRelease(ptr noundef) local_unnamed_addr #8
 
-declare void @ParseAbortRecord(i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #9
+declare void @ParseAbortRecord(i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xact_redo_abort(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, i64 noundef %2, i16 noundef zeroext %3) unnamed_addr #2 {
+define internal fastcc void @xact_redo_abort(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, i64 noundef %2, i16 noundef zeroext %3) unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5453,56 +5447,56 @@ define internal fastcc void @xact_redo_abort(ptr noundef nonnull readonly captur
   ret void
 }
 
-declare void @PrepareRedoAdd(ptr noundef, i64 noundef, i64 noundef, i16 noundef zeroext) local_unnamed_addr #9
+declare void @PrepareRedoAdd(ptr noundef, i64 noundef, i64 noundef, i16 noundef zeroext) local_unnamed_addr #8
 
-declare void @ProcArrayApplyXidAssignment(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
+declare void @ProcArrayApplyXidAssignment(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
 
-declare i64 @ReadNextFullTransactionId() local_unnamed_addr #9
+declare i64 @ReadNextFullTransactionId() local_unnamed_addr #8
 
-declare i64 @GetNewTransactionId(i1 noundef zeroext) local_unnamed_addr #9
+declare i64 @GetNewTransactionId(i1 noundef zeroext) local_unnamed_addr #8
 
-declare void @SubTransSetParent(i32 noundef, i32 noundef) local_unnamed_addr #9
+declare void @SubTransSetParent(i32 noundef, i32 noundef) local_unnamed_addr #8
 
-declare void @RegisterPredicateLockingXid(i32 noundef) local_unnamed_addr #9
+declare void @RegisterPredicateLockingXid(i32 noundef) local_unnamed_addr #8
 
-declare void @XactLockTableInsert(i32 noundef) local_unnamed_addr #9
+declare void @XactLockTableInsert(i32 noundef) local_unnamed_addr #8
 
-declare void @AtCCI_RelationMap() local_unnamed_addr #9
+declare void @AtCCI_RelationMap() local_unnamed_addr #8
 
-declare void @CommandEndInvalidationMessages() local_unnamed_addr #9
+declare void @CommandEndInvalidationMessages() local_unnamed_addr #8
 
-declare double @pg_prng_double(ptr noundef) local_unnamed_addr #9
+declare double @pg_prng_double(ptr noundef) local_unnamed_addr #8
 
-declare void @GetUserIdAndSecContext(ptr noundef, ptr noundef) local_unnamed_addr #9
+declare void @GetUserIdAndSecContext(ptr noundef, ptr noundef) local_unnamed_addr #8
 
-declare zeroext i1 @RecoveryInProgress() local_unnamed_addr #9
+declare zeroext i1 @RecoveryInProgress() local_unnamed_addr #8
 
-declare i32 @GetNextLocalTransactionId() local_unnamed_addr #9
+declare i32 @GetNextLocalTransactionId() local_unnamed_addr #8
 
-declare void @VirtualXactLockTableInsert(i64) local_unnamed_addr #9
+declare void @VirtualXactLockTableInsert(i64) local_unnamed_addr #8
 
-declare zeroext i1 @SPI_inside_nonatomic_context() local_unnamed_addr #9
+declare zeroext i1 @SPI_inside_nonatomic_context() local_unnamed_addr #8
 
-declare void @pgstat_report_xact_timestamp(i64 noundef) local_unnamed_addr #9
+declare void @pgstat_report_xact_timestamp(i64 noundef) local_unnamed_addr #8
 
-declare void @AtStart_GUC() local_unnamed_addr #9
+declare void @AtStart_GUC() local_unnamed_addr #8
 
-declare void @AfterTriggerBeginXact() local_unnamed_addr #9
+declare void @AfterTriggerBeginXact() local_unnamed_addr #8
 
-declare void @enable_timeout_after(i32 noundef, i32 noundef) local_unnamed_addr #9
+declare void @enable_timeout_after(i32 noundef, i32 noundef) local_unnamed_addr #8
 
-declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #9
+declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
 
-declare ptr @ResourceOwnerCreate(ptr noundef, ptr noundef) local_unnamed_addr #9
+declare ptr @ResourceOwnerCreate(ptr noundef, ptr noundef) local_unnamed_addr #8
 
-declare void @AcceptInvalidationMessages() local_unnamed_addr #9
+declare void @AcceptInvalidationMessages() local_unnamed_addr #8
 
-declare zeroext i1 @message_level_is_interesting(i32 noundef) local_unnamed_addr #9
+declare zeroext i1 @message_level_is_interesting(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ShowTransactionStateRec(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #2 {
+define internal fastcc void @ShowTransactionStateRec(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = alloca %struct.StringInfoData, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -5608,18 +5602,18 @@ TransStateAsString.exit:                          ; preds = %BlockStateAsString.
 54:                                               ; preds = %TransStateAsString.exit, %.loopexit
   %55 = load ptr, ptr %3, align 8
   call void @pfree(ptr noundef %55) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare zeroext i1 @stack_is_too_deep() local_unnamed_addr #9
+declare zeroext i1 @stack_is_too_deep() local_unnamed_addr #8
 
-declare void @initStringInfo(ptr noundef) local_unnamed_addr #9
+declare void @initStringInfo(ptr noundef) local_unnamed_addr #8
 
-declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #9
+declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef nonnull ptr @TransStateAsString(i32 noundef %0) unnamed_addr #11 {
+define internal fastcc noundef nonnull ptr @TransStateAsString(i32 noundef %0) unnamed_addr #10 {
   %2 = icmp ult i32 %0, 6
   br i1 %2, label %switch.lookup, label %4
 
@@ -5635,7 +5629,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @PrepareTransaction() unnamed_addr #2 {
+define internal fastcc void @PrepareTransaction() unnamed_addr #1 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = load i64, ptr %1, align 8
   %3 = and i64 %2, 4294967295
@@ -5851,7 +5845,7 @@ CallXactCallbacks.exit25:                         ; preds = %.lr.ph.i22, %46
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @StartSubTransaction() unnamed_addr #2 {
+define internal fastcc void @StartSubTransaction() unnamed_addr #1 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %3 = load i32, ptr %2, align 4
@@ -5937,140 +5931,140 @@ ShowTransactionState.exit:                        ; preds = %CallSubXactCallback
   ret void
 }
 
-declare void @AfterTriggerFireDeferred() local_unnamed_addr #9
+declare void @AfterTriggerFireDeferred() local_unnamed_addr #8
 
-declare zeroext i1 @PreCommit_Portals(i1 noundef zeroext) local_unnamed_addr #9
+declare zeroext i1 @PreCommit_Portals(i1 noundef zeroext) local_unnamed_addr #8
 
-declare void @AfterTriggerEndXact(i1 noundef zeroext) local_unnamed_addr #9
+declare void @AfterTriggerEndXact(i1 noundef zeroext) local_unnamed_addr #8
 
-declare void @PreCommit_on_commit_actions() local_unnamed_addr #9
+declare void @PreCommit_on_commit_actions() local_unnamed_addr #8
 
-declare void @smgrDoPendingSyncs(i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #9
+declare void @smgrDoPendingSyncs(i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #8
 
-declare void @AtEOXact_LargeObject(i1 noundef zeroext) local_unnamed_addr #9
+declare void @AtEOXact_LargeObject(i1 noundef zeroext) local_unnamed_addr #8
 
-declare void @PreCommit_CheckForSerializationFailure() local_unnamed_addr #9
+declare void @PreCommit_CheckForSerializationFailure() local_unnamed_addr #8
 
-declare zeroext i1 @XactHasExportedSnapshots() local_unnamed_addr #9
+declare zeroext i1 @XactHasExportedSnapshots() local_unnamed_addr #8
 
-declare void @disable_timeout(i32 noundef, i1 noundef zeroext) local_unnamed_addr #9
+declare void @disable_timeout(i32 noundef, i1 noundef zeroext) local_unnamed_addr #8
 
-declare ptr @MarkAsPreparing(i32 noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #9
+declare ptr @MarkAsPreparing(i32 noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
 
-declare i32 @GetUserId() local_unnamed_addr #9
+declare i32 @GetUserId() local_unnamed_addr #8
 
-declare void @StartPrepare(ptr noundef) local_unnamed_addr #9
+declare void @StartPrepare(ptr noundef) local_unnamed_addr #8
 
-declare void @AtPrepare_Notify() local_unnamed_addr #9
+declare void @AtPrepare_Notify() local_unnamed_addr #8
 
-declare void @AtPrepare_Locks() local_unnamed_addr #9
+declare void @AtPrepare_Locks() local_unnamed_addr #8
 
-declare void @AtPrepare_PredicateLocks() local_unnamed_addr #9
+declare void @AtPrepare_PredicateLocks() local_unnamed_addr #8
 
-declare void @AtPrepare_PgStat() local_unnamed_addr #9
+declare void @AtPrepare_PgStat() local_unnamed_addr #8
 
-declare void @AtPrepare_MultiXact() local_unnamed_addr #9
+declare void @AtPrepare_MultiXact() local_unnamed_addr #8
 
-declare void @AtPrepare_RelationMap() local_unnamed_addr #9
+declare void @AtPrepare_RelationMap() local_unnamed_addr #8
 
-declare void @EndPrepare(ptr noundef) local_unnamed_addr #9
+declare void @EndPrepare(ptr noundef) local_unnamed_addr #8
 
-declare void @PostPrepare_Locks(i32 noundef) local_unnamed_addr #9
+declare void @PostPrepare_Locks(i32 noundef) local_unnamed_addr #8
 
-declare void @ProcArrayClearTransaction(ptr noundef) local_unnamed_addr #9
+declare void @ProcArrayClearTransaction(ptr noundef) local_unnamed_addr #8
 
-declare void @ResourceOwnerRelease(ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #9
+declare void @ResourceOwnerRelease(ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #8
 
-declare void @AtEOXact_Buffers(i1 noundef zeroext) local_unnamed_addr #9
+declare void @AtEOXact_Buffers(i1 noundef zeroext) local_unnamed_addr #8
 
-declare void @AtEOXact_RelationCache(i1 noundef zeroext) local_unnamed_addr #9
+declare void @AtEOXact_RelationCache(i1 noundef zeroext) local_unnamed_addr #8
 
-declare void @AtEOXact_TypeCache() local_unnamed_addr #9
+declare void @AtEOXact_TypeCache() local_unnamed_addr #8
 
-declare void @PostPrepare_PgStat() local_unnamed_addr #9
+declare void @PostPrepare_PgStat() local_unnamed_addr #8
 
-declare void @PostPrepare_Inval() local_unnamed_addr #9
+declare void @PostPrepare_Inval() local_unnamed_addr #8
 
-declare void @PostPrepare_smgr() local_unnamed_addr #9
+declare void @PostPrepare_smgr() local_unnamed_addr #8
 
-declare void @PostPrepare_MultiXact(i32 noundef) local_unnamed_addr #9
+declare void @PostPrepare_MultiXact(i32 noundef) local_unnamed_addr #8
 
-declare void @PostPrepare_PredicateLocks(i32 noundef) local_unnamed_addr #9
+declare void @PostPrepare_PredicateLocks(i32 noundef) local_unnamed_addr #8
 
-declare void @PostPrepare_Twophase() local_unnamed_addr #9
+declare void @PostPrepare_Twophase() local_unnamed_addr #8
 
-declare void @AtEOXact_GUC(i1 noundef zeroext, i32 noundef) local_unnamed_addr #9
+declare void @AtEOXact_GUC(i1 noundef zeroext, i32 noundef) local_unnamed_addr #8
 
-declare void @AtEOXact_SPI(i1 noundef zeroext) local_unnamed_addr #9
+declare void @AtEOXact_SPI(i1 noundef zeroext) local_unnamed_addr #8
 
-declare void @AtEOXact_Enum() local_unnamed_addr #9
+declare void @AtEOXact_Enum() local_unnamed_addr #8
 
-declare void @AtEOXact_on_commit_actions(i1 noundef zeroext) local_unnamed_addr #9
+declare void @AtEOXact_on_commit_actions(i1 noundef zeroext) local_unnamed_addr #8
 
-declare void @AtEOXact_Namespace(i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #9
+declare void @AtEOXact_Namespace(i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #8
 
-declare void @AtEOXact_SMgr() local_unnamed_addr #9
+declare void @AtEOXact_SMgr() local_unnamed_addr #8
 
-declare void @AtEOXact_Files(i1 noundef zeroext) local_unnamed_addr #9
+declare void @AtEOXact_Files(i1 noundef zeroext) local_unnamed_addr #8
 
-declare void @AtEOXact_ComboCid() local_unnamed_addr #9
+declare void @AtEOXact_ComboCid() local_unnamed_addr #8
 
-declare void @AtEOXact_HashTables(i1 noundef zeroext) local_unnamed_addr #9
+declare void @AtEOXact_HashTables(i1 noundef zeroext) local_unnamed_addr #8
 
-declare void @AtEOXact_Snapshot(i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #9
+declare void @AtEOXact_Snapshot(i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #8
 
-declare void @AtEOXact_ApplyLauncher(i1 noundef zeroext) local_unnamed_addr #9
+declare void @AtEOXact_ApplyLauncher(i1 noundef zeroext) local_unnamed_addr #8
 
-declare void @AtEOXact_LogicalRepWorkers(i1 noundef zeroext) local_unnamed_addr #9
+declare void @AtEOXact_LogicalRepWorkers(i1 noundef zeroext) local_unnamed_addr #8
 
-declare void @ResourceOwnerDelete(ptr noundef) local_unnamed_addr #9
+declare void @ResourceOwnerDelete(ptr noundef) local_unnamed_addr #8
 
-declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #9
+declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #8
 
-declare void @AfterTriggerBeginSubXact() local_unnamed_addr #9
+declare void @AfterTriggerBeginSubXact() local_unnamed_addr #8
 
-declare void @LWLockReleaseAll() local_unnamed_addr #9
+declare void @LWLockReleaseAll() local_unnamed_addr #8
 
-declare void @pgstat_progress_end_command() local_unnamed_addr #9
+declare void @pgstat_progress_end_command() local_unnamed_addr #8
 
-declare void @UnlockBuffers() local_unnamed_addr #9
+declare void @UnlockBuffers() local_unnamed_addr #8
 
-declare void @XLogResetInsertion() local_unnamed_addr #9
+declare void @XLogResetInsertion() local_unnamed_addr #8
 
-declare zeroext i1 @ConditionVariableCancelSleep() local_unnamed_addr #9
+declare zeroext i1 @ConditionVariableCancelSleep() local_unnamed_addr #8
 
-declare void @LockErrorCleanup() local_unnamed_addr #9
+declare void @LockErrorCleanup() local_unnamed_addr #8
 
-declare void @reschedule_timeouts() local_unnamed_addr #9
+declare void @reschedule_timeouts() local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare i32 @sigprocmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #16
+declare i32 @sigprocmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #15
 
-declare void @SetUserIdAndSecContext(i32 noundef, i32 noundef) local_unnamed_addr #9
+declare void @SetUserIdAndSecContext(i32 noundef, i32 noundef) local_unnamed_addr #8
 
-declare void @ResetReindexState(i32 noundef) local_unnamed_addr #9
+declare void @ResetReindexState(i32 noundef) local_unnamed_addr #8
 
-declare void @ResetLogicalStreamingState() local_unnamed_addr #9
+declare void @ResetLogicalStreamingState() local_unnamed_addr #8
 
-declare void @SnapBuildResetExportedSnapshotState() local_unnamed_addr #9
+declare void @SnapBuildResetExportedSnapshotState() local_unnamed_addr #8
 
-declare void @AtEOXact_Parallel(i1 noundef zeroext) local_unnamed_addr #9
+declare void @AtEOXact_Parallel(i1 noundef zeroext) local_unnamed_addr #8
 
-declare void @AtAbort_Notify() local_unnamed_addr #9
+declare void @AtAbort_Notify() local_unnamed_addr #8
 
-declare void @AtEOXact_RelationMap(i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #9
+declare void @AtEOXact_RelationMap(i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #8
 
-declare void @AtAbort_Twophase() local_unnamed_addr #9
+declare void @AtAbort_Twophase() local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @RecordTransactionAbort(i1 noundef zeroext %0) unnamed_addr #2 {
+define internal fastcc i32 @RecordTransactionAbort(i1 noundef zeroext %0) unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr @CurrentTransactionState, align 8
   %5 = load i64, ptr %4, align 8
   %6 = trunc i64 %5 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %9
@@ -6189,75 +6183,75 @@ GetCurrentTransactionStopTimestamp.exit:          ; preds = %34, %31, %29
 
 57:                                               ; preds = %54, %55, %7, %8
   %.0 = phi i32 [ 0, %8 ], [ 0, %7 ], [ %49, %55 ], [ %49, %54 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
-declare void @XLogSetAsyncXactLSN(i64 noundef) local_unnamed_addr #9
+declare void @XLogSetAsyncXactLSN(i64 noundef) local_unnamed_addr #8
 
-declare void @ProcArrayEndTransaction(ptr noundef, i32 noundef) local_unnamed_addr #9
+declare void @ProcArrayEndTransaction(ptr noundef, i32 noundef) local_unnamed_addr #8
 
-declare void @AtEOXact_Inval(i1 noundef zeroext) local_unnamed_addr #9
+declare void @AtEOXact_Inval(i1 noundef zeroext) local_unnamed_addr #8
 
-declare void @AtEOXact_MultiXact() local_unnamed_addr #9
+declare void @AtEOXact_MultiXact() local_unnamed_addr #8
 
-declare void @smgrDoPendingDeletes(i1 noundef zeroext) local_unnamed_addr #9
+declare void @smgrDoPendingDeletes(i1 noundef zeroext) local_unnamed_addr #8
 
-declare void @AtEOXact_PgStat(i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #9
+declare void @AtEOXact_PgStat(i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #8
 
-declare zeroext i1 @TransactionIdDidCommit(i32 noundef) local_unnamed_addr #9
+declare zeroext i1 @TransactionIdDidCommit(i32 noundef) local_unnamed_addr #8
 
-declare i32 @smgrGetPendingDeletes(i1 noundef zeroext, ptr noundef) local_unnamed_addr #9
+declare i32 @smgrGetPendingDeletes(i1 noundef zeroext, ptr noundef) local_unnamed_addr #8
 
-declare i32 @pgstat_get_transactional_drops(i1 noundef zeroext, ptr noundef) local_unnamed_addr #9
+declare i32 @pgstat_get_transactional_drops(i1 noundef zeroext, ptr noundef) local_unnamed_addr #8
 
-declare void @replorigin_session_advance(i64 noundef, i64 noundef) local_unnamed_addr #9
+declare void @replorigin_session_advance(i64 noundef, i64 noundef) local_unnamed_addr #8
 
-declare void @TransactionIdAbortTree(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
+declare void @TransactionIdAbortTree(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
 
-declare i32 @TransactionIdLatest(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
+declare i32 @TransactionIdLatest(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
 
-declare void @XidCacheRemoveRunningXids(i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
+declare void @XidCacheRemoveRunningXids(i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
-declare void @AtCleanup_Portals() local_unnamed_addr #9
+declare void @AtCleanup_Portals() local_unnamed_addr #8
 
-declare void @AtEOSubXact_Parallel(i1 noundef zeroext, i32 noundef) local_unnamed_addr #9
+declare void @AtEOSubXact_Parallel(i1 noundef zeroext, i32 noundef) local_unnamed_addr #8
 
-declare void @AfterTriggerEndSubXact(i1 noundef zeroext) local_unnamed_addr #9
+declare void @AfterTriggerEndSubXact(i1 noundef zeroext) local_unnamed_addr #8
 
-declare void @AtSubCommit_Portals(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
+declare void @AtSubCommit_Portals(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
 
-declare void @AtEOSubXact_LargeObject(i1 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #9
+declare void @AtEOSubXact_LargeObject(i1 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #8
 
-declare void @AtSubCommit_Notify() local_unnamed_addr #9
+declare void @AtSubCommit_Notify() local_unnamed_addr #8
 
-declare void @AtEOSubXact_RelationCache(i1 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #9
+declare void @AtEOSubXact_RelationCache(i1 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #8
 
-declare void @AtEOSubXact_TypeCache() local_unnamed_addr #9
+declare void @AtEOSubXact_TypeCache() local_unnamed_addr #8
 
-declare void @AtEOSubXact_Inval(i1 noundef zeroext) local_unnamed_addr #9
+declare void @AtEOSubXact_Inval(i1 noundef zeroext) local_unnamed_addr #8
 
-declare void @AtSubCommit_smgr() local_unnamed_addr #9
+declare void @AtSubCommit_smgr() local_unnamed_addr #8
 
-declare void @XactLockTableDelete(i32 noundef) local_unnamed_addr #9
+declare void @XactLockTableDelete(i32 noundef) local_unnamed_addr #8
 
-declare void @AtEOSubXact_SPI(i1 noundef zeroext, i32 noundef) local_unnamed_addr #9
+declare void @AtEOSubXact_SPI(i1 noundef zeroext, i32 noundef) local_unnamed_addr #8
 
-declare void @AtEOSubXact_on_commit_actions(i1 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #9
+declare void @AtEOSubXact_on_commit_actions(i1 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #8
 
-declare void @AtEOSubXact_Namespace(i1 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #9
+declare void @AtEOSubXact_Namespace(i1 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #8
 
-declare void @AtEOSubXact_Files(i1 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #9
+declare void @AtEOSubXact_Files(i1 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #8
 
-declare void @AtEOSubXact_HashTables(i1 noundef zeroext, i32 noundef) local_unnamed_addr #9
+declare void @AtEOSubXact_HashTables(i1 noundef zeroext, i32 noundef) local_unnamed_addr #8
 
-declare void @AtEOSubXact_PgStat(i1 noundef zeroext, i32 noundef) local_unnamed_addr #9
+declare void @AtEOSubXact_PgStat(i1 noundef zeroext, i32 noundef) local_unnamed_addr #8
 
-declare void @AtSubCommit_Snapshot(i32 noundef) local_unnamed_addr #9
+declare void @AtSubCommit_Snapshot(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @PopTransaction() unnamed_addr #2 {
+define internal fastcc void @PopTransaction() unnamed_addr #1 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %3 = load i32, ptr %2, align 4
@@ -6322,63 +6316,69 @@ TransStateAsString.exit:                          ; preds = %6, %switch.lookup
   ret void
 }
 
-declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #9
+declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #8
 
-declare zeroext i1 @MemoryContextIsEmpty(ptr noundef) local_unnamed_addr #9
+declare zeroext i1 @MemoryContextIsEmpty(ptr noundef) local_unnamed_addr #8
 
-declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #9
+declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #8
 
-declare void @AtSubAbort_Notify() local_unnamed_addr #9
+declare void @AtSubAbort_Notify() local_unnamed_addr #8
 
-declare void @AtSubAbort_smgr() local_unnamed_addr #9
+declare void @AtSubAbort_smgr() local_unnamed_addr #8
 
-declare void @AtSubAbort_Snapshot(i32 noundef) local_unnamed_addr #9
+declare void @AtSubAbort_Snapshot(i32 noundef) local_unnamed_addr #8
 
-declare void @AtSubCleanup_Portals(i32 noundef) local_unnamed_addr #9
+declare void @AtSubCleanup_Portals(i32 noundef) local_unnamed_addr #8
 
-declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr #9
+declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr #8
 
-declare i32 @NewGUCNestLevel() local_unnamed_addr #9
+declare i32 @NewGUCNestLevel() local_unnamed_addr #8
 
-declare void @PreCommit_Notify() local_unnamed_addr #9
+declare void @PreCommit_Notify() local_unnamed_addr #8
 
-declare void @ParallelWorkerReportLastRecEnd(i64 noundef) local_unnamed_addr #9
+declare void @ParallelWorkerReportLastRecEnd(i64 noundef) local_unnamed_addr #8
 
-declare void @AtCommit_Notify() local_unnamed_addr #9
+declare void @AtCommit_Notify() local_unnamed_addr #8
 
-declare void @LogLogicalInvalidations() local_unnamed_addr #9
+declare void @LogLogicalInvalidations() local_unnamed_addr #8
 
-declare i32 @xactGetCommittedInvalidationMessages(ptr noundef, ptr noundef) local_unnamed_addr #9
+declare i32 @xactGetCommittedInvalidationMessages(ptr noundef, ptr noundef) local_unnamed_addr #8
 
-declare void @LogStandbyInvalidations(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #9
+declare void @LogStandbyInvalidations(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #8
 
-declare void @TransactionTreeSetCommitTsData(i32 noundef, i32 noundef, ptr noundef, i64 noundef, i16 noundef zeroext) local_unnamed_addr #9
+declare void @TransactionTreeSetCommitTsData(i32 noundef, i32 noundef, ptr noundef, i64 noundef, i16 noundef zeroext) local_unnamed_addr #8
 
-declare void @XLogFlush(i64 noundef) local_unnamed_addr #9
+declare void @XLogFlush(i64 noundef) local_unnamed_addr #8
 
-declare void @TransactionIdCommitTree(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
+declare void @TransactionIdCommitTree(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
 
-declare void @TransactionIdAsyncCommitTree(i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #9
+declare void @TransactionIdAsyncCommitTree(i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
 
-declare void @SyncRepWaitForLSN(i64 noundef, i1 noundef zeroext) local_unnamed_addr #9
+declare void @SyncRepWaitForLSN(i64 noundef, i1 noundef zeroext) local_unnamed_addr #8
 
-declare void @AdvanceNextFullTransactionIdPastXid(i32 noundef) local_unnamed_addr #9
+declare void @AdvanceNextFullTransactionIdPastXid(i32 noundef) local_unnamed_addr #8
 
-declare void @RecordKnownAssignedTransactionIds(i32 noundef) local_unnamed_addr #9
+declare void @RecordKnownAssignedTransactionIds(i32 noundef) local_unnamed_addr #8
 
-declare void @ExpireTreeKnownAssignedTransactionIds(i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
+declare void @ExpireTreeKnownAssignedTransactionIds(i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
-declare void @ProcessCommittedInvalidationMessages(ptr noundef, i32 noundef, i1 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #9
+declare void @ProcessCommittedInvalidationMessages(ptr noundef, i32 noundef, i1 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #8
 
-declare void @StandbyReleaseLockTree(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
+declare void @StandbyReleaseLockTree(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
 
-declare void @replorigin_advance(i16 noundef zeroext, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #9
+declare void @replorigin_advance(i16 noundef zeroext, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #8
 
-declare void @DropRelationFiles(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #9
+declare void @DropRelationFiles(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #8
 
-declare void @pgstat_execute_transactional_drops(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #9
+declare void @pgstat_execute_transactional_drops(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #8
 
-declare void @XLogRequestWalReceiverReply() local_unnamed_addr #9
+declare void @XLogRequestWalReceiverReply() local_unnamed_addr #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #17
@@ -6390,22 +6390,22 @@ declare i32 @llvm.smin.i32(i32, i32) #18
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: write) }

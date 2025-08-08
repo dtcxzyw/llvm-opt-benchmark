@@ -10,18 +10,15 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @ASN1_item_new(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !3
   %3 = call fastcc range(i32 0, 2) i32 @asn1_item_embed_new(ptr noundef nonnull %2, ptr noundef %0, i32 noundef 0, ptr noundef null, ptr noundef null)
   %.not = icmp eq i32 %3, 0
   %4 = load ptr, ptr %2, align 8
   %.0 = select i1 %.not, ptr null, ptr %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ASN1_item_ex_new(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -29,19 +26,16 @@ define range(i32 0, 2) i32 @ASN1_item_ex_new(ptr noundef %0, ptr noundef %1) loc
   ret i32 %3
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define ptr @ASN1_item_new_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !3
   %5 = call fastcc i32 @asn1_item_embed_new(ptr noundef nonnull %4, ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq i32 %5, 0
   %6 = load ptr, ptr %4, align 8
   %.0 = select i1 %.not, ptr null, ptr %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -272,7 +266,7 @@ define internal fastcc range(i32 0, 2) i32 @asn1_template_new(ptr noundef %0, pt
   %9 = load i64, ptr %1, align 8, !tbaa !27
   %10 = trunc i64 %9 to i32
   %11 = and i32 %10, 4096
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %13, label %12
 
@@ -438,7 +432,7 @@ tailrecurse.i:                                    ; preds = %13, %31
 
 asn1_template_clear.exit:                         ; preds = %18, %58, %.critedge19.i.i, %57, %56, %.critedge19.i10.i, %46, %41, %40, %30, %29, %17, %68, %67, %66, %61
   %.0 = phi i32 [ 1, %61 ], [ %69, %68 ], [ 1, %67 ], [ 0, %66 ], [ 1, %17 ], [ 1, %29 ], [ 1, %30 ], [ 1, %40 ], [ 1, %41 ], [ 1, %46 ], [ 1, %.critedge19.i10.i ], [ 1, %56 ], [ 1, %57 ], [ 1, %.critedge19.i.i ], [ 1, %58 ], [ 1, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -567,40 +561,46 @@ define internal fastcc i32 @asn1_primitive_new(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
-declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @ossl_asn1_set_choice_selector(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ossl_asn1_set_choice_selector(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @ossl_asn1_do_lock(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ossl_asn1_do_lock(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ossl_asn1_enc_init(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @ossl_asn1_enc_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @ossl_asn1_get_field_ptr(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @ossl_asn1_get_field_ptr(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ossl_asn1_item_embed_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @ossl_asn1_item_embed_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ERR_new() local_unnamed_addr #3
+declare void @ERR_new() local_unnamed_addr #2
 
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #3
+declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #2
 
-declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #3
+declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #2
 
-declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @ASN1_STRING_type_new(i32 noundef) local_unnamed_addr #3
+declare ptr @ASN1_STRING_type_new(i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

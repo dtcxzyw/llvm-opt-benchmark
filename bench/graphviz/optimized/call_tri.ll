@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @call_tri(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store double 1.000000e+00, ptr %3, align 8, !tbaa !3
   %5 = sext i32 %0 to i64
   %mul.ov.i = icmp slt i32 %0, 0
@@ -21,13 +21,13 @@ define ptr @call_tri(i32 noundef %0, ptr noundef readonly captures(none) %1) loc
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr @stderr, align 8, !tbaa !7
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #10
-  tail call fastcc void @graphviz_exit() #11
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #9
+  tail call fastcc void @graphviz_exit() #10
   unreachable
 
 9:                                                ; preds = %2
   %10 = icmp ne i32 %0, 0
-  %11 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #12
+  %11 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #11
   %12 = icmp eq ptr %11, null
   %or.cond3.i = and i1 %10, %12
   br i1 %or.cond3.i, label %13, label %gv_calloc.exit
@@ -35,12 +35,12 @@ define ptr @call_tri(i32 noundef %0, ptr noundef readonly captures(none) %1) loc
 13:                                               ; preds = %9
   %14 = load ptr, ptr @stderr, align 8, !tbaa !7
   %15 = shl nuw nsw i64 %5, 3
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.1, i64 noundef %15) #10
-  tail call fastcc void @graphviz_exit() #11
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.1, i64 noundef %15) #9
+  tail call fastcc void @graphviz_exit() #10
   unreachable
 
 gv_calloc.exit:                                   ; preds = %9
-  %17 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #12
+  %17 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #11
   %18 = icmp eq ptr %17, null
   %or.cond3.i49 = and i1 %10, %18
   br i1 %or.cond3.i49, label %19, label %gv_calloc.exit50
@@ -48,12 +48,12 @@ gv_calloc.exit:                                   ; preds = %9
 19:                                               ; preds = %gv_calloc.exit
   %20 = load ptr, ptr @stderr, align 8, !tbaa !7
   %21 = shl nuw nsw i64 %5, 3
-  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.1, i64 noundef %21) #10
-  tail call fastcc void @graphviz_exit() #11
+  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.1, i64 noundef %21) #9
+  tail call fastcc void @graphviz_exit() #10
   unreachable
 
 gv_calloc.exit50:                                 ; preds = %gv_calloc.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !10
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph.preheader
@@ -82,12 +82,12 @@ gv_calloc.exit50:                                 ; preds = %gv_calloc.exit
   br i1 %29, label %30, label %._crit_edge.thread
 
 30:                                               ; preds = %._crit_edge
-  %31 = call ptr @delaunay_tri(ptr noundef nonnull %11, ptr noundef nonnull %17, i32 noundef %0, ptr noundef nonnull %4) #9
+  %31 = call ptr @delaunay_tri(ptr noundef nonnull %11, ptr noundef nonnull %17, i32 noundef %0, ptr noundef nonnull %4) #12
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %gv_calloc.exit50, %30, %._crit_edge
   %.046 = phi ptr [ %31, %30 ], [ null, %._crit_edge ], [ null, %gv_calloc.exit50 ]
-  %32 = call ptr @SparseMatrix_new(i32 noundef %0, i32 noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 1) #9
+  %32 = call ptr @SparseMatrix_new(i32 noundef %0, i32 noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 1) #12
   %33 = load i32, ptr %4, align 4, !tbaa !10
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %.lr.ph54, label %._crit_edge55
@@ -99,7 +99,7 @@ gv_calloc.exit50:                                 ; preds = %gv_calloc.exit
   %36 = load i32, ptr %35, align 4, !tbaa !10
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %38 = load i32, ptr %37, align 4, !tbaa !10
-  %39 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %32, i32 noundef %36, i32 noundef %38, ptr noundef nonnull %3) #9
+  %39 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %32, i32 noundef %36, i32 noundef %38, ptr noundef nonnull %3) #12
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %40 = load i32, ptr %4, align 4, !tbaa !10
   %41 = sext i32 %40 to i64
@@ -111,7 +111,7 @@ gv_calloc.exit50:                                 ; preds = %gv_calloc.exit
   br i1 %43, label %.thread, label %45
 
 .thread:                                          ; preds = %._crit_edge55
-  %44 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %32, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %3) #9
+  %44 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %32, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %3) #12
   br label %.lr.ph58.preheader
 
 45:                                               ; preds = %._crit_edge55
@@ -122,49 +122,43 @@ gv_calloc.exit50:                                 ; preds = %gv_calloc.exit
 
 .lr.ph58:                                         ; preds = %.lr.ph58.preheader, %.lr.ph58
   %.256 = phi i32 [ %47, %.lr.ph58 ], [ 0, %.lr.ph58.preheader ]
-  %46 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %32, i32 noundef %.256, i32 noundef %.256, ptr noundef nonnull %3) #9
+  %46 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %32, i32 noundef %.256, i32 noundef %.256, ptr noundef nonnull %3) #12
   %47 = add nuw nsw i32 %.256, 1
   %exitcond65.not = icmp eq i32 %47, %0
   br i1 %exitcond65.not, label %._crit_edge59, label %.lr.ph58, !llvm.loop !15
 
 ._crit_edge59:                                    ; preds = %.lr.ph58, %45
-  %48 = call ptr @SparseMatrix_from_coordinate_format(ptr noundef %32) #9
-  call void @SparseMatrix_delete(ptr noundef %32) #9
-  %49 = call ptr @SparseMatrix_symmetrize(ptr noundef %48, i1 noundef zeroext false) #9
-  call void @SparseMatrix_delete(ptr noundef %48) #9
-  call void @free(ptr noundef %.046) #9
-  call void @free(ptr noundef %11) #9
-  call void @free(ptr noundef %17) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  %48 = call ptr @SparseMatrix_from_coordinate_format(ptr noundef %32) #12
+  call void @SparseMatrix_delete(ptr noundef %32) #12
+  %49 = call ptr @SparseMatrix_symmetrize(ptr noundef %48, i1 noundef zeroext false) #12
+  call void @SparseMatrix_delete(ptr noundef %48) #12
+  call void @free(ptr noundef %.046) #12
+  call void @free(ptr noundef %11) #12
+  call void @free(ptr noundef %17) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %49
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @delaunay_tri(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @delaunay_tri(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SparseMatrix_new(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @SparseMatrix_new(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SparseMatrix_from_coordinate_format(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SparseMatrix_from_coordinate_format(ptr noundef) local_unnamed_addr #2
+declare void @SparseMatrix_delete(ptr noundef) local_unnamed_addr #1
 
-declare void @SparseMatrix_delete(ptr noundef) local_unnamed_addr #2
-
-declare ptr @SparseMatrix_symmetrize(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @SparseMatrix_symmetrize(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @call_tri2(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store double 1.000000e+00, ptr %4, align 8, !tbaa !3
   %5 = sext i32 %0 to i64
   %mul.ov.i = icmp slt i32 %0, 0
@@ -172,13 +166,13 @@ define ptr @call_tri2(i32 noundef %0, i32 noundef %1, ptr noundef readonly captu
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @stderr, align 8, !tbaa !7
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #10
-  tail call fastcc void @graphviz_exit() #11
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #9
+  tail call fastcc void @graphviz_exit() #10
   unreachable
 
 9:                                                ; preds = %3
   %10 = icmp ne i32 %0, 0
-  %11 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #12
+  %11 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #11
   %12 = icmp eq ptr %11, null
   %or.cond3.i = and i1 %10, %12
   br i1 %or.cond3.i, label %13, label %gv_calloc.exit
@@ -186,12 +180,12 @@ define ptr @call_tri2(i32 noundef %0, i32 noundef %1, ptr noundef readonly captu
 13:                                               ; preds = %9
   %14 = load ptr, ptr @stderr, align 8, !tbaa !7
   %15 = shl nuw nsw i64 %5, 3
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.1, i64 noundef %15) #10
-  tail call fastcc void @graphviz_exit() #11
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.1, i64 noundef %15) #9
+  tail call fastcc void @graphviz_exit() #10
   unreachable
 
 gv_calloc.exit:                                   ; preds = %9
-  %17 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #12
+  %17 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #11
   %18 = icmp eq ptr %17, null
   %or.cond3.i49 = and i1 %10, %18
   br i1 %or.cond3.i49, label %20, label %gv_calloc.exit50.preheader
@@ -208,8 +202,8 @@ gv_calloc.exit50.preheader61:                     ; preds = %gv_calloc.exit50.pr
 20:                                               ; preds = %gv_calloc.exit
   %21 = load ptr, ptr @stderr, align 8, !tbaa !7
   %22 = shl nuw nsw i64 %5, 3
-  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.1, i64 noundef %22) #10
-  tail call fastcc void @graphviz_exit() #11
+  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.1, i64 noundef %22) #9
+  tail call fastcc void @graphviz_exit() #10
   unreachable
 
 gv_calloc.exit50:                                 ; preds = %gv_calloc.exit50.preheader61, %gv_calloc.exit50
@@ -228,8 +222,8 @@ gv_calloc.exit50:                                 ; preds = %gv_calloc.exit50.pr
   br i1 %exitcond.not, label %gv_calloc.exit50._crit_edge, label %gv_calloc.exit50, !llvm.loop !16
 
 gv_calloc.exit50._crit_edge:                      ; preds = %gv_calloc.exit50, %gv_calloc.exit50.preheader
-  %31 = tail call ptr @UG_graph(ptr noundef %11, ptr noundef %17, i32 noundef %0) #9
-  %32 = tail call ptr @SparseMatrix_new(i32 noundef %0, i32 noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 1) #9
+  %31 = tail call ptr @UG_graph(ptr noundef %11, ptr noundef %17, i32 noundef %0) #12
+  %32 = tail call ptr @SparseMatrix_new(i32 noundef %0, i32 noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 1) #12
   br i1 %.not, label %._crit_edge58, label %.preheader51.preheader
 
 .preheader51.preheader:                           ; preds = %gv_calloc.exit50._crit_edge
@@ -257,7 +251,7 @@ gv_calloc.exit50._crit_edge:                      ; preds = %gv_calloc.exit50, %
   %39 = load ptr, ptr %36, align 8, !tbaa !21
   %40 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv63
   %41 = load i32, ptr %40, align 4, !tbaa !10
-  %42 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %32, i32 noundef %37, i32 noundef %41, ptr noundef nonnull %4) #9
+  %42 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %32, i32 noundef %37, i32 noundef %41, ptr noundef nonnull %4) #12
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %43 = load i32, ptr %33, align 8, !tbaa !17
   %44 = sext i32 %43 to i64
@@ -271,58 +265,64 @@ gv_calloc.exit50._crit_edge:                      ; preds = %gv_calloc.exit50, %
 
 .lr.ph57:                                         ; preds = %.lr.ph57.preheader, %.lr.ph57
   %.256 = phi i32 [ %47, %.lr.ph57 ], [ 0, %.lr.ph57.preheader ]
-  %46 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %32, i32 noundef %.256, i32 noundef %.256, ptr noundef nonnull %4) #9
+  %46 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %32, i32 noundef %.256, i32 noundef %.256, ptr noundef nonnull %4) #12
   %47 = add nuw nsw i32 %.256, 1
   %exitcond72.not = icmp eq i32 %47, %smax71
   br i1 %exitcond72.not, label %._crit_edge58, label %.lr.ph57, !llvm.loop !24
 
 ._crit_edge58:                                    ; preds = %.lr.ph57, %gv_calloc.exit50._crit_edge
-  %48 = call ptr @SparseMatrix_from_coordinate_format(ptr noundef %32) #9
-  %49 = call ptr @SparseMatrix_symmetrize(ptr noundef %48, i1 noundef zeroext false) #9
-  call void @SparseMatrix_delete(ptr noundef %48) #9
-  call void @SparseMatrix_delete(ptr noundef %32) #9
-  call void @free(ptr noundef %11) #9
-  call void @free(ptr noundef %17) #9
-  call void @freeGraph(ptr noundef %31) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  %48 = call ptr @SparseMatrix_from_coordinate_format(ptr noundef %32) #12
+  %49 = call ptr @SparseMatrix_symmetrize(ptr noundef %48, i1 noundef zeroext false) #12
+  call void @SparseMatrix_delete(ptr noundef %48) #12
+  call void @SparseMatrix_delete(ptr noundef %32) #12
+  call void @free(ptr noundef %11) #12
+  call void @free(ptr noundef %17) #12
+  call void @freeGraph(ptr noundef %31) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %49
 }
 
-declare ptr @UG_graph(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @UG_graph(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @freeGraph(ptr noundef) local_unnamed_addr #2
+declare void @freeGraph(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: cold inlinehint nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #5 {
+define internal fastcc void @graphviz_exit() unnamed_addr #4 {
   tail call void @exit(i32 noundef 1) #13
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #7
+declare void @exit(i32 noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold inlinehint nofree noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold inlinehint nofree noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { cold nounwind }
-attributes #11 = { noreturn }
-attributes #12 = { nounwind allocsize(0,1) }
+attributes #9 = { cold nounwind }
+attributes #10 = { noreturn }
+attributes #11 = { nounwind allocsize(0,1) }
+attributes #12 = { nounwind }
 attributes #13 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

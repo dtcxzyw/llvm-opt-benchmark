@@ -37,10 +37,10 @@ define hidden range(i32 -1, 2) i32 @lanalyzer_open(ptr noundef %0, ptr noundef %
   %5 = alloca [2 x i8], align 1
   %6 = alloca [210 x i8], align 16
   %7 = alloca %struct.tm, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 210, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load ptr, ptr %0, align 8
   %9 = call zeroext i1 @wtap_read_bytes(ptr noundef %8, ptr noundef nonnull %4, i32 noundef 4, ptr noundef %1, ptr noundef %2)
   br i1 %9, label %12, label %10
@@ -90,7 +90,7 @@ define hidden range(i32 -1, 2) i32 @lanalyzer_open(ptr noundef %0, ptr noundef %
   %29 = zext i16 %27 to i32
   %30 = add nuw nsw i32 %29, 1
   %31 = zext nneg i32 %30 to i64
-  %32 = call noalias ptr @g_malloc(i64 noundef %31) #11
+  %32 = call noalias ptr @g_malloc(i64 noundef %31) #10
   %33 = load ptr, ptr %0, align 8
   %34 = call zeroext i1 @wtap_read_bytes(ptr noundef %33, ptr noundef %32, i32 noundef %29, ptr noundef %1, ptr noundef %2)
   br i1 %34, label %37, label %35
@@ -190,7 +190,7 @@ define hidden range(i32 -1, 2) i32 @lanalyzer_open(ptr noundef %0, ptr noundef %
   store i32 0, ptr %53, align 4
   store i32 0, ptr %7, align 8
   store i32 -1, ptr %54, align 8
-  %82 = call i64 @mktime(ptr noundef nonnull %7) #10
+  %82 = call i64 @mktime(ptr noundef nonnull %7) #11
   %.val117 = load i8, ptr %55, align 2
   %.val118 = load i8, ptr %56, align 1
   %83 = zext i8 %.val118 to i16
@@ -279,7 +279,7 @@ define hidden range(i32 -1, 2) i32 @lanalyzer_open(ptr noundef %0, ptr noundef %
   %121 = load i32, ptr @lanalyzer_file_type_subtype, align 4
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %121, ptr %122, align 4
-  %123 = call noalias dereferenceable_or_null(8) ptr @g_malloc(i64 noundef 8) #11
+  %123 = call noalias dereferenceable_or_null(8) ptr @g_malloc(i64 noundef 8) #10
   store i64 %.096145, ptr %123, align 8
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %123, ptr %124, align 8
@@ -299,42 +299,36 @@ define hidden range(i32 -1, 2) i32 @lanalyzer_open(ptr noundef %0, ptr noundef %
 
 .loopexit:                                        ; preds = %109, %101, %71, %105, %._crit_edge, %35, %24, %19, %12, %10, %120, %118, %97, %92, %68
   %.0 = phi i32 [ -1, %68 ], [ -1, %92 ], [ -1, %97 ], [ 1, %120 ], [ -1, %118 ], [ %., %10 ], [ 0, %12 ], [ 0, %19 ], [ %.106, %24 ], [ %.107, %35 ], [ -1, %._crit_edge ], [ -1, %105 ], [ -1, %71 ], [ -1, %101 ], [ -1, %109 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 210, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #3
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_free(ptr noundef) local_unnamed_addr #2
+declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_block_add_string_option(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @wtap_block_add_string_option(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn
-declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @lanalyzer_read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4) #0 {
@@ -374,7 +368,7 @@ define internal noundef zeroext i1 @lanalyzer_seek_read(ptr noundef readonly cap
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wtap_add_generated_idb(ptr noundef) local_unnamed_addr #2
+declare void @wtap_add_generated_idb(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @register_lanalyzer() local_unnamed_addr #0 {
@@ -385,22 +379,22 @@ define hidden void @register_lanalyzer() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_register_file_type_subtype(ptr noundef) local_unnamed_addr #2
+declare i32 @wtap_register_file_type_subtype(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @file_tell(ptr noundef) local_unnamed_addr #2
+declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc zeroext i1 @lanalyzer_read_trace_record(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca [2 x i8], align 1
   %7 = alloca [2 x i8], align 1
   %8 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 2, ptr noundef %3, ptr noundef %4)
   br i1 %9, label %10, label %87
 
@@ -535,23 +529,23 @@ define internal fastcc zeroext i1 @lanalyzer_read_trace_record(ptr noundef reado
 
 87:                                               ; preds = %31, %10, %5, %84, %42, %29, %18
   %.0 = phi i1 [ false, %18 ], [ false, %29 ], [ false, %42 ], [ %86, %84 ], [ false, %5 ], [ false, %10 ], [ false, %31 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #2
+declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wtap_read_bytes_buffer(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @wtap_read_bytes_buffer(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef range(i32 -9, 1) i32 @lanalyzer_dump_can_write_encap(i32 noundef %0) #5 {
+define internal noundef range(i32 -9, 1) i32 @lanalyzer_dump_can_write_encap(i32 noundef %0) #4 {
   %2 = icmp eq i32 %0, -1
   %3 = add i32 %0, -3
   %or.cond = icmp ult i32 %3, -2
@@ -562,7 +556,7 @@ define internal noundef range(i32 -9, 1) i32 @lanalyzer_dump_can_write_encap(i32
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @lanalyzer_dump_open(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
-  %4 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc(i64 noundef 40) #11
+  %4 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc(i64 noundef 40) #10
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %8
 
@@ -595,7 +589,7 @@ define internal noundef zeroext i1 @lanalyzer_dump_open(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #6
+declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @lanalyzer_dump(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
@@ -610,7 +604,7 @@ define internal zeroext i1 @lanalyzer_dump(ptr noundef %0, ptr noundef %1, ptr n
   %14 = alloca %struct.nstime_t, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %18 = load i32, ptr %17, align 8
   %19 = add i32 %18, 36
@@ -658,18 +652,18 @@ define internal zeroext i1 @lanalyzer_dump(ptr noundef %0, ptr noundef %1, ptr n
   br label %96
 
 40:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %13) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i16 4101, ptr %13, align 2
   %41 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %13, i64 noundef 2, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %41, label %42, label %96
 
 42:                                               ; preds = %40
   %43 = trunc i32 %37 to i16
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %12) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i16 %43, ptr %12, align 2
   %44 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %12, i64 noundef 2, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %44, label %45, label %96
 
 45:                                               ; preds = %42
@@ -692,17 +686,17 @@ define internal zeroext i1 @lanalyzer_dump(ptr noundef %0, ptr noundef %1, ptr n
   br label %55
 
 55:                                               ; preds = %48, %45
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i16 1, ptr %11, align 2
   %56 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %11, i64 noundef 2, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %56, label %57, label %96
 
 57:                                               ; preds = %55
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i16 8, ptr %10, align 2
   %58 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 2, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %58, label %59, label %96
 
 59:                                               ; preds = %57
@@ -710,19 +704,19 @@ define internal zeroext i1 @lanalyzer_dump(ptr noundef %0, ptr noundef %1, ptr n
   %61 = load i32, ptr %60, align 4
   %62 = trunc i32 %61 to i16
   %63 = add i16 %62, 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i16 %63, ptr %9, align 2
   %64 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 2, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %64, label %65, label %96
 
 65:                                               ; preds = %59
   %66 = load i32, ptr %17, align 8
   %67 = trunc i32 %66 to i16
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i16 %67, ptr %8, align 2
   %68 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %68, label %69, label %96
 
 69:                                               ; preds = %65
@@ -745,20 +739,20 @@ define internal zeroext i1 @lanalyzer_dump(ptr noundef %0, ptr noundef %1, ptr n
   %83 = load i32, ptr %82, align 8
   %84 = add i32 %83, 1
   store i32 %84, ptr %82, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %84, ptr %7, align 4
   %85 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 4, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %85, label %86, label %96
 
 86:                                               ; preds = %81
   %87 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %88 = load i32, ptr %87, align 8
   %89 = trunc i32 %88 to i16
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i16 %89, ptr %6, align 2
   %90 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 2, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %90, label %s0write.exit, label %96
 
 s0write.exit:                                     ; preds = %86
@@ -774,7 +768,7 @@ s0write.exit:                                     ; preds = %86
 
 96:                                               ; preds = %92, %s0write.exit, %86, %81, %69, %65, %59, %57, %55, %42, %40, %39, %34, %27, %21
   %.0 = phi i1 [ false, %21 ], [ false, %27 ], [ false, %34 ], [ false, %39 ], [ false, %40 ], [ false, %42 ], [ false, %55 ], [ false, %57 ], [ false, %59 ], [ false, %65 ], [ false, %69 ], [ false, %81 ], [ false, %86 ], [ false, %s0write.exit ], [ %95, %92 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i1 %.0
 }
 
@@ -818,7 +812,7 @@ define internal zeroext i1 @lanalyzer_dump_finish(ptr noundef %0, ptr noundef %1
   %39 = icmp eq i32 %38, 2
   %40 = select i1 %39, i16 227, i16 226
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %42 = tail call ptr @localtime(ptr noundef nonnull %41) #10
+  %42 = tail call ptr @localtime(ptr noundef nonnull %41) #11
   %43 = icmp eq ptr %42, null
   br i1 %43, label %lanalyzer_dump_header.exit, label %44
 
@@ -852,27 +846,27 @@ define internal zeroext i1 @lanalyzer_dump_finish(ptr noundef %0, ptr noundef %1
   br i1 %58, label %59, label %lanalyzer_dump_header.exit
 
 59:                                               ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %32) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i16 4098, ptr %32, align 2
   %60 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %32, i64 noundef 2, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %32) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br i1 %60, label %61, label %lanalyzer_dump_header.exit
 
 61:                                               ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %31) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i16 210, ptr %31, align 2
   %62 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %31, i64 noundef 2, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %31) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br i1 %62, label %63, label %lanalyzer_dump_header.exit
 
 63:                                               ; preds = %61
   %64 = getelementptr inbounds nuw i8, ptr %42, i64 12
   %65 = load i32, ptr %64, align 4
   %66 = trunc i32 %65 to i8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i8 %66, ptr %30, align 1
   %67 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %30, i64 noundef 1, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br i1 %67, label %68, label %lanalyzer_dump_header.exit
 
 68:                                               ; preds = %63
@@ -880,10 +874,10 @@ define internal zeroext i1 @lanalyzer_dump_finish(ptr noundef %0, ptr noundef %1
   %70 = load i32, ptr %69, align 8
   %71 = trunc i32 %70 to i8
   %72 = add i8 %71, 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i8 %72, ptr %29, align 1
   %73 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %29, i64 noundef 1, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br i1 %73, label %74, label %lanalyzer_dump_header.exit
 
 74:                                               ; preds = %68
@@ -891,77 +885,77 @@ define internal zeroext i1 @lanalyzer_dump_finish(ptr noundef %0, ptr noundef %1
   %76 = load i32, ptr %75, align 4
   %77 = trunc i32 %76 to i16
   %78 = add i16 %77, 1900
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %28) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store i16 %78, ptr %28, align 2
   %79 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %28, i64 noundef 2, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %28) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br i1 %79, label %80, label %lanalyzer_dump_header.exit
 
 80:                                               ; preds = %74
   %81 = load i32, ptr %64, align 4
   %82 = trunc i32 %81 to i8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i8 %82, ptr %27, align 1
   %83 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %27, i64 noundef 1, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br i1 %83, label %84, label %lanalyzer_dump_header.exit
 
 84:                                               ; preds = %80
   %85 = load i32, ptr %69, align 8
   %86 = trunc i32 %85 to i8
   %87 = add i8 %86, 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i8 %87, ptr %26, align 1
   %88 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %26, i64 noundef 1, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br i1 %88, label %89, label %lanalyzer_dump_header.exit
 
 89:                                               ; preds = %84
   %90 = load i32, ptr %75, align 4
   %91 = trunc i32 %90 to i16
   %92 = add i16 %91, 1900
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %25) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i16 %92, ptr %25, align 2
   %93 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %25, i64 noundef 2, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %25) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br i1 %93, label %94, label %lanalyzer_dump_header.exit
 
 94:                                               ; preds = %89
   %95 = load i32, ptr %42, align 8
   %96 = trunc i32 %95 to i8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i8 %96, ptr %24, align 1
   %97 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %24, i64 noundef 1, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br i1 %97, label %98, label %lanalyzer_dump_header.exit
 
 98:                                               ; preds = %94
   %99 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %100 = load i32, ptr %99, align 4
   %101 = trunc i32 %100 to i8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i8 %101, ptr %23, align 1
   %102 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %23, i64 noundef 1, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br i1 %102, label %103, label %lanalyzer_dump_header.exit
 
 103:                                              ; preds = %98
   %104 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %105 = load i32, ptr %104, align 8
   %106 = trunc i32 %105 to i8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i8 %106, ptr %22, align 1
   %107 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %22, i64 noundef 1, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br i1 %107, label %108, label %lanalyzer_dump_header.exit
 
 108:                                              ; preds = %103
   %109 = load i32, ptr %64, align 4
   %110 = trunc i32 %109 to i8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i8 %110, ptr %21, align 1
   %111 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %21, i64 noundef 1, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br i1 %111, label %.preheader140.preheader.i, label %lanalyzer_dump_header.exit
 
 .preheader140.preheader.i:                        ; preds = %108
@@ -971,37 +965,37 @@ define internal zeroext i1 @lanalyzer_dump_finish(ptr noundef %0, ptr noundef %1
 113:                                              ; preds = %.preheader140.preheader.i
   %114 = load i32, ptr %42, align 8
   %115 = trunc i32 %114 to i8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i8 %115, ptr %20, align 1
   %116 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %20, i64 noundef 1, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br i1 %116, label %117, label %lanalyzer_dump_header.exit
 
 117:                                              ; preds = %113
   %118 = load i32, ptr %99, align 4
   %119 = trunc i32 %118 to i8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i8 %119, ptr %19, align 1
   %120 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %19, i64 noundef 1, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br i1 %120, label %121, label %lanalyzer_dump_header.exit
 
 121:                                              ; preds = %117
   %122 = load i32, ptr %104, align 8
   %123 = trunc i32 %122 to i8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i8 %123, ptr %18, align 1
   %124 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %18, i64 noundef 1, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br i1 %124, label %125, label %lanalyzer_dump_header.exit
 
 125:                                              ; preds = %121
   %126 = load i32, ptr %64, align 4
   %127 = trunc i32 %126 to i8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i8 %127, ptr %17, align 1
   %128 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %17, i64 noundef 1, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br i1 %128, label %.preheader139.preheader.i, label %lanalyzer_dump_header.exit
 
 .preheader139.preheader.i:                        ; preds = %125
@@ -1013,33 +1007,33 @@ define internal zeroext i1 @lanalyzer_dump_finish(ptr noundef %0, ptr noundef %1
   br i1 %130, label %131, label %lanalyzer_dump_header.exit
 
 131:                                              ; preds = %.preheader138.preheader.i
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %16) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i16 1, ptr %16, align 2
   %132 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %16, i64 noundef 2, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %16) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br i1 %132, label %133, label %lanalyzer_dump_header.exit
 
 133:                                              ; preds = %131
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %15) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i16 0, ptr %15, align 2
   %134 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %15, i64 noundef 2, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %134, label %135, label %lanalyzer_dump_header.exit
 
 135:                                              ; preds = %133
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %14) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i16 1514, ptr %14, align 2
   %136 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %14, i64 noundef 2, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %14) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %136, label %137, label %lanalyzer_dump_header.exit
 
 137:                                              ; preds = %135
   %138 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %139 = load i32, ptr %138, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 %139, ptr %13, align 4
   %140 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %13, i64 noundef 4, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %140, label %.preheader137.preheader.i, label %lanalyzer_dump_header.exit
 
 .preheader137.preheader.i:                        ; preds = %137
@@ -1048,10 +1042,10 @@ define internal zeroext i1 @lanalyzer_dump_finish(ptr noundef %0, ptr noundef %1
 
 142:                                              ; preds = %.preheader137.preheader.i
   %143 = load i32, ptr %138, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %143, ptr %12, align 4
   %144 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %12, i64 noundef 4, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %144, label %.preheader136.i, label %lanalyzer_dump_header.exit
 
 .preheader136.i:                                  ; preds = %142, %.preheader136.i
@@ -1067,10 +1061,10 @@ s0write.exit126.i:                                ; preds = %.preheader136.i
   br i1 %146, label %148, label %lanalyzer_dump_header.exit
 
 148:                                              ; preds = %s0write.exit126.i
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i16 %40, ptr %11, align 2
   %149 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %11, i64 noundef 2, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %149, label %.preheader135.preheader.i, label %lanalyzer_dump_header.exit
 
 .preheader135.preheader.i:                        ; preds = %148
@@ -1078,32 +1072,32 @@ s0write.exit126.i:                                ; preds = %.preheader136.i
   br i1 %150, label %151, label %lanalyzer_dump_header.exit
 
 151:                                              ; preds = %.preheader135.preheader.i
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i16 4099, ptr %10, align 2
   %152 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 2, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %152, label %153, label %lanalyzer_dump_header.exit
 
 153:                                              ; preds = %151
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i16 6, ptr %9, align 2
   %154 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 2, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %154, label %155, label %lanalyzer_dump_header.exit
 
 155:                                              ; preds = %153
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i16 1, ptr %8, align 2
   %156 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %156, label %157, label %lanalyzer_dump_header.exit
 
 157:                                              ; preds = %155
   %158 = load i32, ptr %138, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %158, ptr %7, align 4
   %159 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 4, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %159, label %160, label %lanalyzer_dump_header.exit
 
 160:                                              ; preds = %157
@@ -1111,24 +1105,24 @@ s0write.exit126.i:                                ; preds = %.preheader136.i
   br i1 %161, label %162, label %lanalyzer_dump_header.exit
 
 162:                                              ; preds = %160
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i16 4100, ptr %6, align 2
   %163 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 2, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %163, label %164, label %lanalyzer_dump_header.exit
 
 164:                                              ; preds = %162
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 2014, ptr %5, align 2
   %165 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %5, i64 noundef 2, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %165, label %166, label %lanalyzer_dump_header.exit
 
 166:                                              ; preds = %164
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 500, ptr %4, align 2
   %167 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 2, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %167, label %.preheader.i, label %lanalyzer_dump_header.exit
 
 .preheader.i:                                     ; preds = %166, %.preheader.i
@@ -1148,23 +1142,23 @@ lanalyzer_dump_header.exit:                       ; preds = %.preheader.i, %3, %
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @wtap_dump_file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @wtap_dump_file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
-declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc zeroext i1 @s48write(ptr noundef %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i16, align 2
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = lshr i64 %1, 32
   %7 = trunc i64 %6 to i16
   store i16 %7, ptr %4, align 2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = trunc i64 %1 to i32
   store i32 %8, ptr %5, align 4
   %9 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %5, i64 noundef 4, ptr noundef %2)
@@ -1176,32 +1170,38 @@ define internal fastcc zeroext i1 @s48write(ptr noundef %0, i64 noundef %1, ptr 
 
 12:                                               ; preds = %10, %3
   %13 = phi i1 [ false, %3 ], [ %11, %10 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %13
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wtap_dump_file_write(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @wtap_dump_file_write(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind null_pointer_is_valid
-declare ptr @localtime(ptr noundef) local_unnamed_addr #8
+declare ptr @localtime(ptr noundef) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind null_pointer_is_valid willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind null_pointer_is_valid willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { allocsize(0) }
+attributes #10 = { allocsize(0) }
+attributes #11 = { nounwind }
 attributes #12 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}

@@ -1265,7 +1265,7 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %205 = alloca %class.symbol, align 8
   %206 = alloca %class.symbol, align 8
   %207 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str)
   %208 = load i64, ptr %2, align 8, !tbaa !4
   store i64 %208, ptr %207, align 8, !tbaa !4
@@ -1274,9 +1274,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %210 = getelementptr inbounds nuw i8, ptr %207, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_258__invokeER11ast_managerRK10params_ref", ptr %210, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %207)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %211 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.2)
   %212 = load i64, ptr %3, align 8, !tbaa !4
   store i64 %212, ptr %211, align 8, !tbaa !4
@@ -1285,9 +1285,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %214 = getelementptr inbounds nuw i8, ptr %211, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_268__invokeER11ast_managerRK10params_ref", ptr %214, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %211)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %215 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.4)
   %216 = load i64, ptr %4, align 8, !tbaa !4
   store i64 %216, ptr %215, align 8, !tbaa !4
@@ -1296,9 +1296,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %218 = getelementptr inbounds nuw i8, ptr %215, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_278__invokeER11ast_managerRK10params_ref", ptr %218, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %215)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %219 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.6)
   %220 = load i64, ptr %5, align 8, !tbaa !4
   store i64 %220, ptr %219, align 8, !tbaa !4
@@ -1307,9 +1307,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %222 = getelementptr inbounds nuw i8, ptr %219, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_288__invokeER11ast_managerRK10params_ref", ptr %222, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %219)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %223 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.8)
   %224 = load i64, ptr %6, align 8, !tbaa !4
   store i64 %224, ptr %223, align 8, !tbaa !4
@@ -1318,9 +1318,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %226 = getelementptr inbounds nuw i8, ptr %223, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_298__invokeER11ast_managerRK10params_ref", ptr %226, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %223)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %227 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.10)
   %228 = load i64, ptr %7, align 8, !tbaa !4
   store i64 %228, ptr %227, align 8, !tbaa !4
@@ -1329,9 +1329,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %230 = getelementptr inbounds nuw i8, ptr %227, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_308__invokeER11ast_managerRK10params_ref", ptr %230, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %227)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %231 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.12)
   %232 = load i64, ptr %8, align 8, !tbaa !4
   store i64 %232, ptr %231, align 8, !tbaa !4
@@ -1340,9 +1340,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %234 = getelementptr inbounds nuw i8, ptr %231, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_318__invokeER11ast_managerRK10params_ref", ptr %234, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %231)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %235 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.14)
   %236 = load i64, ptr %9, align 8, !tbaa !4
   store i64 %236, ptr %235, align 8, !tbaa !4
@@ -1351,9 +1351,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %238 = getelementptr inbounds nuw i8, ptr %235, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_328__invokeER11ast_managerRK10params_ref", ptr %238, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %235)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %239 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull @.str.16)
   %240 = load i64, ptr %10, align 8, !tbaa !4
   store i64 %240, ptr %239, align 8, !tbaa !4
@@ -1362,9 +1362,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %242 = getelementptr inbounds nuw i8, ptr %239, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_338__invokeER11ast_managerRK10params_ref", ptr %242, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %239)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %243 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @.str.18)
   %244 = load i64, ptr %11, align 8, !tbaa !4
   store i64 %244, ptr %243, align 8, !tbaa !4
@@ -1373,9 +1373,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %246 = getelementptr inbounds nuw i8, ptr %243, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_348__invokeER11ast_managerRK10params_ref", ptr %246, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %243)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %247 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.20)
   %248 = load i64, ptr %12, align 8, !tbaa !4
   store i64 %248, ptr %247, align 8, !tbaa !4
@@ -1384,9 +1384,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %250 = getelementptr inbounds nuw i8, ptr %247, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_358__invokeER11ast_managerRK10params_ref", ptr %250, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %247)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %251 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.22)
   %252 = load i64, ptr %13, align 8, !tbaa !4
   store i64 %252, ptr %251, align 8, !tbaa !4
@@ -1395,9 +1395,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %254 = getelementptr inbounds nuw i8, ptr %251, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_368__invokeER11ast_managerRK10params_ref", ptr %254, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %251)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %255 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @.str.24)
   %256 = load i64, ptr %14, align 8, !tbaa !4
   store i64 %256, ptr %255, align 8, !tbaa !4
@@ -1406,9 +1406,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %258 = getelementptr inbounds nuw i8, ptr %255, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_378__invokeER11ast_managerRK10params_ref", ptr %258, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %255)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %259 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull @.str.26)
   %260 = load i64, ptr %15, align 8, !tbaa !4
   store i64 %260, ptr %259, align 8, !tbaa !4
@@ -1417,9 +1417,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %262 = getelementptr inbounds nuw i8, ptr %259, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_388__invokeER11ast_managerRK10params_ref", ptr %262, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %259)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %263 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull @.str.28)
   %264 = load i64, ptr %16, align 8, !tbaa !4
   store i64 %264, ptr %263, align 8, !tbaa !4
@@ -1428,9 +1428,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %266 = getelementptr inbounds nuw i8, ptr %263, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_398__invokeER11ast_managerRK10params_ref", ptr %266, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %263)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %267 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.30)
   %268 = load i64, ptr %17, align 8, !tbaa !4
   store i64 %268, ptr %267, align 8, !tbaa !4
@@ -1439,9 +1439,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %270 = getelementptr inbounds nuw i8, ptr %267, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_408__invokeER11ast_managerRK10params_ref", ptr %270, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %267)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %271 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull @.str.32)
   %272 = load i64, ptr %18, align 8, !tbaa !4
   store i64 %272, ptr %271, align 8, !tbaa !4
@@ -1450,9 +1450,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %274 = getelementptr inbounds nuw i8, ptr %271, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_418__invokeER11ast_managerRK10params_ref", ptr %274, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %271)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %275 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.34)
   %276 = load i64, ptr %19, align 8, !tbaa !4
   store i64 %276, ptr %275, align 8, !tbaa !4
@@ -1461,9 +1461,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %278 = getelementptr inbounds nuw i8, ptr %275, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_428__invokeER11ast_managerRK10params_ref", ptr %278, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %275)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %279 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @.str.36)
   %280 = load i64, ptr %20, align 8, !tbaa !4
   store i64 %280, ptr %279, align 8, !tbaa !4
@@ -1472,9 +1472,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %282 = getelementptr inbounds nuw i8, ptr %279, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_438__invokeER11ast_managerRK10params_ref", ptr %282, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %279)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %283 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull @.str.38)
   %284 = load i64, ptr %21, align 8, !tbaa !4
   store i64 %284, ptr %283, align 8, !tbaa !4
@@ -1483,9 +1483,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %286 = getelementptr inbounds nuw i8, ptr %283, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_448__invokeER11ast_managerRK10params_ref", ptr %286, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %283)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %287 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.40)
   %288 = load i64, ptr %22, align 8, !tbaa !4
   store i64 %288, ptr %287, align 8, !tbaa !4
@@ -1494,9 +1494,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %290 = getelementptr inbounds nuw i8, ptr %287, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_458__invokeER11ast_managerRK10params_ref", ptr %290, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %287)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %291 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull @.str.42)
   %292 = load i64, ptr %23, align 8, !tbaa !4
   store i64 %292, ptr %291, align 8, !tbaa !4
@@ -1505,9 +1505,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %294 = getelementptr inbounds nuw i8, ptr %291, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_468__invokeER11ast_managerRK10params_ref", ptr %294, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %291)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %295 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull @.str.44)
   %296 = load i64, ptr %24, align 8, !tbaa !4
   store i64 %296, ptr %295, align 8, !tbaa !4
@@ -1516,9 +1516,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %298 = getelementptr inbounds nuw i8, ptr %295, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_478__invokeER11ast_managerRK10params_ref", ptr %298, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %295)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %299 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull @.str.46)
   %300 = load i64, ptr %25, align 8, !tbaa !4
   store i64 %300, ptr %299, align 8, !tbaa !4
@@ -1527,9 +1527,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %302 = getelementptr inbounds nuw i8, ptr %299, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_488__invokeER11ast_managerRK10params_ref", ptr %302, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %299)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %303 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.48)
   %304 = load i64, ptr %26, align 8, !tbaa !4
   store i64 %304, ptr %303, align 8, !tbaa !4
@@ -1538,9 +1538,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %306 = getelementptr inbounds nuw i8, ptr %303, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_498__invokeER11ast_managerRK10params_ref", ptr %306, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %303)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %307 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull @.str.50)
   %308 = load i64, ptr %27, align 8, !tbaa !4
   store i64 %308, ptr %307, align 8, !tbaa !4
@@ -1549,9 +1549,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %310 = getelementptr inbounds nuw i8, ptr %307, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_508__invokeER11ast_managerRK10params_ref", ptr %310, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %307)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %311 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.52)
   %312 = load i64, ptr %28, align 8, !tbaa !4
   store i64 %312, ptr %311, align 8, !tbaa !4
@@ -1560,9 +1560,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %314 = getelementptr inbounds nuw i8, ptr %311, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_518__invokeER11ast_managerRK10params_ref", ptr %314, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %311)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %315 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull @.str.54)
   %316 = load i64, ptr %29, align 8, !tbaa !4
   store i64 %316, ptr %315, align 8, !tbaa !4
@@ -1571,9 +1571,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %318 = getelementptr inbounds nuw i8, ptr %315, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_528__invokeER11ast_managerRK10params_ref", ptr %318, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %315)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %319 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull @.str.56)
   %320 = load i64, ptr %30, align 8, !tbaa !4
   store i64 %320, ptr %319, align 8, !tbaa !4
@@ -1582,9 +1582,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %322 = getelementptr inbounds nuw i8, ptr %319, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_538__invokeER11ast_managerRK10params_ref", ptr %322, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %319)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %323 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull @.str.58)
   %324 = load i64, ptr %31, align 8, !tbaa !4
   store i64 %324, ptr %323, align 8, !tbaa !4
@@ -1593,9 +1593,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %326 = getelementptr inbounds nuw i8, ptr %323, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_548__invokeER11ast_managerRK10params_ref", ptr %326, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %323)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   %327 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull @.str.60)
   %328 = load i64, ptr %32, align 8, !tbaa !4
   store i64 %328, ptr %327, align 8, !tbaa !4
@@ -1604,9 +1604,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %330 = getelementptr inbounds nuw i8, ptr %327, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_558__invokeER11ast_managerRK10params_ref", ptr %330, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %327)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %331 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull @.str.62)
   %332 = load i64, ptr %33, align 8, !tbaa !4
   store i64 %332, ptr %331, align 8, !tbaa !4
@@ -1615,9 +1615,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %334 = getelementptr inbounds nuw i8, ptr %331, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_568__invokeER11ast_managerRK10params_ref", ptr %334, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %331)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   %335 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull @.str.63)
   %336 = load i64, ptr %34, align 8, !tbaa !4
   store i64 %336, ptr %335, align 8, !tbaa !4
@@ -1626,9 +1626,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %338 = getelementptr inbounds nuw i8, ptr %335, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_578__invokeER11ast_managerRK10params_ref", ptr %338, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %335)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %339 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull @.str.65)
   %340 = load i64, ptr %35, align 8, !tbaa !4
   store i64 %340, ptr %339, align 8, !tbaa !4
@@ -1637,9 +1637,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %342 = getelementptr inbounds nuw i8, ptr %339, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_588__invokeER11ast_managerRK10params_ref", ptr %342, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %339)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   %343 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull @.str.67)
   %344 = load i64, ptr %36, align 8, !tbaa !4
   store i64 %344, ptr %343, align 8, !tbaa !4
@@ -1648,9 +1648,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %346 = getelementptr inbounds nuw i8, ptr %343, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_598__invokeER11ast_managerRK10params_ref", ptr %346, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %343)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %347 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull @.str.69)
   %348 = load i64, ptr %37, align 8, !tbaa !4
   store i64 %348, ptr %347, align 8, !tbaa !4
@@ -1659,9 +1659,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %350 = getelementptr inbounds nuw i8, ptr %347, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_608__invokeER11ast_managerRK10params_ref", ptr %350, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %347)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   %351 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull @.str.71)
   %352 = load i64, ptr %38, align 8, !tbaa !4
   store i64 %352, ptr %351, align 8, !tbaa !4
@@ -1670,9 +1670,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %354 = getelementptr inbounds nuw i8, ptr %351, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_618__invokeER11ast_managerRK10params_ref", ptr %354, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %351)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   %355 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull @.str.73)
   %356 = load i64, ptr %39, align 8, !tbaa !4
   store i64 %356, ptr %355, align 8, !tbaa !4
@@ -1681,9 +1681,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %358 = getelementptr inbounds nuw i8, ptr %355, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_628__invokeER11ast_managerRK10params_ref", ptr %358, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %355)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   %359 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull @.str.75)
   %360 = load i64, ptr %40, align 8, !tbaa !4
   store i64 %360, ptr %359, align 8, !tbaa !4
@@ -1692,9 +1692,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %362 = getelementptr inbounds nuw i8, ptr %359, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_638__invokeER11ast_managerRK10params_ref", ptr %362, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %359)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   %363 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull @.str.77)
   %364 = load i64, ptr %41, align 8, !tbaa !4
   store i64 %364, ptr %363, align 8, !tbaa !4
@@ -1703,9 +1703,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %366 = getelementptr inbounds nuw i8, ptr %363, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_648__invokeER11ast_managerRK10params_ref", ptr %366, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %363)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   %367 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull @.str.78)
   %368 = load i64, ptr %42, align 8, !tbaa !4
   store i64 %368, ptr %367, align 8, !tbaa !4
@@ -1714,9 +1714,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %370 = getelementptr inbounds nuw i8, ptr %367, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_658__invokeER11ast_managerRK10params_ref", ptr %370, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %367)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   %371 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull @.str.80)
   %372 = load i64, ptr %43, align 8, !tbaa !4
   store i64 %372, ptr %371, align 8, !tbaa !4
@@ -1725,9 +1725,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %374 = getelementptr inbounds nuw i8, ptr %371, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_668__invokeER11ast_managerRK10params_ref", ptr %374, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %371)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   %375 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull @.str.82)
   %376 = load i64, ptr %44, align 8, !tbaa !4
   store i64 %376, ptr %375, align 8, !tbaa !4
@@ -1736,9 +1736,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %378 = getelementptr inbounds nuw i8, ptr %375, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_678__invokeER11ast_managerRK10params_ref", ptr %378, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %375)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   %379 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull @.str.84)
   %380 = load i64, ptr %45, align 8, !tbaa !4
   store i64 %380, ptr %379, align 8, !tbaa !4
@@ -1747,9 +1747,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %382 = getelementptr inbounds nuw i8, ptr %379, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_688__invokeER11ast_managerRK10params_ref", ptr %382, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %379)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   %383 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull @.str.86)
   %384 = load i64, ptr %46, align 8, !tbaa !4
   store i64 %384, ptr %383, align 8, !tbaa !4
@@ -1758,9 +1758,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %386 = getelementptr inbounds nuw i8, ptr %383, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_698__invokeER11ast_managerRK10params_ref", ptr %386, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %383)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   %387 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull @.str.88)
   %388 = load i64, ptr %47, align 8, !tbaa !4
   store i64 %388, ptr %387, align 8, !tbaa !4
@@ -1769,9 +1769,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %390 = getelementptr inbounds nuw i8, ptr %387, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_708__invokeER11ast_managerRK10params_ref", ptr %390, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %387)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %391 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef nonnull @.str.90)
   %392 = load i64, ptr %48, align 8, !tbaa !4
   store i64 %392, ptr %391, align 8, !tbaa !4
@@ -1780,9 +1780,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %394 = getelementptr inbounds nuw i8, ptr %391, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_718__invokeER11ast_managerRK10params_ref", ptr %394, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %391)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   %395 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull @.str.92)
   %396 = load i64, ptr %49, align 8, !tbaa !4
   store i64 %396, ptr %395, align 8, !tbaa !4
@@ -1791,9 +1791,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %398 = getelementptr inbounds nuw i8, ptr %395, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_728__invokeER11ast_managerRK10params_ref", ptr %398, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %395)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   %399 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull @.str.94)
   %400 = load i64, ptr %50, align 8, !tbaa !4
   store i64 %400, ptr %399, align 8, !tbaa !4
@@ -1802,9 +1802,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %402 = getelementptr inbounds nuw i8, ptr %399, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_738__invokeER11ast_managerRK10params_ref", ptr %402, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %399)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   %403 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull @.str.96)
   %404 = load i64, ptr %51, align 8, !tbaa !4
   store i64 %404, ptr %403, align 8, !tbaa !4
@@ -1813,9 +1813,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %406 = getelementptr inbounds nuw i8, ptr %403, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_748__invokeER11ast_managerRK10params_ref", ptr %406, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %403)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   %407 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull @.str.98)
   %408 = load i64, ptr %52, align 8, !tbaa !4
   store i64 %408, ptr %407, align 8, !tbaa !4
@@ -1824,9 +1824,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %410 = getelementptr inbounds nuw i8, ptr %407, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_758__invokeER11ast_managerRK10params_ref", ptr %410, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %407)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   %411 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull @.str.100)
   %412 = load i64, ptr %53, align 8, !tbaa !4
   store i64 %412, ptr %411, align 8, !tbaa !4
@@ -1835,9 +1835,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %414 = getelementptr inbounds nuw i8, ptr %411, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_768__invokeER11ast_managerRK10params_ref", ptr %414, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %411)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   %415 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef nonnull @.str.102)
   %416 = load i64, ptr %54, align 8, !tbaa !4
   store i64 %416, ptr %415, align 8, !tbaa !4
@@ -1846,9 +1846,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %418 = getelementptr inbounds nuw i8, ptr %415, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_778__invokeER11ast_managerRK10params_ref", ptr %418, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %415)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
   %419 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef nonnull @.str.104)
   %420 = load i64, ptr %55, align 8, !tbaa !4
   store i64 %420, ptr %419, align 8, !tbaa !4
@@ -1857,9 +1857,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %422 = getelementptr inbounds nuw i8, ptr %419, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_788__invokeER11ast_managerRK10params_ref", ptr %422, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %419)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   %423 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef nonnull @.str.106)
   %424 = load i64, ptr %56, align 8, !tbaa !4
   store i64 %424, ptr %423, align 8, !tbaa !4
@@ -1868,9 +1868,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %426 = getelementptr inbounds nuw i8, ptr %423, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_798__invokeER11ast_managerRK10params_ref", ptr %426, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %423)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   %427 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull @.str.108)
   %428 = load i64, ptr %57, align 8, !tbaa !4
   store i64 %428, ptr %427, align 8, !tbaa !4
@@ -1879,9 +1879,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %430 = getelementptr inbounds nuw i8, ptr %427, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_808__invokeER11ast_managerRK10params_ref", ptr %430, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %427)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   %431 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %58) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef nonnull @.str.110)
   %432 = load i64, ptr %58, align 8, !tbaa !4
   store i64 %432, ptr %431, align 8, !tbaa !4
@@ -1890,9 +1890,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %434 = getelementptr inbounds nuw i8, ptr %431, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_818__invokeER11ast_managerRK10params_ref", ptr %434, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %431)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
   %435 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %59) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull @.str.112)
   %436 = load i64, ptr %59, align 8, !tbaa !4
   store i64 %436, ptr %435, align 8, !tbaa !4
@@ -1901,9 +1901,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %438 = getelementptr inbounds nuw i8, ptr %435, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_828__invokeER11ast_managerRK10params_ref", ptr %438, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %435)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   %439 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %60) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef nonnull @.str.114)
   %440 = load i64, ptr %60, align 8, !tbaa !4
   store i64 %440, ptr %439, align 8, !tbaa !4
@@ -1912,9 +1912,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %442 = getelementptr inbounds nuw i8, ptr %439, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_838__invokeER11ast_managerRK10params_ref", ptr %442, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %439)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   %443 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %61) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull @.str.116)
   %444 = load i64, ptr %61, align 8, !tbaa !4
   store i64 %444, ptr %443, align 8, !tbaa !4
@@ -1923,9 +1923,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %446 = getelementptr inbounds nuw i8, ptr %443, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_848__invokeER11ast_managerRK10params_ref", ptr %446, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %443)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
   %447 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %62) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull @.str.118)
   %448 = load i64, ptr %62, align 8, !tbaa !4
   store i64 %448, ptr %447, align 8, !tbaa !4
@@ -1934,9 +1934,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %450 = getelementptr inbounds nuw i8, ptr %447, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_858__invokeER11ast_managerRK10params_ref", ptr %450, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %447)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
   %451 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %63) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %63, ptr noundef nonnull @.str.120)
   %452 = load i64, ptr %63, align 8, !tbaa !4
   store i64 %452, ptr %451, align 8, !tbaa !4
@@ -1945,9 +1945,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %454 = getelementptr inbounds nuw i8, ptr %451, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_868__invokeER11ast_managerRK10params_ref", ptr %454, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %451)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
   %455 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %64) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef nonnull @.str.122)
   %456 = load i64, ptr %64, align 8, !tbaa !4
   store i64 %456, ptr %455, align 8, !tbaa !4
@@ -1956,9 +1956,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %458 = getelementptr inbounds nuw i8, ptr %455, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_878__invokeER11ast_managerRK10params_ref", ptr %458, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %455)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
   %459 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %65) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %65, ptr noundef nonnull @.str.124)
   %460 = load i64, ptr %65, align 8, !tbaa !4
   store i64 %460, ptr %459, align 8, !tbaa !4
@@ -1967,9 +1967,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %462 = getelementptr inbounds nuw i8, ptr %459, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_888__invokeER11ast_managerRK10params_ref", ptr %462, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %459)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
   %463 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %66) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef nonnull @.str.126)
   %464 = load i64, ptr %66, align 8, !tbaa !4
   store i64 %464, ptr %463, align 8, !tbaa !4
@@ -1978,9 +1978,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %466 = getelementptr inbounds nuw i8, ptr %463, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_898__invokeER11ast_managerRK10params_ref", ptr %466, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %463)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
   %467 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %67) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef nonnull @.str.128)
   %468 = load i64, ptr %67, align 8, !tbaa !4
   store i64 %468, ptr %467, align 8, !tbaa !4
@@ -1989,9 +1989,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %470 = getelementptr inbounds nuw i8, ptr %467, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_908__invokeER11ast_managerRK10params_ref", ptr %470, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %467)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %67) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
   %471 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %68) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull @.str.129)
   %472 = load i64, ptr %68, align 8, !tbaa !4
   store i64 %472, ptr %471, align 8, !tbaa !4
@@ -2000,9 +2000,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %474 = getelementptr inbounds nuw i8, ptr %471, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_918__invokeER11ast_managerRK10params_ref", ptr %474, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %471)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
   %475 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %69) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef nonnull @.str.131)
   %476 = load i64, ptr %69, align 8, !tbaa !4
   store i64 %476, ptr %475, align 8, !tbaa !4
@@ -2011,9 +2011,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %478 = getelementptr inbounds nuw i8, ptr %475, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_928__invokeER11ast_managerRK10params_ref", ptr %478, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %475)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
   %479 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %70) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %70, ptr noundef nonnull @.str.132)
   %480 = load i64, ptr %70, align 8, !tbaa !4
   store i64 %480, ptr %479, align 8, !tbaa !4
@@ -2022,9 +2022,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %482 = getelementptr inbounds nuw i8, ptr %479, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_938__invokeER11ast_managerRK10params_ref", ptr %482, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %479)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %70) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
   %483 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %71) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull @.str.134)
   %484 = load i64, ptr %71, align 8, !tbaa !4
   store i64 %484, ptr %483, align 8, !tbaa !4
@@ -2033,9 +2033,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %486 = getelementptr inbounds nuw i8, ptr %483, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_948__invokeER11ast_managerRK10params_ref", ptr %486, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %483)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %71) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
   %487 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %72) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef nonnull @.str.136)
   %488 = load i64, ptr %72, align 8, !tbaa !4
   store i64 %488, ptr %487, align 8, !tbaa !4
@@ -2044,9 +2044,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %490 = getelementptr inbounds nuw i8, ptr %487, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_958__invokeER11ast_managerRK10params_ref", ptr %490, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %487)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %72) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
   %491 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %73) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %73, ptr noundef nonnull @.str.138)
   %492 = load i64, ptr %73, align 8, !tbaa !4
   store i64 %492, ptr %491, align 8, !tbaa !4
@@ -2055,9 +2055,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %494 = getelementptr inbounds nuw i8, ptr %491, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_968__invokeER11ast_managerRK10params_ref", ptr %494, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %491)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %73) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
   %495 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %74) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %74, ptr noundef nonnull @.str.140)
   %496 = load i64, ptr %74, align 8, !tbaa !4
   store i64 %496, ptr %495, align 8, !tbaa !4
@@ -2066,9 +2066,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %498 = getelementptr inbounds nuw i8, ptr %495, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_978__invokeER11ast_managerRK10params_ref", ptr %498, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %495)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %74) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
   %499 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %75) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull @.str.142)
   %500 = load i64, ptr %75, align 8, !tbaa !4
   store i64 %500, ptr %499, align 8, !tbaa !4
@@ -2077,9 +2077,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %502 = getelementptr inbounds nuw i8, ptr %499, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_988__invokeER11ast_managerRK10params_ref", ptr %502, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %499)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %75) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
   %503 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %76) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull @.str.144)
   %504 = load i64, ptr %76, align 8, !tbaa !4
   store i64 %504, ptr %503, align 8, !tbaa !4
@@ -2088,9 +2088,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %506 = getelementptr inbounds nuw i8, ptr %503, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_998__invokeER11ast_managerRK10params_ref", ptr %506, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %503)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %76) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
   %507 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %77) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %77, ptr noundef nonnull @.str.146)
   %508 = load i64, ptr %77, align 8, !tbaa !4
   store i64 %508, ptr %507, align 8, !tbaa !4
@@ -2099,9 +2099,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %510 = getelementptr inbounds nuw i8, ptr %507, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1008__invokeER11ast_managerRK10params_ref", ptr %510, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %507)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %77) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
   %511 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %78) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %78, ptr noundef nonnull @.str.148)
   %512 = load i64, ptr %78, align 8, !tbaa !4
   store i64 %512, ptr %511, align 8, !tbaa !4
@@ -2110,9 +2110,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %514 = getelementptr inbounds nuw i8, ptr %511, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1018__invokeER11ast_managerRK10params_ref", ptr %514, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %511)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %78) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
   %515 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %79) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef nonnull @.str.150)
   %516 = load i64, ptr %79, align 8, !tbaa !4
   store i64 %516, ptr %515, align 8, !tbaa !4
@@ -2121,9 +2121,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %518 = getelementptr inbounds nuw i8, ptr %515, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1028__invokeER11ast_managerRK10params_ref", ptr %518, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %515)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %79) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
   %519 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %80) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %80, ptr noundef nonnull @.str.152)
   %520 = load i64, ptr %80, align 8, !tbaa !4
   store i64 %520, ptr %519, align 8, !tbaa !4
@@ -2132,9 +2132,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %522 = getelementptr inbounds nuw i8, ptr %519, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1038__invokeER11ast_managerRK10params_ref", ptr %522, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %519)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %80) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
   %523 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %81) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %81)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %81, ptr noundef nonnull @.str.154)
   %524 = load i64, ptr %81, align 8, !tbaa !4
   store i64 %524, ptr %523, align 8, !tbaa !4
@@ -2143,9 +2143,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %526 = getelementptr inbounds nuw i8, ptr %523, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1048__invokeER11ast_managerRK10params_ref", ptr %526, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %523)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %81) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
   %527 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %82) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %82)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %82, ptr noundef nonnull @.str.156)
   %528 = load i64, ptr %82, align 8, !tbaa !4
   store i64 %528, ptr %527, align 8, !tbaa !4
@@ -2154,9 +2154,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %530 = getelementptr inbounds nuw i8, ptr %527, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1058__invokeER11ast_managerRK10params_ref", ptr %530, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %527)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %82) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
   %531 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %83) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %83)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %83, ptr noundef nonnull @.str.158)
   %532 = load i64, ptr %83, align 8, !tbaa !4
   store i64 %532, ptr %531, align 8, !tbaa !4
@@ -2165,9 +2165,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %534 = getelementptr inbounds nuw i8, ptr %531, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1068__invokeER11ast_managerRK10params_ref", ptr %534, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %531)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %83) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
   %535 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %84) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %84)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %84, ptr noundef nonnull @.str.160)
   %536 = load i64, ptr %84, align 8, !tbaa !4
   store i64 %536, ptr %535, align 8, !tbaa !4
@@ -2176,9 +2176,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %538 = getelementptr inbounds nuw i8, ptr %535, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1078__invokeER11ast_managerRK10params_ref", ptr %538, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %535)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %84) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
   %539 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %85) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %85)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %85, ptr noundef nonnull @.str.162)
   %540 = load i64, ptr %85, align 8, !tbaa !4
   store i64 %540, ptr %539, align 8, !tbaa !4
@@ -2187,9 +2187,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %542 = getelementptr inbounds nuw i8, ptr %539, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1088__invokeER11ast_managerRK10params_ref", ptr %542, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %539)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %85) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
   %543 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %86) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %86)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %86, ptr noundef nonnull @.str.164)
   %544 = load i64, ptr %86, align 8, !tbaa !4
   store i64 %544, ptr %543, align 8, !tbaa !4
@@ -2198,9 +2198,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %546 = getelementptr inbounds nuw i8, ptr %543, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1098__invokeER11ast_managerRK10params_ref", ptr %546, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %543)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %86) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
   %547 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %87) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %87)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %87, ptr noundef nonnull @.str.166)
   %548 = load i64, ptr %87, align 8, !tbaa !4
   store i64 %548, ptr %547, align 8, !tbaa !4
@@ -2209,9 +2209,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %550 = getelementptr inbounds nuw i8, ptr %547, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1108__invokeER11ast_managerRK10params_ref", ptr %550, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %547)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %87) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
   %551 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %88) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %88)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef nonnull @.str.168)
   %552 = load i64, ptr %88, align 8, !tbaa !4
   store i64 %552, ptr %551, align 8, !tbaa !4
@@ -2220,9 +2220,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %554 = getelementptr inbounds nuw i8, ptr %551, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1118__invokeER11ast_managerRK10params_ref", ptr %554, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %551)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %88) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
   %555 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %89) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %89)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %89, ptr noundef nonnull @.str.170)
   %556 = load i64, ptr %89, align 8, !tbaa !4
   store i64 %556, ptr %555, align 8, !tbaa !4
@@ -2231,9 +2231,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %558 = getelementptr inbounds nuw i8, ptr %555, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1128__invokeER11ast_managerRK10params_ref", ptr %558, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %555)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %89) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
   %559 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %90) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %90)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef nonnull @.str.172)
   %560 = load i64, ptr %90, align 8, !tbaa !4
   store i64 %560, ptr %559, align 8, !tbaa !4
@@ -2242,9 +2242,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %562 = getelementptr inbounds nuw i8, ptr %559, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1138__invokeER11ast_managerRK10params_ref", ptr %562, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %559)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %90) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
   %563 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %91) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %91)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %91, ptr noundef nonnull @.str.174)
   %564 = load i64, ptr %91, align 8, !tbaa !4
   store i64 %564, ptr %563, align 8, !tbaa !4
@@ -2253,9 +2253,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %566 = getelementptr inbounds nuw i8, ptr %563, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1148__invokeER11ast_managerRK10params_ref", ptr %566, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %563)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %91) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
   %567 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %92) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %92)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef nonnull @.str.176)
   %568 = load i64, ptr %92, align 8, !tbaa !4
   store i64 %568, ptr %567, align 8, !tbaa !4
@@ -2264,9 +2264,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %570 = getelementptr inbounds nuw i8, ptr %567, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1158__invokeER11ast_managerRK10params_ref", ptr %570, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %567)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %92) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
   %571 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %93) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %93)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull @.str.178)
   %572 = load i64, ptr %93, align 8, !tbaa !4
   store i64 %572, ptr %571, align 8, !tbaa !4
@@ -2275,9 +2275,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %574 = getelementptr inbounds nuw i8, ptr %571, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1168__invokeER11ast_managerRK10params_ref", ptr %574, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %571)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %93) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
   %575 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %94) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %94)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %94, ptr noundef nonnull @.str.180)
   %576 = load i64, ptr %94, align 8, !tbaa !4
   store i64 %576, ptr %575, align 8, !tbaa !4
@@ -2286,9 +2286,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %578 = getelementptr inbounds nuw i8, ptr %575, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1178__invokeER11ast_managerRK10params_ref", ptr %578, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %575)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %94) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %94)
   %579 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %95) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %95)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %95, ptr noundef nonnull @.str.182)
   %580 = load i64, ptr %95, align 8, !tbaa !4
   store i64 %580, ptr %579, align 8, !tbaa !4
@@ -2297,9 +2297,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %582 = getelementptr inbounds nuw i8, ptr %579, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1188__invokeER11ast_managerRK10params_ref", ptr %582, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %579)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %95) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
   %583 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %96) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %96)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %96, ptr noundef nonnull @.str.184)
   %584 = load i64, ptr %96, align 8, !tbaa !4
   store i64 %584, ptr %583, align 8, !tbaa !4
@@ -2308,9 +2308,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %586 = getelementptr inbounds nuw i8, ptr %583, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1198__invokeER11ast_managerRK10params_ref", ptr %586, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %583)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %96) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
   %587 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %97) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %97)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %97, ptr noundef nonnull @.str.186)
   %588 = load i64, ptr %97, align 8, !tbaa !4
   store i64 %588, ptr %587, align 8, !tbaa !4
@@ -2319,9 +2319,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %590 = getelementptr inbounds nuw i8, ptr %587, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1208__invokeER11ast_managerRK10params_ref", ptr %590, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %587)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %97) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
   %591 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %98) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %98)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %98, ptr noundef nonnull @.str.188)
   %592 = load i64, ptr %98, align 8, !tbaa !4
   store i64 %592, ptr %591, align 8, !tbaa !4
@@ -2330,9 +2330,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %594 = getelementptr inbounds nuw i8, ptr %591, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1218__invokeER11ast_managerRK10params_ref", ptr %594, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %591)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %98) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
   %595 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %99) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %99)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %99, ptr noundef nonnull @.str.190)
   %596 = load i64, ptr %99, align 8, !tbaa !4
   store i64 %596, ptr %595, align 8, !tbaa !4
@@ -2341,9 +2341,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %598 = getelementptr inbounds nuw i8, ptr %595, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1228__invokeER11ast_managerRK10params_ref", ptr %598, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %595)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %99) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
   %599 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %100) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %100)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %100, ptr noundef nonnull @.str.192)
   %600 = load i64, ptr %100, align 8, !tbaa !4
   store i64 %600, ptr %599, align 8, !tbaa !4
@@ -2352,9 +2352,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %602 = getelementptr inbounds nuw i8, ptr %599, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1238__invokeER11ast_managerRK10params_ref", ptr %602, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %599)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %100) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
   %603 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %101) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %101)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %101, ptr noundef nonnull @.str.194)
   %604 = load i64, ptr %101, align 8, !tbaa !4
   store i64 %604, ptr %603, align 8, !tbaa !4
@@ -2363,9 +2363,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %606 = getelementptr inbounds nuw i8, ptr %603, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1248__invokeER11ast_managerRK10params_ref", ptr %606, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %603)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %101) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
   %607 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %102) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %102)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %102, ptr noundef nonnull @.str.196)
   %608 = load i64, ptr %102, align 8, !tbaa !4
   store i64 %608, ptr %607, align 8, !tbaa !4
@@ -2374,9 +2374,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %610 = getelementptr inbounds nuw i8, ptr %607, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1258__invokeER11ast_managerRK10params_ref", ptr %610, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %607)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %102) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %102)
   %611 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %103) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %103)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %103, ptr noundef nonnull @.str.198)
   %612 = load i64, ptr %103, align 8, !tbaa !4
   store i64 %612, ptr %611, align 8, !tbaa !4
@@ -2385,9 +2385,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %614 = getelementptr inbounds nuw i8, ptr %611, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1268__invokeER11ast_managerRK10params_ref", ptr %614, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %611)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %103) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %103)
   %615 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %104) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %104)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.200)
   %616 = load i64, ptr %104, align 8, !tbaa !4
   store i64 %616, ptr %615, align 8, !tbaa !4
@@ -2396,9 +2396,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %618 = getelementptr inbounds nuw i8, ptr %615, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1278__invokeER11ast_managerRK10params_ref", ptr %618, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %615)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %104) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %104)
   %619 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %105) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %105)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %105, ptr noundef nonnull @.str.202)
   %620 = load i64, ptr %105, align 8, !tbaa !4
   store i64 %620, ptr %619, align 8, !tbaa !4
@@ -2407,9 +2407,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %622 = getelementptr inbounds nuw i8, ptr %619, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1288__invokeER11ast_managerRK10params_ref", ptr %622, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %619)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %105) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
   %623 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %106) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %106)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %106, ptr noundef nonnull @.str.204)
   %624 = load i64, ptr %106, align 8, !tbaa !4
   store i64 %624, ptr %623, align 8, !tbaa !4
@@ -2418,9 +2418,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %626 = getelementptr inbounds nuw i8, ptr %623, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1298__invokeER11ast_managerRK10params_ref", ptr %626, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %623)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %106) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
   %627 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %107) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %107)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %107, ptr noundef nonnull @.str.206)
   %628 = load i64, ptr %107, align 8, !tbaa !4
   store i64 %628, ptr %627, align 8, !tbaa !4
@@ -2429,9 +2429,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %630 = getelementptr inbounds nuw i8, ptr %627, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1308__invokeER11ast_managerRK10params_ref", ptr %630, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %627)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %107) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %107)
   %631 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %108) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %108)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %108, ptr noundef nonnull @.str.208)
   %632 = load i64, ptr %108, align 8, !tbaa !4
   store i64 %632, ptr %631, align 8, !tbaa !4
@@ -2440,9 +2440,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %634 = getelementptr inbounds nuw i8, ptr %631, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1318__invokeER11ast_managerRK10params_ref", ptr %634, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %631)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %108) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %108)
   %635 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %109) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %109)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %109, ptr noundef nonnull @.str.210)
   %636 = load i64, ptr %109, align 8, !tbaa !4
   store i64 %636, ptr %635, align 8, !tbaa !4
@@ -2451,9 +2451,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %638 = getelementptr inbounds nuw i8, ptr %635, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1328__invokeER11ast_managerRK10params_ref", ptr %638, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %635)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %109) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %109)
   %639 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %110) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %110)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %110, ptr noundef nonnull @.str.212)
   %640 = load i64, ptr %110, align 8, !tbaa !4
   store i64 %640, ptr %639, align 8, !tbaa !4
@@ -2462,9 +2462,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %642 = getelementptr inbounds nuw i8, ptr %639, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1338__invokeER11ast_managerRK10params_ref", ptr %642, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %639)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %110) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %110)
   %643 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %111) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %111)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %111, ptr noundef nonnull @.str.214)
   %644 = load i64, ptr %111, align 8, !tbaa !4
   store i64 %644, ptr %643, align 8, !tbaa !4
@@ -2473,9 +2473,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %646 = getelementptr inbounds nuw i8, ptr %643, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1348__invokeER11ast_managerRK10params_ref", ptr %646, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %643)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %111) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %111)
   %647 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %112) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %112)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %112, ptr noundef nonnull @.str.216)
   %648 = load i64, ptr %112, align 8, !tbaa !4
   store i64 %648, ptr %647, align 8, !tbaa !4
@@ -2484,9 +2484,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %650 = getelementptr inbounds nuw i8, ptr %647, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1358__invokeER11ast_managerRK10params_ref", ptr %650, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %647)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %112) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %112)
   %651 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %113) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %113)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %113, ptr noundef nonnull @.str.218)
   %652 = load i64, ptr %113, align 8, !tbaa !4
   store i64 %652, ptr %651, align 8, !tbaa !4
@@ -2495,9 +2495,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %654 = getelementptr inbounds nuw i8, ptr %651, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1368__invokeER11ast_managerRK10params_ref", ptr %654, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %651)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %113) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %113)
   %655 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %114) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %114)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %114, ptr noundef nonnull @.str.220)
   %656 = load i64, ptr %114, align 8, !tbaa !4
   store i64 %656, ptr %655, align 8, !tbaa !4
@@ -2506,9 +2506,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %658 = getelementptr inbounds nuw i8, ptr %655, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1378__invokeER11ast_managerRK10params_ref", ptr %658, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %655)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %114) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %114)
   %659 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %115) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %115)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %115, ptr noundef nonnull @.str.222)
   %660 = load i64, ptr %115, align 8, !tbaa !4
   store i64 %660, ptr %659, align 8, !tbaa !4
@@ -2517,9 +2517,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %662 = getelementptr inbounds nuw i8, ptr %659, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1388__invokeER11ast_managerRK10params_ref", ptr %662, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %659)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %115) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %115)
   %663 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %116) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %116)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %116, ptr noundef nonnull @.str.224)
   %664 = load i64, ptr %116, align 8, !tbaa !4
   store i64 %664, ptr %663, align 8, !tbaa !4
@@ -2528,9 +2528,9 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %666 = getelementptr inbounds nuw i8, ptr %663, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1398__invokeER11ast_managerRK10params_ref", ptr %666, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %663)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %116) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %116)
   %667 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %117) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %117)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %117, ptr noundef nonnull @.str.226)
   %668 = load i64, ptr %117, align 8, !tbaa !4
   store i64 %668, ptr %667, align 8, !tbaa !4
@@ -2539,303 +2539,303 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %670 = getelementptr inbounds nuw i8, ptr %667, i64 16
   store ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1408__invokeER11ast_managerRK10params_ref", ptr %670, align 8, !tbaa !12
   call void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %667)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %117) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %117)
   %671 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %118) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %118)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull @.str.228)
   %672 = call noundef ptr @_Z19mk_ackr_bound_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %671, ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull @.str.229, ptr noundef %672)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %671)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %118) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %118)
   %673 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %119) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %119)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %119, ptr noundef nonnull @.str.230)
   %674 = call noundef ptr @_Z21mk_is_unbounded_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %673, ptr noundef nonnull align 8 dereferenceable(8) %119, ptr noundef nonnull @.str.231, ptr noundef %674)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %673)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %119) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %119)
   %675 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %120) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %120)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %120, ptr noundef nonnull @.str.232)
   %676 = call noundef ptr @_Z14mk_is_pb_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %675, ptr noundef nonnull align 8 dereferenceable(8) %120, ptr noundef nonnull @.str.233, ptr noundef %676)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %675)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %120) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %120)
   %677 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %121) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %121)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %121, ptr noundef nonnull @.str.234)
   %678 = call noundef ptr @_Z25mk_arith_max_degree_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %677, ptr noundef nonnull align 8 dereferenceable(8) %121, ptr noundef nonnull @.str.235, ptr noundef %678)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %677)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %121) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %121)
   %679 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %122) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %122)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %122, ptr noundef nonnull @.str.236)
   %680 = call noundef ptr @_Z25mk_arith_avg_degree_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %679, ptr noundef nonnull align 8 dereferenceable(8) %122, ptr noundef nonnull @.str.237, ptr noundef %680)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %679)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %122) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %122)
   %681 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %123) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %123)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %123, ptr noundef nonnull @.str.238)
   %682 = call noundef ptr @_Z21mk_arith_max_bw_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %681, ptr noundef nonnull align 8 dereferenceable(8) %123, ptr noundef nonnull @.str.239, ptr noundef %682)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %681)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %123) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %123)
   %683 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %124) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %124)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %124, ptr noundef nonnull @.str.240)
   %684 = call noundef ptr @_Z21mk_arith_avg_bw_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %683, ptr noundef nonnull align 8 dereferenceable(8) %124, ptr noundef nonnull @.str.241, ptr noundef %684)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %683)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %124) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %124)
   %685 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %125) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %125)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %125, ptr noundef nonnull @.str.242)
   %686 = call noundef ptr @_Z17mk_is_qflia_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %685, ptr noundef nonnull align 8 dereferenceable(8) %125, ptr noundef nonnull @.str.243, ptr noundef %686)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %685)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %125) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %125)
   %687 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %126) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %126)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %126, ptr noundef nonnull @.str.244)
   %688 = call noundef ptr @_Z20mk_is_qfauflia_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %687, ptr noundef nonnull align 8 dereferenceable(8) %126, ptr noundef nonnull @.str.245, ptr noundef %688)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %687)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %126) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %126)
   %689 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %127) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %127)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %127, ptr noundef nonnull @.str.246)
   %690 = call noundef ptr @_Z17mk_is_qflra_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %689, ptr noundef nonnull align 8 dereferenceable(8) %127, ptr noundef nonnull @.str.247, ptr noundef %690)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %689)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %127) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %127)
   %691 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %128) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %128)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %128, ptr noundef nonnull @.str.248)
   %692 = call noundef ptr @_Z18mk_is_qflira_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %691, ptr noundef nonnull align 8 dereferenceable(8) %128, ptr noundef nonnull @.str.249, ptr noundef %692)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %691)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %128) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %128)
   %693 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %129) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %129)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %129, ptr noundef nonnull @.str.250)
   %694 = call noundef ptr @_Z15mk_is_ilp_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %693, ptr noundef nonnull align 8 dereferenceable(8) %129, ptr noundef nonnull @.str.251, ptr noundef %694)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %693)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %129) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %129)
   %695 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %130) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %130)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %130, ptr noundef nonnull @.str.252)
   %696 = call noundef ptr @_Z17mk_is_qfnia_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %695, ptr noundef nonnull align 8 dereferenceable(8) %130, ptr noundef nonnull @.str.253, ptr noundef %696)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %695)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %130) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %130)
   %697 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %131) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %131)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %131, ptr noundef nonnull @.str.254)
   %698 = call noundef ptr @_Z17mk_is_qfnra_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %697, ptr noundef nonnull align 8 dereferenceable(8) %131, ptr noundef nonnull @.str.255, ptr noundef %698)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %697)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %131) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %131)
   %699 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %132) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %132)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull @.str.256)
   %700 = call noundef ptr @_Z15mk_is_nia_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %699, ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull @.str.257, ptr noundef %700)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %699)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %132) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %132)
   %701 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %133) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %133)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef nonnull @.str.258)
   %702 = call noundef ptr @_Z15mk_is_nra_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %701, ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef nonnull @.str.259, ptr noundef %702)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %701)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %133) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %133)
   %703 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %134) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %134)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %134, ptr noundef nonnull @.str.260)
   %704 = call noundef ptr @_Z16mk_is_nira_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %703, ptr noundef nonnull align 8 dereferenceable(8) %134, ptr noundef nonnull @.str.261, ptr noundef %704)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %703)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %134) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %134)
   %705 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %135) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %135)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %135, ptr noundef nonnull @.str.262)
   %706 = call noundef ptr @_Z15mk_is_lia_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %705, ptr noundef nonnull align 8 dereferenceable(8) %135, ptr noundef nonnull @.str.263, ptr noundef %706)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %705)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %135) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %135)
   %707 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %136) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %136)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %136, ptr noundef nonnull @.str.264)
   %708 = call noundef ptr @_Z15mk_is_lra_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %707, ptr noundef nonnull align 8 dereferenceable(8) %136, ptr noundef nonnull @.str.265, ptr noundef %708)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %707)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %136) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %136)
   %709 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %137) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %137)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %137, ptr noundef nonnull @.str.266)
   %710 = call noundef ptr @_Z16mk_is_lira_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %709, ptr noundef nonnull align 8 dereferenceable(8) %137, ptr noundef nonnull @.str.267, ptr noundef %710)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %709)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %137) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %137)
   %711 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %138) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %138)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %138, ptr noundef nonnull @.str.268)
   %712 = call noundef ptr @_Z19mk_is_qfufnra_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %711, ptr noundef nonnull align 8 dereferenceable(8) %138, ptr noundef nonnull @.str.269, ptr noundef %712)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %711)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %138) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %138)
   %713 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %139) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %139)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %139, ptr noundef nonnull @.str.270)
   %714 = call noundef ptr @_Z19mk_is_qfbv_eq_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %713, ptr noundef nonnull align 8 dereferenceable(8) %139, ptr noundef nonnull @.str.271, ptr noundef %714)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %713)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %139) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %139)
   %715 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %140) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %140)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %140, ptr noundef nonnull @.str.272)
   %716 = call noundef ptr @_Z16mk_is_qffp_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %715, ptr noundef nonnull align 8 dereferenceable(8) %140, ptr noundef nonnull @.str.273, ptr noundef %716)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %715)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %140) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %140)
   %717 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %141) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %141)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %141, ptr noundef nonnull @.str.274)
   %718 = call noundef ptr @_Z18mk_is_qffpbv_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %717, ptr noundef nonnull align 8 dereferenceable(8) %141, ptr noundef nonnull @.str.275, ptr noundef %718)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %717)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %141) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %141)
   %719 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %142) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %142)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull @.str.276)
   %720 = call noundef ptr @_Z19mk_is_qffplra_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %719, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull @.str.277, ptr noundef %720)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %719)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %142) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %142)
   %721 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %143) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %143)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %143, ptr noundef nonnull @.str.278)
   %722 = call noundef ptr @_Z15mk_memory_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %721, ptr noundef nonnull align 8 dereferenceable(8) %143, ptr noundef nonnull @.str.279, ptr noundef %722)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %721)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %143) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %143)
   %723 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %144) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %144)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %144, ptr noundef nonnull @.str.280)
   %724 = call noundef ptr @_Z14mk_depth_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %723, ptr noundef nonnull align 8 dereferenceable(8) %144, ptr noundef nonnull @.str.281, ptr noundef %724)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %723)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %144) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %144)
   %725 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %145) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %145)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %145, ptr noundef nonnull @.str.282)
   %726 = call noundef ptr @_Z13mk_size_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %725, ptr noundef nonnull align 8 dereferenceable(8) %145, ptr noundef nonnull @.str.283, ptr noundef %726)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %725)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %145) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %145)
   %727 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %146) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %146)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %146, ptr noundef nonnull @.str.284)
   %728 = call noundef ptr @_Z18mk_num_exprs_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %727, ptr noundef nonnull align 8 dereferenceable(8) %146, ptr noundef nonnull @.str.285, ptr noundef %728)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %727)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %146) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %146)
   %729 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %147) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %147)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef nonnull @.str.286)
   %730 = call noundef ptr @_Z19mk_num_consts_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %729, ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef nonnull @.str.287, ptr noundef %730)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %729)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %147) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %147)
   %731 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %148) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %148)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %148, ptr noundef nonnull @.str.288)
   %732 = call noundef ptr @_Z24mk_num_bool_consts_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %731, ptr noundef nonnull align 8 dereferenceable(8) %148, ptr noundef nonnull @.str.289, ptr noundef %732)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %731)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %148) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %148)
   %733 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %149) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %149)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %149, ptr noundef nonnull @.str.290)
   %734 = call noundef ptr @_Z25mk_num_arith_consts_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %733, ptr noundef nonnull align 8 dereferenceable(8) %149, ptr noundef nonnull @.str.291, ptr noundef %734)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %733)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %149) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %149)
   %735 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %150) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %150)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %150, ptr noundef nonnull @.str.292)
   %736 = call noundef ptr @_Z22mk_num_bv_consts_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %735, ptr noundef nonnull align 8 dereferenceable(8) %150, ptr noundef nonnull @.str.293, ptr noundef %736)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %735)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %150) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %150)
   %737 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %151) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %151)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %151, ptr noundef nonnull @.str.294)
   %738 = call noundef ptr @_Z23mk_produce_proofs_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %737, ptr noundef nonnull align 8 dereferenceable(8) %151, ptr noundef nonnull @.str.295, ptr noundef %738)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %737)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %151) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %151)
   %739 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %152) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %152)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %152, ptr noundef nonnull @.str.296)
   %740 = call noundef ptr @_Z23mk_produce_models_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %739, ptr noundef nonnull align 8 dereferenceable(8) %152, ptr noundef nonnull @.str.297, ptr noundef %740)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %739)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %152) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %152)
   %741 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %153) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %153)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %153, ptr noundef nonnull @.str.298)
   %742 = call noundef ptr @_Z28mk_produce_unsat_cores_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %741, ptr noundef nonnull align 8 dereferenceable(8) %153, ptr noundef nonnull @.str.299, ptr noundef %742)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %741)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %153) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %153)
   %743 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %154) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %154)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %154, ptr noundef nonnull @.str.300)
   %744 = call noundef ptr @_Z23mk_has_quantifier_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %743, ptr noundef nonnull align 8 dereferenceable(8) %154, ptr noundef nonnull @.str.301, ptr noundef %744)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %743)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %154) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %154)
   %745 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %155) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %155)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %155, ptr noundef nonnull @.str.302)
   %746 = call noundef ptr @_Z20mk_has_pattern_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %745, ptr noundef nonnull align 8 dereferenceable(8) %155, ptr noundef nonnull @.str.303, ptr noundef %746)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %745)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %155) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %155)
   %747 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %156) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %156)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %156, ptr noundef nonnull @.str.304)
   %748 = call noundef ptr @_Z25mk_is_propositional_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %747, ptr noundef nonnull align 8 dereferenceable(8) %156, ptr noundef nonnull @.str.305, ptr noundef %748)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %747)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %156) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %156)
   %749 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %157) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %157)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %157, ptr noundef nonnull @.str.306)
   %750 = call noundef ptr @_Z16mk_is_qfbv_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %749, ptr noundef nonnull align 8 dereferenceable(8) %157, ptr noundef nonnull @.str.307, ptr noundef %750)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %749)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %157) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %157)
   %751 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %158) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %158)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %158, ptr noundef nonnull @.str.308)
   %752 = call noundef ptr @_Z19mk_is_qfaufbv_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %751, ptr noundef nonnull align 8 dereferenceable(8) %158, ptr noundef nonnull @.str.309, ptr noundef %752)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %751)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %158) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %158)
   %753 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %159) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %159)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %159, ptr noundef nonnull @.str.310)
   %754 = call noundef ptr @_Z20mk_is_quasi_pb_probev()
   call void @_ZN10probe_infoC1ERK6symbolPKcP5probe(ptr noundef nonnull align 8 dereferenceable(24) %753, ptr noundef nonnull align 8 dereferenceable(8) %159, ptr noundef nonnull @.str.311, ptr noundef %754)
   call void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %753)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %159) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %159)
   %755 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %160) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %160)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %160, ptr noundef nonnull @.str.312)
   %756 = getelementptr inbounds nuw i8, ptr %161, i64 16
   %757 = getelementptr inbounds nuw i8, ptr %161, i64 24
@@ -2868,13 +2868,13 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %768 = landingpad { ptr, i32 }
           catch ptr null
   %769 = extractvalue { ptr, i32 } %768, 0
-  call void @__clang_call_terminate(ptr %769) #24
+  call void @__clang_call_terminate(ptr %769) #23
   unreachable
 
 770:                                              ; preds = %765, %763
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %160) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %160)
   %771 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %162) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %162)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %162, ptr noundef nonnull @.str.69)
   %772 = getelementptr inbounds nuw i8, ptr %163, i64 16
   %773 = getelementptr inbounds nuw i8, ptr %163, i64 24
@@ -2907,13 +2907,13 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %784 = landingpad { ptr, i32 }
           catch ptr null
   %785 = extractvalue { ptr, i32 } %784, 0
-  call void @__clang_call_terminate(ptr %785) #24
+  call void @__clang_call_terminate(ptr %785) #23
   unreachable
 
 786:                                              ; preds = %781, %779
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %162) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %162)
   %787 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %164) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %164)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %164, ptr noundef nonnull @.str.314)
   %788 = getelementptr inbounds nuw i8, ptr %165, i64 16
   %789 = getelementptr inbounds nuw i8, ptr %165, i64 24
@@ -2946,13 +2946,13 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %800 = landingpad { ptr, i32 }
           catch ptr null
   %801 = extractvalue { ptr, i32 } %800, 0
-  call void @__clang_call_terminate(ptr %801) #24
+  call void @__clang_call_terminate(ptr %801) #23
   unreachable
 
 802:                                              ; preds = %797, %795
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %164) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %164)
   %803 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %166) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %166)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %166, ptr noundef nonnull @.str.106)
   %804 = getelementptr inbounds nuw i8, ptr %167, i64 16
   %805 = getelementptr inbounds nuw i8, ptr %167, i64 24
@@ -2985,13 +2985,13 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %816 = landingpad { ptr, i32 }
           catch ptr null
   %817 = extractvalue { ptr, i32 } %816, 0
-  call void @__clang_call_terminate(ptr %817) #24
+  call void @__clang_call_terminate(ptr %817) #23
   unreachable
 
 818:                                              ; preds = %813, %811
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %166) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %166)
   %819 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %168) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %168)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %168, ptr noundef nonnull @.str.317)
   %820 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %821 = getelementptr inbounds nuw i8, ptr %169, i64 24
@@ -3024,13 +3024,13 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %832 = landingpad { ptr, i32 }
           catch ptr null
   %833 = extractvalue { ptr, i32 } %832, 0
-  call void @__clang_call_terminate(ptr %833) #24
+  call void @__clang_call_terminate(ptr %833) #23
   unreachable
 
 834:                                              ; preds = %829, %827
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %168) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %168)
   %835 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %170) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %170)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %170, ptr noundef nonnull @.str.319)
   %836 = getelementptr inbounds nuw i8, ptr %171, i64 16
   %837 = getelementptr inbounds nuw i8, ptr %171, i64 24
@@ -3063,13 +3063,13 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %848 = landingpad { ptr, i32 }
           catch ptr null
   %849 = extractvalue { ptr, i32 } %848, 0
-  call void @__clang_call_terminate(ptr %849) #24
+  call void @__clang_call_terminate(ptr %849) #23
   unreachable
 
 850:                                              ; preds = %845, %843
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %170) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %170)
   %851 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %172) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %172)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %172, ptr noundef nonnull @.str.321)
   %852 = getelementptr inbounds nuw i8, ptr %173, i64 16
   %853 = getelementptr inbounds nuw i8, ptr %173, i64 24
@@ -3102,13 +3102,13 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %864 = landingpad { ptr, i32 }
           catch ptr null
   %865 = extractvalue { ptr, i32 } %864, 0
-  call void @__clang_call_terminate(ptr %865) #24
+  call void @__clang_call_terminate(ptr %865) #23
   unreachable
 
 866:                                              ; preds = %861, %859
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %172) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %172)
   %867 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %174) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %174)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %174, ptr noundef nonnull @.str.322)
   %868 = getelementptr inbounds nuw i8, ptr %175, i64 16
   %869 = getelementptr inbounds nuw i8, ptr %175, i64 24
@@ -3141,13 +3141,13 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %880 = landingpad { ptr, i32 }
           catch ptr null
   %881 = extractvalue { ptr, i32 } %880, 0
-  call void @__clang_call_terminate(ptr %881) #24
+  call void @__clang_call_terminate(ptr %881) #23
   unreachable
 
 882:                                              ; preds = %877, %875
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %174) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %174)
   %883 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %176) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %176)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %176, ptr noundef nonnull @.str.324)
   %884 = getelementptr inbounds nuw i8, ptr %177, i64 16
   %885 = getelementptr inbounds nuw i8, ptr %177, i64 24
@@ -3180,13 +3180,13 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %896 = landingpad { ptr, i32 }
           catch ptr null
   %897 = extractvalue { ptr, i32 } %896, 0
-  call void @__clang_call_terminate(ptr %897) #24
+  call void @__clang_call_terminate(ptr %897) #23
   unreachable
 
 898:                                              ; preds = %893, %891
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %176) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %176)
   %899 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %178) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %178)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %178, ptr noundef nonnull @.str.325)
   %900 = getelementptr inbounds nuw i8, ptr %179, i64 16
   %901 = getelementptr inbounds nuw i8, ptr %179, i64 24
@@ -3219,13 +3219,13 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %912 = landingpad { ptr, i32 }
           catch ptr null
   %913 = extractvalue { ptr, i32 } %912, 0
-  call void @__clang_call_terminate(ptr %913) #24
+  call void @__clang_call_terminate(ptr %913) #23
   unreachable
 
 914:                                              ; preds = %909, %907
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %178) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %178)
   %915 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %180) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %180)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %180, ptr noundef nonnull @.str.132)
   %916 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %917 = getelementptr inbounds nuw i8, ptr %181, i64 24
@@ -3258,13 +3258,13 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %928 = landingpad { ptr, i32 }
           catch ptr null
   %929 = extractvalue { ptr, i32 } %928, 0
-  call void @__clang_call_terminate(ptr %929) #24
+  call void @__clang_call_terminate(ptr %929) #23
   unreachable
 
 930:                                              ; preds = %925, %923
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %180) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %180)
   %931 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %182) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %182)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %182, ptr noundef nonnull @.str.12)
   %932 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %933 = getelementptr inbounds nuw i8, ptr %183, i64 24
@@ -3297,13 +3297,13 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %944 = landingpad { ptr, i32 }
           catch ptr null
   %945 = extractvalue { ptr, i32 } %944, 0
-  call void @__clang_call_terminate(ptr %945) #24
+  call void @__clang_call_terminate(ptr %945) #23
   unreachable
 
 946:                                              ; preds = %941, %939
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %182) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %182)
   %947 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %184) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %184)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %184, ptr noundef nonnull @.str.40)
   %948 = getelementptr inbounds nuw i8, ptr %185, i64 16
   %949 = getelementptr inbounds nuw i8, ptr %185, i64 24
@@ -3336,13 +3336,13 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %960 = landingpad { ptr, i32 }
           catch ptr null
   %961 = extractvalue { ptr, i32 } %960, 0
-  call void @__clang_call_terminate(ptr %961) #24
+  call void @__clang_call_terminate(ptr %961) #23
   unreachable
 
 962:                                              ; preds = %957, %955
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %184) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %184)
   %963 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %186) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %186)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %186, ptr noundef nonnull @.str.63)
   %964 = getelementptr inbounds nuw i8, ptr %187, i64 16
   %965 = getelementptr inbounds nuw i8, ptr %187, i64 24
@@ -3375,13 +3375,13 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %976 = landingpad { ptr, i32 }
           catch ptr null
   %977 = extractvalue { ptr, i32 } %976, 0
-  call void @__clang_call_terminate(ptr %977) #24
+  call void @__clang_call_terminate(ptr %977) #23
   unreachable
 
 978:                                              ; preds = %973, %971
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %186) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %186)
   %979 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %188) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %188)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %188, ptr noundef nonnull @.str.75)
   %980 = getelementptr inbounds nuw i8, ptr %189, i64 16
   %981 = getelementptr inbounds nuw i8, ptr %189, i64 24
@@ -3414,13 +3414,13 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %992 = landingpad { ptr, i32 }
           catch ptr null
   %993 = extractvalue { ptr, i32 } %992, 0
-  call void @__clang_call_terminate(ptr %993) #24
+  call void @__clang_call_terminate(ptr %993) #23
   unreachable
 
 994:                                              ; preds = %989, %987
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %188) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %188)
   %995 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %190) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %190)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %190, ptr noundef nonnull @.str.80)
   %996 = getelementptr inbounds nuw i8, ptr %191, i64 16
   %997 = getelementptr inbounds nuw i8, ptr %191, i64 24
@@ -3453,13 +3453,13 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %1008 = landingpad { ptr, i32 }
           catch ptr null
   %1009 = extractvalue { ptr, i32 } %1008, 0
-  call void @__clang_call_terminate(ptr %1009) #24
+  call void @__clang_call_terminate(ptr %1009) #23
   unreachable
 
 1010:                                             ; preds = %1005, %1003
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %190) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %190)
   %1011 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %192) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %192)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %192, ptr noundef nonnull @.str.98)
   %1012 = getelementptr inbounds nuw i8, ptr %193, i64 16
   %1013 = getelementptr inbounds nuw i8, ptr %193, i64 24
@@ -3492,13 +3492,13 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %1024 = landingpad { ptr, i32 }
           catch ptr null
   %1025 = extractvalue { ptr, i32 } %1024, 0
-  call void @__clang_call_terminate(ptr %1025) #24
+  call void @__clang_call_terminate(ptr %1025) #23
   unreachable
 
 1026:                                             ; preds = %1021, %1019
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %192) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %192)
   %1027 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %194) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %194)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %194, ptr noundef nonnull @.str.102)
   %1028 = getelementptr inbounds nuw i8, ptr %195, i64 16
   %1029 = getelementptr inbounds nuw i8, ptr %195, i64 24
@@ -3531,13 +3531,13 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %1040 = landingpad { ptr, i32 }
           catch ptr null
   %1041 = extractvalue { ptr, i32 } %1040, 0
-  call void @__clang_call_terminate(ptr %1041) #24
+  call void @__clang_call_terminate(ptr %1041) #23
   unreachable
 
 1042:                                             ; preds = %1037, %1035
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %194) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %194)
   %1043 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %196) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %196)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %196, ptr noundef nonnull @.str.104)
   %1044 = getelementptr inbounds nuw i8, ptr %197, i64 16
   %1045 = getelementptr inbounds nuw i8, ptr %197, i64 24
@@ -3570,13 +3570,13 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %1056 = landingpad { ptr, i32 }
           catch ptr null
   %1057 = extractvalue { ptr, i32 } %1056, 0
-  call void @__clang_call_terminate(ptr %1057) #24
+  call void @__clang_call_terminate(ptr %1057) #23
   unreachable
 
 1058:                                             ; preds = %1053, %1051
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %196) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %196)
   %1059 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %198) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %198)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %198, ptr noundef nonnull @.str.327)
   %1060 = getelementptr inbounds nuw i8, ptr %199, i64 16
   %1061 = getelementptr inbounds nuw i8, ptr %199, i64 24
@@ -3609,13 +3609,13 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %1072 = landingpad { ptr, i32 }
           catch ptr null
   %1073 = extractvalue { ptr, i32 } %1072, 0
-  call void @__clang_call_terminate(ptr %1073) #24
+  call void @__clang_call_terminate(ptr %1073) #23
   unreachable
 
 1074:                                             ; preds = %1069, %1067
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %198) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %198)
   %1075 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %200) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %200)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %200, ptr noundef nonnull @.str.112)
   %1076 = getelementptr inbounds nuw i8, ptr %201, i64 16
   %1077 = getelementptr inbounds nuw i8, ptr %201, i64 24
@@ -3648,13 +3648,13 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %1088 = landingpad { ptr, i32 }
           catch ptr null
   %1089 = extractvalue { ptr, i32 } %1088, 0
-  call void @__clang_call_terminate(ptr %1089) #24
+  call void @__clang_call_terminate(ptr %1089) #23
   unreachable
 
 1090:                                             ; preds = %1085, %1083
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %200) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %200)
   %1091 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %202) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %202)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %202, ptr noundef nonnull @.str.114)
   %1092 = getelementptr inbounds nuw i8, ptr %203, i64 16
   %1093 = getelementptr inbounds nuw i8, ptr %203, i64 24
@@ -3687,13 +3687,13 @@ define hidden void @_Z15install_tacticsR14tactic_manager(ptr noundef nonnull ali
   %1104 = landingpad { ptr, i32 }
           catch ptr null
   %1105 = extractvalue { ptr, i32 } %1104, 0
-  call void @__clang_call_terminate(ptr %1105) #24
+  call void @__clang_call_terminate(ptr %1105) #23
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit377:                ; preds = %1101, %1099
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %202) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %202)
   %1106 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %204) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %204)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %204, ptr noundef nonnull @.str.128)
   %1107 = load i64, ptr %204, align 8, !tbaa !4
   store i64 %1107, ptr %1106, align 8, !tbaa !4
@@ -3706,9 +3706,9 @@ _ZNSt14_Function_baseD2Ev.exit377:                ; preds = %1101, %1099
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_22E9_M_invokeERKSt9_Any_dataS3_S6_S8_", ptr %1111, align 8, !tbaa !13
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_22E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %1110, align 8, !tbaa !16
   call void @_ZN14tactic_manager6insertEP14simplifier_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %1106)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %204) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %204)
   %1112 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %205) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %205)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %205, ptr noundef nonnull @.str.129)
   %1113 = load i64, ptr %205, align 8, !tbaa !4
   store i64 %1113, ptr %1112, align 8, !tbaa !4
@@ -3721,9 +3721,9 @@ _ZNSt14_Function_baseD2Ev.exit377:                ; preds = %1101, %1099
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_23E9_M_invokeERKSt9_Any_dataS3_S6_S8_", ptr %1117, align 8, !tbaa !13
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_23E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %1116, align 8, !tbaa !16
   call void @_ZN14tactic_manager6insertEP14simplifier_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %1112)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %205) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %205)
   %1118 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %206) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %206)
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %206, ptr noundef nonnull @.str.136)
   %1119 = load i64, ptr %206, align 8, !tbaa !4
   store i64 %1119, ptr %1118, align 8, !tbaa !4
@@ -3736,7 +3736,7 @@ _ZNSt14_Function_baseD2Ev.exit377:                ; preds = %1101, %1099
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_24E9_M_invokeERKSt9_Any_dataS3_S6_S8_", ptr %1123, align 8, !tbaa !13
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_24E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %1122, align 8, !tbaa !16
   call void @_ZN14tactic_manager6insertEP14simplifier_cmd(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %1118)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %206) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %206)
   ret void
 
 .body:                                            ; preds = %1
@@ -3754,11 +3754,11 @@ _ZNSt14_Function_baseD2Ev.exit377:                ; preds = %1101, %1099
   %1129 = landingpad { ptr, i32 }
           catch ptr null
   %1130 = extractvalue { ptr, i32 } %1129, 0
-  call void @__clang_call_terminate(ptr %1130) #24
+  call void @__clang_call_terminate(ptr %1130) #23
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit379:                ; preds = %.body, %1126
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %160) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %160)
   br label %1278
 
 .body189:                                         ; preds = %770
@@ -3776,11 +3776,11 @@ _ZNSt14_Function_baseD2Ev.exit379:                ; preds = %.body, %1126
   %1136 = landingpad { ptr, i32 }
           catch ptr null
   %1137 = extractvalue { ptr, i32 } %1136, 0
-  call void @__clang_call_terminate(ptr %1137) #24
+  call void @__clang_call_terminate(ptr %1137) #23
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit381:                ; preds = %.body189, %1133
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %162) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %162)
   br label %1278
 
 .body197:                                         ; preds = %786
@@ -3798,11 +3798,11 @@ _ZNSt14_Function_baseD2Ev.exit381:                ; preds = %.body189, %1133
   %1143 = landingpad { ptr, i32 }
           catch ptr null
   %1144 = extractvalue { ptr, i32 } %1143, 0
-  call void @__clang_call_terminate(ptr %1144) #24
+  call void @__clang_call_terminate(ptr %1144) #23
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit383:                ; preds = %.body197, %1140
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %164) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %164)
   br label %1278
 
 .body205:                                         ; preds = %802
@@ -3820,11 +3820,11 @@ _ZNSt14_Function_baseD2Ev.exit383:                ; preds = %.body197, %1140
   %1150 = landingpad { ptr, i32 }
           catch ptr null
   %1151 = extractvalue { ptr, i32 } %1150, 0
-  call void @__clang_call_terminate(ptr %1151) #24
+  call void @__clang_call_terminate(ptr %1151) #23
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit385:                ; preds = %.body205, %1147
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %166) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %166)
   br label %1278
 
 .body213:                                         ; preds = %818
@@ -3842,11 +3842,11 @@ _ZNSt14_Function_baseD2Ev.exit385:                ; preds = %.body205, %1147
   %1157 = landingpad { ptr, i32 }
           catch ptr null
   %1158 = extractvalue { ptr, i32 } %1157, 0
-  call void @__clang_call_terminate(ptr %1158) #24
+  call void @__clang_call_terminate(ptr %1158) #23
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit387:                ; preds = %.body213, %1154
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %168) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %168)
   br label %1278
 
 .body221:                                         ; preds = %834
@@ -3864,11 +3864,11 @@ _ZNSt14_Function_baseD2Ev.exit387:                ; preds = %.body213, %1154
   %1164 = landingpad { ptr, i32 }
           catch ptr null
   %1165 = extractvalue { ptr, i32 } %1164, 0
-  call void @__clang_call_terminate(ptr %1165) #24
+  call void @__clang_call_terminate(ptr %1165) #23
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit389:                ; preds = %.body221, %1161
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %170) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %170)
   br label %1278
 
 .body229:                                         ; preds = %850
@@ -3886,11 +3886,11 @@ _ZNSt14_Function_baseD2Ev.exit389:                ; preds = %.body221, %1161
   %1171 = landingpad { ptr, i32 }
           catch ptr null
   %1172 = extractvalue { ptr, i32 } %1171, 0
-  call void @__clang_call_terminate(ptr %1172) #24
+  call void @__clang_call_terminate(ptr %1172) #23
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit391:                ; preds = %.body229, %1168
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %172) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %172)
   br label %1278
 
 .body237:                                         ; preds = %866
@@ -3908,11 +3908,11 @@ _ZNSt14_Function_baseD2Ev.exit391:                ; preds = %.body229, %1168
   %1178 = landingpad { ptr, i32 }
           catch ptr null
   %1179 = extractvalue { ptr, i32 } %1178, 0
-  call void @__clang_call_terminate(ptr %1179) #24
+  call void @__clang_call_terminate(ptr %1179) #23
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit393:                ; preds = %.body237, %1175
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %174) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %174)
   br label %1278
 
 .body245:                                         ; preds = %882
@@ -3930,11 +3930,11 @@ _ZNSt14_Function_baseD2Ev.exit393:                ; preds = %.body237, %1175
   %1185 = landingpad { ptr, i32 }
           catch ptr null
   %1186 = extractvalue { ptr, i32 } %1185, 0
-  call void @__clang_call_terminate(ptr %1186) #24
+  call void @__clang_call_terminate(ptr %1186) #23
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit395:                ; preds = %.body245, %1182
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %176) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %176)
   br label %1278
 
 .body253:                                         ; preds = %898
@@ -3952,11 +3952,11 @@ _ZNSt14_Function_baseD2Ev.exit395:                ; preds = %.body245, %1182
   %1192 = landingpad { ptr, i32 }
           catch ptr null
   %1193 = extractvalue { ptr, i32 } %1192, 0
-  call void @__clang_call_terminate(ptr %1193) #24
+  call void @__clang_call_terminate(ptr %1193) #23
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit397:                ; preds = %.body253, %1189
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %178) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %178)
   br label %1278
 
 .body261:                                         ; preds = %914
@@ -3974,11 +3974,11 @@ _ZNSt14_Function_baseD2Ev.exit397:                ; preds = %.body253, %1189
   %1199 = landingpad { ptr, i32 }
           catch ptr null
   %1200 = extractvalue { ptr, i32 } %1199, 0
-  call void @__clang_call_terminate(ptr %1200) #24
+  call void @__clang_call_terminate(ptr %1200) #23
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit399:                ; preds = %.body261, %1196
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %180) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %180)
   br label %1278
 
 .body269:                                         ; preds = %930
@@ -3996,11 +3996,11 @@ _ZNSt14_Function_baseD2Ev.exit399:                ; preds = %.body261, %1196
   %1206 = landingpad { ptr, i32 }
           catch ptr null
   %1207 = extractvalue { ptr, i32 } %1206, 0
-  call void @__clang_call_terminate(ptr %1207) #24
+  call void @__clang_call_terminate(ptr %1207) #23
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit401:                ; preds = %.body269, %1203
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %182) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %182)
   br label %1278
 
 .body277:                                         ; preds = %946
@@ -4018,11 +4018,11 @@ _ZNSt14_Function_baseD2Ev.exit401:                ; preds = %.body269, %1203
   %1213 = landingpad { ptr, i32 }
           catch ptr null
   %1214 = extractvalue { ptr, i32 } %1213, 0
-  call void @__clang_call_terminate(ptr %1214) #24
+  call void @__clang_call_terminate(ptr %1214) #23
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit403:                ; preds = %.body277, %1210
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %184) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %184)
   br label %1278
 
 .body285:                                         ; preds = %962
@@ -4040,11 +4040,11 @@ _ZNSt14_Function_baseD2Ev.exit403:                ; preds = %.body277, %1210
   %1220 = landingpad { ptr, i32 }
           catch ptr null
   %1221 = extractvalue { ptr, i32 } %1220, 0
-  call void @__clang_call_terminate(ptr %1221) #24
+  call void @__clang_call_terminate(ptr %1221) #23
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit405:                ; preds = %.body285, %1217
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %186) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %186)
   br label %1278
 
 .body293:                                         ; preds = %978
@@ -4062,11 +4062,11 @@ _ZNSt14_Function_baseD2Ev.exit405:                ; preds = %.body285, %1217
   %1227 = landingpad { ptr, i32 }
           catch ptr null
   %1228 = extractvalue { ptr, i32 } %1227, 0
-  call void @__clang_call_terminate(ptr %1228) #24
+  call void @__clang_call_terminate(ptr %1228) #23
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit407:                ; preds = %.body293, %1224
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %188) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %188)
   br label %1278
 
 .body301:                                         ; preds = %994
@@ -4084,11 +4084,11 @@ _ZNSt14_Function_baseD2Ev.exit407:                ; preds = %.body293, %1224
   %1234 = landingpad { ptr, i32 }
           catch ptr null
   %1235 = extractvalue { ptr, i32 } %1234, 0
-  call void @__clang_call_terminate(ptr %1235) #24
+  call void @__clang_call_terminate(ptr %1235) #23
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit409:                ; preds = %.body301, %1231
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %190) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %190)
   br label %1278
 
 .body309:                                         ; preds = %1010
@@ -4106,11 +4106,11 @@ _ZNSt14_Function_baseD2Ev.exit409:                ; preds = %.body301, %1231
   %1241 = landingpad { ptr, i32 }
           catch ptr null
   %1242 = extractvalue { ptr, i32 } %1241, 0
-  call void @__clang_call_terminate(ptr %1242) #24
+  call void @__clang_call_terminate(ptr %1242) #23
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit411:                ; preds = %.body309, %1238
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %192) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %192)
   br label %1278
 
 .body317:                                         ; preds = %1026
@@ -4128,11 +4128,11 @@ _ZNSt14_Function_baseD2Ev.exit411:                ; preds = %.body309, %1238
   %1248 = landingpad { ptr, i32 }
           catch ptr null
   %1249 = extractvalue { ptr, i32 } %1248, 0
-  call void @__clang_call_terminate(ptr %1249) #24
+  call void @__clang_call_terminate(ptr %1249) #23
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit413:                ; preds = %.body317, %1245
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %194) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %194)
   br label %1278
 
 .body325:                                         ; preds = %1042
@@ -4150,11 +4150,11 @@ _ZNSt14_Function_baseD2Ev.exit413:                ; preds = %.body317, %1245
   %1255 = landingpad { ptr, i32 }
           catch ptr null
   %1256 = extractvalue { ptr, i32 } %1255, 0
-  call void @__clang_call_terminate(ptr %1256) #24
+  call void @__clang_call_terminate(ptr %1256) #23
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit415:                ; preds = %.body325, %1252
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %196) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %196)
   br label %1278
 
 .body333:                                         ; preds = %1058
@@ -4172,11 +4172,11 @@ _ZNSt14_Function_baseD2Ev.exit415:                ; preds = %.body325, %1252
   %1262 = landingpad { ptr, i32 }
           catch ptr null
   %1263 = extractvalue { ptr, i32 } %1262, 0
-  call void @__clang_call_terminate(ptr %1263) #24
+  call void @__clang_call_terminate(ptr %1263) #23
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit417:                ; preds = %.body333, %1259
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %198) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %198)
   br label %1278
 
 .body341:                                         ; preds = %1074
@@ -4194,11 +4194,11 @@ _ZNSt14_Function_baseD2Ev.exit417:                ; preds = %.body333, %1259
   %1269 = landingpad { ptr, i32 }
           catch ptr null
   %1270 = extractvalue { ptr, i32 } %1269, 0
-  call void @__clang_call_terminate(ptr %1270) #24
+  call void @__clang_call_terminate(ptr %1270) #23
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit419:                ; preds = %.body341, %1266
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %200) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %200)
   br label %1278
 
 .body349:                                         ; preds = %1090
@@ -4216,11 +4216,11 @@ _ZNSt14_Function_baseD2Ev.exit419:                ; preds = %.body341, %1266
   %1276 = landingpad { ptr, i32 }
           catch ptr null
   %1277 = extractvalue { ptr, i32 } %1276, 0
-  call void @__clang_call_terminate(ptr %1277) #24
+  call void @__clang_call_terminate(ptr %1277) #23
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit421:                ; preds = %.body349, %1273
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %202) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %202)
   br label %1278
 
 1278:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit421, %_ZNSt14_Function_baseD2Ev.exit419, %_ZNSt14_Function_baseD2Ev.exit417, %_ZNSt14_Function_baseD2Ev.exit415, %_ZNSt14_Function_baseD2Ev.exit413, %_ZNSt14_Function_baseD2Ev.exit411, %_ZNSt14_Function_baseD2Ev.exit409, %_ZNSt14_Function_baseD2Ev.exit407, %_ZNSt14_Function_baseD2Ev.exit405, %_ZNSt14_Function_baseD2Ev.exit403, %_ZNSt14_Function_baseD2Ev.exit401, %_ZNSt14_Function_baseD2Ev.exit399, %_ZNSt14_Function_baseD2Ev.exit397, %_ZNSt14_Function_baseD2Ev.exit395, %_ZNSt14_Function_baseD2Ev.exit393, %_ZNSt14_Function_baseD2Ev.exit391, %_ZNSt14_Function_baseD2Ev.exit389, %_ZNSt14_Function_baseD2Ev.exit387, %_ZNSt14_Function_baseD2Ev.exit385, %_ZNSt14_Function_baseD2Ev.exit383, %_ZNSt14_Function_baseD2Ev.exit381, %_ZNSt14_Function_baseD2Ev.exit379
@@ -4232,13 +4232,7 @@ declare void @_ZN14tactic_manager6insertEP10tactic_cmd(ptr noundef nonnull align
 
 declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 declare void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #0
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 declare void @_ZN14tactic_manager6insertEP10probe_info(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef) local_unnamed_addr #0
 
@@ -4333,7 +4327,7 @@ declare void @_ZN14tactic_manager6insertEP14simplifier_cmd(ptr noundef nonnull a
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_258__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_258__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z25mk_ackermannize_bv_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -4341,10 +4335,10 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_258__inv
 declare noundef ptr @_Z25mk_ackermannize_bv_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_268__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_268__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z19mk_subpaving_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -4352,7 +4346,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_268__inv
 declare noundef ptr @_Z19mk_subpaving_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_278__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_278__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z14mk_horn_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -4360,7 +4354,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_278__inv
 declare noundef ptr @_Z14mk_horn_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_288__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_288__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z23mk_horn_simplify_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -4368,7 +4362,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_288__inv
 declare noundef ptr @_Z23mk_horn_simplify_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_298__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_298__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z15mk_nlsat_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -4376,7 +4370,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_298__inv
 declare noundef ptr @_Z15mk_nlsat_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_308__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_308__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z21mk_qfnra_nlsat_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -4384,7 +4378,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_308__inv
 declare noundef ptr @_Z21mk_qfnra_nlsat_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_318__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_318__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z17mk_qe_lite_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -4392,7 +4386,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_318__inv
 declare noundef ptr @_Z17mk_qe_lite_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_328__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_328__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z16mk_nlqsat_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -4400,7 +4394,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_328__inv
 declare noundef ptr @_Z16mk_nlqsat_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_338__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_338__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z12mk_qe_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -4408,7 +4402,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_338__inv
 declare noundef ptr @_Z12mk_qe_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_348__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_348__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z14mk_qsat_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -4416,7 +4410,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_348__inv
 declare noundef ptr @_Z14mk_qsat_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_358__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_358__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z13mk_qe2_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -4424,7 +4418,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_358__inv
 declare noundef ptr @_Z13mk_qe2_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_368__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_368__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z16mk_qe_rec_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -4432,7 +4426,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_368__inv
 declare noundef ptr @_Z16mk_qe_rec_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_378__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_378__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z14mk_psat_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -4440,7 +4434,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_378__inv
 declare noundef ptr @_Z14mk_psat_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_388__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_388__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z13mk_sat_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -4448,7 +4442,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_388__inv
 declare noundef ptr @_Z13mk_sat_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_398__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_398__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z26mk_sat_preprocessor_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -4456,7 +4450,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_398__inv
 declare noundef ptr @_Z26mk_sat_preprocessor_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_408__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_408__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z29mk_ctx_solver_simplify_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -4464,7 +4458,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_408__inv
 declare noundef ptr @_Z29mk_ctx_solver_simplify_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_418__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_418__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z22mk_parallel_smt_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -4472,7 +4466,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_418__inv
 declare noundef ptr @_Z22mk_parallel_smt_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_428__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_428__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z26mk_unit_subsumption_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -4480,9 +4474,9 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_428__inv
 declare noundef ptr @_Z26mk_unit_subsumption_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_438__invokeER11ast_managerRK10params_ref"(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_438__invokeER11ast_managerRK10params_ref"(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1) #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.params_ref, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !19
   %4 = invoke noundef ptr @_Z13mk_aig_tacticRK10params_ref(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %"_ZZ15install_tacticsR14tactic_managerENK4$_43clER11ast_managerRK10params_ref.exit" unwind label %5
@@ -4490,26 +4484,26 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_438__inv
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
+  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %6
 
 "_ZZ15install_tacticsR14tactic_managerENK4$_43clER11ast_managerRK10params_ref.exit": ; preds = %2
-  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
+  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %4
 }
 
 declare noundef ptr @_Z13mk_aig_tacticRK10params_ref(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind
 declare void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_448__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_448__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z20mk_add_bounds_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -4517,7 +4511,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_448__inv
 declare noundef ptr @_Z20mk_add_bounds_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_458__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_458__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 352)
   tail call void @_ZN27dependent_expr_state_tacticC2ER11ast_managerRK10params_refPFP25dependent_expr_simplifierS1_S4_R20dependent_expr_stateE(ptr noundef nonnull align 8 dereferenceable(345) %3, ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_ZZ17mk_card2bv_tacticR11ast_managerRK10params_refENUlRT_RT0_RT1_E_8__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierS5_S7_S9_)
   ret ptr %3
@@ -4560,10 +4554,10 @@ define linkonce_odr hidden void @_ZN27dependent_expr_state_tacticC2ER11ast_manag
           cleanup
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  tail call void @_ZN6vectorIjLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #23
-  tail call void @_ZN6vectorIP5trailLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %20) #23
-  tail call void @_ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #23
-  tail call void @_ZN8ast_markD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %12) #23
+  tail call void @_ZN6vectorIjLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #24
+  tail call void @_ZN6vectorIP5trailLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %20) #24
+  tail call void @_ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #24
+  tail call void @_ZN8ast_markD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %12) #24
   br label %.body
 
 _ZN20dependent_expr_stateC2ER11ast_manager.exit:  ; preds = %4
@@ -4586,9 +4580,9 @@ _ZN20dependent_expr_stateC2ER11ast_manager.exit:  ; preds = %4
   %27 = landingpad { ptr, i32 }
           cleanup
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  tail call void @_ZN6vectorIjLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #23
-  tail call void @_ZN6vectorIP5trailLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %25) #23
-  tail call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #23
+  tail call void @_ZN6vectorIjLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #24
+  tail call void @_ZN6vectorIP5trailLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %25) #24
+  tail call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #24
   br label %46
 
 _ZN11trail_stackC2Ev.exit:                        ; preds = %24
@@ -4630,7 +4624,7 @@ _ZN11trail_stackC2Ev.exit:                        ; preds = %24
 
 46:                                               ; preds = %.body17, %44
   %.pn.pn.pn = phi { ptr, i32 } [ %27, %.body17 ], [ %45, %44 ]
-  tail call void @_ZN20dependent_expr_stateD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %6) #23
+  tail call void @_ZN20dependent_expr_stateD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %6) #24
   br label %.body
 
 .body:                                            ; preds = %.body.i, %46
@@ -4639,7 +4633,7 @@ _ZN11trail_stackC2Ev.exit:                        ; preds = %24
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZZ17mk_card2bv_tacticR11ast_managerRK10params_refENUlRT_RT0_RT1_E_8__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierS5_S7_S9_(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) #5 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZZ17mk_card2bv_tacticR11ast_managerRK10params_refENUlRT_RT0_RT1_E_8__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierS5_S7_S9_(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) #4 comdat align 2 {
   %4 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
   tail call void @_ZN7card2bvC1ER11ast_managerRK10params_refR20dependent_expr_state(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(160) %2)
   ret ptr %4
@@ -4650,7 +4644,7 @@ declare void @_ZN7card2bvC1ER11ast_managerRK10params_refR20dependent_expr_state(
 declare void @_ZN10params_refC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !148
   %4 = icmp eq ptr %3, null
@@ -4704,7 +4698,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_re
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #24
+  tail call void @__clang_call_terminate(ptr %24) #23
   unreachable
 
 _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %1, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.thread4
@@ -4714,12 +4708,12 @@ _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %1, %_ZN15ref_vector
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #24
+  tail call void @__clang_call_terminate(ptr %27) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !154
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !123
@@ -4792,12 +4786,12 @@ _ZN11ast_manager7dec_refEP3ast.exit5:             ; preds = %27, %_ZN11ast_manag
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  tail call void @__clang_call_terminate(ptr %35) #24
+  tail call void @__clang_call_terminate(ptr %35) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN27dependent_expr_state_tacticD2Ev(ptr noundef nonnull align 8 dereferenceable(345) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN27dependent_expr_state_tacticD2Ev(ptr noundef nonnull align 8 dereferenceable(345) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 256) (i8, ptr @_ZTV27dependent_expr_state_tactic, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV27dependent_expr_state_tactic, i64 288), ptr %2, align 8, !tbaa !22
@@ -4895,7 +4889,7 @@ _ZN20dependent_expr_state3popEj.exit:             ; preds = %_ZN6vectorIjLb0EjE6
   br i1 %40, label %_ZN10scoped_ptrI26model_reconstruction_trailED2Ev.exit, label %41
 
 41:                                               ; preds = %_ZN20dependent_expr_state3popEj.exit
-  tail call void @_ZN26model_reconstruction_trailD2Ev(ptr noundef nonnull align 8 dereferenceable(97) %39) #23
+  tail call void @_ZN26model_reconstruction_trailD2Ev(ptr noundef nonnull align 8 dereferenceable(97) %39) #24
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %39)
           to label %_ZN10scoped_ptrI26model_reconstruction_trailED2Ev.exit unwind label %42
 
@@ -4903,7 +4897,7 @@ _ZN20dependent_expr_state3popEj.exit:             ; preds = %_ZN6vectorIjLb0EjE6
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  tail call void @__clang_call_terminate(ptr %44) #24
+  tail call void @__clang_call_terminate(ptr %44) #23
   unreachable
 
 _ZN10scoped_ptrI26model_reconstruction_trailED2Ev.exit: ; preds = %_ZN20dependent_expr_state3popEj.exit, %41
@@ -4914,7 +4908,7 @@ _ZN10scoped_ptrI26model_reconstruction_trailED2Ev.exit: ; preds = %_ZN20dependen
 47:                                               ; preds = %_ZN10scoped_ptrI26model_reconstruction_trailED2Ev.exit
   %48 = load ptr, ptr %45, align 8, !tbaa !22
   %49 = load ptr, ptr %48, align 8
-  tail call void %49(ptr noundef nonnull align 8 dereferenceable(32) %45) #23
+  tail call void %49(ptr noundef nonnull align 8 dereferenceable(32) %45) #24
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %45)
           to label %_ZN10scoped_ptrI25dependent_expr_simplifierED2Ev.exit unwind label %50
 
@@ -4922,7 +4916,7 @@ _ZN10scoped_ptrI26model_reconstruction_trailED2Ev.exit: ; preds = %_ZN20dependen
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  tail call void @__clang_call_terminate(ptr %52) #24
+  tail call void @__clang_call_terminate(ptr %52) #23
   unreachable
 
 _ZN10scoped_ptrI25dependent_expr_simplifierED2Ev.exit: ; preds = %_ZN10scoped_ptrI26model_reconstruction_trailED2Ev.exit, %47
@@ -4980,14 +4974,14 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_re
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  tail call void @__clang_call_terminate(ptr %76) #24
+  tail call void @__clang_call_terminate(ptr %76) #23
   unreachable
 
 77:                                               ; preds = %69
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  tail call void @__clang_call_terminate(ptr %79) #24
+  tail call void @__clang_call_terminate(ptr %79) #23
   unreachable
 
 _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; preds = %_ZN10scoped_ptrI25dependent_expr_simplifierED2Ev.exit, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.thread4.i
@@ -5006,7 +5000,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
   %86 = landingpad { ptr, i32 }
           catch ptr null
   %87 = extractvalue { ptr, i32 } %86, 0
-  tail call void @__clang_call_terminate(ptr %87) #24
+  tail call void @__clang_call_terminate(ptr %87) #23
   unreachable
 
 _ZN6vectorISt4pairIPKcdELb0EjED2Ev.exit.i:        ; preds = %83, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit
@@ -5023,12 +5017,12 @@ _ZN6vectorISt4pairIPKcdELb0EjED2Ev.exit.i:        ; preds = %83, %_ZN15ref_vecto
   %92 = landingpad { ptr, i32 }
           catch ptr null
   %93 = extractvalue { ptr, i32 } %92, 0
-  tail call void @__clang_call_terminate(ptr %93) #24
+  tail call void @__clang_call_terminate(ptr %93) #23
   unreachable
 
 _ZN10statisticsD2Ev.exit:                         ; preds = %_ZN6vectorISt4pairIPKcdELb0EjED2Ev.exit.i, %89
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  tail call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %94) #23
+  tail call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %94) #24
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %96 = load ptr, ptr %95, align 8, !tbaa !60
   %.not.i.i = icmp eq ptr %96, null
@@ -5043,7 +5037,7 @@ _ZN10statisticsD2Ev.exit:                         ; preds = %_ZN6vectorISt4pairI
   br i1 %101, label %102, label %_ZN3refI4goalED2Ev.exit
 
 102:                                              ; preds = %97
-  tail call void @_ZN4goalD1Ev(ptr noundef nonnull align 8 dereferenceable(124) %96) #23
+  tail call void @_ZN4goalD1Ev(ptr noundef nonnull align 8 dereferenceable(124) %96) #24
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(124) %96)
           to label %_ZN3refI4goalED2Ev.exit unwind label %103
 
@@ -5051,13 +5045,13 @@ _ZN10statisticsD2Ev.exit:                         ; preds = %_ZN6vectorISt4pairI
   %104 = landingpad { ptr, i32 }
           catch ptr null
   %105 = extractvalue { ptr, i32 } %104, 0
-  tail call void @__clang_call_terminate(ptr %105) #24
+  tail call void @__clang_call_terminate(ptr %105) #23
   unreachable
 
 _ZN3refI4goalED2Ev.exit:                          ; preds = %_ZN10statisticsD2Ev.exit, %97, %102
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  tail call void @_ZN6regionD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %107) #23
+  tail call void @_ZN6regionD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %107) #24
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %109 = load ptr, ptr %108, align 8, !tbaa !158
   %.not.i.i.i4 = icmp eq ptr %109, null
@@ -5072,7 +5066,7 @@ _ZN3refI4goalED2Ev.exit:                          ; preds = %_ZN10statisticsD2Ev
   %113 = landingpad { ptr, i32 }
           catch ptr null
   %114 = extractvalue { ptr, i32 } %113, 0
-  tail call void @__clang_call_terminate(ptr %114) #24
+  tail call void @__clang_call_terminate(ptr %114) #23
   unreachable
 
 _ZN6vectorIjLb0EjED2Ev.exit.i:                    ; preds = %110, %_ZN3refI4goalED2Ev.exit
@@ -5089,13 +5083,13 @@ _ZN6vectorIjLb0EjED2Ev.exit.i:                    ; preds = %110, %_ZN3refI4goal
   %119 = landingpad { ptr, i32 }
           catch ptr null
   %120 = extractvalue { ptr, i32 } %119, 0
-  tail call void @__clang_call_terminate(ptr %120) #24
+  tail call void @__clang_call_terminate(ptr %120) #23
   unreachable
 
 _ZN11trail_stackD2Ev.exit:                        ; preds = %_ZN6vectorIjLb0EjED2Ev.exit.i, %116
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  tail call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %121) #23
-  tail call void @_ZN20dependent_expr_stateD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %2) #23
+  tail call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %121) #24
+  tail call void @_ZN20dependent_expr_stateD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %2) #24
   ret void
 
 .loopexit:                                        ; preds = %_ZN6vectorIjLb0EjE6shrinkEj.exit.i.i
@@ -5111,13 +5105,13 @@ _ZN11trail_stackD2Ev.exit:                        ; preds = %_ZN6vectorIjLb0EjED
 122:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %123 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %123) #24
+  tail call void @__clang_call_terminate(ptr %123) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN27dependent_expr_state_tacticD0Ev(ptr noundef nonnull align 8 dereferenceable(345) %0) unnamed_addr #8 comdat align 2 {
-  tail call void @_ZN27dependent_expr_state_tacticD2Ev(ptr noundef nonnull align 8 dereferenceable(345) %0) #23
+define linkonce_odr hidden void @_ZN27dependent_expr_state_tacticD0Ev(ptr noundef nonnull align 8 dereferenceable(345) %0) unnamed_addr #7 comdat align 2 {
+  tail call void @_ZN27dependent_expr_state_tacticD2Ev(ptr noundef nonnull align 8 dereferenceable(345) %0) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 352) #25
   ret void
 }
@@ -5126,8 +5120,8 @@ define linkonce_odr hidden void @_ZN27dependent_expr_state_tacticD0Ev(ptr nounde
 define linkonce_odr hidden void @_ZN6tactic19user_propagate_initEPvRSt8functionIFvS0_PN15user_propagator8callbackEEERS1_IFvS0_S4_jEERS1_IFS0_S0_R11ast_managerRPNS2_11context_objEEE(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef %1, ptr noundef nonnull align 1 %2, ptr noundef nonnull align 1 %3, ptr noundef nonnull align 1 %4) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i:
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
-  %6 = tail call ptr @__cxa_allocate_exception(i64 40) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #23
+  %6 = tail call ptr @__cxa_allocate_exception(i64 40) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = invoke noalias noundef nonnull dereferenceable(41) ptr @_Znwm(i64 noundef 41) #26
           to label %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %22
@@ -5170,14 +5164,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7:
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %24
 
 22:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23
-  tail call void @__cxa_free_exception(ptr %6) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  tail call void @__cxa_free_exception(ptr %6) #24
   br label %24
 
 24:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %22
@@ -5192,8 +5186,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 define linkonce_odr hidden void @_ZN15user_propagator4core29user_propagate_register_fixedERSt8functionIFvPvPNS_8callbackEP4exprS6_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i:
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
-  %3 = tail call ptr @__cxa_allocate_exception(i64 40) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #23
+  %3 = tail call ptr @__cxa_allocate_exception(i64 40) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = invoke noalias noundef nonnull dereferenceable(54) ptr @_Znwm(i64 noundef 54) #26
           to label %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %19
@@ -5236,14 +5230,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7:
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %21
 
 19:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23
-  tail call void @__cxa_free_exception(ptr %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  tail call void @__cxa_free_exception(ptr %3) #24
   br label %21
 
 21:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %19
@@ -5258,8 +5252,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 define linkonce_odr hidden void @_ZN15user_propagator4core29user_propagate_register_finalERSt8functionIFvPvPNS_8callbackEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i:
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
-  %3 = tail call ptr @__cxa_allocate_exception(i64 40) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #23
+  %3 = tail call ptr @__cxa_allocate_exception(i64 40) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = invoke noalias noundef nonnull dereferenceable(54) ptr @_Znwm(i64 noundef 54) #26
           to label %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %19
@@ -5302,14 +5296,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7:
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %21
 
 19:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23
-  tail call void @__cxa_free_exception(ptr %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  tail call void @__cxa_free_exception(ptr %3) #24
   br label %21
 
 21:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %19
@@ -5324,8 +5318,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 define linkonce_odr hidden void @_ZN15user_propagator4core26user_propagate_register_eqERSt8functionIFvPvPNS_8callbackEP4exprS6_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i:
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
-  %3 = tail call ptr @__cxa_allocate_exception(i64 40) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #23
+  %3 = tail call ptr @__cxa_allocate_exception(i64 40) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = invoke noalias noundef nonnull dereferenceable(54) ptr @_Znwm(i64 noundef 54) #26
           to label %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %19
@@ -5368,14 +5362,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7:
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %21
 
 19:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23
-  tail call void @__cxa_free_exception(ptr %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  tail call void @__cxa_free_exception(ptr %3) #24
   br label %21
 
 21:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %19
@@ -5390,8 +5384,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 define linkonce_odr hidden void @_ZN15user_propagator4core29user_propagate_register_diseqERSt8functionIFvPvPNS_8callbackEP4exprS6_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i:
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
-  %3 = tail call ptr @__cxa_allocate_exception(i64 40) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #23
+  %3 = tail call ptr @__cxa_allocate_exception(i64 40) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = invoke noalias noundef nonnull dereferenceable(54) ptr @_Znwm(i64 noundef 54) #26
           to label %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %19
@@ -5434,14 +5428,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7:
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %21
 
 19:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23
-  tail call void @__cxa_free_exception(ptr %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  tail call void @__cxa_free_exception(ptr %3) #24
   br label %21
 
 21:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %19
@@ -5503,8 +5497,8 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
 define linkonce_odr hidden void @_ZN15user_propagator4core31user_propagate_register_createdERSt8functionIFvPvPNS_8callbackEP4exprEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i:
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
-  %3 = tail call ptr @__cxa_allocate_exception(i64 40) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #23
+  %3 = tail call ptr @__cxa_allocate_exception(i64 40) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = invoke noalias noundef nonnull dereferenceable(54) ptr @_Znwm(i64 noundef 54) #26
           to label %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %19
@@ -5547,14 +5541,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7:
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %21
 
 19:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23
-  tail call void @__cxa_free_exception(ptr %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  tail call void @__cxa_free_exception(ptr %3) #24
   br label %21
 
 21:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %19
@@ -5569,8 +5563,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 define linkonce_odr hidden void @_ZN15user_propagator4core30user_propagate_register_decideERSt8functionIFvPvPNS_8callbackEP4exprjbEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i:
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
-  %3 = tail call ptr @__cxa_allocate_exception(i64 40) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #23
+  %3 = tail call ptr @__cxa_allocate_exception(i64 40) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = invoke noalias noundef nonnull dereferenceable(54) ptr @_Znwm(i64 noundef 54) #26
           to label %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %19
@@ -5613,14 +5607,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7:
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %21
 
 19:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23
-  tail call void @__cxa_free_exception(ptr %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  tail call void @__cxa_free_exception(ptr %3) #24
   br label %21
 
 21:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %19
@@ -5778,8 +5772,8 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit:
 define linkonce_odr hidden void @_ZN6tactic18register_on_clauseEPvRSt8functionIFvS0_P4exprjPKjjPKS3_EE(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef %1, ptr noundef nonnull align 1 %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i:
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  %4 = tail call ptr @__cxa_allocate_exception(i64 40) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #23
+  %4 = tail call ptr @__cxa_allocate_exception(i64 40) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = invoke noalias noundef nonnull dereferenceable(39) ptr @_Znwm(i64 noundef 39) #26
           to label %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %20
@@ -5822,14 +5816,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7:
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %22
 
 20:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23
-  tail call void @__cxa_free_exception(ptr %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  tail call void @__cxa_free_exception(ptr %4) #24
   br label %22
 
 22:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %20
@@ -5844,8 +5838,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 define linkonce_odr hidden void @_ZN15user_propagator4core31user_propagate_initialize_valueEP4exprS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i:
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  %4 = tail call ptr @__cxa_allocate_exception(i64 40) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #23
+  %4 = tail call ptr @__cxa_allocate_exception(i64 40) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = invoke noalias noundef nonnull dereferenceable(57) ptr @_Znwm(i64 noundef 57) #26
           to label %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %20
@@ -5888,14 +5882,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7:
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %22
 
 20:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23
-  tail call void @__cxa_free_exception(ptr %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  tail call void @__cxa_free_exception(ptr %4) #24
   br label %22
 
 22:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %20
@@ -5940,11 +5934,11 @@ define linkonce_odr hidden void @_ZN27dependent_expr_state_tacticclERK3refI4goal
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %class.ref.342, align 8
   tail call void @_ZN27dependent_expr_state_tactic4initEv(ptr noundef nonnull align 8 dereferenceable(345) %0)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !183
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = load ptr, ptr %0, align 8, !tbaa !22
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 184
   %12 = load ptr, ptr %11, align 8
@@ -5983,7 +5977,7 @@ define linkonce_odr hidden void @_ZN27dependent_expr_state_tacticclERK3refI4goal
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %25
-  call void @_ZN4goalD1Ev(ptr noundef nonnull align 8 dereferenceable(124) %24) #23
+  call void @_ZN4goalD1Ev(ptr noundef nonnull align 8 dereferenceable(124) %24) #24
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(124) %24)
           to label %31 unwind label %52
 
@@ -6032,20 +6026,20 @@ define linkonce_odr hidden void @_ZN27dependent_expr_state_tacticclERK3refI4goal
           cleanup
           catch ptr @_ZTI18rewriter_exception
   %56 = extractvalue { ptr, i32 } %55, 1
-  %57 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI18rewriter_exception) #23
+  %57 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI18rewriter_exception) #24
   %58 = icmp eq i32 %56, %57
   br i1 %58, label %59, label %182
 
 59:                                               ; preds = %54
   %60 = extractvalue { ptr, i32 } %55, 0
-  %61 = call ptr @__cxa_begin_catch(ptr %60) #23
-  %62 = call ptr @__cxa_allocate_exception(i64 40) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23
+  %61 = call ptr @__cxa_begin_catch(ptr %60) #24
+  %62 = call ptr @__cxa_allocate_exception(i64 40) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %63 = load ptr, ptr %61, align 8, !tbaa !22
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load ptr, ptr %64, align 8
-  %66 = call noundef ptr %65(ptr noundef nonnull align 8 dereferenceable(40) %61) #23
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #23
+  %66 = call noundef ptr %65(ptr noundef nonnull align 8 dereferenceable(40) %61) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %66, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %67 unwind label %90
 
@@ -6107,16 +6101,16 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %92
 
 90:                                               ; preds = %59
   %91 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23
-  call void @__cxa_free_exception(ptr %62) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @__cxa_free_exception(ptr %62) #24
   br label %92
 
 92:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %90
@@ -6151,7 +6145,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
   br i1 %.not36, label %.thread, label %109
 
 109:                                              ; preds = %97
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %111 = load ptr, ptr %110, align 8, !tbaa !163
   invoke void @_ZN26model_reconstruction_trail19get_model_converterEv(ptr dead_on_unwind nonnull writable sret(%class.ref.342) align 8 %8, ptr noundef nonnull align 8 dereferenceable(97) %111)
@@ -6191,7 +6185,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 128:                                              ; preds = %123
   %129 = load ptr, ptr %122, align 8, !tbaa !22
   %130 = load ptr, ptr %129, align 8
-  call void %130(ptr noundef nonnull align 8 dereferenceable(12) %122) #23
+  call void %130(ptr noundef nonnull align 8 dereferenceable(12) %122) #24
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(12) %122)
           to label %131 unwind label %146
 
@@ -6212,7 +6206,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 138:                                              ; preds = %133
   %139 = load ptr, ptr %132, align 8, !tbaa !22
   %140 = load ptr, ptr %139, align 8
-  call void %140(ptr noundef nonnull align 8 dereferenceable(12) %132) #23
+  call void %140(ptr noundef nonnull align 8 dereferenceable(12) %132) #24
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(12) %132)
           to label %149 unwind label %141
 
@@ -6220,7 +6214,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
   %142 = landingpad { ptr, i32 }
           catch ptr null
   %143 = extractvalue { ptr, i32 } %142, 0
-  call void @__clang_call_terminate(ptr %143) #24
+  call void @__clang_call_terminate(ptr %143) #23
   unreachable
 
 144:                                              ; preds = %109
@@ -6231,16 +6225,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 146:                                              ; preds = %128, %112
   %147 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3refI15model_converterED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #23
+  call void @_ZN3refI15model_converterED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #24
   br label %148
 
 148:                                              ; preds = %146, %144
   %.pn20 = phi { ptr, i32 } [ %147, %146 ], [ %145, %144 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %182
 
 149:                                              ; preds = %138, %133, %131
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pr = load ptr, ptr %1, align 8, !tbaa !60
   %.not.i.i.i28 = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i28, label %_ZN15ref_buffer_coreI4goal21ref_unmanaged_wrapperIS0_ELj16EE7inc_refEPS0_.exit.i, label %.thread
@@ -6329,29 +6323,29 @@ _ZN6bufferIP4goalLb0ELj16EE6expandEv.exit.i.i:    ; preds = %.noexc31, %._crit_e
           to label %181 unwind label %52
 
 181:                                              ; preds = %172
-  call void @_ZN13tactic_reportD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
-  call void @_ZN17statistics_reportD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #23
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #23
+  call void @_ZN13tactic_reportD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @_ZN17statistics_reportD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 182:                                              ; preds = %92, %148, %54, %52
   %.merged22 = phi { ptr, i32 } [ %53, %52 ], [ %.pn20, %148 ], [ %55, %54 ], [ %.pn34, %92 ]
-  call void @_ZN13tactic_reportD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
+  call void @_ZN13tactic_reportD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #24
   br label %183
 
 183:                                              ; preds = %182, %50
   %.merged = phi { ptr, i32 } [ %.merged22, %182 ], [ %51, %50 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
-  call void @_ZN17statistics_reportD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #23
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @_ZN17statistics_reportD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.merged
 
 184:                                              ; preds = %92
   %185 = landingpad { ptr, i32 }
           catch ptr null
   %186 = extractvalue { ptr, i32 } %185, 0
-  call void @__clang_call_terminate(ptr %186) #24
+  call void @__clang_call_terminate(ptr %186) #23
   unreachable
 
 187:                                              ; preds = %_ZN16tactic_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -6495,7 +6489,7 @@ _ZN6vectorIjLb0EjE6shrinkEj.exit.i.i:             ; preds = %39, %_Z16undo_trail
 42:                                               ; preds = %_ZN6vectorIjLb0EjE6shrinkEj.exit.i.i
   %43 = load ptr, ptr %.pr, align 8, !tbaa !22
   %44 = load ptr, ptr %43, align 8
-  tail call void %44(ptr noundef nonnull align 8 dereferenceable(32) %.pr) #23
+  tail call void %44(ptr noundef nonnull align 8 dereferenceable(32) %.pr) #24
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %.pr)
   store ptr null, ptr %3, align 8, !tbaa !157
   br label %_ZN10scoped_ptrI25dependent_expr_simplifierEaSEPS0_.exit
@@ -6507,7 +6501,7 @@ _ZN10scoped_ptrI25dependent_expr_simplifierEaSEPS0_.exit: ; preds = %1, %_ZN6vec
   br i1 %.not.i2, label %_ZN10scoped_ptrI26model_reconstruction_trailEaSEPS0_.exit, label %47
 
 47:                                               ; preds = %_ZN10scoped_ptrI25dependent_expr_simplifierEaSEPS0_.exit
-  tail call void @_ZN26model_reconstruction_trailD2Ev(ptr noundef nonnull align 8 dereferenceable(97) %46) #23
+  tail call void @_ZN26model_reconstruction_trailD2Ev(ptr noundef nonnull align 8 dereferenceable(97) %46) #24
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %46)
   store ptr null, ptr %45, align 8, !tbaa !163
   br label %_ZN10scoped_ptrI26model_reconstruction_trailEaSEPS0_.exit
@@ -6527,13 +6521,13 @@ _ZN10scoped_ptrI26model_reconstruction_trailEaSEPS0_.exit: ; preds = %_ZN10scope
   br i1 %54, label %55, label %_ZN3refI4goalEaSEPS0_.exit
 
 55:                                               ; preds = %50
-  tail call void @_ZN4goalD1Ev(ptr noundef nonnull align 8 dereferenceable(124) %49) #23
+  tail call void @_ZN4goalD1Ev(ptr noundef nonnull align 8 dereferenceable(124) %49) #24
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(124) %49)
   br label %_ZN3refI4goalEaSEPS0_.exit
 
 _ZN3refI4goalEaSEPS0_.exit:                       ; preds = %_ZN10scoped_ptrI26model_reconstruction_trailEaSEPS0_.exit, %50, %55
   store ptr null, ptr %48, align 8, !tbaa !60
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %57 = load ptr, ptr %56, align 8, !tbaa !198
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 856
@@ -6559,15 +6553,15 @@ _ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr
           to label %68 unwind label %69
 
 68:                                               ; preds = %_ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit
-  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23
+  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 69:                                               ; preds = %_ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit
   %70 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23
+  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %70
 }
 
@@ -6581,12 +6575,12 @@ define linkonce_odr hidden void @_ZN6tactic5resetEv(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6tactic9set_logicERK6symbol(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden void @_ZN6tactic9set_logicERK6symbol(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #7 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6tactic21set_progress_callbackEP17progress_callback(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef %1) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden void @_ZN6tactic21set_progress_callbackEP17progress_callback(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef %1) unnamed_addr #7 comdat align 2 {
   ret void
 }
 
@@ -6672,7 +6666,7 @@ _ZNK4goal4sizeEv.exit:                            ; preds = %1, %12, %16, %20
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN27dependent_expr_state_tacticixEj(ptr noundef nonnull align 8 dereferenceable(345) %0, i32 noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.dependent_expr, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8, !tbaa !198
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -6963,15 +6957,15 @@ _ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr
           to label %135 unwind label %136
 
 135:                                              ; preds = %_ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit
-  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23
+  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %133
 
 136:                                              ; preds = %_ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit
   %137 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23
+  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %137
 }
 
@@ -7028,7 +7022,7 @@ define linkonce_odr hidden void @_ZN27dependent_expr_state_tactic3addERK14depend
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN27dependent_expr_state_tactic12inconsistentEv(ptr noundef nonnull align 8 dereferenceable(345) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden noundef zeroext i1 @_ZN27dependent_expr_state_tactic12inconsistentEv(ptr noundef nonnull align 8 dereferenceable(345) %0) unnamed_addr #7 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8, !tbaa !60
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
@@ -7046,7 +7040,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(97) ptr @_ZN2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN27dependent_expr_state_tactic7updatedEv(ptr noundef nonnull align 8 dereferenceable(345) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden noundef zeroext i1 @_ZN27dependent_expr_state_tactic7updatedEv(ptr noundef nonnull align 8 dereferenceable(345) %0) unnamed_addr #7 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %3 = load i8, ptr %2, align 8, !tbaa !207, !range !215, !noundef !216
   %4 = trunc nuw i8 %3 to i1
@@ -7054,29 +7048,29 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN27dependent_expr_state_tactic7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN27dependent_expr_state_tactic13reset_updatedEv(ptr noundef nonnull align 8 dereferenceable(345) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden void @_ZN27dependent_expr_state_tactic13reset_updatedEv(ptr noundef nonnull align 8 dereferenceable(345) %0) unnamed_addr #7 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store i8 0, ptr %2, align 8, !tbaa !207
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn16_N27dependent_expr_state_tacticD1Ev(ptr noundef %0) unnamed_addr #9 comdat align 2 {
+define linkonce_odr hidden void @_ZThn16_N27dependent_expr_state_tacticD1Ev(ptr noundef %0) unnamed_addr #8 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
-  tail call void @_ZN27dependent_expr_state_tacticD2Ev(ptr noundef nonnull align 8 dereferenceable(345) %2) #23
+  tail call void @_ZN27dependent_expr_state_tacticD2Ev(ptr noundef nonnull align 8 dereferenceable(345) %2) #24
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn16_N27dependent_expr_state_tacticD0Ev(ptr noundef %0) unnamed_addr #9 comdat align 2 {
+define linkonce_odr hidden void @_ZThn16_N27dependent_expr_state_tacticD0Ev(ptr noundef %0) unnamed_addr #8 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
-  tail call void @_ZN27dependent_expr_state_tacticD2Ev(ptr noundef nonnull align 8 dereferenceable(345) %2) #23
+  tail call void @_ZN27dependent_expr_state_tacticD2Ev(ptr noundef nonnull align 8 dereferenceable(345) %2) #24
   tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(345) %2, i64 noundef 352) #25
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr hidden noundef i32 @_ZThn16_NK27dependent_expr_state_tactic5qtailEv(ptr noundef %0) unnamed_addr #10 comdat align 2 {
+define linkonce_odr hidden noundef i32 @_ZThn16_NK27dependent_expr_state_tactic5qtailEv(ptr noundef %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8, !tbaa !60
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
@@ -7126,14 +7120,14 @@ _ZNK27dependent_expr_state_tactic5qtailEv.exit:   ; preds = %1, %12, %16, %20
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr hidden noundef ptr @_ZThn16_N27dependent_expr_state_tacticixEj(ptr noundef %0, i32 noundef %1) unnamed_addr #10 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZThn16_N27dependent_expr_state_tacticixEj(ptr noundef %0, i32 noundef %1) unnamed_addr #9 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -16
   %4 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN27dependent_expr_state_tacticixEj(ptr noundef nonnull align 8 dereferenceable(345) %3, i32 noundef %1)
   ret ptr %4
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr hidden void @_ZThn16_N27dependent_expr_state_tactic6updateEjRK14dependent_expr(ptr noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn16_N27dependent_expr_state_tactic6updateEjRK14dependent_expr(ptr noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 -16
   %5 = load ptr, ptr %4, align 8, !tbaa !22
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 224
@@ -7160,7 +7154,7 @@ _ZN27dependent_expr_state_tactic6updateEjRK14dependent_expr.exit: ; preds = %3, 
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr hidden void @_ZThn16_N27dependent_expr_state_tactic3addERK14dependent_expr(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZThn16_N27dependent_expr_state_tactic3addERK14dependent_expr(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -16
   %4 = load ptr, ptr %3, align 8, !tbaa !22
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
@@ -7187,7 +7181,7 @@ _ZN27dependent_expr_state_tactic3addERK14dependent_expr.exit: ; preds = %2, %8
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZThn16_N27dependent_expr_state_tactic12inconsistentEv(ptr noundef %0) unnamed_addr #10 comdat align 2 {
+define linkonce_odr hidden noundef zeroext i1 @_ZThn16_N27dependent_expr_state_tactic12inconsistentEv(ptr noundef %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8, !tbaa !60
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
@@ -7198,19 +7192,19 @@ define linkonce_odr hidden noundef zeroext i1 @_ZThn16_N27dependent_expr_state_t
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr hidden noundef ptr @_ZThn16_N27dependent_expr_state_tactic11model_trailEv(ptr noundef %0) unnamed_addr #10 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZThn16_N27dependent_expr_state_tactic11model_trailEv(ptr noundef %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %3 = load ptr, ptr %2, align 8, !tbaa !163
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN20dependent_expr_state14flatten_suffixEv(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden void @_ZN20dependent_expr_state14flatten_suffixEv(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #7 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZThn16_N27dependent_expr_state_tactic7updatedEv(ptr noundef %0) unnamed_addr #10 comdat align 2 {
+define linkonce_odr hidden noundef zeroext i1 @_ZThn16_N27dependent_expr_state_tactic7updatedEv(ptr noundef %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %3 = load i8, ptr %2, align 8, !tbaa !207, !range !215, !noundef !216
   %4 = trunc nuw i8 %3 to i1
@@ -7218,62 +7212,62 @@ define linkonce_odr hidden noundef zeroext i1 @_ZThn16_N27dependent_expr_state_t
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr hidden void @_ZThn16_N27dependent_expr_state_tactic13reset_updatedEv(ptr noundef %0) unnamed_addr #10 comdat align 2 {
+define linkonce_odr hidden void @_ZThn16_N27dependent_expr_state_tactic13reset_updatedEv(ptr noundef %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store i8 0, ptr %2, align 8, !tbaa !207
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK20dependent_expr_state7displayERSo(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK20dependent_expr_state7displayERSo(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #7 comdat align 2 {
   ret ptr %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN15user_propagator4coreD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden void @_ZN15user_propagator4coreD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6tacticD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #11 comdat align 2 {
-  tail call void @llvm.trap() #24
+define linkonce_odr hidden void @_ZN6tacticD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #10 comdat align 2 {
+  tail call void @llvm.trap() #23
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6tactic28user_propagate_register_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef %1) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden void @_ZN6tactic28user_propagate_register_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef %1) unnamed_addr #7 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN15user_propagator4core20user_propagate_clearEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden void @_ZN15user_propagator4core20user_propagate_clearEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6tactic11updt_paramsERK10params_ref(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden void @_ZN6tactic11updt_paramsERK10params_ref(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #7 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6tactic20collect_param_descrsER12param_descrs(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden void @_ZN6tactic20collect_param_descrsER12param_descrs(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #7 comdat align 2 {
   ret void
 }
 
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNK6tactic18collect_statisticsER10statistics(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden void @_ZNK6tactic18collect_statisticsER10statistics(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #7 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6tactic16reset_statisticsEv(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden void @_ZN6tactic16reset_statisticsEv(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #7 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #11
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
@@ -7289,7 +7283,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   unreachable
 
 7:                                                ; preds = %3
-  %8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #23
+  %8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %10, label %._crit_edge.i
 
@@ -7341,7 +7335,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i: ; pr
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN17default_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN17default_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV17default_exception, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !181
@@ -7363,50 +7357,50 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #23
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
   ret void
 }
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #13
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #12
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #14
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #16 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #23
-  tail call void @_ZSt9terminatev() #24
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #15 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #24
+  tail call void @_ZSt9terminatev() #23
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #17
+declare void @_ZSt9terminatev() local_unnamed_addr #16
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #14
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #13
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #18
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nounwind
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #19
+declare void @llvm.trap() #18
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !224
   %4 = icmp eq ptr %3, null
@@ -7460,7 +7454,7 @@ _ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE13dec_ran
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #24
+  tail call void @__clang_call_terminate(ptr %24) #23
   unreachable
 
 _ZN6vectorIP9func_declLb0EjED2Ev.exit:            ; preds = %1, %_ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit, %_ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.thread4
@@ -7470,12 +7464,12 @@ _ZN6vectorIP9func_declLb0EjED2Ev.exit:            ; preds = %1, %_ZN15ref_vector
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #24
+  tail call void @__clang_call_terminate(ptr %27) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8ast_markD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN8ast_markD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV8ast_mark, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !229
@@ -7490,7 +7484,7 @@ define linkonce_odr hidden void @_ZN8ast_markD2Ev(ptr noundef nonnull align 8 de
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #24
+  tail call void @__clang_call_terminate(ptr %8) #23
   unreachable
 
 _ZN8obj_markI4decl10bit_vectorN8ast_mark9decl2uintEED2Ev.exit: ; preds = %1, %5
@@ -7507,7 +7501,7 @@ _ZN8obj_markI4decl10bit_vectorN8ast_mark9decl2uintEED2Ev.exit: ; preds = %1, %5
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #24
+  tail call void @__clang_call_terminate(ptr %15) #23
   unreachable
 
 _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev.exit: ; preds = %_ZN8obj_markI4decl10bit_vectorN8ast_mark9decl2uintEED2Ev.exit, %12
@@ -7515,11 +7509,11 @@ _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev.exit: ; preds = %_ZN8ob
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN20dependent_expr_stateD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN20dependent_expr_stateD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV20dependent_expr_state, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  tail call void @_ZN6regionD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #23
+  tail call void @_ZN6regionD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8, !tbaa !158
   %.not.i.i.i = icmp eq ptr %5, null
@@ -7534,7 +7528,7 @@ define linkonce_odr hidden void @_ZN20dependent_expr_stateD2Ev(ptr noundef nonnu
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #24
+  tail call void @__clang_call_terminate(ptr %10) #23
   unreachable
 
 _ZN6vectorIjLb0EjED2Ev.exit.i:                    ; preds = %6, %1
@@ -7551,7 +7545,7 @@ _ZN6vectorIjLb0EjED2Ev.exit.i:                    ; preds = %6, %1
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #24
+  tail call void @__clang_call_terminate(ptr %16) #23
   unreachable
 
 _ZN11trail_stackD2Ev.exit:                        ; preds = %_ZN6vectorIjLb0EjED2Ev.exit.i, %12
@@ -7609,14 +7603,14 @@ _ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE13dec_ran
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  tail call void @__clang_call_terminate(ptr %40) #24
+  tail call void @__clang_call_terminate(ptr %40) #23
   unreachable
 
 41:                                               ; preds = %33
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  tail call void @__clang_call_terminate(ptr %43) #24
+  tail call void @__clang_call_terminate(ptr %43) #23
   unreachable
 
 _ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; preds = %_ZN11trail_stackD2Ev.exit, %_ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i, %_ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.thread4.i
@@ -7635,7 +7629,7 @@ _ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
-  tail call void @__clang_call_terminate(ptr %51) #24
+  tail call void @__clang_call_terminate(ptr %51) #23
   unreachable
 
 _ZN8obj_markI4decl10bit_vectorN8ast_mark9decl2uintEED2Ev.exit.i: ; preds = %48, %_ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit
@@ -7652,7 +7646,7 @@ _ZN8obj_markI4decl10bit_vectorN8ast_mark9decl2uintEED2Ev.exit.i: ; preds = %48, 
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  tail call void @__clang_call_terminate(ptr %58) #24
+  tail call void @__clang_call_terminate(ptr %58) #23
   unreachable
 
 _ZN8ast_markD2Ev.exit:                            ; preds = %_ZN8obj_markI4decl10bit_vectorN8ast_mark9decl2uintEED2Ev.exit.i, %55
@@ -7660,8 +7654,8 @@ _ZN8ast_markD2Ev.exit:                            ; preds = %_ZN8obj_markI4decl1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN20dependent_expr_stateD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #8 comdat align 2 {
-  tail call void @llvm.trap() #24
+define linkonce_odr hidden void @_ZN20dependent_expr_stateD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #7 comdat align 2 {
+  tail call void @llvm.trap() #23
   unreachable
 }
 
@@ -7672,7 +7666,7 @@ declare void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 de
 declare void @_ZN6regionC1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6vectorIP5trailLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN6vectorIP5trailLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !159
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZN6vectorIP5trailLb0EjE7destroyEv.exit, label %3
@@ -7689,12 +7683,12 @@ _ZN6vectorIP5trailLb0EjE7destroyEv.exit:          ; preds = %1, %3
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #24
+  tail call void @__clang_call_terminate(ptr %7) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6vectorIP4exprLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN6vectorIP4exprLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !148
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZN6vectorIP4exprLb0EjE7destroyEv.exit, label %3
@@ -7711,7 +7705,7 @@ _ZN6vectorIP4exprLb0EjE7destroyEv.exit:           ; preds = %1, %3
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #24
+  tail call void @__clang_call_terminate(ptr %7) #23
   unreachable
 }
 
@@ -7840,9 +7834,9 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
   br i1 %.not27.i, label %102, label %74
 
 74:                                               ; preds = %71, %65
-  %75 = tail call ptr @__cxa_allocate_exception(i64 40) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #23
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #23
+  %75 = tail call ptr @__cxa_allocate_exception(i64 40) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.333, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %76 unwind label %99
 
@@ -7904,16 +7898,16 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %101
 
 99:                                               ; preds = %74
   %100 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23
-  call void @__cxa_free_exception(ptr %75) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @__cxa_free_exception(ptr %75) #24
   br label %101
 
 101:                                              ; preds = %99, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i
@@ -8000,9 +7994,9 @@ define linkonce_odr hidden void @_ZN6vectorIPN18dependency_managerIN11ast_manage
   br i1 %.not27, label %49, label %21
 
 21:                                               ; preds = %18, %10
-  %22 = tail call ptr @__cxa_allocate_exception(i64 40) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #23
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #23
+  %22 = tail call ptr @__cxa_allocate_exception(i64 40) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.333, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %23 unwind label %46
 
@@ -8064,16 +8058,16 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %48
 
 46:                                               ; preds = %21
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23
-  call void @__cxa_free_exception(ptr %22) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @__cxa_free_exception(ptr %22) #24
   br label %48
 
 48:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %46
@@ -8106,7 +8100,7 @@ declare void @_ZN6regionD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) un
 declare void @_ZN6region9pop_scopeEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN26model_reconstruction_trailD2Ev(ptr noundef nonnull align 8 dereferenceable(97) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN26model_reconstruction_trailD2Ev(ptr noundef nonnull align 8 dereferenceable(97) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV8ast_mark, i64 16), ptr %2, align 8, !tbaa !22
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -8122,7 +8116,7 @@ define linkonce_odr hidden void @_ZN26model_reconstruction_trailD2Ev(ptr noundef
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #24
+  tail call void @__clang_call_terminate(ptr %9) #23
   unreachable
 
 _ZN8obj_markI4decl10bit_vectorN8ast_mark9decl2uintEED2Ev.exit.i: ; preds = %6, %1
@@ -8139,7 +8133,7 @@ _ZN8obj_markI4decl10bit_vectorN8ast_mark9decl2uintEED2Ev.exit.i: ; preds = %6, %
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #24
+  tail call void @__clang_call_terminate(ptr %16) #23
   unreachable
 
 _ZN8ast_markD2Ev.exit:                            ; preds = %_ZN8obj_markI4decl10bit_vectorN8ast_mark9decl2uintEED2Ev.exit.i, %13
@@ -8197,14 +8191,14 @@ _ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE13dec_ran
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  tail call void @__clang_call_terminate(ptr %40) #24
+  tail call void @__clang_call_terminate(ptr %40) #23
   unreachable
 
 41:                                               ; preds = %33
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  tail call void @__clang_call_terminate(ptr %43) #24
+  tail call void @__clang_call_terminate(ptr %43) #23
   unreachable
 
 _ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; preds = %_ZN8ast_markD2Ev.exit, %_ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i, %_ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.thread4.i
@@ -8229,7 +8223,7 @@ _ZN6vectorIPN26model_reconstruction_trail5entryELb0EjE3endEv.exit.i.i: ; preds =
   br i1 %.not.i.i.i.i, label %_ZN11delete_procIN26model_reconstruction_trail5entryEEclEPS1_.exit.i.i.i, label %_Z7deallocIN26model_reconstruction_trail5entryEEvPT_.exit.i.i.i.i
 
 _Z7deallocIN26model_reconstruction_trail5entryEEvPT_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i
-  tail call void @_ZN26model_reconstruction_trail5entryD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %52) #23
+  tail call void @_ZN26model_reconstruction_trail5entryD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %52) #24
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %52)
           to label %_ZN11delete_procIN26model_reconstruction_trail5entryEEclEPS1_.exit.i.i.i unwind label %59
 
@@ -8258,14 +8252,14 @@ _ZN17scoped_ptr_vectorIN26model_reconstruction_trail5entryEE5resetEv.exit.i: ; p
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  tail call void @__clang_call_terminate(ptr %58) #24
+  tail call void @__clang_call_terminate(ptr %58) #23
   unreachable
 
 59:                                               ; preds = %_Z7deallocIN26model_reconstruction_trail5entryEEvPT_.exit.i.i.i.i
   %60 = landingpad { ptr, i32 }
           catch ptr null
   %61 = extractvalue { ptr, i32 } %60, 0
-  tail call void @__clang_call_terminate(ptr %61) #24
+  tail call void @__clang_call_terminate(ptr %61) #23
   unreachable
 
 _ZN17scoped_ptr_vectorIN26model_reconstruction_trail5entryEED2Ev.exit: ; preds = %_ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit, %_ZSt8for_eachIPPN26model_reconstruction_trail5entryE11delete_procIS1_EET0_T_S7_S6_.exit.i.i, %_ZN17scoped_ptr_vectorIN26model_reconstruction_trail5entryEE5resetEv.exit.i
@@ -8273,7 +8267,7 @@ _ZN17scoped_ptr_vectorIN26model_reconstruction_trail5entryEED2Ev.exit: ; preds =
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN26model_reconstruction_trail5entryD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN26model_reconstruction_trail5entryD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !241
   %.not.i.i = icmp eq ptr %3, null
@@ -8288,7 +8282,7 @@ _ZNK6vectorISt5tupleIJ7obj_refI9func_decl11ast_managerES1_I4exprS3_ES1_IN18depen
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNK6vectorISt5tupleIJ7obj_refI9func_decl11ast_managerES1_I4exprS3_ES1_IN18dependency_managerINS3_22expr_dependency_configEE10dependencyES3_EEELb1EjE4sizeEv.exit.i.i.i, %.lr.ph.i.i.i.i.i.i
   %.07.i.i.i.i.i.i = phi i32 [ %7, %.lr.ph.i.i.i.i.i.i ], [ %5, %_ZNK6vectorISt5tupleIJ7obj_refI9func_decl11ast_managerES1_I4exprS3_ES1_IN18dependency_managerINS3_22expr_dependency_configEE10dependencyES3_EEELb1EjE4sizeEv.exit.i.i.i ]
   %.046.i.i.i.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i.i.i.i ], [ %3, %_ZNK6vectorISt5tupleIJ7obj_refI9func_decl11ast_managerES1_I4exprS3_ES1_IN18dependency_managerINS3_22expr_dependency_configEE10dependencyES3_EEELb1EjE4sizeEv.exit.i.i.i ]
-  tail call void @_ZNSt11_Tuple_implILm0EJ7obj_refI9func_decl11ast_managerES0_I4exprS2_ES0_IN18dependency_managerINS2_22expr_dependency_configEE10dependencyES2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %.046.i.i.i.i.i.i) #23
+  tail call void @_ZNSt11_Tuple_implILm0EJ7obj_refI9func_decl11ast_managerES0_I4exprS2_ES0_IN18dependency_managerINS2_22expr_dependency_configEE10dependencyES2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %.046.i.i.i.i.i.i) #24
   %6 = getelementptr inbounds nuw i8, ptr %.046.i.i.i.i.i.i, i64 48
   %7 = add i32 %.07.i.i.i.i.i.i, -1
   %.not.i.i.i.i.i.i = icmp eq i32 %7, 0
@@ -8308,7 +8302,7 @@ _ZN6vectorISt5tupleIJ7obj_refI9func_decl11ast_managerES1_I4exprS3_ES1_IN18depend
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #24
+  tail call void @__clang_call_terminate(ptr %12) #23
   unreachable
 
 _ZN6vectorISt5tupleIJ7obj_refI9func_decl11ast_managerES1_I4exprS3_ES1_IN18dependency_managerINS3_22expr_dependency_configEE10dependencyES3_EEELb1EjED2Ev.exit: ; preds = %1, %_ZN6vectorISt5tupleIJ7obj_refI9func_decl11ast_managerES1_I4exprS3_ES1_IN18dependency_managerINS3_22expr_dependency_configEE10dependencyES3_EEELb1EjE16destroy_elementsEv.exit.i.i
@@ -8335,7 +8329,7 @@ _ZN6vectorISt5tupleIJ7obj_refI9func_decl11ast_managerES1_I4exprS3_ES1_IN18depend
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #24
+  tail call void @__clang_call_terminate(ptr %25) #23
   unreachable
 
 _ZN7obj_refI9func_decl11ast_managerED2Ev.exit:    ; preds = %_ZN6vectorISt5tupleIJ7obj_refI9func_decl11ast_managerES1_I4exprS3_ES1_IN18dependency_managerINS3_22expr_dependency_configEE10dependencyES3_EEELb1EjED2Ev.exit, %15, %22
@@ -8353,7 +8347,7 @@ _ZNK6vectorI14dependent_exprLb1EjE4sizeEv.exit.i.i.i: ; preds = %_ZN7obj_refI9fu
 .lr.ph.i.i.i.i.i.i4:                              ; preds = %_ZNK6vectorI14dependent_exprLb1EjE4sizeEv.exit.i.i.i, %.lr.ph.i.i.i.i.i.i4
   %.07.i.i.i.i.i.i5 = phi i32 [ %31, %.lr.ph.i.i.i.i.i.i4 ], [ %29, %_ZNK6vectorI14dependent_exprLb1EjE4sizeEv.exit.i.i.i ]
   %.046.i.i.i.i.i.i6 = phi ptr [ %30, %.lr.ph.i.i.i.i.i.i4 ], [ %27, %_ZNK6vectorI14dependent_exprLb1EjE4sizeEv.exit.i.i.i ]
-  tail call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.046.i.i.i.i.i.i6) #23
+  tail call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.046.i.i.i.i.i.i6) #24
   %30 = getelementptr inbounds nuw i8, ptr %.046.i.i.i.i.i.i6, i64 32
   %31 = add i32 %.07.i.i.i.i.i.i5, -1
   %.not.i.i.i.i.i.i7 = icmp eq i32 %31, 0
@@ -8373,7 +8367,7 @@ _ZN6vectorI14dependent_exprLb1EjE16destroy_elementsEv.exit.i.i: ; preds = %_ZN6v
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  tail call void @__clang_call_terminate(ptr %36) #24
+  tail call void @__clang_call_terminate(ptr %36) #23
   unreachable
 
 _ZN6vectorI14dependent_exprLb1EjED2Ev.exit:       ; preds = %_ZN7obj_refI9func_decl11ast_managerED2Ev.exit, %_ZN6vectorI14dependent_exprLb1EjE16destroy_elementsEv.exit.i.i
@@ -8382,7 +8376,7 @@ _ZN6vectorI14dependent_exprLb1EjED2Ev.exit:       ; preds = %_ZN7obj_refI9func_d
   br i1 %38, label %_ZN10scoped_ptrI17expr_substitutionED2Ev.exit, label %39
 
 39:                                               ; preds = %_ZN6vectorI14dependent_exprLb1EjED2Ev.exit
-  tail call void @_ZN17expr_substitutionD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %37) #23
+  tail call void @_ZN17expr_substitutionD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %37) #24
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %37)
           to label %_ZN10scoped_ptrI17expr_substitutionED2Ev.exit unwind label %40
 
@@ -8390,7 +8384,7 @@ _ZN6vectorI14dependent_exprLb1EjED2Ev.exit:       ; preds = %_ZN7obj_refI9func_d
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  tail call void @__clang_call_terminate(ptr %42) #24
+  tail call void @__clang_call_terminate(ptr %42) #23
   unreachable
 
 _ZN10scoped_ptrI17expr_substitutionED2Ev.exit:    ; preds = %_ZN6vectorI14dependent_exprLb1EjED2Ev.exit, %39
@@ -8398,7 +8392,7 @@ _ZN10scoped_ptrI17expr_substitutionED2Ev.exit:    ; preds = %_ZN6vectorI14depend
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJ7obj_refI9func_decl11ast_managerES0_I4exprS2_ES0_IN18dependency_managerINS2_22expr_dependency_configEE10dependencyES2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJ7obj_refI9func_decl11ast_managerES0_I4exprS2_ES0_IN18dependency_managerINS2_22expr_dependency_configEE10dependencyES2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !245
   %.not.i.i.i = icmp eq ptr %3, null
@@ -8422,7 +8416,7 @@ define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJ7obj_refI9func_decl11as
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #24
+  tail call void @__clang_call_terminate(ptr %14) #23
   unreachable
 
 _ZNSt10_Head_baseILm0E7obj_refI9func_decl11ast_managerELb0EED2Ev.exit: ; preds = %1, %4, %11
@@ -8449,7 +8443,7 @@ _ZNSt10_Head_baseILm0E7obj_refI9func_decl11ast_managerELb0EED2Ev.exit: ; preds =
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #24
+  tail call void @__clang_call_terminate(ptr %27) #23
   unreachable
 
 _ZNSt10_Head_baseILm1E7obj_refI4expr11ast_managerELb0EED2Ev.exit.i: ; preds = %24, %17, %_ZNSt10_Head_baseILm0E7obj_refI9func_decl11ast_managerELb0EED2Ev.exit
@@ -8479,7 +8473,7 @@ _ZNSt10_Head_baseILm1E7obj_refI4expr11ast_managerELb0EED2Ev.exit.i: ; preds = %2
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  tail call void @__clang_call_terminate(ptr %43) #24
+  tail call void @__clang_call_terminate(ptr %43) #23
   unreachable
 
 _ZNSt11_Tuple_implILm1EJ7obj_refI4expr11ast_managerES0_IN18dependency_managerINS2_22expr_dependency_configEE10dependencyES2_EEED2Ev.exit: ; preds = %_ZNSt10_Head_baseILm1E7obj_refI4expr11ast_managerELb0EED2Ev.exit.i, %29, %39
@@ -8487,7 +8481,7 @@ _ZNSt11_Tuple_implILm1EJ7obj_refI4expr11ast_managerES0_IN18dependency_managerINS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !255
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZN7obj_refI4expr11ast_managerE7dec_refEv.exit, label %3
@@ -8513,7 +8507,7 @@ _ZN7obj_refI4expr11ast_managerE7dec_refEv.exit:   ; preds = %3, %1, %10
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #24
+  tail call void @__clang_call_terminate(ptr %13) #23
   unreachable
 }
 
@@ -8557,9 +8551,9 @@ define linkonce_odr hidden void @_ZN6vectorIP4exprLb0EjE13expand_vectorEv(ptr no
   br i1 %.not27, label %49, label %21
 
 21:                                               ; preds = %18, %10
-  %22 = tail call ptr @__cxa_allocate_exception(i64 40) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #23
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #23
+  %22 = tail call ptr @__cxa_allocate_exception(i64 40) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.333, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %23 unwind label %46
 
@@ -8621,16 +8615,16 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %48
 
 46:                                               ; preds = %21
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23
-  call void @__cxa_free_exception(ptr %22) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @__cxa_free_exception(ptr %22) #24
   br label %48
 
 48:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %46
@@ -8783,7 +8777,7 @@ _ZN20dependent_expr_state4thawC2ERS_.exit:        ; preds = %37, %47
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5trailD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden void @_ZN5trailD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
   ret void
 }
 
@@ -8824,9 +8818,9 @@ define linkonce_odr hidden void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef
   br i1 %.not27, label %49, label %21
 
 21:                                               ; preds = %18, %10
-  %22 = tail call ptr @__cxa_allocate_exception(i64 40) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #23
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #23
+  %22 = tail call ptr @__cxa_allocate_exception(i64 40) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.333, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %23 unwind label %46
 
@@ -8888,16 +8882,16 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %48
 
 46:                                               ; preds = %21
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23
-  call void @__cxa_free_exception(ptr %22) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @__cxa_free_exception(ptr %22) #24
   br label %48
 
 48:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %46
@@ -8954,9 +8948,9 @@ define linkonce_odr hidden void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr n
   br i1 %.not27, label %49, label %21
 
 21:                                               ; preds = %18, %10
-  %22 = tail call ptr @__cxa_allocate_exception(i64 40) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #23
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #23
+  %22 = tail call ptr @__cxa_allocate_exception(i64 40) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.333, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %23 unwind label %46
 
@@ -9018,16 +9012,16 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %48
 
 46:                                               ; preds = %21
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23
-  call void @__cxa_free_exception(ptr %22) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @__cxa_free_exception(ptr %22) #24
   br label %48
 
 48:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %46
@@ -9052,13 +9046,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 declare noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN11value_trailIjED0Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN11value_trailIjED0Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN11value_trailIjE4undoEv(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden void @_ZN11value_trailIjE4undoEv(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #7 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8, !tbaa !261
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9068,7 +9062,7 @@ define linkonce_odr hidden void @_ZN11value_trailIjE4undoEv(ptr noundef nonnull 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN20dependent_expr_state4thawD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN20dependent_expr_state4thawD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #25
   ret void
 }
@@ -9197,7 +9191,7 @@ define linkonce_odr hidden void @_ZN27dependent_expr_state_tactic4initEv(ptr nou
 15:                                               ; preds = %13
   %16 = load ptr, ptr %12, align 8, !tbaa !22
   %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(32) %12) #23
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(32) %12) #24
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %12)
   br label %_Z7deallocI25dependent_expr_simplifierEvPT_.exit.i
 
@@ -9267,7 +9261,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit: 
   br i1 %46, label %_Z7deallocI26model_reconstruction_trailEvPT_.exit.i, label %47
 
 47:                                               ; preds = %45
-  tail call void @_ZN26model_reconstruction_trailD2Ev(ptr noundef nonnull align 8 dereferenceable(97) %44) #23
+  tail call void @_ZN26model_reconstruction_trailD2Ev(ptr noundef nonnull align 8 dereferenceable(97) %44) #24
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %44)
   br label %_Z7deallocI26model_reconstruction_trailEvPT_.exit.i
 
@@ -9286,10 +9280,10 @@ declare void @_ZN10statistics5resetEv(ptr noundef nonnull align 8 dereferenceabl
 declare void @_ZN13tactic_reportC1EPKcRK4goal(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 8 dereferenceable(124)) unnamed_addr #0
 
 ; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for.p0(ptr) #20
+declare i32 @llvm.eh.typeid.for.p0(ptr) #19
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN16tactic_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN16tactic_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV16tactic_exception, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !181
@@ -9311,7 +9305,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #23
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
   ret void
 }
 
@@ -9324,7 +9318,7 @@ declare void @_ZN4goal17elim_redundanciesEv(ptr noundef nonnull align 8 derefere
 declare void @_ZN26model_reconstruction_trail19get_model_converterEv(ptr dead_on_unwind writable sret(%class.ref.342) align 8, ptr noundef nonnull align 8 dereferenceable(97)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3refI15model_converterED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3refI15model_converterED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !188
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZN3refI15model_converterE7dec_refEv.exit, label %3
@@ -9340,7 +9334,7 @@ define linkonce_odr hidden void @_ZN3refI15model_converterED2Ev(ptr noundef nonn
 8:                                                ; preds = %3
   %9 = load ptr, ptr %2, align 8, !tbaa !22
   %10 = load ptr, ptr %9, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(12) %2) #23
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(12) %2) #24
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %_ZN3refI15model_converterE7dec_refEv.exit unwind label %11
 
@@ -9351,7 +9345,7 @@ _ZN3refI15model_converterE7dec_refEv.exit:        ; preds = %3, %1, %8
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #24
+  tail call void @__clang_call_terminate(ptr %13) #23
   unreachable
 }
 
@@ -9362,7 +9356,7 @@ declare void @_ZN13tactic_reportD1Ev(ptr noundef nonnull align 8 dereferenceable
 declare void @_ZN17statistics_reportD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN16tactic_exceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN16tactic_exceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV16tactic_exception, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !181
@@ -9384,13 +9378,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN16tactic_exceptionD2Ev.exit
 
 _ZN16tactic_exceptionD2Ev.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #23
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNK16tactic_exception4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNK16tactic_exception4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !181
   ret ptr %3
@@ -9837,7 +9831,7 @@ define linkonce_odr hidden void @_ZN14parray_managerIN11ast_manager17expr_array_
   br i1 %5, label %34, label %6
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = call noundef i32 @_ZN14parray_managerIN11ast_manager17expr_array_configEE10get_valuesEPNS2_4cellERPP4expr(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !180
@@ -9891,7 +9885,7 @@ _ZN14parray_managerIN11ast_manager17expr_array_configEE7dec_refERKP4expr.exit: ;
   store i32 %7, ptr %32, align 4, !tbaa !180
   %33 = load ptr, ptr %3, align 8, !tbaa !283
   store ptr %33, ptr %8, align 8, !tbaa !180
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %34
 
 34:                                               ; preds = %2, %_ZN14parray_managerIN11ast_manager17expr_array_configEE7dec_refERKP4expr.exit
@@ -9937,9 +9931,9 @@ define linkonce_odr hidden void @_ZN6vectorIPN14parray_managerIN11ast_manager17e
   br i1 %.not27, label %49, label %21
 
 21:                                               ; preds = %18, %10
-  %22 = tail call ptr @__cxa_allocate_exception(i64 40) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #23
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #23
+  %22 = tail call ptr @__cxa_allocate_exception(i64 40) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.333, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %23 unwind label %46
 
@@ -10001,16 +9995,16 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %48
 
 46:                                               ; preds = %21
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23
-  call void @__cxa_free_exception(ptr %22) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @__cxa_free_exception(ptr %22) #24
   br label %48
 
 48:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %46
@@ -10768,7 +10762,7 @@ define linkonce_odr hidden void @_ZN14parray_managerIN11ast_manager28expr_depend
   br i1 %5, label %38, label %6
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = call noundef i32 @_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE10get_valuesEPNS2_4cellERPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !180
@@ -10826,7 +10820,7 @@ _ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE7dec_refERKPN1
   store i32 %7, ptr %36, align 4, !tbaa !180
   %37 = load ptr, ptr %3, align 8, !tbaa !299
   store ptr %37, ptr %8, align 8, !tbaa !180
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %38
 
 38:                                               ; preds = %2, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE7dec_refERKPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit
@@ -10868,9 +10862,9 @@ define linkonce_odr hidden void @_ZN6vectorIPN14parray_managerIN11ast_manager28e
   br i1 %.not27, label %49, label %21
 
 21:                                               ; preds = %18, %10
-  %22 = tail call ptr @__cxa_allocate_exception(i64 40) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #23
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #23
+  %22 = tail call ptr @__cxa_allocate_exception(i64 40) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.333, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %23 unwind label %46
 
@@ -10932,16 +10926,16 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %48
 
 46:                                               ; preds = %21
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23
-  call void @__cxa_free_exception(ptr %22) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @__cxa_free_exception(ptr %22) #24
   br label %48
 
 48:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %46
@@ -11414,7 +11408,7 @@ declare void @_ZN4goal6updateEjP4exprP3appPN18dependency_managerIN11ast_manager2
 declare void @_ZN4goal11assert_exprEP4exprP3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(124), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_468__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_468__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z22mk_degree_shift_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -11422,7 +11416,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_468__inv
 declare noundef ptr @_Z22mk_degree_shift_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_478__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_478__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z18mk_diff_neq_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -11430,7 +11424,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_478__inv
 declare noundef ptr @_Z18mk_diff_neq_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_488__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr nonnull readnone align 8 captures(none) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_488__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr nonnull readnone align 8 captures(none) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z15mk_eq2bv_tacticR11ast_manager(ptr noundef nonnull align 8 dereferenceable(976) %0)
   ret ptr %3
 }
@@ -11438,7 +11432,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_488__inv
 declare noundef ptr @_Z15mk_eq2bv_tacticR11ast_manager(ptr noundef nonnull align 8 dereferenceable(976)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_498__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_498__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z16mk_factor_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -11446,7 +11440,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_498__inv
 declare noundef ptr @_Z16mk_factor_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_508__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_508__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z20mk_fix_dl_var_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -11454,7 +11448,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_508__inv
 declare noundef ptr @_Z20mk_fix_dl_var_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_518__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_518__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z12mk_fm_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -11462,7 +11456,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_518__inv
 declare noundef ptr @_Z12mk_fm_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_528__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_528__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z18mk_lia2card_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -11470,7 +11464,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_528__inv
 declare noundef ptr @_Z18mk_lia2card_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_538__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_538__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z16mk_lia2pb_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -11478,7 +11472,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_538__inv
 declare noundef ptr @_Z16mk_lia2pb_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_548__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_548__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z16mk_nla2bv_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -11486,7 +11480,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_548__inv
 declare noundef ptr @_Z16mk_nla2bv_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_558__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_558__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z26mk_normalize_bounds_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -11494,7 +11488,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_558__inv
 declare noundef ptr @_Z26mk_normalize_bounds_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_568__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_568__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z15mk_pb2bv_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -11502,14 +11496,14 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_568__inv
 declare noundef ptr @_Z15mk_pb2bv_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_578__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_578__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 352)
   tail call void @_ZN27dependent_expr_state_tacticC2ER11ast_managerRK10params_refPFP25dependent_expr_simplifierS1_S4_R20dependent_expr_stateE(ptr noundef nonnull align 8 dereferenceable(345) %3, ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_ZZ25mk_propagate_ineqs_tacticR11ast_managerRK10params_refENUlRT_RT0_RT1_E_8__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierS5_S7_S9_)
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZZ25mk_propagate_ineqs_tacticR11ast_managerRK10params_refENUlRT_RT0_RT1_E_8__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierS5_S7_S9_(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) #5 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZZ25mk_propagate_ineqs_tacticR11ast_managerRK10params_refENUlRT_RT0_RT1_E_8__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierS5_S7_S9_(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) #4 comdat align 2 {
   %4 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 3160)
   tail call void @_ZN16bound_simplifierC2ER11ast_managerRK10params_refR20dependent_expr_state(ptr noundef nonnull align 8 dereferenceable(3156) %4, ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(160) %2)
   ret ptr %4
@@ -11531,14 +11525,14 @@ define linkonce_odr hidden void @_ZN16bound_simplifierC2ER11ast_managerRK10param
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %11, align 8, !tbaa !19
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !19
   invoke void @_ZN11th_rewriterC1ER11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(976) %1, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %13 unwind label %78
 
 13:                                               ; preds = %4
-  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
+  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   invoke void @_ZN11mpz_managerILb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(728) %14)
           to label %15 unwind label %80
@@ -11658,8 +11652,8 @@ define linkonce_odr hidden void @_ZN16bound_simplifierC2ER11ast_managerRK10param
 78:                                               ; preds = %4
   %79 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
+  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %101
 
 80:                                               ; preds = %13
@@ -11692,45 +11686,45 @@ define linkonce_odr hidden void @_ZN16bound_simplifierC2ER11ast_managerRK10param
           cleanup
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 3144
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 3104
-  call void @_ZN6vectorIjLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %92) #23
-  call void @_ZN14numeral_bufferI3mpq11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %72) #23
-  call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %69) #23
-  call void @_ZN6vectorIjLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %93) #23
-  call void @_ZN6vectorIP4exprLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %68) #23
+  call void @_ZN6vectorIjLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %92) #24
+  call void @_ZN14numeral_bufferI3mpq11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %72) #24
+  call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %69) #24
+  call void @_ZN6vectorIjLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %93) #24
+  call void @_ZN6vectorIP4exprLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %68) #24
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 2424
-  call void @_ZN16interval_managerIN13dep_intervals9im_configEED1Ev(ptr noundef nonnull align 8 dereferenceable(672) %94) #23
+  call void @_ZN16interval_managerIN13dep_intervals9im_configEED1Ev(ptr noundef nonnull align 8 dereferenceable(672) %94) #24
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 1680
-  call void @_ZN11mpq_managerILb0EED1Ev(ptr noundef nonnull align 8 dereferenceable(728) %95) #23
+  call void @_ZN11mpq_managerILb0EED1Ev(ptr noundef nonnull align 8 dereferenceable(728) %95) #24
   br label %96
 
 96:                                               ; preds = %90, %88
   %.pn.pn = phi { ptr, i32 } [ %91, %90 ], [ %89, %88 ]
-  call void @_ZN25scoped_dependency_managerIjED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %60) #23
+  call void @_ZN25scoped_dependency_managerIjED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %60) #24
   br label %97
 
 97:                                               ; preds = %96, %86
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %96 ], [ %87, %86 ]
-  call void @_ZN16bound_propagatorD1Ev(ptr noundef nonnull align 8 dereferenceable(280) %58) #23
+  call void @_ZN16bound_propagatorD1Ev(ptr noundef nonnull align 8 dereferenceable(280) %58) #24
   br label %98
 
 98:                                               ; preds = %97, %84
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %97 ], [ %85, %84 ]
-  call void @_ZN22small_object_allocatorD1Ev(ptr noundef nonnull align 8 dereferenceable(520) %56) #23
+  call void @_ZN22small_object_allocatorD1Ev(ptr noundef nonnull align 8 dereferenceable(520) %56) #24
   br label %99
 
 99:                                               ; preds = %98, %82
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %98 ], [ %83, %82 ]
-  call void @_ZN11mpq_managerILb0EED1Ev(ptr noundef nonnull align 8 dereferenceable(728) %14) #23
+  call void @_ZN11mpq_managerILb0EED1Ev(ptr noundef nonnull align 8 dereferenceable(728) %14) #24
   br label %100
 
 100:                                              ; preds = %99, %80
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %99 ], [ %81, %80 ]
-  call void @_ZN11th_rewriterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #23
+  call void @_ZN11th_rewriterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #24
   br label %101
 
 101:                                              ; preds = %100, %78
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %100 ], [ %79, %78 ]
-  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #23
+  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #24
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -11817,7 +11811,7 @@ define linkonce_odr hidden void @_ZN13dep_intervalsC2ER25scoped_dependency_manag
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 744
   store ptr %1, ptr %47, align 8, !tbaa !318
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 752
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8, !tbaa !316
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %49, align 8, !tbaa !318
@@ -11825,19 +11819,19 @@ define linkonce_odr hidden void @_ZN13dep_intervalsC2ER25scoped_dependency_manag
           to label %50 unwind label %51
 
 50:                                               ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 51:                                               ; preds = %3
   %52 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #23
-  call void @_ZN11mpq_managerILb0EED1Ev(ptr noundef nonnull align 8 dereferenceable(728) %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @_ZN11mpq_managerILb0EED1Ev(ptr noundef nonnull align 8 dereferenceable(728) %5) #24
   resume { ptr, i32 } %52
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN14numeral_bufferI3mpq11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN14numeral_bufferI3mpq11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !320
   %4 = icmp eq ptr %3, null
@@ -11888,7 +11882,7 @@ _ZN14numeral_bufferI3mpq11mpq_managerILb0EEE5resetEv.exit: ; preds = %_ZN6vector
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #24
+  tail call void @__clang_call_terminate(ptr %17) #23
   unreachable
 
 _ZN6vectorI3mpqLb0EjED2Ev.exit:                   ; preds = %1, %._crit_edge.i, %_ZN14numeral_bufferI3mpq11mpq_managerILb0EEE5resetEv.exit
@@ -11898,12 +11892,12 @@ _ZN6vectorI3mpqLb0EjED2Ev.exit:                   ; preds = %1, %._crit_edge.i, 
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #24
+  tail call void @__clang_call_terminate(ptr %20) #23
   unreachable
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN25scoped_dependency_managerIjED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN25scoped_dependency_managerIjED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !313
   %.not.i.i.i = icmp eq ptr %3, null
@@ -11918,12 +11912,12 @@ define linkonce_odr hidden void @_ZN25scoped_dependency_managerIjED2Ev(ptr nound
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #24
+  tail call void @__clang_call_terminate(ptr %8) #23
   unreachable
 
 _ZN18dependency_managerIN25scoped_dependency_managerIjE6configEED2Ev.exit: ; preds = %1, %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN6regionD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #23
+  tail call void @_ZN6regionD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #24
   ret void
 }
 
@@ -11940,37 +11934,37 @@ declare void @_ZN11mpq_managerILb0EED1Ev(ptr noundef nonnull align 8 dereference
 declare void @_ZN11th_rewriterD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN25dependent_expr_simplifier4pushEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden void @_ZN25dependent_expr_simplifier4pushEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN25dependent_expr_simplifier3popEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden void @_ZN25dependent_expr_simplifier3popEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #7 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNK25dependent_expr_simplifier18collect_statisticsER10statistics(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden void @_ZNK25dependent_expr_simplifier18collect_statisticsER10statistics(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #7 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN25dependent_expr_simplifier16reset_statisticsEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden void @_ZN25dependent_expr_simplifier16reset_statisticsEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN25dependent_expr_simplifier11updt_paramsERK10params_ref(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden void @_ZN25dependent_expr_simplifier11updt_paramsERK10params_ref(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #7 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN25dependent_expr_simplifier20collect_param_descrsER12param_descrs(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden void @_ZN25dependent_expr_simplifier20collect_param_descrsER12param_descrs(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #7 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK25dependent_expr_simplifier15supports_proofsEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden noundef zeroext i1 @_ZNK25dependent_expr_simplifier15supports_proofsEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
   ret i1 false
 }
 
@@ -11984,7 +11978,7 @@ declare void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef, ptr noundef nonn
 declare void @_ZN16interval_managerIN13dep_intervals9im_configEED1Ev(ptr noundef nonnull align 8 dereferenceable(672)) unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_588__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_588__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z22mk_purify_arith_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -11992,7 +11986,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_588__inv
 declare noundef ptr @_Z22mk_purify_arith_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_598__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_598__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z20mk_recover_01_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -12000,7 +11994,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_598__inv
 declare noundef ptr @_Z20mk_recover_01_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_608__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_608__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z21mk_bit_blaster_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -12008,7 +12002,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_608__inv
 declare noundef ptr @_Z21mk_bit_blaster_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_618__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_618__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z21mk_bv1_blaster_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -12016,7 +12010,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_618__inv
 declare noundef ptr @_Z21mk_bv1_blaster_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_628__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_628__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z22mk_bv_bound_chk_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -12024,7 +12018,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_628__inv
 declare noundef ptr @_Z22mk_bv_bound_chk_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_638__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_638__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z19mk_bv_bounds_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -12032,7 +12026,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_638__inv
 declare noundef ptr @_Z19mk_bv_bounds_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_648__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_648__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z23mk_dom_bv_bounds_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -12040,7 +12034,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_648__inv
 declare noundef ptr @_Z23mk_dom_bv_bounds_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_658__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_658__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z27mk_bv_size_reduction_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -12048,14 +12042,14 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_658__inv
 declare noundef ptr @_Z27mk_bv_size_reduction_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_668__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_668__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 352)
   tail call void @_ZN27dependent_expr_state_tacticC2ER11ast_managerRK10params_refPFP25dependent_expr_simplifierS1_S4_R20dependent_expr_stateE(ptr noundef nonnull align 8 dereferenceable(345) %3, ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_ZZ18mk_bv_slice_tacticR11ast_managerRK10params_refENUlRT_RT0_RT1_E_8__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierS5_S7_S9_)
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZZ18mk_bv_slice_tacticR11ast_managerRK10params_refENUlRT_RT0_RT1_E_8__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierS5_S7_S9_(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) #5 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZZ18mk_bv_slice_tacticR11ast_managerRK10params_refENUlRT_RT0_RT1_E_8__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierS5_S7_S9_(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) #4 comdat align 2 {
   %4 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 112)
   tail call void @_ZN2bv5sliceC2ER11ast_managerR20dependent_expr_state(ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(160) %2)
   ret ptr %4
@@ -12075,14 +12069,14 @@ define linkonce_odr hidden void @_ZN2bv5sliceC2ER11ast_managerR20dependent_expr_
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN7bv_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(976) %1)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !19
   invoke void @_ZN11th_rewriterC1ER11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(976) %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %11 unwind label %19
 
 11:                                               ; preds = %3
-  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
+  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %12 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 128)
           to label %13 unwind label %21
 
@@ -12103,14 +12097,14 @@ define linkonce_odr hidden void @_ZN2bv5sliceC2ER11ast_managerR20dependent_expr_
 19:                                               ; preds = %3
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
+  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %23
 
 21:                                               ; preds = %11
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11th_rewriterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #23
+  call void @_ZN11th_rewriterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #24
   br label %23
 
 23:                                               ; preds = %21, %19
@@ -12121,7 +12115,7 @@ define linkonce_odr hidden void @_ZN2bv5sliceC2ER11ast_managerR20dependent_expr_
 declare void @_ZN7bv_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(976)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6vectorIjLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN6vectorIjLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !158
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZN6vectorIjLb0EjE7destroyEv.exit, label %3
@@ -12138,12 +12132,12 @@ _ZN6vectorIjLb0EjE7destroyEv.exit:                ; preds = %1, %3
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #24
+  tail call void @__clang_call_terminate(ptr %7) #23
   unreachable
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_678__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_678__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z20mk_bvarray2uf_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -12151,7 +12145,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_678__inv
 declare noundef ptr @_Z20mk_bvarray2uf_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_688__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_688__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z15mk_dt2bv_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -12159,7 +12153,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_688__inv
 declare noundef ptr @_Z15mk_dt2bv_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_698__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_698__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z23mk_elim_small_bv_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -12167,7 +12161,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_698__inv
 declare noundef ptr @_Z23mk_elim_small_bv_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_708__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_708__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 352)
   tail call void @_ZN27dependent_expr_state_tacticC2ER11ast_managerRK10params_refPFP25dependent_expr_simplifierS1_S4_R20dependent_expr_stateE(ptr noundef nonnull align 8 dereferenceable(345) %3, ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_Z17mk_max_bv_sharingR11ast_managerRK10params_refR20dependent_expr_state)
   ret ptr %3
@@ -12176,7 +12170,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_708__inv
 declare noundef ptr @_Z17mk_max_bv_sharingR11ast_managerRK10params_refR20dependent_expr_state(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(160)) #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_718__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_718__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z24mk_blast_term_ite_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -12184,7 +12178,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_718__inv
 declare noundef ptr @_Z24mk_blast_term_ite_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_728__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_728__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z27mk_cofactor_term_ite_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -12192,7 +12186,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_728__inv
 declare noundef ptr @_Z27mk_cofactor_term_ite_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_738__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_738__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z28mk_collect_statistics_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -12200,7 +12194,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_738__inv
 declare noundef ptr @_Z28mk_collect_statistics_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_748__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_748__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z22mk_ctx_simplify_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -12208,14 +12202,14 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_748__inv
 declare noundef ptr @_Z22mk_ctx_simplify_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_758__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_758__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 352)
   tail call void @_ZN27dependent_expr_state_tacticC2ER11ast_managerRK10params_refPFP25dependent_expr_simplifierS1_S4_R20dependent_expr_stateE(ptr noundef nonnull align 8 dereferenceable(345) %3, ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_ZZ21mk_demodulator_tacticR11ast_managerRK10params_refENUlRT_RT0_RT1_E_8__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierS5_S7_S9_)
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZZ21mk_demodulator_tacticR11ast_managerRK10params_refENUlRT_RT0_RT1_E_8__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierS5_S7_S9_(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) #5 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZZ21mk_demodulator_tacticR11ast_managerRK10params_refENUlRT_RT0_RT1_E_8__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierS5_S7_S9_(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) #4 comdat align 2 {
   %4 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 736)
   tail call void @_ZN22demodulator_simplifierC1ER11ast_managerRK10params_refR20dependent_expr_state(ptr noundef nonnull align 8 dereferenceable(736) %4, ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(160) %2)
   ret ptr %4
@@ -12224,7 +12218,7 @@ define linkonce_odr hidden noundef ptr @_ZZ21mk_demodulator_tacticR11ast_manager
 declare void @_ZN22demodulator_simplifierC1ER11ast_managerRK10params_refR20dependent_expr_state(ptr noundef nonnull align 8 dereferenceable(736), ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(160)) unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_768__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr nonnull readnone align 8 captures(none) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_768__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr nonnull readnone align 8 captures(none) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z13mk_der_tacticR11ast_manager(ptr noundef nonnull align 8 dereferenceable(976) %0)
   ret ptr %3
 }
@@ -12232,14 +12226,14 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_768__inv
 declare noundef ptr @_Z13mk_der_tacticR11ast_manager(ptr noundef nonnull align 8 dereferenceable(976)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_778__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_778__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 352)
   tail call void @_ZN27dependent_expr_state_tacticC2ER11ast_managerRK10params_refPFP25dependent_expr_simplifierS1_S4_R20dependent_expr_stateE(ptr noundef nonnull align 8 dereferenceable(345) %3, ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_ZZ27mk_distribute_forall_tacticR11ast_managerRK10params_refENUlRT_RT0_RT1_E_8__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierS5_S7_S9_)
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZZ27mk_distribute_forall_tacticR11ast_managerRK10params_refENUlRT_RT0_RT1_E_8__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierS5_S7_S9_(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) #5 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZZ27mk_distribute_forall_tacticR11ast_managerRK10params_refENUlRT_RT0_RT1_E_8__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierS5_S7_S9_(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) #4 comdat align 2 {
   %4 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 32)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %5, align 8, !tbaa !59
@@ -12253,14 +12247,14 @@ define linkonce_odr hidden noundef ptr @_ZZ27mk_distribute_forall_tacticR11ast_m
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_788__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_788__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 352)
   tail call void @_ZN27dependent_expr_state_tacticC2ER11ast_managerRK10params_refPFP25dependent_expr_simplifierS1_S4_R20dependent_expr_stateE(ptr noundef nonnull align 8 dereferenceable(345) %3, ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_ZZ22mk_dom_simplify_tacticR11ast_managerRK10params_refENUlRT_RT0_RT1_E_8__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierS5_S7_S9_)
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZZ22mk_dom_simplify_tacticR11ast_managerRK10params_refENUlRT_RT0_RT1_E_8__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierS5_S7_S9_(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) #5 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZZ22mk_dom_simplify_tacticR11ast_managerRK10params_refENUlRT_RT0_RT1_E_8__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierS5_S7_S9_(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) #4 comdat align 2 {
   %4 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 288)
   %5 = tail call noundef ptr @_Z31mk_expr_substitution_simplifierR11ast_manager(ptr noundef nonnull align 8 dereferenceable(976) %0)
   tail call void @_ZN20dominator_simplifierC2ER11ast_managerR20dependent_expr_stateP14dom_simplifierRK10params_ref(ptr noundef nonnull align 8 dereferenceable(281) %4, ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(160) %2, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -12358,20 +12352,20 @@ define linkonce_odr hidden void @_ZN20dominator_simplifierC2ER11ast_managerR20de
 43:                                               ; preds = %25
   %44 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6vectorIP4exprLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #23
-  tail call void @_ZN15expr_dominatorsD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #23
+  tail call void @_ZN6vectorIP4exprLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #24
+  tail call void @_ZN15expr_dominatorsD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #24
   br label %45
 
 45:                                               ; preds = %43, %41
   %.pn = phi { ptr, i32 } [ %44, %43 ], [ %42, %41 ]
-  tail call void @_ZN7obj_mapI4exprPS0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #23
+  tail call void @_ZN7obj_mapI4exprPS0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #24
   br label %46
 
 46:                                               ; preds = %45, %39
   %.pn.pn = phi { ptr, i32 } [ %.pn, %45 ], [ %40, %39 ]
-  tail call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #23
-  tail call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #23
-  tail call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #23
+  tail call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #24
+  tail call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #24
+  tail call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #24
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -12466,28 +12460,28 @@ define linkonce_odr hidden void @_ZN15expr_dominatorsC2ER11ast_manager(ptr nound
 39:                                               ; preds = %23
   %40 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7obj_mapI4exprPS0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #23
+  tail call void @_ZN7obj_mapI4exprPS0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #24
   br label %41
 
 41:                                               ; preds = %39, %37
   %.pn = phi { ptr, i32 } [ %40, %39 ], [ %38, %37 ]
-  tail call void @_ZN7obj_mapI4expr10ptr_vectorIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #23
+  tail call void @_ZN7obj_mapI4expr10ptr_vectorIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #24
   br label %42
 
 42:                                               ; preds = %41, %35
   %.pn.pn = phi { ptr, i32 } [ %.pn, %41 ], [ %36, %35 ]
-  tail call void @_ZN6vectorIP4exprLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #23
-  tail call void @_ZN7obj_mapI4exprjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #23
+  tail call void @_ZN6vectorIP4exprLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #24
+  tail call void @_ZN7obj_mapI4exprjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #24
   br label %43
 
 43:                                               ; preds = %42, %33
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %42 ], [ %34, %33 ]
-  tail call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #23
+  tail call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #24
   resume { ptr, i32 } %.pn.pn.pn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN15expr_dominatorsD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN15expr_dominatorsD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8, !tbaa !372
   %4 = icmp eq ptr %3, null
@@ -12516,7 +12510,7 @@ define linkonce_odr hidden void @_ZN15expr_dominatorsD2Ev(ptr noundef nonnull al
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #24
+  tail call void @__clang_call_terminate(ptr %14) #23
   unreachable
 
 _ZSt8_DestroyIN7obj_mapI4expr10ptr_vectorIS1_EE13obj_map_entryEEvPT_.exit.i.i.i.i.i.i.i: ; preds = %10, %.lr.ph.i.i.i.i.i.i.i
@@ -12533,7 +12527,7 @@ _ZSt9destroy_nIPN7obj_mapI4expr10ptr_vectorIS1_EE13obj_map_entryEjET_S7_T0_.exit
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #24
+  tail call void @__clang_call_terminate(ptr %19) #23
   unreachable
 
 _ZN7obj_mapI4expr10ptr_vectorIS0_EED2Ev.exit:     ; preds = %1, %_ZSt9destroy_nIPN7obj_mapI4expr10ptr_vectorIS1_EE13obj_map_entryEjET_S7_T0_.exit.i.i.i.i
@@ -12551,7 +12545,7 @@ _ZN7obj_mapI4expr10ptr_vectorIS0_EED2Ev.exit:     ; preds = %1, %_ZSt9destroy_nI
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  tail call void @__clang_call_terminate(ptr %26) #24
+  tail call void @__clang_call_terminate(ptr %26) #23
   unreachable
 
 _ZN7obj_mapI4exprPS0_ED2Ev.exit:                  ; preds = %_ZN7obj_mapI4expr10ptr_vectorIS0_EED2Ev.exit, %23
@@ -12584,7 +12578,7 @@ _ZN7obj_mapI4exprPS0_ED2Ev.exit:                  ; preds = %_ZN7obj_mapI4expr10
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  tail call void @__clang_call_terminate(ptr %39) #24
+  tail call void @__clang_call_terminate(ptr %39) #23
   unreachable
 
 _ZSt8_DestroyIN7obj_mapI4expr10ptr_vectorIS1_EE13obj_map_entryEEvPT_.exit.i.i.i.i.i.i.i6: ; preds = %35, %.lr.ph.i.i.i.i.i.i.i2
@@ -12601,7 +12595,7 @@ _ZSt9destroy_nIPN7obj_mapI4expr10ptr_vectorIS1_EE13obj_map_entryEjET_S7_T0_.exit
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  tail call void @__clang_call_terminate(ptr %44) #24
+  tail call void @__clang_call_terminate(ptr %44) #23
   unreachable
 
 _ZN7obj_mapI4expr10ptr_vectorIS0_EED2Ev.exit9:    ; preds = %_ZN7obj_mapI4exprPS0_ED2Ev.exit, %_ZSt9destroy_nIPN7obj_mapI4expr10ptr_vectorIS1_EE13obj_map_entryEjET_S7_T0_.exit.i.i.i.i8
@@ -12620,7 +12614,7 @@ _ZN7obj_mapI4expr10ptr_vectorIS0_EED2Ev.exit9:    ; preds = %_ZN7obj_mapI4exprPS
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
-  tail call void @__clang_call_terminate(ptr %51) #24
+  tail call void @__clang_call_terminate(ptr %51) #23
   unreachable
 
 _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %_ZN7obj_mapI4expr10ptr_vectorIS0_EED2Ev.exit9, %47
@@ -12637,7 +12631,7 @@ _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %_ZN7obj_mapI4expr10
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  tail call void @__clang_call_terminate(ptr %58) #24
+  tail call void @__clang_call_terminate(ptr %58) #23
   unreachable
 
 _ZN7obj_mapI4exprjED2Ev.exit:                     ; preds = %_ZN6vectorIP4exprLb0EjED2Ev.exit, %55
@@ -12665,7 +12659,7 @@ _ZN7obj_mapI4exprjED2Ev.exit:                     ; preds = %_ZN6vectorIP4exprLb
   %70 = landingpad { ptr, i32 }
           catch ptr null
   %71 = extractvalue { ptr, i32 } %70, 0
-  tail call void @__clang_call_terminate(ptr %71) #24
+  tail call void @__clang_call_terminate(ptr %71) #23
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_mapI4exprjED2Ev.exit, %61, %68
@@ -12673,7 +12667,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_mapI4exprjE
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN7obj_mapI4exprPS0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN7obj_mapI4exprPS0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !350
   %3 = icmp eq ptr %2, null
   br i1 %3, label %_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EED2Ev.exit, label %4
@@ -12686,7 +12680,7 @@ define linkonce_odr hidden void @_ZN7obj_mapI4exprPS0_ED2Ev(ptr noundef nonnull 
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #24
+  tail call void @__clang_call_terminate(ptr %7) #23
   unreachable
 
 _ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EED2Ev.exit: ; preds = %1, %4
@@ -12695,7 +12689,7 @@ _ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataE
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN7obj_mapI4expr10ptr_vectorIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN7obj_mapI4expr10ptr_vectorIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !372
   %3 = icmp eq ptr %2, null
   br i1 %3, label %_ZN14core_hashtableIN7obj_mapI4expr10ptr_vectorIS1_EE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EED2Ev.exit, label %4
@@ -12723,7 +12717,7 @@ define linkonce_odr hidden void @_ZN7obj_mapI4expr10ptr_vectorIS0_EED2Ev(ptr nou
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #24
+  tail call void @__clang_call_terminate(ptr %13) #23
   unreachable
 
 _ZSt8_DestroyIN7obj_mapI4expr10ptr_vectorIS1_EE13obj_map_entryEEvPT_.exit.i.i.i.i.i.i: ; preds = %9, %.lr.ph.i.i.i.i.i.i
@@ -12740,7 +12734,7 @@ _ZSt9destroy_nIPN7obj_mapI4expr10ptr_vectorIS1_EE13obj_map_entryEjET_S7_T0_.exit
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #24
+  tail call void @__clang_call_terminate(ptr %18) #23
   unreachable
 
 _ZN14core_hashtableIN7obj_mapI4expr10ptr_vectorIS1_EE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EED2Ev.exit: ; preds = %1, %_ZSt9destroy_nIPN7obj_mapI4expr10ptr_vectorIS1_EE13obj_map_entryEjET_S7_T0_.exit.i.i.i
@@ -12749,7 +12743,7 @@ _ZN14core_hashtableIN7obj_mapI4expr10ptr_vectorIS1_EE13obj_map_entryE8obj_hashIN
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN7obj_mapI4exprjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN7obj_mapI4exprjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !368
   %3 = icmp eq ptr %2, null
   br i1 %3, label %_ZN14core_hashtableIN7obj_mapI4exprjE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EED2Ev.exit, label %4
@@ -12762,7 +12756,7 @@ define linkonce_odr hidden void @_ZN7obj_mapI4exprjED2Ev(ptr noundef nonnull ali
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #24
+  tail call void @__clang_call_terminate(ptr %7) #23
   unreachable
 
 _ZN14core_hashtableIN7obj_mapI4exprjE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EED2Ev.exit: ; preds = %1, %4
@@ -12771,7 +12765,7 @@ _ZN14core_hashtableIN7obj_mapI4exprjE13obj_map_entryE8obj_hashINS2_8key_dataEE10
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_798__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_798__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z23mk_elim_term_ite_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -12779,14 +12773,14 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_798__inv
 declare noundef ptr @_Z23mk_elim_term_ite_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_808__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_808__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 352)
   tail call void @_ZN27dependent_expr_state_tacticC2ER11ast_managerRK10params_refPFP25dependent_expr_simplifierS1_S4_R20dependent_expr_stateE(ptr noundef nonnull align 8 dereferenceable(345) %3, ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_ZZ23mk_elim_uncnstr2_tacticR11ast_managerRK10params_refENUlRT_RT0_RT1_E_8__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierS5_S7_S9_)
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZZ23mk_elim_uncnstr2_tacticR11ast_managerRK10params_refENUlRT_RT0_RT1_E_8__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierS5_S7_S9_(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) #5 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZZ23mk_elim_uncnstr2_tacticR11ast_managerRK10params_refENUlRT_RT0_RT1_E_8__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierS5_S7_S9_(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) #4 comdat align 2 {
   %4 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 184)
   tail call void @_ZN18elim_unconstrainedC1ER11ast_managerR20dependent_expr_state(ptr noundef nonnull align 8 dereferenceable(182) %4, ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(160) %2)
   ret ptr %4
@@ -12795,7 +12789,7 @@ define linkonce_odr hidden noundef ptr @_ZZ23mk_elim_uncnstr2_tacticR11ast_manag
 declare void @_ZN18elim_unconstrainedC1ER11ast_managerR20dependent_expr_state(ptr noundef nonnull align 8 dereferenceable(182), ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(160)) unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_818__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_818__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z22mk_elim_uncnstr_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -12803,14 +12797,14 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_818__inv
 declare noundef ptr @_Z22mk_elim_uncnstr_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_828__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_828__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 352)
   tail call void @_ZN27dependent_expr_state_tacticC2ER11ast_managerRK10params_refPFP25dependent_expr_simplifierS1_S4_R20dependent_expr_stateE(ptr noundef nonnull align 8 dereferenceable(345) %3, ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_ZZ30mk_eliminate_predicates_tacticR11ast_managerRK10params_refENUlRT_RT0_RT1_E_8__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierS5_S7_S9_)
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZZ30mk_eliminate_predicates_tacticR11ast_managerRK10params_refENUlRT_RT0_RT1_E_8__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierS5_S7_S9_(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) #5 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZZ30mk_eliminate_predicates_tacticR11ast_managerRK10params_refENUlRT_RT0_RT1_E_8__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierS5_S7_S9_(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) #4 comdat align 2 {
   %4 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 400)
   tail call void @_ZN20eliminate_predicatesC1ER11ast_managerR20dependent_expr_state(ptr noundef nonnull align 8 dereferenceable(400) %4, ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(160) %2)
   ret ptr %4
@@ -12819,7 +12813,7 @@ define linkonce_odr hidden noundef ptr @_ZZ30mk_eliminate_predicates_tacticR11as
 declare void @_ZN20eliminate_predicatesC1ER11ast_managerR20dependent_expr_state(ptr noundef nonnull align 8 dereferenceable(400), ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(160)) unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_838__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_838__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z24mk_euf_completion_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -12827,7 +12821,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_838__inv
 declare noundef ptr @_Z24mk_euf_completion_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_848__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_848__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z21mk_injectivity_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -12835,7 +12829,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_848__inv
 declare noundef ptr @_Z21mk_injectivity_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_858__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_858__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z13mk_snf_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -12843,7 +12837,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_858__inv
 declare noundef ptr @_Z13mk_snf_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_868__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_868__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z13mk_nnf_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -12851,7 +12845,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_868__inv
 declare noundef ptr @_Z13mk_nnf_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_878__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_878__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z14mk_occf_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -12859,7 +12853,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_878__inv
 declare noundef ptr @_Z14mk_occf_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_888__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_888__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z23mk_pb_preprocess_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -12867,14 +12861,14 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_888__inv
 declare noundef ptr @_Z23mk_pb_preprocess_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_898__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_898__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 352)
   tail call void @_ZN27dependent_expr_state_tacticC2ER11ast_managerRK10params_refPFP25dependent_expr_simplifierS1_S4_R20dependent_expr_stateE(ptr noundef nonnull align 8 dereferenceable(345) %3, ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_ZZ27mk_propagate_values2_tacticR11ast_managerRK10params_refENUlRT_RT0_RT1_E_8__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierS5_S7_S9_)
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZZ27mk_propagate_values2_tacticR11ast_managerRK10params_refENUlRT_RT0_RT1_E_8__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierS5_S7_S9_(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) #5 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZZ27mk_propagate_values2_tacticR11ast_managerRK10params_refENUlRT_RT0_RT1_E_8__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierS5_S7_S9_(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) #4 comdat align 2 {
   %4 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 152)
   tail call void @_ZN16propagate_valuesC1ER11ast_managerRK10params_refR20dependent_expr_state(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(160) %2)
   ret ptr %4
@@ -12883,7 +12877,7 @@ define linkonce_odr hidden noundef ptr @_ZZ27mk_propagate_values2_tacticR11ast_m
 declare void @_ZN16propagate_valuesC1ER11ast_managerRK10params_refR20dependent_expr_state(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(160)) unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_908__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_908__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z26mk_propagate_values_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -12891,7 +12885,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_908__inv
 declare noundef ptr @_Z26mk_propagate_values_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_918__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_918__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z21mk_reduce_args_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -12899,14 +12893,14 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_918__inv
 declare noundef ptr @_Z21mk_reduce_args_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_928__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_928__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 352)
   tail call void @_ZN27dependent_expr_state_tacticC2ER11ast_managerRK10params_refPFP25dependent_expr_simplifierS1_S4_R20dependent_expr_stateE(ptr noundef nonnull align 8 dereferenceable(345) %3, ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_ZZ22mk_reduce_args_tactic2R11ast_managerRK10params_refENUlRT_RT0_RT1_E_8__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierS5_S7_S9_)
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZZ22mk_reduce_args_tactic2R11ast_managerRK10params_refENUlRT_RT0_RT1_E_8__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierS5_S7_S9_(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) #5 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZZ22mk_reduce_args_tactic2R11ast_managerRK10params_refENUlRT_RT0_RT1_E_8__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierS5_S7_S9_(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) #4 comdat align 2 {
   %4 = tail call noundef ptr @_Z25mk_reduce_args_simplifierR11ast_managerR20dependent_expr_stateRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(160) %2, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %4
 }
@@ -12914,7 +12908,7 @@ define linkonce_odr hidden noundef ptr @_ZZ22mk_reduce_args_tactic2R11ast_manage
 declare noundef ptr @_Z25mk_reduce_args_simplifierR11ast_managerR20dependent_expr_stateRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(160), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_938__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_938__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z18mk_simplify_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -12922,7 +12916,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_938__inv
 declare noundef ptr @_Z18mk_simplify_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_948__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_948__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z18mk_elim_and_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -12930,14 +12924,14 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_948__inv
 declare noundef ptr @_Z18mk_elim_and_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_958__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_958__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 352)
   tail call void @_ZN27dependent_expr_state_tacticC2ER11ast_managerRK10params_refPFP25dependent_expr_simplifierS1_S4_R20dependent_expr_stateE(ptr noundef nonnull align 8 dereferenceable(345) %3, ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_ZZ19mk_solve_eqs_tacticR11ast_managerRK10params_refENUlRT_RT0_RT1_E_8__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierS5_S7_S9_)
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZZ19mk_solve_eqs_tacticR11ast_managerRK10params_refENUlRT_RT0_RT1_E_8__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierS5_S7_S9_(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) #5 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZZ19mk_solve_eqs_tacticR11ast_managerRK10params_refENUlRT_RT0_RT1_E_8__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierS5_S7_S9_(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) #4 comdat align 2 {
   %4 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 200)
   tail call void @_ZN3euf9solve_eqsC1ER11ast_managerR20dependent_expr_state(ptr noundef nonnull align 8 dereferenceable(200) %4, ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(160) %2)
   ret ptr %4
@@ -12946,7 +12940,7 @@ define linkonce_odr hidden noundef ptr @_ZZ19mk_solve_eqs_tacticR11ast_managerRK
 declare void @_ZN3euf9solve_eqsC1ER11ast_managerR20dependent_expr_state(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(160)) unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_968__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_968__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z27mk_special_relations_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -12954,7 +12948,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_968__inv
 declare noundef ptr @_Z27mk_special_relations_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_978__invokeER11ast_managerRK10params_ref"(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_978__invokeER11ast_managerRK10params_ref"(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z22mk_split_clause_tacticRK10params_ref(ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -12962,7 +12956,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_978__inv
 declare noundef ptr @_Z22mk_split_clause_tacticRK10params_ref(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_988__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_988__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z25mk_symmetry_reduce_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -12970,7 +12964,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_988__inv
 declare noundef ptr @_Z25mk_symmetry_reduce_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_998__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_998__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z21mk_tseitin_cnf_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -12978,7 +12972,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN4$_998__inv
 declare noundef ptr @_Z21mk_tseitin_cnf_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1008__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1008__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z26mk_tseitin_cnf_core_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -12986,7 +12980,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1008__in
 declare noundef ptr @_Z26mk_tseitin_cnf_core_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1018__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1018__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z12mk_fd_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -12994,7 +12988,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1018__in
 declare noundef ptr @_Z12mk_fd_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1028__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1028__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z23mk_parallel_qffd_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13002,7 +12996,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1028__in
 declare noundef ptr @_Z23mk_parallel_qffd_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1038__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1038__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z15mk_smtfd_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13010,7 +13004,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1038__in
 declare noundef ptr @_Z15mk_smtfd_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1048__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1048__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z16mk_fpa2bv_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13018,7 +13012,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1048__in
 declare noundef ptr @_Z16mk_fpa2bv_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1058__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1058__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z14mk_qffp_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13026,7 +13020,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1058__in
 declare noundef ptr @_Z14mk_qffp_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1068__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1068__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z16mk_qffpbv_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13034,7 +13028,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1068__in
 declare noundef ptr @_Z16mk_qffpbv_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1078__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1078__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z17mk_qffplra_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13042,7 +13036,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1078__in
 declare noundef ptr @_Z17mk_qffplra_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1088__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1088__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z17mk_default_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13050,7 +13044,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1088__in
 declare noundef ptr @_Z17mk_default_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1098__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1098__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z28mk_solver_subsumption_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13058,7 +13052,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1098__in
 declare noundef ptr @_Z28mk_solver_subsumption_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1108__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1108__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z18mk_qfbv_sls_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13066,7 +13060,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1108__in
 declare noundef ptr @_Z18mk_qfbv_sls_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1118__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1118__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z17mk_sls_smt_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13074,7 +13068,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1118__in
 declare noundef ptr @_Z17mk_sls_smt_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1128__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1128__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z13mk_nra_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13082,7 +13076,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1128__in
 declare noundef ptr @_Z13mk_nra_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1138__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1138__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z17mk_qfaufbv_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13090,7 +13084,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1138__in
 declare noundef ptr @_Z17mk_qfaufbv_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1148__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1148__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z18mk_qfauflia_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13098,7 +13092,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1148__in
 declare noundef ptr @_Z18mk_qfauflia_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1158__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1158__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z14mk_qfbv_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13106,7 +13100,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1158__in
 declare noundef ptr @_Z14mk_qfbv_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1168__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1168__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z15mk_qfidl_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13114,7 +13108,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1168__in
 declare noundef ptr @_Z15mk_qfidl_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1178__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1178__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z15mk_qflia_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13122,7 +13116,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1178__in
 declare noundef ptr @_Z15mk_qflia_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1188__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1188__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z15mk_qflra_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13130,7 +13124,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1188__in
 declare noundef ptr @_Z15mk_qflra_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1198__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1198__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z15mk_qfnia_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13138,7 +13132,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1198__in
 declare noundef ptr @_Z15mk_qfnia_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1208__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1208__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z15mk_qfnra_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13146,7 +13140,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1208__in
 declare noundef ptr @_Z15mk_qfnra_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1218__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1218__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z14mk_qfuf_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13154,7 +13148,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1218__in
 declare noundef ptr @_Z14mk_qfuf_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1228__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1228__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z16mk_qfufbv_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13162,7 +13156,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1228__in
 declare noundef ptr @_Z16mk_qfufbv_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1238__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1238__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z21mk_qfufbv_ackr_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13170,7 +13164,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1238__in
 declare noundef ptr @_Z21mk_qfufbv_ackr_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1248__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1248__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z15mk_ufnia_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13178,7 +13172,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1248__in
 declare noundef ptr @_Z15mk_ufnia_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1258__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1258__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z15mk_uflra_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13186,7 +13180,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1258__in
 declare noundef ptr @_Z15mk_uflra_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1268__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1268__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z16mk_auflia_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13194,7 +13188,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1268__in
 declare noundef ptr @_Z16mk_auflia_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1278__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1278__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z17mk_auflira_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13202,7 +13196,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1278__in
 declare noundef ptr @_Z17mk_auflira_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1288__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1288__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z17mk_aufnira_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13210,7 +13204,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1288__in
 declare noundef ptr @_Z17mk_aufnira_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1298__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1298__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z13mk_lra_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13218,7 +13212,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1298__in
 declare noundef ptr @_Z13mk_lra_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1308__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1308__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z13mk_lia_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13226,7 +13220,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1308__in
 declare noundef ptr @_Z13mk_lia_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1318__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1318__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z14mk_lira_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13234,7 +13228,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1318__in
 declare noundef ptr @_Z14mk_lira_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1328__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1328__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z13mk_smt_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13242,7 +13236,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1328__in
 declare noundef ptr @_Z13mk_smt_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1338__invokeER11ast_managerRK10params_ref"(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1338__invokeER11ast_managerRK10params_ref"(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z14mk_skip_tacticv()
   ret ptr %3
 }
@@ -13250,7 +13244,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1338__in
 declare noundef ptr @_Z14mk_skip_tacticv() local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1348__invokeER11ast_managerRK10params_ref"(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1348__invokeER11ast_managerRK10params_ref"(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z14mk_fail_tacticv()
   ret ptr %3
 }
@@ -13258,7 +13252,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1348__in
 declare noundef ptr @_Z14mk_fail_tacticv() local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1358__invokeER11ast_managerRK10params_ref"(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1358__invokeER11ast_managerRK10params_ref"(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z27mk_fail_if_undecided_tacticv()
   ret ptr %3
 }
@@ -13266,7 +13260,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1358__in
 declare noundef ptr @_Z27mk_fail_if_undecided_tacticv() local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1368__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1368__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z22mk_macro_finder_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13274,7 +13268,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1368__in
 declare noundef ptr @_Z22mk_macro_finder_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1378__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1378__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z22mk_quasi_macros_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13282,13 +13276,13 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1378__in
 declare noundef ptr @_Z22mk_quasi_macros_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1388__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1388__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z22mk_quasi_macros_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1398__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1398__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z14mk_ufbv_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13296,7 +13290,7 @@ define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1398__in
 declare noundef ptr @_Z14mk_ufbv_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1408__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal noundef ptr @"_ZZ15install_tacticsR14tactic_managerEN5$_1408__invokeER11ast_managerRK10params_ref"(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 align 2 {
   %3 = tail call noundef ptr @_Z14mk_ufbv_tacticR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %3
 }
@@ -13318,7 +13312,7 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simpli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #20 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 0, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split"
     i32 1, label %4
@@ -13339,24 +13333,24 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr
 declare void @_ZN7bit2intC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(296), ptr noundef nonnull align 8 dereferenceable(976)) unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN18bit2int_simplifierD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN18bit2int_simplifierD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) unnamed_addr #10 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV18bit2int_simplifier, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN7bit2intD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %2) #23
+  tail call void @_ZN7bit2intD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %2) #24
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN18bit2int_simplifierD0Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN18bit2int_simplifierD0Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) unnamed_addr #10 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV18bit2int_simplifier, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN7bit2intD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %2) #23
+  tail call void @_ZN7bit2intD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %2) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 328) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNK18bit2int_simplifier4nameEv(ptr noundef nonnull align 8 dereferenceable(328) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNK18bit2int_simplifier4nameEv(ptr noundef nonnull align 8 dereferenceable(328) %0) unnamed_addr #7 comdat align 2 {
   ret ptr @.str.312
 }
 
@@ -13365,13 +13359,13 @@ define linkonce_odr hidden void @_ZN18bit2int_simplifier6reduceEv(ptr noundef no
   %2 = alloca %class.obj_ref.354, align 8
   %3 = alloca %class.obj_ref.497, align 8
   %4 = alloca %class.dependent_expr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !377
   store ptr null, ptr %2, align 8, !tbaa !255
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %6, ptr %7, align 8, !tbaa !59
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !378
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %6, ptr %8, align 8, !tbaa !59
@@ -13438,11 +13432,11 @@ define linkonce_odr hidden void @_ZN18bit2int_simplifier6reduceEv(ptr noundef no
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #24
+  call void @__clang_call_terminate(ptr %42) #23
   unreachable
 
 _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %._crit_edge, %33, %39
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %43 = load ptr, ptr %2, align 8, !tbaa !255
   %.not.i.i27 = icmp eq ptr %43, null
   br i1 %.not.i.i27, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %44
@@ -13464,11 +13458,11 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %._crit_edge, %33, %
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #24
+  call void @__clang_call_terminate(ptr %53) #23
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit, %44, %50
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 54:                                               ; preds = %1
@@ -13504,7 +13498,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI3app11a
 
 65:                                               ; preds = %62
   %66 = load ptr, ptr %9, align 8, !tbaa !380
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %67 = load ptr, ptr %5, align 8, !tbaa !377
   %68 = load ptr, ptr %2, align 8, !tbaa !255
   %69 = getelementptr inbounds nuw i8, ptr %61, i64 16
@@ -13569,8 +13563,8 @@ _ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr
           to label %95 unwind label %117
 
 95:                                               ; preds = %_ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit
-  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #23
+  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %96 = load ptr, ptr %5, align 8, !tbaa !377
   %97 = invoke noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %96)
           to label %.noexc30 unwind label %.loopexit
@@ -13633,30 +13627,30 @@ _ZN25dependent_expr_simplifier8iteratorppEv.exit: ; preds = %110, %111
 117:                                              ; preds = %_ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit
   %118 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
+  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
   br label %119
 
 119:                                              ; preds = %117, %115
   %.pn = phi { ptr, i32 } [ %118, %117 ], [ %116, %115 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %120
 
 120:                                              ; preds = %.loopexit, %.loopexit.split-lp, %54, %113, %119
   %.pn16.pn.pn = phi { ptr, i32 } [ %55, %54 ], [ %.pn, %119 ], [ %114, %113 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #23
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #23
+  call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn16.pn.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK18bit2int_simplifier15supports_proofsEv(ptr noundef nonnull align 8 dereferenceable(328) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden noundef zeroext i1 @_ZNK18bit2int_simplifier15supports_proofsEv(ptr noundef nonnull align 8 dereferenceable(328) %0) unnamed_addr #7 comdat align 2 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN7bit2intD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN7bit2intD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8, !tbaa !148
   %.not.i.i = icmp eq ptr %3, null
@@ -13671,7 +13665,7 @@ define linkonce_odr hidden void @_ZN7bit2intD2Ev(ptr noundef nonnull align 8 der
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #24
+  tail call void @__clang_call_terminate(ptr %8) #23
   unreachable
 
 _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %1, %4
@@ -13698,14 +13692,14 @@ _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %1, %4
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #24
+  tail call void @__clang_call_terminate(ptr %21) #23
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN6vectorIP4exprLb0EjED2Ev.exit, %11, %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  tail call void @_ZN8expr_mapD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %22) #23
+  tail call void @_ZN8expr_mapD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %22) #24
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  tail call void @_ZN15mk_extract_procD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #23
+  tail call void @_ZN15mk_extract_procD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #24
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %25 = load ptr, ptr %24, align 8, !tbaa !368
   %26 = icmp eq ptr %25, null
@@ -13719,7 +13713,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN6vectorIP4exprLb
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  tail call void @__clang_call_terminate(ptr %30) #24
+  tail call void @__clang_call_terminate(ptr %30) #23
   unreachable
 
 _ZN7obj_mapI4exprjED2Ev.exit.i.i:                 ; preds = %27, %_ZN7obj_refI4expr11ast_managerED2Ev.exit
@@ -13747,7 +13741,7 @@ _ZN7obj_mapI4exprjED2Ev.exit.i.i:                 ; preds = %27, %_ZN7obj_refI4e
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  tail call void @__clang_call_terminate(ptr %43) #24
+  tail call void @__clang_call_terminate(ptr %43) #23
   unreachable
 
 _ZN11bv_rewriterD2Ev.exit:                        ; preds = %_ZN7obj_mapI4exprjED2Ev.exit.i.i, %33, %40
@@ -13763,7 +13757,7 @@ declare void @_ZN15mk_extract_procD1Ev(ptr noundef nonnull align 8 dereferenceab
 declare void @_ZN7bit2intclEP4exprR7obj_refIS0_11ast_managerERS2_I3appS3_E(ptr noundef nonnull align 8 dereferenceable(296), ptr noundef, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !378
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZN7obj_refI3app11ast_managerE7dec_refEv.exit, label %3
@@ -13789,7 +13783,7 @@ _ZN7obj_refI3app11ast_managerE7dec_refEv.exit:    ; preds = %3, %1, %10
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #24
+  tail call void @__clang_call_terminate(ptr %13) #23
   unreachable
 }
 
@@ -13823,8 +13817,8 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simpli
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #23
-  tail call void @_ZN20bit_blaster_rewriterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #23
+  tail call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #24
+  tail call void @_ZN20bit_blaster_rewriterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #24
   resume { ptr, i32 } %17
 
 "_ZSt10__invoke_rIP25dependent_expr_simplifierRZ15install_tacticsR14tactic_managerE3$_1JR11ast_managerRK10params_refR20dependent_expr_stateEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %4
@@ -13832,7 +13826,7 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simpli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #20 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 0, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split"
     i32 1, label %4
@@ -13880,7 +13874,7 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simpli
 .body.i.i.i.i:                                    ; preds = %4
   %15 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN12rewriter_tplI15elim_bounds_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(560) %10) #23
+  tail call void @_ZN12rewriter_tplI15elim_bounds_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(560) %10) #24
   resume { ptr, i32 } %15
 
 "_ZSt10__invoke_rIP25dependent_expr_simplifierRZ15install_tacticsR14tactic_managerE3$_2JR11ast_managerRK10params_refR20dependent_expr_stateEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %4
@@ -13888,7 +13882,7 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simpli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_2E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_2E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #20 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 0, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split"
     i32 1, label %4
@@ -13907,24 +13901,24 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN22elim_bounds_simplifierD2Ev(ptr noundef nonnull align 8 dereferenceable(592) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN22elim_bounds_simplifierD2Ev(ptr noundef nonnull align 8 dereferenceable(592) %0) unnamed_addr #10 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV22elim_bounds_simplifier, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN12rewriter_tplI15elim_bounds_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(560) %2) #23
+  tail call void @_ZN12rewriter_tplI15elim_bounds_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(560) %2) #24
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN22elim_bounds_simplifierD0Ev(ptr noundef nonnull align 8 dereferenceable(592) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN22elim_bounds_simplifierD0Ev(ptr noundef nonnull align 8 dereferenceable(592) %0) unnamed_addr #10 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV22elim_bounds_simplifier, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN12rewriter_tplI15elim_bounds_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(560) %2) #23
+  tail call void @_ZN12rewriter_tplI15elim_bounds_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(560) %2) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 592) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNK22elim_bounds_simplifier4nameEv(ptr noundef nonnull align 8 dereferenceable(592) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNK22elim_bounds_simplifier4nameEv(ptr noundef nonnull align 8 dereferenceable(592) %0) unnamed_addr #7 comdat align 2 {
   ret ptr @.str.314
 }
 
@@ -13938,7 +13932,7 @@ define linkonce_odr hidden void @_ZN22elim_bounds_simplifier6reduceEv(ptr nounde
   br i1 %6, label %7, label %104
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !377
   store ptr null, ptr %2, align 8, !tbaa !255
@@ -14007,11 +14001,11 @@ define linkonce_odr hidden void @_ZN22elim_bounds_simplifier6reduceEv(ptr nounde
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #24
+  call void @__clang_call_terminate(ptr %44) #23
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %._crit_edge, %35, %41
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %104
 
 45:                                               ; preds = %7
@@ -14068,7 +14062,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %._crit_edge, %35, %
 
 _ZN12rewriter_tplI15elim_bounds_cfgEclEP4exprR7obj_refIS2_11ast_managerE.exit: ; preds = %64
   %65 = load ptr, ptr %4, align 8, !tbaa !380
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %66 = load ptr, ptr %8, align 8, !tbaa !377
   %67 = load ptr, ptr %2, align 8, !tbaa !255
   %68 = getelementptr inbounds nuw i8, ptr %52, i64 24
@@ -14108,8 +14102,8 @@ _ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr
           to label %82 unwind label %101
 
 82:                                               ; preds = %_ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit
-  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23
+  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %83
 
 83:                                               ; preds = %53, %58, %82
@@ -14165,14 +14159,14 @@ _ZN25dependent_expr_simplifier8iteratorppEv.exit: ; preds = %98, %99
 101:                                              ; preds = %_ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit
   %102 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23
+  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %103
 
 103:                                              ; preds = %.loopexit, %.loopexit.split-lp, %45, %62, %101
   %.pn18.pn.pn = phi { ptr, i32 } [ %46, %45 ], [ %102, %101 ], [ %63, %62 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #23
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn18.pn.pn
 
 104:                                              ; preds = %1, %_ZN7obj_refI4expr11ast_managerED2Ev.exit
@@ -14184,7 +14178,7 @@ declare void @_ZN12rewriter_tplI15elim_bounds_cfgEC2ER11ast_managerbRS0_(ptr nou
 declare void @_ZN15elim_bounds_cfgC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(976)) unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN12rewriter_tplI15elim_bounds_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN12rewriter_tplI15elim_bounds_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV12rewriter_tplI15elim_bounds_cfgE, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %3 = load ptr, ptr %2, align 8, !tbaa !158
@@ -14200,7 +14194,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplI15elim_bounds_cfgED2Ev(ptr no
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #24
+  tail call void @__clang_call_terminate(ptr %8) #23
   unreachable
 
 _ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %1, %4
@@ -14227,7 +14221,7 @@ _ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %1, %4
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #24
+  tail call void @__clang_call_terminate(ptr %21) #23
   unreachable
 
 _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %_ZN6vectorIjLb0EjED2Ev.exit, %11, %18
@@ -14254,7 +14248,7 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %_ZN6vectorIjLb0EjED
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  tail call void @__clang_call_terminate(ptr %34) #24
+  tail call void @__clang_call_terminate(ptr %34) #23
   unreachable
 
 _ZN7obj_refI3app11ast_managerED2Ev.exit3:         ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit, %24, %31
@@ -14281,14 +14275,14 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit3:         ; preds = %_ZN7obj_refI3app11a
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
-  tail call void @__clang_call_terminate(ptr %47) #24
+  tail call void @__clang_call_terminate(ptr %47) #23
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit3, %37, %44
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %48) #23
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %48) #24
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %49) #23
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %49) #24
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %51 = load ptr, ptr %50, align 8, !tbaa !148
   %.not.i.i5 = icmp eq ptr %51, null
@@ -14303,17 +14297,17 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI3app11a
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
-  tail call void @__clang_call_terminate(ptr %56) #24
+  tail call void @__clang_call_terminate(ptr %56) #23
   unreachable
 
 _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %52
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #23
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #24
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN14elim_bounds_rwD0Ev(ptr noundef nonnull align 8 dereferenceable(560) %0) unnamed_addr #11 comdat align 2 {
-  tail call void @_ZN12rewriter_tplI15elim_bounds_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(560) %0) #23
+define linkonce_odr hidden void @_ZN14elim_bounds_rwD0Ev(ptr noundef nonnull align 8 dereferenceable(560) %0) unnamed_addr #10 comdat align 2 {
+  tail call void @_ZN12rewriter_tplI15elim_bounds_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(560) %0) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 560) #25
   ret void
 }
@@ -14322,8 +14316,8 @@ define linkonce_odr hidden void @_ZN14elim_bounds_rwD0Ev(ptr noundef nonnull ali
 declare void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144)) unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN12rewriter_tplI15elim_bounds_cfgED0Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) unnamed_addr #11 comdat align 2 {
-  tail call void @_ZN12rewriter_tplI15elim_bounds_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) #23
+define linkonce_odr hidden void @_ZN12rewriter_tplI15elim_bounds_cfgED0Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) unnamed_addr #10 comdat align 2 {
+  tail call void @_ZN12rewriter_tplI15elim_bounds_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 536) #25
   ret void
 }
@@ -14357,7 +14351,7 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simpli
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN13defined_namesD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #23
+  tail call void @_ZN13defined_namesD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #24
   resume { ptr, i32 } %17
 
 "_ZSt10__invoke_rIP25dependent_expr_simplifierRZ15install_tacticsR14tactic_managerE3$_3JR11ast_managerRK10params_refR20dependent_expr_stateEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %4
@@ -14373,7 +14367,7 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simpli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_3E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_3E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #20 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE3$_3E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 0, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE3$_3E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split"
     i32 1, label %4
@@ -14397,7 +14391,7 @@ declare void @_ZN13defined_namesC1ER11ast_managerPKc(ptr noundef nonnull align 8
 declare void @_ZN13defined_namesD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN24elim_term_ite_simplifierD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN24elim_term_ite_simplifierD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV24elim_term_ite_simplifier, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV16elim_term_ite_rw, i64 16), ptr %2, align 8, !tbaa !22
@@ -14417,7 +14411,7 @@ define linkonce_odr hidden void @_ZN24elim_term_ite_simplifierD2Ev(ptr noundef n
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #24
+  tail call void @__clang_call_terminate(ptr %10) #23
   unreachable
 
 _ZN6vectorIjLb0EjED2Ev.exit.i.i:                  ; preds = %6, %1
@@ -14429,18 +14423,18 @@ _ZN6vectorIjLb0EjED2Ev.exit.i.i:                  ; preds = %6, %1
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #24
+  tail call void @__clang_call_terminate(ptr %14) #23
   unreachable
 
 _ZN16elim_term_ite_rwD2Ev.exit:                   ; preds = %_ZN6vectorIjLb0EjED2Ev.exit.i.i
-  tail call void @_ZN12rewriter_tplI17elim_term_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(576) %2) #23
+  tail call void @_ZN12rewriter_tplI17elim_term_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(576) %2) #24
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN13defined_namesD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #23
+  tail call void @_ZN13defined_namesD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #24
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN24elim_term_ite_simplifierD0Ev(ptr noundef nonnull align 8 dereferenceable(624) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN24elim_term_ite_simplifierD0Ev(ptr noundef nonnull align 8 dereferenceable(624) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV24elim_term_ite_simplifier, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV16elim_term_ite_rw, i64 16), ptr %2, align 8, !tbaa !22
@@ -14460,7 +14454,7 @@ define linkonce_odr hidden void @_ZN24elim_term_ite_simplifierD0Ev(ptr noundef n
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #24
+  tail call void @__clang_call_terminate(ptr %10) #23
   unreachable
 
 _ZN6vectorIjLb0EjED2Ev.exit.i.i.i:                ; preds = %6, %1
@@ -14472,19 +14466,19 @@ _ZN6vectorIjLb0EjED2Ev.exit.i.i.i:                ; preds = %6, %1
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #24
+  tail call void @__clang_call_terminate(ptr %14) #23
   unreachable
 
 _ZN24elim_term_ite_simplifierD2Ev.exit:           ; preds = %_ZN6vectorIjLb0EjED2Ev.exit.i.i.i
-  tail call void @_ZN12rewriter_tplI17elim_term_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(576) %2) #23
+  tail call void @_ZN12rewriter_tplI17elim_term_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(576) %2) #24
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN13defined_namesD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #23
+  tail call void @_ZN13defined_namesD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 624) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNK24elim_term_ite_simplifier4nameEv(ptr noundef nonnull align 8 dereferenceable(624) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNK24elim_term_ite_simplifier4nameEv(ptr noundef nonnull align 8 dereferenceable(624) %0) unnamed_addr #7 comdat align 2 {
   ret ptr @.str.106
 }
 
@@ -14550,13 +14544,13 @@ define linkonce_odr hidden void @_ZN24elim_term_ite_simplifier6reduceEv(ptr noun
   %2 = alloca %class.obj_ref.354, align 8
   %3 = alloca %class.obj_ref.497, align 8
   %4 = alloca %class.dependent_expr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !377
   store ptr null, ptr %2, align 8, !tbaa !255
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %6, ptr %7, align 8, !tbaa !59
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !378
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %6, ptr %8, align 8, !tbaa !59
@@ -14623,11 +14617,11 @@ define linkonce_odr hidden void @_ZN24elim_term_ite_simplifier6reduceEv(ptr noun
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #24
+  call void @__clang_call_terminate(ptr %42) #23
   unreachable
 
 _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %._crit_edge, %33, %39
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %43 = load ptr, ptr %2, align 8, !tbaa !255
   %.not.i.i28 = icmp eq ptr %43, null
   br i1 %.not.i.i28, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %44
@@ -14649,11 +14643,11 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %._crit_edge, %33, %
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #24
+  call void @__clang_call_terminate(ptr %53) #23
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit, %44, %50
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 54:                                               ; preds = %1
@@ -14695,7 +14689,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI3app11a
 
 68:                                               ; preds = %65
   %69 = load ptr, ptr %9, align 8, !tbaa !380
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %70 = load ptr, ptr %5, align 8, !tbaa !377
   %71 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %72 = load ptr, ptr %71, align 8, !tbaa !156
@@ -14759,8 +14753,8 @@ _ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr
           to label %97 unwind label %102
 
 97:                                               ; preds = %_ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit
-  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #23
+  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %105
 
 98:                                               ; preds = %62, %56
@@ -14776,12 +14770,12 @@ _ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr
 102:                                              ; preds = %_ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit
   %103 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
+  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
   br label %104
 
 104:                                              ; preds = %102, %100
   %.pn = phi { ptr, i32 } [ %103, %102 ], [ %101, %100 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %123
 
 105:                                              ; preds = %97, %65
@@ -14836,22 +14830,22 @@ _ZN25dependent_expr_simplifier8iteratorppEv.exit: ; preds = %120, %121
 
 123:                                              ; preds = %.loopexit, %.loopexit.split-lp, %54, %98, %104
   %.pn17.pn.pn = phi { ptr, i32 } [ %55, %54 ], [ %.pn, %104 ], [ %99, %98 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #23
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #23
+  call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn17.pn.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK24elim_term_ite_simplifier15supports_proofsEv(ptr noundef nonnull align 8 dereferenceable(624) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden noundef zeroext i1 @_ZNK24elim_term_ite_simplifier15supports_proofsEv(ptr noundef nonnull align 8 dereferenceable(624) %0) unnamed_addr #7 comdat align 2 {
   ret i1 true
 }
 
 declare void @_ZN12rewriter_tplI17elim_term_ite_cfgEC2ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(536), ptr noundef nonnull align 8 dereferenceable(976), i1 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN16elim_term_ite_rwD2Ev(ptr noundef nonnull align 8 dereferenceable(576) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN16elim_term_ite_rwD2Ev(ptr noundef nonnull align 8 dereferenceable(576) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV16elim_term_ite_rw, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 536
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV17elim_term_ite_cfg, i64 16), ptr %2, align 8, !tbaa !22
@@ -14869,7 +14863,7 @@ define linkonce_odr hidden void @_ZN16elim_term_ite_rwD2Ev(ptr noundef nonnull a
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #24
+  tail call void @__clang_call_terminate(ptr %9) #23
   unreachable
 
 _ZN6vectorIjLb0EjED2Ev.exit.i:                    ; preds = %5, %1
@@ -14881,16 +14875,16 @@ _ZN6vectorIjLb0EjED2Ev.exit.i:                    ; preds = %5, %1
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #24
+  tail call void @__clang_call_terminate(ptr %13) #23
   unreachable
 
 _ZN17elim_term_ite_cfgD2Ev.exit:                  ; preds = %_ZN6vectorIjLb0EjED2Ev.exit.i
-  tail call void @_ZN12rewriter_tplI17elim_term_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) #23
+  tail call void @_ZN12rewriter_tplI17elim_term_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) #24
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN16elim_term_ite_rwD0Ev(ptr noundef nonnull align 8 dereferenceable(576) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN16elim_term_ite_rwD0Ev(ptr noundef nonnull align 8 dereferenceable(576) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV16elim_term_ite_rw, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 536
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV17elim_term_ite_cfg, i64 16), ptr %2, align 8, !tbaa !22
@@ -14908,7 +14902,7 @@ define linkonce_odr hidden void @_ZN16elim_term_ite_rwD0Ev(ptr noundef nonnull a
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #24
+  tail call void @__clang_call_terminate(ptr %9) #23
   unreachable
 
 _ZN6vectorIjLb0EjED2Ev.exit.i.i:                  ; preds = %5, %1
@@ -14920,17 +14914,17 @@ _ZN6vectorIjLb0EjED2Ev.exit.i.i:                  ; preds = %5, %1
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #24
+  tail call void @__clang_call_terminate(ptr %13) #23
   unreachable
 
 _ZN16elim_term_ite_rwD2Ev.exit:                   ; preds = %_ZN6vectorIjLb0EjED2Ev.exit.i.i
-  tail call void @_ZN12rewriter_tplI17elim_term_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(576) %0) #23
+  tail call void @_ZN12rewriter_tplI17elim_term_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(576) %0) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 576) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN17elim_term_ite_cfgD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN17elim_term_ite_cfgD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV17elim_term_ite_cfg, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !158
@@ -14946,7 +14940,7 @@ define linkonce_odr hidden void @_ZN17elim_term_ite_cfgD2Ev(ptr noundef nonnull 
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #24
+  tail call void @__clang_call_terminate(ptr %8) #23
   unreachable
 
 _ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %1, %4
@@ -14958,7 +14952,7 @@ _ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %1, %4
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #24
+  tail call void @__clang_call_terminate(ptr %12) #23
   unreachable
 
 _ZN6vectorI14justified_exprLb1EjED2Ev.exit:       ; preds = %_ZN6vectorIjLb0EjED2Ev.exit
@@ -14966,7 +14960,7 @@ _ZN6vectorI14justified_exprLb1EjED2Ev.exit:       ; preds = %_ZN6vectorIjLb0EjED
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN17elim_term_ite_cfgD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN17elim_term_ite_cfgD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV17elim_term_ite_cfg, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !158
@@ -14982,7 +14976,7 @@ define linkonce_odr hidden void @_ZN17elim_term_ite_cfgD0Ev(ptr noundef nonnull 
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #24
+  tail call void @__clang_call_terminate(ptr %8) #23
   unreachable
 
 _ZN6vectorIjLb0EjED2Ev.exit.i:                    ; preds = %4, %1
@@ -14994,7 +14988,7 @@ _ZN6vectorIjLb0EjED2Ev.exit.i:                    ; preds = %4, %1
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #24
+  tail call void @__clang_call_terminate(ptr %12) #23
   unreachable
 
 _ZN17elim_term_ite_cfgD2Ev.exit:                  ; preds = %_ZN6vectorIjLb0EjED2Ev.exit.i
@@ -15062,7 +15056,7 @@ _ZN11ast_manager7dec_refEP3ast.exit.i.i.i.i.i.i.i: ; preds = %._ZN11ast_manager7
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #24
+  tail call void @__clang_call_terminate(ptr %25) #23
   unreachable
 
 _ZSt8_DestroyI14justified_exprEvPT_.exit.i.i.i.i: ; preds = %22, %17, %_ZN11ast_manager7dec_refEP3ast.exit.i.i.i.i.i.i.i
@@ -15087,7 +15081,7 @@ _ZN6vectorI14justified_exprLb1EjE16destroy_elementsEv.exit: ; preds = %_ZN6vecto
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN12rewriter_tplI17elim_term_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN12rewriter_tplI17elim_term_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV12rewriter_tplI17elim_term_ite_cfgE, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %3 = load ptr, ptr %2, align 8, !tbaa !158
@@ -15103,7 +15097,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplI17elim_term_ite_cfgED2Ev(ptr 
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #24
+  tail call void @__clang_call_terminate(ptr %8) #23
   unreachable
 
 _ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %1, %4
@@ -15130,7 +15124,7 @@ _ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %1, %4
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #24
+  tail call void @__clang_call_terminate(ptr %21) #23
   unreachable
 
 _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %_ZN6vectorIjLb0EjED2Ev.exit, %11, %18
@@ -15157,7 +15151,7 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %_ZN6vectorIjLb0EjED
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  tail call void @__clang_call_terminate(ptr %34) #24
+  tail call void @__clang_call_terminate(ptr %34) #23
   unreachable
 
 _ZN7obj_refI3app11ast_managerED2Ev.exit3:         ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit, %24, %31
@@ -15184,14 +15178,14 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit3:         ; preds = %_ZN7obj_refI3app11a
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
-  tail call void @__clang_call_terminate(ptr %47) #24
+  tail call void @__clang_call_terminate(ptr %47) #23
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit3, %37, %44
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %48) #23
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %48) #24
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %49) #23
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %49) #24
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %51 = load ptr, ptr %50, align 8, !tbaa !148
   %.not.i.i5 = icmp eq ptr %51, null
@@ -15206,17 +15200,17 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI3app11a
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
-  tail call void @__clang_call_terminate(ptr %56) #24
+  tail call void @__clang_call_terminate(ptr %56) #23
   unreachable
 
 _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %52
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #23
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #24
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN12rewriter_tplI17elim_term_ite_cfgED0Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) unnamed_addr #11 comdat align 2 {
-  tail call void @_ZN12rewriter_tplI17elim_term_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) #23
+define linkonce_odr hidden void @_ZN12rewriter_tplI17elim_term_ite_cfgED0Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) unnamed_addr #10 comdat align 2 {
+  tail call void @_ZN12rewriter_tplI17elim_term_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 536) #25
   ret void
 }
@@ -15317,7 +15311,7 @@ _ZN11ast_manager7dec_refEP3ast.exit.i.i:          ; preds = %._ZN11ast_manager7d
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  tail call void @__clang_call_terminate(ptr %43) #24
+  tail call void @__clang_call_terminate(ptr %43) #23
   unreachable
 
 _ZN14justified_exprD2Ev.exit.i:                   ; preds = %40, %35, %_ZN11ast_manager7dec_refEP3ast.exit.i.i
@@ -15365,7 +15359,7 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simpli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_4E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_4E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #20 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE3$_4E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 0, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE3$_4E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split"
     i32 1, label %4
@@ -15386,24 +15380,24 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr
 declare void @_ZN17pull_nested_quantC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(976)) unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN34pull_nested_quantifiers_simplifierD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN34pull_nested_quantifiers_simplifierD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #10 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV34pull_nested_quantifiers_simplifier, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN17pull_nested_quantD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #23
+  tail call void @_ZN17pull_nested_quantD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN34pull_nested_quantifiers_simplifierD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN34pull_nested_quantifiers_simplifierD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #10 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV34pull_nested_quantifiers_simplifier, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN17pull_nested_quantD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #23
+  tail call void @_ZN17pull_nested_quantD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNK34pull_nested_quantifiers_simplifier4nameEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNK34pull_nested_quantifiers_simplifier4nameEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   ret ptr @.str.317
 }
 
@@ -15419,13 +15413,13 @@ define linkonce_odr hidden void @_ZN34pull_nested_quantifiers_simplifier6reduceE
   br i1 %8, label %9, label %149
 
 9:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !377
   store ptr null, ptr %2, align 8, !tbaa !255
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %11, ptr %12, align 8, !tbaa !59
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !378
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %11, ptr %13, align 8, !tbaa !59
@@ -15494,11 +15488,11 @@ define linkonce_odr hidden void @_ZN34pull_nested_quantifiers_simplifier6reduceE
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #24
+  call void @__clang_call_terminate(ptr %49) #23
   unreachable
 
 _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %._crit_edge, %40, %46
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %50 = load ptr, ptr %2, align 8, !tbaa !255
   %.not.i.i26 = icmp eq ptr %50, null
   br i1 %.not.i.i26, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %51
@@ -15520,11 +15514,11 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %._crit_edge, %40, %
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #24
+  call void @__clang_call_terminate(ptr %60) #23
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit, %51, %57
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %149
 
 61:                                               ; preds = %9
@@ -15545,7 +15539,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI3app11a
 63:                                               ; preds = %.lr.ph, %_ZN25dependent_expr_simplifier8iteratorppEv.exit
   %.sroa.7.8.extract.trunc54 = phi i32 [ %16, %.lr.ph ], [ %.sroa.7.8.extract.trunc, %_ZN25dependent_expr_simplifier8iteratorppEv.exit ]
   %.sroa.7.053 = phi i64 [ %.sroa.2.8.insert.insert.i, %.lr.ph ], [ %.sroa.7.1, %_ZN25dependent_expr_simplifier8iteratorppEv.exit ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %64 = load ptr, ptr %6, align 8, !tbaa !380
   %65 = load ptr, ptr %64, align 8, !tbaa !22
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
@@ -15607,7 +15601,7 @@ _ZN14dependent_exprC2ERKS_.exit:                  ; preds = %_ZN18dependency_man
 
 91:                                               ; preds = %_ZN14dependent_exprC2ERKS_.exit
   %92 = load ptr, ptr %6, align 8, !tbaa !380
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %93 = load ptr, ptr %10, align 8, !tbaa !377
   %94 = load ptr, ptr %2, align 8, !tbaa !255
   %95 = load ptr, ptr %33, align 8, !tbaa !156
@@ -15670,10 +15664,10 @@ _ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr
           to label %119 unwind label %143
 
 119:                                              ; preds = %_ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit
-  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23
-  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #23
+  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %120 = load ptr, ptr %10, align 8, !tbaa !377
   %121 = invoke noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %120)
           to label %.noexc32 unwind label %.loopexit
@@ -15741,30 +15735,30 @@ _ZN25dependent_expr_simplifier8iteratorppEv.exit: ; preds = %134, %135
 143:                                              ; preds = %_ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit
   %144 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
+  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
   br label %145
 
 145:                                              ; preds = %143, %141
   %.pn = phi { ptr, i32 } [ %144, %143 ], [ %142, %141 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %146
 
 146:                                              ; preds = %145, %139
   %.pn.pn = phi { ptr, i32 } [ %.pn, %145 ], [ %140, %139 ]
-  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
+  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
   br label %147
 
 147:                                              ; preds = %146, %137
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %146 ], [ %138, %137 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %148
 
 148:                                              ; preds = %.loopexit, %.loopexit.split-lp, %61, %147
   %.pn15.pn.pn = phi { ptr, i32 } [ %62, %61 ], [ %.pn.pn.pn, %147 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #23
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #23
+  call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn15.pn.pn
 
 149:                                              ; preds = %1, %_ZN7obj_refI4expr11ast_managerED2Ev.exit
@@ -15772,7 +15766,7 @@ _ZN25dependent_expr_simplifier8iteratorppEv.exit: ; preds = %134, %135
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK34pull_nested_quantifiers_simplifier15supports_proofsEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden noundef zeroext i1 @_ZNK34pull_nested_quantifiers_simplifier15supports_proofsEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   ret i1 true
 }
 
@@ -15809,7 +15803,7 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simpli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_5E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_5E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #20 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE3$_5E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 0, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE3$_5E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split"
     i32 1, label %4
@@ -15828,30 +15822,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN15push_app_ite_rwD2Ev(ptr noundef nonnull align 8 dereferenceable(560) %0) unnamed_addr #11 comdat align 2 {
-  tail call void @_ZN12rewriter_tplI16push_app_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) #23
+define linkonce_odr hidden void @_ZN15push_app_ite_rwD2Ev(ptr noundef nonnull align 8 dereferenceable(560) %0) unnamed_addr #10 comdat align 2 {
+  tail call void @_ZN12rewriter_tplI16push_app_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) #24
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN19push_ite_simplifierD2Ev(ptr noundef nonnull align 8 dereferenceable(592) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN19push_ite_simplifierD2Ev(ptr noundef nonnull align 8 dereferenceable(592) %0) unnamed_addr #10 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV19push_ite_simplifier, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN12rewriter_tplI16push_app_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(560) %2) #23
+  tail call void @_ZN12rewriter_tplI16push_app_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(560) %2) #24
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN19push_ite_simplifierD0Ev(ptr noundef nonnull align 8 dereferenceable(592) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN19push_ite_simplifierD0Ev(ptr noundef nonnull align 8 dereferenceable(592) %0) unnamed_addr #10 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV19push_ite_simplifier, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN12rewriter_tplI16push_app_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(560) %2) #23
+  tail call void @_ZN12rewriter_tplI16push_app_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(560) %2) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 592) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNK19push_ite_simplifier4nameEv(ptr noundef nonnull align 8 dereferenceable(592) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNK19push_ite_simplifier4nameEv(ptr noundef nonnull align 8 dereferenceable(592) %0) unnamed_addr #7 comdat align 2 {
   ret ptr @.str.321
 }
 
@@ -15859,7 +15853,7 @@ define linkonce_odr hidden noundef ptr @_ZNK19push_ite_simplifier4nameEv(ptr nou
 define linkonce_odr hidden void @_ZN19push_ite_simplifier6reduceEv(ptr noundef nonnull align 8 dereferenceable(592) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.obj_ref.354, align 8
   %3 = alloca %class.dependent_expr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !377
   store ptr null, ptr %2, align 8, !tbaa !255
@@ -15929,11 +15923,11 @@ define linkonce_odr hidden void @_ZN19push_ite_simplifier6reduceEv(ptr noundef n
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #24
+  call void @__clang_call_terminate(ptr %41) #23
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %._crit_edge, %32, %38
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 42:                                               ; preds = %1
@@ -15975,7 +15969,7 @@ _ZN12rewriter_tplI16push_app_ite_cfgEclEP4exprR7obj_refIS2_11ast_managerE.exit: 
 
 55:                                               ; preds = %_ZN12rewriter_tplI16push_app_ite_cfgEclEP4exprR7obj_refIS2_11ast_managerE.exit
   %56 = load ptr, ptr %7, align 8, !tbaa !380
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %57 = load ptr, ptr %4, align 8, !tbaa !377
   %58 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %59 = load ptr, ptr %58, align 8, !tbaa !155
@@ -16014,8 +16008,8 @@ _ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr
           to label %72 unwind label %75
 
 72:                                               ; preds = %_ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit
-  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23
+  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %77
 
 73:                                               ; preds = %50, %44
@@ -16026,8 +16020,8 @@ _ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr
 75:                                               ; preds = %_ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit
   %76 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23
+  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %95
 
 77:                                               ; preds = %72, %_ZN12rewriter_tplI16push_app_ite_cfgEclEP4exprR7obj_refIS2_11ast_managerE.exit
@@ -16082,22 +16076,22 @@ _ZN25dependent_expr_simplifier8iteratorppEv.exit: ; preds = %92, %93
 
 95:                                               ; preds = %.loopexit, %.loopexit.split-lp, %42, %73, %75
   %.pn16.pn.pn = phi { ptr, i32 } [ %43, %42 ], [ %76, %75 ], [ %74, %73 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #23
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn16.pn.pn
 }
 
 declare void @_ZN12rewriter_tplI16push_app_ite_cfgEC2ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(536), ptr noundef nonnull align 8 dereferenceable(976), i1 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(17)) unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN15push_app_ite_rwD0Ev(ptr noundef nonnull align 8 dereferenceable(560) %0) unnamed_addr #11 comdat align 2 {
-  tail call void @_ZN12rewriter_tplI16push_app_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(560) %0) #23
+define linkonce_odr hidden void @_ZN15push_app_ite_rwD0Ev(ptr noundef nonnull align 8 dereferenceable(560) %0) unnamed_addr #10 comdat align 2 {
+  tail call void @_ZN12rewriter_tplI16push_app_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(560) %0) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 560) #25
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN12rewriter_tplI16push_app_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN12rewriter_tplI16push_app_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV12rewriter_tplI16push_app_ite_cfgE, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %3 = load ptr, ptr %2, align 8, !tbaa !158
@@ -16113,7 +16107,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplI16push_app_ite_cfgED2Ev(ptr n
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #24
+  tail call void @__clang_call_terminate(ptr %8) #23
   unreachable
 
 _ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %1, %4
@@ -16140,7 +16134,7 @@ _ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %1, %4
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #24
+  tail call void @__clang_call_terminate(ptr %21) #23
   unreachable
 
 _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %_ZN6vectorIjLb0EjED2Ev.exit, %11, %18
@@ -16167,7 +16161,7 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %_ZN6vectorIjLb0EjED
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  tail call void @__clang_call_terminate(ptr %34) #24
+  tail call void @__clang_call_terminate(ptr %34) #23
   unreachable
 
 _ZN7obj_refI3app11ast_managerED2Ev.exit3:         ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit, %24, %31
@@ -16194,14 +16188,14 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit3:         ; preds = %_ZN7obj_refI3app11a
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
-  tail call void @__clang_call_terminate(ptr %47) #24
+  tail call void @__clang_call_terminate(ptr %47) #23
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit3, %37, %44
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %48) #23
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %48) #24
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %49) #23
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %49) #24
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %51 = load ptr, ptr %50, align 8, !tbaa !148
   %.not.i.i5 = icmp eq ptr %51, null
@@ -16216,17 +16210,17 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI3app11a
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
-  tail call void @__clang_call_terminate(ptr %56) #24
+  tail call void @__clang_call_terminate(ptr %56) #23
   unreachable
 
 _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %52
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #23
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #24
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN12rewriter_tplI16push_app_ite_cfgED0Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) unnamed_addr #11 comdat align 2 {
-  tail call void @_ZN12rewriter_tplI16push_app_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) #23
+define linkonce_odr hidden void @_ZN12rewriter_tplI16push_app_ite_cfgED0Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) unnamed_addr #10 comdat align 2 {
+  tail call void @_ZN12rewriter_tplI16push_app_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 536) #25
   ret void
 }
@@ -16261,7 +16255,7 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simpli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_6E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_6E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #20 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE3$_6E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 0, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE3$_6E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split"
     i32 1, label %4
@@ -16307,7 +16301,7 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simpli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_7E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_7E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #20 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE3$_7E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 0, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE3$_7E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split"
     i32 1, label %4
@@ -16326,30 +16320,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN18ng_push_app_ite_rwD2Ev(ptr noundef nonnull align 8 dereferenceable(560) %0) unnamed_addr #11 comdat align 2 {
-  tail call void @_ZN12rewriter_tplI19ng_push_app_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) #23
+define linkonce_odr hidden void @_ZN18ng_push_app_ite_rwD2Ev(ptr noundef nonnull align 8 dereferenceable(560) %0) unnamed_addr #10 comdat align 2 {
+  tail call void @_ZN12rewriter_tplI19ng_push_app_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) #24
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN22ng_push_ite_simplifierD2Ev(ptr noundef nonnull align 8 dereferenceable(592) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN22ng_push_ite_simplifierD2Ev(ptr noundef nonnull align 8 dereferenceable(592) %0) unnamed_addr #10 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV22ng_push_ite_simplifier, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN12rewriter_tplI19ng_push_app_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(560) %2) #23
+  tail call void @_ZN12rewriter_tplI19ng_push_app_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(560) %2) #24
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN22ng_push_ite_simplifierD0Ev(ptr noundef nonnull align 8 dereferenceable(592) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN22ng_push_ite_simplifierD0Ev(ptr noundef nonnull align 8 dereferenceable(592) %0) unnamed_addr #10 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV22ng_push_ite_simplifier, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN12rewriter_tplI19ng_push_app_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(560) %2) #23
+  tail call void @_ZN12rewriter_tplI19ng_push_app_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(560) %2) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 592) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNK22ng_push_ite_simplifier4nameEv(ptr noundef nonnull align 8 dereferenceable(592) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNK22ng_push_ite_simplifier4nameEv(ptr noundef nonnull align 8 dereferenceable(592) %0) unnamed_addr #7 comdat align 2 {
   ret ptr @.str.324
 }
 
@@ -16357,7 +16351,7 @@ define linkonce_odr hidden noundef ptr @_ZNK22ng_push_ite_simplifier4nameEv(ptr 
 define linkonce_odr hidden void @_ZN22ng_push_ite_simplifier6reduceEv(ptr noundef nonnull align 8 dereferenceable(592) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.obj_ref.354, align 8
   %3 = alloca %class.dependent_expr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !377
   store ptr null, ptr %2, align 8, !tbaa !255
@@ -16427,11 +16421,11 @@ define linkonce_odr hidden void @_ZN22ng_push_ite_simplifier6reduceEv(ptr nounde
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #24
+  call void @__clang_call_terminate(ptr %41) #23
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %._crit_edge, %32, %38
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 42:                                               ; preds = %1
@@ -16467,7 +16461,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %._crit_edge, %32, %
 
 _ZN12rewriter_tplI19ng_push_app_ite_cfgEclEP4exprR7obj_refIS2_11ast_managerE.exit: ; preds = %50
   %53 = load ptr, ptr %7, align 8, !tbaa !380
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %54 = load ptr, ptr %4, align 8, !tbaa !377
   %55 = load ptr, ptr %2, align 8, !tbaa !255
   %56 = getelementptr inbounds nuw i8, ptr %49, i64 24
@@ -16507,8 +16501,8 @@ _ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr
           to label %70 unwind label %90
 
 70:                                               ; preds = %_ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit
-  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23
+  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %71 = load ptr, ptr %4, align 8, !tbaa !377
   %72 = invoke noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %71)
           to label %.noexc28 unwind label %.loopexit
@@ -16566,28 +16560,28 @@ _ZN25dependent_expr_simplifier8iteratorppEv.exit: ; preds = %85, %86
 90:                                               ; preds = %_ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit
   %91 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23
+  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %92
 
 92:                                               ; preds = %.loopexit, %.loopexit.split-lp, %42, %88, %90
   %.pn15.pn.pn = phi { ptr, i32 } [ %43, %42 ], [ %91, %90 ], [ %89, %88 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #23
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn15.pn.pn
 }
 
 declare void @_ZN12rewriter_tplI19ng_push_app_ite_cfgEC2ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(536), ptr noundef nonnull align 8 dereferenceable(976), i1 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(17)) unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN18ng_push_app_ite_rwD0Ev(ptr noundef nonnull align 8 dereferenceable(560) %0) unnamed_addr #11 comdat align 2 {
-  tail call void @_ZN12rewriter_tplI19ng_push_app_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(560) %0) #23
+define linkonce_odr hidden void @_ZN18ng_push_app_ite_rwD0Ev(ptr noundef nonnull align 8 dereferenceable(560) %0) unnamed_addr #10 comdat align 2 {
+  tail call void @_ZN12rewriter_tplI19ng_push_app_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(560) %0) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 560) #25
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN12rewriter_tplI19ng_push_app_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN12rewriter_tplI19ng_push_app_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV12rewriter_tplI19ng_push_app_ite_cfgE, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %3 = load ptr, ptr %2, align 8, !tbaa !158
@@ -16603,7 +16597,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplI19ng_push_app_ite_cfgED2Ev(pt
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #24
+  tail call void @__clang_call_terminate(ptr %8) #23
   unreachable
 
 _ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %1, %4
@@ -16630,7 +16624,7 @@ _ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %1, %4
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #24
+  tail call void @__clang_call_terminate(ptr %21) #23
   unreachable
 
 _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %_ZN6vectorIjLb0EjED2Ev.exit, %11, %18
@@ -16657,7 +16651,7 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %_ZN6vectorIjLb0EjED
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  tail call void @__clang_call_terminate(ptr %34) #24
+  tail call void @__clang_call_terminate(ptr %34) #23
   unreachable
 
 _ZN7obj_refI3app11ast_managerED2Ev.exit3:         ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit, %24, %31
@@ -16684,14 +16678,14 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit3:         ; preds = %_ZN7obj_refI3app11a
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
-  tail call void @__clang_call_terminate(ptr %47) #24
+  tail call void @__clang_call_terminate(ptr %47) #23
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit3, %37, %44
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %48) #23
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %48) #24
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %49) #23
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %49) #24
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %51 = load ptr, ptr %50, align 8, !tbaa !148
   %.not.i.i5 = icmp eq ptr %51, null
@@ -16706,17 +16700,17 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI3app11a
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
-  tail call void @__clang_call_terminate(ptr %56) #24
+  tail call void @__clang_call_terminate(ptr %56) #23
   unreachable
 
 _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %52
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #23
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #24
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN12rewriter_tplI19ng_push_app_ite_cfgED0Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) unnamed_addr #11 comdat align 2 {
-  tail call void @_ZN12rewriter_tplI19ng_push_app_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) #23
+define linkonce_odr hidden void @_ZN12rewriter_tplI19ng_push_app_ite_cfgED0Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) unnamed_addr #10 comdat align 2 {
+  tail call void @_ZN12rewriter_tplI19ng_push_app_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 536) #25
   ret void
 }
@@ -16751,7 +16745,7 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simpli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_8E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_8E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #20 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE3$_8E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 0, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE3$_8E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split"
     i32 1, label %4
@@ -16784,7 +16778,7 @@ define internal noalias noundef ptr @"_ZNSt17_Function_handlerIFP25dependent_exp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_9E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_9E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #20 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE3$_9E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 0, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE3$_9E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split"
     i32 1, label %4
@@ -16803,18 +16797,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN25dependent_expr_simplifierD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden void @_ZN25dependent_expr_simplifierD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN27refine_inj_axiom_simplifierD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN27refine_inj_axiom_simplifierD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #10 comdat align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNK27refine_inj_axiom_simplifier4nameEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNK27refine_inj_axiom_simplifier4nameEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
   ret ptr @.str.325
 }
 
@@ -16828,7 +16822,7 @@ define linkonce_odr hidden void @_ZN27refine_inj_axiom_simplifier6reduceEv(ptr n
   br i1 %6, label %7, label %112
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !377
   store ptr null, ptr %2, align 8, !tbaa !255
@@ -16895,11 +16889,11 @@ define linkonce_odr hidden void @_ZN27refine_inj_axiom_simplifier6reduceEv(ptr n
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #24
+  call void @__clang_call_terminate(ptr %42) #23
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %._crit_edge, %33, %39
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %112
 
 43:                                               ; preds = %7
@@ -16946,7 +16940,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %._crit_edge, %33, %
 
 62:                                               ; preds = %61
   %63 = load ptr, ptr %4, align 8, !tbaa !380
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %64 = load ptr, ptr %8, align 8, !tbaa !377
   %65 = load ptr, ptr %2, align 8, !tbaa !255
   %66 = load ptr, ptr %63, align 8, !tbaa !22
@@ -16993,8 +16987,8 @@ _ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr
           to label %85 unwind label %90
 
 85:                                               ; preds = %_ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit
-  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23
+  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %93
 
 86:                                               ; preds = %58, %45
@@ -17010,12 +17004,12 @@ _ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr
 90:                                               ; preds = %_ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit
   %91 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
+  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
   br label %92
 
 92:                                               ; preds = %90, %88
   %.pn = phi { ptr, i32 } [ %91, %90 ], [ %89, %88 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %111
 
 93:                                               ; preds = %85, %61, %51
@@ -17070,8 +17064,8 @@ _ZN25dependent_expr_simplifier8iteratorppEv.exit: ; preds = %108, %109
 
 111:                                              ; preds = %.loopexit, %.loopexit.split-lp, %43, %86, %92
   %.pn16.pn.pn = phi { ptr, i32 } [ %44, %43 ], [ %.pn, %92 ], [ %87, %86 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #23
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn16.pn.pn
 
 112:                                              ; preds = %1, %_ZN7obj_refI4expr11ast_managerED2Ev.exit
@@ -17097,14 +17091,14 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simpli
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr null, ptr %12, align 8, !tbaa !19
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !19
   invoke void @_ZN11th_rewriterC1ER11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(976) %1, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %14 unwind label %18
 
 14:                                               ; preds = %4
-  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
+  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %15 = load ptr, ptr %6, align 8, !tbaa !22
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %17 = load ptr, ptr %16, align 8
@@ -17114,19 +17108,19 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simpli
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
+  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %22
 
 20:                                               ; preds = %14
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11th_rewriterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #23
+  call void @_ZN11th_rewriterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #24
   br label %22
 
 22:                                               ; preds = %20, %18
   %.pn.i.i.i.i = phi { ptr, i32 } [ %21, %20 ], [ %19, %18 ]
-  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #23
+  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #24
   resume { ptr, i32 } %.pn.i.i.i.i
 
 "_ZSt10__invoke_rIP25dependent_expr_simplifierRZ15install_tacticsR14tactic_managerE4$_10JR11ast_managerRK10params_refR20dependent_expr_stateEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %14
@@ -17134,7 +17128,7 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simpli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_10E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_10E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #20 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE4$_10E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 0, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE4$_10E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split"
     i32 1, label %4
@@ -17153,28 +17147,28 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN19rewriter_simplifierD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN19rewriter_simplifierD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #10 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV19rewriter_simplifier, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @_ZN11th_rewriterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #23
+  tail call void @_ZN11th_rewriterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #23
+  tail call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #24
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN19rewriter_simplifierD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN19rewriter_simplifierD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #10 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV19rewriter_simplifier, i64 16), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @_ZN11th_rewriterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #23
+  tail call void @_ZN11th_rewriterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #23
+  tail call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNK19rewriter_simplifier4nameEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNK19rewriter_simplifier4nameEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #7 comdat align 2 {
   ret ptr @.str.342
 }
 
@@ -17186,13 +17180,13 @@ define linkonce_odr hidden void @_ZN19rewriter_simplifier6reduceEv(ptr noundef n
   %5 = alloca %class.dependent_expr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %6, align 8, !tbaa !400
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !377
   store ptr null, ptr %2, align 8, !tbaa !255
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !59
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !378
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %10, align 8, !tbaa !59
@@ -17262,11 +17256,11 @@ define linkonce_odr hidden void @_ZN19rewriter_simplifier6reduceEv(ptr noundef n
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
-  call void @__clang_call_terminate(ptr %47) #24
+  call void @__clang_call_terminate(ptr %47) #23
   unreachable
 
 _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %._crit_edge, %38, %44
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %48 = load ptr, ptr %2, align 8, !tbaa !255
   %.not.i.i26 = icmp eq ptr %48, null
   br i1 %.not.i.i26, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %49
@@ -17288,11 +17282,11 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %._crit_edge, %38, %
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #24
+  call void @__clang_call_terminate(ptr %58) #23
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit, %49, %55
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 59:                                               ; preds = %1
@@ -17313,7 +17307,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI3app11a
 61:                                               ; preds = %.lr.ph, %_ZN25dependent_expr_simplifier8iteratorppEv.exit
   %.sroa.7.8.extract.trunc54 = phi i32 [ %14, %.lr.ph ], [ %.sroa.7.8.extract.trunc, %_ZN25dependent_expr_simplifier8iteratorppEv.exit ]
   %.sroa.7.053 = phi i64 [ %.sroa.2.8.insert.insert.i, %.lr.ph ], [ %.sroa.7.1, %_ZN25dependent_expr_simplifier8iteratorppEv.exit ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %62 = load ptr, ptr %11, align 8, !tbaa !380
   %63 = load ptr, ptr %62, align 8, !tbaa !22
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
@@ -17382,7 +17376,7 @@ _ZN14dependent_exprC2ERKS_.exit:                  ; preds = %_ZN18dependency_man
   %93 = add i32 %92, %90
   store i32 %93, ptr %6, align 8, !tbaa !400
   %94 = load ptr, ptr %11, align 8, !tbaa !380
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %95 = load ptr, ptr %7, align 8, !tbaa !377
   %96 = load ptr, ptr %2, align 8, !tbaa !255
   %97 = load ptr, ptr %31, align 8, !tbaa !156
@@ -17445,10 +17439,10 @@ _ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr
           to label %121 unwind label %145
 
 121:                                              ; preds = %_ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit
-  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23
-  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #23
+  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %122 = load ptr, ptr %7, align 8, !tbaa !377
   %123 = invoke noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %122)
           to label %.noexc32 unwind label %.loopexit
@@ -17516,30 +17510,30 @@ _ZN25dependent_expr_simplifier8iteratorppEv.exit: ; preds = %136, %137
 145:                                              ; preds = %_ZN14dependent_exprC2ER11ast_managerP4exprP3appPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit
   %146 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
+  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
   br label %147
 
 147:                                              ; preds = %145, %143
   %.pn = phi { ptr, i32 } [ %146, %145 ], [ %144, %143 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %148
 
 148:                                              ; preds = %147, %141
   %.pn.pn = phi { ptr, i32 } [ %.pn, %147 ], [ %142, %141 ]
-  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
+  call void @_ZN14dependent_exprD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
   br label %149
 
 149:                                              ; preds = %148, %139
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %148 ], [ %140, %139 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %150
 
 150:                                              ; preds = %.loopexit, %.loopexit.split-lp, %59, %149
   %.pn15.pn.pn = phi { ptr, i32 } [ %60, %59 ], [ %.pn.pn.pn, %149 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #23
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #23
+  call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn15.pn.pn
 }
 
@@ -17552,7 +17546,7 @@ define linkonce_odr hidden void @_ZNK19rewriter_simplifier18collect_statisticsER
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN19rewriter_simplifier16reset_statisticsEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden void @_ZN19rewriter_simplifier16reset_statisticsEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #7 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %2, align 8, !tbaa !400
   ret void
@@ -17574,7 +17568,7 @@ define linkonce_odr hidden void @_ZN19rewriter_simplifier20collect_param_descrsE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK19rewriter_simplifier15supports_proofsEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden noundef zeroext i1 @_ZNK19rewriter_simplifier15supports_proofsEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #7 comdat align 2 {
   ret i1 true
 }
 
@@ -17595,7 +17589,7 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simpli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_11E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_11E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #20 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE4$_11E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 0, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE4$_11E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split"
     i32 1, label %4
@@ -17623,7 +17617,7 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simpli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_12E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_12E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #20 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE4$_12E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 0, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE4$_12E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split"
     i32 1, label %4
@@ -17649,7 +17643,7 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simpli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_13E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_13E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #20 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE4$_13E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 0, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE4$_13E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split"
     i32 1, label %4
@@ -17674,7 +17668,7 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simpli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_14E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_14E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #20 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE4$_14E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 0, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE4$_14E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split"
     i32 1, label %4
@@ -17702,7 +17696,7 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simpli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_15E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_15E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #20 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE4$_15E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 0, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE4$_15E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split"
     i32 1, label %4
@@ -17728,7 +17722,7 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simpli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_16E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_16E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #20 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE4$_16E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 0, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE4$_16E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split"
     i32 1, label %4
@@ -17761,7 +17755,7 @@ define internal noalias noundef ptr @"_ZNSt17_Function_handlerIFP25dependent_exp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_17E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_17E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #20 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE4$_17E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 0, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE4$_17E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split"
     i32 1, label %4
@@ -17788,7 +17782,7 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simpli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_18E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_18E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #20 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE4$_18E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 0, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE4$_18E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split"
     i32 1, label %4
@@ -17814,7 +17808,7 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simpli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_19E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_19E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #20 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE4$_19E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 0, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE4$_19E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split"
     i32 1, label %4
@@ -17840,7 +17834,7 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simpli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_20E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_20E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #20 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE4$_20E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 0, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE4$_20E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split"
     i32 1, label %4
@@ -17866,7 +17860,7 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simpli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_21E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_21E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #20 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE4$_21E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 0, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE4$_21E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split"
     i32 1, label %4
@@ -17894,7 +17888,7 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simpli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_22E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_22E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #20 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE4$_22E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 0, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE4$_22E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split"
     i32 1, label %4
@@ -17919,7 +17913,7 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simpli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_23E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_23E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #20 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE4$_23E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 0, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE4$_23E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split"
     i32 1, label %4
@@ -17945,7 +17939,7 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simpli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_24E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_24E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #20 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE4$_24E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 0, label %"_ZNSt14_Function_base13_Base_managerIZ15install_tacticsR14tactic_managerE4$_24E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split"
     i32 1, label %4
@@ -17964,11 +17958,17 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP25dependent_expr
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_install_tactic.cpp() #10 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_install_tactic.cpp() #9 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #23
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #24
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #22
@@ -17977,27 +17977,27 @@ attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { cold noreturn }
-attributes #14 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { cold nofree noreturn }
-attributes #18 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #20 = { nofree nosync nounwind memory(none) }
-attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { cold noreturn }
+attributes #13 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { cold nofree noreturn }
+attributes #17 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #19 = { nofree nosync nounwind memory(none) }
+attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #22 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #23 = { nounwind }
-attributes #24 = { noreturn nounwind }
+attributes #23 = { noreturn nounwind }
+attributes #24 = { nounwind }
 attributes #25 = { builtin nounwind }
 attributes #26 = { builtin allocsize(0) }
 attributes #27 = { noreturn }

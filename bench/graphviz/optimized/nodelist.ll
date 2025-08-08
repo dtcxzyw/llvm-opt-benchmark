@@ -244,7 +244,7 @@ nodelist_push_back.exit:                          ; preds = %7, %39
 ; Function Attrs: nounwind uwtable
 define void @insertNodelist(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 8, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !tbaa !3
@@ -252,7 +252,7 @@ define void @insertNodelist(ptr noundef captures(none) %0, ptr noundef %1, ptr n
   br i1 %.not34.i, label %nodelist_remove.exit.thread, label %.lr.ph.i
 
 nodelist_remove.exit.thread:                      ; preds = %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
 .lr.ph.i:                                         ; preds = %4
@@ -294,13 +294,13 @@ nodelist_remove.exit.thread:                      ; preds = %4
   br i1 %exitcond.not.i, label %nodelist_remove.exit.thread28, label %13, !llvm.loop !22
 
 nodelist_remove.exit.thread28:                    ; preds = %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.lr.ph
 
 nodelist_remove.exit:                             ; preds = %.lr.ph33.i, %.preheader.i
   %22 = add i64 %7, -1
   store i64 %22, ptr %6, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not21 = icmp eq i64 %22, 0
   br i1 %.not21, label %.loopexit, label %.lr.ph
 
@@ -514,10 +514,10 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

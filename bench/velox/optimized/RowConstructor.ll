@@ -653,18 +653,18 @@ entry:
   %frombool = zext i1 %trackCpuUsage to i8
   store i8 %frombool, ptr %trackCpuUsage.addr, align 1
   %call = tail call noundef nonnull align 8 dereferenceable(60) ptr @_ZN8facebook5velox4exec23vectorFunctionFactoriesB5cxx11Ev()
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   %mutex_.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 56
   store ptr %mutex_.i.i.i, ptr %ref.tmp.i, align 8, !alias.scope !12, !noalias !15
   %_M_owns.i2.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i8 1, ptr %_M_owns.i2.i.i.i, align 8, !alias.scope !12, !noalias !15
   tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE11lock_sharedEv(ptr noundef nonnull align 4 dereferenceable(4) %mutex_.i.i.i), !noalias !18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !15
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i.i), !noalias !15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp12.i.i), !noalias !15
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp13.i.i), !noalias !15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp16.i.i), !noalias !15
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !15
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i), !noalias !15
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i), !noalias !15
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp13.i.i), !noalias !15
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp16.i.i), !noalias !15
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i.i) #17, !noalias !19
   %call.i6.i.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i)
           to label %call.i.noexc.i.i unwind label %lpad.i.i, !noalias !19
@@ -674,7 +674,7 @@ call.i.noexc.i.i:                                 ; preds = %entry
           to label %.noexc.i.i unwind label %lpad.i.i, !noalias !19
 
 .noexc.i.i:                                       ; preds = %call.i.noexc.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i8.i), !noalias !15
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i8.i), !noalias !15
   %call.i.i10.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i)
           to label %if.end.i12.i unwind label %terminate.lpad.i.i11.i, !noalias !19
 
@@ -704,7 +704,7 @@ lpad.i14.i:                                       ; preds = %invoke.cont.i15.i, 
   br label %eh.resume.i.i
 
 invoke.cont.i.i:                                  ; preds = %invoke.cont.i15.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i8.i), !noalias !15
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i8.i), !noalias !15
   %call.i8.i.i = invoke ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8facebook5velox4exec19VectorFunctionEntryEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %call, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i)
           to label %invoke.cont4.i.i unwind label %lpad3.i.i, !noalias !19
 
@@ -724,7 +724,7 @@ call.i.noexc13.i.i:                               ; preds = %if.then.i.i
           to label %.noexc15.i.i unwind label %lpad14.i.i, !noalias !19
 
 .noexc15.i.i:                                     ; preds = %call.i.noexc13.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i.i), !noalias !15
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i.i), !noalias !15
   %call.i.i.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12.i.i)
           to label %if.end.i.i unwind label %terminate.lpad.i.i3.i, !noalias !19
 
@@ -754,7 +754,7 @@ lpad.i4.i:                                        ; preds = %invoke.cont.i5.i, %
   br label %eh.resume.i.i
 
 invoke.cont15.i.i:                                ; preds = %invoke.cont.i5.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i.i), !noalias !15
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i.i), !noalias !15
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i8.i.i, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp16.i.i, i8 0, i64 24, i1 false), !noalias !19
   %6 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !noalias !22
@@ -843,11 +843,11 @@ eh.resume.i.i:                                    ; preds = %lpad17.i.i, %lpad14
 if.then.i.i1.i:                                   ; preds = %if.then.i.i.i.i.i, %invoke.cont.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12.i.i) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13.i.i) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i.i), !noalias !15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp12.i.i), !noalias !15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp13.i.i), !noalias !15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp16.i.i), !noalias !15
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !15
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i), !noalias !15
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i), !noalias !15
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp13.i.i), !noalias !15
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp16.i.i), !noalias !15
   invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13unlock_sharedEv(ptr noundef nonnull align 4 dereferenceable(4) %mutex_.i.i.i)
           to label %"_ZNK5folly16SynchronizedBaseINS_12SynchronizedISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8facebook5velox4exec19VectorFunctionEntryESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SC_EEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE9withRLockIZNSB_31RowConstructorCallToSpecialForm20constructSpecialFormERKSt10shared_ptrIKNSA_4TypeEEOSt6vectorISW_INSB_4ExprEESaIS14_EEbRKNSA_4core11QueryConfigEE3$_0EEDaOT_.exit" unwind label %terminate.lpad.i.i.i
 
@@ -859,7 +859,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i1.i
   unreachable
 
 "_ZNK5folly16SynchronizedBaseINS_12SynchronizedISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8facebook5velox4exec19VectorFunctionEntryESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SC_EEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE9withRLockIZNSB_31RowConstructorCallToSpecialForm20constructSpecialFormERKSt10shared_ptrIKNSA_4TypeEEOSt6vectorISW_INSB_4ExprEESaIS14_EEbRKNSA_4core11QueryConfigEE3$_0EEDaOT_.exit": ; preds = %if.then.i.i1.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !26)
   store ptr null, ptr %agg.result, align 8, !alias.scope !26
   %call5.i.i.i3.i.i.i.i1 = invoke noalias noundef nonnull dereferenceable(464) ptr @_Znwm(i64 noundef 464) #16
@@ -1986,10 +1986,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

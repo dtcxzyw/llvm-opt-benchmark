@@ -836,7 +836,7 @@ define hidden void @_ZN14ZRelocateQueue12add_and_waitEP11ZForwarding(ptr noundef
 
 _ZN7ZLockerI14ZConditionLockED2Ev.exit:           ; preds = %.lr.ph, %26, %2
   %32 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %0) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %33 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #15
   %34 = extractvalue { i64, i64 } %33, 0
   store i64 %34, ptr %3, align 8
@@ -849,7 +849,7 @@ _ZN7ZLockerI14ZConditionLockED2Ev.exit:           ; preds = %.lr.ph, %26, %2
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   call void %41(ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef %38, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %3) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1902,7 +1902,7 @@ _ZN33ZRelocateAddRemsetForFlipPromotedC2EP18GrowableArrayCHeapIP5ZPageL8MEMFLAGS
   %54 = call noundef ptr @_ZN11ZGeneration7workersEv(ptr noundef nonnull align 64 dereferenceable(6592) %53) #15
   call void @_ZN8ZWorkers3runEP16ZRestartableTask(ptr noundef nonnull align 8 dereferenceable(184) %54, ptr noundef nonnull %6) #15
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV33ZRelocateAddRemsetForFlipPromoted, i64 16), ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %55 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #15
   %56 = extractvalue { i64, i64 } %55, 0
   store i64 %56, ptr %3, align 8
@@ -1917,7 +1917,7 @@ _ZN33ZRelocateAddRemsetForFlipPromotedC2EP18GrowableArrayCHeapIP5ZPageL8MEMFLAGS
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load ptr, ptr %64, align 8
   call void %65(ptr noundef nonnull align 8 dereferenceable(48) %60, ptr noundef %61, ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %3) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %66
 
 66:                                               ; preds = %_ZN33ZRelocateAddRemsetForFlipPromotedC2EP18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EE.exit, %2
@@ -3175,7 +3175,7 @@ define linkonce_odr hidden void @_ZN5ZPage14object_iterateIZN13ZRelocateWorkI23Z
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %7 = load i8, ptr %6, align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %8, align 8
@@ -3242,7 +3242,7 @@ _ZNK8ZLiveMap17next_live_segmentEm.exit.i:        ; preds = %34, %.lr.ph
   br i1 %.not.i, label %_ZN8ZLiveMap7iterateIZN5ZPage14object_iterateIZN13ZRelocateWorkI23ZRelocateSmallAllocatorE13do_forwardingEP11ZForwardingEUlP7oopDescE_EEvT_EUlmE_EEv13ZGenerationIdSB_.exit, label %.lr.ph, !llvm.loop !26
 
 _ZN8ZLiveMap7iterateIZN5ZPage14object_iterateIZN13ZRelocateWorkI23ZRelocateSmallAllocatorE13do_forwardingEP11ZForwardingEUlP7oopDescE_EEvT_EUlmE_EEv13ZGenerationIdSB_.exit: ; preds = %34, %32, %_ZNK8ZLiveMap17next_live_segmentEm.exit.i, %.lr.ph.i, %2, %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -3280,7 +3280,7 @@ _ZN13ZRelocateWorkI23ZRelocateSmallAllocatorE19try_relocate_objectE8zaddress.exi
 
 17:                                               ; preds = %12
   %18 = inttoptr i64 %.lcssa to ptr
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %19, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV23ZBasicOopIterateClosureIPFvPV8zpointerEE, i64 16), ptr %3, align 8
@@ -3315,7 +3315,7 @@ _ZNK13ZRelocateWorkI23ZRelocateSmallAllocatorE22update_remset_promotedE8zaddress
   %39 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI23ZBasicOopIterateClosureIPFvPV8zpointerEEE6_tableE, i64 0, i64 %38
   %40 = load ptr, ptr %39, align 8
   call void %40(ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef %.0.i.i.i.i.i.i.i) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %56
 
 _ZN13ZRelocateWorkI23ZRelocateSmallAllocatorE19try_relocate_objectE8zaddress.exit: ; preds = %_ZN13ZRelocateWorkI23ZRelocateSmallAllocatorE19try_relocate_objectE8zaddress.exit.lr.ph, %.backedge
@@ -4134,7 +4134,7 @@ _ZN6ZUtils11object_sizeE8zaddress.exit:           ; preds = %45, %48, %55, %75
 124:                                              ; preds = %119
   %125 = inttoptr i64 %108 to ptr
   %126 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %125, ptr %4, align 8
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 141
   %128 = load volatile i8, ptr %127, align 1
@@ -4147,7 +4147,7 @@ _ZN6ZUtils11object_sizeE8zaddress.exit:           ; preds = %45, %48, %55, %75
   br label %_ZN11ZForwarding36relocated_remembered_fields_registerEPV8zpointer.exit
 
 _ZN11ZForwarding36relocated_remembered_fields_registerEPV8zpointer.exit: ; preds = %124, %130
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN5ZPage8rememberEPV8zpointer.exit
 
 133:                                              ; preds = %119
@@ -4979,7 +4979,7 @@ define linkonce_odr hidden void @_ZN5ZPage14object_iterateIZN13ZRelocateWorkI24Z
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %7 = load i8, ptr %6, align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %8, align 8
@@ -5046,7 +5046,7 @@ _ZNK8ZLiveMap17next_live_segmentEm.exit.i:        ; preds = %34, %.lr.ph
   br i1 %.not.i, label %_ZN8ZLiveMap7iterateIZN5ZPage14object_iterateIZN13ZRelocateWorkI24ZRelocateMediumAllocatorE13do_forwardingEP11ZForwardingEUlP7oopDescE_EEvT_EUlmE_EEv13ZGenerationIdSB_.exit, label %.lr.ph, !llvm.loop !36
 
 _ZN8ZLiveMap7iterateIZN5ZPage14object_iterateIZN13ZRelocateWorkI24ZRelocateMediumAllocatorE13do_forwardingEP11ZForwardingEUlP7oopDescE_EEvT_EUlmE_EEv13ZGenerationIdSB_.exit: ; preds = %34, %32, %_ZNK8ZLiveMap17next_live_segmentEm.exit.i, %.lr.ph.i, %2, %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -5084,7 +5084,7 @@ _ZN13ZRelocateWorkI24ZRelocateMediumAllocatorE19try_relocate_objectE8zaddress.ex
 
 17:                                               ; preds = %12
   %18 = inttoptr i64 %.lcssa to ptr
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %19, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV23ZBasicOopIterateClosureIPFvPV8zpointerEE, i64 16), ptr %3, align 8
@@ -5119,7 +5119,7 @@ _ZNK13ZRelocateWorkI24ZRelocateMediumAllocatorE22update_remset_promotedE8zaddres
   %39 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI23ZBasicOopIterateClosureIPFvPV8zpointerEEE6_tableE, i64 0, i64 %38
   %40 = load ptr, ptr %39, align 8
   call void %40(ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef %.0.i.i.i.i.i.i.i) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %56
 
 _ZN13ZRelocateWorkI24ZRelocateMediumAllocatorE19try_relocate_objectE8zaddress.exit: ; preds = %_ZN13ZRelocateWorkI24ZRelocateMediumAllocatorE19try_relocate_objectE8zaddress.exit.lr.ph, %.backedge
@@ -5977,7 +5977,7 @@ _ZN6ZUtils11object_sizeE8zaddress.exit:           ; preds = %45, %48, %55, %75
 124:                                              ; preds = %119
   %125 = inttoptr i64 %108 to ptr
   %126 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %125, ptr %4, align 8
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 141
   %128 = load volatile i8, ptr %127, align 1
@@ -5990,7 +5990,7 @@ _ZN6ZUtils11object_sizeE8zaddress.exit:           ; preds = %45, %48, %55, %75
   br label %_ZN11ZForwarding36relocated_remembered_fields_registerEPV8zpointer.exit
 
 _ZN11ZForwarding36relocated_remembered_fields_registerEPV8zpointer.exit: ; preds = %124, %130
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN5ZPage8rememberEPV8zpointer.exit
 
 133:                                              ; preds = %119
@@ -6522,12 +6522,12 @@ define linkonce_odr hidden void @_ZN33ZRelocateAddRemsetForFlipPromoted4workEv(p
   %11 = load ptr, ptr %5, align 8
   %12 = getelementptr inbounds ptr, ptr %11, i64 %7
   %13 = load ptr, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %16 = load i8, ptr %15, align 1
   call void @_ZN8ZLiveMap7iterateIZN5ZPage14object_iterateIZN33ZRelocateAddRemsetForFlipPromoted4workEvEUlP7oopDescE_EEvT_EUlmE_EEv13ZGenerationIdS7_(ptr noundef nonnull align 8 dereferenceable(64) %14, i8 noundef zeroext %16, ptr nonnull align 8 dereferenceable(192) %13, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %17 = load volatile i8, ptr @_ZN20SuspendibleThreadSet12_suspend_allE, align 1
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %_ZN20SuspendibleThreadSet5yieldEv.exit
@@ -6732,7 +6732,7 @@ _ZNK5ZPage21object_from_bit_indexEm.exit:         ; preds = %2, %_ZNK5ZPage22obj
   %17 = load i64, ptr @ZAddressHeapBase, align 8
   %18 = or i64 %17, %16
   %19 = inttoptr i64 %18 to ptr
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %20, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV23ZBasicOopIterateClosureIPFvPV8zpointerEE, i64 16), ptr %3, align 8
@@ -6809,7 +6809,7 @@ _ZN7oopDesc11oop_iterateI23ZBasicOopIterateClosureIPFvPV8zpointerEEEEvPT_.exit.i
   br label %_ZZN33ZRelocateAddRemsetForFlipPromoted4workEvENKUlP7oopDescE_clES1_.exit
 
 _ZZN33ZRelocateAddRemsetForFlipPromoted4workEvENKUlP7oopDescE_clES1_.exit: ; preds = %_ZN9ZIterator25is_invisible_object_arrayEP7oopDesc.exit.i.i.i, %_ZN7oopDesc11oop_iterateI23ZBasicOopIterateClosureIPFvPV8zpointerEEEEvPT_.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 true
 }
 
@@ -7059,12 +7059,12 @@ define linkonce_odr hidden void @_ZN17ZFlipAgePagesTask4workEv(ptr noundef nonnu
   br label %62
 
 _ZN9ZRelocate14compute_to_ageE8ZPageAge.exit.thread: ; preds = %22, %11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %30 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %31 = load i8, ptr %30, align 1
   call void @_ZN8ZLiveMap7iterateIZN5ZPage14object_iterateIZN17ZFlipAgePagesTask4workEvEUlP7oopDescE_EEvT_EUlmE_EEv13ZGenerationIdS7_(ptr noundef nonnull align 8 dereferenceable(64) %29, i8 noundef zeroext %31, ptr nonnull align 8 dereferenceable(192) %18, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void (ptr, ptr, ...) @_ZNK5ZPage7log_msgEPKcz(ptr noundef nonnull align 8 dereferenceable(192) %18, ptr noundef nonnull @.str.35)
   %32 = call noundef ptr @_ZNK5ZPage29clone_limited_promote_flippedEv(ptr noundef nonnull align 8 dereferenceable(192) %18) #15
   call void @_ZN5ZPage5resetE8ZPageAge14ZPageResetType(ptr noundef nonnull align 8 dereferenceable(192) %32, i8 noundef zeroext 15, i32 noundef 2) #15
@@ -7382,7 +7382,7 @@ _ZNK5ZPage21object_from_bit_indexEm.exit:         ; preds = %2, %_ZNK5ZPage22obj
   %17 = load i64, ptr @ZAddressHeapBase, align 8
   %18 = or i64 %17, %16
   %19 = inttoptr i64 %18 to ptr
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %20, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV23ZBasicOopIterateClosureIPFvPV8zpointerEE, i64 16), ptr %3, align 8
@@ -7459,7 +7459,7 @@ _ZN7oopDesc11oop_iterateI23ZBasicOopIterateClosureIPFvPV8zpointerEEEEvPT_.exit.i
   br label %_ZZN17ZFlipAgePagesTask4workEvENKUlP7oopDescE_clES1_.exit
 
 _ZZN17ZFlipAgePagesTask4workEvENKUlP7oopDescE_clES1_.exit: ; preds = %_ZN9ZIterator25is_invisible_object_arrayEP7oopDesc.exit.i.i.i, %_ZN7oopDesc11oop_iterateI23ZBasicOopIterateClosureIPFvPV8zpointerEEEEvPT_.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 true
 }
 
@@ -7735,9 +7735,9 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI23ZBasicOopIterateCl
   unreachable
 
 _ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop23ZBasicOopIterateClosureIPFvPV8zpointerEEEEvP7oopDescPT0_.exit: ; preds = %18, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop23ZBasicOopIterateClosureIPFvPV8zpointerEE14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -7794,9 +7794,9 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI23ZBasicOopIterateCl
   br i1 %32, label %20, label %_ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc23ZBasicOopIterateClosureIPFvPV8zpointerEEEEvS2_PT0_.exit, !llvm.loop !58
 
 _ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc23ZBasicOopIterateClosureIPFvPV8zpointerEEEEvS2_PT0_.exit: ; preds = %._crit_edge.i, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc23ZBasicOopIterateClosureIPFvPV8zpointerEE14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -10089,10 +10089,10 @@ define internal void @_GLOBAL__sub_I_zRelocate.cpp() #5 section ".text.startup" 
 declare i32 @llvm.ctpop.i32(i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

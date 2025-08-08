@@ -481,7 +481,7 @@ define internal fastcc i64 @readCEN(ptr noundef nonnull captures(none) initializ
   %6 = alloca [56 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -607,7 +607,7 @@ readFullyAt.exit.i:                               ; preds = %readFullyAt.exit.i.
   br label %split
 
 70:                                               ; preds = %62
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %71 = getelementptr inbounds nuw i8, ptr %44, i64 12
   %72 = load i32, ptr %71, align 1
   %73 = zext i32 %72 to i64
@@ -708,7 +708,7 @@ readFullyAt.exit.i.i:                             ; preds = %.outer.i.i.i.i
   br i1 %129, label %.outer.split.i.i22.i.i, label %verifyEND.exit.thread.i, !llvm.loop !8
 
 verifyEND.exit.thread.i:                          ; preds = %96, %94, %126, %124, %111, %readFullyAt.exit.i.i, %81, %70
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %180
 
 verifyEND.exit.i:                                 ; preds = %.outer.i.i24.i.i
@@ -723,7 +723,7 @@ verifyEND.exit.i:                                 ; preds = %.outer.i.i24.i.i
   %136 = load i8, ptr %17, align 1
   %137 = icmp ne i8 %136, 4
   %.not74.i = or i1 %.not77.i, %137
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not74.i, label %180, label %split.loopexit
 
 split.loopexit:                                   ; preds = %verifyEND.exit.i
@@ -824,11 +824,11 @@ readFullyAt.exit68.i:                             ; preds = %.outer.i.i67.i
   br i1 %.not.i, label %findEND.exit.thread, label %18, !llvm.loop !11
 
 findEND.exit.thread:                              ; preds = %22, %181, %38, %40, %.loopexit.i, %151, %2
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %561
 
 findEND.exit:                                     ; preds = %split, %readFullyAt.exit68.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   switch i64 %63, label %183 [
     i64 -1, label %561
     i64 0, label %561
@@ -891,7 +891,7 @@ freeCEN.exit:                                     ; preds = %183, %._crit_edge.i
   br i1 %or.cond3, label %209, label %300
 
 209:                                              ; preds = %freeCEN.exit
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %210 = load i32, ptr %10, align 8
   %211 = add nsw i64 %63, -20
   %212 = tail call i64 @lseek64(i32 noundef %210, i64 noundef %211, i32 noundef 0) #21
@@ -973,11 +973,11 @@ readFullyAt.exit.i179:                            ; preds = %.outer.i.i.i178
   br i1 %254, label %.outer.split.i.i10.i, label %findEND64.exit.thread, !llvm.loop !8
 
 findEND64.exit.thread:                            ; preds = %223, %225, %251, %249, %readFullyAt.exit.i179, %209
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %300
 
 findEND64.exit:                                   ; preds = %.outer.i.i12.i
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq i64 %236, -1
   br i1 %.not, label %300, label %255
 
@@ -3390,10 +3390,10 @@ declare i64 @llvm.smax.i64(i64, i64) #19
 declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #19

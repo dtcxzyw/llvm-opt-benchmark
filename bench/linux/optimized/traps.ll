@@ -185,20 +185,14 @@ define dso_local void @exc_divide_error(ptr noundef %0) local_unnamed_addr #2 se
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i8 @irqentry_enter(ptr noundef) local_unnamed_addr #5 section ".noinstr.text"
+declare dso_local i8 @irqentry_enter(ptr noundef) local_unnamed_addr #4 section ".noinstr.text"
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @irqentry_exit(ptr noundef, i8) local_unnamed_addr #5 section ".noinstr.text"
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare dso_local void @irqentry_exit(ptr noundef, i8) local_unnamed_addr #4 section ".noinstr.text"
 
 ; Function Attrs: fn_ret_thunk_extern noprofile nounwind null_pointer_is_valid
 define dso_local void @exc_overflow(ptr noundef %0) local_unnamed_addr #2 section ".noinstr.text" align 16 {
@@ -282,10 +276,10 @@ handle_bug.exit.thread:                           ; preds = %6, %11, %handle_bug
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @handle_invalid_op(ptr noundef %0) unnamed_addr #7 align 16 {
+define internal fastcc void @handle_invalid_op(ptr noundef %0) unnamed_addr #6 align 16 {
   %2 = tail call i64 @uprobe_get_trap_addr(ptr noundef %0) #18
   %3 = inttoptr i64 %2 to ptr
   %4 = tail call i32 @notify_die(i32 noundef 8, ptr noundef nonnull @.str.15, ptr noundef %0, i64 noundef 0, i32 noundef 6, i32 noundef 4) #18
@@ -397,7 +391,7 @@ define dso_local void @exc_alignment_check(ptr noundef %0, i64 noundef %1) local
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern noreturn nounwind null_pointer_is_valid
-define dso_local void @handle_stack_overflow(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #8 align 16 {
+define dso_local void @handle_stack_overflow(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #7 align 16 {
   %4 = load i32, ptr %2, align 8
   %5 = tail call ptr @stack_type_name(i32 noundef %4) #18
   %6 = inttoptr i64 %1 to ptr
@@ -412,16 +406,16 @@ define dso_local void @handle_stack_overflow(ptr noundef %0, i64 noundef %1, ptr
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @stack_type_name(i32 noundef) local_unnamed_addr #5
+declare dso_local ptr @stack_type_name(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #9
+declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @die(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare dso_local void @die(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold noreturn null_pointer_is_valid
-declare dso_local void @panic(ptr noundef, ...) local_unnamed_addr #10
+declare dso_local void @panic(ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: fn_ret_thunk_extern noprofile nounwind null_pointer_is_valid
 define dso_local void @exc_double_fault(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 section ".noinstr.text" align 16 {
@@ -429,7 +423,7 @@ define dso_local void @exc_double_fault(ptr noundef %0, i64 noundef %1) local_un
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #19, !srcloc !7
   %5 = inttoptr i64 %4 to ptr
   %6 = tail call i64 asm sideeffect "mov %cr2,$0\0A\09", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 4096 to ptr)) #18, !srcloc !28
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !29
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %8 = load i64, ptr %7, align 8
@@ -478,7 +472,7 @@ define dso_local void @exc_double_fault(ptr noundef %0, i64 noundef %1) local_un
   store i64 ptrtoint (ptr @asm_exc_general_protection to i64), ptr %16, align 8
   %39 = ptrtoint ptr %38 to i64
   store i64 %39, ptr %7, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 40:                                               ; preds = %15, %11, %2
@@ -510,13 +504,13 @@ define dso_local void @exc_double_fault(ptr noundef %0, i64 noundef %1) local_un
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @asm_exc_general_protection() #5
+declare dso_local void @asm_exc_general_protection() #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i8 @irqentry_nmi_enter(ptr noundef) local_unnamed_addr #5 section ".noinstr.text"
+declare dso_local i8 @irqentry_nmi_enter(ptr noundef) local_unnamed_addr #4 section ".noinstr.text"
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @notify_die(i32 noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare dso_local i32 @notify_die(i32 noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern noprofile nounwind null_pointer_is_valid
 define dso_local void @exc_bounds(ptr noundef %0) local_unnamed_addr #2 section ".noinstr.text" align 16 {
@@ -558,9 +552,9 @@ define dso_local void @exc_general_protection(ptr noundef %0, i64 noundef %1) lo
   %4 = alloca i64, align 8
   %5 = tail call i8 @irqentry_enter(ptr noundef %0) #18
   tail call void asm sideeffect "498: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 498b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 498) #18, !srcloc !34
-  call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(92) %3, ptr noundef nonnull align 16 dereferenceable(92) @__const.__exc_general_protection.desc, i64 92, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = getelementptr i8, ptr %0, i64 144
   %.val = load i64, ptr %7, align 8
@@ -632,8 +626,8 @@ define dso_local void @exc_general_protection(ptr noundef %0, i64 noundef %1) lo
 38:                                               ; preds = %36, %23, %22, %20, %18, %12
   %.val1 = load i64, ptr %7, align 8
   call fastcc void @cond_local_irq_disable(i64 %.val1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
-  call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void asm sideeffect "499: nop\0A\09.pushsection .discard.instr_end\0A\09.long 499b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 499) #18, !srcloc !37
   call void @irqentry_exit(ptr noundef %0, i8 %5) #18
   ret void
@@ -696,10 +690,10 @@ define dso_local void @exc_int3(ptr noundef %0) local_unnamed_addr #2 section ".
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @poke_int3_handler(ptr noundef) local_unnamed_addr #5
+declare dso_local i32 @poke_int3_handler(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @irqentry_enter_from_user_mode(ptr noundef) local_unnamed_addr #5
+declare dso_local void @irqentry_enter_from_user_mode(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @do_int3_user(ptr noundef %0) unnamed_addr #1 align 16 {
@@ -739,10 +733,10 @@ define internal fastcc void @do_int3_user(ptr noundef %0) unnamed_addr #1 align 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @irqentry_exit_to_user_mode(ptr noundef) local_unnamed_addr #5
+declare dso_local void @irqentry_exit_to_user_mode(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @irqentry_nmi_exit(ptr noundef, i8) local_unnamed_addr #5 section ".noinstr.text"
+declare dso_local void @irqentry_nmi_exit(ptr noundef, i8) local_unnamed_addr #4 section ".noinstr.text"
 
 ; Function Attrs: fn_ret_thunk_extern noprofile nounwind null_pointer_is_valid
 define dso_local ptr @sync_regs(ptr noundef readonly captures(address) %0) local_unnamed_addr #2 section ".noinstr.text" align 16 {
@@ -763,7 +757,7 @@ define dso_local ptr @sync_regs(ptr noundef readonly captures(address) %0) local
 ; Function Attrs: fn_ret_thunk_extern noprofile nounwind null_pointer_is_valid
 define dso_local ptr @fixup_bad_iret(ptr noundef %0) local_unnamed_addr #2 section ".noinstr.text" align 16 {
   %2 = alloca %struct.pt_regs, align 8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %2) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %2, i8 0, i64 168, i1 false), !annotation !29
   %3 = tail call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @cpu_tss_rw, i64 4)) #23, !srcloc !43
   %4 = inttoptr i64 %3 to ptr
@@ -787,12 +781,12 @@ define dso_local ptr @fixup_bad_iret(ptr noundef %0) local_unnamed_addr #2 secti
   unreachable
 
 18:                                               ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %5
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @__memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare dso_local ptr @__memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern noprofile nounwind null_pointer_is_valid
 define dso_local void @exc_debug(ptr noundef %0) local_unnamed_addr #2 section ".noinstr.text" align 16 {
@@ -800,7 +794,7 @@ define dso_local void @exc_debug(ptr noundef %0) local_unnamed_addr #2 section "
   %3 = tail call i64 asm "mov %db6, $0", "=r,~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !47
   tail call void asm sideeffect "mov $0, %db6", "r,~{dirflag},~{fpsr},~{flags}"(i64 4294905840) #18, !srcloc !48
   %4 = xor i64 %3, 4294905840
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %4, ptr %2, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 159, i32 128, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 59)) #18
           to label %5 [label %5, label %9], !srcloc !35
@@ -907,7 +901,7 @@ thread-pre-split.thread:                          ; preds = %34, %thread-pre-spl
   br label %53
 
 53:                                               ; preds = %52, %50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -917,7 +911,7 @@ define dso_local void @noist_exc_debug(ptr noundef %0) local_unnamed_addr #2 sec
   %3 = tail call i64 asm "mov %db6, $0", "=r,~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !47
   tail call void asm sideeffect "mov $0, %db6", "r,~{dirflag},~{fpsr},~{flags}"(i64 4294905840) #18, !srcloc !48
   %4 = xor i64 %3, 4294905840
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %4, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load i64, ptr %5, align 8
@@ -978,7 +972,7 @@ define dso_local void @noist_exc_debug(ptr noundef %0) local_unnamed_addr #2 sec
 32:                                               ; preds = %31, %10
   call void asm sideeffect "514: nop\0A\09.pushsection .discard.instr_end\0A\09.long 514b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 514) #18, !srcloc !68
   call void @irqentry_exit_to_user_mode(ptr noundef %0) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -1046,7 +1040,7 @@ define dso_local void @exc_device_not_available(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local void @trap_init() local_unnamed_addr #11 section ".init.text" align 16 {
+define dso_local void @trap_init() local_unnamed_addr #10 section ".init.text" align 16 {
   tail call void @setup_cpu_entry_areas() #18
   tail call void @cpu_init_exception_handling() #18
   tail call void @idt_setup_traps() #18
@@ -1055,37 +1049,37 @@ define dso_local void @trap_init() local_unnamed_addr #11 section ".init.text" a
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @setup_cpu_entry_areas() local_unnamed_addr #5
+declare dso_local void @setup_cpu_entry_areas() local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @cpu_init_exception_handling() local_unnamed_addr #5
+declare dso_local void @cpu_init_exception_handling() local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @idt_setup_traps() local_unnamed_addr #5
+declare dso_local void @idt_setup_traps() local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @cpu_init() local_unnamed_addr #5
+declare dso_local void @cpu_init() local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @force_sig(i32 noundef) local_unnamed_addr #5
+declare dso_local void @force_sig(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @force_sig_fault(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare dso_local i32 @force_sig_fault(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @fixup_exception(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
+declare dso_local i32 @fixup_exception(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local zeroext i1 @fixup_vdso_exception(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
+declare dso_local zeroext i1 @fixup_vdso_exception(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local zeroext i1 @unhandled_signal(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare dso_local zeroext i1 @unhandled_signal(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__printk_ratelimit(ptr noundef) local_unnamed_addr #5
+declare dso_local i32 @__printk_ratelimit(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @print_vma_addr(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare dso_local void @print_vma_addr(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @do_error_trap(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef range(i64 0, 13) %3, i32 noundef range(i32 7, 12) %4, i32 noundef range(i32 0, 2) %5, ptr noundef %6) unnamed_addr #1 align 16 {
@@ -1121,7 +1115,7 @@ define internal fastcc void @do_error_trap(ptr noundef %0, i64 noundef %1, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @cond_local_irq_enable(i64 %.144.val) unnamed_addr #7 align 16 {
+define internal fastcc void @cond_local_irq_enable(i64 %.144.val) unnamed_addr #6 align 16 {
   %1 = and i64 %.144.val, 512
   %2 = icmp eq i64 %1, 0
   br i1 %2, label %4, label %3
@@ -1135,7 +1129,7 @@ define internal fastcc void @cond_local_irq_enable(i64 %.144.val) unnamed_addr #
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @cond_local_irq_disable(i64 %.144.val) unnamed_addr #7 align 16 {
+define internal fastcc void @cond_local_irq_disable(i64 %.144.val) unnamed_addr #6 align 16 {
   %1 = and i64 %.144.val, 512
   %2 = icmp eq i64 %1, 0
   br i1 %2, label %4, label %3
@@ -1149,26 +1143,26 @@ define internal fastcc void @cond_local_irq_disable(i64 %.144.val) unnamed_addr 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @uprobe_get_trap_addr(ptr noundef) local_unnamed_addr #5
+declare dso_local i64 @uprobe_get_trap_addr(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @report_bug(i64 noundef, ptr noundef) local_unnamed_addr #5
+declare dso_local i32 @report_bug(i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local zeroext i1 @handle_user_split_lock(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare dso_local zeroext i1 @handle_user_split_lock(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local zeroext i1 @get_stack_info_noinstr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare dso_local zeroext i1 @get_stack_info_noinstr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local zeroext i1 @fixup_umip_exception(ptr noundef) local_unnamed_addr #5
+declare dso_local zeroext i1 @fixup_umip_exception(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef zeroext i1 @fixup_iopl_exception(ptr noundef %0) unnamed_addr #1 align 16 {
   %2 = alloca i64, align 8
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #19, !srcloc !7
   %4 = inttoptr i64 %3 to ptr
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2952
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 3
@@ -1232,7 +1226,7 @@ define internal fastcc noundef zeroext i1 @fixup_iopl_exception(ptr noundef %0) 
 
 47:                                               ; preds = %43, %11, %8, %1
   %48 = phi i1 [ true, %43 ], [ false, %1 ], [ false, %8 ], [ false, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %48
 }
 
@@ -1296,11 +1290,11 @@ define internal fastcc zeroext i1 @gp_try_fixup_and_notify(ptr noundef %0, i64 n
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !annotation !29
   call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4) #18, !srcloc !84
   %16 = load i64, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %17 = and i64 %16, 512
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %19, label %25
@@ -1326,15 +1320,15 @@ define internal fastcc zeroext i1 @gp_try_fixup_and_notify(ptr noundef %0, i64 n
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #12
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 0, 3) i32 @get_kernel_gp_address(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #1 align 16 {
   %3 = alloca [15 x i8], align 1
   %4 = alloca %struct.insn, align 8
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %3, i8 0, i64 15, i1 false), !annotation !29
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %4, i8 0, i64 112, i1 false), !annotation !29
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = load i64, ptr %5, align 8
@@ -1390,40 +1384,40 @@ define internal fastcc noundef range(i32 0, 3) i32 @get_kernel_gp_address(ptr no
 
 34:                                               ; preds = %33, %30, %13, %10, %2
   %35 = phi i32 [ 2, %33 ], [ 0, %2 ], [ 0, %10 ], [ 0, %13 ], [ 1, %30 ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4) #18
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %35
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @die_addr(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
+declare dso_local void @die_addr(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @insn_get_effective_ip(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare dso_local i32 @insn_get_effective_ip(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(read)
-declare i64 @llvm.read_register.i64(metadata) #13
+declare i64 @llvm.read_register.i64(metadata) #12
 
 ; Function Attrs: nocallback nounwind
-declare void @llvm.write_register.i64(metadata, i64) #14
+declare void @llvm.write_register.i64(metadata, i64) #13
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @kprobe_fault_handler(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare dso_local i32 @kprobe_fault_handler(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @copy_from_kernel_nofault(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare dso_local i64 @copy_from_kernel_nofault(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @insn_decode(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare dso_local i32 @insn_decode(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @insn_get_addr_ref(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare dso_local ptr @insn_get_addr_ref(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @kprobe_int3_handler(ptr noundef) local_unnamed_addr #5
+declare dso_local i32 @kprobe_int3_handler(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define internal fastcc range(i32 0, 2) i32 @test_ti_thread_flag(ptr noundef %0) unnamed_addr #15 align 16 {
+define internal fastcc range(i32 0, 2) i32 @test_ti_thread_flag(ptr noundef %0) unnamed_addr #14 align 16 {
   %2 = load volatile i64, ptr %0, align 8
   %3 = trunc i64 %2 to i32
   %4 = lshr i32 %3, 25
@@ -1432,7 +1426,7 @@ define internal fastcc range(i32 0, 2) i32 @test_ti_thread_flag(ptr noundef %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i64 @native_read_msr() unnamed_addr #7 align 16 {
+define internal fastcc i64 @native_read_msr() unnamed_addr #6 align 16 {
   %1 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 473) #18, !srcloc !86
   %2 = extractvalue { i64, i64 } %1, 0
   %3 = extractvalue { i64, i64 } %1, 1
@@ -1450,7 +1444,7 @@ define internal fastcc i64 @native_read_msr() unnamed_addr #7 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @wrmsrl(i64 noundef range(i64 2, 0) %0) unnamed_addr #7 align 16 {
+define internal fastcc void @wrmsrl(i64 noundef range(i64 2, 0) %0) unnamed_addr #6 align 16 {
   %2 = trunc i64 %0 to i32
   %3 = lshr i64 %0, 32
   %4 = trunc nuw i64 %3 to i32
@@ -1467,7 +1461,7 @@ define internal fastcc void @wrmsrl(i64 noundef range(i64 2, 0) %0) unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal fastcc zeroext i1 @is_sysenter_singlestep(i64 %.128.val) unnamed_addr #16 align 16 {
+define internal fastcc zeroext i1 @is_sysenter_singlestep(i64 %.128.val) unnamed_addr #15 align 16 {
   %1 = sub i64 %.128.val, ptrtoint (ptr @entry_SYSENTER_compat to i64)
   %2 = icmp ult i64 %1, sub (i64 ptrtoint (ptr @__end_entry_SYSENTER_compat to i64), i64 ptrtoint (ptr @entry_SYSENTER_compat to i64))
   ret i1 %2
@@ -1482,32 +1476,32 @@ define internal fastcc zeroext i1 @notify_debug(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @do_trace_read_msr(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
+declare dso_local void @do_trace_read_msr(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @do_trace_write_msr(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
+declare dso_local void @do_trace_write_msr(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @entry_SYSENTER_compat() #5
+declare dso_local void @entry_SYSENTER_compat() #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__end_entry_SYSENTER_compat() #5
+declare dso_local void @__end_entry_SYSENTER_compat() #4
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @clear_ti_thread_flag(ptr noundef %0) unnamed_addr #7 align 16 {
+define internal fastcc void @clear_ti_thread_flag(ptr noundef %0) unnamed_addr #6 align 16 {
   %2 = getelementptr i8, ptr %0, i64 3
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %2, i32 -3, ptr elementtype(i8) %2) #18, !srcloc !89
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @handle_bus_lock(ptr noundef) local_unnamed_addr #5
+declare dso_local void @handle_bus_lock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @send_sigtrap(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare dso_local void @send_sigtrap(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal fastcc noundef range(i32 1, 5) i32 @get_si_code(i64 noundef %0) unnamed_addr #17 align 16 {
+define internal fastcc noundef range(i32 1, 5) i32 @get_si_code(i64 noundef %0) unnamed_addr #16 align 16 {
   %2 = and i64 %0, 16384
   %3 = icmp eq i64 %2, 0
   %4 = and i64 %0, 15
@@ -1596,13 +1590,13 @@ define internal fastcc void @math_error(ptr noundef %0, i32 noundef range(i32 16
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @fpu_sync_fpstate(ptr noundef) local_unnamed_addr #5
+declare dso_local void @fpu_sync_fpstate(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @fpu__exception_code(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare dso_local i32 @fpu__exception_code(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i64 @read_cr0() unnamed_addr #7 align 16 {
+define internal fastcc i64 @read_cr0() unnamed_addr #6 align 16 {
   %1 = tail call i64 asm sideeffect "mov %cr0,$0\0A\09", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 4096 to ptr)) #18, !srcloc !90
   ret i64 %1
 }
@@ -1679,38 +1673,44 @@ define internal fastcc noundef zeroext i1 @handle_xfd_event(ptr noundef %0) unna
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #5
+declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @write_cr0(i64 noundef range(i64 0, -8) %0) unnamed_addr #7 align 16 {
+define internal fastcc void @write_cr0(i64 noundef range(i64 0, -8) %0) unnamed_addr #6 align 16 {
   tail call void @native_write_cr0(i64 noundef %0) #18
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @xfd_enable_feature(i64 noundef) local_unnamed_addr #5
+declare dso_local i32 @xfd_enable_feature(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @native_write_cr0(i64 noundef) local_unnamed_addr #5
+declare dso_local void @native_write_cr0(i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 attributes #0 = { alwaysinline fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #2 = { fn_ret_thunk_extern noprofile nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #8 = { cold fn_ret_thunk_extern noreturn nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #9 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #10 = { cold noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #11 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
-attributes #14 = { nocallback nounwind }
-attributes #15 = { fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #16 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #17 = { fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #7 = { cold fn_ret_thunk_extern noreturn nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #8 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #9 = { cold noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #10 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
+attributes #13 = { nocallback nounwind }
+attributes #14 = { fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #15 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #16 = { fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nounwind }
 attributes #19 = { nounwind memory(none) }
 attributes #20 = { cold nounwind }

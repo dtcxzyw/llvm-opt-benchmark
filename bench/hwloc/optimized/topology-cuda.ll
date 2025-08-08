@@ -51,10 +51,7 @@ define internal ptr @hwloc_cuda_component_instantiate(ptr noundef %0, ptr nounde
   ret ptr %7
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-declare ptr @hwloc_backend_alloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @hwloc_backend_alloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @hwloc_cuda_discover(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #1 {
@@ -66,8 +63,8 @@ define internal range(i32 -1, 1) i32 @hwloc_cuda_discover(ptr noundef readonly c
   %8 = alloca %struct.cudaDeviceProp, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = call i32 @hwloc_topology_get_type_filter(ptr noundef %10, i32 noundef 18, ptr noundef nonnull %4) #8
   %12 = load i32, ptr %4, align 4, !tbaa !14
   %13 = icmp eq i32 %12, 1
@@ -110,9 +107,9 @@ define internal range(i32 -1, 1) i32 @hwloc_cuda_discover(ptr noundef readonly c
 
 34:                                               ; preds = %.lr.ph, %91
   %.04085 = phi i32 [ 0, %.lr.ph ], [ %92, %91 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 1032, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %35 = call ptr @hwloc_alloc_setup_object(ptr noundef %10, i32 noundef 18, i32 noundef -1) #8
   %36 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 32, ptr noundef nonnull @.str.3, i32 noundef %.04085) #8
   %37 = call noalias ptr @strdup(ptr noundef nonnull %6) #8
@@ -218,7 +215,7 @@ hwloc_cuda_cores_per_MP.exit.thread60:            ; preds = %72, %70, %68, %67, 
   %79 = lshr i64 %78, 10
   %80 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.8, i64 noundef %79) #8
   %81 = call i32 @hwloc_modify_infos(ptr noundef nonnull %44, i64 noundef 1, ptr noundef nonnull @.str.15, ptr noundef nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 1032, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %82 = call i32 @cudaGetDeviceProperties_v2(ptr noundef nonnull %3, i32 noundef %.04085) #8
   %.not.i = icmp eq i32 %82, 0
   br i1 %.not.i, label %84, label %.thread
@@ -226,14 +223,14 @@ hwloc_cuda_cores_per_MP.exit.thread60:            ; preds = %72, %70, %68, %67, 
 .thread:                                          ; preds = %hwloc_cuda_cores_per_MP.exit.thread60
   %83 = tail call ptr @__errno_location() #10
   store i32 38, ptr %83, align 4, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 1032, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %89
 
 84:                                               ; preds = %hwloc_cuda_cores_per_MP.exit.thread60
   %85 = load i32, ptr %24, align 8, !tbaa !38
   %86 = load i32, ptr %25, align 8, !tbaa !39
   %87 = load i32, ptr %26, align 4, !tbaa !40
-  call void @llvm.lifetime.end.p0(i64 1032, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %88 = call ptr @hwloc_pci_find_parent_by_busid(ptr noundef %10, i32 noundef %85, i32 noundef %86, i32 noundef %87, i32 noundef 0) #8
   %.not46 = icmp eq ptr %88, null
   br i1 %.not46, label %89, label %91
@@ -246,9 +243,9 @@ hwloc_cuda_cores_per_MP.exit.thread60:            ; preds = %72, %70, %68, %67, 
   %.1 = phi ptr [ %88, %84 ], [ %90, %89 ]
   call void @hwloc_insert_object_by_parent(ptr noundef %10, ptr noundef %.1, ptr noundef nonnull %35) #8
   %92 = add nuw nsw i32 %.04085, 1
-  call void @llvm.lifetime.end.p0(i64 1032, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %93 = load i32, ptr %5, align 4, !tbaa !14
   %94 = icmp slt i32 %92, %93
   br i1 %94, label %34, label %._crit_edge, !llvm.loop !41
@@ -260,57 +257,60 @@ hwloc_cuda_cores_per_MP.exit.thread60:            ; preds = %72, %70, %68, %67, 
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge, %27, %30, %14, %2
   %.0 = phi i32 [ 0, %2 ], [ -1, %14 ], [ -1, %30 ], [ -1, %27 ], [ 0, %._crit_edge ], [ 0, %.preheader ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare i32 @hwloc_topology_get_type_filter(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @hwloc_topology_get_type_filter(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @cudaGetDeviceCount(ptr noundef) local_unnamed_addr #2
 
-declare i32 @cudaGetDeviceCount(ptr noundef) local_unnamed_addr #3
+declare i32 @hwloc_hide_errors() local_unnamed_addr #2
 
-declare i32 @hwloc_hide_errors() local_unnamed_addr #3
-
-declare ptr @cudaGetErrorString(i32 noundef) local_unnamed_addr #3
+declare ptr @cudaGetErrorString(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
-declare ptr @hwloc_alloc_setup_object(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @hwloc_alloc_setup_object(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #5
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
-declare i32 @cudaGetDeviceProperties_v2(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @cudaGetDeviceProperties_v2(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @hwloc_pci_find_parent_by_busid(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @hwloc_pci_find_parent_by_busid(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @hwloc_insert_object_by_parent(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @hwloc_insert_object_by_parent(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @hwloc_modify_infos(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @hwloc_modify_infos(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @hwloc_topology_get_infos(ptr noundef) local_unnamed_addr #3
+declare ptr @hwloc_topology_get_infos(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #6
+declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @hwloc_get_obj_by_depth(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
+declare ptr @hwloc_get_obj_by_depth(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 attributes #9 = { cold nounwind }
 attributes #10 = { nounwind willreturn memory(none) }

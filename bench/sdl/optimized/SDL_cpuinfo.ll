@@ -75,11 +75,11 @@ define hidden i32 @SDL_GetCPUCacheLineSize_REAL() local_unnamed_addr #0 {
 
 5:                                                ; preds = %4
   store i1 true, ptr @CPU_calcCPUIDFeatures.checked, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 0, ptr %1, align 4
   call void asm "        pushfq                      # Get original EFLAGS             \0A        popq    %rax                                                 \0A        movq    %rax,%rcx                                           \0A        xorl    $$0x200000,%eax     # Flip ID bit in EFLAGS           \0A        pushq   %rax               # Save new EFLAGS value on stack  \0A        popfq                       # Replace current EFLAGS value    \0A        pushfq                      # Get new EFLAGS                  \0A        popq    %rax               # Store new EFLAGS in EAX         \0A        xorl    %ecx,%eax         # Can not toggle ID bit,          \0A        jz      1f                  # Processor=80486                 \0A        movl    $$1,$0               # We have CPUID support           \0A1:                                                                    \0A", "=*m,~{rax},~{rcx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %1) #7, !srcloc !3
   %6 = load i32, ptr %1, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %.not.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i, label %CPU_calcCPUIDFeatures.exit.i, label %7
 
@@ -186,13 +186,13 @@ SDL_GetCPUType.exit:                              ; preds = %0, %CPU_calcCPUIDFe
   br i1 %.not, label %67, label %62
 
 62:                                               ; preds = %60
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %63 = call i32 (ptr, ptr, ...) @__isoc23_fscanf(ptr noundef nonnull %61, ptr noundef nonnull @.str.7, ptr noundef nonnull %2) #7
   %64 = icmp eq i32 %63, 1
   %65 = load i32, ptr %2, align 4
   %spec.select = select i1 %64, i32 %65, i32 128
   %66 = call i32 @fclose(ptr noundef nonnull %61)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %67
 
 67:                                               ; preds = %41, %52, %62, %60, %56
@@ -200,24 +200,18 @@ SDL_GetCPUType.exit:                              ; preds = %0, %CPU_calcCPUIDFe
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
 
-declare i32 @__isoc23_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @__isoc23_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define hidden void @SDL_QuitCPUInfo() local_unnamed_addr #5 {
+define hidden void @SDL_QuitCPUInfo() local_unnamed_addr #4 {
   store i32 -1, ptr @SDL_CPUFeatures, align 4
   ret void
 }
@@ -244,11 +238,11 @@ define internal fastcc i32 @SDL_GetCPUFeatures() unnamed_addr #0 {
 
 6:                                                ; preds = %5
   store i1 true, ptr @CPU_calcCPUIDFeatures.checked, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4
   call void asm "        pushfq                      # Get original EFLAGS             \0A        popq    %rax                                                 \0A        movq    %rax,%rcx                                           \0A        xorl    $$0x200000,%eax     # Flip ID bit in EFLAGS           \0A        pushq   %rax               # Save new EFLAGS value on stack  \0A        popfq                       # Replace current EFLAGS value    \0A        pushfq                      # Get new EFLAGS                  \0A        popq    %rax               # Store new EFLAGS in EAX         \0A        xorl    %ecx,%eax         # Can not toggle ID bit,          \0A        jz      1f                  # Processor=80486                 \0A        movl    $$1,$0               # We have CPUID support           \0A1:                                                                    \0A", "=*m,~{rax},~{rcx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %2) #7, !srcloc !3
   %7 = load i32, ptr %2, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %CPU_calcCPUIDFeatures.exit, label %8
 
@@ -284,10 +278,10 @@ define internal fastcc i32 @SDL_GetCPUFeatures() unnamed_addr #0 {
 CPU_calcCPUIDFeatures.exit:                       ; preds = %5, %6, %8, %12, %17
   store i32 0, ptr @SDL_CPUFeatures, align 4
   store i32 8, ptr @SDL_SIMDAlignment, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store volatile i32 0, ptr %1, align 4
   %.0..0..0..0..0..0..i = load volatile i32, ptr %1, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %.not = icmp eq i32 %.0..0..0..0..0..0..i, 0
   br i1 %.not, label %26, label %25
 
@@ -864,13 +858,13 @@ define hidden range(i64 0, 4294967296) i64 @SDL_GetSIMDAlignment_REAL() local_un
   ret i64 %7
 }
 
-declare i64 @SDL_strlcpy_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @SDL_strlcpy_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #3
+declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #2
 
-declare ptr @SDL_strchr_REAL(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @SDL_strchr_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #3
+declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @ref_string_equals(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
@@ -900,7 +894,13 @@ define internal fastcc zeroext i1 @ref_string_equals(ptr noundef %0, ptr noundef
   ret i1 %19
 }
 
-declare i32 @SDL_strncmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @SDL_strncmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #6
@@ -910,10 +910,10 @@ declare i32 @llvm.smax.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind memory(none) }

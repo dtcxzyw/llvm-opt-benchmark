@@ -222,12 +222,6 @@ define i32 @exr_get_attribute_count(ptr noundef %0, i32 noundef %1, ptr noundef 
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define i32 @exr_get_attribute_by_index(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
@@ -370,7 +364,7 @@ define i32 @exr_get_attribute_by_index(ptr noundef %0, i32 noundef %1, i32 nound
 ; Function Attrs: nounwind uwtable
 define i32 @exr_get_attribute_by_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %55, label %6
 
@@ -458,11 +452,11 @@ define i32 @exr_get_attribute_by_name(ptr noundef %0, i32 noundef %1, ptr nounde
 
 55:                                               ; preds = %52, %49, %4, %34, %23
   %.0 = phi i32 [ %26, %23 ], [ %37, %34 ], [ 2, %4 ], [ %45, %49 ], [ %45, %52 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-declare i32 @exr_attr_list_find_by_name(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @exr_attr_list_find_by_name(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_get_attribute_list(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
@@ -594,7 +588,7 @@ define i32 @exr_get_attribute_list(ptr noundef %0, i32 noundef %1, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_declare_by_type(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -650,7 +644,7 @@ define i32 @exr_attr_declare_by_type(ptr noundef %0, i32 noundef %1, ptr noundef
   ret i32 %.0
 }
 
-declare i32 @exr_attr_list_add_by_type(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @exr_attr_list_add_by_type(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_declare(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -706,7 +700,7 @@ define i32 @exr_attr_declare(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32
   ret i32 %.0
 }
 
-declare i32 @exr_attr_list_add(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @exr_attr_list_add(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_initialize_required_attr(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, float noundef %4, ptr noundef readonly captures(address_is_null) %5, float noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
@@ -1499,7 +1493,7 @@ define i32 @exr_set_screen_window_width(ptr noundef %0, i32 noundef %1, float no
 define i32 @exr_initialize_required_attr_simple(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.exr_attr_box2i_t, align 4
   %7 = alloca %struct.exr_attr_v2f_t, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !50
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %8, align 4, !tbaa !51
@@ -1509,11 +1503,11 @@ define i32 @exr_initialize_required_attr_simple(ptr noundef %0, i32 noundef %1, 
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %12 = add nsw i32 %3, -1
   store i32 %12, ptr %11, align 4, !tbaa !51
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8
   %13 = call i32 @exr_initialize_required_attr(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %6, float noundef 1.000000e+00, ptr noundef nonnull %7, float noundef 1.000000e+00, i32 noundef 0, i32 noundef %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %13
 }
 
@@ -1637,7 +1631,7 @@ define i32 @exr_copy_unset_attributes(ptr noundef %0, i32 noundef %1, ptr nounde
   %77 = load ptr, ptr %52, align 8, !tbaa !52
   %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv
   %79 = load ptr, ptr %78, align 8, !tbaa !30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !30
   %80 = load ptr, ptr %79, align 8, !tbaa !53
   %81 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %0, ptr noundef nonnull %53, ptr noundef %80, ptr noundef nonnull %6) #6
@@ -1646,7 +1640,7 @@ define i32 @exr_copy_unset_attributes(ptr noundef %0, i32 noundef %1, ptr nounde
 
 83:                                               ; preds = %76
   %84 = load ptr, ptr %79, align 8, !tbaa !53
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !30
   %85 = getelementptr inbounds nuw i8, ptr %79, i64 20
   %86 = load i32, ptr %85, align 4, !tbaa !32
@@ -2165,13 +2159,13 @@ define i32 @exr_copy_unset_attributes(ptr noundef %0, i32 noundef %1, ptr nounde
 copy_attr.exit:                                   ; preds = %180, %181, %187, %200, %206, %211, %216, %221, %236, %241, %247, %252, %258, %264, %270, %288, %312, %318, %325, %332, %339, %345, %351, %357, %373, %374
   %.4 = phi i32 [ %.3, %373 ], [ %.3, %374 ], [ %.3, %181 ], [ %.3, %187 ], [ %.3, %200 ], [ %.3, %206 ], [ %.3, %211 ], [ %.3, %216 ], [ %.3, %221 ], [ %.3, %236 ], [ %.3, %241 ], [ %.3, %247 ], [ %.3, %252 ], [ %.3, %258 ], [ %.3, %264 ], [ %.3, %270 ], [ %.3, %288 ], [ %.3, %312 ], [ %.3, %318 ], [ %.3, %325 ], [ %.3, %332 ], [ %.3, %339 ], [ %.3, %345 ], [ %.3, %351 ], [ %.3, %357 ], [ %.261, %180 ]
   %.0.i = phi i32 [ 0, %373 ], [ %.2.i, %374 ], [ 0, %181 ], [ 0, %187 ], [ 0, %200 ], [ 0, %206 ], [ 0, %211 ], [ 0, %216 ], [ 0, %221 ], [ 0, %236 ], [ 0, %241 ], [ 0, %247 ], [ 0, %252 ], [ 0, %258 ], [ 0, %264 ], [ 0, %270 ], [ 0, %288 ], [ 0, %312 ], [ 0, %318 ], [ 0, %325 ], [ 0, %332 ], [ 0, %339 ], [ 0, %345 ], [ 0, %351 ], [ 0, %357 ], [ %.1.i, %180 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %377
 
 377:                                              ; preds = %76, %copy_attr.exit
   %.160 = phi i32 [ %.4, %copy_attr.exit ], [ %.05970, %76 ]
   %.1 = phi i32 [ %.0.i, %copy_attr.exit ], [ 0, %76 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %378 = icmp eq i32 %.1, 0
   br i1 %378, label %72, label %.critedge, !llvm.loop !79
@@ -2198,7 +2192,7 @@ copy_attr.exit:                                   ; preds = %180, %181, %187, %2
   ret i32 %.0
 }
 
-declare i32 @internal_exr_compute_tile_information(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @internal_exr_compute_tile_information(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_get_channels(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
@@ -2425,7 +2419,7 @@ define i32 @exr_add_channel(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 
   ret i32 %.0
 }
 
-declare i32 @exr_attr_chlist_add(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @exr_attr_chlist_add(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_set_channels(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -2522,7 +2516,7 @@ define i32 @exr_set_channels(ptr noundef %0, i32 noundef %1, ptr noundef %2) loc
 
 .thread:                                          ; preds = %..thread_crit_edge, %42
   %57 = phi ptr [ %.pre, %..thread_crit_edge ], [ %41, %42 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = call i32 @exr_attr_chlist_duplicate(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %2) #6
   %.not56 = icmp eq i32 %58, 0
   br i1 %.not56, label %.thread58, label %63
@@ -2533,12 +2527,12 @@ define i32 @exr_set_channels(ptr noundef %0, i32 noundef %1, ptr noundef %2) loc
   %61 = call i32 @exr_attr_chlist_destroy(ptr noundef nonnull %0, ptr noundef %60) #6
   %62 = load ptr, ptr %59, align 8, !tbaa !35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !82
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %65
 
 63:                                               ; preds = %.thread
   %64 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %67
 
 65:                                               ; preds = %.thread58, %53
@@ -2551,9 +2545,9 @@ define i32 @exr_set_channels(ptr noundef %0, i32 noundef %1, ptr noundef %2) loc
   ret i32 %.044
 }
 
-declare i32 @exr_attr_chlist_duplicate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @exr_attr_chlist_duplicate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @exr_attr_chlist_destroy(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @exr_attr_chlist_destroy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_get_compression(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
@@ -2682,7 +2676,7 @@ define i32 @exr_get_compression(ptr noundef %0, i32 noundef %1, ptr noundef writ
   ret i32 %.0
 }
 
-declare i32 @exr_compression_lines_per_chunk(i32 noundef) local_unnamed_addr #2
+declare i32 @exr_compression_lines_per_chunk(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_get_data_window(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
@@ -4054,12 +4048,12 @@ define i32 @exr_set_name(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_u
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
-declare i32 @exr_attr_string_set_with_length(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @exr_attr_string_set_with_length(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_get_version(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
@@ -4392,7 +4386,7 @@ define i32 @exr_set_chunk_count(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_get_box2i(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %91, label %6
 
@@ -4540,7 +4534,7 @@ define i32 @exr_attr_get_box2i(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
 
 91:                                               ; preds = %88, %83, %52, %49, %4, %79, %65, %42, %23
   %.0 = phi i32 [ %26, %23 ], [ %45, %42 ], [ %71, %65 ], [ %82, %79 ], [ 2, %4 ], [ %48, %49 ], [ %48, %52 ], [ 0, %83 ], [ 0, %88 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -4569,7 +4563,7 @@ define i32 @exr_attr_set_box2i(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   br label %81
 
 .critedge:                                        ; preds = %4, %11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !30
   %.not66 = icmp eq ptr %0, null
   br i1 %.not66, label %80, label %16
@@ -4697,7 +4691,7 @@ define i32 @exr_attr_set_box2i(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
 
 80:                                               ; preds = %.critedge, %78, %68, %64, %56, %50, %35, %30, %23
   %.1 = phi i32 [ %27, %23 ], [ %34, %30 ], [ %39, %35 ], [ 15, %50 ], [ %.0567477, %78 ], [ %72, %68 ], [ %63, %56 ], [ %47, %64 ], [ 2, %.critedge ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %81
 
 81:                                               ; preds = %80, %14, %9
@@ -4708,7 +4702,7 @@ define i32 @exr_attr_set_box2i(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_get_box2f(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %91, label %6
 
@@ -4856,14 +4850,14 @@ define i32 @exr_attr_get_box2f(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
 
 91:                                               ; preds = %88, %83, %52, %49, %4, %79, %65, %42, %23
   %.0 = phi i32 [ %26, %23 ], [ %45, %42 ], [ %71, %65 ], [ %82, %79 ], [ 2, %4 ], [ %48, %49 ], [ %48, %52 ], [ 0, %83 ], [ 0, %88 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_set_box2f(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !30
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %70, label %6
@@ -4991,14 +4985,14 @@ define i32 @exr_attr_set_box2f(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
 
 70:                                               ; preds = %4, %68, %58, %54, %46, %40, %25, %20, %13
   %.0 = phi i32 [ %17, %13 ], [ %24, %20 ], [ %29, %25 ], [ 15, %40 ], [ %.0466063, %68 ], [ %62, %58 ], [ %53, %46 ], [ %37, %54 ], [ 2, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_get_channels(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %91, label %6
 
@@ -5146,7 +5140,7 @@ define i32 @exr_attr_get_channels(ptr noundef %0, i32 noundef %1, ptr noundef %2
 
 91:                                               ; preds = %88, %83, %52, %49, %4, %79, %65, %42, %23
   %.0 = phi i32 [ %26, %23 ], [ %45, %42 ], [ %71, %65 ], [ %82, %79 ], [ 2, %4 ], [ %48, %49 ], [ %48, %52 ], [ 0, %83 ], [ 0, %88 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -5154,7 +5148,7 @@ define i32 @exr_attr_get_channels(ptr noundef %0, i32 noundef %1, ptr noundef %2
 define i32 @exr_attr_set_channels(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.exr_attr_chlist_t, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !30
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %84, label %7
@@ -5238,7 +5232,7 @@ define i32 @exr_attr_set_channels(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br i1 %51, label %52, label %82
 
 52:                                               ; preds = %50
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %53 = load i32, ptr %3, align 8, !tbaa !96
   %54 = call i32 @exr_attr_chlist_init(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef %53) #6
   %.not92 = icmp eq i32 %54, 0
@@ -5285,7 +5279,7 @@ define i32 @exr_attr_set_channels(ptr noundef %0, i32 noundef %1, ptr noundef %2
 .thread100:                                       ; preds = %52, %.thread97
   %.1.ph = phi i32 [ %72, %.thread97 ], [ %54, %52 ]
   %74 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %84
 
 ._crit_edge:                                      ; preds = %56, %.preheader
@@ -5297,7 +5291,7 @@ define i32 @exr_attr_set_channels(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %81 = load ptr, ptr %80, align 8, !tbaa !35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !82
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %82
 
 82:                                               ; preds = %._crit_edge, %50
@@ -5307,18 +5301,18 @@ define i32 @exr_attr_set_channels(ptr noundef %0, i32 noundef %1, ptr noundef %2
 
 84:                                               ; preds = %.thread100, %4, %82, %39, %33, %28, %14
   %.0 = phi i32 [ %18, %14 ], [ %30, %28 ], [ %37, %33 ], [ %.171, %82 ], [ %43, %39 ], [ 2, %4 ], [ %.1.ph, %.thread100 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-declare i32 @exr_attr_chlist_init(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @exr_attr_chlist_init(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @exr_attr_chlist_add_with_length(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @exr_attr_chlist_add_with_length(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_get_chromaticities(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %91, label %6
 
@@ -5466,14 +5460,14 @@ define i32 @exr_attr_get_chromaticities(ptr noundef %0, i32 noundef %1, ptr noun
 
 91:                                               ; preds = %88, %83, %52, %49, %4, %79, %65, %42, %23
   %.0 = phi i32 [ %26, %23 ], [ %45, %42 ], [ %71, %65 ], [ %82, %79 ], [ 2, %4 ], [ %48, %49 ], [ %48, %52 ], [ 0, %83 ], [ 0, %88 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_set_chromaticities(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !30
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %70, label %6
@@ -5601,14 +5595,14 @@ define i32 @exr_attr_set_chromaticities(ptr noundef %0, i32 noundef %1, ptr noun
 
 70:                                               ; preds = %4, %68, %58, %54, %46, %40, %25, %20, %13
   %.0 = phi i32 [ %17, %13 ], [ %24, %20 ], [ %29, %25 ], [ 15, %40 ], [ %.0466063, %68 ], [ %62, %58 ], [ %53, %46 ], [ %37, %54 ], [ 2, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_get_compression(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %92, label %6
 
@@ -5757,7 +5751,7 @@ define i32 @exr_attr_get_compression(ptr noundef %0, i32 noundef %1, ptr noundef
 
 92:                                               ; preds = %89, %83, %52, %49, %4, %79, %65, %42, %23
   %.0 = phi i32 [ %26, %23 ], [ %45, %42 ], [ %71, %65 ], [ %82, %79 ], [ 2, %4 ], [ %48, %49 ], [ %48, %52 ], [ 0, %83 ], [ 0, %89 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -5788,7 +5782,7 @@ define i32 @exr_attr_set_compression(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %77
 
 18:                                               ; preds = %13, %12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !30
   %.not62 = icmp eq ptr %0, null
   br i1 %.not62, label %76, label %19
@@ -5900,7 +5894,7 @@ define i32 @exr_attr_set_compression(ptr noundef %0, i32 noundef %1, ptr noundef
 
 76:                                               ; preds = %18, %74, %67, %59, %53, %38, %33, %26
   %.1 = phi i32 [ %30, %26 ], [ %37, %33 ], [ %42, %38 ], [ 15, %53 ], [ %.05268, %74 ], [ %66, %59 ], [ %50, %67 ], [ 2, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %77
 
 77:                                               ; preds = %76, %16, %8
@@ -5911,7 +5905,7 @@ define i32 @exr_attr_set_compression(ptr noundef %0, i32 noundef %1, ptr noundef
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_get_double(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %91, label %6
 
@@ -6059,14 +6053,14 @@ define i32 @exr_attr_get_double(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
 
 91:                                               ; preds = %88, %83, %52, %49, %4, %79, %65, %42, %23
   %.0 = phi i32 [ %26, %23 ], [ %45, %42 ], [ %71, %65 ], [ %82, %79 ], [ 2, %4 ], [ %48, %49 ], [ %48, %52 ], [ 0, %83 ], [ 0, %88 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_set_double(ptr noundef %0, i32 noundef %1, ptr noundef %2, double noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !30
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %63, label %6
@@ -6178,14 +6172,14 @@ define i32 @exr_attr_set_double(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
 
 63:                                               ; preds = %4, %61, %54, %46, %40, %25, %20, %13
   %.0 = phi i32 [ %17, %13 ], [ %24, %20 ], [ %29, %25 ], [ 15, %40 ], [ %.04152, %61 ], [ %53, %46 ], [ %37, %54 ], [ 2, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_get_envmap(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %92, label %6
 
@@ -6334,7 +6328,7 @@ define i32 @exr_attr_get_envmap(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
 
 92:                                               ; preds = %89, %83, %52, %49, %4, %79, %65, %42, %23
   %.0 = phi i32 [ %26, %23 ], [ %45, %42 ], [ %71, %65 ], [ %82, %79 ], [ 2, %4 ], [ %48, %49 ], [ %48, %52 ], [ 0, %83 ], [ 0, %89 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -6352,7 +6346,7 @@ define i32 @exr_attr_set_envmap(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   br label %71
 
 12:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !30
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %70, label %13
@@ -6464,7 +6458,7 @@ define i32 @exr_attr_set_envmap(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
 
 70:                                               ; preds = %12, %68, %61, %53, %47, %32, %27, %20
   %.1 = phi i32 [ %24, %20 ], [ %31, %27 ], [ %36, %32 ], [ 15, %47 ], [ %.04760, %68 ], [ %60, %53 ], [ %44, %61 ], [ 2, %12 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %71
 
 71:                                               ; preds = %70, %8
@@ -6475,7 +6469,7 @@ define i32 @exr_attr_set_envmap(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_get_float(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %91, label %6
 
@@ -6623,7 +6617,7 @@ define i32 @exr_attr_get_float(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
 
 91:                                               ; preds = %88, %83, %52, %49, %4, %79, %65, %42, %23
   %.0 = phi i32 [ %26, %23 ], [ %45, %42 ], [ %71, %65 ], [ %82, %79 ], [ 2, %4 ], [ %48, %49 ], [ %48, %52 ], [ 0, %83 ], [ 0, %88 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -6652,7 +6646,7 @@ define i32 @exr_attr_set_float(ptr noundef %0, i32 noundef %1, ptr noundef %2, f
   br label %74
 
 .critedge:                                        ; preds = %4, %11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !30
   %.not60 = icmp eq ptr %0, null
   br i1 %.not60, label %73, label %16
@@ -6764,7 +6758,7 @@ define i32 @exr_attr_set_float(ptr noundef %0, i32 noundef %1, ptr noundef %2, f
 
 73:                                               ; preds = %.critedge, %71, %64, %56, %50, %35, %30, %23
   %.1 = phi i32 [ %27, %23 ], [ %34, %30 ], [ %39, %35 ], [ 15, %50 ], [ %.05166, %71 ], [ %63, %56 ], [ %47, %64 ], [ 2, %.critedge ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %74
 
 74:                                               ; preds = %73, %14, %9
@@ -6775,7 +6769,7 @@ define i32 @exr_attr_set_float(ptr noundef %0, i32 noundef %1, ptr noundef %2, f
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_get_float_vector(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %90, label %7
 
@@ -6923,14 +6917,14 @@ define i32 @exr_attr_get_float_vector(ptr noundef %0, i32 noundef %1, ptr nounde
 
 90:                                               ; preds = %87, %84, %53, %50, %5, %66, %43, %24
   %.0 = phi i32 [ %27, %24 ], [ %46, %43 ], [ %72, %66 ], [ 2, %5 ], [ %49, %50 ], [ %49, %53 ], [ 0, %84 ], [ 0, %87 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_set_float_vector(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !30
   %7 = sext i32 %3 to i64
   %8 = shl nsw i64 %7, 2
@@ -7106,18 +7100,18 @@ define i32 @exr_attr_set_float_vector(ptr noundef %0, i32 noundef %1, ptr nounde
 
 110:                                              ; preds = %5, %108, %93, %71, %57, %47, %41, %33, %28, %16
   %.0 = phi i32 [ %20, %16 ], [ %32, %28 ], [ %37, %33 ], [ %45, %41 ], [ 15, %57 ], [ %.069, %108 ], [ %78, %71 ], [ %101, %93 ], [ %51, %47 ], [ 2, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-declare i32 @exr_attr_float_vector_create(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @exr_attr_float_vector_create(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @exr_attr_float_vector_destroy(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @exr_attr_float_vector_destroy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_get_int(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %91, label %6
 
@@ -7265,7 +7259,7 @@ define i32 @exr_attr_get_int(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
 
 91:                                               ; preds = %88, %83, %52, %49, %4, %79, %65, %42, %23
   %.0 = phi i32 [ %26, %23 ], [ %45, %42 ], [ %71, %65 ], [ %82, %79 ], [ 2, %4 ], [ %48, %49 ], [ %48, %52 ], [ 0, %83 ], [ 0, %88 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -7294,7 +7288,7 @@ define i32 @exr_attr_set_int(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32
   br label %72
 
 .critedge:                                        ; preds = %4, %10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !30
   %.not62 = icmp eq ptr %0, null
   br i1 %.not62, label %71, label %14
@@ -7406,7 +7400,7 @@ define i32 @exr_attr_set_int(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32
 
 71:                                               ; preds = %.critedge, %69, %62, %54, %48, %33, %28, %21
   %.1 = phi i32 [ %25, %21 ], [ %32, %28 ], [ %37, %33 ], [ 15, %48 ], [ %.05168, %69 ], [ %61, %54 ], [ %45, %62 ], [ 2, %.critedge ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %72
 
 72:                                               ; preds = %71, %12, %8
@@ -7417,7 +7411,7 @@ define i32 @exr_attr_set_int(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_get_keycode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %91, label %6
 
@@ -7565,14 +7559,14 @@ define i32 @exr_attr_get_keycode(ptr noundef %0, i32 noundef %1, ptr noundef %2,
 
 91:                                               ; preds = %88, %83, %52, %49, %4, %79, %65, %42, %23
   %.0 = phi i32 [ %26, %23 ], [ %45, %42 ], [ %71, %65 ], [ %82, %79 ], [ 2, %4 ], [ %48, %49 ], [ %48, %52 ], [ 0, %83 ], [ 0, %88 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_set_keycode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !30
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %70, label %6
@@ -7700,14 +7694,14 @@ define i32 @exr_attr_set_keycode(ptr noundef %0, i32 noundef %1, ptr noundef %2,
 
 70:                                               ; preds = %4, %68, %58, %54, %46, %40, %25, %20, %13
   %.0 = phi i32 [ %17, %13 ], [ %24, %20 ], [ %29, %25 ], [ 15, %40 ], [ %.0466063, %68 ], [ %62, %58 ], [ %53, %46 ], [ %37, %54 ], [ 2, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_get_lineorder(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %92, label %6
 
@@ -7856,7 +7850,7 @@ define i32 @exr_attr_get_lineorder(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 92:                                               ; preds = %89, %83, %52, %49, %4, %79, %65, %42, %23
   %.0 = phi i32 [ %26, %23 ], [ %45, %42 ], [ %71, %65 ], [ %82, %79 ], [ 2, %4 ], [ %48, %49 ], [ %48, %52 ], [ 0, %83 ], [ 0, %89 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -7887,7 +7881,7 @@ define i32 @exr_attr_set_lineorder(ptr noundef %0, i32 noundef %1, ptr noundef %
   br label %77
 
 18:                                               ; preds = %13, %12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !30
   %.not61 = icmp eq ptr %0, null
   br i1 %.not61, label %76, label %19
@@ -7999,7 +7993,7 @@ define i32 @exr_attr_set_lineorder(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 76:                                               ; preds = %18, %74, %67, %59, %53, %38, %33, %26
   %.1 = phi i32 [ %30, %26 ], [ %37, %33 ], [ %42, %38 ], [ 15, %53 ], [ %.05267, %74 ], [ %66, %59 ], [ %50, %67 ], [ 2, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %77
 
 77:                                               ; preds = %76, %16, %8
@@ -8010,7 +8004,7 @@ define i32 @exr_attr_set_lineorder(ptr noundef %0, i32 noundef %1, ptr noundef %
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_get_m33f(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %91, label %6
 
@@ -8158,14 +8152,14 @@ define i32 @exr_attr_get_m33f(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
 
 91:                                               ; preds = %88, %83, %52, %49, %4, %79, %65, %42, %23
   %.0 = phi i32 [ %26, %23 ], [ %45, %42 ], [ %71, %65 ], [ %82, %79 ], [ 2, %4 ], [ %48, %49 ], [ %48, %52 ], [ 0, %83 ], [ 0, %88 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_set_m33f(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !30
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %70, label %6
@@ -8293,14 +8287,14 @@ define i32 @exr_attr_set_m33f(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
 
 70:                                               ; preds = %4, %68, %58, %54, %46, %40, %25, %20, %13
   %.0 = phi i32 [ %17, %13 ], [ %24, %20 ], [ %29, %25 ], [ 15, %40 ], [ %.0466063, %68 ], [ %62, %58 ], [ %53, %46 ], [ %37, %54 ], [ 2, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_get_m33d(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %91, label %6
 
@@ -8448,14 +8442,14 @@ define i32 @exr_attr_get_m33d(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
 
 91:                                               ; preds = %88, %83, %52, %49, %4, %79, %65, %42, %23
   %.0 = phi i32 [ %26, %23 ], [ %45, %42 ], [ %71, %65 ], [ %82, %79 ], [ 2, %4 ], [ %48, %49 ], [ %48, %52 ], [ 0, %83 ], [ 0, %88 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_set_m33d(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !30
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %70, label %6
@@ -8583,14 +8577,14 @@ define i32 @exr_attr_set_m33d(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
 
 70:                                               ; preds = %4, %68, %58, %54, %46, %40, %25, %20, %13
   %.0 = phi i32 [ %17, %13 ], [ %24, %20 ], [ %29, %25 ], [ 15, %40 ], [ %.0466063, %68 ], [ %62, %58 ], [ %53, %46 ], [ %37, %54 ], [ 2, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_get_m44f(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %91, label %6
 
@@ -8738,14 +8732,14 @@ define i32 @exr_attr_get_m44f(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
 
 91:                                               ; preds = %88, %83, %52, %49, %4, %79, %65, %42, %23
   %.0 = phi i32 [ %26, %23 ], [ %45, %42 ], [ %71, %65 ], [ %82, %79 ], [ 2, %4 ], [ %48, %49 ], [ %48, %52 ], [ 0, %83 ], [ 0, %88 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_set_m44f(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !30
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %70, label %6
@@ -8873,14 +8867,14 @@ define i32 @exr_attr_set_m44f(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
 
 70:                                               ; preds = %4, %68, %58, %54, %46, %40, %25, %20, %13
   %.0 = phi i32 [ %17, %13 ], [ %24, %20 ], [ %29, %25 ], [ 15, %40 ], [ %.0466063, %68 ], [ %62, %58 ], [ %53, %46 ], [ %37, %54 ], [ 2, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_get_m44d(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %91, label %6
 
@@ -9028,14 +9022,14 @@ define i32 @exr_attr_get_m44d(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
 
 91:                                               ; preds = %88, %83, %52, %49, %4, %79, %65, %42, %23
   %.0 = phi i32 [ %26, %23 ], [ %45, %42 ], [ %71, %65 ], [ %82, %79 ], [ 2, %4 ], [ %48, %49 ], [ %48, %52 ], [ 0, %83 ], [ 0, %88 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_set_m44d(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !30
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %70, label %6
@@ -9163,14 +9157,14 @@ define i32 @exr_attr_set_m44d(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
 
 70:                                               ; preds = %4, %68, %58, %54, %46, %40, %25, %20, %13
   %.0 = phi i32 [ %17, %13 ], [ %24, %20 ], [ %29, %25 ], [ 15, %40 ], [ %.0466063, %68 ], [ %62, %58 ], [ %53, %46 ], [ %37, %54 ], [ 2, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_get_preview(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %91, label %6
 
@@ -9318,14 +9312,14 @@ define i32 @exr_attr_get_preview(ptr noundef %0, i32 noundef %1, ptr noundef %2,
 
 91:                                               ; preds = %88, %83, %52, %49, %4, %79, %65, %42, %23
   %.0 = phi i32 [ %26, %23 ], [ %45, %42 ], [ %71, %65 ], [ %82, %79 ], [ 2, %4 ], [ %48, %49 ], [ %48, %52 ], [ 0, %83 ], [ 0, %88 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_set_preview(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !30
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %125, label %6
@@ -9515,18 +9509,18 @@ define i32 @exr_attr_set_preview(ptr noundef %0, i32 noundef %1, ptr noundef %2,
 
 125:                                              ; preds = %4, %123, %98, %65, %46, %38, %25, %20, %13
   %.0 = phi i32 [ %17, %13 ], [ %24, %20 ], [ %29, %25 ], [ 15, %46 ], [ %.066, %123 ], [ %72, %65 ], [ %111, %98 ], [ %42, %38 ], [ 2, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-declare i32 @exr_attr_preview_create(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @exr_attr_preview_create(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @exr_attr_preview_destroy(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @exr_attr_preview_destroy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_get_rational(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %92, label %6
 
@@ -9675,14 +9669,14 @@ define i32 @exr_attr_get_rational(ptr noundef %0, i32 noundef %1, ptr noundef %2
 
 92:                                               ; preds = %89, %83, %52, %49, %4, %79, %65, %42, %23
   %.0 = phi i32 [ %26, %23 ], [ %45, %42 ], [ %71, %65 ], [ %82, %79 ], [ 2, %4 ], [ %48, %49 ], [ %48, %52 ], [ 0, %83 ], [ 0, %89 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_set_rational(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !30
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %71, label %6
@@ -9811,14 +9805,14 @@ define i32 @exr_attr_set_rational(ptr noundef %0, i32 noundef %1, ptr noundef %2
 
 71:                                               ; preds = %4, %69, %58, %54, %46, %40, %25, %20, %13
   %.0 = phi i32 [ %17, %13 ], [ %24, %20 ], [ %29, %25 ], [ 15, %40 ], [ %.0466063, %69 ], [ %62, %58 ], [ %53, %46 ], [ %37, %54 ], [ 2, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_get_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %90, label %7
 
@@ -9966,14 +9960,14 @@ define i32 @exr_attr_get_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
 
 90:                                               ; preds = %87, %84, %53, %50, %5, %66, %43, %24
   %.0 = phi i32 [ %27, %24 ], [ %46, %43 ], [ %72, %66 ], [ 2, %5 ], [ %49, %50 ], [ %49, %53 ], [ 0, %84 ], [ 0, %87 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_set_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !30
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %144, label %6
@@ -10241,16 +10235,16 @@ define i32 @exr_attr_set_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
 
 144:                                              ; preds = %4, %142, %131, %107, %92, %82, %69, %64, %56, %34, %26, %13
   %.0 = phi i32 [ %17, %13 ], [ %68, %64 ], [ %73, %69 ], [ %86, %82 ], [ 15, %92 ], [ %.088, %142 ], [ %114, %107 ], [ %139, %131 ], [ %38, %34 ], [ %60, %56 ], [ %28, %26 ], [ 2, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-declare i32 @exr_attr_string_create_with_length(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @exr_attr_string_create_with_length(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_get_string_vector(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %120, label %7
 
@@ -10458,14 +10452,14 @@ define i32 @exr_attr_get_string_vector(ptr noundef %0, i32 noundef %1, ptr nound
 
 120:                                              ; preds = %117, %.loopexit, %53, %50, %5, %98, %80, %66, %43, %24
   %.053 = phi i32 [ %27, %24 ], [ %46, %43 ], [ %72, %66 ], [ %103, %98 ], [ %83, %80 ], [ 2, %5 ], [ %49, %50 ], [ %49, %53 ], [ 0, %.loopexit ], [ 0, %117 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.053
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_set_string_vector(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !30
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %173, label %7
@@ -10752,20 +10746,20 @@ define i32 @exr_attr_set_string_vector(ptr noundef %0, i32 noundef %1, ptr nound
 
 173:                                              ; preds = %105, %120, %5, %.thread147, %153, %82, %54, %44, %38, %31, %26, %14
   %.0112 = phi i32 [ %18, %14 ], [ %30, %26 ], [ %35, %31 ], [ %42, %38 ], [ 15, %54 ], [ %.2119, %.thread147 ], [ %89, %82 ], [ %161, %153 ], [ %48, %44 ], [ 2, %5 ], [ %109, %105 ], [ %133, %120 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0112
 }
 
-declare i32 @exr_attr_string_vector_init(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @exr_attr_string_vector_init(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @exr_attr_string_vector_set_entry(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @exr_attr_string_vector_set_entry(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @exr_attr_string_vector_set_entry_with_length(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @exr_attr_string_vector_set_entry_with_length(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_get_tiledesc(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %91, label %6
 
@@ -10913,7 +10907,7 @@ define i32 @exr_attr_get_tiledesc(ptr noundef %0, i32 noundef %1, ptr noundef %2
 
 91:                                               ; preds = %88, %83, %52, %49, %4, %79, %65, %42, %23
   %.0 = phi i32 [ %26, %23 ], [ %45, %42 ], [ %71, %65 ], [ %82, %79 ], [ 2, %4 ], [ %48, %49 ], [ %48, %52 ], [ 0, %83 ], [ 0, %88 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -10945,7 +10939,7 @@ define i32 @exr_attr_set_tiledesc(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br label %86
 
 20:                                               ; preds = %6, %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !30
   %.not65 = icmp eq ptr %0, null
   br i1 %.not65, label %85, label %21
@@ -11073,7 +11067,7 @@ define i32 @exr_attr_set_tiledesc(ptr noundef %0, i32 noundef %1, ptr noundef %2
 
 85:                                               ; preds = %20, %83, %73, %69, %61, %55, %40, %35, %28
   %.1 = phi i32 [ %32, %28 ], [ %39, %35 ], [ %44, %40 ], [ 15, %55 ], [ %.0557477, %83 ], [ %77, %73 ], [ %68, %61 ], [ %52, %69 ], [ 2, %20 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %86
 
 86:                                               ; preds = %9, %85, %10
@@ -11084,7 +11078,7 @@ define i32 @exr_attr_set_tiledesc(ptr noundef %0, i32 noundef %1, ptr noundef %2
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_get_timecode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %92, label %6
 
@@ -11233,14 +11227,14 @@ define i32 @exr_attr_get_timecode(ptr noundef %0, i32 noundef %1, ptr noundef %2
 
 92:                                               ; preds = %89, %83, %52, %49, %4, %79, %65, %42, %23
   %.0 = phi i32 [ %26, %23 ], [ %45, %42 ], [ %71, %65 ], [ %82, %79 ], [ 2, %4 ], [ %48, %49 ], [ %48, %52 ], [ 0, %83 ], [ 0, %89 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_set_timecode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !30
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %71, label %6
@@ -11369,14 +11363,14 @@ define i32 @exr_attr_set_timecode(ptr noundef %0, i32 noundef %1, ptr noundef %2
 
 71:                                               ; preds = %4, %69, %58, %54, %46, %40, %25, %20, %13
   %.0 = phi i32 [ %17, %13 ], [ %24, %20 ], [ %29, %25 ], [ 15, %40 ], [ %.0466063, %69 ], [ %62, %58 ], [ %53, %46 ], [ %37, %54 ], [ 2, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_get_v2i(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %92, label %6
 
@@ -11525,14 +11519,14 @@ define i32 @exr_attr_get_v2i(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
 
 92:                                               ; preds = %89, %83, %52, %49, %4, %79, %65, %42, %23
   %.0 = phi i32 [ %26, %23 ], [ %45, %42 ], [ %71, %65 ], [ %82, %79 ], [ 2, %4 ], [ %48, %49 ], [ %48, %52 ], [ 0, %83 ], [ 0, %89 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_set_v2i(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !30
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %71, label %6
@@ -11661,14 +11655,14 @@ define i32 @exr_attr_set_v2i(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
 
 71:                                               ; preds = %4, %69, %58, %54, %46, %40, %25, %20, %13
   %.0 = phi i32 [ %17, %13 ], [ %24, %20 ], [ %29, %25 ], [ 15, %40 ], [ %.0466063, %69 ], [ %62, %58 ], [ %53, %46 ], [ %37, %54 ], [ 2, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_get_v2f(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %92, label %6
 
@@ -11817,7 +11811,7 @@ define i32 @exr_attr_get_v2f(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
 
 92:                                               ; preds = %89, %83, %52, %49, %4, %79, %65, %42, %23
   %.0 = phi i32 [ %26, %23 ], [ %45, %42 ], [ %71, %65 ], [ %82, %79 ], [ 2, %4 ], [ %48, %49 ], [ %48, %52 ], [ 0, %83 ], [ 0, %89 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -11837,7 +11831,7 @@ define i32 @exr_attr_set_v2f(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
   br label %78
 
 11:                                               ; preds = %6, %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !30
   %.not60 = icmp eq ptr %0, null
   br i1 %.not60, label %77, label %12
@@ -11966,7 +11960,7 @@ define i32 @exr_attr_set_v2f(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
 
 77:                                               ; preds = %11, %75, %64, %60, %52, %46, %31, %26, %19
   %.1 = phi i32 [ %23, %19 ], [ %30, %26 ], [ %35, %31 ], [ 15, %46 ], [ %.0516871, %75 ], [ %68, %64 ], [ %59, %52 ], [ %43, %60 ], [ 2, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %78
 
 78:                                               ; preds = %77, %9
@@ -11977,7 +11971,7 @@ define i32 @exr_attr_set_v2f(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_get_v2d(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %91, label %6
 
@@ -12125,14 +12119,14 @@ define i32 @exr_attr_get_v2d(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
 
 91:                                               ; preds = %88, %83, %52, %49, %4, %79, %65, %42, %23
   %.0 = phi i32 [ %26, %23 ], [ %45, %42 ], [ %71, %65 ], [ %82, %79 ], [ 2, %4 ], [ %48, %49 ], [ %48, %52 ], [ 0, %83 ], [ 0, %88 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_set_v2d(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !30
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %70, label %6
@@ -12260,14 +12254,14 @@ define i32 @exr_attr_set_v2d(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
 
 70:                                               ; preds = %4, %68, %58, %54, %46, %40, %25, %20, %13
   %.0 = phi i32 [ %17, %13 ], [ %24, %20 ], [ %29, %25 ], [ 15, %40 ], [ %.0466063, %68 ], [ %62, %58 ], [ %53, %46 ], [ %37, %54 ], [ 2, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_get_v3i(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %91, label %6
 
@@ -12415,14 +12409,14 @@ define i32 @exr_attr_get_v3i(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
 
 91:                                               ; preds = %88, %83, %52, %49, %4, %79, %65, %42, %23
   %.0 = phi i32 [ %26, %23 ], [ %45, %42 ], [ %71, %65 ], [ %82, %79 ], [ 2, %4 ], [ %48, %49 ], [ %48, %52 ], [ 0, %83 ], [ 0, %88 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_set_v3i(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !30
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %70, label %6
@@ -12550,14 +12544,14 @@ define i32 @exr_attr_set_v3i(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
 
 70:                                               ; preds = %4, %68, %58, %54, %46, %40, %25, %20, %13
   %.0 = phi i32 [ %17, %13 ], [ %24, %20 ], [ %29, %25 ], [ 15, %40 ], [ %.0466063, %68 ], [ %62, %58 ], [ %53, %46 ], [ %37, %54 ], [ 2, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_get_v3f(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %91, label %6
 
@@ -12705,14 +12699,14 @@ define i32 @exr_attr_get_v3f(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
 
 91:                                               ; preds = %88, %83, %52, %49, %4, %79, %65, %42, %23
   %.0 = phi i32 [ %26, %23 ], [ %45, %42 ], [ %71, %65 ], [ %82, %79 ], [ 2, %4 ], [ %48, %49 ], [ %48, %52 ], [ 0, %83 ], [ 0, %88 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_set_v3f(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !30
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %70, label %6
@@ -12840,14 +12834,14 @@ define i32 @exr_attr_set_v3f(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
 
 70:                                               ; preds = %4, %68, %58, %54, %46, %40, %25, %20, %13
   %.0 = phi i32 [ %17, %13 ], [ %24, %20 ], [ %29, %25 ], [ 15, %40 ], [ %.0466063, %68 ], [ %62, %58 ], [ %53, %46 ], [ %37, %54 ], [ 2, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_get_v3d(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %91, label %6
 
@@ -12995,14 +12989,14 @@ define i32 @exr_attr_get_v3d(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
 
 91:                                               ; preds = %88, %83, %52, %49, %4, %79, %65, %42, %23
   %.0 = phi i32 [ %26, %23 ], [ %45, %42 ], [ %71, %65 ], [ %82, %79 ], [ 2, %4 ], [ %48, %49 ], [ %48, %52 ], [ 0, %83 ], [ 0, %88 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_set_v3d(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !30
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %70, label %6
@@ -13130,14 +13124,14 @@ define i32 @exr_attr_set_v3d(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
 
 70:                                               ; preds = %4, %68, %58, %54, %46, %40, %25, %20, %13
   %.0 = phi i32 [ %17, %13 ], [ %24, %20 ], [ %29, %25 ], [ 15, %40 ], [ %.0466063, %68 ], [ %62, %58 ], [ %53, %46 ], [ %37, %54 ], [ 2, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_get_user(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %102, label %8
 
@@ -13315,14 +13309,14 @@ define i32 @exr_attr_get_user(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
 
 102:                                              ; preds = %99, %96, %54, %51, %6, %67, %44, %25
   %.0 = phi i32 [ %28, %25 ], [ %47, %44 ], [ %73, %67 ], [ 2, %6 ], [ %50, %51 ], [ %50, %54 ], [ 0, %96 ], [ 0, %99 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_attr_set_user(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !30
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %78, label %8
@@ -13447,36 +13441,42 @@ define i32 @exr_attr_set_user(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
 
 78:                                               ; preds = %6, %76, %58, %50, %42, %27, %22, %15
   %.0 = phi i32 [ %19, %15 ], [ %26, %22 ], [ %31, %27 ], [ 15, %42 ], [ %.049, %76 ], [ %57, %50 ], [ %39, %58 ], [ 2, %6 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
-declare i32 @exr_attr_opaquedata_set_unpacked(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @exr_attr_opaquedata_set_unpacked(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @exr_attr_opaquedata_pack(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @exr_attr_opaquedata_pack(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @exr_attr_opaquedata_set_packed(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: nounwind
-declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #5
+declare i32 @exr_attr_opaquedata_set_packed(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #5
+declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #4
 
-declare i32 @exr_attr_list_add_static_name(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: nounwind
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
 
-declare i32 @exr_attr_string_vector_copy(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @exr_attr_list_add_static_name(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @exr_attr_opaquedata_copy(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @exr_attr_string_vector_copy(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @exr_attr_list_remove(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @exr_attr_opaquedata_copy(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @exr_attr_list_remove(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(read) }
 

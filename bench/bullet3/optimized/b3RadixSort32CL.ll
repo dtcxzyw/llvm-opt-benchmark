@@ -101,7 +101,7 @@ define dso_local void @_ZN15b3RadixSort32CLC2EP11_cl_contextP13_cl_device_idP17_
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV15b3RadixSort32CL, i64 16), ptr %0, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %3, ptr %8, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4296, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN13b3OpenCLUtils13getDeviceInfoEP13_cl_device_idP18b3OpenCLDeviceInfo(ptr noundef %2, ptr noundef nonnull %6)
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 4096
   %10 = load i64, ptr %9, align 8, !tbaa !18
@@ -110,7 +110,7 @@ define dso_local void @_ZN15b3RadixSort32CLC2EP11_cl_contextP13_cl_device_idP17_
   %13 = lshr i8 %12, 1
   %14 = and i8 %13, 1
   store i8 %14, ptr %11, align 8, !tbaa !22
-  %15 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #16
+  %15 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #15
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV13b3OpenCLArrayIjE, i64 16), ptr %15, align 8, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -124,7 +124,7 @@ define dso_local void @_ZN15b3RadixSort32CLC2EP11_cl_contextP13_cl_device_idP17_
   store i8 1, ptr %20, align 1, !tbaa !29
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %15, ptr %21, align 8, !tbaa !30
-  %22 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #16
+  %22 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #15
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV13b3OpenCLArrayIjE, i64 16), ptr %22, align 8, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 32
@@ -138,7 +138,7 @@ define dso_local void @_ZN15b3RadixSort32CLC2EP11_cl_contextP13_cl_device_idP17_
   store i8 1, ptr %27, align 1, !tbaa !29
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %28, align 8, !tbaa !31
-  %29 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #16
+  %29 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #15
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV13b3OpenCLArrayI10b3SortDataE, i64 16), ptr %29, align 8, !tbaa !4
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 32
@@ -152,7 +152,7 @@ define dso_local void @_ZN15b3RadixSort32CLC2EP11_cl_contextP13_cl_device_idP17_
   store i8 1, ptr %34, align 1, !tbaa !36
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %29, ptr %35, align 8, !tbaa !37
-  %36 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #16
+  %36 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #15
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV13b3OpenCLArrayIjE, i64 16), ptr %36, align 8, !tbaa !4
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 32
@@ -166,7 +166,7 @@ define dso_local void @_ZN15b3RadixSort32CLC2EP11_cl_contextP13_cl_device_idP17_
   store i8 1, ptr %41, align 1, !tbaa !29
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %36, ptr %42, align 8, !tbaa !38
-  %43 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #16
+  %43 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #15
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV13b3OpenCLArrayI10b3SortDataE, i64 16), ptr %43, align 8, !tbaa !4
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 32
@@ -180,7 +180,7 @@ define dso_local void @_ZN15b3RadixSort32CLC2EP11_cl_contextP13_cl_device_idP17_
   store i8 1, ptr %48, align 1, !tbaa !36
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %43, ptr %49, align 8, !tbaa !39
-  %50 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #16
+  %50 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #15
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV13b3OpenCLArrayIjE, i64 16), ptr %50, align 8, !tbaa !4
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 32
@@ -211,21 +211,21 @@ define dso_local void @_ZN15b3RadixSort32CLC2EP11_cl_contextP13_cl_device_idP17_
   br label %69
 
 69:                                               ; preds = %58, %5
-  %70 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
+  %70 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
   invoke void @_ZN14b3PrefixScanCLC1EP11_cl_contextP13_cl_device_idP17_cl_command_queuei(ptr noundef nonnull align 8 dereferenceable(48) %70, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 0)
           to label %71 unwind label %89
 
 71:                                               ; preds = %69
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %70, ptr %72, align 8, !tbaa !41
-  %73 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
+  %73 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
   invoke void @_ZN8b3FillCLC1EP11_cl_contextP13_cl_device_idP17_cl_command_queue(ptr noundef nonnull align 8 dereferenceable(48) %73, ptr noundef %1, ptr noundef %2, ptr noundef %3)
           to label %74 unwind label %91
 
 74:                                               ; preds = %71
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %73, ptr %75, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %76 = call noundef ptr @b3OpenCLUtils_compileCLProgramFromString(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.14, ptr noundef nonnull %7, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i1 noundef zeroext false)
   %77 = call noundef ptr @b3OpenCLUtils_compileCLKernelFromString(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.2, ptr noundef nonnull %7, ptr noundef %76, ptr noundef nonnull @.str)
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -246,8 +246,8 @@ define dso_local void @_ZN15b3RadixSort32CLC2EP11_cl_contextP13_cl_device_idP17_
   %87 = call noundef ptr @b3OpenCLUtils_compileCLKernelFromString(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.8, ptr noundef nonnull %7, ptr noundef %76, ptr noundef nonnull @.str)
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %87, ptr %88, align 8, !tbaa !49
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 4296, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 89:                                               ; preds = %69
@@ -263,26 +263,23 @@ define dso_local void @_ZN15b3RadixSort32CLC2EP11_cl_contextP13_cl_device_idP17_
 93:                                               ; preds = %91, %89
   %.sink = phi ptr [ %73, %91 ], [ %70, %89 ]
   %.pn = phi { ptr, i32 } [ %92, %91 ], [ %90, %89 ]
-  call void @_ZdlPvm(ptr noundef nonnull %.sink, i64 noundef 48) #17
-  call void @llvm.lifetime.end.p0(i64 4296, ptr nonnull %6) #15
+  call void @_ZdlPvm(ptr noundef nonnull %.sink, i64 noundef 48) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @_ZN13b3OpenCLUtils13getDeviceInfoEP13_cl_device_idP18b3OpenCLDeviceInfo(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @_ZN13b3OpenCLUtils13getDeviceInfoEP13_cl_device_idP18b3OpenCLDeviceInfo(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN13b3OpenCLArrayIjE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(50) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN13b3OpenCLArrayIjE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(50) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 comdat align 2 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !50
@@ -302,7 +299,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN13b3OpenCLArrayIjE6resizeEm
   br i1 %15, label %16, label %43
 
 16:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = shl i64 %1, 2
   %18 = load ptr, ptr @__clewCreateBuffer, align 8, !tbaa !52
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -373,7 +370,7 @@ _ZN13b3OpenCLArrayIjE7reserveEmb.exit.thread12:   ; preds = %43, %49
 _ZN13b3OpenCLArrayIjE7reserveEmb.exit:            ; preds = %_ZNK13b3OpenCLArrayIjE8copyToCLEP7_cl_memmmm.exit.i, %40
   store ptr %21, ptr %35, align 8, !tbaa !54
   store i64 %.017.i, ptr %9, align 8, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not.i, label %_ZN13b3OpenCLArrayIjE7reserveEmb.exit.thread, label %52
 
 52:                                               ; preds = %_ZN13b3OpenCLArrayIjE7reserveEmb.exit.thread12, %_ZN13b3OpenCLArrayIjE7reserveEmb.exit
@@ -387,7 +384,7 @@ _ZN13b3OpenCLArrayIjE7reserveEmb.exit.thread:     ; preds = %_ZN13b3OpenCLArrayI
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN13b3OpenCLArrayI10b3SortDataE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(50) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN13b3OpenCLArrayI10b3SortDataE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(50) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 comdat align 2 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !55
@@ -407,7 +404,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN13b3OpenCLArrayI10b3SortDat
   br i1 %15, label %16, label %43
 
 16:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = shl i64 %1, 3
   %18 = load ptr, ptr @__clewCreateBuffer, align 8, !tbaa !52
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -478,7 +475,7 @@ _ZN13b3OpenCLArrayI10b3SortDataE7reserveEmb.exit.thread12: ; preds = %43, %49
 _ZN13b3OpenCLArrayI10b3SortDataE7reserveEmb.exit: ; preds = %_ZNK13b3OpenCLArrayI10b3SortDataE8copyToCLEP7_cl_memmmm.exit.i, %40
   store ptr %21, ptr %35, align 8, !tbaa !57
   store i64 %.017.i, ptr %9, align 8, !tbaa !56
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not.i, label %_ZN13b3OpenCLArrayI10b3SortDataE7reserveEmb.exit.thread, label %52
 
 52:                                               ; preds = %_ZN13b3OpenCLArrayI10b3SortDataE7reserveEmb.exit.thread12, %_ZN13b3OpenCLArrayI10b3SortDataE7reserveEmb.exit
@@ -491,15 +488,12 @@ _ZN13b3OpenCLArrayI10b3SortDataE7reserveEmb.exit.thread: ; preds = %_ZN13b3OpenC
   ret i1 %.010
 }
 
-declare void @_ZN14b3PrefixScanCLC1EP11_cl_contextP13_cl_device_idP17_cl_command_queuei(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, ptr noundef, ptr noundef, i32 noundef) unnamed_addr #2
+declare void @_ZN14b3PrefixScanCLC1EP11_cl_contextP13_cl_device_idP17_cl_command_queuei(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, ptr noundef, ptr noundef, i32 noundef) unnamed_addr #1
 
-declare void @_ZN8b3FillCLC1EP11_cl_contextP13_cl_device_idP17_cl_command_queue(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, ptr noundef, ptr noundef) unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @_ZN8b3FillCLC1EP11_cl_contextP13_cl_device_idP17_cl_command_queue(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, ptr noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN15b3RadixSort32CLD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15b3RadixSort32CLD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV15b3RadixSort32CL, i64 16), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8, !tbaa !41
@@ -510,7 +504,7 @@ define dso_local void @_ZN15b3RadixSort32CLD2Ev(ptr noundef nonnull align 8 capt
   %6 = load ptr, ptr %3, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(48) %3) #15
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(48) %3) #17
   br label %9
 
 9:                                                ; preds = %5, %1
@@ -523,7 +517,7 @@ define dso_local void @_ZN15b3RadixSort32CLD2Ev(ptr noundef nonnull align 8 capt
   %14 = load ptr, ptr %11, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(48) %11) #15
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(48) %11) #17
   br label %17
 
 17:                                               ; preds = %13, %9
@@ -536,7 +530,7 @@ define dso_local void @_ZN15b3RadixSort32CLD2Ev(ptr noundef nonnull align 8 capt
   %22 = load ptr, ptr %19, align 8, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(50) %19) #15
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(50) %19) #17
   br label %25
 
 25:                                               ; preds = %21, %17
@@ -549,7 +543,7 @@ define dso_local void @_ZN15b3RadixSort32CLD2Ev(ptr noundef nonnull align 8 capt
   %30 = load ptr, ptr %27, align 8, !tbaa !4
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
-  tail call void %32(ptr noundef nonnull align 8 dereferenceable(50) %27) #15
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(50) %27) #17
   br label %33
 
 33:                                               ; preds = %29, %25
@@ -562,7 +556,7 @@ define dso_local void @_ZN15b3RadixSort32CLD2Ev(ptr noundef nonnull align 8 capt
   %38 = load ptr, ptr %35, align 8, !tbaa !4
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
-  tail call void %40(ptr noundef nonnull align 8 dereferenceable(50) %35) #15
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(50) %35) #17
   br label %41
 
 41:                                               ; preds = %37, %33
@@ -575,7 +569,7 @@ define dso_local void @_ZN15b3RadixSort32CLD2Ev(ptr noundef nonnull align 8 capt
   %46 = load ptr, ptr %43, align 8, !tbaa !4
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8
-  tail call void %48(ptr noundef nonnull align 8 dereferenceable(50) %43) #15
+  tail call void %48(ptr noundef nonnull align 8 dereferenceable(50) %43) #17
   br label %49
 
 49:                                               ; preds = %45, %41
@@ -588,7 +582,7 @@ define dso_local void @_ZN15b3RadixSort32CLD2Ev(ptr noundef nonnull align 8 capt
   %54 = load ptr, ptr %51, align 8, !tbaa !4
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
-  tail call void %56(ptr noundef nonnull align 8 dereferenceable(50) %51) #15
+  tail call void %56(ptr noundef nonnull align 8 dereferenceable(50) %51) #17
   br label %57
 
 57:                                               ; preds = %53, %49
@@ -601,7 +595,7 @@ define dso_local void @_ZN15b3RadixSort32CLD2Ev(ptr noundef nonnull align 8 capt
   %62 = load ptr, ptr %59, align 8, !tbaa !4
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8
-  tail call void %64(ptr noundef nonnull align 8 dereferenceable(50) %59) #15
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(50) %59) #17
   br label %65
 
 65:                                               ; preds = %61, %57
@@ -651,8 +645,8 @@ define dso_local void @_ZN15b3RadixSort32CLD2Ev(ptr noundef nonnull align 8 capt
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
   tail call void @_ZSt9terminatev() #18
   unreachable
 }
@@ -660,12 +654,12 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #8
+declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN15b3RadixSort32CLD0Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
-  tail call void @_ZN15b3RadixSort32CLD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #15
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 128) #17
+define dso_local void @_ZN15b3RadixSort32CLD0Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+  tail call void @_ZN15b3RadixSort32CLD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 128) #16
   ret void
 }
 
@@ -676,11 +670,11 @@ define dso_local void @_ZN15b3RadixSort32CL11executeHostER20b3AlignedObjectArray
   %6 = alloca %class.b3AlignedObjectArray, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !58
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #15
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !62
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i8 1, ptr %11, align 8, !tbaa !63
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -835,18 +829,18 @@ _ZNK20b3AlignedObjectArrayI10b3SortDataE4copyEiiPS0_.exit15.i.i: ; preds = %.noe
   unreachable
 
 _ZN20b3AlignedObjectArrayI10b3SortDataED2Ev.exit: ; preds = %.loopexit.thread, %._crit_edge64, %55
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 59:                                               ; preds = %.noexc42, %_ZNK20b3AlignedObjectArrayI10b3SortDataE4copyEiiPS0_.exit15.i.i, %_ZN20b3AlignedObjectArrayI10b3SortDataE8allocateEi.exit.i.i
   %60 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN20b3AlignedObjectArrayI10b3SortDataED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #15
+  call void @_ZN20b3AlignedObjectArrayI10b3SortDataED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %60
 
 .preheader:                                       ; preds = %.preheader53
@@ -867,13 +861,13 @@ _ZN20b3AlignedObjectArrayI10b3SortDataED2Ev.exit: ; preds = %.loopexit.thread, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayI10b3SortDataED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayI10b3SortDataED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !62
   %.not.i.i = icmp ne ptr %3, null
@@ -907,7 +901,7 @@ define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayI10b3SortDataED2Ev(
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN15b3RadixSort32CL11executeHostER13b3OpenCLArrayI10b3SortDataEi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(50) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.b3AlignedObjectArray, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i8 1, ptr %5, align 8, !tbaa !63
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -947,14 +941,14 @@ define dso_local void @_ZN15b3RadixSort32CL11executeHostER13b3OpenCLArrayI10b3So
   unreachable
 
 _ZN20b3AlignedObjectArrayI10b3SortDataED2Ev.exit: ; preds = %11, %15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 19:                                               ; preds = %10, %9, %3
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN20b3AlignedObjectArrayI10b3SortDataED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %4) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
+  call void @_ZN20b3AlignedObjectArrayI10b3SortDataED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %20
 }
 
@@ -1117,7 +1111,7 @@ define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI10b3SortDataE12copyFromHo
   br i1 %18, label %19, label %34
 
 19:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %20 = shl nsw i64 %7, 3
   %21 = load ptr, ptr @__clewCreateBuffer, align 8, !tbaa !52
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1170,7 +1164,7 @@ _ZN13b3OpenCLArrayI10b3SortDataE7reserveEmb.exit.thread12.i: ; preds = %40, %34
 _ZN13b3OpenCLArrayI10b3SortDataE7reserveEmb.exit.i: ; preds = %31, %_ZNK13b3OpenCLArrayI10b3SortDataE8copyToCLEP7_cl_memmmm.exit.i.i
   store ptr %24, ptr %26, align 8, !tbaa !57
   store i64 %.017.i.i, ptr %12, align 8, !tbaa !56
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not.i.i, label %_ZN13b3OpenCLArrayI10b3SortDataE6resizeEmb.exit, label %43
 
 43:                                               ; preds = %_ZN13b3OpenCLArrayI10b3SortDataE7reserveEmb.exit.i, %_ZN13b3OpenCLArrayI10b3SortDataE7reserveEmb.exit.thread12.i
@@ -1205,7 +1199,7 @@ _ZN13b3OpenCLArrayI10b3SortDataE19copyFromHostPointerEPKS0_mmb.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN15b3RadixSort32CL7executeER13b3OpenCLArrayIjES2_S2_S2_ii(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(128) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(50) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(50) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(50) %3, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(50) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN15b3RadixSort32CL7executeER13b3OpenCLArrayIjES2_S2_S2_ii(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(128) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(50) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(50) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(50) %3, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(50) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #10 align 2 {
   ret void
 }
 
@@ -1262,7 +1256,7 @@ _ZN13b3OpenCLArrayI10b3SortDataE19copyFromOpenCLArrayERKS1_.exit: ; preds = %22,
   %39 = load ptr, ptr %25, align 8, !tbaa !39
   %40 = sext i32 %24 to i64
   %41 = tail call noundef zeroext i1 @_ZN13b3OpenCLArrayI10b3SortDataE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(50) %39, i64 noundef %40, i1 noundef zeroext true)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 -1, ptr %10, align 4, !tbaa !67
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 -1, ptr %42, align 4, !tbaa !67
@@ -1271,7 +1265,7 @@ _ZN13b3OpenCLArrayI10b3SortDataE19copyFromOpenCLArrayERKS1_.exit: ; preds = %22,
   %45 = load ptr, ptr %25, align 8, !tbaa !39
   call void @_ZN8b3FillCL7executeER13b3OpenCLArrayI6b3Int2ERKS1_ii(ptr noundef nonnull align 8 dereferenceable(48) %44, ptr noundef nonnull align 8 dereferenceable(50) %45, ptr noundef nonnull align 4 dereferenceable(8) %10, i32 noundef %23, i32 noundef %20)
   %46 = load ptr, ptr %25, align 8, !tbaa !39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %51
 
 47:                                               ; preds = %3
@@ -1296,7 +1290,7 @@ _ZN13b3OpenCLArrayI10b3SortDataE19copyFromOpenCLArrayERKS1_.exit: ; preds = %22,
   %59 = load ptr, ptr %52, align 8, !tbaa !30
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %62 = add nsw i32 %.0, 255
   %63 = sdiv i32 %62, 256
   store i32 %.0, ptr %11, align 4, !tbaa !75
@@ -1394,7 +1388,7 @@ _ZN13b3OpenCLArrayI10b3SortDataE19copyFromOpenCLArrayERKS1_.exit: ; preds = %22,
   br i1 %.not47, label %190, label %130
 
 130:                                              ; preds = %127
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %131 = getelementptr inbounds nuw i8, ptr %.1146147, i64 24
   %132 = load ptr, ptr %131, align 8, !tbaa !57
   store ptr %132, ptr %12, align 16, !tbaa !80
@@ -1403,7 +1397,7 @@ _ZN13b3OpenCLArrayI10b3SortDataE19copyFromOpenCLArrayERKS1_.exit: ; preds = %22,
   %134 = load ptr, ptr %133, align 8, !tbaa !54
   store ptr %134, ptr %73, align 16, !tbaa !80
   store i8 0, ptr %74, align 8, !tbaa !82
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %135 = load ptr, ptr %75, align 8, !tbaa !7
   %136 = load ptr, ptr %76, align 8, !tbaa !43
   call void @_ZN12b3LauncherCLC1EP17_cl_command_queueP10_cl_kernelPKc(ptr noundef nonnull align 8 dereferenceable(112) %13, ptr noundef %135, ptr noundef %136, ptr noundef nonnull @.str.9)
@@ -1416,7 +1410,7 @@ _ZN13b3OpenCLArrayI10b3SortDataE19copyFromOpenCLArrayERKS1_.exit: ; preds = %22,
   br i1 %139, label %140, label %172
 
 140:                                              ; preds = %137
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   %141 = load i32, ptr %78, align 8, !tbaa !92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6.16..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !93
   %142 = load i32, ptr %79, align 4, !tbaa !94
@@ -1515,7 +1509,7 @@ _ZN20b3AlignedObjectArrayI15b3KernelArgDataE10deallocateEv.exit.i.i: ; preds = %
   %170 = load i32, ptr %83, align 8, !tbaa !101
   %171 = add i32 %170, 32
   store i32 %171, ptr %83, align 8, !tbaa !101
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   br label %172
 
 172:                                              ; preds = %.noexc, %137
@@ -1528,9 +1522,9 @@ _ZN20b3AlignedObjectArrayI15b3KernelArgDataE10deallocateEv.exit.i.i: ; preds = %
           to label %_ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit unwind label %185
 
 _ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit: ; preds = %172
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %8, ptr noundef nonnull align 16 dereferenceable(24) @__const._ZN12b3LauncherCL8launch2DEiiii.lRange, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, ptr noundef nonnull align 16 dereferenceable(24) @__const._ZN12b3LauncherCL8launch2DEiiii.lRange, i64 24, i1 false)
   store i64 64, ptr %9, align 16, !tbaa !103
   store i64 1, ptr %85, align 8, !tbaa !103
@@ -1551,11 +1545,11 @@ _ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit: ; preds
   br label %184
 
 184:                                              ; preds = %182, %.noexc55
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #15
-  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %13) #15
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %13) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %190
 
 185:                                              ; preds = %163, %.noexc73, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit15.i.i, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i, %172, %130
@@ -1570,9 +1564,9 @@ _ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit: ; preds
 
 189:                                              ; preds = %187, %185
   %.pn = phi { ptr, i32 } [ %188, %187 ], [ %186, %185 ]
-  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %13) #15
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %13) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #15
+  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %314
 
 190:                                              ; preds = %184, %127
@@ -1581,12 +1575,12 @@ _ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit: ; preds
   br i1 %192, label %248, label %193
 
 193:                                              ; preds = %190
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %194 = getelementptr inbounds nuw i8, ptr %.0143149, i64 24
   %195 = load ptr, ptr %194, align 8, !tbaa !54
   store ptr %195, ptr %14, align 16, !tbaa !80
   store i8 0, ptr %89, align 8, !tbaa !82
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %15) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %196 = load ptr, ptr %75, align 8, !tbaa !7
   %197 = load ptr, ptr %90, align 8, !tbaa !49
   call void @_ZN12b3LauncherCLC1EP17_cl_command_queueP10_cl_kernelPKc(ptr noundef nonnull align 8 dereferenceable(112) %15, ptr noundef %196, ptr noundef %197, ptr noundef nonnull @.str.10)
@@ -1599,7 +1593,7 @@ _ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit: ; preds
   br i1 %200, label %201, label %233
 
 201:                                              ; preds = %198
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.6137)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6137)
   %202 = load i32, ptr %92, align 8, !tbaa !92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6137.16..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !93
   %203 = load i32, ptr %93, align 4, !tbaa !94
@@ -1698,7 +1692,7 @@ _ZN20b3AlignedObjectArrayI15b3KernelArgDataE10deallocateEv.exit.i.i85: ; preds =
   %231 = load i32, ptr %97, align 8, !tbaa !101
   %232 = add i32 %231, 32
   store i32 %232, ptr %97, align 8, !tbaa !101
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.6137)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6137)
   br label %233
 
 233:                                              ; preds = %.noexc56, %198
@@ -1711,9 +1705,9 @@ _ZN20b3AlignedObjectArrayI15b3KernelArgDataE10deallocateEv.exit.i.i85: ; preds =
           to label %_ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit58 unwind label %246
 
 _ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit58: ; preds = %233
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, ptr noundef nonnull align 16 dereferenceable(24) @__const._ZN12b3LauncherCL8launch2DEiiii.lRange, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull align 16 dereferenceable(24) @__const._ZN12b3LauncherCL8launch2DEiiii.lRange, i64 24, i1 false)
   store i64 128, ptr %7, align 16, !tbaa !103
   store i64 1, ptr %99, align 8, !tbaa !103
@@ -1734,19 +1728,19 @@ _ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit58: ; pre
   br label %245
 
 245:                                              ; preds = %243, %.noexc60
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #15
-  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %15) #15
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %15) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %250
 
 246:                                              ; preds = %224, %.noexc94, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit15.i.i92, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i78, %_ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit58, %233, %193
   %247 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %15) #15
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %15) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #15
+  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %314
 
 248:                                              ; preds = %190
@@ -1761,7 +1755,7 @@ _ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit58: ; pre
   br i1 %.not49, label %311, label %252
 
 252:                                              ; preds = %250
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %253 = getelementptr inbounds nuw i8, ptr %.1146147, i64 24
   %254 = load ptr, ptr %253, align 8, !tbaa !57
   store ptr %254, ptr %16, align 16, !tbaa !80
@@ -1774,7 +1768,7 @@ _ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit58: ; pre
   %258 = load ptr, ptr %257, align 8, !tbaa !57
   store ptr %258, ptr %106, align 16, !tbaa !80
   store i8 0, ptr %107, align 8, !tbaa !82
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %17) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %259 = load ptr, ptr %75, align 8, !tbaa !7
   %260 = load ptr, ptr %108, align 8, !tbaa !47
   call void @_ZN12b3LauncherCLC1EP17_cl_command_queueP10_cl_kernelPKc(ptr noundef nonnull align 8 dereferenceable(112) %17, ptr noundef %259, ptr noundef %260, ptr noundef nonnull @.str.11)
@@ -1787,7 +1781,7 @@ _ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit58: ; pre
   br i1 %263, label %264, label %296
 
 264:                                              ; preds = %261
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.6141)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6141)
   %265 = load i32, ptr %110, align 8, !tbaa !92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6141.16..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !93
   %266 = load i32, ptr %111, align 4, !tbaa !94
@@ -1886,7 +1880,7 @@ _ZN20b3AlignedObjectArrayI15b3KernelArgDataE10deallocateEv.exit.i.i107: ; preds 
   %294 = load i32, ptr %115, align 8, !tbaa !101
   %295 = add i32 %294, 32
   store i32 %295, ptr %115, align 8, !tbaa !101
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.6141)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6141)
   br label %296
 
 296:                                              ; preds = %.noexc62, %261
@@ -1899,9 +1893,9 @@ _ZN20b3AlignedObjectArrayI15b3KernelArgDataE10deallocateEv.exit.i.i107: ; preds 
           to label %_ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit64 unwind label %309
 
 _ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit64: ; preds = %296
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, ptr noundef nonnull align 16 dereferenceable(24) @__const._ZN12b3LauncherCL8launch2DEiiii.lRange, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, ptr noundef nonnull align 16 dereferenceable(24) @__const._ZN12b3LauncherCL8launch2DEiiii.lRange, i64 24, i1 false)
   store i64 64, ptr %5, align 16, !tbaa !103
   store i64 1, ptr %117, align 8, !tbaa !103
@@ -1922,19 +1916,19 @@ _ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit64: ; pre
   br label %308
 
 308:                                              ; preds = %306, %.noexc66
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #15
-  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %17) #15
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %17) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %17) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %311
 
 309:                                              ; preds = %287, %.noexc116, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit15.i.i114, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i100, %_ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit64, %296, %252
   %310 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %17) #15
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %17) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16) #15
+  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %17) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %314
 
 311:                                              ; preds = %308, %250
@@ -1944,7 +1938,7 @@ _ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit64: ; pre
 
 314:                                              ; preds = %246, %309, %189
   %.pn50.pn = phi { ptr, i32 } [ %.pn, %189 ], [ %310, %309 ], [ %247, %246 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %.pn50.pn
 
 315:                                              ; preds = %._crit_edge
@@ -1972,20 +1966,20 @@ _ZNK13b3OpenCLArrayI10b3SortDataE8copyToCLEP7_cl_memmmm.exit.i69: ; preds = %315
   br label %_ZN13b3OpenCLArrayI10b3SortDataE19copyFromOpenCLArrayERKS1_.exit70
 
 _ZN13b3OpenCLArrayI10b3SortDataE19copyFromOpenCLArrayERKS1_.exit70: ; preds = %_ZNK13b3OpenCLArrayI10b3SortDataE8copyToCLEP7_cl_memmmm.exit.i69, %315, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 }
 
-declare void @_ZN8b3FillCL7executeER13b3OpenCLArrayI6b3Int2ERKS1_ii(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(50), ptr noundef nonnull align 4 dereferenceable(8), i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @_ZN8b3FillCL7executeER13b3OpenCLArrayI6b3Int2ERKS1_ii(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(50), ptr noundef nonnull align 4 dereferenceable(8), i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @_ZN12b3LauncherCLC1EP17_cl_command_queueP10_cl_kernelPKc(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef, ptr noundef, ptr noundef) unnamed_addr #2
+declare void @_ZN12b3LauncherCLC1EP17_cl_command_queueP10_cl_kernelPKc(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef, ptr noundef, ptr noundef) unnamed_addr #1
 
-declare void @_ZN12b3LauncherCL10setBuffersEP14b3BufferInfoCLi(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @_ZN12b3LauncherCL10setBuffersEP14b3BufferInfoCLi(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #12
+declare void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #11
 
-declare void @_ZN14b3PrefixScanCL7executeER13b3OpenCLArrayIjES2_iPj(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(50), ptr noundef nonnull align 8 dereferenceable(50), i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @_ZN14b3PrefixScanCL7executeER13b3OpenCLArrayIjES2_iPj(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(50), ptr noundef nonnull align 8 dereferenceable(50), i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN15b3RadixSort32CL7executeER13b3OpenCLArrayIjEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(50) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -2071,7 +2065,7 @@ _ZN13b3OpenCLArrayIjE19copyFromOpenCLArrayERKS0_.exit: ; preds = %21, %_ZNK13b3O
   %60 = load ptr, ptr %50, align 8, !tbaa !30
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %62 = load ptr, ptr %61, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %63 = add nsw i32 %.0, 255
   %64 = sdiv i32 %63, 256
   store i32 %.0, ptr %10, align 4, !tbaa !75
@@ -2169,7 +2163,7 @@ _ZN13b3OpenCLArrayIjE19copyFromOpenCLArrayERKS0_.exit: ; preds = %21, %_ZNK13b3O
   br i1 %.not49, label %191, label %131
 
 131:                                              ; preds = %128
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %132 = getelementptr inbounds nuw i8, ptr %.1148149, i64 24
   %133 = load ptr, ptr %132, align 8, !tbaa !54
   store ptr %133, ptr %11, align 16, !tbaa !80
@@ -2178,7 +2172,7 @@ _ZN13b3OpenCLArrayIjE19copyFromOpenCLArrayERKS0_.exit: ; preds = %21, %_ZNK13b3O
   %135 = load ptr, ptr %134, align 8, !tbaa !54
   store ptr %135, ptr %74, align 16, !tbaa !80
   store i8 0, ptr %75, align 8, !tbaa !82
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %136 = load ptr, ptr %76, align 8, !tbaa !7
   %137 = load ptr, ptr %77, align 8, !tbaa !44
   call void @_ZN12b3LauncherCLC1EP17_cl_command_queueP10_cl_kernelPKc(ptr noundef nonnull align 8 dereferenceable(112) %12, ptr noundef %136, ptr noundef %137, ptr noundef nonnull @.str.12)
@@ -2191,7 +2185,7 @@ _ZN13b3OpenCLArrayIjE19copyFromOpenCLArrayERKS0_.exit: ; preds = %21, %_ZNK13b3O
   br i1 %140, label %141, label %173
 
 141:                                              ; preds = %138
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   %142 = load i32, ptr %79, align 8, !tbaa !92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6.16..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !93
   %143 = load i32, ptr %80, align 4, !tbaa !94
@@ -2290,7 +2284,7 @@ _ZN20b3AlignedObjectArrayI15b3KernelArgDataE10deallocateEv.exit.i.i: ; preds = %
   %171 = load i32, ptr %84, align 8, !tbaa !101
   %172 = add i32 %171, 32
   store i32 %172, ptr %84, align 8, !tbaa !101
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   br label %173
 
 173:                                              ; preds = %.noexc, %138
@@ -2303,9 +2297,9 @@ _ZN20b3AlignedObjectArrayI15b3KernelArgDataE10deallocateEv.exit.i.i: ; preds = %
           to label %_ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit unwind label %186
 
 _ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit: ; preds = %173
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %8, ptr noundef nonnull align 16 dereferenceable(24) @__const._ZN12b3LauncherCL8launch2DEiiii.lRange, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, ptr noundef nonnull align 16 dereferenceable(24) @__const._ZN12b3LauncherCL8launch2DEiiii.lRange, i64 24, i1 false)
   store i64 64, ptr %9, align 16, !tbaa !103
   store i64 1, ptr %86, align 8, !tbaa !103
@@ -2326,11 +2320,11 @@ _ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit: ; preds
   br label %185
 
 185:                                              ; preds = %183, %.noexc57
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #15
-  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %12) #15
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %12) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %191
 
 186:                                              ; preds = %164, %.noexc75, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit15.i.i, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i, %173, %131
@@ -2345,9 +2339,9 @@ _ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit: ; preds
 
 190:                                              ; preds = %188, %186
   %.pn = phi { ptr, i32 } [ %189, %188 ], [ %187, %186 ]
-  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %12) #15
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %12) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #15
+  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %315
 
 191:                                              ; preds = %185, %128
@@ -2356,12 +2350,12 @@ _ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit: ; preds
   br i1 %193, label %249, label %194
 
 194:                                              ; preds = %191
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %195 = getelementptr inbounds nuw i8, ptr %.0145151, i64 24
   %196 = load ptr, ptr %195, align 8, !tbaa !54
   store ptr %196, ptr %13, align 16, !tbaa !80
   store i8 0, ptr %90, align 8, !tbaa !82
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %14) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %197 = load ptr, ptr %76, align 8, !tbaa !7
   %198 = load ptr, ptr %91, align 8, !tbaa !49
   call void @_ZN12b3LauncherCLC1EP17_cl_command_queueP10_cl_kernelPKc(ptr noundef nonnull align 8 dereferenceable(112) %14, ptr noundef %197, ptr noundef %198, ptr noundef nonnull @.str.10)
@@ -2374,7 +2368,7 @@ _ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit: ; preds
   br i1 %201, label %202, label %234
 
 202:                                              ; preds = %199
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.6139)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6139)
   %203 = load i32, ptr %93, align 8, !tbaa !92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6139.16..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !93
   %204 = load i32, ptr %94, align 4, !tbaa !94
@@ -2473,7 +2467,7 @@ _ZN20b3AlignedObjectArrayI15b3KernelArgDataE10deallocateEv.exit.i.i87: ; preds =
   %232 = load i32, ptr %98, align 8, !tbaa !101
   %233 = add i32 %232, 32
   store i32 %233, ptr %98, align 8, !tbaa !101
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.6139)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6139)
   br label %234
 
 234:                                              ; preds = %.noexc58, %199
@@ -2486,9 +2480,9 @@ _ZN20b3AlignedObjectArrayI15b3KernelArgDataE10deallocateEv.exit.i.i87: ; preds =
           to label %_ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit60 unwind label %247
 
 _ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit60: ; preds = %234
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, ptr noundef nonnull align 16 dereferenceable(24) @__const._ZN12b3LauncherCL8launch2DEiiii.lRange, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull align 16 dereferenceable(24) @__const._ZN12b3LauncherCL8launch2DEiiii.lRange, i64 24, i1 false)
   store i64 128, ptr %7, align 16, !tbaa !103
   store i64 1, ptr %100, align 8, !tbaa !103
@@ -2509,19 +2503,19 @@ _ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit60: ; pre
   br label %246
 
 246:                                              ; preds = %244, %.noexc62
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #15
-  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %14) #15
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %14) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %14) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %251
 
 247:                                              ; preds = %225, %.noexc96, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit15.i.i94, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i80, %_ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit60, %234, %194
   %248 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %14) #15
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %14) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #15
+  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %14) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %315
 
 249:                                              ; preds = %191
@@ -2536,7 +2530,7 @@ _ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit60: ; pre
   br i1 %.not51, label %312, label %253
 
 253:                                              ; preds = %251
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %254 = getelementptr inbounds nuw i8, ptr %.1148149, i64 24
   %255 = load ptr, ptr %254, align 8, !tbaa !54
   store ptr %255, ptr %15, align 16, !tbaa !80
@@ -2549,7 +2543,7 @@ _ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit60: ; pre
   %259 = load ptr, ptr %258, align 8, !tbaa !54
   store ptr %259, ptr %107, align 16, !tbaa !80
   store i8 0, ptr %108, align 8, !tbaa !82
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %16) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %260 = load ptr, ptr %76, align 8, !tbaa !7
   %261 = load ptr, ptr %109, align 8, !tbaa !48
   call void @_ZN12b3LauncherCLC1EP17_cl_command_queueP10_cl_kernelPKc(ptr noundef nonnull align 8 dereferenceable(112) %16, ptr noundef %260, ptr noundef %261, ptr noundef nonnull @.str.13)
@@ -2562,7 +2556,7 @@ _ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit60: ; pre
   br i1 %264, label %265, label %297
 
 265:                                              ; preds = %262
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.6143)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6143)
   %266 = load i32, ptr %111, align 8, !tbaa !92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6143.16..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !93
   %267 = load i32, ptr %112, align 4, !tbaa !94
@@ -2661,7 +2655,7 @@ _ZN20b3AlignedObjectArrayI15b3KernelArgDataE10deallocateEv.exit.i.i109: ; preds 
   %295 = load i32, ptr %116, align 8, !tbaa !101
   %296 = add i32 %295, 32
   store i32 %296, ptr %116, align 8, !tbaa !101
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.6143)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6143)
   br label %297
 
 297:                                              ; preds = %.noexc64, %262
@@ -2674,9 +2668,9 @@ _ZN20b3AlignedObjectArrayI15b3KernelArgDataE10deallocateEv.exit.i.i109: ; preds 
           to label %_ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit66 unwind label %310
 
 _ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit66: ; preds = %297
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, ptr noundef nonnull align 16 dereferenceable(24) @__const._ZN12b3LauncherCL8launch2DEiiii.lRange, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, ptr noundef nonnull align 16 dereferenceable(24) @__const._ZN12b3LauncherCL8launch2DEiiii.lRange, i64 24, i1 false)
   store i64 64, ptr %5, align 16, !tbaa !103
   store i64 1, ptr %118, align 8, !tbaa !103
@@ -2697,19 +2691,19 @@ _ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit66: ; pre
   br label %309
 
 309:                                              ; preds = %307, %.noexc68
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #15
-  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %16) #15
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %16) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %16) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %312
 
 310:                                              ; preds = %288, %.noexc118, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit15.i.i116, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i.i102, %_ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit66, %297, %253
   %311 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %16) #15
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %16) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15) #15
+  call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %16) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %315
 
 312:                                              ; preds = %309, %251
@@ -2719,7 +2713,7 @@ _ZN12b3LauncherCL8setConstIN15b3RadixSort32CL11b3ConstDataEEEvRKT_.exit66: ; pre
 
 315:                                              ; preds = %247, %310, %190
   %.pn52.pn = phi { ptr, i32 } [ %.pn, %190 ], [ %311, %310 ], [ %248, %247 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %.pn52.pn
 
 316:                                              ; preds = %._crit_edge
@@ -2747,21 +2741,21 @@ _ZNK13b3OpenCLArrayIjE8copyToCLEP7_cl_memmmm.exit.i71: ; preds = %316
   br label %_ZN13b3OpenCLArrayIjE19copyFromOpenCLArrayERKS0_.exit72
 
 _ZN13b3OpenCLArrayIjE19copyFromOpenCLArrayERKS0_.exit72: ; preds = %_ZNK13b3OpenCLArrayIjE8copyToCLEP7_cl_memmmm.exit.i71, %316, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
-declare void @_ZN8b3FillCL7executeER13b3OpenCLArrayIjEjii(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(50), i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @_ZN8b3FillCL7executeER13b3OpenCLArrayIjEjii(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(50), i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @b3OpenCLUtils_compileCLProgramFromString(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @b3OpenCLUtils_compileCLProgramFromString(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @b3OpenCLUtils_compileCLKernelFromString(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @b3OpenCLUtils_compileCLKernelFromString(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #13
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN13b3OpenCLArrayIjED2Ev(ptr noundef nonnull align 8 dereferenceable(50) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN13b3OpenCLArrayIjED2Ev(ptr noundef nonnull align 8 dereferenceable(50) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV13b3OpenCLArrayIjE, i64 16), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !54
@@ -2791,7 +2785,7 @@ define linkonce_odr dso_local void @_ZN13b3OpenCLArrayIjED2Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN13b3OpenCLArrayIjED0Ev(ptr noundef nonnull align 8 dereferenceable(50) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN13b3OpenCLArrayIjED0Ev(ptr noundef nonnull align 8 dereferenceable(50) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV13b3OpenCLArrayIjE, i64 16), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !54
@@ -2815,14 +2809,14 @@ define linkonce_odr dso_local void @_ZN13b3OpenCLArrayIjED0Ev(ptr noundef nonnul
   unreachable
 
 _ZN13b3OpenCLArrayIjED2Ev.exit:                   ; preds = %1, %7
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #16
   ret void
 }
 
-declare void @b3OutputErrorMessageVarArgsInternal(ptr noundef, ...) local_unnamed_addr #2
+declare void @b3OutputErrorMessageVarArgsInternal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI10b3SortDataED2Ev(ptr noundef nonnull align 8 dereferenceable(50) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI10b3SortDataED2Ev(ptr noundef nonnull align 8 dereferenceable(50) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV13b3OpenCLArrayI10b3SortDataE, i64 16), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !57
@@ -2852,7 +2846,7 @@ define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI10b3SortDataED2Ev(ptr nou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI10b3SortDataED0Ev(ptr noundef nonnull align 8 dereferenceable(50) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI10b3SortDataED0Ev(ptr noundef nonnull align 8 dereferenceable(50) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV13b3OpenCLArrayI10b3SortDataE, i64 16), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !57
@@ -2876,35 +2870,41 @@ define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI10b3SortDataED0Ev(ptr nou
   unreachable
 
 _ZN13b3OpenCLArrayI10b3SortDataED2Ev.exit:        ; preds = %1, %7
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #16
   ret void
 }
 
-declare void @_Z21b3AlignedFreeInternalPv(ptr noundef) local_unnamed_addr #2
+declare void @_Z21b3AlignedFreeInternalPv(ptr noundef) local_unnamed_addr #1
 
-declare noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #2
+declare noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold nofree noreturn }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold nofree noreturn }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nounwind }
-attributes #16 = { builtin allocsize(0) }
-attributes #17 = { builtin nounwind }
+attributes #15 = { builtin allocsize(0) }
+attributes #16 = { builtin nounwind }
+attributes #17 = { nounwind }
 attributes #18 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

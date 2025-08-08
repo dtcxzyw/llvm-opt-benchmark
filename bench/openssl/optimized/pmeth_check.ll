@@ -31,14 +31,14 @@ define internal fastcc i32 @evp_pkey_public_check_combined(ptr noundef readonly 
   br label %42
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !19
   %11 = icmp eq ptr %10, null
   br i1 %11, label %try_provided_check.exit.thread, label %12
 
 try_provided_check.exit.thread:                   ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %21
 
 12:                                               ; preds = %8
@@ -55,13 +55,13 @@ try_provided_check.exit.thread21:                 ; preds = %12
   call void @ERR_new() #3
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.try_provided_check) #3
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %42
 
 try_provided_check.exit:                          ; preds = %12
   %19 = load ptr, ptr %3, align 8, !tbaa !20
   %20 = call i32 @evp_keymgmt_validate(ptr noundef %19, ptr noundef nonnull %17, i32 noundef 2, i32 noundef range(i32 0, 2) %1) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq i32 %20, -1
   br i1 %.not, label %21, label %42
 
@@ -136,14 +136,14 @@ define internal fastcc i32 @evp_pkey_param_check_combined(ptr noundef readonly c
   br label %42
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !19
   %11 = icmp eq ptr %10, null
   br i1 %11, label %try_provided_check.exit.thread, label %12
 
 try_provided_check.exit.thread:                   ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %21
 
 12:                                               ; preds = %8
@@ -160,13 +160,13 @@ try_provided_check.exit.thread21:                 ; preds = %12
   call void @ERR_new() #3
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.try_provided_check) #3
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %42
 
 try_provided_check.exit:                          ; preds = %12
   %19 = load ptr, ptr %3, align 8, !tbaa !20
   %20 = call i32 @evp_keymgmt_validate(ptr noundef %19, ptr noundef nonnull %17, i32 noundef 132, i32 noundef range(i32 0, 2) %1) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq i32 %20, -1
   br i1 %.not, label %21, label %42
 
@@ -235,14 +235,14 @@ define i32 @EVP_PKEY_private_check(ptr noundef readonly captures(none) %0) local
   br label %21
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !19
   %10 = icmp eq ptr %9, null
   br i1 %10, label %try_provided_check.exit.thread, label %11
 
 try_provided_check.exit.thread:                   ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %20
 
 11:                                               ; preds = %7
@@ -259,13 +259,13 @@ try_provided_check.exit.thread7:                  ; preds = %11
   call void @ERR_new() #3
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.try_provided_check) #3
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %21
 
 try_provided_check.exit:                          ; preds = %11
   %18 = load ptr, ptr %2, align 8, !tbaa !20
   %19 = call i32 @evp_keymgmt_validate(ptr noundef %18, ptr noundef nonnull %16, i32 noundef 1, i32 noundef 0) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not = icmp eq i32 %19, -1
   br i1 %.not, label %20, label %21
 
@@ -280,17 +280,11 @@ try_provided_check.exit:                          ; preds = %11
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @ERR_new() local_unnamed_addr #1
 
-declare void @ERR_new() local_unnamed_addr #2
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_PKEY_check(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -313,14 +307,14 @@ define i32 @EVP_PKEY_pairwise_check(ptr noundef readonly captures(none) %0) loca
   br label %41
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !19
   %10 = icmp eq ptr %9, null
   br i1 %10, label %try_provided_check.exit.thread, label %11
 
 try_provided_check.exit.thread:                   ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %20
 
 11:                                               ; preds = %7
@@ -337,13 +331,13 @@ try_provided_check.exit.thread20:                 ; preds = %11
   call void @ERR_new() #3
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.try_provided_check) #3
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %41
 
 try_provided_check.exit:                          ; preds = %11
   %18 = load ptr, ptr %2, align 8, !tbaa !20
   %19 = call i32 @evp_keymgmt_validate(ptr noundef %18, ptr noundef nonnull %16, i32 noundef 3, i32 noundef 0) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not = icmp eq i32 %19, -1
   br i1 %.not, label %20, label %41
 
@@ -391,13 +385,19 @@ try_provided_check.exit:                          ; preds = %11
   ret i32 %.0
 }
 
-declare ptr @evp_pkey_export_to_provider(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @evp_pkey_export_to_provider(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @evp_keymgmt_validate(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @evp_keymgmt_validate(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

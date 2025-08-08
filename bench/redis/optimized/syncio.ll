@@ -52,21 +52,15 @@ define dso_local noundef i64 @syncWrite(i32 noundef %0, ptr noundef readonly cap
   ret i64 %.1.ph
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i64 @mstime() local_unnamed_addr #2
+declare i64 @mstime() local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #3
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #4
+declare ptr @__errno_location() local_unnamed_addr #3
 
-declare i32 @aeWait(i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @aeWait(i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @syncRead(i32 noundef %0, ptr noundef captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
@@ -121,7 +115,7 @@ define dso_local i64 @syncRead(i32 noundef %0, ptr noundef captures(none) %1, i6
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @syncReadLine(i32 noundef %0, ptr noundef captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
@@ -134,7 +128,7 @@ define dso_local i64 @syncReadLine(i32 noundef %0, ptr noundef captures(none) %1
   %.01836 = phi i64 [ %.018, %17 ], [ %.01832, %4 ]
   %.01535 = phi i64 [ %19, %17 ], [ 0, %4 ]
   %.02034 = phi ptr [ %18, %17 ], [ %1, %4 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i64 @syncRead(i32 noundef %0, ptr noundef nonnull %5, i64 noundef 1, i64 noundef %3)
   %7 = icmp eq i64 %6, -1
   br i1 %7, label %.thread, label %8
@@ -161,7 +155,7 @@ define dso_local i64 @syncReadLine(i32 noundef %0, ptr noundef captures(none) %1
 
 .thread:                                          ; preds = %.lr.ph, %16, %12, %11
   %.117.ph = phi i64 [ 0, %11 ], [ %.01535, %12 ], [ %.01535, %16 ], [ -1, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
 17:                                               ; preds = %8
@@ -169,7 +163,7 @@ define dso_local i64 @syncReadLine(i32 noundef %0, ptr noundef captures(none) %1
   store i8 %9, ptr %.02034, align 1, !tbaa !9
   store i8 0, ptr %18, align 1, !tbaa !9
   %19 = add nuw nsw i64 %.01535, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.018 = add nsw i64 %.01836, -1
   %.not = icmp eq i64 %.018, 0
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
@@ -179,14 +173,20 @@ define dso_local i64 @syncReadLine(i32 noundef %0, ptr noundef captures(none) %1
   ret i64 %.2
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(none) }

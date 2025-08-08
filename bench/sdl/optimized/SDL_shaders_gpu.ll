@@ -78,7 +78,7 @@ CompileShader.exit.thread:                        ; preds = %19, %25
   br label %.loopexit48
 
 CompileShader.exit:                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %28 = load ptr, ptr %20, align 8
   store ptr %28, ptr %6, align 8
@@ -91,7 +91,7 @@ CompileShader.exit:                               ; preds = %23
   store i32 1, ptr %9, align 4
   store i32 0, ptr %10, align 4
   %32 = call ptr @SDL_CreateGPUShader_REAL(ptr noundef %1, ptr noundef nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %33 = getelementptr inbounds nuw [3 x ptr], ptr %0, i64 0, i64 %indvars.iv
   store ptr %32, ptr %33, align 8
   %34 = icmp eq ptr %32, null
@@ -143,7 +143,7 @@ CompileShader.exit33.thread:                      ; preds = %42, %48
   br label %.loopexit.preheader
 
 CompileShader.exit33:                             ; preds = %46
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %51 = load ptr, ptr %43, align 8
   store ptr %51, ptr %13, align 8
@@ -163,7 +163,7 @@ CompileShader.exit33:                             ; preds = %46
   store i32 %60, ptr %16, align 4
   store i32 1, ptr %17, align 4
   %61 = call ptr @SDL_CreateGPUShader_REAL(ptr noundef %1, ptr noundef nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %62 = getelementptr inbounds nuw [6 x ptr], ptr %18, i64 0, i64 %indvars.iv73100
   store ptr %61, ptr %62, align 8
   %63 = icmp eq ptr %61, null
@@ -202,9 +202,6 @@ GPU_ReleaseShaders.exit.thread:                   ; preds = %GPU_ReleaseShaders.
   ret i1 %.126
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define hidden void @GPU_ReleaseShaders(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %4
@@ -237,13 +234,10 @@ define hidden void @GPU_ReleaseShaders(ptr noundef captures(none) %0, ptr nounde
   br i1 %11, label %7, label %8
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @SDL_ReleaseGPUShader_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_ReleaseGPUShader_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @GPU_GetVertexShader(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden ptr @GPU_GetVertexShader(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds [3 x ptr], ptr %0, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
@@ -251,7 +245,7 @@ define hidden ptr @GPU_GetVertexShader(ptr noundef readonly captures(none) %0, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @GPU_GetFragmentShader(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden ptr @GPU_GetFragmentShader(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds [6 x ptr], ptr %3, i64 0, i64 %4
@@ -297,24 +291,30 @@ define hidden void @GPU_FillSupportedShaderFormats(i32 noundef %0) local_unnamed
   ret void
 }
 
-declare zeroext i1 @SDL_GetBooleanProperty_REAL(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetBooleanProperty_REAL(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @SDL_GetGPUShaderFormats_REAL(ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_GetGPUShaderFormats_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare ptr @SDL_CreateGPUShader_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_CreateGPUShader_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

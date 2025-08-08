@@ -301,14 +301,8 @@ define noundef range(i32 -1, 64) i32 @_ZN6icu_7711NGramParser6searchEPKii(ptr no
   ret i32 %.033
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6icu_7711NGramParser6lookupEi(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define void @_ZN6icu_7711NGramParser6lookupEi(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !17
   %5 = add nsw i32 %4, 1
@@ -377,7 +371,7 @@ _ZN6icu_7711NGramParser6searchEPKii.exit.thread:  ; preds = %36, %2, %_ZN6icu_77
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6icu_7711NGramParser7addByteEi(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define void @_ZN6icu_7711NGramParser7addByteEi(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !6
   %5 = shl i32 %4, 8
@@ -452,7 +446,7 @@ _ZN6icu_7711NGramParser6lookupEi.exit:            ; preds = %2, %41, %_ZN6icu_77
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 -1, 256) i32 @_ZN6icu_7711NGramParser8nextByteEPNS_9InputTextE(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1) unnamed_addr #6 align 2 {
+define noundef range(i32 -1, 256) i32 @_ZN6icu_7711NGramParser8nextByteEPNS_9InputTextE(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8, !tbaa !13
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -476,7 +470,7 @@ define noundef range(i32 -1, 256) i32 @_ZN6icu_7711NGramParser8nextByteEPNS_9Inp
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7711NGramParser15parseCharactersEPNS_9InputTextE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #7 align 2 {
+define void @_ZN6icu_7711NGramParser15parseCharactersEPNS_9InputTextE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #6 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -588,7 +582,7 @@ _ZN6icu_7711NGramParser7addByteEi.exit:           ; preds = %20, %22, %57, %_ZN6
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7711NGramParser5parseEPNS_9InputTextE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #7 align 2 {
+define noundef i32 @_ZN6icu_7711NGramParser5parseEPNS_9InputTextE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -724,7 +718,7 @@ define noundef range(i32 0, 87) i32 @_ZN6icu_7718NGramParser_IBM4209isLamAlefEi(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 -1, 256) i32 @_ZN6icu_7718NGramParser_IBM4208nextByteEPNS_9InputTextE(ptr noundef nonnull align 8 captures(none) dereferenceable(52) %0, ptr noundef readonly captures(none) %1) unnamed_addr #6 align 2 {
+define noundef range(i32 -1, 256) i32 @_ZN6icu_7718NGramParser_IBM4208nextByteEPNS_9InputTextE(ptr noundef nonnull align 8 captures(none) dereferenceable(52) %0, ptr noundef readonly captures(none) %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8, !tbaa !13
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -782,7 +776,7 @@ _ZN6icu_7718NGramParser_IBM4209isLamAlefEi.exit.thread: ; preds = %13, %_ZN6icu_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7718NGramParser_IBM42015parseCharactersEPNS_9InputTextE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1) unnamed_addr #7 align 2 {
+define void @_ZN6icu_7718NGramParser_IBM42015parseCharactersEPNS_9InputTextE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1) unnamed_addr #6 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -1006,18 +1000,18 @@ define void @_ZN6icu_7717CharsetRecog_sbcsD2Ev(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7717CharsetRecog_sbcsD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
+define void @_ZN6icu_7717CharsetRecog_sbcsD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   tail call void @llvm.trap() #12
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #9
+declare void @llvm.trap() #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7717CharsetRecog_sbcs10match_sbcsEPNS_9InputTextEPKiPKh(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK6icu_7717CharsetRecog_sbcs10match_sbcsEPNS_9InputTextEPKiPKh(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.icu_77::NGramParser", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN6icu_7711NGramParserC1EPKiPKh(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %2, ptr noundef %3)
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -1106,14 +1100,14 @@ _ZN6icu_7711NGramParser6searchEPKii.exit.i.i.i:   ; preds = %47
   %62 = fptosi double %61 to i32
   %.0.i = select i1 %60, i32 98, i32 %62
   call void @_ZN6icu_7711NGramParserD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 
 63:                                               ; preds = %4
   %64 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7711NGramParserD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %64
 }
 
@@ -1127,7 +1121,7 @@ define void @_ZN6icu_7719CharsetRecog_8859_1D0Ev(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719CharsetRecog_8859_15matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719CharsetRecog_8859_15matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i8, ptr %4, align 8, !tbaa !29
   %.not = icmp eq i8 %5, 0
@@ -1163,7 +1157,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719CharsetRecog_8859_15match
   ret i8 %20
 }
 
-declare void @_ZN6icu_7712CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
+declare void @_ZN6icu_7712CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull ptr @_ZNK6icu_7719CharsetRecog_8859_17getNameEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
@@ -1178,7 +1172,7 @@ define void @_ZN6icu_7719CharsetRecog_8859_2D0Ev(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719CharsetRecog_8859_25matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719CharsetRecog_8859_25matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i8, ptr %4, align 8, !tbaa !29
   %.not = icmp eq i8 %5, 0
@@ -1220,7 +1214,7 @@ define noundef nonnull ptr @_ZNK6icu_7719CharsetRecog_8859_27getNameEv(ptr nonnu
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7719CharsetRecog_8859_5D0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
+define void @_ZN6icu_7719CharsetRecog_8859_5D0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   tail call void @llvm.trap() #12
   unreachable
 }
@@ -1243,7 +1237,7 @@ define noundef nonnull ptr @_ZNK6icu_7722CharsetRecog_8859_5_ru11getLanguageEv(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722CharsetRecog_8859_5_ru5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722CharsetRecog_8859_5_ru5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -1255,7 +1249,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722CharsetRecog_8859_5_ru5ma
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7719CharsetRecog_8859_6D0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
+define void @_ZN6icu_7719CharsetRecog_8859_6D0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   tail call void @llvm.trap() #12
   unreachable
 }
@@ -1278,7 +1272,7 @@ define noundef nonnull ptr @_ZNK6icu_7722CharsetRecog_8859_6_ar11getLanguageEv(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722CharsetRecog_8859_6_ar5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722CharsetRecog_8859_6_ar5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -1290,7 +1284,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722CharsetRecog_8859_6_ar5ma
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7719CharsetRecog_8859_7D0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
+define void @_ZN6icu_7719CharsetRecog_8859_7D0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   tail call void @llvm.trap() #12
   unreachable
 }
@@ -1313,7 +1307,7 @@ define noundef nonnull ptr @_ZNK6icu_7722CharsetRecog_8859_7_el11getLanguageEv(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722CharsetRecog_8859_7_el5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722CharsetRecog_8859_7_el5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i8, ptr %4, align 8, !tbaa !29
   %.not = icmp eq i8 %5, 0
@@ -1329,7 +1323,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722CharsetRecog_8859_7_el5ma
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7719CharsetRecog_8859_8D0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
+define void @_ZN6icu_7719CharsetRecog_8859_8D0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   tail call void @llvm.trap() #12
   unreachable
 }
@@ -1357,7 +1351,7 @@ define noundef nonnull ptr @_ZNK6icu_7724CharsetRecog_8859_8_I_he11getLanguageEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7724CharsetRecog_8859_8_I_he5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7724CharsetRecog_8859_8_I_he5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i8, ptr %4, align 8, !tbaa !29
   %.not = icmp eq i8 %5, 0
@@ -1385,7 +1379,7 @@ define noundef nonnull ptr @_ZNK6icu_7722CharsetRecog_8859_8_he11getLanguageEv(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722CharsetRecog_8859_8_he5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722CharsetRecog_8859_8_he5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i8, ptr %4, align 8, !tbaa !29
   %.not = icmp eq i8 %5, 0
@@ -1401,7 +1395,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722CharsetRecog_8859_8_he5ma
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7719CharsetRecog_8859_9D0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
+define void @_ZN6icu_7719CharsetRecog_8859_9D0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   tail call void @llvm.trap() #12
   unreachable
 }
@@ -1424,7 +1418,7 @@ define noundef nonnull ptr @_ZNK6icu_7722CharsetRecog_8859_9_tr11getLanguageEv(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722CharsetRecog_8859_9_tr5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722CharsetRecog_8859_9_tr5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i8, ptr %4, align 8, !tbaa !29
   %.not = icmp eq i8 %5, 0
@@ -1457,7 +1451,7 @@ define noundef nonnull ptr @_ZNK6icu_7725CharsetRecog_windows_125611getLanguageE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7725CharsetRecog_windows_12565matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7725CharsetRecog_windows_12565matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -1486,7 +1480,7 @@ define noundef nonnull ptr @_ZNK6icu_7725CharsetRecog_windows_125111getLanguageE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7725CharsetRecog_windows_12515matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7725CharsetRecog_windows_12515matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -1515,7 +1509,7 @@ define noundef nonnull ptr @_ZNK6icu_7719CharsetRecog_KOI8_R11getLanguageEv(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719CharsetRecog_KOI8_R5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719CharsetRecog_KOI8_R5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -1527,7 +1521,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719CharsetRecog_KOI8_R5match
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7722CharsetRecog_IBM424_heD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
+define void @_ZN6icu_7722CharsetRecog_IBM424_heD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   tail call void @llvm.trap() #12
   unreachable
 }
@@ -1550,7 +1544,7 @@ define noundef nonnull ptr @_ZNK6icu_7726CharsetRecog_IBM424_he_rtl7getNameEv(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7726CharsetRecog_IBM424_he_rtl5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7726CharsetRecog_IBM424_he_rtl5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -1574,7 +1568,7 @@ define noundef nonnull ptr @_ZNK6icu_7726CharsetRecog_IBM424_he_ltr7getNameEv(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7726CharsetRecog_IBM424_he_ltr5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7726CharsetRecog_IBM424_he_ltr5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -1586,7 +1580,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7726CharsetRecog_IBM424_he_lt
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7722CharsetRecog_IBM420_arD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
+define void @_ZN6icu_7722CharsetRecog_IBM420_arD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   tail call void @llvm.trap() #12
   unreachable
 }
@@ -1597,9 +1591,9 @@ define noundef nonnull ptr @_ZNK6icu_7722CharsetRecog_IBM420_ar11getLanguageEv(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7722CharsetRecog_IBM420_ar10match_sbcsEPNS_9InputTextEPKiPKh(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK6icu_7722CharsetRecog_IBM420_ar10match_sbcsEPNS_9InputTextEPKiPKh(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.icu_77::NGramParser_IBM420", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN6icu_7718NGramParser_IBM420C1EPKiPKh(ptr noundef nonnull align 8 dereferenceable(52) %5, ptr noundef %2, ptr noundef %3)
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -1688,14 +1682,14 @@ _ZN6icu_7711NGramParser6searchEPKii.exit.i.i.i:   ; preds = %47
   %62 = fptosi double %61 to i32
   %.0.i = select i1 %60, i32 98, i32 %62
   call void @_ZN6icu_7718NGramParser_IBM420D1Ev(ptr noundef nonnull align 8 dereferenceable(52) %5) #11
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 
 63:                                               ; preds = %4
   %64 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7718NGramParser_IBM420D1Ev(ptr noundef nonnull align 8 dereferenceable(52) %5) #11
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %64
 }
 
@@ -1712,7 +1706,7 @@ define noundef nonnull ptr @_ZNK6icu_7726CharsetRecog_IBM420_ar_rtl7getNameEv(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7726CharsetRecog_IBM420_ar_rtl5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7726CharsetRecog_IBM420_ar_rtl5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -1736,7 +1730,7 @@ define noundef nonnull ptr @_ZNK6icu_7726CharsetRecog_IBM420_ar_ltr7getNameEv(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7726CharsetRecog_IBM420_ar_ltr5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7726CharsetRecog_IBM420_ar_ltr5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -1749,19 +1743,25 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7726CharsetRecog_IBM420_ar_lt
 
 declare void @__cxa_pure_virtual() unnamed_addr
 
-declare noundef ptr @_ZNK6icu_7717CharsetRecognizer11getLanguageEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #10
+declare noundef ptr @_ZNK6icu_7717CharsetRecognizer11getLanguageEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #10 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nounwind }
 attributes #12 = { noreturn nounwind }
 

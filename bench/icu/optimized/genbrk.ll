@@ -71,7 +71,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %6 = alloca %"class.icu_77::ConstChar16Ptr", align 8
   %7 = alloca %struct.UParseError, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = load ptr, ptr %1, align 8, !tbaa !4
   store ptr %9, ptr @_ZL8progName, align 8, !tbaa !4
   %10 = tail call i32 @u_parseArgs(i32 noundef %0, ptr noundef nonnull %1, i32 noundef 9, ptr noundef nonnull @_ZL7options)
@@ -84,12 +84,12 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %15 = zext nneg i32 %14 to i64
   %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !4
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.2, ptr noundef %17) #12
+  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.2, ptr noundef %17) #11
   %19 = load ptr, ptr @_ZL8progName, align 8, !tbaa !4
   %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef %19)
   %21 = tail call ptr @u_getDataDirectory_77()
   %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %21)
-  tail call void @exit(i32 noundef 1) #13
+  tail call void @exit(i32 noundef 1) #12
   unreachable
 
 23:                                               ; preds = %2
@@ -118,12 +118,12 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 38:                                               ; preds = %33
   %39 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %40 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 50, i64 1, ptr %39) #14
+  %40 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 50, i64 1, ptr %39) #13
   %41 = load ptr, ptr @_ZL8progName, align 8, !tbaa !4
   %42 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef %41)
   %43 = tail call ptr @u_getDataDirectory_77()
   %44 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %43)
-  tail call void @exit(i32 noundef 1) #13
+  tail call void @exit(i32 noundef 1) #12
   unreachable
 
 45:                                               ; preds = %33
@@ -156,8 +156,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %58 = load ptr, ptr @stderr, align 8, !tbaa !9
   %59 = load ptr, ptr %1, align 8, !tbaa !4
   %60 = call ptr @u_errorName_77(i32 noundef %55)
-  %61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str.5, ptr noundef %59, ptr noundef %60) #12
-  call void @exit(i32 noundef 1) #13
+  %61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str.5, ptr noundef %59, ptr noundef %60) #11
+  call void @exit(i32 noundef 1) #12
   unreachable
 
 62:                                               ; preds = %51
@@ -168,8 +168,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 65:                                               ; preds = %62
   %66 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.7, ptr noundef %46) #12
-  call void @exit(i32 noundef -1) #13
+  %67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.7, ptr noundef %46) #11
+  call void @exit(i32 noundef -1) #12
   unreachable
 
 68:                                               ; preds = %62
@@ -177,22 +177,22 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %70 = call i64 @ftell(ptr noundef nonnull %63)
   %71 = call i32 @fseek(ptr noundef nonnull %63, i64 noundef 0, i32 noundef 0)
   %72 = add nsw i64 %70, 10
-  %73 = call noalias noundef nonnull ptr @_Znam(i64 noundef %72) #15
+  %73 = call noalias noundef nonnull ptr @_Znam(i64 noundef %72) #14
   %74 = call i64 @fread(ptr noundef nonnull %73, i64 noundef 1, i64 noundef %70, ptr noundef nonnull %63)
   %.not80 = icmp eq i64 %74, %70
   br i1 %.not80, label %78, label %75
 
 75:                                               ; preds = %68
   %76 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %77 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef nonnull @.str.8, ptr noundef %46) #12
-  call void @exit(i32 noundef -1) #13
+  %77 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef nonnull @.str.8, ptr noundef %46) #11
+  call void @exit(i32 noundef -1) #12
   unreachable
 
 78:                                               ; preds = %68
   %79 = getelementptr inbounds i8, ptr %73, i64 %70
   store i8 0, ptr %79, align 1, !tbaa !16
   %80 = call i32 @fclose(ptr noundef nonnull %63)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %81 = trunc i64 %70 to i32
   %82 = call ptr @ucnv_detectUnicodeSignature_77(ptr noundef nonnull %73, i32 noundef %81, ptr noundef nonnull %4, ptr noundef nonnull %3)
   %83 = load i32, ptr %3, align 4, !tbaa !14
@@ -218,7 +218,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 93:                                               ; preds = %86
   %94 = load ptr, ptr @stderr, align 8, !tbaa !9
   %95 = call ptr @u_errorName_77(i32 noundef %91)
-  %96 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef nonnull @.str.10, ptr noundef %95) #12
+  %96 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef nonnull @.str.10, ptr noundef %95) #11
   %97 = load i32, ptr %3, align 4, !tbaa !14
   call void @exit(i32 noundef %97) #10
   unreachable
@@ -234,7 +234,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 102:                                              ; preds = %98
   %103 = load ptr, ptr @stderr, align 8, !tbaa !9
   %104 = call ptr @u_errorName_77(i32 noundef %101)
-  %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef nonnull @.str.11, ptr noundef %104) #12
+  %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef nonnull @.str.11, ptr noundef %104) #11
   %106 = load i32, ptr %3, align 4, !tbaa !14
   call void @exit(i32 noundef %106) #10
   unreachable
@@ -244,7 +244,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %108 = add i32 %100, 1
   %109 = zext i32 %108 to i64
   %110 = shl nuw nsw i64 %109, 1
-  %111 = call noalias noundef nonnull ptr @_Znam(i64 noundef %110) #15
+  %111 = call noalias noundef nonnull ptr @_Znam(i64 noundef %110) #14
   %112 = call i32 @ucnv_toUChars_77(ptr noundef %90, ptr noundef nonnull %111, i32 noundef %108, ptr noundef nonnull %.069, i32 noundef %99, ptr noundef nonnull %3)
   %113 = load i32, ptr %3, align 4, !tbaa !14
   %114 = icmp slt i32 %113, 1
@@ -253,26 +253,26 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 115:                                              ; preds = %107
   %116 = load ptr, ptr @stderr, align 8, !tbaa !9
   %117 = call ptr @u_errorName_77(i32 noundef %113)
-  %118 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %116, ptr noundef nonnull @.str.11, ptr noundef %117) #12
+  %118 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %116, ptr noundef nonnull @.str.11, ptr noundef %117) #11
   %119 = load i32, ptr %3, align 4, !tbaa !14
   call void @exit(i32 noundef %119) #10
   unreachable
 
 120:                                              ; preds = %107
   call void @ucnv_close_77(ptr noundef %90)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %111, ptr %6, align 8, !tbaa !17
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 noundef signext 0, ptr noundef nonnull %6, i32 noundef %100)
           to label %121 unwind label %138
 
 121:                                              ; preds = %120
   %122 = load ptr, ptr %6, align 8, !tbaa !17
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %122) #11, !srcloc !20
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #11
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %122) #15, !srcloc !20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !21
   %123 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %123, align 4, !tbaa !24
-  %124 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 304) #11
+  %124 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 304) #15
   %125 = icmp eq ptr %124, null
   br i1 %125, label %127, label %126
 
@@ -293,7 +293,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 133:                                              ; preds = %130
   %134 = load i32, ptr %7, align 4, !tbaa !21
   %135 = load i32, ptr %123, align 4, !tbaa !24
-  %136 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %131, ptr noundef nonnull @.str.12, ptr noundef %132, i32 noundef %134, i32 noundef %135) #12
+  %136 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %131, ptr noundef nonnull @.str.12, ptr noundef %132, i32 noundef %134, i32 noundef %135) #11
   %137 = load i32, ptr %3, align 4, !tbaa !14
   call void @exit(i32 noundef %137) #10
   unreachable
@@ -302,13 +302,13 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %139 = landingpad { ptr, i32 }
           cleanup
   %140 = load ptr, ptr %6, align 8, !tbaa !17
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %140) #11, !srcloc !20
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %140) #15, !srcloc !20
   br label %193
 
 141:                                              ; preds = %126
   %142 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %124) #11
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %124) #15
   br label %192
 
 143:                                              ; preds = %130
@@ -317,7 +317,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %192
 
 145:                                              ; preds = %127
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %146 = load ptr, ptr %124, align 8, !tbaa !25
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 200
   %148 = load ptr, ptr %147, align 8
@@ -342,7 +342,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
           to label %160 unwind label %165
 
 160:                                              ; preds = %157
-  %161 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %158, ptr noundef nonnull @.str.13, ptr noundef %47, ptr noundef %159) #12
+  %161 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %158, ptr noundef nonnull @.str.13, ptr noundef %47, ptr noundef %159) #11
   %162 = load i32, ptr %3, align 4, !tbaa !14
   call void @exit(i32 noundef %162) #10
   unreachable
@@ -373,7 +373,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 174:                                              ; preds = %171
   %175 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %176 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %175, ptr noundef nonnull @.str.14, i32 noundef %172) #12
+  %176 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %175, ptr noundef nonnull @.str.14, i32 noundef %172) #11
   %177 = load i32, ptr %3, align 4, !tbaa !14
   call void @exit(i32 noundef %177) #10
   unreachable
@@ -385,15 +385,15 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 180:                                              ; preds = %178
   %181 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %182 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %181, ptr noundef nonnull @.str.15, ptr noundef %47) #12
-  call void @exit(i32 noundef -1) #13
+  %182 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %181, ptr noundef nonnull @.str.15, ptr noundef %47) #11
+  call void @exit(i32 noundef -1) #12
   unreachable
 
 183:                                              ; preds = %178
   %184 = load ptr, ptr %124, align 8, !tbaa !25
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
   %186 = load ptr, ptr %185, align 8
-  call void %186(ptr noundef nonnull align 8 dereferenceable(297) %124) #11
+  call void %186(ptr noundef nonnull align 8 dereferenceable(297) %124) #15
   call void @_ZdaPv(ptr noundef nonnull %111) #16
   call void @_ZdaPv(ptr noundef nonnull %73) #16
   invoke void @u_cleanup_77()
@@ -409,35 +409,32 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %190
 
 190:                                              ; preds = %189, %187
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #11
-  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #11
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 
 191:                                              ; preds = %165, %163
   %.pn = phi { ptr, i32 } [ %166, %165 ], [ %164, %163 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %192
 
 192:                                              ; preds = %141, %191, %143
   %.pn91 = phi { ptr, i32 } [ %144, %143 ], [ %.pn, %191 ], [ %142, %141 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #11
-  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #15
   br label %193
 
 193:                                              ; preds = %192, %138
   %.pn91.pn = phi { ptr, i32 } [ %.pn91, %192 ], [ %139, %138 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn91.pn
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 declare i32 @u_parseArgs(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -460,7 +457,7 @@ declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef)
 declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #6
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
@@ -481,12 +478,12 @@ declare void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef non
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef) local_unnamed_addr #7
+declare noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef) local_unnamed_addr #6
 
 declare void @_ZN6icu_7722RuleBasedBreakIteratorC1ERKNS_13UnicodeStringER11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(297), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(72), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_777UMemorydlEPv(ptr noundef) local_unnamed_addr #7
+declare void @_ZN6icu_777UMemorydlEPv(ptr noundef) local_unnamed_addr #6
 
 declare ptr @udata_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -495,15 +492,18 @@ declare void @udata_writeBlock(ptr noundef, ptr noundef, i32 noundef) local_unna
 declare i32 @udata_finish(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #8
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #7
 
 declare void @u_cleanup_77() local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
-
 ; Function Attrs: nounwind
-declare void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #7
+declare void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
@@ -516,17 +516,17 @@ attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buf
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress norecurse uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nofree nounwind }
 attributes #10 = { noreturn nounwind }
-attributes #11 = { nounwind }
-attributes #12 = { cold nounwind }
-attributes #13 = { cold noreturn nounwind }
-attributes #14 = { cold }
-attributes #15 = { builtin allocsize(0) }
+attributes #11 = { cold nounwind }
+attributes #12 = { cold noreturn nounwind }
+attributes #13 = { cold }
+attributes #14 = { builtin allocsize(0) }
+attributes #15 = { nounwind }
 attributes #16 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

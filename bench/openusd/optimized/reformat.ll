@@ -2017,8 +2017,8 @@ define internal fastcc i32 @avifImageYUVToRGBImpl(ptr noundef %0, ptr noundef %1
   br i1 %136, label %.thread131, label %586
 
 .thread131:                                       ; preds = %87, %79, %84, %90, %94, %98, %102, %135
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %137 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %138 = load float, ptr %137, align 4
   %139 = getelementptr inbounds nuw i8, ptr %2, i64 36
@@ -2699,8 +2699,8 @@ avifCreateYUVToRGBLookUpTables.exit.thread.sink.split.i: ; preds = %585, %._crit
 
 avifImageYUVAnyToRGBAnySlow.exit:                 ; preds = %.thread131, %avifCreateYUVToRGBLookUpTables.exit.thread.sink.split.i
   %.0.i = phi i32 [ 26, %.thread131 ], [ %.0.ph.i, %avifCreateYUVToRGBLookUpTables.exit.thread.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %586
 
 586:                                              ; preds = %avifImageYUVAnyToRGBAnySlow.exit, %135
@@ -5260,10 +5260,10 @@ declare i32 @llvm.smin.i32(i32, i32) #7
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7

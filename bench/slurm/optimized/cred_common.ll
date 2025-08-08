@@ -245,7 +245,7 @@ define dso_local ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_
   br i1 %.not435, label %135, label %127
 
 127:                                              ; preds = %125
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %128 = tail call ptr @bit_fmt_hexmask(ptr noundef nonnull %126) #6
   store ptr %128, ptr %3, align 8
   %129 = load ptr, ptr %120, align 8
@@ -257,7 +257,7 @@ define dso_local ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_
   %134 = add i32 %133, 1
   tail call void @packmem(ptr noundef nonnull %128, i32 noundef %134, ptr noundef %9) #6
   call void @slurm_xfree(ptr noundef nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %136
 
 135:                                              ; preds = %125
@@ -271,7 +271,7 @@ define dso_local ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_
   br i1 %.not436, label %147, label %139
 
 139:                                              ; preds = %136
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %140 = call ptr @bit_fmt_hexmask(ptr noundef nonnull %138) #6
   store ptr %140, ptr %4, align 8
   %141 = load ptr, ptr %137, align 8
@@ -283,7 +283,7 @@ define dso_local ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_
   %146 = add i32 %145, 1
   call void @packmem(ptr noundef nonnull %140, i32 noundef %146, ptr noundef %9) #6
   call void @slurm_xfree(ptr noundef nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %148
 
 147:                                              ; preds = %136
@@ -671,7 +671,7 @@ _packstr_and_switch.exit:                         ; preds = %292, %293
   br i1 %.not413, label %357, label %349
 
 349:                                              ; preds = %347
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %350 = tail call ptr @bit_fmt_hexmask(ptr noundef nonnull %348) #6
   store ptr %350, ptr %5, align 8
   %351 = load ptr, ptr %342, align 8
@@ -683,7 +683,7 @@ _packstr_and_switch.exit:                         ; preds = %292, %293
   %356 = add i32 %355, 1
   tail call void @packmem(ptr noundef nonnull %350, i32 noundef %356, ptr noundef %9) #6
   call void @slurm_xfree(ptr noundef nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %358
 
 357:                                              ; preds = %347
@@ -697,7 +697,7 @@ _packstr_and_switch.exit:                         ; preds = %292, %293
   br i1 %.not414, label %369, label %361
 
 361:                                              ; preds = %358
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %362 = call ptr @bit_fmt_hexmask(ptr noundef nonnull %360) #6
   store ptr %362, ptr %6, align 8
   %363 = load ptr, ptr %359, align 8
@@ -709,7 +709,7 @@ _packstr_and_switch.exit:                         ; preds = %292, %293
   %368 = add i32 %367, 1
   call void @packmem(ptr noundef nonnull %362, i32 noundef %368, ptr noundef %9) #6
   call void @slurm_xfree(ptr noundef nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %370
 
 369:                                              ; preds = %358
@@ -850,53 +850,47 @@ _packstr_and_switch.exit:                         ; preds = %292, %293
   ret ptr %8
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #2
+declare i64 @time(ptr noundef) local_unnamed_addr #1
 
-declare ptr @slurm_cred_alloc(i1 noundef zeroext) local_unnamed_addr #3
+declare ptr @slurm_cred_alloc(i1 noundef zeroext) local_unnamed_addr #2
 
-declare ptr @init_buf(i32 noundef) local_unnamed_addr #3
+declare ptr @init_buf(i32 noundef) local_unnamed_addr #2
 
-declare void @pack_step_id(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #3
+declare void @pack_step_id(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
 
-declare void @pack_identity(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #3
+declare void @pack_identity(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
 
-declare i32 @gres_job_state_pack(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #3
+declare i32 @gres_job_state_pack(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #2
 
-declare i32 @gres_step_state_pack(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #3
+declare i32 @gres_step_state_pack(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
 
-declare void @pack16(i16 noundef zeroext, ptr noundef) local_unnamed_addr #3
+declare void @pack16(i16 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
-declare void @packmem(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @packmem(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @slurm_pack_addr_array(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @slurm_pack_addr_array(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @pack_time(i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @pack_time(i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @bit_size(ptr noundef) local_unnamed_addr #2
 
-declare i64 @bit_size(ptr noundef) local_unnamed_addr #3
+declare void @pack32(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @pack32(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @bit_fmt_hexmask(ptr noundef) local_unnamed_addr #2
 
-declare ptr @bit_fmt_hexmask(ptr noundef) local_unnamed_addr #3
+declare void @slurm_xfree(ptr noundef) local_unnamed_addr #2
 
-declare void @slurm_xfree(ptr noundef) local_unnamed_addr #3
+declare void @pack16_array(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @pack16_array(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @pack32_array(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @pack32_array(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @pack64_array(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @pack64_array(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
-
-declare void @switch_g_pack_stepinfo(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #3
+declare void @switch_g_pack_stepinfo(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @cred_unpack(ptr noundef writeonly captures(none) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
@@ -944,13 +938,13 @@ define dso_local range(i32 -1, 1) i32 @cred_unpack(ptr noundef writeonly capture
   %45 = alloca i32, align 4
   %46 = alloca i32, align 4
   %47 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %48 = tail call ptr @slurm_cred_alloc(i1 noundef zeroext true) #6
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 80
   %50 = load ptr, ptr %49, align 8
@@ -990,11 +984,11 @@ define dso_local range(i32 -1, 1) i32 @cred_unpack(ptr noundef writeonly capture
   br i1 %.not370, label %69, label %492
 
 69:                                               ; preds = %66
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %70 = getelementptr inbounds nuw i8, ptr %50, i64 96
   %71 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %70, ptr noundef nonnull %9, ptr noundef %1) #6
   %.not371 = icmp eq i32 %71, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.not371, label %72, label %492
 
 72:                                               ; preds = %69
@@ -1004,27 +998,27 @@ define dso_local range(i32 -1, 1) i32 @cred_unpack(ptr noundef writeonly capture
   br i1 %.not372, label %75, label %492
 
 75:                                               ; preds = %72
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %76 = getelementptr inbounds nuw i8, ptr %50, i64 104
   %77 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %76, ptr noundef nonnull %10, ptr noundef %1) #6
   %.not373 = icmp eq i32 %77, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %.not373, label %78, label %492
 
 78:                                               ; preds = %75
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %79 = getelementptr inbounds nuw i8, ptr %50, i64 112
   %80 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %79, ptr noundef nonnull %11, ptr noundef %1) #6
   %.not374 = icmp eq i32 %80, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.not374, label %81, label %492
 
 81:                                               ; preds = %78
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %82 = getelementptr inbounds nuw i8, ptr %50, i64 120
   %83 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %82, ptr noundef nonnull %12, ptr noundef %1) #6
   %.not375 = icmp eq i32 %83, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %.not375, label %84, label %492
 
 84:                                               ; preds = %81
@@ -1034,11 +1028,11 @@ define dso_local range(i32 -1, 1) i32 @cred_unpack(ptr noundef writeonly capture
   br i1 %.not376, label %87, label %492
 
 87:                                               ; preds = %84
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %88 = getelementptr inbounds nuw i8, ptr %50, i64 152
   %89 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %88, ptr noundef nonnull %13, ptr noundef %1) #6
   %.not377 = icmp eq i32 %89, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %.not377, label %90, label %492
 
 90:                                               ; preds = %87
@@ -1048,19 +1042,19 @@ define dso_local range(i32 -1, 1) i32 @cred_unpack(ptr noundef writeonly capture
   br i1 %.not378, label %93, label %492
 
 93:                                               ; preds = %90
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %94 = getelementptr inbounds nuw i8, ptr %50, i64 224
   %95 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %94, ptr noundef nonnull %14, ptr noundef %1) #6
   %.not379 = icmp eq i32 %95, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %.not379, label %96, label %492
 
 96:                                               ; preds = %93
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %97 = getelementptr inbounds nuw i8, ptr %50, i64 232
   %98 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %97, ptr noundef nonnull %15, ptr noundef %1) #6
   %.not380 = icmp eq i32 %98, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %.not380, label %99, label %492
 
 99:                                               ; preds = %96
@@ -1076,35 +1070,35 @@ define dso_local range(i32 -1, 1) i32 @cred_unpack(ptr noundef writeonly capture
   br i1 %.not382, label %105, label %492
 
 105:                                              ; preds = %102
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %106 = getelementptr inbounds nuw i8, ptr %50, i64 264
   %107 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %106, ptr noundef nonnull %16, ptr noundef %1) #6
   %.not383 = icmp eq i32 %107, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br i1 %.not383, label %108, label %492
 
 108:                                              ; preds = %105
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %109 = getelementptr inbounds nuw i8, ptr %50, i64 272
   %110 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %109, ptr noundef nonnull %17, ptr noundef %1) #6
   %.not384 = icmp eq i32 %110, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br i1 %.not384, label %111, label %492
 
 111:                                              ; preds = %108
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %112 = getelementptr inbounds nuw i8, ptr %50, i64 280
   %113 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %112, ptr noundef nonnull %18, ptr noundef %1) #6
   %.not385 = icmp eq i32 %113, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br i1 %.not385, label %114, label %492
 
 114:                                              ; preds = %111
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %115 = getelementptr inbounds nuw i8, ptr %50, i64 304
   %116 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %115, ptr noundef nonnull %19, ptr noundef %1) #6
   %.not386 = icmp eq i32 %116, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br i1 %.not386, label %117, label %492
 
 117:                                              ; preds = %114
@@ -1125,9 +1119,9 @@ define dso_local range(i32 -1, 1) i32 @cred_unpack(ptr noundef writeonly capture
   br i1 %.not389, label %125, label %492
 
 125:                                              ; preds = %123
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr null, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %126 = call i32 @unpack32(ptr noundef nonnull %21, ptr noundef %1) #6
   %.not390 = icmp eq i32 %126, 0
   br i1 %.not390, label %127, label %.thread477
@@ -1138,10 +1132,10 @@ define dso_local range(i32 -1, 1) i32 @cred_unpack(ptr noundef writeonly capture
   br i1 %.not391, label %146, label %129
 
 129:                                              ; preds = %127
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %130 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %20, ptr noundef nonnull %22, ptr noundef %1) #6
   %.not392 = icmp eq i32 %130, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br i1 %.not392, label %131, label %149
 
 131:                                              ; preds = %129
@@ -1188,23 +1182,23 @@ define dso_local range(i32 -1, 1) i32 @cred_unpack(ptr noundef writeonly capture
   br label %.thread
 
 .thread:                                          ; preds = %146, %145
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store ptr null, ptr %23, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %148 = call i32 @unpack32(ptr noundef nonnull %24, ptr noundef %1) #6
   %.not396 = icmp eq i32 %148, 0
   br i1 %.not396, label %150, label %.thread485
 
 .thread477:                                       ; preds = %142, %125
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %492
 
 149:                                              ; preds = %129
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %492
 
 150:                                              ; preds = %.thread
@@ -1213,10 +1207,10 @@ define dso_local range(i32 -1, 1) i32 @cred_unpack(ptr noundef writeonly capture
   br i1 %.not397, label %169, label %152
 
 152:                                              ; preds = %150
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %153 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %23, ptr noundef nonnull %25, ptr noundef %1) #6
   %.not398 = icmp eq i32 %153, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br i1 %.not398, label %154, label %173
 
 154:                                              ; preds = %152
@@ -1263,21 +1257,21 @@ define dso_local range(i32 -1, 1) i32 @cred_unpack(ptr noundef writeonly capture
   br label %.thread481
 
 .thread481:                                       ; preds = %169, %168
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %171 = getelementptr inbounds nuw i8, ptr %50, i64 40
   %172 = call i32 @unpack16(ptr noundef nonnull %171, ptr noundef %1) #6
   %.not402 = icmp eq i32 %172, 0
   br i1 %.not402, label %174, label %492
 
 .thread485:                                       ; preds = %165, %.thread
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %492
 
 173:                                              ; preds = %152
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %492
 
 174:                                              ; preds = %.thread481
@@ -1372,19 +1366,19 @@ define dso_local range(i32 -1, 1) i32 @cred_unpack(ptr noundef writeonly capture
   br i1 %.not417, label %220, label %492
 
 220:                                              ; preds = %217
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %221 = getelementptr inbounds nuw i8, ptr %50, i64 160
   %222 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %221, ptr noundef nonnull %26, ptr noundef %1) #6
   %.not418 = icmp eq i32 %222, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br i1 %.not418, label %223, label %492
 
 223:                                              ; preds = %220
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %224 = getelementptr inbounds nuw i8, ptr %50, i64 168
   %225 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %224, ptr noundef nonnull %27, ptr noundef %1) #6
   %.not419 = icmp eq i32 %225, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br i1 %.not419, label %226, label %492
 
 226:                                              ; preds = %223
@@ -1458,11 +1452,11 @@ define dso_local range(i32 -1, 1) i32 @cred_unpack(ptr noundef writeonly capture
   br i1 %.not431, label %260, label %492
 
 260:                                              ; preds = %246, %257
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %261 = getelementptr inbounds nuw i8, ptr %50, i64 248
   %262 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %261, ptr noundef nonnull %28, ptr noundef %1) #6
   %.not432 = icmp eq i32 %262, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br i1 %.not432, label %263, label %492
 
 263:                                              ; preds = %260
@@ -1516,11 +1510,11 @@ define dso_local range(i32 -1, 1) i32 @cred_unpack(ptr noundef writeonly capture
   br i1 %.not303, label %287, label %492
 
 287:                                              ; preds = %284
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %288 = getelementptr inbounds nuw i8, ptr %50, i64 96
   %289 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %288, ptr noundef nonnull %29, ptr noundef %1) #6
   %.not304 = icmp eq i32 %289, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br i1 %.not304, label %290, label %492
 
 290:                                              ; preds = %287
@@ -1530,27 +1524,27 @@ define dso_local range(i32 -1, 1) i32 @cred_unpack(ptr noundef writeonly capture
   br i1 %.not305, label %293, label %492
 
 293:                                              ; preds = %290
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %294 = getelementptr inbounds nuw i8, ptr %50, i64 104
   %295 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %294, ptr noundef nonnull %30, ptr noundef %1) #6
   %.not306 = icmp eq i32 %295, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br i1 %.not306, label %296, label %492
 
 296:                                              ; preds = %293
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %297 = getelementptr inbounds nuw i8, ptr %50, i64 112
   %298 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %297, ptr noundef nonnull %31, ptr noundef %1) #6
   %.not307 = icmp eq i32 %298, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br i1 %.not307, label %299, label %492
 
 299:                                              ; preds = %296
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %300 = getelementptr inbounds nuw i8, ptr %50, i64 120
   %301 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %300, ptr noundef nonnull %32, ptr noundef %1) #6
   %.not308 = icmp eq i32 %301, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br i1 %.not308, label %302, label %492
 
 302:                                              ; preds = %299
@@ -1560,11 +1554,11 @@ define dso_local range(i32 -1, 1) i32 @cred_unpack(ptr noundef writeonly capture
   br i1 %.not309, label %305, label %492
 
 305:                                              ; preds = %302
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %306 = getelementptr inbounds nuw i8, ptr %50, i64 152
   %307 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %306, ptr noundef nonnull %33, ptr noundef %1) #6
   %.not310 = icmp eq i32 %307, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br i1 %.not310, label %308, label %492
 
 308:                                              ; preds = %305
@@ -1581,11 +1575,11 @@ define dso_local range(i32 -1, 1) i32 @cred_unpack(ptr noundef writeonly capture
   br i1 %.not312, label %315, label %492
 
 315:                                              ; preds = %311
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %316 = getelementptr inbounds nuw i8, ptr %50, i64 232
   %317 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %316, ptr noundef nonnull %34, ptr noundef %1) #6
   %.not313 = icmp eq i32 %317, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br i1 %.not313, label %318, label %492
 
 318:                                              ; preds = %315
@@ -1601,35 +1595,35 @@ define dso_local range(i32 -1, 1) i32 @cred_unpack(ptr noundef writeonly capture
   br i1 %.not315, label %324, label %492
 
 324:                                              ; preds = %321
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %325 = getelementptr inbounds nuw i8, ptr %50, i64 264
   %326 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %325, ptr noundef nonnull %35, ptr noundef %1) #6
   %.not316 = icmp eq i32 %326, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br i1 %.not316, label %327, label %492
 
 327:                                              ; preds = %324
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %328 = getelementptr inbounds nuw i8, ptr %50, i64 272
   %329 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %328, ptr noundef nonnull %36, ptr noundef %1) #6
   %.not317 = icmp eq i32 %329, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br i1 %.not317, label %330, label %492
 
 330:                                              ; preds = %327
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %37) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %331 = getelementptr inbounds nuw i8, ptr %50, i64 280
   %332 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %331, ptr noundef nonnull %37, ptr noundef %1) #6
   %.not318 = icmp eq i32 %332, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br i1 %.not318, label %333, label %492
 
 333:                                              ; preds = %330
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %38) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %334 = getelementptr inbounds nuw i8, ptr %50, i64 304
   %335 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %334, ptr noundef nonnull %38, ptr noundef %1) #6
   %.not319 = icmp eq i32 %335, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br i1 %.not319, label %336, label %492
 
 336:                                              ; preds = %333
@@ -1650,9 +1644,9 @@ define dso_local range(i32 -1, 1) i32 @cred_unpack(ptr noundef writeonly capture
   br i1 %.not322, label %344, label %492
 
 344:                                              ; preds = %342
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store ptr null, ptr %39, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %40) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %345 = call i32 @unpack32(ptr noundef nonnull %40, ptr noundef %1) #6
   %.not323 = icmp eq i32 %345, 0
   br i1 %.not323, label %346, label %.thread493
@@ -1663,10 +1657,10 @@ define dso_local range(i32 -1, 1) i32 @cred_unpack(ptr noundef writeonly capture
   br i1 %.not324, label %365, label %348
 
 348:                                              ; preds = %346
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %349 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %39, ptr noundef nonnull %41, ptr noundef %1) #6
   %.not325 = icmp eq i32 %349, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br i1 %.not325, label %350, label %368
 
 350:                                              ; preds = %348
@@ -1713,23 +1707,23 @@ define dso_local range(i32 -1, 1) i32 @cred_unpack(ptr noundef writeonly capture
   br label %.thread489
 
 .thread489:                                       ; preds = %365, %364
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %40) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store ptr null, ptr %42, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %43) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %367 = call i32 @unpack32(ptr noundef nonnull %43, ptr noundef %1) #6
   %.not329 = icmp eq i32 %367, 0
   br i1 %.not329, label %369, label %.thread501
 
 .thread493:                                       ; preds = %361, %344
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %40) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %492
 
 368:                                              ; preds = %348
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %40) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %492
 
 369:                                              ; preds = %.thread489
@@ -1738,10 +1732,10 @@ define dso_local range(i32 -1, 1) i32 @cred_unpack(ptr noundef writeonly capture
   br i1 %.not330, label %388, label %371
 
 371:                                              ; preds = %369
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %44) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   %372 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %42, ptr noundef nonnull %44, ptr noundef %1) #6
   %.not331 = icmp eq i32 %372, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br i1 %.not331, label %373, label %392
 
 373:                                              ; preds = %371
@@ -1788,21 +1782,21 @@ define dso_local range(i32 -1, 1) i32 @cred_unpack(ptr noundef writeonly capture
   br label %.thread497
 
 .thread497:                                       ; preds = %388, %387
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   %390 = getelementptr inbounds nuw i8, ptr %50, i64 40
   %391 = call i32 @unpack16(ptr noundef nonnull %390, ptr noundef %1) #6
   %.not335 = icmp eq i32 %391, 0
   br i1 %.not335, label %393, label %492
 
 .thread501:                                       ; preds = %384, %.thread489
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %492
 
 392:                                              ; preds = %371
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %492
 
 393:                                              ; preds = %.thread497
@@ -1897,19 +1891,19 @@ define dso_local range(i32 -1, 1) i32 @cred_unpack(ptr noundef writeonly capture
   br i1 %.not350, label %439, label %492
 
 439:                                              ; preds = %436
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %45) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   %440 = getelementptr inbounds nuw i8, ptr %50, i64 160
   %441 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %440, ptr noundef nonnull %45, ptr noundef %1) #6
   %.not351 = icmp eq i32 %441, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br i1 %.not351, label %442, label %492
 
 442:                                              ; preds = %439
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %46) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   %443 = getelementptr inbounds nuw i8, ptr %50, i64 168
   %444 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %443, ptr noundef nonnull %46, ptr noundef %1) #6
   %.not352 = icmp eq i32 %444, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %46) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br i1 %.not352, label %445, label %492
 
 445:                                              ; preds = %442
@@ -1983,11 +1977,11 @@ define dso_local range(i32 -1, 1) i32 @cred_unpack(ptr noundef writeonly capture
   br i1 %.not364, label %479, label %492
 
 479:                                              ; preds = %465, %476
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %47) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   %480 = getelementptr inbounds nuw i8, ptr %50, i64 248
   %481 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %480, ptr noundef nonnull %47, ptr noundef %1) #6
   %.not365 = icmp eq i32 %481, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %47) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br i1 %.not365, label %484, label %492
 
 482:                                              ; preds = %269
@@ -2014,53 +2008,53 @@ define dso_local range(i32 -1, 1) i32 @cred_unpack(ptr noundef writeonly capture
 
 493:                                              ; preds = %492, %484
   %.0294 = phi i32 [ -1, %492 ], [ 0, %484 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0294
 }
 
-declare i32 @unpack_step_id_members(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #3
+declare i32 @unpack_step_id_members(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
 
-declare i32 @unpack_identity(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #3
+declare i32 @unpack_identity(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
 
-declare i32 @gres_job_state_unpack(ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #3
+declare i32 @gres_job_state_unpack(ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #2
 
-declare i32 @gres_step_state_unpack(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #3
+declare i32 @gres_step_state_unpack(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
 
-declare i32 @unpack16(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @unpack16(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @unpackstr_xmalloc_chooser(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @unpackstr_xmalloc_chooser(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @slurm_unpack_addr_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @slurm_unpack_addr_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @unpack_time(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @unpack_time(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @unpack32(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @unpack32(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @bit_alloc(i64 noundef) local_unnamed_addr #3
+declare ptr @bit_alloc(i64 noundef) local_unnamed_addr #2
 
-declare i32 @bit_unfmt_hexmask(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @bit_unfmt_hexmask(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @slurm_bit_free(ptr noundef) local_unnamed_addr #3
+declare void @slurm_bit_free(ptr noundef) local_unnamed_addr #2
 
-declare i32 @unpack16_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @unpack16_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @unpack32_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @unpack32_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @unpack64_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @unpack64_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @switch_g_unpack_stepinfo(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #3
+declare i32 @switch_g_unpack_stepinfo(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
 
-declare void @switch_g_free_stepinfo(ptr noundef) local_unnamed_addr #3
+declare void @switch_g_free_stepinfo(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @_unpackstr_and_switch(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i16 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %8 = load i32, ptr %7, align 4
@@ -2087,7 +2081,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpackstr_and_switch(ptr noundef %
   br i1 %20, label %21, label %30
 
 21:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %22 = load i32, ptr %7, align 4
   %23 = add i32 %8, 4
@@ -2111,24 +2105,24 @@ define internal fastcc range(i32 -1, 1) i32 @_unpackstr_and_switch(ptr noundef %
 
 .sink.split:                                      ; preds = %.thread, %27
   %.0.ph = phi i32 [ -1, %27 ], [ 0, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %30
 
 30:                                               ; preds = %.sink.split, %4, %14, %12, %10
   %.0 = phi i32 [ 0, %10 ], [ 0, %12 ], [ 0, %14 ], [ -1, %4 ], [ %.0.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-declare i32 @error(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @slurm_cred_destroy(ptr noundef) local_unnamed_addr #3
+declare void @slurm_cred_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @cred_unpack_with_signature(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
@@ -2142,11 +2136,11 @@ define dso_local ptr @cred_unpack_with_signature(ptr noundef %0, i16 noundef zer
   %10 = sub i32 %9, %6
   %11 = getelementptr inbounds nuw i8, ptr %.pre, i64 72
   store i32 %10, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = getelementptr inbounds nuw i8, ptr %.pre, i64 96
   %13 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %12, ptr noundef nonnull %4, ptr noundef nonnull %0) #6
   %.not16 = icmp eq i32 %13, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not16, label %14, label %31
 
 14:                                               ; preds = %8
@@ -2180,14 +2174,14 @@ define dso_local ptr @cred_unpack_with_signature(ptr noundef %0, i16 noundef zer
 
 32:                                               ; preds = %14, %16, %31
   %.015 = phi ptr [ null, %31 ], [ %.pre, %16 ], [ %.pre, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.015
 }
 
-declare zeroext i1 @running_in_slurmstepd() local_unnamed_addr #3
+declare zeroext i1 @running_in_slurmstepd() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @sbcast_cred_pack(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
@@ -2278,11 +2272,11 @@ define dso_local ptr @sbcast_cred_unpack(ptr noundef %0, ptr noundef writeonly c
   br i1 %.not55, label %27, label %70
 
 27:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %29 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %28, ptr noundef nonnull %4, ptr noundef nonnull %0) #6
   %.not56 = icmp eq i32 %29, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not56, label %30, label %70
 
 30:                                               ; preds = %27
@@ -2326,11 +2320,11 @@ define dso_local ptr @sbcast_cred_unpack(ptr noundef %0, ptr noundef writeonly c
   %48 = load i32, ptr %7, align 4
   %49 = sub i32 %48, %8
   store i32 %49, ptr %1, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %51 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %50, ptr noundef nonnull %5, ptr noundef nonnull %0) #6
   %.not60 = icmp eq i32 %51, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not60, label %52, label %70
 
 52:                                               ; preds = %46
@@ -2370,30 +2364,36 @@ define dso_local ptr @sbcast_cred_unpack(ptr noundef %0, ptr noundef writeonly c
   ret ptr %.0
 }
 
-declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @get_log_level() local_unnamed_addr #3
+declare i32 @get_log_level() local_unnamed_addr #2
 
-declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @destroy_identity(ptr noundef) local_unnamed_addr #3
+declare void @destroy_identity(ptr noundef) local_unnamed_addr #2
 
-declare ptr @fetch_identity(i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare ptr @fetch_identity(i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @identity_debug2(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @identity_debug2(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @running_in_slurmd() local_unnamed_addr #3
+declare zeroext i1 @running_in_slurmd() local_unnamed_addr #2
 
-declare void @delete_sbcast_cred(ptr noundef) local_unnamed_addr #3
+declare void @delete_sbcast_cred(ptr noundef) local_unnamed_addr #2
 
-declare void @pack8(i8 noundef zeroext, ptr noundef) local_unnamed_addr #3
+declare void @pack8(i8 noundef zeroext, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(read) }
 

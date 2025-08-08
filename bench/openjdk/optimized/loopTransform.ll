@@ -7290,7 +7290,7 @@ _ZN14PhaseIdealLoop8set_ctrlEP4NodeS1_.exit:      ; preds = %18, %30
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %70 = load ptr, ptr %69, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 48
   %72 = load i32, ptr %71, align 8
@@ -7326,14 +7326,14 @@ _ZN14PhaseIdealLoop8set_ctrlEP4NodeS1_.exit:      ; preds = %18, %30
   br label %_ZN14PhaseIdealLoop30is_scaled_iv_plus_extra_offsetEP4NodeS1_S1_9BasicTypePlPS1_Pbi.exit.thread
 
 _ZN14PhaseIdealLoop30is_scaled_iv_plus_extra_offsetEP4NodeS1_S1_9BasicTypePlPS1_Pbi.exit.thread: ; preds = %80, %79
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %182
 
 84:                                               ; preds = %._crit_edge, %65
   %85 = phi ptr [ %.pre106, %._crit_edge ], [ %68, %65 ]
   %86 = phi ptr [ %.pre104, %._crit_edge ], [ %70, %65 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 48
   %88 = load i32, ptr %87, align 8
@@ -7360,11 +7360,11 @@ _ZN14PhaseIdealLoop30is_scaled_iv_plus_extra_offsetEP4NodeS1_S1_9BasicTypePlPS1_
   br label %_ZN14PhaseIdealLoop30is_scaled_iv_plus_extra_offsetEP4NodeS1_S1_9BasicTypePlPS1_Pbi.exit94.thread
 
 _ZN14PhaseIdealLoop30is_scaled_iv_plus_extra_offsetEP4NodeS1_S1_9BasicTypePlPS1_Pbi.exit94.thread: ; preds = %95, %94
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %182
 
 _ZN14PhaseIdealLoop30is_scaled_iv_plus_extra_offsetEP4NodeS1_S1_9BasicTypePlPS1_Pbi.exit94: ; preds = %84, %91
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %182
 
 99:                                               ; preds = %39
@@ -10859,7 +10859,7 @@ _ZN4Node7set_reqEjPS_.exit254:                    ; preds = %706, %695, %_ZN4Nod
   %718 = load ptr, ptr %717, align 8
   %719 = getelementptr inbounds nuw i8, ptr %718, i64 8
   %720 = load ptr, ptr %719, align 8
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %721 = load i8, ptr @UseLoopPredicate, align 1
   %722 = trunc i8 %721 to i1
   br i1 %722, label %723, label %_ZN14PhaseIdealLoop38copy_assertion_predicates_to_main_loopEP15CountedLoopNodeP4NodeS3_P13IdealLoopTreeP8LoopNodejjjS3_S3_RK9Node_List.exit
@@ -10879,7 +10879,7 @@ _ZN4Node7set_reqEjPS_.exit254:                    ; preds = %706, %695, %_ZN4Nod
 
 _ZN14PhaseIdealLoop38copy_assertion_predicates_to_main_loopEP15CountedLoopNodeP4NodeS3_P13IdealLoopTreeP8LoopNodejjjS3_S3_RK9Node_List.exit: ; preds = %._crit_edge, %723
   %730 = phi ptr [ %716, %._crit_edge ], [ %.pre, %723 ]
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %731 = load ptr, ptr %7, align 8
   call void @_ZN14PhaseIdealLoop38copy_assertion_predicates_to_post_loopEP8LoopNodeP15CountedLoopNodeP4NodeS5_(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef nonnull %.0179305, ptr noundef %730, ptr noundef %731, ptr noundef %148)
   %732 = getelementptr inbounds nuw i8, ptr %291, i64 8
@@ -12718,8 +12718,8 @@ _ZN14PhaseIdealLoop8set_ctrlEP4NodeS1_.exit:      ; preds = %_ZNK14PhaseIdealLoo
   br i1 %87, label %88, label %96
 
 88:                                               ; preds = %79
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %89 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
@@ -12727,8 +12727,8 @@ _ZN14PhaseIdealLoop8set_ctrlEP4NodeS1_.exit:      ; preds = %_ZNK14PhaseIdealLoo
   call void @_ZN14PhaseIdealLoop23count_opaque_loop_nodesEP4NodeRjS2_(ptr noundef %92, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %93 = load i32, ptr %6, align 4
   %.not48 = icmp eq i32 %93, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not48, label %133, label %94
 
 94:                                               ; preds = %88
@@ -17680,18 +17680,18 @@ _ZNK14PhaseIdealLoop8get_loopEP4Node.exit239:     ; preds = %_ZNK14PhaseIdealLoo
 
 462:                                              ; preds = %457
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %463 = call noundef zeroext i1 @_ZN14PhaseIdealLoop24is_scaled_iv_plus_offsetEP4NodeS1_9BasicTypePlPS1_Pbi(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef %.0183, ptr noundef %116, i8 noundef zeroext 10, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0)
   br i1 %463, label %464, label %_ZN14PhaseIdealLoop24is_scaled_iv_plus_offsetEP4NodeS1_PiPS1_.exit
 
 _ZN14PhaseIdealLoop24is_scaled_iv_plus_offsetEP4NodeS1_PiPS1_.exit: ; preds = %462
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %673
 
 464:                                              ; preds = %462
   %465 = load i64, ptr %4, align 8
   %466 = trunc i64 %465 to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %467 = load ptr, ptr %7, align 8
   %468 = getelementptr inbounds nuw i8, ptr %467, i64 40
   %469 = load i32, ptr %468, align 8
@@ -23788,10 +23788,10 @@ declare i32 @llvm.ctpop.i32(i32) #7
 declare i32 @llvm.umin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

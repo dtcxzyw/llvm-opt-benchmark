@@ -584,8 +584,8 @@ define hidden void @PORT_GetControls(ptr noundef captures(address_is_null) %0, i
   %spec.select = select i1 %42, i32 32, i32 33
   %61 = getelementptr inbounds nuw i8, ptr %54, i64 24
   store i32 %spec.select, ptr %61, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br i1 %.not90, label %64, label %62
 
 62:                                               ; preds = %50
@@ -607,8 +607,8 @@ createVolumeControl.exit:                         ; preds = %62, %64
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %73 = load ptr, ptr %72, align 8
   %74 = call ptr %73(ptr noundef %2, ptr noundef nonnull %54, ptr noundef nonnull inttoptr (i64 4 to ptr), float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef %71, ptr noundef nonnull @.str.4) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %74, ptr %8, align 8
   %.not101 = icmp eq ptr %74, null
   br i1 %.not101, label %getControlSlot.exit.thread, label %75
@@ -653,8 +653,8 @@ createVolumeControl.exit:                         ; preds = %62, %64
   store ptr inttoptr (i64 4 to ptr), ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %86, i64 24
   store i32 %.0159, ptr %93, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %.not90, label %96, label %94
 
 94:                                               ; preds = %83
@@ -675,8 +675,8 @@ createVolumeControl.exit122:                      ; preds = %94, %96
   %103 = fdiv float 1.000000e+00, %102
   %104 = load ptr, ptr %45, align 8
   %105 = call ptr %104(ptr noundef %2, ptr noundef nonnull %86, ptr noundef nonnull inttoptr (i64 4 to ptr), float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef %103, ptr noundef nonnull @.str.4) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %105, ptr %8, align 8
   %.not98 = icmp eq ptr %105, null
   br i1 %.not98, label %getControlSlot.exit119.thread, label %106
@@ -1187,10 +1187,10 @@ getFakeBalance.exit:                              ; preds = %14, %17, %19
 declare float @llvm.fmuladd.f32(float, float, float) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

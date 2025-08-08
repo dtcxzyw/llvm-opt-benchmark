@@ -56,7 +56,7 @@ define void @_ZN9grpc_core29PrivateKeyAndCertificateMatchESt17basic_string_viewI
   br i1 %13, label %14, label %25
 
 14:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4absl12lts_2024072220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.absl::lts_20240722::Status") align 8 %6, i64 28, ptr nonnull @.str)
   %15 = load i64, ptr %6, align 8, !tbaa !3
   store i64 %15, ptr %0, align 8, !tbaa !3
@@ -73,7 +73,7 @@ define void @_ZN9grpc_core29PrivateKeyAndCertificateMatchESt17basic_string_viewI
           cleanup
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %0) #10
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %111
 
 _ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit: ; preds = %17
@@ -95,7 +95,7 @@ _ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_s
   unreachable
 
 _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %14, %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit, %20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %110
 
 25:                                               ; preds = %5
@@ -103,7 +103,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %14, %_ZN4absl12lts_
   br i1 %26, label %27, label %38
 
 27:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN4absl12lts_2024072220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.absl::lts_20240722::Status") align 8 %7, i64 28, ptr nonnull @.str.1)
   %28 = load i64, ptr %7, align 8, !tbaa !3
   store i64 %28, ptr %0, align 8, !tbaa !3
@@ -120,7 +120,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %14, %_ZN4absl12lts_
           cleanup
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %0) #10
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %111
 
 _ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit40: ; preds = %30
@@ -142,7 +142,7 @@ _ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_s
   unreachable
 
 _ZN4absl12lts_202407226StatusD2Ev.exit42:         ; preds = %27, %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit40, %33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %110
 
 38:                                               ; preds = %25
@@ -153,7 +153,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit42:         ; preds = %27, %_ZN4absl12lts_
   br i1 %41, label %42, label %53
 
 42:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN4absl12lts_2024072220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.absl::lts_20240722::Status") align 8 %8, i64 49, ptr nonnull @.str.2)
   %43 = load i64, ptr %8, align 8, !tbaa !3
   store i64 %43, ptr %0, align 8, !tbaa !3
@@ -170,7 +170,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit42:         ; preds = %27, %_ZN4absl12lts_
           cleanup
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %0) #10
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %111
 
 _ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit45: ; preds = %45
@@ -192,7 +192,7 @@ _ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_s
   unreachable
 
 _ZN4absl12lts_202407226StatusD2Ev.exit47:         ; preds = %42, %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit45, %48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %110
 
 53:                                               ; preds = %38
@@ -202,7 +202,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit47:         ; preds = %42, %_ZN4absl12lts_
   br i1 %56, label %57, label %68
 
 57:                                               ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN4absl12lts_2024072220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.absl::lts_20240722::Status") align 8 %9, i64 42, ptr nonnull @.str.3)
   %58 = load i64, ptr %9, align 8, !tbaa !3
   store i64 %58, ptr %0, align 8, !tbaa !3
@@ -219,7 +219,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit47:         ; preds = %42, %_ZN4absl12lts_
           cleanup
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %0) #10
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %111
 
 _ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit50: ; preds = %60
@@ -241,7 +241,7 @@ _ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_s
   unreachable
 
 _ZN4absl12lts_202407226StatusD2Ev.exit52:         ; preds = %57, %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit50, %63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %110
 
 68:                                               ; preds = %53
@@ -251,7 +251,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit52:         ; preds = %57, %_ZN4absl12lts_
   br i1 %70, label %71, label %82
 
 71:                                               ; preds = %68
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN4absl12lts_2024072220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.absl::lts_20240722::Status") align 8 %10, i64 55, ptr nonnull @.str.4)
   %72 = load i64, ptr %10, align 8, !tbaa !3
   store i64 %72, ptr %0, align 8, !tbaa !3
@@ -268,7 +268,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit52:         ; preds = %57, %_ZN4absl12lts_
           cleanup
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %0) #10
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %111
 
 _ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit55: ; preds = %74
@@ -290,7 +290,7 @@ _ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_s
   unreachable
 
 _ZN4absl12lts_202407226StatusD2Ev.exit57:         ; preds = %71, %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit55, %77
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %110
 
 82:                                               ; preds = %68
@@ -302,7 +302,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit57:         ; preds = %71, %_ZN4absl12lts_
 
 86:                                               ; preds = %82
   tail call void @EVP_PKEY_free(ptr noundef nonnull %69)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN4absl12lts_2024072220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.absl::lts_20240722::Status") align 8 %11, i64 49, ptr nonnull @.str.5)
   %87 = load i64, ptr %11, align 8, !tbaa !3
   store i64 %87, ptr %0, align 8, !tbaa !3
@@ -319,7 +319,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit57:         ; preds = %71, %_ZN4absl12lts_
           cleanup
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %0) #10
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %111
 
 _ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit60: ; preds = %89
@@ -341,7 +341,7 @@ _ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_s
   unreachable
 
 _ZN4absl12lts_202407226StatusD2Ev.exit62:         ; preds = %86, %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit60, %92
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %110
 
 97:                                               ; preds = %82
@@ -352,21 +352,21 @@ _ZN4absl12lts_202407226StatusD2Ev.exit62:         ; preds = %86, %_ZN4absl12lts_
 
 101:                                              ; preds = %97
   tail call void @EVP_PKEY_free(ptr noundef nonnull %69)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN4absl12lts_2024072220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.absl::lts_20240722::Status") align 8 %12, i64 46, ptr nonnull @.str.6)
   invoke void @_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %102 unwind label %103
 
 102:                                              ; preds = %101
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %110
 
 103:                                              ; preds = %101
   %104 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %111
 
 105:                                              ; preds = %97
@@ -387,9 +387,6 @@ _ZN4absl12lts_202407226StatusD2Ev.exit62:         ; preds = %86, %_ZN4absl12lts_
   %.pn36 = phi { ptr, i32 } [ %18, %.body ], [ %31, %.body38 ], [ %46, %.body43 ], [ %61, %.body48 ], [ %75, %.body53 ], [ %90, %.body58 ], [ %104, %103 ]
   resume { ptr, i32 } %.pn36
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 declare void @_ZN4absl12lts_2024072220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind writable sret(%"class.absl::lts_20240722::Status") align 8, i64, ptr) local_unnamed_addr #0
 
@@ -419,7 +416,7 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataIbEC2INS0_6StatusETnNSt9e
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i64, ptr %0, align 8, !tbaa !3
   %3 = and i64 %2, 1
   %.not.i = icmp eq i64 %3, 0
@@ -441,9 +438,6 @@ _ZN4absl12lts_202407226Status5UnrefEm.exit:       ; preds = %1, %4
   unreachable
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 declare ptr @BIO_new_mem_buf(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 declare ptr @PEM_read_bio_X509(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -461,7 +455,7 @@ declare ptr @PEM_read_bio_PrivateKey(ptr noundef, ptr noundef, ptr noundef, ptr 
 declare i32 @EVP_PKEY_cmp(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal void @__cxx_global_var_init.7() #6 section ".text.startup" comdat($_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E) {
+define internal void @__cxx_global_var_init.7() #5 section ".text.startup" comdat($_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E) {
   %1 = load i8, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   %2 = icmp eq i8 %1, 0
   br i1 %2, label %3, label %4
@@ -476,7 +470,7 @@ define internal void @__cxx_global_var_init.7() #6 section ".text.startup" comda
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
   tail call void @_ZSt9terminatev() #11
   unreachable
@@ -485,29 +479,35 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #8
+declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 declare void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 declare void @_ZN4absl12lts_2024072217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_grpc_tls_certificate_match.cc() #9 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_grpc_tls_certificate_match.cc() #8 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #10
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold nofree noreturn }
-attributes #9 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold nofree noreturn }
+attributes #8 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nounwind }
 attributes #11 = { noreturn nounwind }
 

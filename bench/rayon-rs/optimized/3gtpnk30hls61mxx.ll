@@ -12,7 +12,7 @@ define void @"_ZN86_$LT$rayon..str..CharsProducer$u20$as$u20$rayon..iter..plumbi
   %5 = alloca { ptr, ptr }, align 8
   %6 = lshr i64 %2, 1
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !4
   %8 = getelementptr inbounds i8, ptr %1, i64 %2
   store ptr %7, ptr %5, align 8, !noalias !4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -23,7 +23,7 @@ define void @"_ZN86_$LT$rayon..str..CharsProducer$u20$as$u20$rayon..iter..plumbi
   br i1 %switch21.i, label %11, label %14
 
 11:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4
   store ptr %1, ptr %4, align 8, !noalias !4
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %7, ptr %12, align 8, !noalias !4
@@ -31,7 +31,7 @@ define void @"_ZN86_$LT$rayon..str..CharsProducer$u20$as$u20$rayon..iter..plumbi
   %.fca.0.extract.i.i = extractvalue { i64, i64 } %13, 0
   %switch.i.i = icmp eq i64 %.fca.0.extract.i.i, 0
   %.fca.1.extract.i.i = extractvalue { i64, i64 } %13, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !4
   br i1 %switch.i.i, label %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread, label %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit
 
 14:                                               ; preds = %3
@@ -40,12 +40,12 @@ define void @"_ZN86_$LT$rayon..str..CharsProducer$u20$as$u20$rayon..iter..plumbi
   br label %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit
 
 _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread: ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !4
   br label %23
 
 _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %11, %14
   %.0.i = phi i64 [ %.fca.1.extract.i.i, %11 ], [ %15, %14 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !4
   %.not = icmp eq i64 %.0.i, 0
   br i1 %.not, label %23, label %16
 
@@ -100,7 +100,7 @@ define void @"_ZN92_$LT$rayon..str..CharIndicesProducer$u20$as$u20$rayon..iter..
   %7 = load i64, ptr %6, align 8, !noundef !14
   %8 = lshr i64 %7, 1
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 %8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !16
   %10 = getelementptr inbounds i8, ptr %5, i64 %7
   store ptr %9, ptr %4, align 8, !noalias !16
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -111,7 +111,7 @@ define void @"_ZN92_$LT$rayon..str..CharIndicesProducer$u20$as$u20$rayon..iter..
   br i1 %switch21.i, label %13, label %16
 
 13:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !16
   store ptr %5, ptr %3, align 8, !noalias !16
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %9, ptr %14, align 8, !noalias !16
@@ -119,7 +119,7 @@ define void @"_ZN92_$LT$rayon..str..CharIndicesProducer$u20$as$u20$rayon..iter..
   %.fca.0.extract.i.i = extractvalue { i64, i64 } %15, 0
   %switch.i.i = icmp eq i64 %.fca.0.extract.i.i, 0
   %.fca.1.extract.i.i = extractvalue { i64, i64 } %15, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !16
   br i1 %switch.i.i, label %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread, label %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit
 
 16:                                               ; preds = %2
@@ -128,12 +128,12 @@ define void @"_ZN92_$LT$rayon..str..CharIndicesProducer$u20$as$u20$rayon..iter..
   br label %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit
 
 _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread: ; preds = %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !16
   br label %25
 
 _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %13, %16
   %.0.i = phi i64 [ %.fca.1.extract.i.i, %13 ], [ %17, %16 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !16
   %.not = icmp eq i64 %.0.i, 0
   br i1 %.not, label %25, label %18
 
@@ -190,7 +190,7 @@ define void @"_ZN86_$LT$rayon..str..BytesProducer$u20$as$u20$rayon..iter..plumbi
   %5 = alloca { ptr, ptr }, align 8
   %6 = lshr i64 %2, 1
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !26
   %8 = getelementptr inbounds i8, ptr %1, i64 %2
   store ptr %7, ptr %5, align 8, !noalias !26
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -201,7 +201,7 @@ define void @"_ZN86_$LT$rayon..str..BytesProducer$u20$as$u20$rayon..iter..plumbi
   br i1 %switch21.i, label %11, label %14
 
 11:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !26
   store ptr %1, ptr %4, align 8, !noalias !26
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %7, ptr %12, align 8, !noalias !26
@@ -209,7 +209,7 @@ define void @"_ZN86_$LT$rayon..str..BytesProducer$u20$as$u20$rayon..iter..plumbi
   %.fca.0.extract.i.i = extractvalue { i64, i64 } %13, 0
   %switch.i.i = icmp eq i64 %.fca.0.extract.i.i, 0
   %.fca.1.extract.i.i = extractvalue { i64, i64 } %13, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !26
   br i1 %switch.i.i, label %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread, label %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit
 
 14:                                               ; preds = %3
@@ -218,12 +218,12 @@ define void @"_ZN86_$LT$rayon..str..BytesProducer$u20$as$u20$rayon..iter..plumbi
   br label %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit
 
 _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread: ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !26
   br label %23
 
 _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %11, %14
   %.0.i = phi i64 [ %.fca.1.extract.i.i, %11 ], [ %15, %14 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !26
   %.not = icmp eq i64 %.0.i, 0
   br i1 %.not, label %23, label %16
 
@@ -275,7 +275,7 @@ define void @"_ZN92_$LT$rayon..str..EncodeUtf16Producer$u20$as$u20$rayon..iter..
   %5 = alloca { ptr, ptr }, align 8
   %6 = lshr i64 %2, 1
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !36
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !36
   %8 = getelementptr inbounds i8, ptr %1, i64 %2
   store ptr %7, ptr %5, align 8, !noalias !36
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -286,7 +286,7 @@ define void @"_ZN92_$LT$rayon..str..EncodeUtf16Producer$u20$as$u20$rayon..iter..
   br i1 %switch21.i, label %11, label %14
 
 11:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !36
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !36
   store ptr %1, ptr %4, align 8, !noalias !36
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %7, ptr %12, align 8, !noalias !36
@@ -294,7 +294,7 @@ define void @"_ZN92_$LT$rayon..str..EncodeUtf16Producer$u20$as$u20$rayon..iter..
   %.fca.0.extract.i.i = extractvalue { i64, i64 } %13, 0
   %switch.i.i = icmp eq i64 %.fca.0.extract.i.i, 0
   %.fca.1.extract.i.i = extractvalue { i64, i64 } %13, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !36
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !36
   br i1 %switch.i.i, label %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread, label %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit
 
 14:                                               ; preds = %3
@@ -303,12 +303,12 @@ define void @"_ZN92_$LT$rayon..str..EncodeUtf16Producer$u20$as$u20$rayon..iter..
   br label %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit
 
 _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread: ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !36
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !36
   br label %23
 
 _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %11, %14
   %.0.i = phi i64 [ %.fca.1.extract.i.i, %11 ], [ %15, %14 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !36
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !36
   %.not = icmp eq i64 %.0.i, 0
   br i1 %.not, label %23, label %16
 
@@ -373,24 +373,24 @@ declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+; Function Attrs: inlinehint nonlazybind uwtable
+declare hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h7a42dc962973a0ceE.llvm.3106828156525833471(ptr noalias noundef align 8 dereferenceable(16), i64 noundef) unnamed_addr #4
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h7a42dc962973a0ceE.llvm.3106828156525833471(ptr noalias noundef align 8 dereferenceable(16), i64 noundef) unnamed_addr #5
+declare hidden { i64, i64 } @_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hffee515816229eb7E.llvm.3106828156525833471(ptr noalias noundef align 8 dereferenceable(16), i64 noundef) unnamed_addr #4
 
-; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden { i64, i64 } @_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hffee515816229eb7E.llvm.3106828156525833471(ptr noalias noundef align 8 dereferenceable(16), i64 noundef) unnamed_addr #5
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #4 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}

@@ -110,26 +110,23 @@ UI_free.exit:                                     ; preds = %18, %22
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @CRYPTO_THREAD_lock_new() local_unnamed_addr #1
 
-declare ptr @CRYPTO_THREAD_lock_new() local_unnamed_addr #2
+declare void @ERR_new() local_unnamed_addr #1
 
-declare void @ERR_new() local_unnamed_addr #2
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @UI_get_default_method() local_unnamed_addr #1
 
-declare ptr @UI_get_default_method() local_unnamed_addr #2
+declare ptr @UI_null() local_unnamed_addr #1
 
-declare ptr @UI_null() local_unnamed_addr #2
-
-declare i32 @CRYPTO_new_ex_data(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @CRYPTO_new_ex_data(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @UI_free(ptr noundef %0) local_unnamed_addr #0 {
@@ -168,10 +165,7 @@ define void @UI_free(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @free_string(ptr noundef %0) #0 {
@@ -206,9 +200,9 @@ define internal void @free_string(ptr noundef %0) #0 {
   ret void
 }
 
-declare void @CRYPTO_free_ex_data(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @CRYPTO_free_ex_data(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @CRYPTO_THREAD_lock_free(ptr noundef) local_unnamed_addr #2
+declare void @CRYPTO_THREAD_lock_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 1, 0) i32 @UI_add_input_string(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
@@ -329,7 +323,7 @@ define i32 @UI_dup_input_string(ptr noundef captures(none) %0, ptr noundef %1, i
   ret i32 %.09
 }
 
-declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 1, 0) i32 @UI_add_verify_string(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
@@ -639,11 +633,11 @@ define ptr @UI_construct_prompt(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br label %36
 
 14:                                               ; preds = %9, %7, %3
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %4, ptr noundef nonnull align 1 dereferenceable(7) @__const.UI_construct_prompt.prompt1, i64 7, i1 false)
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %5, ptr noundef nonnull align 1 dereferenceable(6) @__const.UI_construct_prompt.prompt2, i64 6, i1 false)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i16 58, ptr %6, align 2
   %15 = icmp eq ptr %1, null
   br i1 %15, label %.critedge, label %16
@@ -681,15 +675,15 @@ define ptr @UI_construct_prompt(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 
 34:                                               ; preds = %31, %28
   %35 = call i64 @OPENSSL_strlcat(ptr noundef nonnull %26, ptr noundef nonnull %6, i64 noundef %25) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %36
 
 .critedge:                                        ; preds = %23, %14
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %36
 
 36:                                               ; preds = %12, %34, %.critedge
@@ -698,16 +692,16 @@ define ptr @UI_construct_prompt(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
-declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @OPENSSL_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @OPENSSL_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @OPENSSL_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @OPENSSL_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @UI_add_user_data(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -797,7 +791,7 @@ UI_add_user_data.exit:                            ; preds = %16, %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_get0_user_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define ptr @UI_get0_user_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !19
   ret ptr %3
@@ -845,10 +839,10 @@ UI_get0_result_string.exit:                       ; preds = %14, %10, %9, %4
   ret ptr %.0
 }
 
-declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
+declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_get0_result_string(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define ptr @UI_get0_result_string(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 8, !tbaa !25
   %.off = add i32 %2, -1
   %switch = icmp ult i32 %.off, 2
@@ -864,7 +858,7 @@ define ptr @UI_get0_result_string(ptr noundef readonly captures(none) %0) local_
   ret ptr %.0
 }
 
-declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @UI_get_result_length(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -910,7 +904,7 @@ UI_get_result_string_length.exit:                 ; preds = %14, %10, %9, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @UI_get_result_string_length(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define i32 @UI_get_result_string_length(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 8, !tbaa !25
   %.off = add i32 %2, -1
   %switch = icmp ult i32 %.off, 2
@@ -1063,12 +1057,12 @@ define range(i32 -2, 1) i32 @UI_process(ptr noundef %0) local_unnamed_addr #0 {
   ret i32 %.350
 }
 
-declare void @ERR_print_errors_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ERR_print_errors_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @print_error(ptr noundef %0, i64 %1, ptr noundef %2) #0 {
   %4 = alloca %struct.ui_string_st, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false)
   store i32 5, ptr %4, align 8, !tbaa !25
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1089,7 +1083,7 @@ define internal range(i32 -1, 1) i32 @print_error(ptr noundef %0, i64 %1, ptr no
 
 13:                                               ; preds = %9, %12
   %.0 = phi i32 [ 0, %12 ], [ -1, %9 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -1146,7 +1140,7 @@ define i32 @UI_set_ex_data(ptr noundef %0, i32 noundef %1, ptr noundef %2) local
   ret i32 %5
 }
 
-declare i32 @CRYPTO_set_ex_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @CRYPTO_set_ex_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @UI_get_ex_data(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1155,16 +1149,16 @@ define ptr @UI_get_ex_data(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   ret ptr %4
 }
 
-declare ptr @CRYPTO_get_ex_data(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @CRYPTO_get_ex_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_get_method(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define ptr @UI_get_method(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !tbaa !14
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @UI_set_method(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef returned %1) local_unnamed_addr #6 {
+define noundef ptr @UI_set_method(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef returned %1) local_unnamed_addr #5 {
   store ptr %1, ptr %0, align 8, !tbaa !14
   ret ptr %1
 }
@@ -1232,7 +1226,7 @@ define void @UI_destroy_method(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -1, 1) i32 @UI_method_set_opener(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #6 {
+define range(i32 -1, 1) i32 @UI_method_set_opener(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -1247,7 +1241,7 @@ define range(i32 -1, 1) i32 @UI_method_set_opener(ptr noundef writeonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -1, 1) i32 @UI_method_set_writer(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #6 {
+define range(i32 -1, 1) i32 @UI_method_set_writer(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -1262,7 +1256,7 @@ define range(i32 -1, 1) i32 @UI_method_set_writer(ptr noundef writeonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -1, 1) i32 @UI_method_set_flusher(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #6 {
+define range(i32 -1, 1) i32 @UI_method_set_flusher(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -1277,7 +1271,7 @@ define range(i32 -1, 1) i32 @UI_method_set_flusher(ptr noundef writeonly capture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -1, 1) i32 @UI_method_set_reader(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #6 {
+define range(i32 -1, 1) i32 @UI_method_set_reader(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -1292,7 +1286,7 @@ define range(i32 -1, 1) i32 @UI_method_set_reader(ptr noundef writeonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -1, 1) i32 @UI_method_set_closer(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #6 {
+define range(i32 -1, 1) i32 @UI_method_set_closer(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -1307,7 +1301,7 @@ define range(i32 -1, 1) i32 @UI_method_set_closer(ptr noundef writeonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -1, 1) i32 @UI_method_set_data_duplicator(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define range(i32 -1, 1) i32 @UI_method_set_data_duplicator(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %4
 
@@ -1324,7 +1318,7 @@ define range(i32 -1, 1) i32 @UI_method_set_data_duplicator(ptr noundef writeonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -1, 1) i32 @UI_method_set_prompt_constructor(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #6 {
+define range(i32 -1, 1) i32 @UI_method_set_prompt_constructor(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -1346,7 +1340,7 @@ define i32 @UI_method_set_ex_data(ptr noundef %0, i32 noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_method_get_opener(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define ptr @UI_method_get_opener(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1361,7 +1355,7 @@ define ptr @UI_method_get_opener(ptr noundef readonly captures(address_is_null) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_method_get_writer(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define ptr @UI_method_get_writer(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1376,7 +1370,7 @@ define ptr @UI_method_get_writer(ptr noundef readonly captures(address_is_null) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_method_get_flusher(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define ptr @UI_method_get_flusher(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1391,7 +1385,7 @@ define ptr @UI_method_get_flusher(ptr noundef readonly captures(address_is_null)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_method_get_reader(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define ptr @UI_method_get_reader(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1406,7 +1400,7 @@ define ptr @UI_method_get_reader(ptr noundef readonly captures(address_is_null) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_method_get_closer(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define ptr @UI_method_get_closer(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1421,7 +1415,7 @@ define ptr @UI_method_get_closer(ptr noundef readonly captures(address_is_null) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_method_get_prompt_constructor(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define ptr @UI_method_get_prompt_constructor(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1436,7 +1430,7 @@ define ptr @UI_method_get_prompt_constructor(ptr noundef readonly captures(addre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_method_get_data_duplicator(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define ptr @UI_method_get_data_duplicator(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1451,7 +1445,7 @@ define ptr @UI_method_get_data_duplicator(ptr noundef readonly captures(address_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_method_get_data_destructor(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define ptr @UI_method_get_data_destructor(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1473,27 +1467,27 @@ define ptr @UI_method_get_ex_data(ptr noundef %0, i32 noundef %1) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @UI_get_string_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define i32 @UI_get_string_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 8, !tbaa !25
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @UI_get_input_flags(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define i32 @UI_get_input_flags(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8, !tbaa !41
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_get0_output_string(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define ptr @UI_get0_output_string(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !24
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_get0_action_string(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define ptr @UI_get0_action_string(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 8, !tbaa !25
   %cond = icmp eq i32 %2, 3
   br i1 %cond, label %3, label %6
@@ -1509,7 +1503,7 @@ define ptr @UI_get0_action_string(ptr noundef readonly captures(none) %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_get0_test_string(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define ptr @UI_get0_test_string(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 8, !tbaa !25
   %cond = icmp eq i32 %2, 2
   br i1 %cond, label %3, label %6
@@ -1525,7 +1519,7 @@ define ptr @UI_get0_test_string(ptr noundef readonly captures(none) %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @UI_get_result_minsize(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define i32 @UI_get_result_minsize(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 8, !tbaa !25
   %.off = add i32 %2, -1
   %switch = icmp ult i32 %.off, 2
@@ -1542,7 +1536,7 @@ define i32 @UI_get_result_minsize(ptr noundef readonly captures(none) %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @UI_get_result_maxsize(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define i32 @UI_get_result_maxsize(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 8, !tbaa !25
   %.off = add i32 %2, -1
   %switch = icmp ult i32 %.off, 2
@@ -1704,7 +1698,7 @@ define range(i32 -1, 1) i32 @UI_set_result_ex(ptr noundef captures(none) %0, ptr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noalias ptr @general_allocate_prompt(ptr noundef %0, i32 noundef range(i32 0, 2) %1, i32 noundef range(i32 1, 6) %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
@@ -1751,21 +1745,27 @@ define internal fastcc noalias ptr @general_allocate_prompt(ptr noundef %0, i32 
   ret ptr %.0
 }
 
-declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #2
+declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) }
 

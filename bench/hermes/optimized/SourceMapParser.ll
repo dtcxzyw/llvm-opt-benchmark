@@ -198,7 +198,7 @@ entry:
   store ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !9
   store ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !9
   call void @_ZN6hermes6parser11JSONFactoryC1ERNS_28BacktrackingBumpPtrAllocatorEPNS_11StringTableE(ptr noundef nonnull align 8 dereferenceable(120) %factory, ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i, ptr noundef null) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   call void @_ZN4llvh12MemoryBuffer12getMemBufferENS_15MemoryBufferRefEb(ptr nonnull sret(%"class.std::unique_ptr.102") align 8 %agg.tmp.i, ptr noundef nonnull byval(%"class.llvh::MemoryBufferRef") align 8 %sourceMap, i1 noundef zeroext true) #16
   call void @_ZN6hermes6parser10JSONParserC2ERNS0_11JSONFactoryESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS6_EERNS_18SourceErrorManagerEb(ptr noundef nonnull align 8 dereferenceable(1144) %jsonParser, ptr noundef nonnull align 8 dereferenceable(120) %factory, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(464) %sm, i1 noundef zeroext false) #16
   %1 = load ptr, ptr %agg.tmp.i, align 8
@@ -213,7 +213,7 @@ _ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i: ; preds = %entry
   br label %_ZN6hermes6parser10JSONParserC2ERNS0_11JSONFactoryEN4llvh15MemoryBufferRefERNS_18SourceErrorManagerEbb.exit
 
 _ZN6hermes6parser10JSONParserC2ERNS0_11JSONFactoryEN4llvh15MemoryBufferRefERNS_18SourceErrorManagerEbb.exit: ; preds = %entry, %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   %call1 = call { i64, i8 } @_ZN6hermes6parser10JSONParser5parseEv(ptr noundef nonnull align 8 dereferenceable(1144) %jsonParser) #16
   %3 = extractvalue { i64, i8 } %call1, 1
   %tobool.i = trunc i8 %3 to i1
@@ -438,7 +438,7 @@ land.lhs.true.i106:                               ; preds = %_ZNK6hermes6parser1
 if.then32:                                        ; preds = %land.lhs.true.i106
   %value_.i110 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %value_.i110, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !15
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !15
   %30 = load ptr, ptr %29, align 8, !noalias !18
   %tobool.not.i.i = icmp eq ptr %30, null
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
@@ -456,7 +456,7 @@ if.end.i.i:                                       ; preds = %if.then32
   br label %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
 
 _ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit: ; preds = %if.then.i.i, %if.end.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !15
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !15
   %call35 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %sourceRoot, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33) #16
   %.pre = load ptr, ptr %hiddenClass_.i, align 8
@@ -874,7 +874,7 @@ if.else.i.i:                                      ; preds = %_ZNSt10shared_ptrIK
 if.end80:                                         ; preds = %if.else.i.i, %if.end8.sink.split.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.then.i.i260, %if.end69
   %value_.i281 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %78 = load ptr, ptr %value_.i281, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i282), !noalias !29
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i282), !noalias !29
   %79 = load ptr, ptr %78, align 8, !noalias !32
   %tobool.not.i.i283 = icmp eq ptr %79, null
   br i1 %tobool.not.i.i283, label %if.then.i.i286, label %if.end.i.i284
@@ -892,7 +892,7 @@ if.end.i.i284:                                    ; preds = %if.end80
   br label %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit287
 
 _ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit287: ; preds = %if.then.i.i286, %if.end.i.i284
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i282), !noalias !29
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i282), !noalias !29
   %81 = load ptr, ptr %sources, align 8
   %add.ptr.i288 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %81, i64 %indvars.iv
   %call85 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i288, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp81) #16
@@ -2223,10 +2223,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

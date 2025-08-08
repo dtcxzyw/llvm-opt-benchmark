@@ -392,7 +392,7 @@ define linkonce_odr dso_local void @_ZN9SingleBoxC2ER8Settings(ptr noundef nonnu
   br label %11
 
 11:                                               ; preds = %10, %2
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %3)
           to label %12 unwind label %30
 
@@ -403,12 +403,12 @@ define linkonce_odr dso_local void @_ZN9SingleBoxC2ER8Settings(ptr noundef nonnu
           to label %15 unwind label %32
 
 15:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %4)
           to label %16 unwind label %34
 
 16:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store float -6.600000e+01, ptr %5, align 4, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float 0.000000e+00, ptr %17, align 4, !tbaa !20
@@ -421,7 +421,7 @@ define linkonce_odr dso_local void @_ZN9SingleBoxC2ER8Settings(ptr noundef nonnu
 
 21:                                               ; preds = %16
   store i32 2, ptr %3, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @b2MakeBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %6, float noundef 1.000000e+00, float noundef 1.000000e+00)
           to label %22 unwind label %38
 
@@ -445,10 +445,10 @@ define linkonce_odr dso_local void @_ZN9SingleBoxC2ER8Settings(ptr noundef nonnu
           to label %29 unwind label %38
 
 29:                                               ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 30:                                               ; preds = %11
@@ -483,22 +483,22 @@ define linkonce_odr dso_local void @_ZN9SingleBoxC2ER8Settings(ptr noundef nonnu
 
 42:                                               ; preds = %40, %38
   %.pn = phi { ptr, i32 } [ %39, %38 ], [ %41, %40 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %43
 
 43:                                               ; preds = %42, %36
   %.pn.pn = phi { ptr, i32 } [ %.pn, %42 ], [ %37, %36 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %44
 
 44:                                               ; preds = %43, %34
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %43 ], [ %35, %34 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %45
 
 45:                                               ; preds = %32, %44, %30
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %31, %30 ], [ %.pn.pn.pn, %44 ], [ %33, %32 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #17
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 }
@@ -510,14 +510,8 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 declare void @_ZN6SampleC2ER8Settings(ptr noundef nonnull align 8 dereferenceable(248), ptr noundef nonnull align 4 dereferenceable(44)) unnamed_addr #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @b2DefaultBodyDef(ptr dead_on_unwind writable sret(%struct.b2BodyDef) align 8) local_unnamed_addr #0
 
@@ -532,14 +526,14 @@ declare void @b2MakeBox(ptr dead_on_unwind writable sret(%struct.b2Polygon) alig
 declare i64 @b2CreatePolygonShape(i64, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN9SingleBoxD0Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr dso_local void @_ZN9SingleBoxD0Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #5 comdat align 2 {
   tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 256) #16
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN9SingleBox4StepER8Settings(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 4 dereferenceable(44) %1) unnamed_addr #7 comdat align 2 {
+define linkonce_odr dso_local void @_ZN9SingleBox4StepER8Settings(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 4 dereferenceable(44) %1) unnamed_addr #6 comdat align 2 {
   tail call void @_ZN6Sample4StepER8Settings(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 4 dereferenceable(44) %1)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %.sroa.0.0.copyload = load i64, ptr %3, align 8
@@ -553,12 +547,12 @@ define linkonce_odr dso_local void @_ZN9SingleBox4StepER8Settings(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN6Sample8UpdateUIEv(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr dso_local void @_ZN6Sample8UpdateUIEv(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #7 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN6Sample8KeyboardEi(ptr noundef nonnull align 8 dereferenceable(248) %0, i32 noundef %1) unnamed_addr #8 comdat align 2 {
+define linkonce_odr dso_local void @_ZN6Sample8KeyboardEi(ptr noundef nonnull align 8 dereferenceable(248) %0, i32 noundef %1) unnamed_addr #7 comdat align 2 {
   ret void
 }
 
@@ -596,7 +590,7 @@ define linkonce_odr dso_local void @_ZN11TiltedStackC2ER8Settings(ptr noundef no
   br label %13
 
 13:                                               ; preds = %12, %2
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %3)
           to label %14 unwind label %24
 
@@ -611,12 +605,12 @@ define linkonce_odr dso_local void @_ZN11TiltedStackC2ER8Settings(ptr noundef no
           to label %18 unwind label %26
 
 18:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @b2MakeBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %4, float noundef 1.000000e+03, float noundef 1.000000e+00)
           to label %19 unwind label %28
 
 19:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %5)
           to label %20 unwind label %30
 
@@ -625,12 +619,12 @@ define linkonce_odr dso_local void @_ZN11TiltedStackC2ER8Settings(ptr noundef no
           to label %22 unwind label %30
 
 22:                                               ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 248
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(800) %23, i8 0, i64 800, i1 false)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @b2MakeRoundedBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %6, float noundef 0x3FDCCCCCC0000000, float noundef 0x3FDCCCCCC0000000, float noundef 0x3FA99999A0000000)
           to label %34 unwind label %40
 
@@ -652,21 +646,21 @@ define linkonce_odr dso_local void @_ZN11TiltedStackC2ER8Settings(ptr noundef no
 30:                                               ; preds = %20, %19
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %32
 
 32:                                               ; preds = %30, %28
   %.pn = phi { ptr, i32 } [ %31, %30 ], [ %29, %28 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %33
 
 33:                                               ; preds = %26, %32, %24
   %.pn.pn.pn = phi { ptr, i32 } [ %25, %24 ], [ %.pn, %32 ], [ %27, %26 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %71
 
 34:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %7)
           to label %35 unwind label %42
 
@@ -680,8 +674,8 @@ define linkonce_odr dso_local void @_ZN11TiltedStackC2ER8Settings(ptr noundef no
   br label %44
 
 39:                                               ; preds = %50
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 40:                                               ; preds = %22
@@ -710,7 +704,7 @@ define linkonce_odr dso_local void @_ZN11TiltedStackC2ER8Settings(ptr noundef no
 
 51:                                               ; preds = %44, %63
   %indvars.iv = phi i64 [ 0, %44 ], [ %indvars.iv.next, %63 ]
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %8)
           to label %52 unwind label %64
 
@@ -735,7 +729,7 @@ define linkonce_odr dso_local void @_ZN11TiltedStackC2ER8Settings(ptr noundef no
           to label %63 unwind label %66
 
 63:                                               ; preds = %59
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
   br i1 %exitcond.not, label %50, label %51, !llvm.loop !34
@@ -752,17 +746,17 @@ define linkonce_odr dso_local void @_ZN11TiltedStackC2ER8Settings(ptr noundef no
 
 68:                                               ; preds = %66, %64
   %.pn47 = phi { ptr, i32 } [ %67, %66 ], [ %65, %64 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %69
 
 69:                                               ; preds = %68, %42
   %.pn47.pn = phi { ptr, i32 } [ %.pn47, %68 ], [ %43, %42 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %70
 
 70:                                               ; preds = %69, %40
   %.pn47.pn.pn = phi { ptr, i32 } [ %.pn47.pn, %69 ], [ %41, %40 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %71
 
 71:                                               ; preds = %70, %33
@@ -774,7 +768,7 @@ define linkonce_odr dso_local void @_ZN11TiltedStackC2ER8Settings(ptr noundef no
 declare void @b2MakeRoundedBox(ptr dead_on_unwind writable sret(%struct.b2Polygon) align 4, float noundef, float noundef, float noundef) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN11TiltedStackD0Ev(ptr noundef nonnull align 8 dereferenceable(1048) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr dso_local void @_ZN11TiltedStackD0Ev(ptr noundef nonnull align 8 dereferenceable(1048) %0) unnamed_addr #5 comdat align 2 {
   tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(1048) %0) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 1048) #16
   ret void
@@ -800,7 +794,7 @@ define linkonce_odr dso_local void @_ZN13VerticalStackC2ER8Settings(ptr noundef 
   br label %11
 
 11:                                               ; preds = %10, %2
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %3)
           to label %12 unwind label %28
 
@@ -815,12 +809,12 @@ define linkonce_odr dso_local void @_ZN13VerticalStackC2ER8Settings(ptr noundef 
           to label %16 unwind label %30
 
 16:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @b2MakeBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %4, float noundef 1.000000e+02, float noundef 1.000000e+00)
           to label %17 unwind label %32
 
 17:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %5)
           to label %18 unwind label %34
 
@@ -829,16 +823,16 @@ define linkonce_odr dso_local void @_ZN13VerticalStackC2ER8Settings(ptr noundef 
           to label %20 unwind label %34
 
 20:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) @__const.VerticalStack.segment, i64 16, i1 false)
   %21 = invoke i64 @b2CreateSegmentShape(i64 %15, ptr noundef nonnull %5, ptr noundef nonnull %6)
           to label %.preheader unwind label %36
 
 .preheader:                                       ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1524
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1264) %22, i8 0, i64 1264, i1 false)
@@ -877,22 +871,22 @@ define linkonce_odr dso_local void @_ZN13VerticalStackC2ER8Settings(ptr noundef 
 36:                                               ; preds = %20
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %38
 
 38:                                               ; preds = %36, %34
   %.pn = phi { ptr, i32 } [ %37, %36 ], [ %35, %34 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %39
 
 39:                                               ; preds = %38, %32
   %.pn.pn = phi { ptr, i32 } [ %.pn, %38 ], [ %33, %32 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %40
 
 40:                                               ; preds = %30, %39, %28
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %29, %28 ], [ %.pn.pn, %39 ], [ %31, %30 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %44
 
 41:                                               ; preds = %.preheader
@@ -919,13 +913,13 @@ define linkonce_odr dso_local void @_ZN13VerticalStack12CreateStacksEv(ptr nound
   br label %23
 
 7:                                                ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store float 5.000000e-01, ptr %8, align 8, !tbaa !51
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @b2MakeBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %3, float noundef 5.000000e-01, float noundef 5.000000e-01)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %4)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store float 1.000000e+00, ptr %9, align 4, !tbaa !27
@@ -969,9 +963,9 @@ define linkonce_odr dso_local void @_ZN13VerticalStack12CreateStacksEv(ptr nound
   br i1 %exitcond.not, label %7, label %23, !llvm.loop !54
 
 ._crit_edge37:                                    ; preds = %._crit_edge, %.lr.ph36, %7
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #17
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 .lr.ph36.split:                                   ; preds = %.lr.ph36, %._crit_edge
@@ -997,7 +991,7 @@ define linkonce_odr dso_local void @_ZN13VerticalStack12CreateStacksEv(ptr nound
 
 .lr.ph:                                           ; preds = %.lr.ph36.split, %56
   %.03133 = phi i32 [ %57, %56 ], [ 0, %.lr.ph36.split ]
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %5)
   store i32 2, ptr %5, align 8, !tbaa !21
   %38 = load i32, ptr %17, align 4, !tbaa !47
@@ -1029,7 +1023,7 @@ define linkonce_odr dso_local void @_ZN13VerticalStack12CreateStacksEv(ptr nound
   br label %56
 
 56:                                               ; preds = %54, %52
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %57 = add nuw nsw i32 %.03133, 1
   %58 = load i32, ptr %17, align 4, !tbaa !47
   %59 = icmp slt i32 %57, %58
@@ -1037,7 +1031,7 @@ define linkonce_odr dso_local void @_ZN13VerticalStack12CreateStacksEv(ptr nound
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN13VerticalStackD0Ev(ptr noundef nonnull align 8 dereferenceable(1532) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr dso_local void @_ZN13VerticalStackD0Ev(ptr noundef nonnull align 8 dereferenceable(1532) %0) unnamed_addr #5 comdat align 2 {
   tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(1532) %0) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 1536) #16
   ret void
@@ -1054,7 +1048,7 @@ define linkonce_odr dso_local void @_ZN13VerticalStack8UpdateUIEv(ptr noundef no
   %8 = alloca %struct.ImVec2, align 4
   %9 = alloca %struct.ImVec2, align 4
   %10 = alloca %struct.ImVec2, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 16), align 4, !tbaa !58
   %12 = sitofp i32 %11 to float
   %13 = fadd float %12, -2.300000e+02
@@ -1062,24 +1056,24 @@ define linkonce_odr dso_local void @_ZN13VerticalStack8UpdateUIEv(ptr noundef no
   store float 1.000000e+01, ptr %2, align 4, !tbaa !59
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store float %14, ptr %15, align 4, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store float 0.000000e+00, ptr %3, align 4, !tbaa !59
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float 0.000000e+00, ptr %16, align 4, !tbaa !61
   call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store float 2.400000e+02, ptr %4, align 4, !tbaa !59
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float 2.300000e+02, ptr %17, align 4, !tbaa !61
   call void @_ZN5ImGui17SetNextWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8) %4, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %18 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull @.str.5, ptr noundef null, i32 noundef 2)
   call void @_ZN5ImGui13PushItemWidthEf(float noundef 1.200000e+02)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) @__const._ZN13VerticalStack8UpdateUIEv.shapeTypes, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1524
   %20 = load i32, ptr %19, align 4, !tbaa !35
   store i32 %20, ptr %6, align 4, !tbaa !62
@@ -1102,7 +1096,7 @@ define linkonce_odr dso_local void @_ZN13VerticalStack8UpdateUIEv(ptr noundef no
   %29 = phi i1 [ true, %23 ], [ %28, %26 ], [ true, %1 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 1520
   %31 = call noundef zeroext i1 @_ZN5ImGui9SliderIntEPKcPiiiS1_i(ptr noundef nonnull @.str.25, ptr noundef nonnull %30, i32 noundef 1, i32 noundef 8, ptr noundef nonnull @.str.23, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1528
   %33 = load i32, ptr %32, align 8, !tbaa !50
   store i32 %33, ptr %7, align 4, !tbaa !62
@@ -1110,7 +1104,7 @@ define linkonce_odr dso_local void @_ZN13VerticalStack8UpdateUIEv(ptr noundef no
   %35 = load i32, ptr %7, align 4, !tbaa !62
   store i32 %35, ptr %32, align 8, !tbaa !50
   call void @_ZN5ImGui12PopItemWidthEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store float 0.000000e+00, ptr %8, align 4, !tbaa !59
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store float 0.000000e+00, ptr %36, align 4, !tbaa !61
@@ -1121,11 +1115,11 @@ define linkonce_odr dso_local void @_ZN13VerticalStack8UpdateUIEv(ptr noundef no
   %39 = load ptr, ptr @g_mainWindow, align 8, !tbaa !63
   %40 = call i32 @glfwGetKey(ptr noundef %39, i32 noundef 66)
   %41 = icmp eq i32 %40, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %41, label %42, label %48
 
 .critedge:                                        ; preds = %.critedge8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %42
 
 42:                                               ; preds = %.critedge, %38
@@ -1160,12 +1154,12 @@ _ZN13VerticalStack14DestroyBulletsEv.exit:        ; preds = %47
   br label %48
 
 48:                                               ; preds = %_ZN13VerticalStack14DestroyBulletsEv.exit, %38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store float 0.000000e+00, ptr %9, align 4, !tbaa !59
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store float 0.000000e+00, ptr %49, align 4, !tbaa !61
   %50 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.28, ptr noundef nonnull align 4 dereferenceable(8) %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %50, label %51, label %_ZN13VerticalStack11DestroyBodyEv.exit
 
 51:                                               ; preds = %48
@@ -1226,7 +1220,7 @@ _ZN13VerticalStack14DestroyBulletsEv.exit:        ; preds = %47
   br i1 %72, label %.preheaderthread-pre-split.i, label %_ZN13VerticalStack11DestroyBodyEv.exit, !llvm.loop !67
 
 _ZN13VerticalStack11DestroyBodyEv.exit:           ; preds = %.loopexit.i, %.preheader.lr.ph.i, %51, %48
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br i1 %29, label %.critedge10, label %73
 
 73:                                               ; preds = %_ZN13VerticalStack11DestroyBodyEv.exit
@@ -1234,11 +1228,11 @@ _ZN13VerticalStack11DestroyBodyEv.exit:           ; preds = %.loopexit.i, %.preh
   %74 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store float 0.000000e+00, ptr %74, align 4, !tbaa !61
   %75 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.29, ptr noundef nonnull align 4 dereferenceable(8) %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %75, label %76, label %82
 
 .critedge10:                                      ; preds = %_ZN13VerticalStack11DestroyBodyEv.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %76
 
 76:                                               ; preds = %.critedge10, %73
@@ -1274,16 +1268,16 @@ _ZN13VerticalStack14DestroyBulletsEv.exit26:      ; preds = %81
 
 82:                                               ; preds = %_ZN13VerticalStack14DestroyBulletsEv.exit26, %73
   call void @_ZN5ImGui3EndEv()
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 declare void @b2DestroyBody(i64) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare i64 @b2CreateCircleShape(i64, ptr noundef, ptr noundef) local_unnamed_addr #0
 
@@ -1311,11 +1305,11 @@ define linkonce_odr dso_local void @_ZN13VerticalStack11FireBulletsEv(ptr nounde
   %3 = alloca %struct.b2Polygon, align 4
   %4 = alloca %struct.b2ShapeDef, align 8
   %5 = alloca %struct.b2BodyDef, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(12) @__const._ZN13VerticalStack11FireBulletsEv.circle, i64 12, i1 false)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @b2MakeBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %3, float noundef 2.500000e-01, float noundef 2.500000e-01)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %4)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store float 4.000000e+00, ptr %6, align 4, !tbaa !27
@@ -1336,14 +1330,14 @@ define linkonce_odr dso_local void @_ZN13VerticalStack11FireBulletsEv(ptr nounde
   br label %16
 
 ._crit_edge:                                      ; preds = %39, %1
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #17
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 16:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %5)
   store i32 2, ptr %5, align 8, !tbaa !21
   %17 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1384,7 +1378,7 @@ define linkonce_odr dso_local void @_ZN13VerticalStack11FireBulletsEv(ptr nounde
 39:                                               ; preds = %37, %35
   %40 = getelementptr inbounds nuw [8 x %struct.b2BodyId], ptr %15, i64 0, i64 %indvars.iv
   store i64 %32, ptr %40, align 8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = load i32, ptr %7, align 8, !tbaa !49
   %42 = sext i32 %41 to i64
@@ -1395,7 +1389,7 @@ define linkonce_odr dso_local void @_ZN13VerticalStack11FireBulletsEv(ptr nounde
 declare void @_ZN5ImGui3EndEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN11CircleStackC2ER8Settings(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 4 dereferenceable(44) %1) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN11CircleStackC2ER8Settings(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 4 dereferenceable(44) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct.b2BodyDef, align 8
   %4 = alloca %struct.b2ShapeDef, align 8
   %5 = alloca %struct.b2Segment, align 4
@@ -1418,7 +1412,7 @@ define linkonce_odr dso_local void @_ZN11CircleStackC2ER8Settings(ptr noundef no
   br label %14
 
 14:                                               ; preds = %13, %2
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %3)
           to label %15 unwind label %31
 
@@ -1429,21 +1423,21 @@ define linkonce_odr dso_local void @_ZN11CircleStackC2ER8Settings(ptr noundef no
           to label %18 unwind label %33
 
 18:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %4)
           to label %19 unwind label %35
 
 19:                                               ; preds = %18
   store ptr null, ptr %4, align 8, !tbaa !70
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) @__const.CircleStack.segment, i64 16, i1 false)
   %20 = invoke i64 @b2CreateSegmentShape(i64 %17, ptr noundef nonnull %4, ptr noundef nonnull %5)
           to label %21 unwind label %37
 
 21:                                               ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.sroa.09.0.copyload = load i32, ptr %16, align 4
   invoke void @b2World_SetGravity(i32 %.sroa.09.0.copyload, <2 x float> <float 0.000000e+00, float -2.000000e+01>)
           to label %22 unwind label %41
@@ -1454,11 +1448,11 @@ define linkonce_odr dso_local void @_ZN11CircleStackC2ER8Settings(ptr noundef no
           to label %23 unwind label %41
 
 23:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store float 2.500000e-01, ptr %24, align 8, !tbaa !51
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %7)
           to label %25 unwind label %43
 
@@ -1467,7 +1461,7 @@ define linkonce_odr dso_local void @_ZN11CircleStackC2ER8Settings(ptr noundef no
   store i8 1, ptr %26, align 2, !tbaa !71
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store float 0x3FC99999A0000000, ptr %27, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %8)
           to label %28 unwind label %45
 
@@ -1497,17 +1491,17 @@ define linkonce_odr dso_local void @_ZN11CircleStackC2ER8Settings(ptr noundef no
 37:                                               ; preds = %19
   %38 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %39
 
 39:                                               ; preds = %37, %35
   %.pn = phi { ptr, i32 } [ %38, %37 ], [ %36, %35 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %40
 
 40:                                               ; preds = %33, %39, %31
   %.pn.pn.pn = phi { ptr, i32 } [ %32, %31 ], [ %.pn, %39 ], [ %34, %33 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %53
 
 41:                                               ; preds = %22, %21
@@ -1531,9 +1525,9 @@ define linkonce_odr dso_local void @_ZN11CircleStackC2ER8Settings(ptr noundef no
           to label %.critedge unwind label %49
 
 .critedge:                                        ; preds = %47
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 49:                                               ; preds = %47, %28
@@ -1543,13 +1537,13 @@ define linkonce_odr dso_local void @_ZN11CircleStackC2ER8Settings(ptr noundef no
 
 51:                                               ; preds = %49, %45
   %.pn36 = phi { ptr, i32 } [ %50, %49 ], [ %46, %45 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %52
 
 52:                                               ; preds = %51, %43
   %.pn36.pn = phi { ptr, i32 } [ %.pn36, %51 ], [ %44, %43 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %53
 
 53:                                               ; preds = %52, %41, %40
@@ -1577,7 +1571,7 @@ declare void @b2World_SetGravity(i32, <2 x float>) local_unnamed_addr #0
 declare void @b2World_SetContactTuning(i32, float noundef, float noundef, float noundef) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN11CircleStackD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN11CircleStackD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV11CircleStack, i64 16), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8, !tbaa !74
@@ -1599,7 +1593,7 @@ _ZNSt6vectorIN11CircleStack5EventESaIS1_EED2Ev.exit: ; preds = %1, %4
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN11CircleStackD0Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN11CircleStackD0Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV11CircleStack, i64 16), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8, !tbaa !74
@@ -1622,10 +1616,10 @@ _ZN11CircleStackD2Ev.exit:                        ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN11CircleStack4StepER8Settings(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 4 dereferenceable(44) %1) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN11CircleStack4StepER8Settings(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 4 dereferenceable(44) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct.b2ContactEvents, align 8
   tail call void @_ZN6Sample4StepER8Settings(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 4 dereferenceable(44) %1)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %.sroa.016.0.copyload = load i32, ptr %4, align 4
   call void @b2World_GetContactEvents(ptr dead_on_unwind nonnull writable sret(%struct.b2ContactEvents) align 8 %3, i32 %.sroa.016.0.copyload)
@@ -1754,7 +1748,7 @@ _ZNSt6vectorIN11CircleStack5EventESaIS1_EE9push_backEOS1_.exit: ; preds = %34, %
   br i1 %60, label %23, label %._crit_edge, !llvm.loop !86
 
 ._crit_edge33:                                    ; preds = %61, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 61:                                               ; preds = %.lr.ph32, %61
@@ -1784,13 +1778,13 @@ declare void @_ZN4Draw9DrawPointE6b2Vec2f10b2HexColor(ptr noundef nonnull align 
 declare void @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216), i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #10
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN5CliffC2ER8Settings(ptr noundef nonnull align 8 dereferenceable(321) %0, ptr noundef nonnull align 4 dereferenceable(44) %1) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN5CliffC2ER8Settings(ptr noundef nonnull align 8 dereferenceable(321) %0, ptr noundef nonnull align 4 dereferenceable(44) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct.b2BodyDef, align 8
   %4 = alloca %struct.b2ShapeDef, align 8
   %5 = alloca %struct.b2Polygon, align 4
@@ -1811,7 +1805,7 @@ define linkonce_odr dso_local void @_ZN5CliffC2ER8Settings(ptr noundef nonnull a
   br label %13
 
 13:                                               ; preds = %12, %2
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %3)
           to label %14 unwind label %31
 
@@ -1826,12 +1820,12 @@ define linkonce_odr dso_local void @_ZN5CliffC2ER8Settings(ptr noundef nonnull a
           to label %18 unwind label %33
 
 18:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %4)
           to label %19 unwind label %35
 
 19:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @b2MakeOffsetBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %5, float noundef 1.000000e+02, float noundef 1.000000e+00, <2 x float> <float 0.000000e+00, float -1.000000e+00>, <2 x float> <float 1.000000e+00, float 0.000000e+00>)
           to label %20 unwind label %37
 
@@ -1840,34 +1834,34 @@ define linkonce_odr dso_local void @_ZN5CliffC2ER8Settings(ptr noundef nonnull a
           to label %22 unwind label %37
 
 22:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) @__const.Cliff.segment, i64 16, i1 false)
   %23 = invoke i64 @b2CreateSegmentShape(i64 %17, ptr noundef nonnull %4, ptr noundef nonnull %6)
           to label %24 unwind label %39
 
 24:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @b2MakeOffsetBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %7, float noundef 3.000000e+00, float noundef 5.000000e-01, <2 x float> <float 0.000000e+00, float 4.000000e+00>, <2 x float> <float 1.000000e+00, float 0.000000e+00>)
           to label %25 unwind label %41
 
 25:                                               ; preds = %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %5, ptr noundef nonnull align 4 dereferenceable(144) %7, i64 144, i1 false), !tbaa.struct !92
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %26 = invoke i64 @b2CreatePolygonShape(i64 %17, ptr noundef nonnull %4, ptr noundef nonnull %5)
           to label %27 unwind label %39
 
 27:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %8, ptr noundef nonnull align 4 dereferenceable(20) @__const.Cliff.capsule, i64 20, i1 false)
   %28 = invoke i64 @b2CreateCapsuleShape(i64 %17, ptr noundef nonnull %4, ptr noundef nonnull %8)
           to label %29 unwind label %43
 
 29:                                               ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 248
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %30, i8 0, i64 73, i1 false)
   invoke void @_ZN5Cliff12CreateBodiesEv(ptr noundef nonnull align 8 dereferenceable(321) %0)
@@ -1901,33 +1895,33 @@ define linkonce_odr dso_local void @_ZN5CliffC2ER8Settings(ptr noundef nonnull a
 41:                                               ; preds = %24
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %45
 
 43:                                               ; preds = %27
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %45
 
 45:                                               ; preds = %43, %41, %39
   %.pn = phi { ptr, i32 } [ %44, %43 ], [ %40, %39 ], [ %42, %41 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %46
 
 46:                                               ; preds = %45, %37
   %.pn.pn = phi { ptr, i32 } [ %.pn, %45 ], [ %38, %37 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %47
 
 47:                                               ; preds = %46, %35
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %46 ], [ %36, %35 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %48
 
 48:                                               ; preds = %33, %47, %31
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %32, %31 ], [ %.pn.pn.pn, %47 ], [ %34, %33 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %52
 
 49:                                               ; preds = %29
@@ -1965,16 +1959,16 @@ define linkonce_odr dso_local void @_ZN5Cliff12CreateBodiesEv(ptr noundef nonnul
   %12 = load i8, ptr %11, align 8, !tbaa !94, !range !13, !noundef !14
   %13 = trunc nuw i8 %12 to i1
   %14 = select i1 %13, float -1.000000e+00, float 1.000000e+00
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2, ptr noundef nonnull align 4 dereferenceable(20) @__const._ZN5Cliff12CreateBodiesEv.capsule, i64 20, i1 false)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) @__const.Confined.circle, i64 12, i1 false)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @b2MakeSquare(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %4, float noundef 5.000000e-01)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %5)
   store i32 2, ptr %5, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %6)
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store float 0x3F847AE140000000, ptr %15, align 8, !tbaa !31
@@ -2012,8 +2006,8 @@ define linkonce_odr dso_local void @_ZN5Cliff12CreateBodiesEv(ptr noundef nonnul
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store i64 %31, ptr %32, align 8
   %33 = call i64 @b2CreateCapsuleShape(i64 %31, ptr noundef nonnull %6, ptr noundef nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %7)
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store float 0x3F847AE140000000, ptr %34, align 8, !tbaa !31
@@ -2041,8 +2035,8 @@ define linkonce_odr dso_local void @_ZN5Cliff12CreateBodiesEv(ptr noundef nonnul
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i64 %42, ptr %43, align 8
   %44 = call i64 @b2CreatePolygonShape(i64 %42, ptr noundef nonnull %7, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #17
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %8)
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store float 0x3FC99999A0000000, ptr %45, align 8, !tbaa !31
@@ -2076,11 +2070,11 @@ define linkonce_odr dso_local void @_ZN5Cliff12CreateBodiesEv(ptr noundef nonnul
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store i64 %59, ptr %60, align 8
   %61 = call i64 @b2CreateCircleShape(i64 %59, ptr noundef nonnull %8, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #17
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 62:                                               ; preds = %1, %66
@@ -2103,7 +2097,7 @@ define linkonce_odr dso_local void @_ZN5Cliff12CreateBodiesEv(ptr noundef nonnul
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN5CliffD0Ev(ptr noundef nonnull align 8 dereferenceable(321) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr dso_local void @_ZN5CliffD0Ev(ptr noundef nonnull align 8 dereferenceable(321) %0) unnamed_addr #5 comdat align 2 {
   tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(321) %0) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 328) #16
   ret void
@@ -2115,7 +2109,7 @@ define linkonce_odr dso_local void @_ZN5Cliff8UpdateUIEv(ptr noundef nonnull ali
   %3 = alloca %struct.ImVec2, align 4
   %4 = alloca %struct.ImVec2, align 4
   %5 = alloca %struct.ImVec2, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 16), align 4, !tbaa !58
   %7 = sitofp i32 %6 to float
   %8 = fadd float %7, -6.000000e+01
@@ -2123,26 +2117,26 @@ define linkonce_odr dso_local void @_ZN5Cliff8UpdateUIEv(ptr noundef nonnull ali
   store float 1.000000e+01, ptr %2, align 4, !tbaa !59
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store float %9, ptr %10, align 4, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store float 0.000000e+00, ptr %3, align 4, !tbaa !59
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float 0.000000e+00, ptr %11, align 4, !tbaa !61
   call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store float 1.600000e+02, ptr %4, align 4, !tbaa !59
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float 6.000000e+01, ptr %12, align 4, !tbaa !61
   call void @_ZN5ImGui17SetNextWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8) %4, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %13 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull @.str.9, ptr noundef null, i32 noundef 2)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store float 0.000000e+00, ptr %5, align 4, !tbaa !59
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float 0.000000e+00, ptr %14, align 4, !tbaa !61
   %15 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.32, ptr noundef nonnull align 4 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %1
@@ -2161,7 +2155,7 @@ define linkonce_odr dso_local void @_ZN5Cliff8UpdateUIEv(ptr noundef nonnull ali
 declare void @b2MakeSquare(ptr dead_on_unwind writable sret(%struct.b2Polygon) align 4, float noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN4ArchC2ER8Settings(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 4 dereferenceable(44) %1) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN4ArchC2ER8Settings(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 4 dereferenceable(44) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [9 x %struct.b2Vec2], align 16
   %4 = alloca [9 x %struct.b2Vec2], align 16
   %5 = alloca %struct.b2ShapeDef, align 8
@@ -2192,14 +2186,14 @@ define linkonce_odr dso_local void @_ZN4ArchC2ER8Settings(ptr noundef nonnull al
   br label %23
 
 23:                                               ; preds = %22, %2
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %3, ptr noundef nonnull align 16 dereferenceable(72) @__const.Arch.ps1, i64 72, i1 false)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %4, ptr noundef nonnull align 16 dereferenceable(72) @__const.Arch.ps2, i64 72, i1 false)
   br label %25
 
 24:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %5)
           to label %32 unwind label %51
 
@@ -2230,7 +2224,7 @@ define linkonce_odr dso_local void @_ZN4ArchC2ER8Settings(ptr noundef nonnull al
 32:                                               ; preds = %24
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store float 0x3FE3333340000000, ptr %33, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %6)
           to label %34 unwind label %53
 
@@ -2241,15 +2235,15 @@ define linkonce_odr dso_local void @_ZN4ArchC2ER8Settings(ptr noundef nonnull al
           to label %37 unwind label %55
 
 37:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) @__const.Arch.segment, i64 16, i1 false)
   %38 = invoke i64 @b2CreateSegmentShape(i64 %36, ptr noundef nonnull %5, ptr noundef nonnull %7)
           to label %39 unwind label %57
 
 39:                                               ; preds = %37
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %8)
           to label %40 unwind label %60
 
@@ -2288,12 +2282,12 @@ define linkonce_odr dso_local void @_ZN4ArchC2ER8Settings(ptr noundef nonnull al
 57:                                               ; preds = %37
   %58 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %59
 
 59:                                               ; preds = %55, %57, %53
   %.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %58, %57 ], [ %56, %55 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %170
 
 60:                                               ; preds = %39
@@ -2308,7 +2302,7 @@ define linkonce_odr dso_local void @_ZN4ArchC2ER8Settings(ptr noundef nonnull al
           to label %64 unwind label %77
 
 64:                                               ; preds = %62
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %65 = getelementptr inbounds nuw [9 x %struct.b2Vec2], ptr %3, i64 0, i64 %indvars.iv96
   %66 = load i64, ptr %65, align 8
   store i64 %66, ptr %9, align 16
@@ -2322,12 +2316,12 @@ define linkonce_odr dso_local void @_ZN4ArchC2ER8Settings(ptr noundef nonnull al
   %71 = getelementptr inbounds nuw [9 x %struct.b2Vec2], ptr %3, i64 0, i64 %indvars.iv.next97
   %72 = load i64, ptr %71, align 8
   store i64 %72, ptr %43, align 8
-  call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @b2ComputeHull(ptr dead_on_unwind nonnull writable sret(%struct.b2Hull) align 4 %10, ptr noundef nonnull %9, i32 noundef 4)
           to label %73 unwind label %79
 
 73:                                               ; preds = %64
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @b2MakePolygon(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %11, ptr noundef nonnull %10, float noundef 0.000000e+00)
           to label %74 unwind label %81
 
@@ -2336,9 +2330,9 @@ define linkonce_odr dso_local void @_ZN4ArchC2ER8Settings(ptr noundef nonnull al
           to label %76 unwind label %81
 
 76:                                               ; preds = %74
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %11) #17
-  call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %exitcond99.not = icmp eq i64 %indvars.iv.next97, 8
   br i1 %exitcond99.not, label %.preheader, label %62, !llvm.loop !98
 
@@ -2355,13 +2349,13 @@ define linkonce_odr dso_local void @_ZN4ArchC2ER8Settings(ptr noundef nonnull al
 81:                                               ; preds = %74, %73
   %82 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %83
 
 83:                                               ; preds = %81, %79
   %.pn82 = phi { ptr, i32 } [ %82, %81 ], [ %80, %79 ]
-  call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %169
 
 84:                                               ; preds = %112
@@ -2376,7 +2370,7 @@ define linkonce_odr dso_local void @_ZN4ArchC2ER8Settings(ptr noundef nonnull al
           to label %88 unwind label %113
 
 88:                                               ; preds = %86
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %89 = getelementptr inbounds nuw [9 x %struct.b2Vec2], ptr %4, i64 0, i64 %indvars.iv100
   %90 = load float, ptr %89, align 8, !tbaa !19
   %91 = fneg float %90
@@ -2406,12 +2400,12 @@ define linkonce_odr dso_local void @_ZN4ArchC2ER8Settings(ptr noundef nonnull al
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 4
   %108 = load float, ptr %107, align 4, !tbaa !20
   store float %108, ptr %50, align 4, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   invoke void @b2ComputeHull(ptr dead_on_unwind nonnull writable sret(%struct.b2Hull) align 4 %13, ptr noundef nonnull %12, i32 noundef 4)
           to label %109 unwind label %115
 
 109:                                              ; preds = %88
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   invoke void @b2MakePolygon(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %14, ptr noundef nonnull %13, float noundef 0.000000e+00)
           to label %110 unwind label %117
 
@@ -2420,9 +2414,9 @@ define linkonce_odr dso_local void @_ZN4ArchC2ER8Settings(ptr noundef nonnull al
           to label %112 unwind label %117
 
 112:                                              ; preds = %110
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %14) #17
-  call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %13) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %exitcond103.not = icmp eq i64 %indvars.iv.next101, 8
   br i1 %exitcond103.not, label %84, label %86, !llvm.loop !99
 
@@ -2439,17 +2433,17 @@ define linkonce_odr dso_local void @_ZN4ArchC2ER8Settings(ptr noundef nonnull al
 117:                                              ; preds = %110, %109
   %118 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %14) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %119
 
 119:                                              ; preds = %117, %115
   %.pn79 = phi { ptr, i32 } [ %118, %117 ], [ %116, %115 ]
-  call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %13) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %169
 
 120:                                              ; preds = %84
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %121 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %122 = load i64, ptr %121, align 16
   store i64 %122, ptr %15, align 16
@@ -2476,12 +2470,12 @@ define linkonce_odr dso_local void @_ZN4ArchC2ER8Settings(ptr noundef nonnull al
   %139 = lshr i64 %122, 32
   %140 = trunc nuw i64 %139 to i32
   store i32 %140, ptr %138, align 4, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %16) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   invoke void @b2ComputeHull(ptr dead_on_unwind nonnull writable sret(%struct.b2Hull) align 4 %16, ptr noundef nonnull %15, i32 noundef 4)
           to label %141 unwind label %150
 
 141:                                              ; preds = %120
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %17) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   invoke void @b2MakePolygon(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %17, ptr noundef nonnull %16, float noundef 0.000000e+00)
           to label %142 unwind label %152
 
@@ -2490,19 +2484,19 @@ define linkonce_odr dso_local void @_ZN4ArchC2ER8Settings(ptr noundef nonnull al
           to label %144 unwind label %152
 
 144:                                              ; preds = %142
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %17) #17
-  call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %145 = fadd float %133, 5.000000e-01
   %146 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %155
 
 147:                                              ; preds = %162
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 148:                                              ; preds = %84
@@ -2518,18 +2512,18 @@ define linkonce_odr dso_local void @_ZN4ArchC2ER8Settings(ptr noundef nonnull al
 152:                                              ; preds = %142, %141
   %153 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %17) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %154
 
 154:                                              ; preds = %152, %150
   %.pn74 = phi { ptr, i32 } [ %153, %152 ], [ %151, %150 ]
-  call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %169
 
 155:                                              ; preds = %144, %162
   %.07194 = phi i32 [ 0, %144 ], [ %163, %162 ]
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %18) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   invoke void @b2MakeBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %18, float noundef 2.000000e+00, float noundef 5.000000e-01)
           to label %156 unwind label %164
 
@@ -2547,7 +2541,7 @@ define linkonce_odr dso_local void @_ZN4ArchC2ER8Settings(ptr noundef nonnull al
           to label %162 unwind label %166
 
 162:                                              ; preds = %160
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %18) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %163 = add nuw nsw i32 %.07194, 1
   %exitcond104.not = icmp eq i32 %163, 4
   br i1 %exitcond104.not, label %147, label %155, !llvm.loop !100
@@ -2564,19 +2558,19 @@ define linkonce_odr dso_local void @_ZN4ArchC2ER8Settings(ptr noundef nonnull al
 
 168:                                              ; preds = %166, %164
   %.pn77 = phi { ptr, i32 } [ %167, %166 ], [ %165, %164 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %18) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %169
 
 169:                                              ; preds = %148, %154, %113, %119, %77, %83, %168, %60
   %.pn82.pn.pn = phi { ptr, i32 } [ %.pn77, %168 ], [ %61, %60 ], [ %.pn82, %83 ], [ %78, %77 ], [ %.pn79, %119 ], [ %114, %113 ], [ %.pn74, %154 ], [ %149, %148 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %170
 
 170:                                              ; preds = %169, %59, %51
   %.pn82.pn.pn.pn = phi { ptr, i32 } [ %.pn82.pn.pn, %169 ], [ %.pn.pn, %59 ], [ %52, %51 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #17
   resume { ptr, i32 } %.pn82.pn.pn.pn
 }
@@ -2586,14 +2580,14 @@ declare void @b2ComputeHull(ptr dead_on_unwind writable sret(%struct.b2Hull) ali
 declare void @b2MakePolygon(ptr dead_on_unwind writable sret(%struct.b2Polygon) align 4, ptr noundef, float noundef) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4ArchD0Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr dso_local void @_ZN4ArchD0Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #5 comdat align 2 {
   tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 248) #16
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN12DoubleDominoC2ER8Settings(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 4 dereferenceable(44) %1) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN12DoubleDominoC2ER8Settings(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 4 dereferenceable(44) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct.b2BodyDef, align 8
   %4 = alloca %struct.b2Polygon, align 4
   %5 = alloca %struct.b2ShapeDef, align 8
@@ -2614,7 +2608,7 @@ define linkonce_odr dso_local void @_ZN12DoubleDominoC2ER8Settings(ptr noundef n
   br label %13
 
 13:                                               ; preds = %12, %2
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %3)
           to label %14 unwind label %29
 
@@ -2629,12 +2623,12 @@ define linkonce_odr dso_local void @_ZN12DoubleDominoC2ER8Settings(ptr noundef n
           to label %18 unwind label %31
 
 18:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @b2MakeBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %4, float noundef 1.000000e+02, float noundef 1.000000e+00)
           to label %19 unwind label %33
 
 19:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %5)
           to label %20 unwind label %35
 
@@ -2643,22 +2637,22 @@ define linkonce_odr dso_local void @_ZN12DoubleDominoC2ER8Settings(ptr noundef n
           to label %22 unwind label %35
 
 22:                                               ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #17
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @b2MakeBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %6, float noundef 1.250000e-01, float noundef 5.000000e-01)
           to label %23 unwind label %39
 
 23:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %7)
           to label %24 unwind label %41
 
 24:                                               ; preds = %23
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store float 0x3FE3333340000000, ptr %25, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %8)
           to label %26 unwind label %43
 
@@ -2669,9 +2663,9 @@ define linkonce_odr dso_local void @_ZN12DoubleDominoC2ER8Settings(ptr noundef n
   br label %45
 
 28:                                               ; preds = %54
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 29:                                               ; preds = %13
@@ -2692,17 +2686,17 @@ define linkonce_odr dso_local void @_ZN12DoubleDominoC2ER8Settings(ptr noundef n
 35:                                               ; preds = %20, %19
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %37
 
 37:                                               ; preds = %35, %33
   %.pn = phi { ptr, i32 } [ %36, %35 ], [ %34, %33 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %38
 
 38:                                               ; preds = %31, %37, %29
   %.pn.pn.pn = phi { ptr, i32 } [ %30, %29 ], [ %.pn, %37 ], [ %32, %31 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %60
 
 39:                                               ; preds = %22
@@ -2755,17 +2749,17 @@ define linkonce_odr dso_local void @_ZN12DoubleDominoC2ER8Settings(ptr noundef n
 
 57:                                               ; preds = %52, %43
   %.pn42 = phi { ptr, i32 } [ %53, %52 ], [ %44, %43 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %58
 
 58:                                               ; preds = %57, %41
   %.pn42.pn = phi { ptr, i32 } [ %.pn42, %57 ], [ %42, %41 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %59
 
 59:                                               ; preds = %58, %39
   %.pn42.pn.pn = phi { ptr, i32 } [ %.pn42.pn, %58 ], [ %40, %39 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %60
 
 60:                                               ; preds = %59, %38
@@ -2777,7 +2771,7 @@ define linkonce_odr dso_local void @_ZN12DoubleDominoC2ER8Settings(ptr noundef n
 declare void @b2Body_ApplyLinearImpulse(i64, <2 x float>, <2 x float>, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN12DoubleDominoD0Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr dso_local void @_ZN12DoubleDominoD0Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #5 comdat align 2 {
   tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 248) #16
   ret void
@@ -2805,7 +2799,7 @@ define linkonce_odr dso_local void @_ZN8ConfinedC2ER8Settings(ptr noundef nonnul
   br label %13
 
 13:                                               ; preds = %12, %2
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %3)
           to label %14 unwind label %41
 
@@ -2816,12 +2810,12 @@ define linkonce_odr dso_local void @_ZN8ConfinedC2ER8Settings(ptr noundef nonnul
           to label %17 unwind label %43
 
 17:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %4)
           to label %18 unwind label %45
 
 18:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store float -1.050000e+01, ptr %5, align 4, !tbaa !15
   %.sroa.428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float 0.000000e+00, ptr %.sroa.428.0..sroa_idx, align 4, !tbaa !15
@@ -2862,16 +2856,16 @@ define linkonce_odr dso_local void @_ZN8ConfinedC2ER8Settings(ptr noundef nonnul
           to label %26 unwind label %47
 
 26:                                               ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i32 0, ptr %27, align 8, !tbaa !102
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 252
   store i32 0, ptr %28, align 4, !tbaa !104
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i32 0, ptr %29, align 8, !tbaa !105
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %6)
           to label %30 unwind label %51
 
@@ -2879,12 +2873,12 @@ define linkonce_odr dso_local void @_ZN8ConfinedC2ER8Settings(ptr noundef nonnul
   store i32 2, ptr %6, align 8, !tbaa !21
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store float 0.000000e+00, ptr %31, align 8, !tbaa !106
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %7)
           to label %32 unwind label %53
 
 32:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) @__const.Confined.circle, i64 12, i1 false)
   %33 = load i32, ptr %29, align 8, !tbaa !105
   %34 = icmp slt i32 %33, 625
@@ -2924,17 +2918,17 @@ define linkonce_odr dso_local void @_ZN8ConfinedC2ER8Settings(ptr noundef nonnul
 47:                                               ; preds = %24, %22, %20, %18
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %49
 
 49:                                               ; preds = %47, %45
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %46, %45 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %43, %49, %41
   %.pn.pn.pn = phi { ptr, i32 } [ %42, %41 ], [ %.pn, %49 ], [ %44, %43 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %79
 
 51:                                               ; preds = %26
@@ -2983,23 +2977,23 @@ define linkonce_odr dso_local void @_ZN8ConfinedC2ER8Settings(ptr noundef nonnul
 75:                                               ; preds = %67, %55
   %76 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %77
 
 ._crit_edge:                                      ; preds = %37, %32
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 77:                                               ; preds = %75, %53
   %.pn54 = phi { ptr, i32 } [ %76, %75 ], [ %54, %53 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %78
 
 78:                                               ; preds = %77, %51
   %.pn54.pn = phi { ptr, i32 } [ %.pn54, %77 ], [ %52, %51 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %79
 
 79:                                               ; preds = %78, %50
@@ -3009,14 +3003,14 @@ define linkonce_odr dso_local void @_ZN8ConfinedC2ER8Settings(ptr noundef nonnul
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN8ConfinedD0Ev(ptr noundef nonnull align 8 dereferenceable(260) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr dso_local void @_ZN8ConfinedD0Ev(ptr noundef nonnull align 8 dereferenceable(260) %0) unnamed_addr #5 comdat align 2 {
   tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(260) %0) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 264) #16
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN9CardHouseC2ER8Settings(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 4 dereferenceable(44) %1) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN9CardHouseC2ER8Settings(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 4 dereferenceable(44) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct.b2BodyDef, align 8
   %4 = alloca %struct.b2ShapeDef, align 8
   %5 = alloca %struct.b2Polygon, align 4
@@ -3035,7 +3029,7 @@ define linkonce_odr dso_local void @_ZN9CardHouseC2ER8Settings(ptr noundef nonnu
   br label %11
 
 11:                                               ; preds = %10, %2
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %3)
           to label %12 unwind label %29
 
@@ -3050,14 +3044,14 @@ define linkonce_odr dso_local void @_ZN9CardHouseC2ER8Settings(ptr noundef nonnu
           to label %16 unwind label %31
 
 16:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %4)
           to label %17 unwind label %33
 
 17:                                               ; preds = %16
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store float 0x3FE6666660000000, ptr %18, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @b2MakeBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %5, float noundef 4.000000e+01, float noundef 2.000000e+00)
           to label %19 unwind label %35
 
@@ -3066,7 +3060,7 @@ define linkonce_odr dso_local void @_ZN9CardHouseC2ER8Settings(ptr noundef nonnu
           to label %21 unwind label %35
 
 21:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @b2MakeBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %6, float noundef 0x3F50624DE0000000, float noundef 0x3FC99999A0000000)
           to label %22 unwind label %37
 
@@ -3208,39 +3202,39 @@ _Z9b2MakeRotf.exit79:                             ; preds = %55
   br label %73
 
 72:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 73:                                               ; preds = %46, %48, %64, %70, %68, %66, %37
   %.pn.pn.pn = phi { ptr, i32 } [ %38, %37 ], [ %65, %64 ], [ %49, %48 ], [ %47, %46 ], [ %67, %66 ], [ %71, %70 ], [ %69, %68 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %74
 
 74:                                               ; preds = %73, %35
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %73 ], [ %36, %35 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %75
 
 75:                                               ; preds = %74, %33
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %74 ], [ %34, %33 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %76
 
 76:                                               ; preds = %31, %75, %29
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %30, %29 ], [ %.pn.pn.pn.pn.pn, %75 ], [ %32, %31 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #17
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248)) unnamed_addr #11
+declare void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248)) unnamed_addr #10
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN9CardHouseD0Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr dso_local void @_ZN9CardHouseD0Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #5 comdat align 2 {
   tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 248) #16
   ret void
@@ -3249,7 +3243,7 @@ define linkonce_odr dso_local void @_ZN9CardHouseD0Ev(ptr noundef nonnull align 
 declare <2 x float> @b2ComputeCosSin(float noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_sample_stacking.cpp() #12 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_sample_stacking.cpp() #11 section ".text.startup" {
   %1 = tail call noundef i32 @_Z14RegisterSamplePKcS0_PFP6SampleR8SettingsE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @_ZN9SingleBox6CreateER8Settings)
   %2 = tail call noundef i32 @_Z14RegisterSamplePKcS0_PFP6SampleR8SettingsE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull @_ZN11TiltedStack6CreateER8Settings)
   %3 = tail call noundef i32 @_Z14RegisterSamplePKcS0_PFP6SampleR8SettingsE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef nonnull @_ZN13VerticalStack6CreateER8Settings)
@@ -3261,6 +3255,12 @@ define internal void @_GLOBAL__sub_I_sample_stacking.cpp() #12 section ".text.st
   %9 = tail call noundef i32 @_Z14RegisterSamplePKcS0_PFP6SampleR8SettingsE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @_ZN9CardHouse6CreateER8Settings)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13
@@ -3275,15 +3275,15 @@ attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #15 = { builtin allocsize(0) }

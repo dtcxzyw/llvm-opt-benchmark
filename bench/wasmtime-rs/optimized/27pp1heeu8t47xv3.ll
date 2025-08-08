@@ -67,12 +67,12 @@ define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h05f6b3
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 %3, ptr align 8 %1)
   %7 = getelementptr inbounds i8, ptr %4, i64 %6
   %8 = call align 8 ptr @_ZN4core3fmt8builders9DebugList7entries17h26724435d75fdf23E(ptr nonnull align 8 %3, ptr nonnull align 1 %4, ptr nonnull %7)
   %9 = call zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17hf81be2358cd42e32E(ptr align 8 %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %9
 }
 
@@ -90,12 +90,12 @@ define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc305e9
   %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !4, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 %3, ptr align 8 %1)
   %8 = getelementptr inbounds i8, ptr %5, i64 %7
   %9 = call align 8 ptr @_ZN4core3fmt8builders9DebugList7entries17h26724435d75fdf23E(ptr nonnull align 8 %3, ptr nonnull align 1 %5, ptr nonnull %8)
   %10 = call zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17hf81be2358cd42e32E(ptr align 8 %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %10
 }
 
@@ -581,8 +581,8 @@ default.unreachable20:                            ; preds = %47, %3
 
 119:                                              ; preds = %.lr.ph, %"_ZN4witx3abi18Generator$LT$B$GT$4lift28_$u7b$$u7b$closure$u7d$$u7d$17hbfeb6ddccaefb84dE.exit"
   %120 = phi ptr [ %112, %.lr.ph ], [ %132, %"_ZN4witx3abi18Generator$LT$B$GT$4lift28_$u7b$$u7b$closure$u7d$$u7d$17hbfeb6ddccaefb84dE.exit" ]
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %121 = load ptr, ptr %24, align 8, !nonnull !3, !align !5, !noundef !3
   %122 = load i64, ptr %17, align 8, !noundef !3
   store i64 %122, ptr %114, align 8
@@ -607,8 +607,8 @@ default.unreachable20:                            ; preds = %47, %3
   store ptr %131, ptr %115, align 8
   store i64 43, ptr %4, align 8
   call void @"_ZN4witx3abi18Generator$LT$B$GT$4emit17hca77241bd605da2aE"(ptr nonnull align 8 %128, ptr nonnull align 8 %4)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %132 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd831ea6c1d94edb9E"(ptr nonnull align 8 %15)
   %133 = icmp eq ptr %132, null
   br i1 %133, label %._crit_edge, label %119
@@ -988,8 +988,8 @@ default.unreachable32:                            ; preds = %35, %3
   br i1 %86, label %97, label %87
 
 87:                                               ; preds = %83, %75
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %88 = load i64, ptr %2, align 8, !noundef !3
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %88, ptr %89, align 8
@@ -1011,8 +1011,8 @@ default.unreachable32:                            ; preds = %35, %3
   store ptr %95, ptr %96, align 8
   store i64 44, ptr %6, align 8
   call void @"_ZN4witx3abi18Generator$LT$B$GT$4emit17hca77241bd605da2aE"(ptr nonnull align 8 %0, ptr nonnull align 8 %6)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
 97:                                               ; preds = %83
@@ -1045,8 +1045,8 @@ default.unreachable32:                            ; preds = %35, %3
   %111 = phi ptr [ %106, %.lr.ph ], [ %123, %"_ZN4witx3abi18Generator$LT$B$GT$5lower28_$u7b$$u7b$closure$u7d$$u7d$17hdbcf48083256c3e2E.exit29" ]
   %112 = phi { i64, ptr } [ %105, %.lr.ph ], [ %122, %"_ZN4witx3abi18Generator$LT$B$GT$5lower28_$u7b$$u7b$closure$u7d$$u7d$17hdbcf48083256c3e2E.exit29" ]
   %113 = extractvalue { i64, ptr } %112, 0
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %114 = load i64, ptr %2, align 8, !noundef !3
   %115 = add i64 %114, %113
   store i64 %115, ptr %108, align 8
@@ -1067,8 +1067,8 @@ default.unreachable32:                            ; preds = %35, %3
   store ptr %121, ptr %109, align 8
   store i64 44, ptr %4, align 8
   call void @"_ZN4witx3abi18Generator$LT$B$GT$4emit17hca77241bd605da2aE"(ptr nonnull align 8 %0, ptr nonnull align 8 %4)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %122 = call { i64, ptr } @"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hbf562a55c124adfcE"(ptr nonnull align 8 %12)
   %123 = extractvalue { i64, ptr } %122, 1
   %124 = icmp eq ptr %123, null
@@ -1329,10 +1329,10 @@ declare void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bind
 declare { i64, ptr } @"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hbf562a55c124adfcE"(ptr align 8) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

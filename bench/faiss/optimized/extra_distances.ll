@@ -229,16 +229,16 @@ define void @_ZN5faiss24pairwise_extra_distancesEllPKflS1_NS_10MetricTypeEfPflll
   ]
 
 130:                                              ; preds = %125
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %112)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %113)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %114)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %115)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %116)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %117)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %118)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %119)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %120)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %121)
+  call void @llvm.lifetime.start.p0(ptr nonnull %112)
+  call void @llvm.lifetime.start.p0(ptr nonnull %113)
+  call void @llvm.lifetime.start.p0(ptr nonnull %114)
+  call void @llvm.lifetime.start.p0(ptr nonnull %115)
+  call void @llvm.lifetime.start.p0(ptr nonnull %116)
+  call void @llvm.lifetime.start.p0(ptr nonnull %117)
+  call void @llvm.lifetime.start.p0(ptr nonnull %118)
+  call void @llvm.lifetime.start.p0(ptr nonnull %119)
+  call void @llvm.lifetime.start.p0(ptr nonnull %120)
+  call void @llvm.lifetime.start.p0(ptr nonnull %121)
   store i64 %0, ptr %112, align 8
   %131 = getelementptr inbounds nuw i8, ptr %112, i64 8
   store float %6, ptr %131, align 8
@@ -260,34 +260,34 @@ define void @_ZN5faiss24pairwise_extra_distancesEllPKflS1_NS_10MetricTypeEfPflll
 134:                                              ; preds = %130
   tail call void @__kmpc_serialized_parallel(ptr nonnull @2, i32 %129)
   store i32 %129, ptr %121, align 4, !tbaa !11
-  call void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE0EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr nonnull %121, ptr nonnull poison, ptr %113, ptr %114, ptr %118, ptr %116, ptr %117, ptr %120, ptr %115, ptr %112, ptr %119) #7
+  call void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE0EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr nonnull %121, ptr nonnull poison, ptr %113, ptr %114, ptr %118, ptr %116, ptr %117, ptr %120, ptr %115, ptr %112, ptr %119) #6
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @2, i32 %129)
   br label %_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE0EEEEEvT_lPKflS8_Pflll.exit.i
 
 _ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE0EEEEEvT_lPKflS8_Pflll.exit.i: ; preds = %134, %133
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %112)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %113)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %114)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %115)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %116)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %117)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %118)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %119)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %120)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %121)
+  call void @llvm.lifetime.end.p0(ptr nonnull %112)
+  call void @llvm.lifetime.end.p0(ptr nonnull %113)
+  call void @llvm.lifetime.end.p0(ptr nonnull %114)
+  call void @llvm.lifetime.end.p0(ptr nonnull %115)
+  call void @llvm.lifetime.end.p0(ptr nonnull %116)
+  call void @llvm.lifetime.end.p0(ptr nonnull %117)
+  call void @llvm.lifetime.end.p0(ptr nonnull %118)
+  call void @llvm.lifetime.end.p0(ptr nonnull %119)
+  call void @llvm.lifetime.end.p0(ptr nonnull %120)
+  call void @llvm.lifetime.end.p0(ptr nonnull %121)
   br label %_ZN5faiss23dispatch_VectorDistanceINS_12_GLOBAL__N_128Run_pairwise_extra_distancesEJlPKflS4_PflllEEENT_1TEmNS_10MetricTypeEfRS6_DpT0_.exit
 
 135:                                              ; preds = %125
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %102)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %103)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %104)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %105)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %106)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %107)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %108)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %109)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %110)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %111)
+  call void @llvm.lifetime.start.p0(ptr nonnull %102)
+  call void @llvm.lifetime.start.p0(ptr nonnull %103)
+  call void @llvm.lifetime.start.p0(ptr nonnull %104)
+  call void @llvm.lifetime.start.p0(ptr nonnull %105)
+  call void @llvm.lifetime.start.p0(ptr nonnull %106)
+  call void @llvm.lifetime.start.p0(ptr nonnull %107)
+  call void @llvm.lifetime.start.p0(ptr nonnull %108)
+  call void @llvm.lifetime.start.p0(ptr nonnull %109)
+  call void @llvm.lifetime.start.p0(ptr nonnull %110)
+  call void @llvm.lifetime.start.p0(ptr nonnull %111)
   store i64 %0, ptr %102, align 8
   %136 = getelementptr inbounds nuw i8, ptr %102, i64 8
   store float %6, ptr %136, align 8
@@ -309,34 +309,34 @@ _ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_
 139:                                              ; preds = %135
   tail call void @__kmpc_serialized_parallel(ptr nonnull @2, i32 %129)
   store i32 %129, ptr %111, align 4, !tbaa !11
-  call void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE1EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr nonnull %111, ptr nonnull poison, ptr %103, ptr %104, ptr %108, ptr %106, ptr %107, ptr %110, ptr %105, ptr %102, ptr %109) #7
+  call void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE1EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr nonnull %111, ptr nonnull poison, ptr %103, ptr %104, ptr %108, ptr %106, ptr %107, ptr %110, ptr %105, ptr %102, ptr %109) #6
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @2, i32 %129)
   br label %_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE1EEEEEvT_lPKflS8_Pflll.exit.i
 
 _ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE1EEEEEvT_lPKflS8_Pflll.exit.i: ; preds = %139, %138
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %102)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %103)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %104)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %105)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %106)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %107)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %108)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %109)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %110)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %111)
+  call void @llvm.lifetime.end.p0(ptr nonnull %102)
+  call void @llvm.lifetime.end.p0(ptr nonnull %103)
+  call void @llvm.lifetime.end.p0(ptr nonnull %104)
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
+  call void @llvm.lifetime.end.p0(ptr nonnull %107)
+  call void @llvm.lifetime.end.p0(ptr nonnull %108)
+  call void @llvm.lifetime.end.p0(ptr nonnull %109)
+  call void @llvm.lifetime.end.p0(ptr nonnull %110)
+  call void @llvm.lifetime.end.p0(ptr nonnull %111)
   br label %_ZN5faiss23dispatch_VectorDistanceINS_12_GLOBAL__N_128Run_pairwise_extra_distancesEJlPKflS4_PflllEEENT_1TEmNS_10MetricTypeEfRS6_DpT0_.exit
 
 140:                                              ; preds = %125
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %92)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %93)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %94)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %95)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %96)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %97)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %98)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %99)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %100)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %101)
+  call void @llvm.lifetime.start.p0(ptr nonnull %92)
+  call void @llvm.lifetime.start.p0(ptr nonnull %93)
+  call void @llvm.lifetime.start.p0(ptr nonnull %94)
+  call void @llvm.lifetime.start.p0(ptr nonnull %95)
+  call void @llvm.lifetime.start.p0(ptr nonnull %96)
+  call void @llvm.lifetime.start.p0(ptr nonnull %97)
+  call void @llvm.lifetime.start.p0(ptr nonnull %98)
+  call void @llvm.lifetime.start.p0(ptr nonnull %99)
+  call void @llvm.lifetime.start.p0(ptr nonnull %100)
+  call void @llvm.lifetime.start.p0(ptr nonnull %101)
   store i64 %0, ptr %92, align 8
   %141 = getelementptr inbounds nuw i8, ptr %92, i64 8
   store float %6, ptr %141, align 8
@@ -358,34 +358,34 @@ _ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_
 144:                                              ; preds = %140
   tail call void @__kmpc_serialized_parallel(ptr nonnull @2, i32 %129)
   store i32 %129, ptr %101, align 4, !tbaa !11
-  call void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE2EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr nonnull %101, ptr nonnull poison, ptr %93, ptr %94, ptr %98, ptr %96, ptr %97, ptr %100, ptr %95, ptr %92, ptr %99) #7
+  call void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE2EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr nonnull %101, ptr nonnull poison, ptr %93, ptr %94, ptr %98, ptr %96, ptr %97, ptr %100, ptr %95, ptr %92, ptr %99) #6
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @2, i32 %129)
   br label %_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE2EEEEEvT_lPKflS8_Pflll.exit.i
 
 _ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE2EEEEEvT_lPKflS8_Pflll.exit.i: ; preds = %144, %143
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %92)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %93)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %94)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %95)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %96)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %97)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %98)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %99)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %100)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %101)
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
+  call void @llvm.lifetime.end.p0(ptr nonnull %94)
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
   br label %_ZN5faiss23dispatch_VectorDistanceINS_12_GLOBAL__N_128Run_pairwise_extra_distancesEJlPKflS4_PflllEEENT_1TEmNS_10MetricTypeEfRS6_DpT0_.exit
 
 145:                                              ; preds = %125
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %82)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %83)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %84)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %85)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %86)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %87)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %88)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %89)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %90)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %91)
+  call void @llvm.lifetime.start.p0(ptr nonnull %82)
+  call void @llvm.lifetime.start.p0(ptr nonnull %83)
+  call void @llvm.lifetime.start.p0(ptr nonnull %84)
+  call void @llvm.lifetime.start.p0(ptr nonnull %85)
+  call void @llvm.lifetime.start.p0(ptr nonnull %86)
+  call void @llvm.lifetime.start.p0(ptr nonnull %87)
+  call void @llvm.lifetime.start.p0(ptr nonnull %88)
+  call void @llvm.lifetime.start.p0(ptr nonnull %89)
+  call void @llvm.lifetime.start.p0(ptr nonnull %90)
+  call void @llvm.lifetime.start.p0(ptr nonnull %91)
   store i64 %0, ptr %82, align 8
   %146 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store float %6, ptr %146, align 8
@@ -407,34 +407,34 @@ _ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_
 149:                                              ; preds = %145
   tail call void @__kmpc_serialized_parallel(ptr nonnull @2, i32 %129)
   store i32 %129, ptr %91, align 4, !tbaa !11
-  call void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE3EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr nonnull %91, ptr nonnull poison, ptr %83, ptr %84, ptr %88, ptr %86, ptr %87, ptr %90, ptr %85, ptr %82, ptr %89) #7
+  call void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE3EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr nonnull %91, ptr nonnull poison, ptr %83, ptr %84, ptr %88, ptr %86, ptr %87, ptr %90, ptr %85, ptr %82, ptr %89) #6
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @2, i32 %129)
   br label %_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE3EEEEEvT_lPKflS8_Pflll.exit.i
 
 _ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE3EEEEEvT_lPKflS8_Pflll.exit.i: ; preds = %149, %148
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %82)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %83)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %84)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %85)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %86)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %87)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %88)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %89)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %90)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %91)
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
   br label %_ZN5faiss23dispatch_VectorDistanceINS_12_GLOBAL__N_128Run_pairwise_extra_distancesEJlPKflS4_PflllEEENT_1TEmNS_10MetricTypeEfRS6_DpT0_.exit
 
 150:                                              ; preds = %125
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %72)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %73)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %74)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %75)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %76)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %77)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %78)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %79)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %80)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %81)
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
+  call void @llvm.lifetime.start.p0(ptr nonnull %81)
   store i64 %0, ptr %72, align 8
   %151 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store float %6, ptr %151, align 8
@@ -456,34 +456,34 @@ _ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_
 154:                                              ; preds = %150
   tail call void @__kmpc_serialized_parallel(ptr nonnull @2, i32 %129)
   store i32 %129, ptr %81, align 4, !tbaa !11
-  call void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE4EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr nonnull %81, ptr nonnull poison, ptr %73, ptr %74, ptr %78, ptr %76, ptr %77, ptr %80, ptr %75, ptr %72, ptr %79) #7
+  call void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE4EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr nonnull %81, ptr nonnull poison, ptr %73, ptr %74, ptr %78, ptr %76, ptr %77, ptr %80, ptr %75, ptr %72, ptr %79) #6
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @2, i32 %129)
   br label %_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE4EEEEEvT_lPKflS8_Pflll.exit.i
 
 _ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE4EEEEEvT_lPKflS8_Pflll.exit.i: ; preds = %154, %153
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %72)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %73)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %74)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %75)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %76)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %77)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %78)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %79)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %80)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %81)
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
   br label %_ZN5faiss23dispatch_VectorDistanceINS_12_GLOBAL__N_128Run_pairwise_extra_distancesEJlPKflS4_PflllEEENT_1TEmNS_10MetricTypeEfRS6_DpT0_.exit
 
 155:                                              ; preds = %125
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %62)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %63)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %64)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %65)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %66)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %67)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %68)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %69)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %70)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %71)
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
   store i64 %0, ptr %62, align 8
   %156 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store float %6, ptr %156, align 8
@@ -505,34 +505,34 @@ _ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_
 159:                                              ; preds = %155
   tail call void @__kmpc_serialized_parallel(ptr nonnull @2, i32 %129)
   store i32 %129, ptr %71, align 4, !tbaa !11
-  call void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE20EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr nonnull %71, ptr nonnull poison, ptr %63, ptr %64, ptr %68, ptr %66, ptr %67, ptr %70, ptr %65, ptr %62, ptr %69) #7
+  call void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE20EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr nonnull %71, ptr nonnull poison, ptr %63, ptr %64, ptr %68, ptr %66, ptr %67, ptr %70, ptr %65, ptr %62, ptr %69) #6
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @2, i32 %129)
   br label %_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE20EEEEEvT_lPKflS8_Pflll.exit.i
 
 _ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE20EEEEEvT_lPKflS8_Pflll.exit.i: ; preds = %159, %158
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %67)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %70)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %71)
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
   br label %_ZN5faiss23dispatch_VectorDistanceINS_12_GLOBAL__N_128Run_pairwise_extra_distancesEJlPKflS4_PflllEEENT_1TEmNS_10MetricTypeEfRS6_DpT0_.exit
 
 160:                                              ; preds = %125
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %52)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %58)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %59)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %60)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %61)
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   store i64 %0, ptr %52, align 8
   %161 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store float %6, ptr %161, align 8
@@ -554,34 +554,34 @@ _ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_
 164:                                              ; preds = %160
   tail call void @__kmpc_serialized_parallel(ptr nonnull @2, i32 %129)
   store i32 %129, ptr %61, align 4, !tbaa !11
-  call void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE21EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr nonnull %61, ptr nonnull poison, ptr %53, ptr %54, ptr %58, ptr %56, ptr %57, ptr %60, ptr %55, ptr %52, ptr %59) #7
+  call void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE21EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr nonnull %61, ptr nonnull poison, ptr %53, ptr %54, ptr %58, ptr %56, ptr %57, ptr %60, ptr %55, ptr %52, ptr %59) #6
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @2, i32 %129)
   br label %_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE21EEEEEvT_lPKflS8_Pflll.exit.i
 
 _ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE21EEEEEvT_lPKflS8_Pflll.exit.i: ; preds = %164, %163
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %52)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
   br label %_ZN5faiss23dispatch_VectorDistanceINS_12_GLOBAL__N_128Run_pairwise_extra_distancesEJlPKflS4_PflllEEENT_1TEmNS_10MetricTypeEfRS6_DpT0_.exit
 
 165:                                              ; preds = %125
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   store i64 %0, ptr %42, align 8
   %166 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store float %6, ptr %166, align 8
@@ -603,34 +603,34 @@ _ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_
 169:                                              ; preds = %165
   tail call void @__kmpc_serialized_parallel(ptr nonnull @2, i32 %129)
   store i32 %129, ptr %51, align 4, !tbaa !11
-  call void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE22EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr nonnull %51, ptr nonnull poison, ptr %43, ptr %44, ptr %48, ptr %46, ptr %47, ptr %50, ptr %45, ptr %42, ptr %49) #7
+  call void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE22EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr nonnull %51, ptr nonnull poison, ptr %43, ptr %44, ptr %48, ptr %46, ptr %47, ptr %50, ptr %45, ptr %42, ptr %49) #6
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @2, i32 %129)
   br label %_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE22EEEEEvT_lPKflS8_Pflll.exit.i
 
 _ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE22EEEEEvT_lPKflS8_Pflll.exit.i: ; preds = %169, %168
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   br label %_ZN5faiss23dispatch_VectorDistanceINS_12_GLOBAL__N_128Run_pairwise_extra_distancesEJlPKflS4_PflllEEENT_1TEmNS_10MetricTypeEfRS6_DpT0_.exit
 
 170:                                              ; preds = %125
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store i64 %0, ptr %32, align 8
   %171 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store float %6, ptr %171, align 8
@@ -652,34 +652,34 @@ _ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_
 174:                                              ; preds = %170
   tail call void @__kmpc_serialized_parallel(ptr nonnull @2, i32 %129)
   store i32 %129, ptr %41, align 4, !tbaa !11
-  call void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE23EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr nonnull %41, ptr nonnull poison, ptr %33, ptr %34, ptr %38, ptr %36, ptr %37, ptr %40, ptr %35, ptr %32, ptr %39) #7
+  call void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE23EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr nonnull %41, ptr nonnull poison, ptr %33, ptr %34, ptr %38, ptr %36, ptr %37, ptr %40, ptr %35, ptr %32, ptr %39) #6
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @2, i32 %129)
   br label %_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE23EEEEEvT_lPKflS8_Pflll.exit.i
 
 _ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE23EEEEEvT_lPKflS8_Pflll.exit.i: ; preds = %174, %173
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %_ZN5faiss23dispatch_VectorDistanceINS_12_GLOBAL__N_128Run_pairwise_extra_distancesEJlPKflS4_PflllEEENT_1TEmNS_10MetricTypeEfRS6_DpT0_.exit
 
 175:                                              ; preds = %125
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i64 %0, ptr %22, align 8
   %176 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store float %6, ptr %176, align 8
@@ -701,34 +701,34 @@ _ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_
 179:                                              ; preds = %175
   tail call void @__kmpc_serialized_parallel(ptr nonnull @2, i32 %129)
   store i32 %129, ptr %31, align 4, !tbaa !11
-  call void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE24EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr nonnull %31, ptr nonnull poison, ptr %23, ptr %24, ptr %28, ptr %26, ptr %27, ptr %30, ptr %25, ptr %22, ptr %29) #7
+  call void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE24EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr nonnull %31, ptr nonnull poison, ptr %23, ptr %24, ptr %28, ptr %26, ptr %27, ptr %30, ptr %25, ptr %22, ptr %29) #6
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @2, i32 %129)
   br label %_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE24EEEEEvT_lPKflS8_Pflll.exit.i
 
 _ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE24EEEEEvT_lPKflS8_Pflll.exit.i: ; preds = %179, %178
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %_ZN5faiss23dispatch_VectorDistanceINS_12_GLOBAL__N_128Run_pairwise_extra_distancesEJlPKflS4_PflllEEENT_1TEmNS_10MetricTypeEfRS6_DpT0_.exit
 
 180:                                              ; preds = %125
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i64 %0, ptr %12, align 8
   %181 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store float %6, ptr %181, align 8
@@ -750,31 +750,31 @@ _ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_
 184:                                              ; preds = %180
   tail call void @__kmpc_serialized_parallel(ptr nonnull @2, i32 %129)
   store i32 %129, ptr %21, align 4, !tbaa !11
-  call void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE25EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr nonnull %21, ptr nonnull poison, ptr %13, ptr %14, ptr %18, ptr %16, ptr %17, ptr %20, ptr %15, ptr %12, ptr %19) #7
+  call void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE25EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr nonnull %21, ptr nonnull poison, ptr %13, ptr %14, ptr %18, ptr %16, ptr %17, ptr %20, ptr %15, ptr %12, ptr %19) #6
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @2, i32 %129)
   br label %_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE25EEEEEvT_lPKflS8_Pflll.exit.i
 
 _ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE25EEEEEvT_lPKflS8_Pflll.exit.i: ; preds = %184, %183
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %_ZN5faiss23dispatch_VectorDistanceINS_12_GLOBAL__N_128Run_pairwise_extra_distancesEJlPKflS4_PflllEEENT_1TEmNS_10MetricTypeEfRS6_DpT0_.exit
 
 185:                                              ; preds = %125
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %122) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %122)
   %186 = getelementptr inbounds nuw i8, ptr %122, i64 16
   store ptr %186, ptr %122, align 8, !tbaa !13
   %187 = getelementptr inbounds nuw i8, ptr %122, i64 8
   store i64 0, ptr %187, align 8, !tbaa !16
   store i8 0, ptr %186, align 8, !tbaa !18
-  %188 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str, i32 noundef %5) #7
+  %188 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str, i32 noundef %5) #6
   %189 = add nsw i32 %188, 1
   %190 = sext i32 %189 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %122, i64 noundef %190, i8 noundef signext 0)
@@ -783,8 +783,8 @@ _ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.i: ; preds = %185
   %191 = load ptr, ptr %122, align 8, !tbaa !19
   %192 = load i64, ptr %187, align 8, !tbaa !16
-  %193 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %191, i64 noundef %192, ptr noundef nonnull @.str, i32 noundef %5) #7
-  %194 = call ptr @__cxa_allocate_exception(i64 40) #7
+  %193 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %191, i64 noundef %192, ptr noundef nonnull @.str, i32 noundef %5) #6
+  %194 = call ptr @__cxa_allocate_exception(i64 40) #6
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %194, ptr noundef nonnull align 8 dereferenceable(32) %122, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss23dispatch_VectorDistanceINS_12_GLOBAL__N_128Run_pairwise_extra_distancesEJlPKflS4_PflllEEENT_1TEmNS_10MetricTypeEfRS6_DpT0_, ptr noundef nonnull @.str.1, i32 noundef 198)
           to label %195 unwind label %198
 
@@ -800,7 +800,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.i: ; preds =
 198:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.i
   %199 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %194) #7
+  call void @__cxa_free_exception(ptr nonnull %194) #6
   br label %200
 
 200:                                              ; preds = %198, %196
@@ -822,7 +822,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %122) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %122)
   resume { ptr, i32 } %.pn.i
 
 207:                                              ; preds = %195
@@ -832,25 +832,19 @@ _ZN5faiss23dispatch_VectorDistanceINS_12_GLOBAL__N_128Run_pairwise_extra_distanc
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare i32 @__gxx_personality_v0(...)
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
-declare void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, i32 noundef) unnamed_addr #3
+declare void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, i32 noundef) unnamed_addr #2
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5faiss14FaissExceptionE, i64 16), ptr %0, align 8, !tbaa !20
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !19
@@ -872,15 +866,15 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #7
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #6
   ret void
 }
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #5
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #4
 
 ; Function Attrs: noinline norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE0EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10) #6 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE0EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10) #5 personality ptr @__gxx_personality_v0 {
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8
   %14 = alloca i64, align 8
@@ -891,13 +885,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS
 
 18:                                               ; preds = %11
   %19 = add nsw i64 %16, -1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 %19, ptr %13, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 1, ptr %14, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4, !tbaa !11
   %20 = load i32, ptr %0, align 4, !tbaa !11
   call void @__kmpc_for_static_init_8(ptr nonnull @1, i32 %20, i32 34, ptr nonnull %15, ptr nonnull %12, ptr nonnull %13, ptr nonnull %14, i64 1, i64 1)
@@ -960,10 +954,10 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE0EEclEPKfS4_.exit: ; preds = %.lr.ph
 
 ._crit_edge35:                                    ; preds = %._crit_edge, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %20)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %49
 
 49:                                               ; preds = %._crit_edge35, %11
@@ -978,11 +972,11 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE0EEclEPKfS4_.exit: ; preds = %.lr.ph
 }
 
 ; Function Attrs: nounwind
-declare void @__kmpc_for_static_init_8(ptr, i32, i32, ptr, ptr, ptr, ptr, i64, i64) local_unnamed_addr #7
+declare void @__kmpc_for_static_init_8(ptr, i32, i32, ptr, ptr, ptr, ptr, i64, i64) local_unnamed_addr #6
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #7
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #6
   tail call void @_ZSt9terminatev() #26
   unreachable
 }
@@ -990,27 +984,27 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #9
+declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare void @__kmpc_for_static_fini(ptr, i32) local_unnamed_addr #7
+declare void @__kmpc_for_static_fini(ptr, i32) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare !callback !30 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #7
+declare !callback !30 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #7
+declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare void @__kmpc_serialized_parallel(ptr, i32) local_unnamed_addr #7
+declare void @__kmpc_serialized_parallel(ptr, i32) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare void @__kmpc_end_serialized_parallel(ptr, i32) local_unnamed_addr #7
+declare void @__kmpc_end_serialized_parallel(ptr, i32) local_unnamed_addr #6
 
-declare noundef float @_ZN5faiss18fvec_inner_productEPKfS1_m(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare noundef float @_ZN5faiss18fvec_inner_productEPKfS1_m(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: noinline norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE1EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10) #6 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE1EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10) #5 personality ptr @__gxx_personality_v0 {
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8
   %14 = alloca i64, align 8
@@ -1021,13 +1015,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS
 
 18:                                               ; preds = %11
   %19 = add nsw i64 %16, -1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 %19, ptr %13, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 1, ptr %14, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4, !tbaa !11
   %20 = load i32, ptr %0, align 4, !tbaa !11
   call void @__kmpc_for_static_init_8(ptr nonnull @1, i32 %20, i32 34, ptr nonnull %15, ptr nonnull %12, ptr nonnull %13, ptr nonnull %14, i64 1, i64 1)
@@ -1090,10 +1084,10 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE1EEclEPKfS4_.exit: ; preds = %.lr.ph
 
 ._crit_edge35:                                    ; preds = %._crit_edge, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %20)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %49
 
 49:                                               ; preds = %._crit_edge35, %11
@@ -1107,10 +1101,10 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE1EEclEPKfS4_.exit: ; preds = %.lr.ph
   unreachable
 }
 
-declare noundef float @_ZN5faiss10fvec_L2sqrEPKfS1_m(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare noundef float @_ZN5faiss10fvec_L2sqrEPKfS1_m(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: noinline norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE2EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10) #6 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE2EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10) #5 personality ptr @__gxx_personality_v0 {
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8
   %14 = alloca i64, align 8
@@ -1121,13 +1115,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS
 
 18:                                               ; preds = %11
   %19 = add nsw i64 %16, -1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 %19, ptr %13, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 1, ptr %14, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4, !tbaa !11
   %20 = load i32, ptr %0, align 4, !tbaa !11
   call void @__kmpc_for_static_init_8(ptr nonnull @1, i32 %20, i32 34, ptr nonnull %15, ptr nonnull %12, ptr nonnull %13, ptr nonnull %14, i64 1, i64 1)
@@ -1190,10 +1184,10 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE2EEclEPKfS4_.exit: ; preds = %.lr.ph
 
 ._crit_edge35:                                    ; preds = %._crit_edge, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %20)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %49
 
 49:                                               ; preds = %._crit_edge35, %11
@@ -1207,10 +1201,10 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE2EEclEPKfS4_.exit: ; preds = %.lr.ph
   unreachable
 }
 
-declare noundef float @_ZN5faiss7fvec_L1EPKfS1_m(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare noundef float @_ZN5faiss7fvec_L1EPKfS1_m(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: noinline norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE3EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10) #6 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE3EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10) #5 personality ptr @__gxx_personality_v0 {
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8
   %14 = alloca i64, align 8
@@ -1221,13 +1215,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS
 
 18:                                               ; preds = %11
   %19 = add nsw i64 %16, -1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 %19, ptr %13, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 1, ptr %14, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4, !tbaa !11
   %20 = load i32, ptr %0, align 4, !tbaa !11
   call void @__kmpc_for_static_init_8(ptr nonnull @1, i32 %20, i32 34, ptr nonnull %15, ptr nonnull %12, ptr nonnull %13, ptr nonnull %14, i64 1, i64 1)
@@ -1290,10 +1284,10 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE3EEclEPKfS4_.exit: ; preds = %.lr.ph
 
 ._crit_edge35:                                    ; preds = %._crit_edge, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %20)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %49
 
 49:                                               ; preds = %._crit_edge35, %11
@@ -1307,10 +1301,10 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE3EEclEPKfS4_.exit: ; preds = %.lr.ph
   unreachable
 }
 
-declare noundef float @_ZN5faiss9fvec_LinfEPKfS1_m(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare noundef float @_ZN5faiss9fvec_LinfEPKfS1_m(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: noinline norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE4EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10) #6 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE4EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10) #5 personality ptr @__gxx_personality_v0 {
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8
   %14 = alloca i64, align 8
@@ -1321,13 +1315,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS
 
 18:                                               ; preds = %11
   %19 = add nsw i64 %16, -1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 %19, ptr %13, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 1, ptr %14, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4, !tbaa !11
   %20 = load i32, ptr %0, align 4, !tbaa !11
   call void @__kmpc_for_static_init_8(ptr nonnull @1, i32 %20, i32 34, ptr nonnull %15, ptr nonnull %12, ptr nonnull %13, ptr nonnull %14, i64 1, i64 1)
@@ -1392,7 +1386,7 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE4EEclEPKfS4_.exit.us.us.preheader: ;
   %51 = load float, ptr %50, align 4, !tbaa !27
   %52 = fsub float %49, %51
   %53 = call float @llvm.fabs.f32(float %52)
-  %54 = call float @powf(float noundef %53, float noundef %46) #7, !tbaa !11
+  %54 = call float @powf(float noundef %53, float noundef %46) #6, !tbaa !11
   %55 = fadd float %.011.i.us, %54
   %56 = add nuw i64 %.0910.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %56, %31
@@ -1414,10 +1408,10 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE4EEclEPKfS4_.exit.loopexit.us: ; pre
 
 ._crit_edge35:                                    ; preds = %._crit_edge.us, %.lr.ph34, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %20)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %61
 
 61:                                               ; preds = %._crit_edge35, %11
@@ -1425,10 +1419,10 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE4EEclEPKfS4_.exit.loopexit.us: ; pre
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @powf(float noundef, float noundef) local_unnamed_addr #10
+declare float @powf(float noundef, float noundef) local_unnamed_addr #9
 
 ; Function Attrs: noinline norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE20EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10) #6 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE20EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10) #5 personality ptr @__gxx_personality_v0 {
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8
   %14 = alloca i64, align 8
@@ -1439,13 +1433,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS
 
 18:                                               ; preds = %11
   %19 = add nsw i64 %16, -1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 %19, ptr %13, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 1, ptr %14, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4, !tbaa !11
   %20 = load i32, ptr %0, align 4, !tbaa !11
   call void @__kmpc_for_static_init_8(ptr nonnull @1, i32 %20, i32 34, ptr nonnull %15, ptr nonnull %12, ptr nonnull %13, ptr nonnull %14, i64 1, i64 1)
@@ -1538,10 +1532,10 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE20EEclEPKfS4_.exit.loopexit.us: ; pr
 
 ._crit_edge35:                                    ; preds = %._crit_edge.us, %.lr.ph34, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %20)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %66
 
 66:                                               ; preds = %._crit_edge35, %11
@@ -1549,7 +1543,7 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE20EEclEPKfS4_.exit.loopexit.us: ; pr
 }
 
 ; Function Attrs: noinline norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE21EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10) #6 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE21EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10) #5 personality ptr @__gxx_personality_v0 {
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8
   %14 = alloca i64, align 8
@@ -1560,13 +1554,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS
 
 18:                                               ; preds = %11
   %19 = add nsw i64 %16, -1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 %19, ptr %13, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 1, ptr %14, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4, !tbaa !11
   %20 = load i32, ptr %0, align 4, !tbaa !11
   call void @__kmpc_for_static_init_8(ptr nonnull @1, i32 %20, i32 34, ptr nonnull %15, ptr nonnull %12, ptr nonnull %13, ptr nonnull %14, i64 1, i64 1)
@@ -1645,10 +1639,10 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE21EEclEPKfS4_.exit.us.us: ; preds = 
 
 ._crit_edge36:                                    ; preds = %._crit_edge.us, %.lr.ph35, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %20)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %55
 
 55:                                               ; preds = %._crit_edge36, %11
@@ -1656,7 +1650,7 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE21EEclEPKfS4_.exit.us.us: ; preds = 
 }
 
 ; Function Attrs: noinline norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE22EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10) #6 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE22EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10) #5 personality ptr @__gxx_personality_v0 {
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8
   %14 = alloca i64, align 8
@@ -1667,13 +1661,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS
 
 18:                                               ; preds = %11
   %19 = add nsw i64 %16, -1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 %19, ptr %13, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 1, ptr %14, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4, !tbaa !11
   %20 = load i32, ptr %0, align 4, !tbaa !11
   call void @__kmpc_for_static_init_8(ptr nonnull @1, i32 %20, i32 34, ptr nonnull %15, ptr nonnull %12, ptr nonnull %13, ptr nonnull %14, i64 1, i64 1)
@@ -1740,14 +1734,14 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE22EEclEPKfS4_.exit.us.us.preheader: 
   %52 = fpext float %51 to double
   %53 = fdiv float %50, %46
   %54 = fpext float %53 to double
-  %55 = call double @log(double noundef %54) #7, !tbaa !11
+  %55 = call double @log(double noundef %54) #6, !tbaa !11
   %56 = fmul double %55, %52
   %57 = fptrunc double %56 to float
   %58 = fneg float %48
   %59 = fpext float %58 to double
   %60 = fdiv float %50, %48
   %61 = fpext float %60 to double
-  %62 = call double @log(double noundef %61) #7, !tbaa !11
+  %62 = call double @log(double noundef %61) #6, !tbaa !11
   %63 = fmul double %62, %59
   %64 = fptrunc double %63 to float
   %65 = fadd float %57, %64
@@ -1773,10 +1767,10 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE22EEclEPKfS4_.exit.us.us.preheader: 
 
 ._crit_edge35:                                    ; preds = %._crit_edge.us, %.lr.ph34, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %20)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %73
 
 73:                                               ; preds = %._crit_edge35, %11
@@ -1784,10 +1778,10 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE22EEclEPKfS4_.exit.us.us.preheader: 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @log(double noundef) local_unnamed_addr #10
+declare double @log(double noundef) local_unnamed_addr #9
 
 ; Function Attrs: noinline norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE23EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10) #6 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE23EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10) #5 personality ptr @__gxx_personality_v0 {
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8
   %14 = alloca i64, align 8
@@ -1798,13 +1792,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS
 
 18:                                               ; preds = %11
   %19 = add nsw i64 %16, -1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 %19, ptr %13, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 1, ptr %14, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4, !tbaa !11
   %20 = load i32, ptr %0, align 4, !tbaa !11
   call void @__kmpc_for_static_init_8(ptr nonnull @1, i32 %20, i32 34, ptr nonnull %15, ptr nonnull %12, ptr nonnull %13, ptr nonnull %14, i64 1, i64 1)
@@ -1887,10 +1881,10 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE23EEclEPKfS4_.exit.us.us: ; preds = 
 
 ._crit_edge36:                                    ; preds = %._crit_edge.us, %.lr.ph35, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %20)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %59
 
 59:                                               ; preds = %._crit_edge36, %11
@@ -1898,13 +1892,13 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE23EEclEPKfS4_.exit.us.us: ; preds = 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.minnum.f64(double, double) #11
+declare double @llvm.minnum.f64(double, double) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.maxnum.f64(double, double) #11
+declare double @llvm.maxnum.f64(double, double) #10
 
 ; Function Attrs: noinline norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE24EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10) #6 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE24EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10) #5 personality ptr @__gxx_personality_v0 {
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8
   %14 = alloca i64, align 8
@@ -1915,13 +1909,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS
 
 18:                                               ; preds = %11
   %19 = add nsw i64 %16, -1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 %19, ptr %13, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 1, ptr %14, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4, !tbaa !11
   %20 = load i32, ptr %0, align 4, !tbaa !11
   call void @__kmpc_for_static_init_8(ptr nonnull @1, i32 %20, i32 34, ptr nonnull %15, ptr nonnull %12, ptr nonnull %13, ptr nonnull %14, i64 1, i64 1)
@@ -2015,10 +2009,10 @@ define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS
 
 ._crit_edge36:                                    ; preds = %._crit_edge.us, %.lr.ph35, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %20)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %62
 
 62:                                               ; preds = %._crit_edge36, %11
@@ -2026,10 +2020,10 @@ define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #11
+declare float @llvm.fmuladd.f32(float, float, float) #10
 
 ; Function Attrs: noinline norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE25EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10) #6 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS_14VectorDistanceILNS_10MetricTypeE25EEEEEvT_lPKflS8_Pflll.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10) #5 personality ptr @__gxx_personality_v0 {
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8
   %14 = alloca i64, align 8
@@ -2040,13 +2034,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS
 
 18:                                               ; preds = %11
   %19 = add nsw i64 %16, -1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 %19, ptr %13, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 1, ptr %14, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4, !tbaa !11
   %20 = load i32, ptr %0, align 4, !tbaa !11
   call void @__kmpc_for_static_init_8(ptr nonnull @1, i32 %20, i32 34, ptr nonnull %15, ptr nonnull %12, ptr nonnull %13, ptr nonnull %14, i64 1, i64 1)
@@ -2130,23 +2124,23 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE25EEclEPKfS4_.exit.loopexit.us: ; pr
 
 ._crit_edge35:                                    ; preds = %._crit_edge.us, %.lr.ph34, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %20)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %57
 
 57:                                               ; preds = %._crit_edge35, %11
   ret void
 }
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #3
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #12
+declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #11
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #13
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss17knn_extra_metricsEPKfS1_mmmNS_10MetricTypeEfmPfPl(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, float noundef %6, i64 noundef %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -2276,13 +2270,13 @@ define void @_ZN5faiss17knn_extra_metricsEPKfS1_mmmNS_10MetricTypeEfmPfPl(ptr no
   ]
 
 122:                                              ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %111)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %112)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %113)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %114)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %115)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %116)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %117)
+  call void @llvm.lifetime.start.p0(ptr nonnull %111)
+  call void @llvm.lifetime.start.p0(ptr nonnull %112)
+  call void @llvm.lifetime.start.p0(ptr nonnull %113)
+  call void @llvm.lifetime.start.p0(ptr nonnull %114)
+  call void @llvm.lifetime.start.p0(ptr nonnull %115)
+  call void @llvm.lifetime.start.p0(ptr nonnull %116)
+  call void @llvm.lifetime.start.p0(ptr nonnull %117)
   store i64 %2, ptr %111, align 8
   %123 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store float %6, ptr %123, align 8
@@ -2292,27 +2286,27 @@ define void @_ZN5faiss17knn_extra_metricsEPKfS1_mmmNS_10MetricTypeEfmPfPl(ptr no
   store i64 %7, ptr %115, align 8, !tbaa !4
   store ptr %8, ptr %116, align 8, !tbaa !8
   store ptr %9, ptr %117, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %118) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %118)
   store i64 %2, ptr %118, align 8, !tbaa !4
   %124 = mul i64 %4, %2
   %125 = tail call noundef i64 @_ZN5faiss17InterruptCallback15get_period_hintEm(i64 noundef %124)
   %126 = tail call i32 @omp_get_max_threads()
   %127 = sext i32 %126 to i64
   %128 = mul i64 %125, %127
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %119) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %119)
   store i64 0, ptr %119, align 8, !tbaa !4
   %.not.i.i = icmp eq i64 %3, 0
   br i1 %.not.i.i, label %_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE0EEEEEvT_PKfS8_mmmPfPl.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %122, %.lr.ph.i.i
   %storemerge5.i.i = phi i64 [ %131, %.lr.ph.i.i ], [ 0, %122 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %120) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %120)
   %129 = add i64 %storemerge5.i.i, %128
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %3, i64 %129)
   store i64 %.sroa.speculated.i.i, ptr %120, align 8, !tbaa !4
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 10, ptr nonnull @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE0EEEEEvT_PKfS8_mmmPfPl.omp_outlined, ptr nonnull %119, ptr nonnull %120, ptr nonnull %112, ptr nonnull %118, ptr nonnull %113, ptr nonnull %116, ptr nonnull %115, ptr nonnull %117, ptr nonnull %114, ptr nonnull %111)
   call void @_ZN5faiss17InterruptCallback5checkEv()
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %120) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %120)
   %130 = load i64, ptr %119, align 8, !tbaa !4
   %131 = add i64 %130, %128
   store i64 %131, ptr %119, align 8, !tbaa !4
@@ -2320,25 +2314,25 @@ define void @_ZN5faiss17knn_extra_metricsEPKfS1_mmmNS_10MetricTypeEfmPfPl(ptr no
   br i1 %132, label %.lr.ph.i.i, label %_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE0EEEEEvT_PKfS8_mmmPfPl.exit.i, !llvm.loop !73
 
 _ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE0EEEEEvT_PKfS8_mmmPfPl.exit.i: ; preds = %.lr.ph.i.i, %122
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %119) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %118) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %111)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %112)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %113)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %114)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %115)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %116)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %117)
+  call void @llvm.lifetime.end.p0(ptr nonnull %119)
+  call void @llvm.lifetime.end.p0(ptr nonnull %118)
+  call void @llvm.lifetime.end.p0(ptr nonnull %111)
+  call void @llvm.lifetime.end.p0(ptr nonnull %112)
+  call void @llvm.lifetime.end.p0(ptr nonnull %113)
+  call void @llvm.lifetime.end.p0(ptr nonnull %114)
+  call void @llvm.lifetime.end.p0(ptr nonnull %115)
+  call void @llvm.lifetime.end.p0(ptr nonnull %116)
+  call void @llvm.lifetime.end.p0(ptr nonnull %117)
   br label %_ZN5faiss23dispatch_VectorDistanceINS_12_GLOBAL__N_121Run_knn_extra_metricsEJPKfS4_mmmPfPlEEENT_1TEmNS_10MetricTypeEfRS7_DpT0_.exit
 
 133:                                              ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %101)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %102)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %103)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %104)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %105)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %106)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %107)
+  call void @llvm.lifetime.start.p0(ptr nonnull %101)
+  call void @llvm.lifetime.start.p0(ptr nonnull %102)
+  call void @llvm.lifetime.start.p0(ptr nonnull %103)
+  call void @llvm.lifetime.start.p0(ptr nonnull %104)
+  call void @llvm.lifetime.start.p0(ptr nonnull %105)
+  call void @llvm.lifetime.start.p0(ptr nonnull %106)
+  call void @llvm.lifetime.start.p0(ptr nonnull %107)
   store i64 %2, ptr %101, align 8
   %134 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store float %6, ptr %134, align 8
@@ -2348,27 +2342,27 @@ _ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10Metri
   store i64 %7, ptr %105, align 8, !tbaa !4
   store ptr %8, ptr %106, align 8, !tbaa !8
   store ptr %9, ptr %107, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %108) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %108)
   store i64 %2, ptr %108, align 8, !tbaa !4
   %135 = mul i64 %4, %2
   %136 = tail call noundef i64 @_ZN5faiss17InterruptCallback15get_period_hintEm(i64 noundef %135)
   %137 = tail call i32 @omp_get_max_threads()
   %138 = sext i32 %137 to i64
   %139 = mul i64 %136, %138
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %109) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %109)
   store i64 0, ptr %109, align 8, !tbaa !4
   %.not.i178.i = icmp eq i64 %3, 0
   br i1 %.not.i178.i, label %_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE1EEEEEvT_PKfS8_mmmPfPl.exit.i, label %.lr.ph.i179.i
 
 .lr.ph.i179.i:                                    ; preds = %133, %.lr.ph.i179.i
   %storemerge5.i180.i = phi i64 [ %142, %.lr.ph.i179.i ], [ 0, %133 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %110) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %110)
   %140 = add i64 %storemerge5.i180.i, %139
   %.sroa.speculated.i181.i = call i64 @llvm.umin.i64(i64 %3, i64 %140)
   store i64 %.sroa.speculated.i181.i, ptr %110, align 8, !tbaa !4
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 10, ptr nonnull @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE1EEEEEvT_PKfS8_mmmPfPl.omp_outlined, ptr nonnull %109, ptr nonnull %110, ptr nonnull %102, ptr nonnull %108, ptr nonnull %103, ptr nonnull %106, ptr nonnull %105, ptr nonnull %107, ptr nonnull %104, ptr nonnull %101)
   call void @_ZN5faiss17InterruptCallback5checkEv()
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %110) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %110)
   %141 = load i64, ptr %109, align 8, !tbaa !4
   %142 = add i64 %141, %139
   store i64 %142, ptr %109, align 8, !tbaa !4
@@ -2376,25 +2370,25 @@ _ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10Metri
   br i1 %143, label %.lr.ph.i179.i, label %_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE1EEEEEvT_PKfS8_mmmPfPl.exit.i, !llvm.loop !74
 
 _ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE1EEEEEvT_PKfS8_mmmPfPl.exit.i: ; preds = %.lr.ph.i179.i, %133
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %109) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %108) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %101)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %102)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %103)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %104)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %105)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %106)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %107)
+  call void @llvm.lifetime.end.p0(ptr nonnull %109)
+  call void @llvm.lifetime.end.p0(ptr nonnull %108)
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
+  call void @llvm.lifetime.end.p0(ptr nonnull %102)
+  call void @llvm.lifetime.end.p0(ptr nonnull %103)
+  call void @llvm.lifetime.end.p0(ptr nonnull %104)
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
+  call void @llvm.lifetime.end.p0(ptr nonnull %107)
   br label %_ZN5faiss23dispatch_VectorDistanceINS_12_GLOBAL__N_121Run_knn_extra_metricsEJPKfS4_mmmPfPlEEENT_1TEmNS_10MetricTypeEfRS7_DpT0_.exit
 
 144:                                              ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %91)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %92)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %93)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %94)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %95)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %96)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %97)
+  call void @llvm.lifetime.start.p0(ptr nonnull %91)
+  call void @llvm.lifetime.start.p0(ptr nonnull %92)
+  call void @llvm.lifetime.start.p0(ptr nonnull %93)
+  call void @llvm.lifetime.start.p0(ptr nonnull %94)
+  call void @llvm.lifetime.start.p0(ptr nonnull %95)
+  call void @llvm.lifetime.start.p0(ptr nonnull %96)
+  call void @llvm.lifetime.start.p0(ptr nonnull %97)
   store i64 %2, ptr %91, align 8
   %145 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store float %6, ptr %145, align 8
@@ -2404,27 +2398,27 @@ _ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10Metri
   store i64 %7, ptr %95, align 8, !tbaa !4
   store ptr %8, ptr %96, align 8, !tbaa !8
   store ptr %9, ptr %97, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %98) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %98)
   store i64 %2, ptr %98, align 8, !tbaa !4
   %146 = mul i64 %4, %2
   %147 = tail call noundef i64 @_ZN5faiss17InterruptCallback15get_period_hintEm(i64 noundef %146)
   %148 = tail call i32 @omp_get_max_threads()
   %149 = sext i32 %148 to i64
   %150 = mul i64 %147, %149
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %99) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %99)
   store i64 0, ptr %99, align 8, !tbaa !4
   %.not.i182.i = icmp eq i64 %3, 0
   br i1 %.not.i182.i, label %_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE2EEEEEvT_PKfS8_mmmPfPl.exit.i, label %.lr.ph.i183.i
 
 .lr.ph.i183.i:                                    ; preds = %144, %.lr.ph.i183.i
   %storemerge5.i184.i = phi i64 [ %153, %.lr.ph.i183.i ], [ 0, %144 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %100) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %100)
   %151 = add i64 %storemerge5.i184.i, %150
   %.sroa.speculated.i185.i = call i64 @llvm.umin.i64(i64 %3, i64 %151)
   store i64 %.sroa.speculated.i185.i, ptr %100, align 8, !tbaa !4
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 10, ptr nonnull @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE2EEEEEvT_PKfS8_mmmPfPl.omp_outlined, ptr nonnull %99, ptr nonnull %100, ptr nonnull %92, ptr nonnull %98, ptr nonnull %93, ptr nonnull %96, ptr nonnull %95, ptr nonnull %97, ptr nonnull %94, ptr nonnull %91)
   call void @_ZN5faiss17InterruptCallback5checkEv()
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %100) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
   %152 = load i64, ptr %99, align 8, !tbaa !4
   %153 = add i64 %152, %150
   store i64 %153, ptr %99, align 8, !tbaa !4
@@ -2432,25 +2426,25 @@ _ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10Metri
   br i1 %154, label %.lr.ph.i183.i, label %_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE2EEEEEvT_PKfS8_mmmPfPl.exit.i, !llvm.loop !75
 
 _ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE2EEEEEvT_PKfS8_mmmPfPl.exit.i: ; preds = %.lr.ph.i183.i, %144
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %99) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %98) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %91)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %92)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %93)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %94)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %95)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %96)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %97)
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
+  call void @llvm.lifetime.end.p0(ptr nonnull %94)
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
   br label %_ZN5faiss23dispatch_VectorDistanceINS_12_GLOBAL__N_121Run_knn_extra_metricsEJPKfS4_mmmPfPlEEENT_1TEmNS_10MetricTypeEfRS7_DpT0_.exit
 
 155:                                              ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %81)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %82)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %83)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %84)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %85)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %86)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %87)
+  call void @llvm.lifetime.start.p0(ptr nonnull %81)
+  call void @llvm.lifetime.start.p0(ptr nonnull %82)
+  call void @llvm.lifetime.start.p0(ptr nonnull %83)
+  call void @llvm.lifetime.start.p0(ptr nonnull %84)
+  call void @llvm.lifetime.start.p0(ptr nonnull %85)
+  call void @llvm.lifetime.start.p0(ptr nonnull %86)
+  call void @llvm.lifetime.start.p0(ptr nonnull %87)
   store i64 %2, ptr %81, align 8
   %156 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store float %6, ptr %156, align 8
@@ -2460,27 +2454,27 @@ _ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10Metri
   store i64 %7, ptr %85, align 8, !tbaa !4
   store ptr %8, ptr %86, align 8, !tbaa !8
   store ptr %9, ptr %87, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %88) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %88)
   store i64 %2, ptr %88, align 8, !tbaa !4
   %157 = mul i64 %4, %2
   %158 = tail call noundef i64 @_ZN5faiss17InterruptCallback15get_period_hintEm(i64 noundef %157)
   %159 = tail call i32 @omp_get_max_threads()
   %160 = sext i32 %159 to i64
   %161 = mul i64 %158, %160
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %89) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %89)
   store i64 0, ptr %89, align 8, !tbaa !4
   %.not.i186.i = icmp eq i64 %3, 0
   br i1 %.not.i186.i, label %_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE3EEEEEvT_PKfS8_mmmPfPl.exit.i, label %.lr.ph.i187.i
 
 .lr.ph.i187.i:                                    ; preds = %155, %.lr.ph.i187.i
   %storemerge5.i188.i = phi i64 [ %164, %.lr.ph.i187.i ], [ 0, %155 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %90) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %90)
   %162 = add i64 %storemerge5.i188.i, %161
   %.sroa.speculated.i189.i = call i64 @llvm.umin.i64(i64 %3, i64 %162)
   store i64 %.sroa.speculated.i189.i, ptr %90, align 8, !tbaa !4
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 10, ptr nonnull @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE3EEEEEvT_PKfS8_mmmPfPl.omp_outlined, ptr nonnull %89, ptr nonnull %90, ptr nonnull %82, ptr nonnull %88, ptr nonnull %83, ptr nonnull %86, ptr nonnull %85, ptr nonnull %87, ptr nonnull %84, ptr nonnull %81)
   call void @_ZN5faiss17InterruptCallback5checkEv()
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %90) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
   %163 = load i64, ptr %89, align 8, !tbaa !4
   %164 = add i64 %163, %161
   store i64 %164, ptr %89, align 8, !tbaa !4
@@ -2488,25 +2482,25 @@ _ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10Metri
   br i1 %165, label %.lr.ph.i187.i, label %_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE3EEEEEvT_PKfS8_mmmPfPl.exit.i, !llvm.loop !76
 
 _ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE3EEEEEvT_PKfS8_mmmPfPl.exit.i: ; preds = %.lr.ph.i187.i, %155
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %89) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %88) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %81)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %82)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %83)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %84)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %85)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %86)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %87)
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
   br label %_ZN5faiss23dispatch_VectorDistanceINS_12_GLOBAL__N_121Run_knn_extra_metricsEJPKfS4_mmmPfPlEEENT_1TEmNS_10MetricTypeEfRS7_DpT0_.exit
 
 166:                                              ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %71)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %72)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %73)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %74)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %75)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %76)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %77)
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
   store i64 %2, ptr %71, align 8
   %167 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store float %6, ptr %167, align 8
@@ -2516,27 +2510,27 @@ _ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10Metri
   store i64 %7, ptr %75, align 8, !tbaa !4
   store ptr %8, ptr %76, align 8, !tbaa !8
   store ptr %9, ptr %77, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %78) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
   store i64 %2, ptr %78, align 8, !tbaa !4
   %168 = mul i64 %4, %2
   %169 = tail call noundef i64 @_ZN5faiss17InterruptCallback15get_period_hintEm(i64 noundef %168)
   %170 = tail call i32 @omp_get_max_threads()
   %171 = sext i32 %170 to i64
   %172 = mul i64 %169, %171
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %79) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
   store i64 0, ptr %79, align 8, !tbaa !4
   %.not.i190.i = icmp eq i64 %3, 0
   br i1 %.not.i190.i, label %_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE4EEEEEvT_PKfS8_mmmPfPl.exit.i, label %.lr.ph.i191.i
 
 .lr.ph.i191.i:                                    ; preds = %166, %.lr.ph.i191.i
   %storemerge5.i192.i = phi i64 [ %175, %.lr.ph.i191.i ], [ 0, %166 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %80) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
   %173 = add i64 %storemerge5.i192.i, %172
   %.sroa.speculated.i193.i = call i64 @llvm.umin.i64(i64 %3, i64 %173)
   store i64 %.sroa.speculated.i193.i, ptr %80, align 8, !tbaa !4
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 10, ptr nonnull @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE4EEEEEvT_PKfS8_mmmPfPl.omp_outlined, ptr nonnull %79, ptr nonnull %80, ptr nonnull %72, ptr nonnull %78, ptr nonnull %73, ptr nonnull %76, ptr nonnull %75, ptr nonnull %77, ptr nonnull %74, ptr nonnull %71)
   call void @_ZN5faiss17InterruptCallback5checkEv()
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %80) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
   %174 = load i64, ptr %79, align 8, !tbaa !4
   %175 = add i64 %174, %172
   store i64 %175, ptr %79, align 8, !tbaa !4
@@ -2544,25 +2538,25 @@ _ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10Metri
   br i1 %176, label %.lr.ph.i191.i, label %_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE4EEEEEvT_PKfS8_mmmPfPl.exit.i, !llvm.loop !77
 
 _ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE4EEEEEvT_PKfS8_mmmPfPl.exit.i: ; preds = %.lr.ph.i191.i, %166
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %79) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %78) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %71)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %72)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %73)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %74)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %75)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %76)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %77)
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
   br label %_ZN5faiss23dispatch_VectorDistanceINS_12_GLOBAL__N_121Run_knn_extra_metricsEJPKfS4_mmmPfPlEEENT_1TEmNS_10MetricTypeEfRS7_DpT0_.exit
 
 177:                                              ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %61)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %62)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %63)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %64)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %65)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %66)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %67)
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
   store i64 %2, ptr %61, align 8
   %178 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store float %6, ptr %178, align 8
@@ -2572,27 +2566,27 @@ _ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10Metri
   store i64 %7, ptr %65, align 8, !tbaa !4
   store ptr %8, ptr %66, align 8, !tbaa !8
   store ptr %9, ptr %67, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %68) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
   store i64 %2, ptr %68, align 8, !tbaa !4
   %179 = mul i64 %4, %2
   %180 = tail call noundef i64 @_ZN5faiss17InterruptCallback15get_period_hintEm(i64 noundef %179)
   %181 = tail call i32 @omp_get_max_threads()
   %182 = sext i32 %181 to i64
   %183 = mul i64 %180, %182
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %69) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
   store i64 0, ptr %69, align 8, !tbaa !4
   %.not.i194.i = icmp eq i64 %3, 0
   br i1 %.not.i194.i, label %_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE20EEEEEvT_PKfS8_mmmPfPl.exit.i, label %.lr.ph.i195.i
 
 .lr.ph.i195.i:                                    ; preds = %177, %.lr.ph.i195.i
   %storemerge5.i196.i = phi i64 [ %186, %.lr.ph.i195.i ], [ 0, %177 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %70) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
   %184 = add i64 %storemerge5.i196.i, %183
   %.sroa.speculated.i197.i = call i64 @llvm.umin.i64(i64 %3, i64 %184)
   store i64 %.sroa.speculated.i197.i, ptr %70, align 8, !tbaa !4
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 10, ptr nonnull @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE20EEEEEvT_PKfS8_mmmPfPl.omp_outlined, ptr nonnull %69, ptr nonnull %70, ptr nonnull %62, ptr nonnull %68, ptr nonnull %63, ptr nonnull %66, ptr nonnull %65, ptr nonnull %67, ptr nonnull %64, ptr nonnull %61)
   call void @_ZN5faiss17InterruptCallback5checkEv()
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %70) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
   %185 = load i64, ptr %69, align 8, !tbaa !4
   %186 = add i64 %185, %183
   store i64 %186, ptr %69, align 8, !tbaa !4
@@ -2600,25 +2594,25 @@ _ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10Metri
   br i1 %187, label %.lr.ph.i195.i, label %_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE20EEEEEvT_PKfS8_mmmPfPl.exit.i, !llvm.loop !78
 
 _ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE20EEEEEvT_PKfS8_mmmPfPl.exit.i: ; preds = %.lr.ph.i195.i, %177
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %61)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %67)
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
   br label %_ZN5faiss23dispatch_VectorDistanceINS_12_GLOBAL__N_121Run_knn_extra_metricsEJPKfS4_mmmPfPlEEENT_1TEmNS_10MetricTypeEfRS7_DpT0_.exit
 
 188:                                              ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %51)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57)
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   store i64 %2, ptr %51, align 8
   %189 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store float %6, ptr %189, align 8
@@ -2628,27 +2622,27 @@ _ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10Metri
   store i64 %7, ptr %55, align 8, !tbaa !4
   store ptr %8, ptr %56, align 8, !tbaa !8
   store ptr %9, ptr %57, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %58) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
   store i64 %2, ptr %58, align 8, !tbaa !4
   %190 = mul i64 %4, %2
   %191 = tail call noundef i64 @_ZN5faiss17InterruptCallback15get_period_hintEm(i64 noundef %190)
   %192 = tail call i32 @omp_get_max_threads()
   %193 = sext i32 %192 to i64
   %194 = mul i64 %191, %193
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %59) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   store i64 0, ptr %59, align 8, !tbaa !4
   %.not.i198.i = icmp eq i64 %3, 0
   br i1 %.not.i198.i, label %_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE21EEEEEvT_PKfS8_mmmPfPl.exit.i, label %.lr.ph.i199.i
 
 .lr.ph.i199.i:                                    ; preds = %188, %.lr.ph.i199.i
   %storemerge5.i200.i = phi i64 [ %197, %.lr.ph.i199.i ], [ 0, %188 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %60) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
   %195 = add i64 %storemerge5.i200.i, %194
   %.sroa.speculated.i201.i = call i64 @llvm.umin.i64(i64 %3, i64 %195)
   store i64 %.sroa.speculated.i201.i, ptr %60, align 8, !tbaa !4
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 10, ptr nonnull @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE21EEEEEvT_PKfS8_mmmPfPl.omp_outlined, ptr nonnull %59, ptr nonnull %60, ptr nonnull %52, ptr nonnull %58, ptr nonnull %53, ptr nonnull %56, ptr nonnull %55, ptr nonnull %57, ptr nonnull %54, ptr nonnull %51)
   call void @_ZN5faiss17InterruptCallback5checkEv()
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   %196 = load i64, ptr %59, align 8, !tbaa !4
   %197 = add i64 %196, %194
   store i64 %197, ptr %59, align 8, !tbaa !4
@@ -2656,25 +2650,25 @@ _ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10Metri
   br i1 %198, label %.lr.ph.i199.i, label %_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE21EEEEEvT_PKfS8_mmmPfPl.exit.i, !llvm.loop !79
 
 _ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE21EEEEEvT_PKfS8_mmmPfPl.exit.i: ; preds = %.lr.ph.i199.i, %188
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %51)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br label %_ZN5faiss23dispatch_VectorDistanceINS_12_GLOBAL__N_121Run_knn_extra_metricsEJPKfS4_mmmPfPlEEENT_1TEmNS_10MetricTypeEfRS7_DpT0_.exit
 
 199:                                              ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   store i64 %2, ptr %41, align 8
   %200 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store float %6, ptr %200, align 8
@@ -2684,27 +2678,27 @@ _ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10Metri
   store i64 %7, ptr %45, align 8, !tbaa !4
   store ptr %8, ptr %46, align 8, !tbaa !8
   store ptr %9, ptr %47, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   store i64 %2, ptr %48, align 8, !tbaa !4
   %201 = mul i64 %4, %2
   %202 = tail call noundef i64 @_ZN5faiss17InterruptCallback15get_period_hintEm(i64 noundef %201)
   %203 = tail call i32 @omp_get_max_threads()
   %204 = sext i32 %203 to i64
   %205 = mul i64 %202, %204
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   store i64 0, ptr %49, align 8, !tbaa !4
   %.not.i202.i = icmp eq i64 %3, 0
   br i1 %.not.i202.i, label %_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE22EEEEEvT_PKfS8_mmmPfPl.exit.i, label %.lr.ph.i203.i
 
 .lr.ph.i203.i:                                    ; preds = %199, %.lr.ph.i203.i
   %storemerge5.i204.i = phi i64 [ %208, %.lr.ph.i203.i ], [ 0, %199 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   %206 = add i64 %storemerge5.i204.i, %205
   %.sroa.speculated.i205.i = call i64 @llvm.umin.i64(i64 %3, i64 %206)
   store i64 %.sroa.speculated.i205.i, ptr %50, align 8, !tbaa !4
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 10, ptr nonnull @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE22EEEEEvT_PKfS8_mmmPfPl.omp_outlined, ptr nonnull %49, ptr nonnull %50, ptr nonnull %42, ptr nonnull %48, ptr nonnull %43, ptr nonnull %46, ptr nonnull %45, ptr nonnull %47, ptr nonnull %44, ptr nonnull %41)
   call void @_ZN5faiss17InterruptCallback5checkEv()
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   %207 = load i64, ptr %49, align 8, !tbaa !4
   %208 = add i64 %207, %205
   store i64 %208, ptr %49, align 8, !tbaa !4
@@ -2712,25 +2706,25 @@ _ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10Metri
   br i1 %209, label %.lr.ph.i203.i, label %_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE22EEEEEvT_PKfS8_mmmPfPl.exit.i, !llvm.loop !80
 
 _ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE22EEEEEvT_PKfS8_mmmPfPl.exit.i: ; preds = %.lr.ph.i203.i, %199
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %_ZN5faiss23dispatch_VectorDistanceINS_12_GLOBAL__N_121Run_knn_extra_metricsEJPKfS4_mmmPfPlEEENT_1TEmNS_10MetricTypeEfRS7_DpT0_.exit
 
 210:                                              ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store i64 %2, ptr %31, align 8
   %211 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store float %6, ptr %211, align 8
@@ -2740,27 +2734,27 @@ _ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10Metri
   store i64 %7, ptr %35, align 8, !tbaa !4
   store ptr %8, ptr %36, align 8, !tbaa !8
   store ptr %9, ptr %37, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store i64 %2, ptr %38, align 8, !tbaa !4
   %212 = mul i64 %4, %2
   %213 = tail call noundef i64 @_ZN5faiss17InterruptCallback15get_period_hintEm(i64 noundef %212)
   %214 = tail call i32 @omp_get_max_threads()
   %215 = sext i32 %214 to i64
   %216 = mul i64 %213, %215
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store i64 0, ptr %39, align 8, !tbaa !4
   %.not.i206.i = icmp eq i64 %3, 0
   br i1 %.not.i206.i, label %_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE23EEEEEvT_PKfS8_mmmPfPl.exit.i, label %.lr.ph.i207.i
 
 .lr.ph.i207.i:                                    ; preds = %210, %.lr.ph.i207.i
   %storemerge5.i208.i = phi i64 [ %219, %.lr.ph.i207.i ], [ 0, %210 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %217 = add i64 %storemerge5.i208.i, %216
   %.sroa.speculated.i209.i = call i64 @llvm.umin.i64(i64 %3, i64 %217)
   store i64 %.sroa.speculated.i209.i, ptr %40, align 8, !tbaa !4
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 10, ptr nonnull @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE23EEEEEvT_PKfS8_mmmPfPl.omp_outlined, ptr nonnull %39, ptr nonnull %40, ptr nonnull %32, ptr nonnull %38, ptr nonnull %33, ptr nonnull %36, ptr nonnull %35, ptr nonnull %37, ptr nonnull %34, ptr nonnull %31)
   call void @_ZN5faiss17InterruptCallback5checkEv()
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   %218 = load i64, ptr %39, align 8, !tbaa !4
   %219 = add i64 %218, %216
   store i64 %219, ptr %39, align 8, !tbaa !4
@@ -2768,25 +2762,25 @@ _ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10Metri
   br i1 %220, label %.lr.ph.i207.i, label %_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE23EEEEEvT_PKfS8_mmmPfPl.exit.i, !llvm.loop !81
 
 _ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE23EEEEEvT_PKfS8_mmmPfPl.exit.i: ; preds = %.lr.ph.i207.i, %210
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %_ZN5faiss23dispatch_VectorDistanceINS_12_GLOBAL__N_121Run_knn_extra_metricsEJPKfS4_mmmPfPlEEENT_1TEmNS_10MetricTypeEfRS7_DpT0_.exit
 
 221:                                              ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i64 %2, ptr %21, align 8
   %222 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store float %6, ptr %222, align 8
@@ -2796,27 +2790,27 @@ _ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10Metri
   store i64 %7, ptr %25, align 8, !tbaa !4
   store ptr %8, ptr %26, align 8, !tbaa !8
   store ptr %9, ptr %27, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store i64 %2, ptr %28, align 8, !tbaa !4
   %223 = mul i64 %4, %2
   %224 = tail call noundef i64 @_ZN5faiss17InterruptCallback15get_period_hintEm(i64 noundef %223)
   %225 = tail call i32 @omp_get_max_threads()
   %226 = sext i32 %225 to i64
   %227 = mul i64 %224, %226
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i64 0, ptr %29, align 8, !tbaa !4
   %.not.i210.i = icmp eq i64 %3, 0
   br i1 %.not.i210.i, label %_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE24EEEEEvT_PKfS8_mmmPfPl.exit.i, label %.lr.ph.i211.i
 
 .lr.ph.i211.i:                                    ; preds = %221, %.lr.ph.i211.i
   %storemerge5.i212.i = phi i64 [ %230, %.lr.ph.i211.i ], [ 0, %221 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %228 = add i64 %storemerge5.i212.i, %227
   %.sroa.speculated.i213.i = call i64 @llvm.umin.i64(i64 %3, i64 %228)
   store i64 %.sroa.speculated.i213.i, ptr %30, align 8, !tbaa !4
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 10, ptr nonnull @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE24EEEEEvT_PKfS8_mmmPfPl.omp_outlined, ptr nonnull %29, ptr nonnull %30, ptr nonnull %22, ptr nonnull %28, ptr nonnull %23, ptr nonnull %26, ptr nonnull %25, ptr nonnull %27, ptr nonnull %24, ptr nonnull %21)
   call void @_ZN5faiss17InterruptCallback5checkEv()
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %229 = load i64, ptr %29, align 8, !tbaa !4
   %230 = add i64 %229, %227
   store i64 %230, ptr %29, align 8, !tbaa !4
@@ -2824,25 +2818,25 @@ _ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10Metri
   br i1 %231, label %.lr.ph.i211.i, label %_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE24EEEEEvT_PKfS8_mmmPfPl.exit.i, !llvm.loop !82
 
 _ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE24EEEEEvT_PKfS8_mmmPfPl.exit.i: ; preds = %.lr.ph.i211.i, %221
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %_ZN5faiss23dispatch_VectorDistanceINS_12_GLOBAL__N_121Run_knn_extra_metricsEJPKfS4_mmmPfPlEEENT_1TEmNS_10MetricTypeEfRS7_DpT0_.exit
 
 232:                                              ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 %2, ptr %11, align 8
   %233 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store float %6, ptr %233, align 8
@@ -2852,27 +2846,27 @@ _ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10Metri
   store i64 %7, ptr %15, align 8, !tbaa !4
   store ptr %8, ptr %16, align 8, !tbaa !8
   store ptr %9, ptr %17, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 %2, ptr %18, align 8, !tbaa !4
   %234 = mul i64 %4, %2
   %235 = tail call noundef i64 @_ZN5faiss17InterruptCallback15get_period_hintEm(i64 noundef %234)
   %236 = tail call i32 @omp_get_max_threads()
   %237 = sext i32 %236 to i64
   %238 = mul i64 %235, %237
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i64 0, ptr %19, align 8, !tbaa !4
   %.not.i214.i = icmp eq i64 %3, 0
   br i1 %.not.i214.i, label %_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE25EEEEEvT_PKfS8_mmmPfPl.exit.i, label %.lr.ph.i215.i
 
 .lr.ph.i215.i:                                    ; preds = %232, %.lr.ph.i215.i
   %storemerge5.i216.i = phi i64 [ %241, %.lr.ph.i215.i ], [ 0, %232 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %239 = add i64 %storemerge5.i216.i, %238
   %.sroa.speculated.i217.i = call i64 @llvm.umin.i64(i64 %3, i64 %239)
   store i64 %.sroa.speculated.i217.i, ptr %20, align 8, !tbaa !4
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 10, ptr nonnull @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE25EEEEEvT_PKfS8_mmmPfPl.omp_outlined, ptr nonnull %19, ptr nonnull %20, ptr nonnull %12, ptr nonnull %18, ptr nonnull %13, ptr nonnull %16, ptr nonnull %15, ptr nonnull %17, ptr nonnull %14, ptr nonnull %11)
   call void @_ZN5faiss17InterruptCallback5checkEv()
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %240 = load i64, ptr %19, align 8, !tbaa !4
   %241 = add i64 %240, %238
   store i64 %241, ptr %19, align 8, !tbaa !4
@@ -2880,25 +2874,25 @@ _ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10Metri
   br i1 %242, label %.lr.ph.i215.i, label %_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE25EEEEEvT_PKfS8_mmmPfPl.exit.i, !llvm.loop !83
 
 _ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE25EEEEEvT_PKfS8_mmmPfPl.exit.i: ; preds = %.lr.ph.i215.i, %232
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_ZN5faiss23dispatch_VectorDistanceINS_12_GLOBAL__N_121Run_knn_extra_metricsEJPKfS4_mmmPfPlEEENT_1TEmNS_10MetricTypeEfRS7_DpT0_.exit
 
 243:                                              ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %121) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %121)
   %244 = getelementptr inbounds nuw i8, ptr %121, i64 16
   store ptr %244, ptr %121, align 8, !tbaa !13
   %245 = getelementptr inbounds nuw i8, ptr %121, i64 8
   store i64 0, ptr %245, align 8, !tbaa !16
   store i8 0, ptr %244, align 8, !tbaa !18
-  %246 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str, i32 noundef %5) #7
+  %246 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str, i32 noundef %5) #6
   %247 = add nsw i32 %246, 1
   %248 = sext i32 %247 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %121, i64 noundef %248, i8 noundef signext 0)
@@ -2907,8 +2901,8 @@ _ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10Metri
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.i: ; preds = %243
   %249 = load ptr, ptr %121, align 8, !tbaa !19
   %250 = load i64, ptr %245, align 8, !tbaa !16
-  %251 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %249, i64 noundef %250, ptr noundef nonnull @.str, i32 noundef %5) #7
-  %252 = call ptr @__cxa_allocate_exception(i64 40) #7
+  %251 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %249, i64 noundef %250, ptr noundef nonnull @.str, i32 noundef %5) #6
+  %252 = call ptr @__cxa_allocate_exception(i64 40) #6
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %252, ptr noundef nonnull align 8 dereferenceable(32) %121, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss23dispatch_VectorDistanceINS_12_GLOBAL__N_121Run_knn_extra_metricsEJPKfS4_mmmPfPlEEENT_1TEmNS_10MetricTypeEfRS7_DpT0_, ptr noundef nonnull @.str.1, i32 noundef 198)
           to label %253 unwind label %256
 
@@ -2924,7 +2918,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.i: ; preds =
 256:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.i
   %257 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %252) #7
+  call void @__cxa_free_exception(ptr nonnull %252) #6
   br label %258
 
 258:                                              ; preds = %256, %254
@@ -2946,7 +2940,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %121) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %121)
   resume { ptr, i32 } %.pn.i
 
 265:                                              ; preds = %253
@@ -2956,13 +2950,13 @@ _ZN5faiss23dispatch_VectorDistanceINS_12_GLOBAL__N_121Run_knn_extra_metricsEJPKf
   ret void
 }
 
-declare noundef i64 @_ZN5faiss17InterruptCallback15get_period_hintEm(i64 noundef) local_unnamed_addr #3
+declare noundef i64 @_ZN5faiss17InterruptCallback15get_period_hintEm(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @omp_get_max_threads() local_unnamed_addr #12
+declare i32 @omp_get_max_threads() local_unnamed_addr #11
 
 ; Function Attrs: alwaysinline norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE0EEEEEvT_PKfS8_mmmPfPl.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %11) #14 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE0EEEEEvT_PKfS8_mmmPfPl.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %11) #13 personality ptr @__gxx_personality_v0 {
   %13 = alloca i64, align 8
   %14 = alloca i64, align 8
   %15 = alloca i64, align 8
@@ -2975,13 +2969,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14Vect
 20:                                               ; preds = %12
   %21 = xor i64 %17, -1
   %22 = add i64 %18, %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 %22, ptr %14, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 1, ptr %15, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 0, ptr %16, align 4, !tbaa !11
   %23 = load i32, ptr %0, align 4, !tbaa !11
   call void @__kmpc_for_static_init_8u(ptr nonnull @1, i32 %23, i32 34, ptr nonnull %16, ptr nonnull %13, ptr nonnull %14, ptr nonnull %15, i64 1, i64 1)
@@ -3280,10 +3274,10 @@ _ZN5faiss12heap_reorderINS_4CMinIflEEEEmmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.p
 
 ._crit_edge52:                                    ; preds = %_ZN5faiss12heap_reorderINS_4CMinIflEEEEmmPNT_1TEPNS3_2TIE.exit, %20
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %23)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %168
 
 168:                                              ; preds = %._crit_edge52, %12
@@ -3298,15 +3292,15 @@ _ZN5faiss12heap_reorderINS_4CMinIflEEEEmmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.p
 }
 
 ; Function Attrs: nounwind
-declare void @__kmpc_for_static_init_8u(ptr, i32, i32, ptr, ptr, ptr, ptr, i64, i64) local_unnamed_addr #7
+declare void @__kmpc_for_static_init_8u(ptr, i32, i32, ptr, ptr, ptr, ptr, i64, i64) local_unnamed_addr #6
 
-declare void @_ZN5faiss17InterruptCallback5checkEv() local_unnamed_addr #3
+declare void @_ZN5faiss17InterruptCallback5checkEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #15
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: alwaysinline norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE1EEEEEvT_PKfS8_mmmPfPl.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %11) #14 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE1EEEEEvT_PKfS8_mmmPfPl.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %11) #13 personality ptr @__gxx_personality_v0 {
   %13 = alloca i64, align 8
   %14 = alloca i64, align 8
   %15 = alloca i64, align 8
@@ -3319,13 +3313,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14Vect
 20:                                               ; preds = %12
   %21 = xor i64 %17, -1
   %22 = add i64 %18, %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 %22, ptr %14, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 1, ptr %15, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 0, ptr %16, align 4, !tbaa !11
   %23 = load i32, ptr %0, align 4, !tbaa !11
   call void @__kmpc_for_static_init_8u(ptr nonnull @1, i32 %23, i32 34, ptr nonnull %16, ptr nonnull %13, ptr nonnull %14, ptr nonnull %15, i64 1, i64 1)
@@ -3624,10 +3618,10 @@ _ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.p
 
 ._crit_edge52:                                    ; preds = %_ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE.exit, %20
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %23)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %168
 
 168:                                              ; preds = %._crit_edge52, %12
@@ -3642,7 +3636,7 @@ _ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.p
 }
 
 ; Function Attrs: alwaysinline norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE2EEEEEvT_PKfS8_mmmPfPl.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %11) #14 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE2EEEEEvT_PKfS8_mmmPfPl.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %11) #13 personality ptr @__gxx_personality_v0 {
   %13 = alloca i64, align 8
   %14 = alloca i64, align 8
   %15 = alloca i64, align 8
@@ -3655,13 +3649,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14Vect
 20:                                               ; preds = %12
   %21 = xor i64 %17, -1
   %22 = add i64 %18, %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 %22, ptr %14, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 1, ptr %15, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 0, ptr %16, align 4, !tbaa !11
   %23 = load i32, ptr %0, align 4, !tbaa !11
   call void @__kmpc_for_static_init_8u(ptr nonnull @1, i32 %23, i32 34, ptr nonnull %16, ptr nonnull %13, ptr nonnull %14, ptr nonnull %15, i64 1, i64 1)
@@ -3960,10 +3954,10 @@ _ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.p
 
 ._crit_edge52:                                    ; preds = %_ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE.exit, %20
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %23)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %168
 
 168:                                              ; preds = %._crit_edge52, %12
@@ -3978,7 +3972,7 @@ _ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.p
 }
 
 ; Function Attrs: alwaysinline norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE3EEEEEvT_PKfS8_mmmPfPl.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %11) #14 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE3EEEEEvT_PKfS8_mmmPfPl.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %11) #13 personality ptr @__gxx_personality_v0 {
   %13 = alloca i64, align 8
   %14 = alloca i64, align 8
   %15 = alloca i64, align 8
@@ -3991,13 +3985,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14Vect
 20:                                               ; preds = %12
   %21 = xor i64 %17, -1
   %22 = add i64 %18, %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 %22, ptr %14, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 1, ptr %15, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 0, ptr %16, align 4, !tbaa !11
   %23 = load i32, ptr %0, align 4, !tbaa !11
   call void @__kmpc_for_static_init_8u(ptr nonnull @1, i32 %23, i32 34, ptr nonnull %16, ptr nonnull %13, ptr nonnull %14, ptr nonnull %15, i64 1, i64 1)
@@ -4296,10 +4290,10 @@ _ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.p
 
 ._crit_edge52:                                    ; preds = %_ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE.exit, %20
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %23)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %168
 
 168:                                              ; preds = %._crit_edge52, %12
@@ -4314,7 +4308,7 @@ _ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.p
 }
 
 ; Function Attrs: alwaysinline norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE4EEEEEvT_PKfS8_mmmPfPl.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %11) #14 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE4EEEEEvT_PKfS8_mmmPfPl.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %11) #13 personality ptr @__gxx_personality_v0 {
   %13 = alloca i64, align 8
   %14 = alloca i64, align 8
   %15 = alloca i64, align 8
@@ -4327,13 +4321,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14Vect
 20:                                               ; preds = %12
   %21 = xor i64 %17, -1
   %22 = add i64 %18, %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 %22, ptr %14, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 1, ptr %15, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 0, ptr %16, align 4, !tbaa !11
   %23 = load i32, ptr %0, align 4, !tbaa !11
   call void @__kmpc_for_static_init_8u(ptr nonnull @1, i32 %23, i32 34, ptr nonnull %16, ptr nonnull %13, ptr nonnull %14, ptr nonnull %15, i64 1, i64 1)
@@ -4407,7 +4401,7 @@ _ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit: ; pre
   %57 = load float, ptr %56, align 4, !tbaa !27
   %58 = fsub float %55, %57
   %59 = call float @llvm.fabs.f32(float %58)
-  %60 = call float @powf(float noundef %59, float noundef %52) #7, !tbaa !11
+  %60 = call float @powf(float noundef %59, float noundef %52) #6, !tbaa !11
   %61 = fadd float %.011.i, %60
   %62 = add nuw i64 %.0910.i, 1
   %exitcond.not.i = icmp eq i64 %62, %51
@@ -4658,10 +4652,10 @@ _ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.p
 
 ._crit_edge56:                                    ; preds = %_ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE.exit, %20
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %23)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %181
 
 181:                                              ; preds = %._crit_edge56, %12
@@ -4669,7 +4663,7 @@ _ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.p
 }
 
 ; Function Attrs: alwaysinline norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE20EEEEEvT_PKfS8_mmmPfPl.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %11) #14 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE20EEEEEvT_PKfS8_mmmPfPl.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %11) #13 personality ptr @__gxx_personality_v0 {
   %13 = alloca i64, align 8
   %14 = alloca i64, align 8
   %15 = alloca i64, align 8
@@ -4682,13 +4676,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14Vect
 20:                                               ; preds = %12
   %21 = xor i64 %17, -1
   %22 = add i64 %18, %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 %22, ptr %14, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 1, ptr %15, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 0, ptr %16, align 4, !tbaa !11
   %23 = load i32, ptr %0, align 4, !tbaa !11
   call void @__kmpc_for_static_init_8u(ptr nonnull @1, i32 %23, i32 34, ptr nonnull %16, ptr nonnull %13, ptr nonnull %14, ptr nonnull %15, i64 1, i64 1)
@@ -5013,10 +5007,10 @@ _ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.p
 
 ._crit_edge56:                                    ; preds = %_ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE.exit, %20
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %23)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %185
 
 185:                                              ; preds = %._crit_edge56, %12
@@ -5024,7 +5018,7 @@ _ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.p
 }
 
 ; Function Attrs: alwaysinline norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE21EEEEEvT_PKfS8_mmmPfPl.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %11) #14 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE21EEEEEvT_PKfS8_mmmPfPl.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %11) #13 personality ptr @__gxx_personality_v0 {
   %13 = alloca i64, align 8
   %14 = alloca i64, align 8
   %15 = alloca i64, align 8
@@ -5037,13 +5031,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14Vect
 20:                                               ; preds = %12
   %21 = xor i64 %17, -1
   %22 = add i64 %18, %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 %22, ptr %14, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 1, ptr %15, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 0, ptr %16, align 4, !tbaa !11
   %23 = load i32, ptr %0, align 4, !tbaa !11
   call void @__kmpc_for_static_init_8u(ptr nonnull @1, i32 %23, i32 34, ptr nonnull %16, ptr nonnull %13, ptr nonnull %14, ptr nonnull %15, i64 1, i64 1)
@@ -5369,10 +5363,10 @@ _ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.p
 
 ._crit_edge56:                                    ; preds = %_ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE.exit, %20
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %23)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %180
 
 180:                                              ; preds = %._crit_edge56, %12
@@ -5380,7 +5374,7 @@ _ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.p
 }
 
 ; Function Attrs: alwaysinline norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE22EEEEEvT_PKfS8_mmmPfPl.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %11) #14 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE22EEEEEvT_PKfS8_mmmPfPl.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %11) #13 personality ptr @__gxx_personality_v0 {
   %13 = alloca i64, align 8
   %14 = alloca i64, align 8
   %15 = alloca i64, align 8
@@ -5393,13 +5387,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14Vect
 20:                                               ; preds = %12
   %21 = xor i64 %17, -1
   %22 = add i64 %18, %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 %22, ptr %14, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 1, ptr %15, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 0, ptr %16, align 4, !tbaa !11
   %23 = load i32, ptr %0, align 4, !tbaa !11
   call void @__kmpc_for_static_init_8u(ptr nonnull @1, i32 %23, i32 34, ptr nonnull %16, ptr nonnull %13, ptr nonnull %14, ptr nonnull %15, i64 1, i64 1)
@@ -5473,14 +5467,14 @@ _ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit: ; pre
   %58 = fpext float %57 to double
   %59 = fdiv float %56, %52
   %60 = fpext float %59 to double
-  %61 = call double @log(double noundef %60) #7, !tbaa !11
+  %61 = call double @log(double noundef %60) #6, !tbaa !11
   %62 = fmul double %61, %58
   %63 = fptrunc double %62 to float
   %64 = fneg float %54
   %65 = fpext float %64 to double
   %66 = fdiv float %56, %54
   %67 = fpext float %66 to double
-  %68 = call double @log(double noundef %67) #7, !tbaa !11
+  %68 = call double @log(double noundef %67) #6, !tbaa !11
   %69 = fmul double %68, %65
   %70 = fptrunc double %69 to float
   %71 = fadd float %63, %70
@@ -5734,10 +5728,10 @@ _ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.p
 
 ._crit_edge56:                                    ; preds = %_ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE.exit, %20
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %23)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %192
 
 192:                                              ; preds = %._crit_edge56, %12
@@ -5745,7 +5739,7 @@ _ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.p
 }
 
 ; Function Attrs: alwaysinline norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE23EEEEEvT_PKfS8_mmmPfPl.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %11) #14 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE23EEEEEvT_PKfS8_mmmPfPl.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %11) #13 personality ptr @__gxx_personality_v0 {
   %13 = alloca i64, align 8
   %14 = alloca i64, align 8
   %15 = alloca i64, align 8
@@ -5758,13 +5752,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14Vect
 20:                                               ; preds = %12
   %21 = xor i64 %17, -1
   %22 = add i64 %18, %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 %22, ptr %14, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 1, ptr %15, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 0, ptr %16, align 4, !tbaa !11
   %23 = load i32, ptr %0, align 4, !tbaa !11
   call void @__kmpc_for_static_init_8u(ptr nonnull @1, i32 %23, i32 34, ptr nonnull %16, ptr nonnull %13, ptr nonnull %14, ptr nonnull %15, i64 1, i64 1)
@@ -6094,10 +6088,10 @@ _ZN5faiss12heap_reorderINS_4CMinIflEEEEmmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.p
 
 ._crit_edge56:                                    ; preds = %_ZN5faiss12heap_reorderINS_4CMinIflEEEEmmPNT_1TEPNS3_2TIE.exit, %20
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %23)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %184
 
 184:                                              ; preds = %._crit_edge56, %12
@@ -6105,7 +6099,7 @@ _ZN5faiss12heap_reorderINS_4CMinIflEEEEmmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.p
 }
 
 ; Function Attrs: alwaysinline norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE24EEEEEvT_PKfS8_mmmPfPl.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %11) #14 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE24EEEEEvT_PKfS8_mmmPfPl.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %11) #13 personality ptr @__gxx_personality_v0 {
   %13 = alloca i64, align 8
   %14 = alloca i64, align 8
   %15 = alloca i64, align 8
@@ -6118,13 +6112,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14Vect
 20:                                               ; preds = %12
   %21 = xor i64 %17, -1
   %22 = add i64 %18, %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 %22, ptr %14, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 1, ptr %15, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 0, ptr %16, align 4, !tbaa !11
   %23 = load i32, ptr %0, align 4, !tbaa !11
   call void @__kmpc_for_static_init_8u(ptr nonnull @1, i32 %23, i32 34, ptr nonnull %16, ptr nonnull %13, ptr nonnull %14, ptr nonnull %15, i64 1, i64 1)
@@ -6467,10 +6461,10 @@ _ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.p
 
 ._crit_edge57:                                    ; preds = %_ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE.exit, %20
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %23)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %186
 
 186:                                              ; preds = %._crit_edge57, %12
@@ -6478,7 +6472,7 @@ _ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.p
 }
 
 ; Function Attrs: alwaysinline norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE25EEEEEvT_PKfS8_mmmPfPl.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %11) #14 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14VectorDistanceILNS_10MetricTypeE25EEEEEvT_PKfS8_mmmPfPl.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %11) #13 personality ptr @__gxx_personality_v0 {
   %13 = alloca i64, align 8
   %14 = alloca i64, align 8
   %15 = alloca i64, align 8
@@ -6491,13 +6485,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_121Run_knn_extra_metrics1fINS_14Vect
 20:                                               ; preds = %12
   %21 = xor i64 %17, -1
   %22 = add i64 %18, %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 %22, ptr %14, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 1, ptr %15, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 0, ptr %16, align 4, !tbaa !11
   %23 = load i32, ptr %0, align 4, !tbaa !11
   call void @__kmpc_for_static_init_8u(ptr nonnull @1, i32 %23, i32 34, ptr nonnull %16, ptr nonnull %13, ptr nonnull %14, ptr nonnull %15, i64 1, i64 1)
@@ -6813,10 +6807,10 @@ _ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.p
 
 ._crit_edge55:                                    ; preds = %_ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE.exit, %20
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %23)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %176
 
 176:                                              ; preds = %._crit_edge55, %12
@@ -6833,13 +6827,13 @@ define noalias noundef nonnull ptr @_ZN5faiss27get_extra_distance_computerEmNS_1
   br i1 %or.cond, label %switch.lookup, label %8
 
 8:                                                ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %9, ptr %6, align 8, !tbaa !13
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %10, align 8, !tbaa !16
   store i8 0, ptr %9, align 8, !tbaa !18
-  %11 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str, i32 noundef %1) #7
+  %11 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str, i32 noundef %1) #6
   %12 = add nsw i32 %11, 1
   %13 = sext i32 %12 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %13, i8 noundef signext 0)
@@ -6848,8 +6842,8 @@ define noalias noundef nonnull ptr @_ZN5faiss27get_extra_distance_computerEmNS_1
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.i: ; preds = %8
   %14 = load ptr, ptr %6, align 8, !tbaa !19
   %15 = load i64, ptr %10, align 8, !tbaa !16
-  %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %14, i64 noundef %15, ptr noundef nonnull @.str, i32 noundef %1) #7
-  %17 = call ptr @__cxa_allocate_exception(i64 40) #7
+  %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %14, i64 noundef %15, ptr noundef nonnull @.str, i32 noundef %1) #6
+  %17 = call ptr @__cxa_allocate_exception(i64 40) #6
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss23dispatch_VectorDistanceINS_12_GLOBAL__N_125Run_get_distance_computerEJPKfmEEENT_1TEmNS_10MetricTypeEfRS5_DpT0_, ptr noundef nonnull @.str.1, i32 noundef 198)
           to label %18 unwind label %21
 
@@ -6865,7 +6859,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.i: ; preds =
 21:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.i
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %17) #7
+  call void @__cxa_free_exception(ptr nonnull %17) #6
   br label %23
 
 23:                                               ; preds = %21, %19
@@ -6887,7 +6881,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn.i
 
 30:                                               ; preds = %18
@@ -6918,10 +6912,10 @@ switch.lookup:                                    ; preds = %5
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #16
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE0EEEE9set_queryEPKf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #17 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE0EEEE9set_queryEPKf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8, !tbaa !122
   ret void
@@ -6982,7 +6976,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE0EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE0EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #25
   ret void
 }
@@ -6998,7 +6992,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE1EEEE9set_queryEPKf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #17 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE1EEEE9set_queryEPKf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8, !tbaa !126
   ret void
@@ -7019,7 +7013,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE1EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE1EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #25
   ret void
 }
@@ -7035,7 +7029,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE2EEEE9set_queryEPKf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #17 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE2EEEE9set_queryEPKf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8, !tbaa !130
   ret void
@@ -7056,7 +7050,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE2EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE2EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #25
   ret void
 }
@@ -7072,7 +7066,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE3EEEE9set_queryEPKf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #17 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE3EEEE9set_queryEPKf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8, !tbaa !134
   ret void
@@ -7093,7 +7087,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE3EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE3EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #25
   ret void
 }
@@ -7109,14 +7103,14 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE4EEEE9set_queryEPKf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #17 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE4EEEE9set_queryEPKf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8, !tbaa !138
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, inaccessiblemem: none, errnomem: readwrite) uwtable
-define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE4EEEE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #18 align 2 {
+define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE4EEEE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #17 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8, !tbaa !140
@@ -7142,7 +7136,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS
   %18 = load float, ptr %17, align 4, !tbaa !27
   %19 = fsub float %16, %18
   %20 = tail call float @llvm.fabs.f32(float %19)
-  %21 = tail call float @powf(float noundef %20, float noundef %13) #7, !tbaa !11
+  %21 = tail call float @powf(float noundef %20, float noundef %13) #6, !tbaa !11
   %22 = fadd float %.011.i, %21
   %23 = add nuw i64 %.0910.i, 1
   %exitcond.not.i = icmp eq i64 %23, %7
@@ -7154,13 +7148,13 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE4EEclEPKfS4_.exit: ; preds = %14, %3
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE4EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE4EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, inaccessiblemem: none, errnomem: readwrite) uwtable
-define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE4EEEE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #18 align 2 {
+define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE4EEEE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #17 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !138
@@ -7182,7 +7176,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS
   %13 = load float, ptr %12, align 4, !tbaa !27
   %14 = fsub float %11, %13
   %15 = tail call float @llvm.fabs.f32(float %14)
-  %16 = tail call float @powf(float noundef %15, float noundef %8) #7, !tbaa !11
+  %16 = tail call float @powf(float noundef %15, float noundef %8) #6, !tbaa !11
   %17 = fadd float %.011.i, %16
   %18 = add nuw i64 %.0910.i, 1
   %exitcond.not.i = icmp eq i64 %18, %6
@@ -7194,14 +7188,14 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE4EEclEPKfS4_.exit: ; preds = %9, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE20EEEE9set_queryEPKf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #17 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE20EEEE9set_queryEPKf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8, !tbaa !142
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE20EEEE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #19 align 2 {
+define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE20EEEE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #18 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8, !tbaa !144
@@ -7242,13 +7236,13 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE20EEclEPKfS4_.exit: ; preds = %.lr.p
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE20EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE20EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE20EEEE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #19 align 2 {
+define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE20EEEE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #18 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !142
@@ -7285,14 +7279,14 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE20EEclEPKfS4_.exit: ; preds = %.lr.p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE21EEEE9set_queryEPKf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #17 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE21EEEE9set_queryEPKf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8, !tbaa !146
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE21EEEE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #19 align 2 {
+define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE21EEEE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #18 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8, !tbaa !148
@@ -7332,13 +7326,13 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE21EEclEPKfS4_.exit: ; preds = %3, %.
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE21EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE21EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE21EEEE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #19 align 2 {
+define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE21EEEE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #18 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !146
@@ -7374,14 +7368,14 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE21EEclEPKfS4_.exit: ; preds = %2, %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE22EEEE9set_queryEPKf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #17 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE22EEEE9set_queryEPKf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8, !tbaa !150
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, inaccessiblemem: none, errnomem: readwrite) uwtable
-define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE22EEEE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #18 align 2 {
+define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE22EEEE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #17 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8, !tbaa !152
@@ -7410,14 +7404,14 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS
   %20 = fpext float %19 to double
   %21 = fdiv float %18, %14
   %22 = fpext float %21 to double
-  %23 = tail call double @log(double noundef %22) #7, !tbaa !11
+  %23 = tail call double @log(double noundef %22) #6, !tbaa !11
   %24 = fmul double %23, %20
   %25 = fptrunc double %24 to float
   %26 = fneg float %16
   %27 = fpext float %26 to double
   %28 = fdiv float %18, %16
   %29 = fpext float %28 to double
-  %30 = tail call double @log(double noundef %29) #7, !tbaa !11
+  %30 = tail call double @log(double noundef %29) #6, !tbaa !11
   %31 = fmul double %30, %27
   %32 = fptrunc double %31 to float
   %33 = fadd float %25, %32
@@ -7432,13 +7426,13 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE22EEclEPKfS4_.exit: ; preds = %3, %.
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE22EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE22EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, inaccessiblemem: none, errnomem: readwrite) uwtable
-define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE22EEEE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #18 align 2 {
+define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE22EEEE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #17 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !150
@@ -7463,14 +7457,14 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS
   %15 = fpext float %14 to double
   %16 = fdiv float %13, %9
   %17 = fpext float %16 to double
-  %18 = tail call double @log(double noundef %17) #7, !tbaa !11
+  %18 = tail call double @log(double noundef %17) #6, !tbaa !11
   %19 = fmul double %18, %15
   %20 = fptrunc double %19 to float
   %21 = fneg float %11
   %22 = fpext float %21 to double
   %23 = fdiv float %13, %11
   %24 = fpext float %23 to double
-  %25 = tail call double @log(double noundef %24) #7, !tbaa !11
+  %25 = tail call double @log(double noundef %24) #6, !tbaa !11
   %26 = fmul double %25, %22
   %27 = fptrunc double %26 to float
   %28 = fadd float %20, %27
@@ -7485,14 +7479,14 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE22EEclEPKfS4_.exit: ; preds = %2, %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE23EEEE9set_queryEPKf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #17 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE23EEEE9set_queryEPKf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8, !tbaa !154
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE23EEEE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #19 align 2 {
+define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE23EEEE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #18 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8, !tbaa !156
@@ -7536,13 +7530,13 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE23EEclEPKfS4_.exit: ; preds = %3, %.
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE23EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE23EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE23EEEE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #19 align 2 {
+define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE23EEEE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #18 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !154
@@ -7582,14 +7576,14 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE23EEclEPKfS4_.exit: ; preds = %2, %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE24EEEE9set_queryEPKf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #17 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE24EEEE9set_queryEPKf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8, !tbaa !158
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE24EEEE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #19 align 2 {
+define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE24EEEE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #18 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8, !tbaa !160
@@ -7646,13 +7640,13 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE24EEclEPKfS4_.exit: ; preds = %._cri
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE24EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE24EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE24EEEE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #19 align 2 {
+define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE24EEEE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #18 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !158
@@ -7705,14 +7699,14 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE24EEclEPKfS4_.exit: ; preds = %._cri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE25EEEE9set_queryEPKf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #17 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE25EEEE9set_queryEPKf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8, !tbaa !162
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE25EEEE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #19 align 2 {
+define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE25EEEE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #18 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8, !tbaa !164
@@ -7744,18 +7738,18 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE25EEclEPKfS4_.exit: ; preds = %.lr.p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5faiss16DistanceComputerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #20 comdat align 2 {
+define linkonce_odr void @_ZN5faiss16DistanceComputerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #19 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE25EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE25EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE25EEEE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #19 align 2 {
+define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE25EEEE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #18 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !162
@@ -7782,6 +7776,12 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE25EEclEPKfS4_.exit: ; preds = %.lr.p
   ret float %.08.lcssa.i
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #21
 
@@ -7798,26 +7798,26 @@ declare i64 @llvm.umin.i64(i64, i64) #22
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #23
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold noreturn }
-attributes #6 = { noinline norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind }
-attributes #8 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { cold nofree noreturn }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { alwaysinline norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nounwind memory(read, inaccessiblemem: none, errnomem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold noreturn }
+attributes #5 = { noinline norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { cold nofree noreturn }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { alwaysinline norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nounwind memory(read, inaccessiblemem: none, errnomem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #23 = { nocallback nofree nounwind willreturn memory(argmem: write) }

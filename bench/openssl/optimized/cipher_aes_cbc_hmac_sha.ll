@@ -280,7 +280,7 @@ define internal range(i32 0, 2) i32 @aes_set_ctx_params(ptr noundef %0, ptr noun
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %6 = load ptr, ptr %5, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = icmp eq ptr %1, null
   br i1 %7, label %ossl_param_is_empty.exit.thread, label %ossl_param_is_empty.exit
 
@@ -462,7 +462,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br i1 %.not93, label %105, label %98
 
 98:                                               ; preds = %96
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %99 = call i32 @OSSL_PARAM_get_size_t(ptr noundef nonnull %97, ptr noundef nonnull %4) #4
   %.not94 = icmp eq i32 %99, 0
   br i1 %.not94, label %.critedge102, label %100
@@ -475,7 +475,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br i1 %.not95, label %104, label %.critedge102
 
 104:                                              ; preds = %100
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %105
 
 105:                                              ; preds = %104, %96
@@ -524,12 +524,12 @@ ossl_param_is_empty.exit:                         ; preds = %2
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink104, ptr noundef nonnull @__func__.aes_set_ctx_params) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink, ptr noundef null) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %2, %111, %105, %119, %.critedge102, %86, %.critedge100, %.critedge, %ossl_param_is_empty.exit, %39, %67, %118, %110, %85, %27, %14
   %.0 = phi i32 [ 0, %14 ], [ 0, %85 ], [ 0, %118 ], [ 0, %110 ], [ 0, %67 ], [ 0, %39 ], [ 0, %27 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %.critedge ], [ 0, %.critedge100 ], [ 0, %86 ], [ 0, %.critedge102 ], [ 1, %111 ], [ 1, %119 ], [ 1, %105 ], [ 1, %2 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -660,17 +660,11 @@ define internal i32 @aes_256_cbc_hmac_sha256_get_params(ptr noundef %0) #0 {
   ret i32 %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @ossl_prov_is_running() local_unnamed_addr #1
 
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare ptr @ossl_prov_cipher_hw_aes_cbc_hmac_sha1() local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare void @ossl_cipher_generic_initkey(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -709,6 +703,12 @@ declare i32 @OSSL_PARAM_get_size_t(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @OSSL_PARAM_get_uint(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @ossl_prov_cipher_hw_aes_cbc_hmac_sha256() local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

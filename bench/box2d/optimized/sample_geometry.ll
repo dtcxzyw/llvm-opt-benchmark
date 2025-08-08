@@ -105,17 +105,11 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 declare void @_ZN6SampleC2ER8Settings(ptr noundef nonnull align 8 dereferenceable(248), ptr noundef nonnull align 4 dereferenceable(44)) unnamed_addr #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN10ConvexHull8GenerateEv(ptr noundef nonnull align 8 dereferenceable(322) %0) local_unnamed_addr #6 comdat align 2 {
+define linkonce_odr dso_local void @_ZN10ConvexHull8GenerateEv(ptr noundef nonnull align 8 dereferenceable(322) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = load i32, ptr @g_seed, align 4, !tbaa !33
   %3 = shl i32 %2, 13
   %4 = xor i32 %3, %2
@@ -197,17 +191,17 @@ define linkonce_odr dso_local void @_ZN10ConvexHull8GenerateEv(ptr noundef nonnu
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248)) unnamed_addr #7
+declare void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248)) unnamed_addr #6
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN10ConvexHullD0Ev(ptr noundef nonnull align 8 dereferenceable(322) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr dso_local void @_ZN10ConvexHullD0Ev(ptr noundef nonnull align 8 dereferenceable(322) %0) unnamed_addr #7 comdat align 2 {
   tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(322) %0) #12
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 328) #13
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN10ConvexHull4StepER8Settings(ptr noundef nonnull align 8 dereferenceable(322) %0, ptr noundef nonnull align 4 dereferenceable(44) %1) unnamed_addr #6 comdat align 2 {
+define linkonce_odr dso_local void @_ZN10ConvexHull4StepER8Settings(ptr noundef nonnull align 8 dereferenceable(322) %0, ptr noundef nonnull align 4 dereferenceable(44) %1) unnamed_addr #5 comdat align 2 {
   %3 = alloca %struct.b2Hull, align 4
   %4 = alloca %struct.b2Hull, align 4
   tail call void @_ZN6Sample4StepER8Settings(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 4 dereferenceable(44) %1)
@@ -219,7 +213,7 @@ define linkonce_odr dso_local void @_ZN10ConvexHull4StepER8Settings(ptr noundef 
   %9 = load i32, ptr %5, align 8, !tbaa !37
   %10 = add nsw i32 %9, %8
   store i32 %10, ptr %5, align 8, !tbaa !37
-  call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 321
   %12 = load i8, ptr %11, align 1, !tbaa !32, !range !13, !noundef !14
   %13 = trunc nuw i8 %12 to i1
@@ -239,11 +233,11 @@ define linkonce_odr dso_local void @_ZN10ConvexHull4StepER8Settings(ptr noundef 
 17:                                               ; preds = %.outer, %28
   %.02231 = phi i32 [ %29, %28 ], [ %.02231.ph, %.outer ]
   call void @_ZN10ConvexHull8GenerateEv(ptr noundef nonnull align 8 dereferenceable(322) %0)
-  call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %18 = load i32, ptr %15, align 8, !tbaa !34
   call void @b2ComputeHull(ptr dead_on_unwind nonnull writable sret(%struct.b2Hull) align 4 %4, ptr noundef nonnull %14, i32 noundef %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %3, ptr noundef nonnull align 4 dereferenceable(68) %4, i64 68, i1 false), !tbaa.struct !39
-  call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %19 = load i32, ptr %16, align 4, !tbaa !41
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %28, label %21
@@ -360,7 +354,7 @@ define linkonce_odr dso_local void @_ZN10ConvexHull4StepER8Settings(ptr noundef 
   br i1 %72, label %65, label %.preheader, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %.lr.ph35, %.preheader
-  call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 .lr.ph35:                                         ; preds = %.preheader, %.lr.ph35
@@ -376,7 +370,7 @@ define linkonce_odr dso_local void @_ZN10ConvexHull4StepER8Settings(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN6Sample8UpdateUIEv(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #9 comdat align 2 {
+define linkonce_odr dso_local void @_ZN6Sample8UpdateUIEv(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #8 comdat align 2 {
   ret void
 }
 
@@ -433,22 +427,28 @@ declare void @_ZN4Draw9DrawPointE6b2Vec2f10b2HexColor(ptr noundef nonnull align 
 declare void @_ZN4Draw10DrawStringE6b2Vec2PKcz(ptr noundef nonnull align 8 dereferenceable(216), <2 x float>, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_sample_geometry.cpp() #10 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_sample_geometry.cpp() #9 section ".text.startup" {
   %1 = tail call noundef i32 @_Z14RegisterSamplePKcS0_PFP6SampleR8SettingsE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @_ZN10ConvexHull6CreateER8Settings)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { builtin allocsize(0) }
 attributes #12 = { nounwind }
 attributes #13 = { builtin nounwind }

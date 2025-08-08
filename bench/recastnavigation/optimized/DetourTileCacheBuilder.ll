@@ -2727,7 +2727,7 @@ _ZL17getPolyMergeValuePtS_PKtRiS2_.exit:          ; preds = %342, %300, %258, %.
   %373 = sext i32 %372 to i64
   %374 = getelementptr inbounds i16, ptr %106, i64 %373
   %375 = getelementptr inbounds i16, ptr %106, i64 %371
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %376
 
 376:                                              ; preds = %380, %369
@@ -2817,7 +2817,7 @@ _ZL14countPolyVertsPKt.exit25.i:                  ; preds = %386, %.split.loop.e
 
 _ZL10mergePolysPtS_ii.exit:                       ; preds = %399, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %374, ptr noundef nonnull align 16 dereferenceable(12) %5, i64 12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.idx584 = mul nsw i64 %indvars.iv.next562637, 12
   %407 = getelementptr inbounds i8, ptr %106, i64 %.idx584
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %375, ptr noundef nonnull align 2 dereferenceable(12) %407, i64 12, i1 false)
@@ -2886,7 +2886,7 @@ _ZL10mergePolysPtS_ii.exit:                       ; preds = %399, %.preheader.i
   %437 = trunc i32 %.0180511 to i16
   %.val = load i32, ptr %69, align 8
   %.val258 = load ptr, ptr %52, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %438 = icmp sgt i32 %.val, 0
   br i1 %438, label %.lr.ph22.preheader.i, label %.thread377
 
@@ -2965,7 +2965,7 @@ _ZL14countPolyVertsPKt.exit.i293:                 ; preds = %440
   br i1 %454, label %.lr.ph44.preheader.i, label %.thread379
 
 .thread379:                                       ; preds = %.preheader.i291
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %496
 
 .lr.ph44.preheader.i:                             ; preds = %.preheader.i291
@@ -3101,12 +3101,12 @@ _ZL14countPolyVertsPKt.exit87.i:                  ; preds = %456
   br i1 %exitcond75.not.i, label %494, label %.lr.ph44.i, !llvm.loop !61
 
 .thread377:                                       ; preds = %._crit_edge23.i, %436
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %509
 
 494:                                              ; preds = %.lr.ph44.i
   %495 = icmp samesign ult i32 %spec.select.i292, 3
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %495, label %496, label %509
 
 496:                                              ; preds = %.thread379, %494
@@ -4419,7 +4419,7 @@ _ZL17getPolyMergeValuePtS_PKtRiS2_.exit:          ; preds = %_ZL14countPolyVerts
   %434 = mul nsw i32 %.2234, 6
   %435 = sext i32 %434 to i64
   %436 = getelementptr inbounds [288 x i16], ptr %10, i64 0, i64 %435
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %437
 
 437:                                              ; preds = %441, %430
@@ -4509,7 +4509,7 @@ _ZL14countPolyVertsPKt.exit25.i:                  ; preds = %447, %.split.loop.e
 
 _ZL10mergePolysPtS_ii.exit:                       ; preds = %460, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %433, ptr noundef nonnull align 16 dereferenceable(12) %3, i64 12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %468 = mul nsw i64 %indvars.iv.next546614, 6
   %469 = getelementptr inbounds [288 x i16], ptr %10, i64 0, i64 %468
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %436, ptr noundef nonnull align 4 dereferenceable(12) %469, i64 12, i1 false)
@@ -6409,10 +6409,10 @@ declare i16 @llvm.umin.i16(i16, i16) #16
 declare i16 @llvm.umax.i16(i16, i16) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #18

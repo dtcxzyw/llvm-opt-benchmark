@@ -198,9 +198,9 @@ define internal ptr @queuesmod_create(ptr noundef %0, ptr noundef %1, ptr nounde
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.17, ptr noundef nonnull @queuesmod_create.kwlist, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #6
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %59, label %8
@@ -340,16 +340,16 @@ _queue_clear.exit.i:                              ; preds = %_queueitem_free.exi
 
 59:                                               ; preds = %43, %46, %58, %3, %11
   %.0 = phi ptr [ null, %11 ], [ null, %3 ], [ null, %43 ], [ null, %58 ], [ %51, %46 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @queuesmod_destroy(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.idarg_int64_converter_data, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %5 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.29, ptr noundef nonnull @queuesmod_destroy.kwlist, ptr noundef nonnull @qidarg_converter, ptr noundef nonnull %4) #6
   %.not = icmp eq i32 %5, 0
@@ -366,7 +366,7 @@ define internal ptr @queuesmod_destroy(ptr noundef %0, ptr noundef %1, ptr nound
 
 11:                                               ; preds = %3, %6
   %.0 = phi ptr [ %_Py_NoneStruct., %6 ], [ null, %3 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -491,11 +491,11 @@ define internal ptr @queuesmod_put(ptr noundef %0, ptr noundef %1, ptr noundef %
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.37, ptr noundef nonnull @queuesmod_put.kwlist, ptr noundef nonnull @qidarg_converter, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #6
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %104, label %10
@@ -517,7 +517,7 @@ define internal ptr @queuesmod_put(ptr noundef %0, ptr noundef %1, ptr noundef %
   %19 = load ptr, ptr %6, align 8, !tbaa !16
   %20 = load i32, ptr %7, align 4, !tbaa !14
   %21 = call ptr @PyInterpreterState_Get() #6
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = call i32 @_PyXIData_GetLookupContext(ptr noundef %21, ptr noundef nonnull %4) #6
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %queue_put.exit, label %24
@@ -702,7 +702,7 @@ _queue_unmark_waiter.exit31.i:                    ; preds = %98, %94
 
 queue_put.exit:                                   ; preds = %18, %_queues_lookup.exit.i, %44, %48, %_queue_unmark_waiter.exit26.i, %_queue_unmark_waiter.exit31.i, %101
   %.0.i = phi i32 [ -1, %18 ], [ -14, %_queues_lookup.exit.i ], [ -1, %_queue_unmark_waiter.exit26.i ], [ %.0.i29.i, %101 ], [ 0, %_queue_unmark_waiter.exit31.i ], [ -1, %44 ], [ -1, %48 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %103 = call fastcc i32 @handle_queue_error(i32 noundef %.0.i, ptr noundef %0, i64 noundef %12)
   %.not7 = icmp eq i32 %103, 0
   %_Py_NoneStruct. = select i1 %.not7, ptr @_Py_NoneStruct, ptr null
@@ -710,17 +710,17 @@ queue_put.exit:                                   ; preds = %18, %_queues_lookup
 
 104:                                              ; preds = %15, %queue_put.exit, %3
   %.0 = phi ptr [ null, %3 ], [ %_Py_NoneStruct., %queue_put.exit ], [ null, %15 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @queuesmod_get(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.idarg_int64_converter_data, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %5 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.38, ptr noundef nonnull @queuesmod_get.kwlist, ptr noundef nonnull @qidarg_converter, ptr noundef nonnull %4) #6
   %.not = icmp eq i32 %5, 0
@@ -910,14 +910,14 @@ queue_get.exit:                                   ; preds = %67, %_queues_lookup
 
 Py_DECREF.exit:                                   ; preds = %79, %queue_get.exit, %81, %84, %87, %3
   %.0 = phi ptr [ null, %3 ], [ %80, %79 ], [ null, %queue_get.exit ], [ %82, %81 ], [ %82, %84 ], [ %82, %87 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @queuesmod_bind(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.idarg_int64_converter_data, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %5 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.41, ptr noundef nonnull @queuesmod_bind.kwlist, ptr noundef nonnull @qidarg_converter, ptr noundef nonnull %4) #6
   %.not = icmp eq i32 %5, 0
@@ -962,14 +962,14 @@ _queues_incref.exit:                              ; preds = %15, %6, %_queuerefs
 
 22:                                               ; preds = %3, %_queues_incref.exit
   %.0 = phi ptr [ %_Py_NoneStruct., %_queues_incref.exit ], [ null, %3 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @queuesmod_release(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.idarg_int64_converter_data, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %5 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.42, ptr noundef nonnull @queuesmod_release.kwlist, ptr noundef nonnull @qidarg_converter, ptr noundef nonnull %4) #6
   %.not = icmp eq i32 %5, 0
@@ -986,14 +986,14 @@ define internal ptr @queuesmod_release(ptr noundef %0, ptr noundef %1, ptr nound
 
 11:                                               ; preds = %3, %6
   %.0 = phi ptr [ %_Py_NoneStruct., %6 ], [ null, %3 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @queuesmod_get_maxsize(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.idarg_int64_converter_data, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %5 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.43, ptr noundef nonnull @queuesmod_get_maxsize.kwlist, ptr noundef nonnull @qidarg_converter, ptr noundef nonnull %4) #6
   %.not = icmp eq i32 %5, 0
@@ -1082,14 +1082,14 @@ queue_get_maxsize.exit:                           ; preds = %_queues_lookup.exit
 
 43:                                               ; preds = %41, %queue_get_maxsize.exit, %3
   %.0 = phi ptr [ null, %3 ], [ %42, %41 ], [ null, %queue_get_maxsize.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @queuesmod_get_queue_defaults(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.idarg_int64_converter_data, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %5 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.44, ptr noundef nonnull @queuesmod_get_queue_defaults.kwlist, ptr noundef nonnull @qidarg_converter, ptr noundef nonnull %4) #6
   %.not = icmp eq i32 %5, 0
@@ -1162,14 +1162,14 @@ _queue_unmark_waiter.exit:                        ; preds = %29, %33
 
 37:                                               ; preds = %_queue_unmark_waiter.exit, %_queues_lookup.exit, %3
   %.0 = phi ptr [ null, %3 ], [ %36, %_queue_unmark_waiter.exit ], [ null, %_queues_lookup.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @queuesmod_is_full(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.idarg_int64_converter_data, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %5 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.46, ptr noundef nonnull @queuesmod_is_full.kwlist, ptr noundef nonnull @qidarg_converter, ptr noundef nonnull %4) #6
   %.not = icmp eq i32 %5, 0
@@ -1260,14 +1260,14 @@ queue_is_full.exit:                               ; preds = %42, %38, %queue_is_
 
 47:                                               ; preds = %3, %queue_is_full.exit
   %.0 = phi ptr [ %.1, %queue_is_full.exit ], [ null, %3 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @queuesmod_get_count(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.idarg_int64_converter_data, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %5 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.47, ptr noundef nonnull @queuesmod_get_count.kwlist, ptr noundef nonnull @qidarg_converter, ptr noundef nonnull %4) #6
   %.not = icmp eq i32 %5, 0
@@ -1356,7 +1356,7 @@ queue_get_count.exit:                             ; preds = %_queues_lookup.exit
 
 43:                                               ; preds = %41, %queue_get_count.exit, %3
   %.0 = phi ptr [ null, %3 ], [ %42, %41 ], [ null, %queue_get_count.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -1367,9 +1367,9 @@ define internal noundef ptr @queuesmod__register_heap_types(ptr noundef %0, ptr 
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.51, ptr noundef nonnull @queuesmod__register_heap_types.kwlist, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #6
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %set_external_queue_type.exit.thread, label %10
@@ -1442,7 +1442,7 @@ define internal noundef ptr @queuesmod__register_heap_types(ptr noundef %0, ptr 
 
 41:                                               ; preds = %37
   %42 = call ptr @PyInterpreterState_Get() #6
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %43 = call i32 @_PyXIData_GetLookupContext(ptr noundef %42, ptr noundef nonnull %5) #6
   %44 = icmp slt i32 %43, 0
   br i1 %44, label %clear_xid_class.exit.i, label %45
@@ -1452,7 +1452,7 @@ define internal noundef ptr @queuesmod__register_heap_types(ptr noundef %0, ptr 
   br label %clear_xid_class.exit.i
 
 clear_xid_class.exit.i:                           ; preds = %45, %41
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %47 = load ptr, ptr %38, align 8, !tbaa !85
   %.not12.i = icmp eq ptr %47, null
   br i1 %.not12.i, label %Py_DECREF.exit.i, label %48
@@ -1475,18 +1475,18 @@ clear_xid_class.exit.i:                           ; preds = %45, %41
 
 Py_DECREF.exit.i:                                 ; preds = %53, %50, %48, %clear_xid_class.exit.i, %37
   %54 = call ptr @PyInterpreterState_Get() #6
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %55 = call i32 @_PyXIData_GetLookupContext(ptr noundef %54, ptr noundef nonnull %4) #6
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %ensure_xid_class.exit.thread.i, label %ensure_xid_class.exit.i
 
 ensure_xid_class.exit.thread.i:                   ; preds = %Py_DECREF.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %set_external_queue_type.exit.thread
 
 ensure_xid_class.exit.i:                          ; preds = %Py_DECREF.exit.i
   %57 = call i32 @_PyXIData_RegisterClass(ptr noundef nonnull %4, ptr noundef %39, ptr noundef nonnull @_queueobj_shared) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %58 = icmp slt i32 %57, 0
   br i1 %58, label %set_external_queue_type.exit.thread, label %59
 
@@ -1575,14 +1575,11 @@ set_external_exc_types.exit:                      ; preds = %_Py_NewRef.exit.i18
 
 set_external_queue_type.exit.thread:              ; preds = %ensure_xid_class.exit.thread.i, %ensure_xid_class.exit.i, %set_external_exc_types.exit, %3, %35, %25, %15
   %.0 = phi ptr [ null, %35 ], [ null, %25 ], [ null, %15 ], [ null, %3 ], [ @_Py_NoneStruct, %set_external_exc_types.exit ], [ null, %ensure_xid_class.exit.i ], [ null, %ensure_xid_class.exit.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @PyArg_ParseTupleAndKeywords(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -1886,9 +1883,6 @@ declare void @PyErr_Clear() local_unnamed_addr #1
 
 declare void @PyErr_SetRaisedException(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @PyMem_RawMalloc(i64 noundef) local_unnamed_addr #1
 
 declare void @PyMem_RawFree(ptr noundef) local_unnamed_addr #1
@@ -1896,10 +1890,10 @@ declare void @PyMem_RawFree(ptr noundef) local_unnamed_addr #1
 declare ptr @PyThread_allocate_lock() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @PyThread_acquire_lock(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1953,7 +1947,7 @@ define internal fastcc range(i32 0, 2) i32 @idarg_int64_converter(ptr noundef %0
   br i1 %.not, label %24, label %7
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !14
   %8 = call i64 @PyLong_AsLongLongAndOverflow(ptr noundef %0, ptr noundef nonnull %3) #6
   %9 = icmp eq i64 %8, -1
@@ -1984,7 +1978,7 @@ define internal fastcc range(i32 0, 2) i32 @idarg_int64_converter(ptr noundef %0
   br label %.critedge
 
 22:                                               ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %8, ptr %23, align 8, !tbaa !43
   br label %30
@@ -1999,7 +1993,7 @@ define internal fastcc range(i32 0, 2) i32 @idarg_int64_converter(ptr noundef %0
   br label %30
 
 .critedge:                                        ; preds = %10, %.thread21, %15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %30
 
 30:                                               ; preds = %.critedge, %22, %24
@@ -2171,7 +2165,7 @@ define internal range(i32 -1, 1) i32 @_queueobj_shared(ptr noundef readonly capt
   br i1 %6, label %39, label %7
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) @__const._queueobj_shared.converted, i64 16, i1 false)
   %8 = call fastcc i32 @idarg_int64_converter(ptr noundef nonnull %5, ptr noundef nonnull %4)
   %9 = load i32, ptr %5, align 8, !tbaa !55
@@ -2244,7 +2238,7 @@ _queues_incref.exit.thread.i:                     ; preds = %23, %14
 
 _queueid_xid_new.exit.thread:                     ; preds = %_queues_incref.exit.thread.i, %33, %35, %Py_DECREF.exit
   %.1 = phi i32 [ -1, %Py_DECREF.exit ], [ 0, %35 ], [ -1, %33 ], [ -1, %_queues_incref.exit.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %39
 
 39:                                               ; preds = %3, %_queueid_xid_new.exit.thread
@@ -2752,7 +2746,7 @@ declare ptr @PyErr_NewExceptionWithDoc(ptr noundef, ptr noundef, ptr noundef, pt
 declare i32 @PyModule_AddType(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_Py_FatalErrorFunc(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @_Py_FatalErrorFunc(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @clear_module_state(ptr noundef captures(none) %0) unnamed_addr #0 {
@@ -2763,7 +2757,7 @@ define internal fastcc void @clear_module_state(ptr noundef captures(none) %0) u
 
 4:                                                ; preds = %1
   %5 = tail call ptr @PyInterpreterState_Get() #6
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = call i32 @_PyXIData_GetLookupContext(ptr noundef %5, ptr noundef nonnull %2) #6
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %10, label %8
@@ -2773,7 +2767,7 @@ define internal fastcc void @clear_module_state(ptr noundef captures(none) %0) u
   br label %10
 
 10:                                               ; preds = %8, %4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pr = load ptr, ptr %0, align 8, !tbaa !85
   %.not32 = icmp eq ptr %.pr, null
   br i1 %.not32, label %Py_DECREF.exit44, label %11
@@ -2886,12 +2880,18 @@ Py_DECREF.exit:                                   ; preds = %48, %45, %43, %Py_D
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 attributes #7 = { noreturn nounwind }
 

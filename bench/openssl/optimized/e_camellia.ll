@@ -211,39 +211,33 @@ define internal noundef i32 @camellia_cbc_cipher(ptr noundef %0, ptr noundef %1,
   ret i32 1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef) local_unnamed_addr #2
 
-declare ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef) local_unnamed_addr #3
+declare i32 @Camellia_set_key(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @Camellia_set_key(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_CIPHER_CTX_get_key_length(ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_CIPHER_CTX_get_key_length(ptr noundef) local_unnamed_addr #3
+declare void @ERR_new() local_unnamed_addr #2
 
-declare void @ERR_new() local_unnamed_addr #3
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @EVP_CIPHER_get_mode(ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_CIPHER_get_mode(ptr noundef) local_unnamed_addr #3
+declare ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef) local_unnamed_addr #2
 
-declare ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef) local_unnamed_addr #3
+declare void @Camellia_decrypt(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @Camellia_decrypt(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @Camellia_cbc_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) #2
 
-declare void @Camellia_cbc_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) #3
+declare void @Camellia_encrypt(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @Camellia_encrypt(ptr noundef, ptr noundef, ptr noundef) #3
+declare i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @CRYPTO_cbc128_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef) local_unnamed_addr #3
-
-declare void @CRYPTO_cbc128_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare void @CRYPTO_cbc128_decrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @CRYPTO_cbc128_decrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @camellia_ecb_cipher(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #1 {
@@ -272,13 +266,13 @@ define internal noundef i32 @camellia_ecb_cipher(ptr noundef %0, ptr noundef %1,
   ret i32 1
 }
 
-declare i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @camellia_ofb_cipher(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #1 {
   %5 = alloca i32, align 4
   %6 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = tail call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %0) #4
   store i32 %7, ptr %5, align 4, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -287,21 +281,21 @@ define internal noundef i32 @camellia_ofb_cipher(ptr noundef %0, ptr noundef %1,
   call void @CRYPTO_ofb128_encrypt(ptr noundef %2, ptr noundef %1, i64 noundef %3, ptr noundef %6, ptr noundef nonnull %8, ptr noundef nonnull %5, ptr noundef %10) #4
   %11 = load i32, ptr %5, align 4, !tbaa !13
   %12 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %0, i32 noundef %11) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 1
 }
 
-declare i32 @EVP_CIPHER_CTX_get_num(ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_CIPHER_CTX_get_num(ptr noundef) local_unnamed_addr #2
 
-declare void @CRYPTO_ofb128_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @CRYPTO_ofb128_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_CIPHER_CTX_set_num(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @EVP_CIPHER_CTX_set_num(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @camellia_cfb_cipher(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #1 {
   %5 = alloca i32, align 4
   %6 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = tail call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %0) #4
   store i32 %7, ptr %5, align 4, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -311,11 +305,11 @@ define internal noundef i32 @camellia_cfb_cipher(ptr noundef %0, ptr noundef %1,
   call void @CRYPTO_cfb128_encrypt(ptr noundef %2, ptr noundef %1, i64 noundef %3, ptr noundef %6, ptr noundef nonnull %8, ptr noundef nonnull %5, i32 noundef %9, ptr noundef %11) #4
   %12 = load i32, ptr %5, align 4, !tbaa !13
   %13 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %0, i32 noundef %12) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 1
 }
 
-declare void @CRYPTO_cfb128_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @CRYPTO_cfb128_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @camellia_cfb1_cipher(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #1 {
@@ -337,7 +331,7 @@ define internal noundef i32 @camellia_cfb1_cipher(ptr noundef %0, ptr noundef %1
   br label %21
 
 13:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = tail call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %0) #4
   store i32 %14, ptr %5, align 4, !tbaa !13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -347,14 +341,14 @@ define internal noundef i32 @camellia_cfb1_cipher(ptr noundef %0, ptr noundef %1
   call void @CRYPTO_cfb128_1_encrypt(ptr noundef %2, ptr noundef %1, i64 noundef %3, ptr noundef %8, ptr noundef nonnull %15, ptr noundef nonnull %5, i32 noundef %16, ptr noundef %18) #4
   %19 = load i32, ptr %5, align 4, !tbaa !13
   %20 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %0, i32 noundef %19) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %40
 
 21:                                               ; preds = %.lr.ph, %21
   %.03339 = phi i64 [ %3, %.lr.ph ], [ %27, %21 ]
   %.03438 = phi ptr [ %2, %.lr.ph ], [ %29, %21 ]
   %.03537 = phi ptr [ %1, %.lr.ph ], [ %28, %21 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %22 = call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %0) #4
   store i32 %22, ptr %6, align 4, !tbaa !13
   %23 = call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %0) #4
@@ -365,7 +359,7 @@ define internal noundef i32 @camellia_cfb1_cipher(ptr noundef %0, ptr noundef %1
   %27 = add i64 %.03339, -1152921504606846976
   %28 = getelementptr inbounds nuw i8, ptr %.03537, i64 1152921504606846976
   %29 = getelementptr inbounds nuw i8, ptr %.03438, i64 1152921504606846976
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %30 = icmp ugt i64 %27, 1152921504606846975
   br i1 %30, label %21, label %._crit_edge, !llvm.loop !14
 
@@ -377,7 +371,7 @@ define internal noundef i32 @camellia_cfb1_cipher(ptr noundef %0, ptr noundef %1
   br i1 %.not36, label %40, label %31
 
 31:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %32 = call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %0) #4
   store i32 %32, ptr %7, align 4, !tbaa !13
   %33 = shl nuw nsw i64 %.033.lcssa, 3
@@ -388,22 +382,22 @@ define internal noundef i32 @camellia_cfb1_cipher(ptr noundef %0, ptr noundef %1
   call void @CRYPTO_cfb128_1_encrypt(ptr noundef %.034.lcssa, ptr noundef %.035.lcssa, i64 noundef %33, ptr noundef %8, ptr noundef nonnull %34, ptr noundef nonnull %7, i32 noundef %35, ptr noundef %37) #4
   %38 = load i32, ptr %7, align 4, !tbaa !13
   %39 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %0, i32 noundef %38) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %40
 
 40:                                               ; preds = %._crit_edge, %31, %13
   ret i32 1
 }
 
-declare i32 @EVP_CIPHER_CTX_test_flags(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @EVP_CIPHER_CTX_test_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @CRYPTO_cfb128_1_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @CRYPTO_cfb128_1_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @camellia_cfb8_cipher(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #1 {
   %5 = alloca i32, align 4
   %6 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = tail call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %0) #4
   store i32 %7, ptr %5, align 4, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -413,17 +407,17 @@ define internal noundef i32 @camellia_cfb8_cipher(ptr noundef %0, ptr noundef %1
   call void @CRYPTO_cfb128_8_encrypt(ptr noundef %2, ptr noundef %1, i64 noundef %3, ptr noundef %6, ptr noundef nonnull %8, ptr noundef nonnull %5, i32 noundef %9, ptr noundef %11) #4
   %12 = load i32, ptr %5, align 4, !tbaa !13
   %13 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %0, i32 noundef %12) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 1
 }
 
-declare void @CRYPTO_cfb128_8_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @CRYPTO_cfb128_8_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @camellia_ctr_cipher(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #1 {
   %5 = alloca i32, align 4
   %6 = tail call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %0) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #4
   %8 = icmp slt i32 %6, 0
   br i1 %8, label %22, label %9
@@ -455,20 +449,26 @@ define internal range(i32 0, 2) i32 @camellia_ctr_cipher(ptr noundef %0, ptr nou
 
 22:                                               ; preds = %4, %19
   %.0 = phi i32 [ 1, %19 ], [ 0, %4 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-declare void @CRYPTO_ctr128_encrypt_ctr32(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @CRYPTO_ctr128_encrypt_ctr32(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @EVP_CIPHER_CTX_buf_noconst(ptr noundef) local_unnamed_addr #3
+declare ptr @EVP_CIPHER_CTX_buf_noconst(ptr noundef) local_unnamed_addr #2
 
-declare void @CRYPTO_ctr128_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @CRYPTO_ctr128_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

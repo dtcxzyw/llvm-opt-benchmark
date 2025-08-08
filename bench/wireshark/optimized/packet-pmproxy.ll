@@ -169,7 +169,7 @@ looks_like_proxy_exchange.exit.i:                 ; preds = %50, %is_client_exch
   br i1 %.not32.i, label %57, label %looks_like_proxy_exchange.exit.thread.i
 
 57:                                               ; preds = %looks_like_proxy_exchange.exit.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %58 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %58, i32 noundef 25, ptr noundef nonnull @.str.18)
   %59 = tail call i32 @tvb_ensure_captured_length_remaining(ptr noundef %0, i32 noundef 0)
@@ -193,7 +193,7 @@ looks_like_proxy_exchange.exit.i:                 ; preds = %50, %is_client_exch
 
 69:                                               ; preds = %67
   %70 = load i32, ptr @hf_pmproxy_host, align 4
-  %71 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %68) #6
+  %71 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %68) #5
   %72 = trunc i64 %71 to i32
   %73 = call ptr @proto_tree_add_string(ptr noundef %25, i32 noundef %70, ptr noundef %0, i32 noundef 0, i32 noundef %72, ptr noundef nonnull %68)
   %74 = getelementptr i8, ptr %66, i64 8
@@ -202,11 +202,11 @@ looks_like_proxy_exchange.exit.i:                 ; preds = %50, %is_client_exch
   br i1 %.not40.i.i, label %84, label %76
 
 76:                                               ; preds = %69
-  %77 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %68) #6
+  %77 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %68) #5
   %78 = trunc i64 %77 to i32
   %79 = add i32 %78, 1
   %80 = load i32, ptr @hf_pmproxy_port, align 4
-  %81 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #6
+  %81 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #5
   %82 = trunc i64 %81 to i32
   %83 = call ptr @proto_tree_add_string(ptr noundef %25, i32 noundef %80, ptr noundef %0, i32 noundef %79, i32 noundef %82, ptr noundef nonnull %75)
   br label %84
@@ -221,7 +221,7 @@ looks_like_proxy_exchange.exit.i:                 ; preds = %50, %is_client_exch
   br label %dissect_proxy_to_host.exit.i
 
 dissect_proxy_to_host.exit.i:                     ; preds = %84, %61, %57
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dissect_pmproxy_exchange.exit
 
 looks_like_proxy_exchange.exit.thread.i:          ; preds = %.lr.ph.i.i.i, %looks_like_proxy_exchange.exit.i
@@ -233,7 +233,7 @@ looks_like_proxy_exchange.exit.thread.i:          ; preds = %.lr.ph.i.i.i, %look
 
 92:                                               ; preds = %looks_like_proxy_exchange.exit.thread.i
   %93 = tail call ptr @wmem_file_scope()
-  %94 = tail call noalias dereferenceable_or_null(4) ptr @wmem_alloc(ptr noundef %93, i64 noundef 4) #7
+  %94 = tail call noalias dereferenceable_or_null(4) ptr @wmem_alloc(ptr noundef %93, i64 noundef 4) #6
   br label %mark_pmproxy_exchange_complete.exit.i
 
 mark_pmproxy_exchange_complete.exit.i:            ; preds = %92, %looks_like_proxy_exchange.exit.thread.i
@@ -273,17 +273,11 @@ declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 ; Function Attrs: null_pointer_is_valid
 declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -322,13 +316,13 @@ declare ptr @wmem_strsplit(ptr noundef, ptr noundef, ptr noundef, i32 noundef) l
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_file_scope() local_unnamed_addr #1
@@ -336,14 +330,19 @@ declare ptr @wmem_file_scope() local_unnamed_addr #1
 ; Function Attrs: null_pointer_is_valid
 declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind willreturn memory(read) }
-attributes #7 = { allocsize(1) }
+attributes #2 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind willreturn memory(read) }
+attributes #6 = { allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

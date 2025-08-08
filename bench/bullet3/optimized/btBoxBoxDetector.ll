@@ -90,17 +90,11 @@ define dso_local void @_Z20dLineClosestApproachRK9btVector3S1_S1_S1_PfS2_(ptr no
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare float @llvm.fmuladd.f32(float, float, float) #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable
-define dso_local void @_Z11cullPoints2iPfiiPi(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #4 {
+define dso_local void @_Z11cullPoints2iPfiiPi(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #3 {
   %6 = alloca [8 x float], align 16
   %7 = alloca [8 x i32], align 16
   switch i32 %0, label %.preheader [
@@ -166,7 +160,7 @@ define dso_local void @_Z11cullPoints2iPfiiPi(i32 noundef %0, ptr noundef readon
 .thread:                                          ; preds = %14, %10
   %.0100.ph = phi float [ %19, %14 ], [ %11, %10 ]
   %.098.ph = phi float [ %25, %14 ], [ %13, %10 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %.lr.ph124.preheader
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader
@@ -198,12 +192,12 @@ define dso_local void @_Z11cullPoints2iPfiiPi(i32 noundef %0, ptr noundef readon
   %63 = fadd float %48, %51
   %64 = tail call float @llvm.fmuladd.f32(float %54, float %63, float %.199.lcssa)
   %65 = fmul float %64, %.1103
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %66 = icmp sgt i32 %0, 0
   br i1 %66, label %.lr.ph124.preheader, label %._crit_edge125.thread
 
 ._crit_edge125.thread:                            ; preds = %.loopexit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %._crit_edge129
 
 .lr.ph124.preheader:                              ; preds = %.thread, %.loopexit
@@ -229,7 +223,7 @@ define dso_local void @_Z11cullPoints2iPfiiPi(i32 noundef %0, ptr noundef readon
   br i1 %exitcond149.not, label %._crit_edge125, label %.lr.ph124, !llvm.loop !20
 
 ._crit_edge125:                                   ; preds = %.lr.ph124
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %wide.trip.count153 = zext nneg i32 %0 to i64
   br label %.lr.ph128
 
@@ -324,13 +318,13 @@ define dso_local void @_Z11cullPoints2iPfiiPi(i32 noundef %0, ptr noundef readon
   br i1 %exitcond155.not, label %._crit_edge140, label %.lr.ph139.split, !llvm.loop !25
 
 ._crit_edge140:                                   ; preds = %.lr.ph139.split, %._crit_edge134.us, %._crit_edge129
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteCollisionDetectorInterface6ResultE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0, ptr noundef readonly %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %3, ptr noundef readonly %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %5, ptr noundef nonnull align 4 captures(none) dereferenceable(16) %6, ptr noundef writeonly captures(none) %7, ptr noundef writeonly captures(none) %8, i32 noundef %9, ptr readnone captures(none) %10, i32 %11, ptr noundef nonnull align 8 dereferenceable(8) %12) local_unnamed_addr #5 {
+define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteCollisionDetectorInterface6ResultE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0, ptr noundef readonly %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %3, ptr noundef readonly %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %5, ptr noundef nonnull align 4 captures(none) dereferenceable(16) %6, ptr noundef writeonly captures(none) %7, ptr noundef writeonly captures(none) %8, i32 noundef %9, ptr readnone captures(none) %10, i32 %11, ptr noundef nonnull align 8 dereferenceable(8) %12) local_unnamed_addr #4 {
   %14 = alloca [3 x float], align 4
   %15 = alloca [3 x float], align 4
   %16 = alloca %class.btVector3, align 4
@@ -356,8 +350,8 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   %36 = alloca %class.btVector3, align 8
   %37 = alloca %class.btVector3, align 8
   %38 = alloca %class.btVector3, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %14) #12
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %39 = load float, ptr %3, align 4, !tbaa !14
   %40 = load float, ptr %0, align 4, !tbaa !14
   %41 = fsub float %39, %40
@@ -1063,7 +1057,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   br i1 %502, label %.preheader977, label %585
 
 .preheader977:                                    ; preds = %500
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %16, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false), !tbaa !14
   %503 = load float, ptr %6, align 4, !tbaa !14
   %504 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -1110,7 +1104,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   br i1 %exitcond1070.not, label %.preheader976, label %508, !llvm.loop !27
 
 .preheader976:                                    ; preds = %528
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %17, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false), !tbaa !14
   br label %529
 
@@ -1152,10 +1146,10 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   br i1 %exitcond1081.not, label %550, label %529, !llvm.loop !29
 
 550:                                              ; preds = %549
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %551 = add nsw i32 %.14694927941, -7
   %552 = udiv i32 %551, 3
   %553 = urem i32 %551, 3
@@ -1224,7 +1218,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   br i1 %exitcond1097.not, label %577, label %571, !llvm.loop !33
 
 577:                                              ; preds = %571
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %578 = fneg float %503
   %579 = fneg float %505
   %580 = fneg float %507
@@ -1238,19 +1232,19 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   %583 = getelementptr inbounds nuw i8, ptr %582, i64 32
   %584 = load ptr, ptr %583, align 8
   call void %584(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(16) %22, ptr noundef nonnull align 4 dereferenceable(16) %17, float noundef %.14679928939)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   store i32 %.14694927941, ptr %8, align 4, !tbaa !18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %940
 
 585:                                              ; preds = %500
   %586 = icmp samesign ult i32 %.14694927941, 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %587 = load float, ptr %6, align 4, !tbaa !14
   br i1 %586, label %588, label %593
 
@@ -1335,7 +1329,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   %.0658 = phi i64 [ %., %634 ], [ %.762, %636 ]
   %.0657 = phi i64 [ 0, %634 ], [ %638, %636 ]
   %.0656 = phi i32 [ %.761, %634 ], [ %.764, %636 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %640 = getelementptr inbounds nuw float, ptr %23, i64 %.0658
   %641 = load float, ptr %640, align 4, !tbaa !14
   %642 = fcmp olt float %641, 0.000000e+00
@@ -1403,7 +1397,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
 666:                                              ; preds = %.loopexit982, %664, %665
   %.0654 = phi i64 [ 0, %664 ], [ 0, %665 ], [ 1, %.loopexit982 ]
   %.0653 = phi i64 [ 2, %664 ], [ 1, %665 ], [ 2, %.loopexit982 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %667 = getelementptr inbounds nuw float, ptr %.0664955, i64 %.0654
   %668 = load float, ptr %24, align 4, !tbaa !14
   %669 = load float, ptr %667, align 4, !tbaa !14
@@ -1487,7 +1481,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   %740 = fsub float %735, %722
   %741 = getelementptr inbounds nuw i8, ptr %25, i64 28
   store float %740, ptr %741, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %742 = getelementptr inbounds nuw float, ptr %.0660963, i64 %.0654
   %743 = load float, ptr %742, align 4, !tbaa !14
   store float %743, ptr %26, align 4, !tbaa !14
@@ -1495,14 +1489,14 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   %745 = load float, ptr %744, align 4, !tbaa !14
   %746 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store float %745, ptr %746, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %27) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %747 = call fastcc noundef i32 @_ZL18intersectRectQuad2PfS_S_(ptr noundef %26, ptr noundef %25, ptr noundef %27)
   %748 = icmp slt i32 %747, 1
   br i1 %748, label %939, label %749
 
 749:                                              ; preds = %666
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %28) #12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %750 = fneg float %711
   %751 = fmul float %708, %750
   %752 = call float @llvm.fmuladd.f32(float %698, float %714, float %751)
@@ -1620,7 +1614,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
 
 820:                                              ; preds = %.lr.ph994, %830
   %indvars.iv1039 = phi i64 [ 0, %.lr.ph994 ], [ %indvars.iv.next1040, %830 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %821 = mul nuw nsw i64 %indvars.iv1039, 3
   br label %822
 
@@ -1639,7 +1633,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   br i1 %exitcond1038.not, label %830, label %822, !llvm.loop !38
 
 830:                                              ; preds = %822
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %831 = load float, ptr %6, align 4, !tbaa !14
   %832 = fneg float %831
   %833 = load float, ptr %816, align 4, !tbaa !14
@@ -1658,15 +1652,15 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   %841 = getelementptr inbounds nuw i8, ptr %840, i64 32
   %842 = load ptr, ptr %841, align 8
   call void %842(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(16) %31, ptr noundef nonnull align 4 dereferenceable(16) %30, float noundef %839)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %indvars.iv.next1040 = add nuw nsw i64 %indvars.iv1039, 1
   %exitcond1044.not = icmp eq i64 %indvars.iv.next1040, %wide.trip.count1043
   br i1 %exitcond1044.not, label %.loopexit, label %820, !llvm.loop !39
 
 843:                                              ; preds = %.lr.ph, %859
   %indvars.iv1029 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next1030, %859 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %844 = mul nuw nsw i64 %indvars.iv1029, 3
   %845 = getelementptr inbounds nuw [8 x float], ptr %29, i64 0, i64 %indvars.iv1029
   %846 = load float, ptr %845, align 4, !tbaa !14
@@ -1691,7 +1685,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   br i1 %exitcond1028.not, label %859, label %847, !llvm.loop !40
 
 859:                                              ; preds = %847
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %860 = load float, ptr %6, align 4, !tbaa !14
   %861 = fneg float %860
   %862 = load float, ptr %816, align 4, !tbaa !14
@@ -1708,8 +1702,8 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   %868 = getelementptr inbounds nuw i8, ptr %867, i64 32
   %869 = load ptr, ptr %868, align 8
   call void %869(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(16) %33, ptr noundef nonnull align 4 dereferenceable(16) %32, float noundef %866)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %indvars.iv.next1030 = add nuw nsw i64 %indvars.iv1029, 1
   %exitcond1034.not = icmp eq i64 %indvars.iv.next1030, %wide.trip.count1043
   br i1 %exitcond1034.not, label %.loopexit, label %843, !llvm.loop !41
@@ -1734,7 +1728,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   br i1 %exitcond1050.not, label %877, label %872, !llvm.loop !42
 
 877:                                              ; preds = %872
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   call void @_Z11cullPoints2iPfiiPi(i32 noundef %.1647, ptr noundef nonnull %27, i32 noundef %spec.store.select, i32 noundef %.1642, ptr noundef nonnull %34)
   %878 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %879 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1748,7 +1742,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
 
 885:                                              ; preds = %877, %936
   %indvars.iv1055 = phi i64 [ 0, %877 ], [ %indvars.iv.next1056, %936 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %886 = getelementptr inbounds nuw [8 x i32], ptr %34, i64 0, i64 %indvars.iv1055
   %887 = load i32, ptr %886, align 4, !tbaa !18
   %888 = mul nsw i32 %887, 3
@@ -1773,7 +1767,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   br i1 %586, label %899, label %913
 
 899:                                              ; preds = %898
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %900 = load float, ptr %6, align 4, !tbaa !14
   %901 = fneg float %900
   %902 = load float, ptr %878, align 4, !tbaa !14
@@ -1793,11 +1787,11 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   %911 = getelementptr inbounds nuw i8, ptr %910, i64 32
   %912 = load ptr, ptr %911, align 8
   call void %912(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(16) %36, ptr noundef nonnull align 4 dereferenceable(16) %35, float noundef %909)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %936
 
 913:                                              ; preds = %898
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %914 = load float, ptr %6, align 4, !tbaa !14
   %915 = fneg float %914
   %916 = load float, ptr %878, align 4, !tbaa !14
@@ -1809,7 +1803,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   %.sroa.3.12.vec.insert.i787 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %919, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i786, ptr %37, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i787, ptr %880, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %38) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %920 = sext i32 %887 to i64
   %921 = getelementptr inbounds [8 x float], ptr %29, i64 0, i64 %920
   %922 = load float, ptr %921, align 4, !tbaa !14
@@ -1832,18 +1826,18 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   %934 = getelementptr inbounds nuw i8, ptr %933, i64 32
   %935 = load ptr, ptr %934, align 8
   call void %935(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(16) %37, ptr noundef nonnull align 4 dereferenceable(16) %38, float noundef %932)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %936
 
 936:                                              ; preds = %913, %899
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   %indvars.iv.next1056 = add nuw nsw i64 %indvars.iv1055, 1
   %exitcond1059.not = icmp eq i64 %indvars.iv.next1056, %wide.trip.count1058
   br i1 %exitcond1059.not, label %937, label %885, !llvm.loop !44
 
 937:                                              ; preds = %936
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %859, %830, %937
@@ -1853,33 +1847,33 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
 
 938:                                              ; preds = %812, %.loopexit
   %.3 = phi i32 [ %.2648, %.loopexit ], [ 0, %812 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29) #12
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %28) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %939
 
 939:                                              ; preds = %666, %938
   %.2 = phi i32 [ %.3, %938 ], [ 0, %666 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %27) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %940
 
 940:                                              ; preds = %577, %939, %234, %268, %293, %318, %342, %366, %390, %415, %440, %464, %218, %202, %186, %174, %162, %13
   %.0643 = phi i32 [ 0, %13 ], [ 0, %162 ], [ 0, %174 ], [ 0, %186 ], [ 0, %202 ], [ 0, %218 ], [ 1, %577 ], [ %.2, %939 ], [ 0, %234 ], [ 0, %268 ], [ 0, %293 ], [ 0, %318 ], [ 0, %342 ], [ 0, %366 ], [ 0, %390 ], [ 0, %415 ], [ 0, %440 ], [ 0, %464 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #12
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.0643
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZL18intersectRectQuad2PfS_S_(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull captures(address) %2) unnamed_addr #7 {
+define internal fastcc noundef i32 @_ZL18intersectRectQuad2PfS_S_(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull captures(address) %2) unnamed_addr #6 {
   %4 = alloca [16 x float], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %.preheader152
 
 .preheader152:                                    ; preds = %3, %60
@@ -2006,12 +2000,12 @@ define internal fastcc noundef i32 @_ZL18intersectRectQuad2PfS_S_(ptr noundef no
   br label %65
 
 65:                                               ; preds = %.thread145, %61
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1103
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16btBoxBoxDetector16getClosestPointsERKN36btDiscreteCollisionDetectorInterface17ClosestPointInputERNS0_6ResultEP12btIDebugDrawb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(132) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr readnone captures(none) %3, i1 zeroext %4) unnamed_addr #5 align 2 {
+define dso_local void @_ZN16btBoxBoxDetector16getClosestPointsERKN36btDiscreteCollisionDetectorInterface17ClosestPointInputERNS0_6ResultEP12btIDebugDrawb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(132) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr readnone captures(none) %3, i1 zeroext %4) unnamed_addr #4 align 2 {
   %6 = alloca [12 x float], align 16
   %7 = alloca [12 x float], align 16
   %8 = alloca %class.btVector3, align 4
@@ -2020,16 +2014,16 @@ define dso_local void @_ZN16btBoxBoxDetector16getClosestPointsERKN36btDiscreteCo
   %11 = alloca %class.btVector3, align 8
   %12 = alloca %class.btVector3, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %62
 
 14:                                               ; preds = %62
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !7
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
@@ -2064,7 +2058,7 @@ define dso_local void @_ZN16btBoxBoxDetector16getClosestPointsERKN36btDiscreteCo
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i.i, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !13
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
@@ -2099,13 +2093,13 @@ define dso_local void @_ZN16btBoxBoxDetector16getClosestPointsERKN36btDiscreteCo
   %60 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i.i41, ptr %60, align 8
   %61 = call noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteCollisionDetectorInterface6ResultE(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull %6, ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %38, ptr noundef nonnull %7, ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 4, ptr poison, i32 poison, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 62:                                               ; preds = %5, %62
@@ -2143,24 +2137,30 @@ define dso_local void @_ZN16btBoxBoxDetector16getClosestPointsERKN36btDiscreteCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN36btDiscreteCollisionDetectorInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr dso_local void @_ZN36btDiscreteCollisionDetectorInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN16btBoxBoxDetectorD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr dso_local void @_ZN16btBoxBoxDetectorD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #3
+declare float @llvm.fabs.f32(float) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @atan2f(float noundef, float noundef) local_unnamed_addr #9
+declare float @atan2f(float noundef, float noundef) local_unnamed_addr #8
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11
@@ -2173,15 +2173,15 @@ declare float @llvm.sqrt.f32(float) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { mustprogress nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nounwind }
 attributes #13 = { builtin nounwind }

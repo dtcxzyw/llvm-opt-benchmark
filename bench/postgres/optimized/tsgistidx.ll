@@ -32,20 +32,17 @@ define dso_local noundef i64 @gtsvectorin(ptr noundef readnone captures(none) %0
   unreachable
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #3
+declare i32 @errcode(i32 noundef) local_unnamed_addr #2
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gtsvectorout(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define dso_local i64 @gtsvectorout(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -131,19 +128,16 @@ sizebitvec.exit:                                  ; preds = %.lr.ph.i.i, %.prehe
   ret i64 %47
 }
 
-declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #3
+declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #2
 
-declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #3
+declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @pstrdup(ptr noundef) local_unnamed_addr #3
+declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @pfree(ptr noundef) local_unnamed_addr #3
+declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gtsvector_compress(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define dso_local i64 @gtsvector_compress(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -439,26 +433,26 @@ thread-pre-split:                                 ; preds = %._crit_edge112, %qu
   ret i64 %.1
 }
 
-declare zeroext i1 @has_fn_opclass_options(ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @has_fn_opclass_options(ptr noundef) local_unnamed_addr #2
 
-declare ptr @get_fn_opclass_options(ptr noundef) local_unnamed_addr #3
+declare ptr @get_fn_opclass_options(ptr noundef) local_unnamed_addr #2
 
-declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @compareint(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+define internal range(i32 -1, 2) i32 @compareint(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = tail call range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %3, i32 %4)
   ret i32 %5
 }
 
-declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #3
+declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gtsvector_decompress(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define dso_local i64 @gtsvector_decompress(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -497,7 +491,7 @@ define dso_local i64 @gtsvector_decompress(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @gtsvector_consistent(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define dso_local range(i64 0, 2) i64 @gtsvector_consistent(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = alloca %struct.CHKVAL, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -534,7 +528,7 @@ define dso_local range(i64 0, 2) i64 @gtsvector_consistent(ptr noundef readonly 
   br label %36
 
 25:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %26, ptr %2, align 8
   %27 = load i32, ptr %13, align 4
@@ -547,7 +541,7 @@ define dso_local range(i64 0, 2) i64 @gtsvector_consistent(ptr noundef readonly 
   store ptr %32, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %35 = call zeroext i1 @TS_execute(ptr noundef nonnull %34, ptr noundef nonnull %2, i32 noundef 2, ptr noundef nonnull @checkcondition_arr) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %36
 
 36:                                               ; preds = %20, %1, %25, %22
@@ -556,10 +550,10 @@ define dso_local range(i64 0, 2) i64 @gtsvector_consistent(ptr noundef readonly 
   ret i64 %.0
 }
 
-declare zeroext i1 @TS_execute(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @TS_execute(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 3) i32 @checkcondition_bit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #5 {
+define internal range(i32 0, 3) i32 @checkcondition_bit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %5 = load i8, ptr %4, align 2, !range !6, !noundef !7
   %6 = trunc nuw i8 %5 to i1
@@ -594,7 +588,7 @@ define internal range(i32 0, 3) i32 @checkcondition_bit(ptr noundef readonly cap
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 3) i32 @checkcondition_arr(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #6 {
+define internal range(i32 0, 3) i32 @checkcondition_arr(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #5 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -639,7 +633,7 @@ define internal range(i32 0, 3) i32 @checkcondition_arr(ptr noundef readonly cap
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @gtsvector_union(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define dso_local noundef i64 @gtsvector_union(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -822,10 +816,10 @@ unionkey.exit:                                    ; preds = %76, %35
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gtsvector_same(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define dso_local i64 @gtsvector_same(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -947,7 +941,7 @@ define dso_local i64 @gtsvector_same(ptr noundef readonly captures(none) %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gtsvector_penalty(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define dso_local i64 @gtsvector_penalty(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1260,7 +1254,7 @@ hemdist.exit:                                     ; preds = %.lr.ph.i.i36, %113,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gtsvector_picksplit(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define dso_local i64 @gtsvector_picksplit(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -2379,10 +2373,10 @@ hemdistsign.exit347:                              ; preds = %.lr.ph.i342, %508, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #8
+declare i32 @llvm.abs.i32(i32, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @comparecost(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+define internal range(i32 -1, 2) i32 @comparecost(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -2392,10 +2386,10 @@ define internal range(i32 -1, 2) i32 @comparecost(ptr noundef readonly captures(
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #8
+declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @gtsvector_consistent_oldsig(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define dso_local range(i64 0, 2) i64 @gtsvector_consistent_oldsig(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = alloca %struct.CHKVAL, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -2432,7 +2426,7 @@ define dso_local range(i64 0, 2) i64 @gtsvector_consistent_oldsig(ptr noundef re
   br label %gtsvector_consistent.exit
 
 25:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %26, ptr %2, align 8
   %27 = load i32, ptr %13, align 4
@@ -2445,7 +2439,7 @@ define dso_local range(i64 0, 2) i64 @gtsvector_consistent_oldsig(ptr noundef re
   store ptr %32, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %35 = call zeroext i1 @TS_execute(ptr noundef nonnull %34, ptr noundef nonnull %2, i32 noundef 2, ptr noundef nonnull @checkcondition_arr) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %gtsvector_consistent.exit
 
 gtsvector_consistent.exit:                        ; preds = %1, %20, %22, %25
@@ -2455,7 +2449,7 @@ gtsvector_consistent.exit:                        ; preds = %1, %20, %22, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @gtsvector_options(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define dso_local noundef i64 @gtsvector_options(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -2464,12 +2458,18 @@ define dso_local noundef i64 @gtsvector_options(ptr noundef readonly captures(no
   ret i64 0
 }
 
-declare void @init_local_reloptions(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @init_local_reloptions(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @add_local_int_reloption(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @add_local_int_reloption(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #10
@@ -2484,15 +2484,15 @@ declare i64 @llvm.umax.i64(i64, i64) #11
 declare i32 @llvm.smax.i32(i32, i32) #11
 
 attributes #0 = { cold noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { cold nounwind }

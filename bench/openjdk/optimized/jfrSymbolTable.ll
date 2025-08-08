@@ -150,7 +150,7 @@ define hidden void @_ZN14JfrSymbolTableC2Ev(ptr noundef nonnull align 8 derefere
   %2 = alloca %class.NativeCallStack, align 8
   %3 = alloca %class.NativeCallStack, align 8
   %4 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 16, i32 noundef 0) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1009, ptr %5, align 8
@@ -170,13 +170,13 @@ _ZN13HashTableHostIPK6Symbolm9ListEntry14JfrSymbolTableLm1009EEC2EPS4_m.exit: ; 
   %11 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSRK15NativeCallStackN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8072, i8 noundef zeroext 16, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 0) #15
   store ptr %11, ptr %4, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8072) %11, i8 0, i64 8072, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %0, ptr %12, align 8
   store ptr %4, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 16, i32 noundef 0) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 1009, ptr %15, align 8
@@ -196,7 +196,7 @@ _ZN13HashTableHostIPKcm9ListEntry14JfrSymbolTableLm1009EEC2EPS3_m.exit: ; preds 
   %21 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSRK15NativeCallStackN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8072, i8 noundef zeroext 16, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 0) #15
   store ptr %21, ptr %14, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8072) %21, i8 0, i64 8072, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %0, ptr %22, align 8
   store ptr %14, ptr %13, align 8
@@ -609,7 +609,7 @@ define hidden noundef i64 @_ZN14JfrSymbolTable4markEPK6Symbolb(ptr noundef nonnu
   %22 = xor i32 %13, %21
   %23 = tail call noundef i32 @llvm.fshl.i32(i32 %22, i32 %8, i32 16)
   %24 = zext i32 %23 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %25, align 8
@@ -636,7 +636,7 @@ define hidden noundef i64 @_ZN14JfrSymbolTable4markEPK6Symbolb(ptr noundef nonnu
 _ZN14JfrSymbolTable4markEmPK6Symbolb.exit:        ; preds = %33, %34
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %37 = load i64, ptr %36, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %37
 }
 
@@ -796,7 +796,7 @@ _ZN16java_lang_String9hash_codeEPKai.exit.loopexit.i: ; preds = %.lr.ph.i.i
 
 _ZL11string_hashPKc.exit:                         ; preds = %3, %_ZN16java_lang_String9hash_codeEPKai.exit.loopexit.i
   %.0.lcssa.i.i = phi i64 [ 0, %3 ], [ %15, %_ZN16java_lang_String9hash_codeEPKai.exit.loopexit.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %16, align 8
@@ -866,7 +866,7 @@ _ZN13HashTableHostIPKcm9ListEntry14JfrSymbolTableLm1009EE10lookup_putEmRKS1_.exi
 _ZN14JfrSymbolTable4markEmPKcb.exit:              ; preds = %48, %49
   %51 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %52 = load i64, ptr %51, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %52
 }
 
@@ -1053,7 +1053,7 @@ _ZNK5Klass24java_mirror_no_keepaliveEv.exit.i:    ; preds = %9, %3
 
 _ZN14JfrSymbolTable22hidden_klass_name_hashEPK13InstanceKlass.exit: ; preds = %18, %21, %.thread.i.i
   %.0.i.i = phi i64 [ %23, %21 ], [ %24, %.thread.i.i ], [ %20, %18 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %25 = load ptr, ptr %6, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %_ZL26create_hidden_klass_symbolPK13InstanceKlassm.exit, label %27
@@ -1080,8 +1080,8 @@ _ZL26create_hidden_klass_symbolPK13InstanceKlassm.exit: ; preds = %_ZN14JfrSymbo
   %43 = call noundef ptr @_ZNK6Symbol22as_klass_external_nameEPci(ptr noundef nonnull align 4 dereferenceable(8) %41, ptr noundef %40, i32 noundef %42) #15
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 %37
   %45 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) %5) #15
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %40, ptr %4, align 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %40, ptr %46, align 8
@@ -1151,7 +1151,7 @@ _ZN13HashTableHostIPKcm9ListEntry14JfrSymbolTableLm1009EE10lookup_putEmRKS1_.exi
 _ZN14JfrSymbolTable4markEmPKcb.exit:              ; preds = %78, %79
   %81 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %82 = load i64, ptr %81, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %82
 }
 
@@ -1201,7 +1201,7 @@ _ZN14JfrSymbolTable15is_hidden_klassEPK5Klass.exit.thread: ; preds = %3, %_ZN14J
   %32 = xor i32 %23, %31
   %33 = tail call noundef i32 @llvm.fshl.i32(i32 %32, i32 %18, i32 16)
   %34 = zext i32 %33 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %13, ptr %4, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %13, ptr %35, align 8
@@ -1228,7 +1228,7 @@ _ZN14JfrSymbolTable15is_hidden_klassEPK5Klass.exit.thread: ; preds = %3, %_ZN14J
 _ZN14JfrSymbolTable4markEPK6Symbolb.exit:         ; preds = %43, %44
   %46 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %47 = load i64, ptr %46, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %48
 
 48:                                               ; preds = %_ZN14JfrSymbolTable15is_hidden_klassEPK5Klass.exit.thread, %_ZN14JfrSymbolTable4markEPK6Symbolb.exit, %10
@@ -1260,7 +1260,7 @@ define hidden noundef i64 @_ZN14JfrSymbolTable3addEPK6Symbol(ptr noundef %0) loc
   %21 = xor i32 %12, %20
   %22 = tail call noundef i32 @llvm.fshl.i32(i32 %21, i32 %7, i32 16)
   %23 = zext i32 %22 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %2, align 8
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %0, ptr %24, align 8
@@ -1279,7 +1279,7 @@ define hidden noundef i64 @_ZN14JfrSymbolTable3addEPK6Symbol(ptr noundef %0) loc
 _ZN14JfrSymbolTable8add_implI6SymbolEEmPKT_.exit: ; preds = %1, %30
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %33 = load i64, ptr %32, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %33
 }
 
@@ -2061,10 +2061,10 @@ _ZN13HashTableHostIPKcm9ListEntry14JfrSymbolTableLm1009EE9new_entryEmRKS1_.exit:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #14

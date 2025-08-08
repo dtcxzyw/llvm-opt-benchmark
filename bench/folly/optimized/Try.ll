@@ -111,7 +111,7 @@ define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNR5folly3TryIN
   unreachable
 
 5:                                                ; preds = %1
-  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #8
+  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #7
   unreachable
 
 _ZNK5folly3TryINS_4UnitEE16throwUnlessValueEv.exit: ; preds = %1
@@ -136,7 +136,7 @@ define weak_odr void @_ZNK5folly3TryINS_4UnitEE16throwUnlessValueEv(ptr noundef 
   unreachable
 
 6:                                                ; preds = %1
-  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #8
+  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #7
   unreachable
 }
 
@@ -192,11 +192,11 @@ declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef no
 ; Function Attrs: cold mustprogress noinline noreturn optsize uwtable
 define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.folly::UsingUninitializedTry", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly21UsingUninitializedTryE, i64 16), ptr %1, align 8, !tbaa !15
-  invoke void @_ZN5folly15throw_exceptionINS_21UsingUninitializedTryEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %1) #8
+  invoke void @_ZN5folly15throw_exceptionINS_21UsingUninitializedTryEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %1) #7
           to label %2 unwind label %3
 
 2:                                                ; preds = %0
@@ -206,7 +206,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_21UsingUninitial
   %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   resume { ptr, i32 } %4
 }
 
@@ -218,39 +218,33 @@ define linkonce_odr void @_ZN5folly15throw_exceptionINS_21UsingUninitializedTryE
   unreachable
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind
 declare void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
-
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5folly21UsingUninitializedTryC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #7 comdat align 2 {
+define linkonce_odr void @_ZN5folly21UsingUninitializedTryC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #6 comdat align 2 {
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly21UsingUninitializedTryE, i64 16), ptr %0, align 8, !tbaa !15
   ret void
 }
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #8
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #7
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5folly21UsingUninitializedTryD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+define linkonce_odr void @_ZN5folly21UsingUninitializedTryD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 {
   tail call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNK5folly21UsingUninitializedTry4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #9 comdat align 2 {
+define linkonce_odr noundef ptr @_ZNK5folly21UsingUninitializedTry4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 {
   ret ptr @.str
 }
 
@@ -258,7 +252,7 @@ define linkonce_odr noundef ptr @_ZNK5folly21UsingUninitializedTry4whatEv(ptr no
 declare void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5folly12TryExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+define linkonce_odr void @_ZN5folly12TryExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 {
   tail call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #14
   ret void
@@ -268,9 +262,9 @@ define linkonce_odr void @_ZN5folly12TryExceptionD0Ev(ptr noundef nonnull align 
 declare noundef ptr @_ZNKSt11logic_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
 
-declare void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #11
+declare void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNO5folly3TryINS_4UnitEE5valueEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
@@ -286,7 +280,7 @@ define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNO5folly3TryIN
   unreachable
 
 5:                                                ; preds = %1
-  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #8
+  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #7
   unreachable
 
 _ZNK5folly3TryINS_4UnitEE16throwUnlessValueEv.exit: ; preds = %1
@@ -308,7 +302,7 @@ define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKR5folly3TryI
   unreachable
 
 5:                                                ; preds = %1
-  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #8
+  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #7
   unreachable
 
 _ZNK5folly3TryINS_4UnitEE16throwUnlessValueEv.exit: ; preds = %1
@@ -330,7 +324,7 @@ define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKO5folly3TryI
   unreachable
 
 5:                                                ; preds = %1
-  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #8
+  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #7
   unreachable
 
 _ZNK5folly3TryINS_4UnitEE16throwUnlessValueEv.exit: ; preds = %1
@@ -352,7 +346,7 @@ define weak_odr void @_ZNK5folly3TryINS_4UnitEE13throwIfFailedEv(ptr noundef non
   unreachable
 
 5:                                                ; preds = %1
-  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #8
+  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #7
   unreachable
 
 _ZNK5folly3TryINS_4UnitEE16throwUnlessValueEv.exit: ; preds = %1
@@ -373,7 +367,7 @@ define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKR5folly3TryI
   unreachable
 
 5:                                                ; preds = %1
-  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #8
+  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #7
   unreachable
 
 _ZNKR5folly3TryINS_4UnitEE5valueEv.exit:          ; preds = %1
@@ -395,7 +389,7 @@ define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNR5folly3TryIN
   unreachable
 
 5:                                                ; preds = %1
-  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #8
+  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #7
   unreachable
 
 _ZNR5folly3TryINS_4UnitEE5valueEv.exit:           ; preds = %1
@@ -417,7 +411,7 @@ define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNO5folly3TryIN
   unreachable
 
 5:                                                ; preds = %1
-  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #8
+  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #7
   unreachable
 
 _ZNR5folly3TryINS_4UnitEE5valueEv.exit:           ; preds = %1
@@ -439,7 +433,7 @@ define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKO5folly3TryI
   unreachable
 
 5:                                                ; preds = %1
-  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #8
+  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #7
   unreachable
 
 _ZNKR5folly3TryINS_4UnitEE5valueEv.exit:          ; preds = %1
@@ -461,7 +455,7 @@ define weak_odr noundef ptr @_ZNK5folly3TryINS_4UnitEEptEv(ptr noundef nonnull a
   unreachable
 
 5:                                                ; preds = %1
-  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #8
+  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #7
   unreachable
 
 _ZNKR5folly3TryINS_4UnitEE5valueEv.exit:          ; preds = %1
@@ -483,7 +477,7 @@ define weak_odr noundef ptr @_ZN5folly3TryINS_4UnitEEptEv(ptr noundef nonnull al
   unreachable
 
 5:                                                ; preds = %1
-  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #8
+  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #7
   unreachable
 
 _ZNR5folly3TryINS_4UnitEE5valueEv.exit:           ; preds = %1
@@ -492,14 +486,14 @@ _ZNR5folly3TryINS_4UnitEE5valueEv.exit:           ; preds = %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef zeroext i1 @_ZNK5folly3TryINS_4UnitEE8hasValueEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #9 comdat align 2 {
+define weak_odr noundef zeroext i1 @_ZNK5folly3TryINS_4UnitEE8hasValueEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #8 comdat align 2 {
   %2 = load i32, ptr %0, align 8, !tbaa !7
   %3 = icmp eq i32 %2, 0
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef zeroext i1 @_ZNK5folly3TryINS_4UnitEE12hasExceptionEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #9 comdat align 2 {
+define weak_odr noundef zeroext i1 @_ZNK5folly3TryINS_4UnitEE12hasExceptionEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #8 comdat align 2 {
   %2 = load i32, ptr %0, align 8, !tbaa !7
   %3 = icmp eq i32 %2, 1
   ret i1 %3
@@ -512,7 +506,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNR5folly3TryIN
   br i1 %3, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZN5folly6detail16throw_exception_INS_12TryExceptionEJPKcEEEvDpT0_(ptr noundef nonnull @.str.2) #8
+  tail call void @_ZN5folly6detail16throw_exception_INS_12TryExceptionEJPKcEEEvDpT0_(ptr noundef nonnull @.str.2) #7
   unreachable
 
 5:                                                ; preds = %1
@@ -523,10 +517,10 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNR5folly3TryIN
 ; Function Attrs: cold mustprogress noinline noreturn optsize uwtable
 define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_12TryExceptionEJPKcEEEvDpT0_(ptr noundef %0) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.folly::TryException", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %0)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly12TryExceptionE, i64 16), ptr %2, align 8, !tbaa !15
-  invoke void @_ZN5folly15throw_exceptionINS_12TryExceptionEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %2) #8
+  invoke void @_ZN5folly15throw_exceptionINS_12TryExceptionEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %2) #7
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
@@ -536,7 +530,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_12TryExceptionEJ
   %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %5
 }
 
@@ -549,7 +543,7 @@ define linkonce_odr void @_ZN5folly15throw_exceptionINS_12TryExceptionEEEvOT_(pt
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5folly12TryExceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #7 comdat align 2 {
+define linkonce_odr void @_ZN5folly12TryExceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #6 comdat align 2 {
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly12TryExceptionE, i64 16), ptr %0, align 8, !tbaa !15
   ret void
@@ -562,7 +556,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNO5folly3TryIN
   br i1 %3, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZN5folly6detail16throw_exception_INS_12TryExceptionEJPKcEEEvDpT0_(ptr noundef nonnull @.str.2) #8
+  tail call void @_ZN5folly6detail16throw_exception_INS_12TryExceptionEJPKcEEEvDpT0_(ptr noundef nonnull @.str.2) #7
   unreachable
 
 5:                                                ; preds = %1
@@ -577,7 +571,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR5folly3TryI
   br i1 %3, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZN5folly6detail16throw_exception_INS_12TryExceptionEJPKcEEEvDpT0_(ptr noundef nonnull @.str.2) #8
+  tail call void @_ZN5folly6detail16throw_exception_INS_12TryExceptionEJPKcEEEvDpT0_(ptr noundef nonnull @.str.2) #7
   unreachable
 
 5:                                                ; preds = %1
@@ -592,7 +586,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNKO5folly3TryI
   br i1 %3, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZN5folly6detail16throw_exception_INS_12TryExceptionEJPKcEEEvDpT0_(ptr noundef nonnull @.str.2) #8
+  tail call void @_ZN5folly6detail16throw_exception_INS_12TryExceptionEJPKcEEEvDpT0_(ptr noundef nonnull @.str.2) #7
   unreachable
 
 5:                                                ; preds = %1
@@ -601,7 +595,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNKO5folly3TryI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef ptr @_ZN5folly3TryINS_4UnitEE21tryGetExceptionObjectEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef ptr @_ZN5folly3TryINS_4UnitEE21tryGetExceptionObjectEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i32, ptr %0, align 8, !tbaa !7
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %4, label %7
@@ -620,7 +614,7 @@ define weak_odr noundef ptr @_ZN5folly3TryINS_4UnitEE21tryGetExceptionObjectEv(p
 declare noundef ptr @_ZN5folly6detail25exception_ptr_get_object_ERKNSt15__exception_ptr13exception_ptrEPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef ptr @_ZNK5folly3TryINS_4UnitEE21tryGetExceptionObjectEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef ptr @_ZNK5folly3TryINS_4UnitEE21tryGetExceptionObjectEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i32, ptr %0, align 8, !tbaa !7
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %4, label %7
@@ -635,18 +629,24 @@ define weak_odr noundef ptr @_ZNK5folly3TryINS_4UnitEE21tryGetExceptionObjectEv(
   ret ptr %8
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { inlinehint mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { cold mustprogress noinline noreturn optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold noreturn }
-attributes #9 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold noreturn }
+attributes #8 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { noreturn }
 attributes #13 = { nounwind }
 attributes #14 = { builtin nounwind }

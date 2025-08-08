@@ -62,15 +62,9 @@ define hidden noundef zeroext i1 @SDL_HIDAPI_HapticIsHidapi(ptr noundef readnone
   ret i1 %.not.lcssa
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare void @SDL_LockMutex_REAL(ptr noundef) local_unnamed_addr #1
 
 declare void @SDL_UnlockMutex_REAL(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_HIDAPI_JoystickIsHaptic(ptr noundef %0) local_unnamed_addr #0 {
@@ -122,7 +116,7 @@ define hidden zeroext i1 @SDL_HIDAPI_HapticOpenFromJoystick(ptr noundef %0, ptr 
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %13, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -132,7 +126,7 @@ define hidden zeroext i1 @SDL_HIDAPI_HapticOpenFromJoystick(ptr noundef %0, ptr 
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_HIDAPI_HapticDriverLg4ff, i64 16), align 8
   call void %22(ptr noundef nonnull %3) #3
   %23 = call zeroext i1 @SDL_OutOfMemory_REAL() #3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %67
 
 24:                                               ; preds = %15
@@ -469,6 +463,12 @@ define hidden zeroext i1 @SDL_HIDAPI_HapticStopAll(ptr noundef readonly captures
   %8 = tail call zeroext i1 %7(ptr noundef %3) #3
   ret i1 %8
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

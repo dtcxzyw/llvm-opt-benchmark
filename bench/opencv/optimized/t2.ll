@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @opj_t2_encode_packets(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef %4, ptr noundef captures(none) %5, i32 noundef %6, ptr noundef captures(address_is_null) %7, ptr noundef captures(address_is_null) %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, ptr noundef %13) local_unnamed_addr #0 {
   %15 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %16 = load ptr, ptr %0, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !10
@@ -372,20 +372,17 @@ define hidden range(i32 0, 2) i32 @opj_t2_encode_packets(ptr noundef readonly ca
 
 176:                                              ; preds = %.sink.split, %30
   %.0 = phi i32 [ 0, %30 ], [ %.0.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @opj_pi_initialise_encode(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @opj_pi_initialise_encode(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @opj_pi_create_encode(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @opj_pi_create_encode(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @opj_pi_destroy(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @opj_pi_destroy(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @opj_pi_next(ptr noundef) local_unnamed_addr #2
+declare i32 @opj_pi_next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @opj_t2_encode_packet(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef %4, ptr noundef nonnull captures(none) %5, i32 noundef %6, ptr noundef captures(address_is_null) %7, i32 noundef %8, ptr noundef %9) unnamed_addr #0 {
@@ -1197,12 +1194,9 @@ opj_int_floorlog2.exit329:                        ; preds = %.lr.ph.i326, %235
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @opj_malloc(i64 noundef) local_unnamed_addr #1
 
-declare ptr @opj_malloc(i64 noundef) local_unnamed_addr #2
-
-declare i32 @opj_get_encoding_packet_count(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @opj_get_encoding_packet_count(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @opj_t2_decode_packets(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, ptr noundef readnone captures(none) %7, ptr noundef %8) local_unnamed_addr #0 {
@@ -1341,8 +1335,8 @@ define hidden range(i32 0, 2) i32 @opj_t2_decode_packets(ptr noundef %0, ptr nou
   %92 = zext i32 %91 to i64
   %93 = getelementptr inbounds nuw i32, ptr %38, i64 %92
   store i32 0, ptr %93, align 4, !tbaa !30
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !30
   %.val.i = load ptr, ptr %15, align 8, !tbaa !10
   %.val25.i = load ptr, ptr %27, align 8, !tbaa !73
@@ -1649,8 +1643,8 @@ define hidden range(i32 0, 2) i32 @opj_t2_decode_packets(ptr noundef %0, ptr nou
   br label %249
 
 .loopexit160:                                     ; preds = %90, %.thread.i.i, %180
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   tail call void @opj_pi_destroy(ptr noundef nonnull %24, i32 noundef %23) #6
   tail call void @opj_free(ptr noundef nonnull %38) #6
   br label %.critedge138
@@ -1659,8 +1653,8 @@ define hidden range(i32 0, 2) i32 @opj_t2_decode_packets(ptr noundef %0, ptr nou
   %250 = phi i32 [ %.pre296, %246 ], [ %.pre297, %95 ]
   %251 = phi i32 [ %.pre, %246 ], [ %.pre295, %95 ]
   %.1 = phi i32 [ %248, %246 ], [ %96, %95 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %252 = load ptr, ptr %28, align 8, !tbaa !160
   %253 = zext i32 %251 to i64
   %254 = getelementptr inbounds nuw %struct.opj_image_comp, ptr %252, i64 %253, i32 9
@@ -1675,8 +1669,8 @@ define hidden range(i32 0, 2) i32 @opj_t2_decode_packets(ptr noundef %0, ptr nou
 
 .critedge:                                        ; preds = %.critedge.loopexit, %59, %49, %52
   %.val24.i = phi ptr [ %.val24.i.pre, %.critedge.loopexit ], [ %.val24.i.pre298, %59 ], [ %.val24.i.pre298, %49 ], [ %.val24.i.pre298, %52 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !30
   %.val.i140 = load ptr, ptr %15, align 8, !tbaa !10
   %257 = call fastcc i32 @opj_t2_read_packet_header(ptr %.val.i140, ptr %.val24.i, ptr noundef %20, ptr noundef nonnull readonly %.0122236, ptr noundef %10, ptr noundef %.2111230, ptr noundef %11, i32 noundef %.2107232, ptr noundef %8)
@@ -1869,14 +1863,14 @@ opj_t2_skip_packet_data.exit.i:                   ; preds = %._crit_edge.i.i145
 opj_t2_skip_packet.exit:                          ; preds = %258, %.loopexit.i
   %.pre300 = phi i32 [ %.pre300.pre, %.loopexit.i ], [ %.pre300.pre303, %258 ]
   %.2 = phi i32 [ %347, %.loopexit.i ], [ %259, %258 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.pre306 = zext i32 %.pre300 to i64
   br label %348
 
 .loopexit:                                        ; preds = %.critedge, %opj_t2_skip_packet_data.exit.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   tail call void @opj_pi_destroy(ptr noundef nonnull %24, i32 noundef %23) #6
   tail call void @opj_free(ptr noundef nonnull %38) #6
   br label %.critedge138
@@ -1936,14 +1930,14 @@ opj_t2_skip_packet.exit:                          ; preds = %258, %.loopexit.i
   ret i32 %.0
 }
 
-declare ptr @opj_pi_create_decode(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @opj_pi_create_decode(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-declare i32 @opj_tcd_is_subband_area_of_interest(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @opj_tcd_is_subband_area_of_interest(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @opj_free(ptr noundef) local_unnamed_addr #2
+declare void @opj_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @opj_t2_create(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1961,7 +1955,7 @@ define hidden ptr @opj_t2_create(ptr noundef %0, ptr noundef %1) local_unnamed_a
   ret ptr %3
 }
 
-declare ptr @opj_calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @opj_calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @opj_t2_destroy(ptr noundef %0) local_unnamed_addr #0 {
@@ -1980,8 +1974,8 @@ define hidden void @opj_t2_destroy(ptr noundef %0) local_unnamed_addr #0 {
 define internal fastcc range(i32 0, 2) i32 @opj_t2_read_packet_header(ptr captures(none) %.8.val, ptr readonly captures(none) %.24.val, ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef %3, ptr noundef nonnull writeonly captures(none) %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %3, ptr %9, align 8, !tbaa !168
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %11 = load i32, ptr %10, align 4, !tbaa !70
@@ -2818,49 +2812,55 @@ opj_uint_floorlog2.exit347:                       ; preds = %.lr.ph.i344, %.preh
 
 444:                                              ; preds = %356, %399, %293, %336, %226, %270, %.thread, %431, %75, %435, %427, %420, %408, %125, %121, %114
   %.4 = phi i32 [ 0, %420 ], [ 0, %427 ], [ 1, %435 ], [ 0, %408 ], [ 0, %114 ], [ 0, %121 ], [ 1, %125 ], [ 0, %75 ], [ 0, %431 ], [ 0, %.thread ], [ 0, %270 ], [ 0, %226 ], [ 0, %336 ], [ 0, %293 ], [ 0, %399 ], [ 0, %356 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.4
 }
 
-declare i32 @opj_tcd_is_band_empty(ptr noundef) local_unnamed_addr #2
+declare i32 @opj_tcd_is_band_empty(ptr noundef) local_unnamed_addr #1
 
-declare i32 @opj_event_msg(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @opj_event_msg(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @opj_tgt_reset(ptr noundef) local_unnamed_addr #2
+declare void @opj_tgt_reset(ptr noundef) local_unnamed_addr #1
 
-declare ptr @opj_bio_create() local_unnamed_addr #2
+declare ptr @opj_bio_create() local_unnamed_addr #1
 
-declare void @opj_bio_init_dec(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @opj_bio_init_dec(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @opj_bio_read(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @opj_bio_read(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @opj_bio_inalign(ptr noundef) local_unnamed_addr #2
+declare i32 @opj_bio_inalign(ptr noundef) local_unnamed_addr #1
 
-declare i64 @opj_bio_numbytes(ptr noundef) local_unnamed_addr #2
+declare i64 @opj_bio_numbytes(ptr noundef) local_unnamed_addr #1
 
-declare void @opj_bio_destroy(ptr noundef) local_unnamed_addr #2
+declare void @opj_bio_destroy(ptr noundef) local_unnamed_addr #1
 
-declare i32 @opj_tgt_decode(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @opj_tgt_decode(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @opj_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @opj_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @opj_tcd_reinit_segment(ptr noundef) local_unnamed_addr #2
+declare void @opj_tcd_reinit_segment(ptr noundef) local_unnamed_addr #1
 
-declare void @opj_tgt_setvalue(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @opj_tgt_setvalue(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @opj_bio_init_enc(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @opj_bio_init_enc(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @opj_bio_putbit(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @opj_bio_putbit(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @opj_tgt_encode(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @opj_tgt_encode(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @opj_bio_write(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @opj_bio_write(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @opj_bio_flush(ptr noundef) local_unnamed_addr #2
+declare i32 @opj_bio_flush(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #5
@@ -2872,10 +2872,10 @@ declare i32 @llvm.smin.i32(i32, i32) #5
 declare i32 @llvm.smax.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

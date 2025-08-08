@@ -138,27 +138,21 @@ define ptr @ossl_ec_group_new_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @ERR_new() local_unnamed_addr #1
 
-declare void @ERR_new() local_unnamed_addr #2
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @BN_new() local_unnamed_addr #1
 
-declare ptr @BN_new() local_unnamed_addr #2
+declare void @BN_free(ptr noundef) local_unnamed_addr #1
 
-declare void @BN_free(ptr noundef) local_unnamed_addr #2
-
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @EC_GROUP_new(ptr noundef %0) local_unnamed_addr #0 {
@@ -193,9 +187,9 @@ define void @EC_pre_comp_free(ptr noundef captures(none) %0) local_unnamed_addr 
   ret void
 }
 
-declare void @EC_nistz256_pre_comp_free(ptr noundef) local_unnamed_addr #2
+declare void @EC_nistz256_pre_comp_free(ptr noundef) local_unnamed_addr #1
 
-declare void @EC_ec_pre_comp_free(ptr noundef) local_unnamed_addr #2
+declare void @EC_ec_pre_comp_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @EC_GROUP_free(ptr noundef %0) local_unnamed_addr #0 {
@@ -279,7 +273,7 @@ EC_POINT_free.exit:                               ; preds = %EC_pre_comp_free.ex
   ret void
 }
 
-declare void @BN_MONT_CTX_free(ptr noundef) local_unnamed_addr #2
+declare void @BN_MONT_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @EC_POINT_free(ptr noundef %0) local_unnamed_addr #0 {
@@ -431,9 +425,9 @@ define void @EC_POINT_clear_free(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @BN_clear_free(ptr noundef) local_unnamed_addr #2
+declare void @BN_clear_free(ptr noundef) local_unnamed_addr #1
 
-declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @EC_GROUP_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -672,13 +666,13 @@ EC_POINT_clear_free.exit:                         ; preds = %61, %69
   ret i32 %.0
 }
 
-declare ptr @EC_nistz256_pre_comp_dup(ptr noundef) local_unnamed_addr #2
+declare ptr @EC_nistz256_pre_comp_dup(ptr noundef) local_unnamed_addr #1
 
-declare ptr @EC_ec_pre_comp_dup(ptr noundef) local_unnamed_addr #2
+declare ptr @EC_ec_pre_comp_dup(ptr noundef) local_unnamed_addr #1
 
-declare ptr @BN_MONT_CTX_new() local_unnamed_addr #2
+declare ptr @BN_MONT_CTX_new() local_unnamed_addr #1
 
-declare ptr @BN_MONT_CTX_copy(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @BN_MONT_CTX_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @EC_POINT_new(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -781,12 +775,12 @@ define i32 @EC_POINT_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   ret i32 %.0
 }
 
-declare ptr @BN_copy(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @BN_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @EC_GROUP_dup(ptr noundef %0) local_unnamed_addr #0 {
@@ -818,13 +812,13 @@ define ptr @EC_GROUP_dup(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EC_GROUP_method_of(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define ptr @EC_GROUP_method_of(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8, !tbaa !19
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @EC_METHOD_get_field_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define i32 @EC_METHOD_get_field_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !43
   ret i32 %3
@@ -980,11 +974,11 @@ define range(i32 0, 2) i32 @EC_GROUP_set_generator(ptr noundef captures(address_
   ret i32 %.0
 }
 
-declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #2
+declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #1
 
-declare i32 @BN_is_negative(ptr noundef) local_unnamed_addr #2
+declare i32 @BN_is_negative(ptr noundef) local_unnamed_addr #1
 
-declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #2
+declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @ec_guess_cofactor(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
@@ -1081,9 +1075,9 @@ define internal fastcc range(i32 0, 2) i32 @ec_guess_cofactor(ptr noundef readon
   ret i32 %.026
 }
 
-declare void @BN_zero_ex(ptr noundef) local_unnamed_addr #2
+declare void @BN_zero_ex(ptr noundef) local_unnamed_addr #1
 
-declare i32 @BN_is_odd(ptr noundef) local_unnamed_addr #2
+declare i32 @BN_is_odd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @ec_precompute_mont_data(ptr noundef captures(none) %0) unnamed_addr #0 {
@@ -1123,14 +1117,14 @@ define internal fastcc range(i32 0, 2) i32 @ec_precompute_mont_data(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EC_GROUP_get0_generator(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define ptr @EC_GROUP_get0_generator(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !29
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EC_GROUP_get_mont_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define ptr @EC_GROUP_get_mont_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8, !tbaa !28
   ret ptr %3
@@ -1160,7 +1154,7 @@ define range(i32 0, 2) i32 @EC_GROUP_get_order(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EC_GROUP_get0_order(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define ptr @EC_GROUP_get0_order(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !21
   ret ptr %3
@@ -1200,14 +1194,14 @@ define range(i32 0, 2) i32 @EC_GROUP_get_cofactor(ptr noundef readonly captures(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EC_GROUP_get0_cofactor(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define ptr @EC_GROUP_get0_cofactor(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !22
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EC_GROUP_set_curve_name(ptr noundef writeonly captures(none) initializes((32, 40)) %0, i32 noundef %1) local_unnamed_addr #5 {
+define void @EC_GROUP_set_curve_name(ptr noundef writeonly captures(none) initializes((32, 40)) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %1, ptr %3, align 8, !tbaa !38
   %.not = icmp ne i32 %1, 0
@@ -1218,21 +1212,21 @@ define void @EC_GROUP_set_curve_name(ptr noundef writeonly captures(none) initia
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @EC_GROUP_get_curve_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define i32 @EC_GROUP_get_curve_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8, !tbaa !38
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EC_GROUP_get0_field(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define ptr @EC_GROUP_get0_field(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !44
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @EC_GROUP_get_field_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define i32 @EC_GROUP_get_field_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = load ptr, ptr %0, align 8, !tbaa !19
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !43
@@ -1240,28 +1234,28 @@ define i32 @EC_GROUP_get_field_type(ptr noundef readonly captures(none) %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EC_GROUP_set_asn1_flag(ptr noundef writeonly captures(none) initializes((36, 40)) %0, i32 noundef %1) local_unnamed_addr #5 {
+define void @EC_GROUP_set_asn1_flag(ptr noundef writeonly captures(none) initializes((36, 40)) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %1, ptr %3, align 4, !tbaa !23
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @EC_GROUP_get_asn1_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define i32 @EC_GROUP_get_asn1_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4, !tbaa !23
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EC_GROUP_set_point_conversion_form(ptr noundef writeonly captures(none) initializes((44, 48)) %0, i32 noundef %1) local_unnamed_addr #5 {
+define void @EC_GROUP_set_point_conversion_form(ptr noundef writeonly captures(none) initializes((44, 48)) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %1, ptr %3, align 4, !tbaa !24
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @EC_GROUP_get_point_conversion_form(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define i32 @EC_GROUP_get_point_conversion_form(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4, !tbaa !24
   ret i32 %3
@@ -1296,14 +1290,14 @@ define noundef i64 @EC_GROUP_set_seed(ptr noundef captures(none) initializes((56
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EC_GROUP_get0_seed(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define ptr @EC_GROUP_get0_seed(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !33
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @EC_GROUP_get_seed_len(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define i64 @EC_GROUP_get_seed_len(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i64, ptr %2, align 8, !tbaa !36
   ret i64 %3
@@ -1632,17 +1626,17 @@ define range(i32 -1, 2) i32 @EC_GROUP_cmp(ptr noundef %0, ptr noundef %1, ptr no
   ret i32 %.0
 }
 
-declare ptr @BN_CTX_new() local_unnamed_addr #2
+declare ptr @BN_CTX_new() local_unnamed_addr #1
 
-declare void @BN_CTX_start(ptr noundef) local_unnamed_addr #2
+declare void @BN_CTX_start(ptr noundef) local_unnamed_addr #1
 
-declare ptr @BN_CTX_get(ptr noundef) local_unnamed_addr #2
+declare ptr @BN_CTX_get(ptr noundef) local_unnamed_addr #1
 
-declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #2
+declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #1
 
-declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #2
+declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 
-declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @EC_POINT_cmp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -1746,7 +1740,7 @@ EC_POINT_free.exit:                               ; preds = %9, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EC_POINT_method_of(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define ptr @EC_POINT_method_of(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8, !tbaa !30
   ret ptr %2
 }
@@ -1833,7 +1827,7 @@ ec_point_is_compat.exit.thread:                   ; preds = %14, %18
   ret i32 %.0
 }
 
-declare i32 @ossl_ec_GFp_simple_set_Jprojective_coordinates_GFp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_ec_GFp_simple_set_Jprojective_coordinates_GFp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @EC_POINT_get_Jprojective_coordinates_GFp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
@@ -1883,7 +1877,7 @@ ec_point_is_compat.exit.thread:                   ; preds = %14, %18
   ret i32 %.0
 }
 
-declare i32 @ossl_ec_GFp_simple_get_Jprojective_coordinates_GFp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_ec_GFp_simple_get_Jprojective_coordinates_GFp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @EC_POINT_set_affine_coordinates(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -2630,9 +2624,9 @@ ec_point_is_compat.exit42.thread:                 ; preds = %27, %28
   ret i32 %.036
 }
 
-declare ptr @BN_CTX_secure_new() local_unnamed_addr #2
+declare ptr @BN_CTX_secure_new() local_unnamed_addr #1
 
-declare i32 @ossl_ec_wNAF_mul(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_ec_wNAF_mul(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @EC_POINT_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
@@ -2772,7 +2766,7 @@ define i32 @EC_GROUP_precompute_mult(ptr noundef %0, ptr noundef %1) local_unnam
   ret i32 %.0
 }
 
-declare i32 @ossl_ec_wNAF_precompute_mult(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_ec_wNAF_precompute_mult(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @EC_GROUP_have_precompute_mult(ptr noundef %0) local_unnamed_addr #0 {
@@ -2801,7 +2795,7 @@ define i32 @EC_GROUP_have_precompute_mult(ptr noundef %0) local_unnamed_addr #0 
   ret i32 %.0
 }
 
-declare i32 @ossl_ec_wNAF_have_precompute_mult(ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_ec_wNAF_have_precompute_mult(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @EC_KEY_set_ex_data(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -2810,7 +2804,7 @@ define i32 @EC_KEY_set_ex_data(ptr noundef %0, i32 noundef %1, ptr noundef %2) l
   ret i32 %5
 }
 
-declare i32 @CRYPTO_set_ex_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @CRYPTO_set_ex_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @EC_KEY_get_ex_data(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -2819,7 +2813,7 @@ define ptr @EC_KEY_get_ex_data(ptr noundef %0, i32 noundef %1) local_unnamed_add
   ret ptr %4
 }
 
-declare ptr @CRYPTO_get_ex_data(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @CRYPTO_get_ex_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_ec_group_simple_order_bits(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -2921,7 +2915,7 @@ define i32 @ossl_ec_point_blind_coordinates(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 684) i32 @EC_GROUP_get_basis_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+define range(i32 0, 684) i32 @EC_GROUP_get_basis_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load ptr, ptr %0, align 8, !tbaa !19
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !43
@@ -3088,9 +3082,9 @@ define range(i32 0, 2) i32 @EC_GROUP_get_pentanomial_basis(ptr noundef readonly 
 define range(i32 0, 2) i32 @ossl_ec_group_set_params(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 -1, ptr %3, align 4, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 4, !tbaa !71
   %5 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %1, ptr noundef nonnull @.str.1) #9
   %.not = icmp eq ptr %5, null
@@ -3180,16 +3174,16 @@ EC_GROUP_set_seed.exit:                           ; preds = %35, %22
 
 EC_GROUP_set_seed.exit.thread:                    ; preds = %25, %38, %20, %EC_GROUP_set_seed.exit, %16, %8
   %.0 = phi i32 [ 0, %EC_GROUP_set_seed.exit ], [ 0, %16 ], [ 0, %8 ], [ 1, %20 ], [ 1, %38 ], [ 1, %25 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_ec_pt_format_param2id(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_ec_pt_format_param2id(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_ec_encoding_param2id(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_ec_encoding_param2id(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @EC_GROUP_new_from_params(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -3201,25 +3195,25 @@ define ptr @EC_GROUP_new_from_params(ptr noundef %0, ptr noundef %1, ptr noundef
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !66
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !66
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !66
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !66
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 -1, ptr %10, align 4, !tbaa !71
   %12 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %0, ptr noundef nonnull @.str.4) #9
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %43, label %13
 
 13:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !77
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !73
@@ -3257,12 +3251,12 @@ define ptr @EC_GROUP_new_from_params(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %group_new_from_name.exit.thread
 
 group_new_from_name.exit.thread:                  ; preds = %26, %13, %19, %16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %42
 
 group_new_from_name.exit:                         ; preds = %22
   %27 = call ptr @EC_GROUP_new_by_curve_name_ex(ptr noundef %1, ptr noundef %2, i32 noundef %24) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %28 = icmp eq ptr %27, null
   br i1 %28, label %42, label %29
 
@@ -3306,7 +3300,7 @@ group_new_from_name.exit:                         ; preds = %22
 
 42:                                               ; preds = %group_new_from_name.exit.thread, %group_new_from_name.exit, %39, %38, %31
   %.089 = phi ptr [ %27, %39 ], [ null, %38 ], [ null, %31 ], [ null, %group_new_from_name.exit ], [ null, %group_new_from_name.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %186
 
 43:                                               ; preds = %3
@@ -3669,28 +3663,28 @@ EC_POINT_free.exit:                               ; preds = %.thread157, %185
 
 186:                                              ; preds = %EC_POINT_free.exit, %46, %42
   %.1 = phi ptr [ %.089, %42 ], [ null, %46 ], [ %.3155, %EC_POINT_free.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.1
 }
 
-declare i32 @OSSL_PARAM_get_int(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @OSSL_PARAM_get_int(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @BN_CTX_new_ex(ptr noundef) local_unnamed_addr #2
+declare ptr @BN_CTX_new_ex(ptr noundef) local_unnamed_addr #1
 
-declare i32 @OPENSSL_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @OPENSSL_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @OSSL_PARAM_get_BN(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @OSSL_PARAM_get_BN(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @EC_GROUP_new_curve_GFp(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @EC_GROUP_new_curve_GFp(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @EC_GROUP_new_curve_GF2m(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @EC_GROUP_new_curve_GF2m(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @EC_POINT_oct2point(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EC_POINT_oct2point(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @ec_group_explicit_to_named(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
@@ -3765,7 +3759,7 @@ EC_GROUP_dup.exit.thread:                         ; preds = %4, %21, %28, %22
 ; Function Attrs: nounwind uwtable
 define ptr @EC_GROUP_to_params(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !77
   %6 = icmp eq ptr %0, null
   br i1 %6, label %18, label %7
@@ -3806,55 +3800,61 @@ define ptr @EC_GROUP_to_params(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   call void @CRYPTO_free(ptr noundef %19, ptr noundef nonnull @.str, i32 noundef 1795) #9
   call void @BN_CTX_end(ptr noundef %.018) #9
   call void @BN_CTX_free(ptr noundef %.016) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
-declare ptr @OSSL_PARAM_BLD_new() local_unnamed_addr #2
+declare ptr @OSSL_PARAM_BLD_new() local_unnamed_addr #1
 
-declare i32 @ossl_ec_group_todata(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_ec_group_todata(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @OSSL_PARAM_BLD_to_param(ptr noundef) local_unnamed_addr #2
+declare ptr @OSSL_PARAM_BLD_to_param(ptr noundef) local_unnamed_addr #1
 
-declare void @OSSL_PARAM_BLD_free(ptr noundef) local_unnamed_addr #2
+declare void @OSSL_PARAM_BLD_free(ptr noundef) local_unnamed_addr #1
 
-declare i32 @BN_set_bit(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @BN_set_bit(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @BN_rshift1(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @BN_rshift1(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @BN_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @BN_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @BN_value_one() local_unnamed_addr #2
+declare ptr @BN_value_one() local_unnamed_addr #1
 
-declare i32 @BN_div(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @BN_div(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @BN_MONT_CTX_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @BN_MONT_CTX_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @BN_set_word(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @BN_set_word(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @BN_sub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @BN_sub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @bn_mod_exp_mont_fixed_top(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @bn_mod_exp_mont_fixed_top(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @OSSL_PARAM_get_utf8_ptr(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @OSSL_PARAM_get_utf8_ptr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_ec_curve_name2nid(ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_ec_curve_name2nid(ptr noundef) local_unnamed_addr #1
 
-declare ptr @EC_GROUP_new_by_curve_name_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @EC_GROUP_new_by_curve_name_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ossl_ec_curve_nid_from_params(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_ec_curve_nid_from_params(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { nounwind }
 

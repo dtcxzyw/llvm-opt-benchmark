@@ -85,7 +85,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %functionMap_, i8 0, i64 40, i1 false)
   store i8 %flags.coerce, ptr %flags_, align 8
   %sourceURL_ = getelementptr inbounds nuw i8, ptr %this, i64 104
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !4
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !4
   %tobool.not.i.i = icmp eq ptr %sourceURL.coerce0, null
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -100,7 +100,7 @@ if.end.i.i:                                       ; preds = %entry
   br label %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
 
 _ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit: ; preds = %if.then.i.i, %if.end.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !4
   %scriptID_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   store i32 %scriptID, ptr %scriptID_, align 8
   %objectLiteralHiddenClasses_ = getelementptr inbounds nuw i8, ptr %this, i64 144
@@ -116,7 +116,7 @@ _ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
   %Next2.i7.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %this, ptr %Next2.i7.i.i.i.i.i, align 8
   store ptr %this, ptr %runtimeModuleList_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %runtimeModule.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %runtimeModule.addr.i)
   store ptr %this, ptr %runtimeModule.addr.i, align 8
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %domain.coerce, align 8
   %and.i.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i, 281474976710655
@@ -124,7 +124,7 @@ _ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
   %runtimeModules_.i = getelementptr inbounds nuw i8, ptr %3, i64 56
   %heapStorage_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
   call void @_ZN6hermes2vm14CopyableVectorIPNS0_13RuntimeModuleEE9push_backERKS3_RNS0_7HadesGCE(ptr noundef nonnull align 8 dereferenceable(24) %runtimeModules_.i, ptr noundef nonnull align 8 dereferenceable(8) %runtimeModule.addr.i, ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %runtimeModule.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %runtimeModule.addr.i)
   ret void
 }
 
@@ -718,11 +718,11 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %functionMap_.i, i8 0, i64 40, i1 false)
   store i8 %flags.coerce, ptr %flags_.i, align 8
   %sourceURL_.i = getelementptr inbounds nuw i8, ptr %call5, i64 104
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i), !noalias !12
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !12
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #17, !noalias !15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %sourceURL_.i, ptr noundef nonnull @.str, i64 noundef 0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #17
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i), !noalias !12
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !12
   %scriptID_.i = getelementptr inbounds nuw i8, ptr %call5, i64 136
   store i32 %scriptID, ptr %scriptID_.i, align 8
   %objectLiteralHiddenClasses_.i = getelementptr inbounds nuw i8, ptr %call5, i64 144
@@ -738,14 +738,14 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
   %Next2.i7.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %call5, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call5, ptr %runtimeModuleList_.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %runtimeModule.addr.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %runtimeModule.addr.i.i)
   store ptr %call5, ptr %runtimeModule.addr.i.i, align 8
   %agg.tmp.sroa.0.0.copyload.i.i.i.i = load i64, ptr %domain.coerce, align 8
   %and.i.i.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i, 281474976710655
   %3 = inttoptr i64 %and.i.i.i.i.i.i.i to ptr
   %runtimeModules_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 56
   call void @_ZN6hermes2vm14CopyableVectorIPNS0_13RuntimeModuleEE9push_backERKS3_RNS0_7HadesGCE(ptr noundef nonnull align 8 dereferenceable(24) %runtimeModules_.i.i, ptr noundef nonnull align 8 dereferenceable(8) %runtimeModule.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %runtimeModule.addr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %runtimeModule.addr.i.i)
   %call1.i.i.i.i4 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %weakRefMutex_.i) #17
   ret ptr %call5
 }
@@ -1618,7 +1618,7 @@ entry:
   %entry4.i = alloca %"class.hermes::StringTableEntry", align 8
   %runtime_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %runtime_, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %entry4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %entry4.i)
   %stringIDMap_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %conv.i = zext i32 %stringID to i64
   %1 = load ptr, ptr %stringIDMap_.i, align 8
@@ -1670,7 +1670,7 @@ _ZNK6hermes3hbc20BCProviderFromBuffer19getStringTableEntryEj.exit.i: ; preds = %
 
 _ZN6hermes2vm13RuntimeModule34getSymbolIDFromStringIDMayAllocateEj.exit: ; preds = %entry, %_ZNK6hermes3hbc20BCProviderFromBuffer19getStringTableEntryEj.exit.i
   %retval.sroa.0.0.i = phi i32 [ %2, %entry ], [ %call7.i, %_ZNK6hermes3hbc20BCProviderFromBuffer19getStringTableEntryEj.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %entry4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %entry4.i)
   %identifierTable_.i = getelementptr inbounds nuw i8, ptr %0, i64 9264
   %call.i = tail call noundef ptr @_ZN6hermes2vm15IdentifierTable13getStringPrimERNS0_7RuntimeENS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(84) %identifierTable_.i, ptr noundef nonnull align 8 dereferenceable(9832) %0, i32 %retval.sroa.0.0.i) #17
   ret ptr %call.i
@@ -3130,10 +3130,10 @@ declare void @llvm.assume(i1 noundef) #13
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16

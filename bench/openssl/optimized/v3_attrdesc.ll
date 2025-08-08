@@ -211,7 +211,7 @@ define void @OSSL_ATTRIBUTE_DESCRIPTOR_free(ptr noundef %0) local_unnamed_addr #
 define internal range(i32 0, 2) i32 @i2r_OSSL_ATTRIBUTE_DESCRIPTOR(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = alloca [80 x i8], align 16
   %6 = alloca [80 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load ptr, ptr %1, align 8, !tbaa !3
   %8 = call i32 @OBJ_obj2txt(ptr noundef nonnull %6, i32 noundef 80, ptr noundef %7, i32 noundef 1) #4
   %9 = icmp slt i32 %8, 1
@@ -279,7 +279,7 @@ define internal range(i32 0, 2) i32 @i2r_OSSL_ATTRIBUTE_DESCRIPTOR(ptr readnone 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %51 = load ptr, ptr %50, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %52 = load ptr, ptr %51, align 8, !tbaa !21
   %53 = call i32 @OBJ_obj2txt(ptr noundef nonnull %5, i32 noundef 80, ptr noundef %52, i32 noundef 1) #4
   %54 = icmp slt i32 %53, 1
@@ -426,12 +426,12 @@ i2r_HASH.exit.i.i.i:                              ; preds = %132
 
 i2r_OSSL_PRIVILEGE_POLICY_ID.exit:                ; preds = %49, %55, %58, %61, %66, %69, %77, %80, %83, %89, %93, %99, %102, %107, %112, %119, %122, %129, %132, %i2r_HASH.exit.i.i.i, %142
   %.0.i = phi i32 [ 0, %49 ], [ 0, %55 ], [ 0, %58 ], [ 0, %66 ], [ 0, %69 ], [ %..i.i, %77 ], [ 0, %80 ], [ 0, %61 ], [ 1, %142 ], [ 0, %83 ], [ 0, %89 ], [ 0, %93 ], [ 0, %99 ], [ 0, %i2r_HASH.exit.i.i.i ], [ 0, %102 ], [ 0, %107 ], [ 0, %112 ], [ 0, %119 ], [ 0, %122 ], [ 0, %129 ], [ 0, %132 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %143
 
 143:                                              ; preds = %46, %40, %31, %25, %16, %13, %10, %4, %i2r_OSSL_PRIVILEGE_POLICY_ID.exit
   %.0 = phi i32 [ %.0.i, %i2r_OSSL_PRIVILEGE_POLICY_ID.exit ], [ 0, %4 ], [ 0, %10 ], [ 0, %13 ], [ 0, %16 ], [ 0, %25 ], [ 0, %31 ], [ 0, %40 ], [ 0, %46 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -449,17 +449,11 @@ declare ptr @ASN1_OCTET_STRING_it() #2
 
 declare ptr @ASN1_UTF8STRING_it() #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @OBJ_obj2txt(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @OSSL_GENERAL_NAMES_print(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -468,6 +462,12 @@ declare i32 @i2a_ASN1_OBJECT(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @ossl_print_attribute_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare i32 @ossl_bio_print_hex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -592,12 +592,12 @@ define hidden noundef ptr @_ZN16JNI_FastGetField30generate_fast_get_float_field0
   store ptr null, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i32 0, ptr %78, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %14, i64 21, i1 false)
   %79 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %80 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %80(ptr noundef nonnull align 8 dereferenceable(40) %76, ptr noundef nonnull align 8 dereferenceable(40) %79) #9
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 21, i1 false)
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %82 = load ptr, ptr %79, align 8
@@ -605,8 +605,8 @@ define hidden noundef ptr @_ZN16JNI_FastGetField30generate_fast_get_float_field0
   %84 = load ptr, ptr %83, align 8
   call void %84(ptr noundef nonnull align 8 dereferenceable(40) %79, ptr noundef nonnull align 8 dereferenceable(40) %81) #9
   call void @_ZN9Assembler5movssE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %36, i32 0, ptr noundef nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %108
 
 85:                                               ; preds = %59
@@ -623,8 +623,8 @@ define hidden noundef ptr @_ZN16JNI_FastGetField30generate_fast_get_float_field0
   store ptr null, ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 0, ptr %91, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %92 = load i8, ptr @UseXmmLoadAndClearUpper, align 1
   %93 = trunc i8 %92 to i1
   br i1 %93, label %94, label %101
@@ -634,7 +634,7 @@ define hidden noundef ptr @_ZN16JNI_FastGetField30generate_fast_get_float_field0
   %95 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %96 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %96(ptr noundef nonnull align 8 dereferenceable(40) %89, ptr noundef nonnull align 8 dereferenceable(40) %95) #9
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 21, i1 false)
   %97 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %98 = load ptr, ptr %95, align 8
@@ -642,7 +642,7 @@ define hidden noundef ptr @_ZN16JNI_FastGetField30generate_fast_get_float_field0
   %100 = load ptr, ptr %99, align 8
   call void %100(ptr noundef nonnull align 8 dereferenceable(40) %95, ptr noundef nonnull align 8 dereferenceable(40) %97) #9
   call void @_ZN9Assembler5movsdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %36, i32 0, ptr noundef nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit
 
 101:                                              ; preds = %85
@@ -650,7 +650,7 @@ define hidden noundef ptr @_ZN16JNI_FastGetField30generate_fast_get_float_field0
   %102 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %103 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %103(ptr noundef nonnull align 8 dereferenceable(40) %89, ptr noundef nonnull align 8 dereferenceable(40) %102) #9
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %104 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %105 = load ptr, ptr %102, align 8
@@ -658,12 +658,12 @@ define hidden noundef ptr @_ZN16JNI_FastGetField30generate_fast_get_float_field0
   %107 = load ptr, ptr %106, align 8
   call void %107(ptr noundef nonnull align 8 dereferenceable(40) %102, ptr noundef nonnull align 8 dereferenceable(40) %104) #9
   call void @_ZN9Assembler6movlpdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %36, i32 0, ptr noundef nonnull %2) #9
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit
 
 _ZN14MacroAssembler6movdblE11XMMRegister7Address.exit: ; preds = %94, %101
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %108
 
 108:                                              ; preds = %_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit, %72
@@ -778,10 +778,10 @@ declare void @_ZN9Assembler6movlpdE11XMMRegister7Address(ptr noundef nonnull ali
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

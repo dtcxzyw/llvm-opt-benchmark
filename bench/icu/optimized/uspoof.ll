@@ -254,23 +254,17 @@ _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.thread: ; pre
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind
-declare noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef) local_unnamed_addr #1
 
-declare void @_ZN6icu_779SpoofImplC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+declare void @_ZN6icu_779SpoofImplC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_777UMemorydlEPv(ptr noundef) local_unnamed_addr #2
+declare void @_ZN6icu_777UMemorydlEPv(ptr noundef) local_unnamed_addr #1
 
-declare noundef ptr @_ZN6icu_779SpoofImpl15asUSpoofCheckerEv(ptr noundef nonnull align 8 dereferenceable(44)) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare noundef ptr @_ZN6icu_779SpoofImpl15asUSpoofCheckerEv(ptr noundef nonnull align 8 dereferenceable(44)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @uspoof_openFromSerialized_77(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -401,14 +395,14 @@ _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %1
   ret ptr %.0
 }
 
-declare void @_ZN6icu_779SpoofDataC1EPKviR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+declare void @_ZN6icu_779SpoofDataC1EPKviR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_779SpoofDataD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #2
+declare void @_ZN6icu_779SpoofDataD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #1
 
-declare void @_ZN6icu_779SpoofImplC1EPNS_9SpoofDataER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+declare void @_ZN6icu_779SpoofImplC1EPNS_9SpoofDataER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
 
-declare noundef i32 @_ZNK6icu_779SpoofData4sizeEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #3
+declare noundef i32 @_ZNK6icu_779SpoofData4sizeEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @uspoof_clone_77(ptr noundef %0, ptr noundef nonnull %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -456,14 +450,14 @@ define noundef ptr @uspoof_clone_77(ptr noundef %0, ptr noundef nonnull %1) loca
   ret ptr %.0
 }
 
-declare noundef ptr @_ZN6icu_779SpoofImpl12validateThisEPK13USpoofCheckerR10UErrorCode(ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
+declare noundef ptr @_ZN6icu_779SpoofImpl12validateThisEPK13USpoofCheckerR10UErrorCode(ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
-declare void @_ZN6icu_779SpoofImplC1ERKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef nonnull align 8 dereferenceable(44), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+declare void @_ZN6icu_779SpoofImplC1ERKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef nonnull align 8 dereferenceable(44), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define void @uspoof_close_77(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !3
   %3 = call noundef ptr @_ZN6icu_779SpoofImpl12validateThisEP13USpoofCheckerR10UErrorCode(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %4 = icmp eq ptr %3, null
@@ -477,11 +471,11 @@ define void @uspoof_close_77(ptr noundef %0) local_unnamed_addr #0 {
   br label %9
 
 9:                                                ; preds = %5, %1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare noundef ptr @_ZN6icu_779SpoofImpl12validateThisEP13USpoofCheckerR10UErrorCode(ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
+declare noundef ptr @_ZN6icu_779SpoofImpl12validateThisEP13USpoofCheckerR10UErrorCode(ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define void @uspoof_setChecks_77(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2) local_unnamed_addr #0 {
@@ -526,7 +520,7 @@ define i32 @uspoof_getChecks_77(ptr noundef %0, ptr noundef nonnull %1) local_un
 ; Function Attrs: mustprogress uwtable
 define void @uspoof_setRestrictionLevel_77(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !3
   %4 = call noundef ptr @_ZN6icu_779SpoofImpl12validateThisEP13USpoofCheckerR10UErrorCode(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %.not = icmp eq ptr %4, null
@@ -542,14 +536,14 @@ define void @uspoof_setRestrictionLevel_77(ptr noundef %0, i32 noundef %1) local
   br label %10
 
 10:                                               ; preds = %5, %2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define i32 @uspoof_getRestrictionLevel_77(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !3
   %3 = call noundef ptr @_ZN6icu_779SpoofImpl12validateThisEPK13USpoofCheckerR10UErrorCode(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %4 = icmp eq ptr %3, null
@@ -562,7 +556,7 @@ define i32 @uspoof_getRestrictionLevel_77(ptr noundef %0) local_unnamed_addr #0 
 
 8:                                                ; preds = %1, %5
   %.0 = phi i32 [ %7, %5 ], [ 1610612736, %1 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -580,7 +574,7 @@ define void @uspoof_setAllowedLocales_77(ptr noundef %0, ptr noundef %1, ptr nou
   ret void
 }
 
-declare void @_ZN6icu_779SpoofImpl17setAllowedLocalesEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
+declare void @_ZN6icu_779SpoofImpl17setAllowedLocalesEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @uspoof_getAllowedLocales_77(ptr noundef %0, ptr noundef nonnull %1) local_unnamed_addr #0 {
@@ -597,7 +591,7 @@ define noundef ptr @uspoof_getAllowedLocales_77(ptr noundef %0, ptr noundef nonn
   ret ptr %.0
 }
 
-declare noundef ptr @_ZN6icu_779SpoofImpl17getAllowedLocalesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
+declare noundef ptr @_ZN6icu_779SpoofImpl17getAllowedLocalesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define ptr @uspoof_getAllowedChars_77(ptr noundef %0, ptr noundef nonnull %1) local_unnamed_addr #0 {
@@ -745,12 +739,12 @@ define void @uspoof_setAllowedUnicodeSet_77(ptr noundef %0, ptr noundef %1, ptr 
   ret void
 }
 
-declare noundef ptr @_ZNK6icu_7710UnicodeSet5cloneEv(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #3
+declare noundef ptr @_ZNK6icu_7710UnicodeSet5cloneEv(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #2
 
-declare noundef ptr @_ZN6icu_7710UnicodeSet6freezeEv(ptr noundef nonnull align 8 dereferenceable(200)) local_unnamed_addr #3
+declare noundef ptr @_ZN6icu_7710UnicodeSet6freezeEv(ptr noundef nonnull align 8 dereferenceable(200)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_7710UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #2
+declare void @_ZN6icu_7710UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @uspoof_check_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -783,7 +777,7 @@ define noundef i32 @uspoof_check2_77(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %26
 
 13:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %14 = icmp eq i32 %2, -1
   %15 = zext i1 %14 to i8
   store ptr %1, ptr %7, align 8, !tbaa !39
@@ -798,7 +792,7 @@ define noundef i32 @uspoof_check2_77(ptr noundef %0, ptr noundef %1, i32 noundef
 
 19:                                               ; preds = %16
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %26
 
 20:                                               ; preds = %13
@@ -816,7 +810,7 @@ define noundef i32 @uspoof_check2_77(ptr noundef %0, ptr noundef %1, i32 noundef
 
 25:                                               ; preds = %23, %20
   %.pn = phi { ptr, i32 } [ %24, %23 ], [ %21, %20 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn
 
 26:                                               ; preds = %5, %19, %12
@@ -824,7 +818,7 @@ define noundef i32 @uspoof_check2_77(ptr noundef %0, ptr noundef %1, i32 noundef
   ret i32 %.0
 }
 
-declare void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64), i8 noundef signext, ptr noundef, i32 noundef) unnamed_addr #3
+declare void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64), i8 noundef signext, ptr noundef, i32 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @uspoof_check2UnicodeString_77(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %2, ptr noundef nonnull %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -847,21 +841,21 @@ define noundef i32 @uspoof_check2UnicodeString_77(ptr noundef %0, ptr noundef no
   br label %19
 
 14:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN6icu_7711CheckResultC1Ev(ptr noundef nonnull align 8 dereferenceable(220) %5)
   %15 = invoke fastcc noundef i32 @_ZN12_GLOBAL__N_19checkImplEPKN6icu_779SpoofImplERKNS0_13UnicodeStringEPNS0_11CheckResultEP10UErrorCode(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %5, ptr noundef nonnull %3)
           to label %16 unwind label %17
 
 16:                                               ; preds = %14
   call void @_ZN6icu_7711CheckResultD1Ev(ptr noundef nonnull align 8 dereferenceable(220) %5) #6
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %19
 
 17:                                               ; preds = %14
   %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7711CheckResultD1Ev(ptr noundef nonnull align 8 dereferenceable(220) %5) #6
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %18
 
 19:                                               ; preds = %12, %9, %4, %16
@@ -870,7 +864,7 @@ define noundef i32 @uspoof_check2UnicodeString_77(ptr noundef %0, ptr noundef no
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #2
+declare void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @uspoof_checkUTF8_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -889,7 +883,7 @@ define noundef i32 @uspoof_checkUTF8_77(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %11, label %12, label %uspoof_check2UTF8_77.exit
 
 12:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %13 = icmp sgt i32 %2, -1
   br i1 %13, label %17, label %14
 
@@ -909,7 +903,7 @@ define noundef i32 @uspoof_checkUTF8_77(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %20, label %uspoof_check2UnicodeString_77.exit, label %21
 
 21:                                               ; preds = %.noexc
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN6icu_7711CheckResultC1Ev(ptr noundef nonnull align 8 dereferenceable(220) %6)
           to label %.noexc6 unwind label %26
 
@@ -919,20 +913,20 @@ define noundef i32 @uspoof_checkUTF8_77(ptr noundef %0, ptr noundef %1, i32 noun
 
 23:                                               ; preds = %.noexc6
   call void @_ZN6icu_7711CheckResultD1Ev(ptr noundef nonnull align 8 dereferenceable(220) %6) #6
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %uspoof_check2UnicodeString_77.exit
 
 24:                                               ; preds = %.noexc6
   %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7711CheckResultD1Ev(ptr noundef nonnull align 8 dereferenceable(220) %6) #6
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.body
 
 uspoof_check2UnicodeString_77.exit:               ; preds = %23, %.noexc
   %.0.i5 = phi i32 [ %22, %23 ], [ 0, %.noexc ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %uspoof_check2UTF8_77.exit
 
 26:                                               ; preds = %21, %17
@@ -943,7 +937,7 @@ uspoof_check2UnicodeString_77.exit:               ; preds = %23, %.noexc
 .body:                                            ; preds = %24, %26
   %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %25, %24 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %eh.lpad-body
 
 uspoof_check2UTF8_77.exit:                        ; preds = %9, %uspoof_check2UnicodeString_77.exit
@@ -959,7 +953,7 @@ define noundef i32 @uspoof_check2UTF8_77(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %8, label %9, label %20
 
 9:                                                ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = icmp sgt i32 %2, -1
   br i1 %10, label %14, label %11
 
@@ -976,14 +970,14 @@ define noundef i32 @uspoof_check2UTF8_77(ptr noundef %0, ptr noundef %1, i32 nou
 
 17:                                               ; preds = %14
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %20
 
 18:                                               ; preds = %14
   %19 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %19
 
 20:                                               ; preds = %5, %17
@@ -991,10 +985,10 @@ define noundef i32 @uspoof_check2UTF8_77(ptr noundef %0, ptr noundef %1, i32 nou
   ret i32 %.0
 }
 
-declare void @_ZN6icu_7713UnicodeString8fromUTF8ENS_11StringPieceE(ptr dead_on_unwind writable sret(%"class.icu_77::UnicodeString") align 8, ptr, i32) local_unnamed_addr #3
+declare void @_ZN6icu_7713UnicodeString8fromUTF8ENS_11StringPieceE(ptr dead_on_unwind writable sret(%"class.icu_77::UnicodeString") align 8, ptr, i32) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define range(i32 0, 7) i32 @uspoof_areConfusable_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -1018,7 +1012,7 @@ define range(i32 0, 7) i32 @uspoof_areConfusable_77(ptr noundef %0, ptr noundef 
   br label %39
 
 18:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %19 = icmp eq i32 %2, -1
   %20 = zext i1 %19 to i8
   store ptr %1, ptr %8, align 8, !tbaa !39
@@ -1028,7 +1022,7 @@ define range(i32 0, 7) i32 @uspoof_areConfusable_77(ptr noundef %0, ptr noundef 
 21:                                               ; preds = %18
   %22 = load ptr, ptr %8, align 8, !tbaa !39
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %22) #6, !srcloc !41
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %23 = icmp eq i32 %4, -1
   %24 = zext i1 %23 to i8
   store ptr %3, ptr %10, align 8, !tbaa !39
@@ -1043,9 +1037,9 @@ define range(i32 0, 7) i32 @uspoof_areConfusable_77(ptr noundef %0, ptr noundef 
 
 28:                                               ; preds = %25
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %39
 
 29:                                               ; preds = %18
@@ -1070,13 +1064,13 @@ define range(i32 0, 7) i32 @uspoof_areConfusable_77(ptr noundef %0, ptr noundef 
 
 37:                                               ; preds = %35, %32
   %.pn = phi { ptr, i32 } [ %36, %35 ], [ %33, %32 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #6
   br label %38
 
 38:                                               ; preds = %37, %29
   %.pn.pn = phi { ptr, i32 } [ %.pn, %37 ], [ %30, %29 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn.pn
 
 39:                                               ; preds = %6, %28, %17
@@ -1107,7 +1101,7 @@ define range(i32 0, 7) i32 @uspoof_areConfusableUnicodeString_77(ptr noundef %0,
   br label %101
 
 18:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !17
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i16 2, ptr %19, align 8, !tbaa !42
@@ -1115,7 +1109,7 @@ define range(i32 0, 7) i32 @uspoof_areConfusableUnicodeString_77(ptr noundef %0,
           to label %21 unwind label %27
 
 21:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %6, align 8, !tbaa !17
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i16 2, ptr %22, align 8, !tbaa !42
@@ -1184,7 +1178,7 @@ define range(i32 0, 7) i32 @uspoof_areConfusableUnicodeString_77(ptr noundef %0,
   br i1 %.not56, label %.thread, label %61
 
 61:                                               ; preds = %34, %60
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN6icu_779ScriptSetC1Ev(ptr noundef nonnull align 4 dereferenceable(28) %7)
           to label %62 unwind label %68
 
@@ -1193,7 +1187,7 @@ define range(i32 0, 7) i32 @uspoof_areConfusableUnicodeString_77(ptr noundef %0,
           to label %63 unwind label %70
 
 63:                                               ; preds = %62
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN6icu_779ScriptSetC1Ev(ptr noundef nonnull align 4 dereferenceable(28) %8)
           to label %64 unwind label %72
 
@@ -1267,9 +1261,9 @@ define range(i32 0, 7) i32 @uspoof_areConfusableUnicodeString_77(ptr noundef %0,
   %94 = and i32 %.2, 3
   %.3 = select i1 %93, i32 %94, i32 %.2
   call void @_ZN6icu_779ScriptSetD1Ev(ptr noundef nonnull align 4 dereferenceable(28) %8) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN6icu_779ScriptSetD1Ev(ptr noundef nonnull align 4 dereferenceable(28) %7) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
 95:                                               ; preds = %76, %74
@@ -1279,7 +1273,7 @@ define range(i32 0, 7) i32 @uspoof_areConfusableUnicodeString_77(ptr noundef %0,
 
 96:                                               ; preds = %95, %72
   %.pn.pn = phi { ptr, i32 } [ %.pn, %95 ], [ %73, %72 ]
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %97
 
 97:                                               ; preds = %96, %70
@@ -1289,27 +1283,27 @@ define range(i32 0, 7) i32 @uspoof_areConfusableUnicodeString_77(ptr noundef %0,
 
 98:                                               ; preds = %97, %68
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %97 ], [ %69, %68 ]
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %99
 
 .thread:                                          ; preds = %34, %37, %60, %24, %84
   %.142 = phi i32 [ %.3, %84 ], [ 0, %24 ], [ 0, %60 ], [ 0, %37 ], [ 0, %34 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %101
 
 99:                                               ; preds = %98, %29
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %98 ], [ %30, %29 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %100
 
 100:                                              ; preds = %99, %27
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %99 ], [ %28, %27 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn
 
 101:                                              ; preds = %4, %.thread, %17
@@ -1337,7 +1331,7 @@ define range(i32 0, 7) i32 @uspoof_areConfusableUTF8_77(ptr noundef %0, ptr noun
   br label %37
 
 16:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = icmp sgt i32 %2, -1
   br i1 %17, label %21, label %18
 
@@ -1349,7 +1343,7 @@ define range(i32 0, 7) i32 @uspoof_areConfusableUTF8_77(ptr noundef %0, ptr noun
 21:                                               ; preds = %16, %18
   %22 = phi i32 [ %20, %18 ], [ %2, %16 ]
   call void @_ZN6icu_7713UnicodeString8fromUTF8ENS_11StringPieceE(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %7, ptr %1, i32 %22)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %23 = icmp sgt i32 %4, -1
   br i1 %23, label %27, label %24
 
@@ -1369,9 +1363,9 @@ define range(i32 0, 7) i32 @uspoof_areConfusableUTF8_77(ptr noundef %0, ptr noun
 
 31:                                               ; preds = %29
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %37
 
 32:                                               ; preds = %27
@@ -1387,9 +1381,9 @@ define range(i32 0, 7) i32 @uspoof_areConfusableUTF8_77(ptr noundef %0, ptr noun
 
 36:                                               ; preds = %34, %32
   %.pn = phi { ptr, i32 } [ %35, %34 ], [ %33, %32 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn
 
 37:                                               ; preds = %6, %31, %15
@@ -1407,7 +1401,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_Z34uspoof_getSkeletonUn
   br i1 %10, label %11, label %56
 
 11:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %6, align 8, !tbaa !17
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i16 2, ptr %12, align 8, !tbaa !42
@@ -1419,7 +1413,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_Z34uspoof_getSkeletonUn
           to label %18 unwind label %40
 
 18:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %7, align 8, !tbaa !17
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i16 2, ptr %19, align 8, !tbaa !42
@@ -1487,37 +1481,37 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_Z34uspoof_getSkeletonUn
 
 53:                                               ; preds = %._crit_edge
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %56
 
 54:                                               ; preds = %44, %42
   %.pn = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %55
 
 55:                                               ; preds = %54, %40
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn, %54 ], [ %41, %40 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn.pn.pn
 
 56:                                               ; preds = %5, %53
   ret ptr %3
 }
 
-declare void @_ZN6icu_779ScriptSetC1Ev(ptr noundef nonnull align 4 dereferenceable(28)) unnamed_addr #3
+declare void @_ZN6icu_779ScriptSetC1Ev(ptr noundef nonnull align 4 dereferenceable(28)) unnamed_addr #2
 
-declare void @_ZNK6icu_779SpoofImpl20getResolvedScriptSetERKNS_13UnicodeStringERNS_9ScriptSetER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(28), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
+declare void @_ZNK6icu_779SpoofImpl20getResolvedScriptSetERKNS_13UnicodeStringERNS_9ScriptSetER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(28), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
-declare noundef signext i8 @_ZNK6icu_779ScriptSet10intersectsERKS0_(ptr noundef nonnull align 4 dereferenceable(28), ptr noundef nonnull align 4 dereferenceable(28)) local_unnamed_addr #3
+declare noundef signext i8 @_ZNK6icu_779ScriptSet10intersectsERKS0_(ptr noundef nonnull align 4 dereferenceable(28), ptr noundef nonnull align 4 dereferenceable(28)) local_unnamed_addr #2
 
-declare noundef signext i8 @_ZNK6icu_779ScriptSet7isEmptyEv(ptr noundef nonnull align 4 dereferenceable(28)) local_unnamed_addr #3
+declare noundef signext i8 @_ZNK6icu_779ScriptSet7isEmptyEv(ptr noundef nonnull align 4 dereferenceable(28)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_779ScriptSetD1Ev(ptr noundef nonnull align 4 dereferenceable(28)) unnamed_addr #2
+declare void @_ZN6icu_779ScriptSetD1Ev(ptr noundef nonnull align 4 dereferenceable(28)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define range(i32 0, 7) i32 @uspoof_areBidiConfusable_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -1525,7 +1519,7 @@ define range(i32 0, 7) i32 @uspoof_areBidiConfusable_77(ptr noundef %0, i32 noun
   %9 = alloca %"class.icu_77::ConstChar16Ptr", align 8
   %10 = alloca %"class.icu_77::UnicodeString", align 8
   %11 = alloca %"class.icu_77::ConstChar16Ptr", align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %12 = icmp eq i32 %3, -1
   %13 = zext i1 %12 to i8
   store ptr %2, ptr %9, align 8, !tbaa !39
@@ -1535,7 +1529,7 @@ define range(i32 0, 7) i32 @uspoof_areBidiConfusable_77(ptr noundef %0, i32 noun
 14:                                               ; preds = %7
   %15 = load ptr, ptr %9, align 8, !tbaa !39
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %15) #6, !srcloc !41
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %16 = icmp eq i32 %5, -1
   %17 = zext i1 %16 to i8
   store ptr %4, ptr %11, align 8, !tbaa !39
@@ -1589,20 +1583,20 @@ define range(i32 0, 7) i32 @uspoof_areBidiConfusable_77(ptr noundef %0, i32 noun
 38:                                               ; preds = %36, %27
   %.014 = phi i32 [ 0, %27 ], [ %37, %36 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.014
 
 39:                                               ; preds = %34, %31
   %.pn = phi { ptr, i32 } [ %35, %34 ], [ %32, %31 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #6
   br label %40
 
 40:                                               ; preds = %39, %28
   %.pn.pn = phi { ptr, i32 } [ %.pn, %39 ], [ %29, %28 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -1629,7 +1623,7 @@ define range(i32 0, 7) i32 @uspoof_areBidiConfusableUnicodeString_77(ptr noundef
   br label %94
 
 19:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %6, align 8, !tbaa !17
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i16 2, ptr %20, align 8, !tbaa !42
@@ -1637,7 +1631,7 @@ define range(i32 0, 7) i32 @uspoof_areBidiConfusableUnicodeString_77(ptr noundef
           to label %22 unwind label %28
 
 22:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %7, align 8, !tbaa !17
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i16 2, ptr %23, align 8, !tbaa !42
@@ -1706,7 +1700,7 @@ define range(i32 0, 7) i32 @uspoof_areBidiConfusableUnicodeString_77(ptr noundef
   br i1 %.not49, label %.thread, label %62
 
 62:                                               ; preds = %35, %61
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN6icu_779ScriptSetC1Ev(ptr noundef nonnull align 4 dereferenceable(28) %8)
           to label %63 unwind label %69
 
@@ -1715,7 +1709,7 @@ define range(i32 0, 7) i32 @uspoof_areBidiConfusableUnicodeString_77(ptr noundef
           to label %64 unwind label %71
 
 64:                                               ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN6icu_779ScriptSetC1Ev(ptr noundef nonnull align 4 dereferenceable(28) %9)
           to label %65 unwind label %73
 
@@ -1778,9 +1772,9 @@ define range(i32 0, 7) i32 @uspoof_areBidiConfusableUnicodeString_77(ptr noundef
   %86 = load i32, ptr %14, align 4, !tbaa !20
   %87 = and i32 %86, %.0
   call void @_ZN6icu_779ScriptSetD1Ev(ptr noundef nonnull align 4 dereferenceable(28) %9) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN6icu_779ScriptSetD1Ev(ptr noundef nonnull align 4 dereferenceable(28) %8) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
 
 88:                                               ; preds = %77, %75
@@ -1790,7 +1784,7 @@ define range(i32 0, 7) i32 @uspoof_areBidiConfusableUnicodeString_77(ptr noundef
 
 89:                                               ; preds = %88, %73
   %.pn.pn = phi { ptr, i32 } [ %.pn, %88 ], [ %74, %73 ]
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %90
 
 90:                                               ; preds = %89, %71
@@ -1800,27 +1794,27 @@ define range(i32 0, 7) i32 @uspoof_areBidiConfusableUnicodeString_77(ptr noundef
 
 91:                                               ; preds = %90, %69
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %90 ], [ %70, %69 ]
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %92
 
 .thread:                                          ; preds = %35, %38, %61, %25, %85
   %.136 = phi i32 [ %87, %85 ], [ 0, %25 ], [ 0, %61 ], [ 0, %38 ], [ 0, %35 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %94
 
 92:                                               ; preds = %91, %30
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %91 ], [ %31, %30 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %93
 
 93:                                               ; preds = %92, %28
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %92 ], [ %29, %28 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn
 
 94:                                               ; preds = %5, %.thread, %18
@@ -1842,7 +1836,7 @@ define range(i32 0, 7) i32 @uspoof_areBidiConfusableUTF8_77(ptr noundef %0, i32 
   br label %34
 
 13:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14 = icmp sgt i32 %3, -1
   br i1 %14, label %18, label %15
 
@@ -1854,7 +1848,7 @@ define range(i32 0, 7) i32 @uspoof_areBidiConfusableUTF8_77(ptr noundef %0, i32 
 18:                                               ; preds = %13, %15
   %19 = phi i32 [ %17, %15 ], [ %3, %13 ]
   call void @_ZN6icu_7713UnicodeString8fromUTF8ENS_11StringPieceE(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %8, ptr %2, i32 %19)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %20 = icmp sgt i32 %5, -1
   br i1 %20, label %24, label %21
 
@@ -1874,9 +1868,9 @@ define range(i32 0, 7) i32 @uspoof_areBidiConfusableUTF8_77(ptr noundef %0, i32 
 
 28:                                               ; preds = %26
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %34
 
 29:                                               ; preds = %24
@@ -1892,9 +1886,9 @@ define range(i32 0, 7) i32 @uspoof_areBidiConfusableUTF8_77(ptr noundef %0, i32 
 
 33:                                               ; preds = %31, %29
   %.pn = phi { ptr, i32 } [ %32, %31 ], [ %30, %29 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn
 
 34:                                               ; preds = %28, %12
@@ -1960,7 +1954,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %12, %19, %21
   br label %59
 
 34:                                               ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %6, align 8, !tbaa !17
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i16 2, ptr %35, align 8, !tbaa !42
@@ -2018,13 +2012,13 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %12, %19, %21
 
 57:                                               ; preds = %53, %50, %41
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %59
 
 58:                                               ; preds = %44, %55, %42
   %.pn.pn = phi { ptr, i32 } [ %43, %42 ], [ %45, %44 ], [ %56, %55 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn.pn
 
 59:                                               ; preds = %33, %57, %11
@@ -2047,21 +2041,21 @@ define noundef i32 @uspoof_checkUnicodeString_77(ptr noundef %0, ptr noundef non
   br i1 %9, label %uspoof_check2UnicodeString_77.exit, label %10
 
 10:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN6icu_7711CheckResultC1Ev(ptr noundef nonnull align 8 dereferenceable(220) %5)
   %11 = invoke fastcc noundef i32 @_ZN12_GLOBAL__N_19checkImplEPKN6icu_779SpoofImplERKNS0_13UnicodeStringEPNS0_11CheckResultEP10UErrorCode(ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %5, ptr noundef nonnull %3)
           to label %12 unwind label %13
 
 12:                                               ; preds = %10
   call void @_ZN6icu_7711CheckResultD1Ev(ptr noundef nonnull align 8 dereferenceable(220) %5) #6
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %uspoof_check2UnicodeString_77.exit
 
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7711CheckResultD1Ev(ptr noundef nonnull align 8 dereferenceable(220) %5) #6
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %14
 
 uspoof_check2UnicodeString_77.exit:               ; preds = %7, %12
@@ -2069,7 +2063,7 @@ uspoof_check2UnicodeString_77.exit:               ; preds = %7, %12
   ret i32 %.0.i
 }
 
-declare noundef ptr @_ZN6icu_7711CheckResult12validateThisEP17USpoofCheckResultR10UErrorCode(ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
+declare noundef ptr @_ZN6icu_7711CheckResult12validateThisEP17USpoofCheckResultR10UErrorCode(ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef i32 @_ZN12_GLOBAL__N_19checkImplEPKN6icu_779SpoofImplERKNS0_13UnicodeStringEPNS0_11CheckResultEP10UErrorCode(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -2102,7 +2096,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_19checkImplEPKN6icu_779Spoof
   br i1 %.not69, label %31, label %20
 
 20:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN6icu_7710UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %5)
   invoke void @_ZNK6icu_779SpoofImpl11getNumericsERKNS_13UnicodeStringERNS_10UnicodeSetER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(200) %5, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %21 unwind label %26
@@ -2120,7 +2114,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_19checkImplEPKN6icu_779Spoof
   %27 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7710UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %5) #6
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %119
 
 28:                                               ; preds = %23
@@ -2128,7 +2122,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_19checkImplEPKN6icu_779Spoof
   %30 = or disjoint i32 %.056, 128
   %spec.select83 = select i1 %29, i32 %30, i32 %.056
   call void @_ZN6icu_7710UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %5) #6
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre106 = load i32, ptr %8, align 4, !tbaa !20
   br label %31
 
@@ -2193,7 +2187,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_19checkImplEPKN6icu_779Spoof
   br i1 %.not74, label %115, label %63
 
 63:                                               ; preds = %.loopexit86
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %6, align 8, !tbaa !17
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i16 2, ptr %64, align 8, !tbaa !42
@@ -2212,7 +2206,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_19checkImplEPKN6icu_779Spoof
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %76 = load i32, ptr %75, align 4
   %77 = select i1 %72, i32 %76, i32 %74
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN6icu_7710UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %7)
           to label %.outer unwind label %101
 
@@ -2331,21 +2325,21 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_19checkImplEPKN6icu_779Spoof
 .loopexit:                                        ; preds = %.outer.split.us, %.outer.split, %109
   %.9 = phi i32 [ %110, %109 ], [ %.6, %.outer.split ], [ %.6, %.outer.split.us ]
   call void @_ZN6icu_7710UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %7) #6
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre108 = load i32, ptr %8, align 4, !tbaa !20
   br label %115
 
 113:                                              ; preds = %.loopexit85, %101
   %.pn = phi { ptr, i32 } [ %lpad.phi, %.loopexit85 ], [ %102, %101 ]
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %114
 
 114:                                              ; preds = %113, %99
   %.pn.pn.pn = phi { ptr, i32 } [ %100, %99 ], [ %.pn, %113 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %119
 
 115:                                              ; preds = %.loopexit, %.loopexit86
@@ -2361,10 +2355,10 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_19checkImplEPKN6icu_779Spoof
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
-declare void @_ZN6icu_7711CheckResultC1Ev(ptr noundef nonnull align 8 dereferenceable(220)) unnamed_addr #3
+declare void @_ZN6icu_7711CheckResultC1Ev(ptr noundef nonnull align 8 dereferenceable(220)) unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_7711CheckResultD1Ev(ptr noundef nonnull align 8 dereferenceable(220)) unnamed_addr #2
+declare void @_ZN6icu_7711CheckResultD1Ev(ptr noundef nonnull align 8 dereferenceable(220)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define i32 @uspoof_getSkeleton_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef nonnull %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -2394,7 +2388,7 @@ define i32 @uspoof_getSkeleton_77(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br label %50
 
 22:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %23 = icmp eq i32 %3, -1
   %24 = zext i1 %23 to i8
   store ptr %2, ptr %9, align 8, !tbaa !39
@@ -2404,7 +2398,7 @@ define i32 @uspoof_getSkeleton_77(ptr noundef %0, i32 noundef %1, ptr noundef %2
 25:                                               ; preds = %22
   %26 = load ptr, ptr %9, align 8, !tbaa !39
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %26) #6, !srcloc !41
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %10, align 8, !tbaa !17
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i16 2, ptr %27, align 8, !tbaa !42
@@ -2427,9 +2421,9 @@ define i32 @uspoof_getSkeleton_77(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %38 = load i32, ptr %37, align 4
   %39 = select i1 %34, i32 %38, i32 %36
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %50
 
 40:                                               ; preds = %22
@@ -2454,13 +2448,13 @@ define i32 @uspoof_getSkeleton_77(ptr noundef %0, i32 noundef %1, ptr noundef %2
 48:                                               ; preds = %45, %43
   %.pn = phi { ptr, i32 } [ %44, %43 ], [ %46, %45 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #6
   br label %49
 
 49:                                               ; preds = %48, %40
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn, %48 ], [ %41, %40 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn.pn.pn
 
 50:                                               ; preds = %7, %31, %21
@@ -2468,7 +2462,7 @@ define i32 @uspoof_getSkeleton_77(ptr noundef %0, i32 noundef %1, ptr noundef %2
   ret i32 %.025
 }
 
-declare noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
+declare noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @uspoof_getBidiSkeleton_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -2476,7 +2470,7 @@ define noundef i32 @uspoof_getBidiSkeleton_77(ptr noundef %0, i32 noundef %1, pt
   %9 = alloca %"class.icu_77::ConstChar16Ptr", align 8
   %10 = alloca %"class.icu_77::UnicodeString", align 8
   %11 = alloca %"class.icu_77::Char16Ptr", align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %12 = icmp eq i32 %3, -1
   %13 = zext i1 %12 to i8
   store ptr %2, ptr %9, align 8, !tbaa !39
@@ -2504,7 +2498,7 @@ define noundef i32 @uspoof_getBidiSkeleton_77(ptr noundef %0, i32 noundef %1, pt
   br label %37
 
 23:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %10, align 8, !tbaa !17
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i16 2, ptr %24, align 8, !tbaa !42
@@ -2520,7 +2514,7 @@ define noundef i32 @uspoof_getBidiSkeleton_77(ptr noundef %0, i32 noundef %1, pt
   %29 = load ptr, ptr %11, align 8, !tbaa !52
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %29) #6, !srcloc !54
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %36
 
 30:                                               ; preds = %23
@@ -2538,41 +2532,41 @@ define noundef i32 @uspoof_getBidiSkeleton_77(ptr noundef %0, i32 noundef %1, pt
 35:                                               ; preds = %32, %30
   %.pn = phi { ptr, i32 } [ %33, %32 ], [ %31, %30 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #6
   br label %37
 
 36:                                               ; preds = %28, %19
   %.015 = phi i32 [ 0, %19 ], [ %27, %28 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.015
 
 37:                                               ; preds = %35, %20
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn, %35 ], [ %21, %20 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn.pn.pn
 }
 
-declare ptr @ubidi_open_77() local_unnamed_addr #3
+declare ptr @ubidi_open_77() local_unnamed_addr #2
 
-declare void @ubidi_setPara_77(ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @ubidi_setPara_77(ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ubidi_close_77(ptr noundef) local_unnamed_addr #3
+declare void @ubidi_close_77(ptr noundef) local_unnamed_addr #2
 
-declare i32 @ubidi_getProcessedLength_77(ptr noundef) local_unnamed_addr #3
+declare i32 @ubidi_getProcessedLength_77(ptr noundef) local_unnamed_addr #2
 
-declare noundef ptr @_ZN6icu_7713UnicodeString9getBufferEi(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #3
+declare noundef ptr @_ZN6icu_7713UnicodeString9getBufferEi(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #2
 
-declare i32 @ubidi_writeReordered_77(ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #3
+declare i32 @ubidi_writeReordered_77(ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
-declare void @_ZN6icu_7713UnicodeString13releaseBufferEi(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #3
+declare void @_ZN6icu_7713UnicodeString13releaseBufferEi(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #2
 
-declare noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #3
+declare noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #2
 
-declare signext i8 @u_hasBinaryProperty_77(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare signext i8 @u_hasBinaryProperty_77(i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare noundef i32 @_ZNK6icu_779SpoofData16confusableLookupEiRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(56), i32 noundef, ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #3
+declare noundef i32 @_ZNK6icu_779SpoofData16confusableLookupEiRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(56), i32 noundef, ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define i32 @uspoof_getSkeletonUTF8_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef nonnull %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -2601,7 +2595,7 @@ define i32 @uspoof_getSkeletonUTF8_77(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %59
 
 21:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %22 = icmp sgt i32 %3, -1
   br i1 %22, label %26, label %23
 
@@ -2613,7 +2607,7 @@ define i32 @uspoof_getSkeletonUTF8_77(ptr noundef %0, i32 noundef %1, ptr nounde
 26:                                               ; preds = %23, %21
   %27 = phi i32 [ %25, %23 ], [ %3, %21 ]
   call void @_ZN6icu_7713UnicodeString8fromUTF8ENS_11StringPieceE(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %8, ptr %2, i32 %27)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %9, align 8, !tbaa !17
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i16 2, ptr %28, align 8, !tbaa !42
@@ -2631,7 +2625,7 @@ define i32 @uspoof_getSkeletonUTF8_77(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %58
 
 35:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !19
   %36 = load i16, ptr %28, align 8, !tbaa !42
   %37 = and i16 %36, 17
@@ -2665,29 +2659,29 @@ define i32 @uspoof_getSkeletonUTF8_77(ptr noundef %0, i32 noundef %1, ptr nounde
 
 53:                                               ; preds = %45
   %54 = load i32, ptr %10, align 4, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %57
 
 55:                                               ; preds = %45
   %56 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %58
 
 57:                                               ; preds = %30, %53
   %.127 = phi i32 [ %54, %53 ], [ 0, %30 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %59
 
 58:                                               ; preds = %55, %33
   %.pn = phi { ptr, i32 } [ %56, %55 ], [ %34, %33 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn
 
 59:                                               ; preds = %7, %57, %20
@@ -2695,7 +2689,7 @@ define i32 @uspoof_getSkeletonUTF8_77(ptr noundef %0, i32 noundef %1, ptr nounde
   ret i32 %.026
 }
 
-declare ptr @u_strToUTF8_77(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @u_strToUTF8_77(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define i32 @uspoof_getBidiSkeletonUTF8_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -2710,7 +2704,7 @@ define i32 @uspoof_getBidiSkeletonUTF8_77(ptr noundef %0, i32 noundef %1, ptr no
   br label %51
 
 13:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14 = icmp sgt i32 %3, -1
   br i1 %14, label %18, label %15
 
@@ -2722,7 +2716,7 @@ define i32 @uspoof_getBidiSkeletonUTF8_77(ptr noundef %0, i32 noundef %1, ptr no
 18:                                               ; preds = %15, %13
   %19 = phi i32 [ %17, %15 ], [ %3, %13 ]
   call void @_ZN6icu_7713UnicodeString8fromUTF8ENS_11StringPieceE(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %8, ptr %2, i32 %19)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %9, align 8, !tbaa !17
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i16 2, ptr %20, align 8, !tbaa !42
@@ -2740,7 +2734,7 @@ define i32 @uspoof_getBidiSkeletonUTF8_77(ptr noundef %0, i32 noundef %1, ptr no
   br label %50
 
 27:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !19
   %28 = load i16, ptr %20, align 8, !tbaa !42
   %29 = and i16 %28, 17
@@ -2774,29 +2768,29 @@ define i32 @uspoof_getBidiSkeletonUTF8_77(ptr noundef %0, i32 noundef %1, ptr no
 
 45:                                               ; preds = %37
   %46 = load i32, ptr %10, align 4, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %49
 
 47:                                               ; preds = %37
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %50
 
 49:                                               ; preds = %22, %45
   %.118 = phi i32 [ %46, %45 ], [ 0, %22 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %51
 
 50:                                               ; preds = %47, %25
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %26, %25 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn
 
 51:                                               ; preds = %49, %12
@@ -2821,7 +2815,7 @@ define noundef i32 @uspoof_serialize_77(ptr noundef %0, ptr noundef %1, i32 noun
   ret i32 %.0
 }
 
-declare noundef i32 @_ZNK6icu_779SpoofData9serializeEPviR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
+declare noundef i32 @_ZNK6icu_779SpoofData9serializeEPviR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define ptr @uspoof_getInclusionSet_77(ptr noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -3000,12 +2994,12 @@ define noundef ptr @uspoof_openCheckResult_77(ptr noundef writeonly captures(non
   ret ptr %.0
 }
 
-declare noundef ptr @_ZN6icu_7711CheckResult19asUSpoofCheckResultEv(ptr noundef nonnull align 8 dereferenceable(220)) local_unnamed_addr #3
+declare noundef ptr @_ZN6icu_7711CheckResult19asUSpoofCheckResultEv(ptr noundef nonnull align 8 dereferenceable(220)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define void @uspoof_closeCheckResult_77(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !3
   %3 = call noundef ptr @_ZN6icu_7711CheckResult12validateThisEP17USpoofCheckResultR10UErrorCode(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %4 = icmp eq ptr %3, null
@@ -3019,7 +3013,7 @@ define void @uspoof_closeCheckResult_77(ptr noundef %0) local_unnamed_addr #0 {
   br label %9
 
 9:                                                ; preds = %5, %1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -3040,7 +3034,7 @@ define i32 @uspoof_getCheckResultChecks_77(ptr noundef %0, ptr noundef nonnull %
   ret i32 %.0
 }
 
-declare noundef ptr @_ZN6icu_7711CheckResult12validateThisEPK17USpoofCheckResultR10UErrorCode(ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
+declare noundef ptr @_ZN6icu_7711CheckResult12validateThisEPK17USpoofCheckResultR10UErrorCode(ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define i32 @uspoof_getCheckResultRestrictionLevel_77(ptr noundef %0, ptr noundef nonnull %1) local_unnamed_addr #0 {
@@ -3069,20 +3063,20 @@ define ptr @uspoof_getCheckResultNumerics_77(ptr noundef %0, ptr noundef nonnull
   ret ptr %spec.select
 }
 
-declare noundef signext i8 @_ZN6icu_7720umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #3
+declare noundef signext i8 @_ZN6icu_7720umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #2
 
-declare void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #3
+declare void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #2
 
-declare void @_ZN6icu_7710UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #3
+declare void @_ZN6icu_7710UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #2
 
-declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet21applyIntPropertyValueE9UPropertyiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
+declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet21applyIntPropertyValueE9UPropertyiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
-declare noundef ptr @_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
+declare noundef ptr @_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
-declare void @ucln_i18n_registerCleanup_77(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @ucln_i18n_registerCleanup_77(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef signext i8 @_ZN12_GLOBAL__N_114uspoof_cleanupEv() #5 {
+define internal noundef signext i8 @_ZN12_GLOBAL__N_114uspoof_cleanupEv() #4 {
   %1 = load ptr, ptr @_ZL13gInclusionSet, align 8, !tbaa !12
   %2 = icmp eq ptr %1, null
   br i1 %2, label %4, label %3
@@ -3110,36 +3104,42 @@ define internal noundef signext i8 @_ZN12_GLOBAL__N_114uspoof_cleanupEv() #5 {
   ret i8 1
 }
 
-declare noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef) local_unnamed_addr #3
+declare noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @_ZN6icu_7711CheckResult5clearEv(ptr noundef nonnull align 8 dereferenceable(220)) local_unnamed_addr #3
+declare void @_ZN6icu_7711CheckResult5clearEv(ptr noundef nonnull align 8 dereferenceable(220)) local_unnamed_addr #2
 
-declare noundef i32 @_ZNK6icu_779SpoofImpl19getRestrictionLevelERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
+declare noundef i32 @_ZNK6icu_779SpoofImpl19getRestrictionLevelERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
-declare void @_ZNK6icu_779SpoofImpl11getNumericsERKNS_13UnicodeStringERNS_10UnicodeSetER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
+declare void @_ZNK6icu_779SpoofImpl11getNumericsERKNS_13UnicodeStringERNS_10UnicodeSetER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
-declare noundef i32 @_ZNK6icu_7710UnicodeSet4sizeEv(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #3
+declare noundef i32 @_ZNK6icu_7710UnicodeSet4sizeEv(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #2
 
-declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSetaSERKS0_(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 8 dereferenceable(200)) local_unnamed_addr #3
+declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSetaSERKS0_(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 8 dereferenceable(200)) local_unnamed_addr #2
 
-declare noundef i32 @_ZNK6icu_779SpoofImpl17findHiddenOverlayERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
+declare noundef i32 @_ZNK6icu_779SpoofImpl17findHiddenOverlayERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
-declare noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200), i32 noundef) unnamed_addr #3
+declare noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200), i32 noundef) unnamed_addr #2
 
-declare signext i8 @u_charType_77(i32 noundef) local_unnamed_addr #3
+declare signext i8 @u_charType_77(i32 noundef) local_unnamed_addr #2
 
-declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet5clearEv(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #3
+declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet5clearEv(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #2
 
-declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet3addEi(ptr noundef nonnull align 8 dereferenceable(200), i32 noundef) local_unnamed_addr #3
+declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet3addEi(ptr noundef nonnull align 8 dereferenceable(200), i32 noundef) local_unnamed_addr #2
 
-declare noundef i32 @_ZN6icu_7711CheckResult17toCombinedBitmaskEi(ptr noundef nonnull align 8 dereferenceable(220), i32 noundef) local_unnamed_addr #3
+declare noundef i32 @_ZN6icu_7711CheckResult17toCombinedBitmaskEi(ptr noundef nonnull align 8 dereferenceable(220), i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(read) }
 

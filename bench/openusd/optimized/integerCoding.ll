@@ -126,8 +126,8 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__22Usd_IntegerCompressio
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIiEEmm.exit.thread.i: ; preds = %3
   %8 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef 0) #14
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %158
 
 9:                                                ; preds = %3
@@ -138,8 +138,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIiEEmm
   %14 = add i64 %13, 4
   %15 = add i64 %14, %12
   %16 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %15) #14
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 32, i1 false)
   %17 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairIimENS0_9robin_mapIimSt4hashIiESt8equal_toIiESaIS4_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSE_11ValueSelectES7_S9_SA_Lb0ESD_E23static_empty_bucket_ptrEvE12empty_bucket acquire, align 8
   %18 = icmp eq i8 %17, 0
@@ -183,15 +183,15 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIiEEmm
   %31 = load i32, ptr %.037111.i.i, align 4
   %32 = sub nsw i32 %31, %.036112.i.i
   store i32 %32, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %7, ptr %4, align 8, !alias.scope !5
   %33 = invoke { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairIimENS0_9robin_mapIimSt4hashIiESt8equal_toIiESaIS4_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSE_11ValueSelectES7_S9_SA_Lb0ESD_E11insert_implIiJRKSt21piecewise_construct_tSt5tupleIJRKiEESM_IJEEEEES3_INSH_14robin_iteratorILb0EEEbERKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %34 unwind label %41
 
 34:                                               ; preds = %.lr.ph.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.fca.0.extract.i.i.i.i = extractvalue { ptr, i8 } %33, 0
   %35 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i.i, i64 16
   %36 = load i64, ptr %35, align 8
@@ -550,8 +550,8 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvR
 158:                                              ; preds = %154, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIiEEmm.exit.thread.i
   %159 = phi ptr [ %16, %154 ], [ %8, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIiEEmm.exit.thread.i ]
   %.0.i.i = phi i64 [ %157, %154 ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIiEEmm.exit.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %160 = invoke noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__17TfFastCompression16CompressToBufferEPKcPcm(ptr noundef nonnull %159, ptr noundef %2, i64 noundef %.0.i.i)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_CompressIntegersIiEEmPKT_mPc.exit unwind label %161
 
@@ -582,8 +582,8 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__22Usd_IntegerCompressio
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIjEEmm.exit.thread.i: ; preds = %3
   %8 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef 0) #14
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %158
 
 9:                                                ; preds = %3
@@ -594,8 +594,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIjEEmm
   %14 = add i64 %13, 4
   %15 = add i64 %14, %12
   %16 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %15) #14
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 32, i1 false)
   %17 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairIimENS0_9robin_mapIimSt4hashIiESt8equal_toIiESaIS4_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSE_11ValueSelectES7_S9_SA_Lb0ESD_E23static_empty_bucket_ptrEvE12empty_bucket acquire, align 8
   %18 = icmp eq i8 %17, 0
@@ -639,15 +639,15 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIjEEmm
   %31 = load i32, ptr %.037111.i.i, align 4
   %32 = sub nsw i32 %31, %.036112.i.i
   store i32 %32, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %7, ptr %4, align 8, !alias.scope !15
   %33 = invoke { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairIimENS0_9robin_mapIimSt4hashIiESt8equal_toIiESaIS4_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSE_11ValueSelectES7_S9_SA_Lb0ESD_E11insert_implIiJRKSt21piecewise_construct_tSt5tupleIJRKiEESM_IJEEEEES3_INSH_14robin_iteratorILb0EEEbERKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %34 unwind label %41
 
 34:                                               ; preds = %.lr.ph.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.fca.0.extract.i.i.i.i = extractvalue { ptr, i8 } %33, 0
   %35 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i.i, i64 16
   %36 = load i64, ptr %35, align 8
@@ -1006,8 +1006,8 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvR
 158:                                              ; preds = %154, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIjEEmm.exit.thread.i
   %159 = phi ptr [ %16, %154 ], [ %8, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIjEEmm.exit.thread.i ]
   %.0.i.i = phi i64 [ %157, %154 ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIjEEmm.exit.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %160 = invoke noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__17TfFastCompression16CompressToBufferEPKcPcm(ptr noundef nonnull %159, ptr noundef %2, i64 noundef %.0.i.i)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_CompressIntegersIjEEmPKT_mPc.exit unwind label %161
 
@@ -1637,8 +1637,8 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__24Usd_IntegerCompressio
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIlEEmm.exit.thread.i: ; preds = %3
   %8 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef 0) #14
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %158
 
 9:                                                ; preds = %3
@@ -1649,8 +1649,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIlEEmm
   %14 = add i64 %13, 8
   %15 = add i64 %14, %12
   %16 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %15) #14
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 32, i1 false)
   %17 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairIlmENS0_9robin_mapIlmSt4hashIlESt8equal_toIlESaIS4_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSE_11ValueSelectES7_S9_SA_Lb0ESD_E23static_empty_bucket_ptrEvE12empty_bucket acquire, align 8
   %18 = icmp eq i8 %17, 0
@@ -1694,15 +1694,15 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIlEEmm
   %31 = load i64, ptr %.037111.i.i, align 8
   %32 = sub nsw i64 %31, %.036112.i.i
   store i64 %32, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %7, ptr %4, align 8, !alias.scope !31
   %33 = invoke { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairIlmENS0_9robin_mapIlmSt4hashIlESt8equal_toIlESaIS4_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSE_11ValueSelectES7_S9_SA_Lb0ESD_E11insert_implIlJRKSt21piecewise_construct_tSt5tupleIJRKlEESM_IJEEEEES3_INSH_14robin_iteratorILb0EEEbERKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %34 unwind label %41
 
 34:                                               ; preds = %.lr.ph.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.fca.0.extract.i.i.i.i = extractvalue { ptr, i8 } %33, 0
   %35 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i.i, i64 16
   %36 = load i64, ptr %35, align 8
@@ -2061,8 +2061,8 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvR
 158:                                              ; preds = %154, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIlEEmm.exit.thread.i
   %159 = phi ptr [ %16, %154 ], [ %8, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIlEEmm.exit.thread.i ]
   %.0.i.i = phi i64 [ %157, %154 ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIlEEmm.exit.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %160 = invoke noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__17TfFastCompression16CompressToBufferEPKcPcm(ptr noundef nonnull %159, ptr noundef %2, i64 noundef %.0.i.i)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_CompressIntegersIlEEmPKT_mPc.exit unwind label %161
 
@@ -2093,8 +2093,8 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__24Usd_IntegerCompressio
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeImEEmm.exit.thread.i: ; preds = %3
   %8 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef 0) #14
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %158
 
 9:                                                ; preds = %3
@@ -2105,8 +2105,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeImEEmm
   %14 = add i64 %13, 8
   %15 = add i64 %14, %12
   %16 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %15) #14
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 32, i1 false)
   %17 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairIlmENS0_9robin_mapIlmSt4hashIlESt8equal_toIlESaIS4_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSE_11ValueSelectES7_S9_SA_Lb0ESD_E23static_empty_bucket_ptrEvE12empty_bucket acquire, align 8
   %18 = icmp eq i8 %17, 0
@@ -2150,15 +2150,15 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeImEEmm
   %31 = load i64, ptr %.037111.i.i, align 8
   %32 = sub nsw i64 %31, %.036112.i.i
   store i64 %32, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %7, ptr %4, align 8, !alias.scope !40
   %33 = invoke { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairIlmENS0_9robin_mapIlmSt4hashIlESt8equal_toIlESaIS4_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSE_11ValueSelectES7_S9_SA_Lb0ESD_E11insert_implIlJRKSt21piecewise_construct_tSt5tupleIJRKlEESM_IJEEEEES3_INSH_14robin_iteratorILb0EEEbERKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %34 unwind label %41
 
 34:                                               ; preds = %.lr.ph.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.fca.0.extract.i.i.i.i = extractvalue { ptr, i8 } %33, 0
   %35 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i.i, i64 16
   %36 = load i64, ptr %35, align 8
@@ -2517,8 +2517,8 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvR
 158:                                              ; preds = %154, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeImEEmm.exit.thread.i
   %159 = phi ptr [ %16, %154 ], [ %8, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeImEEmm.exit.thread.i ]
   %.0.i.i = phi i64 [ %157, %154 ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeImEEmm.exit.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %160 = invoke noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__17TfFastCompression16CompressToBufferEPKcPcm(ptr noundef nonnull %159, ptr noundef %2, i64 noundef %.0.i.i)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_CompressIntegersImEEmPKT_mPc.exit unwind label %161
 
@@ -4551,10 +4551,10 @@ declare i64 @llvm.ctpop.i64(i64) #12
 declare i64 @llvm.umax.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12

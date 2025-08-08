@@ -107,7 +107,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @_glfwInitVulkan(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133800), align 8, !tbaa !3
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %_glfwTerminateVulkan.exit
@@ -298,18 +298,15 @@ define hidden range(i32 0, 2) i32 @_glfwInitVulkan(i32 noundef %0) local_unnamed
 
 _glfwTerminateVulkan.exit:                        ; preds = %41, %38, %31, %29, %22, %20, %16, %14, %9, %11, %1, %._crit_edge
   %.028 = phi i32 [ 1, %._crit_edge ], [ 1, %1 ], [ 0, %11 ], [ 0, %9 ], [ 0, %14 ], [ 0, %16 ], [ 0, %20 ], [ 0, %22 ], [ 0, %29 ], [ 0, %31 ], [ 0, %38 ], [ 0, %41 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.028
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @_glfwPlatformLoadModule(ptr noundef) local_unnamed_addr #1
 
-declare ptr @_glfwPlatformLoadModule(ptr noundef) local_unnamed_addr #2
+declare void @_glfwInputError(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @_glfwInputError(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare ptr @_glfwPlatformGetModuleSymbol(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_glfwPlatformGetModuleSymbol(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @_glfwTerminateVulkan() local_unnamed_addr #0 {
@@ -326,7 +323,7 @@ define hidden void @_glfwTerminateVulkan() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_glfwGetVulkanResultString(i32 noundef %0) local_unnamed_addr #3 {
+define hidden noundef nonnull ptr @_glfwGetVulkanResultString(i32 noundef %0) local_unnamed_addr #2 {
   switch i32 %0, label %24 [
     i32 0, label %25
     i32 1, label %2
@@ -427,17 +424,14 @@ define hidden noundef nonnull ptr @_glfwGetVulkanResultString(i32 noundef %0) lo
   ret ptr %.0
 }
 
-declare ptr @_glfw_calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @_glfw_calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @_glfw_free(ptr noundef) local_unnamed_addr #2
+declare void @_glfw_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @_glfwPlatformFreeModule(ptr noundef) local_unnamed_addr #2
+declare void @_glfwPlatformFreeModule(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @glfwVulkanSupported() local_unnamed_addr #0 {
@@ -603,11 +597,17 @@ define i32 @glfwCreateWindowSurface(ptr noundef %0, ptr noundef %1, ptr noundef 
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 attributes #6 = { nounwind willreturn memory(read) }
 

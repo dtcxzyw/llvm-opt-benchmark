@@ -35,10 +35,10 @@ define hidden noundef zeroext i1 @X11_InitXinput2(ptr noundef readonly captures(
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %9 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str, i1 noundef zeroext true) #8
   %11 = load i32, ptr @SDL_X11_HAVE_XINPUT2, align 4
   %.not = icmp ne i32 %11, 0
@@ -54,8 +54,8 @@ define hidden noundef zeroext i1 @X11_InitXinput2(ptr noundef readonly captures(
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 2, ptr %2, align 4
   store i32 2, ptr %3, align 4
   %18 = load ptr, ptr @X11_XIQueryVersion, align 8
@@ -64,8 +64,8 @@ define hidden noundef zeroext i1 @X11_InitXinput2(ptr noundef readonly captures(
   %21 = mul nsw i32 %20, 1000
   %22 = load i32, ptr %3, align 4
   %23 = add nsw i32 %21, %22
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %24 = icmp sgt i32 %23, 1999
   br i1 %24, label %25, label %54
 
@@ -119,20 +119,17 @@ define hidden noundef zeroext i1 @X11_InitXinput2(ptr noundef readonly captures(
 
 54:                                               ; preds = %16, %12, %1, %33
   %.0 = phi i1 [ true, %33 ], [ false, %1 ], [ false, %12 ], [ false, %16 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @X11_Xinput2IsMultitouchSupported() local_unnamed_addr #3 {
+define hidden zeroext i1 @X11_Xinput2IsMultitouchSupported() local_unnamed_addr #2 {
   %.b1 = load i1, ptr @xinput2_initialized, align 1
   %1 = load i8, ptr @xinput2_multitouch_supported, align 1, !range !3
   %2 = trunc nuw i8 %1 to i1
@@ -148,12 +145,12 @@ define hidden void @X11_Xinput2UpdateDevices(ptr noundef readonly captures(none)
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %9 = xor i1 %1, true
   %10 = load ptr, ptr @X11_XIQueryDevice, align 8
@@ -597,10 +594,10 @@ HasDeviceID.exit104:                              ; preds = %HasDeviceID.exit104
   call void @SDL_free_REAL(ptr noundef %.0127.lcssa232253283) #8
   %142 = load ptr, ptr @X11_XIFreeDeviceInfo, align 8
   call void %142(ptr noundef %12) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 HasDeviceID64.exit113:                            ; preds = %HasDeviceID64.exit113.preheader, %HasDeviceID64.exit113
@@ -612,9 +609,6 @@ HasDeviceID64.exit113:                            ; preds = %HasDeviceID64.exit1
   %145 = icmp eq i64 %indvars.iv208, 0
   br i1 %145, label %._crit_edge187, label %HasDeviceID64.exit113, !llvm.loop !15
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @X11_HandleXinput2Event(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -761,10 +755,10 @@ xinput2_remove_device_info.exit:                  ; preds = %.lr.ph, %53, %40, %
   %64 = tail call ptr @X11_FindPenByDeviceID(i32 noundef %63) #8
   %.not189 = icmp eq ptr %64, null
   %65 = tail call ptr @SDL_GetMouse() #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0350)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0350)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 40
   %67 = load i64, ptr %66, align 8
   %68 = tail call i64 @X11_GetEventTimestamp(i64 noundef %67) #8
@@ -885,10 +879,10 @@ parse_valuators.exit:                             ; preds = %93, %74
   br label %125
 
 125:                                              ; preds = %70, %59, %123
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0350)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0350)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   br label %.critedge
 
 126:                                              ; preds = %10, %10
@@ -897,7 +891,7 @@ parse_valuators.exit:                             ; preds = %93, %74
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 72
   %130 = load i64, ptr %129, align 8
   %131 = tail call ptr @X11_FindWindow(ptr noundef nonnull %0, i64 noundef %130) #8
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %132 = getelementptr inbounds nuw i8, ptr %128, i64 48
   %133 = load i32, ptr %132, align 8
   %134 = getelementptr inbounds nuw i8, ptr %128, i64 52
@@ -971,7 +965,7 @@ parse_valuators.exit:                             ; preds = %93, %74
   br label %182
 
 182:                                              ; preds = %126, %136
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge
 
 183:                                              ; preds = %10, %10, %10, %10, %10
@@ -1157,7 +1151,7 @@ xinput2_get_sdlwindow.exit207:                    ; preds = %266, %258, %xinput2
   %279 = load double, ptr %278, align 8
   %280 = fptrunc double %279 to float
   tail call void @SDL_SendPenMotion(i64 noundef 0, i32 noundef %274, ptr noundef %273, float noundef %277, float noundef %280) #8
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %281 = getelementptr inbounds nuw i8, ptr %247, i64 144
   %282 = getelementptr inbounds nuw i8, ptr %247, i64 160
   %283 = load ptr, ptr %282, align 8
@@ -1169,7 +1163,7 @@ xinput2_get_sdlwindow.exit207:                    ; preds = %266, %258, %xinput2
   br label %289
 
 288:                                              ; preds = %297
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
 289:                                              ; preds = %xinput2_get_sdlwindow.exit207, %297
@@ -1526,20 +1520,20 @@ xinput2_normalize_touch_coordinates.exit248:      ; preds = %470, %481, %486
   ret void
 }
 
-declare void @X11_RemovePenByDeviceID(i32 noundef) local_unnamed_addr #2
+declare void @X11_RemovePenByDeviceID(i32 noundef) local_unnamed_addr #1
 
-declare ptr @X11_MaybeAddPenByDeviceID(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @X11_MaybeAddPenByDeviceID(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @X11_FindPenByDeviceID(i32 noundef) local_unnamed_addr #2
+declare ptr @X11_FindPenByDeviceID(i32 noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GetMouse() local_unnamed_addr #2
+declare ptr @SDL_GetMouse() local_unnamed_addr #1
 
-declare i64 @X11_GetEventTimestamp(i64 noundef) local_unnamed_addr #2
+declare i64 @X11_GetEventTimestamp(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @xinput2_get_device_info(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1672
   %.04459 = load ptr, ptr %4, align 8
   %.not60 = icmp eq ptr %.04459, null
@@ -1659,40 +1653,40 @@ define internal fastcc noundef ptr @xinput2_get_device_info(ptr noundef captures
 
 56:                                               ; preds = %._crit_edge, %.lr.ph._crit_edge, %9, %._crit_edge67, %20
   %.0 = phi ptr [ %15, %._crit_edge67 ], [ null, %20 ], [ %.04462.lcssa, %9 ], [ %.04462.lcssa, %.lr.ph._crit_edge ], [ null, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
-declare ptr @SDL_GetKeyboardFocus_REAL() local_unnamed_addr #2
+declare ptr @SDL_GetKeyboardFocus_REAL() local_unnamed_addr #1
 
-declare void @SDL_SendMouseMotion(i64 noundef, ptr noundef, i32 noundef, i1 noundef zeroext, float noundef, float noundef) local_unnamed_addr #2
+declare void @SDL_SendMouseMotion(i64 noundef, ptr noundef, i32 noundef, i1 noundef zeroext, float noundef, float noundef) local_unnamed_addr #1
 
-declare ptr @X11_FindWindow(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @X11_FindWindow(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @X11_HandleKeyEvent(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @X11_HandleKeyEvent(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_SendPenTouch(i64 noundef, i32 noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
+declare void @SDL_SendPenTouch(i64 noundef, i32 noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @SDL_SendPenButton(i64 noundef, i32 noundef, ptr noundef, i8 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
+declare void @SDL_SendPenButton(i64 noundef, i32 noundef, ptr noundef, i8 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @X11_HandleButtonPress(ptr noundef, ptr noundef, i32 noundef, i32 noundef, float noundef, float noundef, i64 noundef) local_unnamed_addr #2
+declare void @X11_HandleButtonPress(ptr noundef, ptr noundef, i32 noundef, i32 noundef, float noundef, float noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @X11_HandleButtonRelease(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare void @X11_HandleButtonRelease(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @SDL_SendPenMotion(i64 noundef, i32 noundef, ptr noundef, float noundef, float noundef) local_unnamed_addr #2
+declare void @SDL_SendPenMotion(i64 noundef, i32 noundef, ptr noundef, float noundef, float noundef) local_unnamed_addr #1
 
-declare void @X11_PenAxesFromValuators(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @X11_PenAxesFromValuators(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_SendPenAxis(i64 noundef, i32 noundef, ptr noundef, i32 noundef, float noundef) local_unnamed_addr #2
+declare void @SDL_SendPenAxis(i64 noundef, i32 noundef, ptr noundef, i32 noundef, float noundef) local_unnamed_addr #1
 
-declare zeroext i1 @X11_ProcessHitTest(ptr noundef, ptr noundef, float noundef, float noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @X11_ProcessHitTest(ptr noundef, ptr noundef, float noundef, float noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @SDL_SendTouch(i64 noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, float noundef, float noundef, float noundef) local_unnamed_addr #2
+declare void @SDL_SendTouch(i64 noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, float noundef, float noundef, float noundef) local_unnamed_addr #1
 
-declare void @SDL_SendTouchMotion(i64 noundef, i64 noundef, i64 noundef, ptr noundef, float noundef, float noundef, float noundef) local_unnamed_addr #2
+declare void @SDL_SendTouchMotion(i64 noundef, i64 noundef, i64 noundef, ptr noundef, float noundef, float noundef, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @X11_InitXinput2Multitouch(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 {
+define hidden void @X11_InitXinput2Multitouch(ptr noundef readnone captures(none) %0) local_unnamed_addr #3 {
   ret void
 }
 
@@ -1700,8 +1694,8 @@ define hidden void @X11_InitXinput2Multitouch(ptr noundef readnone captures(none
 define hidden void @X11_Xinput2SelectTouch(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.XIEventMask, align 8
   %4 = alloca [4 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 1835072, ptr %4, align 4
   %.b1.i = load i1, ptr @xinput2_initialized, align 1
   %5 = load i8, ptr @xinput2_multitouch_supported, align 1, !range !3
@@ -1727,13 +1721,13 @@ define hidden void @X11_Xinput2SelectTouch(ptr noundef readonly captures(none) %
   br label %20
 
 20:                                               ; preds = %2, %8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @X11_Xinput2IsInitialized() local_unnamed_addr #3 {
+define hidden zeroext i1 @X11_Xinput2IsInitialized() local_unnamed_addr #2 {
   %.b1 = load i1, ptr @xinput2_initialized, align 1
   ret i1 %.b1
 }
@@ -1750,8 +1744,8 @@ define hidden zeroext i1 @X11_Xinput2SelectMouseAndKeyboard(ptr noundef readonly
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %9 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 6642, ptr %4, align 4
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 4, ptr %10, align 4
@@ -1776,8 +1770,8 @@ define hidden zeroext i1 @X11_Xinput2SelectMouseAndKeyboard(ptr noundef readonly
   br label %20
 
 20:                                               ; preds = %18, %7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %21
 
 21:                                               ; preds = %20, %2
@@ -1797,7 +1791,7 @@ define hidden zeroext i1 @X11_Xinput2SelectMouseAndKeyboard(ptr noundef readonly
   ret i1 %.0
 }
 
-declare void @SDL_LogWarn_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @SDL_LogWarn_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @X11_Xinput2GrabTouch(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -1809,10 +1803,10 @@ define hidden void @X11_Xinput2GrabTouch(ptr noundef readnone captures(none) %0,
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 336
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 1835072, ptr %3, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.b1.i = load i1, ptr @xinput2_initialized, align 1
   %11 = load i8, ptr @xinput2_multitouch_supported, align 1, !range !3
   %12 = trunc nuw i8 %11 to i1
@@ -1835,9 +1829,9 @@ define hidden void @X11_Xinput2GrabTouch(ptr noundef readnone captures(none) %0,
   br label %22
 
 22:                                               ; preds = %2, %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1849,7 +1843,7 @@ define hidden void @X11_Xinput2UngrabTouch(ptr noundef readnone captures(none) %
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 336
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.b1.i = load i1, ptr @xinput2_initialized, align 1
   %9 = load i8, ptr @xinput2_multitouch_supported, align 1, !range !3
   %10 = trunc nuw i8 %9 to i1
@@ -1867,46 +1861,52 @@ define hidden void @X11_Xinput2UngrabTouch(ptr noundef readnone captures(none) %
   br label %18
 
 18:                                               ; preds = %2, %12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare ptr @SDL_GetKeyboards_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetKeyboards_REAL(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GetMice_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetMice_REAL(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GetTouchDevices_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetTouchDevices_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_AddKeyboard(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @SDL_AddKeyboard(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @SDL_AddMouse(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @SDL_AddMouse(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @SDL_AddTouch(i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_AddTouch(i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_RemoveKeyboard(i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @SDL_RemoveKeyboard(i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @SDL_RemoveMouse(i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @SDL_RemoveMouse(i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @SDL_DelTouch(i64 noundef) local_unnamed_addr #2
+declare void @SDL_DelTouch(i64 noundef) local_unnamed_addr #1
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: allocsize(1)
-declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind allocsize(1) }

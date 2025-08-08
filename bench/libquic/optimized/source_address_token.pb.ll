@@ -583,11 +583,8 @@ define noundef nonnull ptr @_ZNK3net18SourceAddressToken3NewEPN6google8protobuf5
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
-
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr void @_ZN6google8protobuf5Arena3OwnIN3net18SourceAddressTokenEEEvPT_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %1) local_unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZN6google8protobuf5Arena3OwnIN3net18SourceAddressTokenEEEvPT_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %1) local_unnamed_addr #11 comdat align 2 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %_ZN6google8protobuf5Arena11OwnInternalIN3net18SourceAddressTokenEEEvPT_NS0_8internal17integral_constantIbLb0EEE.exit, label %3
 
@@ -598,9 +595,6 @@ define linkonce_odr void @_ZN6google8protobuf5Arena3OwnIN3net18SourceAddressToke
 _ZN6google8protobuf5Arena11OwnInternalIN3net18SourceAddressTokenEEEvPT_NS0_8internal17integral_constantIbLb0EEE.exit: ; preds = %2, %3
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3net18SourceAddressToken5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
@@ -673,7 +667,7 @@ declare void @_ZN3net23CachedNetworkParameters5ClearEv(ptr noundef nonnull align
 define noundef zeroext i1 @_ZN3net18SourceAddressToken27MergePartialFromCodedStreamEPN6google8protobuf2io16CodedInputStreamE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.google::protobuf::io::LazyStringOutputStream", align 8
   %4 = alloca %"class.google::protobuf::io::CodedOutputStream", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6google8protobuf8internal26FunctionResultCallback_1_0IPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3net18SourceAddressTokenEEE, i64 16), ptr %5, align 8, !tbaa !8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -683,7 +677,7 @@ define noundef zeroext i1 @_ZN3net18SourceAddressToken27MergePartialFromCodedStr
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %0, ptr %8, align 8, !tbaa !39
   call void @_ZN6google8protobuf2io22LazyStringOutputStreamC1EPNS0_14ResultCallbackIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(25) %3, ptr noundef nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN6google8protobuf2io17CodedOutputStreamC1EPNS1_20ZeroCopyOutputStreamEb(ptr noundef nonnull align 8 dereferenceable(26) %4, ptr noundef nonnull %3, i1 noundef zeroext false)
           to label %.preheader unwind label %32
 
@@ -1000,16 +994,16 @@ _ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit: ; preds = %111, %1
 _ZN6google8protobuf8internal14WireFormatLite20ReadMessageNoVirtualIN3net23CachedNetworkParametersEEEbPNS0_2io16CodedInputStreamEPT_.exit.thread: ; preds = %118, %122, %38, %54, %77, %.noexc41, %.noexc42, %.noexc40, %.noexc29, %125, %_ZN6google8protobuf8internal14WireFormatLite20ReadMessageNoVirtualIN3net23CachedNetworkParametersEEEbPNS0_2io16CodedInputStreamEPT_.exit, %45, %_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit
   %.019 = phi i1 [ true, %_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit ], [ true, %118 ], [ true, %122 ], [ true, %38 ], [ true, %54 ], [ true, %77 ], [ false, %.noexc41 ], [ false, %.noexc42 ], [ false, %.noexc40 ], [ false, %.noexc29 ], [ false, %125 ], [ false, %_ZN6google8protobuf8internal14WireFormatLite20ReadMessageNoVirtualIN3net23CachedNetworkParametersEEEbPNS0_2io16CodedInputStreamEPT_.exit ], [ false, %45 ]
   call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %4) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN6google8protobuf2io22LazyStringOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %3) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.019
 
 126:                                              ; preds = %.body, %32
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %33, %32 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN6google8protobuf2io22LazyStringOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %3) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
 
@@ -1269,10 +1263,10 @@ define void @_ZN3net18SourceAddressToken21CheckTypeAndMergeFromERKN6google8proto
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN3net12_GLOBAL__N_113MergeFromFailEi(i32 noundef range(i32 336, 694) %0) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3net12_GLOBAL__N_113MergeFromFailEi(i32 noundef range(i32 336, 694) %0) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %3 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %2, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 63)
   %4 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.3)
           to label %5 unwind label %13
@@ -1290,14 +1284,14 @@ define internal fastcc void @_ZN3net12_GLOBAL__N_113MergeFromFailEi(i32 noundef 
           to label %11 unwind label %13
 
 11:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(56) %10)
           to label %12 unwind label %15
 
 12:                                               ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #22
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 13:                                               ; preds = %9, %7, %5, %1
@@ -1308,20 +1302,20 @@ define internal fastcc void @_ZN3net12_GLOBAL__N_113MergeFromFailEi(i32 noundef 
 15:                                               ; preds = %11
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %15, %13
   %.pn = phi { ptr, i32 } [ %16, %15 ], [ %14, %13 ]
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #22
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn
 }
 
 declare void @_ZN6google8protobuf8internal14ArenaStringPtr17AssignWithDefaultEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 declare void @_ZN3net23CachedNetworkParameters9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #2
 
@@ -1343,7 +1337,7 @@ define void @_ZN3net18SourceAddressToken8CopyFromERKS0_(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK3net18SourceAddressToken13IsInitializedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) unnamed_addr #14 align 2 {
+define noundef zeroext i1 @_ZNK3net18SourceAddressToken13IsInitializedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8, !tbaa !26
   %4 = and i32 %3, 3
@@ -1352,7 +1346,7 @@ define noundef zeroext i1 @_ZNK3net18SourceAddressToken13IsInitializedEv(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3net18SourceAddressToken4SwapEPS0_(ptr noundef nonnull align 8 captures(address) dereferenceable(56) %0, ptr noundef captures(address) %1) local_unnamed_addr #15 align 2 {
+define void @_ZN3net18SourceAddressToken4SwapEPS0_(ptr noundef nonnull align 8 captures(address) dereferenceable(56) %0, ptr noundef captures(address) %1) local_unnamed_addr #14 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %29, label %4
 
@@ -1400,7 +1394,7 @@ define void @_ZN3net18SourceAddressToken4SwapEPS0_(ptr noundef nonnull align 8 c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3net18SourceAddressToken12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, ptr noundef captures(none) %1) local_unnamed_addr #16 align 2 {
+define void @_ZN3net18SourceAddressToken12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %3, align 8, !tbaa !23
@@ -1446,7 +1440,7 @@ define void @_ZNK3net18SourceAddressToken11GetTypeNameB5cxx11Ev(ptr dead_on_unwi
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %0, align 8, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 22, ptr %2, align 8, !tbaa !48
   %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
   store ptr %4, ptr %0, align 8, !tbaa !32
@@ -1458,7 +1452,7 @@ define void @_ZNK3net18SourceAddressToken11GetTypeNameB5cxx11Ev(ptr dead_on_unwi
   %7 = load ptr, ptr %0, align 8, !tbaa !32
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 %5
   store i8 0, ptr %8, align 1, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -1813,7 +1807,7 @@ define noundef nonnull ptr @_ZNK3net19SourceAddressTokens3NewEPN6google8protobuf
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr void @_ZN6google8protobuf5Arena3OwnIN3net19SourceAddressTokensEEEvPT_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %1) local_unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZN6google8protobuf5Arena3OwnIN3net19SourceAddressTokensEEEvPT_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %1) local_unnamed_addr #11 comdat align 2 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %_ZN6google8protobuf5Arena11OwnInternalIN3net19SourceAddressTokensEEEvPT_NS0_8internal17integral_constantIbLb0EEE.exit, label %3
 
@@ -1879,7 +1873,7 @@ _ZN6google8protobuf8internal14ArenaStringPtr19ClearToEmptyNoArenaEPKNSt7__cxx111
 define noundef zeroext i1 @_ZN3net19SourceAddressTokens27MergePartialFromCodedStreamEPN6google8protobuf2io16CodedInputStreamE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.google::protobuf::io::LazyStringOutputStream", align 8
   %4 = alloca %"class.google::protobuf::io::CodedOutputStream", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6google8protobuf8internal26FunctionResultCallback_1_0IPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3net19SourceAddressTokensEEE, i64 16), ptr %5, align 8, !tbaa !8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1889,7 +1883,7 @@ define noundef zeroext i1 @_ZN3net19SourceAddressTokens27MergePartialFromCodedSt
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %0, ptr %8, align 8, !tbaa !78
   call void @_ZN6google8protobuf2io22LazyStringOutputStreamC1EPNS0_14ResultCallbackIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(25) %3, ptr noundef nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN6google8protobuf2io17CodedOutputStreamC1EPNS1_20ZeroCopyOutputStreamEb(ptr noundef nonnull align 8 dereferenceable(26) %4, ptr noundef nonnull %3, i1 noundef zeroext false)
           to label %.preheader49 unwind label %34
 
@@ -2115,16 +2109,16 @@ _ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit: ; preds = %85, %87
 _ZN6google8protobuf8internal14WireFormatLite36ReadMessageNoVirtualNoRecursionDepthIN3net18SourceAddressTokenEEEbPNS0_2io16CodedInputStreamEPT_.exit.thread: ; preds = %92, %98, %37, %.noexc34, %_ZN6google8protobuf8internal14WireFormatLite36ReadMessageNoVirtualNoRecursionDepthIN3net18SourceAddressTokenEEEbPNS0_2io16CodedInputStreamEPT_.exit, %_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit
   %.017 = phi i1 [ true, %_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit ], [ false, %_ZN6google8protobuf8internal14WireFormatLite36ReadMessageNoVirtualNoRecursionDepthIN3net18SourceAddressTokenEEEbPNS0_2io16CodedInputStreamEPT_.exit ], [ false, %.noexc34 ], [ true, %92 ], [ false, %98 ], [ false, %37 ]
   call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %4) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN6google8protobuf2io22LazyStringOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %3) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.017
 
 99:                                               ; preds = %36, %34
   %.pn = phi { ptr, i32 } [ %lpad.phi, %36 ], [ %35, %34 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN6google8protobuf2io22LazyStringOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %3) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
 
@@ -2273,7 +2267,7 @@ _ZN6google8protobuf8internal17AllAreInitializedINS0_16RepeatedPtrFieldIN3net18So
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3net19SourceAddressTokens4SwapEPS0_(ptr noundef nonnull align 8 captures(address) dereferenceable(56) %0, ptr noundef captures(address) %1) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3net19SourceAddressTokens4SwapEPS0_(ptr noundef nonnull align 8 captures(address) dereferenceable(56) %0, ptr noundef captures(address) %1) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %28, label %_ZN3net19SourceAddressTokens12InternalSwapEPS0_.exit
 
@@ -2321,7 +2315,7 @@ _ZN3net19SourceAddressTokens12InternalSwapEPS0_.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3net19SourceAddressTokens12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(address) dereferenceable(56) %0, ptr noundef captures(address) %1) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3net19SourceAddressTokens12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(address) dereferenceable(56) %0, ptr noundef captures(address) %1) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %_ZN6google8protobuf16RepeatedPtrFieldIN3net18SourceAddressTokenEE15UnsafeArenaSwapEPS4_.exit, label %4
 
@@ -2374,7 +2368,7 @@ define void @_ZNK3net19SourceAddressTokens11GetTypeNameB5cxx11Ev(ptr dead_on_unw
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %0, align 8, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 23, ptr %2, align 8, !tbaa !48
   %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
   store ptr %4, ptr %0, align 8, !tbaa !32
@@ -2386,12 +2380,12 @@ define void @_ZNK3net19SourceAddressTokens11GetTypeNameB5cxx11Ev(ptr dead_on_unw
   %7 = load ptr, ptr %0, align 8, !tbaa !32
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 %5
   store i8 0, ptr %8, align 1, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNK3net18SourceAddressToken3NewEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #17 comdat align 2 {
+define linkonce_odr noundef ptr @_ZNK3net18SourceAddressToken3NewEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #16 comdat align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -2425,7 +2419,7 @@ define linkonce_odr noundef i32 @_ZNK3net18SourceAddressToken13GetCachedSizeEv(p
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNK3net19SourceAddressTokens3NewEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #17 comdat align 2 {
+define linkonce_odr noundef ptr @_ZNK3net19SourceAddressTokens3NewEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #16 comdat align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -2466,7 +2460,7 @@ declare void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull a
 declare void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18GenericTypeHandlerIN3net18SourceAddressTokenEE16NewFromPrototypeEPKS4_PNS0_5ArenaE(ptr noundef %0, ptr noundef %1) local_unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18GenericTypeHandlerIN3net18SourceAddressTokenEE16NewFromPrototypeEPKS4_PNS0_5ArenaE(ptr noundef %0, ptr noundef %1) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %8
 
@@ -2507,7 +2501,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal21arena_destruct_objectIN3
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #18
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #17
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
 
@@ -2567,7 +2561,7 @@ declare noundef i64 @_ZN6google8protobuf2io16CodedInputStream20ReadVarint32Fallb
 declare noundef i32 @_ZNK3net23CachedNetworkParameters8ByteSizeEv(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define linkonce_odr void @_ZN6google8protobuf8internal18GenericTypeHandlerIN3net18SourceAddressTokenEE6DeleteEPS4_PNS0_5ArenaE(ptr noundef %0, ptr noundef %1) local_unnamed_addr #19 comdat align 2 {
+define linkonce_odr void @_ZN6google8protobuf8internal18GenericTypeHandlerIN3net18SourceAddressTokenEE6DeleteEPS4_PNS0_5ArenaE(ptr noundef %0, ptr noundef %1) local_unnamed_addr #18 comdat align 2 {
   %3 = icmp ne ptr %1, null
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
@@ -2644,16 +2638,22 @@ declare noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream37CheckEntir
 declare noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr void @_ZN6google8protobuf8internal18GenericTypeHandlerIN3net18SourceAddressTokenEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) local_unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZN6google8protobuf8internal18GenericTypeHandlerIN3net18SourceAddressTokenEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) local_unnamed_addr #11 comdat align 2 {
   tail call void @_ZN3net18SourceAddressToken9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %0)
   ret void
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_source_address_token.pb.cc() #20 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_source_address_token.pb.cc() #19 section ".text.startup" {
   tail call void @_ZN3net49protobuf_AddDesc_source_5faddress_5ftoken_2eprotoEv()
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #21
@@ -2669,16 +2669,16 @@ attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #8 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { cold nofree noreturn }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #22 = { nounwind }
 attributes #23 = { builtin allocsize(0) }

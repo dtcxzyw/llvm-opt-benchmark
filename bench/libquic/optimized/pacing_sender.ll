@@ -109,7 +109,7 @@ define noundef zeroext i1 @_ZN3net12PacingSender12OnPacketSentENS_8QuicTimeEmmmN
   br label %74
 
 37:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %38 = add i64 %4, %2
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = tail call noundef zeroext i1 @_ZNK3net13QuicBandwidth6IsZeroEv(ptr noundef nonnull align 8 dereferenceable(8) %39)
@@ -117,7 +117,7 @@ define noundef zeroext i1 @_ZN3net12PacingSender12OnPacketSentENS_8QuicTimeEmmmN
 
 41:                                               ; preds = %37
   %42 = tail call noundef i64 @_ZNK3net13QuicBandwidth15ToBitsPerSecondEv(ptr noundef nonnull align 8 dereferenceable(8) %39)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %43 = load ptr, ptr %0, align 8, !tbaa !3
   %44 = load ptr, ptr %43, align 8, !tbaa !17
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 72
@@ -127,7 +127,7 @@ define noundef zeroext i1 @_ZN3net12PacingSender12OnPacketSentENS_8QuicTimeEmmmN
   %48 = call noundef i64 @_ZNK3net13QuicBandwidth15ToBitsPerSecondEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %.sroa.speculated.i = call i64 @llvm.smin.i64(i64 %48, i64 %42)
   %49 = call i64 @_ZN3net13QuicBandwidth17FromBitsPerSecondEl(i64 noundef %.sroa.speculated.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK3net12PacingSender10PacingRateEm.exit
 
 50:                                               ; preds = %37
@@ -143,7 +143,7 @@ _ZNK3net12PacingSender10PacingRateEm.exit:        ; preds = %41, %50
   store i64 %.sroa.0.0.i, ptr %8, align 8
   %56 = call { i64, i64 } @_ZNK3net13QuicBandwidth12TransferTimeEm(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %4)
   %57 = extractvalue { i64, i64 } %56, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %59 = load i8, ptr %58, align 8, !tbaa !19, !range !20, !noundef !21
   %60 = trunc nuw i8 %59 to i1
@@ -183,12 +183,6 @@ _ZNK3net12PacingSender10PacingRateEm.exit:        ; preds = %41, %50
   ret i1 %13
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: mustprogress uwtable
 define i64 @_ZNK3net12PacingSender10PacingRateEm(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.net::QuicBandwidth", align 8
@@ -198,7 +192,7 @@ define i64 @_ZNK3net12PacingSender10PacingRateEm(ptr noundef nonnull align 8 der
 
 6:                                                ; preds = %2
   %7 = tail call noundef i64 @_ZNK3net13QuicBandwidth15ToBitsPerSecondEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = load ptr, ptr %0, align 8, !tbaa !3
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 72
@@ -208,7 +202,7 @@ define i64 @_ZNK3net12PacingSender10PacingRateEm(ptr noundef nonnull align 8 der
   %13 = call noundef i64 @_ZNK3net13QuicBandwidth15ToBitsPerSecondEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %.sroa.speculated = call i64 @llvm.smin.i64(i64 %13, i64 %7)
   %14 = call i64 @_ZN3net13QuicBandwidth17FromBitsPerSecondEl(i64 noundef %.sroa.speculated)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %21
 
 15:                                               ; preds = %2
@@ -268,6 +262,12 @@ declare i64 @_ZN3net13QuicBandwidth17FromBitsPerSecondEl(i64 noundef) local_unna
 
 declare noundef i64 @_ZNK3net13QuicBandwidth15ToBitsPerSecondEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
@@ -287,7 +287,6 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

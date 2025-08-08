@@ -73,7 +73,7 @@ do.body10.preheader:                              ; preds = %_ZL18performFunctio
 for.body:                                         ; preds = %for.body.lr.ph, %_ZL18performFunctionDCEPN6hermes8FunctionE.exit
   %__begin1.sroa.0.065 = phi ptr [ %__begin1.sroa.0.062, %for.body.lr.ph ], [ %__begin1.sroa.0.0, %_ZL18performFunctionDCEPN6hermes8FunctionE.exit ]
   %changed.064 = phi i1 [ false, %for.body.lr.ph ], [ %or19, %_ZL18performFunctionDCEPN6hermes8FunctionE.exit ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %PO.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %PO.i)
   call void @_ZN6hermes17PostOrderAnalysisC1EPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(32) %PO.i, ptr noundef nonnull %__begin1.sroa.0.065) #6
   %0 = load ptr, ptr %Order.i.i, align 8
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8
@@ -150,7 +150,7 @@ if.then.i.i.i.i.i:                                ; preds = %for.end25.i
   br label %_ZL18performFunctionDCEPN6hermes8FunctionE.exit
 
 _ZL18performFunctionDCEPN6hermes8FunctionE.exit:  ; preds = %for.end25.i, %if.then.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %PO.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %PO.i)
   %or19 = or i1 %changed.064, %changed.0.lcssa.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.065, i64 8
   %__begin1.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
@@ -422,10 +422,10 @@ declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

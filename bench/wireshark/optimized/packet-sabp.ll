@@ -536,14 +536,14 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_sabp(ptr noundef %
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %10 = load i32, ptr @ett_sabp, align 4
   %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10)
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %12 = load i32, ptr @hf_sabp_SABP_PDU_PDU, align 4
   %13 = load i32, ptr @ett_sabp_SABP_PDU, align 4
   %14 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %11, i32 noundef %12, i32 noundef %13, ptr noundef nonnull @SABP_PDU_choice, ptr noundef null)
   %15 = add i32 %14, 7
   %16 = ashr i32 %15, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %16
 }
 
@@ -553,9 +553,9 @@ define internal i32 @dissect_sabp_tcp(ptr noundef %0, ptr noundef %1, ptr nounde
   %6 = alloca i32, align 4
   %7 = alloca i8, align 1
   %8 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #3
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @asn1_ctx_init(ptr noundef nonnull %8, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %9 = call i32 @tvb_reported_length(ptr noundef %0)
   %10 = icmp ult i32 %9, 5
@@ -604,21 +604,21 @@ define internal i32 @dissect_sabp_tcp(ptr noundef %0, ptr noundef %1, ptr nounde
   %35 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %34, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %36 = load i32, ptr @ett_sabp, align 4
   %37 = call ptr @proto_item_add_subtree(ptr noundef %35, i32 noundef %36)
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %38 = load i32, ptr @hf_sabp_SABP_PDU_PDU, align 4
   %39 = load i32, ptr @ett_sabp_SABP_PDU, align 4
   %40 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %37, i32 noundef %38, i32 noundef %39, ptr noundef nonnull @SABP_PDU_choice, ptr noundef null)
   %41 = add i32 %40, 7
   %42 = ashr i32 %41, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %43
 
 43:                                               ; preds = %31, %25, %11
   %.022 = phi i32 [ %14, %11 ], [ %29, %25 ], [ %42, %31 ]
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %8) #3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.022
 }
 
@@ -769,10 +769,10 @@ declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_add
 define internal range(i32 -268435456, 268435456) i32 @dissect_Message_Identifier_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %7 = load i32, ptr @hf_sabp_Message_Identifier_PDU, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %8 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %7, i32 noundef 16, i32 noundef 16, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, ptr noundef nonnull %5, ptr noundef null)
   %9 = load ptr, ptr %5, align 8
@@ -784,10 +784,10 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Message_Identifier
   br label %dissect_sabp_Message_Identifier.exit
 
 dissect_sabp_Message_Identifier.exit:             ; preds = %4, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %12 = add i32 %8, 7
   %13 = ashr i32 %12, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %13
 }
 
@@ -795,10 +795,10 @@ dissect_sabp_Message_Identifier.exit:             ; preds = %4, %10
 define internal range(i32 -268435456, 268435456) i32 @dissect_New_Serial_Number_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %7 = load i32, ptr @hf_sabp_New_Serial_Number_PDU, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %8 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %7, i32 noundef 16, i32 noundef 16, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, ptr noundef nonnull %5, ptr noundef null)
   %9 = load ptr, ptr %5, align 8
@@ -815,10 +815,10 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_New_Serial_Number_
   br label %dissect_sabp_New_Serial_Number.exit
 
 dissect_sabp_New_Serial_Number.exit:              ; preds = %4, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %17 = add i32 %8, 7
   %18 = ashr i32 %17, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %18
 }
 
@@ -826,10 +826,10 @@ dissect_sabp_New_Serial_Number.exit:              ; preds = %4, %10
 define internal range(i32 -268435456, 268435456) i32 @dissect_Old_Serial_Number_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %7 = load i32, ptr @hf_sabp_Old_Serial_Number_PDU, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %8 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %7, i32 noundef 16, i32 noundef 16, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, ptr noundef nonnull %5, ptr noundef null)
   %9 = load ptr, ptr %5, align 8
@@ -846,63 +846,63 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Old_Serial_Number_
   br label %dissect_sabp_Old_Serial_Number.exit
 
 dissect_sabp_Old_Serial_Number.exit:              ; preds = %4, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %17 = add i32 %8, 7
   %18 = ashr i32 %17, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %18
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Service_Areas_List_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_Service_Areas_List_PDU, align 4
   %7 = load i32, ptr @ett_sabp_Service_Areas_List, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @Service_Areas_List_sequence_of, i32 noundef 1, i32 noundef 65535, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Category_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_Category_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 4, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Repetition_Period_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_Repetition_Period_PDU, align 4
   %7 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, i32 noundef 4096, ptr noundef null, i1 noundef zeroext false)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Number_of_Broadcasts_Requested_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_Number_of_Broadcasts_Requested_PDU, align 4
   %7 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 0, i32 noundef 65535, ptr noundef null, i1 noundef zeroext false)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
@@ -910,10 +910,10 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Number_of_Broadcas
 define internal range(i32 -268435456, 268435456) i32 @dissect_Data_Coding_Scheme_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %7 = load i32, ptr @hf_sabp_Data_Coding_Scheme_PDU, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %8 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %7, i32 noundef 8, i32 noundef 8, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, ptr noundef nonnull %5, ptr noundef null)
   %9 = load ptr, ptr %5, align 8
@@ -933,10 +933,10 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Data_Coding_Scheme
   br label %dissect_sabp_Data_Coding_Scheme.exit
 
 dissect_sabp_Data_Coding_Scheme.exit:             ; preds = %4, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %19 = add i32 %8, 7
   %20 = ashr i32 %19, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %20
 }
 
@@ -944,10 +944,10 @@ dissect_sabp_Data_Coding_Scheme.exit:             ; preds = %4, %10
 define internal range(i32 -268435456, 268435456) i32 @dissect_Broadcast_Message_Content_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %7 = load i32, ptr @hf_sabp_Broadcast_Message_Content_PDU, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %8 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %7, i32 noundef 1, i32 noundef 9968, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, ptr noundef nonnull %5, ptr noundef null)
   %9 = load ptr, ptr %5, align 8
@@ -1004,79 +1004,79 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Broadcast_Message_
   br i1 %exitcond.not.i.i, label %dissect_sabp_Broadcast_Message_Content.exit, label %19, !llvm.loop !10
 
 dissect_sabp_Broadcast_Message_Content.exit:      ; preds = %39, %4, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %43 = add i32 %8, 7
   %44 = ashr i32 %43, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %44
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Number_of_Broadcasts_Completed_List_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_Number_of_Broadcasts_Completed_List_PDU, align 4
   %7 = load i32, ptr @ett_sabp_Number_of_Broadcasts_Completed_List, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @Number_of_Broadcasts_Completed_List_sequence_of, i32 noundef 1, i32 noundef 65535, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Criticality_Diagnostics_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_Criticality_Diagnostics_PDU, align 4
   %7 = load i32, ptr @ett_sabp_Criticality_Diagnostics, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @Criticality_Diagnostics_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Failure_List_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_Failure_List_PDU, align 4
   %7 = load i32, ptr @ett_sabp_Failure_List, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @Failure_List_sequence_of, i32 noundef 1, i32 noundef 65535, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Radio_Resource_Loading_List_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_Radio_Resource_Loading_List_PDU, align 4
   %7 = load i32, ptr @ett_sabp_Radio_Resource_Loading_List, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @Radio_Resource_Loading_List_sequence_of, i32 noundef 1, i32 noundef 65535, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Recovery_Indication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_Recovery_Indication_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 2, ptr noundef null, i1 noundef zeroext false, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
@@ -1084,10 +1084,10 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Recovery_Indicatio
 define internal range(i32 -268435456, 268435456) i32 @dissect_Serial_Number_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %7 = load i32, ptr @hf_sabp_Serial_Number_PDU, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %8 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %7, i32 noundef 16, i32 noundef 16, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, ptr noundef nonnull %5, ptr noundef null)
   %9 = load ptr, ptr %5, align 8
@@ -1104,362 +1104,359 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Serial_Number_PDU(
   br label %dissect_sabp_Serial_Number.exit
 
 dissect_sabp_Serial_Number.exit:                  ; preds = %4, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %17 = add i32 %8, 7
   %18 = ashr i32 %17, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %18
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Cause_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_Cause_PDU, align 4
   %7 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 0, i32 noundef 255, ptr noundef null, i1 noundef zeroext false)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MessageStructure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_MessageStructure_PDU, align 4
   %7 = load i32, ptr @ett_sabp_MessageStructure, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @MessageStructure_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_TypeOfError_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_TypeOfError_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 2, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Paging_ETWS_Indicator_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_Paging_ETWS_Indicator_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Warning_Type_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_Warning_Type_PDU, align 4
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_WarningSecurityInfo_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_WarningSecurityInfo_PDU, align 4
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 50, i32 noundef 50, i1 noundef zeroext false, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Broadcast_Message_Content_Validity_Indicator_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_Broadcast_Message_Content_Validity_Indicator_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Write_Replace_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_Write_Replace_PDU, align 4
   %7 = load i32, ptr @ett_sabp_Write_Replace, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @Write_Replace_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Write_Replace_Complete_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_Write_Replace_Complete_PDU, align 4
   %7 = load i32, ptr @ett_sabp_Write_Replace_Complete, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @Write_Replace_Complete_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Write_Replace_Failure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_Write_Replace_Failure_PDU, align 4
   %7 = load i32, ptr @ett_sabp_Write_Replace_Failure, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @Write_Replace_Failure_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Kill_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_Kill_PDU, align 4
   %7 = load i32, ptr @ett_sabp_Kill, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @Kill_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Kill_Complete_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_Kill_Complete_PDU, align 4
   %7 = load i32, ptr @ett_sabp_Kill_Complete, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @Kill_Complete_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Kill_Failure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_Kill_Failure_PDU, align 4
   %7 = load i32, ptr @ett_sabp_Kill_Failure, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @Kill_Failure_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Load_Query_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_Load_Query_PDU, align 4
   %7 = load i32, ptr @ett_sabp_Load_Query, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @Load_Query_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Load_Query_Complete_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_Load_Query_Complete_PDU, align 4
   %7 = load i32, ptr @ett_sabp_Load_Query_Complete, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @Load_Query_Complete_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Load_Query_Failure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_Load_Query_Failure_PDU, align 4
   %7 = load i32, ptr @ett_sabp_Load_Query_Failure, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @Load_Query_Failure_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Message_Status_Query_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_Message_Status_Query_PDU, align 4
   %7 = load i32, ptr @ett_sabp_Message_Status_Query, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @Message_Status_Query_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Message_Status_Query_Complete_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_Message_Status_Query_Complete_PDU, align 4
   %7 = load i32, ptr @ett_sabp_Message_Status_Query_Complete, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @Message_Status_Query_Complete_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Message_Status_Query_Failure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_Message_Status_Query_Failure_PDU, align 4
   %7 = load i32, ptr @ett_sabp_Message_Status_Query_Failure, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @Message_Status_Query_Failure_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Reset_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_Reset_PDU, align 4
   %7 = load i32, ptr @ett_sabp_Reset, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @Reset_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Reset_Complete_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_Reset_Complete_PDU, align 4
   %7 = load i32, ptr @ett_sabp_Reset_Complete, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @Reset_Complete_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Reset_Failure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_Reset_Failure_PDU, align 4
   %7 = load i32, ptr @ett_sabp_Reset_Failure, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @Reset_Failure_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Restart_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_Restart_PDU, align 4
   %7 = load i32, ptr @ett_sabp_Restart, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @Restart_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Failure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_Failure_PDU, align 4
   %7 = load i32, ptr @ett_sabp_Failure, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @Failure_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Error_Indication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_sabp_Error_Indication_PDU, align 4
   %7 = load i32, ptr @ett_sabp_Error_Indication, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @Error_Indication_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -1469,9 +1466,6 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare void @asn1_ctx_init(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
@@ -1640,7 +1634,7 @@ define internal i32 @dissect_sabp_Service_Area_Identifier(ptr noundef %0, i32 no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_sabp_T_pLMNidentity(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 3, i32 noundef 3, i1 noundef zeroext false, ptr noundef nonnull %6)
   %8 = load ptr, ptr %6, align 8
@@ -1659,7 +1653,7 @@ define internal i32 @dissect_sabp_T_pLMNidentity(ptr noundef %0, i32 noundef %1,
   br label %18
 
 18:                                               ; preds = %5, %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
@@ -1882,10 +1876,15 @@ define internal i32 @dissect_ProtocolIEFieldValue(ptr noundef %0, ptr noundef %1
   ret i32 %11
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -2179,12 +2179,6 @@ define internal fastcc void @put_cavs_filt8_h_qpel_l(ptr noundef writeonly captu
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @put_cavs_filt8_h_hpel(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #2 {
   br label %5
@@ -2783,7 +2777,7 @@ define internal fastcc void @put_cavs_filt8_v_qpel_l(ptr noundef writeonly captu
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @put_cavs_filt8_hv_egpr(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4) unnamed_addr #2 {
   %6 = alloca [104 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = shl nsw i64 %4, 1
   %8 = sub i64 0, %7
   %9 = getelementptr inbounds i8, ptr %1, i64 %8
@@ -3064,14 +3058,14 @@ define internal fastcc void @put_cavs_filt8_hv_egpr(ptr noundef writeonly captur
   br i1 %exitcond224.not, label %245, label %98, !llvm.loop !39
 
 245:                                              ; preds = %98
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @put_cavs_filt8_hv_ff(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #2 {
   %5 = alloca [104 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %3, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   br label %7
@@ -3340,7 +3334,7 @@ define internal fastcc void @put_cavs_filt8_hv_ff(ptr noundef writeonly captures
   br i1 %exitcond41.not, label %232, label %90, !llvm.loop !41
 
 232:                                              ; preds = %90
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -3499,7 +3493,7 @@ define internal fastcc void @put_cavs_filt8_v_hpel(ptr noundef writeonly capture
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @put_cavs_filt8_hv_ii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #2 {
   %5 = alloca [104 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %3, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   br label %7
@@ -3768,14 +3762,14 @@ define internal fastcc void @put_cavs_filt8_hv_ii(ptr noundef writeonly captures
   br i1 %exitcond41.not, label %232, label %125, !llvm.loop !44
 
 232:                                              ; preds = %125
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @put_cavs_filt8_hv_jj(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #2 {
   %5 = alloca [104 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %3, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   br label %7
@@ -4009,14 +4003,14 @@ define internal fastcc void @put_cavs_filt8_hv_jj(ptr noundef writeonly captures
   br i1 %exitcond52.not, label %197, label %90, !llvm.loop !46
 
 197:                                              ; preds = %90
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @put_cavs_filt8_hv_kk(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #2 {
   %5 = alloca [104 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %3, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   br label %7
@@ -4285,7 +4279,7 @@ define internal fastcc void @put_cavs_filt8_hv_kk(ptr noundef writeonly captures
   br i1 %exitcond57.not, label %224, label %117, !llvm.loop !48
 
 224:                                              ; preds = %117
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -4480,7 +4474,7 @@ define internal fastcc void @put_cavs_filt8_v_qpel_r(ptr noundef writeonly captu
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @put_cavs_filt8_hv_qq(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #2 {
   %5 = alloca [104 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %3, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   br label %7
@@ -4749,7 +4743,7 @@ define internal fastcc void @put_cavs_filt8_hv_qq(ptr noundef writeonly captures
   br i1 %exitcond50.not, label %232, label %90, !llvm.loop !51
 
 232:                                              ; preds = %90
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -5803,7 +5797,7 @@ define internal fastcc void @avg_cavs_filt8_v_qpel_l(ptr noundef captures(none) 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @avg_cavs_filt8_hv_egpr(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4) unnamed_addr #2 {
   %6 = alloca [104 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = shl nsw i64 %4, 1
   %8 = sub i64 0, %7
   %9 = getelementptr inbounds i8, ptr %1, i64 %8
@@ -6140,14 +6134,14 @@ define internal fastcc void @avg_cavs_filt8_hv_egpr(ptr noundef captures(none) %
   br i1 %exitcond240.not, label %301, label %98, !llvm.loop !57
 
 301:                                              ; preds = %98
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @avg_cavs_filt8_hv_ff(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #2 {
   %5 = alloca [104 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %3, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   br label %7
@@ -6472,7 +6466,7 @@ define internal fastcc void @avg_cavs_filt8_hv_ff(ptr noundef captures(none) %0,
   br i1 %exitcond41.not, label %288, label %90, !llvm.loop !59
 
 288:                                              ; preds = %90
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -6687,7 +6681,7 @@ define internal fastcc void @avg_cavs_filt8_v_hpel(ptr noundef captures(none) %0
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @avg_cavs_filt8_hv_ii(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #2 {
   %5 = alloca [104 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %3, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   br label %7
@@ -7012,14 +7006,14 @@ define internal fastcc void @avg_cavs_filt8_hv_ii(ptr noundef captures(none) %0,
   br i1 %exitcond41.not, label %288, label %125, !llvm.loop !62
 
 288:                                              ; preds = %125
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @avg_cavs_filt8_hv_jj(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #2 {
   %5 = alloca [104 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %3, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   br label %7
@@ -7309,14 +7303,14 @@ define internal fastcc void @avg_cavs_filt8_hv_jj(ptr noundef captures(none) %0,
   br i1 %exitcond52.not, label %253, label %90, !llvm.loop !64
 
 253:                                              ; preds = %90
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @avg_cavs_filt8_hv_kk(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #2 {
   %5 = alloca [104 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %3, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   br label %7
@@ -7641,7 +7635,7 @@ define internal fastcc void @avg_cavs_filt8_hv_kk(ptr noundef captures(none) %0,
   br i1 %exitcond57.not, label %280, label %117, !llvm.loop !66
 
 280:                                              ; preds = %117
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -7892,7 +7886,7 @@ define internal fastcc void @avg_cavs_filt8_v_qpel_r(ptr noundef captures(none) 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @avg_cavs_filt8_hv_qq(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #2 {
   %5 = alloca [104 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.neg = mul i64 %3, -2
   %6 = getelementptr inbounds i8, ptr %1, i64 %.neg
   br label %7
@@ -8217,12 +8211,12 @@ define internal fastcc void @avg_cavs_filt8_hv_qq(ptr noundef captures(none) %0,
   br i1 %exitcond50.not, label %288, label %90, !llvm.loop !69
 
 288:                                              ; preds = %90
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @loop_filter_l1(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #4 {
+define internal fastcc void @loop_filter_l1(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 {
   %6 = sub nsw i64 0, %1
   %7 = getelementptr inbounds i8, ptr %0, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !16
@@ -8351,7 +8345,13 @@ define internal fastcc void @loop_filter_l1(ptr noundef captures(none) %0, i64 n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #5
+declare i32 @llvm.abs.i32(i32, i1 immarg) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6
@@ -8359,11 +8359,10 @@ declare i32 @llvm.smin.i32(i32, i32) #6
 attributes #0 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

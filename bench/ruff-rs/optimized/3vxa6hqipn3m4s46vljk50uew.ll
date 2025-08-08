@@ -201,7 +201,7 @@ define { i64, i64 } @_ZN16ruff_source_file10line_index9LineIndex15source_locatio
   %8 = alloca [24 x i8], align 8
   %9 = alloca [4 x i8], align 4
   %10 = alloca [4 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %1, ptr %7, align 4
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -214,7 +214,7 @@ define { i64, i64 } @_ZN16ruff_source_file10line_index9LineIndex15source_locatio
   %19 = and i64 %17, 1
   %.sink.i = sub i64 %18, %19
   %20 = call range(i64 1, 0) i64 @llvm.uadd.sat.i64(i64 %.sink.i, i64 1)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %21 = add i64 %20, -1
   %22 = load ptr, ptr %0, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
@@ -248,7 +248,6 @@ define { i64, i64 } @_ZN16ruff_source_file10line_index9LineIndex15source_locatio
   br label %_ZN16ruff_source_file10line_index9LineIndex10line_start17hed7e8a2147d8d2d5E.exit
 
 .split.i:                                         ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %6)
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr nonnull align 1 @anon.ee7a573ea18e1883b843acaae98531d4.1, i64 43, ptr nonnull align 1 %6, ptr nonnull align 8 @anon.ee7a573ea18e1883b843acaae98531d4.0, ptr nonnull align 8 @anon.ee7a573ea18e1883b843acaae98531d4.18) #11
   unreachable
 
@@ -431,7 +430,6 @@ define i32 @_ZN16ruff_source_file10line_index9LineIndex10line_start17hed7e8a2147
   br label %21
 
 .split:                                           ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %5)
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr nonnull align 1 @anon.ee7a573ea18e1883b843acaae98531d4.1, i64 43, ptr nonnull align 1 %5, ptr nonnull align 8 @anon.ee7a573ea18e1883b843acaae98531d4.0, ptr nonnull align 8 @anon.ee7a573ea18e1883b843acaae98531d4.18) #11
   unreachable
 }
@@ -476,7 +474,6 @@ define i32 @_ZN16ruff_source_file10line_index9LineIndex8line_end17h3333f336dd7ba
   br label %21
 
 .split:                                           ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %5)
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr nonnull align 1 @anon.ee7a573ea18e1883b843acaae98531d4.1, i64 43, ptr nonnull align 1 %5, ptr nonnull align 8 @anon.ee7a573ea18e1883b843acaae98531d4.0, ptr nonnull align 8 @anon.ee7a573ea18e1883b843acaae98531d4.18) #11
   unreachable
 }
@@ -523,7 +520,6 @@ define i32 @_ZN16ruff_source_file10line_index9LineIndex18line_end_exclusive17h14
   br label %23
 
 .split:                                           ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %5)
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr nonnull align 1 @anon.ee7a573ea18e1883b843acaae98531d4.1, i64 43, ptr nonnull align 1 %5, ptr nonnull align 8 @anon.ee7a573ea18e1883b843acaae98531d4.0, ptr nonnull align 8 @anon.ee7a573ea18e1883b843acaae98531d4.18) #11
   unreachable
 }
@@ -579,7 +575,6 @@ _ZN16ruff_source_file10line_index9LineIndex10line_start17hed7e8a2147d8d2d5E.exit
   br label %_ZN16ruff_source_file10line_index9LineIndex10line_start17hed7e8a2147d8d2d5E.exit10
 
 .split.i9:                                        ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %5)
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr nonnull align 1 @anon.ee7a573ea18e1883b843acaae98531d4.1, i64 43, ptr nonnull align 1 %5, ptr nonnull align 8 @anon.ee7a573ea18e1883b843acaae98531d4.0, ptr nonnull align 8 @anon.ee7a573ea18e1883b843acaae98531d4.18) #11
   unreachable
 
@@ -609,7 +604,6 @@ _ZN16ruff_source_file10line_index9LineIndex10line_start17hed7e8a2147d8d2d5E.exit
   br label %34
 
 .split:                                           ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %5)
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr nonnull align 1 @anon.ee7a573ea18e1883b843acaae98531d4.1, i64 43, ptr nonnull align 1 %5, ptr nonnull align 8 @anon.ee7a573ea18e1883b843acaae98531d4.0, ptr nonnull align 8 @anon.ee7a573ea18e1883b843acaae98531d4.18) #11
   unreachable
 }
@@ -702,7 +696,6 @@ define i32 @_ZN16ruff_source_file10line_index9LineIndex6offset17h55759554f3d0e49
   br label %.loopexit
 
 .split:                                           ; preds = %36
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %7)
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr nonnull align 1 @anon.ee7a573ea18e1883b843acaae98531d4.1, i64 43, ptr nonnull align 1 %7, ptr nonnull align 8 @anon.ee7a573ea18e1883b843acaae98531d4.0, ptr nonnull align 8 @anon.ee7a573ea18e1883b843acaae98531d4.23) #11
   unreachable
 
@@ -751,7 +744,6 @@ define i32 @_ZN16ruff_source_file10line_index9LineIndex6offset17h55759554f3d0e49
   br label %.loopexit
 
 .split23:                                         ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %7)
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr nonnull align 1 @anon.ee7a573ea18e1883b843acaae98531d4.1, i64 43, ptr nonnull align 1 %7, ptr nonnull align 8 @anon.ee7a573ea18e1883b843acaae98531d4.0, ptr nonnull align 8 @anon.ee7a573ea18e1883b843acaae98531d4.24) #11
   unreachable
 
@@ -765,7 +757,6 @@ define i32 @_ZN16ruff_source_file10line_index9LineIndex6offset17h55759554f3d0e49
   br label %70
 
 .split28:                                         ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %7)
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr nonnull align 1 @anon.ee7a573ea18e1883b843acaae98531d4.1, i64 43, ptr nonnull align 1 %7, ptr nonnull align 8 @anon.ee7a573ea18e1883b843acaae98531d4.0, ptr nonnull align 8 @anon.ee7a573ea18e1883b843acaae98531d4.18) #11
   unreachable
 }
@@ -1004,10 +995,10 @@ declare hidden zeroext i1 @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20
 declare void @"_ZN87_$LT$core..num..nonzero..NonZero$LT$usize$GT$$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h8f68bf7fedd5f9c6E"(ptr sret([16 x i8]) align 8, ptr align 1, i64) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

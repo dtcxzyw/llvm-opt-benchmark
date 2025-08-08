@@ -160,14 +160,11 @@ _glfwTerminateOSMesa.exit:                        ; preds = %33, %31, %.thread, 
   ret i32 %.013
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @_glfwPlatformLoadModule(ptr noundef) local_unnamed_addr #1
 
-declare ptr @_glfwPlatformLoadModule(ptr noundef) local_unnamed_addr #2
+declare void @_glfwInputError(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @_glfwInputError(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare ptr @_glfwPlatformGetModuleSymbol(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_glfwPlatformGetModuleSymbol(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @_glfwTerminateOSMesa() local_unnamed_addr #0 {
@@ -184,10 +181,7 @@ define hidden void @_glfwTerminateOSMesa() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @_glfwPlatformFreeModule(ptr noundef) local_unnamed_addr #2
+declare void @_glfwPlatformFreeModule(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @_glfwCreateContextOSMesa(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
@@ -229,7 +223,7 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextOSMesa(ptr noundef writeonl
   br i1 %.not57, label %72, label %27
 
 27:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 34, ptr %4, align 16, !tbaa !141
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 6408, ptr %28, align 4, !tbaa !141
@@ -315,12 +309,12 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextOSMesa(ptr noundef writeonl
   %69 = call ptr %26(ptr noundef nonnull %4, ptr noundef %.054) #4
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 680
   store ptr %69, ptr %70, align 8, !tbaa !107
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %84
 
 71:                                               ; preds = %61
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65543, ptr noundef nonnull @.str.12) #4
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %95
 
 72:                                               ; preds = %25
@@ -381,8 +375,8 @@ define internal void @makeContextCurrentOSMesa(ptr noundef %0) #0 {
   br i1 %.not, label %37, label %4
 
 4:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 352), align 8, !tbaa !154
   call void %5(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3) #4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 680
@@ -433,14 +427,14 @@ define internal void @makeContextCurrentOSMesa(ptr noundef %0) #0 {
   br i1 %.not15, label %36, label %.thread
 
 .thread:                                          ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %37
 
 36:                                               ; preds = %29
   call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65544, ptr noundef nonnull @.str.17) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %38
 
 37:                                               ; preds = %.thread, %1
@@ -452,17 +446,17 @@ define internal void @makeContextCurrentOSMesa(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @swapBuffersOSMesa(ptr readnone captures(none) %0) #3 {
+define internal void @swapBuffersOSMesa(ptr readnone captures(none) %0) #2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @swapIntervalOSMesa(i32 %0) #3 {
+define internal void @swapIntervalOSMesa(i32 %0) #2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @extensionSupportedOSMesa(ptr readnone captures(none) %0) #3 {
+define internal noundef i32 @extensionSupportedOSMesa(ptr readnone captures(none) %0) #2 {
   ret i32 0
 }
 
@@ -510,10 +504,10 @@ define range(i32 0, 2) i32 @glfwGetOSMesaColorBuffer(ptr noundef readonly captur
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @_glfw, align 8, !tbaa !158
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %12
@@ -582,10 +576,10 @@ define range(i32 0, 2) i32 @glfwGetOSMesaColorBuffer(ptr noundef readonly captur
 
 34:                                               ; preds = %31, %32, %21, %15, %11
   %.0 = phi i32 [ 0, %15 ], [ 0, %21 ], [ 0, %11 ], [ 1, %32 ], [ 1, %31 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -595,10 +589,10 @@ define range(i32 0, 2) i32 @glfwGetOSMesaDepthBuffer(ptr noundef readonly captur
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @_glfw, align 8, !tbaa !158
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %12
@@ -667,10 +661,10 @@ define range(i32 0, 2) i32 @glfwGetOSMesaDepthBuffer(ptr noundef readonly captur
 
 34:                                               ; preds = %31, %32, %21, %15, %11
   %.0 = phi i32 [ 0, %15 ], [ 0, %21 ], [ 0, %11 ], [ 1, %32 ], [ 1, %31 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -704,16 +698,22 @@ define ptr @glfwGetOSMesaContext(ptr noundef readonly captures(none) %0) local_u
   ret ptr %.0
 }
 
-declare void @_glfw_free(ptr noundef) local_unnamed_addr #2
+declare void @_glfw_free(ptr noundef) local_unnamed_addr #1
 
-declare ptr @_glfw_calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @_glfw_calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @_glfwPlatformSetTls(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @_glfwPlatformSetTls(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

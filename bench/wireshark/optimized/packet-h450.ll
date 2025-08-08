@@ -1523,19 +1523,16 @@ define hidden void @proto_register_h450() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_H4501SupplementaryService_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_h450_H4501SupplementaryService_PDU, align 4
   %7 = load i32, ptr @proto_h450, align 4
@@ -1561,24 +1558,24 @@ dissect_h450_H4501SupplementaryService.exit:      ; preds = %4, %9, %12
   %17 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %16, ptr noundef nonnull @h450_H4501SupplementaryService_sequence)
   %18 = add i32 %17, 7
   %19 = ashr i32 %18, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %19
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @rose_ctx_init(ptr noundef) local_unnamed_addr #2
+declare void @rose_ctx_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_h450_arg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -1591,7 +1588,7 @@ define internal i32 @dissect_h450_arg(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.821, ptr noundef nonnull @.str.822, i32 noundef 4672, ptr noundef nonnull @.str.823) #5
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.821, ptr noundef nonnull @.str.822, i32 noundef 4672, ptr noundef nonnull @.str.823) #4
   unreachable
 
 9:                                                ; preds = %6
@@ -1709,7 +1706,7 @@ define internal i32 @dissect_h450_res(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.821, ptr noundef nonnull @.str.822, i32 noundef 4717, ptr noundef nonnull @.str.823) #5
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.821, ptr noundef nonnull @.str.822, i32 noundef 4717, ptr noundef nonnull @.str.823) #4
   unreachable
 
 9:                                                ; preds = %6
@@ -1827,7 +1824,7 @@ define internal i32 @dissect_h450_err(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.821, ptr noundef nonnull @.str.822, i32 noundef 4762, ptr noundef nonnull @.str.823) #5
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.821, ptr noundef nonnull @.str.822, i32 noundef 4762, ptr noundef nonnull @.str.823) #4
   unreachable
 
 9:                                                ; preds = %6
@@ -1935,10 +1932,7 @@ get_err.exit.thread:                              ; preds = %18, %52, %57, %54, 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_h450() local_unnamed_addr #0 {
@@ -1971,16 +1965,16 @@ define hidden void @proto_reg_handoff_h450() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @asn1_ctx_init(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare void @asn1_ctx_init(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_per_sequence(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_per_sequence(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_h450_NetworkFacilityExtension(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -2017,7 +2011,7 @@ define internal i32 @dissect_h450_AddressInformation(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_per_choice(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_per_choice(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_h450_NULL(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -2026,10 +2020,10 @@ define internal i32 @dissect_h450_NULL(ptr noundef %0, i32 noundef %1, ptr nound
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_per_null(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @dissect_per_null(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_h225_AliasAddress(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare i32 @dissect_h225_AliasAddress(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_h450_T_rosApdus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -2039,7 +2033,7 @@ define internal i32 @dissect_h450_T_rosApdus(ptr noundef %0, i32 noundef %1, ptr
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_per_constrained_sequence_of(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @dissect_per_constrained_sequence_of(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_h450_T_rosApdus_item(ptr noundef %0, i32 noundef %1, ptr noundef initializes((200, 208)) %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -2051,1124 +2045,1124 @@ define internal i32 @dissect_h450_T_rosApdus_item(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_h450_ros_ROS(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @dissect_h450_ros_ROS(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_rose_ctx(ptr noundef) local_unnamed_addr #2
+declare ptr @get_rose_ctx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #3
+declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_get_parent_nth(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_item_get_parent_nth(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_get_parent(ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_get_parent(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_2_DummyArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_2_h450_2_DummyArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_2_DummyArg, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_2_DummyArg_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_2_CTIdentifyRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_2_h450_2_CTIdentifyRes_PDU, align 4
   %7 = load i32, ptr @ett_h450_2_CTIdentifyRes, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_2_CTIdentifyRes_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_2_CTInitiateArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_2_h450_2_CTInitiateArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_2_CTInitiateArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_2_CTInitiateArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_2_DummyRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_2_h450_2_DummyRes_PDU, align 4
   %7 = load i32, ptr @ett_h450_2_DummyRes, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_2_DummyRes_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_2_CTSetupArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_2_h450_2_CTSetupArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_2_CTSetupArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_2_CTSetupArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_2_CTUpdateArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_2_h450_2_CTUpdateArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_2_CTUpdateArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_2_CTUpdateArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_2_SubaddressTransferArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_2_h450_2_SubaddressTransferArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_2_SubaddressTransferArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_2_SubaddressTransferArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_2_CTCompleteArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_2_h450_2_CTCompleteArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_2_CTCompleteArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_2_CTCompleteArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_2_CTActiveArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_2_h450_2_CTActiveArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_2_CTActiveArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_2_CTActiveArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_3_ARG_activateDiversionQ_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_3_h450_3_ARG_activateDiversionQ_PDU, align 4
   %7 = load i32, ptr @ett_h450_3_ARG_activateDiversionQ, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_3_ARG_activateDiversionQ_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_3_RES_activateDiversionQ_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_3_h450_3_RES_activateDiversionQ_PDU, align 4
   %7 = load i32, ptr @ett_h450_3_RES_activateDiversionQ, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_3_RES_activateDiversionQ_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_3_ARG_deactivateDiversionQ_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_3_h450_3_ARG_deactivateDiversionQ_PDU, align 4
   %7 = load i32, ptr @ett_h450_3_ARG_deactivateDiversionQ, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_3_ARG_deactivateDiversionQ_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_3_RES_deactivateDiversionQ_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_3_h450_3_RES_deactivateDiversionQ_PDU, align 4
   %7 = load i32, ptr @ett_h450_3_RES_deactivateDiversionQ, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_3_RES_deactivateDiversionQ_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_3_ARG_interrogateDiversionQ_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_3_h450_3_ARG_interrogateDiversionQ_PDU, align 4
   %7 = load i32, ptr @ett_h450_3_ARG_interrogateDiversionQ, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_3_ARG_interrogateDiversionQ_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_3_IntResultList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_3_h450_3_IntResultList_PDU, align 4
   %7 = load i32, ptr @ett_h450_3_IntResultList, align 4
   %8 = call i32 @dissect_per_constrained_set_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_3_IntResultList_set_of, i32 noundef 0, i32 noundef 29, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_3_ARG_checkRestriction_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_3_h450_3_ARG_checkRestriction_PDU, align 4
   %7 = load i32, ptr @ett_h450_3_ARG_checkRestriction, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_3_ARG_checkRestriction_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_3_RES_checkRestriction_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_3_h450_3_RES_checkRestriction_PDU, align 4
   %7 = load i32, ptr @ett_h450_3_RES_checkRestriction, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_3_RES_checkRestriction_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_3_ARG_callRerouting_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_3_h450_3_ARG_callRerouting_PDU, align 4
   %7 = load i32, ptr @ett_h450_3_ARG_callRerouting, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_3_ARG_callRerouting_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_3_RES_callRerouting_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_3_h450_3_RES_callRerouting_PDU, align 4
   %7 = load i32, ptr @ett_h450_3_RES_callRerouting, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_3_RES_callRerouting_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_3_ARG_divertingLegInformation1_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_3_h450_3_ARG_divertingLegInformation1_PDU, align 4
   %7 = load i32, ptr @ett_h450_3_ARG_divertingLegInformation1, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_3_ARG_divertingLegInformation1_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_3_ARG_divertingLegInformation2_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_3_h450_3_ARG_divertingLegInformation2_PDU, align 4
   %7 = load i32, ptr @ett_h450_3_ARG_divertingLegInformation2, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_3_ARG_divertingLegInformation2_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_3_ARG_divertingLegInformation3_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_3_h450_3_ARG_divertingLegInformation3_PDU, align 4
   %7 = load i32, ptr @ett_h450_3_ARG_divertingLegInformation3, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_3_ARG_divertingLegInformation3_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_3_ARG_divertingLegInformation4_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_3_h450_3_ARG_divertingLegInformation4_PDU, align 4
   %7 = load i32, ptr @ett_h450_3_ARG_divertingLegInformation4, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_3_ARG_divertingLegInformation4_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_3_ARG_cfnrDivertedLegFailed_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_3_h450_3_ARG_cfnrDivertedLegFailed_PDU, align 4
   %7 = load i32, ptr @ett_h450_3_ARG_cfnrDivertedLegFailed, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_3_ARG_cfnrDivertedLegFailed_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_4_HoldNotificArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_4_h450_4_HoldNotificArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_4_HoldNotificArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_4_HoldNotificArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_4_RetrieveNotificArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_4_h450_4_RetrieveNotificArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_4_RetrieveNotificArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_4_RetrieveNotificArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_4_RemoteHoldArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_4_h450_4_RemoteHoldArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_4_RemoteHoldArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_4_RemoteHoldArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_4_RemoteHoldRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_4_h450_4_RemoteHoldRes_PDU, align 4
   %7 = load i32, ptr @ett_h450_4_RemoteHoldRes, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_4_RemoteHoldRes_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_4_RemoteRetrieveArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_4_h450_4_RemoteRetrieveArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_4_RemoteRetrieveArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_4_RemoteRetrieveArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_4_RemoteRetrieveRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_4_h450_4_RemoteRetrieveRes_PDU, align 4
   %7 = load i32, ptr @ett_h450_4_RemoteRetrieveRes, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_4_RemoteRetrieveRes_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_5_CpRequestArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_5_h450_5_CpRequestArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_5_CpRequestArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_5_CpRequestArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_5_CpRequestRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_5_h450_5_CpRequestRes_PDU, align 4
   %7 = load i32, ptr @ett_h450_5_CpRequestRes, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_5_CpRequestRes_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_5_CpSetupArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_5_h450_5_CpSetupArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_5_CpSetupArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_5_CpSetupArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_5_CpSetupRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_5_h450_5_CpSetupRes_PDU, align 4
   %7 = load i32, ptr @ett_h450_5_CpSetupRes, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_5_CpSetupRes_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_5_GroupIndicationOnArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_5_h450_5_GroupIndicationOnArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_5_GroupIndicationOnArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_5_GroupIndicationOnArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_5_GroupIndicationOnRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_5_h450_5_GroupIndicationOnRes_PDU, align 4
   %7 = load i32, ptr @ett_h450_5_GroupIndicationOnRes, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_5_GroupIndicationOnRes_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_5_GroupIndicationOffArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_5_h450_5_GroupIndicationOffArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_5_GroupIndicationOffArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_5_GroupIndicationOffArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_5_GroupIndicationOffRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_5_h450_5_GroupIndicationOffRes_PDU, align 4
   %7 = load i32, ptr @ett_h450_5_GroupIndicationOffRes, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_5_GroupIndicationOffRes_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_5_PickrequArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_5_h450_5_PickrequArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_5_PickrequArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_5_PickrequArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_5_PickrequRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_5_h450_5_PickrequRes_PDU, align 4
   %7 = load i32, ptr @ett_h450_5_PickrequRes, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_5_PickrequRes_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_5_PickupArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_5_h450_5_PickupArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_5_PickupArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_5_PickupArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_5_PickupRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_5_h450_5_PickupRes_PDU, align 4
   %7 = load i32, ptr @ett_h450_5_PickupRes, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_5_PickupRes_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_5_PickExeArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_5_h450_5_PickExeArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_5_PickExeArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_5_PickExeArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_5_PickExeRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_5_h450_5_PickExeRes_PDU, align 4
   %7 = load i32, ptr @ett_h450_5_PickExeRes, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_5_PickExeRes_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_5_CpNotifyArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_5_h450_5_CpNotifyArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_5_CpNotifyArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_5_CpNotifyArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_5_CpickupNotifyArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_5_h450_5_CpickupNotifyArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_5_CpickupNotifyArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_5_CpickupNotifyArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_6_CallWaitingArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_6_h450_6_CallWaitingArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_6_CallWaitingArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_6_CallWaitingArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_7_MWIActivateArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_7_h450_7_MWIActivateArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_7_MWIActivateArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_7_MWIActivateArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_7_DummyRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_7_h450_7_DummyRes_PDU, align 4
   %7 = load i32, ptr @ett_h450_7_DummyRes, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_7_DummyRes_sequence_of, i32 noundef 0, i32 noundef 255, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_7_MWIDeactivateArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_7_h450_7_MWIDeactivateArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_7_MWIDeactivateArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_7_MWIDeactivateArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_7_MWIInterrogateArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_7_h450_7_MWIInterrogateArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_7_MWIInterrogateArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_7_MWIInterrogateArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_7_MWIInterrogateRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_7_h450_7_MWIInterrogateRes_PDU, align 4
   %7 = load i32, ptr @ett_h450_7_MWIInterrogateRes, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_7_MWIInterrogateRes_sequence_of, i32 noundef 1, i32 noundef 64, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_8_ARG_callingName_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_8_h450_8_ARG_callingName_PDU, align 4
   %7 = load i32, ptr @ett_h450_8_ARG_callingName, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_8_ARG_callingName_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_8_ARG_alertingName_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_8_h450_8_ARG_alertingName_PDU, align 4
   %7 = load i32, ptr @ett_h450_8_ARG_alertingName, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_8_ARG_alertingName_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_8_ARG_connectedName_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_8_h450_8_ARG_connectedName_PDU, align 4
   %7 = load i32, ptr @ett_h450_8_ARG_connectedName, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_8_ARG_connectedName_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_8_ARG_busyName_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_8_h450_8_ARG_busyName_PDU, align 4
   %7 = load i32, ptr @ett_h450_8_ARG_busyName, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_8_ARG_busyName_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_9_CcRequestArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_9_h450_9_CcRequestArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_9_CcRequestArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_9_CcRequestArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_9_CcRequestRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_9_h450_9_CcRequestRes_PDU, align 4
   %7 = load i32, ptr @ett_h450_9_CcRequestRes, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_9_CcRequestRes_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_9_CcArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_9_h450_9_CcArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_9_CcArg, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_9_CcArg_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_9_CcShortArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_9_h450_9_CcShortArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_9_CcShortArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_9_CcShortArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_10_CoReqOptArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_10_h450_10_CoReqOptArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_10_CoReqOptArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_10_CoReqOptArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_10_RUAlertOptArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_10_h450_10_RUAlertOptArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_10_RUAlertOptArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_10_RUAlertOptArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_10_CfbOvrOptArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_10_h450_10_CfbOvrOptArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_10_CfbOvrOptArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_10_CfbOvrOptArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_11_CIRequestArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_11_h450_11_CIRequestArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_11_CIRequestArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_11_CIRequestArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_11_CIRequestRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_11_h450_11_CIRequestRes_PDU, align 4
   %7 = load i32, ptr @ett_h450_11_CIRequestRes, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_11_CIRequestRes_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_11_CIGetCIPLOptArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_11_h450_11_CIGetCIPLOptArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_11_CIGetCIPLOptArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_11_CIGetCIPLOptArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_11_CIGetCIPLRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_11_h450_11_CIGetCIPLRes_PDU, align 4
   %7 = load i32, ptr @ett_h450_11_CIGetCIPLRes, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_11_CIGetCIPLRes_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_11_CIIsOptArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_11_h450_11_CIIsOptArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_11_CIIsOptArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_11_CIIsOptArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_11_CIIsOptRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_11_h450_11_CIIsOptRes_PDU, align 4
   %7 = load i32, ptr @ett_h450_11_CIIsOptRes, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_11_CIIsOptRes_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_11_CIFrcRelArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_11_h450_11_CIFrcRelArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_11_CIFrcRelArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_11_CIFrcRelArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_11_CIFrcRelOptRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_11_h450_11_CIFrcRelOptRes_PDU, align 4
   %7 = load i32, ptr @ett_h450_11_CIFrcRelOptRes, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_11_CIFrcRelOptRes_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_11_CIWobOptArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_11_h450_11_CIWobOptArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_11_CIWobOptArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_11_CIWobOptArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_11_CIWobOptRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_11_h450_11_CIWobOptRes_PDU, align 4
   %7 = load i32, ptr @ett_h450_11_CIWobOptRes, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_11_CIWobOptRes_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_11_CISilentArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_11_h450_11_CISilentArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_11_CISilentArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_11_CISilentArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_11_CISilentOptRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_11_h450_11_CISilentOptRes_PDU, align 4
   %7 = load i32, ptr @ett_h450_11_CISilentOptRes, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_11_CISilentOptRes_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_11_CINotificationArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_11_h450_11_CINotificationArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_11_CINotificationArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_11_CINotificationArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_12_DummyArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_12_h450_12_DummyArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_12_DummyArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_12_DummyArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_12_CmnArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_12_h450_12_CmnArg_PDU, align 4
   %7 = load i32, ptr @ett_h450_12_CmnArg, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_12_CmnArg_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
@@ -3180,10 +3174,10 @@ define internal i32 @dissect_h450_2_ExtensionSeq(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_h225_NonStandardParameter(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare i32 @dissect_h225_NonStandardParameter(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_per_sequence_of(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_per_sequence_of(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_h450_Extension(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -3205,10 +3199,10 @@ define internal i32 @dissect_h450_T_extensionArgument(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_per_object_identifier(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_per_object_identifier(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_per_open_type(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_per_open_type(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_h450_2_CallIdentity(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -3231,7 +3225,7 @@ define internal i32 @dissect_h450_2_T_resultExtension(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_per_NumericString(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_per_NumericString(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_h450_SEQUENCE_OF_AliasAddress(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -3241,10 +3235,10 @@ define internal i32 @dissect_h450_SEQUENCE_OF_AliasAddress(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_h225_PresentationIndicator(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare i32 @dissect_h225_PresentationIndicator(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_h225_ScreeningIndicator(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare i32 @dissect_h225_ScreeningIndicator(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_h450_2_T_cTInitiateArg_argumentExtension(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -3280,10 +3274,10 @@ define internal i32 @dissect_h450_2_T_cTUpdateArg_argumentExtension(ptr noundef 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_per_BMPString(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @dissect_per_BMPString(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_per_octet_string(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_per_octet_string(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_h450_PartySubaddress(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -3325,7 +3319,7 @@ define internal i32 @dissect_h450_BOOLEAN(ptr noundef %0, i32 noundef %1, ptr no
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_per_boolean(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_per_boolean(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_h450_2_EndDesignation(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -3347,7 +3341,7 @@ define internal i32 @dissect_h450_2_T_cTCompleteArg_argumentExtension(ptr nounde
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_per_enumerated(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_per_enumerated(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_h450_2_T_cTActiveArg_argumentExtension(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -3397,7 +3391,7 @@ define internal i32 @dissect_h450_3_InterrogateDiversionQ_extension(ptr noundef 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_per_constrained_set_of(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @dissect_per_constrained_set_of(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_h450_3_IntResult(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -3458,7 +3452,7 @@ define internal i32 @dissect_h450_3_CallReroutingArg_extension(ptr noundef %0, i
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_per_constrained_integer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @dissect_per_constrained_integer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_h450_3_DivertingLegInformation1Arg_extension(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -3528,7 +3522,7 @@ define internal i32 @dissect_h450_5_ParkCondition(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_h225_CallIdentifier(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare i32 @dissect_h225_CallIdentifier(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_h450_5_CallType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -3600,7 +3594,7 @@ define internal i32 @dissect_h450_7_NumericString_SIZE_1_10(ptr noundef %0, i32 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_per_VisibleString(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_per_VisibleString(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_h450_7_BOOLEAN(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -3776,79 +3770,84 @@ define internal i32 @dissect_h450_12_SSCIProtectionLevel(ptr noundef %0, i32 nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_2_PAR_unspecified_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_2_h450_2_PAR_unspecified_PDU, align 4
   %7 = load i32, ptr @ett_h450_2_PAR_unspecified, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_2_PAR_unspecified_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_3_PAR_unspecified_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_3_h450_3_PAR_unspecified_PDU, align 4
   %7 = load i32, ptr @ett_h450_3_PAR_unspecified, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_3_PAR_unspecified_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_4_PAR_undefined_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_4_h450_4_PAR_undefined_PDU, align 4
   %7 = load i32, ptr @ett_h450_4_PAR_undefined, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_4_PAR_undefined_sequence_of, i32 noundef 0, i32 noundef 255, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_5_PAR_undefined_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_5_h450_5_PAR_undefined_PDU, align 4
   %7 = load i32, ptr @ett_h450_5_PAR_undefined, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_5_PAR_undefined_sequence_of, i32 noundef 0, i32 noundef 255, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_h450_7_PAR_undefined_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_h450_7_h450_7_PAR_undefined_PDU, align 4
   %7 = load i32, ptr @ett_h450_7_PAR_undefined, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @h450_7_PAR_undefined_sequence_of, i32 noundef 0, i32 noundef 255, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { noreturn }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

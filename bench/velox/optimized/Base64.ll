@@ -534,7 +534,7 @@ if.then.i.i.i:                                    ; preds = %for.body.i
   br label %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit.i
 
 if.else.i.i.i:                                    ; preds = %for.body.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i.i.i.i)
   %cmp37.i.i = icmp eq ptr %it.sroa.54.0740.i, %it.sroa.100.0741.i
   br i1 %cmp37.i.i, label %for.body.i.i, label %if.then8.i.i
 
@@ -625,7 +625,7 @@ _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exi
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i.i: ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit.i
   %12 = load i8, ptr %val.i.i.i.i, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i.i.i.i)
   %.pre.i = ptrtoint ptr %it.sroa.54.12.i to i64
   br label %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit.i
 
@@ -648,7 +648,7 @@ if.then.i.i40.i:                                  ; preds = %_ZN8facebook5velox8
   br label %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit48.i
 
 if.else.i.i43.i:                                  ; preds = %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.i.i.i35.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i.i.i35.i)
   %cmp37.i107.i = icmp eq ptr %it.sroa.54.2.i, %it.sroa.100.2.i
   br i1 %cmp37.i107.i, label %for.body.i154.i, label %if.then8.i114.i
 
@@ -739,7 +739,7 @@ _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exi
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i47.i: ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit196.i
   %22 = load i8, ptr %val.i.i.i35.i, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.i.i.i35.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i.i.i35.i)
   %.pre784.i = ptrtoint ptr %it.sroa.54.19.i to i64
   br label %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit48.i
 
@@ -762,7 +762,7 @@ if.then.i.i54.i:                                  ; preds = %_ZN8facebook5velox8
   br label %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i
 
 if.else.i.i57.i:                                  ; preds = %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit48.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.i.i.i49.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i.i.i49.i)
   %cmp37.i202.i = icmp eq ptr %it.sroa.54.3.i, %it.sroa.100.3.i
   br i1 %cmp37.i202.i, label %for.body.i249.i, label %if.then8.i209.i
 
@@ -853,7 +853,7 @@ _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exi
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i61.i: ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit291.i
   %32 = load i8, ptr %val.i.i.i49.i, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.i.i.i49.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i.i.i49.i)
   br label %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i
 
 _ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i: ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i61.i, %if.then.i.i54.i
@@ -916,7 +916,7 @@ if.then.i.i71.i:                                  ; preds = %if.then29.i
   br label %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit79.i
 
 if.else.i.i74.i:                                  ; preds = %if.then29.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.i.i.i66.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i.i.i66.i)
   %cmp37.i297.i = icmp eq ptr %it.sroa.54.0.lcssa792.i, %it.sroa.100.0.lcssa793.i
   br i1 %cmp37.i297.i, label %for.body.i344.i, label %if.then8.i304.i
 
@@ -1007,7 +1007,7 @@ _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exi
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i78.i: ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit386.i
   %48 = load i8, ptr %val.i.i.i66.i, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.i.i.i66.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i.i.i66.i)
   br label %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit79.i
 
 _ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit79.i: ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i78.i, %if.then.i.i71.i
@@ -1038,7 +1038,7 @@ if.then.i.i86.i:                                  ; preds = %if.then41.i
   br label %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit94.i
 
 if.else.i.i89.i:                                  ; preds = %if.then41.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.i.i.i81.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i.i.i81.i)
   %cmp37.i392.i = icmp eq ptr %it.sroa.54.5.i, %it.sroa.100.5.i
   br i1 %cmp37.i392.i, label %for.body.i439.i, label %if.then8.i399.i
 
@@ -1107,7 +1107,7 @@ if.then.i.i.i.i92.i.cont:                         ; preds = %if.then.i.i.i.i92.i
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i93.i: ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit481.i
   %58 = load i8, ptr %val.i.i.i81.i, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.i.i.i81.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i.i.i81.i)
   br label %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit94.i
 
 _ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit94.i: ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i93.i, %if.then.i.i86.i
@@ -2032,10 +2032,10 @@ entry:
 declare void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

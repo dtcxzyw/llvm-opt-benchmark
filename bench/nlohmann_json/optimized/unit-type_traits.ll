@@ -55,19 +55,13 @@ $_ZNSt17integral_constantIbLb0EE5valueE = comdat any
 
 declare noundef i32 @_ZN7doctest6detail12setTestSuiteERKNS0_9TestSuiteE(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare noundef nonnull align 8 dereferenceable(40) ptr @_ZN7doctest6detail9TestSuitemlEPKc(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare noundef i32 @_ZN7doctest6detail7regTestERKNS0_8TestCaseE(ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #0
 
@@ -133,15 +127,15 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
   %58 = alloca %"struct.doctest::detail::Result", align 8
   %59 = alloca %"struct.doctest::detail::Expression_lhs", align 8
   %60 = alloca %"struct.doctest::detail::ExpressionDecomposer", align 4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %1) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull @.str.4)
   invoke void @_ZN7doctest6detail7SubcaseC1ERKNS_6StringEPKci(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull @.str.2, i32 noundef 19)
           to label %61 unwind label %142
 
 61:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %62 = invoke noundef zeroext i1 @_ZNK7doctest6detail7SubcasecvbEv(ptr noundef nonnull align 8 dereferenceable(41) %1)
           to label %63 unwind label %144
 
@@ -149,8 +143,8 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
   br i1 %62, label %64, label %313
 
 64:                                               ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull @.str.5)
           to label %65 unwind label %146
 
@@ -160,7 +154,7 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 
 66:                                               ; preds = %65
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %67 = invoke noundef zeroext i1 @_ZNK7doctest6detail7SubcasecvbEv(ptr noundef nonnull align 8 dereferenceable(41) %3)
           to label %68 unwind label %151
 
@@ -168,9 +162,9 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
   br i1 %67, label %69, label %225
 
 69:                                               ; preds = %68
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 10)
           to label %70 unwind label %153
 
@@ -189,12 +183,12 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 74:                                               ; preds = %72
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %75) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %10, i32 noundef 10)
           to label %76 unwind label %159
 
@@ -213,12 +207,12 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 80:                                               ; preds = %78
   %81 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %81) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %13, i32 noundef 10)
           to label %82 unwind label %165
 
@@ -237,12 +231,12 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 86:                                               ; preds = %84
   %87 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %87) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %16, i32 noundef 10)
           to label %88 unwind label %171
 
@@ -261,12 +255,12 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 92:                                               ; preds = %90
   %93 = getelementptr inbounds nuw i8, ptr %14, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %93) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %19, i32 noundef 266)
           to label %94 unwind label %177
 
@@ -285,12 +279,12 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 98:                                               ; preds = %96
   %99 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %99) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %22, i32 noundef 266)
           to label %100 unwind label %183
 
@@ -309,12 +303,12 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 104:                                              ; preds = %102
   %105 = getelementptr inbounds nuw i8, ptr %20, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %105) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %25, i32 noundef 266)
           to label %106 unwind label %189
 
@@ -333,12 +327,12 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 110:                                              ; preds = %108
   %111 = getelementptr inbounds nuw i8, ptr %23, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %111) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %28, i32 noundef 266)
           to label %112 unwind label %195
 
@@ -357,12 +351,12 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 116:                                              ; preds = %114
   %117 = getelementptr inbounds nuw i8, ptr %26, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %117) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %31, i32 noundef 10)
           to label %118 unwind label %201
 
@@ -381,12 +375,12 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 122:                                              ; preds = %120
   %123 = getelementptr inbounds nuw i8, ptr %29, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %123) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %34, i32 noundef 10)
           to label %124 unwind label %207
 
@@ -405,12 +399,12 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 128:                                              ; preds = %126
   %129 = getelementptr inbounds nuw i8, ptr %32, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %129) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %37) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %37, i32 noundef 10)
           to label %130 unwind label %213
 
@@ -429,12 +423,12 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 134:                                              ; preds = %132
   %135 = getelementptr inbounds nuw i8, ptr %35, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %135) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %38) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %40) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %40, i32 noundef 10)
           to label %136 unwind label %219
 
@@ -453,16 +447,16 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 140:                                              ; preds = %138
   %141 = getelementptr inbounds nuw i8, ptr %38, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %141) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %40) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %38) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %225
 
 142:                                              ; preds = %0
   %143 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %315
 
 144:                                              ; preds = %61
@@ -483,7 +477,7 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 
 150:                                              ; preds = %148, %146
   %.pn = phi { ptr, i32 } [ %149, %148 ], [ %147, %146 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %314
 
 151:                                              ; preds = %66
@@ -505,9 +499,9 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 
 158:                                              ; preds = %155, %153
   %.pn99 = phi { ptr, i32 } [ %156, %155 ], [ %154, %153 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %267
 
 159:                                              ; preds = %76, %74
@@ -524,9 +518,9 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 
 164:                                              ; preds = %161, %159
   %.pn101 = phi { ptr, i32 } [ %162, %161 ], [ %160, %159 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %267
 
 165:                                              ; preds = %82, %80
@@ -543,9 +537,9 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 
 170:                                              ; preds = %167, %165
   %.pn103 = phi { ptr, i32 } [ %168, %167 ], [ %166, %165 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %267
 
 171:                                              ; preds = %88, %86
@@ -562,9 +556,9 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 
 176:                                              ; preds = %173, %171
   %.pn105 = phi { ptr, i32 } [ %174, %173 ], [ %172, %171 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %267
 
 177:                                              ; preds = %94, %92
@@ -581,9 +575,9 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 
 182:                                              ; preds = %179, %177
   %.pn107 = phi { ptr, i32 } [ %180, %179 ], [ %178, %177 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %267
 
 183:                                              ; preds = %100, %98
@@ -600,9 +594,9 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 
 188:                                              ; preds = %185, %183
   %.pn109 = phi { ptr, i32 } [ %186, %185 ], [ %184, %183 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %267
 
 189:                                              ; preds = %106, %104
@@ -619,9 +613,9 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 
 194:                                              ; preds = %191, %189
   %.pn111 = phi { ptr, i32 } [ %192, %191 ], [ %190, %189 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %267
 
 195:                                              ; preds = %112, %110
@@ -638,9 +632,9 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 
 200:                                              ; preds = %197, %195
   %.pn113 = phi { ptr, i32 } [ %198, %197 ], [ %196, %195 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %267
 
 201:                                              ; preds = %118, %116
@@ -657,9 +651,9 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 
 206:                                              ; preds = %203, %201
   %.pn115 = phi { ptr, i32 } [ %204, %203 ], [ %202, %201 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %267
 
 207:                                              ; preds = %124, %122
@@ -676,9 +670,9 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 
 212:                                              ; preds = %209, %207
   %.pn117 = phi { ptr, i32 } [ %210, %209 ], [ %208, %207 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %267
 
 213:                                              ; preds = %130, %128
@@ -695,9 +689,9 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 
 218:                                              ; preds = %215, %213
   %.pn119 = phi { ptr, i32 } [ %216, %215 ], [ %214, %213 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %267
 
 219:                                              ; preds = %136, %134
@@ -714,16 +708,16 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 
 224:                                              ; preds = %221, %219
   %.pn121 = phi { ptr, i32 } [ %222, %221 ], [ %220, %219 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %40) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %38) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %267
 
 225:                                              ; preds = %140, %68
   call void @_ZN7doctest6detail7SubcaseD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %41) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %42) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull @.str.18)
           to label %226 unwind label %268
 
@@ -733,7 +727,7 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 
 227:                                              ; preds = %226
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %42) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %42) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   %228 = invoke noundef zeroext i1 @_ZNK7doctest6detail7SubcasecvbEv(ptr noundef nonnull align 8 dereferenceable(41) %41)
           to label %229 unwind label %273
 
@@ -741,9 +735,9 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
   br i1 %228, label %230, label %311
 
 230:                                              ; preds = %229
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %43) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %45) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %45, i32 noundef 10)
           to label %231 unwind label %275
 
@@ -762,12 +756,12 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 235:                                              ; preds = %233
   %236 = getelementptr inbounds nuw i8, ptr %43, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %236) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %43) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %46) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %47) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %48) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %48, i32 noundef 10)
           to label %237 unwind label %281
 
@@ -786,12 +780,12 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 241:                                              ; preds = %239
   %242 = getelementptr inbounds nuw i8, ptr %46, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %242) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %48) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %46) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %49) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %51) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %51, i32 noundef 266)
           to label %243 unwind label %287
 
@@ -810,12 +804,12 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 247:                                              ; preds = %245
   %248 = getelementptr inbounds nuw i8, ptr %49, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %248) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %51) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %49) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %52) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %53) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %54) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %54, i32 noundef 266)
           to label %249 unwind label %293
 
@@ -834,12 +828,12 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 253:                                              ; preds = %251
   %254 = getelementptr inbounds nuw i8, ptr %52, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %254) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %54) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %53) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %52) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %55) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %56) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %57) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %57, i32 noundef 10)
           to label %255 unwind label %299
 
@@ -858,12 +852,12 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 259:                                              ; preds = %257
   %260 = getelementptr inbounds nuw i8, ptr %55, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %260) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %57) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %56) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %55) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %58) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %59) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %60) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %60, i32 noundef 10)
           to label %261 unwind label %305
 
@@ -882,15 +876,15 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 265:                                              ; preds = %263
   %266 = getelementptr inbounds nuw i8, ptr %58, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %266) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %60) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %59) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %58) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %311
 
 267:                                              ; preds = %224, %218, %212, %206, %200, %194, %188, %182, %176, %170, %164, %158, %151
   %.pn121.pn = phi { ptr, i32 } [ %.pn121, %224 ], [ %.pn119, %218 ], [ %.pn117, %212 ], [ %.pn115, %206 ], [ %.pn113, %200 ], [ %.pn111, %194 ], [ %.pn109, %188 ], [ %.pn107, %182 ], [ %.pn105, %176 ], [ %.pn103, %170 ], [ %.pn101, %164 ], [ %.pn99, %158 ], [ %152, %151 ]
   call void @_ZN7doctest6detail7SubcaseD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %314
 
 268:                                              ; preds = %225
@@ -906,7 +900,7 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 
 272:                                              ; preds = %270, %268
   %.pn125 = phi { ptr, i32 } [ %271, %270 ], [ %269, %268 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %42) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %314
 
 273:                                              ; preds = %227
@@ -928,9 +922,9 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 
 280:                                              ; preds = %277, %275
   %.pn127 = phi { ptr, i32 } [ %278, %277 ], [ %276, %275 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %43) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %312
 
 281:                                              ; preds = %237, %235
@@ -947,9 +941,9 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 
 286:                                              ; preds = %283, %281
   %.pn129 = phi { ptr, i32 } [ %284, %283 ], [ %282, %281 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %48) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %46) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %312
 
 287:                                              ; preds = %243, %241
@@ -966,9 +960,9 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 
 292:                                              ; preds = %289, %287
   %.pn131 = phi { ptr, i32 } [ %290, %289 ], [ %288, %287 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %51) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %49) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %312
 
 293:                                              ; preds = %249, %247
@@ -985,9 +979,9 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 
 298:                                              ; preds = %295, %293
   %.pn133 = phi { ptr, i32 } [ %296, %295 ], [ %294, %293 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %54) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %53) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %52) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %312
 
 299:                                              ; preds = %255, %253
@@ -1004,9 +998,9 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 
 304:                                              ; preds = %301, %299
   %.pn135 = phi { ptr, i32 } [ %302, %301 ], [ %300, %299 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %57) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %56) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %55) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   br label %312
 
 305:                                              ; preds = %261, %259
@@ -1023,31 +1017,31 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
 
 310:                                              ; preds = %307, %305
   %.pn137 = phi { ptr, i32 } [ %308, %307 ], [ %306, %305 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %60) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %59) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %58) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %312
 
 311:                                              ; preds = %265, %229
   call void @_ZN7doctest6detail7SubcaseD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %41) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %41) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %313
 
 312:                                              ; preds = %310, %304, %298, %292, %286, %280, %273
   %.pn137.pn = phi { ptr, i32 } [ %.pn137, %310 ], [ %.pn135, %304 ], [ %.pn133, %298 ], [ %.pn131, %292 ], [ %.pn129, %286 ], [ %.pn127, %280 ], [ %274, %273 ]
   call void @_ZN7doctest6detail7SubcaseD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %41) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %41) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %314
 
 313:                                              ; preds = %311, %63
   call void @_ZN7doctest6detail7SubcaseD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %1) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 
 314:                                              ; preds = %272, %312, %150, %267, %144
   %.pn137.pn.pn.pn = phi { ptr, i32 } [ %145, %144 ], [ %.pn121.pn, %267 ], [ %.pn, %150 ], [ %.pn137.pn, %312 ], [ %.pn125, %272 ]
   call void @_ZN7doctest6detail7SubcaseD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %1) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %315
 
 315:                                              ; preds = %314, %142
@@ -1117,7 +1111,7 @@ define linkonce_odr dso_local void @_ZN7doctest6detail14Expression_lhsIRKbEcvNS0
 
 17:                                               ; preds = %._crit_edge, %2
   %18 = phi i8 [ %.pre9, %._crit_edge ], [ %6, %2 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %19 = trunc nuw i8 %18 to i1
   call void @_ZN7doctest8toStringEb(ptr dead_on_unwind nonnull writable sret(%"class.doctest::String") align 8 %3, i1 noundef zeroext %19)
   invoke void @_ZN7doctest6detail6ResultC1EbRKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(32) %0, i1 noundef zeroext %11, ptr noundef nonnull align 8 dereferenceable(24) %3)
@@ -1125,32 +1119,32 @@ define linkonce_odr dso_local void @_ZN7doctest6detail14Expression_lhsIRKbEcvNS0
 
 20:                                               ; preds = %17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %27
 
 21:                                               ; preds = %17
   %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %28
 
 23:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN7doctest6StringC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #8
   invoke void @_ZN7doctest6detail6ResultC1EbRKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(32) %0, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %24 unwind label %25
 
 24:                                               ; preds = %23
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %27
 
 25:                                               ; preds = %23
   %26 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %28
 
 27:                                               ; preds = %24, %20
@@ -1175,16 +1169,16 @@ define internal void @_GLOBAL__sub_I_unit_type_traits.cpp() #7 section ".text.st
   %1 = alloca %"struct.doctest::detail::TestCase", align 8
   %2 = alloca %"class.doctest::String", align 8
   %3 = alloca %"struct.doctest::detail::TestSuite", align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   %4 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN7doctest6detail9TestSuitemlEPKc(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull @.str)
   %5 = call noundef i32 @_ZN7doctest6detail12setTestSuiteERKNS0_9TestSuiteE(ptr noundef nonnull align 8 dereferenceable(40) %4)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i32 0, ptr @_ZL18DOCTEST_ANON_VAR_0, align 4, !tbaa !24
   %6 = call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZL18DOCTEST_ANON_VAR_0)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %7 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN28doctest_detail_test_suite_ns19getCurrentTestSuiteEv()
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN7doctest6StringC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #8
   invoke void @_ZN7doctest6detail8TestCaseC1EPFvvEPKcjRKNS0_9TestSuiteERKNS_6StringEi(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull @_ZL19DOCTEST_ANON_FUNC_2v, ptr noundef nonnull @.str.2, i32 noundef 17, ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef -1)
           to label %8 unwind label %12
@@ -1211,8 +1205,8 @@ define internal void @_GLOBAL__sub_I_unit_type_traits.cpp() #7 section ".text.st
 16:                                               ; preds = %14, %12
   %.pn.i = phi { ptr, i32 } [ %15, %14 ], [ %13, %12 ]
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   resume { ptr, i32 } %.pn.i
 
 __cxx_global_var_init.1.exit:                     ; preds = %10
@@ -1222,16 +1216,22 @@ __cxx_global_var_init.1.exit:                     ; preds = %10
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %1) #8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   store i32 0, ptr @_ZL18DOCTEST_ANON_VAR_3, align 4, !tbaa !24
   %19 = call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZL18DOCTEST_ANON_VAR_3)
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

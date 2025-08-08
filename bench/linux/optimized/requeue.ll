@@ -43,13 +43,13 @@ define dso_local i32 @futex_requeue(ptr noundef %0, i32 noundef %1, ptr noundef 
   %13 = alloca %struct.wake_q_head, align 8
   %14 = alloca i32, align 4
   %15 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr inttoptr (i64 1 to ptr), ptr %13, align 8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %13, ptr %16, align 8
@@ -179,7 +179,7 @@ define dso_local i32 @futex_requeue(ptr noundef %0, i32 noundef %1, ptr noundef 
 .critedge.split.split.us:                         ; preds = %.critedge, %98
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %78, ptr elementtype(i32) %78) #10, !srcloc !9
   call void @_raw_spin_lock(ptr noundef nonnull %81) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %14, align 4, !annotation !11
   %88 = call i32 @futex_get_value_locked(ptr noundef nonnull %14, ptr noundef %0) #10
   %89 = icmp eq i32 %88, 0
@@ -199,7 +199,7 @@ define dso_local i32 @futex_requeue(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %97, label %98, label %.thread
 
 98:                                               ; preds = %90
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %36, label %.critedge.split.split.us, label %.split166.us, !llvm.loop !14
 
 .critedge.split.split:                            ; preds = %.critedge
@@ -208,7 +208,7 @@ define dso_local i32 @futex_requeue(ptr noundef %0, i32 noundef %1, ptr noundef 
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %78, ptr elementtype(i32) %78) #10
   call void @_raw_spin_lock(ptr noundef nonnull %81) #10
   call void @_raw_spin_lock(ptr noundef nonnull %100) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %14, align 4
   %101 = call i32 @futex_get_value_locked(ptr noundef nonnull %14, ptr noundef %0) #10
   %102 = icmp eq i32 %101, 0
@@ -232,11 +232,11 @@ define dso_local i32 @futex_requeue(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %109, label %110, label %.thread
 
 110:                                              ; preds = %.lr.ph
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %78, ptr elementtype(i32) %78) #10, !srcloc !9
   call void @_raw_spin_lock(ptr noundef nonnull %81) #10
   call void @_raw_spin_lock(ptr noundef nonnull %100) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %14, align 4, !annotation !11
   %111 = call i32 @futex_get_value_locked(ptr noundef nonnull %14, ptr noundef %0) #10
   %112 = icmp eq i32 %111, 0
@@ -261,14 +261,14 @@ define dso_local i32 @futex_requeue(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 .thread:                                          ; preds = %113, %.lr.ph, %90
   %.us-phi164 = phi i32 [ %96, %90 ], [ %108, %.lr.ph ], [ %119, %113 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.loopexit45
 
 .split.us:                                        ; preds = %.critedge.split.split.split, %110, %.critedge.split.split.us, %.critedge.split.split.split.us
   %121 = load i32, ptr %14, align 4
   %122 = load i32, ptr %6, align 4
   %123 = icmp eq i32 %121, %122
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %123, label %.loopexit.split.us, label %.thread23
 
 .thread23:                                        ; preds = %.split.us
@@ -276,7 +276,7 @@ define dso_local i32 @futex_requeue(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %.fr, label %339, label %334
 
 .split166:                                        ; preds = %113
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.split166.us
 
 .loopexit.split.us:                               ; preds = %.split.us, %.critedge.us, %85
@@ -288,16 +288,16 @@ define dso_local i32 @futex_requeue(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %20, label %129, label %.loopexit48.thread
 
 129:                                              ; preds = %.loopexit.split.us
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr null, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !annotation !11
   %130 = call i32 @futex_get_value_locked(ptr noundef nonnull %9, ptr noundef %2) #10
   %131 = icmp eq i32 %130, 0
   br i1 %131, label %132, label %.thread28
 
 .thread28:                                        ; preds = %129
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %181
 
 132:                                              ; preds = %129
@@ -357,7 +357,7 @@ define dso_local i32 @futex_requeue(ptr noundef %0, i32 noundef %1, ptr noundef 
   ]
 
 .thread29:                                        ; preds = %164
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %186
 
 166:                                              ; preds = %164
@@ -382,7 +382,7 @@ define dso_local i32 @futex_requeue(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 .thread27:                                        ; preds = %.thread24
   call fastcc void @requeue_pi_wake_futex(ptr noundef nonnull %133, ptr noundef nonnull %11, ptr noundef %125)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit48
 
 177:                                              ; preds = %.thread24
@@ -394,11 +394,11 @@ define dso_local i32 @futex_requeue(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %180
 
 .thread25:                                        ; preds = %139, %135, %156, %143, %147, %152
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
 180:                                              ; preds = %179, %177
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   switch i32 %175, label %.loopexit [
     i32 0, label %.loopexit48
     i32 1, label %.loopexit48
@@ -422,7 +422,7 @@ define dso_local i32 @futex_requeue(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %185, label %select.unfold30, label %.thread36
 
 .thread36:                                        ; preds = %183
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.loopexit45
 
 186:                                              ; preds = %.thread29, %180, %180
@@ -442,14 +442,14 @@ define dso_local i32 @futex_requeue(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %select.unfold30
 
 select.unfold30:                                  ; preds = %183, %189
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %192 = call i32 @get_futex_key(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %10, i32 noundef 0) #10
   %193 = icmp eq i32 %192, 0
   br i1 %193, label %.preheader44, label %.loopexit45, !prof !23
 
 .loopexit48:                                      ; preds = %180, %180, %.thread27
   %.ph = phi i32 [ 1, %.thread27 ], [ %175, %180 ], [ %175, %180 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %194 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %195 = load ptr, ptr %194, align 8
   %196 = icmp ne ptr %195, %194
@@ -459,8 +459,8 @@ select.unfold30:                                  ; preds = %183, %189
   br i1 %199, label %.preheader.split.us.preheader, label %.critedge21
 
 .loopexit48.thread342:                            ; preds = %132
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %200 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %201 = load ptr, ptr %200, align 8
   %202 = icmp ne ptr %201, %200
@@ -699,7 +699,7 @@ select.unfold30:                                  ; preds = %183, %189
 
 .loopexit:                                        ; preds = %180, %.thread25
   %.ph34 = phi i32 [ -22, %.thread25 ], [ %175, %180 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @_raw_spin_unlock(ptr noundef nonnull %127) #10
   br i1 %126, label %339, label %334
 
@@ -724,18 +724,15 @@ select.unfold30:                                  ; preds = %183, %189
 
 .loopexit45:                                      ; preds = %select.unfold30, %50, %.preheader44.split.us, %.split166.us, %.preheader44.split, %74, %339, %28, %.thread36, %.thread, %25, %21, %8
   %344 = phi i32 [ -22, %8 ], [ -22, %21 ], [ -12, %25 ], [ %.us-phi164, %.thread ], [ %184, %.thread36 ], [ %37, %28 ], [ %spec.select, %339 ], [ -22, %74 ], [ %63, %.preheader44.split ], [ %61, %.split166.us ], [ -22, %50 ], [ %39, %.preheader44.split.us ], [ %192, %select.unfold30 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %344
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @refill_pi_state_cache() local_unnamed_addr #0
@@ -750,13 +747,10 @@ declare dso_local ptr @futex_hash(ptr noundef) local_unnamed_addr #0
 declare dso_local i32 @futex_get_value_locked(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(read)
-declare i64 @llvm.read_register.i64(metadata) #4
+declare i64 @llvm.read_register.i64(metadata) #3
 
 ; Function Attrs: nocallback nounwind
-declare void @llvm.write_register.i64(metadata, i64) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.write_register.i64(metadata, i64) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @fault_in_user_writeable(ptr noundef) local_unnamed_addr #0
@@ -765,7 +759,7 @@ declare dso_local i32 @fault_in_user_writeable(ptr noundef) local_unnamed_addr #
 declare dso_local void @wait_for_owner_exiting(i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @requeue_futex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #6 align 16 {
+define internal fastcc void @requeue_futex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #5 align 16 {
   %5 = icmp eq ptr %1, %2
   br i1 %5, label %11, label %6, !prof !7
 
@@ -797,7 +791,7 @@ declare dso_local void @put_pi_state(ptr noundef) local_unnamed_addr #0
 declare dso_local i32 @rt_mutex_start_proxy_lock(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @requeue_pi_wake_futex(ptr noundef initializes((72, 96)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #6 align 16 {
+define internal fastcc void @requeue_pi_wake_futex(ptr noundef initializes((72, 96)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #5 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef align 8 dereferenceable(24) %1, i64 24, i1 false)
   tail call void @__futex_unqueue(ptr noundef %0) #10
@@ -856,7 +850,7 @@ define internal fastcc void @requeue_pi_wake_futex(ptr noundef initializes((72, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @futex_requeue_pi_complete(ptr noundef %0, i32 noundef %1) unnamed_addr #6 align 16 {
+define internal fastcc void @futex_requeue_pi_complete(ptr noundef %0, i32 noundef %1) unnamed_addr #5 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %4 = load volatile i32, ptr %3, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !18
@@ -937,12 +931,12 @@ define dso_local i32 @futex_wait_requeue_pi(ptr noundef %0, i32 noundef %1, i32 
   %9 = alloca ptr, align 8
   %10 = alloca %union.futex_key, align 8
   %11 = alloca %struct.futex_q, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #10
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %11, ptr noundef nonnull align 8 dereferenceable(128) @__const.futex_wait_requeue_pi.q, i64 128, i1 false)
   %12 = icmp eq ptr %0, %5
   %13 = icmp eq i32 %4, 0
@@ -1187,16 +1181,16 @@ define dso_local i32 @futex_wait_requeue_pi(ptr noundef %0, i32 noundef %1, i32 
 
 149:                                              ; preds = %147, %144, %6
   %150 = phi i32 [ -22, %6 ], [ %145, %147 ], [ %145, %144 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %150
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @futex_setup_timer(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #0
@@ -1244,7 +1238,7 @@ declare dso_local void @plist_del(ptr noundef, ptr noundef) local_unnamed_addr #
 declare dso_local void @plist_add(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
+declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__futex_unqueue(ptr noundef) local_unnamed_addr #0
@@ -1256,18 +1250,24 @@ declare dso_local i32 @wake_up_state(ptr noundef, i32 noundef) local_unnamed_add
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #0 section ".spinlock.text"
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #9
+declare i32 @llvm.smin.i32(i32, i32) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
-attributes #5 = { nocallback nounwind }
-attributes #6 = { fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
+attributes #4 = { nocallback nounwind }
+attributes #5 = { fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind memory(none) }
 

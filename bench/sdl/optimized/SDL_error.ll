@@ -12,14 +12,14 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden noundef zeroext i1 @SDL_SetError_REAL(ptr noundef %0, ...) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %SDL_SetErrorV_REAL.exit, label %4
 
 4:                                                ; preds = %1
   %5 = call ptr @SDL_GetErrBuf(i1 noundef zeroext true) #4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 1, ptr %5, align 8
   call void @llvm.va_copy.p0(ptr nonnull %2, ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -61,20 +61,17 @@ define hidden noundef zeroext i1 @SDL_SetError_REAL(ptr noundef %0, ...) local_u
   br label %26
 
 26:                                               ; preds = %22, %18, %15, %12, %4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %SDL_SetErrorV_REAL.exit
 
 SDL_SetErrorV_REAL.exit:                          ; preds = %1, %26
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #2
+declare void @llvm.va_start.p0(ptr) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_SetErrorV_REAL(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -84,7 +81,7 @@ define hidden noundef zeroext i1 @SDL_SetErrorV_REAL(ptr noundef %0, ptr noundef
 
 4:                                                ; preds = %2
   %5 = tail call ptr @SDL_GetErrBuf(i1 noundef zeroext true) #4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 1, ptr %5, align 8
   call void @llvm.va_copy.p0(ptr nonnull %3, ptr %1)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -126,7 +123,7 @@ define hidden noundef zeroext i1 @SDL_SetErrorV_REAL(ptr noundef %0, ptr noundef
   br label %26
 
 26:                                               ; preds = %18, %22, %15, %12, %4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %27
 
 27:                                               ; preds = %26, %2
@@ -134,17 +131,14 @@ define hidden noundef zeroext i1 @SDL_SetErrorV_REAL(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #2
+declare void @llvm.va_end.p0(ptr) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @SDL_GetErrBuf(i1 noundef zeroext) local_unnamed_addr #3
+declare ptr @SDL_GetErrBuf(i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy.p0(ptr, ptr) #2
+declare void @llvm.va_copy.p0(ptr, ptr) #1
 
-declare i32 @SDL_vsnprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @SDL_vsnprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GetError_REAL() local_unnamed_addr #0 {
@@ -200,10 +194,16 @@ define hidden noundef zeroext i1 @SDL_OutOfMemory_REAL() local_unnamed_addr #0 {
   ret i1 false
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

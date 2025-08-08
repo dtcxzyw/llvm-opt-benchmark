@@ -186,11 +186,11 @@ define noundef i128 @"_ZN93_$LT$softposit..quire16..Q16E1$u20$as$u20$softposit..
 ; Function Attrs: nonlazybind uwtable
 define noundef i128 @"_ZN93_$LT$softposit..quire16..Q16E1$u20$as$u20$softposit..Quire$LT$softposit..p16e1..P16E1$GT$$GT$10from_posit17h6ea9f54135cd53bcE"(i16 noundef %0) unnamed_addr #2 {
   %2 = alloca i128, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i128 0, ptr %2, align 16
   call void @_ZN9softposit7quire163ops3fdp17h6da150bf3eda9608E(ptr noalias noundef nonnull align 16 dereferenceable(16) %2, i16 noundef %0, i16 noundef 16384, i1 noundef zeroext true)
   %3 = load i128, ptr %2, align 16, !noundef !4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i128 %3
 }
 
@@ -256,8 +256,8 @@ define noundef zeroext i1 @"_ZN64_$LT$softposit..quire16..Q16E1$u20$as$u20$core.
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = alloca double, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = tail call noundef i16 @"_ZN9softposit7quire167convert43_$LT$impl$u20$softposit..quire16..Q16E1$GT$8to_posit17he7ba2f7c005a4e92E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(16) %0)
   switch i16 %6, label %8 [
     i16 0, label %_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit
@@ -336,7 +336,7 @@ _ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit: ; preds = %2, %7, %_Z
   %.val = load ptr, ptr %39, align 8, !nonnull !4, !noundef !4
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val1 = load ptr, ptr %40, align 8, !nonnull !4, !noundef !4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !5
   store ptr @anon.ade9f7a0850fbf939fbb2c4249dd7fa3.2, ptr %3, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %.sroa.5.0..sroa_idx, align 8
@@ -347,9 +347,9 @@ _ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit: ; preds = %2, %7, %_Z
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8
   %41 = call noundef zeroext i1 @_ZN4core3fmt5write17hd9a8d7d029f9ea1aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3), !noalias !5
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %41
 }
 
@@ -363,10 +363,10 @@ declare void @_ZN9softposit7quire163ops3fdp17h6da150bf3eda9608E(ptr noalias noun
 declare noundef zeroext i1 @"_ZN4core3fmt5float52_$LT$impl$u20$core..fmt..Display$u20$for$u20$f64$GT$3fmt17h2ea2ae54310fbdaeE"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

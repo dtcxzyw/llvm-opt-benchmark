@@ -81,11 +81,11 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   %11 = alloca %struct.CommandLineArguments, align 8
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %7) #7
-  call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %8) #7
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %9) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #7
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %14 = add nsw i32 %0, -1
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = call i32 @ExUtilInitCommandLineArguments(i32 noundef %14, ptr noundef nonnull %15, ptr noundef nonnull %11) #7
@@ -143,7 +143,7 @@ sub_0:                                            ; preds = %36, %.outer
   %.lcssa625 = phi i64 [ %147, %.outer ], [ %37, %36 ]
   %.lcssa623 = phi ptr [ %149, %.outer ], [ %39, %36 ]
   %42 = getelementptr inbounds ptr, ptr %20, i64 %.lcssa625
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !21
   %43 = load i8, ptr %.lcssa623, align 1
   %.not465 = icmp eq i8 %43, 45
@@ -359,12 +359,12 @@ sub_1360:                                         ; preds = %.tail353, %sub_1355
   %.3227.ph = phi ptr [ %.1225436.ph, %.thread ], [ %.1225436.ph, %120 ], [ %.2226.ph, %139 ]
   %.3206.ph = phi i32 [ %84, %.thread ], [ %.1204438.ph, %120 ], [ %.2205.ph, %139 ]
   %.2183.ph = phi i32 [ 0, %.thread ], [ %.1182441.ph, %120 ], [ 0, %139 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit
 
 143:                                              ; preds = %.tail358, %.tail358.thread
   call fastcc void @Help()
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %340
 
 144:                                              ; preds = %118, %140
@@ -373,7 +373,7 @@ sub_1360:                                         ; preds = %.tail353, %sub_1355
   %.3206.ph312 = phi i32 [ %.1204438.ph, %118 ], [ %.2205.ph, %140 ]
   %.2191.ph = phi i32 [ %.0189439.lcssa, %118 ], [ %.1190.ph, %140 ]
   %.2183.ph313 = phi i32 [ %.1182441.ph, %118 ], [ 1, %140 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %145 = add nsw i32 %.2191.ph, 1
   %146 = icmp slt i32 %145, %18
   br i1 %146, label %.outer, label %._crit_edge, !llvm.loop !19
@@ -455,7 +455,7 @@ sub_1360:                                         ; preds = %.tail353, %sub_1355
   br i1 %174, label %175, label %237
 
 175:                                              ; preds = %172
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !21
   %176 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %170, ptr noundef nonnull dereferenceable(7) @.str.17) #9
   %.not265 = icmp eq i32 %176, 0
@@ -567,7 +567,7 @@ sub_1375:                                         ; preds = %204, %.tail368, %su
 .thread323:                                       ; preds = %220
   %226 = load ptr, ptr @stderr, align 8, !tbaa !15
   %227 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %226, ptr noundef nonnull @.str.22, i32 noundef %224) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit
 
 .tail373.thread:                                  ; preds = %sub_0364, %sub_1375, %217, %.tail373
@@ -599,7 +599,7 @@ sub_1375:                                         ; preds = %204, %.tail368, %su
   %.6195.ph = phi i32 [ %.4193453, %179 ], [ %.4193453, %177 ], [ %.4193453, %184 ], [ %.4193453, %182 ], [ %192, %194 ], [ %205, %207 ], [ %218, %220 ], [ %.4193453, %229 ], [ %.4193453, %232 ], [ %.4193453, %233 ]
   %.pr322 = load i32, ptr %13, align 4, !tbaa !21
   %.not274 = icmp eq i32 %.pr322, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %.not274, label %282, label %.loopexit
 
 237:                                              ; preds = %172
@@ -615,17 +615,17 @@ sub_1375:                                         ; preds = %204, %.tail368, %su
 242:                                              ; preds = %237
   store i32 1, ptr %9, align 8, !tbaa !36
   %243 = load ptr, ptr %169, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !40
   %244 = call i32 @ImgIoUtilReadFile(ptr noundef %243, ptr noundef nonnull %5, ptr noundef nonnull %6) #7
   %.not.i = icmp eq i32 %244, 0
   br i1 %.not.i, label %ReadImage.exit.thread, label %ReadImage.exit
 
 ReadImage.exit.thread:                            ; preds = %242
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
 ReadImage.exit:                                   ; preds = %242
@@ -637,8 +637,8 @@ ReadImage.exit:                                   ; preds = %242
   %250 = call i32 %247(ptr noundef %248, i64 noundef %249, ptr noundef nonnull %9, i32 noundef 1, ptr noundef null) #7
   %251 = load ptr, ptr %5, align 8, !tbaa !17
   call void @WebPFree(ptr noundef %251) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not261 = icmp eq i32 %250, 0
   br i1 %.not261, label %.loopexit, label %252
 
@@ -763,8 +763,8 @@ ReadImage.exit:                                   ; preds = %242
   br i1 %or.cond, label %297, label %320
 
 297:                                              ; preds = %.loopexit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %298 = call ptr @WebPMuxCreateInternal(ptr noundef nonnull %10, i32 noundef 1, i32 noundef 265) #7
   %299 = icmp eq ptr %298, null
   br i1 %299, label %SetLoopCount.exit, label %300
@@ -816,8 +816,8 @@ ReadImage.exit:                                   ; preds = %242
 
 SetLoopCount.exit:                                ; preds = %297, %.thread26.i, %313, %317
   %.0.i296 = phi i32 [ 0, %297 ], [ 0, %317 ], [ 1, %313 ], [ 1, %.thread26.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %320
 
 320:                                              ; preds = %SetLoopCount.exit, %.loopexit
@@ -865,26 +865,23 @@ SetLoopCount.exit:                                ; preds = %297, %.thread26.i, 
 
 340:                                              ; preds = %143, %2, %.thread347
   %.0 = phi i32 [ 0, %143 ], [ %.not291349, %.thread347 ], [ 1, %2 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @ExUtilInitCommandLineArguments(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ExUtilInitCommandLineArguments(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
-declare i32 @ExUtilGetInt(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ExUtilGetInt(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Help() unnamed_addr #0 {
@@ -919,64 +916,67 @@ define internal fastcc void @Help() unnamed_addr #0 {
   ret void
 }
 
-declare i32 @WebPGetEncoderVersion() local_unnamed_addr #2
+declare i32 @WebPGetEncoderVersion() local_unnamed_addr #1
 
-declare i32 @WebPGetMuxVersion() local_unnamed_addr #2
+declare i32 @WebPGetMuxVersion() local_unnamed_addr #1
 
-declare i32 @SharpYuvGetVersion() local_unnamed_addr #2
+declare i32 @SharpYuvGetVersion() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare float @ExUtilGetFloat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare float @ExUtilGetFloat(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @WebPValidateConfig(ptr noundef) local_unnamed_addr #1
 
-declare i32 @WebPValidateConfig(ptr noundef) local_unnamed_addr #2
+declare i32 @WebPAnimEncoderAdd(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @WebPAnimEncoderAdd(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @WebPPictureFree(ptr noundef) local_unnamed_addr #1
 
-declare void @WebPPictureFree(ptr noundef) local_unnamed_addr #2
+declare i32 @WebPAnimEncoderAssemble(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @WebPAnimEncoderAssemble(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @WebPAnimEncoderDelete(ptr noundef) local_unnamed_addr #1
 
-declare void @WebPAnimEncoderDelete(ptr noundef) local_unnamed_addr #2
+declare i32 @ImgIoUtilWriteFile(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @ImgIoUtilWriteFile(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
-
-declare void @ExUtilDeleteCommandLineArguments(ptr noundef) local_unnamed_addr #2
+declare void @ExUtilDeleteCommandLineArguments(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare i32 @WebPAnimEncoderOptionsInitInternal(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @WebPAnimEncoderOptionsInitInternal(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @WebPConfigInitInternal(ptr noundef, i32 noundef, float noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @WebPConfigInitInternal(ptr noundef, i32 noundef, float noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @WebPPictureInitInternal(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @WebPPictureInitInternal(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @WebPGetEnabledInputFileFormats() local_unnamed_addr #2
+declare ptr @WebPGetEnabledInputFileFormats() local_unnamed_addr #1
 
-declare i32 @ImgIoUtilReadFile(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ImgIoUtilReadFile(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @WebPGuessImageReader(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @WebPGuessImageReader(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @WebPFree(ptr noundef) local_unnamed_addr #2
+declare void @WebPFree(ptr noundef) local_unnamed_addr #1
 
-declare ptr @WebPAnimEncoderNewInternal(i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @WebPAnimEncoderNewInternal(i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @WebPMuxGetFeatures(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @WebPMuxGetFeatures(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @WebPMuxGetAnimationParams(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @WebPMuxGetAnimationParams(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @WebPMuxSetAnimationParams(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @WebPMuxSetAnimationParams(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @WebPMuxAssemble(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @WebPMuxAssemble(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @WebPMuxDelete(ptr noundef) local_unnamed_addr #2
+declare void @WebPMuxDelete(ptr noundef) local_unnamed_addr #1
 
-declare ptr @WebPMuxCreateInternal(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @WebPMuxCreateInternal(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
@@ -988,11 +988,11 @@ declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_add
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nofree nounwind }
 attributes #7 = { nounwind }
 attributes #8 = { cold }

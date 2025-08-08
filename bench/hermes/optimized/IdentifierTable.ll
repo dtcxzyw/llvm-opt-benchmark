@@ -1381,8 +1381,8 @@ if.then:                                          ; preds = %for.body
   %bf.load.i = load i32, ptr %num_.i, align 8
   %cmp.i = icmp ugt i32 %bf.load.i, -9
   %spec.select = select i1 %cmp.i, ptr %5, ptr null
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i)
   %6 = trunc nuw i64 %indvars.iv to i32
   store i32 %6, ptr %__args.i, align 4
   store ptr %spec.select, ptr %__args.addr.i, align 8
@@ -1397,8 +1397,8 @@ if.then.i:                                        ; preds = %if.then
 _ZNKSt8functionIFvN6hermes2vm8SymbolIDEPKNS1_15StringPrimitiveEEEclES2_S5_.exit: ; preds = %if.then
   %8 = load ptr, ptr %_M_invoker.i, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(32) %acceptor, ptr noundef nonnull align 4 dereferenceable(4) %__args.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i)
   %.pre = load ptr, ptr %_M_finish.i.i, align 8
   %.pre16 = load ptr, ptr %this, align 8
   br label %for.inc
@@ -1433,7 +1433,7 @@ entry:
   %conv = zext i32 %call to i64
   %1 = load ptr, ptr %this, align 8
   %add.ptr.i = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %1, i64 %conv
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %storage.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %storage.i)
   store ptr %strPrim, ptr %add.ptr.i, align 8
   %isUTF16_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   store i32 -8, ptr %isUTF16_.i, align 8
@@ -1478,7 +1478,7 @@ if.then.i.i.i:                                    ; preds = %_ZN6hermes10hashStr
   br label %_ZN6hermes2vm15IdentifierTable11LookupEntryC2EPNS0_15StringPrimitiveEb.exit
 
 _ZN6hermes2vm15IdentifierTable11LookupEntryC2EPNS0_15StringPrimitiveEb.exit: ; preds = %_ZN6hermes10hashStringIDsEEjN4llvh8ArrayRefIT_EE.exit.i, %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %storage.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %storage.i)
   %hashTable_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   call void @_ZN6hermes2vm6detail19IdentifierHashTable6insertEjNS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(32) %hashTable_, i32 noundef %hashTableIndex, i32 %call) #16
   ret i32 %call
@@ -1900,7 +1900,7 @@ if.else:                                          ; preds = %entry
   %heapStorage_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
   %sub.i.i.i.i = add nuw nsw i32 %conv, 19
   %div1.i.i.i.i = and i32 %sub.i.i.i.i, 131064
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lk.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lk.i.i.i.i)
   call void @_ZN6hermes2vm7HadesGC19pauseBackgroundTaskEv(ptr nonnull sret(%"class.std::lock_guard") align 8 %lk.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i) #16
   %call.i.i.i.i = call noundef ptr @_ZN6hermes2vm7HadesGC14allocLongLivedEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 noundef %div1.i.i.i.i) #16
   %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 4
@@ -1911,7 +1911,7 @@ if.else:                                          ; preds = %entry
   store i32 %bf.set7.i.i.i.i.i.i, ptr %call.i.i.i.i, align 4
   %5 = load ptr, ptr %lk.i.i.i.i, align 8
   %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %5) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lk.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lk.i.i.i.i)
   %6 = load i64, ptr %primHandle.coerce, align 8
   %cmp.i.i8 = icmp ugt i64 %6, -844424930131969
   %and.i.i9 = and i64 %6, 281474976710655
@@ -2069,7 +2069,7 @@ if.else:                                          ; preds = %entry
   %heapStorage_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
   %sub.i.i.i.i = add nuw nsw i32 %mul.i.i.i, 19
   %div1.i.i.i.i = and i32 %sub.i.i.i.i, 262136
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lk.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lk.i.i.i.i)
   call void @_ZN6hermes2vm7HadesGC19pauseBackgroundTaskEv(ptr nonnull sret(%"class.std::lock_guard") align 8 %lk.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i) #16
   %call.i.i.i.i = call noundef ptr @_ZN6hermes2vm7HadesGC14allocLongLivedEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 noundef %div1.i.i.i.i) #16
   %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 4
@@ -2080,7 +2080,7 @@ if.else:                                          ; preds = %entry
   store i32 %bf.set7.i.i.i.i.i.i, ptr %call.i.i.i.i, align 4
   %8 = load ptr, ptr %lk.i.i.i.i, align 8
   %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %8) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lk.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lk.i.i.i.i)
   %9 = load i64, ptr %primHandle.coerce, align 8
   %cmp.i.i11 = icmp ugt i64 %9, -844424930131969
   %and.i.i12 = and i64 %9, 281474976710655
@@ -2654,7 +2654,7 @@ if.end:                                           ; preds = %cond.end
   %conv = zext i32 %call to i64
   %9 = load ptr, ptr %this, align 8
   %add.ptr.i = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %9, i64 %conv
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %storage.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %storage.i)
   store ptr %storemerge, ptr %add.ptr.i, align 8
   %isUTF16_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   store i32 -6, ptr %isUTF16_.i, align 8
@@ -2699,7 +2699,7 @@ if.then.i.i.i36:                                  ; preds = %_ZN6hermes10hashStr
   br label %_ZN6hermes2vm15IdentifierTable11LookupEntryC2EPNS0_15StringPrimitiveEb.exit
 
 _ZN6hermes2vm15IdentifierTable11LookupEntryC2EPNS0_15StringPrimitiveEb.exit: ; preds = %_ZN6hermes10hashStringIDsEEjN4llvh8ArrayRefIT_EE.exit.i, %if.then.i.i.i36
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %storage.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %storage.i)
   br label %if.end34
 
 if.else:                                          ; preds = %entry
@@ -2707,7 +2707,7 @@ if.else:                                          ; preds = %entry
   %13 = load ptr, ptr %this, align 8
   %add.ptr.i37 = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %13, i64 %conv31
   %14 = inttoptr i64 %and.i.i.i.i to ptr
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %storage.i39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %storage.i39)
   store ptr %14, ptr %add.ptr.i37, align 8
   %isUTF16_.i40 = getelementptr inbounds nuw i8, ptr %add.ptr.i37, i64 8
   store i32 -6, ptr %isUTF16_.i40, align 8
@@ -2752,7 +2752,7 @@ if.then.i.i.i62:                                  ; preds = %_ZN6hermes10hashStr
   br label %_ZN6hermes2vm15IdentifierTable11LookupEntryC2EPNS0_15StringPrimitiveEb.exit63
 
 _ZN6hermes2vm15IdentifierTable11LookupEntryC2EPNS0_15StringPrimitiveEb.exit63: ; preds = %_ZN6hermes10hashStringIDsEEjN4llvh8ArrayRefIT_EE.exit.i59, %if.then.i.i.i62
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %storage.i39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %storage.i39)
   br label %if.end34
 
 if.end34:                                         ; preds = %_ZN6hermes2vm15IdentifierTable11LookupEntryC2EPNS0_15StringPrimitiveEb.exit63, %_ZN6hermes2vm15IdentifierTable11LookupEntryC2EPNS0_15StringPrimitiveEb.exit
@@ -2846,7 +2846,7 @@ if.else:                                          ; preds = %entry
   %heapStorage_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
   %sub.i.i.i.i = add nuw nsw i32 %conv, 15
   %div1.i.i.i.i = and i32 %sub.i.i.i.i, 131064
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lk.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lk.i.i.i.i)
   call void @_ZN6hermes2vm7HadesGC19pauseBackgroundTaskEv(ptr nonnull sret(%"class.std::lock_guard") align 8 %lk.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i) #16
   %call.i.i.i.i = call noundef ptr @_ZN6hermes2vm7HadesGC14allocLongLivedEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 noundef %div1.i.i.i.i) #16
   %lengthAndUniquedFlag_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 4
@@ -2855,7 +2855,7 @@ if.else:                                          ; preds = %entry
   store i32 %bf.set7.i.i.i.i.i.i, ptr %call.i.i.i.i, align 4
   %5 = load ptr, ptr %lk.i.i.i.i, align 8
   %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %5) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lk.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lk.i.i.i.i)
   %6 = load i64, ptr %primHandle.coerce, align 8
   %cmp.i.i8 = icmp ugt i64 %6, -844424930131969
   %and.i.i9 = and i64 %6, 281474976710655
@@ -3013,7 +3013,7 @@ if.else:                                          ; preds = %entry
   %heapStorage_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
   %sub.i.i.i.i = add nuw nsw i32 %mul.i.i.i, 15
   %div1.i.i.i.i = and i32 %sub.i.i.i.i, 262136
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lk.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lk.i.i.i.i)
   call void @_ZN6hermes2vm7HadesGC19pauseBackgroundTaskEv(ptr nonnull sret(%"class.std::lock_guard") align 8 %lk.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i) #16
   %call.i.i.i.i = call noundef ptr @_ZN6hermes2vm7HadesGC14allocLongLivedEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 noundef %div1.i.i.i.i) #16
   %lengthAndUniquedFlag_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 4
@@ -3022,7 +3022,7 @@ if.else:                                          ; preds = %entry
   store i32 %bf.set7.i.i.i.i.i.i, ptr %call.i.i.i.i, align 4
   %8 = load ptr, ptr %lk.i.i.i.i, align 8
   %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %8) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lk.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lk.i.i.i.i)
   %9 = load i64, ptr %primHandle.coerce, align 8
   %cmp.i.i11 = icmp ugt i64 %9, -844424930131969
   %and.i.i12 = and i64 %9, 281474976710655
@@ -3572,10 +3572,10 @@ declare void @llvm.assume(i1 noundef) #13
 declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14

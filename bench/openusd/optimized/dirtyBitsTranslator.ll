@@ -3977,7 +3977,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt13unordered_mapINS_7TfTok
   br label %common.resume
 
 442:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt13unordered_mapINS_7TfTokenESt8functionIFvRKNS_22HdDataSourceLocatorSetEPjEENS_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_S9_EEENS_27Tf_StaticDataDefaultFactoryISH_EEEptEv.exit128
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %5, ptr %3, align 8
   %443 = getelementptr inbounds nuw i8, ptr %429, i64 32
   %444 = load ptr, ptr %443, align 8
@@ -3993,7 +3993,7 @@ _ZNKSt8functionIFvRKN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetE
   %447 = getelementptr inbounds nuw i8, ptr %429, i64 40
   %448 = load ptr, ptr %447, align 8
   call void %448(ptr noundef nonnull align 8 dereferenceable(32) %446, ptr noundef nonnull align 8 dereferenceable(456) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge
 
 .critedge.loopexit:                               ; preds = %319, %313
@@ -6134,10 +6134,10 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_St8fun
 declare i64 @llvm.bswap.i64(i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

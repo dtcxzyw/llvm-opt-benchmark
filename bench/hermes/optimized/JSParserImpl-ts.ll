@@ -2696,10 +2696,10 @@ entry:
   br i1 %or.cond, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %k1.addr.i)
   store i32 1, ptr %k1.addr.i, align 4
   call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i, i64 1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr %retval.sroa.0.0.copyload.i.i) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %k1.addr.i)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -3288,10 +3288,10 @@ entry:
   br i1 %tobool.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %k1.addr.i)
   store i32 1, ptr %k1.addr.i, align 4
   call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i, i64 1, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, ptr %retval.sroa.0.0.copyload.i.i) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %k1.addr.i)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -3478,10 +3478,10 @@ entry:
   br i1 %tobool.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %k1.addr.i)
   store i32 1, ptr %k1.addr.i, align 4
   call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i, i64 1, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr %retval.sroa.0.0.copyload.i.i) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %k1.addr.i)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -4233,10 +4233,10 @@ entry:
   br i1 %tobool.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %k1.addr.i)
   store i32 1, ptr %k1.addr.i, align 4
   call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i, i64 1, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, ptr %retval.sroa.0.0.copyload.i) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %k1.addr.i)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -4413,10 +4413,10 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %or.cond, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.body
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %k1.addr.i)
   store i32 1, ptr %k1.addr.i, align 4
   call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i, i64 1, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr %retval.sroa.0.0.copyload.i) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %k1.addr.i)
   br label %return
 
 if.end:                                           ; preds = %while.body
@@ -5999,10 +5999,10 @@ entry:
   br i1 %or.cond, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %k1.addr.i)
   store i32 1, ptr %k1.addr.i, align 4
   call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i, i64 1, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr %retval.sroa.0.0.copyload.i.i) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %k1.addr.i)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -6087,10 +6087,10 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %or.cond102, label %if.end18, label %if.then15
 
 if.then15:                                        ; preds = %while.body
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %k1.addr.i16)
   store i32 1, ptr %k1.addr.i16, align 4
   call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i16, i64 1, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr %retval.sroa.0.0.copyload.i.i) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %k1.addr.i16)
   br label %return
 
 if.end18:                                         ; preds = %while.body
@@ -6439,10 +6439,10 @@ while.body:                                       ; preds = %while.cond
   br i1 %tobool.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.body
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %k1.addr.i)
   store i32 1, ptr %k1.addr.i, align 4
   call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i, i64 1, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.32, ptr %start.coerce) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %k1.addr.i)
   br label %return
 
 if.end:                                           ; preds = %while.body
@@ -6633,10 +6633,10 @@ declare void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8Array
 declare void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464), i32 noundef, ptr, ptr noundef nonnull align 8 dereferenceable(18), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

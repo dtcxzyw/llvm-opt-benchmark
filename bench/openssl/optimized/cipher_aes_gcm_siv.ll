@@ -295,7 +295,7 @@ define internal noundef nonnull ptr @ossl_aes_gcm_siv_gettable_ctx_params(ptr re
 define internal range(i32 0, 2) i32 @ossl_aes_gcm_siv_set_ctx_params(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !29
   %5 = icmp eq ptr %1, null
   br i1 %5, label %ossl_param_is_empty.exit.thread, label %ossl_param_is_empty.exit
@@ -377,7 +377,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br i1 %.not30, label %ossl_param_is_empty.exit.thread, label %39
 
 39:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %40 = call i32 @OSSL_PARAM_get_size_t(ptr noundef nonnull %38, ptr noundef nonnull %4) #5
   %.not31 = icmp eq i32 %40, 0
   br i1 %.not31, label %.critedge, label %41
@@ -390,7 +390,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br i1 %.not32, label %45, label %.critedge
 
 45:                                               ; preds = %41
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %ossl_param_is_empty.exit.thread
 
 .critedge:                                        ; preds = %41, %39
@@ -399,12 +399,12 @@ ossl_param_is_empty.exit:                         ; preds = %2
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink34, ptr noundef nonnull @__func__.ossl_aes_gcm_siv_set_ctx_params) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink, ptr noundef null) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %2, %37, %45, %.critedge, %ossl_param_is_empty.exit, %29, %15
   %.019 = phi i32 [ 0, %15 ], [ 0, %29 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %.critedge ], [ 1, %45 ], [ 1, %37 ], [ 1, %2 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.019
 }
 
@@ -483,9 +483,6 @@ define internal i32 @ossl_aes_256_gcm_siv_get_params(ptr noundef %0) #0 {
   ret i32 %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @ossl_prov_is_running() local_unnamed_addr #1
 
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -493,9 +490,6 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare ptr @ossl_prov_cipher_hw_aes_gcm_siv(i64 noundef) local_unnamed_addr #1
 
 declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -579,7 +573,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @ossl_cipher_generic_get_params(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -595,11 +589,17 @@ declare i32 @OSSL_PARAM_get_uint(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @OSSL_PARAM_get_size_t(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

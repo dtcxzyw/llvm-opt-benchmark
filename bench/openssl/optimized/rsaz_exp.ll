@@ -10,13 +10,13 @@ target triple = "x86_64-pc-linux-gnu"
 define void @RSAZ_1024_mod_exp_avx2(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = alloca [5632 x i8], align 16
   %8 = alloca [16 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 5632, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = ptrtoint ptr %7 to i64
   %10 = and i64 %9, 48
   %11 = sub nuw nsw i64 64, %10
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 960
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14 = ptrtoint ptr %12 to i64
   %15 = and i64 %14, 4032
   %.not = icmp samesign ult i64 %15, 3776
@@ -158,43 +158,37 @@ define void @RSAZ_1024_mod_exp_avx2(ptr noundef %0, ptr noundef %1, ptr noundef 
 bn_reduce_once_in_place.exit:                     ; preds = %42
   call void @OPENSSL_cleanse(ptr noundef nonnull %7, i64 noundef 5632) #3
   call void @OPENSSL_cleanse(ptr noundef nonnull %8, i64 noundef 128) #3
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #3
-  call void @llvm.lifetime.end.p0(i64 5632, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @rsaz_1024_norm2red_avx2(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @rsaz_1024_norm2red_avx2(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @rsaz_1024_mul_avx2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @rsaz_1024_mul_avx2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @rsaz_1024_scatter5_avx2(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @rsaz_1024_scatter5_avx2(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @rsaz_1024_sqr_avx2(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @rsaz_1024_sqr_avx2(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare void @rsaz_1024_gather5_avx2(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @rsaz_1024_gather5_avx2(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @rsaz_1024_red2norm_avx2(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @rsaz_1024_red2norm_avx2(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @RSAZ_512_mod_exp(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca [1216 x i8], align 16
   %8 = alloca [8 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 1216, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = ptrtoint ptr %7 to i64
   %10 = and i64 %9, 48
   %11 = sub nuw nsw i64 64, %10
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1024
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 1088
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %15 = load i64, ptr %3, align 8, !tbaa !9
   %16 = sub i64 0, %15
   store i64 %16, ptr %14, align 16, !tbaa !9
@@ -299,30 +293,36 @@ define void @RSAZ_512_mod_exp(ptr noundef %0, ptr noundef %1, ptr noundef readon
 bn_reduce_once_in_place.exit:                     ; preds = %65
   call void @OPENSSL_cleanse(ptr noundef nonnull %7, i64 noundef 1216) #3
   call void @OPENSSL_cleanse(ptr noundef nonnull %8, i64 noundef 64) #3
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #3
-  call void @llvm.lifetime.end.p0(i64 1216, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
-declare void @rsaz_512_scatter4(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @rsaz_512_scatter4(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @rsaz_512_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @rsaz_512_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @rsaz_512_sqr(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare void @rsaz_512_sqr(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @rsaz_512_mul_scatter4(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @rsaz_512_mul_scatter4(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @rsaz_512_gather4(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @rsaz_512_gather4(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @rsaz_512_mul_gather4(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare void @rsaz_512_mul_gather4(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @rsaz_512_mul_by_one(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @rsaz_512_mul_by_one(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @bn_sub_words(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @bn_sub_words(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 attributes #4 = { nounwind memory(none) }
 

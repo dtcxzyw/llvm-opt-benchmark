@@ -58,45 +58,39 @@ define hidden zeroext i1 @X11_GLES_LoadLibrary(ptr noundef %0, ptr noundef %1) l
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @SDL_EGL_UnloadLibrary(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_EGL_UnloadLibrary(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @X11_GL_LoadLibrary(ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @X11_GL_LoadLibrary(ptr noundef, ptr noundef) #2
+declare ptr @X11_GL_GetProcAddress(ptr noundef, ptr noundef) #1
 
-declare ptr @X11_GL_GetProcAddress(ptr noundef, ptr noundef) #2
+declare void @X11_GL_UnloadLibrary(ptr noundef) #1
 
-declare void @X11_GL_UnloadLibrary(ptr noundef) #2
+declare ptr @X11_GL_CreateContext(ptr noundef, ptr noundef) #1
 
-declare ptr @X11_GL_CreateContext(ptr noundef, ptr noundef) #2
+declare zeroext i1 @X11_GL_MakeCurrent(ptr noundef, ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @X11_GL_MakeCurrent(ptr noundef, ptr noundef, ptr noundef) #2
+declare zeroext i1 @X11_GL_SetSwapInterval(ptr noundef, i32 noundef) #1
 
-declare zeroext i1 @X11_GL_SetSwapInterval(ptr noundef, i32 noundef) #2
+declare zeroext i1 @X11_GL_GetSwapInterval(ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @X11_GL_GetSwapInterval(ptr noundef, ptr noundef) #2
+declare zeroext i1 @X11_GL_SwapWindow(ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @X11_GL_SwapWindow(ptr noundef, ptr noundef) #2
+declare zeroext i1 @X11_GL_DestroyContext(ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @X11_GL_DestroyContext(ptr noundef, ptr noundef) #2
-
-declare zeroext i1 @SDL_EGL_LoadLibrary(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare zeroext i1 @SDL_EGL_LoadLibrary(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @X11_GLES_GetVisual(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.XVisualInfo, align 8
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1672
   %9 = load ptr, ptr %8, align 8
@@ -257,13 +251,13 @@ define hidden ptr @X11_GLES_GetVisual(ptr noundef readonly captures(none) %0, pt
 
 .thread121:                                       ; preds = %.thread141, %58, %32, %32, %32, %32, %36, %36, %36, %36, %41, %.thread117, %4
   %.0 = phi ptr [ null, %4 ], [ %25, %41 ], [ %44, %.thread117 ], [ %25, %36 ], [ %25, %36 ], [ %25, %36 ], [ %25, %36 ], [ %25, %32 ], [ %25, %32 ], [ %25, %32 ], [ %25, %32 ], [ %65, %58 ], [ %44, %.thread141 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
-declare i32 @X11_GetPixelFormatFromVisualInfo(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @X11_GetPixelFormatFromVisualInfo(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @X11_GLES_CreateContext(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -282,10 +276,10 @@ define hidden ptr @X11_GLES_CreateContext(ptr noundef %0, ptr noundef readonly c
   ret ptr %12
 }
 
-declare ptr @SDL_EGL_CreateContext(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_EGL_CreateContext(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @X11_GLES_GetEGLSurface(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
+define hidden ptr @X11_GLES_GetEGLSurface(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 384
@@ -304,9 +298,9 @@ define hidden zeroext i1 @X11_GLES_SwapWindow(ptr noundef %0, ptr noundef %1) lo
   ret i1 %7
 }
 
-declare zeroext i1 @SDL_EGL_SwapBuffers(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_EGL_SwapBuffers(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @X11_HandlePresent(ptr noundef) local_unnamed_addr #2
+declare void @X11_HandlePresent(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @X11_GLES_MakeCurrent(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -326,12 +320,18 @@ define hidden zeroext i1 @X11_GLES_MakeCurrent(ptr noundef %0, ptr noundef reado
   ret i1 %11
 }
 
-declare zeroext i1 @SDL_EGL_MakeCurrent(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_EGL_MakeCurrent(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

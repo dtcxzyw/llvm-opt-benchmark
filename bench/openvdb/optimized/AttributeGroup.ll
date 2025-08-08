@@ -491,19 +491,19 @@ entry:
 
 if.then:                                          ; preds = %entry
   %or6 = or i8 %2, %call
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store i8 %or6, ptr %ref.tmp.i, align 1
   call void @_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE3setEjRKh(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %n, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %not = xor i8 %2, -1
   %and = and i8 %call, %not
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i7)
   store i8 %and, ptr %ref.tmp.i7, align 1
   call void @_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE3setEjRKh(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %n, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i7)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i7)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -1640,10 +1640,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

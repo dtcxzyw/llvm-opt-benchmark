@@ -646,7 +646,7 @@ _ZNSt10unique_ptrIN4node7tracing16AsyncTraceWriterESt14default_deleteIS2_EEaSEOS
   store ptr %13, ptr %_M_right.i.i.i.i.i14, align 8
   %_M_node_count.i.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %ref.tmp23, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i15, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__an.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__an.i.i)
   store ptr %ref.tmp23, ptr %__an.i.i, align 8
   %cmp.i.not3.i.i = icmp eq ptr %12, %use_categories.0.sroa.phi36
   br i1 %cmp.i.not3.i.i, label %_ZNSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2ISt23_Rb_tree_const_iteratorIS5_EEET_SD_.exit, label %for.body.i.i
@@ -660,7 +660,7 @@ for.body.i.i:                                     ; preds = %_ZNSt10unique_ptrIN
   br i1 %cmp.i.not.i.i, label %_ZNSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2ISt23_Rb_tree_const_iteratorIS5_EEET_SD_.exit, label %for.body.i.i, !llvm.loop !10
 
 _ZNSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2ISt23_Rb_tree_const_iteratorIS5_EEET_SD_.exit: ; preds = %for.body.i.i, %_ZNSt10unique_ptrIN4node7tracing16AsyncTraceWriterESt14default_deleteIS2_EEaSEOS5_.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__an.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__an.i.i)
   %categories_32 = getelementptr inbounds nuw i8, ptr %this, i64 864
   %call.i16 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8__detail9_Map_baseIiSt4pairIKiSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EEESaISE_ENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %categories_32, ptr noundef nonnull align 4 dereferenceable(4) %id)
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i16, i64 16
@@ -930,7 +930,7 @@ _ZN4node7tracing5Agent20ScopedSuspendTracingC2EPNS0_17TracingControllerEPS1_b.ex
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %categories, i64 24
   %3 = load ptr, ptr %_M_left.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %categories, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__an.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__an.i.i)
   store ptr %call.i, ptr %__an.i.i, align 8
   %cmp.i.not3.i.i = icmp eq ptr %3, %add.ptr.i.i
   br i1 %cmp.i.not3.i.i, label %_ZNSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE6insertISt23_Rb_tree_const_iteratorIS5_EEEvT_SD_.exit, label %for.body.lr.ph.i.i
@@ -948,7 +948,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %cmp.i.not.i.i, label %_ZNSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE6insertISt23_Rb_tree_const_iteratorIS5_EEEvT_SD_.exit, label %for.body.i.i, !llvm.loop !10
 
 _ZNSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE6insertISt23_Rb_tree_const_iteratorIS5_EEEvT_SD_.exit: ; preds = %for.body.i.i, %_ZN4node7tracing5Agent20ScopedSuspendTracingC2EPNS0_17TracingControllerEPS1_b.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__an.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__an.i.i)
   br i1 %cmp.not, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZNSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE6insertISt23_Rb_tree_const_iteratorIS5_EEEvT_SD_.exit
@@ -1426,7 +1426,7 @@ entry:
   %0 = ptrtoint ptr %async to i64
   %sub.i.i.i = add i64 %0, -1072
   %1 = inttoptr i64 %sub.i.i.i to ptr
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %head.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %head.i.i)
   %initialize_writer_mutex_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 984
   tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %initialize_writer_mutex_.i.i) #14
   %_M_node_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 1240
@@ -1458,7 +1458,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %initialize_writer_condvar_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 1024
   call void @uv_cond_broadcast(ptr noundef nonnull align 8 dereferenceable(48) %initialize_writer_condvar_.i.i) #14
   call void @uv_mutex_unlock(ptr noundef nonnull %initialize_writer_mutex_.i.i) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %head.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %head.i.i)
   ret void
 }
 
@@ -3072,10 +3072,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

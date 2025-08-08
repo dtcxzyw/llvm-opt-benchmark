@@ -77,17 +77,11 @@ define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCacheC2E
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCache7addBodyEiiNS_9JointTypeERKNS_4vec3ERKNS_5mat33ES5_fS5_S8_iPv(ptr noundef nonnull align 8 dereferenceable(172) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %6, float noundef %7, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %8, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %9, i32 noundef %10, ptr noundef %11) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCache7addBodyEiiNS_9JointTypeERKNS_4vec3ERKNS_5mat33ES5_fS5_S8_iPv(ptr noundef nonnull align 8 dereferenceable(172) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %6, float noundef %7, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %8, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %9, i32 noundef %10, ptr noundef %11) local_unnamed_addr #2 align 2 {
   %13 = alloca %"struct.btInverseDynamicsBullet3::JointData", align 4
   %14 = alloca %"struct.btInverseDynamicsBullet3::InertiaData", align 4
   switch i32 %3, label %17 [
@@ -138,7 +132,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   br label %30
 
 30:                                               ; preds = %29, %21
-  call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %1, ptr %31, align 4, !tbaa !39
   %32 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -156,7 +150,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %38, ptr noundef nonnull align 4 dereferenceable(16) %37, i64 16, i1 false), !tbaa.struct !48
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %39, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store float %7, ptr %14, align 4, !tbaa !50
   %40 = getelementptr inbounds nuw i8, ptr %14, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %40, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false)
@@ -342,8 +336,8 @@ _ZN20b3AlignedObjectArrayIPvE9push_backERKS0_.exit: ; preds = %_ZN20b3AlignedObj
   store ptr %11, ptr %114, align 8, !tbaa !57
   %115 = add nsw i32 %110, 1
   store i32 %115, ptr %82, align 4, !tbaa !32
-  call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %14) #7
-  call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %116
 
 116:                                              ; preds = %_ZN20b3AlignedObjectArrayIPvE9push_backERKS0_.exit, %27, %17
@@ -351,13 +345,13 @@ _ZN20b3AlignedObjectArrayIPvE9push_backERKS0_.exit: ; preds = %_ZN20b3AlignedObj
   ret i32 %.0
 }
 
-declare void @b3OutputErrorMessageVarArgsInternal(ptr noundef, ...) local_unnamed_addr #4
+declare void @b3OutputErrorMessageVarArgsInternal(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 4 dereferenceable(68) %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 4 dereferenceable(68) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !34
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -464,7 +458,7 @@ _ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE10deallocate
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 4 dereferenceable(92) %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 4 dereferenceable(92) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !35
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -577,7 +571,7 @@ _ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE10deallocateEv.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9InitCache14getInertiaDataEiPNS_11InertiaDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(172) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9InitCache14getInertiaDataEiPNS_11InertiaDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(172) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 align 2 {
   %4 = icmp slt i32 %1, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
@@ -613,7 +607,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9InitCache10getUserIntEiPi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(172) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9InitCache10getUserIntEiPi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(172) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 align 2 {
   %4 = icmp slt i32 %1, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %6 = load i32, ptr %5, align 4
@@ -641,7 +635,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9InitCache10getUserPtrEiPPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(172) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9InitCache10getUserPtrEiPPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(172) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 align 2 {
   %4 = icmp slt i32 %1, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %6 = load i32, ptr %5, align 4
@@ -669,7 +663,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9InitCache12getJointDataEiPNS_9JointDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(172) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9InitCache12getJointDataEiPNS_9JointDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(172) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 align 2 {
   %4 = icmp slt i32 %1, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i32, ptr %5, align 4
@@ -708,7 +702,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCache14buildIndexSetsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(172) %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCache14buildIndexSetsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(172) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !34
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -832,18 +826,23 @@ _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit:    ; preds = %.lr.ph.i, %1
   br i1 %52, label %42, label %._crit_edge, !llvm.loop !61
 }
 
-declare void @_Z21b3AlignedFreeInternalPv(ptr noundef) local_unnamed_addr #4
+declare void @_Z21b3AlignedFreeInternalPv(ptr noundef) local_unnamed_addr #3
 
-declare noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #4
+declare noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

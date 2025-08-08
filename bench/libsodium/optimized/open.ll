@@ -16,13 +16,13 @@ define hidden i32 @_crypto_sign_ed25519_verify_detached(ptr noundef %0, ptr noun
   %10 = alloca %struct.ge25519_p3, align 8
   %11 = alloca %struct.ge25519_p3, align 8
   %12 = alloca %struct.ge25519_p2, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #5
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %8) #5
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %9) #5
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %10) #5
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %11) #5
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %12) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   fence acquire
   %13 = getelementptr i8, ptr %0, i64 63
   %14 = load i8, ptr %13, align 1
@@ -77,45 +77,39 @@ define hidden i32 @_crypto_sign_ed25519_verify_detached(ptr noundef %0, ptr noun
 
 38:                                               ; preds = %26, %28, %22, %24, %19, %15, %30
   %.0 = phi i32 [ %37, %30 ], [ -1, %15 ], [ -1, %19 ], [ -1, %24 ], [ -1, %22 ], [ -1, %28 ], [ -1, %26 ]
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %12) #5
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %11) #5
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %10) #5
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @_sodium_sc25519_is_canonical(ptr noundef) local_unnamed_addr #1
 
-declare i32 @_sodium_sc25519_is_canonical(ptr noundef) local_unnamed_addr #2
+declare i32 @_sodium_ge25519_is_canonical(ptr noundef) local_unnamed_addr #1
 
-declare i32 @_sodium_ge25519_is_canonical(ptr noundef) local_unnamed_addr #2
+declare i32 @_sodium_ge25519_frombytes_negate_vartime(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @_sodium_ge25519_frombytes_negate_vartime(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @_sodium_ge25519_has_small_order(ptr noundef) local_unnamed_addr #1
 
-declare i32 @_sodium_ge25519_has_small_order(ptr noundef) local_unnamed_addr #2
+declare i32 @_sodium_ge25519_frombytes(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @_sodium_ge25519_frombytes(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @_crypto_sign_ed25519_ref10_hinit(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @_crypto_sign_ed25519_ref10_hinit(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @crypto_hash_sha512_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @crypto_hash_sha512_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @crypto_hash_sha512_final(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @crypto_hash_sha512_final(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @_sodium_sc25519_reduce(ptr noundef) local_unnamed_addr #1
 
-declare void @_sodium_sc25519_reduce(ptr noundef) local_unnamed_addr #2
+declare void @_sodium_ge25519_double_scalarmult_vartime(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @_sodium_ge25519_double_scalarmult_vartime(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @_sodium_ge25519_p2_to_p3(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @_sodium_ge25519_p2_to_p3(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @_sodium_ge25519_p3_sub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @_sodium_ge25519_p3_sub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
 define dso_local i32 @crypto_sign_ed25519_verify_detached(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %3) local_unnamed_addr #0 {
@@ -172,6 +166,12 @@ define dso_local range(i32 -1, 1) i32 @crypto_sign_ed25519_open(ptr noundef %0, 
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
@@ -179,8 +179,8 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 attributes #0 = { nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }

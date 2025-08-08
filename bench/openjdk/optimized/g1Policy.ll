@@ -1213,7 +1213,7 @@ define hidden noundef i32 @_ZNK8G1Policy38calculate_desired_eden_length_by_pause
   br i1 %9, label %30, label %10
 
 10:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %12 = load i32, ptr %11, align 8
   %13 = uitofp i32 %12 to double
@@ -1256,7 +1256,7 @@ define hidden noundef i32 @_ZNK8G1Policy38calculate_desired_eden_length_by_pause
 
 _ZNK8G1Policy47calculate_desired_eden_length_before_young_onlyEdjj.exit: ; preds = %.lr.ph.i, %10, %23, %25
   %.2.i = phi i32 [ %2, %10 ], [ %3, %23 ], [ %2, %25 ], [ %..0.i, %.lr.ph.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %32
 
 30:                                               ; preds = %4
@@ -1378,7 +1378,7 @@ define hidden noundef i32 @_ZNK8G1Policy42calculate_desired_eden_length_before_m
 
 ._crit_edge:                                      ; preds = %26, %4
   %.010.lcssa = phi double [ %1, %4 ], [ %36, %26 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %41 = load i32, ptr %40, align 8
   %42 = uitofp i32 %41 to double
@@ -1421,7 +1421,7 @@ define hidden noundef i32 @_ZNK8G1Policy42calculate_desired_eden_length_before_m
 
 _ZNK8G1Policy47calculate_desired_eden_length_before_young_onlyEdjj.exit: ; preds = %.lr.ph.i, %._crit_edge, %52, %54
   %.2.i = phi i32 [ %2, %._crit_edge ], [ %3, %52 ], [ %2, %54 ], [ %..0.i, %.lr.ph.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.2.i
 }
 
@@ -2022,7 +2022,7 @@ define hidden void @_ZN8G1Policy34record_concurrent_refinement_statsEmm(ptr noun
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1336
   %15 = load ptr, ptr %14, align 8
   call void @_ZN18G1ConcurrentRefine30get_and_reset_refinement_statsEv(ptr dead_on_unwind nonnull writable sret(%class.G1ConcurrentRefineStats) align 8 %6, ptr noundef nonnull align 8 dereferenceable(136) %15) #18
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
   %16 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN23G1ConcurrentRefineStatspLERKS_(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %6) #18, !noalias !9
   %.sroa.030.0.copyload = load i64, ptr %16, align 8
@@ -2034,7 +2034,7 @@ define hidden void @_ZN8G1Policy34record_concurrent_refinement_statsEmm(ptr noun
   %.sroa.7.0.copyload = load i64, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 32
   %.sroa.8.0.copyload = load i64, ptr %.sroa.8.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %17 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_127ELS1_146ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %_ZL20log_refinement_statsPKcRK23G1ConcurrentRefineStats.exit, label %18
@@ -7071,9 +7071,9 @@ _ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit: ; preds = %
   br i1 %264, label %23, label %._crit_edge35, !llvm.loop !23
 
 ._crit_edge35:                                    ; preds = %._crit_edge, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop14G1CMOopClosure14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -9148,9 +9148,9 @@ _ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit: ; preds = %8
   br i1 %255, label %23, label %._crit_edge35, !llvm.loop !29
 
 ._crit_edge35:                                    ; preds = %._crit_edge, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc14G1CMOopClosure14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -13137,12 +13137,12 @@ _ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit: ; preds = %
   br i1 %274, label %30, label %._crit_edge62, !llvm.loop !56
 
 ._crit_edge62:                                    ; preds = %._crit_edge, %14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %4, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop14G1CMOopClosureK10MrContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -13810,12 +13810,12 @@ _ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit: ; preds = %9
   br i1 %265, label %30, label %._crit_edge62, !llvm.loop !58
 
 ._crit_edge62:                                    ; preds = %._crit_edge, %14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %4, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc14G1CMOopClosureK10MrContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -16359,10 +16359,10 @@ declare i64 @llvm.usub.sat.i64(i64, i64) #16
 declare i64 @llvm.umax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 attributes #0 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

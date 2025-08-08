@@ -611,7 +611,7 @@ define hidden void @_ZN21JfrDeprecationManager16prepare_type_setEP10JavaThread(p
   %2 = alloca %class.JfrDeprecatedEventClear, align 1
   %3 = alloca %class.JfrCheckpointWriter, align 8
   %4 = alloca %class.PendingListProcessor, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store volatile ptr null, ptr @_ZL13_pending_head, align 8
   store ptr null, ptr @_ZL13_pending_tail, align 8
   %5 = load volatile ptr, ptr @_ZL14_resolved_list, align 8
@@ -637,7 +637,7 @@ define hidden void @_ZN21JfrDeprecationManager16prepare_type_setEP10JavaThread(p
   br i1 %12, label %8, label %_ZL20reset_type_set_blobsv.exit, !llvm.loop !14
 
 _ZL20reset_type_set_blobsv.exit:                  ; preds = %8, %9, %1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %13 = load volatile ptr, ptr @_ZL13_pending_list, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %.not = icmp eq ptr %13, null
@@ -746,7 +746,7 @@ define hidden void @_ZN21JfrDeprecationManager11write_edgesER14JfrChunkWriterP6T
   br i1 %.not, label %20, label %13
 
 13:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN29JfrDeprecatedStackTraceWriterC1ER14JfrChunkWriter(ptr noundef nonnull align 8 dereferenceable(37) %6, ptr noundef nonnull align 8 dereferenceable(88) %0) #11
   %14 = load volatile ptr, ptr @_ZL14_resolved_list, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
@@ -765,12 +765,12 @@ define hidden void @_ZN21JfrDeprecationManager11write_edgesER14JfrChunkWriterP6T
 
 _ZL17write_stacktracesR14JfrChunkWriter.exit:     ; preds = %15, %16
   call void @_ZN29JfrDeprecatedStackTraceWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(37) %6) #11
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %20
 
 20:                                               ; preds = %_ZL17write_stacktracesR14JfrChunkWriter.exit, %11
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %21 = xor i1 %2, true
   call void @_ZN19JfrCheckpointWriterC1EbP6Threadb17JfrCheckpointType(ptr noundef nonnull align 8 dereferenceable(73) %4, i1 noundef zeroext %21, ptr noundef %1, i1 noundef zeroext false, i32 noundef 0) #11
   %22 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3928), align 8
@@ -793,8 +793,8 @@ _ZL17write_stacktracesR14JfrChunkWriter.exit:     ; preds = %15, %16
 
 _ZL12write_eventsR14JfrChunkWriterP6Threadb.exit: ; preds = %25, %26
   call void @_ZN19JfrCheckpointWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(73) %4) #11
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %30
 
 30:                                               ; preds = %_ZL12write_eventsR14JfrChunkWriterP6Threadb.exit, %3
@@ -1233,10 +1233,10 @@ declare i32 @strncmp(ptr captures(none), ptr captures(none), i64) local_unnamed_
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

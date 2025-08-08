@@ -22,7 +22,7 @@ define hidden ptr @getJvmLauncherLibPath() local_unnamed_addr #0 {
   %1 = alloca [4096 x i8], align 16
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %1, i8 0, i64 4096, i1 false)
   %3 = call i64 @readlink(ptr noundef nonnull @.str.4, ptr noundef nonnull %1, i64 noundef 4095) #14
   %4 = icmp slt i64 %3, 0
@@ -40,11 +40,11 @@ getModulePath.exit.thread:                        ; preds = %0, %5
   %9 = load i32, ptr %8, align 4
   %10 = tail call ptr @strerror(i32 noundef %9) #14
   tail call void (ptr, ...) @jvmLauncherLog(ptr noundef %10) #14
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %concat.exit
 
 11:                                               ; preds = %5
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %12 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
   %.not.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i, label %createPackageDesc.exit.thread.i, label %16
@@ -442,10 +442,10 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

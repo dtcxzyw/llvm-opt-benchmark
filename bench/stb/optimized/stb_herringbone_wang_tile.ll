@@ -26,14 +26,8 @@ define ptr @stbhw_get_last_error() local_unnamed_addr #0 {
   ret ptr %1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
-define void @stbhw__process_h_row(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15) local_unnamed_addr #2 {
+define void @stbhw__process_h_row(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15) local_unnamed_addr #1 {
   %17 = icmp sgt i32 %15, 0
   br i1 %17, label %.preheader54.lr.ph, label %._crit_edge156
 
@@ -133,7 +127,7 @@ define void @stbhw__process_h_row(ptr noundef %0, i32 noundef %1, i32 noundef %2
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbhw__process_v_row(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15) local_unnamed_addr #2 {
+define void @stbhw__process_v_row(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15) local_unnamed_addr #1 {
   %17 = icmp sgt i32 %15, 0
   br i1 %17, label %.preheader54.lr.ph, label %._crit_edge156
 
@@ -232,7 +226,7 @@ define void @stbhw__process_v_row(ptr noundef %0, i32 noundef %1, i32 noundef %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbhw__get_template_info(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #3 {
+define void @stbhw__get_template_info(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #2 {
   %6 = load i32, ptr %0, align 4, !tbaa !31
   %.not = icmp eq i32 %6, 0
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -358,13 +352,13 @@ define void @stbhw__get_template_info(ptr noundef readonly captures(none) %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbhw_get_template_size(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
+define void @stbhw_get_template_size(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
   tail call void @stbhw__get_template_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null, ptr noundef null)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbhw__process_template(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbhw__process_template(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !12
   %4 = load i32, ptr %3, align 4, !tbaa !31
@@ -1313,7 +1307,7 @@ stbhw__process_v_row.exit248:                     ; preds = %stbhw__process_v_ro
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbhw__draw_pixel(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #3 {
+define void @stbhw__draw_pixel(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #2 {
   %6 = mul nsw i32 %3, %1
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds i8, ptr %0, i64 %7
@@ -1325,10 +1319,10 @@ define void @stbhw__draw_pixel(ptr noundef writeonly captures(none) %0, i32 noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbhw__draw_h_tile(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6, i32 noundef %7) local_unnamed_addr #6 {
+define void @stbhw__draw_h_tile(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6, i32 noundef %7) local_unnamed_addr #5 {
   %factor.op.mul31 = shl i32 %7, 1
   %9 = icmp sgt i32 %7, 0
   br i1 %9, label %.lr.ph33.split.us.preheader, label %._crit_edge
@@ -1392,7 +1386,7 @@ define void @stbhw__draw_h_tile(ptr noundef writeonly captures(none) %0, i32 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbhw__draw_v_tile(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6, i32 noundef %7) local_unnamed_addr #6 {
+define void @stbhw__draw_v_tile(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6, i32 noundef %7) local_unnamed_addr #5 {
   %9 = icmp sgt i32 %7, 0
   br i1 %9, label %.lr.ph33.split.us.preheader, label %._crit_edge
 
@@ -1457,7 +1451,7 @@ define void @stbhw__draw_v_tile(ptr noundef writeonly captures(none) %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbhw__choose_tile(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef readonly captures(address_is_null) %8) local_unnamed_addr #2 {
+define ptr @stbhw__choose_tile(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef readonly captures(address_is_null) %8) local_unnamed_addr #1 {
   %10 = icmp sgt i32 %1, 0
   %.not = icmp eq ptr %8, null
   br i1 %10, label %.preheader.us.preheader, label %.split84.us
@@ -1688,10 +1682,10 @@ define ptr @stbhw__choose_tile(ptr noundef readonly captures(none) %0, i32 nound
 }
 
 ; Function Attrs: nounwind
-declare i32 @rand() local_unnamed_addr #7
+declare i32 @rand() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbhw__match(i32 noundef %0, i32 noundef %1) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @stbhw__match(i32 noundef %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds [106 x [106 x i8]], ptr @c_color, i64 0, i64 %3
   %5 = sext i32 %0 to i64
@@ -1710,7 +1704,7 @@ define range(i32 0, 2) i32 @stbhw__match(i32 noundef %0, i32 noundef %1) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbhw__weighted(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
+define i32 @stbhw__weighted(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = icmp sgt i32 %0, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1763,7 +1757,7 @@ define i32 @stbhw__weighted(i32 noundef %0, ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbhw__change_color(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #2 {
+define i32 @stbhw__change_color(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %22, label %.preheader
 
@@ -1845,7 +1839,7 @@ define i32 @stbhw__change_color(i32 noundef %0, i32 noundef %1, ptr noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbhw_generate_image(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbhw_generate_image(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %8 = load i32, ptr %7, align 4, !tbaa !77
   %9 = sdiv i32 %4, %8
@@ -2710,10 +2704,10 @@ stbhw__draw_h_tile.exit399:                       ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nofree nounwind uwtable
-define void @stbhw__parse_h_rect(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #10 {
+define void @stbhw__parse_h_rect(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #9 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !12
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -2802,10 +2796,10 @@ define void @stbhw__parse_h_rect(ptr noundef readonly captures(none) %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind uwtable
-define void @stbhw__parse_v_rect(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #10 {
+define void @stbhw__parse_v_rect(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #9 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !12
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -2896,14 +2890,14 @@ define void @stbhw__parse_v_rect(ptr noundef readonly captures(none) %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbhw_build_tileset_from_image(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbhw_build_tileset_from_image(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca [9 x i8], align 1
   %7 = alloca %struct.stbhw_config, align 4
   %8 = alloca %struct.stbhw__process, align 8
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %6) #15
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(104) %7, i8 0, i64 104, i1 false)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 56, i1 false)
   %9 = mul nsw i32 %3, 3
   %.sink67.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3099,14 +3093,14 @@ stbhw__get_template_info.exit:                    ; preds = %73, %85
 
 122:                                              ; preds = %59, %49, %stbhw__get_template_info.exit
   %.049 = phi i32 [ %121, %stbhw__get_template_info.exit ], [ 0, %49 ], [ 0, %59 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.049
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbhw_free_tileset(ptr noundef captures(none) %0) local_unnamed_addr #2 {
+define void @stbhw_free_tileset(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !86
   %4 = icmp sgt i32 %3, 0
@@ -3162,10 +3156,10 @@ define void @stbhw_free_tileset(ptr noundef captures(none) %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbhw__set_pixel(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #3 {
+define void @stbhw__set_pixel(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #2 {
   %6 = mul nsw i32 %3, %1
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds i8, ptr %0, i64 %7
@@ -3177,9 +3171,9 @@ define void @stbhw__set_pixel(ptr noundef writeonly captures(none) %0, i32 nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbhw__stbhw__set_pixel_whiten(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #6 {
+define void @stbhw__stbhw__set_pixel_whiten(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #5 {
   %6 = alloca [3 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %7
 
 7:                                                ; preds = %5, %7
@@ -3205,12 +3199,12 @@ define void @stbhw__stbhw__set_pixel_whiten(ptr noundef writeonly captures(none)
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i8, ptr %19, i64 %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %22, ptr noundef nonnull align 1 dereferenceable(3) %6, i64 3, i1 false)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbhw__draw_hline(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #13 {
+define void @stbhw__draw_hline(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #12 {
   %8 = alloca [3 x i8], align 1
   %9 = mul nsw i32 %5, 6
   %10 = sdiv i32 %9, 16
@@ -3271,7 +3265,7 @@ define void @stbhw__draw_hline(ptr noundef writeonly captures(none) %0, i32 noun
 
 39:                                               ; preds = %.lr.ph32, %stbhw__stbhw__set_pixel_whiten.exit
   %indvars.iv35 = phi i64 [ %37, %.lr.ph32 ], [ %indvars.iv.next36, %stbhw__stbhw__set_pixel_whiten.exit ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %40
 
 40:                                               ; preds = %40, %39
@@ -3294,7 +3288,7 @@ stbhw__stbhw__set_pixel_whiten.exit:              ; preds = %40
   %50 = mul nsw i64 %49, 3
   %51 = getelementptr inbounds i8, ptr %36, i64 %50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %51, ptr noundef nonnull align 1 dereferenceable(3) %8, i64 3, i1 false)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next36 = add nsw i64 %indvars.iv35, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count38
   br i1 %exitcond39.not, label %._crit_edge33, label %39, !llvm.loop !107
@@ -3304,7 +3298,7 @@ stbhw__stbhw__set_pixel_whiten.exit:              ; preds = %40
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbhw__draw_vline(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #13 {
+define void @stbhw__draw_vline(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #12 {
   %8 = alloca [3 x i8], align 1
   %9 = mul nsw i32 %5, 6
   %10 = sdiv i32 %9, 16
@@ -3367,7 +3361,7 @@ define void @stbhw__draw_vline(ptr noundef writeonly captures(none) %0, i32 noun
 
 38:                                               ; preds = %.lr.ph32, %stbhw__stbhw__set_pixel_whiten.exit
   %indvars.iv37 = phi i64 [ %35, %.lr.ph32 ], [ %indvars.iv.next38, %stbhw__stbhw__set_pixel_whiten.exit ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %39
 
 39:                                               ; preds = %39, %38
@@ -3390,7 +3384,7 @@ stbhw__stbhw__set_pixel_whiten.exit:              ; preds = %39
   %49 = mul nsw i64 %48, %37
   %gep35 = getelementptr i8, ptr %invariant.gep34, i64 %49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep35, ptr noundef nonnull align 1 dereferenceable(3) %8, i64 3, i1 false)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next38 = add nsw i64 %indvars.iv37, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next38, %wide.trip.count40
   br i1 %exitcond41.not, label %._crit_edge33, label %38, !llvm.loop !109
@@ -3400,7 +3394,7 @@ stbhw__stbhw__set_pixel_whiten.exit:              ; preds = %39
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbhw__draw_clipped_corner(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #6 {
+define void @stbhw__draw_clipped_corner(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #5 {
   %9 = add nsw i32 %6, %2
   %10 = add nsw i32 %7, %3
   %11 = sext i32 %6 to i64
@@ -3491,7 +3485,7 @@ define void @stbhw__draw_clipped_corner(ptr noundef writeonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbhw__edge_process_h_rect(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #13 {
+define void @stbhw__edge_process_h_rect(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #12 {
   %10 = alloca [3 x i8], align 1
   %11 = alloca [3 x i8], align 1
   %12 = alloca [3 x i8], align 1
@@ -3564,7 +3558,7 @@ define void @stbhw__edge_process_h_rect(ptr noundef readonly captures(none) %0, 
 
 53:                                               ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i, %.lr.ph32.i
   %indvars.iv35.i = phi i64 [ %51, %.lr.ph32.i ], [ %indvars.iv.next36.i, %stbhw__stbhw__set_pixel_whiten.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %15) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   br label %54
 
 54:                                               ; preds = %54, %53
@@ -3587,7 +3581,7 @@ stbhw__stbhw__set_pixel_whiten.exit.i:            ; preds = %54
   %64 = mul nsw i64 %63, 3
   %65 = getelementptr inbounds i8, ptr %50, i64 %64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %65, ptr noundef nonnull align 1 dereferenceable(3) %15, i64 3, i1 false)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %15) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %indvars.iv.next36.i = add nsw i64 %indvars.iv35.i, 1
   %exitcond39.not.i = icmp eq i64 %indvars.iv.next36.i, %wide.trip.count38.i
   br i1 %exitcond39.not.i, label %stbhw__draw_hline.exit, label %53, !llvm.loop !107
@@ -3646,7 +3640,7 @@ stbhw__draw_hline.exit:                           ; preds = %stbhw__stbhw__set_p
 
 90:                                               ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i50, %.lr.ph32.i44
   %indvars.iv35.i46 = phi i64 [ %88, %.lr.ph32.i44 ], [ %indvars.iv.next36.i51, %stbhw__stbhw__set_pixel_whiten.exit.i50 ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %14) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   br label %91
 
 91:                                               ; preds = %91, %90
@@ -3669,7 +3663,7 @@ stbhw__stbhw__set_pixel_whiten.exit.i50:          ; preds = %91
   %101 = mul nsw i64 %100, 3
   %102 = getelementptr inbounds i8, ptr %87, i64 %101
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %102, ptr noundef nonnull align 1 dereferenceable(3) %14, i64 3, i1 false)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %indvars.iv.next36.i51 = add nsw i64 %indvars.iv35.i46, 1
   %exitcond39.not.i52 = icmp eq i64 %indvars.iv.next36.i51, %wide.trip.count38.i45
   br i1 %exitcond39.not.i52, label %stbhw__draw_hline.exit60, label %90, !llvm.loop !107
@@ -3730,7 +3724,7 @@ stbhw__draw_hline.exit60:                         ; preds = %stbhw__stbhw__set_p
 
 126:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i68, %.lr.ph32.i64
   %indvars.iv37.i = phi i64 [ %123, %.lr.ph32.i64 ], [ %indvars.iv.next38.i, %stbhw__stbhw__set_pixel_whiten.exit.i68 ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   br label %127
 
 127:                                              ; preds = %127, %126
@@ -3753,7 +3747,7 @@ stbhw__stbhw__set_pixel_whiten.exit.i68:          ; preds = %127
   %137 = mul nsw i64 %136, %125
   %gep35.i = getelementptr i8, ptr %invariant.gep34.i, i64 %137
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep35.i, ptr noundef nonnull align 1 dereferenceable(3) %13, i64 3, i1 false)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %13) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %indvars.iv.next38.i = add nsw i64 %indvars.iv37.i, 1
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next38.i, %wide.trip.count40.i
   br i1 %exitcond41.not.i, label %stbhw__draw_vline.exit, label %126, !llvm.loop !109
@@ -3815,7 +3809,7 @@ stbhw__draw_vline.exit:                           ; preds = %stbhw__stbhw__set_p
 
 162:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i86, %.lr.ph32.i79
   %indvars.iv37.i82 = phi i64 [ %159, %.lr.ph32.i79 ], [ %indvars.iv.next38.i88, %stbhw__stbhw__set_pixel_whiten.exit.i86 ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br label %163
 
 163:                                              ; preds = %163, %162
@@ -3838,7 +3832,7 @@ stbhw__stbhw__set_pixel_whiten.exit.i86:          ; preds = %163
   %173 = mul nsw i64 %172, %161
   %gep35.i87 = getelementptr i8, ptr %invariant.gep34.i80, i64 %173
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep35.i87, ptr noundef nonnull align 1 dereferenceable(3) %12, i64 3, i1 false)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %indvars.iv.next38.i88 = add nsw i64 %indvars.iv37.i82, 1
   %exitcond41.not.i89 = icmp eq i64 %indvars.iv.next38.i88, %wide.trip.count40.i81
   br i1 %exitcond41.not.i89, label %stbhw__draw_vline.exit99, label %162, !llvm.loop !109
@@ -3897,7 +3891,7 @@ stbhw__draw_vline.exit99:                         ; preds = %stbhw__stbhw__set_p
 
 198:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i109, %.lr.ph32.i103
   %indvars.iv35.i105 = phi i64 [ %196, %.lr.ph32.i103 ], [ %indvars.iv.next36.i110, %stbhw__stbhw__set_pixel_whiten.exit.i109 ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br label %199
 
 199:                                              ; preds = %199, %198
@@ -3920,7 +3914,7 @@ stbhw__stbhw__set_pixel_whiten.exit.i109:         ; preds = %199
   %209 = mul nsw i64 %208, 3
   %210 = getelementptr inbounds i8, ptr %195, i64 %209
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %210, ptr noundef nonnull align 1 dereferenceable(3) %11, i64 3, i1 false)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %indvars.iv.next36.i110 = add nsw i64 %indvars.iv35.i105, 1
   %exitcond39.not.i111 = icmp eq i64 %indvars.iv.next36.i110, %wide.trip.count38.i104
   br i1 %exitcond39.not.i111, label %stbhw__draw_hline.exit119, label %198, !llvm.loop !107
@@ -3978,7 +3972,7 @@ stbhw__draw_hline.exit119:                        ; preds = %stbhw__stbhw__set_p
 
 234:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i129, %.lr.ph32.i123
   %indvars.iv35.i125 = phi i64 [ %232, %.lr.ph32.i123 ], [ %indvars.iv.next36.i130, %stbhw__stbhw__set_pixel_whiten.exit.i129 ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %235
 
 235:                                              ; preds = %235, %234
@@ -4001,7 +3995,7 @@ stbhw__stbhw__set_pixel_whiten.exit.i129:         ; preds = %235
   %245 = mul nsw i64 %244, 3
   %246 = getelementptr inbounds i8, ptr %231, i64 %245
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %246, ptr noundef nonnull align 1 dereferenceable(3) %10, i64 3, i1 false)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %indvars.iv.next36.i130 = add nsw i64 %indvars.iv35.i125, 1
   %exitcond39.not.i131 = icmp eq i64 %indvars.iv.next36.i130, %wide.trip.count38.i124
   br i1 %exitcond39.not.i131, label %stbhw__draw_hline.exit139, label %234, !llvm.loop !107
@@ -4011,7 +4005,7 @@ stbhw__draw_hline.exit139:                        ; preds = %stbhw__stbhw__set_p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbhw__edge_process_v_rect(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #13 {
+define void @stbhw__edge_process_v_rect(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #12 {
   %10 = alloca [3 x i8], align 1
   %11 = alloca [3 x i8], align 1
   %12 = alloca [3 x i8], align 1
@@ -4084,7 +4078,7 @@ define void @stbhw__edge_process_v_rect(ptr noundef readonly captures(none) %0, 
 
 53:                                               ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i, %.lr.ph32.i
   %indvars.iv35.i = phi i64 [ %51, %.lr.ph32.i ], [ %indvars.iv.next36.i, %stbhw__stbhw__set_pixel_whiten.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %15) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   br label %54
 
 54:                                               ; preds = %54, %53
@@ -4107,7 +4101,7 @@ stbhw__stbhw__set_pixel_whiten.exit.i:            ; preds = %54
   %64 = mul nsw i64 %63, 3
   %65 = getelementptr inbounds i8, ptr %50, i64 %64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %65, ptr noundef nonnull align 1 dereferenceable(3) %15, i64 3, i1 false)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %15) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %indvars.iv.next36.i = add nsw i64 %indvars.iv35.i, 1
   %exitcond39.not.i = icmp eq i64 %indvars.iv.next36.i, %wide.trip.count38.i
   br i1 %exitcond39.not.i, label %stbhw__draw_hline.exit, label %53, !llvm.loop !107
@@ -4168,7 +4162,7 @@ stbhw__draw_hline.exit:                           ; preds = %stbhw__stbhw__set_p
 
 89:                                               ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i48, %.lr.ph32.i44
   %indvars.iv37.i = phi i64 [ %86, %.lr.ph32.i44 ], [ %indvars.iv.next38.i, %stbhw__stbhw__set_pixel_whiten.exit.i48 ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %14) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   br label %90
 
 90:                                               ; preds = %90, %89
@@ -4191,7 +4185,7 @@ stbhw__stbhw__set_pixel_whiten.exit.i48:          ; preds = %90
   %100 = mul nsw i64 %99, %88
   %gep35.i = getelementptr i8, ptr %invariant.gep34.i, i64 %100
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep35.i, ptr noundef nonnull align 1 dereferenceable(3) %14, i64 3, i1 false)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %indvars.iv.next38.i = add nsw i64 %indvars.iv37.i, 1
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next38.i, %wide.trip.count40.i
   br i1 %exitcond41.not.i, label %stbhw__draw_vline.exit, label %89, !llvm.loop !109
@@ -4252,7 +4246,7 @@ stbhw__draw_vline.exit:                           ; preds = %stbhw__stbhw__set_p
 
 124:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i66, %.lr.ph32.i59
   %indvars.iv37.i62 = phi i64 [ %121, %.lr.ph32.i59 ], [ %indvars.iv.next38.i68, %stbhw__stbhw__set_pixel_whiten.exit.i66 ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   br label %125
 
 125:                                              ; preds = %125, %124
@@ -4275,7 +4269,7 @@ stbhw__stbhw__set_pixel_whiten.exit.i66:          ; preds = %125
   %135 = mul nsw i64 %134, %123
   %gep35.i67 = getelementptr i8, ptr %invariant.gep34.i60, i64 %135
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep35.i67, ptr noundef nonnull align 1 dereferenceable(3) %13, i64 3, i1 false)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %13) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %indvars.iv.next38.i68 = add nsw i64 %indvars.iv37.i62, 1
   %exitcond41.not.i69 = icmp eq i64 %indvars.iv.next38.i68, %wide.trip.count40.i61
   br i1 %exitcond41.not.i69, label %stbhw__draw_vline.exit79, label %124, !llvm.loop !109
@@ -4336,7 +4330,7 @@ stbhw__draw_vline.exit79:                         ; preds = %stbhw__stbhw__set_p
 
 159:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i90, %.lr.ph32.i83
   %indvars.iv37.i86 = phi i64 [ %156, %.lr.ph32.i83 ], [ %indvars.iv.next38.i92, %stbhw__stbhw__set_pixel_whiten.exit.i90 ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br label %160
 
 160:                                              ; preds = %160, %159
@@ -4359,7 +4353,7 @@ stbhw__stbhw__set_pixel_whiten.exit.i90:          ; preds = %160
   %170 = mul nsw i64 %169, %158
   %gep35.i91 = getelementptr i8, ptr %invariant.gep34.i84, i64 %170
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep35.i91, ptr noundef nonnull align 1 dereferenceable(3) %12, i64 3, i1 false)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %indvars.iv.next38.i92 = add nsw i64 %indvars.iv37.i86, 1
   %exitcond41.not.i93 = icmp eq i64 %indvars.iv.next38.i92, %wide.trip.count40.i85
   br i1 %exitcond41.not.i93, label %stbhw__draw_vline.exit103, label %159, !llvm.loop !109
@@ -4419,7 +4413,7 @@ stbhw__draw_vline.exit103:                        ; preds = %stbhw__stbhw__set_p
 
 193:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i114, %.lr.ph32.i107
   %indvars.iv37.i110 = phi i64 [ %190, %.lr.ph32.i107 ], [ %indvars.iv.next38.i116, %stbhw__stbhw__set_pixel_whiten.exit.i114 ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br label %194
 
 194:                                              ; preds = %194, %193
@@ -4442,7 +4436,7 @@ stbhw__stbhw__set_pixel_whiten.exit.i114:         ; preds = %194
   %204 = mul nsw i64 %203, %192
   %gep35.i115 = getelementptr i8, ptr %invariant.gep34.i108, i64 %204
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep35.i115, ptr noundef nonnull align 1 dereferenceable(3) %11, i64 3, i1 false)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %indvars.iv.next38.i116 = add nsw i64 %indvars.iv37.i110, 1
   %exitcond41.not.i117 = icmp eq i64 %indvars.iv.next38.i116, %wide.trip.count40.i109
   br i1 %exitcond41.not.i117, label %stbhw__draw_vline.exit127, label %193, !llvm.loop !109
@@ -4502,7 +4496,7 @@ stbhw__draw_vline.exit127:                        ; preds = %stbhw__stbhw__set_p
 
 230:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i137, %.lr.ph32.i131
   %indvars.iv35.i133 = phi i64 [ %228, %.lr.ph32.i131 ], [ %indvars.iv.next36.i138, %stbhw__stbhw__set_pixel_whiten.exit.i137 ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %231
 
 231:                                              ; preds = %231, %230
@@ -4525,7 +4519,7 @@ stbhw__stbhw__set_pixel_whiten.exit.i137:         ; preds = %231
   %241 = mul nsw i64 %240, 3
   %242 = getelementptr inbounds i8, ptr %227, i64 %241
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %242, ptr noundef nonnull align 1 dereferenceable(3) %10, i64 3, i1 false)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %indvars.iv.next36.i138 = add nsw i64 %indvars.iv35.i133, 1
   %exitcond39.not.i139 = icmp eq i64 %indvars.iv.next36.i138, %wide.trip.count38.i132
   br i1 %exitcond39.not.i139, label %stbhw__draw_hline.exit147, label %230, !llvm.loop !107
@@ -4535,7 +4529,7 @@ stbhw__draw_hline.exit147:                        ; preds = %stbhw__stbhw__set_p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbhw__corner_process_h_rect(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #13 {
+define void @stbhw__corner_process_h_rect(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #12 {
   %10 = alloca [3 x i8], align 1
   %11 = alloca [3 x i8], align 1
   %12 = alloca [3 x i8], align 1
@@ -4613,7 +4607,7 @@ define void @stbhw__corner_process_h_rect(ptr noundef readonly captures(none) %0
 
 58:                                               ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i, %.lr.ph32.i
   %indvars.iv35.i = phi i64 [ %56, %.lr.ph32.i ], [ %indvars.iv.next36.i, %stbhw__stbhw__set_pixel_whiten.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %15) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   br label %59
 
 59:                                               ; preds = %59, %58
@@ -4636,7 +4630,7 @@ stbhw__stbhw__set_pixel_whiten.exit.i:            ; preds = %59
   %69 = mul nsw i64 %68, 3
   %70 = getelementptr inbounds i8, ptr %55, i64 %69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %70, ptr noundef nonnull align 1 dereferenceable(3) %15, i64 3, i1 false)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %15) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %indvars.iv.next36.i = add nsw i64 %indvars.iv35.i, 1
   %exitcond39.not.i = icmp eq i64 %indvars.iv.next36.i, %wide.trip.count38.i
   br i1 %exitcond39.not.i, label %stbhw__draw_hline.exit, label %58, !llvm.loop !107
@@ -4700,7 +4694,7 @@ stbhw__draw_hline.exit:                           ; preds = %stbhw__stbhw__set_p
 
 100:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i153, %.lr.ph32.i147
   %indvars.iv35.i149 = phi i64 [ %98, %.lr.ph32.i147 ], [ %indvars.iv.next36.i154, %stbhw__stbhw__set_pixel_whiten.exit.i153 ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %14) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   br label %101
 
 101:                                              ; preds = %101, %100
@@ -4723,7 +4717,7 @@ stbhw__stbhw__set_pixel_whiten.exit.i153:         ; preds = %101
   %111 = mul nsw i64 %110, 3
   %112 = getelementptr inbounds i8, ptr %97, i64 %111
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %112, ptr noundef nonnull align 1 dereferenceable(3) %14, i64 3, i1 false)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %indvars.iv.next36.i154 = add nsw i64 %indvars.iv35.i149, 1
   %exitcond39.not.i155 = icmp eq i64 %indvars.iv.next36.i154, %wide.trip.count38.i148
   br i1 %exitcond39.not.i155, label %stbhw__draw_hline.exit163, label %100, !llvm.loop !107
@@ -4787,7 +4781,7 @@ stbhw__draw_hline.exit163:                        ; preds = %stbhw__stbhw__set_p
 
 139:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i171, %.lr.ph32.i167
   %indvars.iv37.i = phi i64 [ %136, %.lr.ph32.i167 ], [ %indvars.iv.next38.i, %stbhw__stbhw__set_pixel_whiten.exit.i171 ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   br label %140
 
 140:                                              ; preds = %140, %139
@@ -4810,7 +4804,7 @@ stbhw__stbhw__set_pixel_whiten.exit.i171:         ; preds = %140
   %150 = mul nsw i64 %149, %138
   %gep35.i = getelementptr i8, ptr %invariant.gep34.i, i64 %150
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep35.i, ptr noundef nonnull align 1 dereferenceable(3) %13, i64 3, i1 false)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %13) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %indvars.iv.next38.i = add nsw i64 %indvars.iv37.i, 1
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next38.i, %wide.trip.count40.i
   br i1 %exitcond41.not.i, label %stbhw__draw_vline.exit, label %139, !llvm.loop !109
@@ -4876,7 +4870,7 @@ stbhw__draw_vline.exit:                           ; preds = %stbhw__stbhw__set_p
 
 179:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i189, %.lr.ph32.i182
   %indvars.iv37.i185 = phi i64 [ %176, %.lr.ph32.i182 ], [ %indvars.iv.next38.i191, %stbhw__stbhw__set_pixel_whiten.exit.i189 ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br label %180
 
 180:                                              ; preds = %180, %179
@@ -4899,7 +4893,7 @@ stbhw__stbhw__set_pixel_whiten.exit.i189:         ; preds = %180
   %190 = mul nsw i64 %189, %178
   %gep35.i190 = getelementptr i8, ptr %invariant.gep34.i183, i64 %190
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep35.i190, ptr noundef nonnull align 1 dereferenceable(3) %12, i64 3, i1 false)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %indvars.iv.next38.i191 = add nsw i64 %indvars.iv37.i185, 1
   %exitcond41.not.i192 = icmp eq i64 %indvars.iv.next38.i191, %wide.trip.count40.i184
   br i1 %exitcond41.not.i192, label %stbhw__draw_vline.exit202, label %179, !llvm.loop !109
@@ -4963,7 +4957,7 @@ stbhw__draw_vline.exit202:                        ; preds = %stbhw__stbhw__set_p
 
 220:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i212, %.lr.ph32.i206
   %indvars.iv35.i208 = phi i64 [ %218, %.lr.ph32.i206 ], [ %indvars.iv.next36.i213, %stbhw__stbhw__set_pixel_whiten.exit.i212 ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br label %221
 
 221:                                              ; preds = %221, %220
@@ -4986,7 +4980,7 @@ stbhw__stbhw__set_pixel_whiten.exit.i212:         ; preds = %221
   %231 = mul nsw i64 %230, 3
   %232 = getelementptr inbounds i8, ptr %217, i64 %231
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %232, ptr noundef nonnull align 1 dereferenceable(3) %11, i64 3, i1 false)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %indvars.iv.next36.i213 = add nsw i64 %indvars.iv35.i208, 1
   %exitcond39.not.i214 = icmp eq i64 %indvars.iv.next36.i213, %wide.trip.count38.i207
   br i1 %exitcond39.not.i214, label %stbhw__draw_hline.exit222, label %220, !llvm.loop !107
@@ -5047,7 +5041,7 @@ stbhw__draw_hline.exit222:                        ; preds = %stbhw__stbhw__set_p
 
 259:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i232, %.lr.ph32.i226
   %indvars.iv35.i228 = phi i64 [ %257, %.lr.ph32.i226 ], [ %indvars.iv.next36.i233, %stbhw__stbhw__set_pixel_whiten.exit.i232 ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %260
 
 260:                                              ; preds = %260, %259
@@ -5070,7 +5064,7 @@ stbhw__stbhw__set_pixel_whiten.exit.i232:         ; preds = %260
   %270 = mul nsw i64 %269, 3
   %271 = getelementptr inbounds i8, ptr %256, i64 %270
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %271, ptr noundef nonnull align 1 dereferenceable(3) %10, i64 3, i1 false)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %indvars.iv.next36.i233 = add nsw i64 %indvars.iv35.i228, 1
   %exitcond39.not.i234 = icmp eq i64 %indvars.iv.next36.i233, %wide.trip.count38.i227
   br i1 %exitcond39.not.i234, label %stbhw__draw_hline.exit242, label %259, !llvm.loop !107
@@ -5726,7 +5720,7 @@ stbhw__draw_clipped_corner.exit340:               ; preds = %stbhw__draw_clipped
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbhw__corner_process_v_rect(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #13 {
+define void @stbhw__corner_process_v_rect(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #12 {
   %10 = alloca [3 x i8], align 1
   %11 = alloca [3 x i8], align 1
   %12 = alloca [3 x i8], align 1
@@ -5804,7 +5798,7 @@ define void @stbhw__corner_process_v_rect(ptr noundef readonly captures(none) %0
 
 58:                                               ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i, %.lr.ph32.i
   %indvars.iv35.i = phi i64 [ %56, %.lr.ph32.i ], [ %indvars.iv.next36.i, %stbhw__stbhw__set_pixel_whiten.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %15) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   br label %59
 
 59:                                               ; preds = %59, %58
@@ -5827,7 +5821,7 @@ stbhw__stbhw__set_pixel_whiten.exit.i:            ; preds = %59
   %69 = mul nsw i64 %68, 3
   %70 = getelementptr inbounds i8, ptr %55, i64 %69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %70, ptr noundef nonnull align 1 dereferenceable(3) %15, i64 3, i1 false)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %15) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %indvars.iv.next36.i = add nsw i64 %indvars.iv35.i, 1
   %exitcond39.not.i = icmp eq i64 %indvars.iv.next36.i, %wide.trip.count38.i
   br i1 %exitcond39.not.i, label %stbhw__draw_hline.exit, label %58, !llvm.loop !107
@@ -5891,7 +5885,7 @@ stbhw__draw_hline.exit:                           ; preds = %stbhw__stbhw__set_p
 
 97:                                               ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i151, %.lr.ph32.i147
   %indvars.iv37.i = phi i64 [ %94, %.lr.ph32.i147 ], [ %indvars.iv.next38.i, %stbhw__stbhw__set_pixel_whiten.exit.i151 ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %14) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   br label %98
 
 98:                                               ; preds = %98, %97
@@ -5914,7 +5908,7 @@ stbhw__stbhw__set_pixel_whiten.exit.i151:         ; preds = %98
   %108 = mul nsw i64 %107, %96
   %gep35.i = getelementptr i8, ptr %invariant.gep34.i, i64 %108
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep35.i, ptr noundef nonnull align 1 dereferenceable(3) %14, i64 3, i1 false)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %indvars.iv.next38.i = add nsw i64 %indvars.iv37.i, 1
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next38.i, %wide.trip.count40.i
   br i1 %exitcond41.not.i, label %stbhw__draw_vline.exit, label %97, !llvm.loop !109
@@ -5980,7 +5974,7 @@ stbhw__draw_vline.exit:                           ; preds = %stbhw__stbhw__set_p
 
 137:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i169, %.lr.ph32.i162
   %indvars.iv37.i165 = phi i64 [ %134, %.lr.ph32.i162 ], [ %indvars.iv.next38.i171, %stbhw__stbhw__set_pixel_whiten.exit.i169 ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   br label %138
 
 138:                                              ; preds = %138, %137
@@ -6003,7 +5997,7 @@ stbhw__stbhw__set_pixel_whiten.exit.i169:         ; preds = %138
   %148 = mul nsw i64 %147, %136
   %gep35.i170 = getelementptr i8, ptr %invariant.gep34.i163, i64 %148
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep35.i170, ptr noundef nonnull align 1 dereferenceable(3) %13, i64 3, i1 false)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %13) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %indvars.iv.next38.i171 = add nsw i64 %indvars.iv37.i165, 1
   %exitcond41.not.i172 = icmp eq i64 %indvars.iv.next38.i171, %wide.trip.count40.i164
   br i1 %exitcond41.not.i172, label %stbhw__draw_vline.exit182, label %137, !llvm.loop !109
@@ -6069,7 +6063,7 @@ stbhw__draw_vline.exit182:                        ; preds = %stbhw__stbhw__set_p
 
 177:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i193, %.lr.ph32.i186
   %indvars.iv37.i189 = phi i64 [ %174, %.lr.ph32.i186 ], [ %indvars.iv.next38.i195, %stbhw__stbhw__set_pixel_whiten.exit.i193 ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br label %178
 
 178:                                              ; preds = %178, %177
@@ -6092,7 +6086,7 @@ stbhw__stbhw__set_pixel_whiten.exit.i193:         ; preds = %178
   %188 = mul nsw i64 %187, %176
   %gep35.i194 = getelementptr i8, ptr %invariant.gep34.i187, i64 %188
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep35.i194, ptr noundef nonnull align 1 dereferenceable(3) %12, i64 3, i1 false)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %indvars.iv.next38.i195 = add nsw i64 %indvars.iv37.i189, 1
   %exitcond41.not.i196 = icmp eq i64 %indvars.iv.next38.i195, %wide.trip.count40.i188
   br i1 %exitcond41.not.i196, label %stbhw__draw_vline.exit206, label %177, !llvm.loop !109
@@ -6156,7 +6150,7 @@ stbhw__draw_vline.exit206:                        ; preds = %stbhw__stbhw__set_p
 
 215:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i217, %.lr.ph32.i210
   %indvars.iv37.i213 = phi i64 [ %212, %.lr.ph32.i210 ], [ %indvars.iv.next38.i219, %stbhw__stbhw__set_pixel_whiten.exit.i217 ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br label %216
 
 216:                                              ; preds = %216, %215
@@ -6179,7 +6173,7 @@ stbhw__stbhw__set_pixel_whiten.exit.i217:         ; preds = %216
   %226 = mul nsw i64 %225, %214
   %gep35.i218 = getelementptr i8, ptr %invariant.gep34.i211, i64 %226
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep35.i218, ptr noundef nonnull align 1 dereferenceable(3) %11, i64 3, i1 false)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %indvars.iv.next38.i219 = add nsw i64 %indvars.iv37.i213, 1
   %exitcond41.not.i220 = icmp eq i64 %indvars.iv.next38.i219, %wide.trip.count40.i212
   br i1 %exitcond41.not.i220, label %stbhw__draw_vline.exit230, label %215, !llvm.loop !109
@@ -6242,7 +6236,7 @@ stbhw__draw_vline.exit230:                        ; preds = %stbhw__stbhw__set_p
 
 255:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i240, %.lr.ph32.i234
   %indvars.iv35.i236 = phi i64 [ %253, %.lr.ph32.i234 ], [ %indvars.iv.next36.i241, %stbhw__stbhw__set_pixel_whiten.exit.i240 ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %256
 
 256:                                              ; preds = %256, %255
@@ -6265,7 +6259,7 @@ stbhw__stbhw__set_pixel_whiten.exit.i240:         ; preds = %256
   %266 = mul nsw i64 %265, 3
   %267 = getelementptr inbounds i8, ptr %252, i64 %266
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %267, ptr noundef nonnull align 1 dereferenceable(3) %10, i64 3, i1 false)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %indvars.iv.next36.i241 = add nsw i64 %indvars.iv35.i236, 1
   %exitcond39.not.i242 = icmp eq i64 %indvars.iv.next36.i241, %wide.trip.count38.i235
   br i1 %exitcond39.not.i242, label %stbhw__draw_hline.exit250, label %255, !llvm.loop !107
@@ -6918,9 +6912,9 @@ stbhw__draw_clipped_corner.exit348:               ; preds = %stbhw__draw_clipped
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbhw_make_template(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbhw_make_template(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca %struct.stbhw__process, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %1, ptr %7, align 8, !tbaa !91
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 44
@@ -7074,27 +7068,33 @@ define range(i32 0, 2) i32 @stbhw_make_template(ptr noundef %0, ptr noundef %1, 
 
 .loopexit:                                        ; preds = %82, %._crit_edge
   %.055 = phi i32 [ 0, %._crit_edge ], [ 1, %82 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.055
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nounwind }
 attributes #16 = { nounwind allocsize(0) }

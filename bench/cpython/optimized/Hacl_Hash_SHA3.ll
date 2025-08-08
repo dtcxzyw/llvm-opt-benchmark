@@ -52,7 +52,7 @@ switch.lookup47:                                  ; preds = %block_len.exit23, %
   ret void
 
 17:                                               ; preds = %switch.lookup47
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %5, i8 0, i64 256, i1 false)
   switch i8 %0, label %29 [
     i8 9, label %block_len.exit19.thread
@@ -134,24 +134,21 @@ block_len.exit21:                                 ; preds = %block_len.exit19, %
 
 block_len.exit23:                                 ; preds = %block_len.exit21, %block_len.exit21.thread42, %block_len.exit21.thread38, %block_len.exit21.thread34, %block_len.exit21.thread
   call fastcc void @absorb_inner_32(ptr noundef %5, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %switch.lookup47, !llvm.loop !8
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @absorb_inner_32(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #4 {
+define internal fastcc void @absorb_inner_32(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #3 {
   %3 = alloca [32 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.val = load i64, ptr %0, align 1
   store i64 %.val, ptr %3, align 16, !tbaa !10
   %4 = getelementptr i8, ptr %0, i64 8
@@ -341,7 +338,7 @@ define internal fastcc void @absorb_inner_32(ptr noundef nonnull readonly captur
   br i1 %exitcond.not, label %.preheader, label %90, !llvm.loop !12
 
 96:                                               ; preds = %178
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 97:                                               ; preds = %.preheader, %178
@@ -608,9 +605,6 @@ define internal fastcc void @absorb_inner_32(ptr noundef nonnull readonly captur
   br i1 %exitcond658.not, label %178, label %282, !llvm.loop !16
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree nounwind uwtable
 define hidden void @python_hashlib_Hacl_Hash_SHA3_update_last_sha3(i8 noundef zeroext %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [256 x i8], align 16
@@ -640,12 +634,12 @@ switch.lookup:                                    ; preds = %4
   br i1 %17, label %18, label %30
 
 18:                                               ; preds = %switch.lookup
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %5, i8 0, i64 256, i1 false)
   %19 = zext nneg i32 %3 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %2, i64 %19, i1 false)
   call fastcc void @absorb_inner_32(ptr noundef %5, ptr noundef %1)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.sroa.0.sroa.0.0.insert.ext = zext nneg i8 %. to i64
   store i64 %.sroa.0.sroa.0.0.insert.ext, ptr %6, align 16, !tbaa !10
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -665,19 +659,19 @@ switch.lookup:                                    ; preds = %4
   br i1 %exitcond1355.not, label %27, label %21, !llvm.loop !17
 
 27:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %7, i8 0, i64 256, i1 false)
   %28 = getelementptr i8, ptr %7, i64 %19
   %29 = getelementptr i8, ptr %28, i64 -1
   store i8 -128, ptr %29, align 1, !tbaa !18
   call fastcc void @absorb_inner_32(ptr noundef %7, ptr noundef nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #19
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #19
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %110
 
 30:                                               ; preds = %switch.lookup
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %8, i8 0, i64 256, i1 false)
   %31 = urem i32 %3, %switch.load
   %32 = zext i32 %3 to i64
@@ -688,7 +682,7 @@ switch.lookup:                                    ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr align 1 %36, i64 %34, i1 false)
   %37 = getelementptr i8, ptr %8, i64 %34
   store i8 %., ptr %37, align 1, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %9) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.val1317 = load i64, ptr %8, align 16
   store i64 %.val1317, ptr %9, align 16, !tbaa !10
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -830,16 +824,16 @@ switch.lookup:                                    ; preds = %4
   br i1 %exitcond.not, label %106, label %100, !llvm.loop !19
 
 106:                                              ; preds = %100
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %10) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %10, i8 0, i64 256, i1 false)
   %107 = zext nneg i32 %switch.load to i64
   %108 = getelementptr i8, ptr %10, i64 %107
   %109 = getelementptr i8, ptr %108, i64 -1
   store i8 -128, ptr %109, align 1, !tbaa !18
   call fastcc void @absorb_inner_32(ptr noundef %10, ptr noundef nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %10) #19
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %9) #19
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %110
 
 110:                                              ; preds = %106, %27
@@ -847,7 +841,7 @@ switch.lookup:                                    ; preds = %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden zeroext i8 @python_hashlib_Hacl_Hash_SHA3_get_alg(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define hidden zeroext i8 @python_hashlib_Hacl_Hash_SHA3_get_alg(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %.sroa.0.0.copyload = load i8, ptr %0, align 8, !tbaa !18
   ret i8 %.sroa.0.0.copyload
 }
@@ -869,9 +863,9 @@ block_len.exit:                                   ; preds = %1
   %5 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table.digest_.18, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
-  %6 = tail call noalias ptr @calloc(i64 noundef %switch.load, i64 noundef 1) #20
-  %7 = tail call noalias dereferenceable_or_null(200) ptr @calloc(i64 noundef 25, i64 noundef 8) #20
-  %8 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #21
+  %6 = tail call noalias ptr @calloc(i64 noundef %switch.load, i64 noundef 1) #19
+  %7 = tail call noalias dereferenceable_or_null(200) ptr @calloc(i64 noundef 25, i64 noundef 8) #19
+  %8 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #20
   store i8 %0, ptr %8, align 8, !tbaa !18
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.0.sroa.4.0..sroa_idx, i8 0, i64 7, i1 false)
@@ -885,28 +879,28 @@ block_len.exit:                                   ; preds = %1
 }
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #6
+declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @python_hashlib_Hacl_Hash_SHA3_free(ptr noundef captures(none) %0) local_unnamed_addr #9 {
+define hidden void @python_hashlib_Hacl_Hash_SHA3_free(ptr noundef captures(none) %0) local_unnamed_addr #8 {
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !20
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !22
-  tail call void @free(ptr noundef %.sroa.4.0.copyload) #19
-  tail call void @free(ptr noundef %.sroa.5.0.copyload) #19
-  tail call void @free(ptr noundef %0) #19
+  tail call void @free(ptr noundef %.sroa.4.0.copyload) #21
+  tail call void @free(ptr noundef %.sroa.5.0.copyload) #21
+  tail call void @free(ptr noundef %0) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind uwtable
 define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_SHA3_copy(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -939,26 +933,26 @@ block_len.exit:                                   ; preds = %1
   ]
 
 block_len.exit32.thread:                          ; preds = %block_len.exit
-  %5 = tail call noalias dereferenceable_or_null(144) ptr @calloc(i64 noundef 144, i64 noundef 1) #20
+  %5 = tail call noalias dereferenceable_or_null(144) ptr @calloc(i64 noundef 144, i64 noundef 1) #19
   br label %block_len.exit34
 
 block_len.exit32.thread36:                        ; preds = %block_len.exit
-  %6 = tail call noalias dereferenceable_or_null(104) ptr @calloc(i64 noundef 104, i64 noundef 1) #20
+  %6 = tail call noalias dereferenceable_or_null(104) ptr @calloc(i64 noundef 104, i64 noundef 1) #19
   br label %block_len.exit34
 
 block_len.exit32.thread38:                        ; preds = %block_len.exit
-  %7 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 72, i64 noundef 1) #20
+  %7 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 72, i64 noundef 1) #19
   br label %block_len.exit34
 
 block_len.exit32.thread40:                        ; preds = %block_len.exit
-  %8 = tail call noalias dereferenceable_or_null(168) ptr @calloc(i64 noundef 168, i64 noundef 1) #20
+  %8 = tail call noalias dereferenceable_or_null(168) ptr @calloc(i64 noundef 168, i64 noundef 1) #19
   br label %block_len.exit34
 
 default.unreachable:                              ; preds = %block_len.exit
   unreachable
 
 block_len.exit32:                                 ; preds = %block_len.exit, %block_len.exit
-  %9 = tail call noalias dereferenceable_or_null(136) ptr @calloc(i64 noundef 136, i64 noundef 1) #20
+  %9 = tail call noalias dereferenceable_or_null(136) ptr @calloc(i64 noundef 136, i64 noundef 1) #19
   switch i8 %.sroa.0.sroa.025.0.extract.trunc, label %default.unreachable42 [
     i8 9, label %block_len.exit34
     i8 8, label %10
@@ -987,10 +981,10 @@ block_len.exit34:                                 ; preds = %block_len.exit32.th
   %14 = phi ptr [ %9, %10 ], [ %9, %block_len.exit32 ], [ %5, %block_len.exit32.thread ], [ %6, %block_len.exit32.thread36 ], [ %9, %11 ], [ %7, %block_len.exit32.thread38 ], [ %9, %12 ], [ %8, %block_len.exit32.thread40 ], [ %9, %13 ]
   %.0.i33 = phi i64 [ 136, %10 ], [ 144, %block_len.exit32 ], [ 144, %block_len.exit32.thread ], [ 104, %block_len.exit32.thread36 ], [ 104, %11 ], [ 72, %block_len.exit32.thread38 ], [ 72, %12 ], [ 168, %block_len.exit32.thread40 ], [ 168, %13 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 1 dereferenceable(1) %.sroa.528.0.copyload, i64 %.0.i33, i1 false)
-  %15 = tail call noalias dereferenceable_or_null(200) ptr @calloc(i64 noundef 25, i64 noundef 8) #20
+  %15 = tail call noalias dereferenceable_or_null(200) ptr @calloc(i64 noundef 25, i64 noundef 8) #19
   %.sroa.0.sroa.025.0.insert.ext = and i64 %.sroa.0.0.copyload26, 255
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %15, ptr noundef nonnull align 8 dereferenceable(200) %.sroa.427.0.copyload, i64 200, i1 false)
-  %16 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #21
+  %16 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #20
   store i64 %.sroa.0.sroa.025.0.insert.ext, ptr %16, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %15, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !tbaa !20
@@ -1002,11 +996,11 @@ block_len.exit34:                                 ; preds = %block_len.exit32.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @python_hashlib_Hacl_Hash_SHA3_reset(ptr noundef captures(none) initializes((24, 32)) %0) local_unnamed_addr #11 {
+define hidden void @python_hashlib_Hacl_Hash_SHA3_reset(ptr noundef captures(none) initializes((24, 32)) %0) local_unnamed_addr #10 {
   %.sroa.0.sroa.4 = alloca [7 x i8], align 1
   %.sroa.0.0.copyload = load i8, ptr %0, align 8, !tbaa !18
   %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.0.sroa.4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.sroa.4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.0.sroa.4, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.47.0..sroa_idx, i64 7, i1 false)
   %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.58.0.copyload = load ptr, ptr %.sroa.58.0..sroa_idx, align 8, !tbaa !20
@@ -1019,7 +1013,7 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_reset(ptr noundef captures(non
   store ptr %.sroa.58.0.copyload, ptr %.sroa.58.0..sroa_idx, align 8, !tbaa !20
   store ptr %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !22
   store i64 0, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !10
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.0.sroa.4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.sroa.4)
   ret void
 }
 
@@ -1738,25 +1732,25 @@ switch.lookup:                                    ; preds = %4
   ]
 
 block_len.exit1190.thread:                        ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %5, i8 0, i64 200, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %5, ptr noundef nonnull align 8 dereferenceable(200) %.sroa.41159.0.copyload, i64 200, i1 false)
   br label %block_len.exit1194
 
 block_len.exit1190.thread1228:                    ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %5, i8 0, i64 200, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %5, ptr noundef nonnull align 8 dereferenceable(200) %.sroa.41159.0.copyload, i64 200, i1 false)
   br label %block_len.exit1194
 
 block_len.exit1190.thread1231:                    ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %5, i8 0, i64 200, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %5, ptr noundef nonnull align 8 dereferenceable(200) %.sroa.41159.0.copyload, i64 200, i1 false)
   br label %block_len.exit1194
 
 block_len.exit1190.thread1234:                    ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %5, i8 0, i64 200, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %5, ptr noundef nonnull align 8 dereferenceable(200) %.sroa.41159.0.copyload, i64 200, i1 false)
   br label %block_len.exit1194
@@ -1775,7 +1769,7 @@ switch.lookup1319:                                ; preds = %switch.lookup
 
 block_len.exit1190:                               ; preds = %19, %19, %switch.lookup1319
   %.0 = phi i32 [ %22, %switch.lookup1319 ], [ 136, %19 ], [ 136, %19 ]
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %5, i8 0, i64 200, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %5, ptr noundef nonnull align 8 dereferenceable(200) %.sroa.41159.0.copyload, i64 200, i1 false)
   switch i8 %0, label %default.unreachable1270 [
@@ -1940,8 +1934,8 @@ switch.lookup1329:                                ; preds = %block_len.exit1202
   br label %312
 
 88:                                               ; preds = %block_len.exit1202
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.200..sroa_idx1338, i8 0, i64 56, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %7, ptr noundef nonnull align 16 dereferenceable(200) %5, i64 200, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, ptr noundef nonnull align 16 dereferenceable(256) %7, i64 256, i1 false)
@@ -2039,8 +2033,8 @@ block_len.exit1208:                               ; preds = %block_len.exit1206.
   br label %112
 
 111:                                              ; preds = %193
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next1286 = add nuw nsw i64 %indvars.iv1285, 1
   br label %.preheader.split, !llvm.loop !25
 
@@ -2308,8 +2302,8 @@ block_len.exit1208:                               ; preds = %block_len.exit1206.
   br i1 %exitcond.not, label %193, label %297, !llvm.loop !27
 
 block_len.exit1211:                               ; preds = %block_len.exit1200
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.200..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.200..sroa_idx, i8 0, i64 56, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %10, ptr noundef nonnull align 16 dereferenceable(200) %5, i64 200, i1 false)
@@ -2319,12 +2313,12 @@ block_len.exit1211:                               ; preds = %block_len.exit1200
   %switch.gep1335 = getelementptr inbounds nuw [4 x i64], ptr @switch.table.digest_.21, i64 0, i64 %311
   %switch.load1336 = load i64, ptr %switch.gep1335, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 16 dereferenceable(1) %9, i64 %switch.load1336, i1 false)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %312
 
 312:                                              ; preds = %block_len.exit1211, %switch.lookup1329
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -2389,7 +2383,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden zeroext i1 @python_hashlib_Hacl_Hash_SHA3_is_shake(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define hidden zeroext i1 @python_hashlib_Hacl_Hash_SHA3_is_shake(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %.sroa.0.0.copyload.i = load i8, ptr %0, align 8, !tbaa !18
   %2 = and i8 %.sroa.0.0.copyload.i, -2
   %3 = icmp eq i8 %2, 12
@@ -2397,9 +2391,9 @@ define hidden zeroext i1 @python_hashlib_Hacl_Hash_SHA3_is_shake(ptr noundef rea
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @python_hashlib_Hacl_Hash_SHA3_absorb_inner_32(i32 %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden void @python_hashlib_Hacl_Hash_SHA3_absorb_inner_32(i32 %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = alloca [32 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.val641 = load i64, ptr %1, align 1
   store i64 %.val641, ptr %4, align 16, !tbaa !10
   %5 = getelementptr i8, ptr %1, i64 8
@@ -2589,7 +2583,7 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_absorb_inner_32(i32 %0, ptr no
   br i1 %exitcond.not, label %.preheader, label %91, !llvm.loop !28
 
 97:                                               ; preds = %179
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 98:                                               ; preds = %.preheader, %179
@@ -2857,14 +2851,14 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_absorb_inner_32(i32 %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @python_hashlib_Hacl_Hash_SHA3_shake128(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #4 {
+define hidden void @python_hashlib_Hacl_Hash_SHA3_shake128(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = alloca [25 x i64], align 16
   %6 = alloca [256 x i8], align 16
   %7 = alloca [256 x i8], align 16
   %8 = alloca [32 x i64], align 16
   %9 = alloca [256 x i8], align 16
   %10 = alloca [32 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %5, i8 0, i64 200, i1 false)
   %.not = icmp ult i32 %3, 168
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
@@ -2876,7 +2870,7 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_shake128(ptr noundef writeonly
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %7, i8 0, i64 256, i1 false)
   %13 = urem i32 %3, 168
   %14 = zext i32 %3 to i64
@@ -2887,7 +2881,7 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_shake128(ptr noundef writeonly
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr align 1 %18, i64 %16, i1 false)
   %19 = getelementptr i8, ptr %7, i64 %16
   store i8 31, ptr %19, align 1, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.val519 = load i64, ptr %7, align 16
   store i64 %.val519, ptr %8, align 16, !tbaa !10
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -3018,19 +3012,19 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_shake128(ptr noundef writeonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %82 = mul nuw nsw i64 %indvars.iv, 168
   %83 = getelementptr i8, ptr %2, i64 %82
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %12, i8 0, i64 88, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(168) %6, ptr noundef nonnull align 1 dereferenceable(168) %83, i64 168, i1 false)
   call void @python_hashlib_Hacl_Hash_SHA3_absorb_inner_32(i32 poison, ptr noundef nonnull %6, ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 84:                                               ; preds = %111
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %9) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %9, i8 0, i64 256, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %9, i64 167
   store i8 -128, ptr %85, align 1, !tbaa !18
@@ -3111,10 +3105,10 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_shake128(ptr noundef writeonly
   %121 = sub nsw i64 0, %120
   %122 = getelementptr i8, ptr %119, i64 %121
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %122, ptr nonnull align 16 %10, i64 %120, i1 false)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %9) #19
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #19
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #19
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 123:                                              ; preds = %.lr.ph536, %126
@@ -3415,14 +3409,14 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_shake128(ptr noundef writeonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @python_hashlib_Hacl_Hash_SHA3_shake256(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #4 {
+define hidden void @python_hashlib_Hacl_Hash_SHA3_shake256(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = alloca [25 x i64], align 16
   %6 = alloca [256 x i8], align 16
   %7 = alloca [256 x i8], align 16
   %8 = alloca [32 x i64], align 16
   %9 = alloca [256 x i8], align 16
   %10 = alloca [32 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %5, i8 0, i64 200, i1 false)
   %.not = icmp ult i32 %3, 136
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
@@ -3434,7 +3428,7 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_shake256(ptr noundef writeonly
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %7, i8 0, i64 256, i1 false)
   %13 = urem i32 %3, 136
   %14 = zext i32 %3 to i64
@@ -3445,7 +3439,7 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_shake256(ptr noundef writeonly
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr align 1 %18, i64 %16, i1 false)
   %19 = getelementptr i8, ptr %7, i64 %16
   store i8 31, ptr %19, align 1, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.val519 = load i64, ptr %7, align 16
   store i64 %.val519, ptr %8, align 16, !tbaa !10
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -3576,19 +3570,19 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_shake256(ptr noundef writeonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %82 = mul nuw nsw i64 %indvars.iv, 136
   %83 = getelementptr i8, ptr %2, i64 %82
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %12, i8 0, i64 120, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(136) %6, ptr noundef nonnull align 1 dereferenceable(136) %83, i64 136, i1 false)
   call void @python_hashlib_Hacl_Hash_SHA3_absorb_inner_32(i32 poison, ptr noundef nonnull %6, ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 84:                                               ; preds = %111
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %9) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %9, i8 0, i64 256, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %9, i64 135
   store i8 -128, ptr %85, align 1, !tbaa !18
@@ -3669,10 +3663,10 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_shake256(ptr noundef writeonly
   %121 = sub nsw i64 0, %120
   %122 = getelementptr i8, ptr %119, i64 %121
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %122, ptr nonnull align 16 %10, i64 %120, i1 false)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %9) #19
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #19
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #19
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 123:                                              ; preds = %.lr.ph536, %126
@@ -3973,13 +3967,13 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_shake256(ptr noundef writeonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @python_hashlib_Hacl_Hash_SHA3_sha3_224(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #4 {
+define hidden void @python_hashlib_Hacl_Hash_SHA3_sha3_224(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [25 x i64], align 16
   %5 = alloca [256 x i8], align 16
   %6 = alloca [256 x i8], align 16
   %7 = alloca [32 x i64], align 16
   %8 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %4, i8 0, i64 200, i1 false)
   %.not = icmp ult i32 %2, 144
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
@@ -3991,7 +3985,7 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_sha3_224(ptr noundef writeonly
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %11 = urem i32 %2, 144
   %12 = zext i32 %2 to i64
@@ -4002,7 +3996,7 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_sha3_224(ptr noundef writeonly
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr align 1 %16, i64 %14, i1 false)
   %17 = getelementptr i8, ptr %6, i64 %14
   store i8 6, ptr %17, align 1, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.val516 = load i64, ptr %6, align 16
   store i64 %.val516, ptr %7, align 16, !tbaa !10
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -4133,28 +4127,28 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_sha3_224(ptr noundef writeonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %80 = mul nuw nsw i64 %indvars.iv, 144
   %81 = getelementptr i8, ptr %1, i64 %80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %10, i8 0, i64 112, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %5, ptr noundef nonnull align 1 dereferenceable(144) %81, i64 144, i1 false)
   call void @python_hashlib_Hacl_Hash_SHA3_absorb_inner_32(i32 poison, ptr noundef nonnull %5, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 82:                                               ; preds = %84
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %8, i8 0, i64 256, i1 false)
   %83 = getelementptr inbounds nuw i8, ptr %8, i64 143
   store i8 -128, ptr %83, align 1, !tbaa !18
   call void @python_hashlib_Hacl_Hash_SHA3_absorb_inner_32(i32 poison, ptr noundef nonnull %8, ptr noundef nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %0, ptr noundef nonnull align 16 dereferenceable(28) %4, i64 28, i1 false)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #19
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #19
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #19
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 84:                                               ; preds = %._crit_edge, %84
@@ -4171,13 +4165,13 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_sha3_224(ptr noundef writeonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @python_hashlib_Hacl_Hash_SHA3_sha3_256(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #4 {
+define hidden void @python_hashlib_Hacl_Hash_SHA3_sha3_256(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [25 x i64], align 16
   %5 = alloca [256 x i8], align 16
   %6 = alloca [256 x i8], align 16
   %7 = alloca [32 x i64], align 16
   %8 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %4, i8 0, i64 200, i1 false)
   %.not = icmp ult i32 %2, 136
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
@@ -4189,7 +4183,7 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_sha3_256(ptr noundef writeonly
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %11 = urem i32 %2, 136
   %12 = zext i32 %2 to i64
@@ -4200,7 +4194,7 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_sha3_256(ptr noundef writeonly
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr align 1 %16, i64 %14, i1 false)
   %17 = getelementptr i8, ptr %6, i64 %14
   store i8 6, ptr %17, align 1, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.val516 = load i64, ptr %6, align 16
   store i64 %.val516, ptr %7, align 16, !tbaa !10
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -4331,28 +4325,28 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_sha3_256(ptr noundef writeonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %80 = mul nuw nsw i64 %indvars.iv, 136
   %81 = getelementptr i8, ptr %1, i64 %80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %10, i8 0, i64 120, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(136) %5, ptr noundef nonnull align 1 dereferenceable(136) %81, i64 136, i1 false)
   call void @python_hashlib_Hacl_Hash_SHA3_absorb_inner_32(i32 poison, ptr noundef nonnull %5, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
 82:                                               ; preds = %84
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %8, i8 0, i64 256, i1 false)
   %83 = getelementptr inbounds nuw i8, ptr %8, i64 135
   store i8 -128, ptr %83, align 1, !tbaa !18
   call void @python_hashlib_Hacl_Hash_SHA3_absorb_inner_32(i32 poison, ptr noundef nonnull %8, ptr noundef nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) %4, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #19
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #19
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #19
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 84:                                               ; preds = %._crit_edge, %84
@@ -4369,13 +4363,13 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_sha3_256(ptr noundef writeonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @python_hashlib_Hacl_Hash_SHA3_sha3_384(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #4 {
+define hidden void @python_hashlib_Hacl_Hash_SHA3_sha3_384(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [25 x i64], align 16
   %5 = alloca [256 x i8], align 16
   %6 = alloca [256 x i8], align 16
   %7 = alloca [32 x i64], align 16
   %8 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %4, i8 0, i64 200, i1 false)
   %.not = icmp ult i32 %2, 104
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
@@ -4387,7 +4381,7 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_sha3_384(ptr noundef writeonly
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %11 = urem i32 %2, 104
   %12 = zext i32 %2 to i64
@@ -4398,7 +4392,7 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_sha3_384(ptr noundef writeonly
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr align 1 %16, i64 %14, i1 false)
   %17 = getelementptr i8, ptr %6, i64 %14
   store i8 6, ptr %17, align 1, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.val516 = load i64, ptr %6, align 16
   store i64 %.val516, ptr %7, align 16, !tbaa !10
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -4529,28 +4523,28 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_sha3_384(ptr noundef writeonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %80 = mul nuw nsw i64 %indvars.iv, 104
   %81 = getelementptr i8, ptr %1, i64 %80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %10, i8 0, i64 152, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %5, ptr noundef nonnull align 1 dereferenceable(104) %81, i64 104, i1 false)
   call void @python_hashlib_Hacl_Hash_SHA3_absorb_inner_32(i32 poison, ptr noundef nonnull %5, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 
 82:                                               ; preds = %84
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %8, i8 0, i64 256, i1 false)
   %83 = getelementptr inbounds nuw i8, ptr %8, i64 103
   store i8 -128, ptr %83, align 1, !tbaa !18
   call void @python_hashlib_Hacl_Hash_SHA3_absorb_inner_32(i32 poison, ptr noundef nonnull %8, ptr noundef nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %0, ptr noundef nonnull align 16 dereferenceable(48) %4, i64 48, i1 false)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #19
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #19
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #19
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 84:                                               ; preds = %._crit_edge, %84
@@ -4567,13 +4561,13 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_sha3_384(ptr noundef writeonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @python_hashlib_Hacl_Hash_SHA3_sha3_512(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #4 {
+define hidden void @python_hashlib_Hacl_Hash_SHA3_sha3_512(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [25 x i64], align 16
   %5 = alloca [256 x i8], align 16
   %6 = alloca [256 x i8], align 16
   %7 = alloca [32 x i64], align 16
   %8 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %4, i8 0, i64 200, i1 false)
   %.not = icmp ult i32 %2, 72
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
@@ -4585,7 +4579,7 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_sha3_512(ptr noundef writeonly
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %11 = urem i32 %2, 72
   %12 = zext i32 %2 to i64
@@ -4596,7 +4590,7 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_sha3_512(ptr noundef writeonly
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr align 1 %16, i64 %14, i1 false)
   %17 = getelementptr i8, ptr %6, i64 %14
   store i8 6, ptr %17, align 1, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.val516 = load i64, ptr %6, align 16
   store i64 %.val516, ptr %7, align 16, !tbaa !10
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -4727,28 +4721,28 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_sha3_512(ptr noundef writeonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %80 = mul nuw nsw i64 %indvars.iv, 72
   %81 = getelementptr i8, ptr %1, i64 %80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %10, i8 0, i64 184, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %5, ptr noundef nonnull align 1 dereferenceable(72) %81, i64 72, i1 false)
   call void @python_hashlib_Hacl_Hash_SHA3_absorb_inner_32(i32 poison, ptr noundef nonnull %5, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 82:                                               ; preds = %84
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %8, i8 0, i64 256, i1 false)
   %83 = getelementptr inbounds nuw i8, ptr %8, i64 71
   store i8 -128, ptr %83, align 1, !tbaa !18
   call void @python_hashlib_Hacl_Hash_SHA3_absorb_inner_32(i32 poison, ptr noundef nonnull %8, ptr noundef nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %0, ptr noundef nonnull align 16 dereferenceable(64) %4, i64 64, i1 false)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #19
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #19
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #19
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 84:                                               ; preds = %._crit_edge, %84
@@ -4765,19 +4759,19 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_sha3_512(ptr noundef writeonly
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_SHA3_state_malloc() local_unnamed_addr #12 {
-  %1 = tail call noalias dereferenceable_or_null(200) ptr @calloc(i64 noundef 25, i64 noundef 8) #20
+define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_SHA3_state_malloc() local_unnamed_addr #11 {
+  %1 = tail call noalias dereferenceable_or_null(200) ptr @calloc(i64 noundef 25, i64 noundef 8) #19
   ret ptr %1
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @python_hashlib_Hacl_Hash_SHA3_state_free(ptr noundef captures(none) %0) local_unnamed_addr #13 {
-  tail call void @free(ptr noundef %0) #19
+define hidden void @python_hashlib_Hacl_Hash_SHA3_state_free(ptr noundef captures(none) %0) local_unnamed_addr #12 {
+  tail call void @free(ptr noundef %0) #21
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @python_hashlib_Hacl_Hash_SHA3_shake128_absorb_nblocks(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #4 {
+define hidden void @python_hashlib_Hacl_Hash_SHA3_shake128_absorb_nblocks(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [256 x i8], align 16
   %.not = icmp ult i32 %2, 168
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
@@ -4793,24 +4787,24 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_shake128_absorb_nblocks(ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = mul nuw nsw i64 %indvars.iv, 168
   %8 = getelementptr i8, ptr %1, i64 %7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, i8 0, i64 88, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(168) %4, ptr noundef nonnull align 1 dereferenceable(168) %8, i64 168, i1 false)
   call void @python_hashlib_Hacl_Hash_SHA3_absorb_inner_32(i32 poison, ptr noundef nonnull %4, ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @python_hashlib_Hacl_Hash_SHA3_shake128_absorb_final(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #4 {
+define hidden void @python_hashlib_Hacl_Hash_SHA3_shake128_absorb_final(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [256 x i8], align 16
   %5 = alloca [32 x i64], align 16
   %6 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %7 = urem i32 %2, 168
   %8 = zext i32 %2 to i64
@@ -4821,7 +4815,7 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_shake128_absorb_final(ptr noun
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr align 1 %12, i64 %10, i1 false)
   %13 = getelementptr i8, ptr %4, i64 %10
   store i8 31, ptr %13, align 1, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.val116 = load i64, ptr %4, align 16
   store i64 %.val116, ptr %5, align 16, !tbaa !10
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4951,14 +4945,14 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_shake128_absorb_final(ptr noun
   br label %78
 
 76:                                               ; preds = %78
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %77 = getelementptr inbounds nuw i8, ptr %6, i64 167
   store i8 -128, ptr %77, align 1, !tbaa !18
   call void @python_hashlib_Hacl_Hash_SHA3_absorb_inner_32(i32 poison, ptr noundef nonnull %6, ptr noundef nonnull %0)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #19
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #19
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 78:                                               ; preds = %3, %78
@@ -4975,7 +4969,7 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_shake128_absorb_final(ptr noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @python_hashlib_Hacl_Hash_SHA3_shake128_squeeze_nblocks(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #4 {
+define hidden void @python_hashlib_Hacl_Hash_SHA3_shake128_squeeze_nblocks(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
   %.not = icmp ult i32 %2, 168
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -5310,7 +5304,13 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_shake128_squeeze_nblocks(ptr n
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #14
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #15
@@ -5319,27 +5319,27 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #15
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #16
 
 attributes #0 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { cold nounwind }
 attributes #18 = { cold noreturn nounwind }
-attributes #19 = { nounwind }
-attributes #20 = { nounwind allocsize(0,1) }
-attributes #21 = { nounwind allocsize(0) }
+attributes #19 = { nounwind allocsize(0,1) }
+attributes #20 = { nounwind allocsize(0) }
+attributes #21 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

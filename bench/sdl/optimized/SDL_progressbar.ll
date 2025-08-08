@@ -87,12 +87,12 @@ define hidden noundef zeroext i1 @DBUS_ApplyWindowProgress(ptr noundef readnone 
   br label %GetDBUSObjectPath.exit
 
 GetDBUSObjectPath.exit:                           ; preds = %._crit_edge.i, %32
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %36 = tail call i32 @getpid() #5
   %37 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.5, ptr noundef nonnull %20, i32 noundef %36) #5
   call void @SDL_free_REAL(ptr noundef nonnull %20) #5
   %38 = call noalias ptr @SDL_strdup_REAL(ptr noundef nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not40 = icmp eq ptr %38, null
   br i1 %.not40, label %GetDBUSObjectPath.exit.thread, label %39
 
@@ -108,7 +108,7 @@ GetDBUSObjectPath.exit:                           ; preds = %._crit_edge.i, %32
   br label %GetDBUSObjectPath.exit.thread
 
 44:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %45 = call ptr @SDL_GetAppID() #5
   %46 = call i64 @SDL_strlen_REAL(ptr noundef %45) #5
   %47 = call i64 @SDL_strlen_REAL(ptr noundef nonnull @.str.6) #5
@@ -130,28 +130,28 @@ GetDBUSObjectPath.exit:                           ; preds = %._crit_edge.i, %32
   %55 = call i64 @SDL_strlcat_REAL(ptr noundef nonnull %50, ptr noundef %45, i64 noundef %49) #5
   %56 = call i64 @SDL_strlcat_REAL(ptr noundef nonnull %50, ptr noundef nonnull @.str.6, i64 noundef %49) #5
   store ptr %50, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @.str.2, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @.str.3, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 98, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 100, ptr %8, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %58 = load i32, ptr %57, align 8
   %59 = add i32 %58, -1
   %or.cond.i44 = icmp ult i32 %59, -2
   %..i = zext i1 %or.cond.i44 to i32
   store i32 %..i, ptr %9, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 372
   %61 = load float, ptr %60, align 4
   %62 = fpext float %61 to double
   store double %62, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11) #5
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %63 = getelementptr inbounds nuw i8, ptr %15, i64 224
   %64 = load ptr, ptr %63, align 8
   call void %64(ptr noundef nonnull %42, ptr noundef nonnull %11) #5
@@ -161,8 +161,8 @@ GetDBUSObjectPath.exit:                           ; preds = %._crit_edge.i, %32
   %68 = getelementptr inbounds nuw i8, ptr %15, i64 232
   %69 = load ptr, ptr %68, align 8
   %70 = call i32 %69(ptr noundef nonnull %11, i32 noundef 97, ptr noundef nonnull @.str.4, ptr noundef nonnull %12) #5
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %13) #5
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %14) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %71 = load ptr, ptr %68, align 8
   %72 = call i32 %71(ptr noundef nonnull %12, i32 noundef 101, ptr noundef null, ptr noundef nonnull %13) #5
   %73 = load ptr, ptr %65, align 8
@@ -200,20 +200,20 @@ GetDBUSObjectPath.exit:                           ; preds = %._crit_edge.i, %32
   %104 = load ptr, ptr %103, align 8
   call void %104(ptr noundef nonnull %42) #5
   call void @SDL_free_REAL(ptr noundef nonnull %38) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %14) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %13) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %105
 
 105:                                              ; preds = %54, %51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %GetDBUSObjectPath.exit.thread
 
 GetDBUSObjectPath.exit.thread:                    ; preds = %18, %GetDBUSObjectPath.exit, %105, %43, %2, %16
@@ -221,43 +221,43 @@ GetDBUSObjectPath.exit.thread:                    ; preds = %18, %GetDBUSObjectP
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @SDL_DBus_GetContext() local_unnamed_addr #1
 
-declare ptr @SDL_DBus_GetContext() local_unnamed_addr #2
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @SDL_GetAppID() local_unnamed_addr #1
 
-declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_isalnum_REAL(i32 noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GetAppID() local_unnamed_addr #2
+declare i32 @SDL_isalpha_REAL(i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_isalnum_REAL(i32 noundef) local_unnamed_addr #2
-
-declare i32 @SDL_isalpha_REAL(i32 noundef) local_unnamed_addr #2
-
-declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #2
+declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
-declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @getpid() local_unnamed_addr #4
+declare i32 @getpid() local_unnamed_addr #3
 
-declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #1
 
-declare i64 @SDL_strlcat_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @SDL_strlcat_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

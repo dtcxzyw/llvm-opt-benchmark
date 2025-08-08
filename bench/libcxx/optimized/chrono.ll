@@ -19,7 +19,7 @@ $_ZNSt3__16chrono12steady_clock9is_steadyE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local i64 @_ZNSt3__16chrono12system_clock3nowEv() local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %1) #9
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %6, label %3
@@ -40,7 +40,7 @@ define dso_local i64 @_ZNSt3__16chrono12system_clock3nowEv() local_unnamed_addr 
   %10 = sdiv i64 %9, 1000
   %11 = mul nsw i64 %7, 1000000
   %12 = add nsw i64 %10, %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i64 %12
 
 13:                                               ; preds = %3
@@ -72,14 +72,8 @@ define dso_local noundef range(i64 -9223372036854, 9223372036855) i64 @_ZNSt3__1
   ret i64 %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i64 @_ZNSt3__16chrono12system_clock11from_time_tEl(i64 noundef %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local i64 @_ZNSt3__16chrono12system_clock11from_time_tEl(i64 noundef %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = mul nsw i64 %0, 1000000
   ret i64 %2
 }
@@ -87,7 +81,7 @@ define dso_local i64 @_ZNSt3__16chrono12system_clock11from_time_tEl(i64 noundef 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local i64 @_ZNSt3__16chrono12steady_clock3nowEv() local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #9
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %6, label %3
@@ -107,7 +101,7 @@ define dso_local i64 @_ZNSt3__16chrono12steady_clock3nowEv() local_unnamed_addr 
   %9 = load i64, ptr %8, align 8, !tbaa !9
   %10 = mul nsw i64 %7, 1000000000
   %11 = add nsw i64 %10, %9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i64 %11
 
 12:                                               ; preds = %3
@@ -119,23 +113,29 @@ define dso_local i64 @_ZNSt3__16chrono12steady_clock3nowEv() local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: noreturn
-declare void @_ZNSt3__120__throw_system_errorEiPKc(i32 noundef, ptr noundef) local_unnamed_addr #7
+declare void @_ZNSt3__120__throw_system_errorEiPKc(i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #8
+declare ptr @__errno_location() local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold nofree noreturn }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind willreturn memory(none) }
 attributes #11 = { noreturn }

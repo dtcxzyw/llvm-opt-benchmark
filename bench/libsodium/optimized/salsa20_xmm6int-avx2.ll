@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind ssp uwtable
 define internal noundef i32 @stream_avx2(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca %struct.salsa_ctx, align 4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %40, label %6
 
@@ -71,14 +71,14 @@ define internal noundef i32 @stream_avx2(ptr noundef %0, i64 noundef %1, ptr nou
   br label %40
 
 40:                                               ; preds = %4, %6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 0
 }
 
 ; Function Attrs: nounwind ssp uwtable
 define internal noundef i32 @stream_avx2_xor_ic(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5) #0 {
   %7 = alloca %struct.salsa_ctx, align 4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %42, label %8
 
@@ -140,15 +140,12 @@ define internal noundef i32 @stream_avx2_xor_ic(ptr noundef %0, ptr noundef %1, 
   br label %42
 
 42:                                               ; preds = %6, %8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind ssp uwtable
-define internal fastcc void @salsa20_encrypt_bytes(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1, ptr noundef writeonly %2, i64 noundef range(i64 1, 0) %3) unnamed_addr #2 {
+define internal fastcc void @salsa20_encrypt_bytes(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1, ptr noundef writeonly %2, i64 noundef range(i64 1, 0) %3) unnamed_addr #1 {
   %5 = alloca [64 x i8], align 16
   %6 = icmp ugt i64 %3, 511
   br i1 %6, label %7, label %.loopexit1764
@@ -1267,7 +1264,7 @@ define internal fastcc void @salsa20_encrypt_bytes(ptr noundef nonnull captures(
   %971 = load <4 x i32>, ptr %970, align 1
   %972 = getelementptr i8, ptr %0, i64 48
   %973 = load <4 x i32>, ptr %972, align 1
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %974
 
 974:                                              ; preds = %966, %974
@@ -1431,17 +1428,20 @@ define internal fastcc void @salsa20_encrypt_bytes(ptr noundef nonnull captures(
 
 1102:                                             ; preds = %1095
   call void @sodium_memzero(ptr noundef nonnull %5, i64 noundef 64) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %1103
 
 1103:                                             ; preds = %._crit_edge, %1102
   ret void
 }
 
-declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <4 x i32> @llvm.fshl.v4i32(<4 x i32>, <4 x i32>, <4 x i32>) #4
@@ -1453,9 +1453,9 @@ declare <8 x i32> @llvm.fshl.v8i32(<8 x i32>, <8 x i32>, <8 x i32>) #4
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind ssp uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { nounwind ssp uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nounwind }

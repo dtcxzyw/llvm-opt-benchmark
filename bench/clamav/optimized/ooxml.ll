@@ -168,7 +168,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 552) i32 @cli_ooxml_filetype(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.zip_requests, align 8
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 0, i64 176, i1 false)
   %4 = call i32 @unzip_search_add(ptr noundef nonnull %3, ptr noundef nonnull @.str, i64 noundef 3) #6
   %.not = icmp eq i32 %4, 0
@@ -208,27 +208,21 @@ switch.lookup:                                    ; preds = %14
 
 19:                                               ; preds = %14, %switch.lookup, %11, %9, %7, %5, %2
   %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 0, %7 ], [ 0, %9 ], [ 0, %11 ], [ %switch.load, %switch.lookup ], [ 0, %14 ]
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
-declare i32 @unzip_search_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @unzip_search_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @unzip_search(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @unzip_search(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_process_ooxml(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4) #6
   %.not = icmp eq ptr %0, null
@@ -303,37 +297,37 @@ define i32 @cli_process_ooxml(ptr noundef %0, i32 noundef %1) local_unnamed_addr
 
 38:                                               ; preds = %33, %23, %12, %27, %17, %6, %2, %29, %19, %8
   %.019 = phi i32 [ 26, %8 ], [ 26, %19 ], [ 26, %29 ], [ 2, %2 ], [ %7, %6 ], [ %18, %17 ], [ %28, %27 ], [ %26, %23 ], [ %15, %12 ], [ %37, %33 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.019
 }
 
-declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #3
+declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @unzip_search_single(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @unzip_search_single(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @cli_json_parse_error(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @cli_json_parse_error(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @unzip_single_internal(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @unzip_single_internal(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ooxml_hwp_cb(i32 noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i32 %4) #0 {
   %6 = alloca %struct.stat, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.14) #6
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i32 @fstat(i32 noundef %0, ptr noundef nonnull %6) #6
   %8 = icmp eq i32 %7, -1
   br i1 %8, label %ooxml_updatelimits.exit.thread, label %ooxml_updatelimits.exit
 
 ooxml_updatelimits.exit.thread:                   ; preds = %5
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.18, i32 noundef %0) #6
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %21
 
 ooxml_updatelimits.exit:                          ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %10 = load i64, ptr %9, align 8, !tbaa !26
   %11 = tail call i32 @cli_updatelimits(ptr noundef %2, i64 noundef %10) #6
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %21
 
@@ -373,29 +367,29 @@ define internal i32 @ooxml_content_cb(i32 noundef %0, ptr readnone captures(none
   %6 = alloca %struct.stat, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %10 = load i64, ptr %9, align 8, !tbaa !29
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %12 = load i32, ptr %11, align 8, !tbaa !30
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.34) #6
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %13 = call i32 @fstat(i32 noundef %0, ptr noundef nonnull %6) #6
   %14 = icmp eq i32 %13, -1
   br i1 %14, label %ooxml_updatelimits.exit.thread, label %ooxml_updatelimits.exit
 
 ooxml_updatelimits.exit.thread:                   ; preds = %5
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.18, i32 noundef %0) #6
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %165
 
 ooxml_updatelimits.exit:                          ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %16 = load i64, ptr %15, align 8, !tbaa !26
   %17 = tail call i32 @cli_updatelimits(ptr noundef nonnull %2, i64 noundef %16) #6
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %18, label %165
 
@@ -754,46 +748,46 @@ ooxml_updatelimits.exit:                          ; preds = %5
 
 165:                                              ; preds = %ooxml_updatelimits.exit.thread, %ooxml_updatelimits.exit, %163, %21
   %.0 = phi i32 [ 0, %21 ], [ %.1, %163 ], [ %17, %ooxml_updatelimits.exit ], [ 11, %ooxml_updatelimits.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
-declare ptr @xmlReaderForFd(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @xmlReaderForFd(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @cli_msxml_parse_document(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @cli_msxml_parse_document(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #3
+declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @xmlTextReaderClose(ptr noundef) local_unnamed_addr #3
+declare i32 @xmlTextReaderClose(ptr noundef) local_unnamed_addr #2
 
-declare void @xmlFreeTextReader(ptr noundef) local_unnamed_addr #3
+declare void @xmlFreeTextReader(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
-declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #3
+declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @cli_updatelimits(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @cli_updatelimits(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @xmlTextReaderRead(ptr noundef) local_unnamed_addr #3
+declare i32 @xmlTextReaderRead(ptr noundef) local_unnamed_addr #2
 
-declare i32 @cli_json_timeout_cycle_check(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @cli_json_timeout_cycle_check(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @xmlTextReaderConstLocalName(ptr noundef) local_unnamed_addr #3
+declare ptr @xmlTextReaderConstLocalName(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
-declare i32 @xmlTextReaderHasAttributes(ptr noundef) local_unnamed_addr #3
+declare i32 @xmlTextReaderHasAttributes(ptr noundef) local_unnamed_addr #2
 
-declare i32 @xmlTextReaderMoveToNextAttribute(ptr noundef) local_unnamed_addr #3
+declare i32 @xmlTextReaderMoveToNextAttribute(ptr noundef) local_unnamed_addr #2
 
-declare ptr @xmlTextReaderConstValue(ptr noundef) local_unnamed_addr #3
+declare ptr @xmlTextReaderConstValue(ptr noundef) local_unnamed_addr #2
 
-declare i32 @xmlStrcmp(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @xmlStrcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @xmlStrlen(ptr noundef) local_unnamed_addr #3
+declare i32 @xmlStrlen(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ooxml_core_cb(i32 noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i32 %4) #0 {
@@ -841,27 +835,27 @@ define internal noundef i32 @ooxml_extn_cb(i32 noundef %0, ptr readnone captures
   ret i32 %6
 }
 
-declare i32 @cli_jsonint(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @cli_jsonint(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @ooxml_parse_document(i32 noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.stat, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.70) #6
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @fstat(i32 noundef %0, ptr noundef nonnull %3) #6
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %ooxml_updatelimits.exit.thread, label %ooxml_updatelimits.exit
 
 ooxml_updatelimits.exit.thread:                   ; preds = %2
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.18, i32 noundef %0) #6
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %18
 
 ooxml_updatelimits.exit:                          ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %7 = load i64, ptr %6, align 8, !tbaa !26
   %8 = tail call i32 @cli_updatelimits(ptr noundef %1, i64 noundef %7) #6
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %18
 
@@ -896,12 +890,18 @@ ooxml_updatelimits.exit:                          ; preds = %2
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(read) }
 

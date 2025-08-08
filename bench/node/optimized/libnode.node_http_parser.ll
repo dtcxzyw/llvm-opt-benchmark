@@ -4660,7 +4660,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4node13MemoryTracker8PushNodeEPKcm
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr.317", align 8
   %n = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   %call.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i, align 8
   %retainer_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
@@ -4734,7 +4734,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i: ; preds = %_ZNK4node13MemoryTr
 
 _ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit:     ; preds = %_ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i
   %14 = phi ptr [ %4, %_ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit.i ], [ %4, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i ], [ %4, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i ], [ %.pre2, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   store ptr %call.i, ptr %n, align 8
   %_M_last.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %15 = load ptr, ptr %_M_last.i.i, align 8
@@ -5309,7 +5309,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %previous_listener_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %3 = load ptr, ptr %previous_listener_.i, align 8
   %cmp.not.i = icmp eq ptr %3, null
@@ -5331,7 +5331,7 @@ _ZN4node14StreamListener31PassReadErrorToPreviousListenerEl.exit: ; preds = %if.
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 24
   %7 = load ptr, ptr %vfn.i, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %nread, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.then.i11
 
 if.end:                                           ; preds = %entry
@@ -6419,7 +6419,7 @@ entry:
   %0 = ptrtoint ptr %p to i64
   %sub.i.i = add i64 %0, -80
   %1 = inttoptr i64 %sub.i.i to ptr
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %callback_scope.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %callback_scope.i)
   %connectionsList_.i = getelementptr inbounds nuw i8, ptr %1, i64 1832
   %2 = load ptr, ptr %connectionsList_.i, align 8
   %cmp.not.i = icmp eq ptr %2, null
@@ -6595,7 +6595,7 @@ if.end69.i:                                       ; preds = %if.then68.i, %_ZNK4
   br label %_ZN4node12_GLOBAL__N_16Parser16on_message_beginEv.exit
 
 _ZN4node12_GLOBAL__N_16Parser16on_message_beginEv.exit: ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit.i, %if.end69.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %callback_scope.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %callback_scope.i)
   %pending_pause_.i = getelementptr inbounds nuw i8, ptr %1, i64 1801
   %31 = load i8, ptr %pending_pause_.i, align 1
   %tobool.i = trunc i8 %31 to i1
@@ -7077,8 +7077,8 @@ entry:
   %0 = ptrtoint ptr %p to i64
   %sub.i.i = add i64 %0, -80
   %1 = inttoptr i64 %sub.i.i to ptr
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %argv.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %callback_scope.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %argv.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %callback_scope.i)
   %headers_completed_.i = getelementptr inbounds nuw i8, ptr %1, i64 1800
   store i8 1, ptr %headers_completed_.i, align 8
   %header_nread_.i = getelementptr inbounds nuw i8, ptr %1, i64 1808
@@ -7132,8 +7132,8 @@ _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit246.i: ; preds = %if.then.i
   br i1 %call23.i, label %if.end.i, label %_ZN4node12_GLOBAL__N_16Parser19on_headers_completeEv.exit.thread
 
 _ZN4node12_GLOBAL__N_16Parser19on_headers_completeEv.exit.thread: ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit246.i
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %argv.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %callback_scope.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %argv.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %callback_scope.i)
   br label %if.then
 
 if.end.i:                                         ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit246.i
@@ -7391,15 +7391,15 @@ lor.rhs.critedge.i:                               ; preds = %_ZNK4node10BaseObje
 _ZN4node12_GLOBAL__N_16Parser19on_headers_completeEv.exit.thread8: ; preds = %if.then206.i, %lor.rhs.critedge.i
   %got_exception_.i = getelementptr inbounds nuw i8, ptr %1, i64 1777
   store i8 1, ptr %got_exception_.i, align 1
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %argv.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %callback_scope.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %argv.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %callback_scope.i)
   br label %if.end
 
 _ZN4node12_GLOBAL__N_16Parser19on_headers_completeEv.exit: ; preds = %lor.rhs.critedge.i
   %68 = extractvalue { i8, i64 } %call225.i, 1
   %69 = trunc i64 %68 to i32
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %argv.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %callback_scope.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %argv.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %callback_scope.i)
   %cmp = icmp eq i32 %69, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -7428,8 +7428,8 @@ entry:
   %0 = ptrtoint ptr %p to i64
   %sub.i.i = add i64 %0, -80
   %1 = inttoptr i64 %sub.i.i to ptr
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %handle_scope.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buffer.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %handle_scope.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i)
   %cmp.i = icmp eq i64 %args1, 0
   br i1 %cmp.i, label %if.then, label %if.end.i
 
@@ -7508,13 +7508,13 @@ _ZN4node12_GLOBAL__N_16Parser7on_bodyEPKcm.exit:  ; preds = %_ZN2v810MaybeLocalI
   %parser_.i = getelementptr inbounds nuw i8, ptr %1, i64 80
   call void @llhttp_set_error_reason(ptr noundef nonnull %parser_.i, ptr noundef nonnull @.str.135) #20
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i) #20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %handle_scope.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i)
   br label %if.end
 
 if.then:                                          ; preds = %entry, %_ZN4node12_GLOBAL__N_16Parser7on_bodyEPKcm.exit.thread8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %handle_scope.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i)
   %pending_pause_.i = getelementptr inbounds nuw i8, ptr %1, i64 1801
   %14 = load i8, ptr %pending_pause_.i, align 1
   %tobool.i = trunc i8 %14 to i1
@@ -7539,8 +7539,8 @@ entry:
   %0 = ptrtoint ptr %p to i64
   %sub.i.i = add i64 %0, -80
   %1 = inttoptr i64 %sub.i.i to ptr
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %scope.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %callback_scope.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %scope.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %callback_scope.i)
   %realm_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %realm_.i.i, align 8
   %env_.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 176
@@ -7681,14 +7681,14 @@ _ZN4node12_GLOBAL__N_16Parser19on_message_completeEv.exit: ; preds = %_ZNK4node1
   %got_exception_.i = getelementptr inbounds nuw i8, ptr %1, i64 1777
   store i8 1, ptr %got_exception_.i, align 1
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope.i) #20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %scope.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %callback_scope.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %scope.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %callback_scope.i)
   br label %if.end
 
 if.then:                                          ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit.i, %if.end75.critedge.i
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope.i) #20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %scope.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %callback_scope.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %scope.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %callback_scope.i)
   %pending_pause_.i = getelementptr inbounds nuw i8, ptr %1, i64 1801
   %29 = load i8, ptr %pending_pause_.i, align 1
   %tobool.i = trunc i8 %29 to i1
@@ -8231,10 +8231,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 declare i64 @llvm.umax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #17

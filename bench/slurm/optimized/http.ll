@@ -97,13 +97,13 @@ define dso_local i32 @send_http_connection_close(ptr noundef readonly captures(n
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #8
   store ptr %5, ptr %2, align 8
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #9
   %7 = tail call i32 @conmgr_queue_write_data(ptr noundef %4, ptr noundef nonnull %5, i64 noundef %6) #8
   call void @slurm_xfree(ptr noundef nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %7
 }
 
@@ -113,7 +113,7 @@ define dso_local i32 @send_http_response(ptr noundef readonly captures(none) %0)
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %7 = and i64 %6, 1024
@@ -177,13 +177,13 @@ define dso_local i32 @send_http_response(ptr noundef readonly captures(none) %0)
   %40 = load ptr, ptr %37, align 8
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %42 = load ptr, ptr %41, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %43 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.18, ptr noundef %40, ptr noundef %42) #8
   store ptr %43, ptr %4, align 8
   %44 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #9
   %45 = call i32 @conmgr_queue_write_data(ptr noundef %39, ptr noundef nonnull %43, i64 noundef %44) #8
   call void @slurm_xfree(ptr noundef nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not71 = icmp eq i32 %45, 0
   br i1 %.not71, label %36, label %46, !llvm.loop !8
 
@@ -216,13 +216,13 @@ define dso_local i32 @send_http_response(ptr noundef readonly captures(none) %0)
 
 58:                                               ; preds = %56, %53
   %59 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %60 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.4, i64 noundef %52) #8
   store ptr %60, ptr %3, align 8
   %61 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %60) #9
   %62 = call i32 @conmgr_queue_write_data(ptr noundef %59, ptr noundef nonnull %60, i64 noundef %61) #8
   call void @slurm_xfree(ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not77 = icmp eq i32 %62, 0
   br i1 %.not77, label %63, label %100
 
@@ -234,13 +234,13 @@ define dso_local i32 @send_http_response(ptr noundef readonly captures(none) %0)
 
 66:                                               ; preds = %63
   %67 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %68 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.5, ptr noundef nonnull %65) #8
   store ptr %68, ptr %2, align 8
   %69 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %68) #9
   %70 = call i32 @conmgr_queue_write_data(ptr noundef %67, ptr noundef nonnull %68, i64 noundef %69) #8
   call void @slurm_xfree(ptr noundef nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not79 = icmp eq i32 %70, 0
   br i1 %.not79, label %71, label %100
 
@@ -302,12 +302,9 @@ define dso_local i32 @send_http_response(ptr noundef readonly captures(none) %0)
 
 100:                                              ; preds = %46, %96, %87, %71, %66, %58, %17, %99
   %.0 = phi i32 [ 0, %99 ], [ %45, %46 ], [ %30, %17 ], [ %62, %58 ], [ %70, %66 ], [ %73, %71 ], [ %91, %87 ], [ %98, %96 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @get_log_level() local_unnamed_addr #1
 
@@ -322,16 +319,13 @@ declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i32 @conmgr_queue_write_data(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @list_iterator_create(ptr noundef) local_unnamed_addr #1
 
 declare ptr @list_next(ptr noundef) local_unnamed_addr #1
 
 declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 1001) i32 @parse_http(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -341,8 +335,8 @@ define dso_local range(i32 0, 1001) i32 @parse_http(ptr noundef %0, ptr noundef 
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %21
 
@@ -490,8 +484,8 @@ define dso_local range(i32 0, 1001) i32 @parse_http(ptr noundef %0, ptr noundef 
 
 77:                                               ; preds = %13, %19, %16, %76
   %.0 = phi i32 [ %.035, %76 ], [ 1000, %16 ], [ 1000, %19 ], [ 1000, %13 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -518,7 +512,7 @@ define internal noundef i32 @_on_message_begin(ptr readnone captures(none) %0) #
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @_on_url(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca %struct.http_parser_url, align 2
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -748,7 +742,7 @@ define internal range(i32 0, 2) i32 @_on_url(ptr noundef readonly captures(none)
 
 143:                                              ; preds = %131, %134, %27, %29, %9
   %.0 = phi i32 [ 1, %9 ], [ 1, %29 ], [ 1, %27 ], [ 0, %134 ], [ 0, %131 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -942,7 +936,7 @@ define internal range(i32 0, 1004) i32 @_on_header_value(ptr noundef readonly ca
   br i1 %.not69, label %95, label %103
 
 95:                                               ; preds = %92
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %96 = load ptr, ptr %20, align 8
   %97 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %96, ptr noundef nonnull @.str.35, ptr noundef nonnull %4) #8
   %98 = icmp eq i32 %97, 1
@@ -954,12 +948,12 @@ define internal range(i32 0, 1004) i32 @_on_header_value(ptr noundef readonly ca
 .thread77:                                        ; preds = %95
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store i64 %99, ptr %101, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %127
 
 102:                                              ; preds = %95
   call fastcc void @_send_reject(ptr noundef nonnull %0, i32 noundef 406)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %127
 
 103:                                              ; preds = %92
@@ -1151,7 +1145,7 @@ define internal range(i32 0, 11) i32 @_on_headers_complete(ptr noundef readonly 
   br i1 %.not30, label %.thread32, label %74
 
 74:                                               ; preds = %71
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
@@ -1168,7 +1162,7 @@ define internal range(i32 0, 11) i32 @_on_headers_complete(ptr noundef readonly 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %83, i8 0, i64 32, i1 false)
   %84 = call i32 @send_http_response(ptr noundef nonnull %2)
   %.not31 = icmp eq i32 %84, 0
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not31, label %.thread32, label %85
 
 .thread32:                                        ; preds = %57, %59, %71, %74
@@ -1416,7 +1410,7 @@ define internal range(i32 0, 2) i32 @_on_message_complete(ptr noundef captures(n
   %.val = load i16, ptr %55, align 8
   %56 = getelementptr i8, ptr %0, i64 18
   %.val51 = load i16, ptr %56, align 2
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %.041, ptr %2, align 8
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %57, align 4
@@ -1485,11 +1479,11 @@ define internal range(i32 0, 2) i32 @_on_message_complete(ptr noundef captures(n
   br label %_on_message_complete_request.exit.thread
 
 _on_message_complete_request.exit.thread:         ; preds = %90, %93, %87
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %132
 
 99:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %100 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %101 = load i32, ptr %100, align 8
   %.not49 = icmp eq i32 %101, 0
@@ -1614,7 +1608,7 @@ define internal fastcc void @_send_reject(ptr noundef readonly captures(none) %0
   %4 = alloca %struct.send_http_response_args_t, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1675,13 +1669,13 @@ define internal fastcc void @_send_reject(ptr noundef readonly captures(none) %0
   %36 = load ptr, ptr %7, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %39 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #8
   store ptr %39, ptr %3, align 8
   %40 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %39) #9
   %41 = tail call i32 @conmgr_queue_write_data(ptr noundef %38, ptr noundef nonnull %39, i64 noundef %40) #8
   call void @slurm_xfree(ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread
 
 .thread:                                          ; preds = %31, %33, %35
@@ -1689,14 +1683,14 @@ define internal fastcc void @_send_reject(ptr noundef readonly captures(none) %0
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
   call void @conmgr_queue_close_fd(ptr noundef %44) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @parse_host_port(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.http_parser_url, align 2
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -1819,7 +1813,7 @@ define dso_local ptr @parse_host_port(ptr noundef %0) local_unnamed_addr #0 {
 
 66:                                               ; preds = %52, %54, %60, %63, %57, %24, %17, %5
   %.0 = phi ptr [ null, %5 ], [ %18, %17 ], [ null, %24 ], [ %27, %57 ], [ %27, %63 ], [ %27, %60 ], [ %27, %54 ], [ %27, %52 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
 
@@ -1927,20 +1921,20 @@ declare ptr @list_create(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @_free_http_header(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %2, align 8
   tail call void @slurm_xfree(ptr noundef %0) #8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %3) #8
   call void @slurm_xfree(ptr noundef nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @on_http_connection_finish(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %12, label %4
@@ -1966,7 +1960,7 @@ define dso_local void @on_http_connection_finish(ptr noundef readnone captures(n
   br label %12
 
 12:                                               ; preds = %2, %11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -2016,31 +2010,31 @@ define internal fastcc void @_free_request_t(ptr noundef %0) unnamed_addr #0 {
 declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
+declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 declare void @list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
 declare void @_log_flag_hex(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 declare ptr @http_method_str(i32 noundef) local_unnamed_addr #1
 
 declare void @conmgr_queue_close_fd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare ptr @slurm_strerror(i32 noundef) local_unnamed_addr #1
 
@@ -2050,14 +2044,20 @@ declare void @http_parser_url_init(ptr noundef) local_unnamed_addr #1
 
 declare void @http_parser_init(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) }
 

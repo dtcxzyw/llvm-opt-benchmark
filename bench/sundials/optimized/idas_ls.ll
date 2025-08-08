@@ -433,12 +433,9 @@ switch.early.test:                                ; preds = %67
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @IDAProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @IDAProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare i32 @SUNLinSolGetType(ptr noundef) local_unnamed_addr #2
+declare i32 @SUNLinSolGetType(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @idaLsInitialize(ptr noundef %0) #0 {
@@ -1072,10 +1069,10 @@ define range(i32 -2, 2) i32 @idaLsPerf(ptr noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @idaLsDQJac(double noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #0 {
@@ -1253,13 +1250,13 @@ idaLs_AccessLMem.exit.thread:                     ; preds = %47, %49, %17, %12, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @idaLsInitializeCounters(ptr noundef writeonly captures(none) initializes((128, 192)) %0) local_unnamed_addr #5 {
+define noundef i32 @idaLsInitializeCounters(ptr noundef writeonly captures(none) initializes((128, 192)) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   ret i32 0
 }
 
-declare i32 @SUNLinSolSetATimes(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNLinSolSetATimes(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @idaLsATimes(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -1312,21 +1309,18 @@ idaLs_AccessLMem.exit.thread:                     ; preds = %10, %5, %idaLs_Acce
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
-declare i32 @SUNLinSolSetPreconditioner(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNLinSolSetPreconditioner(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @N_VClone(ptr noundef) local_unnamed_addr #2
+declare ptr @N_VClone(ptr noundef) local_unnamed_addr #1
 
-declare void @N_VDestroy(ptr noundef) local_unnamed_addr #2
+declare void @N_VDestroy(ptr noundef) local_unnamed_addr #1
 
-declare i64 @N_VGetLength(ptr noundef) local_unnamed_addr #2
+declare i64 @N_VGetLength(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare double @sqrt(double noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -3, 1) i32 @IDASetJacFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1530,9 +1524,9 @@ idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %11, %36, %2
   ret i32 %.0
 }
 
-declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #1
 
-declare double @N_VDotProd(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare double @N_VDotProd(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -3, 1) i32 @IDASetLinearSolutionScaling(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1996,10 +1990,10 @@ define range(i32 -2, 1) i32 @IDAGetLinWorkSpace(ptr noundef %0, ptr noundef capt
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp eq ptr %0, null
   br i1 %8, label %9, label %10
 
@@ -2071,16 +2065,16 @@ idaLs_AccessLMem.exit:                            ; preds = %10
 
 idaLs_AccessLMem.exit.thread:                     ; preds = %14, %9, %30, %40, %37
   %.0 = phi i32 [ 0, %37 ], [ 0, %40 ], [ 0, %30 ], [ -2, %14 ], [ -1, %9 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare void @N_VSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNLinSolSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNLinSolSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2, 1) i32 @IDAGetNumJacEvals(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
@@ -2354,7 +2348,7 @@ idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %idaLs_Acces
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: none) uwtable
-define noalias noundef ptr @IDAGetLinReturnFlagName(i64 noundef %0) local_unnamed_addr #8 {
+define noalias noundef ptr @IDAGetLinReturnFlagName(i64 noundef %0) local_unnamed_addr #7 {
   %2 = tail call noalias dereferenceable_or_null(30) ptr @malloc(i64 noundef 30) #15
   switch i64 %0, label %13 [
     i64 0, label %3
@@ -2417,7 +2411,7 @@ define noalias noundef ptr @IDAGetLinReturnFlagName(i64 noundef %0) local_unname
   ret ptr %2
 }
 
-declare i32 @SUNMatGetID(ptr noundef) local_unnamed_addr #2
+declare i32 @SUNMatGetID(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @idaLsDenseDQJac(double noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(none) %6, ptr noundef %7) local_unnamed_addr #0 {
@@ -2803,55 +2797,55 @@ define i32 @idaLsBandDQJac(double noundef %0, double noundef %1, ptr noundef %2,
   ret i32 %.1
 }
 
-declare i64 @SUNDenseMatrix_Columns(ptr noundef) local_unnamed_addr #2
+declare i64 @SUNDenseMatrix_Columns(ptr noundef) local_unnamed_addr #1
 
-declare ptr @N_VCloneEmpty(ptr noundef) local_unnamed_addr #2
+declare ptr @N_VCloneEmpty(ptr noundef) local_unnamed_addr #1
 
-declare ptr @N_VGetArrayPointer(ptr noundef) local_unnamed_addr #2
+declare ptr @N_VGetArrayPointer(ptr noundef) local_unnamed_addr #1
 
-declare void @N_VSetArrayPointer(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VSetArrayPointer(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @SUNDenseMatrix_Column(ptr noundef, i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #9
+declare ptr @SUNDenseMatrix_Column(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #9
+declare double @llvm.fabs.f64(double) #8
 
-declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #8
 
-declare i64 @SUNBandMatrix_Columns(ptr noundef) local_unnamed_addr #2
+declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @SUNBandMatrix_UpperBandwidth(ptr noundef) local_unnamed_addr #2
+declare i64 @SUNBandMatrix_Columns(ptr noundef) local_unnamed_addr #1
 
-declare i64 @SUNBandMatrix_LowerBandwidth(ptr noundef) local_unnamed_addr #2
+declare i64 @SUNBandMatrix_UpperBandwidth(ptr noundef) local_unnamed_addr #1
 
-declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @SUNBandMatrix_LowerBandwidth(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SUNBandMatrix_Column(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNLinSolGetID(ptr noundef) local_unnamed_addr #2
+declare ptr @SUNBandMatrix_Column(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare double @N_VWrmsNorm(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNLinSolGetID(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNLinSolInitialize(ptr noundef) local_unnamed_addr #2
+declare double @N_VWrmsNorm(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNMatZero(ptr noundef) local_unnamed_addr #2
+declare i32 @SUNLinSolInitialize(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNLinSolSetup(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNMatZero(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNLinSolSetScalingVectors(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNLinSolSetup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNLinSolSetZeroGuess(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @SUNLinSolSetScalingVectors(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNLinSolSolve(ptr noundef, ptr noundef, ptr noundef, ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @SUNLinSolSetZeroGuess(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @SUNLinSolNumIters(ptr noundef) local_unnamed_addr #2
+declare i32 @SUNLinSolSolve(ptr noundef, ptr noundef, ptr noundef, ptr noundef, double noundef) local_unnamed_addr #1
 
-declare double @SUNLinSolResNorm(ptr noundef) local_unnamed_addr #2
+declare i32 @SUNLinSolNumIters(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SUNLinSolResid(ptr noundef) local_unnamed_addr #2
+declare double @SUNLinSolResNorm(ptr noundef) local_unnamed_addr #1
+
+declare ptr @SUNLinSolResid(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -101, 1) i32 @IDASetLinearSolverB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -2942,7 +2936,7 @@ define range(i32 -101, 1) i32 @IDASetLinearSolverB(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef i32 @idaLsFreeB(ptr noundef readonly captures(address_is_null) %0) #10 {
+define noundef i32 @idaLsFreeB(ptr noundef readonly captures(address_is_null) %0) #9 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 
@@ -2966,10 +2960,10 @@ define range(i32 -102, 1) i32 @IDASetJacFnB(ptr noundef %0, i32 noundef %1, ptr 
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.43, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %IDASetJacFn.exit
@@ -3050,10 +3044,10 @@ idaLs_AccessLMem.exit.i12:                        ; preds = %34
 
 IDASetJacFn.exit:                                 ; preds = %idaLs_AccessLMem.exit.i12, %38, %33, %26, %25, %21, %16, %3
   %.09 = phi i32 [ %8, %3 ], [ -3, %25 ], [ 0, %26 ], [ -2, %21 ], [ -1, %16 ], [ 0, %idaLs_AccessLMem.exit.i12 ], [ -2, %38 ], [ -1, %33 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.09
 }
 
@@ -3211,10 +3205,10 @@ define range(i32 -102, 1) i32 @IDASetJacFnBS(ptr noundef %0, i32 noundef %1, ptr
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.44, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %IDASetJacFn.exit
@@ -3296,10 +3290,10 @@ idaLs_AccessLMem.exit.i12:                        ; preds = %35
 
 IDASetJacFn.exit:                                 ; preds = %idaLs_AccessLMem.exit.i12, %39, %34, %27, %26, %22, %17, %3
   %.09 = phi i32 [ %8, %3 ], [ -3, %26 ], [ 0, %27 ], [ -2, %22 ], [ -1, %17 ], [ 0, %idaLs_AccessLMem.exit.i12 ], [ -2, %39 ], [ -1, %34 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.09
 }
 
@@ -3415,10 +3409,10 @@ define range(i32 -102, 1) i32 @IDASetEpsLinB(ptr noundef %0, i32 noundef %1, dou
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.45, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %IDASetEpsLin.exit
@@ -3461,10 +3455,10 @@ idaLs_AccessLMem.exit.i:                          ; preds = %15
 
 IDASetEpsLin.exit:                                ; preds = %22, %21, %19, %14, %3
   %.0 = phi i32 [ %8, %3 ], [ -3, %21 ], [ 0, %22 ], [ -2, %19 ], [ -1, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -3474,10 +3468,10 @@ define range(i32 -102, 1) i32 @IDASetLSNormFactorB(ptr noundef %0, i32 noundef %
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.46, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %14
@@ -3491,10 +3485,10 @@ define range(i32 -102, 1) i32 @IDASetLSNormFactorB(ptr noundef %0, i32 noundef %
 
 14:                                               ; preds = %3, %9
   %.0 = phi i32 [ %13, %9 ], [ %8, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -3504,10 +3498,10 @@ define range(i32 -102, 1) i32 @IDASetLinearSolutionScalingB(ptr noundef %0, i32 
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.47, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %IDASetLinearSolutionScaling.exit
@@ -3546,10 +3540,10 @@ idaLs_AccessLMem.exit.i:                          ; preds = %15
 
 IDASetLinearSolutionScaling.exit:                 ; preds = %22, %idaLs_AccessLMem.exit.i, %19, %14, %3
   %.0 = phi i32 [ %8, %3 ], [ 0, %22 ], [ -3, %idaLs_AccessLMem.exit.i ], [ -2, %19 ], [ -1, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -3559,10 +3553,10 @@ define range(i32 -102, 1) i32 @IDASetIncrementFactorB(ptr noundef %0, i32 nounde
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.48, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %IDASetIncrementFactor.exit
@@ -3603,10 +3597,10 @@ idaLs_AccessLMem.exit.i:                          ; preds = %15
 
 IDASetIncrementFactor.exit:                       ; preds = %22, %21, %19, %14, %3
   %.0 = phi i32 [ %8, %3 ], [ -3, %21 ], [ 0, %22 ], [ -2, %19 ], [ -1, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -3616,10 +3610,10 @@ define range(i32 -102, 1) i32 @IDASetPreconditionerB(ptr noundef %0, i32 noundef
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = call i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.49, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %22
@@ -3642,10 +3636,10 @@ define range(i32 -102, 1) i32 @IDASetPreconditionerB(ptr noundef %0, i32 noundef
 
 22:                                               ; preds = %4, %10
   %.0 = phi i32 [ %21, %10 ], [ %9, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -3823,10 +3817,10 @@ define range(i32 -102, 1) i32 @IDASetPreconditionerBS(ptr noundef %0, i32 nounde
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = call i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.50, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %22
@@ -3849,10 +3843,10 @@ define range(i32 -102, 1) i32 @IDASetPreconditionerBS(ptr noundef %0, i32 nounde
 
 22:                                               ; preds = %4, %10
   %.0 = phi i32 [ %21, %10 ], [ %9, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -4074,10 +4068,10 @@ define range(i32 -102, 1) i32 @IDASetJacTimesB(ptr noundef %0, i32 noundef %1, p
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = call i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.51, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %22
@@ -4100,10 +4094,10 @@ define range(i32 -102, 1) i32 @IDASetJacTimesB(ptr noundef %0, i32 noundef %1, p
 
 22:                                               ; preds = %4, %10
   %.0 = phi i32 [ %21, %10 ], [ %9, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -4281,10 +4275,10 @@ define range(i32 -102, 1) i32 @IDASetJacTimesBS(ptr noundef %0, i32 noundef %1, 
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = call i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.52, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %22
@@ -4307,10 +4301,10 @@ define range(i32 -102, 1) i32 @IDASetJacTimesBS(ptr noundef %0, i32 noundef %1, 
 
 22:                                               ; preds = %4, %10
   %.0 = phi i32 [ %21, %10 ], [ %9, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -4532,10 +4526,10 @@ define range(i32 -102, 1) i32 @IDASetJacTimesResFnB(ptr noundef %0, i32 noundef 
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.53, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %IDASetJacTimesResFn.exit
@@ -4589,10 +4583,10 @@ idaLs_AccessLMem.exit.i:                          ; preds = %15
 
 IDASetJacTimesResFn.exit:                         ; preds = %26, %24, %22, %19, %14, %3
   %.0 = phi i32 [ %8, %3 ], [ -3, %22 ], [ 0, %26 ], [ 0, %24 ], [ -2, %19 ], [ -1, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -4649,6 +4643,12 @@ define range(i32 -102, 1) i32 @idaLs_AccessLMemBCur(ptr noundef %0, ptr noundef 
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
@@ -4662,16 +4662,16 @@ declare i64 @llvm.smax.i64(i64, i64) #12
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #13
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }

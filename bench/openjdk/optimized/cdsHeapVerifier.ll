@@ -1708,7 +1708,7 @@ _ZN15java_lang_Class11is_instanceEP7oopDesc.exit: ; preds = %86, %95
   %112 = getelementptr inbounds nuw i64, ptr %111, i64 %109
   %.0.in.i.i38 = select i1 %.not.i.i37, ptr %112, ptr %110
   %.0.i.i39 = load ptr, ptr %.0.in.i.i38, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %23, ptr %3, align 8
   %113 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %114 = call noundef i32 @_ZN10HeapShared8oop_hashERKP7oopDesc(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
@@ -1780,7 +1780,7 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP7oopDescN15C
   br label %_ZN15CDSHeapVerifier20add_static_obj_fieldEP13InstanceKlassP7oopDescP6Symbol.exit
 
 _ZN15CDSHeapVerifier20add_static_obj_fieldEP13InstanceKlassP7oopDescP6Symbol.exit: ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP7oopDescN15CDSHeapVerifier15StaticFieldInfoEES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZN10HeapShared8oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SF_EEE11lookup_nodeEjSB_.exit.i.i, %139
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit45
 
 .loopexit45:                                      ; preds = %_ZNK6Symbol6equalsEPKc.exit, %99, %_ZN15java_lang_Class11is_instanceEP7oopDesc.exit, %83, %2, %_ZN15CDSHeapVerifier20add_static_obj_fieldEP13InstanceKlassP7oopDescP6Symbol.exit, %_ZNK5Klass11java_mirrorEv.exit
@@ -3270,10 +3270,10 @@ declare i32 @llvm.ctpop.i32(i32) #10
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

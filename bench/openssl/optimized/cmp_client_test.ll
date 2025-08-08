@@ -571,7 +571,7 @@ define internal range(i32 0, 2) i32 @test_try_certreq_poll() #0 {
   store i32 1, ptr %5, align 4, !tbaa !17
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !24
   %10 = tail call i32 @ossl_cmp_mock_srv_set_pollCount(ptr noundef %9, i32 noundef 3) #4
@@ -624,7 +624,7 @@ define internal range(i32 0, 2) i32 @test_try_certreq_poll() #0 {
 
 execute_try_certreq_poll_test.exit:               ; preds = %4, %18, %21, %27, %30, %34
   %41 = phi i32 [ 0, %30 ], [ 0, %27 ], [ 0, %21 ], [ 0, %18 ], [ 0, %4 ], [ %40, %34 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %42 = load ptr, ptr %6, align 8, !tbaa !23
   call void @OSSL_CMP_CTX_free(ptr noundef %42) #4
   %43 = load ptr, ptr %8, align 8, !tbaa !24
@@ -652,7 +652,7 @@ define internal range(i32 0, 2) i32 @test_try_certreq_poll_abort() #0 {
   store i32 1, ptr %5, align 4, !tbaa !17
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !24
   %10 = tail call i32 @ossl_cmp_mock_srv_set_pollCount(ptr noundef %9, i32 noundef 3) #4
@@ -689,7 +689,7 @@ define internal range(i32 0, 2) i32 @test_try_certreq_poll_abort() #0 {
 
 execute_try_certreq_poll_abort_test.exit:         ; preds = %4, %18, %21, %25
   %31 = phi i32 [ 0, %21 ], [ 0, %18 ], [ 0, %4 ], [ %30, %25 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %32 = load ptr, ptr %6, align 8, !tbaa !23
   call void @OSSL_CMP_CTX_free(ptr noundef %32) #4
   %33 = load ptr, ptr %8, align 8, !tbaa !24
@@ -851,9 +851,6 @@ define internal fastcc range(i32 0, 2) i32 @test_exec_RR_ses(i32 noundef range(i
   %.09 = phi i32 [ %12, %9 ], [ 0, %1 ]
   ret i32 %.09
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @set_up(ptr noundef %0) unnamed_addr #0 {
@@ -1026,9 +1023,6 @@ define internal fastcc range(i32 0, 2) i32 @execute_exec_RR_ses_test(ptr noundef
   %22 = phi i32 [ 0, %6 ], [ 0, %1 ], [ %20, %14 ]
   ret i32 %22
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1577,6 +1571,12 @@ declare ptr @X509_dup(ptr noundef) local_unnamed_addr #1
 declare i32 @ossl_cmp_exchange_certConf(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @ossl_cmp_exchange_error(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

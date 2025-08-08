@@ -50,18 +50,12 @@ SDL_HIDAPI_StartRumbleThread.exit.thread:         ; preds = %6, %0
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare zeroext i1 @SDL_CompareAndSwapAtomicInt_REAL(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_CompareAndSwapAtomicInt_REAL(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-declare void @SDL_LockMutex_REAL(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @SDL_LockMutex_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @SDL_HIDAPI_GetPendingRumbleLocked(ptr noundef readnone captures(address) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @SDL_HIDAPI_GetPendingRumbleLocked(ptr noundef readnone captures(address) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #2 {
   %.01316 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rumble_context, i64 32), align 8
   %.not17 = icmp eq ptr %.01316, null
   br i1 %.not17, label %._crit_edge.thread, label %.lr.ph
@@ -167,19 +161,19 @@ define hidden void @SDL_HIDAPI_UnlockRumble() local_unnamed_addr #0 {
   ret void
 }
 
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare i32 @SDL_AddAtomicInt_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_AddAtomicInt_REAL(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @SDL_SignalSemaphore_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_SignalSemaphore_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_UnlockMutex_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_UnlockMutex_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, -2147483648) i32 @SDL_HIDAPI_SendRumble(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -257,7 +251,7 @@ define hidden void @SDL_HIDAPI_QuitRumble() local_unnamed_addr #0 {
   ret void
 }
 
-declare i32 @SDL_GetAtomicInt_REAL(ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_GetAtomicInt_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @SDL_HIDAPI_StopRumbleThread() unnamed_addr #0 {
@@ -268,13 +262,13 @@ define internal fastcc void @SDL_HIDAPI_StopRumbleThread() unnamed_addr #0 {
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rumble_context, i64 16), align 8
   tail call void @SDL_SignalSemaphore_REAL(ptr noundef %5) #6
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rumble_context, i64 8), align 8
   call void @SDL_WaitThread_REAL(ptr noundef %6, ptr noundef nonnull %1) #6
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @rumble_context, i64 8), align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %7
 
 7:                                                ; preds = %4, %0
@@ -345,13 +339,13 @@ define internal fastcc void @SDL_HIDAPI_StopRumbleThread() unnamed_addr #0 {
   ret void
 }
 
-declare ptr @SDL_CreateMutex_REAL() local_unnamed_addr #2
+declare ptr @SDL_CreateMutex_REAL() local_unnamed_addr #1
 
-declare ptr @SDL_CreateSemaphore_REAL(i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_CreateSemaphore_REAL(i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_SetAtomicInt_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_SetAtomicInt_REAL(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @SDL_CreateThreadRuntime_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_CreateThreadRuntime_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @SDL_HIDAPI_RumbleThread(ptr noundef %0) #0 {
@@ -448,28 +442,34 @@ define internal noundef i32 @SDL_HIDAPI_RumbleThread(ptr noundef %0) #0 {
   ret i32 0
 }
 
-declare zeroext i1 @SDL_SetCurrentThreadPriority_REAL(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetCurrentThreadPriority_REAL(i32 noundef) local_unnamed_addr #1
 
-declare void @SDL_WaitSemaphore_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_WaitSemaphore_REAL(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_hid_write_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @SDL_hid_write_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_Delay_REAL(i32 noundef) local_unnamed_addr #2
+declare void @SDL_Delay_REAL(i32 noundef) local_unnamed_addr #1
 
-declare void @SDL_WaitThread_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_WaitThread_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_DestroySemaphore_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_DestroySemaphore_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_DestroyMutex_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_DestroyMutex_REAL(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind allocsize(0,1) }
 

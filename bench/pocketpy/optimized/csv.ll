@@ -300,10 +300,10 @@ define internal noundef ptr @"_ZZN4pkpy14add_module_csvEPNS_2VMEEN3$_08__invokeE
   %7 = alloca %"struct.pkpy::pod_vector", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"struct.pkpy::Str", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load ptr, ptr %1, align 8
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 3
@@ -500,7 +500,7 @@ sub_1.i:                                          ; preds = %sub_0.i
           to label %148 unwind label %.loopexit.i
 
 90:                                               ; preds = %86
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN4pkpy3StrC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %.noexc50.i unwind label %.loopexit.i
 
@@ -612,7 +612,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx1
   %126 = add nsw i32 %125, 1
   store i32 %126, ptr %33, align 4
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %127 = load i32, ptr %7, align 8
   %128 = load i32, ptr %27, align 4
   %129 = icmp eq i32 %127, %128
@@ -740,7 +740,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i53.i: ; preds = %165
 
 .loopexit11.i:                                    ; preds = %.loopexit11.loopexit.i, %_ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i
   %.149.i = phi i32 [ %184, %.loopexit11.loopexit.i ], [ %156, %_ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN4pkpy3StrC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %.noexc59.i unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
@@ -756,7 +756,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i53.i: ; preds = %165
 
 188:                                              ; preds = %.noexc59.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %189 = load i32, ptr %7, align 8
   %190 = load i32, ptr %27, align 4
   %191 = icmp eq i32 %189, %190
@@ -885,10 +885,10 @@ _ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit81.i: ; preds = %237, %_ZN4pkpy
   resume { ptr, i32 } %.pn.pn.i
 
 "_ZZN4pkpy14add_module_csvEPNS_2VMEENK3$_0clES1_NS_8ArgsViewE.exit": ; preds = %_ZN4pkpy6py_varINS_10pod_vectorIPNS_8PyObjectELi4EEEEES3_PNS_2VMEOT_.exit77.i, %235
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %233
 }
 
@@ -1014,8 +1014,8 @@ define linkonce_odr void @_ZNK4pkpy7StrName6escapeEv(ptr dead_on_unwind noalias 
   %4 = alloca %"class.std::tuple.64", align 1
   %5 = alloca %"struct.pkpy::Str", align 8
   %6 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4pkpy7StrName11_r_internedB5cxx11Ev()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1058,8 +1058,8 @@ _ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4p
 _ZNK4pkpy7StrName2svEv.exit:                      ; preds = %16, %.critedge.i.i
   %.sroa.05.0.i.i = phi ptr [ %20, %.critedge.i.i ], [ %.19.i.i.i.i.i, %16 ]
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i.i, i64 40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #18
   %23 = extractvalue { i64, ptr } %22, 0
   %24 = extractvalue { i64, ptr } %22, 1
@@ -1736,10 +1736,10 @@ define internal noundef ptr @"_ZZN4pkpy14add_module_csvEPNS_2VMEEN3$_18__invokeE
   %5 = alloca %"struct.pkpy::pod_vector", align 8
   %6 = alloca %"struct.pkpy::Str", align 8
   %7 = alloca %"struct.pkpy::Dict", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 264352
   %9 = tail call i16 @_ZN4pkpy7StrName3getESt17basic_string_viewIcSt11char_traitsIcEE(i64 3, ptr nonnull @.str)
   %10 = tail call noundef ptr @_ZNK4pkpy12NameDictImplIPNS_8PyObjectEEixENS_7StrNameE(ptr noundef nonnull align 8 dereferenceable(88) %8, i16 %9)
@@ -2053,10 +2053,10 @@ _ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit50.i: ; preds = %133, %_ZN4pkpy
   resume { ptr, i32 } %.pn.pn.i
 
 "_ZZN4pkpy14add_module_csvEPNS_2VMEENK3$_1clES1_NS_8ArgsViewE.exit": ; preds = %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit.i, %129
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %126
 }
 
@@ -2448,10 +2448,10 @@ define internal void @_GLOBAL__sub_I_csv.cpp() #13 section ".text.startup" {
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16

@@ -188,7 +188,7 @@ declare i32 @bufferevent_generic_adj_timeouts_(ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal i32 @be_filter_flush(ptr noundef %0, i16 noundef signext %1, i32 noundef %2) #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   tail call void @bufferevent_incref_and_lock_(ptr noundef %0) #3
   %5 = and i16 %1, 2
@@ -214,7 +214,7 @@ define internal i32 @be_filter_flush(ptr noundef %0, i16 noundef signext %1, i32
   %13 = tail call i32 @bufferevent_flush(ptr noundef %12, i16 noundef signext %1, i32 noundef %2) #3
   %14 = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef %0) #3
   %15 = load i32, ptr %4, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %15
 }
 
@@ -328,9 +328,6 @@ define ptr @bufferevent_filter_new(ptr noundef %0, ptr noundef %1, ptr noundef %
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 3) i32 @be_null_filter(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = tail call i32 @evbuffer_remove_buffer(ptr noundef %0, ptr noundef %1, i64 noundef %2) #3
@@ -379,7 +376,7 @@ define internal void @be_filter_readcb(ptr noundef readonly captures(none) %0, p
 ; Function Attrs: nounwind uwtable
 define internal void @be_filter_writecb(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 448
   %5 = load ptr, ptr %4, align 8
@@ -412,7 +409,7 @@ define internal void @be_filter_writecb(ptr readnone captures(none) %0, ptr noun
   br label %19
 
 19:                                               ; preds = %16, %14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -530,12 +527,12 @@ define internal void @bufferevent_filtered_outbuf_cb(ptr readnone captures(none)
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   tail call void @bufferevent_incref_and_lock_(ptr noundef %2) #3
   call fastcc void @be_filter_process_output(ptr noundef %2, i32 noundef 0, ptr noundef %4)
   %8 = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef %2) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %9
 
 9:                                                ; preds = %7, %3
@@ -549,9 +546,6 @@ declare void @bufferevent_incref(ptr noundef) local_unnamed_addr #1
 declare i32 @bufferevent_enable(ptr noundef, i16 noundef signext) local_unnamed_addr #1
 
 declare void @bufferevent_suspend_read_(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @evbuffer_remove_buffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -841,7 +835,7 @@ declare void @bufferevent_run_writecb_(ptr noundef, i32 noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @be_filter_read_nolock_(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 444
   %5 = load i32, ptr %4, align 4
@@ -960,7 +954,7 @@ be_readbuf_full.exit:                             ; preds = %54
   br label %be_filter_process_input.exit.thread
 
 be_filter_process_input.exit.thread:              ; preds = %.split13, %54, %be_filter_process_input.exit, %60, %be_readbuf_full.exit, %bufferevent_trigger_nolock_.exit, %2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1125,6 +1119,12 @@ be_readbuf_full.exit.thread.split:                ; preds = %3
 declare void @bufferevent_run_eventcb_(ptr noundef, i16 noundef signext, i32 noundef) local_unnamed_addr #1
 
 declare i32 @bufferevent_flush(ptr noundef, i16 noundef signext, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

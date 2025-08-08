@@ -71,10 +71,10 @@ define internal i32 @test_ige_enc_dec() #0 {
   %2 = alloca [64 x i8], align 16
   %3 = alloca [10240 x i8], align 16
   %4 = alloca [10240 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 244, ptr nonnull %1) #4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 10240, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 10240, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, ptr noundef nonnull align 16 dereferenceable(64) @saved_iv, i64 64, i1 false)
   %5 = call i32 @AES_set_encrypt_key(ptr noundef nonnull @rkey, i32 noundef 128, ptr noundef nonnull %1) #4
   call void @AES_ige_encrypt(ptr noundef nonnull @plaintext, ptr noundef nonnull %3, i64 noundef 128, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 1) #4
@@ -82,10 +82,10 @@ define internal i32 @test_ige_enc_dec() #0 {
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, ptr noundef nonnull align 16 dereferenceable(64) @saved_iv, i64 64, i1 false)
   call void @AES_ige_encrypt(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 128, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 0) #4
   %7 = call i32 @test_mem_eq(ptr noundef nonnull @.str.10, i32 noundef 238, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef nonnull %4, i64 noundef 128, ptr noundef nonnull @plaintext, i64 noundef 128) #4
-  call void @llvm.lifetime.end.p0(i64 10240, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 10240, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #4
-  call void @llvm.lifetime.end.p0(i64 244, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %7
 }
 
@@ -95,10 +95,10 @@ define internal i32 @test_ige_enc_chaining() #0 {
   %2 = alloca [64 x i8], align 16
   %3 = alloca [10240 x i8], align 16
   %4 = alloca [10240 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 244, ptr nonnull %1) #4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 10240, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 10240, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @AES_set_encrypt_key(ptr noundef nonnull @rkey, i32 noundef 128, ptr noundef nonnull %1) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, ptr noundef nonnull align 16 dereferenceable(64) @saved_iv, i64 64, i1 false)
   call void @AES_ige_encrypt(ptr noundef nonnull @plaintext, ptr noundef nonnull %3, i64 noundef 64, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 1) #4
@@ -108,10 +108,10 @@ define internal i32 @test_ige_enc_chaining() #0 {
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, ptr noundef nonnull align 16 dereferenceable(64) @saved_iv, i64 64, i1 false)
   call void @AES_ige_encrypt(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 128, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 0) #4
   %8 = call i32 @test_mem_eq(ptr noundef nonnull @.str.10, i32 noundef 260, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef nonnull %4, i64 noundef 128, ptr noundef nonnull @plaintext, i64 noundef 128) #4
-  call void @llvm.lifetime.end.p0(i64 10240, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 10240, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #4
-  call void @llvm.lifetime.end.p0(i64 244, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %8
 }
 
@@ -121,10 +121,10 @@ define internal i32 @test_ige_dec_chaining() #0 {
   %2 = alloca [64 x i8], align 16
   %3 = alloca [10240 x i8], align 16
   %4 = alloca [10240 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 244, ptr nonnull %1) #4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 10240, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 10240, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @AES_set_encrypt_key(ptr noundef nonnull @rkey, i32 noundef 128, ptr noundef nonnull %1) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, ptr noundef nonnull align 16 dereferenceable(64) @saved_iv, i64 64, i1 false)
   call void @AES_ige_encrypt(ptr noundef nonnull @plaintext, ptr noundef nonnull %3, i64 noundef 64, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 1) #4
@@ -136,10 +136,10 @@ define internal i32 @test_ige_dec_chaining() #0 {
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 64
   call void @AES_ige_encrypt(ptr noundef nonnull %6, ptr noundef nonnull %8, i64 noundef 64, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 0) #4
   %9 = call i32 @test_mem_eq(ptr noundef nonnull @.str.10, i32 noundef 286, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef nonnull %4, i64 noundef 128, ptr noundef nonnull @plaintext, i64 noundef 128) #4
-  call void @llvm.lifetime.end.p0(i64 10240, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 10240, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #4
-  call void @llvm.lifetime.end.p0(i64 244, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %9
 }
 
@@ -149,10 +149,10 @@ define internal range(i32 0, 2) i32 @test_ige_garble_forwards() #0 {
   %2 = alloca [64 x i8], align 16
   %3 = alloca [10240 x i8], align 16
   %4 = alloca [10240 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 244, ptr nonnull %1) #4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 10240, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 10240, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @AES_set_encrypt_key(ptr noundef nonnull @rkey, i32 noundef 128, ptr noundef nonnull %1) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, ptr noundef nonnull align 16 dereferenceable(64) @saved_iv, i64 64, i1 false)
   call void @AES_ige_encrypt(ptr noundef nonnull @plaintext, ptr noundef nonnull %3, i64 noundef 10240, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 1) #4
@@ -186,10 +186,10 @@ define internal range(i32 0, 2) i32 @test_ige_garble_forwards() #0 {
   %.not12 = icmp ne i32 %19, 0
   %narrow = select i1 %.not12, i1 %.not, i1 false
   %.110 = zext i1 %narrow to i32
-  call void @llvm.lifetime.end.p0(i64 10240, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 10240, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #4
-  call void @llvm.lifetime.end.p0(i64 244, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.110
 }
 
@@ -200,11 +200,11 @@ define internal i32 @test_bi_ige_enc_dec() #0 {
   %3 = alloca [64 x i8], align 16
   %4 = alloca [10240 x i8], align 16
   %5 = alloca [10240 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 244, ptr nonnull %1) #4
-  call void @llvm.lifetime.start.p0(i64 244, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 10240, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 10240, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, ptr noundef nonnull align 16 dereferenceable(64) @saved_iv, i64 64, i1 false)
   %6 = call i32 @AES_set_encrypt_key(ptr noundef nonnull @rkey, i32 noundef 128, ptr noundef nonnull %1) #4
   %7 = call i32 @AES_set_encrypt_key(ptr noundef nonnull @rkey2, i32 noundef 128, ptr noundef nonnull %2) #4
@@ -213,11 +213,11 @@ define internal i32 @test_bi_ige_enc_dec() #0 {
   %9 = call i32 @AES_set_decrypt_key(ptr noundef nonnull @rkey2, i32 noundef 128, ptr noundef nonnull %2) #4
   call void @AES_bi_ige_encrypt(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 128, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 0) #4
   %10 = call i32 @test_mem_eq(ptr noundef nonnull @.str.10, i32 noundef 345, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef nonnull %5, i64 noundef 128, ptr noundef nonnull @plaintext, i64 noundef 128) #4
-  call void @llvm.lifetime.end.p0(i64 10240, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 10240, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 244, ptr nonnull %2) #4
-  call void @llvm.lifetime.end.p0(i64 244, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %10
 }
 
@@ -228,11 +228,11 @@ define internal i32 @test_bi_ige_garble1() #0 {
   %3 = alloca [64 x i8], align 16
   %4 = alloca [10240 x i8], align 16
   %5 = alloca [10240 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 244, ptr nonnull %1) #4
-  call void @llvm.lifetime.start.p0(i64 244, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 10240, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 10240, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, ptr noundef nonnull align 16 dereferenceable(64) @saved_iv, i64 64, i1 false)
   %6 = call i32 @AES_set_encrypt_key(ptr noundef nonnull @rkey, i32 noundef 128, ptr noundef nonnull %1) #4
   %7 = call i32 @AES_set_encrypt_key(ptr noundef nonnull @rkey2, i32 noundef 128, ptr noundef nonnull %2) #4
@@ -262,11 +262,11 @@ define internal i32 @test_bi_ige_garble1() #0 {
 
 20:                                               ; preds = %13
   %21 = call i32 @test_size_t_le(ptr noundef nonnull @.str.10, i32 noundef 376, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.16, i64 noundef %spec.select, i64 noundef 102) #4
-  call void @llvm.lifetime.end.p0(i64 10240, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 10240, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 244, ptr nonnull %2) #4
-  call void @llvm.lifetime.end.p0(i64 244, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %21
 }
 
@@ -277,11 +277,11 @@ define internal i32 @test_bi_ige_garble2() #0 {
   %3 = alloca [64 x i8], align 16
   %4 = alloca [10240 x i8], align 16
   %5 = alloca [10240 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 244, ptr nonnull %1) #4
-  call void @llvm.lifetime.start.p0(i64 244, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 10240, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 10240, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, ptr noundef nonnull align 16 dereferenceable(64) @saved_iv, i64 64, i1 false)
   %6 = call i32 @AES_set_encrypt_key(ptr noundef nonnull @rkey, i32 noundef 128, ptr noundef nonnull %1) #4
   %7 = call i32 @AES_set_encrypt_key(ptr noundef nonnull @rkey2, i32 noundef 128, ptr noundef nonnull %2) #4
@@ -311,11 +311,11 @@ define internal i32 @test_bi_ige_garble2() #0 {
 
 20:                                               ; preds = %13
   %21 = call i32 @test_size_t_le(ptr noundef nonnull @.str.10, i32 noundef 407, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.16, i64 noundef %spec.select, i64 noundef 102) #4
-  call void @llvm.lifetime.end.p0(i64 10240, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 10240, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 244, ptr nonnull %2) #4
-  call void @llvm.lifetime.end.p0(i64 244, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %21
 }
 
@@ -326,11 +326,11 @@ define internal i32 @test_bi_ige_garble3() #0 {
   %3 = alloca [64 x i8], align 16
   %4 = alloca [10240 x i8], align 16
   %5 = alloca [10240 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 244, ptr nonnull %1) #4
-  call void @llvm.lifetime.start.p0(i64 244, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 10240, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 10240, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, ptr noundef nonnull align 16 dereferenceable(64) @saved_iv, i64 64, i1 false)
   %6 = call i32 @AES_set_encrypt_key(ptr noundef nonnull @rkey, i32 noundef 128, ptr noundef nonnull %1) #4
   %7 = call i32 @AES_set_encrypt_key(ptr noundef nonnull @rkey2, i32 noundef 128, ptr noundef nonnull %2) #4
@@ -359,11 +359,11 @@ define internal i32 @test_bi_ige_garble3() #0 {
 
 19:                                               ; preds = %12
   %20 = call i32 @test_size_t_le(ptr noundef nonnull @.str.10, i32 noundef 438, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.16, i64 noundef %spec.select, i64 noundef 102) #4
-  call void @llvm.lifetime.end.p0(i64 10240, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 10240, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 244, ptr nonnull %2) #4
-  call void @llvm.lifetime.end.p0(i64 244, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %20
 }
 
@@ -376,9 +376,9 @@ define internal range(i32 0, 2) i32 @test_ige_vectors(i32 noundef %0) #0 {
   %4 = alloca [32 x i8], align 16
   %5 = sext i32 %0 to i64
   %6 = getelementptr inbounds [2 x %struct.ige_test], ptr @ige_test_vectors, i64 0, i64 %5
-  call void @llvm.lifetime.start.p0(i64 244, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @test_int_le(ptr noundef nonnull @.str.10, i32 noundef 157, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 32, i32 noundef 64) #4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %25, label %8
@@ -432,9 +432,9 @@ define internal range(i32 0, 2) i32 @test_ige_vectors(i32 noundef %0) #0 {
 
 25:                                               ; preds = %22, %24, %1
   %.031 = phi i32 [ 0, %1 ], [ %.0, %22 ], [ 0, %24 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 244, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.031
 }
 
@@ -445,9 +445,9 @@ define internal range(i32 0, 2) i32 @test_bi_ige_vectors(i32 noundef %0) #0 {
   %4 = alloca [64 x i8], align 16
   %5 = sext i32 %0 to i64
   %6 = getelementptr inbounds [2 x %struct.bi_ige_test], ptr @bi_ige_test_vectors, i64 0, i64 %5
-  call void @llvm.lifetime.start.p0(i64 244, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 244, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 264
   %8 = load i64, ptr %7, align 8, !tbaa !16
   %9 = trunc i64 %8 to i32
@@ -480,17 +480,14 @@ define internal range(i32 0, 2) i32 @test_bi_ige_vectors(i32 noundef %0) #0 {
 
 23:                                               ; preds = %11, %1, %22
   %.0 = phi i32 [ 0, %22 ], [ 0, %1 ], [ 1, %11 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 244, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 244, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @AES_set_encrypt_key(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -499,9 +496,6 @@ declare void @AES_ige_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef
 declare i32 @AES_set_decrypt_key(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @test_size_t_le(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -515,10 +509,16 @@ declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unname
 
 declare void @test_output_memory(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

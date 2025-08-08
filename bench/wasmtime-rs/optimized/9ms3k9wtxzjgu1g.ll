@@ -140,11 +140,10 @@ define align 8 ptr @_ZN4core4iter6traits8iterator8Iterator6reduce17h4417a1ef682b
   %5 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %5)
   %6 = icmp eq ptr %0, %1
-  br i1 %6, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heb4e1e39b3fa7cd4E.exit.thread", label %7
+  br i1 %6, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf29130c134084590E.exit", label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   %9 = icmp eq ptr %8, %1
   br i1 %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf29130c134084590E.exit", label %10
 
@@ -171,13 +170,8 @@ define align 8 ptr @_ZN4core4iter6traits8iterator8Iterator6reduce17h4417a1ef682b
   call void @llvm.assume(i1 %22)
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf29130c134084590E.exit"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf29130c134084590E.exit": ; preds = %7, %21
-  %.0.i6 = phi ptr [ %18, %21 ], [ %0, %7 ]
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
-  br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heb4e1e39b3fa7cd4E.exit.thread"
-
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heb4e1e39b3fa7cd4E.exit.thread": ; preds = %2, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf29130c134084590E.exit"
-  %.0 = phi ptr [ %.0.i6, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf29130c134084590E.exit" ], [ null, %2 ]
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf29130c134084590E.exit": ; preds = %2, %21, %7
+  %.0 = phi ptr [ %18, %21 ], [ %0, %7 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -357,7 +351,7 @@ define { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h796e0cc7c
   br i1 %16, label %17, label %"_ZN94_$LT$core..slice..iter..Windows$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2672295b5ae4ae04E.exit"
 
 17:                                               ; preds = %12
-  call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 1, i64 0, ptr nonnull align 8 @anon.2b1df8313365cb1984b03a5c4d027e74.7) #11
+  call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 1, i64 0, ptr nonnull align 8 @anon.2b1df8313365cb1984b03a5c4d027e74.7) #10
   unreachable
 
 "_ZN94_$LT$core..slice..iter..Windows$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2672295b5ae4ae04E.exit": ; preds = %12
@@ -807,7 +801,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 12:                                               ; preds = %14
   %13 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr669drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_isle..sema..Field$C$cranelift_isle..sema..TypeId$C$$LP$$RP$$C$cranelift_isle..sema..TermEnv..collect_enum_variant_terms..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..sema..TypeId$C$alloc..vec..Vec$LT$cranelift_isle..sema..TypeId$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..sema..Field$GT$$C$cranelift_isle..sema..TermEnv..collect_enum_variant_terms..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd82a25e2ff4b9cb0E"(ptr align 8 %2) #12
+  invoke void @"_ZN4core3ptr669drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_isle..sema..Field$C$cranelift_isle..sema..TypeId$C$$LP$$RP$$C$cranelift_isle..sema..TermEnv..collect_enum_variant_terms..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..sema..TypeId$C$alloc..vec..Vec$LT$cranelift_isle..sema..TypeId$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..sema..Field$GT$$C$cranelift_isle..sema..TermEnv..collect_enum_variant_terms..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd82a25e2ff4b9cb0E"(ptr align 8 %2) #11
           to label %21 unwind label %19
 
 14:                                               ; preds = %16, %7
@@ -828,7 +822,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 19:                                               ; preds = %12
   %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
 21:                                               ; preds = %12
@@ -854,7 +848,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 12:                                               ; preds = %14
   %13 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr625drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$alloc..sync..Arc$LT$str$GT$$C$alloc..vec..Vec$LT$usize$GT$$C$$LP$$RP$$C$cranelift_isle..error..Errors..emit..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..vec..Vec$LT$usize$GT$$C$alloc..vec..Vec$LT$alloc..vec..Vec$LT$usize$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$alloc..sync..Arc$LT$str$GT$$GT$$C$cranelift_isle..error..Errors..emit..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2b87e8b7735a4a54E"(ptr align 8 %2) #12
+  invoke void @"_ZN4core3ptr625drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$alloc..sync..Arc$LT$str$GT$$C$alloc..vec..Vec$LT$usize$GT$$C$$LP$$RP$$C$cranelift_isle..error..Errors..emit..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..vec..Vec$LT$usize$GT$$C$alloc..vec..Vec$LT$alloc..vec..Vec$LT$usize$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$alloc..sync..Arc$LT$str$GT$$GT$$C$cranelift_isle..error..Errors..emit..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2b87e8b7735a4a54E"(ptr align 8 %2) #11
           to label %21 unwind label %19
 
 14:                                               ; preds = %16, %7
@@ -875,7 +869,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 19:                                               ; preds = %12
   %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
 21:                                               ; preds = %12
@@ -901,7 +895,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 12:                                               ; preds = %14
   %13 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr731drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_isle..sema..Pattern$C$cranelift_isle..sema..TypeId$C$$LP$$RP$$C$cranelift_isle..sema..Pattern..visit$LT$cranelift_isle..trie_again..RuleSetBuilder$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..sema..TypeId$C$alloc..vec..Vec$LT$cranelift_isle..sema..TypeId$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..sema..Pattern$GT$$C$cranelift_isle..sema..Pattern..visit$LT$cranelift_isle..trie_again..RuleSetBuilder$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcafe90593ca14ef0E"(ptr align 8 %2) #12
+  invoke void @"_ZN4core3ptr731drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_isle..sema..Pattern$C$cranelift_isle..sema..TypeId$C$$LP$$RP$$C$cranelift_isle..sema..Pattern..visit$LT$cranelift_isle..trie_again..RuleSetBuilder$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..sema..TypeId$C$alloc..vec..Vec$LT$cranelift_isle..sema..TypeId$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..sema..Pattern$GT$$C$cranelift_isle..sema..Pattern..visit$LT$cranelift_isle..trie_again..RuleSetBuilder$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcafe90593ca14ef0E"(ptr align 8 %2) #11
           to label %21 unwind label %19
 
 14:                                               ; preds = %16, %7
@@ -922,7 +916,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 19:                                               ; preds = %12
   %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
 21:                                               ; preds = %12
@@ -948,7 +942,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 12:                                               ; preds = %14
   %13 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr655drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_isle..ast..Pattern$C$cranelift_isle..ast..Pattern$C$$LP$$RP$$C$cranelift_isle..ast..Pattern..make_macro_template..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..ast..Pattern$C$alloc..vec..Vec$LT$cranelift_isle..ast..Pattern$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..ast..Pattern$GT$$C$cranelift_isle..ast..Pattern..make_macro_template..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h94d861c8b77c0ea0E"(ptr align 8 %2) #12
+  invoke void @"_ZN4core3ptr655drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_isle..ast..Pattern$C$cranelift_isle..ast..Pattern$C$$LP$$RP$$C$cranelift_isle..ast..Pattern..make_macro_template..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..ast..Pattern$C$alloc..vec..Vec$LT$cranelift_isle..ast..Pattern$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..ast..Pattern$GT$$C$cranelift_isle..ast..Pattern..make_macro_template..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h94d861c8b77c0ea0E"(ptr align 8 %2) #11
           to label %21 unwind label %19
 
 14:                                               ; preds = %16, %7
@@ -969,7 +963,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 19:                                               ; preds = %12
   %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
 21:                                               ; preds = %12
@@ -995,7 +989,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 12:                                               ; preds = %14
   %13 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr787drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_isle..error..Error$C$cranelift_isle..error..diagnostic..Diagnostic$LT$usize$GT$$C$$LP$$RP$$C$$LT$cranelift_isle..error..Errors$u20$as$u20$core..fmt..Debug$GT$..fmt..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..error..diagnostic..Diagnostic$LT$usize$GT$$C$alloc..vec..Vec$LT$cranelift_isle..error..diagnostic..Diagnostic$LT$usize$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..error..Error$GT$$C$$LT$cranelift_isle..error..Errors$u20$as$u20$core..fmt..Debug$GT$..fmt..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hafdd61879bb9e5d6E"(ptr align 8 %2) #12
+  invoke void @"_ZN4core3ptr787drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_isle..error..Error$C$cranelift_isle..error..diagnostic..Diagnostic$LT$usize$GT$$C$$LP$$RP$$C$$LT$cranelift_isle..error..Errors$u20$as$u20$core..fmt..Debug$GT$..fmt..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..error..diagnostic..Diagnostic$LT$usize$GT$$C$alloc..vec..Vec$LT$cranelift_isle..error..diagnostic..Diagnostic$LT$usize$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..error..Error$GT$$C$$LT$cranelift_isle..error..Errors$u20$as$u20$core..fmt..Debug$GT$..fmt..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hafdd61879bb9e5d6E"(ptr align 8 %2) #11
           to label %21 unwind label %19
 
 14:                                               ; preds = %16, %7
@@ -1016,7 +1010,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 19:                                               ; preds = %12
   %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
 21:                                               ; preds = %12
@@ -1102,7 +1096,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 12:                                               ; preds = %14
   %13 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr655drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_isle..ast..Pattern$C$cranelift_isle..ast..Pattern$C$$LP$$RP$$C$cranelift_isle..ast..Pattern..make_macro_template..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..ast..Pattern$C$alloc..vec..Vec$LT$cranelift_isle..ast..Pattern$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..ast..Pattern$GT$$C$cranelift_isle..ast..Pattern..make_macro_template..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf903aa9ed6d20bc7E"(ptr align 8 %2) #12
+  invoke void @"_ZN4core3ptr655drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_isle..ast..Pattern$C$cranelift_isle..ast..Pattern$C$$LP$$RP$$C$cranelift_isle..ast..Pattern..make_macro_template..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..ast..Pattern$C$alloc..vec..Vec$LT$cranelift_isle..ast..Pattern$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..ast..Pattern$GT$$C$cranelift_isle..ast..Pattern..make_macro_template..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf903aa9ed6d20bc7E"(ptr align 8 %2) #11
           to label %21 unwind label %19
 
 14:                                               ; preds = %16, %7
@@ -1123,7 +1117,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 19:                                               ; preds = %12
   %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
 21:                                               ; preds = %12
@@ -1149,7 +1143,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 12:                                               ; preds = %14
   %13 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr828drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_isle..error..Span$C$cranelift_isle..error..diagnostic..Label$LT$usize$GT$$C$$LP$$RP$$C$$LT$cranelift_isle..error..Errors$u20$as$u20$core..fmt..Debug$GT$..fmt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..error..diagnostic..Label$LT$usize$GT$$C$alloc..vec..Vec$LT$cranelift_isle..error..diagnostic..Label$LT$usize$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..error..Span$GT$$C$$LT$cranelift_isle..error..Errors$u20$as$u20$core..fmt..Debug$GT$..fmt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h24a9f2e063a4e269E"(ptr align 8 %2) #12
+  invoke void @"_ZN4core3ptr828drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_isle..error..Span$C$cranelift_isle..error..diagnostic..Label$LT$usize$GT$$C$$LP$$RP$$C$$LT$cranelift_isle..error..Errors$u20$as$u20$core..fmt..Debug$GT$..fmt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..error..diagnostic..Label$LT$usize$GT$$C$alloc..vec..Vec$LT$cranelift_isle..error..diagnostic..Label$LT$usize$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..error..Span$GT$$C$$LT$cranelift_isle..error..Errors$u20$as$u20$core..fmt..Debug$GT$..fmt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h24a9f2e063a4e269E"(ptr align 8 %2) #11
           to label %21 unwind label %19
 
 14:                                               ; preds = %16, %7
@@ -1170,7 +1164,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 19:                                               ; preds = %12
   %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
 21:                                               ; preds = %12
@@ -1196,7 +1190,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 12:                                               ; preds = %14
   %13 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr640drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_isle..sema..TypeId$C$alloc..string..String$C$$LP$$RP$$C$cranelift_isle..codegen..Codegen..generate_trait_sig..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..sema..TypeId$GT$$C$cranelift_isle..codegen..Codegen..generate_trait_sig..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he46e52fc2225d084E"(ptr align 8 %2) #12
+  invoke void @"_ZN4core3ptr640drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_isle..sema..TypeId$C$alloc..string..String$C$$LP$$RP$$C$cranelift_isle..codegen..Codegen..generate_trait_sig..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..sema..TypeId$GT$$C$cranelift_isle..codegen..Codegen..generate_trait_sig..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he46e52fc2225d084E"(ptr align 8 %2) #11
           to label %21 unwind label %19
 
 14:                                               ; preds = %16, %7
@@ -1217,7 +1211,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 19:                                               ; preds = %12
   %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
 21:                                               ; preds = %12
@@ -1243,7 +1237,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 12:                                               ; preds = %14
   %13 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr610drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_isle..sema..TermId$C$$RF$str$C$$LP$$RP$$C$cranelift_isle..sema..TermEnv..collect_extractor_templates..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$$RF$str$C$alloc..vec..Vec$LT$$RF$str$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..sema..TermId$GT$$C$cranelift_isle..sema..TermEnv..collect_extractor_templates..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hadc3d1c69ca94fc8E"(ptr align 8 %2) #12
+  invoke void @"_ZN4core3ptr610drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_isle..sema..TermId$C$$RF$str$C$$LP$$RP$$C$cranelift_isle..sema..TermEnv..collect_extractor_templates..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$$RF$str$C$alloc..vec..Vec$LT$$RF$str$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..sema..TermId$GT$$C$cranelift_isle..sema..TermEnv..collect_extractor_templates..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hadc3d1c69ca94fc8E"(ptr align 8 %2) #11
           to label %21 unwind label %19
 
 14:                                               ; preds = %16, %7
@@ -1264,7 +1258,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 19:                                               ; preds = %12
   %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
 21:                                               ; preds = %12
@@ -1290,7 +1284,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 12:                                               ; preds = %14
   %13 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr828drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_isle..error..Span$C$cranelift_isle..error..diagnostic..Label$LT$usize$GT$$C$$LP$$RP$$C$$LT$cranelift_isle..error..Errors$u20$as$u20$core..fmt..Debug$GT$..fmt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..error..diagnostic..Label$LT$usize$GT$$C$alloc..vec..Vec$LT$cranelift_isle..error..diagnostic..Label$LT$usize$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..error..Span$GT$$C$$LT$cranelift_isle..error..Errors$u20$as$u20$core..fmt..Debug$GT$..fmt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2eddf05a210bb292E"(ptr align 8 %2) #12
+  invoke void @"_ZN4core3ptr828drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_isle..error..Span$C$cranelift_isle..error..diagnostic..Label$LT$usize$GT$$C$$LP$$RP$$C$$LT$cranelift_isle..error..Errors$u20$as$u20$core..fmt..Debug$GT$..fmt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..error..diagnostic..Label$LT$usize$GT$$C$alloc..vec..Vec$LT$cranelift_isle..error..diagnostic..Label$LT$usize$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..error..Span$GT$$C$$LT$cranelift_isle..error..Errors$u20$as$u20$core..fmt..Debug$GT$..fmt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2eddf05a210bb292E"(ptr align 8 %2) #11
           to label %21 unwind label %19
 
 14:                                               ; preds = %16, %7
@@ -1311,7 +1305,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 19:                                               ; preds = %12
   %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
 21:                                               ; preds = %12
@@ -2515,7 +2509,7 @@ define { ptr, i64 } @"_ZN94_$LT$core..slice..iter..Windows$LT$T$GT$$u20$as$u20$c
   br label %19
 
 18:                                               ; preds = %7
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 1, i64 0, ptr nonnull align 8 @anon.2b1df8313365cb1984b03a5c4d027e74.7) #11
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 1, i64 0, ptr nonnull align 8 @anon.2b1df8313365cb1984b03a5c4d027e74.7) #10
   unreachable
 
 19:                                               ; preds = %1, %12
@@ -2757,12 +2751,6 @@ declare { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u2
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64, i64, ptr align 8) unnamed_addr #9
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
-
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -2773,10 +2761,9 @@ attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #7 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #9 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { noreturn }
-attributes #12 = { cold }
-attributes #13 = { cold noreturn nounwind }
+attributes #10 = { noreturn }
+attributes #11 = { cold }
+attributes #12 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

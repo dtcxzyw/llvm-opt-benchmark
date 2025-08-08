@@ -102,7 +102,7 @@ define void @_ZN3gmx18InMemorySerializer6doBoolEPb(ptr noundef nonnull readonly 
   br i1 %10, label %12, label %20
 
 12:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 %7, ptr %3, align 1, !tbaa !21
   %13 = load ptr, ptr %11, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -112,11 +112,11 @@ define void @_ZN3gmx18InMemorySerializer6doBoolEPb(ptr noundef nonnull readonly 
   %18 = sub i64 %16, %17
   %19 = getelementptr inbounds i8, ptr %15, i64 %18
   call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %6, ptr %19, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIbEEvT_.exit
 
 20:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %7, ptr %4, align 1, !tbaa !21
   %21 = load ptr, ptr %11, align 8, !tbaa !22
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -126,7 +126,7 @@ define void @_ZN3gmx18InMemorySerializer6doBoolEPb(ptr noundef nonnull readonly 
   %26 = sub i64 %24, %25
   %27 = getelementptr inbounds i8, ptr %23, i64 %26
   call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %6, ptr %27, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIbEEvT_.exit
 
 _ZN3gmx18InMemorySerializer4Impl7doValueIbEEvT_.exit: ; preds = %12, %20
@@ -147,7 +147,7 @@ define void @_ZN3gmx18InMemorySerializer7doUCharEPh(ptr noundef nonnull readonly
   br i1 %10, label %12, label %20
 
 12:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 %7, ptr %3, align 1, !tbaa !21
   %13 = load ptr, ptr %11, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -157,11 +157,11 @@ define void @_ZN3gmx18InMemorySerializer7doUCharEPh(ptr noundef nonnull readonly
   %18 = sub i64 %16, %17
   %19 = getelementptr inbounds i8, ptr %15, i64 %18
   call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %6, ptr %19, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIhEEvT_.exit
 
 20:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %7, ptr %4, align 1, !tbaa !21
   %21 = load ptr, ptr %11, align 8, !tbaa !22
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -171,7 +171,7 @@ define void @_ZN3gmx18InMemorySerializer7doUCharEPh(ptr noundef nonnull readonly
   %26 = sub i64 %24, %25
   %27 = getelementptr inbounds i8, ptr %23, i64 %26
   call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %6, ptr %27, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIhEEvT_.exit
 
 _ZN3gmx18InMemorySerializer4Impl7doValueIhEEvT_.exit: ; preds = %12, %20
@@ -192,7 +192,7 @@ define void @_ZN3gmx18InMemorySerializer6doCharEPc(ptr noundef nonnull readonly 
   br i1 %10, label %12, label %20
 
 12:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 %7, ptr %3, align 1, !tbaa !21
   %13 = load ptr, ptr %11, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -202,11 +202,11 @@ define void @_ZN3gmx18InMemorySerializer6doCharEPc(ptr noundef nonnull readonly 
   %18 = sub i64 %16, %17
   %19 = getelementptr inbounds i8, ptr %15, i64 %18
   call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %6, ptr %19, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIcEEvT_.exit
 
 20:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %7, ptr %4, align 1, !tbaa !21
   %21 = load ptr, ptr %11, align 8, !tbaa !22
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -216,7 +216,7 @@ define void @_ZN3gmx18InMemorySerializer6doCharEPc(ptr noundef nonnull readonly 
   %26 = sub i64 %24, %25
   %27 = getelementptr inbounds i8, ptr %23, i64 %26
   call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %6, ptr %27, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIcEEvT_.exit
 
 _ZN3gmx18InMemorySerializer4Impl7doValueIcEEvT_.exit: ; preds = %12, %20
@@ -236,7 +236,7 @@ define void @_ZN3gmx18InMemorySerializer8doUShortEPt(ptr noundef nonnull readonl
   br i1 %10, label %11, label %20
 
 11:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.sroa.0.0.insert.insert.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %7)
   store i16 %.sroa.0.0.insert.insert.i.i, ptr %3, align 2, !tbaa !21
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -248,11 +248,11 @@ define void @_ZN3gmx18InMemorySerializer8doUShortEPt(ptr noundef nonnull readonl
   %18 = sub i64 %16, %17
   %19 = getelementptr inbounds i8, ptr %15, i64 %18
   call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %6, ptr %19, ptr noundef nonnull align 2 dereferenceable(2) %3, ptr noundef nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueItEEvT_.exit
 
 20:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 %7, ptr %4, align 2, !tbaa !21
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !22
@@ -263,7 +263,7 @@ define void @_ZN3gmx18InMemorySerializer8doUShortEPt(ptr noundef nonnull readonl
   %27 = sub i64 %25, %26
   %28 = getelementptr inbounds i8, ptr %24, i64 %27
   call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %6, ptr %28, ptr noundef nonnull align 2 dereferenceable(2) %4, ptr noundef nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueItEEvT_.exit
 
 _ZN3gmx18InMemorySerializer4Impl7doValueItEEvT_.exit: ; preds = %11, %20
@@ -284,8 +284,8 @@ define void @_ZN3gmx18InMemorySerializer5doIntEPi(ptr noundef nonnull readonly a
   br i1 %11, label %12, label %28
 
 12:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %8, ptr %3, align 4, !tbaa !21
   br label %13
 
@@ -305,7 +305,7 @@ define void @_ZN3gmx18InMemorySerializer5doIntEPi(ptr noundef nonnull readonly a
 
 _ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i: ; preds = %13
   %19 = load i32, ptr %3, align 4, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i32 %19, ptr %4, align 4, !tbaa !21
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !22
@@ -316,11 +316,11 @@ _ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i: ; preds = %13
   %26 = sub i64 %24, %25
   %27 = getelementptr inbounds i8, ptr %23, i64 %26
   call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %7, ptr %27, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIiEEvT_.exit
 
 28:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %8, ptr %5, align 4, !tbaa !21
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !22
@@ -331,7 +331,7 @@ _ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i: ; preds = %13
   %35 = sub i64 %33, %34
   %36 = getelementptr inbounds i8, ptr %32, i64 %35
   call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %7, ptr %36, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull %31)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIiEEvT_.exit
 
 _ZN3gmx18InMemorySerializer4Impl7doValueIiEEvT_.exit: ; preds = %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i, %28
@@ -352,8 +352,8 @@ define void @_ZN3gmx18InMemorySerializer7doInt32EPi(ptr noundef nonnull readonly
   br i1 %11, label %12, label %28
 
 12:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %8, ptr %3, align 4, !tbaa !21
   br label %13
 
@@ -373,7 +373,7 @@ define void @_ZN3gmx18InMemorySerializer7doInt32EPi(ptr noundef nonnull readonly
 
 _ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i: ; preds = %13
   %19 = load i32, ptr %3, align 4, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i32 %19, ptr %4, align 4, !tbaa !21
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !22
@@ -384,11 +384,11 @@ _ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i: ; preds = %13
   %26 = sub i64 %24, %25
   %27 = getelementptr inbounds i8, ptr %23, i64 %26
   call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %7, ptr %27, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIiEEvT_.exit
 
 28:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %8, ptr %5, align 4, !tbaa !21
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !22
@@ -399,7 +399,7 @@ _ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i: ; preds = %13
   %35 = sub i64 %33, %34
   %36 = getelementptr inbounds i8, ptr %32, i64 %35
   call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %7, ptr %36, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull %31)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIiEEvT_.exit
 
 _ZN3gmx18InMemorySerializer4Impl7doValueIiEEvT_.exit: ; preds = %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i, %28
@@ -420,8 +420,8 @@ define void @_ZN3gmx18InMemorySerializer7doInt64EPl(ptr noundef nonnull readonly
   br i1 %11, label %12, label %28
 
 12:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %8, ptr %3, align 8, !tbaa !21
   br label %13
 
@@ -441,7 +441,7 @@ define void @_ZN3gmx18InMemorySerializer7doInt64EPl(ptr noundef nonnull readonly
 
 _ZN3gmx12_GLOBAL__N_110swapEndianIlEET_RKS2_.exit.i: ; preds = %13
   %19 = load i64, ptr %3, align 8, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i64 %19, ptr %4, align 8, !tbaa !21
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !22
@@ -452,11 +452,11 @@ _ZN3gmx12_GLOBAL__N_110swapEndianIlEET_RKS2_.exit.i: ; preds = %13
   %26 = sub i64 %24, %25
   %27 = getelementptr inbounds i8, ptr %23, i64 %26
   call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %7, ptr %27, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIlEEvT_.exit
 
 28:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %8, ptr %5, align 8, !tbaa !21
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !22
@@ -467,7 +467,7 @@ _ZN3gmx12_GLOBAL__N_110swapEndianIlEET_RKS2_.exit.i: ; preds = %13
   %35 = sub i64 %33, %34
   %36 = getelementptr inbounds i8, ptr %32, i64 %35
   call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %7, ptr %36, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %31)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIlEEvT_.exit
 
 _ZN3gmx18InMemorySerializer4Impl7doValueIlEEvT_.exit: ; preds = %_ZN3gmx12_GLOBAL__N_110swapEndianIlEET_RKS2_.exit.i, %28
@@ -488,8 +488,8 @@ define void @_ZN3gmx18InMemorySerializer7doFloatEPf(ptr noundef nonnull readonly
   br i1 %11, label %12, label %28
 
 12:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store float %8, ptr %3, align 4, !tbaa !21
   br label %13
 
@@ -509,7 +509,7 @@ define void @_ZN3gmx18InMemorySerializer7doFloatEPf(ptr noundef nonnull readonly
 
 _ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.exit.i: ; preds = %13
   %19 = load float, ptr %3, align 4, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store float %19, ptr %4, align 4, !tbaa !21
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !22
@@ -520,11 +520,11 @@ _ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.exit.i: ; preds = %13
   %26 = sub i64 %24, %25
   %27 = getelementptr inbounds i8, ptr %23, i64 %26
   call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %7, ptr %27, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIfEEvT_.exit
 
 28:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store float %8, ptr %5, align 4, !tbaa !21
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !22
@@ -535,7 +535,7 @@ _ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.exit.i: ; preds = %13
   %35 = sub i64 %33, %34
   %36 = getelementptr inbounds i8, ptr %32, i64 %35
   call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %7, ptr %36, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull %31)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIfEEvT_.exit
 
 _ZN3gmx18InMemorySerializer4Impl7doValueIfEEvT_.exit: ; preds = %_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.exit.i, %28
@@ -556,8 +556,8 @@ define void @_ZN3gmx18InMemorySerializer8doDoubleEPd(ptr noundef nonnull readonl
   br i1 %11, label %12, label %28
 
 12:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store double %8, ptr %3, align 8, !tbaa !21
   br label %13
 
@@ -577,7 +577,7 @@ define void @_ZN3gmx18InMemorySerializer8doDoubleEPd(ptr noundef nonnull readonl
 
 _ZN3gmx12_GLOBAL__N_110swapEndianIdEET_RKS2_.exit.i: ; preds = %13
   %19 = load double, ptr %3, align 8, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store double %19, ptr %4, align 8, !tbaa !21
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !22
@@ -588,11 +588,11 @@ _ZN3gmx12_GLOBAL__N_110swapEndianIdEET_RKS2_.exit.i: ; preds = %13
   %26 = sub i64 %24, %25
   %27 = getelementptr inbounds i8, ptr %23, i64 %26
   call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %7, ptr %27, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIdEEvT_.exit
 
 28:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store double %8, ptr %5, align 8, !tbaa !21
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !22
@@ -603,7 +603,7 @@ _ZN3gmx12_GLOBAL__N_110swapEndianIdEET_RKS2_.exit.i: ; preds = %13
   %35 = sub i64 %33, %34
   %36 = getelementptr inbounds i8, ptr %32, i64 %35
   call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %7, ptr %36, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %31)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIdEEvT_.exit
 
 _ZN3gmx18InMemorySerializer4Impl7doValueIdEEvT_.exit: ; preds = %_ZN3gmx12_GLOBAL__N_110swapEndianIdEET_RKS2_.exit.i, %28
@@ -624,8 +624,8 @@ define void @_ZN3gmx18InMemorySerializer6doRealEPf(ptr noundef nonnull readonly 
   br i1 %11, label %12, label %28
 
 12:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store float %8, ptr %3, align 4, !tbaa !21
   br label %13
 
@@ -645,7 +645,7 @@ define void @_ZN3gmx18InMemorySerializer6doRealEPf(ptr noundef nonnull readonly 
 
 _ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.exit.i: ; preds = %13
   %19 = load float, ptr %3, align 4, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store float %19, ptr %4, align 4, !tbaa !21
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !22
@@ -656,11 +656,11 @@ _ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.exit.i: ; preds = %13
   %26 = sub i64 %24, %25
   %27 = getelementptr inbounds i8, ptr %23, i64 %26
   call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %7, ptr %27, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIfEEvT_.exit
 
 28:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store float %8, ptr %5, align 4, !tbaa !21
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !22
@@ -671,7 +671,7 @@ _ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.exit.i: ; preds = %13
   %35 = sub i64 %33, %34
   %36 = getelementptr inbounds i8, ptr %32, i64 %35
   call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %7, ptr %36, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull %31)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIfEEvT_.exit
 
 _ZN3gmx18InMemorySerializer4Impl7doValueIfEEvT_.exit: ; preds = %_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.exit.i, %28
@@ -913,7 +913,7 @@ define void @_ZN3gmx20InMemoryDeserializer5doIntEPi(ptr noundef nonnull readonly
   br i1 %8, label %15, label %_ZN3gmx20InMemoryDeserializer4Impl7doValueIiEEvPT_.exit
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %14, ptr %3, align 4, !tbaa !21
   br label %16
 
@@ -933,7 +933,7 @@ define void @_ZN3gmx20InMemoryDeserializer5doIntEPi(ptr noundef nonnull readonly
 
 _ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i: ; preds = %16
   %22 = load i32, ptr %3, align 4, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN3gmx20InMemoryDeserializer4Impl7doValueIiEEvPT_.exit
 
 _ZN3gmx20InMemoryDeserializer4Impl7doValueIiEEvPT_.exit: ; preds = %2, %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i
@@ -961,7 +961,7 @@ define void @_ZN3gmx20InMemoryDeserializer7doInt32EPi(ptr noundef nonnull readon
   br i1 %8, label %15, label %_ZN3gmx20InMemoryDeserializer4Impl7doValueIiEEvPT_.exit
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %14, ptr %3, align 4, !tbaa !21
   br label %16
 
@@ -981,7 +981,7 @@ define void @_ZN3gmx20InMemoryDeserializer7doInt32EPi(ptr noundef nonnull readon
 
 _ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i: ; preds = %16
   %22 = load i32, ptr %3, align 4, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN3gmx20InMemoryDeserializer4Impl7doValueIiEEvPT_.exit
 
 _ZN3gmx20InMemoryDeserializer4Impl7doValueIiEEvPT_.exit: ; preds = %2, %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i
@@ -1009,7 +1009,7 @@ define void @_ZN3gmx20InMemoryDeserializer7doInt64EPl(ptr noundef nonnull readon
   br i1 %8, label %15, label %_ZN3gmx20InMemoryDeserializer4Impl7doValueIlEEvPT_.exit
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %14, ptr %3, align 8, !tbaa !21
   br label %16
 
@@ -1029,7 +1029,7 @@ define void @_ZN3gmx20InMemoryDeserializer7doInt64EPl(ptr noundef nonnull readon
 
 _ZN3gmx12_GLOBAL__N_110swapEndianIlEET_RKS2_.exit.i: ; preds = %16
   %22 = load i64, ptr %3, align 8, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN3gmx20InMemoryDeserializer4Impl7doValueIlEEvPT_.exit
 
 _ZN3gmx20InMemoryDeserializer4Impl7doValueIlEEvPT_.exit: ; preds = %2, %_ZN3gmx12_GLOBAL__N_110swapEndianIlEET_RKS2_.exit.i
@@ -1058,7 +1058,7 @@ define void @_ZN3gmx20InMemoryDeserializer7doFloatEPf(ptr noundef nonnull readon
   br i1 %8, label %15, label %_ZN3gmx20InMemoryDeserializer4Impl7doValueIfEEvPT_.exit
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store float %14, ptr %3, align 4, !tbaa !21
   br label %16
 
@@ -1078,7 +1078,7 @@ define void @_ZN3gmx20InMemoryDeserializer7doFloatEPf(ptr noundef nonnull readon
 
 _ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.exit.i: ; preds = %16
   %22 = load float, ptr %3, align 4, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN3gmx20InMemoryDeserializer4Impl7doValueIfEEvPT_.exit
 
 _ZN3gmx20InMemoryDeserializer4Impl7doValueIfEEvPT_.exit: ; preds = %2, %_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.exit.i
@@ -1106,7 +1106,7 @@ define void @_ZN3gmx20InMemoryDeserializer8doDoubleEPd(ptr noundef nonnull reado
   br i1 %8, label %15, label %_ZN3gmx20InMemoryDeserializer4Impl7doValueIdEEvPT_.exit
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store double %14, ptr %3, align 8, !tbaa !21
   br label %16
 
@@ -1126,7 +1126,7 @@ define void @_ZN3gmx20InMemoryDeserializer8doDoubleEPd(ptr noundef nonnull reado
 
 _ZN3gmx12_GLOBAL__N_110swapEndianIdEET_RKS2_.exit.i: ; preds = %16
   %22 = load double, ptr %3, align 8, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN3gmx20InMemoryDeserializer4Impl7doValueIdEEvPT_.exit
 
 _ZN3gmx20InMemoryDeserializer4Impl7doValueIdEEvPT_.exit: ; preds = %2, %_ZN3gmx12_GLOBAL__N_110swapEndianIdEET_RKS2_.exit.i
@@ -1149,7 +1149,7 @@ define void @_ZN3gmx20InMemoryDeserializer6doRealEPf(ptr noundef nonnull align 8
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store double 0.000000e+00, ptr %3, align 8, !tbaa !35
   %11 = load ptr, ptr %0, align 8, !tbaa !38
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 88
@@ -1157,18 +1157,18 @@ define void @_ZN3gmx20InMemoryDeserializer6doRealEPf(ptr noundef nonnull align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %3)
   %14 = load double, ptr %3, align 8, !tbaa !35
   %15 = fptrunc double %14 to float
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %21
 
 16:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store float 0.000000e+00, ptr %4, align 4, !tbaa !32
   %17 = load ptr, ptr %0, align 8, !tbaa !38
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 80
   %19 = load ptr, ptr %18, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %4)
   %20 = load float, ptr %4, align 4, !tbaa !32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %21
 
 21:                                               ; preds = %16, %10
@@ -1309,12 +1309,6 @@ _ZNSt10unique_ptrIN3gmx18InMemorySerializer4ImplESt14default_deleteIS2_EED2Ev.ex
   store ptr null, ptr %2, align 8, !tbaa !4
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3gmx18InMemorySerializer18finishAndGetBufferEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #2 align 2 {
@@ -1487,13 +1481,13 @@ _ZSt4copyIPcN9__gnu_cxx17__normal_iteratorIS0_St6vectorIcSaIcEEEEET0_T_S8_S7_.ex
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3gmx18InMemorySerializer4Impl8doStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1508,8 +1502,8 @@ define linkonce_odr void @_ZN3gmx18InMemorySerializer4Impl8doStringERKNSt7__cxx1
   br i1 %10, label %11, label %27
 
 11:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %7, ptr %3, align 8, !tbaa !21
   br label %12
 
@@ -1529,7 +1523,7 @@ define linkonce_odr void @_ZN3gmx18InMemorySerializer4Impl8doStringERKNSt7__cxx1
 
 _ZN3gmx12_GLOBAL__N_110swapEndianImEET_RKS2_.exit.i: ; preds = %12
   %18 = load i64, ptr %3, align 8, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i64 %18, ptr %4, align 8, !tbaa !21
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !22
@@ -1540,11 +1534,11 @@ _ZN3gmx12_GLOBAL__N_110swapEndianImEET_RKS2_.exit.i: ; preds = %12
   %25 = sub i64 %23, %24
   %26 = getelementptr inbounds i8, ptr %22, i64 %25
   call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr %26, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueImEEvT_.exit
 
 27:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %7, ptr %5, align 8, !tbaa !21
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !22
@@ -1555,7 +1549,7 @@ _ZN3gmx12_GLOBAL__N_110swapEndianImEET_RKS2_.exit.i: ; preds = %12
   %34 = sub i64 %32, %33
   %35 = getelementptr inbounds i8, ptr %31, i64 %34
   call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr %35, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %30)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueImEEvT_.exit
 
 _ZN3gmx18InMemorySerializer4Impl7doValueImEEvT_.exit: ; preds = %_ZN3gmx12_GLOBAL__N_110swapEndianImEET_RKS2_.exit.i, %27
@@ -1931,7 +1925,7 @@ _ZNSt10unique_ptrIN3gmx20InMemoryDeserializer4ImplESt14default_deleteIS2_EED2Ev.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK3gmx20InMemoryDeserializer14sourceIsDoubleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK3gmx20InMemoryDeserializer14sourceIsDoubleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !43
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1957,7 +1951,7 @@ define linkonce_odr void @_ZN3gmx20InMemoryDeserializer4Impl8doStringEPNSt7__cxx
   br i1 %8, label %15, label %_ZN3gmx20InMemoryDeserializer4Impl7doValueImEEvPT_.exit
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %14, ptr %4, align 8, !tbaa !21
   br label %16
 
@@ -1977,14 +1971,14 @@ define linkonce_odr void @_ZN3gmx20InMemoryDeserializer4Impl8doStringEPNSt7__cxx
 
 _ZN3gmx12_GLOBAL__N_110swapEndianImEET_RKS2_.exit.i: ; preds = %16
   %22 = load i64, ptr %4, align 8, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN3gmx20InMemoryDeserializer4Impl7doValueImEEvPT_.exit
 
 _ZN3gmx20InMemoryDeserializer4Impl7doValueImEEvPT_.exit: ; preds = %2, %_ZN3gmx12_GLOBAL__N_110swapEndianImEET_RKS2_.exit.i
   %storemerge.i = phi i64 [ %22, %_ZN3gmx12_GLOBAL__N_110swapEndianImEET_RKS2_.exit.i ], [ %14, %2 ]
   %23 = add i64 %10, 8
   store i64 %23, ptr %9, align 8, !tbaa !45
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %24 = getelementptr inbounds i8, ptr %12, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %25, ptr %5, align 8, !tbaa !60
@@ -1998,7 +1992,7 @@ _ZN3gmx20InMemoryDeserializer4Impl7doValueImEEvPT_.exit: ; preds = %2, %_ZN3gmx1
   unreachable
 
 28:                                               ; preds = %_ZN3gmx20InMemoryDeserializer4Impl7doValueImEEvPT_.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %storemerge.i, ptr %3, align 8, !tbaa !29
   %29 = icmp ugt i64 %storemerge.i, 15
   br i1 %29, label %.noexc.i, label %._crit_edge.i.i
@@ -2033,7 +2027,7 @@ _ZN3gmx20InMemoryDeserializer4Impl7doValueImEEvPT_.exit: ; preds = %2, %_ZN3gmx1
   %39 = load ptr, ptr %5, align 8, !tbaa !58
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 %37
   store i8 0, ptr %40, align 1, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %41 = load ptr, ptr %1, align 8, !tbaa !58
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %43 = icmp eq ptr %41, %42
@@ -2135,7 +2129,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %78 = load i64, ptr %9, align 8, !tbaa !45
   %79 = add i64 %78, %storemerge.i
   store i64 %79, ptr %9, align 8, !tbaa !45
@@ -2143,9 +2137,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #8
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #7
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #10
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #11
@@ -2168,11 +2168,11 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #4 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #10 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }

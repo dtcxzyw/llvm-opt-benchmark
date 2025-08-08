@@ -255,15 +255,15 @@ define hidden void @_ZN23ExplicitHugePageSupport7scan_osEv(ptr noundef nonnull a
   %4 = alloca i32, align 4
   %5 = alloca [16 x i8], align 16
   %6 = alloca %class.LogStream, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = tail call noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.10) #15
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %_ZL25scan_default_hugepagesizev.exit.thread, label %.preheader12.i
 
 _ZL25scan_default_hugepagesizev.exit.thread:      ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %8, align 8
   br label %54
@@ -308,8 +308,8 @@ _ZL25scan_default_hugepagesizev.exit.thread:      ; preds = %1
 
 _ZL25scan_default_hugepagesizev.exit.thread6:     ; preds = %.loopexit.i, %.preheader12.i
   %20 = call i32 @fclose(ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %21, align 8
   br label %54
@@ -319,16 +319,16 @@ _ZL25scan_default_hugepagesizev.exit:             ; preds = %16
   %23 = sext i32 %22 to i64
   %24 = shl nsw i64 %23, 10
   %25 = call i32 @fclose(ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %24, ptr %26, align 8
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %54, label %27
 
 27:                                               ; preds = %_ZL25scan_default_hugepagesizev.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %2, align 8
   %28 = call ptr @opendir(ptr noundef nonnull @.str.44)
   %.not.i1 = icmp eq ptr %28, null
@@ -371,8 +371,8 @@ _ZL25scan_default_hugepagesizev.exit:             ; preds = %16
 
 _ZL14scan_hugepagesv.exit:                        ; preds = %27, %._crit_edge.i
   %44 = phi i64 [ %.pre.i, %._crit_edge.i ], [ 0, %27 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %44, ptr %45, align 8
   %46 = load i64, ptr %26, align 8
@@ -980,10 +980,10 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -91,12 +91,6 @@ define i32 @ff_idet_filter_line_c(ptr noundef readonly captures(none) %0, ptr no
   ret i32 %.010.lcssa
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define i32 @ff_idet_filter_line_c_16bit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #0 {
   %5 = icmp sgt i32 %3, 0
@@ -132,7 +126,7 @@ define i32 @ff_idet_filter_line_c_16bit(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @init(ptr noundef readonly captures(none) %0) #2 {
+define internal noundef i32 @init(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 280
@@ -164,7 +158,7 @@ define internal noundef i32 @init(ptr noundef readonly captures(none) %0) #2 {
 }
 
 ; Function Attrs: cold nounwind optsize uwtable
-define internal void @uninit(ptr noundef %0) #3 {
+define internal void @uninit(ptr noundef %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 128
@@ -202,7 +196,7 @@ define internal void @uninit(ptr noundef %0) #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr noundef %1) #4 {
+define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr noundef %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !37
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
@@ -464,16 +458,16 @@ thread-pre-split:                                 ; preds = %96
   ret i32 %.0
 }
 
-declare i32 @ff_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @ff_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @av_frame_free(ptr noundef) local_unnamed_addr #5
+declare void @av_frame_free(ptr noundef) local_unnamed_addr #4
 
-declare ptr @av_frame_clone(ptr noundef) local_unnamed_addr #5
+declare ptr @av_frame_clone(ptr noundef) local_unnamed_addr #4
 
-declare ptr @av_pix_fmt_desc_get(i32 noundef) local_unnamed_addr #5
+declare ptr @av_pix_fmt_desc_get(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @filter(ptr noundef %0) unnamed_addr #4 {
+define internal fastcc void @filter(ptr noundef %0) unnamed_addr #3 {
   %2 = alloca [44 x i8], align 16
   %3 = alloca [44 x i8], align 16
   %4 = alloca [44 x i8], align 16
@@ -489,9 +483,9 @@ define internal fastcc void @filter(ptr noundef %0) unnamed_addr #4 {
   %14 = alloca [2 x i64], align 16
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load ptr, ptr %15, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 224
   %18 = load ptr, ptr %17, align 8, !tbaa !65
@@ -848,70 +842,70 @@ type2str.exit189:                                 ; preds = %switch.lookup, %swi
   %switch.load251 = load ptr, ptr %switch.gep250, align 8
   %220 = tail call i32 @av_dict_set(ptr noundef nonnull %190, ptr noundef nonnull @.str.5, ptr noundef nonnull %switch.load251, i32 noundef 0) #12
   %221 = load i64, ptr %175, align 8, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %12) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %222 = tail call i64 @av_rescale(i64 noundef %221, i64 noundef 100, i64 noundef 1048576) #13
   %223 = udiv i64 %222, 100
   %224 = urem i64 %222, 100
   %225 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 44, ptr noundef nonnull @.str.26, i64 noundef %223, i32 noundef 2, i64 noundef %224) #12
   %226 = call i32 @av_dict_set(ptr noundef nonnull %190, ptr noundef nonnull @.str.6, ptr noundef nonnull %12, i32 noundef 0) #12
-  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %12) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %227 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %228 = load i64, ptr %227, align 8, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %229 = call i64 @av_rescale(i64 noundef %228, i64 noundef 100, i64 noundef 1048576) #13
   %230 = udiv i64 %229, 100
   %231 = urem i64 %229, 100
   %232 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 44, ptr noundef nonnull @.str.26, i64 noundef %230, i32 noundef 2, i64 noundef %231) #12
   %233 = call i32 @av_dict_set(ptr noundef nonnull %190, ptr noundef nonnull @.str.7, ptr noundef nonnull %11, i32 noundef 0) #12
-  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %234 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %235 = load i64, ptr %234, align 8, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %236 = call i64 @av_rescale(i64 noundef %235, i64 noundef 100, i64 noundef 1048576) #13
   %237 = udiv i64 %236, 100
   %238 = urem i64 %236, 100
   %239 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 44, ptr noundef nonnull @.str.26, i64 noundef %237, i32 noundef 2, i64 noundef %238) #12
   %240 = call i32 @av_dict_set(ptr noundef nonnull %190, ptr noundef nonnull @.str.8, ptr noundef nonnull %10, i32 noundef 0) #12
-  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %10) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %241 = zext nneg i32 %.0169 to i64
   %switch.gep259 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.filter.5, i64 0, i64 %241
   %switch.load260 = load ptr, ptr %switch.gep259, align 8
   %242 = call i32 @av_dict_set(ptr noundef nonnull %190, ptr noundef nonnull @.str.9, ptr noundef nonnull %switch.load260, i32 noundef 0) #12
   %243 = load i64, ptr %177, align 8, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %244 = call i64 @av_rescale(i64 noundef %243, i64 noundef 100, i64 noundef 1048576) #13
   %245 = udiv i64 %244, 100
   %246 = urem i64 %244, 100
   %247 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 44, ptr noundef nonnull @.str.26, i64 noundef %245, i32 noundef 2, i64 noundef %246) #12
   %248 = call i32 @av_dict_set(ptr noundef nonnull %190, ptr noundef nonnull @.str.10, ptr noundef nonnull %9, i32 noundef 0) #12
-  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %249 = getelementptr inbounds nuw i8, ptr %16, i64 72
   %250 = load i64, ptr %249, align 8, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %251 = call i64 @av_rescale(i64 noundef %250, i64 noundef 100, i64 noundef 1048576) #13
   %252 = udiv i64 %251, 100
   %253 = urem i64 %251, 100
   %254 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 44, ptr noundef nonnull @.str.26, i64 noundef %252, i32 noundef 2, i64 noundef %253) #12
   %255 = call i32 @av_dict_set(ptr noundef nonnull %190, ptr noundef nonnull @.str.11, ptr noundef nonnull %8, i32 noundef 0) #12
-  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %256 = getelementptr inbounds nuw i8, ptr %16, i64 80
   %257 = load i64, ptr %256, align 8, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %258 = call i64 @av_rescale(i64 noundef %257, i64 noundef 100, i64 noundef 1048576) #13
   %259 = udiv i64 %258, 100
   %260 = urem i64 %258, 100
   %261 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 44, ptr noundef nonnull @.str.26, i64 noundef %259, i32 noundef 2, i64 noundef %260) #12
   %262 = call i32 @av_dict_set(ptr noundef nonnull %190, ptr noundef nonnull @.str.12, ptr noundef nonnull %7, i32 noundef 0) #12
-  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %263 = getelementptr inbounds nuw i8, ptr %16, i64 88
   %264 = load i64, ptr %263, align 8, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %265 = call i64 @av_rescale(i64 noundef %264, i64 noundef 100, i64 noundef 1048576) #13
   %266 = udiv i64 %265, 100
   %267 = urem i64 %265, 100
   %268 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 44, ptr noundef nonnull @.str.26, i64 noundef %266, i32 noundef 2, i64 noundef %267) #12
   %269 = call i32 @av_dict_set(ptr noundef nonnull %190, ptr noundef nonnull @.str.13, ptr noundef nonnull %6, i32 noundef 0) #12
-  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %270 = load i32, ptr %173, align 8, !tbaa !32
   %271 = icmp ult i32 %270, 4
   br i1 %271, label %switch.lookup252, label %type2str.exit196
@@ -926,63 +920,63 @@ type2str.exit196:                                 ; preds = %type2str.exit189, %
   %.0.i195 = phi ptr [ %switch.load254, %switch.lookup252 ], [ null, %type2str.exit189 ]
   %273 = call i32 @av_dict_set(ptr noundef nonnull %190, ptr noundef nonnull @.str.14, ptr noundef %.0.i195, i32 noundef 0) #12
   %274 = load i64, ptr %178, align 8, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %275 = call i64 @av_rescale(i64 noundef %274, i64 noundef 100, i64 noundef 1048576) #13
   %276 = udiv i64 %275, 100
   %277 = urem i64 %275, 100
   %278 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 44, ptr noundef nonnull @.str.26, i64 noundef %276, i32 noundef 2, i64 noundef %277) #12
   %279 = call i32 @av_dict_set(ptr noundef nonnull %190, ptr noundef nonnull @.str.15, ptr noundef nonnull %5, i32 noundef 0) #12
-  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %280 = getelementptr inbounds nuw i8, ptr %16, i64 104
   %281 = load i64, ptr %280, align 8, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %282 = call i64 @av_rescale(i64 noundef %281, i64 noundef 100, i64 noundef 1048576) #13
   %283 = udiv i64 %282, 100
   %284 = urem i64 %282, 100
   %285 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 44, ptr noundef nonnull @.str.26, i64 noundef %283, i32 noundef 2, i64 noundef %284) #12
   %286 = call i32 @av_dict_set(ptr noundef nonnull %190, ptr noundef nonnull @.str.16, ptr noundef nonnull %4, i32 noundef 0) #12
-  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %287 = getelementptr inbounds nuw i8, ptr %16, i64 112
   %288 = load i64, ptr %287, align 8, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %289 = call i64 @av_rescale(i64 noundef %288, i64 noundef 100, i64 noundef 1048576) #13
   %290 = udiv i64 %289, 100
   %291 = urem i64 %289, 100
   %292 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 44, ptr noundef nonnull @.str.26, i64 noundef %290, i32 noundef 2, i64 noundef %291) #12
   %293 = call i32 @av_dict_set(ptr noundef nonnull %190, ptr noundef nonnull @.str.17, ptr noundef nonnull %3, i32 noundef 0) #12
-  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %294 = getelementptr inbounds nuw i8, ptr %16, i64 120
   %295 = load i64, ptr %294, align 8, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %296 = call i64 @av_rescale(i64 noundef %295, i64 noundef 100, i64 noundef 1048576) #13
   %297 = udiv i64 %296, 100
   %298 = urem i64 %296, 100
   %299 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 44, ptr noundef nonnull @.str.26, i64 noundef %297, i32 noundef 2, i64 noundef %298) #12
   %300 = call i32 @av_dict_set(ptr noundef nonnull %190, ptr noundef nonnull @.str.18, ptr noundef nonnull %2, i32 noundef 0) #12
-  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %2) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 }
 
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #5
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @av_rescale(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
+declare i64 @av_rescale(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
-declare i32 @av_dict_set(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @av_dict_set(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #9
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @request_frame(ptr noundef readonly captures(none) %0) #4 {
+define internal i32 @request_frame(ptr noundef readonly captures(none) %0) #3 {
   %2 = load ptr, ptr %0, align 8, !tbaa !84
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !12
@@ -1032,30 +1026,36 @@ define internal i32 @request_frame(ptr noundef readonly captures(none) %0) #4 {
   ret i32 %.0
 }
 
-declare i32 @ff_request_frame(ptr noundef) local_unnamed_addr #5
+declare i32 @ff_request_frame(ptr noundef) local_unnamed_addr #4
 
-declare ptr @av_default_item_name(ptr noundef) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.exp2.f64(double) #10
+declare ptr @av_default_item_name(ptr noundef) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.lrint.i64.f64(double) #10
+declare double @llvm.exp2.f64(double) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.lrint.i64.f64(double) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #11
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nounwind }
 attributes #13 = { nounwind willreturn memory(none) }

@@ -305,7 +305,7 @@ _ZN6google8protobuf5Arena16DefaultConstructINS0_14SourceCodeInfoEEEPvPS1_.exit.i
 
 invoke.cont2:                                     ; preds = %.noexc, %if.then
   %8 = phi ptr [ %cond.i.i.i, %.noexc ], [ %2, %if.then ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %indices_to_delete.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %indices_to_delete.i)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %current_size_.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load i32, ptr %current_size_.i.i.i, align 8
@@ -1050,7 +1050,7 @@ if.then.i.i.i113.i:                               ; preds = %ehcleanup77.i
   br label %lpad.body
 
 _ZN6google8protobuf8compiler12_GLOBAL__N_119StripSourceCodeInfoERSt6vectorIS3_IiSaIiEESaIS5_EERNS0_14SourceCodeInfoE.exit: ; preds = %_ZN4absl12lts_2023080213flat_hash_setIiNS0_13hash_internal4HashIiEESt8equal_toIiESaIiEED2Ev.exit.i, %if.then.i.i.i106.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %indices_to_delete.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %indices_to_delete.i)
   br label %if.end
 
 lpad:                                             ; preds = %_ZN6google8protobuf5Arena16DefaultConstructINS0_14SourceCodeInfoEEEPvPS1_.exit.i.i, %cond.false.i.i.i, %cond.true.i.i.i, %entry
@@ -1589,7 +1589,7 @@ define void @_ZN6google8protobuf8compiler32StripLocalSourceRetentionOptionsERKNS
 entry:
   %options.i = alloca %"class.google::protobuf::EnumOptions", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %options.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %options.i)
   %options_.i.i = getelementptr inbounds nuw i8, ptr %descriptor, i64 32
   %0 = load ptr, ptr %options_.i.i, align 8, !noalias !37
   call void @_ZN6google8protobuf11EnumOptionsC2EPNS0_5ArenaERKS1_(ptr noundef nonnull align 8 dereferenceable(88) %options.i, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(88) %0), !noalias !37
@@ -1678,7 +1678,7 @@ lpad.i:                                           ; preds = %entry
 
 _ZN6google8protobuf8compiler12_GLOBAL__N_117StripLocalOptionsINS0_14EnumDescriptorEEEDaRKT_.exit: ; preds = %invoke.cont.i.i.i, %if.then5.i.i.i.i, %if.else.i.i.i.i
   call void @_ZN6google8protobuf11EnumOptionsD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %options.i) #23
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %options.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %options.i)
   ret void
 }
 
@@ -1687,7 +1687,7 @@ define void @_ZN6google8protobuf8compiler32StripLocalSourceRetentionOptionsERKNS
 entry:
   %options.i = alloca %"class.google::protobuf::EnumValueOptions", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %options.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %options.i)
   %options_.i.i = getelementptr inbounds nuw i8, ptr %descriptor, i64 24
   %0 = load ptr, ptr %options_.i.i, align 8, !noalias !40
   call void @_ZN6google8protobuf16EnumValueOptionsC2EPNS0_5ArenaERKS1_(ptr noundef nonnull align 8 dereferenceable(88) %options.i, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(88) %0), !noalias !40
@@ -1778,7 +1778,7 @@ lpad.i:                                           ; preds = %entry
 
 _ZN6google8protobuf8compiler12_GLOBAL__N_117StripLocalOptionsINS0_19EnumValueDescriptorEEEDaRKT_.exit: ; preds = %invoke.cont.i.i.i, %if.then5.i.i.i.i, %if.else.i.i.i.i
   call void @_ZN6google8protobuf16EnumValueOptionsD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %options.i) #23
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %options.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %options.i)
   ret void
 }
 
@@ -1787,7 +1787,7 @@ define void @_ZN6google8protobuf8compiler32StripLocalSourceRetentionOptionsERKNS
 entry:
   %options.i = alloca %"class.google::protobuf::FieldOptions", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %options.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %options.i)
   %options_.i.i = getelementptr inbounds nuw i8, ptr %descriptor, i64 56
   %0 = load ptr, ptr %options_.i.i, align 8, !noalias !43
   call void @_ZN6google8protobuf12FieldOptionsC2EPNS0_5ArenaERKS1_(ptr noundef nonnull align 8 dereferenceable(144) %options.i, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(144) %0), !noalias !43
@@ -1876,7 +1876,7 @@ lpad.i:                                           ; preds = %entry
 
 _ZN6google8protobuf8compiler12_GLOBAL__N_117StripLocalOptionsINS0_15FieldDescriptorEEEDaRKT_.exit: ; preds = %invoke.cont.i.i.i, %if.then5.i.i.i.i, %if.else.i.i.i.i
   call void @_ZN6google8protobuf12FieldOptionsD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %options.i) #23
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %options.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %options.i)
   ret void
 }
 
@@ -1885,7 +1885,7 @@ define void @_ZN6google8protobuf8compiler32StripLocalSourceRetentionOptionsERKNS
 entry:
   %options.i = alloca %"class.google::protobuf::FileOptions", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %options.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %options.i)
   %options_.i.i = getelementptr inbounds nuw i8, ptr %descriptor, i64 128
   %0 = load ptr, ptr %options_.i.i, align 8, !noalias !46
   call void @_ZN6google8protobuf11FileOptionsC2EPNS0_5ArenaERKS1_(ptr noundef nonnull align 8 dereferenceable(176) %options.i, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(176) %0), !noalias !46
@@ -1972,7 +1972,7 @@ lpad.i:                                           ; preds = %entry
 
 _ZN6google8protobuf8compiler12_GLOBAL__N_117StripLocalOptionsINS0_14FileDescriptorEEEDaRKT_.exit: ; preds = %invoke.cont.i.i.i, %if.then5.i.i.i.i, %if.else.i.i.i.i
   call void @_ZN6google8protobuf11FileOptionsD1Ev(ptr noundef nonnull align 8 dereferenceable(176) %options.i) #23
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %options.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %options.i)
   ret void
 }
 
@@ -1981,7 +1981,7 @@ define void @_ZN6google8protobuf8compiler32StripLocalSourceRetentionOptionsERKNS
 entry:
   %options.i = alloca %"class.google::protobuf::MessageOptions", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %options.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %options.i)
   %options_.i.i = getelementptr inbounds nuw i8, ptr %descriptor, i64 32
   %0 = load ptr, ptr %options_.i.i, align 8, !noalias !49
   call void @_ZN6google8protobuf14MessageOptionsC2EPNS0_5ArenaERKS1_(ptr noundef nonnull align 8 dereferenceable(88) %options.i, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(88) %0), !noalias !49
@@ -2070,7 +2070,7 @@ lpad.i:                                           ; preds = %entry
 
 _ZN6google8protobuf8compiler12_GLOBAL__N_117StripLocalOptionsINS0_10DescriptorEEEDaRKT_.exit: ; preds = %invoke.cont.i.i.i, %if.then5.i.i.i.i, %if.else.i.i.i.i
   call void @_ZN6google8protobuf14MessageOptionsD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %options.i) #23
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %options.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %options.i)
   ret void
 }
 
@@ -2105,7 +2105,7 @@ define void @_ZN6google8protobuf8compiler32StripLocalSourceRetentionOptionsERKNS
 entry:
   %options.i = alloca %"class.google::protobuf::MethodOptions", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %options.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %options.i)
   %options_.i.i = getelementptr inbounds nuw i8, ptr %descriptor, i64 56
   %0 = load ptr, ptr %options_.i.i, align 8, !noalias !52
   call void @_ZN6google8protobuf13MethodOptionsC2EPNS0_5ArenaERKS1_(ptr noundef nonnull align 8 dereferenceable(88) %options.i, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(88) %0), !noalias !52
@@ -2196,7 +2196,7 @@ lpad.i:                                           ; preds = %entry
 
 _ZN6google8protobuf8compiler12_GLOBAL__N_117StripLocalOptionsINS0_16MethodDescriptorEEEDaRKT_.exit: ; preds = %invoke.cont.i.i.i, %if.then5.i.i.i.i, %if.else.i.i.i.i
   call void @_ZN6google8protobuf13MethodOptionsD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %options.i) #23
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %options.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %options.i)
   ret void
 }
 
@@ -2205,7 +2205,7 @@ define void @_ZN6google8protobuf8compiler32StripLocalSourceRetentionOptionsERKNS
 entry:
   %options.i = alloca %"class.google::protobuf::OneofOptions", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %options.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %options.i)
   %options_.i.i = getelementptr inbounds nuw i8, ptr %descriptor, i64 24
   %0 = load ptr, ptr %options_.i.i, align 8, !noalias !55
   call void @_ZN6google8protobuf12OneofOptionsC2EPNS0_5ArenaERKS1_(ptr noundef nonnull align 8 dereferenceable(80) %options.i, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(80) %0), !noalias !55
@@ -2296,7 +2296,7 @@ lpad.i:                                           ; preds = %entry
 
 _ZN6google8protobuf8compiler12_GLOBAL__N_117StripLocalOptionsINS0_15OneofDescriptorEEEDaRKT_.exit: ; preds = %invoke.cont.i.i.i, %if.then5.i.i.i.i, %if.else.i.i.i.i
   call void @_ZN6google8protobuf12OneofOptionsD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %options.i) #23
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %options.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %options.i)
   ret void
 }
 
@@ -2305,7 +2305,7 @@ define void @_ZN6google8protobuf8compiler32StripLocalSourceRetentionOptionsERKNS
 entry:
   %options.i = alloca %"class.google::protobuf::ServiceOptions", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %options.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %options.i)
   %options_.i.i = getelementptr inbounds nuw i8, ptr %descriptor, i64 24
   %0 = load ptr, ptr %options_.i.i, align 8, !noalias !58
   call void @_ZN6google8protobuf14ServiceOptionsC2EPNS0_5ArenaERKS1_(ptr noundef nonnull align 8 dereferenceable(88) %options.i, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(88) %0), !noalias !58
@@ -2394,7 +2394,7 @@ lpad.i:                                           ; preds = %entry
 
 _ZN6google8protobuf8compiler12_GLOBAL__N_117StripLocalOptionsINS0_17ServiceDescriptorEEEDaRKT_.exit: ; preds = %invoke.cont.i.i.i, %if.then5.i.i.i.i, %if.else.i.i.i.i
   call void @_ZN6google8protobuf14ServiceOptionsD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %options.i) #23
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %options.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %options.i)
   ret void
 }
 
@@ -3238,7 +3238,7 @@ while.body.lr.ph.i.i:                             ; preds = %while.body.i.i5
 while.body.i.i:                                   ; preds = %while.body.i.i, %while.body.lr.ph.i.i
   %__last.sroa.0.05.i.i = phi ptr [ %storemerge14, %while.body.lr.ph.i.i ], [ %incdec.ptr.i.i.i, %while.body.i.i ]
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp7.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp7.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp7.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %incdec.ptr.i.i.i, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %incdec.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(20) %__first.coerce, i64 16, i1 false)
   %0 = load i32, ptr %second.i.i.i.i, align 4
@@ -3248,7 +3248,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
   tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4absl12lts_202308024SpanIKiEEiESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_less_iterEEvT_T0_SH_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i.i, ptr noundef nonnull byval(%"struct.std::pair") align 8 %agg.tmp7.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp7.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp7.i.i.i)
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 24
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !74
 
@@ -3797,11 +3797,11 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN4absl12
   br i1 %cmp.i.i49, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %for.body.i.i.i.i.i.i.i.i.i14, %_ZN4absl12lts_20230802ltIKiEEbNS0_4SpanIT_EES5_.exit.i.i24, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN4absl12lts_202308024SpanIKiEEiESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit50
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(20) %__result.coerce, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(20) %__b.coerce, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__b.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i)
   br label %if.end62
 
 if.else:                                          ; preds = %for.body.i.i.i.i.i.i.i12.i.i33, %_ZN4absl12lts_20230802ltIKiEEbNS0_4SpanIT_EES5_.exit26.i.i43, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN4absl12lts_202308024SpanIKiEEiESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit50
@@ -3874,19 +3874,19 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN4absl12
   br i1 %cmp.i.i99, label %if.then22, label %if.else27
 
 if.then22:                                        ; preds = %for.body.i.i.i.i.i.i.i.i.i64, %_ZN4absl12lts_20230802ltIKiEEbNS0_4SpanIT_EES5_.exit.i.i74, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN4absl12lts_202308024SpanIKiEEiESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit100
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i.i.i101)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i101)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i101, ptr noundef nonnull align 8 dereferenceable(20) %__result.coerce, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(20) %__c.coerce, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__c.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i101, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i.i.i101)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i101)
   br label %if.end62
 
 if.else27:                                        ; preds = %for.body.i.i.i.i.i.i.i12.i.i83, %_ZN4absl12lts_20230802ltIKiEEbNS0_4SpanIT_EES5_.exit26.i.i93, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN4absl12lts_202308024SpanIKiEEiESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit100
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i.i.i104)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i104)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i104, ptr noundef nonnull align 8 dereferenceable(20) %__result.coerce, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(20) %__a.coerce, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__a.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i104, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i.i.i104)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i104)
   br label %if.end62
 
 if.else33:                                        ; preds = %for.body.i.i.i.i.i.i.i12.i.i, %_ZN4absl12lts_20230802ltIKiEEbNS0_4SpanIT_EES5_.exit26.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN4absl12lts_202308024SpanIKiEEiESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit
@@ -3963,11 +3963,11 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN4absl12
   br i1 %cmp.i.i155, label %if.then39, label %if.else44
 
 if.then39:                                        ; preds = %for.body.i.i.i.i.i.i.i.i.i120, %_ZN4absl12lts_20230802ltIKiEEbNS0_4SpanIT_EES5_.exit.i.i130, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN4absl12lts_202308024SpanIKiEEiESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit156
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i.i.i157)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i157)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i157, ptr noundef nonnull align 8 dereferenceable(20) %__result.coerce, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(20) %__a.coerce, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__a.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i157, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i.i.i157)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i157)
   br label %if.end62
 
 if.else44:                                        ; preds = %for.body.i.i.i.i.i.i.i12.i.i139, %_ZN4absl12lts_20230802ltIKiEEbNS0_4SpanIT_EES5_.exit26.i.i149, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN4absl12lts_202308024SpanIKiEEiESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit156
@@ -4039,19 +4039,19 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN4absl12
   br i1 %cmp.i.i208, label %if.then50, label %if.else55
 
 if.then50:                                        ; preds = %for.body.i.i.i.i.i.i.i.i.i173, %_ZN4absl12lts_20230802ltIKiEEbNS0_4SpanIT_EES5_.exit.i.i183, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN4absl12lts_202308024SpanIKiEEiESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit209
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i.i.i210)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i210)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i210, ptr noundef nonnull align 8 dereferenceable(20) %__result.coerce, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(20) %__c.coerce, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__c.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i210, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i.i.i210)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i210)
   br label %if.end62
 
 if.else55:                                        ; preds = %for.body.i.i.i.i.i.i.i12.i.i192, %_ZN4absl12lts_20230802ltIKiEEbNS0_4SpanIT_EES5_.exit26.i.i202, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN4absl12lts_202308024SpanIKiEEiESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit209
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i.i.i213)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i213)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i213, ptr noundef nonnull align 8 dereferenceable(20) %__result.coerce, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(20) %__b.coerce, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__b.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i213, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i.i.i213)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i213)
   br label %if.end62
 
 if.end62:                                         ; preds = %if.then39, %if.else55, %if.then50, %if.then12, %if.else27, %if.then22
@@ -4247,11 +4247,11 @@ if.then:                                          ; preds = %while.end18
   ret ptr %__first.sroa.0.1
 
 if.end:                                           ; preds = %while.end18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(20) %__first.sroa.0.1, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__first.sroa.0.1, ptr noundef nonnull align 8 dereferenceable(20) %__last.sroa.0.1, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__last.sroa.0.1, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i)
   %second.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1, i64 16
   %second3.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn, i64 -8
   %12 = load i32, ptr %second.i.i.i, align 4
@@ -4664,7 +4664,7 @@ while.body.lr.ph.i:                               ; preds = %entry
 while.body.i:                                     ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIiSaIiEES2_IS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit.i, %while.body.lr.ph.i
   %__last.sroa.0.05.i = phi ptr [ %__middle.coerce, %while.body.lr.ph.i ], [ %incdec.ptr.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIiSaIiEES2_IS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit.i ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i, i64 -24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp7.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp7.i.i)
   %0 = load ptr, ptr %incdec.ptr.i.i, align 8
   %_M_finish3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i, i64 -16
   %1 = load ptr, ptr %_M_finish3.i.i.i.i.i.i, align 8
@@ -4711,7 +4711,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit15.i.i:              ; preds = %if.then.i.i.i11.i.i
   resume { ptr, i32 } %7
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIiSaIiEES2_IS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit.i: ; preds = %if.then.i.i.i.i.i, %invoke.cont.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp7.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp7.i.i)
   %cmp.i = icmp sgt i64 %sub.ptr.sub.i.i.i, 24
   br i1 %cmp.i, label %while.body.i, label %_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIiSaIiEES2_IS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_RT0_.exit, !llvm.loop !88
 
@@ -4858,7 +4858,7 @@ define linkonce_odr hidden void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_itera
 entry:
   %agg.tmp7.i = alloca %"class.std::vector.64", align 8
   %agg.tmp6.i = alloca %"class.std::vector.64", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp6.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i)
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__middle.coerce to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -4920,7 +4920,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   resume { ptr, i32 } %common.resume.op
 
 _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIiSaIiEES2_IS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_RT0_.exit: ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit15.i, %entry
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp6.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i)
   %cmp.i117 = icmp ult ptr %__middle.coerce, %__last.coerce
   br i1 %cmp.i117, label %for.body.lr.ph, label %for.end
 
@@ -4974,7 +4974,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIiSaIiE
   br i1 %cmp9.i.i.i.i.i.i.i.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body.i.i.i.i.i.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIiSaIiEES4_IS6_SaIS6_EEEESA_EEbT_T0_.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp7.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp7.i)
   %_M_end_of_storage4.i.i.i.i.i3 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.018, i64 16
   %12 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__i.sroa.0.018, i8 0, i64 24, i1 false)
@@ -5008,7 +5008,7 @@ lpad.i8:                                          ; preds = %if.then
   br i1 %tobool.not.i.i.i10.i, label %common.resume, label %common.resume.sink.split
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIiSaIiEES2_IS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit: ; preds = %invoke.cont.i10, %if.then.i.i.i.i12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp7.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp7.i)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end.i.i.i.i.i.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIiSaIiEES4_IS6_SaIS6_EEEESA_EEbT_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIiSaIiEES2_IS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
@@ -5759,9 +5759,9 @@ land.lhs.true.i:                                  ; preds = %if.then13
   br i1 %cmp4.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i.i)
   call void @_ZN4absl12lts_2023080218container_internal24DropDeletesWithoutResizeERNS1_12CommonFieldsERKNS1_15PolicyFunctionsEPv(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIiEENS0_13hash_internal4HashIiEESt8equal_toIiESaIiEE18GetPolicyFunctionsEvE5value, ptr noundef nonnull %tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i.i)
   br label %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIiEENS0_13hash_internal4HashIiEESt8equal_toIiESaIiEE28rehash_and_grow_if_necessaryEv.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.then13
@@ -5823,7 +5823,7 @@ entry:
   %capacity_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i, align 8
   store i64 %new_capacity, ptr %capacity_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   %sub.i.i.i.i = add i64 %new_capacity, 27
   %and.i.i.i.i = and i64 %sub.i.i.i.i, -4
   %mul.i.i.i = shl i64 %new_capacity, 2
@@ -5866,7 +5866,7 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   %sub.i.i20.i.i = sub i64 %new_capacity, %5
   store i64 %sub.i.i20.i.i, ptr %call5.i.i2.i.i1.i, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.i) #23
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   %6 = load ptr, ptr %slots_.i.i, align 8
   %cmp.not20 = icmp eq i64 %2, 0
   br i1 %cmp.not20, label %if.end23, label %for.body
@@ -6282,10 +6282,10 @@ declare i64 @llvm.umin.i64(i64, i64) #20
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

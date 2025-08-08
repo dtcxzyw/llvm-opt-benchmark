@@ -703,7 +703,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dnsserver_dissect_struct_DNS_RPC_NAME(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
@@ -737,32 +737,26 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_NAME(ptr noundef %0, i32 nou
 
 29:                                               ; preds = %8, %18
   %.0 = phi i32 [ %27, %18 ], [ %1, %8 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dnsserver_dissect_enum_DNS_RPC_CLIENT_VERSION(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -781,12 +775,12 @@ define hidden i32 @dnsserver_dissect_enum_DNS_RPC_CLIENT_VERSION(ptr noundef %0,
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dnsserver_dissect_struct_DNS_RPC_VERSION(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
@@ -848,7 +842,7 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_VERSION(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dnsserver_dissect_enum_DNS_RPC_BOOT_METHOD(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -867,14 +861,14 @@ define hidden i32 @dnsserver_dissect_enum_DNS_RPC_BOOT_METHOD(ptr noundef %0, i3
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dnsserver_dissect_bitmap_DNS_LOG_LEVELS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
@@ -912,20 +906,20 @@ define hidden i32 @dnsserver_dissect_bitmap_DNS_LOG_LEVELS(ptr noundef %0, i32 n
   br label %29
 
 29:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %22
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dnsserver_dissect_bitmap_DNS_RPC_PROTOCOLS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
@@ -963,14 +957,14 @@ define hidden i32 @dnsserver_dissect_bitmap_DNS_RPC_PROTOCOLS(ptr noundef %0, i3
   br label %29
 
 29:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %22
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dnsserver_dissect_enum_DNS_NAME_CHECK_FLAGS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -989,14 +983,14 @@ define hidden i32 @dnsserver_dissect_enum_DNS_NAME_CHECK_FLAGS(ptr noundef %0, i
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dnsserver_dissect_enum_DNS_RECORD_TYPE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i16 0, ptr %9, align 2
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -1015,17 +1009,17 @@ define hidden i32 @dnsserver_dissect_enum_DNS_RECORD_TYPE(ptr noundef %0, i32 no
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dnsserver_dissect_bitmap_DNS_SELECT_FLAGS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
@@ -1063,14 +1057,14 @@ define hidden i32 @dnsserver_dissect_bitmap_DNS_SELECT_FLAGS(ptr noundef %0, i32
   br label %29
 
 29:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %22
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dnsserver_dissect_bitmap_DNS_RPC_NODE_FLAGS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
@@ -1108,7 +1102,7 @@ define hidden i32 @dnsserver_dissect_bitmap_DNS_RPC_NODE_FLAGS(ptr noundef %0, i
   br label %29
 
 29:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %22
 }
 
@@ -1162,10 +1156,10 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_RECORD(ptr noundef %0, i32 n
   %23 = load i32, ptr @hf_dnsserver_DNS_RPC_RECORD_DataLength, align 4
   %24 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.065, ptr noundef %4, ptr noundef %5, i32 noundef %23, i32 noundef 0)
   %25 = load i32, ptr @hf_dnsserver_DNS_RPC_RECORD_Type, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i16 0, ptr %11, align 2
   %26 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.065, ptr noundef %4, ptr noundef %5, i32 noundef %25, ptr noundef nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %27 = load i32, ptr @hf_dnsserver_DNS_RPC_RECORD_Flags, align 4
   %28 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.065, ptr noundef %4, ptr noundef %5, i32 noundef %27, i32 noundef 0)
   %29 = load i32, ptr @hf_dnsserver_DNS_RPC_RECORD_Serial, align 4
@@ -1177,9 +1171,9 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_RECORD(ptr noundef %0, i32 n
   %35 = load i32, ptr @hf_dnsserver_DNS_RPC_RECORD_reserved, align 4
   %36 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.065, ptr noundef %4, ptr noundef %5, i32 noundef %35, i32 noundef 0)
   %37 = load i32, ptr @hf_dnsserver_DNS_RPC_RECORD_record, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.not.i.i = icmp eq ptr %.065, null
   br i1 %.not.i.i, label %41, label %38
 
@@ -1220,8 +1214,8 @@ dnsserver_dissect_element_DNS_RPC_RECORD_record.exit: ; preds = %41, %dnsserver_
   %53 = load ptr, ptr %9, align 8
   %54 = sub i32 %.0.i.i, %36
   call void @proto_item_set_len(ptr noundef %53, i32 noundef %54)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %55 = sub i32 %.0.i.i, %.0
   call void @proto_item_set_len(ptr noundef %.066, i32 noundef %55)
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 64
@@ -1455,10 +1449,10 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_SERVER_INFO_DOTNET(ptr nound
   %39 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_Version, align 4
   %40 = tail call i32 @dnsserver_dissect_struct_DNS_RPC_VERSION(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %39, i32 poison)
   %41 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_BootMethod, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 0, ptr %10, align 1
   %42 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %41, ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %43 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_AdminConfigured, align 4
   %44 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %43, i32 noundef 0)
   %45 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_AllowUpdate, align 4
@@ -1508,10 +1502,10 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_SERVER_INFO_DOTNET(ptr nound
   %89 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RpcProtocol, align 4
   %90 = call i32 @dnsserver_dissect_bitmap_DNS_RPC_PROTOCOLS(ptr noundef %0, i32 noundef %88, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %89, i32 poison)
   %91 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_NameCheckFlag, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %92 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %90, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %91, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %93 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_AddressAnswerLimit, align 4
   %94 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %92, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %93, i32 noundef 0)
   %95 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RecursionRetry, align 4
@@ -1623,7 +1617,7 @@ dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserve_array2.exit: ; pred
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dnsserver_dissect_enum_DnssrvRpcTypeId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -1642,7 +1636,7 @@ define hidden i32 @dnsserver_dissect_enum_DnssrvRpcTypeId(ptr noundef %0, i32 no
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -1709,13 +1703,13 @@ define hidden void @proto_register_dcerpc_dnsserver() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_dcerpc_dnsserver() local_unnamed_addr #0 {
@@ -1727,22 +1721,22 @@ define hidden void @proto_reg_handoff_dcerpc_dnsserver() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dcerpc_init_uuid(i32 noundef, i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @dcerpc_init_uuid(i32 noundef, i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @PIDL_dissect_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PIDL_dissect_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @PIDL_dissect_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PIDL_dissect_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @PIDL_dissect_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PIDL_dissect_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_ucarray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_ucarray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_IP4_ARRAY_AddrArray_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -1752,32 +1746,32 @@ define internal i32 @dnsserver_dissect_element_IP4_ARRAY_AddrArray_(ptr noundef 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_embedded_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_embedded_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_ServerName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ServerName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.375, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_cvstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_cvstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_DsContainer_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DsContainer, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.375, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -1812,137 +1806,137 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_LogFil
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_LogFilePath_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LogFilePath, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.375, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_DomainName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DomainName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.375, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_ForestName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ForestName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.375, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_DomainDirectoryPartition_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DomainDirectoryPartition, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.375, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_ForestDirectoryPartition_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ForestDirectoryPartition, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.375, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extension0_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension0, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.375, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extension1_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension1, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.375, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extension2_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension2, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.375, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extension3_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension3, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.375, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extension4_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension4, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.375, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extension5_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension5, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.375, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @dnsserver_dissect_DnssrvOperation_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @dnsserver_dissect_DnssrvOperation_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.458, ptr %7, align 8
   ret i32 %1
@@ -1951,7 +1945,7 @@ define internal noundef i32 @dnsserver_dissect_DnssrvOperation_request(ptr readn
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_DnssrvOperation_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.458, ptr %8, align 8
   %9 = load i32, ptr @hf_dnsserver_status, align 4
@@ -1968,12 +1962,12 @@ define internal i32 @dnsserver_dissect_DnssrvOperation_response(ptr noundef %0, 
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @dnsserver_dissect_DnssrvQuery_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @dnsserver_dissect_DnssrvQuery_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.459, ptr %7, align 8
   ret i32 %1
@@ -1982,7 +1976,7 @@ define internal noundef i32 @dnsserver_dissect_DnssrvQuery_request(ptr readnone 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_DnssrvQuery_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.459, ptr %8, align 8
   %9 = load i32, ptr @hf_dnsserver_status, align 4
@@ -1999,12 +1993,12 @@ define internal i32 @dnsserver_dissect_DnssrvQuery_response(ptr noundef %0, i32 
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @dnsserver_dissect_DnssrvComplexOperation_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @dnsserver_dissect_DnssrvComplexOperation_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.460, ptr %7, align 8
   ret i32 %1
@@ -2013,7 +2007,7 @@ define internal noundef i32 @dnsserver_dissect_DnssrvComplexOperation_request(pt
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_DnssrvComplexOperation_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.460, ptr %8, align 8
   %9 = load i32, ptr @hf_dnsserver_status, align 4
@@ -2030,12 +2024,12 @@ define internal i32 @dnsserver_dissect_DnssrvComplexOperation_response(ptr nound
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @dnsserver_dissect_DnssrvEnumRecords_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @dnsserver_dissect_DnssrvEnumRecords_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.461, ptr %7, align 8
   ret i32 %1
@@ -2044,7 +2038,7 @@ define internal noundef i32 @dnsserver_dissect_DnssrvEnumRecords_request(ptr rea
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_DnssrvEnumRecords_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.461, ptr %8, align 8
   %9 = load i32, ptr @hf_dnsserver_status, align 4
@@ -2061,12 +2055,12 @@ define internal i32 @dnsserver_dissect_DnssrvEnumRecords_response(ptr noundef %0
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @dnsserver_dissect_DnssrvUpdateRecord_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @dnsserver_dissect_DnssrvUpdateRecord_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.462, ptr %7, align 8
   ret i32 %1
@@ -2075,7 +2069,7 @@ define internal noundef i32 @dnsserver_dissect_DnssrvUpdateRecord_request(ptr re
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_DnssrvUpdateRecord_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.462, ptr %8, align 8
   %9 = load i32, ptr @hf_dnsserver_status, align 4
@@ -2092,12 +2086,12 @@ define internal i32 @dnsserver_dissect_DnssrvUpdateRecord_response(ptr noundef %
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @dnsserver_dissect_DnssrvOperation2_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @dnsserver_dissect_DnssrvOperation2_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.463, ptr %7, align 8
   ret i32 %1
@@ -2106,7 +2100,7 @@ define internal noundef i32 @dnsserver_dissect_DnssrvOperation2_request(ptr read
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_DnssrvOperation2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.463, ptr %8, align 8
   %9 = load i32, ptr @hf_dnsserver_status, align 4
@@ -2123,7 +2117,7 @@ define internal i32 @dnsserver_dissect_DnssrvOperation2_response(ptr noundef %0,
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -2133,10 +2127,10 @@ define internal i32 @dnsserver_dissect_DnssrvQuery2_request(ptr noundef %0, i32 
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.464, ptr %8, align 8
   %9 = load i32, ptr @hf_dnsserver_DnssrvQuery2_client_version, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %11 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %10, ptr noundef %4, ptr noundef %5)
   %12 = load i32, ptr @hf_dnsserver_DnssrvQuery2_setting_flags, align 4
   %13 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %11, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %12, i32 noundef 0)
@@ -2156,7 +2150,7 @@ define internal i32 @dnsserver_dissect_DnssrvQuery2_request(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_DnssrvQuery2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.464, ptr %8, align 8
   %9 = load i32, ptr @hf_dnsserver_DnssrvQuery2_type_id, align 4
@@ -2179,12 +2173,12 @@ define internal i32 @dnsserver_dissect_DnssrvQuery2_response(ptr noundef %0, i32
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @dnsserver_dissect_DnssrvComplexOperation2_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @dnsserver_dissect_DnssrvComplexOperation2_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.465, ptr %7, align 8
   ret i32 %1
@@ -2193,7 +2187,7 @@ define internal noundef i32 @dnsserver_dissect_DnssrvComplexOperation2_request(p
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_DnssrvComplexOperation2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.465, ptr %8, align 8
   %9 = load i32, ptr @hf_dnsserver_status, align 4
@@ -2210,7 +2204,7 @@ define internal i32 @dnsserver_dissect_DnssrvComplexOperation2_response(ptr noun
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -2221,10 +2215,10 @@ define internal i32 @dnsserver_dissect_DnssrvEnumRecords2_request(ptr noundef %0
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.466, ptr %9, align 8
   %10 = load i32, ptr @hf_dnsserver_DnssrvEnumRecords2_client_version, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %11 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %10, ptr noundef nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %12 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %11, ptr noundef %4, ptr noundef %5)
   %13 = load i32, ptr @hf_dnsserver_DnssrvEnumRecords2_setting_flags, align 4
   %14 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %13, i32 noundef 0)
@@ -2242,10 +2236,10 @@ define internal i32 @dnsserver_dissect_DnssrvEnumRecords2_request(ptr noundef %0
   %26 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DnssrvEnumRecords2_start_child_, i32 noundef 2, ptr noundef nonnull @.str.480, i32 noundef %25)
   %27 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %26, ptr noundef %4, ptr noundef %5)
   %28 = load i32, ptr @hf_dnsserver_DnssrvEnumRecords2_record_type, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i16 0, ptr %7, align 2
   %29 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %28, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %30 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %29, ptr noundef %4, ptr noundef %5)
   %31 = load i32, ptr @hf_dnsserver_DnssrvEnumRecords2_select_flag, align 4
   %32 = call i32 @dnsserver_dissect_bitmap_DNS_SELECT_FLAGS(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %31, i32 poison)
@@ -2262,7 +2256,7 @@ define internal i32 @dnsserver_dissect_DnssrvEnumRecords2_request(ptr noundef %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_DnssrvEnumRecords2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.466, ptr %8, align 8
   %9 = load i32, ptr @hf_dnsserver_DnssrvEnumRecords2_buffer_length, align 4
@@ -2285,12 +2279,12 @@ define internal i32 @dnsserver_dissect_DnssrvEnumRecords2_response(ptr noundef %
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @dnsserver_dissect_DnssrvUpdateRecord2_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
+define internal noundef i32 @dnsserver_dissect_DnssrvUpdateRecord2_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.467, ptr %7, align 8
   ret i32 %1
@@ -2299,7 +2293,7 @@ define internal noundef i32 @dnsserver_dissect_DnssrvUpdateRecord2_request(ptr r
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_DnssrvUpdateRecord2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.467, ptr %8, align 8
   %9 = load i32, ptr @hf_dnsserver_status, align 4
@@ -2316,58 +2310,58 @@ define internal i32 @dnsserver_dissect_DnssrvUpdateRecord2_response(ptr noundef 
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ntstatus(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ntstatus(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_deferred_pointers(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_deferred_pointers(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_toplevel_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_toplevel_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvQuery2_server_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_dnsserver_DnssrvQuery2_server_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.375, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvQuery2_zone_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_dnsserver_DnssrvQuery2_zone, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.375, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvQuery2_operation_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_dnsserver_DnssrvQuery2_operation, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.375, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -2375,10 +2369,10 @@ define internal i32 @dnsserver_dissect_element_DnssrvQuery2_operation_(ptr nound
 define internal i32 @dnsserver_dissect_element_DnssrvQuery2_type_id_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_dnsserver_DnssrvQuery2_type_id, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %9 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -2387,9 +2381,9 @@ define internal i32 @dnsserver_dissect_element_DnssrvQuery2_data_(ptr noundef %0
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_dnsserver_DnssrvQuery2_data, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %13, label %10
 
@@ -2463,8 +2457,8 @@ dnsserver_dissect_DNSSRV_RPC_UNION.exit:          ; preds = %33, %35, %38, %41
   %44 = load ptr, ptr %7, align 8
   %45 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %44, i32 noundef %45)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1.i
 }
 
@@ -2485,72 +2479,72 @@ define internal i32 @dnsserver_dissect_element_DNSSRV_RPC_UNION_ServerInfoDotnet
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_server_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_dnsserver_DnssrvEnumRecords2_server_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.375, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_zone_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_dnsserver_DnssrvEnumRecords2_zone, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.375, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_node_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_dnsserver_DnssrvEnumRecords2_node_name, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.375, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_start_child_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_dnsserver_DnssrvEnumRecords2_start_child, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.375, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_filter_start_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_dnsserver_DnssrvEnumRecords2_filter_start, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.375, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_filter_stop_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_dnsserver_DnssrvEnumRecords2_filter_stop, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.375, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -2564,7 +2558,7 @@ define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_buffer_length_
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_record_buffer_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %9 = load i8, ptr %8, align 1, !range !6, !noundef !7
   %10 = trunc nuw i8 %9 to i1
@@ -2597,21 +2591,26 @@ define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_record_buffer_
 
 32:                                               ; preds = %11, %6
   %.0 = phi i32 [ %1, %6 ], [ %29, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_uint3264(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_uint3264(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

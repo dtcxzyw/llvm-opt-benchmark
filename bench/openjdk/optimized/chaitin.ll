@@ -5489,12 +5489,12 @@ _ZN7RegMask3ANDERKS_.exit:                        ; preds = %172, %176
   %178 = load i16, ptr %177, align 4
   %179 = zext i16 %178 to i32
   call void @_ZN7RegMask13clear_to_setsEj(ptr noundef nonnull align 8 dereferenceable(96) %7, i32 noundef %179) #14
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %7, i64 96, i1 false)
   %180 = load i16, ptr %177, align 4
   %181 = zext i16 %180 to i32
   %182 = call noundef i32 @_ZNK7RegMask14find_first_setER3LRGi(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(168) %1, i32 noundef %181) #14
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not93 = icmp eq i32 %182, -1
   br i1 %.not93, label %_ZL12is_legal_regR3LRGii.exit72, label %_ZL12is_legal_regR3LRGii.exit.thread
 
@@ -5511,11 +5511,11 @@ _ZL12is_legal_regR3LRGii.exit72:                  ; preds = %142, %127, %_ZNK9Ve
   br i1 %or.cond, label %190, label %194
 
 190:                                              ; preds = %_ZL12is_legal_regR3LRGii.exit72
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(96) %189, i64 96, i1 false)
   %191 = zext i16 %187 to i32
   %192 = call noundef i32 @_ZNK7RegMask14find_first_setER3LRGi(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(168) %1, i32 noundef %191) #14
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %193 = add nsw i32 %192, %2
   br label %_ZL12is_legal_regR3LRGii.exit.thread
 
@@ -6606,10 +6606,10 @@ declare i32 @llvm.ctpop.i32(i32) #11
 declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -258,13 +258,13 @@ define hidden void @_ZN9ZDirector10run_threadEv(ptr noundef nonnull align 8 dere
   %48 = call noundef i32 @_ZN15PlatformMonitor4waitEm(ptr noundef nonnull align 8 dereferenceable(88) %14, i64 noundef 10) #11
   %49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %14) #11
   call void @llvm.experimental.noalias.scope.decl(metadata !6)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.321.i)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.3.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.321.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %50 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8, !noalias !6
   %51 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8, !noalias !6
   call void @_ZN21ZStatMutatorAllocRate5statsEv(ptr dead_on_unwind nonnull writable sret(%struct.ZStatMutatorAllocRateStats) align 8 %8) #11, !noalias !6
@@ -395,13 +395,13 @@ _ZL12sample_statsv.exit:                          ; preds = %91, %92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
   store i64 %99, ptr %31, align 8, !alias.scope !6
   store i32 %100, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.321.i)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.3.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.321.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %101 = call noundef ptr @_ZN7ZDriver5majorEv() #11
   %102 = call noundef zeroext i1 @_ZNK12ZDriverMajor7is_busyEv(ptr noundef nonnull align 8 dereferenceable(1264) %101) #11
   br i1 %102, label %172, label %103
@@ -531,7 +531,7 @@ _ZL20rule_major_proactiveRK14ZDirectorStats.exit.i.i: ; preds = %168, %149
 
 _ZL22make_major_gc_decisionRK14ZDirectorStats.exit.i: ; preds = %_ZL20rule_major_proactiveRK14ZDirectorStats.exit.i.i, %_ZL17rule_major_warmupRK14ZDirectorStats.exit.i.i, %_ZL16rule_major_timerRK14ZDirectorStats.exit.i.i
   %.0.i.i = phi i32 [ 28, %_ZL16rule_major_timerRK14ZDirectorStats.exit.i.i ], [ 29, %_ZL17rule_major_warmupRK14ZDirectorStats.exit.i.i ], [ 32, %_ZL20rule_major_proactiveRK14ZDirectorStats.exit.i.i ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %170 = call fastcc i64 @_ZL15initial_workersRK14ZDirectorStats20ZWorkerSelectionType(ptr noundef nonnull readonly align 8 dereferenceable(432) %13, i32 noundef 0)
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %170 to i32
   %.sroa.2.0.extract.shift.i.i = lshr i64 %170, 32
@@ -539,7 +539,7 @@ _ZL22make_major_gc_decisionRK14ZDirectorStats.exit.i: ; preds = %_ZL20rule_major
   call void @_ZN14ZDriverRequestC1EN7GCCause5CauseEjj(ptr noundef nonnull align 4 dereferenceable(12) %7, i32 noundef range(i32 12, 11) %.0.i.i, i32 noundef %.sroa.0.0.extract.trunc.i.i, i32 noundef %.sroa.2.0.extract.trunc.i.i) #11
   %171 = call noundef ptr @_ZN7ZDriver5majorEv() #11
   call void @_ZN12ZDriverMajor7collectERK14ZDriverRequest(ptr noundef nonnull align 8 dereferenceable(1264) %171, ptr noundef nonnull align 4 dereferenceable(12) %7) #11
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZL8start_gcRK14ZDirectorStats.exit
 
 172:                                              ; preds = %_ZL20rule_major_proactiveRK14ZDirectorStats.exit.i.i, %145, %143, %_ZL17rule_major_warmupRK14ZDirectorStats.exit.thread.i.i, %_ZL12sample_statsv.exit
@@ -576,8 +576,8 @@ _ZL16rule_minor_timerRK14ZDirectorStats.exit.i.i: ; preds = %185, %182
   br i1 %186, label %_ZL16rule_minor_timerRK14ZDirectorStats.exit.thread.i.i, label %_ZL22make_minor_gc_decisionRK14ZDirectorStats.exit.i
 
 _ZL16rule_minor_timerRK14ZDirectorStats.exit.thread.i.i: ; preds = %_ZL16rule_minor_timerRK14ZDirectorStats.exit.i.i, %179
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %187 = load i8, ptr @ZCollectionIntervalOnly, align 1
   %188 = trunc i8 %187 to i1
   br i1 %188, label %_ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.thread.i.i, label %189
@@ -613,8 +613,8 @@ _ZL16rule_minor_timerRK14ZDirectorStats.exit.thread.i.i: ; preds = %_ZL16rule_mi
   br i1 %.not.i7.i.i, label %205, label %_ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.thread13.i.i
 
 _ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.thread13.i.i: ; preds = %202
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZL22make_minor_gc_decisionRK14ZDirectorStats.exit.i
 
 205:                                              ; preds = %202
@@ -627,8 +627,8 @@ _ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.thread13.i.i: ; preds = %
   store i32 %.fca.1.extract.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %209 = call noundef i32 @_ZNK14ZDriverRequest5causeEv(ptr noundef nonnull align 4 dereferenceable(12) %6) #11
   %.not9.i.not.i.i = icmp eq i32 %209, 11
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not9.i.not.i.i, label %239, label %_ZL22make_minor_gc_decisionRK14ZDirectorStats.exit.i
 
 210:                                              ; preds = %199
@@ -670,14 +670,14 @@ _ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.thread13.i.i: ; preds = %
   br label %_ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.i.i
 
 _ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.thread.i.i: ; preds = %210, %192, %189, %_ZL16rule_minor_timerRK14ZDirectorStats.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %239
 
 _ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.i.i: ; preds = %235, %213
   %238 = fcmp ugt double %233, 0.000000e+00
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %238, label %239, label %_ZL22make_minor_gc_decisionRK14ZDirectorStats.exit.i
 
 239:                                              ; preds = %_ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.i.i, %_ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.thread.i.i, %205
@@ -793,7 +793,7 @@ _ZL26rule_major_allocation_rateRK14ZDirectorStats.exit.i: ; preds = %292
   br i1 %306, label %_ZL26rule_major_allocation_rateRK14ZDirectorStats.exit.thread36.i, label %_ZL26rule_major_allocation_rateRK14ZDirectorStats.exit.thread.i
 
 _ZL26rule_major_allocation_rateRK14ZDirectorStats.exit.thread36.i: ; preds = %_ZL26rule_major_allocation_rateRK14ZDirectorStats.exit.i, %289
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %307 = call fastcc i64 @_ZL15initial_workersRK14ZDirectorStats20ZWorkerSelectionType(ptr noundef nonnull readonly align 8 dereferenceable(432) %13, i32 noundef 0)
   %.sroa.0.0.extract.trunc.i24.i = trunc i64 %307 to i32
   %.sroa.2.0.extract.shift.i25.i = lshr i64 %307, 32
@@ -801,11 +801,11 @@ _ZL26rule_major_allocation_rateRK14ZDirectorStats.exit.thread36.i: ; preds = %_Z
   call void @_ZN14ZDriverRequestC1EN7GCCause5CauseEjj(ptr noundef nonnull align 4 dereferenceable(12) %4, i32 noundef 30, i32 noundef %.sroa.0.0.extract.trunc.i24.i, i32 noundef %.sroa.2.0.extract.trunc.i26.i) #11
   %308 = call noundef ptr @_ZN7ZDriver5majorEv() #11
   call void @_ZN12ZDriverMajor7collectERK14ZDriverRequest(ptr noundef nonnull align 8 dereferenceable(1264) %308, ptr noundef nonnull align 4 dereferenceable(12) %4) #11
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZL8start_gcRK14ZDirectorStats.exit
 
 _ZL26rule_major_allocation_rateRK14ZDirectorStats.exit.thread.i: ; preds = %_ZL26rule_major_allocation_rateRK14ZDirectorStats.exit.i, %292, %_ZL22make_minor_gc_decisionRK14ZDirectorStats.exit.i
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %309 = call noundef ptr @_ZN7ZDriver5majorEv() #11
   %310 = call noundef zeroext i1 @_ZNK12ZDriverMajor7is_busyEv(ptr noundef nonnull align 8 dereferenceable(1264) %309) #11
   %311 = select i1 %310, i32 1, i32 2
@@ -834,11 +834,11 @@ _ZL14start_minor_gcRK14ZDirectorStatsN7GCCause5CauseE.exit.i: ; preds = %318, %3
   call void @_ZN14ZDriverRequestC1EN7GCCause5CauseEjj(ptr noundef nonnull align 4 dereferenceable(12) %3, i32 noundef range(i32 12, 11) %.0.i14.i, i32 noundef %.sroa.01.0.extract.trunc.i.i, i32 noundef 0) #11
   %321 = call noundef ptr @_ZN7ZDriver5minorEv() #11
   call void @_ZN12ZDriverMinor7collectERK14ZDriverRequest(ptr noundef nonnull align 8 dereferenceable(1264) %321, ptr noundef nonnull align 4 dereferenceable(12) %3) #11
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZL8start_gcRK14ZDirectorStats.exit
 
 322:                                              ; preds = %172, %175, %239, %242, %_ZL21rule_minor_high_usageRK14ZDirectorStats.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %323 = load i8, ptr @UseDynamicNumberOfGCThreads, align 1
   %324 = and i8 %323, %.sink.i.i
   %or.cond.not = icmp eq i8 %324, 0
@@ -969,7 +969,7 @@ _ZL21select_worker_threadsRK14ZDirectorStatsj20ZWorkerSelectionType.exit: ; pred
   br label %_ZL9adjust_gcRK14ZDirectorStats.exit
 
 _ZL9adjust_gcRK14ZDirectorStats.exit:             ; preds = %322, %325, %393, %394
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZL8start_gcRK14ZDirectorStats.exit
 
 _ZL8start_gcRK14ZDirectorStats.exit:              ; preds = %_ZL14start_minor_gcRK14ZDirectorStatsN7GCCause5CauseE.exit.i, %_ZL26rule_major_allocation_rateRK14ZDirectorStats.exit.thread36.i, %_ZL22make_major_gc_decisionRK14ZDirectorStats.exit.i, %_ZL9adjust_gcRK14ZDirectorStats.exit
@@ -1676,10 +1676,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #9
 declare i64 @llvm.usub.sat.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

@@ -248,7 +248,7 @@ _ZN4node10JSONWriter10json_startEv.exit:          ; preds = %for.body.i.i, %_ZN4
   store i8 %frombool6, ptr %ref.tmp3, align 1
   call void @_ZN4node10JSONWriter13json_keyvalueIA14_cbEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %arg, ptr noundef nonnull align 1 dereferenceable(14) @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
   %11 = ptrtoint ptr %h to i64
-  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %hex.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %hex.i)
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %hex.i) #12, !noalias !7
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %hex.i, i64 16
   %call.i66 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, ptr noundef nonnull @.str.43) #12, !noalias !7
@@ -258,7 +258,7 @@ _ZN4node10JSONWriter10json_startEv.exit:          ; preds = %for.body.i.i, %_ZN4
   %call10.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call9.i, i64 noundef %11) #12, !noalias !7
   call void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(128) %hex.i) #12
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %hex.i) #12
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %hex.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hex.i)
   call void @_ZN4node10JSONWriter13json_keyvalueIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %arg, ptr noundef nonnull align 1 dereferenceable(8) @.str.3, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #12
   %12 = load i32, ptr %type1, align 8
@@ -275,9 +275,9 @@ _ZN4node10JSONWriter10json_startEv.exit:          ; preds = %for.body.i.i, %_ZN4
   ]
 
 sw.bb:                                            ; preds = %_ZN4node10JSONWriter10json_startEv.exit, %_ZN4node10JSONWriter10json_startEv.exit
-  call void @llvm.lifetime.start.p0(i64 1048, ptr nonnull %buffer.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %size.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %size.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store i64 0, ptr %buffer.i, align 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 8
   %buf_st_.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 24
@@ -364,9 +364,9 @@ if.then.i.i:                                      ; preds = %if.end19.i
   br label %_ZN4node6reportL10ReportPathEP11uv_handle_sPNS_10JSONWriterE.exit
 
 _ZN4node6reportL10ReportPathEP11uv_handle_sPNS_10JSONWriterE.exit: ; preds = %if.end19.i, %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 1048, ptr nonnull %buffer.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %size.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %size.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %sw.epilogthread-pre-split
 
 sw.bb9:                                           ; preds = %_ZN4node10JSONWriter10json_startEv.exit
@@ -375,8 +375,8 @@ sw.bb9:                                           ; preds = %_ZN4node10JSONWrite
   br label %sw.epilogthread-pre-split
 
 sw.bb10:                                          ; preds = %_ZN4node10JSONWriter10json_startEv.exit, %_ZN4node10JSONWriter10json_startEv.exit
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %addr_storage.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %addr_size.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %addr_storage.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %addr_size.i)
   store i32 128, ptr %addr_size.i, align 4
   switch i32 %12, label %sw.epilog.thread.i [
     i32 15, label %sw.bb.i79
@@ -421,15 +421,15 @@ _ZN4node6reportL15ReportEndpointsEP11uv_handle_sPNS_10JSONWriterE.exit: ; preds 
   %cmp10.i = icmp eq i32 %rc.1.i77, 0
   %cond14.i = select i1 %cmp10.i, ptr %addr_storage.i, ptr null
   call fastcc void @_ZN4node6reportL14ReportEndpointEP11uv_handle_sP8sockaddrPKcPNS_10JSONWriterE(ptr noundef nonnull %h, ptr noundef %cond14.i, ptr noundef nonnull @.str.38, ptr noundef nonnull %arg)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %addr_storage.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %addr_size.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %addr_storage.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %addr_size.i)
   br label %sw.epilogthread-pre-split
 
 sw.bb11:                                          ; preds = %_ZN4node10JSONWriter10json_startEv.exit
-  call void @llvm.lifetime.start.p0(i64 1048, ptr nonnull %buffer.i81)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buffer_size.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i82)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp22.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i81)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer_size.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i82)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp22.i)
   store i64 0, ptr %buffer.i81, align 8
   %capacity_.i.i83 = getelementptr inbounds nuw i8, ptr %buffer.i81, i64 8
   %buf_st_.i.i84 = getelementptr inbounds nuw i8, ptr %buffer.i81, i64 24
@@ -538,10 +538,10 @@ if.then.i.i96:                                    ; preds = %if.end25.i
   br label %_ZN4node6reportL19ReportPipeEndpointsEP11uv_handle_sPNS_10JSONWriterE.exit
 
 _ZN4node6reportL19ReportPipeEndpointsEP11uv_handle_sPNS_10JSONWriterE.exit: ; preds = %if.end25.i, %if.then.i.i96
-  call void @llvm.lifetime.end.p0(i64 1048, ptr nonnull %buffer.i81)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer_size.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i82)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp22.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i81)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer_size.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i82)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp22.i)
   br label %sw.epilogthread-pre-split
 
 sw.bb12:                                          ; preds = %_ZN4node10JSONWriter10json_startEv.exit
@@ -2943,10 +2943,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

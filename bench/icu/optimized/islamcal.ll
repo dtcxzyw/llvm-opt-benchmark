@@ -175,7 +175,7 @@ define internal fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_114trueMonthStartEiR1
   %16 = fmul double %15, %14
   %17 = tail call double @uprv_floor_77(double noundef %16)
   %18 = tail call double @llvm.fmuladd.f64(double %17, double 8.640000e+07, double 0xC2C3562A0CD80000)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN6icu_7718CalendarAstronomerC1Ed(ptr noundef nonnull align 8 dereferenceable(57) %5, double noundef %18)
   %19 = invoke noundef double @_ZN6icu_7718CalendarAstronomer10getMoonAgeEv(ptr noundef nonnull align 8 dereferenceable(57) %5)
           to label %_ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit unwind label %20
@@ -188,7 +188,7 @@ common.resume:                                    ; preds = %39, %30, %20
   %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7718CalendarAstronomerD1Ev(ptr noundef nonnull align 8 dereferenceable(57) %5) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit:          ; preds = %13
@@ -196,7 +196,7 @@ _ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit:          ; preds = %13
   %23 = load double, ptr @_ZN6icu_7718CalendarAstronomer2PIE, align 8, !tbaa !11
   %24 = fdiv double %22, %23
   call void @_ZN6icu_7718CalendarAstronomerD1Ev(ptr noundef nonnull align 8 dereferenceable(57) %5) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %25 = fcmp ogt double %24, 1.800000e+02
   %26 = fadd double %24, -3.600000e+02
   %.0.i = select i1 %25, double %26, double %24
@@ -206,7 +206,7 @@ _ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit:          ; preds = %13
 .preheader29:                                     ; preds = %_ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit, %_ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit26
   %.0 = phi double [ %28, %_ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit26 ], [ %18, %_ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit ]
   %28 = fadd double %.0, -8.640000e+07
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN6icu_7718CalendarAstronomerC1Ed(ptr noundef nonnull align 8 dereferenceable(57) %4, double noundef %28)
   %29 = invoke noundef double @_ZN6icu_7718CalendarAstronomer10getMoonAgeEv(ptr noundef nonnull align 8 dereferenceable(57) %4)
           to label %_ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit26 unwind label %30
@@ -215,14 +215,14 @@ _ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit:          ; preds = %13
   %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7718CalendarAstronomerD1Ev(ptr noundef nonnull align 8 dereferenceable(57) %4) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 _ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit26:        ; preds = %.preheader29
   %32 = fmul double %29, 1.800000e+02
   %33 = fdiv double %32, %23
   call void @_ZN6icu_7718CalendarAstronomerD1Ev(ptr noundef nonnull align 8 dereferenceable(57) %4) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %34 = fcmp ogt double %33, 1.800000e+02
   %35 = fadd double %33, -3.600000e+02
   %.0.i25 = select i1 %34, double %35, double %33
@@ -232,7 +232,7 @@ _ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit26:        ; preds = %.preheader29
 .preheader:                                       ; preds = %_ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit, %_ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit28
   %.2 = phi double [ %37, %_ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit28 ], [ %18, %_ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit ]
   %37 = fadd double %.2, 8.640000e+07
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN6icu_7718CalendarAstronomerC1Ed(ptr noundef nonnull align 8 dereferenceable(57) %3, double noundef %37)
   %38 = invoke noundef double @_ZN6icu_7718CalendarAstronomer10getMoonAgeEv(ptr noundef nonnull align 8 dereferenceable(57) %3)
           to label %_ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit28 unwind label %39
@@ -241,14 +241,14 @@ _ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit26:        ; preds = %.preheader29
   %40 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7718CalendarAstronomerD1Ev(ptr noundef nonnull align 8 dereferenceable(57) %3) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 
 _ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit28:        ; preds = %.preheader
   %41 = fmul double %38, 1.800000e+02
   %42 = fdiv double %41, %23
   call void @_ZN6icu_7718CalendarAstronomerD1Ev(ptr noundef nonnull align 8 dereferenceable(57) %3) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %43 = fcmp ogt double %42, 1.800000e+02
   %44 = fadd double %42, -3.600000e+02
   %.0.i27 = select i1 %43, double %44, double %42
@@ -290,7 +290,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK6icu_7715IslamicCalen
   br i1 %8, label %9, label %23
 
 9:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = call signext i8 @uprv_add32_overflow_77(i32 noundef %1, i32 noundef -1, ptr noundef nonnull %6)
   %.not4 = icmp eq i8 %10, 0
   br i1 %.not4, label %11, label %17
@@ -319,7 +319,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK6icu_7715IslamicCalen
 
 22:                                               ; preds = %18, %17
   %.1 = phi i64 [ 0, %17 ], [ %21, %18 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %23
 
 23:                                               ; preds = %4, %22
@@ -327,15 +327,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK6icu_7715IslamicCalen
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
 declare signext i8 @uprv_add32_overflow_77(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 declare signext i8 @uprv_mul32_overflow_77(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_7715IslamicCalendar20handleGetMonthLengthEiiR10UErrorCode(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3) unnamed_addr #1 align 2 {
@@ -488,7 +482,7 @@ define void @_ZN6icu_7715IslamicCalendar19handleComputeFieldsEiR10UErrorCode(ptr
   %20 = tail call double @uprv_floor_77(double noundef %19)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %22 = load double, ptr %21, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN6icu_7718CalendarAstronomerC1Ed(ptr noundef nonnull align 8 dereferenceable(57) %4, double noundef %22)
   %23 = invoke noundef double @_ZN6icu_7718CalendarAstronomer10getMoonAgeEv(ptr noundef nonnull align 8 dereferenceable(57) %4)
           to label %_ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit unwind label %24
@@ -497,7 +491,7 @@ define void @_ZN6icu_7715IslamicCalendar19handleComputeFieldsEiR10UErrorCode(ptr
   %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7718CalendarAstronomerD1Ev(ptr noundef nonnull align 8 dereferenceable(57) %4) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %25
 
 _ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit:          ; preds = %7
@@ -506,7 +500,7 @@ _ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit:          ; preds = %7
   %28 = load double, ptr @_ZN6icu_7718CalendarAstronomer2PIE, align 8, !tbaa !11
   %29 = fdiv double %27, %28
   call void @_ZN6icu_7718CalendarAstronomerD1Ev(ptr noundef nonnull align 8 dereferenceable(57) %4) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %30 = fcmp ogt double %29, 1.800000e+02
   %31 = fadd double %29, -3.600000e+02
   %.0.i = select i1 %30, double %31, double %29
@@ -750,17 +744,17 @@ define internal fastcc void @_ZN6icu_7712_GLOBAL__N_130initializeSystemDefaultCe
   %1 = alloca i32, align 4
   %2 = alloca %"class.icu_77::IslamicCalendar", align 8
   %3 = alloca %"class.icu_77::Locale", align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 0, ptr %1, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %2) #10
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN6icu_776LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217) %3, ptr noundef nonnull @.str.6, ptr noundef null, ptr noundef null, ptr noundef null)
   invoke void @_ZN6icu_7715IslamicCalendarC1ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(217) %3, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %4 unwind label %7
 
 4:                                                ; preds = %0
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %3) #10
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %5 = load i32, ptr %1, align 4, !tbaa !9
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %9, label %16
@@ -769,7 +763,7 @@ define internal fastcc void @_ZN6icu_7712_GLOBAL__N_130initializeSystemDefaultCe
   %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %3) #10
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %19
 
 9:                                                ; preds = %4
@@ -799,8 +793,8 @@ _ZNK6icu_778Calendar7getTimeER10UErrorCode.exit:  ; preds = %12
 
 16:                                               ; preds = %4, %15
   call void @_ZN6icu_7715IslamicCalendarD1Ev(ptr noundef nonnull align 8 dereferenceable(192) %2) #10
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %2) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 
 17:                                               ; preds = %12, %11, %_ZNK6icu_778Calendar7getTimeER10UErrorCode.exit, %_ZN6icu_778Calendar7setTimeEdR10UErrorCode.exit, %9
@@ -811,8 +805,8 @@ _ZNK6icu_778Calendar7getTimeER10UErrorCode.exit:  ; preds = %12
 
 19:                                               ; preds = %17, %7
   %.pn = phi { ptr, i32 } [ %18, %17 ], [ %8, %7 ]
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %2) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   resume { ptr, i32 } %.pn
 }
 
@@ -956,7 +950,7 @@ define noundef range(i32 28, 31) i32 @_ZNK6icu_7720IslamicCivilCalendar20handleG
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 356) i32 @_ZNK6icu_7720IslamicCivilCalendar19handleGetYearLengthEiR10UErrorCode(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) unnamed_addr #6 align 2 {
+define noundef range(i32 0, 356) i32 @_ZNK6icu_7720IslamicCivilCalendar19handleGetYearLengthEiR10UErrorCode(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) unnamed_addr #5 align 2 {
   %4 = load i32, ptr %2, align 4, !tbaa !9
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %12
@@ -1212,7 +1206,7 @@ define noundef i64 @_ZNK6icu_7723IslamicUmalquraCalendar9yearStartEiR10UErrorCod
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #7
+declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZNK6icu_7723IslamicUmalquraCalendar10monthStartEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3) unnamed_addr #1 align 2 {
@@ -1469,14 +1463,14 @@ define void @_ZN6icu_7723IslamicUmalquraCalendar19handleComputeFieldsEiR10UError
 .thread73:                                        ; preds = %59, %71, %..thread73.loopexit88_crit_edge, %63
   %.pre-phi = phi i32 [ %45, %63 ], [ %.pre96, %..thread73.loopexit88_crit_edge ], [ %45, %71 ], [ %45, %59 ]
   %.152 = phi i32 [ 0, %63 ], [ 0, %..thread73.loopexit88_crit_edge ], [ %73, %71 ], [ 11, %59 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %79 = load ptr, ptr %0, align 8, !tbaa !3
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 456
   %81 = load ptr, ptr %80, align 8
   %82 = tail call noundef i64 %81(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %.pre-phi, i32 noundef %.152, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %83 = trunc i64 %82 to i32
   store i32 %83, ptr %4, align 4, !tbaa !6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %84 = load ptr, ptr %0, align 8, !tbaa !3
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 456
   %86 = load ptr, ptr %85, align 8
@@ -1559,8 +1553,8 @@ define void @_ZN6icu_7723IslamicUmalquraCalendar19handleComputeFieldsEiR10UError
   br label %125
 
 125:                                              ; preds = %.thread73, %108, %107
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 .thread:                                          ; preds = %43, %.lr.ph, %33, %24, %125, %3
@@ -1568,13 +1562,13 @@ define void @_ZN6icu_7723IslamicUmalquraCalendar19handleComputeFieldsEiR10UError
 }
 
 ; Function Attrs: nofree nounwind
-declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #8
+declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare void @__cxa_guard_abort(ptr) local_unnamed_addr #8
+declare void @__cxa_guard_abort(ptr) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare void @__cxa_guard_release(ptr) local_unnamed_addr #8
+declare void @__cxa_guard_release(ptr) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7719IslamicRGSACalendarC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(217) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #1 align 2 {
@@ -1799,6 +1793,12 @@ declare void @_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef no
 
 declare noundef double @_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9
 
@@ -1807,10 +1807,10 @@ attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping
 attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nofree nounwind }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nofree nounwind }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }
 

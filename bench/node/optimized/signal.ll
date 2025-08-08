@@ -839,13 +839,13 @@ if.then488.i.i:                                   ; preds = %lor.lhs.false.i.i, 
 
 uv__signal_tree_s_RB_REMOVE.exit.thread:          ; preds = %land.rhs.i.i, %while.end.i.i
   %74 = load i32, ptr %signum, align 8
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %lookup.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lookup.i)
   br label %if.then4
 
 uv__signal_tree_s_RB_REMOVE.exit:                 ; preds = %color119.i, %if.then488.i.i
   %tmp.05.i.i = phi ptr [ %tmp.05.i.i99, %if.then488.i.i ], [ %uv__signal_tree.promoted.i.i, %color119.i ]
   %75 = load i32, ptr %signum, align 8
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %lookup.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lookup.i)
   %signum1.i = getelementptr inbounds nuw i8, ptr %lookup.i, i64 104
   store i32 %75, ptr %signum1.i, align 8
   %tobool.not6.i.i = icmp eq ptr %tmp.05.i.i, null
@@ -907,8 +907,8 @@ land.lhs.true.i:                                  ; preds = %if.else.i.i16, %uv_
 
 if.then4:                                         ; preds = %uv__signal_tree_s_RB_REMOVE.exit.thread, %uv__signal_tree_s_RB_REMOVE.exit, %uv__signal_tree_s_RB_NFIND.exit.i, %land.lhs.true.i
   %80 = phi i32 [ %74, %uv__signal_tree_s_RB_REMOVE.exit.thread ], [ %75, %uv__signal_tree_s_RB_REMOVE.exit ], [ %75, %uv__signal_tree_s_RB_NFIND.exit.i ], [ %75, %land.lhs.true.i ]
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %lookup.i)
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %sa.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lookup.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sa.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %sa.i, i8 0, i64 152, i1 false)
   %call.i = call i32 @sigaction(i32 noundef %80, ptr noundef nonnull %sa.i, ptr noundef null) #10
   %tobool.not.i17 = icmp eq i32 %call.i, 0
@@ -919,11 +919,11 @@ if.then.i:                                        ; preds = %if.then4
   unreachable
 
 uv__signal_unregister_handler.exit:               ; preds = %if.then4
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %sa.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sa.i)
   br label %if.end13
 
 if.else:                                          ; preds = %land.lhs.true.i
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %lookup.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lookup.i)
   %flags = getelementptr inbounds nuw i8, ptr %handle, i64 88
   %81 = load i32, ptr %flags, align 8
   %and = and i32 %81, 33554432
@@ -936,7 +936,7 @@ if.else:                                          ; preds = %land.lhs.true.i
   br i1 %or.cond, label %if.end13, label %if.then9
 
 if.then9:                                         ; preds = %if.else
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %sa.i19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sa.i19)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %sa.i19, i8 0, i64 152, i1 false)
   %sa_mask.i = getelementptr inbounds nuw i8, ptr %sa.i19, i64 8
   %call.i20 = call i32 @sigfillset(ptr noundef nonnull %sa_mask.i) #10
@@ -952,11 +952,11 @@ if.end.i23:                                       ; preds = %if.then9
   %sa_flags.i = getelementptr inbounds nuw i8, ptr %sa.i19, i64 136
   store i32 -1879048192, ptr %sa_flags.i, align 8
   %call5.i = call i32 @sigaction(i32 noundef %75, ptr noundef nonnull %sa.i19, ptr noundef null) #10
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %sa.i19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sa.i19)
   br label %if.end13
 
 if.end13:                                         ; preds = %if.else, %if.end.i23, %uv__signal_unregister_handler.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %data.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i.i)
   store i8 42, ptr %data.i.i, align 1
   br label %do.body.i.i25
 
@@ -974,12 +974,12 @@ land.rhs.i.i26:                                   ; preds = %do.body.i.i25
   br i1 %cmp3.i.i, label %do.body.i.i25, label %if.then.i27
 
 if.then.i27:                                      ; preds = %land.rhs.i.i26
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %data.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i)
   call void @abort() #11
   unreachable
 
 if.end.i28:                                       ; preds = %do.body.i.i25
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %data.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i)
   %call1.i = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %saved_sigmask, ptr noundef null) #10
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %uv__signal_unlock_and_unblock.exit, label %if.then3.i
@@ -1114,7 +1114,7 @@ if.then8:                                         ; preds = %if.end5
 
 if.end9:                                          ; preds = %if.then8, %if.end5
   call fastcc void @uv__signal_block_and_lock(ptr noundef %saved_sigmask)
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %lookup.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lookup.i)
   %signum1.i = getelementptr inbounds nuw i8, ptr %lookup.i, i64 104
   store i32 %signum, ptr %signum1.i, align 8
   %tmp.05.i.i = load ptr, ptr @uv__signal_tree.0, align 8
@@ -1176,8 +1176,8 @@ land.lhs.true.i:                                  ; preds = %if.else.i.i, %uv__s
   br i1 %cmp3.i, label %lor.lhs.false, label %if.end9.split
 
 if.end9.split:                                    ; preds = %if.end9, %uv__signal_tree_s_RB_NFIND.exit.i, %land.lhs.true.i
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %lookup.i)
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %sa.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lookup.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sa.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %sa.i, i8 0, i64 152, i1 false)
   %sa_mask.i = getelementptr inbounds nuw i8, ptr %sa.i, i64 8
   %call.i = call i32 @sigfillset(ptr noundef nonnull %sa_mask.i) #10
@@ -1199,11 +1199,11 @@ if.end.i23:                                       ; preds = %if.end9.split
   br i1 %tobool6.not.i, label %if.then12.thread72, label %if.then12
 
 if.then12.thread72:                               ; preds = %if.end.i23
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %sa.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sa.i)
   br label %if.end17
 
 lor.lhs.false:                                    ; preds = %land.lhs.true.i
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %lookup.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lookup.i)
   %tobool.not = icmp eq i32 %oneshot, 0
   br i1 %tobool.not, label %land.lhs.true, label %if.end17.thread65
 
@@ -1223,7 +1223,7 @@ if.end17.thread:                                  ; preds = %land.lhs.true
   br label %if.end22
 
 land.lhs.true.split:                              ; preds = %land.lhs.true
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %sa.i25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sa.i25)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %sa.i25, i8 0, i64 152, i1 false)
   %sa_mask.i26 = getelementptr inbounds nuw i8, ptr %sa.i25, i64 8
   %call.i27 = call i32 @sigfillset(ptr noundef nonnull %sa_mask.i26) #10
@@ -1243,20 +1243,20 @@ if.end.i30:                                       ; preds = %land.lhs.true.split
   br i1 %tobool6.not.i33, label %if.then12.thread.thread, label %if.then12.thread
 
 if.then12.thread.thread:                          ; preds = %if.end.i30
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %sa.i25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sa.i25)
   br label %if.end17.thread70
 
 if.then12:                                        ; preds = %if.end.i23
   %call8.i = tail call ptr @__errno_location() #12
   %6 = load i32, ptr %call8.i, align 4
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %sa.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sa.i)
   %tobool14.not = icmp eq i32 %6, 0
   br i1 %tobool14.not, label %if.end17, label %if.then15
 
 if.then12.thread:                                 ; preds = %if.end.i30
   %call8.i35 = tail call ptr @__errno_location() #12
   %7 = load i32, ptr %call8.i35, align 4
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %sa.i25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sa.i25)
   %tobool14.not68 = icmp eq i32 %7, 0
   br i1 %tobool14.not68, label %if.end17.thread70, label %if.then15
 
@@ -1267,7 +1267,7 @@ if.end17.thread70:                                ; preds = %if.then12.thread.th
 if.then15:                                        ; preds = %if.then12.thread, %if.then12
   %.pn = phi i32 [ %7, %if.then12.thread ], [ %6, %if.then12 ]
   %phi.call69 = sub nsw i32 0, %.pn
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %data.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i.i)
   store i8 42, ptr %data.i.i, align 1
   br label %do.body.i.i
 
@@ -1285,12 +1285,12 @@ land.rhs.i.i:                                     ; preds = %do.body.i.i
   br i1 %cmp3.i.i, label %do.body.i.i, label %if.then.i39
 
 if.then.i39:                                      ; preds = %land.rhs.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %data.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i)
   call void @abort() #11
   unreachable
 
 if.end.i40:                                       ; preds = %do.body.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %data.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i)
   %call1.i = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %saved_sigmask, ptr noundef null) #10
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %return, label %if.then3.i
@@ -1674,7 +1674,7 @@ uv__signal_tree_s_RB_INSERT_COLOR.exit.i:         ; preds = %while.cond.backedge
   br label %uv__signal_tree_s_RB_INSERT.exit
 
 uv__signal_tree_s_RB_INSERT.exit:                 ; preds = %if.else.i, %uv__signal_tree_s_RB_INSERT_COLOR.exit.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %data.i.i49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i.i49)
   store i8 42, ptr %data.i.i49, align 1
   br label %do.body.i.i50
 
@@ -1692,12 +1692,12 @@ land.rhs.i.i53:                                   ; preds = %do.body.i.i50
   br i1 %cmp3.i.i55, label %do.body.i.i50, label %if.then.i56
 
 if.then.i56:                                      ; preds = %land.rhs.i.i53
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %data.i.i49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i49)
   call void @abort() #11
   unreachable
 
 if.end.i57:                                       ; preds = %do.body.i.i50
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %data.i.i49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i49)
   %call1.i58 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %saved_sigmask, ptr noundef null) #10
   %tobool2.not.i59 = icmp eq i32 %call1.i58, 0
   br i1 %tobool2.not.i59, label %uv__signal_unlock_and_unblock.exit61, label %if.then3.i60
@@ -1786,7 +1786,7 @@ if.then:                                          ; preds = %uv__signal_cleanup.
   unreachable
 
 if.end:                                           ; preds = %uv__signal_cleanup.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %data.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i)
   store i8 42, ptr %data.i, align 1
   br label %do.body.i
 
@@ -1804,12 +1804,12 @@ land.rhs.i:                                       ; preds = %do.body.i
   br i1 %cmp3.i, label %do.body.i, label %if.then3
 
 if.then3:                                         ; preds = %land.rhs.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %data.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i)
   tail call void @abort() #11
   unreachable
 
 if.end4:                                          ; preds = %do.body.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %data.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i)
   ret void
 }
 
@@ -1979,7 +1979,7 @@ if.then4:                                         ; preds = %if.end
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %data.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i)
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs.i, %if.end5
@@ -1996,12 +1996,12 @@ land.rhs.i:                                       ; preds = %do.body.i
   br i1 %cmp3.i, label %do.body.i, label %if.then8
 
 if.then8:                                         ; preds = %land.rhs.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %data.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i)
   call void @abort() #11
   unreachable
 
 if.end9:                                          ; preds = %do.body.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %data.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i)
   ret void
 }
 
@@ -2028,7 +2028,7 @@ entry:
   %0 = load i32, ptr %call, align 4
   %1 = getelementptr inbounds nuw i8, ptr %msg, i64 8
   store i64 0, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %data.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i)
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs.i, %entry
@@ -2044,12 +2044,12 @@ land.rhs.i:                                       ; preds = %do.body.i
   br i1 %cmp3.i, label %do.body.i, label %uv__signal_lock.exit
 
 uv__signal_lock.exit:                             ; preds = %land.rhs.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %data.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i)
   br label %return
 
 if.end:                                           ; preds = %do.body.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %data.i)
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %lookup.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lookup.i)
   %signum1.i = getelementptr inbounds nuw i8, ptr %lookup.i, i64 104
   store i32 %signum, ptr %signum1.i, align 8
   %tmp.05.i.i = load ptr, ptr @uv__signal_tree.0, align 8
@@ -2111,11 +2111,11 @@ land.lhs.true.i:                                  ; preds = %if.else.i.i, %uv__s
   br i1 %cmp3.i10, label %land.rhs.lr.ph, label %uv__signal_first_handle.exit.thread
 
 uv__signal_first_handle.exit.thread:              ; preds = %if.end, %uv__signal_tree_s_RB_NFIND.exit.i, %land.lhs.true.i
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %lookup.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lookup.i)
   br label %for.end
 
 land.rhs.lr.ph:                                   ; preds = %land.lhs.true.i
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %lookup.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lookup.i)
   %signum6 = getelementptr inbounds nuw i8, ptr %msg, i64 8
   %signum445 = getelementptr inbounds nuw i8, ptr %retval.0.i9.i, i64 104
   %9 = load i32, ptr %signum445, align 8
@@ -2199,7 +2199,7 @@ uv__signal_tree_s_RB_NEXT.exit:                   ; preds = %while.cond.i, %land
   br i1 %cmp5, label %for.body, label %for.end
 
 for.end:                                          ; preds = %uv__signal_tree_s_RB_NEXT.exit, %while.cond17.i, %land.rhs.lr.ph, %uv__signal_first_handle.exit.thread
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %data.i13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i13)
   store i8 42, ptr %data.i13, align 1
   br label %do.body.i14
 
@@ -2216,7 +2216,7 @@ land.rhs.i18:                                     ; preds = %do.body.i14
   br i1 %cmp3.i20, label %do.body.i14, label %uv__signal_unlock.exit
 
 uv__signal_unlock.exit:                           ; preds = %do.body.i14, %land.rhs.i18
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %data.i13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i13)
   br label %return
 
 return:                                           ; preds = %uv__signal_lock.exit, %uv__signal_unlock.exit
@@ -2231,10 +2231,10 @@ declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

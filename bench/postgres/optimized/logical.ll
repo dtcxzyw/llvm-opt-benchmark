@@ -173,11 +173,8 @@ define dso_local void @CheckLogicalDecodingRequirements() local_unnamed_addr #0 
 
 declare void @CheckSlotRequirements() local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -196,7 +193,7 @@ define dso_local noundef ptr @CreateInitDecodingContext(ptr noundef %0, ptr noun
   %9 = alloca %struct.LogicalErrorCallbackState, align 8
   %10 = alloca %struct.ErrorContextCallback, align 8
   %11 = alloca %struct.nameData, align 1
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   tail call void @CheckLogicalDecodingRequirements()
   %12 = load ptr, ptr @MyReplicationSlot, align 8
   %13 = icmp eq ptr %12, null
@@ -349,8 +346,8 @@ define dso_local noundef ptr @CreateInitDecodingContext(ptr noundef %0, ptr noun
 
 81:                                               ; preds = %73
   %82 = getelementptr inbounds nuw i8, ptr %76, i64 216
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %76, ptr %9, align 8
   %83 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @.str.68, ptr %83, align 8
@@ -370,8 +367,8 @@ define dso_local noundef ptr @CreateInitDecodingContext(ptr noundef %0, ptr noun
   call void %80(ptr noundef nonnull %76, ptr noundef nonnull %82, i1 noundef zeroext true) #10
   %90 = load ptr, ptr %10, align 8
   store ptr %90, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %91
 
 91:                                               ; preds = %81, %73
@@ -388,7 +385,7 @@ define dso_local noundef ptr @CreateInitDecodingContext(ptr noundef %0, ptr noun
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 232
   store i8 %98, ptr %101, align 8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret ptr %76
 }
 
@@ -403,7 +400,7 @@ declare void @namestrcpy(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @s_lock(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @ReplicationSlotReserveWal() local_unnamed_addr #1
 
@@ -699,9 +696,6 @@ LoadOutputPlugin.exit:                            ; preds = %38, %10
   ret ptr %15
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @CreateDecodingContext(i64 noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.LogicalErrorCallbackState, align 8
@@ -813,8 +807,8 @@ define dso_local noundef ptr @CreateDecodingContext(i64 noundef %0, ptr noundef 
 
 69:                                               ; preds = %63
   %70 = getelementptr inbounds nuw i8, ptr %64, i64 216
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %64, ptr %8, align 8
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @.str.68, ptr %71, align 8
@@ -834,8 +828,8 @@ define dso_local noundef ptr @CreateDecodingContext(i64 noundef %0, ptr noundef 
   call void %68(ptr noundef nonnull %64, ptr noundef nonnull %70, i1 noundef zeroext false) #10
   %78 = load ptr, ptr %9, align 8
   store ptr %78, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %79
 
 79:                                               ; preds = %69, %63
@@ -961,7 +955,7 @@ define dso_local void @DecodingContextFindStartpoint(ptr noundef %0) local_unnam
   br label %16
 
 16:                                               ; preds = %10, %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = call ptr @XLogReadRecord(ptr noundef %17, ptr noundef nonnull %2) #10
@@ -1011,8 +1005,8 @@ define dso_local void @DecodingContextFindStartpoint(ptr noundef %0) local_unnam
   br label %37
 
 37:                                               ; preds = %34, %36
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   %38 = load ptr, ptr %5, align 8
   %39 = call ptr @XLogReadRecord(ptr noundef %38, ptr noundef nonnull %2) #10
@@ -1021,7 +1015,7 @@ define dso_local void @DecodingContextFindStartpoint(ptr noundef %0) local_unnam
   br i1 %.not, label %24, label %._crit_edge
 
 41:                                               ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %42 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %4, i8 1, ptr elementtype(i8) %4) #10, !srcloc !4
   %.not20 = icmp eq i8 %42, 0
   br i1 %.not20, label %45, label %43
@@ -1073,8 +1067,8 @@ define dso_local void @FreeDecodingContext(ptr noundef %0) local_unnamed_addr #0
   br i1 %.not, label %15, label %6
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @.str.69, ptr %7, align 8
@@ -1094,8 +1088,8 @@ define dso_local void @FreeDecodingContext(ptr noundef %0) local_unnamed_addr #0
   call void %5(ptr noundef nonnull %0) #10
   %14 = load ptr, ptr %3, align 8
   store ptr %14, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %15
 
 15:                                               ; preds = %6, %1
@@ -1197,8 +1191,8 @@ define dso_local void @OutputPluginUpdateProgress(ptr noundef %0, i1 noundef zer
 define dso_local zeroext i1 @filter_prepare_cb_wrapper(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.LogicalErrorCallbackState, align 8
   %5 = alloca %struct.ErrorContextCallback, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str.20, ptr %6, align 8
@@ -1220,8 +1214,8 @@ define dso_local zeroext i1 @filter_prepare_cb_wrapper(ptr noundef %0, i32 nound
   %15 = call zeroext i1 %14(ptr noundef %0, i32 noundef %1, ptr noundef %2) #10
   %16 = load ptr, ptr %5, align 8
   store ptr %16, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %15
 }
 
@@ -1260,8 +1254,8 @@ define internal void @output_plugin_error_callback(ptr noundef readonly captures
 define dso_local zeroext i1 @filter_by_origin_cb_wrapper(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca %struct.LogicalErrorCallbackState, align 8
   %4 = alloca %struct.ErrorContextCallback, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.21, ptr %5, align 8
@@ -1283,8 +1277,8 @@ define dso_local zeroext i1 @filter_by_origin_cb_wrapper(ptr noundef %0, i16 nou
   %14 = call zeroext i1 %13(ptr noundef %0, i16 noundef zeroext %1) #10
   %15 = load ptr, ptr %4, align 8
   store ptr %15, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %14
 }
 
@@ -1593,7 +1587,7 @@ define dso_local void @LogicalIncreaseRestartDecodingForSlot(i64 noundef %0, i64
 declare void @ReplicationSlotsComputeRequiredLSN() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @ResetLogicalStreamingState() local_unnamed_addr #5 {
+define dso_local void @ResetLogicalStreamingState() local_unnamed_addr #4 {
   store i32 0, ptr @CheckXidAlive, align 4
   store i8 0, ptr @bsysscan, align 1
   ret void
@@ -1604,7 +1598,7 @@ define dso_local void @UpdateDecodingStats(ptr noundef readonly captures(none) %
   %2 = alloca %struct.PgStat_StatReplSlotEntry, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 328
   %6 = load i64, ptr %5, align 8
   %7 = icmp slt i64 %6, 1
@@ -1684,7 +1678,7 @@ define dso_local void @UpdateDecodingStats(ptr noundef readonly captures(none) %
   br label %60
 
 60:                                               ; preds = %12, %35
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -1699,7 +1693,7 @@ define dso_local noundef zeroext i1 @LogicalReplicationSlotHasPendingWal(i64 nou
   %6 = alloca ptr, align 8
   %7 = load ptr, ptr @PG_exception_stack, align 8
   %8 = load ptr, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = call i32 @__sigsetjmp(ptr noundef nonnull %4, i32 noundef 0) #12
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %59
@@ -1730,7 +1724,7 @@ define dso_local noundef zeroext i1 @LogicalReplicationSlotHasPendingWal(i64 nou
   br i1 %25, label %26, label %.critedge
 
 26:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %27 = call ptr @XLogReadRecord(ptr noundef nonnull %22, ptr noundef nonnull %6) #10
   %28 = load ptr, ptr %6, align 8
@@ -1766,7 +1760,7 @@ define dso_local noundef zeroext i1 @LogicalReplicationSlotHasPendingWal(i64 nou
   br label %41
 
 41:                                               ; preds = %40, %36
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %38, label %.critedge, label %21, !llvm.loop !21
 
 .critedge:                                        ; preds = %41, %21
@@ -1776,8 +1770,8 @@ define dso_local noundef zeroext i1 @LogicalReplicationSlotHasPendingWal(i64 nou
   br i1 %.not.i, label %FreeDecodingContext.exit, label %44
 
 44:                                               ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %14, ptr %2, align 8
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @.str.69, ptr %45, align 8
@@ -1797,8 +1791,8 @@ define dso_local noundef zeroext i1 @LogicalReplicationSlotHasPendingWal(i64 nou
   call void %43(ptr noundef nonnull %14) #10
   %52 = load ptr, ptr %3, align 8
   store ptr %52, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %FreeDecodingContext.exit
 
 FreeDecodingContext.exit:                         ; preds = %.critedge, %44
@@ -1815,7 +1809,7 @@ FreeDecodingContext.exit:                         ; preds = %.critedge, %44
   call void @InvalidateSystemCaches() #10
   store ptr %7, ptr @PG_exception_stack, align 8
   store ptr %8, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %25
 
 59:                                               ; preds = %1
@@ -1827,7 +1821,7 @@ FreeDecodingContext.exit:                         ; preds = %.critedge, %44
 }
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 declare i32 @read_local_xlog_page(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef) #1
 
@@ -1838,7 +1832,7 @@ declare void @wal_segment_close(ptr noundef) #1
 declare void @InvalidateSystemCaches() local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @pg_re_throw() local_unnamed_addr #7
+declare void @pg_re_throw() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @LogicalSlotAdvanceAndCheckSnapState(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
@@ -1858,7 +1852,7 @@ define dso_local i64 @LogicalSlotAdvanceAndCheckSnapState(i64 noundef %0, ptr no
 10:                                               ; preds = %2, %9
   %11 = load ptr, ptr @PG_exception_stack, align 8
   %12 = load ptr, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = call i32 @__sigsetjmp(ptr noundef nonnull %5, i32 noundef 0) #12
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %78
@@ -1887,7 +1881,7 @@ define dso_local i64 @LogicalSlotAdvanceAndCheckSnapState(i64 noundef %0, ptr no
 
 .lr.ph:                                           ; preds = %15, %41
   %28 = phi ptr [ %42, %41 ], [ %24, %15 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %29 = call ptr @XLogReadRecord(ptr noundef nonnull %28, ptr noundef nonnull %7) #10
   %30 = load ptr, ptr %7, align 8
@@ -1921,7 +1915,7 @@ define dso_local i64 @LogicalSlotAdvanceAndCheckSnapState(i64 noundef %0, ptr no
   br label %41
 
 41:                                               ; preds = %40, %38
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %42 = load ptr, ptr %19, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %44 = load i64, ptr %43, align 8
@@ -1965,8 +1959,8 @@ define dso_local i64 @LogicalSlotAdvanceAndCheckSnapState(i64 noundef %0, ptr no
   br i1 %.not.i, label %FreeDecodingContext.exit, label %63
 
 63:                                               ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %18, ptr %3, align 8
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.69, ptr %64, align 8
@@ -1986,8 +1980,8 @@ define dso_local i64 @LogicalSlotAdvanceAndCheckSnapState(i64 noundef %0, ptr no
   call void %62(ptr noundef nonnull %18) #10
   %71 = load ptr, ptr %4, align 8
   store ptr %71, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %FreeDecodingContext.exit
 
 FreeDecodingContext.exit:                         ; preds = %57, %63
@@ -2004,7 +1998,7 @@ FreeDecodingContext.exit:                         ; preds = %57, %63
   call void @InvalidateSystemCaches() #10
   store ptr %11, ptr @PG_exception_stack, align 8
   store ptr %12, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %60
 
 78:                                               ; preds = %10
@@ -2035,8 +2029,8 @@ define internal void @begin_cb_wrapper(ptr noundef readonly captures(none) %0, p
   %4 = alloca %struct.ErrorContextCallback, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %6 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.37, ptr %7, align 8
@@ -2067,8 +2061,8 @@ define internal void @begin_cb_wrapper(ptr noundef readonly captures(none) %0, p
   call void %22(ptr noundef %6, ptr noundef %1) #10
   %23 = load ptr, ptr %4, align 8
   store ptr %23, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -2078,8 +2072,8 @@ define internal void @change_cb_wrapper(ptr noundef readonly captures(none) %0, 
   %6 = alloca %struct.ErrorContextCallback, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %8, ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @.str.38, ptr %9, align 8
@@ -2109,8 +2103,8 @@ define internal void @change_cb_wrapper(ptr noundef readonly captures(none) %0, 
   call void %23(ptr noundef %8, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) #10
   %24 = load ptr, ptr %6, align 8
   store ptr %24, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -2120,8 +2114,8 @@ define internal void @truncate_cb_wrapper(ptr noundef readonly captures(none) %0
   %7 = alloca %struct.ErrorContextCallback, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %9 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
@@ -2158,8 +2152,8 @@ define internal void @truncate_cb_wrapper(ptr noundef readonly captures(none) %0
   br label %27
 
 27:                                               ; preds = %5, %12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -2169,8 +2163,8 @@ define internal void @commit_cb_wrapper(ptr noundef readonly captures(none) %0, 
   %5 = alloca %struct.ErrorContextCallback, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %7, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str.40, ptr %8, align 8
@@ -2202,8 +2196,8 @@ define internal void @commit_cb_wrapper(ptr noundef readonly captures(none) %0, 
   call void %24(ptr noundef %7, ptr noundef %1, i64 noundef %2) #10
   %25 = load ptr, ptr %5, align 8
   store ptr %25, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2213,8 +2207,8 @@ define internal void @message_cb_wrapper(ptr noundef readonly captures(none) %0,
   %9 = alloca %struct.ErrorContextCallback, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %11 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
@@ -2257,8 +2251,8 @@ define internal void @message_cb_wrapper(ptr noundef readonly captures(none) %0,
   br label %31
 
 31:                                               ; preds = %7, %25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -2268,8 +2262,8 @@ define internal void @stream_start_cb_wrapper(ptr noundef readonly captures(none
   %5 = alloca %struct.ErrorContextCallback, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %7, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str.42, ptr %8, align 8
@@ -2309,8 +2303,8 @@ define internal void @stream_start_cb_wrapper(ptr noundef readonly captures(none
   call void %20(ptr noundef nonnull %7, ptr noundef nonnull %1) #10
   %27 = load ptr, ptr %5, align 8
   store ptr %27, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2320,8 +2314,8 @@ define internal void @stream_stop_cb_wrapper(ptr noundef readonly captures(none)
   %5 = alloca %struct.ErrorContextCallback, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %7, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str.45, ptr %8, align 8
@@ -2361,8 +2355,8 @@ define internal void @stream_stop_cb_wrapper(ptr noundef readonly captures(none)
   call void %20(ptr noundef nonnull %7, ptr noundef nonnull %1) #10
   %27 = load ptr, ptr %5, align 8
   store ptr %27, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2372,8 +2366,8 @@ define internal void @stream_abort_cb_wrapper(ptr noundef readonly captures(none
   %5 = alloca %struct.ErrorContextCallback, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %7, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str.47, ptr %8, align 8
@@ -2413,8 +2407,8 @@ define internal void @stream_abort_cb_wrapper(ptr noundef readonly captures(none
   call void %20(ptr noundef nonnull %7, ptr noundef nonnull %1, i64 noundef %2) #10
   %27 = load ptr, ptr %5, align 8
   store ptr %27, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2424,8 +2418,8 @@ define internal void @stream_prepare_cb_wrapper(ptr noundef readonly captures(no
   %5 = alloca %struct.ErrorContextCallback, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %7, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str.49, ptr %8, align 8
@@ -2469,8 +2463,8 @@ define internal void @stream_prepare_cb_wrapper(ptr noundef readonly captures(no
   call void %24(ptr noundef nonnull %7, ptr noundef nonnull %1, i64 noundef %2) #10
   %31 = load ptr, ptr %5, align 8
   store ptr %31, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2480,8 +2474,8 @@ define internal void @stream_commit_cb_wrapper(ptr noundef readonly captures(non
   %5 = alloca %struct.ErrorContextCallback, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %7, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str.52, ptr %8, align 8
@@ -2525,8 +2519,8 @@ define internal void @stream_commit_cb_wrapper(ptr noundef readonly captures(non
   call void %24(ptr noundef nonnull %7, ptr noundef nonnull %1, i64 noundef %2) #10
   %31 = load ptr, ptr %5, align 8
   store ptr %31, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2536,8 +2530,8 @@ define internal void @stream_change_cb_wrapper(ptr noundef readonly captures(non
   %6 = alloca %struct.ErrorContextCallback, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %8, ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @.str.54, ptr %9, align 8
@@ -2579,8 +2573,8 @@ define internal void @stream_change_cb_wrapper(ptr noundef readonly captures(non
   call void %23(ptr noundef nonnull %8, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3) #10
   %30 = load ptr, ptr %6, align 8
   store ptr %30, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -2590,8 +2584,8 @@ define internal void @stream_message_cb_wrapper(ptr noundef readonly captures(no
   %9 = alloca %struct.ErrorContextCallback, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %11 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 200
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
@@ -2634,8 +2628,8 @@ define internal void @stream_message_cb_wrapper(ptr noundef readonly captures(no
   br label %31
 
 31:                                               ; preds = %7, %25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -2645,8 +2639,8 @@ define internal void @stream_truncate_cb_wrapper(ptr noundef readonly captures(n
   %7 = alloca %struct.ErrorContextCallback, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %9 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 208
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
@@ -2683,8 +2677,8 @@ define internal void @stream_truncate_cb_wrapper(ptr noundef readonly captures(n
   br label %27
 
 27:                                               ; preds = %5, %12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -2694,8 +2688,8 @@ define internal void @begin_prepare_cb_wrapper(ptr noundef readonly captures(non
   %4 = alloca %struct.ErrorContextCallback, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %6 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.58, ptr %7, align 8
@@ -2738,8 +2732,8 @@ define internal void @begin_prepare_cb_wrapper(ptr noundef readonly captures(non
   call void %22(ptr noundef nonnull %6, ptr noundef nonnull %1) #10
   %29 = load ptr, ptr %4, align 8
   store ptr %29, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -2749,8 +2743,8 @@ define internal void @prepare_cb_wrapper(ptr noundef readonly captures(none) %0,
   %5 = alloca %struct.ErrorContextCallback, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %7, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str.61, ptr %8, align 8
@@ -2794,8 +2788,8 @@ define internal void @prepare_cb_wrapper(ptr noundef readonly captures(none) %0,
   call void %24(ptr noundef nonnull %7, ptr noundef nonnull %1, i64 noundef %2) #10
   %31 = load ptr, ptr %5, align 8
   store ptr %31, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2805,8 +2799,8 @@ define internal void @commit_prepared_cb_wrapper(ptr noundef readonly captures(n
   %5 = alloca %struct.ErrorContextCallback, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %7, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str.63, ptr %8, align 8
@@ -2850,8 +2844,8 @@ define internal void @commit_prepared_cb_wrapper(ptr noundef readonly captures(n
   call void %24(ptr noundef nonnull %7, ptr noundef nonnull %1, i64 noundef %2) #10
   %31 = load ptr, ptr %5, align 8
   store ptr %31, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2861,8 +2855,8 @@ define internal void @rollback_prepared_cb_wrapper(ptr noundef readonly captures
   %6 = alloca %struct.ErrorContextCallback, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %8, ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @.str.65, ptr %9, align 8
@@ -2906,8 +2900,8 @@ define internal void @rollback_prepared_cb_wrapper(ptr noundef readonly captures
   call void %25(ptr noundef nonnull %8, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3) #10
   %32 = load ptr, ptr %6, align 8
   store ptr %32, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -2917,8 +2911,8 @@ define internal void @update_progress_txn_cb_wrapper(ptr noundef readonly captur
   %5 = alloca %struct.ErrorContextCallback, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %7, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str.67, ptr %8, align 8
@@ -2954,8 +2948,8 @@ define internal void @update_progress_txn_cb_wrapper(ptr noundef readonly captur
 OutputPluginUpdateProgress.exit:                  ; preds = %3, %21
   %22 = phi ptr [ %12, %3 ], [ %.pre, %21 ]
   store ptr %22, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2967,6 +2961,12 @@ declare i32 @set_errcontext_domain(ptr noundef) local_unnamed_addr #1
 
 declare i32 @errcontext_msg(ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #8
 
@@ -2975,12 +2975,12 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { nounwind }

@@ -74,13 +74,13 @@ define dso_local { i64, i32 } @DefineAggregate(ptr noundef %0, ptr noundef %1, p
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
   %19 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %20 = call i32 @QualifiedNameGetCreationNamespace(ptr noundef %1, ptr noundef nonnull %7) #6
   %21 = call i32 @GetUserId() #6
   %22 = call i32 @object_aclcheck(i32 noundef 2615, i32 noundef %20, i32 noundef %21, i64 noundef 512) #6
@@ -565,7 +565,7 @@ define dso_local { i64, i32 } @DefineAggregate(ptr noundef %0, ptr noundef %1, p
   br i1 %3, label %233, label %246
 
 233:                                              ; preds = %231
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   br i1 %232, label %234, label %238
 
 234:                                              ; preds = %233
@@ -597,11 +597,11 @@ define dso_local { i64, i32 } @DefineAggregate(ptr noundef %0, ptr noundef %1, p
   store ptr null, ptr %11, align 8
   store ptr null, ptr %12, align 8
   store i32 0, ptr %13, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %256
 
 246:                                              ; preds = %231
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   br i1 %232, label %251, label %247
 
 247:                                              ; preds = %246
@@ -624,7 +624,7 @@ define dso_local { i64, i32 } @DefineAggregate(ptr noundef %0, ptr noundef %1, p
 list_length.exit:                                 ; preds = %251, %252
   %255 = phi i32 [ %254, %252 ], [ 0, %251 ]
   call void @interpret_function_parameter_list(ptr noundef %0, ptr noundef %.0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef null, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %256
 
 256:                                              ; preds = %list_length.exit, %244
@@ -750,14 +750,14 @@ switch.early.test291:                             ; preds = %285
   br i1 %or.cond50, label %297, label %301
 
 297:                                              ; preds = %295
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @getTypeInputInfo(i32 noundef %257, ptr noundef nonnull %16, ptr noundef nonnull %17) #6
   %298 = load i32, ptr %16, align 4
   %299 = load i32, ptr %17, align 4
   %300 = call i64 @OidInputFunctionCall(i32 noundef %298, ptr noundef nonnull %.0249335.lcssa, i32 noundef %299, i32 noundef -1) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %301
 
 301:                                              ; preds = %297, %295
@@ -766,14 +766,14 @@ switch.early.test291:                             ; preds = %285
   br i1 %or.cond53, label %303, label %307
 
 303:                                              ; preds = %301
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @getTypeInputInfo(i32 noundef %.0238, ptr noundef nonnull %18, ptr noundef nonnull %19) #6
   %304 = load i32, ptr %18, align 4
   %305 = load i32, ptr %19, align 4
   %306 = call i64 @OidInputFunctionCall(i32 noundef %304, ptr noundef nonnull %.0247336.lcssa, i32 noundef %305, i32 noundef -1) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %307
 
 307:                                              ; preds = %303, %301
@@ -822,35 +822,32 @@ switch.early.test291:                             ; preds = %285
   %334 = load ptr, ptr %12, align 8
   %335 = load i32, ptr %13, align 4
   %336 = call { i64, i32 } @AggregateCreate(ptr noundef %326, i32 noundef %20, i1 noundef zeroext %5, i8 noundef signext %.2346.lcssa, i32 noundef %.1244, i32 noundef %.0241, ptr noundef %327, i64 noundef %329, i64 noundef %331, i64 noundef %333, ptr noundef %334, i32 noundef %335, ptr noundef nonnull %.0223345.lcssa, ptr noundef %.0225344.lcssa, ptr noundef %.0227343.lcssa, ptr noundef %.0229342.lcssa, ptr noundef %.0231340.lcssa, ptr noundef %.0236339.lcssa, ptr noundef %.0239338.lcssa, ptr noundef %.0273324.lcssa, i1 noundef zeroext %.0271325.lcssa, i1 noundef zeroext %.0269326.lcssa, i8 noundef signext %.2268, i8 noundef signext %.2265, ptr noundef %.0261329.lcssa, i32 noundef %257, i32 noundef %.0253333.lcssa, i32 noundef %.0238, i32 noundef %.0251334.lcssa, ptr noundef %.0249335.lcssa, ptr noundef %.0247336.lcssa, i8 noundef signext %.0234) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret { i64, i32 } %336
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @QualifiedNameGetCreationNamespace(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @QualifiedNameGetCreationNamespace(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @object_aclcheck(i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @object_aclcheck(i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @GetUserId() local_unnamed_addr #1
 
-declare i32 @GetUserId() local_unnamed_addr #2
+declare void @aclcheck_error(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @aclcheck_error(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @get_namespace_name(i32 noundef) local_unnamed_addr #2
+declare ptr @get_namespace_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
-declare ptr @defGetQualifiedName(ptr noundef) local_unnamed_addr #2
+declare ptr @defGetQualifiedName(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @defGetBoolean(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @defGetBoolean(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc signext range(i8 114, 120) i8 @extractModify(ptr noundef %0) unnamed_addr #0 {
@@ -884,56 +881,59 @@ define internal fastcc signext range(i8 114, 120) i8 @extractModify(ptr noundef 
   ret i8 %.0
 }
 
-declare ptr @defGetTypeName(ptr noundef) local_unnamed_addr #2
+declare ptr @defGetTypeName(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @defGetInt32(ptr noundef) local_unnamed_addr #2
+declare i32 @defGetInt32(ptr noundef) local_unnamed_addr #1
 
-declare ptr @defGetString(ptr noundef) local_unnamed_addr #2
+declare ptr @defGetString(ptr noundef) local_unnamed_addr #1
+
+declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @TypeNameToString(ptr noundef) local_unnamed_addr #1
+
+declare i32 @typenameTypeId(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @buildoidvector(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare void @interpret_function_parameter_list(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare signext i8 @get_typtype(i32 noundef) local_unnamed_addr #1
+
+declare zeroext i1 @superuser() local_unnamed_addr #1
+
+declare ptr @format_type_be(i32 noundef) local_unnamed_addr #1
+
+declare void @getTypeInputInfo(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i64 @OidInputFunctionCall(i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare { i64, i32 } @AggregateCreate(ptr noundef, i32 noundef, i1 noundef zeroext, i8 noundef signext, i32 noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, i8 noundef signext, i8 noundef signext, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
-declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @TypeNameToString(ptr noundef) local_unnamed_addr #2
-
-declare i32 @typenameTypeId(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @buildoidvector(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare void @interpret_function_parameter_list(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare signext i8 @get_typtype(i32 noundef) local_unnamed_addr #2
-
-declare zeroext i1 @superuser() local_unnamed_addr #2
-
-declare ptr @format_type_be(i32 noundef) local_unnamed_addr #2
-
-declare void @getTypeInputInfo(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i64 @OidInputFunctionCall(i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-declare { i64, i32 } @AggregateCreate(ptr noundef, i32 noundef, i1 noundef zeroext, i8 noundef signext, i32 noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, i8 noundef signext, i8 noundef signext, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i8 noundef signext) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(read) }

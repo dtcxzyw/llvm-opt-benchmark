@@ -214,10 +214,10 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN6hermes2vm16TimeLimitMonitorEED2Ev.exit
 
 _ZNSt10shared_ptrIN6hermes2vm16TimeLimitMonitorEED2Ev.exit: ; preds = %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i.i.i, %if.then.i.i.i.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__a.i)
   store ptr null, ptr %agg.result, align 8, !alias.scope !10
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN6hermes2vm16TimeLimitMonitorESaIvEJEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr nonnull %__a.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__a.i)
   %21 = load ptr, ptr @_ZZN6hermes2vm16TimeLimitMonitor11getOrCreateEvE9singleton, align 8
   %weakMonitor3 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %22 = load ptr, ptr %agg.result, align 8
@@ -310,7 +310,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %watchedRuntimes_, i8 0, i64 20, i1 false)
   %enabled_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   store i8 1, ptr %enabled_, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   store i64 0, ptr %ref.tmp, align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN6hermes2vm16TimeLimitMonitorEFvvEPS5_EEEEEE, i64 16), ptr %call.i, align 8
@@ -334,7 +334,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i: ; preds = %entry
   br label %_ZNSt6threadC2IMN6hermes2vm16TimeLimitMonitorEFvvEJPS3_EvEEOT_DpOT0_.exit
 
 _ZNSt6threadC2IMN6hermes2vm16TimeLimitMonitorEFvvEJPS3_EvEEOT_DpOT0_.exit: ; preds = %entry, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %timerThread_, align 8
   %cmp.i.i.not.i = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i.i, 0
   br i1 %cmp.i.i.not.i, label %_ZNSt6threadD2Ev.exit, label %if.then.i
@@ -479,7 +479,7 @@ for.end:                                          ; preds = %if.end
   br i1 %cmp.i.i.i7.not, label %if.else18, label %if.then16
 
 if.then16:                                        ; preds = %for.end
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ts.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__ts.i.i)
   %div.i.i.i.i.i = sdiv i64 %nextDeadline.sroa.0.1, 1000000000
   %mul.i.i.i.neg.i.i.i.i = mul nsw i64 %div.i.i.i.i.i, -1000000000
   %sub.i.i.i.i = add i64 %mul.i.i.i.neg.i.i.i.i, %nextDeadline.sroa.0.1
@@ -488,7 +488,7 @@ if.then16:                                        ; preds = %for.end
   %10 = load ptr, ptr %lockGuard, align 8
   %call2.i.i.i = call i32 @pthread_cond_clockwait(ptr noundef nonnull align 8 dereferenceable(48) %timerLoopCond_, ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %__ts.i.i) #13
   %call14.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ts.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__ts.i.i)
   br label %if.end20
 
 if.else18:                                        ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes2vm7RuntimeENSt6chrono10time_pointINS6_3_V212steady_clockENS6_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E5beginEv.exit, %for.end
@@ -745,7 +745,7 @@ entry:
   store i32 1, ptr %_M_weak_count.i.i, align 4
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6hermes2vm16TimeLimitMonitorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i, align 8
   %_M_impl.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i, i64 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i)
   %timerThread_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i, i64 56
   %timerLoopCond_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(121) %_M_impl.i.i, i8 0, i64 48, i1 false)
@@ -754,7 +754,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %watchedRuntimes_.i.i.i.i, i8 0, i64 20, i1 false)
   %enabled_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i, i64 136
   store i8 1, ptr %enabled_.i.i.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i.i.i.i)
   store i64 0, ptr %ref.tmp.i.i.i.i, align 8
   %call.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN6hermes2vm16TimeLimitMonitorEFvvEPS5_EEEEEE, i64 16), ptr %call.i.i.i.i.i, align 8
@@ -778,7 +778,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i.i: ; preds = %e
   br label %_ZNSt6threadC2IMN6hermes2vm16TimeLimitMonitorEFvvEJPS3_EvEEOT_DpOT0_.exit.i.i.i.i
 
 _ZNSt6threadC2IMN6hermes2vm16TimeLimitMonitorEFvvEJPS3_EvEEOT_DpOT0_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i.i, %entry
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i.i.i.i)
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %timerThread_.i.i.i.i, align 8
   %cmp.i.i.not.i.i.i.i.i = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.not.i.i.i.i.i, label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6hermes2vm16TimeLimitMonitorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit, label %if.then.i.i.i.i.i
@@ -790,7 +790,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6threadC2IMN6h
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6hermes2vm16TimeLimitMonitorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit: ; preds = %_ZNSt6threadC2IMN6hermes2vm16TimeLimitMonitorEFvvEJPS3_EvEEOT_DpOT0_.exit.i.i.i.i
   %3 = load i64, ptr %ref.tmp.i.i.i.i, align 8
   store i64 %3, ptr %timerThread_.i.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i)
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %_M_impl.i.i, ptr %__p, align 8
   ret void
@@ -1198,10 +1198,10 @@ return:                                           ; preds = %for.body.i, %if.the
 declare i32 @pthread_cond_clockwait(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #10

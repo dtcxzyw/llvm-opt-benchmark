@@ -345,12 +345,12 @@ if.end:                                           ; preds = %entry
 
 if.then6:                                         ; preds = %if.end
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pool.addr.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %arrayElements.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %offsets.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sizes.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp20.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pool.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arrayElements.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %offsets.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sizes.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp20.i)
   store ptr %pool, ptr %pool.addr.i, align 8, !noalias !4
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %variantArray, i64 8
   %5 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !4
@@ -366,7 +366,7 @@ if.then6:                                         ; preds = %if.end
   %call2.i = tail call noundef nonnull align 8 dereferenceable(16) ptr %8(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef 0), !noalias !4
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i), !noalias !4
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !4
   call void @_ZN8facebook5velox10BaseVector14createInternalERKSt10shared_ptrIKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr nonnull sret(%"class.std::shared_ptr.22") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %call2.i, i32 noundef %conv.i, ptr noundef %pool), !noalias !10
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %9 = load ptr, ptr %ref.tmp.i.i, align 8, !noalias !14
@@ -468,7 +468,7 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN8facebook5velox10BaseVector6createINS0_10FlatVectorINS0_12UnknownValueEEEEESt10shared_ptrIT_ERKS6_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE.exit.i
 
 _ZN8facebook5velox10BaseVector6createINS0_10FlatVectorINS0_12UnknownValueEEEEESt10shared_ptrIT_ERKS6_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE.exit.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZSt19static_pointer_castIN8facebook5velox10FlatVectorINS1_12UnknownValueEEENS1_10BaseVectorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i.i, %if.then6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i), !noalias !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !4
   %cmp97.not.i = icmp eq ptr %5, %6
   br i1 %cmp97.not.i, label %for.end.i, label %for.body.i
 
@@ -946,12 +946,12 @@ ehcleanup22.i:                                    ; preds = %ehcleanup.i, %lpad.
   resume { ptr, i32 } %.pn12.i
 
 _ZN8facebook5velox4core12_GLOBAL__N_124variantArrayToVectorImplILNS0_8TypeKindE33EEESt10shared_ptrINS0_11ArrayVectorEERKS5_IKNS0_4TypeEERKSt6vectorINS0_7variantESaISE_EEPNS0_6memory10MemoryPoolE.exit: ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit81.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pool.addr.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arrayElements.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offsets.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sizes.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp20.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pool.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arrayElements.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %offsets.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sizes.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp20.i)
   br label %return
 
 if.end7:                                          ; preds = %if.end
@@ -1083,12 +1083,12 @@ sw.bb:                                            ; preds = %entry
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pool.addr.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %arrayElements.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %offsets.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sizes.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp21.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pool.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arrayElements.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %offsets.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sizes.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp21.i)
   store ptr %10, ptr %pool.addr.i, align 8, !noalias !38
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !38
@@ -1104,7 +1104,7 @@ sw.bb:                                            ; preds = %entry
   %call2.i = tail call noundef nonnull align 8 dereferenceable(16) ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %13, i32 noundef 0), !noalias !38
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i), !noalias !38
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !38
   call void @_ZN8facebook5velox10BaseVector14createInternalERKSt10shared_ptrIKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr nonnull sret(%"class.std::shared_ptr.22") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %call2.i, i32 noundef %conv.i, ptr noundef %10), !noalias !44
   call void @llvm.experimental.noalias.scope.decl(metadata !45)
   %15 = load ptr, ptr %ref.tmp.i.i, align 8, !noalias !48
@@ -1206,7 +1206,7 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN8facebook5velox10BaseVector6createINS0_10FlatVectorIbEEEESt10shared_ptrIT_ERKS5_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE.exit.i
 
 _ZN8facebook5velox10BaseVector6createINS0_10FlatVectorIbEEEESt10shared_ptrIT_ERKS5_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE.exit.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZSt19static_pointer_castIN8facebook5velox10FlatVectorIbEENS1_10BaseVectorEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i, %sw.bb
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i), !noalias !38
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !38
   %cmp88.not.i = icmp eq ptr %11, %12
   br i1 %cmp88.not.i, label %for.end.i, label %for.body.i
 
@@ -1645,12 +1645,12 @@ ehcleanup23.i:                                    ; preds = %ehcleanup.i, %lpad.
   br label %common.resume
 
 _ZN8facebook5velox4core12_GLOBAL__N_124variantArrayToVectorImplILNS0_8TypeKindE0EEESt10shared_ptrINS0_11ArrayVectorEERKS5_IKNS0_4TypeEERKSt6vectorINS0_7variantESaISE_EEPNS0_6memory10MemoryPoolE.exit: ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit73.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pool.addr.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arrayElements.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offsets.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sizes.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp21.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pool.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arrayElements.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %offsets.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sizes.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp21.i)
   br label %return
 
 sw.bb5:                                           ; preds = %entry
@@ -1661,12 +1661,12 @@ sw.bb5:                                           ; preds = %entry
   %94 = load ptr, ptr %93, align 8
   %95 = load ptr, ptr %94, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pool.addr.i2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %arrayElements.i3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %offsets.i4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sizes.i5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp20.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pool.addr.i2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arrayElements.i3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %offsets.i4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sizes.i5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp20.i)
   store ptr %95, ptr %pool.addr.i2, align 8, !noalias !71
   %_M_finish.i.i7 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %96 = load ptr, ptr %_M_finish.i.i7, align 8, !noalias !71
@@ -1682,7 +1682,7 @@ sw.bb5:                                           ; preds = %entry
   %call2.i14 = tail call noundef nonnull align 8 dereferenceable(16) ptr %99(ptr noundef nonnull align 8 dereferenceable(8) %98, i32 noundef 0), !noalias !71
   %conv.i15 = trunc i64 %sub.ptr.div.i.i11 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i1), !noalias !71
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i1), !noalias !71
   call void @_ZN8facebook5velox10BaseVector14createInternalERKSt10shared_ptrIKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr nonnull sret(%"class.std::shared_ptr.22") align 8 %ref.tmp.i.i1, ptr noundef nonnull align 8 dereferenceable(16) %call2.i14, i32 noundef %conv.i15, ptr noundef %95), !noalias !77
   call void @llvm.experimental.noalias.scope.decl(metadata !78)
   %100 = load ptr, ptr %ref.tmp.i.i1, align 8, !noalias !81
@@ -1784,7 +1784,7 @@ if.end8.sink.split.i.i.i.i.i.i143:                ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN8facebook5velox10BaseVector6createINS0_10FlatVectorIiEEEESt10shared_ptrIT_ERKS5_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE.exit.i
 
 _ZN8facebook5velox10BaseVector6createINS0_10FlatVectorIiEEEESt10shared_ptrIT_ERKS5_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE.exit.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i143, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i140, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i33, %_ZSt19static_pointer_castIN8facebook5velox10FlatVectorIiEENS1_10BaseVectorEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i, %sw.bb5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i1), !noalias !71
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i1), !noalias !71
   %cmp97.not.i = icmp eq ptr %96, %97
   br i1 %cmp97.not.i, label %for.end.i53, label %for.body.i36
 
@@ -2270,12 +2270,12 @@ ehcleanup22.i:                                    ; preds = %ehcleanup.i74, %lpa
   br label %common.resume
 
 _ZN8facebook5velox4core12_GLOBAL__N_124variantArrayToVectorImplILNS0_8TypeKindE3EEESt10shared_ptrINS0_11ArrayVectorEERKS5_IKNS0_4TypeEERKSt6vectorINS0_7variantESaISE_EEPNS0_6memory10MemoryPoolE.exit: ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit81.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i90, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i97, %if.end8.sink.split.i.i.i.i.i100
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pool.addr.i2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arrayElements.i3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offsets.i4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sizes.i5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp20.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pool.addr.i2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arrayElements.i3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %offsets.i4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sizes.i5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp20.i)
   br label %return
 
 sw.bb6:                                           ; preds = %entry
@@ -2286,12 +2286,12 @@ sw.bb6:                                           ; preds = %entry
   %186 = load ptr, ptr %185, align 8
   %187 = load ptr, ptr %186, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !104)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pool.addr.i154)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %arrayElements.i155)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %offsets.i156)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sizes.i157)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i158)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp20.i159)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pool.addr.i154)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arrayElements.i155)
+  call void @llvm.lifetime.start.p0(ptr nonnull %offsets.i156)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sizes.i157)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i158)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp20.i159)
   store ptr %187, ptr %pool.addr.i154, align 8, !noalias !104
   %_M_finish.i.i160 = getelementptr inbounds nuw i8, ptr %184, i64 8
   %188 = load ptr, ptr %_M_finish.i.i160, align 8, !noalias !104
@@ -2307,7 +2307,7 @@ sw.bb6:                                           ; preds = %entry
   %call2.i167 = tail call noundef nonnull align 8 dereferenceable(16) ptr %191(ptr noundef nonnull align 8 dereferenceable(8) %190, i32 noundef 0), !noalias !104
   %conv.i168 = trunc i64 %sub.ptr.div.i.i164 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !107)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i153), !noalias !104
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i153), !noalias !104
   call void @_ZN8facebook5velox10BaseVector14createInternalERKSt10shared_ptrIKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr nonnull sret(%"class.std::shared_ptr.22") align 8 %ref.tmp.i.i153, ptr noundef nonnull align 8 dereferenceable(16) %call2.i167, i32 noundef %conv.i168, ptr noundef %187), !noalias !110
   call void @llvm.experimental.noalias.scope.decl(metadata !111)
   %192 = load ptr, ptr %ref.tmp.i.i153, align 8, !noalias !114
@@ -2409,7 +2409,7 @@ if.end8.sink.split.i.i.i.i.i.i397:                ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN8facebook5velox10BaseVector6createINS0_10FlatVectorIaEEEESt10shared_ptrIT_ERKS5_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE.exit.i
 
 _ZN8facebook5velox10BaseVector6createINS0_10FlatVectorIaEEEESt10shared_ptrIT_ERKS5_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE.exit.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i397, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i394, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i186, %_ZSt19static_pointer_castIN8facebook5velox10FlatVectorIaEENS1_10BaseVectorEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i, %sw.bb6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i153), !noalias !104
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i153), !noalias !104
   %cmp97.not.i189 = icmp eq ptr %188, %189
   br i1 %cmp97.not.i189, label %for.end.i229, label %for.body.i190
 
@@ -2895,12 +2895,12 @@ ehcleanup22.i200:                                 ; preds = %ehcleanup.i259, %lp
   br label %common.resume
 
 _ZN8facebook5velox4core12_GLOBAL__N_124variantArrayToVectorImplILNS0_8TypeKindE1EEESt10shared_ptrINS0_11ArrayVectorEERKS5_IKNS0_4TypeEERKSt6vectorINS0_7variantESaISE_EEPNS0_6memory10MemoryPoolE.exit: ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit81.i309, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i318, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i328, %if.end8.sink.split.i.i.i.i.i331
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pool.addr.i154)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arrayElements.i155)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offsets.i156)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sizes.i157)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i158)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp20.i159)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pool.addr.i154)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arrayElements.i155)
+  call void @llvm.lifetime.end.p0(ptr nonnull %offsets.i156)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sizes.i157)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i158)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp20.i159)
   br label %return
 
 sw.bb7:                                           ; preds = %entry
@@ -2911,12 +2911,12 @@ sw.bb7:                                           ; preds = %entry
   %278 = load ptr, ptr %277, align 8
   %279 = load ptr, ptr %278, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !137)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pool.addr.i408)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %arrayElements.i409)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %offsets.i410)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sizes.i411)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i412)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp20.i413)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pool.addr.i408)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arrayElements.i409)
+  call void @llvm.lifetime.start.p0(ptr nonnull %offsets.i410)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sizes.i411)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i412)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp20.i413)
   store ptr %279, ptr %pool.addr.i408, align 8, !noalias !137
   %_M_finish.i.i414 = getelementptr inbounds nuw i8, ptr %276, i64 8
   %280 = load ptr, ptr %_M_finish.i.i414, align 8, !noalias !137
@@ -2932,7 +2932,7 @@ sw.bb7:                                           ; preds = %entry
   %call2.i421 = tail call noundef nonnull align 8 dereferenceable(16) ptr %283(ptr noundef nonnull align 8 dereferenceable(8) %282, i32 noundef 0), !noalias !137
   %conv.i422 = trunc i64 %sub.ptr.div.i.i418 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !140)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i407), !noalias !137
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i407), !noalias !137
   call void @_ZN8facebook5velox10BaseVector14createInternalERKSt10shared_ptrIKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr nonnull sret(%"class.std::shared_ptr.22") align 8 %ref.tmp.i.i407, ptr noundef nonnull align 8 dereferenceable(16) %call2.i421, i32 noundef %conv.i422, ptr noundef %279), !noalias !143
   call void @llvm.experimental.noalias.scope.decl(metadata !144)
   %284 = load ptr, ptr %ref.tmp.i.i407, align 8, !noalias !147
@@ -3034,7 +3034,7 @@ if.end8.sink.split.i.i.i.i.i.i651:                ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN8facebook5velox10BaseVector6createINS0_10FlatVectorIsEEEESt10shared_ptrIT_ERKS5_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE.exit.i
 
 _ZN8facebook5velox10BaseVector6createINS0_10FlatVectorIsEEEESt10shared_ptrIT_ERKS5_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE.exit.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i651, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i648, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i440, %_ZSt19static_pointer_castIN8facebook5velox10FlatVectorIsEENS1_10BaseVectorEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i, %sw.bb7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i407), !noalias !137
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i407), !noalias !137
   %cmp97.not.i443 = icmp eq ptr %280, %281
   br i1 %cmp97.not.i443, label %for.end.i483, label %for.body.i444
 
@@ -3520,12 +3520,12 @@ ehcleanup22.i454:                                 ; preds = %ehcleanup.i513, %lp
   br label %common.resume
 
 _ZN8facebook5velox4core12_GLOBAL__N_124variantArrayToVectorImplILNS0_8TypeKindE2EEESt10shared_ptrINS0_11ArrayVectorEERKS5_IKNS0_4TypeEERKSt6vectorINS0_7variantESaISE_EEPNS0_6memory10MemoryPoolE.exit: ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit81.i563, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i572, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i582, %if.end8.sink.split.i.i.i.i.i585
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pool.addr.i408)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arrayElements.i409)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offsets.i410)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sizes.i411)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i412)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp20.i413)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pool.addr.i408)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arrayElements.i409)
+  call void @llvm.lifetime.end.p0(ptr nonnull %offsets.i410)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sizes.i411)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i412)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp20.i413)
   br label %return
 
 sw.bb8:                                           ; preds = %entry
@@ -3536,12 +3536,12 @@ sw.bb8:                                           ; preds = %entry
   %370 = load ptr, ptr %369, align 8
   %371 = load ptr, ptr %370, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !170)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pool.addr.i662)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %arrayElements.i663)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %offsets.i664)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sizes.i665)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i666)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp20.i667)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pool.addr.i662)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arrayElements.i663)
+  call void @llvm.lifetime.start.p0(ptr nonnull %offsets.i664)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sizes.i665)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i666)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp20.i667)
   store ptr %371, ptr %pool.addr.i662, align 8, !noalias !170
   %_M_finish.i.i668 = getelementptr inbounds nuw i8, ptr %368, i64 8
   %372 = load ptr, ptr %_M_finish.i.i668, align 8, !noalias !170
@@ -3557,7 +3557,7 @@ sw.bb8:                                           ; preds = %entry
   %call2.i675 = tail call noundef nonnull align 8 dereferenceable(16) ptr %375(ptr noundef nonnull align 8 dereferenceable(8) %374, i32 noundef 0), !noalias !170
   %conv.i676 = trunc i64 %sub.ptr.div.i.i672 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !173)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i661), !noalias !170
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i661), !noalias !170
   call void @_ZN8facebook5velox10BaseVector14createInternalERKSt10shared_ptrIKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr nonnull sret(%"class.std::shared_ptr.22") align 8 %ref.tmp.i.i661, ptr noundef nonnull align 8 dereferenceable(16) %call2.i675, i32 noundef %conv.i676, ptr noundef %371), !noalias !176
   call void @llvm.experimental.noalias.scope.decl(metadata !177)
   %376 = load ptr, ptr %ref.tmp.i.i661, align 8, !noalias !180
@@ -3659,7 +3659,7 @@ if.end8.sink.split.i.i.i.i.i.i905:                ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN8facebook5velox10BaseVector6createINS0_10FlatVectorIlEEEESt10shared_ptrIT_ERKS5_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE.exit.i
 
 _ZN8facebook5velox10BaseVector6createINS0_10FlatVectorIlEEEESt10shared_ptrIT_ERKS5_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE.exit.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i905, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i902, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i694, %_ZSt19static_pointer_castIN8facebook5velox10FlatVectorIlEENS1_10BaseVectorEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i, %sw.bb8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i661), !noalias !170
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i661), !noalias !170
   %cmp97.not.i697 = icmp eq ptr %372, %373
   br i1 %cmp97.not.i697, label %for.end.i737, label %for.body.i698
 
@@ -4145,12 +4145,12 @@ ehcleanup22.i708:                                 ; preds = %ehcleanup.i767, %lp
   br label %common.resume
 
 _ZN8facebook5velox4core12_GLOBAL__N_124variantArrayToVectorImplILNS0_8TypeKindE4EEESt10shared_ptrINS0_11ArrayVectorEERKS5_IKNS0_4TypeEERKSt6vectorINS0_7variantESaISE_EEPNS0_6memory10MemoryPoolE.exit: ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit81.i817, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i826, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i836, %if.end8.sink.split.i.i.i.i.i839
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pool.addr.i662)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arrayElements.i663)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offsets.i664)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sizes.i665)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i666)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp20.i667)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pool.addr.i662)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arrayElements.i663)
+  call void @llvm.lifetime.end.p0(ptr nonnull %offsets.i664)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sizes.i665)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i666)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp20.i667)
   br label %return
 
 sw.bb9:                                           ; preds = %entry
@@ -4161,12 +4161,12 @@ sw.bb9:                                           ; preds = %entry
   %462 = load ptr, ptr %461, align 8
   %463 = load ptr, ptr %462, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !203)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pool.addr.i916)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %arrayElements.i917)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %offsets.i918)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sizes.i919)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i920)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp20.i921)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pool.addr.i916)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arrayElements.i917)
+  call void @llvm.lifetime.start.p0(ptr nonnull %offsets.i918)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sizes.i919)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i920)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp20.i921)
   store ptr %463, ptr %pool.addr.i916, align 8, !noalias !203
   %_M_finish.i.i922 = getelementptr inbounds nuw i8, ptr %460, i64 8
   %464 = load ptr, ptr %_M_finish.i.i922, align 8, !noalias !203
@@ -4182,7 +4182,7 @@ sw.bb9:                                           ; preds = %entry
   %call2.i929 = tail call noundef nonnull align 8 dereferenceable(16) ptr %467(ptr noundef nonnull align 8 dereferenceable(8) %466, i32 noundef 0), !noalias !203
   %conv.i930 = trunc i64 %sub.ptr.div.i.i926 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !206)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i915), !noalias !203
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i915), !noalias !203
   call void @_ZN8facebook5velox10BaseVector14createInternalERKSt10shared_ptrIKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr nonnull sret(%"class.std::shared_ptr.22") align 8 %ref.tmp.i.i915, ptr noundef nonnull align 8 dereferenceable(16) %call2.i929, i32 noundef %conv.i930, ptr noundef %463), !noalias !209
   call void @llvm.experimental.noalias.scope.decl(metadata !210)
   %468 = load ptr, ptr %ref.tmp.i.i915, align 8, !noalias !213
@@ -4284,7 +4284,7 @@ if.end8.sink.split.i.i.i.i.i.i1159:               ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN8facebook5velox10BaseVector6createINS0_10FlatVectorInEEEESt10shared_ptrIT_ERKS5_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE.exit.i
 
 _ZN8facebook5velox10BaseVector6createINS0_10FlatVectorInEEEESt10shared_ptrIT_ERKS5_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE.exit.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i1159, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i1156, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i948, %_ZSt19static_pointer_castIN8facebook5velox10FlatVectorInEENS1_10BaseVectorEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i, %sw.bb9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i915), !noalias !203
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i915), !noalias !203
   %cmp97.not.i951 = icmp eq ptr %464, %465
   br i1 %cmp97.not.i951, label %for.end.i991, label %for.body.i952
 
@@ -4770,12 +4770,12 @@ ehcleanup22.i962:                                 ; preds = %ehcleanup.i1021, %l
   br label %common.resume
 
 _ZN8facebook5velox4core12_GLOBAL__N_124variantArrayToVectorImplILNS0_8TypeKindE10EEESt10shared_ptrINS0_11ArrayVectorEERKS5_IKNS0_4TypeEERKSt6vectorINS0_7variantESaISE_EEPNS0_6memory10MemoryPoolE.exit: ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit81.i1071, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1080, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1090, %if.end8.sink.split.i.i.i.i.i1093
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pool.addr.i916)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arrayElements.i917)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offsets.i918)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sizes.i919)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i920)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp20.i921)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pool.addr.i916)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arrayElements.i917)
+  call void @llvm.lifetime.end.p0(ptr nonnull %offsets.i918)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sizes.i919)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i920)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp20.i921)
   br label %return
 
 sw.bb10:                                          ; preds = %entry
@@ -4786,12 +4786,12 @@ sw.bb10:                                          ; preds = %entry
   %554 = load ptr, ptr %553, align 8
   %555 = load ptr, ptr %554, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !236)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pool.addr.i1170)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %arrayElements.i1171)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %offsets.i1172)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sizes.i1173)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1174)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp20.i1175)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pool.addr.i1170)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arrayElements.i1171)
+  call void @llvm.lifetime.start.p0(ptr nonnull %offsets.i1172)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sizes.i1173)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1174)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp20.i1175)
   store ptr %555, ptr %pool.addr.i1170, align 8, !noalias !236
   %_M_finish.i.i1176 = getelementptr inbounds nuw i8, ptr %552, i64 8
   %556 = load ptr, ptr %_M_finish.i.i1176, align 8, !noalias !236
@@ -4807,7 +4807,7 @@ sw.bb10:                                          ; preds = %entry
   %call2.i1183 = tail call noundef nonnull align 8 dereferenceable(16) ptr %559(ptr noundef nonnull align 8 dereferenceable(8) %558, i32 noundef 0), !noalias !236
   %conv.i1184 = trunc i64 %sub.ptr.div.i.i1180 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !239)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i1169), !noalias !236
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i1169), !noalias !236
   call void @_ZN8facebook5velox10BaseVector14createInternalERKSt10shared_ptrIKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr nonnull sret(%"class.std::shared_ptr.22") align 8 %ref.tmp.i.i1169, ptr noundef nonnull align 8 dereferenceable(16) %call2.i1183, i32 noundef %conv.i1184, ptr noundef %555), !noalias !242
   call void @llvm.experimental.noalias.scope.decl(metadata !243)
   %560 = load ptr, ptr %ref.tmp.i.i1169, align 8, !noalias !246
@@ -4909,7 +4909,7 @@ if.end8.sink.split.i.i.i.i.i.i1413:               ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN8facebook5velox10BaseVector6createINS0_10FlatVectorIfEEEESt10shared_ptrIT_ERKS5_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE.exit.i
 
 _ZN8facebook5velox10BaseVector6createINS0_10FlatVectorIfEEEESt10shared_ptrIT_ERKS5_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE.exit.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i1413, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i1410, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1202, %_ZSt19static_pointer_castIN8facebook5velox10FlatVectorIfEENS1_10BaseVectorEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i, %sw.bb10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i1169), !noalias !236
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i1169), !noalias !236
   %cmp97.not.i1205 = icmp eq ptr %556, %557
   br i1 %cmp97.not.i1205, label %for.end.i1245, label %for.body.i1206
 
@@ -5395,12 +5395,12 @@ ehcleanup22.i1216:                                ; preds = %ehcleanup.i1275, %l
   br label %common.resume
 
 _ZN8facebook5velox4core12_GLOBAL__N_124variantArrayToVectorImplILNS0_8TypeKindE5EEESt10shared_ptrINS0_11ArrayVectorEERKS5_IKNS0_4TypeEERKSt6vectorINS0_7variantESaISE_EEPNS0_6memory10MemoryPoolE.exit: ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit81.i1325, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1334, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1344, %if.end8.sink.split.i.i.i.i.i1347
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pool.addr.i1170)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arrayElements.i1171)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offsets.i1172)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sizes.i1173)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1174)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp20.i1175)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pool.addr.i1170)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arrayElements.i1171)
+  call void @llvm.lifetime.end.p0(ptr nonnull %offsets.i1172)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sizes.i1173)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1174)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp20.i1175)
   br label %return
 
 sw.bb11:                                          ; preds = %entry
@@ -5411,12 +5411,12 @@ sw.bb11:                                          ; preds = %entry
   %646 = load ptr, ptr %645, align 8
   %647 = load ptr, ptr %646, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !269)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pool.addr.i1424)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %arrayElements.i1425)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %offsets.i1426)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sizes.i1427)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1428)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp20.i1429)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pool.addr.i1424)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arrayElements.i1425)
+  call void @llvm.lifetime.start.p0(ptr nonnull %offsets.i1426)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sizes.i1427)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1428)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp20.i1429)
   store ptr %647, ptr %pool.addr.i1424, align 8, !noalias !269
   %_M_finish.i.i1430 = getelementptr inbounds nuw i8, ptr %644, i64 8
   %648 = load ptr, ptr %_M_finish.i.i1430, align 8, !noalias !269
@@ -5432,7 +5432,7 @@ sw.bb11:                                          ; preds = %entry
   %call2.i1437 = tail call noundef nonnull align 8 dereferenceable(16) ptr %651(ptr noundef nonnull align 8 dereferenceable(8) %650, i32 noundef 0), !noalias !269
   %conv.i1438 = trunc i64 %sub.ptr.div.i.i1434 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !272)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i1423), !noalias !269
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i1423), !noalias !269
   call void @_ZN8facebook5velox10BaseVector14createInternalERKSt10shared_ptrIKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr nonnull sret(%"class.std::shared_ptr.22") align 8 %ref.tmp.i.i1423, ptr noundef nonnull align 8 dereferenceable(16) %call2.i1437, i32 noundef %conv.i1438, ptr noundef %647), !noalias !275
   call void @llvm.experimental.noalias.scope.decl(metadata !276)
   %652 = load ptr, ptr %ref.tmp.i.i1423, align 8, !noalias !279
@@ -5534,7 +5534,7 @@ if.end8.sink.split.i.i.i.i.i.i1667:               ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN8facebook5velox10BaseVector6createINS0_10FlatVectorIdEEEESt10shared_ptrIT_ERKS5_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE.exit.i
 
 _ZN8facebook5velox10BaseVector6createINS0_10FlatVectorIdEEEESt10shared_ptrIT_ERKS5_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE.exit.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i1667, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i1664, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1456, %_ZSt19static_pointer_castIN8facebook5velox10FlatVectorIdEENS1_10BaseVectorEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i, %sw.bb11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i1423), !noalias !269
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i1423), !noalias !269
   %cmp97.not.i1459 = icmp eq ptr %648, %649
   br i1 %cmp97.not.i1459, label %for.end.i1499, label %for.body.i1460
 
@@ -6020,12 +6020,12 @@ ehcleanup22.i1470:                                ; preds = %ehcleanup.i1529, %l
   br label %common.resume
 
 _ZN8facebook5velox4core12_GLOBAL__N_124variantArrayToVectorImplILNS0_8TypeKindE6EEESt10shared_ptrINS0_11ArrayVectorEERKS5_IKNS0_4TypeEERKSt6vectorINS0_7variantESaISE_EEPNS0_6memory10MemoryPoolE.exit: ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit81.i1579, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1588, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1598, %if.end8.sink.split.i.i.i.i.i1601
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pool.addr.i1424)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arrayElements.i1425)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offsets.i1426)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sizes.i1427)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1428)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp20.i1429)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pool.addr.i1424)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arrayElements.i1425)
+  call void @llvm.lifetime.end.p0(ptr nonnull %offsets.i1426)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sizes.i1427)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1428)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp20.i1429)
   br label %return
 
 sw.bb12:                                          ; preds = %entry
@@ -6036,13 +6036,13 @@ sw.bb12:                                          ; preds = %entry
   %738 = load ptr, ptr %737, align 8
   %739 = load ptr, ptr %738, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !302)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pool.addr.i1678)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %arrayElements.i1679)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %offsets.i1680)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sizes.i1681)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1682)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp21.i1683)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pool.addr.i1678)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arrayElements.i1679)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %offsets.i1680)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sizes.i1681)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1682)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp21.i1683)
   store ptr %739, ptr %pool.addr.i1678, align 8, !noalias !302
   %_M_finish.i.i1684 = getelementptr inbounds nuw i8, ptr %736, i64 8
   %740 = load ptr, ptr %_M_finish.i.i1684, align 8, !noalias !302
@@ -6058,7 +6058,7 @@ sw.bb12:                                          ; preds = %entry
   %call2.i1691 = tail call noundef nonnull align 8 dereferenceable(16) ptr %743(ptr noundef nonnull align 8 dereferenceable(8) %742, i32 noundef 0), !noalias !302
   %conv.i1692 = trunc i64 %sub.ptr.div.i.i1688 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !305)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i1677), !noalias !302
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i1677), !noalias !302
   call void @_ZN8facebook5velox10BaseVector14createInternalERKSt10shared_ptrIKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr nonnull sret(%"class.std::shared_ptr.22") align 8 %ref.tmp.i.i1677, ptr noundef nonnull align 8 dereferenceable(16) %call2.i1691, i32 noundef %conv.i1692, ptr noundef %739), !noalias !308
   call void @llvm.experimental.noalias.scope.decl(metadata !309)
   %744 = load ptr, ptr %ref.tmp.i.i1677, align 8, !noalias !312
@@ -6160,7 +6160,7 @@ if.end8.sink.split.i.i.i.i.i.i1832:               ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN8facebook5velox10BaseVector6createINS0_10FlatVectorINS0_10StringViewEEEEESt10shared_ptrIT_ERKS6_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE.exit.i
 
 _ZN8facebook5velox10BaseVector6createINS0_10FlatVectorINS0_10StringViewEEEEESt10shared_ptrIT_ERKS6_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE.exit.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i1832, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i1829, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1710, %_ZSt19static_pointer_castIN8facebook5velox10FlatVectorINS1_10StringViewEEENS1_10BaseVectorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i.i, %sw.bb12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i1677), !noalias !302
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i1677), !noalias !302
   %cmp95.not.i = icmp eq ptr %740, %741
   br i1 %cmp95.not.i, label %for.end.i1732, label %for.body.i1713.preheader
 
@@ -6636,13 +6636,13 @@ ehcleanup23.i1722:                                ; preds = %ehcleanup.i1759, %l
   br label %common.resume
 
 _ZN8facebook5velox4core12_GLOBAL__N_124variantArrayToVectorImplILNS0_8TypeKindE7EEESt10shared_ptrINS0_11ArrayVectorEERKS5_IKNS0_4TypeEERKSt6vectorINS0_7variantESaISE_EEPNS0_6memory10MemoryPoolE.exit: ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit76.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1779, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1786, %if.end8.sink.split.i.i.i.i.i1789
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pool.addr.i1678)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arrayElements.i1679)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offsets.i1680)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sizes.i1681)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1682)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp21.i1683)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pool.addr.i1678)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arrayElements.i1679)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %offsets.i1680)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sizes.i1681)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1682)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp21.i1683)
   br label %return
 
 sw.bb13:                                          ; preds = %entry
@@ -6653,13 +6653,13 @@ sw.bb13:                                          ; preds = %entry
   %822 = load ptr, ptr %821, align 8
   %823 = load ptr, ptr %822, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !335)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pool.addr.i1843)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %arrayElements.i1844)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i1845)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %offsets.i1846)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sizes.i1847)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1848)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp21.i1849)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pool.addr.i1843)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arrayElements.i1844)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i1845)
+  call void @llvm.lifetime.start.p0(ptr nonnull %offsets.i1846)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sizes.i1847)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1848)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp21.i1849)
   store ptr %823, ptr %pool.addr.i1843, align 8, !noalias !335
   %_M_finish.i.i1850 = getelementptr inbounds nuw i8, ptr %820, i64 8
   %824 = load ptr, ptr %_M_finish.i.i1850, align 8, !noalias !335
@@ -6675,7 +6675,7 @@ sw.bb13:                                          ; preds = %entry
   %call2.i1857 = tail call noundef nonnull align 8 dereferenceable(16) ptr %827(ptr noundef nonnull align 8 dereferenceable(8) %826, i32 noundef 0), !noalias !335
   %conv.i1858 = trunc i64 %sub.ptr.div.i.i1854 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !338)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i1842), !noalias !335
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i1842), !noalias !335
   call void @_ZN8facebook5velox10BaseVector14createInternalERKSt10shared_ptrIKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr nonnull sret(%"class.std::shared_ptr.22") align 8 %ref.tmp.i.i1842, ptr noundef nonnull align 8 dereferenceable(16) %call2.i1857, i32 noundef %conv.i1858, ptr noundef %823), !noalias !341
   call void @llvm.experimental.noalias.scope.decl(metadata !342)
   %828 = load ptr, ptr %ref.tmp.i.i1842, align 8, !noalias !345
@@ -6777,7 +6777,7 @@ if.end8.sink.split.i.i.i.i.i.i2085:               ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN8facebook5velox10BaseVector6createINS0_10FlatVectorINS0_10StringViewEEEEESt10shared_ptrIT_ERKS6_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE.exit.i1880
 
 _ZN8facebook5velox10BaseVector6createINS0_10FlatVectorINS0_10StringViewEEEEESt10shared_ptrIT_ERKS6_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE.exit.i1880: ; preds = %if.end8.sink.split.i.i.i.i.i.i2085, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i2082, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1877, %_ZSt19static_pointer_castIN8facebook5velox10FlatVectorINS1_10StringViewEEENS1_10BaseVectorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i.i1867, %sw.bb13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i1842), !noalias !335
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i1842), !noalias !335
   %cmp95.not.i1881 = icmp eq ptr %824, %825
   br i1 %cmp95.not.i1881, label %for.end.i1917, label %for.body.i1888.preheader
 
@@ -7253,13 +7253,13 @@ ehcleanup23.i1898:                                ; preds = %ehcleanup.i1947, %l
   br label %common.resume
 
 _ZN8facebook5velox4core12_GLOBAL__N_124variantArrayToVectorImplILNS0_8TypeKindE8EEESt10shared_ptrINS0_11ArrayVectorEERKS5_IKNS0_4TypeEERKSt6vectorINS0_7variantESaISE_EEPNS0_6memory10MemoryPoolE.exit: ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit76.i1997, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i2006, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i2016, %if.end8.sink.split.i.i.i.i.i2019
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pool.addr.i1843)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arrayElements.i1844)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i1845)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offsets.i1846)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sizes.i1847)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1848)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp21.i1849)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pool.addr.i1843)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arrayElements.i1844)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i1845)
+  call void @llvm.lifetime.end.p0(ptr nonnull %offsets.i1846)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sizes.i1847)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1848)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp21.i1849)
   br label %return
 
 sw.bb14:                                          ; preds = %entry
@@ -7270,12 +7270,12 @@ sw.bb14:                                          ; preds = %entry
   %906 = load ptr, ptr %905, align 8
   %907 = load ptr, ptr %906, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !368)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pool.addr.i2096)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %arrayElements.i2097)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %offsets.i2098)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sizes.i2099)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2100)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp20.i2101)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pool.addr.i2096)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arrayElements.i2097)
+  call void @llvm.lifetime.start.p0(ptr nonnull %offsets.i2098)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sizes.i2099)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2100)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp20.i2101)
   store ptr %907, ptr %pool.addr.i2096, align 8, !noalias !368
   %_M_finish.i.i2102 = getelementptr inbounds nuw i8, ptr %904, i64 8
   %908 = load ptr, ptr %_M_finish.i.i2102, align 8, !noalias !368
@@ -7291,7 +7291,7 @@ sw.bb14:                                          ; preds = %entry
   %call2.i2109 = tail call noundef nonnull align 8 dereferenceable(16) ptr %911(ptr noundef nonnull align 8 dereferenceable(8) %910, i32 noundef 0), !noalias !368
   %conv.i2110 = trunc i64 %sub.ptr.div.i.i2106 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !371)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i2095), !noalias !368
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i2095), !noalias !368
   call void @_ZN8facebook5velox10BaseVector14createInternalERKSt10shared_ptrIKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr nonnull sret(%"class.std::shared_ptr.22") align 8 %ref.tmp.i.i2095, ptr noundef nonnull align 8 dereferenceable(16) %call2.i2109, i32 noundef %conv.i2110, ptr noundef %907), !noalias !374
   call void @llvm.experimental.noalias.scope.decl(metadata !375)
   %912 = load ptr, ptr %ref.tmp.i.i2095, align 8, !noalias !378
@@ -7393,7 +7393,7 @@ if.end8.sink.split.i.i.i.i.i.i2339:               ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN8facebook5velox10BaseVector6createINS0_10FlatVectorINS0_9TimestampEEEEESt10shared_ptrIT_ERKS6_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE.exit.i
 
 _ZN8facebook5velox10BaseVector6createINS0_10FlatVectorINS0_9TimestampEEEEESt10shared_ptrIT_ERKS6_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE.exit.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i2339, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i2336, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i2128, %_ZSt19static_pointer_castIN8facebook5velox10FlatVectorINS1_9TimestampEEENS1_10BaseVectorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i.i, %sw.bb14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i2095), !noalias !368
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i2095), !noalias !368
   %cmp97.not.i2131 = icmp eq ptr %908, %909
   br i1 %cmp97.not.i2131, label %for.end.i2171, label %for.body.i2132
 
@@ -7883,12 +7883,12 @@ ehcleanup22.i2142:                                ; preds = %ehcleanup.i2201, %l
   br label %common.resume
 
 _ZN8facebook5velox4core12_GLOBAL__N_124variantArrayToVectorImplILNS0_8TypeKindE9EEESt10shared_ptrINS0_11ArrayVectorEERKS5_IKNS0_4TypeEERKSt6vectorINS0_7variantESaISE_EEPNS0_6memory10MemoryPoolE.exit: ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit81.i2251, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i2260, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i2270, %if.end8.sink.split.i.i.i.i.i2273
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pool.addr.i2096)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arrayElements.i2097)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offsets.i2098)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sizes.i2099)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i2100)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp20.i2101)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pool.addr.i2096)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arrayElements.i2097)
+  call void @llvm.lifetime.end.p0(ptr nonnull %offsets.i2098)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sizes.i2099)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2100)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp20.i2101)
   br label %return
 
 sw.default:                                       ; preds = %entry
@@ -9937,7 +9937,7 @@ entry:
   %0 = load ptr, ptr %indices, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %indices, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp52)
   store ptr %this, ptr %agg.tmp52, align 8
   %agg.tmp5.sroa.2.0.agg.tmp52.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp52, i64 8
   store ptr %mapping.addr, ptr %agg.tmp5.sroa.2.0.agg.tmp52.sroa_idx, align 8
@@ -9959,7 +9959,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZNK8facebook5velox10BaseVector11sortIndicesERS5_PKiNS8_12CompareFlagsEEUliiE_EvT_SF_T0_.exit
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZNK8facebook5velox10BaseVector11sortIndicesERS5_PKiNS8_12CompareFlagsEEUliiE_EvT_SF_T0_.exit: ; preds = %entry, %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp52)
   ret void
 }
 
@@ -10272,16 +10272,16 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__comp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i)
   store ptr %__comp.coerce0, ptr %__comp.i, align 8
   %0 = getelementptr inbounds nuw i8, ptr %__comp.i, i64 8
   store ptr %__comp.coerce1, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__comp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i.i)
   store ptr %__comp.coerce0, ptr %__comp.i.i, align 8
   %1 = getelementptr inbounds nuw i8, ptr %__comp.i.i, i64 8
   store ptr %__comp.coerce1, ptr %1, align 8
   call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10BaseVector11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEEvT_SG_RT0_(ptr %__first.coerce, ptr %storemerge12, ptr noundef nonnull align 8 dereferenceable(16) %__comp.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__comp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__comp.i.i)
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.then, %while.body.i.i
@@ -10294,7 +10294,7 @@ while.body.i.i:                                   ; preds = %if.then, %while.bod
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10BaseVector11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEEvT_SG_SG_T0_.exit, !llvm.loop !404
 
 _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10BaseVector11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEEvT_SG_SG_T0_.exit: ; preds = %while.body.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__comp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__comp.i)
   br label %while.end
 
 if.end:                                           ; preds = %while.body
@@ -10880,12 +10880,12 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp53)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp53)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp53, ptr noundef nonnull align 8 dereferenceable(24) %__comp, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp51.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp51.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp51.i, ptr noundef nonnull align 8 dereferenceable(24) %__comp, i64 24, i1 false)
   call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10BaseVector11sortIndicesERS5_PKiNSA_12CompareFlagsEEUliiE_EEEvT_SI_RT0_(ptr %__first.coerce, ptr %storemerge14, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp51.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp51.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp51.i)
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.then, %while.body.i.i
@@ -10898,7 +10898,7 @@ while.body.i.i:                                   ; preds = %if.then, %while.bod
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10BaseVector11sortIndicesERS5_PKiNSA_12CompareFlagsEEUliiE_EEEvT_SI_SI_T0_.exit, !llvm.loop !415
 
 _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10BaseVector11sortIndicesERS5_PKiNSA_12CompareFlagsEEUliiE_EEEvT_SI_SI_T0_.exit: ; preds = %while.body.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp53)
   br label %while.end
 
 if.end:                                           ; preds = %while.body
@@ -18071,10 +18071,10 @@ lpad24:                                           ; preds = %_ZNSt10shared_ptrIN
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { cold noreturn nounwind memory(inaccessiblemem: write) }

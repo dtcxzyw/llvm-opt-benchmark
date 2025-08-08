@@ -2966,8 +2966,8 @@ define hidden noundef zeroext i1 @_ZN7Compile13push_thru_addEP8PhaseGVNP4NodePK1
   br i1 %44, label %268, label %45
 
 45:                                               ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %46 = load ptr, ptr %29, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
   %48 = load ptr, ptr %47, align 8
@@ -3309,8 +3309,8 @@ _ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.exit.i: ; pre
 
 _ZL22compute_updates_rangesPK11TypeIntegerS1_S1_RS1_S2_PK4Node9BasicTypeS6_.exit: ; preds = %80, %86, %90, %95, %122, %127, %133, %137, %164, %_ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.exit.i, %171, %177, %181, %186, %212, %217, %223, %227, %253, %255
   %.0.i = phi i1 [ true, %255 ], [ false, %_ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.exit.i ], [ false, %95 ], [ false, %90 ], [ false, %86 ], [ false, %80 ], [ false, %137 ], [ false, %133 ], [ false, %127 ], [ false, %122 ], [ false, %164 ], [ false, %186 ], [ false, %181 ], [ false, %177 ], [ false, %171 ], [ false, %227 ], [ false, %223 ], [ false, %217 ], [ false, %212 ], [ false, %253 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %268
 
 268:                                              ; preds = %7, %41, %43, %32, %16, %_ZL22compute_updates_rangesPK11TypeIntegerS1_S1_RS1_S2_PK4Node9BasicTypeS6_.exit
@@ -4712,10 +4712,10 @@ declare i16 @llvm.smax.i16(i16, i16) #6
 declare i32 @llvm.smin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

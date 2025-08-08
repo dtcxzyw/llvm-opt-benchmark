@@ -890,20 +890,14 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
 declare void @llvm.trap() #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
-
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost4wave8cpplexer11token_cacheINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS7_EEPcEEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca %"class.boost::wave::util::flex_string", align 8
   %4 = alloca %"class.std::allocator.5", align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZNSt6vectorIN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS2_9CowStringINS2_22AllocatorStringStorageIcS6_EEPcEEEESaISC_EEC2EmRKSD_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 186, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %5 = load ptr, ptr %0, align 8, !tbaa !24
   br label %7
 
@@ -913,12 +907,12 @@ define linkonce_odr hidden void @_ZN5boost4wave8cpplexer11token_cacheINS0_4util1
 7:                                                ; preds = %1, %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit
   %.017 = phi i32 [ 256, %1 ], [ %63, %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit ]
   %.sroa.0.016 = phi ptr [ %5, %1 ], [ %64, %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = invoke noundef ptr @_ZN5boost4wave15get_token_valueENS0_8token_idE(i32 noundef %.017)
           to label %9 unwind label %65
 
 9:                                                ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #34
   invoke void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcEC2EPKcmRKS4_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %8, i64 noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEC2EPKcRKS5_.exit unwind label %67
@@ -1041,8 +1035,8 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br label %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit
 
 _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit: ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSERKSB_.exit, %56, %59
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %63 = add nuw nsw i32 %.017, 1
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.016, i64 8
   %exitcond.not = icmp eq i32 %63, 442
@@ -1075,12 +1069,12 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit:
 
 70:                                               ; preds = %69, %67
   %.pn = phi { ptr, i32 } [ %lpad.phi, %69 ], [ %68, %67 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %71
 
 71:                                               ; preds = %70, %65
   %.pn.pn = phi { ptr, i32 } [ %.pn, %70 ], [ %66, %65 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZNSt6vectorIN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS2_9CowStringINS2_22AllocatorStringStorageIcS6_EEPcEEEESaISC_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #34
   resume { ptr, i32 } %.pn.pn
 }
@@ -1092,12 +1086,12 @@ define linkonce_odr hidden noundef i32 @_ZN5boost4wave8cpplexer7re2clex5lexerIN9
   %6 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %7 = alloca %"class.boost::wave::cpplexer::lexing_exception", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #34
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.va_start.p0(ptr nonnull %5)
   %9 = call i32 @vsnprintf(ptr noundef nonnull %4, i64 noundef 200, ptr noundef %2, ptr noundef nonnull %5) #34
   call void @llvm.va_end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %6) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %6)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = sext i32 %1 to i64
@@ -1175,8 +1169,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit24: ; preds = %_ZStl
           to label %_ZNSolsEPFRSoS_E.exit unwind label %47
 
 _ZNSolsEPFRSoS_E.exit:                            ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit24
-  call void @llvm.lifetime.start.p0(i64 1056, ptr nonnull %7) #34
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(128) %6)
           to label %50 unwind label %59
 
@@ -1224,8 +1218,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %59
   %.pn = phi { ptr, i32 } [ %60, %59 ], [ %62, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %62, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #34
-  call void @llvm.lifetime.end.p0(i64 1056, ptr nonnull %7) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %71
 
 71:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %47
@@ -1275,9 +1269,9 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   store i64 0, ptr %94, align 8, !tbaa !80
   %95 = getelementptr inbounds nuw i8, ptr %6, i64 128
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %95) #34
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %6) #34
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #34
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -3080,7 +3074,7 @@ define linkonce_odr hidden void @_ZN5boost16exception_detail20copy_boost_excepti
   br i1 %.not, label %36, label %6
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = load ptr, ptr %5, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8
@@ -3119,7 +3113,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEaSERKS3_.e
   unreachable
 
 _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit: ; preds = %15, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEaSERKS3_.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %36
 
 23:                                               ; preds = %6
@@ -3151,7 +3145,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit:
 _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit22: ; preds = %28, %25, %23
   %.sroa.0.2 = phi ptr [ null, %23 ], [ %10, %25 ], [ %10, %28 ]
   %.pn = phi { ptr, i32 } [ %24, %23 ], [ %26, %25 ], [ %26, %28 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %69
 
 36:                                               ; preds = %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit, %2
@@ -3440,7 +3434,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5b
   br i1 %32, label %33, label %57
 
 33:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !82
   %34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEEaSERKSG_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %35 unwind label %55
@@ -3503,14 +3497,14 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit
 
 _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit: ; preds = %35, %37, %41, %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN5boost4wave8cpplexer14include_guardsINS1_9lex_tokenINS0_4util13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS9_EEPcEEEEEEEEE12detect_guardERSH_.exit
 
 55:                                               ; preds = %33
   %56 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %707
 
 57:                                               ; preds = %2
@@ -3551,7 +3545,7 @@ _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt
   ]
 
 61:                                               ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %63 = load ptr, ptr %62, align 8, !tbaa !116
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -3559,7 +3553,7 @@ _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt
   %66 = ptrtoint ptr %65 to i64
   %67 = ptrtoint ptr %63 to i64
   %68 = sub i64 %66, %67
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcEC2EPKcmRKS4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %63, i64 noundef %68, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEC2EPKcmRKS5_.exit unwind label %79
 
@@ -3570,8 +3564,8 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 71:                                               ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEC2EPKcmRKS5_.exit
   call void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #34
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %73 = load i32, ptr %72, align 4, !tbaa !43
   %74 = and i32 %73, 512
@@ -3598,12 +3592,12 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 83:                                               ; preds = %81, %79
   %.pn60 = phi { ptr, i32 } [ %82, %81 ], [ %80, %79 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %707
 
 84:                                               ; preds = %57, %57, %57
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %86 = load ptr, ptr %85, align 8, !tbaa !116
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -3611,7 +3605,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   %89 = ptrtoint ptr %88 to i64
   %90 = ptrtoint ptr %86 to i64
   %91 = sub i64 %89, %90
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcEC2EPKcmRKS4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %86, i64 noundef %91, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEC2EPKcmRKS5_.exit70 unwind label %201
 
@@ -3734,8 +3728,8 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br label %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit
 
 _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit: ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSERKSB_.exit, %138, %141
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %146 = load i32, ptr %145, align 4, !tbaa !43
   %147 = and i32 %146, 1024
@@ -3743,7 +3737,7 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit:
   br i1 %.not171, label %208, label %148
 
 148:                                              ; preds = %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN5boost4wave8cpplexer4impl17convert_trigraphsINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEEEET_RKSF_(ptr dead_on_unwind nonnull writable sret(%"class.boost::wave::util::flex_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %92)
   %.not.i74 = icmp eq ptr %92, %9
   br i1 %.not.i74, label %._ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSERKSB_.exit84_crit_edge, label %149
@@ -3862,7 +3856,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br label %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit87
 
 _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit87: ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSERKSB_.exit84, %194, %197
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.pre200 = load i32, ptr %145, align 4, !tbaa !43
   br label %208
 
@@ -3879,15 +3873,15 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit8
 
 205:                                              ; preds = %203, %201
   %.pn58 = phi { ptr, i32 } [ %204, %203 ], [ %202, %201 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %707
 
 206:                                              ; preds = %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEE5AllocEmPKv.exit.i.i.i.i76, %.noexc.i.i.i78
   %207 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %707
 
 208:                                              ; preds = %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit87, %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit
@@ -3904,7 +3898,7 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit8
   br label %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE7compareEmmPKcm.exit.thread202
 
 215:                                              ; preds = %57, %57, %57
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %217 = load ptr, ptr %216, align 8, !tbaa !116
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -3912,7 +3906,7 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit8
   %220 = ptrtoint ptr %219 to i64
   %221 = ptrtoint ptr %217 to i64
   %222 = sub i64 %220, %221
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcEC2EPKcmRKS4_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %217, i64 noundef %222, ptr noundef nonnull align 1 dereferenceable(1) %11)
           to label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEC2EPKcmRKS5_.exit89 unwind label %296
 
@@ -4035,8 +4029,8 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br label %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit103
 
 _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit103: ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSERKSB_.exit100, %269, %272
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %276 = load ptr, ptr %223, align 8, !tbaa !28
   %277 = load ptr, ptr %276, align 8, !tbaa !6
   %278 = getelementptr inbounds nuw i8, ptr %276, i64 16
@@ -4098,12 +4092,12 @@ _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22A
 
 300:                                              ; preds = %298, %296
   %.pn56 = phi { ptr, i32 } [ %299, %298 ], [ %297, %296 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %707
 
 301:                                              ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %302 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %303 = load ptr, ptr %302, align 8, !tbaa !116
   %304 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -4111,7 +4105,7 @@ _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22A
   %306 = ptrtoint ptr %305 to i64
   %307 = ptrtoint ptr %303 to i64
   %308 = sub i64 %306, %307
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   invoke void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcEC2EPKcmRKS4_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %303, i64 noundef %308, ptr noundef nonnull align 1 dereferenceable(1) %13)
           to label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEC2EPKcmRKS5_.exit106 unwind label %349
 
@@ -4122,8 +4116,8 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 311:                                              ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEC2EPKcmRKS5_.exit106
   call void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #34
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %312 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %313 = load i32, ptr %312, align 4, !tbaa !43
   %314 = and i32 %313, 2
@@ -4131,7 +4125,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br i1 %.not170, label %315, label %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE7compareEmmPKcm.exit.thread202
 
 315:                                              ; preds = %311
-  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %14) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %14)
   %316 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %317 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost4wave8cpplexer16lexing_exception14severity_levelEiE29preprocess_exception_severity, i64 16), align 16, !tbaa !68
@@ -4208,8 +4202,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit110: ; preds = %337
 
 353:                                              ; preds = %351, %349
   %.pn50 = phi { ptr, i32 } [ %352, %351 ], [ %350, %349 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %707
 
 354:                                              ; preds = %356, %337, %322, %345, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %315
@@ -4222,8 +4216,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit110: ; preds = %337
           to label %_ZNSolsEPFRSoS_E.exit unwind label %354
 
 _ZNSolsEPFRSoS_E.exit:                            ; preds = %356
-  call void @llvm.lifetime.start.p0(i64 1056, ptr nonnull %15) #34
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %16, ptr noundef nonnull align 8 dereferenceable(128) %14)
           to label %358 unwind label %373
 
@@ -4284,18 +4278,18 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %373
   %.pn52.pn = phi { ptr, i32 } [ %374, %373 ], [ %376, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %376, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #34
-  call void @llvm.lifetime.end.p0(i64 1056, ptr nonnull %15) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %385
 
 385:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %354
   %.pn52.pn.pn = phi { ptr, i32 } [ %.pn52.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %355, %354 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %14) #34
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %14) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %707
 
 386:                                              ; preds = %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %387 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %388 = load ptr, ptr %387, align 8, !tbaa !116
   %389 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -4303,7 +4297,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %391 = ptrtoint ptr %390 to i64
   %392 = ptrtoint ptr %388 to i64
   %393 = sub i64 %391, %392
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %18) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   invoke void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcEC2EPKcmRKS4_(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef %388, i64 noundef %393, ptr noundef nonnull align 1 dereferenceable(1) %18)
           to label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEC2EPKcmRKS5_.exit119 unwind label %447
 
@@ -4426,8 +4420,8 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br label %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit133
 
 _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit133: ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSERKSB_.exit130, %440, %443
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE7compareEmmPKcm.exit.thread202
 
 447:                                              ; preds = %386
@@ -4443,8 +4437,8 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit1
 
 451:                                              ; preds = %449, %447
   %.pn48 = phi { ptr, i32 } [ %450, %449 ], [ %448, %447 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %707
 
 452:                                              ; preds = %57
@@ -4472,7 +4466,7 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit1
   br label %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE7compareEmmPKcm.exit.thread202
 
 467:                                              ; preds = %454
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %468 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %469 = load ptr, ptr %468, align 8, !tbaa !116
   %470 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -4480,7 +4474,7 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit1
   %472 = ptrtoint ptr %471 to i64
   %473 = ptrtoint ptr %469 to i64
   %474 = sub i64 %472, %473
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %20) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   invoke void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcEC2EPKcmRKS4_(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %469, i64 noundef %474, ptr noundef nonnull align 1 dereferenceable(1) %20)
           to label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEC2EPKcmRKS5_.exit135 unwind label %528
 
@@ -4603,8 +4597,8 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br label %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit149
 
 _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit149: ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSERKSB_.exit146, %521, %524
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE7compareEmmPKcm.exit.thread202
 
 528:                                              ; preds = %467
@@ -4620,8 +4614,8 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit1
 
 532:                                              ; preds = %530, %528
   %.pn46 = phi { ptr, i32 } [ %531, %530 ], [ %529, %528 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %707
 
 533:                                              ; preds = %57
@@ -4632,8 +4626,8 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit1
   br i1 %.not168, label %557, label %537
 
 537:                                              ; preds = %533
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #34
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %538 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %539 = load ptr, ptr %538, align 8, !tbaa !116
   %540 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -4641,7 +4635,7 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit1
   %542 = ptrtoint ptr %541 to i64
   %543 = ptrtoint ptr %539 to i64
   %544 = sub i64 %542, %543
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %23) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   invoke void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcEC2EPKcmRKS4_(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef %539, i64 noundef %544, ptr noundef nonnull align 1 dereferenceable(1) %23)
           to label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEC2EPKcmRKS5_.exit151 unwind label %549
 
@@ -4657,9 +4651,9 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 548:                                              ; preds = %545
   call void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #34
   call void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #34
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE7compareEmmPKcm.exit.thread202
 
 549:                                              ; preds = %537
@@ -4685,13 +4679,13 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 556:                                              ; preds = %555, %549
   %.pn43.pn = phi { ptr, i32 } [ %.pn43, %555 ], [ %550, %549 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %707
 
 557:                                              ; preds = %533
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %558 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %559 = load ptr, ptr %558, align 8, !tbaa !116
   %560 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -4699,7 +4693,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   %562 = ptrtoint ptr %561 to i64
   %563 = ptrtoint ptr %559 to i64
   %564 = sub i64 %562, %563
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %25) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   invoke void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcEC2EPKcmRKS4_(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef %559, i64 noundef %564, ptr noundef nonnull align 1 dereferenceable(1) %25)
           to label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEC2EPKcmRKS5_.exit153 unwind label %568
 
@@ -4710,8 +4704,8 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 567:                                              ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEC2EPKcmRKS5_.exit153
   call void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #34
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %25) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE7compareEmmPKcm.exit.thread202
 
 568:                                              ; preds = %557
@@ -4727,8 +4721,8 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 572:                                              ; preds = %570, %568
   %.pn = phi { ptr, i32 } [ %571, %570 ], [ %569, %568 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %25) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %707
 
 573:                                              ; preds = %57
@@ -4740,7 +4734,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br i1 %or.cond, label %577, label %593
 
 577:                                              ; preds = %573
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %578 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %579 = load ptr, ptr %578, align 8, !tbaa !116
   %580 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -4748,7 +4742,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   %582 = ptrtoint ptr %581 to i64
   %583 = ptrtoint ptr %579 to i64
   %584 = sub i64 %582, %583
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %27) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   invoke void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcEC2EPKcmRKS4_(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef %579, i64 noundef %584, ptr noundef nonnull align 1 dereferenceable(1) %27)
           to label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEC2EPKcmRKS5_.exit155 unwind label %588
 
@@ -4759,8 +4753,8 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 587:                                              ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEC2EPKcmRKS5_.exit155
   call void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #34
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %27) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE7compareEmmPKcm.exit.thread202
 
 588:                                              ; preds = %577
@@ -4776,8 +4770,8 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 592:                                              ; preds = %590, %588
   %.pn63 = phi { ptr, i32 } [ %591, %590 ], [ %589, %588 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %27) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %707
 
 593:                                              ; preds = %573
@@ -4793,9 +4787,9 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE7compareEmmPKcm.exit.thread202: ; preds = %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE7compareEmmPKcm.exit, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i, %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE4findEPKcm.exit, %587, %593, %548, %567, %458, %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit149, %311, %208, %211, %71, %75, %452, %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit133
   %.019 = phi i32 [ %60, %587 ], [ %60, %593 ], [ 134480252, %71 ], [ 134480252, %75 ], [ %60, %208 ], [ %60, %211 ], [ 545522049, %311 ], [ %60, %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit133 ], [ 1610613137, %452 ], [ %60, %458 ], [ %60, %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit149 ], [ 1343226253, %548 ], [ 1343226253, %567 ], [ %60, %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE4findEPKcm.exit ], [ %60, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i ], [ %spec.select, %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE7compareEmmPKcm.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %602 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %29) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %603 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %604 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %605 = load i64, ptr %604, align 8, !tbaa !53
@@ -4861,7 +4855,7 @@ _ZN5boost4wave4util13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1
           to label %.noexc157 unwind label %703
 
 .noexc157:                                        ; preds = %_ZN5boost4wave4util13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS6_EEPcEEEEEC2ERKSC_mm.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 8, !tbaa !119
   invoke void @_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEC2ENS0_8token_idERKSE_RKSG_RKNS_8optionalISG_EE(ptr noundef nonnull align 8 dereferenceable(76) %632, i32 noundef %.019, ptr noundef nonnull align 8 dereferenceable(8) %602, ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %633 unwind label %650
@@ -4899,12 +4893,12 @@ _ZN5boost4wave4util13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1
   %651 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost15optional_detail13optional_baseINS_4wave4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #34
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm(ptr noundef nonnull %632, i64 noundef 80) #34
   br label %.body
 
 652:                                              ; preds = %646, %643, %636, %633
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %632, ptr %28, align 8, !tbaa !82
   %653 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEEaSERKSG_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %28)
           to label %654 unwind label %705
@@ -4991,8 +4985,8 @@ _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt
   br label %_ZN5boost4wave4util13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS6_EEPcEEEEED2Ev.exit
 
 _ZN5boost4wave4util13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS6_EEPcEEEEED2Ev.exit: ; preds = %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit163, %679, %682
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %686 = getelementptr inbounds nuw i8, ptr %0, i64 177
   %687 = load i8, ptr %686, align 1, !tbaa !46, !range !14, !noundef !15
   %688 = trunc nuw i8 %687 to i1
@@ -5038,8 +5032,8 @@ _ZN5boost4wave4util13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1
 .body:                                            ; preds = %703, %650, %705
   %.pn65 = phi { ptr, i32 } [ %706, %705 ], [ %704, %703 ], [ %651, %650 ]
   call void @_ZN5boost4wave4util13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS6_EEPcEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #34
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %707
 
 _ZN5boost4wave8cpplexer14include_guardsINS1_9lex_tokenINS0_4util13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS9_EEPcEEEEEEEEE12detect_guardERSH_.exit: ; preds = %700, %_ZN5boost4wave4util13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS6_EEPcEEEEED2Ev.exit, %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit
@@ -5493,7 +5487,7 @@ define linkonce_odr noundef i32 @_ZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cx
   %299 = alloca %"struct.boost::wave::cpplexer::re2clex::uchar_wrapper", align 8
   %300 = alloca %"struct.boost::wave::cpplexer::re2clex::uchar_wrapper", align 8
   %301 = alloca %"struct.boost::wave::cpplexer::re2clex::uchar_wrapper", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %302 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %303 = load ptr, ptr %302, align 8, !tbaa !120
   %304 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5503,15 +5497,15 @@ define linkonce_odr noundef i32 @_ZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cx
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %306, ptr %307, align 8, !tbaa !78
   call void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %303, i64 noundef %306)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %309 = load ptr, ptr %308, align 8, !tbaa !123
   call void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %309, i64 noundef 1)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %310 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %311 = load ptr, ptr %310, align 8, !tbaa !124
   call void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %311, i64 noundef 1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %312 = call noalias noundef nonnull dereferenceable(25) ptr @_Znwm(i64 noundef 25) #31
   store ptr %312, ptr %5, align 8, !tbaa !28
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 17
@@ -5533,7 +5527,7 @@ define linkonce_odr noundef i32 @_ZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cx
 
 320:                                              ; preds = %318
   store ptr %319, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %321 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %322 unwind label %332
 
@@ -5549,23 +5543,23 @@ define linkonce_odr noundef i32 @_ZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cx
 
 327:                                              ; preds = %324
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %328 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %328, i64 noundef 1)
           to label %329 unwind label %334
 
 329:                                              ; preds = %327
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %330 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %330, i64 noundef 1)
           to label %331 unwind label %336
 
 331:                                              ; preds = %329
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %338
 
 .loopexit:                                        ; preds = %.lr.ph.i6094
@@ -5671,19 +5665,19 @@ define linkonce_odr noundef i32 @_ZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cx
 332:                                              ; preds = %324, %322, %320
   %333 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit.split-lp
 
 334:                                              ; preds = %327
   %335 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit.split-lp
 
 336:                                              ; preds = %329
   %337 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit.split-lp
 
 338:                                              ; preds = %331, %316
@@ -6043,7 +6037,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 461:                                              ; preds = %459
   store ptr %460, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %462 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %463 unwind label %472
 
@@ -6058,41 +6052,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 467:                                              ; preds = %465
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %468 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %468, i64 noundef 1)
           to label %469 unwind label %474
 
 469:                                              ; preds = %467
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %470 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %470, i64 noundef 1)
           to label %471 unwind label %476
 
 471:                                              ; preds = %469
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %478
 
 472:                                              ; preds = %465, %463, %461
   %473 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit.split-lp
 
 474:                                              ; preds = %467
   %475 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit.split-lp
 
 476:                                              ; preds = %469
   %477 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit.split-lp
 
 478:                                              ; preds = %471, %458
@@ -6508,7 +6502,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 691:                                              ; preds = %689
   store ptr %690, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %692 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %693 unwind label %703
 
@@ -6524,41 +6518,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 698:                                              ; preds = %695
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %699 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef %699, i64 noundef 1)
           to label %700 unwind label %705
 
 700:                                              ; preds = %698
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %701 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef %701, i64 noundef 1)
           to label %702 unwind label %707
 
 702:                                              ; preds = %700
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %709
 
 703:                                              ; preds = %695, %693, %691
   %704 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit.split-lp
 
 705:                                              ; preds = %698
   %706 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit.split-lp
 
 707:                                              ; preds = %700
   %708 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.loopexit.split-lp
 
 709:                                              ; preds = %702, %688
@@ -8363,7 +8357,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 1555:                                             ; preds = %1553
   store ptr %1554, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %1556 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %1557 unwind label %1567
 
@@ -8379,41 +8373,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 1562:                                             ; preds = %1559
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %1563 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef %1563, i64 noundef 1)
           to label %1564 unwind label %1569
 
 1564:                                             ; preds = %1562
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %1565 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %1565, i64 noundef 1)
           to label %1566 unwind label %1571
 
 1566:                                             ; preds = %1564
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %1573
 
 1567:                                             ; preds = %1559, %1557, %1555
   %1568 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.loopexit.split-lp
 
 1569:                                             ; preds = %1562
   %1570 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.loopexit.split-lp
 
 1571:                                             ; preds = %1564
   %1572 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.loopexit.split-lp
 
 1573:                                             ; preds = %1566, %1552
@@ -8996,7 +8990,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 1841:                                             ; preds = %1839
   store ptr %1840, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %1842 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %1843 unwind label %1852
 
@@ -9011,41 +9005,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 1847:                                             ; preds = %1845
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %1848 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef %1848, i64 noundef 1)
           to label %1849 unwind label %1854
 
 1849:                                             ; preds = %1847
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %1850 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef %1850, i64 noundef 1)
           to label %1851 unwind label %1856
 
 1851:                                             ; preds = %1849
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %1858
 
 1852:                                             ; preds = %1845, %1843, %1841
   %1853 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.loopexit.split-lp
 
 1854:                                             ; preds = %1847
   %1855 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %.loopexit.split-lp
 
 1856:                                             ; preds = %1849
   %1857 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.loopexit.split-lp
 
 1858:                                             ; preds = %1851, %1838
@@ -9095,7 +9089,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 1879:                                             ; preds = %1877
   store ptr %1878, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %1880 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %1881 unwind label %1891
 
@@ -9111,41 +9105,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 1886:                                             ; preds = %1883
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %1887 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef %1887, i64 noundef 1)
           to label %1888 unwind label %1893
 
 1888:                                             ; preds = %1886
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %22, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %1889 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef %1889, i64 noundef 1)
           to label %1890 unwind label %1895
 
 1890:                                             ; preds = %1888
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %1897
 
 1891:                                             ; preds = %1883, %1881, %1879
   %1892 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %.loopexit.split-lp
 
 1893:                                             ; preds = %1886
   %1894 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %.loopexit.split-lp
 
 1895:                                             ; preds = %1888
   %1896 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %.loopexit.split-lp
 
 1897:                                             ; preds = %1890, %1876
@@ -9244,7 +9238,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 1934:                                             ; preds = %1932
   store ptr %1933, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %1935 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %1936 unwind label %1945
 
@@ -9259,41 +9253,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 1940:                                             ; preds = %1938
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %1941 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef %1941, i64 noundef 1)
           to label %1942 unwind label %1947
 
 1942:                                             ; preds = %1940
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %1943 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef %1943, i64 noundef 1)
           to label %1944 unwind label %1949
 
 1944:                                             ; preds = %1942
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %1951
 
 1945:                                             ; preds = %1938, %1936, %1934
   %1946 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %.loopexit.split-lp
 
 1947:                                             ; preds = %1940
   %1948 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %.loopexit.split-lp
 
 1949:                                             ; preds = %1942
   %1950 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %.loopexit.split-lp
 
 1951:                                             ; preds = %1944, %1930
@@ -9435,7 +9429,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 2015:                                             ; preds = %2013
   store ptr %2014, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %2016 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %2017 unwind label %2026
 
@@ -9450,41 +9444,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 2021:                                             ; preds = %2019
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %2022 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef %2022, i64 noundef 1)
           to label %2023 unwind label %2028
 
 2023:                                             ; preds = %2021
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %2024 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef %2024, i64 noundef 1)
           to label %2025 unwind label %2030
 
 2025:                                             ; preds = %2023
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %29, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %2032
 
 2026:                                             ; preds = %2019, %2017, %2015
   %2027 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %.loopexit.split-lp
 
 2028:                                             ; preds = %2021
   %2029 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %.loopexit.split-lp
 
 2030:                                             ; preds = %2023
   %2031 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %.loopexit.split-lp
 
 2032:                                             ; preds = %2025, %2012
@@ -9638,7 +9632,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 2101:                                             ; preds = %2099
   store ptr %2100, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %2102 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %2103 unwind label %2113
 
@@ -9654,41 +9648,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 2108:                                             ; preds = %2105
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %2109 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef %2109, i64 noundef 1)
           to label %2110 unwind label %2115
 
 2110:                                             ; preds = %2108
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %2111 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef %2111, i64 noundef 1)
           to label %2112 unwind label %2117
 
 2112:                                             ; preds = %2110
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %2119
 
 2113:                                             ; preds = %2105, %2103, %2101
   %2114 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %.loopexit.split-lp
 
 2115:                                             ; preds = %2108
   %2116 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %.loopexit.split-lp
 
 2117:                                             ; preds = %2110
   %2118 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %.loopexit.split-lp
 
 2119:                                             ; preds = %2112, %2098
@@ -9722,7 +9716,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 2132:                                             ; preds = %2130
   store ptr %2131, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %2133 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %2134 unwind label %2144
 
@@ -9738,41 +9732,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 2139:                                             ; preds = %2136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %2140 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef %2140, i64 noundef 1)
           to label %2141 unwind label %2146
 
 2141:                                             ; preds = %2139
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %34, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %2142 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef %2142, i64 noundef 1)
           to label %2143 unwind label %2148
 
 2143:                                             ; preds = %2141
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %2150
 
 2144:                                             ; preds = %2136, %2134, %2132
   %2145 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %.loopexit.split-lp
 
 2146:                                             ; preds = %2139
   %2147 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %.loopexit.split-lp
 
 2148:                                             ; preds = %2141
   %2149 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %.loopexit.split-lp
 
 2150:                                             ; preds = %2143, %2129
@@ -10091,7 +10085,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 2305:                                             ; preds = %2303
   store ptr %2304, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %2306 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %2307 unwind label %2316
 
@@ -10106,41 +10100,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 2311:                                             ; preds = %2309
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %2312 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef %2312, i64 noundef 1)
           to label %2313 unwind label %2318
 
 2313:                                             ; preds = %2311
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %38) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %2314 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef %2314, i64 noundef 1)
           to label %2315 unwind label %2320
 
 2315:                                             ; preds = %2313
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %2322
 
 2316:                                             ; preds = %2309, %2307, %2305
   %2317 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %.loopexit.split-lp
 
 2318:                                             ; preds = %2311
   %2319 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %.loopexit.split-lp
 
 2320:                                             ; preds = %2313
   %2321 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %.loopexit.split-lp
 
 2322:                                             ; preds = %2315, %2302
@@ -10195,7 +10189,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 2343:                                             ; preds = %2341
   store ptr %2342, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %2344 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %2345 unwind label %2354
 
@@ -10210,41 +10204,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 2349:                                             ; preds = %2347
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %2350 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef %2350, i64 noundef 1)
           to label %2351 unwind label %2356
 
 2351:                                             ; preds = %2349
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %2352 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef %2352, i64 noundef 1)
           to label %2353 unwind label %2358
 
 2353:                                             ; preds = %2351
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %41, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %2360
 
 2354:                                             ; preds = %2347, %2345, %2343
   %2355 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %.loopexit.split-lp
 
 2356:                                             ; preds = %2349
   %2357 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %.loopexit.split-lp
 
 2358:                                             ; preds = %2351
   %2359 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %.loopexit.split-lp
 
 2360:                                             ; preds = %2353, %2340
@@ -10294,7 +10288,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 2381:                                             ; preds = %2379
   store ptr %2380, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   %2382 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %2383 unwind label %2392
 
@@ -10309,41 +10303,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 2387:                                             ; preds = %2385
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %43) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %2388 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef %2388, i64 noundef 1)
           to label %2389 unwind label %2394
 
 2389:                                             ; preds = %2387
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %43, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   %2390 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef %2390, i64 noundef 1)
           to label %2391 unwind label %2396
 
 2391:                                             ; preds = %2389
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %2398
 
 2392:                                             ; preds = %2385, %2383, %2381
   %2393 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %.loopexit.split-lp
 
 2394:                                             ; preds = %2387
   %2395 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %.loopexit.split-lp
 
 2396:                                             ; preds = %2389
   %2397 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %.loopexit.split-lp
 
 2398:                                             ; preds = %2391, %2378
@@ -11515,7 +11509,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 2991:                                             ; preds = %2989
   store ptr %2990, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   %2992 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %2993 unwind label %3003
 
@@ -11531,41 +11525,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 2998:                                             ; preds = %2995
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %45, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %46) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   %2999 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef %2999, i64 noundef 1)
           to label %3000 unwind label %3005
 
 3000:                                             ; preds = %2998
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %46, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %47) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   %3001 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef %3001, i64 noundef 1)
           to label %3002 unwind label %3007
 
 3002:                                             ; preds = %3000
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %47, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %3009
 
 3003:                                             ; preds = %2995, %2993, %2991
   %3004 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %.loopexit.split-lp
 
 3005:                                             ; preds = %2998
   %3006 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %.loopexit.split-lp
 
 3007:                                             ; preds = %3000
   %3008 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %.loopexit.split-lp
 
 3009:                                             ; preds = %3002, %2988
@@ -11611,7 +11605,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3027:                                             ; preds = %3025
   store ptr %3026, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %48) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   %3028 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %3029 unwind label %3039
 
@@ -11627,41 +11621,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3034:                                             ; preds = %3031
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   %3035 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef %3035, i64 noundef 1)
           to label %3036 unwind label %3041
 
 3036:                                             ; preds = %3034
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %49, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   %3037 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef %3037, i64 noundef 1)
           to label %3038 unwind label %3043
 
 3038:                                             ; preds = %3036
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %50, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   br label %3045
 
 3039:                                             ; preds = %3031, %3029, %3027
   %3040 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %.loopexit.split-lp
 
 3041:                                             ; preds = %3034
   %3042 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %.loopexit.split-lp
 
 3043:                                             ; preds = %3036
   %3044 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   br label %.loopexit.split-lp
 
 3045:                                             ; preds = %3038, %3024
@@ -12901,7 +12895,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3600:                                             ; preds = %3598
   store ptr %3599, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %51) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   %3601 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %3602 unwind label %3611
 
@@ -12916,41 +12910,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3606:                                             ; preds = %3604
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %51, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %51) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %52) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   %3607 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef %3607, i64 noundef 1)
           to label %3608 unwind label %3613
 
 3608:                                             ; preds = %3606
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %52, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %52) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %53) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
   %3609 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef %3609, i64 noundef 1)
           to label %3610 unwind label %3615
 
 3610:                                             ; preds = %3608
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %53, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %53) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %3617
 
 3611:                                             ; preds = %3604, %3602, %3600
   %3612 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %51) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   br label %.loopexit.split-lp
 
 3613:                                             ; preds = %3606
   %3614 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %52) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %.loopexit.split-lp
 
 3615:                                             ; preds = %3608
   %3616 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %53) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %.loopexit.split-lp
 
 3617:                                             ; preds = %3610, %3597
@@ -13018,7 +13012,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3646:                                             ; preds = %3644
   store ptr %3645, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %54) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   %3647 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %3648 unwind label %3658
 
@@ -13034,41 +13028,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3653:                                             ; preds = %3650
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %55) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   %3654 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef %3654, i64 noundef 1)
           to label %3655 unwind label %3660
 
 3655:                                             ; preds = %3653
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %56) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
   %3656 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef %3656, i64 noundef 1)
           to label %3657 unwind label %3662
 
 3657:                                             ; preds = %3655
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %56) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %3664
 
 3658:                                             ; preds = %3650, %3648, %3646
   %3659 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br label %.loopexit.split-lp
 
 3660:                                             ; preds = %3653
   %3661 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   br label %.loopexit.split-lp
 
 3662:                                             ; preds = %3655
   %3663 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %56) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %.loopexit.split-lp
 
 3664:                                             ; preds = %3657, %3643
@@ -13113,7 +13107,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3682:                                             ; preds = %3680
   store ptr %3681, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %57) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   %3683 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %3684 unwind label %3694
 
@@ -13129,41 +13123,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3689:                                             ; preds = %3686
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %57) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %58) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
   %3690 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef %3690, i64 noundef 1)
           to label %3691 unwind label %3696
 
 3691:                                             ; preds = %3689
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %58, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %58) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %59) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   %3692 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef %3692, i64 noundef 1)
           to label %3693 unwind label %3698
 
 3693:                                             ; preds = %3691
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %59, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %59) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   br label %3700
 
 3694:                                             ; preds = %3686, %3684, %3682
   %3695 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %57) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br label %.loopexit.split-lp
 
 3696:                                             ; preds = %3689
   %3697 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %58) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %.loopexit.split-lp
 
 3698:                                             ; preds = %3691
   %3699 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %59) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   br label %.loopexit.split-lp
 
 3700:                                             ; preds = %3693, %3679
@@ -13208,7 +13202,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3718:                                             ; preds = %3716
   store ptr %3717, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %60) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
   %3719 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %3720 unwind label %3730
 
@@ -13224,41 +13218,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3725:                                             ; preds = %3722
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %60, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %60) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %61) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   %3726 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef %3726, i64 noundef 1)
           to label %3727 unwind label %3732
 
 3727:                                             ; preds = %3725
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %61, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %61) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %62) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
   %3728 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef %3728, i64 noundef 1)
           to label %3729 unwind label %3734
 
 3729:                                             ; preds = %3727
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
   br label %3736
 
 3730:                                             ; preds = %3722, %3720, %3718
   %3731 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %60) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   br label %.loopexit.split-lp
 
 3732:                                             ; preds = %3725
   %3733 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %61) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
   br label %.loopexit.split-lp
 
 3734:                                             ; preds = %3727
   %3735 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
   br label %.loopexit.split-lp
 
 3736:                                             ; preds = %3729, %3715
@@ -13303,7 +13297,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3753:                                             ; preds = %3751
   store ptr %3752, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %63) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
   %3754 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %3755 unwind label %3764
 
@@ -13318,41 +13312,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3759:                                             ; preds = %3757
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %63, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %63) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %64) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
   %3760 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef %3760, i64 noundef 1)
           to label %3761 unwind label %3766
 
 3761:                                             ; preds = %3759
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %64, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %64) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %65) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
   %3762 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef %3762, i64 noundef 1)
           to label %3763 unwind label %3768
 
 3763:                                             ; preds = %3761
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %65, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %65) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
   br label %3770
 
 3764:                                             ; preds = %3757, %3755, %3753
   %3765 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %63) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
   br label %.loopexit.split-lp
 
 3766:                                             ; preds = %3759
   %3767 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %64) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
   br label %.loopexit.split-lp
 
 3768:                                             ; preds = %3761
   %3769 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %65) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
   br label %.loopexit.split-lp
 
 3770:                                             ; preds = %3763, %3750
@@ -13583,7 +13577,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3878:                                             ; preds = %3876
   store ptr %3877, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %66) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
   %3879 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %3880 unwind label %3890
 
@@ -13599,41 +13593,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3885:                                             ; preds = %3882
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %66, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %66) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %67) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
   %3886 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef %3886, i64 noundef 1)
           to label %3887 unwind label %3892
 
 3887:                                             ; preds = %3885
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %67, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %67) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %68) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
   %3888 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef %3888, i64 noundef 1)
           to label %3889 unwind label %3894
 
 3889:                                             ; preds = %3887
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %68, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %68) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
   br label %3896
 
 3890:                                             ; preds = %3882, %3880, %3878
   %3891 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %66) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
   br label %.loopexit.split-lp
 
 3892:                                             ; preds = %3885
   %3893 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %67) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
   br label %.loopexit.split-lp
 
 3894:                                             ; preds = %3887
   %3895 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %68) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
   br label %.loopexit.split-lp
 
 3896:                                             ; preds = %3889, %3875
@@ -13720,7 +13714,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3934:                                             ; preds = %3932
   store ptr %3933, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %69) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
   %3935 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %3936 unwind label %3945
 
@@ -13735,41 +13729,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3940:                                             ; preds = %3938
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %69) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %70) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
   %3941 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef %3941, i64 noundef 1)
           to label %3942 unwind label %3947
 
 3942:                                             ; preds = %3940
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %70, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %70) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %71) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
   %3943 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef %3943, i64 noundef 1)
           to label %3944 unwind label %3949
 
 3944:                                             ; preds = %3942
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %71, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %71) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
   br label %3951
 
 3945:                                             ; preds = %3938, %3936, %3934
   %3946 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %69) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
   br label %.loopexit.split-lp
 
 3947:                                             ; preds = %3940
   %3948 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %70) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
   br label %.loopexit.split-lp
 
 3949:                                             ; preds = %3942
   %3950 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %71) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
   br label %.loopexit.split-lp
 
 3951:                                             ; preds = %3944, %3931
@@ -13836,7 +13830,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3978:                                             ; preds = %3976
   store ptr %3977, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %72) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
   %3979 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %3980 unwind label %3989
 
@@ -13851,41 +13845,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3984:                                             ; preds = %3982
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %72) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %73) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
   %3985 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef %3985, i64 noundef 1)
           to label %3986 unwind label %3991
 
 3986:                                             ; preds = %3984
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %73, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %73) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %74) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
   %3987 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef %3987, i64 noundef 1)
           to label %3988 unwind label %3993
 
 3988:                                             ; preds = %3986
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %74, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %74) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
   br label %3995
 
 3989:                                             ; preds = %3982, %3980, %3978
   %3990 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %72) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
   br label %.loopexit.split-lp
 
 3991:                                             ; preds = %3984
   %3992 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %73) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
   br label %.loopexit.split-lp
 
 3993:                                             ; preds = %3986
   %3994 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %74) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
   br label %.loopexit.split-lp
 
 3995:                                             ; preds = %3988, %3975
@@ -13930,7 +13924,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 4013:                                             ; preds = %4011
   store ptr %4012, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %75) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
   %4014 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %4015 unwind label %4024
 
@@ -13945,41 +13939,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 4019:                                             ; preds = %4017
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %75, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %75) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %76) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
   %4020 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef %4020, i64 noundef 1)
           to label %4021 unwind label %4026
 
 4021:                                             ; preds = %4019
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %76, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %76) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %77) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
   %4022 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef %4022, i64 noundef 1)
           to label %4023 unwind label %4028
 
 4023:                                             ; preds = %4021
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %77, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %77) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
   br label %4030
 
 4024:                                             ; preds = %4017, %4015, %4013
   %4025 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %75) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
   br label %.loopexit.split-lp
 
 4026:                                             ; preds = %4019
   %4027 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %76) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
   br label %.loopexit.split-lp
 
 4028:                                             ; preds = %4021
   %4029 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %77) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
   br label %.loopexit.split-lp
 
 4030:                                             ; preds = %4023, %4010
@@ -14024,7 +14018,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 4048:                                             ; preds = %4046
   store ptr %4047, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %78) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
   %4049 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %4050 unwind label %4059
 
@@ -14039,41 +14033,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 4054:                                             ; preds = %4052
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %78, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %78) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %79) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
   %4055 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef %4055, i64 noundef 1)
           to label %4056 unwind label %4061
 
 4056:                                             ; preds = %4054
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %79, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %79) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %80) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
   %4057 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef %4057, i64 noundef 1)
           to label %4058 unwind label %4063
 
 4058:                                             ; preds = %4056
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %80, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %80) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
   br label %4065
 
 4059:                                             ; preds = %4052, %4050, %4048
   %4060 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %78) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
   br label %.loopexit.split-lp
 
 4061:                                             ; preds = %4054
   %4062 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %79) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
   br label %.loopexit.split-lp
 
 4063:                                             ; preds = %4056
   %4064 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %80) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
   br label %.loopexit.split-lp
 
 4065:                                             ; preds = %4058, %4045
@@ -14973,7 +14967,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 4519:                                             ; preds = %4517
   store ptr %4518, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %81) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %81)
   %4520 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %4521 unwind label %4531
 
@@ -14989,41 +14983,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 4526:                                             ; preds = %4523
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %81, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %81) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %82) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
+  call void @llvm.lifetime.start.p0(ptr nonnull %82)
   %4527 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef %4527, i64 noundef 1)
           to label %4528 unwind label %4533
 
 4528:                                             ; preds = %4526
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %82, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %82) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %83) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
+  call void @llvm.lifetime.start.p0(ptr nonnull %83)
   %4529 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %83, ptr noundef %4529, i64 noundef 1)
           to label %4530 unwind label %4535
 
 4530:                                             ; preds = %4528
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %83, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %83) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
   br label %4537
 
 4531:                                             ; preds = %4523, %4521, %4519
   %4532 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %81) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
   br label %.loopexit.split-lp
 
 4533:                                             ; preds = %4526
   %4534 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %82) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
   br label %.loopexit.split-lp
 
 4535:                                             ; preds = %4528
   %4536 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %83) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
   br label %.loopexit.split-lp
 
 4537:                                             ; preds = %4530, %4516
@@ -15068,7 +15062,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 4555:                                             ; preds = %4553
   store ptr %4554, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %84) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %84)
   %4556 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %4557 unwind label %4567
 
@@ -15084,41 +15078,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 4562:                                             ; preds = %4559
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %84, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %84) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %85) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
+  call void @llvm.lifetime.start.p0(ptr nonnull %85)
   %4563 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef %4563, i64 noundef 1)
           to label %4564 unwind label %4569
 
 4564:                                             ; preds = %4562
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %85, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %85) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %86) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
+  call void @llvm.lifetime.start.p0(ptr nonnull %86)
   %4565 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef %4565, i64 noundef 1)
           to label %4566 unwind label %4571
 
 4566:                                             ; preds = %4564
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %86) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
   br label %4573
 
 4567:                                             ; preds = %4559, %4557, %4555
   %4568 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %84) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
   br label %.loopexit.split-lp
 
 4569:                                             ; preds = %4562
   %4570 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %85) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
   br label %.loopexit.split-lp
 
 4571:                                             ; preds = %4564
   %4572 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %86) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
   br label %.loopexit.split-lp
 
 4573:                                             ; preds = %4566, %4552
@@ -16728,7 +16722,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5330:                                             ; preds = %5328
   store ptr %5329, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %87) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %87)
   %5331 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %5332 unwind label %5341
 
@@ -16743,41 +16737,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5336:                                             ; preds = %5334
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %87, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %87) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %88) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
+  call void @llvm.lifetime.start.p0(ptr nonnull %88)
   %5337 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef %5337, i64 noundef 1)
           to label %5338 unwind label %5343
 
 5338:                                             ; preds = %5336
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %88, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %88) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %89) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
+  call void @llvm.lifetime.start.p0(ptr nonnull %89)
   %5339 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef %5339, i64 noundef 1)
           to label %5340 unwind label %5345
 
 5340:                                             ; preds = %5338
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %89, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %89) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
   br label %5347
 
 5341:                                             ; preds = %5334, %5332, %5330
   %5342 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %87) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
   br label %.loopexit.split-lp
 
 5343:                                             ; preds = %5336
   %5344 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %88) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
   br label %.loopexit.split-lp
 
 5345:                                             ; preds = %5338
   %5346 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %89) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
   br label %.loopexit.split-lp
 
 5347:                                             ; preds = %5340, %5327
@@ -16826,7 +16820,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5369:                                             ; preds = %5367
   store ptr %5368, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %90) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %90)
   %5370 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %5371 unwind label %5381
 
@@ -16842,41 +16836,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5376:                                             ; preds = %5373
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %90, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %90) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %91) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
+  call void @llvm.lifetime.start.p0(ptr nonnull %91)
   %5377 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef %5377, i64 noundef 1)
           to label %5378 unwind label %5383
 
 5378:                                             ; preds = %5376
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %91, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %91) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %92) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
+  call void @llvm.lifetime.start.p0(ptr nonnull %92)
   %5379 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %92, ptr noundef %5379, i64 noundef 1)
           to label %5380 unwind label %5385
 
 5380:                                             ; preds = %5378
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %92, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %92) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
   br label %5387
 
 5381:                                             ; preds = %5373, %5371, %5369
   %5382 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %90) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
   br label %.loopexit.split-lp
 
 5383:                                             ; preds = %5376
   %5384 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %91) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
   br label %.loopexit.split-lp
 
 5385:                                             ; preds = %5378
   %5386 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %92) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
   br label %.loopexit.split-lp
 
 5387:                                             ; preds = %5380, %5366
@@ -16921,7 +16915,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5405:                                             ; preds = %5403
   store ptr %5404, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %93) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %93)
   %5406 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %5407 unwind label %5417
 
@@ -16937,41 +16931,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5412:                                             ; preds = %5409
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %93, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %93) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %94) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
+  call void @llvm.lifetime.start.p0(ptr nonnull %94)
   %5413 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef %5413, i64 noundef 1)
           to label %5414 unwind label %5419
 
 5414:                                             ; preds = %5412
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %94, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %94) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %95) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %94)
+  call void @llvm.lifetime.start.p0(ptr nonnull %95)
   %5415 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef %5415, i64 noundef 1)
           to label %5416 unwind label %5421
 
 5416:                                             ; preds = %5414
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %95, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %95) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
   br label %5423
 
 5417:                                             ; preds = %5409, %5407, %5405
   %5418 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %93) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
   br label %.loopexit.split-lp
 
 5419:                                             ; preds = %5412
   %5420 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %94) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %94)
   br label %.loopexit.split-lp
 
 5421:                                             ; preds = %5414
   %5422 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %95) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
   br label %.loopexit.split-lp
 
 5423:                                             ; preds = %5416, %5402
@@ -17016,7 +17010,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5440:                                             ; preds = %5438
   store ptr %5439, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %96) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %96)
   %5441 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %5442 unwind label %5451
 
@@ -17031,41 +17025,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5446:                                             ; preds = %5444
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %96, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %96) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %97) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
+  call void @llvm.lifetime.start.p0(ptr nonnull %97)
   %5447 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef %5447, i64 noundef 1)
           to label %5448 unwind label %5453
 
 5448:                                             ; preds = %5446
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %97, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %97) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %98) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
+  call void @llvm.lifetime.start.p0(ptr nonnull %98)
   %5449 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef %5449, i64 noundef 1)
           to label %5450 unwind label %5455
 
 5450:                                             ; preds = %5448
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %98, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %98) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
   br label %5457
 
 5451:                                             ; preds = %5444, %5442, %5440
   %5452 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %96) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
   br label %.loopexit.split-lp
 
 5453:                                             ; preds = %5446
   %5454 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %97) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
   br label %.loopexit.split-lp
 
 5455:                                             ; preds = %5448
   %5456 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %98) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
   br label %.loopexit.split-lp
 
 5457:                                             ; preds = %5450, %5437
@@ -17357,7 +17351,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5599:                                             ; preds = %5597
   store ptr %5598, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %99) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %99)
   %5600 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %5601 unwind label %5610
 
@@ -17372,41 +17366,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5605:                                             ; preds = %5603
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %99, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %99) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %100) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
+  call void @llvm.lifetime.start.p0(ptr nonnull %100)
   %5606 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %100, ptr noundef %5606, i64 noundef 1)
           to label %5607 unwind label %5612
 
 5607:                                             ; preds = %5605
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %100, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %100) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %101) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
+  call void @llvm.lifetime.start.p0(ptr nonnull %101)
   %5608 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef %5608, i64 noundef 1)
           to label %5609 unwind label %5614
 
 5609:                                             ; preds = %5607
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %101) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
   br label %5616
 
 5610:                                             ; preds = %5603, %5601, %5599
   %5611 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %99) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
   br label %.loopexit.split-lp
 
 5612:                                             ; preds = %5605
   %5613 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %100) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
   br label %.loopexit.split-lp
 
 5614:                                             ; preds = %5607
   %5615 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %101) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
   br label %.loopexit.split-lp
 
 5616:                                             ; preds = %5609, %5596
@@ -17455,7 +17449,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5638:                                             ; preds = %5636
   store ptr %5637, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %102) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %102)
   %5639 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %5640 unwind label %5649
 
@@ -17470,41 +17464,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5644:                                             ; preds = %5642
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %102, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %102) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %103) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %102)
+  call void @llvm.lifetime.start.p0(ptr nonnull %103)
   %5645 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef %5645, i64 noundef 1)
           to label %5646 unwind label %5651
 
 5646:                                             ; preds = %5644
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %103, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %103) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %104) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %103)
+  call void @llvm.lifetime.start.p0(ptr nonnull %104)
   %5647 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %104, ptr noundef %5647, i64 noundef 1)
           to label %5648 unwind label %5653
 
 5648:                                             ; preds = %5646
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %104, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %104) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %104)
   br label %5655
 
 5649:                                             ; preds = %5642, %5640, %5638
   %5650 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %102) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %102)
   br label %.loopexit.split-lp
 
 5651:                                             ; preds = %5644
   %5652 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %103) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %103)
   br label %.loopexit.split-lp
 
 5653:                                             ; preds = %5646
   %5654 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %104) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %104)
   br label %.loopexit.split-lp
 
 5655:                                             ; preds = %5648, %5635
@@ -17549,7 +17543,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5673:                                             ; preds = %5671
   store ptr %5672, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %105) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %105)
   %5674 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %5675 unwind label %5684
 
@@ -17564,41 +17558,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5679:                                             ; preds = %5677
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %105, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %105) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %106) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
+  call void @llvm.lifetime.start.p0(ptr nonnull %106)
   %5680 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %106, ptr noundef %5680, i64 noundef 1)
           to label %5681 unwind label %5686
 
 5681:                                             ; preds = %5679
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %106, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %106) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %107) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
+  call void @llvm.lifetime.start.p0(ptr nonnull %107)
   %5682 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef %5682, i64 noundef 1)
           to label %5683 unwind label %5688
 
 5683:                                             ; preds = %5681
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %107, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %107) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %107)
   br label %5690
 
 5684:                                             ; preds = %5677, %5675, %5673
   %5685 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %105) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
   br label %.loopexit.split-lp
 
 5686:                                             ; preds = %5679
   %5687 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %106) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
   br label %.loopexit.split-lp
 
 5688:                                             ; preds = %5681
   %5689 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %107) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %107)
   br label %.loopexit.split-lp
 
 5690:                                             ; preds = %5683, %5670
@@ -17835,7 +17829,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5808:                                             ; preds = %5806
   store ptr %5807, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %108) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %108)
   %5809 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %5810 unwind label %5820
 
@@ -17851,41 +17845,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5815:                                             ; preds = %5812
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %108, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %108) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %109) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %108)
+  call void @llvm.lifetime.start.p0(ptr nonnull %109)
   %5816 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %109, ptr noundef %5816, i64 noundef 1)
           to label %5817 unwind label %5822
 
 5817:                                             ; preds = %5815
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %109, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %109) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %110) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %109)
+  call void @llvm.lifetime.start.p0(ptr nonnull %110)
   %5818 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef %5818, i64 noundef 1)
           to label %5819 unwind label %5824
 
 5819:                                             ; preds = %5817
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %110, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %110) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %110)
   br label %5826
 
 5820:                                             ; preds = %5812, %5810, %5808
   %5821 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %108) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %108)
   br label %.loopexit.split-lp
 
 5822:                                             ; preds = %5815
   %5823 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %109) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %109)
   br label %.loopexit.split-lp
 
 5824:                                             ; preds = %5817
   %5825 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %110) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %110)
   br label %.loopexit.split-lp
 
 5826:                                             ; preds = %5819, %5805
@@ -17930,7 +17924,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5844:                                             ; preds = %5842
   store ptr %5843, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %111) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %111)
   %5845 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %5846 unwind label %5856
 
@@ -17946,41 +17940,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5851:                                             ; preds = %5848
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %111, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %111) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %112) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %111)
+  call void @llvm.lifetime.start.p0(ptr nonnull %112)
   %5852 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %112, ptr noundef %5852, i64 noundef 1)
           to label %5853 unwind label %5858
 
 5853:                                             ; preds = %5851
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %112, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %112) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %113) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %112)
+  call void @llvm.lifetime.start.p0(ptr nonnull %113)
   %5854 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %113, ptr noundef %5854, i64 noundef 1)
           to label %5855 unwind label %5860
 
 5855:                                             ; preds = %5853
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %113, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %113) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %113)
   br label %5862
 
 5856:                                             ; preds = %5848, %5846, %5844
   %5857 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %111) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %111)
   br label %.loopexit.split-lp
 
 5858:                                             ; preds = %5851
   %5859 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %112) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %112)
   br label %.loopexit.split-lp
 
 5860:                                             ; preds = %5853
   %5861 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %113) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %113)
   br label %.loopexit.split-lp
 
 5862:                                             ; preds = %5855, %5841
@@ -19784,7 +19778,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 6713:                                             ; preds = %6711
   store ptr %6712, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %114) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %114)
   %6714 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %6715 unwind label %6724
 
@@ -19799,41 +19793,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 6719:                                             ; preds = %6717
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %114, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %114) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %115) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %114)
+  call void @llvm.lifetime.start.p0(ptr nonnull %115)
   %6720 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %115, ptr noundef %6720, i64 noundef 1)
           to label %6721 unwind label %6726
 
 6721:                                             ; preds = %6719
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %115, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %115) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %116) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %115)
+  call void @llvm.lifetime.start.p0(ptr nonnull %116)
   %6722 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %116, ptr noundef %6722, i64 noundef 1)
           to label %6723 unwind label %6728
 
 6723:                                             ; preds = %6721
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %116, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %116) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %116)
   br label %6730
 
 6724:                                             ; preds = %6717, %6715, %6713
   %6725 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %114) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %114)
   br label %.loopexit.split-lp
 
 6726:                                             ; preds = %6719
   %6727 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %115) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %115)
   br label %.loopexit.split-lp
 
 6728:                                             ; preds = %6721
   %6729 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %116) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %116)
   br label %.loopexit.split-lp
 
 6730:                                             ; preds = %6723, %6710
@@ -19886,7 +19880,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 6752:                                             ; preds = %6750
   store ptr %6751, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %117) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %117)
   %6753 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %6754 unwind label %6764
 
@@ -19902,41 +19896,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 6759:                                             ; preds = %6756
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %117) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %118) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %117)
+  call void @llvm.lifetime.start.p0(ptr nonnull %118)
   %6760 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %118, ptr noundef %6760, i64 noundef 1)
           to label %6761 unwind label %6766
 
 6761:                                             ; preds = %6759
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %118, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %118) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %119) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %118)
+  call void @llvm.lifetime.start.p0(ptr nonnull %119)
   %6762 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %119, ptr noundef %6762, i64 noundef 1)
           to label %6763 unwind label %6768
 
 6763:                                             ; preds = %6761
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %119, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %119) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %119)
   br label %6770
 
 6764:                                             ; preds = %6756, %6754, %6752
   %6765 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %117) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %117)
   br label %.loopexit.split-lp
 
 6766:                                             ; preds = %6759
   %6767 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %118) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %118)
   br label %.loopexit.split-lp
 
 6768:                                             ; preds = %6761
   %6769 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %119) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %119)
   br label %.loopexit.split-lp
 
 6770:                                             ; preds = %6763, %6749
@@ -19981,7 +19975,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 6788:                                             ; preds = %6786
   store ptr %6787, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %120) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %120)
   %6789 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %6790 unwind label %6800
 
@@ -19997,41 +19991,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 6795:                                             ; preds = %6792
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %120, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %120) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %121) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %120)
+  call void @llvm.lifetime.start.p0(ptr nonnull %121)
   %6796 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %121, ptr noundef %6796, i64 noundef 1)
           to label %6797 unwind label %6802
 
 6797:                                             ; preds = %6795
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %121, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %121) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %122) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %121)
+  call void @llvm.lifetime.start.p0(ptr nonnull %122)
   %6798 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %122, ptr noundef %6798, i64 noundef 1)
           to label %6799 unwind label %6804
 
 6799:                                             ; preds = %6797
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %122, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %122) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %122)
   br label %6806
 
 6800:                                             ; preds = %6792, %6790, %6788
   %6801 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %120) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %120)
   br label %.loopexit.split-lp
 
 6802:                                             ; preds = %6795
   %6803 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %121) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %121)
   br label %.loopexit.split-lp
 
 6804:                                             ; preds = %6797
   %6805 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %122) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %122)
   br label %.loopexit.split-lp
 
 6806:                                             ; preds = %6799, %6785
@@ -20332,7 +20326,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 6953:                                             ; preds = %6951
   store ptr %6952, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %123) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %123)
   %6954 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %6955 unwind label %6964
 
@@ -20347,41 +20341,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 6959:                                             ; preds = %6957
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %123, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %123) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %124) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %123)
+  call void @llvm.lifetime.start.p0(ptr nonnull %124)
   %6960 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %124, ptr noundef %6960, i64 noundef 1)
           to label %6961 unwind label %6966
 
 6961:                                             ; preds = %6959
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %124, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %124) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %125) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %124)
+  call void @llvm.lifetime.start.p0(ptr nonnull %125)
   %6962 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %125, ptr noundef %6962, i64 noundef 1)
           to label %6963 unwind label %6968
 
 6963:                                             ; preds = %6961
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %125, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %125) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %125)
   br label %6970
 
 6964:                                             ; preds = %6957, %6955, %6953
   %6965 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %123) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %123)
   br label %.loopexit.split-lp
 
 6966:                                             ; preds = %6959
   %6967 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %124) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %124)
   br label %.loopexit.split-lp
 
 6968:                                             ; preds = %6961
   %6969 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %125) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %125)
   br label %.loopexit.split-lp
 
 6970:                                             ; preds = %6963, %6950
@@ -20430,7 +20424,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 6992:                                             ; preds = %6990
   store ptr %6991, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %126) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %126)
   %6993 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %6994 unwind label %7003
 
@@ -20445,41 +20439,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 6998:                                             ; preds = %6996
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %126, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %126) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %127) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %126)
+  call void @llvm.lifetime.start.p0(ptr nonnull %127)
   %6999 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %127, ptr noundef %6999, i64 noundef 1)
           to label %7000 unwind label %7005
 
 7000:                                             ; preds = %6998
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %127) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %128) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %127)
+  call void @llvm.lifetime.start.p0(ptr nonnull %128)
   %7001 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %128, ptr noundef %7001, i64 noundef 1)
           to label %7002 unwind label %7007
 
 7002:                                             ; preds = %7000
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %128, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %128) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %128)
   br label %7009
 
 7003:                                             ; preds = %6996, %6994, %6992
   %7004 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %126) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %126)
   br label %.loopexit.split-lp
 
 7005:                                             ; preds = %6998
   %7006 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %127) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %127)
   br label %.loopexit.split-lp
 
 7007:                                             ; preds = %7000
   %7008 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %128) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %128)
   br label %.loopexit.split-lp
 
 7009:                                             ; preds = %7002, %6989
@@ -20524,7 +20518,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 7027:                                             ; preds = %7025
   store ptr %7026, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %129) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %129)
   %7028 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %7029 unwind label %7038
 
@@ -20539,41 +20533,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 7033:                                             ; preds = %7031
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %129, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %129) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %130) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %129)
+  call void @llvm.lifetime.start.p0(ptr nonnull %130)
   %7034 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %130, ptr noundef %7034, i64 noundef 1)
           to label %7035 unwind label %7040
 
 7035:                                             ; preds = %7033
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %130, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %130) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %131) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %130)
+  call void @llvm.lifetime.start.p0(ptr nonnull %131)
   %7036 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %131, ptr noundef %7036, i64 noundef 1)
           to label %7037 unwind label %7042
 
 7037:                                             ; preds = %7035
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %131, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %131) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %131)
   br label %7044
 
 7038:                                             ; preds = %7031, %7029, %7027
   %7039 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %129) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %129)
   br label %.loopexit.split-lp
 
 7040:                                             ; preds = %7033
   %7041 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %130) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %130)
   br label %.loopexit.split-lp
 
 7042:                                             ; preds = %7035
   %7043 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %131) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %131)
   br label %.loopexit.split-lp
 
 7044:                                             ; preds = %7037, %7024
@@ -20642,7 +20636,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 7074:                                             ; preds = %7072
   store ptr %7073, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %132) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %132)
   %7075 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %7076 unwind label %7086
 
@@ -20658,41 +20652,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 7081:                                             ; preds = %7078
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %132) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %133) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %132)
+  call void @llvm.lifetime.start.p0(ptr nonnull %133)
   %7082 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %133, ptr noundef %7082, i64 noundef 1)
           to label %7083 unwind label %7088
 
 7083:                                             ; preds = %7081
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %133, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %133) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %134) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %133)
+  call void @llvm.lifetime.start.p0(ptr nonnull %134)
   %7084 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %134, ptr noundef %7084, i64 noundef 1)
           to label %7085 unwind label %7090
 
 7085:                                             ; preds = %7083
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %134, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %134) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %134)
   br label %7092
 
 7086:                                             ; preds = %7078, %7076, %7074
   %7087 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %132) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %132)
   br label %.loopexit.split-lp
 
 7088:                                             ; preds = %7081
   %7089 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %133) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %133)
   br label %.loopexit.split-lp
 
 7090:                                             ; preds = %7083
   %7091 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %134) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %134)
   br label %.loopexit.split-lp
 
 7092:                                             ; preds = %7085, %7071
@@ -20737,7 +20731,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 7110:                                             ; preds = %7108
   store ptr %7109, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %135) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %135)
   %7111 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %7112 unwind label %7122
 
@@ -20753,41 +20747,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 7117:                                             ; preds = %7114
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %135, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %135) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %136) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %135)
+  call void @llvm.lifetime.start.p0(ptr nonnull %136)
   %7118 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %136, ptr noundef %7118, i64 noundef 1)
           to label %7119 unwind label %7124
 
 7119:                                             ; preds = %7117
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %136, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %136) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %137) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %136)
+  call void @llvm.lifetime.start.p0(ptr nonnull %137)
   %7120 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr noundef %7120, i64 noundef 1)
           to label %7121 unwind label %7126
 
 7121:                                             ; preds = %7119
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %137, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %137) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %137)
   br label %7128
 
 7122:                                             ; preds = %7114, %7112, %7110
   %7123 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %135) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %135)
   br label %.loopexit.split-lp
 
 7124:                                             ; preds = %7117
   %7125 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %136) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %136)
   br label %.loopexit.split-lp
 
 7126:                                             ; preds = %7119
   %7127 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %137) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %137)
   br label %.loopexit.split-lp
 
 7128:                                             ; preds = %7121, %7107
@@ -22607,7 +22601,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 7998:                                             ; preds = %7996
   store ptr %7997, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %138) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %138)
   %7999 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %8000 unwind label %8010
 
@@ -22623,41 +22617,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 8005:                                             ; preds = %8002
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %138, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %138) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %139) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %138)
+  call void @llvm.lifetime.start.p0(ptr nonnull %139)
   %8006 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %139, ptr noundef %8006, i64 noundef 1)
           to label %8007 unwind label %8012
 
 8007:                                             ; preds = %8005
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %139, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %139) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %140) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %139)
+  call void @llvm.lifetime.start.p0(ptr nonnull %140)
   %8008 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %140, ptr noundef %8008, i64 noundef 1)
           to label %8009 unwind label %8014
 
 8009:                                             ; preds = %8007
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %140, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %140) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %140)
   br label %8016
 
 8010:                                             ; preds = %8002, %8000, %7998
   %8011 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %138) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %138)
   br label %.loopexit.split-lp
 
 8012:                                             ; preds = %8005
   %8013 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %139) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %139)
   br label %.loopexit.split-lp
 
 8014:                                             ; preds = %8007
   %8015 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %140) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %140)
   br label %.loopexit.split-lp
 
 8016:                                             ; preds = %8009, %7995
@@ -22950,7 +22944,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 8160:                                             ; preds = %8158
   store ptr %8159, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %141) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %141)
   %8161 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %8162 unwind label %8171
 
@@ -22965,41 +22959,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 8166:                                             ; preds = %8164
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %141, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %141) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %142) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %141)
+  call void @llvm.lifetime.start.p0(ptr nonnull %142)
   %8167 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %142, ptr noundef %8167, i64 noundef 1)
           to label %8168 unwind label %8173
 
 8168:                                             ; preds = %8166
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %142, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %142) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %143) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %142)
+  call void @llvm.lifetime.start.p0(ptr nonnull %143)
   %8169 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %143, ptr noundef %8169, i64 noundef 1)
           to label %8170 unwind label %8175
 
 8170:                                             ; preds = %8168
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %143, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %143) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %143)
   br label %8177
 
 8171:                                             ; preds = %8164, %8162, %8160
   %8172 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %141) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %141)
   br label %.loopexit.split-lp
 
 8173:                                             ; preds = %8166
   %8174 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %142) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %142)
   br label %.loopexit.split-lp
 
 8175:                                             ; preds = %8168
   %8176 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %143) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %143)
   br label %.loopexit.split-lp
 
 8177:                                             ; preds = %8170, %8157
@@ -28172,7 +28166,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 10741:                                            ; preds = %10739
   store ptr %10740, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %144) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %144)
   %10742 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %10743 unwind label %10752
 
@@ -28187,41 +28181,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 10747:                                            ; preds = %10745
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %144, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %144) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %145) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %144)
+  call void @llvm.lifetime.start.p0(ptr nonnull %145)
   %10748 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %145, ptr noundef %10748, i64 noundef 1)
           to label %10749 unwind label %10754
 
 10749:                                            ; preds = %10747
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %145, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %145) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %146) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %145)
+  call void @llvm.lifetime.start.p0(ptr nonnull %146)
   %10750 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %146, ptr noundef %10750, i64 noundef 1)
           to label %10751 unwind label %10756
 
 10751:                                            ; preds = %10749
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %146, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %146) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %146)
   br label %10758
 
 10752:                                            ; preds = %10745, %10743, %10741
   %10753 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %144) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %144)
   br label %.loopexit.split-lp
 
 10754:                                            ; preds = %10747
   %10755 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %145) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %145)
   br label %.loopexit.split-lp
 
 10756:                                            ; preds = %10749
   %10757 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %146) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %146)
   br label %.loopexit.split-lp
 
 10758:                                            ; preds = %10751, %10737
@@ -28295,7 +28289,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 10788:                                            ; preds = %10786
   store ptr %10787, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %147) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %147)
   %10789 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %10790 unwind label %10799
 
@@ -28310,41 +28304,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 10794:                                            ; preds = %10792
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %147, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %147) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %148) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %147)
+  call void @llvm.lifetime.start.p0(ptr nonnull %148)
   %10795 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %148, ptr noundef %10795, i64 noundef 1)
           to label %10796 unwind label %10801
 
 10796:                                            ; preds = %10794
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %148, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %148) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %149) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %148)
+  call void @llvm.lifetime.start.p0(ptr nonnull %149)
   %10797 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %149, ptr noundef %10797, i64 noundef 1)
           to label %10798 unwind label %10803
 
 10798:                                            ; preds = %10796
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %149, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %149) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %149)
   br label %10805
 
 10799:                                            ; preds = %10792, %10790, %10788
   %10800 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %147) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %147)
   br label %.loopexit.split-lp
 
 10801:                                            ; preds = %10794
   %10802 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %148) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %148)
   br label %.loopexit.split-lp
 
 10803:                                            ; preds = %10796
   %10804 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %149) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %149)
   br label %.loopexit.split-lp
 
 10805:                                            ; preds = %10798, %10785
@@ -29107,7 +29101,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 11190:                                            ; preds = %11188
   store ptr %11189, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %150) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %150)
   %11191 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %11192 unwind label %11201
 
@@ -29122,41 +29116,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 11196:                                            ; preds = %11194
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %150, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %150) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %151) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %150)
+  call void @llvm.lifetime.start.p0(ptr nonnull %151)
   %11197 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %151, ptr noundef %11197, i64 noundef 1)
           to label %11198 unwind label %11203
 
 11198:                                            ; preds = %11196
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %151, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %151) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %152) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %151)
+  call void @llvm.lifetime.start.p0(ptr nonnull %152)
   %11199 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %152, ptr noundef %11199, i64 noundef 1)
           to label %11200 unwind label %11205
 
 11200:                                            ; preds = %11198
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %152, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %152) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %152)
   br label %11207
 
 11201:                                            ; preds = %11194, %11192, %11190
   %11202 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %150) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %150)
   br label %.loopexit.split-lp
 
 11203:                                            ; preds = %11196
   %11204 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %151) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %151)
   br label %.loopexit.split-lp
 
 11205:                                            ; preds = %11198
   %11206 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %152) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %152)
   br label %.loopexit.split-lp
 
 11207:                                            ; preds = %11200, %11187
@@ -29202,7 +29196,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 11225:                                            ; preds = %11223
   store ptr %11224, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %153) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %153)
   %11226 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %11227 unwind label %11236
 
@@ -29217,41 +29211,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 11231:                                            ; preds = %11229
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %153, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %153) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %154) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %153)
+  call void @llvm.lifetime.start.p0(ptr nonnull %154)
   %11232 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %154, ptr noundef %11232, i64 noundef 1)
           to label %11233 unwind label %11238
 
 11233:                                            ; preds = %11231
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %154, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %154) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %155) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %154)
+  call void @llvm.lifetime.start.p0(ptr nonnull %155)
   %11234 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %155, ptr noundef %11234, i64 noundef 1)
           to label %11235 unwind label %11240
 
 11235:                                            ; preds = %11233
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %155, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %155) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %155)
   br label %11242
 
 11236:                                            ; preds = %11229, %11227, %11225
   %11237 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %153) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %153)
   br label %.loopexit.split-lp
 
 11238:                                            ; preds = %11231
   %11239 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %154) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %154)
   br label %.loopexit.split-lp
 
 11240:                                            ; preds = %11233
   %11241 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %155) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %155)
   br label %.loopexit.split-lp
 
 11242:                                            ; preds = %11235, %11222
@@ -29292,7 +29286,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 11257:                                            ; preds = %11255
   store ptr %11256, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %156) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %156)
   %11258 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %11259 unwind label %11268
 
@@ -29307,41 +29301,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 11263:                                            ; preds = %11261
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %156, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %156) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %157) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %156)
+  call void @llvm.lifetime.start.p0(ptr nonnull %157)
   %11264 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %157, ptr noundef %11264, i64 noundef 1)
           to label %11265 unwind label %11270
 
 11265:                                            ; preds = %11263
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %157, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %157) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %158) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %157)
+  call void @llvm.lifetime.start.p0(ptr nonnull %158)
   %11266 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %158, ptr noundef %11266, i64 noundef 1)
           to label %11267 unwind label %11272
 
 11267:                                            ; preds = %11265
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %158, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %158) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %158)
   br label %11274
 
 11268:                                            ; preds = %11261, %11259, %11257
   %11269 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %156) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %156)
   br label %.loopexit.split-lp
 
 11270:                                            ; preds = %11263
   %11271 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %157) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %157)
   br label %.loopexit.split-lp
 
 11272:                                            ; preds = %11265
   %11273 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %158) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %158)
   br label %.loopexit.split-lp
 
 11274:                                            ; preds = %11267, %11254
@@ -29565,7 +29559,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 11378:                                            ; preds = %11376
   store ptr %11377, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %159) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %159)
   %11379 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %11380 unwind label %11389
 
@@ -29580,41 +29574,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 11384:                                            ; preds = %11382
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %159, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %159) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %160) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %159)
+  call void @llvm.lifetime.start.p0(ptr nonnull %160)
   %11385 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %160, ptr noundef %11385, i64 noundef 1)
           to label %11386 unwind label %11391
 
 11386:                                            ; preds = %11384
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %160, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %160) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %161) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %160)
+  call void @llvm.lifetime.start.p0(ptr nonnull %161)
   %11387 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef %11387, i64 noundef 1)
           to label %11388 unwind label %11393
 
 11388:                                            ; preds = %11386
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %161, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %161) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %161)
   br label %11395
 
 11389:                                            ; preds = %11382, %11380, %11378
   %11390 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %159) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %159)
   br label %.loopexit.split-lp
 
 11391:                                            ; preds = %11384
   %11392 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %160) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %160)
   br label %.loopexit.split-lp
 
 11393:                                            ; preds = %11386
   %11394 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %161) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %161)
   br label %.loopexit.split-lp
 
 11395:                                            ; preds = %11388, %11375
@@ -30173,7 +30167,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 11667:                                            ; preds = %11665
   store ptr %11666, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %162) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %162)
   %11668 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %11669 unwind label %11678
 
@@ -30188,23 +30182,23 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 11673:                                            ; preds = %11671
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %162, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %162) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %163) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %162)
+  call void @llvm.lifetime.start.p0(ptr nonnull %163)
   %11674 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %163, ptr noundef %11674, i64 noundef 1)
           to label %11675 unwind label %11680
 
 11675:                                            ; preds = %11673
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %163, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %163) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %164) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %163)
+  call void @llvm.lifetime.start.p0(ptr nonnull %164)
   %11676 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %164, ptr noundef %11676, i64 noundef 1)
           to label %11677 unwind label %11682
 
 11677:                                            ; preds = %11675
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %164, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %164) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %164)
   br label %11684
 
 .loopexit6454:                                    ; preds = %.lr.ph.i6132
@@ -30245,19 +30239,19 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 11678:                                            ; preds = %11671, %11669, %11667
   %11679 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %162) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %162)
   br label %.loopexit.split-lp
 
 11680:                                            ; preds = %11673
   %11681 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %163) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %163)
   br label %.loopexit.split-lp
 
 11682:                                            ; preds = %11675
   %11683 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %164) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %164)
   br label %.loopexit.split-lp
 
 11684:                                            ; preds = %11677, %11663
@@ -30762,7 +30756,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 11958:                                            ; preds = %11956
   store ptr %11957, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %165) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %165)
   %11959 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %11960 unwind label %11969
 
@@ -30777,23 +30771,23 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 11964:                                            ; preds = %11962
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %165, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %165) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %166) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %165)
+  call void @llvm.lifetime.start.p0(ptr nonnull %166)
   %11965 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %166, ptr noundef %11965, i64 noundef 1)
           to label %11966 unwind label %11971
 
 11966:                                            ; preds = %11964
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %166, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %166) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %167) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %166)
+  call void @llvm.lifetime.start.p0(ptr nonnull %167)
   %11967 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %167, ptr noundef %11967, i64 noundef 1)
           to label %11968 unwind label %11973
 
 11968:                                            ; preds = %11966
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %167, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %167) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %167)
   br label %11975
 
 .loopexit6475:                                    ; preds = %.lr.ph.i6153
@@ -30834,19 +30828,19 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 11969:                                            ; preds = %11962, %11960, %11958
   %11970 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %165) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %165)
   br label %.loopexit.split-lp
 
 11971:                                            ; preds = %11964
   %11972 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %166) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %166)
   br label %.loopexit.split-lp
 
 11973:                                            ; preds = %11966
   %11974 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %167) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %167)
   br label %.loopexit.split-lp
 
 11975:                                            ; preds = %11968, %11954
@@ -31361,7 +31355,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
   br i1 %12256, label %.loopexit6496, label %12202
 
 _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSEPKc.exit.thread6275: ; preds = %1017
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %168) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %168)
   %12257 = load ptr, ptr %302, align 8, !tbaa !120
   store ptr %12257, ptr %304, align 8, !tbaa !121
   %12258 = load i64, ptr %305, align 8, !tbaa !122
@@ -31371,23 +31365,23 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 12259:                                            ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSEPKc.exit.thread6275
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %168, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %168) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %169) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %168)
+  call void @llvm.lifetime.start.p0(ptr nonnull %169)
   %12260 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %169, ptr noundef %12260, i64 noundef 1)
           to label %12261 unwind label %12287
 
 12261:                                            ; preds = %12259
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %169, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %169) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %170) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %169)
+  call void @llvm.lifetime.start.p0(ptr nonnull %170)
   %12262 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %170, ptr noundef %12262, i64 noundef 1)
           to label %12263 unwind label %12289
 
 12263:                                            ; preds = %12261
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %170, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %170) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %170)
   %12264 = getelementptr inbounds nuw i8, ptr %0, i64 130
   %12265 = load i8, ptr %12264, align 2, !tbaa !143, !range !14, !noundef !15
   %12266 = trunc nuw i8 %12265 to i1
@@ -31407,7 +31401,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 12273:                                            ; preds = %12271
   store ptr %12272, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %171) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %171)
   %12274 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12275 unwind label %12291
 
@@ -31423,41 +31417,41 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 12280:                                            ; preds = %12277
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %171, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %171) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %172) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %171)
+  call void @llvm.lifetime.start.p0(ptr nonnull %172)
   %12281 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %172, ptr noundef %12281, i64 noundef 1)
           to label %12282 unwind label %12293
 
 12282:                                            ; preds = %12280
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %172, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %172) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %173) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %172)
+  call void @llvm.lifetime.start.p0(ptr nonnull %173)
   %12283 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %173, ptr noundef %12283, i64 noundef 1)
           to label %12284 unwind label %12295
 
 12284:                                            ; preds = %12282
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %173, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %173) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %173)
   br label %12297
 
 12285:                                            ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSEPKc.exit.thread6275
   %12286 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %168) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %168)
   br label %.loopexit.split-lp
 
 12287:                                            ; preds = %12259
   %12288 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %169) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %169)
   br label %.loopexit.split-lp
 
 12289:                                            ; preds = %12261
   %12290 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %170) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %170)
   br label %.loopexit.split-lp
 
 .loopexit6407:                                    ; preds = %.lr.ph.i6174
@@ -31488,19 +31482,19 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 12291:                                            ; preds = %12277, %12275, %12273
   %12292 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %171) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %171)
   br label %.loopexit.split-lp
 
 12293:                                            ; preds = %12280
   %12294 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %172) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %172)
   br label %.loopexit.split-lp
 
 12295:                                            ; preds = %12282
   %12296 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %173) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %173)
   br label %.loopexit.split-lp
 
 12297:                                            ; preds = %12284, %12269
@@ -31563,7 +31557,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 12320:                                            ; preds = %12318
   store ptr %12319, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %174) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %174)
   %12321 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12322 unwind label %12331
 
@@ -31578,41 +31572,41 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 12326:                                            ; preds = %12324
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %174, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %174) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %175) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %174)
+  call void @llvm.lifetime.start.p0(ptr nonnull %175)
   %12327 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %175, ptr noundef %12327, i64 noundef 1)
           to label %12328 unwind label %12333
 
 12328:                                            ; preds = %12326
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %175, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %175) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %176) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %175)
+  call void @llvm.lifetime.start.p0(ptr nonnull %176)
   %12329 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %176, ptr noundef %12329, i64 noundef 1)
           to label %12330 unwind label %12335
 
 12330:                                            ; preds = %12328
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %176, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %176) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %176)
   br label %12337
 
 12331:                                            ; preds = %12324, %12322, %12320
   %12332 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %174) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %174)
   br label %.loopexit.split-lp
 
 12333:                                            ; preds = %12326
   %12334 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %175) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %175)
   br label %.loopexit.split-lp
 
 12335:                                            ; preds = %12328
   %12336 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %176) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %176)
   br label %.loopexit.split-lp
 
 12337:                                            ; preds = %12330, %12317
@@ -31766,7 +31760,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12414:                                            ; preds = %12412
   store ptr %12413, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %177) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %177)
   %12415 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12416 unwind label %12425
 
@@ -31781,41 +31775,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12420:                                            ; preds = %12418
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %177, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %177) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %178) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %177)
+  call void @llvm.lifetime.start.p0(ptr nonnull %178)
   %12421 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %178, ptr noundef %12421, i64 noundef 1)
           to label %12422 unwind label %12427
 
 12422:                                            ; preds = %12420
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %178, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %178) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %179) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %178)
+  call void @llvm.lifetime.start.p0(ptr nonnull %179)
   %12423 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %179, ptr noundef %12423, i64 noundef 1)
           to label %12424 unwind label %12429
 
 12424:                                            ; preds = %12422
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %179, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %179) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %179)
   br label %12431
 
 12425:                                            ; preds = %12418, %12416, %12414
   %12426 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %177) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %177)
   br label %.loopexit.split-lp
 
 12427:                                            ; preds = %12420
   %12428 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %178) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %178)
   br label %.loopexit.split-lp
 
 12429:                                            ; preds = %12422
   %12430 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %179) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %179)
   br label %.loopexit.split-lp
 
 12431:                                            ; preds = %12424, %12411
@@ -31853,7 +31847,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12444:                                            ; preds = %12442
   store ptr %12443, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %180) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %180)
   %12445 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12446 unwind label %12455
 
@@ -31868,41 +31862,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12450:                                            ; preds = %12448
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %180, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %180) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %181) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %180)
+  call void @llvm.lifetime.start.p0(ptr nonnull %181)
   %12451 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %181, ptr noundef %12451, i64 noundef 1)
           to label %12452 unwind label %12457
 
 12452:                                            ; preds = %12450
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %181, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %181) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %182) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %181)
+  call void @llvm.lifetime.start.p0(ptr nonnull %182)
   %12453 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %182, ptr noundef %12453, i64 noundef 1)
           to label %12454 unwind label %12459
 
 12454:                                            ; preds = %12452
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %182, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %182) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %182)
   br label %12461
 
 12455:                                            ; preds = %12448, %12446, %12444
   %12456 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %180) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %180)
   br label %.loopexit.split-lp
 
 12457:                                            ; preds = %12450
   %12458 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %181) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %181)
   br label %.loopexit.split-lp
 
 12459:                                            ; preds = %12452
   %12460 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %182) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %182)
   br label %.loopexit.split-lp
 
 12461:                                            ; preds = %12454, %12441
@@ -32000,7 +31994,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12503:                                            ; preds = %12501
   store ptr %12502, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %183) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %183)
   %12504 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12505 unwind label %12514
 
@@ -32015,41 +32009,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12509:                                            ; preds = %12507
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %183, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %183) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %184) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %183)
+  call void @llvm.lifetime.start.p0(ptr nonnull %184)
   %12510 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %184, ptr noundef %12510, i64 noundef 1)
           to label %12511 unwind label %12516
 
 12511:                                            ; preds = %12509
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %184, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %184) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %185) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %184)
+  call void @llvm.lifetime.start.p0(ptr nonnull %185)
   %12512 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %185, ptr noundef %12512, i64 noundef 1)
           to label %12513 unwind label %12518
 
 12513:                                            ; preds = %12511
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %185, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %185) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %185)
   br label %12520
 
 12514:                                            ; preds = %12507, %12505, %12503
   %12515 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %183) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %183)
   br label %.loopexit.split-lp
 
 12516:                                            ; preds = %12509
   %12517 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %184) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %184)
   br label %.loopexit.split-lp
 
 12518:                                            ; preds = %12511
   %12519 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %185) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %185)
   br label %.loopexit.split-lp
 
 12520:                                            ; preds = %12513, %12500
@@ -32084,7 +32078,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12532:                                            ; preds = %12530
   store ptr %12531, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %186) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %186)
   %12533 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12534 unwind label %12543
 
@@ -32099,41 +32093,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12538:                                            ; preds = %12536
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %186, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %186) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %187) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %186)
+  call void @llvm.lifetime.start.p0(ptr nonnull %187)
   %12539 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %187, ptr noundef %12539, i64 noundef 1)
           to label %12540 unwind label %12545
 
 12540:                                            ; preds = %12538
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %187, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %187) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %188) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %187)
+  call void @llvm.lifetime.start.p0(ptr nonnull %188)
   %12541 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %188, ptr noundef %12541, i64 noundef 1)
           to label %12542 unwind label %12547
 
 12542:                                            ; preds = %12540
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %188, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %188) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %188)
   br label %12549
 
 12543:                                            ; preds = %12536, %12534, %12532
   %12544 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %186) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %186)
   br label %.loopexit.split-lp
 
 12545:                                            ; preds = %12538
   %12546 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %187) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %187)
   br label %.loopexit.split-lp
 
 12547:                                            ; preds = %12540
   %12548 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %188) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %188)
   br label %.loopexit.split-lp
 
 12549:                                            ; preds = %12542, %12529
@@ -32166,7 +32160,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12562:                                            ; preds = %12560
   store ptr %12561, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %189) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %189)
   %12563 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12564 unwind label %12573
 
@@ -32181,41 +32175,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12568:                                            ; preds = %12566
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %189, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %189) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %190) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %189)
+  call void @llvm.lifetime.start.p0(ptr nonnull %190)
   %12569 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %190, ptr noundef %12569, i64 noundef 1)
           to label %12570 unwind label %12575
 
 12570:                                            ; preds = %12568
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %190, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %190) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %191) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %190)
+  call void @llvm.lifetime.start.p0(ptr nonnull %191)
   %12571 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %191, ptr noundef %12571, i64 noundef 1)
           to label %12572 unwind label %12577
 
 12572:                                            ; preds = %12570
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %191, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %191) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %191)
   br label %12579
 
 12573:                                            ; preds = %12566, %12564, %12562
   %12574 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %189) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %189)
   br label %.loopexit.split-lp
 
 12575:                                            ; preds = %12568
   %12576 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %190) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %190)
   br label %.loopexit.split-lp
 
 12577:                                            ; preds = %12570
   %12578 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %191) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %191)
   br label %.loopexit.split-lp
 
 12579:                                            ; preds = %12572, %12559
@@ -32260,7 +32254,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12597:                                            ; preds = %12595
   store ptr %12596, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %192) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %192)
   %12598 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12599 unwind label %12608
 
@@ -32275,41 +32269,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12603:                                            ; preds = %12601
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %192, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %192) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %193) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %192)
+  call void @llvm.lifetime.start.p0(ptr nonnull %193)
   %12604 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %193, ptr noundef %12604, i64 noundef 1)
           to label %12605 unwind label %12610
 
 12605:                                            ; preds = %12603
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %193, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %193) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %194) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %193)
+  call void @llvm.lifetime.start.p0(ptr nonnull %194)
   %12606 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %194, ptr noundef %12606, i64 noundef 1)
           to label %12607 unwind label %12612
 
 12607:                                            ; preds = %12605
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %194, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %194) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %194)
   br label %12614
 
 12608:                                            ; preds = %12601, %12599, %12597
   %12609 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %192) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %192)
   br label %.loopexit.split-lp
 
 12610:                                            ; preds = %12603
   %12611 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %193) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %193)
   br label %.loopexit.split-lp
 
 12612:                                            ; preds = %12605
   %12613 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %194) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %194)
   br label %.loopexit.split-lp
 
 12614:                                            ; preds = %12607, %12594
@@ -32354,7 +32348,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12632:                                            ; preds = %12630
   store ptr %12631, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %195) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %195)
   %12633 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12634 unwind label %12643
 
@@ -32369,41 +32363,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12638:                                            ; preds = %12636
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %195, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %195) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %196) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %195)
+  call void @llvm.lifetime.start.p0(ptr nonnull %196)
   %12639 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %196, ptr noundef %12639, i64 noundef 1)
           to label %12640 unwind label %12645
 
 12640:                                            ; preds = %12638
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %196, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %196) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %197) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %196)
+  call void @llvm.lifetime.start.p0(ptr nonnull %197)
   %12641 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %197, ptr noundef %12641, i64 noundef 1)
           to label %12642 unwind label %12647
 
 12642:                                            ; preds = %12640
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %197, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %197) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %197)
   br label %12649
 
 12643:                                            ; preds = %12636, %12634, %12632
   %12644 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %195) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %195)
   br label %.loopexit.split-lp
 
 12645:                                            ; preds = %12638
   %12646 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %196) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %196)
   br label %.loopexit.split-lp
 
 12647:                                            ; preds = %12640
   %12648 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %197) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %197)
   br label %.loopexit.split-lp
 
 12649:                                            ; preds = %12642, %12629
@@ -32448,7 +32442,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12667:                                            ; preds = %12665
   store ptr %12666, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %198) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %198)
   %12668 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12669 unwind label %12678
 
@@ -32463,41 +32457,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12673:                                            ; preds = %12671
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %198, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %198) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %199) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %198)
+  call void @llvm.lifetime.start.p0(ptr nonnull %199)
   %12674 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %199, ptr noundef %12674, i64 noundef 1)
           to label %12675 unwind label %12680
 
 12675:                                            ; preds = %12673
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %199, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %199) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %200) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %199)
+  call void @llvm.lifetime.start.p0(ptr nonnull %200)
   %12676 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %200, ptr noundef %12676, i64 noundef 1)
           to label %12677 unwind label %12682
 
 12677:                                            ; preds = %12675
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %200, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %200) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %200)
   br label %12684
 
 12678:                                            ; preds = %12671, %12669, %12667
   %12679 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %198) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %198)
   br label %.loopexit.split-lp
 
 12680:                                            ; preds = %12673
   %12681 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %199) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %199)
   br label %.loopexit.split-lp
 
 12682:                                            ; preds = %12675
   %12683 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %200) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %200)
   br label %.loopexit.split-lp
 
 12684:                                            ; preds = %12677, %12664
@@ -32542,7 +32536,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12702:                                            ; preds = %12700
   store ptr %12701, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %201) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %201)
   %12703 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12704 unwind label %12713
 
@@ -32557,41 +32551,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12708:                                            ; preds = %12706
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %201, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %201) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %202) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %201)
+  call void @llvm.lifetime.start.p0(ptr nonnull %202)
   %12709 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %202, ptr noundef %12709, i64 noundef 1)
           to label %12710 unwind label %12715
 
 12710:                                            ; preds = %12708
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %202, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %202) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %203) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %202)
+  call void @llvm.lifetime.start.p0(ptr nonnull %203)
   %12711 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %203, ptr noundef %12711, i64 noundef 1)
           to label %12712 unwind label %12717
 
 12712:                                            ; preds = %12710
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %203, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %203) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %203)
   br label %12719
 
 12713:                                            ; preds = %12706, %12704, %12702
   %12714 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %201) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %201)
   br label %.loopexit.split-lp
 
 12715:                                            ; preds = %12708
   %12716 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %202) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %202)
   br label %.loopexit.split-lp
 
 12717:                                            ; preds = %12710
   %12718 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %203) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %203)
   br label %.loopexit.split-lp
 
 12719:                                            ; preds = %12712, %12699
@@ -32636,7 +32630,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12737:                                            ; preds = %12735
   store ptr %12736, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %204) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %204)
   %12738 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12739 unwind label %12748
 
@@ -32651,41 +32645,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12743:                                            ; preds = %12741
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %204, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %204) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %205) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %204)
+  call void @llvm.lifetime.start.p0(ptr nonnull %205)
   %12744 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %205, ptr noundef %12744, i64 noundef 1)
           to label %12745 unwind label %12750
 
 12745:                                            ; preds = %12743
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %205, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %205) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %206) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %205)
+  call void @llvm.lifetime.start.p0(ptr nonnull %206)
   %12746 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %206, ptr noundef %12746, i64 noundef 1)
           to label %12747 unwind label %12752
 
 12747:                                            ; preds = %12745
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %206, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %206) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %206)
   br label %12754
 
 12748:                                            ; preds = %12741, %12739, %12737
   %12749 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %204) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %204)
   br label %.loopexit.split-lp
 
 12750:                                            ; preds = %12743
   %12751 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %205) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %205)
   br label %.loopexit.split-lp
 
 12752:                                            ; preds = %12745
   %12753 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %206) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %206)
   br label %.loopexit.split-lp
 
 12754:                                            ; preds = %12747, %12734
@@ -32730,7 +32724,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12772:                                            ; preds = %12770
   store ptr %12771, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %207) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %207)
   %12773 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12774 unwind label %12783
 
@@ -32745,41 +32739,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12778:                                            ; preds = %12776
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %207, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %207) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %208) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %207)
+  call void @llvm.lifetime.start.p0(ptr nonnull %208)
   %12779 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %208, ptr noundef %12779, i64 noundef 1)
           to label %12780 unwind label %12785
 
 12780:                                            ; preds = %12778
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %208, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %208) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %209) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %208)
+  call void @llvm.lifetime.start.p0(ptr nonnull %209)
   %12781 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %209, ptr noundef %12781, i64 noundef 1)
           to label %12782 unwind label %12787
 
 12782:                                            ; preds = %12780
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %209, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %209) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %209)
   br label %12789
 
 12783:                                            ; preds = %12776, %12774, %12772
   %12784 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %207) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %207)
   br label %.loopexit.split-lp
 
 12785:                                            ; preds = %12778
   %12786 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %208) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %208)
   br label %.loopexit.split-lp
 
 12787:                                            ; preds = %12780
   %12788 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %209) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %209)
   br label %.loopexit.split-lp
 
 12789:                                            ; preds = %12782, %12769
@@ -32824,7 +32818,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12807:                                            ; preds = %12805
   store ptr %12806, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %210) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %210)
   %12808 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12809 unwind label %12818
 
@@ -32839,41 +32833,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12813:                                            ; preds = %12811
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %210, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %210) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %211) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %210)
+  call void @llvm.lifetime.start.p0(ptr nonnull %211)
   %12814 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %211, ptr noundef %12814, i64 noundef 1)
           to label %12815 unwind label %12820
 
 12815:                                            ; preds = %12813
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %211, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %211) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %212) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %211)
+  call void @llvm.lifetime.start.p0(ptr nonnull %212)
   %12816 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %212, ptr noundef %12816, i64 noundef 1)
           to label %12817 unwind label %12822
 
 12817:                                            ; preds = %12815
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %212, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %212) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %212)
   br label %12824
 
 12818:                                            ; preds = %12811, %12809, %12807
   %12819 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %210) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %210)
   br label %.loopexit.split-lp
 
 12820:                                            ; preds = %12813
   %12821 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %211) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %211)
   br label %.loopexit.split-lp
 
 12822:                                            ; preds = %12815
   %12823 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %212) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %212)
   br label %.loopexit.split-lp
 
 12824:                                            ; preds = %12817, %12804
@@ -32910,7 +32904,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12839:                                            ; preds = %12837
   store ptr %12838, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %213) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %213)
   %12840 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12841 unwind label %12851
 
@@ -32926,23 +32920,23 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12846:                                            ; preds = %12843
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %213, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %213) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %214) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %213)
+  call void @llvm.lifetime.start.p0(ptr nonnull %214)
   %12847 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %214, ptr noundef %12847, i64 noundef 1)
           to label %12848 unwind label %12853
 
 12848:                                            ; preds = %12846
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %214, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %214) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %215) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %214)
+  call void @llvm.lifetime.start.p0(ptr nonnull %215)
   %12849 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %215, ptr noundef %12849, i64 noundef 1)
           to label %12850 unwind label %12855
 
 12850:                                            ; preds = %12848
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %215, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %215) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %215)
   br label %12857
 
 .loopexit6422:                                    ; preds = %.lr.ph.i6181
@@ -32993,19 +32987,19 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 12851:                                            ; preds = %12843, %12841, %12839
   %12852 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %213) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %213)
   br label %.loopexit.split-lp
 
 12853:                                            ; preds = %12846
   %12854 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %214) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %214)
   br label %.loopexit.split-lp
 
 12855:                                            ; preds = %12848
   %12856 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %215) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %215)
   br label %.loopexit.split-lp
 
 12857:                                            ; preds = %12850, %12835
@@ -33093,7 +33087,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12892:                                            ; preds = %12890
   store ptr %12891, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %216) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %216)
   %12893 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12894 unwind label %12903
 
@@ -33108,41 +33102,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12898:                                            ; preds = %12896
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %216, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %216) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %217) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %216)
+  call void @llvm.lifetime.start.p0(ptr nonnull %217)
   %12899 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %217, ptr noundef %12899, i64 noundef 1)
           to label %12900 unwind label %12905
 
 12900:                                            ; preds = %12898
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %217, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %217) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %218) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %217)
+  call void @llvm.lifetime.start.p0(ptr nonnull %218)
   %12901 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %218, ptr noundef %12901, i64 noundef 1)
           to label %12902 unwind label %12907
 
 12902:                                            ; preds = %12900
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %218, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %218) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %218)
   br label %12909
 
 12903:                                            ; preds = %12896, %12894, %12892
   %12904 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %216) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %216)
   br label %.loopexit.split-lp
 
 12905:                                            ; preds = %12898
   %12906 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %217) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %217)
   br label %.loopexit.split-lp
 
 12907:                                            ; preds = %12900
   %12908 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %218) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %218)
   br label %.loopexit.split-lp
 
 12909:                                            ; preds = %12902, %12888
@@ -33189,7 +33183,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12929:                                            ; preds = %12927
   store ptr %12928, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %219) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %219)
   %12930 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12931 unwind label %12940
 
@@ -33204,41 +33198,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12935:                                            ; preds = %12933
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %219, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %219) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %220) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %219)
+  call void @llvm.lifetime.start.p0(ptr nonnull %220)
   %12936 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %220, ptr noundef %12936, i64 noundef 1)
           to label %12937 unwind label %12942
 
 12937:                                            ; preds = %12935
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %220, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %220) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %221) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %220)
+  call void @llvm.lifetime.start.p0(ptr nonnull %221)
   %12938 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %221, ptr noundef %12938, i64 noundef 1)
           to label %12939 unwind label %12944
 
 12939:                                            ; preds = %12937
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %221, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %221) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %221)
   br label %12946
 
 12940:                                            ; preds = %12933, %12931, %12929
   %12941 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %219) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %219)
   br label %.loopexit.split-lp
 
 12942:                                            ; preds = %12935
   %12943 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %220) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %220)
   br label %.loopexit.split-lp
 
 12944:                                            ; preds = %12937
   %12945 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %221) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %221)
   br label %.loopexit.split-lp
 
 12946:                                            ; preds = %12939, %12925
@@ -33376,7 +33370,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 13014:                                            ; preds = %13012
   store ptr %13013, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %222) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %222)
   %13015 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %13016 unwind label %13025
 
@@ -33391,41 +33385,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 13020:                                            ; preds = %13018
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %222, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %222) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %223) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %222)
+  call void @llvm.lifetime.start.p0(ptr nonnull %223)
   %13021 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %223, ptr noundef %13021, i64 noundef 1)
           to label %13022 unwind label %13027
 
 13022:                                            ; preds = %13020
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %223, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %223) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %224) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %223)
+  call void @llvm.lifetime.start.p0(ptr nonnull %224)
   %13023 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %224, ptr noundef %13023, i64 noundef 1)
           to label %13024 unwind label %13029
 
 13024:                                            ; preds = %13022
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %224, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %224) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %224)
   br label %13031
 
 13025:                                            ; preds = %13018, %13016, %13014
   %13026 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %222) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %222)
   br label %.loopexit.split-lp
 
 13027:                                            ; preds = %13020
   %13028 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %223) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %223)
   br label %.loopexit.split-lp
 
 13029:                                            ; preds = %13022
   %13030 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %224) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %224)
   br label %.loopexit.split-lp
 
 13031:                                            ; preds = %13024, %13010
@@ -33487,7 +33481,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 13058:                                            ; preds = %13056
   store ptr %13057, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %225) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %225)
   %13059 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %13060 unwind label %13069
 
@@ -33502,41 +33496,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 13064:                                            ; preds = %13062
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %225, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %225) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %226) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %225)
+  call void @llvm.lifetime.start.p0(ptr nonnull %226)
   %13065 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %226, ptr noundef %13065, i64 noundef 1)
           to label %13066 unwind label %13071
 
 13066:                                            ; preds = %13064
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %226, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %226) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %227) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %226)
+  call void @llvm.lifetime.start.p0(ptr nonnull %227)
   %13067 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %227, ptr noundef %13067, i64 noundef 1)
           to label %13068 unwind label %13073
 
 13068:                                            ; preds = %13066
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %227, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %227) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %227)
   br label %13075
 
 13069:                                            ; preds = %13062, %13060, %13058
   %13070 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %225) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %225)
   br label %.loopexit.split-lp
 
 13071:                                            ; preds = %13064
   %13072 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %226) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %226)
   br label %.loopexit.split-lp
 
 13073:                                            ; preds = %13066
   %13074 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %227) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %227)
   br label %.loopexit.split-lp
 
 13075:                                            ; preds = %13068, %13054
@@ -33681,7 +33675,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 13139:                                            ; preds = %13137
   store ptr %13138, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %228) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %228)
   %13140 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %13141 unwind label %13150
 
@@ -33696,41 +33690,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 13145:                                            ; preds = %13143
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %228, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %228) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %229) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %228)
+  call void @llvm.lifetime.start.p0(ptr nonnull %229)
   %13146 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %229, ptr noundef %13146, i64 noundef 1)
           to label %13147 unwind label %13152
 
 13147:                                            ; preds = %13145
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %229, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %229) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %230) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %229)
+  call void @llvm.lifetime.start.p0(ptr nonnull %230)
   %13148 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %230, ptr noundef %13148, i64 noundef 1)
           to label %13149 unwind label %13154
 
 13149:                                            ; preds = %13147
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %230, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %230) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %230)
   br label %13156
 
 13150:                                            ; preds = %13143, %13141, %13139
   %13151 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %228) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %228)
   br label %.loopexit.split-lp
 
 13152:                                            ; preds = %13145
   %13153 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %229) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %229)
   br label %.loopexit.split-lp
 
 13154:                                            ; preds = %13147
   %13155 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %230) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %230)
   br label %.loopexit.split-lp
 
 13156:                                            ; preds = %13149, %13135
@@ -33789,7 +33783,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 13180:                                            ; preds = %13178
   store ptr %13179, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %231) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %231)
   %13181 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %13182 unwind label %13191
 
@@ -33804,41 +33798,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 13186:                                            ; preds = %13184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %231, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %231) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %232) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %231)
+  call void @llvm.lifetime.start.p0(ptr nonnull %232)
   %13187 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %232, ptr noundef %13187, i64 noundef 1)
           to label %13188 unwind label %13193
 
 13188:                                            ; preds = %13186
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %232, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %232) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %233) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %232)
+  call void @llvm.lifetime.start.p0(ptr nonnull %233)
   %13189 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %233, ptr noundef %13189, i64 noundef 1)
           to label %13190 unwind label %13195
 
 13190:                                            ; preds = %13188
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %233, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %233) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %233)
   br label %13197
 
 13191:                                            ; preds = %13184, %13182, %13180
   %13192 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %231) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %231)
   br label %.loopexit.split-lp
 
 13193:                                            ; preds = %13186
   %13194 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %232) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %232)
   br label %.loopexit.split-lp
 
 13195:                                            ; preds = %13188
   %13196 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %233) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %233)
   br label %.loopexit.split-lp
 
 13197:                                            ; preds = %13190, %13177
@@ -33884,7 +33878,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 13218:                                            ; preds = %13216
   store ptr %13217, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %234) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %234)
   %13219 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %13220 unwind label %13232
 
@@ -33900,22 +33894,22 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 13225:                                            ; preds = %13222
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %234, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %234) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %235) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %234)
+  call void @llvm.lifetime.start.p0(ptr nonnull %235)
   %13226 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %235, ptr noundef %13226, i64 noundef 1)
           to label %13227 unwind label %13234
 
 13227:                                            ; preds = %13225
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %235, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %235) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %236) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %235)
+  call void @llvm.lifetime.start.p0(ptr nonnull %236)
   %13228 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %236, ptr noundef %13228, i64 noundef 1)
           to label %13229 unwind label %13236
 
 13229:                                            ; preds = %13227
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %236) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %236)
   br label %13238
 
 13230:                                            ; preds = %13358, %13355, %13353, %13349, %13347, %13343, %13341, %13339, %13333, %13331, %13323, %13321, %13319, %13315, %13313, %13306, %13304, %13297, %13295, %13290, %13288, %13285, %13283, %13275, %13273, %13267, %13265, %13257, %13255, %13253, %13238, %13216, %13212
@@ -33926,19 +33920,19 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 13232:                                            ; preds = %13222, %13220, %13218
   %13233 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %234) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %234)
   br label %.loopexit.split-lp
 
 13234:                                            ; preds = %13225
   %13235 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %235) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %235)
   br label %.loopexit.split-lp
 
 13236:                                            ; preds = %13227
   %13237 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %236) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %236)
   br label %.loopexit.split-lp
 
 13238:                                            ; preds = %13229, %13214
@@ -34219,7 +34213,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 13366:                                            ; preds = %13364
   store ptr %13365, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %237) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %237)
   %13367 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %13368 unwind label %13380
 
@@ -34235,23 +34229,23 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 13373:                                            ; preds = %13370
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %237, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %237) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %238) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %237)
+  call void @llvm.lifetime.start.p0(ptr nonnull %238)
   %13374 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %238, ptr noundef %13374, i64 noundef 1)
           to label %13375 unwind label %13382
 
 13375:                                            ; preds = %13373
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %238, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %238) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %239) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %238)
+  call void @llvm.lifetime.start.p0(ptr nonnull %239)
   %13376 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %239, ptr noundef %13376, i64 noundef 1)
           to label %13377 unwind label %13384
 
 13377:                                            ; preds = %13375
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %239, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %239) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %239)
   br label %13386
 
 13378:                                            ; preds = %13480, %13477, %13475, %13471, %13469, %13467, %13461, %13459, %13451, %13449, %13447, %13443, %13441, %13434, %13432, %13429, %13427, %13419, %13417, %13411, %13409, %13401, %13399, %13397, %13386, %13364, %13360
@@ -34262,19 +34256,19 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 13380:                                            ; preds = %13370, %13368, %13366
   %13381 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %237) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %237)
   br label %.loopexit.split-lp
 
 13382:                                            ; preds = %13373
   %13383 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %238) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %238)
   br label %.loopexit.split-lp
 
 13384:                                            ; preds = %13375
   %13385 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %239) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %239)
   br label %.loopexit.split-lp
 
 13386:                                            ; preds = %13377, %13362
@@ -34495,7 +34489,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 13487:                                            ; preds = %13485
   store ptr %13486, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %240) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %240)
   %13488 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %13489 unwind label %13499
 
@@ -34511,23 +34505,23 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 13494:                                            ; preds = %13491
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %240, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %240) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %241) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %240)
+  call void @llvm.lifetime.start.p0(ptr nonnull %241)
   %13495 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %241, ptr noundef %13495, i64 noundef 1)
           to label %13496 unwind label %13501
 
 13496:                                            ; preds = %13494
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %241, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %241) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %242) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %241)
+  call void @llvm.lifetime.start.p0(ptr nonnull %242)
   %13497 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %242, ptr noundef %13497, i64 noundef 1)
           to label %13498 unwind label %13503
 
 13498:                                            ; preds = %13496
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %242, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %242) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %242)
   br label %13505
 
 .loopexit6539:                                    ; preds = %.lr.ph.i6195
@@ -34553,19 +34547,19 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 13499:                                            ; preds = %13491, %13489, %13487
   %13500 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %240) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %240)
   br label %.loopexit.split-lp
 
 13501:                                            ; preds = %13494
   %13502 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %241) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %241)
   br label %.loopexit.split-lp
 
 13503:                                            ; preds = %13496
   %13504 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %242) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %242)
   br label %.loopexit.split-lp
 
 13505:                                            ; preds = %13498, %13483
@@ -35223,7 +35217,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 13816:                                            ; preds = %13814
   store ptr %13815, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %243) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %243)
   %13817 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %13818 unwind label %13827
 
@@ -35238,41 +35232,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 13822:                                            ; preds = %13820
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %243, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %243) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %244) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %243)
+  call void @llvm.lifetime.start.p0(ptr nonnull %244)
   %13823 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %244, ptr noundef %13823, i64 noundef 1)
           to label %13824 unwind label %13829
 
 13824:                                            ; preds = %13822
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %244, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %244) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %245) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %244)
+  call void @llvm.lifetime.start.p0(ptr nonnull %245)
   %13825 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %245, ptr noundef %13825, i64 noundef 1)
           to label %13826 unwind label %13831
 
 13826:                                            ; preds = %13824
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %245, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %245) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %245)
   br label %13833
 
 13827:                                            ; preds = %13820, %13818, %13816
   %13828 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %243) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %243)
   br label %.loopexit.split-lp
 
 13829:                                            ; preds = %13822
   %13830 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %244) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %244)
   br label %.loopexit.split-lp
 
 13831:                                            ; preds = %13824
   %13832 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %245) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %245)
   br label %.loopexit.split-lp
 
 13833:                                            ; preds = %13826, %13813
@@ -35405,7 +35399,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 13892:                                            ; preds = %13890
   store ptr %13891, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %246) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %246)
   %13893 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %13894 unwind label %13904
 
@@ -35421,23 +35415,23 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 13899:                                            ; preds = %13896
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %246, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %246) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %247) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %246)
+  call void @llvm.lifetime.start.p0(ptr nonnull %247)
   %13900 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %247, ptr noundef %13900, i64 noundef 1)
           to label %13901 unwind label %13906
 
 13901:                                            ; preds = %13899
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %247, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %247) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %248) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %247)
+  call void @llvm.lifetime.start.p0(ptr nonnull %248)
   %13902 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %248, ptr noundef %13902, i64 noundef 1)
           to label %13903 unwind label %13908
 
 13903:                                            ; preds = %13901
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %248, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %248) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %248)
   br label %13910
 
 .loopexit6520:                                    ; preds = %.lr.ph.i6202
@@ -35468,19 +35462,19 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 13904:                                            ; preds = %13896, %13894, %13892
   %13905 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %246) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %246)
   br label %.loopexit.split-lp
 
 13906:                                            ; preds = %13899
   %13907 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %247) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %247)
   br label %.loopexit.split-lp
 
 13908:                                            ; preds = %13901
   %13909 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %248) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %248)
   br label %.loopexit.split-lp
 
 13910:                                            ; preds = %13903, %13888
@@ -35882,7 +35876,7 @@ switch.hole_check:                                ; preds = %14078
 
 14105:                                            ; preds = %14103
   store ptr %14104, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %249) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %249)
   %14106 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14107 unwind label %14117
 
@@ -35898,41 +35892,41 @@ switch.hole_check:                                ; preds = %14078
 
 14112:                                            ; preds = %14109
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %249, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %249) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %250) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %249)
+  call void @llvm.lifetime.start.p0(ptr nonnull %250)
   %14113 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %250, ptr noundef %14113, i64 noundef 1)
           to label %14114 unwind label %14119
 
 14114:                                            ; preds = %14112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %250, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %250) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %251) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %250)
+  call void @llvm.lifetime.start.p0(ptr nonnull %251)
   %14115 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %251, ptr noundef %14115, i64 noundef 1)
           to label %14116 unwind label %14121
 
 14116:                                            ; preds = %14114
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %251, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %251) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %251)
   br label %14123
 
 14117:                                            ; preds = %14109, %14107, %14105
   %14118 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %249) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %249)
   br label %.loopexit.split-lp
 
 14119:                                            ; preds = %14112
   %14120 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %250) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %250)
   br label %.loopexit.split-lp
 
 14121:                                            ; preds = %14114
   %14122 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %251) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %251)
   br label %.loopexit.split-lp
 
 14123:                                            ; preds = %14116, %14102
@@ -35990,7 +35984,7 @@ switch.hole_check:                                ; preds = %14078
 
 14145:                                            ; preds = %14143
   store ptr %14144, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %252) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %252)
   %14146 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14147 unwind label %14157
 
@@ -36006,41 +36000,41 @@ switch.hole_check:                                ; preds = %14078
 
 14152:                                            ; preds = %14149
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %252, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %252) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %253) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %252)
+  call void @llvm.lifetime.start.p0(ptr nonnull %253)
   %14153 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %253, ptr noundef %14153, i64 noundef 1)
           to label %14154 unwind label %14159
 
 14154:                                            ; preds = %14152
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %253, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %253) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %254) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %253)
+  call void @llvm.lifetime.start.p0(ptr nonnull %254)
   %14155 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %254, ptr noundef %14155, i64 noundef 1)
           to label %14156 unwind label %14161
 
 14156:                                            ; preds = %14154
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %254, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %254) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %254)
   br label %14163
 
 14157:                                            ; preds = %14149, %14147, %14145
   %14158 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %252) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %252)
   br label %.loopexit.split-lp
 
 14159:                                            ; preds = %14152
   %14160 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %253) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %253)
   br label %.loopexit.split-lp
 
 14161:                                            ; preds = %14154
   %14162 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %254) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %254)
   br label %.loopexit.split-lp
 
 14163:                                            ; preds = %14156, %14142
@@ -36095,7 +36089,7 @@ switch.hole_check:                                ; preds = %14078
 
 14186:                                            ; preds = %14184
   store ptr %14185, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %255) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %255)
   %14187 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14188 unwind label %14198
 
@@ -36111,41 +36105,41 @@ switch.hole_check:                                ; preds = %14078
 
 14193:                                            ; preds = %14190
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %255, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %255) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %256) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %255)
+  call void @llvm.lifetime.start.p0(ptr nonnull %256)
   %14194 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %256, ptr noundef %14194, i64 noundef 1)
           to label %14195 unwind label %14200
 
 14195:                                            ; preds = %14193
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %256, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %256) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %257) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %256)
+  call void @llvm.lifetime.start.p0(ptr nonnull %257)
   %14196 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %257, ptr noundef %14196, i64 noundef 1)
           to label %14197 unwind label %14202
 
 14197:                                            ; preds = %14195
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %257, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %257) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %257)
   br label %14204
 
 14198:                                            ; preds = %14190, %14188, %14186
   %14199 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %255) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %255)
   br label %.loopexit.split-lp
 
 14200:                                            ; preds = %14193
   %14201 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %256) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %256)
   br label %.loopexit.split-lp
 
 14202:                                            ; preds = %14195
   %14203 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %257) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %257)
   br label %.loopexit.split-lp
 
 14204:                                            ; preds = %14197, %14183
@@ -36248,7 +36242,7 @@ switch.hole_check:                                ; preds = %14078
 
 14243:                                            ; preds = %14241
   store ptr %14242, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %258) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %258)
   %14244 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14245 unwind label %14254
 
@@ -36263,41 +36257,41 @@ switch.hole_check:                                ; preds = %14078
 
 14249:                                            ; preds = %14247
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %258, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %258) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %259) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %258)
+  call void @llvm.lifetime.start.p0(ptr nonnull %259)
   %14250 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %259, ptr noundef %14250, i64 noundef 1)
           to label %14251 unwind label %14256
 
 14251:                                            ; preds = %14249
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %259, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %259) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %260) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %259)
+  call void @llvm.lifetime.start.p0(ptr nonnull %260)
   %14252 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %260, ptr noundef %14252, i64 noundef 1)
           to label %14253 unwind label %14258
 
 14253:                                            ; preds = %14251
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %260, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %260) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %260)
   br label %14260
 
 14254:                                            ; preds = %14247, %14245, %14243
   %14255 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %258) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %258)
   br label %.loopexit.split-lp
 
 14256:                                            ; preds = %14249
   %14257 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %259) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %259)
   br label %.loopexit.split-lp
 
 14258:                                            ; preds = %14251
   %14259 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %260) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %260)
   br label %.loopexit.split-lp
 
 14260:                                            ; preds = %14253, %14240
@@ -36362,7 +36356,7 @@ switch.hole_check:                                ; preds = %14078
 
 14285:                                            ; preds = %14283
   store ptr %14284, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %261) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %261)
   %14286 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14287 unwind label %14297
 
@@ -36378,41 +36372,41 @@ switch.hole_check:                                ; preds = %14078
 
 14292:                                            ; preds = %14289
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %261, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %261) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %262) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %261)
+  call void @llvm.lifetime.start.p0(ptr nonnull %262)
   %14293 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %262, ptr noundef %14293, i64 noundef 1)
           to label %14294 unwind label %14299
 
 14294:                                            ; preds = %14292
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %262, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %262) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %263) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %262)
+  call void @llvm.lifetime.start.p0(ptr nonnull %263)
   %14295 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %263, ptr noundef %14295, i64 noundef 1)
           to label %14296 unwind label %14301
 
 14296:                                            ; preds = %14294
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %263, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %263) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %263)
   br label %14303
 
 14297:                                            ; preds = %14289, %14287, %14285
   %14298 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %261) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %261)
   br label %.loopexit.split-lp
 
 14299:                                            ; preds = %14292
   %14300 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %262) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %262)
   br label %.loopexit.split-lp
 
 14301:                                            ; preds = %14294
   %14302 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %263) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %263)
   br label %.loopexit.split-lp
 
 14303:                                            ; preds = %14296, %14282
@@ -36458,7 +36452,7 @@ switch.hole_check:                                ; preds = %14078
 
 14321:                                            ; preds = %14319
   store ptr %14320, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %264) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %264)
   %14322 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14323 unwind label %14333
 
@@ -36474,41 +36468,41 @@ switch.hole_check:                                ; preds = %14078
 
 14328:                                            ; preds = %14325
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %264, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %264) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %265) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %264)
+  call void @llvm.lifetime.start.p0(ptr nonnull %265)
   %14329 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %265, ptr noundef %14329, i64 noundef 1)
           to label %14330 unwind label %14335
 
 14330:                                            ; preds = %14328
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %265, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %265) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %266) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %265)
+  call void @llvm.lifetime.start.p0(ptr nonnull %266)
   %14331 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %266, ptr noundef %14331, i64 noundef 1)
           to label %14332 unwind label %14337
 
 14332:                                            ; preds = %14330
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %266, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %266) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %266)
   br label %14339
 
 14333:                                            ; preds = %14325, %14323, %14321
   %14334 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %264) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %264)
   br label %.loopexit.split-lp
 
 14335:                                            ; preds = %14328
   %14336 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %265) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %265)
   br label %.loopexit.split-lp
 
 14337:                                            ; preds = %14330
   %14338 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %266) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %266)
   br label %.loopexit.split-lp
 
 14339:                                            ; preds = %14332, %14318
@@ -36554,7 +36548,7 @@ switch.hole_check:                                ; preds = %14078
 
 14357:                                            ; preds = %14355
   store ptr %14356, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %267) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %267)
   %14358 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14359 unwind label %14369
 
@@ -36570,41 +36564,41 @@ switch.hole_check:                                ; preds = %14078
 
 14364:                                            ; preds = %14361
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %267, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %267) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %268) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %267)
+  call void @llvm.lifetime.start.p0(ptr nonnull %268)
   %14365 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %268, ptr noundef %14365, i64 noundef 1)
           to label %14366 unwind label %14371
 
 14366:                                            ; preds = %14364
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %268, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %268) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %269) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %268)
+  call void @llvm.lifetime.start.p0(ptr nonnull %269)
   %14367 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %269, ptr noundef %14367, i64 noundef 1)
           to label %14368 unwind label %14373
 
 14368:                                            ; preds = %14366
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %269, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %269) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %269)
   br label %14375
 
 14369:                                            ; preds = %14361, %14359, %14357
   %14370 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %267) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %267)
   br label %.loopexit.split-lp
 
 14371:                                            ; preds = %14364
   %14372 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %268) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %268)
   br label %.loopexit.split-lp
 
 14373:                                            ; preds = %14366
   %14374 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %269) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %269)
   br label %.loopexit.split-lp
 
 14375:                                            ; preds = %14368, %14354
@@ -36649,7 +36643,7 @@ switch.hole_check:                                ; preds = %14078
 
 14392:                                            ; preds = %14390
   store ptr %14391, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %270) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %270)
   %14393 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14394 unwind label %14403
 
@@ -36664,41 +36658,41 @@ switch.hole_check:                                ; preds = %14078
 
 14398:                                            ; preds = %14396
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %270, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %270) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %271) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %270)
+  call void @llvm.lifetime.start.p0(ptr nonnull %271)
   %14399 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %271, ptr noundef %14399, i64 noundef 1)
           to label %14400 unwind label %14405
 
 14400:                                            ; preds = %14398
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %271, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %271) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %272) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %271)
+  call void @llvm.lifetime.start.p0(ptr nonnull %272)
   %14401 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %272, ptr noundef %14401, i64 noundef 1)
           to label %14402 unwind label %14407
 
 14402:                                            ; preds = %14400
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %272, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %272) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %272)
   br label %14409
 
 14403:                                            ; preds = %14396, %14394, %14392
   %14404 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %270) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %270)
   br label %.loopexit.split-lp
 
 14405:                                            ; preds = %14398
   %14406 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %271) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %271)
   br label %.loopexit.split-lp
 
 14407:                                            ; preds = %14400
   %14408 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %272) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %272)
   br label %.loopexit.split-lp
 
 14409:                                            ; preds = %14402, %14389
@@ -36747,7 +36741,7 @@ switch.hole_check:                                ; preds = %14078
 
 14431:                                            ; preds = %14429
   store ptr %14430, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %273) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %273)
   %14432 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14433 unwind label %14443
 
@@ -36763,41 +36757,41 @@ switch.hole_check:                                ; preds = %14078
 
 14438:                                            ; preds = %14435
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %273, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %273) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %274) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %273)
+  call void @llvm.lifetime.start.p0(ptr nonnull %274)
   %14439 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %274, ptr noundef %14439, i64 noundef 1)
           to label %14440 unwind label %14445
 
 14440:                                            ; preds = %14438
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %274, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %274) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %275) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %274)
+  call void @llvm.lifetime.start.p0(ptr nonnull %275)
   %14441 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %275, ptr noundef %14441, i64 noundef 1)
           to label %14442 unwind label %14447
 
 14442:                                            ; preds = %14440
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %275, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %275) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %275)
   br label %14449
 
 14443:                                            ; preds = %14435, %14433, %14431
   %14444 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %273) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %273)
   br label %.loopexit.split-lp
 
 14445:                                            ; preds = %14438
   %14446 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %274) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %274)
   br label %.loopexit.split-lp
 
 14447:                                            ; preds = %14440
   %14448 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %275) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %275)
   br label %.loopexit.split-lp
 
 14449:                                            ; preds = %14442, %14428
@@ -36842,7 +36836,7 @@ switch.hole_check:                                ; preds = %14078
 
 14467:                                            ; preds = %14465
   store ptr %14466, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %276) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %276)
   %14468 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14469 unwind label %14479
 
@@ -36858,41 +36852,41 @@ switch.hole_check:                                ; preds = %14078
 
 14474:                                            ; preds = %14471
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %276, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %276) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %277) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %276)
+  call void @llvm.lifetime.start.p0(ptr nonnull %277)
   %14475 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %277, ptr noundef %14475, i64 noundef 1)
           to label %14476 unwind label %14481
 
 14476:                                            ; preds = %14474
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %277, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %277) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %278) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %277)
+  call void @llvm.lifetime.start.p0(ptr nonnull %278)
   %14477 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %278, ptr noundef %14477, i64 noundef 1)
           to label %14478 unwind label %14483
 
 14478:                                            ; preds = %14476
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %278, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %278) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %278)
   br label %14485
 
 14479:                                            ; preds = %14471, %14469, %14467
   %14480 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %276) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %276)
   br label %.loopexit.split-lp
 
 14481:                                            ; preds = %14474
   %14482 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %277) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %277)
   br label %.loopexit.split-lp
 
 14483:                                            ; preds = %14476
   %14484 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %278) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %278)
   br label %.loopexit.split-lp
 
 14485:                                            ; preds = %14478, %14464
@@ -36938,7 +36932,7 @@ switch.hole_check:                                ; preds = %14078
 
 14503:                                            ; preds = %14501
   store ptr %14502, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %279) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %279)
   %14504 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14505 unwind label %14514
 
@@ -36953,41 +36947,41 @@ switch.hole_check:                                ; preds = %14078
 
 14509:                                            ; preds = %14507
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %279, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %279) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %280) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %279)
+  call void @llvm.lifetime.start.p0(ptr nonnull %280)
   %14510 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %280, ptr noundef %14510, i64 noundef 1)
           to label %14511 unwind label %14516
 
 14511:                                            ; preds = %14509
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %280, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %280) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %281) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %280)
+  call void @llvm.lifetime.start.p0(ptr nonnull %281)
   %14512 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %281, ptr noundef %14512, i64 noundef 1)
           to label %14513 unwind label %14518
 
 14513:                                            ; preds = %14511
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %281, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %281) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %281)
   br label %14520
 
 14514:                                            ; preds = %14507, %14505, %14503
   %14515 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %279) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %279)
   br label %.loopexit.split-lp
 
 14516:                                            ; preds = %14509
   %14517 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %280) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %280)
   br label %.loopexit.split-lp
 
 14518:                                            ; preds = %14511
   %14519 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %281) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %281)
   br label %.loopexit.split-lp
 
 14520:                                            ; preds = %14513, %14500
@@ -37036,7 +37030,7 @@ switch.hole_check:                                ; preds = %14078
 
 14542:                                            ; preds = %14540
   store ptr %14541, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %282) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %282)
   %14543 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14544 unwind label %14554
 
@@ -37052,41 +37046,41 @@ switch.hole_check:                                ; preds = %14078
 
 14549:                                            ; preds = %14546
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %282, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %282) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %283) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %282)
+  call void @llvm.lifetime.start.p0(ptr nonnull %283)
   %14550 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %283, ptr noundef %14550, i64 noundef 1)
           to label %14551 unwind label %14556
 
 14551:                                            ; preds = %14549
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %283, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %283) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %284) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %283)
+  call void @llvm.lifetime.start.p0(ptr nonnull %284)
   %14552 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %284, ptr noundef %14552, i64 noundef 1)
           to label %14553 unwind label %14558
 
 14553:                                            ; preds = %14551
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %284, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %284) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %284)
   br label %14560
 
 14554:                                            ; preds = %14546, %14544, %14542
   %14555 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %282) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %282)
   br label %.loopexit.split-lp
 
 14556:                                            ; preds = %14549
   %14557 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %283) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %283)
   br label %.loopexit.split-lp
 
 14558:                                            ; preds = %14551
   %14559 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %284) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %284)
   br label %.loopexit.split-lp
 
 14560:                                            ; preds = %14553, %14539
@@ -37131,7 +37125,7 @@ switch.hole_check:                                ; preds = %14078
 
 14578:                                            ; preds = %14576
   store ptr %14577, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %285) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %285)
   %14579 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14580 unwind label %14590
 
@@ -37147,41 +37141,41 @@ switch.hole_check:                                ; preds = %14078
 
 14585:                                            ; preds = %14582
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %285, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %285) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %286) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %285)
+  call void @llvm.lifetime.start.p0(ptr nonnull %286)
   %14586 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %286, ptr noundef %14586, i64 noundef 1)
           to label %14587 unwind label %14592
 
 14587:                                            ; preds = %14585
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %286, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %286) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %287) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %286)
+  call void @llvm.lifetime.start.p0(ptr nonnull %287)
   %14588 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %287, ptr noundef %14588, i64 noundef 1)
           to label %14589 unwind label %14594
 
 14589:                                            ; preds = %14587
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %287, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %287) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %287)
   br label %14596
 
 14590:                                            ; preds = %14582, %14580, %14578
   %14591 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %285) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %285)
   br label %.loopexit.split-lp
 
 14592:                                            ; preds = %14585
   %14593 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %286) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %286)
   br label %.loopexit.split-lp
 
 14594:                                            ; preds = %14587
   %14595 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %287) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %287)
   br label %.loopexit.split-lp
 
 14596:                                            ; preds = %14589, %14575
@@ -37226,7 +37220,7 @@ switch.hole_check:                                ; preds = %14078
 
 14614:                                            ; preds = %14612
   store ptr %14613, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %288) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %288)
   %14615 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14616 unwind label %14626
 
@@ -37242,41 +37236,41 @@ switch.hole_check:                                ; preds = %14078
 
 14621:                                            ; preds = %14618
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %288, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %288) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %289) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %288)
+  call void @llvm.lifetime.start.p0(ptr nonnull %289)
   %14622 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %289, ptr noundef %14622, i64 noundef 1)
           to label %14623 unwind label %14628
 
 14623:                                            ; preds = %14621
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %289, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %289) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %290) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %289)
+  call void @llvm.lifetime.start.p0(ptr nonnull %290)
   %14624 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %290, ptr noundef %14624, i64 noundef 1)
           to label %14625 unwind label %14630
 
 14625:                                            ; preds = %14623
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %290, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %290) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %290)
   br label %14632
 
 14626:                                            ; preds = %14618, %14616, %14614
   %14627 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %288) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %288)
   br label %.loopexit.split-lp
 
 14628:                                            ; preds = %14621
   %14629 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %289) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %289)
   br label %.loopexit.split-lp
 
 14630:                                            ; preds = %14623
   %14631 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %290) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %290)
   br label %.loopexit.split-lp
 
 14632:                                            ; preds = %14625, %14611
@@ -37317,7 +37311,7 @@ switch.hole_check:                                ; preds = %14078
 
 14648:                                            ; preds = %14646
   store ptr %14647, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %291) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %291)
   %14649 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14650 unwind label %14659
 
@@ -37332,23 +37326,23 @@ switch.hole_check:                                ; preds = %14078
 
 14654:                                            ; preds = %14652
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %291, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %291) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %292) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %291)
+  call void @llvm.lifetime.start.p0(ptr nonnull %292)
   %14655 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %292, ptr noundef %14655, i64 noundef 1)
           to label %14656 unwind label %14661
 
 14656:                                            ; preds = %14654
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %292, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %292) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %293) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %292)
+  call void @llvm.lifetime.start.p0(ptr nonnull %293)
   %14657 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %293, ptr noundef %14657, i64 noundef 1)
           to label %14658 unwind label %14663
 
 14658:                                            ; preds = %14656
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %293, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %293) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %293)
   br label %14665
 
 .loopexit6905:                                    ; preds = %14641, %14643, %14646, %14665, %14674, %14676, %14679, %14695, %14681
@@ -37364,19 +37358,19 @@ switch.hole_check:                                ; preds = %14078
 14659:                                            ; preds = %14652, %14650, %14648
   %14660 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %291) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %291)
   br label %.loopexit.split-lp
 
 14661:                                            ; preds = %14654
   %14662 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %292) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %292)
   br label %.loopexit.split-lp
 
 14663:                                            ; preds = %14656
   %14664 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %293) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %293)
   br label %.loopexit.split-lp
 
 14665:                                            ; preds = %14658, %14645
@@ -37455,7 +37449,7 @@ switch.hole_check:                                ; preds = %14078
           to label %14701 unwind label %.loopexit.split-lp6906
 
 14701:                                            ; preds = %14699
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %294) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %294)
   invoke void @_ZN5boost4wave4utilplIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEENS1_11flex_stringIT_T0_T1_T2_EEPKNSG_10value_typeERKSG_(ptr dead_on_unwind nonnull writable sret(%"class.boost::wave::util::flex_string") align 8 %294, ptr noundef nonnull @.str.30, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %14702 unwind label %14749
 
@@ -37586,11 +37580,11 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 14752:                                            ; preds = %14751, %14749
   %.pn5748 = phi { ptr, i32 } [ %lpad.phi6519, %14751 ], [ %14750, %14749 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %294) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %294)
   br label %.loopexit.split-lp
 
 .preheader6510:                                   ; preds = %14745, %14742, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSERKSB_.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %294) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %294)
   %14753 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14754 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %14755 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -37610,7 +37604,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 14761:                                            ; preds = %14759
   store ptr %14760, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %295) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %295)
   %14762 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14763 unwind label %14772
 
@@ -37625,23 +37619,23 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 14767:                                            ; preds = %14765
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %295, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %295) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %296) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %295)
+  call void @llvm.lifetime.start.p0(ptr nonnull %296)
   %14768 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %296, ptr noundef %14768, i64 noundef 1)
           to label %14769 unwind label %14774
 
 14769:                                            ; preds = %14767
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %296, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %296) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %297) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %296)
+  call void @llvm.lifetime.start.p0(ptr nonnull %297)
   %14770 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %297, ptr noundef %14770, i64 noundef 1)
           to label %14771 unwind label %14776
 
 14771:                                            ; preds = %14769
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %297, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %297) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %297)
   br label %14778
 
 .loopexit6497:                                    ; preds = %.lr.ph.i6233
@@ -37672,19 +37666,19 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 14772:                                            ; preds = %14765, %14763, %14761
   %14773 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %295) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %295)
   br label %.loopexit.split-lp
 
 14774:                                            ; preds = %14767
   %14775 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %296) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %296)
   br label %.loopexit.split-lp
 
 14776:                                            ; preds = %14769
   %14777 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %297) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %297)
   br label %.loopexit.split-lp
 
 14778:                                            ; preds = %14771, %14757
@@ -37828,7 +37822,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
           to label %14852 unwind label %.loopexit.split-lp6498.loopexit.split-lp.loopexit.split-lp.loopexit
 
 14852:                                            ; preds = %14850
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %298) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %298)
   %14853 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14854 unwind label %14945
 
@@ -37919,7 +37913,7 @@ _ZN5boost4wave4utileqIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStri
   br label %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit6230
 
 _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit6230: ; preds = %_ZN5boost4wave4utileqIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEEbRKNS1_11flex_stringIT_T0_T1_T2_EESI_.exit, %14893, %14896
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %298) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %298)
   br i1 %14889, label %14899, label %.loopexit6509.backedge
 
 14899:                                            ; preds = %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit6230
@@ -38017,7 +38011,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 .body:                                            ; preds = %14868, %14947, %14945
   %.pn5761.pn = phi { ptr, i32 } [ %14946, %14945 ], [ %14948, %14947 ], [ %14869, %14868 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %298) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %298)
   br label %.loopexit.split-lp
 
 14949:                                            ; preds = %14796
@@ -38405,7 +38399,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 15112:                                            ; preds = %15110
   store ptr %15111, ptr %308, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %299) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %299)
   %15113 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %15114 unwind label %15123
 
@@ -38420,41 +38414,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 15118:                                            ; preds = %15116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %299, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %299) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %300) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %299)
+  call void @llvm.lifetime.start.p0(ptr nonnull %300)
   %15119 = load ptr, ptr %310, align 8, !tbaa !124
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %300, ptr noundef %15119, i64 noundef 1)
           to label %15120 unwind label %15125
 
 15120:                                            ; preds = %15118
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %300, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %300) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %301) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %300)
+  call void @llvm.lifetime.start.p0(ptr nonnull %301)
   %15121 = load ptr, ptr %308, align 8, !tbaa !123
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %301, ptr noundef %15121, i64 noundef 1)
           to label %15122 unwind label %15127
 
 15122:                                            ; preds = %15120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %301, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %301) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %301)
   br label %15129
 
 15123:                                            ; preds = %15116, %15114, %15112
   %15124 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %299) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %299)
   br label %.loopexit.split-lp
 
 15125:                                            ; preds = %15118
   %15126 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %300) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %300)
   br label %.loopexit.split-lp
 
 15127:                                            ; preds = %15120
   %15128 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %301) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %301)
   br label %.loopexit.split-lp
 
 15129:                                            ; preds = %15122, %15109
@@ -38589,19 +38583,19 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br label %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit6240
 
 _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit6240: ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSEPKc.exit.thread, %15184, %15187
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #34
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #34
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #34
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.1
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp6423.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp6423.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp6408.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp6408.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit6905, %.loopexit.split-lp6906, %.loopexit6497, %.loopexit.split-lp6498.loopexit.split-lp.loopexit, %.loopexit.split-lp6498.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp6498.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp6498.loopexit, %.loopexit6520, %.loopexit.split-lp6521.loopexit.split-lp.loopexit, %.loopexit.split-lp6521.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp6521.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp6521.loopexit, %.loopexit6539, %.loopexit.split-lp6540.loopexit.split-lp.loopexit, %.loopexit.split-lp6540.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp6540.loopexit, %.loopexit6422, %.loopexit.split-lp6423.loopexit.split-lp.loopexit, %.loopexit.split-lp6423.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp6423.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp6423.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp6423.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp6423.loopexit, %.loopexit6407, %.loopexit.split-lp6408.loopexit.split-lp.loopexit, %.loopexit.split-lp6408.loopexit, %.loopexit6475, %.loopexit.split-lp6476.loopexit.split-lp.loopexit, %.loopexit.split-lp6476.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp6476.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp6476.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp6476.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp6476.loopexit, %.loopexit6454, %.loopexit.split-lp6455.loopexit.split-lp.loopexit, %.loopexit.split-lp6455.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp6455.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp6455.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp6455.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp6455.loopexit, %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %14772, %14774, %14776, %.body, %15123, %15125, %15127, %14659, %14661, %14663, %14752, %13904, %13906, %13908, %14117, %14119, %14121, %14157, %14159, %14161, %14198, %14200, %14202, %14254, %14256, %14258, %14297, %14299, %14301, %14333, %14335, %14337, %14369, %14371, %14373, %14403, %14405, %14407, %14443, %14445, %14447, %14479, %14481, %14483, %14514, %14516, %14518, %14554, %14556, %14558, %14590, %14592, %14594, %14626, %14628, %14630, %13499, %13501, %13503, %13827, %13829, %13831, %13378, %13380, %13382, %13384, %13230, %13232, %13234, %13236, %12851, %12853, %12855, %12903, %12905, %12907, %12940, %12942, %12944, %13025, %13027, %13029, %13069, %13071, %13073, %13150, %13152, %13154, %13191, %13193, %13195, %12291, %12293, %12295, %12331, %12333, %12335, %12425, %12427, %12429, %12455, %12457, %12459, %12514, %12516, %12518, %12543, %12545, %12547, %12573, %12575, %12577, %12608, %12610, %12612, %12643, %12645, %12647, %12678, %12680, %12682, %12713, %12715, %12717, %12748, %12750, %12752, %12783, %12785, %12787, %12818, %12820, %12822, %11969, %11971, %11973, %11678, %11680, %11682, %332, %334, %336, %472, %474, %476, %703, %705, %707, %1567, %1569, %1571, %1852, %1854, %1856, %1891, %1893, %1895, %1945, %1947, %1949, %2026, %2028, %2030, %2113, %2115, %2117, %2144, %2146, %2148, %2316, %2318, %2320, %2354, %2356, %2358, %2392, %2394, %2396, %3003, %3005, %3007, %3039, %3041, %3043, %3611, %3613, %3615, %3658, %3660, %3662, %3694, %3696, %3698, %3730, %3732, %3734, %3764, %3766, %3768, %3890, %3892, %3894, %3945, %3947, %3949, %3989, %3991, %3993, %4024, %4026, %4028, %4059, %4061, %4063, %4531, %4533, %4535, %4567, %4569, %4571, %5341, %5343, %5345, %5381, %5383, %5385, %5417, %5419, %5421, %5451, %5453, %5455, %5610, %5612, %5614, %5649, %5651, %5653, %5684, %5686, %5688, %5820, %5822, %5824, %5856, %5858, %5860, %6724, %6726, %6728, %6764, %6766, %6768, %6800, %6802, %6804, %6964, %6966, %6968, %7003, %7005, %7007, %7038, %7040, %7042, %7086, %7088, %7090, %7122, %7124, %7126, %8010, %8012, %8014, %8171, %8173, %8175, %10752, %10754, %10756, %10799, %10801, %10803, %11201, %11203, %11205, %11236, %11238, %11240, %11268, %11270, %11272, %11389, %11391, %11393, %12289, %12287, %12285
   %.pn5848.pn = phi { ptr, i32 } [ %12290, %12289 ], [ %12288, %12287 ], [ %12286, %12285 ], [ %477, %476 ], [ %475, %474 ], [ %473, %472 ], [ %1572, %1571 ], [ %1570, %1569 ], [ %1568, %1567 ], [ %3735, %3734 ], [ %3733, %3732 ], [ %3731, %3730 ], [ %6805, %6804 ], [ %6803, %6802 ], [ %6801, %6800 ], [ %5422, %5421 ], [ %5420, %5419 ], [ %5418, %5417 ], [ %3699, %3698 ], [ %3697, %3696 ], [ %3695, %3694 ], [ %8015, %8014 ], [ %8013, %8012 ], [ %8011, %8010 ], [ %6769, %6768 ], [ %6767, %6766 ], [ %6765, %6764 ], [ %5386, %5385 ], [ %5384, %5383 ], [ %5382, %5381 ], [ %3663, %3662 ], [ %3661, %3660 ], [ %3659, %3658 ], [ %1896, %1895 ], [ %1894, %1893 ], [ %1892, %1891 ], [ %6729, %6728 ], [ %6727, %6726 ], [ %6725, %6724 ], [ %5346, %5345 ], [ %5344, %5343 ], [ %5342, %5341 ], [ %3616, %3615 ], [ %3614, %3613 ], [ %3612, %3611 ], [ %1857, %1856 ], [ %1855, %1854 ], [ %1853, %1852 ], [ %1950, %1949 ], [ %1948, %1947 ], [ %1946, %1945 ], [ %5456, %5455 ], [ %5454, %5453 ], [ %5452, %5451 ], [ %3769, %3768 ], [ %3767, %3766 ], [ %3765, %3764 ], [ %2031, %2030 ], [ %2029, %2028 ], [ %2027, %2026 ], [ %11206, %11205 ], [ %11204, %11203 ], [ %11202, %11201 ], [ %11394, %11393 ], [ %11392, %11391 ], [ %11390, %11389 ], [ %11241, %11240 ], [ %11239, %11238 ], [ %11237, %11236 ], [ %10804, %10803 ], [ %10802, %10801 ], [ %10800, %10799 ], [ %11273, %11272 ], [ %11271, %11270 ], [ %11269, %11268 ], [ %10757, %10756 ], [ %10755, %10754 ], [ %10753, %10752 ], [ %7127, %7126 ], [ %7125, %7124 ], [ %7123, %7122 ], [ %5861, %5860 ], [ %5859, %5858 ], [ %5857, %5856 ], [ %4572, %4571 ], [ %4570, %4569 ], [ %4568, %4567 ], [ %3044, %3043 ], [ %3042, %3041 ], [ %3040, %3039 ], [ %7091, %7090 ], [ %7089, %7088 ], [ %7087, %7086 ], [ %5825, %5824 ], [ %5823, %5822 ], [ %5821, %5820 ], [ %4536, %4535 ], [ %4534, %4533 ], [ %4532, %4531 ], [ %3008, %3007 ], [ %3006, %3005 ], [ %3004, %3003 ], [ %2149, %2148 ], [ %2147, %2146 ], [ %2145, %2144 ], [ %3895, %3894 ], [ %3893, %3892 ], [ %3891, %3890 ], [ %2118, %2117 ], [ %2116, %2115 ], [ %2114, %2113 ], [ %708, %707 ], [ %706, %705 ], [ %704, %703 ], [ %2321, %2320 ], [ %2319, %2318 ], [ %2317, %2316 ], [ %4064, %4063 ], [ %4062, %4061 ], [ %4060, %4059 ], [ %7043, %7042 ], [ %7041, %7040 ], [ %7039, %7038 ], [ %5689, %5688 ], [ %5687, %5686 ], [ %5685, %5684 ], [ %4029, %4028 ], [ %4027, %4026 ], [ %4025, %4024 ], [ %8176, %8175 ], [ %8174, %8173 ], [ %8172, %8171 ], [ %7008, %7007 ], [ %7006, %7005 ], [ %7004, %7003 ], [ %5654, %5653 ], [ %5652, %5651 ], [ %5650, %5649 ], [ %3994, %3993 ], [ %3992, %3991 ], [ %3990, %3989 ], [ %2397, %2396 ], [ %2395, %2394 ], [ %2393, %2392 ], [ %6969, %6968 ], [ %6967, %6966 ], [ %6965, %6964 ], [ %5615, %5614 ], [ %5613, %5612 ], [ %5611, %5610 ], [ %3950, %3949 ], [ %3948, %3947 ], [ %3946, %3945 ], [ %2359, %2358 ], [ %2357, %2356 ], [ %2355, %2354 ], [ %337, %336 ], [ %335, %334 ], [ %333, %332 ], [ %11683, %11682 ], [ %11681, %11680 ], [ %11679, %11678 ], [ %11974, %11973 ], [ %11972, %11971 ], [ %11970, %11969 ], [ %12823, %12822 ], [ %12821, %12820 ], [ %12819, %12818 ], [ %12753, %12752 ], [ %12751, %12750 ], [ %12749, %12748 ], [ %12683, %12682 ], [ %12681, %12680 ], [ %12679, %12678 ], [ %12613, %12612 ], [ %12611, %12610 ], [ %12609, %12608 ], [ %12788, %12787 ], [ %12786, %12785 ], [ %12784, %12783 ], [ %12718, %12717 ], [ %12716, %12715 ], [ %12714, %12713 ], [ %12648, %12647 ], [ %12646, %12645 ], [ %12644, %12643 ], [ %12578, %12577 ], [ %12576, %12575 ], [ %12574, %12573 ], [ %12519, %12518 ], [ %12517, %12516 ], [ %12515, %12514 ], [ %12548, %12547 ], [ %12546, %12545 ], [ %12544, %12543 ], [ %12430, %12429 ], [ %12428, %12427 ], [ %12426, %12425 ], [ %12460, %12459 ], [ %12458, %12457 ], [ %12456, %12455 ], [ %12336, %12335 ], [ %12334, %12333 ], [ %12332, %12331 ], [ %12296, %12295 ], [ %12294, %12293 ], [ %12292, %12291 ], [ %13155, %13154 ], [ %13153, %13152 ], [ %13151, %13150 ], [ %12945, %12944 ], [ %12943, %12942 ], [ %12941, %12940 ], [ %13196, %13195 ], [ %13194, %13193 ], [ %13192, %13191 ], [ %13030, %13029 ], [ %13028, %13027 ], [ %13026, %13025 ], [ %13074, %13073 ], [ %13072, %13071 ], [ %13070, %13069 ], [ %12908, %12907 ], [ %12906, %12905 ], [ %12904, %12903 ], [ %12856, %12855 ], [ %12854, %12853 ], [ %12852, %12851 ], [ %13231, %13230 ], [ %13237, %13236 ], [ %13235, %13234 ], [ %13233, %13232 ], [ %13379, %13378 ], [ %13385, %13384 ], [ %13383, %13382 ], [ %13381, %13380 ], [ %13832, %13831 ], [ %13830, %13829 ], [ %13828, %13827 ], [ %13504, %13503 ], [ %13502, %13501 ], [ %13500, %13499 ], [ %14122, %14121 ], [ %14120, %14119 ], [ %14118, %14117 ], [ %14374, %14373 ], [ %14372, %14371 ], [ %14370, %14369 ], [ %14595, %14594 ], [ %14593, %14592 ], [ %14591, %14590 ], [ %14484, %14483 ], [ %14482, %14481 ], [ %14480, %14479 ], [ %14338, %14337 ], [ %14336, %14335 ], [ %14334, %14333 ], [ %14631, %14630 ], [ %14629, %14628 ], [ %14627, %14626 ], [ %14559, %14558 ], [ %14557, %14556 ], [ %14555, %14554 ], [ %14448, %14447 ], [ %14446, %14445 ], [ %14444, %14443 ], [ %14302, %14301 ], [ %14300, %14299 ], [ %14298, %14297 ], [ %14203, %14202 ], [ %14201, %14200 ], [ %14199, %14198 ], [ %14519, %14518 ], [ %14517, %14516 ], [ %14515, %14514 ], [ %14408, %14407 ], [ %14406, %14405 ], [ %14404, %14403 ], [ %14259, %14258 ], [ %14257, %14256 ], [ %14255, %14254 ], [ %14162, %14161 ], [ %14160, %14159 ], [ %14158, %14157 ], [ %13909, %13908 ], [ %13907, %13906 ], [ %13905, %13904 ], [ %.pn5748, %14752 ], [ %14664, %14663 ], [ %14662, %14661 ], [ %14660, %14659 ], [ %.pn5761.pn, %.body ], [ %15128, %15127 ], [ %15126, %15125 ], [ %15124, %15123 ], [ %14777, %14776 ], [ %14775, %14774 ], [ %14773, %14772 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit6309, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit6312, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6315, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6322, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6333, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp ], [ %lpad.loopexit6339, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6343, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6349, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6353, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6357, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6361, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6368, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6372, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6379, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6394, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp6395, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp ], [ %lpad.loopexit6404, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp6405, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit6456, %.loopexit6454 ], [ %lpad.loopexit6459, %.loopexit.split-lp6455.loopexit ], [ %lpad.loopexit6462, %.loopexit.split-lp6455.loopexit.split-lp.loopexit ], [ %lpad.loopexit6465, %.loopexit.split-lp6455.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6468, %.loopexit.split-lp6455.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6472, %.loopexit.split-lp6455.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp6473, %.loopexit.split-lp6455.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit6477, %.loopexit6475 ], [ %lpad.loopexit6480, %.loopexit.split-lp6476.loopexit ], [ %lpad.loopexit6483, %.loopexit.split-lp6476.loopexit.split-lp.loopexit ], [ %lpad.loopexit6486, %.loopexit.split-lp6476.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6489, %.loopexit.split-lp6476.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6493, %.loopexit.split-lp6476.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp6494, %.loopexit.split-lp6476.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit6409, %.loopexit6407 ], [ %lpad.loopexit6413, %.loopexit.split-lp6408.loopexit ], [ %lpad.loopexit6417, %.loopexit.split-lp6408.loopexit.split-lp.loopexit ], [ %lpad.loopexit6424, %.loopexit6422 ], [ %lpad.loopexit6428, %.loopexit.split-lp6423.loopexit ], [ %lpad.loopexit6433, %.loopexit.split-lp6423.loopexit.split-lp.loopexit ], [ %lpad.loopexit6438, %.loopexit.split-lp6423.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6443, %.loopexit.split-lp6423.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6447, %.loopexit.split-lp6423.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6451, %.loopexit.split-lp6423.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6541, %.loopexit6539 ], [ %lpad.loopexit6544, %.loopexit.split-lp6540.loopexit ], [ %lpad.loopexit6548, %.loopexit.split-lp6540.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp6549, %.loopexit.split-lp6540.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit6522, %.loopexit6520 ], [ %lpad.loopexit6525, %.loopexit.split-lp6521.loopexit ], [ %lpad.loopexit6529, %.loopexit.split-lp6521.loopexit.split-lp.loopexit ], [ %lpad.loopexit6536, %.loopexit.split-lp6521.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp6537, %.loopexit.split-lp6521.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit6499, %.loopexit6497 ], [ %lpad.loopexit6502, %.loopexit.split-lp6498.loopexit ], [ %lpad.loopexit6506, %.loopexit.split-lp6498.loopexit.split-lp.loopexit ], [ %lpad.loopexit6511, %.loopexit.split-lp6498.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp6512, %.loopexit.split-lp6498.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit6907, %.loopexit6905 ], [ %lpad.loopexit.split-lp6908, %.loopexit.split-lp6906 ], [ %lpad.loopexit7354, %.loopexit.split-lp6408.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp7355, %.loopexit.split-lp6408.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit7366, %.loopexit.split-lp6423.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp7367, %.loopexit.split-lp6423.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #34
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #34
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #34
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn5848.pn
 }
 
@@ -38646,7 +38640,7 @@ _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22A
 
 .lr.ph:                                           ; preds = %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE13find_first_ofEcm.exit, %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit
   %.040103 = phi i64 [ %.0.i.i90, %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit ], [ %26, %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE13find_first_ofEcm.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %27 = add i64 %.040103, 2
   %28 = add nuw i64 %.040103, 1
   %29 = load ptr, ptr %0, align 8, !tbaa !28
@@ -38665,9 +38659,9 @@ _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22A
   %41 = add i64 %reass.sub, -2
   %42 = add i64 %41, %37
   %43 = call noundef i64 @llvm.umin.i64(i64 %34, i64 %42)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #34, !noalias !145
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !145
   call void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcEC2EPKcmRKS4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %40, i64 noundef %43, ptr noundef nonnull align 1 dereferenceable(1) %6)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #34, !noalias !145
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !145
   %44 = load ptr, ptr %7, align 8, !tbaa !28
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !10
@@ -38693,7 +38687,7 @@ _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22A
   br i1 %.not42, label %232, label %56
 
 56:                                               ; preds = %55
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %57 = load ptr, ptr %0, align 8, !tbaa !28
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 17
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 %28
@@ -38709,19 +38703,19 @@ _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22A
   %69 = sub i64 %67, %.040103
   %70 = add i64 %69, %65
   %71 = call noundef i64 @llvm.umin.i64(i64 %62, i64 %70)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #34, !noalias !148
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !148
   invoke void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcEC2EPKcmRKS4_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %68, i64 noundef %71, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %72 unwind label %94
 
 72:                                               ; preds = %56
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #34, !noalias !148
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !148
   switch i32 %54, label %179 [
     i32 1, label %73
     i32 2, label %128
   ]
 
 73:                                               ; preds = %72
-  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %9) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %9)
           to label %74 unwind label %96
 
@@ -38785,8 +38779,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit63: ; preds = %89
           to label %_ZNSolsEPFRSoS_E.exit unwind label %98
 
 _ZNSolsEPFRSoS_E.exit:                            ; preds = %100
-  call void @llvm.lifetime.start.p0(i64 1056, ptr nonnull %10) #34
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(128) %9)
           to label %102 unwind label %114
 
@@ -38844,8 +38838,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %114
   %.pn55.pn = phi { ptr, i32 } [ %115, %114 ], [ %117, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %117, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #34
-  call void @llvm.lifetime.end.p0(i64 1056, ptr nonnull %10) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %126
 
 126:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %98
@@ -38855,11 +38849,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 127:                                              ; preds = %126, %96
   %.pn55.pn.pn.pn = phi { ptr, i32 } [ %.pn55.pn.pn, %126 ], [ %97, %96 ]
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %9) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %230
 
 128:                                              ; preds = %72
-  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %12) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %12)
           to label %129 unwind label %147
 
@@ -38913,8 +38907,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit68: ; preds = %144
           to label %_ZNSolsEPFRSoS_E.exit69 unwind label %149
 
 _ZNSolsEPFRSoS_E.exit69:                          ; preds = %151
-  call void @llvm.lifetime.start.p0(i64 1056, ptr nonnull %13) #34
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull align 8 dereferenceable(128) %12)
           to label %153 unwind label %165
 
@@ -38972,8 +38966,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i73
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i73, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i74, %165
   %.pn49.pn = phi { ptr, i32 } [ %166, %165 ], [ %168, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i74 ], [ %168, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i73 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #34
-  call void @llvm.lifetime.end.p0(i64 1056, ptr nonnull %13) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %177
 
 177:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75, %149
@@ -38983,11 +38977,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75: ; preds = %_ZN
 
 178:                                              ; preds = %177, %147
   %.pn49.pn.pn.pn = phi { ptr, i32 } [ %.pn49.pn.pn, %177 ], [ %148, %147 ]
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %12) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %230
 
 179:                                              ; preds = %72
-  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %15) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %15)
           to label %180 unwind label %198
 
@@ -39041,8 +39035,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit77: ; preds = %195
           to label %_ZNSolsEPFRSoS_E.exit78 unwind label %200
 
 _ZNSolsEPFRSoS_E.exit78:                          ; preds = %202
-  call void @llvm.lifetime.start.p0(i64 1056, ptr nonnull %16) #34
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %17, ptr noundef nonnull align 8 dereferenceable(128) %15)
           to label %204 unwind label %216
 
@@ -39100,8 +39094,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i82
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i82, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i83, %216
   %.pn.pn = phi { ptr, i32 } [ %217, %216 ], [ %219, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i83 ], [ %219, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i82 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #34
-  call void @llvm.lifetime.end.p0(i64 1056, ptr nonnull %16) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %228
 
 228:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84, %200
@@ -39111,7 +39105,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84: ; preds = %_ZN
 
 229:                                              ; preds = %228, %198
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %228 ], [ %199, %198 ]
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %15) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %230
 
 230:                                              ; preds = %229, %178, %127
@@ -39121,7 +39115,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84: ; preds = %_ZN
 
 231:                                              ; preds = %230, %94
   %.pn55.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn, %230 ], [ %95, %94 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %263
 
 232:                                              ; preds = %55
@@ -39183,14 +39177,14 @@ _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22A
   br label %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit
 
 _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit: ; preds = %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE13find_first_ofEcm.exit91, %256, %259
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not = icmp eq i64 %.0.i.i90, -1
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !151
 
 263:                                              ; preds = %231, %92
   %.pn55.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn, %231 ], [ %93, %92 ]
   call void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn55.pn.pn.pn.pn.pn.pn
 
 ._crit_edge:                                      ; preds = %22, %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit, %4, %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE13find_first_ofEcm.exit
@@ -39241,7 +39235,7 @@ _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22A
 .preheader:                                       ; preds = %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE13find_first_ofEPKcm.exit, %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit69
   %.020 = phi i64 [ %.121, %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit69 ], [ 0, %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE13find_first_ofEPKcm.exit ]
   %.0 = phi i64 [ %.1, %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit69 ], [ %21, %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE13find_first_ofEPKcm.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %22 = sub i64 %.0, %.020
   %23 = load ptr, ptr %1, align 8, !tbaa !28, !noalias !152
   %24 = load ptr, ptr %23, align 8, !tbaa !6, !noalias !152
@@ -39254,12 +39248,12 @@ _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22A
   %31 = sub i64 %26, %.020
   %32 = add i64 %31, %28
   %33 = call noundef i64 @llvm.umin.i64(i64 %22, i64 %32)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #34, !noalias !152
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !152
   invoke void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcEC2EPKcmRKS4_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %30, i64 noundef %33, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %34 unwind label %134
 
 34:                                               ; preds = %.preheader
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #34, !noalias !152
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !152
   %35 = load ptr, ptr %6, align 8, !tbaa !28
   %36 = load ptr, ptr %35, align 8, !tbaa !6
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
@@ -39307,8 +39301,8 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br label %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit
 
 _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit: ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEpLERKSB_.exit, %53, %56
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #34
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %60 = load ptr, ptr %1, align 8, !tbaa !28, !noalias !155
   %61 = load ptr, ptr %60, align 8, !tbaa !6, !noalias !155
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 16
@@ -39319,12 +39313,12 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit:
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 %.0
   %68 = sub i64 %63, %.0
   %69 = add i64 %68, %65
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #34, !noalias !155
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !155
   invoke void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcEC2EPKcmRKS4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %67, i64 noundef %69, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %70 unwind label %139
 
 70:                                               ; preds = %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #34, !noalias !155
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !155
   %71 = load ptr, ptr %7, align 8, !tbaa !28
   %72 = load ptr, ptr %71, align 8, !tbaa !6
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
@@ -39362,7 +39356,7 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit:
   ]
 
 _ZN5boost4wave8cpplexer4impl11is_trigraphINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEEEEbRKT_.exit: ; preds = %84, %84, %84, %84, %84, %84, %84, %84, %84
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN5boost4wave8cpplexer4impl16convert_trigraphINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEEEET_RKSF_(ptr dead_on_unwind nonnull writable sret(%"class.boost::wave::util::flex_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %87 unwind label %143
 
@@ -39414,7 +39408,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br label %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit51
 
 _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit51: ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEpLERKSB_.exit48, %106, %109
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %113 = add i64 %.0, 3
   %114 = load ptr, ptr %1, align 8, !tbaa !28
   %115 = load ptr, ptr %114, align 8, !tbaa !6
@@ -39467,7 +39461,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i53:   ; preds = %122, %130
 
 138:                                              ; preds = %136, %134
   %.pn = phi { ptr, i32 } [ %137, %136 ], [ %135, %134 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %228
 
 139:                                              ; preds = %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit
@@ -39493,7 +39487,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i53:   ; preds = %122, %130
 
 147:                                              ; preds = %145, %143
   %.pn33 = phi { ptr, i32 } [ %146, %145 ], [ %144, %143 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %220
 
 148:                                              ; preds = %84, %70, %78, %81
@@ -39565,12 +39559,12 @@ _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22A
   br label %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit69
 
 _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit69: ; preds = %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE13find_first_ofEPKcm.exit58, %176, %179
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not38 = icmp eq i64 %.1, -1
   br i1 %.not38, label %183, label %.preheader, !llvm.loop !158
 
 183:                                              ; preds = %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit69
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %184 = load ptr, ptr %1, align 8, !tbaa !28, !noalias !159
   %185 = load ptr, ptr %184, align 8, !tbaa !6, !noalias !159
   %186 = getelementptr inbounds nuw i8, ptr %184, i64 16
@@ -39581,12 +39575,12 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit6
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 %.121
   %192 = sub i64 %187, %.121
   %193 = add i64 %192, %189
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #34, !noalias !159
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !159
   invoke void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcEC2EPKcmRKS4_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %191, i64 noundef %193, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %194 unwind label %222
 
 194:                                              ; preds = %183
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #34, !noalias !159
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !159
   %195 = load ptr, ptr %9, align 8, !tbaa !28
   %196 = load ptr, ptr %195, align 8, !tbaa !6
   %197 = getelementptr inbounds nuw i8, ptr %195, i64 16
@@ -39634,7 +39628,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br label %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit77
 
 _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit77: ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEpLERKSB_.exit74, %213, %216
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %229
 
 220:                                              ; preds = %147, %141
@@ -39644,7 +39638,7 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit7
 
 221:                                              ; preds = %220, %139
   %.pn35.pn = phi { ptr, i32 } [ %.pn35, %220 ], [ %140, %139 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %228
 
 222:                                              ; preds = %183
@@ -39660,7 +39654,7 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit7
 
 226:                                              ; preds = %224, %222
   %.pn39 = phi { ptr, i32 } [ %225, %224 ], [ %223, %222 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %228
 
 _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE13find_first_ofEPKcm.exit.thread: ; preds = %17, %2, %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE13find_first_ofEPKcm.exit
@@ -39726,7 +39720,7 @@ _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22A
   ]
 
 30:                                               ; preds = %.lr.ph, %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %31 = icmp eq i8 %29, 117
   %32 = select i1 %31, i64 4, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -39739,9 +39733,9 @@ _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22A
   %39 = add i64 %reass.sub, -2
   %40 = add i64 %39, %34
   %41 = call noundef i64 @llvm.umin.i64(i64 %32, i64 %40)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #34, !noalias !162
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !162
   call void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcEC2EPKcmRKS4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %38, i64 noundef %41, ptr noundef nonnull align 1 dereferenceable(1) %6)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #34, !noalias !162
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !162
   %42 = load ptr, ptr %7, align 8, !tbaa !28
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !10
@@ -39769,7 +39763,7 @@ _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22A
   ]
 
 54:                                               ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %55 = load ptr, ptr %0, align 8, !tbaa !28
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 17
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 %26
@@ -39785,17 +39779,17 @@ _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22A
   %67 = sub i64 %65, %.03884
   %68 = add i64 %67, %63
   %69 = call noundef i64 @llvm.umin.i64(i64 %60, i64 %68)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #34, !noalias !165
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !165
   invoke void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcEC2EPKcmRKS4_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %66, i64 noundef %69, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %70 unwind label %93
 
 70:                                               ; preds = %54
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #34, !noalias !165
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !165
   %71 = icmp eq i32 %52, 1
   br i1 %71, label %72, label %127
 
 72:                                               ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %9) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %9)
           to label %73 unwind label %95
 
@@ -39859,8 +39853,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit54: ; preds = %88
           to label %_ZNSolsEPFRSoS_E.exit unwind label %97
 
 _ZNSolsEPFRSoS_E.exit:                            ; preds = %99
-  call void @llvm.lifetime.start.p0(i64 1056, ptr nonnull %10) #34
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(128) %9)
           to label %101 unwind label %113
 
@@ -39918,8 +39912,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %113
   %.pn46.pn = phi { ptr, i32 } [ %114, %113 ], [ %116, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %116, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #34
-  call void @llvm.lifetime.end.p0(i64 1056, ptr nonnull %10) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %125
 
 125:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %97
@@ -39929,11 +39923,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 126:                                              ; preds = %125, %95
   %.pn46.pn.pn.pn = phi { ptr, i32 } [ %.pn46.pn.pn, %125 ], [ %96, %95 ]
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %9) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %178
 
 127:                                              ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %12) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %12)
           to label %128 unwind label %146
 
@@ -39987,8 +39981,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit59: ; preds = %143
           to label %_ZNSolsEPFRSoS_E.exit60 unwind label %148
 
 _ZNSolsEPFRSoS_E.exit60:                          ; preds = %150
-  call void @llvm.lifetime.start.p0(i64 1056, ptr nonnull %13) #34
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull align 8 dereferenceable(128) %12)
           to label %152 unwind label %164
 
@@ -40046,8 +40040,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i64
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i64, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i65, %164
   %.pn.pn = phi { ptr, i32 } [ %165, %164 ], [ %167, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i65 ], [ %167, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i64 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #34
-  call void @llvm.lifetime.end.p0(i64 1056, ptr nonnull %13) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %176
 
 176:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66, %148
@@ -40057,7 +40051,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66: ; preds = %_ZN
 
 177:                                              ; preds = %176, %146
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %176 ], [ %147, %146 ]
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %12) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %178
 
 178:                                              ; preds = %177, %126
@@ -40067,7 +40061,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66: ; preds = %_ZN
 
 179:                                              ; preds = %178, %93
   %.pn46.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn46.pn.pn.pn.pn, %178 ], [ %94, %93 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %193
 
 180:                                              ; preds = %53, %53
@@ -40094,7 +40088,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66: ; preds = %_ZN
   br label %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit
 
 _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit: ; preds = %180, %186, %189
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre = load ptr, ptr %0, align 8, !tbaa !28
   %.pre93 = load ptr, ptr %.pre, align 8, !tbaa !6
   br label %194
@@ -40102,7 +40096,7 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit:
 193:                                              ; preds = %179, %91
   %.pn46.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn46.pn.pn.pn.pn.pn, %179 ], [ %92, %91 ]
   call void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn46.pn.pn.pn.pn.pn.pn
 
 194:                                              ; preds = %.lr.ph, %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit
@@ -40783,7 +40777,7 @@ _ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIN9__gnu_cxx17__normal_iterat
   %116 = phi ptr [ %111, %.lr.ph254 ], [ %151, %148 ]
   %.0188252 = phi ptr [ %.sroa.speculated, %.lr.ph254 ], [ %149, %148 ]
   %.0191251 = phi i64 [ %spec.store.select, %.lr.ph254 ], [ %.1192, %148 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !175
   %117 = call noundef zeroext i1 @_ZN5boost4wave8cpplexer7re2clex12is_backslashEPhS3_Ri(ptr noundef %.0188252, ptr noundef %116, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br i1 %117, label %118, label %148
@@ -40841,7 +40835,7 @@ _ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIN9__gnu_cxx17__normal_iterat
 148:                                              ; preds = %.sink.split, %125, %118, %115
   %.1192 = phi i64 [ %.0191251, %118 ], [ %.0191251, %115 ], [ %.0191251, %125 ], [ %.1192.ph, %.sink.split ]
   %.1189 = phi ptr [ %.0188252, %118 ], [ %.0188252, %115 ], [ %.0188252, %125 ], [ %.sink282, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %149 = getelementptr inbounds nuw i8, ptr %.1189, i64 1
   %150 = load ptr, ptr %61, align 8, !tbaa !124
   %151 = getelementptr inbounds i8, ptr %150, i64 %.1192
@@ -41920,7 +41914,7 @@ define linkonce_odr hidden void @_ZN5boost4wave4util11flex_stringIcSt11char_trai
   br i1 %13, label %14, label %154
 
 14:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %15 = tail call noalias noundef nonnull dereferenceable(25) ptr @_Znwm(i64 noundef 25) #31
   store ptr %15, ptr %6, align 8, !tbaa !28
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 17
@@ -42213,14 +42207,14 @@ _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i65: ; pred
   br label %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit
 
 _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit: ; preds = %138, %145, %148
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %166
 
 152:                                              ; preds = %.noexc.i.i.i.i68.invoke, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEE5AllocEmPKv.exit.i.i.i.i.i64, %.noexc40, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEE5AllocEmPKv.exit.i.i.i.i.i54, %.noexc30, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEE5AllocEmPKv.exit.i.i.i.i.i44, %.noexc28, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEE5AllocEmPKv.exit.i.i.i.i.i33, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEE5AllocEmPKv.exit.i.i.i.i.i, %14
   %153 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %153
 
 154:                                              ; preds = %5
@@ -42735,7 +42729,7 @@ define linkonce_odr hidden void @_ZN5boost4wave4util11flex_stringIcSt11char_trai
   br i1 %8, label %.noexc5.i, label %33
 
 .noexc5.i:                                        ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = tail call noalias noundef nonnull dereferenceable(25) ptr @_Znwm(i64 noundef 25) #31
   store ptr %9, ptr %5, align 8, !tbaa !28
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 17
@@ -42783,7 +42777,7 @@ define linkonce_odr hidden void @_ZN5boost4wave4util11flex_stringIcSt11char_trai
   br label %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit
 
 _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit: ; preds = %18, %24, %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZSt4copyIPcS0_ET0_T_S2_S1_.exit66
 
 31:                                               ; preds = %14
@@ -42794,7 +42788,7 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit:
 .body:                                            ; preds = %12, %31
   %.pn.pn = phi { ptr, i32 } [ %32, %31 ], [ %13, %12 ]
   call void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn
 
 33:                                               ; preds = %7
@@ -43172,7 +43166,7 @@ define linkonce_odr hidden void @_ZN5boost4wave4util11flex_stringIcSt11char_trai
   br i1 %8, label %.noexc, label %34
 
 .noexc:                                           ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = tail call noalias noundef nonnull dereferenceable(25) ptr @_Znwm(i64 noundef 25) #31
   store ptr %9, ptr %5, align 8, !tbaa !28
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 17
@@ -43220,7 +43214,7 @@ define linkonce_odr hidden void @_ZN5boost4wave4util11flex_stringIcSt11char_trai
   br label %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit
 
 _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit: ; preds = %19, %25, %28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZSt4copyIPKcPcET0_T_S4_S3_.exit66
 
 32:                                               ; preds = %15
@@ -43231,7 +43225,7 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit:
 .body:                                            ; preds = %13, %32
   %.pn.pn = phi { ptr, i32 } [ %33, %32 ], [ %14, %13 ]
   call void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn
 
 34:                                               ; preds = %7
@@ -43710,7 +43704,7 @@ define linkonce_odr hidden void @_ZN5boost4wave4util11flex_stringIcSt11char_trai
   br i1 %13, label %14, label %154
 
 14:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %15 = tail call noalias noundef nonnull dereferenceable(25) ptr @_Znwm(i64 noundef 25) #31
   store ptr %15, ptr %6, align 8, !tbaa !28
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 17
@@ -44003,14 +43997,14 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br label %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit
 
 _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit: ; preds = %138, %145, %148
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %166
 
 152:                                              ; preds = %.noexc.i.i.i.i56.invoke, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE3endEv.exit.i44, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEE5AllocEmPKv.exit.i.i.i.i.i52, %.noexc31, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE3endEv.exit.i, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEE5AllocEmPKv.exit.i.i.i.i.i.i40, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEE5AllocEmPKv.exit.i.i.i.i.i33, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEE5AllocEmPKv.exit.i.i.i.i.i.i, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEE5AllocEmPKv.exit.i.i.i.i.i, %14
   %153 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %153
 
 154:                                              ; preds = %5
@@ -44623,7 +44617,7 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE6mallocEv.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %2, align 8, !tbaa !3
   invoke void @_ZN5boost15throw_exceptionISt9bad_allocEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %2) #33
           to label %20 unwind label %21
@@ -44635,7 +44629,7 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %common.resume
 
 23:                                               ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE6mallocEv.exit.thread, %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE6mallocEv.exit
@@ -45663,12 +45657,12 @@ define linkonce_odr hidden noundef i32 @_ZN5boost4wave8cpplexer7re2clex5lexerIN9
   %6 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %7 = alloca %"class.boost::wave::cpplexer::lexing_exception", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #34
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.va_start.p0(ptr nonnull %5)
   %9 = call i32 @vsnprintf(ptr noundef nonnull %4, i64 noundef 200, ptr noundef %2, ptr noundef nonnull %5) #34
   call void @llvm.va_end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %6) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %6)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = sext i32 %1 to i64
@@ -45746,8 +45740,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit24: ; preds = %_ZStl
           to label %_ZNSolsEPFRSoS_E.exit unwind label %47
 
 _ZNSolsEPFRSoS_E.exit:                            ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit24
-  call void @llvm.lifetime.start.p0(i64 1056, ptr nonnull %7) #34
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(128) %6)
           to label %50 unwind label %59
 
@@ -45795,8 +45789,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %59
   %.pn = phi { ptr, i32 } [ %60, %59 ], [ %62, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %62, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #34
-  call void @llvm.lifetime.end.p0(i64 1056, ptr nonnull %7) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %71
 
 71:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %47
@@ -45846,9 +45840,9 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   store i64 0, ptr %94, align 8, !tbaa !80
   %95 = getelementptr inbounds nuw i8, ptr %6, i64 128
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %95) #34
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %6) #34
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #34
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -46061,7 +46055,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5b
   br i1 %32, label %33, label %57
 
 33:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !82
   %34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEEaSERKSG_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %35 unwind label %55
@@ -46124,14 +46118,14 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit
 
 _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit: ; preds = %35, %37, %41, %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN5boost4wave8cpplexer14include_guardsINS1_9lex_tokenINS0_4util13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS9_EEPcEEEEEEEEE12detect_guardERSH_.exit
 
 55:                                               ; preds = %33
   %56 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %707
 
 57:                                               ; preds = %2
@@ -46172,7 +46166,7 @@ _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt
   ]
 
 61:                                               ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %63 = load ptr, ptr %62, align 8, !tbaa !206
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -46180,7 +46174,7 @@ _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt
   %66 = ptrtoint ptr %65 to i64
   %67 = ptrtoint ptr %63 to i64
   %68 = sub i64 %66, %67
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcEC2EPKcmRKS4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %63, i64 noundef %68, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEC2EPKcmRKS5_.exit unwind label %79
 
@@ -46191,8 +46185,8 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 71:                                               ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEC2EPKcmRKS5_.exit
   call void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #34
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %73 = load i32, ptr %72, align 4, !tbaa !189
   %74 = and i32 %73, 512
@@ -46219,12 +46213,12 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 83:                                               ; preds = %81, %79
   %.pn60 = phi { ptr, i32 } [ %82, %81 ], [ %80, %79 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %707
 
 84:                                               ; preds = %57, %57, %57
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %86 = load ptr, ptr %85, align 8, !tbaa !206
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -46232,7 +46226,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   %89 = ptrtoint ptr %88 to i64
   %90 = ptrtoint ptr %86 to i64
   %91 = sub i64 %89, %90
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcEC2EPKcmRKS4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %86, i64 noundef %91, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEC2EPKcmRKS5_.exit70 unwind label %201
 
@@ -46355,8 +46349,8 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br label %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit
 
 _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit: ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSERKSB_.exit, %138, %141
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %146 = load i32, ptr %145, align 4, !tbaa !189
   %147 = and i32 %146, 1024
@@ -46364,7 +46358,7 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit:
   br i1 %.not171, label %208, label %148
 
 148:                                              ; preds = %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN5boost4wave8cpplexer4impl17convert_trigraphsINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEEEET_RKSF_(ptr dead_on_unwind nonnull writable sret(%"class.boost::wave::util::flex_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %92)
   %.not.i74 = icmp eq ptr %92, %9
   br i1 %.not.i74, label %._ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSERKSB_.exit84_crit_edge, label %149
@@ -46483,7 +46477,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br label %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit87
 
 _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit87: ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSERKSB_.exit84, %194, %197
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.pre200 = load i32, ptr %145, align 4, !tbaa !189
   br label %208
 
@@ -46500,15 +46494,15 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit8
 
 205:                                              ; preds = %203, %201
   %.pn58 = phi { ptr, i32 } [ %204, %203 ], [ %202, %201 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %707
 
 206:                                              ; preds = %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEE5AllocEmPKv.exit.i.i.i.i76, %.noexc.i.i.i78
   %207 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %707
 
 208:                                              ; preds = %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit87, %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit
@@ -46525,7 +46519,7 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit8
   br label %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE7compareEmmPKcm.exit.thread202
 
 215:                                              ; preds = %57, %57, %57
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %217 = load ptr, ptr %216, align 8, !tbaa !206
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -46533,7 +46527,7 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit8
   %220 = ptrtoint ptr %219 to i64
   %221 = ptrtoint ptr %217 to i64
   %222 = sub i64 %220, %221
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcEC2EPKcmRKS4_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %217, i64 noundef %222, ptr noundef nonnull align 1 dereferenceable(1) %11)
           to label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEC2EPKcmRKS5_.exit89 unwind label %296
 
@@ -46656,8 +46650,8 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br label %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit103
 
 _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit103: ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSERKSB_.exit100, %269, %272
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %276 = load ptr, ptr %223, align 8, !tbaa !28
   %277 = load ptr, ptr %276, align 8, !tbaa !6
   %278 = getelementptr inbounds nuw i8, ptr %276, i64 16
@@ -46719,12 +46713,12 @@ _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22A
 
 300:                                              ; preds = %298, %296
   %.pn56 = phi { ptr, i32 } [ %299, %298 ], [ %297, %296 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %707
 
 301:                                              ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %302 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %303 = load ptr, ptr %302, align 8, !tbaa !206
   %304 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -46732,7 +46726,7 @@ _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22A
   %306 = ptrtoint ptr %305 to i64
   %307 = ptrtoint ptr %303 to i64
   %308 = sub i64 %306, %307
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   invoke void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcEC2EPKcmRKS4_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %303, i64 noundef %308, ptr noundef nonnull align 1 dereferenceable(1) %13)
           to label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEC2EPKcmRKS5_.exit106 unwind label %349
 
@@ -46743,8 +46737,8 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 311:                                              ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEC2EPKcmRKS5_.exit106
   call void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #34
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %312 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %313 = load i32, ptr %312, align 4, !tbaa !189
   %314 = and i32 %313, 2
@@ -46752,7 +46746,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br i1 %.not170, label %315, label %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE7compareEmmPKcm.exit.thread202
 
 315:                                              ; preds = %311
-  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %14) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %14)
   %316 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %317 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost4wave8cpplexer16lexing_exception14severity_levelEiE29preprocess_exception_severity, i64 16), align 16, !tbaa !68
@@ -46829,8 +46823,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit110: ; preds = %337
 
 353:                                              ; preds = %351, %349
   %.pn50 = phi { ptr, i32 } [ %352, %351 ], [ %350, %349 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %707
 
 354:                                              ; preds = %356, %337, %322, %345, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %315
@@ -46843,8 +46837,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit110: ; preds = %337
           to label %_ZNSolsEPFRSoS_E.exit unwind label %354
 
 _ZNSolsEPFRSoS_E.exit:                            ; preds = %356
-  call void @llvm.lifetime.start.p0(i64 1056, ptr nonnull %15) #34
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %16, ptr noundef nonnull align 8 dereferenceable(128) %14)
           to label %358 unwind label %373
 
@@ -46905,18 +46899,18 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %373
   %.pn52.pn = phi { ptr, i32 } [ %374, %373 ], [ %376, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %376, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #34
-  call void @llvm.lifetime.end.p0(i64 1056, ptr nonnull %15) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %385
 
 385:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %354
   %.pn52.pn.pn = phi { ptr, i32 } [ %.pn52.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %355, %354 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %14) #34
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %14) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %707
 
 386:                                              ; preds = %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %387 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %388 = load ptr, ptr %387, align 8, !tbaa !206
   %389 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -46924,7 +46918,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %391 = ptrtoint ptr %390 to i64
   %392 = ptrtoint ptr %388 to i64
   %393 = sub i64 %391, %392
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %18) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   invoke void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcEC2EPKcmRKS4_(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef %388, i64 noundef %393, ptr noundef nonnull align 1 dereferenceable(1) %18)
           to label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEC2EPKcmRKS5_.exit119 unwind label %447
 
@@ -47047,8 +47041,8 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br label %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit133
 
 _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit133: ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSERKSB_.exit130, %440, %443
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE7compareEmmPKcm.exit.thread202
 
 447:                                              ; preds = %386
@@ -47064,8 +47058,8 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit1
 
 451:                                              ; preds = %449, %447
   %.pn48 = phi { ptr, i32 } [ %450, %449 ], [ %448, %447 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %707
 
 452:                                              ; preds = %57
@@ -47093,7 +47087,7 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit1
   br label %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE7compareEmmPKcm.exit.thread202
 
 467:                                              ; preds = %454
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %468 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %469 = load ptr, ptr %468, align 8, !tbaa !206
   %470 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -47101,7 +47095,7 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit1
   %472 = ptrtoint ptr %471 to i64
   %473 = ptrtoint ptr %469 to i64
   %474 = sub i64 %472, %473
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %20) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   invoke void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcEC2EPKcmRKS4_(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %469, i64 noundef %474, ptr noundef nonnull align 1 dereferenceable(1) %20)
           to label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEC2EPKcmRKS5_.exit135 unwind label %528
 
@@ -47224,8 +47218,8 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br label %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit149
 
 _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit149: ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSERKSB_.exit146, %521, %524
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE7compareEmmPKcm.exit.thread202
 
 528:                                              ; preds = %467
@@ -47241,8 +47235,8 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit1
 
 532:                                              ; preds = %530, %528
   %.pn46 = phi { ptr, i32 } [ %531, %530 ], [ %529, %528 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %707
 
 533:                                              ; preds = %57
@@ -47253,8 +47247,8 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit1
   br i1 %.not168, label %557, label %537
 
 537:                                              ; preds = %533
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #34
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %538 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %539 = load ptr, ptr %538, align 8, !tbaa !206
   %540 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -47262,7 +47256,7 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit1
   %542 = ptrtoint ptr %541 to i64
   %543 = ptrtoint ptr %539 to i64
   %544 = sub i64 %542, %543
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %23) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   invoke void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcEC2EPKcmRKS4_(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef %539, i64 noundef %544, ptr noundef nonnull align 1 dereferenceable(1) %23)
           to label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEC2EPKcmRKS5_.exit151 unwind label %549
 
@@ -47278,9 +47272,9 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 548:                                              ; preds = %545
   call void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #34
   call void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #34
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE7compareEmmPKcm.exit.thread202
 
 549:                                              ; preds = %537
@@ -47306,13 +47300,13 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 556:                                              ; preds = %555, %549
   %.pn43.pn = phi { ptr, i32 } [ %.pn43, %555 ], [ %550, %549 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %707
 
 557:                                              ; preds = %533
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %558 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %559 = load ptr, ptr %558, align 8, !tbaa !206
   %560 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -47320,7 +47314,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   %562 = ptrtoint ptr %561 to i64
   %563 = ptrtoint ptr %559 to i64
   %564 = sub i64 %562, %563
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %25) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   invoke void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcEC2EPKcmRKS4_(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef %559, i64 noundef %564, ptr noundef nonnull align 1 dereferenceable(1) %25)
           to label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEC2EPKcmRKS5_.exit153 unwind label %568
 
@@ -47331,8 +47325,8 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 567:                                              ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEC2EPKcmRKS5_.exit153
   call void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #34
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %25) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE7compareEmmPKcm.exit.thread202
 
 568:                                              ; preds = %557
@@ -47348,8 +47342,8 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 572:                                              ; preds = %570, %568
   %.pn = phi { ptr, i32 } [ %571, %570 ], [ %569, %568 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %25) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %707
 
 573:                                              ; preds = %57
@@ -47361,7 +47355,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br i1 %or.cond, label %577, label %593
 
 577:                                              ; preds = %573
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %578 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %579 = load ptr, ptr %578, align 8, !tbaa !206
   %580 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -47369,7 +47363,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   %582 = ptrtoint ptr %581 to i64
   %583 = ptrtoint ptr %579 to i64
   %584 = sub i64 %582, %583
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %27) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   invoke void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcEC2EPKcmRKS4_(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef %579, i64 noundef %584, ptr noundef nonnull align 1 dereferenceable(1) %27)
           to label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEC2EPKcmRKS5_.exit155 unwind label %588
 
@@ -47380,8 +47374,8 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 587:                                              ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEC2EPKcmRKS5_.exit155
   call void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #34
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %27) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE7compareEmmPKcm.exit.thread202
 
 588:                                              ; preds = %577
@@ -47397,8 +47391,8 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 592:                                              ; preds = %590, %588
   %.pn63 = phi { ptr, i32 } [ %591, %590 ], [ %589, %588 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %27) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %707
 
 593:                                              ; preds = %573
@@ -47414,9 +47408,9 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE7compareEmmPKcm.exit.thread202: ; preds = %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE7compareEmmPKcm.exit, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i, %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE4findEPKcm.exit, %587, %593, %548, %567, %458, %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit149, %311, %208, %211, %71, %75, %452, %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit133
   %.019 = phi i32 [ %60, %587 ], [ %60, %593 ], [ 134480252, %71 ], [ 134480252, %75 ], [ %60, %208 ], [ %60, %211 ], [ 545522049, %311 ], [ %60, %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit133 ], [ 1610613137, %452 ], [ %60, %458 ], [ %60, %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit149 ], [ 1343226253, %548 ], [ 1343226253, %567 ], [ %60, %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE4findEPKcm.exit ], [ %60, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i ], [ %spec.select, %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE7compareEmmPKcm.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %602 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %29) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %603 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %604 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %605 = load i64, ptr %604, align 8, !tbaa !192
@@ -47482,7 +47476,7 @@ _ZN5boost4wave4util13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1
           to label %.noexc157 unwind label %703
 
 .noexc157:                                        ; preds = %_ZN5boost4wave4util13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS6_EEPcEEEEEC2ERKSC_mm.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 8, !tbaa !119
   invoke void @_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEC2ENS0_8token_idERKSE_RKSG_RKNS_8optionalISG_EE(ptr noundef nonnull align 8 dereferenceable(76) %632, i32 noundef %.019, ptr noundef nonnull align 8 dereferenceable(8) %602, ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %633 unwind label %650
@@ -47520,12 +47514,12 @@ _ZN5boost4wave4util13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1
   %651 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost15optional_detail13optional_baseINS_4wave4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #34
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm(ptr noundef nonnull %632, i64 noundef 80) #34
   br label %.body
 
 652:                                              ; preds = %646, %643, %636, %633
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %632, ptr %28, align 8, !tbaa !82
   %653 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEEaSERKSG_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %28)
           to label %654 unwind label %705
@@ -47612,8 +47606,8 @@ _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt
   br label %_ZN5boost4wave4util13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS6_EEPcEEEEED2Ev.exit
 
 _ZN5boost4wave4util13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS6_EEPcEEEEED2Ev.exit: ; preds = %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit163, %679, %682
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %686 = getelementptr inbounds nuw i8, ptr %0, i64 177
   %687 = load i8, ptr %686, align 1, !tbaa !46, !range !14, !noundef !15
   %688 = trunc nuw i8 %687 to i1
@@ -47659,8 +47653,8 @@ _ZN5boost4wave4util13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1
 .body:                                            ; preds = %703, %650, %705
   %.pn65 = phi { ptr, i32 } [ %706, %705 ], [ %704, %703 ], [ %651, %650 ]
   call void @_ZN5boost4wave4util13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS6_EEPcEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #34
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %707
 
 _ZN5boost4wave8cpplexer14include_guardsINS1_9lex_tokenINS0_4util13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS9_EEPcEEEEEEEEE12detect_guardERSH_.exit: ; preds = %700, %_ZN5boost4wave4util13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS6_EEPcEEEEED2Ev.exit, %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit
@@ -47974,7 +47968,7 @@ define linkonce_odr noundef i32 @_ZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cx
   %299 = alloca %"struct.boost::wave::cpplexer::re2clex::uchar_wrapper", align 8
   %300 = alloca %"struct.boost::wave::cpplexer::re2clex::uchar_wrapper", align 8
   %301 = alloca %"struct.boost::wave::cpplexer::re2clex::uchar_wrapper", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %302 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %303 = load ptr, ptr %302, align 8, !tbaa !208
   %304 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -47984,15 +47978,15 @@ define linkonce_odr noundef i32 @_ZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cx
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %306, ptr %307, align 8, !tbaa !203
   call void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %303, i64 noundef %306)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %309 = load ptr, ptr %308, align 8, !tbaa !211
   call void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %309, i64 noundef 1)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %310 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %311 = load ptr, ptr %310, align 8, !tbaa !212
   call void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %311, i64 noundef 1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %312 = call noalias noundef nonnull dereferenceable(25) ptr @_Znwm(i64 noundef 25) #31
   store ptr %312, ptr %5, align 8, !tbaa !28
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 17
@@ -48014,7 +48008,7 @@ define linkonce_odr noundef i32 @_ZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cx
 
 320:                                              ; preds = %318
   store ptr %319, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %321 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %322 unwind label %332
 
@@ -48030,23 +48024,23 @@ define linkonce_odr noundef i32 @_ZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cx
 
 327:                                              ; preds = %324
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %328 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %328, i64 noundef 1)
           to label %329 unwind label %334
 
 329:                                              ; preds = %327
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %330 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %330, i64 noundef 1)
           to label %331 unwind label %336
 
 331:                                              ; preds = %329
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %338
 
 .loopexit:                                        ; preds = %.lr.ph.i6094
@@ -48152,19 +48146,19 @@ define linkonce_odr noundef i32 @_ZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cx
 332:                                              ; preds = %324, %322, %320
   %333 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit.split-lp
 
 334:                                              ; preds = %327
   %335 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit.split-lp
 
 336:                                              ; preds = %329
   %337 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit.split-lp
 
 338:                                              ; preds = %331, %316
@@ -48524,7 +48518,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 461:                                              ; preds = %459
   store ptr %460, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %462 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %463 unwind label %472
 
@@ -48539,41 +48533,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 467:                                              ; preds = %465
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %468 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %468, i64 noundef 1)
           to label %469 unwind label %474
 
 469:                                              ; preds = %467
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %470 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %470, i64 noundef 1)
           to label %471 unwind label %476
 
 471:                                              ; preds = %469
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %478
 
 472:                                              ; preds = %465, %463, %461
   %473 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit.split-lp
 
 474:                                              ; preds = %467
   %475 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit.split-lp
 
 476:                                              ; preds = %469
   %477 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit.split-lp
 
 478:                                              ; preds = %471, %458
@@ -48989,7 +48983,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 691:                                              ; preds = %689
   store ptr %690, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %692 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %693 unwind label %703
 
@@ -49005,41 +48999,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 698:                                              ; preds = %695
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %699 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef %699, i64 noundef 1)
           to label %700 unwind label %705
 
 700:                                              ; preds = %698
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %701 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef %701, i64 noundef 1)
           to label %702 unwind label %707
 
 702:                                              ; preds = %700
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %709
 
 703:                                              ; preds = %695, %693, %691
   %704 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit.split-lp
 
 705:                                              ; preds = %698
   %706 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit.split-lp
 
 707:                                              ; preds = %700
   %708 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.loopexit.split-lp
 
 709:                                              ; preds = %702, %688
@@ -50844,7 +50838,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 1555:                                             ; preds = %1553
   store ptr %1554, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %1556 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %1557 unwind label %1567
 
@@ -50860,41 +50854,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 1562:                                             ; preds = %1559
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %1563 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef %1563, i64 noundef 1)
           to label %1564 unwind label %1569
 
 1564:                                             ; preds = %1562
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %1565 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %1565, i64 noundef 1)
           to label %1566 unwind label %1571
 
 1566:                                             ; preds = %1564
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %1573
 
 1567:                                             ; preds = %1559, %1557, %1555
   %1568 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.loopexit.split-lp
 
 1569:                                             ; preds = %1562
   %1570 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.loopexit.split-lp
 
 1571:                                             ; preds = %1564
   %1572 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.loopexit.split-lp
 
 1573:                                             ; preds = %1566, %1552
@@ -51477,7 +51471,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 1841:                                             ; preds = %1839
   store ptr %1840, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %1842 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %1843 unwind label %1852
 
@@ -51492,41 +51486,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 1847:                                             ; preds = %1845
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %1848 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef %1848, i64 noundef 1)
           to label %1849 unwind label %1854
 
 1849:                                             ; preds = %1847
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %1850 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef %1850, i64 noundef 1)
           to label %1851 unwind label %1856
 
 1851:                                             ; preds = %1849
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %1858
 
 1852:                                             ; preds = %1845, %1843, %1841
   %1853 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.loopexit.split-lp
 
 1854:                                             ; preds = %1847
   %1855 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %.loopexit.split-lp
 
 1856:                                             ; preds = %1849
   %1857 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.loopexit.split-lp
 
 1858:                                             ; preds = %1851, %1838
@@ -51576,7 +51570,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 1879:                                             ; preds = %1877
   store ptr %1878, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %1880 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %1881 unwind label %1891
 
@@ -51592,41 +51586,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 1886:                                             ; preds = %1883
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %1887 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef %1887, i64 noundef 1)
           to label %1888 unwind label %1893
 
 1888:                                             ; preds = %1886
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %22, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %1889 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef %1889, i64 noundef 1)
           to label %1890 unwind label %1895
 
 1890:                                             ; preds = %1888
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %1897
 
 1891:                                             ; preds = %1883, %1881, %1879
   %1892 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %.loopexit.split-lp
 
 1893:                                             ; preds = %1886
   %1894 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %.loopexit.split-lp
 
 1895:                                             ; preds = %1888
   %1896 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %.loopexit.split-lp
 
 1897:                                             ; preds = %1890, %1876
@@ -51725,7 +51719,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 1934:                                             ; preds = %1932
   store ptr %1933, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %1935 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %1936 unwind label %1945
 
@@ -51740,41 +51734,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 1940:                                             ; preds = %1938
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %1941 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef %1941, i64 noundef 1)
           to label %1942 unwind label %1947
 
 1942:                                             ; preds = %1940
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %1943 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef %1943, i64 noundef 1)
           to label %1944 unwind label %1949
 
 1944:                                             ; preds = %1942
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %1951
 
 1945:                                             ; preds = %1938, %1936, %1934
   %1946 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %.loopexit.split-lp
 
 1947:                                             ; preds = %1940
   %1948 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %.loopexit.split-lp
 
 1949:                                             ; preds = %1942
   %1950 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %.loopexit.split-lp
 
 1951:                                             ; preds = %1944, %1930
@@ -51916,7 +51910,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 2015:                                             ; preds = %2013
   store ptr %2014, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %2016 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %2017 unwind label %2026
 
@@ -51931,41 +51925,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 2021:                                             ; preds = %2019
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %2022 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef %2022, i64 noundef 1)
           to label %2023 unwind label %2028
 
 2023:                                             ; preds = %2021
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %2024 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef %2024, i64 noundef 1)
           to label %2025 unwind label %2030
 
 2025:                                             ; preds = %2023
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %29, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %2032
 
 2026:                                             ; preds = %2019, %2017, %2015
   %2027 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %.loopexit.split-lp
 
 2028:                                             ; preds = %2021
   %2029 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %.loopexit.split-lp
 
 2030:                                             ; preds = %2023
   %2031 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %.loopexit.split-lp
 
 2032:                                             ; preds = %2025, %2012
@@ -52119,7 +52113,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 2101:                                             ; preds = %2099
   store ptr %2100, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %2102 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %2103 unwind label %2113
 
@@ -52135,41 +52129,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 2108:                                             ; preds = %2105
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %2109 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef %2109, i64 noundef 1)
           to label %2110 unwind label %2115
 
 2110:                                             ; preds = %2108
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %2111 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef %2111, i64 noundef 1)
           to label %2112 unwind label %2117
 
 2112:                                             ; preds = %2110
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %2119
 
 2113:                                             ; preds = %2105, %2103, %2101
   %2114 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %.loopexit.split-lp
 
 2115:                                             ; preds = %2108
   %2116 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %.loopexit.split-lp
 
 2117:                                             ; preds = %2110
   %2118 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %.loopexit.split-lp
 
 2119:                                             ; preds = %2112, %2098
@@ -52203,7 +52197,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 2132:                                             ; preds = %2130
   store ptr %2131, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %2133 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %2134 unwind label %2144
 
@@ -52219,41 +52213,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 2139:                                             ; preds = %2136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %2140 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef %2140, i64 noundef 1)
           to label %2141 unwind label %2146
 
 2141:                                             ; preds = %2139
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %34, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %2142 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef %2142, i64 noundef 1)
           to label %2143 unwind label %2148
 
 2143:                                             ; preds = %2141
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %2150
 
 2144:                                             ; preds = %2136, %2134, %2132
   %2145 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %.loopexit.split-lp
 
 2146:                                             ; preds = %2139
   %2147 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %.loopexit.split-lp
 
 2148:                                             ; preds = %2141
   %2149 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %.loopexit.split-lp
 
 2150:                                             ; preds = %2143, %2129
@@ -52572,7 +52566,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 2305:                                             ; preds = %2303
   store ptr %2304, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %2306 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %2307 unwind label %2316
 
@@ -52587,41 +52581,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 2311:                                             ; preds = %2309
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %2312 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef %2312, i64 noundef 1)
           to label %2313 unwind label %2318
 
 2313:                                             ; preds = %2311
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %38) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %2314 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef %2314, i64 noundef 1)
           to label %2315 unwind label %2320
 
 2315:                                             ; preds = %2313
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %2322
 
 2316:                                             ; preds = %2309, %2307, %2305
   %2317 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %.loopexit.split-lp
 
 2318:                                             ; preds = %2311
   %2319 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %.loopexit.split-lp
 
 2320:                                             ; preds = %2313
   %2321 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %.loopexit.split-lp
 
 2322:                                             ; preds = %2315, %2302
@@ -52676,7 +52670,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 2343:                                             ; preds = %2341
   store ptr %2342, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %2344 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %2345 unwind label %2354
 
@@ -52691,41 +52685,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 2349:                                             ; preds = %2347
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %2350 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef %2350, i64 noundef 1)
           to label %2351 unwind label %2356
 
 2351:                                             ; preds = %2349
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %2352 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef %2352, i64 noundef 1)
           to label %2353 unwind label %2358
 
 2353:                                             ; preds = %2351
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %41, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %2360
 
 2354:                                             ; preds = %2347, %2345, %2343
   %2355 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %.loopexit.split-lp
 
 2356:                                             ; preds = %2349
   %2357 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %.loopexit.split-lp
 
 2358:                                             ; preds = %2351
   %2359 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %.loopexit.split-lp
 
 2360:                                             ; preds = %2353, %2340
@@ -52775,7 +52769,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 2381:                                             ; preds = %2379
   store ptr %2380, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   %2382 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %2383 unwind label %2392
 
@@ -52790,41 +52784,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 2387:                                             ; preds = %2385
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %43) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %2388 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef %2388, i64 noundef 1)
           to label %2389 unwind label %2394
 
 2389:                                             ; preds = %2387
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %43, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   %2390 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef %2390, i64 noundef 1)
           to label %2391 unwind label %2396
 
 2391:                                             ; preds = %2389
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %2398
 
 2392:                                             ; preds = %2385, %2383, %2381
   %2393 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %.loopexit.split-lp
 
 2394:                                             ; preds = %2387
   %2395 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %.loopexit.split-lp
 
 2396:                                             ; preds = %2389
   %2397 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %.loopexit.split-lp
 
 2398:                                             ; preds = %2391, %2378
@@ -53996,7 +53990,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 2991:                                             ; preds = %2989
   store ptr %2990, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   %2992 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %2993 unwind label %3003
 
@@ -54012,41 +54006,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 2998:                                             ; preds = %2995
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %45, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %46) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   %2999 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef %2999, i64 noundef 1)
           to label %3000 unwind label %3005
 
 3000:                                             ; preds = %2998
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %46, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %47) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   %3001 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef %3001, i64 noundef 1)
           to label %3002 unwind label %3007
 
 3002:                                             ; preds = %3000
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %47, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %3009
 
 3003:                                             ; preds = %2995, %2993, %2991
   %3004 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %.loopexit.split-lp
 
 3005:                                             ; preds = %2998
   %3006 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %.loopexit.split-lp
 
 3007:                                             ; preds = %3000
   %3008 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %.loopexit.split-lp
 
 3009:                                             ; preds = %3002, %2988
@@ -54092,7 +54086,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3027:                                             ; preds = %3025
   store ptr %3026, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %48) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   %3028 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %3029 unwind label %3039
 
@@ -54108,41 +54102,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3034:                                             ; preds = %3031
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   %3035 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef %3035, i64 noundef 1)
           to label %3036 unwind label %3041
 
 3036:                                             ; preds = %3034
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %49, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   %3037 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef %3037, i64 noundef 1)
           to label %3038 unwind label %3043
 
 3038:                                             ; preds = %3036
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %50, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   br label %3045
 
 3039:                                             ; preds = %3031, %3029, %3027
   %3040 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %.loopexit.split-lp
 
 3041:                                             ; preds = %3034
   %3042 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %.loopexit.split-lp
 
 3043:                                             ; preds = %3036
   %3044 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   br label %.loopexit.split-lp
 
 3045:                                             ; preds = %3038, %3024
@@ -55382,7 +55376,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3600:                                             ; preds = %3598
   store ptr %3599, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %51) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   %3601 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %3602 unwind label %3611
 
@@ -55397,41 +55391,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3606:                                             ; preds = %3604
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %51, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %51) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %52) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   %3607 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef %3607, i64 noundef 1)
           to label %3608 unwind label %3613
 
 3608:                                             ; preds = %3606
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %52, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %52) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %53) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
   %3609 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef %3609, i64 noundef 1)
           to label %3610 unwind label %3615
 
 3610:                                             ; preds = %3608
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %53, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %53) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %3617
 
 3611:                                             ; preds = %3604, %3602, %3600
   %3612 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %51) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   br label %.loopexit.split-lp
 
 3613:                                             ; preds = %3606
   %3614 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %52) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %.loopexit.split-lp
 
 3615:                                             ; preds = %3608
   %3616 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %53) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %.loopexit.split-lp
 
 3617:                                             ; preds = %3610, %3597
@@ -55499,7 +55493,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3646:                                             ; preds = %3644
   store ptr %3645, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %54) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   %3647 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %3648 unwind label %3658
 
@@ -55515,41 +55509,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3653:                                             ; preds = %3650
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %55) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   %3654 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef %3654, i64 noundef 1)
           to label %3655 unwind label %3660
 
 3655:                                             ; preds = %3653
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %56) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
   %3656 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef %3656, i64 noundef 1)
           to label %3657 unwind label %3662
 
 3657:                                             ; preds = %3655
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %56) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %3664
 
 3658:                                             ; preds = %3650, %3648, %3646
   %3659 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br label %.loopexit.split-lp
 
 3660:                                             ; preds = %3653
   %3661 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   br label %.loopexit.split-lp
 
 3662:                                             ; preds = %3655
   %3663 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %56) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %.loopexit.split-lp
 
 3664:                                             ; preds = %3657, %3643
@@ -55594,7 +55588,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3682:                                             ; preds = %3680
   store ptr %3681, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %57) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   %3683 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %3684 unwind label %3694
 
@@ -55610,41 +55604,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3689:                                             ; preds = %3686
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %57) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %58) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
   %3690 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef %3690, i64 noundef 1)
           to label %3691 unwind label %3696
 
 3691:                                             ; preds = %3689
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %58, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %58) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %59) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   %3692 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef %3692, i64 noundef 1)
           to label %3693 unwind label %3698
 
 3693:                                             ; preds = %3691
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %59, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %59) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   br label %3700
 
 3694:                                             ; preds = %3686, %3684, %3682
   %3695 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %57) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br label %.loopexit.split-lp
 
 3696:                                             ; preds = %3689
   %3697 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %58) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %.loopexit.split-lp
 
 3698:                                             ; preds = %3691
   %3699 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %59) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   br label %.loopexit.split-lp
 
 3700:                                             ; preds = %3693, %3679
@@ -55689,7 +55683,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3718:                                             ; preds = %3716
   store ptr %3717, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %60) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
   %3719 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %3720 unwind label %3730
 
@@ -55705,41 +55699,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3725:                                             ; preds = %3722
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %60, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %60) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %61) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   %3726 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef %3726, i64 noundef 1)
           to label %3727 unwind label %3732
 
 3727:                                             ; preds = %3725
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %61, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %61) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %62) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
   %3728 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef %3728, i64 noundef 1)
           to label %3729 unwind label %3734
 
 3729:                                             ; preds = %3727
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
   br label %3736
 
 3730:                                             ; preds = %3722, %3720, %3718
   %3731 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %60) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   br label %.loopexit.split-lp
 
 3732:                                             ; preds = %3725
   %3733 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %61) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
   br label %.loopexit.split-lp
 
 3734:                                             ; preds = %3727
   %3735 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
   br label %.loopexit.split-lp
 
 3736:                                             ; preds = %3729, %3715
@@ -55784,7 +55778,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3753:                                             ; preds = %3751
   store ptr %3752, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %63) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
   %3754 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %3755 unwind label %3764
 
@@ -55799,41 +55793,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3759:                                             ; preds = %3757
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %63, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %63) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %64) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
   %3760 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef %3760, i64 noundef 1)
           to label %3761 unwind label %3766
 
 3761:                                             ; preds = %3759
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %64, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %64) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %65) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
   %3762 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef %3762, i64 noundef 1)
           to label %3763 unwind label %3768
 
 3763:                                             ; preds = %3761
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %65, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %65) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
   br label %3770
 
 3764:                                             ; preds = %3757, %3755, %3753
   %3765 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %63) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
   br label %.loopexit.split-lp
 
 3766:                                             ; preds = %3759
   %3767 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %64) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
   br label %.loopexit.split-lp
 
 3768:                                             ; preds = %3761
   %3769 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %65) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
   br label %.loopexit.split-lp
 
 3770:                                             ; preds = %3763, %3750
@@ -56064,7 +56058,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3878:                                             ; preds = %3876
   store ptr %3877, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %66) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
   %3879 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %3880 unwind label %3890
 
@@ -56080,41 +56074,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3885:                                             ; preds = %3882
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %66, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %66) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %67) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
   %3886 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef %3886, i64 noundef 1)
           to label %3887 unwind label %3892
 
 3887:                                             ; preds = %3885
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %67, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %67) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %68) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
   %3888 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef %3888, i64 noundef 1)
           to label %3889 unwind label %3894
 
 3889:                                             ; preds = %3887
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %68, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %68) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
   br label %3896
 
 3890:                                             ; preds = %3882, %3880, %3878
   %3891 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %66) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
   br label %.loopexit.split-lp
 
 3892:                                             ; preds = %3885
   %3893 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %67) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
   br label %.loopexit.split-lp
 
 3894:                                             ; preds = %3887
   %3895 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %68) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
   br label %.loopexit.split-lp
 
 3896:                                             ; preds = %3889, %3875
@@ -56201,7 +56195,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3934:                                             ; preds = %3932
   store ptr %3933, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %69) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
   %3935 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %3936 unwind label %3945
 
@@ -56216,41 +56210,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3940:                                             ; preds = %3938
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %69) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %70) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
   %3941 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef %3941, i64 noundef 1)
           to label %3942 unwind label %3947
 
 3942:                                             ; preds = %3940
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %70, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %70) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %71) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
   %3943 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef %3943, i64 noundef 1)
           to label %3944 unwind label %3949
 
 3944:                                             ; preds = %3942
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %71, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %71) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
   br label %3951
 
 3945:                                             ; preds = %3938, %3936, %3934
   %3946 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %69) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
   br label %.loopexit.split-lp
 
 3947:                                             ; preds = %3940
   %3948 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %70) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
   br label %.loopexit.split-lp
 
 3949:                                             ; preds = %3942
   %3950 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %71) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
   br label %.loopexit.split-lp
 
 3951:                                             ; preds = %3944, %3931
@@ -56317,7 +56311,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3978:                                             ; preds = %3976
   store ptr %3977, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %72) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
   %3979 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %3980 unwind label %3989
 
@@ -56332,41 +56326,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3984:                                             ; preds = %3982
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %72) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %73) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
   %3985 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef %3985, i64 noundef 1)
           to label %3986 unwind label %3991
 
 3986:                                             ; preds = %3984
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %73, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %73) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %74) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
   %3987 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef %3987, i64 noundef 1)
           to label %3988 unwind label %3993
 
 3988:                                             ; preds = %3986
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %74, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %74) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
   br label %3995
 
 3989:                                             ; preds = %3982, %3980, %3978
   %3990 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %72) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
   br label %.loopexit.split-lp
 
 3991:                                             ; preds = %3984
   %3992 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %73) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
   br label %.loopexit.split-lp
 
 3993:                                             ; preds = %3986
   %3994 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %74) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
   br label %.loopexit.split-lp
 
 3995:                                             ; preds = %3988, %3975
@@ -56411,7 +56405,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 4013:                                             ; preds = %4011
   store ptr %4012, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %75) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
   %4014 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %4015 unwind label %4024
 
@@ -56426,41 +56420,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 4019:                                             ; preds = %4017
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %75, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %75) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %76) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
   %4020 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef %4020, i64 noundef 1)
           to label %4021 unwind label %4026
 
 4021:                                             ; preds = %4019
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %76, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %76) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %77) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
   %4022 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef %4022, i64 noundef 1)
           to label %4023 unwind label %4028
 
 4023:                                             ; preds = %4021
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %77, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %77) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
   br label %4030
 
 4024:                                             ; preds = %4017, %4015, %4013
   %4025 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %75) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
   br label %.loopexit.split-lp
 
 4026:                                             ; preds = %4019
   %4027 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %76) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
   br label %.loopexit.split-lp
 
 4028:                                             ; preds = %4021
   %4029 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %77) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
   br label %.loopexit.split-lp
 
 4030:                                             ; preds = %4023, %4010
@@ -56505,7 +56499,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 4048:                                             ; preds = %4046
   store ptr %4047, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %78) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
   %4049 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %4050 unwind label %4059
 
@@ -56520,41 +56514,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 4054:                                             ; preds = %4052
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %78, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %78) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %79) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
   %4055 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef %4055, i64 noundef 1)
           to label %4056 unwind label %4061
 
 4056:                                             ; preds = %4054
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %79, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %79) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %80) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
   %4057 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef %4057, i64 noundef 1)
           to label %4058 unwind label %4063
 
 4058:                                             ; preds = %4056
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %80, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %80) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
   br label %4065
 
 4059:                                             ; preds = %4052, %4050, %4048
   %4060 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %78) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
   br label %.loopexit.split-lp
 
 4061:                                             ; preds = %4054
   %4062 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %79) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
   br label %.loopexit.split-lp
 
 4063:                                             ; preds = %4056
   %4064 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %80) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
   br label %.loopexit.split-lp
 
 4065:                                             ; preds = %4058, %4045
@@ -57454,7 +57448,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 4519:                                             ; preds = %4517
   store ptr %4518, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %81) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %81)
   %4520 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %4521 unwind label %4531
 
@@ -57470,41 +57464,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 4526:                                             ; preds = %4523
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %81, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %81) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %82) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
+  call void @llvm.lifetime.start.p0(ptr nonnull %82)
   %4527 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef %4527, i64 noundef 1)
           to label %4528 unwind label %4533
 
 4528:                                             ; preds = %4526
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %82, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %82) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %83) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
+  call void @llvm.lifetime.start.p0(ptr nonnull %83)
   %4529 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %83, ptr noundef %4529, i64 noundef 1)
           to label %4530 unwind label %4535
 
 4530:                                             ; preds = %4528
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %83, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %83) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
   br label %4537
 
 4531:                                             ; preds = %4523, %4521, %4519
   %4532 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %81) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
   br label %.loopexit.split-lp
 
 4533:                                             ; preds = %4526
   %4534 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %82) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
   br label %.loopexit.split-lp
 
 4535:                                             ; preds = %4528
   %4536 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %83) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
   br label %.loopexit.split-lp
 
 4537:                                             ; preds = %4530, %4516
@@ -57549,7 +57543,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 4555:                                             ; preds = %4553
   store ptr %4554, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %84) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %84)
   %4556 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %4557 unwind label %4567
 
@@ -57565,41 +57559,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 4562:                                             ; preds = %4559
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %84, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %84) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %85) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
+  call void @llvm.lifetime.start.p0(ptr nonnull %85)
   %4563 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef %4563, i64 noundef 1)
           to label %4564 unwind label %4569
 
 4564:                                             ; preds = %4562
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %85, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %85) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %86) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
+  call void @llvm.lifetime.start.p0(ptr nonnull %86)
   %4565 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef %4565, i64 noundef 1)
           to label %4566 unwind label %4571
 
 4566:                                             ; preds = %4564
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %86) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
   br label %4573
 
 4567:                                             ; preds = %4559, %4557, %4555
   %4568 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %84) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
   br label %.loopexit.split-lp
 
 4569:                                             ; preds = %4562
   %4570 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %85) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
   br label %.loopexit.split-lp
 
 4571:                                             ; preds = %4564
   %4572 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %86) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
   br label %.loopexit.split-lp
 
 4573:                                             ; preds = %4566, %4552
@@ -59209,7 +59203,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5330:                                             ; preds = %5328
   store ptr %5329, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %87) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %87)
   %5331 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %5332 unwind label %5341
 
@@ -59224,41 +59218,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5336:                                             ; preds = %5334
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %87, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %87) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %88) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
+  call void @llvm.lifetime.start.p0(ptr nonnull %88)
   %5337 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef %5337, i64 noundef 1)
           to label %5338 unwind label %5343
 
 5338:                                             ; preds = %5336
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %88, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %88) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %89) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
+  call void @llvm.lifetime.start.p0(ptr nonnull %89)
   %5339 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef %5339, i64 noundef 1)
           to label %5340 unwind label %5345
 
 5340:                                             ; preds = %5338
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %89, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %89) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
   br label %5347
 
 5341:                                             ; preds = %5334, %5332, %5330
   %5342 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %87) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
   br label %.loopexit.split-lp
 
 5343:                                             ; preds = %5336
   %5344 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %88) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
   br label %.loopexit.split-lp
 
 5345:                                             ; preds = %5338
   %5346 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %89) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
   br label %.loopexit.split-lp
 
 5347:                                             ; preds = %5340, %5327
@@ -59307,7 +59301,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5369:                                             ; preds = %5367
   store ptr %5368, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %90) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %90)
   %5370 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %5371 unwind label %5381
 
@@ -59323,41 +59317,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5376:                                             ; preds = %5373
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %90, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %90) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %91) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
+  call void @llvm.lifetime.start.p0(ptr nonnull %91)
   %5377 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef %5377, i64 noundef 1)
           to label %5378 unwind label %5383
 
 5378:                                             ; preds = %5376
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %91, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %91) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %92) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
+  call void @llvm.lifetime.start.p0(ptr nonnull %92)
   %5379 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %92, ptr noundef %5379, i64 noundef 1)
           to label %5380 unwind label %5385
 
 5380:                                             ; preds = %5378
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %92, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %92) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
   br label %5387
 
 5381:                                             ; preds = %5373, %5371, %5369
   %5382 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %90) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
   br label %.loopexit.split-lp
 
 5383:                                             ; preds = %5376
   %5384 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %91) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
   br label %.loopexit.split-lp
 
 5385:                                             ; preds = %5378
   %5386 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %92) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
   br label %.loopexit.split-lp
 
 5387:                                             ; preds = %5380, %5366
@@ -59402,7 +59396,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5405:                                             ; preds = %5403
   store ptr %5404, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %93) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %93)
   %5406 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %5407 unwind label %5417
 
@@ -59418,41 +59412,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5412:                                             ; preds = %5409
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %93, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %93) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %94) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
+  call void @llvm.lifetime.start.p0(ptr nonnull %94)
   %5413 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef %5413, i64 noundef 1)
           to label %5414 unwind label %5419
 
 5414:                                             ; preds = %5412
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %94, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %94) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %95) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %94)
+  call void @llvm.lifetime.start.p0(ptr nonnull %95)
   %5415 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef %5415, i64 noundef 1)
           to label %5416 unwind label %5421
 
 5416:                                             ; preds = %5414
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %95, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %95) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
   br label %5423
 
 5417:                                             ; preds = %5409, %5407, %5405
   %5418 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %93) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
   br label %.loopexit.split-lp
 
 5419:                                             ; preds = %5412
   %5420 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %94) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %94)
   br label %.loopexit.split-lp
 
 5421:                                             ; preds = %5414
   %5422 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %95) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
   br label %.loopexit.split-lp
 
 5423:                                             ; preds = %5416, %5402
@@ -59497,7 +59491,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5440:                                             ; preds = %5438
   store ptr %5439, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %96) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %96)
   %5441 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %5442 unwind label %5451
 
@@ -59512,41 +59506,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5446:                                             ; preds = %5444
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %96, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %96) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %97) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
+  call void @llvm.lifetime.start.p0(ptr nonnull %97)
   %5447 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef %5447, i64 noundef 1)
           to label %5448 unwind label %5453
 
 5448:                                             ; preds = %5446
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %97, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %97) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %98) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
+  call void @llvm.lifetime.start.p0(ptr nonnull %98)
   %5449 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef %5449, i64 noundef 1)
           to label %5450 unwind label %5455
 
 5450:                                             ; preds = %5448
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %98, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %98) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
   br label %5457
 
 5451:                                             ; preds = %5444, %5442, %5440
   %5452 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %96) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
   br label %.loopexit.split-lp
 
 5453:                                             ; preds = %5446
   %5454 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %97) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
   br label %.loopexit.split-lp
 
 5455:                                             ; preds = %5448
   %5456 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %98) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
   br label %.loopexit.split-lp
 
 5457:                                             ; preds = %5450, %5437
@@ -59838,7 +59832,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5599:                                             ; preds = %5597
   store ptr %5598, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %99) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %99)
   %5600 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %5601 unwind label %5610
 
@@ -59853,41 +59847,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5605:                                             ; preds = %5603
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %99, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %99) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %100) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
+  call void @llvm.lifetime.start.p0(ptr nonnull %100)
   %5606 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %100, ptr noundef %5606, i64 noundef 1)
           to label %5607 unwind label %5612
 
 5607:                                             ; preds = %5605
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %100, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %100) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %101) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
+  call void @llvm.lifetime.start.p0(ptr nonnull %101)
   %5608 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef %5608, i64 noundef 1)
           to label %5609 unwind label %5614
 
 5609:                                             ; preds = %5607
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %101) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
   br label %5616
 
 5610:                                             ; preds = %5603, %5601, %5599
   %5611 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %99) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
   br label %.loopexit.split-lp
 
 5612:                                             ; preds = %5605
   %5613 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %100) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
   br label %.loopexit.split-lp
 
 5614:                                             ; preds = %5607
   %5615 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %101) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
   br label %.loopexit.split-lp
 
 5616:                                             ; preds = %5609, %5596
@@ -59936,7 +59930,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5638:                                             ; preds = %5636
   store ptr %5637, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %102) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %102)
   %5639 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %5640 unwind label %5649
 
@@ -59951,41 +59945,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5644:                                             ; preds = %5642
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %102, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %102) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %103) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %102)
+  call void @llvm.lifetime.start.p0(ptr nonnull %103)
   %5645 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef %5645, i64 noundef 1)
           to label %5646 unwind label %5651
 
 5646:                                             ; preds = %5644
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %103, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %103) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %104) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %103)
+  call void @llvm.lifetime.start.p0(ptr nonnull %104)
   %5647 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %104, ptr noundef %5647, i64 noundef 1)
           to label %5648 unwind label %5653
 
 5648:                                             ; preds = %5646
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %104, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %104) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %104)
   br label %5655
 
 5649:                                             ; preds = %5642, %5640, %5638
   %5650 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %102) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %102)
   br label %.loopexit.split-lp
 
 5651:                                             ; preds = %5644
   %5652 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %103) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %103)
   br label %.loopexit.split-lp
 
 5653:                                             ; preds = %5646
   %5654 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %104) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %104)
   br label %.loopexit.split-lp
 
 5655:                                             ; preds = %5648, %5635
@@ -60030,7 +60024,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5673:                                             ; preds = %5671
   store ptr %5672, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %105) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %105)
   %5674 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %5675 unwind label %5684
 
@@ -60045,41 +60039,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5679:                                             ; preds = %5677
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %105, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %105) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %106) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
+  call void @llvm.lifetime.start.p0(ptr nonnull %106)
   %5680 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %106, ptr noundef %5680, i64 noundef 1)
           to label %5681 unwind label %5686
 
 5681:                                             ; preds = %5679
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %106, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %106) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %107) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
+  call void @llvm.lifetime.start.p0(ptr nonnull %107)
   %5682 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef %5682, i64 noundef 1)
           to label %5683 unwind label %5688
 
 5683:                                             ; preds = %5681
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %107, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %107) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %107)
   br label %5690
 
 5684:                                             ; preds = %5677, %5675, %5673
   %5685 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %105) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
   br label %.loopexit.split-lp
 
 5686:                                             ; preds = %5679
   %5687 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %106) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
   br label %.loopexit.split-lp
 
 5688:                                             ; preds = %5681
   %5689 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %107) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %107)
   br label %.loopexit.split-lp
 
 5690:                                             ; preds = %5683, %5670
@@ -60316,7 +60310,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5808:                                             ; preds = %5806
   store ptr %5807, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %108) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %108)
   %5809 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %5810 unwind label %5820
 
@@ -60332,41 +60326,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5815:                                             ; preds = %5812
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %108, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %108) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %109) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %108)
+  call void @llvm.lifetime.start.p0(ptr nonnull %109)
   %5816 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %109, ptr noundef %5816, i64 noundef 1)
           to label %5817 unwind label %5822
 
 5817:                                             ; preds = %5815
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %109, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %109) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %110) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %109)
+  call void @llvm.lifetime.start.p0(ptr nonnull %110)
   %5818 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef %5818, i64 noundef 1)
           to label %5819 unwind label %5824
 
 5819:                                             ; preds = %5817
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %110, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %110) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %110)
   br label %5826
 
 5820:                                             ; preds = %5812, %5810, %5808
   %5821 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %108) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %108)
   br label %.loopexit.split-lp
 
 5822:                                             ; preds = %5815
   %5823 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %109) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %109)
   br label %.loopexit.split-lp
 
 5824:                                             ; preds = %5817
   %5825 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %110) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %110)
   br label %.loopexit.split-lp
 
 5826:                                             ; preds = %5819, %5805
@@ -60411,7 +60405,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5844:                                             ; preds = %5842
   store ptr %5843, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %111) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %111)
   %5845 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %5846 unwind label %5856
 
@@ -60427,41 +60421,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5851:                                             ; preds = %5848
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %111, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %111) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %112) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %111)
+  call void @llvm.lifetime.start.p0(ptr nonnull %112)
   %5852 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %112, ptr noundef %5852, i64 noundef 1)
           to label %5853 unwind label %5858
 
 5853:                                             ; preds = %5851
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %112, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %112) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %113) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %112)
+  call void @llvm.lifetime.start.p0(ptr nonnull %113)
   %5854 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %113, ptr noundef %5854, i64 noundef 1)
           to label %5855 unwind label %5860
 
 5855:                                             ; preds = %5853
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %113, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %113) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %113)
   br label %5862
 
 5856:                                             ; preds = %5848, %5846, %5844
   %5857 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %111) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %111)
   br label %.loopexit.split-lp
 
 5858:                                             ; preds = %5851
   %5859 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %112) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %112)
   br label %.loopexit.split-lp
 
 5860:                                             ; preds = %5853
   %5861 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %113) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %113)
   br label %.loopexit.split-lp
 
 5862:                                             ; preds = %5855, %5841
@@ -62265,7 +62259,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 6713:                                             ; preds = %6711
   store ptr %6712, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %114) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %114)
   %6714 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %6715 unwind label %6724
 
@@ -62280,41 +62274,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 6719:                                             ; preds = %6717
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %114, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %114) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %115) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %114)
+  call void @llvm.lifetime.start.p0(ptr nonnull %115)
   %6720 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %115, ptr noundef %6720, i64 noundef 1)
           to label %6721 unwind label %6726
 
 6721:                                             ; preds = %6719
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %115, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %115) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %116) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %115)
+  call void @llvm.lifetime.start.p0(ptr nonnull %116)
   %6722 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %116, ptr noundef %6722, i64 noundef 1)
           to label %6723 unwind label %6728
 
 6723:                                             ; preds = %6721
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %116, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %116) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %116)
   br label %6730
 
 6724:                                             ; preds = %6717, %6715, %6713
   %6725 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %114) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %114)
   br label %.loopexit.split-lp
 
 6726:                                             ; preds = %6719
   %6727 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %115) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %115)
   br label %.loopexit.split-lp
 
 6728:                                             ; preds = %6721
   %6729 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %116) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %116)
   br label %.loopexit.split-lp
 
 6730:                                             ; preds = %6723, %6710
@@ -62367,7 +62361,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 6752:                                             ; preds = %6750
   store ptr %6751, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %117) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %117)
   %6753 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %6754 unwind label %6764
 
@@ -62383,41 +62377,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 6759:                                             ; preds = %6756
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %117) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %118) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %117)
+  call void @llvm.lifetime.start.p0(ptr nonnull %118)
   %6760 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %118, ptr noundef %6760, i64 noundef 1)
           to label %6761 unwind label %6766
 
 6761:                                             ; preds = %6759
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %118, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %118) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %119) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %118)
+  call void @llvm.lifetime.start.p0(ptr nonnull %119)
   %6762 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %119, ptr noundef %6762, i64 noundef 1)
           to label %6763 unwind label %6768
 
 6763:                                             ; preds = %6761
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %119, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %119) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %119)
   br label %6770
 
 6764:                                             ; preds = %6756, %6754, %6752
   %6765 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %117) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %117)
   br label %.loopexit.split-lp
 
 6766:                                             ; preds = %6759
   %6767 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %118) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %118)
   br label %.loopexit.split-lp
 
 6768:                                             ; preds = %6761
   %6769 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %119) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %119)
   br label %.loopexit.split-lp
 
 6770:                                             ; preds = %6763, %6749
@@ -62462,7 +62456,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 6788:                                             ; preds = %6786
   store ptr %6787, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %120) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %120)
   %6789 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %6790 unwind label %6800
 
@@ -62478,41 +62472,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 6795:                                             ; preds = %6792
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %120, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %120) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %121) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %120)
+  call void @llvm.lifetime.start.p0(ptr nonnull %121)
   %6796 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %121, ptr noundef %6796, i64 noundef 1)
           to label %6797 unwind label %6802
 
 6797:                                             ; preds = %6795
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %121, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %121) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %122) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %121)
+  call void @llvm.lifetime.start.p0(ptr nonnull %122)
   %6798 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %122, ptr noundef %6798, i64 noundef 1)
           to label %6799 unwind label %6804
 
 6799:                                             ; preds = %6797
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %122, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %122) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %122)
   br label %6806
 
 6800:                                             ; preds = %6792, %6790, %6788
   %6801 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %120) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %120)
   br label %.loopexit.split-lp
 
 6802:                                             ; preds = %6795
   %6803 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %121) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %121)
   br label %.loopexit.split-lp
 
 6804:                                             ; preds = %6797
   %6805 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %122) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %122)
   br label %.loopexit.split-lp
 
 6806:                                             ; preds = %6799, %6785
@@ -62813,7 +62807,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 6953:                                             ; preds = %6951
   store ptr %6952, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %123) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %123)
   %6954 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %6955 unwind label %6964
 
@@ -62828,41 +62822,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 6959:                                             ; preds = %6957
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %123, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %123) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %124) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %123)
+  call void @llvm.lifetime.start.p0(ptr nonnull %124)
   %6960 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %124, ptr noundef %6960, i64 noundef 1)
           to label %6961 unwind label %6966
 
 6961:                                             ; preds = %6959
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %124, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %124) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %125) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %124)
+  call void @llvm.lifetime.start.p0(ptr nonnull %125)
   %6962 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %125, ptr noundef %6962, i64 noundef 1)
           to label %6963 unwind label %6968
 
 6963:                                             ; preds = %6961
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %125, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %125) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %125)
   br label %6970
 
 6964:                                             ; preds = %6957, %6955, %6953
   %6965 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %123) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %123)
   br label %.loopexit.split-lp
 
 6966:                                             ; preds = %6959
   %6967 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %124) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %124)
   br label %.loopexit.split-lp
 
 6968:                                             ; preds = %6961
   %6969 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %125) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %125)
   br label %.loopexit.split-lp
 
 6970:                                             ; preds = %6963, %6950
@@ -62911,7 +62905,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 6992:                                             ; preds = %6990
   store ptr %6991, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %126) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %126)
   %6993 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %6994 unwind label %7003
 
@@ -62926,41 +62920,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 6998:                                             ; preds = %6996
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %126, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %126) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %127) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %126)
+  call void @llvm.lifetime.start.p0(ptr nonnull %127)
   %6999 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %127, ptr noundef %6999, i64 noundef 1)
           to label %7000 unwind label %7005
 
 7000:                                             ; preds = %6998
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %127) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %128) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %127)
+  call void @llvm.lifetime.start.p0(ptr nonnull %128)
   %7001 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %128, ptr noundef %7001, i64 noundef 1)
           to label %7002 unwind label %7007
 
 7002:                                             ; preds = %7000
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %128, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %128) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %128)
   br label %7009
 
 7003:                                             ; preds = %6996, %6994, %6992
   %7004 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %126) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %126)
   br label %.loopexit.split-lp
 
 7005:                                             ; preds = %6998
   %7006 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %127) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %127)
   br label %.loopexit.split-lp
 
 7007:                                             ; preds = %7000
   %7008 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %128) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %128)
   br label %.loopexit.split-lp
 
 7009:                                             ; preds = %7002, %6989
@@ -63005,7 +62999,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 7027:                                             ; preds = %7025
   store ptr %7026, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %129) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %129)
   %7028 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %7029 unwind label %7038
 
@@ -63020,41 +63014,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 7033:                                             ; preds = %7031
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %129, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %129) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %130) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %129)
+  call void @llvm.lifetime.start.p0(ptr nonnull %130)
   %7034 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %130, ptr noundef %7034, i64 noundef 1)
           to label %7035 unwind label %7040
 
 7035:                                             ; preds = %7033
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %130, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %130) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %131) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %130)
+  call void @llvm.lifetime.start.p0(ptr nonnull %131)
   %7036 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %131, ptr noundef %7036, i64 noundef 1)
           to label %7037 unwind label %7042
 
 7037:                                             ; preds = %7035
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %131, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %131) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %131)
   br label %7044
 
 7038:                                             ; preds = %7031, %7029, %7027
   %7039 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %129) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %129)
   br label %.loopexit.split-lp
 
 7040:                                             ; preds = %7033
   %7041 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %130) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %130)
   br label %.loopexit.split-lp
 
 7042:                                             ; preds = %7035
   %7043 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %131) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %131)
   br label %.loopexit.split-lp
 
 7044:                                             ; preds = %7037, %7024
@@ -63123,7 +63117,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 7074:                                             ; preds = %7072
   store ptr %7073, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %132) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %132)
   %7075 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %7076 unwind label %7086
 
@@ -63139,41 +63133,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 7081:                                             ; preds = %7078
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %132) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %133) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %132)
+  call void @llvm.lifetime.start.p0(ptr nonnull %133)
   %7082 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %133, ptr noundef %7082, i64 noundef 1)
           to label %7083 unwind label %7088
 
 7083:                                             ; preds = %7081
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %133, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %133) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %134) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %133)
+  call void @llvm.lifetime.start.p0(ptr nonnull %134)
   %7084 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %134, ptr noundef %7084, i64 noundef 1)
           to label %7085 unwind label %7090
 
 7085:                                             ; preds = %7083
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %134, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %134) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %134)
   br label %7092
 
 7086:                                             ; preds = %7078, %7076, %7074
   %7087 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %132) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %132)
   br label %.loopexit.split-lp
 
 7088:                                             ; preds = %7081
   %7089 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %133) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %133)
   br label %.loopexit.split-lp
 
 7090:                                             ; preds = %7083
   %7091 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %134) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %134)
   br label %.loopexit.split-lp
 
 7092:                                             ; preds = %7085, %7071
@@ -63218,7 +63212,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 7110:                                             ; preds = %7108
   store ptr %7109, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %135) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %135)
   %7111 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %7112 unwind label %7122
 
@@ -63234,41 +63228,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 7117:                                             ; preds = %7114
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %135, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %135) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %136) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %135)
+  call void @llvm.lifetime.start.p0(ptr nonnull %136)
   %7118 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %136, ptr noundef %7118, i64 noundef 1)
           to label %7119 unwind label %7124
 
 7119:                                             ; preds = %7117
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %136, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %136) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %137) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %136)
+  call void @llvm.lifetime.start.p0(ptr nonnull %137)
   %7120 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr noundef %7120, i64 noundef 1)
           to label %7121 unwind label %7126
 
 7121:                                             ; preds = %7119
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %137, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %137) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %137)
   br label %7128
 
 7122:                                             ; preds = %7114, %7112, %7110
   %7123 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %135) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %135)
   br label %.loopexit.split-lp
 
 7124:                                             ; preds = %7117
   %7125 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %136) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %136)
   br label %.loopexit.split-lp
 
 7126:                                             ; preds = %7119
   %7127 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %137) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %137)
   br label %.loopexit.split-lp
 
 7128:                                             ; preds = %7121, %7107
@@ -65088,7 +65082,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 7998:                                             ; preds = %7996
   store ptr %7997, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %138) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %138)
   %7999 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %8000 unwind label %8010
 
@@ -65104,41 +65098,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 8005:                                             ; preds = %8002
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %138, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %138) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %139) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %138)
+  call void @llvm.lifetime.start.p0(ptr nonnull %139)
   %8006 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %139, ptr noundef %8006, i64 noundef 1)
           to label %8007 unwind label %8012
 
 8007:                                             ; preds = %8005
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %139, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %139) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %140) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %139)
+  call void @llvm.lifetime.start.p0(ptr nonnull %140)
   %8008 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %140, ptr noundef %8008, i64 noundef 1)
           to label %8009 unwind label %8014
 
 8009:                                             ; preds = %8007
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %140, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %140) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %140)
   br label %8016
 
 8010:                                             ; preds = %8002, %8000, %7998
   %8011 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %138) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %138)
   br label %.loopexit.split-lp
 
 8012:                                             ; preds = %8005
   %8013 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %139) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %139)
   br label %.loopexit.split-lp
 
 8014:                                             ; preds = %8007
   %8015 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %140) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %140)
   br label %.loopexit.split-lp
 
 8016:                                             ; preds = %8009, %7995
@@ -65431,7 +65425,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 8160:                                             ; preds = %8158
   store ptr %8159, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %141) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %141)
   %8161 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %8162 unwind label %8171
 
@@ -65446,41 +65440,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 8166:                                             ; preds = %8164
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %141, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %141) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %142) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %141)
+  call void @llvm.lifetime.start.p0(ptr nonnull %142)
   %8167 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %142, ptr noundef %8167, i64 noundef 1)
           to label %8168 unwind label %8173
 
 8168:                                             ; preds = %8166
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %142, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %142) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %143) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %142)
+  call void @llvm.lifetime.start.p0(ptr nonnull %143)
   %8169 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %143, ptr noundef %8169, i64 noundef 1)
           to label %8170 unwind label %8175
 
 8170:                                             ; preds = %8168
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %143, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %143) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %143)
   br label %8177
 
 8171:                                             ; preds = %8164, %8162, %8160
   %8172 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %141) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %141)
   br label %.loopexit.split-lp
 
 8173:                                             ; preds = %8166
   %8174 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %142) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %142)
   br label %.loopexit.split-lp
 
 8175:                                             ; preds = %8168
   %8176 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %143) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %143)
   br label %.loopexit.split-lp
 
 8177:                                             ; preds = %8170, %8157
@@ -70653,7 +70647,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 10741:                                            ; preds = %10739
   store ptr %10740, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %144) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %144)
   %10742 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %10743 unwind label %10752
 
@@ -70668,41 +70662,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 10747:                                            ; preds = %10745
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %144, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %144) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %145) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %144)
+  call void @llvm.lifetime.start.p0(ptr nonnull %145)
   %10748 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %145, ptr noundef %10748, i64 noundef 1)
           to label %10749 unwind label %10754
 
 10749:                                            ; preds = %10747
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %145, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %145) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %146) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %145)
+  call void @llvm.lifetime.start.p0(ptr nonnull %146)
   %10750 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %146, ptr noundef %10750, i64 noundef 1)
           to label %10751 unwind label %10756
 
 10751:                                            ; preds = %10749
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %146, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %146) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %146)
   br label %10758
 
 10752:                                            ; preds = %10745, %10743, %10741
   %10753 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %144) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %144)
   br label %.loopexit.split-lp
 
 10754:                                            ; preds = %10747
   %10755 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %145) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %145)
   br label %.loopexit.split-lp
 
 10756:                                            ; preds = %10749
   %10757 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %146) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %146)
   br label %.loopexit.split-lp
 
 10758:                                            ; preds = %10751, %10737
@@ -70776,7 +70770,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 10788:                                            ; preds = %10786
   store ptr %10787, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %147) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %147)
   %10789 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %10790 unwind label %10799
 
@@ -70791,41 +70785,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 10794:                                            ; preds = %10792
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %147, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %147) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %148) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %147)
+  call void @llvm.lifetime.start.p0(ptr nonnull %148)
   %10795 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %148, ptr noundef %10795, i64 noundef 1)
           to label %10796 unwind label %10801
 
 10796:                                            ; preds = %10794
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %148, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %148) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %149) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %148)
+  call void @llvm.lifetime.start.p0(ptr nonnull %149)
   %10797 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %149, ptr noundef %10797, i64 noundef 1)
           to label %10798 unwind label %10803
 
 10798:                                            ; preds = %10796
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %149, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %149) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %149)
   br label %10805
 
 10799:                                            ; preds = %10792, %10790, %10788
   %10800 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %147) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %147)
   br label %.loopexit.split-lp
 
 10801:                                            ; preds = %10794
   %10802 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %148) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %148)
   br label %.loopexit.split-lp
 
 10803:                                            ; preds = %10796
   %10804 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %149) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %149)
   br label %.loopexit.split-lp
 
 10805:                                            ; preds = %10798, %10785
@@ -71588,7 +71582,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 11190:                                            ; preds = %11188
   store ptr %11189, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %150) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %150)
   %11191 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %11192 unwind label %11201
 
@@ -71603,41 +71597,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 11196:                                            ; preds = %11194
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %150, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %150) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %151) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %150)
+  call void @llvm.lifetime.start.p0(ptr nonnull %151)
   %11197 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %151, ptr noundef %11197, i64 noundef 1)
           to label %11198 unwind label %11203
 
 11198:                                            ; preds = %11196
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %151, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %151) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %152) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %151)
+  call void @llvm.lifetime.start.p0(ptr nonnull %152)
   %11199 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %152, ptr noundef %11199, i64 noundef 1)
           to label %11200 unwind label %11205
 
 11200:                                            ; preds = %11198
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %152, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %152) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %152)
   br label %11207
 
 11201:                                            ; preds = %11194, %11192, %11190
   %11202 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %150) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %150)
   br label %.loopexit.split-lp
 
 11203:                                            ; preds = %11196
   %11204 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %151) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %151)
   br label %.loopexit.split-lp
 
 11205:                                            ; preds = %11198
   %11206 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %152) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %152)
   br label %.loopexit.split-lp
 
 11207:                                            ; preds = %11200, %11187
@@ -71683,7 +71677,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 11225:                                            ; preds = %11223
   store ptr %11224, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %153) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %153)
   %11226 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %11227 unwind label %11236
 
@@ -71698,41 +71692,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 11231:                                            ; preds = %11229
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %153, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %153) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %154) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %153)
+  call void @llvm.lifetime.start.p0(ptr nonnull %154)
   %11232 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %154, ptr noundef %11232, i64 noundef 1)
           to label %11233 unwind label %11238
 
 11233:                                            ; preds = %11231
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %154, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %154) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %155) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %154)
+  call void @llvm.lifetime.start.p0(ptr nonnull %155)
   %11234 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %155, ptr noundef %11234, i64 noundef 1)
           to label %11235 unwind label %11240
 
 11235:                                            ; preds = %11233
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %155, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %155) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %155)
   br label %11242
 
 11236:                                            ; preds = %11229, %11227, %11225
   %11237 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %153) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %153)
   br label %.loopexit.split-lp
 
 11238:                                            ; preds = %11231
   %11239 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %154) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %154)
   br label %.loopexit.split-lp
 
 11240:                                            ; preds = %11233
   %11241 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %155) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %155)
   br label %.loopexit.split-lp
 
 11242:                                            ; preds = %11235, %11222
@@ -71773,7 +71767,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 11257:                                            ; preds = %11255
   store ptr %11256, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %156) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %156)
   %11258 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %11259 unwind label %11268
 
@@ -71788,41 +71782,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 11263:                                            ; preds = %11261
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %156, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %156) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %157) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %156)
+  call void @llvm.lifetime.start.p0(ptr nonnull %157)
   %11264 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %157, ptr noundef %11264, i64 noundef 1)
           to label %11265 unwind label %11270
 
 11265:                                            ; preds = %11263
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %157, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %157) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %158) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %157)
+  call void @llvm.lifetime.start.p0(ptr nonnull %158)
   %11266 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %158, ptr noundef %11266, i64 noundef 1)
           to label %11267 unwind label %11272
 
 11267:                                            ; preds = %11265
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %158, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %158) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %158)
   br label %11274
 
 11268:                                            ; preds = %11261, %11259, %11257
   %11269 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %156) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %156)
   br label %.loopexit.split-lp
 
 11270:                                            ; preds = %11263
   %11271 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %157) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %157)
   br label %.loopexit.split-lp
 
 11272:                                            ; preds = %11265
   %11273 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %158) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %158)
   br label %.loopexit.split-lp
 
 11274:                                            ; preds = %11267, %11254
@@ -72046,7 +72040,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 11378:                                            ; preds = %11376
   store ptr %11377, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %159) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %159)
   %11379 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %11380 unwind label %11389
 
@@ -72061,41 +72055,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 11384:                                            ; preds = %11382
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %159, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %159) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %160) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %159)
+  call void @llvm.lifetime.start.p0(ptr nonnull %160)
   %11385 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %160, ptr noundef %11385, i64 noundef 1)
           to label %11386 unwind label %11391
 
 11386:                                            ; preds = %11384
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %160, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %160) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %161) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %160)
+  call void @llvm.lifetime.start.p0(ptr nonnull %161)
   %11387 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef %11387, i64 noundef 1)
           to label %11388 unwind label %11393
 
 11388:                                            ; preds = %11386
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %161, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %161) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %161)
   br label %11395
 
 11389:                                            ; preds = %11382, %11380, %11378
   %11390 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %159) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %159)
   br label %.loopexit.split-lp
 
 11391:                                            ; preds = %11384
   %11392 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %160) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %160)
   br label %.loopexit.split-lp
 
 11393:                                            ; preds = %11386
   %11394 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %161) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %161)
   br label %.loopexit.split-lp
 
 11395:                                            ; preds = %11388, %11375
@@ -72654,7 +72648,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 11667:                                            ; preds = %11665
   store ptr %11666, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %162) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %162)
   %11668 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %11669 unwind label %11678
 
@@ -72669,23 +72663,23 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 11673:                                            ; preds = %11671
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %162, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %162) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %163) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %162)
+  call void @llvm.lifetime.start.p0(ptr nonnull %163)
   %11674 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %163, ptr noundef %11674, i64 noundef 1)
           to label %11675 unwind label %11680
 
 11675:                                            ; preds = %11673
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %163, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %163) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %164) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %163)
+  call void @llvm.lifetime.start.p0(ptr nonnull %164)
   %11676 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %164, ptr noundef %11676, i64 noundef 1)
           to label %11677 unwind label %11682
 
 11677:                                            ; preds = %11675
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %164, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %164) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %164)
   br label %11684
 
 .loopexit6454:                                    ; preds = %.lr.ph.i6132
@@ -72726,19 +72720,19 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 11678:                                            ; preds = %11671, %11669, %11667
   %11679 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %162) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %162)
   br label %.loopexit.split-lp
 
 11680:                                            ; preds = %11673
   %11681 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %163) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %163)
   br label %.loopexit.split-lp
 
 11682:                                            ; preds = %11675
   %11683 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %164) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %164)
   br label %.loopexit.split-lp
 
 11684:                                            ; preds = %11677, %11663
@@ -73243,7 +73237,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 11958:                                            ; preds = %11956
   store ptr %11957, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %165) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %165)
   %11959 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %11960 unwind label %11969
 
@@ -73258,23 +73252,23 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 11964:                                            ; preds = %11962
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %165, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %165) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %166) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %165)
+  call void @llvm.lifetime.start.p0(ptr nonnull %166)
   %11965 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %166, ptr noundef %11965, i64 noundef 1)
           to label %11966 unwind label %11971
 
 11966:                                            ; preds = %11964
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %166, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %166) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %167) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %166)
+  call void @llvm.lifetime.start.p0(ptr nonnull %167)
   %11967 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %167, ptr noundef %11967, i64 noundef 1)
           to label %11968 unwind label %11973
 
 11968:                                            ; preds = %11966
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %167, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %167) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %167)
   br label %11975
 
 .loopexit6475:                                    ; preds = %.lr.ph.i6153
@@ -73315,19 +73309,19 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 11969:                                            ; preds = %11962, %11960, %11958
   %11970 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %165) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %165)
   br label %.loopexit.split-lp
 
 11971:                                            ; preds = %11964
   %11972 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %166) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %166)
   br label %.loopexit.split-lp
 
 11973:                                            ; preds = %11966
   %11974 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %167) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %167)
   br label %.loopexit.split-lp
 
 11975:                                            ; preds = %11968, %11954
@@ -73842,7 +73836,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
   br i1 %12256, label %.loopexit6496, label %12202
 
 _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSEPKc.exit.thread6275: ; preds = %1017
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %168) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %168)
   %12257 = load ptr, ptr %302, align 8, !tbaa !208
   store ptr %12257, ptr %304, align 8, !tbaa !209
   %12258 = load i64, ptr %305, align 8, !tbaa !210
@@ -73852,23 +73846,23 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 12259:                                            ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSEPKc.exit.thread6275
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %168, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %168) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %169) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %168)
+  call void @llvm.lifetime.start.p0(ptr nonnull %169)
   %12260 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %169, ptr noundef %12260, i64 noundef 1)
           to label %12261 unwind label %12287
 
 12261:                                            ; preds = %12259
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %169, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %169) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %170) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %169)
+  call void @llvm.lifetime.start.p0(ptr nonnull %170)
   %12262 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %170, ptr noundef %12262, i64 noundef 1)
           to label %12263 unwind label %12289
 
 12263:                                            ; preds = %12261
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %170, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %170) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %170)
   %12264 = getelementptr inbounds nuw i8, ptr %0, i64 130
   %12265 = load i8, ptr %12264, align 2, !tbaa !223, !range !14, !noundef !15
   %12266 = trunc nuw i8 %12265 to i1
@@ -73888,7 +73882,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 12273:                                            ; preds = %12271
   store ptr %12272, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %171) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %171)
   %12274 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12275 unwind label %12291
 
@@ -73904,41 +73898,41 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 12280:                                            ; preds = %12277
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %171, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %171) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %172) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %171)
+  call void @llvm.lifetime.start.p0(ptr nonnull %172)
   %12281 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %172, ptr noundef %12281, i64 noundef 1)
           to label %12282 unwind label %12293
 
 12282:                                            ; preds = %12280
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %172, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %172) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %173) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %172)
+  call void @llvm.lifetime.start.p0(ptr nonnull %173)
   %12283 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %173, ptr noundef %12283, i64 noundef 1)
           to label %12284 unwind label %12295
 
 12284:                                            ; preds = %12282
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %173, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %173) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %173)
   br label %12297
 
 12285:                                            ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSEPKc.exit.thread6275
   %12286 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %168) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %168)
   br label %.loopexit.split-lp
 
 12287:                                            ; preds = %12259
   %12288 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %169) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %169)
   br label %.loopexit.split-lp
 
 12289:                                            ; preds = %12261
   %12290 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %170) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %170)
   br label %.loopexit.split-lp
 
 .loopexit6407:                                    ; preds = %.lr.ph.i6174
@@ -73969,19 +73963,19 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 12291:                                            ; preds = %12277, %12275, %12273
   %12292 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %171) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %171)
   br label %.loopexit.split-lp
 
 12293:                                            ; preds = %12280
   %12294 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %172) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %172)
   br label %.loopexit.split-lp
 
 12295:                                            ; preds = %12282
   %12296 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %173) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %173)
   br label %.loopexit.split-lp
 
 12297:                                            ; preds = %12284, %12269
@@ -74044,7 +74038,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 12320:                                            ; preds = %12318
   store ptr %12319, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %174) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %174)
   %12321 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12322 unwind label %12331
 
@@ -74059,41 +74053,41 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 12326:                                            ; preds = %12324
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %174, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %174) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %175) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %174)
+  call void @llvm.lifetime.start.p0(ptr nonnull %175)
   %12327 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %175, ptr noundef %12327, i64 noundef 1)
           to label %12328 unwind label %12333
 
 12328:                                            ; preds = %12326
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %175, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %175) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %176) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %175)
+  call void @llvm.lifetime.start.p0(ptr nonnull %176)
   %12329 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %176, ptr noundef %12329, i64 noundef 1)
           to label %12330 unwind label %12335
 
 12330:                                            ; preds = %12328
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %176, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %176) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %176)
   br label %12337
 
 12331:                                            ; preds = %12324, %12322, %12320
   %12332 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %174) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %174)
   br label %.loopexit.split-lp
 
 12333:                                            ; preds = %12326
   %12334 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %175) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %175)
   br label %.loopexit.split-lp
 
 12335:                                            ; preds = %12328
   %12336 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %176) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %176)
   br label %.loopexit.split-lp
 
 12337:                                            ; preds = %12330, %12317
@@ -74247,7 +74241,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12414:                                            ; preds = %12412
   store ptr %12413, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %177) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %177)
   %12415 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12416 unwind label %12425
 
@@ -74262,41 +74256,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12420:                                            ; preds = %12418
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %177, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %177) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %178) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %177)
+  call void @llvm.lifetime.start.p0(ptr nonnull %178)
   %12421 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %178, ptr noundef %12421, i64 noundef 1)
           to label %12422 unwind label %12427
 
 12422:                                            ; preds = %12420
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %178, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %178) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %179) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %178)
+  call void @llvm.lifetime.start.p0(ptr nonnull %179)
   %12423 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %179, ptr noundef %12423, i64 noundef 1)
           to label %12424 unwind label %12429
 
 12424:                                            ; preds = %12422
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %179, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %179) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %179)
   br label %12431
 
 12425:                                            ; preds = %12418, %12416, %12414
   %12426 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %177) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %177)
   br label %.loopexit.split-lp
 
 12427:                                            ; preds = %12420
   %12428 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %178) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %178)
   br label %.loopexit.split-lp
 
 12429:                                            ; preds = %12422
   %12430 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %179) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %179)
   br label %.loopexit.split-lp
 
 12431:                                            ; preds = %12424, %12411
@@ -74334,7 +74328,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12444:                                            ; preds = %12442
   store ptr %12443, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %180) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %180)
   %12445 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12446 unwind label %12455
 
@@ -74349,41 +74343,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12450:                                            ; preds = %12448
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %180, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %180) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %181) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %180)
+  call void @llvm.lifetime.start.p0(ptr nonnull %181)
   %12451 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %181, ptr noundef %12451, i64 noundef 1)
           to label %12452 unwind label %12457
 
 12452:                                            ; preds = %12450
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %181, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %181) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %182) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %181)
+  call void @llvm.lifetime.start.p0(ptr nonnull %182)
   %12453 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %182, ptr noundef %12453, i64 noundef 1)
           to label %12454 unwind label %12459
 
 12454:                                            ; preds = %12452
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %182, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %182) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %182)
   br label %12461
 
 12455:                                            ; preds = %12448, %12446, %12444
   %12456 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %180) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %180)
   br label %.loopexit.split-lp
 
 12457:                                            ; preds = %12450
   %12458 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %181) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %181)
   br label %.loopexit.split-lp
 
 12459:                                            ; preds = %12452
   %12460 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %182) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %182)
   br label %.loopexit.split-lp
 
 12461:                                            ; preds = %12454, %12441
@@ -74481,7 +74475,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12503:                                            ; preds = %12501
   store ptr %12502, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %183) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %183)
   %12504 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12505 unwind label %12514
 
@@ -74496,41 +74490,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12509:                                            ; preds = %12507
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %183, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %183) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %184) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %183)
+  call void @llvm.lifetime.start.p0(ptr nonnull %184)
   %12510 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %184, ptr noundef %12510, i64 noundef 1)
           to label %12511 unwind label %12516
 
 12511:                                            ; preds = %12509
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %184, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %184) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %185) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %184)
+  call void @llvm.lifetime.start.p0(ptr nonnull %185)
   %12512 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %185, ptr noundef %12512, i64 noundef 1)
           to label %12513 unwind label %12518
 
 12513:                                            ; preds = %12511
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %185, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %185) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %185)
   br label %12520
 
 12514:                                            ; preds = %12507, %12505, %12503
   %12515 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %183) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %183)
   br label %.loopexit.split-lp
 
 12516:                                            ; preds = %12509
   %12517 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %184) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %184)
   br label %.loopexit.split-lp
 
 12518:                                            ; preds = %12511
   %12519 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %185) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %185)
   br label %.loopexit.split-lp
 
 12520:                                            ; preds = %12513, %12500
@@ -74565,7 +74559,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12532:                                            ; preds = %12530
   store ptr %12531, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %186) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %186)
   %12533 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12534 unwind label %12543
 
@@ -74580,41 +74574,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12538:                                            ; preds = %12536
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %186, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %186) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %187) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %186)
+  call void @llvm.lifetime.start.p0(ptr nonnull %187)
   %12539 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %187, ptr noundef %12539, i64 noundef 1)
           to label %12540 unwind label %12545
 
 12540:                                            ; preds = %12538
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %187, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %187) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %188) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %187)
+  call void @llvm.lifetime.start.p0(ptr nonnull %188)
   %12541 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %188, ptr noundef %12541, i64 noundef 1)
           to label %12542 unwind label %12547
 
 12542:                                            ; preds = %12540
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %188, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %188) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %188)
   br label %12549
 
 12543:                                            ; preds = %12536, %12534, %12532
   %12544 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %186) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %186)
   br label %.loopexit.split-lp
 
 12545:                                            ; preds = %12538
   %12546 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %187) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %187)
   br label %.loopexit.split-lp
 
 12547:                                            ; preds = %12540
   %12548 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %188) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %188)
   br label %.loopexit.split-lp
 
 12549:                                            ; preds = %12542, %12529
@@ -74647,7 +74641,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12562:                                            ; preds = %12560
   store ptr %12561, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %189) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %189)
   %12563 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12564 unwind label %12573
 
@@ -74662,41 +74656,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12568:                                            ; preds = %12566
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %189, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %189) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %190) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %189)
+  call void @llvm.lifetime.start.p0(ptr nonnull %190)
   %12569 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %190, ptr noundef %12569, i64 noundef 1)
           to label %12570 unwind label %12575
 
 12570:                                            ; preds = %12568
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %190, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %190) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %191) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %190)
+  call void @llvm.lifetime.start.p0(ptr nonnull %191)
   %12571 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %191, ptr noundef %12571, i64 noundef 1)
           to label %12572 unwind label %12577
 
 12572:                                            ; preds = %12570
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %191, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %191) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %191)
   br label %12579
 
 12573:                                            ; preds = %12566, %12564, %12562
   %12574 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %189) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %189)
   br label %.loopexit.split-lp
 
 12575:                                            ; preds = %12568
   %12576 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %190) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %190)
   br label %.loopexit.split-lp
 
 12577:                                            ; preds = %12570
   %12578 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %191) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %191)
   br label %.loopexit.split-lp
 
 12579:                                            ; preds = %12572, %12559
@@ -74741,7 +74735,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12597:                                            ; preds = %12595
   store ptr %12596, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %192) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %192)
   %12598 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12599 unwind label %12608
 
@@ -74756,41 +74750,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12603:                                            ; preds = %12601
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %192, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %192) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %193) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %192)
+  call void @llvm.lifetime.start.p0(ptr nonnull %193)
   %12604 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %193, ptr noundef %12604, i64 noundef 1)
           to label %12605 unwind label %12610
 
 12605:                                            ; preds = %12603
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %193, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %193) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %194) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %193)
+  call void @llvm.lifetime.start.p0(ptr nonnull %194)
   %12606 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %194, ptr noundef %12606, i64 noundef 1)
           to label %12607 unwind label %12612
 
 12607:                                            ; preds = %12605
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %194, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %194) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %194)
   br label %12614
 
 12608:                                            ; preds = %12601, %12599, %12597
   %12609 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %192) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %192)
   br label %.loopexit.split-lp
 
 12610:                                            ; preds = %12603
   %12611 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %193) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %193)
   br label %.loopexit.split-lp
 
 12612:                                            ; preds = %12605
   %12613 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %194) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %194)
   br label %.loopexit.split-lp
 
 12614:                                            ; preds = %12607, %12594
@@ -74835,7 +74829,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12632:                                            ; preds = %12630
   store ptr %12631, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %195) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %195)
   %12633 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12634 unwind label %12643
 
@@ -74850,41 +74844,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12638:                                            ; preds = %12636
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %195, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %195) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %196) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %195)
+  call void @llvm.lifetime.start.p0(ptr nonnull %196)
   %12639 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %196, ptr noundef %12639, i64 noundef 1)
           to label %12640 unwind label %12645
 
 12640:                                            ; preds = %12638
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %196, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %196) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %197) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %196)
+  call void @llvm.lifetime.start.p0(ptr nonnull %197)
   %12641 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %197, ptr noundef %12641, i64 noundef 1)
           to label %12642 unwind label %12647
 
 12642:                                            ; preds = %12640
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %197, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %197) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %197)
   br label %12649
 
 12643:                                            ; preds = %12636, %12634, %12632
   %12644 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %195) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %195)
   br label %.loopexit.split-lp
 
 12645:                                            ; preds = %12638
   %12646 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %196) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %196)
   br label %.loopexit.split-lp
 
 12647:                                            ; preds = %12640
   %12648 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %197) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %197)
   br label %.loopexit.split-lp
 
 12649:                                            ; preds = %12642, %12629
@@ -74929,7 +74923,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12667:                                            ; preds = %12665
   store ptr %12666, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %198) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %198)
   %12668 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12669 unwind label %12678
 
@@ -74944,41 +74938,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12673:                                            ; preds = %12671
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %198, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %198) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %199) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %198)
+  call void @llvm.lifetime.start.p0(ptr nonnull %199)
   %12674 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %199, ptr noundef %12674, i64 noundef 1)
           to label %12675 unwind label %12680
 
 12675:                                            ; preds = %12673
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %199, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %199) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %200) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %199)
+  call void @llvm.lifetime.start.p0(ptr nonnull %200)
   %12676 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %200, ptr noundef %12676, i64 noundef 1)
           to label %12677 unwind label %12682
 
 12677:                                            ; preds = %12675
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %200, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %200) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %200)
   br label %12684
 
 12678:                                            ; preds = %12671, %12669, %12667
   %12679 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %198) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %198)
   br label %.loopexit.split-lp
 
 12680:                                            ; preds = %12673
   %12681 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %199) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %199)
   br label %.loopexit.split-lp
 
 12682:                                            ; preds = %12675
   %12683 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %200) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %200)
   br label %.loopexit.split-lp
 
 12684:                                            ; preds = %12677, %12664
@@ -75023,7 +75017,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12702:                                            ; preds = %12700
   store ptr %12701, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %201) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %201)
   %12703 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12704 unwind label %12713
 
@@ -75038,41 +75032,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12708:                                            ; preds = %12706
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %201, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %201) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %202) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %201)
+  call void @llvm.lifetime.start.p0(ptr nonnull %202)
   %12709 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %202, ptr noundef %12709, i64 noundef 1)
           to label %12710 unwind label %12715
 
 12710:                                            ; preds = %12708
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %202, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %202) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %203) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %202)
+  call void @llvm.lifetime.start.p0(ptr nonnull %203)
   %12711 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %203, ptr noundef %12711, i64 noundef 1)
           to label %12712 unwind label %12717
 
 12712:                                            ; preds = %12710
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %203, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %203) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %203)
   br label %12719
 
 12713:                                            ; preds = %12706, %12704, %12702
   %12714 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %201) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %201)
   br label %.loopexit.split-lp
 
 12715:                                            ; preds = %12708
   %12716 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %202) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %202)
   br label %.loopexit.split-lp
 
 12717:                                            ; preds = %12710
   %12718 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %203) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %203)
   br label %.loopexit.split-lp
 
 12719:                                            ; preds = %12712, %12699
@@ -75117,7 +75111,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12737:                                            ; preds = %12735
   store ptr %12736, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %204) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %204)
   %12738 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12739 unwind label %12748
 
@@ -75132,41 +75126,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12743:                                            ; preds = %12741
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %204, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %204) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %205) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %204)
+  call void @llvm.lifetime.start.p0(ptr nonnull %205)
   %12744 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %205, ptr noundef %12744, i64 noundef 1)
           to label %12745 unwind label %12750
 
 12745:                                            ; preds = %12743
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %205, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %205) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %206) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %205)
+  call void @llvm.lifetime.start.p0(ptr nonnull %206)
   %12746 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %206, ptr noundef %12746, i64 noundef 1)
           to label %12747 unwind label %12752
 
 12747:                                            ; preds = %12745
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %206, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %206) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %206)
   br label %12754
 
 12748:                                            ; preds = %12741, %12739, %12737
   %12749 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %204) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %204)
   br label %.loopexit.split-lp
 
 12750:                                            ; preds = %12743
   %12751 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %205) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %205)
   br label %.loopexit.split-lp
 
 12752:                                            ; preds = %12745
   %12753 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %206) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %206)
   br label %.loopexit.split-lp
 
 12754:                                            ; preds = %12747, %12734
@@ -75211,7 +75205,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12772:                                            ; preds = %12770
   store ptr %12771, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %207) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %207)
   %12773 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12774 unwind label %12783
 
@@ -75226,41 +75220,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12778:                                            ; preds = %12776
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %207, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %207) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %208) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %207)
+  call void @llvm.lifetime.start.p0(ptr nonnull %208)
   %12779 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %208, ptr noundef %12779, i64 noundef 1)
           to label %12780 unwind label %12785
 
 12780:                                            ; preds = %12778
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %208, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %208) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %209) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %208)
+  call void @llvm.lifetime.start.p0(ptr nonnull %209)
   %12781 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %209, ptr noundef %12781, i64 noundef 1)
           to label %12782 unwind label %12787
 
 12782:                                            ; preds = %12780
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %209, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %209) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %209)
   br label %12789
 
 12783:                                            ; preds = %12776, %12774, %12772
   %12784 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %207) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %207)
   br label %.loopexit.split-lp
 
 12785:                                            ; preds = %12778
   %12786 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %208) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %208)
   br label %.loopexit.split-lp
 
 12787:                                            ; preds = %12780
   %12788 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %209) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %209)
   br label %.loopexit.split-lp
 
 12789:                                            ; preds = %12782, %12769
@@ -75305,7 +75299,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12807:                                            ; preds = %12805
   store ptr %12806, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %210) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %210)
   %12808 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12809 unwind label %12818
 
@@ -75320,41 +75314,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12813:                                            ; preds = %12811
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %210, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %210) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %211) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %210)
+  call void @llvm.lifetime.start.p0(ptr nonnull %211)
   %12814 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %211, ptr noundef %12814, i64 noundef 1)
           to label %12815 unwind label %12820
 
 12815:                                            ; preds = %12813
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %211, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %211) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %212) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %211)
+  call void @llvm.lifetime.start.p0(ptr nonnull %212)
   %12816 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %212, ptr noundef %12816, i64 noundef 1)
           to label %12817 unwind label %12822
 
 12817:                                            ; preds = %12815
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %212, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %212) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %212)
   br label %12824
 
 12818:                                            ; preds = %12811, %12809, %12807
   %12819 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %210) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %210)
   br label %.loopexit.split-lp
 
 12820:                                            ; preds = %12813
   %12821 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %211) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %211)
   br label %.loopexit.split-lp
 
 12822:                                            ; preds = %12815
   %12823 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %212) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %212)
   br label %.loopexit.split-lp
 
 12824:                                            ; preds = %12817, %12804
@@ -75391,7 +75385,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12839:                                            ; preds = %12837
   store ptr %12838, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %213) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %213)
   %12840 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12841 unwind label %12851
 
@@ -75407,23 +75401,23 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12846:                                            ; preds = %12843
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %213, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %213) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %214) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %213)
+  call void @llvm.lifetime.start.p0(ptr nonnull %214)
   %12847 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %214, ptr noundef %12847, i64 noundef 1)
           to label %12848 unwind label %12853
 
 12848:                                            ; preds = %12846
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %214, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %214) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %215) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %214)
+  call void @llvm.lifetime.start.p0(ptr nonnull %215)
   %12849 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %215, ptr noundef %12849, i64 noundef 1)
           to label %12850 unwind label %12855
 
 12850:                                            ; preds = %12848
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %215, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %215) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %215)
   br label %12857
 
 .loopexit6422:                                    ; preds = %.lr.ph.i6181
@@ -75474,19 +75468,19 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 12851:                                            ; preds = %12843, %12841, %12839
   %12852 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %213) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %213)
   br label %.loopexit.split-lp
 
 12853:                                            ; preds = %12846
   %12854 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %214) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %214)
   br label %.loopexit.split-lp
 
 12855:                                            ; preds = %12848
   %12856 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %215) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %215)
   br label %.loopexit.split-lp
 
 12857:                                            ; preds = %12850, %12835
@@ -75574,7 +75568,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12892:                                            ; preds = %12890
   store ptr %12891, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %216) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %216)
   %12893 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12894 unwind label %12903
 
@@ -75589,41 +75583,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12898:                                            ; preds = %12896
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %216, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %216) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %217) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %216)
+  call void @llvm.lifetime.start.p0(ptr nonnull %217)
   %12899 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %217, ptr noundef %12899, i64 noundef 1)
           to label %12900 unwind label %12905
 
 12900:                                            ; preds = %12898
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %217, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %217) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %218) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %217)
+  call void @llvm.lifetime.start.p0(ptr nonnull %218)
   %12901 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %218, ptr noundef %12901, i64 noundef 1)
           to label %12902 unwind label %12907
 
 12902:                                            ; preds = %12900
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %218, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %218) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %218)
   br label %12909
 
 12903:                                            ; preds = %12896, %12894, %12892
   %12904 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %216) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %216)
   br label %.loopexit.split-lp
 
 12905:                                            ; preds = %12898
   %12906 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %217) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %217)
   br label %.loopexit.split-lp
 
 12907:                                            ; preds = %12900
   %12908 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %218) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %218)
   br label %.loopexit.split-lp
 
 12909:                                            ; preds = %12902, %12888
@@ -75670,7 +75664,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12929:                                            ; preds = %12927
   store ptr %12928, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %219) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %219)
   %12930 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %12931 unwind label %12940
 
@@ -75685,41 +75679,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12935:                                            ; preds = %12933
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %219, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %219) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %220) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %219)
+  call void @llvm.lifetime.start.p0(ptr nonnull %220)
   %12936 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %220, ptr noundef %12936, i64 noundef 1)
           to label %12937 unwind label %12942
 
 12937:                                            ; preds = %12935
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %220, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %220) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %221) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %220)
+  call void @llvm.lifetime.start.p0(ptr nonnull %221)
   %12938 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %221, ptr noundef %12938, i64 noundef 1)
           to label %12939 unwind label %12944
 
 12939:                                            ; preds = %12937
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %221, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %221) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %221)
   br label %12946
 
 12940:                                            ; preds = %12933, %12931, %12929
   %12941 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %219) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %219)
   br label %.loopexit.split-lp
 
 12942:                                            ; preds = %12935
   %12943 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %220) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %220)
   br label %.loopexit.split-lp
 
 12944:                                            ; preds = %12937
   %12945 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %221) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %221)
   br label %.loopexit.split-lp
 
 12946:                                            ; preds = %12939, %12925
@@ -75857,7 +75851,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 13014:                                            ; preds = %13012
   store ptr %13013, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %222) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %222)
   %13015 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %13016 unwind label %13025
 
@@ -75872,41 +75866,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 13020:                                            ; preds = %13018
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %222, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %222) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %223) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %222)
+  call void @llvm.lifetime.start.p0(ptr nonnull %223)
   %13021 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %223, ptr noundef %13021, i64 noundef 1)
           to label %13022 unwind label %13027
 
 13022:                                            ; preds = %13020
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %223, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %223) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %224) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %223)
+  call void @llvm.lifetime.start.p0(ptr nonnull %224)
   %13023 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %224, ptr noundef %13023, i64 noundef 1)
           to label %13024 unwind label %13029
 
 13024:                                            ; preds = %13022
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %224, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %224) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %224)
   br label %13031
 
 13025:                                            ; preds = %13018, %13016, %13014
   %13026 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %222) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %222)
   br label %.loopexit.split-lp
 
 13027:                                            ; preds = %13020
   %13028 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %223) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %223)
   br label %.loopexit.split-lp
 
 13029:                                            ; preds = %13022
   %13030 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %224) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %224)
   br label %.loopexit.split-lp
 
 13031:                                            ; preds = %13024, %13010
@@ -75968,7 +75962,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 13058:                                            ; preds = %13056
   store ptr %13057, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %225) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %225)
   %13059 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %13060 unwind label %13069
 
@@ -75983,41 +75977,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 13064:                                            ; preds = %13062
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %225, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %225) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %226) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %225)
+  call void @llvm.lifetime.start.p0(ptr nonnull %226)
   %13065 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %226, ptr noundef %13065, i64 noundef 1)
           to label %13066 unwind label %13071
 
 13066:                                            ; preds = %13064
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %226, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %226) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %227) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %226)
+  call void @llvm.lifetime.start.p0(ptr nonnull %227)
   %13067 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %227, ptr noundef %13067, i64 noundef 1)
           to label %13068 unwind label %13073
 
 13068:                                            ; preds = %13066
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %227, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %227) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %227)
   br label %13075
 
 13069:                                            ; preds = %13062, %13060, %13058
   %13070 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %225) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %225)
   br label %.loopexit.split-lp
 
 13071:                                            ; preds = %13064
   %13072 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %226) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %226)
   br label %.loopexit.split-lp
 
 13073:                                            ; preds = %13066
   %13074 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %227) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %227)
   br label %.loopexit.split-lp
 
 13075:                                            ; preds = %13068, %13054
@@ -76162,7 +76156,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 13139:                                            ; preds = %13137
   store ptr %13138, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %228) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %228)
   %13140 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %13141 unwind label %13150
 
@@ -76177,41 +76171,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 13145:                                            ; preds = %13143
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %228, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %228) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %229) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %228)
+  call void @llvm.lifetime.start.p0(ptr nonnull %229)
   %13146 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %229, ptr noundef %13146, i64 noundef 1)
           to label %13147 unwind label %13152
 
 13147:                                            ; preds = %13145
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %229, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %229) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %230) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %229)
+  call void @llvm.lifetime.start.p0(ptr nonnull %230)
   %13148 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %230, ptr noundef %13148, i64 noundef 1)
           to label %13149 unwind label %13154
 
 13149:                                            ; preds = %13147
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %230, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %230) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %230)
   br label %13156
 
 13150:                                            ; preds = %13143, %13141, %13139
   %13151 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %228) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %228)
   br label %.loopexit.split-lp
 
 13152:                                            ; preds = %13145
   %13153 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %229) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %229)
   br label %.loopexit.split-lp
 
 13154:                                            ; preds = %13147
   %13155 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %230) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %230)
   br label %.loopexit.split-lp
 
 13156:                                            ; preds = %13149, %13135
@@ -76270,7 +76264,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 13180:                                            ; preds = %13178
   store ptr %13179, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %231) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %231)
   %13181 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %13182 unwind label %13191
 
@@ -76285,41 +76279,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 13186:                                            ; preds = %13184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %231, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %231) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %232) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %231)
+  call void @llvm.lifetime.start.p0(ptr nonnull %232)
   %13187 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %232, ptr noundef %13187, i64 noundef 1)
           to label %13188 unwind label %13193
 
 13188:                                            ; preds = %13186
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %232, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %232) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %233) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %232)
+  call void @llvm.lifetime.start.p0(ptr nonnull %233)
   %13189 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %233, ptr noundef %13189, i64 noundef 1)
           to label %13190 unwind label %13195
 
 13190:                                            ; preds = %13188
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %233, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %233) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %233)
   br label %13197
 
 13191:                                            ; preds = %13184, %13182, %13180
   %13192 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %231) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %231)
   br label %.loopexit.split-lp
 
 13193:                                            ; preds = %13186
   %13194 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %232) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %232)
   br label %.loopexit.split-lp
 
 13195:                                            ; preds = %13188
   %13196 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %233) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %233)
   br label %.loopexit.split-lp
 
 13197:                                            ; preds = %13190, %13177
@@ -76365,7 +76359,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 13218:                                            ; preds = %13216
   store ptr %13217, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %234) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %234)
   %13219 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %13220 unwind label %13232
 
@@ -76381,22 +76375,22 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 13225:                                            ; preds = %13222
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %234, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %234) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %235) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %234)
+  call void @llvm.lifetime.start.p0(ptr nonnull %235)
   %13226 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %235, ptr noundef %13226, i64 noundef 1)
           to label %13227 unwind label %13234
 
 13227:                                            ; preds = %13225
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %235, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %235) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %236) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %235)
+  call void @llvm.lifetime.start.p0(ptr nonnull %236)
   %13228 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %236, ptr noundef %13228, i64 noundef 1)
           to label %13229 unwind label %13236
 
 13229:                                            ; preds = %13227
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %236) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %236)
   br label %13238
 
 13230:                                            ; preds = %13358, %13355, %13353, %13349, %13347, %13343, %13341, %13339, %13333, %13331, %13323, %13321, %13319, %13315, %13313, %13306, %13304, %13297, %13295, %13290, %13288, %13285, %13283, %13275, %13273, %13267, %13265, %13257, %13255, %13253, %13238, %13216, %13212
@@ -76407,19 +76401,19 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 13232:                                            ; preds = %13222, %13220, %13218
   %13233 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %234) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %234)
   br label %.loopexit.split-lp
 
 13234:                                            ; preds = %13225
   %13235 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %235) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %235)
   br label %.loopexit.split-lp
 
 13236:                                            ; preds = %13227
   %13237 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %236) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %236)
   br label %.loopexit.split-lp
 
 13238:                                            ; preds = %13229, %13214
@@ -76700,7 +76694,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 13366:                                            ; preds = %13364
   store ptr %13365, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %237) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %237)
   %13367 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %13368 unwind label %13380
 
@@ -76716,23 +76710,23 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 13373:                                            ; preds = %13370
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %237, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %237) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %238) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %237)
+  call void @llvm.lifetime.start.p0(ptr nonnull %238)
   %13374 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %238, ptr noundef %13374, i64 noundef 1)
           to label %13375 unwind label %13382
 
 13375:                                            ; preds = %13373
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %238, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %238) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %239) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %238)
+  call void @llvm.lifetime.start.p0(ptr nonnull %239)
   %13376 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %239, ptr noundef %13376, i64 noundef 1)
           to label %13377 unwind label %13384
 
 13377:                                            ; preds = %13375
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %239, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %239) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %239)
   br label %13386
 
 13378:                                            ; preds = %13480, %13477, %13475, %13471, %13469, %13467, %13461, %13459, %13451, %13449, %13447, %13443, %13441, %13434, %13432, %13429, %13427, %13419, %13417, %13411, %13409, %13401, %13399, %13397, %13386, %13364, %13360
@@ -76743,19 +76737,19 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 13380:                                            ; preds = %13370, %13368, %13366
   %13381 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %237) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %237)
   br label %.loopexit.split-lp
 
 13382:                                            ; preds = %13373
   %13383 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %238) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %238)
   br label %.loopexit.split-lp
 
 13384:                                            ; preds = %13375
   %13385 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %239) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %239)
   br label %.loopexit.split-lp
 
 13386:                                            ; preds = %13377, %13362
@@ -76976,7 +76970,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 13487:                                            ; preds = %13485
   store ptr %13486, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %240) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %240)
   %13488 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %13489 unwind label %13499
 
@@ -76992,23 +76986,23 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 13494:                                            ; preds = %13491
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %240, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %240) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %241) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %240)
+  call void @llvm.lifetime.start.p0(ptr nonnull %241)
   %13495 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %241, ptr noundef %13495, i64 noundef 1)
           to label %13496 unwind label %13501
 
 13496:                                            ; preds = %13494
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %241, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %241) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %242) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %241)
+  call void @llvm.lifetime.start.p0(ptr nonnull %242)
   %13497 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %242, ptr noundef %13497, i64 noundef 1)
           to label %13498 unwind label %13503
 
 13498:                                            ; preds = %13496
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %242, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %242) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %242)
   br label %13505
 
 .loopexit6539:                                    ; preds = %.lr.ph.i6195
@@ -77034,19 +77028,19 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 13499:                                            ; preds = %13491, %13489, %13487
   %13500 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %240) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %240)
   br label %.loopexit.split-lp
 
 13501:                                            ; preds = %13494
   %13502 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %241) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %241)
   br label %.loopexit.split-lp
 
 13503:                                            ; preds = %13496
   %13504 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %242) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %242)
   br label %.loopexit.split-lp
 
 13505:                                            ; preds = %13498, %13483
@@ -77704,7 +77698,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 13816:                                            ; preds = %13814
   store ptr %13815, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %243) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %243)
   %13817 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %13818 unwind label %13827
 
@@ -77719,41 +77713,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 13822:                                            ; preds = %13820
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %243, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %243) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %244) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %243)
+  call void @llvm.lifetime.start.p0(ptr nonnull %244)
   %13823 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %244, ptr noundef %13823, i64 noundef 1)
           to label %13824 unwind label %13829
 
 13824:                                            ; preds = %13822
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %244, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %244) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %245) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %244)
+  call void @llvm.lifetime.start.p0(ptr nonnull %245)
   %13825 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %245, ptr noundef %13825, i64 noundef 1)
           to label %13826 unwind label %13831
 
 13826:                                            ; preds = %13824
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %245, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %245) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %245)
   br label %13833
 
 13827:                                            ; preds = %13820, %13818, %13816
   %13828 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %243) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %243)
   br label %.loopexit.split-lp
 
 13829:                                            ; preds = %13822
   %13830 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %244) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %244)
   br label %.loopexit.split-lp
 
 13831:                                            ; preds = %13824
   %13832 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %245) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %245)
   br label %.loopexit.split-lp
 
 13833:                                            ; preds = %13826, %13813
@@ -77886,7 +77880,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 13892:                                            ; preds = %13890
   store ptr %13891, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %246) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %246)
   %13893 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %13894 unwind label %13904
 
@@ -77902,23 +77896,23 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 13899:                                            ; preds = %13896
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %246, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %246) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %247) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %246)
+  call void @llvm.lifetime.start.p0(ptr nonnull %247)
   %13900 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %247, ptr noundef %13900, i64 noundef 1)
           to label %13901 unwind label %13906
 
 13901:                                            ; preds = %13899
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %247, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %247) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %248) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %247)
+  call void @llvm.lifetime.start.p0(ptr nonnull %248)
   %13902 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %248, ptr noundef %13902, i64 noundef 1)
           to label %13903 unwind label %13908
 
 13903:                                            ; preds = %13901
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %248, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %248) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %248)
   br label %13910
 
 .loopexit6520:                                    ; preds = %.lr.ph.i6202
@@ -77949,19 +77943,19 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 13904:                                            ; preds = %13896, %13894, %13892
   %13905 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %246) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %246)
   br label %.loopexit.split-lp
 
 13906:                                            ; preds = %13899
   %13907 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %247) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %247)
   br label %.loopexit.split-lp
 
 13908:                                            ; preds = %13901
   %13909 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %248) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %248)
   br label %.loopexit.split-lp
 
 13910:                                            ; preds = %13903, %13888
@@ -78363,7 +78357,7 @@ switch.hole_check:                                ; preds = %14078
 
 14105:                                            ; preds = %14103
   store ptr %14104, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %249) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %249)
   %14106 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14107 unwind label %14117
 
@@ -78379,41 +78373,41 @@ switch.hole_check:                                ; preds = %14078
 
 14112:                                            ; preds = %14109
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %249, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %249) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %250) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %249)
+  call void @llvm.lifetime.start.p0(ptr nonnull %250)
   %14113 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %250, ptr noundef %14113, i64 noundef 1)
           to label %14114 unwind label %14119
 
 14114:                                            ; preds = %14112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %250, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %250) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %251) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %250)
+  call void @llvm.lifetime.start.p0(ptr nonnull %251)
   %14115 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %251, ptr noundef %14115, i64 noundef 1)
           to label %14116 unwind label %14121
 
 14116:                                            ; preds = %14114
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %251, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %251) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %251)
   br label %14123
 
 14117:                                            ; preds = %14109, %14107, %14105
   %14118 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %249) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %249)
   br label %.loopexit.split-lp
 
 14119:                                            ; preds = %14112
   %14120 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %250) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %250)
   br label %.loopexit.split-lp
 
 14121:                                            ; preds = %14114
   %14122 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %251) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %251)
   br label %.loopexit.split-lp
 
 14123:                                            ; preds = %14116, %14102
@@ -78471,7 +78465,7 @@ switch.hole_check:                                ; preds = %14078
 
 14145:                                            ; preds = %14143
   store ptr %14144, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %252) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %252)
   %14146 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14147 unwind label %14157
 
@@ -78487,41 +78481,41 @@ switch.hole_check:                                ; preds = %14078
 
 14152:                                            ; preds = %14149
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %252, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %252) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %253) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %252)
+  call void @llvm.lifetime.start.p0(ptr nonnull %253)
   %14153 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %253, ptr noundef %14153, i64 noundef 1)
           to label %14154 unwind label %14159
 
 14154:                                            ; preds = %14152
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %253, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %253) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %254) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %253)
+  call void @llvm.lifetime.start.p0(ptr nonnull %254)
   %14155 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %254, ptr noundef %14155, i64 noundef 1)
           to label %14156 unwind label %14161
 
 14156:                                            ; preds = %14154
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %254, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %254) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %254)
   br label %14163
 
 14157:                                            ; preds = %14149, %14147, %14145
   %14158 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %252) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %252)
   br label %.loopexit.split-lp
 
 14159:                                            ; preds = %14152
   %14160 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %253) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %253)
   br label %.loopexit.split-lp
 
 14161:                                            ; preds = %14154
   %14162 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %254) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %254)
   br label %.loopexit.split-lp
 
 14163:                                            ; preds = %14156, %14142
@@ -78576,7 +78570,7 @@ switch.hole_check:                                ; preds = %14078
 
 14186:                                            ; preds = %14184
   store ptr %14185, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %255) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %255)
   %14187 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14188 unwind label %14198
 
@@ -78592,41 +78586,41 @@ switch.hole_check:                                ; preds = %14078
 
 14193:                                            ; preds = %14190
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %255, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %255) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %256) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %255)
+  call void @llvm.lifetime.start.p0(ptr nonnull %256)
   %14194 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %256, ptr noundef %14194, i64 noundef 1)
           to label %14195 unwind label %14200
 
 14195:                                            ; preds = %14193
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %256, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %256) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %257) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %256)
+  call void @llvm.lifetime.start.p0(ptr nonnull %257)
   %14196 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %257, ptr noundef %14196, i64 noundef 1)
           to label %14197 unwind label %14202
 
 14197:                                            ; preds = %14195
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %257, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %257) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %257)
   br label %14204
 
 14198:                                            ; preds = %14190, %14188, %14186
   %14199 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %255) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %255)
   br label %.loopexit.split-lp
 
 14200:                                            ; preds = %14193
   %14201 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %256) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %256)
   br label %.loopexit.split-lp
 
 14202:                                            ; preds = %14195
   %14203 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %257) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %257)
   br label %.loopexit.split-lp
 
 14204:                                            ; preds = %14197, %14183
@@ -78729,7 +78723,7 @@ switch.hole_check:                                ; preds = %14078
 
 14243:                                            ; preds = %14241
   store ptr %14242, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %258) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %258)
   %14244 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14245 unwind label %14254
 
@@ -78744,41 +78738,41 @@ switch.hole_check:                                ; preds = %14078
 
 14249:                                            ; preds = %14247
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %258, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %258) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %259) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %258)
+  call void @llvm.lifetime.start.p0(ptr nonnull %259)
   %14250 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %259, ptr noundef %14250, i64 noundef 1)
           to label %14251 unwind label %14256
 
 14251:                                            ; preds = %14249
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %259, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %259) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %260) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %259)
+  call void @llvm.lifetime.start.p0(ptr nonnull %260)
   %14252 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %260, ptr noundef %14252, i64 noundef 1)
           to label %14253 unwind label %14258
 
 14253:                                            ; preds = %14251
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %260, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %260) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %260)
   br label %14260
 
 14254:                                            ; preds = %14247, %14245, %14243
   %14255 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %258) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %258)
   br label %.loopexit.split-lp
 
 14256:                                            ; preds = %14249
   %14257 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %259) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %259)
   br label %.loopexit.split-lp
 
 14258:                                            ; preds = %14251
   %14259 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %260) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %260)
   br label %.loopexit.split-lp
 
 14260:                                            ; preds = %14253, %14240
@@ -78843,7 +78837,7 @@ switch.hole_check:                                ; preds = %14078
 
 14285:                                            ; preds = %14283
   store ptr %14284, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %261) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %261)
   %14286 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14287 unwind label %14297
 
@@ -78859,41 +78853,41 @@ switch.hole_check:                                ; preds = %14078
 
 14292:                                            ; preds = %14289
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %261, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %261) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %262) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %261)
+  call void @llvm.lifetime.start.p0(ptr nonnull %262)
   %14293 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %262, ptr noundef %14293, i64 noundef 1)
           to label %14294 unwind label %14299
 
 14294:                                            ; preds = %14292
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %262, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %262) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %263) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %262)
+  call void @llvm.lifetime.start.p0(ptr nonnull %263)
   %14295 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %263, ptr noundef %14295, i64 noundef 1)
           to label %14296 unwind label %14301
 
 14296:                                            ; preds = %14294
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %263, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %263) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %263)
   br label %14303
 
 14297:                                            ; preds = %14289, %14287, %14285
   %14298 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %261) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %261)
   br label %.loopexit.split-lp
 
 14299:                                            ; preds = %14292
   %14300 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %262) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %262)
   br label %.loopexit.split-lp
 
 14301:                                            ; preds = %14294
   %14302 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %263) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %263)
   br label %.loopexit.split-lp
 
 14303:                                            ; preds = %14296, %14282
@@ -78939,7 +78933,7 @@ switch.hole_check:                                ; preds = %14078
 
 14321:                                            ; preds = %14319
   store ptr %14320, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %264) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %264)
   %14322 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14323 unwind label %14333
 
@@ -78955,41 +78949,41 @@ switch.hole_check:                                ; preds = %14078
 
 14328:                                            ; preds = %14325
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %264, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %264) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %265) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %264)
+  call void @llvm.lifetime.start.p0(ptr nonnull %265)
   %14329 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %265, ptr noundef %14329, i64 noundef 1)
           to label %14330 unwind label %14335
 
 14330:                                            ; preds = %14328
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %265, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %265) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %266) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %265)
+  call void @llvm.lifetime.start.p0(ptr nonnull %266)
   %14331 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %266, ptr noundef %14331, i64 noundef 1)
           to label %14332 unwind label %14337
 
 14332:                                            ; preds = %14330
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %266, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %266) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %266)
   br label %14339
 
 14333:                                            ; preds = %14325, %14323, %14321
   %14334 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %264) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %264)
   br label %.loopexit.split-lp
 
 14335:                                            ; preds = %14328
   %14336 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %265) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %265)
   br label %.loopexit.split-lp
 
 14337:                                            ; preds = %14330
   %14338 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %266) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %266)
   br label %.loopexit.split-lp
 
 14339:                                            ; preds = %14332, %14318
@@ -79035,7 +79029,7 @@ switch.hole_check:                                ; preds = %14078
 
 14357:                                            ; preds = %14355
   store ptr %14356, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %267) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %267)
   %14358 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14359 unwind label %14369
 
@@ -79051,41 +79045,41 @@ switch.hole_check:                                ; preds = %14078
 
 14364:                                            ; preds = %14361
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %267, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %267) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %268) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %267)
+  call void @llvm.lifetime.start.p0(ptr nonnull %268)
   %14365 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %268, ptr noundef %14365, i64 noundef 1)
           to label %14366 unwind label %14371
 
 14366:                                            ; preds = %14364
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %268, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %268) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %269) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %268)
+  call void @llvm.lifetime.start.p0(ptr nonnull %269)
   %14367 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %269, ptr noundef %14367, i64 noundef 1)
           to label %14368 unwind label %14373
 
 14368:                                            ; preds = %14366
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %269, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %269) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %269)
   br label %14375
 
 14369:                                            ; preds = %14361, %14359, %14357
   %14370 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %267) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %267)
   br label %.loopexit.split-lp
 
 14371:                                            ; preds = %14364
   %14372 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %268) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %268)
   br label %.loopexit.split-lp
 
 14373:                                            ; preds = %14366
   %14374 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %269) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %269)
   br label %.loopexit.split-lp
 
 14375:                                            ; preds = %14368, %14354
@@ -79130,7 +79124,7 @@ switch.hole_check:                                ; preds = %14078
 
 14392:                                            ; preds = %14390
   store ptr %14391, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %270) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %270)
   %14393 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14394 unwind label %14403
 
@@ -79145,41 +79139,41 @@ switch.hole_check:                                ; preds = %14078
 
 14398:                                            ; preds = %14396
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %270, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %270) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %271) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %270)
+  call void @llvm.lifetime.start.p0(ptr nonnull %271)
   %14399 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %271, ptr noundef %14399, i64 noundef 1)
           to label %14400 unwind label %14405
 
 14400:                                            ; preds = %14398
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %271, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %271) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %272) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %271)
+  call void @llvm.lifetime.start.p0(ptr nonnull %272)
   %14401 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %272, ptr noundef %14401, i64 noundef 1)
           to label %14402 unwind label %14407
 
 14402:                                            ; preds = %14400
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %272, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %272) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %272)
   br label %14409
 
 14403:                                            ; preds = %14396, %14394, %14392
   %14404 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %270) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %270)
   br label %.loopexit.split-lp
 
 14405:                                            ; preds = %14398
   %14406 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %271) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %271)
   br label %.loopexit.split-lp
 
 14407:                                            ; preds = %14400
   %14408 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %272) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %272)
   br label %.loopexit.split-lp
 
 14409:                                            ; preds = %14402, %14389
@@ -79228,7 +79222,7 @@ switch.hole_check:                                ; preds = %14078
 
 14431:                                            ; preds = %14429
   store ptr %14430, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %273) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %273)
   %14432 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14433 unwind label %14443
 
@@ -79244,41 +79238,41 @@ switch.hole_check:                                ; preds = %14078
 
 14438:                                            ; preds = %14435
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %273, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %273) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %274) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %273)
+  call void @llvm.lifetime.start.p0(ptr nonnull %274)
   %14439 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %274, ptr noundef %14439, i64 noundef 1)
           to label %14440 unwind label %14445
 
 14440:                                            ; preds = %14438
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %274, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %274) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %275) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %274)
+  call void @llvm.lifetime.start.p0(ptr nonnull %275)
   %14441 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %275, ptr noundef %14441, i64 noundef 1)
           to label %14442 unwind label %14447
 
 14442:                                            ; preds = %14440
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %275, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %275) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %275)
   br label %14449
 
 14443:                                            ; preds = %14435, %14433, %14431
   %14444 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %273) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %273)
   br label %.loopexit.split-lp
 
 14445:                                            ; preds = %14438
   %14446 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %274) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %274)
   br label %.loopexit.split-lp
 
 14447:                                            ; preds = %14440
   %14448 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %275) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %275)
   br label %.loopexit.split-lp
 
 14449:                                            ; preds = %14442, %14428
@@ -79323,7 +79317,7 @@ switch.hole_check:                                ; preds = %14078
 
 14467:                                            ; preds = %14465
   store ptr %14466, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %276) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %276)
   %14468 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14469 unwind label %14479
 
@@ -79339,41 +79333,41 @@ switch.hole_check:                                ; preds = %14078
 
 14474:                                            ; preds = %14471
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %276, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %276) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %277) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %276)
+  call void @llvm.lifetime.start.p0(ptr nonnull %277)
   %14475 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %277, ptr noundef %14475, i64 noundef 1)
           to label %14476 unwind label %14481
 
 14476:                                            ; preds = %14474
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %277, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %277) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %278) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %277)
+  call void @llvm.lifetime.start.p0(ptr nonnull %278)
   %14477 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %278, ptr noundef %14477, i64 noundef 1)
           to label %14478 unwind label %14483
 
 14478:                                            ; preds = %14476
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %278, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %278) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %278)
   br label %14485
 
 14479:                                            ; preds = %14471, %14469, %14467
   %14480 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %276) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %276)
   br label %.loopexit.split-lp
 
 14481:                                            ; preds = %14474
   %14482 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %277) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %277)
   br label %.loopexit.split-lp
 
 14483:                                            ; preds = %14476
   %14484 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %278) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %278)
   br label %.loopexit.split-lp
 
 14485:                                            ; preds = %14478, %14464
@@ -79419,7 +79413,7 @@ switch.hole_check:                                ; preds = %14078
 
 14503:                                            ; preds = %14501
   store ptr %14502, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %279) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %279)
   %14504 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14505 unwind label %14514
 
@@ -79434,41 +79428,41 @@ switch.hole_check:                                ; preds = %14078
 
 14509:                                            ; preds = %14507
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %279, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %279) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %280) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %279)
+  call void @llvm.lifetime.start.p0(ptr nonnull %280)
   %14510 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %280, ptr noundef %14510, i64 noundef 1)
           to label %14511 unwind label %14516
 
 14511:                                            ; preds = %14509
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %280, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %280) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %281) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %280)
+  call void @llvm.lifetime.start.p0(ptr nonnull %281)
   %14512 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %281, ptr noundef %14512, i64 noundef 1)
           to label %14513 unwind label %14518
 
 14513:                                            ; preds = %14511
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %281, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %281) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %281)
   br label %14520
 
 14514:                                            ; preds = %14507, %14505, %14503
   %14515 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %279) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %279)
   br label %.loopexit.split-lp
 
 14516:                                            ; preds = %14509
   %14517 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %280) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %280)
   br label %.loopexit.split-lp
 
 14518:                                            ; preds = %14511
   %14519 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %281) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %281)
   br label %.loopexit.split-lp
 
 14520:                                            ; preds = %14513, %14500
@@ -79517,7 +79511,7 @@ switch.hole_check:                                ; preds = %14078
 
 14542:                                            ; preds = %14540
   store ptr %14541, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %282) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %282)
   %14543 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14544 unwind label %14554
 
@@ -79533,41 +79527,41 @@ switch.hole_check:                                ; preds = %14078
 
 14549:                                            ; preds = %14546
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %282, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %282) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %283) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %282)
+  call void @llvm.lifetime.start.p0(ptr nonnull %283)
   %14550 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %283, ptr noundef %14550, i64 noundef 1)
           to label %14551 unwind label %14556
 
 14551:                                            ; preds = %14549
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %283, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %283) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %284) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %283)
+  call void @llvm.lifetime.start.p0(ptr nonnull %284)
   %14552 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %284, ptr noundef %14552, i64 noundef 1)
           to label %14553 unwind label %14558
 
 14553:                                            ; preds = %14551
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %284, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %284) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %284)
   br label %14560
 
 14554:                                            ; preds = %14546, %14544, %14542
   %14555 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %282) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %282)
   br label %.loopexit.split-lp
 
 14556:                                            ; preds = %14549
   %14557 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %283) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %283)
   br label %.loopexit.split-lp
 
 14558:                                            ; preds = %14551
   %14559 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %284) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %284)
   br label %.loopexit.split-lp
 
 14560:                                            ; preds = %14553, %14539
@@ -79612,7 +79606,7 @@ switch.hole_check:                                ; preds = %14078
 
 14578:                                            ; preds = %14576
   store ptr %14577, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %285) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %285)
   %14579 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14580 unwind label %14590
 
@@ -79628,41 +79622,41 @@ switch.hole_check:                                ; preds = %14078
 
 14585:                                            ; preds = %14582
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %285, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %285) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %286) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %285)
+  call void @llvm.lifetime.start.p0(ptr nonnull %286)
   %14586 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %286, ptr noundef %14586, i64 noundef 1)
           to label %14587 unwind label %14592
 
 14587:                                            ; preds = %14585
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %286, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %286) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %287) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %286)
+  call void @llvm.lifetime.start.p0(ptr nonnull %287)
   %14588 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %287, ptr noundef %14588, i64 noundef 1)
           to label %14589 unwind label %14594
 
 14589:                                            ; preds = %14587
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %287, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %287) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %287)
   br label %14596
 
 14590:                                            ; preds = %14582, %14580, %14578
   %14591 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %285) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %285)
   br label %.loopexit.split-lp
 
 14592:                                            ; preds = %14585
   %14593 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %286) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %286)
   br label %.loopexit.split-lp
 
 14594:                                            ; preds = %14587
   %14595 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %287) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %287)
   br label %.loopexit.split-lp
 
 14596:                                            ; preds = %14589, %14575
@@ -79707,7 +79701,7 @@ switch.hole_check:                                ; preds = %14078
 
 14614:                                            ; preds = %14612
   store ptr %14613, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %288) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %288)
   %14615 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14616 unwind label %14626
 
@@ -79723,41 +79717,41 @@ switch.hole_check:                                ; preds = %14078
 
 14621:                                            ; preds = %14618
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %288, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %288) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %289) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %288)
+  call void @llvm.lifetime.start.p0(ptr nonnull %289)
   %14622 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %289, ptr noundef %14622, i64 noundef 1)
           to label %14623 unwind label %14628
 
 14623:                                            ; preds = %14621
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %289, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %289) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %290) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %289)
+  call void @llvm.lifetime.start.p0(ptr nonnull %290)
   %14624 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %290, ptr noundef %14624, i64 noundef 1)
           to label %14625 unwind label %14630
 
 14625:                                            ; preds = %14623
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %290, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %290) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %290)
   br label %14632
 
 14626:                                            ; preds = %14618, %14616, %14614
   %14627 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %288) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %288)
   br label %.loopexit.split-lp
 
 14628:                                            ; preds = %14621
   %14629 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %289) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %289)
   br label %.loopexit.split-lp
 
 14630:                                            ; preds = %14623
   %14631 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %290) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %290)
   br label %.loopexit.split-lp
 
 14632:                                            ; preds = %14625, %14611
@@ -79798,7 +79792,7 @@ switch.hole_check:                                ; preds = %14078
 
 14648:                                            ; preds = %14646
   store ptr %14647, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %291) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %291)
   %14649 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14650 unwind label %14659
 
@@ -79813,23 +79807,23 @@ switch.hole_check:                                ; preds = %14078
 
 14654:                                            ; preds = %14652
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %291, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %291) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %292) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %291)
+  call void @llvm.lifetime.start.p0(ptr nonnull %292)
   %14655 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %292, ptr noundef %14655, i64 noundef 1)
           to label %14656 unwind label %14661
 
 14656:                                            ; preds = %14654
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %292, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %292) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %293) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %292)
+  call void @llvm.lifetime.start.p0(ptr nonnull %293)
   %14657 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %293, ptr noundef %14657, i64 noundef 1)
           to label %14658 unwind label %14663
 
 14658:                                            ; preds = %14656
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %293, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %293) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %293)
   br label %14665
 
 .loopexit6905:                                    ; preds = %14641, %14643, %14646, %14665, %14674, %14676, %14679, %14695, %14681
@@ -79845,19 +79839,19 @@ switch.hole_check:                                ; preds = %14078
 14659:                                            ; preds = %14652, %14650, %14648
   %14660 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %291) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %291)
   br label %.loopexit.split-lp
 
 14661:                                            ; preds = %14654
   %14662 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %292) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %292)
   br label %.loopexit.split-lp
 
 14663:                                            ; preds = %14656
   %14664 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %293) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %293)
   br label %.loopexit.split-lp
 
 14665:                                            ; preds = %14658, %14645
@@ -79936,7 +79930,7 @@ switch.hole_check:                                ; preds = %14078
           to label %14701 unwind label %.loopexit.split-lp6906
 
 14701:                                            ; preds = %14699
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %294) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %294)
   invoke void @_ZN5boost4wave4utilplIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEENS1_11flex_stringIT_T0_T1_T2_EEPKNSG_10value_typeERKSG_(ptr dead_on_unwind nonnull writable sret(%"class.boost::wave::util::flex_string") align 8 %294, ptr noundef nonnull @.str.30, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %14702 unwind label %14749
 
@@ -80067,11 +80061,11 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 14752:                                            ; preds = %14751, %14749
   %.pn5748 = phi { ptr, i32 } [ %lpad.phi6519, %14751 ], [ %14750, %14749 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %294) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %294)
   br label %.loopexit.split-lp
 
 .preheader6510:                                   ; preds = %14745, %14742, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSERKSB_.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %294) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %294)
   %14753 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14754 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %14755 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -80091,7 +80085,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 14761:                                            ; preds = %14759
   store ptr %14760, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %295) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %295)
   %14762 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14763 unwind label %14772
 
@@ -80106,23 +80100,23 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 14767:                                            ; preds = %14765
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %295, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %295) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %296) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %295)
+  call void @llvm.lifetime.start.p0(ptr nonnull %296)
   %14768 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %296, ptr noundef %14768, i64 noundef 1)
           to label %14769 unwind label %14774
 
 14769:                                            ; preds = %14767
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %296, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %296) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %297) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %296)
+  call void @llvm.lifetime.start.p0(ptr nonnull %297)
   %14770 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %297, ptr noundef %14770, i64 noundef 1)
           to label %14771 unwind label %14776
 
 14771:                                            ; preds = %14769
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %297, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %297) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %297)
   br label %14778
 
 .loopexit6497:                                    ; preds = %.lr.ph.i6233
@@ -80153,19 +80147,19 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 14772:                                            ; preds = %14765, %14763, %14761
   %14773 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %295) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %295)
   br label %.loopexit.split-lp
 
 14774:                                            ; preds = %14767
   %14775 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %296) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %296)
   br label %.loopexit.split-lp
 
 14776:                                            ; preds = %14769
   %14777 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %297) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %297)
   br label %.loopexit.split-lp
 
 14778:                                            ; preds = %14771, %14757
@@ -80309,7 +80303,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
           to label %14852 unwind label %.loopexit.split-lp6498.loopexit.split-lp.loopexit.split-lp.loopexit
 
 14852:                                            ; preds = %14850
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %298) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %298)
   %14853 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %14854 unwind label %14945
 
@@ -80400,7 +80394,7 @@ _ZN5boost4wave4utileqIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStri
   br label %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit6230
 
 _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit6230: ; preds = %_ZN5boost4wave4utileqIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEEbRKNS1_11flex_stringIT_T0_T1_T2_EESI_.exit, %14893, %14896
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %298) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %298)
   br i1 %14889, label %14899, label %.loopexit6509.backedge
 
 14899:                                            ; preds = %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit6230
@@ -80498,7 +80492,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 .body:                                            ; preds = %14868, %14947, %14945
   %.pn5761.pn = phi { ptr, i32 } [ %14946, %14945 ], [ %14948, %14947 ], [ %14869, %14868 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %298) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %298)
   br label %.loopexit.split-lp
 
 14949:                                            ; preds = %14796
@@ -80886,7 +80880,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 15112:                                            ; preds = %15110
   store ptr %15111, ptr %308, align 8, !tbaa !211
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %299) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %299)
   %15113 = invoke noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %15114 unwind label %15123
 
@@ -80901,41 +80895,41 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 15118:                                            ; preds = %15116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %299, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %299) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %300) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %299)
+  call void @llvm.lifetime.start.p0(ptr nonnull %300)
   %15119 = load ptr, ptr %310, align 8, !tbaa !212
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %300, ptr noundef %15119, i64 noundef 1)
           to label %15120 unwind label %15125
 
 15120:                                            ; preds = %15118
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %300, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %300) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %301) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %300)
+  call void @llvm.lifetime.start.p0(ptr nonnull %301)
   %15121 = load ptr, ptr %308, align 8, !tbaa !211
   invoke void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm(ptr noundef nonnull align 8 dereferenceable(16) %301, ptr noundef %15121, i64 noundef 1)
           to label %15122 unwind label %15127
 
 15122:                                            ; preds = %15120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %301, i64 16, i1 false), !tbaa.struct !127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %301) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %301)
   br label %15129
 
 15123:                                            ; preds = %15116, %15114, %15112
   %15124 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %299) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %299)
   br label %.loopexit.split-lp
 
 15125:                                            ; preds = %15118
   %15126 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %300) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %300)
   br label %.loopexit.split-lp
 
 15127:                                            ; preds = %15120
   %15128 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %301) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %301)
   br label %.loopexit.split-lp
 
 15129:                                            ; preds = %15122, %15109
@@ -81070,19 +81064,19 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br label %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit6240
 
 _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit6240: ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSEPKc.exit.thread, %15184, %15187
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #34
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #34
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #34
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.1
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp6423.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp6423.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp6408.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp6408.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit6905, %.loopexit.split-lp6906, %.loopexit6497, %.loopexit.split-lp6498.loopexit.split-lp.loopexit, %.loopexit.split-lp6498.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp6498.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp6498.loopexit, %.loopexit6520, %.loopexit.split-lp6521.loopexit.split-lp.loopexit, %.loopexit.split-lp6521.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp6521.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp6521.loopexit, %.loopexit6539, %.loopexit.split-lp6540.loopexit.split-lp.loopexit, %.loopexit.split-lp6540.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp6540.loopexit, %.loopexit6422, %.loopexit.split-lp6423.loopexit.split-lp.loopexit, %.loopexit.split-lp6423.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp6423.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp6423.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp6423.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp6423.loopexit, %.loopexit6407, %.loopexit.split-lp6408.loopexit.split-lp.loopexit, %.loopexit.split-lp6408.loopexit, %.loopexit6475, %.loopexit.split-lp6476.loopexit.split-lp.loopexit, %.loopexit.split-lp6476.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp6476.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp6476.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp6476.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp6476.loopexit, %.loopexit6454, %.loopexit.split-lp6455.loopexit.split-lp.loopexit, %.loopexit.split-lp6455.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp6455.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp6455.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp6455.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp6455.loopexit, %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %14772, %14774, %14776, %.body, %15123, %15125, %15127, %14659, %14661, %14663, %14752, %13904, %13906, %13908, %14117, %14119, %14121, %14157, %14159, %14161, %14198, %14200, %14202, %14254, %14256, %14258, %14297, %14299, %14301, %14333, %14335, %14337, %14369, %14371, %14373, %14403, %14405, %14407, %14443, %14445, %14447, %14479, %14481, %14483, %14514, %14516, %14518, %14554, %14556, %14558, %14590, %14592, %14594, %14626, %14628, %14630, %13499, %13501, %13503, %13827, %13829, %13831, %13378, %13380, %13382, %13384, %13230, %13232, %13234, %13236, %12851, %12853, %12855, %12903, %12905, %12907, %12940, %12942, %12944, %13025, %13027, %13029, %13069, %13071, %13073, %13150, %13152, %13154, %13191, %13193, %13195, %12291, %12293, %12295, %12331, %12333, %12335, %12425, %12427, %12429, %12455, %12457, %12459, %12514, %12516, %12518, %12543, %12545, %12547, %12573, %12575, %12577, %12608, %12610, %12612, %12643, %12645, %12647, %12678, %12680, %12682, %12713, %12715, %12717, %12748, %12750, %12752, %12783, %12785, %12787, %12818, %12820, %12822, %11969, %11971, %11973, %11678, %11680, %11682, %332, %334, %336, %472, %474, %476, %703, %705, %707, %1567, %1569, %1571, %1852, %1854, %1856, %1891, %1893, %1895, %1945, %1947, %1949, %2026, %2028, %2030, %2113, %2115, %2117, %2144, %2146, %2148, %2316, %2318, %2320, %2354, %2356, %2358, %2392, %2394, %2396, %3003, %3005, %3007, %3039, %3041, %3043, %3611, %3613, %3615, %3658, %3660, %3662, %3694, %3696, %3698, %3730, %3732, %3734, %3764, %3766, %3768, %3890, %3892, %3894, %3945, %3947, %3949, %3989, %3991, %3993, %4024, %4026, %4028, %4059, %4061, %4063, %4531, %4533, %4535, %4567, %4569, %4571, %5341, %5343, %5345, %5381, %5383, %5385, %5417, %5419, %5421, %5451, %5453, %5455, %5610, %5612, %5614, %5649, %5651, %5653, %5684, %5686, %5688, %5820, %5822, %5824, %5856, %5858, %5860, %6724, %6726, %6728, %6764, %6766, %6768, %6800, %6802, %6804, %6964, %6966, %6968, %7003, %7005, %7007, %7038, %7040, %7042, %7086, %7088, %7090, %7122, %7124, %7126, %8010, %8012, %8014, %8171, %8173, %8175, %10752, %10754, %10756, %10799, %10801, %10803, %11201, %11203, %11205, %11236, %11238, %11240, %11268, %11270, %11272, %11389, %11391, %11393, %12289, %12287, %12285
   %.pn5848.pn = phi { ptr, i32 } [ %12290, %12289 ], [ %12288, %12287 ], [ %12286, %12285 ], [ %477, %476 ], [ %475, %474 ], [ %473, %472 ], [ %1572, %1571 ], [ %1570, %1569 ], [ %1568, %1567 ], [ %3735, %3734 ], [ %3733, %3732 ], [ %3731, %3730 ], [ %6805, %6804 ], [ %6803, %6802 ], [ %6801, %6800 ], [ %5422, %5421 ], [ %5420, %5419 ], [ %5418, %5417 ], [ %3699, %3698 ], [ %3697, %3696 ], [ %3695, %3694 ], [ %8015, %8014 ], [ %8013, %8012 ], [ %8011, %8010 ], [ %6769, %6768 ], [ %6767, %6766 ], [ %6765, %6764 ], [ %5386, %5385 ], [ %5384, %5383 ], [ %5382, %5381 ], [ %3663, %3662 ], [ %3661, %3660 ], [ %3659, %3658 ], [ %1896, %1895 ], [ %1894, %1893 ], [ %1892, %1891 ], [ %6729, %6728 ], [ %6727, %6726 ], [ %6725, %6724 ], [ %5346, %5345 ], [ %5344, %5343 ], [ %5342, %5341 ], [ %3616, %3615 ], [ %3614, %3613 ], [ %3612, %3611 ], [ %1857, %1856 ], [ %1855, %1854 ], [ %1853, %1852 ], [ %1950, %1949 ], [ %1948, %1947 ], [ %1946, %1945 ], [ %5456, %5455 ], [ %5454, %5453 ], [ %5452, %5451 ], [ %3769, %3768 ], [ %3767, %3766 ], [ %3765, %3764 ], [ %2031, %2030 ], [ %2029, %2028 ], [ %2027, %2026 ], [ %11206, %11205 ], [ %11204, %11203 ], [ %11202, %11201 ], [ %11394, %11393 ], [ %11392, %11391 ], [ %11390, %11389 ], [ %11241, %11240 ], [ %11239, %11238 ], [ %11237, %11236 ], [ %10804, %10803 ], [ %10802, %10801 ], [ %10800, %10799 ], [ %11273, %11272 ], [ %11271, %11270 ], [ %11269, %11268 ], [ %10757, %10756 ], [ %10755, %10754 ], [ %10753, %10752 ], [ %7127, %7126 ], [ %7125, %7124 ], [ %7123, %7122 ], [ %5861, %5860 ], [ %5859, %5858 ], [ %5857, %5856 ], [ %4572, %4571 ], [ %4570, %4569 ], [ %4568, %4567 ], [ %3044, %3043 ], [ %3042, %3041 ], [ %3040, %3039 ], [ %7091, %7090 ], [ %7089, %7088 ], [ %7087, %7086 ], [ %5825, %5824 ], [ %5823, %5822 ], [ %5821, %5820 ], [ %4536, %4535 ], [ %4534, %4533 ], [ %4532, %4531 ], [ %3008, %3007 ], [ %3006, %3005 ], [ %3004, %3003 ], [ %2149, %2148 ], [ %2147, %2146 ], [ %2145, %2144 ], [ %3895, %3894 ], [ %3893, %3892 ], [ %3891, %3890 ], [ %2118, %2117 ], [ %2116, %2115 ], [ %2114, %2113 ], [ %708, %707 ], [ %706, %705 ], [ %704, %703 ], [ %2321, %2320 ], [ %2319, %2318 ], [ %2317, %2316 ], [ %4064, %4063 ], [ %4062, %4061 ], [ %4060, %4059 ], [ %7043, %7042 ], [ %7041, %7040 ], [ %7039, %7038 ], [ %5689, %5688 ], [ %5687, %5686 ], [ %5685, %5684 ], [ %4029, %4028 ], [ %4027, %4026 ], [ %4025, %4024 ], [ %8176, %8175 ], [ %8174, %8173 ], [ %8172, %8171 ], [ %7008, %7007 ], [ %7006, %7005 ], [ %7004, %7003 ], [ %5654, %5653 ], [ %5652, %5651 ], [ %5650, %5649 ], [ %3994, %3993 ], [ %3992, %3991 ], [ %3990, %3989 ], [ %2397, %2396 ], [ %2395, %2394 ], [ %2393, %2392 ], [ %6969, %6968 ], [ %6967, %6966 ], [ %6965, %6964 ], [ %5615, %5614 ], [ %5613, %5612 ], [ %5611, %5610 ], [ %3950, %3949 ], [ %3948, %3947 ], [ %3946, %3945 ], [ %2359, %2358 ], [ %2357, %2356 ], [ %2355, %2354 ], [ %337, %336 ], [ %335, %334 ], [ %333, %332 ], [ %11683, %11682 ], [ %11681, %11680 ], [ %11679, %11678 ], [ %11974, %11973 ], [ %11972, %11971 ], [ %11970, %11969 ], [ %12823, %12822 ], [ %12821, %12820 ], [ %12819, %12818 ], [ %12753, %12752 ], [ %12751, %12750 ], [ %12749, %12748 ], [ %12683, %12682 ], [ %12681, %12680 ], [ %12679, %12678 ], [ %12613, %12612 ], [ %12611, %12610 ], [ %12609, %12608 ], [ %12788, %12787 ], [ %12786, %12785 ], [ %12784, %12783 ], [ %12718, %12717 ], [ %12716, %12715 ], [ %12714, %12713 ], [ %12648, %12647 ], [ %12646, %12645 ], [ %12644, %12643 ], [ %12578, %12577 ], [ %12576, %12575 ], [ %12574, %12573 ], [ %12519, %12518 ], [ %12517, %12516 ], [ %12515, %12514 ], [ %12548, %12547 ], [ %12546, %12545 ], [ %12544, %12543 ], [ %12430, %12429 ], [ %12428, %12427 ], [ %12426, %12425 ], [ %12460, %12459 ], [ %12458, %12457 ], [ %12456, %12455 ], [ %12336, %12335 ], [ %12334, %12333 ], [ %12332, %12331 ], [ %12296, %12295 ], [ %12294, %12293 ], [ %12292, %12291 ], [ %13155, %13154 ], [ %13153, %13152 ], [ %13151, %13150 ], [ %12945, %12944 ], [ %12943, %12942 ], [ %12941, %12940 ], [ %13196, %13195 ], [ %13194, %13193 ], [ %13192, %13191 ], [ %13030, %13029 ], [ %13028, %13027 ], [ %13026, %13025 ], [ %13074, %13073 ], [ %13072, %13071 ], [ %13070, %13069 ], [ %12908, %12907 ], [ %12906, %12905 ], [ %12904, %12903 ], [ %12856, %12855 ], [ %12854, %12853 ], [ %12852, %12851 ], [ %13231, %13230 ], [ %13237, %13236 ], [ %13235, %13234 ], [ %13233, %13232 ], [ %13379, %13378 ], [ %13385, %13384 ], [ %13383, %13382 ], [ %13381, %13380 ], [ %13832, %13831 ], [ %13830, %13829 ], [ %13828, %13827 ], [ %13504, %13503 ], [ %13502, %13501 ], [ %13500, %13499 ], [ %14122, %14121 ], [ %14120, %14119 ], [ %14118, %14117 ], [ %14374, %14373 ], [ %14372, %14371 ], [ %14370, %14369 ], [ %14595, %14594 ], [ %14593, %14592 ], [ %14591, %14590 ], [ %14484, %14483 ], [ %14482, %14481 ], [ %14480, %14479 ], [ %14338, %14337 ], [ %14336, %14335 ], [ %14334, %14333 ], [ %14631, %14630 ], [ %14629, %14628 ], [ %14627, %14626 ], [ %14559, %14558 ], [ %14557, %14556 ], [ %14555, %14554 ], [ %14448, %14447 ], [ %14446, %14445 ], [ %14444, %14443 ], [ %14302, %14301 ], [ %14300, %14299 ], [ %14298, %14297 ], [ %14203, %14202 ], [ %14201, %14200 ], [ %14199, %14198 ], [ %14519, %14518 ], [ %14517, %14516 ], [ %14515, %14514 ], [ %14408, %14407 ], [ %14406, %14405 ], [ %14404, %14403 ], [ %14259, %14258 ], [ %14257, %14256 ], [ %14255, %14254 ], [ %14162, %14161 ], [ %14160, %14159 ], [ %14158, %14157 ], [ %13909, %13908 ], [ %13907, %13906 ], [ %13905, %13904 ], [ %.pn5748, %14752 ], [ %14664, %14663 ], [ %14662, %14661 ], [ %14660, %14659 ], [ %.pn5761.pn, %.body ], [ %15128, %15127 ], [ %15126, %15125 ], [ %15124, %15123 ], [ %14777, %14776 ], [ %14775, %14774 ], [ %14773, %14772 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit6309, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit6312, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6315, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6322, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6333, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp ], [ %lpad.loopexit6339, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6343, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6349, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6353, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6357, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6361, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6368, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6372, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6379, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6394, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp6395, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp ], [ %lpad.loopexit6404, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp6405, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit6456, %.loopexit6454 ], [ %lpad.loopexit6459, %.loopexit.split-lp6455.loopexit ], [ %lpad.loopexit6462, %.loopexit.split-lp6455.loopexit.split-lp.loopexit ], [ %lpad.loopexit6465, %.loopexit.split-lp6455.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6468, %.loopexit.split-lp6455.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6472, %.loopexit.split-lp6455.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp6473, %.loopexit.split-lp6455.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit6477, %.loopexit6475 ], [ %lpad.loopexit6480, %.loopexit.split-lp6476.loopexit ], [ %lpad.loopexit6483, %.loopexit.split-lp6476.loopexit.split-lp.loopexit ], [ %lpad.loopexit6486, %.loopexit.split-lp6476.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6489, %.loopexit.split-lp6476.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6493, %.loopexit.split-lp6476.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp6494, %.loopexit.split-lp6476.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit6409, %.loopexit6407 ], [ %lpad.loopexit6413, %.loopexit.split-lp6408.loopexit ], [ %lpad.loopexit6417, %.loopexit.split-lp6408.loopexit.split-lp.loopexit ], [ %lpad.loopexit6424, %.loopexit6422 ], [ %lpad.loopexit6428, %.loopexit.split-lp6423.loopexit ], [ %lpad.loopexit6433, %.loopexit.split-lp6423.loopexit.split-lp.loopexit ], [ %lpad.loopexit6438, %.loopexit.split-lp6423.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6443, %.loopexit.split-lp6423.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6447, %.loopexit.split-lp6423.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6451, %.loopexit.split-lp6423.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit6541, %.loopexit6539 ], [ %lpad.loopexit6544, %.loopexit.split-lp6540.loopexit ], [ %lpad.loopexit6548, %.loopexit.split-lp6540.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp6549, %.loopexit.split-lp6540.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit6522, %.loopexit6520 ], [ %lpad.loopexit6525, %.loopexit.split-lp6521.loopexit ], [ %lpad.loopexit6529, %.loopexit.split-lp6521.loopexit.split-lp.loopexit ], [ %lpad.loopexit6536, %.loopexit.split-lp6521.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp6537, %.loopexit.split-lp6521.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit6499, %.loopexit6497 ], [ %lpad.loopexit6502, %.loopexit.split-lp6498.loopexit ], [ %lpad.loopexit6506, %.loopexit.split-lp6498.loopexit.split-lp.loopexit ], [ %lpad.loopexit6511, %.loopexit.split-lp6498.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp6512, %.loopexit.split-lp6498.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit6907, %.loopexit6905 ], [ %lpad.loopexit.split-lp6908, %.loopexit.split-lp6906 ], [ %lpad.loopexit7354, %.loopexit.split-lp6408.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp7355, %.loopexit.split-lp6408.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit7366, %.loopexit.split-lp6423.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp7367, %.loopexit.split-lp6423.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #34
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #34
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #34
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn5848.pn
 }
 
@@ -81315,7 +81309,7 @@ _ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIN9__gnu_cxx17__normal_iterat
   %116 = phi ptr [ %111, %.lr.ph254 ], [ %151, %148 ]
   %.0188252 = phi ptr [ %.sroa.speculated, %.lr.ph254 ], [ %149, %148 ]
   %.0191251 = phi i64 [ %spec.store.select, %.lr.ph254 ], [ %.1192, %148 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #34
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !175
   %117 = call noundef zeroext i1 @_ZN5boost4wave8cpplexer7re2clex12is_backslashEPhS3_Ri(ptr noundef %.0188252, ptr noundef %116, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br i1 %117, label %118, label %148
@@ -81373,7 +81367,7 @@ _ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIN9__gnu_cxx17__normal_iterat
 148:                                              ; preds = %.sink.split, %125, %118, %115
   %.1192 = phi i64 [ %.0191251, %118 ], [ %.0191251, %115 ], [ %.0191251, %125 ], [ %.1192.ph, %.sink.split ]
   %.1189 = phi ptr [ %.0188252, %118 ], [ %.0188252, %115 ], [ %.0188252, %125 ], [ %.sink282, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %149 = getelementptr inbounds nuw i8, ptr %.1189, i64 1
   %150 = load ptr, ptr %61, align 8, !tbaa !212
   %151 = getelementptr inbounds i8, ptr %150, i64 %.1192
@@ -81596,6 +81590,12 @@ define internal void @_GLOBAL__sub_I_instantiate_re2c_lexer_str.cpp() #27 sectio
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #34
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #28

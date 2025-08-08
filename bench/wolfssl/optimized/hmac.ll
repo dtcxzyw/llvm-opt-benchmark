@@ -27,14 +27,8 @@ switch.lookup:                                    ; preds = %1
   ret i32 %.030
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
-define i32 @_InitHmac(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define i32 @_InitHmac(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   switch i32 %1, label %HmacKeyInitHash.exit.thread [
     i32 3, label %4
     i32 4, label %6
@@ -104,7 +98,7 @@ HmacKeyInitHash.exit.thread:                      ; preds = %3, %HmacKeyInitHash
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_HmacSetKey_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define i32 @wc_HmacSetKey_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %.thread293, label %7
 
@@ -384,7 +378,7 @@ define i32 @wc_HmacSetKey_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define void @wc_HmacFree(ptr noundef %0) local_unnamed_addr #2 {
+define void @wc_HmacFree(ptr noundef %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %ForceZero.exit, label %3
 
@@ -493,59 +487,59 @@ ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.prehe
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare i32 @wc_Md5Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @wc_Md5Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_Md5Final(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @wc_Md5Final(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @wc_ShaUpdate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @wc_ShaUpdate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_ShaFinal(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @wc_ShaFinal(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @wc_Sha224Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @wc_Sha224Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_Sha224Final(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @wc_Sha224Final(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @wc_Sha256Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @wc_Sha256Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_Sha256Final(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @wc_Sha256Final(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @wc_Sha384Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @wc_Sha384Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_Sha384Final(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @wc_Sha384Final(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @wc_Sha512Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @wc_Sha512Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_Sha512Final(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @wc_Sha512Final(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @wc_Sha3_224_Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @wc_Sha3_224_Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_Sha3_224_Final(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @wc_Sha3_224_Final(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @wc_Sha3_256_Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @wc_Sha3_256_Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_Sha3_256_Final(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @wc_Sha3_256_Final(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @wc_Sha3_384_Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @wc_Sha3_384_Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_Sha3_384_Final(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @wc_Sha3_384_Final(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @wc_Sha3_512_Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @wc_Sha3_512_Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_Sha3_512_Final(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @wc_Sha3_512_Final(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_HmacSetKey(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define i32 @wc_HmacSetKey(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = tail call i32 @wc_HmacSetKey_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef 1)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_HmacUpdate(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define i32 @wc_HmacUpdate(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %40, label %5
 
@@ -635,7 +629,7 @@ define i32 @wc_HmacUpdate(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @HmacKeyHashUpdate(i8 noundef zeroext %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #2 {
+define internal fastcc i32 @HmacKeyHashUpdate(i8 noundef zeroext %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #1 {
   switch i8 %0, label %24 [
     i8 3, label %4
     i8 4, label %6
@@ -695,7 +689,7 @@ define internal fastcc i32 @HmacKeyHashUpdate(i8 noundef zeroext %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_HmacFinal(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define i32 @wc_HmacFinal(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -960,7 +954,7 @@ define i32 @wc_HmacFinal(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -173, 1) i32 @wc_HmacInit(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+define range(i32 -173, 1) i32 @wc_HmacInit(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %7, label %5
 
@@ -975,25 +969,25 @@ define range(i32 -173, 1) i32 @wc_HmacInit(ptr noundef writeonly captures(addres
   ret i32 %.0
 }
 
-declare void @wc_Md5Free(ptr noundef) local_unnamed_addr #4
+declare void @wc_Md5Free(ptr noundef) local_unnamed_addr #3
 
-declare void @wc_ShaFree(ptr noundef) local_unnamed_addr #4
+declare void @wc_ShaFree(ptr noundef) local_unnamed_addr #3
 
-declare void @wc_Sha224Free(ptr noundef) local_unnamed_addr #4
+declare void @wc_Sha224Free(ptr noundef) local_unnamed_addr #3
 
-declare void @wc_Sha256Free(ptr noundef) local_unnamed_addr #4
+declare void @wc_Sha256Free(ptr noundef) local_unnamed_addr #3
 
-declare void @wc_Sha384Free(ptr noundef) local_unnamed_addr #4
+declare void @wc_Sha384Free(ptr noundef) local_unnamed_addr #3
 
-declare void @wc_Sha512Free(ptr noundef) local_unnamed_addr #4
+declare void @wc_Sha512Free(ptr noundef) local_unnamed_addr #3
 
-declare void @wc_Sha3_224_Free(ptr noundef) local_unnamed_addr #4
+declare void @wc_Sha3_224_Free(ptr noundef) local_unnamed_addr #3
 
-declare void @wc_Sha3_256_Free(ptr noundef) local_unnamed_addr #4
+declare void @wc_Sha3_256_Free(ptr noundef) local_unnamed_addr #3
 
-declare void @wc_Sha3_384_Free(ptr noundef) local_unnamed_addr #4
+declare void @wc_Sha3_384_Free(ptr noundef) local_unnamed_addr #3
 
-declare void @wc_Sha3_512_Free(ptr noundef) local_unnamed_addr #4
+declare void @wc_Sha3_512_Free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @wolfSSL_GetHmacMaxSize() local_unnamed_addr #0 {
@@ -1001,11 +995,11 @@ define noundef i32 @wolfSSL_GetHmacMaxSize() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_HKDF_Extract_ex(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #2 {
+define i32 @wc_HKDF_Extract_ex(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #1 {
   %9 = alloca [64 x i8], align 16
   %10 = alloca [1 x %struct.Hmac], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #8
-  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %switch.tableidx = add i32 %0, -3
   %11 = icmp ult i32 %switch.tableidx, 11
   %switch.maskindex = trunc i32 %switch.tableidx to i16
@@ -1052,17 +1046,17 @@ switch.lookup:                                    ; preds = %8
 
 wc_HmacSizeByType.exit:                           ; preds = %8, %.thread
   %.0 = phi i32 [ %.2, %.thread ], [ -173, %8 ]
-  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_HKDF_Extract(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #2 {
+define i32 @wc_HKDF_Extract(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = alloca [64 x i8], align 16
   %8 = alloca [1 x %struct.Hmac], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %switch.tableidx = add i32 %0, -3
   %9 = icmp ult i32 %switch.tableidx, 11
   %switch.maskindex = trunc i32 %switch.tableidx to i16
@@ -1107,19 +1101,19 @@ switch.lookup:                                    ; preds = %6
 
 wc_HKDF_Extract_ex.exit:                          ; preds = %6, %.thread.i
   %.0.i = phi i32 [ %.2.i, %.thread.i ], [ -173, %6 ]
-  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_HKDF_Expand_ex(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6, ptr noundef %7, i32 %8) local_unnamed_addr #2 {
+define i32 @wc_HKDF_Expand_ex(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6, ptr noundef %7, i32 %8) local_unnamed_addr #1 {
   %10 = alloca [64 x i8], align 16
   %11 = alloca [1 x %struct.Hmac], align 16
   %12 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #8
-  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %11) #8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i8 1, ptr %12, align 1, !tbaa !10
   %switch.tableidx = add i32 %0, -3
   %13 = icmp ult i32 %switch.tableidx, 11
@@ -1203,24 +1197,24 @@ switch.lookup:                                    ; preds = %9
 
 wc_HmacSizeByType.exit:                           ; preds = %9, %switch.lookup, %16, %.thread
   %.0 = phi i32 [ %.1, %.thread ], [ -173, %16 ], [ -173, %switch.lookup ], [ -173, %9 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_HKDF_Expand(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #2 {
+define i32 @wc_HKDF_Expand(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #1 {
   %8 = tail call i32 @wc_HKDF_Expand_ex(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef null, i32 poison)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_HKDF(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef writeonly captures(address_is_null) %7, i32 noundef %8) local_unnamed_addr #2 {
+define i32 @wc_HKDF(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef writeonly captures(address_is_null) %7, i32 noundef %8) local_unnamed_addr #1 {
   %10 = alloca [64 x i8], align 16
   %11 = alloca [1 x %struct.Hmac], align 16
   %12 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   switch i32 %0, label %wc_HmacSizeByType.exit [
     i32 3, label %.thread
     i32 4, label %.thread25
@@ -1235,8 +1229,8 @@ define i32 @wc_HKDF(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef 
   ]
 
 .thread25:                                        ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #8
-  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br label %20
 
 13:                                               ; preds = %9, %9
@@ -1249,14 +1243,14 @@ define i32 @wc_HKDF(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef 
   br label %16
 
 .thread:                                          ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #8
-  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br label %20
 
 16:                                               ; preds = %9, %9, %13, %14, %15
   %.030.i.ph = phi i32 [ 64, %15 ], [ 48, %14 ], [ 32, %13 ], [ 28, %9 ], [ 28, %9 ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #8
-  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   switch i32 %0, label %wc_HKDF_Extract.exit.thread [
     i32 13, label %19
     i32 12, label %18
@@ -1269,8 +1263,8 @@ define i32 @wc_HKDF(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef 
   ]
 
 wc_HKDF_Extract.exit.thread:                      ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %wc_HmacSizeByType.exit
 
 17:                                               ; preds = %16, %16
@@ -1309,15 +1303,15 @@ wc_HKDF_Extract.exit.thread:                      ; preds = %16
 wc_HKDF_Extract.exit.thread30:                    ; preds = %27, %24
   %.2.i.i.ph = phi i32 [ %25, %24 ], [ %28, %27 ]
   call void @wc_HmacFree(ptr noundef nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %wc_HmacSizeByType.exit
 
 wc_HKDF_Extract.exit:                             ; preds = %27
   %30 = call i32 @wc_HmacFinal(ptr noundef nonnull %11, ptr noundef nonnull %12)
   call void @wc_HmacFree(ptr noundef nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %31, label %wc_HmacSizeByType.exit
 
@@ -1327,40 +1321,46 @@ wc_HKDF_Extract.exit:                             ; preds = %27
 
 wc_HmacSizeByType.exit:                           ; preds = %wc_HKDF_Extract.exit.thread30, %wc_HKDF_Extract.exit.thread, %9, %wc_HKDF_Extract.exit, %31
   %.0 = phi i32 [ %32, %31 ], [ %30, %wc_HKDF_Extract.exit ], [ -173, %9 ], [ -173, %wc_HKDF_Extract.exit.thread ], [ %.2.i.i.ph, %wc_HKDF_Extract.exit.thread30 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
 }
 
-declare i32 @wc_InitMd5_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @wc_InitMd5_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_InitSha_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @wc_InitSha_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_InitSha224_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @wc_InitSha224_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_InitSha256_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @wc_InitSha256_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_InitSha384_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @wc_InitSha384_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_InitSha512_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @wc_InitSha512_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_InitSha3_224(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @wc_InitSha3_224(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_InitSha3_256(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @wc_InitSha3_256(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_InitSha3_384(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @wc_InitSha3_384(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_InitSha3_512(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @wc_InitSha3_512(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 

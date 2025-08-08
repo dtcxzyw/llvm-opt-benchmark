@@ -26,16 +26,10 @@ define void @b2MotorJoint_SetLinearOffset(i64 %0, <2 x float> %1) local_unnamed_
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @b2GetJointSimCheckType(i64, i32 noundef) local_unnamed_addr #2
+declare ptr @b2GetJointSimCheckType(i64, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define <2 x float> @b2MotorJoint_GetLinearOffset(i64 %0) local_unnamed_addr #0 {
@@ -46,7 +40,7 @@ define <2 x float> @b2MotorJoint_GetLinearOffset(i64 %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @b2MotorJoint_SetAngularOffset(i64 %0, float noundef %1) local_unnamed_addr #4 {
+define void @b2MotorJoint_SetAngularOffset(i64 %0, float noundef %1) local_unnamed_addr #3 {
   %3 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 1) #9
   %4 = fcmp olt float %1, 0xC00921FB60000000
   %5 = fcmp ogt float %1, 0x400921FB60000000
@@ -58,7 +52,7 @@ define void @b2MotorJoint_SetAngularOffset(i64 %0, float noundef %1) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define float @b2MotorJoint_GetAngularOffset(i64 %0) local_unnamed_addr #4 {
+define float @b2MotorJoint_GetAngularOffset(i64 %0) local_unnamed_addr #3 {
   %2 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 1) #9
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4 = load float, ptr %3, align 4, !tbaa !3
@@ -66,7 +60,7 @@ define float @b2MotorJoint_GetAngularOffset(i64 %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @b2MotorJoint_SetMaxForce(i64 %0, float noundef %1) local_unnamed_addr #4 {
+define void @b2MotorJoint_SetMaxForce(i64 %0, float noundef %1) local_unnamed_addr #3 {
   %3 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 1) #9
   %4 = fcmp olt float %1, 0.000000e+00
   %5 = select i1 %4, float 0.000000e+00, float %1
@@ -76,7 +70,7 @@ define void @b2MotorJoint_SetMaxForce(i64 %0, float noundef %1) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define float @b2MotorJoint_GetMaxForce(i64 %0) local_unnamed_addr #4 {
+define float @b2MotorJoint_GetMaxForce(i64 %0) local_unnamed_addr #3 {
   %2 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 1) #9
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load float, ptr %3, align 4, !tbaa !3
@@ -84,7 +78,7 @@ define float @b2MotorJoint_GetMaxForce(i64 %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @b2MotorJoint_SetMaxTorque(i64 %0, float noundef %1) local_unnamed_addr #4 {
+define void @b2MotorJoint_SetMaxTorque(i64 %0, float noundef %1) local_unnamed_addr #3 {
   %3 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 1) #9
   %4 = fcmp olt float %1, 0.000000e+00
   %5 = select i1 %4, float 0.000000e+00, float %1
@@ -94,7 +88,7 @@ define void @b2MotorJoint_SetMaxTorque(i64 %0, float noundef %1) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define float @b2MotorJoint_GetMaxTorque(i64 %0) local_unnamed_addr #4 {
+define float @b2MotorJoint_GetMaxTorque(i64 %0) local_unnamed_addr #3 {
   %2 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 1) #9
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %4 = load float, ptr %3, align 4, !tbaa !3
@@ -102,7 +96,7 @@ define float @b2MotorJoint_GetMaxTorque(i64 %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @b2MotorJoint_SetCorrectionFactor(i64 %0, float noundef %1) local_unnamed_addr #4 {
+define void @b2MotorJoint_SetCorrectionFactor(i64 %0, float noundef %1) local_unnamed_addr #3 {
   %3 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 1) #9
   %4 = fcmp olt float %1, 0.000000e+00
   %5 = fcmp ogt float %1, 1.000000e+00
@@ -114,7 +108,7 @@ define void @b2MotorJoint_SetCorrectionFactor(i64 %0, float noundef %1) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define float @b2MotorJoint_GetCorrectionFactor(i64 %0) local_unnamed_addr #4 {
+define float @b2MotorJoint_GetCorrectionFactor(i64 %0) local_unnamed_addr #3 {
   %2 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 1) #9
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %4 = load float, ptr %3, align 4, !tbaa !3
@@ -122,7 +116,7 @@ define float @b2MotorJoint_GetCorrectionFactor(i64 %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden <2 x float> @b2GetMotorJointForce(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
+define hidden <2 x float> @b2GetMotorJointForce(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1768
   %4 = load float, ptr %3, align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 60
@@ -137,7 +131,7 @@ define hidden <2 x float> @b2GetMotorJointForce(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden float @b2GetMotorJointTorque(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
+define hidden float @b2GetMotorJointTorque(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1768
   %4 = load float, ptr %3, align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 68
@@ -365,7 +359,7 @@ b2UnwindAngle.exit:                               ; preds = %111, %113, %115
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @b2WarmStartMotorJoint(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
+define hidden void @b2WarmStartMotorJoint(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = alloca %struct.b2BodyState, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load float, ptr %4, align 4, !tbaa !87
@@ -375,7 +369,7 @@ define hidden void @b2WarmStartMotorJoint(ptr noundef readonly captures(none) %0
   %9 = load float, ptr %8, align 4, !tbaa !89
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %11 = load float, ptr %10, align 4, !tbaa !90
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %3, ptr noundef nonnull align 4 dereferenceable(32) @__const.b2SolveMotorJoint.dummyState, i64 32, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %13 = load i32, ptr %12, align 4, !tbaa !91
@@ -489,7 +483,7 @@ define hidden void @b2WarmStartMotorJoint(ptr noundef readonly captures(none) %0
   %86 = load float, ptr %85, align 4, !tbaa !104
   %87 = fadd float %86, %84
   store float %87, ptr %85, align 4, !tbaa !104
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -504,7 +498,7 @@ define hidden void @b2SolveMotorJoint(ptr noundef captures(none) %0, ptr noundef
   %10 = load float, ptr %9, align 4, !tbaa !89
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %12 = load float, ptr %11, align 4, !tbaa !90
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %4, ptr noundef nonnull align 4 dereferenceable(32) @__const.b2SolveMotorJoint.dummyState, i64 32, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %14 = load i32, ptr %13, align 4, !tbaa !91
@@ -761,23 +755,29 @@ b2Normalize.exit:                                 ; preds = %159, %161
   store float %184, ptr %33, align 4, !tbaa !104
   store <2 x float> %.sroa.03.4.vec.insert.i213, ptr %32, align 4
   store float %193, ptr %35, align 4, !tbaa !104
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare float @b2Atan2(float noundef, float noundef) local_unnamed_addr #2
+declare float @b2Atan2(float noundef, float noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
 

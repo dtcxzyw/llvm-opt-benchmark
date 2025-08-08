@@ -27,19 +27,16 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 4) i32 @AvifInfoIdentify(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.AvifInfoInternalForward, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1, ptr %4, align 8, !tbaa !11
   %5 = icmp eq ptr %0, null
   %6 = select i1 %5, ptr null, ptr @AvifInfoInternalForwardRead
   %7 = call i32 @AvifInfoIdentifyStream(ptr noundef nonnull %3, ptr noundef %6, ptr noundef nonnull @AvifInfoInternalForwardSkip)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %7
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 4) i32 @AvifInfoIdentifyStream(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -50,14 +47,14 @@ define hidden range(i32 0, 4) i32 @AvifInfoIdentifyStream(ptr noundef %0, ptr no
   br i1 %7, label %44, label %8
 
 8:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8, !tbaa !12
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %9, align 8, !tbaa !14
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %2, ptr %10, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !16
   %11 = call fastcc i32 @AvifInfoInternalParseBox(ptr noundef nonnull readonly %6, i32 noundef -1, ptr noundef %5, ptr noundef %4)
   %.fr = freeze i32 %11
@@ -138,8 +135,8 @@ define hidden range(i32 0, 4) i32 @AvifInfoIdentifyStream(ptr noundef %0, ptr no
   br i1 %39, label %select.unfold.i, label %.thread20
 
 .thread20:                                        ; preds = %38
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %42
 
 select.unfold.i:                                  ; preds = %38, %21
@@ -148,23 +145,23 @@ select.unfold.i:                                  ; preds = %38, %21
   br i1 %.not30.i, label %ParseFtyp.exit.thread, label %.preheader.i
 
 ParseFtyp.exit.thread.thread.thread:              ; preds = %36, %25, %._crit_edge.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %42
 
 ParseFtyp.exit.thread.thread:                     ; preds = %.preheader.i, %.lr.ph.i.i, %._crit_edge.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %42
 
 ParseFtyp.exit.thread:                            ; preds = %select.unfold.i, %13, %15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %42
 
 ParseFtyp.exit:                                   ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %or.cond.i = icmp ult i32 %.fr, 3
   %41 = icmp eq i32 %.fr, 3
   %. = select i1 %41, i32 2, i32 3
@@ -173,7 +170,7 @@ ParseFtyp.exit:                                   ; preds = %8
 
 42:                                               ; preds = %ParseFtyp.exit, %ParseFtyp.exit.thread, %ParseFtyp.exit.thread.thread, %.thread20, %ParseFtyp.exit.thread.thread.thread
   %43 = phi i32 [ 0, %ParseFtyp.exit.thread.thread.thread ], [ 2, %.thread20 ], [ 1, %ParseFtyp.exit.thread.thread ], [ 3, %ParseFtyp.exit.thread ], [ %spec.select, %ParseFtyp.exit ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %44
 
 44:                                               ; preds = %3, %42
@@ -182,7 +179,7 @@ ParseFtyp.exit:                                   ; preds = %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal ptr @AvifInfoInternalForwardRead(ptr noundef captures(none) %0, i64 noundef %1) #2 {
+define internal ptr @AvifInfoInternalForwardRead(ptr noundef captures(none) %0, i64 noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !11
   %5 = icmp ugt i64 %1, %4
@@ -202,7 +199,7 @@ define internal ptr @AvifInfoInternalForwardRead(ptr noundef captures(none) %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @AvifInfoInternalForwardSkip(ptr noundef captures(none) %0, i64 noundef %1) #2 {
+define internal void @AvifInfoInternalForwardSkip(ptr noundef captures(none) %0, i64 noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !11
   %spec.select = tail call i64 @llvm.umin.i64(i64 %1, i64 %4)
@@ -214,20 +211,17 @@ define internal void @AvifInfoInternalForwardSkip(ptr noundef captures(none) %0,
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 4) i32 @AvifInfoGetFeatures(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.AvifInfoInternalForward, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %1, ptr %5, align 8, !tbaa !11
   %6 = icmp eq ptr %0, null
   %7 = select i1 %6, ptr null, ptr @AvifInfoInternalForwardRead
   %8 = call i32 @AvifInfoGetFeaturesStream(ptr noundef nonnull %4, ptr noundef %7, ptr noundef nonnull @AvifInfoInternalForwardSkip, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %8
 }
 
@@ -253,17 +247,17 @@ define hidden range(i32 0, 4) i32 @AvifInfoGetFeaturesStream(ptr noundef %0, ptr
   br i1 %16, label %483, label %17
 
 17:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %0, ptr %10, align 8, !tbaa !12
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %1, ptr %18, align 8, !tbaa !14
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %2, ptr %19, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 244, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(244) %12, i8 0, i64 244, i1 false)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %20 = call fastcc i32 @AvifInfoInternalParseBox(ptr noundef nonnull readonly %10, i32 noundef -1, ptr noundef nonnull %11, ptr noundef %9)
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %.lr.ph.i, label %.thread
@@ -307,8 +301,8 @@ define hidden range(i32 0, 4) i32 @AvifInfoGetFeaturesStream(ptr noundef %0, ptr
   br i1 %.not.i21.i.i.us, label %.thread.thread.thread, label %ParseMeta.exit.i.us
 
 ParseMeta.exit.i.us:                              ; preds = %._crit_edge.i.i.us, %26
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %34 = call fastcc i32 @AvifInfoInternalParseBox(ptr noundef nonnull readonly %10, i32 noundef -1, ptr noundef nonnull %11, ptr noundef %9)
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %.lr.ph.i.split.us, label %.thread, !llvm.loop !20
@@ -348,7 +342,7 @@ ParseMeta.exit.i.us:                              ; preds = %._crit_edge.i.i.us,
 
 60:                                               ; preds = %.thread138.i.i, %.split.us
   %.050.i.i = phi i32 [ %.us-phi, %.split.us ], [ %463, %.thread138.i.i ]
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %61 = call fastcc i32 @AvifInfoInternalParseBox(ptr noundef nonnull readonly %10, i32 noundef %.050.i.i, ptr noundef nonnull %11, ptr noundef %8)
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %63, label %ParseFile.exit.thread17
@@ -391,8 +385,8 @@ AvifInfoInternalReadBigEndian.exit.i.i:           ; preds = %.preheader174.i.i
   br i1 %76, label %77, label %.thread52
 
 .thread52:                                        ; preds = %AvifInfoInternalReadBigEndian.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread56
 
 77:                                               ; preds = %AvifInfoInternalReadBigEndian.exit.i.i
@@ -434,7 +428,7 @@ AvifInfoInternalReadBigEndian.exit.i.i:           ; preds = %.preheader174.i.i
 
 90:                                               ; preds = %ParseIpco.exit.thread.i.i.i, %88
   %.092.i.i.i = phi i32 [ %89, %88 ], [ %367, %ParseIpco.exit.thread.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %91 = call fastcc i32 @AvifInfoInternalParseBox(ptr noundef nonnull readonly %10, i32 noundef %.092.i.i.i, ptr noundef nonnull %11, ptr noundef %7)
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %93, label %ParseIprp.exit.i.i
@@ -461,7 +455,7 @@ AvifInfoInternalReadBigEndian.exit.i.i:           ; preds = %.preheader174.i.i
   %98 = phi i8 [ %262, %.thread342.i.i.i.i ], [ %.promoted417, %.preheader.i.i.preheader ]
   %.0159.i.i.i.i = phi i32 [ %263, %.thread342.i.i.i.i ], [ 1, %.preheader.i.i.preheader ]
   %.0157.i.i.i.i = phi i32 [ %265, %.thread342.i.i.i.i ], [ %94, %.preheader.i.i.preheader ]
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %99 = call fastcc i32 @AvifInfoInternalParseBox(ptr noundef nonnull readonly %10, i32 noundef %.0157.i.i.i.i, ptr noundef nonnull %11, ptr noundef %6)
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %101, label %ParseIpco.exit.i.i.i
@@ -879,7 +873,7 @@ AvifInfoInternalReadBigEndian.exit245.i.i.i.i:    ; preds = %113
   %263 = add i32 %.0159.i.i.i.i, 1
   %264 = load i32, ptr %6, align 4, !tbaa !38
   %265 = sub i32 %.0157.i.i.i.i, %264
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not224.i.i.i.i = icmp eq i32 %265, 0
   br i1 %.not224.i.i.i.i, label %ParseIpco.exit.thread.i.i.i.loopexit, label %.preheader.i.i
 
@@ -919,13 +913,13 @@ ParseIpco.exit.thread206.i.i.i:                   ; preds = %ParseIpco.exit.thre
   %.sink431 = phi i8 [ %98, %ParseIpco.exit.thread206.i.i.i.loopexit ], [ %98, %ParseIpco.exit.thread206.i.i.i.loopexit554 ], [ %98, %ParseIpco.exit.thread206.i.i.i.loopexit555 ], [ %98, %ParseIpco.exit.thread206.i.i.i.loopexit556 ], [ %98, %ParseIpco.exit.thread206.i.i.i.loopexit557 ], [ %spec.select428, %ParseIpco.exit.thread206.i.i.i.loopexit558 ], [ %.sink431.ph, %ParseIpco.exit.thread206.i.i.i.loopexit560 ]
   %.2.ph.i.ph.i.i.i = phi i32 [ 2, %ParseIpco.exit.thread206.i.i.i.loopexit ], [ 2, %ParseIpco.exit.thread206.i.i.i.loopexit554 ], [ 2, %ParseIpco.exit.thread206.i.i.i.loopexit555 ], [ %.2.ph.i.ph.i.i.i.ph, %ParseIpco.exit.thread206.i.i.i.loopexit556 ], [ 2, %ParseIpco.exit.thread206.i.i.i.loopexit557 ], [ 2, %ParseIpco.exit.thread206.i.i.i.loopexit558 ], [ %.2.ph.i.ph.i.i.i.ph561, %ParseIpco.exit.thread206.i.i.i.loopexit560 ]
   store i8 %.sink431, ptr %56, align 1
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit.i.i
 
 ParseIpco.exit.i.i.i:                             ; preds = %.preheader.i.i
   store i8 %95, ptr %43, align 1
   store i8 %98, ptr %56, align 1
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %267 = icmp eq i32 %99, 1
   br i1 %267, label %ParseIpco.exit.thread.i.i.i, label %.loopexit.i.i.loopexit202
 
@@ -1216,7 +1210,7 @@ ParseIpco.exit.thread.i.i.i.loopexit:             ; preds = %.thread342.i.i.i.i
 ParseIpco.exit.thread.i.i.i:                      ; preds = %ParseIpco.exit.thread.i.i.i.loopexit, %ParseIpco.exit.thread.sink.split.i.i.i, %._crit_edge.i172.i.i.i, %356, %._crit_edge.i165.i.i.i, %346, %ParseIpco.exit.i.i.i
   %366 = load i32, ptr %7, align 4, !tbaa !38
   %367 = sub i32 %.092.i.i.i, %366
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not132.i.i.i = icmp eq i32 %367, 0
   br i1 %.not132.i.i.i, label %.thread138.i.i, label %90
 
@@ -1237,11 +1231,11 @@ ParseIpco.exit.thread.i.i.i:                      ; preds = %ParseIpco.exit.thre
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i167.i.i.i, %.lr.ph.i178.i.i.i, %.loopexit.i.i.loopexit202, %.loopexit.i.i.loopexit83, %.loopexit.i.i.loopexit, %342, %340, %ParseIpco.exit.thread206.i.i.i
   %.2.ph.i.ph.i.i = phi i32 [ 0, %342 ], [ 0, %340 ], [ %.2.ph.i.ph.i.i.i, %ParseIpco.exit.thread206.i.i.i ], [ %.2.ph.i.ph.i.i.ph, %.loopexit.i.i.loopexit ], [ %.2.ph.i.ph.i.i.ph84, %.loopexit.i.i.loopexit83 ], [ %368, %.loopexit.i.i.loopexit202 ], [ 2, %.lr.ph.i178.i.i.i ], [ 2, %.lr.ph.i167.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %ParseFile.exit
 
 ParseIprp.exit.i.i:                               ; preds = %90
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %369 = icmp eq i32 %91, 1
   br i1 %369, label %.thread138.i.i, label %ParseFile.exit.thread17
 
@@ -1251,7 +1245,7 @@ ParseIprp.exit.i.i:                               ; preds = %90
 
 372:                                              ; preds = %AvifInfoInternalSkip.exit.thread.i.i.i, %370
   %.060.i.i.i = phi i32 [ %371, %370 ], [ %449, %AvifInfoInternalSkip.exit.thread.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %373 = call fastcc i32 @AvifInfoInternalParseBox(ptr noundef nonnull readonly %10, i32 noundef %.060.i.i.i, ptr noundef nonnull %11, ptr noundef %5)
   %374 = icmp eq i32 %373, 0
   br i1 %374, label %375, label %ParseIref.exit.i.i
@@ -1448,17 +1442,17 @@ AvifInfoInternalReadBigEndian.exit93.i.i.i:       ; preds = %AvifInfoInternalRea
 AvifInfoInternalSkip.exit.thread.i.i.i:           ; preds = %446, %._crit_edge.i.i90.i.i, %436, %426, %.loopexit.i112.i.i
   %448 = load i32, ptr %5, align 4, !tbaa !38
   %449 = sub i32 %.060.i.i.i, %448
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not84.i.i.i = icmp eq i32 %449, 0
   br i1 %.not84.i.i.i, label %.thread138.i.i, label %372
 
 ParseIref.exit.thread148.i.i:                     ; preds = %._crit_edge.i.i90.i.i, %382, %376, %.lr.ph.i.i95.i.i, %405, %403, %432, %430
   %.2.ph.i86.ph.i.i = phi i32 [ 0, %432 ], [ 0, %430 ], [ 4, %403 ], [ 2, %405 ], [ 2, %.lr.ph.i.i95.i.i ], [ 4, %376 ], [ 2, %._crit_edge.i.i90.i.i ], [ 2, %382 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %ParseFile.exit
 
 ParseIref.exit.i.i:                               ; preds = %372
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %450 = icmp eq i32 %373, 1
   br i1 %450, label %.thread138.i.i, label %ParseFile.exit.thread17
 
@@ -1501,14 +1495,14 @@ ParseIref.exit.i.i:                               ; preds = %372
 .thread138.i.i:                                   ; preds = %AvifInfoInternalSkip.exit.thread.i.i.i, %ParseIpco.exit.thread.i.i.i, %.thread138.sink.split.i.i, %._crit_edge.i122.i.i, %451, %ParseIref.exit.i.i, %ParseIprp.exit.i.i, %._crit_edge.i.i.i, %77
   %462 = load i32, ptr %8, align 4, !tbaa !38
   %463 = sub i32 %.050.i.i, %462
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not74.i.i = icmp eq i32 %463, 0
   br i1 %.not74.i.i, label %464, label %60
 
 464:                                              ; preds = %.thread138.i.i
   %465 = load i8, ptr %43, align 4, !tbaa !43
   %.not75.i.i = icmp eq i8 %465, 0
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %. = select i1 %.not75.i.i, i32 3, i32 2
   br label %.thread56
 
@@ -1522,20 +1516,20 @@ ParseIref.exit.i.i:                               ; preds = %372
   br label %ParseMeta.exit.i
 
 ParseMeta.exit.i:                                 ; preds = %467, %466
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %469 = call fastcc i32 @AvifInfoInternalParseBox(ptr noundef nonnull readonly %10, i32 noundef -1, ptr noundef nonnull %11, ptr noundef %9)
   %470 = icmp eq i32 %469, 0
   br i1 %470, label %.lr.ph.i.split, label %.thread
 
 .thread.thread.thread:                            ; preds = %._crit_edge.i.i.us, %.lr.ph.i.i.us
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %472
 
 .thread:                                          ; preds = %ParseMeta.exit.i, %ParseMeta.exit.i.us, %17
   %.2.ph.i.ph = phi i32 [ %20, %17 ], [ %34, %ParseMeta.exit.i.us ], [ %469, %ParseMeta.exit.i ]
   %.2.ph.i.ph.fr = freeze i32 %.2.ph.i.ph
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %or.cond.i21 = icmp samesign ult i32 %.2.ph.i.ph.fr, 3
   %471 = icmp eq i32 %.2.ph.i.ph.fr, 3
   %.71 = select i1 %471, i32 2, i32 3
@@ -1545,20 +1539,20 @@ ParseMeta.exit.i:                                 ; preds = %467, %466
   br label %.thread56
 
 .thread63:                                        ; preds = %._crit_edge.i.i.i, %._crit_edge.i122.i.i, %68, %.lr.ph.i.i.i, %.lr.ph.i128.i.i
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread56
 
 ParseFile.exit.thread17.thread:                   ; preds = %64
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread56
 
 ParseFile.exit.thread17:                          ; preds = %ParseIref.exit.i.i, %ParseIprp.exit.i.i, %60
   %.2.ph.i.i.ph = phi i32 [ %61, %60 ], [ %91, %ParseIprp.exit.i.i ], [ %373, %ParseIref.exit.i.i ]
   %.2.ph.i.i.ph.fr = freeze i32 %.2.ph.i.i.ph
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %or.cond.i24 = icmp samesign ult i32 %.2.ph.i.i.ph.fr, 3
   %473 = icmp eq i32 %.2.ph.i.i.ph.fr, 3
   %.72 = select i1 %473, i32 2, i32 3
@@ -1567,8 +1561,8 @@ ParseFile.exit.thread17:                          ; preds = %ParseIref.exit.i.i,
 
 ParseFile.exit:                                   ; preds = %.loopexit.i.i, %ParseIref.exit.thread148.i.i
   %.2.ph.i.i = phi i32 [ %.2.ph.i86.ph.i.i, %ParseIref.exit.thread148.i.i ], [ %.2.ph.i.ph.i.i, %.loopexit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %474 = icmp eq i32 %.2.ph.i.i, 0
   %or.cond = and i1 %13, %474
   br i1 %or.cond, label %475, label %477
@@ -1590,9 +1584,9 @@ ParseFile.exit:                                   ; preds = %.loopexit.i.i, %Par
 
 .thread56:                                        ; preds = %ParseFile.exit.thread17, %.thread, %464, %ParseFile.exit.thread17.thread, %.thread52, %.thread63, %472, %477, %481
   %482 = phi i32 [ 0, %481 ], [ %480, %477 ], [ 1, %472 ], [ 1, %.thread63 ], [ 3, %ParseFile.exit.thread17.thread ], [ 2, %.thread52 ], [ %., %464 ], [ %.71, %.thread ], [ %spec.select, %ParseFile.exit.thread17 ]
-  call void @llvm.lifetime.end.p0(i64 244, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %483
 
 483:                                              ; preds = %15, %.thread56
@@ -1601,10 +1595,10 @@ ParseFile.exit:                                   ; preds = %.loopexit.i.i, %Par
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 5) i32 @AvifInfoInternalParseBox(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
@@ -1827,10 +1821,10 @@ AvifInfoInternalReadBigEndian.exit142:            ; preds = %63
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @AvifInfoInternalGetItemFeatures(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 256) %1, i32 noundef range(i32 0, 4) %2) unnamed_addr #6 {
+define internal fastcc noundef range(i32 0, 2) i32 @AvifInfoInternalGetItemFeatures(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 256) %1, i32 noundef range(i32 0, 4) %2) unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 54
   %5 = load i8, ptr %4, align 2, !tbaa !46
   %.not118 = icmp eq i8 %5, 0
@@ -2013,6 +2007,12 @@ define internal fastcc noundef range(i32 0, 2) i32 @AvifInfoInternalGetItemFeatu
   ret i32 %.8
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
@@ -2020,12 +2020,12 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare i64 @llvm.umin.i64(i64, i64) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }

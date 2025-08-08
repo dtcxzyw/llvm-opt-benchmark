@@ -117,7 +117,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %42 = tail call ptr @b2AllocateArenaItem(ptr noundef nonnull %0, i32 noundef %41, ptr noundef nonnull @.str) #8
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store ptr %42, ptr %43, align 8, !tbaa !77
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %44 = tail call i64 @b2GetTicks() #8
   store i64 %44, ptr %3, align 8, !tbaa !87
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 336
@@ -167,13 +167,13 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 71:                                               ; preds = %67, %65
   %.0669 = phi i32 [ %56, %65 ], [ %70, %67 ]
   %.0668 = phi i32 [ %66, %65 ], [ 32, %67 ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %72 = shl nsw i32 %55, 4
   br label %87
 
@@ -567,7 +567,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br label %._crit_edge805
 
 ._crit_edge805:                                   ; preds = %._crit_edge801, %._crit_edge805.thread
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br i1 %86, label %.lr.ph817.preheader, label %._crit_edge818
 
 .lr.ph817.preheader:                              ; preds = %._crit_edge805
@@ -833,7 +833,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   store i32 -1, ptr %387, align 4, !tbaa !124
   %388 = getelementptr inbounds nuw i8, ptr %.3.lcssa, i64 24
   store atomic i32 0, ptr %388 seq_cst, align 4
-  call void @llvm.lifetime.start.p0(i64 1536, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %389 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store ptr %45, ptr %389, align 8, !tbaa !132
   %390 = getelementptr inbounds nuw i8, ptr %1, i64 128
@@ -855,7 +855,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %398 = call float @b2GetMillisecondsAndReset(ptr noundef nonnull %3) #8
   %399 = getelementptr inbounds nuw i8, ptr %0, i64 1616
   store float %398, ptr %399, align 4, !tbaa !140
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %400 = call i64 @b2GetTicks() #8
   store i64 %400, ptr %13, align 8, !tbaa !87
   %401 = icmp sgt i32 %55, 0
@@ -1034,18 +1034,18 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %487 = call float @b2GetMilliseconds(i64 noundef %448) #8
   %488 = getelementptr inbounds nuw i8, ptr %0, i64 1660
   store float %487, ptr %488, align 4, !tbaa !156
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #8
-  call void @llvm.lifetime.end.p0(i64 1536, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %489 = call i64 @b2GetTicks() #8
   store i64 %489, ptr %14, align 8, !tbaa !87
   %490 = getelementptr inbounds nuw i8, ptr %0, i64 1540
@@ -1061,7 +1061,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %498 = call float @b2GetMillisecondsAndReset(ptr noundef nonnull %14) #8
   %499 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   store float %498, ptr %499, align 4, !tbaa !158
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %500 = call i64 @b2GetTicks() #8
   %501 = getelementptr inbounds nuw i8, ptr %0, i64 1752
   %502 = load ptr, ptr %501, align 8, !tbaa !73
@@ -1609,30 +1609,24 @@ b2GetBit.exit.thread:                             ; preds = %745, %b2GetBit.exit
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @b2GetTicks() local_unnamed_addr #1
 
-declare i64 @b2GetTicks() local_unnamed_addr #2
+declare void @b2MergeAwakeIslands(ptr noundef) local_unnamed_addr #1
 
-declare void @b2MergeAwakeIslands(ptr noundef) local_unnamed_addr #2
+declare float @b2GetMilliseconds(i64 noundef) local_unnamed_addr #1
 
-declare float @b2GetMilliseconds(i64 noundef) local_unnamed_addr #2
+declare void @b2ValidateNoEnlarged(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @b2AllocateArenaItem(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @b2ValidateNoEnlarged(ptr noundef) local_unnamed_addr #2
+declare i32 @b2GetContactConstraintSIMDByteCount() local_unnamed_addr #1
 
-declare ptr @b2AllocateArenaItem(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @b2SplitIslandTask(i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
-declare i32 @b2GetContactConstraintSIMDByteCount() local_unnamed_addr #2
-
-declare void @b2SplitIslandTask(i32 noundef, i32 noundef, i32 noundef, ptr noundef) #2
-
-declare float @b2GetMillisecondsAndReset(ptr noundef) local_unnamed_addr #2
+declare float @b2GetMillisecondsAndReset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @b2SolverTask(i32 %0, i32 %1, i32 %2, ptr noundef readonly captures(none) %3) #3 {
+define internal void @b2SolverTask(i32 %0, i32 %1, i32 %2, ptr noundef readonly captures(none) %3) #2 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !145
@@ -1652,7 +1646,7 @@ define internal void @b2SolverTask(i32 %0, i32 %1, i32 %2, ptr noundef readonly 
   br label %b2ExecuteStage.exit
 
 18:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = tail call i64 @b2GetTicks() #8
   store i64 %19, ptr %5, align 8, !tbaa !87
   tail call fastcc void @b2ExecuteMainStage(ptr noundef %12, ptr noundef nonnull %8, i32 noundef 65536)
@@ -2152,7 +2146,7 @@ b2ExecuteMainStage.exit207:                       ; preds = %180, %184, %._crit_
   store float %244, ptr %242, align 4, !tbaa !238
   %245 = getelementptr inbounds nuw i8, ptr %8, i64 240
   store atomic i32 -1, ptr %245 seq_cst, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %b2ExecuteStage.exit.thread
 
 246:                                              ; preds = %.lr.ph251, %246
@@ -2296,7 +2290,7 @@ b2ExecuteStage.exit.thread:                       ; preds = %._crit_edge, %._cri
   ret void
 }
 
-declare void @b2SetBitCountAndClear(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @b2SetBitCountAndClear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @b2FinalizeBodiesTask(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) #0 {
@@ -2691,22 +2685,22 @@ define internal void @b2FinalizeBodiesTask(i32 noundef %0, i32 noundef %1, i32 n
   br i1 %exitcond.not, label %._crit_edge198, label %45, !llvm.loop !271
 }
 
-declare void @b2FreeArenaItem(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @b2FreeArenaItem(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare void @b2InPlaceUnion(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @b2InPlaceUnion(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @b2BroadPhase_EnlargeProxy(ptr noundef, i32 noundef, <2 x float>, <2 x float>) local_unnamed_addr #2
+declare void @b2BroadPhase_EnlargeProxy(ptr noundef, i32 noundef, <2 x float>, <2 x float>) local_unnamed_addr #1
 
-declare void @b2ValidateBroadphase(ptr noundef) local_unnamed_addr #2
+declare void @b2ValidateBroadphase(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @b2BulletBodyTask(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef readonly captures(none) %3) #3 {
+define internal void @b2BulletBodyTask(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef readonly captures(none) %3) #2 {
   %5 = icmp slt i32 %0, %1
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -2732,16 +2726,16 @@ define internal void @b2BulletBodyTask(i32 noundef %0, i32 noundef %1, i32 %2, p
   br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !272
 }
 
-declare void @b2DynamicTree_EnlargeProxy(ptr noundef, i32 noundef, <2 x float>, <2 x float>) local_unnamed_addr #2
+declare void @b2DynamicTree_EnlargeProxy(ptr noundef, i32 noundef, <2 x float>, <2 x float>) local_unnamed_addr #1
 
-declare void @b2TrySleepIsland(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @b2TrySleepIsland(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @b2ValidateSolverSets(ptr noundef) local_unnamed_addr #2
+declare void @b2ValidateSolverSets(ptr noundef) local_unnamed_addr #1
 
-declare void @b2BodyMoveEventArray_Reserve(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @b2BodyMoveEventArray_Reserve(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @b2ExecuteMainStage(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 {
+define internal fastcc void @b2ExecuteMainStage(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8, !tbaa !123
   switch i32 %5, label %9 [
@@ -2856,23 +2850,23 @@ b2ExecuteStage.exit:                              ; preds = %18, %GetWorkerStart
   ret void
 }
 
-declare void @b2PrepareOverflowJoints(ptr noundef) local_unnamed_addr #2
+declare void @b2PrepareOverflowJoints(ptr noundef) local_unnamed_addr #1
 
-declare void @b2PrepareOverflowContacts(ptr noundef) local_unnamed_addr #2
+declare void @b2PrepareOverflowContacts(ptr noundef) local_unnamed_addr #1
 
-declare void @b2WarmStartOverflowJoints(ptr noundef) local_unnamed_addr #2
+declare void @b2WarmStartOverflowJoints(ptr noundef) local_unnamed_addr #1
 
-declare void @b2WarmStartOverflowContacts(ptr noundef) local_unnamed_addr #2
+declare void @b2WarmStartOverflowContacts(ptr noundef) local_unnamed_addr #1
 
-declare void @b2SolveOverflowJoints(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @b2SolveOverflowJoints(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @b2SolveOverflowContacts(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @b2SolveOverflowContacts(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @b2ApplyOverflowRestitution(ptr noundef) local_unnamed_addr #2
+declare void @b2ApplyOverflowRestitution(ptr noundef) local_unnamed_addr #1
 
-declare void @b2StoreOverflowImpulses(ptr noundef) local_unnamed_addr #2
+declare void @b2StoreOverflowImpulses(ptr noundef) local_unnamed_addr #1
 
-declare void @b2Yield() local_unnamed_addr #2
+declare void @b2Yield() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @b2ExecuteBlock(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
@@ -3225,12 +3219,12 @@ b2PrepareJointsTask.exit:                         ; preds = %.lr.ph.i79, %.lr.ph
   ret void
 }
 
-declare void @b2PrepareContactsTask(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @b2PrepareContactsTask(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @b2WarmStartContactsTask(i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @b2WarmStartContactsTask(i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @b2WarmStartJointsTask(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #3 {
+define internal fastcc void @b2WarmStartJointsTask(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %6 = load ptr, ptr %5, align 8, !tbaa !132
   %7 = sext i32 %3 to i64
@@ -3256,17 +3250,17 @@ define internal fastcc void @b2WarmStartJointsTask(i32 noundef %0, i32 noundef %
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !286
 }
 
-declare void @b2SolveContactsTask(i32 noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @b2SolveContactsTask(i32 noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @b2ApplyRestitutionTask(i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @b2ApplyRestitutionTask(i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @b2StoreImpulsesTask(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @b2StoreImpulsesTask(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @b2PrepareJoint(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @b2PrepareJoint(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @b2WarmStartJoint(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @b2WarmStartJoint(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @b2SolveJoint(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @b2SolveJoint(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @b2SolveContinuous(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
@@ -3325,7 +3319,7 @@ define internal fastcc void @b2SolveContinuous(ptr noundef %0, i32 noundef %1) u
   %41 = load i32, ptr %40, align 4, !tbaa !190
   %.val133 = load ptr, ptr %39, align 8, !tbaa !291
   %42 = sext i32 %41 to i64
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !292
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store <2 x float> %17, ptr %43, align 8
@@ -3640,13 +3634,13 @@ define internal fastcc void @b2SolveContinuous(ptr noundef %0, i32 noundef %1) u
   br i1 %.not126, label %.loopexit, label %176, !llvm.loop !301
 
 .loopexit:                                        ; preds = %168, %206, %170, %108
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare { <2 x float>, <2 x float> } @b2ComputeShapeAABB(ptr noundef, <2 x float>, <2 x float>) local_unnamed_addr #2
+declare { <2 x float>, <2 x float> } @b2ComputeShapeAABB(ptr noundef, <2 x float>, <2 x float>) local_unnamed_addr #1
 
-declare i64 @b2DynamicTree_Query(ptr noundef, <2 x float>, <2 x float>, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @b2DynamicTree_Query(ptr noundef, <2 x float>, <2 x float>, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @b2ContinuousQueryCallback(i32 %0, i32 noundef %1, ptr noundef captures(none) %2) #0 {
@@ -3840,13 +3834,13 @@ b2GetLengthAndNormalize.exit:                     ; preds = %70, %99
   br i1 %125, label %.critedge132, label %.critedge
 
 .critedge:                                        ; preds = %b2GetLengthAndNormalize.exit, %114, %66
-  call void @llvm.lifetime.start.p0(i64 228, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @b2MakeShapeDistanceProxy(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeProxy) align 4 %4, ptr noundef nonnull %19) #8
   %126 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @b2MakeShapeDistanceProxy(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeProxy) align 4 %5, ptr noundef nonnull %10) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %126, ptr noundef nonnull align 4 dereferenceable(72) %5, i64 72, i1 false), !tbaa.struct !306
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %127 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %128 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %129 = load i64, ptr %128, align 4, !noalias !307
@@ -3891,16 +3885,16 @@ b2GetLengthAndNormalize.exit:                     ; preds = %70, %99
   br i1 %150, label %151, label %.thread175
 
 151:                                              ; preds = %149
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %152 = call <2 x float> @b2GetShapeCentroid(ptr noundef nonnull %10) #8
   store <2 x float> %152, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %153 = load float, ptr @b2_lengthUnitsPerMeter, align 4, !tbaa !182
   %154 = fmul float %153, 0x3F747AE140000000
   %155 = fmul float %154, 4.000000e+00
   call void @b2MakeProxy(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeProxy) align 4 %7, ptr noundef nonnull %6, i32 noundef 1, float noundef %155) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %126, ptr noundef nonnull align 4 dereferenceable(72) %7, i64 72, i1 false), !tbaa.struct !306
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %156 = call i64 @b2TimeOfImpact(ptr noundef nonnull %4) #8
   %.sroa.010.sroa.4.0.extract.shift = lshr i64 %156, 32
   %.sroa.010.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.010.sroa.4.0.extract.shift to i32
@@ -3914,11 +3908,11 @@ b2GetLengthAndNormalize.exit:                     ; preds = %70, %99
   br i1 %161, label %162, label %.thread171
 
 .thread171:                                       ; preds = %159, %151
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread175
 
 162:                                              ; preds = %159
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread
 
 .thread:                                          ; preds = %146, %162
@@ -3941,7 +3935,7 @@ b2GetLengthAndNormalize.exit:                     ; preds = %70, %99
   %174 = call { <2 x float>, <2 x float> } @b2GetSweepTransform(ptr noundef nonnull %138, float noundef %.0121166) #8
   %175 = extractvalue { <2 x float>, <2 x float> } %174, 0
   %176 = extractvalue { <2 x float>, <2 x float> } %174, 1
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @b2ComputeManifold(ptr dead_on_unwind nonnull writable sret(%struct.b2Manifold) align 4 %8, ptr noundef nonnull %19, <2 x float> %172, <2 x float> %173, ptr noundef nonnull %10, <2 x float> %175, <2 x float> %176) #8
   %177 = load i32, ptr %19, align 8, !tbaa !172
   %178 = add nsw i32 %177, 1
@@ -3970,7 +3964,7 @@ b2GetLengthAndNormalize.exit:                     ; preds = %70, %99
   %192 = or disjoint i64 %.sroa.5.0.insert.shift, %.sroa.0.0.insert.ext
   %.sroa.0.0.insert.insert = or disjoint i64 %192, %.sroa.44.0.insert.shift
   %193 = call zeroext i1 %188(i64 %.sroa.03.0.insert.insert, i64 %.sroa.0.0.insert.insert, ptr noundef nonnull %8, ptr noundef %190) #8
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %193, label %.thread178, label %.thread175
 
 .thread178:                                       ; preds = %166, %170
@@ -3978,39 +3972,45 @@ b2GetLengthAndNormalize.exit:                     ; preds = %70, %99
   br label %.thread175
 
 .thread175:                                       ; preds = %149, %.thread171, %.thread178, %170
-  call void @llvm.lifetime.end.p0(i64 228, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge132
 
 .critedge132:                                     ; preds = %106, %114, %15, %25, %32, %.thread175, %50, %41, %28, %3
   ret i1 true
 }
 
-declare zeroext i1 @b2ShouldShapesCollide(ptr noundef byval(%struct.b2Filter) align 8, ptr noundef byval(%struct.b2Filter) align 8) local_unnamed_addr #2
+declare zeroext i1 @b2ShouldShapesCollide(ptr noundef byval(%struct.b2Filter) align 8, ptr noundef byval(%struct.b2Filter) align 8) local_unnamed_addr #1
 
-declare ptr @b2GetBodySim(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @b2GetBodySim(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @b2ShouldBodiesCollide(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @b2ShouldBodiesCollide(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @b2MakeShapeDistanceProxy(ptr dead_on_unwind writable sret(%struct.b2ShapeProxy) align 4, ptr noundef) local_unnamed_addr #2
+declare void @b2MakeShapeDistanceProxy(ptr dead_on_unwind writable sret(%struct.b2ShapeProxy) align 4, ptr noundef) local_unnamed_addr #1
 
-declare i64 @b2TimeOfImpact(ptr noundef) local_unnamed_addr #2
+declare i64 @b2TimeOfImpact(ptr noundef) local_unnamed_addr #1
 
-declare <2 x float> @b2GetShapeCentroid(ptr noundef) local_unnamed_addr #2
+declare <2 x float> @b2GetShapeCentroid(ptr noundef) local_unnamed_addr #1
 
-declare void @b2MakeProxy(ptr dead_on_unwind writable sret(%struct.b2ShapeProxy) align 4, ptr noundef, i32 noundef, float noundef) local_unnamed_addr #2
+declare void @b2MakeProxy(ptr dead_on_unwind writable sret(%struct.b2ShapeProxy) align 4, ptr noundef, i32 noundef, float noundef) local_unnamed_addr #1
 
-declare { <2 x float>, <2 x float> } @b2GetSweepTransform(ptr noundef, float noundef) local_unnamed_addr #2
+declare { <2 x float>, <2 x float> } @b2GetSweepTransform(ptr noundef, float noundef) local_unnamed_addr #1
 
-declare void @b2ComputeManifold(ptr dead_on_unwind writable sret(%struct.b2Manifold) align 4, ptr noundef, <2 x float>, <2 x float>, ptr noundef, <2 x float>, <2 x float>) local_unnamed_addr #2
+declare void @b2ComputeManifold(ptr dead_on_unwind writable sret(%struct.b2Manifold) align 4, ptr noundef, <2 x float>, <2 x float>, ptr noundef, <2 x float>, <2 x float>) local_unnamed_addr #1
 
-declare void @b2ContactHitEventArray_Reserve(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @b2ContactHitEventArray_Reserve(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #6
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #5
 
-declare zeroext i1 @b2AddKey(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare zeroext i1 @b2AddKey(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @b2IntArray_Reserve(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @b2IntArray_Reserve(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #7
@@ -4019,12 +4019,12 @@ declare i32 @llvm.smin.i32(i32, i32) #7
 declare float @llvm.sqrt.f32(float) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 

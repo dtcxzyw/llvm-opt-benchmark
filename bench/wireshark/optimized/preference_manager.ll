@@ -523,7 +523,7 @@ define noundef ptr @_ZN17PreferenceManager13getPreferenceEP9PrefsItem(ptr nounde
   br i1 %.not, label %39, label %4
 
 4:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = tail call noundef i32 @_ZNK9PrefsItem11getPrefTypeEv(ptr noundef nonnull align 8 dereferenceable_or_null(105) %1)
   store i32 %5, ptr %3, align 4
   %6 = load atomic i8, ptr @_ZGVZN17PreferenceManager9factoriesEvE4inst acquire, align 8
@@ -610,7 +610,7 @@ _ZN17PreferenceManager9factoriesEv.exit13:        ; preds = %25, %28, %30
 
 _ZNK4QMapIiP17PreferenceFactoryE8containsERKi.exit.thread: ; preds = %13, %_ZNKSt8_Rb_treeIiSt4pairIKiP17PreferenceFactoryESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %_ZN17PreferenceManager9factoriesEv.exit, %_ZN17PreferenceManager9factoriesEv.exit13, %38, %_ZNK4QMapIiP17PreferenceFactoryE8containsERKi.exit
   %.1 = phi ptr [ null, %_ZNK4QMapIiP17PreferenceFactoryE8containsERKi.exit ], [ %37, %38 ], [ null, %_ZN17PreferenceManager9factoriesEv.exit13 ], [ null, %_ZN17PreferenceManager9factoriesEv.exit ], [ null, %_ZNKSt8_Rb_treeIiSt4pairIKiP17PreferenceFactoryESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ null, %13 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %39
 
 39:                                               ; preds = %2, %_ZNK4QMapIiP17PreferenceFactoryE8containsERKi.exit.thread
@@ -618,17 +618,11 @@ _ZNK4QMapIiP17PreferenceFactoryE8containsERKi.exit.thread: ; preds = %13, %_ZNKS
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
-
 ; Function Attrs: null_pointer_is_valid
 declare noundef i32 @_ZNK9PrefsItem11getPrefTypeEv(ptr noundef align 8 dereferenceable_or_null(105)) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid
 declare void @_ZN19WiresharkPreference12setPrefsItemEP9PrefsItem(ptr noundef align 8 dereferenceable_or_null(24), ptr noundef) local_unnamed_addr #8
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: null_pointer_is_valid
 declare noundef ptr @_ZNK7QObject10metaObjectEv(ptr noundef align 8 dereferenceable_or_null(16)) unnamed_addr #8
@@ -683,7 +677,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIiSt4pairIKiP17PreferenceFactoryESt10_Se
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
 define linkonce_odr void @_ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIiP17PreferenceFactorySt4lessIiESaISt4pairIKiS4_EEEEE6detachEv(ptr noundef align 8 dereferenceable_or_null(8) %0) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -734,7 +728,7 @@ define linkonce_odr void @_ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDat
 
 23:                                               ; preds = %14
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %24, ptr %2, align 8
   %25 = invoke noundef ptr @_ZNSt8_Rb_treeIiSt4pairIKiP17PreferenceFactoryESt10_Select1stIS4_ESt4lessIiESaIS4_EE7_M_copyILb0ENSA_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable_or_null(48) %24, ptr noundef nonnull %22, ptr noundef nonnull %16, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %.noexc.i.i.i unwind label %46
@@ -762,7 +756,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiP17PreferenceFactoryESt10_Select1stIS4_ESt4lessIiESaIS
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %33 = load i64, ptr %32, align 8
   store i64 %33, ptr %20, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr %25, ptr %17, align 8
   br label %_ZN8QMapDataISt3mapIiP17PreferenceFactorySt4lessIiESaISt4pairIKiS2_EEEEC2ERKSA_.exit
 
@@ -932,10 +926,16 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #15
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind null_pointer_is_valid
 declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef align 8 dereferenceable(32)) local_unnamed_addr #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
@@ -953,9 +953,9 @@ attributes #9 = { noinline noreturn nounwind null_pointer_is_valid sspstrong uwt
 attributes #10 = { cold nofree noreturn }
 attributes #11 = { nobuiltin nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nobuiltin null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #17 = { nounwind }
 attributes #18 = { noreturn nounwind }

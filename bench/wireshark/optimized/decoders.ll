@@ -52,8 +52,8 @@ declare void @add_detected_tcp_svc(i16 noundef zeroext) local_unnamed_addr #1
 define hidden noundef i32 @decode_dcerpc(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) initializes((88, 89), (96, 104)) %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i32], align 16
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_of_interest, i64 384), align 16
   %7 = call i32 @extract_uint(ptr noundef %1, i32 noundef %6, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %8 = icmp eq i32 %7, 0
@@ -149,13 +149,10 @@ define hidden noundef i32 @decode_dcerpc(ptr noundef readnone captures(none) %0,
   store i32 6, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 84
   store i8 1, ptr %61, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 1
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @extract_uint(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -169,9 +166,6 @@ declare zeroext i1 @is_dcerpc_req_pkt_type(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @decode_smb(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) initializes((84, 85), (88, 89), (208, 212)) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [16 x i32], align 16
@@ -180,12 +174,12 @@ define hidden i32 @decode_smb(ptr noundef readnone captures(none) %0, ptr nounde
   %8 = alloca i64, align 8
   %9 = alloca [16 x i64], align 16
   %10 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 42
   %12 = load i16, ptr %11, align 2
   %13 = icmp eq i16 %12, 445
@@ -271,12 +265,12 @@ define hidden i32 @decode_smb(ptr noundef readnone captures(none) %0, ptr nounde
 
 56:                                               ; preds = %23, %._crit_edge, %20
   %.038 = phi i32 [ 0, %20 ], [ %37, %._crit_edge ], [ 1, %23 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #5
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.038
 }
 
@@ -288,9 +282,9 @@ define hidden range(i32 0, 2) i32 @decode_gtcp(ptr noundef readonly captures(non
   %4 = alloca [16 x i32], align 16
   %5 = alloca [16 x i8], align 16
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_of_interest, i64 176), align 16
   %8 = call i32 @extract_uint(ptr noundef %1, i32 noundef %7, ptr noundef nonnull %4, ptr noundef nonnull %6)
   %9 = icmp eq i32 %8, 0
@@ -475,9 +469,9 @@ define hidden range(i32 0, 2) i32 @decode_gtcp(ptr noundef readonly captures(non
 
 108:                                              ; preds = %83, %97, %106
   %.0 = phi i32 [ 1, %106 ], [ 1, %97 ], [ 0, %83 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -494,8 +488,8 @@ declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 define hidden noundef i32 @decode_dns(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((84, 85), (96, 104), (112, 113), (208, 212)) %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i32], align 16
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_of_interest, i64 448), align 16
   %7 = call i32 @extract_uint(ptr noundef %1, i32 noundef %6, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %8 = icmp eq i32 %7, 0
@@ -520,8 +514,8 @@ define hidden noundef i32 @decode_dns(ptr noundef readnone captures(none) %0, pt
   store i32 7, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 84
   store i8 1, ptr %19, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 1
 }
 
@@ -529,8 +523,8 @@ define hidden noundef i32 @decode_dns(ptr noundef readnone captures(none) %0, pt
 define hidden noundef i32 @decode_gudp(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) initializes((40, 44)) %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i32], align 16
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %7 = load i32, ptr %6, align 4
   %8 = trunc i32 %7 to i16
@@ -613,10 +607,16 @@ define hidden noundef i32 @decode_gudp(ptr noundef readonly captures(none) %0, p
   br label %56
 
 56:                                               ; preds = %52, %38
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 1
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
@@ -629,7 +629,6 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

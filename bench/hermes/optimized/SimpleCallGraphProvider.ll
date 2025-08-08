@@ -45,8 +45,8 @@ entry:
   %funcs = alloca %"class.llvh::DenseSet.43", align 8
   %ref.tmp20 = alloca %"struct.std::pair.52", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %callSites, i8 0, i64 20, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %CI.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %CI20.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %CI.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %CI20.i)
   %strictMode_.i.i = getelementptr inbounds nuw i8, ptr %F, i64 188
   %0 = load i8, ptr %strictMode_.i.i, align 4
   %tobool.i.i = trunc i8 %0 to i1
@@ -239,13 +239,13 @@ for.inc36.i:                                      ; preds = %if.end13.i.i.i.i.i,
   br i1 %cmp.not.i, label %if.then, label %for.body.i
 
 _ZL17identifyCallsitesPN6hermes8FunctionERN4llvh8DenseSetIPNS_8CallInstENS2_12DenseMapInfoIS5_EEEE.exit.thread: ; preds = %if.then5.i, %if.else.i, %for.body19.i, %if.end24.i, %entry
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %CI.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %CI20.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %CI.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %CI20.i)
   br label %if.end
 
 if.then:                                          ; preds = %for.inc36.i, %if.end.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %CI.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %CI20.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %CI.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %CI20.i)
   %callsites_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !16)
   store ptr %F, ptr %ref.tmp, align 8, !alias.scope !16
@@ -2479,10 +2479,10 @@ declare i32 @llvm.umax.i32(i32, i32) #7
 declare void @llvm.experimental.noalias.scope.decl(metadata) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

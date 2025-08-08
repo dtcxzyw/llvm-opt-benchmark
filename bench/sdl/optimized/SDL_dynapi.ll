@@ -8669,10 +8669,10 @@ define noundef zeroext i1 @SDL_SetError(ptr noundef %0, ...) local_unnamed_addr 
   %2 = alloca [128 x i8], align 16
   %3 = alloca ptr, align 8
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @jump_table, i64 9272), align 8
   %6 = call i32 %5(ptr noundef nonnull %2, i64 noundef 128, ptr noundef %0, ptr noundef nonnull %4) #12
@@ -8712,81 +8712,75 @@ define noundef zeroext i1 @SDL_SetError(ptr noundef %0, ...) local_unnamed_addr 
   br label %19
 
 19:                                               ; preds = %17, %15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 false
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.va_end.p0(ptr) #4
 
 ; Function Attrs: nounwind uwtable
 define i32 @SDL_sscanf(ptr noundef %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @jump_table, i64 9280), align 8
   %5 = call i32 %4(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3) #12
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @SDL_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @jump_table, i64 9272), align 8
   %6 = call i32 %5(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef nonnull %4) #12
   call void @llvm.va_end.p0(ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @SDL_swprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @jump_table, i64 9288), align 8
   %6 = call i32 %5(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef nonnull %4) #12
   call void @llvm.va_end.p0(ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @SDL_asprintf(ptr noundef %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @jump_table, i64 9264), align 8
   %5 = call i32 %4(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3) #12
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define i64 @SDL_IOprintf(ptr noundef %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @jump_table, i64 4808), align 8
   %5 = call i64 %4(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3) #12
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %5
 }
 
@@ -8795,10 +8789,10 @@ define zeroext i1 @SDL_RenderDebugTextFormat(ptr noundef %0, float noundef %1, f
   %5 = alloca [128 x i8], align 16
   %6 = alloca ptr, align 8
   %7 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %5, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.va_start.p0(ptr nonnull %7)
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @jump_table, i64 9272), align 8
   %9 = call i32 %8(ptr noundef nonnull %5, i64 noundef 128, ptr noundef %3, ptr noundef nonnull %7) #12
@@ -8839,117 +8833,117 @@ define zeroext i1 @SDL_RenderDebugTextFormat(ptr noundef %0, float noundef %1, f
   br label %22
 
 22:                                               ; preds = %20, %18
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define void @SDL_Log(ptr noundef %0, ...) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @jump_table, i64 5080), align 8
   call void %3(i32 noundef 0, i32 noundef 4, ptr noundef %0, ptr noundef nonnull %2) #12
   call void @llvm.va_end.p0(ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @SDL_LogMessage(i32 noundef %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @jump_table, i64 5080), align 8
   call void %5(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %4) #12
   call void @llvm.va_end.p0(ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @SDL_LogTrace(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @jump_table, i64 5080), align 8
   call void %4(i32 noundef %0, i32 noundef 1, ptr noundef %1, ptr noundef nonnull %3) #12
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @SDL_LogVerbose(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @jump_table, i64 5080), align 8
   call void %4(i32 noundef %0, i32 noundef 2, ptr noundef %1, ptr noundef nonnull %3) #12
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @SDL_LogDebug(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @jump_table, i64 5080), align 8
   call void %4(i32 noundef %0, i32 noundef 3, ptr noundef %1, ptr noundef nonnull %3) #12
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @SDL_LogInfo(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @jump_table, i64 5080), align 8
   call void %4(i32 noundef %0, i32 noundef 4, ptr noundef %1, ptr noundef nonnull %3) #12
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @SDL_LogWarn(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @jump_table, i64 5080), align 8
   call void %4(i32 noundef %0, i32 noundef 5, ptr noundef %1, ptr noundef nonnull %3) #12
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @SDL_LogError(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @jump_table, i64 5080), align 8
   call void %4(i32 noundef %0, i32 noundef 6, ptr noundef %1, ptr noundef nonnull %3) #12
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @SDL_LogCritical(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @jump_table, i64 5080), align 8
   call void %4(i32 noundef %0, i32 noundef 7, ptr noundef %1, ptr noundef nonnull %3) #12
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -10237,130 +10231,130 @@ define internal fastcc range(i32 -1, 1) i32 @initialize_jumptable(i32 noundef %0
 ; Function Attrs: nounwind uwtable
 define internal i64 @SDL_IOprintf_DEFAULT(ptr noundef %0, ptr noundef %1, ...) #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call fastcc void @SDL_InitDynamicAPI()
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @jump_table, i64 4808), align 8
   %5 = call i64 %4(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3) #12
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @SDL_Log_DEFAULT(ptr noundef %0, ...) #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   tail call fastcc void @SDL_InitDynamicAPI()
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @jump_table, i64 5080), align 8
   call void %3(i32 noundef 0, i32 noundef 4, ptr noundef %0, ptr noundef nonnull %2) #12
   call void @llvm.va_end.p0(ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @SDL_LogCritical_DEFAULT(i32 noundef %0, ptr noundef %1, ...) #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call fastcc void @SDL_InitDynamicAPI()
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @jump_table, i64 5080), align 8
   call void %4(i32 noundef %0, i32 noundef 7, ptr noundef %1, ptr noundef nonnull %3) #12
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @SDL_LogDebug_DEFAULT(i32 noundef %0, ptr noundef %1, ...) #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call fastcc void @SDL_InitDynamicAPI()
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @jump_table, i64 5080), align 8
   call void %4(i32 noundef %0, i32 noundef 3, ptr noundef %1, ptr noundef nonnull %3) #12
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @SDL_LogError_DEFAULT(i32 noundef %0, ptr noundef %1, ...) #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call fastcc void @SDL_InitDynamicAPI()
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @jump_table, i64 5080), align 8
   call void %4(i32 noundef %0, i32 noundef 6, ptr noundef %1, ptr noundef nonnull %3) #12
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @SDL_LogInfo_DEFAULT(i32 noundef %0, ptr noundef %1, ...) #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call fastcc void @SDL_InitDynamicAPI()
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @jump_table, i64 5080), align 8
   call void %4(i32 noundef %0, i32 noundef 4, ptr noundef %1, ptr noundef nonnull %3) #12
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @SDL_LogMessage_DEFAULT(i32 noundef %0, i32 noundef %1, ptr noundef %2, ...) #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call fastcc void @SDL_InitDynamicAPI()
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @jump_table, i64 5080), align 8
   call void %5(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %4) #12
   call void @llvm.va_end.p0(ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @SDL_LogTrace_DEFAULT(i32 noundef %0, ptr noundef %1, ...) #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call fastcc void @SDL_InitDynamicAPI()
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @jump_table, i64 5080), align 8
   call void %4(i32 noundef %0, i32 noundef 1, ptr noundef %1, ptr noundef nonnull %3) #12
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @SDL_LogVerbose_DEFAULT(i32 noundef %0, ptr noundef %1, ...) #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call fastcc void @SDL_InitDynamicAPI()
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @jump_table, i64 5080), align 8
   call void %4(i32 noundef %0, i32 noundef 2, ptr noundef %1, ptr noundef nonnull %3) #12
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @SDL_LogWarn_DEFAULT(i32 noundef %0, ptr noundef %1, ...) #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call fastcc void @SDL_InitDynamicAPI()
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @jump_table, i64 5080), align 8
   call void %4(i32 noundef %0, i32 noundef 5, ptr noundef %1, ptr noundef nonnull %3) #12
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -10369,10 +10363,10 @@ define internal noundef zeroext i1 @SDL_SetError_DEFAULT(ptr noundef %0, ...) #0
   %2 = alloca [128 x i8], align 16
   %3 = alloca ptr, align 8
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call fastcc void @SDL_InitDynamicAPI()
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @jump_table, i64 9272), align 8
@@ -10413,61 +10407,61 @@ define internal noundef zeroext i1 @SDL_SetError_DEFAULT(ptr noundef %0, ...) #0
   br label %19
 
 19:                                               ; preds = %17, %15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 false
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @SDL_asprintf_DEFAULT(ptr noundef %0, ptr noundef %1, ...) #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call fastcc void @SDL_InitDynamicAPI()
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @jump_table, i64 9264), align 8
   %5 = call i32 %4(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3) #12
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @SDL_snprintf_DEFAULT(ptr noundef %0, i64 noundef %1, ptr noundef %2, ...) #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call fastcc void @SDL_InitDynamicAPI()
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @jump_table, i64 9272), align 8
   %6 = call i32 %5(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef nonnull %4) #12
   call void @llvm.va_end.p0(ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @SDL_sscanf_DEFAULT(ptr noundef %0, ptr noundef %1, ...) #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call fastcc void @SDL_InitDynamicAPI()
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @jump_table, i64 9280), align 8
   %5 = call i32 %4(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3) #12
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @SDL_swprintf_DEFAULT(ptr noundef %0, i64 noundef %1, ptr noundef %2, ...) #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call fastcc void @SDL_InitDynamicAPI()
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @jump_table, i64 9288), align 8
   %6 = call i32 %5(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef nonnull %4) #12
   call void @llvm.va_end.p0(ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %6
 }
 
@@ -19996,10 +19990,10 @@ define internal zeroext i1 @SDL_RenderDebugTextFormat_DEFAULT(ptr noundef %0, fl
   %5 = alloca [128 x i8], align 16
   %6 = alloca ptr, align 8
   %7 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %5, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call fastcc void @SDL_InitDynamicAPI()
   call void @llvm.va_start.p0(ptr nonnull %7)
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @jump_table, i64 9272), align 8
@@ -20041,9 +20035,9 @@ define internal zeroext i1 @SDL_RenderDebugTextFormat_DEFAULT(ptr noundef %0, fl
   br label %22
 
 22:                                               ; preds = %20, %18
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
 
@@ -20495,15 +20489,15 @@ SDL_InitDynamicAPILocked.exit:                    ; preds = %._crit_edge.thread.
   ret void
 }
 
-declare void @SDL_LockSpinlock_REAL(ptr noundef) #6
+declare void @SDL_LockSpinlock_REAL(ptr noundef) #5
 
-declare void @SDL_UnlockSpinlock_REAL(ptr noundef) #6
+declare void @SDL_UnlockSpinlock_REAL(ptr noundef) #5
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @dynapi_warn(ptr noundef %0) unnamed_addr #8 {
+define internal fastcc void @dynapi_warn(ptr noundef %0) unnamed_addr #7 {
   %2 = load ptr, ptr @stderr, align 8
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.6, ptr noundef %0) #14
   %4 = load ptr, ptr @stderr, align 8
@@ -20512,2533 +20506,2539 @@ define internal fastcc void @dynapi_warn(ptr noundef %0) unnamed_addr #8 {
 }
 
 ; Function Attrs: noreturn
-declare void @SDL_ExitProcess(i32 noundef) local_unnamed_addr #9
+declare void @SDL_ExitProcess(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare ptr @dlopen(ptr noundef, i32 noundef) local_unnamed_addr #10
+declare ptr @dlopen(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
-declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #10
+declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
-declare i32 @dlclose(ptr noundef) local_unnamed_addr #10
+declare i32 @dlclose(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #11
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #11
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #10
 
-declare i64 @SDL_IOprintf_REAL(ptr noundef, ptr noundef, ...) #6
+declare i64 @SDL_IOprintf_REAL(ptr noundef, ptr noundef, ...) #5
 
-declare void @SDL_Log_REAL(ptr noundef, ...) #6
+declare void @SDL_Log_REAL(ptr noundef, ...) #5
 
-declare void @SDL_LogCritical_REAL(i32 noundef, ptr noundef, ...) #6
+declare void @SDL_LogCritical_REAL(i32 noundef, ptr noundef, ...) #5
 
-declare void @SDL_LogDebug_REAL(i32 noundef, ptr noundef, ...) #6
+declare void @SDL_LogDebug_REAL(i32 noundef, ptr noundef, ...) #5
 
-declare void @SDL_LogError_REAL(i32 noundef, ptr noundef, ...) #6
+declare void @SDL_LogError_REAL(i32 noundef, ptr noundef, ...) #5
 
-declare void @SDL_LogInfo_REAL(i32 noundef, ptr noundef, ...) #6
+declare void @SDL_LogInfo_REAL(i32 noundef, ptr noundef, ...) #5
 
-declare void @SDL_LogMessage_REAL(i32 noundef, i32 noundef, ptr noundef, ...) #6
+declare void @SDL_LogMessage_REAL(i32 noundef, i32 noundef, ptr noundef, ...) #5
 
-declare void @SDL_LogTrace_REAL(i32 noundef, ptr noundef, ...) #6
+declare void @SDL_LogTrace_REAL(i32 noundef, ptr noundef, ...) #5
 
-declare void @SDL_LogVerbose_REAL(i32 noundef, ptr noundef, ...) #6
+declare void @SDL_LogVerbose_REAL(i32 noundef, ptr noundef, ...) #5
 
-declare void @SDL_LogWarn_REAL(i32 noundef, ptr noundef, ...) #6
+declare void @SDL_LogWarn_REAL(i32 noundef, ptr noundef, ...) #5
 
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) #6
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) #5
 
-declare i32 @SDL_asprintf_REAL(ptr noundef, ptr noundef, ...) #6
+declare i32 @SDL_asprintf_REAL(ptr noundef, ptr noundef, ...) #5
 
-declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) #6
+declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) #5
 
-declare i32 @SDL_sscanf_REAL(ptr noundef, ptr noundef, ...) #6
+declare i32 @SDL_sscanf_REAL(ptr noundef, ptr noundef, ...) #5
 
-declare i32 @SDL_swprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) #6
+declare i32 @SDL_swprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) #5
 
-declare ptr @SDL_AcquireCameraFrame_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_AcquireCameraFrame_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_AcquireGPUCommandBuffer_REAL(ptr noundef) #6
+declare ptr @SDL_AcquireGPUCommandBuffer_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_AcquireGPUSwapchainTexture_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_AcquireGPUSwapchainTexture_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare i32 @SDL_AddAtomicInt_REAL(ptr noundef, i32 noundef) #6
+declare i32 @SDL_AddAtomicInt_REAL(ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_AddEventWatch_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_AddEventWatch_REAL(ptr noundef, ptr noundef) #5
 
-declare i32 @SDL_AddGamepadMapping_REAL(ptr noundef) #6
+declare i32 @SDL_AddGamepadMapping_REAL(ptr noundef) #5
 
-declare i32 @SDL_AddGamepadMappingsFromFile_REAL(ptr noundef) #6
+declare i32 @SDL_AddGamepadMappingsFromFile_REAL(ptr noundef) #5
 
-declare i32 @SDL_AddGamepadMappingsFromIO_REAL(ptr noundef, i1 noundef zeroext) #6
+declare i32 @SDL_AddGamepadMappingsFromIO_REAL(ptr noundef, i1 noundef zeroext) #5
 
-declare zeroext i1 @SDL_AddHintCallback_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_AddHintCallback_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_AddSurfaceAlternateImage_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_AddSurfaceAlternateImage_REAL(ptr noundef, ptr noundef) #5
 
-declare i32 @SDL_AddTimer_REAL(i32 noundef, ptr noundef, ptr noundef) #6
+declare i32 @SDL_AddTimer_REAL(i32 noundef, ptr noundef, ptr noundef) #5
 
-declare i32 @SDL_AddTimerNS_REAL(i64 noundef, ptr noundef, ptr noundef) #6
+declare i32 @SDL_AddTimerNS_REAL(i64 noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_AddVulkanRenderSemaphores_REAL(ptr noundef, i32 noundef, i64 noundef, i64 noundef) #6
+declare zeroext i1 @SDL_AddVulkanRenderSemaphores_REAL(ptr noundef, i32 noundef, i64 noundef, i64 noundef) #5
 
-declare i32 @SDL_AttachVirtualJoystick_REAL(ptr noundef) #6
+declare i32 @SDL_AttachVirtualJoystick_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_AudioDevicePaused_REAL(i32 noundef) #6
+declare zeroext i1 @SDL_AudioDevicePaused_REAL(i32 noundef) #5
 
-declare ptr @SDL_BeginGPUComputePass_REAL(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #6
+declare ptr @SDL_BeginGPUComputePass_REAL(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #5
 
-declare ptr @SDL_BeginGPUCopyPass_REAL(ptr noundef) #6
+declare ptr @SDL_BeginGPUCopyPass_REAL(ptr noundef) #5
 
-declare ptr @SDL_BeginGPURenderPass_REAL(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #6
+declare ptr @SDL_BeginGPURenderPass_REAL(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_BindAudioStream_REAL(i32 noundef, ptr noundef) #6
+declare zeroext i1 @SDL_BindAudioStream_REAL(i32 noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_BindAudioStreams_REAL(i32 noundef, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_BindAudioStreams_REAL(i32 noundef, ptr noundef, i32 noundef) #5
 
-declare void @SDL_BindGPUComputePipeline_REAL(ptr noundef, ptr noundef) #6
+declare void @SDL_BindGPUComputePipeline_REAL(ptr noundef, ptr noundef) #5
 
-declare void @SDL_BindGPUComputeSamplers_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #6
+declare void @SDL_BindGPUComputeSamplers_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #5
 
-declare void @SDL_BindGPUComputeStorageBuffers_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #6
+declare void @SDL_BindGPUComputeStorageBuffers_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #5
 
-declare void @SDL_BindGPUComputeStorageTextures_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #6
+declare void @SDL_BindGPUComputeStorageTextures_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #5
 
-declare void @SDL_BindGPUFragmentSamplers_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #6
+declare void @SDL_BindGPUFragmentSamplers_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #5
 
-declare void @SDL_BindGPUFragmentStorageBuffers_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #6
+declare void @SDL_BindGPUFragmentStorageBuffers_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #5
 
-declare void @SDL_BindGPUFragmentStorageTextures_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #6
+declare void @SDL_BindGPUFragmentStorageTextures_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #5
 
-declare void @SDL_BindGPUGraphicsPipeline_REAL(ptr noundef, ptr noundef) #6
+declare void @SDL_BindGPUGraphicsPipeline_REAL(ptr noundef, ptr noundef) #5
 
-declare void @SDL_BindGPUIndexBuffer_REAL(ptr noundef, ptr noundef, i32 noundef) #6
+declare void @SDL_BindGPUIndexBuffer_REAL(ptr noundef, ptr noundef, i32 noundef) #5
 
-declare void @SDL_BindGPUVertexBuffers_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #6
+declare void @SDL_BindGPUVertexBuffers_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #5
 
-declare void @SDL_BindGPUVertexSamplers_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #6
+declare void @SDL_BindGPUVertexSamplers_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #5
 
-declare void @SDL_BindGPUVertexStorageBuffers_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #6
+declare void @SDL_BindGPUVertexStorageBuffers_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #5
 
-declare void @SDL_BindGPUVertexStorageTextures_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #6
+declare void @SDL_BindGPUVertexStorageTextures_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #5
 
-declare void @SDL_BlitGPUTexture_REAL(ptr noundef, ptr noundef) #6
+declare void @SDL_BlitGPUTexture_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_BlitSurface_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_BlitSurface_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_BlitSurface9Grid_REAL(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, float noundef, i32 noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_BlitSurface9Grid_REAL(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, float noundef, i32 noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_BlitSurfaceScaled_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_BlitSurfaceScaled_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_BlitSurfaceTiled_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_BlitSurfaceTiled_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_BlitSurfaceTiledWithScale_REAL(ptr noundef, ptr noundef, float noundef, i32 noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_BlitSurfaceTiledWithScale_REAL(ptr noundef, ptr noundef, float noundef, i32 noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_BlitSurfaceUnchecked_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_BlitSurfaceUnchecked_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_BlitSurfaceUncheckedScaled_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_BlitSurfaceUncheckedScaled_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #5
 
-declare void @SDL_BroadcastCondition_REAL(ptr noundef) #6
+declare void @SDL_BroadcastCondition_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_CaptureMouse_REAL(i1 noundef zeroext) #6
+declare zeroext i1 @SDL_CaptureMouse_REAL(i1 noundef zeroext) #5
 
-declare zeroext i1 @SDL_ClaimWindowForGPUDevice_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_ClaimWindowForGPUDevice_REAL(ptr noundef, ptr noundef) #5
 
-declare void @SDL_CleanupTLS_REAL() #6
+declare void @SDL_CleanupTLS_REAL() #5
 
-declare zeroext i1 @SDL_ClearAudioStream_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_ClearAudioStream_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_ClearClipboardData_REAL() #6
+declare zeroext i1 @SDL_ClearClipboardData_REAL() #5
 
-declare zeroext i1 @SDL_ClearComposition_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_ClearComposition_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_ClearError_REAL() #6
+declare zeroext i1 @SDL_ClearError_REAL() #5
 
-declare zeroext i1 @SDL_ClearProperty_REAL(i32 noundef, ptr noundef) #6
+declare zeroext i1 @SDL_ClearProperty_REAL(i32 noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_ClearSurface_REAL(ptr noundef, float noundef, float noundef, float noundef, float noundef) #6
+declare zeroext i1 @SDL_ClearSurface_REAL(ptr noundef, float noundef, float noundef, float noundef, float noundef) #5
 
-declare void @SDL_CloseAudioDevice_REAL(i32 noundef) #6
+declare void @SDL_CloseAudioDevice_REAL(i32 noundef) #5
 
-declare void @SDL_CloseCamera_REAL(ptr noundef) #6
+declare void @SDL_CloseCamera_REAL(ptr noundef) #5
 
-declare void @SDL_CloseGamepad_REAL(ptr noundef) #6
+declare void @SDL_CloseGamepad_REAL(ptr noundef) #5
 
-declare void @SDL_CloseHaptic_REAL(ptr noundef) #6
+declare void @SDL_CloseHaptic_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_CloseIO_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_CloseIO_REAL(ptr noundef) #5
 
-declare void @SDL_CloseJoystick_REAL(ptr noundef) #6
+declare void @SDL_CloseJoystick_REAL(ptr noundef) #5
 
-declare void @SDL_CloseSensor_REAL(ptr noundef) #6
+declare void @SDL_CloseSensor_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_CloseStorage_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_CloseStorage_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_CompareAndSwapAtomicInt_REAL(ptr noundef, i32 noundef, i32 noundef) #6
+declare zeroext i1 @SDL_CompareAndSwapAtomicInt_REAL(ptr noundef, i32 noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_CompareAndSwapAtomicPointer_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_CompareAndSwapAtomicPointer_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_CompareAndSwapAtomicU32_REAL(ptr noundef, i32 noundef, i32 noundef) #6
+declare zeroext i1 @SDL_CompareAndSwapAtomicU32_REAL(ptr noundef, i32 noundef, i32 noundef) #5
 
-declare i32 @SDL_ComposeCustomBlendMode_REAL(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #6
+declare i32 @SDL_ComposeCustomBlendMode_REAL(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_ConvertAudioSamples_REAL(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_ConvertAudioSamples_REAL(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_ConvertEventToRenderCoordinates_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_ConvertEventToRenderCoordinates_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_ConvertPixels_REAL(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_ConvertPixels_REAL(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_ConvertPixelsAndColorspace_REAL(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_ConvertPixelsAndColorspace_REAL(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #5
 
-declare ptr @SDL_ConvertSurface_REAL(ptr noundef, i32 noundef) #6
+declare ptr @SDL_ConvertSurface_REAL(ptr noundef, i32 noundef) #5
 
-declare ptr @SDL_ConvertSurfaceAndColorspace_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #6
+declare ptr @SDL_ConvertSurfaceAndColorspace_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_CopyFile_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_CopyFile_REAL(ptr noundef, ptr noundef) #5
 
-declare void @SDL_CopyGPUBufferToBuffer_REAL(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) #6
+declare void @SDL_CopyGPUBufferToBuffer_REAL(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) #5
 
-declare void @SDL_CopyGPUTextureToTexture_REAL(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) #6
+declare void @SDL_CopyGPUTextureToTexture_REAL(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) #5
 
-declare zeroext i1 @SDL_CopyProperties_REAL(i32 noundef, i32 noundef) #6
+declare zeroext i1 @SDL_CopyProperties_REAL(i32 noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_CopyStorageFile_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_CopyStorageFile_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_CreateAudioStream_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_CreateAudioStream_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_CreateColorCursor_REAL(ptr noundef, i32 noundef, i32 noundef) #6
+declare ptr @SDL_CreateColorCursor_REAL(ptr noundef, i32 noundef, i32 noundef) #5
 
-declare ptr @SDL_CreateCondition_REAL() #6
+declare ptr @SDL_CreateCondition_REAL() #5
 
-declare ptr @SDL_CreateCursor_REAL(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #6
+declare ptr @SDL_CreateCursor_REAL(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_CreateDirectory_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_CreateDirectory_REAL(ptr noundef) #5
 
-declare ptr @SDL_CreateEnvironment_REAL(i1 noundef zeroext) #6
+declare ptr @SDL_CreateEnvironment_REAL(i1 noundef zeroext) #5
 
-declare ptr @SDL_CreateGPUBuffer_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_CreateGPUBuffer_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_CreateGPUComputePipeline_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_CreateGPUComputePipeline_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_CreateGPUDevice_REAL(i32 noundef, i1 noundef zeroext, ptr noundef) #6
+declare ptr @SDL_CreateGPUDevice_REAL(i32 noundef, i1 noundef zeroext, ptr noundef) #5
 
-declare ptr @SDL_CreateGPUDeviceWithProperties_REAL(i32 noundef) #6
+declare ptr @SDL_CreateGPUDeviceWithProperties_REAL(i32 noundef) #5
 
-declare ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_CreateGPUSampler_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_CreateGPUSampler_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_CreateGPUShader_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_CreateGPUShader_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_CreateGPUTexture_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_CreateGPUTexture_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_CreateGPUTransferBuffer_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_CreateGPUTransferBuffer_REAL(ptr noundef, ptr noundef) #5
 
-declare i32 @SDL_CreateHapticEffect_REAL(ptr noundef, ptr noundef) #6
+declare i32 @SDL_CreateHapticEffect_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_CreateMutex_REAL() #6
+declare ptr @SDL_CreateMutex_REAL() #5
 
-declare ptr @SDL_CreatePalette_REAL(i32 noundef) #6
+declare ptr @SDL_CreatePalette_REAL(i32 noundef) #5
 
-declare ptr @SDL_CreatePopupWindow_REAL(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) #6
+declare ptr @SDL_CreatePopupWindow_REAL(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) #5
 
-declare ptr @SDL_CreateProcess_REAL(ptr noundef, i1 noundef zeroext) #6
+declare ptr @SDL_CreateProcess_REAL(ptr noundef, i1 noundef zeroext) #5
 
-declare ptr @SDL_CreateProcessWithProperties_REAL(i32 noundef) #6
+declare ptr @SDL_CreateProcessWithProperties_REAL(i32 noundef) #5
 
-declare i32 @SDL_CreateProperties_REAL() #6
+declare i32 @SDL_CreateProperties_REAL() #5
 
-declare ptr @SDL_CreateRWLock_REAL() #6
+declare ptr @SDL_CreateRWLock_REAL() #5
 
-declare ptr @SDL_CreateRenderer_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_CreateRenderer_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_CreateRendererWithProperties_REAL(i32 noundef) #6
+declare ptr @SDL_CreateRendererWithProperties_REAL(i32 noundef) #5
 
-declare ptr @SDL_CreateSemaphore_REAL(i32 noundef) #6
+declare ptr @SDL_CreateSemaphore_REAL(i32 noundef) #5
 
-declare ptr @SDL_CreateSoftwareRenderer_REAL(ptr noundef) #6
+declare ptr @SDL_CreateSoftwareRenderer_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_CreateStorageDirectory_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_CreateStorageDirectory_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_CreateSurface_REAL(i32 noundef, i32 noundef, i32 noundef) #6
+declare ptr @SDL_CreateSurface_REAL(i32 noundef, i32 noundef, i32 noundef) #5
 
-declare ptr @SDL_CreateSurfaceFrom_REAL(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #6
+declare ptr @SDL_CreateSurfaceFrom_REAL(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #5
 
-declare ptr @SDL_CreateSurfacePalette_REAL(ptr noundef) #6
+declare ptr @SDL_CreateSurfacePalette_REAL(ptr noundef) #5
 
-declare ptr @SDL_CreateSystemCursor_REAL(i32 noundef) #6
+declare ptr @SDL_CreateSystemCursor_REAL(i32 noundef) #5
 
-declare ptr @SDL_CreateTexture_REAL(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #6
+declare ptr @SDL_CreateTexture_REAL(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #5
 
-declare ptr @SDL_CreateTextureFromSurface_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_CreateTextureFromSurface_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_CreateTextureWithProperties_REAL(ptr noundef, i32 noundef) #6
+declare ptr @SDL_CreateTextureWithProperties_REAL(ptr noundef, i32 noundef) #5
 
-declare ptr @SDL_CreateThreadRuntime_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare ptr @SDL_CreateThreadRuntime_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_CreateThreadWithPropertiesRuntime_REAL(i32 noundef, ptr noundef, ptr noundef) #6
+declare ptr @SDL_CreateThreadWithPropertiesRuntime_REAL(i32 noundef, ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_CreateWindow_REAL(ptr noundef, i32 noundef, i32 noundef, i64 noundef) #6
+declare ptr @SDL_CreateWindow_REAL(ptr noundef, i32 noundef, i32 noundef, i64 noundef) #5
 
-declare zeroext i1 @SDL_CreateWindowAndRenderer_REAL(ptr noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_CreateWindowAndRenderer_REAL(ptr noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_CreateWindowWithProperties_REAL(i32 noundef) #6
+declare ptr @SDL_CreateWindowWithProperties_REAL(i32 noundef) #5
 
-declare zeroext i1 @SDL_CursorVisible_REAL() #6
+declare zeroext i1 @SDL_CursorVisible_REAL() #5
 
-declare zeroext i1 @SDL_DateTimeToTime_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_DateTimeToTime_REAL(ptr noundef, ptr noundef) #5
 
-declare void @SDL_Delay_REAL(i32 noundef) #6
+declare void @SDL_Delay_REAL(i32 noundef) #5
 
-declare void @SDL_DelayNS_REAL(i64 noundef) #6
+declare void @SDL_DelayNS_REAL(i64 noundef) #5
 
-declare void @SDL_DestroyAudioStream_REAL(ptr noundef) #6
+declare void @SDL_DestroyAudioStream_REAL(ptr noundef) #5
 
-declare void @SDL_DestroyCondition_REAL(ptr noundef) #6
+declare void @SDL_DestroyCondition_REAL(ptr noundef) #5
 
-declare void @SDL_DestroyCursor_REAL(ptr noundef) #6
+declare void @SDL_DestroyCursor_REAL(ptr noundef) #5
 
-declare void @SDL_DestroyEnvironment_REAL(ptr noundef) #6
+declare void @SDL_DestroyEnvironment_REAL(ptr noundef) #5
 
-declare void @SDL_DestroyGPUDevice_REAL(ptr noundef) #6
+declare void @SDL_DestroyGPUDevice_REAL(ptr noundef) #5
 
-declare void @SDL_DestroyHapticEffect_REAL(ptr noundef, i32 noundef) #6
+declare void @SDL_DestroyHapticEffect_REAL(ptr noundef, i32 noundef) #5
 
-declare void @SDL_DestroyMutex_REAL(ptr noundef) #6
+declare void @SDL_DestroyMutex_REAL(ptr noundef) #5
 
-declare void @SDL_DestroyPalette_REAL(ptr noundef) #6
+declare void @SDL_DestroyPalette_REAL(ptr noundef) #5
 
-declare void @SDL_DestroyProcess_REAL(ptr noundef) #6
+declare void @SDL_DestroyProcess_REAL(ptr noundef) #5
 
-declare void @SDL_DestroyProperties_REAL(i32 noundef) #6
+declare void @SDL_DestroyProperties_REAL(i32 noundef) #5
 
-declare void @SDL_DestroyRWLock_REAL(ptr noundef) #6
+declare void @SDL_DestroyRWLock_REAL(ptr noundef) #5
 
-declare void @SDL_DestroyRenderer_REAL(ptr noundef) #6
+declare void @SDL_DestroyRenderer_REAL(ptr noundef) #5
 
-declare void @SDL_DestroySemaphore_REAL(ptr noundef) #6
+declare void @SDL_DestroySemaphore_REAL(ptr noundef) #5
 
-declare void @SDL_DestroySurface_REAL(ptr noundef) #6
+declare void @SDL_DestroySurface_REAL(ptr noundef) #5
 
-declare void @SDL_DestroyTexture_REAL(ptr noundef) #6
+declare void @SDL_DestroyTexture_REAL(ptr noundef) #5
 
-declare void @SDL_DestroyWindow_REAL(ptr noundef) #6
+declare void @SDL_DestroyWindow_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_DestroyWindowSurface_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_DestroyWindowSurface_REAL(ptr noundef) #5
 
-declare void @SDL_DetachThread_REAL(ptr noundef) #6
+declare void @SDL_DetachThread_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_DetachVirtualJoystick_REAL(i32 noundef) #6
+declare zeroext i1 @SDL_DetachVirtualJoystick_REAL(i32 noundef) #5
 
-declare zeroext i1 @SDL_DisableScreenSaver_REAL() #6
+declare zeroext i1 @SDL_DisableScreenSaver_REAL() #5
 
-declare void @SDL_DispatchGPUCompute_REAL(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #6
+declare void @SDL_DispatchGPUCompute_REAL(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #5
 
-declare void @SDL_DispatchGPUComputeIndirect_REAL(ptr noundef, ptr noundef, i32 noundef) #6
+declare void @SDL_DispatchGPUComputeIndirect_REAL(ptr noundef, ptr noundef, i32 noundef) #5
 
-declare void @SDL_DownloadFromGPUBuffer_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare void @SDL_DownloadFromGPUBuffer_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare void @SDL_DownloadFromGPUTexture_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare void @SDL_DownloadFromGPUTexture_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare void @SDL_DrawGPUIndexedPrimitives_REAL(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #6
+declare void @SDL_DrawGPUIndexedPrimitives_REAL(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #5
 
-declare void @SDL_DrawGPUIndexedPrimitivesIndirect_REAL(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #6
+declare void @SDL_DrawGPUIndexedPrimitivesIndirect_REAL(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #5
 
-declare void @SDL_DrawGPUPrimitives_REAL(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #6
+declare void @SDL_DrawGPUPrimitives_REAL(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #5
 
-declare void @SDL_DrawGPUPrimitivesIndirect_REAL(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #6
+declare void @SDL_DrawGPUPrimitivesIndirect_REAL(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #5
 
-declare ptr @SDL_DuplicateSurface_REAL(ptr noundef) #6
+declare ptr @SDL_DuplicateSurface_REAL(ptr noundef) #5
 
-declare ptr @SDL_EGL_GetCurrentConfig_REAL() #6
+declare ptr @SDL_EGL_GetCurrentConfig_REAL() #5
 
-declare ptr @SDL_EGL_GetCurrentDisplay_REAL() #6
+declare ptr @SDL_EGL_GetCurrentDisplay_REAL() #5
 
-declare ptr @SDL_EGL_GetProcAddress_REAL(ptr noundef) #6
+declare ptr @SDL_EGL_GetProcAddress_REAL(ptr noundef) #5
 
-declare ptr @SDL_EGL_GetWindowSurface_REAL(ptr noundef) #6
+declare ptr @SDL_EGL_GetWindowSurface_REAL(ptr noundef) #5
 
-declare void @SDL_EGL_SetAttributeCallbacks_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare void @SDL_EGL_SetAttributeCallbacks_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_EnableScreenSaver_REAL() #6
+declare zeroext i1 @SDL_EnableScreenSaver_REAL() #5
 
-declare void @SDL_EndGPUComputePass_REAL(ptr noundef) #6
+declare void @SDL_EndGPUComputePass_REAL(ptr noundef) #5
 
-declare void @SDL_EndGPUCopyPass_REAL(ptr noundef) #6
+declare void @SDL_EndGPUCopyPass_REAL(ptr noundef) #5
 
-declare void @SDL_EndGPURenderPass_REAL(ptr noundef) #6
+declare void @SDL_EndGPURenderPass_REAL(ptr noundef) #5
 
-declare i32 @SDL_EnterAppMainCallbacks_REAL(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare i32 @SDL_EnterAppMainCallbacks_REAL(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_EnumerateDirectory_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_EnumerateDirectory_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_EnumerateProperties_REAL(i32 noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_EnumerateProperties_REAL(i32 noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_EnumerateStorageDirectory_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_EnumerateStorageDirectory_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_EventEnabled_REAL(i32 noundef) #6
+declare zeroext i1 @SDL_EventEnabled_REAL(i32 noundef) #5
 
-declare zeroext i1 @SDL_FillSurfaceRect_REAL(ptr noundef, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_FillSurfaceRect_REAL(ptr noundef, ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_FillSurfaceRects_REAL(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #6
+declare zeroext i1 @SDL_FillSurfaceRects_REAL(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #5
 
-declare void @SDL_FilterEvents_REAL(ptr noundef, ptr noundef) #6
+declare void @SDL_FilterEvents_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_FlashWindow_REAL(ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_FlashWindow_REAL(ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_FlipSurface_REAL(ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_FlipSurface_REAL(ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_FlushAudioStream_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_FlushAudioStream_REAL(ptr noundef) #5
 
-declare void @SDL_FlushEvent_REAL(i32 noundef) #6
+declare void @SDL_FlushEvent_REAL(i32 noundef) #5
 
-declare void @SDL_FlushEvents_REAL(i32 noundef, i32 noundef) #6
+declare void @SDL_FlushEvents_REAL(i32 noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_FlushIO_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_FlushIO_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_FlushRenderer_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_FlushRenderer_REAL(ptr noundef) #5
 
-declare void @SDL_GDKResumeGPU_REAL(ptr noundef) #6
+declare void @SDL_GDKResumeGPU_REAL(ptr noundef) #5
 
-declare void @SDL_GDKSuspendComplete_REAL() #6
+declare void @SDL_GDKSuspendComplete_REAL() #5
 
-declare void @SDL_GDKSuspendGPU_REAL(ptr noundef) #6
+declare void @SDL_GDKSuspendGPU_REAL(ptr noundef) #5
 
-declare ptr @SDL_GL_CreateContext_REAL(ptr noundef) #6
+declare ptr @SDL_GL_CreateContext_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_GL_DestroyContext_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_GL_DestroyContext_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_GL_ExtensionSupported_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_GL_ExtensionSupported_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_GL_GetAttribute_REAL(i32 noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GL_GetAttribute_REAL(i32 noundef, ptr noundef) #5
 
-declare ptr @SDL_GL_GetCurrentContext_REAL() #6
+declare ptr @SDL_GL_GetCurrentContext_REAL() #5
 
-declare ptr @SDL_GL_GetCurrentWindow_REAL() #6
+declare ptr @SDL_GL_GetCurrentWindow_REAL() #5
 
-declare ptr @SDL_GL_GetProcAddress_REAL(ptr noundef) #6
+declare ptr @SDL_GL_GetProcAddress_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_GL_GetSwapInterval_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_GL_GetSwapInterval_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_GL_LoadLibrary_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_GL_LoadLibrary_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_GL_MakeCurrent_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GL_MakeCurrent_REAL(ptr noundef, ptr noundef) #5
 
-declare void @SDL_GL_ResetAttributes_REAL() #6
+declare void @SDL_GL_ResetAttributes_REAL() #5
 
-declare zeroext i1 @SDL_GL_SetAttribute_REAL(i32 noundef, i32 noundef) #6
+declare zeroext i1 @SDL_GL_SetAttribute_REAL(i32 noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_GL_SetSwapInterval_REAL(i32 noundef) #6
+declare zeroext i1 @SDL_GL_SetSwapInterval_REAL(i32 noundef) #5
 
-declare zeroext i1 @SDL_GL_SwapWindow_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_GL_SwapWindow_REAL(ptr noundef) #5
 
-declare void @SDL_GL_UnloadLibrary_REAL() #6
+declare void @SDL_GL_UnloadLibrary_REAL() #5
 
-declare zeroext i1 @SDL_GPUSupportsProperties_REAL(i32 noundef) #6
+declare zeroext i1 @SDL_GPUSupportsProperties_REAL(i32 noundef) #5
 
-declare zeroext i1 @SDL_GPUSupportsShaderFormats_REAL(i32 noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GPUSupportsShaderFormats_REAL(i32 noundef, ptr noundef) #5
 
-declare i32 @SDL_GPUTextureFormatTexelBlockSize_REAL(i32 noundef) #6
+declare i32 @SDL_GPUTextureFormatTexelBlockSize_REAL(i32 noundef) #5
 
-declare zeroext i1 @SDL_GPUTextureSupportsFormat_REAL(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #6
+declare zeroext i1 @SDL_GPUTextureSupportsFormat_REAL(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_GPUTextureSupportsSampleCount_REAL(ptr noundef, i32 noundef, i32 noundef) #6
+declare zeroext i1 @SDL_GPUTextureSupportsSampleCount_REAL(ptr noundef, i32 noundef, i32 noundef) #5
 
-declare void @SDL_GUIDToString_REAL(i64, i64, ptr noundef, i32 noundef) #6
+declare void @SDL_GUIDToString_REAL(i64, i64, ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_GamepadConnected_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_GamepadConnected_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_GamepadEventsEnabled_REAL() #6
+declare zeroext i1 @SDL_GamepadEventsEnabled_REAL() #5
 
-declare zeroext i1 @SDL_GamepadHasAxis_REAL(ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_GamepadHasAxis_REAL(ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_GamepadHasButton_REAL(ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_GamepadHasButton_REAL(ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_GamepadHasSensor_REAL(ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_GamepadHasSensor_REAL(ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_GamepadSensorEnabled_REAL(ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_GamepadSensorEnabled_REAL(ptr noundef, i32 noundef) #5
 
-declare void @SDL_GenerateMipmapsForGPUTexture_REAL(ptr noundef, ptr noundef) #6
+declare void @SDL_GenerateMipmapsForGPUTexture_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_GetAndroidActivity_REAL() #6
+declare ptr @SDL_GetAndroidActivity_REAL() #5
 
-declare ptr @SDL_GetAndroidCachePath_REAL() #6
+declare ptr @SDL_GetAndroidCachePath_REAL() #5
 
-declare ptr @SDL_GetAndroidExternalStoragePath_REAL() #6
+declare ptr @SDL_GetAndroidExternalStoragePath_REAL() #5
 
-declare i32 @SDL_GetAndroidExternalStorageState_REAL() #6
+declare i32 @SDL_GetAndroidExternalStorageState_REAL() #5
 
-declare ptr @SDL_GetAndroidInternalStoragePath_REAL() #6
+declare ptr @SDL_GetAndroidInternalStoragePath_REAL() #5
 
-declare ptr @SDL_GetAndroidJNIEnv_REAL() #6
+declare ptr @SDL_GetAndroidJNIEnv_REAL() #5
 
-declare i32 @SDL_GetAndroidSDKVersion_REAL() #6
+declare i32 @SDL_GetAndroidSDKVersion_REAL() #5
 
-declare ptr @SDL_GetAppMetadataProperty_REAL(ptr noundef) #6
+declare ptr @SDL_GetAppMetadataProperty_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetAssertionHandler_REAL(ptr noundef) #6
+declare ptr @SDL_GetAssertionHandler_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetAssertionReport_REAL() #6
+declare ptr @SDL_GetAssertionReport_REAL() #5
 
-declare i32 @SDL_GetAtomicInt_REAL(ptr noundef) #6
+declare i32 @SDL_GetAtomicInt_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetAtomicPointer_REAL(ptr noundef) #6
+declare ptr @SDL_GetAtomicPointer_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetAtomicU32_REAL(ptr noundef) #6
+declare i32 @SDL_GetAtomicU32_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetAudioDeviceChannelMap_REAL(i32 noundef, ptr noundef) #6
+declare ptr @SDL_GetAudioDeviceChannelMap_REAL(i32 noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetAudioDeviceFormat_REAL(i32 noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetAudioDeviceFormat_REAL(i32 noundef, ptr noundef, ptr noundef) #5
 
-declare float @SDL_GetAudioDeviceGain_REAL(i32 noundef) #6
+declare float @SDL_GetAudioDeviceGain_REAL(i32 noundef) #5
 
-declare ptr @SDL_GetAudioDeviceName_REAL(i32 noundef) #6
+declare ptr @SDL_GetAudioDeviceName_REAL(i32 noundef) #5
 
-declare ptr @SDL_GetAudioDriver_REAL(i32 noundef) #6
+declare ptr @SDL_GetAudioDriver_REAL(i32 noundef) #5
 
-declare ptr @SDL_GetAudioFormatName_REAL(i32 noundef) #6
+declare ptr @SDL_GetAudioFormatName_REAL(i32 noundef) #5
 
-declare ptr @SDL_GetAudioPlaybackDevices_REAL(ptr noundef) #6
+declare ptr @SDL_GetAudioPlaybackDevices_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetAudioRecordingDevices_REAL(ptr noundef) #6
+declare ptr @SDL_GetAudioRecordingDevices_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetAudioStreamAvailable_REAL(ptr noundef) #6
+declare i32 @SDL_GetAudioStreamAvailable_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetAudioStreamData_REAL(ptr noundef, ptr noundef, i32 noundef) #6
+declare i32 @SDL_GetAudioStreamData_REAL(ptr noundef, ptr noundef, i32 noundef) #5
 
-declare i32 @SDL_GetAudioStreamDevice_REAL(ptr noundef) #6
+declare i32 @SDL_GetAudioStreamDevice_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_GetAudioStreamFormat_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetAudioStreamFormat_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare float @SDL_GetAudioStreamFrequencyRatio_REAL(ptr noundef) #6
+declare float @SDL_GetAudioStreamFrequencyRatio_REAL(ptr noundef) #5
 
-declare float @SDL_GetAudioStreamGain_REAL(ptr noundef) #6
+declare float @SDL_GetAudioStreamGain_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetAudioStreamInputChannelMap_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_GetAudioStreamInputChannelMap_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_GetAudioStreamOutputChannelMap_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_GetAudioStreamOutputChannelMap_REAL(ptr noundef, ptr noundef) #5
 
-declare i32 @SDL_GetAudioStreamProperties_REAL(ptr noundef) #6
+declare i32 @SDL_GetAudioStreamProperties_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetAudioStreamQueued_REAL(ptr noundef) #6
+declare i32 @SDL_GetAudioStreamQueued_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetBasePath_REAL() #6
+declare ptr @SDL_GetBasePath_REAL() #5
 
-declare zeroext i1 @SDL_GetBooleanProperty_REAL(i32 noundef, ptr noundef, i1 noundef zeroext) #6
+declare zeroext i1 @SDL_GetBooleanProperty_REAL(i32 noundef, ptr noundef, i1 noundef zeroext) #5
 
-declare i32 @SDL_GetCPUCacheLineSize_REAL() #6
+declare i32 @SDL_GetCPUCacheLineSize_REAL() #5
 
-declare ptr @SDL_GetCameraDriver_REAL(i32 noundef) #6
+declare ptr @SDL_GetCameraDriver_REAL(i32 noundef) #5
 
-declare zeroext i1 @SDL_GetCameraFormat_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetCameraFormat_REAL(ptr noundef, ptr noundef) #5
 
-declare i32 @SDL_GetCameraID_REAL(ptr noundef) #6
+declare i32 @SDL_GetCameraID_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetCameraName_REAL(i32 noundef) #6
+declare ptr @SDL_GetCameraName_REAL(i32 noundef) #5
 
-declare i32 @SDL_GetCameraPermissionState_REAL(ptr noundef) #6
+declare i32 @SDL_GetCameraPermissionState_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetCameraPosition_REAL(i32 noundef) #6
+declare i32 @SDL_GetCameraPosition_REAL(i32 noundef) #5
 
-declare i32 @SDL_GetCameraProperties_REAL(ptr noundef) #6
+declare i32 @SDL_GetCameraProperties_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetCameraSupportedFormats_REAL(i32 noundef, ptr noundef) #6
+declare ptr @SDL_GetCameraSupportedFormats_REAL(i32 noundef, ptr noundef) #5
 
-declare ptr @SDL_GetCameras_REAL(ptr noundef) #6
+declare ptr @SDL_GetCameras_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetClipboardData_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_GetClipboardData_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_GetClipboardMimeTypes_REAL(ptr noundef) #6
+declare ptr @SDL_GetClipboardMimeTypes_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetClipboardText_REAL() #6
+declare ptr @SDL_GetClipboardText_REAL() #5
 
-declare zeroext i1 @SDL_GetClosestFullscreenDisplayMode_REAL(i32 noundef, i32 noundef, i32 noundef, float noundef, i1 noundef zeroext, ptr noundef) #6
+declare zeroext i1 @SDL_GetClosestFullscreenDisplayMode_REAL(i32 noundef, i32 noundef, i32 noundef, float noundef, i1 noundef zeroext, ptr noundef) #5
 
-declare ptr @SDL_GetCurrentAudioDriver_REAL() #6
+declare ptr @SDL_GetCurrentAudioDriver_REAL() #5
 
-declare ptr @SDL_GetCurrentCameraDriver_REAL() #6
+declare ptr @SDL_GetCurrentCameraDriver_REAL() #5
 
-declare ptr @SDL_GetCurrentDisplayMode_REAL(i32 noundef) #6
+declare ptr @SDL_GetCurrentDisplayMode_REAL(i32 noundef) #5
 
-declare i32 @SDL_GetCurrentDisplayOrientation_REAL(i32 noundef) #6
+declare i32 @SDL_GetCurrentDisplayOrientation_REAL(i32 noundef) #5
 
-declare zeroext i1 @SDL_GetCurrentRenderOutputSize_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetCurrentRenderOutputSize_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare i64 @SDL_GetCurrentThreadID_REAL() #6
+declare i64 @SDL_GetCurrentThreadID_REAL() #5
 
-declare zeroext i1 @SDL_GetCurrentTime_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_GetCurrentTime_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetCurrentVideoDriver_REAL() #6
+declare ptr @SDL_GetCurrentVideoDriver_REAL() #5
 
-declare ptr @SDL_GetCursor_REAL() #6
+declare ptr @SDL_GetCursor_REAL() #5
 
-declare zeroext i1 @SDL_GetDXGIOutputInfo_REAL(i32 noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetDXGIOutputInfo_REAL(i32 noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetDateTimeLocalePreferences_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetDateTimeLocalePreferences_REAL(ptr noundef, ptr noundef) #5
 
-declare i32 @SDL_GetDayOfWeek_REAL(i32 noundef, i32 noundef, i32 noundef) #6
+declare i32 @SDL_GetDayOfWeek_REAL(i32 noundef, i32 noundef, i32 noundef) #5
 
-declare i32 @SDL_GetDayOfYear_REAL(i32 noundef, i32 noundef, i32 noundef) #6
+declare i32 @SDL_GetDayOfYear_REAL(i32 noundef, i32 noundef, i32 noundef) #5
 
-declare i32 @SDL_GetDaysInMonth_REAL(i32 noundef, i32 noundef) #6
+declare i32 @SDL_GetDaysInMonth_REAL(i32 noundef, i32 noundef) #5
 
-declare ptr @SDL_GetDefaultAssertionHandler_REAL() #6
+declare ptr @SDL_GetDefaultAssertionHandler_REAL() #5
 
-declare ptr @SDL_GetDefaultCursor_REAL() #6
+declare ptr @SDL_GetDefaultCursor_REAL() #5
 
-declare ptr @SDL_GetDesktopDisplayMode_REAL(i32 noundef) #6
+declare ptr @SDL_GetDesktopDisplayMode_REAL(i32 noundef) #5
 
-declare i32 @SDL_GetDirect3D9AdapterIndex_REAL(i32 noundef) #6
+declare i32 @SDL_GetDirect3D9AdapterIndex_REAL(i32 noundef) #5
 
-declare zeroext i1 @SDL_GetDisplayBounds_REAL(i32 noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetDisplayBounds_REAL(i32 noundef, ptr noundef) #5
 
-declare float @SDL_GetDisplayContentScale_REAL(i32 noundef) #6
+declare float @SDL_GetDisplayContentScale_REAL(i32 noundef) #5
 
-declare i32 @SDL_GetDisplayForPoint_REAL(ptr noundef) #6
+declare i32 @SDL_GetDisplayForPoint_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetDisplayForRect_REAL(ptr noundef) #6
+declare i32 @SDL_GetDisplayForRect_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetDisplayForWindow_REAL(ptr noundef) #6
+declare i32 @SDL_GetDisplayForWindow_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetDisplayName_REAL(i32 noundef) #6
+declare ptr @SDL_GetDisplayName_REAL(i32 noundef) #5
 
-declare i32 @SDL_GetDisplayProperties_REAL(i32 noundef) #6
+declare i32 @SDL_GetDisplayProperties_REAL(i32 noundef) #5
 
-declare zeroext i1 @SDL_GetDisplayUsableBounds_REAL(i32 noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetDisplayUsableBounds_REAL(i32 noundef, ptr noundef) #5
 
-declare ptr @SDL_GetDisplays_REAL(ptr noundef) #6
+declare ptr @SDL_GetDisplays_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetEnvironment_REAL() #6
+declare ptr @SDL_GetEnvironment_REAL() #5
 
-declare ptr @SDL_GetEnvironmentVariable_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_GetEnvironmentVariable_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_GetEnvironmentVariables_REAL(ptr noundef) #6
+declare ptr @SDL_GetEnvironmentVariables_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetError_REAL() #6
+declare ptr @SDL_GetError_REAL() #5
 
-declare zeroext i1 @SDL_GetEventFilter_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetEventFilter_REAL(ptr noundef, ptr noundef) #5
 
-declare float @SDL_GetFloatProperty_REAL(i32 noundef, ptr noundef, float noundef) #6
+declare float @SDL_GetFloatProperty_REAL(i32 noundef, ptr noundef, float noundef) #5
 
-declare ptr @SDL_GetFullscreenDisplayModes_REAL(i32 noundef, ptr noundef) #6
+declare ptr @SDL_GetFullscreenDisplayModes_REAL(i32 noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetGDKDefaultUser_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_GetGDKDefaultUser_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_GetGDKTaskQueue_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_GetGDKTaskQueue_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetGPUDeviceDriver_REAL(ptr noundef) #6
+declare ptr @SDL_GetGPUDeviceDriver_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetGPUDriver_REAL(i32 noundef) #6
+declare ptr @SDL_GetGPUDriver_REAL(i32 noundef) #5
 
-declare i32 @SDL_GetGPUShaderFormats_REAL(ptr noundef) #6
+declare i32 @SDL_GetGPUShaderFormats_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetGPUSwapchainTextureFormat_REAL(ptr noundef, ptr noundef) #6
+declare i32 @SDL_GetGPUSwapchainTextureFormat_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_GetGamepadAppleSFSymbolsNameForAxis_REAL(ptr noundef, i32 noundef) #6
+declare ptr @SDL_GetGamepadAppleSFSymbolsNameForAxis_REAL(ptr noundef, i32 noundef) #5
 
-declare ptr @SDL_GetGamepadAppleSFSymbolsNameForButton_REAL(ptr noundef, i32 noundef) #6
+declare ptr @SDL_GetGamepadAppleSFSymbolsNameForButton_REAL(ptr noundef, i32 noundef) #5
 
-declare signext i16 @SDL_GetGamepadAxis_REAL(ptr noundef, i32 noundef) #6
+declare signext i16 @SDL_GetGamepadAxis_REAL(ptr noundef, i32 noundef) #5
 
-declare i32 @SDL_GetGamepadAxisFromString_REAL(ptr noundef) #6
+declare i32 @SDL_GetGamepadAxisFromString_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetGamepadBindings_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_GetGamepadBindings_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetGamepadButton_REAL(ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_GetGamepadButton_REAL(ptr noundef, i32 noundef) #5
 
-declare i32 @SDL_GetGamepadButtonFromString_REAL(ptr noundef) #6
+declare i32 @SDL_GetGamepadButtonFromString_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetGamepadButtonLabel_REAL(ptr noundef, i32 noundef) #6
+declare i32 @SDL_GetGamepadButtonLabel_REAL(ptr noundef, i32 noundef) #5
 
-declare i32 @SDL_GetGamepadButtonLabelForType_REAL(i32 noundef, i32 noundef) #6
+declare i32 @SDL_GetGamepadButtonLabelForType_REAL(i32 noundef, i32 noundef) #5
 
-declare i32 @SDL_GetGamepadConnectionState_REAL(ptr noundef) #6
+declare i32 @SDL_GetGamepadConnectionState_REAL(ptr noundef) #5
 
-declare zeroext i16 @SDL_GetGamepadFirmwareVersion_REAL(ptr noundef) #6
+declare zeroext i16 @SDL_GetGamepadFirmwareVersion_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetGamepadFromID_REAL(i32 noundef) #6
+declare ptr @SDL_GetGamepadFromID_REAL(i32 noundef) #5
 
-declare ptr @SDL_GetGamepadFromPlayerIndex_REAL(i32 noundef) #6
+declare ptr @SDL_GetGamepadFromPlayerIndex_REAL(i32 noundef) #5
 
-declare { i64, i64 } @SDL_GetGamepadGUIDForID_REAL(i32 noundef) #6
+declare { i64, i64 } @SDL_GetGamepadGUIDForID_REAL(i32 noundef) #5
 
-declare i32 @SDL_GetGamepadID_REAL(ptr noundef) #6
+declare i32 @SDL_GetGamepadID_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetGamepadJoystick_REAL(ptr noundef) #6
+declare ptr @SDL_GetGamepadJoystick_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetGamepadMapping_REAL(ptr noundef) #6
+declare ptr @SDL_GetGamepadMapping_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetGamepadMappingForGUID_REAL(i64, i64) #6
+declare ptr @SDL_GetGamepadMappingForGUID_REAL(i64, i64) #5
 
-declare ptr @SDL_GetGamepadMappingForID_REAL(i32 noundef) #6
+declare ptr @SDL_GetGamepadMappingForID_REAL(i32 noundef) #5
 
-declare ptr @SDL_GetGamepadMappings_REAL(ptr noundef) #6
+declare ptr @SDL_GetGamepadMappings_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetGamepadName_REAL(ptr noundef) #6
+declare ptr @SDL_GetGamepadName_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetGamepadNameForID_REAL(i32 noundef) #6
+declare ptr @SDL_GetGamepadNameForID_REAL(i32 noundef) #5
 
-declare ptr @SDL_GetGamepadPath_REAL(ptr noundef) #6
+declare ptr @SDL_GetGamepadPath_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetGamepadPathForID_REAL(i32 noundef) #6
+declare ptr @SDL_GetGamepadPathForID_REAL(i32 noundef) #5
 
-declare i32 @SDL_GetGamepadPlayerIndex_REAL(ptr noundef) #6
+declare i32 @SDL_GetGamepadPlayerIndex_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetGamepadPlayerIndexForID_REAL(i32 noundef) #6
+declare i32 @SDL_GetGamepadPlayerIndexForID_REAL(i32 noundef) #5
 
-declare i32 @SDL_GetGamepadPowerInfo_REAL(ptr noundef, ptr noundef) #6
+declare i32 @SDL_GetGamepadPowerInfo_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i16 @SDL_GetGamepadProduct_REAL(ptr noundef) #6
+declare zeroext i16 @SDL_GetGamepadProduct_REAL(ptr noundef) #5
 
-declare zeroext i16 @SDL_GetGamepadProductForID_REAL(i32 noundef) #6
+declare zeroext i16 @SDL_GetGamepadProductForID_REAL(i32 noundef) #5
 
-declare zeroext i16 @SDL_GetGamepadProductVersion_REAL(ptr noundef) #6
+declare zeroext i16 @SDL_GetGamepadProductVersion_REAL(ptr noundef) #5
 
-declare zeroext i16 @SDL_GetGamepadProductVersionForID_REAL(i32 noundef) #6
+declare zeroext i16 @SDL_GetGamepadProductVersionForID_REAL(i32 noundef) #5
 
-declare i32 @SDL_GetGamepadProperties_REAL(ptr noundef) #6
+declare i32 @SDL_GetGamepadProperties_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_GetGamepadSensorData_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_GetGamepadSensorData_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #5
 
-declare float @SDL_GetGamepadSensorDataRate_REAL(ptr noundef, i32 noundef) #6
+declare float @SDL_GetGamepadSensorDataRate_REAL(ptr noundef, i32 noundef) #5
 
-declare ptr @SDL_GetGamepadSerial_REAL(ptr noundef) #6
+declare ptr @SDL_GetGamepadSerial_REAL(ptr noundef) #5
 
-declare i64 @SDL_GetGamepadSteamHandle_REAL(ptr noundef) #6
+declare i64 @SDL_GetGamepadSteamHandle_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetGamepadStringForAxis_REAL(i32 noundef) #6
+declare ptr @SDL_GetGamepadStringForAxis_REAL(i32 noundef) #5
 
-declare ptr @SDL_GetGamepadStringForButton_REAL(i32 noundef) #6
+declare ptr @SDL_GetGamepadStringForButton_REAL(i32 noundef) #5
 
-declare ptr @SDL_GetGamepadStringForType_REAL(i32 noundef) #6
+declare ptr @SDL_GetGamepadStringForType_REAL(i32 noundef) #5
 
-declare zeroext i1 @SDL_GetGamepadTouchpadFinger_REAL(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetGamepadTouchpadFinger_REAL(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare i32 @SDL_GetGamepadType_REAL(ptr noundef) #6
+declare i32 @SDL_GetGamepadType_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetGamepadTypeForID_REAL(i32 noundef) #6
+declare i32 @SDL_GetGamepadTypeForID_REAL(i32 noundef) #5
 
-declare i32 @SDL_GetGamepadTypeFromString_REAL(ptr noundef) #6
+declare i32 @SDL_GetGamepadTypeFromString_REAL(ptr noundef) #5
 
-declare zeroext i16 @SDL_GetGamepadVendor_REAL(ptr noundef) #6
+declare zeroext i16 @SDL_GetGamepadVendor_REAL(ptr noundef) #5
 
-declare zeroext i16 @SDL_GetGamepadVendorForID_REAL(i32 noundef) #6
+declare zeroext i16 @SDL_GetGamepadVendorForID_REAL(i32 noundef) #5
 
-declare ptr @SDL_GetGamepads_REAL(ptr noundef) #6
+declare ptr @SDL_GetGamepads_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetGlobalMouseState_REAL(ptr noundef, ptr noundef) #6
+declare i32 @SDL_GetGlobalMouseState_REAL(ptr noundef, ptr noundef) #5
 
-declare i32 @SDL_GetGlobalProperties_REAL() #6
+declare i32 @SDL_GetGlobalProperties_REAL() #5
 
-declare ptr @SDL_GetGrabbedWindow_REAL() #6
+declare ptr @SDL_GetGrabbedWindow_REAL() #5
 
-declare zeroext i1 @SDL_GetHapticEffectStatus_REAL(ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_GetHapticEffectStatus_REAL(ptr noundef, i32 noundef) #5
 
-declare i32 @SDL_GetHapticFeatures_REAL(ptr noundef) #6
+declare i32 @SDL_GetHapticFeatures_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetHapticFromID_REAL(i32 noundef) #6
+declare ptr @SDL_GetHapticFromID_REAL(i32 noundef) #5
 
-declare i32 @SDL_GetHapticID_REAL(ptr noundef) #6
+declare i32 @SDL_GetHapticID_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetHapticName_REAL(ptr noundef) #6
+declare ptr @SDL_GetHapticName_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetHapticNameForID_REAL(i32 noundef) #6
+declare ptr @SDL_GetHapticNameForID_REAL(i32 noundef) #5
 
-declare ptr @SDL_GetHaptics_REAL(ptr noundef) #6
+declare ptr @SDL_GetHaptics_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetHint_REAL(ptr noundef) #6
+declare ptr @SDL_GetHint_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) #6
+declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) #5
 
-declare i32 @SDL_GetIOProperties_REAL(ptr noundef) #6
+declare i32 @SDL_GetIOProperties_REAL(ptr noundef) #5
 
-declare i64 @SDL_GetIOSize_REAL(ptr noundef) #6
+declare i64 @SDL_GetIOSize_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetIOStatus_REAL(ptr noundef) #6
+declare i32 @SDL_GetIOStatus_REAL(ptr noundef) #5
 
-declare signext i16 @SDL_GetJoystickAxis_REAL(ptr noundef, i32 noundef) #6
+declare signext i16 @SDL_GetJoystickAxis_REAL(ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_GetJoystickAxisInitialState_REAL(ptr noundef, i32 noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetJoystickAxisInitialState_REAL(ptr noundef, i32 noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetJoystickBall_REAL(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetJoystickBall_REAL(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetJoystickButton_REAL(ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_GetJoystickButton_REAL(ptr noundef, i32 noundef) #5
 
-declare i32 @SDL_GetJoystickConnectionState_REAL(ptr noundef) #6
+declare i32 @SDL_GetJoystickConnectionState_REAL(ptr noundef) #5
 
-declare zeroext i16 @SDL_GetJoystickFirmwareVersion_REAL(ptr noundef) #6
+declare zeroext i16 @SDL_GetJoystickFirmwareVersion_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetJoystickFromID_REAL(i32 noundef) #6
+declare ptr @SDL_GetJoystickFromID_REAL(i32 noundef) #5
 
-declare ptr @SDL_GetJoystickFromPlayerIndex_REAL(i32 noundef) #6
+declare ptr @SDL_GetJoystickFromPlayerIndex_REAL(i32 noundef) #5
 
-declare { i64, i64 } @SDL_GetJoystickGUID_REAL(ptr noundef) #6
+declare { i64, i64 } @SDL_GetJoystickGUID_REAL(ptr noundef) #5
 
-declare { i64, i64 } @SDL_GetJoystickGUIDForID_REAL(i32 noundef) #6
+declare { i64, i64 } @SDL_GetJoystickGUIDForID_REAL(i32 noundef) #5
 
-declare void @SDL_GetJoystickGUIDInfo_REAL(i64, i64, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare void @SDL_GetJoystickGUIDInfo_REAL(i64, i64, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i8 @SDL_GetJoystickHat_REAL(ptr noundef, i32 noundef) #6
+declare zeroext i8 @SDL_GetJoystickHat_REAL(ptr noundef, i32 noundef) #5
 
-declare i32 @SDL_GetJoystickID_REAL(ptr noundef) #6
+declare i32 @SDL_GetJoystickID_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetJoystickName_REAL(ptr noundef) #6
+declare ptr @SDL_GetJoystickName_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetJoystickNameForID_REAL(i32 noundef) #6
+declare ptr @SDL_GetJoystickNameForID_REAL(i32 noundef) #5
 
-declare ptr @SDL_GetJoystickPath_REAL(ptr noundef) #6
+declare ptr @SDL_GetJoystickPath_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetJoystickPathForID_REAL(i32 noundef) #6
+declare ptr @SDL_GetJoystickPathForID_REAL(i32 noundef) #5
 
-declare i32 @SDL_GetJoystickPlayerIndex_REAL(ptr noundef) #6
+declare i32 @SDL_GetJoystickPlayerIndex_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetJoystickPlayerIndexForID_REAL(i32 noundef) #6
+declare i32 @SDL_GetJoystickPlayerIndexForID_REAL(i32 noundef) #5
 
-declare i32 @SDL_GetJoystickPowerInfo_REAL(ptr noundef, ptr noundef) #6
+declare i32 @SDL_GetJoystickPowerInfo_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i16 @SDL_GetJoystickProduct_REAL(ptr noundef) #6
+declare zeroext i16 @SDL_GetJoystickProduct_REAL(ptr noundef) #5
 
-declare zeroext i16 @SDL_GetJoystickProductForID_REAL(i32 noundef) #6
+declare zeroext i16 @SDL_GetJoystickProductForID_REAL(i32 noundef) #5
 
-declare zeroext i16 @SDL_GetJoystickProductVersion_REAL(ptr noundef) #6
+declare zeroext i16 @SDL_GetJoystickProductVersion_REAL(ptr noundef) #5
 
-declare zeroext i16 @SDL_GetJoystickProductVersionForID_REAL(i32 noundef) #6
+declare zeroext i16 @SDL_GetJoystickProductVersionForID_REAL(i32 noundef) #5
 
-declare i32 @SDL_GetJoystickProperties_REAL(ptr noundef) #6
+declare i32 @SDL_GetJoystickProperties_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetJoystickSerial_REAL(ptr noundef) #6
+declare ptr @SDL_GetJoystickSerial_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetJoystickType_REAL(ptr noundef) #6
+declare i32 @SDL_GetJoystickType_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetJoystickTypeForID_REAL(i32 noundef) #6
+declare i32 @SDL_GetJoystickTypeForID_REAL(i32 noundef) #5
 
-declare zeroext i16 @SDL_GetJoystickVendor_REAL(ptr noundef) #6
+declare zeroext i16 @SDL_GetJoystickVendor_REAL(ptr noundef) #5
 
-declare zeroext i16 @SDL_GetJoystickVendorForID_REAL(i32 noundef) #6
+declare zeroext i16 @SDL_GetJoystickVendorForID_REAL(i32 noundef) #5
 
-declare ptr @SDL_GetJoysticks_REAL(ptr noundef) #6
+declare ptr @SDL_GetJoysticks_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetKeyFromName_REAL(ptr noundef) #6
+declare i32 @SDL_GetKeyFromName_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetKeyFromScancode_REAL(i32 noundef, i16 noundef zeroext, i1 noundef zeroext) #6
+declare i32 @SDL_GetKeyFromScancode_REAL(i32 noundef, i16 noundef zeroext, i1 noundef zeroext) #5
 
-declare ptr @SDL_GetKeyName_REAL(i32 noundef) #6
+declare ptr @SDL_GetKeyName_REAL(i32 noundef) #5
 
-declare ptr @SDL_GetKeyboardFocus_REAL() #6
+declare ptr @SDL_GetKeyboardFocus_REAL() #5
 
-declare ptr @SDL_GetKeyboardNameForID_REAL(i32 noundef) #6
+declare ptr @SDL_GetKeyboardNameForID_REAL(i32 noundef) #5
 
-declare ptr @SDL_GetKeyboardState_REAL(ptr noundef) #6
+declare ptr @SDL_GetKeyboardState_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetKeyboards_REAL(ptr noundef) #6
+declare ptr @SDL_GetKeyboards_REAL(ptr noundef) #5
 
-declare void @SDL_GetLogOutputFunction_REAL(ptr noundef, ptr noundef) #6
+declare void @SDL_GetLogOutputFunction_REAL(ptr noundef, ptr noundef) #5
 
-declare i32 @SDL_GetLogPriority_REAL(i32 noundef) #6
+declare i32 @SDL_GetLogPriority_REAL(i32 noundef) #5
 
-declare zeroext i1 @SDL_GetMasksForPixelFormat_REAL(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetMasksForPixelFormat_REAL(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare i32 @SDL_GetMaxHapticEffects_REAL(ptr noundef) #6
+declare i32 @SDL_GetMaxHapticEffects_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetMaxHapticEffectsPlaying_REAL(ptr noundef) #6
+declare i32 @SDL_GetMaxHapticEffectsPlaying_REAL(ptr noundef) #5
 
-declare void @SDL_GetMemoryFunctions_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare void @SDL_GetMemoryFunctions_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_GetMice_REAL(ptr noundef) #6
+declare ptr @SDL_GetMice_REAL(ptr noundef) #5
 
-declare zeroext i16 @SDL_GetModState_REAL() #6
+declare zeroext i16 @SDL_GetModState_REAL() #5
 
-declare ptr @SDL_GetMouseFocus_REAL() #6
+declare ptr @SDL_GetMouseFocus_REAL() #5
 
-declare ptr @SDL_GetMouseNameForID_REAL(i32 noundef) #6
+declare ptr @SDL_GetMouseNameForID_REAL(i32 noundef) #5
 
-declare i32 @SDL_GetMouseState_REAL(ptr noundef, ptr noundef) #6
+declare i32 @SDL_GetMouseState_REAL(ptr noundef, ptr noundef) #5
 
-declare i32 @SDL_GetNaturalDisplayOrientation_REAL(i32 noundef) #6
+declare i32 @SDL_GetNaturalDisplayOrientation_REAL(i32 noundef) #5
 
-declare i32 @SDL_GetNumAllocations_REAL() #6
+declare i32 @SDL_GetNumAllocations_REAL() #5
 
-declare i32 @SDL_GetNumAudioDrivers_REAL() #6
+declare i32 @SDL_GetNumAudioDrivers_REAL() #5
 
-declare i32 @SDL_GetNumCameraDrivers_REAL() #6
+declare i32 @SDL_GetNumCameraDrivers_REAL() #5
 
-declare i32 @SDL_GetNumGPUDrivers_REAL() #6
+declare i32 @SDL_GetNumGPUDrivers_REAL() #5
 
-declare i32 @SDL_GetNumGamepadTouchpadFingers_REAL(ptr noundef, i32 noundef) #6
+declare i32 @SDL_GetNumGamepadTouchpadFingers_REAL(ptr noundef, i32 noundef) #5
 
-declare i32 @SDL_GetNumGamepadTouchpads_REAL(ptr noundef) #6
+declare i32 @SDL_GetNumGamepadTouchpads_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetNumHapticAxes_REAL(ptr noundef) #6
+declare i32 @SDL_GetNumHapticAxes_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetNumJoystickAxes_REAL(ptr noundef) #6
+declare i32 @SDL_GetNumJoystickAxes_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetNumJoystickBalls_REAL(ptr noundef) #6
+declare i32 @SDL_GetNumJoystickBalls_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetNumJoystickButtons_REAL(ptr noundef) #6
+declare i32 @SDL_GetNumJoystickButtons_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetNumJoystickHats_REAL(ptr noundef) #6
+declare i32 @SDL_GetNumJoystickHats_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetNumLogicalCPUCores_REAL() #6
+declare i32 @SDL_GetNumLogicalCPUCores_REAL() #5
 
-declare i32 @SDL_GetNumRenderDrivers_REAL() #6
+declare i32 @SDL_GetNumRenderDrivers_REAL() #5
 
-declare i32 @SDL_GetNumVideoDrivers_REAL() #6
+declare i32 @SDL_GetNumVideoDrivers_REAL() #5
 
-declare i64 @SDL_GetNumberProperty_REAL(i32 noundef, ptr noundef, i64 noundef) #6
+declare i64 @SDL_GetNumberProperty_REAL(i32 noundef, ptr noundef, i64 noundef) #5
 
-declare void @SDL_GetOriginalMemoryFunctions_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare void @SDL_GetOriginalMemoryFunctions_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetPathInfo_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetPathInfo_REAL(ptr noundef, ptr noundef) #5
 
-declare i64 @SDL_GetPerformanceCounter_REAL() #6
+declare i64 @SDL_GetPerformanceCounter_REAL() #5
 
-declare i64 @SDL_GetPerformanceFrequency_REAL() #6
+declare i64 @SDL_GetPerformanceFrequency_REAL() #5
 
-declare ptr @SDL_GetPixelFormatDetails_REAL(i32 noundef) #6
+declare ptr @SDL_GetPixelFormatDetails_REAL(i32 noundef) #5
 
-declare i32 @SDL_GetPixelFormatForMasks_REAL(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #6
+declare i32 @SDL_GetPixelFormatForMasks_REAL(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #5
 
-declare ptr @SDL_GetPixelFormatName_REAL(i32 noundef) #6
+declare ptr @SDL_GetPixelFormatName_REAL(i32 noundef) #5
 
-declare ptr @SDL_GetPlatform_REAL() #6
+declare ptr @SDL_GetPlatform_REAL() #5
 
-declare ptr @SDL_GetPointerProperty_REAL(i32 noundef, ptr noundef, ptr noundef) #6
+declare ptr @SDL_GetPointerProperty_REAL(i32 noundef, ptr noundef, ptr noundef) #5
 
-declare i32 @SDL_GetPowerInfo_REAL(ptr noundef, ptr noundef) #6
+declare i32 @SDL_GetPowerInfo_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_GetPrefPath_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_GetPrefPath_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_GetPreferredLocales_REAL(ptr noundef) #6
+declare ptr @SDL_GetPreferredLocales_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetPrimaryDisplay_REAL() #6
+declare i32 @SDL_GetPrimaryDisplay_REAL() #5
 
-declare ptr @SDL_GetPrimarySelectionText_REAL() #6
+declare ptr @SDL_GetPrimarySelectionText_REAL() #5
 
-declare ptr @SDL_GetProcessInput_REAL(ptr noundef) #6
+declare ptr @SDL_GetProcessInput_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetProcessOutput_REAL(ptr noundef) #6
+declare ptr @SDL_GetProcessOutput_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetProcessProperties_REAL(ptr noundef) #6
+declare i32 @SDL_GetProcessProperties_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetPropertyType_REAL(i32 noundef, ptr noundef) #6
+declare i32 @SDL_GetPropertyType_REAL(i32 noundef, ptr noundef) #5
 
-declare void @SDL_GetRGB_REAL(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare void @SDL_GetRGB_REAL(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare void @SDL_GetRGBA_REAL(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare void @SDL_GetRGBA_REAL(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare i32 @SDL_GetRealGamepadType_REAL(ptr noundef) #6
+declare i32 @SDL_GetRealGamepadType_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetRealGamepadTypeForID_REAL(i32 noundef) #6
+declare i32 @SDL_GetRealGamepadTypeForID_REAL(i32 noundef) #5
 
-declare zeroext i1 @SDL_GetRectAndLineIntersection_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetRectAndLineIntersection_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetRectAndLineIntersectionFloat_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetRectAndLineIntersectionFloat_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetRectEnclosingPoints_REAL(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetRectEnclosingPoints_REAL(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetRectEnclosingPointsFloat_REAL(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetRectEnclosingPointsFloat_REAL(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetRectIntersectionFloat_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetRectIntersectionFloat_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetRectUnion_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetRectUnion_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetRectUnionFloat_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetRectUnionFloat_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare i32 @SDL_GetRelativeMouseState_REAL(ptr noundef, ptr noundef) #6
+declare i32 @SDL_GetRelativeMouseState_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetRenderClipRect_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetRenderClipRect_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetRenderColorScale_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetRenderColorScale_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetRenderDrawBlendMode_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetRenderDrawBlendMode_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetRenderDrawColor_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetRenderDrawColor_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetRenderDrawColorFloat_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetRenderDrawColorFloat_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_GetRenderDriver_REAL(i32 noundef) #6
+declare ptr @SDL_GetRenderDriver_REAL(i32 noundef) #5
 
-declare zeroext i1 @SDL_GetRenderLogicalPresentation_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetRenderLogicalPresentation_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetRenderLogicalPresentationRect_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetRenderLogicalPresentationRect_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_GetRenderMetalCommandEncoder_REAL(ptr noundef) #6
+declare ptr @SDL_GetRenderMetalCommandEncoder_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetRenderMetalLayer_REAL(ptr noundef) #6
+declare ptr @SDL_GetRenderMetalLayer_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_GetRenderOutputSize_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetRenderOutputSize_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetRenderSafeArea_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetRenderSafeArea_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetRenderScale_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetRenderScale_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_GetRenderTarget_REAL(ptr noundef) #6
+declare ptr @SDL_GetRenderTarget_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_GetRenderVSync_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetRenderVSync_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetRenderViewport_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetRenderViewport_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_GetRenderWindow_REAL(ptr noundef) #6
+declare ptr @SDL_GetRenderWindow_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetRenderer_REAL(ptr noundef) #6
+declare ptr @SDL_GetRenderer_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetRendererFromTexture_REAL(ptr noundef) #6
+declare ptr @SDL_GetRendererFromTexture_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetRendererName_REAL(ptr noundef) #6
+declare ptr @SDL_GetRendererName_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetRendererProperties_REAL(ptr noundef) #6
+declare i32 @SDL_GetRendererProperties_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetRevision_REAL() #6
+declare ptr @SDL_GetRevision_REAL() #5
 
-declare i64 @SDL_GetSIMDAlignment_REAL() #6
+declare i64 @SDL_GetSIMDAlignment_REAL() #5
 
-declare i32 @SDL_GetScancodeFromKey_REAL(i32 noundef, ptr noundef) #6
+declare i32 @SDL_GetScancodeFromKey_REAL(i32 noundef, ptr noundef) #5
 
-declare i32 @SDL_GetScancodeFromName_REAL(ptr noundef) #6
+declare i32 @SDL_GetScancodeFromName_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetScancodeName_REAL(i32 noundef) #6
+declare ptr @SDL_GetScancodeName_REAL(i32 noundef) #5
 
-declare i32 @SDL_GetSemaphoreValue_REAL(ptr noundef) #6
+declare i32 @SDL_GetSemaphoreValue_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_GetSensorData_REAL(ptr noundef, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_GetSensorData_REAL(ptr noundef, ptr noundef, i32 noundef) #5
 
-declare ptr @SDL_GetSensorFromID_REAL(i32 noundef) #6
+declare ptr @SDL_GetSensorFromID_REAL(i32 noundef) #5
 
-declare i32 @SDL_GetSensorID_REAL(ptr noundef) #6
+declare i32 @SDL_GetSensorID_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetSensorName_REAL(ptr noundef) #6
+declare ptr @SDL_GetSensorName_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetSensorNameForID_REAL(i32 noundef) #6
+declare ptr @SDL_GetSensorNameForID_REAL(i32 noundef) #5
 
-declare i32 @SDL_GetSensorNonPortableType_REAL(ptr noundef) #6
+declare i32 @SDL_GetSensorNonPortableType_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetSensorNonPortableTypeForID_REAL(i32 noundef) #6
+declare i32 @SDL_GetSensorNonPortableTypeForID_REAL(i32 noundef) #5
 
-declare i32 @SDL_GetSensorProperties_REAL(ptr noundef) #6
+declare i32 @SDL_GetSensorProperties_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetSensorType_REAL(ptr noundef) #6
+declare i32 @SDL_GetSensorType_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetSensorTypeForID_REAL(i32 noundef) #6
+declare i32 @SDL_GetSensorTypeForID_REAL(i32 noundef) #5
 
-declare ptr @SDL_GetSensors_REAL(ptr noundef) #6
+declare ptr @SDL_GetSensors_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetSilenceValueForFormat_REAL(i32 noundef) #6
+declare i32 @SDL_GetSilenceValueForFormat_REAL(i32 noundef) #5
 
-declare zeroext i1 @SDL_GetStorageFileSize_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetStorageFileSize_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetStoragePathInfo_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetStoragePathInfo_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare i64 @SDL_GetStorageSpaceRemaining_REAL(ptr noundef) #6
+declare i64 @SDL_GetStorageSpaceRemaining_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetStringProperty_REAL(i32 noundef, ptr noundef, ptr noundef) #6
+declare ptr @SDL_GetStringProperty_REAL(i32 noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetSurfaceAlphaMod_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetSurfaceAlphaMod_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetSurfaceBlendMode_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetSurfaceBlendMode_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetSurfaceClipRect_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetSurfaceClipRect_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetSurfaceColorKey_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetSurfaceColorKey_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetSurfaceColorMod_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetSurfaceColorMod_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare i32 @SDL_GetSurfaceColorspace_REAL(ptr noundef) #6
+declare i32 @SDL_GetSurfaceColorspace_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetSurfaceImages_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_GetSurfaceImages_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_GetSurfacePalette_REAL(ptr noundef) #6
+declare ptr @SDL_GetSurfacePalette_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetSurfaceProperties_REAL(ptr noundef) #6
+declare i32 @SDL_GetSurfaceProperties_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetSystemRAM_REAL() #6
+declare i32 @SDL_GetSystemRAM_REAL() #5
 
-declare i32 @SDL_GetSystemTheme_REAL() #6
+declare i32 @SDL_GetSystemTheme_REAL() #5
 
-declare ptr @SDL_GetTLS_REAL(ptr noundef) #6
+declare ptr @SDL_GetTLS_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_GetTextInputArea_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetTextInputArea_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetTextureAlphaMod_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetTextureAlphaMod_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetTextureAlphaModFloat_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetTextureAlphaModFloat_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetTextureBlendMode_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetTextureBlendMode_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetTextureColorMod_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetTextureColorMod_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetTextureColorModFloat_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetTextureColorModFloat_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare i32 @SDL_GetTextureProperties_REAL(ptr noundef) #6
+declare i32 @SDL_GetTextureProperties_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_GetTextureScaleMode_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetTextureScaleMode_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetTextureSize_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetTextureSize_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare i64 @SDL_GetThreadID_REAL(ptr noundef) #6
+declare i64 @SDL_GetThreadID_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetThreadName_REAL(ptr noundef) #6
+declare ptr @SDL_GetThreadName_REAL(ptr noundef) #5
 
-declare i64 @SDL_GetTicks_REAL() #6
+declare i64 @SDL_GetTicks_REAL() #5
 
-declare i64 @SDL_GetTicksNS_REAL() #6
+declare i64 @SDL_GetTicksNS_REAL() #5
 
-declare ptr @SDL_GetTouchDeviceName_REAL(i64 noundef) #6
+declare ptr @SDL_GetTouchDeviceName_REAL(i64 noundef) #5
 
-declare i32 @SDL_GetTouchDeviceType_REAL(i64 noundef) #6
+declare i32 @SDL_GetTouchDeviceType_REAL(i64 noundef) #5
 
-declare ptr @SDL_GetTouchDevices_REAL(ptr noundef) #6
+declare ptr @SDL_GetTouchDevices_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetTouchFingers_REAL(i64 noundef, ptr noundef) #6
+declare ptr @SDL_GetTouchFingers_REAL(i64 noundef, ptr noundef) #5
 
-declare ptr @SDL_GetUserFolder_REAL(i32 noundef) #6
+declare ptr @SDL_GetUserFolder_REAL(i32 noundef) #5
 
-declare i32 @SDL_GetVersion_REAL() #6
+declare i32 @SDL_GetVersion_REAL() #5
 
-declare ptr @SDL_GetVideoDriver_REAL(i32 noundef) #6
+declare ptr @SDL_GetVideoDriver_REAL(i32 noundef) #5
 
-declare zeroext i1 @SDL_GetWindowAspectRatio_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetWindowAspectRatio_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetWindowBordersSize_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetWindowBordersSize_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare float @SDL_GetWindowDisplayScale_REAL(ptr noundef) #6
+declare float @SDL_GetWindowDisplayScale_REAL(ptr noundef) #5
 
-declare i64 @SDL_GetWindowFlags_REAL(ptr noundef) #6
+declare i64 @SDL_GetWindowFlags_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetWindowFromEvent_REAL(ptr noundef) #6
+declare ptr @SDL_GetWindowFromEvent_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetWindowFromID_REAL(i32 noundef) #6
+declare ptr @SDL_GetWindowFromID_REAL(i32 noundef) #5
 
-declare ptr @SDL_GetWindowFullscreenMode_REAL(ptr noundef) #6
+declare ptr @SDL_GetWindowFullscreenMode_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetWindowICCProfile_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_GetWindowICCProfile_REAL(ptr noundef, ptr noundef) #5
 
-declare i32 @SDL_GetWindowID_REAL(ptr noundef) #6
+declare i32 @SDL_GetWindowID_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_GetWindowKeyboardGrab_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_GetWindowKeyboardGrab_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_GetWindowMaximumSize_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetWindowMaximumSize_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetWindowMinimumSize_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetWindowMinimumSize_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetWindowMouseGrab_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_GetWindowMouseGrab_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetWindowMouseRect_REAL(ptr noundef) #6
+declare ptr @SDL_GetWindowMouseRect_REAL(ptr noundef) #5
 
-declare float @SDL_GetWindowOpacity_REAL(ptr noundef) #6
+declare float @SDL_GetWindowOpacity_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetWindowParent_REAL(ptr noundef) #6
+declare ptr @SDL_GetWindowParent_REAL(ptr noundef) #5
 
-declare float @SDL_GetWindowPixelDensity_REAL(ptr noundef) #6
+declare float @SDL_GetWindowPixelDensity_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetWindowPixelFormat_REAL(ptr noundef) #6
+declare i32 @SDL_GetWindowPixelFormat_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_GetWindowPosition_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetWindowPosition_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare i32 @SDL_GetWindowProperties_REAL(ptr noundef) #6
+declare i32 @SDL_GetWindowProperties_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_GetWindowRelativeMouseMode_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_GetWindowRelativeMouseMode_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_GetWindowSafeArea_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetWindowSafeArea_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetWindowSize_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetWindowSize_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_GetWindowSurface_REAL(ptr noundef) #6
+declare ptr @SDL_GetWindowSurface_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_GetWindowSurfaceVSync_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetWindowSurfaceVSync_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_GetWindowTitle_REAL(ptr noundef) #6
+declare ptr @SDL_GetWindowTitle_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetWindows_REAL(ptr noundef) #6
+declare ptr @SDL_GetWindows_REAL(ptr noundef) #5
 
-declare ptr @SDL_GlobDirectory_REAL(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #6
+declare ptr @SDL_GlobDirectory_REAL(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #5
 
-declare ptr @SDL_GlobStorageDirectory_REAL(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #6
+declare ptr @SDL_GlobStorageDirectory_REAL(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_HapticEffectSupported_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_HapticEffectSupported_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_HapticRumbleSupported_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_HapticRumbleSupported_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_HasARMSIMD_REAL() #6
+declare zeroext i1 @SDL_HasARMSIMD_REAL() #5
 
-declare zeroext i1 @SDL_HasAVX_REAL() #6
+declare zeroext i1 @SDL_HasAVX_REAL() #5
 
-declare zeroext i1 @SDL_HasAVX2_REAL() #6
+declare zeroext i1 @SDL_HasAVX2_REAL() #5
 
-declare zeroext i1 @SDL_HasAVX512F_REAL() #6
+declare zeroext i1 @SDL_HasAVX512F_REAL() #5
 
-declare zeroext i1 @SDL_HasAltiVec_REAL() #6
+declare zeroext i1 @SDL_HasAltiVec_REAL() #5
 
-declare zeroext i1 @SDL_HasClipboardData_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_HasClipboardData_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_HasClipboardText_REAL() #6
+declare zeroext i1 @SDL_HasClipboardText_REAL() #5
 
-declare zeroext i1 @SDL_HasEvent_REAL(i32 noundef) #6
+declare zeroext i1 @SDL_HasEvent_REAL(i32 noundef) #5
 
-declare zeroext i1 @SDL_HasEvents_REAL(i32 noundef, i32 noundef) #6
+declare zeroext i1 @SDL_HasEvents_REAL(i32 noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_HasGamepad_REAL() #6
+declare zeroext i1 @SDL_HasGamepad_REAL() #5
 
-declare zeroext i1 @SDL_HasJoystick_REAL() #6
+declare zeroext i1 @SDL_HasJoystick_REAL() #5
 
-declare zeroext i1 @SDL_HasKeyboard_REAL() #6
+declare zeroext i1 @SDL_HasKeyboard_REAL() #5
 
-declare zeroext i1 @SDL_HasLASX_REAL() #6
+declare zeroext i1 @SDL_HasLASX_REAL() #5
 
-declare zeroext i1 @SDL_HasLSX_REAL() #6
+declare zeroext i1 @SDL_HasLSX_REAL() #5
 
-declare zeroext i1 @SDL_HasMMX_REAL() #6
+declare zeroext i1 @SDL_HasMMX_REAL() #5
 
-declare zeroext i1 @SDL_HasMouse_REAL() #6
+declare zeroext i1 @SDL_HasMouse_REAL() #5
 
-declare zeroext i1 @SDL_HasNEON_REAL() #6
+declare zeroext i1 @SDL_HasNEON_REAL() #5
 
-declare zeroext i1 @SDL_HasPrimarySelectionText_REAL() #6
+declare zeroext i1 @SDL_HasPrimarySelectionText_REAL() #5
 
-declare zeroext i1 @SDL_HasProperty_REAL(i32 noundef, ptr noundef) #6
+declare zeroext i1 @SDL_HasProperty_REAL(i32 noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_HasRectIntersection_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_HasRectIntersection_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_HasRectIntersectionFloat_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_HasRectIntersectionFloat_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_HasSSE_REAL() #6
+declare zeroext i1 @SDL_HasSSE_REAL() #5
 
-declare zeroext i1 @SDL_HasSSE2_REAL() #6
+declare zeroext i1 @SDL_HasSSE2_REAL() #5
 
-declare zeroext i1 @SDL_HasSSE3_REAL() #6
+declare zeroext i1 @SDL_HasSSE3_REAL() #5
 
-declare zeroext i1 @SDL_HasSSE41_REAL() #6
+declare zeroext i1 @SDL_HasSSE41_REAL() #5
 
-declare zeroext i1 @SDL_HasSSE42_REAL() #6
+declare zeroext i1 @SDL_HasSSE42_REAL() #5
 
-declare zeroext i1 @SDL_HasScreenKeyboardSupport_REAL() #6
+declare zeroext i1 @SDL_HasScreenKeyboardSupport_REAL() #5
 
-declare zeroext i1 @SDL_HideCursor_REAL() #6
+declare zeroext i1 @SDL_HideCursor_REAL() #5
 
-declare zeroext i1 @SDL_HideWindow_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_HideWindow_REAL(ptr noundef) #5
 
-declare ptr @SDL_IOFromConstMem_REAL(ptr noundef, i64 noundef) #6
+declare ptr @SDL_IOFromConstMem_REAL(ptr noundef, i64 noundef) #5
 
-declare ptr @SDL_IOFromDynamicMem_REAL() #6
+declare ptr @SDL_IOFromDynamicMem_REAL() #5
 
-declare ptr @SDL_IOFromFile_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_IOFromFile_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_IOFromMem_REAL(ptr noundef, i64 noundef) #6
+declare ptr @SDL_IOFromMem_REAL(ptr noundef, i64 noundef) #5
 
-declare i64 @SDL_IOvprintf_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare i64 @SDL_IOvprintf_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_Init_REAL(i32 noundef) #6
+declare zeroext i1 @SDL_Init_REAL(i32 noundef) #5
 
-declare zeroext i1 @SDL_InitHapticRumble_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_InitHapticRumble_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_InitSubSystem_REAL(i32 noundef) #6
+declare zeroext i1 @SDL_InitSubSystem_REAL(i32 noundef) #5
 
-declare void @SDL_InsertGPUDebugLabel_REAL(ptr noundef, ptr noundef) #6
+declare void @SDL_InsertGPUDebugLabel_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_IsChromebook_REAL() #6
+declare zeroext i1 @SDL_IsChromebook_REAL() #5
 
-declare zeroext i1 @SDL_IsDeXMode_REAL() #6
+declare zeroext i1 @SDL_IsDeXMode_REAL() #5
 
-declare zeroext i1 @SDL_IsGamepad_REAL(i32 noundef) #6
+declare zeroext i1 @SDL_IsGamepad_REAL(i32 noundef) #5
 
-declare zeroext i1 @SDL_IsJoystickHaptic_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_IsJoystickHaptic_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_IsJoystickVirtual_REAL(i32 noundef) #6
+declare zeroext i1 @SDL_IsJoystickVirtual_REAL(i32 noundef) #5
 
-declare zeroext i1 @SDL_IsMouseHaptic_REAL() #6
+declare zeroext i1 @SDL_IsMouseHaptic_REAL() #5
 
-declare zeroext i1 @SDL_IsTV_REAL() #6
+declare zeroext i1 @SDL_IsTV_REAL() #5
 
-declare zeroext i1 @SDL_IsTablet_REAL() #6
+declare zeroext i1 @SDL_IsTablet_REAL() #5
 
-declare zeroext i1 @SDL_JoystickConnected_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_JoystickConnected_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_JoystickEventsEnabled_REAL() #6
+declare zeroext i1 @SDL_JoystickEventsEnabled_REAL() #5
 
-declare zeroext i1 @SDL_KillProcess_REAL(ptr noundef, i1 noundef zeroext) #6
+declare zeroext i1 @SDL_KillProcess_REAL(ptr noundef, i1 noundef zeroext) #5
 
-declare ptr @SDL_LoadBMP_REAL(ptr noundef) #6
+declare ptr @SDL_LoadBMP_REAL(ptr noundef) #5
 
-declare ptr @SDL_LoadBMP_IO_REAL(ptr noundef, i1 noundef zeroext) #6
+declare ptr @SDL_LoadBMP_IO_REAL(ptr noundef, i1 noundef zeroext) #5
 
-declare ptr @SDL_LoadFile_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_LoadFile_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_LoadFile_IO_REAL(ptr noundef, ptr noundef, i1 noundef zeroext) #6
+declare ptr @SDL_LoadFile_IO_REAL(ptr noundef, ptr noundef, i1 noundef zeroext) #5
 
-declare ptr @SDL_LoadFunction_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_LoadFunction_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_LoadObject_REAL(ptr noundef) #6
+declare ptr @SDL_LoadObject_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_LoadWAV_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_LoadWAV_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_LoadWAV_IO_REAL(ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_LoadWAV_IO_REAL(ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_LockAudioStream_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_LockAudioStream_REAL(ptr noundef) #5
 
-declare void @SDL_LockJoysticks_REAL() #6
+declare void @SDL_LockJoysticks_REAL() #5
 
-declare void @SDL_LockMutex_REAL(ptr noundef) #6
+declare void @SDL_LockMutex_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_LockProperties_REAL(i32 noundef) #6
+declare zeroext i1 @SDL_LockProperties_REAL(i32 noundef) #5
 
-declare void @SDL_LockRWLockForReading_REAL(ptr noundef) #6
+declare void @SDL_LockRWLockForReading_REAL(ptr noundef) #5
 
-declare void @SDL_LockRWLockForWriting_REAL(ptr noundef) #6
+declare void @SDL_LockRWLockForWriting_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_LockSurface_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_LockSurface_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_LockTexture_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_LockTexture_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_LockTextureToSurface_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_LockTextureToSurface_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare void @SDL_LogMessageV_REAL(i32 noundef, i32 noundef, ptr noundef, ptr noundef) #6
+declare void @SDL_LogMessageV_REAL(i32 noundef, i32 noundef, ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_MapGPUTransferBuffer_REAL(ptr noundef, ptr noundef, i1 noundef zeroext) #6
+declare ptr @SDL_MapGPUTransferBuffer_REAL(ptr noundef, ptr noundef, i1 noundef zeroext) #5
 
-declare i32 @SDL_MapRGB_REAL(ptr noundef, ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) #6
+declare i32 @SDL_MapRGB_REAL(ptr noundef, ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) #5
 
-declare i32 @SDL_MapRGBA_REAL(ptr noundef, ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) #6
+declare i32 @SDL_MapRGBA_REAL(ptr noundef, ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) #5
 
-declare i32 @SDL_MapSurfaceRGB_REAL(ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) #6
+declare i32 @SDL_MapSurfaceRGB_REAL(ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) #5
 
-declare i32 @SDL_MapSurfaceRGBA_REAL(ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) #6
+declare i32 @SDL_MapSurfaceRGBA_REAL(ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) #5
 
-declare zeroext i1 @SDL_MaximizeWindow_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_MaximizeWindow_REAL(ptr noundef) #5
 
-declare void @SDL_MemoryBarrierAcquireFunction_REAL() #6
+declare void @SDL_MemoryBarrierAcquireFunction_REAL() #5
 
-declare void @SDL_MemoryBarrierReleaseFunction_REAL() #6
+declare void @SDL_MemoryBarrierReleaseFunction_REAL() #5
 
-declare ptr @SDL_Metal_CreateView_REAL(ptr noundef) #6
+declare ptr @SDL_Metal_CreateView_REAL(ptr noundef) #5
 
-declare void @SDL_Metal_DestroyView_REAL(ptr noundef) #6
+declare void @SDL_Metal_DestroyView_REAL(ptr noundef) #5
 
-declare ptr @SDL_Metal_GetLayer_REAL(ptr noundef) #6
+declare ptr @SDL_Metal_GetLayer_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_MinimizeWindow_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_MinimizeWindow_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_MixAudio_REAL(ptr noundef, ptr noundef, i32 noundef, i32 noundef, float noundef) #6
+declare zeroext i1 @SDL_MixAudio_REAL(ptr noundef, ptr noundef, i32 noundef, i32 noundef, float noundef) #5
 
-declare void @SDL_OnApplicationDidChangeStatusBarOrientation_REAL() #6
+declare void @SDL_OnApplicationDidChangeStatusBarOrientation_REAL() #5
 
-declare void @SDL_OnApplicationDidEnterBackground_REAL() #6
+declare void @SDL_OnApplicationDidEnterBackground_REAL() #5
 
-declare void @SDL_OnApplicationDidEnterForeground_REAL() #6
+declare void @SDL_OnApplicationDidEnterForeground_REAL() #5
 
-declare void @SDL_OnApplicationDidReceiveMemoryWarning_REAL() #6
+declare void @SDL_OnApplicationDidReceiveMemoryWarning_REAL() #5
 
-declare void @SDL_OnApplicationWillEnterBackground_REAL() #6
+declare void @SDL_OnApplicationWillEnterBackground_REAL() #5
 
-declare void @SDL_OnApplicationWillEnterForeground_REAL() #6
+declare void @SDL_OnApplicationWillEnterForeground_REAL() #5
 
-declare void @SDL_OnApplicationWillTerminate_REAL() #6
+declare void @SDL_OnApplicationWillTerminate_REAL() #5
 
-declare i32 @SDL_OpenAudioDevice_REAL(i32 noundef, ptr noundef) #6
+declare i32 @SDL_OpenAudioDevice_REAL(i32 noundef, ptr noundef) #5
 
-declare ptr @SDL_OpenAudioDeviceStream_REAL(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare ptr @SDL_OpenAudioDeviceStream_REAL(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_OpenCamera_REAL(i32 noundef, ptr noundef) #6
+declare ptr @SDL_OpenCamera_REAL(i32 noundef, ptr noundef) #5
 
-declare ptr @SDL_OpenFileStorage_REAL(ptr noundef) #6
+declare ptr @SDL_OpenFileStorage_REAL(ptr noundef) #5
 
-declare ptr @SDL_OpenGamepad_REAL(i32 noundef) #6
+declare ptr @SDL_OpenGamepad_REAL(i32 noundef) #5
 
-declare ptr @SDL_OpenHaptic_REAL(i32 noundef) #6
+declare ptr @SDL_OpenHaptic_REAL(i32 noundef) #5
 
-declare ptr @SDL_OpenHapticFromJoystick_REAL(ptr noundef) #6
+declare ptr @SDL_OpenHapticFromJoystick_REAL(ptr noundef) #5
 
-declare ptr @SDL_OpenHapticFromMouse_REAL() #6
+declare ptr @SDL_OpenHapticFromMouse_REAL() #5
 
-declare ptr @SDL_OpenIO_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_OpenIO_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_OpenJoystick_REAL(i32 noundef) #6
+declare ptr @SDL_OpenJoystick_REAL(i32 noundef) #5
 
-declare ptr @SDL_OpenSensor_REAL(i32 noundef) #6
+declare ptr @SDL_OpenSensor_REAL(i32 noundef) #5
 
-declare ptr @SDL_OpenStorage_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_OpenStorage_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_OpenTitleStorage_REAL(ptr noundef, i32 noundef) #6
+declare ptr @SDL_OpenTitleStorage_REAL(ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_OpenURL_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_OpenURL_REAL(ptr noundef) #5
 
-declare ptr @SDL_OpenUserStorage_REAL(ptr noundef, ptr noundef, i32 noundef) #6
+declare ptr @SDL_OpenUserStorage_REAL(ptr noundef, ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_OutOfMemory_REAL() #6
+declare zeroext i1 @SDL_OutOfMemory_REAL() #5
 
-declare zeroext i1 @SDL_PauseAudioDevice_REAL(i32 noundef) #6
+declare zeroext i1 @SDL_PauseAudioDevice_REAL(i32 noundef) #5
 
-declare zeroext i1 @SDL_PauseAudioStreamDevice_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_PauseAudioStreamDevice_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_PauseHaptic_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_PauseHaptic_REAL(ptr noundef) #5
 
-declare i32 @SDL_PeepEvents_REAL(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #6
+declare i32 @SDL_PeepEvents_REAL(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_PlayHapticRumble_REAL(ptr noundef, float noundef, i32 noundef) #6
+declare zeroext i1 @SDL_PlayHapticRumble_REAL(ptr noundef, float noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_PollEvent_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_PollEvent_REAL(ptr noundef) #5
 
-declare void @SDL_PopGPUDebugGroup_REAL(ptr noundef) #6
+declare void @SDL_PopGPUDebugGroup_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_PremultiplyAlpha_REAL(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) #6
+declare zeroext i1 @SDL_PremultiplyAlpha_REAL(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) #5
 
-declare zeroext i1 @SDL_PremultiplySurfaceAlpha_REAL(ptr noundef, i1 noundef zeroext) #6
+declare zeroext i1 @SDL_PremultiplySurfaceAlpha_REAL(ptr noundef, i1 noundef zeroext) #5
 
-declare void @SDL_PumpEvents_REAL() #6
+declare void @SDL_PumpEvents_REAL() #5
 
-declare zeroext i1 @SDL_PushEvent_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_PushEvent_REAL(ptr noundef) #5
 
-declare void @SDL_PushGPUComputeUniformData_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #6
+declare void @SDL_PushGPUComputeUniformData_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #5
 
-declare void @SDL_PushGPUDebugGroup_REAL(ptr noundef, ptr noundef) #6
+declare void @SDL_PushGPUDebugGroup_REAL(ptr noundef, ptr noundef) #5
 
-declare void @SDL_PushGPUFragmentUniformData_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #6
+declare void @SDL_PushGPUFragmentUniformData_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #5
 
-declare void @SDL_PushGPUVertexUniformData_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #6
+declare void @SDL_PushGPUVertexUniformData_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_PutAudioStreamData_REAL(ptr noundef, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_PutAudioStreamData_REAL(ptr noundef, ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_QueryGPUFence_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_QueryGPUFence_REAL(ptr noundef, ptr noundef) #5
 
-declare void @SDL_Quit_REAL() #6
+declare void @SDL_Quit_REAL() #5
 
-declare void @SDL_QuitSubSystem_REAL(i32 noundef) #6
+declare void @SDL_QuitSubSystem_REAL(i32 noundef) #5
 
-declare zeroext i1 @SDL_RaiseWindow_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_RaiseWindow_REAL(ptr noundef) #5
 
-declare i64 @SDL_ReadIO_REAL(ptr noundef, ptr noundef, i64 noundef) #6
+declare i64 @SDL_ReadIO_REAL(ptr noundef, ptr noundef, i64 noundef) #5
 
-declare ptr @SDL_ReadProcess_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare ptr @SDL_ReadProcess_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_ReadS16BE_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_ReadS16BE_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_ReadS16LE_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_ReadS16LE_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_ReadS32BE_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_ReadS32BE_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_ReadS32LE_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_ReadS32LE_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_ReadS64BE_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_ReadS64BE_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_ReadS64LE_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_ReadS64LE_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_ReadS8_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_ReadS8_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_ReadStorageFile_REAL(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #6
+declare zeroext i1 @SDL_ReadStorageFile_REAL(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #5
 
-declare zeroext i1 @SDL_ReadSurfacePixel_REAL(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_ReadSurfacePixel_REAL(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_ReadSurfacePixelFloat_REAL(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_ReadSurfacePixelFloat_REAL(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_ReadU16BE_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_ReadU16BE_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_ReadU16LE_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_ReadU16LE_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_ReadU32BE_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_ReadU32BE_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_ReadU32LE_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_ReadU32LE_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_ReadU64BE_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_ReadU64BE_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_ReadU64LE_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_ReadU64LE_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_ReadU8_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_ReadU8_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_RegisterApp_REAL(ptr noundef, i32 noundef, ptr noundef) #6
+declare zeroext i1 @SDL_RegisterApp_REAL(ptr noundef, i32 noundef, ptr noundef) #5
 
-declare i32 @SDL_RegisterEvents_REAL(i32 noundef) #6
+declare i32 @SDL_RegisterEvents_REAL(i32 noundef) #5
 
-declare void @SDL_ReleaseCameraFrame_REAL(ptr noundef, ptr noundef) #6
+declare void @SDL_ReleaseCameraFrame_REAL(ptr noundef, ptr noundef) #5
 
-declare void @SDL_ReleaseGPUBuffer_REAL(ptr noundef, ptr noundef) #6
+declare void @SDL_ReleaseGPUBuffer_REAL(ptr noundef, ptr noundef) #5
 
-declare void @SDL_ReleaseGPUComputePipeline_REAL(ptr noundef, ptr noundef) #6
+declare void @SDL_ReleaseGPUComputePipeline_REAL(ptr noundef, ptr noundef) #5
 
-declare void @SDL_ReleaseGPUFence_REAL(ptr noundef, ptr noundef) #6
+declare void @SDL_ReleaseGPUFence_REAL(ptr noundef, ptr noundef) #5
 
-declare void @SDL_ReleaseGPUGraphicsPipeline_REAL(ptr noundef, ptr noundef) #6
+declare void @SDL_ReleaseGPUGraphicsPipeline_REAL(ptr noundef, ptr noundef) #5
 
-declare void @SDL_ReleaseGPUSampler_REAL(ptr noundef, ptr noundef) #6
+declare void @SDL_ReleaseGPUSampler_REAL(ptr noundef, ptr noundef) #5
 
-declare void @SDL_ReleaseGPUShader_REAL(ptr noundef, ptr noundef) #6
+declare void @SDL_ReleaseGPUShader_REAL(ptr noundef, ptr noundef) #5
 
-declare void @SDL_ReleaseGPUTexture_REAL(ptr noundef, ptr noundef) #6
+declare void @SDL_ReleaseGPUTexture_REAL(ptr noundef, ptr noundef) #5
 
-declare void @SDL_ReleaseGPUTransferBuffer_REAL(ptr noundef, ptr noundef) #6
+declare void @SDL_ReleaseGPUTransferBuffer_REAL(ptr noundef, ptr noundef) #5
 
-declare void @SDL_ReleaseWindowFromGPUDevice_REAL(ptr noundef, ptr noundef) #6
+declare void @SDL_ReleaseWindowFromGPUDevice_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_ReloadGamepadMappings_REAL() #6
+declare zeroext i1 @SDL_ReloadGamepadMappings_REAL() #5
 
-declare void @SDL_RemoveEventWatch_REAL(ptr noundef, ptr noundef) #6
+declare void @SDL_RemoveEventWatch_REAL(ptr noundef, ptr noundef) #5
 
-declare void @SDL_RemoveHintCallback_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare void @SDL_RemoveHintCallback_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_RemovePath_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_RemovePath_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_RemoveStoragePath_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_RemoveStoragePath_REAL(ptr noundef, ptr noundef) #5
 
-declare void @SDL_RemoveSurfaceAlternateImages_REAL(ptr noundef) #6
+declare void @SDL_RemoveSurfaceAlternateImages_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_RemoveTimer_REAL(i32 noundef) #6
+declare zeroext i1 @SDL_RemoveTimer_REAL(i32 noundef) #5
 
-declare zeroext i1 @SDL_RenamePath_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_RenamePath_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_RenameStoragePath_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_RenameStoragePath_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_RenderClear_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_RenderClear_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_RenderClipEnabled_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_RenderClipEnabled_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_RenderCoordinatesFromWindow_REAL(ptr noundef, float noundef, float noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_RenderCoordinatesFromWindow_REAL(ptr noundef, float noundef, float noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_RenderCoordinatesToWindow_REAL(ptr noundef, float noundef, float noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_RenderCoordinatesToWindow_REAL(ptr noundef, float noundef, float noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_RenderFillRect_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_RenderFillRect_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_RenderFillRects_REAL(ptr noundef, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_RenderFillRects_REAL(ptr noundef, ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_RenderGeometry_REAL(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_RenderGeometry_REAL(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_RenderGeometryRaw_REAL(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #6
+declare zeroext i1 @SDL_RenderGeometryRaw_REAL(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_RenderLine_REAL(ptr noundef, float noundef, float noundef, float noundef, float noundef) #6
+declare zeroext i1 @SDL_RenderLine_REAL(ptr noundef, float noundef, float noundef, float noundef, float noundef) #5
 
-declare zeroext i1 @SDL_RenderLines_REAL(ptr noundef, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_RenderLines_REAL(ptr noundef, ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_RenderPoint_REAL(ptr noundef, float noundef, float noundef) #6
+declare zeroext i1 @SDL_RenderPoint_REAL(ptr noundef, float noundef, float noundef) #5
 
-declare zeroext i1 @SDL_RenderPoints_REAL(ptr noundef, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_RenderPoints_REAL(ptr noundef, ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_RenderPresent_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_RenderPresent_REAL(ptr noundef) #5
 
-declare ptr @SDL_RenderReadPixels_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_RenderReadPixels_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_RenderRect_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_RenderRect_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_RenderRects_REAL(ptr noundef, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_RenderRects_REAL(ptr noundef, ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_RenderTexture_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_RenderTexture_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_RenderTexture9Grid_REAL(ptr noundef, ptr noundef, ptr noundef, float noundef, float noundef, float noundef, float noundef, float noundef, ptr noundef) #6
+declare zeroext i1 @SDL_RenderTexture9Grid_REAL(ptr noundef, ptr noundef, ptr noundef, float noundef, float noundef, float noundef, float noundef, float noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_RenderTextureRotated_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, double noundef, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_RenderTextureRotated_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, double noundef, ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_RenderTextureTiled_REAL(ptr noundef, ptr noundef, ptr noundef, float noundef, ptr noundef) #6
+declare zeroext i1 @SDL_RenderTextureTiled_REAL(ptr noundef, ptr noundef, ptr noundef, float noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_RenderViewportSet_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_RenderViewportSet_REAL(ptr noundef) #5
 
-declare i32 @SDL_ReportAssertion_REAL(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #6
+declare i32 @SDL_ReportAssertion_REAL(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_RequestAndroidPermission_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_RequestAndroidPermission_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare void @SDL_ResetAssertionReport_REAL() #6
+declare void @SDL_ResetAssertionReport_REAL() #5
 
-declare zeroext i1 @SDL_ResetHint_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_ResetHint_REAL(ptr noundef) #5
 
-declare void @SDL_ResetHints_REAL() #6
+declare void @SDL_ResetHints_REAL() #5
 
-declare void @SDL_ResetKeyboard_REAL() #6
+declare void @SDL_ResetKeyboard_REAL() #5
 
-declare void @SDL_ResetLogPriorities_REAL() #6
+declare void @SDL_ResetLogPriorities_REAL() #5
 
-declare zeroext i1 @SDL_RestoreWindow_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_RestoreWindow_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_ResumeAudioDevice_REAL(i32 noundef) #6
+declare zeroext i1 @SDL_ResumeAudioDevice_REAL(i32 noundef) #5
 
-declare zeroext i1 @SDL_ResumeAudioStreamDevice_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_ResumeAudioStreamDevice_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_ResumeHaptic_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_ResumeHaptic_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_RumbleGamepad_REAL(ptr noundef, i16 noundef zeroext, i16 noundef zeroext, i32 noundef) #6
+declare zeroext i1 @SDL_RumbleGamepad_REAL(ptr noundef, i16 noundef zeroext, i16 noundef zeroext, i32 noundef) #5
 
-declare zeroext i1 @SDL_RumbleGamepadTriggers_REAL(ptr noundef, i16 noundef zeroext, i16 noundef zeroext, i32 noundef) #6
+declare zeroext i1 @SDL_RumbleGamepadTriggers_REAL(ptr noundef, i16 noundef zeroext, i16 noundef zeroext, i32 noundef) #5
 
-declare zeroext i1 @SDL_RumbleJoystick_REAL(ptr noundef, i16 noundef zeroext, i16 noundef zeroext, i32 noundef) #6
+declare zeroext i1 @SDL_RumbleJoystick_REAL(ptr noundef, i16 noundef zeroext, i16 noundef zeroext, i32 noundef) #5
 
-declare zeroext i1 @SDL_RumbleJoystickTriggers_REAL(ptr noundef, i16 noundef zeroext, i16 noundef zeroext, i32 noundef) #6
+declare zeroext i1 @SDL_RumbleJoystickTriggers_REAL(ptr noundef, i16 noundef zeroext, i16 noundef zeroext, i32 noundef) #5
 
-declare i32 @SDL_RunApp_REAL(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare i32 @SDL_RunApp_REAL(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_RunHapticEffect_REAL(ptr noundef, i32 noundef, i32 noundef) #6
+declare zeroext i1 @SDL_RunHapticEffect_REAL(ptr noundef, i32 noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_SaveBMP_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_SaveBMP_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef, ptr noundef, i1 noundef zeroext) #6
+declare zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef, ptr noundef, i1 noundef zeroext) #5
 
-declare ptr @SDL_ScaleSurface_REAL(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #6
+declare ptr @SDL_ScaleSurface_REAL(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_ScreenKeyboardShown_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_ScreenKeyboardShown_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_ScreenSaverEnabled_REAL() #6
+declare zeroext i1 @SDL_ScreenSaverEnabled_REAL() #5
 
-declare i64 @SDL_SeekIO_REAL(ptr noundef, i64 noundef, i32 noundef) #6
+declare i64 @SDL_SeekIO_REAL(ptr noundef, i64 noundef, i32 noundef) #5
 
-declare void @SDL_SendAndroidBackButton_REAL() #6
+declare void @SDL_SendAndroidBackButton_REAL() #5
 
-declare zeroext i1 @SDL_SendAndroidMessage_REAL(i32 noundef, i32 noundef) #6
+declare zeroext i1 @SDL_SendAndroidMessage_REAL(i32 noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_SendGamepadEffect_REAL(ptr noundef, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_SendGamepadEffect_REAL(ptr noundef, ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_SendJoystickEffect_REAL(ptr noundef, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_SendJoystickEffect_REAL(ptr noundef, ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_SendJoystickVirtualSensorData_REAL(ptr noundef, i32 noundef, i64 noundef, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_SendJoystickVirtualSensorData_REAL(ptr noundef, i32 noundef, i64 noundef, ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_SetAppMetadata_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_SetAppMetadata_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_SetAppMetadataProperty_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_SetAppMetadataProperty_REAL(ptr noundef, ptr noundef) #5
 
-declare void @SDL_SetAssertionHandler_REAL(ptr noundef, ptr noundef) #6
+declare void @SDL_SetAssertionHandler_REAL(ptr noundef, ptr noundef) #5
 
-declare i32 @SDL_SetAtomicInt_REAL(ptr noundef, i32 noundef) #6
+declare i32 @SDL_SetAtomicInt_REAL(ptr noundef, i32 noundef) #5
 
-declare ptr @SDL_SetAtomicPointer_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_SetAtomicPointer_REAL(ptr noundef, ptr noundef) #5
 
-declare i32 @SDL_SetAtomicU32_REAL(ptr noundef, i32 noundef) #6
+declare i32 @SDL_SetAtomicU32_REAL(ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_SetAudioDeviceGain_REAL(i32 noundef, float noundef) #6
+declare zeroext i1 @SDL_SetAudioDeviceGain_REAL(i32 noundef, float noundef) #5
 
-declare zeroext i1 @SDL_SetAudioPostmixCallback_REAL(i32 noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_SetAudioPostmixCallback_REAL(i32 noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_SetAudioStreamFormat_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_SetAudioStreamFormat_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_SetAudioStreamFrequencyRatio_REAL(ptr noundef, float noundef) #6
+declare zeroext i1 @SDL_SetAudioStreamFrequencyRatio_REAL(ptr noundef, float noundef) #5
 
-declare zeroext i1 @SDL_SetAudioStreamGain_REAL(ptr noundef, float noundef) #6
+declare zeroext i1 @SDL_SetAudioStreamGain_REAL(ptr noundef, float noundef) #5
 
-declare zeroext i1 @SDL_SetAudioStreamGetCallback_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_SetAudioStreamGetCallback_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_SetAudioStreamInputChannelMap_REAL(ptr noundef, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_SetAudioStreamInputChannelMap_REAL(ptr noundef, ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_SetAudioStreamOutputChannelMap_REAL(ptr noundef, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_SetAudioStreamOutputChannelMap_REAL(ptr noundef, ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_SetAudioStreamPutCallback_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_SetAudioStreamPutCallback_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef, ptr noundef, i1 noundef zeroext) #6
+declare zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef, ptr noundef, i1 noundef zeroext) #5
 
-declare zeroext i1 @SDL_SetClipboardData_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) #6
+declare zeroext i1 @SDL_SetClipboardData_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) #5
 
-declare zeroext i1 @SDL_SetClipboardText_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_SetClipboardText_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_SetCurrentThreadPriority_REAL(i32 noundef) #6
+declare zeroext i1 @SDL_SetCurrentThreadPriority_REAL(i32 noundef) #5
 
-declare zeroext i1 @SDL_SetCursor_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_SetCursor_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_SetEnvironmentVariable_REAL(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) #6
+declare zeroext i1 @SDL_SetEnvironmentVariable_REAL(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) #5
 
-declare void @SDL_SetEventEnabled_REAL(i32 noundef, i1 noundef zeroext) #6
+declare void @SDL_SetEventEnabled_REAL(i32 noundef, i1 noundef zeroext) #5
 
-declare void @SDL_SetEventFilter_REAL(ptr noundef, ptr noundef) #6
+declare void @SDL_SetEventFilter_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_SetFloatProperty_REAL(i32 noundef, ptr noundef, float noundef) #6
+declare zeroext i1 @SDL_SetFloatProperty_REAL(i32 noundef, ptr noundef, float noundef) #5
 
-declare void @SDL_SetGPUBlendConstants_REAL(ptr noundef, <2 x float>, <2 x float>) #6
+declare void @SDL_SetGPUBlendConstants_REAL(ptr noundef, <2 x float>, <2 x float>) #5
 
-declare void @SDL_SetGPUBufferName_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare void @SDL_SetGPUBufferName_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare void @SDL_SetGPUScissor_REAL(ptr noundef, ptr noundef) #6
+declare void @SDL_SetGPUScissor_REAL(ptr noundef, ptr noundef) #5
 
-declare void @SDL_SetGPUStencilReference_REAL(ptr noundef, i8 noundef zeroext) #6
+declare void @SDL_SetGPUStencilReference_REAL(ptr noundef, i8 noundef zeroext) #5
 
-declare zeroext i1 @SDL_SetGPUSwapchainParameters_REAL(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #6
+declare zeroext i1 @SDL_SetGPUSwapchainParameters_REAL(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #5
 
-declare void @SDL_SetGPUTextureName_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare void @SDL_SetGPUTextureName_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare void @SDL_SetGPUViewport_REAL(ptr noundef, ptr noundef) #6
+declare void @SDL_SetGPUViewport_REAL(ptr noundef, ptr noundef) #5
 
-declare void @SDL_SetGamepadEventsEnabled_REAL(i1 noundef zeroext) #6
+declare void @SDL_SetGamepadEventsEnabled_REAL(i1 noundef zeroext) #5
 
-declare zeroext i1 @SDL_SetGamepadLED_REAL(ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) #6
+declare zeroext i1 @SDL_SetGamepadLED_REAL(ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) #5
 
-declare zeroext i1 @SDL_SetGamepadMapping_REAL(i32 noundef, ptr noundef) #6
+declare zeroext i1 @SDL_SetGamepadMapping_REAL(i32 noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_SetGamepadPlayerIndex_REAL(ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_SetGamepadPlayerIndex_REAL(ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_SetGamepadSensorEnabled_REAL(ptr noundef, i32 noundef, i1 noundef zeroext) #6
+declare zeroext i1 @SDL_SetGamepadSensorEnabled_REAL(ptr noundef, i32 noundef, i1 noundef zeroext) #5
 
-declare zeroext i1 @SDL_SetHapticAutocenter_REAL(ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_SetHapticAutocenter_REAL(ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_SetHapticGain_REAL(ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_SetHapticGain_REAL(ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_SetHint_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_SetHint_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_SetHintWithPriority_REAL(ptr noundef, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_SetHintWithPriority_REAL(ptr noundef, ptr noundef, i32 noundef) #5
 
-declare void @SDL_SetInitialized_REAL(ptr noundef, i1 noundef zeroext) #6
+declare void @SDL_SetInitialized_REAL(ptr noundef, i1 noundef zeroext) #5
 
-declare void @SDL_SetJoystickEventsEnabled_REAL(i1 noundef zeroext) #6
+declare void @SDL_SetJoystickEventsEnabled_REAL(i1 noundef zeroext) #5
 
-declare zeroext i1 @SDL_SetJoystickLED_REAL(ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) #6
+declare zeroext i1 @SDL_SetJoystickLED_REAL(ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) #5
 
-declare zeroext i1 @SDL_SetJoystickPlayerIndex_REAL(ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_SetJoystickPlayerIndex_REAL(ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_SetJoystickVirtualAxis_REAL(ptr noundef, i32 noundef, i16 noundef signext) #6
+declare zeroext i1 @SDL_SetJoystickVirtualAxis_REAL(ptr noundef, i32 noundef, i16 noundef signext) #5
 
-declare zeroext i1 @SDL_SetJoystickVirtualBall_REAL(ptr noundef, i32 noundef, i16 noundef signext, i16 noundef signext) #6
+declare zeroext i1 @SDL_SetJoystickVirtualBall_REAL(ptr noundef, i32 noundef, i16 noundef signext, i16 noundef signext) #5
 
-declare zeroext i1 @SDL_SetJoystickVirtualButton_REAL(ptr noundef, i32 noundef, i1 noundef zeroext) #6
+declare zeroext i1 @SDL_SetJoystickVirtualButton_REAL(ptr noundef, i32 noundef, i1 noundef zeroext) #5
 
-declare zeroext i1 @SDL_SetJoystickVirtualHat_REAL(ptr noundef, i32 noundef, i8 noundef zeroext) #6
+declare zeroext i1 @SDL_SetJoystickVirtualHat_REAL(ptr noundef, i32 noundef, i8 noundef zeroext) #5
 
-declare zeroext i1 @SDL_SetJoystickVirtualTouchpad_REAL(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, float noundef, float noundef, float noundef) #6
+declare zeroext i1 @SDL_SetJoystickVirtualTouchpad_REAL(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, float noundef, float noundef, float noundef) #5
 
-declare zeroext i1 @SDL_SetLinuxThreadPriority_REAL(i64 noundef, i32 noundef) #6
+declare zeroext i1 @SDL_SetLinuxThreadPriority_REAL(i64 noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_SetLinuxThreadPriorityAndPolicy_REAL(i64 noundef, i32 noundef, i32 noundef) #6
+declare zeroext i1 @SDL_SetLinuxThreadPriorityAndPolicy_REAL(i64 noundef, i32 noundef, i32 noundef) #5
 
-declare void @SDL_SetLogOutputFunction_REAL(ptr noundef, ptr noundef) #6
+declare void @SDL_SetLogOutputFunction_REAL(ptr noundef, ptr noundef) #5
 
-declare void @SDL_SetLogPriorities_REAL(i32 noundef) #6
+declare void @SDL_SetLogPriorities_REAL(i32 noundef) #5
 
-declare void @SDL_SetLogPriority_REAL(i32 noundef, i32 noundef) #6
+declare void @SDL_SetLogPriority_REAL(i32 noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_SetLogPriorityPrefix_REAL(i32 noundef, ptr noundef) #6
+declare zeroext i1 @SDL_SetLogPriorityPrefix_REAL(i32 noundef, ptr noundef) #5
 
-declare void @SDL_SetMainReady_REAL() #6
+declare void @SDL_SetMainReady_REAL() #5
 
-declare zeroext i1 @SDL_SetMemoryFunctions_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_SetMemoryFunctions_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare void @SDL_SetModState_REAL(i16 noundef zeroext) #6
+declare void @SDL_SetModState_REAL(i16 noundef zeroext) #5
 
-declare zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef, ptr noundef, i64 noundef) #6
+declare zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef, ptr noundef, i64 noundef) #5
 
-declare zeroext i1 @SDL_SetPaletteColors_REAL(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #6
+declare zeroext i1 @SDL_SetPaletteColors_REAL(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_SetPointerProperty_REAL(i32 noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_SetPointerProperty_REAL(i32 noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_SetPointerPropertyWithCleanup_REAL(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_SetPointerPropertyWithCleanup_REAL(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_SetPrimarySelectionText_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_SetPrimarySelectionText_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_SetRenderClipRect_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_SetRenderClipRect_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_SetRenderColorScale_REAL(ptr noundef, float noundef) #6
+declare zeroext i1 @SDL_SetRenderColorScale_REAL(ptr noundef, float noundef) #5
 
-declare zeroext i1 @SDL_SetRenderDrawBlendMode_REAL(ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_SetRenderDrawBlendMode_REAL(ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_SetRenderDrawColor_REAL(ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) #6
+declare zeroext i1 @SDL_SetRenderDrawColor_REAL(ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) #5
 
-declare zeroext i1 @SDL_SetRenderDrawColorFloat_REAL(ptr noundef, float noundef, float noundef, float noundef, float noundef) #6
+declare zeroext i1 @SDL_SetRenderDrawColorFloat_REAL(ptr noundef, float noundef, float noundef, float noundef, float noundef) #5
 
-declare zeroext i1 @SDL_SetRenderLogicalPresentation_REAL(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #6
+declare zeroext i1 @SDL_SetRenderLogicalPresentation_REAL(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_SetRenderScale_REAL(ptr noundef, float noundef, float noundef) #6
+declare zeroext i1 @SDL_SetRenderScale_REAL(ptr noundef, float noundef, float noundef) #5
 
-declare zeroext i1 @SDL_SetRenderTarget_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_SetRenderTarget_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_SetRenderVSync_REAL(ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_SetRenderVSync_REAL(ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_SetRenderViewport_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_SetRenderViewport_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_SetScancodeName_REAL(i32 noundef, ptr noundef) #6
+declare zeroext i1 @SDL_SetScancodeName_REAL(i32 noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_SetStringProperty_REAL(i32 noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_SetStringProperty_REAL(i32 noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_SetSurfaceAlphaMod_REAL(ptr noundef, i8 noundef zeroext) #6
+declare zeroext i1 @SDL_SetSurfaceAlphaMod_REAL(ptr noundef, i8 noundef zeroext) #5
 
-declare zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_SetSurfaceClipRect_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_SetSurfaceClipRect_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_SetSurfaceColorKey_REAL(ptr noundef, i1 noundef zeroext, i32 noundef) #6
+declare zeroext i1 @SDL_SetSurfaceColorKey_REAL(ptr noundef, i1 noundef zeroext, i32 noundef) #5
 
-declare zeroext i1 @SDL_SetSurfaceColorMod_REAL(ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) #6
+declare zeroext i1 @SDL_SetSurfaceColorMod_REAL(ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) #5
 
-declare zeroext i1 @SDL_SetSurfaceColorspace_REAL(ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_SetSurfaceColorspace_REAL(ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_SetSurfacePalette_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_SetSurfacePalette_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_SetSurfaceRLE_REAL(ptr noundef, i1 noundef zeroext) #6
+declare zeroext i1 @SDL_SetSurfaceRLE_REAL(ptr noundef, i1 noundef zeroext) #5
 
-declare zeroext i1 @SDL_SetTLS_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_SetTLS_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_SetTextInputArea_REAL(ptr noundef, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_SetTextInputArea_REAL(ptr noundef, ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_SetTextureAlphaMod_REAL(ptr noundef, i8 noundef zeroext) #6
+declare zeroext i1 @SDL_SetTextureAlphaMod_REAL(ptr noundef, i8 noundef zeroext) #5
 
-declare zeroext i1 @SDL_SetTextureAlphaModFloat_REAL(ptr noundef, float noundef) #6
+declare zeroext i1 @SDL_SetTextureAlphaModFloat_REAL(ptr noundef, float noundef) #5
 
-declare zeroext i1 @SDL_SetTextureBlendMode_REAL(ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_SetTextureBlendMode_REAL(ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_SetTextureColorMod_REAL(ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) #6
+declare zeroext i1 @SDL_SetTextureColorMod_REAL(ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) #5
 
-declare zeroext i1 @SDL_SetTextureColorModFloat_REAL(ptr noundef, float noundef, float noundef, float noundef) #6
+declare zeroext i1 @SDL_SetTextureColorModFloat_REAL(ptr noundef, float noundef, float noundef, float noundef) #5
 
-declare zeroext i1 @SDL_SetTextureScaleMode_REAL(ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_SetTextureScaleMode_REAL(ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_SetWindowAlwaysOnTop_REAL(ptr noundef, i1 noundef zeroext) #6
+declare zeroext i1 @SDL_SetWindowAlwaysOnTop_REAL(ptr noundef, i1 noundef zeroext) #5
 
-declare zeroext i1 @SDL_SetWindowAspectRatio_REAL(ptr noundef, float noundef, float noundef) #6
+declare zeroext i1 @SDL_SetWindowAspectRatio_REAL(ptr noundef, float noundef, float noundef) #5
 
-declare zeroext i1 @SDL_SetWindowBordered_REAL(ptr noundef, i1 noundef zeroext) #6
+declare zeroext i1 @SDL_SetWindowBordered_REAL(ptr noundef, i1 noundef zeroext) #5
 
-declare zeroext i1 @SDL_SetWindowFocusable_REAL(ptr noundef, i1 noundef zeroext) #6
+declare zeroext i1 @SDL_SetWindowFocusable_REAL(ptr noundef, i1 noundef zeroext) #5
 
-declare zeroext i1 @SDL_SetWindowFullscreen_REAL(ptr noundef, i1 noundef zeroext) #6
+declare zeroext i1 @SDL_SetWindowFullscreen_REAL(ptr noundef, i1 noundef zeroext) #5
 
-declare zeroext i1 @SDL_SetWindowFullscreenMode_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_SetWindowFullscreenMode_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_SetWindowHitTest_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_SetWindowHitTest_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_SetWindowIcon_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_SetWindowIcon_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_SetWindowKeyboardGrab_REAL(ptr noundef, i1 noundef zeroext) #6
+declare zeroext i1 @SDL_SetWindowKeyboardGrab_REAL(ptr noundef, i1 noundef zeroext) #5
 
-declare zeroext i1 @SDL_SetWindowMaximumSize_REAL(ptr noundef, i32 noundef, i32 noundef) #6
+declare zeroext i1 @SDL_SetWindowMaximumSize_REAL(ptr noundef, i32 noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_SetWindowMinimumSize_REAL(ptr noundef, i32 noundef, i32 noundef) #6
+declare zeroext i1 @SDL_SetWindowMinimumSize_REAL(ptr noundef, i32 noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_SetWindowModal_REAL(ptr noundef, i1 noundef zeroext) #6
+declare zeroext i1 @SDL_SetWindowModal_REAL(ptr noundef, i1 noundef zeroext) #5
 
-declare zeroext i1 @SDL_SetWindowMouseGrab_REAL(ptr noundef, i1 noundef zeroext) #6
+declare zeroext i1 @SDL_SetWindowMouseGrab_REAL(ptr noundef, i1 noundef zeroext) #5
 
-declare zeroext i1 @SDL_SetWindowMouseRect_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_SetWindowMouseRect_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_SetWindowOpacity_REAL(ptr noundef, float noundef) #6
+declare zeroext i1 @SDL_SetWindowOpacity_REAL(ptr noundef, float noundef) #5
 
-declare zeroext i1 @SDL_SetWindowParent_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_SetWindowParent_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_SetWindowPosition_REAL(ptr noundef, i32 noundef, i32 noundef) #6
+declare zeroext i1 @SDL_SetWindowPosition_REAL(ptr noundef, i32 noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_SetWindowRelativeMouseMode_REAL(ptr noundef, i1 noundef zeroext) #6
+declare zeroext i1 @SDL_SetWindowRelativeMouseMode_REAL(ptr noundef, i1 noundef zeroext) #5
 
-declare zeroext i1 @SDL_SetWindowResizable_REAL(ptr noundef, i1 noundef zeroext) #6
+declare zeroext i1 @SDL_SetWindowResizable_REAL(ptr noundef, i1 noundef zeroext) #5
 
-declare zeroext i1 @SDL_SetWindowShape_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_SetWindowShape_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_SetWindowSize_REAL(ptr noundef, i32 noundef, i32 noundef) #6
+declare zeroext i1 @SDL_SetWindowSize_REAL(ptr noundef, i32 noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_SetWindowSurfaceVSync_REAL(ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_SetWindowSurfaceVSync_REAL(ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_SetWindowTitle_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_SetWindowTitle_REAL(ptr noundef, ptr noundef) #5
 
-declare void @SDL_SetWindowsMessageHook_REAL(ptr noundef, ptr noundef) #6
+declare void @SDL_SetWindowsMessageHook_REAL(ptr noundef, ptr noundef) #5
 
-declare void @SDL_SetX11EventHook_REAL(ptr noundef, ptr noundef) #6
+declare void @SDL_SetX11EventHook_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_SetiOSAnimationCallback_REAL(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_SetiOSAnimationCallback_REAL(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #5
 
-declare void @SDL_SetiOSEventPump_REAL(i1 noundef zeroext) #6
+declare void @SDL_SetiOSEventPump_REAL(i1 noundef zeroext) #5
 
-declare zeroext i1 @SDL_ShouldInit_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_ShouldInit_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_ShouldQuit_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_ShouldQuit_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_ShowAndroidToast_REAL(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #6
+declare zeroext i1 @SDL_ShowAndroidToast_REAL(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_ShowCursor_REAL() #6
+declare zeroext i1 @SDL_ShowCursor_REAL() #5
 
-declare zeroext i1 @SDL_ShowMessageBox_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_ShowMessageBox_REAL(ptr noundef, ptr noundef) #5
 
-declare void @SDL_ShowOpenFileDialog_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) #6
+declare void @SDL_ShowOpenFileDialog_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) #5
 
-declare void @SDL_ShowOpenFolderDialog_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) #6
+declare void @SDL_ShowOpenFolderDialog_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) #5
 
-declare void @SDL_ShowSaveFileDialog_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #6
+declare void @SDL_ShowSaveFileDialog_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_ShowSimpleMessageBox_REAL(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_ShowSimpleMessageBox_REAL(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_ShowWindow_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_ShowWindow_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_ShowWindowSystemMenu_REAL(ptr noundef, i32 noundef, i32 noundef) #6
+declare zeroext i1 @SDL_ShowWindowSystemMenu_REAL(ptr noundef, i32 noundef, i32 noundef) #5
 
-declare void @SDL_SignalCondition_REAL(ptr noundef) #6
+declare void @SDL_SignalCondition_REAL(ptr noundef) #5
 
-declare void @SDL_SignalSemaphore_REAL(ptr noundef) #6
+declare void @SDL_SignalSemaphore_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_StartTextInput_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_StartTextInput_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_StartTextInputWithProperties_REAL(ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_StartTextInputWithProperties_REAL(ptr noundef, i32 noundef) #5
 
-declare i32 @SDL_StepUTF8_REAL(ptr noundef, ptr noundef) #6
+declare i32 @SDL_StepUTF8_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_StopHapticEffect_REAL(ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_StopHapticEffect_REAL(ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_StopHapticEffects_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_StopHapticEffects_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_StopHapticRumble_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_StopHapticRumble_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_StopTextInput_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_StopTextInput_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_StorageReady_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_StorageReady_REAL(ptr noundef) #5
 
-declare { i64, i64 } @SDL_StringToGUID_REAL(ptr noundef) #6
+declare { i64, i64 } @SDL_StringToGUID_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_SubmitGPUCommandBuffer_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_SubmitGPUCommandBuffer_REAL(ptr noundef) #5
 
-declare ptr @SDL_SubmitGPUCommandBufferAndAcquireFence_REAL(ptr noundef) #6
+declare ptr @SDL_SubmitGPUCommandBufferAndAcquireFence_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_SurfaceHasAlternateImages_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_SurfaceHasAlternateImages_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_SurfaceHasColorKey_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_SurfaceHasColorKey_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_SurfaceHasRLE_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_SurfaceHasRLE_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_SyncWindow_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_SyncWindow_REAL(ptr noundef) #5
 
-declare i64 @SDL_TellIO_REAL(ptr noundef) #6
+declare i64 @SDL_TellIO_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_TextInputActive_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_TextInputActive_REAL(ptr noundef) #5
 
-declare i64 @SDL_TimeFromWindows_REAL(i32 noundef, i32 noundef) #6
+declare i64 @SDL_TimeFromWindows_REAL(i32 noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_TimeToDateTime_REAL(i64 noundef, ptr noundef, i1 noundef zeroext) #6
+declare zeroext i1 @SDL_TimeToDateTime_REAL(i64 noundef, ptr noundef, i1 noundef zeroext) #5
 
-declare void @SDL_TimeToWindows_REAL(i64 noundef, ptr noundef, ptr noundef) #6
+declare void @SDL_TimeToWindows_REAL(i64 noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_TryLockMutex_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_TryLockMutex_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_TryLockRWLockForReading_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_TryLockRWLockForReading_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_TryLockRWLockForWriting_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_TryLockRWLockForWriting_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_TryLockSpinlock_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_TryLockSpinlock_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_TryWaitSemaphore_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_TryWaitSemaphore_REAL(ptr noundef) #5
 
-declare ptr @SDL_UCS4ToUTF8_REAL(i32 noundef, ptr noundef) #6
+declare ptr @SDL_UCS4ToUTF8_REAL(i32 noundef, ptr noundef) #5
 
-declare void @SDL_UnbindAudioStream_REAL(ptr noundef) #6
+declare void @SDL_UnbindAudioStream_REAL(ptr noundef) #5
 
-declare void @SDL_UnbindAudioStreams_REAL(ptr noundef, i32 noundef) #6
+declare void @SDL_UnbindAudioStreams_REAL(ptr noundef, i32 noundef) #5
 
-declare void @SDL_UnloadObject_REAL(ptr noundef) #6
+declare void @SDL_UnloadObject_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_UnlockAudioStream_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_UnlockAudioStream_REAL(ptr noundef) #5
 
-declare void @SDL_UnlockJoysticks_REAL() #6
+declare void @SDL_UnlockJoysticks_REAL() #5
 
-declare void @SDL_UnlockMutex_REAL(ptr noundef) #6
+declare void @SDL_UnlockMutex_REAL(ptr noundef) #5
 
-declare void @SDL_UnlockProperties_REAL(i32 noundef) #6
+declare void @SDL_UnlockProperties_REAL(i32 noundef) #5
 
-declare void @SDL_UnlockRWLock_REAL(ptr noundef) #6
+declare void @SDL_UnlockRWLock_REAL(ptr noundef) #5
 
-declare void @SDL_UnlockSurface_REAL(ptr noundef) #6
+declare void @SDL_UnlockSurface_REAL(ptr noundef) #5
 
-declare void @SDL_UnlockTexture_REAL(ptr noundef) #6
+declare void @SDL_UnlockTexture_REAL(ptr noundef) #5
 
-declare void @SDL_UnmapGPUTransferBuffer_REAL(ptr noundef, ptr noundef) #6
+declare void @SDL_UnmapGPUTransferBuffer_REAL(ptr noundef, ptr noundef) #5
 
-declare void @SDL_UnregisterApp_REAL() #6
+declare void @SDL_UnregisterApp_REAL() #5
 
-declare zeroext i1 @SDL_UnsetEnvironmentVariable_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_UnsetEnvironmentVariable_REAL(ptr noundef, ptr noundef) #5
 
-declare void @SDL_UpdateGamepads_REAL() #6
+declare void @SDL_UpdateGamepads_REAL() #5
 
-declare zeroext i1 @SDL_UpdateHapticEffect_REAL(ptr noundef, i32 noundef, ptr noundef) #6
+declare zeroext i1 @SDL_UpdateHapticEffect_REAL(ptr noundef, i32 noundef, ptr noundef) #5
 
-declare void @SDL_UpdateJoysticks_REAL() #6
+declare void @SDL_UpdateJoysticks_REAL() #5
 
-declare zeroext i1 @SDL_UpdateNVTexture_REAL(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_UpdateNVTexture_REAL(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #5
 
-declare void @SDL_UpdateSensors_REAL() #6
+declare void @SDL_UpdateSensors_REAL() #5
 
-declare zeroext i1 @SDL_UpdateTexture_REAL(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_UpdateTexture_REAL(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_UpdateWindowSurface_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_UpdateWindowSurface_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_UpdateWindowSurfaceRects_REAL(ptr noundef, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_UpdateWindowSurfaceRects_REAL(ptr noundef, ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_UpdateYUVTexture_REAL(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_UpdateYUVTexture_REAL(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #5
 
-declare void @SDL_UploadToGPUBuffer_REAL(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) #6
+declare void @SDL_UploadToGPUBuffer_REAL(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) #5
 
-declare void @SDL_UploadToGPUTexture_REAL(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) #6
+declare void @SDL_UploadToGPUTexture_REAL(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) #5
 
-declare zeroext i1 @SDL_Vulkan_CreateSurface_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_Vulkan_CreateSurface_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare void @SDL_Vulkan_DestroySurface_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare void @SDL_Vulkan_DestroySurface_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_Vulkan_GetInstanceExtensions_REAL(ptr noundef) #6
+declare ptr @SDL_Vulkan_GetInstanceExtensions_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_Vulkan_GetPresentationSupport_REAL(ptr noundef, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_Vulkan_GetPresentationSupport_REAL(ptr noundef, ptr noundef, i32 noundef) #5
 
-declare ptr @SDL_Vulkan_GetVkGetInstanceProcAddr_REAL() #6
+declare ptr @SDL_Vulkan_GetVkGetInstanceProcAddr_REAL() #5
 
-declare zeroext i1 @SDL_Vulkan_LoadLibrary_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_Vulkan_LoadLibrary_REAL(ptr noundef) #5
 
-declare void @SDL_Vulkan_UnloadLibrary_REAL() #6
+declare void @SDL_Vulkan_UnloadLibrary_REAL() #5
 
-declare void @SDL_WaitCondition_REAL(ptr noundef, ptr noundef) #6
+declare void @SDL_WaitCondition_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_WaitConditionTimeout_REAL(ptr noundef, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_WaitConditionTimeout_REAL(ptr noundef, ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_WaitEvent_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_WaitEvent_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_WaitEventTimeout_REAL(ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_WaitEventTimeout_REAL(ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_WaitForGPUFences_REAL(ptr noundef, i1 noundef zeroext, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_WaitForGPUFences_REAL(ptr noundef, i1 noundef zeroext, ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_WaitForGPUIdle_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_WaitForGPUIdle_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_WaitProcess_REAL(ptr noundef, i1 noundef zeroext, ptr noundef) #6
+declare zeroext i1 @SDL_WaitProcess_REAL(ptr noundef, i1 noundef zeroext, ptr noundef) #5
 
-declare void @SDL_WaitSemaphore_REAL(ptr noundef) #6
+declare void @SDL_WaitSemaphore_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_WaitSemaphoreTimeout_REAL(ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_WaitSemaphoreTimeout_REAL(ptr noundef, i32 noundef) #5
 
-declare void @SDL_WaitThread_REAL(ptr noundef, ptr noundef) #6
+declare void @SDL_WaitThread_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_WarpMouseGlobal_REAL(float noundef, float noundef) #6
+declare zeroext i1 @SDL_WarpMouseGlobal_REAL(float noundef, float noundef) #5
 
-declare void @SDL_WarpMouseInWindow_REAL(ptr noundef, float noundef, float noundef) #6
+declare void @SDL_WarpMouseInWindow_REAL(ptr noundef, float noundef, float noundef) #5
 
-declare i32 @SDL_WasInit_REAL(i32 noundef) #6
+declare i32 @SDL_WasInit_REAL(i32 noundef) #5
 
-declare zeroext i1 @SDL_WindowHasSurface_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_WindowHasSurface_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_WindowSupportsGPUPresentMode_REAL(ptr noundef, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_WindowSupportsGPUPresentMode_REAL(ptr noundef, ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_WindowSupportsGPUSwapchainComposition_REAL(ptr noundef, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_WindowSupportsGPUSwapchainComposition_REAL(ptr noundef, ptr noundef, i32 noundef) #5
 
-declare i64 @SDL_WriteIO_REAL(ptr noundef, ptr noundef, i64 noundef) #6
+declare i64 @SDL_WriteIO_REAL(ptr noundef, ptr noundef, i64 noundef) #5
 
-declare zeroext i1 @SDL_WriteS16BE_REAL(ptr noundef, i16 noundef signext) #6
+declare zeroext i1 @SDL_WriteS16BE_REAL(ptr noundef, i16 noundef signext) #5
 
-declare zeroext i1 @SDL_WriteS16LE_REAL(ptr noundef, i16 noundef signext) #6
+declare zeroext i1 @SDL_WriteS16LE_REAL(ptr noundef, i16 noundef signext) #5
 
-declare zeroext i1 @SDL_WriteS32BE_REAL(ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_WriteS32BE_REAL(ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_WriteS32LE_REAL(ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_WriteS32LE_REAL(ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_WriteS64BE_REAL(ptr noundef, i64 noundef) #6
+declare zeroext i1 @SDL_WriteS64BE_REAL(ptr noundef, i64 noundef) #5
 
-declare zeroext i1 @SDL_WriteS64LE_REAL(ptr noundef, i64 noundef) #6
+declare zeroext i1 @SDL_WriteS64LE_REAL(ptr noundef, i64 noundef) #5
 
-declare zeroext i1 @SDL_WriteS8_REAL(ptr noundef, i8 noundef signext) #6
+declare zeroext i1 @SDL_WriteS8_REAL(ptr noundef, i8 noundef signext) #5
 
-declare zeroext i1 @SDL_WriteStorageFile_REAL(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #6
+declare zeroext i1 @SDL_WriteStorageFile_REAL(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #5
 
-declare zeroext i1 @SDL_WriteSurfacePixel_REAL(ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) #6
+declare zeroext i1 @SDL_WriteSurfacePixel_REAL(ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) #5
 
-declare zeroext i1 @SDL_WriteSurfacePixelFloat_REAL(ptr noundef, i32 noundef, i32 noundef, float noundef, float noundef, float noundef, float noundef) #6
+declare zeroext i1 @SDL_WriteSurfacePixelFloat_REAL(ptr noundef, i32 noundef, i32 noundef, float noundef, float noundef, float noundef, float noundef) #5
 
-declare zeroext i1 @SDL_WriteU16BE_REAL(ptr noundef, i16 noundef zeroext) #6
+declare zeroext i1 @SDL_WriteU16BE_REAL(ptr noundef, i16 noundef zeroext) #5
 
-declare zeroext i1 @SDL_WriteU16LE_REAL(ptr noundef, i16 noundef zeroext) #6
+declare zeroext i1 @SDL_WriteU16LE_REAL(ptr noundef, i16 noundef zeroext) #5
 
-declare zeroext i1 @SDL_WriteU32BE_REAL(ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_WriteU32BE_REAL(ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_WriteU32LE_REAL(ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_WriteU32LE_REAL(ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_WriteU64BE_REAL(ptr noundef, i64 noundef) #6
+declare zeroext i1 @SDL_WriteU64BE_REAL(ptr noundef, i64 noundef) #5
 
-declare zeroext i1 @SDL_WriteU64LE_REAL(ptr noundef, i64 noundef) #6
+declare zeroext i1 @SDL_WriteU64LE_REAL(ptr noundef, i64 noundef) #5
 
-declare zeroext i1 @SDL_WriteU8_REAL(ptr noundef, i8 noundef zeroext) #6
+declare zeroext i1 @SDL_WriteU8_REAL(ptr noundef, i8 noundef zeroext) #5
 
-declare i32 @SDL_abs_REAL(i32 noundef) #6
+declare i32 @SDL_abs_REAL(i32 noundef) #5
 
-declare double @SDL_acos_REAL(double noundef) #6
+declare double @SDL_acos_REAL(double noundef) #5
 
-declare float @SDL_acosf_REAL(float noundef) #6
+declare float @SDL_acosf_REAL(float noundef) #5
 
-declare ptr @SDL_aligned_alloc_REAL(i64 noundef, i64 noundef) #6
+declare ptr @SDL_aligned_alloc_REAL(i64 noundef, i64 noundef) #5
 
-declare void @SDL_aligned_free_REAL(ptr noundef) #6
+declare void @SDL_aligned_free_REAL(ptr noundef) #5
 
-declare double @SDL_asin_REAL(double noundef) #6
+declare double @SDL_asin_REAL(double noundef) #5
 
-declare float @SDL_asinf_REAL(float noundef) #6
+declare float @SDL_asinf_REAL(float noundef) #5
 
-declare double @SDL_atan_REAL(double noundef) #6
+declare double @SDL_atan_REAL(double noundef) #5
 
-declare double @SDL_atan2_REAL(double noundef, double noundef) #6
+declare double @SDL_atan2_REAL(double noundef, double noundef) #5
 
-declare float @SDL_atan2f_REAL(float noundef, float noundef) #6
+declare float @SDL_atan2f_REAL(float noundef, float noundef) #5
 
-declare float @SDL_atanf_REAL(float noundef) #6
+declare float @SDL_atanf_REAL(float noundef) #5
 
-declare double @SDL_atof_REAL(ptr noundef) #6
+declare double @SDL_atof_REAL(ptr noundef) #5
 
-declare i32 @SDL_atoi_REAL(ptr noundef) #6
+declare i32 @SDL_atoi_REAL(ptr noundef) #5
 
-declare ptr @SDL_bsearch_REAL(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) #6
+declare ptr @SDL_bsearch_REAL(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) #5
 
-declare ptr @SDL_bsearch_r_REAL(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #6
+declare ptr @SDL_bsearch_r_REAL(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) #6
+declare ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) #5
 
-declare double @SDL_ceil_REAL(double noundef) #6
+declare double @SDL_ceil_REAL(double noundef) #5
 
-declare float @SDL_ceilf_REAL(float noundef) #6
+declare float @SDL_ceilf_REAL(float noundef) #5
 
-declare double @SDL_copysign_REAL(double noundef, double noundef) #6
+declare double @SDL_copysign_REAL(double noundef, double noundef) #5
 
-declare float @SDL_copysignf_REAL(float noundef, float noundef) #6
+declare float @SDL_copysignf_REAL(float noundef, float noundef) #5
 
-declare double @SDL_cos_REAL(double noundef) #6
+declare double @SDL_cos_REAL(double noundef) #5
 
-declare float @SDL_cosf_REAL(float noundef) #6
+declare float @SDL_cosf_REAL(float noundef) #5
 
-declare zeroext i16 @SDL_crc16_REAL(i16 noundef zeroext, ptr noundef, i64 noundef) #6
+declare zeroext i16 @SDL_crc16_REAL(i16 noundef zeroext, ptr noundef, i64 noundef) #5
 
-declare i32 @SDL_crc32_REAL(i32 noundef, ptr noundef, i64 noundef) #6
+declare i32 @SDL_crc32_REAL(i32 noundef, ptr noundef, i64 noundef) #5
 
-declare double @SDL_exp_REAL(double noundef) #6
+declare double @SDL_exp_REAL(double noundef) #5
 
-declare float @SDL_expf_REAL(float noundef) #6
+declare float @SDL_expf_REAL(float noundef) #5
 
-declare double @SDL_fabs_REAL(double noundef) #6
+declare double @SDL_fabs_REAL(double noundef) #5
 
-declare float @SDL_fabsf_REAL(float noundef) #6
+declare float @SDL_fabsf_REAL(float noundef) #5
 
-declare double @SDL_floor_REAL(double noundef) #6
+declare double @SDL_floor_REAL(double noundef) #5
 
-declare float @SDL_floorf_REAL(float noundef) #6
+declare float @SDL_floorf_REAL(float noundef) #5
 
-declare double @SDL_fmod_REAL(double noundef, double noundef) #6
+declare double @SDL_fmod_REAL(double noundef, double noundef) #5
 
-declare float @SDL_fmodf_REAL(float noundef, float noundef) #6
+declare float @SDL_fmodf_REAL(float noundef, float noundef) #5
 
-declare void @SDL_free_REAL(ptr noundef) #6
+declare void @SDL_free_REAL(ptr noundef) #5
 
-declare ptr @SDL_getenv_REAL(ptr noundef) #6
+declare ptr @SDL_getenv_REAL(ptr noundef) #5
 
-declare ptr @SDL_getenv_unsafe_REAL(ptr noundef) #6
+declare ptr @SDL_getenv_unsafe_REAL(ptr noundef) #5
 
-declare void @SDL_hid_ble_scan_REAL(i1 noundef zeroext) #6
+declare void @SDL_hid_ble_scan_REAL(i1 noundef zeroext) #5
 
-declare i32 @SDL_hid_close_REAL(ptr noundef) #6
+declare i32 @SDL_hid_close_REAL(ptr noundef) #5
 
-declare i32 @SDL_hid_device_change_count_REAL() #6
+declare i32 @SDL_hid_device_change_count_REAL() #5
 
-declare ptr @SDL_hid_enumerate_REAL(i16 noundef zeroext, i16 noundef zeroext) #6
+declare ptr @SDL_hid_enumerate_REAL(i16 noundef zeroext, i16 noundef zeroext) #5
 
-declare i32 @SDL_hid_exit_REAL() #6
+declare i32 @SDL_hid_exit_REAL() #5
 
-declare void @SDL_hid_free_enumeration_REAL(ptr noundef) #6
+declare void @SDL_hid_free_enumeration_REAL(ptr noundef) #5
 
-declare ptr @SDL_hid_get_device_info_REAL(ptr noundef) #6
+declare ptr @SDL_hid_get_device_info_REAL(ptr noundef) #5
 
-declare i32 @SDL_hid_get_feature_report_REAL(ptr noundef, ptr noundef, i64 noundef) #6
+declare i32 @SDL_hid_get_feature_report_REAL(ptr noundef, ptr noundef, i64 noundef) #5
 
-declare i32 @SDL_hid_get_indexed_string_REAL(ptr noundef, i32 noundef, ptr noundef, i64 noundef) #6
+declare i32 @SDL_hid_get_indexed_string_REAL(ptr noundef, i32 noundef, ptr noundef, i64 noundef) #5
 
-declare i32 @SDL_hid_get_input_report_REAL(ptr noundef, ptr noundef, i64 noundef) #6
+declare i32 @SDL_hid_get_input_report_REAL(ptr noundef, ptr noundef, i64 noundef) #5
 
-declare i32 @SDL_hid_get_manufacturer_string_REAL(ptr noundef, ptr noundef, i64 noundef) #6
+declare i32 @SDL_hid_get_manufacturer_string_REAL(ptr noundef, ptr noundef, i64 noundef) #5
 
-declare i32 @SDL_hid_get_product_string_REAL(ptr noundef, ptr noundef, i64 noundef) #6
+declare i32 @SDL_hid_get_product_string_REAL(ptr noundef, ptr noundef, i64 noundef) #5
 
-declare i32 @SDL_hid_get_report_descriptor_REAL(ptr noundef, ptr noundef, i64 noundef) #6
+declare i32 @SDL_hid_get_report_descriptor_REAL(ptr noundef, ptr noundef, i64 noundef) #5
 
-declare i32 @SDL_hid_get_serial_number_string_REAL(ptr noundef, ptr noundef, i64 noundef) #6
+declare i32 @SDL_hid_get_serial_number_string_REAL(ptr noundef, ptr noundef, i64 noundef) #5
 
-declare i32 @SDL_hid_init_REAL() #6
+declare i32 @SDL_hid_init_REAL() #5
 
-declare ptr @SDL_hid_open_REAL(i16 noundef zeroext, i16 noundef zeroext, ptr noundef) #6
+declare ptr @SDL_hid_open_REAL(i16 noundef zeroext, i16 noundef zeroext, ptr noundef) #5
 
-declare ptr @SDL_hid_open_path_REAL(ptr noundef) #6
+declare ptr @SDL_hid_open_path_REAL(ptr noundef) #5
 
-declare i32 @SDL_hid_read_REAL(ptr noundef, ptr noundef, i64 noundef) #6
+declare i32 @SDL_hid_read_REAL(ptr noundef, ptr noundef, i64 noundef) #5
 
-declare i32 @SDL_hid_read_timeout_REAL(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #6
+declare i32 @SDL_hid_read_timeout_REAL(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #5
 
-declare i32 @SDL_hid_send_feature_report_REAL(ptr noundef, ptr noundef, i64 noundef) #6
+declare i32 @SDL_hid_send_feature_report_REAL(ptr noundef, ptr noundef, i64 noundef) #5
 
-declare i32 @SDL_hid_set_nonblocking_REAL(ptr noundef, i32 noundef) #6
+declare i32 @SDL_hid_set_nonblocking_REAL(ptr noundef, i32 noundef) #5
 
-declare i32 @SDL_hid_write_REAL(ptr noundef, ptr noundef, i64 noundef) #6
+declare i32 @SDL_hid_write_REAL(ptr noundef, ptr noundef, i64 noundef) #5
 
-declare i64 @SDL_iconv_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare i64 @SDL_iconv_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare i32 @SDL_iconv_close_REAL(ptr noundef) #6
+declare i32 @SDL_iconv_close_REAL(ptr noundef) #5
 
-declare ptr @SDL_iconv_open_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_iconv_open_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_iconv_string_REAL(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #6
+declare ptr @SDL_iconv_string_REAL(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #5
 
-declare i32 @SDL_isalnum_REAL(i32 noundef) #6
+declare i32 @SDL_isalnum_REAL(i32 noundef) #5
 
-declare i32 @SDL_isalpha_REAL(i32 noundef) #6
+declare i32 @SDL_isalpha_REAL(i32 noundef) #5
 
-declare i32 @SDL_isblank_REAL(i32 noundef) #6
+declare i32 @SDL_isblank_REAL(i32 noundef) #5
 
-declare i32 @SDL_iscntrl_REAL(i32 noundef) #6
+declare i32 @SDL_iscntrl_REAL(i32 noundef) #5
 
-declare i32 @SDL_isdigit_REAL(i32 noundef) #6
+declare i32 @SDL_isdigit_REAL(i32 noundef) #5
 
-declare i32 @SDL_isgraph_REAL(i32 noundef) #6
+declare i32 @SDL_isgraph_REAL(i32 noundef) #5
 
-declare i32 @SDL_isinf_REAL(double noundef) #6
+declare i32 @SDL_isinf_REAL(double noundef) #5
 
-declare i32 @SDL_isinff_REAL(float noundef) #6
+declare i32 @SDL_isinff_REAL(float noundef) #5
 
-declare i32 @SDL_islower_REAL(i32 noundef) #6
+declare i32 @SDL_islower_REAL(i32 noundef) #5
 
-declare i32 @SDL_isnan_REAL(double noundef) #6
+declare i32 @SDL_isnan_REAL(double noundef) #5
 
-declare i32 @SDL_isnanf_REAL(float noundef) #6
+declare i32 @SDL_isnanf_REAL(float noundef) #5
 
-declare i32 @SDL_isprint_REAL(i32 noundef) #6
+declare i32 @SDL_isprint_REAL(i32 noundef) #5
 
-declare i32 @SDL_ispunct_REAL(i32 noundef) #6
+declare i32 @SDL_ispunct_REAL(i32 noundef) #5
 
-declare i32 @SDL_isspace_REAL(i32 noundef) #6
+declare i32 @SDL_isspace_REAL(i32 noundef) #5
 
-declare i32 @SDL_isupper_REAL(i32 noundef) #6
+declare i32 @SDL_isupper_REAL(i32 noundef) #5
 
-declare i32 @SDL_isxdigit_REAL(i32 noundef) #6
+declare i32 @SDL_isxdigit_REAL(i32 noundef) #5
 
-declare ptr @SDL_itoa_REAL(i32 noundef, ptr noundef, i32 noundef) #6
+declare ptr @SDL_itoa_REAL(i32 noundef, ptr noundef, i32 noundef) #5
 
-declare ptr @SDL_lltoa_REAL(i64 noundef, ptr noundef, i32 noundef) #6
+declare ptr @SDL_lltoa_REAL(i64 noundef, ptr noundef, i32 noundef) #5
 
-declare double @SDL_log_REAL(double noundef) #6
+declare double @SDL_log_REAL(double noundef) #5
 
-declare double @SDL_log10_REAL(double noundef) #6
+declare double @SDL_log10_REAL(double noundef) #5
 
-declare float @SDL_log10f_REAL(float noundef) #6
+declare float @SDL_log10f_REAL(float noundef) #5
 
-declare float @SDL_logf_REAL(float noundef) #6
+declare float @SDL_logf_REAL(float noundef) #5
 
-declare i64 @SDL_lround_REAL(double noundef) #6
+declare i64 @SDL_lround_REAL(double noundef) #5
 
-declare i64 @SDL_lroundf_REAL(float noundef) #6
+declare i64 @SDL_lroundf_REAL(float noundef) #5
 
-declare ptr @SDL_ltoa_REAL(i64 noundef, ptr noundef, i32 noundef) #6
+declare ptr @SDL_ltoa_REAL(i64 noundef, ptr noundef, i32 noundef) #5
 
-declare ptr @SDL_malloc_REAL(i64 noundef) #6
+declare ptr @SDL_malloc_REAL(i64 noundef) #5
 
-declare i32 @SDL_memcmp_REAL(ptr noundef, ptr noundef, i64 noundef) #6
+declare i32 @SDL_memcmp_REAL(ptr noundef, ptr noundef, i64 noundef) #5
 
-declare ptr @SDL_memcpy_REAL(ptr noundef, ptr noundef, i64 noundef) #6
+declare ptr @SDL_memcpy_REAL(ptr noundef, ptr noundef, i64 noundef) #5
 
-declare ptr @SDL_memmove_REAL(ptr noundef, ptr noundef, i64 noundef) #6
+declare ptr @SDL_memmove_REAL(ptr noundef, ptr noundef, i64 noundef) #5
 
-declare ptr @SDL_memset_REAL(ptr noundef, i32 noundef, i64 noundef) #6
+declare ptr @SDL_memset_REAL(ptr noundef, i32 noundef, i64 noundef) #5
 
-declare ptr @SDL_memset4_REAL(ptr noundef, i32 noundef, i64 noundef) #6
+declare ptr @SDL_memset4_REAL(ptr noundef, i32 noundef, i64 noundef) #5
 
-declare double @SDL_modf_REAL(double noundef, ptr noundef) #6
+declare double @SDL_modf_REAL(double noundef, ptr noundef) #5
 
-declare float @SDL_modff_REAL(float noundef, ptr noundef) #6
+declare float @SDL_modff_REAL(float noundef, ptr noundef) #5
 
-declare i32 @SDL_murmur3_32_REAL(ptr noundef, i64 noundef, i32 noundef) #6
+declare i32 @SDL_murmur3_32_REAL(ptr noundef, i64 noundef, i32 noundef) #5
 
-declare double @SDL_pow_REAL(double noundef, double noundef) #6
+declare double @SDL_pow_REAL(double noundef, double noundef) #5
 
-declare float @SDL_powf_REAL(float noundef, float noundef) #6
+declare float @SDL_powf_REAL(float noundef, float noundef) #5
 
-declare void @SDL_qsort_REAL(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #6
+declare void @SDL_qsort_REAL(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #5
 
-declare void @SDL_qsort_r_REAL(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #6
+declare void @SDL_qsort_r_REAL(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #5
 
-declare i32 @SDL_rand_REAL(i32 noundef) #6
+declare i32 @SDL_rand_REAL(i32 noundef) #5
 
-declare i32 @SDL_rand_bits_REAL() #6
+declare i32 @SDL_rand_bits_REAL() #5
 
-declare i32 @SDL_rand_bits_r_REAL(ptr noundef) #6
+declare i32 @SDL_rand_bits_r_REAL(ptr noundef) #5
 
-declare i32 @SDL_rand_r_REAL(ptr noundef, i32 noundef) #6
+declare i32 @SDL_rand_r_REAL(ptr noundef, i32 noundef) #5
 
-declare float @SDL_randf_REAL() #6
+declare float @SDL_randf_REAL() #5
 
-declare float @SDL_randf_r_REAL(ptr noundef) #6
+declare float @SDL_randf_r_REAL(ptr noundef) #5
 
-declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) #6
+declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) #5
 
-declare double @SDL_round_REAL(double noundef) #6
+declare double @SDL_round_REAL(double noundef) #5
 
-declare float @SDL_roundf_REAL(float noundef) #6
+declare float @SDL_roundf_REAL(float noundef) #5
 
-declare double @SDL_scalbn_REAL(double noundef, i32 noundef) #6
+declare double @SDL_scalbn_REAL(double noundef, i32 noundef) #5
 
-declare float @SDL_scalbnf_REAL(float noundef, i32 noundef) #6
+declare float @SDL_scalbnf_REAL(float noundef, i32 noundef) #5
 
-declare i32 @SDL_setenv_unsafe_REAL(ptr noundef, ptr noundef, i32 noundef) #6
+declare i32 @SDL_setenv_unsafe_REAL(ptr noundef, ptr noundef, i32 noundef) #5
 
-declare double @SDL_sin_REAL(double noundef) #6
+declare double @SDL_sin_REAL(double noundef) #5
 
-declare float @SDL_sinf_REAL(float noundef) #6
+declare float @SDL_sinf_REAL(float noundef) #5
 
-declare double @SDL_sqrt_REAL(double noundef) #6
+declare double @SDL_sqrt_REAL(double noundef) #5
 
-declare float @SDL_sqrtf_REAL(float noundef) #6
+declare float @SDL_sqrtf_REAL(float noundef) #5
 
-declare void @SDL_srand_REAL(i64 noundef) #6
+declare void @SDL_srand_REAL(i64 noundef) #5
 
-declare i32 @SDL_strcasecmp_REAL(ptr noundef, ptr noundef) #6
+declare i32 @SDL_strcasecmp_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_strcasestr_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_strcasestr_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_strchr_REAL(ptr noundef, i32 noundef) #6
+declare ptr @SDL_strchr_REAL(ptr noundef, i32 noundef) #5
 
-declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) #6
+declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_strdup_REAL(ptr noundef) #6
+declare ptr @SDL_strdup_REAL(ptr noundef) #5
 
-declare i64 @SDL_strlcat_REAL(ptr noundef, ptr noundef, i64 noundef) #6
+declare i64 @SDL_strlcat_REAL(ptr noundef, ptr noundef, i64 noundef) #5
 
-declare i64 @SDL_strlcpy_REAL(ptr noundef, ptr noundef, i64 noundef) #6
+declare i64 @SDL_strlcpy_REAL(ptr noundef, ptr noundef, i64 noundef) #5
 
-declare i64 @SDL_strlen_REAL(ptr noundef) #6
+declare i64 @SDL_strlen_REAL(ptr noundef) #5
 
-declare ptr @SDL_strlwr_REAL(ptr noundef) #6
+declare ptr @SDL_strlwr_REAL(ptr noundef) #5
 
-declare i32 @SDL_strncasecmp_REAL(ptr noundef, ptr noundef, i64 noundef) #6
+declare i32 @SDL_strncasecmp_REAL(ptr noundef, ptr noundef, i64 noundef) #5
 
-declare i32 @SDL_strncmp_REAL(ptr noundef, ptr noundef, i64 noundef) #6
+declare i32 @SDL_strncmp_REAL(ptr noundef, ptr noundef, i64 noundef) #5
 
-declare ptr @SDL_strndup_REAL(ptr noundef, i64 noundef) #6
+declare ptr @SDL_strndup_REAL(ptr noundef, i64 noundef) #5
 
-declare i64 @SDL_strnlen_REAL(ptr noundef, i64 noundef) #6
+declare i64 @SDL_strnlen_REAL(ptr noundef, i64 noundef) #5
 
-declare ptr @SDL_strnstr_REAL(ptr noundef, ptr noundef, i64 noundef) #6
+declare ptr @SDL_strnstr_REAL(ptr noundef, ptr noundef, i64 noundef) #5
 
-declare ptr @SDL_strpbrk_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_strpbrk_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_strrchr_REAL(ptr noundef, i32 noundef) #6
+declare ptr @SDL_strrchr_REAL(ptr noundef, i32 noundef) #5
 
-declare ptr @SDL_strrev_REAL(ptr noundef) #6
+declare ptr @SDL_strrev_REAL(ptr noundef) #5
 
-declare ptr @SDL_strstr_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_strstr_REAL(ptr noundef, ptr noundef) #5
 
-declare double @SDL_strtod_REAL(ptr noundef, ptr noundef) #6
+declare double @SDL_strtod_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_strtok_r_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare ptr @SDL_strtok_r_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare i64 @SDL_strtol_REAL(ptr noundef, ptr noundef, i32 noundef) #6
+declare i64 @SDL_strtol_REAL(ptr noundef, ptr noundef, i32 noundef) #5
 
-declare i64 @SDL_strtoll_REAL(ptr noundef, ptr noundef, i32 noundef) #6
+declare i64 @SDL_strtoll_REAL(ptr noundef, ptr noundef, i32 noundef) #5
 
-declare i64 @SDL_strtoul_REAL(ptr noundef, ptr noundef, i32 noundef) #6
+declare i64 @SDL_strtoul_REAL(ptr noundef, ptr noundef, i32 noundef) #5
 
-declare i64 @SDL_strtoull_REAL(ptr noundef, ptr noundef, i32 noundef) #6
+declare i64 @SDL_strtoull_REAL(ptr noundef, ptr noundef, i32 noundef) #5
 
-declare ptr @SDL_strupr_REAL(ptr noundef) #6
+declare ptr @SDL_strupr_REAL(ptr noundef) #5
 
-declare double @SDL_tan_REAL(double noundef) #6
+declare double @SDL_tan_REAL(double noundef) #5
 
-declare float @SDL_tanf_REAL(float noundef) #6
+declare float @SDL_tanf_REAL(float noundef) #5
 
-declare i32 @SDL_tolower_REAL(i32 noundef) #6
+declare i32 @SDL_tolower_REAL(i32 noundef) #5
 
-declare i32 @SDL_toupper_REAL(i32 noundef) #6
+declare i32 @SDL_toupper_REAL(i32 noundef) #5
 
-declare double @SDL_trunc_REAL(double noundef) #6
+declare double @SDL_trunc_REAL(double noundef) #5
 
-declare float @SDL_truncf_REAL(float noundef) #6
+declare float @SDL_truncf_REAL(float noundef) #5
 
-declare ptr @SDL_uitoa_REAL(i32 noundef, ptr noundef, i32 noundef) #6
+declare ptr @SDL_uitoa_REAL(i32 noundef, ptr noundef, i32 noundef) #5
 
-declare ptr @SDL_ulltoa_REAL(i64 noundef, ptr noundef, i32 noundef) #6
+declare ptr @SDL_ulltoa_REAL(i64 noundef, ptr noundef, i32 noundef) #5
 
-declare ptr @SDL_ultoa_REAL(i64 noundef, ptr noundef, i32 noundef) #6
+declare ptr @SDL_ultoa_REAL(i64 noundef, ptr noundef, i32 noundef) #5
 
-declare i32 @SDL_unsetenv_unsafe_REAL(ptr noundef) #6
+declare i32 @SDL_unsetenv_unsafe_REAL(ptr noundef) #5
 
-declare i64 @SDL_utf8strlcpy_REAL(ptr noundef, ptr noundef, i64 noundef) #6
+declare i64 @SDL_utf8strlcpy_REAL(ptr noundef, ptr noundef, i64 noundef) #5
 
-declare i64 @SDL_utf8strlen_REAL(ptr noundef) #6
+declare i64 @SDL_utf8strlen_REAL(ptr noundef) #5
 
-declare i64 @SDL_utf8strnlen_REAL(ptr noundef, i64 noundef) #6
+declare i64 @SDL_utf8strnlen_REAL(ptr noundef, i64 noundef) #5
 
-declare i32 @SDL_vasprintf_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare i32 @SDL_vasprintf_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare i32 @SDL_vsnprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #6
+declare i32 @SDL_vsnprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #5
 
-declare i32 @SDL_vsscanf_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare i32 @SDL_vsscanf_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare i32 @SDL_vswprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #6
+declare i32 @SDL_vswprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #5
 
-declare i32 @SDL_wcscasecmp_REAL(ptr noundef, ptr noundef) #6
+declare i32 @SDL_wcscasecmp_REAL(ptr noundef, ptr noundef) #5
 
-declare i32 @SDL_wcscmp_REAL(ptr noundef, ptr noundef) #6
+declare i32 @SDL_wcscmp_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_wcsdup_REAL(ptr noundef) #6
+declare ptr @SDL_wcsdup_REAL(ptr noundef) #5
 
-declare i64 @SDL_wcslcat_REAL(ptr noundef, ptr noundef, i64 noundef) #6
+declare i64 @SDL_wcslcat_REAL(ptr noundef, ptr noundef, i64 noundef) #5
 
-declare i64 @SDL_wcslcpy_REAL(ptr noundef, ptr noundef, i64 noundef) #6
+declare i64 @SDL_wcslcpy_REAL(ptr noundef, ptr noundef, i64 noundef) #5
 
-declare i64 @SDL_wcslen_REAL(ptr noundef) #6
+declare i64 @SDL_wcslen_REAL(ptr noundef) #5
 
-declare i32 @SDL_wcsncasecmp_REAL(ptr noundef, ptr noundef, i64 noundef) #6
+declare i32 @SDL_wcsncasecmp_REAL(ptr noundef, ptr noundef, i64 noundef) #5
 
-declare i32 @SDL_wcsncmp_REAL(ptr noundef, ptr noundef, i64 noundef) #6
+declare i32 @SDL_wcsncmp_REAL(ptr noundef, ptr noundef, i64 noundef) #5
 
-declare i64 @SDL_wcsnlen_REAL(ptr noundef, i64 noundef) #6
+declare i64 @SDL_wcsnlen_REAL(ptr noundef, i64 noundef) #5
 
-declare ptr @SDL_wcsnstr_REAL(ptr noundef, ptr noundef, i64 noundef) #6
+declare ptr @SDL_wcsnstr_REAL(ptr noundef, ptr noundef, i64 noundef) #5
 
-declare ptr @SDL_wcsstr_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_wcsstr_REAL(ptr noundef, ptr noundef) #5
 
-declare i64 @SDL_wcstol_REAL(ptr noundef, ptr noundef, i32 noundef) #6
+declare i64 @SDL_wcstol_REAL(ptr noundef, ptr noundef, i32 noundef) #5
 
-declare i32 @SDL_StepBackUTF8_REAL(ptr noundef, ptr noundef) #6
+declare i32 @SDL_StepBackUTF8_REAL(ptr noundef, ptr noundef) #5
 
-declare void @SDL_DelayPrecise_REAL(i64 noundef) #6
+declare void @SDL_DelayPrecise_REAL(i64 noundef) #5
 
-declare i32 @SDL_CalculateGPUTextureFormatSize_REAL(i32 noundef, i32 noundef, i32 noundef, i32 noundef) #6
+declare i32 @SDL_CalculateGPUTextureFormatSize_REAL(i32 noundef, i32 noundef, i32 noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_SetErrorV_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_SetErrorV_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_GetDefaultLogOutputFunction_REAL() #6
+declare ptr @SDL_GetDefaultLogOutputFunction_REAL() #5
 
-declare zeroext i1 @SDL_RenderDebugText_REAL(ptr noundef, float noundef, float noundef, ptr noundef) #6
+declare zeroext i1 @SDL_RenderDebugText_REAL(ptr noundef, float noundef, float noundef, ptr noundef) #5
 
-declare i32 @SDL_GetSandbox_REAL() #6
+declare i32 @SDL_GetSandbox_REAL() #5
 
-declare zeroext i1 @SDL_CancelGPUCommandBuffer_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_CancelGPUCommandBuffer_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_SaveFile_IO_REAL(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext) #6
+declare zeroext i1 @SDL_SaveFile_IO_REAL(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext) #5
 
-declare zeroext i1 @SDL_SaveFile_REAL(ptr noundef, ptr noundef, i64 noundef) #6
+declare zeroext i1 @SDL_SaveFile_REAL(ptr noundef, ptr noundef, i64 noundef) #5
 
-declare ptr @SDL_GetCurrentDirectory_REAL() #6
+declare ptr @SDL_GetCurrentDirectory_REAL() #5
 
-declare zeroext i1 @SDL_IsAudioDevicePhysical_REAL(i32 noundef) #6
+declare zeroext i1 @SDL_IsAudioDevicePhysical_REAL(i32 noundef) #5
 
-declare zeroext i1 @SDL_IsAudioDevicePlayback_REAL(i32 noundef) #6
+declare zeroext i1 @SDL_IsAudioDevicePlayback_REAL(i32 noundef) #5
 
-declare ptr @SDL_AsyncIOFromFile_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_AsyncIOFromFile_REAL(ptr noundef, ptr noundef) #5
 
-declare i64 @SDL_GetAsyncIOSize_REAL(ptr noundef) #6
+declare i64 @SDL_GetAsyncIOSize_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_ReadAsyncIO_REAL(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_ReadAsyncIO_REAL(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_WriteAsyncIO_REAL(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_WriteAsyncIO_REAL(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_CloseAsyncIO_REAL(ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_CloseAsyncIO_REAL(ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_CreateAsyncIOQueue_REAL() #6
+declare ptr @SDL_CreateAsyncIOQueue_REAL() #5
 
-declare void @SDL_DestroyAsyncIOQueue_REAL(ptr noundef) #6
+declare void @SDL_DestroyAsyncIOQueue_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_GetAsyncIOResult_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetAsyncIOResult_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_WaitAsyncIOResult_REAL(ptr noundef, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_WaitAsyncIOResult_REAL(ptr noundef, ptr noundef, i32 noundef) #5
 
-declare void @SDL_SignalAsyncIOQueue_REAL(ptr noundef) #6
+declare void @SDL_SignalAsyncIOQueue_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_LoadFileAsync_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_LoadFileAsync_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare void @SDL_ShowFileDialogWithProperties_REAL(i32 noundef, ptr noundef, ptr noundef, i32 noundef) #6
+declare void @SDL_ShowFileDialogWithProperties_REAL(i32 noundef, ptr noundef, ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_IsMainThread_REAL() #6
+declare zeroext i1 @SDL_IsMainThread_REAL() #5
 
-declare zeroext i1 @SDL_RunOnMainThread_REAL(ptr noundef, ptr noundef, i1 noundef zeroext) #6
+declare zeroext i1 @SDL_RunOnMainThread_REAL(ptr noundef, ptr noundef, i1 noundef zeroext) #5
 
-declare zeroext i1 @SDL_SetGPUAllowedFramesInFlight_REAL(ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_SetGPUAllowedFramesInFlight_REAL(ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_RenderTextureAffine_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_RenderTextureAffine_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_WaitForGPUSwapchain_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_WaitForGPUSwapchain_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_WaitAndAcquireGPUSwapchainTexture_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_WaitAndAcquireGPUSwapchainTexture_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_RenderDebugTextFormat_REAL(ptr noundef, float noundef, float noundef, ptr noundef, ...) #6
+declare zeroext i1 @SDL_RenderDebugTextFormat_REAL(ptr noundef, float noundef, float noundef, ptr noundef, ...) #5
 
-declare ptr @SDL_CreateTray_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_CreateTray_REAL(ptr noundef, ptr noundef) #5
 
-declare void @SDL_SetTrayIcon_REAL(ptr noundef, ptr noundef) #6
+declare void @SDL_SetTrayIcon_REAL(ptr noundef, ptr noundef) #5
 
-declare void @SDL_SetTrayTooltip_REAL(ptr noundef, ptr noundef) #6
+declare void @SDL_SetTrayTooltip_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_CreateTrayMenu_REAL(ptr noundef) #6
+declare ptr @SDL_CreateTrayMenu_REAL(ptr noundef) #5
 
-declare ptr @SDL_CreateTraySubmenu_REAL(ptr noundef) #6
+declare ptr @SDL_CreateTraySubmenu_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetTrayMenu_REAL(ptr noundef) #6
+declare ptr @SDL_GetTrayMenu_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetTraySubmenu_REAL(ptr noundef) #6
+declare ptr @SDL_GetTraySubmenu_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetTrayEntries_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_GetTrayEntries_REAL(ptr noundef, ptr noundef) #5
 
-declare void @SDL_RemoveTrayEntry_REAL(ptr noundef) #6
+declare void @SDL_RemoveTrayEntry_REAL(ptr noundef) #5
 
-declare ptr @SDL_InsertTrayEntryAt_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #6
+declare ptr @SDL_InsertTrayEntryAt_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #5
 
-declare void @SDL_SetTrayEntryLabel_REAL(ptr noundef, ptr noundef) #6
+declare void @SDL_SetTrayEntryLabel_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_GetTrayEntryLabel_REAL(ptr noundef) #6
+declare ptr @SDL_GetTrayEntryLabel_REAL(ptr noundef) #5
 
-declare void @SDL_SetTrayEntryChecked_REAL(ptr noundef, i1 noundef zeroext) #6
+declare void @SDL_SetTrayEntryChecked_REAL(ptr noundef, i1 noundef zeroext) #5
 
-declare zeroext i1 @SDL_GetTrayEntryChecked_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_GetTrayEntryChecked_REAL(ptr noundef) #5
 
-declare void @SDL_SetTrayEntryEnabled_REAL(ptr noundef, i1 noundef zeroext) #6
+declare void @SDL_SetTrayEntryEnabled_REAL(ptr noundef, i1 noundef zeroext) #5
 
-declare zeroext i1 @SDL_GetTrayEntryEnabled_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_GetTrayEntryEnabled_REAL(ptr noundef) #5
 
-declare void @SDL_SetTrayEntryCallback_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare void @SDL_SetTrayEntryCallback_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare void @SDL_DestroyTray_REAL(ptr noundef) #6
+declare void @SDL_DestroyTray_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetTrayEntryParent_REAL(ptr noundef) #6
+declare ptr @SDL_GetTrayEntryParent_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetTrayMenuParentEntry_REAL(ptr noundef) #6
+declare ptr @SDL_GetTrayMenuParentEntry_REAL(ptr noundef) #5
 
-declare ptr @SDL_GetTrayMenuParentTray_REAL(ptr noundef) #6
+declare ptr @SDL_GetTrayMenuParentTray_REAL(ptr noundef) #5
 
-declare i32 @SDL_GetThreadState_REAL(ptr noundef) #6
+declare i32 @SDL_GetThreadState_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_AudioStreamDevicePaused_REAL(ptr noundef) #6
+declare zeroext i1 @SDL_AudioStreamDevicePaused_REAL(ptr noundef) #5
 
-declare void @SDL_ClickTrayEntry_REAL(ptr noundef) #6
+declare void @SDL_ClickTrayEntry_REAL(ptr noundef) #5
 
-declare void @SDL_UpdateTrays_REAL() #6
+declare void @SDL_UpdateTrays_REAL() #5
 
-declare zeroext i1 @SDL_StretchSurface_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_StretchSurface_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_SetRelativeMouseTransform_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_SetRelativeMouseTransform_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_RenderTexture9GridTiled_REAL(ptr noundef, ptr noundef, ptr noundef, float noundef, float noundef, float noundef, float noundef, float noundef, ptr noundef, float noundef) #6
+declare zeroext i1 @SDL_RenderTexture9GridTiled_REAL(ptr noundef, ptr noundef, ptr noundef, float noundef, float noundef, float noundef, float noundef, float noundef, ptr noundef, float noundef) #5
 
-declare zeroext i1 @SDL_SetDefaultTextureScaleMode_REAL(ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_SetDefaultTextureScaleMode_REAL(ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_GetDefaultTextureScaleMode_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetDefaultTextureScaleMode_REAL(ptr noundef, ptr noundef) #5
 
-declare ptr @SDL_CreateGPURenderState_REAL(ptr noundef, ptr noundef) #6
+declare ptr @SDL_CreateGPURenderState_REAL(ptr noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_SetGPURenderStateFragmentUniforms_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_SetGPURenderStateFragmentUniforms_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_SetRenderGPUState_REAL(ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_SetRenderGPUState_REAL(ptr noundef, ptr noundef) #5
 
-declare void @SDL_DestroyGPURenderState_REAL(ptr noundef) #6
+declare void @SDL_DestroyGPURenderState_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_SetWindowProgressState_REAL(ptr noundef, i32 noundef) #6
+declare zeroext i1 @SDL_SetWindowProgressState_REAL(ptr noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_SetWindowProgressValue_REAL(ptr noundef, float noundef) #6
+declare zeroext i1 @SDL_SetWindowProgressValue_REAL(ptr noundef, float noundef) #5
 
-declare i32 @SDL_GetWindowProgressState_REAL(ptr noundef) #6
+declare i32 @SDL_GetWindowProgressState_REAL(ptr noundef) #5
 
-declare float @SDL_GetWindowProgressValue_REAL(ptr noundef) #6
+declare float @SDL_GetWindowProgressValue_REAL(ptr noundef) #5
 
-declare zeroext i1 @SDL_SetRenderTextureAddressMode_REAL(ptr noundef, i32 noundef, i32 noundef) #6
+declare zeroext i1 @SDL_SetRenderTextureAddressMode_REAL(ptr noundef, i32 noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_GetRenderTextureAddressMode_REAL(ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_GetRenderTextureAddressMode_REAL(ptr noundef, ptr noundef, ptr noundef) #5
 
-declare i32 @SDL_GetGPUDeviceProperties_REAL(ptr noundef) #6
+declare i32 @SDL_GetGPUDeviceProperties_REAL(ptr noundef) #5
 
-declare ptr @SDL_CreateGPURenderer_REAL(ptr noundef, i32 noundef, ptr noundef) #6
+declare ptr @SDL_CreateGPURenderer_REAL(ptr noundef, i32 noundef, ptr noundef) #5
 
-declare zeroext i1 @SDL_PutAudioStreamPlanarData_REAL(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #6
+declare zeroext i1 @SDL_PutAudioStreamPlanarData_REAL(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #5
 
-declare zeroext i1 @SDL_SetAudioIterationCallbacks_REAL(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #6
+declare zeroext i1 @SDL_SetAudioIterationCallbacks_REAL(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
-declare i32 @SDL_GetEventDescription_REAL(ptr noundef, ptr noundef, i32 noundef) #6
+declare i32 @SDL_GetEventDescription_REAL(ptr noundef, ptr noundef, i32 noundef) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind allocsize(0,1) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind allocsize(1) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nounwind }
 attributes #13 = { noreturn nounwind }
 attributes #14 = { cold nounwind }

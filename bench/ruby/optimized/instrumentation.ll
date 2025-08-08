@@ -59,18 +59,15 @@ define void @Init_instrumentation() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @rb_define_module(ptr noundef) local_unnamed_addr #1
 
-declare i64 @rb_define_module(ptr noundef) local_unnamed_addr #2
+declare i64 @rb_define_module_under(i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @rb_define_module_under(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @rb_global_variable(ptr noundef) local_unnamed_addr #1
 
-declare void @rb_global_variable(ptr noundef) local_unnamed_addr #2
+declare i64 @rb_data_typed_object_wrap(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @rb_data_typed_object_wrap(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @thread_register_callback(i64 %0, i64 noundef %1) #0 {
@@ -197,7 +194,7 @@ event_symbol.exit:                                ; preds = %.lr.ph.i28.i, %.lr.
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @thread_register_and_unregister_callback(i64 %0) #0 {
   %2 = alloca [5 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %7
 
 3:                                                ; preds = %7
@@ -241,12 +238,9 @@ define internal range(i64 0, 21) i64 @thread_register_and_unregister_callback(i6
 
 25:                                               ; preds = %21, %17, %13, %10, %3
   %.04 = phi i64 [ 0, %3 ], [ 0, %10 ], [ 0, %13 ], [ 0, %17 ], [ %., %21 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.04
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @event_timeline_gc_mark(ptr readnone captures(none) %0) #0 {
@@ -269,9 +263,9 @@ define internal void @event_timeline_gc_mark(ptr readnone captures(none) %0) #0 
   ret void
 }
 
-declare void @rb_gc_mark(i64 noundef) local_unnamed_addr #2
+declare void @rb_gc_mark(i64 noundef) local_unnamed_addr #1
 
-declare ptr @rb_internal_thread_add_event_hook(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @rb_internal_thread_add_event_hook(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @ex_callback(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address_is_null) %2) #0 {
@@ -501,27 +495,33 @@ find_last_event.exit.thread:                      ; preds = %10, %find_last_even
 }
 
 ; Function Attrs: cold noreturn
-declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #3
+declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @__fprintf_chk(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @__fprintf_chk(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef) local_unnamed_addr #1
 
-declare i64 @rb_ary_new_capa(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_ary_new_capa(i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_ary_push(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_ary_push(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_id2sym(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_id2sym(i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { nounwind }
 attributes #6 = { cold noreturn nounwind }

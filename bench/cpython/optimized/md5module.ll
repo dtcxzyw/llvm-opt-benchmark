@@ -133,7 +133,7 @@ _md5_clear.exit:                                  ; preds = %1, %4, %6, %9
 define internal ptr @_md5_md5(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.Py_buffer, align 8
   %6 = alloca [2 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %.thread
 
@@ -162,7 +162,7 @@ define internal ptr @_md5_md5(ptr noundef %0, ptr noundef %1, i64 noundef %2, pt
   br i1 %.not37, label %.thread49, label %17
 
 .thread49:                                        ; preds = %.thread43
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %45
 
 17:                                               ; preds = %.thread43
@@ -173,7 +173,7 @@ define internal ptr @_md5_md5(ptr noundef %0, ptr noundef %1, i64 noundef %2, pt
   br i1 %spec.select, label %.thread55, label %20
 
 .thread55:                                        ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %26
 
 20:                                               ; preds = %17
@@ -184,7 +184,7 @@ define internal ptr @_md5_md5(ptr noundef %0, ptr noundef %1, i64 noundef %2, pt
   br i1 %24, label %85, label %25
 
 25:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %45, label %26
 
@@ -326,24 +326,18 @@ update.exit30.i:                                  ; preds = %64
 
 _md5_md5_impl.exit:                               ; preds = %30, %34, %36, %43, %48, %49, %Py_DECREF.exit.i, %62, %63, %84
   %.0.i = phi ptr [ null, %30 ], [ null, %43 ], [ null, %34 ], [ null, %36 ], [ null, %49 ], [ null, %48 ], [ null, %62 ], [ null, %Py_DECREF.exit.i ], [ %47, %84 ], [ %47, %63 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %85
 
 85:                                               ; preds = %20, %12, %_md5_md5_impl.exit
   %.029 = phi ptr [ null, %20 ], [ %.0.i, %_md5_md5_impl.exit ], [ null, %12 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.029
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @PyObject_IsTrue(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -514,7 +508,7 @@ MD5Type_copy_impl.exit:                           ; preds = %35, %31, %_PyMutex_
 ; Function Attrs: nounwind uwtable
 define internal ptr @MD5Type_digest(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i8, ptr %4, align 8, !tbaa !29, !range !39, !noundef !40
   %6 = trunc nuw i8 %5 to i1
@@ -550,7 +544,7 @@ _PyMutex_Lock.exit.i:                             ; preds = %11, %7, %2
 
 MD5Type_digest_impl.exit:                         ; preds = %_PyMutex_Lock.exit.i, %16, %20
   %21 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %3, i64 noundef 16) #3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %21
 }
 
@@ -558,7 +552,7 @@ MD5Type_digest_impl.exit:                         ; preds = %_PyMutex_Lock.exit.
 define internal ptr @MD5Type_hexdigest(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca [16 x i8], align 16
   %4 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i8, ptr %5, align 8, !tbaa !29, !range !39, !noundef !40
   %7 = trunc nuw i8 %6 to i1
@@ -593,7 +587,7 @@ _PyMutex_Lock.exit.i:                             ; preds = %12, %8, %2
   br label %_PyMutex_Unlock.exit.i
 
 _PyMutex_Unlock.exit.i:                           ; preds = %21, %17, %_PyMutex_Lock.exit.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %22
 
 22:                                               ; preds = %22, %_PyMutex_Unlock.exit.i
@@ -620,15 +614,15 @@ _PyMutex_Unlock.exit.i:                           ; preds = %21, %17, %_PyMutex_
 
 MD5Type_hexdigest_impl.exit:                      ; preds = %22
   %37 = call ptr @PyUnicode_FromStringAndSize(ptr noundef nonnull %4, i64 noundef 32) #3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %37
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @MD5Type_update(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %4, align 8, !tbaa !17
   %5 = getelementptr i8, ptr %.val, i64 168
@@ -761,7 +755,7 @@ update.exit23:                                    ; preds = %.lr.ph.i20, %51
 
 63:                                               ; preds = %13, %62, %20, %11, %7
   %.0 = phi ptr [ null, %7 ], [ null, %20 ], [ @_Py_NoneStruct, %62 ], [ null, %11 ], [ null, %13 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -798,6 +792,12 @@ define internal ptr @md5_get_digest_size(ptr readnone captures(none) %0, ptr rea
 }
 
 declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

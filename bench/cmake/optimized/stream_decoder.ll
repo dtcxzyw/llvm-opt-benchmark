@@ -106,9 +106,6 @@ stream_decoder_reset.exit:                        ; preds = %46, %22, %12, %8
 
 declare void @lzma_next_end(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @lzma_alloc(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
@@ -246,7 +243,7 @@ define internal i32 @stream_decode(ptr noundef %0, ptr noundef %1, ptr noalias n
 
 81:                                               ; preds = %80, %34
   store i32 1, ptr %25, align 8, !tbaa !40
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %10, ptr %26, align 8, !tbaa !41
   %82 = call i32 @lzma_block_header_decode(ptr noundef nonnull %25, ptr noundef %1, ptr noundef nonnull %13) #10
   %.not178 = icmp eq i32 %82, 0
@@ -280,12 +277,12 @@ define internal i32 @stream_decode(ptr noundef %0, ptr noundef %1, ptr noalias n
 
 .thread189:                                       ; preds = %81, %90, %.thread185
   %.10.ph = phi i32 [ %.0151.ph, %.thread185 ], [ %82, %81 ], [ %91, %90 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread
 
 92:                                               ; preds = %90
   store i32 3, ptr %0, align 8, !tbaa !32
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %93
 
 93:                                               ; preds = %92, %34
@@ -330,7 +327,7 @@ define internal i32 @stream_decode(ptr noundef %0, ptr noundef %1, ptr noalias n
 
 112:                                              ; preds = %108
   store i64 0, ptr %14, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %113 = call i32 @lzma_stream_footer_decode(ptr noundef nonnull %11, ptr noundef nonnull %13) #10
   %.not167 = icmp eq i32 %113, 0
   br i1 %.not167, label %117, label %114
@@ -359,12 +356,12 @@ define internal i32 @stream_decode(ptr noundef %0, ptr noundef %1, ptr noalias n
 
 .thread199:                                       ; preds = %121, %117, %123, %114
   %.15.ph = phi i32 [ %116, %114 ], [ %122, %121 ], [ 9, %117 ], [ 1, %123 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread
 
 126:                                              ; preds = %123
   store i32 6, ptr %0, align 8, !tbaa !32
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %127
 
 127:                                              ; preds = %126, %34
@@ -442,14 +439,14 @@ define internal void @stream_decoder_end(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @stream_decoder_get_check(ptr noundef readonly captures(none) %0) #3 {
+define internal i32 @stream_decoder_get_check(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %3 = load i32, ptr %2, align 8, !tbaa !36
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 7) i32 @stream_decoder_memconfig(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, i64 noundef %3) #4 {
+define internal range(i32 0, 7) i32 @stream_decoder_memconfig(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, i64 noundef %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %6 = load i64, ptr %5, align 8, !tbaa !25
   store i64 %6, ptr %1, align 8, !tbaa !23
@@ -474,10 +471,7 @@ define internal range(i32 0, 7) i32 @stream_decoder_memconfig(ptr noundef captur
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @lzma_stream_decoder(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -514,65 +508,71 @@ define dso_local i32 @lzma_stream_decoder(ptr noundef %0, i64 noundef %1, i32 no
 declare i32 @lzma_strm_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @lzma_end(ptr noundef) local_unnamed_addr #6
+declare void @lzma_end(ptr noundef) local_unnamed_addr #5
 
 declare i64 @lzma_bufcpy(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @lzma_stream_header_decode(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @lzma_stream_header_decode(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare zeroext i8 @lzma_check_is_supported(i32 noundef) local_unnamed_addr #7
+declare zeroext i8 @lzma_check_is_supported(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i32 @lzma_block_header_decode(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @lzma_block_header_decode(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @lzma_raw_decoder_memusage(ptr noundef) local_unnamed_addr #8
+declare i64 @lzma_raw_decoder_memusage(ptr noundef) local_unnamed_addr #7
 
 declare i32 @lzma_block_decoder_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @lzma_filters_free(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @lzma_filters_free(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @lzma_index_hash_append(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @lzma_index_hash_append(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @lzma_block_unpadded_size(ptr noundef) local_unnamed_addr #8
+declare i64 @lzma_block_unpadded_size(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare i32 @lzma_index_hash_decode(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @lzma_index_hash_decode(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @lzma_stream_footer_decode(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @lzma_stream_footer_decode(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @lzma_index_hash_size(ptr noundef) local_unnamed_addr #8
+declare i64 @lzma_index_hash_size(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @lzma_stream_flags_compare(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @lzma_stream_flags_compare(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare void @lzma_index_hash_end(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @lzma_index_hash_end(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 declare void @lzma_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare ptr @lzma_index_hash_init(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare ptr @lzma_index_hash_init(ptr noundef, ptr noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind willreturn memory(none) }

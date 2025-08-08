@@ -62,39 +62,33 @@ define dso_local void @memrevifle(ptr noundef captures(none) %0, i64 noundef %1)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @mp_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 {
+define dso_local ptr @mp_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call ptr @lua_getallocf(ptr noundef %0, ptr noundef nonnull %5) #10
   %7 = load ptr, ptr %5, align 8, !tbaa !9
   %8 = call ptr %6(ptr noundef %7, ptr noundef %1, i64 noundef %2, i64 noundef %3) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %8
 }
 
-declare ptr @lua_getallocf(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @lua_getallocf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @mp_buf_new(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local noundef ptr @mp_buf_new(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call ptr @lua_getallocf(ptr noundef %0, ptr noundef nonnull %2) #10
   %4 = load ptr, ptr %2, align 8, !tbaa !9
   %5 = call ptr %3(ptr noundef %4, ptr noundef null, i64 noundef 0, i64 noundef 24) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mp_buf_append(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #2 {
+define dso_local void @mp_buf_append(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !tbaa !11
@@ -124,11 +118,11 @@ define dso_local void @mp_buf_append(ptr noundef %0, ptr noundef captures(none) 
   %17 = shl nuw i64 %12, 1
   %18 = load ptr, ptr %1, align 8, !tbaa !15
   %19 = add i64 %11, %7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %20 = call ptr @lua_getallocf(ptr noundef %0, ptr noundef nonnull %5) #10
   %21 = load ptr, ptr %5, align 8, !tbaa !9
   %22 = call ptr %20(ptr noundef %21, ptr noundef %18, i64 noundef %19, i64 noundef %17) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %22, ptr %1, align 8, !tbaa !15
   %23 = load i64, ptr %10, align 8, !tbaa !16
   %24 = sub i64 %17, %23
@@ -151,13 +145,13 @@ define dso_local void @mp_buf_append(ptr noundef %0, ptr noundef captures(none) 
 }
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #4
+declare void @abort() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mp_buf_free(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @mp_buf_free(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %1, align 8, !tbaa !15
@@ -166,21 +160,21 @@ define dso_local void @mp_buf_free(ptr noundef %0, ptr noundef %1) local_unnamed
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !11
   %10 = add i64 %9, %7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = call ptr @lua_getallocf(ptr noundef %0, ptr noundef nonnull %4) #10
   %12 = load ptr, ptr %4, align 8, !tbaa !9
   %13 = call ptr %11(ptr noundef %12, ptr noundef %5, i64 noundef %10, i64 noundef 0) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = call ptr @lua_getallocf(ptr noundef %0, ptr noundef nonnull %3) #10
   %15 = load ptr, ptr %3, align 8, !tbaa !9
   %16 = call ptr %14(ptr noundef %15, ptr noundef nonnull %1, i64 noundef 24, i64 noundef 0) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @mp_cur_init(ptr noundef writeonly captures(none) initializes((0, 20)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #6 {
+define dso_local void @mp_cur_init(ptr noundef writeonly captures(none) initializes((0, 20)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #5 {
   store ptr %1, ptr %0, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8, !tbaa !20
@@ -190,11 +184,11 @@ define dso_local void @mp_cur_init(ptr noundef writeonly captures(none) initiali
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mp_encode_bytes(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #2 {
+define dso_local void @mp_encode_bytes(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca [5 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp ult i64 %3, 32
   br i1 %8, label %9, label %12
 
@@ -279,11 +273,11 @@ define dso_local void @mp_encode_bytes(ptr noundef %0, ptr noundef captures(none
   %42 = shl nuw i64 %37, 1
   %43 = load ptr, ptr %1, align 8, !tbaa !15
   %44 = add i64 %36, %32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %45 = call ptr @lua_getallocf(ptr noundef %0, ptr noundef nonnull %6) #10
   %46 = load ptr, ptr %6, align 8, !tbaa !9
   %47 = call ptr %45(ptr noundef %46, ptr noundef %43, i64 noundef %44, i64 noundef %42) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %47, ptr %1, align 8, !tbaa !15
   %48 = load i64, ptr %35, align 8, !tbaa !16
   %49 = sub i64 %42, %48
@@ -324,11 +318,11 @@ mp_buf_append.exit:                               ; preds = %._crit_edge.i, %41
   %65 = shl nuw i64 %60, 1
   %66 = load ptr, ptr %1, align 8, !tbaa !15
   %67 = add i64 %56, %54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %68 = call ptr @lua_getallocf(ptr noundef %0, ptr noundef nonnull %5) #10
   %69 = load ptr, ptr %5, align 8, !tbaa !9
   %70 = call ptr %68(ptr noundef %69, ptr noundef %66, i64 noundef %67, i64 noundef %65) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %70, ptr %1, align 8, !tbaa !15
   %71 = load i64, ptr %52, align 8, !tbaa !16
   %72 = sub i64 %65, %71
@@ -346,16 +340,16 @@ mp_buf_append.exit23:                             ; preds = %._crit_edge.i18, %6
   %78 = load i64, ptr %31, align 8, !tbaa !11
   %79 = sub i64 %78, %3
   store i64 %79, ptr %31, align 8, !tbaa !11
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mp_encode_double(ptr noundef %0, ptr noundef captures(none) %1, double noundef %2) local_unnamed_addr #2 {
+define dso_local void @mp_encode_double(ptr noundef %0, ptr noundef captures(none) %1, double noundef %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca [9 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = fptrunc double %2 to float
   %8 = fpext float %7 to double
   %9 = fcmp oeq double %2, %8
@@ -409,11 +403,11 @@ memrevifle.exit:                                  ; preds = %.lr.ph.i
   %26 = add nuw i64 %25, 10
   %27 = load ptr, ptr %1, align 8, !tbaa !15
   %28 = add nuw nsw i64 %22, %18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %29 = call ptr @lua_getallocf(ptr noundef %0, ptr noundef nonnull %5) #10
   %30 = load ptr, ptr %5, align 8, !tbaa !9
   %31 = call ptr %29(ptr noundef %30, ptr noundef %27, i64 noundef %28, i64 noundef %26) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %31, ptr %1, align 8, !tbaa !15
   %32 = load i64, ptr %21, align 8, !tbaa !16
   %33 = sub i64 %26, %32
@@ -481,11 +475,11 @@ memrevifle.exit15:                                ; preds = %.lr.ph.i8
   %57 = add nuw i64 %56, 18
   %58 = load ptr, ptr %1, align 8, !tbaa !15
   %59 = add nuw nsw i64 %53, %49
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %60 = call ptr @lua_getallocf(ptr noundef %0, ptr noundef nonnull %4) #10
   %61 = load ptr, ptr %4, align 8, !tbaa !9
   %62 = call ptr %60(ptr noundef %61, ptr noundef %58, i64 noundef %59, i64 noundef %57) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %62, ptr %1, align 8, !tbaa !15
   %63 = load i64, ptr %52, align 8, !tbaa !16
   %64 = sub i64 %57, %63
@@ -507,15 +501,15 @@ mp_buf_append.exit21:                             ; preds = %._crit_edge.i16, %5
   br label %73
 
 73:                                               ; preds = %mp_buf_append.exit21, %mp_buf_append.exit
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mp_encode_int(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #2 {
+define dso_local void @mp_encode_int(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca [9 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp sgt i64 %2, -1
   br i1 %6, label %7, label %47
 
@@ -735,11 +729,11 @@ define dso_local void @mp_encode_int(ptr noundef %0, ptr noundef captures(none) 
   %99 = shl nuw i64 %94, 1
   %100 = load ptr, ptr %1, align 8, !tbaa !15
   %101 = add i64 %93, %89
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %102 = call ptr @lua_getallocf(ptr noundef %0, ptr noundef nonnull %4) #10
   %103 = load ptr, ptr %4, align 8, !tbaa !9
   %104 = call ptr %102(ptr noundef %103, ptr noundef %100, i64 noundef %101, i64 noundef %99) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %104, ptr %1, align 8, !tbaa !15
   %105 = load i64, ptr %92, align 8, !tbaa !16
   %106 = sub i64 %99, %105
@@ -758,15 +752,15 @@ mp_buf_append.exit:                               ; preds = %._crit_edge.i, %98
   %113 = load i64, ptr %88, align 8, !tbaa !11
   %114 = sub i64 %113, %.0
   store i64 %114, ptr %88, align 8, !tbaa !11
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mp_encode_array(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #2 {
+define dso_local void @mp_encode_array(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca [5 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp ult i64 %2, 16
   br i1 %6, label %7, label %10
 
@@ -840,11 +834,11 @@ define dso_local void @mp_encode_array(ptr noundef %0, ptr noundef captures(none
   %36 = shl nuw i64 %31, 1
   %37 = load ptr, ptr %1, align 8, !tbaa !15
   %38 = add i64 %30, %26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %39 = call ptr @lua_getallocf(ptr noundef %0, ptr noundef nonnull %4) #10
   %40 = load ptr, ptr %4, align 8, !tbaa !9
   %41 = call ptr %39(ptr noundef %40, ptr noundef %37, i64 noundef %38, i64 noundef %36) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %41, ptr %1, align 8, !tbaa !15
   %42 = load i64, ptr %29, align 8, !tbaa !16
   %43 = sub i64 %36, %42
@@ -863,15 +857,15 @@ mp_buf_append.exit:                               ; preds = %._crit_edge.i, %35
   %50 = load i64, ptr %25, align 8, !tbaa !11
   %51 = sub i64 %50, %.0
   store i64 %51, ptr %25, align 8, !tbaa !11
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mp_encode_map(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #2 {
+define dso_local void @mp_encode_map(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca [5 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp ult i64 %2, 16
   br i1 %6, label %7, label %10
 
@@ -945,11 +939,11 @@ define dso_local void @mp_encode_map(ptr noundef %0, ptr noundef captures(none) 
   %36 = shl nuw i64 %31, 1
   %37 = load ptr, ptr %1, align 8, !tbaa !15
   %38 = add i64 %30, %26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %39 = call ptr @lua_getallocf(ptr noundef %0, ptr noundef nonnull %4) #10
   %40 = load ptr, ptr %4, align 8, !tbaa !9
   %41 = call ptr %39(ptr noundef %40, ptr noundef %37, i64 noundef %38, i64 noundef %36) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %41, ptr %1, align 8, !tbaa !15
   %42 = load i64, ptr %29, align 8, !tbaa !16
   %43 = sub i64 %36, %42
@@ -968,25 +962,25 @@ mp_buf_append.exit:                               ; preds = %._crit_edge.i, %35
   %50 = load i64, ptr %25, align 8, !tbaa !11
   %51 = sub i64 %50, %.0
   store i64 %51, ptr %25, align 8, !tbaa !11
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mp_encode_lua_string(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
+define dso_local void @mp_encode_lua_string(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef nonnull %3) #10
   %5 = load i64, ptr %3, align 8, !tbaa !22
   call void @mp_encode_bytes(ptr noundef %0, ptr noundef %1, ptr noundef %4, i64 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare ptr @lua_tolstring(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @lua_tolstring(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mp_encode_lua_bool(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
+define dso_local void @mp_encode_lua_bool(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = tail call i32 @lua_toboolean(ptr noundef %0, i32 noundef -1) #10
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1014,11 +1008,11 @@ define dso_local void @mp_encode_lua_bool(ptr noundef %0, ptr noundef captures(n
   %13 = shl nuw i64 %10, 1
   %14 = add nuw i64 %13, 2
   %15 = load ptr, ptr %1, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call ptr @lua_getallocf(ptr noundef %0, ptr noundef nonnull %3) #10
   %17 = load ptr, ptr %3, align 8, !tbaa !9
   %18 = call ptr %16(ptr noundef %17, ptr noundef %15, i64 noundef %10, i64 noundef %14) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %18, ptr %1, align 8, !tbaa !15
   %19 = load i64, ptr %9, align 8, !tbaa !16
   %20 = sub i64 %14, %19
@@ -1042,19 +1036,19 @@ mp_buf_append.exit:                               ; preds = %._crit_edge.i, %12
   ret void
 }
 
-declare i32 @lua_toboolean(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @lua_toboolean(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mp_encode_lua_integer(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
+define dso_local void @mp_encode_lua_integer(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = tail call i64 @lua_tointeger(ptr noundef %0, i32 noundef -1) #10
   tail call void @mp_encode_int(ptr noundef %0, ptr noundef %1, i64 noundef %3)
   ret void
 }
 
-declare i64 @lua_tointeger(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @lua_tointeger(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mp_encode_lua_number(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
+define dso_local void @mp_encode_lua_number(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = tail call double @lua_tonumber(ptr noundef %0, i32 noundef -1) #10
   %4 = tail call double @llvm.fabs.f64(double %3) #12
   %5 = fcmp oeq double %4, 0x7FF0000000000000
@@ -1079,13 +1073,13 @@ define dso_local void @mp_encode_lua_number(ptr noundef %0, ptr noundef captures
   ret void
 }
 
-declare double @lua_tonumber(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare double @lua_tonumber(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #7
+declare double @llvm.fabs.f64(double) #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mp_encode_lua_table_as_array(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local void @mp_encode_lua_table_as_array(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = tail call i64 @lua_objlen(ptr noundef %0, i32 noundef -1) #10
   tail call void @mp_encode_array(ptr noundef %0, ptr noundef %1, i64 noundef %4)
   tail call void @luaL_checkstack(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str) #10
@@ -1110,16 +1104,16 @@ define dso_local void @mp_encode_lua_table_as_array(ptr noundef %0, ptr noundef 
   ret void
 }
 
-declare i64 @lua_objlen(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @lua_objlen(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @luaL_checkstack(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @luaL_checkstack(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @lua_pushnumber(ptr noundef, double noundef) local_unnamed_addr #3
+declare void @lua_pushnumber(ptr noundef, double noundef) local_unnamed_addr #2
 
-declare void @lua_gettable(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @lua_gettable(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mp_encode_lua_type(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local void @mp_encode_lua_type(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
@@ -1136,11 +1130,11 @@ define dso_local void @mp_encode_lua_type(ptr noundef %0, ptr noundef captures(n
   ]
 
 10:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef nonnull %6) #10
   %12 = load i64, ptr %6, align 8, !tbaa !22
   call void @mp_encode_bytes(ptr noundef %0, ptr noundef %1, ptr noundef %11, i64 noundef %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %mp_encode_lua_number.exit
 
 13:                                               ; preds = %3
@@ -1170,11 +1164,11 @@ define dso_local void @mp_encode_lua_type(ptr noundef %0, ptr noundef captures(n
   %23 = shl nuw i64 %20, 1
   %24 = add nuw i64 %23, 2
   %25 = load ptr, ptr %1, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %26 = call ptr @lua_getallocf(ptr noundef %0, ptr noundef nonnull %5) #10
   %27 = load ptr, ptr %5, align 8, !tbaa !9
   %28 = call ptr %26(ptr noundef %27, ptr noundef %25, i64 noundef %20, i64 noundef %24) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %28, ptr %1, align 8, !tbaa !15
   %29 = load i64, ptr %19, align 8, !tbaa !16
   %30 = sub i64 %24, %29
@@ -1274,11 +1268,11 @@ mp_encode_lua_bool.exit:                          ; preds = %._crit_edge.i.i, %2
   %69 = shl nuw i64 %66, 1
   %70 = add nuw i64 %69, 2
   %71 = load ptr, ptr %1, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %72 = call ptr @lua_getallocf(ptr noundef %0, ptr noundef nonnull %4) #10
   %73 = load ptr, ptr %4, align 8, !tbaa !9
   %74 = call ptr %72(ptr noundef %73, ptr noundef %71, i64 noundef %66, i64 noundef %70) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %74, ptr %1, align 8, !tbaa !15
   %75 = load i64, ptr %65, align 8, !tbaa !16
   %76 = sub i64 %70, %75
@@ -1305,7 +1299,7 @@ mp_encode_lua_number.exit:                        ; preds = %56, %53, %59, %50, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mp_encode_lua_table_as_map(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local void @mp_encode_lua_table_as_map(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   tail call void @luaL_checkstack(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str.1) #10
   tail call void @lua_pushnil(ptr noundef %0) #10
   %4 = tail call i32 @lua_next(ptr noundef %0, i32 noundef -2) #10
@@ -1344,16 +1338,16 @@ define dso_local void @mp_encode_lua_table_as_map(ptr noundef %0, ptr noundef ca
   ret void
 }
 
-declare void @lua_pushnil(ptr noundef) local_unnamed_addr #3
+declare void @lua_pushnil(ptr noundef) local_unnamed_addr #2
 
-declare i32 @lua_next(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @lua_next(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @lua_settop(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @lua_settop(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @lua_pushvalue(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @lua_pushvalue(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @table_is_an_array(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @table_is_an_array(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call i32 @lua_gettop(ptr noundef %0) #10
   tail call void @luaL_checkstack(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.2) #10
   tail call void @lua_pushnil(ptr noundef %0) #10
@@ -1401,12 +1395,12 @@ define dso_local range(i32 0, 2) i32 @table_is_an_array(ptr noundef %0) local_un
   ret i32 %.0
 }
 
-declare i32 @lua_gettop(ptr noundef) local_unnamed_addr #3
+declare i32 @lua_gettop(ptr noundef) local_unnamed_addr #2
 
-declare i32 @lua_type(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @lua_type(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mp_encode_lua_table(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local void @mp_encode_lua_table(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = tail call i32 @table_is_an_array(ptr noundef %0)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %11, label %5
@@ -1441,7 +1435,7 @@ mp_encode_lua_table_as_array.exit:                ; preds = %8, %5, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mp_encode_lua_null(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
+define dso_local void @mp_encode_lua_null(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8, !tbaa !11
@@ -1468,11 +1462,11 @@ define dso_local void @mp_encode_lua_null(ptr noundef %0, ptr noundef captures(n
   %12 = shl nuw i64 %9, 1
   %13 = add nuw i64 %12, 2
   %14 = load ptr, ptr %1, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %15 = call ptr @lua_getallocf(ptr noundef %0, ptr noundef nonnull %3) #10
   %16 = load ptr, ptr %3, align 8, !tbaa !9
   %17 = call ptr %15(ptr noundef %16, ptr noundef %14, i64 noundef %9, i64 noundef %13) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %17, ptr %1, align 8, !tbaa !15
   %18 = load i64, ptr %8, align 8, !tbaa !16
   %19 = sub i64 %13, %18
@@ -1495,7 +1489,7 @@ mp_buf_append.exit:                               ; preds = %._crit_edge.i, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @mp_pack(ptr noundef %0) #2 {
+define dso_local i32 @mp_pack(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -1517,11 +1511,11 @@ define dso_local i32 @mp_pack(ptr noundef %0) #2 {
   br label %34
 
 13:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = call ptr @lua_getallocf(ptr noundef %0, ptr noundef nonnull %4) #10
   %15 = load ptr, ptr %4, align 8, !tbaa !9
   %16 = call noundef ptr %14(ptr noundef %15, ptr noundef null, i64 noundef 0, i64 noundef 24) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   %.not2728 = icmp slt i32 %5, 1
   br i1 %.not2728, label %._crit_edge, label %.lr.ph
@@ -1555,16 +1549,16 @@ define dso_local i32 @mp_pack(ptr noundef %0) #2 {
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %13
   %26 = phi i64 [ %24, %._crit_edge.loopexit ], [ 0, %13 ]
   %27 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ null, %13 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %28 = call ptr @lua_getallocf(ptr noundef %0, ptr noundef nonnull %3) #10
   %29 = load ptr, ptr %3, align 8, !tbaa !9
   %30 = call ptr %28(ptr noundef %29, ptr noundef %27, i64 noundef %26, i64 noundef 0) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %31 = call ptr @lua_getallocf(ptr noundef %0, ptr noundef nonnull %2) #10
   %32 = load ptr, ptr %2, align 8, !tbaa !9
   %33 = call ptr %31(ptr noundef %32, ptr noundef nonnull %16, i64 noundef 24, i64 noundef 0) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @lua_concat(ptr noundef %0, i32 noundef %5) #10
   br label %34
 
@@ -1573,16 +1567,16 @@ define dso_local i32 @mp_pack(ptr noundef %0) #2 {
   ret i32 %.0
 }
 
-declare i32 @luaL_argerror(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @luaL_argerror(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @lua_checkstack(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @lua_checkstack(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @lua_pushlstring(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @lua_pushlstring(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @lua_concat(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @lua_concat(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mp_decode_to_lua_array(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define dso_local void @mp_decode_to_lua_array(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   tail call void @lua_createtable(ptr noundef %0, i32 noundef 0, i32 noundef 0) #10
   tail call void @luaL_checkstack(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.6) #10
   %.not10 = icmp eq i64 %2, 0
@@ -1613,10 +1607,10 @@ define dso_local void @mp_decode_to_lua_array(ptr noundef %0, ptr noundef %1, i6
   ret void
 }
 
-declare void @lua_createtable(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @lua_createtable(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mp_decode_to_lua_type(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @mp_decode_to_lua_type(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca float, align 4
   %4 = alloca double, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1995,7 +1989,7 @@ define dso_local void @mp_decode_to_lua_type(ptr noundef %0, ptr noundef %1) loc
   br label %487
 
 251:                                              ; preds = %246
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %252 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %253 = load i32, ptr %252, align 1
   store i32 %253, ptr %3, align 4
@@ -2026,7 +2020,7 @@ memrevifle.exit:                                  ; preds = %.lr.ph.i
   %263 = load i64, ptr %5, align 8, !tbaa !20
   %264 = add i64 %263, -5
   store i64 %264, ptr %5, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %487
 
 265:                                              ; preds = %10
@@ -2040,7 +2034,7 @@ memrevifle.exit:                                  ; preds = %.lr.ph.i
   br label %487
 
 270:                                              ; preds = %265
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %271 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %272 = load i64, ptr %271, align 1
   store i64 %272, ptr %4, align 8
@@ -2070,7 +2064,7 @@ memrevifle.exit229:                               ; preds = %.lr.ph.i223
   %281 = load i64, ptr %5, align 8, !tbaa !20
   %282 = add i64 %281, -9
   store i64 %282, ptr %5, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %487
 
 283:                                              ; preds = %10
@@ -2416,10 +2410,10 @@ memrevifle.exit229:                               ; preds = %.lr.ph.i223
   ret void
 }
 
-declare void @lua_settable(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @lua_settable(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mp_decode_to_lua_hash(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define dso_local void @mp_decode_to_lua_hash(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   tail call void @lua_createtable(ptr noundef %0, i32 noundef 0, i32 noundef 0) #10
   %.not10 = icmp eq i64 %2, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
@@ -2451,16 +2445,16 @@ define dso_local void @mp_decode_to_lua_hash(ptr noundef %0, ptr noundef %1, i64
   ret void
 }
 
-declare void @lua_pushinteger(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @lua_pushinteger(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @lua_pushboolean(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @lua_pushboolean(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @mp_unpack_full(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define dso_local i32 @mp_unpack_full(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = alloca i64, align 8
   %5 = alloca %struct.mp_cur, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = or i64 %2, %1
   %7 = icmp eq i64 %6, 0
   %8 = call ptr @luaL_checklstring(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %4) #10
@@ -2555,25 +2549,25 @@ define dso_local i32 @mp_unpack_full(ptr noundef %0, i64 noundef %1, i64 noundef
 
 50:                                               ; preds = %._crit_edge, %45, %32, %30, %17, %9
   %.0 = phi i32 [ %13, %9 ], [ %20, %17 ], [ %31, %30 ], [ %33, %32 ], [ %.030.lcssa, %._crit_edge ], [ %49, %45 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare ptr @luaL_checklstring(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @luaL_checklstring(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @luaL_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @luaL_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @lua_insert(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @lua_insert(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @mp_unpack(ptr noundef %0) #2 {
+define dso_local i32 @mp_unpack(ptr noundef %0) #1 {
   %2 = tail call i32 @mp_unpack_full(ptr noundef %0, i64 noundef 0, i64 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @mp_unpack_one(ptr noundef %0) #2 {
+define dso_local i32 @mp_unpack_one(ptr noundef %0) #1 {
   %2 = tail call i64 @luaL_optinteger(ptr noundef %0, i32 noundef 2, i64 noundef 0) #10
   %3 = tail call i32 @lua_gettop(ptr noundef %0) #10
   %4 = sub i32 0, %3
@@ -2582,10 +2576,10 @@ define dso_local i32 @mp_unpack_one(ptr noundef %0) #2 {
   ret i32 %5
 }
 
-declare i64 @luaL_optinteger(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @luaL_optinteger(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @mp_unpack_limit(ptr noundef %0) #2 {
+define dso_local i32 @mp_unpack_limit(ptr noundef %0) #1 {
   %2 = tail call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef 2) #10
   %3 = tail call i64 @luaL_optinteger(ptr noundef %0, i32 noundef 3, i64 noundef 0) #10
   %4 = tail call i32 @lua_gettop(ptr noundef %0) #10
@@ -2595,10 +2589,10 @@ define dso_local i32 @mp_unpack_limit(ptr noundef %0) #2 {
   ret i32 %6
 }
 
-declare i64 @luaL_checkinteger(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @luaL_checkinteger(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @mp_safe(ptr noundef %0) #2 {
+define dso_local i32 @mp_safe(ptr noundef %0) #1 {
   %2 = tail call i32 @lua_gettop(ptr noundef %0) #10
   tail call void @lua_pushvalue(ptr noundef %0, i32 noundef -10003) #10
   tail call void @lua_insert(ptr noundef %0, i32 noundef 1) #10
@@ -2617,10 +2611,10 @@ define dso_local i32 @mp_safe(ptr noundef %0) #2 {
   ret i32 %.0
 }
 
-declare i32 @lua_pcall(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @lua_pcall(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @luaopen_create(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local noundef i32 @luaopen_create(ptr noundef %0) local_unnamed_addr #1 {
   tail call void @lua_createtable(ptr noundef %0, i32 noundef 0, i32 noundef 0) #10
   br label %2
 
@@ -2648,12 +2642,12 @@ define dso_local noundef i32 @luaopen_create(ptr noundef %0) local_unnamed_addr 
   ret i32 1
 }
 
-declare void @lua_pushcclosure(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @lua_pushcclosure(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @lua_setfield(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @lua_setfield(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @luaopen_cmsgpack(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local noundef i32 @luaopen_cmsgpack(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call i32 @luaopen_create(ptr noundef %0)
   tail call void @lua_pushvalue(ptr noundef %0, i32 noundef -1) #10
   tail call void @lua_setfield(ptr noundef %0, i32 noundef -10002, ptr noundef nonnull @.str.17) #10
@@ -2661,7 +2655,7 @@ define dso_local noundef i32 @luaopen_cmsgpack(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @luaopen_cmsgpack_safe(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local noundef i32 @luaopen_cmsgpack_safe(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call i32 @luaopen_create(ptr noundef %0)
   tail call void @lua_pushvalue(ptr noundef %0, i32 noundef -1) #10
   tail call void @lua_setfield(ptr noundef %0, i32 noundef -10002, ptr noundef nonnull @.str.17) #10
@@ -2684,7 +2678,13 @@ define dso_local noundef i32 @luaopen_cmsgpack_safe(ptr noundef %0) local_unname
   ret i32 1
 }
 
-declare void @lua_getfield(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @lua_getfield(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
@@ -2693,13 +2693,13 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #9
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }

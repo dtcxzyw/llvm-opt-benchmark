@@ -76,14 +76,8 @@ define void @_ZN6icu_7717double_conversion6Bignum12AssignUInt64Em(ptr noundef no
   br i1 %.not, label %._crit_edge, label %6, !llvm.loop !11
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7717double_conversion6Bignum12AssignBignumERKS1_(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(516) initializes((2, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %1) local_unnamed_addr #4 align 2 {
+define void @_ZN6icu_7717double_conversion6Bignum12AssignBignumERKS1_(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(516) initializes((2, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %4 = load i16, ptr %3, align 2, !tbaa !8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -114,7 +108,7 @@ define void @_ZN6icu_7717double_conversion6Bignum12AssignBignumERKS1_(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN6icu_7717double_conversion6Bignum19AssignDecimalStringENS0_6VectorIKcEE(ptr noundef nonnull align 4 captures(none) dereferenceable(516) initializes((0, 4)) %0, ptr readonly captures(none) %1, i32 %2) local_unnamed_addr #5 align 2 {
+define void @_ZN6icu_7717double_conversion6Bignum19AssignDecimalStringENS0_6VectorIKcEE(ptr noundef nonnull align 4 captures(none) dereferenceable(516) initializes((0, 4)) %0, ptr readonly captures(none) %1, i32 %2) local_unnamed_addr #4 align 2 {
   %4 = alloca %"class.icu_77::double_conversion::Bignum", align 4
   %5 = alloca %"class.icu_77::double_conversion::Bignum", align 4
   store i16 0, ptr %0, align 4, !tbaa !3
@@ -154,7 +148,7 @@ _ZN6icu_7717double_conversionL10ReadUInt64ENS0_6VectorIKcEEii.exit: ; preds = %.
   br i1 %17, label %_ZN6icu_7717double_conversion6Bignum9AddUInt64Em.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN6icu_7717double_conversionL10ReadUInt64ENS0_6VectorIKcEEii.exit
-  call void @llvm.lifetime.start.p0(i64 516, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   br label %18
 
@@ -174,7 +168,7 @@ _ZN6icu_7717double_conversion6Bignum12AssignUInt64Em.exit.i: ; preds = %18
   %indvars.i = trunc i64 %indvars.iv.next.i.i to i16
   store i16 %indvars.i, ptr %5, align 4, !tbaa !3
   call void @_ZN6icu_7717double_conversion6Bignum9AddBignumERKS1_(ptr noundef nonnull align 4 dereferenceable(516) %0, ptr noundef nonnull align 4 dereferenceable(516) %5)
-  call void @llvm.lifetime.end.p0(i64 516, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN6icu_7717double_conversion6Bignum9AddUInt64Em.exit
 
 _ZN6icu_7717double_conversion6Bignum9AddUInt64Em.exit: ; preds = %_ZN6icu_7717double_conversionL10ReadUInt64ENS0_6VectorIKcEEii.exit, %_ZN6icu_7717double_conversion6Bignum12AssignUInt64Em.exit.i
@@ -221,7 +215,7 @@ _ZN6icu_7717double_conversionL10ReadUInt64ENS0_6VectorIKcEEii.exit17: ; preds = 
   br i1 %36, label %_ZN6icu_7717double_conversion6Bignum9AddUInt64Em.exit25, label %.lr.ph.i.i18
 
 .lr.ph.i.i18:                                     ; preds = %_ZN6icu_7717double_conversionL10ReadUInt64ENS0_6VectorIKcEEii.exit17
-  call void @llvm.lifetime.start.p0(i64 516, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %4, align 4
   br label %38
@@ -242,7 +236,7 @@ _ZN6icu_7717double_conversion6Bignum12AssignUInt64Em.exit.i23: ; preds = %38
   %indvars.i24 = trunc i64 %indvars.iv.next.i.i21 to i16
   store i16 %indvars.i24, ptr %4, align 4, !tbaa !3
   call void @_ZN6icu_7717double_conversion6Bignum9AddBignumERKS1_(ptr noundef nonnull align 4 dereferenceable(516) %0, ptr noundef nonnull align 4 dereferenceable(516) %4)
-  call void @llvm.lifetime.end.p0(i64 516, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN6icu_7717double_conversion6Bignum9AddUInt64Em.exit25
 
 _ZN6icu_7717double_conversion6Bignum9AddUInt64Em.exit25: ; preds = %_ZN6icu_7717double_conversionL10ReadUInt64ENS0_6VectorIKcEEii.exit17.thread, %_ZN6icu_7717double_conversionL10ReadUInt64ENS0_6VectorIKcEEii.exit17, %_ZN6icu_7717double_conversion6Bignum12AssignUInt64Em.exit.i23
@@ -283,7 +277,7 @@ _ZN6icu_7717double_conversion6Bignum5ClampEv.exit: ; preds = %45, %.critedge.i, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN6icu_7717double_conversion6Bignum20MultiplyByPowerOfTenEi(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define void @_ZN6icu_7717double_conversion6Bignum20MultiplyByPowerOfTenEi(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = icmp eq i32 %1, 0
   %4 = load i16, ptr %0, align 4
   %5 = icmp eq i16 %4, 0
@@ -351,7 +345,7 @@ define void @_ZN6icu_7717double_conversion6Bignum20MultiplyByPowerOfTenEi(ptr no
   br i1 %28, label %29, label %_ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.i
 
 29:                                               ; preds = %.lr.ph26.i
-  tail call void @abort() #12
+  tail call void @abort() #11
   unreachable
 
 _ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.i: ; preds = %.lr.ph26.i
@@ -410,7 +404,7 @@ _ZN6icu_7717double_conversion6Bignum16MultiplyByUInt64Em.exit: ; preds = %_ZN6ic
   br i1 %51, label %52, label %_ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.i17
 
 52:                                               ; preds = %.lr.ph20.i
-  tail call void @abort() #12
+  tail call void @abort() #11
   unreachable
 
 _ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.i17: ; preds = %.lr.ph20.i
@@ -491,7 +485,7 @@ _ZN6icu_7717double_conversion6Bignum16MultiplyByUInt32Ej.exit31.thread: ; preds 
   br i1 %82, label %83, label %_ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.i29
 
 83:                                               ; preds = %.lr.ph20.i27
-  tail call void @abort() #12
+  tail call void @abort() #11
   unreachable
 
 _ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.i29: ; preds = %.lr.ph20.i27
@@ -523,7 +517,7 @@ _ZN6icu_7717double_conversion6Bignum16MultiplyByUInt32Ej.exit31.thread33: ; pred
   br i1 %97, label %98, label %_ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.i32
 
 98:                                               ; preds = %_ZN6icu_7717double_conversion6Bignum16MultiplyByUInt32Ej.exit31.thread33
-  tail call void @abort() #12
+  tail call void @abort() #11
   unreachable
 
 _ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.i32: ; preds = %_ZN6icu_7717double_conversion6Bignum16MultiplyByUInt32Ej.exit31.thread33
@@ -566,13 +560,13 @@ _ZN6icu_7717double_conversion6Bignum9ShiftLeftEi.exit: ; preds = %109, %._crit_e
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN6icu_7717double_conversion6Bignum9AddUInt64Em(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
+define void @_ZN6icu_7717double_conversion6Bignum9AddUInt64Em(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = alloca %"class.icu_77::double_conversion::Bignum", align 4
   %4 = icmp eq i64 %1, 0
   br i1 %4, label %11, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 516, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %3, align 4
   br label %6
@@ -593,7 +587,7 @@ _ZN6icu_7717double_conversion6Bignum12AssignUInt64Em.exit: ; preds = %6
   %indvars = trunc i64 %indvars.iv.next.i to i16
   store i16 %indvars, ptr %3, align 4, !tbaa !3
   call void @_ZN6icu_7717double_conversion6Bignum9AddBignumERKS1_(ptr noundef nonnull align 4 dereferenceable(516) %0, ptr noundef nonnull align 4 dereferenceable(516) %3)
-  call void @llvm.lifetime.end.p0(i64 516, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %11
 
 11:                                               ; preds = %2, %_ZN6icu_7717double_conversion6Bignum12AssignUInt64Em.exit
@@ -601,7 +595,7 @@ _ZN6icu_7717double_conversion6Bignum12AssignUInt64Em.exit: ; preds = %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7717double_conversion6Bignum5ClampEv(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %0) local_unnamed_addr #4 align 2 {
+define void @_ZN6icu_7717double_conversion6Bignum5ClampEv(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %0) local_unnamed_addr #3 align 2 {
   %.pr = load i16, ptr %0, align 4, !tbaa !3
   %2 = icmp sgt i16 %.pr, 0
   br i1 %2, label %.lr.ph, label %.critedge
@@ -640,7 +634,7 @@ define void @_ZN6icu_7717double_conversion6Bignum5ClampEv(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN6icu_7717double_conversion6Bignum15AssignHexStringENS0_6VectorIKcEE(ptr noundef nonnull align 4 captures(none) dereferenceable(516) initializes((0, 4)) %0, ptr readonly captures(none) %1, i32 %2) local_unnamed_addr #5 align 2 {
+define void @_ZN6icu_7717double_conversion6Bignum15AssignHexStringENS0_6VectorIKcEE(ptr noundef nonnull align 4 captures(none) dereferenceable(516) initializes((0, 4)) %0, ptr readonly captures(none) %1, i32 %2) local_unnamed_addr #4 align 2 {
   store i16 0, ptr %0, align 4, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 0, ptr %4, align 2, !tbaa !8
@@ -657,7 +651,7 @@ _ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.preheader: ; preds =
   br label %10
 
 9:                                                ; preds = %3
-  tail call void @abort() #12
+  tail call void @abort() #11
   unreachable
 
 _ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit._crit_edge: ; preds = %_ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit
@@ -774,7 +768,7 @@ _ZN6icu_7717double_conversion6Bignum5ClampEv.exit: ; preds = %52, %.critedge.i, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN6icu_7717double_conversion6Bignum9AddBignumERKS1_(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %1) local_unnamed_addr #5 align 2 {
+define void @_ZN6icu_7717double_conversion6Bignum9AddBignumERKS1_(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %4 = load i16, ptr %3, align 2, !tbaa !8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -803,7 +797,7 @@ _ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.preheader.i: ; preds
   br label %_ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.i
 
 19:                                               ; preds = %8
-  tail call void @abort() #12
+  tail call void @abort() #11
   unreachable
 
 .lr.ph20.i:                                       ; preds = %_ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.i, %_ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.preheader.i
@@ -847,7 +841,7 @@ _ZN6icu_7717double_conversion6Bignum5AlignERKS1_.exit: ; preds = %2, %.lr.ph20.i
   br i1 %41, label %42, label %_ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit
 
 42:                                               ; preds = %_ZN6icu_7717double_conversion6Bignum5AlignERKS1_.exit
-  tail call void @abort() #12
+  tail call void @abort() #11
   unreachable
 
 _ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit: ; preds = %_ZN6icu_7717double_conversion6Bignum5AlignERKS1_.exit
@@ -955,7 +949,7 @@ _ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit: ; preds = %_ZN6icu_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN6icu_7717double_conversion6Bignum5AlignERKS1_(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %1) local_unnamed_addr #5 align 2 {
+define void @_ZN6icu_7717double_conversion6Bignum5AlignERKS1_(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %4 = load i16, ptr %3, align 2, !tbaa !8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -984,7 +978,7 @@ _ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.preheader: ; preds =
   br label %_ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit
 
 20:                                               ; preds = %8
-  tail call void @abort() #12
+  tail call void @abort() #11
   unreachable
 
 .preheader:                                       ; preds = %_ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit, %_ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.preheader
@@ -1022,7 +1016,7 @@ _ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit: ; preds = %.lr.ph, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN6icu_7717double_conversion6Bignum14SubtractBignumERKS1_(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %1) local_unnamed_addr #5 align 2 {
+define void @_ZN6icu_7717double_conversion6Bignum14SubtractBignumERKS1_(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %4 = load i16, ptr %3, align 2, !tbaa !8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -1051,7 +1045,7 @@ _ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.preheader.i: ; preds
   br label %_ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.i
 
 20:                                               ; preds = %8
-  tail call void @abort() #12
+  tail call void @abort() #11
   unreachable
 
 .lr.ph20.i:                                       ; preds = %_ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.i, %_ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.preheader.i
@@ -1173,7 +1167,7 @@ _ZN6icu_7717double_conversion6Bignum5ClampEv.exit: ; preds = %65, %.critedge.i, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN6icu_7717double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define void @_ZN6icu_7717double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = load i16, ptr %0, align 4, !tbaa !3
   %4 = icmp eq i16 %3, 0
   br i1 %4, label %_ZN6icu_7717double_conversion6Bignum15BigitsShiftLeftEi.exit, label %5
@@ -1190,7 +1184,7 @@ define void @_ZN6icu_7717double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnul
   br i1 %12, label %13, label %_ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit
 
 13:                                               ; preds = %5
-  tail call void @abort() #12
+  tail call void @abort() #11
   unreachable
 
 _ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit: ; preds = %5
@@ -1233,7 +1227,7 @@ _ZN6icu_7717double_conversion6Bignum15BigitsShiftLeftEi.exit: ; preds = %24, %._
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7717double_conversion6Bignum15BigitsShiftLeftEi(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define void @_ZN6icu_7717double_conversion6Bignum15BigitsShiftLeftEi(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load i16, ptr %0, align 4, !tbaa !3
   %4 = icmp sgt i16 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge.thread
@@ -1276,7 +1270,7 @@ define void @_ZN6icu_7717double_conversion6Bignum15BigitsShiftLeftEi(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN6icu_7717double_conversion6Bignum16MultiplyByUInt32Ej(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define void @_ZN6icu_7717double_conversion6Bignum16MultiplyByUInt32Ej(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   switch i32 %1, label %5 [
     i32 1, label %.loopexit
     i32 0, label %3
@@ -1330,7 +1324,7 @@ define void @_ZN6icu_7717double_conversion6Bignum16MultiplyByUInt32Ej(ptr nounde
   br i1 %22, label %23, label %_ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit
 
 23:                                               ; preds = %20
-  tail call void @abort() #12
+  tail call void @abort() #11
   unreachable
 
 _ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit: ; preds = %20
@@ -1350,7 +1344,7 @@ _ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit: ; preds = %20
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN6icu_7717double_conversion6Bignum16MultiplyByUInt64Em(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
+define void @_ZN6icu_7717double_conversion6Bignum16MultiplyByUInt64Em(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
   switch i64 %1, label %5 [
     i64 1, label %.loopexit
     i64 0, label %3
@@ -1415,7 +1409,7 @@ define void @_ZN6icu_7717double_conversion6Bignum16MultiplyByUInt64Em(ptr nounde
   br i1 %31, label %32, label %_ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit
 
 32:                                               ; preds = %29
-  tail call void @abort() #12
+  tail call void @abort() #11
   unreachable
 
 _ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit: ; preds = %29
@@ -1435,7 +1429,7 @@ _ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit: ; preds = %29
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN6icu_7717double_conversion6Bignum6SquareEv(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %0) local_unnamed_addr #5 align 2 {
+define void @_ZN6icu_7717double_conversion6Bignum6SquareEv(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %0) local_unnamed_addr #4 align 2 {
   %2 = load i16, ptr %0, align 4, !tbaa !3
   %3 = sext i16 %2 to i32
   %4 = shl nsw i32 %3, 1
@@ -1452,7 +1446,7 @@ _ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.preheader: ; preds =
   br label %_ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit
 
 9:                                                ; preds = %1
-  tail call void @abort() #12
+  tail call void @abort() #11
   unreachable
 
 .preheader51.lr.ph:                               ; preds = %_ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit
@@ -1604,10 +1598,10 @@ _ZN6icu_7717double_conversion6Bignum5ClampEv.exit: ; preds = %41, %.critedge.i, 
 }
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #6
+declare void @abort() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN6icu_7717double_conversion6Bignum17AssignPowerUInt16Eti(ptr noundef nonnull align 4 captures(none) dereferenceable(516) initializes((0, 4)) %0, i16 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
+define void @_ZN6icu_7717double_conversion6Bignum17AssignPowerUInt16Eti(ptr noundef nonnull align 4 captures(none) dereferenceable(516) initializes((0, 4)) %0, i16 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %5, label %8
 
@@ -1648,7 +1642,7 @@ define void @_ZN6icu_7717double_conversion6Bignum17AssignPowerUInt16Eti(ptr noun
   br i1 %21, label %22, label %_ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit
 
 22:                                               ; preds = %._crit_edge
-  tail call void @abort() #12
+  tail call void @abort() #11
   unreachable
 
 _ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit: ; preds = %._crit_edge, %_ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit
@@ -1771,7 +1765,7 @@ _ZN6icu_7717double_conversion6Bignum12AssignUInt64Em.exit: ; preds = %._crit_edg
   br i1 %62, label %63, label %_ZN6icu_7717double_conversion6Bignum16MultiplyByUInt32Ej.exit.loopexit
 
 63:                                               ; preds = %.lr.ph20.i
-  tail call void @abort() #12
+  tail call void @abort() #11
   unreachable
 
 _ZN6icu_7717double_conversion6Bignum16MultiplyByUInt32Ej.exit.loopexit: ; preds = %.lr.ph20.i
@@ -1843,7 +1837,7 @@ _ZN6icu_7717double_conversion6Bignum16MultiplyByUInt32Ej.exit: ; preds = %_ZN6ic
   br i1 %84, label %85, label %_ZN6icu_7717double_conversion6Bignum16MultiplyByUInt32Ej.exit70.loopexit
 
 85:                                               ; preds = %.lr.ph20.i66
-  tail call void @abort() #12
+  tail call void @abort() #11
   unreachable
 
 _ZN6icu_7717double_conversion6Bignum16MultiplyByUInt32Ej.exit70.loopexit: ; preds = %.lr.ph20.i66
@@ -1880,7 +1874,7 @@ _ZN6icu_7717double_conversion6Bignum16MultiplyByUInt32Ej.exit70: ; preds = %_ZN6
   br i1 %98, label %99, label %_ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.i71
 
 99:                                               ; preds = %91
-  tail call void @abort() #12
+  tail call void @abort() #11
   unreachable
 
 _ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.i71: ; preds = %91
@@ -1927,7 +1921,7 @@ _ZN6icu_7717double_conversion6Bignum9ShiftLeftEi.exit: ; preds = %_ZN6icu_7717do
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef zeroext i16 @_ZN6icu_7717double_conversion6Bignum21DivideModuloIntBignumERKS1_(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %1) local_unnamed_addr #5 align 2 {
+define noundef zeroext i16 @_ZN6icu_7717double_conversion6Bignum21DivideModuloIntBignumERKS1_(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %1) local_unnamed_addr #4 align 2 {
   %3 = load i16, ptr %0, align 4, !tbaa !3
   %4 = sext i16 %3 to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -1964,7 +1958,7 @@ _ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.preheader.i: ; preds
   br label %_ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.i
 
 26:                                               ; preds = %18
-  tail call void @abort() #12
+  tail call void @abort() #11
   unreachable
 
 .lr.ph20.i:                                       ; preds = %_ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.i, %_ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.preheader.i
@@ -2176,7 +2170,7 @@ _ZN6icu_7717double_conversion6Bignum5ClampEv.exit: ; preds = %108, %127, %.lr.ph
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN6icu_7717double_conversion6Bignum13SubtractTimesERKS1_i(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
+define void @_ZN6icu_7717double_conversion6Bignum13SubtractTimesERKS1_i(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = icmp slt i32 %2, 3
   br i1 %4, label %.preheader, label %7
 
@@ -2305,7 +2299,7 @@ _ZN6icu_7717double_conversion6Bignum5ClampEv.exit: ; preds = %46, %56, %.lr.ph54
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZNK6icu_7717double_conversion6Bignum11ToHexStringEPci(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7717double_conversion6Bignum11ToHexStringEPci(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = load i16, ptr %0, align 4, !tbaa !3
   %5 = icmp eq i16 %4, 0
   br i1 %5, label %6, label %10
@@ -2460,7 +2454,7 @@ _ZN6icu_7717double_conversionL14SizeInHexCharsIjEEiT_.exit: ; preds = %.lr.ph.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_7717double_conversion6Bignum11BigitOrZeroEi(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define noundef i32 @_ZNK6icu_7717double_conversion6Bignum11BigitOrZeroEi(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i16, ptr %0, align 4, !tbaa !3
   %4 = sext i16 %3 to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -2486,7 +2480,7 @@ define noundef i32 @_ZNK6icu_7717double_conversion6Bignum11BigitOrZeroEi(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 -1, 2) i32 @_ZN6icu_7717double_conversion6Bignum7CompareERKS1_S3_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %1) local_unnamed_addr #7 align 2 {
+define noundef range(i32 -1, 2) i32 @_ZN6icu_7717double_conversion6Bignum7CompareERKS1_S3_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %1) local_unnamed_addr #6 align 2 {
   %3 = load i16, ptr %0, align 4, !tbaa !3
   %4 = sext i16 %3 to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -2561,7 +2555,7 @@ _ZNK6icu_7717double_conversion6Bignum11BigitOrZeroEi.exit32: ; preds = %_ZNK6icu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -1, 2) i32 @_ZN6icu_7717double_conversion6Bignum11PlusCompareERKS1_S3_S3_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %2) local_unnamed_addr #8 align 2 {
+define noundef range(i32 -1, 2) i32 @_ZN6icu_7717double_conversion6Bignum11PlusCompareERKS1_S3_S3_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %2) local_unnamed_addr #7 align 2 {
   %.pre = load i16, ptr %0, align 4, !tbaa !3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 2
   %.pre96 = load i16, ptr %.phi.trans.insert, align 2, !tbaa !8
@@ -2692,6 +2686,12 @@ _ZNK6icu_7717double_conversion6Bignum11BigitOrZeroEi.exit59: ; preds = %_ZNK6icu
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
@@ -2707,16 +2707,15 @@ declare i16 @llvm.smin.i16(i16, i16) #10
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn nounwind }
+attributes #11 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

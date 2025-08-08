@@ -84,21 +84,15 @@ define void @_ZN3tbb6detail2r126clear_address_waiter_tableEv() local_unnamed_add
 3:                                                ; preds = %0, %3
   %.03 = phi i64 [ 0, %0 ], [ %5, %3 ]
   %4 = getelementptr inbounds nuw [2048 x %"class.tbb::detail::r1::address_waiter"], ptr @_ZN3tbb6detail2r1L20address_waiter_tableE, i64 0, i64 %.03
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i8 0, ptr %1, align 1, !tbaa !3
-  call void asm sideeffect "lock; notb $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %1, ptr nonnull elementtype(i8) %1) #8, !srcloc !6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #8
+  call void asm sideeffect "lock; notb $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %1, ptr nonnull elementtype(i8) %1) #7, !srcloc !6
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void @_ZN3tbb6detail2r123concurrent_monitor_baseINS1_15address_contextEE17abort_all_relaxedEv(ptr noundef nonnull align 8 dereferenceable(36) %4)
   %5 = add nuw nsw i64 %.03, 1
   %exitcond.not = icmp eq i64 %5, 2048
   br i1 %exitcond.not, label %2, label %3, !llvm.loop !7
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN3tbb6detail2r115wait_on_addressEPvRNS0_2d113delegate_baseEm(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -108,7 +102,7 @@ define void @_ZN3tbb6detail2r115wait_on_addressEPvRNS0_2d113delegate_baseEm(ptr 
   %7 = xor i64 %6, %5
   %8 = and i64 %7, 2047
   %9 = getelementptr inbounds nuw [2048 x %"class.tbb::detail::r1::address_waiter"], ptr @_ZN3tbb6detail2r1L20address_waiter_tableE, i64 0, i64 %8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr inttoptr (i64 3452816845 to ptr), ptr %10, align 8, !tbaa !9
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -154,20 +148,20 @@ define void @_ZN3tbb6detail2r115wait_on_addressEPvRNS0_2d113delegate_baseEm(ptr 
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
-  %31 = call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(4) %23, i32 noundef 128, i32 noundef 2, ptr noundef null, ptr noundef null, i32 noundef 0) #8
+  %31 = call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(4) %23, i32 noundef 128, i32 noundef 2, ptr noundef null, ptr noundef null, i32 noundef 0) #7
   %32 = atomicrmw xchg ptr %23, i32 2 seq_cst, align 4
   %.not1.i.i = icmp eq i32 %32, 0
   br i1 %.not1.i.i, label %_ZN3tbb6detail2r110sleep_nodeINS1_15address_contextEED2Ev.exit, label %.lr.ph.i.i, !llvm.loop !28
 
 _ZN3tbb6detail2r110sleep_nodeINS1_15address_contextEED2Ev.exit: ; preds = %.lr.ph.i.i, %15, %22, %28
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 33:                                               ; preds = %3
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3tbb6detail2r110sleep_nodeINS1_15address_contextEED2Ev(ptr noundef nonnull align 8 dereferenceable(52) %4) #8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #8
+  call void @_ZN3tbb6detail2r110sleep_nodeINS1_15address_contextEED2Ev(ptr noundef nonnull align 8 dereferenceable(52) %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %34
 }
 
@@ -182,7 +176,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3tbb6detail2r123concurrent_monitor_ba
   br label %8
 
 8:                                                ; preds = %21, %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !29, !alias.scope !31
   store ptr %2, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !34, !alias.scope !31
   store i8 1, ptr %5, align 8, !tbaa !36, !alias.scope !31
@@ -194,12 +188,12 @@ define linkonce_odr noundef zeroext i1 @_ZN3tbb6detail2r123concurrent_monitor_ba
 12:                                               ; preds = %8
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3tbb6detail2d010raii_guardIZNS0_2r123concurrent_monitor_baseINS3_15address_contextEE12guarded_callINS3_10sleep_nodeIS5_EERNS0_2d113delegate_baseEEEbOT0_RT_EUlvE0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @_ZN3tbb6detail2d010raii_guardIZNS0_2r123concurrent_monitor_baseINS3_15address_contextEE12guarded_callINS3_10sleep_nodeIS5_EERNS0_2d113delegate_baseEEEbOT0_RT_EUlvE0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %13
 
 _ZN3tbb6detail2r123concurrent_monitor_baseINS1_15address_contextEE12guarded_callINS1_10sleep_nodeIS3_EERNS0_2d113delegate_baseEEEbOT0_RT_.exit: ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %11, label %22, label %14
 
 14:                                               ; preds = %_ZN3tbb6detail2r123concurrent_monitor_baseINS1_15address_contextEE12guarded_callINS1_10sleep_nodeIS3_EERNS0_2d113delegate_baseEEEbOT0_RT_.exit
@@ -232,7 +226,7 @@ _ZN3tbb6detail2r123concurrent_monitor_baseINS1_15address_contextEE11commit_waitE
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define linkonce_odr void @_ZN3tbb6detail2r110sleep_nodeINS1_15address_contextEED2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3tbb6detail2r110sleep_nodeINS1_15address_contextEED2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN3tbb6detail2r110sleep_nodeINS1_15address_contextEEE, i64 16), ptr %0, align 8, !tbaa !17
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %3 = load i8, ptr %2, align 1, !tbaa !19, !range !26, !noundef !27
@@ -263,7 +257,7 @@ define linkonce_odr void @_ZN3tbb6detail2r110sleep_nodeINS1_15address_contextEED
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %17 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(4) %9, i32 noundef 128, i32 noundef 2, ptr noundef null, ptr noundef null, i32 noundef 0) #8
+  %17 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(4) %9, i32 noundef 128, i32 noundef 2, ptr noundef null, ptr noundef null, i32 noundef 0) #7
   %18 = atomicrmw xchg ptr %9, i32 2 seq_cst, align 4
   %.not1.i = icmp eq i32 %18, 0
   br i1 %.not1.i, label %_ZN3tbb6detail2r116binary_semaphore1PEv.exit, label %.lr.ph.i, !llvm.loop !28
@@ -286,7 +280,7 @@ define void @_ZN3tbb6detail2r117notify_by_addressEPvm(ptr noundef %0, i64 nounde
   br i1 %11, label %"_ZN3tbb6detail2r123concurrent_monitor_baseINS1_15address_contextEE14notify_relaxedIZNS1_17notify_by_addressEPvmE3$_0EEvRKT_.exit", label %12
 
 12:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !41
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %13, ptr %13, align 8, !tbaa !9
@@ -330,7 +324,7 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %.lr.ph.i.i.i.i
   %.016.i.i.i.i = phi i32 [ %28, %.lr.ph.i.i.i.i ], [ 32, %.preheader.i.i.i.i ]
-  %25 = call noundef i32 @sched_yield() #8
+  %25 = call noundef i32 @sched_yield() #7
   %26 = load atomic i32, ptr %8 monotonic, align 8
   %27 = icmp eq i32 %26, 0
   %28 = add nuw nsw i32 %.016.i.i.i.i, 1
@@ -348,7 +342,7 @@ _ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2r124concurrent_monitor_mutex4lock
   br i1 %33, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %30, %.lr.ph.i.i.i
-  %34 = call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 8 dereferenceable(36) %8, i32 noundef 128, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #8
+  %34 = call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 8 dereferenceable(36) %8, i32 noundef 128, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #7
   %35 = load atomic i32, ptr %8 monotonic, align 8
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !46
@@ -380,7 +374,7 @@ _ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEEC2ERS3_.exit.i: ; p
   br i1 %.not.i.i19.i, label %_ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit.i, label %47
 
 47:                                               ; preds = %._crit_edge.i
-  %48 = call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 8 dereferenceable(36) %8, i32 noundef 129, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #8
+  %48 = call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 8 dereferenceable(36) %8, i32 noundef 129, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #7
   br label %_ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit.i
 
 _ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit.i: ; preds = %47, %._crit_edge.i
@@ -427,7 +421,7 @@ _ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit.i: ; pred
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !52
 
 ._crit_edge25.i:                                  ; preds = %.lr.ph24.i, %_ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %"_ZN3tbb6detail2r123concurrent_monitor_baseINS1_15address_contextEE14notify_relaxedIZNS1_17notify_by_addressEPvmE3$_0EEvRKT_.exit"
 
 .lr.ph24.i:                                       ; preds = %_ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit.i, %.lr.ph24.i
@@ -496,7 +490,7 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %.lr.ph.i.i.i.i
   %.016.i.i.i.i = phi i32 [ %24, %.lr.ph.i.i.i.i ], [ 32, %.preheader.i.i.i.i ]
-  %21 = tail call noundef i32 @sched_yield() #8
+  %21 = tail call noundef i32 @sched_yield() #7
   %22 = load atomic i32, ptr %6 monotonic, align 8
   %23 = icmp eq i32 %22, 0
   %24 = add nuw nsw i32 %.016.i.i.i.i, 1
@@ -514,7 +508,7 @@ _ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2r124concurrent_monitor_mutex4lock
   br i1 %29, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %26, %.lr.ph.i.i.i
-  %30 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 8 dereferenceable(36) %6, i32 noundef 128, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #8
+  %30 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 8 dereferenceable(36) %6, i32 noundef 128, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #7
   %31 = load atomic i32, ptr %6 monotonic, align 8
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !46
@@ -571,7 +565,7 @@ _ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEEC2ERS3_.exit.i: ; p
   br i1 %.not.i.i16.i, label %_ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit.i, label %53
 
 53:                                               ; preds = %.loopexit.i
-  %54 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 8 dereferenceable(36) %6, i32 noundef 129, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #8
+  %54 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 8 dereferenceable(36) %6, i32 noundef 129, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #7
   br label %_ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit.i
 
 _ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit.i: ; preds = %53, %.loopexit.i
@@ -604,7 +598,7 @@ define void @_ZN3tbb6detail2r121notify_by_address_allEPv(ptr noundef %0) local_u
   br i1 %10, label %"_ZN3tbb6detail2r123concurrent_monitor_baseINS1_15address_contextEE14notify_relaxedIZNS1_21notify_by_address_allEPvE3$_0EEvRKT_.exit", label %11
 
 11:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !41
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %12, ptr %12, align 8, !tbaa !9
@@ -648,7 +642,7 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %.lr.ph.i.i.i.i
   %.016.i.i.i.i = phi i32 [ %27, %.lr.ph.i.i.i.i ], [ 32, %.preheader.i.i.i.i ]
-  %24 = call noundef i32 @sched_yield() #8
+  %24 = call noundef i32 @sched_yield() #7
   %25 = load atomic i32, ptr %7 monotonic, align 8
   %26 = icmp eq i32 %25, 0
   %27 = add nuw nsw i32 %.016.i.i.i.i, 1
@@ -666,7 +660,7 @@ _ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2r124concurrent_monitor_mutex4lock
   br i1 %32, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %29, %.lr.ph.i.i.i
-  %33 = call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 8 dereferenceable(36) %7, i32 noundef 128, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #8
+  %33 = call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 8 dereferenceable(36) %7, i32 noundef 128, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #7
   %34 = load atomic i32, ptr %7 monotonic, align 8
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !46
@@ -698,7 +692,7 @@ _ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEEC2ERS3_.exit.i: ; p
   br i1 %.not.i.i18.i, label %_ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit.i, label %46
 
 46:                                               ; preds = %._crit_edge.i
-  %47 = call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 8 dereferenceable(36) %7, i32 noundef 129, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #8
+  %47 = call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 8 dereferenceable(36) %7, i32 noundef 129, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #7
   br label %_ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit.i
 
 _ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit.i: ; preds = %46, %._crit_edge.i
@@ -741,7 +735,7 @@ _ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit.i: ; pred
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !54
 
 ._crit_edge24.i:                                  ; preds = %.lr.ph23.i, %_ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %"_ZN3tbb6detail2r123concurrent_monitor_baseINS1_15address_contextEE14notify_relaxedIZNS1_21notify_by_address_allEPvE3$_0EEvRKT_.exit"
 
 .lr.ph23.i:                                       ; preds = %_ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit.i, %.lr.ph23.i
@@ -760,7 +754,7 @@ _ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit.i: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define linkonce_odr void @_ZN3tbb6detail2r110sleep_nodeINS1_15address_contextEED0Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3tbb6detail2r110sleep_nodeINS1_15address_contextEED0Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN3tbb6detail2r110sleep_nodeINS1_15address_contextEEE, i64 16), ptr %0, align 8, !tbaa !17
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %3 = load i8, ptr %2, align 1, !tbaa !19, !range !26, !noundef !27
@@ -791,7 +785,7 @@ define linkonce_odr void @_ZN3tbb6detail2r110sleep_nodeINS1_15address_contextEED
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
-  %17 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(4) %9, i32 noundef 128, i32 noundef 2, ptr noundef null, ptr noundef null, i32 noundef 0) #8
+  %17 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(4) %9, i32 noundef 128, i32 noundef 2, ptr noundef null, ptr noundef null, i32 noundef 0) #7
   %18 = atomicrmw xchg ptr %9, i32 2 seq_cst, align 4
   %.not1.i.i = icmp eq i32 %18, 0
   br i1 %.not1.i.i, label %_ZN3tbb6detail2r110sleep_nodeINS1_15address_contextEED2Ev.exit, label %.lr.ph.i.i, !llvm.loop !28
@@ -839,7 +833,7 @@ define linkonce_odr void @_ZN3tbb6detail2r110sleep_nodeINS1_15address_contextEE4
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %10 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(4) %2, i32 noundef 128, i32 noundef 2, ptr noundef null, ptr noundef null, i32 noundef 0) #8
+  %10 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(4) %2, i32 noundef 128, i32 noundef 2, ptr noundef null, ptr noundef null, i32 noundef 0) #7
   %11 = atomicrmw xchg ptr %2, i32 2 seq_cst, align 4
   %.not1.i = icmp eq i32 %11, 0
   br i1 %.not1.i, label %_ZN3tbb6detail2r116binary_semaphore1PEv.exit, label %.lr.ph.i, !llvm.loop !28
@@ -881,7 +875,7 @@ define linkonce_odr void @_ZN3tbb6detail2r110sleep_nodeINS1_15address_contextEE5
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %11 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 128, i32 noundef 2, ptr noundef null, ptr noundef null, i32 noundef 0) #8
+  %11 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 128, i32 noundef 2, ptr noundef null, ptr noundef null, i32 noundef 0) #7
   %12 = atomicrmw xchg ptr %3, i32 2 seq_cst, align 4
   %.not1.i = icmp eq i32 %12, 0
   br i1 %.not1.i, label %_ZN3tbb6detail2r116binary_semaphore1PEv.exit, label %.lr.ph.i, !llvm.loop !28
@@ -898,7 +892,7 @@ define linkonce_odr void @_ZN3tbb6detail2r110sleep_nodeINS1_15address_contextEE6
   br i1 %4, label %5, label %_ZN3tbb6detail2r116binary_semaphore1VEv.exit
 
 5:                                                ; preds = %1
-  %6 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(4) %2, i32 noundef 129, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #8
+  %6 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(4) %2, i32 noundef 129, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #7
   br label %_ZN3tbb6detail2r116binary_semaphore1VEv.exit
 
 _ZN3tbb6detail2r116binary_semaphore1VEv.exit:     ; preds = %1, %5
@@ -906,11 +900,11 @@ _ZN3tbb6detail2r116binary_semaphore1VEv.exit:     ; preds = %1, %5
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: noinline noreturn nounwind sspstrong uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #8
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #7
   tail call void @_ZSt9terminatev() #10
   unreachable
 }
@@ -918,12 +912,12 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #5
+declare void @_ZSt9terminatev() local_unnamed_addr #4
 
-declare void @_ZN3tbb6detail2r115throw_exceptionENS0_2d012exception_idE(i32 noundef) local_unnamed_addr #6
+declare void @_ZN3tbb6detail2r115throw_exceptionENS0_2d012exception_idE(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #7
+declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress sspstrong uwtable
 define linkonce_odr void @_ZN3tbb6detail2r123concurrent_monitor_baseINS1_15address_contextEE17abort_all_relaxedEv(ptr noundef nonnull align 8 dereferenceable(36) %0) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -934,7 +928,7 @@ define linkonce_odr void @_ZN3tbb6detail2r123concurrent_monitor_baseINS1_15addre
   br i1 %5, label %61, label %6
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !41
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %7, ptr %7, align 8, !tbaa !9
@@ -977,7 +971,7 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i:   ; preds = %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %.lr.ph.i.i.i
   %.016.i.i.i = phi i32 [ %21, %.lr.ph.i.i.i ], [ 32, %.preheader.i.i.i ]
-  %18 = call noundef i32 @sched_yield() #8
+  %18 = call noundef i32 @sched_yield() #7
   %19 = load atomic i32, ptr %0 monotonic, align 8
   %20 = icmp eq i32 %19, 0
   %21 = add nuw nsw i32 %.016.i.i.i, 1
@@ -995,7 +989,7 @@ _ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2r124concurrent_monitor_mutex4lock
   br i1 %26, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %23, %.lr.ph.i.i
-  %27 = call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef 128, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #8
+  %27 = call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef 128, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #7
   %28 = load atomic i32, ptr %0 monotonic, align 8
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !46
@@ -1048,7 +1042,7 @@ _ZN3tbb6detail2r141circular_doubly_linked_list_with_sentinel8flush_toERS2_.exit:
   br i1 %.not.i.i15, label %_ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit, label %47
 
 47:                                               ; preds = %._crit_edge
-  %48 = call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef 129, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #8
+  %48 = call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef 129, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #7
   br label %_ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit
 
 _ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit: ; preds = %._crit_edge, %47
@@ -1068,7 +1062,7 @@ _ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit: ; preds 
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
 
 ._crit_edge21:                                    ; preds = %.lr.ph20, %_ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %61
 
 .lr.ph20:                                         ; preds = %_ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit, %.lr.ph20
@@ -1089,10 +1083,10 @@ _ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: nounwind
-declare void @llvm.x86.sse2.pause() #8
+declare void @llvm.x86.sse2.pause() #7
 
 ; Function Attrs: nounwind
-declare i32 @sched_yield() local_unnamed_addr #7
+declare i32 @sched_yield() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress sspstrong uwtable
 define linkonce_odr void @_ZN3tbb6detail2r123concurrent_monitor_baseINS1_15address_contextEE12prepare_waitERNS1_9wait_nodeIS3_EE(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1156,7 +1150,7 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i:   ; preds = %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %.lr.ph.i.i.i
   %.016.i.i.i = phi i32 [ %28, %.lr.ph.i.i.i ], [ 32, %.preheader.i.i.i ]
-  %25 = tail call noundef i32 @sched_yield() #8
+  %25 = tail call noundef i32 @sched_yield() #7
   %26 = load atomic i32, ptr %0 monotonic, align 8
   %27 = icmp eq i32 %26, 0
   %28 = add nuw nsw i32 %.016.i.i.i, 1
@@ -1174,7 +1168,7 @@ _ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2r124concurrent_monitor_mutex4lock
   br i1 %33, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %30, %.lr.ph.i.i
-  %34 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef 128, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #8
+  %34 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef 128, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #7
   %35 = load atomic i32, ptr %0 monotonic, align 8
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !46
@@ -1213,14 +1207,14 @@ _ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEEC2ERS3_.exit: ; pre
   br i1 %.not.i.i8, label %_ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit, label %53
 
 53:                                               ; preds = %_ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEEC2ERS3_.exit
-  %54 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef 129, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #8
+  %54 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef 129, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #7
   br label %_ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit
 
 _ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit: ; preds = %_ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEEC2ERS3_.exit, %53
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1, !tbaa !3
-  call void asm sideeffect "lock; notb $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %3, ptr nonnull elementtype(i8) %3) #8, !srcloc !6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #8
+  call void asm sideeffect "lock; notb $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %3, ptr nonnull elementtype(i8) %3) #7, !srcloc !6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1271,7 +1265,7 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i:   ; preds = %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %.lr.ph.i.i.i
   %.016.i.i.i = phi i32 [ %20, %.lr.ph.i.i.i ], [ 32, %.preheader.i.i.i ]
-  %17 = tail call noundef i32 @sched_yield() #8
+  %17 = tail call noundef i32 @sched_yield() #7
   %18 = load atomic i32, ptr %0 monotonic, align 8
   %19 = icmp eq i32 %18, 0
   %20 = add nuw nsw i32 %.016.i.i.i, 1
@@ -1289,7 +1283,7 @@ _ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2r124concurrent_monitor_mutex4lock
   br i1 %25, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %22, %.lr.ph.i.i
-  %26 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef 128, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #8
+  %26 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef 128, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #7
   %27 = load atomic i32, ptr %0 monotonic, align 8
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !46
@@ -1332,7 +1326,7 @@ _ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEEC2ERS3_.exit: ; pre
   br i1 %.not.i.i7, label %_ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit, label %46
 
 46:                                               ; preds = %42
-  %47 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef 129, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #8
+  %47 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef 129, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #7
   br label %_ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit
 
 _ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit: ; preds = %46, %42, %2
@@ -1340,7 +1334,7 @@ _ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define linkonce_odr void @_ZN3tbb6detail2d010raii_guardIZNS0_2r123concurrent_monitor_baseINS3_15address_contextEE12guarded_callINS3_10sleep_nodeIS5_EERNS0_2d113delegate_baseEEEbOT0_RT_EUlvE0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3tbb6detail2d010raii_guardIZNS0_2r123concurrent_monitor_baseINS3_15address_contextEE12guarded_callINS3_10sleep_nodeIS5_EERNS0_2d113delegate_baseEEEbOT0_RT_EUlvE0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8, !tbaa !36, !range !26, !noundef !27
   %4 = trunc nuw i8 %3 to i1
@@ -1364,15 +1358,21 @@ _ZZN3tbb6detail2r123concurrent_monitor_baseINS1_15address_contextEE12guarded_cal
   unreachable
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+
 attributes #0 = { mustprogress sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #3 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #4 = { noinline noreturn nounwind sspstrong uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold nofree noreturn }
-attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind }
+attributes #1 = { mustprogress nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #2 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #3 = { noinline noreturn nounwind sspstrong uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold nofree noreturn }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { builtin nounwind }
 attributes #10 = { noreturn nounwind }
 

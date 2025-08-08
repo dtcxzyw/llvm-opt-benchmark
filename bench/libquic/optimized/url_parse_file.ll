@@ -299,7 +299,7 @@ _ZN3url13FindNextSlashIcEEiPKT_ii.exit.thread.i.i: ; preds = %76, %_ZN3url13Find
   br i1 %96, label %97, label %100
 
 97:                                               ; preds = %95
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %98 = sub nsw i32 %.16696.i, %.0.lcssa.i.i.i
   %.sroa.2.0.insert.ext.i31.i.i = zext nneg i32 %98 to i64
   %.sroa.2.0.insert.shift.i32.i.i = shl nuw nsw i64 %.sroa.2.0.insert.ext.i31.i.i, 32
@@ -308,7 +308,7 @@ _ZN3url13FindNextSlashIcEEiPKT_ii.exit.thread.i.i: ; preds = %76, %_ZN3url13Find
   store i64 %.sroa.0.0.insert.insert.i34.i.i, ptr %5, align 8
   %99 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @_ZN3url17ParsePathInternalEPKcRKNS_9ComponentEPS2_S5_S5_(ptr noundef nonnull %0, ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef nonnull %99, ptr noundef nonnull %12, ptr noundef nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN3url12_GLOBAL__N_114DoParseFileURLIcEEvPKT_iPNS_6ParsedE.exit
 
 100:                                              ; preds = %95
@@ -330,7 +330,7 @@ _ZN3url13FindNextSlashIcEEiPKT_ii.exit.thread.i.i: ; preds = %76, %_ZN3url13Find
   store i32 0, ptr %107, align 4, !tbaa !3
   %108 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 -1, ptr %108, align 4, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %109 = sub nsw i32 %.16696.i, %106
   %.sroa.2.0.insert.ext.i.i48.i = zext i32 %109 to i64
   %.sroa.2.0.insert.shift.i.i49.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i48.i, 32
@@ -339,7 +339,7 @@ _ZN3url13FindNextSlashIcEEiPKT_ii.exit.thread.i.i: ; preds = %76, %_ZN3url13Find
   store i64 %.sroa.0.0.insert.insert.i.i51.i, ptr %4, align 8
   %110 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @_ZN3url17ParsePathInternalEPKcRKNS_9ComponentEPS2_S5_S5_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull %110, ptr noundef nonnull %12, ptr noundef nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN3url12_GLOBAL__N_114DoParseFileURLIcEEvPKT_iPNS_6ParsedE.exit
 
 _ZN3url12_GLOBAL__N_114DoParseFileURLIcEEvPKT_iPNS_6ParsedE.exit: ; preds = %57, %85, %97, %100, %.thread.i
@@ -640,7 +640,7 @@ _ZN3url13FindNextSlashItEEiPKT_ii.exit.thread.i.i: ; preds = %76, %_ZN3url13Find
   br i1 %96, label %97, label %100
 
 97:                                               ; preds = %95
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %98 = sub nsw i32 %.16696.i, %.0.lcssa.i.i.i
   %.sroa.2.0.insert.ext.i31.i.i = zext nneg i32 %98 to i64
   %.sroa.2.0.insert.shift.i32.i.i = shl nuw nsw i64 %.sroa.2.0.insert.ext.i31.i.i, 32
@@ -649,7 +649,7 @@ _ZN3url13FindNextSlashItEEiPKT_ii.exit.thread.i.i: ; preds = %76, %_ZN3url13Find
   store i64 %.sroa.0.0.insert.insert.i34.i.i, ptr %5, align 8
   %99 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @_ZN3url17ParsePathInternalEPKtRKNS_9ComponentEPS2_S5_S5_(ptr noundef nonnull %0, ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef nonnull %99, ptr noundef nonnull %12, ptr noundef nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN3url12_GLOBAL__N_114DoParseFileURLItEEvPKT_iPNS_6ParsedE.exit
 
 100:                                              ; preds = %95
@@ -671,7 +671,7 @@ _ZN3url13FindNextSlashItEEiPKT_ii.exit.thread.i.i: ; preds = %76, %_ZN3url13Find
   store i32 0, ptr %107, align 4, !tbaa !3
   %108 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 -1, ptr %108, align 4, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %109 = sub nsw i32 %.16696.i, %106
   %.sroa.2.0.insert.ext.i.i48.i = zext i32 %109 to i64
   %.sroa.2.0.insert.shift.i.i49.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i48.i, 32
@@ -680,31 +680,30 @@ _ZN3url13FindNextSlashItEEiPKT_ii.exit.thread.i.i: ; preds = %76, %_ZN3url13Find
   store i64 %.sroa.0.0.insert.insert.i.i51.i, ptr %4, align 8
   %110 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @_ZN3url17ParsePathInternalEPKtRKNS_9ComponentEPS2_S5_S5_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull %110, ptr noundef nonnull %12, ptr noundef nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN3url12_GLOBAL__N_114DoParseFileURLItEEvPKT_iPNS_6ParsedE.exit
 
 _ZN3url12_GLOBAL__N_114DoParseFileURLItEEvPKT_iPNS_6ParsedE.exit: ; preds = %57, %85, %97, %100, %.thread.i
   ret void
 }
 
+declare noundef zeroext i1 @_ZN3url13ExtractSchemeEPKciPNS_9ComponentE(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @_ZN3url17ParsePathInternalEPKcRKNS_9ComponentEPS2_S5_S5_(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare noundef zeroext i1 @_ZN3url13ExtractSchemeEPKtiPNS_9ComponentE(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @_ZN3url17ParsePathInternalEPKtRKNS_9ComponentEPS2_S5_S5_(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare noundef zeroext i1 @_ZN3url13ExtractSchemeEPKciPNS_9ComponentE(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @_ZN3url17ParsePathInternalEPKcRKNS_9ComponentEPS2_S5_S5_(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare noundef zeroext i1 @_ZN3url13ExtractSchemeEPKtiPNS_9ComponentE(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @_ZN3url17ParsePathInternalEPKtRKNS_9ComponentEPS2_S5_S5_(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

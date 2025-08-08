@@ -19,14 +19,14 @@ define noundef i32 @dtrmm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
 
 17:                                               ; preds = %9
   %18 = shl i64 %7, 3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store double %3, ptr %10, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 %0, ptr %11, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 %2, ptr %12, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #3
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %14) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %14, ptr noundef nonnull align 16 dereferenceable(128) @__const.dtrmm_kernel_RN.permute_table, i64 128, i1 false)
   %19 = sub nsw i64 0, %8
   store i64 %19, ptr %13, align 8, !tbaa !7
@@ -357,29 +357,29 @@ define noundef i32 @dtrmm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   br label %188
 
 188:                                              ; preds = %183, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %14) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %189
 
 189:                                              ; preds = %9, %188
   ret i32 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

@@ -88,13 +88,7 @@ declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #0
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
-
 declare i32 @__gxx_personality_v0(...)
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3igl8copyleft4cgal18polyhedron_to_meshIN4CGAL12Polyhedron_3INS3_5EpickENS3_18Polyhedron_items_3ENS3_18HalfedgeDS_defaultESaIiEEEN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEENSB_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RNSA_15PlainObjectBaseIT0_EERNSH_IT1_EE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
@@ -117,7 +111,7 @@ define weak_odr dso_local void @_ZN3igl8copyleft4cgal18polyhedron_to_meshIN4CGAL
 13:                                               ; preds = %3
   %14 = mul nsw i64 %9, 3
   tail call void @_ZN5Eigen12DenseStorageIiLin1ELin1ELin1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %14, i64 noundef %9, i64 noundef 3)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %15, align 8, !tbaa !18
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -128,7 +122,7 @@ define weak_odr dso_local void @_ZN3igl8copyleft4cgal18polyhedron_to_meshIN4CGAL
   store ptr %15, ptr %18, align 8, !tbaa !25
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 0, ptr %19, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !27
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
@@ -144,7 +138,7 @@ define weak_odr dso_local void @_ZN3igl8copyleft4cgal18polyhedron_to_meshIN4CGAL
 25:                                               ; preds = %46, %39, %32, %27
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.body
 
 27:                                               ; preds = %.lr.ph, %48
@@ -193,7 +187,7 @@ define weak_odr dso_local void @_ZN3igl8copyleft4cgal18polyhedron_to_meshIN4CGAL
   br i1 %.not, label %._crit_edge, label %27, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %48, %13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %54 = load ptr, ptr %53, align 8, !tbaa !40
   %.sroa.044.0.in55 = getelementptr inbounds nuw i8, ptr %54, i64 40
@@ -218,7 +212,7 @@ define weak_odr dso_local void @_ZN3igl8copyleft4cgal18polyhedron_to_meshIN4CGAL
   unreachable
 
 _ZNSt3mapIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_22HalfedgeDS_vertex_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS0_7Point_3IS7_EEEEEEEESaISJ_EEEmSt4lessISL_ESaISt4pairIKSL_mEEED2Ev.exit: ; preds = %._crit_edge62
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 60:                                               ; preds = %.lr.ph61, %102
@@ -345,7 +339,7 @@ _ZNSt8_Rb_treeIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in
 .body:                                            ; preds = %105, %_ZNSt8_Rb_treeIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_22HalfedgeDS_vertex_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS0_7Point_3IS7_EEEEEEEESaISJ_EEESt4pairIKSL_mESt10_Select1stISO_ESt4lessISL_ESaISO_EE10_Auto_nodeD2Ev.exit.i.i, %25
   %.pn33.pn = phi { ptr, i32 } [ %26, %25 ], [ %106, %105 ], [ %89, %_ZNSt8_Rb_treeIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_22HalfedgeDS_vertex_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS0_7Point_3IS7_EEEEEEEESaISJ_EEESt4pairIKSL_mESt10_Select1stISO_ESt4lessISL_ESaISO_EE10_Auto_nodeD2Ev.exit.i.i ]
   call void @_ZNSt3mapIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_22HalfedgeDS_vertex_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS0_7Point_3IS7_EEEEEEEESaISJ_EEEmSt4lessISL_ESaISt4pairIKSL_mEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #18
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn33.pn
 }
 
@@ -560,7 +554,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 17:                                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
   %18 = mul nsw i64 %13, 3
   tail call void @_ZN5Eigen12DenseStorageIiLin1ELin1ELin1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %18, i64 noundef %13, i64 noundef 3)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %19, align 8, !tbaa !18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -571,7 +565,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   store ptr %19, ptr %22, align 8, !tbaa !25
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 0, ptr %23, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !27
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
@@ -587,7 +581,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 29:                                               ; preds = %50, %43, %36, %31
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.body
 
 31:                                               ; preds = %.lr.ph, %52
@@ -636,7 +630,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br i1 %.not, label %._crit_edge, label %31, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %52, %17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %58 = load ptr, ptr %57, align 8, !tbaa !40
   %.sroa.044.0.in56 = getelementptr inbounds nuw i8, ptr %58, i64 40
@@ -661,7 +655,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   unreachable
 
 _ZNSt3mapIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_22HalfedgeDS_vertex_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS0_7Point_3IS7_EEEEEEEESaISJ_EEEmSt4lessISL_ESaISt4pairIKSL_mEEED2Ev.exit: ; preds = %._crit_edge63
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 64:                                               ; preds = %.lr.ph62, %106
@@ -788,7 +782,7 @@ _ZNSt8_Rb_treeIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in
 .body:                                            ; preds = %109, %_ZNSt8_Rb_treeIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_22HalfedgeDS_vertex_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS0_7Point_3IS7_EEEEEEEESaISJ_EEESt4pairIKSL_mESt10_Select1stISO_ESt4lessISL_ESaISO_EE10_Auto_nodeD2Ev.exit.i.i, %29
   %.pn33.pn = phi { ptr, i32 } [ %30, %29 ], [ %110, %109 ], [ %93, %_ZNSt8_Rb_treeIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_22HalfedgeDS_vertex_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS0_7Point_3IS7_EEEEEEEESaISJ_EEESt4pairIKSL_mESt10_Select1stISO_ESt4lessISL_ESaISO_EE10_Auto_nodeD2Ev.exit.i.i ]
   call void @_ZNSt3mapIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_22HalfedgeDS_vertex_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS0_7Point_3IS7_EEEEEEEESaISJ_EEEmSt4lessISL_ESaISt4pairIKSL_mEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #18
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn33.pn
 }
 
@@ -824,7 +818,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 17:                                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
   %18 = mul nsw i64 %13, 3
   tail call void @_ZN5Eigen12DenseStorageIiLin1ELin1ELin1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %18, i64 noundef %13, i64 noundef 3)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %19, align 8, !tbaa !18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -835,7 +829,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   store ptr %19, ptr %22, align 8, !tbaa !25
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 0, ptr %23, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !71
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
@@ -851,7 +845,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 29:                                               ; preds = %50, %43, %36, %31
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.body
 
 31:                                               ; preds = %.lr.ph, %52
@@ -900,7 +894,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br i1 %.not, label %._crit_edge, label %31, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %52, %17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %58 = load ptr, ptr %57, align 8, !tbaa !78
   %.sroa.044.0.in56 = getelementptr inbounds nuw i8, ptr %58, i64 16
@@ -925,7 +919,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   unreachable
 
 _ZNSt3mapIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEEmSt4lessISK_ESaISt4pairIKSK_mEEED2Ev.exit: ; preds = %._crit_edge63
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 64:                                               ; preds = %.lr.ph62, %106
@@ -1052,7 +1046,7 @@ _ZNSt8_Rb_treeIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in
 .body:                                            ; preds = %109, %_ZNSt8_Rb_treeIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESt4pairIKSK_mESt10_Select1stISN_ESt4lessISK_ESaISN_EE10_Auto_nodeD2Ev.exit.i.i, %29
   %.pn33.pn = phi { ptr, i32 } [ %30, %29 ], [ %110, %109 ], [ %93, %_ZNSt8_Rb_treeIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESt4pairIKSK_mESt10_Select1stISN_ESt4lessISK_ESaISN_EE10_Auto_nodeD2Ev.exit.i.i ]
   call void @_ZNSt3mapIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEEmSt4lessISK_ESaISt4pairIKSK_mEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #18
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn33.pn
 }
 
@@ -1856,6 +1850,12 @@ define internal void @_GLOBAL__sub_I_polyhedron_to_mesh.cpp() #17 section ".text
   %18 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4COREL5log_5E)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #0
 
 attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

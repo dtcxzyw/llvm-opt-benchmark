@@ -10,8 +10,8 @@ define hidden noundef ptr @SSL_AEAD_CTX_new(i32 noundef %0, i16 noundef zeroext 
   %10 = alloca ptr, align 8
   %11 = alloca i64, align 8
   %12 = alloca [80 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %13 = call i32 @ssl_cipher_get_evp_aead(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef %2, i16 noundef zeroext %1) #8
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %15
@@ -21,7 +21,7 @@ define hidden noundef ptr @SSL_AEAD_CTX_new(i32 noundef %0, i16 noundef zeroext 
   br label %61
 
 15:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %.not53 = icmp eq i64 %6, 0
   br i1 %.not53, label %24, label %16
 
@@ -123,38 +123,32 @@ define hidden noundef ptr @SSL_AEAD_CTX_new(i32 noundef %0, i16 noundef zeroext 
 
 60:                                               ; preds = %26, %31, %49, %51, %53, %20
   %.1 = phi ptr [ null, %20 ], [ null, %26 ], [ null, %31 ], [ %calloc, %49 ], [ %calloc, %51 ], [ %calloc, %53 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %61
 
 61:                                               ; preds = %60, %14
   %.0 = phi ptr [ %.1, %60 ], [ null, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @ssl_cipher_get_evp_aead(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @ssl_cipher_get_evp_aead(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
-
-declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare i32 @EVP_AEAD_CTX_init_with_direction(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @EVP_AEAD_CTX_init_with_direction(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
-declare i64 @EVP_AEAD_nonce_length(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @EVP_AEAD_nonce_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SSL_AEAD_CTX_free(ptr noundef %0) local_unnamed_addr #0 {
@@ -171,10 +165,10 @@ define hidden void @SSL_AEAD_CTX_free(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @EVP_AEAD_CTX_cleanup(ptr noundef) local_unnamed_addr #2
+declare void @EVP_AEAD_CTX_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i64 0, 256) i64 @SSL_AEAD_CTX_explicit_nonce_len(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define hidden range(i64 0, 256) i64 @SSL_AEAD_CTX_explicit_nonce_len(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 
@@ -225,7 +219,7 @@ SSL_AEAD_CTX_explicit_nonce_len.exit:             ; preds = %3, %9
   ret i64 %.0
 }
 
-declare i64 @EVP_AEAD_max_overhead(ptr noundef) local_unnamed_addr #2
+declare i64 @EVP_AEAD_max_overhead(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @SSL_AEAD_CTX_open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i8 noundef zeroext %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, ptr noundef %7, i64 noundef %8) local_unnamed_addr #0 {
@@ -286,7 +280,7 @@ SSL_AEAD_CTX_max_overhead.exit:                   ; preds = %20, %26
 
 33:                                               ; preds = %31, %17
   %.062 = phi i64 [ 0, %17 ], [ %32, %31 ]
-  call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.val = load i64, ptr %6, align 1
   store i64 %.val, ptr %10, align 8
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -324,7 +318,7 @@ SSL_AEAD_CTX_max_overhead.exit:                   ; preds = %20, %26
 
 ssl_aead_ctx_get_ad.exit:                         ; preds = %42, %44
   %.1.i = phi i64 [ %.0.i74, %42 ], [ %48, %44 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %51 = load i8, ptr %50, align 2, !tbaa !21
   %.not71 = icmp eq i8 %51, 0
@@ -418,8 +412,8 @@ ssl_aead_ctx_get_ad.exit:                         ; preds = %42, %44
 
 97:                                               ; preds = %.loopexit, %74
   %.3 = phi i32 [ 0, %74 ], [ %96, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %98
 
 98:                                               ; preds = %.thread, %97, %16, %15
@@ -428,9 +422,9 @@ ssl_aead_ctx_get_ad.exit:                         ; preds = %42, %44
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
-declare i32 @EVP_AEAD_CTX_open(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @EVP_AEAD_CTX_open(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @SSL_AEAD_CTX_seal(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i8 noundef zeroext %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, ptr noundef %7, i64 noundef %8) local_unnamed_addr #0 {
@@ -455,7 +449,7 @@ define hidden range(i32 0, 2) i32 @SSL_AEAD_CTX_seal(ptr noundef %0, ptr noundef
   br label %102
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.val = load i64, ptr %6, align 1
   store i64 %.val, ptr %10, align 8
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -494,7 +488,7 @@ define hidden range(i32 0, 2) i32 @SSL_AEAD_CTX_seal(ptr noundef %0, ptr noundef
 
 ssl_aead_ctx_get_ad.exit:                         ; preds = %26, %29
   %.1.i = phi i64 [ %.0.i, %26 ], [ %33, %29 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %36 = load i8, ptr %35, align 2, !tbaa !21
   %.not = icmp eq i8 %36, 0
@@ -630,8 +624,8 @@ ssl_aead_ctx_get_ad.exit:                         ; preds = %26, %29
 
 101:                                              ; preds = %67, %73, %98, %.loopexit, %57
   %.1 = phi i32 [ 0, %57 ], [ 0, %67 ], [ 0, %73 ], [ 1, %98 ], [ 0, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %102
 
 102:                                              ; preds = %101, %16, %15
@@ -639,20 +633,26 @@ ssl_aead_ctx_get_ad.exit:                         ; preds = %26, %29
   ret i32 %.065
 }
 
-declare i32 @RAND_bytes(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @RAND_bytes(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @EVP_AEAD_CTX_seal(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @EVP_AEAD_CTX_seal(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #8 = { nounwind }
 

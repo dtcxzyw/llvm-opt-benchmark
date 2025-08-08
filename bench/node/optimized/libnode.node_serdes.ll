@@ -1627,7 +1627,7 @@ if.then84:                                        ; preds = %_ZN2v810MaybeLocalI
   %25 = load ptr, ptr %realm_.i.i, align 8
   %env_.i.i25 = getelementptr inbounds nuw i8, ptr %25, i64 176
   %26 = load ptr, ptr %env_.i.i25, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %handle_scope.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %handle_scope.i.i)
   %isolate_.i.i.i = getelementptr inbounds nuw i8, ptr %26, i64 88
   %27 = load ptr, ptr %isolate_.i.i.i, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i.i, ptr noundef %27) #15
@@ -1644,7 +1644,7 @@ _ZN4node11Environment14ThrowTypeErrorEPKc.exit:   ; preds = %if.then84, %if.then
   %call11.i.i = call ptr @_ZN2v89Exception9TypeErrorENS_5LocalINS_6StringEEE(ptr %call.i.i.i) #15
   %call18.i.i = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %28, ptr %call11.i.i) #15
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i.i) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %handle_scope.i.i)
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit, %_ZNK4node10BaseObject6objectEv.exit23, %_ZN4node11Environment14ThrowTypeErrorEPKc.exit
@@ -2245,7 +2245,7 @@ if.then12:                                        ; preds = %do.end
   %11 = load ptr, ptr %realm_.i, align 8
   %env_.i.i = getelementptr inbounds nuw i8, ptr %11, i64 176
   %12 = load ptr, ptr %env_.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %handle_scope.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %handle_scope.i.i)
   %isolate_.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 88
   %13 = load ptr, ptr %isolate_.i.i.i, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i.i, ptr noundef %13) #15
@@ -2262,7 +2262,7 @@ _ZN4node11Environment10ThrowErrorEPKc.exit:       ; preds = %if.then12, %if.then
   %call11.i.i = call ptr @_ZN2v89Exception5ErrorENS_5LocalINS_6StringEEE(ptr %call.i.i.i) #15
   %call18.i.i = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr %call11.i.i) #15
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i.i) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %handle_scope.i.i)
   br label %return
 
 if.end14:                                         ; preds = %do.end
@@ -2351,7 +2351,7 @@ if.then12:                                        ; preds = %do.end
   %11 = load ptr, ptr %realm_.i, align 8
   %env_.i.i = getelementptr inbounds nuw i8, ptr %11, i64 176
   %12 = load ptr, ptr %env_.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %handle_scope.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %handle_scope.i.i)
   %isolate_.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 88
   %13 = load ptr, ptr %isolate_.i.i.i, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i.i, ptr noundef %13) #15
@@ -2368,7 +2368,7 @@ _ZN4node11Environment10ThrowErrorEPKc.exit:       ; preds = %if.then12, %if.then
   %call11.i.i = call ptr @_ZN2v89Exception5ErrorENS_5LocalINS_6StringEEE(ptr %call.i.i.i) #15
   %call18.i.i = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr %call11.i.i) #15
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i.i) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %handle_scope.i.i)
   br label %return
 
 if.end14:                                         ; preds = %do.end
@@ -2463,7 +2463,7 @@ if.then12:                                        ; preds = %do.end
   %11 = load ptr, ptr %realm_.i, align 8
   %env_.i.i = getelementptr inbounds nuw i8, ptr %11, i64 176
   %12 = load ptr, ptr %env_.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %handle_scope.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %handle_scope.i.i)
   %isolate_.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 88
   %13 = load ptr, ptr %isolate_.i.i.i, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i.i, ptr noundef %13) #15
@@ -2480,7 +2480,7 @@ _ZN4node11Environment10ThrowErrorEPKc.exit:       ; preds = %if.then12, %if.then
   %call11.i.i = call ptr @_ZN2v89Exception5ErrorENS_5LocalINS_6StringEEE(ptr %call.i.i.i) #15
   %call18.i.i = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr %call11.i.i) #15
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i.i) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %handle_scope.i.i)
   br label %return
 
 if.end14:                                         ; preds = %do.end
@@ -2595,7 +2595,7 @@ if.then31:                                        ; preds = %_ZNKR2v85MaybeIlE8F
   %23 = load ptr, ptr %realm_.i, align 8
   %env_.i.i36 = getelementptr inbounds nuw i8, ptr %23, i64 176
   %24 = load ptr, ptr %env_.i.i36, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %handle_scope.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %handle_scope.i.i)
   %isolate_.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 88
   %25 = load ptr, ptr %isolate_.i.i.i, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i.i, ptr noundef %25) #15
@@ -2612,7 +2612,7 @@ _ZN4node11Environment10ThrowErrorEPKc.exit:       ; preds = %if.then31, %if.then
   %call11.i.i = call ptr @_ZN2v89Exception5ErrorENS_5LocalINS_6StringEEE(ptr %call.i.i.i) #15
   %call18.i.i = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %26, ptr %call11.i.i) #15
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i.i) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %handle_scope.i.i)
   br label %return
 
 if.end33:                                         ; preds = %_ZNKR2v85MaybeIlE8FromJustEv.exit
@@ -4624,10 +4624,10 @@ entry:
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #13

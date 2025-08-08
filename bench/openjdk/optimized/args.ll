@@ -131,7 +131,7 @@ define ptr @JLI_PreprocessArg(ptr noundef %0, i8 noundef zeroext %1) local_unnam
   br label %100
 
 29:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %30 = tail call noalias ptr @fopen64(ptr noundef nonnull %23, ptr noundef nonnull @.str.18)
   %31 = icmp eq ptr %30, null
   br i1 %31, label %35, label %32
@@ -159,8 +159,8 @@ define ptr @JLI_PreprocessArg(ptr noundef %0, i8 noundef zeroext %1) local_unnam
   unreachable
 
 41:                                               ; preds = %36
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 8
   %42 = tail call ptr @JLI_List_new(i64 noundef 4) #12
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -190,8 +190,8 @@ define ptr @JLI_PreprocessArg(ptr noundef %0, i8 noundef zeroext %1) local_unnam
 
 readArgFile.exit.thread.i:                        ; preds = %50
   call void @JLI_List_free(ptr noundef %45) #12
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %98
 
 53:                                               ; preds = %50
@@ -317,8 +317,8 @@ checkArg.exit.i.i:                                ; preds = %88, %84, %78, %74, 
 readArgFile.exit.i:                               ; preds = %95, %91, %._crit_edge.i.._crit_edge._crit_edge.i_crit_edge.i, %41
   %.sink.i.i = phi ptr [ %92, %91 ], [ %92, %95 ], [ %.pre24.i.pre.i, %._crit_edge.i.._crit_edge._crit_edge.i_crit_edge.i ], [ %42, %41 ]
   call void @JLI_List_free(ptr noundef %.sink.i.i) #12
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %97 = icmp eq ptr %45, null
   br i1 %97, label %98, label %expandArgFile.exit
 
@@ -329,7 +329,7 @@ readArgFile.exit.i:                               ; preds = %95, %91, %._crit_ed
 
 expandArgFile.exit:                               ; preds = %readArgFile.exit.i
   %99 = call i32 @fclose(ptr noundef nonnull %30)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %100
 
 100:                                              ; preds = %26, %expandArgFile.exit, %2, %25, %21, %17, %10
@@ -1139,10 +1139,10 @@ declare void @JLI_MemFree(ptr noundef) local_unnamed_addr #3
 declare i32 @llvm.fshl.i32(i32, i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

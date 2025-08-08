@@ -70,13 +70,13 @@ define noundef nonnull ptr @curl_version() local_unnamed_addr #0 {
   %5 = alloca [30 x i8], align 16
   %6 = alloca [30 x i8], align 16
   %7 = alloca [30 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %1) #7
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %6) #7
-  call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @.str, ptr %1, align 16, !tbaa !3
   call void @Curl_ssl_version(ptr noundef nonnull %2, i64 noundef 200) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -153,33 +153,27 @@ define noundef nonnull ptr @curl_version() local_unnamed_addr #0 {
 49:                                               ; preds = %36, %45
   %.024.lcssa = phi ptr [ %.02438, %36 ], [ %47, %45 ]
   store i8 0, ptr %.024.lcssa, align 1, !tbaa !8
-  call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %2) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %1) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr @curl_version.out
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @Curl_ssl_version(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @Curl_ssl_version(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare ptr @zlibVersion() local_unnamed_addr #2
+declare ptr @zlibVersion() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define noundef nonnull ptr @curl_version_info(i32 noundef %0) local_unnamed_addr #0 {
@@ -251,13 +245,13 @@ define noundef nonnull ptr @curl_version_info(i32 noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @idn2_check_version(ptr noundef) local_unnamed_addr #5
+declare ptr @idn2_check_version(ptr noundef) local_unnamed_addr #4
 
-declare i32 @BrotliDecoderVersion() local_unnamed_addr #2
+declare i32 @BrotliDecoderVersion() local_unnamed_addr #1
 
-declare i32 @ZSTD_versionNumber() local_unnamed_addr #2
+declare i32 @ZSTD_versionNumber() local_unnamed_addr #1
 
-declare i32 @psl_check_version_number(i32 noundef) local_unnamed_addr #2
+declare i32 @psl_check_version_number(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @https_proxy_present(ptr readnone captures(none) %0) #0 {
@@ -267,7 +261,7 @@ define internal range(i32 0, 2) i32 @https_proxy_present(ptr readnone captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @idn_present(ptr noundef readonly captures(none) %0) #6 {
+define internal range(i32 0, 2) i32 @idn_present(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = icmp ne ptr %3, null
@@ -275,15 +269,21 @@ define internal range(i32 0, 2) i32 @idn_present(ptr noundef readonly captures(n
   ret i32 %5
 }
 
-declare zeroext i1 @Curl_ssl_supports(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @Curl_ssl_supports(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind willreturn memory(read) }
 

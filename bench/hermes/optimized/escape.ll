@@ -518,7 +518,7 @@ for.end:                                          ; preds = %_ZNK6hermes2vm10Str
   %65 = load ptr, ptr %R, align 8
   %66 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %conv.i.i185 = zext i32 %66 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %cmp.i.not.i = icmp ult i32 %66, 65536
   br i1 %cmp.i.not.i, label %if.then.i187, label %if.end.i.i.i.i
 
@@ -555,7 +555,7 @@ if.then.i.i.i186:                                 ; preds = %if.end.i.i.i.i
 
 _ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit: ; preds = %if.then.i187, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i, %if.then.i.i.i186
   %call3.pn.i = phi { i32, i64 } [ %call3.i, %if.then.i187 ], [ %call5.i, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i ], [ %call5.i, %if.then.i.i.i186 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %70 = extractvalue { i32, i64 } %call3.pn.i, 0
   %71 = extractvalue { i32, i64 } %call3.pn.i, 1
   %72 = load ptr, ptr %R, align 8
@@ -2294,7 +2294,7 @@ while.end:                                        ; preds = %_ZN4llvh23SmallVect
   %207 = phi i32 [ %.pre, %_ZN4llvh15SmallVectorImplIDsE7reserveEm.exit.while.end_crit_edge ], [ %add.i792, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit ]
   %208 = load ptr, ptr %R, align 8
   %conv.i.i794 = zext i32 %207 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %cmp.i.not.i = icmp ult i32 %207, 65536
   br i1 %cmp.i.not.i, label %if.then.i796, label %if.end.i.i.i.i
 
@@ -2331,7 +2331,7 @@ if.then.i.i.i795:                                 ; preds = %if.end.i.i.i.i
 
 _ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit: ; preds = %if.then.i796, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i, %if.then.i.i.i795
   %call3.pn.i = phi { i32, i64 } [ %call3.i, %if.then.i796 ], [ %call5.i, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i ], [ %call5.i, %if.then.i.i.i795 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %212 = extractvalue { i32, i64 } %call3.pn.i, 0
   %213 = extractvalue { i32, i64 } %call3.pn.i, 1
   %214 = load ptr, ptr %R, align 8
@@ -2866,7 +2866,7 @@ for.end53:                                        ; preds = %_ZNK6hermes2vm10Str
   %48 = load ptr, ptr %R, align 8
   %49 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %conv.i.i172 = zext i32 %49 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %cmp.i.not.i = icmp ult i32 %49, 65536
   br i1 %cmp.i.not.i, label %if.then.i174, label %if.end.i.i.i.i
 
@@ -2903,7 +2903,7 @@ if.then.i.i.i173:                                 ; preds = %if.end.i.i.i.i
 
 _ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit: ; preds = %if.then.i174, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i, %if.then.i.i.i173
   %call3.pn.i = phi { i32, i64 } [ %call3.i, %if.then.i174 ], [ %call5.i, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i ], [ %call5.i, %if.then.i.i.i173 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %53 = extractvalue { i32, i64 } %call3.pn.i, 0
   %cmp.i175 = icmp eq i32 %53, 0
   br i1 %cmp.i175, label %cleanup, label %if.end59
@@ -4008,7 +4008,7 @@ for.end149:                                       ; preds = %_ZNK6hermes2vm10Str
   %113 = load ptr, ptr %R, align 8
   %114 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %conv.i.i406 = zext i32 %114 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %cmp.i.not.i = icmp ult i32 %114, 65536
   br i1 %cmp.i.not.i, label %if.then.i408, label %if.end.i.i.i.i
 
@@ -4045,7 +4045,7 @@ if.then.i.i.i407:                                 ; preds = %if.end.i.i.i.i
 
 _ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit: ; preds = %if.then.i408, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i, %if.then.i.i.i407
   %call3.pn.i = phi { i32, i64 } [ %call3.i, %if.then.i408 ], [ %call5.i, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i ], [ %call5.i, %if.then.i.i.i407 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %118 = extractvalue { i32, i64 } %call3.pn.i, 1
   %and.i.i.i = and i64 %118, 281474976710655
   %or.i.i.i.i.i = or disjoint i64 %and.i.i.i, -844424930131968
@@ -4536,10 +4536,10 @@ entry:
 declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10

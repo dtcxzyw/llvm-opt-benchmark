@@ -90,12 +90,12 @@ _ZN4llvm8Function4argsEv.exit.i:                  ; preds = %16, %_ZN4llvm8Funct
   br i1 %.not36.i, label %34, label %35
 
 34:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 1, ptr %23, align 1, !tbaa !45
   store ptr @.str, ptr %5, align 8, !tbaa !48
   store i8 3, ptr %22, align 8, !tbaa !49
   call void @_ZN4llvm5Value7setNameERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(24) %.042.i, ptr noundef nonnull align 8 dereferenceable(34) %5) #3
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %35
 
 35:                                               ; preds = %34, %30
@@ -113,12 +113,12 @@ _ZN4llvm8Function4argsEv.exit.i:                  ; preds = %16, %_ZN4llvm8Funct
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds i8, ptr %.sroa.031.051.i, i64 -24
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 1, ptr %27, align 1, !tbaa !45
   store ptr @.str.1, ptr %6, align 8, !tbaa !48
   store i8 3, ptr %26, align 8, !tbaa !49
   call void @_ZN4llvm5Value7setNameERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(34) %6) #3
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %43
 
 43:                                               ; preds = %41, %37
@@ -153,12 +153,12 @@ _ZN4llvm8Function4argsEv.exit.i:                  ; preds = %16, %_ZN4llvm8Funct
   br i1 %57, label %59, label %58
 
 58:                                               ; preds = %51
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 1, ptr %29, align 1, !tbaa !45
   store ptr @.str.2, ptr %7, align 8, !tbaa !48
   store i8 3, ptr %28, align 8, !tbaa !49
   call void @_ZN4llvm5Value7setNameERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(34) %7) #3
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %59
 
 59:                                               ; preds = %58, %51, %.lr.ph47.i
@@ -193,19 +193,19 @@ _ZN12_GLOBAL__N_116nameInstructionsERN4llvm8FunctionE.exit: ; preds = %._crit_ed
   ret void
 }
 
+declare void @_ZN4llvm5Value7setNameERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #1
+
+declare void @_ZNK4llvm8Function18BuildLazyArgumentsEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #1
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @_ZN4llvm5Value7setNameERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @_ZNK4llvm8Function18BuildLazyArgumentsEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #2
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

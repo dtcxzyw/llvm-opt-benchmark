@@ -103,7 +103,7 @@ define dso_local void @PHP_RIPEMD128Update(ptr noundef captures(none) %0, ptr no
 ; Function Attrs: nounwind uwtable
 define dso_local void @PHP_RIPEMD128Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) #1 {
   %3 = alloca [8 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 4, !tbaa !4
   store i32 %5, ptr %3, align 4
@@ -227,7 +227,7 @@ PHP_RIPEMD128Update.exit22:                       ; preds = %52, %47
 
 RIPEMDEncode.exit:                                ; preds = %57
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 88) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -318,7 +318,7 @@ define dso_local void @PHP_RIPEMD160Update(ptr noundef captures(none) %0, ptr no
 ; Function Attrs: nounwind uwtable
 define dso_local void @PHP_RIPEMD160Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) #1 {
   %3 = alloca [8 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4, !tbaa !4
   store i32 %5, ptr %3, align 4
@@ -442,7 +442,7 @@ PHP_RIPEMD160Update.exit22:                       ; preds = %52, %47
 
 RIPEMDEncode.exit:                                ; preds = %57
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 92) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -533,7 +533,7 @@ define dso_local void @PHP_RIPEMD256Update(ptr noundef captures(none) %0, ptr no
 ; Function Attrs: nounwind uwtable
 define dso_local void @PHP_RIPEMD256Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) #1 {
   %3 = alloca [8 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load i32, ptr %4, align 4, !tbaa !4
   store i32 %5, ptr %3, align 4
@@ -657,7 +657,7 @@ PHP_RIPEMD256Update.exit22:                       ; preds = %52, %47
 
 RIPEMDEncode.exit:                                ; preds = %57
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 104) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -752,7 +752,7 @@ define dso_local void @PHP_RIPEMD320Update(ptr noundef captures(none) %0, ptr no
 ; Function Attrs: nounwind uwtable
 define dso_local void @PHP_RIPEMD320Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) #1 {
   %3 = alloca [8 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load i32, ptr %4, align 4, !tbaa !4
   store i32 %5, ptr %3, align 4
@@ -876,15 +876,12 @@ PHP_RIPEMD320Update.exit22:                       ; preds = %52, %47
 
 RIPEMDEncode.exit:                                ; preds = %57
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 112) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @RIPEMD128Transform(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
@@ -897,7 +894,7 @@ RIPEMDDecode.exit.preheader:
   %7 = load i32, ptr %6, align 4, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, ptr noundef nonnull align 1 dereferenceable(64) %1, i64 64, i1 false)
   br label %RIPEMDDecode.exit
 
@@ -1134,12 +1131,9 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   store i32 %181, ptr %8, align 4, !tbaa !4
   store i32 %175, ptr %0, align 4, !tbaa !4
   call void @explicit_bzero(ptr noundef nonnull %2, i64 noundef 64) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @RIPEMD256Transform(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
@@ -1160,7 +1154,7 @@ RIPEMDDecode.exit.preheader:
   %15 = load i32, ptr %14, align 4, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %17 = load i32, ptr %16, align 4, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, ptr noundef nonnull align 1 dereferenceable(64) %1, i64 64, i1 false)
   br label %RIPEMDDecode.exit
 
@@ -1401,7 +1395,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %189 = add i32 %.3219259, %17
   store i32 %189, ptr %16, align 4, !tbaa !4
   call void @explicit_bzero(ptr noundef nonnull %2, i64 noundef 64) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -1418,7 +1412,7 @@ RIPEMDDecode.exit.preheader:
   %9 = load i32, ptr %8, align 4, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 4, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, ptr noundef nonnull align 1 dereferenceable(64) %1, i64 64, i1 false)
   br label %RIPEMDDecode.exit
 
@@ -1744,7 +1738,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   store i32 %247, ptr %10, align 4, !tbaa !4
   store i32 %239, ptr %0, align 4, !tbaa !4
   call void @explicit_bzero(ptr noundef nonnull %2, i64 noundef 64) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -1771,7 +1765,7 @@ RIPEMDDecode.exit.preheader:
   %19 = load i32, ptr %18, align 4, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %21 = load i32, ptr %20, align 4, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, ptr noundef nonnull align 1 dereferenceable(64) %1, i64 64, i1 false)
   br label %RIPEMDDecode.exit
 
@@ -2102,12 +2096,18 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %257 = add i32 %.4307373, %21
   store i32 %257, ptr %20, align 4, !tbaa !4
   call void @explicit_bzero(ptr noundef nonnull %2, i64 noundef 64) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @explicit_bzero(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @explicit_bzero(ptr noundef, i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #6
@@ -2115,9 +2115,9 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #6
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 

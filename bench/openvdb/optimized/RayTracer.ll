@@ -826,7 +826,7 @@ entry:
   %range.i = alloca %"class.tbb::detail::d1::blocked_range", align 8
   %ref.tmp.i = alloca float, align 4
   %tracer = alloca %"class.openvdb::v11_0::tools::LevelSetRayTracer", align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store i8 1, ptr %tracer, align 8
   %mRand.i = getelementptr inbounds nuw i8, ptr %tracer, i64 8
   store ptr null, ptr %mRand.i, align 8
@@ -880,8 +880,8 @@ ehcleanup.i:                                      ; preds = %_ZNSt10unique_ptrIK
   br label %common.resume
 
 _ZN7openvdb5v11_05tools17LevelSetRayTracerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS1_22LevelSetRayIntersectorISE_NS1_16LinearSearchImplISE_Li0EdEELi2ENS0_4math3RayIdEEEEEC2ERKSE_RKNS1_10BaseShaderERNS1_10BaseCameraEmj.exit: ; preds = %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %range.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %range.i)
   %5 = load ptr, ptr %mCamera.i, align 8
   %mFilm.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load ptr, ptr %mFilm.i.i, align 8
@@ -895,12 +895,12 @@ _ZN7openvdb5v11_05tools17LevelSetRayTracerINS0_4GridINS0_4tree4TreeINS4_8RootNod
   br i1 %threaded, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %_ZN7openvdb5v11_05tools17LevelSetRayTracerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS1_22LevelSetRayIntersectorISE_NS1_16LinearSearchImplISE_Li0EdEELi2ENS0_4math3RayIdEEEEEC2ERKSE_RKNS1_10BaseShaderERNS1_10BaseCameraEmj.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   invoke void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_05tools17LevelSetRayTracerINS6_4GridINS6_4tree4TreeINSA_8RootNodeINSA_12InternalNodeINSD_INSA_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS7_22LevelSetRayIntersectorISK_NS7_16LinearSearchImplISK_Li0EdEELi2ENS6_4math3RayIdEEEEEEKNS1_16auto_partitionerEE3runERKS4_RKSS_RSU_(ptr noundef nonnull align 8 dereferenceable(24) %range.i, ptr noundef nonnull align 8 dereferenceable(344) %tracer, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %cond.true.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   br label %invoke.cont
 
 cond.false.i:                                     ; preds = %_ZN7openvdb5v11_05tools17LevelSetRayTracerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS1_22LevelSetRayIntersectorISE_NS1_16LinearSearchImplISE_Li0EdEELi2ENS0_4math3RayIdEEEEEC2ERKSE_RKNS1_10BaseShaderERNS1_10BaseCameraEmj.exit
@@ -908,7 +908,7 @@ cond.false.i:                                     ; preds = %_ZN7openvdb5v11_05t
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %.noexc, %cond.false.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %range.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %range.i)
   %8 = load i8, ptr %tracer, align 8
   %tobool.i = trunc i8 %8 to i1
   br i1 %tobool.i, label %if.then.i, label %if.end.i
@@ -954,14 +954,14 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i.i.i:          ; preds = %if.then.i.i.i.i.i.i
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN7openvdb5v11_05tools17LevelSetRayTracerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS1_22LevelSetRayIntersectorISE_NS1_16LinearSearchImplISE_Li0EdEELi2ENS0_4math3RayIdEEEEED2Ev.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   %mConstAccessorRegistry.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 656
   store ptr %mAcc.i.i.i.i.i, ptr %ref.tmp.i.i.i.i.i.i.i.i, align 8
   %call.i.i1.i.i.i.i.i.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE14internal_eraseISI_EEbRKT_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i.i.i.i.i)
           to label %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 _ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   br label %_ZN7openvdb5v11_05tools17LevelSetRayTracerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS1_22LevelSetRayIntersectorISE_NS1_16LinearSearchImplISE_Li0EdEELi2ENS0_4math3RayIdEEEEED2Ev.exit
 
 terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i.i
@@ -1032,14 +1032,14 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i.i:            ; preds = %if.then.i.i.i.i.i.i
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN7openvdb5v11_05tools22LevelSetRayIntersectorINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS1_16LinearSearchImplISE_Li0EdEELi2ENS0_4math3RayIdEEED2Ev.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
   %mConstAccessorRegistry.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 656
   store ptr %mAcc.i.i.i.i, ptr %ref.tmp.i.i.i.i.i.i.i, align 8
   %call.i.i1.i.i.i.i.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE14internal_eraseISI_EEbRKT_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i.i.i.i)
           to label %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i
 
 _ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
   br label %_ZN7openvdb5v11_05tools22LevelSetRayIntersectorINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS1_16LinearSearchImplISE_Li0EdEELi2ENS0_4math3RayIdEEED2Ev.exit
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
@@ -1061,7 +1061,7 @@ entry:
   %range.i = alloca %"class.tbb::detail::d1::blocked_range", align 8
   %ref.tmp.i = alloca double, align 8
   %tracer = alloca %"class.openvdb::v11_0::tools::LevelSetRayTracer.22", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store i8 1, ptr %tracer, align 8
   %mRand.i = getelementptr inbounds nuw i8, ptr %tracer, i64 8
   store ptr null, ptr %mRand.i, align 8
@@ -1115,8 +1115,8 @@ ehcleanup.i:                                      ; preds = %_ZNSt10unique_ptrIK
   br label %common.resume
 
 _ZN7openvdb5v11_05tools17LevelSetRayTracerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS1_22LevelSetRayIntersectorISE_NS1_16LinearSearchImplISE_Li0EdEELi2ENS0_4math3RayIdEEEEEC2ERKSE_RKNS1_10BaseShaderERNS1_10BaseCameraEmj.exit: ; preds = %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %range.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %range.i)
   %5 = load ptr, ptr %mCamera.i, align 8
   %mFilm.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load ptr, ptr %mFilm.i.i, align 8
@@ -1130,12 +1130,12 @@ _ZN7openvdb5v11_05tools17LevelSetRayTracerINS0_4GridINS0_4tree4TreeINS4_8RootNod
   br i1 %threaded, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %_ZN7openvdb5v11_05tools17LevelSetRayTracerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS1_22LevelSetRayIntersectorISE_NS1_16LinearSearchImplISE_Li0EdEELi2ENS0_4math3RayIdEEEEEC2ERKSE_RKNS1_10BaseShaderERNS1_10BaseCameraEmj.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   invoke void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_05tools17LevelSetRayTracerINS6_4GridINS6_4tree4TreeINSA_8RootNodeINSA_12InternalNodeINSD_INSA_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS7_22LevelSetRayIntersectorISK_NS7_16LinearSearchImplISK_Li0EdEELi2ENS6_4math3RayIdEEEEEEKNS1_16auto_partitionerEE3runERKS4_RKSS_RSU_(ptr noundef nonnull align 8 dereferenceable(24) %range.i, ptr noundef nonnull align 8 dereferenceable(360) %tracer, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %cond.true.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   br label %invoke.cont
 
 cond.false.i:                                     ; preds = %_ZN7openvdb5v11_05tools17LevelSetRayTracerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS1_22LevelSetRayIntersectorISE_NS1_16LinearSearchImplISE_Li0EdEELi2ENS0_4math3RayIdEEEEEC2ERKSE_RKNS1_10BaseShaderERNS1_10BaseCameraEmj.exit
@@ -1143,7 +1143,7 @@ cond.false.i:                                     ; preds = %_ZN7openvdb5v11_05t
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %.noexc, %cond.false.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %range.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %range.i)
   %8 = load i8, ptr %tracer, align 8
   %tobool.i = trunc i8 %8 to i1
   br i1 %tobool.i, label %if.then.i, label %if.end.i
@@ -1189,14 +1189,14 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i:          ; preds = %if.then.i.i.i.i.i.i
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN7openvdb5v11_05tools17LevelSetRayTracerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS1_22LevelSetRayIntersectorISE_NS1_16LinearSearchImplISE_Li0EdEELi2ENS0_4math3RayIdEEEEED2Ev.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   %mConstAccessorRegistry.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 656
   store ptr %mAcc.i.i.i.i.i, ptr %ref.tmp.i.i.i.i.i.i.i.i, align 8
   %call.i.i1.i.i.i.i.i.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE14internal_eraseISI_EEbRKT_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i.i.i.i.i)
           to label %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 _ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   br label %_ZN7openvdb5v11_05tools17LevelSetRayTracerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS1_22LevelSetRayIntersectorISE_NS1_16LinearSearchImplISE_Li0EdEELi2ENS0_4math3RayIdEEEEED2Ev.exit
 
 terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i.i
@@ -1267,14 +1267,14 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i:            ; preds = %if.then.i.i.i.i.i.i
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN7openvdb5v11_05tools22LevelSetRayIntersectorINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS1_16LinearSearchImplISE_Li0EdEELi2ENS0_4math3RayIdEEED2Ev.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
   %mConstAccessorRegistry.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 656
   store ptr %mAcc.i.i.i.i, ptr %ref.tmp.i.i.i.i.i.i.i, align 8
   %call.i.i1.i.i.i.i.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE14internal_eraseISI_EEbRKT_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i.i.i.i)
           to label %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i
 
 _ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
   br label %_ZN7openvdb5v11_05tools22LevelSetRayIntersectorINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS1_16LinearSearchImplISE_Li0EdEELi2ENS0_4math3RayIdEEED2Ev.exit
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
@@ -1353,7 +1353,7 @@ ehcleanup.i:                                      ; preds = %_ZNSt10unique_ptrIK
   br label %common.resume
 
 _ZN7openvdb5v11_05tools17LevelSetRayTracerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS1_22LevelSetRayIntersectorISE_NS1_16LinearSearchImplISE_Li0EdEELi2ENS0_4math3RayIdEEEEEC2ERKSL_RKNS1_10BaseShaderERNS1_10BaseCameraEmj.exit: ; preds = %invoke.cont.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %range.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %range.i)
   %6 = load ptr, ptr %mCamera.i, align 8
   %mFilm.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load ptr, ptr %mFilm.i.i, align 8
@@ -1367,12 +1367,12 @@ _ZN7openvdb5v11_05tools17LevelSetRayTracerINS0_4GridINS0_4tree4TreeINS4_8RootNod
   br i1 %threaded, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %_ZN7openvdb5v11_05tools17LevelSetRayTracerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS1_22LevelSetRayIntersectorISE_NS1_16LinearSearchImplISE_Li0EdEELi2ENS0_4math3RayIdEEEEEC2ERKSL_RKNS1_10BaseShaderERNS1_10BaseCameraEmj.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   invoke void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_05tools17LevelSetRayTracerINS6_4GridINS6_4tree4TreeINSA_8RootNodeINSA_12InternalNodeINSD_INSA_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS7_22LevelSetRayIntersectorISK_NS7_16LinearSearchImplISK_Li0EdEELi2ENS6_4math3RayIdEEEEEEKNS1_16auto_partitionerEE3runERKS4_RKSS_RSU_(ptr noundef nonnull align 8 dereferenceable(24) %range.i, ptr noundef nonnull align 8 dereferenceable(344) %tracer, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %cond.true.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   br label %invoke.cont
 
 cond.false.i:                                     ; preds = %_ZN7openvdb5v11_05tools17LevelSetRayTracerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS1_22LevelSetRayIntersectorISE_NS1_16LinearSearchImplISE_Li0EdEELi2ENS0_4math3RayIdEEEEEC2ERKSL_RKNS1_10BaseShaderERNS1_10BaseCameraEmj.exit
@@ -1380,7 +1380,7 @@ cond.false.i:                                     ; preds = %_ZN7openvdb5v11_05t
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %.noexc, %cond.false.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %range.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %range.i)
   %9 = load i8, ptr %tracer, align 8
   %tobool.i = trunc i8 %9 to i1
   br i1 %tobool.i, label %if.then.i, label %if.end.i
@@ -1426,14 +1426,14 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i.i.i:          ; preds = %if.then.i.i.i.i.i.i
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN7openvdb5v11_05tools17LevelSetRayTracerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS1_22LevelSetRayIntersectorISE_NS1_16LinearSearchImplISE_Li0EdEELi2ENS0_4math3RayIdEEEEED2Ev.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   %mConstAccessorRegistry.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 656
   store ptr %mAcc.i.i.i.i.i, ptr %ref.tmp.i.i.i.i.i.i.i.i, align 8
   %call.i.i1.i.i.i.i.i.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE14internal_eraseISI_EEbRKT_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i.i.i.i.i)
           to label %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 _ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   br label %_ZN7openvdb5v11_05tools17LevelSetRayTracerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS1_22LevelSetRayIntersectorISE_NS1_16LinearSearchImplISE_Li0EdEELi2ENS0_4math3RayIdEEEEED2Ev.exit
 
 terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i.i
@@ -1518,7 +1518,7 @@ ehcleanup.i:                                      ; preds = %_ZNSt10unique_ptrIK
   br label %common.resume
 
 _ZN7openvdb5v11_05tools17LevelSetRayTracerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS1_22LevelSetRayIntersectorISE_NS1_16LinearSearchImplISE_Li0EdEELi2ENS0_4math3RayIdEEEEEC2ERKSL_RKNS1_10BaseShaderERNS1_10BaseCameraEmj.exit: ; preds = %invoke.cont.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %range.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %range.i)
   %6 = load ptr, ptr %mCamera.i, align 8
   %mFilm.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load ptr, ptr %mFilm.i.i, align 8
@@ -1532,12 +1532,12 @@ _ZN7openvdb5v11_05tools17LevelSetRayTracerINS0_4GridINS0_4tree4TreeINS4_8RootNod
   br i1 %threaded, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %_ZN7openvdb5v11_05tools17LevelSetRayTracerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS1_22LevelSetRayIntersectorISE_NS1_16LinearSearchImplISE_Li0EdEELi2ENS0_4math3RayIdEEEEEC2ERKSL_RKNS1_10BaseShaderERNS1_10BaseCameraEmj.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   invoke void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_05tools17LevelSetRayTracerINS6_4GridINS6_4tree4TreeINSA_8RootNodeINSA_12InternalNodeINSD_INSA_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS7_22LevelSetRayIntersectorISK_NS7_16LinearSearchImplISK_Li0EdEELi2ENS6_4math3RayIdEEEEEEKNS1_16auto_partitionerEE3runERKS4_RKSS_RSU_(ptr noundef nonnull align 8 dereferenceable(24) %range.i, ptr noundef nonnull align 8 dereferenceable(360) %tracer, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %cond.true.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   br label %invoke.cont
 
 cond.false.i:                                     ; preds = %_ZN7openvdb5v11_05tools17LevelSetRayTracerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS1_22LevelSetRayIntersectorISE_NS1_16LinearSearchImplISE_Li0EdEELi2ENS0_4math3RayIdEEEEEC2ERKSL_RKNS1_10BaseShaderERNS1_10BaseCameraEmj.exit
@@ -1545,7 +1545,7 @@ cond.false.i:                                     ; preds = %_ZN7openvdb5v11_05t
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %.noexc, %cond.false.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %range.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %range.i)
   %9 = load i8, ptr %tracer, align 8
   %tobool.i = trunc i8 %9 to i1
   br i1 %tobool.i, label %if.then.i, label %if.end.i
@@ -1591,14 +1591,14 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i:          ; preds = %if.then.i.i.i.i.i.i
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN7openvdb5v11_05tools17LevelSetRayTracerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS1_22LevelSetRayIntersectorISE_NS1_16LinearSearchImplISE_Li0EdEELi2ENS0_4math3RayIdEEEEED2Ev.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   %mConstAccessorRegistry.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 656
   store ptr %mAcc.i.i.i.i.i, ptr %ref.tmp.i.i.i.i.i.i.i.i, align 8
   %call.i.i1.i.i.i.i.i.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE14internal_eraseISI_EEbRKT_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i.i.i.i.i)
           to label %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 _ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   br label %_ZN7openvdb5v11_05tools17LevelSetRayTracerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS1_22LevelSetRayIntersectorISE_NS1_16LinearSearchImplISE_Li0EdEELi2ENS0_4math3RayIdEEEEED2Ev.exit
 
 terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i.i
@@ -1633,8 +1633,8 @@ entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %this, align 8, !alias.scope !4
   %mTree.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %1, ptr %mTree.i.i.i, align 8, !alias.scope !4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %a.i.i.i.i), !noalias !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i), !noalias !4
+  call void @llvm.lifetime.start.p0(ptr nonnull %a.i.i.i.i), !noalias !4
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !4
   store ptr null, ptr %a.i.i.i.i, align 8, !noalias !4
   %m_is_writer.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %a.i.i.i.i, i64 8
   store i8 0, ptr %m_is_writer.i.i.i.i.i.i.i, align 8, !noalias !4
@@ -1692,8 +1692,8 @@ common.resume:                                    ; preds = %lpad.i.i.i.i, %if.t
   resume { ptr, i32 } %common.resume.op
 
 invoke.cont.i.i:                                  ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %a.i.i.i.i), !noalias !4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i), !noalias !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %a.i.i.i.i), !noalias !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !4
   %11 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 0, ptr %11, align 8, !alias.scope !4
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEE, i64 16), ptr %this, align 8, !alias.scope !4
@@ -1846,12 +1846,12 @@ invoke.cont9:                                     ; preds = %for.body.i.i.i.i.i.
   store double 3.000000e-01, ptr %arrayidx3.i, align 8
   %arrayidx5.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store double 0.000000e+00, ptr %arrayidx5.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i)
   invoke void @_ZNK7openvdb5v11_04math4Vec3IdE4unitEdRd(ptr nonnull sret(%"class.openvdb::v11_0::math::Vec3") align 8 %mLightDir, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, double noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(8) %d.i)
           to label %invoke.cont12 unwind label %lpad10
 
 invoke.cont12:                                    ; preds = %invoke.cont9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i)
   %mLightColor = getelementptr inbounds nuw i8, ptr %this, i64 176
   store double 0x3FE6666666666666, ptr %mLightColor, align 8
   %arrayidx3.i41 = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -1944,14 +1944,14 @@ entry:
   br i1 %tobool.not.i, label %_ZN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   %mConstAccessorRegistry.i.i = getelementptr inbounds nuw i8, ptr %0, i64 656
   store ptr %this, ptr %ref.tmp.i.i, align 8
   %call.i.i1.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE14internal_eraseISI_EEbRKT_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i)
           to label %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i unwind label %terminate.lpad.i
 
 _ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i: ; preds = %if.then.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   br label %_ZN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EED2Ev.exit
 
 terminate.lpad.i:                                 ; preds = %if.then.i
@@ -1979,8 +1979,8 @@ entry:
   br i1 %tobool.not.i.i, label %_ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEC2ERKSF_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %a.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %a.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
   store ptr null, ptr %a.i.i.i, align 8
   %m_is_writer.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %a.i.i.i, i64 8
   store i8 0, ptr %m_is_writer.i.i.i.i.i.i, align 8
@@ -2038,8 +2038,8 @@ common.resume:                                    ; preds = %lpad.i.i.i, %if.the
   resume { ptr, i32 } %common.resume.op
 
 _ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEE14attachAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %invoke.cont.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %a.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %a.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
   br label %_ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEC2ERKSF_.exit
 
 _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEC2ERKSF_.exit: ; preds = %entry, %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEE14attachAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i
@@ -2240,7 +2240,7 @@ entry:
   br i1 %threaded, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %context.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %context.i.i)
   %my_version.i.i.i.i = getelementptr inbounds nuw i8, ptr %context.i.i, i64 12
   store i8 1, ptr %my_version.i.i.i.i, align 4
   %my_node.i.i.i.i = getelementptr inbounds nuw i8, ptr %context.i.i, i64 32
@@ -2250,8 +2250,8 @@ cond.true:                                        ; preds = %entry
   %my_traits2.i.i.i.i = getelementptr inbounds nuw i8, ptr %context.i.i, i64 13
   store i8 4, ptr %my_traits2.i.i.i.i, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %context.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %wn.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %wn.i)
   %cmp.i.not.i.not = icmp eq i64 %2, 0
   br i1 %cmp.i.not.i.not, label %invoke.cont.i.i, label %if.then.i
 
@@ -2306,8 +2306,8 @@ _ZN3tbb6detail2d122small_object_allocator10new_objectINS1_9start_forINS1_13block
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %cond.true, %_ZN3tbb6detail2d122small_object_allocator10new_objectINS1_9start_forINS1_13blocked_rangeImEEN7openvdb5v11_05tools12VolumeRenderINS9_20VolumeRayIntersectorINS8_4GridINS8_4tree4TreeINSD_8RootNodeINSD_12InternalNodeINSG_INSD_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELi2ENS8_4math3RayIdEEEENS9_10BoxSamplerEEEKNS1_16auto_partitionerEEEJRKS6_RKST_RSV_RS2_EEEPT_DpOT0_.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %wn.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %alloc.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %wn.i)
   %my_state.i.i.i.i = getelementptr inbounds nuw i8, ptr %context.i.i, i64 15
   %6 = load atomic i8, ptr %my_state.i.i.i.i monotonic, align 1
   %cmp.i.i.i.i = icmp eq i8 %6, -1
@@ -2335,7 +2335,7 @@ lpad.i.i.body:                                    ; preds = %lpad2.i.i.i, %lpad.
   resume { ptr, i32 } %eh.lpad-body
 
 _ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeImEEN7openvdb5v11_05tools12VolumeRenderINS7_20VolumeRayIntersectorINS6_4GridINS6_4tree4TreeINSB_8RootNodeINSB_12InternalNodeINSE_INSB_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELi2ENS6_4math3RayIdEEEENS7_10BoxSamplerEEEEEvRKT_RKT0_.exit: ; preds = %invoke.cont.i.i, %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %context.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %context.i.i)
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
@@ -2529,10 +2529,10 @@ invoke.cont24:                                    ; preds = %for.body, %for.inc1
 
 invoke.cont27:                                    ; preds = %invoke.cont24
   %35 = load ptr, ptr %mPrimary, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.sroa.0)
   %mGrid.i56 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %36 = load ptr, ptr %mGrid.i56, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i307)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i307)
   %mTransform.i.i = getelementptr inbounds nuw i8, ptr %36, i64 56
   %37 = load ptr, ptr %mTransform.i.i, align 8, !noalias !21
   call void @llvm.experimental.noalias.scope.decl(metadata !24)
@@ -2563,8 +2563,8 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 
 _ZNK7openvdb5v11_04math9Transform7baseMapEv.exit.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %invoke.cont27
   %43 = phi ptr [ %38, %invoke.cont27 ], [ %38, %if.then.i.i.i.i.i.i.i ], [ %.pre.i, %if.else.i.i.i.i.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %eye.i.i), !noalias !21
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %dir.i.i), !noalias !21
+  call void @llvm.lifetime.start.p0(ptr nonnull %eye.i.i), !noalias !21
+  call void @llvm.lifetime.start.p0(ptr nonnull %dir.i.i), !noalias !21
   %vtable.i.i308 = load ptr, ptr %43, align 8, !noalias !28
   %vfn.i.i309 = getelementptr inbounds nuw i8, ptr %vtable.i.i308, i64 64
   %44 = load ptr, ptr %vfn.i.i309, align 8, !noalias !28
@@ -2597,8 +2597,8 @@ invoke.cont.i:                                    ; preds = %.noexc.i
   %div.i.i4.i.i = fdiv double 1.000000e+00, %div.i.i.i.i
   %div3.i.i.i.i = fdiv double 1.000000e+00, %div4.i.i.i.i
   %div6.i.i.i.i = fdiv double 1.000000e+00, %div7.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %eye.i.i), !noalias !21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %dir.i.i), !noalias !21
+  call void @llvm.lifetime.end.p0(ptr nonnull %eye.i.i), !noalias !21
+  call void @llvm.lifetime.end.p0(ptr nonnull %dir.i.i), !noalias !21
   %53 = load ptr, ptr %_M_refcount.i.i.i.i, align 8, !noalias !21
   %cmp.not.i.i.i.i = icmp eq ptr %53, null
   br i1 %cmp.not.i.i.i.i, label %.noexc, label %if.then.i.i.i.i
@@ -2678,7 +2678,7 @@ lpad.i:                                           ; preds = %.noexc.i, %_ZNK7ope
   br label %lpad.body
 
 .noexc:                                           ; preds = %if.end8.sink.split.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i307)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i307)
   %mRay.i.i = getelementptr inbounds nuw i8, ptr %35, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mRay.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.sroa.0, i64 24, i1 false)
   %ref.tmp.i.sroa.4.0.mRay.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 136
@@ -2742,7 +2742,7 @@ _ZNK7openvdb5v11_04math3RayIdE10intersectsINS1_9CoordBBoxEEEbRKT_RdS9_.exit.i.i.
   br i1 %cmp23.i.i.i.i, label %if.end, label %invoke.cont29
 
 invoke.cont29:                                    ; preds = %_ZNK7openvdb5v11_04math3RayIdE10intersectsINS1_9CoordBBoxEEEbRKT_RdS9_.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.sroa.0)
   br label %for.inc150
 
 lpad.loopexit:                                    ; preds = %for.body81, %invoke.cont85, %.noexc225
@@ -2792,12 +2792,12 @@ if.end:                                           ; preds = %_ZNK7openvdb5v11_04
   store double %t1.1.i.i.i, ptr %ref.tmp.i.sroa.11.0.mRay.i.i.sroa_idx, align 8
   %mTmax.i.i = getelementptr inbounds nuw i8, ptr %35, i64 200
   store double %t1.1.i.i.i, ptr %mTmax.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.sroa.0)
   %77 = load ptr, ptr %mPrimary, align 8
   %mHDDA.i = getelementptr inbounds nuw i8, ptr %77, i64 232
   %mRay.i = getelementptr inbounds nuw i8, ptr %77, i64 112
   %mAccessor.i = getelementptr inbounds nuw i8, ptr %77, i64 24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %t.i)
   store double -1.000000e+00, ptr %t.i, align 8
   store double -1.000000e+00, ptr %t1.i.i315, align 8
   %78 = load ptr, ptr %pTS, align 8
@@ -2895,7 +2895,7 @@ _ZNSt6vectorIN7openvdb5v11_04math3RayIdE8TimeSpanESaIS5_EE17_M_realloc_insertIJR
 
 _ZN7openvdb5v11_05tools20VolumeRayIntersectorINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELi2ENS0_4math3RayIdEEE4hitsISt6vectorINSH_8TimeSpanESaISL_EEEEvRT_.exit: ; preds = %_ZNSt6vectorIN7openvdb5v11_04math3RayIdE8TimeSpanESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, %if.then.i.i318, %.noexc322
   %86 = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt6vectorIN7openvdb5v11_04math3RayIdE8TimeSpanESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i, %if.then.i.i318 ], [ %.pre, %.noexc322 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %t.i)
   %87 = load ptr, ptr %pTS, align 8
   %cmp38604.not = icmp eq ptr %86, %87
   br i1 %cmp38604.not, label %invoke.cont141, label %for.body39
@@ -2929,7 +2929,7 @@ for.body44:                                       ; preds = %for.body39, %for.in
   %pLumi.sroa.4.1588 = phi double [ %pLumi.sroa.4.2, %for.inc127 ], [ %pLumi.sroa.4.0606, %for.body39 ]
   %pLumi.sroa.0.1587 = phi double [ %pLumi.sroa.0.2, %for.inc127 ], [ %pLumi.sroa.0.0605, %for.body39 ]
   %93 = load ptr, ptr %mPrimary, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i66)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i66)
   %mGrid.i67 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %94 = load ptr, ptr %mGrid.i67, align 8, !noalias !37
   %mRay.i68 = getelementptr inbounds nuw i8, ptr %93, i64 112
@@ -2963,8 +2963,8 @@ for.body44:                                       ; preds = %for.body39, %for.in
           to label %invoke.cont47 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont47:                                    ; preds = %for.body44
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i66)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i71)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i66)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i71)
   %101 = load ptr, ptr %2, align 8, !noalias !53
   %vtable.i.i = load ptr, ptr %101, align 8, !noalias !53
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 64
@@ -2973,7 +2973,7 @@ invoke.cont47:                                    ; preds = %for.body44
           to label %.noexc78 unwind label %lpad.loopexit.split-lp.loopexit
 
 .noexc78:                                         ; preds = %invoke.cont47
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %data.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i.i)
   %103 = load double, ptr %ref.tmp.i71, align 8
   %104 = call double @llvm.floor.f64(double %103)
   %conv.i.i.i = fptosi double %104 to i32
@@ -3040,8 +3040,8 @@ invoke.cont48:                                    ; preds = %.noexc78
   %mul.i47.i.i.i = fmul double %sub.i.i.i.i74, %conv.i46.i.i.i
   %conv2.i48.i.i.i = fptrunc double %mul.i47.i.i.i to float
   %add.i49.i.i.i = fadd float %add.i25.i.i.i, %conv2.i48.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %data.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i71)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i71)
   %conv = fpext float %add.i49.i.i.i to double
   %cmp50 = fcmp ogt double %15, %conv
   br i1 %cmp50, label %for.inc127, label %invoke.cont57
@@ -3058,10 +3058,10 @@ invoke.cont57:                                    ; preds = %invoke.cont48
   %call11.i.i = call double @exp(double noundef %mul7.i.i86) #14, !noalias !56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %sRay, ptr noundef nonnull align 8 dereferenceable(24) %pPos, i64 24, i1 false)
   %117 = load ptr, ptr %mShadow, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i91.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i91.sroa.0)
   %mGrid.i92 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %118 = load ptr, ptr %mGrid.i92, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i327)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i327)
   %mTransform.i.i328 = getelementptr inbounds nuw i8, ptr %118, i64 56
   %119 = load ptr, ptr %mTransform.i.i328, align 8, !noalias !59
   call void @llvm.experimental.noalias.scope.decl(metadata !62)
@@ -3092,8 +3092,8 @@ if.else.i.i.i.i.i.i.i398:                         ; preds = %if.then.i.i.i.i.i33
 
 _ZNK7openvdb5v11_04math9Transform7baseMapEv.exit.i337: ; preds = %if.else.i.i.i.i.i.i.i398, %if.then.i.i.i.i.i.i.i335, %invoke.cont57
   %125 = phi ptr [ %120, %invoke.cont57 ], [ %120, %if.then.i.i.i.i.i.i.i335 ], [ %.pre.i399, %if.else.i.i.i.i.i.i.i398 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %eye.i.i325), !noalias !59
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %dir.i.i326), !noalias !59
+  call void @llvm.lifetime.start.p0(ptr nonnull %eye.i.i325), !noalias !59
+  call void @llvm.lifetime.start.p0(ptr nonnull %dir.i.i326), !noalias !59
   %vtable.i.i338 = load ptr, ptr %125, align 8, !noalias !66
   %vfn.i.i339 = getelementptr inbounds nuw i8, ptr %vtable.i.i338, i64 64
   %126 = load ptr, ptr %vfn.i.i339, align 8, !noalias !66
@@ -3126,8 +3126,8 @@ invoke.cont.i345:                                 ; preds = %.noexc.i341
   %div.i.i4.i.i361 = fdiv double 1.000000e+00, %div.i.i.i.i350
   %div3.i.i.i.i362 = fdiv double 1.000000e+00, %div4.i.i.i.i351
   %div6.i.i.i.i363 = fdiv double 1.000000e+00, %div7.i.i.i.i352
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %eye.i.i325), !noalias !59
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %dir.i.i326), !noalias !59
+  call void @llvm.lifetime.end.p0(ptr nonnull %eye.i.i325), !noalias !59
+  call void @llvm.lifetime.end.p0(ptr nonnull %dir.i.i326), !noalias !59
   %135 = load ptr, ptr %_M_refcount.i.i.i.i329, align 8, !noalias !59
   %cmp.not.i.i.i.i368 = icmp eq ptr %135, null
   br i1 %cmp.not.i.i.i.i368, label %.noexc127, label %if.then.i.i.i.i369
@@ -3207,7 +3207,7 @@ lpad.i340:                                        ; preds = %.noexc.i341, %_ZNK7
   br label %lpad.body
 
 .noexc127:                                        ; preds = %if.end8.sink.split.i.i.i.i.i389, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i386, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i376, %invoke.cont.i345
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i327)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i327)
   %mRay.i.i93 = getelementptr inbounds nuw i8, ptr %117, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mRay.i.i93, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i91.sroa.0, i64 24, i1 false)
   %ref.tmp.i91.sroa.4.0.mRay.i.i93.sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 136
@@ -3271,7 +3271,7 @@ _ZNK7openvdb5v11_04math3RayIdE10intersectsINS1_9CoordBBoxEEEbRKT_RdS9_.exit.i.i.
   br i1 %cmp23.i.i.i.i120, label %if.end65, label %invoke.cont62
 
 invoke.cont62:                                    ; preds = %_ZNK7openvdb5v11_04math3RayIdE10intersectsINS1_9CoordBBoxEEEbRKT_RdS9_.exit.i.i.i124
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i91.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i91.sroa.0)
   br label %for.inc127
 
 if.end65:                                         ; preds = %_ZNK7openvdb5v11_04math3RayIdE10intersectsINS1_9CoordBBoxEEEbRKT_RdS9_.exit.i.i.i124
@@ -3279,12 +3279,12 @@ if.end65:                                         ; preds = %_ZNK7openvdb5v11_04
   store double %t1.1.i.i.i119, ptr %ref.tmp.i91.sroa.11.0.mRay.i.i93.sroa_idx, align 8
   %mTmax.i.i126 = getelementptr inbounds nuw i8, ptr %117, i64 200
   store double %t1.1.i.i.i119, ptr %mTmax.i.i126, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i91.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i91.sroa.0)
   %157 = load ptr, ptr %mShadow, align 8
   %mHDDA.i129 = getelementptr inbounds nuw i8, ptr %157, i64 232
   %mRay.i130 = getelementptr inbounds nuw i8, ptr %157, i64 112
   %mAccessor.i131 = getelementptr inbounds nuw i8, ptr %157, i64 24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i403)
+  call void @llvm.lifetime.start.p0(ptr nonnull %t.i403)
   store double -1.000000e+00, ptr %t.i403, align 8
   store double -1.000000e+00, ptr %t1.i.i404, align 8
   %158 = load ptr, ptr %sTS, align 8
@@ -3375,7 +3375,7 @@ _ZNSt6vectorIN7openvdb5v11_04math3RayIdE8TimeSpanESaIS5_EE17_M_realloc_insertIJR
 
 _ZN7openvdb5v11_05tools20VolumeRayIntersectorINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELi2ENS0_4math3RayIdEEE4hitsISt6vectorINSH_8TimeSpanESaISL_EEEEvRT_.exit133: ; preds = %_ZNSt6vectorIN7openvdb5v11_04math3RayIdE8TimeSpanESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i442, %if.then.i.i414, %.noexc445
   %166 = phi ptr [ %incdec.ptr.i.i.i439, %_ZNSt6vectorIN7openvdb5v11_04math3RayIdE8TimeSpanESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i442 ], [ %incdec.ptr.i.i415, %if.then.i.i414 ], [ %.pre626, %.noexc445 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t.i403)
+  call void @llvm.lifetime.end.p0(ptr nonnull %t.i403)
   %167 = load ptr, ptr %sTS, align 8
   %cmp71578.not = icmp eq ptr %166, %167
   br i1 %cmp71578.not, label %invoke.cont120, label %for.body72
@@ -3403,7 +3403,7 @@ for.body81:                                       ; preds = %for.body72, %for.in
   %sTrans.sroa.5.1569 = phi double [ %sTrans.sroa.5.2, %for.inc ], [ %sTrans.sroa.5.0580, %for.body72 ]
   %sTrans.sroa.0.1568 = phi double [ %sTrans.sroa.0.2, %for.inc ], [ %sTrans.sroa.0.0579, %for.body72 ]
   %173 = load ptr, ptr %mShadow, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i141)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i141)
   %mGrid.i142 = getelementptr inbounds nuw i8, ptr %173, i64 16
   %174 = load ptr, ptr %mGrid.i142, align 8, !noalias !73
   %mRay.i143 = getelementptr inbounds nuw i8, ptr %173, i64 112
@@ -3437,8 +3437,8 @@ for.body81:                                       ; preds = %for.body72, %for.in
           to label %invoke.cont85 unwind label %lpad.loopexit
 
 invoke.cont85:                                    ; preds = %for.body81
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i141)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i164)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i141)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i164)
   %181 = load ptr, ptr %2, align 8, !noalias !89
   %vtable.i.i166 = load ptr, ptr %181, align 8, !noalias !89
   %vfn.i.i167 = getelementptr inbounds nuw i8, ptr %vtable.i.i166, i64 64
@@ -3447,7 +3447,7 @@ invoke.cont85:                                    ; preds = %for.body81
           to label %.noexc225 unwind label %lpad.loopexit
 
 .noexc225:                                        ; preds = %invoke.cont85
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %data.i.i163)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i.i163)
   %183 = load double, ptr %ref.tmp.i164, align 8
   %184 = call double @llvm.floor.f64(double %183)
   %conv.i.i.i168 = fptosi double %184 to i32
@@ -3514,8 +3514,8 @@ invoke.cont86:                                    ; preds = %.noexc225
   %mul.i47.i.i.i222 = fmul double %sub.i.i.i.i176, %conv.i46.i.i.i221
   %conv2.i48.i.i.i223 = fptrunc double %mul.i47.i.i.i222 to float
   %add.i49.i.i.i224 = fadd float %add.i25.i.i.i200, %conv2.i48.i.i.i223
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %data.i.i163)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i164)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i163)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i164)
   %conv88 = fpext float %add.i49.i.i.i224 to double
   %cmp89 = fcmp ogt double %15, %conv88
   br i1 %cmp89, label %for.inc, label %invoke.cont101
@@ -3862,9 +3862,9 @@ entry:
   store double %y, ptr %arrayidx3.i, align 8
   %arrayidx5.i = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 16
   store double %z, ptr %arrayidx5.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i)
   call void @_ZNK7openvdb5v11_04math4Vec3IdE4unitEdRd(ptr nonnull sret(%"class.openvdb::v11_0::math::Vec3") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2, double noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(8) %d.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i)
   %mLightDir = getelementptr inbounds nuw i8, ptr %this, i64 152
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mLightDir, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i64 24, i1 false)
   ret void
@@ -3967,7 +3967,7 @@ if.then:                                          ; preds = %entry
   %call8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call7, double noundef %3)
   %call9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call8, ptr noundef nonnull @.str.6)
   %mLightDir = getelementptr inbounds nuw i8, ptr %this, i64 152
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @_ZNK7openvdb5v11_04math5TupleILi3EdE3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %mLightDir)
   %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call9, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
           to label %_ZN7openvdb5v11_04mathlsILi3EdEERSoS3_RKNS1_5TupleIXT_ET0_EE.exit unwind label %lpad.i
@@ -3985,10 +3985,10 @@ lpad.i:                                           ; preds = %if.then
 
 _ZN7openvdb5v11_04mathlsILi3EdEERSoS3_RKNS1_5TupleIXT_ET0_EE.exit: ; preds = %if.then
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %call11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call9, ptr noundef nonnull @.str.7)
   %mLightColor = getelementptr inbounds nuw i8, ptr %this, i64 176
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i3)
   call void @_ZNK7openvdb5v11_04math5TupleILi3EdE3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i3, ptr noundef nonnull align 8 dereferenceable(24) %mLightColor)
   %call.i4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3)
           to label %_ZN7openvdb5v11_04mathlsILi3EdEERSoS3_RKNS1_5TupleIXT_ET0_EE.exit6 unwind label %lpad.i5
@@ -4000,10 +4000,10 @@ lpad.i5:                                          ; preds = %_ZN7openvdb5v11_04m
 
 _ZN7openvdb5v11_04mathlsILi3EdEERSoS3_RKNS1_5TupleIXT_ET0_EE.exit6: ; preds = %_ZN7openvdb5v11_04mathlsILi3EdEERSoS3_RKNS1_5TupleIXT_ET0_EE.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3) #14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i3)
   %call13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call11, ptr noundef nonnull @.str.8)
   %mAbsorption = getelementptr inbounds nuw i8, ptr %this, i64 200
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i7)
   call void @_ZNK7openvdb5v11_04math5TupleILi3EdE3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i7, ptr noundef nonnull align 8 dereferenceable(24) %mAbsorption)
   %call.i8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call13, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i7)
           to label %_ZN7openvdb5v11_04mathlsILi3EdEERSoS3_RKNS1_5TupleIXT_ET0_EE.exit10 unwind label %lpad.i9
@@ -4015,10 +4015,10 @@ lpad.i9:                                          ; preds = %_ZN7openvdb5v11_04m
 
 _ZN7openvdb5v11_04mathlsILi3EdEERSoS3_RKNS1_5TupleIXT_ET0_EE.exit10: ; preds = %_ZN7openvdb5v11_04mathlsILi3EdEERSoS3_RKNS1_5TupleIXT_ET0_EE.exit6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i7) #14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i7)
   %call15 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call13, ptr noundef nonnull @.str.9)
   %mScattering = getelementptr inbounds nuw i8, ptr %this, i64 224
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i11)
   call void @_ZNK7openvdb5v11_04math5TupleILi3EdE3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i11, ptr noundef nonnull align 8 dereferenceable(24) %mScattering)
   %call.i12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call15, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i11)
           to label %if.then.i unwind label %lpad.i13
@@ -4030,7 +4030,7 @@ lpad.i13:                                         ; preds = %_ZN7openvdb5v11_04m
 
 if.then.i:                                        ; preds = %_ZN7openvdb5v11_04mathlsILi3EdEERSoS3_RKNS1_5TupleIXT_ET0_EE.exit10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i11) #14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i11)
   %call17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call15, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %mPrimary16 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %8 = load ptr, ptr %mPrimary16, align 8
@@ -4082,8 +4082,8 @@ entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %this, align 8, !alias.scope !102
   %mTree.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %1, ptr %mTree.i.i.i, align 8, !alias.scope !102
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %a.i.i.i.i), !noalias !102
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i), !noalias !102
+  call void @llvm.lifetime.start.p0(ptr nonnull %a.i.i.i.i), !noalias !102
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !102
   store ptr null, ptr %a.i.i.i.i, align 8, !noalias !102
   %m_is_writer.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %a.i.i.i.i, i64 8
   store i8 0, ptr %m_is_writer.i.i.i.i.i.i.i, align 8, !noalias !102
@@ -4141,8 +4141,8 @@ common.resume:                                    ; preds = %lpad.i.i.i.i, %if.t
   resume { ptr, i32 } %common.resume.op
 
 invoke.cont.i.i:                                  ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %a.i.i.i.i), !noalias !102
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i), !noalias !102
+  call void @llvm.lifetime.end.p0(ptr nonnull %a.i.i.i.i), !noalias !102
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !102
   %11 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 0, ptr %11, align 8, !alias.scope !102
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEE, i64 16), ptr %this, align 8, !alias.scope !102
@@ -4295,12 +4295,12 @@ invoke.cont9:                                     ; preds = %for.body.i.i.i.i.i.
   store double 3.000000e-01, ptr %arrayidx3.i, align 8
   %arrayidx5.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store double 0.000000e+00, ptr %arrayidx5.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i)
   invoke void @_ZNK7openvdb5v11_04math4Vec3IdE4unitEdRd(ptr nonnull sret(%"class.openvdb::v11_0::math::Vec3") align 8 %mLightDir, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, double noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(8) %d.i)
           to label %invoke.cont12 unwind label %lpad10
 
 invoke.cont12:                                    ; preds = %invoke.cont9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i)
   %mLightColor = getelementptr inbounds nuw i8, ptr %this, i64 176
   store double 0x3FE6666666666666, ptr %mLightColor, align 8
   %arrayidx3.i41 = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -4393,14 +4393,14 @@ entry:
   br i1 %tobool.not.i, label %_ZN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   %mConstAccessorRegistry.i.i = getelementptr inbounds nuw i8, ptr %0, i64 656
   store ptr %this, ptr %ref.tmp.i.i, align 8
   %call.i.i1.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE14internal_eraseISI_EEbRKT_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i)
           to label %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i unwind label %terminate.lpad.i
 
 _ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i: ; preds = %if.then.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   br label %_ZN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EED2Ev.exit
 
 terminate.lpad.i:                                 ; preds = %if.then.i
@@ -4428,8 +4428,8 @@ entry:
   br i1 %tobool.not.i.i, label %_ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEC2ERKSF_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %a.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %a.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
   store ptr null, ptr %a.i.i.i, align 8
   %m_is_writer.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %a.i.i.i, i64 8
   store i8 0, ptr %m_is_writer.i.i.i.i.i.i, align 8
@@ -4487,8 +4487,8 @@ common.resume:                                    ; preds = %lpad.i.i.i, %if.the
   resume { ptr, i32 } %common.resume.op
 
 _ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEE14attachAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %invoke.cont.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %a.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %a.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
   br label %_ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEC2ERKSF_.exit
 
 _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEC2ERKSF_.exit: ; preds = %entry, %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEE14attachAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i
@@ -4686,7 +4686,7 @@ entry:
   br i1 %threaded, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %context.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %context.i.i)
   %my_version.i.i.i.i = getelementptr inbounds nuw i8, ptr %context.i.i, i64 12
   store i8 1, ptr %my_version.i.i.i.i, align 4
   %my_node.i.i.i.i = getelementptr inbounds nuw i8, ptr %context.i.i, i64 32
@@ -4696,8 +4696,8 @@ cond.true:                                        ; preds = %entry
   %my_traits2.i.i.i.i = getelementptr inbounds nuw i8, ptr %context.i.i, i64 13
   store i8 4, ptr %my_traits2.i.i.i.i, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %context.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %wn.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %wn.i)
   %cmp.i.not.i.not = icmp eq i64 %2, 0
   br i1 %cmp.i.not.i.not, label %invoke.cont.i.i, label %if.then.i
 
@@ -4752,8 +4752,8 @@ _ZN3tbb6detail2d122small_object_allocator10new_objectINS1_9start_forINS1_13block
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %cond.true, %_ZN3tbb6detail2d122small_object_allocator10new_objectINS1_9start_forINS1_13blocked_rangeImEEN7openvdb5v11_05tools12VolumeRenderINS9_20VolumeRayIntersectorINS8_4GridINS8_4tree4TreeINSD_8RootNodeINSD_12InternalNodeINSG_INSD_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELi2ENS8_4math3RayIdEEEENS9_10BoxSamplerEEEKNS1_16auto_partitionerEEEJRKS6_RKST_RSV_RS2_EEEPT_DpOT0_.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %wn.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %alloc.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %wn.i)
   %my_state.i.i.i.i = getelementptr inbounds nuw i8, ptr %context.i.i, i64 15
   %6 = load atomic i8, ptr %my_state.i.i.i.i monotonic, align 1
   %cmp.i.i.i.i = icmp eq i8 %6, -1
@@ -4781,7 +4781,7 @@ lpad.i.i.body:                                    ; preds = %lpad2.i.i.i, %lpad.
   resume { ptr, i32 } %eh.lpad-body
 
 _ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeImEEN7openvdb5v11_05tools12VolumeRenderINS7_20VolumeRayIntersectorINS6_4GridINS6_4tree4TreeINSB_8RootNodeINSB_12InternalNodeINSE_INSB_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELi2ENS6_4math3RayIdEEEENS7_10BoxSamplerEEEEEvRKT_RKT0_.exit: ; preds = %invoke.cont.i.i, %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %context.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %context.i.i)
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
@@ -4975,10 +4975,10 @@ invoke.cont24:                                    ; preds = %for.body, %for.inc1
 
 invoke.cont27:                                    ; preds = %invoke.cont24
   %35 = load ptr, ptr %mPrimary, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.sroa.0)
   %mGrid.i56 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %36 = load ptr, ptr %mGrid.i56, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i293)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i293)
   %mTransform.i.i = getelementptr inbounds nuw i8, ptr %36, i64 56
   %37 = load ptr, ptr %mTransform.i.i, align 8, !noalias !117
   call void @llvm.experimental.noalias.scope.decl(metadata !120)
@@ -5009,8 +5009,8 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 
 _ZNK7openvdb5v11_04math9Transform7baseMapEv.exit.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %invoke.cont27
   %43 = phi ptr [ %38, %invoke.cont27 ], [ %38, %if.then.i.i.i.i.i.i.i ], [ %.pre.i, %if.else.i.i.i.i.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %eye.i.i), !noalias !117
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %dir.i.i), !noalias !117
+  call void @llvm.lifetime.start.p0(ptr nonnull %eye.i.i), !noalias !117
+  call void @llvm.lifetime.start.p0(ptr nonnull %dir.i.i), !noalias !117
   %vtable.i.i294 = load ptr, ptr %43, align 8, !noalias !124
   %vfn.i.i295 = getelementptr inbounds nuw i8, ptr %vtable.i.i294, i64 64
   %44 = load ptr, ptr %vfn.i.i295, align 8, !noalias !124
@@ -5043,8 +5043,8 @@ invoke.cont.i:                                    ; preds = %.noexc.i
   %div.i.i4.i.i = fdiv double 1.000000e+00, %div.i.i.i.i
   %div3.i.i.i.i = fdiv double 1.000000e+00, %div4.i.i.i.i
   %div6.i.i.i.i = fdiv double 1.000000e+00, %div7.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %eye.i.i), !noalias !117
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %dir.i.i), !noalias !117
+  call void @llvm.lifetime.end.p0(ptr nonnull %eye.i.i), !noalias !117
+  call void @llvm.lifetime.end.p0(ptr nonnull %dir.i.i), !noalias !117
   %53 = load ptr, ptr %_M_refcount.i.i.i.i, align 8, !noalias !117
   %cmp.not.i.i.i.i = icmp eq ptr %53, null
   br i1 %cmp.not.i.i.i.i, label %.noexc, label %if.then.i.i.i.i
@@ -5124,7 +5124,7 @@ lpad.i:                                           ; preds = %.noexc.i, %_ZNK7ope
   br label %lpad.body
 
 .noexc:                                           ; preds = %if.end8.sink.split.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i293)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i293)
   %mRay.i.i = getelementptr inbounds nuw i8, ptr %35, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mRay.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.sroa.0, i64 24, i1 false)
   %ref.tmp.i.sroa.4.0.mRay.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 136
@@ -5188,7 +5188,7 @@ _ZNK7openvdb5v11_04math3RayIdE10intersectsINS1_9CoordBBoxEEEbRKT_RdS9_.exit.i.i.
   br i1 %cmp23.i.i.i.i, label %if.end, label %invoke.cont29
 
 invoke.cont29:                                    ; preds = %_ZNK7openvdb5v11_04math3RayIdE10intersectsINS1_9CoordBBoxEEEbRKT_RdS9_.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.sroa.0)
   br label %for.inc148
 
 lpad.loopexit:                                    ; preds = %for.body81, %invoke.cont85, %.noexc211
@@ -5238,12 +5238,12 @@ if.end:                                           ; preds = %_ZNK7openvdb5v11_04
   store double %t1.1.i.i.i, ptr %ref.tmp.i.sroa.11.0.mRay.i.i.sroa_idx, align 8
   %mTmax.i.i = getelementptr inbounds nuw i8, ptr %35, i64 200
   store double %t1.1.i.i.i, ptr %mTmax.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.sroa.0)
   %77 = load ptr, ptr %mPrimary, align 8
   %mHDDA.i = getelementptr inbounds nuw i8, ptr %77, i64 232
   %mRay.i = getelementptr inbounds nuw i8, ptr %77, i64 112
   %mAccessor.i = getelementptr inbounds nuw i8, ptr %77, i64 24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %t.i)
   store double -1.000000e+00, ptr %t.i, align 8
   store double -1.000000e+00, ptr %t1.i.i301, align 8
   %78 = load ptr, ptr %pTS, align 8
@@ -5341,7 +5341,7 @@ _ZNSt6vectorIN7openvdb5v11_04math3RayIdE8TimeSpanESaIS5_EE17_M_realloc_insertIJR
 
 _ZN7openvdb5v11_05tools20VolumeRayIntersectorINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELi2ENS0_4math3RayIdEEE4hitsISt6vectorINSH_8TimeSpanESaISL_EEEEvRT_.exit: ; preds = %_ZNSt6vectorIN7openvdb5v11_04math3RayIdE8TimeSpanESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, %if.then.i.i304, %.noexc308
   %86 = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt6vectorIN7openvdb5v11_04math3RayIdE8TimeSpanESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i, %if.then.i.i304 ], [ %.pre, %.noexc308 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %t.i)
   %87 = load ptr, ptr %pTS, align 8
   %cmp38590.not = icmp eq ptr %86, %87
   br i1 %cmp38590.not, label %invoke.cont139, label %for.body39
@@ -5375,7 +5375,7 @@ for.body44:                                       ; preds = %for.body39, %for.in
   %pLumi.sroa.4.1574 = phi double [ %pLumi.sroa.4.2, %for.inc126 ], [ %pLumi.sroa.4.0592, %for.body39 ]
   %pLumi.sroa.0.1573 = phi double [ %pLumi.sroa.0.2, %for.inc126 ], [ %pLumi.sroa.0.0591, %for.body39 ]
   %93 = load ptr, ptr %mPrimary, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i66)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i66)
   %mGrid.i67 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %94 = load ptr, ptr %mGrid.i67, align 8, !noalias !131
   %mRay.i68 = getelementptr inbounds nuw i8, ptr %93, i64 112
@@ -5409,8 +5409,8 @@ for.body44:                                       ; preds = %for.body39, %for.in
           to label %invoke.cont47 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont47:                                    ; preds = %for.body44
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i66)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i71)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i66)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i71)
   %101 = load ptr, ptr %2, align 8, !noalias !147
   %vtable.i.i = load ptr, ptr %101, align 8, !noalias !147
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 64
@@ -5419,7 +5419,7 @@ invoke.cont47:                                    ; preds = %for.body44
           to label %.noexc78 unwind label %lpad.loopexit.split-lp.loopexit
 
 .noexc78:                                         ; preds = %invoke.cont47
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %data.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i.i)
   %103 = load double, ptr %ref.tmp.i71, align 8
   %104 = call double @llvm.floor.f64(double %103)
   %conv.i.i.i = fptosi double %104 to i32
@@ -5472,8 +5472,8 @@ invoke.cont48:                                    ; preds = %.noexc78
   %sub.i35.i.i.i = fsub double %add.i33.i.i.i, %add.i21.i.i.i
   %mul.i36.i.i.i = fmul double %sub.i.i.i.i74, %sub.i35.i.i.i
   %add.i37.i.i.i = fadd double %add.i21.i.i.i, %mul.i36.i.i.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %data.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i71)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i71)
   %cmp50 = fcmp olt double %add.i37.i.i.i, %15
   br i1 %cmp50, label %for.inc126, label %invoke.cont57
 
@@ -5489,10 +5489,10 @@ invoke.cont57:                                    ; preds = %invoke.cont48
   %call11.i.i = call double @exp(double noundef %mul7.i.i86) #14, !noalias !150
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %sRay, ptr noundef nonnull align 8 dereferenceable(24) %pPos, i64 24, i1 false)
   %117 = load ptr, ptr %mShadow, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i91.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i91.sroa.0)
   %mGrid.i92 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %118 = load ptr, ptr %mGrid.i92, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i313)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i313)
   %mTransform.i.i314 = getelementptr inbounds nuw i8, ptr %118, i64 56
   %119 = load ptr, ptr %mTransform.i.i314, align 8, !noalias !153
   call void @llvm.experimental.noalias.scope.decl(metadata !156)
@@ -5523,8 +5523,8 @@ if.else.i.i.i.i.i.i.i384:                         ; preds = %if.then.i.i.i.i.i31
 
 _ZNK7openvdb5v11_04math9Transform7baseMapEv.exit.i323: ; preds = %if.else.i.i.i.i.i.i.i384, %if.then.i.i.i.i.i.i.i321, %invoke.cont57
   %125 = phi ptr [ %120, %invoke.cont57 ], [ %120, %if.then.i.i.i.i.i.i.i321 ], [ %.pre.i385, %if.else.i.i.i.i.i.i.i384 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %eye.i.i311), !noalias !153
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %dir.i.i312), !noalias !153
+  call void @llvm.lifetime.start.p0(ptr nonnull %eye.i.i311), !noalias !153
+  call void @llvm.lifetime.start.p0(ptr nonnull %dir.i.i312), !noalias !153
   %vtable.i.i324 = load ptr, ptr %125, align 8, !noalias !160
   %vfn.i.i325 = getelementptr inbounds nuw i8, ptr %vtable.i.i324, i64 64
   %126 = load ptr, ptr %vfn.i.i325, align 8, !noalias !160
@@ -5557,8 +5557,8 @@ invoke.cont.i331:                                 ; preds = %.noexc.i327
   %div.i.i4.i.i347 = fdiv double 1.000000e+00, %div.i.i.i.i336
   %div3.i.i.i.i348 = fdiv double 1.000000e+00, %div4.i.i.i.i337
   %div6.i.i.i.i349 = fdiv double 1.000000e+00, %div7.i.i.i.i338
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %eye.i.i311), !noalias !153
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %dir.i.i312), !noalias !153
+  call void @llvm.lifetime.end.p0(ptr nonnull %eye.i.i311), !noalias !153
+  call void @llvm.lifetime.end.p0(ptr nonnull %dir.i.i312), !noalias !153
   %135 = load ptr, ptr %_M_refcount.i.i.i.i315, align 8, !noalias !153
   %cmp.not.i.i.i.i354 = icmp eq ptr %135, null
   br i1 %cmp.not.i.i.i.i354, label %.noexc127, label %if.then.i.i.i.i355
@@ -5638,7 +5638,7 @@ lpad.i326:                                        ; preds = %.noexc.i327, %_ZNK7
   br label %lpad.body
 
 .noexc127:                                        ; preds = %if.end8.sink.split.i.i.i.i.i375, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i372, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i362, %invoke.cont.i331
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i313)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i313)
   %mRay.i.i93 = getelementptr inbounds nuw i8, ptr %117, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mRay.i.i93, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i91.sroa.0, i64 24, i1 false)
   %ref.tmp.i91.sroa.4.0.mRay.i.i93.sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 136
@@ -5702,7 +5702,7 @@ _ZNK7openvdb5v11_04math3RayIdE10intersectsINS1_9CoordBBoxEEEbRKT_RdS9_.exit.i.i.
   br i1 %cmp23.i.i.i.i120, label %if.end65, label %invoke.cont62
 
 invoke.cont62:                                    ; preds = %_ZNK7openvdb5v11_04math3RayIdE10intersectsINS1_9CoordBBoxEEEbRKT_RdS9_.exit.i.i.i124
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i91.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i91.sroa.0)
   br label %for.inc126
 
 if.end65:                                         ; preds = %_ZNK7openvdb5v11_04math3RayIdE10intersectsINS1_9CoordBBoxEEEbRKT_RdS9_.exit.i.i.i124
@@ -5710,12 +5710,12 @@ if.end65:                                         ; preds = %_ZNK7openvdb5v11_04
   store double %t1.1.i.i.i119, ptr %ref.tmp.i91.sroa.11.0.mRay.i.i93.sroa_idx, align 8
   %mTmax.i.i126 = getelementptr inbounds nuw i8, ptr %117, i64 200
   store double %t1.1.i.i.i119, ptr %mTmax.i.i126, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i91.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i91.sroa.0)
   %157 = load ptr, ptr %mShadow, align 8
   %mHDDA.i129 = getelementptr inbounds nuw i8, ptr %157, i64 232
   %mRay.i130 = getelementptr inbounds nuw i8, ptr %157, i64 112
   %mAccessor.i131 = getelementptr inbounds nuw i8, ptr %157, i64 24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i389)
+  call void @llvm.lifetime.start.p0(ptr nonnull %t.i389)
   store double -1.000000e+00, ptr %t.i389, align 8
   store double -1.000000e+00, ptr %t1.i.i390, align 8
   %158 = load ptr, ptr %sTS, align 8
@@ -5806,7 +5806,7 @@ _ZNSt6vectorIN7openvdb5v11_04math3RayIdE8TimeSpanESaIS5_EE17_M_realloc_insertIJR
 
 _ZN7openvdb5v11_05tools20VolumeRayIntersectorINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELi2ENS0_4math3RayIdEEE4hitsISt6vectorINSH_8TimeSpanESaISL_EEEEvRT_.exit133: ; preds = %_ZNSt6vectorIN7openvdb5v11_04math3RayIdE8TimeSpanESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i428, %if.then.i.i400, %.noexc431
   %166 = phi ptr [ %incdec.ptr.i.i.i425, %_ZNSt6vectorIN7openvdb5v11_04math3RayIdE8TimeSpanESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i428 ], [ %incdec.ptr.i.i401, %if.then.i.i400 ], [ %.pre612, %.noexc431 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t.i389)
+  call void @llvm.lifetime.end.p0(ptr nonnull %t.i389)
   %167 = load ptr, ptr %sTS, align 8
   %cmp71564.not = icmp eq ptr %166, %167
   br i1 %cmp71564.not, label %invoke.cont119, label %for.body72
@@ -5834,7 +5834,7 @@ for.body81:                                       ; preds = %for.body72, %for.in
   %sTrans.sroa.5.1555 = phi double [ %sTrans.sroa.5.2, %for.inc ], [ %sTrans.sroa.5.0566, %for.body72 ]
   %sTrans.sroa.0.1554 = phi double [ %sTrans.sroa.0.2, %for.inc ], [ %sTrans.sroa.0.0565, %for.body72 ]
   %173 = load ptr, ptr %mShadow, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i141)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i141)
   %mGrid.i142 = getelementptr inbounds nuw i8, ptr %173, i64 16
   %174 = load ptr, ptr %mGrid.i142, align 8, !noalias !167
   %mRay.i143 = getelementptr inbounds nuw i8, ptr %173, i64 112
@@ -5868,8 +5868,8 @@ for.body81:                                       ; preds = %for.body72, %for.in
           to label %invoke.cont85 unwind label %lpad.loopexit
 
 invoke.cont85:                                    ; preds = %for.body81
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i141)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i164)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i141)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i164)
   %181 = load ptr, ptr %2, align 8, !noalias !183
   %vtable.i.i166 = load ptr, ptr %181, align 8, !noalias !183
   %vfn.i.i167 = getelementptr inbounds nuw i8, ptr %vtable.i.i166, i64 64
@@ -5878,7 +5878,7 @@ invoke.cont85:                                    ; preds = %for.body81
           to label %.noexc211 unwind label %lpad.loopexit
 
 .noexc211:                                        ; preds = %invoke.cont85
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %data.i.i163)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i.i163)
   %183 = load double, ptr %ref.tmp.i164, align 8
   %184 = call double @llvm.floor.f64(double %183)
   %conv.i.i.i168 = fptosi double %184 to i32
@@ -5931,8 +5931,8 @@ invoke.cont86:                                    ; preds = %.noexc211
   %sub.i35.i.i.i208 = fsub double %add.i33.i.i.i207, %add.i21.i.i.i194
   %mul.i36.i.i.i209 = fmul double %sub.i.i.i.i176, %sub.i35.i.i.i208
   %add.i37.i.i.i210 = fadd double %add.i21.i.i.i194, %mul.i36.i.i.i209
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %data.i.i163)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i164)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i163)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i164)
   %cmp88 = fcmp olt double %add.i37.i.i.i210, %15
   br i1 %cmp88, label %for.inc, label %invoke.cont100
 
@@ -6278,9 +6278,9 @@ entry:
   store double %y, ptr %arrayidx3.i, align 8
   %arrayidx5.i = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 16
   store double %z, ptr %arrayidx5.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i)
   call void @_ZNK7openvdb5v11_04math4Vec3IdE4unitEdRd(ptr nonnull sret(%"class.openvdb::v11_0::math::Vec3") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2, double noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(8) %d.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i)
   %mLightDir = getelementptr inbounds nuw i8, ptr %this, i64 152
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mLightDir, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i64 24, i1 false)
   ret void
@@ -6383,7 +6383,7 @@ if.then:                                          ; preds = %entry
   %call8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call7, double noundef %3)
   %call9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call8, ptr noundef nonnull @.str.6)
   %mLightDir = getelementptr inbounds nuw i8, ptr %this, i64 152
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @_ZNK7openvdb5v11_04math5TupleILi3EdE3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %mLightDir)
   %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call9, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
           to label %_ZN7openvdb5v11_04mathlsILi3EdEERSoS3_RKNS1_5TupleIXT_ET0_EE.exit unwind label %lpad.i
@@ -6401,10 +6401,10 @@ lpad.i:                                           ; preds = %if.then
 
 _ZN7openvdb5v11_04mathlsILi3EdEERSoS3_RKNS1_5TupleIXT_ET0_EE.exit: ; preds = %if.then
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %call11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call9, ptr noundef nonnull @.str.7)
   %mLightColor = getelementptr inbounds nuw i8, ptr %this, i64 176
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i3)
   call void @_ZNK7openvdb5v11_04math5TupleILi3EdE3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i3, ptr noundef nonnull align 8 dereferenceable(24) %mLightColor)
   %call.i4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3)
           to label %_ZN7openvdb5v11_04mathlsILi3EdEERSoS3_RKNS1_5TupleIXT_ET0_EE.exit6 unwind label %lpad.i5
@@ -6416,10 +6416,10 @@ lpad.i5:                                          ; preds = %_ZN7openvdb5v11_04m
 
 _ZN7openvdb5v11_04mathlsILi3EdEERSoS3_RKNS1_5TupleIXT_ET0_EE.exit6: ; preds = %_ZN7openvdb5v11_04mathlsILi3EdEERSoS3_RKNS1_5TupleIXT_ET0_EE.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3) #14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i3)
   %call13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call11, ptr noundef nonnull @.str.8)
   %mAbsorption = getelementptr inbounds nuw i8, ptr %this, i64 200
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i7)
   call void @_ZNK7openvdb5v11_04math5TupleILi3EdE3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i7, ptr noundef nonnull align 8 dereferenceable(24) %mAbsorption)
   %call.i8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call13, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i7)
           to label %_ZN7openvdb5v11_04mathlsILi3EdEERSoS3_RKNS1_5TupleIXT_ET0_EE.exit10 unwind label %lpad.i9
@@ -6431,10 +6431,10 @@ lpad.i9:                                          ; preds = %_ZN7openvdb5v11_04m
 
 _ZN7openvdb5v11_04mathlsILi3EdEERSoS3_RKNS1_5TupleIXT_ET0_EE.exit10: ; preds = %_ZN7openvdb5v11_04mathlsILi3EdEERSoS3_RKNS1_5TupleIXT_ET0_EE.exit6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i7) #14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i7)
   %call15 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call13, ptr noundef nonnull @.str.9)
   %mScattering = getelementptr inbounds nuw i8, ptr %this, i64 224
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i11)
   call void @_ZNK7openvdb5v11_04math5TupleILi3EdE3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i11, ptr noundef nonnull align 8 dereferenceable(24) %mScattering)
   %call.i12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call15, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i11)
           to label %if.then.i unwind label %lpad.i13
@@ -6446,7 +6446,7 @@ lpad.i13:                                         ; preds = %_ZN7openvdb5v11_04m
 
 if.then.i:                                        ; preds = %_ZN7openvdb5v11_04mathlsILi3EdEERSoS3_RKNS1_5TupleIXT_ET0_EE.exit10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i11) #14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i11)
   %call17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call15, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %mPrimary16 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %8 = load ptr, ptr %mPrimary16, align 8
@@ -6808,14 +6808,14 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %mConstAccessorRegistry.i = getelementptr inbounds nuw i8, ptr %0, i64 656
   store ptr %this, ptr %ref.tmp.i, align 8
   %call.i.i1 = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE14internal_eraseISI_EEbRKT_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
           to label %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit unwind label %terminate.lpad
 
 _ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit: ; preds = %if.then
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit, %entry
@@ -7754,14 +7754,14 @@ entry:
   br i1 %tobool.not.i.i, label %_ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
   %mConstAccessorRegistry.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 656
   store ptr %this, ptr %ref.tmp.i.i.i, align 8
   %call.i.i1.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE14internal_eraseISI_EEbRKT_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i)
           to label %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i unwind label %terminate.lpad.i.i
 
 _ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i: ; preds = %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
   br label %_ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEED2Ev.exit
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -8368,14 +8368,14 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %mConstAccessorRegistry.i = getelementptr inbounds nuw i8, ptr %0, i64 656
   store ptr %this, ptr %ref.tmp.i, align 8
   %call.i.i1 = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE14internal_eraseISI_EEbRKT_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
           to label %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit unwind label %terminate.lpad
 
 _ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit: ; preds = %if.then
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit, %entry
@@ -9180,14 +9180,14 @@ entry:
   br i1 %tobool.not.i.i, label %_ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
   %mConstAccessorRegistry.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 656
   store ptr %this, ptr %ref.tmp.i.i.i, align 8
   %call.i.i1.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE14internal_eraseISI_EEbRKT_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i)
           to label %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i unwind label %terminate.lpad.i.i
 
 _ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i: ; preds = %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
   br label %_ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEED2Ev.exit
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -10268,14 +10268,14 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i:              ; preds = %if.then.i.i.i.i.i.i
   br i1 %tobool.not.i.i.i.i.i, label %_ZN7openvdb5v11_05tools16LinearSearchImplINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELi0EdED2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i)
   %mConstAccessorRegistry.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 656
   store ptr %mAcc.i.i.i, ptr %ref.tmp.i.i.i.i.i.i, align 8
   %call.i.i1.i.i.i.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE14internal_eraseISI_EEbRKT_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i.i.i)
           to label %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 _ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i)
   br label %_ZN7openvdb5v11_05tools16LinearSearchImplINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELi0EdED2Ev.exit
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
@@ -10604,14 +10604,14 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i, 
   br i1 %tobool.not.i.i.i.i, label %_ZN7openvdb5v11_04math10BoxStencilINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELb1EED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i)
   %mConstAccessorRegistry.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 656
   store ptr %mAcc.i.i, ptr %ref.tmp.i.i.i.i.i, align 8
   %call.i.i1.i.i.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE14internal_eraseISI_EEbRKT_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i.i)
           to label %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 _ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i.i.i: ; preds = %if.then.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i)
   br label %_ZN7openvdb5v11_04math10BoxStencilINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELb1EED2Ev.exit
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
@@ -10657,14 +10657,14 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %e
   br i1 %tobool.not.i.i.i, label %_ZN7openvdb5v11_04math11BaseStencilINS1_10BoxStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELb1EEESF_Lb1EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i)
   %mConstAccessorRegistry.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 656
   store ptr %mAcc.i, ptr %ref.tmp.i.i.i.i, align 8
   %call.i.i1.i.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE14internal_eraseISI_EEbRKT_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i)
           to label %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i.i unwind label %terminate.lpad.i.i.i
 
 _ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i.i: ; preds = %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i)
   br label %_ZN7openvdb5v11_04math11BaseStencilINS1_10BoxStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELb1EEESF_Lb1EED2Ev.exit
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -10690,8 +10690,8 @@ entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc, align 8
   %mTree.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %0, ptr %mTree.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %a.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %a.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
   store ptr null, ptr %a.i.i.i, align 8
   %m_is_writer.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %a.i.i.i, i64 8
   store i8 0, ptr %m_is_writer.i.i.i.i.i.i, align 8
@@ -10749,8 +10749,8 @@ common.resume:                                    ; preds = %lpad.i.i.i, %if.the
   resume { ptr, i32 } %common.resume.op
 
 invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %invoke.cont.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %a.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %a.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
   %10 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %10, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEE, i64 16), ptr %mAcc, align 8
@@ -11986,9 +11986,9 @@ for.body7:                                        ; preds = %for.body, %for.end
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %24 = load ptr, ptr %vfn, align 8
   call void %24(ptr nonnull sret(%"class.openvdb::v11_0::math::Ray") align 8 %ray, ptr noundef nonnull align 8 dereferenceable(496) %19, i64 noundef %i.024228, i64 noundef %j.024233, double noundef 5.000000e-01, double noundef 5.000000e-01)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.sroa.0)
   %25 = load ptr, ptr %mStencil.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %mTransform.i.i = getelementptr inbounds nuw i8, ptr %25, i64 56
   %26 = load ptr, ptr %mTransform.i.i, align 8, !noalias !279
   call void @llvm.experimental.noalias.scope.decl(metadata !282)
@@ -12019,8 +12019,8 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 
 _ZNK7openvdb5v11_04math9Transform7baseMapEv.exit.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %for.body7
   %32 = phi ptr [ %27, %for.body7 ], [ %27, %if.then.i.i.i.i.i.i.i ], [ %.pre.i68, %if.else.i.i.i.i.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %eye.i.i), !noalias !279
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %dir.i.i), !noalias !279
+  call void @llvm.lifetime.start.p0(ptr nonnull %eye.i.i), !noalias !279
+  call void @llvm.lifetime.start.p0(ptr nonnull %dir.i.i), !noalias !279
   %vtable.i.i = load ptr, ptr %32, align 8, !noalias !286
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 64
   %33 = load ptr, ptr %vfn.i.i, align 8, !noalias !286
@@ -12053,8 +12053,8 @@ invoke.cont.i:                                    ; preds = %.noexc.i
   %div.i.i4.i.i = fdiv double 1.000000e+00, %div.i.i.i.i
   %div3.i.i.i.i = fdiv double 1.000000e+00, %div4.i.i.i.i
   %div6.i.i.i.i = fdiv double 1.000000e+00, %div7.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %eye.i.i), !noalias !279
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %dir.i.i), !noalias !279
+  call void @llvm.lifetime.end.p0(ptr nonnull %eye.i.i), !noalias !279
+  call void @llvm.lifetime.end.p0(ptr nonnull %dir.i.i), !noalias !279
   %42 = load ptr, ptr %_M_refcount.i.i.i.i, align 8, !noalias !279
   %cmp.not.i.i.i.i = icmp eq ptr %42, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK7openvdb5v11_04math3RayIdE12worldToIndexINS0_4GridINS0_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEEES3_RKT_.exit, label %if.then.i.i.i.i
@@ -12138,7 +12138,7 @@ lpad.i:                                           ; preds = %.noexc.i, %_ZNK7ope
   br label %common.resume
 
 _ZNK7openvdb5v11_04math3RayIdE12worldToIndexINS0_4GridINS0_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEEES3_RKT_.exit: ; preds = %invoke.cont.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mInter, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.sroa.0, i64 24, i1 false)
   store double %div.i.i.i.i, ptr %ref.tmp.i.i.sroa.5.0.mInter.sroa_idx, align 8
   store double %div4.i.i.i.i, ptr %ref.tmp.i.i.sroa.6.0.mInter.sroa_idx, align 8
@@ -12191,16 +12191,16 @@ _ZNK7openvdb5v11_04math3RayIdE10intersectsINS1_9CoordBBoxEEEbRKT_RdS9_.exit.i.i.
   br i1 %cmp23.i.i.i.i, label %if.end.i, label %_ZN7openvdb5v11_05tools16LinearSearchImplINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELi0EdE11setWorldRayERKNS0_4math3RayIdEE.exit.i
 
 _ZN7openvdb5v11_05tools16LinearSearchImplINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELi0EdE11setWorldRayERKNS0_4math3RayIdEE.exit.i: ; preds = %_ZNK7openvdb5v11_04math3RayIdE10intersectsINS1_9CoordBBoxEEEbRKT_RdS9_.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.sroa.0)
   br label %cond.false
 
 if.end.i:                                         ; preds = %_ZNK7openvdb5v11_04math3RayIdE10intersectsINS1_9CoordBBoxEEEbRKT_RdS9_.exit.i.i.i
   store double %t0.1.i.i.i, ptr %ref.tmp.i.i.sroa.11.0.mInter.sroa_idx, align 8
   store double %t1.1.i.i.i, ptr %ref.tmp.i.i.sroa.12.0.mInter.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %dda.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %dda.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i333)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i333)
   store double %t0.1.i.i.i, ptr %dda.i, align 8
   store double %t1.1.i.i.i, ptr %mT1.i, align 8
   %mul.i.i.i.i335 = fmul double %div.i.i.i.i, %t0.1.i.i.i
@@ -12291,7 +12291,7 @@ for.inc.i:                                        ; preds = %if.else42.i, %if.th
   br i1 %exitcond.not.i, label %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj12EE4initERKS4_dd.exit, label %for.body.i, !llvm.loop !294
 
 _ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj12EE4initERKS4_dd.exit: ; preds = %for.inc.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i333)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i333)
   br label %do.body.i
 
 do.body.i:                                        ; preds = %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj12EE4stepEv.exit.i, %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj12EE4initERKS4_dd.exit
@@ -12446,9 +12446,9 @@ if.then.i:                                        ; preds = %_ZNK7openvdb5v11_04
   %104 = select i1 %cmp.i3.i.i.i, double %103, double %102
   store double %79, ptr %ref.tmp.i.i.sroa.11.0.mInter.sroa_idx, align 8
   store double %104, ptr %ref.tmp.i.i.sroa.12.0.mInter.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %dda.i268)
+  call void @llvm.lifetime.start.p0(ptr nonnull %dda.i268)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i1431)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1431)
   store double %79, ptr %dda.i268, align 8
   store double %104, ptr %mT1.i1432, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !296)
@@ -12543,7 +12543,7 @@ for.inc.i1478:                                    ; preds = %if.else42.i1472, %i
   br i1 %exitcond.not.i1482, label %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj7EE4initERKS4_dd.exit, label %for.body.i1463, !llvm.loop !302
 
 _ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj7EE4initERKS4_dd.exit: ; preds = %for.inc.i1478
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i1431)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1431)
   br label %do.body.i279
 
 do.body.i279:                                     ; preds = %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj7EE4stepEv.exit.i, %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj7EE4initERKS4_dd.exit
@@ -12791,9 +12791,9 @@ if.then.i282:                                     ; preds = %_ZNK7openvdb5v11_04
   %157 = select i1 %cmp.i3.i.i.i285, double %156, double %155
   store double %120, ptr %ref.tmp.i.i.sroa.11.0.mInter.sroa_idx, align 8
   store double %157, ptr %ref.tmp.i.i.sroa.12.0.mInter.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %dda.i1351)
+  call void @llvm.lifetime.start.p0(ptr nonnull %dda.i1351)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i3305)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i3305)
   store double %120, ptr %dda.i1351, align 8
   store double %157, ptr %mT1.i3306, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !303)
@@ -12888,7 +12888,7 @@ for.inc.i3352:                                    ; preds = %if.else42.i3346, %i
   br i1 %exitcond.not.i3356, label %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj3EE4initERKS4_dd.exit, label %for.body.i3337, !llvm.loop !309
 
 _ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj3EE4initERKS4_dd.exit: ; preds = %for.inc.i3352
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i3305)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i3305)
   br label %do.body.i1362
 
 do.body.i1362:                                    ; preds = %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj3EE4stepEv.exit.i, %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj3EE4initERKS4_dd.exit
@@ -13475,9 +13475,9 @@ if.then.i1365:                                    ; preds = %if.then.i1365.sink.
   %248 = select i1 %cmp.i3.i.i.i1368, double %247, double %246
   store double %241, ptr %ref.tmp.i.i.sroa.11.0.mInter.sroa_idx, align 8
   store double %248, ptr %ref.tmp.i.i.sroa.12.0.mInter.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %dda.i3205)
+  call void @llvm.lifetime.start.p0(ptr nonnull %dda.i3205)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i5774)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i5774)
   store double %241, ptr %dda.i3205, align 8
   store double %248, ptr %mT1.i5775, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !311)
@@ -13570,7 +13570,7 @@ for.inc.i5818:                                    ; preds = %if.else42.i5812, %i
   br i1 %exitcond.not.i5820, label %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj0EE4initERKS4_dd.exit, label %for.body.i5803, !llvm.loop !317
 
 _ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj0EE4initERKS4_dd.exit: ; preds = %for.inc.i5818
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i5774)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i5774)
   store double %241, ptr %mT.i.i, align 8
   %pos.sroa.0.0.copyload.i5711 = load double, ptr %mInter, align 8
   %pos.sroa.5.0.copyload.i5713 = load double, ptr %pos.sroa.5.0.this.sroa_idx.i5712, align 8
@@ -18995,7 +18995,7 @@ do.body.i3220:                                    ; preds = %_ZN7openvdb5v11_04m
   %970 = select i1 %cmp.i1.i.i.i3222, double %968, double %967
   %cmp.i3.i.i.i3223 = fcmp olt double %970, %969
   %971 = select i1 %cmp.i3.i.i.i3223, double %970, double %969
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %V.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %V.i.i)
   %call2.i.i = call noundef zeroext i1 @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE10probeValueERKNS0_4math5CoordERf(ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i.i.i60, ptr noundef nonnull align 4 dereferenceable(12) %mVoxel.i.i3206, ptr noundef nonnull align 4 dereferenceable(4) %V.i.i)
   br i1 %call2.i.i, label %land.lhs.true.i.i, label %do.cond.i3224
 
@@ -24436,7 +24436,7 @@ if.end.i.i3250:                                   ; preds = %_ZN7openvdb5v11_05t
   br label %do.cond.i3224
 
 do.cond.i3224:                                    ; preds = %if.end.i.i3250, %land.lhs.true.i.i, %do.body.i3220
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %V.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %V.i.i)
   br label %for.body.i.i.i3225
 
 for.body.i.i.i3225:                               ; preds = %for.body.i.i.i3225, %do.cond.i3224
@@ -24474,7 +24474,7 @@ _ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj0EE4stepEv.exit.i: ; preds = %for.body.
   br i1 %cmp.i11.i, label %_ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELin1EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit, label %do.body.i3220, !llvm.loop !322
 
 _ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELin1EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit: ; preds = %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj0EE4stepEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %dda.i3205)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dda.i3205)
   br label %for.body.i.i.i1371.preheader
 
 for.body.i.i.i1371.preheader:                     ; preds = %if.end.i.i5910, %cond.false7.i.i.i.i.i.i5873, %lor.lhs.false.i.i.i.i5868, %if.then.i54.i, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i5866, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i5878, %if.end.i5884, %lor.rhs.i5881, %if.end.i.i.i3274, %if.then.i25.i, %if.then.i39.i, %_ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELin1EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE14probeConstNodeIS7_EEPKT_RKNS0_4math5CoordE.exit
@@ -24515,7 +24515,7 @@ _ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj3EE4stepEv.exit.i: ; preds = %for.body.
   br i1 %cmp.i10.i1388, label %_ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELi0EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit, label %do.body.i1362, !llvm.loop !323
 
 _ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELi0EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit: ; preds = %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj3EE4stepEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %dda.i1351)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dda.i1351)
   br label %for.body.i.i.i288.preheader
 
 for.body.i.i.i288.preheader:                      ; preds = %cond.false7.i.i.i.i.i.i3409, %lor.lhs.false.i.i.i.i3404, %if.then.i46.i, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i3402, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i3414, %if.end.i3419, %lor.rhs.i, %if.then.i32.i, %_ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELi0EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE14probeConstNodeIS8_EEPKT_RKNS0_4math5CoordE.exit
@@ -24556,7 +24556,7 @@ _ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj7EE4stepEv.exit.i: ; preds = %for.body.
   br i1 %cmp.i10.i305, label %_ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELi1EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit, label %do.body.i279, !llvm.loop !324
 
 _ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELi1EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit: ; preds = %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj7EE4stepEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %dda.i268)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dda.i268)
   br label %for.body.i.i.i.preheader
 
 for.body.i.i.i.preheader:                         ; preds = %cond.false7.i.i.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i, %if.then.i40.i, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i.i, %lor.rhs.i.i.i, %_ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELi1EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE14probeConstNodeIS9_EEPKT_RKNS0_4math5CoordE.exit
@@ -24597,7 +24597,7 @@ _ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj12EE4stepEv.exit.i: ; preds = %for.body
   br i1 %cmp.i10.i, label %_ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELi2EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit, label %do.body.i, !llvm.loop !325
 
 _ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELi2EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit: ; preds = %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj12EE4stepEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %dda.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dda.i)
   br label %cond.false
 
 if.end5.i:                                        ; preds = %_ZN7openvdb5v11_05tools16LinearSearchImplINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELi0EdE11interpValueEd.exit
@@ -24611,13 +24611,13 @@ if.end5.i:                                        ; preds = %_ZN7openvdb5v11_05t
   %div.i.i.i = fdiv double %mul.i2.i.i, %conv12.i.i.i
   %add.i.i.i3248 = fadd double %1711, %div.i.i.i
   store double %add.i.i.i3248, ptr %mTime.i.i3249, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %V.i.i)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %dda.i3205)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %dda.i1351)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %dda.i268)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %dda.i)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp3.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp7.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %V.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dda.i3205)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dda.i1351)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dda.i268)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dda.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp7.i)
   %ref.tmp.sroa.0.0.copyload.i.i.i = load double, ptr %ref.tmp.i.i.sroa.5.0.mInter.sroa_idx, align 8, !noalias !326
   %ref.tmp.sroa.4.0.copyload.i.i.i = load double, ptr %ref.tmp.i.i.sroa.6.0.mInter.sroa_idx, align 8, !noalias !326
   %ref.tmp.sroa.7.0.copyload.i.i.i = load double, ptr %ref.tmp.i.i.sroa.7.0.mInter.sroa_idx, align 8, !noalias !326
@@ -24633,7 +24633,7 @@ if.end5.i:                                        ; preds = %_ZN7openvdb5v11_05t
   store double %add.i.i.i.i.i, ptr %xyz, align 8
   store double %add5.i.i.i.i.i, ptr %ref.tmp.sroa.4.0.xyz.sroa_idx.i.i, align 8
   store double %add9.i.i.i.i.i, ptr %ref.tmp.sroa.6.0.xyz.sroa_idx.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ijk.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ijk.i.i)
   %1713 = call noundef double @llvm.floor.f64(double %add.i.i.i.i.i)
   %conv.i.i.i.i = fptosi double %1713 to i32
   %1714 = call noundef double @llvm.floor.f64(double %add5.i.i.i.i.i)
@@ -24924,13 +24924,13 @@ _ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Intern
   %1751 = load float, ptr %retval.i.0.i, align 4
   %1752 = load ptr, ptr %mValues.i.i.i5733, align 8
   store float %1751, ptr %1752, align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp.i261)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp5.i)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp12.i)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp19.i)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp26.i)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp33.i)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp40.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i261)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp5.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp19.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp26.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp33.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp40.i)
   %1753 = load i64, ptr %mCenter.i.i5728, align 8
   %1754 = load i32, ptr %arrayidx.i.i5.i.i.i.i5770, align 8
   %add7.i.i = add nsw i32 %1754, 1
@@ -26868,13 +26868,13 @@ _ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Intern
   %2034 = load ptr, ptr %mValues.i.i.i5733, align 8
   %add.ptr.i.i80.i = getelementptr inbounds nuw i8, ptr %2034, i64 28
   store float %2033, ptr %add.ptr.i.i80.i, align 4
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp.i261)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp5.i)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp12.i)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp19.i)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp26.i)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp33.i)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp40.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i261)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp5.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp19.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp26.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp33.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp40.i)
   %.pre.i = load double, ptr %xyz, align 8
   %.pre14.i = load double, ptr %ref.tmp.sroa.4.0.xyz.sroa_idx.i.i, align 8
   %.pre15.i = load double, ptr %ref.tmp.sroa.6.0.xyz.sroa_idx.i.i, align 8
@@ -26884,7 +26884,7 @@ _ZN7openvdb5v11_04math11BaseStencilINS1_10BoxStencilINS0_4GridINS0_4tree4TreeINS
   %2035 = phi double [ %add9.i.i.i.i.i, %land.lhs.true.i.i.i.i ], [ %.pre15.i, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit779 ]
   %2036 = phi double [ %add5.i.i.i.i.i, %land.lhs.true.i.i.i.i ], [ %.pre14.i, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit779 ]
   %2037 = phi double [ %add.i.i.i.i.i, %land.lhs.true.i.i.i.i ], [ %.pre.i, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit779 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ijk.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ijk.i.i)
   %conv.i.i = fptrunc double %2037 to float
   store float %conv.i.i, ptr %ref.tmp3.i, align 4
   %conv3.i.i = fptrunc double %2036 to float
@@ -26930,8 +26930,8 @@ cond.true:                                        ; preds = %_ZN7openvdb5v11_04m
   %2044 = load ptr, ptr %vfn.i.i.i, align 8, !noalias !332
   call void %2044(ptr nonnull sret(%"class.openvdb::v11_0::math::Vec3") align 8 %ref.tmp7.i, ptr noundef nonnull align 8 dereferenceable(8) %2043, ptr noundef nonnull align 8 dereferenceable(24) %xyz)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %xyz, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7.i, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp3.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp7.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp7.i)
   %vtable13 = load ptr, ptr %0, align 8
   %vfn14 = getelementptr inbounds nuw i8, ptr %vtable13, i64 16
   %2045 = load ptr, ptr %vfn14, align 8
@@ -26976,7 +26976,7 @@ for.body19:                                       ; preds = %for.body19.lr.ph, %
   %2053 = load ptr, ptr %vfn26, align 8
   call void %2053(ptr nonnull sret(%"class.openvdb::v11_0::math::Ray") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(496) %2049, i64 noundef %i.024228, i64 noundef %j.024233, double noundef %2051, double noundef %2052)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %ray, ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp, i64 88, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i17.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i17.sroa.0)
   %2054 = load ptr, ptr %mStencil.i.i, align 8
   %mTransform.i.i188 = getelementptr inbounds nuw i8, ptr %2054, i64 56
   %2055 = load ptr, ptr %mTransform.i.i188, align 8, !noalias !335
@@ -27003,8 +27003,8 @@ if.else.i.i.i.i.i.i.i258:                         ; preds = %if.then.i.i.i.i.i19
   br label %_ZNK7openvdb5v11_04math9Transform7baseMapEv.exit.i197
 
 _ZNK7openvdb5v11_04math9Transform7baseMapEv.exit.i197: ; preds = %if.else.i.i.i.i.i.i.i258, %if.then.i.i.i.i.i.i.i195, %for.body19
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %eye.i.i185), !noalias !335
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %dir.i.i186), !noalias !335
+  call void @llvm.lifetime.start.p0(ptr nonnull %eye.i.i185), !noalias !335
+  call void @llvm.lifetime.start.p0(ptr nonnull %dir.i.i186), !noalias !335
   %vtable.i.i198 = load ptr, ptr %2056, align 8, !noalias !341
   %vfn.i.i199 = getelementptr inbounds nuw i8, ptr %vtable.i.i198, i64 64
   %2061 = load ptr, ptr %vfn.i.i199, align 8, !noalias !341
@@ -27037,8 +27037,8 @@ invoke.cont.i205:                                 ; preds = %.noexc.i201
   %div.i.i4.i.i221 = fdiv double 1.000000e+00, %div.i.i.i.i210
   %div3.i.i.i.i222 = fdiv double 1.000000e+00, %div4.i.i.i.i211
   %div6.i.i.i.i223 = fdiv double 1.000000e+00, %div7.i.i.i.i212
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %eye.i.i185), !noalias !335
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %dir.i.i186), !noalias !335
+  call void @llvm.lifetime.end.p0(ptr nonnull %eye.i.i185), !noalias !335
+  call void @llvm.lifetime.end.p0(ptr nonnull %dir.i.i186), !noalias !335
   br i1 %cmp.not.i.i.i.i.i191, label %_ZNK7openvdb5v11_04math3RayIdE12worldToIndexINS0_4GridINS0_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEEES3_RKT_.exit260, label %if.then.i.i.i.i229
 
 if.then.i.i.i.i229:                               ; preds = %invoke.cont.i205
@@ -27235,16 +27235,16 @@ _ZNK7openvdb5v11_04math3RayIdE10intersectsINS1_9CoordBBoxEEEbRKT_RdS9_.exit.i.i.
   br i1 %cmp23.i.i.i.i45, label %if.end.i52, label %_ZN7openvdb5v11_05tools16LinearSearchImplINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELi0EdE11setWorldRayERKNS0_4math3RayIdEE.exit.i50
 
 _ZN7openvdb5v11_05tools16LinearSearchImplINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELi0EdE11setWorldRayERKNS0_4math3RayIdEE.exit.i50: ; preds = %_ZNK7openvdb5v11_04math3RayIdE10intersectsINS1_9CoordBBoxEEEbRKT_RdS9_.exit.i.i.i49
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i17.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i17.sroa.0)
   br label %cond.false35
 
 if.end.i52:                                       ; preds = %_ZNK7openvdb5v11_04math3RayIdE10intersectsINS1_9CoordBBoxEEEbRKT_RdS9_.exit.i.i.i49
   store double %t0.1.i.i.i42, ptr %ref.tmp.i.i.sroa.11.0.mInter.sroa_idx, align 8
   store double %t1.1.i.i.i44, ptr %ref.tmp.i.i.sroa.12.0.mInter.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i17.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %dda.i144)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i17.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %dda.i144)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i619)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i619)
   store double %t0.1.i.i.i42, ptr %dda.i144, align 8
   store double %t1.1.i.i.i44, ptr %mT1.i620, align 8
   %mul.i.i.i.i627 = fmul double %div.i.i.i.i210, %t0.1.i.i.i42
@@ -27335,7 +27335,7 @@ for.inc.i666:                                     ; preds = %if.else42.i660, %if
   br i1 %exitcond.not.i670, label %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj12EE4initERKS4_dd.exit681, label %for.body.i651, !llvm.loop !294
 
 _ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj12EE4initERKS4_dd.exit681: ; preds = %for.inc.i666
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i619)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i619)
   br label %do.body.i155
 
 do.body.i155:                                     ; preds = %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj12EE4stepEv.exit.i173, %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj12EE4initERKS4_dd.exit681
@@ -27490,9 +27490,9 @@ if.then.i158:                                     ; preds = %_ZNK7openvdb5v11_04
   %2141 = select i1 %cmp.i3.i.i.i161, double %2140, double %2139
   store double %2116, ptr %ref.tmp.i.i.sroa.11.0.mInter.sroa_idx, align 8
   store double %2141, ptr %ref.tmp.i.i.sroa.12.0.mInter.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %dda.i499)
+  call void @llvm.lifetime.start.p0(ptr nonnull %dda.i499)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i2442)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2442)
   store double %2116, ptr %dda.i499, align 8
   store double %2141, ptr %mT1.i2443, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !349)
@@ -27587,7 +27587,7 @@ for.inc.i2489:                                    ; preds = %if.else42.i2483, %i
   br i1 %exitcond.not.i2493, label %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj7EE4initERKS4_dd.exit2504, label %for.body.i2474, !llvm.loop !302
 
 _ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj7EE4initERKS4_dd.exit2504: ; preds = %for.inc.i2489
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i2442)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2442)
   br label %do.body.i510
 
 do.body.i510:                                     ; preds = %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj7EE4stepEv.exit.i526, %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj7EE4initERKS4_dd.exit2504
@@ -27835,9 +27835,9 @@ if.then.i512:                                     ; preds = %_ZNK7openvdb5v11_04
   %2194 = select i1 %cmp.i3.i.i.i515, double %2193, double %2192
   store double %2157, ptr %ref.tmp.i.i.sroa.11.0.mInter.sroa_idx, align 8
   store double %2194, ptr %ref.tmp.i.i.sroa.12.0.mInter.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %dda.i2339)
+  call void @llvm.lifetime.start.p0(ptr nonnull %dda.i2339)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i5503)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i5503)
   store double %2157, ptr %dda.i2339, align 8
   store double %2194, ptr %mT1.i5504, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !355)
@@ -27932,7 +27932,7 @@ for.inc.i5550:                                    ; preds = %if.else42.i5544, %i
   br i1 %exitcond.not.i5554, label %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj3EE4initERKS4_dd.exit5565, label %for.body.i5535, !llvm.loop !309
 
 _ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj3EE4initERKS4_dd.exit5565: ; preds = %for.inc.i5550
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i5503)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i5503)
   br label %do.body.i2350
 
 do.body.i2350:                                    ; preds = %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj3EE4stepEv.exit.i2368, %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj3EE4initERKS4_dd.exit5565
@@ -28519,9 +28519,9 @@ if.then.i2353:                                    ; preds = %if.then.i2353.sink.
   %2285 = select i1 %cmp.i3.i.i.i2356, double %2284, double %2283
   store double %2278, ptr %ref.tmp.i.i.sroa.11.0.mInter.sroa_idx, align 8
   store double %2285, ptr %ref.tmp.i.i.sroa.12.0.mInter.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %dda.i5357)
+  call void @llvm.lifetime.start.p0(ptr nonnull %dda.i5357)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i6755)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i6755)
   store double %2278, ptr %dda.i5357, align 8
   store double %2285, ptr %mT1.i6756, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !361)
@@ -28614,7 +28614,7 @@ for.inc.i6800:                                    ; preds = %if.else42.i6794, %i
   br i1 %exitcond.not.i6802, label %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj0EE4initERKS4_dd.exit6813, label %for.body.i6784, !llvm.loop !317
 
 _ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj0EE4initERKS4_dd.exit6813: ; preds = %for.inc.i6800
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i6755)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i6755)
   store double %2278, ptr %mT.i.i, align 8
   %pos.sroa.0.0.copyload.i6692 = load double, ptr %mInter, align 8
   %pos.sroa.5.0.copyload.i6694 = load double, ptr %pos.sroa.5.0.this.sroa_idx.i5712, align 8
@@ -34039,7 +34039,7 @@ do.body.i5377:                                    ; preds = %_ZN7openvdb5v11_04m
   %3007 = select i1 %cmp.i1.i.i.i5379, double %3005, double %3004
   %cmp.i3.i.i.i5380 = fcmp olt double %3007, %3006
   %3008 = select i1 %cmp.i3.i.i.i5380, double %3007, double %3006
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %V.i.i5356)
+  call void @llvm.lifetime.start.p0(ptr nonnull %V.i.i5356)
   %call2.i.i5381 = call noundef zeroext i1 @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE10probeValueERKNS0_4math5CoordERf(ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i.i.i60, ptr noundef nonnull align 4 dereferenceable(12) %mVoxel.i.i5358, ptr noundef nonnull align 4 dereferenceable(4) %V.i.i5356)
   br i1 %call2.i.i5381, label %land.lhs.true.i.i5403, label %do.cond.i5382
 
@@ -39480,7 +39480,7 @@ if.end.i.i5421:                                   ; preds = %_ZN7openvdb5v11_05t
   br label %do.cond.i5382
 
 do.cond.i5382:                                    ; preds = %if.end.i.i5421, %land.lhs.true.i.i5403, %do.body.i5377
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %V.i.i5356)
+  call void @llvm.lifetime.end.p0(ptr nonnull %V.i.i5356)
   br label %for.body.i.i.i5383
 
 for.body.i.i.i5383:                               ; preds = %for.body.i.i.i5383, %do.cond.i5382
@@ -39518,7 +39518,7 @@ _ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj0EE4stepEv.exit.i5392: ; preds = %for.b
   br i1 %cmp.i11.i5401, label %_ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELin1EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit5422, label %do.body.i5377, !llvm.loop !322
 
 _ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELin1EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit5422: ; preds = %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj0EE4stepEv.exit.i5392
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %dda.i5357)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dda.i5357)
   br label %for.body.i.i.i2359.preheader
 
 for.body.i.i.i2359.preheader:                     ; preds = %if.end.i.i6893, %cond.false7.i.i.i.i.i.i6856, %lor.lhs.false.i.i.i.i6851, %if.then.i54.i5435, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i6849, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i6861, %if.end.i6867, %lor.rhs.i6864, %if.end.i.i.i5465, %if.then.i25.i5487, %if.then.i39.i5448, %_ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELin1EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit5422, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE14probeConstNodeIS7_EEPKT_RKNS0_4math5CoordE.exit5502
@@ -39559,7 +39559,7 @@ _ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj3EE4stepEv.exit.i2368: ; preds = %for.b
   br i1 %cmp.i10.i2377, label %_ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELi0EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit2379, label %do.body.i2350, !llvm.loop !323
 
 _ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELi0EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit2379: ; preds = %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj3EE4stepEv.exit.i2368
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %dda.i2339)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dda.i2339)
   br label %for.body.i.i.i517.preheader
 
 for.body.i.i.i517.preheader:                      ; preds = %cond.false7.i.i.i.i.i.i5608, %lor.lhs.false.i.i.i.i5603, %if.then.i46.i2388, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i5601, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i5613, %if.end.i5619, %lor.rhs.i5616, %if.then.i32.i2401, %_ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELi0EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit2379, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE14probeConstNodeIS8_EEPKT_RKNS0_4math5CoordE.exit2441
@@ -39600,7 +39600,7 @@ _ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj7EE4stepEv.exit.i526: ; preds = %for.bo
   br i1 %cmp.i10.i535, label %_ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELi1EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit537, label %do.body.i510, !llvm.loop !324
 
 _ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELi1EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit537: ; preds = %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj7EE4stepEv.exit.i526
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %dda.i499)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dda.i499)
   br label %for.body.i.i.i164.preheader
 
 for.body.i.i.i164.preheader:                      ; preds = %cond.false7.i.i.i.i.i.i.i.i585, %lor.lhs.false.i.i.i.i.i.i580, %if.then.i40.i543, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i.i.i578, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i.i590, %lor.rhs.i.i.i593, %_ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELi1EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit537, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE14probeConstNodeIS9_EEPKT_RKNS0_4math5CoordE.exit618
@@ -39641,7 +39641,7 @@ _ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj12EE4stepEv.exit.i173: ; preds = %for.b
   br i1 %cmp.i10.i182, label %_ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELi2EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit184, label %do.body.i155, !llvm.loop !325
 
 _ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELi2EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit184: ; preds = %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj12EE4stepEv.exit.i173
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %dda.i144)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dda.i144)
   br label %cond.false35
 
 if.end5.i54:                                      ; preds = %_ZN7openvdb5v11_05tools16LinearSearchImplINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELi0EdE11interpValueEd.exit6681
@@ -39655,13 +39655,13 @@ if.end5.i54:                                      ; preds = %_ZN7openvdb5v11_05t
   %div.i.i.i5418 = fdiv double %mul.i2.i.i5415, %conv12.i.i.i5417
   %add.i.i.i5419 = fadd double %3748, %div.i.i.i5418
   store double %add.i.i.i5419, ptr %mTime.i.i3249, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %V.i.i5356)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %dda.i5357)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %dda.i2339)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %dda.i499)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %dda.i144)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp3.i70)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp7.i71)
+  call void @llvm.lifetime.end.p0(ptr nonnull %V.i.i5356)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dda.i5357)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dda.i2339)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dda.i499)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dda.i144)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i70)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp7.i71)
   %ref.tmp.sroa.0.0.copyload.i.i.i74 = load double, ptr %ref.tmp.i.i.sroa.5.0.mInter.sroa_idx, align 8, !noalias !370
   %ref.tmp.sroa.4.0.copyload.i.i.i76 = load double, ptr %ref.tmp.i.i.sroa.6.0.mInter.sroa_idx, align 8, !noalias !370
   %ref.tmp.sroa.7.0.copyload.i.i.i78 = load double, ptr %ref.tmp.i.i.sroa.7.0.mInter.sroa_idx, align 8, !noalias !370
@@ -45079,8 +45079,8 @@ cond.true30:                                      ; preds = %_ZN7openvdb5v11_04m
   %4438 = load ptr, ptr %vfn.i.i.i131, align 8, !noalias !376
   call void %4438(ptr nonnull sret(%"class.openvdb::v11_0::math::Vec3") align 8 %ref.tmp7.i71, ptr noundef nonnull align 8 dereferenceable(8) %4437, ptr noundef nonnull align 8 dereferenceable(24) %xyz)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %xyz, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7.i71, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp3.i70)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp7.i71)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i70)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp7.i71)
   %vtable32 = load ptr, ptr %0, align 8
   %vfn33 = getelementptr inbounds nuw i8, ptr %vtable32, i64 16
   %4439 = load ptr, ptr %vfn33, align 8
@@ -45150,8 +45150,8 @@ entry:
   %my_traits2.i.i = getelementptr inbounds nuw i8, ptr %context, i64 13
   store i8 4, ptr %my_traits2.i.i, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %context)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %wn.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %wn.i)
   %my_begin.i.i = getelementptr inbounds nuw i8, ptr %range, i64 8
   %0 = load i64, ptr %my_begin.i.i, align 8
   %1 = load i64, ptr %range, align 8
@@ -45177,8 +45177,8 @@ call1.i.noexc:                                    ; preds = %if.then.i
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry, %call1.i.noexc
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %wn.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %alloc.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %wn.i)
   %my_state.i.i = getelementptr inbounds nuw i8, ptr %context, i64 15
   %2 = load atomic i8, ptr %my_state.i.i monotonic, align 1
   %cmp.i.i = icmp eq i8 %2, -1
@@ -45363,14 +45363,14 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i.i.i:          ; preds = %if.then.i.i.i.i.i.i
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN7openvdb5v11_05tools17LevelSetRayTracerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS1_22LevelSetRayIntersectorISE_NS1_16LinearSearchImplISE_Li0EdEELi2ENS0_4math3RayIdEEEEED2Ev.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   %mConstAccessorRegistry.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 656
   store ptr %mAcc.i.i.i.i.i, ptr %ref.tmp.i.i.i.i.i.i.i.i, align 8
   %call.i.i1.i.i.i.i.i.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE14internal_eraseISI_EEbRKT_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i.i.i.i.i)
           to label %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 _ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   br label %_ZN7openvdb5v11_05tools17LevelSetRayTracerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS1_22LevelSetRayIntersectorISE_NS1_16LinearSearchImplISE_Li0EdEELi2ENS0_4math3RayIdEEEEED2Ev.exit
 
 terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i.i
@@ -45437,14 +45437,14 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i.i.i.i:        ; preds = %if.then.i.i.i.i.i.i
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_05tools17LevelSetRayTracerINS6_4GridINS6_4tree4TreeINSA_8RootNodeINSA_12InternalNodeINSD_INSA_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS7_22LevelSetRayIntersectorISK_NS7_16LinearSearchImplISK_Li0EdEELi2ENS6_4math3RayIdEEEEEEKNS1_16auto_partitionerEED2Ev.exit, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i)
   %mConstAccessorRegistry.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 656
   store ptr %mAcc.i.i.i.i.i.i, ptr %ref.tmp.i.i.i.i.i.i.i.i.i, align 8
   %call.i.i1.i.i.i.i.i.i.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE14internal_eraseISI_EEbRKT_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i.i.i.i.i.i)
           to label %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i
 
 _ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i)
   br label %_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_05tools17LevelSetRayTracerINS6_4GridINS6_4tree4TreeINSA_8RootNodeINSA_12InternalNodeINSD_INSA_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS7_22LevelSetRayIntersectorISK_NS7_16LinearSearchImplISK_Li0EdEELi2ENS6_4math3RayIdEEEEEEKNS1_16auto_partitionerEED2Ev.exit
 
 terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i.i
@@ -45628,8 +45628,8 @@ entry:
   br i1 %tobool.not.i.i, label %_ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEC2ERKSF_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %a.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %a.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
   store ptr null, ptr %a.i.i.i, align 8
   %m_is_writer.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %a.i.i.i, i64 8
   store i8 0, ptr %m_is_writer.i.i.i.i.i.i, align 8
@@ -45687,8 +45687,8 @@ common.resume:                                    ; preds = %lpad.i.i.i, %if.the
   resume { ptr, i32 } %common.resume.op
 
 _ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEE14attachAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %invoke.cont.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %a.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %a.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
   br label %_ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEC2ERKSF_.exit
 
 _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEC2ERKSF_.exit: ; preds = %entry, %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEE14attachAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i
@@ -45811,7 +45811,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit: ; preds = %if.then,
   br label %do.body
 
 do.body:                                          ; preds = %do.body.backedge, %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i = call noundef ptr @_ZN3tbb6detail2d122small_object_allocator10new_objectINS1_9start_forINS1_13blocked_rangeImEEN7openvdb5v11_05tools17LevelSetRayTracerINS8_4GridINS8_4tree4TreeINSC_8RootNodeINSC_12InternalNodeINSF_INSC_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS9_22LevelSetRayIntersectorISM_NS9_16LinearSearchImplISM_Li0EdEELi2ENS8_4math3RayIdEEEEEEKNS1_16auto_partitionerEEEJRSX_RNS0_2d05splitERS2_EEEPT_RNS1_14execution_dataEDpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, ptr noundef nonnull align 8 dereferenceable(12) %ed, ptr noundef nonnull align 64 dereferenceable(464) %start, ptr noundef nonnull align 1 dereferenceable(1) %split_obj, ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i)
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 32, ptr noundef nonnull align 8 dereferenceable(12) %ed)
@@ -45829,7 +45829,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   store ptr %call.i.i.i, ptr %my_parent6.i.i, align 16
   %7 = load ptr, ptr %ed, align 8
   call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(464) %call.i.i, ptr noundef nonnull align 8 dereferenceable(128) %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %alloc.i.i)
   %8 = load i64, ptr %my_grainsize.i, align 8
   %9 = load i64, ptr %range, align 8
   %10 = load i64, ptr %my_begin.i.i, align 8
@@ -46010,10 +46010,10 @@ invoke.cont14:                                    ; preds = %if.then10.thread, %
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
   %arrayidx.i16 = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idxprom.i
   %20 = load i8, ptr %arrayidx.i16, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %d.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.addr.i)
   store i8 %20, ptr %d.addr.i, align 1
   call void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_05tools17LevelSetRayTracerINS6_4GridINS6_4tree4TreeINSA_8RootNodeINSA_12InternalNodeINSD_INSA_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS7_22LevelSetRayIntersectorISK_NS7_16LinearSearchImplISK_Li0EdEELi2ENS6_4math3RayIdEEEEEEKNS1_16auto_partitionerEE15offer_work_implIJRSV_RKS4_RhEEEvRNS1_14execution_dataEDpOT_(ptr noundef nonnull align 64 dereferenceable(464) %start, ptr noundef nonnull align 8 dereferenceable(12) %ed, ptr noundef nonnull align 64 dereferenceable(464) %start, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, ptr noundef nonnull align 1 dereferenceable(1) %d.addr.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %d.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.addr.i)
   %21 = load i8, ptr %my_size.i, align 2
   %dec.i = add i8 %21, -1
   store i8 %dec.i, ptr %my_size.i, align 2
@@ -49670,14 +49670,14 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i:              ; preds = %if.then.i.i.i.i.i.i
   br i1 %tobool.not.i.i.i.i.i, label %_ZN7openvdb5v11_05tools16LinearSearchImplINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELi0EdED2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i)
   %mConstAccessorRegistry.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 656
   store ptr %mAcc.i.i.i, ptr %ref.tmp.i.i.i.i.i.i, align 8
   %call.i.i1.i.i.i.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE14internal_eraseISI_EEbRKT_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i.i.i)
           to label %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 _ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i)
   br label %_ZN7openvdb5v11_05tools16LinearSearchImplINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELi0EdED2Ev.exit
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
@@ -49990,14 +49990,14 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i, 
   br i1 %tobool.not.i.i.i.i, label %_ZN7openvdb5v11_04math10BoxStencilINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELb1EED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i)
   %mConstAccessorRegistry.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 656
   store ptr %mAcc.i.i, ptr %ref.tmp.i.i.i.i.i, align 8
   %call.i.i1.i.i.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE14internal_eraseISI_EEbRKT_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i.i)
           to label %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 _ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i.i.i: ; preds = %if.then.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i)
   br label %_ZN7openvdb5v11_04math10BoxStencilINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELb1EED2Ev.exit
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
@@ -50033,14 +50033,14 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %e
   br i1 %tobool.not.i.i.i, label %_ZN7openvdb5v11_04math11BaseStencilINS1_10BoxStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELb1EEESF_Lb1EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i)
   %mConstAccessorRegistry.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 656
   store ptr %mAcc.i, ptr %ref.tmp.i.i.i.i, align 8
   %call.i.i1.i.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE14internal_eraseISI_EEbRKT_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i)
           to label %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i.i unwind label %terminate.lpad.i.i.i
 
 _ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i.i: ; preds = %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i)
   br label %_ZN7openvdb5v11_04math11BaseStencilINS1_10BoxStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELb1EEESF_Lb1EED2Ev.exit
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -50066,8 +50066,8 @@ entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc, align 8
   %mTree.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %0, ptr %mTree.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %a.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %a.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
   store ptr null, ptr %a.i.i.i, align 8
   %m_is_writer.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %a.i.i.i, i64 8
   store i8 0, ptr %m_is_writer.i.i.i.i.i.i, align 8
@@ -50125,8 +50125,8 @@ common.resume:                                    ; preds = %lpad.i.i.i, %if.the
   resume { ptr, i32 } %common.resume.op
 
 invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %invoke.cont.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %a.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %a.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
   %10 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %10, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEE, i64 16), ptr %mAcc, align 8
@@ -51315,9 +51315,9 @@ for.body7:                                        ; preds = %for.body, %for.end
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %24 = load ptr, ptr %vfn, align 8
   call void %24(ptr nonnull sret(%"class.openvdb::v11_0::math::Ray") align 8 %ray, ptr noundef nonnull align 8 dereferenceable(496) %19, i64 noundef %i.024194, i64 noundef %j.024199, double noundef 5.000000e-01, double noundef 5.000000e-01)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.sroa.0)
   %25 = load ptr, ptr %mStencil.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i63)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i63)
   %mTransform.i.i = getelementptr inbounds nuw i8, ptr %25, i64 56
   %26 = load ptr, ptr %mTransform.i.i, align 8, !noalias !470
   call void @llvm.experimental.noalias.scope.decl(metadata !473)
@@ -51348,8 +51348,8 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 
 _ZNK7openvdb5v11_04math9Transform7baseMapEv.exit.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %for.body7
   %32 = phi ptr [ %27, %for.body7 ], [ %27, %if.then.i.i.i.i.i.i.i ], [ %.pre.i, %if.else.i.i.i.i.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %eye.i.i), !noalias !470
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %dir.i.i), !noalias !470
+  call void @llvm.lifetime.start.p0(ptr nonnull %eye.i.i), !noalias !470
+  call void @llvm.lifetime.start.p0(ptr nonnull %dir.i.i), !noalias !470
   %vtable.i.i = load ptr, ptr %32, align 8, !noalias !477
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 64
   %33 = load ptr, ptr %vfn.i.i, align 8, !noalias !477
@@ -51382,8 +51382,8 @@ invoke.cont.i:                                    ; preds = %.noexc.i
   %div.i.i4.i.i = fdiv double 1.000000e+00, %div.i.i.i.i
   %div3.i.i.i.i = fdiv double 1.000000e+00, %div4.i.i.i.i
   %div6.i.i.i.i = fdiv double 1.000000e+00, %div7.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %eye.i.i), !noalias !470
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %dir.i.i), !noalias !470
+  call void @llvm.lifetime.end.p0(ptr nonnull %eye.i.i), !noalias !470
+  call void @llvm.lifetime.end.p0(ptr nonnull %dir.i.i), !noalias !470
   %42 = load ptr, ptr %_M_refcount.i.i.i.i, align 8, !noalias !470
   %cmp.not.i.i.i.i = icmp eq ptr %42, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK7openvdb5v11_04math3RayIdE12worldToIndexINS0_4GridINS0_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEEES3_RKT_.exit, label %if.then.i.i.i.i
@@ -51467,7 +51467,7 @@ lpad.i:                                           ; preds = %.noexc.i, %_ZNK7ope
   br label %common.resume
 
 _ZNK7openvdb5v11_04math3RayIdE12worldToIndexINS0_4GridINS0_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEEES3_RKT_.exit: ; preds = %invoke.cont.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i63)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i63)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mInter, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.sroa.0, i64 24, i1 false)
   store double %div.i.i.i.i, ptr %ref.tmp.i.i.sroa.5.0.mInter.sroa_idx, align 8
   store double %div4.i.i.i.i, ptr %ref.tmp.i.i.sroa.6.0.mInter.sroa_idx, align 8
@@ -51520,16 +51520,16 @@ _ZNK7openvdb5v11_04math3RayIdE10intersectsINS1_9CoordBBoxEEEbRKT_RdS9_.exit.i.i.
   br i1 %cmp23.i.i.i.i, label %if.end.i, label %_ZN7openvdb5v11_05tools16LinearSearchImplINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELi0EdE11setWorldRayERKNS0_4math3RayIdEE.exit.i
 
 _ZN7openvdb5v11_05tools16LinearSearchImplINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELi0EdE11setWorldRayERKNS0_4math3RayIdEE.exit.i: ; preds = %_ZNK7openvdb5v11_04math3RayIdE10intersectsINS1_9CoordBBoxEEEbRKT_RdS9_.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.sroa.0)
   br label %cond.false
 
 if.end.i:                                         ; preds = %_ZNK7openvdb5v11_04math3RayIdE10intersectsINS1_9CoordBBoxEEEbRKT_RdS9_.exit.i.i.i
   store double %t0.1.i.i.i, ptr %ref.tmp.i.i.sroa.11.0.mInter.sroa_idx, align 8
   store double %t1.1.i.i.i, ptr %ref.tmp.i.i.sroa.12.0.mInter.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %dda.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %dda.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i319)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i319)
   store double %t0.1.i.i.i, ptr %dda.i, align 8
   store double %t1.1.i.i.i, ptr %mT1.i, align 8
   %mul.i.i.i.i321 = fmul double %div.i.i.i.i, %t0.1.i.i.i
@@ -51620,7 +51620,7 @@ for.inc.i:                                        ; preds = %if.else42.i, %if.th
   br i1 %exitcond.not.i, label %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj12EE4initERKS4_dd.exit, label %for.body.i, !llvm.loop !294
 
 _ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj12EE4initERKS4_dd.exit: ; preds = %for.inc.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i319)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i319)
   br label %do.body.i
 
 do.body.i:                                        ; preds = %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj12EE4stepEv.exit.i, %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj12EE4initERKS4_dd.exit
@@ -51775,9 +51775,9 @@ if.then.i:                                        ; preds = %_ZNK7openvdb5v11_04
   %104 = select i1 %cmp.i3.i.i.i, double %103, double %102
   store double %79, ptr %ref.tmp.i.i.sroa.11.0.mInter.sroa_idx, align 8
   store double %104, ptr %ref.tmp.i.i.sroa.12.0.mInter.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %dda.i254)
+  call void @llvm.lifetime.start.p0(ptr nonnull %dda.i254)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i1417)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1417)
   store double %79, ptr %dda.i254, align 8
   store double %104, ptr %mT1.i1418, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !486)
@@ -51872,7 +51872,7 @@ for.inc.i1464:                                    ; preds = %if.else42.i1458, %i
   br i1 %exitcond.not.i1468, label %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj7EE4initERKS4_dd.exit, label %for.body.i1449, !llvm.loop !302
 
 _ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj7EE4initERKS4_dd.exit: ; preds = %for.inc.i1464
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i1417)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1417)
   br label %do.body.i265
 
 do.body.i265:                                     ; preds = %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj7EE4stepEv.exit.i, %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj7EE4initERKS4_dd.exit
@@ -52120,9 +52120,9 @@ if.then.i268:                                     ; preds = %_ZNK7openvdb5v11_04
   %157 = select i1 %cmp.i3.i.i.i271, double %156, double %155
   store double %120, ptr %ref.tmp.i.i.sroa.11.0.mInter.sroa_idx, align 8
   store double %157, ptr %ref.tmp.i.i.sroa.12.0.mInter.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %dda.i1337)
+  call void @llvm.lifetime.start.p0(ptr nonnull %dda.i1337)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i3290)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i3290)
   store double %120, ptr %dda.i1337, align 8
   store double %157, ptr %mT1.i3291, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !492)
@@ -52217,7 +52217,7 @@ for.inc.i3337:                                    ; preds = %if.else42.i3331, %i
   br i1 %exitcond.not.i3341, label %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj3EE4initERKS4_dd.exit, label %for.body.i3322, !llvm.loop !309
 
 _ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj3EE4initERKS4_dd.exit: ; preds = %for.inc.i3337
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i3290)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i3290)
   br label %do.body.i1348
 
 do.body.i1348:                                    ; preds = %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj3EE4stepEv.exit.i, %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj3EE4initERKS4_dd.exit
@@ -52804,9 +52804,9 @@ if.then.i1351:                                    ; preds = %if.then.i1351.sink.
   %248 = select i1 %cmp.i3.i.i.i1354, double %247, double %246
   store double %241, ptr %ref.tmp.i.i.sroa.11.0.mInter.sroa_idx, align 8
   store double %248, ptr %ref.tmp.i.i.sroa.12.0.mInter.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %dda.i3191)
+  call void @llvm.lifetime.start.p0(ptr nonnull %dda.i3191)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i5748)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i5748)
   store double %241, ptr %dda.i3191, align 8
   store double %248, ptr %mT1.i5749, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !498)
@@ -52899,7 +52899,7 @@ for.inc.i5792:                                    ; preds = %if.else42.i5786, %i
   br i1 %exitcond.not.i5794, label %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj0EE4initERKS4_dd.exit, label %for.body.i5777, !llvm.loop !317
 
 _ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj0EE4initERKS4_dd.exit: ; preds = %for.inc.i5792
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i5748)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i5748)
   store double %241, ptr %mT.i.i, align 8
   %pos.sroa.0.0.copyload.i5689 = load double, ptr %mInter, align 8
   %pos.sroa.5.0.copyload.i5691 = load double, ptr %pos.sroa.5.0.this.sroa_idx.i5690, align 8
@@ -58320,7 +58320,7 @@ do.body.i3205:                                    ; preds = %_ZN7openvdb5v11_04m
   %970 = select i1 %cmp.i1.i.i.i3207, double %968, double %967
   %cmp.i3.i.i.i3208 = fcmp olt double %970, %969
   %971 = select i1 %cmp.i3.i.i.i3208, double %970, double %969
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %V.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %V.i.i)
   %call2.i.i = call noundef zeroext i1 @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE10probeValueERKNS0_4math5CoordERd(ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i.i.i60, ptr noundef nonnull align 4 dereferenceable(12) %mVoxel.i.i3192, ptr noundef nonnull align 8 dereferenceable(8) %V.i.i)
   br i1 %call2.i.i, label %land.lhs.true.i.i, label %do.cond.i3209
 
@@ -63758,7 +63758,7 @@ if.end.i.i3235:                                   ; preds = %_ZN7openvdb5v11_05t
   br label %do.cond.i3209
 
 do.cond.i3209:                                    ; preds = %if.end.i.i3235, %land.lhs.true.i.i, %do.body.i3205
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %V.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %V.i.i)
   br label %for.body.i.i.i3210
 
 for.body.i.i.i3210:                               ; preds = %for.body.i.i.i3210, %do.cond.i3209
@@ -63796,7 +63796,7 @@ _ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj0EE4stepEv.exit.i: ; preds = %for.body.
   br i1 %cmp.i10.i3227, label %_ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELin1EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit, label %do.body.i3205, !llvm.loop !507
 
 _ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELin1EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit: ; preds = %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj0EE4stepEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %dda.i3191)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dda.i3191)
   br label %for.body.i.i.i1357.preheader
 
 for.body.i.i.i1357.preheader:                     ; preds = %if.end.i.i5884, %cond.false7.i.i.i.i.i.i5847, %lor.lhs.false.i.i.i.i5842, %if.then.i54.i, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i5840, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i5852, %if.end.i5858, %lor.rhs.i5855, %if.end.i.i.i3259, %if.then.i25.i, %if.then.i39.i, %_ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELin1EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE14probeConstNodeIS7_EEPKT_RKNS0_4math5CoordE.exit
@@ -63837,7 +63837,7 @@ _ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj3EE4stepEv.exit.i: ; preds = %for.body.
   br i1 %cmp.i10.i1374, label %_ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELi0EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit, label %do.body.i1348, !llvm.loop !508
 
 _ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELi0EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit: ; preds = %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj3EE4stepEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %dda.i1337)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dda.i1337)
   br label %for.body.i.i.i274.preheader
 
 for.body.i.i.i274.preheader:                      ; preds = %cond.false7.i.i.i.i.i.i3394, %lor.lhs.false.i.i.i.i3389, %if.then.i46.i, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i3387, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i3399, %if.end.i3404, %lor.rhs.i, %if.then.i32.i, %_ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELi0EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE14probeConstNodeIS8_EEPKT_RKNS0_4math5CoordE.exit
@@ -63878,7 +63878,7 @@ _ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj7EE4stepEv.exit.i: ; preds = %for.body.
   br i1 %cmp.i10.i291, label %_ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELi1EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit, label %do.body.i265, !llvm.loop !509
 
 _ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELi1EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit: ; preds = %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj7EE4stepEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %dda.i254)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dda.i254)
   br label %for.body.i.i.i.preheader
 
 for.body.i.i.i.preheader:                         ; preds = %cond.false7.i.i.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i, %if.then.i40.i, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i.i, %lor.rhs.i.i.i, %_ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELi1EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE14probeConstNodeIS9_EEPKT_RKNS0_4math5CoordE.exit
@@ -63919,7 +63919,7 @@ _ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj12EE4stepEv.exit.i: ; preds = %for.body
   br i1 %cmp.i10.i, label %_ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELi2EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit, label %do.body.i, !llvm.loop !510
 
 _ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELi2EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit: ; preds = %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj12EE4stepEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %dda.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dda.i)
   br label %cond.false
 
 if.end5.i:                                        ; preds = %_ZN7openvdb5v11_05tools16LinearSearchImplINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELi0EdE11interpValueEd.exit
@@ -63931,13 +63931,13 @@ if.end5.i:                                        ; preds = %_ZN7openvdb5v11_05t
   %div.i.i.i = fdiv double %mul.i2.i.i, %sub11.i.i.i
   %add.i.i.i3233 = fadd double %1711, %div.i.i.i
   store double %add.i.i.i3233, ptr %mTime.i.i3234, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %V.i.i)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %dda.i3191)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %dda.i1337)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %dda.i254)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %dda.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %V.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dda.i3191)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dda.i1337)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dda.i254)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dda.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %ref.tmp.sroa.0.0.copyload.i.i.i = load double, ptr %ref.tmp.i.i.sroa.5.0.mInter.sroa_idx, align 8, !noalias !511
   %ref.tmp.sroa.4.0.copyload.i.i.i = load double, ptr %ref.tmp.i.i.sroa.6.0.mInter.sroa_idx, align 8, !noalias !511
   %ref.tmp.sroa.7.0.copyload.i.i.i = load double, ptr %ref.tmp.i.i.sroa.7.0.mInter.sroa_idx, align 8, !noalias !511
@@ -63953,7 +63953,7 @@ if.end5.i:                                        ; preds = %_ZN7openvdb5v11_05t
   store double %add.i.i.i.i.i, ptr %xyz, align 8
   store double %add5.i.i.i.i.i, ptr %ref.tmp.sroa.4.0.xyz.sroa_idx.i.i, align 8
   store double %add9.i.i.i.i.i, ptr %ref.tmp.sroa.6.0.xyz.sroa_idx.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ijk.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ijk.i.i)
   %1713 = call noundef double @llvm.floor.f64(double %add.i.i.i.i.i)
   %conv.i.i.i.i = fptosi double %1713 to i32
   %1714 = call noundef double @llvm.floor.f64(double %add5.i.i.i.i.i)
@@ -64244,13 +64244,13 @@ _ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Intern
   %1751 = load double, ptr %retval.i.0.i, align 8
   %1752 = load ptr, ptr %mValues.i.i.i5711, align 8
   store double %1751, ptr %1752, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp.i247)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp5.i)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp12.i)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp19.i)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp26.i)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp33.i)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp40.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i247)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp5.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp19.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp26.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp33.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp40.i)
   %1753 = load i64, ptr %mCenter.i.i5706, align 8
   %1754 = load i32, ptr %arrayidx.i.i5.i.i.i.i5744, align 8
   %add7.i.i = add nsw i32 %1754, 1
@@ -66188,17 +66188,17 @@ _ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Intern
   %2034 = load ptr, ptr %mValues.i.i.i5711, align 8
   %add.ptr.i.i80.i = getelementptr inbounds nuw i8, ptr %2034, i64 56
   store double %2033, ptr %add.ptr.i.i80.i, align 8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp.i247)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp5.i)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp12.i)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp19.i)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp26.i)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp33.i)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp40.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i247)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp5.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp19.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp26.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp33.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp40.i)
   br label %_ZN7openvdb5v11_04math11BaseStencilINS1_10BoxStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELb1EEESF_Lb1EE6moveToIdEEvRKNS1_4Vec3IT_EE.exit.i
 
 _ZN7openvdb5v11_04math11BaseStencilINS1_10BoxStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELb1EEESF_Lb1EE6moveToIdEEvRKNS1_4Vec3IT_EE.exit.i: ; preds = %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit765, %land.lhs.true.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ijk.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ijk.i.i)
   call void @_ZNK7openvdb5v11_04math10BoxStencilINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELb1EE8gradientERKNS1_4Vec3IdEE(ptr nonnull sret(%"class.openvdb::v11_0::math::Vec3") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(140) %mStencil.i.i, ptr noundef nonnull align 8 dereferenceable(24) %xyz)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %nml, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i, i64 24, i1 false)
   %2035 = load double, ptr %nml, align 8
@@ -66232,8 +66232,8 @@ cond.true:                                        ; preds = %_ZN7openvdb5v11_04m
   %2044 = load ptr, ptr %vfn.i.i.i, align 8, !noalias !517
   call void %2044(ptr nonnull sret(%"class.openvdb::v11_0::math::Vec3") align 8 %ref.tmp3.i, ptr noundef nonnull align 8 dereferenceable(8) %2043, ptr noundef nonnull align 8 dereferenceable(24) %xyz)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %xyz, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp3.i, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %vtable13 = load ptr, ptr %0, align 8
   %vfn14 = getelementptr inbounds nuw i8, ptr %vtable13, i64 16
   %2045 = load ptr, ptr %vfn14, align 8
@@ -66278,7 +66278,7 @@ for.body19:                                       ; preds = %for.body19.lr.ph, %
   %2053 = load ptr, ptr %vfn26, align 8
   call void %2053(ptr nonnull sret(%"class.openvdb::v11_0::math::Ray") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(496) %2049, i64 noundef %i.024194, i64 noundef %j.024199, double noundef %2051, double noundef %2052)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %ray, ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp, i64 88, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i17.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i17.sroa.0)
   %2054 = load ptr, ptr %mStencil.i.i, align 8
   %mTransform.i.i174 = getelementptr inbounds nuw i8, ptr %2054, i64 56
   %2055 = load ptr, ptr %mTransform.i.i174, align 8, !noalias !520
@@ -66305,8 +66305,8 @@ if.else.i.i.i.i.i.i.i244:                         ; preds = %if.then.i.i.i.i.i17
   br label %_ZNK7openvdb5v11_04math9Transform7baseMapEv.exit.i183
 
 _ZNK7openvdb5v11_04math9Transform7baseMapEv.exit.i183: ; preds = %if.else.i.i.i.i.i.i.i244, %if.then.i.i.i.i.i.i.i181, %for.body19
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %eye.i.i171), !noalias !520
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %dir.i.i172), !noalias !520
+  call void @llvm.lifetime.start.p0(ptr nonnull %eye.i.i171), !noalias !520
+  call void @llvm.lifetime.start.p0(ptr nonnull %dir.i.i172), !noalias !520
   %vtable.i.i184 = load ptr, ptr %2056, align 8, !noalias !526
   %vfn.i.i185 = getelementptr inbounds nuw i8, ptr %vtable.i.i184, i64 64
   %2061 = load ptr, ptr %vfn.i.i185, align 8, !noalias !526
@@ -66339,8 +66339,8 @@ invoke.cont.i191:                                 ; preds = %.noexc.i187
   %div.i.i4.i.i207 = fdiv double 1.000000e+00, %div.i.i.i.i196
   %div3.i.i.i.i208 = fdiv double 1.000000e+00, %div4.i.i.i.i197
   %div6.i.i.i.i209 = fdiv double 1.000000e+00, %div7.i.i.i.i198
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %eye.i.i171), !noalias !520
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %dir.i.i172), !noalias !520
+  call void @llvm.lifetime.end.p0(ptr nonnull %eye.i.i171), !noalias !520
+  call void @llvm.lifetime.end.p0(ptr nonnull %dir.i.i172), !noalias !520
   br i1 %cmp.not.i.i.i.i.i177, label %_ZNK7openvdb5v11_04math3RayIdE12worldToIndexINS0_4GridINS0_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEEES3_RKT_.exit246, label %if.then.i.i.i.i215
 
 if.then.i.i.i.i215:                               ; preds = %invoke.cont.i191
@@ -66537,16 +66537,16 @@ _ZNK7openvdb5v11_04math3RayIdE10intersectsINS1_9CoordBBoxEEEbRKT_RdS9_.exit.i.i.
   br i1 %cmp23.i.i.i.i45, label %if.end.i52, label %_ZN7openvdb5v11_05tools16LinearSearchImplINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELi0EdE11setWorldRayERKNS0_4math3RayIdEE.exit.i50
 
 _ZN7openvdb5v11_05tools16LinearSearchImplINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELi0EdE11setWorldRayERKNS0_4math3RayIdEE.exit.i50: ; preds = %_ZNK7openvdb5v11_04math3RayIdE10intersectsINS1_9CoordBBoxEEEbRKT_RdS9_.exit.i.i.i49
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i17.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i17.sroa.0)
   br label %cond.false35
 
 if.end.i52:                                       ; preds = %_ZNK7openvdb5v11_04math3RayIdE10intersectsINS1_9CoordBBoxEEEbRKT_RdS9_.exit.i.i.i49
   store double %t0.1.i.i.i42, ptr %ref.tmp.i.i.sroa.11.0.mInter.sroa_idx, align 8
   store double %t1.1.i.i.i44, ptr %ref.tmp.i.i.sroa.12.0.mInter.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i17.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %dda.i130)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i17.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %dda.i130)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i605)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i605)
   store double %t0.1.i.i.i42, ptr %dda.i130, align 8
   store double %t1.1.i.i.i44, ptr %mT1.i606, align 8
   %mul.i.i.i.i613 = fmul double %div.i.i.i.i196, %t0.1.i.i.i42
@@ -66637,7 +66637,7 @@ for.inc.i652:                                     ; preds = %if.else42.i646, %if
   br i1 %exitcond.not.i656, label %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj12EE4initERKS4_dd.exit667, label %for.body.i637, !llvm.loop !294
 
 _ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj12EE4initERKS4_dd.exit667: ; preds = %for.inc.i652
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i605)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i605)
   br label %do.body.i141
 
 do.body.i141:                                     ; preds = %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj12EE4stepEv.exit.i159, %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj12EE4initERKS4_dd.exit667
@@ -66792,9 +66792,9 @@ if.then.i144:                                     ; preds = %_ZNK7openvdb5v11_04
   %2141 = select i1 %cmp.i3.i.i.i147, double %2140, double %2139
   store double %2116, ptr %ref.tmp.i.i.sroa.11.0.mInter.sroa_idx, align 8
   store double %2141, ptr %ref.tmp.i.i.sroa.12.0.mInter.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %dda.i485)
+  call void @llvm.lifetime.start.p0(ptr nonnull %dda.i485)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i2428)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2428)
   store double %2116, ptr %dda.i485, align 8
   store double %2141, ptr %mT1.i2429, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !534)
@@ -66889,7 +66889,7 @@ for.inc.i2475:                                    ; preds = %if.else42.i2469, %i
   br i1 %exitcond.not.i2479, label %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj7EE4initERKS4_dd.exit2490, label %for.body.i2460, !llvm.loop !302
 
 _ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj7EE4initERKS4_dd.exit2490: ; preds = %for.inc.i2475
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i2428)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2428)
   br label %do.body.i496
 
 do.body.i496:                                     ; preds = %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj7EE4stepEv.exit.i512, %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj7EE4initERKS4_dd.exit2490
@@ -67137,9 +67137,9 @@ if.then.i498:                                     ; preds = %_ZNK7openvdb5v11_04
   %2194 = select i1 %cmp.i3.i.i.i501, double %2193, double %2192
   store double %2157, ptr %ref.tmp.i.i.sroa.11.0.mInter.sroa_idx, align 8
   store double %2194, ptr %ref.tmp.i.i.sroa.12.0.mInter.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %dda.i2325)
+  call void @llvm.lifetime.start.p0(ptr nonnull %dda.i2325)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i5484)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i5484)
   store double %2157, ptr %dda.i2325, align 8
   store double %2194, ptr %mT1.i5485, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !540)
@@ -67234,7 +67234,7 @@ for.inc.i5531:                                    ; preds = %if.else42.i5525, %i
   br i1 %exitcond.not.i5535, label %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj3EE4initERKS4_dd.exit5546, label %for.body.i5516, !llvm.loop !309
 
 _ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj3EE4initERKS4_dd.exit5546: ; preds = %for.inc.i5531
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i5484)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i5484)
   br label %do.body.i2336
 
 do.body.i2336:                                    ; preds = %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj3EE4stepEv.exit.i2354, %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj3EE4initERKS4_dd.exit5546
@@ -67821,9 +67821,9 @@ if.then.i2339:                                    ; preds = %if.then.i2339.sink.
   %2285 = select i1 %cmp.i3.i.i.i2342, double %2284, double %2283
   store double %2278, ptr %ref.tmp.i.i.sroa.11.0.mInter.sroa_idx, align 8
   store double %2285, ptr %ref.tmp.i.i.sroa.12.0.mInter.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %dda.i5342)
+  call void @llvm.lifetime.start.p0(ptr nonnull %dda.i5342)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i6721)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i6721)
   store double %2278, ptr %dda.i5342, align 8
   store double %2285, ptr %mT1.i6722, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !546)
@@ -67916,7 +67916,7 @@ for.inc.i6766:                                    ; preds = %if.else42.i6760, %i
   br i1 %exitcond.not.i6768, label %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj0EE4initERKS4_dd.exit6779, label %for.body.i6750, !llvm.loop !317
 
 _ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj0EE4initERKS4_dd.exit6779: ; preds = %for.inc.i6766
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i6721)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i6721)
   store double %2278, ptr %mT.i.i, align 8
   %pos.sroa.0.0.copyload.i6662 = load double, ptr %mInter, align 8
   %pos.sroa.5.0.copyload.i6664 = load double, ptr %pos.sroa.5.0.this.sroa_idx.i5690, align 8
@@ -73337,7 +73337,7 @@ do.body.i5361:                                    ; preds = %_ZN7openvdb5v11_04m
   %3007 = select i1 %cmp.i1.i.i.i5363, double %3005, double %3004
   %cmp.i3.i.i.i5364 = fcmp olt double %3007, %3006
   %3008 = select i1 %cmp.i3.i.i.i5364, double %3007, double %3006
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %V.i.i5341)
+  call void @llvm.lifetime.start.p0(ptr nonnull %V.i.i5341)
   %call2.i.i5365 = call noundef zeroext i1 @_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE10probeValueERKNS0_4math5CoordERd(ptr noundef nonnull align 8 dereferenceable(96) %mAcc.i.i.i60, ptr noundef nonnull align 4 dereferenceable(12) %mVoxel.i.i5343, ptr noundef nonnull align 8 dereferenceable(8) %V.i.i5341)
   br i1 %call2.i.i5365, label %land.lhs.true.i.i5387, label %do.cond.i5366
 
@@ -78775,7 +78775,7 @@ if.end.i.i5402:                                   ; preds = %_ZN7openvdb5v11_05t
   br label %do.cond.i5366
 
 do.cond.i5366:                                    ; preds = %if.end.i.i5402, %land.lhs.true.i.i5387, %do.body.i5361
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %V.i.i5341)
+  call void @llvm.lifetime.end.p0(ptr nonnull %V.i.i5341)
   br label %for.body.i.i.i5367
 
 for.body.i.i.i5367:                               ; preds = %for.body.i.i.i5367, %do.cond.i5366
@@ -78813,7 +78813,7 @@ _ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj0EE4stepEv.exit.i5376: ; preds = %for.b
   br i1 %cmp.i10.i5385, label %_ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELin1EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit5403, label %do.body.i5361, !llvm.loop !507
 
 _ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELin1EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit5403: ; preds = %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj0EE4stepEv.exit.i5376
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %dda.i5342)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dda.i5342)
   br label %for.body.i.i.i2345.preheader
 
 for.body.i.i.i2345.preheader:                     ; preds = %if.end.i.i6859, %cond.false7.i.i.i.i.i.i6822, %lor.lhs.false.i.i.i.i6817, %if.then.i54.i5416, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i6815, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i6827, %if.end.i6833, %lor.rhs.i6830, %if.end.i.i.i5446, %if.then.i25.i5468, %if.then.i39.i5429, %_ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELin1EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit5403, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE14probeConstNodeIS7_EEPKT_RKNS0_4math5CoordE.exit5483
@@ -78854,7 +78854,7 @@ _ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj3EE4stepEv.exit.i2354: ; preds = %for.b
   br i1 %cmp.i10.i2363, label %_ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELi0EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit2365, label %do.body.i2336, !llvm.loop !508
 
 _ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELi0EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit2365: ; preds = %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj3EE4stepEv.exit.i2354
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %dda.i2325)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dda.i2325)
   br label %for.body.i.i.i503.preheader
 
 for.body.i.i.i503.preheader:                      ; preds = %cond.false7.i.i.i.i.i.i5589, %lor.lhs.false.i.i.i.i5584, %if.then.i46.i2374, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i5582, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i5594, %if.end.i5600, %lor.rhs.i5597, %if.then.i32.i2387, %_ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELi0EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit2365, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE14probeConstNodeIS8_EEPKT_RKNS0_4math5CoordE.exit2427
@@ -78895,7 +78895,7 @@ _ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj7EE4stepEv.exit.i512: ; preds = %for.bo
   br i1 %cmp.i10.i521, label %_ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELi1EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit523, label %do.body.i496, !llvm.loop !509
 
 _ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELi1EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit523: ; preds = %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj7EE4stepEv.exit.i512
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %dda.i485)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dda.i485)
   br label %for.body.i.i.i150.preheader
 
 for.body.i.i.i150.preheader:                      ; preds = %cond.false7.i.i.i.i.i.i.i.i571, %lor.lhs.false.i.i.i.i.i.i566, %if.then.i40.i529, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i.i.i564, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i.i.i.i576, %lor.rhs.i.i.i579, %_ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELi1EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit523, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE14probeConstNodeIS9_EEPKT_RKNS0_4math5CoordE.exit604
@@ -78936,7 +78936,7 @@ _ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj12EE4stepEv.exit.i159: ; preds = %for.b
   br i1 %cmp.i10.i168, label %_ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELi2EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit170, label %do.body.i141, !llvm.loop !510
 
 _ZN7openvdb5v11_04math12LevelSetHDDAINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELi2EE4testINS0_5tools16LinearSearchImplINS0_4GridISC_EELi0EdEEEEbRT_.exit170: ; preds = %_ZN7openvdb5v11_04math3DDAINS1_3RayIdEELj12EE4stepEv.exit.i159
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %dda.i130)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dda.i130)
   br label %cond.false35
 
 if.end5.i54:                                      ; preds = %_ZN7openvdb5v11_05tools16LinearSearchImplINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELi0EdE11interpValueEd.exit6651
@@ -78948,13 +78948,13 @@ if.end5.i54:                                      ; preds = %_ZN7openvdb5v11_05t
   %div.i.i.i5399 = fdiv double %mul.i2.i.i5397, %sub11.i.i.i5398
   %add.i.i.i5400 = fadd double %3748, %div.i.i.i5399
   store double %add.i.i.i5400, ptr %mTime.i.i3234, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %V.i.i5341)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %dda.i5342)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %dda.i2325)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %dda.i485)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %dda.i130)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i72)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp3.i73)
+  call void @llvm.lifetime.end.p0(ptr nonnull %V.i.i5341)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dda.i5342)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dda.i2325)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dda.i485)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dda.i130)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i72)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i73)
   %ref.tmp.sroa.0.0.copyload.i.i.i76 = load double, ptr %ref.tmp.i.i.sroa.5.0.mInter.sroa_idx, align 8, !noalias !555
   %ref.tmp.sroa.4.0.copyload.i.i.i78 = load double, ptr %ref.tmp.i.i.sroa.6.0.mInter.sroa_idx, align 8, !noalias !555
   %ref.tmp.sroa.7.0.copyload.i.i.i80 = load double, ptr %ref.tmp.i.i.sroa.7.0.mInter.sroa_idx, align 8, !noalias !555
@@ -84354,8 +84354,8 @@ cond.true30:                                      ; preds = %_ZN7openvdb5v11_04m
   %4438 = load ptr, ptr %vfn.i.i.i117, align 8, !noalias !561
   call void %4438(ptr nonnull sret(%"class.openvdb::v11_0::math::Vec3") align 8 %ref.tmp3.i73, ptr noundef nonnull align 8 dereferenceable(8) %4437, ptr noundef nonnull align 8 dereferenceable(24) %xyz)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %xyz, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp3.i73, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i72)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp3.i73)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i72)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i73)
   %vtable32 = load ptr, ptr %0, align 8
   %vfn33 = getelementptr inbounds nuw i8, ptr %vtable32, i64 16
   %4439 = load ptr, ptr %vfn33, align 8
@@ -84425,8 +84425,8 @@ entry:
   %my_traits2.i.i = getelementptr inbounds nuw i8, ptr %context, i64 13
   store i8 4, ptr %my_traits2.i.i, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %context)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %wn.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %wn.i)
   %my_begin.i.i = getelementptr inbounds nuw i8, ptr %range, i64 8
   %0 = load i64, ptr %my_begin.i.i, align 8
   %1 = load i64, ptr %range, align 8
@@ -84452,8 +84452,8 @@ call1.i.noexc:                                    ; preds = %if.then.i
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry, %call1.i.noexc
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %wn.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %alloc.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %wn.i)
   %my_state.i.i = getelementptr inbounds nuw i8, ptr %context, i64 15
   %2 = load atomic i8, ptr %my_state.i.i monotonic, align 1
   %cmp.i.i = icmp eq i8 %2, -1
@@ -84611,14 +84611,14 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i:          ; preds = %if.then.i.i.i.i.i.i
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN7openvdb5v11_05tools17LevelSetRayTracerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS1_22LevelSetRayIntersectorISE_NS1_16LinearSearchImplISE_Li0EdEELi2ENS0_4math3RayIdEEEEED2Ev.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   %mConstAccessorRegistry.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 656
   store ptr %mAcc.i.i.i.i.i, ptr %ref.tmp.i.i.i.i.i.i.i.i, align 8
   %call.i.i1.i.i.i.i.i.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE14internal_eraseISI_EEbRKT_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i.i.i.i.i)
           to label %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 _ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   br label %_ZN7openvdb5v11_05tools17LevelSetRayTracerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS1_22LevelSetRayIntersectorISE_NS1_16LinearSearchImplISE_Li0EdEELi2ENS0_4math3RayIdEEEEED2Ev.exit
 
 terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i.i
@@ -84685,14 +84685,14 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i:        ; preds = %if.then.i.i.i.i.i.i
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_05tools17LevelSetRayTracerINS6_4GridINS6_4tree4TreeINSA_8RootNodeINSA_12InternalNodeINSD_INSA_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS7_22LevelSetRayIntersectorISK_NS7_16LinearSearchImplISK_Li0EdEELi2ENS6_4math3RayIdEEEEEEKNS1_16auto_partitionerEED2Ev.exit, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i)
   %mConstAccessorRegistry.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 656
   store ptr %mAcc.i.i.i.i.i.i, ptr %ref.tmp.i.i.i.i.i.i.i.i.i, align 8
   %call.i.i1.i.i.i.i.i.i.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE14internal_eraseISI_EEbRKT_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i.i.i.i.i.i)
           to label %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i
 
 _ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i)
   br label %_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_05tools17LevelSetRayTracerINS6_4GridINS6_4tree4TreeINSA_8RootNodeINSA_12InternalNodeINSD_INSA_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS7_22LevelSetRayIntersectorISK_NS7_16LinearSearchImplISK_Li0EdEELi2ENS6_4math3RayIdEEEEEEKNS1_16auto_partitionerEED2Ev.exit
 
 terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i.i
@@ -84876,8 +84876,8 @@ entry:
   br i1 %tobool.not.i.i, label %_ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEC2ERKSF_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %a.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %a.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
   store ptr null, ptr %a.i.i.i, align 8
   %m_is_writer.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %a.i.i.i, i64 8
   store i8 0, ptr %m_is_writer.i.i.i.i.i.i, align 8
@@ -84935,8 +84935,8 @@ common.resume:                                    ; preds = %lpad.i.i.i, %if.the
   resume { ptr, i32 } %common.resume.op
 
 _ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEE14attachAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %invoke.cont.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %a.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %a.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
   br label %_ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEC2ERKSF_.exit
 
 _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEC2ERKSF_.exit: ; preds = %entry, %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEE14attachAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i
@@ -85051,7 +85051,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit: ; preds = %if.then,
   br label %do.body
 
 do.body:                                          ; preds = %do.body.backedge, %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i = call noundef ptr @_ZN3tbb6detail2d122small_object_allocator10new_objectINS1_9start_forINS1_13blocked_rangeImEEN7openvdb5v11_05tools17LevelSetRayTracerINS8_4GridINS8_4tree4TreeINSC_8RootNodeINSC_12InternalNodeINSF_INSC_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS9_22LevelSetRayIntersectorISM_NS9_16LinearSearchImplISM_Li0EdEELi2ENS8_4math3RayIdEEEEEEKNS1_16auto_partitionerEEEJRSX_RNS0_2d05splitERS2_EEEPT_RNS1_14execution_dataEDpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, ptr noundef nonnull align 8 dereferenceable(12) %ed, ptr noundef nonnull align 64 dereferenceable(480) %start, ptr noundef nonnull align 1 dereferenceable(1) %split_obj, ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i)
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 32, ptr noundef nonnull align 8 dereferenceable(12) %ed)
@@ -85069,7 +85069,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   store ptr %call.i.i.i, ptr %my_parent6.i.i, align 64
   %7 = load ptr, ptr %ed, align 8
   call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(480) %call.i.i, ptr noundef nonnull align 8 dereferenceable(128) %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %alloc.i.i)
   %8 = load i64, ptr %my_grainsize.i, align 8
   %9 = load i64, ptr %range, align 8
   %10 = load i64, ptr %my_begin.i.i, align 8
@@ -85248,10 +85248,10 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
   %arrayidx.i16 = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idxprom.i
   %20 = load i8, ptr %arrayidx.i16, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %d.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.addr.i)
   store i8 %20, ptr %d.addr.i, align 1
   call void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_05tools17LevelSetRayTracerINS6_4GridINS6_4tree4TreeINSA_8RootNodeINSA_12InternalNodeINSD_INSA_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS7_22LevelSetRayIntersectorISK_NS7_16LinearSearchImplISK_Li0EdEELi2ENS6_4math3RayIdEEEEEEKNS1_16auto_partitionerEE15offer_work_implIJRSV_RKS4_RhEEEvRNS1_14execution_dataEDpOT_(ptr noundef nonnull align 64 dereferenceable(480) %start, ptr noundef nonnull align 8 dereferenceable(12) %ed, ptr noundef nonnull align 64 dereferenceable(480) %start, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, ptr noundef nonnull align 1 dereferenceable(1) %d.addr.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %d.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.addr.i)
   %21 = load i8, ptr %my_size.i, align 2
   %dec.i = add i8 %21, -1
   store i8 %dec.i, ptr %my_size.i, align 2
@@ -87794,14 +87794,14 @@ _ZNSt10unique_ptrIN7openvdb5v11_05tools20VolumeRayIntersectorINS1_4GridINS1_4tre
   br i1 %tobool.not.i.i, label %_ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNSt10unique_ptrIN7openvdb5v11_05tools20VolumeRayIntersectorINS1_4GridINS1_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELi2ENS1_4math3RayIdEEEESt14default_deleteISJ_EED2Ev.exit11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
   %mConstAccessorRegistry.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 656
   store ptr %this, ptr %ref.tmp.i.i.i, align 8
   %call.i.i1.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE14internal_eraseISI_EEbRKT_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i)
           to label %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i unwind label %terminate.lpad.i.i
 
 _ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i: ; preds = %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
   br label %_ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEED2Ev.exit
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -88032,7 +88032,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit: ; preds = %if.then,
   br label %do.body
 
 do.body:                                          ; preds = %do.body.backedge, %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 384, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
@@ -88081,7 +88081,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   store ptr %call.i4.i.i, ptr %my_parent6.i.i, align 16
   %14 = load ptr, ptr %ed, align 8
   call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(368) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %alloc.i.i)
   %15 = load i64, ptr %my_grainsize.i, align 8
   %16 = load i64, ptr %range, align 8
   %17 = load i64, ptr %my_begin.i.i, align 8
@@ -88261,7 +88261,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   %idxprom.i = zext i8 %19 to i64
   %arrayidx.i16 = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idxprom.i
   %20 = load i8, ptr %arrayidx.i16, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 384, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
@@ -88301,7 +88301,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   store ptr %call.i4.i.i19, ptr %my_parent8.i.i, align 16
   %27 = load ptr, ptr %ed, align 8
   call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(368) %call.i.i.i18, ptr noundef nonnull align 8 dereferenceable(128) %27)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %alloc.i.i)
   %28 = load i8, ptr %my_size.i, align 2
   %dec.i = add i8 %28, -1
   store i8 %dec.i, ptr %my_size.i, align 2
@@ -88370,14 +88370,14 @@ entry:
   %ref.tmp.i4 = alloca %"class.openvdb::v11_0::math::Vec3.438", align 8
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.openvdb::v11_0::math::Vec3.438", align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %0 = load i64, ptr %b, align 4
   %arrayidx6.i.i.i = getelementptr inbounds nuw i8, ptr %b, i64 8
   %1 = load i32, ptr %arrayidx6.i.i.i, align 4
   store i64 %0, ptr %ref.tmp.i, align 8
   %tmp.coerce.sroa.2.0.coerce.dive1.sroa_idx.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 %1, ptr %tmp.coerce.sroa.2.0.coerce.dive1.sroa_idx.i, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   call void @_ZNK7openvdb5v11_04math5TupleILi3EiE3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp.i)
   %call.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i)
           to label %_ZN7openvdb5v11_04mathlsERSoRKNS1_5CoordE.exit unwind label %lpad.i.i
@@ -88395,18 +88395,18 @@ lpad.i.i:                                         ; preds = %entry
 
 _ZN7openvdb5v11_04mathlsERSoRKNS1_5CoordE.exit:   ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %call2 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.54)
   %mMax.i = getelementptr inbounds nuw i8, ptr %b, i64 12
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp.i4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i4)
   %3 = load i64, ptr %mMax.i, align 4
   %arrayidx6.i.i.i5 = getelementptr inbounds nuw i8, ptr %b, i64 20
   %4 = load i32, ptr %arrayidx6.i.i.i5, align 4
   store i64 %3, ptr %ref.tmp.i4, align 8
   %tmp.coerce.sroa.2.0.coerce.dive1.sroa_idx.i6 = getelementptr inbounds nuw i8, ptr %ref.tmp.i4, i64 8
   store i32 %4, ptr %tmp.coerce.sroa.2.0.coerce.dive1.sroa_idx.i6, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i3)
   call void @_ZNK7openvdb5v11_04math5TupleILi3EiE3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i3, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp.i4)
   %call.i.i7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i3)
           to label %_ZN7openvdb5v11_04mathlsERSoRKNS1_5CoordE.exit9 unwind label %lpad.i.i8
@@ -88418,8 +88418,8 @@ lpad.i.i8:                                        ; preds = %_ZN7openvdb5v11_04m
 
 _ZN7openvdb5v11_04mathlsERSoRKNS1_5CoordE.exit9:  ; preds = %_ZN7openvdb5v11_04mathlsERSoRKNS1_5CoordE.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i3) #14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i3)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp.i4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i4)
   ret ptr %os
 }
 
@@ -90432,14 +90432,14 @@ _ZNSt10unique_ptrIN7openvdb5v11_05tools20VolumeRayIntersectorINS1_4GridINS1_4tre
   br i1 %tobool.not.i.i, label %_ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNSt10unique_ptrIN7openvdb5v11_05tools20VolumeRayIntersectorINS1_4GridINS1_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELi2ENS1_4math3RayIdEEEESt14default_deleteISJ_EED2Ev.exit11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
   %mConstAccessorRegistry.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 656
   store ptr %this, ptr %ref.tmp.i.i.i, align 8
   %call.i.i1.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE14internal_eraseISI_EEbRKT_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i)
           to label %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i unwind label %terminate.lpad.i.i
 
 _ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEE15releaseAccessorERNS1_17ValueAccessorBaseIKSA_Lb1EEE.exit.i.i: ; preds = %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
   br label %_ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEED2Ev.exit
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -90670,7 +90670,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit: ; preds = %if.then,
   br label %do.body
 
 do.body:                                          ; preds = %do.body.backedge, %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 384, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
@@ -90719,7 +90719,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   store ptr %call.i4.i.i, ptr %my_parent6.i.i, align 16
   %14 = load ptr, ptr %ed, align 8
   call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(368) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %alloc.i.i)
   %15 = load i64, ptr %my_grainsize.i, align 8
   %16 = load i64, ptr %range, align 8
   %17 = load i64, ptr %my_begin.i.i, align 8
@@ -90899,7 +90899,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   %idxprom.i = zext i8 %19 to i64
   %arrayidx.i16 = getelementptr inbounds nuw [8 x i8], ptr %my_depth.i, i64 0, i64 %idxprom.i
   %20 = load i8, ptr %arrayidx.i16, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 384, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
@@ -90939,7 +90939,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   store ptr %call.i4.i.i19, ptr %my_parent8.i.i, align 16
   %27 = load ptr, ptr %ed, align 8
   call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(368) %call.i.i.i18, ptr noundef nonnull align 8 dereferenceable(128) %27)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %alloc.i.i)
   %28 = load i8, ptr %my_size.i, align 2
   %dec.i = add i8 %28, -1
   store i8 %dec.i, ptr %my_size.i, align 2
@@ -91073,10 +91073,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 declare double @llvm.sqrt.f64(double) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24

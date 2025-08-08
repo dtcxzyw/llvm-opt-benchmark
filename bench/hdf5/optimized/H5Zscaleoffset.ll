@@ -141,11 +141,11 @@ define internal range(i32 -1, 1) i32 @H5Z__set_local_scaleoffset(i64 noundef %0,
   %5 = alloca i64, align 8
   %6 = alloca [20 x i32], align 16
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 2, ptr %5, align 8, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i8, ptr @H5Z_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %9 = trunc nuw i8 %8 to i1
   %10 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -367,10 +367,10 @@ define internal range(i32 -1, 1) i32 @H5Z__set_local_scaleoffset(i64 noundef %0,
 
 .thread:                                          ; preds = %124, %117, %3, %128, %132, %99, %91, %87, %80, %76, %66, %58, %54, %46, %39, %32, %25, %18
   %.042 = phi i32 [ -1, %18 ], [ -1, %25 ], [ -1, %32 ], [ -1, %39 ], [ -1, %46 ], [ -1, %54 ], [ -1, %58 ], [ -1, %66 ], [ -1, %76 ], [ -1, %80 ], [ -1, %87 ], [ -1, %91 ], [ -1, %99 ], [ -1, %132 ], [ 0, %128 ], [ 0, %3 ], [ -1, %117 ], [ -1, %124 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.042
 }
 
@@ -378,9 +378,9 @@ define internal range(i32 -1, 1) i32 @H5Z__set_local_scaleoffset(i64 noundef %0,
 define internal i64 @H5Z__filter_scaleoffset(i32 noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !14
   %9 = load i8, ptr @H5Z_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %10 = trunc nuw i8 %9 to i1
@@ -831,39 +831,33 @@ H5Z__scaleoffset_convert.exit249.thread:          ; preds = %._crit_edge.us.i248
 
 H5Z__scaleoffset_convert.exit249.thread278:       ; preds = %203, %182, %164, %111, %91, %72, %66, %H5Z__scaleoffset_convert.exit249.thread, %55, %50, %43, %23, %16, %6, %215
   %.0 = phi i64 [ 0, %215 ], [ 0, %6 ], [ 0, %111 ], [ 0, %91 ], [ %73, %72 ], [ 0, %66 ], [ %.1202, %H5Z__scaleoffset_convert.exit249.thread ], [ 0, %55 ], [ 0, %50 ], [ 0, %43 ], [ 0, %23 ], [ 0, %16 ], [ %207, %203 ], [ 0, %182 ], [ 0, %164 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @H5I_object_verify(i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @H5I_object_verify(i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @H5T_get_class(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @H5T_get_class(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @H5T_get_size(ptr noundef) local_unnamed_addr #1
 
-declare i64 @H5T_get_size(ptr noundef) local_unnamed_addr #2
+declare i32 @H5T_get_order(ptr noundef) local_unnamed_addr #1
 
-declare i32 @H5T_get_order(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @H5P_object_verify(i64 noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @H5P_object_verify(i64 noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-declare i32 @H5P_get_filter_by_id(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5P_get_filter_by_id(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @H5S_get_simple_extent_npoints(ptr noundef) local_unnamed_addr #2
+declare i64 @H5S_get_simple_extent_npoints(ptr noundef) local_unnamed_addr #1
 
-declare i32 @H5T_get_sign(ptr noundef) local_unnamed_addr #2
+declare i32 @H5T_get_sign(ptr noundef) local_unnamed_addr #1
 
-declare i32 @H5P_fill_value_defined(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5P_fill_value_defined(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 13) i32 @H5Z__scaleoffset_get_type(i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
@@ -992,7 +986,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__scaleoffset_set_parms_fillval(
   ]
 
 30:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %31 = call i32 @H5P_get_fill_value(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %6) #13
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %33, label %37
@@ -1012,11 +1006,11 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__scaleoffset_set_parms_fillval(
 
 41:                                               ; preds = %37, %33
   %.1474 = phi i32 [ -1, %33 ], [ 0, %37 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %319
 
 42:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %43 = call i32 @H5P_get_fill_value(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %7) #13
   %44 = icmp slt i32 %43, 0
   br i1 %44, label %45, label %49
@@ -1059,11 +1053,11 @@ H5Z__scaleoffset_convert.exit:                    ; preds = %H5Z__scaleoffset_co
 
 60:                                               ; preds = %58, %56, %45
   %.2475 = phi i32 [ -1, %45 ], [ 0, %56 ], [ 0, %58 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %319
 
 61:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %62 = call i32 @H5P_get_fill_value(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %8) #13
   %63 = icmp slt i32 %62, 0
   br i1 %63, label %64, label %68
@@ -1103,11 +1097,11 @@ H5Z__scaleoffset_convert.exit:                    ; preds = %H5Z__scaleoffset_co
 
 79:                                               ; preds = %.preheader586, %64
   %.3476 = phi i32 [ -1, %64 ], [ 0, %.preheader586 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %319
 
 80:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %81 = call i32 @H5P_get_fill_value(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %9) #13
   %82 = icmp slt i32 %81, 0
   br i1 %82, label %83, label %87
@@ -1140,7 +1134,7 @@ H5Z__scaleoffset_convert.exit:                    ; preds = %H5Z__scaleoffset_co
   br i1 %exitcond.not.i538, label %H5Z__scaleoffset_convert.exit539, label %90, !llvm.loop !23
 
 H5Z__scaleoffset_convert.exit539:                 ; preds = %90, %87
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %97 = load i32, ptr @H5T_native_order_g, align 4, !tbaa !12
   %98 = icmp eq i32 %97, 0
   br i1 %98, label %.preheader587, label %107
@@ -1189,16 +1183,16 @@ H5Z__scaleoffset_convert.exit539:                 ; preds = %90, %87
   br i1 %.not529, label %.loopexit588, label %109, !llvm.loop !29
 
 .loopexit588:                                     ; preds = %109, %101
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %113
 
 113:                                              ; preds = %.loopexit588, %83
   %.4477 = phi i32 [ -1, %83 ], [ 0, %.loopexit588 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %319
 
 114:                                              ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %115 = call i32 @H5P_get_fill_value(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %11) #13
   %116 = icmp slt i32 %115, 0
   br i1 %116, label %117, label %121
@@ -1231,7 +1225,7 @@ H5Z__scaleoffset_convert.exit539:                 ; preds = %90, %87
   br i1 %exitcond.not.i541, label %H5Z__scaleoffset_convert.exit542, label %124, !llvm.loop !23
 
 H5Z__scaleoffset_convert.exit542:                 ; preds = %124, %121
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %131 = load i32, ptr @H5T_native_order_g, align 4, !tbaa !12
   %132 = icmp eq i32 %131, 0
   br i1 %132, label %.preheader590, label %141
@@ -1280,16 +1274,16 @@ H5Z__scaleoffset_convert.exit542:                 ; preds = %124, %121
   br i1 %.not525, label %.loopexit591, label %143, !llvm.loop !31
 
 .loopexit591:                                     ; preds = %143, %135
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %147
 
 147:                                              ; preds = %.loopexit591, %117
   %.5478 = phi i32 [ -1, %117 ], [ 0, %.loopexit591 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %319
 
 148:                                              ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %149 = call i32 @H5P_get_fill_value(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %13) #13
   %150 = icmp slt i32 %149, 0
   br i1 %150, label %151, label %155
@@ -1309,11 +1303,11 @@ H5Z__scaleoffset_convert.exit542:                 ; preds = %124, %121
 
 159:                                              ; preds = %155, %151
   %.6479 = phi i32 [ -1, %151 ], [ 0, %155 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %319
 
 160:                                              ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %14) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %161 = call i32 @H5P_get_fill_value(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %14) #13
   %162 = icmp slt i32 %161, 0
   br i1 %162, label %163, label %167
@@ -1356,11 +1350,11 @@ H5Z__scaleoffset_convert.exit545:                 ; preds = %H5Z__scaleoffset_co
 
 178:                                              ; preds = %176, %174, %163
   %.7480 = phi i32 [ -1, %163 ], [ 0, %174 ], [ 0, %176 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %319
 
 179:                                              ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %180 = call i32 @H5P_get_fill_value(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %15) #13
   %181 = icmp slt i32 %180, 0
   br i1 %181, label %182, label %186
@@ -1400,11 +1394,11 @@ H5Z__scaleoffset_convert.exit545:                 ; preds = %H5Z__scaleoffset_co
 
 197:                                              ; preds = %.preheader593, %182
   %.8481 = phi i32 [ -1, %182 ], [ 0, %.preheader593 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %319
 
 198:                                              ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %199 = call i32 @H5P_get_fill_value(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %16) #13
   %200 = icmp slt i32 %199, 0
   br i1 %200, label %201, label %205
@@ -1437,7 +1431,7 @@ H5Z__scaleoffset_convert.exit545:                 ; preds = %H5Z__scaleoffset_co
   br i1 %exitcond.not.i550, label %H5Z__scaleoffset_convert.exit551, label %208, !llvm.loop !23
 
 H5Z__scaleoffset_convert.exit551:                 ; preds = %208, %205
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %215 = load i32, ptr @H5T_native_order_g, align 4, !tbaa !12
   %216 = icmp eq i32 %215, 0
   br i1 %216, label %.preheader594, label %225
@@ -1486,16 +1480,16 @@ H5Z__scaleoffset_convert.exit551:                 ; preds = %208, %205
   br i1 %.not518, label %.loopexit595, label %227, !llvm.loop !33
 
 .loopexit595:                                     ; preds = %227, %219
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %231
 
 231:                                              ; preds = %.loopexit595, %201
   %.9482 = phi i32 [ -1, %201 ], [ 0, %.loopexit595 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %319
 
 232:                                              ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %233 = call i32 @H5P_get_fill_value(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %18) #13
   %234 = icmp slt i32 %233, 0
   br i1 %234, label %235, label %239
@@ -1528,7 +1522,7 @@ H5Z__scaleoffset_convert.exit551:                 ; preds = %208, %205
   br i1 %exitcond.not.i553, label %H5Z__scaleoffset_convert.exit554, label %242, !llvm.loop !23
 
 H5Z__scaleoffset_convert.exit554:                 ; preds = %242, %239
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %249 = load i32, ptr @H5T_native_order_g, align 4, !tbaa !12
   %250 = icmp eq i32 %249, 0
   br i1 %250, label %.preheader597, label %259
@@ -1577,16 +1571,16 @@ H5Z__scaleoffset_convert.exit554:                 ; preds = %242, %239
   br i1 %.not514, label %.loopexit598, label %261, !llvm.loop !35
 
 .loopexit598:                                     ; preds = %261, %253
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %265
 
 265:                                              ; preds = %.loopexit598, %235
   %.10483 = phi i32 [ -1, %235 ], [ 0, %.loopexit598 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %319
 
 266:                                              ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %267 = call i32 @H5P_get_fill_value(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %20) #13
   %268 = icmp slt i32 %267, 0
   br i1 %268, label %269, label %273
@@ -1626,11 +1620,11 @@ H5Z__scaleoffset_convert.exit554:                 ; preds = %242, %239
 
 284:                                              ; preds = %.preheader600, %269
   %.11484 = phi i32 [ -1, %269 ], [ 0, %.preheader600 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %319
 
 285:                                              ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %286 = call i32 @H5P_get_fill_value(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %21) #13
   %287 = icmp slt i32 %286, 0
   br i1 %287, label %288, label %292
@@ -1663,7 +1657,7 @@ H5Z__scaleoffset_convert.exit554:                 ; preds = %242, %239
   br i1 %exitcond.not.i559, label %H5Z__scaleoffset_convert.exit560, label %295, !llvm.loop !23
 
 H5Z__scaleoffset_convert.exit560:                 ; preds = %295, %292
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %302 = load i32, ptr @H5T_native_order_g, align 4, !tbaa !12
   %303 = icmp eq i32 %302, 0
   br i1 %303, label %.preheader, label %312
@@ -1712,12 +1706,12 @@ H5Z__scaleoffset_convert.exit560:                 ; preds = %295, %292
   br i1 %.not508, label %.loopexit, label %314, !llvm.loop !37
 
 .loopexit:                                        ; preds = %314, %306
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %318
 
 318:                                              ; preds = %.loopexit, %288
   %.12 = phi i32 [ -1, %288 ], [ 0, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %319
 
 319:                                              ; preds = %318, %284, %265, %231, %197, %178, %159, %147, %113, %79, %60, %41, %5
@@ -1725,20 +1719,20 @@ H5Z__scaleoffset_convert.exit560:                 ; preds = %295, %292
   ret i32 %.0485
 }
 
-declare i32 @H5P_modify_filter(ptr noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5P_modify_filter(ptr noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @H5P_get_fill_value(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5P_get_fill_value(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
-declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #2
+declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @H5Z__scaleoffset_decompress(ptr noundef nonnull writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 %3, i32 %4) unnamed_addr #6 {
+define internal fastcc void @H5Z__scaleoffset_decompress(ptr noundef nonnull writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 %3, i32 %4) unnamed_addr #5 {
   %6 = zext i32 %1 to i64
   %7 = and i64 %3, 4294967295
   %8 = mul nuw i64 %7, %6
@@ -1931,7 +1925,7 @@ H5Z__scaleoffset_decompress_one_atomic.exit.loopexit30: ; preds = %H5Z__scaleoff
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @H5Z__scaleoffset_postdecompress_i(ptr noundef nonnull captures(none) %0, i32 noundef %1, i32 noundef range(i32 1, 13) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i64 noundef %6) unnamed_addr #7 {
+define internal fastcc void @H5Z__scaleoffset_postdecompress_i(ptr noundef nonnull captures(none) %0, i32 noundef %1, i32 noundef range(i32 1, 13) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i64 noundef %6) unnamed_addr #6 {
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
   %10 = alloca i64, align 8
@@ -2110,7 +2104,7 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_i(ptr noundef nonnu
   br i1 %exitcond947.not, label %.loopexit, label %69, !llvm.loop !49
 
 73:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !10
   %74 = icmp eq i32 %3, 1
   br i1 %74, label %75, label %.preheader732
@@ -2124,7 +2118,7 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_i(ptr noundef nonnu
   br label %.lr.ph803
 
 75:                                               ; preds = %73
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %76 = load i32, ptr @H5T_native_order_g, align 4, !tbaa !12
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %.preheader729, label %85
@@ -2166,7 +2160,7 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_i(ptr noundef nonnu
   br i1 %.not680, label %.loopexit730, label %87, !llvm.loop !51
 
 .loopexit730:                                     ; preds = %87, %.preheader729
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not842 = icmp eq i32 %1, 0
   br i1 %.not842, label %.loopexit728, label %.lr.ph809
 
@@ -2201,11 +2195,11 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_i(ptr noundef nonnu
   br i1 %exitcond934.not, label %.loopexit728, label %.lr.ph803, !llvm.loop !53
 
 .loopexit728:                                     ; preds = %.lr.ph803, %93, %.preheader732, %.loopexit730
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
 103:                                              ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 0, ptr %10, align 8, !tbaa !14
   %104 = icmp eq i32 %3, 1
   br i1 %104, label %105, label %.preheader738
@@ -2219,7 +2213,7 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_i(ptr noundef nonnu
   br label %.lr.ph795
 
 105:                                              ; preds = %103
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %106 = load i32, ptr @H5T_native_order_g, align 4, !tbaa !12
   %107 = icmp eq i32 %106, 0
   br i1 %107, label %.preheader735, label %115
@@ -2261,7 +2255,7 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_i(ptr noundef nonnu
   br i1 %.not676, label %.loopexit736, label %117, !llvm.loop !55
 
 .loopexit736:                                     ; preds = %117, %.preheader735
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not840 = icmp eq i32 %1, 0
   br i1 %.not840, label %.loopexit734, label %.lr.ph801
 
@@ -2296,7 +2290,7 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_i(ptr noundef nonnu
   br i1 %exitcond921.not, label %.loopexit734, label %.lr.ph795, !llvm.loop !57
 
 .loopexit734:                                     ; preds = %.lr.ph795, %123, %.preheader738, %.loopexit736
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit
 
 133:                                              ; preds = %7
@@ -2456,7 +2450,7 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_i(ptr noundef nonnu
   br i1 %exitcond891.not, label %.loopexit, label %186, !llvm.loop !63
 
 190:                                              ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8, !tbaa !10
   %191 = icmp eq i32 %3, 1
   br i1 %191, label %192, label %.preheader754
@@ -2470,7 +2464,7 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_i(ptr noundef nonnu
   br label %.lr.ph769
 
 192:                                              ; preds = %190
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %193 = load i32, ptr @H5T_native_order_g, align 4, !tbaa !12
   %194 = icmp eq i32 %193, 0
   br i1 %194, label %.preheader751, label %202
@@ -2512,7 +2506,7 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_i(ptr noundef nonnu
   br i1 %.not667, label %.loopexit752, label %204, !llvm.loop !65
 
 .loopexit752:                                     ; preds = %204, %.preheader751
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.not832 = icmp eq i32 %1, 0
   br i1 %.not832, label %.loopexit750, label %.lr.ph775
 
@@ -2547,11 +2541,11 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_i(ptr noundef nonnu
   br i1 %exitcond878.not, label %.loopexit750, label %.lr.ph769, !llvm.loop !67
 
 .loopexit750:                                     ; preds = %.lr.ph769, %210, %.preheader754, %.loopexit752
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit
 
 220:                                              ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 0, ptr %14, align 8, !tbaa !14
   %221 = icmp eq i32 %3, 1
   br i1 %221, label %222, label %.preheader760
@@ -2565,7 +2559,7 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_i(ptr noundef nonnu
   br label %.lr.ph
 
 222:                                              ; preds = %220
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %223 = load i32, ptr @H5T_native_order_g, align 4, !tbaa !12
   %224 = icmp eq i32 %223, 0
   br i1 %224, label %.preheader757, label %232
@@ -2607,7 +2601,7 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_i(ptr noundef nonnu
   br i1 %.not664, label %.loopexit758, label %234, !llvm.loop !69
 
 .loopexit758:                                     ; preds = %234, %.preheader757
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.not830 = icmp eq i32 %1, 0
   br i1 %.not830, label %.loopexit756, label %.lr.ph767
 
@@ -2642,7 +2636,7 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_i(ptr noundef nonnu
   br i1 %exitcond.not, label %.loopexit756, label %.lr.ph, !llvm.loop !71
 
 .loopexit756:                                     ; preds = %.lr.ph, %240, %.preheader760, %.loopexit758
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %186, %179, %171, %163, %150, %142, %69, %62, %54, %46, %33, %25, %.preheader747, %.preheader748, %.preheader725, %.preheader726, %.preheader744, %157, %.preheader741, %136, %.preheader722, %40, %.preheader, %19, %7, %.loopexit728, %.loopexit756, %.loopexit750, %.loopexit734
@@ -2650,7 +2644,7 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_i(ptr noundef nonnu
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable
-define internal fastcc void @H5Z__scaleoffset_postdecompress_fd(ptr noundef nonnull captures(none) %0, i32 noundef %1, i32 noundef range(i32 1, 13) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i64 noundef %6, double noundef %7) unnamed_addr #8 {
+define internal fastcc void @H5Z__scaleoffset_postdecompress_fd(ptr noundef nonnull captures(none) %0, i32 noundef %1, i32 noundef range(i32 1, 13) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i64 noundef %6, double noundef %7) unnamed_addr #7 {
   %9 = alloca double, align 8
   %10 = alloca i32, align 4
   %.sroa.4.0.extract.shift = lshr i64 %6, 32
@@ -2734,7 +2728,7 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_fd(ptr noundef nonn
   br i1 %exitcond191.not, label %.loopexit, label %36, !llvm.loop !75
 
 43:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store double 0.000000e+00, ptr %9, align 8, !tbaa !76
   %44 = bitcast i64 %6 to double
   %45 = icmp eq i32 %3, 1
@@ -2749,7 +2743,7 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_fd(ptr noundef nonn
   br label %.lr.ph
 
 46:                                               ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %47 = load i32, ptr @H5T_native_order_g, align 4, !tbaa !12
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %.preheader151, label %56
@@ -2791,7 +2785,7 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_fd(ptr noundef nonn
   br i1 %.not144, label %.loopexit152, label %58, !llvm.loop !79
 
 .loopexit152:                                     ; preds = %58, %.preheader151
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.not173 = icmp eq i32 %1, 0
   br i1 %.not173, label %.loopexit150, label %.lr.ph161
 
@@ -2838,7 +2832,7 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_fd(ptr noundef nonn
   br i1 %exitcond.not, label %.loopexit150, label %.lr.ph, !llvm.loop !81
 
 .loopexit150:                                     ; preds = %.lr.ph, %74, %.preheader154, %.loopexit152
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %34, %.preheader, %.preheader148, %17, %.loopexit150, %8
@@ -2846,7 +2840,7 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_fd(ptr noundef nonn
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @H5Z__scaleoffset_precompress_i(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 0) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef nonnull captures(none) %5, ptr noundef nonnull writeonly captures(none) %6) unnamed_addr #7 {
+define internal fastcc void @H5Z__scaleoffset_precompress_i(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 0) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef nonnull captures(none) %5, ptr noundef nonnull writeonly captures(none) %6) unnamed_addr #6 {
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
   %10 = alloca i64, align 8
@@ -3725,13 +3719,13 @@ thread-pre-split2234:                             ; preds = %.lr.ph2699, %H5Z__s
   br label %922
 
 275:                                              ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !10
   %276 = icmp eq i32 %3, 1
   br i1 %276, label %277, label %345
 
 277:                                              ; preds = %275
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %278 = load i32, ptr @H5T_native_order_g, align 4, !tbaa !12
   %279 = icmp eq i32 %278, 0
   br i1 %279, label %.preheader2295, label %287
@@ -3773,7 +3767,7 @@ thread-pre-split2234:                             ; preds = %.lr.ph2699, %H5Z__s
   br i1 %.not1896, label %.loopexit2296, label %289, !llvm.loop !108
 
 .loopexit2296:                                    ; preds = %289, %.preheader2295
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %293 = load i32, ptr %5, align 4, !tbaa !12
   %294 = icmp eq i32 %293, 0
   %.not2875 = icmp eq i32 %1, 0
@@ -4040,17 +4034,17 @@ thread-pre-split2238:                             ; preds = %.lr.ph2653, %H5Z__s
   br label %370
 
 370:                                              ; preds = %.loopexit2292, %354, %312
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %922
 
 371:                                              ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 0, ptr %10, align 8, !tbaa !14
   %372 = icmp eq i32 %3, 1
   br i1 %372, label %373, label %441
 
 373:                                              ; preds = %371
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %374 = load i32, ptr @H5T_native_order_g, align 4, !tbaa !12
   %375 = icmp eq i32 %374, 0
   br i1 %375, label %.preheader2304, label %383
@@ -4092,7 +4086,7 @@ thread-pre-split2238:                             ; preds = %.lr.ph2653, %H5Z__s
   br i1 %.not1890, label %.loopexit2305, label %385, !llvm.loop !118
 
 .loopexit2305:                                    ; preds = %385, %.preheader2304
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %389 = load i32, ptr %5, align 4, !tbaa !12
   %390 = icmp eq i32 %389, 0
   %.not2871 = icmp eq i32 %1, 0
@@ -4359,7 +4353,7 @@ thread-pre-split2242:                             ; preds = %.lr.ph2607, %H5Z__s
   br label %466
 
 466:                                              ; preds = %.loopexit2301, %450, %408
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %922
 
 467:                                              ; preds = %7
@@ -5225,13 +5219,13 @@ thread-pre-split2254:                             ; preds = %.lr.ph2475, %H5Z__s
   br label %922
 
 730:                                              ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8, !tbaa !10
   %731 = icmp eq i32 %3, 1
   br i1 %731, label %732, label %800
 
 732:                                              ; preds = %730
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %733 = load i32, ptr @H5T_native_order_g, align 4, !tbaa !12
   %734 = icmp eq i32 %733, 0
   br i1 %734, label %.preheader2332, label %742
@@ -5273,7 +5267,7 @@ thread-pre-split2254:                             ; preds = %.lr.ph2475, %H5Z__s
   br i1 %.not1873, label %.loopexit2333, label %744, !llvm.loop !152
 
 .loopexit2333:                                    ; preds = %744, %.preheader2332
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %748 = load i32, ptr %5, align 4, !tbaa !12
   %749 = icmp eq i32 %748, 0
   %.not2855 = icmp eq i32 %1, 0
@@ -5540,17 +5534,17 @@ thread-pre-split2258:                             ; preds = %.lr.ph2429, %H5Z__s
   br label %825
 
 825:                                              ; preds = %.loopexit2329, %809, %767
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %922
 
 826:                                              ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 0, ptr %14, align 8, !tbaa !14
   %827 = icmp eq i32 %3, 1
   br i1 %827, label %828, label %896
 
 828:                                              ; preds = %826
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %829 = load i32, ptr @H5T_native_order_g, align 4, !tbaa !12
   %830 = icmp eq i32 %829, 0
   br i1 %830, label %.preheader2341, label %838
@@ -5592,7 +5586,7 @@ thread-pre-split2258:                             ; preds = %.lr.ph2429, %H5Z__s
   br i1 %.not1868, label %.loopexit2342, label %840, !llvm.loop !162
 
 .loopexit2342:                                    ; preds = %840, %.preheader2341
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %844 = load i32, ptr %5, align 4, !tbaa !12
   %845 = icmp eq i32 %844, 0
   %.not2851 = icmp eq i32 %1, 0
@@ -5859,7 +5853,7 @@ thread-pre-split2262:                             ; preds = %.lr.ph, %H5Z__scale
   br label %921
 
 921:                                              ; preds = %.loopexit2338, %905, %863
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %922
 
 922:                                              ; preds = %669, %712, %.loopexit2322, %214, %257, %.loopexit2285, %586, %632, %.loopexit2316, %491, %542, %.loopexit2310, %131, %177, %.loopexit2279, %39, %89, %.loopexit, %7, %921, %825, %466, %370
@@ -6144,14 +6138,14 @@ H5Z__scaleoffset_log2.exit348:                    ; preds = %.lr.ph.i340, %97
   br label %234
 
 119:                                              ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store double 0.000000e+00, ptr %9, align 8, !tbaa !76
   store i64 0, ptr %6, align 8, !tbaa !14
   %120 = icmp eq i32 %3, 1
   br i1 %120, label %121, label %200
 
 121:                                              ; preds = %119
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %122 = load i32, ptr @H5T_native_order_g, align 4, !tbaa !12
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %.preheader376, label %131
@@ -6193,7 +6187,7 @@ H5Z__scaleoffset_log2.exit348:                    ; preds = %.lr.ph.i340, %97
   br i1 %.not329, label %.loopexit377, label %133, !llvm.loop !177
 
 .loopexit377:                                     ; preds = %133, %.preheader376
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.not452 = icmp eq i32 %1, 0
   br i1 %.not452, label %.critedge338, label %.lr.ph400
 
@@ -6443,7 +6437,7 @@ H5Z__scaleoffset_log2.exit368:                    ; preds = %.lr.ph.i360, %213
   br label %233
 
 233:                                              ; preds = %231, %232, %212, %170
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %234
 
 234:                                              ; preds = %54, %96, %117, %116, %233, %8, %17
@@ -6451,7 +6445,7 @@ H5Z__scaleoffset_log2.exit368:                    ; preds = %.lr.ph.i360, %213
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @H5Z__scaleoffset_compress(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull captures(none) %2, i64 noundef %3, i64 %4, i32 %5) unnamed_addr #6 {
+define internal fastcc void @H5Z__scaleoffset_compress(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull captures(none) %2, i64 noundef %3, i64 %4, i32 %5) unnamed_addr #5 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %.preheader, label %.lr.ph.preheader
 
@@ -6629,40 +6623,46 @@ H5Z__scaleoffset_compress_one_atomic.exit.loopexit27: ; preds = %H5Z__scaleoffse
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @powf(float noundef, float noundef) local_unnamed_addr #9
+declare float @powf(float noundef, float noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #9
+declare double @pow(double noundef, double noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #10
+declare double @llvm.fabs.f64(double) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #10
+declare float @llvm.fmuladd.f32(float, float, float) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.round.f32(float) #10
+declare float @llvm.round.f32(float) #9
 
 ; Function Attrs: nounwind
-declare i64 @llroundf(float noundef) local_unnamed_addr #11
+declare i64 @llroundf(float noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #10
+declare float @llvm.fabs.f32(float) #9
 
 ; Function Attrs: nounwind
-declare i64 @lroundf(float noundef) local_unnamed_addr #11
+declare i64 @lroundf(float noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #10
+declare double @llvm.fmuladd.f64(double, double, double) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.round.f64(double) #10
+declare double @llvm.round.f64(double) #9
 
 ; Function Attrs: nounwind
-declare i64 @llround(double noundef) local_unnamed_addr #11
+declare i64 @llround(double noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
-declare i64 @lround(double noundef) local_unnamed_addr #11
+declare i64 @lround(double noundef) local_unnamed_addr #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12
@@ -6713,17 +6713,17 @@ declare i8 @llvm.umin.i8(i8, i8) #12
 declare i8 @llvm.umax.i8(i8, i8) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nounwind }
 attributes #14 = { nounwind allocsize(0) }

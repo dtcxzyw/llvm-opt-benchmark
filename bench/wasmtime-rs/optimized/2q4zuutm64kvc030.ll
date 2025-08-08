@@ -254,7 +254,7 @@ define void @"_ZN83_$LT$cranelift_codegen_meta..cdsl..settings..Preset$u20$as$u2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !3
   tail call void @_ZN4core4hash6Hasher19write_length_prefix17h10d5d1f551dea9aeE(ptr align 8 %1, i64 %15)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = getelementptr inbounds i64, ptr %13, i64 %15
   store ptr %13, ptr %3, align 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -272,7 +272,7 @@ define void @"_ZN83_$LT$cranelift_codegen_meta..cdsl..settings..Preset$u20$as$u2
   br i1 %23, label %_ZN4core4hash4Hash10hash_slice17h8efb0394a0124198E.exit, label %.lr.ph.i
 
 _ZN4core4hash4Hash10hash_slice17h8efb0394a0124198E.exit: ; preds = %.lr.ph.i, %2
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -322,10 +322,10 @@ declare hidden void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

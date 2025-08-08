@@ -433,7 +433,7 @@ setup_tbuf.exit.thread:                           ; preds = %22, %setup_tbuf.exi
   br label %80
 
 60:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %62 = load i32, ptr %61, align 8, !tbaa !26
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -445,14 +445,14 @@ setup_tbuf.exit.thread:                           ; preds = %22, %setup_tbuf.exi
 .thread:                                          ; preds = %60
   %67 = load i64, ptr %7, align 8, !tbaa !21
   %68 = trunc i64 %67 to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %80
 
 69:                                               ; preds = %60
   call void @ERR_new() #11
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 990, ptr noundef nonnull @__func__.rsa_verify_recover) #11
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 524292, ptr noundef null) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %82
 
 70:                                               ; preds = %19
@@ -831,10 +831,10 @@ define internal range(i32 0, 2) i32 @rsa_get_ctx_params(ptr noundef %0, ptr noun
   br i1 %.not, label %97, label %10
 
 10:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = call i32 @WPACKET_init_der(ptr noundef nonnull %3, ptr noundef nonnull %5, i64 noundef 128) #11
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %rsa_generate_signature_aid.exit.thread, label %12
@@ -1038,8 +1038,8 @@ rsa_generate_signature_aid.exit:                  ; preds = %88
   %90 = call i32 @WPACKET_get_total_written(ptr noundef nonnull %3, ptr noundef nonnull %6) #11
   %91 = call ptr @WPACKET_get_curr(ptr noundef nonnull %3) #11
   call void @WPACKET_cleanup(ptr noundef nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %92 = icmp eq ptr %91, null
   br i1 %92, label %96, label %93
 
@@ -1050,18 +1050,18 @@ rsa_generate_signature_aid.exit:                  ; preds = %88
   br i1 %.not69, label %96, label %.critedge
 
 .critedge:                                        ; preds = %93
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %97
 
 .sink.split:                                      ; preds = %rsa_generate_signature_aid.exit.thread, %rsa_generate_signature_aid.exit.thread91
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %96
 
 96:                                               ; preds = %.sink.split, %rsa_generate_signature_aid.exit, %93
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge86
 
 97:                                               ; preds = %.critedge, %8
@@ -1217,23 +1217,23 @@ define internal range(i32 0, 2) i32 @rsa_set_ctx_params(ptr noundef %0, ptr noun
   %10 = alloca ptr, align 8
   %11 = alloca [256 x i8], align 16
   %12 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(50) %5, i8 0, i64 50, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %7, i8 0, i64 256, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(50) %9, i8 0, i64 50, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %11) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %11, i8 0, i64 256, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8, !tbaa !31
   %13 = icmp eq ptr %0, null
   br i1 %13, label %.critedge108, label %14
@@ -1604,16 +1604,16 @@ thread-pre-split115:                              ; preds = %70
 
 .critedge108:                                     ; preds = %14, %128, %120, %124, %33, %30, %62, %61, %35, %150, %147, %142, %67, %70, %23, %27, %ossl_param_is_empty.exit, %2, %154, %115, %108, %102, %92, %66
   %.0 = phi i32 [ 0, %66 ], [ 0, %92 ], [ 0, %115 ], [ 1, %154 ], [ 0, %102 ], [ 0, %108 ], [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %27 ], [ 0, %23 ], [ 0, %70 ], [ 0, %67 ], [ 0, %142 ], [ 0, %147 ], [ 0, %150 ], [ 0, %35 ], [ 0, %61 ], [ 0, %62 ], [ 0, %30 ], [ 0, %33 ], [ 0, %124 ], [ 0, %120 ], [ 0, %128 ], [ 1, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #11
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %11) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #11
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -1752,8 +1752,8 @@ define internal i32 @rsa_signverify_message_update(ptr noundef captures(address_
 define internal range(i32 0, 2) i32 @rsa_sign_message_final(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) #0 {
   %5 = alloca [64 x i8], align 16
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !33
   %7 = tail call i32 @ossl_prov_is_running() #11
   %8 = icmp eq i32 %7, 0
@@ -1823,8 +1823,8 @@ rsa_get_md_size.exit.i:                           ; preds = %25, %.split
 
 rsa_sign_directly.exit:                           ; preds = %28, %rsa_get_md_size.exit.i, %.split15, %29, %10, %4, %18
   %.0 = phi i32 [ 0, %18 ], [ 0, %4 ], [ 0, %10 ], [ 0, %29 ], [ %35, %.split15 ], [ 1, %28 ], [ 0, %rsa_get_md_size.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -1844,8 +1844,8 @@ define internal range(i32 0, 2) i32 @rsa_ripemd160_verify_message_init(ptr nound
 define internal range(i32 0, 2) i32 @rsa_verify_message_final(ptr noundef captures(address_is_null) %0) #0 {
   %2 = alloca [64 x i8], align 16
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !33
   %4 = tail call i32 @ossl_prov_is_running() #11
   %5 = icmp eq i32 %4, 0
@@ -1892,8 +1892,8 @@ define internal range(i32 0, 2) i32 @rsa_verify_message_final(ptr noundef captur
 
 28:                                               ; preds = %16, %7, %1, %18, %15
   %.0 = phi i32 [ %27, %18 ], [ 0, %15 ], [ 0, %1 ], [ 0, %7 ], [ 0, %16 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -2330,26 +2330,20 @@ define internal range(i32 0, 2) i32 @rsa_sm3_verify_recover_init(ptr noundef %0,
   ret i32 %4
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare i32 @ossl_prov_is_running() local_unnamed_addr #3
 
-declare i32 @ossl_prov_is_running() local_unnamed_addr #4
+declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
-
-declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @rsa_signverify_init(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef range(i32 16, 32769) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i32 @ossl_prov_is_running() #11
   %8 = icmp eq i32 %7, 0
   %9 = icmp eq ptr %0, null
@@ -2505,37 +2499,37 @@ define internal fastcc range(i32 0, 2) i32 @rsa_signverify_init(ptr noundef %0, 
 
 .critedge:                                        ; preds = %.critedge66, %62, %66, %69, %61, %56, %51, %48, %21, %16, %5, %71, %15
   %.0 = phi i32 [ 0, %15 ], [ 0, %71 ], [ 0, %5 ], [ 0, %16 ], [ 0, %21 ], [ 0, %48 ], [ 0, %51 ], [ 0, %56 ], [ 0, %61 ], [ 0, %69 ], [ 0, %66 ], [ 0, %62 ], [ %., %.critedge66 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-declare void @ERR_new() local_unnamed_addr #4
+declare void @ERR_new() local_unnamed_addr #3
 
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare i32 @RSA_up_ref(ptr noundef) local_unnamed_addr #4
+declare i32 @RSA_up_ref(ptr noundef) local_unnamed_addr #3
 
-declare void @RSA_free(ptr noundef) local_unnamed_addr #4
+declare void @RSA_free(ptr noundef) local_unnamed_addr #3
 
-declare i32 @ossl_rsa_key_op_get_protect(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @ossl_rsa_key_op_get_protect(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @RSA_test_flags(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @RSA_test_flags(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @ossl_rsa_get0_pss_params_30(ptr noundef) local_unnamed_addr #4
+declare ptr @ossl_rsa_get0_pss_params_30(ptr noundef) local_unnamed_addr #3
 
-declare i32 @ossl_rsa_pss_params_30_is_unrestricted(ptr noundef) local_unnamed_addr #4
+declare i32 @ossl_rsa_pss_params_30_is_unrestricted(ptr noundef) local_unnamed_addr #3
 
-declare i32 @ossl_rsa_pss_params_30_hashalg(ptr noundef) local_unnamed_addr #4
+declare i32 @ossl_rsa_pss_params_30_hashalg(ptr noundef) local_unnamed_addr #3
 
-declare i32 @ossl_rsa_pss_params_30_maskgenhashalg(ptr noundef) local_unnamed_addr #4
+declare i32 @ossl_rsa_pss_params_30_maskgenhashalg(ptr noundef) local_unnamed_addr #3
 
-declare i32 @ossl_rsa_pss_params_30_saltlen(ptr noundef) local_unnamed_addr #4
+declare i32 @ossl_rsa_pss_params_30_saltlen(ptr noundef) local_unnamed_addr #3
 
-declare ptr @ossl_rsa_oaeppss_nid2name(i32 noundef) local_unnamed_addr #4
+declare ptr @ossl_rsa_oaeppss_nid2name(i32 noundef) local_unnamed_addr #3
 
-declare i64 @OPENSSL_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i64 @OPENSSL_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @rsa_setup_mgf1_md(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
@@ -2851,9 +2845,9 @@ define internal fastcc range(i32 0, 2) i32 @rsa_check_parameters(ptr noundef non
   ret i32 %.1
 }
 
-declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @ossl_digest_rsa_sign_get_md_nid(ptr noundef) local_unnamed_addr #4
+declare i32 @ossl_digest_rsa_sign_get_md_nid(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @rsa_check_padding(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
@@ -2917,26 +2911,26 @@ define internal fastcc range(i32 0, 2) i32 @rsa_check_padding(ptr noundef readon
   ret i32 %.0
 }
 
-declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #4
+declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #3
 
-declare i32 @RSA_X931_hash_id(i32 noundef) local_unnamed_addr #4
+declare i32 @RSA_X931_hash_id(i32 noundef) local_unnamed_addr #3
 
-declare i32 @EVP_MD_is_a(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @EVP_MD_is_a(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
-declare i32 @EVP_MD_xof(ptr noundef) local_unnamed_addr #4
+declare i32 @EVP_MD_xof(ptr noundef) local_unnamed_addr #3
 
-declare i32 @EVP_MD_up_ref(ptr noundef) local_unnamed_addr #4
+declare i32 @EVP_MD_up_ref(ptr noundef) local_unnamed_addr #3
 
-declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #4
+declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #3
 
-declare i32 @RSA_size(ptr noundef) local_unnamed_addr #4
+declare i32 @RSA_size(ptr noundef) local_unnamed_addr #3
 
-declare i32 @EVP_MD_get_size(ptr noundef) local_unnamed_addr #4
+declare i32 @EVP_MD_get_size(ptr noundef) local_unnamed_addr #3
 
-declare i32 @RSA_bits(ptr noundef) local_unnamed_addr #4
+declare i32 @RSA_bits(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @rsa_sign_directly(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #0 {
@@ -3003,7 +2997,7 @@ rsa_get_md_size.exit:                             ; preds = %6, %15
   br i1 %.not99, label %42, label %30
 
 30:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %32 = load i32, ptr %31, align 8, !tbaa !23
   %.not105 = icmp eq i32 %32, 1
@@ -3030,7 +3024,7 @@ rsa_get_md_size.exit:                             ; preds = %6, %15
 
 40:                                               ; preds = %34
   %41 = load i32, ptr %7, align 4, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %127
 
 42:                                               ; preds = %27
@@ -3088,7 +3082,7 @@ rsa_get_md_size.exit:                             ; preds = %6, %15
   br label %127
 
 69:                                               ; preds = %42
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %71 = load i32, ptr %70, align 8, !tbaa !26
   %72 = trunc nuw nsw i64 %5 to i32
@@ -3099,18 +3093,18 @@ rsa_get_md_size.exit:                             ; preds = %6, %15
 
 .thread:                                          ; preds = %69
   %76 = load i32, ptr %8, align 4, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %127
 
 77:                                               ; preds = %69
   call void @ERR_new() #11
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 749, ptr noundef nonnull @__func__.rsa_sign_directly) #11
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 524292, ptr noundef null) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %132
 
 78:                                               ; preds = %42
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %80 = load i32, ptr %79, align 4, !tbaa !17
   %.not100 = icmp eq i32 %80, -1
@@ -3191,7 +3185,7 @@ thread-pre-split:                                 ; preds = %84
   %118 = load ptr, ptr %10, align 8, !tbaa !20
   %119 = call i32 @RSA_private_encrypt(i32 noundef %116, ptr noundef %117, ptr noundef nonnull %1, ptr noundef %118, i32 noundef 3) #11
   call fastcc void @clean_tbuf(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %127
 
 120:                                              ; preds = %42
@@ -3225,11 +3219,11 @@ thread-pre-split:                                 ; preds = %84
   br label %132
 
 .critedge:                                        ; preds = %101, %113, %98, %88
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %132
 
 .critedge107:                                     ; preds = %39, %33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %132
 
 132:                                              ; preds = %77, %.critedge107, %.critedge, %rsa_get_md_size.exit, %130, %129, %120, %55, %50, %26, %23, %20
@@ -3237,7 +3231,7 @@ thread-pre-split:                                 ; preds = %84
   ret i32 %.079
 }
 
-declare i32 @RSA_sign_ASN1_OCTET_STRING(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @RSA_sign_ASN1_OCTET_STRING(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @setup_tbuf(ptr noundef captures(none) %0) unnamed_addr #0 {
@@ -3263,9 +3257,9 @@ define internal fastcc range(i32 0, 2) i32 @setup_tbuf(ptr noundef captures(none
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare i32 @RSA_private_encrypt(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @RSA_private_encrypt(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @clean_tbuf(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
@@ -3286,25 +3280,25 @@ define internal fastcc void @clean_tbuf(ptr noundef nonnull readonly captures(no
   ret void
 }
 
-declare i32 @RSA_sign(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @RSA_sign(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @ossl_rsa_padding_add_PKCS1_PSS_mgf1(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @ossl_rsa_padding_add_PKCS1_PSS_mgf1(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @rsa_verify_set_sig(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca [2 x %struct.ossl_param_st], align 16
   %5 = alloca %struct.ossl_param_st, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.18, ptr noundef %1, i64 noundef %2) #11
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !51
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %7 = load ptr, ptr %4, align 16, !tbaa !47
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %rsa_sigalg_set_ctx_params.exit, label %8
@@ -3335,7 +3329,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_verify_set_sig(ptr noundef nonnu
 
 rsa_sigalg_set_ctx_params.exit:                   ; preds = %3, %14, %19
   %.0.i = phi i32 [ 1, %19 ], [ 1, %3 ], [ 0, %14 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.i
 }
 
@@ -3343,7 +3337,7 @@ rsa_sigalg_set_ctx_params.exit:                   ; preds = %3, %14, %19
 define internal fastcc range(i32 0, 2) i32 @rsa_verify_directly(ptr noundef nonnull captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = tail call i32 @ossl_prov_is_running() #11
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %.critedge, label %9
@@ -3407,7 +3401,7 @@ setup_tbuf.exit.thread._crit_edge:                ; preds = %setup_tbuf.exit.thr
   br label %83
 
 rsa_get_md_size.exit:                             ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %34 = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %11) #11
   %narrow.i = tail call i32 @llvm.smax.i32(i32 %34, i32 0)
   %spec.select.i = zext nneg i32 %narrow.i to i64
@@ -3472,7 +3466,7 @@ setup_tbuf.exit62.thread:                         ; preds = %36, %setup_tbuf.exi
 
 62:                                               ; preds = %51, %setup_tbuf.exit62, %61, %50, %35
   %.1 = phi i32 [ 0, %35 ], [ 0, %50 ], [ 0, %61 ], [ 0, %setup_tbuf.exit62 ], [ 1, %51 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge
 
 63:                                               ; preds = %12
@@ -3533,21 +3527,21 @@ setup_tbuf.exit66.thread:                         ; preds = %64, %setup_tbuf.exi
 
 .critedge:                                        ; preds = %85, %80, %setup_tbuf.exit66, %83, %setup_tbuf.exit.thread, %setup_tbuf.exit, %15, %5, %63, %62, %23
   %.0 = phi i32 [ 0, %63 ], [ 0, %23 ], [ %.1, %62 ], [ 0, %5 ], [ 1, %15 ], [ 0, %setup_tbuf.exit ], [ 0, %setup_tbuf.exit.thread ], [ 0, %83 ], [ 0, %setup_tbuf.exit66 ], [ 0, %80 ], [ %spec.select, %85 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-declare void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @OSSL_PARAM_construct_end(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8) local_unnamed_addr #4
+declare void @OSSL_PARAM_construct_end(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8) local_unnamed_addr #3
 
-declare i32 @RSA_verify(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @RSA_verify(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @RSA_public_decrypt(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @RSA_public_decrypt(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @ossl_rsa_verify_PKCS1_PSS_mgf1(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @ossl_rsa_verify_PKCS1_PSS_mgf1(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @ossl_rsa_verify(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @ossl_rsa_verify(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @rsa_digest_signverify_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 16384, 32769) %4) unnamed_addr #0 {
@@ -3616,70 +3610,70 @@ define internal fastcc range(i32 0, 2) i32 @rsa_digest_signverify_init(ptr nound
   ret i32 %.0
 }
 
-declare i32 @OPENSSL_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @OPENSSL_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @EVP_MD_CTX_new() local_unnamed_addr #4
+declare ptr @EVP_MD_CTX_new() local_unnamed_addr #3
 
-declare i32 @EVP_DigestInit_ex2(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @EVP_DigestInit_ex2(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @EVP_MD_CTX_copy_ex(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @EVP_MD_CTX_copy_ex(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @OSSL_PARAM_locate(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @OSSL_PARAM_locate(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @OSSL_PARAM_set_octet_string(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @OSSL_PARAM_set_octet_string(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @OSSL_PARAM_set_int(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @OSSL_PARAM_set_int(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @OSSL_PARAM_set_utf8_string(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @OSSL_PARAM_set_utf8_string(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare i32 @WPACKET_init_der(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @WPACKET_init_der(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @ossl_DER_w_algorithmIdentifier_MDWithRSAEncryption(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @ossl_DER_w_algorithmIdentifier_MDWithRSAEncryption(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @ossl_rsa_pss_params_30_set_defaults(ptr noundef) local_unnamed_addr #4
+declare i32 @ossl_rsa_pss_params_30_set_defaults(ptr noundef) local_unnamed_addr #3
 
-declare i32 @ossl_rsa_pss_params_30_set_hashalg(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @ossl_rsa_pss_params_30_set_hashalg(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @ossl_rsa_pss_params_30_set_maskgenhashalg(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @ossl_rsa_pss_params_30_set_maskgenhashalg(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @ossl_rsa_pss_params_30_set_saltlen(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @ossl_rsa_pss_params_30_set_saltlen(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @ossl_DER_w_algorithmIdentifier_RSA_PSS(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @ossl_DER_w_algorithmIdentifier_RSA_PSS(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @WPACKET_finish(ptr noundef) local_unnamed_addr #4
+declare i32 @WPACKET_finish(ptr noundef) local_unnamed_addr #3
 
-declare i32 @WPACKET_get_total_written(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @WPACKET_get_total_written(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @WPACKET_get_curr(ptr noundef) local_unnamed_addr #4
+declare ptr @WPACKET_get_curr(ptr noundef) local_unnamed_addr #3
 
-declare void @WPACKET_cleanup(ptr noundef) local_unnamed_addr #4
+declare void @WPACKET_cleanup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
-declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @OSSL_PARAM_get_utf8_string(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @OSSL_PARAM_get_utf8_string(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @OSSL_PARAM_get_int(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @OSSL_PARAM_get_int(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #7
 
-declare i32 @EVP_MD_CTX_get_params(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @EVP_MD_CTX_get_params(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @EVP_MD_gettable_ctx_params(ptr noundef) local_unnamed_addr #4
+declare ptr @EVP_MD_gettable_ctx_params(ptr noundef) local_unnamed_addr #3
 
-declare i32 @EVP_MD_CTX_set_params(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @EVP_MD_CTX_set_params(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @EVP_MD_settable_ctx_params(ptr noundef) local_unnamed_addr #4
+declare ptr @EVP_MD_settable_ctx_params(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @rsa_sigalg_signverify_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 16, 32769) %4) unnamed_addr #0 {
@@ -3750,11 +3744,17 @@ define internal fastcc range(i32 0, 2) i32 @rsa_sigalg_signverify_init(ptr nound
   ret i32 %.0
 }
 
-declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @OSSL_PARAM_get_octet_string(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @OSSL_PARAM_get_octet_string(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
@@ -3768,12 +3768,12 @@ declare i32 @llvm.smax.i32(i32, i32) #10
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind }

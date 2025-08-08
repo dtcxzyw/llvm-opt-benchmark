@@ -42,16 +42,10 @@ define i32 @ossl_get_extension_type(i64 noundef %0) local_unnamed_addr #0 {
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls_validate_all_contexts(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @tls_validate_all_contexts(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = and i32 %1, 128
   %.not = icmp eq i32 %5, 0
   %6 = lshr i32 %1, 7
@@ -134,14 +128,14 @@ validate_context.exit:                            ; preds = %41, %39, %14
 
 .critedge:                                        ; preds = %validate_context.exit, %21, %29, %39, %41, %3
   %.4 = phi i32 [ 1, %3 ], [ 0, %41 ], [ 0, %39 ], [ 0, %29 ], [ 0, %21 ], [ 1, %validate_context.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.4
 }
 
-declare ptr @custom_ext_find(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @custom_ext_find(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @extension_is_relevant(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @extension_is_relevant(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = and i32 %2, 2048
   %.not = icmp ne i32 %4, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -219,7 +213,7 @@ define range(i32 0, 2) i32 @extension_is_relevant(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls_collect_extensions(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @tls_collect_extensions(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = alloca i64, align 8
   %.sroa.0100.0.copyload = load ptr, ptr %1, align 8, !tbaa !93
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -359,7 +353,7 @@ validate_context.exit.i:                          ; preds = %77, %75
   br i1 %exitcond.not.i, label %83, label %60, !llvm.loop !100
 
 83:                                               ; preds = %80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !94
   %84 = call ptr @custom_ext_find(ptr noundef nonnull %10, i32 noundef %.0.i88, i32 noundef %42, ptr noundef nonnull %7) #8
   %.not35.i = icmp eq ptr %84, null
@@ -393,18 +387,18 @@ validate_context.exit.i:                          ; preds = %77, %75
   br i1 %.not5.i41.i, label %verify_extension.exit, label %verify_extension.exit.thread133
 
 verify_extension.exit.thread127.thread:           ; preds = %83
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %108
 
 verify_extension.exit.thread133:                  ; preds = %85, %97, %99
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %verify_extension.exit.thread
 
 verify_extension.exit:                            ; preds = %97, %99
   %101 = load i64, ptr %7, align 8, !tbaa !94
   %102 = getelementptr %struct.raw_extension_st, ptr %18, i64 %101
   %103 = getelementptr i8, ptr %102, i64 1160
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %verify_extension.exit.thread127
 
 verify_extension.exit.thread127:                  ; preds = %validate_context.exit.i, %verify_extension.exit
@@ -622,20 +616,20 @@ extension_is_relevant.exit.thread:                ; preds = %._crit_edge.i, %159
   ret i32 %.0
 }
 
-declare void @custom_ext_init(ptr noundef) local_unnamed_addr #3
+declare void @custom_ext_init(ptr noundef) local_unnamed_addr #2
 
-declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ERR_new() local_unnamed_addr #3
+declare void @ERR_new() local_unnamed_addr #2
 
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ossl_statem_fatal(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @ossl_statem_fatal(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @tls_parse_extension(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #2 {
+define i32 @tls_parse_extension(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #1 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw %struct.raw_extension_st, ptr %3, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -753,10 +747,10 @@ extension_is_relevant.exit:                       ; preds = %45
   ret i32 %.0
 }
 
-declare i32 @custom_ext_parse(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @custom_ext_parse(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls_parse_all_extensions(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @tls_parse_all_extensions(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2176
   %8 = load ptr, ptr %7, align 8, !tbaa !9
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 136
@@ -815,7 +809,7 @@ define range(i32 0, 2) i32 @tls_parse_all_extensions(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @should_add_extension(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @should_add_extension(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = and i32 %2, %1
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %extension_is_relevant.exit.thread, label %7
@@ -911,11 +905,11 @@ extension_is_relevant.exit.thread:                ; preds = %._crit_edge.i, %20,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls_construct_extensions(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @tls_construct_extensions(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !80
   %8 = and i32 %2, 32768
   %.not.not = icmp eq i32 %8, 0
@@ -1117,34 +1111,34 @@ should_add_extension.exit.thread:                 ; preds = %76, %77, %74, %._cr
 
 .loopexit:                                        ; preds = %74, %83, %86, %.critedge, %20, %21, %14, %15
   %.0 = phi i32 [ 0, %15 ], [ 0, %14 ], [ 0, %21 ], [ 0, %20 ], [ 0, %.critedge ], [ 0, %86 ], [ %.mux, %83 ], [ %75, %74 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-declare i32 @WPACKET_start_sub_packet_len__(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @WPACKET_start_sub_packet_len__(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @WPACKET_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @WPACKET_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @ssl_get_min_max_version(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ssl_get_min_max_version(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @custom_ext_add(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @custom_ext_add(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @WPACKET_close(ptr noundef) local_unnamed_addr #3
+declare i32 @WPACKET_close(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @tls_psk_do_binder(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #2 {
+define range(i32 -1, 2) i32 @tls_psk_do_binder(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #1 {
   %10 = alloca [64 x i8], align 16
   %11 = alloca [64 x i8], align 16
   %12 = alloca [64 x i8], align 16
   %13 = alloca [64 x i8], align 16
   %14 = alloca i64, align 8
   %15 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %16 = tail call i32 @EVP_MD_get_size(ptr noundef %1) #8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !117
@@ -1249,7 +1243,7 @@ define range(i32 -1, 2) i32 @tls_psk_do_binder(ptr noundef %0, ptr noundef %1, p
   br i1 %70, label %71, label %122
 
 71:                                               ; preds = %67
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %73 = load ptr, ptr %72, align 8, !tbaa !126
   %74 = call i64 @BIO_ctrl(ptr noundef %73, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %15) #8
@@ -1328,11 +1322,11 @@ define range(i32 -1, 2) i32 @tls_psk_do_binder(ptr noundef %0, ptr noundef %1, p
   call void @ERR_new() #8
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink150, ptr noundef nonnull @__func__.tls_psk_do_binder) #8
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef %.sink, ptr noundef null) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %155
 
 121:                                              ; preds = %118
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %122
 
 122:                                              ; preds = %121, %67
@@ -1417,60 +1411,60 @@ define range(i32 -1, 2) i32 @tls_psk_do_binder(ptr noundef %0, ptr noundef %1, p
   call void @OPENSSL_cleanse(ptr noundef nonnull %12, i64 noundef 64) #8
   call void @EVP_PKEY_free(ptr noundef %.092) #8
   call void @EVP_MD_CTX_free(ptr noundef %.093) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.091
 }
 
-declare i32 @EVP_MD_get_size(ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_MD_get_size(ptr noundef) local_unnamed_addr #2
 
-declare i32 @tls13_generate_secret(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @tls13_generate_secret(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @EVP_MD_CTX_new() local_unnamed_addr #3
+declare ptr @EVP_MD_CTX_new() local_unnamed_addr #2
 
-declare i32 @EVP_DigestInit_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_DigestInit_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @tls13_hkdf_expand(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @tls13_hkdf_expand(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @tls13_derive_finishedkey(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @tls13_derive_finishedkey(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @EVP_PKEY_new_raw_private_key_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @EVP_PKEY_new_raw_private_key_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @EVP_DigestSignInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_DigestSignInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @EVP_MD_get0_name(ptr noundef) local_unnamed_addr #3
+declare ptr @EVP_MD_get0_name(ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_DigestSignUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @EVP_DigestSignUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @EVP_DigestSignFinal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_DigestSignFinal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #3
+declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #2
 
-declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #3
+declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #2
 
-declare i32 @tls_parse_ctos_renegotiate(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_ctos_renegotiate(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_parse_stoc_renegotiate(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_stoc_renegotiate(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_stoc_renegotiate(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_stoc_renegotiate(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_ctos_renegotiate(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_ctos_renegotiate(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @final_renegotiate(ptr noundef %0, i32 %1, i32 noundef %2) #2 {
+define internal range(i32 0, 2) i32 @final_renegotiate(ptr noundef %0, i32 %1, i32 noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load i32, ptr %4, align 8, !tbaa !91
   %.not = icmp eq i32 %5, 0
@@ -1518,7 +1512,7 @@ define internal range(i32 0, 2) i32 @final_renegotiate(ptr noundef %0, i32 %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @init_server_name(ptr noundef captures(none) %0, i32 %1) #2 {
+define internal noundef i32 @init_server_name(ptr noundef captures(none) %0, i32 %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i32, ptr %3, align 8, !tbaa !91
   %.not = icmp eq i32 %4, 0
@@ -1537,18 +1531,18 @@ define internal noundef i32 @init_server_name(ptr noundef captures(none) %0, i32
   ret i32 1
 }
 
-declare i32 @tls_parse_ctos_server_name(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_ctos_server_name(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_parse_stoc_server_name(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_stoc_server_name(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_stoc_server_name(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_stoc_server_name(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_ctos_server_name(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_ctos_server_name(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @final_server_name(ptr noundef %0, i32 %1, i32 noundef %2) #2 {
+define internal range(i32 0, 2) i32 @final_server_name(ptr noundef %0, i32 %1, i32 noundef %2) #1 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 112, ptr %4, align 4, !tbaa !80
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8, !tbaa !105
@@ -1764,20 +1758,20 @@ define internal range(i32 0, 2) i32 @final_server_name(ptr noundef %0, i32 %1, i
 
 .critedge:                                        ; preds = %69, %73, %76, %81, %85, %86, %68, %105, %103, %87, %15
   %.0 = phi i32 [ 0, %87 ], [ 1, %103 ], [ 1, %105 ], [ 0, %15 ], [ 1, %68 ], [ 0, %86 ], [ 0, %85 ], [ 1, %81 ], [ 1, %76 ], [ 1, %73 ], [ 1, %69 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare i32 @tls_parse_ctos_maxfragmentlen(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_ctos_maxfragmentlen(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_parse_stoc_maxfragmentlen(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_stoc_maxfragmentlen(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_stoc_maxfragmentlen(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_stoc_maxfragmentlen(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_ctos_maxfragmentlen(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_ctos_maxfragmentlen(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @final_maxfragmentlen(ptr noundef %0, i32 %1, i32 %2) #2 {
+define internal noundef i32 @final_maxfragmentlen(ptr noundef %0, i32 %1, i32 %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2304
   %5 = load ptr, ptr %4, align 8, !tbaa !120
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 856
@@ -1821,7 +1815,7 @@ define internal noundef i32 @final_maxfragmentlen(ptr noundef %0, i32 %1, i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @init_srp(ptr noundef captures(none) %0, i32 %1) #2 {
+define internal noundef i32 @init_srp(ptr noundef captures(none) %0, i32 %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 3056
   %4 = load ptr, ptr %3, align 8, !tbaa !161
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 1223) #8
@@ -1829,12 +1823,12 @@ define internal noundef i32 @init_srp(ptr noundef captures(none) %0, i32 %1) #2 
   ret i32 1
 }
 
-declare i32 @tls_parse_ctos_srp(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_ctos_srp(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_ctos_srp(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_ctos_srp(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @init_ec_point_formats(ptr noundef captures(none) initializes((2680, 2688)) %0, i32 %1) #2 {
+define internal noundef i32 @init_ec_point_formats(ptr noundef captures(none) initializes((2680, 2688)) %0, i32 %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2688
   %4 = load ptr, ptr %3, align 8, !tbaa !162
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 1232) #8
@@ -1843,16 +1837,16 @@ define internal noundef i32 @init_ec_point_formats(ptr noundef captures(none) in
   ret i32 1
 }
 
-declare i32 @tls_parse_ctos_ec_pt_formats(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_ctos_ec_pt_formats(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_parse_stoc_ec_pt_formats(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_stoc_ec_pt_formats(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_stoc_ec_pt_formats(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_stoc_ec_pt_formats(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_ctos_ec_pt_formats(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_ctos_ec_pt_formats(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @final_ec_pt_formats(ptr noundef %0, i32 %1, i32 %2) #2 {
+define internal range(i32 0, 2) i32 @final_ec_pt_formats(ptr noundef %0, i32 %1, i32 %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load i32, ptr %4, align 8, !tbaa !91
   %.not = icmp eq i32 %5, 0
@@ -1924,14 +1918,14 @@ define internal range(i32 0, 2) i32 @final_ec_pt_formats(ptr noundef %0, i32 %1,
   ret i32 %.020
 }
 
-declare i32 @tls_parse_ctos_supported_groups(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_ctos_supported_groups(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_stoc_supported_groups(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_stoc_supported_groups(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_ctos_supported_groups(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_ctos_supported_groups(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @init_session_ticket(ptr noundef captures(none) %0, i32 %1) #5 {
+define internal noundef i32 @init_session_ticket(ptr noundef captures(none) %0, i32 %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i32, ptr %3, align 8, !tbaa !91
   %.not = icmp eq i32 %4, 0
@@ -1946,16 +1940,16 @@ define internal noundef i32 @init_session_ticket(ptr noundef captures(none) %0, 
   ret i32 1
 }
 
-declare i32 @tls_parse_ctos_session_ticket(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_ctos_session_ticket(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_parse_stoc_session_ticket(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_stoc_session_ticket(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_stoc_session_ticket(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_stoc_session_ticket(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_ctos_session_ticket(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_ctos_session_ticket(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @init_status_request(ptr noundef captures(none) %0, i32 %1) #2 {
+define internal noundef i32 @init_status_request(ptr noundef captures(none) %0, i32 %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i32, ptr %3, align 8, !tbaa !91
   %.not = icmp eq i32 %4, 0
@@ -1977,31 +1971,31 @@ define internal noundef i32 @init_status_request(ptr noundef captures(none) %0, 
   ret i32 1
 }
 
-declare i32 @tls_parse_ctos_status_request(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_ctos_status_request(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_parse_stoc_status_request(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_stoc_status_request(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_stoc_status_request(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_stoc_status_request(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_ctos_status_request(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_ctos_status_request(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @init_npn(ptr noundef writeonly captures(none) initializes((1204, 1208)) %0, i32 %1) #6 {
+define internal noundef i32 @init_npn(ptr noundef writeonly captures(none) initializes((1204, 1208)) %0, i32 %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   store i32 0, ptr %3, align 4, !tbaa !173
   ret i32 1
 }
 
-declare i32 @tls_parse_ctos_npn(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_ctos_npn(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_parse_stoc_npn(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_stoc_npn(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_stoc_next_proto_neg(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_stoc_next_proto_neg(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_ctos_npn(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_ctos_npn(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @init_alpn(ptr noundef captures(none) initializes((1216, 1224)) %0, i32 %1) #2 {
+define internal noundef i32 @init_alpn(ptr noundef captures(none) initializes((1216, 1224)) %0, i32 %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   %4 = load ptr, ptr %3, align 8, !tbaa !174
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 1168) #8
@@ -2022,16 +2016,16 @@ define internal noundef i32 @init_alpn(ptr noundef captures(none) initializes((1
   ret i32 1
 }
 
-declare i32 @tls_parse_ctos_alpn(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_ctos_alpn(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_parse_stoc_alpn(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_stoc_alpn(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_stoc_alpn(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_stoc_alpn(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_ctos_alpn(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_ctos_alpn(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @final_alpn(ptr noundef %0, i32 %1, i32 noundef %2) #2 {
+define internal i32 @final_alpn(ptr noundef %0, i32 %1, i32 noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load i32, ptr %4, align 8, !tbaa !91
   %6 = or i32 %5, %2
@@ -2083,7 +2077,7 @@ define internal i32 @final_alpn(ptr noundef %0, i32 %1, i32 noundef %2) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @init_srtp(ptr noundef captures(none) %0, i32 %1) #5 {
+define internal noundef i32 @init_srtp(ptr noundef captures(none) %0, i32 %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i32, ptr %3, align 8, !tbaa !91
   %.not = icmp eq i32 %4, 0
@@ -2098,35 +2092,35 @@ define internal noundef i32 @init_srtp(ptr noundef captures(none) %0, i32 %1) #5
   ret i32 1
 }
 
-declare i32 @tls_parse_ctos_use_srtp(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_ctos_use_srtp(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_parse_stoc_use_srtp(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_stoc_use_srtp(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_stoc_use_srtp(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_stoc_use_srtp(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_ctos_use_srtp(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_ctos_use_srtp(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @init_etm(ptr noundef writeonly captures(none) initializes((2836, 2840)) %0, i32 %1) #6 {
+define internal noundef i32 @init_etm(ptr noundef writeonly captures(none) initializes((2836, 2840)) %0, i32 %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2836
   store i32 0, ptr %3, align 4, !tbaa !179
   ret i32 1
 }
 
-declare i32 @tls_parse_ctos_etm(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_ctos_etm(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_parse_stoc_etm(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_stoc_etm(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_stoc_etm(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_stoc_etm(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_ctos_etm(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_ctos_etm(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_parse_stoc_sct(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_stoc_sct(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_ctos_sct(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_ctos_sct(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @init_ems(ptr noundef captures(none) %0, i32 %1) #5 {
+define internal noundef i32 @init_ems(ptr noundef captures(none) %0, i32 %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %4 = load i64, ptr %3, align 8, !tbaa !180
   %5 = and i64 %4, 512
@@ -2143,16 +2137,16 @@ define internal noundef i32 @init_ems(ptr noundef captures(none) %0, i32 %1) #5 
   ret i32 1
 }
 
-declare i32 @tls_parse_ctos_ems(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_ctos_ems(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_parse_stoc_ems(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_stoc_ems(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_stoc_ems(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_stoc_ems(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_ctos_ems(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_ctos_ems(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @final_ems(ptr noundef %0, i32 %1, i32 %2) #2 {
+define internal range(i32 0, 2) i32 @final_ems(ptr noundef %0, i32 %1, i32 %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %5 = load i64, ptr %4, align 8, !tbaa !180
   %6 = and i64 %5, 512
@@ -2195,7 +2189,7 @@ define internal range(i32 0, 2) i32 @final_ems(ptr noundef %0, i32 %1, i32 %2) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @init_sig_algs_cert(ptr noundef captures(none) initializes((1016, 1024)) %0, i32 %1) #2 {
+define internal noundef i32 @init_sig_algs_cert(ptr noundef captures(none) initializes((1016, 1024)) %0, i32 %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %4 = load ptr, ptr %3, align 8, !tbaa !182
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 1213) #8
@@ -2205,21 +2199,21 @@ define internal noundef i32 @init_sig_algs_cert(ptr noundef captures(none) initi
   ret i32 1
 }
 
-declare i32 @tls_parse_ctos_sig_algs_cert(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_ctos_sig_algs_cert(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @init_post_handshake_auth(ptr noundef writeonly captures(none) initializes((2984, 2988)) %0, i32 %1) #6 {
+define internal noundef i32 @init_post_handshake_auth(ptr noundef writeonly captures(none) initializes((2984, 2988)) %0, i32 %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2984
   store i32 0, ptr %3, align 8, !tbaa !184
   ret i32 1
 }
 
-declare i32 @tls_parse_ctos_post_handshake_auth(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_ctos_post_handshake_auth(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_ctos_post_handshake_auth(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_ctos_post_handshake_auth(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @init_client_cert_type(ptr noundef captures(none) %0, i32 %1) #5 {
+define internal noundef i32 @init_client_cert_type(ptr noundef captures(none) %0, i32 %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i32, ptr %3, align 8, !tbaa !91
   %.not = icmp eq i32 %4, 0
@@ -2236,16 +2230,16 @@ define internal noundef i32 @init_client_cert_type(ptr noundef captures(none) %0
   ret i32 1
 }
 
-declare i32 @tls_parse_ctos_client_cert_type(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_ctos_client_cert_type(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_parse_stoc_client_cert_type(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_stoc_client_cert_type(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_stoc_client_cert_type(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_stoc_client_cert_type(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_ctos_client_cert_type(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_ctos_client_cert_type(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @init_server_cert_type(ptr noundef captures(none) %0, i32 %1) #5 {
+define internal noundef i32 @init_server_cert_type(ptr noundef captures(none) %0, i32 %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i32, ptr %3, align 8, !tbaa !91
   %.not = icmp eq i32 %4, 0
@@ -2262,16 +2256,16 @@ define internal noundef i32 @init_server_cert_type(ptr noundef captures(none) %0
   ret i32 1
 }
 
-declare i32 @tls_parse_ctos_server_cert_type(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_ctos_server_cert_type(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_parse_stoc_server_cert_type(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_stoc_server_cert_type(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_stoc_server_cert_type(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_stoc_server_cert_type(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_ctos_server_cert_type(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_ctos_server_cert_type(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @init_sig_algs(ptr noundef captures(none) initializes((1008, 1016)) %0, i32 %1) #2 {
+define internal noundef i32 @init_sig_algs(ptr noundef captures(none) initializes((1008, 1016)) %0, i32 %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 992
   %4 = load ptr, ptr %3, align 8, !tbaa !189
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 1202) #8
@@ -2281,12 +2275,12 @@ define internal noundef i32 @init_sig_algs(ptr noundef captures(none) initialize
   ret i32 1
 }
 
-declare i32 @tls_parse_ctos_sig_algs(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_ctos_sig_algs(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_ctos_sig_algs(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_ctos_sig_algs(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @final_sig_algs(ptr noundef %0, i32 %1, i32 noundef %2) #2 {
+define internal range(i32 0, 2) i32 @final_sig_algs(ptr noundef %0, i32 %1, i32 noundef %2) #1 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %4, label %19
 
@@ -2325,14 +2319,14 @@ define internal range(i32 0, 2) i32 @final_sig_algs(ptr noundef %0, i32 %1, i32 
   ret i32 %.0
 }
 
-declare i32 @tls_parse_stoc_supported_versions(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_stoc_supported_versions(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_stoc_supported_versions(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_stoc_supported_versions(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_ctos_supported_versions(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_ctos_supported_versions(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @final_supported_versions(ptr noundef %0, i32 noundef %1, i32 noundef %2) #2 {
+define internal range(i32 0, 2) i32 @final_supported_versions(ptr noundef %0, i32 noundef %1, i32 noundef %2) #1 {
   %4 = icmp eq i32 %2, 0
   %5 = icmp eq i32 %1, 2048
   %or.cond = and i1 %5, %4
@@ -2350,26 +2344,26 @@ define internal range(i32 0, 2) i32 @final_supported_versions(ptr noundef %0, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @init_psk_kex_modes(ptr noundef writeonly captures(none) initializes((2832, 2836)) %0, i32 %1) #6 {
+define internal noundef i32 @init_psk_kex_modes(ptr noundef writeonly captures(none) initializes((2832, 2836)) %0, i32 %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2832
   store i32 0, ptr %3, align 8, !tbaa !191
   ret i32 1
 }
 
-declare i32 @tls_parse_ctos_psk_kex_modes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_ctos_psk_kex_modes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_ctos_psk_kex_modes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_ctos_psk_kex_modes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_parse_ctos_key_share(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_ctos_key_share(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_parse_stoc_key_share(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_stoc_key_share(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_stoc_key_share(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_stoc_key_share(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_ctos_key_share(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_ctos_key_share(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @final_key_share(ptr noundef %0, i32 noundef %1, i32 noundef %2) #2 {
+define internal range(i32 0, 2) i32 @final_key_share(ptr noundef %0, i32 noundef %1, i32 noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !81
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 216
@@ -2566,18 +2560,18 @@ define internal range(i32 0, 2) i32 @final_key_share(ptr noundef %0, i32 noundef
   ret i32 %.0
 }
 
-declare i32 @tls_parse_ctos_cookie(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_ctos_cookie(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_parse_stoc_cookie(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_stoc_cookie(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_stoc_cookie(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_stoc_cookie(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_ctos_cookie(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_ctos_cookie(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_stoc_cryptopro_bug(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_stoc_cryptopro_bug(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @tls_init_compress_certificate(ptr noundef writeonly captures(none) initializes((2876, 2892)) %0, i32 %1) #6 {
+define internal noundef i32 @tls_init_compress_certificate(ptr noundef writeonly captures(none) initializes((2876, 2892)) %0, i32 %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2876
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   ret i32 1
@@ -2593,16 +2587,16 @@ define internal noundef i32 @tls_construct_compress_certificate(ptr readnone cap
   ret i32 2
 }
 
-declare i32 @tls_parse_ctos_early_data(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_ctos_early_data(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_parse_stoc_early_data(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_stoc_early_data(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_stoc_early_data(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_stoc_early_data(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_ctos_early_data(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_ctos_early_data(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @final_early_data(ptr noundef %0, i32 noundef %1, i32 noundef %2) #2 {
+define internal range(i32 0, 2) i32 @final_early_data(ptr noundef %0, i32 noundef %1, i32 noundef %2) #1 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %44, label %4
 
@@ -2694,7 +2688,7 @@ define internal range(i32 0, 2) i32 @final_early_data(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @init_certificate_authorities(ptr noundef captures(none) %0, i32 %1) #2 {
+define internal noundef i32 @init_certificate_authorities(ptr noundef captures(none) %0, i32 %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %4 = load ptr, ptr %3, align 8, !tbaa !200
   tail call void @OPENSSL_sk_pop_free(ptr noundef %4, ptr noundef nonnull @X509_NAME_free) #8
@@ -2703,7 +2697,7 @@ define internal noundef i32 @init_certificate_authorities(ptr noundef captures(n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @tls_parse_certificate_authorities(ptr noundef %0, ptr noundef %1, i32 %2, ptr readnone captures(none) %3, i64 %4) #2 {
+define internal range(i32 0, 2) i32 @tls_parse_certificate_authorities(ptr noundef %0, ptr noundef %1, i32 %2, ptr readnone captures(none) %3, i64 %4) #1 {
   %6 = tail call i32 @parse_ca_names(ptr noundef %0, ptr noundef %1) #8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %10, label %7
@@ -2726,7 +2720,7 @@ define internal range(i32 0, 2) i32 @tls_parse_certificate_authorities(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @tls_construct_certificate_authorities(ptr noundef %0, ptr noundef %1, i32 %2, ptr readnone captures(none) %3, i64 %4) #2 {
+define internal range(i32 0, 3) i32 @tls_construct_certificate_authorities(ptr noundef %0, ptr noundef %1, i32 %2, ptr readnone captures(none) %3, i64 %4) #1 {
   %6 = tail call ptr @get_ca_names(ptr noundef %0) #8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %19, label %8
@@ -2768,18 +2762,18 @@ define internal range(i32 0, 3) i32 @tls_construct_certificate_authorities(ptr n
   ret i32 %.0
 }
 
-declare i32 @tls_construct_ctos_padding(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_ctos_padding(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_parse_ctos_psk(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_ctos_psk(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_parse_stoc_psk(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_parse_stoc_psk(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_stoc_psk(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_stoc_psk(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tls_construct_ctos_psk(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
+declare i32 @tls_construct_ctos_psk(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @final_psk(ptr noundef %0, i32 %1, i32 noundef %2) #2 {
+define internal range(i32 0, 2) i32 @final_psk(ptr noundef %0, i32 %1, i32 noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load i32, ptr %4, align 8, !tbaa !91
   %6 = icmp ne i32 %5, 0
@@ -2812,49 +2806,55 @@ define internal range(i32 0, 2) i32 @final_psk(ptr noundef %0, i32 %1, i32 nound
   ret i32 %.0
 }
 
-declare i64 @SSL_get_options(ptr noundef) local_unnamed_addr #3
+declare i64 @SSL_get_options(ptr noundef) local_unnamed_addr #2
 
-declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @SSL_get_session(ptr noundef) local_unnamed_addr #3
+declare ptr @SSL_get_session(ptr noundef) local_unnamed_addr #2
 
-declare i32 @ssl_generate_session_id(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ssl_generate_session_id(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @ssl3_send_alert(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @ssl3_send_alert(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @ssl_get_max_send_fragment(ptr noundef) local_unnamed_addr #3
+declare i32 @ssl_get_max_send_fragment(ptr noundef) local_unnamed_addr #2
 
-declare i32 @tls_handle_alpn(ptr noundef) local_unnamed_addr #3
+declare i32 @tls_handle_alpn(ptr noundef) local_unnamed_addr #2
 
-declare i32 @tls13_generate_handshake_secret(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @tls13_generate_handshake_secret(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
-declare i32 @tls13_change_cipher_state(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @tls13_change_cipher_state(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @X509_NAME_free(ptr noundef) #3
+declare void @X509_NAME_free(ptr noundef) #2
 
-declare i32 @parse_ca_names(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @parse_ca_names(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @get_ca_names(ptr noundef) local_unnamed_addr #3
+declare ptr @get_ca_names(ptr noundef) local_unnamed_addr #2
 
-declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #3
+declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
 
-declare i32 @WPACKET_put_bytes__(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @WPACKET_put_bytes__(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @construct_ca_names(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @construct_ca_names(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

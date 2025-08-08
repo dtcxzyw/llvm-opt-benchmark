@@ -16,16 +16,16 @@ git_bswap32.exit:
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8, !tbaa !4
   %9 = trunc i64 %8 to i32
-  %10 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %9) #6, !srcloc !11
+  %10 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %9) #5, !srcloc !11
   store i32 %10, ptr %4, align 4, !tbaa !12
-  %11 = call i32 %1(ptr noundef %2, ptr noundef nonnull %4, i64 noundef 4) #5
+  %11 = call i32 %1(ptr noundef %2, ptr noundef nonnull %4, i64 noundef 4) #6
   %.not = icmp eq i32 %11, 4
   br i1 %.not, label %git_bswap32.exit43, label %.loopexit
 
@@ -33,9 +33,9 @@ git_bswap32.exit43:                               ; preds = %git_bswap32.exit
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !14
   %14 = trunc i64 %13 to i32
-  %15 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %14) #6, !srcloc !11
+  %15 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %14) #5, !srcloc !11
   store i32 %15, ptr %5, align 4, !tbaa !12
-  %16 = call i32 %1(ptr noundef %2, ptr noundef nonnull %5, i64 noundef 4) #5
+  %16 = call i32 %1(ptr noundef %2, ptr noundef nonnull %5, i64 noundef 4) #6
   %.not37 = icmp eq i32 %16, 4
   br i1 %.not37, label %17, label %.loopexit
 
@@ -54,7 +54,7 @@ git_bswap64.exit:                                 ; preds = %git_bswap64.exit, %
   %.153 = phi ptr [ %.03354, %.preheader49 ], [ %25, %git_bswap64.exit ]
   %.03552 = phi i64 [ 0, %.preheader49 ], [ %24, %git_bswap64.exit ]
   %21 = load i64, ptr %.153, align 8, !tbaa !16
-  %22 = call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %21) #6, !srcloc !17
+  %22 = call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %21) #5, !srcloc !17
   %23 = getelementptr inbounds nuw [2048 x i64], ptr %3, i64 0, i64 %.03552
   store i64 %22, ptr %23, align 8, !tbaa !16
   %24 = add nuw nsw i64 %.03552, 1
@@ -63,7 +63,7 @@ git_bswap64.exit:                                 ; preds = %git_bswap64.exit, %
   br i1 %exitcond.not, label %26, label %git_bswap64.exit, !llvm.loop !18
 
 26:                                               ; preds = %git_bswap64.exit
-  %27 = call i32 %1(ptr noundef %2, ptr noundef nonnull %3, i64 noundef 16384) #5
+  %27 = call i32 %1(ptr noundef %2, ptr noundef nonnull %3, i64 noundef 16384) #6
   %.not41 = icmp eq i32 %27, 16384
   br i1 %.not41, label %28, label %.loopexit
 
@@ -82,7 +82,7 @@ git_bswap64.exit:                                 ; preds = %git_bswap64.exit, %
   %.258 = phi ptr [ %35, %.preheader ], [ %.033.lcssa, %._crit_edge ]
   %.13657 = phi i64 [ %34, %.preheader ], [ 0, %._crit_edge ]
   %31 = load i64, ptr %.258, align 8, !tbaa !16
-  %32 = call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %31) #6, !srcloc !17
+  %32 = call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %31) #5, !srcloc !17
   %33 = getelementptr inbounds nuw [2048 x i64], ptr %3, i64 0, i64 %.13657
   store i64 %32, ptr %33, align 8, !tbaa !16
   %34 = add nuw i64 %.13657, 1
@@ -92,7 +92,7 @@ git_bswap64.exit:                                 ; preds = %git_bswap64.exit, %
 
 36:                                               ; preds = %.preheader
   %37 = shl nuw nsw i64 %.0.lcssa, 3
-  %38 = call i32 %1(ptr noundef %2, ptr noundef nonnull %3, i64 noundef %37) #5
+  %38 = call i32 %1(ptr noundef %2, ptr noundef nonnull %3, i64 noundef %37) #6
   %39 = sext i32 %38 to i64
   %.not39 = icmp eq i64 %37, %39
   br i1 %.not39, label %git_bswap32.exit48, label %.loopexit
@@ -106,9 +106,9 @@ git_bswap32.exit48:                               ; preds = %._crit_edge, %36
   %45 = sub i64 %42, %44
   %46 = trunc i64 %45 to i32
   %47 = lshr i32 %46, 3
-  %48 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %47) #6, !srcloc !11
+  %48 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %47) #5, !srcloc !11
   store i32 %48, ptr %6, align 4, !tbaa !12
-  %49 = call i32 %1(ptr noundef %2, ptr noundef nonnull %6, i64 noundef 4) #5
+  %49 = call i32 %1(ptr noundef %2, ptr noundef nonnull %6, i64 noundef 4) #6
   %.not40 = icmp eq i32 %49, 4
   br i1 %.not40, label %50, label %.loopexit
 
@@ -121,18 +121,12 @@ git_bswap32.exit48:                               ; preds = %._crit_edge, %36
 
 .loopexit:                                        ; preds = %26, %git_bswap32.exit48, %36, %git_bswap32.exit43, %git_bswap32.exit, %50
   %.034 = phi i32 [ %53, %50 ], [ -1, %git_bswap32.exit ], [ -1, %git_bswap32.exit43 ], [ -1, %36 ], [ -1, %git_bswap32.exit48 ], [ -1, %26 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.034
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 12, 5) i32 @ewah_serialize_strbuf(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -140,22 +134,22 @@ define dso_local range(i32 12, 5) i32 @ewah_serialize_strbuf(ptr noundef readonl
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8, !tbaa !4
   %9 = trunc i64 %8 to i32
-  %10 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %9) #6, !srcloc !11
+  %10 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %9) #5, !srcloc !11
   store i32 %10, ptr %4, align 4, !tbaa !12
-  call void @strbuf_add(ptr noundef %1, ptr noundef nonnull %4, i64 noundef 4) #5
+  call void @strbuf_add(ptr noundef %1, ptr noundef nonnull %4, i64 noundef 4) #6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !14
   %13 = trunc i64 %12 to i32
-  %14 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %13) #6, !srcloc !11
+  %14 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %13) #5, !srcloc !11
   store i32 %14, ptr %5, align 4, !tbaa !12
-  call void @strbuf_add(ptr noundef %1, ptr noundef nonnull %5, i64 noundef 4) #5
+  call void @strbuf_add(ptr noundef %1, ptr noundef nonnull %5, i64 noundef 4) #6
   %15 = load ptr, ptr %0, align 8, !tbaa !15
   %16 = load i64, ptr %11, align 8, !tbaa !14
   %17 = icmp ugt i64 %16, 2047
@@ -170,7 +164,7 @@ git_bswap64.exit.i:                               ; preds = %.preheader49.i, %gi
   %.153.i = phi ptr [ %.03354.i, %.preheader49.i ], [ %22, %git_bswap64.exit.i ]
   %.03552.i = phi i64 [ 0, %.preheader49.i ], [ %21, %git_bswap64.exit.i ]
   %18 = load i64, ptr %.153.i, align 8, !tbaa !16
-  %19 = call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %18) #6, !srcloc !17
+  %19 = call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %18) #5, !srcloc !17
   %20 = getelementptr inbounds nuw [2048 x i64], ptr %3, i64 0, i64 %.03552.i
   store i64 %19, ptr %20, align 8, !tbaa !16
   %21 = add nuw nsw i64 %.03552.i, 1
@@ -179,7 +173,7 @@ git_bswap64.exit.i:                               ; preds = %.preheader49.i, %gi
   br i1 %exitcond.not.i, label %23, label %git_bswap64.exit.i, !llvm.loop !18
 
 23:                                               ; preds = %git_bswap64.exit.i
-  call void @strbuf_add(ptr noundef %1, ptr noundef nonnull %3, i64 noundef 16384) #5
+  call void @strbuf_add(ptr noundef %1, ptr noundef nonnull %3, i64 noundef 16384) #6
   %24 = add i64 %.055.i, -2048
   %25 = icmp ugt i64 %24, 2047
   br i1 %25, label %.preheader49.i, label %._crit_edge.i, !llvm.loop !20
@@ -194,7 +188,7 @@ git_bswap64.exit.i:                               ; preds = %.preheader49.i, %gi
   %.258.i = phi ptr [ %30, %.preheader.i ], [ %.033.lcssa.i, %._crit_edge.i ]
   %.13657.i = phi i64 [ %29, %.preheader.i ], [ 0, %._crit_edge.i ]
   %26 = load i64, ptr %.258.i, align 8, !tbaa !16
-  %27 = call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %26) #6, !srcloc !17
+  %27 = call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %26) #5, !srcloc !17
   %28 = getelementptr inbounds nuw [2048 x i64], ptr %3, i64 0, i64 %.13657.i
   store i64 %27, ptr %28, align 8, !tbaa !16
   %29 = add nuw i64 %.13657.i, 1
@@ -204,7 +198,7 @@ git_bswap64.exit.i:                               ; preds = %.preheader49.i, %gi
 
 31:                                               ; preds = %.preheader.i
   %32 = shl nuw nsw i64 %.0.lcssa.i, 3
-  call void @strbuf_add(ptr noundef %1, ptr noundef nonnull %3, i64 noundef %32) #5
+  call void @strbuf_add(ptr noundef %1, ptr noundef nonnull %3, i64 noundef %32) #6
   br label %ewah_serialize_to.exit
 
 ewah_serialize_to.exit:                           ; preds = %._crit_edge.i, %31
@@ -216,17 +210,17 @@ ewah_serialize_to.exit:                           ; preds = %._crit_edge.i, %31
   %38 = sub i64 %35, %37
   %39 = trunc i64 %38 to i32
   %40 = lshr i32 %39, 3
-  %41 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %40) #6, !srcloc !11
+  %41 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %40) #5, !srcloc !11
   store i32 %41, ptr %6, align 4, !tbaa !12
-  call void @strbuf_add(ptr noundef %1, ptr noundef nonnull %6, i64 noundef 4) #5
+  call void @strbuf_add(ptr noundef %1, ptr noundef nonnull %6, i64 noundef 4) #6
   %42 = load i64, ptr %11, align 8, !tbaa !14
   %.tr.i = trunc i64 %42 to i32
   %43 = shl i32 %.tr.i, 3
   %44 = add i32 %43, 12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %44
 }
 
@@ -236,7 +230,7 @@ define dso_local range(i64 12, 0) i64 @ewah_read_mmap(ptr noundef captures(none)
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str) #5
+  %6 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str) #6
   br label %95
 
 7:                                                ; preds = %3
@@ -264,7 +258,7 @@ define dso_local range(i64 12, 0) i64 @ewah_read_mmap(ptr noundef captures(none)
   br i1 %27, label %28, label %st_mult.exit
 
 28:                                               ; preds = %7
-  %29 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1) #5
+  %29 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1) #6
   br label %95
 
 st_mult.exit:                                     ; preds = %7
@@ -293,7 +287,7 @@ st_mult.exit:                                     ; preds = %7
   %50 = add i64 %2, -8
   %51 = load ptr, ptr %0, align 8, !tbaa !15
   %52 = shl nuw nsw i64 %47, 3
-  %53 = tail call ptr @xrealloc(ptr noundef %51, i64 noundef %52) #5
+  %53 = tail call ptr @xrealloc(ptr noundef %51, i64 noundef %52) #6
   store ptr %53, ptr %0, align 8, !tbaa !15
   %54 = load i64, ptr %49, align 8, !tbaa !14
   %mul.ov.i49 = icmp ugt i64 %54, 2305843009213693951
@@ -310,7 +304,7 @@ st_mult.exit50:                                   ; preds = %st_mult.exit
 
 58:                                               ; preds = %st_mult.exit50
   %59 = sub nuw i64 %56, %50
-  %60 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, i64 noundef %59) #5
+  %60 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, i64 noundef %59) #6
   br label %95
 
 61:                                               ; preds = %st_mult.exit50
@@ -330,7 +324,7 @@ git_bswap64.exit:                                 ; preds = %.lr.ph, %git_bswap6
   %.054 = phi i64 [ 0, %.lr.ph ], [ %70, %git_bswap64.exit ]
   %67 = getelementptr inbounds nuw i64, ptr %66, i64 %.054
   %68 = load i64, ptr %67, align 8, !tbaa !16
-  %69 = tail call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %68) #6, !srcloc !17
+  %69 = tail call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %68) #5, !srcloc !17
   store i64 %69, ptr %67, align 8, !tbaa !16
   %70 = add nuw i64 %.054, 1
   %71 = load i64, ptr %49, align 8, !tbaa !14
@@ -342,7 +336,7 @@ git_bswap64.exit:                                 ; preds = %.lr.ph, %git_bswap6
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %._crit_edge
-  %75 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3) #5
+  %75 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3) #6
   br label %95
 
 76:                                               ; preds = %._crit_edge
@@ -375,25 +369,31 @@ git_bswap64.exit:                                 ; preds = %.lr.ph, %git_bswap6
   ret i64 %.042
 }
 
-declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @die(ptr noundef, ...) local_unnamed_addr #4
+declare void @die(ptr noundef, ...) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind memory(none) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind memory(none) }
+attributes #6 = { nounwind }
 attributes #7 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @wc_ChaCha20Poly1305_Encrypt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca [1 x %struct.ChaChaPoly_Aead], align 16
-  call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = icmp ne ptr %0, null
   %11 = icmp ne ptr %1, null
   %or.cond = and i1 %10, %11
@@ -80,17 +80,14 @@ define i32 @wc_ChaCha20Poly1305_Encrypt(ptr noundef %0, ptr noundef %1, ptr noun
 
 .thread:                                          ; preds = %17, %20, %23, %26, %33, %40, %43, %8, %12
   %.025 = phi i32 [ -173, %12 ], [ -173, %8 ], [ %44, %43 ], [ %41, %40 ], [ %35, %33 ], [ -274, %26 ], [ -192, %23 ], [ -173, %20 ], [ %18, %17 ]
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.025
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @wc_ChaCha20Poly1305_Init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %1, null
   %or.cond = or i1 %6, %7
@@ -137,7 +134,7 @@ define i32 @wc_ChaCha20Poly1305_Init(ptr noundef %0, ptr noundef %1, ptr noundef
 
 .thread36:                                        ; preds = %9, %14, %17, %20, %24, %27, %4
   %.024 = phi i32 [ -173, %4 ], [ 0, %27 ], [ %25, %24 ], [ %22, %20 ], [ %18, %17 ], [ %15, %14 ], [ %12, %9 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.024
 }
 
@@ -368,15 +365,12 @@ ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.prehe
   ret i32 %.020
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define i32 @wc_ChaCha20Poly1305_Decrypt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca [1 x %struct.ChaChaPoly_Aead], align 16
   %10 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %9) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = icmp ne ptr %0, null
   %12 = icmp ne ptr %1, null
   %or.cond = and i1 %11, %12
@@ -467,16 +461,16 @@ wc_ChaCha20Poly1305_CheckTag.exit:                ; preds = %.preheader.i
 
 .thread37:                                        ; preds = %18, %21, %24, %27, %34, %41, %44, %wc_ChaCha20Poly1305_CheckTag.exit, %8, %13
   %.026 = phi i32 [ -173, %13 ], [ -173, %8 ], [ %spec.select.i, %wc_ChaCha20Poly1305_CheckTag.exit ], [ %45, %44 ], [ %42, %41 ], [ %36, %34 ], [ -274, %27 ], [ -192, %24 ], [ -173, %21 ], [ %19, %18 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #5
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.026
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 -213, 1) i32 @wc_ChaCha20Poly1305_CheckTag(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
+define range(i32 -213, 1) i32 @wc_ChaCha20Poly1305_CheckTag(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -506,27 +500,33 @@ ConstantCompare.exit:                             ; preds = %.preheader
   ret i32 %.06
 }
 
-declare i32 @wc_Chacha_SetKey(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @wc_Chacha_SetKey(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_Chacha_SetIV(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @wc_Chacha_SetIV(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_Chacha_Process(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @wc_Chacha_Process(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_Poly1305SetKey(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @wc_Poly1305SetKey(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_Poly1305Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @wc_Poly1305Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_Poly1305_Pad(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @wc_Poly1305_Pad(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_Poly1305_EncodeSizes(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @wc_Poly1305_EncodeSizes(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_Poly1305Final(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @wc_Poly1305Final(ptr noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

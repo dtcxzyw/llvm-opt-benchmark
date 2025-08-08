@@ -2232,7 +2232,7 @@ define hidden range(i32 0, 3) i32 @png_colorspace_set_endpoints(ptr noalias noun
   %6 = alloca %struct.png_XYZ, align 4
   %7 = alloca %struct.png_xy, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %6, ptr noundef nonnull align 4 dereferenceable(36) %2, i64 36, i1 false)
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp slt i32 %9, 0
@@ -2508,13 +2508,13 @@ png_XYZ_normalize.exit.i:                         ; preds = %png_muldiv.exit101.
   br i1 %.not11.i, label %png_colorspace_check_XYZ.exit, label %png_colorspace_check_XYZ.exit.thread
 
 png_colorspace_check_XYZ.exit.thread:             ; preds = %png_XYZ_normalize.exit.i, %38, %34, %30, %26, %22, %19, %15, %11, %4, %44, %52, %65, %78, %91, %104, %117, %130, %143, %156, %48
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %286
 
 png_colorspace_check_XYZ.exit:                    ; preds = %png_XYZ_normalize.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %5, ptr noundef nonnull align 4 dereferenceable(36) %6, i64 36, i1 false)
   %168 = call fastcc i32 @png_colorspace_check_xy(ptr noundef %5, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   switch i32 %168, label %290 [
     i32 0, label %169
     i32 1, label %286
@@ -5917,7 +5917,7 @@ define hidden void @png_image_free(ptr noundef captures(address_is_null) %0) loc
   br i1 %8, label %9, label %31
 
 9:                                                ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %10 = load ptr, ptr %4, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %png_image_free_function.exit, label %12
@@ -5964,7 +5964,7 @@ define hidden void @png_image_free(ptr noundef captures(address_is_null) %0) loc
   br label %png_image_free_function.exit
 
 png_image_free_function.exit:                     ; preds = %9, %29
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr null, ptr %0, align 8
   br label %31
 
@@ -6260,10 +6260,10 @@ declare i32 @llvm.smax.i32(i32, i32) #25
 declare void @llvm.experimental.noalias.scope.decl(metadata) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #27
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #27
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #27
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

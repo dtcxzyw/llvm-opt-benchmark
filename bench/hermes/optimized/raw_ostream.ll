@@ -538,7 +538,7 @@ sw.bb:                                            ; preds = %for.body
   br i1 %cmp.not.i, label %if.end.i, label %if.then.lr.ph.i.i
 
 if.then.lr.ph.i.i:                                ; preds = %sw.bb
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %C.addr.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %C.addr.i.i)
   %3 = load ptr, ptr %OutBufStart.i.i176, align 8
   %tobool.not.i8.i = icmp eq ptr %3, null
   br i1 %tobool.not.i8.i, label %if.then2.i.i, label %if.end5.i.i
@@ -590,7 +590,7 @@ if.end6.i.i:                                      ; preds = %if.end.i.i, %if.end
   br label %_ZN4llvh11raw_ostream5writeEh.exit.i
 
 _ZN4llvh11raw_ostream5writeEh.exit.i:             ; preds = %if.end6.i.i, %if.then4.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %C.addr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %C.addr.i.i)
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i:                                         ; preds = %sw.bb
@@ -606,7 +606,7 @@ _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %_ZN4llvh11raw_ostre
   br i1 %cmp.not.i14, label %if.end.i40, label %if.then.lr.ph.i.i15
 
 if.then.lr.ph.i.i15:                              ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %C.addr.i.i11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %C.addr.i.i11)
   %13 = load ptr, ptr %OutBufStart.i.i176, align 8
   %tobool.not.i8.i18 = icmp eq ptr %13, null
   br i1 %tobool.not.i8.i18, label %if.then2.i.i31, label %if.end5.i.i19
@@ -658,7 +658,7 @@ if.end6.i.i28:                                    ; preds = %if.end.i.i33, %if.e
   br label %_ZN4llvh11raw_ostream5writeEh.exit.i30
 
 _ZN4llvh11raw_ostream5writeEh.exit.i30:           ; preds = %if.end6.i.i28, %if.then4.i.i37
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %C.addr.i.i11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %C.addr.i.i11)
   br label %for.inc
 
 if.end.i40:                                       ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
@@ -674,7 +674,7 @@ sw.bb5:                                           ; preds = %for.body
   br i1 %cmp.not.i46, label %if.end.i72, label %if.then.lr.ph.i.i47
 
 if.then.lr.ph.i.i47:                              ; preds = %sw.bb5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %C.addr.i.i43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %C.addr.i.i43)
   %23 = load ptr, ptr %OutBufStart.i.i176, align 8
   %tobool.not.i8.i50 = icmp eq ptr %23, null
   br i1 %tobool.not.i8.i50, label %if.then2.i.i63, label %if.end5.i.i51
@@ -726,7 +726,7 @@ if.end6.i.i60:                                    ; preds = %if.end.i.i65, %if.e
   br label %_ZN4llvh11raw_ostream5writeEh.exit.i62
 
 _ZN4llvh11raw_ostream5writeEh.exit.i62:           ; preds = %if.end6.i.i60, %if.then4.i.i69
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %C.addr.i.i43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %C.addr.i.i43)
   br label %_ZN4llvh11raw_ostreamlsEc.exit74
 
 if.end.i72:                                       ; preds = %sw.bb5
@@ -742,7 +742,7 @@ _ZN4llvh11raw_ostreamlsEc.exit74:                 ; preds = %_ZN4llvh11raw_ostre
   br i1 %cmp.not.i78, label %if.end.i104, label %if.then.lr.ph.i.i79
 
 if.then.lr.ph.i.i79:                              ; preds = %_ZN4llvh11raw_ostreamlsEc.exit74
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %C.addr.i.i75)
+  call void @llvm.lifetime.start.p0(ptr nonnull %C.addr.i.i75)
   %33 = load ptr, ptr %OutBufStart.i.i176, align 8
   %tobool.not.i8.i82 = icmp eq ptr %33, null
   br i1 %tobool.not.i8.i82, label %if.then2.i.i95, label %if.end5.i.i83
@@ -794,7 +794,7 @@ if.end6.i.i92:                                    ; preds = %if.end.i.i97, %if.e
   br label %_ZN4llvh11raw_ostream5writeEh.exit.i94
 
 _ZN4llvh11raw_ostream5writeEh.exit.i94:           ; preds = %if.end6.i.i92, %if.then4.i.i101
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %C.addr.i.i75)
+  call void @llvm.lifetime.end.p0(ptr nonnull %C.addr.i.i75)
   br label %for.inc
 
 if.end.i104:                                      ; preds = %_ZN4llvh11raw_ostreamlsEc.exit74
@@ -810,7 +810,7 @@ sw.bb8:                                           ; preds = %for.body
   br i1 %cmp.not.i110, label %if.end.i136, label %if.then.lr.ph.i.i111
 
 if.then.lr.ph.i.i111:                             ; preds = %sw.bb8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %C.addr.i.i107)
+  call void @llvm.lifetime.start.p0(ptr nonnull %C.addr.i.i107)
   %43 = load ptr, ptr %OutBufStart.i.i176, align 8
   %tobool.not.i8.i114 = icmp eq ptr %43, null
   br i1 %tobool.not.i8.i114, label %if.then2.i.i127, label %if.end5.i.i115
@@ -862,7 +862,7 @@ if.end6.i.i124:                                   ; preds = %if.end.i.i129, %if.
   br label %_ZN4llvh11raw_ostream5writeEh.exit.i126
 
 _ZN4llvh11raw_ostream5writeEh.exit.i126:          ; preds = %if.end6.i.i124, %if.then4.i.i133
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %C.addr.i.i107)
+  call void @llvm.lifetime.end.p0(ptr nonnull %C.addr.i.i107)
   br label %_ZN4llvh11raw_ostreamlsEc.exit138
 
 if.end.i136:                                      ; preds = %sw.bb8
@@ -878,7 +878,7 @@ _ZN4llvh11raw_ostreamlsEc.exit138:                ; preds = %_ZN4llvh11raw_ostre
   br i1 %cmp.not.i142, label %if.end.i168, label %if.then.lr.ph.i.i143
 
 if.then.lr.ph.i.i143:                             ; preds = %_ZN4llvh11raw_ostreamlsEc.exit138
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %C.addr.i.i139)
+  call void @llvm.lifetime.start.p0(ptr nonnull %C.addr.i.i139)
   %53 = load ptr, ptr %OutBufStart.i.i176, align 8
   %tobool.not.i8.i146 = icmp eq ptr %53, null
   br i1 %tobool.not.i8.i146, label %if.then2.i.i159, label %if.end5.i.i147
@@ -930,7 +930,7 @@ if.end6.i.i156:                                   ; preds = %if.end.i.i161, %if.
   br label %_ZN4llvh11raw_ostream5writeEh.exit.i158
 
 _ZN4llvh11raw_ostream5writeEh.exit.i158:          ; preds = %if.end6.i.i156, %if.then4.i.i165
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %C.addr.i.i139)
+  call void @llvm.lifetime.end.p0(ptr nonnull %C.addr.i.i139)
   br label %for.inc
 
 if.end.i168:                                      ; preds = %_ZN4llvh11raw_ostreamlsEc.exit138
@@ -946,7 +946,7 @@ sw.bb11:                                          ; preds = %for.body
   br i1 %cmp.not.i174, label %if.end.i200, label %if.then.lr.ph.i.i175
 
 if.then.lr.ph.i.i175:                             ; preds = %sw.bb11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %C.addr.i.i171)
+  call void @llvm.lifetime.start.p0(ptr nonnull %C.addr.i.i171)
   %63 = load ptr, ptr %OutBufStart.i.i176, align 8
   %tobool.not.i8.i178 = icmp eq ptr %63, null
   br i1 %tobool.not.i8.i178, label %if.then2.i.i191, label %if.end5.i.i179
@@ -998,7 +998,7 @@ if.end6.i.i188:                                   ; preds = %if.end.i.i193, %if.
   br label %_ZN4llvh11raw_ostream5writeEh.exit.i190
 
 _ZN4llvh11raw_ostream5writeEh.exit.i190:          ; preds = %if.end6.i.i188, %if.then4.i.i197
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %C.addr.i.i171)
+  call void @llvm.lifetime.end.p0(ptr nonnull %C.addr.i.i171)
   br label %_ZN4llvh11raw_ostreamlsEc.exit202
 
 if.end.i200:                                      ; preds = %sw.bb11
@@ -1014,7 +1014,7 @@ _ZN4llvh11raw_ostreamlsEc.exit202:                ; preds = %_ZN4llvh11raw_ostre
   br i1 %cmp.not.i206, label %if.end.i232, label %if.then.lr.ph.i.i207
 
 if.then.lr.ph.i.i207:                             ; preds = %_ZN4llvh11raw_ostreamlsEc.exit202
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %C.addr.i.i203)
+  call void @llvm.lifetime.start.p0(ptr nonnull %C.addr.i.i203)
   %73 = load ptr, ptr %OutBufStart.i.i176, align 8
   %tobool.not.i8.i210 = icmp eq ptr %73, null
   br i1 %tobool.not.i8.i210, label %if.then2.i.i223, label %if.end5.i.i211
@@ -1066,7 +1066,7 @@ if.end6.i.i220:                                   ; preds = %if.end.i.i225, %if.
   br label %_ZN4llvh11raw_ostream5writeEh.exit.i222
 
 _ZN4llvh11raw_ostream5writeEh.exit.i222:          ; preds = %if.end6.i.i220, %if.then4.i.i229
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %C.addr.i.i203)
+  call void @llvm.lifetime.end.p0(ptr nonnull %C.addr.i.i203)
   br label %for.inc
 
 if.end.i232:                                      ; preds = %_ZN4llvh11raw_ostreamlsEc.exit202
@@ -1087,7 +1087,7 @@ if.then:                                          ; preds = %sw.default
   br i1 %cmp.not.i238, label %if.end.i264, label %if.then.lr.ph.i.i239
 
 if.then.lr.ph.i.i239:                             ; preds = %if.then
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %C.addr.i.i235)
+  call void @llvm.lifetime.start.p0(ptr nonnull %C.addr.i.i235)
   %85 = load ptr, ptr %OutBufStart.i.i176, align 8
   %tobool.not.i8.i242 = icmp eq ptr %85, null
   br i1 %tobool.not.i8.i242, label %if.then2.i.i255, label %if.end5.i.i243
@@ -1139,7 +1139,7 @@ if.end6.i.i252:                                   ; preds = %if.end.i.i257, %if.
   br label %_ZN4llvh11raw_ostream5writeEh.exit.i254
 
 _ZN4llvh11raw_ostream5writeEh.exit.i254:          ; preds = %if.end6.i.i252, %if.then4.i.i261
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %C.addr.i.i235)
+  call void @llvm.lifetime.end.p0(ptr nonnull %C.addr.i.i235)
   br label %for.inc
 
 if.end.i264:                                      ; preds = %if.then
@@ -1155,7 +1155,7 @@ if.then16:                                        ; preds = %if.end
   br i1 %cmp.not.i238, label %if.end.i295, label %if.then.lr.ph.i.i270
 
 if.then.lr.ph.i.i270:                             ; preds = %if.then16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %C.addr.i.i266)
+  call void @llvm.lifetime.start.p0(ptr nonnull %C.addr.i.i266)
   %93 = load ptr, ptr %OutBufStart.i.i176, align 8
   %tobool.not.i8.i273 = icmp eq ptr %93, null
   br i1 %tobool.not.i8.i273, label %if.then2.i.i286, label %if.end5.i.i274
@@ -1207,7 +1207,7 @@ if.end6.i.i283:                                   ; preds = %if.end.i.i288, %if.
   br label %_ZN4llvh11raw_ostream5writeEh.exit.i285
 
 _ZN4llvh11raw_ostream5writeEh.exit.i285:          ; preds = %if.end6.i.i283, %if.then4.i.i292
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %C.addr.i.i266)
+  call void @llvm.lifetime.end.p0(ptr nonnull %C.addr.i.i266)
   br label %_ZN4llvh11raw_ostreamlsEc.exit297
 
 if.end.i295:                                      ; preds = %if.then16
@@ -1223,7 +1223,7 @@ _ZN4llvh11raw_ostreamlsEc.exit297:                ; preds = %_ZN4llvh11raw_ostre
   br i1 %cmp.not.i301, label %if.end.i327, label %if.then.lr.ph.i.i302
 
 if.then.lr.ph.i.i302:                             ; preds = %_ZN4llvh11raw_ostreamlsEc.exit297
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %C.addr.i.i298)
+  call void @llvm.lifetime.start.p0(ptr nonnull %C.addr.i.i298)
   %103 = load ptr, ptr %OutBufStart.i.i176, align 8
   %tobool.not.i8.i305 = icmp eq ptr %103, null
   br i1 %tobool.not.i8.i305, label %if.then2.i.i318, label %if.end5.i.i306
@@ -1275,7 +1275,7 @@ if.end6.i.i315:                                   ; preds = %if.end.i.i320, %if.
   br label %_ZN4llvh11raw_ostream5writeEh.exit.i317
 
 _ZN4llvh11raw_ostream5writeEh.exit.i317:          ; preds = %if.end6.i.i315, %if.then4.i.i324
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %C.addr.i.i298)
+  call void @llvm.lifetime.end.p0(ptr nonnull %C.addr.i.i298)
   br label %_ZN4llvh11raw_ostreamlsEc.exit329
 
 if.end.i327:                                      ; preds = %_ZN4llvh11raw_ostreamlsEc.exit297
@@ -1296,7 +1296,7 @@ _ZN4llvh11raw_ostreamlsEc.exit329:                ; preds = %_ZN4llvh11raw_ostre
   br i1 %cmp.not.i333, label %if.end.i359, label %if.then.lr.ph.i.i334
 
 if.then.lr.ph.i.i334:                             ; preds = %_ZN4llvh11raw_ostreamlsEc.exit329
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %C.addr.i.i330)
+  call void @llvm.lifetime.start.p0(ptr nonnull %C.addr.i.i330)
   %113 = load ptr, ptr %OutBufStart.i.i176, align 8
   %tobool.not.i8.i337 = icmp eq ptr %113, null
   br i1 %tobool.not.i8.i337, label %if.then2.i.i350, label %if.end5.i.i338
@@ -1348,7 +1348,7 @@ if.end6.i.i347:                                   ; preds = %if.end.i.i352, %if.
   br label %_ZN4llvh11raw_ostream5writeEh.exit.i349
 
 _ZN4llvh11raw_ostream5writeEh.exit.i349:          ; preds = %if.end6.i.i347, %if.then4.i.i356
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %C.addr.i.i330)
+  call void @llvm.lifetime.end.p0(ptr nonnull %C.addr.i.i330)
   br label %_ZN4llvh11raw_ostreamlsEc.exit361
 
 if.end.i359:                                      ; preds = %_ZN4llvh11raw_ostreamlsEc.exit329
@@ -1369,7 +1369,7 @@ _ZN4llvh11raw_ostreamlsEc.exit361:                ; preds = %_ZN4llvh11raw_ostre
   br i1 %cmp.not.i371, label %if.end.i397, label %if.then.lr.ph.i.i372
 
 if.then.lr.ph.i.i372:                             ; preds = %_ZN4llvh11raw_ostreamlsEc.exit361
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %C.addr.i.i368)
+  call void @llvm.lifetime.start.p0(ptr nonnull %C.addr.i.i368)
   %124 = load ptr, ptr %OutBufStart.i.i176, align 8
   %tobool.not.i8.i375 = icmp eq ptr %124, null
   br i1 %tobool.not.i8.i375, label %if.then2.i.i388, label %if.end5.i.i376
@@ -1421,7 +1421,7 @@ if.end6.i.i385:                                   ; preds = %if.end.i.i390, %if.
   br label %_ZN4llvh11raw_ostream5writeEh.exit.i387
 
 _ZN4llvh11raw_ostream5writeEh.exit.i387:          ; preds = %if.end6.i.i385, %if.then4.i.i394
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %C.addr.i.i368)
+  call void @llvm.lifetime.end.p0(ptr nonnull %C.addr.i.i368)
   br label %for.inc
 
 if.end.i397:                                      ; preds = %_ZN4llvh11raw_ostreamlsEc.exit361
@@ -1434,7 +1434,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp.not.i238, label %if.end.i429, label %if.then.lr.ph.i.i404
 
 if.then.lr.ph.i.i404:                             ; preds = %if.else
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %C.addr.i.i400)
+  call void @llvm.lifetime.start.p0(ptr nonnull %C.addr.i.i400)
   %132 = load ptr, ptr %OutBufStart.i.i176, align 8
   %tobool.not.i8.i407 = icmp eq ptr %132, null
   br i1 %tobool.not.i8.i407, label %if.then2.i.i420, label %if.end5.i.i408
@@ -1486,7 +1486,7 @@ if.end6.i.i417:                                   ; preds = %if.end.i.i422, %if.
   br label %_ZN4llvh11raw_ostream5writeEh.exit.i419
 
 _ZN4llvh11raw_ostream5writeEh.exit.i419:          ; preds = %if.end6.i.i417, %if.then4.i.i426
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %C.addr.i.i400)
+  call void @llvm.lifetime.end.p0(ptr nonnull %C.addr.i.i400)
   br label %_ZN4llvh11raw_ostreamlsEc.exit431
 
 if.end.i429:                                      ; preds = %if.else
@@ -1504,7 +1504,7 @@ _ZN4llvh11raw_ostreamlsEc.exit431:                ; preds = %_ZN4llvh11raw_ostre
   br i1 %cmp.not.i435, label %if.end.i461, label %if.then.lr.ph.i.i436
 
 if.then.lr.ph.i.i436:                             ; preds = %_ZN4llvh11raw_ostreamlsEc.exit431
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %C.addr.i.i432)
+  call void @llvm.lifetime.start.p0(ptr nonnull %C.addr.i.i432)
   %142 = load ptr, ptr %OutBufStart.i.i176, align 8
   %tobool.not.i8.i439 = icmp eq ptr %142, null
   br i1 %tobool.not.i8.i439, label %if.then2.i.i452, label %if.end5.i.i440
@@ -1556,7 +1556,7 @@ if.end6.i.i449:                                   ; preds = %if.end.i.i454, %if.
   br label %_ZN4llvh11raw_ostream5writeEh.exit.i451
 
 _ZN4llvh11raw_ostream5writeEh.exit.i451:          ; preds = %if.end6.i.i449, %if.then4.i.i458
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %C.addr.i.i432)
+  call void @llvm.lifetime.end.p0(ptr nonnull %C.addr.i.i432)
   br label %_ZN4llvh11raw_ostreamlsEc.exit463
 
 if.end.i461:                                      ; preds = %_ZN4llvh11raw_ostreamlsEc.exit431
@@ -1575,7 +1575,7 @@ _ZN4llvh11raw_ostreamlsEc.exit463:                ; preds = %_ZN4llvh11raw_ostre
   br i1 %cmp.not.i467, label %if.end.i493, label %if.then.lr.ph.i.i468
 
 if.then.lr.ph.i.i468:                             ; preds = %_ZN4llvh11raw_ostreamlsEc.exit463
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %C.addr.i.i464)
+  call void @llvm.lifetime.start.p0(ptr nonnull %C.addr.i.i464)
   %152 = load ptr, ptr %OutBufStart.i.i176, align 8
   %tobool.not.i8.i471 = icmp eq ptr %152, null
   br i1 %tobool.not.i8.i471, label %if.then2.i.i484, label %if.end5.i.i472
@@ -1627,7 +1627,7 @@ if.end6.i.i481:                                   ; preds = %if.end.i.i486, %if.
   br label %_ZN4llvh11raw_ostream5writeEh.exit.i483
 
 _ZN4llvh11raw_ostream5writeEh.exit.i483:          ; preds = %if.end6.i.i481, %if.then4.i.i490
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %C.addr.i.i464)
+  call void @llvm.lifetime.end.p0(ptr nonnull %C.addr.i.i464)
   br label %_ZN4llvh11raw_ostreamlsEc.exit495
 
 if.end.i493:                                      ; preds = %_ZN4llvh11raw_ostreamlsEc.exit463
@@ -1645,7 +1645,7 @@ _ZN4llvh11raw_ostreamlsEc.exit495:                ; preds = %_ZN4llvh11raw_ostre
   br i1 %cmp.not.i499, label %if.end.i525, label %if.then.lr.ph.i.i500
 
 if.then.lr.ph.i.i500:                             ; preds = %_ZN4llvh11raw_ostreamlsEc.exit495
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %C.addr.i.i496)
+  call void @llvm.lifetime.start.p0(ptr nonnull %C.addr.i.i496)
   %162 = load ptr, ptr %OutBufStart.i.i176, align 8
   %tobool.not.i8.i503 = icmp eq ptr %162, null
   br i1 %tobool.not.i8.i503, label %if.then2.i.i516, label %if.end5.i.i504
@@ -1697,7 +1697,7 @@ if.end6.i.i513:                                   ; preds = %if.end.i.i518, %if.
   br label %_ZN4llvh11raw_ostream5writeEh.exit.i515
 
 _ZN4llvh11raw_ostream5writeEh.exit.i515:          ; preds = %if.end6.i.i513, %if.then4.i.i522
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %C.addr.i.i496)
+  call void @llvm.lifetime.end.p0(ptr nonnull %C.addr.i.i496)
   br label %for.inc
 
 if.end.i525:                                      ; preds = %_ZN4llvh11raw_ostreamlsEc.exit495
@@ -2897,7 +2897,7 @@ if.then73:                                        ; preds = %for.body71
   br i1 %cmp.not.i, label %if.end.i, label %if.then.lr.ph.i.i
 
 if.then.lr.ph.i.i:                                ; preds = %if.then73
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %C.addr.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %C.addr.i.i)
   %36 = load ptr, ptr %OutBufStart.i.i98, align 8
   %tobool.not.i8.i = icmp eq ptr %36, null
   br i1 %tobool.not.i8.i, label %if.then2.i.i.preheader, label %if.end5.i.i
@@ -3017,7 +3017,7 @@ if.end6.i.i:                                      ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostream5writeEh.exit.i
 
 _ZN4llvh11raw_ostream5writeEh.exit.i:             ; preds = %if.end6.i.i, %if.then4.i.i92
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %C.addr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %C.addr.i.i)
   br label %for.inc77
 
 if.end.i:                                         ; preds = %if.then73
@@ -3030,7 +3030,7 @@ if.else:                                          ; preds = %for.body71
   br i1 %cmp.not.i, label %if.end.i122, label %if.then.lr.ph.i.i97
 
 if.then.lr.ph.i.i97:                              ; preds = %if.else
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %C.addr.i.i93)
+  call void @llvm.lifetime.start.p0(ptr nonnull %C.addr.i.i93)
   %51 = load ptr, ptr %OutBufStart.i.i98, align 8
   %tobool.not.i8.i100 = icmp eq ptr %51, null
   br i1 %tobool.not.i8.i100, label %if.then2.i.i113.preheader, label %if.end5.i.i101
@@ -3150,7 +3150,7 @@ if.end6.i.i110:                                   ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostream5writeEh.exit.i112
 
 _ZN4llvh11raw_ostream5writeEh.exit.i112:          ; preds = %if.end6.i.i110, %if.then4.i.i119
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %C.addr.i.i93)
+  call void @llvm.lifetime.end.p0(ptr nonnull %C.addr.i.i93)
   br label %for.inc77
 
 if.end.i122:                                      ; preds = %if.else
@@ -3171,7 +3171,7 @@ for.end78:                                        ; preds = %for.inc77, %_ZN4llv
   br i1 %cmp.not.i128, label %if.end.i154, label %if.then.lr.ph.i.i129
 
 if.then.lr.ph.i.i129:                             ; preds = %for.end78
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %C.addr.i.i125)
+  call void @llvm.lifetime.start.p0(ptr nonnull %C.addr.i.i125)
   %68 = load ptr, ptr %OutBufStart.i.i98, align 8
   %tobool.not.i8.i132 = icmp eq ptr %68, null
   br i1 %tobool.not.i8.i132, label %if.then2.i.i145, label %if.end5.i.i133
@@ -3223,7 +3223,7 @@ if.end6.i.i142:                                   ; preds = %if.end.i.i147, %if.
   br label %_ZN4llvh11raw_ostream5writeEh.exit.i144
 
 _ZN4llvh11raw_ostream5writeEh.exit.i144:          ; preds = %if.end6.i.i142, %if.then4.i.i151
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %C.addr.i.i125)
+  call void @llvm.lifetime.end.p0(ptr nonnull %C.addr.i.i125)
   br label %if.end80
 
 if.end.i154:                                      ; preds = %for.end78
@@ -3246,7 +3246,7 @@ if.then87:                                        ; preds = %if.end80
   br i1 %cmp.not.i165, label %if.end.i191, label %if.then.lr.ph.i.i166
 
 if.then.lr.ph.i.i166:                             ; preds = %if.then87
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %C.addr.i.i162)
+  call void @llvm.lifetime.start.p0(ptr nonnull %C.addr.i.i162)
   %78 = load ptr, ptr %OutBufStart.i.i98, align 8
   %tobool.not.i8.i169 = icmp eq ptr %78, null
   br i1 %tobool.not.i8.i169, label %if.then2.i.i182, label %if.end5.i.i170
@@ -3298,7 +3298,7 @@ if.end6.i.i179:                                   ; preds = %if.end.i.i184, %if.
   br label %_ZN4llvh11raw_ostream5writeEh.exit.i181
 
 _ZN4llvh11raw_ostream5writeEh.exit.i181:          ; preds = %if.end6.i.i179, %if.then4.i.i188
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %C.addr.i.i162)
+  call void @llvm.lifetime.end.p0(ptr nonnull %C.addr.i.i162)
   br label %if.end89
 
 if.end.i191:                                      ; preds = %if.then87
@@ -3365,10 +3365,10 @@ entry:
   %FD.i = alloca i32, align 4
   %ref.tmp9.i = alloca %"class.llvh::Twine", align 8
   %ref.tmp12.i = alloca %"class.llvh::Twine", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %Filename.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %FD.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp12.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %Filename.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %FD.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i)
   store ptr %Filename.coerce0, ptr %Filename.i, align 8
   %0 = getelementptr inbounds nuw i8, ptr %Filename.i, i64 8
   store i64 %Filename.coerce1, ptr %0, align 8
@@ -3432,10 +3432,10 @@ if.end14.i:                                       ; preds = %if.else.i, %if.then
 _ZL5getFDN4llvh9StringRefERSt10error_codeNS_3sys2fs19CreationDispositionENS4_10FileAccessENS4_9OpenFlagsE.exit: ; preds = %if.end14.i, %if.then.i, %if.then2.i
   %call.i.i2.pre-phi = phi ptr [ %call.i.i, %if.then.i ], [ %call.i.i, %if.then2.i ], [ %.pre, %if.end14.i ]
   %retval.0.i = phi i32 [ 1, %if.then.i ], [ 1, %if.then2.i ], [ %spec.select, %if.end14.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %Filename.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %FD.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp12.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %Filename.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %FD.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i)
   %BufferMode.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 1, ptr %BufferMode.i.i.i, align 8
   %OutBufStart.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -4730,7 +4730,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp.not.i, label %if.end.i, label %if.then.lr.ph.i.i
 
 if.then.lr.ph.i.i:                                ; preds = %for.body
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %C.addr.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %C.addr.i.i)
   %3 = load ptr, ptr %OutBufStart.i.i, align 8
   %tobool.not.i8.i = icmp eq ptr %3, null
   br i1 %tobool.not.i8.i, label %if.then2.i.i.preheader, label %if.end5.i.i
@@ -4850,7 +4850,7 @@ if.end6.i.i:                                      ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostream5writeEh.exit.i
 
 _ZN4llvh11raw_ostream5writeEh.exit.i:             ; preds = %if.end6.i.i, %if.then4.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %C.addr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %C.addr.i.i)
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i:                                         ; preds = %for.body
@@ -4914,10 +4914,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #23

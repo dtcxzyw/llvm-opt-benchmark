@@ -81,8 +81,8 @@ define internal range(i32 0, 2) i32 @test_thread_reported_flags() #0 {
 define internal range(i32 0, 2) i32 @test_thread_native() #0 {
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 1, ptr %2, align 4, !tbaa !4
   %3 = call ptr @ossl_crypto_thread_native_start(ptr noundef nonnull @test_thread_native_fn, ptr noundef nonnull %2, i32 noundef 1) #6
   %4 = call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 68, ptr noundef nonnull @.str.9, ptr noundef %3) #6
@@ -128,8 +128,8 @@ define internal range(i32 0, 2) i32 @test_thread_native() #0 {
 
 23:                                               ; preds = %20, %17, %11, %14, %8, %5, %0
   %.0 = phi i32 [ 0, %0 ], [ 0, %5 ], [ 0, %8 ], [ 0, %14 ], [ 0, %11 ], [ 0, %17 ], [ %., %20 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -193,10 +193,10 @@ define internal range(i32 0, 2) i32 @test_thread_internal() #0 {
   %1 = alloca [3 x i32], align 4
   %2 = alloca [3 x i32], align 4
   %3 = alloca [3 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %1) #6
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2, i8 0, i64 12, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call ptr @OSSL_LIB_CTX_new() #6
   %5 = tail call i32 @OSSL_get_thread_support_flags() #6
   %6 = and i32 %5, 2
@@ -513,26 +513,20 @@ define internal range(i32 0, 2) i32 @test_thread_internal() #0 {
   %.059.shrunk = phi i1 [ false, %23 ], [ false, %20 ], [ false, %17 ], [ false, %14 ], [ false, %11 ], [ false, %9 ], [ false, %121 ], [ false, %87 ], [ false, %58 ], [ false, %55 ], [ false, %52 ], [ false, %49 ], [ false, %46 ], [ false, %43 ], [ false, %40 ], [ false, %37 ], [ false, %34 ], [ false, %31 ], [ false, %29 ], [ %.not96, %26 ], [ %.not72, %155 ], [ false, %144 ], [ false, %138 ], [ false, %150 ], [ false, %.preheader98 ], [ false, %124 ], [ false, %110 ], [ false, %104 ], [ false, %116 ], [ false, %.preheader104 ], [ false, %90 ], [ false, %61 ], [ false, %67 ], [ false, %70 ], [ false, %76 ], [ false, %73 ], [ false, %81 ], [ false, %84 ]
   %.059 = zext i1 %.059.shrunk to i32
   call void @OSSL_LIB_CTX_free(ptr noundef %4) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.059
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @OSSL_get_thread_support_flags() local_unnamed_addr #1
 
 declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @ossl_crypto_thread_native_start(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @test_thread_native_fn(ptr noundef captures(none) %0) #3 {
+define internal i32 @test_thread_native_fn(ptr noundef captures(none) %0) #2 {
   %2 = load i32, ptr %0, align 4, !tbaa !4
   %3 = add i32 %2, 1
   store i32 %3, ptr %0, align 4, !tbaa !4
@@ -546,7 +540,7 @@ declare i32 @ossl_crypto_thread_native_join(ptr noundef, ptr noundef) local_unna
 declare i32 @ossl_crypto_thread_native_clean(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @test_thread_native_multiple_joins_fn1(ptr readnone captures(none) %0) #4 {
+define internal noundef i32 @test_thread_native_multiple_joins_fn1(ptr readnone captures(none) %0) #3 {
   ret i32 0
 }
 
@@ -563,7 +557,7 @@ define internal noundef i32 @test_thread_native_multiple_joins_fn3(ptr noundef %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @OSSL_LIB_CTX_new() local_unnamed_addr #1
 
@@ -583,12 +577,18 @@ declare i32 @ossl_crypto_thread_clean(ptr noundef) local_unnamed_addr #1
 
 declare void @OSSL_LIB_CTX_free(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

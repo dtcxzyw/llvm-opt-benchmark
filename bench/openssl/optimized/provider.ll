@@ -325,9 +325,6 @@ read_uint.exit.thread:                            ; preds = %read_uint.exit.thre
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind uwtable
 define internal fastcc noalias ptr @fuzz_params(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %.not166 = icmp eq ptr %0, null
@@ -851,8 +848,8 @@ declare ptr @EVP_MD_settable_ctx_params(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @do_evp_md(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca [64 x i8], align 16
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call ptr @EVP_MD_CTX_new() #6
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %14, label %6
@@ -878,8 +875,8 @@ define internal fastcc void @do_evp_md(ptr noundef nonnull %0, ptr noundef nonnu
 
 14:                                               ; preds = %12, %10, %8, %6, %2
   call void @EVP_MD_CTX_free(ptr noundef %5) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -923,9 +920,6 @@ define internal fastcc void @free_params(ptr noundef readonly captures(address_i
 
 declare void @OSSL_PARAM_free(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @EVP_CIPHER_settable_ctx_params(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
@@ -936,14 +930,14 @@ define internal fastcc void @do_evp_cipher(ptr noundef nonnull %0, ptr noundef n
   %6 = alloca [16 x i8], align 16
   %7 = alloca [8 x i8], align 8
   %8 = alloca [5 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 16 dereferenceable(16) @__const.do_evp_cipher.key, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 578437695752307201, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %8, ptr noundef nonnull align 1 dereferenceable(5) @__const.do_evp_cipher.intext, i64 5, i1 false)
   %9 = tail call ptr @EVP_CIPHER_CTX_new() #6
   %10 = tail call i32 @EVP_CIPHER_CTX_set_params(ptr noundef %9, ptr noundef nonnull %1) #6
@@ -993,12 +987,12 @@ define internal fastcc void @do_evp_cipher(ptr noundef nonnull %0, ptr noundef n
   br label %28
 
 28:                                               ; preds = %24, %23, %17, %14, %11
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1007,7 +1001,7 @@ declare ptr @EVP_KDF_settable_ctx_params(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @do_evp_kdf(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call ptr @EVP_KDF_CTX_new(ptr noundef nonnull %0) #6
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -1023,7 +1017,7 @@ define internal fastcc void @do_evp_kdf(ptr noundef nonnull %0, ptr noundef nonn
 
 11:                                               ; preds = %9, %6, %2
   call void @EVP_KDF_CTX_free(ptr noundef %4) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1034,10 +1028,10 @@ define internal fastcc void @do_evp_mac(ptr noundef nonnull %0, ptr noundef nonn
   %3 = alloca [17 x i8], align 16
   %4 = alloca [4096 x i8], align 16
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %3, ptr noundef nonnull align 16 dereferenceable(17) @__const.do_evp_mac.text, i64 17, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call ptr @EVP_MAC_CTX_new(ptr noundef nonnull %0) #6
   %7 = icmp eq ptr %6, null
   br i1 %7, label %17, label %8
@@ -1063,9 +1057,9 @@ define internal fastcc void @do_evp_mac(ptr noundef nonnull %0, ptr noundef nonn
 
 17:                                               ; preds = %15, %13, %10, %2, %8
   call void @EVP_MAC_CTX_free(ptr noundef %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1076,7 +1070,7 @@ declare ptr @EVP_RAND_settable_ctx_params(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @do_evp_rand(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca [4096 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call ptr @EVP_RAND_CTX_new(ptr noundef nonnull %0, ptr noundef null) #6
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %5
@@ -1097,7 +1091,7 @@ define internal fastcc void @do_evp_rand(ptr noundef nonnull %0, ptr noundef non
 
 12:                                               ; preds = %10, %8, %5, %2
   call void @EVP_RAND_CTX_free(ptr noundef %4) #6
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1140,7 +1134,7 @@ define internal void @collect_EVP_MD(ptr noundef %0, ptr noundef %1) #0 {
 declare ptr @OPENSSL_sk_new(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @OSSL_PROVIDER_get0_name(ptr noundef) local_unnamed_addr #1
 
@@ -1469,7 +1463,7 @@ declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i64 @OPENSSL_strnlen(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1527,14 +1521,20 @@ declare i32 @EVP_RAND_reseed(ptr noundef, i32 noundef, ptr noundef, i64 noundef,
 
 declare void @EVP_RAND_CTX_free(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(read) }

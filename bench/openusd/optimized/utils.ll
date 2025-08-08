@@ -581,7 +581,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15UsdSkelTopology12GetNumJointsEv.exit34: 
           to label %"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ParallelForNIZNS_31UsdSkelImagingComputeBonePointsERKNS_15UsdSkelTopologyEPKNS_10GfMatrix4dEPNS_7GfVec3fEmE3$_0EEvmOT_.exit" unwind label %.loopexit.split-lp
 
 74:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15UsdSkelTopology12GetNumJointsEv.exit34
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %75 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__18WorkHasConcurrencyEv()
           to label %.noexc36 unwind label %.loopexit.split-lp
 
@@ -601,8 +601,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15UsdSkelTopology12GetNumJointsEv.exit34: 
           to label %.noexc37 unwind label %.loopexit.split-lp
 
 .noexc37:                                         ; preds = %76
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %5, align 8
   %81 = invoke noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 128)
           to label %.noexc.i.i.i unwind label %107
@@ -649,8 +649,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15UsdSkelTopology12GetNumJointsEv.exit34: 
           to label %99 unwind label %107
 
 99:                                               ; preds = %.noexc7.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %100 = getelementptr inbounds nuw i8, ptr %7, i64 15
   %101 = load atomic i8, ptr %100 monotonic, align 1
   %102 = icmp eq i8 %101, -1
@@ -678,7 +678,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15UsdSkelTopology12GetNumJointsEv.exit34: 
           to label %"_ZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIRZNS_31UsdSkelImagingComputeBonePointsERKNS_15UsdSkelTopologyEPKNS_10GfMatrix4dEPNS_7GfVec3fEmE3$_0EEvmOT_.exit.i" unwind label %.loopexit.split-lp
 
 "_ZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIRZNS_31UsdSkelImagingComputeBonePointsERKNS_15UsdSkelTopologyEPKNS_10GfMatrix4dEPNS_7GfVec3fEmE3$_0EEvmOT_.exit.i": ; preds = %109, %103, %99
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ParallelForNIZNS_31UsdSkelImagingComputeBonePointsERKNS_15UsdSkelTopologyEPKNS_10GfMatrix4dEPNS_7GfVec3fEmE3$_0EEvmOT_.exit"
 
 "_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ParallelForNIZNS_31UsdSkelImagingComputeBonePointsERKNS_15UsdSkelTopologyEPKNS_10GfMatrix4dEPNS_7GfVec3fEmE3$_0EEvmOT_.exit": ; preds = %"_ZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIRZNS_31UsdSkelImagingComputeBonePointsERKNS_15UsdSkelTopologyEPKNS_10GfMatrix4dEPNS_7GfVec3fEmE3$_0EEvmOT_.exit.i", %73, %60
@@ -1228,7 +1228,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit.i: ; preds = %46, %3
   br label %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i
 
 _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i.backedge, %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %51 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %1)
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
@@ -1278,7 +1278,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   store ptr %72, ptr %78, align 32
   %.val.i.i.i = load ptr, ptr %1, align 8
   call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(128) %51, ptr noundef nonnull align 8 dereferenceable(128) %.val.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %79 = load i64, ptr %32, align 16
   %80 = load i64, ptr %31, align 64
   %81 = load i64, ptr %35, align 8
@@ -1314,7 +1314,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i.backedge: ; pred
   %92 = phi i64 [ %36, %42 ], [ %36, %43 ], [ %36, %"_ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partition_typeEEEE18check_being_stolenINS1_9start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIRZNSB_31UsdSkelImagingComputeBonePointsERKNSB_15UsdSkelTopologyEPKNSB_10GfMatrix4dEPNSB_7GfVec3fEmE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEEEEEbRSN_RKNS1_14execution_dataE.exit" ], [ %81, %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i ], [ %81, %87 ], [ %81, %88 ]
   %93 = phi i64 [ %34, %42 ], [ %34, %43 ], [ %34, %"_ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partition_typeEEEE18check_being_stolenINS1_9start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIRZNSB_31UsdSkelImagingComputeBonePointsERKNSB_15UsdSkelTopologyEPKNSB_10GfMatrix4dEPNSB_7GfVec3fEmE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEEEEEbRSN_RKNS1_14execution_dataE.exit" ], [ %80, %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i ], [ %80, %87 ], [ %80, %88 ]
   %94 = phi i64 [ %33, %42 ], [ %33, %43 ], [ %33, %"_ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partition_typeEEEE18check_being_stolenINS1_9start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIRZNSB_31UsdSkelImagingComputeBonePointsERKNSB_15UsdSkelTopologyEPKNSB_10GfMatrix4dEPNSB_7GfVec3fEmE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEEEEEbRSN_RKNS1_14execution_dataE.exit" ], [ %79, %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i ], [ %79, %87 ], [ %79, %88 ]
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %95 = icmp ult i64 %94, %.pre-phi.i
   br i1 %95, label %96, label %99
 
@@ -1444,7 +1444,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %155 = zext nneg i8 %109 to i64
   %156 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 0, i64 %155
   %157 = load i8, ptr %156, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %158 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %1)
   %159 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %105, i64 %155
@@ -1485,7 +1485,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   store ptr %173, ptr %179, align 32
   %.val.i.i.i.i = load ptr, ptr %1, align 8
   call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(128) %158, ptr noundef nonnull align 8 dereferenceable(128) %.val.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %180 = add i8 %.promoted.i.pr50.i.i, -1
   store i8 %180, ptr %103, align 2
   %181 = add nuw nsw i8 %109, 1
@@ -1548,7 +1548,7 @@ _ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit.i.i: 
   br i1 %210, label %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIRZNS9_31UsdSkelImagingComputeBonePointsERKNS9_15UsdSkelTopologyEPKNS9_10GfMatrix4dEPNS9_7GfVec3fEmE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEEES8_EEvRSL_RT0_RNS1_14execution_dataE.exit", label %thread-pre-split.i.i, !llvm.loop !29
 
 "_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIRZNS9_31UsdSkelImagingComputeBonePointsERKNS9_15UsdSkelTopologyEPKNS9_10GfMatrix4dEPNS9_7GfVec3fEmE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEEES8_EEvRSL_RT0_RNS1_14execution_dataE.exit": ; preds = %thread-pre-split28.i.i, %_ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit.i.i, %99
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %212 = load ptr, ptr %211, align 32
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -1675,10 +1675,10 @@ declare float @llvm.sqrt.f32(float) #14
 declare i8 @llvm.umax.i8(i8, i8) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

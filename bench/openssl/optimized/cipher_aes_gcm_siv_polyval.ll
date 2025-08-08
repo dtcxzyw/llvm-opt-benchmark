@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @ossl_polyval_ghash_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [2 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, 7
   %or.cond.i = icmp eq i64 %5, 0
@@ -50,25 +50,19 @@ byte_reverse16.exit:                              ; preds = %byte_reverse16.exit
   store i64 %24, ptr %3, align 16, !tbaa !3
   store i64 %22, ptr %18, align 8, !tbaa !3
   call void @ossl_gcm_init_4bit(ptr noundef %0, ptr noundef nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @ossl_gcm_init_4bit(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @ossl_gcm_init_4bit(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @ossl_polyval_ghash_hash(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = ptrtoint ptr %2 to i64
   %6 = alloca [2 x i64], align 16
   %7 = alloca [2 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = ptrtoint ptr %1 to i64
   %9 = and i64 %8, 7
   %or.cond.i = icmp eq i64 %9, 0
@@ -164,12 +158,18 @@ byte_reverse16.exit12:                            ; preds = %.preheader.i8, %25
   br i1 %exitcond.not.i17, label %byte_reverse16.exit18, label %.preheader.i14, !llvm.loop !8
 
 byte_reverse16.exit18:                            ; preds = %.preheader.i14, %37
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-declare void @ossl_gcm_ghash_4bit(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @ossl_gcm_ghash_4bit(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #3
@@ -178,8 +178,8 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #3
 declare i64 @llvm.bswap.i64(i64) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nounwind }
 

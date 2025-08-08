@@ -64,7 +64,7 @@ define dso_local noundef i64 @multirange_in(ptr noundef captures(none) %0) local
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @palloc(i64 noundef 64) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %15 = tail call fastcc ptr @get_multirange_io_data(ptr noundef %0, i32 noundef %8, i32 noundef 0)
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 440
@@ -347,14 +347,11 @@ default.unreachable:                              ; preds = %54
 
 135:                                              ; preds = %89, %44, %._crit_edge236, %67, %65, %111, %109, %.critedge9, %129, %.critedge.thread, %37, %._crit_edge
   %.0 = phi i64 [ %134, %._crit_edge ], [ 0, %37 ], [ 0, %.critedge.thread ], [ 0, %129 ], [ 0, %.critedge9 ], [ 0, %109 ], [ 0, %111 ], [ 0, %65 ], [ 0, %67 ], [ 0, %._crit_edge236 ], [ 0, %44 ], [ 0, %89 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @get_multirange_io_data(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef range(i32 0, 4) %2) unnamed_addr #0 {
@@ -376,11 +373,11 @@ define internal fastcc ptr @get_multirange_io_data(ptr noundef readonly captures
   br i1 %.not, label %51, label %16
 
 16:                                               ; preds = %13, %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @MemoryContextAlloc(ptr noundef %18, i64 noundef 64) #11
@@ -437,11 +434,11 @@ define internal fastcc ptr @get_multirange_io_data(ptr noundef readonly captures
   %49 = load ptr, ptr %0, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   store ptr %19, ptr %50, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %44, %13
@@ -450,37 +447,34 @@ define internal fastcc ptr @get_multirange_io_data(ptr noundef readonly captures
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #3
+declare ptr @__ctype_b_loc() local_unnamed_addr #2
 
-declare zeroext i1 @errsave_start(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errsave_start(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errsave_finish(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errsave_finish(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @pg_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @pg_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @pnstrdup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @pnstrdup(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare zeroext i1 @InputFunctionCallSafe(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @InputFunctionCallSafe(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare signext i8 @range_get_flags(ptr noundef) local_unnamed_addr #2
+declare signext i8 @range_get_flags(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @make_multirange(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -851,7 +845,7 @@ define dso_local i64 @multirange_out(ptr noundef readonly captures(none) %0) loc
   %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #11
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = tail call fastcc ptr @get_multirange_io_data(ptr noundef %0, i32 noundef %8, i32 noundef 1)
   call void @initStringInfo(ptr noundef nonnull %2) #11
   call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 123) #11
@@ -907,13 +901,13 @@ define dso_local i64 @multirange_out(ptr noundef readonly captures(none) %0) loc
   call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 125) #11
   %31 = load ptr, ptr %2, align 8
   %32 = ptrtoint ptr %31 to i64
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %32
 }
 
-declare void @initStringInfo(ptr noundef) local_unnamed_addr #2
+declare void @initStringInfo(ptr noundef) local_unnamed_addr #1
 
-declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #2
+declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @multirange_deserialize(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) initializes((0, 4)) %2, ptr noundef captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
@@ -953,9 +947,9 @@ define dso_local void @multirange_deserialize(ptr noundef readonly captures(none
   ret void
 }
 
-declare ptr @OutputFunctionCall(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @OutputFunctionCall(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @multirange_recv(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -969,7 +963,7 @@ define dso_local noundef i64 @multirange_recv(ptr noundef readonly captures(none
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = tail call fastcc ptr @get_multirange_io_data(ptr noundef %0, i32 noundef %8, i32 noundef 2)
   %13 = tail call i32 @pq_getmsgint(ptr noundef %5, i32 noundef 4) #11
   %14 = zext i32 %13 to i64
@@ -993,7 +987,7 @@ define dso_local noundef i64 @multirange_recv(ptr noundef readonly captures(none
   %22 = load ptr, ptr %21, align 8
   %23 = call ptr @make_multirange(i32 noundef %8, ptr noundef %22, i32 noundef %13, ptr noundef %16)
   %24 = ptrtoint ptr %23 to i64
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %24
 
 25:                                               ; preds = %.lr.ph, %25
@@ -1014,19 +1008,19 @@ define dso_local noundef i64 @multirange_recv(ptr noundef readonly captures(none
   br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !18
 }
 
-declare i32 @pq_getmsgint(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @pq_getmsgint(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @pq_getmsgbytes(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @pq_getmsgbytes(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @resetStringInfo(ptr noundef) local_unnamed_addr #2
+declare void @resetStringInfo(ptr noundef) local_unnamed_addr #1
 
-declare void @appendBinaryStringInfo(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @appendBinaryStringInfo(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @ReceiveFunctionCall(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @ReceiveFunctionCall(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
-declare void @pq_getmsgend(ptr noundef) local_unnamed_addr #2
+declare void @pq_getmsgend(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @multirange_send(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -1114,15 +1108,15 @@ define dso_local i64 @multirange_send(ptr noundef readonly captures(none) %0) lo
   br i1 %exitcond25.not, label %._crit_edge, label %34, !llvm.loop !25
 }
 
-declare ptr @makeStringInfo() local_unnamed_addr #2
+declare ptr @makeStringInfo() local_unnamed_addr #1
 
-declare void @pq_begintypsend(ptr noundef) local_unnamed_addr #2
+declare void @pq_begintypsend(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SendFunctionCall(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @SendFunctionCall(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @pq_sendbytes(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @pq_sendbytes(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @pq_endtypsend(ptr noundef) local_unnamed_addr #2
+declare ptr @pq_endtypsend(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @multirange_get_typcache(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1162,9 +1156,9 @@ define dso_local ptr @multirange_get_typcache(ptr noundef readonly captures(none
   ret ptr %.0
 }
 
-declare ptr @lookup_type_cache(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @lookup_type_cache(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @multirange_get_range(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -1446,10 +1440,10 @@ thread-pre-split:                                 ; preds = %117
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @multirange_get_bounds(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
@@ -1768,9 +1762,9 @@ define dso_local ptr @multirange_get_union_range(ptr noundef %0, ptr noundef %1)
   %3 = alloca %struct.RangeBound, align 8
   %4 = alloca %struct.RangeBound, align 8
   %5 = alloca %struct.RangeBound, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
@@ -1790,15 +1784,15 @@ define dso_local ptr @multirange_get_union_range(ptr noundef %0, ptr noundef %1)
 
 15:                                               ; preds = %11, %9
   %.0 = phi ptr [ %10, %9 ], [ %14, %11 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
-declare ptr @make_empty_range(ptr noundef) local_unnamed_addr #2
+declare ptr @make_empty_range(ptr noundef) local_unnamed_addr #1
 
-declare ptr @make_range(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare ptr @make_range(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @make_empty_multirange(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1813,9 +1807,9 @@ define dso_local noundef i64 @multirange_constructor2(ptr noundef readonly captu
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = tail call i32 @get_fn_expr_rettype(ptr noundef %5) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
@@ -1970,24 +1964,24 @@ multirange_get_typcache.exit:                     ; preds = %11, %21
 95:                                               ; preds = %.loopexit, %29
   %.030.in = phi ptr [ %30, %29 ], [ %94, %.loopexit ]
   %.030 = ptrtoint ptr %.030.in to i64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.030
 }
 
-declare i32 @get_fn_expr_rettype(ptr noundef) local_unnamed_addr #2
+declare i32 @get_fn_expr_rettype(ptr noundef) local_unnamed_addr #1
 
-declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #2
+declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #1
 
-declare void @deconstruct_array(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i8 noundef signext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @deconstruct_array(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i8 noundef signext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @multirange_constructor1(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 @get_fn_expr_rettype(ptr noundef %3) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
@@ -2057,7 +2051,7 @@ multirange_get_typcache.exit:                     ; preds = %9, %19
 41:                                               ; preds = %30
   %42 = call ptr @make_multirange(i32 noundef %4, ptr noundef nonnull %23, i32 noundef 1, ptr noundef nonnull %2)
   %43 = ptrtoint ptr %42 to i64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %43
 }
 
@@ -2369,7 +2363,7 @@ multirange_deserialize.exit18:                    ; preds = %.lr.ph.i15, %multir
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @multirange_minus_internal(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = add i32 %4, %2
   %9 = sext i32 %8 to i64
   %10 = shl nsw i64 %9, 3
@@ -2477,17 +2471,17 @@ define dso_local noundef ptr @multirange_minus_internal(i32 noundef %0, ptr noun
 ._crit_edge89:                                    ; preds = %._crit_edge, %6
   %.041.lcssa = phi i32 [ 0, %6 ], [ %49, %._crit_edge ]
   %52 = call ptr @make_multirange(i32 noundef %0, ptr noundef %1, i32 noundef %.041.lcssa, ptr noundef %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %52
 }
 
-declare zeroext i1 @range_before_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @range_before_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @range_split_internal(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @range_split_internal(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @range_overlaps_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @range_overlaps_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @range_minus_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @range_minus_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @multirange_intersect(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -2704,14 +2698,14 @@ define dso_local noundef ptr @multirange_intersect_internal(i32 noundef %0, ptr 
   ret ptr %.046
 }
 
-declare ptr @range_intersect_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @range_intersect_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @range_overleft_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @range_overleft_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @range_agg_transfn(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @AggCheckCallContext(ptr noundef %0, ptr noundef nonnull %2) #11
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %7
@@ -2769,24 +2763,24 @@ define dso_local i64 @range_agg_transfn(ptr noundef %0) local_unnamed_addr #0 {
 
 34:                                               ; preds = %29, %25
   %35 = ptrtoint ptr %.0 to i64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %35
 }
 
-declare i32 @AggCheckCallContext(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @AggCheckCallContext(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @get_fn_expr_argtype(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @get_fn_expr_argtype(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @type_is_range(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @type_is_range(i32 noundef) local_unnamed_addr #1
 
-declare ptr @initArrayResult(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @initArrayResult(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @accumArrayResult(ptr noundef, i64 noundef, i1 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @accumArrayResult(ptr noundef, i64 noundef, i1 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @range_agg_finalfn(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @AggCheckCallContext(ptr noundef %0, ptr noundef nonnull %2) #11
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %7
@@ -2896,14 +2890,14 @@ multirange_get_typcache.exit:                     ; preds = %30, %40
 
 59:                                               ; preds = %._crit_edge, %21, %.thread
   %.023 = phi i64 [ 0, %.thread ], [ 0, %21 ], [ %58, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.023
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @multirange_agg_transfn(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @AggCheckCallContext(ptr noundef %0, ptr noundef nonnull %2) #11
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %7
@@ -3044,16 +3038,16 @@ multirange_deserialize.exit:                      ; preds = %49
 
 .loopexit:                                        ; preds = %.lr.ph, %multirange_deserialize.exit, %65, %45
   %77 = ptrtoint ptr %.021 to i64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %77
 }
 
-declare zeroext i1 @type_is_multirange(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @type_is_multirange(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @multirange_intersect_agg_transfn(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @AggCheckCallContext(ptr noundef %0, ptr noundef nonnull %2) #11
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %7
@@ -3180,7 +3174,7 @@ multirange_deserialize.exit16:                    ; preds = %multirange_deserial
   %.0 = phi ptr [ null, %multirange_deserialize.exit ], [ %59, %multirange_deserialize.exit16.loopexit ]
   %64 = call ptr @multirange_intersect_internal(i32 noundef %9, ptr noundef %63, i32 noundef %43, ptr noundef %.025, i32 noundef %54, ptr noundef %.0)
   %65 = ptrtoint ptr %64 to i64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %65
 }
 
@@ -3192,8 +3186,8 @@ define dso_local i64 @multirange_lower(ptr noundef captures(none) %0) local_unna
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
@@ -3259,8 +3253,8 @@ multirange_get_typcache.exit:                     ; preds = %20, %30
 
 42:                                               ; preds = %40, %38, %11
   %.0 = phi i64 [ 0, %11 ], [ 0, %40 ], [ %39, %38 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -3272,8 +3266,8 @@ define dso_local i64 @multirange_upper(ptr noundef captures(none) %0) local_unna
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
@@ -3342,8 +3336,8 @@ multirange_get_typcache.exit:                     ; preds = %20, %30
 
 44:                                               ; preds = %42, %40, %11
   %.0 = phi i64 [ 0, %11 ], [ 0, %42 ], [ %41, %40 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -3368,8 +3362,8 @@ define dso_local range(i64 0, 2) i64 @multirange_lower_inc(ptr noundef readonly 
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
@@ -3421,8 +3415,8 @@ multirange_get_typcache.exit:                     ; preds = %18, %28
 
 36:                                               ; preds = %1, %multirange_get_typcache.exit
   %.0 = phi i64 [ %35, %multirange_get_typcache.exit ], [ 0, %1 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -3434,8 +3428,8 @@ define dso_local range(i64 0, 2) i64 @multirange_upper_inc(ptr noundef readonly 
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
@@ -3490,8 +3484,8 @@ multirange_get_typcache.exit:                     ; preds = %18, %28
 
 38:                                               ; preds = %1, %multirange_get_typcache.exit
   %.0 = phi i64 [ %37, %multirange_get_typcache.exit ], [ 0, %1 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -3503,8 +3497,8 @@ define dso_local range(i64 0, 2) i64 @multirange_lower_inf(ptr noundef readonly 
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
@@ -3556,8 +3550,8 @@ multirange_get_typcache.exit:                     ; preds = %18, %28
 
 36:                                               ; preds = %1, %multirange_get_typcache.exit
   %.0 = phi i64 [ %35, %multirange_get_typcache.exit ], [ 0, %1 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -3569,8 +3563,8 @@ define dso_local range(i64 0, 2) i64 @multirange_upper_inf(ptr noundef readonly 
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
@@ -3625,8 +3619,8 @@ multirange_get_typcache.exit:                     ; preds = %18, %28
 
 38:                                               ; preds = %1, %multirange_get_typcache.exit
   %.0 = phi i64 [ %37, %multirange_get_typcache.exit ], [ 0, %1 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -3701,8 +3695,8 @@ define dso_local noundef zeroext i1 @multirange_contains_elem_internal(ptr nound
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %multirange_elem_bsearch_comparison.exit
   %.01729.i = phi i32 [ %.219.i, %multirange_elem_bsearch_comparison.exit ], [ 0, %.lr.ph.i.preheader ]
   %.02028.i = phi i32 [ %.222.i, %multirange_elem_bsearch_comparison.exit ], [ %7, %.lr.ph.i.preheader ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = add i32 %.02028.i, %.01729.i
   %16 = lshr i32 %15, 1
   call void @multirange_get_bounds(ptr noundef %0, ptr noundef %1, i32 noundef %16, ptr noundef nonnull %4, ptr noundef nonnull %5)
@@ -3750,15 +3744,15 @@ define dso_local noundef zeroext i1 @multirange_contains_elem_internal(ptr nound
   br label %multirange_elem_bsearch_comparison.exit
 
 .thread.i:                                        ; preds = %38, %29
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %multirange_bsearch_match.exit
 
 multirange_elem_bsearch_comparison.exit:          ; preds = %25, %19, %42
   %.222.i = phi i32 [ %.02028.i, %42 ], [ %16, %19 ], [ %16, %25 ]
   %.219.i = phi i32 [ %43, %42 ], [ %.01729.i, %19 ], [ %.01729.i, %25 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %44 = icmp ult i32 %.219.i, %.222.i
   br i1 %44, label %.lr.ph.i, label %multirange_bsearch_match.exit, !llvm.loop !38
 
@@ -3875,8 +3869,8 @@ define dso_local noundef zeroext i1 @multirange_contains_range_internal(ptr noun
   %5 = alloca %struct.RangeBound, align 8
   %6 = alloca [2 x %struct.RangeBound], align 16
   %7 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call signext i8 @range_get_flags(ptr noundef %2) #11
   %9 = and i8 %8, 1
   %.not = icmp eq i8 %9, 0
@@ -3898,8 +3892,8 @@ define dso_local noundef zeroext i1 @multirange_contains_range_internal(ptr noun
 .lr.ph.i:                                         ; preds = %14, %multirange_range_contains_bsearch_comparison.exit
   %.01729.i = phi i32 [ %.219.i, %multirange_range_contains_bsearch_comparison.exit ], [ 0, %14 ]
   %.02028.i = phi i32 [ %.222.i, %multirange_range_contains_bsearch_comparison.exit ], [ %16, %14 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %17 = add i32 %.02028.i, %.01729.i
   %18 = lshr i32 %17, 1
   call void @multirange_get_bounds(ptr noundef %0, ptr noundef %1, i32 noundef %18, ptr noundef nonnull %4, ptr noundef nonnull %5)
@@ -3931,22 +3925,22 @@ define dso_local noundef zeroext i1 @multirange_contains_range_internal(ptr noun
 
 .thread.i:                                        ; preds = %27, %30
   %.1.ph.ph = phi i1 [ false, %30 ], [ true, %27 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %multirange_bsearch_match.exit
 
 multirange_range_contains_bsearch_comparison.exit: ; preds = %.lr.ph.i, %31
   %.222.i = phi i32 [ %.02028.i, %31 ], [ %18, %.lr.ph.i ]
   %.219.i = phi i32 [ %32, %31 ], [ %.01729.i, %.lr.ph.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %33 = icmp ult i32 %.219.i, %.222.i
   br i1 %33, label %.lr.ph.i, label %multirange_bsearch_match.exit, !llvm.loop !38
 
 multirange_bsearch_match.exit:                    ; preds = %multirange_range_contains_bsearch_comparison.exit, %.thread.i, %14, %10, %3
   %.0 = phi i1 [ true, %3 ], [ false, %10 ], [ %.1.ph.ph, %.thread.i ], [ false, %14 ], [ false, %multirange_range_contains_bsearch_comparison.exit ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
@@ -4010,12 +4004,12 @@ define dso_local noundef zeroext i1 @range_contains_multirange_internal(ptr noun
   %7 = alloca %struct.RangeBound, align 8
   %8 = alloca %struct.RangeBound, align 8
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 0
@@ -4047,12 +4041,12 @@ define dso_local noundef zeroext i1 @range_contains_multirange_internal(ptr noun
 
 range_bounds_contains.exit:                       ; preds = %24, %21, %13, %3
   %.0 = phi i1 [ true, %3 ], [ false, %13 ], [ false, %24 ], [ true, %21 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
@@ -4160,7 +4154,7 @@ multirange_get_typcache.exit:                     ; preds = %16, %26
   ret i64 %32
 }
 
-declare void @range_deserialize(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @range_deserialize(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @multirange_eq_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -4168,10 +4162,10 @@ define dso_local noundef zeroext i1 @multirange_eq_internal(ptr noundef %0, ptr 
   %5 = alloca %struct.RangeBound, align 8
   %6 = alloca %struct.RangeBound, align 8
   %7 = alloca %struct.RangeBound, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -4218,14 +4212,14 @@ define dso_local noundef zeroext i1 @multirange_eq_internal(ptr noundef %0, ptr 
 
 .loopexit:                                        ; preds = %24, %.lr.ph, %21, %.preheader, %15
   %.017 = phi i1 [ false, %15 ], [ true, %.preheader ], [ false, %24 ], [ false, %.lr.ph ], [ true, %21 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.017
 }
 
-declare i32 @range_cmp_bounds(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @range_cmp_bounds(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @multirange_eq(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -4397,8 +4391,8 @@ define dso_local noundef zeroext i1 @range_overlaps_multirange_internal(ptr noun
   %5 = alloca %struct.RangeBound, align 8
   %6 = alloca [2 x %struct.RangeBound], align 16
   %7 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call signext i8 @range_get_flags(ptr noundef %1) #11
   %9 = and i8 %8, 1
   %.not = icmp eq i8 %9, 0
@@ -4420,8 +4414,8 @@ define dso_local noundef zeroext i1 @range_overlaps_multirange_internal(ptr noun
 .lr.ph.i:                                         ; preds = %14, %multirange_range_overlaps_bsearch_comparison.exit
   %.01729.i = phi i32 [ %.219.i, %multirange_range_overlaps_bsearch_comparison.exit ], [ 0, %14 ]
   %.02028.i = phi i32 [ %.222.i, %multirange_range_overlaps_bsearch_comparison.exit ], [ %16, %14 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %17 = add i32 %.02028.i, %.01729.i
   %18 = lshr i32 %17, 1
   call void @multirange_get_bounds(ptr noundef %0, ptr noundef %2, i32 noundef %18, ptr noundef nonnull %4, ptr noundef nonnull %5)
@@ -4439,22 +4433,22 @@ define dso_local noundef zeroext i1 @range_overlaps_multirange_internal(ptr noun
   br label %multirange_range_overlaps_bsearch_comparison.exit
 
 .thread.i:                                        ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %multirange_bsearch_match.exit
 
 multirange_range_overlaps_bsearch_comparison.exit: ; preds = %.lr.ph.i, %24
   %.222.i = phi i32 [ %.02028.i, %24 ], [ %18, %.lr.ph.i ]
   %.219.i = phi i32 [ %25, %24 ], [ %.01729.i, %.lr.ph.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %26 = icmp ult i32 %.219.i, %.222.i
   br i1 %26, label %.lr.ph.i, label %multirange_bsearch_match.exit, !llvm.loop !38
 
 multirange_bsearch_match.exit:                    ; preds = %multirange_range_overlaps_bsearch_comparison.exit, %.thread.i, %14, %3, %10
   %.0 = phi i1 [ false, %10 ], [ false, %3 ], [ true, %.thread.i ], [ false, %14 ], [ false, %multirange_range_overlaps_bsearch_comparison.exit ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
@@ -4568,10 +4562,10 @@ define dso_local noundef zeroext i1 @multirange_overlaps_multirange_internal(ptr
   %5 = alloca %struct.RangeBound, align 8
   %6 = alloca %struct.RangeBound, align 8
   %7 = alloca %struct.RangeBound, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
@@ -4636,10 +4630,10 @@ range_bounds_overlaps.exit:                       ; preds = %31, %28
 
 range_bounds_overlaps.exit.thread:                ; preds = %range_bounds_overlaps.exit, %25, %31, %.lr.ph, %15, %3, %11
   %.021 = phi i1 [ false, %11 ], [ false, %3 ], [ false, %15 ], [ false, %.lr.ph ], [ false, %range_bounds_overlaps.exit ], [ true, %25 ], [ true, %31 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.021
 }
 
@@ -4650,11 +4644,11 @@ define dso_local zeroext i1 @range_overleft_multirange_internal(ptr noundef %0, 
   %6 = alloca %struct.RangeBound, align 8
   %7 = alloca %struct.RangeBound, align 8
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call signext i8 @range_get_flags(ptr noundef %1) #11
   %10 = and i8 %9, 1
   %.not = icmp eq i8 %10, 0
@@ -4677,11 +4671,11 @@ define dso_local zeroext i1 @range_overleft_multirange_internal(ptr noundef %0, 
 
 20:                                               ; preds = %3, %11, %15
   %.0.in = phi i1 [ %19, %15 ], [ false, %11 ], [ false, %3 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0.in
 }
 
@@ -4737,11 +4731,11 @@ multirange_get_typcache.exit:                     ; preds = %21, %31
   %.0.i = phi ptr [ %24, %31 ], [ %19, %21 ]
   %34 = getelementptr inbounds nuw i8, ptr %.0.i, i64 440
   %35 = load ptr, ptr %34, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %36 = tail call signext i8 @range_get_flags(ptr noundef %10) #11
   %37 = and i8 %36, 1
   %.not.i7 = icmp eq i8 %37, 0
@@ -4765,11 +4759,11 @@ multirange_get_typcache.exit:                     ; preds = %21, %31
 
 range_overleft_multirange_internal.exit:          ; preds = %multirange_get_typcache.exit, %38, %42
   %.0.in.i = phi i64 [ %47, %42 ], [ 0, %38 ], [ 0, %multirange_get_typcache.exit ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0.in.i
 }
 
@@ -4788,11 +4782,11 @@ define dso_local range(i64 0, 2) i64 @multirange_overleft_range(ptr noundef read
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
   %14 = tail call ptr @pg_detoast_datum(ptr noundef %13) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
@@ -4855,11 +4849,11 @@ multirange_get_typcache.exit:                     ; preds = %28, %38
 
 50:                                               ; preds = %1, %18, %multirange_get_typcache.exit
   %.0 = phi i64 [ %49, %multirange_get_typcache.exit ], [ 0, %18 ], [ 0, %1 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -4877,10 +4871,10 @@ define dso_local range(i64 0, 2) i64 @multirange_overleft_multirange(ptr noundef
   %11 = load i64, ptr %10, align 8
   %12 = inttoptr i64 %11 to ptr
   %13 = tail call ptr @pg_detoast_datum(ptr noundef %12) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 0
@@ -4946,10 +4940,10 @@ multirange_get_typcache.exit:                     ; preds = %28, %38
 
 52:                                               ; preds = %1, %17, %multirange_get_typcache.exit
   %.0 = phi i64 [ %51, %multirange_get_typcache.exit ], [ 0, %17 ], [ 0, %1 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -4960,11 +4954,11 @@ define dso_local zeroext i1 @range_overright_multirange_internal(ptr noundef %0,
   %6 = alloca %struct.RangeBound, align 8
   %7 = alloca %struct.RangeBound, align 8
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call signext i8 @range_get_flags(ptr noundef %1) #11
   %10 = and i8 %9, 1
   %.not = icmp eq i8 %10, 0
@@ -4985,11 +4979,11 @@ define dso_local zeroext i1 @range_overright_multirange_internal(ptr noundef %0,
 
 18:                                               ; preds = %3, %11, %15
   %.0 = phi i1 [ %17, %15 ], [ false, %11 ], [ false, %3 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
@@ -5045,11 +5039,11 @@ multirange_get_typcache.exit:                     ; preds = %21, %31
   %.0.i = phi ptr [ %24, %31 ], [ %19, %21 ]
   %34 = getelementptr inbounds nuw i8, ptr %.0.i, i64 440
   %35 = load ptr, ptr %34, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %36 = tail call signext i8 @range_get_flags(ptr noundef %10) #11
   %37 = and i8 %36, 1
   %.not.i7 = icmp eq i8 %37, 0
@@ -5071,11 +5065,11 @@ multirange_get_typcache.exit:                     ; preds = %21, %31
 
 range_overright_multirange_internal.exit:         ; preds = %multirange_get_typcache.exit, %38, %42
   %.0.i8 = phi i64 [ %45, %42 ], [ 0, %38 ], [ 0, %multirange_get_typcache.exit ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0.i8
 }
 
@@ -5094,11 +5088,11 @@ define dso_local range(i64 0, 2) i64 @multirange_overright_range(ptr noundef rea
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
   %14 = tail call ptr @pg_detoast_datum(ptr noundef %13) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
@@ -5159,11 +5153,11 @@ multirange_get_typcache.exit:                     ; preds = %28, %38
 
 48:                                               ; preds = %1, %18, %multirange_get_typcache.exit
   %.0 = phi i64 [ %47, %multirange_get_typcache.exit ], [ 0, %18 ], [ 0, %1 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -5181,10 +5175,10 @@ define dso_local range(i64 0, 2) i64 @multirange_overright_multirange(ptr nounde
   %11 = load i64, ptr %10, align 8
   %12 = inttoptr i64 %11 to ptr
   %13 = tail call ptr @pg_detoast_datum(ptr noundef %12) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 0
@@ -5245,10 +5239,10 @@ multirange_get_typcache.exit:                     ; preds = %28, %38
 
 48:                                               ; preds = %1, %17, %multirange_get_typcache.exit
   %.0 = phi i64 [ %47, %multirange_get_typcache.exit ], [ 0, %17 ], [ 0, %1 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -5314,10 +5308,10 @@ define dso_local noundef zeroext i1 @multirange_contains_multirange_internal(ptr
   %9 = load i32, ptr %8, align 4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load i32, ptr %10, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %range_bounds_contains.exit, label %13
 
@@ -5368,10 +5362,10 @@ define dso_local noundef zeroext i1 @multirange_contains_multirange_internal(ptr
 
 range_bounds_contains.exit:                       ; preds = %17, %._crit_edge, %27, %.lr.ph, %15, %13, %3
   %.021 = phi i1 [ true, %3 ], [ false, %13 ], [ true, %15 ], [ false, %.lr.ph ], [ true, %17 ], [ false, %._crit_edge ], [ false, %27 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.021
 }
 
@@ -5479,11 +5473,11 @@ multirange_get_typcache.exit:                     ; preds = %21, %31
   %.0.i = phi ptr [ %24, %31 ], [ %19, %21 ]
   %34 = getelementptr inbounds nuw i8, ptr %.0.i, i64 440
   %35 = load ptr, ptr %34, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %36 = tail call signext i8 @range_get_flags(ptr noundef %10) #11
   %37 = and i8 %36, 1
   %.not.i7 = icmp eq i8 %37, 0
@@ -5505,11 +5499,11 @@ multirange_get_typcache.exit:                     ; preds = %21, %31
 
 range_before_multirange_internal.exit:            ; preds = %multirange_get_typcache.exit, %38, %42
   %.0.i8 = phi i64 [ %44, %42 ], [ 0, %38 ], [ 0, %multirange_get_typcache.exit ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0.i8
 }
 
@@ -5520,11 +5514,11 @@ define dso_local zeroext i1 @range_before_multirange_internal(ptr noundef %0, pt
   %6 = alloca %struct.RangeBound, align 8
   %7 = alloca %struct.RangeBound, align 8
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call signext i8 @range_get_flags(ptr noundef %1) #11
   %10 = and i8 %9, 1
   %.not = icmp eq i8 %10, 0
@@ -5545,11 +5539,11 @@ define dso_local zeroext i1 @range_before_multirange_internal(ptr noundef %0, pt
 
 18:                                               ; preds = %3, %11, %15
   %.0 = phi i1 [ %17, %15 ], [ false, %11 ], [ false, %3 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
@@ -5605,11 +5599,11 @@ multirange_get_typcache.exit:                     ; preds = %21, %31
   %.0.i = phi ptr [ %24, %31 ], [ %19, %21 ]
   %34 = getelementptr inbounds nuw i8, ptr %.0.i, i64 440
   %35 = load ptr, ptr %34, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %36 = tail call signext i8 @range_get_flags(ptr noundef %14) #11
   %37 = and i8 %36, 1
   %.not.i7 = icmp eq i8 %37, 0
@@ -5633,11 +5627,11 @@ multirange_get_typcache.exit:                     ; preds = %21, %31
 
 range_after_multirange_internal.exit:             ; preds = %multirange_get_typcache.exit, %38, %42
   %.0.i8 = phi i64 [ %47, %42 ], [ 0, %38 ], [ 0, %multirange_get_typcache.exit ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0.i8
 }
 
@@ -5648,11 +5642,11 @@ define dso_local zeroext i1 @range_after_multirange_internal(ptr noundef %0, ptr
   %6 = alloca %struct.RangeBound, align 8
   %7 = alloca %struct.RangeBound, align 8
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call signext i8 @range_get_flags(ptr noundef %1) #11
   %10 = and i8 %9, 1
   %.not = icmp eq i8 %10, 0
@@ -5675,11 +5669,11 @@ define dso_local zeroext i1 @range_after_multirange_internal(ptr noundef %0, ptr
 
 20:                                               ; preds = %3, %11, %15
   %.0 = phi i1 [ %19, %15 ], [ false, %11 ], [ false, %3 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
@@ -5734,10 +5728,10 @@ multirange_get_typcache.exit:                     ; preds = %20, %30
   %.0.i = phi ptr [ %23, %30 ], [ %18, %20 ]
   %33 = getelementptr inbounds nuw i8, ptr %.0.i, i64 440
   %34 = load ptr, ptr %33, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 0
@@ -5760,10 +5754,10 @@ multirange_get_typcache.exit:                     ; preds = %20, %30
 
 multirange_before_multirange_internal.exit:       ; preds = %multirange_get_typcache.exit, %38, %42
   %.0.i7 = phi i64 [ %45, %42 ], [ 0, %38 ], [ 0, %multirange_get_typcache.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0.i7
 }
 
@@ -5773,10 +5767,10 @@ define dso_local zeroext i1 @multirange_before_multirange_internal(ptr noundef %
   %5 = alloca %struct.RangeBound, align 8
   %6 = alloca %struct.RangeBound, align 8
   %7 = alloca %struct.RangeBound, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
@@ -5798,10 +5792,10 @@ define dso_local zeroext i1 @multirange_before_multirange_internal(ptr noundef %
 
 19:                                               ; preds = %3, %11, %15
   %.0 = phi i1 [ %18, %15 ], [ false, %11 ], [ false, %3 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
@@ -5857,11 +5851,11 @@ multirange_get_typcache.exit:                     ; preds = %21, %31
   %.0.i = phi ptr [ %24, %31 ], [ %19, %21 ]
   %34 = getelementptr inbounds nuw i8, ptr %.0.i, i64 440
   %35 = load ptr, ptr %34, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %36 = tail call signext i8 @range_get_flags(ptr noundef %10) #11
   %37 = and i8 %36, 1
   %.not.i7 = icmp eq i8 %37, 0
@@ -5885,11 +5879,11 @@ multirange_get_typcache.exit:                     ; preds = %21, %31
 
 range_after_multirange_internal.exit:             ; preds = %multirange_get_typcache.exit, %38, %42
   %.0.i8 = phi i64 [ %47, %42 ], [ 0, %38 ], [ 0, %multirange_get_typcache.exit ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0.i8
 }
 
@@ -5945,11 +5939,11 @@ multirange_get_typcache.exit:                     ; preds = %21, %31
   %.0.i = phi ptr [ %24, %31 ], [ %19, %21 ]
   %34 = getelementptr inbounds nuw i8, ptr %.0.i, i64 440
   %35 = load ptr, ptr %34, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %36 = tail call signext i8 @range_get_flags(ptr noundef %14) #11
   %37 = and i8 %36, 1
   %.not.i7 = icmp eq i8 %37, 0
@@ -5971,11 +5965,11 @@ multirange_get_typcache.exit:                     ; preds = %21, %31
 
 range_before_multirange_internal.exit:            ; preds = %multirange_get_typcache.exit, %38, %42
   %.0.i8 = phi i64 [ %44, %42 ], [ 0, %38 ], [ 0, %multirange_get_typcache.exit ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0.i8
 }
 
@@ -6030,10 +6024,10 @@ multirange_get_typcache.exit:                     ; preds = %20, %30
   %.0.i = phi ptr [ %23, %30 ], [ %18, %20 ]
   %33 = getelementptr inbounds nuw i8, ptr %.0.i, i64 440
   %34 = load ptr, ptr %33, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %35 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 0
@@ -6056,10 +6050,10 @@ multirange_get_typcache.exit:                     ; preds = %20, %30
 
 multirange_before_multirange_internal.exit:       ; preds = %multirange_get_typcache.exit, %38, %42
   %.0.i7 = phi i64 [ %45, %42 ], [ 0, %38 ], [ 0, %multirange_get_typcache.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0.i7
 }
 
@@ -6070,11 +6064,11 @@ define dso_local zeroext i1 @range_adjacent_multirange_internal(ptr noundef %0, 
   %6 = alloca %struct.RangeBound, align 8
   %7 = alloca %struct.RangeBound, align 8
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call signext i8 @range_get_flags(ptr noundef %1) #11
   %10 = and i8 %9, 1
   %.not = icmp eq i8 %10, 0
@@ -6120,15 +6114,15 @@ define dso_local zeroext i1 @range_adjacent_multirange_internal(ptr noundef %0, 
 
 36:                                               ; preds = %28, %15, %3, %11
   %.0 = phi i1 [ false, %11 ], [ false, %3 ], [ true, %15 ], [ %35, %28 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
-declare zeroext i1 @bounds_adjacent(ptr noundef, i64, i64, i64, i64) local_unnamed_addr #2
+declare zeroext i1 @bounds_adjacent(ptr noundef, i64, i64, i64, i64) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @range_adjacent_multirange(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -6264,10 +6258,10 @@ define dso_local range(i64 0, 2) i64 @multirange_adjacent_multirange(ptr noundef
   %11 = load i64, ptr %10, align 8
   %12 = inttoptr i64 %11 to ptr
   %13 = tail call ptr @pg_detoast_datum(ptr noundef %12) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 0
@@ -6368,10 +6362,10 @@ multirange_get_typcache.exit:                     ; preds = %28, %38
 
 73:                                               ; preds = %64, %multirange_get_typcache.exit, %1, %17
   %.0 = phi i64 [ 0, %17 ], [ 0, %1 ], [ 1, %multirange_get_typcache.exit ], [ %spec.select, %64 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -6453,10 +6447,10 @@ multirange_get_typcache.exit:                     ; preds = %26, %36
 
 46:                                               ; preds = %.lr.ph, %58
   %.03753 = phi i32 [ 0, %.lr.ph ], [ %59, %58 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %exitcond.not = icmp eq i32 %.03753, %smax
   br i1 %exitcond.not, label %.thread, label %47
 
@@ -6482,18 +6476,18 @@ multirange_get_typcache.exit:                     ; preds = %26, %36
 
 .thread:                                          ; preds = %48, %46, %47, %54
   %.1.ph = phi i32 [ %56, %54 ], [ 1, %47 ], [ -1, %46 ], [ %52, %48 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %57 = sext i32 %.1.ph to i64
   br label %.loopexit
 
 58:                                               ; preds = %54
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %59 = add nuw nsw i32 %.03753, 1
   %exitcond56.not = icmp eq i32 %59, %43
   br i1 %exitcond56.not, label %.loopexit, label %46, !llvm.loop !44
@@ -6619,10 +6613,10 @@ multirange_get_typcache.exit:                     ; preds = %16, %26
   br label %47
 
 39:                                               ; preds = %multirange_get_typcache.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %40 = getelementptr inbounds nuw i8, ptr %.0.i, i64 440
   %41 = load ptr, ptr %40, align 8
   call void @multirange_get_bounds(ptr noundef %41, ptr noundef nonnull %9, i32 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %3)
@@ -6632,10 +6626,10 @@ multirange_get_typcache.exit:                     ; preds = %16, %26
   call void @multirange_get_bounds(ptr noundef %42, ptr noundef nonnull %9, i32 noundef %44, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %45 = load ptr, ptr %40, align 8
   %46 = call ptr @make_range(ptr noundef %45, ptr noundef nonnull %2, ptr noundef nonnull %5, i1 noundef zeroext false, ptr noundef null) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %47
 
 47:                                               ; preds = %35, %39, %31
@@ -6722,11 +6716,11 @@ define dso_local noundef i64 @multirange_unnest(ptr noundef %0) local_unnamed_ad
   ret i64 %.0
 }
 
-declare ptr @init_MultiFuncCall(ptr noundef) local_unnamed_addr #2
+declare ptr @init_MultiFuncCall(ptr noundef) local_unnamed_addr #1
 
-declare ptr @per_MultiFuncCall(ptr noundef) local_unnamed_addr #2
+declare ptr @per_MultiFuncCall(ptr noundef) local_unnamed_addr #1
 
-declare void @end_MultiFuncCall(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @end_MultiFuncCall(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 4294967296) i64 @hash_multirange(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -6814,8 +6808,8 @@ multirange_get_typcache.exit:                     ; preds = %14, %24
 50:                                               ; preds = %.lr.ph, %78
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
   %.046 = phi i32 [ 1, %.lr.ph ], [ %84, %78 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %51 = load i32, ptr %45, align 4
   %52 = add i32 %51, -1
   %53 = zext i32 %52 to i64
@@ -6863,8 +6857,8 @@ multirange_get_typcache.exit:                     ; preds = %14, %24
   %82 = xor i32 %81, %.036
   %83 = mul i32 %.046, 31
   %84 = add i32 %82, %83
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %50, !llvm.loop !45
@@ -6888,9 +6882,9 @@ multirange_get_typcache.exit:                     ; preds = %14, %24
   ret i64 %.0.lcssa
 }
 
-declare ptr @format_type_be(i32 noundef) local_unnamed_addr #2
+declare ptr @format_type_be(i32 noundef) local_unnamed_addr #1
 
-declare i64 @FunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @FunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @hash_multirange_extended(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -6980,8 +6974,8 @@ multirange_get_typcache.exit:                     ; preds = %16, %26
 52:                                               ; preds = %.lr.ph, %78
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
   %.051 = phi i64 [ 1, %.lr.ph ], [ %88, %78 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %53 = load i32, ptr %47, align 4
   %54 = add i32 %53, -1
   %55 = zext i32 %54 to i64
@@ -7031,8 +7025,8 @@ multirange_get_typcache.exit:                     ; preds = %16, %26
   %86 = xor i64 %85, %.041
   %87 = mul i64 %.051, 31
   %88 = add i64 %86, %87
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %52, !llvm.loop !46
@@ -7052,30 +7046,36 @@ multirange_get_typcache.exit:                     ; preds = %16, %26
   ret i64 %.0.lcssa
 }
 
-declare i64 @FunctionCall2Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @FunctionCall2Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @enlargeStringInfo(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @enlargeStringInfo(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #7
+declare i32 @llvm.bswap.i32(i32) #6
 
-declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @get_type_io_data(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @get_type_io_data(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @fmgr_info_cxt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @fmgr_info_cxt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @qsort_arg(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @qsort_arg(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @range_compare(ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @range_compare(ptr noundef, ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @range_adjacent_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @range_adjacent_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @range_union_internal(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @range_union_internal(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @hash_bytes_uint32(i32 noundef) local_unnamed_addr #2
+declare i32 @hash_bytes_uint32(i32 noundef) local_unnamed_addr #1
 
-declare i64 @hash_bytes_uint32_extended(i32 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @hash_bytes_uint32_extended(i32 noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #8
@@ -7090,13 +7090,13 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #9
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

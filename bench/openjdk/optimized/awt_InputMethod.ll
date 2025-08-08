@@ -424,7 +424,7 @@ define noundef zeroext i8 @Java_sun_awt_X11_XInputMethod_openXIMNative(ptr nound
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr @dpy, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %32 = tail call ptr @XOpenIM(ptr noundef %31, ptr noundef null, ptr noundef null, ptr noundef null) #14
   store ptr %32, ptr @X11im, align 8
   %33 = icmp eq ptr %32, null
@@ -438,7 +438,7 @@ define noundef zeroext i8 @Java_sun_awt_X11_XInputMethod_openXIMNative(ptr nound
   br label %OpenXIMCallback.exit
 
 OpenXIMCallback.exit:                             ; preds = %30, %34
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %37
 
 37:                                               ; preds = %27, %OpenXIMCallback.exit
@@ -687,8 +687,8 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
   %115 = getelementptr inbounds nuw i8, ptr %77, i64 32
   store ptr %114, ptr %115, align 8
   %116 = getelementptr inbounds nuw i8, ptr %77, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %117 = load ptr, ptr @X11im, align 8
   %118 = icmp eq ptr %117, null
   br i1 %118, label %.thread99, label %119
@@ -811,24 +811,24 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
   br i1 %173, label %343, label %174
 
 174:                                              ; preds = %168
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %18)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i32 0, ptr %10, align 4
   %175 = load ptr, ptr @dpy, align 8
   %176 = call i32 @XGetGeometry(ptr noundef %175, i64 noundef range(i64 1, 0) %2, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17) #14
@@ -1020,24 +1020,24 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
   br label %createStatusWindow.exit.i
 
 createStatusWindow.exit.i:                        ; preds = %269, %258
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   store ptr %256, ptr %116, align 8
   %310 = load ptr, ptr @X11im, align 8
   %311 = call ptr (ptr, ...) @XCreateIC(ptr noundef %310, ptr noundef nonnull @.str.16, i64 noundef range(i64 1, 0) %2, ptr noundef nonnull @.str.6, i64 noundef range(i64 1, 0) %2, ptr noundef nonnull @.str.17, i64 noundef %.091.i, ptr noundef nonnull @.str.8, ptr noundef nonnull %167, ptr noundef nonnull @.str.25, ptr noundef nonnull %172, ptr noundef null) #14
@@ -1134,18 +1134,18 @@ setXICFocus.exit.i:                               ; preds = %.lr.ph.i.i.i, %340,
   br label %.thread99
 
 createXIC.exit:                                   ; preds = %setXICFocus.exit.i, %342
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %360
 
 .thread99:                                        ; preds = %125, %345, %110, %150, %319
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %destroyX11InputMethodData.exit
 
 348:                                              ; preds = %323
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %349 = getelementptr inbounds nuw i8, ptr %77, i64 8
   call void @XUnsetICFocus(ptr noundef nonnull %321) #14
   %350 = load ptr, ptr %349, align 8
@@ -2533,10 +2533,10 @@ getX11InputMethodData.exit.thread:                ; preds = %55, %47, %getX11Inp
 
 110:                                              ; preds = %107
   %111 = load i64, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 0, ptr %8, align 8
   store i64 0, ptr %9, align 8
   store ptr null, ptr %10, align 8
@@ -2556,15 +2556,15 @@ getX11InputMethodData.exit.thread:                ; preds = %55, %47, %getX11Inp
 
 getParentWindow.exit:                             ; preds = %110, %113
   %.0.i76 = phi i64 [ 0, %110 ], [ %spec.select.i, %113 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %120 = load i64, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %4, align 8
   store i64 0, ptr %5, align 8
   store ptr null, ptr %6, align 8
@@ -2584,10 +2584,10 @@ getParentWindow.exit:                             ; preds = %110, %113
 
 getParentWindow.exit79:                           ; preds = %getParentWindow.exit, %122
   %.0.i78 = phi i64 [ 0, %getParentWindow.exit ], [ %spec.select.i77, %122 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %129 = icmp eq i64 %.0.i76, %.0.i78
   br i1 %129, label %130, label %132
 
@@ -2953,10 +2953,10 @@ define void @Java_sun_awt_X11_XInputMethod_adjustStatusWindow(ptr noundef %0, pt
   br label %30
 
 30:                                               ; preds = %16, %26
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %31 = load ptr, ptr @jvm, align 8
   %32 = tail call ptr @JNU_GetEnv(ptr noundef %31, i32 noundef 65538) #14
   %33 = load ptr, ptr @currentX11InputMethodInstance, align 8
@@ -3120,10 +3120,10 @@ getX11InputMethodData.exit.i:                     ; preds = %isX11InputMethodGRe
   br label %adjustStatusWindow.exit
 
 adjustStatusWindow.exit:                          ; preds = %35, %30, %48, %56, %getX11InputMethodData.exit.i, %62, %66, %85, %124
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void (...) @awt_output_flush() #14
   %129 = load ptr, ptr %0, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 120
@@ -3637,7 +3637,7 @@ wcstombsdmp.exit:                                 ; preds = %82
 88:                                               ; preds = %87
   %89 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %90 = load ptr, ptr %89, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %91 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
   %92 = load i64, ptr %4, align 8
   %93 = mul nsw i64 %92, 1000
@@ -3645,7 +3645,7 @@ wcstombsdmp.exit:                                 ; preds = %82
   %95 = load i64, ptr %94, align 8
   %96 = sdiv i64 %95, 1000
   %97 = add nsw i64 %96, %93
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %98 = tail call i64 (ptr, ptr, ptr, ptr, ptr, ...) @JNU_CallMethodByName(ptr noundef nonnull %6, ptr noundef null, ptr noundef %90, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull %.0, i64 noundef %97) #14
   br label %getX11InputMethodData.exit.thread
 
@@ -3953,7 +3953,7 @@ wcstombsdmp.exit:                                 ; preds = %87
   %134 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %135 = load i32, ptr %134, align 8
   %136 = load i32, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %137 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
   %138 = load i64, ptr %4, align 8
   %139 = mul nsw i64 %138, 1000
@@ -3961,7 +3961,7 @@ wcstombsdmp.exit:                                 ; preds = %87
   %141 = load i64, ptr %140, align 8
   %142 = sdiv i64 %141, 1000
   %143 = add nsw i64 %142, %139
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %144 = tail call i64 (ptr, ptr, ptr, ptr, ptr, ...) @JNU_CallMethodByName(ptr noundef nonnull %6, ptr noundef null, ptr noundef %131, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, ptr noundef %.0, ptr noundef %.070, i32 noundef %133, i32 noundef %135, i32 noundef %136, i64 noundef %143) #14
   br label %getX11InputMethodData.exit.thread
 
@@ -4447,10 +4447,10 @@ declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i6
 declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

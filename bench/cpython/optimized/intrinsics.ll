@@ -1004,8 +1004,8 @@ define internal ptr @import_star(ptr noundef %0, ptr noundef %1) #0 {
   br label %154
 
 11:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = call i32 @PyObject_GetOptionalAttr(ptr noundef %1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 36832), ptr noundef nonnull %3) #4
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %import_all_from.exit, label %14
@@ -1346,8 +1346,8 @@ Py_DECREF.exit53.i:                               ; preds = %Py_XDECREF.exit.i, 
 
 import_all_from.exit:                             ; preds = %11, %16, %22, %Py_DECREF.exit.i, %Py_DECREF.exit53.i, %144, %147
   %.0.i = phi i32 [ -1, %22 ], [ -1, %11 ], [ -1, %16 ], [ -1, %Py_DECREF.exit.i ], [ %.1.i, %Py_DECREF.exit53.i ], [ %.1.i, %144 ], [ %.1.i, %147 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %148 = load i32, ptr %7, align 8, !tbaa !21
   %.not.i = icmp sgt i32 %148, -1
   br i1 %.not.i, label %149, label %Py_DECREF.exit
@@ -1584,15 +1584,9 @@ define dso_local ptr @_PyCompile_GetBinaryIntrinsicName(i32 noundef %0) local_un
 
 declare void @_PyErr_SetString(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @_PySys_GetAttr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @PyObject_CallOneArg(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @_PyFrame_GetLocals(ptr noundef) local_unnamed_addr #1
 
@@ -1621,7 +1615,7 @@ declare i32 @PyErr_GivenExceptionMatches(ptr noundef, ptr noundef) local_unnamed
 declare ptr @_PyUnicode_FromASCII(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @PyException_SetCause(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1635,10 +1629,16 @@ declare ptr @_Py_make_typevar(ptr noundef, ptr noundef, ptr noundef) local_unnam
 
 declare ptr @_PyExc_PrepReraiseStar(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 attributes #5 = { nounwind willreturn memory(read) }
 

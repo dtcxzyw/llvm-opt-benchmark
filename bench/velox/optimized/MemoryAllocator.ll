@@ -559,17 +559,17 @@ if.end:                                           ; preds = %_ZNSt10lock_guardIS
   br i1 %cmp.i.i.not, label %if.end3, label %cleanup
 
 if.end3:                                          ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i.i), !noalias !10
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__a.i.i), !noalias !10
   invoke void @_ZNSt12__shared_ptrIN8facebook5velox6memory15MallocAllocatorELN9__gnu_cxx12_Lock_policyE2EEC2ISaIvEJRKmEEESt20_Sp_alloc_shared_tagIT_EDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr nonnull %__a.i.i, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8facebook5velox6memory15MemoryAllocator21kDefaultCapacityBytesE)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i.i), !noalias !10
+  call void @llvm.lifetime.end.p0(ptr nonnull %__a.i.i), !noalias !10
   %2 = load ptr, ptr %ref.tmp.i, align 8, !noalias !10
   %_M_refcount4.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   %3 = load ptr, ptr %_M_refcount4.i.i.i, align 8, !noalias !10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   store ptr %2, ptr @_ZN8facebook5velox6memory15MemoryAllocator9instance_E, align 8
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox6memory15MemoryAllocator9instance_E, i64 8), align 8
   store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox6memory15MemoryAllocator9instance_E, i64 8), align 8
@@ -665,9 +665,9 @@ define void @_ZN8facebook5velox6memory15MemoryAllocator21createDefaultInstanceEv
 _ZNSt10shared_ptrIN8facebook5velox6memory15MallocAllocatorEED2Ev.exit:
   %__a.i = alloca %"class.std::allocator.33", align 1
   %ref.tmp = alloca %"class.std::shared_ptr.6", align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__a.i)
   call void @_ZNSt12__shared_ptrIN8facebook5velox6memory15MallocAllocatorELN9__gnu_cxx12_Lock_policyE2EEC2ISaIvEJRKmEEESt20_Sp_alloc_shared_tagIT_EDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8facebook5velox6memory15MemoryAllocator21kDefaultCapacityBytesE)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__a.i)
   %0 = load ptr, ptr %ref.tmp, align 8
   store ptr %0, ptr %agg.result, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -1080,15 +1080,15 @@ if.then18:                                        ; preds = %_ZNK8facebook5velox
 _ZNKSt8functionIFvlbEEclElb.exit:                 ; preds = %if.then18
   %conv.i33 = sext i32 %23 to i64
   %mul.i = shl nsw i64 %conv.i33, 12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr2.i)
   store i64 %mul.i, ptr %__args.addr.i, align 8
   store i8 0, ptr %__args.addr2.i, align 1
   %_M_invoker.i36 = getelementptr inbounds nuw i8, ptr %reservationCB, i64 24
   %29 = load ptr, ptr %_M_invoker.i36, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(32) %reservationCB, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr2.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr2.i)
   br label %if.end23
 
 lpad13:                                           ; preds = %if.end
@@ -1398,15 +1398,15 @@ if.end35:                                         ; preds = %if.then30, %_ZNK8fa
   br i1 %or.cond, label %_ZNKSt8functionIFvlbEEclElb.exit, label %return
 
 _ZNKSt8functionIFvlbEEclElb.exit:                 ; preds = %if.end35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr2.i)
   store i64 %freedBytes.1, ptr %__args.addr.i, align 8
   store i8 0, ptr %__args.addr2.i, align 1
   %_M_invoker.i49 = getelementptr inbounds nuw i8, ptr %reservationCB, i64 24
   %41 = load ptr, ptr %_M_invoker.i49, align 8
   call void %41(ptr noundef nonnull align 8 dereferenceable(32) %reservationCB, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr2.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr2.i)
   br label %return
 
 return:                                           ; preds = %if.then.i.i14, %invoke.cont, %_ZNSt8functionIFbRN8facebook5velox6memory10AllocationEEED2Ev.exit, %_ZNKSt8functionIFvlbEEclElb.exit, %if.end35
@@ -2849,7 +2849,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRN8facebook5velo
 entry:
   %agg.tmp.i.i.i = alloca %"class.std::function", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i.i)
   %0 = load ptr, ptr %__functor.val, align 8
   %vtable.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 40
@@ -2949,7 +2949,7 @@ terminate.lpad.i.i11.i.i.i:                       ; preds = %if.then.i.i9.i.i.i
   unreachable
 
 "_ZSt10__invoke_rIbRZN8facebook5velox6memory15MemoryAllocator21allocateNonContiguousEmRNS2_10AllocationESt8functionIFvlbEEmE3$_0JS5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit": ; preds = %invoke.cont.i.i.i, %if.then.i.i3.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i.i)
   ret i1 %call4.i.i.i
 }
 
@@ -2997,7 +2997,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRN8facebook5velo
 entry:
   %agg.tmp.i.i.i = alloca %"class.std::function", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i.i)
   %0 = load ptr, ptr %__functor.val, align 8
   %vtable.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 40
@@ -3100,7 +3100,7 @@ terminate.lpad.i.i11.i.i.i:                       ; preds = %if.then.i.i9.i.i.i
   unreachable
 
 "_ZSt10__invoke_rIbRZN8facebook5velox6memory15MemoryAllocator18allocateContiguousEmPNS2_10AllocationERNS2_20ContiguousAllocationESt8functionIFvlbEEmE3$_0JRS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit": ; preds = %invoke.cont.i.i.i, %if.then.i.i3.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i.i)
   ret i1 %call4.i.i.i
 }
 
@@ -3148,7 +3148,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRN8facebook5velo
 entry:
   %agg.tmp.i.i.i = alloca %"class.std::function", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i.i)
   %0 = load ptr, ptr %__functor.val, align 8
   %vtable.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 40
@@ -3245,7 +3245,7 @@ terminate.lpad.i.i11.i.i.i:                       ; preds = %if.then.i.i9.i.i.i
   unreachable
 
 "_ZSt10__invoke_rIbRZN8facebook5velox6memory15MemoryAllocator14growContiguousEmRNS2_20ContiguousAllocationESt8functionIFvlbEEE3$_0JRNS2_10AllocationEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %invoke.cont.i.i.i, %if.then.i.i3.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i.i)
   ret i1 %call4.i.i.i
 }
 
@@ -3912,10 +3912,10 @@ declare i64 @llvm.usub.sat.i64(i64, i64) #25
 declare i32 @llvm.smax.i32(i32, i32) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #26
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #26
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #26
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

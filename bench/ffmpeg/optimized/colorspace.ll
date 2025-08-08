@@ -98,14 +98,8 @@ define void @ff_matrix_invert_3x3(ptr noundef readonly captures(none) %0, ptr no
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ff_matrix_mul_3x3(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
@@ -183,7 +177,7 @@ define void @ff_matrix_mul_3x3_vec(ptr noundef writeonly captures(none) %0, ptr 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ff_fill_rgb2xyz_table(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((0, 72)) %2) local_unnamed_addr #0 {
   %4 = alloca [3 x [3 x double]], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i64, ptr %0, align 4
   %.sroa.0.0.extract.trunc.i = trunc i64 %5 to i32
   %.sroa.2.0.extract.shift.i = lshr i64 %5, 32
@@ -319,12 +313,12 @@ define void @ff_fill_rgb2xyz_table(ptr noundef readonly captures(none) %0, ptr n
   store double %95, ptr %58, align 8, !tbaa !4
   %96 = fmul nsz double %61, %90
   store double %96, ptr %62, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ff_fill_rgb2yuv_table(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 72)) %1) local_unnamed_addr #3 {
+define void @ff_fill_rgb2yuv_table(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 72)) %1) local_unnamed_addr #2 {
   %3 = load i64, ptr %0, align 4
   %.sroa.0.0.extract.trunc.i = trunc i64 %3 to i32
   %.sroa.2.0.extract.shift.i = lshr i64 %3, 32
@@ -404,10 +398,10 @@ define void @ff_fill_rgb2yuv_table(ptr noundef readonly captures(none) %0, ptr n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define double @ff_determine_signal_peak(ptr noundef %0) local_unnamed_addr #5 {
+define double @ff_determine_signal_peak(ptr noundef %0) local_unnamed_addr #4 {
   %2 = tail call ptr @av_frame_get_side_data(ptr noundef %0, i32 noundef 14) #8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %3
@@ -466,10 +460,10 @@ define double @ff_determine_signal_peak(ptr noundef %0) local_unnamed_addr #5 {
   ret double %.3
 }
 
-declare ptr @av_frame_get_side_data(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare ptr @av_frame_get_side_data(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @ff_update_hdr_metadata(ptr noundef %0, double noundef %1) local_unnamed_addr #5 {
+define void @ff_update_hdr_metadata(ptr noundef %0, double noundef %1) local_unnamed_addr #4 {
   %3 = tail call ptr @av_frame_get_side_data(ptr noundef %0, i32 noundef 14) #8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %4
@@ -507,16 +501,22 @@ define void @ff_update_hdr_metadata(ptr noundef %0, double noundef %1) local_unn
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @av_d2q(double noundef, i32 noundef) local_unnamed_addr #7
+declare i64 @av_d2q(double noundef, i32 noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(none) }
 

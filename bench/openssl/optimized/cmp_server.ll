@@ -92,15 +92,9 @@ OSSL_CMP_SRV_CTX_free.exit:                       ; preds = %5
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare ptr @OSSL_CMP_CTX_new(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_CMP_SRV_CTX_init(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
@@ -480,9 +474,9 @@ switch.early.test:                                ; preds = %32
   br i1 %85, label %.thread126, label %.thread123
 
 .thread126:                                       ; preds = %84
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !58
   %86 = call i64 @ERR_peek_error_data(ptr noundef nonnull %3, ptr noundef nonnull %4) #3
   br label %102
@@ -491,9 +485,9 @@ switch.early.test:                                ; preds = %32
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 669, ptr noundef nonnull @__func__.OSSL_CMP_SRV_process_request) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef 101, ptr noundef null) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !58
   %88 = call i64 @ERR_peek_error_data(ptr noundef nonnull %3, ptr noundef nonnull %4) #3
   br label %102
@@ -507,9 +501,9 @@ switch.early.test:                                ; preds = %32
   br label %89
 
 89:                                               ; preds = %.sink.split, %28, %44, %46, %68
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !58
   %90 = call i64 @ERR_peek_error_data(ptr noundef nonnull %3, ptr noundef nonnull %4) #3
   %91 = getelementptr inbounds nuw i8, ptr %19, i64 280
@@ -553,8 +547,8 @@ switch.early.test:                                ; preds = %32
   br i1 %.not116, label %.thread139, label %115
 
 .thread139:                                       ; preds = %112
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @OSSL_CMP_CTX_print_errors(ptr noundef nonnull %19) #3
   store ptr %21, ptr %20, align 8, !tbaa !33
   br label %131
@@ -566,8 +560,8 @@ switch.early.test:                                ; preds = %32
   %119 = load i32, ptr %118, align 8, !tbaa !21
   %120 = call ptr @ossl_cmp_error_new(ptr noundef %116, ptr noundef nonnull %114, i64 noundef %103, ptr noundef %117, i32 noundef %119) #3
   call void @OSSL_CMP_PKISI_free(ptr noundef nonnull %114) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @OSSL_CMP_CTX_print_errors(ptr noundef nonnull %19) #3
   store ptr %21, ptr %20, align 8, !tbaa !33
   %.not117 = icmp eq ptr %120, null
@@ -704,8 +698,8 @@ declare i32 @ossl_cmp_hdr_get_protection_nid(ptr noundef) local_unnamed_addr #1
 define internal fastcc ptr @process_pollReq(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !63
   %5 = load ptr, ptr %0, align 8, !tbaa !3
   %.not.not = icmp eq ptr %5, null
@@ -775,8 +769,8 @@ define internal fastcc ptr @process_pollReq(ptr noundef nonnull %0, ptr noundef 
 
 35:                                               ; preds = %26, %34, %29, %17, %2, %16, %9
   %.017 = phi ptr [ null, %16 ], [ null, %9 ], [ null, %2 ], [ null, %17 ], [ %27, %26 ], [ null, %34 ], [ %32, %29 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.017
 }
 
@@ -881,11 +875,11 @@ define internal fastcc ptr @process_non_polling_request(ptr noundef nonnull %0, 
   br label %.critedge
 
 20:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !69
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !70
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !70
   %21 = load ptr, ptr %0, align 8, !tbaa !3
   %.not.i.not = icmp eq ptr %21, null
@@ -1075,9 +1069,9 @@ switch.lookup:                                    ; preds = %22
 
 process_cert_request.exit:                        ; preds = %20, %25, %34, %38, %41, %42, %53, %98
   %.0.i = phi ptr [ null, %25 ], [ %.050.i, %98 ], [ null, %20 ], [ null, %42 ], [ null, %53 ], [ null, %41 ], [ null, %38 ], [ null, %34 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
 104:                                              ; preds = %13
@@ -1179,7 +1173,7 @@ process_cert_request.exit:                        ; preds = %20, %25, %34, %38, 
   br label %.critedge
 
 150:                                              ; preds = %145
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %151 = load ptr, ptr %0, align 8, !tbaa !3
   %.not.i28.not = icmp eq ptr %151, null
   br i1 %.not.i28.not, label %process_genm.exit, label %152, !prof !64
@@ -1202,7 +1196,7 @@ process_cert_request.exit:                        ; preds = %20, %25, %34, %38, 
 
 process_genm.exit:                                ; preds = %150, %152, %157
   %.0.i29 = phi ptr [ %160, %157 ], [ null, %150 ], [ null, %152 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge
 
 162:                                              ; preds = %13
@@ -1466,6 +1460,12 @@ declare void @OSSL_CMP_ITAV_free(ptr noundef) #1
 declare ptr @ossl_cmp_pkiconf_new(ptr noundef) local_unnamed_addr #1
 
 declare ptr @ossl_cmp_PKIStatus_to_string(i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

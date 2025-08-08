@@ -620,7 +620,7 @@ define void @_ZN10BigInteger3addERKS_S1_(ptr noundef nonnull align 8 dereference
   br i1 %or.cond, label %8, label %48
 
 8:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 8, !tbaa !6
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
@@ -700,7 +700,7 @@ _ZN10BigIntegeraSERKS_.exit:                      ; preds = %34, %_ZN15Numberlik
   br label %_ZN10BigIntegerD2Ev.exit
 
 _ZN10BigIntegerD2Ev.exit:                         ; preds = %_ZN10BigIntegeraSERKS_.exit, %41
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN10BigIntegeraSERKS_.exit41
 
 42:                                               ; preds = %25, %8
@@ -716,7 +716,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %_ZN10BigIntegeraSER
   br label %_ZN10BigIntegerD2Ev.exit31
 
 _ZN10BigIntegerD2Ev.exit31:                       ; preds = %42, %47
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %157
 
 48:                                               ; preds = %3
@@ -860,7 +860,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i42:  ; preds = %91, %79
   ]
 
 114:                                              ; preds = %110
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN11BigUnsignedC1Ei(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 0)
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %116 = icmp eq ptr %115, %5
@@ -932,7 +932,7 @@ _ZN11BigUnsignedaSERKS_.exit:                     ; preds = %137, %_ZN15Numberli
   br label %_ZN15NumberlikeArrayImED2Ev.exit
 
 _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %_ZN11BigUnsignedaSERKS_.exit, %144
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i32 0, ptr %0, align 8, !tbaa !6
   br label %_ZN10BigIntegeraSERKS_.exit41
 
@@ -949,7 +949,7 @@ _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %_ZN11BigUnsignedaSE
   br label %_ZN15NumberlikeArrayImED2Ev.exit53
 
 _ZN15NumberlikeArrayImED2Ev.exit53:               ; preds = %145, %150
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %157
 
 151:                                              ; preds = %110
@@ -974,12 +974,6 @@ _ZN10BigIntegeraSERKS_.exit41:                    ; preds = %100, %73, %_ZN15Num
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 declare void @_ZN11BigUnsigned3addERKS_S1_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 declare void @_ZN11BigUnsignedC1Ei(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) unnamed_addr #2
@@ -996,7 +990,7 @@ define void @_ZN10BigInteger8subtractERKS_S1_(ptr noundef nonnull align 8 derefe
   br i1 %or.cond, label %8, label %48
 
 8:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 8, !tbaa !6
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
@@ -1076,7 +1070,7 @@ _ZN10BigIntegeraSERKS_.exit:                      ; preds = %34, %_ZN15Numberlik
   br label %_ZN10BigIntegerD2Ev.exit
 
 _ZN10BigIntegerD2Ev.exit:                         ; preds = %_ZN10BigIntegeraSERKS_.exit, %41
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN10BigIntegeraSERKS_.exit42
 
 42:                                               ; preds = %25, %8
@@ -1092,7 +1086,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %_ZN10BigIntegeraSER
   br label %_ZN10BigIntegerD2Ev.exit32
 
 _ZN10BigIntegerD2Ev.exit32:                       ; preds = %42, %47
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %159
 
 48:                                               ; preds = %3
@@ -1241,7 +1235,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i33:  ; preds = %93, %81
   ]
 
 115:                                              ; preds = %111
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN11BigUnsignedC1Ei(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 0)
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %117 = icmp eq ptr %116, %5
@@ -1313,7 +1307,7 @@ _ZN11BigUnsignedaSERKS_.exit53:                   ; preds = %138, %_ZN15Numberli
   br label %_ZN15NumberlikeArrayImED2Ev.exit
 
 _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %_ZN11BigUnsignedaSERKS_.exit53, %145
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i32 0, ptr %0, align 8, !tbaa !6
   br label %_ZN10BigIntegeraSERKS_.exit42
 
@@ -1330,7 +1324,7 @@ _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %_ZN11BigUnsignedaSE
   br label %_ZN15NumberlikeArrayImED2Ev.exit54
 
 _ZN15NumberlikeArrayImED2Ev.exit54:               ; preds = %146, %151
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %159
 
 152:                                              ; preds = %111
@@ -1366,7 +1360,7 @@ define void @_ZN10BigInteger8multiplyERKS_S1_(ptr noundef nonnull align 8 derefe
   br i1 %or.cond, label %8, label %48
 
 8:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 8, !tbaa !6
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
@@ -1446,7 +1440,7 @@ _ZN10BigIntegeraSERKS_.exit:                      ; preds = %34, %_ZN15Numberlik
   br label %_ZN10BigIntegerD2Ev.exit
 
 _ZN10BigIntegerD2Ev.exit:                         ; preds = %_ZN10BigIntegeraSERKS_.exit, %41
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %97
 
 42:                                               ; preds = %25, %8
@@ -1462,7 +1456,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %_ZN10BigIntegeraSER
   br label %_ZN10BigIntegerD2Ev.exit20
 
 _ZN10BigIntegerD2Ev.exit20:                       ; preds = %42, %47
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %98
 
 48:                                               ; preds = %3
@@ -1477,7 +1471,7 @@ _ZN10BigIntegerD2Ev.exit20:                       ; preds = %42, %47
 
 54:                                               ; preds = %51, %48
   store i32 0, ptr %0, align 8, !tbaa !6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN11BigUnsignedC1Ei(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 0)
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %56 = icmp eq ptr %55, %5
@@ -1549,7 +1543,7 @@ _ZN11BigUnsignedaSERKS_.exit:                     ; preds = %77, %_ZN15Numberlik
   br label %_ZN15NumberlikeArrayImED2Ev.exit
 
 _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %_ZN11BigUnsignedaSERKS_.exit, %84
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %97
 
 85:                                               ; preds = %68
@@ -1565,7 +1559,7 @@ _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %_ZN11BigUnsignedaSE
   br label %_ZN15NumberlikeArrayImED2Ev.exit22
 
 _ZN15NumberlikeArrayImED2Ev.exit22:               ; preds = %85, %90
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %98
 
 91:                                               ; preds = %51
@@ -1609,7 +1603,7 @@ define void @_ZN10BigInteger19divideWithRemainderERKS_RS_(ptr noundef nonnull al
   br i1 %or.cond, label %13, label %38
 
 13:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = load i32, ptr %1, align 8, !tbaa !6
   store i32 %14, ptr %4, align 8, !tbaa !6
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1655,7 +1649,7 @@ _ZN10BigIntegerC2ERKS_.exit:                      ; preds = %25, %13
   br label %_ZN10BigIntegerD2Ev.exit
 
 _ZN10BigIntegerD2Ev.exit:                         ; preds = %29, %32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %139
 
 33:                                               ; preds = %_ZN10BigIntegerC2ERKS_.exit
@@ -1670,7 +1664,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %29, %32
   br label %_ZN10BigIntegerD2Ev.exit31
 
 _ZN10BigIntegerD2Ev.exit31:                       ; preds = %33, %37
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %140
 
 38:                                               ; preds = %10
@@ -1679,7 +1673,7 @@ _ZN10BigIntegerD2Ev.exit31:                       ; preds = %33, %37
   br i1 %40, label %41, label %78
 
 41:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN11BigUnsignedC1Ei(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 0)
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %43 = icmp eq ptr %42, %5
@@ -1751,7 +1745,7 @@ _ZN11BigUnsignedaSERKS_.exit:                     ; preds = %64, %_ZN15Numberlik
   br label %_ZN15NumberlikeArrayImED2Ev.exit
 
 _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %_ZN11BigUnsignedaSERKS_.exit, %71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i32 0, ptr %2, align 8, !tbaa !6
   br label %139
 
@@ -1768,7 +1762,7 @@ _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %_ZN11BigUnsignedaSE
   br label %_ZN15NumberlikeArrayImED2Ev.exit32
 
 _ZN15NumberlikeArrayImED2Ev.exit32:               ; preds = %72, %77
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %140
 
 78:                                               ; preds = %38
@@ -1777,7 +1771,7 @@ _ZN15NumberlikeArrayImED2Ev.exit32:               ; preds = %72, %77
   br i1 %80, label %81, label %118
 
 81:                                               ; preds = %78
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN11BigUnsignedC1Ei(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 0)
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %83 = icmp eq ptr %82, %6
@@ -1849,7 +1843,7 @@ _ZN11BigUnsignedaSERKS_.exit43:                   ; preds = %104, %_ZN15Numberli
   br label %_ZN15NumberlikeArrayImED2Ev.exit44
 
 _ZN15NumberlikeArrayImED2Ev.exit44:               ; preds = %_ZN11BigUnsignedaSERKS_.exit43, %111
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i32 0, ptr %2, align 8, !tbaa !6
   br label %139
 
@@ -1866,7 +1860,7 @@ _ZN15NumberlikeArrayImED2Ev.exit44:               ; preds = %_ZN11BigUnsignedaSE
   br label %_ZN15NumberlikeArrayImED2Ev.exit45
 
 _ZN15NumberlikeArrayImED2Ev.exit45:               ; preds = %112, %117
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %140
 
 118:                                              ; preds = %78
@@ -1937,7 +1931,7 @@ define void @_ZN10BigInteger6negateERKS_(ptr noundef nonnull align 8 captures(ad
   br i1 %4, label %5, label %45
 
 5:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 8, !tbaa !6
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
@@ -2017,7 +2011,7 @@ _ZN10BigIntegeraSERKS_.exit:                      ; preds = %31, %_ZN15Numberlik
   br label %_ZN10BigIntegerD2Ev.exit
 
 _ZN10BigIntegerD2Ev.exit:                         ; preds = %_ZN10BigIntegeraSERKS_.exit, %38
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %72
 
 39:                                               ; preds = %22, %5
@@ -2033,7 +2027,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %_ZN10BigIntegeraSER
   br label %_ZN10BigIntegerD2Ev.exit8
 
 _ZN10BigIntegerD2Ev.exit8:                        ; preds = %39, %44
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %40
 
 45:                                               ; preds = %2
@@ -2109,7 +2103,7 @@ define void @_ZN10BigIntegerppEv(ptr noundef nonnull align 8 dereferenceable(24)
 
 6:                                                ; preds = %1
   tail call void @_ZN11BigUnsignedmmEi(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN11BigUnsignedC1Ei(ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 0)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4, !tbaa !16
@@ -2154,7 +2148,7 @@ _ZNK11BigUnsignedeqERKS_.exit:                    ; preds = %15, %.preheader.i.i
   br label %_ZN15NumberlikeArrayImED2Ev.exit
 
 _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %_ZNK11BigUnsignedeqERKS_.exit, %23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.07.i.i, label %.sink.split, label %25
 
 24:                                               ; preds = %1
@@ -2180,7 +2174,7 @@ define void @_ZN10BigIntegerppEi(ptr noundef nonnull align 8 dereferenceable(24)
 
 7:                                                ; preds = %2
   tail call void @_ZN11BigUnsignedmmEi(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN11BigUnsignedC1Ei(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 0)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4, !tbaa !16
@@ -2225,7 +2219,7 @@ _ZNK11BigUnsignedeqERKS_.exit.i:                  ; preds = %16, %.preheader.i.i
   br label %_ZN15NumberlikeArrayImED2Ev.exit.i
 
 _ZN15NumberlikeArrayImED2Ev.exit.i:               ; preds = %24, %_ZNK11BigUnsignedeqERKS_.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.07.i.i.i, label %.sink.split.i, label %_ZN10BigIntegerppEv.exit
 
 25:                                               ; preds = %2
@@ -2251,7 +2245,7 @@ define void @_ZN10BigIntegermmEv(ptr noundef nonnull align 8 dereferenceable(24)
 
 6:                                                ; preds = %1
   tail call void @_ZN11BigUnsignedmmEi(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN11BigUnsignedC1Ei(ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 0)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4, !tbaa !16
@@ -2296,7 +2290,7 @@ _ZNK11BigUnsignedeqERKS_.exit:                    ; preds = %15, %.preheader.i.i
   br label %_ZN15NumberlikeArrayImED2Ev.exit
 
 _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %_ZNK11BigUnsignedeqERKS_.exit, %23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.07.i.i, label %.sink.split, label %25
 
 24:                                               ; preds = %1
@@ -2322,7 +2316,7 @@ define void @_ZN10BigIntegermmEi(ptr noundef nonnull align 8 dereferenceable(24)
 
 7:                                                ; preds = %2
   tail call void @_ZN11BigUnsignedmmEi(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN11BigUnsignedC1Ei(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 0)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4, !tbaa !16
@@ -2367,7 +2361,7 @@ _ZNK11BigUnsignedeqERKS_.exit.i:                  ; preds = %16, %.preheader.i.i
   br label %_ZN15NumberlikeArrayImED2Ev.exit.i
 
 _ZN15NumberlikeArrayImED2Ev.exit.i:               ; preds = %24, %_ZNK11BigUnsignedeqERKS_.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.07.i.i.i, label %.sink.split.i, label %_ZN10BigIntegermmEv.exit
 
 25:                                               ; preds = %2
@@ -2384,10 +2378,16 @@ _ZN10BigIntegermmEv.exit:                         ; preds = %_ZN15NumberlikeArra
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #4
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #5
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64, i64) #6
@@ -2413,9 +2413,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold noreturn }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }

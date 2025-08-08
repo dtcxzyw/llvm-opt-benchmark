@@ -2815,7 +2815,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit: ;
   ]
 
 sw.bb.i:                                          ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %BaseEncoding.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %BaseEncoding.i)
   %cmp.not.i171 = icmp ugt i64 %sub.ptr.sub.i, 1
   br i1 %cmp.not.i171, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit175, label %sw.default.i
 
@@ -2988,7 +2988,7 @@ if.else.i:                                        ; preds = %if.end90.i
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE16parseSpecialNameEv.exit
 
 sw.bb94.i:                                        ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %BaseEncoding.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %BaseEncoding.i)
   %cmp.not.i146 = icmp ugt i64 %sub.ptr.sub.i, 1
   br i1 %cmp.not.i146, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit149, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE16parseSpecialNameEv.exit
 
@@ -3180,7 +3180,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11Spe
 
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE16parseSpecialNameEv.exit: ; preds = %sw.bb94.i, %lor.rhs.i, %land.lhs.true.i160, %sw.bb4.i, %if.end.i19, %sw.bb7.i, %if.end14.i, %sw.bb16.i, %if.end23.i, %sw.bb25.i, %if.end32.i, %sw.bb34.i, %lor.lhs.false.i, %if.end40.i, %if.end44.i, %sw.bb46.i, %if.end52.i, %if.end57.i, %if.end61.i, %sw.bb63.i, %if.end69.i, %sw.bb71.i, %if.end78.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit157, %if.end86.i, %if.then91.i, %if.else.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit149, %sw.bb97.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA20_KcRPNS0_4NodeEEEESB_DpOT0_.exit, %sw.bb106.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE9consumeIfEc.exit115, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA25_KcRPNS0_4NodeEEEESB_DpOT0_.exit
   %retval.0.i18 = phi ptr [ %call92.i, %if.then91.i ], [ %call93.i, %if.else.i ], [ %call6.i, %if.end.i19 ], [ %call15.i, %if.end14.i ], [ %call24.i, %if.end23.i ], [ %call33.i, %if.end32.i ], [ %call45.i, %if.end44.i ], [ %call62.i, %if.end61.i ], [ %call70.i, %if.end69.i ], [ %call79.i, %if.end78.i ], [ %add.ptr13.i.i.i129, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA20_KcRPNS0_4NodeEEEESB_DpOT0_.exit ], [ %add.ptr13.i.i.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA25_KcRPNS0_4NodeEEEESB_DpOT0_.exit ], [ null, %sw.bb4.i ], [ null, %sw.bb7.i ], [ null, %sw.bb16.i ], [ null, %sw.bb25.i ], [ null, %lor.lhs.false.i ], [ null, %sw.bb34.i ], [ null, %if.end40.i ], [ null, %sw.bb46.i ], [ null, %if.end52.i ], [ null, %if.end57.i ], [ null, %sw.bb63.i ], [ null, %sw.bb71.i ], [ null, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit157 ], [ null, %if.end86.i ], [ null, %sw.bb97.i ], [ null, %sw.bb106.i ], [ null, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE9consumeIfEc.exit115 ], [ null, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit149 ], [ null, %land.lhs.true.i160 ], [ null, %lor.rhs.i ], [ null, %sw.bb94.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %BaseEncoding.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %BaseEncoding.i)
   br label %return
 
 if.end:                                           ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit, %entry
@@ -5084,7 +5084,7 @@ sw.bb191:                                         ; preds = %_ZN4llvh16itanium_d
   br label %sw.epilog299
 
 if.end.i606:                                      ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %Dimension.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %Dimension.i)
   %incdec.ptr.i717 = getelementptr inbounds nuw i8, ptr %this.val49, i64 1
   store ptr %incdec.ptr.i717, ptr %this, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Dimension.i, i8 0, i64 16, i1 false)
@@ -5169,7 +5169,7 @@ if.end23.i:                                       ; preds = %if.end19.i
 
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE14parseArrayTypeEv.exit: ; preds = %if.end13.i, %land.lhs.true.i, %if.then4.i, %land.lhs.true.i695, %if.then10.i, %if.end19.i, %if.end23.i
   %retval.0.i605 = phi ptr [ %call24.i, %if.end23.i ], [ null, %if.then10.i ], [ null, %if.end19.i ], [ null, %land.lhs.true.i695 ], [ null, %if.then4.i ], [ null, %land.lhs.true.i ], [ null, %if.end13.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %Dimension.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %Dimension.i)
   br label %sw.epilog299
 
 if.end.i611:                                      ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit
@@ -31806,10 +31806,10 @@ declare i64 @llvm.umax.i64(i64, i64) #18
 declare i32 @llvm.smin.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

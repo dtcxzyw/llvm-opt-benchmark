@@ -3722,7 +3722,7 @@ define void @_ZN8WasmEdge4Host4WASI13PollerContext12acquireTimerE16__wasi_clocki
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = zext i32 %2 to i64
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load i64, ptr %9, align 8
@@ -3785,7 +3785,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %3
 
 .loopexit:                                        ; preds = %20, %.noexc4, %15
   %.sroa.020.0.i.i = phi ptr [ %16, %15 ], [ %32, %.noexc4 ], [ %22, %20 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.020.0.i.i, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.020.0.i.i, i64 24
@@ -3993,7 +3993,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = zext i32 %7 to i64
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i64, ptr %10, align 8
@@ -4057,7 +4057,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %2
 
 .loopexit:                                        ; preds = %21, %.noexc5, %16
   %.sroa.020.0.i.i = phi ptr [ %17, %16 ], [ %33, %.noexc5 ], [ %23, %21 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.020.0.i.i, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.020.0.i.i, i64 32
@@ -6106,11 +6106,11 @@ _ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIi
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %158, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %158, ptr noundef nonnull align 8 dereferenceable(16) %159, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %159, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %160 = load ptr, ptr %157, align 8
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %162 = icmp eq ptr %160, %161
@@ -6426,10 +6426,10 @@ declare noundef ptr @_ZN6spdlog18default_logger_rawEv() local_unnamed_addr #1
 define linkonce_odr hidden void @_ZN6spdlog6logger4warnIA27_cEEvRKT_(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 1 dereferenceable(27) %1) local_unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.spdlog::details::log_msg", align 8
   %4 = alloca %"struct.spdlog::source_loc", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(27) %1) #25
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load atomic i32, ptr %6 monotonic, align 8
   %8 = icmp slt i32 %7, 4
@@ -6447,8 +6447,8 @@ define linkonce_odr hidden void @_ZN6spdlog6logger4warnIA27_cEEvRKT_(ptr noundef
   br label %_ZN6spdlog6logger3logIA27_cEEvNS_5level10level_enumERKT_.exit
 
 _ZN6spdlog6logger3logIA27_cEEvNS_5level10level_enumERKT_.exit: ; preds = %2, %11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -7391,10 +7391,10 @@ declare i32 @llvm.umin.i32(i32, i32) #21
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #23
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

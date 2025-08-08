@@ -10,7 +10,7 @@ define hidden i64 @lexbor_dtoa(double noundef %0, ptr noundef %1, i64 noundef %2
   %4 = alloca [4 x i8], align 1
   %5 = alloca [4 x i8], align 1
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %8 = icmp eq i64 %2, 0
   br i1 %8, label %351, label %9
@@ -552,7 +552,7 @@ lexbor_grisu2.exit:                               ; preds = %193, %.critedge2.i.
 
 302:                                              ; preds = %300
   store i8 101, ptr %301, align 1, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %303 = getelementptr inbounds nuw i8, ptr %.021, i64 6
   %.not.i.i24 = icmp ult ptr %303, %7
   br i1 %.not.i.i24, label %304, label %lexbor_write_exponent.exit.i
@@ -589,7 +589,7 @@ lexbor_grisu2.exit:                               ; preds = %193, %.critedge2.i.
 
 lexbor_write_exponent.exit.i:                     ; preds = %314, %302
   %.017.i.i = phi i64 [ %318, %314 ], [ 2, %302 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %lexbor_prettify.exit
 
 319:                                              ; preds = %298
@@ -616,7 +616,7 @@ lexbor_write_exponent.exit.i:                     ; preds = %314, %302
   %sext106.i = add i64 %321, 8589934592
   %330 = ashr exact i64 %sext106.i, 32
   %331 = getelementptr inbounds i8, ptr %.021, i64 %330
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %332 = getelementptr inbounds nuw i8, ptr %331, i64 4
   %.not.i118.i = icmp ult ptr %332, %7
   br i1 %.not.i118.i, label %333, label %lexbor_write_exponent.exit126.i
@@ -652,7 +652,7 @@ lexbor_write_exponent.exit.i:                     ; preds = %314, %302
 
 lexbor_write_exponent.exit126.i:                  ; preds = %342, %326
   %.017.i119.i = phi i64 [ %346, %342 ], [ 0, %326 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %347 = ashr exact i64 %321, 32
   %348 = add nsw i64 %347, 2
   %349 = add i64 %348, %.017.i119.i
@@ -665,35 +665,35 @@ lexbor_prettify.exit:                             ; preds = %262, %273, %275, %2
 
 351:                                              ; preds = %15, %3, %lexbor_prettify.exit, %11
   %.0 = phi i64 [ 1, %11 ], [ %350, %lexbor_prettify.exit ], [ 0, %3 ], [ 1, %15 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
-declare { i64, i32 } @lexbor_cached_power_bin(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @lexbor_cached_power_bin(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

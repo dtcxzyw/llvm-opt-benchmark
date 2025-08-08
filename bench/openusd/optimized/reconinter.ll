@@ -1325,7 +1325,7 @@ define hidden void @av1_build_one_inter_predictor(ptr noundef %0, i32 noundef %1
   br label %82
 
 20:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 32768, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %23 = load i8, ptr %22, align 8
@@ -1422,7 +1422,7 @@ av1_get_compound_type_mask.exit.i.i:              ; preds = %62, %.av1_get_compo
   br label %make_masked_inter_predictor.exit
 
 make_masked_inter_predictor.exit:                 ; preds = %78, %81
-  call void @llvm.lifetime.end.p0(i64 32768, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %82
 
 82:                                               ; preds = %make_masked_inter_predictor.exit, %19
@@ -1702,8 +1702,8 @@ is_inter_block.exit.i:                            ; preds = %51
   br i1 %exitcond.not, label %is_sub8x8_inter.exit, label %.preheader.i, !llvm.loop !37
 
 is_sub8x8_inter.exit:                             ; preds = %60
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %61 = icmp ne i32 %.fr.i, 0
   %62 = getelementptr inbounds nuw [22 x i8], ptr @block_size_wide, i64 0, i64 %31
   %63 = load i8, ptr %62, align 1
@@ -1922,16 +1922,16 @@ av1_init_inter_params.exit.us.i:                  ; preds = %174, %get_ref_frame
   br i1 %193, label %.preheader.us.i, label %build_inter_predictors_sub8x8.exit, !llvm.loop !39
 
 build_inter_predictors_sub8x8.exit:               ; preds = %._crit_edge.us.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %356
 
 .loopexit:                                        ; preds = %51, %is_inter_block.exit.i, %..loopexit_crit_edge, %23
   %.pre-phi33 = phi i64 [ %.pre32, %..loopexit_crit_edge ], [ %31, %23 ], [ %31, %is_inter_block.exit.i ], [ %31, %51 ]
   %.pre-phi = phi i64 [ %.pre, %..loopexit_crit_edge ], [ %25, %23 ], [ %25, %is_inter_block.exit.i ], [ %25, %51 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %194 = getelementptr i8, ptr %3, i64 17
   %.val95.i = load i8, ptr %194, align 1
   %195 = icmp sgt i8 %.val95.i, 0
@@ -2256,9 +2256,9 @@ av1_init_warp_params.exit.i:                      ; preds = %av1_allow_warp.exit
   br i1 %exitcond135.not.i, label %build_inter_predictors_8x8_and_bigger.exit, label %281, !llvm.loop !41
 
 build_inter_predictors_8x8_and_bigger.exit:       ; preds = %353
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %356
 
 356:                                              ; preds = %build_inter_predictors_8x8_and_bigger.exit, %build_inter_predictors_sub8x8.exit
@@ -3899,7 +3899,7 @@ define hidden void @av1_combine_interintra(ptr noundef readonly captures(none) %
   %39 = load i32, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 10656
   %41 = load i32, ptr %40, align 16
-  call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %42 = zext i8 %22 to i64
   %43 = getelementptr inbounds nuw [22 x i8], ptr @block_size_wide, i64 0, i64 %42
   %44 = load i8, ptr %43, align 1
@@ -4042,7 +4042,7 @@ build_smooth_interintra_mask.exit.i:              ; preds = %._crit_edge.us.i.i,
   br label %combine_interintra_highbd.exit
 
 combine_interintra_highbd.exit:                   ; preds = %50, %54, %build_smooth_interintra_mask.exit.i
-  call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %combine_interintra.exit
 
 106:                                              ; preds = %7
@@ -4204,10 +4204,10 @@ declare i32 @llvm.umax.i32(i32, i32) #15
 declare i8 @llvm.umax.i8(i8, i8) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #15

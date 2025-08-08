@@ -88,7 +88,7 @@ declare i32 @SSL_CTX_set_srp_client_pwd_callback(ptr noundef, ptr noundef) local
 define internal noundef ptr @ssl_give_srp_client_pwd_cb(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca %struct.pw_cb_data, align 8
   %4 = tail call ptr @app_malloc(i64 noundef 1025, ptr noundef nonnull @.str.5) #4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load ptr, ptr %1, align 8, !tbaa !18
   store ptr %5, ptr %3, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -111,7 +111,7 @@ define internal noundef ptr @ssl_give_srp_client_pwd_cb(ptr readnone captures(no
 
 15:                                               ; preds = %12, %9
   %.0 = phi ptr [ null, %9 ], [ %4, %12 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -304,9 +304,6 @@ define range(i32 0, 2) i32 @set_up_srp_verifier_file(ptr noundef %0, ptr noundef
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare ptr @SRP_VBASE_new(ptr noundef) local_unnamed_addr #1
 
 declare i32 @SRP_VBASE_init(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -393,9 +390,6 @@ define internal range(i32 -1, 3) i32 @ssl_srp_server_param_cb(ptr noundef %0, pt
   ret i32 %.021
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nounwind uwtable
 define void @lookup_srp_user(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -466,6 +460,12 @@ declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 declare ptr @SSL_get_srp_username(ptr noundef) local_unnamed_addr #1
 
 declare i32 @SSL_set_srp_server_param(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

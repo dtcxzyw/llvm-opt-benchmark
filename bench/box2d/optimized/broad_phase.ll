@@ -56,29 +56,23 @@ define hidden void @b2CreateBroadPhase(ptr noundef writeonly captures(none) init
 19:                                               ; preds = %1, %19
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %19 ]
   %20 = getelementptr inbounds nuw [3 x %struct.b2DynamicTree], ptr %0, i64 0, i64 %indvars.iv
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @b2DynamicTree_Create(ptr dead_on_unwind nonnull writable sret(%struct.b2DynamicTree) align 8 %2) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false), !tbaa.struct !18
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %18, label %19, !llvm.loop !26
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare { ptr, i64 } @b2CreateSet(i32 noundef) local_unnamed_addr #2
+declare { ptr, i64 } @b2CreateSet(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare { ptr, i64 } @b2IntArray_Create(i32 noundef) local_unnamed_addr #1
 
-declare { ptr, i64 } @b2IntArray_Create(i32 noundef) local_unnamed_addr #2
-
-declare void @b2DynamicTree_Create(ptr dead_on_unwind writable sret(%struct.b2DynamicTree) align 8) local_unnamed_addr #2
+declare void @b2DynamicTree_Create(ptr dead_on_unwind writable sret(%struct.b2DynamicTree) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @b2DestroyBroadPhase(ptr noundef %0) local_unnamed_addr #0 {
@@ -103,17 +97,17 @@ define hidden void @b2DestroyBroadPhase(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond.not, label %2, label %6, !llvm.loop !28
 }
 
-declare void @b2DynamicTree_Destroy(ptr noundef) local_unnamed_addr #2
+declare void @b2DynamicTree_Destroy(ptr noundef) local_unnamed_addr #1
 
-declare void @b2DestroySet(ptr noundef) local_unnamed_addr #2
+declare void @b2DestroySet(ptr noundef) local_unnamed_addr #1
 
-declare void @b2IntArray_Destroy(ptr noundef) local_unnamed_addr #2
+declare void @b2IntArray_Destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @b2BroadPhase_CreateProxy(ptr noundef %0, i32 noundef %1, <2 x float> %2, <2 x float> %3, i64 noundef %4, i32 noundef %5, i1 noundef zeroext %6) local_unnamed_addr #5 {
+define hidden i32 @b2BroadPhase_CreateProxy(ptr noundef %0, i32 noundef %1, <2 x float> %2, <2 x float> %3, i64 noundef %4, i32 noundef %5, i1 noundef zeroext %6) local_unnamed_addr #4 {
   %8 = zext i32 %1 to i64
   %9 = getelementptr inbounds nuw %struct.b2DynamicTree, ptr %0, i64 %8
   %10 = tail call i32 @b2DynamicTree_CreateProxy(ptr noundef %9, <2 x float> %2, <2 x float> %3, i64 noundef %4, i32 noundef %5) #8
@@ -163,7 +157,7 @@ b2BufferMove.exit:                                ; preds = %b2IntArray_Push.exi
   ret i32 %12
 }
 
-declare i32 @b2DynamicTree_CreateProxy(ptr noundef, <2 x float>, <2 x float>, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @b2DynamicTree_CreateProxy(ptr noundef, <2 x float>, <2 x float>, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @b2BroadPhase_DestroyProxy(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -232,10 +226,10 @@ b2UnBufferMove.exit:                              ; preds = %26, %2, %7, %b2IntA
   ret void
 }
 
-declare void @b2DynamicTree_DestroyProxy(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @b2DynamicTree_DestroyProxy(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @b2BroadPhase_MoveProxy(ptr noundef %0, i32 noundef %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #5 {
+define hidden void @b2BroadPhase_MoveProxy(ptr noundef %0, i32 noundef %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #4 {
   %5 = and i32 %1, 3
   %6 = ashr i32 %1, 2
   %7 = zext nneg i32 %5 to i64
@@ -280,10 +274,10 @@ b2BufferMove.exit:                                ; preds = %4, %b2IntArray_Push
   ret void
 }
 
-declare void @b2DynamicTree_MoveProxy(ptr noundef, i32 noundef, <2 x float>, <2 x float>) local_unnamed_addr #2
+declare void @b2DynamicTree_MoveProxy(ptr noundef, i32 noundef, <2 x float>, <2 x float>) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @b2BroadPhase_EnlargeProxy(ptr noundef %0, i32 noundef %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #5 {
+define hidden void @b2BroadPhase_EnlargeProxy(ptr noundef %0, i32 noundef %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #4 {
   %5 = and i32 %1, 3
   %6 = ashr i32 %1, 2
   %7 = zext nneg i32 %5 to i64
@@ -328,7 +322,7 @@ b2BufferMove.exit:                                ; preds = %4, %b2IntArray_Push
   ret void
 }
 
-declare void @b2DynamicTree_EnlargeProxy(ptr noundef, i32 noundef, <2 x float>, <2 x float>) local_unnamed_addr #2
+declare void @b2DynamicTree_EnlargeProxy(ptr noundef, i32 noundef, <2 x float>, <2 x float>) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @b2UpdateBroadPhasePairs(ptr noundef %0) local_unnamed_addr #0 {
@@ -435,13 +429,13 @@ define hidden void @b2UpdateBroadPhasePairs(ptr noundef %0) local_unnamed_addr #
   ret void
 }
 
-declare ptr @b2AllocateArenaItem(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @b2AllocateArenaItem(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @b2FindPairsTask(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef %3) #5 {
+define internal void @b2FindPairsTask(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef %3) #4 {
   %5 = alloca %struct.b2QueryPairContext, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %3, ptr %5, align 8, !tbaa !97
   %7 = icmp slt i32 %0, %1
   br i1 %7, label %.lr.ph, label %._crit_edge
@@ -459,7 +453,7 @@ define internal void @b2FindPairsTask(i32 noundef %0, i32 noundef %1, i32 %2, pt
   br label %17
 
 ._crit_edge:                                      ; preds = %39, %4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 17:                                               ; preds = %.lr.ph, %39
@@ -507,18 +501,18 @@ define internal void @b2FindPairsTask(i32 noundef %0, i32 noundef %1, i32 %2, pt
   br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !104
 }
 
-declare void @b2CreateContact(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @b2CreateContact(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @b2Free(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @b2Free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @b2ClearSet(ptr noundef) local_unnamed_addr #2
+declare void @b2ClearSet(ptr noundef) local_unnamed_addr #1
 
-declare void @b2FreeArenaItem(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @b2FreeArenaItem(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @b2ValidateSolverSets(ptr noundef) local_unnamed_addr #2
+declare void @b2ValidateSolverSets(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @b2BroadPhase_TestOverlap(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define hidden zeroext i1 @b2BroadPhase_TestOverlap(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = and i32 %1, 3
   %5 = ashr i32 %1, 2
   %6 = and i32 %2, 3
@@ -555,7 +549,7 @@ b2AABB_Overlaps.exit:                             ; preds = %3, %22
   ret i1 %25
 }
 
-declare { <2 x float>, <2 x float> } @b2DynamicTree_GetAABB(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare { <2 x float>, <2 x float> } @b2DynamicTree_GetAABB(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @b2BroadPhase_RebuildTrees(ptr noundef %0) local_unnamed_addr #0 {
@@ -566,7 +560,7 @@ define hidden void @b2BroadPhase_RebuildTrees(ptr noundef %0) local_unnamed_addr
   ret void
 }
 
-declare i32 @b2DynamicTree_Rebuild(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @b2DynamicTree_Rebuild(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @b2BroadPhase_GetShapeIndex(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -578,7 +572,7 @@ define hidden i32 @b2BroadPhase_GetShapeIndex(ptr noundef %0, i32 noundef %1) lo
   ret i32 %7
 }
 
-declare i32 @b2DynamicTree_GetUserData(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @b2DynamicTree_GetUserData(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @b2ValidateBroadphase(ptr noundef %0) local_unnamed_addr #0 {
@@ -589,20 +583,20 @@ define hidden void @b2ValidateBroadphase(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @b2DynamicTree_Validate(ptr noundef) local_unnamed_addr #2
+declare void @b2DynamicTree_Validate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @b2ValidateNoEnlarged(ptr noundef readnone captures(none) %0) local_unnamed_addr #6 {
+define hidden void @b2ValidateNoEnlarged(ptr noundef readnone captures(none) %0) local_unnamed_addr #5 {
   ret void
 }
 
-declare zeroext i1 @b2AddKey(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare zeroext i1 @b2AddKey(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @b2IntArray_Reserve(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @b2IntArray_Reserve(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @b2RemoveKey(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare zeroext i1 @b2RemoveKey(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @b2DynamicTree_Query(ptr noundef, <2 x float>, <2 x float>, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @b2DynamicTree_Query(ptr noundef, <2 x float>, <2 x float>, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @b2PairQueryCallback(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
@@ -773,13 +767,19 @@ define internal noundef zeroext i1 @b2PairQueryCallback(i32 noundef %0, i32 noun
   ret i1 true
 }
 
-declare zeroext i1 @b2ContainsKey(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare zeroext i1 @b2ContainsKey(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @b2ShouldShapesCollide(ptr noundef byval(%struct.b2Filter) align 8, ptr noundef byval(%struct.b2Filter) align 8) local_unnamed_addr #2
+declare zeroext i1 @b2ShouldShapesCollide(ptr noundef byval(%struct.b2Filter) align 8, ptr noundef byval(%struct.b2Filter) align 8) local_unnamed_addr #1
 
-declare zeroext i1 @b2ShouldBodiesCollide(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @b2ShouldBodiesCollide(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @b2Alloc(i32 noundef) local_unnamed_addr #2
+declare ptr @b2Alloc(i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #7
@@ -788,12 +788,12 @@ declare i32 @llvm.smin.i32(i32, i32) #7
 declare i32 @llvm.smax.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 

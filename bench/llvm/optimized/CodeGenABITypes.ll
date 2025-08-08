@@ -312,9 +312,9 @@ define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5clang7Code
 define dso_local void @_ZN5clang7CodeGen29getImplicitCXXConstructorArgsERNS0_13CodeGenModuleEPKNS_18CXXConstructorDeclE(ptr dead_on_unwind noalias writable sret(%"struct.clang::CodeGen::ImplicitCXXConstructorArgs") align 8 %0, ptr noundef nonnull align 8 dereferenceable(3608) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %"class.clang::CodeGen::CodeGenFunction", align 8
   %5 = alloca %"struct.clang::CodeGen::CGCXXABI::AddedStructorArgs", align 8
-  call void @llvm.lifetime.start.p0(i64 6496, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5clang7CodeGen15CodeGenFunctionC1ERNS0_13CodeGenModuleEb(ptr noundef nonnull align 8 dereferenceable(6496) %4, ptr noundef nonnull align 8 dereferenceable(3608) %1, i1 noundef zeroext true) #5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %7 = load ptr, ptr %6, align 8, !tbaa !8
   %8 = load ptr, ptr %7, align 8, !tbaa !10
@@ -441,22 +441,16 @@ _ZN4llvm11SmallVectorIN5clang7CodeGen8CGCXXABI17AddedStructorArgs3ArgELj1EED2Ev.
   br label %_ZN5clang7CodeGen8CGCXXABI17AddedStructorArgsD2Ev.exit
 
 _ZN5clang7CodeGen8CGCXXABI17AddedStructorArgsD2Ev.exit: ; preds = %_ZN4llvm11SmallVectorIN5clang7CodeGen8CGCXXABI17AddedStructorArgs3ArgELj1EED2Ev.exit.i, %65
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5clang7CodeGen15CodeGenFunctionD1Ev(ptr noundef nonnull align 8 dereferenceable(6496) %4) #5
-  call void @llvm.lifetime.end.p0(i64 6496, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare void @_ZN5clang7CodeGen15CodeGenFunctionC1ERNS0_13CodeGenModuleEb(ptr noundef nonnull align 8 dereferenceable(6496), ptr noundef nonnull align 8 dereferenceable(3608), i1 noundef zeroext) unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind
-declare void @_ZN5clang7CodeGen15CodeGenFunctionD1Ev(ptr noundef nonnull align 8 dereferenceable(6496)) unnamed_addr #3
+declare void @_ZN5clang7CodeGen15CodeGenFunctionD1Ev(ptr noundef nonnull align 8 dereferenceable(6496)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN5clang7CodeGen23convertFreeFunctionTypeERNS0_13CodeGenModuleEPKNS_12FunctionDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3608) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -557,7 +551,7 @@ declare noundef nonnull align 8 dereferenceable(113) ptr @_ZN5clang7CodeGen12Cod
 define dso_local noundef ptr @_ZN5clang7CodeGen29getCXXDestructorImplicitParamERNS0_13CodeGenModuleEPN4llvm10BasicBlockENS3_21ilist_iterator_w_bitsINS3_12ilist_detail12node_optionsINS3_11InstructionELb0ELb0EvLb1ES4_EELb0ELb0EEEPKNS_17CXXDestructorDeclENS_11CXXDtorTypeEbb(ptr noundef nonnull align 8 dereferenceable(3608) %0, ptr noundef %1, ptr %2, i64 %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7) local_unnamed_addr #0 {
   %9 = alloca %"class.llvm::DebugLoc", align 8
   %10 = alloca %"class.clang::CodeGen::CodeGenFunction", align 8
-  call void @llvm.lifetime.start.p0(i64 6496, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN5clang7CodeGen15CodeGenFunctionC1ERNS0_13CodeGenModuleEb(ptr noundef nonnull align 8 dereferenceable(6496) %10, ptr noundef nonnull align 8 dereferenceable(3608) %0, i1 noundef zeroext true) #5
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 1808
   store ptr %4, ptr %11, align 8, !tbaa !36
@@ -568,7 +562,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen29getCXXDestructorImplicitParamER
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 1832
   store ptr %14, ptr %15, align 8, !tbaa !324
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 280
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 328
   store ptr %1, ptr %17, align 8, !tbaa !325
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 336
@@ -605,7 +599,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit.i:                 ; preds = %24, %20
   br label %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEE.exit
 
 _ZN4llvm13IRBuilderBase14SetInsertPointEPNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEE.exit: ; preds = %8, %_ZN4llvm8DebugLocC2ERKS0_.exit.i, %28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %30 = load ptr, ptr %29, align 8, !tbaa !8
   %31 = load ptr, ptr %30, align 8, !tbaa !10
@@ -613,12 +607,12 @@ _ZN4llvm13IRBuilderBase14SetInsertPointEPNS_10BasicBlockENS_21ilist_iterator_w_b
   %33 = load ptr, ptr %32, align 8
   %34 = call noundef ptr %33(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(6496) %10, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7) #5
   call void @_ZN5clang7CodeGen15CodeGenFunctionD1Ev(ptr noundef nonnull align 8 dereferenceable(6496) %10) #5
-  call void @llvm.lifetime.end.p0(i64 6496, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret ptr %34
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare noundef ptr @_ZN5clang20getPrimaryMergedDeclEPNS_4DeclE(ptr noundef) local_unnamed_addr #1
 
@@ -860,11 +854,17 @@ declare noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_
 
 declare void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

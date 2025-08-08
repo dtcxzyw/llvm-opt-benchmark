@@ -539,7 +539,7 @@ define hidden noundef ptr @_ZN7MemNode28optimize_simple_memory_chainEP4NodePK10T
   br i1 %14, label %140, label %.loopexit
 
 140:                                              ; preds = %139
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %141 = getelementptr inbounds nuw i8, ptr %.06572, i64 8
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 24
@@ -558,11 +558,11 @@ _ZN14ClearArrayNode12step_throughEPP4NodejP11PhaseValues.exit.thread: ; preds = 
   %.pn.i = load ptr, ptr %.pn.in.i, align 8
   %storemerge.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 16
   %storemerge.i = load ptr, ptr %storemerge.in.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.exit
 
 _ZN14ClearArrayNode12step_throughEPP4NodejP11PhaseValues.exit: ; preds = %140
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
 149:                                              ; preds = %136
@@ -2843,7 +2843,7 @@ _ZN14InitializeNode6memoryEj.exit:                ; preds = %_ZN14InitializeNode
 
 257:                                              ; preds = %254
   %258 = load i32, ptr %51, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %259 = getelementptr inbounds nuw i8, ptr %216, i64 8
   %260 = load ptr, ptr %259, align 8
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 24
@@ -2863,11 +2863,11 @@ _ZN14ClearArrayNode12step_throughEPP4NodejP11PhaseValues.exit: ; preds = %257
   %storemerge.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 16
   %storemerge.i = load ptr, ptr %storemerge.in.i, align 8
   store ptr %storemerge.i, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.backedge
 
 267:                                              ; preds = %257
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %268 = load ptr, ptr %5, align 8
   br label %.critedge
 
@@ -18827,7 +18827,7 @@ define hidden noundef i32 @_ZN14InitializeNode30captured_store_insertion_pointEl
   %32 = load ptr, ptr %28, align 8
   %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 44
   %36 = load i32, ptr %35, align 4
   %37 = and i32 %36, 127
@@ -18845,13 +18845,13 @@ define hidden noundef i32 @_ZN14InitializeNode30captured_store_insertion_pointEl
   br i1 %45, label %_ZN14InitializeNode16get_store_offsetEP4NodeP11PhaseValues.exit.thread, label %_ZN14InitializeNode16get_store_offsetEP4NodeP11PhaseValues.exit
 
 _ZN14InitializeNode16get_store_offsetEP4NodeP11PhaseValues.exit.thread: ; preds = %31, %39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %48
 
 _ZN14InitializeNode16get_store_offsetEP4NodeP11PhaseValues.exit: ; preds = %39
   %46 = load i64, ptr %5, align 8
   %..i = call i64 @llvm.smax.i64(i64 %46, i64 -1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %47 = icmp slt i64 %46, 0
   br i1 %47, label %48, label %69
 
@@ -19119,7 +19119,7 @@ _ZN14InitializeNode11zero_memoryEv.exit:          ; preds = %.thread261, %48, %5
   %69 = load ptr, ptr %40, align 8
   %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv
   %71 = load ptr, ptr %70, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 44
   %73 = load i32, ptr %72, align 4
   %74 = and i32 %73, 127
@@ -19143,7 +19143,7 @@ _ZN14InitializeNode11zero_memoryEv.exit:          ; preds = %.thread261, %48, %5
 
 _ZN14InitializeNode16get_store_offsetEP4NodeP11PhaseValues.exit: ; preds = %68, %76, %83
   %.0.i = phi i64 [ -1, %68 ], [ -1, %76 ], [ %..i, %83 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %85 = icmp slt i64 %.0.i, %1
   br i1 %85, label %_ZL14store_constantPlilil.exit, label %86
 
@@ -19764,7 +19764,7 @@ _ZN9StoreNode4makeER8PhaseGVNP4NodeS3_S3_PK7TypePtrS3_9BasicTypeN7MemNode6MemOrd
   %404 = load ptr, ptr %40, align 8
   %405 = getelementptr inbounds nuw ptr, ptr %404, i64 %indvars.iv.i
   %406 = load ptr, ptr %405, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %407 = getelementptr inbounds nuw i8, ptr %406, i64 44
   %408 = load i32, ptr %407, align 4
   %409 = and i32 %408, 127
@@ -19782,13 +19782,13 @@ _ZN9StoreNode4makeER8PhaseGVNP4NodeS3_S3_PK7TypePtrS3_9BasicTypeN7MemNode6MemOrd
   br i1 %417, label %_ZN14InitializeNode16get_store_offsetEP4NodeP11PhaseValues.exit.thread.i, label %_ZN14InitializeNode16get_store_offsetEP4NodeP11PhaseValues.exit.i
 
 _ZN14InitializeNode16get_store_offsetEP4NodeP11PhaseValues.exit.thread.i: ; preds = %411, %403
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %420
 
 _ZN14InitializeNode16get_store_offsetEP4NodeP11PhaseValues.exit.i: ; preds = %411
   %418 = load i64, ptr %5, align 8
   %..i.i = call i64 @llvm.smax.i64(i64 %418, i64 -1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %419 = icmp slt i64 %418, 0
   br i1 %419, label %420, label %441
 
@@ -20003,7 +20003,7 @@ define hidden noundef range(i64 -1, -9223372036854775808) i64 @_ZN14InitializeNo
   %11 = load ptr, ptr %8, align 8
   %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 44
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, 127
@@ -20021,13 +20021,13 @@ define hidden noundef range(i64 -1, -9223372036854775808) i64 @_ZN14InitializeNo
   br i1 %24, label %_ZN14InitializeNode16get_store_offsetEP4NodeP11PhaseValues.exit.thread, label %_ZN14InitializeNode16get_store_offsetEP4NodeP11PhaseValues.exit
 
 _ZN14InitializeNode16get_store_offsetEP4NodeP11PhaseValues.exit.thread: ; preds = %10, %18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 _ZN14InitializeNode16get_store_offsetEP4NodeP11PhaseValues.exit: ; preds = %18
   %25 = load i64, ptr %4, align 8
   %..i = call i64 @llvm.smax.i64(i64 %25, i64 -1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %26 = icmp slt i64 %25, 0
   br i1 %26, label %.loopexit, label %27
 
@@ -20169,7 +20169,7 @@ _ZN14InitializeNode11zero_memoryEv.exit:          ; preds = %14, %23, %33
   %53 = load ptr, ptr %15, align 8
   %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv
   %55 = load ptr, ptr %54, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 44
   %57 = load i32, ptr %56, align 4
   %58 = and i32 %57, 127
@@ -20187,13 +20187,13 @@ _ZN14InitializeNode11zero_memoryEv.exit:          ; preds = %14, %23, %33
   br i1 %66, label %_ZN14InitializeNode16get_store_offsetEP4NodeP11PhaseValues.exit.thread, label %_ZN14InitializeNode16get_store_offsetEP4NodeP11PhaseValues.exit
 
 _ZN14InitializeNode16get_store_offsetEP4NodeP11PhaseValues.exit.thread: ; preds = %52, %60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
 _ZN14InitializeNode16get_store_offsetEP4NodeP11PhaseValues.exit: ; preds = %60
   %67 = load i64, ptr %8, align 8
   %..i = call i64 @llvm.smax.i64(i64 %67, i64 -1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %68 = icmp slt i64 %67, 0
   br i1 %68, label %.loopexit, label %69
 
@@ -22346,10 +22346,10 @@ declare i64 @llvm.smax.i64(i64, i64) #11
 declare i32 @llvm.ctpop.i32(i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #11

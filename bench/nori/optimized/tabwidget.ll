@@ -290,12 +290,12 @@ _ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit: ; preds
 
 _ZNKSt8functionIFviEEclEi.exit:                   ; preds = %58
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %1, ptr %4, align 4
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull align 8 dereferenceable(32) %64, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %67
 
 67:                                               ; preds = %_ZNKSt8functionIFviEEclEi.exit, %58
@@ -323,12 +323,12 @@ _ZNKSt8functionIFviEEclEi.exit:                   ; preds = %58
 
 _ZNKSt8functionIFviEEclEi.exit14:                 ; preds = %76, %72
   %81 = phi i32 [ %80, %76 ], [ -1, %72 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %81, ptr %3, align 4
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %83 = load ptr, ptr %82, align 8
   call void %83(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %84 = load ptr, ptr %0, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 128
   %86 = load ptr, ptr %85, align 8
@@ -654,12 +654,12 @@ _ZNKSt8functionIFviEEclEi.exit:                   ; preds = %26
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i32 0, ptr %21, align 4
   %37 = load i32, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %37, ptr %4, align 4
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %39 = load ptr, ptr %38, align 8
   call void %39(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %40 = load ptr, ptr %0, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 128
   %42 = load ptr, ptr %41, align 8
@@ -1308,8 +1308,8 @@ define hidden void @_ZN7nanogui13TabWidgetBase4drawEP10NVGcontext(ptr noundef no
   %225 = load i32, ptr %224, align 8
   %226 = sitofp i32 %225 to float
   call void @nvgRoundedRect(ptr noundef %1, float noundef %212, float noundef %215, float noundef %220, float noundef %222, float noundef %226)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store float 2.550000e+02, ptr %4, align 4
   %227 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float 2.550000e+02, ptr %227, align 4
@@ -1328,7 +1328,7 @@ define hidden void @_ZN7nanogui13TabWidgetBase4drawEP10NVGcontext(ptr noundef no
   br i1 %exitcond.not.i.i, label %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i, label %230, !llvm.loop !11
 
 _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i:              ; preds = %230
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %233
 
 233:                                              ; preds = %233, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i
@@ -1348,9 +1348,9 @@ _ZN7nanogui5ColorC2Eiiii.exit:                    ; preds = %233
   %.fca.0.load.i.i = load <2 x float>, ptr %3, align 8
   %.fca.1.gep.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.fca.1.load.i.i = load <2 x float>, ptr %.fca.1.gep.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @nvgFillColor(ptr noundef %1, <2 x float> %.fca.0.load.i.i, <2 x float> %.fca.1.load.i.i)
   call void @nvgFill(ptr noundef %1)
   br label %241
@@ -1776,15 +1776,15 @@ _ZNKSt8functionIFPN7nanogui5PopupEiPNS0_6ScreenEEEclEiS4_.exit: ; preds = %95
   %111 = ashr exact i64 %sext, 30
   %112 = getelementptr inbounds i8, ptr %110, i64 %111
   %113 = load i32, ptr %112, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %113, ptr %7, align 4
   store ptr %66, ptr %8, align 8
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %115 = load ptr, ptr %114, align 8
   %116 = call noundef ptr %115(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store ptr %116, ptr %67, align 8
   %117 = load i32, ptr %1, align 4
   %118 = add nsw i32 %117, 8
@@ -2006,12 +2006,12 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %180
 
 _ZNKSt8functionIFviEEclEi.exit:                   ; preds = %225, %219
   %228 = phi i32 [ %227, %225 ], [ -1, %219 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %228, ptr %6, align 4
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %230 = load ptr, ptr %229, align 8
   call void %230(ptr noundef nonnull align 8 dereferenceable(32) %216, ptr noundef nonnull align 4 dereferenceable(4) %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %231 = load ptr, ptr %0, align 8
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 128
   %233 = load ptr, ptr %232, align 8
@@ -3533,10 +3533,10 @@ declare i64 @llvm.umin.i64(i64, i64) #17
 declare void @llvm.assume(i1 noundef) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #17

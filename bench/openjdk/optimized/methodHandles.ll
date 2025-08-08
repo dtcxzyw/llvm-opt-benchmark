@@ -431,7 +431,7 @@ define hidden void @_ZN13MethodHandles17generate_adaptersEv() local_unnamed_addr
   %25 = trunc i8 %24 to i1
   call void @_ZN17StubCodeGeneratorC2EP10CodeBufferb(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %3, i1 noundef zeroext %25) #14
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV29MethodHandlesAdapterGenerator, i64 16), ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %27
 
@@ -456,7 +456,7 @@ define hidden void @_ZN13MethodHandles17generate_adaptersEv() local_unnamed_addr
   br i1 %exitcond.not.i, label %_ZN29MethodHandlesAdapterGenerator8generateEv.exit, label %27, !llvm.loop !6
 
 _ZN29MethodHandlesAdapterGenerator8generateEv.exit: ; preds = %33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void @_ZN10CodeBuffer17log_section_sizesEPKc(ptr noundef nonnull align 8 dereferenceable(448) %3, ptr noundef nonnull @.str.4) #14
   call void @_ZN17StubCodeGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
   call void @_ZN10CodeBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(448) %3) #14
@@ -2139,7 +2139,7 @@ define hidden noundef ptr @_ZN13MethodHandles27lookup_basic_type_signatureEP6Sym
   br i1 %7, label %_ZN12ResourceMarkD2Ev.exit, label %8
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i16, ptr %9, align 4
   %.not.i.i.i = icmp ne i16 %10, 0
@@ -2187,13 +2187,13 @@ define hidden noundef ptr @_ZN13MethodHandles27lookup_basic_type_signatureEP6Sym
 
 .loopexit:                                        ; preds = %28, %8
   call void @_ZN15SignatureStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #14
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN6Symbol18increment_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #14
   br label %_ZN12ResourceMarkD2Ev.exit
 
 31:                                               ; preds = %21, %19
   call void @_ZN15SignatureStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #14
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %32 = load i16, ptr %9, align 4
   %.not.i.i = icmp ne i16 %32, 0
   %33 = load i8, ptr %11, align 1
@@ -5241,8 +5241,8 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit17:            ; preds = %_ZN10JNIHandles16re
   br label %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit
 
 _ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit: ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit17, %84
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN17CallSiteDepChangeC1E6HandleS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %storemerge.i, ptr %storemerge.i16) #14
   %85 = load ptr, ptr @CodeCache_lock, align 8
   %.not.i.i.i18 = icmp eq ptr %85, null
@@ -5277,8 +5277,8 @@ _ZNK6HandleclEv.exit.i:                           ; preds = %88, %_ZN11MutexLock
   br label %_ZN13MethodHandles23mark_dependent_nmethodsEP19DeoptimizationScope6HandleS2_.exit
 
 _ZN13MethodHandles23mark_dependent_nmethodsEP19DeoptimizationScope6HandleS2_.exit: ; preds = %_ZNK6HandleclEv.exit.i, %96
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %87, label %_ZNK6HandleclEv.exit, label %97
 
 97:                                               ; preds = %_ZN13MethodHandles23mark_dependent_nmethodsEP19DeoptimizationScope6HandleS2_.exit
@@ -5532,8 +5532,8 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit17:            ; preds = %_ZN10JNIHandles16re
   br label %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit
 
 _ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit: ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit17, %84
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN17CallSiteDepChangeC1E6HandleS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %storemerge.i, ptr %storemerge.i16) #14
   %85 = load ptr, ptr @CodeCache_lock, align 8
   %.not.i.i.i18 = icmp eq ptr %85, null
@@ -5568,8 +5568,8 @@ _ZNK6HandleclEv.exit.i:                           ; preds = %88, %_ZN11MutexLock
   br label %_ZN13MethodHandles23mark_dependent_nmethodsEP19DeoptimizationScope6HandleS2_.exit
 
 _ZN13MethodHandles23mark_dependent_nmethodsEP19DeoptimizationScope6HandleS2_.exit: ; preds = %_ZNK6HandleclEv.exit.i, %96
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %87, label %_ZNK6HandleclEv.exit, label %97
 
 97:                                               ; preds = %_ZN13MethodHandles23mark_dependent_nmethodsEP19DeoptimizationScope6HandleS2_.exit
@@ -9921,10 +9921,10 @@ declare void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 deref
 declare i32 @llvm.ctpop.i32(i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12

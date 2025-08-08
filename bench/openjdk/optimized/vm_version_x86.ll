@@ -4625,13 +4625,13 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   store ptr null, ptr %275, align 8
   %276 = getelementptr inbounds nuw i8, ptr %51, i64 40
   store i32 0, ptr %276, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %28, ptr noundef nonnull align 8 dereferenceable(64) %51, i64 21, i1 false)
   %277 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %278 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %278(ptr noundef nonnull align 8 dereferenceable(40) %274, ptr noundef nonnull align 8 dereferenceable(40) %277) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %268, i32 6, ptr noundef nonnull %28) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %279 = load ptr, ptr %211, align 8
   store i32 6, ptr %52, align 8
   %280 = getelementptr inbounds nuw i8, ptr %52, i64 4
@@ -4736,12 +4736,12 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   store ptr null, ptr %327, align 8
   %328 = getelementptr inbounds nuw i8, ptr %56, i64 40
   store i32 0, ptr %328, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %27, ptr noundef nonnull align 8 dereferenceable(64) %56, i64 21, i1 false)
   %329 = getelementptr inbounds nuw i8, ptr %27, i64 24
   call void %278(ptr noundef nonnull align 8 dereferenceable(40) %326, ptr noundef nonnull align 8 dereferenceable(40) %329) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %320, i32 6, ptr noundef nonnull %27) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %330 = load ptr, ptr %211, align 8
   store i32 6, ptr %57, align 8
   %331 = getelementptr inbounds nuw i8, ptr %57, i64 4
@@ -4854,12 +4854,12 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   store ptr null, ptr %382, align 8
   %383 = getelementptr inbounds nuw i8, ptr %61, i64 40
   store i32 0, ptr %383, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %26, ptr noundef nonnull align 8 dereferenceable(64) %61, i64 21, i1 false)
   %384 = getelementptr inbounds nuw i8, ptr %26, i64 24
   call void %278(ptr noundef nonnull align 8 dereferenceable(40) %381, ptr noundef nonnull align 8 dereferenceable(40) %384) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %375, i32 6, ptr noundef nonnull %26) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %385 = load ptr, ptr %211, align 8
   store i32 6, ptr %62, align 8
   %386 = getelementptr inbounds nuw i8, ptr %62, i64 4
@@ -4972,12 +4972,12 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   store ptr null, ptr %437, align 8
   %438 = getelementptr inbounds nuw i8, ptr %66, i64 40
   store i32 0, ptr %438, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %25, ptr noundef nonnull align 8 dereferenceable(64) %66, i64 21, i1 false)
   %439 = getelementptr inbounds nuw i8, ptr %25, i64 24
   call void %278(ptr noundef nonnull align 8 dereferenceable(40) %436, ptr noundef nonnull align 8 dereferenceable(40) %439) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %430, i32 6, ptr noundef nonnull %25) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %440 = load ptr, ptr %211, align 8
   store i32 6, ptr %67, align 8
   %441 = getelementptr inbounds nuw i8, ptr %67, i64 4
@@ -5111,12 +5111,12 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   store ptr null, ptr %502, align 8
   %503 = getelementptr inbounds nuw i8, ptr %72, i64 40
   store i32 0, ptr %503, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(64) %72, i64 21, i1 false)
   %504 = getelementptr inbounds nuw i8, ptr %24, i64 24
   call void %278(ptr noundef nonnull align 8 dereferenceable(40) %501, ptr noundef nonnull align 8 dereferenceable(40) %504) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %495, i32 6, ptr noundef nonnull %24) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %505 = load ptr, ptr %211, align 8
   store i32 6, ptr %73, align 8
   %506 = getelementptr inbounds nuw i8, ptr %73, i64 4
@@ -5217,12 +5217,12 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   store ptr null, ptr %551, align 8
   %552 = getelementptr inbounds nuw i8, ptr %77, i64 40
   store i32 0, ptr %552, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(64) %77, i64 21, i1 false)
   %553 = getelementptr inbounds nuw i8, ptr %23, i64 24
   call void %278(ptr noundef nonnull align 8 dereferenceable(40) %550, ptr noundef nonnull align 8 dereferenceable(40) %553) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %544, i32 6, ptr noundef nonnull %23) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %554 = load ptr, ptr %211, align 8
   store i32 6, ptr %78, align 8
   %555 = getelementptr inbounds nuw i8, ptr %78, i64 4
@@ -5327,12 +5327,12 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   store ptr null, ptr %602, align 8
   %603 = getelementptr inbounds nuw i8, ptr %82, i64 40
   store i32 0, ptr %603, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %22, ptr noundef nonnull align 8 dereferenceable(64) %82, i64 21, i1 false)
   %604 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void %278(ptr noundef nonnull align 8 dereferenceable(40) %601, ptr noundef nonnull align 8 dereferenceable(40) %604) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %595, i32 6, ptr noundef nonnull %22) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %605 = load ptr, ptr %211, align 8
   store i32 6, ptr %83, align 8
   %606 = getelementptr inbounds nuw i8, ptr %83, i64 4
@@ -5418,12 +5418,12 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   store ptr null, ptr %644, align 8
   %645 = getelementptr inbounds nuw i8, ptr %86, i64 40
   store i32 0, ptr %645, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull align 8 dereferenceable(64) %86, i64 21, i1 false)
   %646 = getelementptr inbounds nuw i8, ptr %21, i64 24
   call void %278(ptr noundef nonnull align 8 dereferenceable(40) %643, ptr noundef nonnull align 8 dereferenceable(40) %646) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %637, i32 6, ptr noundef nonnull %21) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %647 = load ptr, ptr %211, align 8
   store i32 6, ptr %87, align 8
   %648 = getelementptr inbounds nuw i8, ptr %87, i64 4
@@ -5526,12 +5526,12 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   store ptr null, ptr %694, align 8
   %695 = getelementptr inbounds nuw i8, ptr %91, i64 40
   store i32 0, ptr %695, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, ptr noundef nonnull align 8 dereferenceable(64) %91, i64 21, i1 false)
   %696 = getelementptr inbounds nuw i8, ptr %20, i64 24
   call void %278(ptr noundef nonnull align 8 dereferenceable(40) %693, ptr noundef nonnull align 8 dereferenceable(40) %696) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %687, i32 6, ptr noundef nonnull %20) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %697 = load ptr, ptr %211, align 8
   store i32 6, ptr %92, align 8
   %698 = getelementptr inbounds nuw i8, ptr %92, i64 4
@@ -5622,12 +5622,12 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   store ptr null, ptr %739, align 8
   %740 = getelementptr inbounds nuw i8, ptr %94, i64 40
   store i32 0, ptr %740, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull align 8 dereferenceable(64) %94, i64 21, i1 false)
   %741 = getelementptr inbounds nuw i8, ptr %19, i64 24
   call void %278(ptr noundef nonnull align 8 dereferenceable(40) %738, ptr noundef nonnull align 8 dereferenceable(40) %741) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %732, i32 6, ptr noundef nonnull %19) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %742 = load ptr, ptr %211, align 8
   store i32 6, ptr %95, align 8
   %743 = getelementptr inbounds nuw i8, ptr %95, i64 4
@@ -5728,12 +5728,12 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   store ptr null, ptr %788, align 8
   %789 = getelementptr inbounds nuw i8, ptr %99, i64 40
   store i32 0, ptr %789, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 8 dereferenceable(64) %99, i64 21, i1 false)
   %790 = getelementptr inbounds nuw i8, ptr %18, i64 24
   call void %278(ptr noundef nonnull align 8 dereferenceable(40) %787, ptr noundef nonnull align 8 dereferenceable(40) %790) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %781, i32 6, ptr noundef nonnull %18) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %791 = load ptr, ptr %211, align 8
   store i32 6, ptr %100, align 8
   %792 = getelementptr inbounds nuw i8, ptr %100, i64 4
@@ -5834,12 +5834,12 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   store ptr null, ptr %837, align 8
   %838 = getelementptr inbounds nuw i8, ptr %104, i64 40
   store i32 0, ptr %838, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull align 8 dereferenceable(64) %104, i64 21, i1 false)
   %839 = getelementptr inbounds nuw i8, ptr %17, i64 24
   call void %278(ptr noundef nonnull align 8 dereferenceable(40) %836, ptr noundef nonnull align 8 dereferenceable(40) %839) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %830, i32 6, ptr noundef nonnull %17) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %840 = load ptr, ptr %211, align 8
   store i32 6, ptr %105, align 8
   %841 = getelementptr inbounds nuw i8, ptr %105, i64 4
@@ -5940,12 +5940,12 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   store ptr null, ptr %886, align 8
   %887 = getelementptr inbounds nuw i8, ptr %109, i64 40
   store i32 0, ptr %887, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef nonnull align 8 dereferenceable(64) %109, i64 21, i1 false)
   %888 = getelementptr inbounds nuw i8, ptr %16, i64 24
   call void %278(ptr noundef nonnull align 8 dereferenceable(40) %885, ptr noundef nonnull align 8 dereferenceable(40) %888) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %879, i32 6, ptr noundef nonnull %16) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %889 = load ptr, ptr %211, align 8
   store i32 6, ptr %110, align 8
   %890 = getelementptr inbounds nuw i8, ptr %110, i64 4
@@ -6046,12 +6046,12 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   store ptr null, ptr %935, align 8
   %936 = getelementptr inbounds nuw i8, ptr %114, i64 40
   store i32 0, ptr %936, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %114, i64 21, i1 false)
   %937 = getelementptr inbounds nuw i8, ptr %15, i64 24
   call void %278(ptr noundef nonnull align 8 dereferenceable(40) %934, ptr noundef nonnull align 8 dereferenceable(40) %937) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %928, i32 6, ptr noundef nonnull %15) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %938 = load ptr, ptr %211, align 8
   store i32 6, ptr %115, align 8
   %939 = getelementptr inbounds nuw i8, ptr %115, i64 4
@@ -6146,12 +6146,12 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   store ptr null, ptr %981, align 8
   %982 = getelementptr inbounds nuw i8, ptr %119, i64 40
   store i32 0, ptr %982, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef nonnull align 8 dereferenceable(64) %119, i64 21, i1 false)
   %983 = getelementptr inbounds nuw i8, ptr %14, i64 24
   call void %278(ptr noundef nonnull align 8 dereferenceable(40) %980, ptr noundef nonnull align 8 dereferenceable(40) %983) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %974, i32 6, ptr noundef nonnull %14) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %984 = load ptr, ptr %211, align 8
   call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %984, i32 0, i32 noundef 2097152) #14
   %985 = load ptr, ptr %211, align 8
@@ -6261,12 +6261,12 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   store ptr null, ptr %1039, align 8
   %1040 = getelementptr inbounds nuw i8, ptr %123, i64 40
   store i32 0, ptr %1040, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull align 8 dereferenceable(64) %123, i64 21, i1 false)
   %1041 = getelementptr inbounds nuw i8, ptr %13, i64 24
   call void %278(ptr noundef nonnull align 8 dereferenceable(40) %1038, ptr noundef nonnull align 8 dereferenceable(40) %1041) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1028, i32 6, ptr noundef nonnull %13) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %1042 = load ptr, ptr %211, align 8
   store i32 6, ptr %124, align 8
   %1043 = getelementptr inbounds nuw i8, ptr %124, i64 4
@@ -6326,12 +6326,12 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   store ptr null, ptr %1068, align 8
   %1069 = getelementptr inbounds nuw i8, ptr %126, i64 40
   store i32 0, ptr %1069, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %126, i64 21, i1 false)
   %1070 = getelementptr inbounds nuw i8, ptr %12, i64 24
   call void %278(ptr noundef nonnull align 8 dereferenceable(40) %1067, ptr noundef nonnull align 8 dereferenceable(40) %1070) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1061, i32 6, ptr noundef nonnull %12) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %1071 = load ptr, ptr %211, align 8
   call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %1071, i32 1, i32 noundef 402653184) #14
   %1072 = load ptr, ptr %211, align 8
@@ -6411,12 +6411,12 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   store ptr null, ptr %1108, align 8
   %1109 = getelementptr inbounds nuw i8, ptr %129, i64 40
   store i32 0, ptr %1109, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %129, i64 21, i1 false)
   %1110 = getelementptr inbounds nuw i8, ptr %11, i64 24
   call void %278(ptr noundef nonnull align 8 dereferenceable(40) %1107, ptr noundef nonnull align 8 dereferenceable(40) %1110) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1101, i32 6, ptr noundef nonnull %11) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %1111 = load ptr, ptr %211, align 8
   call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %1111, i32 0, i32 noundef 65536) #14
   %1112 = load ptr, ptr %211, align 8
@@ -6489,12 +6489,12 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_
   store ptr null, ptr %1144, align 8
   %1145 = getelementptr inbounds nuw i8, ptr %132, i64 40
   store i32 0, ptr %1145, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) %132, i64 21, i1 false)
   %1146 = getelementptr inbounds nuw i8, ptr %10, i64 24
   call void %278(ptr noundef nonnull align 8 dereferenceable(40) %1143, ptr noundef nonnull align 8 dereferenceable(40) %1146) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1137, i32 6, ptr noundef nonnull %10) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %1147 = load ptr, ptr %211, align 8
   store i32 6, ptr %133, align 8
   %1148 = getelementptr inbounds nuw i8, ptr %133, i64 4
@@ -6634,12 +6634,12 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegisterS0_.exit: ; preds = %1177, %1
   store ptr null, ptr %1209, align 8
   %1210 = getelementptr inbounds nuw i8, ptr %135, i64 40
   store i32 0, ptr %1210, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %135, i64 21, i1 false)
   %1211 = getelementptr inbounds nuw i8, ptr %9, i64 24
   call void %278(ptr noundef nonnull align 8 dereferenceable(40) %1208, ptr noundef nonnull align 8 dereferenceable(40) %1211) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1197, i32 6, ptr noundef nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %1212 = load ptr, ptr %211, align 8
   call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %1212, i32 0, i32 noundef 65536) #14
   %1213 = load ptr, ptr %211, align 8
@@ -6712,12 +6712,12 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegisterS0_.exit: ; preds = %1177, %1
   store ptr null, ptr %1245, align 8
   %1246 = getelementptr inbounds nuw i8, ptr %138, i64 40
   store i32 0, ptr %1246, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %138, i64 21, i1 false)
   %1247 = getelementptr inbounds nuw i8, ptr %8, i64 24
   call void %278(ptr noundef nonnull align 8 dereferenceable(40) %1244, ptr noundef nonnull align 8 dereferenceable(40) %1247) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1238, i32 6, ptr noundef nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %1248 = load ptr, ptr %211, align 8
   store i32 6, ptr %139, align 8
   %1249 = getelementptr inbounds nuw i8, ptr %139, i64 4
@@ -6765,12 +6765,12 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegisterS0_.exit: ; preds = %1177, %1
   store ptr null, ptr %1267, align 8
   %1268 = getelementptr inbounds nuw i8, ptr %140, i64 40
   store i32 0, ptr %1268, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %140, i64 21, i1 false)
   %1269 = getelementptr inbounds nuw i8, ptr %7, i64 24
   call void %278(ptr noundef nonnull align 8 dereferenceable(40) %1266, ptr noundef nonnull align 8 dereferenceable(40) %1269) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1260, i32 6, ptr noundef nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %1270 = load ptr, ptr %211, align 8
   store i32 6, ptr %141, align 8
   %1271 = getelementptr inbounds nuw i8, ptr %141, i64 4
@@ -6789,12 +6789,12 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegisterS0_.exit: ; preds = %1177, %1
   store ptr null, ptr %1277, align 8
   %1278 = getelementptr inbounds nuw i8, ptr %141, i64 40
   store i32 0, ptr %1278, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %141, i64 21, i1 false)
   %1279 = getelementptr inbounds nuw i8, ptr %6, i64 24
   call void %278(ptr noundef nonnull align 8 dereferenceable(40) %1276, ptr noundef nonnull align 8 dereferenceable(40) %1279) #14
   call void @_ZN9Assembler9evmovdqulE7Address11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %1270, ptr noundef nonnull %6, i32 0, i32 noundef 2) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %1280 = load ptr, ptr %211, align 8
   store i32 6, ptr %142, align 8
   %1281 = getelementptr inbounds nuw i8, ptr %142, i64 4
@@ -6813,12 +6813,12 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegisterS0_.exit: ; preds = %1177, %1
   store ptr null, ptr %1287, align 8
   %1288 = getelementptr inbounds nuw i8, ptr %142, i64 40
   store i32 0, ptr %1288, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %142, i64 21, i1 false)
   %1289 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void %278(ptr noundef nonnull align 8 dereferenceable(40) %1286, ptr noundef nonnull align 8 dereferenceable(40) %1289) #14
   call void @_ZN9Assembler9evmovdqulE7Address11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %1280, ptr noundef nonnull %5, i32 7, i32 noundef 2) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %1290 = load ptr, ptr %211, align 8
   store i32 6, ptr %143, align 8
   %1291 = getelementptr inbounds nuw i8, ptr %143, i64 4
@@ -6837,12 +6837,12 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegisterS0_.exit: ; preds = %1177, %1
   store ptr null, ptr %1297, align 8
   %1298 = getelementptr inbounds nuw i8, ptr %143, i64 40
   store i32 0, ptr %1298, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %143, i64 21, i1 false)
   %1299 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void %278(ptr noundef nonnull align 8 dereferenceable(40) %1296, ptr noundef nonnull align 8 dereferenceable(40) %1299) #14
   call void @_ZN9Assembler9evmovdqulE7Address11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %1290, ptr noundef nonnull %4, i32 8, i32 noundef 2) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %1300 = load ptr, ptr %211, align 8
   store i32 6, ptr %144, align 8
   %1301 = getelementptr inbounds nuw i8, ptr %144, i64 4
@@ -6861,12 +6861,12 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegisterS0_.exit: ; preds = %1177, %1
   store ptr null, ptr %1307, align 8
   %1308 = getelementptr inbounds nuw i8, ptr %144, i64 40
   store i32 0, ptr %1308, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %144, i64 21, i1 false)
   %1309 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void %278(ptr noundef nonnull align 8 dereferenceable(40) %1306, ptr noundef nonnull align 8 dereferenceable(40) %1309) #14
   call void @_ZN9Assembler9evmovdqulE7Address11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %1300, ptr noundef nonnull %3, i32 31, i32 noundef 2) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN24VM_Version_StubGenerator19generate_vzeroupperER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %42)
   store i64 0, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   store i32 %1098, ptr @UseAVX, align 4
@@ -6900,12 +6900,12 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegisterS0_.exit: ; preds = %1177, %1
   store ptr null, ptr %1320, align 8
   %1321 = getelementptr inbounds nuw i8, ptr %145, i64 40
   store i32 0, ptr %1321, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %145, i64 21, i1 false)
   %1322 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void %278(ptr noundef nonnull align 8 dereferenceable(40) %1319, ptr noundef nonnull align 8 dereferenceable(40) %1322) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1313, i32 6, ptr noundef nonnull %2) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %1323 = load ptr, ptr %211, align 8
   store i32 6, ptr %146, align 8
   %1324 = getelementptr inbounds nuw i8, ptr %146, i64 4
@@ -7364,13 +7364,13 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   store ptr null, ptr %112, align 8
   %113 = getelementptr inbounds nuw i8, ptr %20, i64 40
   store i32 0, ptr %113, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull align 8 dereferenceable(64) %20, i64 21, i1 false)
   %114 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %115 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %115(ptr noundef nonnull align 8 dereferenceable(40) %111, ptr noundef nonnull align 8 dereferenceable(40) %114) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %105, i32 6, ptr noundef nonnull %13) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %116 = load ptr, ptr %59, align 8
   store i32 6, ptr %21, align 8
   %117 = getelementptr inbounds nuw i8, ptr %21, i64 4
@@ -7408,12 +7408,12 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   store ptr null, ptr %132, align 8
   %133 = getelementptr inbounds nuw i8, ptr %22, i64 40
   store i32 0, ptr %133, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %22, i64 21, i1 false)
   %134 = getelementptr inbounds nuw i8, ptr %12, i64 24
   call void %115(ptr noundef nonnull align 8 dereferenceable(40) %131, ptr noundef nonnull align 8 dereferenceable(40) %134) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %125, i32 6, ptr noundef nonnull %12) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %135 = load ptr, ptr %59, align 8
   store i32 6, ptr %23, align 8
   %136 = getelementptr inbounds nuw i8, ptr %23, i64 4
@@ -7451,12 +7451,12 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   store ptr null, ptr %151, align 8
   %152 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store i32 0, ptr %152, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %24, i64 21, i1 false)
   %153 = getelementptr inbounds nuw i8, ptr %11, i64 24
   call void %115(ptr noundef nonnull align 8 dereferenceable(40) %150, ptr noundef nonnull align 8 dereferenceable(40) %153) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %144, i32 6, ptr noundef nonnull %11) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %154 = load ptr, ptr %59, align 8
   store i32 6, ptr %25, align 8
   %155 = getelementptr inbounds nuw i8, ptr %25, i64 4
@@ -7494,12 +7494,12 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   store ptr null, ptr %170, align 8
   %171 = getelementptr inbounds nuw i8, ptr %26, i64 40
   store i32 0, ptr %171, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) %26, i64 21, i1 false)
   %172 = getelementptr inbounds nuw i8, ptr %10, i64 24
   call void %115(ptr noundef nonnull align 8 dereferenceable(40) %169, ptr noundef nonnull align 8 dereferenceable(40) %172) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %163, i32 6, ptr noundef nonnull %10) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %173 = load ptr, ptr %59, align 8
   store i32 6, ptr %27, align 8
   %174 = getelementptr inbounds nuw i8, ptr %27, i64 4
@@ -7541,12 +7541,12 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   store ptr null, ptr %191, align 8
   %192 = getelementptr inbounds nuw i8, ptr %28, i64 40
   store i32 0, ptr %192, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %28, i64 21, i1 false)
   %193 = getelementptr inbounds nuw i8, ptr %9, i64 24
   call void %115(ptr noundef nonnull align 8 dereferenceable(40) %190, ptr noundef nonnull align 8 dereferenceable(40) %193) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %184, i32 6, ptr noundef nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %194 = load ptr, ptr %59, align 8
   store i32 6, ptr %29, align 8
   %195 = getelementptr inbounds nuw i8, ptr %29, i64 4
@@ -7584,12 +7584,12 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   store ptr null, ptr %210, align 8
   %211 = getelementptr inbounds nuw i8, ptr %30, i64 40
   store i32 0, ptr %211, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %30, i64 21, i1 false)
   %212 = getelementptr inbounds nuw i8, ptr %8, i64 24
   call void %115(ptr noundef nonnull align 8 dereferenceable(40) %209, ptr noundef nonnull align 8 dereferenceable(40) %212) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %203, i32 6, ptr noundef nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %213 = load ptr, ptr %59, align 8
   store i32 6, ptr %31, align 8
   %214 = getelementptr inbounds nuw i8, ptr %31, i64 4
@@ -7627,12 +7627,12 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   store ptr null, ptr %229, align 8
   %230 = getelementptr inbounds nuw i8, ptr %32, i64 40
   store i32 0, ptr %230, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %32, i64 21, i1 false)
   %231 = getelementptr inbounds nuw i8, ptr %7, i64 24
   call void %115(ptr noundef nonnull align 8 dereferenceable(40) %228, ptr noundef nonnull align 8 dereferenceable(40) %231) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %222, i32 6, ptr noundef nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %232 = load ptr, ptr %59, align 8
   store i32 6, ptr %33, align 8
   %233 = getelementptr inbounds nuw i8, ptr %33, i64 4
@@ -7670,12 +7670,12 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   store ptr null, ptr %248, align 8
   %249 = getelementptr inbounds nuw i8, ptr %34, i64 40
   store i32 0, ptr %249, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %34, i64 21, i1 false)
   %250 = getelementptr inbounds nuw i8, ptr %6, i64 24
   call void %115(ptr noundef nonnull align 8 dereferenceable(40) %247, ptr noundef nonnull align 8 dereferenceable(40) %250) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %241, i32 6, ptr noundef nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %251 = load ptr, ptr %59, align 8
   store i32 6, ptr %35, align 8
   %252 = getelementptr inbounds nuw i8, ptr %35, i64 4
@@ -7717,12 +7717,12 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   store ptr null, ptr %269, align 8
   %270 = getelementptr inbounds nuw i8, ptr %36, i64 40
   store i32 0, ptr %270, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %36, i64 21, i1 false)
   %271 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void %115(ptr noundef nonnull align 8 dereferenceable(40) %268, ptr noundef nonnull align 8 dereferenceable(40) %271) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %262, i32 6, ptr noundef nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %272 = load ptr, ptr %59, align 8
   store i32 6, ptr %37, align 8
   %273 = getelementptr inbounds nuw i8, ptr %37, i64 4
@@ -7760,12 +7760,12 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   store ptr null, ptr %288, align 8
   %289 = getelementptr inbounds nuw i8, ptr %38, i64 40
   store i32 0, ptr %289, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %38, i64 21, i1 false)
   %290 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void %115(ptr noundef nonnull align 8 dereferenceable(40) %287, ptr noundef nonnull align 8 dereferenceable(40) %290) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %281, i32 6, ptr noundef nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %291 = load ptr, ptr %59, align 8
   store i32 6, ptr %39, align 8
   %292 = getelementptr inbounds nuw i8, ptr %39, i64 4
@@ -7803,12 +7803,12 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   store ptr null, ptr %307, align 8
   %308 = getelementptr inbounds nuw i8, ptr %40, i64 40
   store i32 0, ptr %308, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %40, i64 21, i1 false)
   %309 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void %115(ptr noundef nonnull align 8 dereferenceable(40) %306, ptr noundef nonnull align 8 dereferenceable(40) %309) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %300, i32 6, ptr noundef nonnull %3) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %310 = load ptr, ptr %59, align 8
   store i32 6, ptr %41, align 8
   %311 = getelementptr inbounds nuw i8, ptr %41, i64 4
@@ -7846,12 +7846,12 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   store ptr null, ptr %326, align 8
   %327 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store i32 0, ptr %327, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %42, i64 21, i1 false)
   %328 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void %115(ptr noundef nonnull align 8 dereferenceable(40) %325, ptr noundef nonnull align 8 dereferenceable(40) %328) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %319, i32 6, ptr noundef nonnull %2) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %329 = load ptr, ptr %59, align 8
   store i32 6, ptr %43, align 8
   %330 = getelementptr inbounds nuw i8, ptr %43, i64 4
@@ -9278,13 +9278,13 @@ define linkonce_odr hidden void @_ZN24VM_Version_StubGenerator19generate_vzeroup
   store ptr null, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 0, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %20 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %19) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %10, i32 6, ptr noundef nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %21 = load ptr, ptr %9, align 8
   store i32 6, ptr %6, align 8
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -9326,12 +9326,12 @@ define linkonce_odr hidden void @_ZN24VM_Version_StubGenerator19generate_vzeroup
   store ptr null, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 0, ptr %40, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 21, i1 false)
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void %20(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %41) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 6, ptr noundef nonnull %3) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %42 = load ptr, ptr %9, align 8
   store i32 6, ptr %8, align 8
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -9409,10 +9409,10 @@ declare i64 @llvm.ctpop.i64(i64) #11
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #11

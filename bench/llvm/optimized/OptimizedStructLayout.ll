@@ -142,7 +142,7 @@ _ZN4llvm14array_pod_sortIPNS_26OptimizedStructLayoutFieldEEEvT_S3_PFiPKNSt15iter
   br i1 %.not91, label %.loopexit, label %.lr.ph178, !llvm.loop !17
 
 .thread146:                                       ; preds = %.lr.ph173, %.lr.ph178
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %50, ptr %3, align 8, !tbaa !18
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -158,9 +158,9 @@ _ZN4llvm14array_pod_sortIPNS_26OptimizedStructLayoutFieldEEEvT_S3_PFiPKNSt15iter
   br label %65
 
 ._crit_edge198:                                   ; preds = %_ZN4llvm23SmallVectorTemplateBaseIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueLb1EE9push_backERKS4_.exit, %.thread146
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %3, ptr %5, align 8, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 656, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %56, ptr %6, align 8, !tbaa !18
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -175,17 +175,17 @@ _ZN4llvm14array_pod_sortIPNS_26OptimizedStructLayoutFieldEEEvT_S3_PFiPKNSt15iter
   br label %_ZN4llvm15SmallVectorImplINS_26OptimizedStructLayoutFieldEE7reserveEm.exit
 
 _ZN4llvm15SmallVectorImplINS_26OptimizedStructLayoutFieldEE7reserveEm.exit: ; preds = %._crit_edge198, %60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %5, ptr %8, align 8, !tbaa !26
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %6, ptr %61, align 8, !tbaa !27
   %62 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %7, ptr %62, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %8, ptr %9, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %3, ptr %10, align 8, !tbaa !23
   %63 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %7, ptr %63, align 8, !tbaa !29
@@ -229,7 +229,7 @@ _ZN4llvm15SmallVectorImplINS_26OptimizedStructLayoutFieldEE7reserveEm.exit: ; pr
   %.183.lcssa = phi ptr [ %11, %65 ], [ %11, %71 ], [ %.183185, %.lr.ph187 ]
   %75 = getelementptr inbounds nuw i8, ptr %.078.lcssa, i64 24
   store ptr null, ptr %75, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %storemerge.lcssa, ptr %4, align 8, !tbaa !32
   store ptr %.082196, ptr %53, align 8, !tbaa !35
   store i8 %.sroa.013.0.copyload, ptr %54, align 8, !tbaa !10
@@ -270,7 +270,7 @@ _ZN4llvm23SmallVectorTemplateBaseIZNS_28performOptimizedStructLayoutENS_15Mutabl
   %89 = load i32, ptr %51, align 8, !tbaa !21
   %90 = add i32 %89, 1
   store i32 %90, ptr %51, align 8, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not93 = icmp eq ptr %.183.lcssa, %11
   br i1 %.not93, label %._crit_edge198, label %65, !llvm.loop !38
 
@@ -357,10 +357,10 @@ _ZN4llvm23SmallVectorTemplateBaseINS_26OptimizedStructLayoutFieldELb1EE9push_bac
   %126 = phi i64 [ %.pre, %._crit_edge203.loopexit ], [ %91, %.preheader ]
   %127 = load ptr, ptr %6, align 8, !tbaa !18
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %127, i64 %.idx, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %128 = icmp eq ptr %127, %56
   br i1 %128, label %_ZN4llvm11SmallVectorINS_26OptimizedStructLayoutFieldELj16EED2Ev.exit, label %129
 
@@ -369,8 +369,8 @@ _ZN4llvm23SmallVectorTemplateBaseINS_26OptimizedStructLayoutFieldELb1EE9push_bac
   br label %_ZN4llvm11SmallVectorINS_26OptimizedStructLayoutFieldELj16EED2Ev.exit
 
 _ZN4llvm11SmallVectorINS_26OptimizedStructLayoutFieldELj16EED2Ev.exit: ; preds = %._crit_edge203, %129
-  call void @llvm.lifetime.end.p0(i64 656, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %130 = load ptr, ptr %3, align 8, !tbaa !18
   %131 = icmp eq ptr %130, %50
   br i1 %131, label %_ZN4llvm11SmallVectorIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueLj8EED2Ev.exit, label %132
@@ -380,7 +380,7 @@ _ZN4llvm11SmallVectorINS_26OptimizedStructLayoutFieldELj16EED2Ev.exit: ; preds =
   br label %_ZN4llvm11SmallVectorIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueLj8EED2Ev.exit
 
 _ZN4llvm11SmallVectorIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueLj8EED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorINS_26OptimizedStructLayoutFieldELj16EED2Ev.exit, %132
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %45, %2, %.preheader155, %._crit_edge, %_ZN4llvm11SmallVectorIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueLj8EED2Ev.exit
@@ -391,17 +391,11 @@ _ZN4llvm11SmallVectorIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS
   ret { i64, i8 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_4clESt8optionalImE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i64 %1, i8 %2) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_4clESt8optionalImE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i64 %1, i8 %2) unnamed_addr #2 align 2 {
   %.fr128 = freeze i8 %2
   %4 = load ptr, ptr %0, align 8, !tbaa !42
   %.val = load ptr, ptr %4, align 8, !tbaa !18
@@ -676,7 +670,7 @@ _ZN4llvm15SmallVectorImplIZNS_28performOptimizedStructLayoutENS_15MutableArrayRe
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef range(i32 -1, 2) i32 @"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEEN3$_08__invokeEPKS1_S5_"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 align 2 {
+define internal noundef range(i32 -1, 2) i32 @"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEEN3$_08__invokeEPKS1_S5_"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.06.0.copyload.i = load i8, ptr %3, align 8, !tbaa !10
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -719,15 +713,21 @@ define internal noundef range(i32 -1, 2) i32 @"_ZZN4llvm28performOptimizedStruct
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
-declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
+declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #8
@@ -736,13 +736,13 @@ declare i8 @llvm.umax.i8(i8, i8) #8
 declare i64 @llvm.umin.i64(i64, i64) #8
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
 

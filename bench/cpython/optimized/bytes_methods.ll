@@ -80,12 +80,6 @@ define hidden noundef nonnull ptr @_Py_bytes_isspace(ptr noundef readonly captur
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define hidden noundef nonnull ptr @_Py_bytes_isalpha(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
   switch i64 %1, label %9 [
@@ -210,7 +204,7 @@ define hidden noundef nonnull ptr @_Py_bytes_isdigit(ptr noundef readonly captur
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_Py_bytes_islower(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #2 {
+define hidden ptr @_Py_bytes_islower(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #1 {
   switch i64 %1, label %9 [
     i64 1, label %3
     i64 0, label %.loopexit
@@ -259,10 +253,10 @@ define hidden ptr @_Py_bytes_islower(ptr noundef readonly captures(address) %0, 
   ret ptr %.013
 }
 
-declare ptr @PyBool_FromLong(i64 noundef) local_unnamed_addr #3
+declare ptr @PyBool_FromLong(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_Py_bytes_isupper(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #2 {
+define hidden ptr @_Py_bytes_isupper(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #1 {
   switch i64 %1, label %9 [
     i64 1, label %3
     i64 0, label %.loopexit
@@ -313,7 +307,7 @@ define hidden ptr @_Py_bytes_isupper(ptr noundef readonly captures(address) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_Py_bytes_istitle(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #2 {
+define hidden ptr @_Py_bytes_istitle(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #1 {
   switch i64 %1, label %9 [
     i64 1, label %3
     i64 0, label %.critedge
@@ -381,7 +375,7 @@ define hidden ptr @_Py_bytes_istitle(ptr noundef readonly captures(address) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_Py_bytes_lower(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
+define hidden void @_Py_bytes_lower(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = icmp sgt i64 %2, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -403,7 +397,7 @@ define hidden void @_Py_bytes_lower(ptr noundef writeonly captures(none) %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_Py_bytes_upper(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
+define hidden void @_Py_bytes_upper(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = icmp sgt i64 %2, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -425,7 +419,7 @@ define hidden void @_Py_bytes_upper(ptr noundef writeonly captures(none) %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_Py_bytes_title(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
+define hidden void @_Py_bytes_title(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = icmp sgt i64 %2, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -476,7 +470,7 @@ define hidden void @_Py_bytes_title(ptr noundef writeonly captures(none) %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_Py_bytes_capitalize(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
+define hidden void @_Py_bytes_capitalize(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = icmp sgt i64 %2, 0
   br i1 %4, label %5, label %_Py_bytes_lower.exit
 
@@ -510,7 +504,7 @@ _Py_bytes_lower.exit:                             ; preds = %.lr.ph.i, %5, %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_Py_bytes_swapcase(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
+define hidden void @_Py_bytes_swapcase(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = icmp sgt i64 %2, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -551,7 +545,7 @@ define hidden void @_Py_bytes_swapcase(ptr noundef writeonly captures(none) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_Py_bytes_maketrans(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
+define hidden ptr @_Py_bytes_maketrans(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !tbaa !21
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -608,12 +602,12 @@ define hidden ptr @_Py_bytes_maketrans(ptr noundef readonly captures(none) %0, p
   ret ptr %.0
 }
 
-declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_Py_bytes_find(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #2 {
+define hidden ptr @_Py_bytes_find(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = tail call fastcc i64 @find_internal(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef 1)
   %7 = icmp eq i64 %6, -2
   br i1 %7, label %10, label %8
@@ -628,11 +622,11 @@ define hidden ptr @_Py_bytes_find(ptr noundef %0, i64 noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc i64 @find_internal(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef range(i32 -1, 2) %5) unnamed_addr #5 {
+define internal fastcc i64 @find_internal(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef range(i32 -1, 2) %5) unnamed_addr #4 {
   %7 = alloca i8, align 1
   %8 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #14
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @PyObject_CheckBuffer(ptr noundef %2) #14
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %10, label %parse_args_finds_byte.exit
@@ -925,15 +919,15 @@ stringlib_find_slice.exit:                        ; preds = %124, %103, %68, %59
 
 parse_args_finds_byte.exit.thread:                ; preds = %22, %.thread.i, %_PyIndex_Check.exit.thread.i, %stringlib_find_slice.exit, %142, %27
   %.047 = phi i64 [ -2, %27 ], [ %.0, %142 ], [ %.0, %stringlib_find_slice.exit ], [ -2, %_PyIndex_Check.exit.thread.i ], [ -2, %.thread.i ], [ -2, %22 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.047
 }
 
-declare ptr @PyLong_FromSsize_t(i64 noundef) local_unnamed_addr #3
+declare ptr @PyLong_FromSsize_t(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_Py_bytes_index(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #2 {
+define hidden ptr @_Py_bytes_index(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = tail call fastcc i64 @find_internal(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef 1)
   switch i64 %6, label %9 [
     i64 -2, label %11
@@ -954,10 +948,10 @@ define hidden ptr @_Py_bytes_index(ptr noundef %0, i64 noundef %1, ptr noundef %
   ret ptr %.0
 }
 
-declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_Py_bytes_rfind(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #2 {
+define hidden ptr @_Py_bytes_rfind(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = tail call fastcc i64 @find_internal(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef -1)
   %7 = icmp eq i64 %6, -2
   br i1 %7, label %10, label %8
@@ -972,7 +966,7 @@ define hidden ptr @_Py_bytes_rfind(ptr noundef %0, i64 noundef %1, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_Py_bytes_rindex(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #2 {
+define hidden ptr @_Py_bytes_rindex(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = tail call fastcc i64 @find_internal(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef -1)
   switch i64 %6, label %9 [
     i64 -2, label %11
@@ -994,11 +988,11 @@ define hidden ptr @_Py_bytes_rindex(ptr noundef %0, i64 noundef %1, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_Py_bytes_count(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #2 {
+define hidden ptr @_Py_bytes_count(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i8, align 1
   %7 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call i32 @PyObject_CheckBuffer(ptr noundef %2) #14
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %9, label %parse_args_finds_byte.exit
@@ -1116,17 +1110,17 @@ stringlib_count.exit:                             ; preds = %38, %46, %49
 
 parse_args_finds_byte.exit.thread:                ; preds = %21, %.thread.i, %_PyIndex_Check.exit.thread.i, %stringlib_count.exit, %52, %26
   %.0 = phi ptr [ null, %26 ], [ %51, %52 ], [ %51, %stringlib_count.exit ], [ null, %_PyIndex_Check.exit.thread.i ], [ null, %.thread.i ], [ null, %21 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
 
-declare i32 @PyObject_GetBuffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @PyObject_GetBuffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @PyBuffer_Release(ptr noundef) local_unnamed_addr #3
+declare void @PyBuffer_Release(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 2) i32 @_Py_bytes_contains(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define hidden range(i32 -1, 2) i32 @_Py_bytes_contains(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.Py_buffer, align 8
   %5 = tail call i64 @PyNumber_AsSsize_t(ptr noundef %2, ptr noundef null) #14
   %6 = icmp eq i64 %5, -1
@@ -1138,7 +1132,7 @@ define hidden range(i32 -1, 2) i32 @_Py_bytes_contains(ptr noundef %0, i64 nound
   br i1 %.not, label %.thread, label %9
 
 9:                                                ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @PyErr_Clear() #14
   %10 = call i32 @PyObject_GetBuffer(ptr noundef %2, ptr noundef nonnull %4, i32 noundef 0) #14
   %.not13 = icmp eq i32 %10, 0
@@ -1164,7 +1158,7 @@ stringlib_find.exit:                              ; preds = %11, %15
 
 20:                                               ; preds = %9, %stringlib_find.exit
   %.0 = phi i32 [ %.010.i, %stringlib_find.exit ], [ -1, %9 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %28
 
 21:                                               ; preds = %3
@@ -1188,23 +1182,23 @@ stringlib_find.exit:                              ; preds = %11, %15
   ret i32 %.1
 }
 
-declare i64 @PyNumber_AsSsize_t(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @PyNumber_AsSsize_t(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @PyErr_Occurred() local_unnamed_addr #3
+declare ptr @PyErr_Occurred() local_unnamed_addr #2
 
-declare void @PyErr_Clear() local_unnamed_addr #3
+declare void @PyErr_Clear() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_Py_bytes_startswith(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #2 {
+define hidden ptr @_Py_bytes_startswith(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = tail call fastcc ptr @_Py_bytes_tailmatch(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.8, ptr noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef -1)
   ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_Py_bytes_tailmatch(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef range(i32 -1, 2) %6) unnamed_addr #2 {
+define internal fastcc ptr @_Py_bytes_tailmatch(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef range(i32 -1, 2) %6) unnamed_addr #1 {
   %8 = getelementptr i8, ptr %3, i64 8
   %.val = load ptr, ptr %8, align 8, !tbaa !32
   %9 = getelementptr i8, ptr %.val, i64 168
@@ -1268,7 +1262,7 @@ define internal fastcc ptr @_Py_bytes_tailmatch(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_Py_bytes_endswith(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #2 {
+define hidden ptr @_Py_bytes_endswith(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = tail call fastcc ptr @_Py_bytes_tailmatch(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.9, ptr noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef 1)
   ret ptr %6
 }
@@ -1318,10 +1312,10 @@ stringlib_find_max_char.exit:                     ; preds = %.thread31.i, %13, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @memrchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
+declare ptr @memrchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: inlinehint nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @fastsearch(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef range(i64 1, 0) %3, i64 noundef range(i64 9223372036854775807, 0) %4, i32 noundef range(i32 0, 3) %5) unnamed_addr #7 {
+define internal fastcc i64 @fastsearch(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef range(i64 1, 0) %3, i64 noundef range(i64 9223372036854775807, 0) %4, i32 noundef range(i32 0, 3) %5) unnamed_addr #6 {
   %7 = icmp slt i64 %1, %3
   br i1 %7, label %stringlib_find_char.exit, label %8
 
@@ -1688,19 +1682,19 @@ stringlib_find_char.exit:                         ; preds = %96, %._crit_edge95.
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @stringlib__two_way_find(ptr noundef readonly %0, i64 noundef %1, ptr noundef %2, i64 noundef range(i64 6, -9223372036854775808) %3) unnamed_addr #8 {
+define internal fastcc i64 @stringlib__two_way_find(ptr noundef readonly %0, i64 noundef %1, ptr noundef %2, i64 noundef range(i64 6, -9223372036854775808) %3) unnamed_addr #7 {
   %5 = alloca %struct.stringlib__pre, align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call fastcc void @stringlib__preprocess(ptr noundef %2, i64 noundef %3, ptr noundef %5)
   %6 = call fastcc i64 @stringlib__two_way(ptr noundef %0, i64 noundef %1, ptr noundef %5)
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %6
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @stringlib__two_way_count(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef range(i64 6, -9223372036854775808) %3, i64 noundef %4) unnamed_addr #8 {
+define internal fastcc i64 @stringlib__two_way_count(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef range(i64 6, -9223372036854775808) %3, i64 noundef %4) unnamed_addr #7 {
   %6 = alloca %struct.stringlib__pre, align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call fastcc void @stringlib__preprocess(ptr noundef %2, i64 noundef %3, ptr noundef %6)
   %7 = call fastcc i64 @stringlib__two_way(ptr noundef %0, i64 noundef %1, ptr noundef %6)
   %8 = icmp eq i64 %7, -1
@@ -1725,12 +1719,12 @@ define internal fastcc i64 @stringlib__two_way_count(ptr noundef %0, i64 noundef
 
 ._crit_edge:                                      ; preds = %.lr.ph, %12, %5
   %.1.ph = phi i64 [ 0, %5 ], [ %10, %12 ], [ %4, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.1.ph
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @stringlib_adaptive_find(ptr noundef %0, i64 noundef range(i64 2500, -9223372036854775808) %1, ptr noundef %2, i64 noundef range(i64 6, -9223372036854775808) %3, i64 noundef range(i64 9223372036854775807, 0) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #8 {
+define internal fastcc i64 @stringlib_adaptive_find(ptr noundef %0, i64 noundef range(i64 2500, -9223372036854775808) %1, ptr noundef %2, i64 noundef range(i64 6, -9223372036854775808) %3, i64 noundef range(i64 9223372036854775807, 0) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #7 {
 .lr.ph.preheader:
   %6 = alloca %struct.stringlib__pre, align 8
   %7 = alloca %struct.stringlib__pre, align 8
@@ -1848,10 +1842,10 @@ define internal fastcc i64 @stringlib_adaptive_find(ptr noundef %0, i64 noundef 
   br i1 %.not116, label %64, label %59
 
 59:                                               ; preds = %.split.us
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call fastcc void @stringlib__preprocess(ptr noundef nonnull %2, i64 noundef range(i64 6, -9223372036854775808) %3, ptr noundef %7)
   %60 = call fastcc i64 @stringlib__two_way(ptr noundef readonly %57, i64 noundef %58, ptr noundef %7)
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %61 = icmp eq i64 %60, -1
   %62 = add i64 %60, %.088140.us
   %63 = select i1 %61, i64 -1, i64 %62
@@ -1859,7 +1853,7 @@ define internal fastcc i64 @stringlib_adaptive_find(ptr noundef %0, i64 noundef 
 
 64:                                               ; preds = %.split.us
   %65 = sub i64 %4, %.096139.us
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call fastcc void @stringlib__preprocess(ptr noundef nonnull %2, i64 noundef range(i64 6, -9223372036854775808) %3, ptr noundef %6)
   %66 = call fastcc i64 @stringlib__two_way(ptr noundef %57, i64 noundef %58, ptr noundef %6)
   %67 = icmp eq i64 %66, -1
@@ -1884,7 +1878,7 @@ define internal fastcc i64 @stringlib_adaptive_find(ptr noundef %0, i64 noundef 
 
 stringlib__two_way_count.exit:                    ; preds = %.lr.ph.i, %71, %64
   %.1.ph.i = phi i64 [ 0, %64 ], [ %65, %.lr.ph.i ], [ %69, %71 ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %78 = add i64 %.1.ph.i, %.096139.us
   br label %.thread.thread
 
@@ -1900,7 +1894,7 @@ stringlib__two_way_count.exit:                    ; preds = %.lr.ph.i, %71, %64
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @stringlib__preprocess(ptr noundef %0, i64 noundef range(i64 6, -9223372036854775808) %1, ptr noundef nonnull writeonly captures(none) initializes((0, 16)) %2) unnamed_addr #9 {
+define internal fastcc void @stringlib__preprocess(ptr noundef %0, i64 noundef range(i64 6, -9223372036854775808) %1, ptr noundef nonnull writeonly captures(none) initializes((0, 16)) %2) unnamed_addr #8 {
   store ptr %0, ptr %2, align 8, !tbaa !65
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %1, ptr %4, align 8, !tbaa !67
@@ -2074,7 +2068,7 @@ stringlib__factorize.exit:                        ; preds = %44
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i64 @stringlib__two_way(ptr noundef %0, i64 noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #10 {
+define internal fastcc i64 @stringlib__two_way(ptr noundef %0, i64 noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #9 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !67
   %.fr278 = freeze i64 %5
@@ -2381,12 +2375,12 @@ define internal fastcc i64 @stringlib__two_way(ptr noundef %0, i64 noundef %1, p
   ret i64 %.4
 }
 
-declare i32 @PyObject_CheckBuffer(ptr noundef) local_unnamed_addr #3
+declare i32 @PyObject_CheckBuffer(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @tailmatch(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef range(i32 -1, 2) %5) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 2) i32 @tailmatch(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef range(i32 -1, 2) %5) unnamed_addr #1 {
   %7 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, i8 0, i64 80, i1 false)
   %8 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %8, align 8, !tbaa !32
@@ -2475,14 +2469,20 @@ define internal fastcc range(i32 -1, 2) i32 @tailmatch(ptr noundef readonly capt
 
 42:                                               ; preds = %.sink.split, %13
   %.038 = phi i32 [ -1, %13 ], [ %.038.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.038
 }
 
-declare i32 @PyErr_ExceptionMatches(ptr noundef) local_unnamed_addr #3
+declare i32 @PyErr_ExceptionMatches(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #12
@@ -2497,17 +2497,17 @@ declare i64 @llvm.smin.i64(i64, i64) #12
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { inlinehint nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree norecurse nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #14 = { nounwind }

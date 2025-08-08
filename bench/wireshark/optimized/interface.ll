@@ -10,8 +10,8 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @local_interfaces_to_list() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca [46 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #5
-  call void @llvm.lifetime.start.p0(i64 46, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @getifaddrs(ptr noundef nonnull %1) #5
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %.preheader.i, label %local_interfaces_to_list_nix.exit
@@ -85,45 +85,45 @@ define ptr @local_interfaces_to_list() local_unnamed_addr #0 {
 
 local_interfaces_to_list_nix.exit:                ; preds = %0, %._crit_edge.i
   %.0.i = phi ptr [ null, %0 ], [ %.1.lcssa.i, %._crit_edge.i ]
-  call void @llvm.lifetime.end.p0(i64 46, ptr nonnull %2) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %.0.i
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: nounwind null_pointer_is_valid
+declare i32 @getifaddrs(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @ws_inet_ntop4(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @ws_inet_ntop6(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_slist_prepend(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind null_pointer_is_valid
-declare i32 @getifaddrs(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare ptr @ws_inet_ntop4(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @freeifaddrs(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
-; Function Attrs: null_pointer_is_valid
-declare ptr @ws_inet_ntop6(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
-
-; Function Attrs: null_pointer_is_valid
-declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: null_pointer_is_valid
-declare ptr @g_slist_prepend(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: null_pointer_is_valid
-declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: nounwind null_pointer_is_valid
-declare void @freeifaddrs(ptr noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { nounwind }
 

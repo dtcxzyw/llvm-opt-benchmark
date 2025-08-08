@@ -54,15 +54,9 @@ define void @ggml_tallocr_new(ptr dead_on_unwind noalias writable writeonly sret
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @ggml_backend_buffer_get_base(ptr noundef) local_unnamed_addr #1
 
-declare ptr @ggml_backend_buffer_get_base(ptr noundef) local_unnamed_addr #2
-
-declare i64 @ggml_backend_buffer_get_alignment(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @ggml_backend_buffer_get_alignment(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @ggml_tallocr_alloc(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -104,16 +98,16 @@ define void @ggml_tallocr_alloc(ptr noundef captures(none) %0, ptr noundef %1) l
   ret void
 }
 
-declare i64 @ggml_backend_buffer_get_alloc_size(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @ggml_backend_buffer_get_alloc_size(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @ggml_backend_buffer_get_size(ptr noundef) local_unnamed_addr #2
+declare i64 @ggml_backend_buffer_get_size(ptr noundef) local_unnamed_addr #1
 
-declare void @ggml_log_internal(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @ggml_log_internal(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @ggml_abort(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @ggml_abort(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @ggml_backend_tensor_alloc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ggml_backend_tensor_alloc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noalias nonnull ptr @ggml_gallocr_new_n(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -228,9 +222,9 @@ define noalias nonnull ptr @ggml_gallocr_new_n(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i64 @ggml_backend_buft_get_alignment(ptr noundef) local_unnamed_addr #2
+declare i64 @ggml_backend_buft_get_alignment(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noalias nonnull ptr @ggml_gallocr_new(ptr noundef %0) local_unnamed_addr #0 {
@@ -361,12 +355,12 @@ define void @ggml_gallocr_free(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @ggml_backend_buffer_free(ptr noundef) local_unnamed_addr #2
+declare void @ggml_backend_buffer_free(ptr noundef) local_unnamed_addr #1
 
-declare void @ggml_hash_set_free(ptr noundef) local_unnamed_addr #2
+declare void @ggml_hash_set_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @ggml_gallocr_reserve_n(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
@@ -386,10 +380,10 @@ define noundef zeroext i1 @ggml_gallocr_reserve_n(ptr noundef %0, ptr noundef re
 
 17:                                               ; preds = %4
   tail call void @ggml_hash_set_free(ptr noundef nonnull %14) #12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @ggml_hash_set_new(ptr dead_on_unwind nonnull writable sret(%struct.ggml_hash_set) align 8 %5, i64 noundef %13) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !53
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load ptr, ptr %18, align 8, !tbaa !56
   %.not = icmp eq ptr %19, null
@@ -1623,13 +1617,13 @@ ggml_gallocr_hash_get.exit190._crit_edge:         ; preds = %ggml_gallocr_hash_g
   ret i1 %.not170203
 }
 
-declare void @ggml_hash_set_new(ptr dead_on_unwind writable sret(%struct.ggml_hash_set) align 8, i64 noundef) local_unnamed_addr #2
+declare void @ggml_hash_set_new(ptr dead_on_unwind writable sret(%struct.ggml_hash_set) align 8, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @ggml_gallocr_hash_get(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
@@ -1690,13 +1684,13 @@ ggml_hash_find_or_insert.exit:                    ; preds = %24, %19
   ret ptr %36
 }
 
-declare i64 @ggml_backend_buft_get_alloc_size(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @ggml_backend_buft_get_alloc_size(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @ggml_backend_buft_alloc_buffer(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @ggml_backend_buft_alloc_buffer(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @ggml_backend_buft_name(ptr noundef) local_unnamed_addr #2
+declare ptr @ggml_backend_buft_name(ptr noundef) local_unnamed_addr #1
 
-declare void @ggml_backend_buffer_set_usage(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @ggml_backend_buffer_set_usage(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @ggml_gallocr_reserve(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -2070,7 +2064,7 @@ ggml_gallocr_init_tensor.exit51:                  ; preds = %192, %188, %187, %1
   ret i1 %.0
 }
 
-declare void @ggml_backend_buffer_reset(ptr noundef) local_unnamed_addr #2
+declare void @ggml_backend_buffer_reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i64 @ggml_gallocr_get_buffer_size(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -2135,9 +2129,9 @@ define ptr @ggml_backend_alloc_ctx_tensors_from_buft(ptr noundef %0, ptr noundef
 7:                                                ; preds = %2
   %8 = tail call i64 @ggml_backend_buft_get_alignment(ptr noundef %1) #12
   %9 = tail call i64 @ggml_backend_buft_get_max_size(ptr noundef %1) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !124
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !36
   %10 = tail call ptr @ggml_get_first_tensor(ptr noundef %0) #12
   %.not65 = icmp eq ptr %10, null
@@ -2221,16 +2215,16 @@ define ptr @ggml_backend_alloc_ctx_tensors_from_buft(ptr noundef %0, ptr noundef
 
 .loopexit:                                        ; preds = %28, %7, %34, %32, %41
   %.348 = phi ptr [ %.0, %41 ], [ null, %32 ], [ null, %34 ], [ null, %7 ], [ null, %28 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.348
 }
 
-declare zeroext i1 @ggml_get_no_alloc(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @ggml_get_no_alloc(ptr noundef) local_unnamed_addr #1
 
-declare i64 @ggml_backend_buft_get_max_size(ptr noundef) local_unnamed_addr #2
+declare i64 @ggml_backend_buft_get_max_size(ptr noundef) local_unnamed_addr #1
 
-declare ptr @ggml_get_first_tensor(ptr noundef) local_unnamed_addr #2
+declare ptr @ggml_get_first_tensor(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @alloc_tensor_range(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef %3, i64 noundef range(i64 1, 0) %4, ptr noundef nonnull captures(none) %5, ptr noundef nonnull captures(none) %6) unnamed_addr #0 {
@@ -2261,7 +2255,7 @@ define internal fastcc noundef zeroext i1 @alloc_tensor_range(ptr noundef %0, pt
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !126
 
 19:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !127)
   %20 = tail call ptr @ggml_backend_buffer_get_base(ptr noundef nonnull %9) #12, !noalias !127
   %21 = tail call i64 @ggml_backend_buffer_get_alignment(ptr noundef nonnull %9) #12, !noalias !127
@@ -2291,7 +2285,7 @@ define internal fastcc noundef zeroext i1 @alloc_tensor_range(ptr noundef %0, pt
   store i64 %35, ptr %6, align 8, !tbaa !36
   %36 = getelementptr inbounds nuw ptr, ptr %33, i64 %34
   store ptr %9, ptr %36, align 8, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %58
 
 .lr.ph37:                                         ; preds = %19, %56
@@ -2343,9 +2337,9 @@ define internal fastcc noundef zeroext i1 @alloc_tensor_range(ptr noundef %0, pt
   ret i1 %10
 }
 
-declare ptr @ggml_get_next_tensor(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ggml_get_next_tensor(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @ggml_backend_multi_buffer_alloc_buffer(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @ggml_backend_multi_buffer_alloc_buffer(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @ggml_backend_alloc_ctx_tensors(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2354,12 +2348,12 @@ define ptr @ggml_backend_alloc_ctx_tensors(ptr noundef %0, ptr noundef %1) local
   ret ptr %4
 }
 
-declare ptr @ggml_backend_get_default_buffer_type(ptr noundef) local_unnamed_addr #2
+declare ptr @ggml_backend_get_default_buffer_type(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
-declare void @ggml_hash_set_reset(ptr noundef) local_unnamed_addr #2
+declare void @ggml_hash_set_reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ggml_gallocr_allocate_node(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
@@ -2853,10 +2847,16 @@ ggml_gallocr_is_allocated.exit.thread:            ; preds = %ggml_gallocr_hash_g
   ret void
 }
 
-declare void @ggml_backend_view_init(ptr noundef) local_unnamed_addr #2
+declare void @ggml_backend_view_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #10
@@ -2865,15 +2865,15 @@ declare i64 @llvm.umax.i64(i64, i64) #10
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #12 = { nounwind }

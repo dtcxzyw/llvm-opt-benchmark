@@ -23,9 +23,9 @@ define hidden noundef i32 @_ZN6google24glog_internal_namespace_13GetStackTraceEP
   %4 = alloca ptr, align 8
   %5 = alloca %struct.unw_cursor, align 8
   %6 = alloca %struct.ucontext_t, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 1016, ptr nonnull %5) #4
-  call void @llvm.lifetime.start.p0(i64 968, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN6google24glog_internal_namespace_L12g_tl_enteredE)
   %8 = load i8, ptr %7, align 1, !tbaa !3, !range !7, !noundef !8
   %9 = trunc nuw i8 %8 to i1
@@ -87,36 +87,35 @@ define hidden noundef i32 @_ZN6google24glog_internal_namespace_13GetStackTraceEP
 
 34:                                               ; preds = %3, %.thread
   %.015 = phi i32 [ %.1, %.thread ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 968, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 1016, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.015
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #2
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #1
 
-declare i32 @_Ux86_64_getcontext(ptr noundef) local_unnamed_addr #3
+declare i32 @_Ux86_64_getcontext(ptr noundef) local_unnamed_addr #2
 
-declare i32 @_ULx86_64_init_local(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @_ULx86_64_init_local(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @_ZN6google8RawLog__ENS_11LogSeverityEPKciS2_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @_ZN6google8RawLog__ENS_11LogSeverityEPKciS2_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @_ULx86_64_get_reg(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @_ULx86_64_get_reg(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @_ULx86_64_step(ptr noundef) local_unnamed_addr #3
+declare i32 @_ULx86_64_step(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

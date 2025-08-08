@@ -22,7 +22,7 @@ define void @ff_mjpeg_encode_huffman_close(ptr noundef readonly captures(none) %
   %7 = alloca [257 x i32], align 16
   %8 = alloca [64 x [2 x ptr]], align 16
   %9 = alloca [257 x %struct.PTable], align 16
-  call void @llvm.lifetime.start.p0(i64 2056, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %225
 
 10:                                               ; preds = %234
@@ -31,9 +31,9 @@ define void @ff_mjpeg_encode_huffman_close(ptr noundef readonly captures(none) %
   store i32 256, ptr %12, align 8, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 0, ptr %13, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 20568, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 20568, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1028) %7, i8 0, i64 1028, i1 false)
   store i32 0, ptr %5, align 4, !tbaa !10
   store i32 0, ptr %6, align 4, !tbaa !10
@@ -41,7 +41,7 @@ define void @ff_mjpeg_encode_huffman_close(ptr noundef readonly captures(none) %
   store i32 0, ptr %14, align 4, !tbaa !12
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %15, align 4, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 16, !tbaa !13
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %12, ptr %16, align 8, !tbaa !13
@@ -297,7 +297,7 @@ define void @ff_mjpeg_encode_huffman_close(ptr noundef readonly captures(none) %
   br i1 %.not.i, label %112, label %17, !llvm.loop !20
 
 112:                                              ; preds = %.thread.i
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %113
 
 113:                                              ; preds = %199, %112
@@ -492,9 +492,9 @@ define void @ff_mjpeg_encode_huffman_close(ptr noundef readonly captures(none) %
   br i1 %exitcond309.not.i, label %mjpegenc_huffman_compute_bits.exit, label %217, !llvm.loop !26
 
 mjpegenc_huffman_compute_bits.exit:               ; preds = %217
-  call void @llvm.lifetime.end.p0(i64 1028, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 20568, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 20568, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %224 = icmp sgt i32 %.1, 0
   br i1 %224, label %.lr.ph.preheader, label %._crit_edge
 
@@ -527,7 +527,7 @@ mjpegenc_huffman_compute_bits.exit:               ; preds = %217
   br i1 %exitcond.not, label %10, label %225, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %mjpegenc_huffman_compute_bits.exit
-  call void @llvm.lifetime.end.p0(i64 2056, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -544,10 +544,10 @@ mjpegenc_huffman_compute_bits.exit:               ; preds = %217
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #4
@@ -557,7 +557,6 @@ attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

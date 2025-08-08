@@ -27,14 +27,8 @@ define noalias noundef ptr @ubiditransform_open_77(ptr noundef captures(none) %0
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @uprv_calloc_77(i64 noundef, i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare noalias ptr @uprv_calloc_77(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define void @ubiditransform_close_77(ptr noundef %0) local_unnamed_addr #0 {
@@ -68,9 +62,9 @@ define void @ubiditransform_close_77(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @ubidi_close_77(ptr noundef) local_unnamed_addr #3
+declare void @ubidi_close_77(ptr noundef) local_unnamed_addr #2
 
-declare void @uprv_free_77(ptr noundef) local_unnamed_addr #3
+declare void @uprv_free_77(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define i32 @ubiditransform_transform_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext %5, i32 noundef %6, i8 noundef zeroext %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef %11) local_unnamed_addr #0 {
@@ -79,7 +73,7 @@ define i32 @ubiditransform_transform_77(ptr noundef %0, ptr noundef %1, i32 noun
   %15 = alloca i32, align 4
   store i8 %5, ptr %13, align 1, !tbaa !15
   store i8 %7, ptr %14, align 1, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4, !tbaa !16
   %16 = load i32, ptr %11, align 4, !tbaa !3
   %17 = icmp slt i32 %16, 1
@@ -337,11 +331,11 @@ _ZL18findMatchingSchemehh10UBiDiOrderS_.exit.thread: ; preds = %69
 
 ubiditransform_open_77.exit.thread:               ; preds = %42, %48, %ubiditransform_open_77.exit, %31, %22, %12, %128, %35, %26, %21
   %.081 = phi i32 [ 0, %21 ], [ 0, %26 ], [ 0, %35 ], [ %131, %128 ], [ 0, %12 ], [ 0, %22 ], [ 0, %31 ], [ 0, %ubiditransform_open_77.exit ], [ 0, %48 ], [ 0, %42 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret i32 %.081
 }
 
-declare i32 @u_strlen_77(ptr noundef) local_unnamed_addr #3
+declare i32 @u_strlen_77(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL20resolveBaseDirectionPKDsjPhS1_(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
@@ -415,7 +409,7 @@ define internal fastcc void @_ZL9updateSrcP14UBiDiTransformPKDsjjP10UErrorCode(p
 17:                                               ; preds = %16, %12
   %18 = zext i32 %13 to i64
   %19 = shl nuw nsw i64 %18, 1
-  %20 = tail call noalias ptr @uprv_malloc_77(i64 noundef %19) #8
+  %20 = tail call noalias ptr @uprv_malloc_77(i64 noundef %19) #7
   store ptr %20, ptr %14, align 8, !tbaa !14
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %23
@@ -443,13 +437,13 @@ define internal fastcc void @_ZL9updateSrcP14UBiDiTransformPKDsjjP10UErrorCode(p
   ret void
 }
 
-declare ptr @ubidi_openSized_77(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @ubidi_openSized_77(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ubidi_setInverse_77(ptr noundef, i8 noundef signext) local_unnamed_addr #3
+declare void @ubidi_setInverse_77(ptr noundef, i8 noundef signext) local_unnamed_addr #2
 
-declare ptr @u_strncpy_77(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @u_strncpy_77(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @ubidi_getBaseDirection_77(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @ubidi_getBaseDirection_77(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef signext range(i8 0, 2) i8 @_ZL18action_shapeArabicP14UBiDiTransformP10UErrorCode(ptr noundef captures(none) %0, ptr noundef %1) #0 {
@@ -519,7 +513,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL18action_shapeArabicP14UBi
 44:                                               ; preds = %43, %40
   %45 = zext i32 %41 to i64
   %46 = shl nuw nsw i64 %45, 1
-  %47 = tail call noalias ptr @uprv_malloc_77(i64 noundef %46) #8
+  %47 = tail call noalias ptr @uprv_malloc_77(i64 noundef %46) #7
   store ptr %47, ptr %17, align 8, !tbaa !14
   %48 = icmp eq ptr %47, null
   br i1 %48, label %49, label %50
@@ -776,37 +770,42 @@ define internal noundef signext i8 @_ZL18action_setRunsOnlyP14UBiDiTransformP10U
   ret i8 0
 }
 
-declare i32 @u_shapeArabic_77(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @u_shapeArabic_77(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ubidi_setPara_77(ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @ubidi_setPara_77(ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @ubidi_writeReordered_77(ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #3
+declare i32 @ubidi_writeReordered_77(ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
-declare i32 @ubidi_writeReverse_77(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #3
+declare i32 @ubidi_writeReverse_77(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
-declare void @ubidi_setReorderingMode_77(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @ubidi_setReorderingMode_77(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i8 @ubidi_getLevelAt_77(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i8 @ubidi_getLevelAt_77(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @u_charMirror_77(i32 noundef) local_unnamed_addr #3
+declare i32 @u_charMirror_77(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #4
+declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #3
 
-declare i32 @u_terminateUChars_77(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @u_terminateUChars_77(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { allocsize(0,1) }
-attributes #7 = { nounwind }
-attributes #8 = { allocsize(0) }
+attributes #7 = { allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

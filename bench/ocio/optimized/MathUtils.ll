@@ -276,12 +276,6 @@ _ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit.thread: ; preds = %4, 
   ret i1 %.lcssa
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
-
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev16IsVecEqualToZeroIdEEbPKT_j(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 comdat {
   %3 = icmp eq i32 %1, 0
@@ -669,7 +663,7 @@ _ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev15VecContainsZeroEPKfi(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
+define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev15VecContainsZeroEPKfi(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %.not9 = icmp sgt i32 %1, 0
   br i1 %.not9, label %.lr.ph.preheader, label %_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit._crit_edge
 
@@ -712,7 +706,7 @@ _ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit._crit_edge: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev14VecContainsOneEPKfi(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
+define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev14VecContainsOneEPKfi(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %.not9 = icmp sgt i32 %1, 0
   br i1 %.not9, label %.lr.ph.preheader, label %_ZN19OpenColorIO_v2_5dev18IsScalarEqualToOneIfEEbT_.exit._crit_edge
 
@@ -839,9 +833,9 @@ define hidden noundef float @_ZN19OpenColorIO_v2_5dev13SanitizeFloatEf(float nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev13GetM44InverseEPfPKf(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
+define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev13GetM44InverseEPfPKf(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = alloca [16 x double], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %88
 
 4:                                                ; preds = %88
@@ -1073,15 +1067,15 @@ _ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit.thread: ; preds = %4, 
 
 201:                                              ; preds = %_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit, %_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit.thread
   %.0 = phi i1 [ false, %_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit ], [ true, %_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #8
+declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19OpenColorIO_v2_5dev16GetM44M44ProductEPfPKfS2_(ptr noundef writeonly captures(none) initializes((0, 64)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #9 {
+define hidden void @_ZN19OpenColorIO_v2_5dev16GetM44M44ProductEPfPKfS2_(ptr noundef writeonly captures(none) initializes((0, 64)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #8 {
   %.sroa.049.0.copyload = load float, ptr %1, align 4
   %.sroa.753.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.753.0.copyload = load float, ptr %.sroa.753.0..sroa_idx, align 4
@@ -1243,15 +1237,15 @@ define hidden void @_ZN19OpenColorIO_v2_5dev16GetM44M44ProductEPfPKfS2_(ptr noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #8
+declare float @llvm.fmuladd.f32(float, float, float) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN19OpenColorIO_v2_5dev13GetMxbCombineEPfS0_PKfS2_S2_S2_(ptr noundef writeonly captures(none) initializes((0, 64)) %0, ptr noundef captures(none) initializes((0, 16)) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #7 {
+define hidden void @_ZN19OpenColorIO_v2_5dev13GetMxbCombineEPfS0_PKfS2_S2_S2_(ptr noundef writeonly captures(none) initializes((0, 64)) %0, ptr noundef captures(none) initializes((0, 16)) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #6 {
   %7 = alloca [4 x float], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.sroa.017.0.copyload = load float, ptr %2, align 4
   %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.sroa.418.0.copyload = load float, ptr %.sroa.418.0..sroa_idx, align 4
@@ -1455,16 +1449,16 @@ define hidden void @_ZN19OpenColorIO_v2_5dev13GetMxbCombineEPfS0_PKfS2_S2_S2_(pt
   br i1 %exitcond.not.i, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18GetV4SumEPfPKfS3_.exit, label %106, !llvm.loop !24
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18GetV4SumEPfPKfS3_.exit: ; preds = %106
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev13GetMxbInverseEPfS0_PKfS2_(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #7 {
+define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev13GetMxbInverseEPfS0_PKfS2_(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #6 {
   %5 = alloca [16 x float], align 16
   %6 = alloca [4 x float], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, ptr noundef nonnull align 4 dereferenceable(64) %2, i64 64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
   %7 = call noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev13GetM44InverseEPfPKf(ptr noundef %0, ptr noundef nonnull %5)
@@ -1545,8 +1539,8 @@ define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev13GetMxbInverseEPfS0_P
   br i1 %exitcond.not, label %8, label %.preheader, !llvm.loop !25
 
 62:                                               ; preds = %4, %8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %7
 }
 
@@ -1613,19 +1607,25 @@ define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev11HalfsDifferEN9Imath_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #8
+declare i32 @llvm.abs.i32(i32, i1 immarg) #7
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #8
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #7
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_MathUtils.cpp() #11 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_MathUtils.cpp() #10 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #13
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #12
@@ -1638,13 +1638,13 @@ attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nounwind }
 

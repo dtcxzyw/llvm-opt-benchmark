@@ -153,16 +153,13 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare i32 @opt_next() local_unnamed_addr #2
 
-declare i32 @opt_next() local_unnamed_addr #3
+declare ptr @opt_arg() local_unnamed_addr #2
 
-declare ptr @opt_arg() local_unnamed_addr #3
+declare void @test_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @test_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
-
-declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_store_open() #1 {
@@ -229,12 +226,12 @@ define internal i32 @test_store_search_by_key_fingerprint_fail() #1 {
   ret i32 %3
 }
 
-declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_store_get_params(i32 noundef %0) #1 {
   %2 = alloca [4096 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = icmp ult i32 %0, 3
   br i1 %3, label %switch.lookup, label %4
 
@@ -317,7 +314,7 @@ get_params.exit:                                  ; preds = %11, %.critedge.thre
 
 31:                                               ; preds = %get_params.exit, %switch.lookup, %4
   %.0 = phi i32 [ 0, %4 ], [ 0, %switch.lookup ], [ %., %get_params.exit ]
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -391,79 +388,82 @@ define internal range(i32 0, 2) i32 @test_store_attach_unregistered_scheme() #1 
   ret i32 %31
 }
 
+declare ptr @test_mk_file_path(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare ptr @OSSL_STORE_SEARCH_by_alias(ptr noundef) local_unnamed_addr #2
+
+declare ptr @UI_create_method(ptr noundef) local_unnamed_addr #2
+
+declare ptr @OSSL_STORE_open_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare i32 @test_false(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+declare i32 @OSSL_STORE_find(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+declare void @UI_destroy_method(ptr noundef) local_unnamed_addr #2
+
+declare void @OSSL_STORE_SEARCH_free(ptr noundef) local_unnamed_addr #2
+
+declare i32 @OSSL_STORE_close(ptr noundef) local_unnamed_addr #2
+
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+declare i32 @test_ptr_null(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare ptr @OSSL_STORE_SEARCH_by_key_fingerprint(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+declare ptr @EVP_sha256() local_unnamed_addr #2
+
+declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+
+declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+
+declare i32 @OSSL_STORE_eof(ptr noundef) local_unnamed_addr #2
+
+declare ptr @OSSL_STORE_load(ptr noundef) local_unnamed_addr #2
+
+declare i32 @OSSL_STORE_INFO_get_type(ptr noundef) local_unnamed_addr #2
+
+declare ptr @OSSL_STORE_INFO_get1_PARAMS(ptr noundef) local_unnamed_addr #2
+
+declare void @OSSL_STORE_INFO_free(ptr noundef) local_unnamed_addr #2
+
+declare i32 @EVP_PKEY_is_a(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #2
+
+declare ptr @OSSL_LIB_CTX_new() local_unnamed_addr #2
+
+declare ptr @OSSL_PROVIDER_load(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare ptr @BIO_new_file(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare ptr @OSSL_STORE_attach(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare i32 @test_int_ne(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+
+declare i64 @ERR_peek_error() local_unnamed_addr #2
+
+declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
+
+declare i32 @OSSL_PROVIDER_unload(ptr noundef) local_unnamed_addr #2
+
+declare void @OSSL_LIB_CTX_free(ptr noundef) local_unnamed_addr #2
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
-declare ptr @test_mk_file_path(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare ptr @OSSL_STORE_SEARCH_by_alias(ptr noundef) local_unnamed_addr #3
-
-declare ptr @UI_create_method(ptr noundef) local_unnamed_addr #3
-
-declare ptr @OSSL_STORE_open_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare i32 @test_false(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
-
-declare i32 @OSSL_STORE_find(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
-
-declare void @UI_destroy_method(ptr noundef) local_unnamed_addr #3
-
-declare void @OSSL_STORE_SEARCH_free(ptr noundef) local_unnamed_addr #3
-
-declare i32 @OSSL_STORE_close(ptr noundef) local_unnamed_addr #3
-
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
-
-declare i32 @test_ptr_null(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare ptr @OSSL_STORE_SEARCH_by_key_fingerprint(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
-
-declare ptr @EVP_sha256() local_unnamed_addr #3
-
-declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
-
-declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
-
-declare i32 @OSSL_STORE_eof(ptr noundef) local_unnamed_addr #3
-
-declare ptr @OSSL_STORE_load(ptr noundef) local_unnamed_addr #3
-
-declare i32 @OSSL_STORE_INFO_get_type(ptr noundef) local_unnamed_addr #3
-
-declare ptr @OSSL_STORE_INFO_get1_PARAMS(ptr noundef) local_unnamed_addr #3
-
-declare void @OSSL_STORE_INFO_free(ptr noundef) local_unnamed_addr #3
-
-declare i32 @EVP_PKEY_is_a(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #3
-
-declare ptr @OSSL_LIB_CTX_new() local_unnamed_addr #3
-
-declare ptr @OSSL_PROVIDER_load(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare ptr @BIO_new_file(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare ptr @OSSL_STORE_attach(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare i32 @test_int_ne(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
-
-declare i64 @ERR_peek_error() local_unnamed_addr #3
-
-declare i32 @BIO_free(ptr noundef) local_unnamed_addr #3
-
-declare i32 @OSSL_PROVIDER_unload(ptr noundef) local_unnamed_addr #3
-
-declare void @OSSL_LIB_CTX_free(ptr noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

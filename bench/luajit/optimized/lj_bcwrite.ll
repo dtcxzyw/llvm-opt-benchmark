@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden i32 @lj_bcwrite(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.BCWriteCtx, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %1, ptr %7, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -88,14 +88,11 @@ define hidden i32 @lj_bcwrite(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 bcwrite_heap_resize.exit:                         ; preds = %5, %43
   %61 = icmp eq i32 %21, 0
   %.0 = select i1 %61, i32 %22, i32 %21
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare hidden i32 @lj_vm_cpcall(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden i32 @lj_vm_cpcall(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @cpwriter(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
@@ -198,7 +195,7 @@ bcwrite_header.exit:                              ; preds = %lj_buf_need.exit.i,
   br i1 %67, label %68, label %bcwrite_footer.exit
 
 68:                                               ; preds = %bcwrite_header.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !47
   %69 = load ptr, ptr %50, align 8, !tbaa !16
   %70 = load i64, ptr %52, align 8, !tbaa !23
@@ -207,15 +204,12 @@ bcwrite_header.exit:                              ; preds = %lj_buf_need.exit.i,
   %73 = load ptr, ptr %61, align 8, !tbaa !17
   %74 = call i32 %69(ptr noundef %72, ptr noundef nonnull %4, i64 noundef 1, ptr noundef %73) #7
   store i32 %74, ptr %64, align 8, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %bcwrite_footer.exit
 
 bcwrite_footer.exit:                              ; preds = %bcwrite_header.exit, %68
   ret ptr null
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @bcwrite_proto(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
@@ -1014,15 +1008,15 @@ lj_buf_more.exit:                                 ; preds = %398, %405
   ret void
 }
 
-declare hidden ptr @lj_buf_need2(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare hidden ptr @lj_buf_need2(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_strfmt_wuleb128(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare hidden ptr @lj_strfmt_wuleb128(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #4
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @bcwrite_ktabk(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
@@ -1223,11 +1217,17 @@ bcwrite_ktabk_lt.exit34:                          ; preds = %42
   ret void
 }
 
-declare hidden i32 @lj_str_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden i32 @lj_str_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_buf_more2(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare hidden ptr @lj_buf_more2(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_mem_realloc(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare hidden ptr @lj_mem_realloc(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #5
@@ -1236,10 +1236,10 @@ declare i32 @llvm.umax.i32(i32, i32) #5
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { nounwind }

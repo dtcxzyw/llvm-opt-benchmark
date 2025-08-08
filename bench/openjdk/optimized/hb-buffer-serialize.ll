@@ -136,8 +136,8 @@ define hidden i32 @hb_buffer_serialize_glyphs(ptr noundef %0, i32 noundef %1, i3
   ]
 
 30:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %31 = tail call ptr @hb_buffer_get_glyph_infos(ptr noundef nonnull %0, ptr noundef null)
   %32 = and i32 %spec.select, 2
   %.not.i25 = icmp eq i32 %32, 0
@@ -383,14 +383,14 @@ _ZL9hb_memcpyPvPKvm.exit.i.cont:                  ; preds = %_ZL9hb_memcpyPvPKvm
 _ZL32_hb_buffer_serialize_glyphs_textP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit: ; preds = %146, %.cont55, %._crit_edge.loopexit.split.loop.exit185.i
   %.0102.pn.i = phi i32 [ %18, %.cont55 ], [ %147, %._crit_edge.loopexit.split.loop.exit185.i ], [ %18, %146 ]
   %.0.i = sub i32 %.0102.pn.i, %19
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %276
 
 148:                                              ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %149 = tail call ptr @hb_buffer_get_glyph_infos(ptr noundef nonnull %0, ptr noundef null)
   %150 = and i32 %spec.select, 2
   %.not.i26 = icmp eq i32 %150, 0
@@ -655,9 +655,9 @@ _ZL9hb_memcpyPvPKvm.exit.i43.cont:                ; preds = %_ZL9hb_memcpyPvPKvm
 _ZL32_hb_buffer_serialize_glyphs_jsonP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit: ; preds = %274, %.cont, %._crit_edge.loopexit.split.loop.exit187.i
   %.0104.pn.i = phi i32 [ %18, %.cont ], [ %275, %._crit_edge.loopexit.split.loop.exit187.i ], [ %18, %274 ]
   %.0.i27 = sub i32 %.0104.pn.i, %19
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %276
 
 276:                                              ; preds = %29, %21, %_ZL32_hb_buffer_serialize_glyphs_jsonP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit, %_ZL32_hb_buffer_serialize_glyphs_textP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit
@@ -704,7 +704,7 @@ define hidden i32 @hb_buffer_serialize_unicode(ptr noundef %0, i32 noundef %1, i
   ]
 
 19:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %20 = tail call ptr @hb_buffer_get_glyph_infos(ptr noundef nonnull %0, ptr noundef null)
   br i1 %.not, label %.cont54, label %.else56
 
@@ -856,11 +856,11 @@ _ZL9hb_memcpyPvPKvm.exit.i.cont:                  ; preds = %_ZL9hb_memcpyPvPKvm
 _ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit: ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.cont, %_ZL9hb_memcpyPvPKvm.exit.us.i.cont, %.cont54, %._crit_edge.loopexit.split.loop.exit75.i, %._crit_edge.loopexit71.split.loop.exit73.i
   %.040.pn.i = phi i32 [ %14, %.cont54 ], [ %72, %._crit_edge.loopexit.split.loop.exit75.i ], [ %73, %._crit_edge.loopexit71.split.loop.exit73.i ], [ %14, %_ZL9hb_memcpyPvPKvm.exit.us.i.cont ], [ %14, %_ZL9hb_memcpyPvPKvm.exit.i.cont ]
   %.0.i = sub i32 %.040.pn.i, %15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %133
 
 74:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %75 = tail call ptr @hb_buffer_get_glyph_infos(ptr noundef nonnull %0, ptr noundef null)
   br i1 %.not, label %.cont, label %.else
 
@@ -1022,7 +1022,7 @@ _ZL9hb_memcpyPvPKvm.exit.i30.cont:                ; preds = %_ZL9hb_memcpyPvPKvm
 _ZL33_hb_buffer_serialize_unicode_jsonP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit: ; preds = %_ZL9hb_memcpyPvPKvm.exit.i30.cont, %_ZL9hb_memcpyPvPKvm.exit.us.i39.cont, %.cont, %._crit_edge.loopexit.split.loop.exit79.i, %._crit_edge.loopexit75.split.loop.exit77.i
   %.044.pn.i = phi i32 [ %14, %.cont ], [ %131, %._crit_edge.loopexit.split.loop.exit79.i ], [ %132, %._crit_edge.loopexit75.split.loop.exit77.i ], [ %14, %_ZL9hb_memcpyPvPKvm.exit.us.i39.cont ], [ %14, %_ZL9hb_memcpyPvPKvm.exit.i30.cont ]
   %.0.i23 = sub i32 %.044.pn.i, %15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %133
 
 133:                                              ; preds = %18, %17, %_ZL33_hb_buffer_serialize_unicode_jsonP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit, %_ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit
@@ -1164,7 +1164,7 @@ define hidden range(i32 0, 2) i32 @hb_buffer_deserialize_glyphs(ptr noundef %0, 
   ]
 
 53:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %54 = zext i32 %.028 to i64
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 %54
   %56 = tail call ptr @hb_buffer_get_glyph_positions(ptr noundef nonnull %0, ptr noundef null)
@@ -1311,8 +1311,8 @@ define hidden range(i32 0, 2) i32 @hb_buffer_deserialize_glyphs(ptr noundef %0, 
   br i1 %.not228.i, label %_ZL34_hb_buffer_deserialize_text_glyphsP11hb_buffer_tPKcjPS2_P9hb_font_t.exit, label %224
 
 120:                                              ; preds = %110
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store ptr %.1208.i, ptr %36, align 8
   %121 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %36, ptr noundef nonnull %.4.i, ptr noundef nonnull %35, i1 noundef zeroext true, i32 noundef 10)
   br i1 %121, label %_ZL10parse_uintPKcS0_Pj.exit.thread.i, label %_ZL10parse_uintPKcS0_Pj.exit.i
@@ -1320,85 +1320,85 @@ define hidden range(i32 0, 2) i32 @hb_buffer_deserialize_glyphs(ptr noundef %0, 
 _ZL10parse_uintPKcS0_Pj.exit.thread.i:            ; preds = %120
   %122 = load i32, ptr %35, align 4
   store i32 %122, ptr %77, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %224
 
 _ZL10parse_uintPKcS0_Pj.exit.i:                   ; preds = %120
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %_ZL34_hb_buffer_deserialize_text_glyphsP11hb_buffer_tPKcjPS2_P9hb_font_t.exit
 
 123:                                              ; preds = %110
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store ptr %.1208.i, ptr %34, align 8
   %124 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %34, ptr noundef nonnull %.4.i, ptr noundef nonnull %33, i1 noundef zeroext true)
   br i1 %124, label %_ZL9parse_intPKcS0_Pi.exit.thread.i, label %_ZL9parse_intPKcS0_Pi.exit.i
 
 _ZL9parse_intPKcS0_Pi.exit.thread.i:              ; preds = %123
   %125 = load i32, ptr %33, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %224
 
 _ZL9parse_intPKcS0_Pi.exit.i:                     ; preds = %123
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %_ZL34_hb_buffer_deserialize_text_glyphsP11hb_buffer_tPKcjPS2_P9hb_font_t.exit
 
 126:                                              ; preds = %110
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store ptr %.1208.i, ptr %32, align 8
   %127 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %32, ptr noundef nonnull %.4.i, ptr noundef nonnull %31, i1 noundef zeroext true)
   br i1 %127, label %_ZL9parse_intPKcS0_Pi.exit234.thread.i, label %_ZL9parse_intPKcS0_Pi.exit234.i
 
 _ZL9parse_intPKcS0_Pi.exit234.thread.i:           ; preds = %126
   %128 = load i32, ptr %31, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %224
 
 _ZL9parse_intPKcS0_Pi.exit234.i:                  ; preds = %126
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %_ZL34_hb_buffer_deserialize_text_glyphsP11hb_buffer_tPKcjPS2_P9hb_font_t.exit
 
 129:                                              ; preds = %110
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store ptr %.1208.i, ptr %30, align 8
   %130 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %30, ptr noundef nonnull %.4.i, ptr noundef nonnull %29, i1 noundef zeroext true)
   br i1 %130, label %_ZL9parse_intPKcS0_Pi.exit235.thread.i, label %_ZL9parse_intPKcS0_Pi.exit235.i
 
 _ZL9parse_intPKcS0_Pi.exit235.thread.i:           ; preds = %129
   %131 = load i32, ptr %29, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %224
 
 _ZL9parse_intPKcS0_Pi.exit235.i:                  ; preds = %129
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %_ZL34_hb_buffer_deserialize_text_glyphsP11hb_buffer_tPKcjPS2_P9hb_font_t.exit
 
 132:                                              ; preds = %110
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store ptr %.1208.i, ptr %28, align 8
   %133 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %28, ptr noundef nonnull %.4.i, ptr noundef nonnull %27, i1 noundef zeroext true)
   br i1 %133, label %_ZL9parse_intPKcS0_Pi.exit236.thread.i, label %_ZL9parse_intPKcS0_Pi.exit236.i
 
 _ZL9parse_intPKcS0_Pi.exit236.thread.i:           ; preds = %132
   %134 = load i32, ptr %27, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %224
 
 _ZL9parse_intPKcS0_Pi.exit236.i:                  ; preds = %132
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %_ZL34_hb_buffer_deserialize_text_glyphsP11hb_buffer_tPKcjPS2_P9hb_font_t.exit
 
 135:                                              ; preds = %110
@@ -1439,22 +1439,22 @@ _ZL9parse_intPKcS0_Pi.exit236.i:                  ; preds = %132
   br label %224
 
 151:                                              ; preds = %110
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store ptr %.1208.i, ptr %26, align 8
   %152 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %26, ptr noundef nonnull %.4.i, ptr noundef nonnull %25, i1 noundef zeroext true, i32 noundef 10)
   br i1 %152, label %153, label %_ZL10parse_uintPKcS0_Pj.exit237.i
 
 _ZL10parse_uintPKcS0_Pj.exit237.i:                ; preds = %151
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %_ZL34_hb_buffer_deserialize_text_glyphsP11hb_buffer_tPKcjPS2_P9hb_font_t.exit
 
 153:                                              ; preds = %151
   %154 = load i32, ptr %25, align 4
   store i32 %154, ptr %77, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @_ZN11hb_buffer_t8add_infoERK15hb_glyph_info_t(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef nonnull align 4 dereferenceable(20) %37)
   %155 = load i8, ptr %73, align 8
   %156 = trunc i8 %155 to i1
@@ -1479,21 +1479,21 @@ _ZL10parse_uintPKcS0_Pj.exit237.i:                ; preds = %151
   br label %224
 
 163:                                              ; preds = %110
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store ptr %.1208.i, ptr %24, align 8
   %164 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %24, ptr noundef nonnull %.4.i, ptr noundef nonnull %23, i1 noundef zeroext true)
   br i1 %164, label %165, label %_ZL9parse_intPKcS0_Pi.exit238.i
 
 _ZL9parse_intPKcS0_Pi.exit238.i:                  ; preds = %163
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %_ZL34_hb_buffer_deserialize_text_glyphsP11hb_buffer_tPKcjPS2_P9hb_font_t.exit
 
 165:                                              ; preds = %163
   %166 = load i32, ptr %23, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @_ZN11hb_buffer_t8add_infoERK15hb_glyph_info_t(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef nonnull align 4 dereferenceable(20) %37)
   %167 = load i8, ptr %73, align 8
   %168 = trunc i8 %167 to i1
@@ -1518,21 +1518,21 @@ _ZL9parse_intPKcS0_Pi.exit238.i:                  ; preds = %163
   br label %224
 
 175:                                              ; preds = %110
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store ptr %.1208.i, ptr %22, align 8
   %176 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %22, ptr noundef nonnull %.4.i, ptr noundef nonnull %21, i1 noundef zeroext true)
   br i1 %176, label %177, label %_ZL9parse_intPKcS0_Pi.exit239.i
 
 _ZL9parse_intPKcS0_Pi.exit239.i:                  ; preds = %175
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %_ZL34_hb_buffer_deserialize_text_glyphsP11hb_buffer_tPKcjPS2_P9hb_font_t.exit
 
 177:                                              ; preds = %175
   %178 = load i32, ptr %21, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @_ZN11hb_buffer_t8add_infoERK15hb_glyph_info_t(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef nonnull align 4 dereferenceable(20) %37)
   %179 = load i8, ptr %73, align 8
   %180 = trunc i8 %179 to i1
@@ -1557,21 +1557,21 @@ _ZL9parse_intPKcS0_Pi.exit239.i:                  ; preds = %175
   br label %224
 
 187:                                              ; preds = %110
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr %.1208.i, ptr %20, align 8
   %188 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %20, ptr noundef nonnull %.4.i, ptr noundef nonnull %19, i1 noundef zeroext true)
   br i1 %188, label %189, label %_ZL9parse_intPKcS0_Pi.exit240.i
 
 _ZL9parse_intPKcS0_Pi.exit240.i:                  ; preds = %187
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %_ZL34_hb_buffer_deserialize_text_glyphsP11hb_buffer_tPKcjPS2_P9hb_font_t.exit
 
 189:                                              ; preds = %187
   %190 = load i32, ptr %19, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @_ZN11hb_buffer_t8add_infoERK15hb_glyph_info_t(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef nonnull align 4 dereferenceable(20) %37)
   %191 = load i8, ptr %73, align 8
   %192 = trunc i8 %191 to i1
@@ -1596,22 +1596,22 @@ _ZL9parse_intPKcS0_Pi.exit240.i:                  ; preds = %187
   br label %224
 
 199:                                              ; preds = %110
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %.1208.i, ptr %18, align 8
   %200 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %18, ptr noundef nonnull %.4.i, ptr noundef nonnull %17, i1 noundef zeroext true, i32 noundef 10)
   br i1 %200, label %201, label %_ZL10parse_uintPKcS0_Pj.exit241.i
 
 _ZL10parse_uintPKcS0_Pj.exit241.i:                ; preds = %199
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %_ZL34_hb_buffer_deserialize_text_glyphsP11hb_buffer_tPKcjPS2_P9hb_font_t.exit
 
 201:                                              ; preds = %199
   %202 = load i32, ptr %17, align 4
   store i32 %202, ptr %76, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @_ZN11hb_buffer_t8add_infoERK15hb_glyph_info_t(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef nonnull align 4 dereferenceable(20) %37)
   %203 = load i8, ptr %73, align 8
   %204 = trunc i8 %203 to i1
@@ -1741,23 +1741,23 @@ _ZL10parse_uintPKcS0_Pj.exit241.i:                ; preds = %199
   br label %.loopexit452.sink.split.i
 
 251:                                              ; preds = %230
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %.0207.i, ptr %16, align 8
   %252 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %16, ptr noundef nonnull %.2.i, ptr noundef nonnull %15, i1 noundef zeroext true, i32 noundef 10)
   br i1 %252, label %253, label %_ZL10parse_uintPKcS0_Pj.exit242.i
 
 _ZL10parse_uintPKcS0_Pj.exit242.i:                ; preds = %251
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %_ZL34_hb_buffer_deserialize_text_glyphsP11hb_buffer_tPKcjPS2_P9hb_font_t.exit
 
 253:                                              ; preds = %251
   %254 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %255 = load i32, ptr %15, align 4
   store i32 %255, ptr %254, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @_ZN11hb_buffer_t8add_infoERK15hb_glyph_info_t(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef nonnull align 4 dereferenceable(20) %37)
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %257 = load i8, ptr %256, align 8
@@ -1784,21 +1784,21 @@ _ZL10parse_uintPKcS0_Pj.exit242.i:                ; preds = %251
   br label %.loopexit452.sink.split.i
 
 267:                                              ; preds = %230
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %.0207.i, ptr %14, align 8
   %268 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %14, ptr noundef nonnull %.2.i, ptr noundef nonnull %13, i1 noundef zeroext true)
   br i1 %268, label %269, label %_ZL9parse_intPKcS0_Pi.exit243.i
 
 _ZL9parse_intPKcS0_Pi.exit243.i:                  ; preds = %267
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZL34_hb_buffer_deserialize_text_glyphsP11hb_buffer_tPKcjPS2_P9hb_font_t.exit
 
 269:                                              ; preds = %267
   %270 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @_ZN11hb_buffer_t8add_infoERK15hb_glyph_info_t(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef nonnull align 4 dereferenceable(20) %37)
   %271 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %272 = load i8, ptr %271, align 8
@@ -1825,21 +1825,21 @@ _ZL9parse_intPKcS0_Pi.exit243.i:                  ; preds = %267
   br label %.loopexit452.sink.split.i
 
 282:                                              ; preds = %230
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %.0207.i, ptr %12, align 8
   %283 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %12, ptr noundef nonnull %.2.i, ptr noundef nonnull %11, i1 noundef zeroext true)
   br i1 %283, label %284, label %_ZL9parse_intPKcS0_Pi.exit244.i
 
 _ZL9parse_intPKcS0_Pi.exit244.i:                  ; preds = %282
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZL34_hb_buffer_deserialize_text_glyphsP11hb_buffer_tPKcjPS2_P9hb_font_t.exit
 
 284:                                              ; preds = %282
   %285 = load i32, ptr %11, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @_ZN11hb_buffer_t8add_infoERK15hb_glyph_info_t(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef nonnull align 4 dereferenceable(20) %37)
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %287 = load i8, ptr %286, align 8
@@ -1866,21 +1866,21 @@ _ZL9parse_intPKcS0_Pi.exit244.i:                  ; preds = %282
   br label %.loopexit452.sink.split.i
 
 297:                                              ; preds = %230
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %.0207.i, ptr %10, align 8
   %298 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %10, ptr noundef nonnull %.2.i, ptr noundef nonnull %9, i1 noundef zeroext true)
   br i1 %298, label %299, label %_ZL9parse_intPKcS0_Pi.exit245.i
 
 _ZL9parse_intPKcS0_Pi.exit245.i:                  ; preds = %297
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZL34_hb_buffer_deserialize_text_glyphsP11hb_buffer_tPKcjPS2_P9hb_font_t.exit
 
 299:                                              ; preds = %297
   %300 = load i32, ptr %9, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN11hb_buffer_t8add_infoERK15hb_glyph_info_t(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef nonnull align 4 dereferenceable(20) %37)
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %302 = load i8, ptr %301, align 8
@@ -1907,23 +1907,23 @@ _ZL9parse_intPKcS0_Pi.exit245.i:                  ; preds = %297
   br label %.loopexit452.sink.split.i
 
 312:                                              ; preds = %230
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %.0207.i, ptr %8, align 8
   %313 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %8, ptr noundef nonnull %.2.i, ptr noundef nonnull %7, i1 noundef zeroext true, i32 noundef 10)
   br i1 %313, label %314, label %_ZL10parse_uintPKcS0_Pj.exit246.i
 
 _ZL10parse_uintPKcS0_Pj.exit246.i:                ; preds = %312
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZL34_hb_buffer_deserialize_text_glyphsP11hb_buffer_tPKcjPS2_P9hb_font_t.exit
 
 314:                                              ; preds = %312
   %315 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %316 = load i32, ptr %7, align 4
   store i32 %316, ptr %315, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN11hb_buffer_t8add_infoERK15hb_glyph_info_t(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef nonnull align 4 dereferenceable(20) %37)
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %318 = load i8, ptr %317, align 8
@@ -2004,7 +2004,7 @@ _ZL10parse_uintPKcS0_Pj.exit246.i:                ; preds = %312
 
 _ZL34_hb_buffer_deserialize_text_glyphsP11hb_buffer_tPKcjPS2_P9hb_font_t.exit: ; preds = %114, %136, %142, %153, %165, %177, %189, %201, %211, %213, %215, %_ZL10parse_uintPKcS0_Pj.exit.i, %_ZL9parse_intPKcS0_Pi.exit.i, %_ZL9parse_intPKcS0_Pi.exit234.i, %_ZL9parse_intPKcS0_Pi.exit235.i, %_ZL9parse_intPKcS0_Pi.exit236.i, %_ZL10parse_uintPKcS0_Pj.exit237.i, %_ZL9parse_intPKcS0_Pi.exit238.i, %_ZL9parse_intPKcS0_Pi.exit239.i, %_ZL9parse_intPKcS0_Pi.exit240.i, %_ZL10parse_uintPKcS0_Pj.exit241.i, %233, %239, %_ZL10parse_uintPKcS0_Pj.exit242.i, %253, %_ZL9parse_intPKcS0_Pi.exit243.i, %269, %_ZL9parse_intPKcS0_Pi.exit244.i, %284, %_ZL9parse_intPKcS0_Pi.exit245.i, %299, %_ZL10parse_uintPKcS0_Pj.exit246.i, %314, %328, %330, %349
   %.0.i = phi i32 [ %351, %349 ], [ 0, %_ZL10parse_uintPKcS0_Pj.exit.i ], [ 0, %_ZL9parse_intPKcS0_Pi.exit.i ], [ 0, %_ZL9parse_intPKcS0_Pi.exit234.i ], [ 0, %_ZL9parse_intPKcS0_Pi.exit235.i ], [ 0, %_ZL9parse_intPKcS0_Pi.exit236.i ], [ 0, %_ZL10parse_uintPKcS0_Pj.exit237.i ], [ 0, %_ZL9parse_intPKcS0_Pi.exit238.i ], [ 0, %_ZL9parse_intPKcS0_Pi.exit239.i ], [ 0, %_ZL9parse_intPKcS0_Pi.exit240.i ], [ 0, %_ZL10parse_uintPKcS0_Pj.exit241.i ], [ 0, %233 ], [ 0, %239 ], [ 0, %_ZL10parse_uintPKcS0_Pj.exit242.i ], [ 0, %253 ], [ 0, %_ZL9parse_intPKcS0_Pi.exit243.i ], [ 0, %269 ], [ 0, %_ZL9parse_intPKcS0_Pi.exit244.i ], [ 0, %284 ], [ 0, %_ZL9parse_intPKcS0_Pi.exit245.i ], [ 0, %299 ], [ 0, %_ZL10parse_uintPKcS0_Pj.exit246.i ], [ 0, %314 ], [ 0, %328 ], [ 0, %330 ], [ 0, %215 ], [ 0, %213 ], [ 0, %211 ], [ 0, %201 ], [ 0, %189 ], [ 0, %177 ], [ 0, %165 ], [ 0, %153 ], [ 0, %142 ], [ 0, %136 ], [ 0, %114 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %354
 
 352:                                              ; preds = %52
@@ -2245,8 +2245,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL27_hb_buffer_deserialize_
   br i1 %.not152, label %_ZN11hb_buffer_t13ensure_glyphsEv.exit, label %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread
 
 113:                                              ; preds = %77
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store ptr %.0139, ptr %32, align 8
   %114 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %32, ptr noundef nonnull %.3, ptr noundef nonnull %31, i1 noundef zeroext true, i32 noundef 10)
   br i1 %114, label %_ZL10parse_uintPKcS0_Pj.exit.thread, label %_ZL10parse_uintPKcS0_Pj.exit
@@ -2254,18 +2254,18 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL27_hb_buffer_deserialize_
 _ZL10parse_uintPKcS0_Pj.exit.thread:              ; preds = %113
   %115 = load i32, ptr %31, align 4
   store i32 %115, ptr %33, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread
 
 _ZL10parse_uintPKcS0_Pj.exit:                     ; preds = %113
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit
 
 116:                                              ; preds = %77
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store ptr %.0139, ptr %30, align 8
   %117 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %30, ptr noundef nonnull %.3, ptr noundef nonnull %29, i1 noundef zeroext true, i32 noundef 10)
   br i1 %117, label %_ZL10parse_uintPKcS0_Pj.exit156.thread, label %_ZL10parse_uintPKcS0_Pj.exit156
@@ -2273,90 +2273,90 @@ _ZL10parse_uintPKcS0_Pj.exit:                     ; preds = %113
 _ZL10parse_uintPKcS0_Pj.exit156.thread:           ; preds = %116
   %118 = load i32, ptr %29, align 4
   store i32 %118, ptr %52, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread
 
 _ZL10parse_uintPKcS0_Pj.exit156:                  ; preds = %116
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit
 
 119:                                              ; preds = %77
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store ptr %.0139, ptr %28, align 8
   %120 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %28, ptr noundef nonnull %.3, ptr noundef nonnull %27, i1 noundef zeroext true)
   br i1 %120, label %_ZL9parse_intPKcS0_Pi.exit.thread, label %_ZL9parse_intPKcS0_Pi.exit
 
 _ZL9parse_intPKcS0_Pi.exit.thread:                ; preds = %119
   %121 = load i32, ptr %27, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread
 
 _ZL9parse_intPKcS0_Pi.exit:                       ; preds = %119
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit
 
 122:                                              ; preds = %77
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store ptr %.0139, ptr %26, align 8
   %123 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %26, ptr noundef nonnull %.3, ptr noundef nonnull %25, i1 noundef zeroext true)
   br i1 %123, label %_ZL9parse_intPKcS0_Pi.exit157.thread, label %_ZL9parse_intPKcS0_Pi.exit157
 
 _ZL9parse_intPKcS0_Pi.exit157.thread:             ; preds = %122
   %124 = load i32, ptr %25, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread
 
 _ZL9parse_intPKcS0_Pi.exit157:                    ; preds = %122
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit
 
 125:                                              ; preds = %77
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store ptr %.0139, ptr %24, align 8
   %126 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %24, ptr noundef nonnull %.3, ptr noundef nonnull %23, i1 noundef zeroext true)
   br i1 %126, label %_ZL9parse_intPKcS0_Pi.exit158.thread, label %_ZL9parse_intPKcS0_Pi.exit158
 
 _ZL9parse_intPKcS0_Pi.exit158.thread:             ; preds = %125
   %127 = load i32, ptr %23, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread
 
 _ZL9parse_intPKcS0_Pi.exit158:                    ; preds = %125
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit
 
 128:                                              ; preds = %77
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store ptr %.0139, ptr %22, align 8
   %129 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %22, ptr noundef nonnull %.3, ptr noundef nonnull %21, i1 noundef zeroext true)
   br i1 %129, label %_ZL9parse_intPKcS0_Pi.exit159.thread, label %_ZL9parse_intPKcS0_Pi.exit159
 
 _ZL9parse_intPKcS0_Pi.exit159.thread:             ; preds = %128
   %130 = load i32, ptr %21, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread
 
 _ZL9parse_intPKcS0_Pi.exit159:                    ; preds = %128
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit
 
 131:                                              ; preds = %77
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr %.0139, ptr %20, align 8
   %132 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %20, ptr noundef nonnull %.3, ptr noundef nonnull %19, i1 noundef zeroext true, i32 noundef 10)
   br i1 %132, label %_ZL10parse_uintPKcS0_Pj.exit160.thread, label %_ZL10parse_uintPKcS0_Pj.exit160
@@ -2364,13 +2364,13 @@ _ZL9parse_intPKcS0_Pi.exit159:                    ; preds = %128
 _ZL10parse_uintPKcS0_Pj.exit160.thread:           ; preds = %131
   %133 = load i32, ptr %19, align 4
   store i32 %133, ptr %54, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread
 
 _ZL10parse_uintPKcS0_Pj.exit160:                  ; preds = %131
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit
 
 134:                                              ; preds = %77
@@ -2431,22 +2431,22 @@ _ZL10parse_uintPKcS0_Pj.exit160:                  ; preds = %131
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread
 
 157:                                              ; preds = %77
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %.0139, ptr %18, align 8
   %158 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %18, ptr noundef nonnull %.3, ptr noundef nonnull %17, i1 noundef zeroext true, i32 noundef 10)
   br i1 %158, label %159, label %_ZL10parse_uintPKcS0_Pj.exit165
 
 _ZL10parse_uintPKcS0_Pj.exit165:                  ; preds = %157
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit
 
 159:                                              ; preds = %157
   %160 = load i32, ptr %17, align 4
   store i32 %160, ptr %33, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @_ZN11hb_buffer_t8add_infoERK15hb_glyph_info_t(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef nonnull align 4 dereferenceable(20) %33)
   %161 = load i8, ptr %49, align 8
   %162 = trunc i8 %161 to i1
@@ -2471,22 +2471,22 @@ _ZL10parse_uintPKcS0_Pj.exit165:                  ; preds = %157
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread
 
 169:                                              ; preds = %77
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %.0139, ptr %16, align 8
   %170 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %16, ptr noundef nonnull %.3, ptr noundef nonnull %15, i1 noundef zeroext true, i32 noundef 10)
   br i1 %170, label %171, label %_ZL10parse_uintPKcS0_Pj.exit166
 
 _ZL10parse_uintPKcS0_Pj.exit166:                  ; preds = %169
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit
 
 171:                                              ; preds = %169
   %172 = load i32, ptr %15, align 4
   store i32 %172, ptr %52, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @_ZN11hb_buffer_t8add_infoERK15hb_glyph_info_t(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef nonnull align 4 dereferenceable(20) %33)
   %173 = load i8, ptr %49, align 8
   %174 = trunc i8 %173 to i1
@@ -2511,21 +2511,21 @@ _ZL10parse_uintPKcS0_Pj.exit166:                  ; preds = %169
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread
 
 181:                                              ; preds = %77
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %.0139, ptr %14, align 8
   %182 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %14, ptr noundef nonnull %.3, ptr noundef nonnull %13, i1 noundef zeroext true)
   br i1 %182, label %183, label %_ZL9parse_intPKcS0_Pi.exit167
 
 _ZL9parse_intPKcS0_Pi.exit167:                    ; preds = %181
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit
 
 183:                                              ; preds = %181
   %184 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @_ZN11hb_buffer_t8add_infoERK15hb_glyph_info_t(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef nonnull align 4 dereferenceable(20) %33)
   %185 = load i8, ptr %49, align 8
   %186 = trunc i8 %185 to i1
@@ -2550,21 +2550,21 @@ _ZL9parse_intPKcS0_Pi.exit167:                    ; preds = %181
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread
 
 193:                                              ; preds = %77
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %.0139, ptr %12, align 8
   %194 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %12, ptr noundef nonnull %.3, ptr noundef nonnull %11, i1 noundef zeroext true)
   br i1 %194, label %195, label %_ZL9parse_intPKcS0_Pi.exit168
 
 _ZL9parse_intPKcS0_Pi.exit168:                    ; preds = %193
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit
 
 195:                                              ; preds = %193
   %196 = load i32, ptr %11, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @_ZN11hb_buffer_t8add_infoERK15hb_glyph_info_t(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef nonnull align 4 dereferenceable(20) %33)
   %197 = load i8, ptr %49, align 8
   %198 = trunc i8 %197 to i1
@@ -2589,21 +2589,21 @@ _ZL9parse_intPKcS0_Pi.exit168:                    ; preds = %193
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread
 
 205:                                              ; preds = %77
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %.0139, ptr %10, align 8
   %206 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %10, ptr noundef nonnull %.3, ptr noundef nonnull %9, i1 noundef zeroext true)
   br i1 %206, label %207, label %_ZL9parse_intPKcS0_Pi.exit169
 
 _ZL9parse_intPKcS0_Pi.exit169:                    ; preds = %205
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit
 
 207:                                              ; preds = %205
   %208 = load i32, ptr %9, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN11hb_buffer_t8add_infoERK15hb_glyph_info_t(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef nonnull align 4 dereferenceable(20) %33)
   %209 = load i8, ptr %49, align 8
   %210 = trunc i8 %209 to i1
@@ -2628,21 +2628,21 @@ _ZL9parse_intPKcS0_Pi.exit169:                    ; preds = %205
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread
 
 217:                                              ; preds = %77
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %.0139, ptr %8, align 8
   %218 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %8, ptr noundef nonnull %.3, ptr noundef nonnull %7, i1 noundef zeroext true)
   br i1 %218, label %219, label %_ZL9parse_intPKcS0_Pi.exit170
 
 _ZL9parse_intPKcS0_Pi.exit170:                    ; preds = %217
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit
 
 219:                                              ; preds = %217
   %220 = load i32, ptr %7, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN11hb_buffer_t8add_infoERK15hb_glyph_info_t(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef nonnull align 4 dereferenceable(20) %33)
   %221 = load i8, ptr %49, align 8
   %222 = trunc i8 %221 to i1
@@ -2667,22 +2667,22 @@ _ZL9parse_intPKcS0_Pi.exit170:                    ; preds = %217
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread
 
 229:                                              ; preds = %77
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %.0139, ptr %6, align 8
   %230 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %6, ptr noundef nonnull %.3, ptr noundef nonnull %5, i1 noundef zeroext true, i32 noundef 10)
   br i1 %230, label %231, label %_ZL10parse_uintPKcS0_Pj.exit171
 
 _ZL10parse_uintPKcS0_Pj.exit171:                  ; preds = %229
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit
 
 231:                                              ; preds = %229
   %232 = load i32, ptr %5, align 4
   store i32 %232, ptr %54, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN11hb_buffer_t8add_infoERK15hb_glyph_info_t(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef nonnull align 4 dereferenceable(20) %33)
   %233 = load i8, ptr %49, align 8
   %234 = trunc i8 %233 to i1
@@ -2792,8 +2792,8 @@ define hidden range(i32 0, 2) i32 @hb_buffer_deserialize_unicode(ptr noundef %0,
   ]
 
 31:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %32 = zext i32 %.025 to i64
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 %32
   br label %.lr.ph.i
@@ -2920,8 +2920,8 @@ define hidden range(i32 0, 2) i32 @hb_buffer_deserialize_unicode(ptr noundef %0,
   br label %127
 
 92:                                               ; preds = %87
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %.1103.i, ptr %15, align 8
   %93 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %15, ptr noundef nonnull %.4.i, ptr noundef nonnull %14, i1 noundef zeroext true, i32 noundef 16)
   br i1 %93, label %_ZL9parse_hexPKcS0_Pj.exit.thread.i, label %_ZL9parse_hexPKcS0_Pj.exit.i
@@ -2929,32 +2929,32 @@ define hidden range(i32 0, 2) i32 @hb_buffer_deserialize_unicode(ptr noundef %0,
 _ZL9parse_hexPKcS0_Pj.exit.thread.i:              ; preds = %92
   %94 = load i32, ptr %14, align 4
   store i32 %94, ptr %16, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %127
 
 _ZL9parse_hexPKcS0_Pj.exit.i:                     ; preds = %92
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.exit
 
 95:                                               ; preds = %87
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %.1103.i, ptr %13, align 8
   %96 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %13, ptr noundef nonnull %.4.i, ptr noundef nonnull %12, i1 noundef zeroext true, i32 noundef 16)
   br i1 %96, label %97, label %_ZL9parse_hexPKcS0_Pj.exit123.i
 
 _ZL9parse_hexPKcS0_Pj.exit123.i:                  ; preds = %95
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.exit
 
 97:                                               ; preds = %95
   %98 = load i32, ptr %12, align 4
   store i32 %98, ptr %16, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZN11hb_buffer_t8add_infoERK15hb_glyph_info_t(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef nonnull align 4 dereferenceable(20) %16)
   %99 = load i8, ptr %51, align 8
   %100 = trunc i8 %99 to i1
@@ -2979,22 +2979,22 @@ _ZL9parse_hexPKcS0_Pj.exit123.i:                  ; preds = %95
   br label %127
 
 111:                                              ; preds = %87
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %.1103.i, ptr %11, align 8
   %112 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %11, ptr noundef nonnull %.4.i, ptr noundef nonnull %10, i1 noundef zeroext true, i32 noundef 10)
   br i1 %112, label %113, label %_ZL10parse_uintPKcS0_Pj.exit.i
 
 _ZL10parse_uintPKcS0_Pj.exit.i:                   ; preds = %111
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.exit
 
 113:                                              ; preds = %111
   %114 = load i32, ptr %10, align 4
   store i32 %114, ptr %50, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN11hb_buffer_t8add_infoERK15hb_glyph_info_t(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef nonnull align 4 dereferenceable(20) %16)
   %115 = load i8, ptr %51, align 8
   %116 = trunc i8 %115 to i1
@@ -3048,22 +3048,22 @@ _ZL10parse_uintPKcS0_Pj.exit.i:                   ; preds = %111
   ]
 
 136:                                              ; preds = %133
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %.0102.i, ptr %9, align 8
   %137 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %9, ptr noundef nonnull %.2.i, ptr noundef nonnull %8, i1 noundef zeroext true, i32 noundef 16)
   br i1 %137, label %138, label %_ZL9parse_hexPKcS0_Pj.exit124.i
 
 _ZL9parse_hexPKcS0_Pj.exit124.i:                  ; preds = %136
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.exit
 
 138:                                              ; preds = %136
   %139 = load i32, ptr %8, align 4
   store i32 %139, ptr %16, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN11hb_buffer_t8add_infoERK15hb_glyph_info_t(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef nonnull align 4 dereferenceable(20) %16)
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %141 = load i8, ptr %140, align 8
@@ -3077,23 +3077,23 @@ _ZL9parse_hexPKcS0_Pj.exit124.i:                  ; preds = %136
   br i1 %146, label %.loopexit1.sink.split.sink.split.i, label %.loopexit1.sink.split.i
 
 147:                                              ; preds = %133
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %.0102.i, ptr %7, align 8
   %148 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %7, ptr noundef nonnull %.2.i, ptr noundef nonnull %6, i1 noundef zeroext true, i32 noundef 10)
   br i1 %148, label %149, label %_ZL10parse_uintPKcS0_Pj.exit125.i
 
 _ZL10parse_uintPKcS0_Pj.exit125.i:                ; preds = %147
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.exit
 
 149:                                              ; preds = %147
   %150 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %151 = load i32, ptr %6, align 4
   store i32 %151, ptr %150, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN11hb_buffer_t8add_infoERK15hb_glyph_info_t(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef nonnull align 4 dereferenceable(20) %16)
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %153 = load i8, ptr %152, align 8
@@ -3148,8 +3148,8 @@ _ZL10parse_uintPKcS0_Pj.exit125.i:                ; preds = %147
 
 _ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.exit: ; preds = %97, %113, %_ZL9parse_hexPKcS0_Pj.exit.i, %_ZL9parse_hexPKcS0_Pj.exit123.i, %_ZL10parse_uintPKcS0_Pj.exit.i, %_ZL9parse_hexPKcS0_Pj.exit124.i, %138, %_ZL10parse_uintPKcS0_Pj.exit125.i, %149, %173
   %.0.i = phi i32 [ %175, %173 ], [ 0, %_ZL9parse_hexPKcS0_Pj.exit.i ], [ 0, %_ZL9parse_hexPKcS0_Pj.exit123.i ], [ 0, %_ZL10parse_uintPKcS0_Pj.exit.i ], [ 0, %_ZL9parse_hexPKcS0_Pj.exit124.i ], [ 0, %138 ], [ 0, %_ZL10parse_uintPKcS0_Pj.exit125.i ], [ 0, %149 ], [ 0, %113 ], [ 0, %97 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %178
 
 176:                                              ; preds = %29
@@ -3199,10 +3199,10 @@ declare i32 @llvm.umax.i32(i32, i32) #8
 declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8

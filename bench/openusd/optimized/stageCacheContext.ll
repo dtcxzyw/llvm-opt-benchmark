@@ -793,9 +793,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS_20UsdStageCacheC
 _ZNSt6atomicIPN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS0_20UsdStageCacheContextELb1EE22_PerThreadStackStorageEE23compare_exchange_strongERS5_S5_St12memory_order.exit.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS_20UsdStageCacheContextELb1EE22_PerThreadStackStorageC2Ev.exit, %20, %0
   %21 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__25Tf_ExportedStackedStorageINS_20UsdStageCacheContextELb1EE5valueE monotonic, align 8
   %.0.i4 = inttoptr i64 %21 to ptr
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %22 = call noundef nonnull align 8 dereferenceable(25) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(104) %.0.i4, ptr noundef nonnull align 1 dereferenceable(1) %1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load i8, ptr %23, align 8
   %25 = trunc i8 %24 to i1
@@ -1491,7 +1491,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i: ; preds = %_ZN3tbb6detail2d
   %32 = icmp eq i64 %31, 0
   %33 = shl nuw i64 1, %31
   %34 = select i1 %32, i64 2, i64 %33
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8
   %.sroa.463.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %0, ptr %.sroa.463.0..sroa_idx, align 8
@@ -1514,7 +1514,7 @@ common.resume:                                    ; preds = %_ZN3tbb6detail2d010
   br label %common.resume
 
 _ZN3tbb6detail2d014try_call_proxyIZNS0_2d117concurrent_vectorINS1_6paddedINS3_11ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS7_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEENS3_23cache_aligned_allocatorISD_EEE14create_segmentEPSt6atomicIPSD_EmmEUlvE_E12on_exceptionIZNSG_14create_segmentESK_mmEUlvE0_EEvT_.exit: ; preds = %30
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %40 = load ptr, ptr %8, align 8
   %41 = ptrtoint ptr %37 to i64
   %42 = cmpxchg ptr %40, i64 0, i64 %41 seq_cst seq_cst, align 8
@@ -1522,8 +1522,8 @@ _ZN3tbb6detail2d014try_call_proxyIZNS0_2d117concurrent_vectorINS1_6paddedINS3_11
   br i1 %43, label %44, label %65
 
 44:                                               ; preds = %_ZN3tbb6detail2d014try_call_proxyIZNS0_2d117concurrent_vectorINS1_6paddedINS3_11ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS7_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEENS3_23cache_aligned_allocatorISD_EEE14create_segmentEPSt6atomicIPSD_EmmEUlvE_E12on_exceptionIZNSG_14create_segmentESK_mmEUlvE0_EEvT_.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %5, align 8
   %45 = load ptr, ptr %8, align 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1549,8 +1549,8 @@ _ZN3tbb6detail2d010raii_guardIZNS0_2d113segment_tableINS1_6paddedINS3_11ets_elem
   br label %common.resume
 
 _ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS6_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEENS1_23cache_aligned_allocatorISC_EENS1_17concurrent_vectorISC_SE_EELm3EE25extend_table_if_necessaryERPSt6atomicIPSC_Emm.exit: ; preds = %44, %49
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %52 = load i64, ptr %9, align 8
   %53 = icmp ugt i64 %52, 1
   br i1 %53, label %.lr.ph, label %_ZN3tbb6detail2d015spin_wait_whileIPNS1_6paddedINS0_2d111ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS6_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEEZNS1_18spin_wait_while_eqISD_SD_EET_RKSt6atomicISF_ET0_St12memory_orderEUlSD_E_EESF_SJ_SK_SL_.exit
@@ -2269,10 +2269,10 @@ declare i64 @llvm.umin.i64(i64, i64) #18
 declare i64 @llvm.umax.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #20

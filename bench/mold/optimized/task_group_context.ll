@@ -53,16 +53,10 @@ $_ZTSN3tbb6detail2d113delegate_baseE = comdat any
 @_ZTSN3tbb6detail2d113delegate_baseE = linkonce_odr constant [32 x i8] c"N3tbb6detail2d113delegate_baseE\00", comdat, align 1
 @_ZN3tbb6detail2r18governor6theTLSE = external local_unnamed_addr global %"class.tbb::detail::r1::basic_tls", align 4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
-
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
-
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define noundef ptr @_ZN3tbb6detail2r117tbb_exception_ptr8allocateEv() local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN3tbb6detail2r117tbb_exception_ptr8allocateEv() local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %2 = invoke noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef 8)
           to label %3 unwind label %9
@@ -72,25 +66,25 @@ define noundef ptr @_ZN3tbb6detail2r117tbb_exception_ptr8allocateEv() local_unna
   br i1 %.not.not, label %.critedge, label %4
 
 4:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #13
-  call void @_ZSt17current_exceptionv(ptr dead_on_unwind nonnull writable sret(%"class.std::__exception_ptr::exception_ptr") align 8 %1) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @_ZSt17current_exceptionv(ptr dead_on_unwind nonnull writable sret(%"class.std::__exception_ptr::exception_ptr") align 8 %1) #12
   %5 = load ptr, ptr %1, align 8, !tbaa !3
   store ptr %5, ptr %2, align 8, !tbaa !3
   %.not.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %6
 
 6:                                                ; preds = %4
-  call void @_ZNSt15__exception_ptr13exception_ptr9_M_addrefEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #13
+  call void @_ZNSt15__exception_ptr13exception_ptr9_M_addrefEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #12
   %.pre = load ptr, ptr %1, align 8, !tbaa !3
   %7 = icmp eq ptr %.pre, null
   br i1 %7, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %8
 
 8:                                                ; preds = %6
-  call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #13
+  call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #12
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %4, %6, %8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %.critedge
 
 .critedge:                                        ; preds = %3, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
@@ -104,11 +98,11 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %4, %6, %8
   unreachable
 }
 
-declare noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noinline noreturn nounwind sspstrong uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #2 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
   tail call void @_ZSt9terminatev() #16
   unreachable
 }
@@ -116,19 +110,19 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #4
+declare void @_ZSt9terminatev() local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare void @_ZSt17current_exceptionv(ptr dead_on_unwind writable sret(%"class.std::__exception_ptr::exception_ptr") align 8) local_unnamed_addr #5
+declare void @_ZSt17current_exceptionv(ptr dead_on_unwind writable sret(%"class.std::__exception_ptr::exception_ptr") align 8) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN3tbb6detail2r117tbb_exception_ptr7destroyEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3tbb6detail2r117tbb_exception_ptr7destroyEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !3
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %_ZN3tbb6detail2r117tbb_exception_ptrD2Ev.exit, label %3
 
 3:                                                ; preds = %1
-  tail call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
   br label %_ZN3tbb6detail2r117tbb_exception_ptrD2Ev.exit
 
 _ZN3tbb6detail2r117tbb_exception_ptrD2Ev.exit:    ; preds = %1, %3
@@ -146,10 +140,10 @@ _ZN3tbb6detail2r117tbb_exception_ptrD2Ev.exit:    ; preds = %1, %3
   unreachable
 }
 
-declare void @_ZN3tbb6detail2r117deallocate_memoryEPv(ptr noundef) local_unnamed_addr #2
+declare void @_ZN3tbb6detail2r117deallocate_memoryEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress noreturn sspstrong uwtable
-define void @_ZN3tbb6detail2r117tbb_exception_ptr10throw_selfEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3tbb6detail2r117tbb_exception_ptr10throw_selfEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %3 = load i8, ptr @_ZN3tbb6detail2r18governor17is_rethrow_brokenE, align 1, !tbaa !8, !range !10, !noundef !11
   %4 = trunc nuw i8 %3 to i1
@@ -166,7 +160,7 @@ define void @_ZN3tbb6detail2r117tbb_exception_ptr10throw_selfEv(ptr noundef nonn
   br i1 %.not.i, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit, label %8
 
 8:                                                ; preds = %6
-  call void @_ZNSt15__exception_ptr13exception_ptr9_M_addrefEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #13
+  call void @_ZNSt15__exception_ptr13exception_ptr9_M_addrefEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #12
   br label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit
 
 _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit: ; preds = %6, %8
@@ -184,20 +178,20 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit: ; preds = %6, %8
   br i1 %.not.i2, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %13
 
 13:                                               ; preds = %10
-  call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #13
+  call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #12
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %10, %13
   resume { ptr, i32 } %11
 }
 
-declare void @_ZN3tbb6detail2r118fix_broken_rethrowEv() local_unnamed_addr #2
+declare void @_ZN3tbb6detail2r118fix_broken_rethrowEv() local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt17rethrow_exceptionNSt15__exception_ptr13exception_ptrE(ptr noundef) local_unnamed_addr #7
+declare void @_ZSt17rethrow_exceptionNSt15__exception_ptr13exception_ptrE(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN3tbb6detail2r123task_group_context_impl7destroyERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3tbb6detail2r123task_group_context_impl7destroyERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !12
   %.not = icmp eq ptr %3, null
@@ -221,7 +215,7 @@ define void @_ZN3tbb6detail2r123task_group_context_impl7destroyERNS0_2d118task_g
   br i1 %.not.i.i.i, label %_ZN3tbb6detail2r117tbb_exception_ptrD2Ev.exit.i, label %11
 
 11:                                               ; preds = %9
-  tail call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i) #13
+  tail call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i) #12
   br label %_ZN3tbb6detail2r117tbb_exception_ptrD2Ev.exit.i
 
 _ZN3tbb6detail2r117tbb_exception_ptrD2Ev.exit.i:  ; preds = %11, %9
@@ -255,9 +249,9 @@ _ZN3tbb6detail2r117tbb_exception_ptr7destroyEv.exit: ; preds = %_ZN3tbb6detail2r
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define linkonce_odr void @_ZN3tbb6detail2r112context_list6removeERNS0_2d119intrusive_list_nodeE(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3tbb6detail2r112context_list6removeERNS0_2d119intrusive_list_nodeE(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.tbb::detail::d1::unique_scoped_lock.27", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %3, align 8, !tbaa !32
   call void @_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7acquireERS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -294,8 +288,8 @@ define linkonce_odr void @_ZN3tbb6detail2r112context_list6removeERNS0_2d119intru
 22:                                               ; preds = %21, %18
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %23
 
 _ZN3tbb6detail2r112context_list7destroyEv.exit:   ; preds = %21, %2
@@ -316,12 +310,12 @@ _ZN3tbb6detail2r112context_list7destroyEv.exit:   ; preds = %21, %2
   unreachable
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit: ; preds = %25, %_ZN3tbb6detail2r112context_list7destroyEv.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN3tbb6detail2r123task_group_context_impl10initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #8 align 2 {
+define void @_ZN3tbb6detail2r123task_group_context_impl10initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i64, ptr %2, align 8, !tbaa !48
   tail call void @_ZN3tbb6detail2r119itt_make_task_groupENS0_2d115itt_domain_enumEPvyS4_yNS0_2d021string_resource_indexE(i32 noundef 1, ptr noundef nonnull %0, i64 noundef 0, ptr noundef null, i64 noundef 9, i64 noundef %3)
@@ -351,7 +345,7 @@ define void @_ZN3tbb6detail2r123task_group_context_impl10initializeERNS0_2d118ta
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %1
-  tail call void asm sideeffect "stmxcsr $0\0A\09fstcw $1", "=*m,=*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) align 4 dereferenceable(6) %0, ptr nonnull elementtype(i16) %12) #13, !srcloc !56
+  tail call void asm sideeffect "stmxcsr $0\0A\09fstcw $1", "=*m,=*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) align 4 dereferenceable(6) %0, ptr nonnull elementtype(i16) %12) #12, !srcloc !56
   %17 = load i32, ptr %0, align 8, !tbaa !52
   %18 = and i32 %17, -64
   store i32 %18, ptr %0, align 8, !tbaa !52
@@ -361,17 +355,17 @@ define void @_ZN3tbb6detail2r123task_group_context_impl10initializeERNS0_2d118ta
   ret void
 }
 
-declare void @_ZN3tbb6detail2r119itt_make_task_groupENS0_2d115itt_domain_enumEPvyS4_yNS0_2d021string_resource_indexE(i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare void @_ZN3tbb6detail2r119itt_make_task_groupENS0_2d115itt_domain_enumEPvyS4_yNS0_2d021string_resource_indexE(i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN3tbb6detail2r123task_group_context_impl13register_withERNS0_2d118task_group_contextEPNS1_11thread_dataE(ptr noundef nonnull align 8 dereferenceable(128) initializes((24, 48)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3tbb6detail2r123task_group_context_impl13register_withERNS0_2d118task_group_contextEPNS1_11thread_dataE(ptr noundef nonnull align 8 dereferenceable(128) initializes((24, 48)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.tbb::detail::d1::unique_scoped_lock.27", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %5 = load ptr, ptr %4, align 8, !tbaa !57
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %5, ptr %6, align 8, !tbaa !12
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr null, ptr %3, align 8, !tbaa !32
   call void @_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7acquireERS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %8)
@@ -403,12 +397,12 @@ define void @_ZN3tbb6detail2r123task_group_context_impl13register_withERNS0_2d11
   unreachable
 
 _ZN3tbb6detail2r112context_list10push_frontERNS0_2d119intrusive_list_nodeE.exit: ; preds = %2, %16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN3tbb6detail2r123task_group_context_impl12bind_to_implERNS0_2d118task_group_contextEPNS1_11thread_dataE(ptr noundef nonnull align 8 dereferenceable(128) initializes((16, 24)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3tbb6detail2r123task_group_context_impl12bind_to_implERNS0_2d118task_group_contextEPNS1_11thread_dataE(ptr noundef nonnull align 8 dereferenceable(128) initializes((16, 24)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.tbb::detail::d1::unique_scoped_lock.27", align 8
   %4 = alloca %"class.tbb::detail::d1::unique_scoped_lock.27", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -462,7 +456,7 @@ define void @_ZN3tbb6detail2r123task_group_context_impl12bind_to_implERNS0_2d118
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %34, ptr %35, align 8, !tbaa !12
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 40
   store ptr null, ptr %4, align 8, !tbaa !32
   call void @_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7acquireERS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %37)
@@ -494,7 +488,7 @@ define void @_ZN3tbb6detail2r123task_group_context_impl12bind_to_implERNS0_2d118
   unreachable
 
 _ZN3tbb6detail2r123task_group_context_impl13register_withERNS0_2d118task_group_contextEPNS1_11thread_dataE.exit: ; preds = %24, %45
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %50 = load atomic i64, ptr @_ZN3tbb6detail2r135the_context_state_propagation_epochE monotonic, align 8
   %.not20 = icmp eq i64 %28, %50
   br i1 %.not20, label %89, label %51
@@ -525,7 +519,7 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
 
 60:                                               ; preds = %.lr.ph.i.i.i
-  %61 = call noundef i32 @sched_yield() #13
+  %61 = call noundef i32 @sched_yield() #12
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i: ; preds = %60, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i
@@ -548,7 +542,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit: ; preds = %_Z
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %69, ptr %70, align 8, !tbaa !12
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 40
   store ptr null, ptr %3, align 8, !tbaa !32
   call void @_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7acquireERS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %72)
@@ -580,7 +574,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit: ; preds = %_Z
   unreachable
 
 _ZN3tbb6detail2r123task_group_context_impl13register_withERNS0_2d118task_group_contextEPNS1_11thread_dataE.exit22: ; preds = %67, %80
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %86 = load ptr, ptr %9, align 8, !tbaa !74
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
@@ -593,7 +587,7 @@ _ZN3tbb6detail2r123task_group_context_impl13register_withERNS0_2d118task_group_c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3tbb6detail2r123task_group_context_impl16copy_fp_settingsERNS0_2d118task_group_contextERKS4_(ptr noundef nonnull align 8 captures(none) dereferenceable(128) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %1) local_unnamed_addr #9 align 2 {
+define void @_ZN3tbb6detail2r123task_group_context_impl16copy_fp_settingsERNS0_2d118task_group_contextERKS4_(ptr noundef nonnull align 8 captures(none) dereferenceable(128) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %1) local_unnamed_addr #8 align 2 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 13
@@ -604,7 +598,7 @@ define void @_ZN3tbb6detail2r123task_group_context_impl16copy_fp_settingsERNS0_2
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN3tbb6detail2r123task_group_context_impl7bind_toERNS0_2d118task_group_contextEPNS1_11thread_dataE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3tbb6detail2r123task_group_context_impl7bind_toERNS0_2d118task_group_contextEPNS1_11thread_dataE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %4 = load atomic i8, ptr %3 acquire, align 1
   %5 = icmp ult i8 %4, 2
@@ -680,7 +674,7 @@ _ZNSt6atomicIN3tbb6detail2d118task_group_context5stateEE23compare_exchange_stron
   br i1 %37, label %40, label %38
 
 38:                                               ; preds = %.lr.ph.i
-  %39 = tail call noundef i32 @sched_yield() #13
+  %39 = tail call noundef i32 @sched_yield() #12
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i
 
 40:                                               ; preds = %.lr.ph.i
@@ -709,7 +703,7 @@ _ZN3tbb6detail2d015spin_wait_whileINS0_2d118task_group_context5stateEZNS1_18spin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3tbb6detail2r123task_group_context_impl26propagate_task_group_stateERNS0_2d118task_group_contextEMS4_St6atomicIjES5_j(ptr noundef nonnull align 8 captures(address) dereferenceable(128) %0, i64 %1, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(128) %2, i32 noundef %3) local_unnamed_addr #10 align 2 {
+define void @_ZN3tbb6detail2r123task_group_context_impl26propagate_task_group_stateERNS0_2d118task_group_contextEMS4_St6atomicIjES5_j(ptr noundef nonnull align 8 captures(address) dereferenceable(128) %0, i64 %1, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(128) %2, i32 noundef %3) local_unnamed_addr #9 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 %1
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not = icmp eq i32 %6, %3
@@ -742,7 +736,7 @@ define void @_ZN3tbb6detail2r123task_group_context_impl26propagate_task_group_st
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN3tbb6detail2r123task_group_context_impl22cancel_group_executionERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZN3tbb6detail2r123task_group_context_impl22cancel_group_executionERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load atomic i32, ptr %2 monotonic, align 8
   %.not = icmp eq i32 %3, 0
@@ -755,14 +749,14 @@ define noundef zeroext i1 @_ZN3tbb6detail2r123task_group_context_impl22cancel_gr
 
 6:                                                ; preds = %4
   %7 = load i32, ptr @_ZN3tbb6detail2r18governor6theTLSE, align 4, !tbaa !112
-  %8 = tail call noundef ptr @pthread_getspecific(i32 noundef %7) #13
+  %8 = tail call noundef ptr @pthread_getspecific(i32 noundef %7) #12
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %_ZN3tbb6detail2r18governor15get_thread_dataEv.exit
 
 9:                                                ; preds = %6
   tail call void @_ZN3tbb6detail2r18governor20init_external_threadEv()
   %10 = load i32, ptr @_ZN3tbb6detail2r18governor6theTLSE, align 4, !tbaa !112
-  %11 = tail call noundef ptr @pthread_getspecific(i32 noundef %10) #13
+  %11 = tail call noundef ptr @pthread_getspecific(i32 noundef %10) #12
   br label %_ZN3tbb6detail2r18governor15get_thread_dataEv.exit
 
 _ZN3tbb6detail2r18governor15get_thread_dataEv.exit: ; preds = %6, %9
@@ -779,10 +773,10 @@ _ZN3tbb6detail2r18governor15get_thread_dataEv.exit: ; preds = %6, %9
   ret i1 %.0
 }
 
-declare void @_ZN3tbb6detail2r117threading_control26propagate_task_group_stateEMNS0_2d118task_group_contextESt6atomicIjERS4_j(ptr noundef nonnull align 8 dereferenceable(16), i64, ptr noundef nonnull align 8 dereferenceable(128), i32 noundef) local_unnamed_addr #2
+declare void @_ZN3tbb6detail2r117threading_control26propagate_task_group_stateEMNS0_2d118task_group_contextESt6atomicIjERS4_j(ptr noundef nonnull align 8 dereferenceable(16), i64, ptr noundef nonnull align 8 dereferenceable(128), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN3tbb6detail2r123task_group_context_impl28is_group_execution_cancelledERKNS0_2d118task_group_contextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0) local_unnamed_addr #11 align 2 {
+define noundef zeroext i1 @_ZN3tbb6detail2r123task_group_context_impl28is_group_execution_cancelledERKNS0_2d118task_group_contextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load atomic i32, ptr %2 monotonic, align 8
   %4 = icmp ne i32 %3, 0
@@ -790,7 +784,7 @@ define noundef zeroext i1 @_ZN3tbb6detail2r123task_group_context_impl28is_group_
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN3tbb6detail2r123task_group_context_impl5resetERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3tbb6detail2r123task_group_context_impl5resetERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load atomic i64, ptr %2 monotonic, align 8
   %.0.i.i = inttoptr i64 %3 to ptr
@@ -803,7 +797,7 @@ define void @_ZN3tbb6detail2r123task_group_context_impl5resetERNS0_2d118task_gro
   br i1 %.not.i.i.i, label %_ZN3tbb6detail2r117tbb_exception_ptrD2Ev.exit.i, label %6
 
 6:                                                ; preds = %4
-  tail call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i) #13
+  tail call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i) #12
   br label %_ZN3tbb6detail2r117tbb_exception_ptrD2Ev.exit.i
 
 _ZN3tbb6detail2r117tbb_exception_ptrD2Ev.exit.i:  ; preds = %6, %4
@@ -828,7 +822,7 @@ _ZN3tbb6detail2r117tbb_exception_ptr7destroyEv.exit: ; preds = %_ZN3tbb6detail2r
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN3tbb6detail2r123task_group_context_impl19capture_fp_settingsERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
+define void @_ZN3tbb6detail2r123task_group_context_impl19capture_fp_settingsERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
@@ -844,7 +838,7 @@ define void @_ZN3tbb6detail2r123task_group_context_impl19capture_fp_settingsERNS
 
 8:                                                ; preds = %5, %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void asm sideeffect "stmxcsr $0\0A\09fstcw $1", "=*m,=*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) align 4 dereferenceable(6) %0, ptr nonnull elementtype(i16) %9) #13, !srcloc !56
+  tail call void asm sideeffect "stmxcsr $0\0A\09fstcw $1", "=*m,=*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) align 4 dereferenceable(6) %0, ptr nonnull elementtype(i16) %9) #12, !srcloc !56
   %10 = load i32, ptr %0, align 8, !tbaa !52
   %11 = and i32 %10, -64
   store i32 %11, ptr %0, align 8, !tbaa !52
@@ -852,7 +846,7 @@ define void @_ZN3tbb6detail2r123task_group_context_impl19capture_fp_settingsERNS
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #8 {
+define void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i64, ptr %2, align 8, !tbaa !48
   tail call void @_ZN3tbb6detail2r119itt_make_task_groupENS0_2d115itt_domain_enumEPvyS4_yNS0_2d021string_resource_indexE(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef 0, ptr noundef null, i64 noundef 9, i64 noundef %3)
@@ -882,7 +876,7 @@ define void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr nou
   br i1 %15, label %16, label %_ZN3tbb6detail2r123task_group_context_impl10initializeERNS0_2d118task_group_contextE.exit
 
 16:                                               ; preds = %1
-  tail call void asm sideeffect "stmxcsr $0\0A\09fstcw $1", "=*m,=*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) align 8 dereferenceable(128) %0, ptr nonnull elementtype(i16) %12) #13, !srcloc !56
+  tail call void asm sideeffect "stmxcsr $0\0A\09fstcw $1", "=*m,=*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) align 8 dereferenceable(128) %0, ptr nonnull elementtype(i16) %12) #12, !srcloc !56
   %17 = load i32, ptr %0, align 8, !tbaa !52
   %18 = and i32 %17, -64
   store i32 %18, ptr %0, align 8, !tbaa !52
@@ -893,7 +887,7 @@ _ZN3tbb6detail2r123task_group_context_impl10initializeERNS0_2d118task_group_cont
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN3tbb6detail2r17destroyERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN3tbb6detail2r17destroyERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !12
   %.not.i = icmp eq ptr %3, null
@@ -917,7 +911,7 @@ define void @_ZN3tbb6detail2r17destroyERNS0_2d118task_group_contextE(ptr noundef
   br i1 %.not.i.i.i.i, label %_ZN3tbb6detail2r117tbb_exception_ptrD2Ev.exit.i.i, label %11
 
 11:                                               ; preds = %9
-  tail call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.i) #13
+  tail call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.i) #12
   br label %_ZN3tbb6detail2r117tbb_exception_ptrD2Ev.exit.i.i
 
 _ZN3tbb6detail2r117tbb_exception_ptrD2Ev.exit.i.i: ; preds = %11, %9
@@ -951,7 +945,7 @@ _ZN3tbb6detail2r123task_group_context_impl7destroyERNS0_2d118task_group_contextE
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN3tbb6detail2r15resetERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_ZN3tbb6detail2r15resetERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load atomic i64, ptr %2 monotonic, align 8
   %.0.i.i.i = inttoptr i64 %3 to ptr
@@ -964,7 +958,7 @@ define void @_ZN3tbb6detail2r15resetERNS0_2d118task_group_contextE(ptr noundef n
   br i1 %.not.i.i.i.i, label %_ZN3tbb6detail2r117tbb_exception_ptrD2Ev.exit.i.i, label %6
 
 6:                                                ; preds = %4
-  tail call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.i) #13
+  tail call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.i) #12
   br label %_ZN3tbb6detail2r117tbb_exception_ptrD2Ev.exit.i.i
 
 _ZN3tbb6detail2r117tbb_exception_ptrD2Ev.exit.i.i: ; preds = %6, %4
@@ -989,7 +983,7 @@ _ZN3tbb6detail2r123task_group_context_impl5resetERNS0_2d118task_group_contextE.e
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN3tbb6detail2r122cancel_group_executionERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #8 {
+define noundef zeroext i1 @_ZN3tbb6detail2r122cancel_group_executionERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load atomic i32, ptr %2 monotonic, align 8
   %.not.i = icmp eq i32 %3, 0
@@ -1002,14 +996,14 @@ define noundef zeroext i1 @_ZN3tbb6detail2r122cancel_group_executionERNS0_2d118t
 
 6:                                                ; preds = %4
   %7 = load i32, ptr @_ZN3tbb6detail2r18governor6theTLSE, align 4, !tbaa !112
-  %8 = tail call noundef ptr @pthread_getspecific(i32 noundef %7) #13
+  %8 = tail call noundef ptr @pthread_getspecific(i32 noundef %7) #12
   %.not.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i, label %9, label %_ZN3tbb6detail2r18governor15get_thread_dataEv.exit.i
 
 9:                                                ; preds = %6
   tail call void @_ZN3tbb6detail2r18governor20init_external_threadEv()
   %10 = load i32, ptr @_ZN3tbb6detail2r18governor6theTLSE, align 4, !tbaa !112
-  %11 = tail call noundef ptr @pthread_getspecific(i32 noundef %10) #13
+  %11 = tail call noundef ptr @pthread_getspecific(i32 noundef %10) #12
   br label %_ZN3tbb6detail2r18governor15get_thread_dataEv.exit.i
 
 _ZN3tbb6detail2r18governor15get_thread_dataEv.exit.i: ; preds = %9, %6
@@ -1027,7 +1021,7 @@ _ZN3tbb6detail2r123task_group_context_impl22cancel_group_executionERNS0_2d118tas
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN3tbb6detail2r128is_group_execution_cancelledERNS0_2d118task_group_contextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0) local_unnamed_addr #11 {
+define noundef zeroext i1 @_ZN3tbb6detail2r128is_group_execution_cancelledERNS0_2d118task_group_contextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load atomic i32, ptr %2 monotonic, align 8
   %4 = icmp ne i32 %3, 0
@@ -1035,7 +1029,7 @@ define noundef zeroext i1 @_ZN3tbb6detail2r128is_group_execution_cancelledERNS0_
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN3tbb6detail2r119capture_fp_settingsERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #1 {
+define void @_ZN3tbb6detail2r119capture_fp_settingsERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
@@ -1051,7 +1045,7 @@ define void @_ZN3tbb6detail2r119capture_fp_settingsERNS0_2d118task_group_context
 
 _ZN3tbb6detail2r123task_group_context_impl19capture_fp_settingsERNS0_2d118task_group_contextE.exit: ; preds = %1, %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void asm sideeffect "stmxcsr $0\0A\09fstcw $1", "=*m,=*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) align 8 dereferenceable(128) %0, ptr nonnull elementtype(i16) %8) #13, !srcloc !56
+  tail call void asm sideeffect "stmxcsr $0\0A\09fstcw $1", "=*m,=*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) align 8 dereferenceable(128) %0, ptr nonnull elementtype(i16) %8) #12, !srcloc !56
   %9 = load i32, ptr %0, align 8, !tbaa !52
   %10 = and i32 %9, -64
   store i32 %10, ptr %0, align 8, !tbaa !52
@@ -1059,22 +1053,22 @@ _ZN3tbb6detail2r123task_group_context_impl19capture_fp_settingsERNS0_2d118task_g
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
-declare void @llvm.x86.sse2.pause() #13
+declare void @llvm.x86.sse2.pause() #12
 
 ; Function Attrs: nounwind
-declare i32 @sched_yield() local_unnamed_addr #5
+declare i32 @sched_yield() local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #5
+declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZNSt15__exception_ptr13exception_ptr9_M_addrefEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #5
+declare void @_ZNSt15__exception_ptr13exception_ptr9_M_addrefEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define linkonce_odr void @_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !32
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %3
@@ -1100,7 +1094,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7releaseEv.exit: ; preds = %3
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define linkonce_odr void @_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7acquireERS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7acquireERS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i8, align 1
   %4 = alloca i32, align 4
   %5 = alloca %class.anon.28, align 8
@@ -1122,11 +1116,11 @@ _ZN3tbb6detail2d15mutex8try_lockEv.exit.i:        ; preds = %10
   br i1 %14, label %_ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit.i, label %_ZN3tbb6detail2d15mutex4lockEv.exit
 
 _ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit.i: ; preds = %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i, %10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 1, ptr %3, align 1, !tbaa !8
   store i32 0, ptr %4, align 4, !tbaa !115
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 8, !tbaa !117
   store ptr %4, ptr %7, align 8, !tbaa !107
   store ptr %3, ptr %8, align 8, !tbaa !121
@@ -1181,7 +1175,7 @@ _ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit1
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %_ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit15.i
   %.017.i = phi i32 [ %42, %_ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit15.i ], [ 32, %.preheader.i ]
-  %31 = call noundef i32 @sched_yield() #13
+  %31 = call noundef i32 @sched_yield() #12
   %32 = load i32, ptr %4, align 4, !tbaa !115
   switch i32 %32, label %33 [
     i32 1, label %35
@@ -1215,7 +1209,7 @@ _ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d115waitable_atomicIbE4waitEbmSt1
   br i1 %41, label %_ZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_order.exit.i, label %44
 
 44:                                               ; preds = %_ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d115waitable_atomicIbE4waitEbmSt12memory_orderEUlvE_EEbT_.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3tbb6detail2d118delegated_functionIZNS1_15waitable_atomicIbE4waitEbmSt12memory_orderEUlvE_EE, i64 16), ptr %6, align 8, !tbaa !124
   store ptr %5, ptr %9, align 8, !tbaa !107
   br label %45
@@ -1252,28 +1246,28 @@ _ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit.
   br i1 %.not.i.i, label %45, label %58, !llvm.loop !128
 
 58:                                               ; preds = %_ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_order.exit.i
 
 _ZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_order.exit.i: ; preds = %_ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit.i, %.preheader.i, %58, %_ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d115waitable_atomicIbE4waitEbmSt12memory_orderEUlvE_EEbT_.exit
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %10, !llvm.loop !129
 
 _ZN3tbb6detail2d15mutex4lockEv.exit:              ; preds = %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i
   ret void
 }
 
-declare void @_ZN3tbb6detail2r115wait_on_addressEPvRNS0_2d113delegate_baseEm(ptr noundef, ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
+declare void @_ZN3tbb6detail2r115wait_on_addressEPvRNS0_2d113delegate_baseEm(ptr noundef, ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define linkonce_odr void @_ZN3tbb6detail2d113delegate_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+define linkonce_odr void @_ZN3tbb6detail2d113delegate_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define linkonce_odr noundef zeroext i1 @_ZNK3tbb6detail2d118delegated_functionIZNS1_15waitable_atomicIbE4waitEbmSt12memory_orderEUlvE_EclEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr noundef zeroext i1 @_ZNK3tbb6detail2d118delegated_functionIZNS1_15waitable_atomicIbE4waitEbmSt12memory_orderEUlvE_EclEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !130
   %4 = load ptr, ptr %3, align 8, !tbaa !117
@@ -1309,38 +1303,44 @@ _ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit:
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind sspstrong uwtable
-define linkonce_odr void @_ZN3tbb6detail2d118delegated_functionIZNS1_15waitable_atomicIbE4waitEbmSt12memory_orderEUlvE_ED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #14 comdat align 2 {
+define linkonce_odr void @_ZN3tbb6detail2d118delegated_functionIZNS1_15waitable_atomicIbE4waitEbmSt12memory_orderEUlvE_ED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #13 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
-declare void @_ZN3tbb6detail2r121notify_by_address_oneEPv(ptr noundef) local_unnamed_addr #2
+declare void @_ZN3tbb6detail2r121notify_by_address_oneEPv(ptr noundef) local_unnamed_addr #1
 
-declare void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef) local_unnamed_addr #2
+declare void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef) local_unnamed_addr #1
 
-declare void @_ZN3tbb6detail2r18governor20init_external_threadEv() local_unnamed_addr #2
+declare void @_ZN3tbb6detail2r18governor20init_external_threadEv() local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare ptr @pthread_getspecific(i32 noundef) local_unnamed_addr #5
+declare ptr @pthread_getspecific(i32 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
-attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #1 = { mustprogress nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #3 = { noinline noreturn nounwind sspstrong uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold nofree noreturn }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress noreturn sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #12 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #13 = { nounwind }
-attributes #14 = { inlinehint mustprogress nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #2 = { noinline noreturn nounwind sspstrong uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold nofree noreturn }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress noreturn sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #11 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind }
+attributes #13 = { inlinehint mustprogress nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #16 = { noreturn nounwind }
 attributes #17 = { noreturn }

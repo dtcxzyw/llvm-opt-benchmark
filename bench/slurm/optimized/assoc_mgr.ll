@@ -22,9 +22,9 @@ define dso_local noundef i32 @op_handler_shares(ptr noundef %0) local_unnamed_ad
   br i1 %7, label %8, label %45
 
 8:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
@@ -53,7 +53,7 @@ define dso_local noundef i32 @op_handler_shares(ptr noundef %0) local_unnamed_ad
   br label %42
 
 25:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -74,7 +74,7 @@ define dso_local noundef i32 @op_handler_shares(ptr noundef %0) local_unnamed_ad
   %39 = call i32 @list_flush(ptr noundef %38) #3
   %40 = load ptr, ptr %30, align 8
   %41 = call i32 @list_flush(ptr noundef %40) #3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %42
 
 42:                                               ; preds = %25, %21
@@ -85,8 +85,8 @@ define dso_local noundef i32 @op_handler_shares(ptr noundef %0) local_unnamed_ad
   br label %_dump_shares.exit
 
 _dump_shares.exit:                                ; preds = %16, %42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %48
 
 45:                                               ; preds = %1
@@ -102,9 +102,6 @@ declare i32 @openapi_resp_error(ptr noundef, i32 noundef, ptr noundef, ptr nound
 
 declare ptr @get_http_method_string(i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @data_parser_g_parse(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @slurm_associations_get_shares(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -113,12 +110,15 @@ declare i32 @data_parser_g_dump(ptr noundef, i32 noundef, ptr noundef, i64 nound
 
 declare i32 @list_flush(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare void @slurm_free_shares_request_msg(ptr noundef) local_unnamed_addr #1
 
 declare void @slurm_free_shares_response_msg(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -969,7 +969,7 @@ define internal void @X11SD_GetRasInfo(ptr readnone captures(none) %0, ptr nound
   %41 = load i32, ptr %2, align 8
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %43 = load i32, ptr %42, align 4
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %15, 3
@@ -1184,10 +1184,10 @@ X11SD_DisposeOrCacheXImage.exit.i:                ; preds = %137
   br i1 %158, label %159, label %X11SD_DisposeOrCacheXImage.exit.thread11.sink.split.i
 
 159:                                              ; preds = %155
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %160 = load i64, ptr %109, align 8
   %161 = load ptr, ptr @awt_display, align 8
   %162 = call i32 @XGetWindowAttributes(ptr noundef %161, i64 noundef %160, ptr noundef nonnull %7) #18
@@ -1257,17 +1257,17 @@ X11SD_DisposeOrCacheXImage.exit.i:                ; preds = %137
   br i1 %.not57.i.i, label %209, label %X11SD_ClipToRoot.exit.thread.i
 
 X11SD_ClipToRoot.exit.thread.i:                   ; preds = %194, %171, %164, %159
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %X11SD_DisposeOrCacheXImage.exit.thread11.sink.split.i
 
 209:                                              ; preds = %194
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %210 = sub nsw i32 %193, %192
   %211 = sub nsw i32 %208, %207
   %212 = call ptr @XGetImage(ptr noundef nonnull %174, i64 noundef %110, i32 noundef %192, i32 noundef %207, i32 noundef %210, i32 noundef %211, i64 noundef -1, i32 noundef 2) #18
@@ -1396,7 +1396,7 @@ X11SD_DisposeOrCacheXImage.exit.thread11.i:       ; preds = %X11SD_DisposeOrCach
 
 281:                                              ; preds = %251, %248, %X11SD_DisposeOrCacheXImage.exit.thread11.i, %279, %278, %274, %257
   %.0119.i.ph = phi ptr [ %.0123.i, %257 ], [ %263, %274 ], [ %263, %278 ], [ %263, %279 ], [ %.3.i, %X11SD_DisposeOrCacheXImage.exit.thread11.i ], [ %.3.i, %248 ], [ %.3.i, %251 ]
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %282 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store ptr %.0119.i.ph, ptr %282, align 8
   %283 = getelementptr inbounds nuw i8, ptr %.0119.i.ph, i64 44
@@ -1432,7 +1432,7 @@ X11SD_DisposeOrCacheXImage.exit.thread11.i:       ; preds = %X11SD_DisposeOrCach
   br label %303
 
 303:                                              ; preds = %.sink.split, %258, %X11SD_DisposeOrCacheXImage.exit.i
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %304 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store ptr null, ptr %304, align 8
   %305 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -3597,10 +3597,10 @@ declare i16 @llvm.bswap.i16(i16) #15
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

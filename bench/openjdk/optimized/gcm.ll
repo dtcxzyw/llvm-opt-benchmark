@@ -1861,9 +1861,9 @@ define hidden noundef ptr @_ZN8PhaseCFG23insert_anti_dependencesEP5BlockP4Nodeb(
   br i1 %40, label %41, label %83
 
 41:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -1954,9 +1954,9 @@ define hidden noundef ptr @_ZN8PhaseCFG23insert_anti_dependencesEP5BlockP4Nodeb(
 
 _ZL18memory_early_blockP4NodeP5BlockPK8PhaseCFG.exit: ; preds = %72, %60, %70
   %.0.i = phi ptr [ %37, %60 ], [ null, %70 ], [ %spec.select.i, %72 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %83
 
 83:                                               ; preds = %_ZL18memory_early_blockP4NodeP5BlockPK8PhaseCFG.exit, %30
@@ -2468,7 +2468,7 @@ _ZN9Node_List4pushEP4Node.exit147:                ; preds = %320, %325
 
 335:                                              ; preds = %334
   %336 = load i32, ptr %31, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %337 = load ptr, ptr %84, align 8
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 800
   %339 = load ptr, ptr %338, align 8
@@ -2708,7 +2708,7 @@ thread-pre-split.outer.i.backedge:                ; preds = %.loopexit.i, %_ZN10
 
 _ZL21raise_LCA_above_marksP5BlockjS0_PK8PhaseCFG.exit: ; preds = %_ZN5Block7dom_lcaEPS_.exit.i, %362
   %.1.i = phi ptr [ %.0.ph.ph.i, %362 ], [ %.018.i.i, %_ZN5Block7dom_lcaEPS_.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge.thread, %_ZL21raise_LCA_above_marksP5BlockjS0_PK8PhaseCFG.exit, %334
@@ -5093,7 +5093,7 @@ _ZN10Node_StackC2Ei.exit:                         ; preds = %72, %74
   br i1 %95, label %96, label %111
 
 96:                                               ; preds = %85
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %98 = load ptr, ptr %97, align 8
   store ptr %3, ptr %2, align 8
@@ -5132,7 +5132,7 @@ _ZN22Node_Backward_IteratorC2EP4NodeR9VectorSetR10Node_StackR8PhaseCFG.exit.i: ;
   br i1 %.not.i, label %_ZN8PhaseCFG27compute_latencies_backwardsER9VectorSetR10Node_Stack.exit, label %.lr.ph.i, !llvm.loop !36
 
 _ZN8PhaseCFG27compute_latencies_backwardsER9VectorSetR10Node_Stack.exit: ; preds = %.lr.ph.i, %_ZN22Node_Backward_IteratorC2EP4NodeR9VectorSetR10Node_StackR8PhaseCFG.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %111
 
 111:                                              ; preds = %_ZN8PhaseCFG27compute_latencies_backwardsER9VectorSetR10Node_Stack.exit, %85
@@ -8584,10 +8584,10 @@ declare i32 @llvm.ctpop.i32(i32) #11
 declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #11

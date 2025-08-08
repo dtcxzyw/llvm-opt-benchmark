@@ -208,7 +208,7 @@ define internal fastcc range(i32 0, 2) i32 @test_intern(ptr noundef readonly cap
   %26 = load ptr, ptr %17, align 8, !tbaa !14
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %25
   %28 = getelementptr inbounds nuw [34 x %struct.TEST_CUSTOM_DATA], ptr @test_custom_data, i64 0, i64 %indvars.iv
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !15
   %29 = call fastcc i64 @make_custom_der(ptr noundef nonnull readonly %28, ptr noundef %7, i32 noundef 0)
   %30 = icmp eq i64 %29, 0
@@ -217,14 +217,14 @@ define internal fastcc range(i32 0, 2) i32 @test_intern(ptr noundef readonly cap
 31:                                               ; preds = %23
   %32 = load ptr, ptr %7, align 8, !tbaa !15
   %.val.i = load ptr, ptr %18, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !15
   %33 = call i32 %.val.i(ptr noundef %27, ptr noundef nonnull %6) #7
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %do_encode_custom.exit.thread74, label %35
 
 do_encode_custom.exit.thread74:                   ; preds = %31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @CRYPTO_free(ptr noundef %32, ptr noundef nonnull @.str.8, i32 noundef 704) #7
   br label %do_encode_custom.exit.thread
 
@@ -252,13 +252,13 @@ do_encode_custom.exit.thread74:                   ; preds = %31
 do_encode_custom.exit.thread76:                   ; preds = %42, %37
   %43 = phi ptr [ %.pre, %42 ], [ %38, %37 ]
   call void @CRYPTO_free(ptr noundef %43, ptr noundef nonnull @.str.8, i32 noundef 544) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @CRYPTO_free(ptr noundef %32, ptr noundef nonnull @.str.8, i32 noundef 704) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %54
 
 do_encode_custom.exit.thread:                     ; preds = %23, %do_encode_custom.exit.thread74
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %44 = load i32, ptr %27, align 4, !tbaa !17
   %.not63 = icmp eq i32 %44, 0
   br i1 %.not63, label %54, label %45
@@ -274,9 +274,9 @@ do_encode_custom.exit.thread:                     ; preds = %23, %do_encode_cust
 49:                                               ; preds = %39
   %50 = load ptr, ptr %6, align 8, !tbaa !15
   call void @CRYPTO_free(ptr noundef %50, ptr noundef nonnull @.str.8, i32 noundef 544) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @CRYPTO_free(ptr noundef %32, ptr noundef nonnull @.str.8, i32 noundef 704) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %51 = load ptr, ptr %19, align 8, !tbaa !19
   %52 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.8, i32 noundef 758, ptr noundef nonnull @.str.10, i32 noundef %52, ptr noundef %51) #7
@@ -287,7 +287,7 @@ do_encode_custom.exit.thread:                     ; preds = %23, %do_encode_cust
 54:                                               ; preds = %do_encode_custom.exit.thread76, %do_encode_custom.exit.thread, %45, %49
   %.157 = phi i32 [ %48, %45 ], [ %.05690, %do_encode_custom.exit.thread ], [ %53, %49 ], [ %.05690, %do_encode_custom.exit.thread76 ]
   %55 = load i64, ptr %13, align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !15
   %56 = call fastcc i64 @make_custom_der(ptr noundef nonnull readonly %28, ptr noundef %5, i32 noundef 1)
   %57 = icmp eq i64 %56, 0
@@ -295,7 +295,7 @@ do_encode_custom.exit.thread:                     ; preds = %23, %do_encode_cust
 
 58:                                               ; preds = %54
   %59 = load ptr, ptr %5, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %59, ptr %4, align 8, !tbaa !15
   %60 = load ptr, ptr %20, align 8, !tbaa !20
   %61 = call ptr %60(ptr noundef null, ptr noundef nonnull %4, i64 noundef %56) #7
@@ -310,7 +310,7 @@ do_encode_custom.exit.thread:                     ; preds = %23, %do_encode_cust
 do_decode_custom.exit.thread81:                   ; preds = %63
   %66 = load ptr, ptr %21, align 8, !tbaa !21
   call void %66(ptr noundef null) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @CRYPTO_free(ptr noundef %59, ptr noundef nonnull @.str.8, i32 noundef 686) #7
   br label %do_decode_custom.exit.thread
 
@@ -332,13 +332,13 @@ do_decode_custom.exit.thread81:                   ; preds = %63
 do_decode_custom.exit.thread79:                   ; preds = %67, %72
   %74 = load ptr, ptr %21, align 8, !tbaa !21
   call void %74(ptr noundef %61) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @CRYPTO_free(ptr noundef %59, ptr noundef nonnull @.str.8, i32 noundef 686) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %85
 
 do_decode_custom.exit.thread:                     ; preds = %54, %do_decode_custom.exit.thread81
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %75 = load i32, ptr %27, align 4, !tbaa !17
   %.not64 = icmp eq i32 %75, 0
   br i1 %.not64, label %85, label %76
@@ -354,9 +354,9 @@ do_decode_custom.exit.thread:                     ; preds = %54, %do_decode_cust
 80:                                               ; preds = %72, %68
   %81 = load ptr, ptr %21, align 8, !tbaa !21
   call void %81(ptr noundef nonnull %61) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @CRYPTO_free(ptr noundef %59, ptr noundef nonnull @.str.8, i32 noundef 686) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %82 = load ptr, ptr %19, align 8, !tbaa !19
   %83 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.8, i32 noundef 781, ptr noundef nonnull @.str.13, i32 noundef %83, ptr noundef %82) #7
@@ -391,7 +391,7 @@ do_decode_custom.exit.thread:                     ; preds = %54, %do_decode_cust
   %96 = mul i64 %95, %94
   %97 = load ptr, ptr %92, align 8, !tbaa !26
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 %96
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !15
   %99 = load ptr, ptr %18, align 8, !tbaa !16
   %100 = call i32 %99(ptr noundef %98, ptr noundef nonnull %3) #7
@@ -401,7 +401,7 @@ do_decode_custom.exit.thread:                     ; preds = %54, %do_decode_cust
 102:                                              ; preds = %93
   %103 = load ptr, ptr %3, align 8, !tbaa !15
   %104 = zext nneg i32 %100 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %103, ptr %2, align 8, !tbaa !15
   %105 = load ptr, ptr %20, align 8, !tbaa !20
   %106 = call ptr %105(ptr noundef null, ptr noundef nonnull %2, i64 noundef %104) #7
@@ -416,7 +416,7 @@ do_decode_custom.exit.thread:                     ; preds = %54, %do_decode_cust
 do_enc_dec.exit.thread86:                         ; preds = %108
   %111 = load ptr, ptr %21, align 8, !tbaa !21
   call void %111(ptr noundef null) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %112 = load ptr, ptr %3, align 8, !tbaa !15
   call void @CRYPTO_free(ptr noundef %112, ptr noundef nonnull @.str.8, i32 noundef 562) #7
   br label %do_enc_dec.exit.thread
@@ -439,14 +439,14 @@ do_enc_dec.exit.thread86:                         ; preds = %108
 do_enc_dec.exit.thread84:                         ; preds = %113, %118
   %120 = load ptr, ptr %21, align 8, !tbaa !21
   call void %120(ptr noundef %106) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %121 = load ptr, ptr %3, align 8, !tbaa !15
   call void @CRYPTO_free(ptr noundef %121, ptr noundef nonnull @.str.8, i32 noundef 562) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %131
 
 do_enc_dec.exit.thread:                           ; preds = %93, %do_enc_dec.exit.thread86
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %122 = load i32, ptr %98, align 4, !tbaa !17
   %.not62 = icmp eq i32 %122, 0
   br i1 %.not62, label %131, label %123
@@ -461,10 +461,10 @@ do_enc_dec.exit.thread:                           ; preds = %93, %do_enc_dec.exi
 126:                                              ; preds = %118, %114
   %127 = load ptr, ptr %21, align 8, !tbaa !21
   call void %127(ptr noundef nonnull %106) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %128 = load ptr, ptr %3, align 8, !tbaa !15
   call void @CRYPTO_free(ptr noundef %128, ptr noundef nonnull @.str.8, i32 noundef 562) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %129 = load ptr, ptr %19, align 8, !tbaa !19
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.8, i32 noundef 811, ptr noundef nonnull @.str.16, i32 noundef %.195, ptr noundef %129) #7
   %130 = add nsw i32 %.394, 1
@@ -522,18 +522,12 @@ do_print_item.exit.thread:                        ; preds = %140, %do_print_item
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: noreturn
-declare void @OPENSSL_die(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @OPENSSL_die(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare void @test_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare void @test_openssl_errors() local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i64 -9223372036854775803, -9223372036854775808) i64 @make_custom_der(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
@@ -832,7 +826,7 @@ der_encode_length.exit74:                         ; preds = %.thread.i73, %123, 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -843,7 +837,7 @@ declare i32 @RAND_bytes(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @ASN1_item_print(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @ASN1_LONG_DATA_it() #5 {
+define internal noundef nonnull ptr @ASN1_LONG_DATA_it() #4 {
   ret ptr @ASN1_LONG_DATA_it.local_it
 }
 
@@ -878,7 +872,7 @@ declare ptr @ASN1_item_d2i(ptr noundef, ptr noundef, i64 noundef, ptr noundef) l
 declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @ASN1_INT32_DATA_it() #5 {
+define internal noundef nonnull ptr @ASN1_INT32_DATA_it() #4 {
   ret ptr @ASN1_INT32_DATA_it.local_it
 }
 
@@ -905,7 +899,7 @@ declare ptr @INT32_it() #1
 declare ptr @ZINT32_it() #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @ASN1_UINT32_DATA_it() #5 {
+define internal noundef nonnull ptr @ASN1_UINT32_DATA_it() #4 {
   ret ptr @ASN1_UINT32_DATA_it.local_it
 }
 
@@ -932,7 +926,7 @@ declare ptr @UINT32_it() #1
 declare ptr @ZUINT32_it() #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @ASN1_INT64_DATA_it() #5 {
+define internal noundef nonnull ptr @ASN1_INT64_DATA_it() #4 {
   ret ptr @ASN1_INT64_DATA_it.local_it
 }
 
@@ -959,7 +953,7 @@ declare ptr @INT64_it() #1
 declare ptr @ZINT64_it() #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @ASN1_UINT64_DATA_it() #5 {
+define internal noundef nonnull ptr @ASN1_UINT64_DATA_it() #4 {
   ret ptr @ASN1_UINT64_DATA_it.local_it
 }
 
@@ -991,15 +985,21 @@ declare ptr @ASN1_item_new(ptr noundef) local_unnamed_addr #1
 
 declare ptr @DIRECTORYSTRING_it() #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #7 = { nounwind }
 attributes #8 = { noreturn nounwind }

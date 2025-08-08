@@ -95,7 +95,7 @@ define internal void @lv_image_event(ptr readnone captures(none) %0, ptr noundef
 
 15:                                               ; preds = %2
   %16 = tail call ptr @lv_event_get_current_target(ptr noundef %1) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %.preheader.i, label %lv_image_get_pivot.exit
 
@@ -164,7 +164,7 @@ lv_image_get_pivot.exit:                          ; preds = %15
   br i1 %.not105, label %draw_image.exit, label %47
 
 47:                                               ; preds = %44, %41, %37
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %48 = tail call i32 @lv_obj_get_width(ptr noundef nonnull %16) #6
   %49 = tail call i32 @lv_obj_get_height(ptr noundef nonnull %16) #6
   %50 = load i32, ptr %39, align 8, !tbaa !19
@@ -192,7 +192,7 @@ lv_image_get_pivot.exit:                          ; preds = %15
   %70 = sub nsw i32 %69, %49
   %71 = call i32 @llvm.smax.i32(i32 %67, i32 %70)
   store i32 %71, ptr %38, align 4, !tbaa !26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %draw_image.exit
 
 72:                                               ; preds = %lv_image_get_pivot.exit
@@ -273,7 +273,7 @@ lv_image_get_pivot.exit:                          ; preds = %15
 113:                                              ; preds = %109, %105, %102, %99, %96
   %114 = tail call i32 @lv_obj_get_width(ptr noundef nonnull %16) #6
   %115 = tail call i32 @lv_obj_get_height(ptr noundef nonnull %16) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %116 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %117 = load i32, ptr %116, align 8, !tbaa !19
   %118 = load i32, ptr %97, align 4, !tbaa !20
@@ -306,18 +306,18 @@ lv_image_get_pivot.exit:                          ; preds = %15
   %140 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %141 = zext i1 %139 to i8
   store i8 %141, ptr %140, align 8, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %draw_image.exit
 
 142:                                              ; preds = %109, %92, %87
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @lv_obj_get_click_area(ptr noundef nonnull %16, ptr noundef nonnull %12) #6
   %143 = load ptr, ptr %88, align 8, !tbaa !33
   %144 = call zeroext i1 @lv_area_is_point_on(ptr noundef nonnull %12, ptr noundef %143, i32 noundef 0) #6
   %145 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %146 = zext i1 %144 to i8
   store i8 %146, ptr %145, align 8, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %draw_image.exit
 
 147:                                              ; preds = %lv_image_get_pivot.exit
@@ -410,8 +410,8 @@ lv_image_get_pivot.exit:                          ; preds = %15
   br label %draw_image.exit
 
 193:                                              ; preds = %183, %179
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @lv_image_get_pivot(ptr noundef nonnull %154, ptr noundef nonnull %4)
   %194 = tail call i32 @lv_obj_get_width(ptr noundef nonnull %154) #6
   %195 = tail call i32 @lv_obj_get_height(ptr noundef nonnull %154) #6
@@ -447,13 +447,13 @@ lv_image_get_pivot.exit:                          ; preds = %15
 
 219:                                              ; preds = %193
   store i32 1, ptr %156, align 8, !tbaa !37
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %draw_image.exit
 
 .critedge.i:                                      ; preds = %193
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %220
 
 220:                                              ; preds = %.critedge.i, %187
@@ -503,12 +503,12 @@ lv_image_get_pivot.exit:                          ; preds = %15
   ]
 
 lv_image_get_pivot.exit.i:                        ; preds = %240, %240
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @lv_draw_image_dsc_init(ptr noundef nonnull %5) #6
   %245 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %241, ptr %245, align 8, !tbaa !41
   call void @lv_obj_init_draw_image_dsc(ptr noundef nonnull %154, i32 noundef 0, ptr noundef nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %246 = getelementptr inbounds nuw i8, ptr %241, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %246, i64 16, i1 false), !tbaa.struct !49
   %247 = getelementptr inbounds nuw i8, ptr %5, i64 88
@@ -571,7 +571,7 @@ lv_image_get_pivot.exit.i:                        ; preds = %240, %240
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %293 to i32
   %294 = getelementptr inbounds nuw i8, ptr %5, i64 128
   store i32 %.sroa.0.0.extract.trunc.i.i, ptr %294, align 8, !tbaa !55
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %295 = load i16, ptr %242, align 4
   %296 = lshr i16 %295, 8
   %297 = and i16 %296, 15
@@ -633,13 +633,13 @@ lv_image_get_pivot.exit.i:                        ; preds = %240, %240
 332:                                              ; preds = %331, %307, %299
   call void @lv_draw_image(ptr noundef nonnull %241, ptr noundef nonnull %5, ptr noundef nonnull %7) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %246, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !49
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %draw_image.exit
 
 333:                                              ; preds = %240
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @lv_draw_label_dsc_init(ptr noundef nonnull %8) #6
   %334 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %241, ptr %334, align 8, !tbaa !65
@@ -650,14 +650,14 @@ lv_image_get_pivot.exit.i:                        ; preds = %240, %240
   store ptr %336, ptr %337, align 8, !tbaa !70
   %338 = getelementptr inbounds nuw i8, ptr %154, i64 40
   call void @lv_draw_label(ptr noundef %241, ptr noundef nonnull %8, ptr noundef nonnull %338) #6
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %draw_image.exit
 
 default.unreachable:                              ; preds = %240
   unreachable
 
 draw_image.exit:                                  ; preds = %333, %332, %240, %236, %232, %228, %224, %223, %220, %219, %192, %178, %174, %169, %163, %155, %152, %lv_image_get_pivot.exit, %113, %142, %44, %47, %147, %72, %86, %83, %33, %36
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %339
 
 339:                                              ; preds = %2, %draw_image.exit
@@ -671,15 +671,9 @@ define noundef ptr @lv_image_create(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_image_set_src(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -721,7 +715,7 @@ define void @lv_image_set_src(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br label %95
 
 19:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %20 = call i32 @lv_image_decoder_get_info(ptr noundef %1, ptr noundef nonnull %3) #6
   %.not61 = icmp eq i32 %20, 1
   br i1 %.not61, label %21, label %94
@@ -794,7 +788,7 @@ define void @lv_image_set_src(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %50 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 92) #6
   %51 = ptrtoint ptr %50 to i64
   %.sroa.0.0.extract.trunc.i72 = trunc i64 %51 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @lv_text_get_size(ptr noundef nonnull %4, ptr noundef %1, ptr noundef %47, i32 noundef %.sroa.0.0.extract.trunc.i, i32 noundef %.sroa.0.0.extract.trunc.i72, i32 noundef 536870911, i32 noundef 0) #6
   %52 = load i32, ptr %4, align 4, !tbaa !23
   %53 = load i64, ptr %3, align 8
@@ -810,7 +804,7 @@ define void @lv_image_set_src(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %63 = shl nuw i64 %62, 48
   %64 = or disjoint i64 %63, %58
   store i64 %64, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 .thread:                                          ; preds = %30, %32, %46, %44
@@ -863,26 +857,26 @@ define void @lv_image_set_src(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br label %94
 
 94:                                               ; preds = %19, %93
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %95
 
 95:                                               ; preds = %94, %15
   ret void
 }
 
-declare void @lv_obj_invalidate(ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_invalidate(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_image_src_get_type(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_image_src_get_type(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_free(ptr noundef) local_unnamed_addr #2
+declare void @lv_free(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_image_decoder_get_info(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lv_image_decoder_get_info(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_strdup(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_strdup(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_text_get_size(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_text_get_size(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @lv_obj_refresh_self_size(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @lv_obj_refresh_self_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @update_align(ptr noundef %0) unnamed_addr #0 {
@@ -932,7 +926,7 @@ define internal fastcc void @update_align(ptr noundef %0) unnamed_addr #0 {
   ret void
 }
 
-declare void @lv_obj_refresh_ext_draw_size(ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_refresh_ext_draw_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_image_set_offset_x(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1010,8 +1004,8 @@ lv_image_get_pivot.exit:                          ; preds = %.loopexit
   tail call void @lv_obj_update_layout(ptr noundef nonnull %0) #6
   %26 = tail call i32 @lv_obj_get_width(ptr noundef nonnull %0) #6
   %27 = tail call i32 @lv_obj_get_height(ptr noundef nonnull %0) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %29 = load i32, ptr %28, align 4, !tbaa !22
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1079,19 +1073,19 @@ lv_image_get_pivot.exit:                          ; preds = %.loopexit
   %76 = add nsw i32 %75, %70
   store i32 %76, ptr %58, align 4, !tbaa !30
   call void @lv_obj_invalidate_area(ptr noundef nonnull %0, ptr noundef nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %77
 
 77:                                               ; preds = %.loopexit, %lv_image_get_pivot.exit
   ret void
 }
 
-declare void @lv_obj_update_layout(ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_update_layout(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_width(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_width(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_height(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_height(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_image_get_pivot(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
@@ -1118,13 +1112,13 @@ define void @lv_image_get_pivot(ptr noundef readonly captures(address_is_null) %
   ret void
 }
 
-declare void @lv_image_buf_get_transformed_area(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i16 noundef zeroext, i16 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare void @lv_image_buf_get_transformed_area(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i16 noundef zeroext, i16 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_invalidate_area(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_invalidate_area(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_get_display(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_obj_get_display(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_display_enable_invalidation(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @lv_display_enable_invalidation(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_image_set_pivot(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -1158,8 +1152,8 @@ lv_image_get_pivot.exit43:                        ; preds = %14, %6
   tail call void @lv_obj_update_layout(ptr noundef nonnull %0) #6
   %18 = tail call i32 @lv_obj_get_width(ptr noundef nonnull %0) #6
   %19 = tail call i32 @lv_obj_get_height(ptr noundef nonnull %0) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %20 = load i32, ptr %11, align 4, !tbaa !22
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %22 = load i32, ptr %21, align 8, !tbaa !17
@@ -1235,15 +1229,15 @@ lv_image_get_pivot.exit43:                        ; preds = %14, %6
   %74 = add nsw i32 %73, %68
   store i32 %74, ptr %50, align 4, !tbaa !30
   call void @lv_obj_invalidate_area(ptr noundef nonnull %0, ptr noundef nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %75
 
 75:                                               ; preds = %14, %lv_image_get_pivot.exit43
   ret void
 }
 
-declare void @lv_point_set(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_point_set(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_image_set_scale(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1288,8 +1282,8 @@ define internal fastcc void @scale_update(ptr noundef %0, i32 noundef %1, i32 no
   tail call void @lv_obj_update_layout(ptr noundef %0) #6
   %6 = tail call i32 @lv_obj_get_width(ptr noundef %0) #6
   %7 = tail call i32 @lv_obj_get_height(ptr noundef %0) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %.preheader.i, label %lv_image_get_pivot.exit
 
@@ -1374,8 +1368,8 @@ lv_image_get_pivot.exit:                          ; preds = %3
   %65 = add nsw i32 %63, %64
   store i32 %65, ptr %43, align 4, !tbaa !30
   call void @lv_obj_invalidate_area(ptr noundef nonnull %0, ptr noundef nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1573,7 +1567,7 @@ define void @lv_image_set_bitmap_map_src(ptr noundef %0, ptr noundef %1) local_u
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_image_get_src(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define ptr @lv_image_get_src(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1587,7 +1581,7 @@ define ptr @lv_image_get_src(ptr noundef readonly captures(address_is_null) %0) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_image_get_offset_x(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define i32 @lv_image_get_offset_x(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1601,7 +1595,7 @@ define i32 @lv_image_get_offset_x(ptr noundef readonly captures(address_is_null)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_image_get_offset_y(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define i32 @lv_image_get_offset_y(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1615,7 +1609,7 @@ define i32 @lv_image_get_offset_y(ptr noundef readonly captures(address_is_null)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_image_get_rotation(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define i32 @lv_image_get_rotation(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1628,10 +1622,10 @@ define i32 @lv_image_get_rotation(ptr noundef readonly captures(address_is_null)
   ret i32 %4
 }
 
-declare i32 @lv_pct_to_px(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @lv_pct_to_px(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_image_get_scale(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define i32 @lv_image_get_scale(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1645,7 +1639,7 @@ define i32 @lv_image_get_scale(ptr noundef readonly captures(address_is_null) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_image_get_scale_x(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define i32 @lv_image_get_scale_x(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1659,7 +1653,7 @@ define i32 @lv_image_get_scale_x(ptr noundef readonly captures(address_is_null) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_image_get_scale_y(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define i32 @lv_image_get_scale_y(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1673,7 +1667,7 @@ define i32 @lv_image_get_scale_y(ptr noundef readonly captures(address_is_null) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 16) i32 @lv_image_get_blend_mode(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define range(i32 0, 16) i32 @lv_image_get_blend_mode(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1689,7 +1683,7 @@ define range(i32 0, 16) i32 @lv_image_get_blend_mode(ptr noundef readonly captur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i1 @lv_image_get_antialias(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define zeroext i1 @lv_image_get_antialias(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1705,7 +1699,7 @@ define zeroext i1 @lv_image_get_antialias(ptr noundef readonly captures(address_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 16) i32 @lv_image_get_inner_align(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define range(i32 0, 16) i32 @lv_image_get_inner_align(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1722,7 +1716,7 @@ define range(i32 0, 16) i32 @lv_image_get_inner_align(ptr noundef readonly captu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_image_get_bitmap_map_src(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define ptr @lv_image_get_bitmap_map_src(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1735,52 +1729,58 @@ define ptr @lv_image_get_bitmap_map_src(ptr noundef readonly captures(address_is
   ret ptr %4
 }
 
-declare ptr @lv_obj_get_style_prop(ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare ptr @lv_obj_get_style_prop(ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
-declare void @lv_obj_remove_flag(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_remove_flag(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_add_flag(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_add_flag(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @lv_event_get_code(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_event_get_code(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_event_base(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_event_base(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_event_get_current_target(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_current_target(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_event_get_param(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_param(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @lv_area_is_point_on(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @lv_area_is_point_on(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_get_click_area(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_get_click_area(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @lv_color_format_has_alpha(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @lv_color_format_has_alpha(i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @lv_area_is_in(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @lv_area_is_in(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lv_event_get_layer(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_layer(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_draw_image_dsc_init(ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_image_dsc_init(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_init_draw_image_dsc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_init_draw_image_dsc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare void @lv_area_set(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_area_set(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_area_align(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_area_align(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @lv_area_intersect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @lv_area_intersect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_area_move(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_area_move(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_draw_image(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_image(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_draw_label_dsc_init(ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_label_dsc_init(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_init_draw_label_dsc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_init_draw_label_dsc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_draw_label(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_label(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #5
@@ -1789,10 +1789,10 @@ declare i32 @llvm.umax.i32(i32, i32) #5
 declare i32 @llvm.smax.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

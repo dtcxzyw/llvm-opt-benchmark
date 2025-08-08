@@ -43,7 +43,7 @@ define internal fastcc void @"_ZN4core3ptr269drop_in_place$LT$core..result..Resu
   ret void
 
 5:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !6
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hed26c23aaf3dd599E.llvm.1773065985454848448"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8, !range !19, !noalias !6, !noundef !5
@@ -59,14 +59,14 @@ define internal fastcc void @"_ZN4core3ptr269drop_in_place$LT$core..result..Resu
   br label %"_ZN4core3ptr59drop_in_place$LT$grep_printer..hyperlink..HyperlinkPath$GT$17h8963b87e43f0e994E.exit.i.i"
 
 "_ZN4core3ptr59drop_in_place$LT$grep_printer..hyperlink..HyperlinkPath$GT$17h8963b87e43f0e994E.exit.i.i": ; preds = %8, %5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !6
   br label %"_ZN4core3ptr168drop_in_place$LT$$LP$$RF$core..option..Option$LT$grep_printer..hyperlink..HyperlinkPath$GT$$C$core..option..Option$LT$grep_printer..hyperlink..HyperlinkPath$GT$$RP$$GT$17hc29f5632de4e1f1fE.exit"
 }
 
 ; Function Attrs: cold nonlazybind uwtable
 define internal fastcc void @"_ZN4core4cell4once17OnceCell$LT$T$GT$15get_or_try_init13outlined_call17h6b2a19886a270af2E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #1 {
   %3 = alloca { i64, [2 x i64] }, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !20
   %4 = load i64, ptr %1, align 8, !range !19, !alias.scope !23, !noalias !26, !noundef !5
   %5 = icmp eq i64 %4, -9223372036854775808
   br i1 %5, label %6, label %13
@@ -90,7 +90,7 @@ define internal fastcc void @"_ZN4core4cell4once17OnceCell$LT$T$GT$15get_or_try_
   %16 = extractvalue { ptr, i64 } %.merged.i.i.i.i.i.i, 1
   call void @_ZN12grep_printer9hyperlink13HyperlinkPath9from_path17h383c3882e62f3f64E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %15, i64 noundef %16), !noalias !20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !20
   ret void
 }
 
@@ -105,7 +105,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core4cell4on
 
 8:                                                ; preds = %2
   call fastcc void @"_ZN4core4cell4once17OnceCell$LT$T$GT$15get_or_try_init13outlined_call17h6b2a19886a270af2E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 8 %1)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   %9 = load i64, ptr %0, align 8, !range !4, !noalias !35, !noundef !5
@@ -129,11 +129,11 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core4cell4on
   br i1 %13, label %"_ZN4core3ptr269drop_in_place$LT$core..result..Result$LT$$RF$core..option..Option$LT$grep_printer..hyperlink..HyperlinkPath$GT$$C$$LP$$RF$core..option..Option$LT$grep_printer..hyperlink..HyperlinkPath$GT$$C$core..option..Option$LT$grep_printer..hyperlink..HyperlinkPath$GT$$RP$$GT$$GT$17h544b8d1467184fcfE.exit", label %14
 
 "_ZN4core3ptr269drop_in_place$LT$core..result..Result$LT$$RF$core..option..Option$LT$grep_printer..hyperlink..HyperlinkPath$GT$$C$$LP$$RF$core..option..Option$LT$grep_printer..hyperlink..HyperlinkPath$GT$$C$core..option..Option$LT$grep_printer..hyperlink..HyperlinkPath$GT$$RP$$GT$$GT$17h544b8d1467184fcfE.exit": ; preds = %"_ZN4core4cell4once17OnceCell$LT$T$GT$10try_insert17h2f1b10eaab8d55cfE.exit.thread", %"_ZN4core4cell4once17OnceCell$LT$T$GT$10try_insert17h2f1b10eaab8d55cfE.exit"
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %19
 
 14:                                               ; preds = %"_ZN4core4cell4once17OnceCell$LT$T$GT$10try_insert17h2f1b10eaab8d55cfE.exit"
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @anon.0923cb38b7fdc9785e1561170331db22.7, ptr %3, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %15, align 8
@@ -420,12 +420,6 @@ declare void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 nou
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @_ZN12grep_printer9hyperlink13HyperlinkPath9from_path17h383c3882e62f3f64E(ptr noalias noundef sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
-
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hed26c23aaf3dd599E.llvm.1773065985454848448"(ptr noalias noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
 
@@ -434,6 +428,12 @@ declare hidden void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..All
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden { ptr, i64 } @"_ZN5alloc5slice98_$LT$impl$u20$core..borrow..Borrow$LT$$u5b$T$u5d$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A$GT$$GT$6borrow17h69b1689a2a9074d0E.llvm.5128983867462840767"(ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13

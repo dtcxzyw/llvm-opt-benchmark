@@ -474,18 +474,15 @@ switch.early.test:                                ; preds = %60
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare i32 @SUNLinSolGetType(ptr noundef) local_unnamed_addr #2
+declare i32 @SUNLinSolGetType(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkLsDQJac(double noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr readnone captures(none) %7) #0 {
@@ -668,7 +665,7 @@ arkLs_AccessARKODELMem.exit.thread:               ; preds = %30, %32, %15, %9, %
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -11, 2) i32 @arkLsLinSys(double noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef writeonly captures(none) %6, double noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) #0 {
@@ -792,13 +789,13 @@ arkLs_AccessARKODELMem.exit.thread:               ; preds = %20, %14, %58, %59, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @arkLsInitializeCounters(ptr noundef writeonly captures(none) initializes((128, 200)) %0) local_unnamed_addr #6 {
+define noundef i32 @arkLsInitializeCounters(ptr noundef writeonly captures(none) initializes((128, 200)) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 72, i1 false)
   ret i32 0
 }
 
-declare i32 @SUNLinSolSetATimes(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNLinSolSetATimes(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkLsATimes(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -806,10 +803,10 @@ define i32 @arkLsATimes(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %5 = alloca double, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp eq ptr %0, null
   br i1 %8, label %9, label %10
 
@@ -896,23 +893,23 @@ arkLs_AccessARKODELMem.exit:                      ; preds = %10
 
 arkLs_AccessARKODELMem.exit.thread:               ; preds = %15, %9, %47, %51, %44, %26, %25
   %.022 = phi i32 [ %24, %25 ], [ %39, %26 ], [ %46, %44 ], [ 0, %51 ], [ 0, %47 ], [ -2, %15 ], [ -1, %9 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.022
 }
 
-declare i32 @SUNLinSolSetPreconditioner(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNLinSolSetPreconditioner(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @arkAllocVec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @arkAllocVec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @arkFreeVec(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @arkFreeVec(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @N_VGetLength(ptr noundef) local_unnamed_addr #2
+declare i64 @N_VGetLength(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #7
+declare double @sqrt(double noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkLsInitialize(ptr noundef %0) #0 {
@@ -1192,10 +1189,10 @@ define i32 @arkLsSetup(ptr noundef %0, i32 noundef %1, double noundef %2, ptr no
   %11 = alloca double, align 8
   %12 = alloca i32, align 4
   %13 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %15 = load ptr, ptr %14, align 8, !tbaa !33
   %16 = tail call ptr %15(ptr noundef %0) #13
@@ -1399,10 +1396,10 @@ arkLs_AccessLMem.exit:                            ; preds = %9
 
 115:                                              ; preds = %96, %114, %112, %arkLs_AccessLMem.exit, %87, %93, %92, %64, %33, %23
   %.046 = phi i32 [ 0, %23 ], [ %34, %33 ], [ %65, %64 ], [ -1, %92 ], [ 1, %93 ], [ -2, %arkLs_AccessLMem.exit ], [ %76, %87 ], [ %99, %112 ], [ %.pre89, %114 ], [ %99, %96 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.046
 }
 
@@ -1412,10 +1409,10 @@ define i32 @arkLsSolve(ptr noundef %0, ptr noundef %1, double noundef %2, ptr no
   %9 = alloca double, align 8
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %13 = load ptr, ptr %12, align 8, !tbaa !33
   %14 = tail call ptr %13(ptr noundef %0) #13
@@ -1678,10 +1675,10 @@ arkLs_AccessLMem.exit:                            ; preds = %7
 
 138:                                              ; preds = %arkLs_AccessLMem.exit, %126, %126, %126, %126, %126, %126, %131, %63, %137, %136, %135, %134, %133, %95, %79, %51, %32
   %.0 = phi i32 [ 0, %32 ], [ -12, %51 ], [ %80, %79 ], [ %96, %95 ], [ 0, %137 ], [ -1, %133 ], [ -1, %134 ], [ -1, %135 ], [ -1, %136 ], [ -2, %arkLs_AccessLMem.exit ], [ -1, %63 ], [ %., %131 ], [ 1, %126 ], [ 1, %126 ], [ 1, %126 ], [ 1, %126 ], [ 1, %126 ], [ 1, %126 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
@@ -1752,10 +1749,7 @@ define noundef i32 @arkLsFree(ptr noundef %0) #0 {
   ret i32 0
 }
 
-declare void @N_VDestroy(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @N_VDestroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKodeSetMassLinearSolver(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -2083,7 +2077,7 @@ switch.early.test:                                ; preds = %61
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @arkLsInitializeMassCounters(ptr noundef writeonly captures(none) initializes((64, 144)) %0) local_unnamed_addr #6 {
+define noundef i32 @arkLsInitializeMassCounters(ptr noundef writeonly captures(none) initializes((64, 144)) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 72, i1 false)
@@ -2091,9 +2085,9 @@ define noundef i32 @arkLsInitializeMassCounters(ptr noundef writeonly captures(n
   ret i32 0
 }
 
-declare ptr @SUNMatClone(ptr noundef) local_unnamed_addr #2
+declare ptr @SUNMatClone(ptr noundef) local_unnamed_addr #1
 
-declare void @SUNMatDestroy(ptr noundef) local_unnamed_addr #2
+declare void @SUNMatDestroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkLsMassInitialize(ptr noundef %0) #0 {
@@ -3134,9 +3128,9 @@ arkLs_AccessLMem.exit:                            ; preds = %9
   ret i32 %.0
 }
 
-declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #1
 
-declare double @N_VDotProd(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare double @N_VDotProd(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -48, 1) i32 @ARKodeSetJacEvalFrequency(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -3298,10 +3292,10 @@ define i32 @arkLsPSetup(ptr noundef %0) #0 {
   %3 = alloca double, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -3353,10 +3347,10 @@ arkLs_AccessARKODELMem.exit:                      ; preds = %8
 
 arkLs_AccessARKODELMem.exit.thread:               ; preds = %13, %7, %18, %17
   %.0 = phi i32 [ %16, %17 ], [ %34, %18 ], [ -2, %13 ], [ -1, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -3366,10 +3360,10 @@ define i32 @arkLsPSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, double n
   %7 = alloca double, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = icmp eq ptr %0, null
   br i1 %10, label %11, label %12
 
@@ -3420,10 +3414,10 @@ arkLs_AccessARKODELMem.exit:                      ; preds = %12
 
 arkLs_AccessARKODELMem.exit.thread:               ; preds = %17, %11, %22, %21
   %.0 = phi i32 [ %20, %21 ], [ %34, %22 ], [ -2, %17 ], [ -1, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -3776,10 +3770,10 @@ define range(i32 -21, 1) i32 @ARKodeGetLinWorkSpace(ptr noundef %0, ptr noundef 
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp eq ptr %0, null
   br i1 %8, label %9, label %10
 
@@ -3893,18 +3887,18 @@ arkLs_AccessLMem.exit:                            ; preds = %14
 
 70:                                               ; preds = %arkLs_AccessLMem.exit, %53, %63, %60, %13, %9
   %.0 = phi i32 [ -21, %9 ], [ 0, %13 ], [ -2, %arkLs_AccessLMem.exit ], [ 0, %60 ], [ 0, %63 ], [ 0, %53 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare void @N_VSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNMatSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNMatSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNLinSolSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNLinSolSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -21, 1) i32 @ARKodeGetNumJacEvals(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
@@ -4318,7 +4312,7 @@ arkLs_AccessLMem.exit:                            ; preds = %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: none) uwtable
-define noalias noundef ptr @ARKodeGetLinReturnFlagName(i64 noundef %0) local_unnamed_addr #8 {
+define noalias noundef ptr @ARKodeGetLinReturnFlagName(i64 noundef %0) local_unnamed_addr #7 {
   %2 = tail call noalias dereferenceable_or_null(30) ptr @malloc(i64 noundef 30) #14
   switch i64 %0, label %15 [
     i64 0, label %3
@@ -4754,10 +4748,10 @@ define range(i32 -21, 1) i32 @ARKodeGetMassWorkSpace(ptr noundef %0, ptr noundef
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp eq ptr %0, null
   br i1 %8, label %9, label %10
 
@@ -4874,10 +4868,10 @@ arkLs_AccessMassMem.exit:                         ; preds = %14
 
 70:                                               ; preds = %arkLs_AccessMassMem.exit, %53, %63, %60, %13, %9
   %.0 = phi i32 [ -21, %9 ], [ 0, %13 ], [ -6, %arkLs_AccessMassMem.exit ], [ 0, %60 ], [ 0, %63 ], [ 0, %53 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -5411,7 +5405,7 @@ define range(i32 -2, 1) i32 @arkLs_AccessARKODELMem(ptr noundef %0, ptr noundef 
   ret i32 %.0
 }
 
-declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -6, 1) i32 @arkLs_AccessARKODEMassMem(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
@@ -5444,9 +5438,9 @@ define range(i32 -6, 1) i32 @arkLs_AccessARKODEMassMem(ptr noundef %0, ptr nound
   ret i32 %.0
 }
 
-declare i32 @SUNMatMatvec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNMatMatvec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNMatGetID(ptr noundef) local_unnamed_addr #2
+declare i32 @SUNMatGetID(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @arkLsDenseDQJac(double noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef %7) local_unnamed_addr #0 {
@@ -5835,54 +5829,60 @@ define i32 @arkLsBandDQJac(double noundef %0, ptr noundef %1, ptr noundef %2, pt
   ret i32 %.1
 }
 
-declare i64 @SUNDenseMatrix_Columns(ptr noundef) local_unnamed_addr #2
+declare i64 @SUNDenseMatrix_Columns(ptr noundef) local_unnamed_addr #1
 
-declare ptr @N_VCloneEmpty(ptr noundef) local_unnamed_addr #2
+declare ptr @N_VCloneEmpty(ptr noundef) local_unnamed_addr #1
 
-declare ptr @N_VGetArrayPointer(ptr noundef) local_unnamed_addr #2
+declare ptr @N_VGetArrayPointer(ptr noundef) local_unnamed_addr #1
 
-declare double @N_VWrmsNorm(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare double @N_VWrmsNorm(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #9
+declare double @llvm.fabs.f64(double) #8
 
-declare void @N_VSetArrayPointer(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VSetArrayPointer(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @SUNDenseMatrix_Column(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @SUNDenseMatrix_Column(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @SUNBandMatrix_Columns(ptr noundef) local_unnamed_addr #2
+declare i64 @SUNBandMatrix_Columns(ptr noundef) local_unnamed_addr #1
 
-declare i64 @SUNBandMatrix_UpperBandwidth(ptr noundef) local_unnamed_addr #2
+declare i64 @SUNBandMatrix_UpperBandwidth(ptr noundef) local_unnamed_addr #1
 
-declare i64 @SUNBandMatrix_LowerBandwidth(ptr noundef) local_unnamed_addr #2
+declare i64 @SUNBandMatrix_LowerBandwidth(ptr noundef) local_unnamed_addr #1
 
-declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @SUNBandMatrix_Column(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @SUNBandMatrix_Column(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @SUNLinSolInitialize(ptr noundef) local_unnamed_addr #2
+declare i32 @SUNLinSolInitialize(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNLinSolSetup(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNLinSolSetup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNLinSolSetScalingVectors(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNLinSolSetScalingVectors(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNLinSolSetZeroGuess(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @SUNLinSolSetZeroGuess(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @SUNLinSolSolve(ptr noundef, ptr noundef, ptr noundef, ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @SUNLinSolSolve(ptr noundef, ptr noundef, ptr noundef, ptr noundef, double noundef) local_unnamed_addr #1
 
-declare double @SUNLinSolResNorm(ptr noundef) local_unnamed_addr #2
+declare double @SUNLinSolResNorm(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNLinSolNumIters(ptr noundef) local_unnamed_addr #2
+declare i32 @SUNLinSolNumIters(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNMatZero(ptr noundef) local_unnamed_addr #2
+declare i32 @SUNMatZero(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNMatCopy(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNMatCopy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNMatMatvecSetup(ptr noundef) local_unnamed_addr #2
+declare i32 @SUNMatMatvecSetup(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNMatScaleAddI(double noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNMatScaleAddI(double noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNMatScaleAdd(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNMatScaleAdd(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
@@ -5897,15 +5897,15 @@ declare i64 @llvm.smax.i64(i64, i64) #11
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }

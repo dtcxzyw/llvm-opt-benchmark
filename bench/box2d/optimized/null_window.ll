@@ -122,7 +122,7 @@ define hidden range(i32 0, 2) i32 @_glfwCreateWindowNull(ptr noundef %0, ptr nou
   br i1 %.not.i, label %16, label %8
 
 8:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = call i32 @_glfwGetVideoModeNull(ptr noundef nonnull %7, ptr noundef nonnull %5) #11
   %10 = load ptr, ptr %6, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 3368
@@ -131,7 +131,7 @@ define hidden range(i32 0, 2) i32 @_glfwCreateWindowNull(ptr noundef %0, ptr nou
   %13 = load i32, ptr %5, align 4, !tbaa !50
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %15 = load i32, ptr %14, align 4, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %createNativeWindow.exit
 
 16:                                               ; preds = %4
@@ -483,7 +483,7 @@ releaseMonitor.exit:                              ; preds = %32, %29, %28
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 3384
   store i32 1, ptr %35, align 8, !tbaa !65
   tail call void @_glfwInputMonitorWindow(ptr noundef nonnull %33, ptr noundef nonnull %0) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %36 = load ptr, ptr %9, align 8, !tbaa !3
   %37 = call i32 @_glfwGetVideoModeNull(ptr noundef %36, ptr noundef nonnull %8) #11
   %38 = load ptr, ptr %9, align 8, !tbaa !3
@@ -497,7 +497,7 @@ releaseMonitor.exit:                              ; preds = %32, %29, %28
   %44 = load i32, ptr %43, align 4, !tbaa !51
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 3380
   store i32 %44, ptr %45, align 4, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_glfwSetWindowSizeNull.exit
 
 46:                                               ; preds = %releaseMonitor.exit
@@ -764,12 +764,6 @@ applySizeLimits.exit:                             ; preds = %34, %39, %36
 _glfwSetWindowSizeNull.exit:                      ; preds = %applySizeLimits.exit, %45, %47
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nounwind uwtable
 define hidden void @_glfwSetWindowAspectRatioNull(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -1088,14 +1082,14 @@ define hidden void @_glfwMaximizeWindowNull(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @_glfwWindowMaximizedNull(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define hidden i32 @_glfwWindowMaximizedNull(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3392
   %3 = load i32, ptr %2, align 8, !tbaa !69
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @_glfwWindowHoveredNull(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @_glfwWindowHoveredNull(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142744), align 8, !tbaa !172
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 3368
   %4 = load i32, ptr %3, align 8, !tbaa !58
@@ -1130,7 +1124,7 @@ define hidden range(i32 0, 2) i32 @_glfwWindowHoveredNull(ptr noundef readonly c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @_glfwFramebufferTransparentNull(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define hidden i32 @_glfwFramebufferTransparentNull(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3408
   %3 = load i32, ptr %2, align 8, !tbaa !74
   ret i32 %3
@@ -1158,7 +1152,7 @@ define hidden void @_glfwSetWindowFloatingNull(ptr noundef writeonly captures(no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden float @_glfwGetWindowOpacityNull(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define hidden float @_glfwGetWindowOpacityNull(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3412
   %3 = load float, ptr %2, align 4, !tbaa !75
   ret float %3
@@ -1204,7 +1198,7 @@ define hidden void @_glfwHideWindowNull(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @_glfwWindowFocusedNull(ptr noundef readnone captures(address) %0) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @_glfwWindowFocusedNull(ptr noundef readnone captures(address) %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142760), align 8, !tbaa !82
   %3 = icmp eq ptr %2, %0
   %4 = zext i1 %3 to i32
@@ -1212,14 +1206,14 @@ define hidden range(i32 0, 2) i32 @_glfwWindowFocusedNull(ptr noundef readnone c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @_glfwWindowIconifiedNull(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define hidden i32 @_glfwWindowIconifiedNull(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3388
   %3 = load i32, ptr %2, align 4, !tbaa !153
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @_glfwWindowVisibleNull(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define hidden i32 @_glfwWindowVisibleNull(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3384
   %3 = load i32, ptr %2, align 8, !tbaa !65
   ret i32 %3
@@ -1246,7 +1240,7 @@ define hidden void @_glfwPostEmptyEventNull() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_glfwGetCursorPosNull(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #9 {
+define hidden void @_glfwGetCursorPosNull(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #8 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %4
 
@@ -1277,7 +1271,7 @@ define hidden void @_glfwGetCursorPosNull(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define hidden void @_glfwSetCursorPosNull(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2) local_unnamed_addr #10 {
+define hidden void @_glfwSetCursorPosNull(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2) local_unnamed_addr #9 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 3368
   %5 = load i32, ptr %4, align 8, !tbaa !58
   %6 = fptosi double %1 to i32
@@ -1330,7 +1324,7 @@ declare ptr @_glfw_strdup(ptr noundef) local_unnamed_addr #1
 declare void @_glfw_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden ptr @_glfwGetClipboardStringNull() local_unnamed_addr #8 {
+define hidden ptr @_glfwGetClipboardStringNull() local_unnamed_addr #7 {
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142752), align 8, !tbaa !176
   ret ptr %1
 }
@@ -1379,7 +1373,7 @@ switch.lookup:                                    ; preds = %4
 declare void @_glfwInputError(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 256) i32 @_glfwGetKeyScancodeNull(i32 noundef %0) local_unnamed_addr #8 {
+define hidden range(i32 0, 256) i32 @_glfwGetKeyScancodeNull(i32 noundef %0) local_unnamed_addr #7 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds [349 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143010), i64 0, i64 %2
   %4 = load i8, ptr %3, align 1, !tbaa !177
@@ -1412,17 +1406,23 @@ declare i32 @_glfw_max(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @_glfw_min(i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

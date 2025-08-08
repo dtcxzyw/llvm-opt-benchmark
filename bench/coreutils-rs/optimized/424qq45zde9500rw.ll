@@ -152,7 +152,7 @@ define hidden void @_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hcba9c
   br i1 %.not, label %19, label %9
 
 9:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8, !noundef !9
   store ptr %.pre, ptr %4, align 8
@@ -185,14 +185,14 @@ define hidden void @_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hcba9c
   store i64 %26, ptr %7, align 8
   %27 = load i64, ptr %14, align 8, !noundef !9
   store i64 %27, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %19
 
 28:                                               ; preds = %9
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %17, ptr %29, align 8
   store ptr null, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %30
 
 30:                                               ; preds = %28, %19
@@ -361,7 +361,7 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
 
 15:                                               ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !55
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !55
   store ptr %.pre.i, ptr %5, align 8, !noalias !55
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %12, ptr %17, align 8, !noalias !55
@@ -382,11 +382,11 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
   store i64 %25, ptr %8, align 8, !alias.scope !48, !noalias !53
   %26 = load i64, ptr %19, align 8, !noalias !55, !noundef !9
   store i64 %26, ptr %20, align 8, !alias.scope !48, !noalias !53
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !55
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !55
   br label %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h4db2195cffbeb9eaE.exit
 
 _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h4db2195cffbeb9eaE.exit.thread: ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !55
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !55
   br label %43
 
 _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h4db2195cffbeb9eaE.exit: ; preds = %14, %24
@@ -463,7 +463,7 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
 
 15:                                               ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !79
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !79
   store ptr %.pre.i, ptr %5, align 8, !noalias !79
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %12, ptr %17, align 8, !noalias !79
@@ -484,11 +484,11 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
   store i64 %25, ptr %8, align 8, !alias.scope !72, !noalias !77
   %26 = load i64, ptr %19, align 8, !noalias !79, !noundef !9
   store i64 %26, ptr %20, align 8, !alias.scope !72, !noalias !77
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !79
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !79
   br label %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hcba9c7e47689174bE.llvm.678384216342861276.exit
 
 _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hcba9c7e47689174bE.llvm.678384216342861276.exit.thread: ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !79
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !79
   br label %43
 
 _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hcba9c7e47689174bE.llvm.678384216342861276.exit: ; preds = %14, %24
@@ -579,7 +579,7 @@ define hidden noundef ptr @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !103
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !103
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8, !alias.scope !96, !noalias !101, !noundef !9
   store ptr %.pre.i, ptr %4, align 8, !noalias !103
@@ -602,11 +602,11 @@ define hidden noundef ptr @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT
   store i64 %33, ptr %7, align 8, !alias.scope !96, !noalias !101
   %34 = load i64, ptr %27, align 8, !noalias !103, !noundef !9
   store i64 %34, ptr %28, align 8, !alias.scope !96, !noalias !101
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !103
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !103
   br label %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hcba9c7e47689174bE.llvm.678384216342861276.exit
 
 _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hcba9c7e47689174bE.llvm.678384216342861276.exit.thread: ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !103
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !103
   br label %56
 
 _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hcba9c7e47689174bE.llvm.678384216342861276.exit: ; preds = %18, %32
@@ -695,7 +695,7 @@ define hidden noundef ptr @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !130
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !130
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8, !alias.scope !123, !noalias !128, !noundef !9
   store ptr %.pre.i, ptr %4, align 8, !noalias !130
@@ -718,11 +718,11 @@ define hidden noundef ptr @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT
   store i64 %33, ptr %7, align 8, !alias.scope !123, !noalias !128
   %34 = load i64, ptr %27, align 8, !noalias !130, !noundef !9
   store i64 %34, ptr %28, align 8, !alias.scope !123, !noalias !128
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !130
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !130
   br label %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h4db2195cffbeb9eaE.exit
 
 _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h4db2195cffbeb9eaE.exit.thread: ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !130
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !130
   br label %56
 
 _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h4db2195cffbeb9eaE.exit: ; preds = %18, %32
@@ -802,7 +802,7 @@ define hidden void @"_ZN85_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !157
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !157
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8, !alias.scope !152, !noalias !156, !noundef !9
   store ptr %.pre.i, ptr %3, align 8, !noalias !157
@@ -835,14 +835,14 @@ define hidden void @"_ZN85_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
   store i64 %26, ptr %6, align 8, !alias.scope !152, !noalias !156
   %27 = load i64, ptr %14, align 8, !noalias !157, !noundef !9
   store i64 %27, ptr %15, align 8, !alias.scope !152, !noalias !156
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !157
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !157
   br label %19
 
 28:                                               ; preds = %8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %17, ptr %29, align 8, !alias.scope !149, !noalias !161
   store ptr null, ptr %0, align 8, !alias.scope !149, !noalias !161
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !157
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !157
   br label %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hcba9c7e47689174bE.llvm.678384216342861276.exit
 
 _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hcba9c7e47689174bE.llvm.678384216342861276.exit: ; preds = %19, %28
@@ -879,17 +879,17 @@ declare void @_ZN3std3sys3pal4unix2fs4File4read17hafbec41c56b1e114E(ptr noalias 
 ; Function Attrs: nonlazybind uwtable
 declare noundef ptr @_ZN3std3sys3pal4unix2fs4File8read_buf17he28155d9ecabbe92E(ptr noalias noundef readonly align 4 dereferenceable(4), ptr noalias noundef align 8 dereferenceable(32), i64 noundef) unnamed_addr #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
-
 ; Function Attrs: nonlazybind uwtable
 declare hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h87b3740d8a2dc34bE"(i64 noundef, i1 noundef zeroext) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN76_$LT$std..fs..File$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$10properties17hb84601ea182344d7E"(ptr noalias noundef sret({ { i64, [21 x i64] }, { i32, [1 x i32] } }) align 8 captures(none) dereferenceable(184), ptr noalias noundef readonly align 4 dereferenceable(4)) unnamed_addr #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #10

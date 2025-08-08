@@ -81,12 +81,6 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12ARMExce
   ret ptr %7
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
-
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvm12ARMException13beginFunctionEPKNS_15MachineFunctionE(ptr noundef nonnull align 8 captures(none) dereferenceable(26) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -352,7 +346,7 @@ define hidden void @_ZN4llvm12ARMException13emitTypeInfosEjPNS_8MCSymbolE(ptr no
   %26 = load ptr, ptr %8, align 8, !tbaa !16
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 80
   %28 = load ptr, ptr %27, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %30, align 1, !tbaa !265
@@ -362,7 +356,7 @@ define hidden void @_ZN4llvm12ARMException13emitTypeInfosEjPNS_8MCSymbolE(ptr no
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 120
   %33 = load ptr, ptr %32, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(296) %28, ptr noundef nonnull align 8 dereferenceable(34) %4, i1 noundef zeroext true) #6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %34 = load ptr, ptr %8, align 8, !tbaa !16
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 80
   %36 = load ptr, ptr %35, align 8, !tbaa !17
@@ -408,7 +402,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.us:               ; preds = %.lr.ph, %_ZN4llvmpl
   %55 = load ptr, ptr %8, align 8, !tbaa !16
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 80
   %57 = load ptr, ptr %56, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %58 = add nsw i32 %.156.us, -1
   %.sroa.070.0.insert.ext = zext i32 %.156.us to i64
   %.sroa.070.0.insert.mask = and i64 %.sroa.070.0, -4294967296
@@ -422,7 +416,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.us:               ; preds = %.lr.ph, %_ZN4llvmpl
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 120
   %62 = load ptr, ptr %61, align 8
   call void %62(ptr noundef nonnull align 8 dereferenceable(296) %57, ptr noundef nonnull align 8 dereferenceable(34) %5, i1 noundef zeroext true) #6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %63 = load ptr, ptr %8, align 8, !tbaa !16
   %64 = load ptr, ptr %63, align 8, !tbaa !3
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 392
@@ -465,7 +459,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.us:               ; preds = %.lr.ph, %_ZN4llvmpl
   %84 = load ptr, ptr %8, align 8, !tbaa !16
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 80
   %86 = load ptr, ptr %85, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %87 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 1, ptr %88, align 1, !tbaa !265
@@ -475,7 +469,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.us:               ; preds = %.lr.ph, %_ZN4llvmpl
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 120
   %91 = load ptr, ptr %90, align 8
   call void %91(ptr noundef nonnull align 8 dereferenceable(296) %86, ptr noundef nonnull align 8 dereferenceable(34) %6, i1 noundef zeroext true) #6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %92 = load ptr, ptr %8, align 8, !tbaa !16
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 80
   %94 = load ptr, ptr %93, align 8, !tbaa !17
@@ -517,7 +511,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.us:               ; preds = %.lr.ph, %_ZN4llvmpl
   %109 = load ptr, ptr %8, align 8, !tbaa !16
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 80
   %111 = load ptr, ptr %110, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %112 = ptrtoint ptr %.sroa.0.0 to i64
   %.sroa.0.0.insert.ext = zext i32 %108 to i64
   %.sroa.0.0.insert.mask = and i64 %112, -4294967296
@@ -531,7 +525,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.us:               ; preds = %.lr.ph, %_ZN4llvmpl
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 120
   %116 = load ptr, ptr %115, align 8
   call void %116(ptr noundef nonnull align 8 dereferenceable(296) %111, ptr noundef nonnull align 8 dereferenceable(34) %7, i1 noundef zeroext true) #6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %117 = add i32 %107, -1
   %118 = zext i32 %117 to i64
   %119 = load ptr, ptr %12, align 8, !tbaa !271
@@ -637,6 +631,12 @@ declare noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull al
 declare noundef i32 @_ZNK4llvm13AttributeList14getUWTableKindEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 declare noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136), i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

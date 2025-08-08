@@ -127,7 +127,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_split_fragment(ptr readnone captures(none) %0, ptr noundef %1, i32 %2) #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 4, !tbaa !4
   %5 = load ptr, ptr %1, align 8, !tbaa !8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -174,7 +174,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_split_fragment(ptr read
 
 .loopexit:                                        ; preds = %26, %12, %3
   %.019 = phi i32 [ -1094995529, %3 ], [ 0, %26 ], [ %24, %12 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.019
 }
 
@@ -280,7 +280,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_unit(ptr noundef %
   %100 = alloca i32, align 4
   %101 = alloca i32, align 4
   %102 = alloca %struct.GetBitContext, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %102) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %102)
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %104 = load ptr, ptr %103, align 8, !tbaa !19
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -324,7 +324,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_unit(ptr noundef %
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %127 = load ptr, ptr %126, align 8, !tbaa !30
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %94) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %94)
   %128 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 8, ptr noundef nonnull @.str.2, ptr noundef nonnull %94) #7
   %129 = icmp sgt i32 %128, -1
   br i1 %129, label %130, label %.critedge.i
@@ -333,14 +333,14 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_unit(ptr noundef %
   %131 = load i32, ptr %94, align 4, !tbaa !4
   %132 = trunc i32 %131 to i8
   store i8 %132, ptr %125, align 8, !tbaa !34
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %94) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %94)
   %133 = getelementptr inbounds nuw i8, ptr %127, i64 2
   %134 = load i16, ptr %133, align 2, !tbaa !37
   %135 = icmp ugt i16 %134, 2800
   br i1 %135, label %136, label %143
 
 136:                                              ; preds = %130
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %95) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %95)
   %137 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 3, ptr noundef nonnull @.str.3, ptr noundef nonnull %95) #7
   %138 = icmp sgt i32 %137, -1
   br i1 %138, label %.thread.i, label %142
@@ -350,11 +350,11 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_unit(ptr noundef %
   %140 = trunc i32 %139 to i8
   %141 = getelementptr inbounds nuw i8, ptr %125, i64 1
   store i8 %140, ptr %141, align 1, !tbaa !40
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %95) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
   br label %143
 
 142:                                              ; preds = %136
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %95) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
   br label %.thread
 
 143:                                              ; preds = %.thread.i, %130
@@ -370,7 +370,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_unit(ptr noundef %
   br i1 %149, label %150, label %157
 
 150:                                              ; preds = %146
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %96) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %96)
   %151 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 7, ptr noundef nonnull @.str.4, ptr noundef nonnull %96) #7
   %152 = icmp sgt i32 %151, -1
   br i1 %152, label %.thread89.i, label %156
@@ -380,21 +380,21 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_unit(ptr noundef %
   %154 = trunc i32 %153 to i8
   %155 = getelementptr inbounds nuw i8, ptr %125, i64 2
   store i8 %154, ptr %155, align 2, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %96) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
   br label %157
 
 156:                                              ; preds = %150
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %96) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
   br label %.thread
 
 157:                                              ; preds = %.thread89.i, %146, %143
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %97) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %97)
   %158 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 5, ptr noundef nonnull @.str.5, ptr noundef null, ptr noundef nonnull %97, i32 noundef 1, i32 noundef 31) #7
   %159 = icmp sgt i32 %158, -1
   br i1 %159, label %161, label %160
 
 160:                                              ; preds = %157
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %97) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
   br label %.thread
 
 161:                                              ; preds = %157
@@ -402,7 +402,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_unit(ptr noundef %
   %163 = trunc i32 %162 to i8
   %164 = getelementptr inbounds nuw i8, ptr %125, i64 3
   store i8 %163, ptr %164, align 1, !tbaa !44
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %97) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
   %.val.i = load i32, ptr %116, align 8, !tbaa !27
   %.val85.i = load i32, ptr %110, align 4, !tbaa !24
   %165 = icmp sgt i32 %.val85.i, %.val.i
@@ -425,27 +425,27 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_unit(ptr noundef %
   br i1 %.not84.i, label %cbs_mpeg2_read_slice_header.exit, label %177
 
 177:                                              ; preds = %166
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %98) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %98)
   %178 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.6, ptr noundef nonnull %98) #7
   %179 = icmp sgt i32 %178, -1
   br i1 %179, label %181, label %180
 
 180:                                              ; preds = %177
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %98) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
   br label %.thread
 
 181:                                              ; preds = %177
   %182 = load i32, ptr %98, align 4, !tbaa !4
   %183 = trunc i32 %182 to i8
   store i8 %183, ptr %176, align 4, !tbaa !46
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %98) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %99) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
+  call void @llvm.lifetime.start.p0(ptr nonnull %99)
   %184 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.7, ptr noundef nonnull %99) #7
   %185 = icmp sgt i32 %184, -1
   br i1 %185, label %187, label %186
 
 186:                                              ; preds = %181
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %99) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
   br label %.thread
 
 187:                                              ; preds = %181
@@ -453,14 +453,14 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_unit(ptr noundef %
   %189 = trunc i32 %188 to i8
   %190 = getelementptr inbounds nuw i8, ptr %125, i64 5
   store i8 %189, ptr %190, align 1, !tbaa !47
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %99) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %100) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
+  call void @llvm.lifetime.start.p0(ptr nonnull %100)
   %191 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.8, ptr noundef nonnull %100) #7
   %192 = icmp sgt i32 %191, -1
   br i1 %192, label %194, label %193
 
 193:                                              ; preds = %187
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %100) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
   br label %.thread
 
 194:                                              ; preds = %187
@@ -468,8 +468,8 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_unit(ptr noundef %
   %196 = trunc i32 %195 to i8
   %197 = getelementptr inbounds nuw i8, ptr %125, i64 6
   store i8 %196, ptr %197, align 2, !tbaa !48
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %100) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %101) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
+  call void @llvm.lifetime.start.p0(ptr nonnull %101)
   %198 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 6, ptr noundef nonnull @.str.9, ptr noundef nonnull %101) #7
   %199 = icmp sgt i32 %198, -1
   br i1 %199, label %.thread103.i, label %203
@@ -479,15 +479,15 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_unit(ptr noundef %
   %201 = trunc i32 %200 to i8
   %202 = getelementptr inbounds nuw i8, ptr %125, i64 7
   store i8 %201, ptr %202, align 1, !tbaa !49
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %101) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
   br label %cbs_mpeg2_read_slice_header.exit
 
 203:                                              ; preds = %194
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %101) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
   br label %.thread
 
 .critedge.i:                                      ; preds = %123
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %94) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %94)
   br label %.thread
 
 cbs_mpeg2_read_slice_header.exit:                 ; preds = %161, %166, %.thread103.i
@@ -543,7 +543,7 @@ cbs_mpeg2_read_slice_header.exit:                 ; preds = %161, %166, %.thread
   %228 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %229 = load ptr, ptr %228, align 8, !tbaa !29
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.12) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %86) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %86)
   %230 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 8, ptr noundef nonnull @.str.13, ptr noundef nonnull %86) #7
   %231 = icmp sgt i32 %230, -1
   br i1 %231, label %232, label %.critedge.i86
@@ -552,14 +552,14 @@ cbs_mpeg2_read_slice_header.exit:                 ; preds = %161, %166, %.thread
   %233 = load i32, ptr %86, align 4, !tbaa !4
   %234 = trunc i32 %233 to i8
   store i8 %234, ptr %229, align 8, !tbaa !56
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %86) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %87) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
+  call void @llvm.lifetime.start.p0(ptr nonnull %87)
   %235 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 10, ptr noundef nonnull @.str.14, ptr noundef nonnull %87) #7
   %236 = icmp sgt i32 %235, -1
   br i1 %236, label %238, label %237
 
 237:                                              ; preds = %232
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %87) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
   br label %.thread
 
 238:                                              ; preds = %232
@@ -567,14 +567,14 @@ cbs_mpeg2_read_slice_header.exit:                 ; preds = %161, %166, %.thread
   %240 = trunc i32 %239 to i16
   %241 = getelementptr inbounds nuw i8, ptr %229, i64 2
   store i16 %240, ptr %241, align 2, !tbaa !58
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %87) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %88) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
+  call void @llvm.lifetime.start.p0(ptr nonnull %88)
   %242 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 3, ptr noundef nonnull @.str.15, ptr noundef null, ptr noundef nonnull %88, i32 noundef 1, i32 noundef 7) #7
   %243 = icmp sgt i32 %242, -1
   br i1 %243, label %245, label %244
 
 244:                                              ; preds = %238
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %88) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
   br label %.thread
 
 245:                                              ; preds = %238
@@ -582,14 +582,14 @@ cbs_mpeg2_read_slice_header.exit:                 ; preds = %161, %166, %.thread
   %247 = trunc i32 %246 to i8
   %248 = getelementptr inbounds nuw i8, ptr %229, i64 4
   store i8 %247, ptr %248, align 4, !tbaa !59
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %88) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %89) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
+  call void @llvm.lifetime.start.p0(ptr nonnull %89)
   %249 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 16, ptr noundef nonnull @.str.16, ptr noundef nonnull %89) #7
   %250 = icmp sgt i32 %249, -1
   br i1 %250, label %252, label %251
 
 251:                                              ; preds = %245
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %89) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
   br label %.thread
 
 252:                                              ; preds = %245
@@ -597,20 +597,20 @@ cbs_mpeg2_read_slice_header.exit:                 ; preds = %161, %166, %.thread
   %254 = trunc i32 %253 to i16
   %255 = getelementptr inbounds nuw i8, ptr %229, i64 6
   store i16 %254, ptr %255, align 2, !tbaa !60
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %89) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
   %256 = load i8, ptr %248, align 4, !tbaa !59
   %257 = and i8 %256, -2
   %switch.i = icmp eq i8 %257, 2
   br i1 %switch.i, label %258, label %cbs_mpeg2_read_picture_header.exit
 
 258:                                              ; preds = %252
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %90) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %90)
   %259 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.17, ptr noundef nonnull %90) #7
   %260 = icmp sgt i32 %259, -1
   br i1 %260, label %262, label %261
 
 261:                                              ; preds = %258
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %90) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
   br label %.thread
 
 262:                                              ; preds = %258
@@ -618,14 +618,14 @@ cbs_mpeg2_read_slice_header.exit:                 ; preds = %161, %166, %.thread
   %264 = trunc i32 %263 to i8
   %265 = getelementptr inbounds nuw i8, ptr %229, i64 8
   store i8 %264, ptr %265, align 8, !tbaa !61
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %90) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %91) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
+  call void @llvm.lifetime.start.p0(ptr nonnull %91)
   %266 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 3, ptr noundef nonnull @.str.18, ptr noundef nonnull %91) #7
   %267 = icmp sgt i32 %266, -1
   br i1 %267, label %269, label %268
 
 268:                                              ; preds = %262
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %91) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
   br label %.thread
 
 269:                                              ; preds = %262
@@ -633,19 +633,19 @@ cbs_mpeg2_read_slice_header.exit:                 ; preds = %161, %166, %.thread
   %271 = trunc i32 %270 to i8
   %272 = getelementptr inbounds nuw i8, ptr %229, i64 9
   store i8 %271, ptr %272, align 1, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %91) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
   %.pr.i = load i8, ptr %248, align 4, !tbaa !59
   %273 = icmp eq i8 %.pr.i, 3
   br i1 %273, label %274, label %cbs_mpeg2_read_picture_header.exit
 
 274:                                              ; preds = %269
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %92) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %92)
   %275 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.19, ptr noundef nonnull %92) #7
   %276 = icmp sgt i32 %275, -1
   br i1 %276, label %278, label %277
 
 277:                                              ; preds = %274
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %92) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
   br label %.thread
 
 278:                                              ; preds = %274
@@ -653,8 +653,8 @@ cbs_mpeg2_read_slice_header.exit:                 ; preds = %161, %166, %.thread
   %280 = trunc i32 %279 to i8
   %281 = getelementptr inbounds nuw i8, ptr %229, i64 10
   store i8 %280, ptr %281, align 2, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %92) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %93) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
+  call void @llvm.lifetime.start.p0(ptr nonnull %93)
   %282 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 3, ptr noundef nonnull @.str.20, ptr noundef nonnull %93) #7
   %283 = icmp sgt i32 %282, -1
   br i1 %283, label %.thread98.i, label %287
@@ -664,15 +664,15 @@ cbs_mpeg2_read_slice_header.exit:                 ; preds = %161, %166, %.thread
   %285 = trunc i32 %284 to i8
   %286 = getelementptr inbounds nuw i8, ptr %229, i64 11
   store i8 %285, ptr %286, align 1, !tbaa !64
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %93) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
   br label %cbs_mpeg2_read_picture_header.exit
 
 287:                                              ; preds = %278
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %93) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
   br label %.thread
 
 .critedge.i86:                                    ; preds = %227
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %86) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
   br label %.thread
 
 cbs_mpeg2_read_picture_header.exit:               ; preds = %252, %269, %.thread98.i
@@ -684,9 +684,9 @@ cbs_mpeg2_read_picture_header.exit:               ; preds = %252, %269, %.thread
 291:                                              ; preds = %226
   %292 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %293 = load ptr, ptr %292, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %85)
+  call void @llvm.lifetime.start.p0(ptr nonnull %85)
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.23) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %83) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %83)
   %294 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 8, ptr noundef nonnull @.str.24, ptr noundef nonnull %83) #7
   %295 = icmp sgt i32 %294, -1
   br i1 %295, label %296, label %.critedge.i87
@@ -695,7 +695,7 @@ cbs_mpeg2_read_picture_header.exit:               ; preds = %252, %269, %.thread
   %297 = load i32, ptr %83, align 4, !tbaa !4
   %298 = trunc i32 %297 to i8
   store i8 %298, ptr %293, align 8, !tbaa !65
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %83) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
   %.val.i88 = load i32, ptr %116, align 8, !tbaa !27
   %.val36.i = load i32, ptr %110, align 4, !tbaa !24
   %299 = sub nsw i32 %.val36.i, %.val.i88
@@ -744,7 +744,7 @@ cbs_mpeg2_read_picture_header.exit:               ; preds = %252, %269, %.thread
 
 319:                                              ; preds = %324, %.lr.ph.i
   %.02939.i = phi i64 [ 0, %.lr.ph.i ], [ %329, %324 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %84) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %84)
   store i32 1, ptr %85, align 4, !tbaa !4
   %320 = trunc i64 %.02939.i to i32
   store i32 %320, ptr %317, align 4, !tbaa !4
@@ -753,7 +753,7 @@ cbs_mpeg2_read_picture_header.exit:               ; preds = %252, %269, %.thread
   br i1 %322, label %324, label %323
 
 323:                                              ; preds = %319
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %84) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
   br label %cbs_mpeg2_read_user_data.exit.thread
 
 324:                                              ; preds = %319
@@ -762,34 +762,34 @@ cbs_mpeg2_read_picture_header.exit:               ; preds = %252, %269, %.thread
   %327 = load ptr, ptr %318, align 8, !tbaa !72
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 %.02939.i
   store i8 %326, ptr %328, align 1, !tbaa !45
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %84) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
   %329 = add nuw i64 %.02939.i, 1
   %330 = load i64, ptr %306, align 8, !tbaa !67
   %331 = icmp ult i64 %329, %330
   br i1 %331, label %319, label %cbs_mpeg2_read_user_data.exit, !llvm.loop !73
 
 .critedge.i87:                                    ; preds = %291
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %83) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
   br label %cbs_mpeg2_read_user_data.exit.thread
 
 cbs_mpeg2_read_user_data.exit.thread:             ; preds = %323, %.critedge.i87, %307
   %.131.i.ph = phi i32 [ -12, %307 ], [ %294, %.critedge.i87 ], [ %321, %323 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %85)
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
   br label %.thread
 
 cbs_mpeg2_read_user_data.exit:                    ; preds = %324, %315
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %85)
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
   br label %cbs_mpeg2_read_extension_data.exit.thread103
 
 332:                                              ; preds = %226
   %333 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %334 = load ptr, ptr %333, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %79)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %82)
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
+  call void @llvm.lifetime.start.p0(ptr nonnull %82)
   %335 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %336 = load ptr, ptr %335, align 8, !tbaa !30
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.29) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %68) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
   %337 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 8, ptr noundef nonnull @.str.30, ptr noundef nonnull %68) #7
   %338 = icmp sgt i32 %337, -1
   br i1 %338, label %339, label %.critedge.i90
@@ -798,14 +798,14 @@ cbs_mpeg2_read_user_data.exit:                    ; preds = %324, %315
   %340 = load i32, ptr %68, align 4, !tbaa !4
   %341 = trunc i32 %340 to i8
   store i8 %341, ptr %334, align 4, !tbaa !74
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %68) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %69) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
   %342 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 12, ptr noundef nonnull @.str.31, ptr noundef null, ptr noundef nonnull %69, i32 noundef 1, i32 noundef 4095) #7
   %343 = icmp sgt i32 %342, -1
   br i1 %343, label %345, label %344
 
 344:                                              ; preds = %339
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %69) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
   br label %cbs_mpeg2_read_sequence_header.exit.thread
 
 345:                                              ; preds = %339
@@ -813,14 +813,14 @@ cbs_mpeg2_read_user_data.exit:                    ; preds = %324, %315
   %347 = trunc i32 %346 to i16
   %348 = getelementptr inbounds nuw i8, ptr %334, i64 2
   store i16 %347, ptr %348, align 2, !tbaa !76
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %69) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %70) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
   %349 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 12, ptr noundef nonnull @.str.32, ptr noundef null, ptr noundef nonnull %70, i32 noundef 1, i32 noundef 4095) #7
   %350 = icmp sgt i32 %349, -1
   br i1 %350, label %352, label %351
 
 351:                                              ; preds = %345
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %70) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
   br label %cbs_mpeg2_read_sequence_header.exit.thread
 
 352:                                              ; preds = %345
@@ -828,18 +828,18 @@ cbs_mpeg2_read_user_data.exit:                    ; preds = %324, %315
   %354 = trunc i32 %353 to i16
   %355 = getelementptr inbounds nuw i8, ptr %334, i64 4
   store i16 %354, ptr %355, align 4, !tbaa !77
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %70) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
   %356 = load i16, ptr %348, align 2, !tbaa !76
   store i16 %356, ptr %336, align 2, !tbaa !78
   %357 = getelementptr inbounds nuw i8, ptr %336, i64 2
   store i16 %354, ptr %357, align 2, !tbaa !37
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %71) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
   %358 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 4, ptr noundef nonnull @.str.33, ptr noundef null, ptr noundef nonnull %71, i32 noundef 1, i32 noundef 15) #7
   %359 = icmp sgt i32 %358, -1
   br i1 %359, label %361, label %360
 
 360:                                              ; preds = %352
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %71) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
   br label %cbs_mpeg2_read_sequence_header.exit.thread
 
 361:                                              ; preds = %352
@@ -847,14 +847,14 @@ cbs_mpeg2_read_user_data.exit:                    ; preds = %324, %315
   %363 = trunc i32 %362 to i8
   %364 = getelementptr inbounds nuw i8, ptr %334, i64 6
   store i8 %363, ptr %364, align 2, !tbaa !79
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %71) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %72) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
   %365 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 4, ptr noundef nonnull @.str.34, ptr noundef null, ptr noundef nonnull %72, i32 noundef 1, i32 noundef 15) #7
   %366 = icmp sgt i32 %365, -1
   br i1 %366, label %368, label %367
 
 367:                                              ; preds = %361
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %72) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
   br label %cbs_mpeg2_read_sequence_header.exit.thread
 
 368:                                              ; preds = %361
@@ -862,35 +862,35 @@ cbs_mpeg2_read_user_data.exit:                    ; preds = %324, %315
   %370 = trunc i32 %369 to i8
   %371 = getelementptr inbounds nuw i8, ptr %334, i64 7
   store i8 %370, ptr %371, align 1, !tbaa !80
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %72) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %73) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
   %372 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 18, ptr noundef nonnull @.str.35, ptr noundef nonnull %73) #7
   %373 = icmp sgt i32 %372, -1
   br i1 %373, label %375, label %374
 
 374:                                              ; preds = %368
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %73) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
   br label %cbs_mpeg2_read_sequence_header.exit.thread
 
 375:                                              ; preds = %368
   %376 = load i32, ptr %73, align 4, !tbaa !4
   %377 = getelementptr inbounds nuw i8, ptr %334, i64 8
   store i32 %376, ptr %377, align 4, !tbaa !81
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %73) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %74) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
   %378 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.36, ptr noundef null, ptr noundef nonnull %74, i32 noundef 1, i32 noundef 1) #7
   %379 = icmp sgt i32 %378, -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %74) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
   br i1 %379, label %380, label %cbs_mpeg2_read_sequence_header.exit.thread
 
 380:                                              ; preds = %375
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %75) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
   %381 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 10, ptr noundef nonnull @.str.37, ptr noundef nonnull %75) #7
   %382 = icmp sgt i32 %381, -1
   br i1 %382, label %384, label %383
 
 383:                                              ; preds = %380
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %75) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
   br label %cbs_mpeg2_read_sequence_header.exit.thread
 
 384:                                              ; preds = %380
@@ -898,14 +898,14 @@ cbs_mpeg2_read_user_data.exit:                    ; preds = %324, %315
   %386 = trunc i32 %385 to i16
   %387 = getelementptr inbounds nuw i8, ptr %334, i64 12
   store i16 %386, ptr %387, align 4, !tbaa !82
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %75) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %76) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
   %388 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.38, ptr noundef nonnull %76) #7
   %389 = icmp sgt i32 %388, -1
   br i1 %389, label %391, label %390
 
 390:                                              ; preds = %384
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %76) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
   br label %cbs_mpeg2_read_sequence_header.exit.thread
 
 391:                                              ; preds = %384
@@ -913,14 +913,14 @@ cbs_mpeg2_read_user_data.exit:                    ; preds = %324, %315
   %393 = trunc i32 %392 to i8
   %394 = getelementptr inbounds nuw i8, ptr %334, i64 14
   store i8 %393, ptr %394, align 2, !tbaa !83
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %76) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %77) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
   %395 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.39, ptr noundef nonnull %77) #7
   %396 = icmp sgt i32 %395, -1
   br i1 %396, label %398, label %397
 
 397:                                              ; preds = %391
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %77) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
   br label %cbs_mpeg2_read_sequence_header.exit.thread
 
 398:                                              ; preds = %391
@@ -928,7 +928,7 @@ cbs_mpeg2_read_user_data.exit:                    ; preds = %324, %315
   %400 = trunc i32 %399 to i8
   %401 = getelementptr inbounds nuw i8, ptr %334, i64 15
   store i8 %400, ptr %401, align 1, !tbaa !84
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %77) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
   %.not.i91 = icmp eq i8 %400, 0
   br i1 %.not.i91, label %.loopexit168.i, label %.preheader167.i
 
@@ -939,7 +939,7 @@ cbs_mpeg2_read_user_data.exit:                    ; preds = %324, %315
 
 404:                                              ; preds = %409, %.preheader167.i
   %indvars.iv.i = phi i64 [ 0, %.preheader167.i ], [ %indvars.iv.next.i, %409 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %78) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
   store i32 1, ptr %79, align 4, !tbaa !4
   %405 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %405, ptr %402, align 4, !tbaa !4
@@ -948,7 +948,7 @@ cbs_mpeg2_read_user_data.exit:                    ; preds = %324, %315
   br i1 %407, label %409, label %408
 
 408:                                              ; preds = %404
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %78) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
   br label %cbs_mpeg2_read_sequence_header.exit.thread
 
 409:                                              ; preds = %404
@@ -956,19 +956,19 @@ cbs_mpeg2_read_user_data.exit:                    ; preds = %324, %315
   %411 = trunc i32 %410 to i8
   %412 = getelementptr inbounds nuw [64 x i8], ptr %403, i64 0, i64 %indvars.iv.i
   store i8 %411, ptr %412, align 1, !tbaa !45
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %78) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
   br i1 %exitcond.not.i, label %.loopexit168.i, label %404, !llvm.loop !85
 
 .loopexit168.i:                                   ; preds = %409, %398
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %80) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
   %413 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.41, ptr noundef nonnull %80) #7
   %414 = icmp sgt i32 %413, -1
   br i1 %414, label %416, label %415
 
 415:                                              ; preds = %.loopexit168.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %80) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
   br label %cbs_mpeg2_read_sequence_header.exit.thread
 
 416:                                              ; preds = %.loopexit168.i
@@ -976,7 +976,7 @@ cbs_mpeg2_read_user_data.exit:                    ; preds = %324, %315
   %418 = trunc i32 %417 to i8
   %419 = getelementptr inbounds nuw i8, ptr %334, i64 80
   store i8 %418, ptr %419, align 4, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %80) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
   %.not134.i = icmp eq i8 %418, 0
   br i1 %.not134.i, label %cbs_mpeg2_read_sequence_header.exit, label %.preheader.i
 
@@ -987,7 +987,7 @@ cbs_mpeg2_read_user_data.exit:                    ; preds = %324, %315
 
 422:                                              ; preds = %427, %.preheader.i
   %indvars.iv176.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next177.i, %427 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %81) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %81)
   store i32 1, ptr %82, align 4, !tbaa !4
   %423 = trunc nuw nsw i64 %indvars.iv176.i to i32
   store i32 %423, ptr %420, align 4, !tbaa !4
@@ -996,7 +996,7 @@ cbs_mpeg2_read_user_data.exit:                    ; preds = %324, %315
   br i1 %425, label %427, label %426
 
 426:                                              ; preds = %422
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %81) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
   br label %cbs_mpeg2_read_sequence_header.exit.thread
 
 427:                                              ; preds = %422
@@ -1004,31 +1004,31 @@ cbs_mpeg2_read_user_data.exit:                    ; preds = %324, %315
   %429 = trunc i32 %428 to i8
   %430 = getelementptr inbounds nuw [64 x i8], ptr %421, i64 0, i64 %indvars.iv176.i
   store i8 %429, ptr %430, align 1, !tbaa !45
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %81) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
   %indvars.iv.next177.i = add nuw nsw i64 %indvars.iv176.i, 1
   %exitcond179.not.i = icmp eq i64 %indvars.iv.next177.i, 64
   br i1 %exitcond179.not.i, label %cbs_mpeg2_read_sequence_header.exit, label %422, !llvm.loop !87
 
 .critedge.i90:                                    ; preds = %332
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %68) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
   br label %cbs_mpeg2_read_sequence_header.exit.thread
 
 cbs_mpeg2_read_sequence_header.exit.thread:       ; preds = %408, %426, %415, %397, %390, %383, %375, %374, %367, %360, %351, %344, %.critedge.i90
   %.1110.i.ph = phi i32 [ %337, %.critedge.i90 ], [ %342, %344 ], [ %349, %351 ], [ %358, %360 ], [ %365, %367 ], [ %372, %374 ], [ %378, %375 ], [ %381, %383 ], [ %388, %390 ], [ %395, %397 ], [ %413, %415 ], [ %424, %426 ], [ %406, %408 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %79)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %82)
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
   br label %.thread
 
 cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %79)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %82)
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
   br label %cbs_mpeg2_read_extension_data.exit.thread103
 
 431:                                              ; preds = %226
   %432 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %433 = load ptr, ptr %432, align 8, !tbaa !29
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.43) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %66) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
   %434 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 8, ptr noundef nonnull @.str.44, ptr noundef nonnull %66) #7
   %435 = icmp sgt i32 %434, -1
   br i1 %435, label %436, label %.critedge.i92
@@ -1037,14 +1037,14 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %437 = load i32, ptr %66, align 4, !tbaa !4
   %438 = trunc i32 %437 to i8
   store i8 %438, ptr %433, align 2, !tbaa !88
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %66) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %67) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
   %439 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 4, ptr noundef nonnull @.str.45, ptr noundef nonnull %67) #7
   %440 = icmp sgt i32 %439, -1
   br i1 %440, label %442, label %441
 
 441:                                              ; preds = %436
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %67) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
   br label %.thread
 
 442:                                              ; preds = %436
@@ -1052,7 +1052,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %444 = trunc i32 %443 to i8
   %445 = getelementptr inbounds nuw i8, ptr %433, i64 1
   store i8 %444, ptr %445, align 1, !tbaa !90
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %67) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
   switch i8 %444, label %880 [
     i8 1, label %446
     i8 2, label %535
@@ -1065,7 +1065,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %447 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %448 = load ptr, ptr %447, align 8, !tbaa !30
   call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.47) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %55) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   %449 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 8, ptr noundef nonnull @.str.48, ptr noundef nonnull %55) #7
   %450 = icmp sgt i32 %449, -1
   br i1 %450, label %451, label %.critedge.i.i
@@ -1075,14 +1075,14 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %453 = load i32, ptr %55, align 4, !tbaa !4
   %454 = trunc i32 %453 to i8
   store i8 %454, ptr %452, align 2, !tbaa !91
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %55) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %56) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
   %455 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.49, ptr noundef nonnull %56) #7
   %456 = icmp sgt i32 %455, -1
   br i1 %456, label %458, label %457
 
 457:                                              ; preds = %451
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %56) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %.thread
 
 458:                                              ; preds = %451
@@ -1090,14 +1090,14 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %460 = trunc i32 %459 to i8
   %461 = getelementptr inbounds nuw i8, ptr %433, i64 3
   store i8 %460, ptr %461, align 1, !tbaa !93
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %56) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %57) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   %462 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 2, ptr noundef nonnull @.str.50, ptr noundef nonnull %57) #7
   %463 = icmp sgt i32 %462, -1
   br i1 %463, label %465, label %464
 
 464:                                              ; preds = %458
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %57) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br label %.thread
 
 465:                                              ; preds = %458
@@ -1105,14 +1105,14 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %467 = trunc i32 %466 to i8
   %468 = getelementptr inbounds nuw i8, ptr %433, i64 4
   store i8 %467, ptr %468, align 2, !tbaa !94
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %57) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %58) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
   %469 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 2, ptr noundef nonnull @.str.51, ptr noundef nonnull %58) #7
   %470 = icmp sgt i32 %469, -1
   br i1 %470, label %472, label %471
 
 471:                                              ; preds = %465
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %58) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %.thread
 
 472:                                              ; preds = %465
@@ -1120,14 +1120,14 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %474 = trunc i32 %473 to i8
   %475 = getelementptr inbounds nuw i8, ptr %433, i64 5
   store i8 %474, ptr %475, align 1, !tbaa !95
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %58) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %59) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   %476 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 2, ptr noundef nonnull @.str.52, ptr noundef nonnull %59) #7
   %477 = icmp sgt i32 %476, -1
   br i1 %477, label %479, label %478
 
 478:                                              ; preds = %472
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %59) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   br label %.thread
 
 479:                                              ; preds = %472
@@ -1135,7 +1135,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %481 = trunc i32 %480 to i8
   %482 = getelementptr inbounds nuw i8, ptr %433, i64 6
   store i8 %481, ptr %482, align 2, !tbaa !96
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %59) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   %483 = load i16, ptr %448, align 2, !tbaa !78
   %484 = and i16 %483, 4095
   %485 = load i8, ptr %475, align 1, !tbaa !95
@@ -1153,13 +1153,13 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %495 = load i8, ptr %461, align 1, !tbaa !93
   %496 = getelementptr inbounds nuw i8, ptr %448, i64 6
   store i8 %495, ptr %496, align 2, !tbaa !97
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %60) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
   %497 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 12, ptr noundef nonnull @.str.53, ptr noundef nonnull %60) #7
   %498 = icmp sgt i32 %497, -1
   br i1 %498, label %500, label %499
 
 499:                                              ; preds = %479
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %60) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   br label %.thread
 
 500:                                              ; preds = %479
@@ -1167,21 +1167,21 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %502 = trunc i32 %501 to i16
   %503 = getelementptr inbounds nuw i8, ptr %433, i64 8
   store i16 %502, ptr %503, align 2, !tbaa !98
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %60) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %61) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   %504 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.36, ptr noundef null, ptr noundef nonnull %61, i32 noundef 1, i32 noundef 1) #7
   %505 = icmp sgt i32 %504, -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %61) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
   br i1 %505, label %506, label %.thread
 
 506:                                              ; preds = %500
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %62) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
   %507 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 8, ptr noundef nonnull @.str.54, ptr noundef nonnull %62) #7
   %508 = icmp sgt i32 %507, -1
   br i1 %508, label %510, label %509
 
 509:                                              ; preds = %506
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %62) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
   br label %.thread
 
 510:                                              ; preds = %506
@@ -1189,14 +1189,14 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %512 = trunc i32 %511 to i8
   %513 = getelementptr inbounds nuw i8, ptr %433, i64 10
   store i8 %512, ptr %513, align 2, !tbaa !99
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %62) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %63) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
   %514 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.55, ptr noundef nonnull %63) #7
   %515 = icmp sgt i32 %514, -1
   br i1 %515, label %517, label %516
 
 516:                                              ; preds = %510
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %63) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
   br label %.thread
 
 517:                                              ; preds = %510
@@ -1204,14 +1204,14 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %519 = trunc i32 %518 to i8
   %520 = getelementptr inbounds nuw i8, ptr %433, i64 11
   store i8 %519, ptr %520, align 1, !tbaa !100
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %63) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %64) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
   %521 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 2, ptr noundef nonnull @.str.56, ptr noundef nonnull %64) #7
   %522 = icmp sgt i32 %521, -1
   br i1 %522, label %524, label %523
 
 523:                                              ; preds = %517
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %64) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
   br label %.thread
 
 524:                                              ; preds = %517
@@ -1219,8 +1219,8 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %526 = trunc i32 %525 to i8
   %527 = getelementptr inbounds nuw i8, ptr %433, i64 12
   store i8 %526, ptr %527, align 2, !tbaa !101
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %64) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %65) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
   %528 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 5, ptr noundef nonnull @.str.57, ptr noundef nonnull %65) #7
   %529 = icmp sgt i32 %528, -1
   br i1 %529, label %530, label %534
@@ -1234,16 +1234,16 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
 
 534:                                              ; preds = %530, %524
   %spec.select.i.i = phi i32 [ 0, %530 ], [ %528, %524 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %65) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
   br label %cbs_mpeg2_read_extension_data.exit
 
 .critedge.i.i:                                    ; preds = %446
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %55) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   br label %.thread
 
 535:                                              ; preds = %442
   call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.58) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %47) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   %536 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 3, ptr noundef nonnull @.str.59, ptr noundef nonnull %47) #7
   %537 = icmp sgt i32 %536, -1
   br i1 %537, label %538, label %.critedge.i35.i
@@ -1253,14 +1253,14 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %540 = load i32, ptr %47, align 4, !tbaa !4
   %541 = trunc i32 %540 to i8
   store i8 %541, ptr %539, align 2, !tbaa !103
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %47) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %48) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   %542 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.60, ptr noundef nonnull %48) #7
   %543 = icmp sgt i32 %542, -1
   br i1 %543, label %545, label %544
 
 544:                                              ; preds = %538
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %48) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %.thread
 
 545:                                              ; preds = %538
@@ -1268,18 +1268,18 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %547 = trunc i32 %546 to i8
   %548 = getelementptr inbounds nuw i8, ptr %433, i64 3
   store i8 %547, ptr %548, align 1, !tbaa !105
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %48) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   %.not.i.i = icmp eq i8 %547, 0
   br i1 %.not.i.i, label %582, label %549
 
 549:                                              ; preds = %545
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %49) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   %550 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 8, ptr noundef nonnull @.str.61, ptr noundef nonnull %49) #7
   %551 = icmp sgt i32 %550, -1
   br i1 %551, label %553, label %552
 
 552:                                              ; preds = %549
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %49) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %.thread
 
 553:                                              ; preds = %549
@@ -1287,7 +1287,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %555 = trunc i32 %554 to i8
   %556 = getelementptr inbounds nuw i8, ptr %433, i64 4
   store i8 %555, ptr %556, align 2, !tbaa !106
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %49) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   %557 = icmp eq i8 %555, 0
   br i1 %557, label %558, label %560
 
@@ -1298,13 +1298,13 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   br label %560
 
 560:                                              ; preds = %558, %553
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %50) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   %561 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 8, ptr noundef nonnull @.str.63, ptr noundef nonnull %50) #7
   %562 = icmp sgt i32 %561, -1
   br i1 %562, label %564, label %563
 
 563:                                              ; preds = %560
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %50) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   br label %.thread
 
 564:                                              ; preds = %560
@@ -1312,7 +1312,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %566 = trunc i32 %565 to i8
   %567 = getelementptr inbounds nuw i8, ptr %433, i64 5
   store i8 %566, ptr %567, align 1, !tbaa !108
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %50) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   %568 = icmp eq i8 %566, 0
   br i1 %568, label %569, label %571
 
@@ -1323,13 +1323,13 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   br label %571
 
 571:                                              ; preds = %569, %564
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %51) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   %572 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 8, ptr noundef nonnull @.str.64, ptr noundef nonnull %51) #7
   %573 = icmp sgt i32 %572, -1
   br i1 %573, label %575, label %574
 
 574:                                              ; preds = %571
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %51) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   br label %.thread
 
 575:                                              ; preds = %571
@@ -1337,7 +1337,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %577 = trunc i32 %576 to i8
   %578 = getelementptr inbounds nuw i8, ptr %433, i64 6
   store i8 %577, ptr %578, align 2, !tbaa !109
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %51) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   %579 = icmp eq i8 %577, 0
   br i1 %579, label %580, label %586
 
@@ -1357,13 +1357,13 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   br label %586
 
 586:                                              ; preds = %582, %580, %575
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %52) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   %587 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 14, ptr noundef nonnull @.str.65, ptr noundef nonnull %52) #7
   %588 = icmp sgt i32 %587, -1
   br i1 %588, label %590, label %589
 
 589:                                              ; preds = %586
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %52) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %.thread
 
 590:                                              ; preds = %586
@@ -1371,15 +1371,15 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %592 = trunc i32 %591 to i16
   %593 = getelementptr inbounds nuw i8, ptr %433, i64 8
   store i16 %592, ptr %593, align 2, !tbaa !110
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %52) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %53) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
   %594 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.36, ptr noundef null, ptr noundef nonnull %53, i32 noundef 1, i32 noundef 1) #7
   %595 = icmp sgt i32 %594, -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %53) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br i1 %595, label %596, label %.thread
 
 596:                                              ; preds = %590
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %54) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   %597 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 14, ptr noundef nonnull @.str.66, ptr noundef nonnull %54) #7
   %598 = icmp sgt i32 %597, -1
   br i1 %598, label %599, label %603
@@ -1393,20 +1393,20 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
 
 603:                                              ; preds = %599, %596
   %spec.select.i36.i = phi i32 [ 0, %599 ], [ %597, %596 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %54) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br label %cbs_mpeg2_read_extension_data.exit
 
 .critedge.i35.i:                                  ; preds = %535
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %47) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %.thread
 
 604:                                              ; preds = %442
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.67) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %605 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.39, ptr noundef nonnull %35) #7
   %606 = icmp sgt i32 %605, -1
   br i1 %606, label %607, label %.critedge.i37.i
@@ -1416,7 +1416,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %609 = load i32, ptr %35, align 4, !tbaa !4
   %610 = trunc i32 %609 to i8
   store i8 %610, ptr %608, align 1, !tbaa !112
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   %.not.i38.i = icmp eq i8 %610, 0
   br i1 %.not.i38.i, label %.loopexit123.i.i, label %.preheader122.i.i
 
@@ -1427,7 +1427,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
 
 613:                                              ; preds = %618, %.preheader122.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader122.i.i ], [ %indvars.iv.next.i.i, %618 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store i32 1, ptr %37, align 4, !tbaa !4
   %614 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   store i32 %614, ptr %611, align 4, !tbaa !4
@@ -1436,7 +1436,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   br i1 %616, label %618, label %617
 
 617:                                              ; preds = %613
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %cbs_mpeg2_read_quant_matrix_extension.exit.i
 
 618:                                              ; preds = %613
@@ -1444,19 +1444,19 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %620 = trunc i32 %619 to i8
   %621 = getelementptr inbounds nuw [64 x i8], ptr %612, i64 0, i64 %indvars.iv.i.i
   store i8 %620, ptr %621, align 1, !tbaa !45
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 64
   br i1 %exitcond.not.i.i, label %.loopexit123.i.i, label %613, !llvm.loop !114
 
 .loopexit123.i.i:                                 ; preds = %618, %607
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %38) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %622 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.41, ptr noundef nonnull %38) #7
   %623 = icmp sgt i32 %622, -1
   br i1 %623, label %625, label %624
 
 624:                                              ; preds = %.loopexit123.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %cbs_mpeg2_read_quant_matrix_extension.exit.i
 
 625:                                              ; preds = %.loopexit123.i.i
@@ -1464,7 +1464,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %627 = trunc i32 %626 to i8
   %628 = getelementptr inbounds nuw i8, ptr %433, i64 67
   store i8 %627, ptr %628, align 1, !tbaa !115
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   %.not95.i.i = icmp eq i8 %627, 0
   br i1 %.not95.i.i, label %.loopexit121.i.i, label %.preheader120.i.i
 
@@ -1475,7 +1475,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
 
 631:                                              ; preds = %636, %.preheader120.i.i
   %indvars.iv139.i.i = phi i64 [ 0, %.preheader120.i.i ], [ %indvars.iv.next140.i.i, %636 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %39) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store i32 1, ptr %40, align 4, !tbaa !4
   %632 = trunc nuw nsw i64 %indvars.iv139.i.i to i32
   store i32 %632, ptr %629, align 4, !tbaa !4
@@ -1484,7 +1484,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   br i1 %634, label %636, label %635
 
 635:                                              ; preds = %631
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %cbs_mpeg2_read_quant_matrix_extension.exit.i
 
 636:                                              ; preds = %631
@@ -1492,19 +1492,19 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %638 = trunc i32 %637 to i8
   %639 = getelementptr inbounds nuw [64 x i8], ptr %630, i64 0, i64 %indvars.iv139.i.i
   store i8 %638, ptr %639, align 1, !tbaa !45
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   %indvars.iv.next140.i.i = add nuw nsw i64 %indvars.iv139.i.i, 1
   %exitcond142.not.i.i = icmp eq i64 %indvars.iv.next140.i.i, 64
   br i1 %exitcond142.not.i.i, label %.loopexit121.i.i, label %631, !llvm.loop !116
 
 .loopexit121.i.i:                                 ; preds = %636, %625
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %640 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.68, ptr noundef nonnull %41) #7
   %641 = icmp sgt i32 %640, -1
   br i1 %641, label %643, label %642
 
 642:                                              ; preds = %.loopexit121.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %cbs_mpeg2_read_quant_matrix_extension.exit.i
 
 643:                                              ; preds = %.loopexit121.i.i
@@ -1512,7 +1512,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %645 = trunc i32 %644 to i8
   %646 = getelementptr inbounds nuw i8, ptr %433, i64 132
   store i8 %645, ptr %646, align 1, !tbaa !117
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   %.not96.i.i = icmp eq i8 %645, 0
   br i1 %.not96.i.i, label %.loopexit119.i.i, label %.preheader118.i.i
 
@@ -1523,7 +1523,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
 
 649:                                              ; preds = %654, %.preheader118.i.i
   %indvars.iv143.i.i = phi i64 [ 0, %.preheader118.i.i ], [ %indvars.iv.next144.i.i, %654 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %42) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store i32 1, ptr %43, align 4, !tbaa !4
   %650 = trunc nuw nsw i64 %indvars.iv143.i.i to i32
   store i32 %650, ptr %647, align 4, !tbaa !4
@@ -1532,7 +1532,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   br i1 %652, label %654, label %653
 
 653:                                              ; preds = %649
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %42) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %cbs_mpeg2_read_quant_matrix_extension.exit.i
 
 654:                                              ; preds = %649
@@ -1540,19 +1540,19 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %656 = trunc i32 %655 to i8
   %657 = getelementptr inbounds nuw [64 x i8], ptr %648, i64 0, i64 %indvars.iv143.i.i
   store i8 %656, ptr %657, align 1, !tbaa !45
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %42) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   %indvars.iv.next144.i.i = add nuw nsw i64 %indvars.iv143.i.i, 1
   %exitcond146.not.i.i = icmp eq i64 %indvars.iv.next144.i.i, 64
   br i1 %exitcond146.not.i.i, label %.loopexit119.i.i, label %649, !llvm.loop !118
 
 .loopexit119.i.i:                                 ; preds = %654, %643
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %44) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   %658 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.69, ptr noundef nonnull %44) #7
   %659 = icmp sgt i32 %658, -1
   br i1 %659, label %661, label %660
 
 660:                                              ; preds = %.loopexit119.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %cbs_mpeg2_read_quant_matrix_extension.exit.i
 
 661:                                              ; preds = %.loopexit119.i.i
@@ -1560,7 +1560,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %663 = trunc i32 %662 to i8
   %664 = getelementptr inbounds nuw i8, ptr %433, i64 197
   store i8 %663, ptr %664, align 1, !tbaa !119
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   %.not97.i.i = icmp eq i8 %663, 0
   br i1 %.not97.i.i, label %cbs_mpeg2_read_quant_matrix_extension.exit.i, label %.preheader.i.i
 
@@ -1571,7 +1571,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
 
 667:                                              ; preds = %672, %.preheader.i.i
   %indvars.iv147.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next148.i.i, %672 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %45) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store i32 1, ptr %46, align 4, !tbaa !4
   %668 = trunc nuw nsw i64 %indvars.iv147.i.i to i32
   store i32 %668, ptr %665, align 4, !tbaa !4
@@ -1580,7 +1580,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   br i1 %670, label %672, label %671
 
 671:                                              ; preds = %667
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %cbs_mpeg2_read_quant_matrix_extension.exit.i
 
 672:                                              ; preds = %667
@@ -1588,27 +1588,27 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %674 = trunc i32 %673 to i8
   %675 = getelementptr inbounds nuw [64 x i8], ptr %666, i64 0, i64 %indvars.iv147.i.i
   store i8 %674, ptr %675, align 1, !tbaa !45
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   %indvars.iv.next148.i.i = add nuw nsw i64 %indvars.iv147.i.i, 1
   %exitcond150.not.i.i = icmp eq i64 %indvars.iv.next148.i.i, 64
   br i1 %exitcond150.not.i.i, label %cbs_mpeg2_read_quant_matrix_extension.exit.i, label %667, !llvm.loop !120
 
 .critedge.i37.i:                                  ; preds = %604
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %cbs_mpeg2_read_quant_matrix_extension.exit.i
 
 cbs_mpeg2_read_quant_matrix_extension.exit.i:     ; preds = %672, %.critedge.i37.i, %671, %661, %660, %653, %642, %635, %624, %617
   %.181.i.i = phi i32 [ %615, %617 ], [ %633, %635 ], [ %651, %653 ], [ %669, %671 ], [ %658, %660 ], [ %640, %642 ], [ %622, %624 ], [ %605, %.critedge.i37.i ], [ 0, %661 ], [ 0, %672 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %cbs_mpeg2_read_extension_data.exit
 
 676:                                              ; preds = %442
   %677 = getelementptr inbounds nuw i8, ptr %433, i64 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %678 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %679 = load ptr, ptr %678, align 8, !tbaa !30
   call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.71) #7
@@ -1632,7 +1632,7 @@ cbs_mpeg2_read_quant_matrix_extension.exit.i:     ; preds = %672, %.critedge.i37
 
 689:                                              ; preds = %685, %.lr.ph.i.i
   %indvars.iv.i40.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i41.i, %685 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i32 1, ptr %30, align 4, !tbaa !4
   %690 = trunc nuw nsw i64 %indvars.iv.i40.i to i32
   store i32 %690, ptr %682, align 4, !tbaa !4
@@ -1641,7 +1641,7 @@ cbs_mpeg2_read_quant_matrix_extension.exit.i:     ; preds = %672, %.critedge.i37
   br i1 %692, label %694, label %693
 
 693:                                              ; preds = %689
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %cbs_mpeg2_read_picture_display_extension.exit.i
 
 694:                                              ; preds = %689
@@ -1649,15 +1649,15 @@ cbs_mpeg2_read_quant_matrix_extension.exit.i:     ; preds = %672, %.critedge.i37
   %696 = trunc i32 %695 to i16
   %697 = getelementptr inbounds nuw [3 x i16], ptr %677, i64 0, i64 %indvars.iv.i40.i
   store i16 %696, ptr %697, align 2, !tbaa !123
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %698 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.36, ptr noundef null, ptr noundef nonnull %31, i32 noundef 1, i32 noundef 1) #7
   %699 = icmp sgt i32 %698, -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br i1 %699, label %700, label %cbs_mpeg2_read_picture_display_extension.exit.i
 
 700:                                              ; preds = %694
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i32 1, ptr %33, align 4, !tbaa !4
   store i32 %690, ptr %683, align 4, !tbaa !4
   %701 = call i32 @ff_cbs_read_signed(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 16, ptr noundef nonnull @.str.73, ptr noundef nonnull %33, ptr noundef nonnull %32, i32 noundef -32768, i32 noundef 32767) #7
@@ -1665,7 +1665,7 @@ cbs_mpeg2_read_quant_matrix_extension.exit.i:     ; preds = %672, %.critedge.i37
   br i1 %702, label %704, label %703
 
 703:                                              ; preds = %700
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %cbs_mpeg2_read_picture_display_extension.exit.i
 
 704:                                              ; preds = %700
@@ -1673,24 +1673,24 @@ cbs_mpeg2_read_quant_matrix_extension.exit.i:     ; preds = %672, %.critedge.i37
   %706 = trunc i32 %705 to i16
   %707 = getelementptr inbounds nuw [3 x i16], ptr %684, i64 0, i64 %indvars.iv.i40.i
   store i16 %706, ptr %707, align 2, !tbaa !123
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %708 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.36, ptr noundef null, ptr noundef nonnull %34, i32 noundef 1, i32 noundef 1) #7
   %709 = icmp sgt i32 %708, -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br i1 %709, label %685, label %cbs_mpeg2_read_picture_display_extension.exit.i
 
 cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %703, %693, %676
   %.242.i.i = phi i32 [ %701, %703 ], [ %691, %693 ], [ 0, %676 ], [ %698, %694 ], [ %708, %704 ], [ 0, %685 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %cbs_mpeg2_read_extension_data.exit
 
 710:                                              ; preds = %442
   %711 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %712 = load ptr, ptr %711, align 8, !tbaa !30
   call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.74) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %713 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 4, ptr noundef nonnull @.str.75, ptr noundef null, ptr noundef nonnull %8, i32 noundef 1, i32 noundef 15) #7
   %714 = icmp sgt i32 %713, -1
   br i1 %714, label %715, label %.critedge.i42.i
@@ -1700,14 +1700,14 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %717 = load i32, ptr %8, align 4, !tbaa !4
   %718 = trunc i32 %717 to i8
   store i8 %718, ptr %716, align 1, !tbaa !45
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %719 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 4, ptr noundef nonnull @.str.76, ptr noundef null, ptr noundef nonnull %9, i32 noundef 1, i32 noundef 15) #7
   %720 = icmp sgt i32 %719, -1
   br i1 %720, label %722, label %721
 
 721:                                              ; preds = %715
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread
 
 722:                                              ; preds = %715
@@ -1715,14 +1715,14 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %724 = trunc i32 %723 to i8
   %725 = getelementptr inbounds nuw i8, ptr %433, i64 3
   store i8 %724, ptr %725, align 1, !tbaa !45
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %726 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 4, ptr noundef nonnull @.str.77, ptr noundef null, ptr noundef nonnull %10, i32 noundef 1, i32 noundef 15) #7
   %727 = icmp sgt i32 %726, -1
   br i1 %727, label %729, label %728
 
 728:                                              ; preds = %722
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread
 
 729:                                              ; preds = %722
@@ -1730,14 +1730,14 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %731 = trunc i32 %730 to i8
   %732 = getelementptr inbounds nuw i8, ptr %433, i64 4
   store i8 %731, ptr %732, align 1, !tbaa !45
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %733 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 4, ptr noundef nonnull @.str.78, ptr noundef null, ptr noundef nonnull %11, i32 noundef 1, i32 noundef 15) #7
   %734 = icmp sgt i32 %733, -1
   br i1 %734, label %736, label %735
 
 735:                                              ; preds = %729
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread
 
 736:                                              ; preds = %729
@@ -1745,14 +1745,14 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %738 = trunc i32 %737 to i8
   %739 = getelementptr inbounds nuw i8, ptr %433, i64 5
   store i8 %738, ptr %739, align 1, !tbaa !45
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %740 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 2, ptr noundef nonnull @.str.79, ptr noundef nonnull %12) #7
   %741 = icmp sgt i32 %740, -1
   br i1 %741, label %743, label %742
 
 742:                                              ; preds = %736
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread
 
 743:                                              ; preds = %736
@@ -1760,14 +1760,14 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %745 = trunc i32 %744 to i8
   %746 = getelementptr inbounds nuw i8, ptr %433, i64 6
   store i8 %745, ptr %746, align 1, !tbaa !124
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %747 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 2, ptr noundef nonnull @.str.80, ptr noundef nonnull %13) #7
   %748 = icmp sgt i32 %747, -1
   br i1 %748, label %750, label %749
 
 749:                                              ; preds = %743
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.thread
 
 750:                                              ; preds = %743
@@ -1775,14 +1775,14 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %752 = trunc i32 %751 to i8
   %753 = getelementptr inbounds nuw i8, ptr %433, i64 7
   store i8 %752, ptr %753, align 1, !tbaa !126
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %754 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.81, ptr noundef nonnull %14) #7
   %755 = icmp sgt i32 %754, -1
   br i1 %755, label %757, label %756
 
 756:                                              ; preds = %750
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.thread
 
 757:                                              ; preds = %750
@@ -1790,14 +1790,14 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %759 = trunc i32 %758 to i8
   %760 = getelementptr inbounds nuw i8, ptr %433, i64 8
   store i8 %759, ptr %760, align 1, !tbaa !127
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %761 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.82, ptr noundef nonnull %15) #7
   %762 = icmp sgt i32 %761, -1
   br i1 %762, label %764, label %763
 
 763:                                              ; preds = %757
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.thread
 
 764:                                              ; preds = %757
@@ -1805,14 +1805,14 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %766 = trunc i32 %765 to i8
   %767 = getelementptr inbounds nuw i8, ptr %433, i64 9
   store i8 %766, ptr %767, align 1, !tbaa !128
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %768 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.83, ptr noundef nonnull %16) #7
   %769 = icmp sgt i32 %768, -1
   br i1 %769, label %771, label %770
 
 770:                                              ; preds = %764
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.thread
 
 771:                                              ; preds = %764
@@ -1820,14 +1820,14 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %773 = trunc i32 %772 to i8
   %774 = getelementptr inbounds nuw i8, ptr %433, i64 10
   store i8 %773, ptr %774, align 1, !tbaa !129
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %775 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.84, ptr noundef nonnull %17) #7
   %776 = icmp sgt i32 %775, -1
   br i1 %776, label %778, label %777
 
 777:                                              ; preds = %771
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.thread
 
 778:                                              ; preds = %771
@@ -1835,14 +1835,14 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %780 = trunc i32 %779 to i8
   %781 = getelementptr inbounds nuw i8, ptr %433, i64 11
   store i8 %780, ptr %781, align 1, !tbaa !130
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %782 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.85, ptr noundef nonnull %18) #7
   %783 = icmp sgt i32 %782, -1
   br i1 %783, label %785, label %784
 
 784:                                              ; preds = %778
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.thread
 
 785:                                              ; preds = %778
@@ -1850,14 +1850,14 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %787 = trunc i32 %786 to i8
   %788 = getelementptr inbounds nuw i8, ptr %433, i64 12
   store i8 %787, ptr %788, align 1, !tbaa !131
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %789 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.86, ptr noundef nonnull %19) #7
   %790 = icmp sgt i32 %789, -1
   br i1 %790, label %792, label %791
 
 791:                                              ; preds = %785
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %.thread
 
 792:                                              ; preds = %785
@@ -1865,14 +1865,14 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %794 = trunc i32 %793 to i8
   %795 = getelementptr inbounds nuw i8, ptr %433, i64 13
   store i8 %794, ptr %795, align 1, !tbaa !132
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %796 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.87, ptr noundef nonnull %20) #7
   %797 = icmp sgt i32 %796, -1
   br i1 %797, label %799, label %798
 
 798:                                              ; preds = %792
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.thread
 
 799:                                              ; preds = %792
@@ -1880,14 +1880,14 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %801 = trunc i32 %800 to i8
   %802 = getelementptr inbounds nuw i8, ptr %433, i64 14
   store i8 %801, ptr %802, align 1, !tbaa !133
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %803 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.88, ptr noundef nonnull %21) #7
   %804 = icmp sgt i32 %803, -1
   br i1 %804, label %806, label %805
 
 805:                                              ; preds = %799
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %.thread
 
 806:                                              ; preds = %799
@@ -1895,14 +1895,14 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %808 = trunc i32 %807 to i8
   %809 = getelementptr inbounds nuw i8, ptr %433, i64 15
   store i8 %808, ptr %809, align 1, !tbaa !134
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %810 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.89, ptr noundef nonnull %22) #7
   %811 = icmp sgt i32 %810, -1
   br i1 %811, label %813, label %812
 
 812:                                              ; preds = %806
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %.thread
 
 813:                                              ; preds = %806
@@ -1910,7 +1910,7 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %815 = trunc i32 %814 to i8
   %816 = getelementptr inbounds nuw i8, ptr %433, i64 16
   store i8 %815, ptr %816, align 1, !tbaa !135
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %817 = getelementptr inbounds nuw i8, ptr %712, i64 6
   %818 = load i8, ptr %817, align 2, !tbaa !97
   %.not.i43.i = icmp eq i8 %818, 0
@@ -1966,13 +1966,13 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   br label %837
 
 837:                                              ; preds = %836, %835, %830, %826, %825, %824
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %838 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.90, ptr noundef nonnull %23) #7
   %839 = icmp sgt i32 %838, -1
   br i1 %839, label %841, label %840
 
 840:                                              ; preds = %837
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %.thread
 
 841:                                              ; preds = %837
@@ -1980,18 +1980,18 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %843 = trunc i32 %842 to i8
   %844 = getelementptr inbounds nuw i8, ptr %433, i64 17
   store i8 %843, ptr %844, align 1, !tbaa !136
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %.not206.i.i = icmp eq i8 %843, 0
   br i1 %.not206.i.i, label %cbs_mpeg2_read_extension_data.exit.thread103, label %845
 
 845:                                              ; preds = %841
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %846 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.91, ptr noundef nonnull %24) #7
   %847 = icmp sgt i32 %846, -1
   br i1 %847, label %849, label %848
 
 848:                                              ; preds = %845
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %.thread
 
 849:                                              ; preds = %845
@@ -1999,14 +1999,14 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %851 = trunc i32 %850 to i8
   %852 = getelementptr inbounds nuw i8, ptr %433, i64 18
   store i8 %851, ptr %852, align 1, !tbaa !137
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %853 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 3, ptr noundef nonnull @.str.92, ptr noundef nonnull %25) #7
   %854 = icmp sgt i32 %853, -1
   br i1 %854, label %856, label %855
 
 855:                                              ; preds = %849
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %.thread
 
 856:                                              ; preds = %849
@@ -2014,14 +2014,14 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %858 = trunc i32 %857 to i8
   %859 = getelementptr inbounds nuw i8, ptr %433, i64 19
   store i8 %858, ptr %859, align 1, !tbaa !138
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %860 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.93, ptr noundef nonnull %26) #7
   %861 = icmp sgt i32 %860, -1
   br i1 %861, label %863, label %862
 
 862:                                              ; preds = %856
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %.thread
 
 863:                                              ; preds = %856
@@ -2029,14 +2029,14 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %865 = trunc i32 %864 to i8
   %866 = getelementptr inbounds nuw i8, ptr %433, i64 20
   store i8 %865, ptr %866, align 1, !tbaa !139
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %867 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 7, ptr noundef nonnull @.str.94, ptr noundef nonnull %27) #7
   %868 = icmp sgt i32 %867, -1
   br i1 %868, label %870, label %869
 
 869:                                              ; preds = %863
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %.thread
 
 870:                                              ; preds = %863
@@ -2044,8 +2044,8 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %872 = trunc i32 %871 to i8
   %873 = getelementptr inbounds nuw i8, ptr %433, i64 21
   store i8 %872, ptr %873, align 1, !tbaa !140
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %874 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 8, ptr noundef nonnull @.str.95, ptr noundef nonnull %28) #7
   %875 = icmp sgt i32 %874, -1
   br i1 %875, label %.thread263.i.i, label %879
@@ -2055,15 +2055,15 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %877 = trunc i32 %876 to i8
   %878 = getelementptr inbounds nuw i8, ptr %433, i64 22
   store i8 %877, ptr %878, align 1, !tbaa !141
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %cbs_mpeg2_read_extension_data.exit.thread103
 
 879:                                              ; preds = %870
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %.thread
 
 .critedge.i42.i:                                  ; preds = %710
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
 
 880:                                              ; preds = %442
@@ -2073,7 +2073,7 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   br label %.thread
 
 .critedge.i92:                                    ; preds = %431
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %66) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
   br label %.thread
 
 cbs_mpeg2_read_extension_data.exit:               ; preds = %534, %603, %cbs_mpeg2_read_quant_matrix_extension.exit.i, %cbs_mpeg2_read_picture_display_extension.exit.i
@@ -2085,7 +2085,7 @@ cbs_mpeg2_read_extension_data.exit:               ; preds = %534, %603, %cbs_mpe
   %885 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %886 = load ptr, ptr %885, align 8, !tbaa !29
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.96) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %887 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 8, ptr noundef nonnull @.str.97, ptr noundef nonnull %4) #7
   %888 = icmp sgt i32 %887, -1
   br i1 %888, label %889, label %.critedge.i93
@@ -2094,28 +2094,28 @@ cbs_mpeg2_read_extension_data.exit:               ; preds = %534, %603, %cbs_mpe
   %890 = load i32, ptr %4, align 4, !tbaa !4
   %891 = trunc i32 %890 to i8
   store i8 %891, ptr %886, align 4, !tbaa !142
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %892 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 25, ptr noundef nonnull @.str.98, ptr noundef nonnull %5) #7
   %893 = icmp sgt i32 %892, -1
   br i1 %893, label %895, label %894
 
 894:                                              ; preds = %889
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
 895:                                              ; preds = %889
   %896 = load i32, ptr %5, align 4, !tbaa !4
   %897 = getelementptr inbounds nuw i8, ptr %886, i64 4
   store i32 %896, ptr %897, align 4, !tbaa !144
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %898 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.99, ptr noundef nonnull %6) #7
   %899 = icmp sgt i32 %898, -1
   br i1 %899, label %901, label %900
 
 900:                                              ; preds = %895
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread
 
 901:                                              ; preds = %895
@@ -2123,8 +2123,8 @@ cbs_mpeg2_read_extension_data.exit:               ; preds = %534, %603, %cbs_mpe
   %903 = trunc i32 %902 to i8
   %904 = getelementptr inbounds nuw i8, ptr %886, i64 8
   store i8 %903, ptr %904, align 4, !tbaa !145
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %905 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.100, ptr noundef nonnull %7) #7
   %906 = icmp sgt i32 %905, -1
   br i1 %906, label %cbs_mpeg2_read_group_of_pictures_header.exit.thread106, label %cbs_mpeg2_read_group_of_pictures_header.exit
@@ -2134,22 +2134,22 @@ cbs_mpeg2_read_group_of_pictures_header.exit.thread106: ; preds = %901
   %908 = trunc i32 %907 to i8
   %909 = getelementptr inbounds nuw i8, ptr %886, i64 9
   store i8 %908, ptr %909, align 1, !tbaa !146
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %cbs_mpeg2_read_extension_data.exit.thread103
 
 .critedge.i93:                                    ; preds = %884
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 cbs_mpeg2_read_group_of_pictures_header.exit:     ; preds = %901
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
 910:                                              ; preds = %226
   %911 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %912 = load ptr, ptr %911, align 8, !tbaa !29
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.101) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %913 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 8, ptr noundef nonnull @.str.102, ptr noundef nonnull %3) #7
   %914 = icmp sgt i32 %913, -1
   br i1 %914, label %cbs_mpeg2_read_sequence_end.exit.thread, label %cbs_mpeg2_read_sequence_end.exit
@@ -2158,11 +2158,11 @@ cbs_mpeg2_read_sequence_end.exit.thread:          ; preds = %910
   %915 = load i32, ptr %3, align 4, !tbaa !4
   %916 = trunc i32 %915 to i8
   store i8 %916, ptr %912, align 1, !tbaa !147
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %cbs_mpeg2_read_extension_data.exit.thread103
 
 cbs_mpeg2_read_sequence_end.exit:                 ; preds = %910
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread
 
 cbs_mpeg2_read_extension_data.exit.thread103:     ; preds = %841, %.thread263.i.i, %cbs_mpeg2_read_sequence_end.exit.thread, %cbs_mpeg2_read_group_of_pictures_header.exit.thread106, %cbs_mpeg2_read_sequence_header.exit, %cbs_mpeg2_read_user_data.exit, %220, %cbs_mpeg2_read_picture_header.exit, %cbs_mpeg2_read_extension_data.exit
@@ -2170,7 +2170,7 @@ cbs_mpeg2_read_extension_data.exit.thread103:     ; preds = %841, %.thread263.i.
 
 .thread:                                          ; preds = %.critedge.i93, %894, %900, %.critedge.i42.i, %721, %728, %735, %742, %749, %756, %763, %770, %777, %784, %791, %798, %805, %812, %840, %848, %855, %862, %869, %879, %.critedge.i35.i, %544, %552, %563, %574, %589, %590, %.critedge.i.i, %457, %464, %471, %478, %499, %500, %509, %516, %523, %.critedge.i92, %441, %880, %.critedge.i86, %237, %244, %251, %261, %268, %277, %287, %.critedge.i, %142, %156, %160, %180, %186, %193, %203, %208, %207, %cbs_mpeg2_read_slice_header.exit, %cbs_mpeg2_read_sequence_end.exit, %cbs_mpeg2_read_group_of_pictures_header.exit, %cbs_mpeg2_read_sequence_header.exit.thread, %cbs_mpeg2_read_user_data.exit.thread, %226, %117, %2, %cbs_mpeg2_read_picture_header.exit, %cbs_mpeg2_read_extension_data.exit, %cbs_mpeg2_read_extension_data.exit.thread103
   %.0 = phi i32 [ 0, %cbs_mpeg2_read_extension_data.exit.thread103 ], [ %289, %cbs_mpeg2_read_picture_header.exit ], [ %.133.i, %cbs_mpeg2_read_extension_data.exit ], [ %905, %cbs_mpeg2_read_group_of_pictures_header.exit ], [ %913, %cbs_mpeg2_read_sequence_end.exit ], [ -1094995529, %2 ], [ %118, %117 ], [ -38, %226 ], [ %.131.i.ph, %cbs_mpeg2_read_user_data.exit.thread ], [ %.1110.i.ph, %cbs_mpeg2_read_sequence_header.exit.thread ], [ -12, %208 ], [ -1094995529, %207 ], [ %205, %cbs_mpeg2_read_slice_header.exit ], [ %128, %.critedge.i ], [ %137, %142 ], [ %151, %156 ], [ %158, %160 ], [ %178, %180 ], [ %184, %186 ], [ %191, %193 ], [ %198, %203 ], [ %230, %.critedge.i86 ], [ %235, %237 ], [ %242, %244 ], [ %249, %251 ], [ %259, %261 ], [ %266, %268 ], [ %275, %277 ], [ %282, %287 ], [ %713, %.critedge.i42.i ], [ %719, %721 ], [ %726, %728 ], [ %733, %735 ], [ %740, %742 ], [ %747, %749 ], [ %754, %756 ], [ %761, %763 ], [ %768, %770 ], [ %775, %777 ], [ %782, %784 ], [ %789, %791 ], [ %796, %798 ], [ %803, %805 ], [ %810, %812 ], [ %838, %840 ], [ %846, %848 ], [ %853, %855 ], [ %860, %862 ], [ %867, %869 ], [ %874, %879 ], [ %536, %.critedge.i35.i ], [ %542, %544 ], [ %550, %552 ], [ %561, %563 ], [ %572, %574 ], [ %587, %589 ], [ %594, %590 ], [ %449, %.critedge.i.i ], [ %455, %457 ], [ %462, %464 ], [ %469, %471 ], [ %476, %478 ], [ %497, %499 ], [ %504, %500 ], [ %507, %509 ], [ %514, %516 ], [ %521, %523 ], [ %434, %.critedge.i92 ], [ %439, %441 ], [ -1163346256, %880 ], [ %887, %.critedge.i93 ], [ %892, %894 ], [ %898, %900 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %102) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %102)
   ret i32 %.0
 }
 
@@ -2284,7 +2284,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_write_unit(ptr noundef 
 
 79:                                               ; preds = %73, %54
   %80 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %81 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %82 = load i64, ptr %81, align 8, !tbaa !149
   %.not.i.i.i = icmp eq i64 %82, 0
@@ -2320,12 +2320,12 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_write_unit(ptr noundef 
 
 cbs_mpeg2_write_slice_header.exit.thread3.i:      ; preds = %91, %88
   %.2.i.i.ph.i = phi i32 [ %97, %91 ], [ %89, %88 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %cbs_mpeg2_write_slice.exit
 
 cbs_mpeg2_write_slice_header.exit.i:              ; preds = %84, %79
   %99 = call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.11, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %100 = icmp slt i32 %99, 0
   br i1 %100, label %cbs_mpeg2_write_slice.exit, label %101
 
@@ -2757,7 +2757,7 @@ put_bits.exit65.i:                                ; preds = %273, %259
 
 .thread.i.i:                                      ; preds = %324, %316, %301
   %330 = getelementptr inbounds nuw i8, ptr %278, i64 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %331 = getelementptr inbounds nuw i8, ptr %278, i64 32
   %332 = load i64, ptr %331, align 8, !tbaa !149
   %.not.i.i.i11 = icmp eq i64 %332, 0
@@ -2798,13 +2798,13 @@ put_bits.exit65.i:                                ; preds = %273, %259
 
 cbs_mpeg2_write_extra_information.exit.i.i:       ; preds = %341, %338, %._crit_edge.i.i.i
   %.2.i.i.i = phi i32 [ %spec.select.i.i.i, %._crit_edge.i.i.i ], [ %339, %338 ], [ %347, %341 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %cbs_mpeg2_write_slice.exit
 
 350:                                              ; preds = %275
   %351 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %352 = load ptr, ptr %351, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.23) #7
   %353 = load i8, ptr %352, align 8, !tbaa !65
   %354 = zext i8 %353 to i32
@@ -2844,14 +2844,14 @@ cbs_mpeg2_write_extra_information.exit.i.i:       ; preds = %341, %338, %._crit_
 
 cbs_mpeg2_write_user_data.exit.i:                 ; preds = %365, %361, %.preheader.i.i, %350
   %.016.i.i = phi i32 [ %355, %350 ], [ 0, %.preheader.i.i ], [ %371, %365 ], [ 0, %361 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %cbs_mpeg2_write_slice.exit
 
 373:                                              ; preds = %275
   %374 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %375 = load ptr, ptr %374, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %376 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %377 = load ptr, ptr %376, align 8, !tbaa !30
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.29) #7
@@ -2998,8 +2998,8 @@ cbs_mpeg2_write_user_data.exit.i:                 ; preds = %365, %361, %.prehea
 
 cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %452, %.loopexit99.i.i, %429, %423, %417, %414, %409, %403, %394, %388, %382, %373
   %.0.i23.i = phi i32 [ %415, %414 ], [ %380, %373 ], [ %386, %382 ], [ %392, %388 ], [ %401, %394 ], [ %407, %403 ], [ %412, %409 ], [ %421, %417 ], [ %427, %423 ], [ %433, %429 ], [ %450, %.loopexit99.i.i ], [ 0, %452 ], [ 0, %456 ], [ %462, %457 ], [ %445, %440 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %cbs_mpeg2_write_slice.exit
 
 464:                                              ; preds = %275
@@ -3239,10 +3239,10 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
 
 620:                                              ; preds = %477
   %621 = getelementptr inbounds nuw i8, ptr %466, i64 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.67) #7
   %622 = load i8, ptr %621, align 1, !tbaa !112
   %623 = zext i8 %622 to i32
@@ -3384,16 +3384,16 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
 
 cbs_mpeg2_write_quant_matrix_extension.exit.i.i:  ; preds = %631, %648, %665, %682, %681, %677, %.loopexit74.i.i.i, %.loopexit77.i.i.i, %.loopexit80.i.i.i, %620
   %.061.i.i.i = phi i32 [ %624, %620 ], [ %641, %.loopexit80.i.i.i ], [ %658, %.loopexit77.i.i.i ], [ %675, %.loopexit74.i.i.i ], [ 0, %677 ], [ %687, %682 ], [ 0, %681 ], [ %670, %665 ], [ %653, %648 ], [ %636, %631 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %cbs_mpeg2_write_slice.exit
 
 689:                                              ; preds = %477
   %690 = getelementptr inbounds nuw i8, ptr %466, i64 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %691 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %692 = load ptr, ptr %691, align 8, !tbaa !30
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.71) #7
@@ -3449,8 +3449,8 @@ cbs_mpeg2_write_quant_matrix_extension.exit.i.i:  ; preds = %631, %648, %665, %6
 
 cbs_mpeg2_write_picture_display_extension.exit.i.i: ; preds = %718, %712, %709, %702, %698, %689
   %.1.i.i.i = phi i32 [ 0, %689 ], [ %710, %709 ], [ %719, %718 ], [ %707, %702 ], [ %716, %712 ], [ 0, %698 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %cbs_mpeg2_write_slice.exit
 
 721:                                              ; preds = %477
@@ -3839,25 +3839,19 @@ define internal range(i32 -12, 1) i32 @cbs_mpeg2_assemble_fragment(ptr readnone 
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @avpriv_find_start_code(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @avpriv_find_start_code(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ff_cbs_append_unit_data(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ff_cbs_append_unit_data(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ff_cbs_alloc_unit_content(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @av_buffer_ref(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ff_cbs_alloc_unit_content(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ff_cbs_trace_header(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @av_buffer_ref(ptr noundef) local_unnamed_addr #2
+declare i32 @ff_cbs_read_simple_unsigned(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ff_cbs_trace_header(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @ff_cbs_read_simple_unsigned(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @ff_cbs_read_unsigned(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ff_cbs_read_unsigned(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_extra_information(ptr noundef %0, ptr noundef nonnull %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
@@ -3866,7 +3860,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_extra_infor
   %8 = alloca i32, align 4
   %9 = alloca [2 x i32], align 4
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !173
   %11 = getelementptr i8, ptr %1, i64 16
   %12 = getelementptr i8, ptr %1, i64 20
@@ -3937,14 +3931,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_extra_infor
 
 41:                                               ; preds = %.lr.ph68, %49
   %.14967 = phi i64 [ 0, %.lr.ph68 ], [ %54, %49 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %42 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 1, ptr noundef %4, ptr noundef null, ptr noundef nonnull %7, i32 noundef 1, i32 noundef 1) #7
   %43 = icmp sgt i32 %42, -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %43, label %44, label %.loopexit
 
 44:                                               ; preds = %41
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 1, ptr %9, align 4, !tbaa !4
   %45 = trunc i64 %.14967 to i32
   store i32 %45, ptr %40, align 4, !tbaa !4
@@ -3953,7 +3947,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_extra_infor
   br i1 %47, label %49, label %48
 
 48:                                               ; preds = %44
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
 49:                                               ; preds = %44
@@ -3962,47 +3956,53 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_extra_infor
   %52 = load ptr, ptr %2, align 8, !tbaa !151
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 %.14967
   store i8 %51, ptr %53, align 1, !tbaa !45
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %54 = add nuw i64 %.14967, 1
   %55 = load i64, ptr %31, align 8, !tbaa !149
   %56 = icmp ult i64 %54, %55
   br i1 %56, label %41, label %._crit_edge, !llvm.loop !177
 
 ._crit_edge:                                      ; preds = %49, %.critedge.thread, %.critedge, %36
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %57 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 1, ptr noundef %4, ptr noundef null, ptr noundef nonnull %10, i32 noundef 0, i32 noundef 0) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %spec.select = call i32 @llvm.smin.i32(i32 %57, i32 0)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %41, %48, %._crit_edge, %32
   %.045 = phi i32 [ %46, %48 ], [ -12, %32 ], [ %spec.select, %._crit_edge ], [ %42, %41 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.045
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare ptr @av_buffer_allocz(i64 noundef) local_unnamed_addr #2
+declare ptr @av_buffer_allocz(i64 noundef) local_unnamed_addr #1
 
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #4
+declare void @abort() local_unnamed_addr #3
 
-declare i32 @ff_cbs_read_signed(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ff_cbs_read_signed(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ff_cbs_write_simple_unsigned(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ff_cbs_write_simple_unsigned(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ff_cbs_write_unsigned(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ff_cbs_write_unsigned(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ff_cbs_write_signed(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ff_cbs_write_signed(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @av_buffer_alloc(i64 noundef) local_unnamed_addr #2
+declare ptr @av_buffer_alloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #6
@@ -4014,11 +4014,11 @@ declare i32 @llvm.umin.i32(i32, i32) #6
 declare i32 @llvm.smin.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 attributes #8 = { noreturn nounwind }

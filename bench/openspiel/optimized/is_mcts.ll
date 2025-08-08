@@ -903,8 +903,8 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit38: ; preds = %_ZNK10open_spiel5
 
 172:                                              ; preds = %165
   call void @llvm.experimental.noalias.scope.decl(metadata !18)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %173 = getelementptr inbounds nuw i8, ptr %1, i64 5132
   %174 = load i8, ptr %173, align 4, !noalias !18
   %175 = trunc i8 %174 to i1
@@ -935,8 +935,8 @@ _ZNK10open_spiel10algorithms9ISMCTSBot11GetStateKeyB5cxx11ERKNS_5StateE.exit: ; 
   store i32 %179, ptr %19, align 8, !alias.scope !18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %185, ptr noundef nonnull align 8 dereferenceable(32) %.11.i) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.11.i) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %188 = getelementptr inbounds nuw i8, ptr %1, i64 5120
   %189 = load i32, ptr %188, align 8
   %190 = icmp sgt i32 %189, 0
@@ -955,8 +955,8 @@ _ZNK10open_spiel10algorithms9ISMCTSBot11GetStateKeyB5cxx11ERKNS_5StateE.exit: ; 
 194:                                              ; preds = %193
   %195 = load ptr, ptr %20, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !21)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %196 = load i8, ptr %173, align 4, !noalias !21
   %197 = trunc i8 %196 to i1
   %198 = load ptr, ptr %195, align 8, !noalias !21
@@ -985,8 +985,8 @@ _ZNK10open_spiel10algorithms9ISMCTSBot11GetStateKeyB5cxx11ERKNS_5StateE.exit: ; 
   store i32 %201, ptr %21, align 8, !alias.scope !21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %191, ptr noundef nonnull align 8 dereferenceable(32) %.11.i42) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.11.i42) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %210 = load i32, ptr %19, align 8
   %211 = load i32, ptr %21, align 8
   %212 = icmp eq i32 %210, %211
@@ -1438,8 +1438,8 @@ define noundef ptr @_ZN10open_spiel10algorithms9ISMCTSBot13CreateNewNodeERKNS_5S
   %5 = alloca %"struct.std::pair", align 8
   %6 = alloca %"class.std::unique_ptr.68", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 5132
   %8 = load i8, ptr %7, align 4, !noalias !25
   %9 = trunc i8 %8 to i1
@@ -1461,8 +1461,8 @@ define noundef ptr @_ZN10open_spiel10algorithms9ISMCTSBot13CreateNewNodeERKNS_5S
   store i32 %13, ptr %5, align 8, !alias.scope !25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %.11.i) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.11.i) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 5064
   %23 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28
           to label %24 unwind label %79
@@ -2491,9 +2491,9 @@ _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit36:      ; preds = %_ZNSt6vectorISt4pai
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK10open_spiel10algorithms9ISMCTSBot14FilterIllegalsEPNS0_10ISMCTSNodeERKSt6vectorIlSaIlEE(ptr dead_on_unwind noalias nonnull writable sret(%"struct.open_spiel::algorithms::ISMCTSNode") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::allocator.57", align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIlN10open_spiel10algorithms9ChildInfoEEENS0_13hash_internal4HashIlEESt8equal_toIlESaISt4pairIKlS6_EEEC2ERKSH_RKSG_(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(44) %2, ptr noundef nonnull align 1 dereferenceable(1) %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %8 = load i32, ptr %7, align 8
@@ -4447,7 +4447,7 @@ define void @_ZN10open_spiel10algorithms9ISMCTSBot21ResampleFromInfostateERKNS_5
   store i64 %14, ptr %5, align 8
   store ptr @"_ZNSt17_Function_handlerIFdvEZN10open_spiel10algorithms9ISMCTSBot21ResampleFromInfostateERKNS1_5StateEE3$_0E9_M_invokeERKSt9_Any_data", ptr %17, align 8
   store ptr @"_ZNSt17_Function_handlerIFdvEZN10open_spiel10algorithms9ISMCTSBot21ResampleFromInfostateERKNS1_5StateEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %13, ptr %4, align 4, !noalias !78
   %19 = load ptr, ptr %8, align 8, !noalias !78
   %.not.i.i9 = icmp eq ptr %19, null
@@ -4467,7 +4467,7 @@ define void @_ZN10open_spiel10algorithms9ISMCTSBot21ResampleFromInfostateERKNS_5
           to label %24 unwind label %31
 
 24:                                               ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %25 = load ptr, ptr %16, align 8
   %.not.i.i11 = icmp eq ptr %25, null
   br i1 %.not.i.i11, label %_ZNSt8functionIFdvEED2Ev.exit, label %26
@@ -4636,8 +4636,8 @@ define noundef ptr @_ZN10open_spiel10algorithms9ISMCTSBot10LookupNodeERKNS_5Stat
   %5 = alloca %"struct.std::pair", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 5024
   tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 5132
   %8 = load i8, ptr %7, align 4, !noalias !81
   %9 = trunc i8 %8 to i1
@@ -4659,8 +4659,8 @@ define noundef ptr @_ZN10open_spiel10algorithms9ISMCTSBot10LookupNodeERKNS_5Stat
   store i32 %13, ptr %5, align 8, !alias.scope !81
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %.11.i) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.11.i) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.0.copyload.i.i35.i.i.i.i.i.i.i.i.i.i = load i32, ptr %5, align 8
   %22 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #26
   %23 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #26
@@ -5949,7 +5949,7 @@ define linkonce_odr void @_ZSt7shuffleIN9__gnu_cxx17__normal_iteratorIPlSt6vecto
   %31 = ashr exact i64 %30, 3
   %32 = add nsw i64 %31, 1
   %33 = add nsw i64 %31, 2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %34 = mul i64 %33, %32
   %35 = add i64 %34, -1
   store i64 0, ptr %4, align 8
@@ -5957,7 +5957,7 @@ define linkonce_odr void @_ZSt7shuffleIN9__gnu_cxx17__normal_iteratorIPlSt6vecto
   %36 = call noundef i64 @_ZNSt24uniform_int_distributionImEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(5000) %2, ptr noundef nonnull align 8 dereferenceable(16) %4)
   %37 = udiv i64 %36, %33
   %38 = urem i64 %36, %33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.018.141, i64 8
   %40 = getelementptr inbounds i64, ptr %0, i64 %37
   %41 = load i64, ptr %.sroa.018.141, align 8
@@ -8522,10 +8522,10 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare i16 @llvm.cttz.i16(i16, i1 immarg) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #22

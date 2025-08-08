@@ -33,7 +33,7 @@ define internal i32 @mpegvideo_parse(ptr noundef %0, ptr noundef %1, ptr noundef
 
 14:                                               ; preds = %6
   %15 = load ptr, ptr %0, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %17 = load i32, ptr %16, align 4, !tbaa !17
   store i32 %17, ptr %8, align 4, !tbaa !14
@@ -201,7 +201,7 @@ define internal i32 @mpegvideo_parse(ptr noundef %0, ptr noundef %1, ptr noundef
 
 mpeg1_find_frame_end.exit:                        ; preds = %14, %61, %78, %._crit_edge.i
   %.052.i = phi i32 [ %62, %61 ], [ %79, %78 ], [ -100, %._crit_edge.i ], [ 0, %14 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %90 = call i32 @ff_combine_frame(ptr noundef nonnull %15, i32 noundef %.052.i, ptr noundef nonnull %9, ptr noundef nonnull %10) #4
   %91 = icmp slt i32 %90, 0
   br i1 %91, label %92, label %thread-pre-split
@@ -257,7 +257,7 @@ thread-pre-split:                                 ; preds = %mpeg1_find_frame_en
   %.0153219.i = phi i32 [ -1, %.lr.ph.i18 ], [ %.3156.i, %289 ]
   %.0158218.i = phi i32 [ 0, %.lr.ph.i18 ], [ %.2160.i, %289 ]
   %.0162217.i = phi i32 [ 0, %.lr.ph.i18 ], [ %.3165.i, %289 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 -1, ptr %7, align 4, !tbaa !14
   %120 = call ptr @avpriv_find_start_code(ptr noundef %.0139224.i, ptr noundef nonnull %99, ptr noundef nonnull %7) #4
   %121 = ptrtoint ptr %120 to i64
@@ -560,7 +560,7 @@ default.unreachable:                              ; preds = %205
   br i1 %or.cond3.i25, label %.thread187.i, label %289
 
 .thread187.i:                                     ; preds = %287, %119
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit.i
 
 289:                                              ; preds = %287, %285, %259, %252, %203, %200, %198, %177, %149, %134, %127, %125
@@ -571,7 +571,7 @@ default.unreachable:                              ; preds = %205
   %.2147.i = phi i32 [ %.0145221.i, %134 ], [ %.0145221.i, %127 ], [ %.0145221.i, %125 ], [ %197, %177 ], [ %.0145221.i, %149 ], [ %.0145221.i, %200 ], [ %249, %252 ], [ %.0145221.i, %203 ], [ %.0145221.i, %285 ], [ %.0145221.i, %259 ], [ %.0145221.i, %198 ], [ %.0145221.i, %287 ]
   %.4.i = phi i32 [ %.0141222.i, %134 ], [ %.0141222.i, %127 ], [ %.0141222.i, %125 ], [ %.2143.i, %177 ], [ %.0141222.i, %149 ], [ %.0141222.i, %200 ], [ %.3144.i, %252 ], [ %.0141222.i, %203 ], [ %.0141222.i, %285 ], [ %.0141222.i, %259 ], [ %.0141222.i, %198 ], [ %.0141222.i, %287 ]
   %.3.i = phi i32 [ %.0140223.i, %134 ], [ %.0140223.i, %127 ], [ %.0140223.i, %125 ], [ %.2.i24, %177 ], [ %.0140223.i, %149 ], [ %.0140223.i, %200 ], [ %.0140223.i, %252 ], [ %.0140223.i, %203 ], [ %.0140223.i, %285 ], [ %.0140223.i, %259 ], [ %.0140223.i, %198 ], [ %.0140223.i, %287 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %290 = icmp ult ptr %120, %99
   br i1 %290, label %119, label %.loopexit.i
 
@@ -688,13 +688,7 @@ mpegvideo_extract_headers.exit:                   ; preds = %324, %327
 
 declare void @ff_parse_close(ptr noundef) #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @ff_combine_frame(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare ptr @avpriv_find_start_code(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -703,6 +697,12 @@ declare void @ff_fetch_timestamp(ptr noundef, i32 noundef, i32 noundef, i32 noun
 declare i32 @ff_set_dimensions(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

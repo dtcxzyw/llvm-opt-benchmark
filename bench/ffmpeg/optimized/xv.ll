@@ -51,11 +51,11 @@ define internal range(i32 -1163346256, 1) i32 @xv_write_header(ptr noundef %0) #
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8, !tbaa !25
@@ -433,11 +433,11 @@ xv_get_tag_from_format.exit.thread:               ; preds = %23, %xv_get_tag_fro
 
 xv_write_trailer.exit:                            ; preds = %216, %195, %149, %127, %40, %33, %22
   %.0 = phi i32 [ -22, %22 ], [ 0, %149 ], [ -19, %127 ], [ -22, %40 ], [ -1163346256, %33 ], [ %.0115, %195 ], [ %.0115, %216 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -463,8 +463,8 @@ define internal range(i32 -542398533, 1) i32 @xv_write_packet(ptr noundef %0, pt
   br label %29
 
 18:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !99
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 44
@@ -475,8 +475,8 @@ define internal range(i32 -542398533, 1) i32 @xv_write_packet(ptr noundef %0, pt
   %26 = load i32, ptr %25, align 4, !tbaa !55
   %27 = call i32 @av_image_fill_arrays(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %20, i32 noundef %22, i32 noundef %24, i32 noundef %26, i32 noundef 1) #5
   %28 = call fastcc i32 @write_picture(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %29
 
 29:                                               ; preds = %18, %13
@@ -563,9 +563,6 @@ define internal range(i32 -542398533, 1) i32 @xv_write_frame(ptr noundef %0, i32
 
 declare ptr @av_default_item_name(ptr noundef) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare ptr @av_get_pix_fmt_name(i32 noundef) local_unnamed_addr #1
@@ -573,10 +570,7 @@ declare ptr @av_get_pix_fmt_name(i32 noundef) local_unnamed_addr #1
 declare ptr @XOpenDisplay(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @av_rescale(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare i64 @av_rescale(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 declare i64 @XCreateSimpleWindow(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -603,17 +597,17 @@ declare ptr @XCreateGC(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local
 declare ptr @XvShmCreateImage(ptr noundef, i64 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @shmget(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @shmget(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare ptr @shmat(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @shmat(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 declare i32 @XShmAttach(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @XSync(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @shmctl(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @shmctl(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 declare i32 @XGetWindowAttributes(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -629,7 +623,7 @@ define internal fastcc range(i32 -542398533, 1) i32 @write_picture(ptr noundef %
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %9 = load ptr, ptr %8, align 8, !tbaa !82
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !88
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -658,7 +652,7 @@ define internal fastcc range(i32 -542398533, 1) i32 @write_picture(ptr noundef %
   br i1 %.not, label %29, label %48
 
 29:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %31 = load ptr, ptr %30, align 8, !tbaa !52
   %32 = tail call i32 @XPending(ptr noundef %31) #5
@@ -685,7 +679,7 @@ define internal fastcc range(i32 -542398533, 1) i32 @write_picture(ptr noundef %
 
 44:                                               ; preds = %40
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %7, i32 noundef 48, ptr noundef nonnull @.str.23) #5
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %58
 
 45:                                               ; preds = %40, %35
@@ -695,7 +689,7 @@ define internal fastcc range(i32 -542398533, 1) i32 @write_picture(ptr noundef %
   br i1 %.not24, label %.critedge, label %35, !llvm.loop !105
 
 .critedge:                                        ; preds = %45, %29
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %48
 
 48:                                               ; preds = %.critedge, %3
@@ -713,7 +707,7 @@ define internal fastcc range(i32 -542398533, 1) i32 @write_picture(ptr noundef %
 
 58:                                               ; preds = %44, %48
   %.1 = phi i32 [ %57, %48 ], [ -32, %44 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
 }
 
@@ -729,7 +723,7 @@ define internal fastcc range(i32 -542398533, 1) i32 @xv_repaint(ptr noundef %0) 
   %3 = alloca [2 x %struct.XRectangle], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %7 = load ptr, ptr %6, align 8, !tbaa !52
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -751,7 +745,7 @@ define internal fastcc range(i32 -542398533, 1) i32 @xv_repaint(ptr noundef %0) 
   br i1 %.not35, label %119, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %1, %17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i32 %12, ptr %20, align 8, !tbaa !111
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 68
@@ -924,7 +918,7 @@ compute_display_area.exit:                        ; preds = %63, %av_cmp_q.exit.
   br label %118
 
 118:                                              ; preds = %99, %96
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %119
 
 119:                                              ; preds = %118, %17
@@ -959,7 +953,7 @@ compute_display_area.exit:                        ; preds = %63, %av_cmp_q.exit.
 
 143:                                              ; preds = %119, %142
   %.0 = phi i32 [ -542398533, %142 ], [ 0, %119 ]
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -970,22 +964,28 @@ declare i32 @XFillRectangles(ptr noundef, i64 noundef, ptr noundef, ptr noundef,
 declare i32 @XvShmPutImage(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @av_mul_q(i64, i64) local_unnamed_addr #3
+declare i64 @av_mul_q(i64, i64) local_unnamed_addr #2
 
 declare i32 @XShmDetach(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @shmdt(ptr noundef) local_unnamed_addr #4
+declare i32 @shmdt(ptr noundef) local_unnamed_addr #3
 
 declare i32 @XFreeGC(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @XCloseDisplay(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 attributes #6 = { nounwind willreturn memory(none) }
 

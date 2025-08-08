@@ -30,7 +30,7 @@ define hidden void @_ZN19ScavengableNMethods16register_nmethodEP7nmethod(ptr nou
   br i1 %.not, label %7, label %18
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = load ptr, ptr @_ZN19ScavengableNMethods15_is_scavengableE, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVZN19ScavengableNMethods20has_scavengable_oopsEP7nmethodE18HasScavengableOops, i64 16), ptr %2, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -40,7 +40,7 @@ define hidden void @_ZN19ScavengableNMethods16register_nmethodEP7nmethod(ptr nou
   call void @_ZN7nmethod7oops_doEP10OopClosureb(ptr noundef nonnull align 8 dereferenceable(214) %0, ptr noundef nonnull %2, i1 noundef zeroext false) #9
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %7
@@ -108,7 +108,7 @@ define hidden void @_ZN19ScavengableNMethods21nmethods_do_and_pruneEP19NMethodTo
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, -4
   %10 = inttoptr i64 %9 to ptr
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %11 = load ptr, ptr @_ZN19ScavengableNMethods15_is_scavengableE, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVZN19ScavengableNMethods20has_scavengable_oopsEP7nmethodE18HasScavengableOops, i64 16), ptr %2, align 8
   store ptr %11, ptr %4, align 8
@@ -116,7 +116,7 @@ define hidden void @_ZN19ScavengableNMethods21nmethods_do_and_pruneEP19NMethodTo
   call void @_ZN7nmethod7oops_doEP10OopClosureb(ptr noundef nonnull align 8 dereferenceable(214) %.01014.us, ptr noundef nonnull %2, i1 noundef zeroext false) #9
   %12 = load i8, ptr %5, align 8
   %13 = trunc i8 %12 to i1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %13, label %28, label %14
 
 14:                                               ; preds = %.lr.ph.split.us
@@ -161,7 +161,7 @@ _ZN19ScavengableNMethods14unlist_nmethodEP7nmethodS1_.exit.us: ; preds = %26, %1
   %33 = ptrtoint ptr %32 to i64
   %34 = and i64 %33, -4
   %35 = inttoptr i64 %34 to ptr
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %36 = load ptr, ptr @_ZN19ScavengableNMethods15_is_scavengableE, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVZN19ScavengableNMethods20has_scavengable_oopsEP7nmethodE18HasScavengableOops, i64 16), ptr %2, align 8
   store ptr %36, ptr %4, align 8
@@ -169,7 +169,7 @@ _ZN19ScavengableNMethods14unlist_nmethodEP7nmethodS1_.exit.us: ; preds = %26, %1
   call void @_ZN7nmethod7oops_doEP10OopClosureb(ptr noundef nonnull align 8 dereferenceable(214) %.01014, ptr noundef nonnull %2, i1 noundef zeroext false) #9
   %37 = load i8, ptr %5, align 8
   %38 = trunc i8 %37 to i1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %38, label %53, label %39
 
 39:                                               ; preds = %.lr.ph.split
@@ -257,7 +257,7 @@ define hidden void @_ZN19ScavengableNMethods29prune_nmethods_not_into_youngEv() 
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, -4
   %9 = inttoptr i64 %8 to ptr
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %10 = load ptr, ptr @_ZN19ScavengableNMethods15_is_scavengableE, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVZN19ScavengableNMethods20has_scavengable_oopsEP7nmethodE18HasScavengableOops, i64 16), ptr %1, align 8
   store ptr %10, ptr %3, align 8
@@ -265,7 +265,7 @@ define hidden void @_ZN19ScavengableNMethods29prune_nmethods_not_into_youngEv() 
   call void @_ZN7nmethod7oops_doEP10OopClosureb(ptr noundef nonnull align 8 dereferenceable(214) %.01014.us.i, ptr noundef nonnull %1, i1 noundef zeroext false) #9
   %11 = load i8, ptr %4, align 8
   %12 = trunc i8 %11 to i1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br i1 %12, label %27, label %13
 
 13:                                               ; preds = %.lr.ph.split.us.i
@@ -399,10 +399,10 @@ define internal void @_ZZN19ScavengableNMethods20has_scavengable_oopsEP7nmethodE
 declare void @_ZN7nmethod7oops_doEP10OopClosureb(ptr noundef nonnull align 8 dereferenceable(214), ptr noundef, i1 noundef zeroext) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

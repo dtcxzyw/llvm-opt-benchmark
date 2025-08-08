@@ -1188,38 +1188,38 @@ _ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE8destructEv.exit259: ; preds 
   %call403 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIPiiEbT_S1_T0_PKcz(ptr noundef nonnull %intArray1395, ptr noundef nonnull %add.ptr402, i32 noundef 0, ptr noundef nonnull @.str.42, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 6, i32 noundef -1)
   %call404 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call403, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 436, ptr noundef nonnull @.str.43)
   %call407 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 444, ptr noundef nonnull @.str.37)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %first.addr.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %first.addr.i.i.i)
   store ptr null, ptr %first.addr.i.i.i, align 8
   %211 = call { i64, ptr } asm sideeffect "cld\0A\09rep stosl\0A\09", "={cx},={di},=*m,{ax},0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %first.addr.i.i.i, i32 0, i64 0, ptr null) #11, !srcloc !5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %first.addr.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %first.addr.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %intArray, ptr noundef nonnull align 16 dereferenceable(24) @__const._Z10TestMemoryv.intArray.46, i64 24, i1 false)
   %add.ptr411 = getelementptr inbounds nuw i8, ptr %intArray, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %first.addr.i.i.i271)
+  call void @llvm.lifetime.start.p0(ptr nonnull %first.addr.i.i.i271)
   store ptr %intArray, ptr %first.addr.i.i.i271, align 8
   %212 = call { i64, ptr } asm sideeffect "cld\0A\09rep stosl\0A\09", "={cx},={di},=*m,{ax},0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %first.addr.i.i.i271, i32 4, i64 6, ptr nonnull %intArray) #11, !srcloc !5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %first.addr.i.i.i271)
+  call void @llvm.lifetime.end.p0(ptr nonnull %first.addr.i.i.i271)
   %call416 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIPiiEbT_S1_T0_PKcz(ptr noundef nonnull %intArray, ptr noundef nonnull %add.ptr411, i32 noundef 0, ptr noundef nonnull @.str.44, i32 noundef 4, i32 noundef 4, i32 noundef 4, i32 noundef 4, i32 noundef 4, i32 noundef 4, i32 noundef -1)
   %call417 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call416, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 455, ptr noundef nonnull @.str.45)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %first.addr.i.i.i272)
+  call void @llvm.lifetime.start.p0(ptr nonnull %first.addr.i.i.i272)
   store ptr null, ptr %first.addr.i.i.i272, align 8
   %213 = call { i64, ptr } asm sideeffect "cld\0A\09rep stosl\0A\09", "={cx},={di},=*m,{ax},0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %first.addr.i.i.i272, i32 0, i64 0, ptr null) #11, !srcloc !6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %first.addr.i.i.i272)
+  call void @llvm.lifetime.end.p0(ptr nonnull %first.addr.i.i.i272)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %intArray420, ptr noundef nonnull align 16 dereferenceable(24) @__const._Z10TestMemoryv.intArray.46, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %first.addr.i.i.i273)
+  call void @llvm.lifetime.start.p0(ptr nonnull %first.addr.i.i.i273)
   store ptr %intArray420, ptr %first.addr.i.i.i273, align 8
   %214 = call { i64, ptr } asm sideeffect "cld\0A\09rep stosl\0A\09", "={cx},={di},=*m,{ax},0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %first.addr.i.i.i273, i32 5, i64 6, ptr nonnull %intArray420) #11, !srcloc !6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %first.addr.i.i.i273)
+  call void @llvm.lifetime.end.p0(ptr nonnull %first.addr.i.i.i273)
   %add.ptr425 = getelementptr inbounds nuw i8, ptr %intArray420, i64 24
   %call426 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIPiiEbT_S1_T0_PKcz(ptr noundef nonnull %intArray420, ptr noundef nonnull %add.ptr425, i32 noundef 0, ptr noundef nonnull @.str.47, i32 noundef 5, i32 noundef 5, i32 noundef 5, i32 noundef 5, i32 noundef 5, i32 noundef 5, i32 noundef -1)
   %call427 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call426, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 473, ptr noundef nonnull @.str.48)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %first.addr.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %first.addr.i.i.i.i)
   store ptr null, ptr %first.addr.i.i.i.i, align 8
   %215 = call { i64, ptr } asm sideeffect "cld\0A\09rep stosl\0A\09", "={cx},={di},=*m,{ax},0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %first.addr.i.i.i.i, i32 0, i64 0, ptr null) #11, !srcloc !5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %first.addr.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %first.addr.i.i.i.i274)
+  call void @llvm.lifetime.end.p0(ptr nonnull %first.addr.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %first.addr.i.i.i.i274)
   store ptr null, ptr %first.addr.i.i.i.i274, align 8
   %216 = call { i64, ptr } asm sideeffect "cld\0A\09rep stosl\0A\09", "={cx},={di},=*m,{ax},0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %first.addr.i.i.i.i274, i32 0, i64 0, ptr null) #11, !srcloc !5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %first.addr.i.i.i.i274)
+  call void @llvm.lifetime.end.p0(ptr nonnull %first.addr.i.i.i.i274)
   store i64 0, ptr @_ZN10TestObject12sTODtorCountE, align 8
   store i64 0, ptr @_ZN10TestObject15sTOArgCtorCountE, align 8
   store i64 0, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
@@ -2487,10 +2487,10 @@ declare void @llvm.va_start.p0(ptr) #8
 declare void @llvm.va_end.p0(ptr) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }

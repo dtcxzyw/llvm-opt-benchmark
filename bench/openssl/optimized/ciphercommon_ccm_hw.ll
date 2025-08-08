@@ -69,15 +69,9 @@ define range(i32 0, 2) i32 @ossl_ccm_generic_auth_encrypt(ptr noundef %0, ptr no
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @CRYPTO_ccm128_encrypt_ccm64(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @CRYPTO_ccm128_encrypt(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_ccm_generic_auth_decrypt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #0 {
@@ -102,7 +96,7 @@ define range(i32 0, 2) i32 @ossl_ccm_generic_auth_decrypt(ptr noundef %0, ptr no
   br i1 %.0.in, label %16, label %.thread
 
 16:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %18 = call i64 @CRYPTO_ccm128_tag(ptr noundef nonnull %17, ptr noundef nonnull %7, i64 noundef %5) #3
   %.not19 = icmp eq i64 %18, 0
@@ -114,11 +108,11 @@ define range(i32 0, 2) i32 @ossl_ccm_generic_auth_decrypt(ptr noundef %0, ptr no
   br i1 %.not20, label %21, label %.thread24
 
 .thread24:                                        ; preds = %16, %19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
 21:                                               ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %22
 
 .thread:                                          ; preds = %15, %.thread24
@@ -137,6 +131,12 @@ declare i32 @CRYPTO_ccm128_decrypt(ptr noundef, ptr noundef, ptr noundef, i64 no
 declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

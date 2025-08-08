@@ -81,13 +81,7 @@ define hidden noalias ptr @SDL_GetTouchDevices_REAL(ptr noundef writeonly captur
   ret ptr %8
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GetTouch(i64 noundef %0) local_unnamed_addr #2 {
@@ -154,9 +148,9 @@ SDL_GetTouchIndex.exit.thread:                    ; preds = %10, %1, %SDL_GetTou
   ret ptr %.0
 }
 
-declare ptr @SDL_GetVideoDevice() local_unnamed_addr #4
+declare ptr @SDL_GetVideoDevice() local_unnamed_addr #3
 
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #4
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GetTouchDeviceName_REAL(i64 noundef %0) local_unnamed_addr #2 {
@@ -175,7 +169,7 @@ define hidden ptr @SDL_GetTouchDeviceName_REAL(i64 noundef %0) local_unnamed_add
   ret ptr %.0
 }
 
-declare ptr @SDL_GetPersistentString(ptr noundef) local_unnamed_addr #4
+declare ptr @SDL_GetPersistentString(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @SDL_GetTouchDeviceType_REAL(i64 noundef %0) local_unnamed_addr #2 {
@@ -259,7 +253,7 @@ define hidden ptr @SDL_GetTouchFingers_REAL(i64 noundef %0, ptr noundef writeonl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @SDL_AddTouch(i64 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
@@ -337,9 +331,9 @@ SDL_GetTouchIndex.exit.thread:                    ; preds = %11, %3
 }
 
 ; Function Attrs: allocsize(1)
-declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #4
+declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_SetTouchName(i64 noundef %0, ptr noundef %1) local_unnamed_addr #2 {
@@ -361,7 +355,7 @@ define hidden void @SDL_SetTouchName(i64 noundef %0, ptr noundef %1) local_unnam
   ret void
 }
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #4
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_SendTouch(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef %7) local_unnamed_addr #2 {
@@ -582,7 +576,7 @@ SDL_GetFinger.exit:                               ; preds = %72, %.thread129, %S
   br i1 %114, label %115, label %SDL_DelFinger.exit
 
 115:                                              ; preds = %104
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 1792, ptr %9, align 8
   %116 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %0, ptr %116, align 8
@@ -612,7 +606,7 @@ SDL_GetFinger.exit:                               ; preds = %72, %.thread129, %S
   %128 = getelementptr inbounds nuw i8, ptr %9, i64 52
   store i32 %127, ptr %128, align 4
   %129 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %SDL_DelFinger.exit
 
 130:                                              ; preds = %SDL_GetFinger.exit
@@ -623,7 +617,7 @@ SDL_GetFinger.exit:                               ; preds = %72, %.thread129, %S
   br i1 %132, label %133, label %152
 
 133:                                              ; preds = %131
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %4, ptr %10, align 8
   %134 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %0, ptr %134, align 8
@@ -657,7 +651,7 @@ SDL_GetFinger.exit:                               ; preds = %72, %.thread129, %S
   %150 = getelementptr inbounds nuw i8, ptr %10, i64 52
   store i32 %149, ptr %150, align 4
   %151 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %152
 
 152:                                              ; preds = %148, %131
@@ -711,17 +705,17 @@ SDL_DelFinger.exit:                               ; preds = %162, %87, %92, %166
   ret void
 }
 
-declare ptr @SDL_GetMouse() local_unnamed_addr #4
+declare ptr @SDL_GetMouse() local_unnamed_addr #3
 
-declare void @SDL_SendMouseMotion(i64 noundef, ptr noundef, i32 noundef, i1 noundef zeroext, float noundef, float noundef) local_unnamed_addr #4
+declare void @SDL_SendMouseMotion(i64 noundef, ptr noundef, i32 noundef, i1 noundef zeroext, float noundef, float noundef) local_unnamed_addr #3
 
-declare void @SDL_SendMouseButton(i64 noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #4
+declare void @SDL_SendMouseButton(i64 noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
 
-declare zeroext i1 @SDL_EventEnabled_REAL(i32 noundef) local_unnamed_addr #4
+declare zeroext i1 @SDL_EventEnabled_REAL(i32 noundef) local_unnamed_addr #3
 
-declare i32 @SDL_GetWindowID_REAL(ptr noundef) local_unnamed_addr #4
+declare i32 @SDL_GetWindowID_REAL(ptr noundef) local_unnamed_addr #3
 
-declare zeroext i1 @SDL_PushEvent_REAL(ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @SDL_PushEvent_REAL(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_SendTouchMotion(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, float noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #2 {
@@ -851,7 +845,7 @@ SDL_GetFinger.exit.thread:                        ; preds = %54, %.thread, %SDL_
   br i1 %73, label %74, label %89
 
 74:                                               ; preds = %72
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 1794, ptr %8, align 8
   %75 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %0, ptr %75, align 8
@@ -881,7 +875,7 @@ SDL_GetFinger.exit.thread:                        ; preds = %54, %.thread, %SDL_
   %87 = getelementptr inbounds nuw i8, ptr %8, i64 52
   store i32 %86, ptr %87, align 4
   %88 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %89
 
 89:                                               ; preds = %SDL_GetFinger.exit.thread, %39, %59, %85, %72, %7
@@ -1001,15 +995,21 @@ define hidden void @SDL_QuitTouch() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind allocsize(1) }
 

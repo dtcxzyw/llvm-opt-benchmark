@@ -601,7 +601,7 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$5drain17h37
   br i1 %.not.i, label %13, label %18, !prof !4
 
 13:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !77
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !77
   store ptr @anon.4d91a6070711c8d428cb707ef8053ee8.18, ptr %5, align 8, !noalias !77
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 1, ptr %14, align 8, !noalias !77
@@ -623,7 +623,7 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$5drain17h37
   br i1 %.not6.i, label %23, label %28, !prof !4
 
 23:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !77
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !77
   store ptr @anon.4d91a6070711c8d428cb707ef8053ee8.18, ptr %4, align 8, !noalias !77
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %24, align 8, !noalias !77
@@ -727,14 +727,14 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$5drain17h37
   br label %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$13erase_indices17h999f416283b0e7bfE.exit"
 
 75:                                               ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !77
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !77
   store i64 %12, ptr %6, align 8, !noalias !77
   %76 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %30, ptr %76, align 8, !noalias !77
   %77 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %11, ptr %77, align 8, !noalias !77
   call void @"_ZN9hashbrown5table22HashTable$LT$T$C$A$GT$6retain17h9c4c883616096765E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %31, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !77
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !77
   br label %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$13erase_indices17h999f416283b0e7bfE.exit"
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hd4f2e5e90a878558E.exit.lr.ph.i": ; preds = %43
@@ -1024,10 +1024,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17hb2e460a7f20bdaf6E"(ptr noalias noundef align 8 dereferenceable(32), i64 noundef, i1 noundef zeroext) unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10

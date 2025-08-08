@@ -111,7 +111,7 @@ declare void @DefineCustomStringVariable(ptr noundef, ptr noundef, ptr noundef, 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @plpgsql_extra_checks_check_hook(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 %2) #1 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %0, align 8
   %6 = tail call i32 @pg_strcasecmp(ptr noundef %5, ptr noundef nonnull @.str.25) #11
   %7 = icmp eq i32 %6, 0
@@ -233,7 +233,7 @@ define internal noundef zeroext i1 @plpgsql_extra_checks_check_hook(ptr noundef 
 
 .thread51:                                        ; preds = %43, %48, %59, %61, %16
   %.0 = phi i1 [ true, %61 ], [ false, %16 ], [ false, %59 ], [ false, %48 ], [ false, %43 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
@@ -274,7 +274,7 @@ define noundef nonnull ptr @pg_finfo_plpgsql_call_handler() local_unnamed_addr #
 define i64 @plpgsql_call_handler(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca i64, align 8
   %3 = alloca [1 x %struct.__jmp_buf_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store volatile i64 0, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -320,7 +320,7 @@ define i64 @plpgsql_call_handler(ptr noundef %0) local_unnamed_addr #1 {
   %31 = phi ptr [ %29, %28 ], [ null, %24 ], [ null, %14 ]
   %32 = load ptr, ptr @PG_exception_stack, align 8
   %33 = load ptr, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %34 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 0) #13
   %.not41 = icmp eq i32 %34, 0
   br i1 %.not41, label %35, label %45
@@ -379,7 +379,7 @@ define i64 @plpgsql_call_handler(ptr noundef %0) local_unnamed_addr #1 {
 51:                                               ; preds = %49
   store ptr %32, ptr @PG_exception_stack, align 8
   store ptr %33, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %52 = call i32 @SPI_finish() #11
   %.not42 = icmp eq i32 %52, 2
   br i1 %.not42, label %57, label %53
@@ -394,12 +394,9 @@ define i64 @plpgsql_call_handler(ptr noundef %0) local_unnamed_addr #1 {
 
 57:                                               ; preds = %51
   %.0..0..0..0.5 = load volatile i64, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0..0..0..0.5
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 declare i32 @SPI_connect_ext(i32 noundef) local_unnamed_addr #2
 
@@ -408,7 +405,7 @@ declare ptr @plpgsql_compile(ptr noundef, i1 noundef zeroext) local_unnamed_addr
 declare ptr @ResourceOwnerCreate(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 declare ptr @plpgsql_exec_trigger(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -421,15 +418,12 @@ declare void @ReleaseAllPlanCacheRefsInOwner(ptr noundef) local_unnamed_addr #2
 declare void @ResourceOwnerDelete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @pg_re_throw() local_unnamed_addr #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @pg_re_throw() local_unnamed_addr #5
 
 declare i32 @SPI_finish() local_unnamed_addr #2
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #7
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #6
 
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
@@ -448,11 +442,11 @@ define i64 @plpgsql_inline_handler(ptr noundef readonly captures(none) %0) local
   %1 = alloca %union.anon, align 8
   %2 = alloca %struct.FmgrInfo, align 8
   %3 = alloca [1 x %struct.__jmp_buf_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 21
   %8 = load i8, ptr %7, align 1, !range !3, !noundef !4
   %9 = xor i8 %8, 1
@@ -476,7 +470,7 @@ define i64 @plpgsql_inline_handler(ptr noundef readonly captures(none) %0) local
   %21 = call ptr @ResourceOwnerCreate(ptr noundef null, ptr noundef nonnull @.str.17) #11
   %22 = load ptr, ptr @PG_exception_stack, align 8
   %23 = load ptr, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %24 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 0) #13
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %33
@@ -488,7 +482,7 @@ define i64 @plpgsql_inline_handler(ptr noundef readonly captures(none) %0) local
   %29 = call i64 @plpgsql_exec_function(ptr noundef nonnull %13, ptr noundef nonnull %1, ptr noundef %20, ptr noundef %21, ptr noundef %21, i1 noundef zeroext %28) #11
   store ptr %22, ptr @PG_exception_stack, align 8
   store ptr %23, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @FreeExecutorState(ptr noundef %20) #11
   call void @ReleaseAllPlanCacheRefsInOwner(ptr noundef %21) #11
   call void @ResourceOwnerDelete(ptr noundef %21) #11
@@ -524,15 +518,15 @@ define i64 @plpgsql_inline_handler(ptr noundef readonly captures(none) %0) local
   unreachable
 
 41:                                               ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i64 %29
 }
 
 declare ptr @plpgsql_compile_inline(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare ptr @CreateExecutorState() local_unnamed_addr #2
 
@@ -559,9 +553,9 @@ define noundef i64 @plpgsql_validator(ptr noundef readonly captures(none) %0) lo
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8
@@ -692,10 +686,10 @@ define noundef i64 @plpgsql_validator(ptr noundef readonly captures(none) %0) lo
   br i1 %63, label %.preheader147.preheader, label %79
 
 .preheader147.preheader:                          ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %64 = call i32 @SPI_connect() #11
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, i8 0, i64 24, i1 false)
@@ -742,10 +736,10 @@ define noundef i64 @plpgsql_validator(ptr noundef readonly captures(none) %0) lo
   unreachable
 
 78:                                               ; preds = %71
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %79
 
 79:                                               ; preds = %78, %._crit_edge
@@ -753,9 +747,9 @@ define noundef i64 @plpgsql_validator(ptr noundef readonly captures(none) %0) lo
   br label %80
 
 80:                                               ; preds = %1, %79
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 0
 }
 
@@ -786,7 +780,7 @@ declare zeroext i1 @SplitIdentifierString(ptr noundef, i8 noundef signext, ptr n
 declare void @pre_format_elog_string(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #9
+declare ptr @__errno_location() local_unnamed_addr #8
 
 declare ptr @format_elog_string(ptr noundef, ...) local_unnamed_addr #2
 
@@ -796,6 +790,12 @@ declare void @list_free(ptr noundef) local_unnamed_addr #2
 
 declare ptr @guc_malloc(i32 noundef, i64 noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #10
 
@@ -803,12 +803,12 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind willreturn memory(none) }

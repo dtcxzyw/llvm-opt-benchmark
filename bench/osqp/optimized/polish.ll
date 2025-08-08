@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i64 @polish(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !8
@@ -544,30 +544,27 @@ form_rhs_red.exit:                                ; preds = %119
 
 299:                                              ; preds = %293, %214, %197, %180, %174, %114, %102, %92, %85
   %.0 = phi i64 [ %84, %85 ], [ 0, %92 ], [ %101, %102 ], [ %173, %174 ], [ %213, %214 ], [ 0, %293 ], [ %201, %197 ], [ %184, %180 ], [ %118, %114 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @osqp_tic(ptr noundef) local_unnamed_addr #1
 
-declare void @osqp_tic(ptr noundef) local_unnamed_addr #2
+declare void @OSQPMatrix_free(ptr noundef) local_unnamed_addr #1
 
-declare void @OSQPMatrix_free(ptr noundef) local_unnamed_addr #2
+declare i64 @osqp_algebra_init_linsys_solver(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @osqp_algebra_init_linsys_solver(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @OSQPVectorf_malloc(i64 noundef) local_unnamed_addr #1
 
-declare ptr @OSQPVectorf_malloc(i64 noundef) local_unnamed_addr #2
+declare i64 @_osqp_error(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @_osqp_error(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @OSQPVectorf_copy_new(ptr noundef) local_unnamed_addr #1
 
-declare ptr @OSQPVectorf_copy_new(ptr noundef) local_unnamed_addr #2
+declare void @OSQPVectorf_free(ptr noundef) local_unnamed_addr #1
 
-declare void @OSQPVectorf_free(ptr noundef) local_unnamed_addr #2
+declare ptr @OSQPVectorf_view(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @OSQPVectorf_view(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
-
-declare void @OSQPVectorf_view_free(ptr noundef) local_unnamed_addr #2
+declare void @OSQPVectorf_view_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @iterative_refinement(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.24.val, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
@@ -655,9 +652,9 @@ define internal fastcc i64 @iterative_refinement(ptr readonly captures(none) %.0
   ret i64 %.0
 }
 
-declare void @OSQPVectorf_copy(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @OSQPVectorf_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @OSQPMatrix_Axpy(ptr noundef, ptr noundef, ptr noundef, double noundef, double noundef) local_unnamed_addr #2
+declare void @OSQPMatrix_Axpy(ptr noundef, ptr noundef, ptr noundef, double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @get_ypol_from_yred(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #0 {
@@ -752,51 +749,54 @@ define internal fastcc void @get_ypol_from_yred(ptr noundef readonly captures(no
   ret void
 }
 
-declare void @OSQPVectorf_plus(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @OSQPVectorf_plus(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @OSQPVectorf_ew_bound_vec(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @OSQPVectorf_ew_bound_vec(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @OSQPVectorf_minus(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @OSQPVectorf_minus(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @update_info(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare void @update_info(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @print_polish(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @print_polish(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
-declare void @OSQPVectori_to_raw(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @OSQPVectori_to_raw(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @OSQPVectorf_to_raw(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @OSQPVectorf_to_raw(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @OSQPVectori_from_raw(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @OSQPVectori_from_raw(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @OSQPMatrix_submatrix_byrows(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @OSQPMatrix_submatrix_byrows(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @OSQPVectorf_length(ptr noundef) local_unnamed_addr #2
+declare i64 @OSQPVectorf_length(ptr noundef) local_unnamed_addr #1
 
-declare void @OSQPVectorf_from_raw(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @OSQPVectorf_from_raw(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @OSQPMatrix_get_m(ptr noundef) local_unnamed_addr #2
+declare i64 @OSQPMatrix_get_m(ptr noundef) local_unnamed_addr #1
 
-declare void @OSQPMatrix_Atxpy(ptr noundef, ptr noundef, ptr noundef, double noundef, double noundef) local_unnamed_addr #2
+declare void @OSQPMatrix_Atxpy(ptr noundef, ptr noundef, ptr noundef, double noundef, double noundef) local_unnamed_addr #1
 
-declare void @OSQPVectorf_set_scalar(ptr noundef, double noundef) local_unnamed_addr #2
+declare void @OSQPVectorf_set_scalar(ptr noundef, double noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nofree nounwind }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind allocsize(0) }

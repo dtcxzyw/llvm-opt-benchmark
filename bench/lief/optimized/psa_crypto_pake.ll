@@ -18,19 +18,19 @@ define hidden i32 @mbedtls_psa_pake_setup(ptr noundef %0, ptr noundef %1) local_
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca %struct.psa_pake_cipher_suite_s, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %.sroa.2.0..sroa_idx, align 8
@@ -170,38 +170,35 @@ define hidden i32 @mbedtls_psa_pake_setup(ptr noundef %0, ptr noundef %1) local_
 
 74:                                               ; preds = %.critedge, %15, %13, %11, %2, %72
   %.0 = phi i32 [ %.057, %72 ], [ %10, %2 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ 0, %.critedge ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
-declare i32 @psa_crypto_driver_pake_get_password_len(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @psa_crypto_driver_pake_get_password_len(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @psa_crypto_driver_pake_get_user_len(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @psa_crypto_driver_pake_get_user_len(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @psa_crypto_driver_pake_get_peer_len(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @psa_crypto_driver_pake_get_peer_len(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @psa_crypto_driver_pake_get_cipher_suite(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @psa_crypto_driver_pake_get_cipher_suite(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @psa_crypto_driver_pake_get_password(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @psa_crypto_driver_pake_get_password(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @psa_crypto_driver_pake_get_user(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @psa_crypto_driver_pake_get_user(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @psa_crypto_driver_pake_get_peer(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @psa_crypto_driver_pake_get_peer(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -153, 1) i32 @psa_pake_ecjpake_setup(ptr noundef %0) unnamed_addr #0 {
@@ -250,10 +247,7 @@ mbedtls_ecjpake_to_psa_error.exit:                ; preds = %1, %mbedtls_ecjpake
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @mbedtls_psa_pake_abort(ptr noundef %0) local_unnamed_addr #0 {
@@ -581,27 +575,33 @@ mbedtls_ecjpake_to_psa_error.exit:                ; preds = %7, %mbedtls_ecjpake
   ret i32 %.0
 }
 
-declare i32 @mbedtls_ecjpake_write_shared_key(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @mbedtls_ecjpake_write_shared_key(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @mbedtls_psa_get_random(ptr noundef, ptr noundef, i64 noundef) #3
+declare i32 @mbedtls_psa_get_random(ptr noundef, ptr noundef, i64 noundef) #2
 
-declare void @mbedtls_zeroize_and_free(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @mbedtls_zeroize_and_free(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @mbedtls_ecjpake_free(ptr noundef) local_unnamed_addr #3
+declare void @mbedtls_ecjpake_free(ptr noundef) local_unnamed_addr #2
 
-declare void @mbedtls_ecjpake_init(ptr noundef) local_unnamed_addr #3
+declare void @mbedtls_ecjpake_init(ptr noundef) local_unnamed_addr #2
 
-declare i32 @mbedtls_ecjpake_setup(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @mbedtls_ecjpake_setup(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @mbedtls_ecjpake_write_round_one(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @mbedtls_ecjpake_write_round_one(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @mbedtls_ecjpake_write_round_two(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @mbedtls_ecjpake_write_round_two(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @mbedtls_ecjpake_read_round_one(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @mbedtls_ecjpake_read_round_one(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @mbedtls_ecjpake_read_round_two(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @mbedtls_ecjpake_read_round_two(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
@@ -610,11 +610,11 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nounwind }

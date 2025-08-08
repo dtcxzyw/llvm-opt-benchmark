@@ -211,7 +211,7 @@ _ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EEaSEOS4_.exit: ; pre
   %_M_str.i = getelementptr inbounds nuw i8, ptr %sourceMapBuf, i64 8
   %1 = load ptr, ptr %_M_str.i, align 8
   %2 = load i64, ptr %sourceMapBuf, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   store ptr %1, ptr %agg.tmp.i, align 8, !noalias !4
   %Buffer.sroa.2.0.Buffer2.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 8
   store i64 %2, ptr %Buffer.sroa.2.0.Buffer2.sroa_idx.i.i, align 8, !noalias !4
@@ -220,7 +220,7 @@ _ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EEaSEOS4_.exit: ; pre
   %Identifier.sroa.2.0.Identifier3.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 24
   store i64 12, ptr %Identifier.sroa.2.0.Identifier3.sroa_idx.i.i, align 8, !noalias !4
   call void @_ZN6hermes15SourceMapParser5parseEN4llvh15MemoryBufferRefERNS_18SourceErrorManagerE(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef nonnull byval(%"class.llvh::MemoryBufferRef") align 8 %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(464) %sm) #12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   %3 = load ptr, ptr %ref.tmp, align 8
   store ptr null, ptr %ref.tmp, align 8
   %cmp.i.not = icmp eq ptr %3, null
@@ -763,7 +763,7 @@ entry:
   %Message.i = getelementptr inbounds nuw i8, ptr %d, i64 64
   %call.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %Message.i) #12
   %call2.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %Message.i) #12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !17
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !17
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -778,7 +778,7 @@ if.end.i.i:                                       ; preds = %entry
   br label %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
 
 _ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit: ; preds = %if.then.i.i, %if.end.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !17
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !17
   %ranges = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 48
   %Ranges.i = getelementptr inbounds nuw i8, ptr %d, i64 128
   %3 = load ptr, ptr %Ranges.i, align 8
@@ -1803,10 +1803,10 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_leng
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

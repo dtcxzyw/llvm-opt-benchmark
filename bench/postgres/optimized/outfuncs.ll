@@ -1919,15 +1919,9 @@ define dso_local void @outBitmapset(ptr noundef %0, ptr noundef %1) local_unname
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @bms_next_member(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @outDatum(ptr noundef %0, i64 noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
@@ -4110,7 +4104,7 @@ define internal fastcc void @_outRangeVar(ptr noundef %0, ptr noundef nonnull re
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.21) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 33
   %15 = load i8, ptr %14, align 1
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = icmp eq i8 %15, 0
   br i1 %16, label %17, label %18
 
@@ -4126,7 +4120,7 @@ define internal fastcc void @_outRangeVar(ptr noundef %0, ptr noundef nonnull re
   br label %outChar.exit
 
 outChar.exit:                                     ; preds = %17, %18
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.22) #7
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %21 = load ptr, ptr %20, align 8
@@ -4486,7 +4480,7 @@ define internal fastcc void @_outAggref(ptr noundef %0, ptr noundef nonnull read
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.88) #7
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 74
   %35 = load i8, ptr %34, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %36 = icmp eq i8 %35, 0
   br i1 %36, label %37, label %38
 
@@ -4502,7 +4496,7 @@ define internal fastcc void @_outAggref(ptr noundef %0, ptr noundef nonnull read
   br label %outChar.exit
 
 outChar.exit:                                     ; preds = %37, %38
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 75
   %41 = load i8, ptr %40, align 1, !range !10, !noundef !11
   %42 = trunc nuw i8 %41 to i1
@@ -5072,17 +5066,17 @@ define internal fastcc void @_outSubPlan(ptr noundef %0, ptr noundef nonnull rea
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.166) #7
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %40 = load double, ptr %39, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %41 = call i32 @double_to_shortest_decimal_buf(double noundef %40, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.167) #7
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %43 = load double, ptr %42, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %44 = call i32 @double_to_shortest_decimal_buf(double noundef %43, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -7193,7 +7187,7 @@ define internal fastcc void @_outColumnDef(ptr noundef %0, ptr noundef nonnull r
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.473) #7
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 37
   %28 = load i8, ptr %27, align 1
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %29 = icmp eq i8 %28, 0
   br i1 %29, label %30, label %31
 
@@ -7209,7 +7203,7 @@ define internal fastcc void @_outColumnDef(ptr noundef %0, ptr noundef nonnull r
   br label %outChar.exit
 
 outChar.exit:                                     ; preds = %30, %31
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.474) #7
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %34 = load ptr, ptr %33, align 8
@@ -7225,7 +7219,7 @@ outChar.exit:                                     ; preds = %30, %31
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.477) #7
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %40 = load i8, ptr %39, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %41 = icmp eq i8 %40, 0
   br i1 %41, label %42, label %43
 
@@ -7241,7 +7235,7 @@ outChar.exit:                                     ; preds = %30, %31
   br label %outChar.exit52
 
 outChar.exit52:                                   ; preds = %42, %43
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.478) #7
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %46 = load ptr, ptr %45, align 8
@@ -7249,7 +7243,7 @@ outChar.exit52:                                   ; preds = %42, %43
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.479) #7
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %48 = load i8, ptr %47, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %49 = icmp eq i8 %48, 0
   br i1 %49, label %50, label %51
 
@@ -7265,7 +7259,7 @@ outChar.exit52:                                   ; preds = %42, %43
   br label %outChar.exit53
 
 outChar.exit53:                                   ; preds = %50, %51
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.480) #7
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %54 = load ptr, ptr %53, align 8
@@ -7492,7 +7486,7 @@ define internal fastcc void @_outPartitionBoundSpec(ptr noundef %0, ptr noundef 
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.507) #7
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i8, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %7, label %8
 
@@ -7508,7 +7502,7 @@ define internal fastcc void @_outPartitionBoundSpec(ptr noundef %0, ptr noundef 
   br label %outChar.exit
 
 outChar.exit:                                     ; preds = %7, %8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %11 = load i8, ptr %10, align 1, !range !10, !noundef !11
   %12 = trunc nuw i8 %11 to i1
@@ -7632,7 +7626,7 @@ define internal fastcc void @_outRangeTblEntry(ptr noundef %0, ptr noundef nonnu
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.523) #7
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 33
   %21 = load i8, ptr %20, align 1
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %23, label %24
 
@@ -7648,7 +7642,7 @@ define internal fastcc void @_outRangeTblEntry(ptr noundef %0, ptr noundef nonnu
   br label %outChar.exit
 
 outChar.exit:                                     ; preds = %23, %24
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %27 = load i32, ptr %26, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.524, i32 noundef %27) #7
@@ -7682,7 +7676,7 @@ outChar.exit:                                     ; preds = %23, %24
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.523) #7
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 33
   %46 = load i8, ptr %45, align 1
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %47 = icmp eq i8 %46, 0
   br i1 %47, label %48, label %49
 
@@ -7698,7 +7692,7 @@ outChar.exit:                                     ; preds = %23, %24
   br label %outChar.exit120
 
 outChar.exit120:                                  ; preds = %48, %49
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %52 = load i32, ptr %51, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.524, i32 noundef %52) #7
@@ -7805,10 +7799,10 @@ outChar.exit120:                                  ; preds = %48, %49
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.539) #7
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %106 = load double, ptr %105, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %107 = call i32 @double_to_shortest_decimal_buf(double noundef %106, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.30) #7
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %109 = load ptr, ptr %108, align 8
@@ -9438,7 +9432,7 @@ define internal fastcc void @_outReplicaIdentityStmt(ptr noundef %0, ptr noundef
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.692) #7
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i8, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %7, label %8
 
@@ -9454,7 +9448,7 @@ define internal fastcc void @_outReplicaIdentityStmt(ptr noundef %0, ptr noundef
   br label %outChar.exit
 
 outChar.exit:                                     ; preds = %7, %8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.130) #7
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -9517,7 +9511,7 @@ define internal fastcc void @_outAlterDomainStmt(ptr noundef %0, ptr noundef non
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.702) #7
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i8, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %7, label %8
 
@@ -9533,7 +9527,7 @@ define internal fastcc void @_outAlterDomainStmt(ptr noundef %0, ptr noundef non
   br label %outChar.exit
 
 outChar.exit:                                     ; preds = %7, %8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.407) #7
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -9881,7 +9875,7 @@ define internal fastcc void @_outConstraint(ptr noundef %0, ptr noundef nonnull 
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.750) #7
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %41 = load i8, ptr %40, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %42 = icmp eq i8 %41, 0
   br i1 %42, label %43, label %44
 
@@ -9897,11 +9891,11 @@ define internal fastcc void @_outConstraint(ptr noundef %0, ptr noundef nonnull 
   br label %outChar.exit
 
 outChar.exit:                                     ; preds = %43, %44
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.751) #7
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 41
   %47 = load i8, ptr %46, align 1
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %48 = icmp eq i8 %47, 0
   br i1 %48, label %49, label %50
 
@@ -9917,7 +9911,7 @@ outChar.exit:                                     ; preds = %43, %44
   br label %outChar.exit92
 
 outChar.exit92:                                   ; preds = %49, %50
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 42
   %53 = load i8, ptr %52, align 2, !range !10, !noundef !11
   %54 = trunc nuw i8 %53 to i1
@@ -9990,7 +9984,7 @@ outChar.exit92:                                   ; preds = %49, %50
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.767) #7
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 154
   %95 = load i8, ptr %94, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %96 = icmp eq i8 %95, 0
   br i1 %96, label %97, label %98
 
@@ -10006,11 +10000,11 @@ outChar.exit92:                                   ; preds = %49, %50
   br label %outChar.exit93
 
 outChar.exit93:                                   ; preds = %97, %98
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.768) #7
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 155
   %101 = load i8, ptr %100, align 1
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %102 = icmp eq i8 %101, 0
   br i1 %102, label %103, label %104
 
@@ -10026,11 +10020,11 @@ outChar.exit93:                                   ; preds = %97, %98
   br label %outChar.exit94
 
 outChar.exit94:                                   ; preds = %103, %104
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.769) #7
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 156
   %107 = load i8, ptr %106, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %108 = icmp eq i8 %107, 0
   br i1 %108, label %109, label %110
 
@@ -10046,7 +10040,7 @@ outChar.exit94:                                   ; preds = %103, %104
   br label %outChar.exit95
 
 outChar.exit95:                                   ; preds = %109, %110
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.770) #7
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %113 = load ptr, ptr %112, align 8
@@ -10528,7 +10522,7 @@ define internal fastcc void @_outCreateAmStmt(ptr noundef %0, ptr noundef nonnul
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.833) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i8, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %11, label %12
 
@@ -10544,7 +10538,7 @@ define internal fastcc void @_outCreateAmStmt(ptr noundef %0, ptr noundef nonnul
   br label %outChar.exit
 
 outChar.exit:                                     ; preds = %11, %12
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -10652,7 +10646,7 @@ define internal fastcc void @_outAlterEventTrigStmt(ptr noundef %0, ptr noundef 
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.848) #7
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i8, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %9, label %10
 
@@ -10668,7 +10662,7 @@ define internal fastcc void @_outAlterEventTrigStmt(ptr noundef %0, ptr noundef 
   br label %outChar.exit
 
 outChar.exit:                                     ; preds = %9, %10
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -12526,7 +12520,7 @@ outBitmapset.exit63:                              ; preds = %.lr.ph.i62, %outBit
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1077) #7
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %70 = load i8, ptr %69, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %71 = icmp eq i8 %70, 0
   br i1 %71, label %72, label %73
 
@@ -12542,7 +12536,7 @@ outBitmapset.exit63:                              ; preds = %.lr.ph.i62, %outBit
   br label %outChar.exit
 
 outChar.exit:                                     ; preds = %72, %73
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -12838,24 +12832,24 @@ outBitmapset.exit189:                             ; preds = %.lr.ph.i188, %outBi
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1121) #7
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 568
   %131 = load double, ptr %130, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %132 = call i32 @double_to_shortest_decimal_buf(double noundef %131, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1122) #7
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 576
   %134 = load double, ptr %133, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %135 = call i32 @double_to_shortest_decimal_buf(double noundef %134, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1123) #7
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 584
   %137 = load double, ptr %136, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %138 = call i32 @double_to_shortest_decimal_buf(double noundef %137, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 592
   %140 = load i32, ptr %139, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1124, i32 noundef %140) #7
@@ -12991,10 +12985,10 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1146) #7
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load double, ptr %17, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %19 = call i32 @double_to_shortest_decimal_buf(double noundef %18, ptr noundef nonnull %7) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load i8, ptr %20, align 8, !range !10, !noundef !11
   %22 = trunc nuw i8 %21 to i1
@@ -13167,17 +13161,17 @@ outBitmapset.exit149:                             ; preds = %.lr.ph.i148, %outBi
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1170) #7
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %104 = load double, ptr %103, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %105 = call i32 @double_to_shortest_decimal_buf(double noundef %104, ptr noundef nonnull %6) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1171) #7
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %107 = load double, ptr %106, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %108 = call i32 @double_to_shortest_decimal_buf(double noundef %107, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1172) #7
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %110 = load ptr, ptr %109, align 8
@@ -13236,17 +13230,17 @@ outBitmapset.exit151:                             ; preds = %.lr.ph.i150, %outBi
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1183) #7
   %138 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %139 = load double, ptr %138, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %140 = call i32 @double_to_shortest_decimal_buf(double noundef %139, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1184) #7
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %142 = load double, ptr %141, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %143 = call i32 @double_to_shortest_decimal_buf(double noundef %142, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %145 = load i32, ptr %144, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1185, i32 noundef %145) #7
@@ -13349,10 +13343,10 @@ define internal fastcc void @_outIndexOptInfo(ptr noundef %0, ptr noundef nonnul
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1170) #7
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = load double, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = call i32 @double_to_shortest_decimal_buf(double noundef %11, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load i32, ptr %13, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1197, i32 noundef %14) #7
@@ -13887,7 +13881,7 @@ define internal fastcc void @_outStatisticExtInfo(ptr noundef %0, ptr noundef no
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1240) #7
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i8, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %13, label %14
 
@@ -13903,7 +13897,7 @@ define internal fastcc void @_outStatisticExtInfo(ptr noundef %0, ptr noundef no
   br label %outChar.exit
 
 outChar.exit:                                     ; preds = %13, %14
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.753) #7
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load ptr, ptr %16, align 8
@@ -14170,17 +14164,17 @@ writeIndexCols.exit:                              ; preds = %._crit_edge.i, %16
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1273) #7
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load double, ptr %17, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %19 = call i32 @double_to_shortest_decimal_buf(double noundef %18, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1274) #7
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %21 = load double, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %22 = call i32 @double_to_shortest_decimal_buf(double noundef %21, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %24 = load i32, ptr %23, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1275, i32 noundef %24) #7
@@ -14215,10 +14209,10 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1279) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1280) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load ptr, ptr %14, align 8
@@ -14342,27 +14336,27 @@ outBitmapset.exit38:                              ; preds = %.lr.ph.i37, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1146) #7
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %52 = load double, ptr %51, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = call i32 @double_to_shortest_decimal_buf(double noundef %52, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %55 = load i32, ptr %54, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1289, i32 noundef %55) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.166) #7
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %57 = load double, ptr %56, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = call i32 @double_to_shortest_decimal_buf(double noundef %57, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1290) #7
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %60 = load double, ptr %59, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %61 = call i32 @double_to_shortest_decimal_buf(double noundef %60, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1269) #7
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %63 = load ptr, ptr %62, align 8
@@ -14470,27 +14464,27 @@ outBitmapset.exit58:                              ; preds = %.lr.ph.i57, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %54 = load double, ptr %53, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %55 = call i32 @double_to_shortest_decimal_buf(double noundef %54, ptr noundef nonnull %7) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %57 = load i32, ptr %56, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1298, i32 noundef %57) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1299) #7
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %59 = load double, ptr %58, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %60 = call i32 @double_to_shortest_decimal_buf(double noundef %59, ptr noundef nonnull %6) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1300) #7
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %62 = load double, ptr %61, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %63 = call i32 @double_to_shortest_decimal_buf(double noundef %62, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1301) #7
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %65 = load ptr, ptr %64, align 8
@@ -14517,17 +14511,17 @@ outBitmapset.exit58:                              ; preds = %.lr.ph.i57, %.lr.ph
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1307) #7
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %77 = load double, ptr %76, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %78 = call i32 @double_to_shortest_decimal_buf(double noundef %77, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1308) #7
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %80 = load double, ptr %79, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %81 = call i32 @double_to_shortest_decimal_buf(double noundef %80, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -14656,27 +14650,27 @@ outBitmapset.exit41:                              ; preds = %.lr.ph.i40, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %52 = load double, ptr %51, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = call i32 @double_to_shortest_decimal_buf(double noundef %52, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %55 = load i32, ptr %54, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1298, i32 noundef %55) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1299) #7
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %57 = load double, ptr %56, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = call i32 @double_to_shortest_decimal_buf(double noundef %57, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1300) #7
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %60 = load double, ptr %59, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %61 = call i32 @double_to_shortest_decimal_buf(double noundef %60, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1301) #7
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %63 = load ptr, ptr %62, align 8
@@ -14787,27 +14781,27 @@ outBitmapset.exit44:                              ; preds = %.lr.ph.i43, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %53 = load double, ptr %52, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %54 = call i32 @double_to_shortest_decimal_buf(double noundef %53, ptr noundef nonnull %6) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %56 = load i32, ptr %55, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1298, i32 noundef %56) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1299) #7
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %58 = load double, ptr %57, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %59 = call i32 @double_to_shortest_decimal_buf(double noundef %58, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1300) #7
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %61 = load double, ptr %60, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %62 = call i32 @double_to_shortest_decimal_buf(double noundef %61, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1301) #7
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %64 = load ptr, ptr %63, align 8
@@ -14819,10 +14813,10 @@ outBitmapset.exit44:                              ; preds = %.lr.ph.i43, %.lr.ph
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1319) #7
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %68 = load double, ptr %67, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %69 = call i32 @double_to_shortest_decimal_buf(double noundef %68, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -14925,27 +14919,27 @@ outBitmapset.exit44:                              ; preds = %.lr.ph.i43, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %53 = load double, ptr %52, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %54 = call i32 @double_to_shortest_decimal_buf(double noundef %53, ptr noundef nonnull %6) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %56 = load i32, ptr %55, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1298, i32 noundef %56) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1299) #7
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %58 = load double, ptr %57, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %59 = call i32 @double_to_shortest_decimal_buf(double noundef %58, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1300) #7
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %61 = load double, ptr %60, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %62 = call i32 @double_to_shortest_decimal_buf(double noundef %61, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1301) #7
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %64 = load ptr, ptr %63, align 8
@@ -14957,10 +14951,10 @@ outBitmapset.exit44:                              ; preds = %.lr.ph.i43, %.lr.ph
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1319) #7
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %68 = load double, ptr %67, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %69 = call i32 @double_to_shortest_decimal_buf(double noundef %68, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -15062,27 +15056,27 @@ outBitmapset.exit41:                              ; preds = %.lr.ph.i40, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %52 = load double, ptr %51, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = call i32 @double_to_shortest_decimal_buf(double noundef %52, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %55 = load i32, ptr %54, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1298, i32 noundef %55) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1299) #7
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %57 = load double, ptr %56, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = call i32 @double_to_shortest_decimal_buf(double noundef %57, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1300) #7
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %60 = load double, ptr %59, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %61 = call i32 @double_to_shortest_decimal_buf(double noundef %60, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1301) #7
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %63 = load ptr, ptr %62, align 8
@@ -15192,27 +15186,27 @@ outBitmapset.exit41:                              ; preds = %.lr.ph.i40, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %52 = load double, ptr %51, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = call i32 @double_to_shortest_decimal_buf(double noundef %52, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %55 = load i32, ptr %54, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1298, i32 noundef %55) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1299) #7
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %57 = load double, ptr %56, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = call i32 @double_to_shortest_decimal_buf(double noundef %57, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1300) #7
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %60 = load double, ptr %59, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %61 = call i32 @double_to_shortest_decimal_buf(double noundef %60, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1301) #7
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %63 = load ptr, ptr %62, align 8
@@ -15322,27 +15316,27 @@ outBitmapset.exit41:                              ; preds = %.lr.ph.i40, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %52 = load double, ptr %51, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = call i32 @double_to_shortest_decimal_buf(double noundef %52, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %55 = load i32, ptr %54, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1298, i32 noundef %55) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1299) #7
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %57 = load double, ptr %56, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = call i32 @double_to_shortest_decimal_buf(double noundef %57, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1300) #7
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %60 = load double, ptr %59, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %61 = call i32 @double_to_shortest_decimal_buf(double noundef %60, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1301) #7
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %63 = load ptr, ptr %62, align 8
@@ -15452,27 +15446,27 @@ outBitmapset.exit47:                              ; preds = %.lr.ph.i46, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %52 = load double, ptr %51, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = call i32 @double_to_shortest_decimal_buf(double noundef %52, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %55 = load i32, ptr %54, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1298, i32 noundef %55) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1299) #7
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %57 = load double, ptr %56, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = call i32 @double_to_shortest_decimal_buf(double noundef %57, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1300) #7
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %60 = load double, ptr %59, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %61 = call i32 @double_to_shortest_decimal_buf(double noundef %60, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1301) #7
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %63 = load ptr, ptr %62, align 8
@@ -15590,27 +15584,27 @@ outBitmapset.exit52:                              ; preds = %.lr.ph.i51, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %52 = load double, ptr %51, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = call i32 @double_to_shortest_decimal_buf(double noundef %52, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %55 = load i32, ptr %54, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1298, i32 noundef %55) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1299) #7
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %57 = load double, ptr %56, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = call i32 @double_to_shortest_decimal_buf(double noundef %57, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1300) #7
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %60 = load double, ptr %59, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %61 = call i32 @double_to_shortest_decimal_buf(double noundef %60, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1301) #7
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %63 = load ptr, ptr %62, align 8
@@ -15737,27 +15731,27 @@ outBitmapset.exit46:                              ; preds = %.lr.ph.i45, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %53 = load double, ptr %52, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %54 = call i32 @double_to_shortest_decimal_buf(double noundef %53, ptr noundef nonnull %6) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %56 = load i32, ptr %55, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1298, i32 noundef %56) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1299) #7
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %58 = load double, ptr %57, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %59 = call i32 @double_to_shortest_decimal_buf(double noundef %58, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1300) #7
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %61 = load double, ptr %60, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %62 = call i32 @double_to_shortest_decimal_buf(double noundef %61, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1301) #7
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %64 = load ptr, ptr %63, align 8
@@ -15772,10 +15766,10 @@ outBitmapset.exit46:                              ; preds = %.lr.ph.i45, %.lr.ph
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1123) #7
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %70 = load double, ptr %69, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %71 = call i32 @double_to_shortest_decimal_buf(double noundef %70, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -15878,27 +15872,27 @@ outBitmapset.exit44:                              ; preds = %.lr.ph.i43, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %53 = load double, ptr %52, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %54 = call i32 @double_to_shortest_decimal_buf(double noundef %53, ptr noundef nonnull %6) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %56 = load i32, ptr %55, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1298, i32 noundef %56) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1299) #7
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %58 = load double, ptr %57, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %59 = call i32 @double_to_shortest_decimal_buf(double noundef %58, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1300) #7
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %61 = load double, ptr %60, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %62 = call i32 @double_to_shortest_decimal_buf(double noundef %61, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1301) #7
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %64 = load ptr, ptr %63, align 8
@@ -15910,10 +15904,10 @@ outBitmapset.exit44:                              ; preds = %.lr.ph.i43, %.lr.ph
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1123) #7
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %68 = load double, ptr %67, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %69 = call i32 @double_to_shortest_decimal_buf(double noundef %68, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -16015,27 +16009,27 @@ outBitmapset.exit41:                              ; preds = %.lr.ph.i40, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %52 = load double, ptr %51, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = call i32 @double_to_shortest_decimal_buf(double noundef %52, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %55 = load i32, ptr %54, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1298, i32 noundef %55) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1299) #7
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %57 = load double, ptr %56, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = call i32 @double_to_shortest_decimal_buf(double noundef %57, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1300) #7
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %60 = load double, ptr %59, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %61 = call i32 @double_to_shortest_decimal_buf(double noundef %60, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1301) #7
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %63 = load ptr, ptr %62, align 8
@@ -16145,27 +16139,27 @@ outBitmapset.exit41:                              ; preds = %.lr.ph.i40, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %52 = load double, ptr %51, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = call i32 @double_to_shortest_decimal_buf(double noundef %52, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %55 = load i32, ptr %54, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1298, i32 noundef %55) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1299) #7
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %57 = load double, ptr %56, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = call i32 @double_to_shortest_decimal_buf(double noundef %57, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1300) #7
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %60 = load double, ptr %59, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %61 = call i32 @double_to_shortest_decimal_buf(double noundef %60, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1301) #7
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %63 = load ptr, ptr %62, align 8
@@ -16276,27 +16270,27 @@ outBitmapset.exit56:                              ; preds = %.lr.ph.i55, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %53 = load double, ptr %52, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %54 = call i32 @double_to_shortest_decimal_buf(double noundef %53, ptr noundef nonnull %6) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %56 = load i32, ptr %55, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1298, i32 noundef %56) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1299) #7
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %58 = load double, ptr %57, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %59 = call i32 @double_to_shortest_decimal_buf(double noundef %58, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1300) #7
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %61 = load double, ptr %60, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %62 = call i32 @double_to_shortest_decimal_buf(double noundef %61, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1301) #7
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %64 = load ptr, ptr %63, align 8
@@ -16326,10 +16320,10 @@ outBitmapset.exit56:                              ; preds = %.lr.ph.i55, %.lr.ph
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1347) #7
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %80 = load double, ptr %79, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %81 = call i32 @double_to_shortest_decimal_buf(double noundef %80, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %83 = load i32, ptr %82, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1348, i32 noundef %83) #7
@@ -16434,27 +16428,27 @@ outBitmapset.exit49:                              ; preds = %.lr.ph.i48, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %52 = load double, ptr %51, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = call i32 @double_to_shortest_decimal_buf(double noundef %52, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %55 = load i32, ptr %54, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1298, i32 noundef %55) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1299) #7
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %57 = load double, ptr %56, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = call i32 @double_to_shortest_decimal_buf(double noundef %57, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1300) #7
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %60 = load double, ptr %59, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %61 = call i32 @double_to_shortest_decimal_buf(double noundef %60, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1301) #7
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %63 = load ptr, ptr %62, align 8
@@ -16575,27 +16569,27 @@ outBitmapset.exit45:                              ; preds = %.lr.ph.i44, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %52 = load double, ptr %51, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = call i32 @double_to_shortest_decimal_buf(double noundef %52, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %55 = load i32, ptr %54, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1298, i32 noundef %55) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1299) #7
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %57 = load double, ptr %56, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = call i32 @double_to_shortest_decimal_buf(double noundef %57, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1300) #7
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %60 = load double, ptr %59, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %61 = call i32 @double_to_shortest_decimal_buf(double noundef %60, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1301) #7
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %63 = load ptr, ptr %62, align 8
@@ -16713,27 +16707,27 @@ outBitmapset.exit43:                              ; preds = %.lr.ph.i42, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %52 = load double, ptr %51, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = call i32 @double_to_shortest_decimal_buf(double noundef %52, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %55 = load i32, ptr %54, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1298, i32 noundef %55) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1299) #7
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %57 = load double, ptr %56, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = call i32 @double_to_shortest_decimal_buf(double noundef %57, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1300) #7
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %60 = load double, ptr %59, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %61 = call i32 @double_to_shortest_decimal_buf(double noundef %60, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1301) #7
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %63 = load ptr, ptr %62, align 8
@@ -16846,27 +16840,27 @@ outBitmapset.exit51:                              ; preds = %.lr.ph.i50, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1363) #7
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %52 = load double, ptr %51, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = call i32 @double_to_shortest_decimal_buf(double noundef %52, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %55 = load i32, ptr %54, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1364, i32 noundef %55) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1365) #7
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %57 = load double, ptr %56, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = call i32 @double_to_shortest_decimal_buf(double noundef %57, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1366) #7
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %60 = load double, ptr %59, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %61 = call i32 @double_to_shortest_decimal_buf(double noundef %60, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1367) #7
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %63 = load ptr, ptr %62, align 8
@@ -16992,27 +16986,27 @@ outBitmapset.exit64:                              ; preds = %.lr.ph.i63, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1363) #7
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %52 = load double, ptr %51, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = call i32 @double_to_shortest_decimal_buf(double noundef %52, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %55 = load i32, ptr %54, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1364, i32 noundef %55) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1365) #7
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %57 = load double, ptr %56, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = call i32 @double_to_shortest_decimal_buf(double noundef %57, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1366) #7
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %60 = load double, ptr %59, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %61 = call i32 @double_to_shortest_decimal_buf(double noundef %60, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1367) #7
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %63 = load ptr, ptr %62, align 8
@@ -17161,27 +17155,27 @@ outBitmapset.exit59:                              ; preds = %.lr.ph.i58, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1363) #7
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %53 = load double, ptr %52, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %54 = call i32 @double_to_shortest_decimal_buf(double noundef %53, ptr noundef nonnull %6) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %56 = load i32, ptr %55, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1364, i32 noundef %56) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1365) #7
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %58 = load double, ptr %57, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %59 = call i32 @double_to_shortest_decimal_buf(double noundef %58, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1366) #7
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %61 = load double, ptr %60, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %62 = call i32 @double_to_shortest_decimal_buf(double noundef %61, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1367) #7
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %64 = load ptr, ptr %63, align 8
@@ -17216,10 +17210,10 @@ outBitmapset.exit59:                              ; preds = %.lr.ph.i58, %.lr.ph
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1382) #7
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %82 = load double, ptr %81, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %83 = call i32 @double_to_shortest_decimal_buf(double noundef %82, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -17321,27 +17315,27 @@ outBitmapset.exit43:                              ; preds = %.lr.ph.i42, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %52 = load double, ptr %51, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = call i32 @double_to_shortest_decimal_buf(double noundef %52, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %55 = load i32, ptr %54, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1298, i32 noundef %55) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1299) #7
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %57 = load double, ptr %56, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = call i32 @double_to_shortest_decimal_buf(double noundef %57, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1300) #7
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %60 = load double, ptr %59, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %61 = call i32 @double_to_shortest_decimal_buf(double noundef %60, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1301) #7
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %63 = load ptr, ptr %62, align 8
@@ -17456,27 +17450,27 @@ outBitmapset.exit41:                              ; preds = %.lr.ph.i40, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %52 = load double, ptr %51, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = call i32 @double_to_shortest_decimal_buf(double noundef %52, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %55 = load i32, ptr %54, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1298, i32 noundef %55) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1299) #7
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %57 = load double, ptr %56, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = call i32 @double_to_shortest_decimal_buf(double noundef %57, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1300) #7
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %60 = load double, ptr %59, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %61 = call i32 @double_to_shortest_decimal_buf(double noundef %60, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1301) #7
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %63 = load ptr, ptr %62, align 8
@@ -17586,27 +17580,27 @@ outBitmapset.exit41:                              ; preds = %.lr.ph.i40, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %52 = load double, ptr %51, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = call i32 @double_to_shortest_decimal_buf(double noundef %52, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %55 = load i32, ptr %54, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1298, i32 noundef %55) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1299) #7
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %57 = load double, ptr %56, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = call i32 @double_to_shortest_decimal_buf(double noundef %57, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1300) #7
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %60 = load double, ptr %59, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %61 = call i32 @double_to_shortest_decimal_buf(double noundef %60, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1301) #7
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %63 = load ptr, ptr %62, align 8
@@ -17716,27 +17710,27 @@ outBitmapset.exit43:                              ; preds = %.lr.ph.i42, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1393) #7
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %52 = load double, ptr %51, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = call i32 @double_to_shortest_decimal_buf(double noundef %52, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %55 = load i32, ptr %54, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1394, i32 noundef %55) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1395) #7
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %57 = load double, ptr %56, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = call i32 @double_to_shortest_decimal_buf(double noundef %57, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1396) #7
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %60 = load double, ptr %59, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %61 = call i32 @double_to_shortest_decimal_buf(double noundef %60, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1397) #7
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %63 = load ptr, ptr %62, align 8
@@ -17849,27 +17843,27 @@ outBitmapset.exit47:                              ; preds = %.lr.ph.i46, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %52 = load double, ptr %51, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = call i32 @double_to_shortest_decimal_buf(double noundef %52, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %55 = load i32, ptr %54, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1298, i32 noundef %55) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1299) #7
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %57 = load double, ptr %56, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = call i32 @double_to_shortest_decimal_buf(double noundef %57, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1300) #7
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %60 = load double, ptr %59, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %61 = call i32 @double_to_shortest_decimal_buf(double noundef %60, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1301) #7
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %63 = load ptr, ptr %62, align 8
@@ -17987,27 +17981,27 @@ outBitmapset.exit43:                              ; preds = %.lr.ph.i42, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %52 = load double, ptr %51, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = call i32 @double_to_shortest_decimal_buf(double noundef %52, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %55 = load i32, ptr %54, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1298, i32 noundef %55) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1299) #7
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %57 = load double, ptr %56, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = call i32 @double_to_shortest_decimal_buf(double noundef %57, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1300) #7
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %60 = load double, ptr %59, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %61 = call i32 @double_to_shortest_decimal_buf(double noundef %60, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1301) #7
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %63 = load ptr, ptr %62, align 8
@@ -18121,27 +18115,27 @@ outBitmapset.exit56:                              ; preds = %.lr.ph.i55, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %53 = load double, ptr %52, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %54 = call i32 @double_to_shortest_decimal_buf(double noundef %53, ptr noundef nonnull %6) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %56 = load i32, ptr %55, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1298, i32 noundef %56) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1299) #7
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %58 = load double, ptr %57, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %59 = call i32 @double_to_shortest_decimal_buf(double noundef %58, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1300) #7
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %61 = load double, ptr %60, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %62 = call i32 @double_to_shortest_decimal_buf(double noundef %61, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1301) #7
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %64 = load ptr, ptr %63, align 8
@@ -18159,10 +18153,10 @@ outBitmapset.exit56:                              ; preds = %.lr.ph.i55, %.lr.ph
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1405) #7
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %72 = load double, ptr %71, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %73 = call i32 @double_to_shortest_decimal_buf(double noundef %72, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %75 = load i64, ptr %74, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1406, i64 noundef %75) #7
@@ -18188,10 +18182,10 @@ define internal fastcc void @_outGroupingSetData(ptr noundef %0, ptr noundef non
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1405) #7
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load double, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = call i32 @double_to_shortest_decimal_buf(double noundef %7, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -18214,10 +18208,10 @@ define internal fastcc void @_outRollupData(ptr noundef %0, ptr noundef nonnull 
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1405) #7
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = load double, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = call i32 @double_to_shortest_decimal_buf(double noundef %11, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load i8, ptr %13, align 8, !range !10, !noundef !11
   %15 = trunc nuw i8 %14 to i1
@@ -18329,27 +18323,27 @@ outBitmapset.exit51:                              ; preds = %.lr.ph.i50, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %52 = load double, ptr %51, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = call i32 @double_to_shortest_decimal_buf(double noundef %52, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %55 = load i32, ptr %54, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1298, i32 noundef %55) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1299) #7
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %57 = load double, ptr %56, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = call i32 @double_to_shortest_decimal_buf(double noundef %57, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1300) #7
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %60 = load double, ptr %59, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %61 = call i32 @double_to_shortest_decimal_buf(double noundef %60, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1301) #7
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %63 = load ptr, ptr %62, align 8
@@ -18473,27 +18467,27 @@ outBitmapset.exit44:                              ; preds = %.lr.ph.i43, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %52 = load double, ptr %51, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = call i32 @double_to_shortest_decimal_buf(double noundef %52, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %55 = load i32, ptr %54, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1298, i32 noundef %55) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1299) #7
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %57 = load double, ptr %56, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = call i32 @double_to_shortest_decimal_buf(double noundef %57, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1300) #7
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %60 = load double, ptr %59, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %61 = call i32 @double_to_shortest_decimal_buf(double noundef %60, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1301) #7
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %63 = load ptr, ptr %62, align 8
@@ -18607,27 +18601,27 @@ outBitmapset.exit52:                              ; preds = %.lr.ph.i51, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %52 = load double, ptr %51, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = call i32 @double_to_shortest_decimal_buf(double noundef %52, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %55 = load i32, ptr %54, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1298, i32 noundef %55) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1299) #7
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %57 = load double, ptr %56, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = call i32 @double_to_shortest_decimal_buf(double noundef %57, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1300) #7
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %60 = load double, ptr %59, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %61 = call i32 @double_to_shortest_decimal_buf(double noundef %60, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1301) #7
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %63 = load ptr, ptr %62, align 8
@@ -18755,27 +18749,27 @@ outBitmapset.exit54:                              ; preds = %.lr.ph.i53, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %53 = load double, ptr %52, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %54 = call i32 @double_to_shortest_decimal_buf(double noundef %53, ptr noundef nonnull %6) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %56 = load i32, ptr %55, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1298, i32 noundef %56) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1299) #7
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %58 = load double, ptr %57, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %59 = call i32 @double_to_shortest_decimal_buf(double noundef %58, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1300) #7
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %61 = load double, ptr %60, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %62 = call i32 @double_to_shortest_decimal_buf(double noundef %61, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1301) #7
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %64 = load ptr, ptr %63, align 8
@@ -18801,10 +18795,10 @@ outBitmapset.exit54:                              ; preds = %.lr.ph.i53, %.lr.ph
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1405) #7
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %76 = load double, ptr %75, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %77 = call i32 @double_to_shortest_decimal_buf(double noundef %76, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -18907,27 +18901,27 @@ outBitmapset.exit52:                              ; preds = %.lr.ph.i51, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %53 = load double, ptr %52, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %54 = call i32 @double_to_shortest_decimal_buf(double noundef %53, ptr noundef nonnull %6) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %56 = load i32, ptr %55, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1298, i32 noundef %56) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1299) #7
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %58 = load double, ptr %57, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %59 = call i32 @double_to_shortest_decimal_buf(double noundef %58, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1300) #7
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %61 = load double, ptr %60, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %62 = call i32 @double_to_shortest_decimal_buf(double noundef %61, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1301) #7
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %64 = load ptr, ptr %63, align 8
@@ -18950,10 +18944,10 @@ outBitmapset.exit52:                              ; preds = %.lr.ph.i51, %.lr.ph
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1405) #7
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %74 = load double, ptr %73, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %75 = call i32 @double_to_shortest_decimal_buf(double noundef %74, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -19055,27 +19049,27 @@ outBitmapset.exit46:                              ; preds = %.lr.ph.i45, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %52 = load double, ptr %51, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = call i32 @double_to_shortest_decimal_buf(double noundef %52, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %55 = load i32, ptr %54, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1298, i32 noundef %55) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1299) #7
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %57 = load double, ptr %56, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = call i32 @double_to_shortest_decimal_buf(double noundef %57, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1300) #7
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %60 = load double, ptr %59, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %61 = call i32 @double_to_shortest_decimal_buf(double noundef %60, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1301) #7
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %63 = load ptr, ptr %62, align 8
@@ -19192,27 +19186,27 @@ outBitmapset.exit77:                              ; preds = %.lr.ph.i76, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %52 = load double, ptr %51, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = call i32 @double_to_shortest_decimal_buf(double noundef %52, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %55 = load i32, ptr %54, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1298, i32 noundef %55) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1299) #7
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %57 = load double, ptr %56, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = call i32 @double_to_shortest_decimal_buf(double noundef %57, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1300) #7
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %60 = load double, ptr %59, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %61 = call i32 @double_to_shortest_decimal_buf(double noundef %60, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1301) #7
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %63 = load ptr, ptr %62, align 8
@@ -19376,27 +19370,27 @@ outBitmapset.exit49:                              ; preds = %.lr.ph.i48, %.lr.ph
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1297) #7
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %52 = load double, ptr %51, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = call i32 @double_to_shortest_decimal_buf(double noundef %52, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %55 = load i32, ptr %54, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1298, i32 noundef %55) #7
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1299) #7
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %57 = load double, ptr %56, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = call i32 @double_to_shortest_decimal_buf(double noundef %57, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1300) #7
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %60 = load double, ptr %59, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %61 = call i32 @double_to_shortest_decimal_buf(double noundef %60, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1301) #7
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %63 = load ptr, ptr %62, align 8
@@ -19591,31 +19585,31 @@ outBitmapset.exit95:                              ; preds = %.lr.ph.i94, %outBit
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1460) #7
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %90 = load double, ptr %89, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %91 = call i32 @double_to_shortest_decimal_buf(double noundef %90, ptr noundef nonnull %10) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1461) #7
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %93 = load double, ptr %92, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %94 = call i32 @double_to_shortest_decimal_buf(double noundef %93, ptr noundef nonnull %9) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1462) #7
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %96 = load double, ptr %95, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %97 = call i32 @double_to_shortest_decimal_buf(double noundef %96, ptr noundef nonnull %8) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1463) #7
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %99 = load double, ptr %98, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %100 = call i32 @double_to_shortest_decimal_buf(double noundef %99, ptr noundef nonnull %7) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1464) #7
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %102 = load ptr, ptr %101, align 8
@@ -19639,31 +19633,31 @@ outBitmapset.exit95:                              ; preds = %.lr.ph.i94, %outBit
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1469) #7
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %114 = load double, ptr %113, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %115 = call i32 @double_to_shortest_decimal_buf(double noundef %114, ptr noundef nonnull %6) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1470) #7
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %117 = load double, ptr %116, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %118 = call i32 @double_to_shortest_decimal_buf(double noundef %117, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1471) #7
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %120 = load double, ptr %119, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %121 = call i32 @double_to_shortest_decimal_buf(double noundef %120, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1472) #7
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %123 = load double, ptr %122, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %124 = call i32 @double_to_shortest_decimal_buf(double noundef %123, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %126 = load i32, ptr %125, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1473, i32 noundef %126) #7
@@ -20107,10 +20101,10 @@ define internal fastcc void @_outMinMaxAggInfo(ptr noundef %0, ptr noundef nonnu
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1521) #7
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = load double, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = call i32 @double_to_shortest_decimal_buf(double noundef %13, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1522) #7
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %16 = load ptr, ptr %15, align 8
@@ -20396,24 +20390,24 @@ define internal fastcc void @_outResult(ptr noundef %0, ptr noundef nonnull read
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1554) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1555) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1556) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1557, i32 noundef %18) #7
@@ -20510,24 +20504,24 @@ define internal fastcc void @_outProjectSet(ptr noundef %0, ptr noundef nonnull 
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1554) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1555) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1556) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1557, i32 noundef %18) #7
@@ -20620,24 +20614,24 @@ define internal fastcc void @_outModifyTable(ptr noundef %0, ptr noundef nonnull
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1554) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1555) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1556) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1557, i32 noundef %18) #7
@@ -20836,24 +20830,24 @@ define internal fastcc void @_outAppend(ptr noundef %0, ptr noundef nonnull read
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1554) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1555) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1556) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1557, i32 noundef %18) #7
@@ -20977,24 +20971,24 @@ define internal fastcc void @_outMergeAppend(ptr noundef %0, ptr noundef nonnull
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1554) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1555) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1556) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1557, i32 noundef %18) #7
@@ -21254,24 +21248,24 @@ define internal fastcc void @_outRecursiveUnion(ptr noundef %0, ptr noundef nonn
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1554) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1555) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1556) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1557, i32 noundef %18) #7
@@ -21476,24 +21470,24 @@ define internal fastcc void @_outBitmapAnd(ptr noundef %0, ptr noundef nonnull r
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1554) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1555) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1556) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1557, i32 noundef %18) #7
@@ -21590,24 +21584,24 @@ define internal fastcc void @_outBitmapOr(ptr noundef %0, ptr noundef nonnull re
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1554) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1555) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1556) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1557, i32 noundef %18) #7
@@ -21709,24 +21703,24 @@ define internal fastcc void @_outSeqScan(ptr noundef %0, ptr noundef nonnull rea
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1602) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1603) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1604) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1605, i32 noundef %18) #7
@@ -21822,24 +21816,24 @@ define internal fastcc void @_outSampleScan(ptr noundef %0, ptr noundef nonnull 
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1602) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1603) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1604) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1605, i32 noundef %18) #7
@@ -21939,24 +21933,24 @@ define internal fastcc void @_outIndexScan(ptr noundef %0, ptr noundef nonnull r
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1602) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1603) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1604) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1605, i32 noundef %18) #7
@@ -22078,24 +22072,24 @@ define internal fastcc void @_outIndexOnlyScan(ptr noundef %0, ptr noundef nonnu
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1602) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1603) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1604) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1605, i32 noundef %18) #7
@@ -22213,24 +22207,24 @@ define internal fastcc void @_outBitmapIndexScan(ptr noundef %0, ptr noundef non
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1602) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1603) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1604) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1605, i32 noundef %18) #7
@@ -22342,24 +22336,24 @@ define internal fastcc void @_outBitmapHeapScan(ptr noundef %0, ptr noundef nonn
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1602) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1603) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1604) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1605, i32 noundef %18) #7
@@ -22459,24 +22453,24 @@ define internal fastcc void @_outTidScan(ptr noundef %0, ptr noundef nonnull rea
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1602) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1603) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1604) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1605, i32 noundef %18) #7
@@ -22576,24 +22570,24 @@ define internal fastcc void @_outTidRangeScan(ptr noundef %0, ptr noundef nonnul
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1602) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1603) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1604) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1605, i32 noundef %18) #7
@@ -22693,24 +22687,24 @@ define internal fastcc void @_outSubqueryScan(ptr noundef %0, ptr noundef nonnul
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1602) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1603) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1604) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1605, i32 noundef %18) #7
@@ -22813,24 +22807,24 @@ define internal fastcc void @_outFunctionScan(ptr noundef %0, ptr noundef nonnul
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1602) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1603) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1604) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1605, i32 noundef %18) #7
@@ -22935,24 +22929,24 @@ define internal fastcc void @_outValuesScan(ptr noundef %0, ptr noundef nonnull 
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1602) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1603) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1604) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1605, i32 noundef %18) #7
@@ -23052,24 +23046,24 @@ define internal fastcc void @_outTableFuncScan(ptr noundef %0, ptr noundef nonnu
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1602) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1603) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1604) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1605, i32 noundef %18) #7
@@ -23169,24 +23163,24 @@ define internal fastcc void @_outCteScan(ptr noundef %0, ptr noundef nonnull rea
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1602) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1603) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1604) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1605, i32 noundef %18) #7
@@ -23288,24 +23282,24 @@ define internal fastcc void @_outNamedTuplestoreScan(ptr noundef %0, ptr noundef
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1602) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1603) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1604) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1605, i32 noundef %18) #7
@@ -23405,24 +23399,24 @@ define internal fastcc void @_outWorkTableScan(ptr noundef %0, ptr noundef nonnu
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1602) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1603) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1604) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1605, i32 noundef %18) #7
@@ -23521,24 +23515,24 @@ define internal fastcc void @_outForeignScan(ptr noundef %0, ptr noundef nonnull
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1602) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1603) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1604) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1605, i32 noundef %18) #7
@@ -23703,24 +23697,24 @@ define internal fastcc void @_outCustomScan(ptr noundef %0, ptr noundef nonnull 
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1602) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1603) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1604) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1605, i32 noundef %18) #7
@@ -23858,24 +23852,24 @@ define internal fastcc void @_outNestLoop(ptr noundef %0, ptr noundef nonnull re
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1661) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1662) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1663) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1664, i32 noundef %18) #7
@@ -23997,24 +23991,24 @@ define internal fastcc void @_outMergeJoin(ptr noundef %0, ptr noundef nonnull r
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1661) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1662) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1663) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1664, i32 noundef %18) #7
@@ -24324,24 +24318,24 @@ define internal fastcc void @_outHashJoin(ptr noundef %0, ptr noundef nonnull re
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1661) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1662) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1663) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1664, i32 noundef %18) #7
@@ -24462,24 +24456,24 @@ define internal fastcc void @_outMaterial(ptr noundef %0, ptr noundef nonnull re
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1554) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1555) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1556) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1557, i32 noundef %18) #7
@@ -24572,24 +24566,24 @@ define internal fastcc void @_outMemoize(ptr noundef %0, ptr noundef nonnull rea
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1554) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1555) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1556) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1557, i32 noundef %18) #7
@@ -24788,24 +24782,24 @@ define internal fastcc void @_outSort(ptr noundef %0, ptr noundef nonnull readon
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1554) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1555) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1556) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1557, i32 noundef %18) #7
@@ -25040,24 +25034,24 @@ define internal fastcc void @_outIncrementalSort(ptr noundef %0, ptr noundef non
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1702) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1703) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1704) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1705, i32 noundef %18) #7
@@ -25295,24 +25289,24 @@ define internal fastcc void @_outGroup(ptr noundef %0, ptr noundef nonnull reado
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1554) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1555) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1556) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1557, i32 noundef %18) #7
@@ -25511,24 +25505,24 @@ define internal fastcc void @_outAgg(ptr noundef %0, ptr noundef nonnull readonl
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1554) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1555) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1556) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1557, i32 noundef %18) #7
@@ -25765,24 +25759,24 @@ define internal fastcc void @_outWindowAgg(ptr noundef %0, ptr noundef nonnull r
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1554) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1555) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1556) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1557, i32 noundef %18) #7
@@ -26133,24 +26127,24 @@ define internal fastcc void @_outUnique(ptr noundef %0, ptr noundef nonnull read
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1554) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1555) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1556) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1557, i32 noundef %18) #7
@@ -26349,24 +26343,24 @@ define internal fastcc void @_outGather(ptr noundef %0, ptr noundef nonnull read
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1554) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1555) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1556) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1557, i32 noundef %18) #7
@@ -26493,24 +26487,24 @@ define internal fastcc void @_outGatherMerge(ptr noundef %0, ptr noundef nonnull
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1554) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1555) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1556) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1557, i32 noundef %18) #7
@@ -26770,24 +26764,24 @@ define internal fastcc void @_outHash(ptr noundef %0, ptr noundef nonnull readon
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1554) #7
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load double, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = call i32 @double_to_shortest_decimal_buf(double noundef %10, ptr noundef nonnull %6) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1555) #7
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load double, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = call i32 @double_to_shortest_decimal_buf(double noundef %13, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1556) #7
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load double, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = call i32 @double_to_shortest_decimal_buf(double noundef %16, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = load i32, ptr %18, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1557, i32 noundef %19) #7
@@ -26884,10 +26878,10 @@ outBitmapset.exit56:                              ; preds = %.lr.ph.i55, %outBit
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1753) #7
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %70 = load double, ptr %69, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %71 = call i32 @double_to_shortest_decimal_buf(double noundef %70, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -26903,24 +26897,24 @@ define internal fastcc void @_outSetOp(ptr noundef %0, ptr noundef nonnull reado
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1554) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1555) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1556) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1557, i32 noundef %18) #7
@@ -27164,24 +27158,24 @@ define internal fastcc void @_outLockRows(ptr noundef %0, ptr noundef nonnull re
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1554) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1555) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1556) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1557, i32 noundef %18) #7
@@ -27281,24 +27275,24 @@ define internal fastcc void @_outLimit(ptr noundef %0, ptr noundef nonnull reado
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1554) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @double_to_shortest_decimal_buf(double noundef %9, ptr noundef nonnull %5) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1555) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call i32 @double_to_shortest_decimal_buf(double noundef %12, ptr noundef nonnull %4) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1556) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @double_to_shortest_decimal_buf(double noundef %15, ptr noundef nonnull %3) #7
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1557, i32 noundef %18) #7
@@ -27935,7 +27929,7 @@ writeOidCols.exit:                                ; preds = %.lr.ph.i30, %writeA
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -27946,35 +27940,35 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @nodeToString(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.StringInfoData, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.b = load i1, ptr @write_location_fields, align 1
   store i1 false, ptr @write_location_fields, align 1
   call void @initStringInfo(ptr noundef nonnull %2) #7
   call void @outNode(ptr noundef nonnull %2, ptr noundef %0)
   store i1 %.b, ptr @write_location_fields, align 1
   %3 = load ptr, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @nodeToStringWithLocations(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.StringInfoData, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.b = load i1, ptr @write_location_fields, align 1
   store i1 true, ptr @write_location_fields, align 1
   call void @initStringInfo(ptr noundef nonnull %2) #7
   call void @outNode(ptr noundef nonnull %2, ptr noundef %0)
   store i1 %.b, ptr @write_location_fields, align 1
   %3 = load ptr, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @bmsToString(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.StringInfoData, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @initStringInfo(ptr noundef nonnull %2) #7
   call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 40) #7
   call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 98) #7
@@ -27992,7 +27986,7 @@ define dso_local ptr @bmsToString(ptr noundef %0) local_unnamed_addr #0 {
 outBitmapset.exit:                                ; preds = %.lr.ph.i, %1
   call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 41) #7
   %8 = load ptr, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %8
 }
 
@@ -28002,14 +27996,20 @@ declare i32 @double_to_shortest_decimal_buf(double noundef, ptr noundef) local_u
 
 declare ptr @GetExtensibleNodeMethods(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #6 = { nounwind willreturn memory(none) }
 attributes #7 = { nounwind }
